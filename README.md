@@ -2,48 +2,69 @@
 
 This project was generated using [Nx](https://nx.dev).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## Install the Nx Plugin for Gatsby in your Nx workspace.
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+- `yarn add @nrwl/gatsby --dev`
 
-## Adding capabilities to your workspace
+  or
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+- `npm install @nrwl/gatsby --save-dev`
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+---
 
-Below are our core plugins:
+## Generate a new Gatsby application:
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+- `nx generate @nrwl/gatsby:app my-app`
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+## or
 
 ## Generate an application
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+- `nx g @nrwl/react:app my-app`
 
-> You can use any of the plugins above to generate applications as well.
+---
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+## To serve the application:
 
-## Generate a library
+- `nx serve my-app`
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+To build and serve the production application, use the --prod flag.
+
+To build the application:
+
+- `nx build myblog`
+
+[Gatsby support, custom workspace layouts, and more in Nx 9.4!](https://blog.nrwl.io/gatsby-support-custom-workspace-layouts-and-more-in-nx-9-4-497ae105bf4)
+
+## Create Libs
+
+- `npx nx g @nrwl/react:lib ui`
+
+[Create Libs](https://nx.dev/latest/react/tutorial/08-create-libs)
 
 > You can also use any of the plugins above to generate libraries as well.
 
 Libraries are sharable across libraries and applications. They can be imported from `@ailab-desktop/mylib`.
+
+---
+
+## 手動增加專案
+
+在 `apps` 加入現有的專案需要加入的設定
+
+- `nx.json` 以及 `workspace.json` 加入必須加入需要用到的專案以及共用元件
+
+![nx.png](README/nx.png)
+
+![tsconfig](README/workspace.png)
+
+- 專案裡需要加入的設定
+
+![tsconfig.png](README/tsconfig.png)
+
+![tsconfig.spec.png](README/tsconfig.spec.png)
+
+---
 
 ## Development server
 

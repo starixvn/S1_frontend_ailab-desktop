@@ -23,12 +23,8 @@
     }
   },
   "projects": {
-    "default-app": {
+    "desktop-goal123": {
       "tags": []
-    },
-    "default-app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["default-app"]
     }
   }
 }
