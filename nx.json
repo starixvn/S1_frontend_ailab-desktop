@@ -25,6 +25,15 @@
   "projects": {
     "desktop-goal123": {
       "tags": []
+    },
+    "promotion": {
+      "tags": []
+    },
+    "service": {
+      "tags": []
+    },
+    "common": {
+      "tags": []
     }
   }
 }

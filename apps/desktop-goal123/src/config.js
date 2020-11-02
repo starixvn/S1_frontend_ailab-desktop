@@ -1,4 +1,9 @@
+import axios from "axios";
+
 const siteName = "Goal123";
+
+axios.defaults.baseURL =
+	process.env.NODE_ENV === "production" ? "" : "http://www.n88dev.com";
 
 const getAffiliate = ({ langId }) => {
 	if (typeof window === `undefined`) return "";
