@@ -56,7 +56,6 @@ export default ({ children, afterLogin = false }) => {
   });
 
   useEffect(() => {
-    console.log(ReachRouter);
     IS_LOGGED_IN().then((isLogin) => {
       if (userInfo.kickout) {
         if (userInfo.willLogout) {

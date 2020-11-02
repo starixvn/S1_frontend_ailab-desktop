@@ -29,9 +29,7 @@
     "service": {
       "tags": []
     },
-    "common": {
-      "tags": []
-    },
+
     "nova88": {
       "tags": []
     },

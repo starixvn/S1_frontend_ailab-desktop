@@ -1,3 +1,7 @@
-export * as promotionApi from "./lib/api/promotion";
+export * from "./lib/auth";
 
-export * as accountApi from "./lib/api/account";
+// export * from "./lib/enterPage";
+
+// export * from "./lib/language";
+
+// export * from "./lib/t_and_c";
