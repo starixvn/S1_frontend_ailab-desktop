@@ -10,3 +10,7 @@
 /apps/goal123/node_modules
 /apps/goal123/public
 /apps/goal123/.cache
+
+/apps/bwing/node_modules
+/apps/bwing/public
+/apps/bwing/.cache

@@ -45,6 +45,13 @@
     "goal123-e2e": {
       "tags": [],
       "implicitDependencies": ["goal123"]
+    },
+    "bwing": {
+      "tags": []
+    },
+    "bwing-e2e": {
+      "tags": [],
+      "implicitDependencies": ["bwing"]
     }
   }
 }

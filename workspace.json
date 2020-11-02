@@ -199,6 +199,74 @@
           }
         }
       }
+    },
+    "bwing": {
+      "root": "apps/bwing",
+      "sourceRoot": "apps/bwing/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/gatsby:build",
+          "options": {
+            "outputPath": "apps/bwing/public",
+            "uglify": true,
+            "color": true,
+            "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/gatsby:server",
+          "options": {
+            "buildTarget": "bwing:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "bwing:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {}
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/bwing/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "bwing-e2e": {
+      "root": "apps/bwing-e2e",
+      "sourceRoot": "apps/bwing-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/bwing-e2e/cypress.json",
+            "tsConfig": "apps/bwing-e2e/tsconfig.e2e.json",
+            "devServerTarget": "bwing:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "bwing:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/bwing-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
     }
   },
   "cli": {
