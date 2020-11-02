@@ -15,7 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ailab-desktop/promotion": ["libs/promotion/src/index.ts"],
+      "@ailab-desktop/service": ["libs/service/src/index.ts"],
+      "@ailab-desktop/common": ["libs/common/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
