@@ -3,5 +3,6 @@ module.exports = {
     "<rootDir>/libs/promotion",
     "<rootDir>/libs/service",
     "<rootDir>/libs/common",
+    "<rootDir>/apps/nova88",
   ],
 };

@@ -2,3 +2,7 @@
 
 /dist
 /coverage
+
+/apps/nova88/node_modules
+/apps/nova88/public
+/apps/nova88/.cache
