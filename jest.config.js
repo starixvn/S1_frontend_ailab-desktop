@@ -6,5 +6,6 @@ module.exports = {
     "<rootDir>/apps/nova88",
     "<rootDir>/apps/goal123",
     "<rootDir>/apps/bwing",
+    "<rootDir>/libs/api",
   ],
 };

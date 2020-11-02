@@ -52,6 +52,9 @@
     "bwing-e2e": {
       "tags": [],
       "implicitDependencies": ["bwing"]
+    },
+    "api": {
+      "tags": []
     }
   }
 }
