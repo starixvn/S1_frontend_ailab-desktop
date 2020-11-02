@@ -4,5 +4,6 @@ module.exports = {
     "<rootDir>/libs/service",
     "<rootDir>/libs/common",
     "<rootDir>/apps/nova88",
+    "<rootDir>/apps/goal123",
   ],
 };

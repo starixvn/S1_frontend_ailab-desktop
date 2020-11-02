@@ -41,6 +41,13 @@
     "nova88-e2e": {
       "tags": [],
       "implicitDependencies": ["nova88"]
+    },
+    "goal123": {
+      "tags": []
+    },
+    "goal123-e2e": {
+      "tags": [],
+      "implicitDependencies": ["goal123"]
     }
   }
 }
