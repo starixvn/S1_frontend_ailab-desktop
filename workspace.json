@@ -1,41 +1,6 @@
 {
   "version": 1,
   "projects": {
-    "desktop-goal123": {
-      "root": "apps/desktop-goal123",
-      "sourceRoot": "apps/desktop-goal123/src",
-      "projectType": "application",
-      "schematics": {},
-      "architect": {
-        "build": {
-          "builder": "@nrwl/gatsby:build",
-          "options": {
-            "outputPath": "apps/desktop-goal123/public",
-            "uglify": true,
-            "color": true,
-            "profile": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/gatsby:server",
-          "options": {
-            "buildTarget": "desktop-goal123:build"
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "desktop-goal123:build:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {}
-        }
-      }
-    },
     "promotion": {
       "root": "libs/promotion",
       "sourceRoot": "libs/promotion/src",
