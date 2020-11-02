@@ -1,22 +1,23 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { context } from "@ailab-desktop/common";
-import { promotionApi } from "@ailab-desktop/service";
-import { accountApi } from "@ailab-desktop/service";
+// import { useTranslation } from "react-i18next";
+// import { context } from "@ailab-desktop/common";
+import { promotionApi, accountApi } from "@ailab-desktop/service";
 
 // import PromotionList from "./promotion.list";
 // import PromotionNavBar, { defFilterType } from "./promotion.nav";
 // import { isExpiry } from "./promotion.common";
 // import Loading from "../common/loading";
 
-const { userInfoContext } = context;
+// const { userInfoContext } = context;
 const { api_promotion_GetPromotionListV2 } = promotionApi;
 const { api_account_GetCustSpecificBonus } = accountApi;
 
 export const Promotion = () => {
   //
   useEffect(() => {
-    api_promotion_GetPromotionListV2();
+    api_promotion_GetPromotionListV2({ langId: "en" }).then((res) => {
+      console.log(res);
+    });
   });
   return <div>test</div>;
 };

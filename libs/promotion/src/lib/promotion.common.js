@@ -1,13 +1,11 @@
 import React from "react";
 import moment from "moment";
 import { promoStatus, defPromotionType } from "./promotion.def";
-import { defPopBoxType } from "../../../../apps/desktop-goal123/src/components/common/popBox";
+import { popBox, common, path } from "@ailab-desktop/common";
 import { Link } from "@reach/router";
-import path from "../../../../apps/desktop-goal123/src/path";
-import {
-  isConvert,
-  number_format,
-} from "../../../../apps/desktop-goal123/src/components/common/common";
+
+const { isConvert, number_format } = common;
+const { defPopBoxType } = popBox;
 
 export const isExpiry = ({
   periodTo,
