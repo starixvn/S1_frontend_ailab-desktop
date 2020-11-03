@@ -1,41 +1,45 @@
+import axios from "axios";
+
 const siteName = "Bwing";
 
+axios.defaults.baseURL = "http://stag.Bwing.com";
+
 const getAffiliate = ({ langId }) => {
-	if (typeof window === `undefined`) return "";
+  if (typeof window === `undefined`) return "";
 
-	let fullPath = window.location.hostname;
-	let arr = fullPath.split(".");
+  let fullPath = window.location.hostname;
+  let arr = fullPath.split(".");
 
-	return arr.length === 3
-		? `https://aff.${arr
-				.filter((p, idx) => idx !== 0)
-				.join(".")}/?lang=${langId}`
-		: `https://aff.${arr.join(".")}/?lang=${langId}`;
+  return arr.length === 3
+    ? `https://aff.${arr
+        .filter((p, idx) => idx !== 0)
+        .join(".")}/?lang=${langId}`
+    : `https://aff.${arr.join(".")}/?lang=${langId}`;
 };
 
 export const siteInfo = ({ langId }) => {
-	return {
-		affiliateLink: getAffiliate({ langId })
-	};
+  return {
+    affiliateLink: getAffiliate({ langId }),
+  };
 };
 
 export default process.env.NODE_ENV === "production"
-	? {
-			siteName,
-			apiURL: "",
-			openURL: "",
-			imgUrl: "",
-			t_and_cURL: ""
-	  }
-	: {
-			siteName,
-			appURL: "http://localhost:8000",
-			// apiURL: "http://localhost:60930",
-			// imgUrl: "http://localhost:60930",
-			// t_and_cURL: "http://localhost:60930",
+  ? {
+      siteName,
+      apiURL: "",
+      openURL: "",
+      imgUrl: "",
+      t_and_cURL: "",
+    }
+  : {
+      siteName,
+      appURL: "http://localhost:8000",
+      // apiURL: "http://localhost:60930",
+      // imgUrl: "http://localhost:60930",
+      // t_and_cURL: "http://localhost:60930",
 
-			apiURL: "http://stag.Bwing.com",
-			imgUrl: "http://stag.Bwing.com",
-			t_and_cURL: "http://stag.Bwing.com",
-			openURL: "http://stag.Bwing.com"
-	  };
+      apiURL: "http://stag.Bwing.com",
+      imgUrl: "http://stag.Bwing.com",
+      t_and_cURL: "http://stag.Bwing.com",
+      openURL: "http://stag.Bwing.com",
+    };
