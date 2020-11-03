@@ -1,7 +1,7 @@
 export * from "./lib/auth";
 
-// export * from "./lib/enterPage";
+export * from "./lib/enterPage";
 
-// export * from "./lib/language";
+export * from "./lib/language";
 
-// export * from "./lib/t_and_c";
+export * from "./lib/t_and_c";

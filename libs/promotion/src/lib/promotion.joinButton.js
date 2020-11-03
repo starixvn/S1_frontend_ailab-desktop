@@ -1,13 +1,11 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { context, popBox, path } from "@ailab-desktop/common";
+import { defPopBoxType } from "@/components/common/popBox";
+import { popBoxContext } from "@/components/common/context";
 import { checkPromotion } from "./promotion.common";
-import { promotionApi } from "@ailab-desktop/service";
-
-const { defPopBoxType } = popBox;
-const { popBoxContext } = context;
-const { api_promotion_SetClaimPromotion } = promotionApi;
+import { api_promotion_SetClaimPromotion } from "@ailab-desktop/api";
+import path from "@/path";
 
 export default ({ promotionInfo, userInfo, _isExpiry, callBack }) => {
   const { t } = useTranslation();
@@ -106,7 +104,9 @@ export default ({ promotionInfo, userInfo, _isExpiry, callBack }) => {
       setPopBox,
       t,
     });
+
     if (!promotionCanJoin) return;
+
     let success = await setClaimPromotion(langId, bonusCode);
     if (success) return callBack();
   };

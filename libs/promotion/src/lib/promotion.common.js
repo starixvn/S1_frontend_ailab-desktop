@@ -1,11 +1,14 @@
 import React from "react";
 import moment from "moment";
 import { promoStatus, defPromotionType } from "./promotion.def";
-import { popBox, common, path } from "@ailab-desktop/common";
+import { defPopBoxType } from "@/components/common/popBox";
 import { Link } from "@reach/router";
+import path from "@/path";
+import { isConvert, number_format } from "@/components/common/common";
 
-const { isConvert, number_format } = common;
-const { defPopBoxType } = popBox;
+export const isArrayNotEmpty = (arr) => {
+  return Array.isArray(arr) && arr.length;
+};
 
 export const isExpiry = ({
   periodTo,
@@ -83,7 +86,10 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
     });
 
   if (canJoin && !isJoin && result === 1 && requiredAmount > 0) {
-    let lessAmount = number_format(requiredAmount - depositAmount);
+    let lessAmount = number_format(
+      requiredAmount - depositAmount,
+      isConvert(currencyId)
+    );
     let _currency = t(`Currency_${currencyId}`);
     let hint = `${_currency} ${lessAmount}$`;
 

@@ -1,7 +1,6 @@
 import axios from "axios";
 
-axios.defaults.baseURL =
-  process.env.NODE_ENV === "production" ? "" : "http://www.n88dev.com";
+axios.defaults.baseURL = "http://www.n88dev.com";
 
 const siteName = "Nova88";
 

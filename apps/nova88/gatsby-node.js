@@ -7,6 +7,7 @@
 // You can delete this file if you're not using it
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const config = require("./gatsby-config");
+
 /**
  * Makes sure to create localized paths for each file in the /pages folder.
  * For example, pages/404.js will be converted to /en/404.js and /el/404.js and
@@ -54,4 +55,16 @@ exports.onCreatePage = async ({
   // 	redirectInBrowser: isEnvDevelopment,
   // 	statusCode: 301
   // });
+};
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require("path");
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "src"),
+      },
+    },
+  });
 };

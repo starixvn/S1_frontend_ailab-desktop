@@ -4,53 +4,60 @@ export const defFilterType = {
 	all: 0,
 	expiry: 999,
 	firstDeposit: 1,
-	freeBet: 3
+	freeBet: 3,
+	Rebate_and_cashback: "6_7"
 };
 
 const defPromoNavs = [
 	{
 		displayKey: "lbl_All",
 		value: defFilterType.all,
-		className: "blueBorder"
+		className: "blueBorder icon icon-icon32px_ALL",
+		selectedClassName: "blue icon icon-icon32px_ALL"
 	},
 	{
-		displayKey: "PromotionCategory1",
+		displayKey: "lbl_PromotionCategory1",
 		value: defFilterType.firstDeposit,
-		className: "blueBorder"
+		className: "blueBorder",
+		selectedClassName: "blue"
 	},
 	{
 		displayKey: "lbl_FreeBet",
 		value: defFilterType.freeBet,
-		className: "blueBorder"
+		className: "blueBorder",
+		selectedClassName: "blue"
 	},
 	{
-		displayKey: "lbl_Expired",
+		displayKey: "lbl_PromotionRebateAndCashback",
+		value: defFilterType.Rebate_and_cashback,
+		className: "blueBorder",
+		selectedClassName: "blue"
+	},
+	{
+		displayKey: "lbl_Expired_Promo",
 		value: defFilterType.expiry,
-		className: "orange",
-		selectedClass: "red"
+		className: "red",
+		selectedClassName: "red"
 	}
 ];
 
-export default ({ t, onClick, selected }) => {
-	let rows = defPromoNavs.map(p => {
-		return (
-			<button
-				key={`promo-nav-${p.displayKey}`}
-				className={
-					p.value === selected
-						? p.selectedClass
-							? p.selectedClass
-							: "btn-check"
-						: p.className
-				}
-				onClick={onClick.bind(this, p.value)}>
-				{t(p.displayKey)}
-			</button>
-		);
-	});
+export default ({ t, selected, onClick }) => {
 	return (
 		<div className="quickSelect">
-			<div className="btnGroup promoType">{rows}</div>
+			<div className="btnGroup promoType">
+				{defPromoNavs.map(item => (
+					<button
+						key={`promo-nav-${item.displayKey}`}
+						className={
+							item.value === selected
+								? item.selectedClassName
+								: item.className
+						}
+						onClick={() => onClick(item.value)}>
+						{t(item.displayKey)}
+					</button>
+				))}
+			</div>
 		</div>
 	);
 };

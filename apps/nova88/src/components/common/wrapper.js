@@ -56,6 +56,7 @@ export default ({ children, afterLogin = false }) => {
   });
 
   useEffect(() => {
+    console.log(ReachRouter);
     IS_LOGGED_IN().then((isLogin) => {
       if (userInfo.kickout) {
         if (userInfo.willLogout) {
@@ -230,8 +231,9 @@ export default ({ children, afterLogin = false }) => {
             }));
           }
         },
-        // eslint-disable-next-line @typescript-eslint/no-empty-function
-        (err) => {}
+        (err) => {
+          //
+        }
       );
     },
     userInfo.isLogin ? 10000 : null

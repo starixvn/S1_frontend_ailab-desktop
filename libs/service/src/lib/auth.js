@@ -1,9 +1,9 @@
 import {
   api_account_UserLogin,
   api_account_UserLogout,
-} from "../../../api/src/lib/account";
-import { api_accountStrict_GetCustProfile } from "../../../api/src/lib/accountStrict";
-import { api_site_CheckSignIn } from "../../../api/src/lib/site";
+  api_accountStrict_GetCustProfile,
+  api_site_CheckSignIn,
+} from "@ailab-desktop/api";
 
 const isBrowser = typeof window !== `undefined`;
 
