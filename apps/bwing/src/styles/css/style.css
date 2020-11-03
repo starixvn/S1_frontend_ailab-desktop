@@ -993,8 +993,16 @@ footer > div.copyright {
   font-size: 19px;
 }
 
+.txt-center {
+  text-align: center;
+}
+
 .txt-orange {
   color: #f77900;
+}
+
+.txt-org {
+  color: #F85B05;
 }
 
 .txt-blue2 {
@@ -1058,13 +1066,14 @@ footer > div.copyright {
   width: 100%;
   height: 47px;
   position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.inputModuleRow .tip {
-  position: absolute;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  bottom: 0;
+.inputModuleRow .inputBox-blue {
+  padding: 0 10px;
+  margin-right: 5px;
 }
 
 .inputModuleRow input.text-right {
@@ -1632,7 +1641,7 @@ main > .swiper-container .swiper-slide {
   min-width: 195px;
   margin-right: 3%;
   background: #0A1533;
-  margin: 25px 3% 25px 0;
+  margin: 25px 3% 0 0;
   padding: 5px 0;
 }
 
@@ -1724,8 +1733,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list {
-  margin-bottom: 30px;
-  border: 1px solid #435068;
+  margin-top: 30px;
 }
 
 .list + button, .list + a {
@@ -1785,9 +1793,10 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listHeader div:last-child, .list .listBody div:last-child {
-  border: 0;
   min-width: 160px;
   position: relative;
+  margin: 0;
+  border-right: 0;
 }
 
 .list .listHeader div:nth-last-child(3), .list .listBody div:nth-last-child(3) {
@@ -1795,7 +1804,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listHeader {
-  background: #070e22;
+  background: #324578;
   color: white;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -1813,7 +1822,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listHeader div {
-  border-right: 1px solid #435068;
+  border-right: 1px solid #697eb5;
   padding: 5px;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -1821,14 +1830,10 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div {
-  background: #0f2346;
+  background: #233157;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.list .listBody > div:nth-child(even) {
-  background: #182e56;
 }
 
 .list .listBody > div:last-child {
@@ -1837,8 +1842,8 @@ main > .swiper-container .swiper-slide {
   position: static;
 }
 
-.list .listBody > div:hover {
-  background: #052561;
+.list .listBody > div:last-child div {
+  border-bottom: 0;
 }
 
 .list .listBody > div div {
@@ -1846,7 +1851,8 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-right: 1px solid #435068;
+  border-right: 1px solid #465682;
+  border-bottom: 1px solid #465682;
   padding: 5px;
 }
 
@@ -1951,15 +1957,13 @@ main > .swiper-container .swiper-slide {
 }
 
 .stepBar > div {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  border: 1px solid #0f2346;
-  border-top: 0;
-  margin-right: 10px;
-  -webkit-transform: skewX(-10deg);
-          transform: skewX(-10deg);
-  font-weight: bold;
+  border: 1px solid #F85B05;
+  border-radius: 3px;
+  margin-right: 5px;
   padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1967,19 +1971,53 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #F85B05;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #070e22;
 }
 
-.stepBar > div span {
-  white-space: nowrap;
+.stepBar > div:before {
+  content: '';
+  position: absolute;
+  width: 11px;
+  height: 40px;
+  left: -1px;
+  /* background: url(../img/stepAfter.png); */
 }
 
-.stepBar > div span:nth-child(1) {
-  font-size: 24px;
-  margin-right: 5px;
+.stepBar > div:after {
+  content: '';
+  position: absolute;
+  width: 11px;
+  height: 40px;
+  right: -10px;
+  /* background: url(../img/stepAfter.png); */
+  z-index: 1;
 }
 
 .stepBar > div.active {
-  background: #0f2346;
+  color: white;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f20c05), to(#F85F05));
+  background: linear-gradient(to top, #f20c05, #F85F05);
+  border: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.stepBar > div.active:first-child:before {
+  background: none;
+}
+
+.stepBar > div.active:after {
+  content: '';
+  position: absolute;
+  width: 11px;
+  height: 40px;
+  right: -11px;
+  /* background: url(../img/stepAfter_a.png); */
+  z-index: 1;
 }
 
 .cashBar {
@@ -2063,6 +2101,10 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
+.infoModule .icon-icon32px_deposit:before {
+  display: none;
+}
+
 .infoModule > button.icon-arrow-left2, .infoModule > a.icon-arrow-left2 {
   color: white;
   margin: 40px 40px 0;
@@ -2096,6 +2138,10 @@ main > .swiper-container .swiper-slide {
   color: #56ceff;
 }
 
+.inside-title + .txt-white {
+  margin: 20px 0;
+}
+
 .inside-title + .swiper-container {
   margin-top: 20px;
 }
@@ -2114,7 +2160,6 @@ main > .swiper-container .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 70px 40px;
   margin-top: 30px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -2124,9 +2169,10 @@ main > .swiper-container .swiper-slide {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background: #070e22;
+  background: #0C1A3F;
   border-radius: 5px;
   overflow: hidden;
+  border: 1px solid #1a2b58;
 }
 
 .subModuleList .subModule:nth-child(2) {
@@ -2134,7 +2180,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .subModuleList .subModule .subModuleTitle {
-  background: #0f2346;
+  border-bottom: 1px solid #1d2f62;
   padding: 20px 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2170,16 +2216,17 @@ main > .swiper-container .swiper-slide {
 }
 
 .subModuleList .subModule .subModuleTitle div span:first-child {
-  color: #fab617;
+  color: #56ceff;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .subModuleList .subModule .subModuleTitle div span:last-child {
-  color: #F52805;
   font-size: 12px;
 }
 
 .subModuleList .subModule .subModuleBody {
-  padding: 20px;
+  padding: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2199,14 +2246,6 @@ main > .swiper-container .swiper-slide {
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .subModuleList .subModule .subModuleBody ul {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-}
-
 .subModuleList .subModule .subModuleBody ul li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2215,8 +2254,8 @@ main > .swiper-container .swiper-slide {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 5px 10px;
-  width: calc(50% - 20px);
+  margin: 5px;
+  width: calc(50% - 10px);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2224,8 +2263,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .subModuleList .subModule .subModuleBody ul li a, .subModuleList .subModule .subModuleBody ul li button {
-  border-radius: 30px;
-  border: 1px solid #1E85EC;
+  border-radius: 5px;
   padding: 5px;
   text-align: center;
   height: 54px;
@@ -2248,11 +2286,23 @@ main > .swiper-container .swiper-slide {
   font-size: 44px;
 }
 
+.subModuleList .subModule .subModuleBody ul li a img, .subModuleList .subModule .subModuleBody ul li button img {
+  width: auto;
+  height: 100%;
+}
+
 .subModuleList .subModule .subModuleBody ul li span {
+  width: 100%;
+  padding: 5px 0;
   color: #c6c6c6;
   font-size: 12px;
   text-align: center;
-  margin-top: 5px;
+  margin-top: -3px;
+  background: white;
+  color: #0C1A3F;
+  border-top: 1px solid #0C1A3F;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .subModuleList .subModule .subModuleBody .directions li {
@@ -2263,18 +2313,58 @@ main > .swiper-container .swiper-slide {
   margin-left: 29px;
 }
 
-.subModuleList .subModule .subModuleBody .txt-lightgray {
-  margin-top: 20px;
+@media (max-width: 1290px) {
+  .icon-icon32px_deposit + div + .stepBar + .subModuleList {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.icon-icon32px_deposit + div + .stepBar + .subModuleList .subModule {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(100% / 3 - 29px);
+          flex: 0 0 calc(100% / 3 - 29px);
+}
+
+@media (max-width: 1290px) {
+  .icon-icon32px_deposit + div + .stepBar + .subModuleList .subModule {
+    margin: 20px 0;
+  }
 }
 
 .platformName {
-  width: calc(100% / 3 - 70px);
-  background: #070e22;
+  width: calc(100% / 4);
   float: left;
-  margin-left: 70px;
+  margin-right: 30px;
   margin-top: 30px;
+  padding: 10px;
+  position: relative;
+  background: #0C1A3F;
   border-radius: 5px;
-  padding: 20px;
+  border: 1px solid #1a2b58;
+}
+
+.platformName button.icon, .platformName a.icon {
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+  color: #56ceff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.platformName button.icon:before, .platformName a.icon:before {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.platformName > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2286,27 +2376,23 @@ main > .swiper-container .swiper-slide {
           justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  position: relative;
+  background: white;
+  color: black;
+  padding: 15px;
+  border-radius: 5px;
 }
 
-.platformName button.icon, .platformName a.icon {
-  font-size: 24px;
-  position: absolute;
-  right: 0;
-  bottom: -40px;
-  color: #1E85EC;
+.platformName > div img {
+  width: auto;
+  height: 60px;
 }
 
-.platformName .icon {
-  font-size: 40px;
-}
-
-.platformName .icon.icon-VNPay {
-  font-size: 18px;
-}
-
-.platformName .icon + div {
+.platformName > div > div {
   max-width: 200px;
+}
+
+.platformName > div > div div:first-child {
+  font-weight: bold;
 }
 
 .platformName + div.subModuleList .subModuleBody > div {
@@ -2317,9 +2403,27 @@ main > .swiper-container .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+}
+
+.platformName + div.subModuleList .subModuleBody > div.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-bottom: 1px solid #1d2f62;
+  padding-bottom: 20px;
+}
+
+.platformName + div.subModuleList .subModuleBody > div.tip {
+  margin: 0;
+}
+
+.platformName + div.subModuleList .subModuleBody > div:first-child + .inputBox-blue {
+  margin-top: 20px;
+}
+
+.platformName + div.subModuleList .subModuleBody > div.btnGroup {
+  margin: 10px auto 10px 0;
 }
 
 .platformName + div.subModuleList .subModuleBody > div.buttonBox {
@@ -2356,20 +2460,12 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  margin: auto 10px auto;
-}
-
-.platformName + div.subModuleList .subModuleBody > div.smallList li:first-child {
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  margin: auto 10px auto 0;
+  max-width: 130px;
 }
 
 .platformName + div.subModuleList .subModuleBody ul li {
-  width: calc(25% - 20px);
+  width: calc(25% - 10px);
 }
 
 .platformName + div.subModuleList .subModuleBody ul li a, .platformName + div.subModuleList .subModuleBody ul li button {
@@ -2385,6 +2481,11 @@ main > .swiper-container .swiper-slide {
   width: auto;
 }
 
+.column .inputBox-blue {
+  padding: 0 10px;
+  margin-right: 5px;
+}
+
 .align-items-center {
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -2396,9 +2497,9 @@ main > .swiper-container .swiper-slide {
 }
 
 .bankName {
-  padding: 5px 30px;
-  height: 40px;
-  border-radius: 30px;
+  padding: 0 10px;
+  height: 70px;
+  border-radius: 3px;
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2536,7 +2637,7 @@ main > .swiper-container .swiper-slide {
   margin: 10px 0;
 }
 
-.Submit, .Success, .Error, .Cancel, .uploadSuccess, .updateSuccess, .tokyc, .addBankpop, .changePassWordpop, .editSuccess {
+.Submit, .Success, .Error, .Cancel, .uploadSuccess, .updateSuccess, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .upload, .update {
   padding: 40px;
   background: #070E22;
   text-align: center;
@@ -2545,47 +2646,47 @@ main > .swiper-container .swiper-slide {
   min-width: 300px;
 }
 
-.Submit .icon, .Success .icon, .Error .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon {
+.Submit > .icon, .Success > .icon, .Error > .icon, .Cancel > .icon, .uploadSuccess > .icon, .updateSuccess > .icon, .tokyc > .icon, .addBankpop > .icon, .changePassWordpop > .icon, .editSuccess > .icon, .upload > .icon, .update > .icon {
   font-size: 36px;
   color: #56ceff;
 }
 
-.Submit .icon.icon-icon32px_notification, .Success .icon.icon-icon32px_notification, .Error .icon.icon-icon32px_notification, .Cancel .icon.icon-icon32px_notification, .uploadSuccess .icon.icon-icon32px_notification, .updateSuccess .icon.icon-icon32px_notification, .tokyc .icon.icon-icon32px_notification, .addBankpop .icon.icon-icon32px_notification, .changePassWordpop .icon.icon-icon32px_notification, .editSuccess .icon.icon-icon32px_notification {
+.Submit > .icon.icon-icon32px_notification, .Success > .icon.icon-icon32px_notification, .Error > .icon.icon-icon32px_notification, .Cancel > .icon.icon-icon32px_notification, .uploadSuccess > .icon.icon-icon32px_notification, .updateSuccess > .icon.icon-icon32px_notification, .tokyc > .icon.icon-icon32px_notification, .addBankpop > .icon.icon-icon32px_notification, .changePassWordpop > .icon.icon-icon32px_notification, .editSuccess > .icon.icon-icon32px_notification, .upload > .icon.icon-icon32px_notification, .update > .icon.icon-icon32px_notification {
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   -webkit-transform: rotate(20deg);
           transform: rotate(20deg);
 }
 
-.Submit .icon.icon-information-solid, .Success .icon.icon-information-solid, .Error .icon.icon-information-solid, .Cancel .icon.icon-information-solid, .uploadSuccess .icon.icon-information-solid, .updateSuccess .icon.icon-information-solid, .tokyc .icon.icon-information-solid, .addBankpop .icon.icon-information-solid, .changePassWordpop .icon.icon-information-solid, .editSuccess .icon.icon-information-solid {
+.Submit > .icon.icon-information-solid, .Success > .icon.icon-information-solid, .Error > .icon.icon-information-solid, .Cancel > .icon.icon-information-solid, .uploadSuccess > .icon.icon-information-solid, .updateSuccess > .icon.icon-information-solid, .tokyc > .icon.icon-information-solid, .addBankpop > .icon.icon-information-solid, .changePassWordpop > .icon.icon-information-solid, .editSuccess > .icon.icon-information-solid, .upload > .icon.icon-information-solid, .update > .icon.icon-information-solid {
   color: #1E85EC;
 }
 
-.Submit .title, .Success .title, .Error .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title {
+.Submit .title, .Success .title, .Error .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .upload .title, .update .title {
   color: #56ceff;
 }
 
-.Submit .txt-lightgray, .Success .txt-lightgray, .Error .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray {
+.Submit .txt-lightgray, .Success .txt-lightgray, .Error .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .upload .txt-lightgray, .update .txt-lightgray {
   text-align: center;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
-.Submit .btnGroup, .Success .btnGroup, .Error .btnGroup, .Cancel .btnGroup, .uploadSuccess .btnGroup, .updateSuccess .btnGroup, .tokyc .btnGroup, .addBankpop .btnGroup, .changePassWordpop .btnGroup, .editSuccess .btnGroup {
+.Submit .btnGroup, .Success .btnGroup, .Error .btnGroup, .Cancel .btnGroup, .uploadSuccess .btnGroup, .updateSuccess .btnGroup, .tokyc .btnGroup, .addBankpop .btnGroup, .changePassWordpop .btnGroup, .editSuccess .btnGroup, .upload .btnGroup, .update .btnGroup {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-.Submit .btnGroup a, .Submit .btnGroup button, .Success .btnGroup a, .Success .btnGroup button, .Error .btnGroup a, .Error .btnGroup button, .Cancel .btnGroup a, .Cancel .btnGroup button, .uploadSuccess .btnGroup a, .uploadSuccess .btnGroup button, .updateSuccess .btnGroup a, .updateSuccess .btnGroup button, .tokyc .btnGroup a, .tokyc .btnGroup button, .addBankpop .btnGroup a, .addBankpop .btnGroup button, .changePassWordpop .btnGroup a, .changePassWordpop .btnGroup button, .editSuccess .btnGroup a, .editSuccess .btnGroup button {
+.Submit .btnGroup a, .Submit .btnGroup button, .Success .btnGroup a, .Success .btnGroup button, .Error .btnGroup a, .Error .btnGroup button, .Cancel .btnGroup a, .Cancel .btnGroup button, .uploadSuccess .btnGroup a, .uploadSuccess .btnGroup button, .updateSuccess .btnGroup a, .updateSuccess .btnGroup button, .tokyc .btnGroup a, .tokyc .btnGroup button, .addBankpop .btnGroup a, .addBankpop .btnGroup button, .changePassWordpop .btnGroup a, .changePassWordpop .btnGroup button, .editSuccess .btnGroup a, .editSuccess .btnGroup button, .upload .btnGroup a, .upload .btnGroup button, .update .btnGroup a, .update .btnGroup button {
   max-width: 100px;
 }
 
-.Submit .popList, .Success .popList, .Error .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList {
+.Submit .popList, .Success .popList, .Error .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .upload .popList, .update .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .Success .popList ul, .Error .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul {
+.Submit .popList ul, .Success .popList ul, .Error .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .upload .popList ul, .update .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2598,99 +2699,31 @@ main > .swiper-container .swiper-slide {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .Success .popList ul li, .Error .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li {
+.Submit .popList ul li, .Success .popList ul li, .Error .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .upload .popList ul li, .update .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .Success .popList ul li:first-child, .Error .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child {
+.Submit .popList ul li:first-child, .Success .popList ul li:first-child, .Error .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .upload .popList ul li:first-child, .update .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
 
-.title {
-  font-weight: bold;
-}
-
-.smallList {
-  margin-top: 30px;
-}
-
-.smallList ul li {
+.Submit .tip, .Success .tip, .Error .tip, .Cancel .tip, .uploadSuccess .tip, .updateSuccess .tip, .tokyc .tip, .addBankpop .tip, .changePassWordpop .tip, .editSuccess .tip, .upload .tip, .update .tip {
+  text-align: left;
   width: 100%;
-  line-height: 30px;
-  letter-spacing: 1px;
-  font-size: 12px;
-  white-space: nowrap;
 }
 
-.smallList ul li:nth-child(odd) {
-  color: #1E85EC;
-}
-
-.smallList ul li:first-child {
-  font-weight: bold;
-}
-
-.directions {
-  border-bottom: 1px solid #666;
-  color: #c6c6c6;
-  margin: 20px 0;
-  padding-bottom: 20px;
-  max-width: 80%;
-  min-width: 75%;
-}
-
-.directions ~ form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.directions ~ form .inputBox, .directions ~ form .inputBox-org, .directions ~ form .inputBox-white, .directions ~ form .inputBox-blue, .directions ~ form .inputBox-gray, .directions ~ form .inputBox-yellow {
-  max-width: 80%;
-  min-width: 75%;
-}
-
-.directions ~ form .inputBox .iconModule .icon:before, .directions ~ form .inputBox-org .iconModule .icon:before, .directions ~ form .inputBox-white .iconModule .icon:before, .directions ~ form .inputBox-blue .iconModule .icon:before, .directions ~ form .inputBox-gray .iconModule .icon:before, .directions ~ form .inputBox-yellow .iconModule .icon:before {
-  font-weight: normal;
-}
-
-.directions ~ form .inputBox + .tip, .directions ~ form .inputBox-org + .tip, .directions ~ form .inputBox-white + .tip, .directions ~ form .inputBox-blue + .tip, .directions ~ form .inputBox-gray + .tip, .directions ~ form .inputBox-yellow + .tip {
-  width: calc(100% - 22px);
-  max-width: 80%;
-  min-width: 75%;
-}
-
-.directions ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.directions ul li {
-  list-style: disc;
+.upload {
+  max-width: unset;
+  min-width: 500px;
 }
 
 .upload_img {
-  max-width: 80%;
-  min-width: 75%;
   border-radius: 15px;
   border: 1px solid #1E85EC;
-  height: 250px;
-  margin: 40px 0 10px;
+  height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2715,10 +2748,9 @@ main > .swiper-container .swiper-slide {
 }
 
 .upload_img + .smallList {
-  max-width: 80%;
-  min-width: 75%;
   border-bottom: 1px solid #666;
   padding-bottom: 20px;
+  margin: 30px 0;
 }
 
 .upload_img + .smallList ul {
@@ -2744,6 +2776,72 @@ main > .swiper-container .swiper-slide {
       -ms-flex: 1;
           flex: 1;
   margin-left: 0;
+  text-align: left;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.smallList {
+  margin-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #1d2f62;
+}
+
+.smallList ul li {
+  width: 100%;
+  line-height: 30px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.smallList ul li:nth-child(odd) {
+  color: #1E85EC;
+}
+
+.smallList ul li:first-child {
+  font-weight: bold;
+}
+
+.directions {
+  border-bottom: 1px solid #666;
+  color: #c6c6c6;
+  margin: 20px 0 20px 20px;
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+.directions ~ form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.directions ~ form .inputBox .iconModule .icon:before, .directions ~ form .inputBox-org .iconModule .icon:before, .directions ~ form .inputBox-white .iconModule .icon:before, .directions ~ form .inputBox-blue .iconModule .icon:before, .directions ~ form .inputBox-gray .iconModule .icon:before, .directions ~ form .inputBox-yellow .iconModule .icon:before {
+  font-weight: normal;
+}
+
+.directions ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.directions ul li {
+  list-style: disc;
 }
 
 .slipInfo {
@@ -3428,11 +3526,6 @@ main > .swiper-container .swiper-slide {
   margin-top: 20px;
 }
 
-.profile > span {
-  margin-bottom: 20px;
-  float: left;
-}
-
 .profile > div:not(.tip) {
   clear: both;
   line-height: 35px;
@@ -3446,6 +3539,13 @@ main > .swiper-container .swiper-slide {
 .profile > div:not(.tip) div:not(.iconModule) {
   min-width: 120px;
   float: left;
+}
+
+.profile > div:not(.tip) div:not(.iconModule).icon-spinner11 {
+  -webkit-animation: rotate .7s linear infinite;
+          animation: rotate .7s linear infinite;
+  min-width: unset;
+  margin-left: 10px;
 }
 
 .profile > div:not(.tip) button {
@@ -4066,12 +4166,6 @@ main > .swiper-container .swiper-slide {
   color: #56ceff;
 }
 
-.icon-icon32px_deposit + .stepBar + .subModuleList .subModule {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(100% / 3 - 27px);
-          flex: 0 0 calc(100% / 3 - 27px);
-}
-
 form {
   width: 100%;
 }
@@ -4503,8 +4597,6 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-align: center;
           align-items: center;
   margin: 20px 0;
-  max-width: 80%;
-  min-width: 75%;
 }
 
 .checkBankSlip.smallList {
@@ -4512,7 +4604,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .checkBankSlip.smallList > .txt-lightgray {
-  margin: 10px 0;
+  text-align: left;
 }
 
 .checkBankSlip.smallList ul {
