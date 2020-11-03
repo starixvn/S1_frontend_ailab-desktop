@@ -1,7 +1,3 @@
-import axios from "axios";
-
-axios.defaults.baseURL = "http://www.n88dev.com";
-
 const siteName = "Nova88";
 
 const getAffiliate = () => {

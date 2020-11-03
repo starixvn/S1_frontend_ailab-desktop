@@ -1,6 +1,7 @@
 import axios from "axios";
+import config from "@/config";
 
-const rootURL = axios.defaults.baseURL;
+const rootURL = config.apiURL;
 
 export const loginRequest = axios.create({
 	withCredentials: true,
