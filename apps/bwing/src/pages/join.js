@@ -508,10 +508,15 @@ const Content = () => {
 			<img src={joinBanner} alt="joinBanner" />
 			<div className="joinloginModule">
 				<div className="joinModule" onSubmit={clickSubmit}>
-					<div className="title">Register</div>
+					<div className="title">{t("lbl_JoinNow")}</div>
 					<div>
-						please note that we do not permit members to own more
-						than (1) account.<a href="">Login here</a>
+						{t("lbl_LoginMsg")}
+						<button
+							className="txt-blue2"
+							type="button"
+							onClick={openLogin}>
+							{t("lbl_LoginHere")}
+						</button>
 					</div>
 
 					<div className="inputModule">
@@ -540,7 +545,9 @@ const Content = () => {
 							checked={tip.password.checked}
 							clickInfo={clickInfo.bind(this, "password")}
 						/>
-						<div className="title">Currency</div>
+						<div className="title">
+							{t("lbl_PrefferedCurrency")}
+						</div>
 						<div className="inputBox-blue">
 							<Dropdown
 								mainKey="join_currency"
@@ -556,7 +563,7 @@ const Content = () => {
 						{tip.currency.msg !== "" ? (
 							<div className="tip active">{tip.currency.msg}</div>
 						) : null}
-
+						<div className="title">{t("lbl_Affiliates")}</div>
 						<Inputbox
 							icon="icon-affiliate txt-blue12"
 							placeholder={t("lbl_Affiliate_ID")}

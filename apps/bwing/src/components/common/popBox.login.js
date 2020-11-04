@@ -6,8 +6,8 @@ import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
 import { defPopBoxType } from "../common/popBox";
-import { Link } from "@reach/router";
 import path from "../../path";
+import { Link, navigate } from "@reach/router";
 
 const initValue = {
 	username: "",
@@ -163,10 +163,10 @@ const LoginPanel = () => {
 	};
 
 	const openJoin = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.Join
-		});
+		navigate(`/${userInfo.langId}/${path.join.root}`);
+        if (window.location.pathname.indexOf(path.join.root) !== -1) {
+            setPopBox({ isOpen: false });
+        }
 	};
 
 	return (
