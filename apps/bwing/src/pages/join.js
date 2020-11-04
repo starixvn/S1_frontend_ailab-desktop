@@ -7,9 +7,9 @@ import { useTranslation, i18n } from "react-i18next";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	api_site_Register
-} from "../service/api/site";
-import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
+	api_site_Register,
+	api_accountStrict_GetCustProfile
+} from "@ailab-desktop/api";
 import { getUrlParameter, readCookie } from "../components/common/common";
 import { defPopBoxType } from "../components/common/popBox";
 import { userInfoContext, popBoxContext } from "../components/common/context";
@@ -56,7 +56,7 @@ const Content = () => {
 	};
 
 	const { t } = useTranslation();
-	const { setUserInfo } = useContext(userInfoContext);
+	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [userValue, setUserValue] = useState(initValue);
 	const [tip, setTip] = useState(initTip);
@@ -356,7 +356,7 @@ const Content = () => {
 		e.preventDefault();
 		let checked = checkAll();
 
-		if (checked) {
+		if (checked && !userInfo.isLogin) {
 			let regData = {
 				UserName: userValue.username,
 				Userpwd: userValue.password,
@@ -367,7 +367,7 @@ const Content = () => {
 			regData["RefId"] = getUrlParameter("RefId") || readCookie("RefId");
 			regData["AffId"] = getUrlParameter("AffId") || readCookie("AffId");
 			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
-			regData["affiliateid"] = isUrlAffiliateId ?? userValue.affiliateId;
+			regData["AffiliateId"] = isUrlAffiliateId ?? userValue.affiliateId;
 			api_site_Register(regData).then(
 				res => {
 					if (isMountedRef.current) {
