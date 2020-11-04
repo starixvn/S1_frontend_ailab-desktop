@@ -416,7 +416,6 @@ export default () => {
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
-					console.log("regData:::", regData);
 					if (isMountedRef.current) {
 						const errorCode = res.data.errorCode;
 						const message = res.data.message;
