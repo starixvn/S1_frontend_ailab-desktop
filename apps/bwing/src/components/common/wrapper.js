@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect } from "@reach/router";
+import { Redirect, navigate, Link } from "@reach/router";
 import * as ct from "../common/context";
 import { defaultLang } from "../../i18n/config";
 import { useTranslation } from "react-i18next";
@@ -19,6 +19,9 @@ import {
 } from "../../service/api/account";
 import { defPopBoxType } from "../common/popBox";
 import useInterval from "../hook/useInterval";
+import { GET_LANG_ID } from "../../service/language";
+import { SiteInfo } from "../../config";
+import path from "../../path";
 
 export default ({ children, afterLogin = false }) => {
 	const { t, i18n } = useTranslation();
@@ -26,7 +29,7 @@ export default ({ children, afterLogin = false }) => {
 		isOpen: false,
 		popBoxType: null
 	});
-
+	const [loading, setLoading] = useState(false);
 	const [walletInfo, setWalletInfo] = useState({
 		main: null
 	});
@@ -35,7 +38,7 @@ export default ({ children, afterLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: readCookie("goalLangId") ?? "vn"
+		langId: readCookie(SiteInfo.langCookie) ?? GET_LANG_ID()
 	});
 
 	const [currentPath] = useState(
@@ -110,7 +113,7 @@ export default ({ children, afterLogin = false }) => {
 						isMountedRef.current
 					) {
 						let data = res_custInfo.data.data;
-						setCookie("goalLangId", data.langId);
+						setCookie(SiteInfo.langCookie, data.langId);
 						setUserInfo(prevState => ({
 							...prevState,
 							...data
@@ -143,7 +146,9 @@ export default ({ children, afterLogin = false }) => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
 				let pathLang = window.location.pathname.split("/")?.[1];
-				let currentLang = readCookie("goalLangId") ?? userInfo.langId;
+				let currentLang =
+					readCookie(SiteInfo.langCookie) ?? userInfo.langId;
+
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);
 				} else if (pathLang !== "" && pathLang !== currentLang) {
@@ -153,13 +158,48 @@ export default ({ children, afterLogin = false }) => {
 					}));
 
 					let newPathArr = getNewLanguagePath(currentLang);
-					window.location.href = newPathArr;
+					navigate(newPathArr);
 				} else {
 					setCorrectPath(true);
 				}
 			}
 		}
 	}, [currentPath, i18n.language, userInfo.langId, userInfo.isLogin]);
+
+	useEffect(() => {
+		if (userInfo.isLogin && userInfo.isJoin) {
+			const clickClose = () => {
+				setPopBox({ isOpen: false });
+				setUserInfo(prev => ({ ...prev, isJoin: false }));
+			};
+
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RegisterSuccess,
+				closeBtn: (
+					<button
+						className="icon icon-close"
+						onClick={clickClose}></button>
+				),
+				btnBar: (
+					<div className="btnGroup">
+						<Link
+							className="blue"
+							onClick={clickClose}
+							to={`/${userInfo.langId}/${path.deposit.root}`}>
+							{t("lbl_DepositNow")}
+						</Link>
+						<Link
+							className="btn-check"
+							onClick={clickClose}
+							to={`/${userInfo.langId}/${path.profile.root}`}>
+							{t("lbl_UpdatePersonalDetail")}
+						</Link>
+					</div>
+				)
+			});
+		}
+	}, [userInfo.isLogin, userInfo.isJoin, t]);
 
 	useEffect(() => {
 		let AffId = getUrlParameter("AffId");
@@ -192,9 +232,6 @@ export default ({ children, afterLogin = false }) => {
 
 	useInterval(
 		() => {
-			const ClickClose = () => {
-				setPopBox({ isOpen: false });
-			};
 			api_account_onlineCheck().then(
 				res => {
 					if (res.data.errorCode !== 0) {
@@ -259,7 +296,10 @@ export default ({ children, afterLogin = false }) => {
 								value={{ msgCount, setMsgCount }}>
 								<ct.popBoxContext.Provider
 									value={{ popBox, setPopBox }}>
-									{children}
+									<ct.loadingContext.Provider
+										value={{ loading, setLoading }}>
+										{children}
+									</ct.loadingContext.Provider>
 								</ct.popBoxContext.Provider>
 							</ct.msgCountContext.Provider>
 						</ct.bonusWalletsContext.Provider>
