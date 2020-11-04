@@ -1,14 +1,22 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+// import {
+// 	api_site_ExistsUserName,
+// 	api_site_GetSiteCurrencyList,
+// 	// api_site_Register,
+// 	api_site_Signup,
+// 	api_site_ExistsEmail,
+// 	api_site_ExistsPhoneNo
+// } from "../../service/api/site";
+
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	// api_site_Register,
 	api_site_Signup,
 	api_site_ExistsEmail,
-	api_site_ExistsPhoneNo
-} from "../../service/api/site";
-import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
+	api_site_ExistsPhoneNo,
+	api_accountStrict_GetCustProfile
+} from "@ailab-desktop/api";
 import areaCode from "../../datas/areaCode";
 import { getUrlParameter, readCookie, setCookie } from "./common";
 import { defPopBoxType } from "../common/popBox";
