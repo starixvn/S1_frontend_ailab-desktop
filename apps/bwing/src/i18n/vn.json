@@ -156,6 +156,8 @@
 	"lbl_UpdatePersonalDetail": "Cập nhật thông tin cá nhân",
 	"lbl_Affiliate_ID":"ID Đại lý/ Người giới thiệu",
 	"lbl_Please_enter_Affiliate_ID":"Vui lòng nhập ID Đại lý (tùy chọn), hông tin không thể thay đổi sau khi đã nhập!",
+	"lbl_Verified":"Đã xác minh",
+	"lbl_Unverified": "Chưa được xác minh",
 	"lbl_PrefferedCurrency":"Tiền tệ ưa thích",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
