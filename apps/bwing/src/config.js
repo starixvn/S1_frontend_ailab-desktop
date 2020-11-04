@@ -1,8 +1,4 @@
-import axios from "axios";
-
 const siteName = "Bwing";
-
-axios.defaults.baseURL = "http://stag.Bwing.com";
 
 const getAffiliate = ({ langId }) => {
 	if (typeof window === `undefined`) return "";
