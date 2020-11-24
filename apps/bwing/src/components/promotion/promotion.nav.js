@@ -4,6 +4,7 @@ export const defFilterType = {
 	all: 0,
 	expiry: 999,
 	firstDeposit: 1,
+	redeposit: 2,
 	freeBet: 3
 };
 
@@ -20,14 +21,21 @@ export default ({ t, onClick, selected }) => {
 			className: "blueBorder"
 		},
 		{
-			displayKey: "lbl_FreeBet",
+			displayKey: "lbl_Freebet",
 			value: defFilterType.freeBet,
 			className: "blueBorder"
 		},
 		{
-			displayKey: selected === 999 ? "lbl_Processing" : "lbl_Expired",
-			value: selected === 999 ? defFilterType.all : defFilterType.expiry,
-			className: selected === 999 ? "red" : "lightgray"
+			displayKey: "lbl_Redeposit_Promo",
+			value: defFilterType.redeposit,
+			className: "blueBorder"
+		},
+
+		{
+			displayKey: "lbl_Expired",
+			value: defFilterType.expiry,
+			className: "lightgray",
+			selectedClass: "red"
 		}
 	];
 
@@ -43,7 +51,7 @@ export default ({ t, onClick, selected }) => {
 						: p.className
 				}
 				onClick={onClick.bind(this, p.value)}>
-				{t(p.displayKey)}
+				{t(p.displayKey).toUpperCase()}
 			</button>
 		);
 	});

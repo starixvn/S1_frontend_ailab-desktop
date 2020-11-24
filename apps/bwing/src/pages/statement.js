@@ -56,7 +56,6 @@ const Content = () => {
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
 		};
-
 		api_payment_GetStatement({
 			...transactionData,
 			PageNumber: pageNumber
@@ -163,10 +162,10 @@ const Content = () => {
 		<Loading />
 	) : (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_History">
+			<div className="inside-title">
 				<span>{t("lbl_Statement")}</span>
 			</div>
-			<Filter submitHandler={clickDateSubmit} keepData={keepData} />
+			<Filter submitHandler={clickDateSubmit} keepData={keepData} submitTranslation={`lbl_statement_submit`}/>
 
 			{getHistory ? (
 				<div className="list history">
@@ -216,7 +215,7 @@ const TansactionHistory = props => {
 			<div>{props.idx}</div>
 			<div>
 				{moment(props.createTime).format("DD/MM/YYYY")}
-				<span className="txt-blue2">
+				<span className="txt-blue15">
 					{moment(props.createTime).format("HH:mm:ss")}
 				</span>
 			</div>

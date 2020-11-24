@@ -137,7 +137,6 @@
 // 			msg = t("lbl_PasswordTooltip");
 // 		}
 
-
 // 		if (tip[col].msg === msg) {
 // 			msg = "";
 // 		}

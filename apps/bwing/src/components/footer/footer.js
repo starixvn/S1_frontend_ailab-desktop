@@ -7,6 +7,7 @@ import HelpSupport from "./footer.helpSupport";
 import Promotions from "./footer.promotions";
 import About from "./footer.about";
 import config from "../../config";
+import PlatformSection from "./footer.platform";
 
 export default () => {
 	const { t } = useTranslation();
@@ -21,17 +22,40 @@ export default () => {
 					isLogin={userInfo.isLogin}
 				/>
 				<OurPolicies langId={userInfo.langId} t={t} />
-				<HelpSupport langId={userInfo.langId} t={t} />
-				<Promotions langId={userInfo.langId} t={t} />
+				<div>
+					<HelpSupport langId={userInfo.langId} t={t} />
+					<Promotions langId={userInfo.langId} t={t} />
+				</div>
 				<About langId={userInfo.langId} t={t} />
 
 				<div>
-					<span className="title">{t("lbl_ContactUs")}</span>
-					<div>{t("lbl_ConatctUsHint")}</div>
+					<span className="title">{t("lbl_SocialMedia")}</span>
+					<div>
+						<a
+							href="https://www.facebook.com/Bwingtttt "
+							className="icon icon-facebook"
+							target="_blank"></a>
+						<a
+							href="https://www.youtube.com/channel/UCDvFS9eTrOEYuVjb3BNQ3bg/featured"
+							className="icon icon-youtube"
+							target="_blank"></a>
+						<a
+							href="https://twitter.com/bwingofficial"
+							className="icon icon-twitter"
+							target="_blank"></a>
+						<a
+							href="https://www.tiktok.com/@bwingpro"
+							className="icon icon-tiktok"
+							target="_blank"></a>
+					</div>
 				</div>
 			</div>
 			<div>
-				<Platforms />
+				<PlatformSection
+					t={t}
+					langId={userInfo.langId}
+					isLogin={userInfo.isLogin}
+				/>
 				<div className="powered">
 					<div>{t("lbl_PoweredBy")}</div>
 					<img
@@ -45,33 +69,4 @@ export default () => {
 			</div>
 		</footer>
 	);
-};
-
-const defPlatform = [
-	"saba",
-	"ab",
-	"yl",
-	"ag",
-	"gp",
-	"dg",
-	"sa",
-	"yg",
-	"pp",
-	"sg",
-	"pg"
-];
-
-const Platforms = () => {
-	const platformRows = defPlatform.map(item => {
-		return (
-			<button key={`platform-${item}`}>
-				<img
-					alt="logo"
-					src={`${config.imgUrl}/common/images/logo/${item}.png`}
-				/>
-			</button>
-		);
-	});
-
-	return <div className="platformGroup">{platformRows}</div>;
 };

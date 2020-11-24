@@ -14,9 +14,9 @@ import { IS_LOGGED_IN } from "../../service/auth";
 import {
 	api_account_GetMsgCount,
 	api_account_GetWalletInfo,
-	api_account_onlineCheck,
-	api_accountStrict_GetCustProfile
-} from "@ailab-desktop/api";
+	api_account_onlineCheck
+} from "../../service/api/account";
+import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import { defPopBoxType } from "../common/popBox";
 import useInterval from "../hook/useInterval";
 
@@ -35,7 +35,7 @@ export default ({ children, afterLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: readCookie("goalLangId") ?? "vn"
+		langId: readCookie("bwingLangId") ?? "vn"
 	});
 
 	const [currentPath] = useState(
@@ -110,7 +110,7 @@ export default ({ children, afterLogin = false }) => {
 						isMountedRef.current
 					) {
 						let data = res_custInfo.data.data;
-						setCookie("goalLangId", data.langId);
+						setCookie("bwingLangId", data.langId);
 						setUserInfo(prevState => ({
 							...prevState,
 							...data
@@ -143,7 +143,7 @@ export default ({ children, afterLogin = false }) => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
 				let pathLang = window.location.pathname.split("/")?.[1];
-				let currentLang = readCookie("goalLangId") ?? userInfo.langId;
+				let currentLang = readCookie("bwingLangId") ?? userInfo.langId;
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);
 				} else if (pathLang !== "" && pathLang !== currentLang) {
@@ -165,25 +165,25 @@ export default ({ children, afterLogin = false }) => {
 		let AffId = getUrlParameter("AffId");
 		let RefId = getUrlParameter("RefId");
 		let Aff = getUrlParameter("Aff");
-		let affiliateid = getUrlParameter("affiliateid");
-
+		let AffCode = getUrlParameter("AffCode");
+	
 		if (AffId) {
 			setCookie("AffId", AffId, 7);
 			deleteCookie("RefId");
 			deleteCookie("Aff");
-			deleteCookie("affiliateid");
+			deleteCookie("AffCode");
 		} else if (RefId) {
 			setCookie("RefId", RefId, 7);
 			deleteCookie("AffId");
 			deleteCookie("Aff");
-			deleteCookie("affiliateid");
+			deleteCookie("AffCode");
 		} else if (Aff) {
 			setCookie("Aff", Aff, 7);
 			deleteCookie("AffId");
 			deleteCookie("RefId");
-			deleteCookie("affiliateid");
-		} else if (affiliateid) {
-			setCookie("affiliateid", affiliateid, 7);
+			deleteCookie("AffCode");
+		} else if (AffCode) {
+			setCookie("AffCode", AffCode, 7);
 			deleteCookie("AffId");
 			deleteCookie("Aff");
 			deleteCookie("RefId");

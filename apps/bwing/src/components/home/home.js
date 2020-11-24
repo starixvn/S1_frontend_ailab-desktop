@@ -4,12 +4,14 @@ import { defPopBoxType } from "../common/popBox";
 import { useTranslation } from "react-i18next";
 import { setCookie, readCookie } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import { defaultLang } from "../../i18n/config";
 
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
 import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
+import SideBarQuickLink from "./sideBarQuickLink";
 
 export default () => {
 	const { t } = useTranslation();
@@ -59,6 +61,14 @@ export default () => {
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
+	// const getDepositWithdrawImage = () => {
+	// 	if (userInfo.langId === "en") {
+	// 		return require(`../../styles/img/D&W.png"`);
+	// 	} else {
+	// 		return require(`../../styles/img/D&W_vn.png"`);
+	// 	}
+	// };
+
 	return (
 		<main>
 			<SwipperBanner ImgFolder="Promotion" filterHideInHome={true} />
@@ -103,12 +113,17 @@ export default () => {
 					</div>
 					<div>
 						<img
-							src={require("../../styles/img/D&W.png")}
+							src={
+								userInfo.langId === defaultLang
+									? require("../../styles/img/D&W.png")
+									: require(`../../styles/img/D&W_${userInfo.langId}.png`)
+							}
 							alt="deposit and withdrawal"
 						/>
 					</div>
 				</div>
 			</section>
+			<SideBarQuickLink />
 		</main>
 	);
 };
@@ -120,9 +135,7 @@ const UserGuide = ({ t, langId }) => {
 				<a href={TandC(langId).Deposit}>{t("lbl_HowToDepoist")}</a>
 			</li>
 			<li className="icon icon-withdrawal1">
-				<a href={TandC(langId).Withdrawal}>
-					{t("lbl_HowToWithdraw")}
-				</a>
+				<a href={TandC(langId).Withdraw}>{t("lbl_HowToWithdraw")}</a>
 			</li>
 			<li className="icon icon-play">
 				<a href={TandC(langId).HowToPlay}>{t("lbl_HowToPlay")}</a>

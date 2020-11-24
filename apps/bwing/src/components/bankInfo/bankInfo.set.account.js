@@ -47,7 +47,7 @@ export default ({
 	const clickInfo = col => {
 		let _msg =
 			col === "accountName"
-				? t("lbl_BankAccountNameHint")
+				? t("lbl_Please_input_your_real_name_as_in_your_ID")
 				: t("lbl_BankNumber");
 
 		if (status[col].tip === _msg) {
@@ -64,12 +64,19 @@ export default ({
 	};
 
 	const checkAccount = (val, col) => {
+		let pattern_punct = new RegExp(
+			"[`~!@#$^&*()=|{}':;',ˇˋ˙ˊ\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]"
+		);
+
 		let checked = true;
 		let message = "";
 
 		if (col === "accountName" && !alreadyHasAccountName) {
 			if (!val) {
 				message = t("msg_EnterRealName");
+				checked = false;
+			} else if (pattern_punct.test(val)) {
+				message = t("msg_Regex_Punct_Invalid");
 				checked = false;
 			}
 		} else if (col === "accountNumber") {
@@ -126,6 +133,23 @@ export default ({
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
 							reload(!alreadyHasAccountName);
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.Success,
+								titleIcon: "icon-library",
+								titleText: "lbl_AddBankAccount",
+								message1: "lbl_UpdateSuccessful",
+								onClickClose: ClickClose,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickClose}>
+											OK
+										</button>
+									</div>
+								)
+							});
 						} else {
 							setPopBox({
 								isOpen: true,
@@ -173,67 +197,70 @@ export default ({
 	) : (
 		<>
 			<div className="platformName">
-				<div className="icon icon-arrow-right2"></div>
 				<div>
-					<div className="txt-blue2">
-						{t("lbl_EnterAccountNumber")}
-					</div>
+					<img
+						alt="BankLogo"
+						src={`${config.imgUrl}/common/images/BankLogo/${bankInfo.bankLogo}`}
+					/>
 				</div>
 				<button
 					aria-label="toLastStep"
 					className="icon icon-arrow-left2"
-					onClick={toLastStep}></button>
+					onClick={toLastStep}>
+					{t("lbl_back")}
+				</button>
 			</div>
 			<div className="subModuleList">
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
 						onSubmit={clickSubmit}>
-						<div>
-							<div className="bankName">
-								<img
-									alt="BankLogo"
-									src={`${config.imgUrl}/common/images/BankLogo/${bankInfo.bankLogo}`}
-								/>
-							</div>
-						</div>
 						{!alreadyHasAccountName ? (
-							<Inputbox
-								value={accountName}
-								onChange={editField.bind(this, "accountName")}
-								onBlur={checkAccount.bind(
-									this,
-									accountName,
-									"accountName"
-								)}
-								title={t("lbl_RealName")}
-								clickInfo={clickInfo.bind(this, "accountName")}
-								checked={status.accountName.checked}
-								tip={status.accountName.tip}
-							/>
+							<>
+								<div className="txt-lightgray">
+									{t("lbl_RealName")}
+								</div>
+								<Inputbox
+									placeholder={t("lbl_RealName")}
+									value={accountName}
+									onChange={editField.bind(
+										this,
+										"accountName"
+									)}
+									onBlur={checkAccount.bind(
+										this,
+										accountName,
+										"accountName"
+									)}
+									clickInfo={clickInfo.bind(
+										this,
+										"accountName"
+									)}
+									checked={status.accountName.checked}
+									tip={status.accountName.tip}
+								/>
+							</>
 						) : null}
-						<div className="inputModuleRow">
-							<Inputbox
-								value={accountNumber}
-								onChange={editField.bind(this, "accountNumber")}
-								onBlur={checkAccount.bind(
-									this,
-									accountNumber,
-									"accountNumber"
-								)}
-								clickInfo={clickInfo.bind(
-									this,
-									"accountNumber"
-								)}
-								title={t("lbl_BankNumber")}
-								checked={status.accountNumber.checked}
-								tip={status.accountNumber.tip}
-							/>
-							<div className="btnGroup">
-								<button className="btn-check" type="submit">
-									{t("lbl_Submit")}
-								</button>
-							</div>
+						<div className="txt-lightgray">
+							{t("lbl_AccountNumber")}
+						</div>
+						<Inputbox
+							placeholder="1111 2222 3333 4444"
+							value={accountNumber}
+							onChange={editField.bind(this, "accountNumber")}
+							onBlur={checkAccount.bind(
+								this,
+								accountNumber,
+								"accountNumber"
+							)}
+							clickInfo={clickInfo.bind(this, "accountNumber")}
+							checked={status.accountNumber.checked}
+							tip={status.accountNumber.tip}
+						/>
+						<div className="btnGroup">
+							<button className="btn-check" type="submit">
+								{t("lbl_add_bank_submit")}
+							</button>
 						</div>
 					</form>
 				</div>
