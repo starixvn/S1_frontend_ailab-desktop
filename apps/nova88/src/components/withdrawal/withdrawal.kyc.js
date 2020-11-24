@@ -121,15 +121,19 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 						{kycData.picFileName ? (
 							<img alt="DepositReceipt" src={kycData.fileImg} />
 						) : (
-							<i className="icon icon-plus"></i>
-						)}{" "}
+							<>
+								<i className="icon icon-plus"></i>
+								<i class="icon icon-folder-upload">
+									{t("lbl_ImageUploadWarning")}
+								</i>
+							</>
+						)}
 					</label>
 					<div className="directions">
 						<ul>
 							<li>{t("lbl_NationalIdentityCard")}</li>
 							<li>{t("lbl_Passport")}</li>
 							<li>{t("lbl_DrivingLicense")}</li>
-							<li>{t("lbl_BirthCertificate")}</li>
 						</ul>
 					</div>
 					<div className="btnGroup">

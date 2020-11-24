@@ -62,6 +62,12 @@ const defPlatfrom = [
 	},
 	{
 		...productList.liveCasino_eBET
+	},
+	{
+		...productList.liveCasino_MW
+	},
+	{
+		...productList.liveCasino_WM
 	}
 ];
 
