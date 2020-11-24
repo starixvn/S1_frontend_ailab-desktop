@@ -7,7 +7,6 @@ import { popBoxContext, msgCountContext } from "../common/context";
 import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/popBox";
 import moment from "moment";
-import Loading from "../common/loading";
 
 export default props => {
 	const { t } = useTranslation();
@@ -16,7 +15,6 @@ export default props => {
 	const isMountedRef = useRef(null);
 	const [msgContentData, setMsgContentData] = useState("");
 	const [showContent, setShowContent] = useState(false);
-	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -29,8 +27,6 @@ export default props => {
 
 	const getMsgContent = getMsg => {
 		if (getMsg) {
-			setLoading(true);
-
 			api_account_GetMsgContent(props.id).then(
 				res => {
 					if (isMountedRef.current) {
@@ -62,7 +58,6 @@ export default props => {
 								)
 							});
 						}
-						setLoading(false);
 					}
 				},
 				err => {
@@ -81,7 +76,6 @@ export default props => {
 								</div>
 							)
 						});
-						setLoading(false);
 					}
 				}
 			);
@@ -96,32 +90,16 @@ export default props => {
 	);
 
 	const dateTimeFormat = () => {
-		if (compareDay < 1) {
-			if (!showContent) {
-				return props.createTime.slice(11, 19);
-			} else {
-				return (
-					props.createTime.split("T", 1) +
-					" " +
-					props.createTime.slice(11, 19)
-				);
-			}
+		if (showContent) {
+			return moment(props.createTime).format("YYYY-MM-DD HH:MM:ss");
 		} else {
-			if (!showContent) {
-				return props.createTime.split("T", 1);
-			} else {
-				return (
-					props.createTime.split("T", 1) +
-					" " +
-					props.createTime.slice(11, 19)
-				);
-			}
+			return compareDay < 1
+				? moment(props.createTime).format("HH:MM:ss")
+				: moment(props.createTime).format("YYYY-MM-DD");
 		}
 	};
 
-	return loading ? (
-		<Loading />
-	) : (
+	return (
 		<div className={props.flag ? "haveRead" : ""}>
 			<div className="listHeader">
 				<div className="checkbox">
@@ -142,9 +120,7 @@ export default props => {
 					onKeyDown={getMsgContent.bind(this, !showContent)}>
 					{props.title}
 				</div>
-				<div
-					className="txt-blue2"
-					onClick={getMsgContent.bind(this, !showContent)}>
+				<div onClick={getMsgContent.bind(this, !showContent)}>
 					{dateTimeFormat()}
 					<button
 						aria-label="getMsgContent"

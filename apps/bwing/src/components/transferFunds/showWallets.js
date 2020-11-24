@@ -13,7 +13,7 @@ const ShowWallet = props => {
 				<span>{number_format(item.balance, false)}</span>
 				<div className="btnGroup">
 					<button
-						className="blue"
+						className="btn-check"
 						onClick={props.restoreAll.bind(this, idx)}>
 						{props.i18n("lbl_RestoreAll")}
 					</button>
@@ -22,10 +22,15 @@ const ShowWallet = props => {
 		);
 	});
 	return (
-		<div className="walletModule">
-			{arr}
-			<ReloadSpin func={props.GetWalletInfo} />
-		</div>
+		<>
+			<div className="walletModule">
+				{arr}
+				<ReloadSpin func={props.GetWalletInfo} />
+			</div>
+			<div className="tip active">
+				{props.i18n("lbl_restore_all_hint")}
+			</div>
+		</>
 	);
 };
 

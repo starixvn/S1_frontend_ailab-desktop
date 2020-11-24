@@ -137,7 +137,6 @@ export class Module extends Component {
 									} else if (this.props.backDeposit) {
 										this.props.backDeposit();
 									}
-
 									this.props.ClosePopBox();
 								};
 
@@ -145,12 +144,18 @@ export class Module extends Component {
 									isOpen: true,
 									popBoxType: defPopBoxType.Success,
 									prevBtnBar: prevS.btnBar,
+									titleIcon: "icon-icon32px_deposit",
+									titleText: "lbl_ImportantNote",
+									message2: this.props.i18n(
+										"lbl_UpdateSuccessWillProcess"
+									),
+									onClickClose: ClickClose,
 									btnBar: (
 										<div className="btnGroup">
 											<button
 												className="btn-cancel"
 												onClick={ClickClose}>
-												{this.props.i18n("lbl_Close")}
+												OK
 											</button>
 										</div>
 									)
@@ -181,11 +186,15 @@ export class Module extends Component {
 			}
 		}
 	};
+
 	render() {
 		return this.loading ? (
 			<Loading />
 		) : (
-			<>
+			<div className="upload">
+				<div
+					className="icon icon-close"
+					onClick={this.props.ClosePopBox}></div>
 				<span className="title">
 					{this.props.i18n("lbl_SubmitProof")}
 				</span>
@@ -291,15 +300,17 @@ export class Module extends Component {
 					<div className="inputBox">
 						<i className="txt-blue12">
 							{this.props.i18n("lbl_DepositTime")}
-						</i>
+						</i> &nbsp;
 						<DateTime
 							value={moment(this.state.depositTime).format(
 								"YYYY-MM-DD HH:mm A"
 							)}
 							onChange={this.editField.bind(this, "depositTime")}
 						/>
+						<div className="rdt"></div>
 						<div className="iconModule">
 							<i className="icon icon-calendar"></i>
+							<i className="icon icon-information-solid"></i>
 						</div>
 					</div>
 					<Inputbox
@@ -312,18 +323,12 @@ export class Module extends Component {
 						tip={this.state.refIdTip.tip}
 					/>
 					<div className="btnGroup">
-						<button
-							type="button"
-							className="btn-cancel"
-							onClick={this.props.ClosePopBox}>
-							{this.props.i18n("lbl_Cancel")}
-						</button>
 						<button className="btn-check" type="submit">
 							{this.props.i18n("lbl_Submit")}
 						</button>
 					</div>
 				</form>
-			</>
+			</div>
 		);
 	}
 }

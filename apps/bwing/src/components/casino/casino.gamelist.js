@@ -56,28 +56,28 @@ export default ({
 						alt="Casino_tpInfo"
 						src={`${config.imgUrl}/common/images/Casino/${tpInfo.name}/${imgName}`}
 					/>
-					<div className="txt-darkBlue">{gameDisplayName}</div>
+					<div className="txt-blue15">{gameDisplayName}</div>
 					<div className="btnGroup">
 						<button
-							className="blue"
+							className="orange"
 							onClick={onClickPlay.bind(
 								this,
 								g.tpId,
 								g.gameId,
 								false
 							)}>
-							{t("lbl_PlayNow")}
+							{t("lbl_PlayNow").toUpperCase()}
 						</button>
 						{tpInfo.playFree ? (
 							<button
-								className="blue"
+								className="blueBorder"
 								onClick={onClickPlay.bind(
 									this,
 									g.tpId,
 									g.gameId,
 									true
 								)}>
-								{t("lbl_Free")}
+								{t("lbl_Free").toUpperCase()}
 							</button>
 						) : null}
 					</div>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import { number_format, getUrlParameter } from "../common/common";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { useTranslation } from "react-i18next";
@@ -27,6 +27,7 @@ export default ({ bankInfo, amount, _isConvert }) => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.Cancel,
+			onClickClose: ClickNo,
 			btnBar: (
 				<div className="btnGroup">
 					<Link
@@ -64,36 +65,42 @@ export default ({ bankInfo, amount, _isConvert }) => {
 	return (
 		<div className="subModuleList">
 			<div className="subModule">
-				<div className="subModuleBody column align-items-center">
-					<span className="title">{t("lbl_ImportantNote")}</span>
-					<div className="txt-lightgray">
-						{t("lbl_ConfirmDeposit")}
-					</div>
-					{bankInfo ? (
-						<div className="bankName">
-							<img
-								src={`${config.imgUrl}/common/images/BankLogo/${bankInfo?.bankLogo}`}
-								alt={bankInfo?.bankName}
-							/>
+				<div className="subModuleBody column">
+					<div className="ImportantNote column">
+						<span className="title txt-org">
+							{t("lbl_ImportantNote")}
+						</span>
+						<div className="txt-lightgray">
+							{t("lbl_ConfirmDeposit")}
 						</div>
-					) : null}
-
-					<div className="smallList">
+					</div>
+					<div className="depositInfo">
 						{bankInfo ? (
-							<ul>
-								<li>{t("lbl_SelectedBank")}</li>
-								<li>{bankInfo.bankName}</li>
-							</ul>
+							<div className="bankName">
+								<img
+									src={`${config.imgUrl}/common/images/BankLogo/${bankInfo?.bankLogo}`}
+									alt={bankInfo?.bankName}
+								/>
+							</div>
 						) : null}
-						<ul>
-							<li>{t("lbl_Amount")}</li>
-							<li>
-								{number_format(
-									_isConvert ? amount * 1000 : amount,
-									_isConvert
-								)}
-							</li>
-						</ul>
+
+						<div className="smallList">
+							{bankInfo ? (
+								<ul>
+									<li>{t("lbl_SelectedBank")}</li>
+									<li>{bankInfo.bankName}</li>
+								</ul>
+							) : null}
+							<ul>
+								<li>{t("lbl_Amount")}</li>
+								<li>
+									{number_format(
+										_isConvert ? amount * 1000 : amount,
+										_isConvert
+									)}
+								</li>
+							</ul>
+						</div>
 					</div>
 					<div className="btnGroup">
 						<button onClick={ClickCancel} className="btn-cancel">

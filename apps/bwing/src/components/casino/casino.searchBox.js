@@ -26,6 +26,7 @@ export default ({
 					options={tpOptions}
 					onSelectItem={EditSearchField.bind(this, "provider")}
 					selectedIdx={searchInfo.provider.idx}
+					showDropDownIcon={true}
 				/>
 			</div>
 
@@ -38,9 +39,11 @@ export default ({
 					value={searchInfo.searchText}
 				/>
 			</div>
-			<button className="btn-check" onClick={submitSearch}>
-				{t("lbl_Submit")}
-			</button>
+			<div className="btnGroup">
+				<button className="orange" onClick={submitSearch}>
+					{t("lbl_slot_submit")}
+				</button>
+			</div>
 		</>
 	);
 };

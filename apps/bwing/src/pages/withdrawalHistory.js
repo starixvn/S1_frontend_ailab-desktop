@@ -198,6 +198,7 @@ const Content = () => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.Cancel,
+			onClickClose:ClosePopBox,
 			btnBar: (
 				<div className="btnGroup">
 					<button className="btn-cancel" onClick={ClickConfirm}>
@@ -238,7 +239,7 @@ const Content = () => {
 		<Loading />
 	) : (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_History">
+			<div className="inside-title">
 				<span>{t("lbl_WithdrawalHistory")}</span>
 			</div>
 			<Filter submitHandler={clickDateSubmit} keepData={keepData} />

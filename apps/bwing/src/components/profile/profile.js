@@ -43,7 +43,7 @@ export default () => {
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
-	const [redirectPath, setRedirectPath] = useState(null);
+	const [redirectPath] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [mobileVerificationLoading, setMobileVerificationLoading] = useState(
 		false
@@ -77,7 +77,7 @@ export default () => {
 			errorCode,
 			isOpen: true,
 			popBoxType: defPopBoxType.ErrorMsg,
-			icon: "icon-bell",
+			icon: "icon-icon32px_notification",
 			btnBar: (
 				<div className="btnGroup">
 					<button className="btn-cancel" onClick={ClickClose}>
@@ -137,18 +137,20 @@ export default () => {
 	};
 
 	const checkName = () => {
-		let checkResult = false;
-		let checkTip = "";
+		let pattern_punct = new RegExp(
+			"[`~!@#$^&*()=|{}':;',ˇˋ˙ˊ\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]"
+		);
 
-		if (userInfo.accountName) {
-			checkResult = true;
-		} else if (!userInfo.accountName && nameValue === "") {
-			checkResult = false;
-			checkTip = t("lbl_NameRequired");
-		} else if (!userInfo.accountName && nameValue !== "") {
-			checkResult = true;
-			checkTip = "";
-		}
+		let checkResult =
+			(Boolean(userInfo.accountName) || Boolean(nameValue)) &&
+			!pattern_punct.test(nameValue);
+
+		let checkTip =
+			nameValue === ""
+				? t("lbl_NameRequired")
+				: pattern_punct.test(nameValue)
+				? t("msg_Regex_Punct_Invalid")
+				: "";
 
 		setStatus(prev => ({
 			...prev,
@@ -162,18 +164,13 @@ export default () => {
 	};
 
 	const checkBirth = () => {
-		let checkResult = false;
-		let checkTip = "";
+		const isValidDate = d => {
+			const date = new Date(d);
+			return date instanceof Date && !isNaN(date);
+		};
 
-		if (userInfo.birth_d) {
-			checkResult = true;
-		} else if (!userInfo.birth_d && birthValue === "") {
-			checkResult = false;
-			checkTip = t("lbl_BirthRequired");
-		} else if (!userInfo.birth_d && birthValue !== "") {
-			checkResult = true;
-			checkTip = "";
-		}
+		let checkResult = Boolean(userInfo.birth_d) || isValidDate(birthValue);
+		let checkTip = isValidDate(birthValue) ? "" : t("lbl_BirthRequired");
 
 		setStatus(prev => ({
 			...prev,
@@ -238,7 +235,7 @@ export default () => {
 			checkResult = true;
 		}
 
-		if (!userInfo.phoneNo && phoneValue.length < 0) {
+		if (!userInfo.phoneNo && !phoneValue) {
 			setStatus(prev => ({
 				...prev,
 				phoneNo: {
@@ -489,7 +486,7 @@ export default () => {
 											{t("lbl_Later")}
 										</button>
 										<button
-											className="yellow"
+											className="btn-check"
 											onClick={sendOTPSMS}>
 											{t("lbl_VertifyNow")}
 										</button>
@@ -513,7 +510,7 @@ export default () => {
 										</button>
 										<Link
 											className="btn-check"
-											to={defPrevPage[_prevPage].path}>
+											to={`/${userInfo.langId}/${defPrevPage[_prevPage].path}`}>
 											{t(defPrevPage[_prevPage].label)}
 										</Link>
 									</div>

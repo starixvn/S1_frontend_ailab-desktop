@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useContext } from "react";
 import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/popBox";
+import { defPromotionType } from "./promotion.def";
 import { popBoxContext } from "../common/context";
 import { checkPromotion } from "./promotion.common";
 import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
@@ -39,7 +40,7 @@ export default ({
 			errorCode,
 			isOpen: true,
 			popBoxType: defPopBoxType.ErrorMsg,
-			icon: "icon-bell",
+			icon: "icon-icon32px_notification",
 			btnBar: (
 				<div className="btnGroup">
 					<button className="btn-cancel" onClick={clickClose}>
@@ -50,17 +51,16 @@ export default ({
 		});
 	};
 
-	const setClaimPromotion = async (langId, bonusCode) => {
+	const setClaimPromotion = async (langId, bonusCode, lockedAmount = 0) => {
 		return api_promotion_SetClaimPromotion({
 			langId,
-			BonusCode: bonusCode
+			BonusCode: bonusCode,
+			LockedAmount: Number(lockedAmount)
 		}).then(
 			({ data: { message, errorCode } }) => {
 				if (!isMountedRef.current) return;
-
 				const success = errorCode === 0;
 				const OTPNotVerify = errorCode === -5;
-
 				if (OTPNotVerify)
 					return setPopBox({
 						isOpen: true,
@@ -75,11 +75,14 @@ export default ({
 							</div>
 						)
 					});
-
 				if (success) {
 					setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.Success,
+						titleText: "lbl_Congratulations",
+						titleIcon: "icon-gift",
+						message1: "lbl_Sign_up_successful",
+						onClickClose: clickClose,
 						btnBar: (
 							<div className="btnGroup">
 								<button
@@ -92,11 +95,10 @@ export default ({
 					});
 					return true;
 				}
-
 				openErrorMessagePopBox(message || "error", errorCode);
 			},
 			err => {
-				if (isMountedRef.current) return;
+				if (!isMountedRef.current) return;
 
 				openErrorMessagePopBox();
 			}
@@ -105,15 +107,38 @@ export default ({
 
 	const onJoinPromotion = async () => {
 		const { langId } = userInfo;
-		const { bonusCode } = promotionInfo;
+		const {
+			bonusCode,
+			bonusType,
+			canJoin,
+			promotionType,
+			maxAmount
+		} = promotionInfo;
+
 		const promotionCanJoin = checkPromotion({
 			promotionInfo,
 			userInfo,
 			setPopBox,
 			t
 		});
+
 		if (!promotionCanJoin) return;
-		let success = await setClaimPromotion(langId, bonusCode);
+		if (
+			canJoin &&
+			bonusType === 1 &&
+			promotionType === defPromotionType.redeposit
+		)
+			return setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.PromotionAmountConfirm,
+				langId,
+				promotionInfo,
+				clickClose,
+				setClaimPromotion
+			});
+
+		let success = await setClaimPromotion(langId, bonusCode, maxAmount);
+
 		if (success) return callBack();
 	};
 
@@ -127,14 +152,14 @@ export default ({
 		<>
 			{inListPage ? null : (
 				<button className="lightgray" onClick={clickBack}>
-					{t("lbl_back")}
+					{t("lbl_back").toUpperCase()}
 				</button>
 			)}
 			{(promotionInfo.isJoin && isLogin) ||
 			_isExpiry ||
 			_isClaimed ? null : (
 				<button className="orange" onClick={onJoinPromotion}>
-					{t("lbl_PromoJoinNow")}
+					{t("lbl_PromoJoinNow").toUpperCase()}
 				</button>
 			)}
 		</>

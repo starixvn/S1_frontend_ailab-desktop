@@ -107,7 +107,7 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  z-index: 2;
+  z-index: 3;
 }
 
 .logo {
@@ -175,6 +175,7 @@ header {
   font-size: 14px;
   color: #fff;
   height: calc(100% - 3px);
+  position: relative;
 }
 
 .header > div.menu > div > a:hover, .header > div.menu > div > button:hover {
@@ -191,7 +192,7 @@ header {
   position: absolute;
   width: 100%;
   left: 0;
-  top: 50px;
+  top: 49px;
   background: rgba(0, 0, 0, 0.7);
 }
 
@@ -203,28 +204,28 @@ header {
   font-size: 30px;
 }
 
-.header > div.menu .gameList, .header > div.menu .casinoList, .header > div.menu .livecasinoList {
+.header > div.menu .gameList, .header > div.menu .casinoList, .header > div.menu .livecasinoList, .header > div.menu .fishList {
   max-width: 1600px;
   margin: auto;
   display: none;
 }
 
-.header > div.menu .gameList.active, .header > div.menu .casinoList.active, .header > div.menu .livecasinoList.active {
+.header > div.menu .gameList.active, .header > div.menu .casinoList.active, .header > div.menu .livecasinoList.active, .header > div.menu .fishList.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.header > div.menu .gameList.active div, .header > div.menu .casinoList.active div, .header > div.menu .livecasinoList.active div {
+.header > div.menu .gameList.active div, .header > div.menu .casinoList.active div, .header > div.menu .livecasinoList.active div, .header > div.menu .fishList.active div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.header > div.menu .gameList a, .header > div.menu .gameList button, .header > div.menu .casinoList a, .header > div.menu .casinoList button, .header > div.menu .livecasinoList a, .header > div.menu .livecasinoList button {
+.header > div.menu .gameList a, .header > div.menu .gameList button, .header > div.menu .casinoList a, .header > div.menu .casinoList button, .header > div.menu .livecasinoList a, .header > div.menu .livecasinoList button, .header > div.menu .fishList a, .header > div.menu .fishList button {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 160px;
-          flex: 1 1 160px;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -243,20 +244,32 @@ header {
   transition: 0.7s;
   color: white;
   margin-bottom: 50px;
+  max-width: 160px;
+  position: relative;
+  text-transform: initial;
 }
 
-.header > div.menu .gameList a img, .header > div.menu .gameList button img, .header > div.menu .casinoList a img, .header > div.menu .casinoList button img, .header > div.menu .livecasinoList a img, .header > div.menu .livecasinoList button img {
+.header > div.menu .gameList a img, .header > div.menu .gameList button img, .header > div.menu .casinoList a img, .header > div.menu .casinoList button img, .header > div.menu .livecasinoList a img, .header > div.menu .livecasinoList button img, .header > div.menu .fishList a img, .header > div.menu .fishList button img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 
-.header > div.menu .gameList a span, .header > div.menu .gameList button span, .header > div.menu .casinoList a span, .header > div.menu .casinoList button span, .header > div.menu .livecasinoList a span, .header > div.menu .livecasinoList button span {
+.header > div.menu .gameList a span, .header > div.menu .gameList button span, .header > div.menu .casinoList a span, .header > div.menu .casinoList button span, .header > div.menu .livecasinoList a span, .header > div.menu .livecasinoList button span, .header > div.menu .fishList a span, .header > div.menu .fishList button span {
   top: 35px;
   position: relative;
+  font-family: Microsoft YaHei,sans-serif;
+  font-size: 13px;
 }
 
-.header > div.menu .gameList a:hover, .header > div.menu .gameList button:hover, .header > div.menu .casinoList a:hover, .header > div.menu .casinoList button:hover, .header > div.menu .livecasinoList a:hover, .header > div.menu .livecasinoList button:hover {
+.header > div.menu .gameList a.icon-new:before, .header > div.menu .gameList button.icon-new:before, .header > div.menu .casinoList a.icon-new:before, .header > div.menu .casinoList button.icon-new:before, .header > div.menu .livecasinoList a.icon-new:before, .header > div.menu .livecasinoList button.icon-new:before, .header > div.menu .fishList a.icon-new:before, .header > div.menu .fishList button.icon-new:before {
+  font-size: 18px;
+  top: 10px;
+  left: 0;
+  right: unset;
+}
+
+.header > div.menu .gameList a:hover, .header > div.menu .gameList button:hover, .header > div.menu .casinoList a:hover, .header > div.menu .casinoList button:hover, .header > div.menu .livecasinoList a:hover, .header > div.menu .livecasinoList button:hover, .header > div.menu .fishList a:hover, .header > div.menu .fishList button:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -365,6 +378,22 @@ header {
   background: url(../img/casinoOW_a.png) no-repeat center 0px/auto 100%;
 }
 
+.header > div.menu .livecasinoList .liveWM {
+  background: url(../img/liveWM.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .livecasinoList .liveWM:hover {
+  background: url(../img/liveWM_a.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .livecasinoList .liveMW {
+  background: url(../img/liveMW.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .livecasinoList .liveMW:hover {
+  background: url(../img/liveMW_a.png) no-repeat center 0px/auto 100%;
+}
+
 .header > div.menu .livecasinoList .liveDG {
   background: url(../img/liveDG.png) no-repeat center 10px/auto 100%;
 }
@@ -423,6 +452,34 @@ header {
 
 .header > div.menu .livecasinoList .liveEB .icon:before {
   font-size: 16px;
+}
+
+.header > div.menu .fishList {
+  width: 65vw;
+}
+
+.header > div.menu .fishList .fgg {
+  background: url(../img/fishingGG.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fgg:hover {
+  background: url(../img/fishingGGa.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .fishList .fsg {
+  background: url(../img/fishingSG.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fsg:hover {
+  background: url(../img/fishingSGa.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .fishList .fsgw {
+  background: url(../img/fishingSGwar.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fsgw:hover {
+  background: url(../img/fishingSGwara.png) no-repeat center 0px/auto 100%;
 }
 
 .header > div.function {
@@ -817,7 +874,7 @@ main section {
 }
 
 main section.inside {
-  padding-top: 65px;
+  padding-top: 35px;
 }
 
 main section.inside > div {
@@ -825,7 +882,7 @@ main section.inside > div {
 }
 
 main section.inside > iframe {
-  margin-top: -65px;
+  margin-top: -35px;
 }
 
 main section .btnGroup {
@@ -1285,157 +1342,179 @@ footer {
 }
 
 .platform button:nth-child(1) {
-  background: url(/common/images/logo/saba.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/saba.png) no-repeat center/100%;
   width: 104px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(1):hover {
-  background: url(/common/images/logo/sabaa.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/sabaa.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(2) {
-  background: url(/common/images/logo/ab.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/ab.png) no-repeat center/100%;
   width: 63px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(2):hover {
-  background: url(/common/images/logo/aba.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/aba.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(3) {
-  background: url(/common/images/logo/yl.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/yl.png) no-repeat center/100%;
   width: 34px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(3):hover {
-  background: url(/common/images/logo/yla.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/yla.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(4) {
-  background: url(/common/images/logo/ag.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/ag.png) no-repeat center/100%;
   width: 83px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(4):hover {
-  background: url(/common/images/logo/aga.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/aga.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(5) {
-  background: url(/common/images/logo/jk.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/jk.png) no-repeat center/100%;
   width: 97px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(5):hover {
-  background: url(/common/images/logo/jka.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/jka.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(6) {
-  background: url(/common/images/logo/gp.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/gp.png) no-repeat center/100%;
   width: 119px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(6):hover {
-  background: url(/common/images/logo/gpa.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/gpa.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(7) {
-  background: url(/common/images/logo/dg.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/dg.png) no-repeat center/100%;
   width: 53px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(7):hover {
-  background: url(/common/images/logo/dga.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/dga.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(8) {
-  background: url(/common/images/logo/sa.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/sa.png) no-repeat center/100%;
   width: 87px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(8):hover {
-  background: url(/common/images/logo/saa.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/saa.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(9) {
-  background: url(/common/images/logo/yg.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/yg.png) no-repeat center/100%;
   width: 114px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(9):hover {
-  background: url(/common/images/logo/yga.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/yga.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(10) {
-  background: url(/common/images/logo/pp.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/pp.png) no-repeat center/100%;
   width: 100px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(10):hover {
-  background: url(/common/images/logo/ppa.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/ppa.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(11) {
-  background: url(/common/images/logo/sg.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/sg.png) no-repeat center/100%;
   width: 89px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(11):hover {
-  background: url(/common/images/logo/sga.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/sga.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(12) {
-  background: url(/common/images/logo/pg.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/pg.png) no-repeat center/100%;
   width: 54px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(12):hover {
-  background: url(/common/images/logo/pga.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/pga.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(13) {
-  background: url(/common/images/logo/AE.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/ae.png) no-repeat center/100%;
   width: 120px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(13):hover {
-  background: url(/common/images/logo/AEa.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/aea.png) no-repeat center/100%;
 }
 
 .platform button:nth-child(14) {
-  background: url(/common/images/logo/eb.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/eb.png) no-repeat center/100%;
   width: 90px;
   height: 55px;
-  margin-right: 28px;
+  margin-right: 17px;
 }
 
 .platform button:nth-child(14):hover {
-  background: url(/common/images/logo/eba.png) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/logo/eba.png) no-repeat center/100%;
+}
+
+.platform button:nth-child(15) {
+  background: url(https://image.n88media.com/SiteSkin/img/logo/mw.png) no-repeat center/100%;
+  width: 55px;
+  height: 55px;
+  margin-right: 17px;
+}
+
+.platform button:nth-child(15):hover {
+  background: url(https://image.n88media.com/SiteSkin/img/logo/mwa.png) no-repeat center/100%;
+}
+
+.platform button:nth-child(16) {
+  background: url(https://image.n88media.com/SiteSkin/img/logo/wm.png) no-repeat center/100%;
+  width: 55px;
+  height: 55px;
+  margin-right: 17px;
+}
+
+.platform button:nth-child(16):hover {
+  background: url(https://image.n88media.com/SiteSkin/img/logo/wma.png) no-repeat center/100%;
 }
 
 .copyright {
@@ -1474,6 +1553,10 @@ footer {
   display: flex;
 }
 
+.joinpop .joinloginModule .btnGroup, .loginpop .joinloginModule .btnGroup {
+  margin: 10px 0;
+}
+
 .joinpop .joinloginModule img, .loginpop .joinloginModule img {
   width: 400px;
   height: 380px;
@@ -1505,6 +1588,10 @@ footer {
 .joinpop .joinloginModule .joinloginFunction .icon-email, .loginpop .joinloginModule .joinloginFunction .icon-email {
   font-weight: bold;
   font-size: 16px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .inputModule, .loginpop .joinloginModule .joinloginFunction .inputModule {
+  margin-top: 10px;
 }
 
 .joinpop .joinloginModule .loginAnimation, .joinpop .joinloginModule .joinAnimation, .loginpop .joinloginModule .loginAnimation, .loginpop .joinloginModule .joinAnimation {
@@ -2123,7 +2210,7 @@ input[type="file"] {
 .Terms {
   font-size: 12px;
   line-height: 25px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .Terms .agree {
@@ -2235,7 +2322,7 @@ input[type="file"] {
   position: fixed;
   right: -10px;
   top: 15%;
-  z-index: 2;
+  z-index: 3;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   width: 215px;
@@ -2388,12 +2475,12 @@ input[type="file"] {
 }
 
 #leftMenu {
-  width: 20%;
-  margin-right: 3%;
+  width: 16%;
+  margin-right: 2%;
 }
 
 #leftMenu + div {
-  width: 77%;
+  width: 82%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2407,7 +2494,7 @@ input[type="file"] {
   border: 1px solid #134DAE;
   border-radius: 10px;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 #leftMenu .menuModule button, #leftMenu .menuModule a {
@@ -2660,6 +2747,9 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .list .listBody > div div:nth-child(2) {
@@ -3080,6 +3170,13 @@ input[type="file"] {
       -ms-flex-pack: center;
           justify-content: center;
   width: calc(100% - 10px);
+  background: white;
+  overflow: hidden;
+}
+
+.subModuleList .subModule .subModuleBody ul li a.icon-library {
+  color: #1E85EC;
+  font-size: 44px;
 }
 
 .subModuleList .subModule .subModuleBody ul li a.icon-VNPay:before {
@@ -3088,10 +3185,6 @@ input[type="file"] {
 
 .subModuleList .subModule .subModuleBody ul li a:before {
   font-size: 34px;
-}
-
-.subModuleList .subModule .subModuleBody ul li a:hover {
-  background: #1E85EC;
 }
 
 .subModuleList .subModule .subModuleBody ul li span {
@@ -3114,7 +3207,7 @@ input[type="file"] {
 
 .platformName {
   width: calc(100% / 3 - 70px);
-  background: #134DAE;
+  background: white;
   float: left;
   margin-left: 70px;
   border-radius: 15px;
@@ -3131,6 +3224,11 @@ input[type="file"] {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: relative;
+  border: 1px solid #1E85EC;
+}
+
+.platformName .icon-library {
+  color: #1E85EC;
 }
 
 .platformName button.icon, .platformName a.icon {
@@ -3160,6 +3258,10 @@ input[type="file"] {
 
 .platformName .icon {
   font-size: 40px;
+}
+
+.platformName .icon img {
+  max-width: 90px;
 }
 
 .platformName + div.subModuleList .subModuleBody > div {
@@ -3235,6 +3337,7 @@ input[type="file"] {
   background: white;
   padding: 5px 10px;
   width: calc(100% - 20px);
+  overflow: hidden;
 }
 
 .platformName + div.subModuleList .subModuleBody ul li a:hover {
@@ -3256,6 +3359,34 @@ input[type="file"] {
 
 .align-items-center .txt-lightgray {
   text-align: center;
+}
+
+.align-items-center .txt-lightgray + .upload_img:hover {
+  background: #1E85EC;
+}
+
+.align-items-center .txt-lightgray + .upload_img:hover .icon-plus {
+  display: none;
+}
+
+.align-items-center .txt-lightgray + .upload_img:hover .icon-folder-upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  font-size: 12px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.align-items-center .txt-lightgray + .upload_img:hover .icon-folder-upload:before {
+  font-size: 48px;
+  margin-bottom: 20px;
 }
 
 .bankName {
@@ -3383,7 +3514,7 @@ input[type="file"] {
   top: -20px;
 }
 
-.Submit, .Cancel, .uploadSuccess, .updateSuccess, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess {
+.Submit, .Cancel, .uploadSuccess, .updateSuccess, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3396,18 +3527,18 @@ input[type="file"] {
   margin: auto;
 }
 
-.Submit.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active {
+.Submit.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Submit .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon {
+.Submit .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
   font-size: 36px;
   color: #f77900;
 }
 
-.Submit .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell {
+.Submit .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
   color: #f77900;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -3415,20 +3546,20 @@ input[type="file"] {
           transform: rotate(20deg);
 }
 
-.Submit .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title {
+.Submit .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
   margin: 10px 0 20px;
 }
 
-.Submit .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray {
+.Submit .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
   text-align: center;
 }
 
-.Submit .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList {
+.Submit .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul {
+.Submit .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3441,13 +3572,13 @@ input[type="file"] {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li {
+.Submit .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child {
+.Submit .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
@@ -3572,6 +3703,10 @@ input[type="file"] {
           align-items: center;
   overflow: hidden;
   cursor: pointer;
+}
+
+.upload_img .icon-folder-upload {
+  display: none;
 }
 
 .upload_img.error {
@@ -3798,9 +3933,9 @@ input[type="file"] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 30px 70px 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .walletModule .walletBalanceModule {
@@ -3863,11 +3998,35 @@ input[type="file"] {
   font-size: 16px;
 }
 
+.walletModule .walletBalanceModule .icon-balance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.walletModule .walletBalanceModule .icon-balance:before {
+  color: white;
+}
+
+.walletModule .walletBalanceModule .icon-balance + span {
+  width: 100%;
+  text-align: right;
+}
+
 .walletModule .icon {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   color: #1E85EC;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .walletModule .icon.icon-plus {
@@ -3936,6 +4095,19 @@ input[type="file"] {
   margin-right: 10px;
 }
 
+.addBank .addBankName:hover {
+  background: #1E85EC;
+}
+
+.addBank .addBankName:hover .addBankInfo div, .addBank .addBankName:hover .addBankInfo button {
+  color: white;
+}
+
+.addBank .addBankName:hover .addBankInfo div.checkbox label, .addBank .addBankName:hover .addBankInfo button.checkbox label {
+  color: white;
+  border-color: white;
+}
+
 .addBank .addBankName.noBank {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3948,6 +4120,10 @@ input[type="file"] {
           justify-content: space-evenly;
   cursor: pointer;
   min-height: 55px;
+}
+
+.addBank .addBankName.noBank:hover .icon {
+  color: white;
 }
 
 .addBank .addBankName .addBankInfo {
@@ -4061,9 +4237,9 @@ input[type="file"] {
 }
 
 .addBank + div.subModuleList .subModuleBody > div.smallList li {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -4071,9 +4247,18 @@ input[type="file"] {
 }
 
 .addBank + div.subModuleList .subModuleBody > div.smallList li:first-child {
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.addBank + div.subModuleList .subModuleBody > div.smallList li:last-child {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .addBank + div.subModuleList .subModuleBody > div.smallList li.accountNumber {
@@ -4085,6 +4270,11 @@ input[type="file"] {
 
 .addBank + div.subModuleList .subModuleBody > div.smallList li.accountNumber span {
   margin-right: 5px;
+}
+
+.addBank + div.subModuleList .subModuleBody > div.smallList li.accountNumber span:last-child {
+  margin-right: 0;
+  margin-left: 5px;
 }
 
 .addBank + div.subModuleList .subModuleBody ul li {
@@ -4332,7 +4522,6 @@ input[type="file"] {
   width: calc(100% - 70px);
   margin: auto;
   margin-top: 10px;
-  border-top: 1px solid #212121;
   border-radius: 15px;
 }
 
@@ -4375,9 +4564,7 @@ input[type="file"] {
   padding: 50px 0;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  border: 1px solid #212121;
   border-top: 0;
-  color: #1E85EC;
 }
 
 .nodata:before {
@@ -4385,7 +4572,6 @@ input[type="file"] {
 }
 
 .nodata div {
-  background: rgba(0, 0, 0, 0.5);
   padding: 5px 10px;
   border-radius: 5px;
   width: -webkit-max-content;
@@ -4567,6 +4753,10 @@ input[type="file"] {
 .haveBank > div.addBankName .icon-bin {
   -webkit-transform: translateY(-75%);
           transform: translateY(-75%);
+}
+
+.haveBank > div.addBankName:hover {
+  border-color: #f77900;
 }
 
 .accountName {
@@ -6300,35 +6490,47 @@ button.icon-spinner11:before {
   max-width: 1560px;
 }
 
-.minAmount {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  min-width: 300px;
+.depositSlip {
   font-size: 12px;
-  border-radius: 3px;
-  overflow: hidden;
   font-weight: bold;
 }
 
-.minAmount > div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.depositSlip .depositSlipList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.minAmount > div > div {
+.depositSlip .depositSlipList > div {
+  min-width: 100px;
+  margin: 2px 0;
+}
+
+.depositSlip .depositSlipList > div > div {
   border: 1px solid #134DAE;
-  padding: 5px 10px;
-  background: #134DAE;
+  padding: 5px;
+  color: #1E85EC;
+  text-align: right;
+  border-bottom: 0;
 }
 
-.minAmount > div > div:last-child {
-  color: #1E85EC;
-  background: white;
+.depositSlip .depositSlipList > div > div:nth-child(2) {
+  color: #f77900;
+  border-color: #f77900;
+  border-bottom: 1px solid #f77900;
+}
+
+.depositSlip .txt-orange {
+  margin: 5px 0 15px;
+  font-size: 16px;
+  border: 1px solid #f77900;
+  padding: 5px 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 10px;
 }
 
 .gameMenu {
@@ -6341,6 +6543,23 @@ button.icon-spinner11:before {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+}
+
+.gameMenu .icon-new:before {
+  background: #f77900;
+  padding: 5px;
+  left: 10px;
+  color: white;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  top: 10px;
+  line-height: 14px;
+  border-radius: 10px;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .gameMenu .gameSwiper {
@@ -6359,6 +6578,7 @@ button.icon-spinner11:before {
   max-width: 140px !important;
   margin: auto;
   margin-bottom: 15px;
+  border-radius: 10px;
 }
 
 .gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
@@ -6366,6 +6586,22 @@ button.icon-spinner11:before {
   height: 25px;
   padding: 0px 10px;
   opacity: 1;
+  z-index: 1;
+}
+
+.gameMenu .swiper-button-next.icon, .gameMenu .swiper-button-prev.icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.gameMenu .swiper-button-next.icon:before, .gameMenu .swiper-button-prev.icon:before {
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .gameMenu .swiper-button-next:after, .gameMenu .swiper-button-prev:after {
@@ -6384,5 +6620,87 @@ button.icon-spinner11:before {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   left: 0;
+}
+
+.loackAmount {
+  width: 260px;
+}
+
+.colorInfo {
+  margin-bottom: 5px;
+}
+
+.colorInfo > div {
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.colorInfo > div:first-child {
+  color: #1E85EC;
+}
+
+.colorInfo > div:first-child span {
+  background: #1E85EC;
+}
+
+.colorInfo > div:last-child {
+  color: #f77900;
+}
+
+.colorInfo > div:last-child span {
+  background: #f77900;
+}
+
+.colorInfo > div span {
+  display: block;
+  width: 50px;
+  height: 8px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.icon-icon32px_bank-account ~ .platformName {
+  background: #1E85EC;
+  border: 0;
+}
+
+.icon-new::before {
+  position: absolute;
+  top: -5px;
+  right: 0;
+  color: #f77900;
+  -webkit-animation: new 3s infinite;
+          animation: new 3s infinite;
+  font-size: 16px;
+  margin: 0;
+}
+
+@-webkit-keyframes new {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes new {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -69,9 +69,9 @@ export default () => {
 		<div className="subModule">
 			<div className="subModuleTitle">
 				<div>
-					<span>{t("lbl_MobileDeposit")}</span>
+					<span>{t("lbl_MobileDeposit").toUpperCase()}</span>
 					<span>
-						{t("lbl_CreditTime")}: {t("lbl_Instant")}
+						{t("lbl_CreditTime")}:&nbsp;{t("lbl_Instant")}
 					</span>
 				</div>
 			</div>

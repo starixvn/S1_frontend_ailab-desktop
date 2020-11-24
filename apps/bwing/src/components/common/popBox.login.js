@@ -163,10 +163,7 @@ const LoginPanel = () => {
 	};
 
 	const openJoin = () => {
-		navigate(`/${userInfo.langId}/${path.join.root}`);
-        if (window.location.pathname.indexOf(path.join.root) !== -1) {
-            setPopBox({ isOpen: false });
-        }
+		setPopBox({ isOpen: false });
 	};
 
 	return (
@@ -179,12 +176,12 @@ const LoginPanel = () => {
 					<span className="title">{t("lbl_Login")}</span>
 					<div className="noAccount">
 						{t("lbl_DontHaveAccount")}&nbsp;
-						<button
+						<Link
 							className="txt-blue2"
-							type="button"
+							to={`/${userInfo.langId}/${path.join.root}`}
 							onClick={openJoin}>
 							{t("lbl_JoinNow")}
-						</button>
+						</Link>
 					</div>
 					<form onSubmit={handleLogin}>
 						<div className="inputModule">
@@ -202,7 +199,7 @@ const LoginPanel = () => {
 							/>
 
 							<div className="title">
-								{t("lbl_Password")}
+								{t("lbl_Password")} &nbsp;
 								<Link
 									to={`/${userInfo.langId}/${path.forgetPassword.root}`}
 									className="txt-blue15">

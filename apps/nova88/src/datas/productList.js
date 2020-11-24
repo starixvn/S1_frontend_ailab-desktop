@@ -27,8 +27,12 @@ export default {
 		tpId: 7,
 		gameId: 10
 	},
-	cockFighting: {
+	cockFighting_vn: {
 		tpId: 17
+	},
+	cockFighting: {
+		tpId: 19,
+		gameId: 19
 	},
 	sabaClub: {
 		tpId: 1,
@@ -116,5 +120,21 @@ export default {
 	liveCasino_eBET: {
 		gameId: 18,
 		tpId: 18
+	},
+	liveCasino_MW: {
+		tpId: 5,
+		gameId: 105
+	},
+	liveCasino_WM: {
+		tpId: 20,
+		gameId: 20
+	},
+	fishing_SG: {
+		gameId: "F-SF01",
+		tpId: 10
+	},
+	fishing_SGW: {
+		gameId: "F-SF02",
+		tpId: 10
 	}
 };
