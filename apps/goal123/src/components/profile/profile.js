@@ -162,18 +162,13 @@ export default () => {
 	};
 
 	const checkBirth = () => {
-		let checkResult = false;
-		let checkTip = "";
+		const isValidDate = d => {
+			const date = new Date(d);
+			return date instanceof Date && !isNaN(date);
+		};
 
-		if (userInfo.birth_d) {
-			checkResult = true;
-		} else if (!userInfo.birth_d && birthValue === "") {
-			checkResult = false;
-			checkTip = t("lbl_BirthRequired");
-		} else if (!userInfo.birth_d && birthValue !== "") {
-			checkResult = true;
-			checkTip = "";
-		}
+		let checkResult = Boolean(userInfo.birth_d) || isValidDate(birthValue);
+		let checkTip = isValidDate(birthValue) ? "" : t("lbl_BirthRequired");
 
 		setStatus(prev => ({
 			...prev,
@@ -238,7 +233,7 @@ export default () => {
 			checkResult = true;
 		}
 
-		if (!userInfo.phoneNo && phoneValue.length < 0) {
+		if (!userInfo.phoneNo && !phoneValue) {
 			setStatus(prev => ({
 				...prev,
 				phoneNo: {
@@ -513,7 +508,7 @@ export default () => {
 										</button>
 										<Link
 											className="btn-check"
-											to={defPrevPage[_prevPage].path}>
+											to={`/${userInfo.langId}/${defPrevPage[_prevPage].path}`}>
 											{t(defPrevPage[_prevPage].label)}
 										</Link>
 									</div>
