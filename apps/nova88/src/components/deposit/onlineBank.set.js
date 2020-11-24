@@ -25,6 +25,7 @@ import {
 	defModule,
 	defActionType
 } from "./onlineBank.reducer";
+import config from "../../config";
 
 const _path = path.deposit.sub.onlineBank.root;
 
@@ -173,9 +174,11 @@ export default () => {
 	return redirectPath === null ? (
 		<DepositWrapper step={state.step}>
 			<div className="platformName">
-				<div className={`icon icon-${pName}`}></div>
+				<img
+					src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${pName}.png`}
+				/>
 				<div>
-					<div>{t("lbl_OnlineBanking")}</div>
+					<div className="txt-blue">{t("lbl_OnlineBanking")}</div>
 					<div className="txt-orange">
 						{t("lbl_CreditTime")}:{t("lbl_Instant")}
 					</div>

@@ -28,7 +28,7 @@
 	"lbl_Instagram": "Instagram",
 	"lbl_Facebook": "Facebook",
 	"lbl_Twitter": "Twitter",
-  
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "แบดมินตัน",
 	"lbl_Baseball": "เบสบอล",
@@ -38,6 +38,9 @@
 	"lbl_eSports": "อีสปอร์ต",
 	"lbl_eSportsBetting": "เดิมพัน E-Sports",
 	"lbl_Fishing": "ยิงปลา",
+	"lbl_FishingGG": "โลกแห่งการตกปลา",
+	"lbl_FishingSG1": "พระเจ้าตกปลา",
+	"lbl_FishingSG2": "สงครามตกปลา",
 	"lbl_FootballBetting": "เดิมพันฟุตบอล",
 	"lbl_HockeyBetting": "เดิมพันฮอคกี้",
 	"lbl_Keno": "คีโน",
@@ -50,13 +53,14 @@
 	"lbl_SportsBetting": "เดิมพันกีฬา",
 	"lbl_Tennis": "เทนนิส",
 	"lbl_TennisBetting": "เดิมพันเทนนิส",
+	"lbl_CockFighting":"ไก่ชน",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "คาสิโนล็อบบี้",
 	"lbl_AllGames": "เกมทั้งหมด",
 	"lbl_Favourite": "เกมโปรด",
 	"lbl_Feature": "ลักษณะพิเศษ",
-  
+
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "ต้องใส่ชื่อบัญชีผู้ใช้",
 	"msg_PasswordReq": "ต้องใส่รหัสผ่าน",
@@ -131,8 +135,10 @@
 	"msg_EnterOTPCode": "กรุณาใส่รหัส OTP",
 	"msg_OTP_NotReceiveVerificationCode": "คุณยังไม่ได้รับรหัสยืนยัน?",
 	"lbl_Retransmit": "ส่งใหม่อีกครั้ง",
-	"lbl_Affiliate_ID":"ไอดีพันธมิตร/รหัสอ้างอิง",
-	"lbl_Please_enter_Affiliate_ID":"กรุณากรอก ไอดีผู้ใช้ของพันธมิตร(ไม่บังคับ) ไม่สามารถเปลี่ยนภายหลังได้!",
+	"lbl_Affiliate_ID": "ไอดีพันธมิตร/รหัสอ้างอิง",
+	"lbl_Please_enter_Affiliate_ID": "กรุณากรอก ไอดีผู้ใช้ของพันธมิตร(ไม่บังคับ) ไม่สามารถเปลี่ยนภายหลังได้!",
+	"lbl_VertifyNow": "ยืนยันหมายเลขโทรศัพท์เพื่อเข้าร่วมรับโปรโมชั่น",
+	"lbl_VertifyContactConfirm": "ยืนยันตอนนี้",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",
@@ -142,6 +148,7 @@
 	"lbl_DepositType1": "ธนาคารออนไลน์",
 	"lbl_DepositType2": "จ่ายผ่านมือถือ",
 	"lbl_DepositType3": "ธนาคารในประเทศ",
+	"lbl_DepositType4": "ชำระเงินแบบ Crypto",
 	"lbl_DepositStatus0": "ร่าง",
 	"lbl_DepositStatus1": "รอดำเนินการ",
 	"lbl_DepositStatus2": "Paid",
@@ -180,7 +187,11 @@
 	"lbl_OpenOtherSite": "เปิดหน้าต่างอื่นแล้วเปลี่ยนเส้นทาง",
 	"lbl_PicFormatTip": "รูปแบบไฟล์ผิดพลาดโปรดลองอีกครั้ง",
 	"lbl_CreditTime": "เวลาที่ต้องใช้",
-	
+	"lbl_ExchangeRate":"อัตราแลกเปลี่ยน",
+	"lbl_ExchangeRateReferenceOnly":"อัตรานี้ใช้สำหรับการอ้างอิงเท่านั้น",
+	"lbl_ExchangeAmount":"จำนวนเงินแลกเปลี่ยน",
+	"lbl_CryptoPay":"ชำระเงินแบบ Crypto",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "ร่าง",
 	"lbl_WithdrawalStatus1": "กำลังดำเนินการ",
@@ -219,7 +230,7 @@
 	"lbl_RolloverOver": "ยอดโรลโอเวอร์ของคุณไม่เพียงพอ",
 	"lbl_UpdatePersonalInfoWithdrawal": "กรุณากรอกข้อมูลส่วนตัวให้เรียบร้อยก่อนทำรายการถอน",
 	"lbl_GoWithdrawalPage": "ไปที่ี่หน้าทำรายการถอน",
-  
+
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "โอนเงินทุน",
 	"msg_InsufficientFund": "จำนวนเงินไม่เพียงพอ!",
@@ -229,7 +240,7 @@
 	"lbl_Transfer": "โอน",
 	"lbl_RestoreAll": "โอนคลิกเดียว",
 	"lbl_TransferHistory": "ประวัติการโอนเงิน",
-  
+
 	"statement ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Statement": "รายการฝากถอน",
 	"lbl_TypeName": "ประเภท",
@@ -237,7 +248,7 @@
 	"lbl_AfterAmount": "จำนวนเงินที่เหลือ",
 	"lbl_RefTransId": "รหัส ID อ้างอิง",
 	"lbl_ChangeAmount": "เปลี่ยนจำนวนเงิน",
-  
+
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "ต้องใส่หมายเลขบัญชี",
 	"msg_AccountWrongFormat": "หมายเลขบัญชีไม่ถูกต้อง",
@@ -266,24 +277,28 @@
 	"lbl_Direction": "ทิศทาง",
 	"lbl_Action": "หนังบู๊",
 	"lbl_QuickPick": "เลือก",
-  
+
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "โปรโมชั่น",
 	"lbl_Promotions": "โปรโมชั่น",
 	"lbl_PromotionsDesc": "คำอธิบายข้อเสนอ",
 	"lbl_PromoJoinNow": "เข้าร่วมตอนนี้",
+	"lbl_Redeposit_Promo": "ทำรายการฝากอีกครั้ง",
+	"lbl_ClaimAmountRange": "ขอรับโบนัสตามลำดับที่กำหนด",
+	"lbl_ClaimAmount": "จำนวนเงินที่ขอรับ",
+	"lbl_PleaseEnterClaimAmount": "กรุณาใส่จำนวนเงินที่คุณต้องการขอรับโปรโมชั่น",
 	"lbl_Expired_Promo": "หมดอายุ",
 	"lbl_UpdatePersonalInfoPromotion": "กรุณากรอกข้อมูลส่วนตัวให้เรียบร้อยก่อนเข้าร่วมกิจกรรม",
 	"lbl_PromotionCategory1": "ฝากครั้งแรก",
 	"lbl_GoPromotionPage": "ไปที่เข้าร่วมกิจกรรม",
 	"lbl_PromotionSlog": "คลิกที่นี่ เพื่อตรวจสอบโปรโมชั่นของคุณ",
-	"lbl_PromotionRebateAndCashback": "Rebate / Cashback",
+	"lbl_PromotionRebateAndCashback": "เงินคืน,เงินคืน/ คืนยอดเสีย",
 	"lbl_FreeBet": "เดิมพันฟรี",
 	"lbl_MinAmount": "จำนวนเงินขั้นต่ำ",
 	"lbl_RemainingTime": "เวลาคงเหลือ",
 	"lbl_RequireMinAmountHint_Front": "ฝากเงินขั้นต่ำเริ่มต้นที่",
 	"lbl_RequireMinAmountHint_Back": "บาท ฝากเลย?",
-  
+
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NoData": "ไม่มีข้อมูล",
 	"msg_ApiServerError": "API เซริฟเวอร์ขัดข้อง",
@@ -326,14 +341,15 @@
 	"lbl_Cashier": "แคชเชียร์",
 	"lbl_UpdatePersonalDetail": "อัปเดตข้อมูลส่วนบุคคล",
 	"lbl_Details": "รายละเอียด",
-  
+	"lbl_total": "Total",
+
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
 	"Currency_4": "THB",
 	"Currency_13": "RMB",
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
-	
+
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "วันนี้",
 	"lbl_YesterDay": "เมื่อวานนี้",
@@ -345,4 +361,4 @@
 	"lbl_Days": "วันที่",
 	"lbl_Hours": "เวลา",
 	"lbl_5mins": "5 นาที"
-  }
+}

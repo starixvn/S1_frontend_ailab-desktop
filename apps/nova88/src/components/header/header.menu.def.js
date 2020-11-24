@@ -87,10 +87,17 @@ export const defMenuLinks = {
 		displayKey: "lbl_LiveCasino",
 		subMenu: [
 			{
-				...productList.liveCasino_DG,
-				className: "liveDG",
-				icon: "icon icon-DG",
-				displayText: "DG",
+				...productList.liveCasino_MW,
+				className: "liveMW icon icon-new",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.liveCasino_WM,
+				className: "liveWM icon icon-new",
+				icon: "icon icon-WM",
+				displayText: "WM",
 				menuType: defMenuType.entPage
 			},
 			{
@@ -98,6 +105,20 @@ export const defMenuLinks = {
 				className: "liveALL",
 				icon: "icon icon-AB",
 				displayText: "Allbet",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.liveCasino_eBET,
+				className: "liveEB",
+				icon: "icon icon-EB",
+				displayText: "eBET",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.liveCasino_SA,
+				className: "liveSA",
+				icon: "icon icon-SA",
+				displayText: "SA",
 				menuType: defMenuType.entPage
 			},
 			{
@@ -115,10 +136,10 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.liveCasino_SA,
-				className: "liveSA",
-				icon: "icon icon-SA",
-				displayText: "SA",
+				...productList.liveCasino_DG,
+				className: "liveDG",
+				icon: "icon icon-DG",
+				displayText: "DG",
 				menuType: defMenuType.entPage
 			},
 			{
@@ -126,13 +147,6 @@ export const defMenuLinks = {
 				className: "liveAE",
 				icon: "icon icon-AE",
 				displayText: "AE",
-				menuType: defMenuType.entPage
-			},
-			{
-				...productList.liveCasino_eBET,
-				className: "liveEB",
-				icon: "icon icon-EB",
-				displayText: "eBET",
 				menuType: defMenuType.entPage
 			}
 		]
@@ -174,8 +188,35 @@ export const defMenuLinks = {
 	},
 	fishing: {
 		productInfo: productList.fishing,
-		path: path.sports.root,
-		displayKey: "lbl_Fishing"
+		displayKey: "lbl_Fishing",
+		subMenu: [
+			{
+				...productList.fishing,
+				className: "fgg",
+				displayKey: "lbl_FishingGG",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing }
+			},
+			{
+				...productList.fishing_SG,
+				className: "fsg",
+				displayKey: "lbl_FishingSG1",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_SG }
+			},
+			{
+				...productList.fishing_SGW,
+				className: "fsgw",
+				displayKey: "lbl_FishingSG2",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_SGW }
+			}
+		]
+	},
+	cockFighting: {
+		productInfo: productList.cockFighting,
+		displayKey: "lbl_CockFighting",
+		className: "COCK icon icon-new"
 	},
 	promotion: {
 		path: path.promotion.root,
@@ -186,5 +227,6 @@ export const defMenuLinks = {
 export const defSubListClassName = {
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
-	lottery: "gameList"
+	lottery: "gameList",
+	fishing: "fishList"
 };
