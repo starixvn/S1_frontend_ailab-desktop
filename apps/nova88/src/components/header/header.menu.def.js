@@ -1,5 +1,5 @@
 import productList from "../../datas/productList";
-import path from "../../path";
+import path from "../../_path";
 
 export const defMenuType = {
 	entPage: "entPage",

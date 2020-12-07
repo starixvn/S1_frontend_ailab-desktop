@@ -7,7 +7,7 @@ import { userInfoContext, popBoxContext } from "../components/common/context";
 import { getUrlParameter } from "../components/common/common";
 import { api_news_GetNewsById } from "../service/api/news";
 import { Redirect } from "@reach/router";
-import path from "../path";
+import path from "../_path";
 import Loading from "../components/common/loading";
 import { defPopBoxType } from "../components/common/popBox";
 

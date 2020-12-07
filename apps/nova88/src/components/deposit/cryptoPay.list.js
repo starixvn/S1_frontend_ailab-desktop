@@ -1,5 +1,5 @@
 import React from "react";
-import path from "../../path";
+import path from "../../_path";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import config from "../../config";

@@ -17,7 +17,7 @@ import StepBar from "../common/stepBar";
 import defStep from "../withdrawal/defStep";
 import { checkWithdrawalAmount, getAmountTip } from "../common/common";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../_path";
 
 export default ({
 	balanceData,

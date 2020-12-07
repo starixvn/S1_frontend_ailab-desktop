@@ -11,7 +11,7 @@ import { isConvert } from "../common/common";
 import { defPopBoxType } from "../common/popBox";
 import ReloadSpin from "../common/reloadSpin";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../_path";
 
 export default () => {
 	const { t } = useTranslation();

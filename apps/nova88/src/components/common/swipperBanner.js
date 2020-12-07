@@ -7,7 +7,7 @@ import {
 	popBoxContext
 } from "../../components/common/context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
-import path from "../../path";
+import path from "../../_path";
 import { Link } from "@reach/router";
 import { defPopBoxType } from "../common/popBox";
 

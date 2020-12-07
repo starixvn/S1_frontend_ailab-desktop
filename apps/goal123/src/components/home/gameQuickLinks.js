@@ -4,7 +4,7 @@ import { userInfoContext } from "../common/context";
 import LinkItems from "../common/linkItems";
 
 import productList from "../../datas/productList";
-import path from "../../path";
+import path from "../../_path";
 
 export const defSportsQuickLinks = {
 	soccer: {

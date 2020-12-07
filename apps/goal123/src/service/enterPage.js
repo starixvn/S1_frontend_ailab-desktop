@@ -1,5 +1,5 @@
 import config from "../config";
-import path from "../path";
+import path from "../_path";
 
 export const _ACTION_TYPE = {
 	blank: 1,

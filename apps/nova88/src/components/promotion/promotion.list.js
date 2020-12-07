@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../_path";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
 import { isNew, isClaimed, isExpiry } from "./promotion.common";

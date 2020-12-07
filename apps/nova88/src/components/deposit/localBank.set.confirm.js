@@ -8,7 +8,7 @@ import { Redirect } from "@reach/router";
 import { defActionType } from "./localBank.reducer";
 import { defPopBoxType } from "../common/popBox";
 import config from "../../config";
-import path from "../../path";
+import path from "../../_path";
 
 export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 	const { t } = useTranslation();

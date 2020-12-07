@@ -4,7 +4,7 @@ import { userInfoContext } from "../common/context";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import config from "../../config";
-import path from "../../path";
+import path from "../../_path";
 import { defActionType } from "./cryptoPay.reducer";
 
 export default ({ channelInfo, amount, _isConvert, dispatch }) => {

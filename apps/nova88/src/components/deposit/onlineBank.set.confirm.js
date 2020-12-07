@@ -4,7 +4,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import config from "../../config";
-import path from "../../path";
+import path from "../../_path";
 import { defActionType } from "./onlineBank.reducer";
 
 export default ({ bankInfo = { sysId: 0 }, amount, _isConvert, dispatch }) => {

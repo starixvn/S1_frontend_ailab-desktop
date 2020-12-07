@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../_path";
 import {
 	walletInfoContext,
 	userInfoContext,

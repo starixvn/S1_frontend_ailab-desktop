@@ -1,10 +1,10 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { number_format, getUrlParameter } from "../common/common";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import config from "../../config";
-import path from "../../path";
+import path from "../../_path";
 import { defPopBoxType } from "../common/popBox";
 
 export default ({ bankInfo, amount, _isConvert }) => {

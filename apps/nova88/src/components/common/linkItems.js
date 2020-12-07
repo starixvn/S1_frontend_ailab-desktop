@@ -7,7 +7,7 @@ import {
 import { Link } from "@reach/router";
 import { defPopBoxType } from "./popBox";
 import { popBoxContext } from "./context";
-import path from "../../path";
+import path from "../../_path";
 
 export const getUrl = (preUrl, info) => {
 	return `/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;

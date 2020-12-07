@@ -6,7 +6,7 @@ import moment from "moment";
 import { api_payment_SetWithdrawalCancel } from "../../service/api/payment";
 import { defPopBoxType } from "../common/popBox";
 import ReloadSpin from "../common/reloadSpin";
-import path from "../../path";
+import path from "../../_path";
 import { Link } from "@reach/router";
 import { isConvert } from "../common/common";
 import { defActionType } from "./withdrawal.reducer";

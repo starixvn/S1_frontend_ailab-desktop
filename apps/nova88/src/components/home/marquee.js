@@ -4,7 +4,7 @@ import { api_message_GetAnnouncement } from "../../service/api/message";
 import { userInfoContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
 import { Redirect } from "@reach/router";
-import path from "../../path";
+import path from "../../_path";
 
 export default () => {
 	const { t } = useTranslation();

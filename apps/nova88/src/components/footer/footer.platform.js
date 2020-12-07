@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import path from "../../path";
+import path from "../../_path";
 import productList from "../../datas/productList";
 import { navigate } from "@reach/router";
 import { popBoxContext } from "../common/context";

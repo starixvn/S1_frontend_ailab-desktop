@@ -9,7 +9,7 @@ import { api_payment_GetCryptoPayInfoList } from "../../service/api/payment";
 import { getUrlParameter, isConvert } from "../common/common";
 import { Redirect, Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import path from "../../path";
+import path from "../../_path";
 import { userInfoContext } from "../common/context";
 import DepositWrapper from "./wrapper";
 import AmountPanel from "./cryptoPay.set.amount";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import path from "../../path";
+import path from "../../_path";
 import TandC from "../../service/t_and_c";
 import { siteInfo } from "../../config";
 

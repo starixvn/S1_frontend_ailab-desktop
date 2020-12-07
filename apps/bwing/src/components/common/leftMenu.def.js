@@ -1,4 +1,4 @@
-import path from "../../path";
+import path from "../../_path";
 
 export const defLeftMenu = {
 	Cashier: {
