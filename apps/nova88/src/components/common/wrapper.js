@@ -21,7 +21,7 @@ import { defPopBoxType } from "../common/popBox";
 import useInterval from "../hook/useInterval";
 import { GET_LANG_ID } from "../../service/language";
 import { SiteInfo } from "../../config";
-import path from "../../_path";
+import path from "../../router";
 
 export default ({ children, afterLogin = false }) => {
 	const { t, i18n } = useTranslation();

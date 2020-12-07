@@ -18,7 +18,7 @@ import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
 import StepBar from "../common/stepBar";
 import defStep from "./withdrawal.defStep";
-import path from "../../_path";
+import path from "../../router";
 import { Link } from "@reach/router";
 
 export default () => {

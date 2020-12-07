@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { api_payment_GetMobilePayGroupList } from "../../service/api/payment";
-import path from "../../_path";
+import path from "../../router";
 import { Link } from "gatsby";
 import Loading from "../common/loading";
 import config from "../../config";

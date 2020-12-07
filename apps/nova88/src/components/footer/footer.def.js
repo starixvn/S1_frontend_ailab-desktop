@@ -1,5 +1,5 @@
 import productList from "../../datas/productList";
-import path from "../../_path";
+import path from "../../router";
 
 export const defSportsBetting_Section1 = {
 	soccer: {

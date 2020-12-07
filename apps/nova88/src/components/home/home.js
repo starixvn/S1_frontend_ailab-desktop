@@ -31,7 +31,7 @@ import indexBannerAffiliate from "../../styles/img/indexBannerAffiliate.png";
 import Marquee from "./marquee";
 import productList from "../../datas/productList";
 import { Link } from "@reach/router";
-import path from "../../_path";
+import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
 import config from "../../config";

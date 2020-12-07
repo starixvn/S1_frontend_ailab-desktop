@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import path from "../../_path";
+import path from "../../router";
 
 export default ({ langId, t }) => (
 	<div>

@@ -7,7 +7,7 @@ import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import { api_site_GetTpIds } from "../../service/api/site";
 import { LOGOUT } from "../../service/auth";
-import path from "../../_path";
+import path from "../../router";
 import { defPopBoxType } from "../common/popBox";
 import { useTranslation } from "react-i18next";
 

@@ -7,7 +7,7 @@ import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
 import { defPopBoxType } from "../common/popBox";
 import { Link } from "@reach/router";
-import path from "../../_path";
+import path from "../../router";
 
 const initValue = {
 	username: "",

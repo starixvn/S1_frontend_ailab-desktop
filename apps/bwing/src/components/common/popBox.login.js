@@ -6,7 +6,7 @@ import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
 import { defPopBoxType } from "../common/popBox";
-import path from "../../_path";
+import path from "../../router";
 import { Link, navigate } from "@reach/router";
 
 const initValue = {

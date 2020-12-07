@@ -4,7 +4,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import config from "../../config";
-import path from "../../_path";
+import path from "../../router";
 import { defActionType } from "./mobilePay.reducer";
 
 export default ({ channelInfo, amount, _isConvert, dispatch }) => {

@@ -1,4 +1,4 @@
-import path from "../../_path";
+import path from "../../router";
 
 export const defLeftMenu = {
 	Cashier: {

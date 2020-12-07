@@ -18,7 +18,7 @@ import {
 	userInfoContext
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
-import path from "../../_path";
+import path from "../../router";
 import { Link } from "@reach/router";
 
 export default () => {
