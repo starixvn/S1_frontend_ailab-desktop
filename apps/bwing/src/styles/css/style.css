@@ -1887,8 +1887,8 @@ main > .swiper-container .swiper-slide {
 .list .listHeader div:first-child,
 .list .listBody div:first-child {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 110px;
-          flex: 0 0 110px;
+      -ms-flex: 0 0 95px;
+          flex: 0 0 95px;
 }
 
 .list .listHeader div:last-child,
@@ -3249,17 +3249,15 @@ main > .swiper-container .swiper-slide {
   min-width: 165px;
 }
 
-.slipInfo + .subModuleList .uploadBox {
+.offers {
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 20px;
-}
-
-.slipInfo + .subModuleList .directions {
-  border: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0;
-  margin: 0;
 }
 
 .offers .pagination {
@@ -3299,16 +3297,13 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
-.slipInfo + .subModuleList .upload_img {
-  border: 2px dashed #56ceff;
-  background: #010E33;
-  width: 290px;
-  height: 120px;
+.offers .straightBorder {
+  width: 1px;
+  height: 190px;
+  background: #1d2f62;
 }
 
-.slipInfo + .subModuleList .upload_img .icon {
-  color: #56ceff;
-  font-size: 12px;
+.walletModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5731,5 +5726,72 @@ input + .iconModule i.icon.icon-checkmark:before {
 .guided span.active {
   color: #56ceff;
   opacity: 1;
+}
+
+.essayPage {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding-bottom: 2vw;
+}
+
+.essayPage .title {
+  color: #56ceff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2vw;
+}
+
+.essayPage p {
+  position: relative;
+  color: #fff;
+  margin: 20px 0 10px 0;
+}
+
+.essayPage p::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 10px;
+  border-color: transparent transparent transparent #fff;
+  -webkit-animation: qwe 1s linear infinite;
+          animation: qwe 1s linear infinite;
+}
+
+@-webkit-keyframes qwe {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+
+@keyframes qwe {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+
+.essayPage img {
+  margin: 10px 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.essayPage img:hover {
+  -webkit-box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
+          box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
 }
 /*# sourceMappingURL=style.css.map */
