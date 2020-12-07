@@ -154,7 +154,11 @@ const defPlatform = [
 	"yg",
 	"pp",
 	"sg",
-	"pg"
+	"pg",
+	"ae",
+	"eb",
+	"wm",
+	"s123"
 ];
 
 const Platforms = () => {
