@@ -10,22 +10,22 @@ const defHrefLang = {
 	vn: "vi-vn"
 };
 
+const query = graphql`
+	query {
+		site {
+			siteMetadata {
+				title
+				description
+				author
+				supportedLanguages
+			}
+		}
+	}
+`;
+
 function SEO({ description, lang, meta, title }) {
 	const { href } = useLocation();
-	const { site } = useStaticQuery(
-		graphql`
-			query {
-				site {
-					siteMetadata {
-						title
-						description
-						author
-						supportedLanguages
-					}
-				}
-			}
-		`
-	);
+	const { site } = useStaticQuery(query);
 
 	const metaDescription = description || site.siteMetadata.description;
 
