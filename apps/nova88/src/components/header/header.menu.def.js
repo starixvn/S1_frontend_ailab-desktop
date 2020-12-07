@@ -123,10 +123,10 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.liveCasino_DG,
-				className: "liveDG",
-				icon: "icon icon-DG",
-				displayText: "DG",
+				...productList.liveCasino_SA,
+				className: "liveSA",
+				icon: "icon icon-SA",
+				displayText: "SA",
 				menuType: defMenuType.entPage
 			},
 			{

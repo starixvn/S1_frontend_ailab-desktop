@@ -53,7 +53,7 @@
 	"lbl_SportsBetting": "Taruhan olahraga",
 	"lbl_Tennis": "Tennis",
 	"lbl_TennisBetting": "Taruhan Tenis",
-	"lbl_CockFighting": "Sabung Ayam",
+	"lbl_CockFighting":"Sabung Ayam",
 	"lbl_wm": "WM",
 	"lbl_baccarat": "Baccarat",
 	"lbl_dragon_tiger": "Dragon Tiger",
@@ -198,10 +198,10 @@
 	"lbl_OpenOtherSite": " Buka jendela lain dan ganti halaman",
 	"lbl_PicFormatTip": "Kesalahan format file, harap coba lagi.",
 	"lbl_CreditTime": "Masa kredit",
-	"lbl_ExchangeRate": "Kurs tukar",
-	"lbl_ExchangeRateReferenceOnly": "Tarif ini hanya untuk referensi",
-	"lbl_ExchangeAmount": "Nilai tukar",
-	"lbl_CryptoPay": "Pembayaran Crypto",
+	"lbl_ExchangeRate":"Kurs tukar",
+	"lbl_ExchangeRateReferenceOnly":"Tarif ini hanya untuk referensi",
+	"lbl_ExchangeAmount":"Nilai tukar",
+	"lbl_CryptoPay":"Pembayaran Crypto",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
@@ -374,7 +374,7 @@
 	"lbl_Hours": "Jam",
 	"lbl_5mins": "5 menit",
 
-	"lbl_Download": "Download",
-	"lbl_918KissMobileApp": "918KISS MOBILE APP",
-	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide"
+	"lbl_Download":"Download",
+	"lbl_918KissMobileApp":"918KISS MOBILE APP",
+	"lbl_IOSInstallGuide":"iOS 9+ Installation Guide"
 }
