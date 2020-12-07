@@ -85,10 +85,6 @@ export class Module extends Component {
 		e.preventDefault();
 	};
 	editField = (col, value, e) => {
-		value =
-			value === null
-				? e.target.value.replace(/^(0+)|[^\d]+/g, "")
-				: value;
 		this.setState({ [col]: value === null ? e.target.value : value });
 	};
 
