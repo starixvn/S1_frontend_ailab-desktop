@@ -6,7 +6,7 @@ import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
 import { defPopBoxType } from "../common/popBox";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../router";
 import { setCookie } from "../common/common";
 import { SiteInfo } from "../../config";
 

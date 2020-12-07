@@ -25,17 +25,16 @@ import NpcTennisBG from "../../styles/img/tennisBG.jpg";
 import NpcESport from "../../styles/img/npc-esport.png";
 import NpcESportBG from "../../styles/img/esportBG.jpg";
 
-import indexBannerPromotions from "../../styles/img/indexBannerPromotions.png";
 import IndexBannerCasino from "../../styles/img/indexBannerCasion.png";
 import indexBannerAffiliate from "../../styles/img/indexBannerAffiliate.png";
-import IndexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
 
 import Marquee from "./marquee";
 import productList from "../../datas/productList";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
+import config from "../../config";
 
 import {
 	GET_OPEN_RULE,
@@ -363,7 +362,10 @@ const IndexPage = () => {
 					{...userInfo}
 				/>
 			</section>
-			<img src={IndexCenterBanner} alt="IndexCenterBanner" />
+			<img
+				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
+				alt="IndexCenterBanner"
+			/>
 			<SideBarQuickLink />
 		</main>
 	);

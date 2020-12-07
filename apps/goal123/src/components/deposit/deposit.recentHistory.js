@@ -8,7 +8,7 @@ import {
 	api_payment_SetDepositCancel
 } from "../../service/api/payment";
 import { defPopBoxType } from "../common/popBox";
-import path from "../../path";
+import path from "../../router";
 import { Link } from "@reach/router";
 import Loading from "../common/loading";
 import ReloadSpin from "../common/reloadSpin";

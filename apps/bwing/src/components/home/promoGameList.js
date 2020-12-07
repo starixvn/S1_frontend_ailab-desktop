@@ -3,7 +3,7 @@ import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defPopBoxType } from "../common/popBox";
 import { popBoxContext } from "../common/context";
 import productList from "../../datas/productList";
-import path from "../../path";
+import path from "../../router";
 import { navigate } from "@reach/router";
 
 const defLinkType = {

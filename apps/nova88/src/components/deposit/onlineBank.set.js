@@ -13,7 +13,7 @@ import { navigate } from "@reach/router";
 import { getUrlParameter, isConvert } from "../common/common";
 import { Redirect, Link, useLocation } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import path from "../../path";
+import path from "../../router";
 import { userInfoContext } from "../common/context";
 import DepositWrapper from "./wrapper";
 import BankPanel from "./onlineBank.set.bank";

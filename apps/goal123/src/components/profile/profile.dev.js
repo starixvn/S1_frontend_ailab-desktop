@@ -1,4 +1,4 @@
-import path from "../../path";
+import path from "../../router";
 import { getUrlParameter } from "../common/common";
 
 export const defPrevPage = {

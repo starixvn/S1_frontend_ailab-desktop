@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { api_news_GetNews } from "../../service/api/news";
 import { defPopBoxType } from "../common/popBox";
-import path from "../../path";
+import path from "../../router";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);

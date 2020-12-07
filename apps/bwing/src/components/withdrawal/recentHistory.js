@@ -5,7 +5,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { api_payment_SetWithdrawalCancel } from "../../service/api/payment";
 import { TransactionHistory } from "./historyResult";
 import { defPopBoxType } from "../common/popBox";
-import path from "../../path";
+import path from "../../router";
 import { Link } from "@reach/router";
 import Loading from "../common/loading";
 import ReloadSpin from "../common/reloadSpin";

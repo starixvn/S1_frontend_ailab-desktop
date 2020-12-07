@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 import { TransactionHistory } from "./historyResult";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../router";
 import ReloadSpin from "../common/reloadSpin";
 
 const transferDirection = (direction, displayMainWallet, displaySabaWallet) => {

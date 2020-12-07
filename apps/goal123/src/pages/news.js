@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import path from "../path";
+import path from "../router";
 import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { api_news_GetNews } from "../service/api/news";

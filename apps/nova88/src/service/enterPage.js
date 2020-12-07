@@ -1,5 +1,5 @@
 import config from "../config";
-import path from "../path";
+import path from "../router";
 
 export const _ACTION_TYPE = {
 	blank: 1,

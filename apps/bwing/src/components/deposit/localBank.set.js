@@ -14,7 +14,7 @@ import DepositWrapper from "./wrapper";
 import BankPanel from "./localBank.set.bank";
 import AmountPanel from "./localBank.set.amount";
 import ConfirmPanel from "./localBank.set.confirm";
-import path from "../../path";
+import path from "../../router";
 import {
 	reducer,
 	initState,

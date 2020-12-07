@@ -3,7 +3,7 @@ import moment from "moment";
 import { promoStatus, defPromotionType } from "./promotion.def";
 import { defPopBoxType } from "../common/popBox";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../router";
 import { isConvert, number_format } from "../../components/common/common";
 
 export const isExpiry = ({

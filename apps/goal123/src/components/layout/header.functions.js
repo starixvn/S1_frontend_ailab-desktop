@@ -6,7 +6,7 @@ import {
 	msgCountContext
 } from "../common/context";
 import { useTranslation } from "react-i18next";
-import path from "../../path";
+import path from "../../router";
 import DropdownHeader, { defElemType } from "../common/dropdown.headerLink";
 import { LOGOUT } from "../../service/auth";
 import { defPopBoxType } from "../common/popBox";

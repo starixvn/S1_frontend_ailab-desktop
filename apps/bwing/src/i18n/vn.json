@@ -36,6 +36,10 @@
 	"lbl_HowToWithdraw": "Cách rút tiền",
 	"lbl_HowToPlay": "Cách đặt cược",
 	"lbl_UserGuide": "HƯỚNG DẪN NGƯỜI DÙNG",
+	"lbl_Facebook": "Facebook",
+	"lbl_Twitter": "Twitter",
+	"lbl_YouTube": "YouTube",
+	"lbl_TikTok": "TikTok",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_SiteNews": "Điểm báo Bwing",
@@ -166,7 +170,7 @@
 	"lbl_PromotionsDesc": " Mô tả khuyến mãi",
 	"lbl_UpdatePersonalInfoPromotion": "Vui lòng cập nhật thông tin cá nhân của bạn trước khi tham gia khuyến mãi.",
 	"lbl_GoPromotionPage": "Bạn muốn nhận khuyến mãi?",
-	"lbl_Freebet": "Cược miễn phí",
+	"lbl_FreeBet": "Cược miễn phí",
 	"lbl_Promo": "khuyến mãi ",
 	"lbl_PromoJoinNow": "Tham Gia Ngay",
 	"lbl_Redeposit_Promo": "Nạp lại",
@@ -179,6 +183,7 @@
 	"lbl_Bonus": "KHUYẾN MÃI",
 	"lbl_MaxBonusAmount": "TIỀN KHUYẾN MÃI TỐI ĐA",
 	"lbl_Sign_up_successful": "Tham gia thành công !",
+	"lbl_PromotionRebateAndCashback": "Hoàn trả / Hoàn lại tiền",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_ApiServerError": "Rất tiếc! Đã xảy ra lỗi, vui lòng thử lại.",
@@ -365,7 +370,7 @@
 	"lbl_Please_input_your_real_name_as_in_your_ID": "Lưu ý rằng bạn nên điền đúng tên thật như trong CMND để giao dịch được suôn sẻ. Tên tài khoản phải giống với tên trong hồ sơ của bạn.",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Casino": "CASINO",
+	"lbl_Casino": "QUAY HŨ",
 	"lbl_Favourite": "Ưa chuộng",
 	"lbl_AllGames": "Tất cả trò chơi",
 	"lbl_Feature": "Đặc điểm",

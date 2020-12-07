@@ -1,5 +1,5 @@
 import productList from "../../datas/productList";
-import path from "../../path";
+import path from "../../router";
 
 export const defMenuType = {
 	entPage: "entPage",
@@ -27,6 +27,14 @@ export const defMenuLinks = {
 		displayKey: "lbl_Casino",
 		subMenu: [
 			{
+				className: "JOKER",
+				icon: "icon icon-JOKER",
+				displayText: "JOKER",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.casino_JOKER },
+				...productList.casino_JOKER
+			},
+			{
 				className: "GPI",
 				icon: "icon icon-GPI",
 				displayText: "GPI",
@@ -41,14 +49,6 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { ...productList.casino_YGG },
 				...productList.casino_YGG
-			},
-			{
-				className: "JOKER",
-				icon: "icon icon-JOKER",
-				displayText: "JOKER",
-				menuType: defMenuType.Link,
-				parameter: { ...productList.casino_JOKER },
-				...productList.casino_JOKER
 			},
 			{
 				className: "SG",
@@ -73,6 +73,14 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { ...productList.casino_PG },
 				...productList.casino_PG
+			},
+			{
+				className: "Kiss icon icon-new",
+				icon: "icon icon-kiss",
+				displayText: "918Kiss",
+				menuType: defMenuType.LinkOrBtn,
+				path: path["918kiss"].root,
+				...productList.kiss918
 			},
 			{
 				className: "OW",
@@ -115,17 +123,17 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.liveCasino_SA,
-				className: "liveSA",
-				icon: "icon icon-SA",
-				displayText: "SA",
+				...productList.liveCasino_DG,
+				className: "liveDG",
+				icon: "icon icon-DG",
+				displayText: "DG",
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.liveCasino_AG,
-				className: "liveAG",
-				icon: "icon icon-AG",
-				displayText: "AG",
+				...productList.liveCasino_AE,
+				className: "liveAE",
+				icon: "icon icon-AE",
+				displayText: "AE",
 				menuType: defMenuType.entPage
 			},
 			{
@@ -143,10 +151,10 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.liveCasino_AE,
-				className: "liveAE",
-				icon: "icon icon-AE",
-				displayText: "AE",
+				...productList.liveCasino_AG,
+				className: "liveAG",
+				icon: "icon icon-AG",
+				displayText: "AG",
 				menuType: defMenuType.entPage
 			}
 		]

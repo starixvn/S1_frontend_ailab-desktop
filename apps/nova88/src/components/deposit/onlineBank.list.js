@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import LimitTip from "./limitTip";
 import { isConvert } from "../common/common";
 import { userInfoContext } from "../common/context";
-import path from "../../path";
+import path from "../../router";
 import { useTranslation } from "react-i18next";
 import config from "../../config";
 

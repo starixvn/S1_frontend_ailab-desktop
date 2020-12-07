@@ -5,7 +5,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
 import { Redirect } from "@reach/router";
 import { defPopBoxType } from "../common/popBox";
-import path from "../../path";
+import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();

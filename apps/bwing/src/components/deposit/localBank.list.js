@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import path from "../../path";
+import path from "../../router";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { api_payment_GetBankInfoOffList } from "../../service/api/payment";

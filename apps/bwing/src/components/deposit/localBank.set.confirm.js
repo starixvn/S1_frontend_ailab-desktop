@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Redirect, Link } from "@reach/router";
 import { defPopBoxType } from "../common/popBox";
 import config from "../../config";
-import path from "../../path";
+import path from "../../router";
 import Loading from "../common/loading";
 
 export default ({ bankInfo, amount, _isConvert, dispatch }) => {

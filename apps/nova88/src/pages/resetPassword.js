@@ -10,7 +10,7 @@ import { defPopBoxType } from "../components/common/popBox";
 import InputboxPassword from "../components/common/inputbox.password";
 import { getUrlParameter } from "../components/common/common";
 import { LOGOUT } from "../service/auth";
-import path from "../path";
+import path from "../router";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
 export default () => {

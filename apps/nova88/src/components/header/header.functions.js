@@ -6,7 +6,7 @@ import {
 	msgCountContext
 } from "../common/context";
 import { useTranslation } from "react-i18next";
-import path from "../../path";
+import path from "../../router";
 import DropdownHeader from "../common/dropdown.headerLink";
 import Wallet from "./header.wallet";
 import { defPopBoxType } from "../common/popBox";

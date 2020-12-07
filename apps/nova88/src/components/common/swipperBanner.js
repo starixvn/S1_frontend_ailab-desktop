@@ -7,7 +7,7 @@ import {
 	popBoxContext
 } from "../../components/common/context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
-import path from "../../path";
+import path from "../../router";
 import { Link } from "@reach/router";
 import { defPopBoxType } from "../common/popBox";
 
@@ -39,6 +39,8 @@ export const ClickLink = (
 		if (href === "Promotion/Index") {
 			window.location.href = `/${lang}/${path.promotion.root}`;
 		} else if (href === "Home/Register") {
+		} else if (href === "918kiss") {
+			window.location.href = `/${lang}/${path["918kiss"].root}`;
 		} else {
 			window.open(
 				isOuterLink

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
-import path from "../../path";
+import path from "../../router";
 import { popBoxContext, userInfoContext } from "../common/context";
 
 export default () => {

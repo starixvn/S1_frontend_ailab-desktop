@@ -6,7 +6,7 @@ import { defPromotionType } from "./promotion.def";
 import { popBoxContext } from "../common/context";
 import { checkPromotion } from "./promotion.common";
 import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
-import path from "../../path";
+import path from "../../router";
 
 export default ({ promotionInfo, userInfo, _isExpiry, callBack }) => {
 	const { t } = useTranslation();
