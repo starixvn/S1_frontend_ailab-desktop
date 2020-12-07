@@ -53,7 +53,7 @@
 	"lbl_SportsBetting": "体育投注",
 	"lbl_Tennis": "网球",
 	"lbl_TennisBetting": "网球投注",
-	"lbl_CockFighting": "斗鸡",
+	"lbl_CockFighting":"斗鸡",
 	"lbl_wm": "WM",
 	"lbl_baccarat": "百家乐",
 	"lbl_dragon_tiger": "龙虎",
@@ -146,11 +146,11 @@
 	"msg_EnterOTPCode": "请输入OTP代码。”",
 	"msg_OTP_NotReceiveVerificationCode": "没有收到验证码？",
 	"lbl_Retransmit": "重新发送",
-	"lbl_Affiliate_ID": "代理商 ID/参照号",
-	"lbl_Please_enter_Affiliate_ID": "请填入代理商 ID（可不填），填入后无法更换！",
-	"lbl_VertifyNow": "立即验证",
-	"lbl_VertifyContactConfirm": "验证您的号码以享有优惠？",
-
+	"lbl_Affiliate_ID":"代理商 ID/参照号",
+	"lbl_Please_enter_Affiliate_ID":"请填入代理商 ID（可不填），填入后无法更换！",
+	"lbl_VertifyNow":"立即验证",
+	"lbl_VertifyContactConfirm":"验证您的号码以享有优惠？",
+  
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "每个档案的最大档案大小为4 MB",
 	"BankSlipHint2": "最多档案数量：1",
@@ -198,10 +198,10 @@
 	"lbl_OpenOtherSite": " 另开视窗并重导向",
 	"lbl_PicFormatTip": "档案格式错误，请重试。",
 	"lbl_CreditTime": "所需时间",
-	"lbl_ExchangeRate": "兑换汇率",
-	"lbl_ExchangeRateReferenceOnly": "汇率仅供参考",
-	"lbl_ExchangeAmount": "换算金额",
-	"lbl_CryptoPay": "加密货币",
+	"lbl_ExchangeRate":"兑换汇率",
+	"lbl_ExchangeRateReferenceOnly":"汇率仅供参考",
+	"lbl_ExchangeAmount":"换算金额",
+	"lbl_CryptoPay":"加密货币",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "草稿",
@@ -295,9 +295,9 @@
 	"lbl_PromotionsDesc": "优惠说明",
 	"lbl_PromoJoinNow": "立即加入",
 	"lbl_Redeposit_Promo": "再存",
-	"lbl_ClaimAmountRange": "领取金额范围",
-	"lbl_ClaimAmount": "领取金额",
-	"lbl_PleaseEnterClaimAmount": "请填入您欲用于领取优惠的金额",
+	"lbl_ClaimAmountRange":"领取金额范围",
+    "lbl_ClaimAmount":"领取金额",
+    "lbl_PleaseEnterClaimAmount":"请填入您欲用于领取优惠的金额",
 	"lbl_Expired_Promo": "已过期",
 	"lbl_UpdatePersonalInfoPromotion": "参与优惠前，请更新您的个人信息",
 	"lbl_PromotionCategory1": "首次存款",
@@ -353,7 +353,8 @@
 	"lbl_Cashier": "收银",
 	"lbl_UpdatePersonalDetail": "更新个人资料",
 	"lbl_Details": "详情",
-	"lbl_total": "Total",
+	"lbl_total" :"Total",
+
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -374,7 +375,7 @@
 	"lbl_Hours": "小时",
 	"lbl_5mins": "5分鐘",
 
-	"lbl_Download": "Download",
-	"lbl_918KissMobileApp": "918KISS MOBILE APP",
-	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide"
+	"lbl_Download":"Download",
+	"lbl_918KissMobileApp":"918KISS MOBILE APP",
+	"lbl_IOSInstallGuide":"iOS 9+ Installation Guide"
 }
