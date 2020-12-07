@@ -3249,15 +3249,17 @@ main > .swiper-container .swiper-slide {
   min-width: 165px;
 }
 
-.offers {
-  margin: auto;
+.slipInfo + .subModuleList .uploadBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin-bottom: 20px;
+}
+
+.slipInfo + .subModuleList .directions {
+  border: 0;
   padding: 0;
+  margin: 0;
 }
 
 .offers .pagination {
@@ -3297,13 +3299,16 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
-.offers .straightBorder {
-  width: 1px;
-  height: 190px;
-  background: #1d2f62;
+.slipInfo + .subModuleList .upload_img {
+  border: 2px dashed #56ceff;
+  background: #010E33;
+  width: 290px;
+  height: 120px;
 }
 
-.walletModule {
+.slipInfo + .subModuleList .upload_img .icon {
+  color: #56ceff;
+  font-size: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

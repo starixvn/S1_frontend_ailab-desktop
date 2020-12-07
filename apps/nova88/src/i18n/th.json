@@ -53,7 +53,7 @@
 	"lbl_SportsBetting": "เดิมพันกีฬา",
 	"lbl_Tennis": "เทนนิส",
 	"lbl_TennisBetting": "เดิมพันเทนนิส",
-	"lbl_CockFighting":"ไก่ชน",
+	"lbl_CockFighting": "ไก่ชน",
 	"lbl_wm": "WM",
 	"lbl_baccarat": "Baccarat",
 	"lbl_dragon_tiger": "Dragon Tiger",
@@ -198,10 +198,10 @@
 	"lbl_OpenOtherSite": "เปิดหน้าต่างอื่นแล้วเปลี่ยนเส้นทาง",
 	"lbl_PicFormatTip": "รูปแบบไฟล์ผิดพลาดโปรดลองอีกครั้ง",
 	"lbl_CreditTime": "เวลาที่ต้องใช้",
-	"lbl_ExchangeRate":"อัตราแลกเปลี่ยน",
-	"lbl_ExchangeRateReferenceOnly":"อัตรานี้ใช้สำหรับการอ้างอิงเท่านั้น",
-	"lbl_ExchangeAmount":"จำนวนเงินแลกเปลี่ยน",
-	"lbl_CryptoPay":"ชำระเงินแบบ Crypto",
+	"lbl_ExchangeRate": "อัตราแลกเปลี่ยน",
+	"lbl_ExchangeRateReferenceOnly": "อัตรานี้ใช้สำหรับการอ้างอิงเท่านั้น",
+	"lbl_ExchangeAmount": "จำนวนเงินแลกเปลี่ยน",
+	"lbl_CryptoPay": "ชำระเงินแบบ Crypto",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "ร่าง",
@@ -374,7 +374,7 @@
 	"lbl_Hours": "เวลา",
 	"lbl_5mins": "5 นาที",
 
-	"lbl_Download":"Download",
-	"lbl_918KissMobileApp":"918KISS MOBILE APP",
-	"lbl_IOSInstallGuide":"iOS 9+ Installation Guide"
+	"lbl_Download": "Download",
+	"lbl_918KissMobileApp": "918KISS MOBILE APP",
+	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide"
 }
