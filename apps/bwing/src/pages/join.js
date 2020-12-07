@@ -1,15 +1,14 @@
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";
-//
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation, i18n } from "react-i18next";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	api_site_Register,
-	api_accountStrict_GetCustProfile
-} from "@ailab-desktop/api";
+	api_site_Register
+} from "../service/api/site";
+import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
 import { getUrlParameter, readCookie } from "../components/common/common";
 import { defPopBoxType } from "../components/common/popBox";
 import { userInfoContext, popBoxContext } from "../components/common/context";
@@ -42,7 +41,7 @@ const Content = () => {
 		username: "",
 		password: "",
 		currency: 0,
-		affiliateId: "",
+		affCode: "",
 		termsCheck: false,
 		ageCheck: false
 	};
@@ -51,7 +50,7 @@ const Content = () => {
 		username: { checked: null, msg: "" },
 		password: { checked: null, msg: "" },
 		currency: { checked: null, msg: "" },
-		affiliateId: { checked: null, msg: "" },
+		affCode: { checked: null, msg: "" },
 		checkbox: { checked: null, msg: "" }
 	};
 
@@ -69,6 +68,12 @@ const Content = () => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
 	});
+
+	useEffect(() => {
+		if (userInfo.isLogin) {
+			navigate(`/${userInfo.langId}`);
+		}
+	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
 		api_site_GetSiteCurrencyList().then(
@@ -133,7 +138,7 @@ const Content = () => {
 			msg = t("lbl_UsernameTooltip");
 		} else if (col === "password") {
 			msg = t("lbl_PasswordTooltip");
-		} else if (col === "affiliateId") {
+		} else if (col === "affCode") {
 			msg = t("lbl_Please_enter_Affiliate_ID");
 		}
 
@@ -164,9 +169,6 @@ const Content = () => {
 			[col]: val
 		}));
 	};
-
-	const isUrlAffiliateId =
-		getUrlParameter("affiliateid") || readCookie("affiliateid");
 
 	const checkValue = (col, e) => {
 		let val = e.target.value;
@@ -310,7 +312,7 @@ const Content = () => {
 	};
 
 	const clickCancel = () => {
-		setPopBox({ isOpen: false });
+		navigate(`/${userInfo.langId}`);
 	};
 
 	const checkAll = () => {
@@ -352,6 +354,8 @@ const Content = () => {
 		return checked;
 	};
 
+	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
+
 	const clickSubmit = e => {
 		e.preventDefault();
 		let checked = checkAll();
@@ -367,7 +371,7 @@ const Content = () => {
 			regData["RefId"] = getUrlParameter("RefId") || readCookie("RefId");
 			regData["AffId"] = getUrlParameter("AffId") || readCookie("AffId");
 			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
-			regData["AffiliateId"] = isUrlAffiliateId ?? userValue.affiliateId;
+			regData["AffCode"] = isUrlAffCode ?? userValue.affCode;
 			api_site_Register(regData).then(
 				res => {
 					if (isMountedRef.current) {
@@ -387,7 +391,7 @@ const Content = () => {
 												..._user,
 												...res_custInfo.data.data
 											};
-											navigate(`/${defaultLangId}`);
+											navigate(`/${userInfo.langId}`);
 										} else {
 											setPopBox({
 												isOpen: true,
@@ -503,7 +507,9 @@ const Content = () => {
 		});
 	};
 
-	return (
+	return userInfo.isLogin === true ? (
+		<></>
+	) : (
 		<div className="joinus">
 			<img src={joinBanner} alt="joinBanner" />
 			<div className="joinloginModule">
@@ -567,12 +573,12 @@ const Content = () => {
 						<Inputbox
 							icon="icon-affiliate txt-blue12"
 							placeholder={t("lbl_Affiliate_ID")}
-							value={isUrlAffiliateId ?? userValue.affiliateId}
-							onChange={EditField.bind(null, "affiliateId")}
-							readOnly={isUrlAffiliateId}
-							checked={tip.affiliateId.checked}
-							tip={tip.affiliateId.msg}
-							clickInfo={clickInfo.bind(this, "affiliateId")}
+							value={isUrlAffCode ?? userValue.affCode}
+							onChange={EditField.bind(null, "affCode")}
+							readOnly={isUrlAffCode}
+							checked={tip.affCode.checked}
+							tip={tip.affCode.msg}
+							clickInfo={clickInfo.bind(this, "affCode")}
 						/>
 					</div>
 
@@ -612,15 +618,15 @@ const Content = () => {
 					<div className="btnGroup">
 						<button
 							type="button"
-							className="btn-cancel"
+							className="gray"
 							onClick={clickCancel}>
-							{t("lbl_Cancel")}
+							{t("lbl_Cancel").toUpperCase()}
 						</button>
 						<button
-							className="btn-check"
+							className="orange"
 							type="submit"
 							onClick={clickSubmit}>
-							{t("lbl_Submit")}
+							{t("lbl_JoinNow").toUpperCase()}
 						</button>
 					</div>
 				</div>

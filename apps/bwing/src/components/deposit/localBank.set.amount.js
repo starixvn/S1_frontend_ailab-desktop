@@ -236,22 +236,13 @@ export default ({
 					!userInfo.accountName &&
 					userInfo.accountName !== undefined ? (
 						<>
-							<div className="inputModuleRow">
-								<Inputbox
-									title={t("lbl_RealName")}
-									onChange={onChangeName}
-									value={nameValue}
-									onBlur={checkName}
-									checked={status.accountName.checked}
-									tip={status.accountName.tip}
-								/>
-							</div>
-							{status.accountName.tip === "" ? (
-								<div className="tip active">
-									{t("lbl_RemindForDepositName")}
-								</div>
-							) : null}
-							<br />
+							<Inputbox
+								placeholder={t("lbl_RealName")}
+								onChange={onChangeName}
+								value={nameValue}
+								onBlur={checkName}
+								checked={status.accountName.checked}
+							/>
 						</>
 					) : null}
 
@@ -261,29 +252,37 @@ export default ({
 						</div>
 					)}
 
-					<div className="inputModuleRow">
-						<Inputbox
-							title={t("lbl_Amount")}
-							value={amount}
-							onChange={onChangeAmount}
-							onBlur={ValidAmount.bind(this, amount)}
-							clickInfo={clickInfo.bind(this, "amount")}
-							checked={status.amount.checked}
-							tip={status.amount.tip}
-							_isConvert={_isConvert}
-						/>
-						<div className="btnGroup">
-							<button
-								className={`${
-									status.amount.checked &&
-									status.accountName.checked
-										? "btn-check"
-										: "btn-cancel"
-								}`}
-								onClick={berforeSubmitCheck}>
-								{t("lbl_Submit")}
-							</button>
-						</div>
+					<Inputbox
+						// title={t("lbl_Amount")}
+						placeholder={t("lbl_DepositAmount")}
+						value={amount}
+						onChange={onChangeAmount}
+						onBlur={ValidAmount.bind(this, amount)}
+						clickInfo={clickInfo.bind(this, "amount")}
+						checked={status.amount.checked}
+						// tip={status.amount.tip}
+						_isConvert={_isConvert}
+						onKeyPress={e => {
+							if (e.key === "Enter") {
+								berforeSubmitCheck();
+							}
+						}}
+					/>
+					<div className={`tip${status.tip ? " active" : ""}`}>
+						{status.tip}
+					</div>
+					<div className="btnGroup">
+						<button
+							className={`${
+								status.amount.checked &&
+								(status.accountName ||
+									status.accountName.checked)
+									? "btn-check"
+									: "btn-cancel"
+							}`}
+							onClick={berforeSubmitCheck}>
+							{t("lbl_deposit_submit")}
+						</button>
 					</div>
 				</div>
 			</div>

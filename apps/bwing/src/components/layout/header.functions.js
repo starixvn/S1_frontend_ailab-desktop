@@ -85,8 +85,7 @@ const defSettingLinks = ({ logoutFunc }) => {
 		{
 			displayKey: "lbl_Logout",
 			href: logoutFunc,
-			elemType: defElemType.btn,
-			icon: "icon icon-exit"
+			elemType: defElemType.btn
 		}
 	];
 };
@@ -139,12 +138,12 @@ const AfterLogin = () => {
 				<Link
 					to={`/${userInfo.langId}/${path.transferFunds.root}`}
 					className="blue">
-					{t("lbl_TransferFunds")}
+					{t("lbl_TransferFunds").toUpperCase()}
 				</Link>
 				<Link
 					to={`/${userInfo.langId}/${path.deposit.root}`}
 					className="orange">
-					{t("lbl_Deposit")}
+					{t("lbl_Deposit").toUpperCase()}
 				</Link>
 			</div>
 

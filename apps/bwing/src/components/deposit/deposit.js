@@ -5,7 +5,6 @@ import MobilePayList from "./mobilePay.list";
 
 import { Redirect } from "@reach/router";
 
-
 export default () => {
 	const [redirectPath, setRedirectPath] = useState(null);
 

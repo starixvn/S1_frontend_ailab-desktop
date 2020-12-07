@@ -6,6 +6,7 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Inputbox from "../components/common/inputbox";
 import { defPopBoxType } from "../components/common/popBox";
+import { navigate } from "@reach/router";
 
 export default () => {
 	return (
@@ -37,6 +38,12 @@ const Content = () => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
 	});
+
+	useEffect(() => {
+		if (userInfo.isLogin) {
+			navigate(`/${userInfo.langId}`);
+		}
+	}, [userInfo.isLogin, userInfo.langId]);
 
 	const emailCheck = val => {
 		let _checked = true;
@@ -94,12 +101,13 @@ const Content = () => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ChangePsw,
+								titleIcon: "icon-icon32px_uplock",
 								title: t("lbl_ForgetPsw"),
 								message: t("lbl_ForgetPwdSuccess"),
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-cancel"
+											className="btn-check"
 											onClick={ClickClose}>
 											OK
 										</button>
@@ -149,23 +157,24 @@ const Content = () => {
 		}
 	};
 
-	return (
+	return userInfo?.isLogin === true ? (
+		<></>
+	) : (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_password">
-				<span>{t("lbl_ForgetPassword")}</span>
-				<div>{t("lbl_ForgetPwdHint")}</div>
+			<div className="inside-title icon-icon32px_deposit">
+				{t("lbl_ForgetPassword")}
 			</div>
+			<div className="txt-white">{t("lbl_ForgetPwdHint")}</div>
 			<div className="forgetPassWord">
+				<div>{t("lbl_Email")}</div>
 				<form className="inputModuleRow" onSubmit={clickSubmit}>
 					<Inputbox
 						icon="icon-email txt-blue12"
-						title={t("lbl_Email")}
 						value={userEmail}
 						onChange={editField.bind(this)}
 						onBlur={emailCheck.bind(this, userEmail)}
 						checked={status.checked}
 						clickInfo={clickInfo.bind(this)}
-						tip={status.msg}
 					/>
 					<div className="btnGroup">
 						<button className="btn-check" type="submit">
@@ -173,6 +182,9 @@ const Content = () => {
 						</button>
 					</div>
 				</form>
+				{status.msg ? (
+					<div className="tip active">{status.msg}</div>
+				) : null}
 			</div>
 		</div>
 	);

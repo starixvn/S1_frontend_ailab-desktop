@@ -29,7 +29,9 @@ export default props => {
 				{props.areaCode ? <>{props.areaCode} &nbsp;</> : null}
 				<input
 					type={props.inputType ?? "text"}
-					className={props._isConvert ? "text-right" : ""}
+					className={
+						props._isConvert || props.textRight ? "text-right" : ""
+					}
 					placeholder={props.placeholder}
 					onBlur={props.onBlur}
 					onChange={props.onChange}
@@ -40,6 +42,7 @@ export default props => {
 					}
 					max={props.max ? props.max : null}
 					readOnly={props.readOnly}
+					onKeyPress={props.onKeyPress}
 				/>
 				{props.checked !== undefined ? (
 					<div className="iconModule">
@@ -62,7 +65,7 @@ export default props => {
 					</div>
 				) : null}
 			</div>
-			{props.inputType !== "date" ? (
+			{props.inputType !== "date" && props.tip ? (
 				<div className={`tip${props.tip ? " active" : ""}`}>
 					{props.tip}
 				</div>

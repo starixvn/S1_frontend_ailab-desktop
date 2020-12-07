@@ -58,7 +58,7 @@ export default ({ bankInfoSysList = [] }) => {
 		let _tip = "";
 
 		if (col === "realName") {
-			_tip = t("lbl_BankAccountNameHint");
+			_tip = t("lbl_Please_input_your_real_name_as_in_your_ID");
 		} else if (col === "realName_after") {
 			_tip = t("lbl_ContactCSD");
 		} else {
@@ -198,12 +198,15 @@ export default ({ bankInfoSysList = [] }) => {
 	return (
 		<div className="addBankpop active" onSubmit={ClickSubmit}>
 			<span className="title">{t("lbl_AddNewAccount")}</span>
-			<div>{t("lbl_UpdateBankInfo")}</div>
+			<div className="txt-lightgray">
+				{t("lbl_Please_update_your_bank_account_details")}
+			</div>
+
 			{!userInfo.accountName ? (
 				<Inputbox
 					value={userValue.realName}
 					onChange={editField.bind(this, "realName")}
-					title={t("lbl_RealName")}
+					// title={t("lbl_RealName")}
 					onBlur={checkAll.bind(this, userValue.realName, "realName")}
 					clickInfo={clickInfo.bind(this, "realName")}
 					checked={status.realName.checked}
@@ -213,7 +216,7 @@ export default ({ bankInfoSysList = [] }) => {
 				<>
 					<div className="txt">
 						<div>
-							<span className="txt-blue2">
+							<span className="txt-blue15">
 								{t("lbl_RealName")}
 							</span>
 							<span>{userInfo.accountName}</span>
@@ -227,7 +230,8 @@ export default ({ bankInfoSysList = [] }) => {
 					<div>{status.realName_after.tip}</div>
 				</>
 			)}
-			<div className="inputBox">
+
+			<div className="inputBox-blue">
 				<Dropdown
 					mainkey="bankList"
 					options={bankInfoSysList}
@@ -235,6 +239,7 @@ export default ({ bankInfoSysList = [] }) => {
 					selectedIdx={userValue.bankId}
 					imgUrl={`${config.imgUrl}/common/images/BankLogo/`}
 					className="bankLogo"
+					showDropDownIcon={true}
 				/>
 			</div>
 			<Inputbox
@@ -246,12 +251,13 @@ export default ({ bankInfoSysList = [] }) => {
 				checked={status.accountNo.checked}
 				tip={status.accountNo.tip}
 			/>
+
 			<div className="btnGroup">
 				<button className="btn-cancel" onClick={ClickCancel}>
 					{t("lbl_Cancel")}
 				</button>
 				<button className="btn-check" onClick={ClickSubmit}>
-					{t("lbl_Submit")}
+					{t("lbl_add_bank_submit")}
 				</button>
 			</div>
 		</div>
