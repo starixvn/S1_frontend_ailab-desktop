@@ -101,56 +101,46 @@ export default () => {
 			BonusCode: bonusCode,
 			TpId: tpId,
 			PromoCategoryId: categoryId
-		}).then(
-			({ data: { data, message, errorCode } }) => {
-				if (!isMountedRef.current) return;
+		}).then(({ data: { data, message, errorCode } }) => {
+			if (!isMountedRef.current) return;
 
-				const success = errorCode === 0;
-				if (success) {
-					let idx = initPromoList.findIndex(
-						x =>
-							x.bonusCode === bonusCode &&
-							x.tpId === tpId &&
-							x.categoryId === categoryId
-					);
-					if (idx !== -1) {
-						let newPromoList = [...initPromoList];
-						newPromoList[idx].custRollOver = data.rollover;
-						newPromoList[idx].custTurnOver = data.turnover;
+			const success = errorCode === 0;
+			if (success) {
+				let idx = initPromoList.findIndex(
+					x =>
+						x.bonusCode === bonusCode &&
+						x.tpId === tpId &&
+						x.categoryId === categoryId
+				);
+				if (idx !== -1) {
+					let newPromoList = [...initPromoList];
+					newPromoList[idx].custRollOver = data.rollover;
+					newPromoList[idx].custTurnOver = data.turnover;
 
-						setInitPromoList(newPromoList);
-						onSetPromotionList(newPromoList, filter);
-					}
-				} else {
-					openErrorMessagePopBox(message || "error", errorCode);
+					setInitPromoList(newPromoList);
+					onSetPromotionList(newPromoList, filter);
 				}
-			},
-			err => {
-				if (isMountedRef.current) openErrorMessagePopBox();
+			} else {
+				openErrorMessagePopBox(message || "error", errorCode);
 			}
-		);
+		});
 	};
 
 	const getPromotionListV2 = async () => {
 		await api_promotion_GetPromotionListV2({
 			langId: userInfo.langId
-		}).then(
-			({ data: { data, message, errorCode } }) => {
-				if (!isMountedRef.current) return;
+		}).then(({ data: { data, message, errorCode } }) => {
+			if (!isMountedRef.current) return;
 
-				const success = errorCode === 0;
-				if (success) {
-					let result = data.sort((a, b) => {
-						return a.periodFrom > b.periodFrom ? -1 : 1;
-					});
-					setInitPromoList(result);
-					onSetPromotionList(result, filter);
-				} else openErrorMessagePopBox(message || "error", errorCode);
-			},
-			err => {
-				if (isMountedRef.current) openErrorMessagePopBox();
-			}
-		);
+			const success = errorCode === 0;
+			if (success) {
+				let result = data.sort((a, b) => {
+					return a.periodFrom > b.periodFrom ? -1 : 1;
+				});
+				setInitPromoList(result);
+				onSetPromotionList(result, filter);
+			} else openErrorMessagePopBox(message || "error", errorCode);
+		});
 	};
 
 	useEffect(() => {
@@ -240,7 +230,9 @@ export default () => {
 					getPromotionListV2={getPromotionListV2}
 				/>
 			) : (
-				<div className="nodata">{t("msg_NoData")}</div>
+				<div className="nodata icon icon-nodata2">
+					<div>{t("lbl_NoData")}</div>
+				</div>
 			)}
 		</div>
 	);

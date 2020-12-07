@@ -62,12 +62,25 @@ const defPlatfrom = [
 	},
 	{
 		...productList.liveCasino_eBET
+	},
+	{
+		...productList.liveCasino_MW
+	},
+	{
+		...productList.liveCasino_WM
+	},
+	{
+		...productList.cockFighting
+	},
+	{
+		...productList.kiss918,
+		path: path["918kiss"].root
 	}
 ];
 
 export default ({ langId, isLogin }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	const ClickItem = ({ path, urlParams, tpId, gameId }) => {
+	const ClickItem = ({ path, urlParams, tpId, gameId, needLogin }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -76,7 +89,9 @@ export default ({ langId, isLogin }) => {
 		};
 
 		if (path) {
-			navigate(`/${langId}/${path}${urlParams}`);
+			return needLogin && !isLogin
+				? loginCallback()
+				: navigate(`/${langId}/${path}${urlParams}`);
 		} else {
 			SET_ENTER_PAGE({
 				isLogin,

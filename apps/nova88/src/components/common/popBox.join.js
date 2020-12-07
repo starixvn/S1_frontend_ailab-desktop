@@ -1,22 +1,14 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-// import {
-// 	api_site_ExistsUserName,
-// 	api_site_GetSiteCurrencyList,
-// 	// api_site_Register,
-// 	api_site_Signup,
-// 	api_site_ExistsEmail,
-// 	api_site_ExistsPhoneNo
-// } from "../../service/api/site";
-
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
+	// api_site_Register,
 	api_site_Signup,
 	api_site_ExistsEmail,
-	api_site_ExistsPhoneNo,
-	api_accountStrict_GetCustProfile
-} from "@ailab-desktop/api";
+	api_site_ExistsPhoneNo
+} from "../../service/api/site";
+import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import areaCode from "../../datas/areaCode";
 import { getUrlParameter, readCookie, setCookie } from "./common";
 import { defPopBoxType } from "../common/popBox";
@@ -126,7 +118,7 @@ export default () => {
 			msg = t("lbl_CantChangePreferredCurrency");
 		} else if (col === "phone") {
 			msg = t("lbl_PhoneTooltip");
-		} else if (col === "affiliateId") {
+		} else if (col === "affCode") {
 			msg = t("lbl_Please_enter_Affiliate_ID");
 		}
 		if (tip[col].msg === msg) {
@@ -143,9 +135,6 @@ export default () => {
 			};
 		});
 	};
-
-	const isUrlAffiliateId =
-		getUrlParameter("affiliateid") || readCookie("affiliateid");
 
 	const EditField = (col, e) => {
 		let val = e.target.value;
@@ -393,6 +382,8 @@ export default () => {
 		);
 	};
 
+	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
+
 	const clickSubmit = async e => {
 		e.preventDefault();
 		let checked = await checkAll();
@@ -411,8 +402,7 @@ export default () => {
 			regData["RefId"] = getUrlParameter("RefId") || readCookie("RefId");
 			regData["AffId"] = getUrlParameter("AffId") || readCookie("AffId");
 			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
-			regData["AffiliateId"] = isUrlAffiliateId ?? userValue.affiliateId;
-			regData["blackbox"] = await Iov_GetBlackBox();
+			regData["AffCode"] = isUrlAffCode ?? userValue.affCode;
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
@@ -688,12 +678,12 @@ export default () => {
 							className={`inputBox-org`}
 							icon="icon-affiliate txt-orange"
 							placeholder={t("lbl_Affiliate_ID")}
-							value={isUrlAffiliateId ?? userValue.affiliateId}
-							onChange={EditField.bind(null, "affiliateId")}
-							readOnly={isUrlAffiliateId}
-							checked={tip.affiliateId.checked}
-							tip={tip.affiliateId.msg}
-							clickInfo={clickInfo.bind(this, "affiliateId")}
+							value={isUrlAffCode ?? userValue.affCode}
+							onChange={EditField.bind(null, "affCode")}
+							readOnly={isUrlAffCode}
+							checked={tip.affCode.checked}
+							tip={tip.affCode.msg}
+							clickInfo={clickInfo.bind(this, "affCode")}
 						/>
 					</div>
 

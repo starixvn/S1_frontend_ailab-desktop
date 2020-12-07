@@ -26,9 +26,9 @@
 	"lbl_TermsConditions": "条款及规则",
 	"lbl_RuleRegulations": "投注规则与规定",
 	"lbl_Instagram": "Instagram",
-	"lbl_Facebook": "Facebook_cs",
+	"lbl_Facebook": "脸书",
 	"lbl_Twitter": "Twitter",
-  
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "羽毛球",
 	"lbl_Baseball": "棒球",
@@ -38,6 +38,9 @@
 	"lbl_eSports": "电子竞技",
 	"lbl_eSportsBetting": "电子竞技投注",
 	"lbl_Fishing": "捕鱼",
+	"lbl_FishingGG": "捕鱼天下",
+	"lbl_FishingSG1": "捕鱼天王",
+	"lbl_FishingSG2": "捕鱼大战",
 	"lbl_FootballBetting": "美式足球投注",
 	"lbl_HockeyBetting": "曲棍球投注",
 	"lbl_Keno": "快乐彩",
@@ -50,13 +53,25 @@
 	"lbl_SportsBetting": "体育投注",
 	"lbl_Tennis": "网球",
 	"lbl_TennisBetting": "网球投注",
+	"lbl_CockFighting":"斗鸡",
+	"lbl_wm": "WM",
+	"lbl_baccarat": "百家乐",
+	"lbl_dragon_tiger": "龙虎",
+	"lbl_belangkai": "鱼虾蟹骰宝",
+	"lbl_hulu": "葫芦",
+	"lbl_multihand_blackjack": "21点之富贵临门",
+	"lbl_888_dragon": "发发发龙",
+	"lbl_three_star_fortune": "三星报喜",
+	"lbl_5_fortune_dragons": "五龙吐珠",
+	"lbl_god_of_fortune": "财神到",
+	"lbl_lucky_neko": "招财幸运猫",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "电子游戏",
 	"lbl_AllGames": "所有游戏",
 	"lbl_Favourite": "我的最爱",
 	"lbl_Feature": "特色游戏",
-  
+
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "请输入用户名。",
 	"msg_PasswordReq": "请输入密码。",
@@ -133,6 +148,8 @@
 	"lbl_Retransmit": "重新发送",
 	"lbl_Affiliate_ID":"代理商 ID/参照号",
 	"lbl_Please_enter_Affiliate_ID":"请填入代理商 ID（可不填），填入后无法更换！",
+	"lbl_VertifyNow":"立即验证",
+	"lbl_VertifyContactConfirm":"验证您的号码以享有优惠？",
   
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "每个档案的最大档案大小为4 MB",
@@ -142,6 +159,7 @@
 	"lbl_DepositType1": "网络银行",
 	"lbl_DepositType2": "手机支付",
 	"lbl_DepositType3": "银行卡",
+	"lbl_DepositType4": "加密货币",
 	"lbl_DepositStatus0": "草稿",
 	"lbl_DepositStatus1": "待定",
 	"lbl_DepositStatus2": "已付款",
@@ -180,7 +198,11 @@
 	"lbl_OpenOtherSite": " 另开视窗并重导向",
 	"lbl_PicFormatTip": "档案格式错误，请重试。",
 	"lbl_CreditTime": "所需时间",
-  
+	"lbl_ExchangeRate":"兑换汇率",
+	"lbl_ExchangeRateReferenceOnly":"汇率仅供参考",
+	"lbl_ExchangeAmount":"换算金额",
+	"lbl_CryptoPay":"加密货币",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "草稿",
 	"lbl_WithdrawalStatus1": "搁置",
@@ -219,17 +241,17 @@
 	"lbl_RolloverOver": "您的优惠回馈流水未达最低金额",
 	"lbl_UpdatePersonalInfoWithdrawal": "提款前，请更新您的个人信息。",
 	"lbl_GoWithdrawalPage": "前往提款页面？",
-  
+
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "资金转移",
 	"msg_InsufficientFund": "余额不足！",
 	"lbl_TpWallet_1": "体育钱包",
-	"lbl_MainWallet":"中心钱包",
-	"lbl_Wallet_Saba":"体育钱包",
-	"lbl_Transfer":"转帐",
-	"lbl_RestoreAll":"一键转入",
+	"lbl_MainWallet": "中心钱包",
+	"lbl_Wallet_Saba": "体育钱包",
+	"lbl_Transfer": "转帐",
+	"lbl_RestoreAll": "一键转入",
 	"lbl_TransferHistory": "转账历史记录",
-  
+
 	"statement ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Statement": "账变记录",
 	"lbl_TypeName": "账变类型",
@@ -237,7 +259,7 @@
 	"lbl_AfterAmount": "后期余额",
 	"lbl_RefTransId": "注单编号",
 	"lbl_ChangeAmount": "余额转换",
-  
+
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "需要账户号码",
 	"msg_AccountWrongFormat": "帐号格式错误",
@@ -258,7 +280,7 @@
 	"lbl_BankAccountNameHint": "账号名称请填写真实姓名，完成后将无法修改！",
 	"lbl_EnterAccountNumber": "输入帐号",
 	"lbl_BankCardsFull": "银行卡数量已达限制",
-	"lbl_RollOver": "您的优惠回馈流水未达最低金额",
+	"lbl_RollOver": "最低投注倍数",
 	"lbl_TurnoverAccumulated": "累计流水",
 	"lbl_AddBankAccount": "新增银行帐户",
 	"lbl_TurnoverAccmulateHint": "由于未达要求流水金额故余额无法转出",
@@ -266,26 +288,31 @@
 	"lbl_Direction": "方向",
 	"lbl_Action": "动作",
 	"lbl_QuickPick": "时间快选",
-  
+
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "优惠活动",
 	"lbl_Promotions": "优惠活动",
 	"lbl_PromotionsDesc": "优惠说明",
 	"lbl_PromoJoinNow": "立即加入",
+	"lbl_Redeposit_Promo": "再存",
+	"lbl_ClaimAmountRange":"领取金额范围",
+    "lbl_ClaimAmount":"领取金额",
+    "lbl_PleaseEnterClaimAmount":"请填入您欲用于领取优惠的金额",
 	"lbl_Expired_Promo": "已过期",
 	"lbl_UpdatePersonalInfoPromotion": "参与优惠前，请更新您的个人信息",
 	"lbl_PromotionCategory1": "首次存款",
 	"lbl_GoPromotionPage": "前往参加優惠吗？",
 	"lbl_PromotionSlog": "点击这里查看您现有的优惠",
-	"lbl_PromotionRebateAndCashback": "Rebate / Cashback",
+	"lbl_PromotionRebateAndCashback": "返水 / 现金返还",
 	"lbl_FreeBet": "免费投注",
 	"lbl_MinAmount": "最低额",
 	"lbl_RemainingTime": "剩余时间",
 	"lbl_RequireMinAmountHint_Front": "最低存款金额为",
 	"lbl_RequireMinAmountHint_Back": "立即存款？",
-  
+
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NoData": "无资料",
+	"lbl_NoData": "无信息",
 	"msg_ApiServerError": "API 数据库错误",
 	"lbl_Cancel": "取消",
 	"lbl_Submit": "提交",
@@ -326,14 +353,16 @@
 	"lbl_Cashier": "收银",
 	"lbl_UpdatePersonalDetail": "更新个人资料",
 	"lbl_Details": "详情",
-  
+	"lbl_total" :"Total",
+
+
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
 	"Currency_4": "THB",
 	"Currency_13": "RMB",
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
-  
+
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "今日",
 	"lbl_YesterDay": "昨日",
@@ -344,5 +373,9 @@
 	"lbl_Date": "日期",
 	"lbl_Days": "天",
 	"lbl_Hours": "小时",
-	"lbl_5mins": "5分鐘"
-  }
+	"lbl_5mins": "5分鐘",
+
+	"lbl_Download":"Download",
+	"lbl_918KissMobileApp":"918KISS MOBILE APP",
+	"lbl_IOSInstallGuide":"iOS 9+ Installation Guide"
+}

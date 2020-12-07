@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Suspense, lazy } from "react";
 import { popBoxContext } from "./context";
 import Cancel from "./popBox.cancel";
 import UploadBankSlip from "./popBox.uploadBankSlip";
@@ -22,6 +22,7 @@ import UpdateProfile from "./popBox.updateProfile";
 import TurnoverAccumulated from "./popBox.turnoverAccumulated";
 import RegisterSuccess from "./popBox.registerSuccess";
 import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
+import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
 
 export const defPopBoxType = {
 	Cancel: "Cancel",
@@ -44,7 +45,9 @@ export const defPopBoxType = {
 	UpdateProfile: "UpdateProfile",
 	TurnoverAccumulated: "TurnoverAccumulated",
 	RegisterSuccess: "RegisterSuccess",
-	PromotionDepositConfirm: "PromotionDepositConfirm"
+	PromotionDepositConfirm: "PromotionDepositConfirm",
+	PromotionAmountConfirm: "PromotionAmountConfirm",
+	kiss918: "918kiss"
 };
 
 export default () => {
@@ -192,6 +195,25 @@ export default () => {
 				/>
 			);
 			break;
+
+		case defPopBoxType.PromotionAmountConfirm:
+			content = (
+				<PromotionAmountConfirm
+					langId={popBox.langId}
+					promotionInfo={popBox.promotionInfo}
+					clickClose={popBox.clickClose}
+					setClaimPromotion={popBox.setClaimPromotion}
+				/>
+			);
+			break;
+
+		case defPopBoxType.kiss918:
+			const Kiss918 = lazy(() => import("./popBox.918kiss"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<Kiss918 ClickClose={popBox.ClickClose} />
+				</Suspense>
+			);
 
 		case defPopBoxType.default:
 			break;

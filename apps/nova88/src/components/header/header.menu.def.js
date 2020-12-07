@@ -27,6 +27,14 @@ export const defMenuLinks = {
 		displayKey: "lbl_Casino",
 		subMenu: [
 			{
+				className: "JOKER",
+				icon: "icon icon-JOKER",
+				displayText: "JOKER",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.casino_JOKER },
+				...productList.casino_JOKER
+			},
+			{
 				className: "GPI",
 				icon: "icon icon-GPI",
 				displayText: "GPI",
@@ -41,14 +49,6 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { ...productList.casino_YGG },
 				...productList.casino_YGG
-			},
-			{
-				className: "JOKER",
-				icon: "icon icon-JOKER",
-				displayText: "JOKER",
-				menuType: defMenuType.Link,
-				parameter: { ...productList.casino_JOKER },
-				...productList.casino_JOKER
 			},
 			{
 				className: "SG",
@@ -75,6 +75,14 @@ export const defMenuLinks = {
 				...productList.casino_PG
 			},
 			{
+				className: "Kiss icon icon-new",
+				icon: "icon icon-kiss",
+				displayText: "918Kiss",
+				menuType: defMenuType.LinkOrBtn,
+				path: path["918kiss"].root,
+				...productList.kiss918
+			},
+			{
 				className: "OW",
 				icon: "icon icon-OW",
 				displayText: "OW",
@@ -87,10 +95,17 @@ export const defMenuLinks = {
 		displayKey: "lbl_LiveCasino",
 		subMenu: [
 			{
-				...productList.liveCasino_DG,
-				className: "liveDG",
-				icon: "icon icon-DG",
-				displayText: "DG",
+				...productList.liveCasino_MW,
+				className: "liveMW icon icon-new",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.liveCasino_WM,
+				className: "liveWM icon icon-new",
+				icon: "icon icon-WM",
+				displayText: "WM",
 				menuType: defMenuType.entPage
 			},
 			{
@@ -101,17 +116,10 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.liveCasino_AG,
-				className: "liveAG",
-				icon: "icon icon-AG",
-				displayText: "AG",
-				menuType: defMenuType.entPage
-			},
-			{
-				...productList.liveCasino_PP,
-				className: "livePP",
-				icon: "icon icon-PP",
-				displayText: "PP",
+				...productList.liveCasino_eBET,
+				className: "liveEB",
+				icon: "icon icon-EB",
+				displayText: "eBET",
 				menuType: defMenuType.entPage
 			},
 			{
@@ -129,10 +137,24 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage
 			},
 			{
-				...productList.liveCasino_eBET,
-				className: "liveEB",
-				icon: "icon icon-EB",
-				displayText: "eBET",
+				...productList.liveCasino_PP,
+				className: "livePP",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.liveCasino_DG,
+				className: "liveDG",
+				icon: "icon icon-DG",
+				displayText: "DG",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.liveCasino_AG,
+				className: "liveAG",
+				icon: "icon icon-AG",
+				displayText: "AG",
 				menuType: defMenuType.entPage
 			}
 		]
@@ -174,8 +196,35 @@ export const defMenuLinks = {
 	},
 	fishing: {
 		productInfo: productList.fishing,
-		path: path.sports.root,
-		displayKey: "lbl_Fishing"
+		displayKey: "lbl_Fishing",
+		subMenu: [
+			{
+				...productList.fishing,
+				className: "fgg",
+				displayKey: "lbl_FishingGG",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing }
+			},
+			{
+				...productList.fishing_SG,
+				className: "fsg",
+				displayKey: "lbl_FishingSG1",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_SG }
+			},
+			{
+				...productList.fishing_SGW,
+				className: "fsgw",
+				displayKey: "lbl_FishingSG2",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing_SGW }
+			}
+		]
+	},
+	cockFighting: {
+		productInfo: productList.cockFighting,
+		displayKey: "lbl_CockFighting",
+		className: "COCK icon icon-new"
 	},
 	promotion: {
 		path: path.promotion.root,
@@ -186,5 +235,6 @@ export const defMenuLinks = {
 export const defSubListClassName = {
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
-	lottery: "gameList"
+	lottery: "gameList",
+	fishing: "fishList"
 };

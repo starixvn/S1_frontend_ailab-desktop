@@ -28,7 +28,7 @@
 	"lbl_Instagram": "Instagram",
 	"lbl_Facebook": "Facebook",
 	"lbl_Twitter": "Twitter",
-  
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
 	"lbl_Baseball": "Bola Kasti",
@@ -38,6 +38,9 @@
 	"lbl_eSports": "Esports",
 	"lbl_eSportsBetting": "Taruhan Esports",
 	"lbl_Fishing": "Fishing",
+	"lbl_FishingGG": "Dunia Pancing",
+	"lbl_FishingSG1": "Pancingan Tuhan",
+	"lbl_FishingSG2": "Perang Pancing",
 	"lbl_FootballBetting": "Taruhan Sepak Bola Amerika",
 	"lbl_HockeyBetting": "Taruhan Hockey",
 	"lbl_Keno": "Keno",
@@ -50,13 +53,25 @@
 	"lbl_SportsBetting": "Taruhan olahraga",
 	"lbl_Tennis": "Tennis",
 	"lbl_TennisBetting": "Taruhan Tenis",
-  
+	"lbl_CockFighting":"Sabung Ayam",
+	"lbl_wm": "WM",
+	"lbl_baccarat": "Baccarat",
+	"lbl_dragon_tiger": "Dragon Tiger",
+	"lbl_belangkai": "Belangkai",
+	"lbl_hulu": "Hulu",
+	"lbl_multihand_blackjack": "Multihand Blackjack",
+	"lbl_888_dragon": "888 Dragon",
+	"lbl_three_star_fortune": "Three Star Fortune",
+	"lbl_5_fortune_dragons": "5 Fortune Dragons",
+	"lbl_god_of_fortune": "God of Fortune",
+	"lbl_lucky_neko": "Lucky Neko",
+
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Slots",
 	"lbl_AllGames": "Semua Permainan",
 	"lbl_Favourite": "Kesukaan",
 	"lbl_Feature": "Fitur",
-  
+
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Nama pengguna Wajib diisi.",
 	"msg_PasswordReq": "Kata Sandi wajib diisi",
@@ -131,9 +146,11 @@
 	"msg_EnterOTPCode": "Harap masukkan kode OTP.",
 	"msg_OTP_NotReceiveVerificationCode": "Tidak menerima kode verifikasi?",
 	"lbl_Retransmit": "Kirim ulang",
-	"lbl_Affiliate_ID":"ID Afiliasi / Referral",
-	"lbl_Please_enter_Affiliate_ID":"Harap masukkan ID Afiliasi (Pilihan), Ini tidak bisa diubah setelah dimasukkan!",
-  
+	"lbl_Affiliate_ID": "ID Afiliasi / Referral",
+	"lbl_Please_enter_Affiliate_ID": "Harap masukkan ID Afiliasi (Pilihan), Ini tidak bisa diubah setelah dimasukkan!",
+	"lbl_VertifyNow": "Verifikasi Sekarang",
+	"lbl_VertifyContactConfirm": "Verifikasi nomor kontak Anda untuk menikmati promosi kami?",
+
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Ukuran maksimal setiap file adalah 4 MB",
 	"BankSlipHint2": "Jumlah file maksimal : 1",
@@ -142,6 +159,7 @@
 	"lbl_DepositType1": "Online Banking",
 	"lbl_DepositType2": "Pembayaran Via Mobile",
 	"lbl_DepositType3": "Bank Lokal",
+	"lbl_DepositType4": "Pembayaran Crypto",
 	"lbl_DepositStatus0": "Draft",
 	"lbl_DepositStatus1": "Ditunda",
 	"lbl_DepositStatus2": "Paid",
@@ -180,7 +198,11 @@
 	"lbl_OpenOtherSite": " Buka jendela lain dan ganti halaman",
 	"lbl_PicFormatTip": "Kesalahan format file, harap coba lagi.",
 	"lbl_CreditTime": "Masa kredit",
-	
+	"lbl_ExchangeRate":"Kurs tukar",
+	"lbl_ExchangeRateReferenceOnly":"Tarif ini hanya untuk referensi",
+	"lbl_ExchangeAmount":"Nilai tukar",
+	"lbl_CryptoPay":"Pembayaran Crypto",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
 	"lbl_WithdrawalStatus1": "Sedang diproses",
@@ -219,7 +241,7 @@
 	"lbl_RolloverOver": "Perputaran turnover anda belum mencukupi",
 	"lbl_UpdatePersonalInfoWithdrawal": "Mohon perbarui data Anda sebelum sebelum penarikan.",
 	"lbl_GoWithdrawalPage": "Pergi ke halaman penarikan?",
-  
+
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Dana",
 	"msg_InsufficientFund": "Dana tidak mencukupi!",
@@ -229,7 +251,7 @@
 	"lbl_Transfer": "Dana Masuk",
 	"lbl_RestoreAll": "Transfer Semua",
 	"lbl_TransferHistory": "Riwayat Transfer",
-  
+
 	"statement ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TypeName": "Ketik nama",
 	"lbl_BeforeAmount": "Jumlah terdahulu",
@@ -237,7 +259,7 @@
 	"lbl_RefTransId": "Referensi nomor transaksi",
 	"lbl_ChangeAmount": "Ganti jumlah",
 	"lbl_Statement": "Pernyataan",
-  
+
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Butuh Nomor Rekening",
 	"msg_AccountWrongFormat": "Kesalahan pada nomor akun",
@@ -258,7 +280,7 @@
 	"lbl_BankAccountNameHint": "Silahkan isi nama asli untuk nama akun anda, Bagian ini tidak bisa dirubah jika sudah menekan enter",
 	"lbl_EnterAccountNumber": "Masukan nomor akun",
 	"lbl_BankCardsFull": "Kartu bank telah mencapai batas.",
-	"lbl_RollOver": "Perputaran turnover anda belum mencukupi",
+	"lbl_RollOver": "MINIMAL PERPUTARAN",
 	"lbl_TurnoverAccumulated": "Akumulasi turnover",
 	"lbl_AddBankAccount": "Tambahkan Rekening Bank",
 	"lbl_TurnoverAccmulateHint": "YDana Anda terkunci untuk ditransfer karena persyaratan Rollover belum terpenuhi.",
@@ -266,12 +288,16 @@
 	"lbl_Direction": "arah",
 	"lbl_Action": "Tindakan",
 	"lbl_QuickPick": "Pilihan Cepat",
-  
+
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promosi",
 	"lbl_Promotions": "Promosi",
 	"lbl_PromotionsDesc": "Deskripsi penawaran",
 	"lbl_PromoJoinNow": "Bergabung sekarang",
+	"lbl_Redeposit_Promo": "Deposit ulang",
+	"lbl_ClaimAmountRange": "Jarak Jumlah Klaim",
+	"lbl_ClaimAmount": "Jumlah Klaim",
+	"lbl_PleaseEnterClaimAmount": "Harap masukkan jumlah yang Anda inginkan untuk mengklaim promosi",
 	"lbl_Expired_Promo": "Expired Promo",
 	"lbl_UpdatePersonalInfoPromotion": "Mohon perbarui data Anda sebelum sebelum bergabung dengan promosi.",
 	"lbl_PromotionCategory1": "Member baru",
@@ -283,9 +309,10 @@
 	"lbl_RemainingTime": "SISA WAKTU",
 	"lbl_RequireMinAmountHint_Front": "Jumlah minimal setoran yang diwajibkan adalah minimal Rp",
 	"lbl_RequireMinAmountHint_Back": "Deposit sekarang?",
-  
+
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NoData": "Tidak ada data",
+	"lbl_NoData": "Tidak Ada Informasi Yang Tersedia",
 	"msg_ApiServerError": "API Server Error.",
 	"lbl_Cancel": "Batal",
 	"lbl_Submit": "Ajukan",
@@ -326,14 +353,15 @@
 	"lbl_Cashier": "Kasir",
 	"lbl_UpdatePersonalDetail": "Perbarui data Anda",
 	"lbl_Details": "Rincian",
-  
+	"lbl_total": "Total",
+
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
 	"Currency_4": "THB",
 	"Currency_13": "RMB",
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
-	  
+
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "Hari Ini",
 	"lbl_YesterDay": "Kemarin",
@@ -344,5 +372,9 @@
 	"lbl_Date": "Tanggal",
 	"lbl_Days": "Hari",
 	"lbl_Hours": "Jam",
-	"lbl_5mins": "5 menit"
-  }
+	"lbl_5mins": "5 menit",
+
+	"lbl_Download":"Download",
+	"lbl_918KissMobileApp":"918KISS MOBILE APP",
+	"lbl_IOSInstallGuide":"iOS 9+ Installation Guide"
+}
