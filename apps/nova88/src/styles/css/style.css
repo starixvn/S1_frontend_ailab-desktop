@@ -98,7 +98,7 @@ body, html {
 
 header {
   position: fixed;
-  background: #030c1b;
+  background: black;
   width: 100%;
   height: 85px;
   display: -webkit-box;
@@ -1528,7 +1528,7 @@ footer {
 
 .platform button:nth-child(17) {
   background: url(https://image.n88media.com/SiteSkin/img/logo/awc.png) no-repeat center/100%;
-  width: 119px;
+  width: 75px;
   height: 55px;
   margin-right: 17px;
 }
@@ -1539,7 +1539,7 @@ footer {
 
 .platform button:nth-child(18) {
   background: url(https://image.n88media.com/SiteSkin/img/logo/kiss.png) no-repeat center/100%;
-  width: 119px;
+  width: 90px;
   height: 55px;
   margin-right: 17px;
 }
@@ -2122,7 +2122,6 @@ input[type="file"] {
           justify-content: center;
   min-width: 123px;
   margin: 0 5px;
-  font-weight: bold;
 }
 
 .btnGroup button.orange, .btnGroup button.btn-check, .btnGroup a.orange, .btnGroup a.btn-check {
@@ -3996,9 +3995,9 @@ input[type="file"] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 30px 70px 0;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .walletModule .walletBalanceModule {
@@ -4622,7 +4621,7 @@ input[type="file"] {
   text-align: center;
 }
 
-.nodata {
+.icon-nodata {
   text-align: center;
   padding: 50px 0;
   border-bottom-left-radius: 15px;
@@ -4630,11 +4629,11 @@ input[type="file"] {
   border-top: 0;
 }
 
-.nodata:before {
+.icon-nodata:before {
   font-size: 48px;
 }
 
-.nodata div {
+.icon-nodata div {
   padding: 5px 10px;
   border-radius: 5px;
   width: -webkit-max-content;
@@ -5680,7 +5679,7 @@ iframe {
 }
 
 .expiredClaimedInfo .proData {
-  background-color: #b2b2b2;
+  background-color: #e2e2e2;
   background-image: url(../img/expired.png);
   background-repeat: repeat;
   background-size: 50px;
@@ -6772,13 +6771,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -6845,5 +6838,464 @@ button.icon-spinner11:before {
 .installGuide img {
   max-width: calc(100% / 6);
   margin: 20px 0;
+}
+
+.ranking {
+  max-width: calc(1600px - 60px);
+  padding: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #191919;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  margin: 20px auto;
+}
+
+.ranking.eventRule {
+  background-image: url(../img/eventRuleBg.png);
+}
+
+.ranking.ranksports {
+  background-image: url(../img/rankingSportsBg.png);
+}
+
+.ranking.rankLivecasino {
+  background-image: url(../img/rankingLivecasinoBg.png);
+}
+
+.ranking.rankSlots {
+  background-image: url(../img/rankingSlotsBg.png);
+}
+
+.ranking.rankRecords {
+  background-image: url(../img/rankingRecordsBg.png);
+}
+
+.ranking a {
+  color: #f77900;
+  text-decoration: underline;
+}
+
+.ranking button {
+  text-transform: uppercase;
+}
+
+.ranking > .btnGroup {
+  min-width: 770px;
+  margin: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.ranking > .btnGroup button {
+  border-radius: 15px 15px 0 0;
+  color: #666;
+  white-space: nowrap;
+  background: #b2b2b2;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  margin: 0 5px 0 0;
+}
+
+.ranking > .btnGroup button.active {
+  background: #1E85EC;
+  color: white;
+}
+
+.ranking > .btnGroup button:hover {
+  background: #134DAE;
+  color: white;
+}
+
+.ranking .mwt_border {
+  position: relative;
+  border: solid 3px #f77900;
+  margin-top: 20px;
+  padding: 10px;
+  color: #666;
+  line-height: normal;
+  font-weight: bold;
+}
+
+.ranking .mwt_border .arrow_t_int {
+  width: 0px;
+  height: 0px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent #f77900 transparent;
+  position: absolute;
+  top: -33px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.ranking .mwt_border .arrow_t_out {
+  width: 0px;
+  height: 0px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  position: absolute;
+  top: -29px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.ranking .champion, .ranking .eventRule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 30px;
+  min-width: 770px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border: 3px solid #1E85EC;
+  border-radius: 0 15px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  background-color: white;
+}
+
+.ranking .champion .title, .ranking .eventRule .title {
+  font-size: 48px;
+  text-transform: uppercase;
+}
+
+.ranking .champion .highest, .ranking .eventRule .highest {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.ranking .champion .highest .txt-orange, .ranking .eventRule .highest .txt-orange {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.ranking .champion .highest .rankTag, .ranking .eventRule .highest .rankTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #666;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.ranking .champion .highest .rankTag .btnGroup, .ranking .eventRule .highest .rankTag .btnGroup {
+  margin: 0;
+}
+
+.ranking .champion .highest .rankTag .btnGroup button, .ranking .eventRule .highest .rankTag .btnGroup button {
+  text-transform: uppercase;
+  background: transparent;
+  border-radius: 0;
+  border: 1px solid #f77900;
+  color: #f77900;
+  padding: 5px;
+  min-width: auto;
+  white-space: nowrap;
+  margin-left: 0;
+}
+
+.ranking .champion .highest .rankTag .btnGroup button.active, .ranking .eventRule .highest .rankTag .btnGroup button.active {
+  background: #f77900;
+  color: white;
+}
+
+.ranking .champion .rankModule, .ranking .eventRule .rankModule {
+  -webkit-box-flex: 1.4;
+      -ms-flex: 1.4;
+          flex: 1.4;
+}
+
+.ranking .champion .rankModule .btnGroup button, .ranking .eventRule .rankModule .btnGroup button {
+  border-radius: 0;
+  min-width: auto;
+  padding: 5px 10px;
+}
+
+.ranking .champion .title, .ranking .eventRule .title {
+  color: #f77900;
+  margin-top: 30px;
+}
+
+.ranking .champion .highest .title {
+  text-align: left;
+}
+
+.ranking .champion .highest .title div {
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+.ranking .champion li {
+  min-height: auto;
+}
+
+.ranking .eventRule {
+  background: url(../img/eventRuleInfoBG.jpg) no-repeat center/cover;
+  min-height: 480px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ranking .eventRule .rankList {
+  width: 66.6%;
+}
+
+.ranking .eventRule .rankList li div:first-child img {
+  float: right;
+}
+
+.rankList {
+  overflow-y: auto;
+  max-height: 570px;
+  margin-top: 20px;
+}
+
+.rankList .tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.rankList .tag + ul li:first-child {
+  border-radius: 15px 0 0 0;
+}
+
+.rankList .tag button {
+  color: white;
+  padding: 5px 10px;
+  border: 1px solid #134DAE;
+  border-bottom: 0;
+  border-radius: 15px 15px 0 0;
+  min-width: 100px;
+  margin-right: 1px;
+}
+
+.rankList .tag button.active {
+  background: #134DAE;
+}
+
+.rankList li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #191919;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 30px;
+  border-radius: 15px;
+  background: #d9ecff;
+  margin-bottom: 10px;
+  min-height: 60px;
+}
+
+.rankList li:first-child {
+  background: transparent;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 30px;
+  min-height: auto;
+  margin: 0;
+}
+
+.rankList li:first-child div {
+  font-size: 14px;
+  color: #939393;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rankList li:nth-child(2) {
+  background: #feff85;
+}
+
+.rankList li:nth-child(3) {
+  background: #e5e5e5;
+}
+
+.rankList li:nth-child(4) {
+  background: #fcd3c1;
+}
+
+.rankList li div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 3px 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.rankList li div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rankList li div:first-child img {
+  width: auto;
+  max-height: 40px;
+  display: unset;
+}
+
+.lastUpdate {
+  color: black;
+  font-size: 12px;
+  text-align: center;
+}
+
+nav {
+  padding: 20px 34px 10px;
+}
+
+nav.breadcrumb + .quickSelect {
+  margin-bottom: 20px;
+}
+
+nav.breadcrumb ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: #282828;
+  font-size: 13px;
+}
+
+nav.breadcrumb ul .breadcrumb-item a {
+  color: #1E85EC;
+  text-transform: capitalize;
+}
+
+nav.breadcrumb ul .breadcrumb-item + .breadcrumb-item::before {
+  content: '\e95c';
+  margin: 0 5px;
+}
+
+nav.breadcrumb ul .breadcrumb-item.active a {
+  color: white;
+}
+
+.statement {
+  width: calc(100% - 70px);
+  margin: 0 auto;
+}
+
+.statement > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+}
+
+.statement > div:nth-child(odd) {
+  background: #e8edf3;
+}
+
+.statement > div:first-child {
+  background: #134DAE;
+  border-radius: 10px 10px 0 0;
+}
+
+.statement > div:first-child div {
+  border-color: transparent;
+  color: white;
+  line-height: unset;
+}
+
+.statement > div:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.statement > div div {
+  border-right: 1px solid #b2b2b2;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 5px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: capitalize;
+  line-height: 50px;
+}
+
+.statement > div div:last-child {
+  border: 0;
+}
+
+.statement > div div.btnGroup button, .statement > div div.btnGroup a {
+  font: normal bold 13px/1 "Microsoft YaHei", sans-serif;
+  min-width: auto;
+  max-width: 80px;
+  padding: 8px 5px;
+  margin: 0;
+}
+
+.statement .total {
+  padding: 10px;
+  color: #f77900;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */

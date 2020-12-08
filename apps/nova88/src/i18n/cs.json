@@ -355,7 +355,6 @@
 	"lbl_Details": "详情",
 	"lbl_total" :"Total",
 
-
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
 	"Currency_4": "THB",
@@ -374,7 +373,19 @@
 	"lbl_Days": "天",
 	"lbl_Hours": "小时",
 	"lbl_5mins": "5分鐘",
+	"lbl_last_2_day":"过去2天",
+	"lbl_last_3_day":"过去3天",
 
+	"leaderBoard ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Event":"活动",
+	"lbl_Records":"记录",
+	"lbl_Game_type":"游戏类型",
+	"lbl_Ranking":"排名",
+	"lbl_Points":"积分",
+	"lbl_Last_update_on":"最近更新时间",
+	"lbl_Update_every_30_minutes":"每30分钟更新一次",
+
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download":"Download",
 	"lbl_918KissMobileApp":"918KISS MOBILE APP",
 	"lbl_IOSInstallGuide":"iOS 9+ Installation Guide"
