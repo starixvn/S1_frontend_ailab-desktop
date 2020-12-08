@@ -4,10 +4,10 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
-import LeaderBoardTab from "./leaderBoardTab";
-import GameTypeButtons from "./gameTypeButton";
-import DateButtons from "./dateButton";
-import { defTabId, defDayNum } from "./leaderBoard.def";
+import LeaderBoardTab from "./leaderboardTabs";
+import GameTypeButtons from "./gameTypeButtons";
+import DateButtons from "./dateButtons";
+import { defTabId, defDayNum } from "./leaderboard.def";
 import moment from "moment";
 
 export default () => {
