@@ -71,11 +71,11 @@ const defPlatfrom = [
 	},
 	{
 		...productList.cockFighting
-	},
-	{
-		...productList.kiss918,
-		path: path["918kiss"].root
 	}
+	// {
+	// 	...productList.kiss918,
+	// 	path: path["918kiss"].root
+	// }
 ];
 
 export default ({ langId, isLogin }) => {
