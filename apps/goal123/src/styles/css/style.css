@@ -119,7 +119,7 @@ header .logo {
 }
 
 header .logo img:nth-child(1) {
-  max-width: 130px;
+  max-width: 160px;
   height: auto;
 }
 
@@ -134,6 +134,7 @@ header .header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background: url(../img/header1.png) no-repeat 40%/contain;
 }
 
 header .header > div {
@@ -182,7 +183,7 @@ header .header > div.menu > a, header .header > div.menu > button {
 
 header .header > div.menu > a:hover, header .header > div.menu > a.active, header .header > div.menu > button:hover, header .header > div.menu > button.active {
   cursor: pointer;
-  background: #fab617;
+  background: #d93643;
   -webkit-transform: skewX(-10deg);
           transform: skewX(-10deg);
 }
@@ -797,7 +798,7 @@ header .header > div.function .wallet .submenu div.loginLog {
 }
 
 .gameMenu {
-  background: #284985;
+  background: #d93643;
   padding: 10px 0;
 }
 
@@ -821,7 +822,8 @@ header .header > div.function .wallet .submenu div.loginLog {
       -ms-flex-align: center;
           align-items: center;
   font-size: 12px;
-  background: #1a2e56;
+  background: #ab2631;
+  border: 1px solid #ffffff;
   margin-right: 15px;
   border-radius: 10px;
   padding: 10px 5px;
@@ -848,7 +850,7 @@ header .header > div.function .wallet .submenu div.loginLog {
 
 .gameMenu div .hot:after {
   content: 'HOT !';
-  background: #db2c01;
+  background: #04ad48;
   font-size: 12px;
   border-radius: 5px;
   position: absolute;
@@ -899,7 +901,7 @@ main section > div > div > .title {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #1E85EC;
+  background: #d93643;
 }
 
 main section > div .articleModule {
@@ -2157,6 +2159,29 @@ main > .swiper-container .swiper-slide {
 .list .listBody .btnGroup button {
   border-radius: 5px;
   margin: 2.5px 0;
+}
+
+.statementPage .list .listHeader div,
+.statementPage .list .listBody div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.statementPage .list .total {
+  color: #f77900;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.statementPage .list .total span {
+  font-weight: bold;
+}
+
+.statementPage a.blue {
+  padding: 3px 7px;
 }
 
 .pagination {
@@ -5117,8 +5142,6 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .indexGameList {
-  width: 1016px;
-  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5127,7 +5150,26 @@ input + .iconModule i.icon.icon-checkmark:before {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 20px 0;
+  padding: 20px calc((100% - 1016px) / 2);
+  background: url(../img/gamelistBG.jpg) no-repeat center/cover;
+  position: relative;
+}
+
+.indexGameList::before {
+  content: "";
+  display: block;
+  width: 205px;
+  height: 376px;
+  position: absolute;
+  left: -65px;
+  bottom: -50px;
+  background: url(../img/downdeco.png) no-repeat center/cover;
+}
+
+@media (max-width: 1024px) {
+  .indexGameList::before {
+    background: none;
+  }
 }
 
 .indexGameList a {
@@ -5327,5 +5369,31 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: -moz-max-content;
   width: max-content;
   border-radius: 10px;
+}
+
+.breadcrumb ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% - 100px);
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #030c1b;
+  border-radius: 30px;
+  font-size: 13px;
+}
+
+.breadcrumb ul .breadcrumb-item a {
+  color: #1E85EC;
+  text-transform: capitalize;
+}
+
+.breadcrumb ul .breadcrumb-item + .breadcrumb-item::before {
+  content: '\e95c';
+  margin: 0 5px;
+}
+
+.breadcrumb ul .breadcrumb-item.active a {
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
