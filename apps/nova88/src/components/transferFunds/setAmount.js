@@ -1,44 +1,37 @@
 import React from "react";
 import Inputbox from "../common/inputbox";
+import Dropdown from "../common/dropdown";
+import { useTranslation } from "react-i18next";
 
 export default props => {
+	const { t } = useTranslation();
+
 	return (
 		<div className="subModuleList">
 			<div className="walletTransfer">
 				<div className="walletModule transferModule">
-					<div
-						className={`walletBalanceModule from${
-							props.transferFrom !== "lbl_MainWallet"
-								? " active"
-								: ""
-						}`}>
-						<span>
-							{props.transferFrom === "lbl_MainWallet"
-								? props.i18n("lbl_From")
-								: props.i18n("lbl_To")}
-						</span>
-						<span className="active">
-							{props.i18n("lbl_MainWallet")}
-						</span>
+					<div className="inputBox-org">
+						<Dropdown
+							i18n={t}
+							mainKey={`from_wallet`}
+							options={props.fomOptions}
+							selectedIdx={props.selectedFromIdx}
+							onSelectItem={props.onSelectWallet.bind(
+								this,
+								"from"
+							)}
+							title={t("lbl_From")}
+						/>
 					</div>
-					<button
-						aria-label="changeDirection"
-						className="icon icon-icon32px_Double-arrow"
-						onClick={props.changeDirection}></button>
-					<div
-						className={`walletBalanceModule to${
-							props.transferTo !== "lbl_TpWallet_1"
-								? " active"
-								: ""
-						}`}>
-						<span>
-							{props.transferFrom === "lbl_TpWallet_1"
-								? props.i18n("lbl_From")
-								: props.i18n("lbl_To")}
-						</span>
-						<span className="active">
-							{props.i18n("lbl_TpWallet_1")}
-						</span>
+					<div className="inputBox-blue">
+						<Dropdown
+							i18n={t}
+							mainKey={`to_wallet`}
+							options={props.toOptions}
+							selectedIdx={props.selectedToIdx}
+							onSelectItem={props.onSelectWallet.bind(this, "to")}
+							title={t("lbl_To")}
+						/>
 					</div>
 				</div>
 				<form className="inputModuleRow" onSubmit={props.clickSubmit}>
