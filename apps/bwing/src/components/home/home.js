@@ -12,6 +12,8 @@ import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
 import SideBarQuickLink from "./sideBarQuickLink";
+import { Link } from "gatsby";
+import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -129,16 +131,23 @@ export default () => {
 };
 
 const UserGuide = ({ t, langId }) => {
+	const { userInfo } = useContext(userInfoContext);
 	return (
 		<ul>
 			<li className="icon icon-deposit1">
-				<a href={TandC(langId).Deposit}>{t("lbl_HowToDepoist")}</a>
+				<Link to={`/${userInfo.langId}/${path.howToDeposit.root}`}>
+					{t("lbl_HowToDepoist")}
+				</Link>
 			</li>
 			<li className="icon icon-withdrawal1">
-				<a href={TandC(langId).Withdraw}>{t("lbl_HowToWithdraw")}</a>
+				<Link to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
+					{t("lbl_HowToWithdraw")}
+				</Link>
 			</li>
 			<li className="icon icon-play">
-				<a href={TandC(langId).HowToPlay}>{t("lbl_HowToPlay")}</a>
+				<Link to={`/${userInfo.langId}/${path.howToPlay.root}`}>
+					{t("lbl_HowToPlay")}
+				</Link>
 			</li>
 			<li className="icon icon-FAQS">
 				{<a href={TandC(langId).FAQ}>{t("lbl_FAQ")}</a>}

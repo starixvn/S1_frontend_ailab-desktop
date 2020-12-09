@@ -74,14 +74,14 @@ export const defMenuLinks = {
 				parameter: { ...productList.casino_PG },
 				...productList.casino_PG
 			},
-			{
-				className: "Kiss icon icon-new",
-				icon: "icon icon-kiss",
-				displayText: "918Kiss",
-				menuType: defMenuType.LinkOrBtn,
-				path: path["918kiss"].root,
-				...productList.kiss918
-			},
+			// {
+			// 	className: "Kiss icon icon-new",
+			// 	icon: "icon icon-kiss",
+			// 	displayText: "918Kiss",
+			// 	menuType: defMenuType.LinkOrBtn,
+			// 	path: path["918kiss"].root,
+			// 	...productList.kiss918
+			// },
 			{
 				className: "OW",
 				icon: "icon icon-OW",
