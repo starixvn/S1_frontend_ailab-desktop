@@ -1,8 +1,11 @@
 import React from "react";
-import { defTabList } from "./leaderboard.def";
+import { defTabList, defTabId } from "./leaderboard.def";
 
 export default ({ t, onChangeGameType, categoryID }) => {
-	let rows = defTabList.slice(1, 4).map(item => {
+	let btnOptions = [defTabId.sports, defTabId.liveCasino, defTabId.slots];
+	let gameTypeBtnList = defTabList.filter(tab => btnOptions.includes(tab.id));
+
+	let rows = gameTypeBtnList.map(item => {
 		return (
 			<button
 				key={`leaderboard-gameType-btn-${item.id}`}

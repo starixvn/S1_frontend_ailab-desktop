@@ -382,8 +382,8 @@
 	"lbl_Game_type":"游戏类型",
 	"lbl_Ranking":"排名",
 	"lbl_Points":"积分",
-	"lbl_Last_update_on":"最近更新时间",
-	"lbl_Update_every_30_minutes":"每30分钟更新一次",
+	"lbl_Top":"排名",
+	"lbl_LastUpdTime":"最近更新于 {{time}} (每30分钟更新一次)",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download":"Download",

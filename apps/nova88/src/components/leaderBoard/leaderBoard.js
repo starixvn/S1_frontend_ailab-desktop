@@ -9,6 +9,7 @@ import GameTypeButtons from "./leaderboard.gameTypeBtn";
 import DateButtons from "./leaderboard.dateBtn";
 import { defTabId, defDayNum } from "./leaderboard.def";
 import moment from "moment";
+import { number_format } from "../common/common";
 
 export default () => {
 	const { t } = useTranslation();
@@ -31,17 +32,11 @@ export default () => {
 	}, []);
 
 	const showUpdateTime = () => {
-		let currentTime = moment().format("YYYY/MM/DD hh:mm");
-		let currentMin = moment().format("mm");
-		let _displayMin;
-		if (currentMin < 30) {
-			_displayMin = "00";
-		} else {
-			_displayMin = "30";
-		}
-		let displayTime = currentTime
-			.slice(0, currentTime.length - 2)
-			.concat(_displayMin, ":00");
+		let _time = new Date();
+		let _convertMin = _time.getMinutes() < 30 ? 0 : 30;
+		_time.setMinutes(_convertMin);
+		_time.setSeconds(0);
+		let displayTime = moment(_time).format("YYYY/MM/DD hh:mm:ss");
 		return displayTime;
 	};
 
@@ -121,14 +116,6 @@ export default () => {
 		);
 	};
 
-	const amountFormat = turnoverValue => {
-		let newValue = turnoverValue
-			.toFixed(2)
-			.toString()
-			.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		return newValue;
-	};
-
 	const rankingList = rankingData?.map((item, idx) => {
 		return (
 			<li key={`leaderboard_item_${item.custId}`}>
@@ -139,16 +126,16 @@ export default () => {
 							alt="ranking_top_three"
 						/>
 					) : null}
-					{t("lbl_NO")}
+					{t("lbl_Top")}
 					{idx + 1}
 				</div>
 				<div>{item.userName}</div>
-				<div>{amountFormat(item.wTurnover)}</div>
+				<div>{number_format(item.wTurnover)}</div>
 			</li>
 		);
 	});
 
-	const winnerBonus = t("Currency_2") + amountFormat(10000000);
+	const winnerBonus = t("Currency_2") + number_format(10000000);
 
 	return (
 		<>
@@ -196,8 +183,7 @@ export default () => {
 						</ul>
 					</div>
 					<div className="lastUpdate">
-						{t("lbl_Last_update_on")} {showUpdateTime()} (
-						{t("lbl_Update_every_30_minutes")})
+						{t(`lbl_LastUpdTime`, { time: showUpdateTime() })}
 					</div>
 				</div>
 			</div>

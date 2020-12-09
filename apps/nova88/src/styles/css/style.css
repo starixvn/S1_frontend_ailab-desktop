@@ -194,11 +194,11 @@ header {
   width: 100%;
   left: 0;
   top: 49px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .header > div.menu .subMenu-Wrapper.active {
-  height: 220px;
+  min-height: 220px;
 }
 
 .header > div.menu .subMenu-Wrapper .icon:before {
@@ -209,6 +209,11 @@ header {
   max-width: 1600px;
   margin: auto;
   display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .header > div.menu .gameList.active, .header > div.menu .casinoList.active, .header > div.menu .livecasinoList.active, .header > div.menu .fishList.active {
@@ -225,8 +230,8 @@ header {
 
 .header > div.menu .gameList a, .header > div.menu .gameList button, .header > div.menu .casinoList a, .header > div.menu .casinoList button, .header > div.menu .livecasinoList a, .header > div.menu .livecasinoList button, .header > div.menu .fishList a, .header > div.menu .fishList button {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+      -ms-flex: 1 1 160px;
+          flex: 1 1 160px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -461,10 +466,6 @@ header {
 
 .header > div.menu .livecasinoList .liveEB .icon:before {
   font-size: 16px;
-}
-
-.header > div.menu .fishList {
-  width: 65vw;
 }
 
 .header > div.menu .fishList .fgg {
@@ -7184,6 +7185,13 @@ button.icon-spinner11:before {
   width: auto;
   max-height: 40px;
   display: unset;
+}
+
+.rankList li div:last-child {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
 }
 
 .lastUpdate {
