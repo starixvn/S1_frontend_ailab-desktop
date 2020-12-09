@@ -34,6 +34,16 @@ export default {
 		gameId: 10,
 		name: "fishing"
 	},
+	fishing_SG: {
+		gameId: "F-SF01",
+		tpId: 10,
+		name: "fishing_SG"
+	},
+	fishing_SGW: {
+		gameId: "F-SF02",
+		tpId: 10,
+		name: "fishing_SGW"
+	},
 	cockFighting: {
 		tpId: 17,
 		name: "cockFighting"
