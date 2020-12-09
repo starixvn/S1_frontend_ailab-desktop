@@ -313,7 +313,7 @@
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NoData": "Tidak ada data",
 	"lbl_NoData": "Tidak Ada Informasi Yang Tersedia",
-	"msg_ApiServerError": "API Server Error.",
+	"msg_ApiServerError": "Ups! Ada kesalahan, silakan dicoba kembali.",
 	"lbl_Cancel": "Batal",
 	"lbl_Submit": "Ajukan",
 	"lbl_Guest": "Tamu",

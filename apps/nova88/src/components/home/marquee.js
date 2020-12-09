@@ -70,55 +70,45 @@ class Marquee extends Component {
 	};
 
 	GetAnnouncement = langId => {
-		api_message_GetAnnouncement(langId).then(
-			res => {
-				if (this.isMountedRef) {
-					if (res.data.errorCode === 0) {
-						let resData = res.data.data;
-						let stateData = this.state.datas;
-						let update = false;
+		api_message_GetAnnouncement(langId).then(res => {
+			if (this.isMountedRef) {
+				if (res.data.errorCode === 0) {
+					let resData = res.data.data;
+					let stateData = this.state.datas;
+					let update = false;
 
-						if (resData.length !== 0 && stateData.length !== 0) {
-							for (let d in resData) {
-								let find = stateData.find(
-									x =>
-										x.id === resData[d].id &&
-										x.subject === resData[d].subject &&
-										x.content === resData[d].content
-								);
+					if (resData.length !== 0 && stateData.length !== 0) {
+						for (let d in resData) {
+							let find = stateData.find(
+								x =>
+									x.id === resData[d].id &&
+									x.subject === resData[d].subject &&
+									x.content === resData[d].content
+							);
 
-								if (!find) {
-									update = true;
-									break;
-								}
-							}
-						} else {
-							update = true;
-						}
-
-						if (update) {
-							if (this.intervalId_Pos === undefined) {
-								this.intervalId_Pos = setInterval(
-									this.SetPos,
-									20
-								);
+							if (!find) {
+								update = true;
+								break;
 							}
 						}
-
-						this.setState({
-							datas: res.data.data
-						});
 					} else {
-						alert(res.data.message);
+						update = true;
 					}
-				}
-			},
-			err => {
-				if (this.isMountedRef) {
-					alert(this.props.i18n("msg_ApiServerError"));
+
+					if (update) {
+						if (this.intervalId_Pos === undefined) {
+							this.intervalId_Pos = setInterval(this.SetPos, 20);
+						}
+					}
+
+					this.setState({
+						datas: res.data.data
+					});
+				} else {
+					alert(res.data.message);
 				}
 			}
-		);
+		});
 	};
 
 	MarqueeOnMouseOver = () => {

@@ -31,22 +31,15 @@ export default () => {
 	}, []);
 
 	const GetRecentDatas = () => {
-		api_payment_GetDepositInfoRecent().then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setGetHistory(res.data.data);
-					} else {
-						alert(res.data.message);
-					}
-				}
-			},
-			err => {
-				if (isMountedRef.current) {
-					alert(t("msg_ApiServerError"));
+		api_payment_GetDepositInfoRecent().then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					setGetHistory(res.data.data);
+				} else {
+					alert(res.data.message);
 				}
 			}
-		);
+		});
 	};
 
 	const ClosePopBox = () => {
