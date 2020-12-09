@@ -9,9 +9,8 @@ import LanguageDropDown from "./header.langDropdown";
 import { api_site_GetTpIds } from "../../service/api/site";
 
 // xmas code ↓
+import { eventPeriod } from "../common/common";
 import xmasLogo from "../../styles/img/christmas/logo.png";
-const xmasDay = new Date(2020, 11, 25);
-const afterXmas = new Date() > xmasDay;
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -42,7 +41,7 @@ export default () => {
 					<Link className="logo" to={`/${userInfo.langId}`}>
 						{/*  xmas code in "src={..." ↓  */}
 						<img
-							src={afterXmas ? Logo : xmasLogo}
+							src={eventPeriod() ? xmasLogo : Logo}
 							alt={config.siteName}
 						/>
 					</Link>

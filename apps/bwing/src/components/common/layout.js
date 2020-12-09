@@ -10,8 +10,7 @@ import "../../styles/css/font.css";
 import "../../styles/css/datePicker.css";
 
 //*  xmas code ↓  */
-const xmasDay = new Date(2020, 11, 25);
-const afterXmas = new Date() > xmasDay;
+import { eventPeriod } from "../common/common";
 
 const Layout = ({ children, showFooter = false }) => {
 	return (
@@ -20,7 +19,7 @@ const Layout = ({ children, showFooter = false }) => {
 			<Header />
 
 			{/*  xmas style ↓  */}
-			{afterXmas ? null : (
+			{eventPeriod() ? (
 				<div className="christmas1">
 					<img
 						className="toplight"
@@ -73,7 +72,7 @@ const Layout = ({ children, showFooter = false }) => {
 						alt=""
 					/>
 				</div>
-			)}
+			) : null}
 			{/*  xmas style ↑  */}
 
 			{children}
