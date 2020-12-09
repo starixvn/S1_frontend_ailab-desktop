@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, popBoxContext } from "../common/context";
+import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
-import LeaderBoardTab from "./leaderboardTabs";
-import GameTypeButtons from "./gameTypeButtons";
-import DateButtons from "./dateButtons";
+import LeaderBoardTab from "./leaderboard.tabs";
+import GameTypeButtons from "./leaderboard.gameTypeBtn";
+import DateButtons from "./leaderboard.dateBtn";
 import { defTabId, defDayNum } from "./leaderboard.def";
 import moment from "moment";
 
@@ -15,7 +15,7 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState(null);
-	const [tab, setTab] = useState(1);
+	const [tab, setTab] = useState(defTabId.event);
 	const [categoryID, setCategoryID] = useState(defTabId.sports);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.yesterDay);
 	const TopNum = 10;
@@ -24,10 +24,6 @@ export default () => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
 	});
-
-	const ClickClose = () => {
-		setPopBox({ isOpen: false });
-	};
 
 	useEffect(() => {
 		getLeaderboardData();
@@ -77,6 +73,10 @@ export default () => {
 			BeforeDays: daysValue ?? beforeDays
 		};
 
+		const ClickClose = () => {
+			setPopBox({ isOpen: false });
+		};
+
 		await api_events_GetLeaderboardList(payload).then(
 			res => {
 				if (isMountedRef.current) {
@@ -121,7 +121,7 @@ export default () => {
 		);
 	};
 
-	const formatTurnover = turnoverValue => {
+	const amountFormat = turnoverValue => {
 		let newValue = turnoverValue
 			.toFixed(2)
 			.toString()
@@ -143,10 +143,12 @@ export default () => {
 					{idx + 1}
 				</div>
 				<div>{item.userName}</div>
-				<div>{formatTurnover(item.wTurnover)}</div>
+				<div>{amountFormat(item.wTurnover)}</div>
 			</li>
 		);
 	});
+
+	const winnerBonus = t("Currency_2") + amountFormat(10000000);
 
 	return (
 		<>
@@ -179,7 +181,7 @@ export default () => {
 						<span className="arrow_t_out"></span>
 						{/* <div>HIGHEST WINNING RECORD</div> */}
 						{/* <div>(Last 7 Days) ******kboy</div> */}
-						<div className="txt-orange">MYR 10,000,000.00</div>
+						<div className="txt-orange">{winnerBonus}</div>
 					</div>
 				</div>
 				<div className="rankModule">
