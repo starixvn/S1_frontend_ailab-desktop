@@ -1359,213 +1359,85 @@ footer {
       flex-wrap: wrap;
 }
 
-.platform button:nth-child(1) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/saba.png) no-repeat center/100%;
+.platform button {
+  margin-right: 17px;
+  height: 55px;
+}
+
+.platform .saba {
   width: 104px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(1):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/sabaa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(2) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/ab.png) no-repeat center/100%;
+.platform .ab {
   width: 63px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(2):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/aba.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(3) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/yl.png) no-repeat center/100%;
+.platform .yl {
   width: 34px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(3):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/yla.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(4) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/ag.png) no-repeat center/100%;
+.platform .ag {
   width: 83px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(4):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/aga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(5) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/jk.png) no-repeat center/100%;
+.platform .jk {
   width: 97px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(5):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/jka.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(6) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/gp.png) no-repeat center/100%;
+.platform .gp {
   width: 119px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(6):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/gpa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(7) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/dg.png) no-repeat center/100%;
+.platform .dg {
   width: 53px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(7):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/dga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(8) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/sa.png) no-repeat center/100%;
+.platform .sa {
   width: 87px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(8):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/saa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(9) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/yg.png) no-repeat center/100%;
+.platform .yg {
   width: 114px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(9):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/yga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(10) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/pp.png) no-repeat center/100%;
+.platform .pp {
   width: 100px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(10):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/ppa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(11) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/sg.png) no-repeat center/100%;
+.platform .sg {
   width: 89px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(11):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/sga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(12) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/pg.png) no-repeat center/100%;
+.platform .pg {
   width: 54px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(12):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/pga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(13) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/ae.png) no-repeat center/100%;
+.platform .ae {
   width: 120px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(13):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/aea.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(14) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/eb.png) no-repeat center/100%;
+.platform .eb {
   width: 90px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(14):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/eba.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(15) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/mw.png) no-repeat center/100%;
+.platform .mw {
   width: 55px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(15):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/mwa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(16) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/wm.png) no-repeat center/100%;
+.platform .wm {
   width: 55px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(16):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/wma.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(17) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/awc.png) no-repeat center/100%;
+.platform .awc {
   width: 75px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(17):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/awca.png) no-repeat center/100%;
+.platform .cq9 {
+  width: 75px;
 }
 
-.platform button:nth-child(18) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/kiss.png) no-repeat center/100%;
+.platform .kiss {
   width: 90px;
-  height: 55px;
-  margin-right: 17px;
-}
-
-.platform button:nth-child(18):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/kissa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(19) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/cq9.png) no-repeat center/100%;
-  width: 76px;
-  height: 55px;
-  margin-right: 17px;
-}
-
-.platform button:nth-child(19):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/cq9a.png) no-repeat center/100%;
 }
 
 .copyright {
@@ -3527,11 +3399,12 @@ input[type="file"] {
   margin: 20px 0;
 }
 
-#popup .pop .download .icon-close {
+#popup .pop .icon-close {
   color: white;
   position: absolute;
   right: -10px;
   top: -10px;
+  font-size: 14px;
 }
 
 #popup .pop .title {
@@ -4605,6 +4478,7 @@ input[type="file"] {
   margin: auto;
   margin-top: 10px;
   border-radius: 15px;
+  text-align: center;
 }
 
 .pageSelect {
@@ -6532,10 +6406,31 @@ button.icon-spinner11:before {
   margin-right: 15px;
 }
 
+.transferModule .inputBox-org .dropdown-container, .transferModule .inputBox-blue .dropdown-container {
+  position: absolute;
+  top: 45px;
+  left: -1px;
+  width: calc(100% - 1px);
+  border-radius: 15px;
+  background: #212121;
+  border: 1px solid #f77900;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.transferModule .inputBox-org .dropdown-container .dropdown-item, .transferModule .inputBox-blue .dropdown-container .dropdown-item {
+  margin: 0;
+  padding: 5px 33px 5px 0;
+}
+
+.transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover {
+  background: #f77900;
+  color: white;
+}
+
 .transferModule .inputBox-org .dropdown-item, .transferModule .inputBox-blue .dropdown-item {
   color: white;
   text-align: right;
-  margin-right: 15px;
 }
 
 .transferModule .inputBox-blue span {
@@ -6544,6 +6439,14 @@ button.icon-spinner11:before {
 
 .transferModule .inputBox-blue:focus-within {
   border: 1px solid #1E85EC;
+}
+
+.transferModule .inputBox-blue .dropdown-container {
+  border: 1px solid #1E85EC;
+}
+
+.transferModule .inputBox-blue .dropdown-container .dropdown-item:hover {
+  background: #1E85EC;
 }
 
 .swiper-casino {
@@ -6794,13 +6697,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -7347,5 +7244,66 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: #f77900;
   padding: 0 5px;
   border-radius: 5px;
+}
+
+.ErrorPage {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ErrorPage.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ErrorPage > div {
+  width: calc(50% - 20%);
+  height: 50%;
+  background: url(../img/errorBG.jpg) no-repeat center/cover;
+  position: relative;
+  margin: auto;
+  padding: 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ErrorPage > div .icon-close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+}
+
+.ErrorPage > div .errorInfo .title {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 20px 0 5px;
+  text-transform: uppercase;
+}
+
+.ErrorPage > div .errorInfo .stitle {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1e85ec;
+  margin: 0 0 30px;
+}
+
+.ErrorPage > div .errorInfo a img {
+  width: auto;
 }
 /*# sourceMappingURL=style.css.map */

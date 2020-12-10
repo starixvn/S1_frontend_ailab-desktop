@@ -10,7 +10,7 @@ import {
 	getNewLanguagePath,
 	readCookie
 } from "../common/common";
-import { IS_LOGGED_IN } from "../../service/auth";
+import { api_site_CheckSignIn } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
 	api_account_GetMsgCount,
@@ -52,47 +52,52 @@ export default ({ children, afterLogin = false }) => {
 	});
 
 	useEffect(() => {
-		IS_LOGGED_IN().then(isLogin => {
-			if (userInfo.kickout) {
-				if (userInfo.willLogout) {
-					setUserInfo(prevS => ({
-						...prevS,
-						kickout: false,
-						willLogout: false
-					}));
-				} else {
-					const ClickClose = () => {
-						setPopBox({ isOpen: false });
+		api_site_CheckSignIn()
+			.then(
+				res => res.data.errorCode === 0,
+				err => setCorrectPath(true)
+			)
+			.then(isLogin => {
+				if (userInfo.kickout) {
+					if (userInfo.willLogout) {
 						setUserInfo(prevS => ({
 							...prevS,
-							kickout: false
+							kickout: false,
+							willLogout: false
 						}));
-					};
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.LogoutHint,
-						content: t("msg_ForceLogedout"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					} else {
+						const ClickClose = () => {
+							setPopBox({ isOpen: false });
+							setUserInfo(prevS => ({
+								...prevS,
+								kickout: false
+							}));
+						};
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.LogoutHint,
+							content: t("msg_ForceLogedout"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				} else if (afterLogin && !isLogin && isMountedRef.current) {
+					setRedirectPath(`/${userInfo.langId}`);
 				}
-			} else if (afterLogin && !isLogin && isMountedRef.current) {
-				setRedirectPath(`/${userInfo.langId}`);
-			}
-			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
-				setUserInfo(prevState => ({
-					...prevState,
-					isLogin: isLogin
-				}));
-			}
-		});
+				if (isLogin !== userInfo.isLogin && isMountedRef.current) {
+					setUserInfo(prevState => ({
+						...prevState,
+						isLogin: isLogin
+					}));
+				}
+			});
 	}, [
 		userInfo.isLogin,
 		userInfo.kickout,
@@ -244,34 +249,53 @@ export default ({ children, afterLogin = false }) => {
 	);
 
 	if (redirectPath === null) {
-		if (
-			(correctPath &&
-				((afterLogin === true && userInfo.isLogin) || !afterLogin)) ||
-			(afterLogin && userInfo.isLogin === false && userInfo.kickout)
-		) {
-			return (
-				<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
-					<ct.walletInfoContext.Provider
-						value={{
-							...walletInfo.state,
-							dispatch: walletInfo.dispatch
-						}}>
-						<ct.msgCountContext.Provider
-							value={{ msgCount, setMsgCount }}>
-							<ct.popBoxContext.Provider
-								value={{ popBox, setPopBox }}>
-								<ct.loadingContext.Provider
-									value={{ loading, setLoading }}>
-									{children}
-								</ct.loadingContext.Provider>
-							</ct.popBoxContext.Provider>
-						</ct.msgCountContext.Provider>
-					</ct.walletInfoContext.Provider>
-				</ct.userInfoContext.Provider>
-			);
-		} else {
-			return <></>;
-		}
+		// if (
+		// 	(correctPath && userInfo.isLogin) ||
+		// 	(afterLogin && userInfo.isLogin === false && userInfo.kickout)
+		// ) {
+		// 	return (
+		// 		<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
+		// 			<ct.walletInfoContext.Provider
+		// 				value={{
+		// 					...walletInfo.state,
+		// 					dispatch: walletInfo.dispatch
+		// 				}}>
+		// 				<ct.msgCountContext.Provider
+		// 					value={{ msgCount, setMsgCount }}>
+		// 					<ct.popBoxContext.Provider
+		// 						value={{ popBox, setPopBox }}>
+		// 						<ct.loadingContext.Provider
+		// 							value={{ loading, setLoading }}>
+		// 							{children}
+		// 						</ct.loadingContext.Provider>
+		// 					</ct.popBoxContext.Provider>
+		// 				</ct.msgCountContext.Provider>
+		// 			</ct.walletInfoContext.Provider>
+		// 		</ct.userInfoContext.Provider>
+		// 	);
+		// } else {
+		// 	return <></>;
+		// }
+		return correctPath ? (
+			<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
+				<ct.walletInfoContext.Provider
+					value={{
+						...walletInfo.state,
+						dispatch: walletInfo.dispatch
+					}}>
+					<ct.msgCountContext.Provider
+						value={{ msgCount, setMsgCount }}>
+						<ct.popBoxContext.Provider
+							value={{ popBox, setPopBox }}>
+							<ct.loadingContext.Provider
+								value={{ loading, setLoading }}>
+								{children}
+							</ct.loadingContext.Provider>
+						</ct.popBoxContext.Provider>
+					</ct.msgCountContext.Provider>
+				</ct.walletInfoContext.Provider>
+			</ct.userInfoContext.Provider>
+		) : null;
 	} else {
 		return <Redirect to={redirectPath} noThrow />;
 	}
