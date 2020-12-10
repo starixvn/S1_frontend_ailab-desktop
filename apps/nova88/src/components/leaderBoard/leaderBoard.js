@@ -5,8 +5,7 @@ import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
 import LeaderBoardTab from "./leaderboard.tabs";
-import GameTypeButtons from "./leaderboard.gameTypeBtn";
-import DateButtons from "./leaderboard.dateBtn";
+import ButtonGroups from "./leaderboard.btnGroups";
 import { defTabId, defDayNum } from "./leaderboard.def";
 import moment from "moment";
 import { number_format } from "../common/common";
@@ -20,6 +19,11 @@ export default () => {
 	const [categoryID, setCategoryID] = useState(defTabId.sports);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.yesterDay);
 	const TopNum = 10;
+	const isGameTypeTab =
+		tab === defTabId.sports ||
+		tab === defTabId.liveCasino ||
+		tab === defTabId.slots;
+	const winnerBonus = t("Currency_2") + number_format(10000000);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -42,12 +46,11 @@ export default () => {
 
 	const onChangeTab = tabValue => {
 		setTab(tabValue);
-		if (tabValue === defTabId.sports) {
+		setBeforeDays(defDayNum.yesterDay);
+		if (tabValue === defTabId.event || tabValue === defTabId.records) {
 			onChangeGameType(defTabId.sports);
-		} else if (tabValue === defTabId.liveCasino) {
-			onChangeGameType(defTabId.liveCasino);
-		} else if (tabValue === defTabId.slots) {
-			onChangeGameType(defTabId.slots);
+		} else {
+			onChangeGameType(tabValue);
 		}
 	};
 
@@ -135,41 +138,28 @@ export default () => {
 		);
 	});
 
-	const winnerBonus = t("Currency_2") + number_format(10000000);
-
 	return (
 		<>
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 			<div className="champion">
 				<div className="highest">
-					<div className="rankTag">
-						{tab === defTabId.event || tab === defTabId.records ? (
-							<>
-								<div>{t("lbl_Game_type")}</div>
-								<GameTypeButtons
-									t={t}
-									onChangeGameType={onChangeGameType}
-									categoryID={categoryID}
-									tab={tab}
-								/>
-							</>
-						) : null}
-						<div>{t("lbl_Date")}</div>
-						<DateButtons
+					{tab === defTabId.event || tab === defTabId.records ? (
+						<ButtonGroups
 							t={t}
+							onChangeGameType={onChangeGameType}
+							categoryID={categoryID}
 							onChangeDays={onChangeDays}
 							beforeDays={beforeDays}
-							tab={tab}
 						/>
-					</div>
+					) : null}
 					<img src={championImg} alt="champion" />
-					<div className="mwt_border">
-						<span className="arrow_t_int"></span>
-						<span className="arrow_t_out"></span>
-						{/* <div>HIGHEST WINNING RECORD</div> */}
-						{/* <div>(Last 7 Days) ******kboy</div> */}
-						<div className="txt-orange">{winnerBonus}</div>
-					</div>
+					{isGameTypeTab ? null : (
+						<div className="mwt_border">
+							<span className="arrow_t_int"></span>
+							<span className="arrow_t_out"></span>
+							<div className="txt-orange">{winnerBonus}</div>
+						</div>
+					)}
 				</div>
 				<div className="rankModule">
 					<div className="rankList">
