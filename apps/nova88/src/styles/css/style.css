@@ -328,6 +328,14 @@ header {
   background: url(../img/numberGame_a.png) no-repeat center 0px/auto 100%;
 }
 
+.header > div.menu .casinoList .CQ9 {
+  background: url(../img/casinocq9.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .CQ9:hover {
+  background: url(../img/casinocq9_a.png) no-repeat center 0px/auto 100%;
+}
+
 .header > div.menu .casinoList .Kiss {
   background: url(../img/casinoKiss.png) no-repeat center 10px/auto 100%;
 }
@@ -1547,6 +1555,17 @@ footer {
 
 .platform button:nth-child(18):hover {
   background: url(https://image.n88media.com/SiteSkin/img/logo/kissa.png) no-repeat center/100%;
+}
+
+.platform button:nth-child(19) {
+  background: url(https://image.n88media.com/SiteSkin/img/logo/cq9.png) no-repeat center/100%;
+  width: 76px;
+  height: 55px;
+  margin-right: 17px;
+}
+
+.platform button:nth-child(19):hover {
+  background: url(https://image.n88media.com/SiteSkin/img/logo/cq9a.png) no-repeat center/100%;
 }
 
 .copyright {
@@ -6474,6 +6493,9 @@ button.icon-spinner11:before {
 .transferModule {
   position: relative;
   width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-bottom: 30px;
   margin-top: 10px;
   padding: 0;
@@ -6772,7 +6794,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -7305,5 +7333,19 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-pack: end;
           justify-content: flex-end;
   font-weight: bold;
+}
+
+.live:before {
+  content: "live";
+  position: absolute;
+  top: -5px;
+  right: 0;
+  color: white;
+  font-size: 12px;
+  margin: 0;
+  font-weight: bold;
+  background: #f77900;
+  padding: 0 5px;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=style.css.map */

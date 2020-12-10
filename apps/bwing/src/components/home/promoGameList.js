@@ -6,16 +6,22 @@ import productList from "../../datas/productList";
 import path from "../../router";
 import { navigate } from "@reach/router";
 
+// xmas code ↓
+import { eventPeriod } from "../common/common";
+
 const defLinkType = {
 	default: "default",
 	casino: "casino",
 	sports: "sports"
 };
 
+//*  xmas code in some "img:...." ↓  */
 const defGameList = [
 	{
 		...productList.soccer,
-		img: require("../../styles/img/GameList1.png"),
+		img: eventPeriod()
+			? require("../../styles/img/christmas/GameList1.png")
+			: require("../../styles/img/GameList1.png"),
 		displayKey: "lbl_Soccer",
 		linkType: defLinkType.sports
 	},
@@ -34,7 +40,9 @@ const defGameList = [
 		betType: 1620
 	},
 	{
-		img: require("../../styles/img/GameList4.png"),
+		img: eventPeriod()
+			? require("../../styles/img/christmas/GameList4.png")
+			: require("../../styles/img/GameList4.png"),
 		displayKey: "lbl_Saba1Club3",
 		tpId: 1,
 		gameId: 200,
@@ -48,7 +56,9 @@ const defGameList = [
 		betType: 1614
 	},
 	{
-		img: require("../../styles/img/GameList6.png"),
+		img: eventPeriod()
+			? require("../../styles/img/christmas/GameList6.png")
+			: require("../../styles/img/GameList6.png"),
 		displayKey: "AE Baccarat",
 		tpId: 15,
 		gameId: 15
@@ -59,7 +69,9 @@ const defGameList = [
 		tpId: 4
 	},
 	{
-		img: require("../../styles/img/GameList8.png"),
+		img: eventPeriod()
+			? require("../../styles/img/christmas/GameList8.png")
+			: require("../../styles/img/GameList8.png"),
 		displayKey: "lbl_eSports",
 		tpId: 1,
 		gameId: 43
@@ -72,18 +84,24 @@ const defGameList = [
 	},
 	{
 		...productList.virtualSports,
-		img: require("../../styles/img/GameList10.png"),
+		img: eventPeriod()
+			? require("../../styles/img/christmas/GameList10.png")
+			: require("../../styles/img/GameList10.png"),
 		displayKey: "lbl_VirtualSports",
 		linkType: defLinkType.sports
 	},
 	{
-		img: require("../../styles/img/GameList11.png"),
+		img: eventPeriod()
+			? require("../../styles/img/christmas/GameList11.png")
+			: require("../../styles/img/GameList11.png"),
 		displayKey: "lbl_Keno",
 		tpId: 1,
 		gameId: 202
 	},
 	{
-		img: require("../../styles/img/GameList12.png"),
+		img: eventPeriod()
+			? require("../../styles/img/christmas/GameList12.png")
+			: require("../../styles/img/GameList12.png"),
 		displayKey: "lbl_Lottery",
 		tpId: 1,
 		gameId: 220

@@ -135,6 +135,9 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   z-index: 2;
 }
 
@@ -399,6 +402,14 @@ header .header > div.menu .casinoList .OW {
 
 header .header > div.menu .casinoList .OW:hover {
   background: url(../img/casinoOW_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .CQ9 {
+  background: url(../img/casinoCQ9.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .CQ9:hover {
+  background: url(../img/casinoCQ9_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .livecasinoList .liveWM {
@@ -1030,6 +1041,11 @@ footer > div .platformGroup button {
   width: auto;
   padding: 0 5px;
   max-width: 100px;
+}
+
+footer > div .platformGroup a .icon,
+footer > div .platformGroup button .icon {
+  font-size: 20px;
 }
 
 footer > div .powered {
@@ -1928,6 +1944,7 @@ main > .swiper-container .swiper-slide {
   display: -ms-flexbox;
   display: flex;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 .list .listHeader button,
@@ -3907,9 +3924,9 @@ main > .swiper-container .swiper-slide {
   display: -ms-flexbox;
   display: flex;
   margin-top: 15px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .quickSelect > div {
@@ -3928,8 +3945,7 @@ main > .swiper-container .swiper-slide {
   padding-left: 0;
   margin-right: 10px;
   height: 42px;
-  margin-bottom: 0;
-  margin-top: 30px;
+  margin-bottom: 0px;
 }
 
 .quickSelect > div.btnGroup.promoType {
@@ -5793,5 +5809,229 @@ input + .iconModule i.icon.icon-checkmark:before {
 .essayPage img:hover {
   -webkit-box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
           box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
+}
+
+.christmas1 {
+  width: 100%;
+  position: fixed;
+  top: 120px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.christmas1 .toplight {
+  margin: 0 auto;
+}
+
+.christmas1 .bells {
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 32px);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-animation: tree 2s linear infinite alternate;
+          animation: tree 2s linear infinite alternate;
+}
+
+.christmas1-left {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+}
+
+.christmas1-right {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+}
+
+.christmas1 .tree {
+  width: 140px;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-animation: tree 2s linear infinite alternate;
+          animation: tree 2s linear infinite alternate;
+}
+
+.christmas1 .bomL {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.christmas1 .bomR {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes tree {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes tree {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+[class^="star"] {
+  /*選取所有star*/
+  position: absolute;
+  color: #fff;
+  -webkit-animation: falling 5s infinite;
+          animation: falling 5s infinite;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  font-size: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+}
+
+[class^="star"].star1 {
+  position: absolute;
+  left: 27.37999%;
+  top: -18.63355%;
+  width: 5.76918px;
+  height: 5.76918px;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+[class^="star"].star2 {
+  position: absolute;
+  left: 98.38675%;
+  top: 6.93939%;
+  width: 8.57686px;
+  height: 8.57686px;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+[class^="star"].star3 {
+  position: absolute;
+  left: 34.89571%;
+  top: 27.86158%;
+  width: 10.06229px;
+  height: 10.06229px;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+[class^="star"].star4 {
+  position: absolute;
+  left: 87.42045%;
+  top: -24.43825%;
+  width: 10.44632px;
+  height: 10.44632px;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+
+[class^="star"].star5 {
+  position: absolute;
+  left: 4.65297%;
+  top: 11.6537%;
+  width: 8.12576px;
+  height: 8.12576px;
+  -webkit-animation-delay: -2.5s;
+          animation-delay: -2.5s;
+}
+
+[class^="star"].star6 {
+  position: absolute;
+  left: 2.29014%;
+  top: -14.8993%;
+  width: 6.438px;
+  height: 6.438px;
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+}
+
+[class^="star"].star7 {
+  position: absolute;
+  left: 26.34735%;
+  top: -2.42241%;
+  width: 5.36783px;
+  height: 5.36783px;
+  -webkit-animation-delay: -3.5s;
+          animation-delay: -3.5s;
+}
+
+[class^="star"].star8 {
+  position: absolute;
+  left: 59.74718%;
+  top: -24.35827%;
+  width: 11.79293px;
+  height: 11.79293px;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+@-webkit-keyframes falling {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  70% {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 700px);
+            transform: translate(0, 700px);
+  }
+}
+
+@keyframes falling {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  70% {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 700px);
+            transform: translate(0, 700px);
+  }
 }
 /*# sourceMappingURL=style.css.map */

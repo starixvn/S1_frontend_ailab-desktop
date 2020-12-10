@@ -70,6 +70,14 @@ export const defMenuLinks = {
 		displayKey: "lbl_Slots",
 		subMenu: [
 			{
+				...defCasinoProviders.CQ9,
+				className: "CQ9",
+				icon: "icon icon-cq9",
+				displayText: "CQ9",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.CQ9.name }
+			},
+			{
 				...defCasinoProviders.GPI,
 				className: "GPI",
 				icon: "icon icon-GPI",

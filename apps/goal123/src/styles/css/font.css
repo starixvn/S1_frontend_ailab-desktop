@@ -33,6 +33,10 @@
   font-size: 18px !important;
 }
 
+.casinoList .icon-cq9:before {
+  font-size: 12px !important;
+}
+
 .livecasinoList .icon-DG:before {
   font-size: 22px !important;
 }
@@ -935,5 +939,9 @@
 
 .icon-moon:before {
   content: "\e91d";
+}
+
+.icon-cq9:before {
+  content: "\e9b5";
 }
 /*# sourceMappingURL=font.css.map */

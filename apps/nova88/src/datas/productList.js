@@ -93,6 +93,9 @@ export default {
 		tpId: 1,
 		gameId: 208
 	},
+	casino_CQ9: {
+		tpId: 16
+	},
 	liveCasino_DG: {
 		gameId: 4,
 		tpId: 4
