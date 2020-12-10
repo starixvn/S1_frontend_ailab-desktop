@@ -305,6 +305,17 @@ header .header > div.menu .gameList .lottery:hover {
 
 header .header > div.menu .casinoList .CQ9 {
   background: url(../img/casinoCQ9.png) no-repeat center 10px/auto 100%;
+  position: relative;
+}
+
+header .header > div.menu .casinoList .CQ9:before {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  font-family: 'icomoon';
+  content: "\e9b2";
+  display: block;
+  color: #f77900;
 }
 
 header .header > div.menu .casinoList .CQ9:hover {
@@ -4191,9 +4202,9 @@ main > .swiper-container .swiper-slide {
   padding: 0 40px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   line-height: 20px;
 }
 
@@ -4466,7 +4477,7 @@ form {
       -ms-flex: 0 0 calc(100% / 5 - 45px);
           flex: 0 0 calc(100% / 5 - 45px);
   padding: 15px;
-  margin: 10px 0;
+  margin: 10px 15px 10px 0;
 }
 
 .slotList > div .txt-darkBlue, .newsList > div .txt-darkBlue {

@@ -405,11 +405,25 @@ header .header > div.menu .casinoList .OW:hover {
 }
 
 header .header > div.menu .casinoList .CQ9 {
+  position: relative;
   background: url(../img/casinoCQ9.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .casinoList .CQ9:hover {
   background: url(../img/casinoCQ9_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .CQ9::before {
+  content: "\e9e4";
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  color: #ff6732;
+  font-size: 20px;
+}
+
+header .header > div.menu .casinoList .CQ9 .icon-cq9:before {
+  font-size: 16px;
 }
 
 header .header > div.menu .livecasinoList .liveWM {
@@ -5913,80 +5927,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 27.37999%;
-  top: -18.63355%;
-  width: 5.76918px;
-  height: 5.76918px;
+  left: 44.65321%;
+  top: 28.50179%;
+  width: 8.19242px;
+  height: 8.19242px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 98.38675%;
-  top: 6.93939%;
-  width: 8.57686px;
-  height: 8.57686px;
+  left: 60.00836%;
+  top: -23.94019%;
+  width: 13.01047px;
+  height: 13.01047px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 34.89571%;
-  top: 27.86158%;
-  width: 10.06229px;
-  height: 10.06229px;
+  left: 83.71979%;
+  top: -51.71822%;
+  width: 7.46597px;
+  height: 7.46597px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 87.42045%;
-  top: -24.43825%;
-  width: 10.44632px;
-  height: 10.44632px;
+  left: 7.56362%;
+  top: -50.81484%;
+  width: 6.53338px;
+  height: 6.53338px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 4.65297%;
-  top: 11.6537%;
-  width: 8.12576px;
-  height: 8.12576px;
+  left: 60.5145%;
+  top: 34.31199%;
+  width: 11.23159px;
+  height: 11.23159px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 2.29014%;
-  top: -14.8993%;
-  width: 6.438px;
-  height: 6.438px;
+  left: 2.78427%;
+  top: -9.81142%;
+  width: 12.07362px;
+  height: 12.07362px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 26.34735%;
-  top: -2.42241%;
-  width: 5.36783px;
-  height: 5.36783px;
+  left: 52.24696%;
+  top: 6.2001%;
+  width: 14.7693px;
+  height: 14.7693px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 59.74718%;
-  top: -24.35827%;
-  width: 11.79293px;
-  height: 11.79293px;
+  left: 50.47427%;
+  top: -42.47877%;
+  width: 5.10708px;
+  height: 5.10708px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
