@@ -21,6 +21,7 @@ export default props => {
 								"from"
 							)}
 							title={t("lbl_From")}
+							isHideSelfItem={true}
 						/>
 					</div>
 					<div className="inputBox-blue">
@@ -31,6 +32,7 @@ export default props => {
 							selectedIdx={props.selectedToIdx}
 							onSelectItem={props.onSelectWallet.bind(this, "to")}
 							title={t("lbl_To")}
+							isHideSelfItem={true}
 						/>
 					</div>
 				</div>

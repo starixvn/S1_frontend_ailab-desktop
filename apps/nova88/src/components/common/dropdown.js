@@ -54,6 +54,24 @@ export class Dropdown extends Component {
 			);
 		});
 
+		let filterSelfData = this.props.options?.filter(
+			item => item !== this.props.options[this.props.selectedIdx]
+		);
+
+		let filterSelfArr = filterSelfData.map((item, i) => {
+			return (
+				<Item
+					key={`${this.props.mainKey}_${item.id}`}
+					displayKey={item.displayKey}
+					i18n={this.props.i18n}
+					onClick={this.selectItem.bind(null, i)}
+					displayText={item.displayText}
+					imgUrl={this.props.imgUrl + item.image}
+					className={this.props.className}
+				/>
+			);
+		});
+
 		let selected = null;
 		if (
 			this.props.options?.length > 0 &&
@@ -89,12 +107,15 @@ export class Dropdown extends Component {
 				<button className="btn">
 					{this.props.defaultOption ?? selected}
 				</button>
-				<div
-					className={`dropdown-container${
-						this.state.isOpen ? " active" : ""
-					}`}>
-					{arr}
-				</div>
+				{this.props.isHideSelfItem &&
+				filterSelfArr.length < 1 ? null : (
+					<div
+						className={`dropdown-container${
+							this.state.isOpen ? " active" : ""
+						}`}>
+						{this.props.isHideSelfItem ? filterSelfArr : arr}
+					</div>
+				)}
 			</div>
 		);
 	}
