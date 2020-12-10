@@ -73,6 +73,11 @@ const defPlatfrom = [
 		...productList.cockFighting
 	}
 	// {
+	// 	...productList.casino_CQ9,
+	// 	path: path.casino.root,
+	// 	parameter: { ...productList.casino_CQ9 }
+	// }
+	// {
 	// 	...productList.kiss918,
 	// 	path: path["918kiss"].root
 	// }

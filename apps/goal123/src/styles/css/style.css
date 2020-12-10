@@ -303,6 +303,14 @@ header .header > div.menu .gameList .lottery:hover {
   background: url(../img/lottery_a.png) no-repeat center 0px/auto 100%;
 }
 
+header .header > div.menu .casinoList .CQ9 {
+  background: url(../img/casinoCQ9.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .casinoList .CQ9:hover {
+  background: url(../img/casinoCQ9_a.png) no-repeat center 0px/auto 100%;
+}
+
 header .header > div.menu .casinoList .GPI {
   background: url(../img/casinoGPI.png) no-repeat center 10px/auto 100%;
 }
@@ -823,7 +831,7 @@ header .header > div.function .wallet .submenu div.loginLog {
           align-items: center;
   font-size: 12px;
   background: #ab2631;
-  border: 1px solid #ffffff;
+  border: 1px solid #fff;
   margin-right: 15px;
   border-radius: 10px;
   padding: 10px 5px;
@@ -5142,6 +5150,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .indexGameList {
+  width: 1016px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5150,8 +5159,8 @@ input + .iconModule i.icon.icon-checkmark:before {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 20px calc((100% - 1016px) / 2);
-  background: url(../img/gamelistBG.jpg) no-repeat center/cover;
+  padding: 20px calc(50% - 508px);
+  background: url(../img/gamelistBG.jpg) no-repeat 50%/cover;
   position: relative;
 }
 
@@ -5163,12 +5172,12 @@ input + .iconModule i.icon.icon-checkmark:before {
   position: absolute;
   left: -65px;
   bottom: -50px;
-  background: url(../img/downdeco.png) no-repeat center/cover;
+  background: url(../img/downdeco.png) no-repeat 50%/cover;
 }
 
 @media (max-width: 1024px) {
   .indexGameList::before {
-    background: none;
+    display: none;
   }
 }
 

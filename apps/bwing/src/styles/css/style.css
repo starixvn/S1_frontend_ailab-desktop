@@ -404,6 +404,14 @@ header .header > div.menu .casinoList .OW:hover {
   background: url(../img/casinoOW_a.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .casinoList .CQ9 {
+  background: url(../img/casinoCQ9.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .CQ9:hover {
+  background: url(../img/casinoCQ9_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .livecasinoList .liveWM {
   background: url(../img/liveWM.png) no-repeat center/auto 100%;
 }
@@ -1033,6 +1041,11 @@ footer > div .platformGroup button {
   width: auto;
   padding: 0 5px;
   max-width: 100px;
+}
+
+footer > div .platformGroup a .icon,
+footer > div .platformGroup button .icon {
+  font-size: 20px;
 }
 
 footer > div .powered {
@@ -5803,6 +5816,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   position: fixed;
   top: 120px;
   z-index: 10;
+  pointer-events: none;
 }
 
 .christmas1 .toplight {
@@ -5899,80 +5913,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 63.54402%;
-  top: 25.44203%;
-  width: 7.9646px;
-  height: 7.9646px;
+  left: 27.37999%;
+  top: -18.63355%;
+  width: 5.76918px;
+  height: 5.76918px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 18.04642%;
-  top: -22.59024%;
-  width: 9.29844px;
-  height: 9.29844px;
+  left: 98.38675%;
+  top: 6.93939%;
+  width: 8.57686px;
+  height: 8.57686px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 46.69681%;
-  top: 13.32883%;
-  width: 12.63862px;
-  height: 12.63862px;
+  left: 34.89571%;
+  top: 27.86158%;
+  width: 10.06229px;
+  height: 10.06229px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 95.51864%;
-  top: -31.91351%;
-  width: 8.93891px;
-  height: 8.93891px;
+  left: 87.42045%;
+  top: -24.43825%;
+  width: 10.44632px;
+  height: 10.44632px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 38.34692%;
-  top: -31.89581%;
-  width: 5.35481px;
-  height: 5.35481px;
+  left: 4.65297%;
+  top: 11.6537%;
+  width: 8.12576px;
+  height: 8.12576px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 91.40294%;
-  top: -0.11591%;
-  width: 12.63468px;
-  height: 12.63468px;
+  left: 2.29014%;
+  top: -14.8993%;
+  width: 6.438px;
+  height: 6.438px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 72.75883%;
-  top: -43.35692%;
-  width: 14.19473px;
-  height: 14.19473px;
+  left: 26.34735%;
+  top: -2.42241%;
+  width: 5.36783px;
+  height: 5.36783px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 60.61324%;
-  top: -37.35685%;
-  width: 10.52448px;
-  height: 10.52448px;
+  left: 59.74718%;
+  top: -24.35827%;
+  width: 11.79293px;
+  height: 11.79293px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
