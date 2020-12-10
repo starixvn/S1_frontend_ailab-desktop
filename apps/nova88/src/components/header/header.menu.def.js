@@ -36,7 +36,7 @@ export const defMenuLinks = {
 			},
 			{
 				className: "CQ9",
-				icon: "icon icon-cq9 icon-new",
+				icon: "icon icon-cq9",
 				displayText: "CQ9",
 				menuType: defMenuType.Link,
 				parameter: { ...productList.casino_CQ9 },
