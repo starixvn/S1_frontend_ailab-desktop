@@ -3,7 +3,6 @@ import {
 	api_account_UserLogout
 } from "../service/api/account";
 import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
-import { api_site_CheckSignIn } from "../service/api/site";
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -78,10 +77,6 @@ export const LOGIN = async ({ userName, password }) => {
 	}
 
 	return result;
-};
-
-export const IS_LOGGED_IN = async () => {
-	return await api_site_CheckSignIn().then(res => res.data.errorCode === 0);
 };
 
 export const LOGOUT = callback => {
