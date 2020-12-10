@@ -5,6 +5,7 @@ import {
 import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
 import { api_site_CheckSignIn } from "../service/api/site";
 import { setCookie } from "../components/common/common";
+import { GET_LANG_ID } from "./language";
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -55,9 +56,10 @@ export const LOGIN = async ({ userName, password, langId }) => {
 				let data = res_custInfo.data.data;
 				_loginUser = {
 					..._loginUser,
-					...data
+					...data,
+					langId: GET_LANG_ID(res_custInfo.langId)
 				};
-				setCookie("goalLangId", data.langId);
+				setCookie("goalLangId", _loginUser.langId);
 			}
 
 			errMsg = "";
