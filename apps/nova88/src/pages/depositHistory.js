@@ -273,7 +273,7 @@ const Content = () => {
 					{history?.length > 0 ? (
 						<div className="listBody">{arr}</div>
 					) : (
-						<div className="nodata icon icon-nodata2">
+						<div className="nodata icon icon-nodata">
 							<div>{t("lbl_NoData")}</div>
 						</div>
 					)}
