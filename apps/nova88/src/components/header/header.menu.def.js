@@ -237,6 +237,11 @@ export const defMenuLinks = {
 	promotion: {
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"
+	},
+	ranking: {
+		path: path.leaderBoard.root,
+		displayKey: "lbl_Ranking",
+		className: "live"
 	}
 };
 

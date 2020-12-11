@@ -23,7 +23,6 @@ export default () => {
 		tab === defTabId.sports ||
 		tab === defTabId.liveCasino ||
 		tab === defTabId.slots;
-	const winnerBonus = t("Currency_2") + number_format(10000000);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -47,11 +46,11 @@ export default () => {
 	const onChangeTab = tabValue => {
 		setTab(tabValue);
 		setBeforeDays(defDayNum.yesterDay);
-		if (tabValue === defTabId.event || tabValue === defTabId.records) {
-			onChangeGameType(defTabId.sports);
-		} else {
-			onChangeGameType(tabValue);
-		}
+		onChangeGameType(
+			tabValue === defTabId.event || tabValue === defTabId.records
+				? defTabId.sports
+				: tabValue
+		);
 	};
 
 	const onChangeGameType = typeValue => {
@@ -143,7 +142,7 @@ export default () => {
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 			<div className="champion">
 				<div className="highest">
-					{tab === defTabId.event || tab === defTabId.records ? (
+					{!isGameTypeTab ? (
 						<ButtonGroups
 							t={t}
 							onChangeGameType={onChangeGameType}
@@ -153,13 +152,15 @@ export default () => {
 						/>
 					) : null}
 					<img src={championImg} alt="champion" />
-					{isGameTypeTab ? null : (
+					{/* {isGameTypeTab ? null : (
 						<div className="mwt_border">
 							<span className="arrow_t_int"></span>
 							<span className="arrow_t_out"></span>
-							<div className="txt-orange">{winnerBonus}</div>
+							<div className="txt-orange">
+								{t("Currency_2") + number_format(10000000)}
+							</div>
 						</div>
-					)}
+					)} */}
 				</div>
 				<div className="rankModule">
 					<div className="rankList">

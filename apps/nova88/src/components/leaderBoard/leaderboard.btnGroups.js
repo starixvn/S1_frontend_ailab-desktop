@@ -9,48 +9,46 @@ export default ({
 	onChangeDays,
 	beforeDays
 }) => {
-	let btnOptions = [defTabId.sports, defTabId.liveCasino, defTabId.slots];
-	let gameTypeBtnList = defTabList.filter(tab => btnOptions.includes(tab.id));
-
-	let rows = gameTypeBtnList.map(item => {
-		return (
-			<button
-				key={`leaderboard-gameType-btn-${item.id}`}
-				className={`orange ${item.id === categoryID ? "active" : ""}`}
-				onClick={onChangeGameType.bind(this, item.id)}>
-				{t(item.displayKey)}
-			</button>
-		);
-	});
-
-	let rows2 = defDayOptions.map(item => {
-		return (
-			<button
-				key={`leaderboard-before-day-${item.beforeDayNum}`}
-				className={`orange ${
-					item.beforeDayNum === beforeDays ? "active" : ""
-				}`}
-				onClick={onChangeDays.bind(this, item.beforeDayNum)}>
-				{t(item.displayKey)}
-			</button>
-		);
-	});
-
-	let concatRow = [
-		{ title: t("lbl_Game_type"), data: rows },
-		{ title: t("lbl_Date"), data: rows2 }
-	];
+	const btnOptions = [defTabId.sports, defTabId.liveCasino, defTabId.slots];
+	const gameTypeBtnList = defTabList.filter(tab =>
+		btnOptions.includes(tab.id)
+	);
 
 	return (
 		<div className="rankTag">
-			{concatRow.map(item => {
-				return (
-					<>
-						<div>{item.title}</div>
-						<div className="btnGroup">{item.data}</div>
-					</>
-				);
-			})}
+			<BtnBar
+				t={t}
+				title={t("lbl_Game_type")}
+				btnList={gameTypeBtnList}
+				onClick={onChangeGameType}
+				selected={categoryID}
+			/>
+			<BtnBar
+				t={t}
+				title={t("lbl_Date")}
+				btnList={defDayOptions}
+				onClick={onChangeDays}
+				selected={beforeDays}
+			/>
 		</div>
+	);
+};
+
+const BtnBar = ({ t, title, btnList, onClick, selected }) => {
+	const rows = btnList.map(item => {
+		return (
+			<button
+				key={`leaderboard-gameType-btn-${item.id}`}
+				className={`orange ${item.id === selected ? "active" : ""}`}
+				onClick={onClick.bind(this, item.id)}>
+				{t(item.displayKey)}
+			</button>
+		);
+	});
+	return (
+		<>
+			<div>{title}</div>
+			<div className="btnGroup">{rows}</div>
+		</>
 	);
 };
