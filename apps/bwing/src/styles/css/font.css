@@ -1164,4 +1164,8 @@
 .icon-new:before {
   content: "\e9e4";
 }
+
+.icon-newicon:before {
+  content: "\e9e5";
+}
 /*# sourceMappingURL=font.css.map */

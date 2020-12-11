@@ -209,6 +209,22 @@ header .header > div.menu > button.active {
   color: #56ceff;
 }
 
+header .header > div.menu > a.casinobtn,
+header .header > div.menu > button.casinobtn {
+  position: relative;
+}
+
+header .header > div.menu > a.casinobtn::before,
+header .header > div.menu > button.casinobtn::before {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 16px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
 header .header > div.menu .subMenu-Wrapper {
   position: absolute;
   width: 100%;
@@ -414,12 +430,14 @@ header .header > div.menu .casinoList .CQ9:hover {
 }
 
 header .header > div.menu .casinoList .CQ9::before {
-  content: "\e9e4";
+  content: "\e9e5";
   position: absolute;
   top: 10px;
-  left: 0px;
-  color: #ff6732;
+  right: 0px;
+  color: #56ceff;
   font-size: 20px;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu .casinoList .CQ9 .icon-cq9:before {
@@ -5927,80 +5945,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 44.65321%;
-  top: 28.50179%;
-  width: 8.19242px;
-  height: 8.19242px;
+  left: 4.15731%;
+  top: -55.30605%;
+  width: 8.58444px;
+  height: 8.58444px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 60.00836%;
-  top: -23.94019%;
-  width: 13.01047px;
-  height: 13.01047px;
+  left: 64.41337%;
+  top: -16.46205%;
+  width: 13.36084px;
+  height: 13.36084px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 83.71979%;
-  top: -51.71822%;
-  width: 7.46597px;
-  height: 7.46597px;
+  left: 66.99386%;
+  top: 6.31314%;
+  width: 10.71736px;
+  height: 10.71736px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 7.56362%;
-  top: -50.81484%;
-  width: 6.53338px;
-  height: 6.53338px;
+  left: 83.79606%;
+  top: 3.91349%;
+  width: 12.05037px;
+  height: 12.05037px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 60.5145%;
-  top: 34.31199%;
-  width: 11.23159px;
-  height: 11.23159px;
+  left: 96.24566%;
+  top: 9.70528%;
+  width: 13.09826px;
+  height: 13.09826px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 2.78427%;
-  top: -9.81142%;
-  width: 12.07362px;
-  height: 12.07362px;
+  left: 61.0859%;
+  top: -23.88415%;
+  width: 7.33085px;
+  height: 7.33085px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 52.24696%;
-  top: 6.2001%;
-  width: 14.7693px;
-  height: 14.7693px;
+  left: 32.07433%;
+  top: 7.57044%;
+  width: 5.89482px;
+  height: 5.89482px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 50.47427%;
-  top: -42.47877%;
-  width: 5.10708px;
-  height: 5.10708px;
+  left: 53.82638%;
+  top: 6.36123%;
+  width: 7.21045px;
+  height: 7.21045px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6046,6 +6064,32 @@ input + .iconModule i.icon.icon-checkmark:before {
   100% {
     -webkit-transform: translate(0, 700px);
             transform: translate(0, 700px);
+  }
+}
+
+@-webkit-keyframes newicon {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    color: #56ceff;
+  }
+  100% {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    color: #fff;
+  }
+}
+
+@keyframes newicon {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    color: #56ceff;
+  }
+  100% {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    color: #fff;
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -76,6 +76,7 @@ export const defMenuLinks = {
 	casino: {
 		path: path.casino.root,
 		displayKey: "lbl_Slots",
+		className: "casinobtn icon icon-new",
 		subMenu: [
 			{
 				...defCasinoProviders.CQ9,
