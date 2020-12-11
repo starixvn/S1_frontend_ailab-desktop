@@ -165,6 +165,17 @@ header .header > div.menu {
   height: 50px;
 }
 
+header .header > div.menu .icon-new::before {
+  position: absolute;
+  top: -4px;
+  left: calc(50% - 35px);
+  display: block;
+  color: #f72626;
+  font-size: 16px;
+  -webkit-animation: MoveTopDown linear infinite alternate 1s;
+          animation: MoveTopDown linear infinite alternate 1s;
+}
+
 header .header > div.menu > a, header .header > div.menu > button {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -179,6 +190,7 @@ header .header > div.menu > a, header .header > div.menu > button {
   padding: 0 10px;
   font-size: 14px;
   font-family: "Microsoft YaHei", sans-serif;
+  position: relative;
 }
 
 header .header > div.menu > a:hover, header .header > div.menu > a.active, header .header > div.menu > button:hover, header .header > div.menu > button.active {
@@ -186,6 +198,10 @@ header .header > div.menu > a:hover, header .header > div.menu > a.active, heade
   background: #d93643;
   -webkit-transform: skewX(-10deg);
           transform: skewX(-10deg);
+}
+
+header .header > div.menu > a:hover.icon-new::before, header .header > div.menu > button:hover.icon-new::before {
+  color: #ffffff;
 }
 
 header .header > div.menu > a:first-child, header .header > div.menu > button:first-child {
@@ -271,6 +287,17 @@ header .header > div.menu .gameList a:hover, header .header > div.menu .gameList
   transition: 0.7s;
 }
 
+header .header > div.menu .gameList .icon-new::before, header .header > div.menu .casinoList .icon-new::before, header .header > div.menu .livecasinoList .icon-new::before, header .header > div.menu .fishList .icon-new::before {
+  position: absolute;
+  top: 10px;
+  left: calc(50% - 70px);
+  display: block;
+  color: #f72626;
+  -webkit-animation: MoveTopDown linear infinite alternate 1s;
+          animation: MoveTopDown linear infinite alternate 1s;
+  font-size: 16px;
+}
+
 header .header > div.menu .gameList .sabaclub {
   background: url(../img/sabaclub.png) no-repeat center 8px/auto 100%;
 }
@@ -305,6 +332,7 @@ header .header > div.menu .gameList .lottery:hover {
 
 header .header > div.menu .casinoList .CQ9 {
   background: url(../img/casinoCQ9.png) no-repeat center 10px/auto 100%;
+  position: relative;
 }
 
 header .header > div.menu .casinoList .CQ9:hover {
@@ -803,6 +831,28 @@ header .header > div.function .wallet .submenu div.loginLog, header .header > di
 
 header .header > div.function .wallet .submenu div.loginLog {
   margin-top: 10px;
+}
+
+@-webkit-keyframes MoveTopDown {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
+}
+
+@keyframes MoveTopDown {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+  }
 }
 
 .gameMenu {
@@ -4191,9 +4241,9 @@ main > .swiper-container .swiper-slide {
   padding: 0 40px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   line-height: 20px;
 }
 
@@ -4466,7 +4516,7 @@ form {
       -ms-flex: 0 0 calc(100% / 5 - 45px);
           flex: 0 0 calc(100% / 5 - 45px);
   padding: 15px;
-  margin: 10px 0;
+  margin: 10px 15px 10px 0;
 }
 
 .slotList > div .txt-darkBlue, .newsList > div .txt-darkBlue {
