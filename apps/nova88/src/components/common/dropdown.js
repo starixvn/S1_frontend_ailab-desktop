@@ -36,7 +36,16 @@ export class Dropdown extends Component {
 
 	selectItem = i => {
 		this.setState({ isOpen: false });
-		this.props.onSelectItem(i, this.props.options[i]);
+
+		let filterSelfData = this.props.options?.filter(
+			item => item !== this.props.options[this.props.selectedIdx]
+		);
+
+		if (this.props.isHideSelfItem) {
+			this.props.onSelectItem(i, filterSelfData[i]);
+		} else {
+			this.props.onSelectItem(i, this.props.options[i]);
+		}
 	};
 
 	render() {
@@ -78,7 +87,6 @@ export class Dropdown extends Component {
 			this.props.options[this.props.selectedIdx]
 		) {
 			let _s = this.props.options[this.props.selectedIdx];
-
 			if (this.props.imgUrl) {
 				selected = (
 					<>
