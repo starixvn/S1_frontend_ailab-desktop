@@ -1,18 +1,18 @@
 import React from "react";
 import { number_format } from "../common/common";
 
-export default ({ t }) => {
-	const eventListData = [
-		{ displayRank: "1", reward: 1000000 },
-		{ displayRank: "2", reward: 500000 },
-		{ displayRank: "3", reward: 200000 }
-		// { displayRank: "4-7", reward: 50000 },
-		// { displayRank: "8-10", reward: 10000 }
-	];
+const eventListData = [
+	{ displayRank: "1", reward: 1000000 },
+	{ displayRank: "2", reward: 500000 },
+	{ displayRank: "3", reward: 200000 }
+	// { displayRank: "4-7", reward: 50000 },
+	// { displayRank: "8-10", reward: 10000 }
+];
 
-	let rows = eventListData.map(item => {
+export default ({ t }) => {
+	const rows = eventListData.map(item => {
 		return (
-			<li>
+			<li key={`leaderBoard-event-${item.displayRank}`}>
 				{parseInt(item.displayRank) < 4 ? (
 					<div>
 						<img

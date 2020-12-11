@@ -49,9 +49,7 @@ export default () => {
 		setTab(tabValue);
 		setBeforeDays(defDayNum.yesterDay);
 		onChangeGameType(
-			tabValue === defTabId.event || tabValue === defTabId.records
-				? defTabId.sports
-				: tabValue
+			tabValue === defTabId.records ? defTabId.sports : tabValue
 		);
 	};
 
