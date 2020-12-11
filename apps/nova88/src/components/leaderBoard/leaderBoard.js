@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { popBoxContext } from "../common/context";
+import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
@@ -13,6 +13,7 @@ import EventTab from "./LeaderBoard.eventTab";
 
 export default () => {
 	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState(null);
@@ -36,6 +37,12 @@ export default () => {
 		showUpdateTime();
 	}, []);
 
+	useEffect(() => {
+		if (!userInfo.isLogin) {
+			setTab(defTabId.event);
+		}
+	}, [userInfo.isLogin]);
+
 	const showUpdateTime = () => {
 		let _time = new Date();
 		let _convertMin = _time.getMinutes() < 30 ? 0 : 30;
@@ -46,11 +53,18 @@ export default () => {
 	};
 
 	const onChangeTab = tabValue => {
-		setTab(tabValue);
-		setBeforeDays(defDayNum.yesterDay);
-		onChangeGameType(
-			tabValue === defTabId.records ? defTabId.sports : tabValue
-		);
+		if (tabValue !== defTabId.event && !userInfo.isLogin) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		} else {
+			setTab(tabValue);
+			setBeforeDays(defDayNum.yesterDay);
+			onChangeGameType(
+				tabValue === defTabId.records ? defTabId.sports : tabValue
+			);
+		}
 	};
 
 	const onChangeGameType = typeValue => {
