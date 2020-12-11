@@ -391,6 +391,10 @@
 	"lbl_Points":"คะแนน",
 	"lbl_Top":"Top",
 	"lbl_LastUpdTime":"อัปเดตล่าสุดเมื่อ {{time}} (อัปเดตทุก 30 นาที)",
+	"lbl_Ranking_Top10":"ชนะ 10 อันดับแรก",
+	"lbl_Rewards":"รางวัล",
+	"lbl_MoreDetails":"รายละเอียดเพิ่มเติม",
+	"lbl_EventTitle":"ชื่อกิจกรรม",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download":"Download",

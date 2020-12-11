@@ -391,6 +391,10 @@
 	"lbl_Points":"分数",
 	"lbl_Top":"最高",
 	"lbl_LastUpdTime":"最后更新于 {{time}} (每30分钟更新)",
+	"lbl_Ranking_Top10":"排名前 10赢家",
+	"lbl_Rewards":"奖励",
+	"lbl_MoreDetails":"更多详情",
+	"lbl_EventTitle":"活动名称",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download":"Download",

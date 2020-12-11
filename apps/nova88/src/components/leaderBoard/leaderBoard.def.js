@@ -7,18 +7,18 @@ export const defTabId = {
 };
 
 export const defTabList = [
-	{
-		id: defTabId.event,
-		displayKey: "lbl_Event"
-	},
-	{
-		id: defTabId.sports,
-		displayKey: "lbl_Sports"
-	},
+	{ id: defTabId.event, displayKey: "lbl_Event" },
+	{ id: defTabId.sports, displayKey: "lbl_Sports" },
 	{ id: defTabId.liveCasino, displayKey: "lbl_LiveCasino" },
 	{ id: defTabId.slots, displayKey: "lbl_Casino" },
 	{ id: defTabId.records, displayKey: "lbl_Records" }
 ];
+
+export const defTabDisplayKey = {
+	1: "lbl_Sports",
+	2: "lbl_Casino",
+	3: "lbl_LiveCasino"
+};
 
 export const defDayNum = {
 	yesterDay: 1,

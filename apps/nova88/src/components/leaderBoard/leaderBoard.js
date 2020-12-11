@@ -4,11 +4,12 @@ import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
 import { api_events_GetLeaderboardList } from "../../service/api/events";
-import LeaderBoardTab from "./leaderboard.tabs";
-import ButtonGroups from "./leaderboard.btnGroups";
-import { defTabId, defDayNum } from "./leaderboard.def";
+import LeaderBoardTab from "./leaderBoard.tabs";
+import ButtonGroups from "./leaderBoard.btnGroups";
+import { defTabId, defDayNum, defTabDisplayKey } from "./leaderboard.def";
 import moment from "moment";
 import { number_format } from "../common/common";
+import EventTab from "./LeaderBoard.eventTab";
 
 export default () => {
 	const { t } = useTranslation();
@@ -23,6 +24,7 @@ export default () => {
 		tab === defTabId.sports ||
 		tab === defTabId.liveCasino ||
 		tab === defTabId.slots;
+	const isEventTab = tab === defTabId.event;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -140,44 +142,48 @@ export default () => {
 	return (
 		<>
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
-			<div className="champion">
-				<div className="highest">
-					{!isGameTypeTab ? (
-						<ButtonGroups
-							t={t}
-							onChangeGameType={onChangeGameType}
-							categoryID={categoryID}
-							onChangeDays={onChangeDays}
-							beforeDays={beforeDays}
-						/>
-					) : null}
-					<img src={championImg} alt="champion" />
-					{/* {isGameTypeTab ? null : (
-						<div className="mwt_border">
-							<span className="arrow_t_int"></span>
-							<span className="arrow_t_out"></span>
-							<div className="txt-orange">
-								{t("Currency_2") + number_format(10000000)}
+			{isEventTab ? (
+				<div className="eventRule">
+					<EventTab t={t} />
+				</div>
+			) : (
+				<div className="champion">
+					<div className="highest">
+						{isGameTypeTab ? (
+							<div className="title">
+								<div>{t(defTabDisplayKey[tab])}</div>
+								<div className="txt-orange">
+									{t("lbl_Ranking_Top10")}
+								</div>
 							</div>
+						) : (
+							<ButtonGroups
+								t={t}
+								onChangeGameType={onChangeGameType}
+								categoryID={categoryID}
+								onChangeDays={onChangeDays}
+								beforeDays={beforeDays}
+							/>
+						)}
+						<img src={championImg} alt="champion" />
+					</div>
+					<div className="rankModule">
+						<div className="rankList">
+							<ul>
+								<li>
+									<div>{t("lbl_Ranking")}</div>
+									<div>{t("lbl_Username")}</div>
+									<div>{t("lbl_Points")}</div>
+								</li>
+								{rankingList}
+							</ul>
 						</div>
-					)} */}
-				</div>
-				<div className="rankModule">
-					<div className="rankList">
-						<ul>
-							<li>
-								<div>{t("lbl_Ranking")}</div>
-								<div>{t("lbl_Username")}</div>
-								<div>{t("lbl_Points")}</div>
-							</li>
-							{rankingList}
-						</ul>
-					</div>
-					<div className="lastUpdate">
-						{t(`lbl_LastUpdTime`, { time: showUpdateTime() })}
+						<div className="lastUpdate">
+							{t(`lbl_LastUpdTime`, { time: showUpdateTime() })}
+						</div>
 					</div>
 				</div>
-			</div>
+			)}
 		</>
 	);
 };

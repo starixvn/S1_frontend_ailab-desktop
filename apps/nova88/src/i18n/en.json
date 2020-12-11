@@ -392,6 +392,10 @@
 	"lbl_Points":"Points",
 	"lbl_Top":"Top",
 	"lbl_LastUpdTime":"Last Update On {{time}} (Update Every 30 Minutes)",
+	"lbl_Ranking_Top10":"TOP 10 WINNING",
+	"lbl_Rewards":"Rewards",
+	"lbl_MoreDetails":"MORE DETAILS",
+	"lbl_EventTitle":"EVENT TITLE",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download":"Download",

@@ -391,6 +391,10 @@
 	"lbl_Points":"Poin",
 	"lbl_Top":"Teratas",
 	"lbl_LastUpdTime":"Last Update On {{time}} (Perbarui Setiap 30 Menit)",
+	"lbl_Ranking_Top10":"Pemenang 10 Teratas",
+	"lbl_Rewards":"Penghargaan",
+	"lbl_MoreDetails":"KETERANGAN LEBIH LANJUT",
+	"lbl_EventTitle":"Judul Pertandingan",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download":"Download",
