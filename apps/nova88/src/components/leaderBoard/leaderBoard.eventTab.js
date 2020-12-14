@@ -1,8 +1,6 @@
 import React from "react";
 import { number_format } from "../common/common";
 import ButtonGroups from "./leaderBoard.btnGroups";
-import { navigate } from "@reach/router";
-import path from "../../router";
 import config from "../../config";
 
 export default ({
@@ -56,7 +54,8 @@ export default ({
 				<a
 					href={`${
 						config.cloudImgUrl
-					}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}>
+					}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}
+					target="_blank">
 					{t("lbl_MoreDetails")}
 				</a>
 			</div>

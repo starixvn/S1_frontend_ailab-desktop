@@ -43,21 +43,21 @@ export const defDayOptions = [
 export const defRewardList = {
 	MY: {
 		[defTabId.sports]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "888 MYR (cash)" },
 			{ displayRank: "3", reward: "788 MYR (cash)" },
 			{ displayRank: "4", reward: "688 MYR (cash)" },
 			{ displayRank: "5", reward: "588 MYR (cash)" }
 		],
 		[defTabId.liveCasino]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "888 MYR (cash)" },
 			{ displayRank: "3", reward: "788 MYR (cash)" },
 			{ displayRank: "4", reward: "688 MYR (cash)" },
 			{ displayRank: "5", reward: "588 MYR (cash)" }
 		],
 		[defTabId.slots]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "888 MYR (cash)" },
 			{ displayRank: "3", reward: "788 MYR (cash)" },
 			{ displayRank: "4", reward: "688 MYR (cash)" },
@@ -66,21 +66,21 @@ export const defRewardList = {
 	},
 	ID: {
 		[defTabId.sports]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "3,000,000 IDR (cash)" },
 			{ displayRank: "3", reward: "2,688,000 IDR (cash)" },
 			{ displayRank: "4", reward: "2,388,000 IDR (cash)" },
 			{ displayRank: "5", reward: "1,388,000 IDR (cash)" }
 		],
 		[defTabId.liveCasino]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "3,000,000 IDR (cash)" },
 			{ displayRank: "3", reward: "2,688,000 IDR (cash)" },
 			{ displayRank: "4", reward: "2,388,000 IDR (cash)" },
 			{ displayRank: "5", reward: "1,388,000 IDR (cash)" }
 		],
 		[defTabId.slots]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "3,000,000 IDR (cash)" },
 			{ displayRank: "3", reward: "2,688,000 IDR (cash)" },
 			{ displayRank: "4", reward: "2,388,000 IDR (cash)" },
@@ -90,21 +90,21 @@ export const defRewardList = {
 
 	TH: {
 		[defTabId.sports]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "6,588 THB (cash)" },
 			{ displayRank: "3", reward: "5,588 THB (cash)" },
 			{ displayRank: "4", reward: "5,088 THB (cash)" },
 			{ displayRank: "5", reward: "4,088 THB (cash)" }
 		],
 		[defTabId.liveCasino]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "6,588 THB (cash)" },
 			{ displayRank: "3", reward: "5,588 THB (cash)" },
 			{ displayRank: "4", reward: "5,088 THB (cash)" },
 			{ displayRank: "5", reward: "4,088 THB (cash)" }
 		],
 		[defTabId.slots]: [
-			{ displayRank: "1", reward: "iphone 12 (64gb)" },
+			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "6,588 THB (cash)" },
 			{ displayRank: "3", reward: "5,588 THB (cash)" },
 			{ displayRank: "4", reward: "5,088 THB (cash)" },
