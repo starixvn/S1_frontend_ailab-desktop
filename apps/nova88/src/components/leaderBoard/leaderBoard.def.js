@@ -41,7 +41,7 @@ export const defDayOptions = [
 ];
 
 export const defRewardList = {
-	MY: {
+	MYR: {
 		[defTabId.sports]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "888 MYR (cash)" },
@@ -64,7 +64,7 @@ export const defRewardList = {
 			{ displayRank: "5", reward: "588 MYR (cash)" }
 		]
 	},
-	ID: {
+	IDR: {
 		[defTabId.sports]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "3,000,000 IDR (cash)" },
@@ -88,7 +88,7 @@ export const defRewardList = {
 		]
 	},
 
-	TH: {
+	THB: {
 		[defTabId.sports]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 			{ displayRank: "2", reward: "6,588 THB (cash)" },

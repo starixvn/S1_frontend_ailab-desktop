@@ -53,7 +53,7 @@ const BtnBar = ({
 		return (
 			<button
 				key={`leaderboard-gameType-btn-${item.id}`}
-				className={`orange ${item.id === selected ? "active" : ""}`}
+				className={`orange${item.id === selected ? " active" : ""}`}
 				onClick={onClick.bind(this, item.id, updateStateOnly)}>
 				{t(item.displayKey)}
 			</button>

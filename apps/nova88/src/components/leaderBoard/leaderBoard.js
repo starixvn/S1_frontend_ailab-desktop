@@ -20,6 +20,17 @@ import moment from "moment";
 import { number_format } from "../common/common";
 import EventTab from "./LeaderBoard.eventTab";
 
+const langMapping = {
+	cs: "MYR",
+	en: "MYR",
+	id: "IDR",
+	th: "THB"
+};
+
+const currMapping = {
+	13: "MYR"
+};
+
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -41,11 +52,12 @@ export default () => {
 		tab === defTabId.slots;
 	const isEventTab = tab === defTabId.event;
 
-	const _lan = userInfo.langId.toUpperCase();
-	const rewardCurrncyList = Object.keys(defRewardList);
-	const userRewardCurrency =
-		rewardCurrncyList.indexOf(_lan) === -1 ? "MY" : _lan;
-	const rewardList = defRewardList[userRewardCurrency][categoryID];
+	const currencyName = userInfo.currencyId
+		? currMapping[userInfo.currencyId] ??
+		  t(`Currency_${userInfo.currencyId}`)
+		: langMapping[userInfo.langId];
+
+	const rewardList = defRewardList[currencyName][categoryID];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -254,7 +266,7 @@ export default () => {
 						</div>
 					</div>
 					<div className="rankModule">
-						{rankingList?.length > 0 ? (
+						{ranking?.length > 0 ? (
 							<div className="rankList">
 								<ul>
 									<li>
@@ -262,7 +274,7 @@ export default () => {
 										<div>{t("lbl_Username")}</div>
 										<div>{t("lbl_Points")}</div>
 									</li>
-									<Ranking ranking={ranking} />
+									<Ranking ranking={ranking} t={t} />
 									<SelfRanking
 										selfRankingData={selfRankingData}
 										userInfo={userInfo}
@@ -284,7 +296,7 @@ export default () => {
 	);
 };
 
-const Ranking = () =>
+const Ranking = ({ ranking, t }) =>
 	ranking?.map((item, idx) => {
 		return (
 			<li key={`leaderboard_item_${item.custId}`}>
