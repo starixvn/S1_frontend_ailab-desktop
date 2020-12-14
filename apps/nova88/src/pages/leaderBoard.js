@@ -9,9 +9,7 @@ export default () => {
 		<Wrapper afterLogin={false}>
 			<Layout>
 				<main>
-					<section className="ranking rankRecords">
-						<Leaderboard />
-					</section>
+					<Leaderboard />
 				</main>
 				<Footer />
 			</Layout>

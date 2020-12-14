@@ -1,22 +1,26 @@
 import React from "react";
 import { number_format } from "../common/common";
+import ButtonGroups from "./leaderBoard.btnGroups";
+import { navigate } from "@reach/router";
+import path from "../../router";
+import config from "../../config";
 
-const eventListData = [
-	{ displayRank: "1", reward: 1000000 },
-	{ displayRank: "2", reward: 500000 },
-	{ displayRank: "3", reward: 200000 }
-	// { displayRank: "4-7", reward: 50000 },
-	// { displayRank: "8-10", reward: 10000 }
-];
-
-export default ({ t }) => {
-	const rows = eventListData.map(item => {
+export default ({
+	t,
+	onChangeGameType,
+	categoryID,
+	tab,
+	rewardList,
+	userInfo
+}) => {
+	const rows = rewardList.map(item => {
 		return (
 			<li key={`leaderBoard-event-${item.displayRank}`}>
 				{parseInt(item.displayRank) < 4 ? (
 					<div>
 						<img
 							src={require(`../../styles/img/no${item.displayRank}.png`)}
+							alt="top_ranking"
 						/>
 					</div>
 				) : (
@@ -31,8 +35,15 @@ export default ({ t }) => {
 	});
 
 	return (
-		<>
-			<div className="title">{t("lbl_EventTitle")}</div>
+		<div className="eventRule">
+			<ButtonGroups
+				t={t}
+				onChangeGameType={onChangeGameType}
+				categoryID={categoryID}
+				tab={tab}
+			/>
+			<div className="title">{t("lbl_leaderboardTitle_1")}</div>
+			<div className="title">{t("lbl_leaderboardTitle_2")}</div>
 			<div className="rankList">
 				<ul>
 					<li>
@@ -42,8 +53,13 @@ export default ({ t }) => {
 					</li>
 					{rows}
 				</ul>
+				<a
+					href={`${
+						config.cloudImgUrl
+					}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}>
+					{t("lbl_MoreDetails")}
+				</a>
 			</div>
-			<a href="">{t("lbl_MoreDetails")}</a>
-		</>
+		</div>
 	);
 };

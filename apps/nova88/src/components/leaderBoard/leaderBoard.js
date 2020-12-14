@@ -3,10 +3,19 @@ import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
-import { api_events_GetLeaderboardList } from "../../service/api/events";
+import {
+	api_events_GetLeaderboardList,
+	api_events_GetCustRank
+} from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
 import ButtonGroups from "./leaderBoard.btnGroups";
-import { defTabId, defDayNum, defTabDisplayKey } from "./leaderboard.def";
+import {
+	defTabId,
+	defBackground,
+	defDayNum,
+	defTabDisplayKey,
+	defRewardList
+} from "./leaderboard.def";
 import moment from "moment";
 import { number_format } from "../common/common";
 import EventTab from "./LeaderBoard.eventTab";
@@ -16,7 +25,12 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
-	const [rankingData, setRankingData] = useState(null);
+	const [ranking, setRanking] = useState([]);
+	const initSelfRankingData = {
+		custRank: 0,
+		point: 0
+	};
+	const [selfRankingData, setSelfRankingData] = useState(initSelfRankingData);
 	const [tab, setTab] = useState(defTabId.event);
 	const [categoryID, setCategoryID] = useState(defTabId.sports);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.yesterDay);
@@ -27,6 +41,12 @@ export default () => {
 		tab === defTabId.slots;
 	const isEventTab = tab === defTabId.event;
 
+	const _lan = userInfo.langId.toUpperCase();
+	const rewardCurrncyList = Object.keys(defRewardList);
+	const userRewardCurrency =
+		rewardCurrncyList.indexOf(_lan) === -1 ? "MY" : _lan;
+	const rewardList = defRewardList[userRewardCurrency][categoryID];
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
@@ -34,6 +54,7 @@ export default () => {
 
 	useEffect(() => {
 		getLeaderboardData();
+		getSelfLeaderboardData();
 		showUpdateTime();
 	}, []);
 
@@ -62,7 +83,9 @@ export default () => {
 			setTab(tabValue);
 			setBeforeDays(defDayNum.yesterDay);
 			onChangeGameType(
-				tabValue === defTabId.records ? defTabId.sports : tabValue
+				tabValue === defTabId.records || tabValue === defTabId.event
+					? defTabId.sports
+					: tabValue
 			);
 		}
 	};
@@ -70,11 +93,17 @@ export default () => {
 	const onChangeGameType = typeValue => {
 		setCategoryID(typeValue);
 		getLeaderboardData(typeValue, beforeDays);
+		getSelfLeaderboardData(typeValue, beforeDays);
 	};
 
 	const onChangeDays = daysValue => {
 		setBeforeDays(daysValue);
 		getLeaderboardData(categoryID, daysValue);
+		getSelfLeaderboardData(categoryID, daysValue);
+	};
+
+	const ClickClose = () => {
+		setPopBox({ isOpen: false });
 	};
 
 	const getLeaderboardData = async (typeValue, daysValue) => {
@@ -84,15 +113,11 @@ export default () => {
 			BeforeDays: daysValue ?? beforeDays
 		};
 
-		const ClickClose = () => {
-			setPopBox({ isOpen: false });
-		};
-
 		await api_events_GetLeaderboardList(payload).then(
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						setRankingData(res.data.data);
+						setRanking(res.data.data);
 					} else {
 						setPopBox({
 							isOpen: true,
@@ -132,7 +157,57 @@ export default () => {
 		);
 	};
 
-	const rankingList = rankingData?.map((item, idx) => {
+	const getSelfLeaderboardData = async (typeValue, daysValue) => {
+		let payload = {
+			lBCategoryId: typeValue ?? categoryID,
+			BeforeDays: daysValue ?? beforeDays
+		};
+
+		await api_events_GetCustRank(payload).then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setSelfRankingData(res.data.data);
+					} else {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: res.data.message,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
+			},
+			err => {
+				if (isMountedRef.current) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={ClickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			}
+		);
+	};
+
+	const rankingList = ranking?.map((item, idx) => {
 		return (
 			<li key={`leaderboard_item_${item.custId}`}>
 				<div>
@@ -151,13 +226,32 @@ export default () => {
 		);
 	});
 
+	const selfRankingColumn = () => {
+		if (selfRankingData?.custRank > 0) {
+			return (
+				<li>
+					<div>{selfRankingData.custRank > 999 ?? "999+"}</div>
+					<div>{userInfo.userName}</div>
+					<div>{selfRankingData.point}</div>
+				</li>
+			);
+		} else {
+			return null;
+		}
+	};
+
 	return (
-		<>
+		<section className={`ranking ${defBackground[tab]}`}>
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 			{isEventTab ? (
-				<div className="eventRule">
-					<EventTab t={t} />
-				</div>
+				<EventTab
+					t={t}
+					onChangeGameType={onChangeGameType}
+					categoryID={categoryID}
+					tab={tab}
+					rewardList={rewardList}
+					userInfo={userInfo}
+				/>
 			) : (
 				<div className="champion">
 					<div className="highest">
@@ -178,6 +272,15 @@ export default () => {
 							/>
 						)}
 						<img src={championImg} alt="champion" />
+						<div className="mwt_border">
+							<span className="arrow_t_int"></span>
+							<span className="arrow_t_out"></span>
+							{/* <div>HIGHEST WINNING RECORD</div> */}
+							{/* <div>(Last 7 Days) ******kboy</div> */}
+							<div className="txt-orange">
+								{rewardList[0].reward}
+							</div>
+						</div>
 					</div>
 					<div className="rankModule">
 						<div className="rankList">
@@ -188,6 +291,7 @@ export default () => {
 									<div>{t("lbl_Points")}</div>
 								</li>
 								{rankingList}
+								{selfRankingColumn()}
 							</ul>
 						</div>
 						<div className="lastUpdate">
@@ -196,6 +300,6 @@ export default () => {
 					</div>
 				</div>
 			)}
-		</>
+		</section>
 	);
 };

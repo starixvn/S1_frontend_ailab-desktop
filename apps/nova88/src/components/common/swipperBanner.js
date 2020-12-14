@@ -51,6 +51,8 @@ export const ClickLink = (
 			} else {
 				HandleLogin();
 			}
+		} else if (href === "leaderBoard") {
+			window.location.href = `/${lang}/${path.leaderBoard.root}`;
 		} else {
 			window.open(
 				isOuterLink

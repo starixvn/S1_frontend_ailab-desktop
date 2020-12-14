@@ -7,7 +7,8 @@ export default ({
 	onChangeGameType,
 	categoryID,
 	onChangeDays,
-	beforeDays
+	beforeDays,
+	tab
 }) => {
 	const btnOptions = [defTabId.sports, defTabId.liveCasino, defTabId.slots];
 	const gameTypeBtnList = defTabList.filter(tab =>
@@ -22,19 +23,22 @@ export default ({
 				btnList={gameTypeBtnList}
 				onClick={onChangeGameType}
 				selected={categoryID}
+				tab={tab}
 			/>
-			<BtnBar
-				t={t}
-				title={t("lbl_Date")}
-				btnList={defDayOptions}
-				onClick={onChangeDays}
-				selected={beforeDays}
-			/>
+			{tab === defTabId.event ? null : (
+				<BtnBar
+					t={t}
+					title={t("lbl_Date")}
+					btnList={defDayOptions}
+					onClick={onChangeDays}
+					selected={beforeDays}
+				/>
+			)}
 		</div>
 	);
 };
 
-const BtnBar = ({ t, title, btnList, onClick, selected }) => {
+const BtnBar = ({ t, title, btnList, onClick, selected, tab }) => {
 	const rows = btnList.map(item => {
 		return (
 			<button
@@ -47,7 +51,7 @@ const BtnBar = ({ t, title, btnList, onClick, selected }) => {
 	});
 	return (
 		<>
-			<div>{title}</div>
+			{tab === defTabId.event ? null : <div>{title}</div>}
 			<div className="btnGroup">{rows}</div>
 		</>
 	);
