@@ -28,6 +28,12 @@ export const defTabDisplayKey = {
 	3: "lbl_LiveCasino"
 };
 
+export const defLeaderBoardTitle = {
+	1: "lbl_Ranking_Sports",
+	2: "lbl_Ranking_Slots",
+	3: "lbl_Ranking_LiveCasino"
+};
+
 export const defDayNum = {
 	yesterDay: 0,
 	lastTwoDay: 1,

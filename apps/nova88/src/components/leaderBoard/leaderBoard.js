@@ -14,7 +14,8 @@ import {
 	defBackground,
 	defDayNum,
 	defTabDisplayKey,
-	defRewardList
+	defRewardList,
+	defLeaderBoardTitle
 } from "./leaderboard.def";
 import moment from "moment";
 import { number_format } from "../common/common";
@@ -240,7 +241,7 @@ export default () => {
 					<div className="highest">
 						{isGameTypeTab ? (
 							<div className="title">
-								<div>{t(defTabDisplayKey[tab])}</div>
+								<div>{t(defLeaderBoardTitle[tab])}</div>
 								<div className="txt-orange">
 									{t("lbl_Ranking_Top10")}
 								</div>
