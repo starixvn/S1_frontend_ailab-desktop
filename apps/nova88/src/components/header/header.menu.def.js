@@ -104,13 +104,6 @@ export const defMenuLinks = {
 		displayKey: "lbl_LiveCasino",
 		subMenu: [
 			{
-				...productList.liveCasino_MW,
-				className: "liveMW icon icon-new",
-				icon: "icon icon-PP",
-				displayText: "PP",
-				menuType: defMenuType.entPage
-			},
-			{
 				...productList.liveCasino_WM,
 				className: "liveWM icon icon-new",
 				icon: "icon icon-WM",
@@ -233,7 +226,7 @@ export const defMenuLinks = {
 	cockFighting: {
 		productInfo: productList.cockFighting,
 		displayKey: "lbl_CockFighting",
-		className: "COCK icon icon-new"
+		className: "COCK"
 	},
 	promotion: {
 		path: path.promotion.root,
