@@ -287,17 +287,23 @@ export default () => {
 						</div>
 					</div>
 					<div className="rankModule">
-						<div className="rankList">
-							<ul>
-								<li>
-									<div>{t("lbl_Ranking")}</div>
-									<div>{t("lbl_Username")}</div>
-									<div>{t("lbl_Points")}</div>
-								</li>
-								{rankingList}
-								{selfRankingColumn()}
-							</ul>
-						</div>
+						{rankingList?.length > 0 ? (
+							<div className="rankList">
+								<ul>
+									<li>
+										<div>{t("lbl_Ranking")}</div>
+										<div>{t("lbl_Username")}</div>
+										<div>{t("lbl_Points")}</div>
+									</li>
+									{rankingList}
+									{selfRankingColumn()}
+								</ul>
+							</div>
+						) : (
+							<div className="nodata txt-dark">
+								{t("msg_NoData")}
+							</div>
+						)}
 						<div className="lastUpdate">
 							{t(`lbl_LastUpdTime`, { time: showUpdateTime() })}
 						</div>
