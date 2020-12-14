@@ -211,39 +211,6 @@ export default () => {
 		);
 	};
 
-	const rankingList = ranking?.map((item, idx) => {
-		return (
-			<li key={`leaderboard_item_${item.custId}`}>
-				<div>
-					{idx < 3 ? (
-						<img
-							src={require(`../../styles/img/no${idx + 1}.png`)}
-							alt="ranking_top_three"
-						/>
-					) : null}
-					{t("lbl_Top")}
-					{idx + 1}
-				</div>
-				<div>{item.userName}</div>
-				<div>{number_format(item.wTurnover)}</div>
-			</li>
-		);
-	});
-
-	const selfRankingColumn = () => {
-		if (selfRankingData?.custRank > 0) {
-			return (
-				<li>
-					<div>{selfRankingData.custRank > 999 ?? "999+"}</div>
-					<div>{userInfo.userName}</div>
-					<div>{selfRankingData.point}</div>
-				</li>
-			);
-		} else {
-			return null;
-		}
-	};
-
 	return (
 		<section className={`ranking ${defBackground[tab]}`}>
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
@@ -295,8 +262,11 @@ export default () => {
 										<div>{t("lbl_Username")}</div>
 										<div>{t("lbl_Points")}</div>
 									</li>
-									{rankingList}
-									{selfRankingColumn()}
+									<Ranking ranking={ranking} />
+									<SelfRanking
+										selfRankingData={selfRankingData}
+										userInfo={userInfo}
+									/>
 								</ul>
 							</div>
 						) : (
@@ -313,3 +283,36 @@ export default () => {
 		</section>
 	);
 };
+
+const Ranking = () =>
+	ranking?.map((item, idx) => {
+		return (
+			<li key={`leaderboard_item_${item.custId}`}>
+				<div>
+					{idx < 3 ? (
+						<img
+							src={require(`../../styles/img/no${idx + 1}.png`)}
+							alt="ranking_top_three"
+						/>
+					) : null}
+					{t("lbl_Top")}
+					{idx + 1}
+				</div>
+				<div>{item.userName}</div>
+				<div>{number_format(item.wTurnover)}</div>
+			</li>
+		);
+	});
+
+const SelfRanking = ({ selfRankingData, userInfo }) =>
+	selfRankingData?.custRank > 0 ? (
+		<li>
+			<div>
+				{selfRankingData.custRank > 999
+					? "999+"
+					: selfRankingData.custRank}
+			</div>
+			<div>{userInfo.userName}</div>
+			<div>{selfRankingData.point}</div>
+		</li>
+	) : null;
