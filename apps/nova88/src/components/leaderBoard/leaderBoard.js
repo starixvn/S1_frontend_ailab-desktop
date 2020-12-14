@@ -90,10 +90,12 @@ export default () => {
 		}
 	};
 
-	const onChangeGameType = typeValue => {
+	const onChangeGameType = (typeValue, updateStateOnly) => {
 		setCategoryID(typeValue);
-		getLeaderboardData(typeValue, beforeDays);
-		getSelfLeaderboardData(typeValue, beforeDays);
+		if (!updateStateOnly) {
+			getLeaderboardData(typeValue, beforeDays);
+			getSelfLeaderboardData(typeValue, beforeDays);
+		}
 	};
 
 	const onChangeDays = daysValue => {
@@ -107,6 +109,7 @@ export default () => {
 	};
 
 	const getLeaderboardData = async (typeValue, daysValue) => {
+		if (!userInfo.isLogin) return;
 		let payload = {
 			lBCategoryId: typeValue ?? categoryID,
 			TopNum: TopNum,
@@ -158,6 +161,7 @@ export default () => {
 	};
 
 	const getSelfLeaderboardData = async (typeValue, daysValue) => {
+		if (!userInfo.isLogin) return;
 		let payload = {
 			lBCategoryId: typeValue ?? categoryID,
 			BeforeDays: daysValue ?? beforeDays

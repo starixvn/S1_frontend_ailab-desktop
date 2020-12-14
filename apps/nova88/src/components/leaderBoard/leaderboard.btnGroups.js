@@ -8,7 +8,8 @@ export default ({
 	categoryID,
 	onChangeDays,
 	beforeDays,
-	tab
+	tab,
+	updateStateOnly = false
 }) => {
 	const btnOptions = [defTabId.sports, defTabId.liveCasino, defTabId.slots];
 	const gameTypeBtnList = defTabList.filter(tab =>
@@ -24,6 +25,7 @@ export default ({
 				onClick={onChangeGameType}
 				selected={categoryID}
 				tab={tab}
+				updateStateOnly={updateStateOnly}
 			/>
 			{tab === defTabId.event ? null : (
 				<BtnBar
@@ -38,13 +40,21 @@ export default ({
 	);
 };
 
-const BtnBar = ({ t, title, btnList, onClick, selected, tab }) => {
+const BtnBar = ({
+	t,
+	title,
+	btnList,
+	onClick,
+	selected,
+	tab,
+	updateStateOnly
+}) => {
 	const rows = btnList.map(item => {
 		return (
 			<button
 				key={`leaderboard-gameType-btn-${item.id}`}
 				className={`orange ${item.id === selected ? "active" : ""}`}
-				onClick={onClick.bind(this, item.id)}>
+				onClick={onClick.bind(this, item.id, updateStateOnly)}>
 				{t(item.displayKey)}
 			</button>
 		);

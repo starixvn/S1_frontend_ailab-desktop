@@ -39,6 +39,7 @@ export default ({
 				onChangeGameType={onChangeGameType}
 				categoryID={categoryID}
 				tab={tab}
+				updateStateOnly={true}
 			/>
 			<div className="title">{t("lbl_leaderboardTitle_1")}</div>
 			<div className="title">{t("lbl_leaderboardTitle_2")}</div>
