@@ -284,7 +284,7 @@ export default () => {
 							</div>
 						) : (
 							<div className="nodata txt-dark">
-								{t("msg_NoData")}
+								{t("lbl_NoData")}
 							</div>
 						)}
 						<div className="lastUpdate">

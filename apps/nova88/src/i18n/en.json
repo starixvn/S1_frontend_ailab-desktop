@@ -318,7 +318,6 @@
 	"lbl_RequireMinAmountHint_Back": "Deposit now?",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
-	"msg_NoData": "No Data",
 	"lbl_NoData": "No information is available now.",
 	"msg_ApiServerError": "Oops! Something wrong, please try again.",
 	"lbl_Cancel": "Cancel",

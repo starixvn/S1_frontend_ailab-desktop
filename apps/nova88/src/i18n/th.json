@@ -318,7 +318,6 @@
 	"lbl_RequireMinAmountHint_Back": "บาท ฝากเลย?",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
-	"msg_NoData": "ไม่มีข้อมูล",
 	"lbl_NoData": "ไม่มีข้อมูล",
 	"msg_ApiServerError": "อุ๊ปส์! มีบางอย่างผิดพลาด กรุณาลองใหม่อีกครั้ง",
 	"lbl_Cancel": "ยกเลิก",

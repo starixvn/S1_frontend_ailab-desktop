@@ -318,8 +318,7 @@
 	"lbl_RequireMinAmountHint_Back": "立即存款？",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
-	"msg_NoData": "无资料",
-	"lbl_NoData": "无信息",
+	"lbl_NoData": "目前没有可用的信息。",
 	"msg_ApiServerError": "糟糕！出现错误，请再尝试。",
 	"lbl_Cancel": "取消",
 	"lbl_Submit": "提交",

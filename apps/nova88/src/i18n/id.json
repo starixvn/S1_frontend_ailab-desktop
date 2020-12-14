@@ -318,7 +318,6 @@
 	"lbl_RequireMinAmountHint_Back": "Deposit sekarang?",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
-	"msg_NoData": "Tidak ada data",
 	"lbl_NoData": "Tidak Ada Informasi Yang Tersedia",
 	"msg_ApiServerError": "Ups! Ada kesalahan, silakan dicoba kembali.",
 	"lbl_Cancel": "Batal",
