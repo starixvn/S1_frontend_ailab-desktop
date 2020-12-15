@@ -129,48 +129,28 @@ export default () => {
 			BeforeDays: daysValue ?? beforeDays
 		};
 
-		await api_events_GetLeaderboardList(payload).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setRankingData(res.data.data);
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
+		await api_events_GetLeaderboardList(payload).then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					setRankingData(res.data.data);
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: res.data.message,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={ClickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
 				}
 			}
-			// err => {
-			// 	if (isMountedRef.current) {
-			// 		setPopBox({
-			// 			isOpen: true,
-			// 			popBoxType: defPopBoxType.ErrorMsg,
-			// 			message: t("msg_ApiServerError"),
-			// 			btnBar: (
-			// 				<div className="btnGroup">
-			// 					<button
-			// 						className="btn-cancel"
-			// 						onClick={ClickClose}>
-			// 						{t("lbl_Close")}
-			// 					</button>
-			// 				</div>
-			// 			)
-			// 		});
-			// 	}
-			// }
-		);
+		});
 	};
 
 	const getSelfLeaderboardData = async (typeValue, daysValue) => {
@@ -180,48 +160,28 @@ export default () => {
 			BeforeDays: daysValue ?? beforeDays
 		};
 
-		await api_events_GetCustRank(payload).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setSelfRankingData(res.data.data);
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
+		await api_events_GetCustRank(payload).then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0||res.data.errorCode === 99) {
+					setSelfRankingData(res.data.data);
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: res.data.message,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={ClickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
 				}
 			}
-			// err => {
-			// 	if (isMountedRef.current) {
-			// 		setPopBox({
-			// 			isOpen: true,
-			// 			popBoxType: defPopBoxType.ErrorMsg,
-			// 			message: t("msg_ApiServerError"),
-			// 			btnBar: (
-			// 				<div className="btnGroup">
-			// 					<button
-			// 						className="btn-cancel"
-			// 						onClick={ClickClose}>
-			// 						{t("lbl_Close")}
-			// 					</button>
-			// 				</div>
-			// 			)
-			// 		});
-			// 	}
-			// }
-		);
+		});
 	};
 
 	return (
@@ -316,9 +276,10 @@ const Ranking = ({ rankingData, t }) =>
 		);
 	});
 
+
 const SelfRanking = ({ selfRankingData, userInfo }) =>
 	selfRankingData?.custRank > 0 ? (
-		<li>
+		<li className="userRank">
 			<div>
 				{selfRankingData.custRank > 999
 					? "999+"
