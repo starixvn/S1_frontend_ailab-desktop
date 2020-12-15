@@ -15,16 +15,19 @@ export default ({
 	const rows = rewardList.map(item => {
 		return (
 			<li key={`leaderBoard-event-${item.displayRank}`}>
-				{parseInt(item.displayRank) < 4 ? (
-					<div>
+				<div>
+					{parseInt(item.displayRank) < 4 ? (
 						<img
 							src={require(`../../styles/img/no${item.displayRank}.png`)}
 							alt="top_ranking"
 						/>
-					</div>
-				) : (
-					<div></div>
-				)}
+					) : (
+						<img
+							src={require(`../../styles/img/gold.png`)}
+							alt="top_ranking"
+						/>
+					)}
+				</div>
 				<div>
 					{t("lbl_Top")} {item.displayRank}
 				</div>

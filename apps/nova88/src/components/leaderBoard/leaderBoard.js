@@ -263,7 +263,12 @@ const Ranking = ({ rankingData, t }) =>
 							src={require(`../../styles/img/no${idx + 1}.png`)}
 							alt="ranking_top_three"
 						/>
-					) : null}
+					) : (
+						<img
+							src={require(`../../styles/img/gold.png`)}
+							alt="ranking_gold"
+						/>
+					)}
 					{t("lbl_Top")}
 					{idx + 1}
 				</div>
@@ -277,6 +282,10 @@ const SelfRanking = ({ selfRankingData, userInfo }) =>
 	selfRankingData?.custRank > 0 ? (
 		<li className="userRank">
 			<div>
+				<img
+					src={require(`../../styles/img/gold.png`)}
+					alt="ranking_gold"
+				/>
 				{selfRankingData.custRank > 999
 					? "999+"
 					: selfRankingData.custRank}
