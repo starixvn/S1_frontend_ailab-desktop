@@ -359,7 +359,8 @@
 	"lbl_Cashier": "แคชเชียร์",
 	"lbl_UpdatePersonalDetail": "อัปเดตข้อมูลส่วนบุคคล",
 	"lbl_Details": "รายละเอียด",
-	"lbl_total": "Total",
+	"lbl_total": "รวม",
+	"lbl_Cash":"เงินสด",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
