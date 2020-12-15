@@ -380,8 +380,8 @@
 	"lbl_Days": "天",
 	"lbl_Hours": "小时",
 	"lbl_5mins": "5分鐘",
-	"lbl_last_2_day":"最后 2 天",
-	"lbl_last_3_day":"最后 3 天",
+	"lbl_last_2_day":"前 2 天",
+	"lbl_last_3_day":"前 3 天",
 
 	"leaderboard ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Event":"活动",
