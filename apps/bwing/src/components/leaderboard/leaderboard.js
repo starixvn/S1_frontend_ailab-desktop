@@ -169,18 +169,20 @@ export default () => {
 	};
 
 	return (
-		<section className={`rankingPage eventBg`}>
+		<section className={`rankingPage ${defBackground[tab]}`}>
 			{/* <img src={bottomImg} alt="bottomImg" /> */}
 			<div className="ranContent">
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				<div className="ranBox">
 					{tab === defTabId.event ? (
-						<EventTab
-							t={t}
-							tab={tab}
-							rewardList={rewardList}
-							userInfo={userInfo}
-						/>
+						<div className="ranInBox">
+							<EventTab
+								t={t}
+								tab={tab}
+								rewardList={rewardList}
+								userInfo={userInfo}
+							/>
+						</div>
 					) : (
 						<div className="ranInBox">
 							{tab === defTabId.ranking ? (
@@ -222,6 +224,18 @@ export default () => {
 							</p>
 						</div>
 					)}
+				</div>
+				<div>
+					<div className="ranInBox ranInBox2">
+						<div className="textBox">
+							<h1>NO.1 REWARD</h1>
+							<p>IPHONE 12 PRO MAX(256GB)</p>
+						</div>
+						<img
+							src={require("../../styles/img/ranking/iphone.png")}
+							alt="iphone"
+						/>
+					</div>
 				</div>
 			</div>
 		</section>

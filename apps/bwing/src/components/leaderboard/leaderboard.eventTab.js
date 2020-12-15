@@ -34,37 +34,25 @@ export default ({
 
 	return (
 		<>
-			<div className="ranInBox">
-				<h1 className="title">{t("lbl_leaderboardTitle_1")}</h1>
-				<div className="ranlist event">
-					<ul>
-						<li>
-							<div>{t("lbl_Ranking")}</div>
-							<div>{t("lbl_Rewards")}</div>
-							<div>No. of winners</div>
-						</li>
-						{rows}
-					</ul>
-				</div>
-				<p
-					className="remind"
-					href={`${
-						config.cloudImgUrl
-					}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}
-					target="_blank">
-					{t("lbl_MoreDetails")}
-				</p>
+			<h1 className="title">{t("lbl_leaderboardTitle_1")}</h1>
+			<div className="ranlist event">
+				<ul>
+					<li>
+						<div>{t("lbl_Ranking")}</div>
+						<div>{t("lbl_Rewards")}</div>
+						<div>No. of winners</div>
+					</li>
+					{rows}
+				</ul>
 			</div>
-			<div className="ranInBox ranInBox2">
-				<div className="textBox">
-					<h1>NO.1 REWARD</h1>
-					<p>IPHONE 12 PRO MAX(256GB)</p>
-				</div>
-				<img
-					src={require("../../styles/img/ranking/iphone.png")}
-					alt="iphone"
-				/>
-			</div>
+			<p
+				className="remind"
+				href={`${
+					config.cloudImgUrl
+				}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}
+				target="_blank">
+				{t("lbl_MoreDetails")}
+			</p>
 		</>
 	);
 };
