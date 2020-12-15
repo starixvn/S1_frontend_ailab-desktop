@@ -203,9 +203,6 @@ export default () => {
 						{isGameTypeTab ? (
 							<div className="title">
 								<div>{t(defLeaderBoardTitle[tab])}</div>
-								<div className="txt-orange">
-									{t("lbl_Ranking_Top10")}
-								</div>
 							</div>
 						) : (
 							<ButtonGroups

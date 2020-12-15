@@ -387,7 +387,7 @@
 	"lbl_Event":"活动",
 	"lbl_Records":"记录",
 	"lbl_Game_type":"游戏类别",
-	"lbl_Ranking":"排名",
+	"lbl_Ranking":"排行榜",
 	"lbl_Points":"分数",
 	"lbl_Top":"最高",
 	"lbl_LastUpdTime":"最后更新于 {{time}} (每30分钟更新)",
