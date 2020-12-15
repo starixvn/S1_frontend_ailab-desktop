@@ -80,7 +80,7 @@ export const defRewardList = {
 		],
 		[defTabId.liveCasino]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "3,000,000 IDR (cash)" },
+			{ displayRank: "2", reward: "3,000,000 IDR (cash) {{cash}}" },
 			{ displayRank: "3", reward: "2,688,000 IDR (cash)" },
 			{ displayRank: "4", reward: "2,388,000 IDR (cash)" },
 			{ displayRank: "5", reward: "1,388,000 IDR (cash)" }

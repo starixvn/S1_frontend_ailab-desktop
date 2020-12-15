@@ -1,0 +1,72 @@
+import React from "react";
+import { number_format } from "../common/common";
+import config from "../../config";
+
+export default ({
+	t,
+	onChangeGameType,
+	categoryID,
+	tab,
+	rewardList,
+	userInfo,
+	currencyName
+}) => {
+	const rows = rewardList?.map(item => {
+		return (
+			<li key={`leaderBoard-event-${item.displayRank}`}>
+				{parseInt(item.displayRank) < 4 ? (
+					<div>
+						<img
+							src={require(`../../styles/img/no${item.displayRank}.png`)}
+							alt="top_ranking"
+						/>
+					</div>
+				) : (
+					<div></div>
+				)}
+				<div>
+					{t("lbl_Top")} {item.displayRank}
+				</div>
+				<div>
+					{item.reward}
+					{item.reward.slice(-3) === currencyName ? (
+						<> {t("lbl_Cash")}</>
+					) : null}
+				</div>
+			</li>
+		);
+	});
+
+	return (
+		<>
+			<div className="ranInBox">
+				<div className="title">{t("lbl_leaderboardTitle_1")}</div>
+				<div className="title">{t("lbl_leaderboardTitle_2")}</div>
+				<div className="rankList event">
+					<ul>
+						<li>
+							<div>{t("lbl_Ranking")}</div>
+							<div>{t("lbl_Rewards")}</div>
+							<div>No. of winners</div>
+						</li>
+						{rows}
+					</ul>
+				</div>
+				<a className="remind"
+					href={`${
+						config.cloudImgUrl
+					}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}
+					target="_blank">
+					{t("lbl_MoreDetails")}
+				</a>
+			</div>
+			<div className="ranInBox ranInBox2">
+				<div className="textBox">
+					<h1>NO.1 REWARD</h1>
+					<p>IPHONE 12 PRO MAX(256GB)</p>
+				</div>
+				<img src="../../img/ranking/iphone.png" alt="" />
+			</div>
+		</>
+	);
+};

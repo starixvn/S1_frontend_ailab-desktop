@@ -4630,6 +4630,39 @@ main > .swiper-container .swiper-slide {
   opacity: 0.7;
 }
 
+.proList > div .newTag,
+.slotList > div .newTag {
+  position: absolute;
+  right: 16px;
+  bottom: 25%;
+  padding: 3px 10px;
+  background-color: rgba(244, 43, 7, 0.3);
+  border: 1px solid #f42b07;
+  color: #ffffff;
+  border-radius: 15px;
+  font-weight: bold;
+  -webkit-animation: newTag 1s linear infinite alternate;
+          animation: newTag 1s linear infinite alternate;
+}
+
+@-webkit-keyframes newTag {
+  0% {
+    background-color: rgba(244, 43, 7, 0.2);
+  }
+  100% {
+    background-color: rgba(244, 43, 7, 0.6);
+  }
+}
+
+@keyframes newTag {
+  0% {
+    background-color: rgba(244, 43, 7, 0.2);
+  }
+  100% {
+    background-color: rgba(244, 43, 7, 0.6);
+  }
+}
+
 .proList > div .txt-blue15,
 .slotList > div .txt-blue15 {
   font-weight: bold;
@@ -5945,80 +5978,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 4.15731%;
-  top: -55.30605%;
-  width: 8.58444px;
-  height: 8.58444px;
+  left: 41.64435%;
+  top: -35.6159%;
+  width: 11.43988px;
+  height: 11.43988px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 64.41337%;
-  top: -16.46205%;
-  width: 13.36084px;
-  height: 13.36084px;
+  left: 12.69152%;
+  top: -48.55587%;
+  width: 11.08559px;
+  height: 11.08559px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 66.99386%;
-  top: 6.31314%;
-  width: 10.71736px;
-  height: 10.71736px;
+  left: 10.36084%;
+  top: -25.72624%;
+  width: 12.42784px;
+  height: 12.42784px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 83.79606%;
-  top: 3.91349%;
-  width: 12.05037px;
-  height: 12.05037px;
+  left: 87.92247%;
+  top: -27.02309%;
+  width: 11.55463px;
+  height: 11.55463px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 96.24566%;
-  top: 9.70528%;
-  width: 13.09826px;
-  height: 13.09826px;
+  left: 88.48609%;
+  top: -28.15879%;
+  width: 7.68036px;
+  height: 7.68036px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 61.0859%;
-  top: -23.88415%;
-  width: 7.33085px;
-  height: 7.33085px;
+  left: 92.90705%;
+  top: 23.4374%;
+  width: 12.18306px;
+  height: 12.18306px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 32.07433%;
-  top: 7.57044%;
-  width: 5.89482px;
-  height: 5.89482px;
+  left: 1.39057%;
+  top: -29.10902%;
+  width: 11.12418px;
+  height: 11.12418px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 53.82638%;
-  top: 6.36123%;
-  width: 7.21045px;
-  height: 7.21045px;
+  left: 65.10205%;
+  top: 16.72841%;
+  width: 8.50909px;
+  height: 8.50909px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6091,5 +6124,272 @@ input + .iconModule i.icon.icon-checkmark:before {
             transform: scale(1.15);
     color: #fff;
   }
+}
+
+.rankingPage {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.rankingPage.eventBg {
+  background: url(../img/ranking/eventBg.png) no-repeat center top;
+}
+
+.rankingPage.rankingBg {
+  background: url(../img/ranking/rankingBg.png) no-repeat center top;
+}
+
+.rankingPage.recordsBg {
+  background: url(../img/ranking/recordsBg.png) no-repeat center top;
+}
+
+.rankingPage .bottomImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.rankingPage .ranContent {
+  min-width: 1000px;
+}
+
+.rankingPage .ranContent .ranBotton {
+  position: relative;
+}
+
+.rankingPage .ranContent .ranBotton::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -20px;
+  width: 20px;
+  height: 350px;
+  border-radius: 5px 0 0 5px;
+  border-left: 1px solid #56ceff;
+  border-top: 1px solid #56ceff;
+  border-bottom: 1px solid #56ceff;
+}
+
+.rankingPage .ranContent .ranBotton > button {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #56ceff;
+  color: #56ceff;
+  border-radius: 5px;
+  margin-right: 10px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+}
+
+.rankingPage .ranContent .ranBotton > button.active {
+  background-color: #56ceff;
+  color: #070e22;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+}
+
+.rankingPage .ranContent .ranBotton > button:hover {
+  background-color: #56ceff;
+  color: #070e22;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+}
+
+.rankingPage .ranContent .ranBox {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox {
+  width: 49%;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #56ceff;
+  background-color: rgba(45, 50, 75, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .title {
+  font-size: 30px;
+  color: #56ceff;
+  text-align: center;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist {
+  height: 400px;
+  overflow: auto;
+  margin: 20px 0;
+  position: relative;
+  padding-bottom: 35px;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist.event {
+  overflow: inherit;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li {
+  width: calc(100% - 30px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: transparent;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  min-height: auto;
+  margin-bottom: 10px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #56ceff;
+  border-radius: 5px;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li:nth-child(1) {
+  border: 0;
+  margin: 0;
+  height: 30px;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li.no1 {
+  border: 1px solid #ffdd33;
+  background-color: rgba(255, 216, 100, 0.1);
+  height: 50px;
+  line-height: 50;
+  width: calc(100% - 2px);
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li.no2 {
+  border: 1px solid #cbe5ff;
+  background-color: rgba(203, 229, 255, 0.1);
+  height: 50px;
+  line-height: 50;
+  width: calc(100% - 10px);
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li.no3 {
+  border: 1px solid #ffa64d;
+  background-color: rgba(255, 166, 77, 0.1);
+  height: 50px;
+  line-height: 50;
+  width: calc(100% - 20px);
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li.myRan {
+  width: 446px;
+  margin: 0;
+  background-color: #56ceff;
+  position: fixed;
+  bottom: 50px;
+  border-radius: 0 0 3px 3px;
+  border: 0;
+  color: #070e22;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li.myRan::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  width: 100%;
+  height: 15px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 206, 255, 0.5)), to(rgba(86, 206, 255, 0)));
+  background: linear-gradient(0deg, rgba(86, 206, 255, 0.5), rgba(86, 206, 255, 0));
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  padding: 0 10px;
+  height: 40px;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li div.point {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox .remind {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.rankingPage .ranContent .ranBox .ranInBox.ranInBox2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox.ranInBox2 p {
+  font-size: 18px;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox.ranInBox2 h1 {
+  color: #ffd13c;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.rankingPage .ranContent .ranBox .ranInBox.ranInBox2 img {
+  width: 80%;
+}
+
+.rankingPage .ranContent .ranBox .quickSelect > div {
+  padding: 0;
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */
