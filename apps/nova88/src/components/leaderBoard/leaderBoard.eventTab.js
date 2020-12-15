@@ -9,7 +9,8 @@ export default ({
 	categoryID,
 	tab,
 	rewardList,
-	userInfo
+	userInfo,
+	currencyName
 }) => {
 	const rows = rewardList.map(item => {
 		return (
@@ -27,7 +28,12 @@ export default ({
 				<div>
 					{t("lbl_Top")} {item.displayRank}
 				</div>
-				<div>{number_format(item.reward)}</div>
+				<div>
+					{item.reward}
+					{item.reward.slice(-3) === currencyName ? (
+						<> {t("lbl_Cash")}</>
+					) : null}
+				</div>
 			</li>
 		);
 	});

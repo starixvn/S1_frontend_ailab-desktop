@@ -50,71 +50,71 @@ export const defRewardList = {
 	MYR: {
 		[defTabId.sports]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "888 MYR (cash)" },
-			{ displayRank: "3", reward: "788 MYR (cash)" },
-			{ displayRank: "4", reward: "688 MYR (cash)" },
-			{ displayRank: "5", reward: "588 MYR (cash)" }
+			{ displayRank: "2", reward: "888 MYR" },
+			{ displayRank: "3", reward: "788 MYR" },
+			{ displayRank: "4", reward: "688 MYR" },
+			{ displayRank: "5", reward: "588 MYR" }
 		],
 		[defTabId.liveCasino]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "888 MYR (cash)" },
-			{ displayRank: "3", reward: "788 MYR (cash)" },
-			{ displayRank: "4", reward: "688 MYR (cash)" },
-			{ displayRank: "5", reward: "588 MYR (cash)" }
+			{ displayRank: "2", reward: "888 MYR" },
+			{ displayRank: "3", reward: "788 MYR" },
+			{ displayRank: "4", reward: "688 MYR" },
+			{ displayRank: "5", reward: "588 MYR" }
 		],
 		[defTabId.slots]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "888 MYR (cash)" },
-			{ displayRank: "3", reward: "788 MYR (cash)" },
-			{ displayRank: "4", reward: "688 MYR (cash)" },
-			{ displayRank: "5", reward: "588 MYR (cash)" }
+			{ displayRank: "2", reward: "888 MYR" },
+			{ displayRank: "3", reward: "788 MYR" },
+			{ displayRank: "4", reward: "688 MYR" },
+			{ displayRank: "5", reward: "588 MYR" }
 		]
 	},
 	IDR: {
 		[defTabId.sports]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "3,000,000 IDR (cash)" },
-			{ displayRank: "3", reward: "2,688,000 IDR (cash)" },
-			{ displayRank: "4", reward: "2,388,000 IDR (cash)" },
-			{ displayRank: "5", reward: "1,388,000 IDR (cash)" }
+			{ displayRank: "2", reward: "3,000,000 IDR" },
+			{ displayRank: "3", reward: "2,688,000 IDR" },
+			{ displayRank: "4", reward: "2,388,000 IDR" },
+			{ displayRank: "5", reward: "1,388,000 IDR" }
 		],
 		[defTabId.liveCasino]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "3,000,000 IDR (cash)" },
-			{ displayRank: "3", reward: "2,688,000 IDR (cash)" },
-			{ displayRank: "4", reward: "2,388,000 IDR (cash)" },
-			{ displayRank: "5", reward: "1,388,000 IDR (cash)" }
+			{ displayRank: "2", reward: "3,000,000 IDR" },
+			{ displayRank: "3", reward: "2,688,000 IDR" },
+			{ displayRank: "4", reward: "2,388,000 IDR" },
+			{ displayRank: "5", reward: "1,388,000 IDR" }
 		],
 		[defTabId.slots]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "3,000,000 IDR (cash)" },
-			{ displayRank: "3", reward: "2,688,000 IDR (cash)" },
-			{ displayRank: "4", reward: "2,388,000 IDR (cash)" },
-			{ displayRank: "5", reward: "1,388,000 IDR (cash)" }
+			{ displayRank: "2", reward: "3,000,000 IDR" },
+			{ displayRank: "3", reward: "2,688,000 IDR" },
+			{ displayRank: "4", reward: "2,388,000 IDR" },
+			{ displayRank: "5", reward: "1,388,000 IDR" }
 		]
 	},
 
 	THB: {
 		[defTabId.sports]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "6,588 THB (cash)" },
-			{ displayRank: "3", reward: "5,588 THB (cash)" },
-			{ displayRank: "4", reward: "5,088 THB (cash)" },
-			{ displayRank: "5", reward: "4,088 THB (cash)" }
+			{ displayRank: "2", reward: "6,588 THB" },
+			{ displayRank: "3", reward: "5,588 THB" },
+			{ displayRank: "4", reward: "5,088 THB" },
+			{ displayRank: "5", reward: "4,088 THB" }
 		],
 		[defTabId.liveCasino]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "6,588 THB (cash)" },
-			{ displayRank: "3", reward: "5,588 THB (cash)" },
-			{ displayRank: "4", reward: "5,088 THB (cash)" },
-			{ displayRank: "5", reward: "4,088 THB (cash)" }
+			{ displayRank: "2", reward: "6,588 THB" },
+			{ displayRank: "3", reward: "5,588 THB" },
+			{ displayRank: "4", reward: "5,088 THB" },
+			{ displayRank: "5", reward: "4,088 THB" }
 		],
 		[defTabId.slots]: [
 			{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-			{ displayRank: "2", reward: "6,588 THB (cash)" },
-			{ displayRank: "3", reward: "5,588 THB (cash)" },
-			{ displayRank: "4", reward: "5,088 THB (cash)" },
-			{ displayRank: "5", reward: "4,088 THB (cash)" }
+			{ displayRank: "2", reward: "6,588 THB" },
+			{ displayRank: "3", reward: "5,588 THB" },
+			{ displayRank: "4", reward: "5,088 THB" },
+			{ displayRank: "5", reward: "4,088 THB" }
 		]
 	}
 };
