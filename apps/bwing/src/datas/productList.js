@@ -115,6 +115,18 @@ export default {
 	liveCasino_WM: {
 		gameId: 20,
 		tpId: 20
+	},
+	liveCasino_One789: {
+		tpId: 23,
+		gameId: 2
+	},
+	One789_lottery: {
+		tpId: 23,
+		gameId: 0
+	},
+	One789_lottery_789: {
+		tpId: 23,
+		gameId: 1
 	}
 };
 
