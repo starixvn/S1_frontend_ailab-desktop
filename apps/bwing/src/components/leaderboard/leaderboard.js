@@ -22,7 +22,8 @@ import { number_format } from "../common/common";
 import EventTab from "./leaderboard.eventTab";
 
 const langMapping = {
-	vn: "VND"
+	vn: "VND",
+	en: "VND"
 };
 
 const currMapping = {
@@ -50,7 +51,10 @@ export default () => {
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
+	console.log("currencyName::", currencyName);
+
 	const rewardList = defRewardList[currencyName];
+	console.log("rewardList::", rewardList);
 
 	useEffect(() => {
 		isMountedRef.current = true;
