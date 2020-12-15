@@ -58,7 +58,7 @@ export default () => {
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
-	const rewardList = defRewardList(t)[currencyName][categoryID];
+	const rewardList = defRewardList({ t })[currencyName][categoryID];
 
 	useEffect(() => {
 		isMountedRef.current = true;
