@@ -42,7 +42,7 @@ const BtnBar = ({
 		);
 	});
 	return (
-		<div className="ranBotton">
+		<div className="quickSelect">
 			<div>
 				<div class="txt-blue15">Data</div>
 				<div class="dropdown">

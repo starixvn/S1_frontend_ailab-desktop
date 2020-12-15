@@ -11,28 +11,23 @@ export default ({
 	userInfo,
 	currencyName
 }) => {
-	const rows = rewardList?.map(item => {
+	const rows = rewardList?.map((item, idx) => {
 		return (
-			<li key={`leaderBoard-event-${item.displayRank}`}>
-				{parseInt(item.displayRank) < 4 ? (
+			<li
+				key={`leaderBoard-event-${item.displayRank}`}
+				className={idx < 3 ? `no${idx + 1}` : null}>
+				{parseInt(item.displayRank) === 1 ? (
 					<div>
 						<img
-							src={require(`../../styles/img/no${item.displayRank}.png`)}
+							src={require(`../../styles/img/ranking/trophy1.png`)}
 							alt="top_ranking"
 						/>
 					</div>
 				) : (
-					<div></div>
+					<div>{item.displayRank}</div>
 				)}
-				<div>
-					{t("lbl_Top")} {item.displayRank}
-				</div>
-				<div>
-					{item.reward}
-					{item.reward.slice(-3) === currencyName ? (
-						<> {t("lbl_Cash")}</>
-					) : null}
-				</div>
+				<div>{item.reward}</div>
+				<div>{item.winnersNum}</div>
 			</li>
 		);
 	});
@@ -40,9 +35,8 @@ export default ({
 	return (
 		<>
 			<div className="ranInBox">
-				<div className="title">{t("lbl_leaderboardTitle_1")}</div>
-				<div className="title">{t("lbl_leaderboardTitle_2")}</div>
-				<div className="rankList event">
+				<h1 className="title">{t("lbl_leaderboardTitle_1")}</h1>
+				<div className="ranlist event">
 					<ul>
 						<li>
 							<div>{t("lbl_Ranking")}</div>
@@ -52,20 +46,24 @@ export default ({
 						{rows}
 					</ul>
 				</div>
-				<a className="remind"
+				<p
+					className="remind"
 					href={`${
 						config.cloudImgUrl
 					}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}
 					target="_blank">
 					{t("lbl_MoreDetails")}
-				</a>
+				</p>
 			</div>
 			<div className="ranInBox ranInBox2">
 				<div className="textBox">
 					<h1>NO.1 REWARD</h1>
 					<p>IPHONE 12 PRO MAX(256GB)</p>
 				</div>
-				<img src="../../img/ranking/iphone.png" alt="" />
+				<img
+					src={require("../../styles/img/ranking/iphone.png")}
+					alt="iphone"
+				/>
 			</div>
 		</>
 	);

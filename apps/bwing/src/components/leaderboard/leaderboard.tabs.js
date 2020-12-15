@@ -8,7 +8,7 @@ export default ({ t, onChangeTab, tab }) => {
 				key={`leaderboard-tab-${item.id}`}
 				className={item.id === tab ? "active" : ""}
 				onClick={onChangeTab.bind(this, item.id)}>
-				{t(item.displayKey)}
+				{t(item.displayKey).toUpperCase()}
 			</button>
 		);
 	});

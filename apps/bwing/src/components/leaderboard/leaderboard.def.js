@@ -41,14 +41,9 @@ export const defDayOptions = [
 ];
 
 export const defRewardList = {
-	EN: [
-		{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-		{ displayRank: "2-6", reward: "888 MYR" },
-		{ displayRank: "7-16", reward: "788 MYR" }
-	],
-	VN: [
-		{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-		{ displayRank: "2-6", reward: "3,000,000 IDR" },
-		{ displayRank: "7-16", reward: "788 MYR" }
+	VND: [
+		{ displayRank: "1", reward: "iPhone 12 (256GB)", winnersNum: 1 },
+		{ displayRank: "2~6", reward: "10,888,000", winnersNum: 5 },
+		{ displayRank: "7~16", reward: "5,888,000", winnersNum: 10 }
 	]
 };

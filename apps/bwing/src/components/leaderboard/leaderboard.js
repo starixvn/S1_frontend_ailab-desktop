@@ -8,7 +8,7 @@ import {
 	api_events_GetCustRank
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
-import ButtonGroups from "./leaderBoard.btnGroups";
+import DayDropdown from "./leaderboard.dayDropdown";
 import {
 	defTabId,
 	defBackground,
@@ -22,14 +22,11 @@ import { number_format } from "../common/common";
 import EventTab from "./leaderboard.eventTab";
 
 const langMapping = {
-	cs: "MYR",
-	en: "MYR",
-	id: "IDR",
-	th: "THB"
+	vn: "VND"
 };
 
 const currMapping = {
-	13: "MYR"
+	15: "VND"
 };
 
 export default () => {
@@ -47,7 +44,6 @@ export default () => {
 	const [beforeDays, setBeforeDays] = useState(defDayNum.yesterDay);
 	const lBCategoryId = 0;
 	const TopNum = 10;
-	const isEventTab = tab === defTabId.event;
 
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??
@@ -105,6 +101,7 @@ export default () => {
 	};
 
 	const getLeaderboardData = async daysValue => {
+		console.log("call getLeaderboardData");
 		if (!userInfo.isLogin) return;
 		let payload = {
 			lBCategoryId: lBCategoryId,
@@ -164,52 +161,63 @@ export default () => {
 					});
 				}
 			}
-		});fbottomImg
+		});
 	};
 
-	console.log("tab::", tab);
-
 	return (
-		<section className={`rankingPage ${defBackground[tab]}`}>
+		<section className={`rankingPage eventBg`}>
 			{/* <img src={bottomImg} alt="bottomImg" /> */}
 			<div className="ranContent">
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				<div className="ranBox">
-					{/* <EventTab
-						t={t}
-						tab={tab}
-						rewardList={rewardList}
-						userInfo={userInfo}
-						currencyName={currencyName}
-					/> */}
-					<div className="ranInBox">
-						<h1 class="title">TOP title</h1>
-						{rankingData?.length > 0 ? (
-							<div className="rankList">
-								<ul>
-									<li>
-										<div>{t("lbl_Ranking")}</div>
-										<div>{t("lbl_Username")}</div>
-										<div>{t("lbl_Points")}</div>
-									</li>
-									<Ranking rankingData={rankingData} t={t} />
-									<SelfRanking
-										selfRankingData={selfRankingData}
-										userInfo={userInfo}
-									/>
-								</ul>
-							</div>
-						) : (
-							<div className="icon icon-nodata">
-								{t("lbl_NoData")}
-							</div>
-						)}
-						<div className="lastUpdate">
-							{t(`lbl_LastUpdTime`, {
-								time: showUpdateTime()
-							})}
+					{tab === defTabId.event ? (
+						<EventTab
+							t={t}
+							tab={tab}
+							rewardList={rewardList}
+							userInfo={userInfo}
+						/>
+					) : (
+						<div className="ranInBox">
+							{tab === defTabId.ranking ? (
+								<h1 class="title">TOP 20 WINNING</h1>
+							) : (
+								<DayDropdown
+									t={t}
+									onChangeDays={onChangeDays}
+									beforeDays={beforeDays}
+								/>
+							)}
+							{rankingData?.length > 0 ? (
+								<div className="ranList">
+									<ul>
+										<li>
+											<div>{t("lbl_Ranking")}</div>
+											<div>{t("lbl_Username")}</div>
+											<div>{t("lbl_Points")}</div>
+										</li>
+										<Ranking
+											rankingData={rankingData}
+											t={t}
+										/>
+										<SelfRanking
+											selfRankingData={selfRankingData}
+											userInfo={userInfo}
+										/>
+									</ul>
+								</div>
+							) : (
+								<div className="icon icon-nodata">
+									{t("lbl_NoData")}
+								</div>
+							)}
+							<p className="remind">
+								{t(`lbl_LastUpdTime`, {
+									time: showUpdateTime()
+								})}
+							</p>
 						</div>
-					</div>
+					)}
 				</div>
 			</div>
 		</section>
