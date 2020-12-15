@@ -162,7 +162,7 @@ export default () => {
 
 		await api_events_GetCustRank(payload).then(res => {
 			if (isMountedRef.current) {
-				if (res.data.errorCode === 0||res.data.errorCode === 99) {
+				if (res.data.errorCode === 0) {
 					setSelfRankingData(res.data.data);
 				} else {
 					setPopBox({
@@ -275,7 +275,6 @@ const Ranking = ({ rankingData, t }) =>
 			</li>
 		);
 	});
-
 
 const SelfRanking = ({ selfRankingData, userInfo }) =>
 	selfRankingData?.custRank > 0 ? (
