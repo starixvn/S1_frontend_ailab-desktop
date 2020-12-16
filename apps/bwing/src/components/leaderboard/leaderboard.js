@@ -80,15 +80,15 @@ export default () => {
 	};
 
 	const onChangeTab = tabValue => {
-		// if (tabValue !== defTabId.event && !userInfo.isLogin) {
-		// 	setPopBox({
-		// 		isOpen: true,
-		// 		popBoxType: defPopBoxType.Login
-		// 	});
-		// } else {
+		if (tabValue !== defTabId.event && !userInfo.isLogin) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		} else {
 		setTab(tabValue);
 		setBeforeDays(defDayNum.yesterDay);
-		// }
+		}
 	};
 
 	const onChangeDays = daysValue => {
@@ -172,86 +172,68 @@ export default () => {
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				<div className="ranBox">
 					{tab === defTabId.event ? (
-						<>
-							<div className="ranInBox">
-								<EventTab
-									t={t}
-									tab={tab}
-									rewardList={rewardList}
-									userInfo={userInfo}
-								/>
-							</div>
-							<div className="ranInBox ranInBox2">
-								<div className="textBox">
-									<h1>{t("lbl_No1_Reward")}</h1>
-									<p>IPHONE 12 PRO MAX(256GB)</p>
-								</div>
-								<img
-									src={require("../../styles/img/ranking/iphone.png")}
-									alt="iphone"
-								/>
-							</div>
-						</>
+						<div className="ranInBox">
+							<EventTab
+								t={t}
+								tab={tab}
+								rewardList={rewardList}
+								userInfo={userInfo}
+							/>
+						</div>
 					) : (
-						<>
-							<div className="ranInBox">
-								{tab === defTabId.ranking ? (
-									<h1 className="title">
-										{t("lbl_Ranking_Top20")}
-									</h1>
-								) : (
-									<DayDropdown
-										t={t}
-										onChangeDays={onChangeDays}
-										beforeDays={beforeDays}
-									/>
-								)}
-								{rankingData?.length > 0 ? (
-									<div className="ranlist">
-										<ul>
-											<li>
-												<div>{t("lbl_Ranking")}</div>
-												<div>{t("lbl_Username")}</div>
-												<div>{t("lbl_Points")}</div>
-											</li>
-											<Ranking
-												rankingData={rankingData}
-												t={t}
-											/>
-										</ul>
-										<SelfRanking
-											selfRankingData={selfRankingData}
-											userInfo={userInfo}
-											tab={tab}
-										/>
-									</div>
-								) : (
-									<div className="icon icon-nodata">
-										{t("lbl_NoData")}
-									</div>
-								)}
-								<p className="remind">
-									{t(`lbl_LastUpdTime`, {
-										time: showUpdateTime()
-									})}
-								</p>
-							</div>
-							<div className="ranInBox ranInBox2">
-								<div className="textBox">
-									<p>
-										{t("lbl_HighestWinningRecord")}
-										<br />
-										(Last 7 Days) ******kboy
-									</p>
-									<h1>MYR 10,000,000.00</h1>
-								</div>
-								<img
-									src={require("../../styles/img/ranking/tropyBg.png")}
-									alt=""
+						<div className="ranInBox">
+							{tab === defTabId.ranking ? (
+								<h1 className="title">
+									{t("lbl_Ranking_Top20")}
+								</h1>
+							) : (
+								<DayDropdown
+									t={t}
+									onChangeDays={onChangeDays}
+									beforeDays={beforeDays}
 								/>
-							</div>
-						</>
+							)}
+							{rankingData?.length > 0 ? (
+								<div className="ranlist">
+									<ul>
+										<li>
+											<div>{t("lbl_Ranking")}</div>
+											<div>{t("lbl_Username")}</div>
+											<div>{t("lbl_Points")}</div>
+										</li>
+										<Ranking
+											rankingData={rankingData}
+											t={t}
+										/>
+									</ul>
+									<SelfRanking
+										selfRankingData={selfRankingData}
+										userInfo={userInfo}
+										tab={tab}
+									/>
+								</div>
+							) : (
+								<div className="icon icon-nodata">
+									{t("lbl_NoData")}
+								</div>
+							)}
+							<p className="remind">
+								{t(`lbl_LastUpdTime`, {
+									time: showUpdateTime()
+								})}
+							</p>
+						</div>
 					)}
+					<div className="ranInBox ranInBox2">
+						<div className="textBox">
+							<h1>{t("lbl_No1_Reward")}</h1>
+							<p>IPHONE 12 PRO MAX(256GB)</p>
+						</div>
+						<img
+							src={require("../../styles/img/ranking/iphone.png")}
+							alt="iphone"
+						/>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -265,14 +247,16 @@ const Ranking = ({ rankingData, t }) =>
 				key={`leaderboard_item_${item.custId}`}
 				className={idx < 3 ? `no${idx + 1}` : null}>
 				<div>
-					{idx < 3 ? (
-						<img
-							src={require(`../../styles/img/ranking/trophy${
-								idx + 1
-							}.png`)}
-							alt="ranking_top_three"
-						/>
-					) : null}
+					<img
+						src={
+							idx < 3
+								? require(`../../styles/img/ranking/trophy${
+										idx + 1
+								  }.png`)
+								: require(`../../styles/img/ranking/trophy4.png`)
+						}
+						alt="ranking_top"
+					/>
 					{idx + 1}
 				</div>
 				<div>{item.userName}</div>

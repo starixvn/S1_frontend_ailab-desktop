@@ -230,7 +230,7 @@ export const defMenuLinks = {
 	ranking: {
 		path: path.leaderBoard.root,
 		displayKey: "lbl_Ranking",
-		className: "live"
+		className: "liveIcon"
 	}
 	// lottery: {
 	// 	productInfo: productList.lottery,
