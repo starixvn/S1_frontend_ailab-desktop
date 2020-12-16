@@ -99,19 +99,31 @@ export default () => {
 					? defDayNum.yesterDay
 					: defDayNum.today
 			);
-			onChangeGameType(
-				tabValue === defTabId.records || tabValue === defTabId.event
-					? defTabId.sports
-					: tabValue
-			);
+			if (tabValue === defTabId.event) {
+				getLeaderboardData(defTabId.sports, 0);
+				getSelfLeaderboardData(defTabId.sports, 0);
+				setCategoryID(1);
+			} else if (tabValue === defTabId.records) {
+				getLeaderboardData(defTabId.sports, 1);
+				getSelfLeaderboardData(defTabId.sports, 1);
+				setCategoryID(1);
+			} else {
+				onChangeGameType(tabValue, false, tabValue);
+			}
 		}
 	};
 
-	const onChangeGameType = (typeValue, updateStateOnly) => {
+	const onChangeGameType = (typeValue, updateStateOnly, tabValue) => {
 		setCategoryID(typeValue);
 		if (!updateStateOnly) {
-			getLeaderboardData(typeValue, beforeDays);
-			getSelfLeaderboardData(typeValue, beforeDays);
+			getLeaderboardData(
+				typeValue,
+				tabValue !== defTabId.records ? 0 : beforeDays
+			);
+			getSelfLeaderboardData(
+				typeValue,
+				tabValue !== defTabId.records ? 0 : beforeDays
+			);
 		}
 	};
 
@@ -167,7 +179,19 @@ export default () => {
 		await api_events_GetCustRank(payload).then(res => {
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
-					setSelfRankingData(res.data.data);
+					let resData = res.data.data;
+					let selfRankData = {
+						userName: userInfo.userName,
+						wTurnover: resData.point,
+						custRank:
+							resData.custRank === 0 || resData.custRank > 999
+								? "999+"
+								: resData.custRank
+					};
+					let newRankingData = rankingData?.filter(
+						r => r.userName !== userInfo.userName
+					);
+					setRankingData([...newRankingData, selfRankData]);
 				} else {
 					setPopBox({
 						isOpen: true,
@@ -187,6 +211,10 @@ export default () => {
 			}
 		});
 	};
+
+	const sortRanking = rankingData?.sort((a, b) => {
+		return b.wTurnover - a.wTurnover;
+	});
 
 	return (
 		<section className={`ranking ${defBackground[tab]}`}>
@@ -235,9 +263,9 @@ export default () => {
 										<div>{t("lbl_Username")}</div>
 										<div>{t("lbl_Points")}</div>
 									</li>
-									<Ranking rankingData={rankingData} t={t} />
-									<SelfRanking
-										selfRankingData={selfRankingData}
+									<Ranking
+										sortRanking={sortRanking}
+										t={t}
 										userInfo={userInfo}
 									/>
 								</ul>
@@ -257,10 +285,14 @@ export default () => {
 	);
 };
 
-const Ranking = ({ rankingData, t }) =>
-	rankingData?.map((item, idx) => {
+const Ranking = ({ sortRanking, t, userInfo }) =>
+	sortRanking?.map((item, idx) => {
 		return (
-			<li key={`leaderboard_item_${item.custId}`}>
+			<li
+				key={`leaderboard_item_${item.username}`}
+				className={
+					item.userName === userInfo.userName ? "userRank" : null
+				}>
 				<div>
 					{idx < 3 ? (
 						<img
@@ -273,7 +305,9 @@ const Ranking = ({ rankingData, t }) =>
 							alt="ranking_gold"
 						/>
 					)}
-					{idx + 1}
+					{item.userName === userInfo.userName
+						? item.custRank
+						: idx + 1}
 				</div>
 				<div>{item.userName}</div>
 				<div>{number_format(item.wTurnover)}</div>
@@ -281,19 +315,19 @@ const Ranking = ({ rankingData, t }) =>
 		);
 	});
 
-const SelfRanking = ({ selfRankingData, userInfo }) =>
-	selfRankingData?.custRank > 0 ? (
-		<li className="userRank">
-			<div>
-				<img
-					src={require(`../../styles/img/gold.png`)}
-					alt="ranking_gold"
-				/>
-				{selfRankingData.custRank > 999
-					? "999+"
-					: selfRankingData.custRank}
-			</div>
-			<div>{userInfo.userName}</div>
-			<div>{selfRankingData.point}</div>
-		</li>
-	) : null;
+// const SelfRanking = ({ selfRankingData, userInfo }) =>
+// 	selfRankingData?.custRank > 0 ? (
+// 		<li className="userRank">
+// 			<div>
+// 				<img
+// 					src={require(`../../styles/img/gold.png`)}
+// 					alt="ranking_gold"
+// 				/>
+// 				{selfRankingData.custRank > 999
+// 					? "999+"
+// 					: selfRankingData.custRank}
+// 			</div>
+// 			<div>{userInfo.userName}</div>
+// 			<div>{selfRankingData.point}</div>
+// 		</li>
+// 	) : null;
