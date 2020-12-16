@@ -44,7 +44,7 @@ export default () => {
 	const [tab, setTab] = useState(defTabId.event);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.yesterDay);
 	const lBCategoryId = 0;
-	const TopNum = 10;
+	const TopNum = 20;
 
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??
@@ -175,67 +175,85 @@ export default () => {
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				<div className="ranBox">
 					{tab === defTabId.event ? (
-						<div className="ranInBox">
-							<EventTab
-								t={t}
-								tab={tab}
-								rewardList={rewardList}
-								userInfo={userInfo}
-							/>
-						</div>
-					) : (
-						<div className="ranInBox">
-							{tab === defTabId.ranking ? (
-								<h1 class="title">TOP 20 WINNING</h1>
-							) : (
-								<DayDropdown
+						<>
+							<div className="ranInBox">
+								<EventTab
 									t={t}
-									onChangeDays={onChangeDays}
-									beforeDays={beforeDays}
+									tab={tab}
+									rewardList={rewardList}
+									userInfo={userInfo}
 								/>
-							)}
-							{rankingData?.length > 0 ? (
-								<div className="ranList">
-									<ul>
-										<li>
-											<div>{t("lbl_Ranking")}</div>
-											<div>{t("lbl_Username")}</div>
-											<div>{t("lbl_Points")}</div>
-										</li>
-										<Ranking
-											rankingData={rankingData}
-											t={t}
-										/>
-										<SelfRanking
-											selfRankingData={selfRankingData}
-											userInfo={userInfo}
-										/>
-									</ul>
+							</div>
+							<div className="ranInBox ranInBox2">
+								<div className="textBox">
+									<h1>NO.1 REWARD</h1>
+									<p>IPHONE 12 PRO MAX(256GB)</p>
 								</div>
-							) : (
-								<div className="icon icon-nodata">
-									{t("lbl_NoData")}
+								<img
+									src={require("../../styles/img/ranking/iphone.png")}
+									alt="iphone"
+								/>
+							</div>
+						</>
+					) : (
+						<>
+							<div className="ranInBox">
+								{tab === defTabId.ranking ? (
+									<h1 class="title">TOP 20 WINNING</h1>
+								) : (
+									<DayDropdown
+										t={t}
+										onChangeDays={onChangeDays}
+										beforeDays={beforeDays}
+									/>
+								)}
+								{rankingData?.length > 0 ? (
+									<div className="ranlist">
+										<ul>
+											<li>
+												<div>{t("lbl_Ranking")}</div>
+												<div>{t("lbl_Username")}</div>
+												<div>{t("lbl_Points")}</div>
+											</li>
+											<Ranking
+												rankingData={rankingData}
+												t={t}
+											/>
+											<SelfRanking
+												selfRankingData={
+													selfRankingData
+												}
+												userInfo={userInfo}
+											/>
+										</ul>
+									</div>
+								) : (
+									<div className="icon icon-nodata">
+										{t("lbl_NoData")}
+									</div>
+								)}
+								<p className="remind">
+									{t(`lbl_LastUpdTime`, {
+										time: showUpdateTime()
+									})}
+								</p>
+							</div>
+							<div class="ranInBox ranInBox2">
+								<div class="textBox">
+									<p>
+										HIGHEST WINNING RECORD
+										<br />
+										(Last 7 Days) ******kboy
+									</p>
+									<h1>MYR 10,000,000.00</h1>
 								</div>
-							)}
-							<p className="remind">
-								{t(`lbl_LastUpdTime`, {
-									time: showUpdateTime()
-								})}
-							</p>
-						</div>
+								<img
+									src={require("../../styles/img/ranking/tropyBg.png")}
+									alt=""
+								/>
+							</div>
+						</>
 					)}
-				</div>
-				<div>
-					<div className="ranInBox ranInBox2">
-						<div className="textBox">
-							<h1>NO.1 REWARD</h1>
-							<p>IPHONE 12 PRO MAX(256GB)</p>
-						</div>
-						<img
-							src={require("../../styles/img/ranking/iphone.png")}
-							alt="iphone"
-						/>
-					</div>
 				</div>
 			</div>
 		</section>
@@ -269,6 +287,7 @@ const SelfRanking = ({ selfRankingData, userInfo }) =>
 	selfRankingData?.custRank > 0 ? (
 		<li className="myRan">
 			<div>
+				<img src={require(`../../styles/img/ranking/trophy4.png`)} />
 				{selfRankingData.custRank > 999
 					? "999+"
 					: selfRankingData.custRank}
