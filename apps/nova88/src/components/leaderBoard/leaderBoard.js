@@ -37,7 +37,7 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
-	const [ranking, setRanking] = useState([]);
+	const [rankingData, setRankingData] = useState([]);
 	const initSelfRankingData = {
 		custRank: 0,
 		point: 0
@@ -58,7 +58,7 @@ export default () => {
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
-	const rewardList = defRewardList[currencyName][categoryID];
+	const rewardList = defRewardList({ t })[currencyName][categoryID];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -133,7 +133,7 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						setRanking(res.data.data);
+						setRankingData(res.data.data);
 					} else {
 						setPopBox({
 							isOpen: true,
@@ -235,6 +235,7 @@ export default () => {
 					tab={tab}
 					rewardList={rewardList}
 					userInfo={userInfo}
+					currencyName={currencyName}
 				/>
 			) : (
 				<div className="champion">
@@ -259,15 +260,13 @@ export default () => {
 						<div className="mwt_border">
 							<span className="arrow_t_int"></span>
 							<span className="arrow_t_out"></span>
-							{/* <div>HIGHEST WINNING RECORD</div> */}
-							{/* <div>(Last 7 Days) ******kboy</div> */}
 							<div className="txt-orange">
 								{rewardList[0].reward}
 							</div>
 						</div>
 					</div>
 					<div className="rankModule">
-						{ranking?.length > 0 ? (
+						{rankingData?.length > 0 ? (
 							<div className="rankList">
 								<ul>
 									<li>
@@ -275,7 +274,7 @@ export default () => {
 										<div>{t("lbl_Username")}</div>
 										<div>{t("lbl_Points")}</div>
 									</li>
-									<Ranking ranking={ranking} t={t} />
+									<Ranking rankingData={rankingData} t={t} />
 									<SelfRanking
 										selfRankingData={selfRankingData}
 										userInfo={userInfo}
@@ -283,7 +282,7 @@ export default () => {
 								</ul>
 							</div>
 						) : (
-							<div className="nodata txt-dark">
+							<div className="icon icon-nodata">
 								{t("lbl_NoData")}
 							</div>
 						)}
@@ -297,8 +296,8 @@ export default () => {
 	);
 };
 
-const Ranking = ({ ranking, t }) =>
-	ranking?.map((item, idx) => {
+const Ranking = ({ rankingData, t }) =>
+	rankingData?.map((item, idx) => {
 		return (
 			<li key={`leaderboard_item_${item.custId}`}>
 				<div>

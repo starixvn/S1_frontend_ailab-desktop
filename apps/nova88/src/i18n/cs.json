@@ -359,7 +359,8 @@
 	"lbl_Cashier": "收银",
 	"lbl_UpdatePersonalDetail": "更新个人资料",
 	"lbl_Details": "详情",
-	"lbl_total" :"Total",
+	"lbl_total" :"总计",
+	"lbl_Cash":"现金",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
