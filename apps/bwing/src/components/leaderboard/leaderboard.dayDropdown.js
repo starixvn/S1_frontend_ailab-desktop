@@ -6,6 +6,7 @@ import Dropdown from "../../components/common/dropdown";
 export default ({ t, onChangeDays, beforeDays, updateStateOnly = false }) => {
 	return (
 		<div className="quickSelect">
+			{/* {console.log("beforeDays::", beforeDays)} */}
 			<div>
 				<div class="txt-blue15">Data</div>
 				<div className="inputBox-blue">
@@ -13,7 +14,7 @@ export default ({ t, onChangeDays, beforeDays, updateStateOnly = false }) => {
 						i18n={t}
 						mainKey="beforeDay_"
 						options={defDayOptions}
-						selectedIdx={beforeDays}
+						selectedIdx={beforeDays - 1}
 						onSelectItem={onChangeDays}
 						showDropDownIcon={true}
 					/>

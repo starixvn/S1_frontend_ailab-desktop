@@ -59,8 +59,6 @@ export default () => {
 	});
 
 	useEffect(() => {
-		getLeaderboardData();
-		getSelfLeaderboardData();
 		showUpdateTime();
 	}, []);
 
@@ -92,13 +90,18 @@ export default () => {
 					? defDayNum.yesterDay
 					: defDayNum.today
 			);
+			if (tabValue === defTabId.records) {
+				getLeaderboardData(1);
+			} else {
+				getLeaderboardData(0);
+			}
 		}
 	};
 
 	const onChangeDays = daysValue => {
-		setBeforeDays(daysValue);
-		getLeaderboardData(daysValue);
-		getSelfLeaderboardData(daysValue);
+		console.log("daysValue::", daysValue + 1);
+		setBeforeDays(daysValue + 1);
+		getLeaderboardData(daysValue + 1);
 	};
 
 	const ClickClose = () => {
@@ -106,18 +109,16 @@ export default () => {
 	};
 
 	const getLeaderboardData = async daysValue => {
-		console.log("call getLeaderboardData");
 		if (!userInfo.isLogin) return;
 		let payload = {
 			lBCategoryId: lBCategoryId,
 			TopNum: TopNum,
-			BeforeDays: daysValue ?? beforeDays
+			BeforeDays: daysValue
 		};
-
-		await api_events_GetLeaderboardList(payload).then(res => {
+		let res1 = await api_events_GetLeaderboardList(payload).then(res => {
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
-					setRankingData(res.data.data);
+					return res.data.data;
 				} else {
 					setPopBox({
 						isOpen: true,
@@ -136,19 +137,25 @@ export default () => {
 				}
 			}
 		});
-	};
 
-	const getSelfLeaderboardData = async daysValue => {
-		if (!userInfo.isLogin) return;
-		let payload = {
+		let payload_self = {
 			lBCategoryId: lBCategoryId,
-			BeforeDays: daysValue ?? beforeDays
+			BeforeDays: daysValue
 		};
 
-		await api_events_GetCustRank(payload).then(res => {
+		let res2 = await api_events_GetCustRank(payload_self).then(res => {
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
-					setSelfRankingData(res.data.data);
+					let resData = res.data.data;
+					let selfItem = {
+						userName: userInfo.userName,
+						wTurnover: resData.point,
+						custRank:
+							resData.custRank === 0 || resData.custRank > 999
+								? "999+"
+								: resData.custRank
+					};
+					return selfItem;
 				} else {
 					setPopBox({
 						isOpen: true,
@@ -167,6 +174,15 @@ export default () => {
 				}
 			}
 		});
+
+		let filterArr = res1.filter(r => r.username !== userInfo.userName);
+		let dataArr = [...filterArr, res2];
+
+		let sortRanking = dataArr.sort((a, b) => {
+			return b.wTurnover - a.wTurnover;
+		});
+
+		setRankingData(sortRanking);
 	};
 
 	return (
@@ -207,14 +223,15 @@ export default () => {
 										</li>
 										<Ranking
 											rankingData={rankingData}
+											userInfo={userInfo}
 											t={t}
 										/>
 									</ul>
-									<SelfRanking
+									{/* <SelfRanking
 										selfRankingData={selfRankingData}
 										userInfo={userInfo}
 										tab={tab}
-									/>
+									/> */}
 								</div>
 							) : (
 								<div className="icon icon-nodata">
@@ -244,13 +261,17 @@ export default () => {
 	);
 };
 
-const Ranking = ({ rankingData, t }) =>
+const Ranking = ({ rankingData, t, userInfo }) =>
 	rankingData?.map((item, idx) => {
 		return (
 			<li
 				key={`leaderboard_item_${item.custId}`}
 				className={idx < 3 ? `no${idx + 1}` : null}>
-				<div>
+				<div
+				// className={
+				// 	item.userName === userInfo.userName ? "myRank" : null
+				// }
+				>
 					<img
 						src={
 							idx < 3
@@ -261,7 +282,9 @@ const Ranking = ({ rankingData, t }) =>
 						}
 						alt="ranking_top"
 					/>
-					{idx + 1}
+					{item.userName === userInfo.userName
+						? item.custRank
+						: idx + 1}
 				</div>
 				<div>{item.userName}</div>
 				<div className="point">{number_format(item.wTurnover)}</div>
@@ -269,20 +292,20 @@ const Ranking = ({ rankingData, t }) =>
 		);
 	});
 
-const SelfRanking = ({ selfRankingData, userInfo, tab }) =>
-	selfRankingData?.custRank > 0 ? (
-		<div className="myRank">
-			<div>
-				{tab === defTabId.ranking ? (
-					<img
-						src={require(`../../styles/img/ranking/trophy4.png`)}
-					/>
-				) : null}
-				{selfRankingData.custRank > 999
-					? "999+"
-					: selfRankingData.custRank}
-			</div>
-			<div>{userInfo.userName}</div>
-			<div className="point">{selfRankingData.point}</div>
-		</div>
-	) : null;
+// const SelfRanking = ({ selfRankingData, userInfo, tab }) =>
+// 	selfRankingData?.custRank > 0 ? (
+// 		<div className="myRank">
+// 			<div>
+// 				{tab === defTabId.ranking ? (
+// 					<img
+// 						src={require(`../../styles/img/ranking/trophy4.png`)}
+// 					/>
+// 				) : null}
+// 				{selfRankingData.custRank > 999
+// 					? "999+"
+// 					: selfRankingData.custRank}
+// 			</div>
+// 			<div>{userInfo.userName}</div>
+// 			<div className="point">{selfRankingData.point}</div>
+// 		</div>
+// 	) : null;

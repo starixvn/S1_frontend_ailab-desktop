@@ -34,7 +34,12 @@ export default ({
 
 	return (
 		<>
-			<h1 className="title">{t("lbl_leaderboardTitle_1")}</h1>
+			<h1 className="title">
+				{t("lbl_leaderboardTitle_1").toUpperCase()}
+			</h1>
+			<h1 className="title">
+				{t("lbl_leaderboardTitle_2").toUpperCase()}
+			</h1>
 			<div className="ranklist event">
 				<ul>
 					<li>
