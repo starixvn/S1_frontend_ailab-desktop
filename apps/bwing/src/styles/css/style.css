@@ -6027,80 +6027,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 11.57281%;
-  top: 34.51405%;
-  width: 8.37795px;
-  height: 8.37795px;
+  left: 48.42031%;
+  top: -12.48571%;
+  width: 11.12134px;
+  height: 11.12134px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 4.21863%;
-  top: -42.97426%;
-  width: 10.49906px;
-  height: 10.49906px;
+  left: 13.75323%;
+  top: -42.72616%;
+  width: 9.98465px;
+  height: 9.98465px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 55.26566%;
-  top: -36.71943%;
-  width: 8.83599px;
-  height: 8.83599px;
+  left: 39.15926%;
+  top: -8.82245%;
+  width: 9.87793px;
+  height: 9.87793px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 55.70286%;
-  top: 39.96531%;
-  width: 13.44384px;
-  height: 13.44384px;
+  left: 25.39285%;
+  top: -9.95636%;
+  width: 5.71149px;
+  height: 5.71149px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 36.70704%;
-  top: -35.48126%;
-  width: 12.98157px;
-  height: 12.98157px;
+  left: 7.83407%;
+  top: 10.50673%;
+  width: 9.92701px;
+  height: 9.92701px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 46.14032%;
-  top: 33.33518%;
-  width: 13.50534px;
-  height: 13.50534px;
+  left: 94.36387%;
+  top: 22.92307%;
+  width: 9.10732px;
+  height: 9.10732px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 95.53946%;
-  top: -2.58539%;
-  width: 14.90153px;
-  height: 14.90153px;
+  left: 2.89695%;
+  top: -34.73244%;
+  width: 14.07392px;
+  height: 14.07392px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 67.11291%;
-  top: 29.01124%;
-  width: 12.65065px;
-  height: 12.65065px;
+  left: 65.41073%;
+  top: 30.45057%;
+  width: 13.18885px;
+  height: 13.18885px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6184,6 +6184,7 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
+  padding-top: 30px;
   padding-bottom: 50px;
 }
 
@@ -6205,15 +6206,15 @@ input + .iconModule i.icon.icon-checkmark:before {
   left: 0;
 }
 
-.rankingPage .ranContent {
+.rankingPage .rankContent {
   min-width: 1000px;
 }
 
-.rankingPage .ranContent .ranBotton {
+.rankingPage .rankContent .rankBotton {
   position: relative;
 }
 
-.rankingPage .ranContent .ranBotton::before {
+.rankingPage .rankContent .rankBotton::before {
   content: "";
   position: absolute;
   top: 25px;
@@ -6226,7 +6227,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   border-bottom: 1px solid #56ceff;
 }
 
-.rankingPage .ranContent .ranBotton > button {
+.rankingPage .rankContent .rankBotton > button {
   width: 200px;
   height: 50px;
   border: 1px solid #56ceff;
@@ -6239,7 +6240,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           backdrop-filter: blur(10px);
 }
 
-.rankingPage .ranContent .ranBotton > button.active {
+.rankingPage .rankContent .rankBotton > button.active {
   background-color: #56ceff;
   color: #070e22;
   font-weight: bold;
@@ -6247,7 +6248,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
 }
 
-.rankingPage .ranContent .ranBotton > button:hover {
+.rankingPage .rankContent .rankBotton > button:hover {
   background-color: #56ceff;
   color: #070e22;
   font-weight: bold;
@@ -6255,7 +6256,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
 }
 
-.rankingPage .ranContent .ranBox {
+.rankingPage .rankContent .rankBox {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6266,7 +6267,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-top: 20px;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox {
+.rankingPage .rankContent .rankBox .rankInBox {
   width: 49%;
   height: 600px;
   padding: 20px;
@@ -6280,23 +6281,23 @@ input + .iconModule i.icon.icon-checkmark:before {
   text-align: center;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .title {
+.rankingPage .rankContent .rankBox .rankInBox .title {
   font-size: 30px;
   color: #56ceff;
   text-align: center;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .textBox {
+.rankingPage .rankContent .rankBox .rankInBox .textBox {
   text-align: left;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist {
   margin: 20px 0;
   position: relative;
   padding-bottom: 35px;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6312,11 +6313,15 @@ input + .iconModule i.icon.icon-checkmark:before {
   overflow: auto;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul.event {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul ::-webkit-scrollbar {
+  width: 0px;
+}
+
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul.event {
   overflow: inherit;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li {
   width: calc(100% - 30px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6325,7 +6330,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 30px;
   min-height: auto;
   margin-bottom: 10px;
   height: 40px;
@@ -6334,37 +6338,36 @@ input + .iconModule i.icon.icon-checkmark:before {
   border-radius: 5px;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li:nth-child(1) {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li:nth-child(1) {
   border: 0;
   margin: 0;
-  height: 30px;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li.no1 {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no1 {
   border: 1px solid #ffdd33;
   background-color: rgba(255, 216, 100, 0.1);
   height: 50px;
-  line-height: 50;
+  line-height: 50px;
   width: calc(100% - 2px);
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li.no2 {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no2 {
   border: 1px solid #cbe5ff;
   background-color: rgba(203, 229, 255, 0.1);
   height: 50px;
-  line-height: 50;
+  line-height: 50px;
   width: calc(100% - 10px);
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li.no3 {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no3 {
   border: 1px solid #ffa64d;
   background-color: rgba(255, 166, 77, 0.1);
   height: 50px;
-  line-height: 50;
+  line-height: 50px;
   width: calc(100% - 20px);
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li div {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6382,13 +6385,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 40px;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist ul li div.point {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div.point {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist .myRan {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist .myRank {
   width: 448px;
   height: 40px;
   line-height: 40px;
@@ -6402,7 +6405,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   color: #070e22;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist .myRan::before {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist .myRank::before {
   content: "";
   position: absolute;
   top: -15px;
@@ -6412,7 +6415,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   background: linear-gradient(0deg, rgba(86, 206, 255, 0.5), rgba(86, 206, 255, 0));
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist .myRan div {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist .myRank div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6430,22 +6433,22 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 40px;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .ranlist .myRan div.point {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist .myRank div.point {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .remind {
+.rankingPage .rankContent .rankBox .rankInBox .remind {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.rankingPage .ranContent .ranBox .ranInBox .remind.btn {
+.rankingPage .rankContent .rankBox .rankInBox .remind.btn {
   color: #56ceff;
   cursor: pointer;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox.ranInBox2 {
+.rankingPage .rankContent .rankBox .rankInBox.rankInBox2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6461,23 +6464,159 @@ input + .iconModule i.icon.icon-checkmark:before {
           align-items: center;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox.ranInBox2 p {
+.rankingPage .rankContent .rankBox .rankInBox.rankInBox2 p {
   font-size: 18px;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox.ranInBox2 h1 {
+.rankingPage .rankContent .rankBox .rankInBox.rankInBox2 h1 {
   color: #ffd13c;
   font-size: 30px;
   font-weight: bold;
 }
 
-.rankingPage .ranContent .ranBox .ranInBox.ranInBox2 img {
+.rankingPage .rankContent .rankBox .rankInBox.rankInBox2 img {
   width: 80%;
 }
 
-.rankingPage .ranContent .ranBox .quickSelect > div {
+.rankingPage .rankContent .rankBox .quickSelect > div {
   padding: 0;
   margin: 0;
   text-align: left;
+}
+
+.errorPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(31, 39, 51, 0.8);
+  background-size: 100%;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+.errorPage .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  background: url(../img/Bwing-404.jpg) no-repeat center bottom;
+  width: 60%;
+  min-width: 600px;
+  height: 600px;
+  background-size: cover;
+}
+
+.errorPage .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.errorPage .close:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.errorPage .close::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 2px;
+  background-color: #3398ff;
+  top: calc(50% - 1px);
+  left: calc(50% - 7.5px);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.errorPage .close::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 2px;
+  background-color: #3398ff;
+  top: calc(50% - 1px);
+  left: calc(50% - 7.5px);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.errorPage .textBox {
+  margin-right: 10vw;
+}
+
+.errorPage .textBox .textTitle {
+  line-height: 65px;
+}
+
+.errorPage .textBox .textTitle span {
+  font-size: 30px;
+  color: #3398ff;
+}
+
+.errorPage .textBox .textTitle h1 {
+  color: #3398ff;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.errorPage .textBox .textTitle p {
+  font-size: 30px;
+}
+
+.errorPage .textBox p {
+  font-size: 18px;
+  text-align: left;
+}
+
+.errorPage .textBox .btnArea button {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  font-size: 16px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffde33), to(#ffb219));
+  background: linear-gradient(180deg, #ffde33, #ffb219);
+  border-radius: 50px;
+  color: #333029;
+  overflow: hidden;
+  outline: none;
+  margin-top: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.errorPage .textBox .btnArea button:hover {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+}
+
+.errorPage .textBox .btnArea button:nth-child(2) {
+  margin-left: 10px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f20c05), to(#f85f05));
+  background: linear-gradient(0deg, #f20c05, #f85f05);
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

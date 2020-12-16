@@ -13,5 +13,5 @@ export default ({ t, onChangeTab, tab }) => {
 		);
 	});
 
-	return <div className="ranBotton">{rows}</div>;
+	return <div className="rankBotton">{rows}</div>;
 };

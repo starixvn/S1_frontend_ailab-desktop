@@ -42,7 +42,7 @@ export default () => {
 	};
 	const [selfRankingData, setSelfRankingData] = useState(initSelfRankingData);
 	const [tab, setTab] = useState(defTabId.event);
-	const [beforeDays, setBeforeDays] = useState(defDayNum.yesterDay);
+	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 	const lBCategoryId = 0;
 	const TopNum = 20;
 
@@ -86,8 +86,12 @@ export default () => {
 				popBoxType: defPopBoxType.Login
 			});
 		} else {
-		setTab(tabValue);
-		setBeforeDays(defDayNum.yesterDay);
+			setTab(tabValue);
+			setBeforeDays(
+				tabValue === defTabId.records
+					? defDayNum.yesterDay
+					: defDayNum.today
+			);
 		}
 	};
 
@@ -168,11 +172,11 @@ export default () => {
 	return (
 		<section className={`rankingPage ${defBackground[tab]}`}>
 			{/* <img src={bottomImg} alt="bottomImg" /> */}
-			<div className="ranContent">
+			<div className="rankContent">
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
-				<div className="ranBox">
+				<div className="rankBox">
 					{tab === defTabId.event ? (
-						<div className="ranInBox">
+						<div className="rankInBox">
 							<EventTab
 								t={t}
 								tab={tab}
@@ -181,7 +185,7 @@ export default () => {
 							/>
 						</div>
 					) : (
-						<div className="ranInBox">
+						<div className="rankInBox">
 							{tab === defTabId.ranking ? (
 								<h1 className="title">
 									{t("lbl_Ranking_Top20")}
@@ -194,7 +198,7 @@ export default () => {
 								/>
 							)}
 							{rankingData?.length > 0 ? (
-								<div className="ranlist">
+								<div className="ranklist">
 									<ul>
 										<li>
 											<div>{t("lbl_Ranking")}</div>
@@ -224,7 +228,7 @@ export default () => {
 							</p>
 						</div>
 					)}
-					<div className="ranInBox ranInBox2">
+					<div className="rankInBox ranInBox2">
 						<div className="textBox">
 							<h1>{t("lbl_No1_Reward")}</h1>
 							<p>IPHONE 12 PRO MAX(256GB)</p>
@@ -267,7 +271,7 @@ const Ranking = ({ rankingData, t }) =>
 
 const SelfRanking = ({ selfRankingData, userInfo, tab }) =>
 	selfRankingData?.custRank > 0 ? (
-		<div className="myRan">
+		<div className="myRank">
 			<div>
 				{tab === defTabId.ranking ? (
 					<img

@@ -35,7 +35,7 @@ export default ({
 	return (
 		<>
 			<h1 className="title">{t("lbl_leaderboardTitle_1")}</h1>
-			<div className="ranlist event">
+			<div className="ranklist event">
 				<ul>
 					<li>
 						<div>{t("lbl_Ranking")}</div>
@@ -45,14 +45,12 @@ export default ({
 					{rows}
 				</ul>
 			</div>
-			<p
-				className="remind"
-				href={`${
-					config.cloudImgUrl
-				}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}
+			<a
+				className="remind btn"
+				href={`${config.t_and_cURL}/SiteSkin/Bwing/ranking/${userInfo.langId}.html`}
 				target="_blank">
 				{t("lbl_MoreDetails")}
-			</p>
+			</a>
 		</>
 	);
 };

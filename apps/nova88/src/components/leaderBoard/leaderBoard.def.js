@@ -35,9 +35,10 @@ export const defLeaderBoardTitle = {
 };
 
 export const defDayNum = {
-	yesterDay: 0,
-	lastTwoDay: 1,
-	lastThreeDay: 2
+	today: 0,
+	yesterDay: 1,
+	lastTwoDay: 2,
+	lastThreeDay: 3
 };
 
 export const defDayOptions = [
