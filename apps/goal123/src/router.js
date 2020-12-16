@@ -88,5 +88,8 @@ export default {
 	},
 	siteMap: {
 		root: "sitemap"
+	},
+	leaderBoard: {
+		root: "leaderBoard"
 	}
 };

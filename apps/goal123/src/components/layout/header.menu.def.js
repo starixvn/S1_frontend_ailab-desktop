@@ -233,6 +233,10 @@ export const defMenuLinks = {
 	promotion: {
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"
+	},
+	leaderBoard: {
+		path: path.leaderBoard.root,
+		displayKey: "lbl_Ranking"
 	}
 	// lottery: {
 	// 	productInfo: productList.lottery,
