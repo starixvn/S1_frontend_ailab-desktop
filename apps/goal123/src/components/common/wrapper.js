@@ -19,6 +19,7 @@ import {
 } from "../../service/api/account";
 import { defPopBoxType } from "../common/popBox";
 import useInterval from "../hook/useInterval";
+import { GET_LANG_ID } from "../../service/language";
 
 export default ({ children, afterLogin = false }) => {
 	const { t, i18n } = useTranslation();
@@ -35,7 +36,7 @@ export default ({ children, afterLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: readCookie("goalLangId") ?? "vn"
+		langId: GET_LANG_ID(readCookie("goalLangId"))
 	});
 
 	const [currentPath] = useState(
@@ -110,6 +111,7 @@ export default ({ children, afterLogin = false }) => {
 						isMountedRef.current
 					) {
 						let data = res_custInfo.data.data;
+						data.langId = GET_LANG_ID(data.langId);
 						setCookie("goalLangId", data.langId);
 						setUserInfo(prevState => ({
 							...prevState,
@@ -143,7 +145,12 @@ export default ({ children, afterLogin = false }) => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
 				let pathLang = window.location.pathname.split("/")?.[1];
+				let cookie = readCookie("goalLangId");
 				let currentLang = readCookie("goalLangId") ?? userInfo.langId;
+				currentLang = GET_LANG_ID(currentLang);
+				if (cookie && cookie !== currentLang)
+					setCookie("goalLangId", currentLang);
+
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);
 				} else if (pathLang !== "" && pathLang !== currentLang) {

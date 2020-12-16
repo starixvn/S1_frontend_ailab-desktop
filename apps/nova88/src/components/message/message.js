@@ -205,7 +205,7 @@ export default () => {
 					</div>
 				</div>
 			) : (
-				<div className="nodata icon icon-nodata2">
+				<div className="nodata icon icon-nodata">
 					<div>{t("lbl_NoData")}</div>
 				</div>
 			)}

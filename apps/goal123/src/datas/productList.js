@@ -115,5 +115,9 @@ export const defCasinoProviders = {
 		tpId: 1,
 		gameId: 208,
 		name: "OW"
+	},
+	CQ9: {
+		tpId: 16,
+		name: "CQ9"
 	}
 };

@@ -101,6 +101,7 @@ export default props => {
 			</div>
 
 			<div className="inputBox-blue">
+				<i className="txt-blue">{t("lbl_From")}</i>
 				<DateTime
 					value={moment(startDate).format("YYYY-MM-DD")}
 					onChange={onChangeDate.bind(this, "start")}
@@ -113,6 +114,7 @@ export default props => {
 			</div>
 
 			<div className="inputBox-blue">
+				<i className="txt-blue">{t("lbl_To")}</i>
 				<DateTime
 					value={moment(endDate).format("YYYY-MM-DD")}
 					onChange={onChangeDate.bind(this, "end")}

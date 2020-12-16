@@ -25,6 +25,7 @@ export const defMenuLinks = {
 	casino: {
 		path: path.casino.root,
 		displayKey: "lbl_Casino",
+		className: "COCK icon icon-new",
 		subMenu: [
 			{
 				className: "JOKER",
@@ -33,6 +34,14 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { ...productList.casino_JOKER },
 				...productList.casino_JOKER
+			},
+			{
+				className: "CQ9 icon icon-new",
+				icon: "icon icon-cq9",
+				displayText: "CQ9",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.casino_CQ9 },
+				...productList.casino_CQ9
 			},
 			{
 				className: "GPI",
@@ -74,14 +83,14 @@ export const defMenuLinks = {
 				parameter: { ...productList.casino_PG },
 				...productList.casino_PG
 			},
-			{
-				className: "Kiss icon icon-new",
-				icon: "icon icon-kiss",
-				displayText: "918Kiss",
-				menuType: defMenuType.LinkOrBtn,
-				path: path["918kiss"].root,
-				...productList.kiss918
-			},
+			// {
+			// 	className: "Kiss icon icon-new",
+			// 	icon: "icon icon-kiss",
+			// 	displayText: "918Kiss",
+			// 	menuType: defMenuType.LinkOrBtn,
+			// 	path: path["918kiss"].root,
+			// 	...productList.kiss918
+			// },
 			{
 				className: "OW",
 				icon: "icon icon-OW",
@@ -94,13 +103,6 @@ export const defMenuLinks = {
 	liveCasino: {
 		displayKey: "lbl_LiveCasino",
 		subMenu: [
-			{
-				...productList.liveCasino_MW,
-				className: "liveMW icon icon-new",
-				icon: "icon icon-PP",
-				displayText: "PP",
-				menuType: defMenuType.entPage
-			},
 			{
 				...productList.liveCasino_WM,
 				className: "liveWM icon icon-new",
@@ -224,11 +226,16 @@ export const defMenuLinks = {
 	cockFighting: {
 		productInfo: productList.cockFighting,
 		displayKey: "lbl_CockFighting",
-		className: "COCK icon icon-new"
+		className: "COCK"
 	},
 	promotion: {
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"
+	},
+	ranking: {
+		path: path.leaderBoard.root,
+		displayKey: "lbl_Ranking",
+		className: "live"
 	}
 };
 

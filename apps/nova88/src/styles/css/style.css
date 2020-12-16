@@ -98,7 +98,7 @@ body, html {
 
 header {
   position: fixed;
-  background: #030c1b;
+  background: black;
   width: 100%;
   height: 85px;
   display: -webkit-box;
@@ -194,11 +194,11 @@ header {
   width: 100%;
   left: 0;
   top: 49px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .header > div.menu .subMenu-Wrapper.active {
-  height: 220px;
+  min-height: 220px;
 }
 
 .header > div.menu .subMenu-Wrapper .icon:before {
@@ -209,6 +209,11 @@ header {
   max-width: 1600px;
   margin: auto;
   display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .header > div.menu .gameList.active, .header > div.menu .casinoList.active, .header > div.menu .livecasinoList.active, .header > div.menu .fishList.active {
@@ -225,8 +230,8 @@ header {
 
 .header > div.menu .gameList a, .header > div.menu .gameList button, .header > div.menu .casinoList a, .header > div.menu .casinoList button, .header > div.menu .livecasinoList a, .header > div.menu .livecasinoList button, .header > div.menu .fishList a, .header > div.menu .fishList button {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+      -ms-flex: 1 1 160px;
+          flex: 1 1 160px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -321,6 +326,14 @@ header {
 
 .header > div.menu .gameList .numberGame:hover {
   background: url(../img/numberGame_a.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .casinoList .CQ9 {
+  background: url(../img/casinocq9.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .CQ9:hover {
+  background: url(../img/casinocq9_a.png) no-repeat center 0px/auto 100%;
 }
 
 .header > div.menu .casinoList .Kiss {
@@ -461,10 +474,6 @@ header {
 
 .header > div.menu .livecasinoList .liveEB .icon:before {
   font-size: 16px;
-}
-
-.header > div.menu .fishList {
-  width: 65vw;
 }
 
 .header > div.menu .fishList .fgg {
@@ -1350,202 +1359,85 @@ footer {
       flex-wrap: wrap;
 }
 
-.platform button:nth-child(1) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/saba.png) no-repeat center/100%;
+.platform button {
+  margin-right: 17px;
+  height: 55px;
+}
+
+.platform .saba {
   width: 104px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(1):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/sabaa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(2) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/ab.png) no-repeat center/100%;
+.platform .ab {
   width: 63px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(2):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/aba.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(3) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/yl.png) no-repeat center/100%;
+.platform .yl {
   width: 34px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(3):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/yla.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(4) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/ag.png) no-repeat center/100%;
+.platform .ag {
   width: 83px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(4):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/aga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(5) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/jk.png) no-repeat center/100%;
+.platform .jk {
   width: 97px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(5):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/jka.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(6) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/gp.png) no-repeat center/100%;
+.platform .gp {
   width: 119px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(6):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/gpa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(7) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/dg.png) no-repeat center/100%;
+.platform .dg {
   width: 53px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(7):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/dga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(8) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/sa.png) no-repeat center/100%;
+.platform .sa {
   width: 87px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(8):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/saa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(9) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/yg.png) no-repeat center/100%;
+.platform .yg {
   width: 114px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(9):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/yga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(10) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/pp.png) no-repeat center/100%;
+.platform .pp {
   width: 100px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(10):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/ppa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(11) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/sg.png) no-repeat center/100%;
+.platform .sg {
   width: 89px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(11):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/sga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(12) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/pg.png) no-repeat center/100%;
+.platform .pg {
   width: 54px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(12):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/pga.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(13) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/ae.png) no-repeat center/100%;
+.platform .ae {
   width: 120px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(13):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/aea.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(14) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/eb.png) no-repeat center/100%;
+.platform .eb {
   width: 90px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(14):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/eba.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(15) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/mw.png) no-repeat center/100%;
+.platform .mw {
   width: 55px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(15):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/mwa.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(16) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/wm.png) no-repeat center/100%;
+.platform .wm {
   width: 55px;
-  height: 55px;
-  margin-right: 17px;
 }
 
-.platform button:nth-child(16):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/wma.png) no-repeat center/100%;
+.platform .awc {
+  width: 75px;
 }
 
-.platform button:nth-child(17) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/awc.png) no-repeat center/100%;
-  width: 119px;
-  height: 55px;
-  margin-right: 17px;
+.platform .cq9 {
+  width: 75px;
 }
 
-.platform button:nth-child(17):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/awca.png) no-repeat center/100%;
-}
-
-.platform button:nth-child(18) {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/kiss.png) no-repeat center/100%;
-  width: 119px;
-  height: 55px;
-  margin-right: 17px;
-}
-
-.platform button:nth-child(18):hover {
-  background: url(https://image.n88media.com/SiteSkin/img/logo/kissa.png) no-repeat center/100%;
+.platform .kiss {
+  width: 90px;
 }
 
 .copyright {
@@ -2122,7 +2014,6 @@ input[type="file"] {
           justify-content: center;
   min-width: 123px;
   margin: 0 5px;
-  font-weight: bold;
 }
 
 .btnGroup button.orange, .btnGroup button.btn-check, .btnGroup a.orange, .btnGroup a.btn-check {
@@ -3508,11 +3399,12 @@ input[type="file"] {
   margin: 20px 0;
 }
 
-#popup .pop .download .icon-close {
+#popup .pop .icon-close {
   color: white;
   position: absolute;
   right: -10px;
   top: -10px;
+  font-size: 14px;
 }
 
 #popup .pop .title {
@@ -3534,6 +3426,38 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+#popup .pop > div.tnc {
+  width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+}
+
+#popup .pop > div.tnc .proDataTitle {
+  font-weight: bold;
+}
+
+#popup .pop > div.tnc .rollover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#popup .pop > div.tnc .rollover > div .icon {
+  font-size: 16px;
+  line-height: 31px;
+  margin-right: 10px;
+}
+
+#popup .pop > div.tnc .rollover > div .icon:before {
+  margin-left: 0;
+}
+
+#popup .pop > div.tnc .rollover > div.txt-orange div {
+  line-height: 32px;
 }
 
 #popup .pop .joinSuccess {
@@ -3577,7 +3501,7 @@ input[type="file"] {
   top: -20px;
 }
 
-.Submit, .Cancel, .uploadSuccess, .updateSuccess, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
+.Submit, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3590,18 +3514,18 @@ input[type="file"] {
   margin: auto;
 }
 
-.Submit.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
+.Submit.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Submit .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
+.Submit .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
   font-size: 36px;
   color: #f77900;
 }
 
-.Submit .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
+.Submit .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
   color: #f77900;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -3609,20 +3533,20 @@ input[type="file"] {
           transform: rotate(20deg);
 }
 
-.Submit .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
+.Submit .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
   margin: 10px 0 20px;
 }
 
-.Submit .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
+.Submit .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
   text-align: center;
 }
 
-.Submit .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
+.Submit .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
+.Submit .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3635,13 +3559,13 @@ input[type="file"] {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
+.Submit .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
+.Submit .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
@@ -3996,9 +3920,9 @@ input[type="file"] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 30px 70px 0;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .walletModule .walletBalanceModule {
@@ -4512,6 +4436,10 @@ input[type="file"] {
           align-items: start;
 }
 
+.quickSelect .btnGroup {
+  margin: 10px 0;
+}
+
 .quickSelect .inputBox-blue {
   background: #333;
 }
@@ -4586,6 +4514,7 @@ input[type="file"] {
   margin: auto;
   margin-top: 10px;
   border-radius: 15px;
+  text-align: center;
 }
 
 .pageSelect {
@@ -4622,19 +4551,20 @@ input[type="file"] {
   text-align: center;
 }
 
-.nodata {
+.icon-nodata {
   text-align: center;
   padding: 50px 0;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   border-top: 0;
+  color: #f77900;
 }
 
-.nodata:before {
+.icon-nodata:before {
   font-size: 48px;
 }
 
-.nodata div {
+.icon-nodata div {
   padding: 5px 10px;
   border-radius: 5px;
   width: -webkit-max-content;
@@ -5356,6 +5286,20 @@ form {
   min-height: 22px;
 }
 
+.slotList .icon-new, .newsList .icon-new {
+  background: #f77900;
+  position: absolute;
+  right: 25px;
+  bottom: 90px;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.slotList .icon-new:before, .newsList .icon-new:before {
+  position: unset;
+  color: white;
+}
+
 .slotList > div, .newsList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 5 - 45px);
@@ -5680,7 +5624,7 @@ iframe {
 }
 
 .expiredClaimedInfo .proData {
-  background-color: #b2b2b2;
+  background-color: #e2e2e2;
   background-image: url(../img/expired.png);
   background-repeat: repeat;
   background-size: 50px;
@@ -6474,6 +6418,9 @@ button.icon-spinner11:before {
 .transferModule {
   position: relative;
   width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-bottom: 30px;
   margin-top: 10px;
   padding: 0;
@@ -6510,10 +6457,31 @@ button.icon-spinner11:before {
   margin-right: 15px;
 }
 
+.transferModule .inputBox-org .dropdown-container, .transferModule .inputBox-blue .dropdown-container {
+  position: absolute;
+  top: 45px;
+  left: -1px;
+  width: calc(100% - 1px);
+  border-radius: 15px;
+  background: #212121;
+  border: 1px solid #f77900;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.transferModule .inputBox-org .dropdown-container .dropdown-item, .transferModule .inputBox-blue .dropdown-container .dropdown-item {
+  margin: 0;
+  padding: 5px 33px 5px 0;
+}
+
+.transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover {
+  background: #f77900;
+  color: white;
+}
+
 .transferModule .inputBox-org .dropdown-item, .transferModule .inputBox-blue .dropdown-item {
   color: white;
   text-align: right;
-  margin-right: 15px;
 }
 
 .transferModule .inputBox-blue span {
@@ -6522,6 +6490,14 @@ button.icon-spinner11:before {
 
 .transferModule .inputBox-blue:focus-within {
   border: 1px solid #1E85EC;
+}
+
+.transferModule .inputBox-blue .dropdown-container {
+  border: 1px solid #1E85EC;
+}
+
+.transferModule .inputBox-blue .dropdown-container .dropdown-item:hover {
+  background: #1E85EC;
 }
 
 .swiper-casino {
@@ -6772,13 +6748,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -6845,5 +6815,588 @@ button.icon-spinner11:before {
 .installGuide img {
   max-width: calc(100% / 6);
   margin: 20px 0;
+}
+
+.ranking {
+  max-width: calc(1600px - 60px);
+  padding: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #191919;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  margin: 20px auto;
+}
+
+.ranking.eventRule {
+  background-image: url(../img/eventRuleBg.jpg);
+}
+
+.ranking.ranksports {
+  background-image: url(../img/rankingSportsBg.jpg);
+}
+
+.ranking.rankLivecasino {
+  background-image: url(../img/rankingLivecasinoBg.jpg);
+}
+
+.ranking.rankSlots {
+  background-image: url(../img/rankingSlotsBg.jpg);
+}
+
+.ranking.rankRecords {
+  background-image: url(../img/rankingRecordsBg.jpg);
+}
+
+.ranking a {
+  color: #f77900;
+  text-decoration: underline;
+}
+
+.ranking button {
+  text-transform: uppercase;
+}
+
+.ranking > .btnGroup {
+  min-width: 770px;
+  margin: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.ranking > .btnGroup button {
+  border-radius: 15px 15px 0 0;
+  color: #666;
+  white-space: nowrap;
+  background: #b2b2b2;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  margin: 0 5px 0 0;
+}
+
+.ranking > .btnGroup button.active {
+  background: #1E85EC;
+  color: white;
+}
+
+.ranking > .btnGroup button:hover {
+  background: #134DAE;
+  color: white;
+}
+
+.ranking .mwt_border {
+  position: relative;
+  border: solid 3px #f77900;
+  margin-top: 20px;
+  padding: 10px;
+  color: #666;
+  line-height: normal;
+  font-weight: bold;
+}
+
+.ranking .mwt_border .arrow_t_int {
+  width: 0px;
+  height: 0px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent #f77900 transparent;
+  position: absolute;
+  top: -33px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.ranking .mwt_border .arrow_t_out {
+  width: 0px;
+  height: 0px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent white transparent;
+  position: absolute;
+  top: -29px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.ranking .champion, .ranking .eventRule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 30px;
+  min-width: 770px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border: 3px solid #1E85EC;
+  border-radius: 0 15px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  background-color: white;
+  min-height: 700px;
+}
+
+.ranking .champion .title, .ranking .eventRule .title {
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.ranking .champion .highest, .ranking .eventRule .highest {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0 20px;
+  text-align: center;
+}
+
+.ranking .champion .highest .txt-orange, .ranking .eventRule .highest .txt-orange {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.ranking .champion .rankModule, .ranking .eventRule .rankModule {
+  -webkit-box-flex: 1.4;
+      -ms-flex: 1.4;
+          flex: 1.4;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ranking .champion .rankModule .btnGroup button, .ranking .eventRule .rankModule .btnGroup button {
+  border-radius: 0;
+  min-width: auto;
+  padding: 5px 10px;
+}
+
+.ranking .champion .title, .ranking .eventRule .title {
+  color: #f77900;
+  margin-top: 15px;
+}
+
+.ranking .champion .highest .title {
+  text-align: left;
+  margin-bottom: 20px;
+  white-space: nowrap;
+}
+
+.ranking .champion .highest .title div {
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+.ranking .champion li {
+  min-height: auto;
+}
+
+.ranking .champion li.userRank {
+  background: #1E85EC;
+  color: white;
+}
+
+.ranking .rankTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: #666;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.ranking .rankTag .btnGroup {
+  margin: 0;
+}
+
+.ranking .rankTag .btnGroup button {
+  text-transform: uppercase;
+  background: transparent;
+  border-radius: 0;
+  border: 1px solid #f77900;
+  color: #f77900;
+  padding: 5px;
+  min-width: auto;
+  white-space: nowrap;
+  margin-left: 0;
+}
+
+.ranking .rankTag .btnGroup button.active {
+  background: #f77900;
+  color: white;
+}
+
+.ranking .eventRule {
+  background: url(../img/eventRuleInfoBG.jpg) no-repeat center/cover;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ranking .eventRule .title {
+  word-wrap: break-word;
+}
+
+.ranking .eventRule .rankTag {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.ranking .eventRule .rankList {
+  width: 66.6%;
+  text-align: center;
+}
+
+.ranking .eventRule .rankList button {
+  color: #f77900;
+  text-decoration: underline;
+}
+
+.ranking .eventRule .rankList li div:first-child {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ranking .eventRule .rankList li div:first-child img {
+  float: right;
+}
+
+.rankList {
+  overflow-y: auto;
+  max-height: 585px;
+  margin-top: 20px;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.rankList .tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 30px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.rankList .tag + ul li:first-child {
+  border-radius: 15px 0 0 0;
+}
+
+.rankList .tag button {
+  color: white;
+  padding: 5px 10px;
+  border: 1px solid #134DAE;
+  border-bottom: 0;
+  border-radius: 15px 15px 0 0;
+  min-width: 100px;
+  margin-right: 1px;
+}
+
+.rankList .tag button.active {
+  background: #134DAE;
+}
+
+.rankList li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #191919;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 30px;
+  border-radius: 15px;
+  background: #d9ecff;
+  margin-bottom: 10px;
+  min-height: 60px;
+}
+
+.rankList li:first-child {
+  background: transparent;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: 30px;
+  min-height: auto;
+  margin: 0;
+}
+
+.rankList li:first-child div {
+  font-size: 14px;
+  color: #939393;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rankList li:nth-child(2) {
+  background: #feff85;
+}
+
+.rankList li:nth-child(3) {
+  background: #e5e5e5;
+}
+
+.rankList li:nth-child(4) {
+  background: #fcd3c1;
+}
+
+.rankList li div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 3px 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.rankList li div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rankList li div:first-child img {
+  width: auto;
+  max-height: 40px;
+  display: unset;
+}
+
+.rankList li div:last-child {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-align: right;
+}
+
+.lastUpdate {
+  color: black;
+  font-size: 12px;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+nav {
+  padding: 20px 34px 10px;
+}
+
+nav.breadcrumb + .quickSelect {
+  margin-bottom: 20px;
+}
+
+nav.breadcrumb ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: #282828;
+  font-size: 13px;
+}
+
+nav.breadcrumb ul .breadcrumb-item a {
+  color: #1E85EC;
+  text-transform: capitalize;
+}
+
+nav.breadcrumb ul .breadcrumb-item + .breadcrumb-item::before {
+  content: '\e95c';
+  margin: 0 5px;
+}
+
+nav.breadcrumb ul .breadcrumb-item.active a {
+  color: white;
+}
+
+.statement {
+  width: calc(100% - 70px);
+  margin: 0 auto;
+}
+
+.statement > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+}
+
+.statement > div:nth-child(odd) {
+  background: #e8edf3;
+}
+
+.statement > div:first-child {
+  background: #134DAE;
+  border-radius: 10px 10px 0 0;
+}
+
+.statement > div:first-child div {
+  border-color: transparent;
+  color: white;
+  line-height: unset;
+}
+
+.statement > div:last-child {
+  border-radius: 0 0 10px 10px;
+}
+
+.statement > div div {
+  border-right: 1px solid #b2b2b2;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 5px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: capitalize;
+  line-height: 50px;
+}
+
+.statement > div div:last-child {
+  border: 0;
+}
+
+.statement > div div.btnGroup button, .statement > div div.btnGroup a {
+  font: normal bold 13px/1 "Microsoft YaHei", sans-serif;
+  min-width: auto;
+  max-width: 80px;
+  padding: 8px 5px;
+  margin: 0;
+}
+
+.statement .total {
+  padding: 10px;
+  color: #f77900;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-weight: bold;
+}
+
+.live:before {
+  content: "●live";
+  position: absolute;
+  top: -5px;
+  right: 0;
+  color: white;
+  font-size: 12px;
+  margin: 0;
+  font-weight: bold;
+  background: #f77900;
+  padding: 0 5px;
+  border-radius: 5px;
+  -webkit-animation: new 0.7s infinite;
+          animation: new 0.7s infinite;
+}
+
+.ErrorPage {
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ErrorPage.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ErrorPage > div {
+  width: calc(50% - 20%);
+  height: 50%;
+  background: url(../img/errorBG.jpg) no-repeat center/cover;
+  position: relative;
+  margin: auto;
+  padding: 0 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ErrorPage > div .icon-close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+}
+
+.ErrorPage > div .errorInfo .title {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 20px 0 5px;
+  text-transform: uppercase;
+}
+
+.ErrorPage > div .errorInfo .stitle {
+  font-size: 30px;
+  font-weight: bold;
+  color: #1e85ec;
+  margin: 0 0 30px;
+}
+
+.ErrorPage > div .errorInfo a img {
+  width: auto;
 }
 /*# sourceMappingURL=style.css.map */

@@ -8,24 +8,26 @@ import React, {
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
-import {
-	walletInfoContext,
-	userInfoContext,
-	bonusWalletsContext
-} from "../common/context";
+import { walletInfoContext, userInfoContext } from "../common/context";
 import moment from "moment";
 import { isConvert, number_format } from "../common/common";
-import { api_account_SetHideBalance } from "../../service/api/account";
-
 import ReloadSpin from "../common/reloadSpin";
 import HeaderProcessBar from "./header.processBar";
+import {
+	GetAllWallets,
+	handleIsHideBalance
+} from "../common/wrapper.walletInfo";
 
-export default props => {
-	const { walletInfo, setWalletInfo, getContentWalletInfo } = useContext(
-		walletInfoContext
-	);
-	const { bonusWallets } = useContext(bonusWalletsContext);
+export default ({ i18n }) => {
+	const {
+		isHideBalance,
+		mainWallet,
+		tpWallets,
+		bonusWallets,
+		dispatch
+	} = useContext(walletInfoContext);
 	const { userInfo } = useContext(userInfoContext);
+
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -33,27 +35,31 @@ export default props => {
 		return () => (isMountedRef.current = false);
 	});
 
-	const HandleDisplayBalance = (value, e) => {
+	const HandleIsHideBalance = e => {
 		e.stopPropagation();
-		setWalletInfo(prevS => ({ ...prevS, isHideBalance: value }));
-		api_account_SetHideBalance({ value });
+		let value = e.target.value === "true";
+		handleIsHideBalance({ dispatch, value });
+	};
+
+	const RefreshAllWallets = () => {
+		GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
 	};
 
 	return userInfo.isLogin && userInfo.currencyId !== undefined ? (
 		<Dropdown
-			{...props}
-			lastTransaction={walletInfo.lastTransaction}
-			lastLogin={userInfo.lastLogin}
+			i18n={i18n}
+			langId={userInfo.langId}
 			currencyId={userInfo.currencyId}
-			walletInfo={walletInfo}
+			mainWallet={mainWallet}
+			tpWallets={tpWallets}
+			isHideBalance={isHideBalance}
 			bonusWallets={bonusWallets}
 			_isConvert={isConvert(userInfo.currencyId)}
-			getContentWalletInfo={getContentWalletInfo}
-			HandleDisplayBalance={HandleDisplayBalance}
+			handleIsHideBalance={HandleIsHideBalance}
+			RefreshAllWallets={RefreshAllWallets}
+			lastLogin={userInfo.lastLogin}
 		/>
-	) : (
-		<></>
-	);
+	) : null;
 };
 
 class Dropdown extends Component {
@@ -78,24 +84,30 @@ class Dropdown extends Component {
 	};
 
 	render() {
-		let isHideBalance = this.props.walletInfo?.isHideBalance;
-		let tpWalletsBonusSum = this.props.walletInfo?.tpWallets?.reduce(
-			(prev, curr) => prev + curr.balance,
-			0
-		);
+		let {
+			isHideBalance,
+			tpWallets,
+			mainWallet,
+			bonusWallets,
+			handleIsHideBalance
+		} = this.props;
+
+		let allTpWalletBalance = tpWallets.reduce((prev, curr) => {
+			return prev + curr.balance;
+		}, 0);
 
 		let balance = isHideBalance
 			? "*****"
-			: this.props.walletInfo.main === null
-			? 0
-			: number_format(
-					this.props.walletInfo.main + tpWalletsBonusSum,
+			: !isNaN(mainWallet.balance)
+			? number_format(
+					mainWallet.balance + allTpWalletBalance,
 					this.props._isConvert
-			  );
+			  )
+			: 0;
 
-		const tpWallets =
-			this.props.walletInfo.tpWallets &&
-			this.props.walletInfo.tpWallets.map(t => {
+		let tpWalletRows = tpWallets
+			.sort((a, b) => (a.tpId > b.tpId ? 1 : -1))
+			.map(t => {
 				return (
 					<div
 						className="walletBalance"
@@ -115,7 +127,7 @@ class Dropdown extends Component {
 				);
 			});
 
-		const bonusWallets = this.props.bonusWallets.map(item => {
+		const bonusWalletRows = bonusWallets.map(item => {
 			return (
 				<div
 					className="walletBalance"
@@ -154,10 +166,8 @@ class Dropdown extends Component {
 				</button>
 				<button
 					aria-label="HandleDisplayBalance"
-					onClick={this.props.HandleDisplayBalance.bind(
-						this,
-						!isHideBalance
-					)}
+					value={!isHideBalance}
+					onClick={handleIsHideBalance}
 					className={`icon icon-eye${
 						isHideBalance ? "-blocked" : ""
 					}`}></button>
@@ -168,27 +178,27 @@ class Dropdown extends Component {
 						)}`}</span>
 						<span>
 							{number_format(
-								this.props.walletInfo.main,
+								mainWallet.balance,
 								this.props._isConvert
 							)}
 							<ReloadSpin
 								btnActive={false}
-								func={this.props.getContentWalletInfo}
+								func={this.props.RefreshAllWallets}
 							/>
 						</span>
 					</div>
 
-					{bonusWallets}
-					{tpWallets}
+					{bonusWalletRows}
+					{tpWalletRows}
 
 					<div className="btnGroup">
 						<Link
-							to={`${this.props.langId}/${path.deposit.root}`}
+							to={`/${this.props.langId}/${path.deposit.root}`}
 							className="orange">
 							{this.props.i18n("lbl_Deposit")}
 						</Link>
 						<Link
-							to={`${this.props.langId}/${path.transferFunds.root}`}
+							to={`/${this.props.langId}/${path.transferFunds.root}`}
 							className="orange">
 							{this.props.i18n("lbl_TransferFunds")}
 						</Link>
@@ -204,8 +214,8 @@ class Dropdown extends Component {
 					<div className="transactionLog">
 						<span>{this.props.i18n("lbl_LastTransaction")}</span>
 						<span>
-							{this.props.lastTransaction
-								? moment(this.props.lastTransaction).format(
+							{mainWallet.lastTransaction
+								? moment(mainWallet.lastTransaction).format(
 										"l LTS"
 								  )
 								: null}

@@ -57,6 +57,14 @@
   font-size: 24px !important;
 }
 
+.icon-cq9:before {
+  font-size: 16px !important;
+}
+
+.icon-cq9:before {
+  content: "\e9b9";
+}
+
 .icon-kiss:before {
   content: "\e9b8";
 }
@@ -65,7 +73,7 @@
   content: "\e9b7";
 }
 
-.icon-nodata2:before {
+.icon-nodata:before {
   content: "\e9b4";
 }
 
@@ -81,7 +89,7 @@
   content: "\e9b0";
 }
 
-.icon-nodata:before {
+.icon-nodata1:before {
   content: "\e9a7";
 }
 

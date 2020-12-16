@@ -1,7 +1,7 @@
 import React from "react";
 import { number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
-import { defPromotionType } from "./promotion.def";
+import { defPromotionType, promoStatus } from "./promotion.def";
 
 export default ({
 	custRollOver,
@@ -11,7 +11,8 @@ export default ({
 	currencyId,
 	RefreshProcessBar,
 	hideReloadBtn,
-	promotionType
+	promotionType,
+	status
 }) => {
 	if (
 		isJoin &&
@@ -19,7 +20,7 @@ export default ({
 		promotionType !== defPromotionType.rebate
 	) {
 		let percentage =
-			custTurnOver >= custRollOver
+			status === promoStatus.Fulfill || custTurnOver >= custRollOver
 				? 100
 				: ((custTurnOver / custRollOver) * 100).toFixed(2);
 

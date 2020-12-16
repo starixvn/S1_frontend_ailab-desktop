@@ -363,7 +363,11 @@ const JoinPanel = () => {
 										if (res_custInfo.data.errorCode === 0) {
 											_user = {
 												..._user,
-												...res_custInfo.data.data
+												...res_custInfo.data.data,
+												langId: GET_LANG_ID(
+													res_custInfo.data.data
+														.langId
+												)
 											};
 										} else {
 											setPopBox({

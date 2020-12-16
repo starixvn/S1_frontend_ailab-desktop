@@ -135,6 +135,9 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   z-index: 2;
 }
 
@@ -204,6 +207,22 @@ header .header > div.menu > button.active {
   cursor: pointer;
   background: #000924;
   color: #56ceff;
+}
+
+header .header > div.menu > a.casinobtn,
+header .header > div.menu > button.casinobtn {
+  position: relative;
+}
+
+header .header > div.menu > a.casinobtn::before,
+header .header > div.menu > button.casinobtn::before {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 16px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu .subMenu-Wrapper {
@@ -399,6 +418,30 @@ header .header > div.menu .casinoList .OW {
 
 header .header > div.menu .casinoList .OW:hover {
   background: url(../img/casinoOW_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .CQ9 {
+  position: relative;
+  background: url(../img/casinoCQ9.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .CQ9:hover {
+  background: url(../img/casinoCQ9_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .CQ9::before {
+  content: "\e9e5";
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  color: #56ceff;
+  font-size: 20px;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+header .header > div.menu .casinoList .CQ9 .icon-cq9:before {
+  font-size: 16px;
 }
 
 header .header > div.menu .livecasinoList .liveWM {
@@ -1030,6 +1073,11 @@ footer > div .platformGroup button {
   width: auto;
   padding: 0 5px;
   max-width: 100px;
+}
+
+footer > div .platformGroup a .icon,
+footer > div .platformGroup button .icon {
+  font-size: 20px;
 }
 
 footer > div .powered {
@@ -1887,8 +1935,8 @@ main > .swiper-container .swiper-slide {
 .list .listHeader div:first-child,
 .list .listBody div:first-child {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 110px;
-          flex: 0 0 110px;
+      -ms-flex: 0 0 95px;
+          flex: 0 0 95px;
 }
 
 .list .listHeader div:last-child,
@@ -1928,6 +1976,7 @@ main > .swiper-container .swiper-slide {
   display: -ms-flexbox;
   display: flex;
   font-weight: bold;
+  margin-top: 20px;
 }
 
 .list .listHeader button,
@@ -3249,17 +3298,15 @@ main > .swiper-container .swiper-slide {
   min-width: 165px;
 }
 
-.slipInfo + .subModuleList .uploadBox {
+.offers {
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 20px;
-}
-
-.slipInfo + .subModuleList .directions {
-  border: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0;
-  margin: 0;
 }
 
 .offers .pagination {
@@ -3299,16 +3346,13 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
-.slipInfo + .subModuleList .upload_img {
-  border: 2px dashed #56ceff;
-  background: #010E33;
-  width: 290px;
-  height: 120px;
+.offers .straightBorder {
+  width: 1px;
+  height: 190px;
+  background: #1d2f62;
 }
 
-.slipInfo + .subModuleList .upload_img .icon {
-  color: #56ceff;
-  font-size: 12px;
+.walletModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3912,9 +3956,9 @@ main > .swiper-container .swiper-slide {
   display: -ms-flexbox;
   display: flex;
   margin-top: 15px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .quickSelect > div {
@@ -3933,8 +3977,7 @@ main > .swiper-container .swiper-slide {
   padding-left: 0;
   margin-right: 10px;
   height: 42px;
-  margin-bottom: 0;
-  margin-top: 30px;
+  margin-bottom: 0px;
 }
 
 .quickSelect > div.btnGroup.promoType {
@@ -5731,5 +5774,322 @@ input + .iconModule i.icon.icon-checkmark:before {
 .guided span.active {
   color: #56ceff;
   opacity: 1;
+}
+
+.essayPage {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding-bottom: 2vw;
+}
+
+.essayPage .title {
+  color: #56ceff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2vw;
+}
+
+.essayPage p {
+  position: relative;
+  color: #fff;
+  margin: 20px 0 10px 0;
+}
+
+.essayPage p::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 10px;
+  border-color: transparent transparent transparent #fff;
+  -webkit-animation: qwe 1s linear infinite;
+          animation: qwe 1s linear infinite;
+}
+
+@-webkit-keyframes qwe {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+
+@keyframes qwe {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+
+.essayPage img {
+  margin: 10px 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.essayPage img:hover {
+  -webkit-box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
+          box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
+}
+
+.christmas1 {
+  width: 100%;
+  position: fixed;
+  top: 120px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.christmas1 .toplight {
+  margin: 0 auto;
+}
+
+.christmas1 .bells {
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 32px);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-animation: tree 2s linear infinite alternate;
+          animation: tree 2s linear infinite alternate;
+}
+
+.christmas1-left {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+}
+
+.christmas1-right {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+}
+
+.christmas1 .tree {
+  width: 140px;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-animation: tree 2s linear infinite alternate;
+          animation: tree 2s linear infinite alternate;
+}
+
+.christmas1 .bomL {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.christmas1 .bomR {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes tree {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes tree {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+[class^="star"] {
+  /*選取所有star*/
+  position: absolute;
+  color: #fff;
+  -webkit-animation: falling 5s infinite;
+          animation: falling 5s infinite;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  font-size: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+}
+
+[class^="star"].star1 {
+  position: absolute;
+  left: 4.15731%;
+  top: -55.30605%;
+  width: 8.58444px;
+  height: 8.58444px;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+[class^="star"].star2 {
+  position: absolute;
+  left: 64.41337%;
+  top: -16.46205%;
+  width: 13.36084px;
+  height: 13.36084px;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+[class^="star"].star3 {
+  position: absolute;
+  left: 66.99386%;
+  top: 6.31314%;
+  width: 10.71736px;
+  height: 10.71736px;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+[class^="star"].star4 {
+  position: absolute;
+  left: 83.79606%;
+  top: 3.91349%;
+  width: 12.05037px;
+  height: 12.05037px;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+
+[class^="star"].star5 {
+  position: absolute;
+  left: 96.24566%;
+  top: 9.70528%;
+  width: 13.09826px;
+  height: 13.09826px;
+  -webkit-animation-delay: -2.5s;
+          animation-delay: -2.5s;
+}
+
+[class^="star"].star6 {
+  position: absolute;
+  left: 61.0859%;
+  top: -23.88415%;
+  width: 7.33085px;
+  height: 7.33085px;
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+}
+
+[class^="star"].star7 {
+  position: absolute;
+  left: 32.07433%;
+  top: 7.57044%;
+  width: 5.89482px;
+  height: 5.89482px;
+  -webkit-animation-delay: -3.5s;
+          animation-delay: -3.5s;
+}
+
+[class^="star"].star8 {
+  position: absolute;
+  left: 53.82638%;
+  top: 6.36123%;
+  width: 7.21045px;
+  height: 7.21045px;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+@-webkit-keyframes falling {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  70% {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 700px);
+            transform: translate(0, 700px);
+  }
+}
+
+@keyframes falling {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  70% {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 700px);
+            transform: translate(0, 700px);
+  }
+}
+
+@-webkit-keyframes newicon {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    color: #56ceff;
+  }
+  100% {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    color: #fff;
+  }
+}
+
+@keyframes newicon {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    color: #56ceff;
+  }
+  100% {
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    color: #fff;
+  }
 }
 /*# sourceMappingURL=style.css.map */

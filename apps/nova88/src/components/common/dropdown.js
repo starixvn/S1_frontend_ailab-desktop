@@ -36,7 +36,7 @@ export class Dropdown extends Component {
 
 	selectItem = i => {
 		this.setState({ isOpen: false });
-		this.props.onSelectItem(i);
+		this.props.onSelectItem(i, this.props.options[i]);
 	};
 
 	render() {
@@ -82,6 +82,7 @@ export class Dropdown extends Component {
 				className="dropdown"
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
+				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`}></i>
 				) : null}

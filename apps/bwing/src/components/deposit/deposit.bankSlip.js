@@ -85,10 +85,6 @@ export class Module extends Component {
 		e.preventDefault();
 	};
 	editField = (col, value, e) => {
-		value =
-			value === null
-				? e.target.value.replace(/^(0+)|[^\d]+/g, "")
-				: value;
 		this.setState({ [col]: value === null ? e.target.value : value });
 	};
 
@@ -300,7 +296,8 @@ export class Module extends Component {
 					<div className="inputBox">
 						<i className="txt-blue12">
 							{this.props.i18n("lbl_DepositTime")}
-						</i> &nbsp;
+						</i>{" "}
+						&nbsp;
 						<DateTime
 							value={moment(this.state.depositTime).format(
 								"YYYY-MM-DD HH:mm A"

@@ -15,23 +15,14 @@ export const isExpiry = ({
 	custExpiryTime,
 	isLogin,
 	isJoin,
-	status,
 	promotionType
 }) => {
-	let bonusExpiry = false;
-	if (
-		isLogin &&
+	return isLogin &&
 		isJoin &&
 		promotionType !== defPromotionType.rebate &&
 		promotionType !== defPromotionType.cashback
-	) {
-		bonusExpiry =
-			moment(moment.unix(custExpiryTime)).isBefore(new moment()) ||
-			(status !== promoStatus.running &&
-				status !== promoStatus.TransferOut);
-	}
-
-	return moment(moment.unix(periodTo)).isBefore(new moment()) || bonusExpiry;
+		? moment(moment.unix(custExpiryTime)).isBefore(new moment())
+		: moment(moment.unix(periodTo)).isBefore(new moment());
 };
 
 export const isNew = ({ periodFrom }) => {
