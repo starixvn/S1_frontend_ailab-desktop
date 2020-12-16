@@ -269,7 +269,6 @@ const Ranking = ({ rankingData, t }) =>
 							alt="ranking_gold"
 						/>
 					)}
-					{t("lbl_Top")}
 					{idx + 1}
 				</div>
 				<div>{item.userName}</div>

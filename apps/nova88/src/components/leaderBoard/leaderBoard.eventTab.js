@@ -28,9 +28,7 @@ export default ({
 						/>
 					)}
 				</div>
-				<div>
-					{t("lbl_Top")} {item.displayRank}
-				</div>
+				<div>{item.displayRank}</div>
 				<div>
 					{item.reward}
 					{item.reward.slice(-3) === currencyName ? (
