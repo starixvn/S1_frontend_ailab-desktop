@@ -45,7 +45,7 @@ export default () => {
 	const [selfRankingData, setSelfRankingData] = useState(initSelfRankingData);
 	const [tab, setTab] = useState(defTabId.event);
 	const [categoryID, setCategoryID] = useState(defTabId.sports);
-	const [beforeDays, setBeforeDays] = useState(defDayNum.yesterDay);
+	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 	const TopNum = 10;
 	const isGameTypeTab =
 		tab === defTabId.sports ||
@@ -94,7 +94,11 @@ export default () => {
 			});
 		} else {
 			setTab(tabValue);
-			setBeforeDays(defDayNum.yesterDay);
+			setBeforeDays(
+				tabValue === defTabId.records
+					? defDayNum.yesterDay
+					: defDayNum.today
+			);
 			onChangeGameType(
 				tabValue === defTabId.records || tabValue === defTabId.event
 					? defTabId.sports
