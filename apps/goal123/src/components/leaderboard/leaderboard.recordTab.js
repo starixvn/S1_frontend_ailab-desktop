@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { number_format } from "../common/common";
 import {
 	defTabId,
 	defDayOptions,

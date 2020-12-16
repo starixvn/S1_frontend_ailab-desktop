@@ -1,20 +1,10 @@
 import React from "react";
-import { navigate } from "@reach/router";
 import { number_format } from "../common/common";
 import config from "../../config";
 import { defTabId, defImgRankId } from "./leaderboard.def";
 
 export default ({ t, tab, rewardList, userInfo }) => {
-	const routePushTNC = () => {
-		if (typeof window === undefined) return;
-
-		window.open(
-			`${config.t_and_cURL}/SiteSkin/${config.siteName}/ranking/${userInfo.langId}.html`,
-			"_blank"
-		);
-	};
-
-	const rewardTotalValue = "127,992";
+	const rewardTotalValue = "88,888,000";
 
 	return (
 		<div
@@ -64,9 +54,12 @@ export default ({ t, tab, rewardList, userInfo }) => {
 						})}
 					</ul>
 				</div>
-				<button className="more" onClick={routePushTNC}>
+
+				<a
+					href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/ranking/${userInfo.langId}.html`}
+					target="_blank">
 					{t("lbl_MoreDetails")}
-				</button>
+				</a>
 			</div>
 		</div>
 	);
