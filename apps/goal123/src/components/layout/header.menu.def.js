@@ -245,7 +245,8 @@ export const defMenuLinks = {
 	},
 	leaderBoard: {
 		path: path.leaderBoard.root,
-		displayKey: "lbl_Ranking"
+		displayKey: "lbl_Ranking",
+		className: "icon icon-live"
 	}
 	// lottery: {
 	// 	productInfo: productList.lottery,
