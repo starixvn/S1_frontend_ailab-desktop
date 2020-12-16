@@ -395,6 +395,8 @@
 	"lbl_Minutes": "Minutes",
 	"lbl_Seconds": "Seconds",
 	"lbl_5mins": "5 mins",
+	"lbl_last_2_day":"Last 2 day",
+	"lbl_last_3_day":"Last 3 day",
 
 	"leaderboard ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Event":"Event",
@@ -413,7 +415,10 @@
 	"lbl_Ranking_Sports":"Sports Ranking",
 	"lbl_Ranking_LiveCasino":"Live Casino Ranking",
 	"lbl_Ranking_Slots":"Slots Ranking",
-
+	"lbl_NoOfWinners":"No. of Winners",
+	"lbl_HighestWinningRecord":"HIGHEST WINNING RECORD",
+	"lbl_Ranking_Top20":"TOP 20 WINNING",
+	"lbl_No1_Reward":"NO.1 REWARD",
 
 	"new ■■■■■■■■■■■■■■■■■■■■": "",
 	"newkey1": "value",

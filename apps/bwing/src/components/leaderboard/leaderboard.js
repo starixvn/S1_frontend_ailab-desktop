@@ -51,10 +51,7 @@ export default () => {
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
-	console.log("currencyName::", currencyName);
-
 	const rewardList = defRewardList[currencyName];
-	console.log("rewardList::", rewardList);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -186,7 +183,7 @@ export default () => {
 							</div>
 							<div className="ranInBox ranInBox2">
 								<div className="textBox">
-									<h1>NO.1 REWARD</h1>
+									<h1>{t("lbl_No1_Reward")}</h1>
 									<p>IPHONE 12 PRO MAX(256GB)</p>
 								</div>
 								<img
@@ -199,7 +196,9 @@ export default () => {
 						<>
 							<div className="ranInBox">
 								{tab === defTabId.ranking ? (
-									<h1 class="title">TOP 20 WINNING</h1>
+									<h1 className="title">
+										{t("lbl_Ranking_Top20")}
+									</h1>
 								) : (
 									<DayDropdown
 										t={t}
@@ -219,13 +218,12 @@ export default () => {
 												rankingData={rankingData}
 												t={t}
 											/>
-											<SelfRanking
-												selfRankingData={
-													selfRankingData
-												}
-												userInfo={userInfo}
-											/>
 										</ul>
+										<SelfRanking
+											selfRankingData={selfRankingData}
+											userInfo={userInfo}
+											tab={tab}
+										/>
 									</div>
 								) : (
 									<div className="icon icon-nodata">
@@ -238,10 +236,10 @@ export default () => {
 									})}
 								</p>
 							</div>
-							<div class="ranInBox ranInBox2">
-								<div class="textBox">
+							<div className="ranInBox ranInBox2">
+								<div className="textBox">
 									<p>
-										HIGHEST WINNING RECORD
+										{t("lbl_HighestWinningRecord")}
 										<br />
 										(Last 7 Days) ******kboy
 									</p>
@@ -283,16 +281,20 @@ const Ranking = ({ rankingData, t }) =>
 		);
 	});
 
-const SelfRanking = ({ selfRankingData, userInfo }) =>
+const SelfRanking = ({ selfRankingData, userInfo, tab }) =>
 	selfRankingData?.custRank > 0 ? (
-		<li className="myRan">
+		<div className="myRan">
 			<div>
-				<img src={require(`../../styles/img/ranking/trophy4.png`)} />
+				{tab === defTabId.ranking ? (
+					<img
+						src={require(`../../styles/img/ranking/trophy4.png`)}
+					/>
+				) : null}
 				{selfRankingData.custRank > 999
 					? "999+"
 					: selfRankingData.custRank}
 			</div>
 			<div>{userInfo.userName}</div>
 			<div className="point">{selfRankingData.point}</div>
-		</li>
+		</div>
 	) : null;
