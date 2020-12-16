@@ -129,48 +129,28 @@ export default () => {
 			BeforeDays: daysValue ?? beforeDays
 		};
 
-		await api_events_GetLeaderboardList(payload).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setRankingData(res.data.data);
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
+		await api_events_GetLeaderboardList(payload).then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					setRankingData(res.data.data);
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: res.data.message,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={ClickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
 				}
 			}
-			// err => {
-			// 	if (isMountedRef.current) {
-			// 		setPopBox({
-			// 			isOpen: true,
-			// 			popBoxType: defPopBoxType.ErrorMsg,
-			// 			message: t("msg_ApiServerError"),
-			// 			btnBar: (
-			// 				<div className="btnGroup">
-			// 					<button
-			// 						className="btn-cancel"
-			// 						onClick={ClickClose}>
-			// 						{t("lbl_Close")}
-			// 					</button>
-			// 				</div>
-			// 			)
-			// 		});
-			// 	}
-			// }
-		);
+		});
 	};
 
 	const getSelfLeaderboardData = async (typeValue, daysValue) => {
@@ -180,48 +160,28 @@ export default () => {
 			BeforeDays: daysValue ?? beforeDays
 		};
 
-		await api_events_GetCustRank(payload).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setSelfRankingData(res.data.data);
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
+		await api_events_GetCustRank(payload).then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					setSelfRankingData(res.data.data);
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: res.data.message,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={ClickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
 				}
 			}
-			// err => {
-			// 	if (isMountedRef.current) {
-			// 		setPopBox({
-			// 			isOpen: true,
-			// 			popBoxType: defPopBoxType.ErrorMsg,
-			// 			message: t("msg_ApiServerError"),
-			// 			btnBar: (
-			// 				<div className="btnGroup">
-			// 					<button
-			// 						className="btn-cancel"
-			// 						onClick={ClickClose}>
-			// 						{t("lbl_Close")}
-			// 					</button>
-			// 				</div>
-			// 			)
-			// 		});
-			// 	}
-			// }
-		);
+		});
 	};
 
 	return (
@@ -243,9 +203,6 @@ export default () => {
 						{isGameTypeTab ? (
 							<div className="title">
 								<div>{t(defLeaderBoardTitle[tab])}</div>
-								<div className="txt-orange">
-									{t("lbl_Ranking_Top10")}
-								</div>
 							</div>
 						) : (
 							<ButtonGroups
@@ -306,8 +263,12 @@ const Ranking = ({ rankingData, t }) =>
 							src={require(`../../styles/img/no${idx + 1}.png`)}
 							alt="ranking_top_three"
 						/>
-					) : null}
-					{t("lbl_Top")}
+					) : (
+						<img
+							src={require(`../../styles/img/gold.png`)}
+							alt="ranking_gold"
+						/>
+					)}
 					{idx + 1}
 				</div>
 				<div>{item.userName}</div>
@@ -318,8 +279,12 @@ const Ranking = ({ rankingData, t }) =>
 
 const SelfRanking = ({ selfRankingData, userInfo }) =>
 	selfRankingData?.custRank > 0 ? (
-		<li>
+		<li className="userRank">
 			<div>
+				<img
+					src={require(`../../styles/img/gold.png`)}
+					alt="ranking_gold"
+				/>
 				{selfRankingData.custRank > 999
 					? "999+"
 					: selfRankingData.custRank}
