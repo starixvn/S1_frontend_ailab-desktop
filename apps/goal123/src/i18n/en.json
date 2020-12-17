@@ -388,6 +388,7 @@
 	"lbl_Goal123_EventTitle": "Xmas Tournament Win Cash Prizes",
 	"lbl_last_2_day": "Last 2 Day",
 	"lbl_last_3_day": "Last 3 Day",
-	"lbl_TotalValue":"Total Value"
+	"lbl_TotalValue":"Total of all prizes",
+	"lbl_No1Award":"No. 1 Award"
 }
 

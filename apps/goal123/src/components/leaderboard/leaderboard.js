@@ -227,7 +227,8 @@ export default () => {
 									className="mb-2"
 									src={require("../../styles/img/champion.png")}
 								/>
-								<div className="highest person">
+								<div className="highest">
+									{t("lbl_No1Award")}
 									<span>
 										VND {defRewardList["VND"][0].reward}
 									</span>
