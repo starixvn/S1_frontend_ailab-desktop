@@ -138,7 +138,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  z-index: 2;
+  z-index: 10;
 }
 
 header .logo {
@@ -778,6 +778,8 @@ header .header > div.function .memberfile .submenu {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   line-height: 30px;
   white-space: nowrap;
   z-index: 1;
@@ -881,6 +883,76 @@ header .header > div.function .wallet button.icon-eye {
   margin-left: 5px;
 }
 
+header .header > div.function .wallet .submenu .walletTitle {
+  position: relative;
+  font-size: 14;
+}
+
+header .header > div.function .wallet .submenu .walletTitle button {
+  position: absolute;
+  top: 0px;
+  right: 20px;
+}
+
+header .header > div.function .wallet .submenu .walletTitle button::before {
+  color: #56ceff;
+  font-size: 14px;
+}
+
+header .header > div.function .wallet .submenu .walletArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .header > div.function .wallet .submenu .walletArea .walletBox {
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+header .header > div.function .wallet .submenu .walletArea .walletBox .walletBalance {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 5px 10px;
+  background-color: #18203b;
+  border-top: 1px solid #2c3968;
+}
+
+header .header > div.function .wallet .submenu .walletArea .walletBox .walletBalance:nth-last-child(1) {
+  border-radius: 0 0 3px 3px;
+}
+
+header .header > div.function .wallet .submenu .walletArea .walletBox .walletBalance:nth-child(1) {
+  border: 0;
+  border-radius: 3px 3px 0 0;
+  color: #ff7940;
+}
+
+header .header > div.function .wallet .submenu .walletArea .walletBox .walletBalance > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 header .header > div.function .wallet .submenu > div {
   padding: 0 20px;
   display: -webkit-box;
@@ -893,35 +965,6 @@ header .header > div.function .wallet .submenu > div {
       -ms-flex-align: center;
           align-items: center;
   min-width: 260px;
-}
-
-header .header > div.function .wallet .submenu > div > div {
-  -webkit-box-flex: 7;
-      -ms-flex: 7;
-          flex: 7;
-  font-weight: bold;
-  border-right: 1px dashed rgba(255, 255, 255, 0.5);
-  margin-right: 10px;
-}
-
-header .header > div.function .wallet .submenu > div > div .walletBalance {
-  padding-right: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-header .header > div.function .wallet .submenu > div > div .walletBalance > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 header .header > div.function .wallet .submenu > div.btnGroup {
@@ -5929,7 +5972,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: 100%;
   position: fixed;
   top: 120px;
-  z-index: 10;
+  z-index: 2;
   pointer-events: none;
 }
 
@@ -5949,13 +5992,13 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .christmas1-left {
   position: absolute;
-  top: -20px;
+  top: -10px;
   left: -10px;
 }
 
 .christmas1-right {
   position: absolute;
-  top: -20px;
+  top: -10px;
   right: -10px;
 }
 
@@ -6027,80 +6070,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 48.42031%;
-  top: -12.48571%;
-  width: 11.12134px;
-  height: 11.12134px;
+  left: 5.40274%;
+  top: -0.24008%;
+  width: 8.29914px;
+  height: 8.29914px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 13.75323%;
-  top: -42.72616%;
-  width: 9.98465px;
-  height: 9.98465px;
+  left: 0.68133%;
+  top: -46.63297%;
+  width: 6.81188px;
+  height: 6.81188px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 39.15926%;
-  top: -8.82245%;
-  width: 9.87793px;
-  height: 9.87793px;
+  left: 1.43745%;
+  top: -35.97685%;
+  width: 7.23347px;
+  height: 7.23347px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 25.39285%;
-  top: -9.95636%;
-  width: 5.71149px;
-  height: 5.71149px;
+  left: 97.73423%;
+  top: -35.75797%;
+  width: 12.37793px;
+  height: 12.37793px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 7.83407%;
-  top: 10.50673%;
-  width: 9.92701px;
-  height: 9.92701px;
+  left: 71.31973%;
+  top: -44.90924%;
+  width: 10.72189px;
+  height: 10.72189px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 94.36387%;
-  top: 22.92307%;
-  width: 9.10732px;
-  height: 9.10732px;
+  left: 65.984%;
+  top: -18.05044%;
+  width: 13.90783px;
+  height: 13.90783px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 2.89695%;
-  top: -34.73244%;
-  width: 14.07392px;
-  height: 14.07392px;
+  left: 77.62553%;
+  top: -37.38041%;
+  width: 5.56067px;
+  height: 5.56067px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 65.41073%;
-  top: 30.45057%;
-  width: 13.18885px;
-  height: 13.18885px;
+  left: 8.12326%;
+  top: 1.30352%;
+  width: 11.24273px;
+  height: 11.24273px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6292,9 +6335,8 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist {
-  margin: 20px 0;
+  margin: 20px 0 50px 0;
   position: relative;
-  padding-bottom: 35px;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul {
@@ -6308,17 +6350,31 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: relative;
-  height: 350px;
+  height: 380px;
   overflow: auto;
 }
 
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul ::-webkit-scrollbar {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul::-webkit-scrollbar {
   width: 0px;
+}
+
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 206, 255, 0.5)), to(rgba(86, 206, 255, 0)));
+  background: linear-gradient(0deg, rgba(86, 206, 255, 0.5), rgba(86, 206, 255, 0));
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul.event {
   overflow: inherit;
+}
+
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul.event::before {
+  display: none;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li {
@@ -6349,6 +6405,9 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 50px;
   line-height: 50px;
   width: calc(100% - 2px);
+  padding: 0 10px 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no2 {
@@ -6357,6 +6416,9 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 50px;
   line-height: 50px;
   width: calc(100% - 10px);
+  padding: 0 6px 0 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no3 {
@@ -6365,6 +6427,29 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 50px;
   line-height: 50px;
   width: calc(100% - 20px);
+  padding: 0 2px 0 2px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.myInRank {
+  background-color: #56ceff;
+  color: #070e22;
+  -webkit-box-shadow: 0px 0px 10px #56ceff;
+          box-shadow: 0px 0px 10px #56ceff;
+}
+
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.myRank {
+  width: 100%;
+  background-color: #56ceff;
+  position: absolute;
+  bottom: -50px;
+  border-radius: 0 0 3px 3px;
+  color: #070e22;
+  padding: 0 14px 0 14px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div {
@@ -6385,62 +6470,30 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 40px;
 }
 
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div.point {
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div:nth-last-child(1) {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  padding-right: 15px;
 }
 
-.rankingPage .rankContent .rankBox .rankInBox .ranklist .myRank {
-  width: 448px;
-  height: 40px;
-  line-height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #56ceff;
-  position: absolute;
-  bottom: 0px;
-  border-radius: 0 0 3px 3px;
-  color: #070e22;
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div:nth-child(1) {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 15px;
 }
 
-.rankingPage .rankContent .rankBox .rankInBox .ranklist .myRank::before {
-  content: "";
-  position: absolute;
-  top: -15px;
-  width: 100%;
-  height: 15px;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 206, 255, 0.5)), to(rgba(86, 206, 255, 0)));
-  background: linear-gradient(0deg, rgba(86, 206, 255, 0.5), rgba(86, 206, 255, 0));
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist .myRank div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  text-align: center;
-  padding: 0 10px;
-  height: 40px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist .myRank div.point {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div img {
+  margin-right: 10px;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .remind {
   color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .remind.btn {

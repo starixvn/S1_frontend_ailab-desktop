@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
-import bottomImg from "../../styles/img/ranking/bottomImg.png";
 import {
 	api_events_GetLeaderboardList,
 	api_events_GetCustRank
@@ -13,9 +12,7 @@ import {
 	defTabId,
 	defBackground,
 	defDayNum,
-	defTabDisplayKey,
-	defRewardList,
-	defLeaderBoardTitle
+	defRewardList
 } from "./leaderboard.def";
 import moment from "moment";
 import { number_format } from "../common/common";
@@ -36,11 +33,6 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState([]);
-	const initSelfRankingData = {
-		custRank: 0,
-		point: 0
-	};
-	const [selfRankingData, setSelfRankingData] = useState(initSelfRankingData);
 	const [tab, setTab] = useState(defTabId.event);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 	const lBCategoryId = 0;
@@ -99,7 +91,6 @@ export default () => {
 	};
 
 	const onChangeDays = daysValue => {
-		console.log("daysValue::", daysValue + 1);
 		setBeforeDays(daysValue + 1);
 		getLeaderboardData(daysValue + 1);
 	};
@@ -110,52 +101,51 @@ export default () => {
 
 	const getLeaderboardData = async daysValue => {
 		if (!userInfo.isLogin) return;
-		let payload = {
+		const payload_top20 = {
 			lBCategoryId: lBCategoryId,
 			TopNum: TopNum,
 			BeforeDays: daysValue
 		};
-		let res1 = await api_events_GetLeaderboardList(payload).then(res => {
-			if (isMountedRef.current) {
-				if (res.data.errorCode === 0) {
-					return res.data.data;
-				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-				}
-			}
-		});
-
-		let payload_self = {
+		const payload_self = {
 			lBCategoryId: lBCategoryId,
 			BeforeDays: daysValue
 		};
-
-		let res2 = await api_events_GetCustRank(payload_self).then(res => {
+		await api_events_GetLeaderboardList(payload_top20).then(async res => {
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
-					let resData = res.data.data;
-					let selfItem = {
-						userName: userInfo.userName,
-						wTurnover: resData.point,
-						custRank:
-							resData.custRank === 0 || resData.custRank > 999
-								? "999+"
-								: resData.custRank
-					};
-					return selfItem;
+					let top20Arr = res.data.data;
+
+					let userInTop20 =
+						top20Arr.findIndex(
+							r => r.username === userInfo.userName
+						) !== -1;
+
+					if (userInTop20) {
+						setRankingData(top20Arr);
+					} else {
+						let selfItem = await api_events_GetCustRank(
+							payload_self
+						).then(res => {
+							if (res.data.errorCode === 0) {
+								let resData = res.data.data;
+								let selfObj = {
+									userName: userInfo.userName,
+									wTurnover: resData.point,
+									custRank:
+										resData.custRank === 0 ||
+										resData.custRank > 999
+											? "999+"
+											: resData.custRank
+								};
+								return selfObj;
+							}
+						});
+						let filterRepeatArr = top20Arr.filter(
+							r => r.username !== userInfo.userName
+						);
+						let concatArr = [...filterRepeatArr, selfItem];
+						setRankingData(concatArr);
+					}
 				} else {
 					setPopBox({
 						isOpen: true,
@@ -174,20 +164,14 @@ export default () => {
 				}
 			}
 		});
-
-		let filterArr = res1.filter(r => r.username !== userInfo.userName);
-		let dataArr = [...filterArr, res2];
-
-		let sortRanking = dataArr.sort((a, b) => {
-			return b.wTurnover - a.wTurnover;
-		});
-
-		setRankingData(sortRanking);
 	};
 
 	return (
 		<section className={`rankingPage ${defBackground[tab]}`}>
-			{/* <img src={bottomImg} alt="bottomImg" /> */}
+			<img
+				src={require("../../styles/img/ranking/bottomImg.png")}
+				className="bottomImg"
+			/>
 			<div className="rankContent">
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				<div className="rankBox">
@@ -227,11 +211,6 @@ export default () => {
 											t={t}
 										/>
 									</ul>
-									{/* <SelfRanking
-										selfRankingData={selfRankingData}
-										userInfo={userInfo}
-										tab={tab}
-									/> */}
 								</div>
 							) : (
 								<div className="icon icon-nodata">
@@ -245,7 +224,7 @@ export default () => {
 							</p>
 						</div>
 					)}
-					<div className="rankInBox ranInBox2">
+					<div className="rankInBox rankInBox2">
 						<div className="textBox">
 							<h1>{t("lbl_No1_Reward")}</h1>
 							<p>IPHONE 12 PRO MAX(256GB)</p>
@@ -263,15 +242,23 @@ export default () => {
 
 const Ranking = ({ rankingData, t, userInfo }) =>
 	rankingData?.map((item, idx) => {
+		let liStyle = () => {
+			let top3Class = "";
+			let myClass = "";
+			if (idx < 3) {
+				top3Class = "no" + (idx + 1);
+			}
+			if (item.userName === userInfo.userName) {
+				myClass = " myRank";
+			} else if (item.userName === userInfo.userName && idx < 20) {
+				myClass = " myInRank";
+			}
+			return top3Class + myClass;
+		};
+
 		return (
-			<li
-				key={`leaderboard_item_${item.custId}`}
-				className={idx < 3 ? `no${idx + 1}` : null}>
-				<div
-				// className={
-				// 	item.userName === userInfo.userName ? "myRank" : null
-				// }
-				>
+			<li key={`leaderboard_item_${item.custId}`} className={liStyle()}>
+				<div>
 					<img
 						src={
 							idx < 3
@@ -291,21 +278,3 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 			</li>
 		);
 	});
-
-// const SelfRanking = ({ selfRankingData, userInfo, tab }) =>
-// 	selfRankingData?.custRank > 0 ? (
-// 		<div className="myRank">
-// 			<div>
-// 				{tab === defTabId.ranking ? (
-// 					<img
-// 						src={require(`../../styles/img/ranking/trophy4.png`)}
-// 					/>
-// 				) : null}
-// 				{selfRankingData.custRank > 999
-// 					? "999+"
-// 					: selfRankingData.custRank}
-// 			</div>
-// 			<div>{userInfo.userName}</div>
-// 			<div className="point">{selfRankingData.point}</div>
-// 		</div>
-// 	) : null;
