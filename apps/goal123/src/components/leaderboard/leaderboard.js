@@ -1,22 +1,25 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
+
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import {
 	api_events_GetLeaderboardList,
 	api_events_GetCustRank
 } from "../../service/api/events";
-import LeaderBoardTabNav from "./leaderBoard.tabNav";
+import LeaderBoardTabs from "./leaderboard.tabs";
+import LeaderboardEventTab from "./leaderboard.eventTab";
 import {
 	defTabId,
 	defDayNum,
+	defImgRankId,
 	defRewardList,
-	defBackground
+	defBackground,
+	TopNum,
+	defDayOptions,
+	defTabList
 } from "./leaderboard.def";
-import moment from "moment";
-import EventTab from "./leaderboard.eventTab";
-import RankingTab from "./leaderboard.rankingTab";
-import RecordTab from "./leaderboard.recordTab";
 
 const langMapping = {
 	vn: "VND",
@@ -40,9 +43,9 @@ export default () => {
 	const [selfRankingData, setSelfRankingData] = useState(initSelfRankingData);
 	const [tab, setTab] = useState(defTabId.event);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
-	const [updatedTime, setUpdatedTime] = useState("");
 	const lBCategoryId = 1;
-	const TopNum = 20;
+
+	const isEventTab = tab === defTabId.event;
 
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??
@@ -67,7 +70,7 @@ export default () => {
 		let _convertMin = _time.getMinutes() < 30 ? 0 : 30;
 		_time.setMinutes(_convertMin);
 		_time.setSeconds(0);
-		let displayTime = moment(_time).format("YYYY/MM/DD hh:mm:ss");
+		let displayTime = moment(_time).format("YYYY/MM/DD HH:mm:ss");
 		return displayTime;
 	};
 
@@ -79,6 +82,10 @@ export default () => {
 			});
 
 		setTab(tabValue);
+
+		if (tabValue === defTabId.ranking) return fetchData(defDayNum.today);
+		if (tabValue === defTabId.records)
+			return fetchData(defDayNum.yesterDay);
 	};
 
 	const ClickClose = () => {
@@ -97,7 +104,9 @@ export default () => {
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
 					setRankingData(res.data.data);
-					setUpdatedTime(showUpdateTime());
+					if (res.data.data.length !== 0) {
+						getSelfLeaderboardData(daysValue);
+					}
 				} else {
 					setPopBox({
 						isOpen: true,
@@ -148,39 +157,142 @@ export default () => {
 		});
 	};
 
+	const fetchData = beforeDays => {
+		setBeforeDays(beforeDays);
+		getLeaderboardData(beforeDays);
+	};
+
+	const title = t(defTabList.find(item => item.id === tab).displayKey);
+	const { custRank, point } = selfRankingData;
+	let rank = custRank > 999 || custRank === 0 ? "999+" : custRank;
+	let rankResult = [];
+	if (custRank <= TopNum && custRank !== 0) {
+		rankingData[custRank - 1] = {
+			...rankingData[custRank - 1],
+			userName: userInfo.userName,
+			custRank: rank
+		};
+
+		rankResult = rankingData;
+	} else {
+		rankResult = [
+			...rankingData,
+			{
+				userName: userInfo.userName,
+				wTurnover: point,
+				custRank: rank
+			}
+		];
+	}
+
 	return (
 		<main className={`leaderboard ${defBackground[tab]}`}>
 			<section className="content">
-				<LeaderBoardTabNav t={t} onChangeTab={onChangeTab} tab={tab} />
+				<LeaderBoardTabs t={t} onChangeTab={onChangeTab} tab={tab} />
 
 				<div className="rightModule">
-					<EventTab
-						t={t}
-						tab={tab}
-						rewardList={rewardList}
-						userInfo={userInfo}
-					/>
-					<RankingTab
-						t={t}
-						tab={tab}
-						rankingData={rankingData}
-						updatedTime={updatedTime}
-						getLeaderboardData={getLeaderboardData}
-					/>
-					<RecordTab
-						t={t}
-						tab={tab}
-						userInfo={userInfo}
-						beforeDays={beforeDays}
-						rankingData={rankingData}
-						selfRankingData={selfRankingData}
-						updatedTime={updatedTime}
-						setBeforeDays={setBeforeDays}
-						getLeaderboardData={getLeaderboardData}
-						getSelfLeaderboardData={getSelfLeaderboardData}
-					/>
+					{isEventTab ? (
+						<LeaderboardEventTab
+							t={t}
+							tab={tab}
+							rewardList={rewardList}
+							userInfo={userInfo}
+						/>
+					) : (
+						<div
+							className={`rank_content ${
+								tab !== defTabId.event ? "active" : ""
+							}`}>
+							<div className="left">
+								{tab === defTabId.records ? (
+									<div className="dateSelector">
+										{defDayOptions.map(item => (
+											<button
+												key={`btn-key-${item.id}`}
+												className={
+													beforeDays === item.id
+														? "active"
+														: ""
+												}
+												onClick={() =>
+													fetchData(item.id)
+												}>
+												{t(item.displayKey)}
+											</button>
+										))}
+									</div>
+								) : null}
+
+								<img
+									className="mb-2"
+									src={require("../../styles/img/champion.png")}
+								/>
+								<div className="highest person">
+									<span>
+										VND {defRewardList["VND"][0].reward}
+									</span>
+								</div>
+							</div>
+
+							<div className="right">
+								<div className="title">{title}</div>
+								<div className="rankingList">
+									<ul className="rankScroll">
+										<li>
+											<div>{t("lbl_Rank")}</div>
+											<div>{t("lbl_Username")}</div>
+											<div>{t("lbl_Points")}</div>
+										</li>
+										{rankingData.length !== 0 ? (
+											rankResult?.map((item, idx) => {
+												return (
+													<RankItem
+														key={`leaderboard_item_${item.userName}`}
+														item={item}
+														idx={idx}
+													/>
+												);
+											})
+										) : (
+											<div className="nodata">
+												{t("msg_NoData")}
+											</div>
+										)}
+									</ul>
+								</div>
+								<div className="message">
+									{t(`lbl_LastUpdTime`, {
+										time: showUpdateTime()
+									})}
+								</div>
+							</div>
+						</div>
+					)}
 				</div>
 			</section>
 		</main>
+	);
+};
+
+const RankItem = ({ item, idx }) => {
+	const mineClass = item.custRank
+		? item.custRank <= TopNum && item.custRank !== 0
+			? "mineInner"
+			: "mine"
+		: "";
+
+	return (
+		<li className={mineClass}>
+			<div>
+				<img
+					src={require(`../../styles/img/${
+						idx <= 2 ? defImgRankId[idx + 1] : `nbadge`
+					}.png`)}
+				/>
+				{item?.custRank || idx + 1}
+			</div>
+			<div>{item.userName}</div>
+			<div>{item.wTurnover}</div>
+		</li>
 	);
 };

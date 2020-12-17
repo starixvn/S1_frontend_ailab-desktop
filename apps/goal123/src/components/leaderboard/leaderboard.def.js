@@ -1,3 +1,5 @@
+export const TopNum = 20;
+
 export const defTabId = {
 	event: 1,
 	ranking: 2,
@@ -28,14 +30,14 @@ export const defDayOptions = [
 
 export const defRewardList = {
 	VND: [
-		{ displayRank: "1", reward: "38,888" },
-		{ displayRank: "2", reward: "28,888" },
-		{ displayRank: "3", reward: "18888" },
-		{ displayRank: "4", reward: "12,888" },
-		{ displayRank: "5", reward: "8,888" },
-		{ displayRank: "6", reward: "6,888" },
-		{ displayRank: "7", reward: "5,888" },
-		{ displayRank: "8~10", reward: "3,888" },
-		{ displayRank: "11~20", reward: "2,888" }
+		{ displayRank: "1", reward: "38,888,000" },
+		{ displayRank: "2", reward: "28,888,000" },
+		{ displayRank: "3", reward: "18,888,000" },
+		{ displayRank: "4", reward: "12,888,000" },
+		{ displayRank: "5", reward: "8,888,000" },
+		{ displayRank: "6", reward: "6,888,000" },
+		{ displayRank: "7", reward: "5,888,000" },
+		{ displayRank: "8~10", reward: "3,888,000" },
+		{ displayRank: "11~20", reward: "2,888,000" }
 	]
 };
