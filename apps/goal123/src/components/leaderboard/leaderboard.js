@@ -43,7 +43,7 @@ export default () => {
 	const [selfRankingData, setSelfRankingData] = useState(initSelfRankingData);
 	const [tab, setTab] = useState(defTabId.event);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
-	const lBCategoryId = 1;
+	const lBCategoryId = 0;
 
 	const isEventTab = tab === defTabId.event;
 
