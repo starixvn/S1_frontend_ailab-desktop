@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link, navigate } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import Menu from "./header.menu";
@@ -16,6 +16,10 @@ export default () => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [casinoTpIds, setCasinoTpIds] = useState(null);
+	const isMountedRef = useRef(null);
+	const ClosePopBox = () => {
+		setPopBox({ isOpen: false });
+	};
 
 	useEffect(() => {
 		if (userInfo.isLogin && casinoTpIds === null) {
@@ -26,7 +30,21 @@ export default () => {
 					}
 				},
 				err => {
-					if (this.isMountedRef) {
+					if (isMountedRef.current) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClosePopBox}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
 					}
 				}
 			);

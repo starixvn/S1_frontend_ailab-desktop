@@ -91,5 +91,8 @@ export default {
 	},
 	["918kiss"]: {
 		root: "918kiss"
+	},
+	leaderBoard: {
+		root: "leaderBoard"
 	}
 };

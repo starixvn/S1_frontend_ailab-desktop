@@ -47,3 +47,8 @@ export const promotionRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/Promotion`
 });
+
+export const eventsRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/Events`
+});
