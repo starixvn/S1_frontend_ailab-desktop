@@ -36,7 +36,7 @@ export default ({
 					beforeDays={beforeDays}
 				/>
 			)}
-			{rankingData?.length < 0 ? (
+			{rankingData?.length > 0 ? (
 				<div className="ranklist">
 					<ul>
 						<li>
