@@ -150,8 +150,6 @@ header .header > div.menu {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   letter-spacing: 1px;
   width: calc(100% - (100% - 1600px));
   -webkit-box-flex: 0;
@@ -676,7 +674,7 @@ header .header > div.function .cashier .submenu, header .header > div.function .
   display: none;
   position: absolute;
   margin-top: 30px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.95);
   border-radius: 15px;
   padding: 15px;
   -webkit-box-orient: vertical;
@@ -4863,6 +4861,13 @@ iframe {
           align-items: center;
 }
 
+.progressBar .percentage {
+  color: #1E85EC;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
 .progressBar .bar {
   height: 5px;
   border: 1px solid #1E85EC;
@@ -4878,11 +4883,16 @@ iframe {
   height: 100%;
 }
 
-.progressBar .percentage {
-  color: #1E85EC;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+.progressBar.main .bar {
+  border: 1px solid #FAB617;
+}
+
+.progressBar.main .progress {
+  background: #FAB617;
+}
+
+.progressBar.main .percentage {
+  color: #FAB617;
 }
 
 .claimedInfo, .expiredClaimedInfo {
@@ -5698,6 +5708,19 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   position: relative;
 }
 
+.leaderboard .content .rightModule .rankingList.eventList ul li > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 20%;
+}
+
 .leaderboard .content .rightModule .rankingList ul li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5725,10 +5748,10 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-left: 25px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-left: 8%;
 }
 
 .leaderboard .content .rightModule .rankingList ul li > div img {
@@ -5764,6 +5787,10 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   bottom: -45px;
   width: 100%;
   max-width: 533.33px;
+}
+
+.leaderboard .content .rightModule .rankingList ul li.mineInner {
+  background-color: #FAB617;
 }
 
 .leaderboard .content .rightModule .rankingList .rankScroll {
