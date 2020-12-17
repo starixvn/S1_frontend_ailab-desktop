@@ -418,5 +418,8 @@
 	"lbl_withdraw_submit": "Submit",
 	"lbl_total": "Total",
 
+	"lbl_TraditionalLottery":"Traditional Lottery",
+	"lbl_789Lottery":"789 Lottery",
+	"lbl_liveCasino_789SeDie":"789 Se Die",
 	"---end---": "---"
 }
