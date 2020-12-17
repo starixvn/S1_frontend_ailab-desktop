@@ -227,6 +227,10 @@ export const defMenuLinks = {
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"
 	},
+	affiliate: {
+		affiliate: true,
+		displayKey: "lbl_Affiliates"
+	},
 	ranking: {
 		path: path.leaderBoard.root,
 		displayKey: "lbl_Ranking",

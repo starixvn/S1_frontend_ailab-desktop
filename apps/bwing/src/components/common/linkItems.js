@@ -8,6 +8,8 @@ import { Link } from "@reach/router";
 import { defPopBoxType } from "./popBox";
 import { popBoxContext } from "./context";
 import path from "../../router";
+import { userInfoContext } from "../common/context";
+import { siteInfo } from "../../config";
 
 const getUrl = (preUrl, info) => {
 	return `/${preUrl}?game=${info.name}`;
@@ -28,6 +30,7 @@ export default ({
 	checkMatchPage,
 	toUpperCase = false
 }) => {
+	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const showLogin = () => {
 		setPopBox({
@@ -62,6 +65,16 @@ export default ({
 			: t(m.displayKey);
 
 		let _path = m.path;
+
+		if (m.affiliate) {
+			return (
+				<a
+					href={siteInfo({ langId: userInfo.langId }).affiliateLink}
+					target="_blank">
+					{t("lbl_Affiliates")?.toUpperCase()}
+				</a>
+			);
+		}
 
 		if (m.productInfo) {
 			let rule = GET_OPEN_RULE(
