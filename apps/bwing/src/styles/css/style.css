@@ -6070,80 +6070,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 5.40274%;
-  top: -0.24008%;
-  width: 8.29914px;
-  height: 8.29914px;
+  left: 38.01006%;
+  top: 11.47851%;
+  width: 8.54903px;
+  height: 8.54903px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 0.68133%;
-  top: -46.63297%;
-  width: 6.81188px;
-  height: 6.81188px;
+  left: 51.16134%;
+  top: -43.84041%;
+  width: 13.80423px;
+  height: 13.80423px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 1.43745%;
-  top: -35.97685%;
-  width: 7.23347px;
-  height: 7.23347px;
+  left: 10.1455%;
+  top: 18.11242%;
+  width: 12.61552px;
+  height: 12.61552px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 97.73423%;
-  top: -35.75797%;
-  width: 12.37793px;
-  height: 12.37793px;
+  left: 47.42884%;
+  top: -35.48825%;
+  width: 7.48572px;
+  height: 7.48572px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 71.31973%;
-  top: -44.90924%;
-  width: 10.72189px;
-  height: 10.72189px;
+  left: 39.2965%;
+  top: -15.36242%;
+  width: 13.09523px;
+  height: 13.09523px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 65.984%;
-  top: -18.05044%;
-  width: 13.90783px;
-  height: 13.90783px;
+  left: 85.97141%;
+  top: 7.56966%;
+  width: 9.69279px;
+  height: 9.69279px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 77.62553%;
-  top: -37.38041%;
-  width: 5.56067px;
-  height: 5.56067px;
+  left: 92.42512%;
+  top: -26.38806%;
+  width: 9.01748px;
+  height: 9.01748px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 8.12326%;
-  top: 1.30352%;
-  width: 11.24273px;
-  height: 11.24273px;
+  left: 1.10111%;
+  top: -53.65123%;
+  width: 12.28397px;
+  height: 12.28397px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6335,7 +6335,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist {
-  margin: 20px 0 50px 0;
+  margin: 20px 0;
   position: relative;
 }
 
@@ -6378,7 +6378,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li {
-  width: calc(100% - 30px);
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6392,6 +6392,9 @@ input + .iconModule i.icon.icon-checkmark:before {
   line-height: 40px;
   border: 1px solid #56ceff;
   border-radius: 5px;
+  padding: 0 0 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li:nth-child(1) {
@@ -6404,10 +6407,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   background-color: rgba(255, 216, 100, 0.1);
   height: 50px;
   line-height: 50px;
-  width: calc(100% - 2px);
-  padding: 0 10px 0 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no2 {
@@ -6415,10 +6414,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   background-color: rgba(203, 229, 255, 0.1);
   height: 50px;
   line-height: 50px;
-  width: calc(100% - 10px);
-  padding: 0 6px 0 6px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no3 {
@@ -6426,10 +6421,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   background-color: rgba(255, 166, 77, 0.1);
   height: 50px;
   line-height: 50px;
-  width: calc(100% - 20px);
-  padding: 0 2px 0 2px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.myInRank {
@@ -6446,7 +6437,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   bottom: -50px;
   border-radius: 0 0 3px 3px;
   color: #070e22;
-  padding: 0 14px 0 14px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 0;
@@ -6468,6 +6458,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   text-align: center;
   padding: 0 10px;
   height: 40px;
+  white-space: nowrap;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div:nth-last-child(1) {
