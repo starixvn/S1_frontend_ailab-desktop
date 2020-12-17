@@ -4,7 +4,7 @@ import config from "../../config";
 import { defTabId, defImgRankId } from "./leaderboard.def";
 
 export default ({ t, tab, rewardList, userInfo }) => {
-	const rewardTotalValue = "127,992,000";
+	const rewardTotalValue = "161,000,000";
 
 	return (
 		<div
