@@ -6070,80 +6070,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 38.01006%;
-  top: 11.47851%;
-  width: 8.54903px;
-  height: 8.54903px;
+  left: 89.73836%;
+  top: -2.57404%;
+  width: 5.35736px;
+  height: 5.35736px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 51.16134%;
-  top: -43.84041%;
-  width: 13.80423px;
-  height: 13.80423px;
+  left: 15.32845%;
+  top: 36.4314%;
+  width: 5.42267px;
+  height: 5.42267px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 10.1455%;
-  top: 18.11242%;
-  width: 12.61552px;
-  height: 12.61552px;
+  left: 32.65277%;
+  top: 26.21997%;
+  width: 14.54656px;
+  height: 14.54656px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 47.42884%;
-  top: -35.48825%;
-  width: 7.48572px;
-  height: 7.48572px;
+  left: 47.12949%;
+  top: 8.35687%;
+  width: 12.14741px;
+  height: 12.14741px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 39.2965%;
-  top: -15.36242%;
-  width: 13.09523px;
-  height: 13.09523px;
+  left: 8.02656%;
+  top: -10.48392%;
+  width: 13.42175px;
+  height: 13.42175px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 85.97141%;
-  top: 7.56966%;
-  width: 9.69279px;
-  height: 9.69279px;
+  left: 42.41099%;
+  top: -57.09211%;
+  width: 8.02728px;
+  height: 8.02728px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 92.42512%;
-  top: -26.38806%;
-  width: 9.01748px;
-  height: 9.01748px;
+  left: 84.98258%;
+  top: 10.57985%;
+  width: 13.59553px;
+  height: 13.59553px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 1.10111%;
-  top: -53.65123%;
-  width: 12.28397px;
-  height: 12.28397px;
+  left: 93.7462%;
+  top: 8.33304%;
+  width: 10.57066px;
+  height: 10.57066px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6322,6 +6322,12 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: center;
+}
+
+.rankingPage .rankContent .rankBox .rankInBox .icon-nodata {
+  font-size: 20px;
+  line-height: 430px;
+  color: #ff5722;
 }
 
 .rankingPage .rankContent .rankBox .rankInBox .title {

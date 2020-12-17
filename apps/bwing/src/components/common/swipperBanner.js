@@ -40,6 +40,8 @@ export const ClickLink = (
 		if (href === "Promotion/Index") {
 			window.location.href = `/${lang}/${path.promotion.root}`;
 		} else if (href === "Home/Register") {
+		} else if (href === "leaderBoard") {
+			window.location.href = `/${lang}/${path.leaderBoard.root}`;
 		} else {
 			window.open(
 				isOuterLink
