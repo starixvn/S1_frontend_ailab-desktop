@@ -17,7 +17,7 @@ export default ({
 		let _convertMin = _time.getMinutes() < 30 ? 0 : 30;
 		_time.setMinutes(_convertMin);
 		_time.setSeconds(0);
-		let displayTime = moment(_time).format("YYYY/MM/DD hh:mm:ss");
+		let displayTime = moment(_time).format("YYYY/MM/DD HH:mm:ss");
 		return displayTime;
 	};
 
@@ -72,9 +72,9 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 				top3Class = "no" + (idx + 1);
 			}
 			if (item.userName === userInfo.userName) {
-				myClass = " myRank";
+				myClass = idx < 3 ? " myRank" : "myRank";
 			} else if (item.userName === userInfo.userName && idx < 20) {
-				myClass = " myInRank";
+				myClass = idx < 3 ? " myInRank" : "myInRank";
 			}
 			return top3Class + myClass;
 		};
@@ -92,7 +92,8 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 						}
 						alt="ranking_top"
 					/>
-					{item.userName === userInfo.userName && item.custRank > 20
+					{item.userName === userInfo.userName &&
+					rankingData.length > 20
 						? item.custRank
 						: idx + 1}
 				</div>
