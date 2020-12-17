@@ -34,25 +34,32 @@ export class Dropdown extends Component {
 		}
 	};
 
-	selectItem = i => {
+	selectItem = ({ idx, item }) => {
 		this.setState({ isOpen: false });
-		this.props.onSelectItem(i, this.props.options[i]);
+		this.props.onSelectItem(idx, item);
 	};
 
 	render() {
-		let arr = this.props.options.map((item, i) => {
-			return (
-				<Item
-					key={`${this.props.mainKey}_${item.id}`}
-					displayKey={item.displayKey}
-					i18n={this.props.i18n}
-					onClick={this.selectItem.bind(null, i)}
-					displayText={item.displayText}
-					imgUrl={this.props.imgUrl + item.image}
-					className={this.props.className}
-				/>
+		let arr = this.props.options
+			.map((item, i) => {
+				return (
+					<Item
+						key={`${this.props.mainKey}_${item.id}`}
+						displayKey={item.displayKey}
+						i18n={this.props.i18n}
+						onClick={this.selectItem.bind(this, { idx: i, item })}
+						displayText={item.displayText}
+						imgUrl={this.props.imgUrl + item.image}
+						className={this.props.className}
+					/>
+				);
+			})
+			.filter(
+				(_, idx) =>
+					(this.props.isHideSelfItem &&
+						idx !== this.props.selectedIdx) ||
+					!this.props.isHideSelfItem
 			);
-		});
 
 		let selected = null;
 		if (
@@ -60,7 +67,6 @@ export class Dropdown extends Component {
 			this.props.options[this.props.selectedIdx]
 		) {
 			let _s = this.props.options[this.props.selectedIdx];
-
 			if (this.props.imgUrl) {
 				selected = (
 					<>
@@ -89,12 +95,14 @@ export class Dropdown extends Component {
 				<button className="btn">
 					{this.props.defaultOption ?? selected}
 				</button>
-				<div
-					className={`dropdown-container${
-						this.state.isOpen ? " active" : ""
-					}`}>
-					{arr}
-				</div>
+				{arr.length < 1 ? null : (
+					<div
+						className={`dropdown-container${
+							this.state.isOpen ? " active" : ""
+						}`}>
+						{arr}
+					</div>
+				)}
 			</div>
 		);
 	}
