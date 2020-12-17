@@ -1,16 +1,7 @@
 import React from "react";
-import { number_format } from "../common/common";
 import config from "../../config";
 
-export default ({
-	t,
-	onChangeGameType,
-	categoryID,
-	tab,
-	rewardList,
-	userInfo,
-	currencyName
-}) => {
+export default ({ t, rewardList, userInfo }) => {
 	const rows = rewardList?.map((item, idx) => {
 		return (
 			<li
@@ -45,7 +36,7 @@ export default ({
 					<li>
 						<div>{t("lbl_Ranking")}</div>
 						<div>{t("lbl_Rewards")}</div>
-						<div>No. of winners</div>
+						<div>{t("lbl_NoOfWinners")}</div>
 					</li>
 					{rows}
 				</ul>

@@ -16,18 +16,6 @@ export const defBackground = {
 	3: "recordsBg"
 };
 
-// export const defTabDisplayKey = {
-// 	1: "lbl_Sports",
-// 	2: "lbl_Casino",
-// 	3: "lbl_LiveCasino"
-// };
-
-// export const defLeaderBoardTitle = {
-// 	1: "lbl_Ranking_Sports",
-// 	2: "lbl_Ranking_Slots",
-// 	3: "lbl_Ranking_LiveCasino"
-// };
-
 export const defDayNum = {
 	today: 0,
 	yesterDay: 1,
@@ -43,7 +31,11 @@ export const defDayOptions = [
 
 export const defRewardList = {
 	VND: [
-		{ displayRank: "1", reward: "iPhone 12 (256GB)", winnersNum: 1 },
+		{
+			displayRank: "1",
+			reward: "iPhone 12 Pro Max (256GB)",
+			winnersNum: 1
+		},
 		{ displayRank: "2~6", reward: "10,888,000", winnersNum: 5 },
 		{ displayRank: "7~16", reward: "5,888,000", winnersNum: 10 }
 	]

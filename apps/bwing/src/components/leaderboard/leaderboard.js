@@ -7,16 +7,15 @@ import {
 	api_events_GetCustRank
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
-import DayDropdown from "./leaderboard.dayDropdown";
+
 import {
 	defTabId,
 	defBackground,
 	defDayNum,
 	defRewardList
 } from "./leaderboard.def";
-import moment from "moment";
-import { number_format } from "../common/common";
 import EventTab from "./leaderboard.eventTab";
+import RankingTab from "./leaderboard.rankingTab";
 
 const langMapping = {
 	vn: "VND",
@@ -44,6 +43,7 @@ export default () => {
 		: langMapping[userInfo.langId];
 
 	const rewardList = defRewardList[currencyName];
+	let no1Reward = rewardList[0].reward;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -51,23 +51,10 @@ export default () => {
 	});
 
 	useEffect(() => {
-		showUpdateTime();
-	}, []);
-
-	useEffect(() => {
 		if (!userInfo.isLogin) {
 			setTab(defTabId.event);
 		}
 	}, [userInfo.isLogin]);
-
-	const showUpdateTime = () => {
-		let _time = new Date();
-		let _convertMin = _time.getMinutes() < 30 ? 0 : 30;
-		_time.setMinutes(_convertMin);
-		_time.setSeconds(0);
-		let displayTime = moment(_time).format("YYYY/MM/DD hh:mm:ss");
-		return displayTime;
-	};
 
 	const onChangeTab = tabValue => {
 		if (tabValue !== defTabId.event && !userInfo.isLogin) {
@@ -99,6 +86,21 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
+	const showErrorPopBox = errMessage => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.ErrorMsg,
+			message: errMessage,
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={ClickClose}>
+						{t("lbl_Close")}
+					</button>
+				</div>
+			)
+		});
+	};
+
 	const getLeaderboardData = async daysValue => {
 		if (!userInfo.isLogin) return;
 		const payload_top20 = {
@@ -127,17 +129,17 @@ export default () => {
 							payload_self
 						).then(res => {
 							if (res.data.errorCode === 0) {
-								let resData = res.data.data;
-								let selfObj = {
+								return {
 									userName: userInfo.userName,
-									wTurnover: resData.point,
+									wTurnover: res.data.data.point,
 									custRank:
-										resData.custRank === 0 ||
-										resData.custRank > 999
+										res.data.data.custRank === 0 ||
+										res.data.data.custRank > 999
 											? "999+"
-											: resData.custRank
+											: res.data.data.custRank
 								};
-								return selfObj;
+							} else {
+								showErrorPopBox(res.data.message);
 							}
 						});
 						let filterRepeatArr = top20Arr.filter(
@@ -147,20 +149,7 @@ export default () => {
 						setRankingData(concatArr);
 					}
 				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					showErrorPopBox(res.data.message);
 				}
 			}
 		});
@@ -169,8 +158,8 @@ export default () => {
 	return (
 		<section className={`rankingPage ${defBackground[tab]}`}>
 			<img
-				src={require("../../styles/img/ranking/bottomImg.png")}
 				className="bottomImg"
+				src={require("../../styles/img/ranking/bottomImg.png")}
 			/>
 			<div className="rankContent">
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
@@ -186,48 +175,21 @@ export default () => {
 						</div>
 					) : (
 						<div className="rankInBox">
-							{tab === defTabId.ranking ? (
-								<h1 className="title">
-									{t("lbl_Ranking_Top20")}
-								</h1>
-							) : (
-								<DayDropdown
-									t={t}
-									onChangeDays={onChangeDays}
-									beforeDays={beforeDays}
-								/>
-							)}
-							{rankingData?.length > 0 ? (
-								<div className="ranklist">
-									<ul>
-										<li>
-											<div>{t("lbl_Ranking")}</div>
-											<div>{t("lbl_Username")}</div>
-											<div>{t("lbl_Points")}</div>
-										</li>
-										<Ranking
-											rankingData={rankingData}
-											userInfo={userInfo}
-											t={t}
-										/>
-									</ul>
-								</div>
-							) : (
-								<div className="icon icon-nodata">
-									{t("lbl_NoData")}
-								</div>
-							)}
-							<p className="remind">
-								{t(`lbl_LastUpdTime`, {
-									time: showUpdateTime()
-								})}
-							</p>
+							<RankingTab
+								t={t}
+								tab={tab}
+								rewardList={rewardList}
+								userInfo={userInfo}
+								rankingData={rankingData}
+								onChangeDays={onChangeDays}
+								beforeDays={beforeDays}
+							/>
 						</div>
 					)}
 					<div className="rankInBox rankInBox2">
 						<div className="textBox">
 							<h1>{t("lbl_No1_Reward")}</h1>
-							<p>IPHONE 12 PRO MAX(256GB)</p>
+							<p>{no1Reward}</p>
 						</div>
 						<img
 							src={require("../../styles/img/ranking/iphone.png")}
@@ -239,42 +201,3 @@ export default () => {
 		</section>
 	);
 };
-
-const Ranking = ({ rankingData, t, userInfo }) =>
-	rankingData?.map((item, idx) => {
-		let liStyle = () => {
-			let top3Class = "";
-			let myClass = "";
-			if (idx < 3) {
-				top3Class = "no" + (idx + 1);
-			}
-			if (item.userName === userInfo.userName) {
-				myClass = " myRank";
-			} else if (item.userName === userInfo.userName && idx < 20) {
-				myClass = " myInRank";
-			}
-			return top3Class + myClass;
-		};
-
-		return (
-			<li key={`leaderboard_item_${item.custId}`} className={liStyle()}>
-				<div>
-					<img
-						src={
-							idx < 3
-								? require(`../../styles/img/ranking/trophy${
-										idx + 1
-								  }.png`)
-								: require(`../../styles/img/ranking/trophy4.png`)
-						}
-						alt="ranking_top"
-					/>
-					{item.userName === userInfo.userName
-						? item.custRank
-						: idx + 1}
-				</div>
-				<div>{item.userName}</div>
-				<div className="point">{number_format(item.wTurnover)}</div>
-			</li>
-		);
-	});

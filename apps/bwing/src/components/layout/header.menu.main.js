@@ -11,7 +11,6 @@ export default ({ showSubMenu }) => {
 	const { userInfo } = useContext(userInfoContext);
 	let currentPage = getCurrentPage();
 
-	console.log(defMenuLinks);
 	return (
 		<>
 			<Link
