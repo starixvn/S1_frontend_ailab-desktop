@@ -13,7 +13,6 @@ import {
 	defTabId,
 	defBackground,
 	defDayNum,
-	defTabDisplayKey,
 	defRewardList,
 	defLeaderBoardTitle
 } from "./leaderboard.def";
@@ -37,15 +36,10 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
-	const [ranking, setRanking] = useState([]);
-	const initSelfRankingData = {
-		custRank: 0,
-		point: 0
-	};
-	const [selfRankingData, setSelfRankingData] = useState(initSelfRankingData);
+	const [rankingData, setRankingData] = useState([]);
 	const [tab, setTab] = useState(defTabId.event);
 	const [categoryID, setCategoryID] = useState(defTabId.sports);
-	const [beforeDays, setBeforeDays] = useState(defDayNum.yesterDay);
+	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 	const TopNum = 10;
 	const isGameTypeTab =
 		tab === defTabId.sports ||
@@ -58,7 +52,7 @@ export default () => {
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
-	const rewardList = defRewardList[currencyName][categoryID];
+	const rewardList = defRewardList({ t })[currencyName][categoryID];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -67,9 +61,8 @@ export default () => {
 
 	useEffect(() => {
 		getLeaderboardData();
-		getSelfLeaderboardData();
 		showUpdateTime();
-	}, []);
+	}, [userInfo.userName]);
 
 	useEffect(() => {
 		if (!userInfo.isLogin) {
@@ -94,34 +87,42 @@ export default () => {
 			});
 		} else {
 			setTab(tabValue);
-			setBeforeDays(defDayNum.yesterDay);
-			onChangeGameType(
-				tabValue === defTabId.records || tabValue === defTabId.event
-					? defTabId.sports
-					: tabValue
-			);
+			if (tabValue === defTabId.event) {
+				setCategoryID(1);
+			} else if (tabValue === defTabId.records) {
+				const days =
+					tabValue === defTabId.records
+						? defDayNum.yesterDay
+						: defDayNum.today;
+				setBeforeDays(days);
+				getLeaderboardData(defTabId.sports, days);
+				setCategoryID(1);
+			} else {
+				onChangeGameType(tabValue, false, tabValue);
+			}
 		}
 	};
 
-	const onChangeGameType = (typeValue, updateStateOnly) => {
+	const onChangeGameType = (typeValue, updateStateOnly, tabValue) => {
 		setCategoryID(typeValue);
 		if (!updateStateOnly) {
-			getLeaderboardData(typeValue, beforeDays);
-			getSelfLeaderboardData(typeValue, beforeDays);
+			getLeaderboardData(
+				typeValue,
+				tabValue !== defTabId.records ? 0 : beforeDays
+			);
 		}
 	};
 
 	const onChangeDays = daysValue => {
 		setBeforeDays(daysValue);
 		getLeaderboardData(categoryID, daysValue);
-		getSelfLeaderboardData(categoryID, daysValue);
 	};
 
 	const ClickClose = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const getLeaderboardData = async (typeValue, daysValue) => {
+	const getLeaderboardData = (typeValue, daysValue) => {
 		if (!userInfo.isLogin) return;
 		let payload = {
 			lBCategoryId: typeValue ?? categoryID,
@@ -129,99 +130,71 @@ export default () => {
 			BeforeDays: daysValue ?? beforeDays
 		};
 
-		await api_events_GetLeaderboardList(payload).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setRanking(res.data.data);
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-				}
-			}
-			// err => {
-			// 	if (isMountedRef.current) {
-			// 		setPopBox({
-			// 			isOpen: true,
-			// 			popBoxType: defPopBoxType.ErrorMsg,
-			// 			message: t("msg_ApiServerError"),
-			// 			btnBar: (
-			// 				<div className="btnGroup">
-			// 					<button
-			// 						className="btn-cancel"
-			// 						onClick={ClickClose}>
-			// 						{t("lbl_Close")}
-			// 					</button>
-			// 				</div>
-			// 			)
-			// 		});
-			// 	}
-			// }
-		);
-	};
+		const GetRankDatas = async () => {
+			try {
+				const res = await api_events_GetLeaderboardList(payload);
+				if (res.data.errorCode === 0) {
+					const rankDatas = res.data.data;
 
-	const getSelfLeaderboardData = async (typeValue, daysValue) => {
-		if (!userInfo.isLogin) return;
-		let payload = {
-			lBCategoryId: typeValue ?? categoryID,
-			BeforeDays: daysValue ?? beforeDays
+					if (rankDatas?.length > 0) {
+						const custRankRes = await api_events_GetCustRank({
+							LBCategoryId: payload.lBCategoryId,
+							BeforeDays: payload.BeforeDays
+						});
+
+						if (custRankRes.data.errorCode === 0) {
+							const { custRank, point } = custRankRes.data.data;
+							setRankingData(() => {
+								let rank =
+									custRank > 999 || custRank === 0
+										? "999+"
+										: custRank;
+
+								let result = [];
+								if (custRank <= TopNum && custRank !== 0) {
+									rankDatas[custRank - 1] = {
+										...rankDatas[custRank - 1],
+										userName: userInfo.userName,
+										rank
+									};
+									result = rankDatas;
+								} else {
+									result = [
+										...rankDatas,
+										{
+											userName: userInfo.userName,
+											wTurnover: point,
+											rank
+										}
+									];
+								}
+
+								return result;
+							});
+						}
+					} else {
+						setRankingData([]);
+					}
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: res.data.message,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={ClickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			} catch (error) {}
 		};
 
-		await api_events_GetCustRank(payload).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setSelfRankingData(res.data.data);
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-				}
-			}
-			// err => {
-			// 	if (isMountedRef.current) {
-			// 		setPopBox({
-			// 			isOpen: true,
-			// 			popBoxType: defPopBoxType.ErrorMsg,
-			// 			message: t("msg_ApiServerError"),
-			// 			btnBar: (
-			// 				<div className="btnGroup">
-			// 					<button
-			// 						className="btn-cancel"
-			// 						onClick={ClickClose}>
-			// 						{t("lbl_Close")}
-			// 					</button>
-			// 				</div>
-			// 			)
-			// 		});
-			// 	}
-			// }
-		);
+		GetRankDatas();
 	};
 
 	return (
@@ -235,6 +208,7 @@ export default () => {
 					tab={tab}
 					rewardList={rewardList}
 					userInfo={userInfo}
+					currencyName={currencyName}
 				/>
 			) : (
 				<div className="champion">
@@ -242,9 +216,6 @@ export default () => {
 						{isGameTypeTab ? (
 							<div className="title">
 								<div>{t(defLeaderBoardTitle[tab])}</div>
-								<div className="txt-orange">
-									{t("lbl_Ranking_Top10")}
-								</div>
 							</div>
 						) : (
 							<ButtonGroups
@@ -253,21 +224,20 @@ export default () => {
 								categoryID={categoryID}
 								onChangeDays={onChangeDays}
 								beforeDays={beforeDays}
+								tab={tab}
 							/>
 						)}
 						<img src={championImg} alt="champion" />
 						<div className="mwt_border">
 							<span className="arrow_t_int"></span>
 							<span className="arrow_t_out"></span>
-							{/* <div>HIGHEST WINNING RECORD</div> */}
-							{/* <div>(Last 7 Days) ******kboy</div> */}
 							<div className="txt-orange">
 								{rewardList[0].reward}
 							</div>
 						</div>
 					</div>
 					<div className="rankModule">
-						{ranking?.length > 0 ? (
+						{rankingData?.length > 0 ? (
 							<div className="rankList">
 								<ul>
 									<li>
@@ -275,15 +245,11 @@ export default () => {
 										<div>{t("lbl_Username")}</div>
 										<div>{t("lbl_Points")}</div>
 									</li>
-									<Ranking ranking={ranking} t={t} />
-									<SelfRanking
-										selfRankingData={selfRankingData}
-										userInfo={userInfo}
-									/>
+									<Ranking RankingDatas={rankingData} />
 								</ul>
 							</div>
 						) : (
-							<div className="nodata txt-dark">
+							<div className="icon icon-nodata">
 								{t("lbl_NoData")}
 							</div>
 						)}
@@ -297,35 +263,29 @@ export default () => {
 	);
 };
 
-const Ranking = ({ ranking, t }) =>
-	ranking?.map((item, idx) => {
+const Ranking = ({ RankingDatas }) =>
+	RankingDatas?.map((item, idx) => {
+		const { rank } = item;
 		return (
-			<li key={`leaderboard_item_${item.custId}`}>
+			<li
+				key={`leaderboard_item_${item.userName}`}
+				className={rank ? "userRank" : null}>
 				<div>
 					{idx < 3 ? (
 						<img
 							src={require(`../../styles/img/no${idx + 1}.png`)}
 							alt="ranking_top_three"
 						/>
-					) : null}
-					{t("lbl_Top")}
-					{idx + 1}
+					) : (
+						<img
+							src={require(`../../styles/img/gold.png`)}
+							alt="ranking_gold"
+						/>
+					)}
+					{rank ? rank : idx + 1}
 				</div>
 				<div>{item.userName}</div>
 				<div>{number_format(item.wTurnover)}</div>
 			</li>
 		);
 	});
-
-const SelfRanking = ({ selfRankingData, userInfo }) =>
-	selfRankingData?.custRank > 0 ? (
-		<li>
-			<div>
-				{selfRankingData.custRank > 999
-					? "999+"
-					: selfRankingData.custRank}
-			</div>
-			<div>{userInfo.userName}</div>
-			<div>{selfRankingData.point}</div>
-		</li>
-	) : null;

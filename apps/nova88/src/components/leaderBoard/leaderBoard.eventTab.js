@@ -9,25 +9,32 @@ export default ({
 	categoryID,
 	tab,
 	rewardList,
-	userInfo
+	userInfo,
+	currencyName
 }) => {
 	const rows = rewardList.map(item => {
 		return (
 			<li key={`leaderBoard-event-${item.displayRank}`}>
-				{parseInt(item.displayRank) < 4 ? (
-					<div>
+				<div>
+					{parseInt(item.displayRank) < 4 ? (
 						<img
 							src={require(`../../styles/img/no${item.displayRank}.png`)}
 							alt="top_ranking"
 						/>
-					</div>
-				) : (
-					<div></div>
-				)}
-				<div>
-					{t("lbl_Top")} {item.displayRank}
+					) : (
+						<img
+							src={require(`../../styles/img/gold.png`)}
+							alt="top_ranking"
+						/>
+					)}
 				</div>
-				<div>{number_format(item.reward)}</div>
+				<div>{item.displayRank}</div>
+				<div>
+					{item.reward}
+					{item.reward.slice(-3) === currencyName ? (
+						<> {t("lbl_Cash")}</>
+					) : null}
+				</div>
 			</li>
 		);
 	});
