@@ -34,52 +34,32 @@ export class Dropdown extends Component {
 		}
 	};
 
-	selectItem = i => {
+	selectItem = ({ idx, item }) => {
 		this.setState({ isOpen: false });
-
-		let filterSelfData = this.props.options?.filter(
-			item => item !== this.props.options[this.props.selectedIdx]
-		);
-
-		if (this.props.isHideSelfItem) {
-			this.props.onSelectItem(i, filterSelfData[i]);
-		} else {
-			this.props.onSelectItem(i, this.props.options[i]);
-		}
+		this.props.onSelectItem(idx, item);
 	};
 
 	render() {
-		let arr = this.props.options.map((item, i) => {
-			return (
-				<Item
-					key={`${this.props.mainKey}_${item.id}`}
-					displayKey={item.displayKey}
-					i18n={this.props.i18n}
-					onClick={this.selectItem.bind(null, i)}
-					displayText={item.displayText}
-					imgUrl={this.props.imgUrl + item.image}
-					className={this.props.className}
-				/>
+		let arr = this.props.options
+			.map((item, i) => {
+				return (
+					<Item
+						key={`${this.props.mainKey}_${item.id}`}
+						displayKey={item.displayKey}
+						i18n={this.props.i18n}
+						onClick={this.selectItem.bind(this, { idx: i, item })}
+						displayText={item.displayText}
+						imgUrl={this.props.imgUrl + item.image}
+						className={this.props.className}
+					/>
+				);
+			})
+			.filter(
+				(_, idx) =>
+					(this.props.isHideSelfItem &&
+						idx !== this.props.selectedIdx) ||
+					!this.props.isHideSelfItem
 			);
-		});
-
-		let filterSelfData = this.props.options?.filter(
-			item => item !== this.props.options[this.props.selectedIdx]
-		);
-
-		let filterSelfArr = filterSelfData.map((item, i) => {
-			return (
-				<Item
-					key={`${this.props.mainKey}_${item.id}`}
-					displayKey={item.displayKey}
-					i18n={this.props.i18n}
-					onClick={this.selectItem.bind(null, i)}
-					displayText={item.displayText}
-					imgUrl={this.props.imgUrl + item.image}
-					className={this.props.className}
-				/>
-			);
-		});
 
 		let selected = null;
 		if (
@@ -115,13 +95,12 @@ export class Dropdown extends Component {
 				<button className="btn">
 					{this.props.defaultOption ?? selected}
 				</button>
-				{this.props.isHideSelfItem &&
-				filterSelfArr.length < 1 ? null : (
+				{arr.length < 1 ? null : (
 					<div
 						className={`dropdown-container${
 							this.state.isOpen ? " active" : ""
 						}`}>
-						{this.props.isHideSelfItem ? filterSelfArr : arr}
+						{arr}
 					</div>
 				)}
 			</div>
