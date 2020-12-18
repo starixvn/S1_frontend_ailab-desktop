@@ -56,6 +56,7 @@ export default ({ t, tab, rewardList, userInfo }) => {
 				</div>
 
 				<a
+					className="more"
 					href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/ranking/${userInfo.langId}.html`}
 					target="_blank">
 					{t("lbl_MoreDetails")}
