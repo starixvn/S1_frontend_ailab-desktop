@@ -818,6 +818,11 @@ header .header > div.function .wallet .submenu div.walletBalance button {
   margin-top: -8px;
 }
 
+header .header > div.function .wallet .submenu div.walletBalance > .walletBalance {
+  background: rgba(33, 62, 111, 0.8);
+  margin-bottom: 2px;
+}
+
 header .header > div.function .wallet .submenu div.btnGroup {
   margin-bottom: 10px;
   margin-top: 20px;
@@ -4883,15 +4888,15 @@ iframe {
   height: 100%;
 }
 
-.progressBar.main .bar {
+.mainWallet .progressBar .bar {
   border: 1px solid #FAB617;
 }
 
-.progressBar.main .progress {
+.mainWallet .progressBar .progress {
   background: #FAB617;
 }
 
-.progressBar.main .percentage {
+.mainWallet .progressBar .percentage {
   color: #FAB617;
 }
 
@@ -5584,6 +5589,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   color: #828282;
   -webkit-transform: skew(-15deg);
           transform: skew(-15deg);
+  white-space: nowrap;
 }
 
 .leaderboard .content .topTab > button:hover, .leaderboard .content .topTab > button.active {
@@ -5650,16 +5656,19 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   text-transform: uppercase;
 }
 
-.leaderboard .content .rightModule .right .more {
+.leaderboard .content .rightModule .right a.more, .leaderboard .content .rightModule .right button.more {
   cursor: pointer;
   color: #FAB617;
   border: 1px solid #FAB617;
   color: #ffffff;
   padding: 5px;
   margin-top: 10px;
+  display: block;
+  width: 50%;
+  margin: 10px auto 0 auto;
 }
 
-.leaderboard .content .rightModule .right .more:hover {
+.leaderboard .content .rightModule .right a.more:hover, .leaderboard .content .rightModule .right button.more:hover {
   background-color: #FAB617;
   -webkit-transition: .2s;
   transition: .2s;
@@ -5731,6 +5740,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   line-height: 30px;
   margin-bottom: 5px;
   background-color: rgba(47, 87, 157, 0.4);
+  padding: 0 0 0 15px;
 }
 
 .leaderboard .content .rightModule .rankingList ul li > div {
@@ -5751,7 +5761,6 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  padding-left: 8%;
 }
 
 .leaderboard .content .rightModule .rankingList ul li > div img {
@@ -5787,6 +5796,9 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   bottom: -45px;
   width: 100%;
   max-width: 533.33px;
+  padding: 0 17px 0 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .leaderboard .content .rightModule .rankingList ul li.mineInner {
