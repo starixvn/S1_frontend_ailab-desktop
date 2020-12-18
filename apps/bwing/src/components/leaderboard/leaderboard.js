@@ -122,7 +122,9 @@ export default () => {
 							r => r.username === userInfo.userName
 						) !== -1;
 
-					if (userInTop20) {
+					if (!top20Arr || top20Arr.length === 0) {
+						setRankingData([]);
+					} else if (userInTop20) {
 						setRankingData(top20Arr);
 					} else {
 						let selfItem = await api_events_GetCustRank(
