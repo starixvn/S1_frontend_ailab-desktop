@@ -43,9 +43,12 @@ export default ({
 	};
 
 	let currentPage = checkMatchPage ? getCurrentPage() : "";
-
-	let rows = Object.keys(defMenuLinks).map(key => {
-		let m = defMenuLinks[key];
+	const defMenus =
+		typeof defMenuLinks === "function"
+			? defMenuLinks(langId)
+			: defMenuLinks;
+	let rows = Object.keys(defMenus).map(key => {
+		let m = defMenus[key];
 		let arrowIcon =
 			m.subMenu && m.subMenu.length > 0 ? (
 				<i className="icon icon-keyboard_arrow_right"></i>
