@@ -116,3 +116,17 @@ export const getNewLanguagePath = langId => {
 		window.location.hash;
 	return SetReplaceChar(url, 1, langId);
 };
+
+export const routerFlattenToPath = (path, orderNumber) => {
+	//  將 router 物件扁平化後轉換成路徑
+	const flattenDeepObject = obj => {
+		return Object.values(obj).reduce((acc, val) => {
+			return typeof val === "object"
+				? acc.concat(flattenDeepObject(val))
+				: acc.concat(val);
+		}, []);
+	};
+	return flattenDeepObject(path)
+		.splice(0, orderNumber || flattenDeepObject(path).length)
+		.join("/");
+};
