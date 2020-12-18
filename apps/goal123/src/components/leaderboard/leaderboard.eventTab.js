@@ -29,10 +29,6 @@ export default ({ t, tab, rewardList, userInfo }) => {
 						</li>
 
 						{rewardList?.map((item, idx) => {
-							let label =
-								idx <= 2
-									? `TOP ${rewardList[idx].displayRank}`
-									: `${rewardList[idx].displayRank}th`;
 							return (
 								<li
 									key={`leaderboard_item_${item.displayRank}`}>
@@ -44,7 +40,7 @@ export default ({ t, tab, rewardList, userInfo }) => {
 													: `nbadge`
 											}.png`)}
 										/>
-										{label}
+										{rewardList[idx].displayRank}
 									</div>
 									<div>{`VND ${number_format(
 										item.reward
