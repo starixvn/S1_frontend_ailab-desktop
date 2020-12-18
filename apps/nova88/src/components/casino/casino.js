@@ -8,7 +8,7 @@ import {
 	api_account_GetFavoriteGame
 } from "../../service/api/account";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType, defCategoryId } from "../common/popBox";
 import { useTranslation } from "react-i18next";
 import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
 import { getUrlParameter } from "../common/common";
@@ -30,6 +30,7 @@ export default () => {
 	const [tpList, setTpList] = useState({});
 	const [gameDatas, setGameDatas] = useState([]);
 	const [tpOptions, setTpOptions] = useState([]);
+	const [categoryOptions, setCategoryOptions] = useState([]);
 	const [displayGames, setDisplayGames] = useState([]);
 	const [pageInfo, setPageInfo] = useState({ currentPage: 1, totalPages: 1 });
 
@@ -153,6 +154,7 @@ export default () => {
 
 	const EditSearchField = (column, value, pressEnter) => {
 		let _searchInfo = searchInfo;
+		console.log(column, "--", value);
 		if (column === defSearchColumn.searchText) {
 			setSearchInfo(prevS => {
 				_searchInfo = { ...prevS, [column]: value };
@@ -162,6 +164,7 @@ export default () => {
 				SubmitSearch(_searchInfo);
 			}
 		} else {
+			console.log("_searchInfo", _searchInfo);
 			setSearchInfo(prevS => {
 				_searchInfo = {
 					...prevS,
@@ -201,6 +204,7 @@ export default () => {
 				if (success) {
 					let _tpList = {};
 					let _tpOptions = [{ displayText: "All", id: null }];
+					let _categoryOptions = [{ displayText: "All", id: 0 }];
 					let games = [];
 
 					data.forEach(gameInfo => {
@@ -216,6 +220,12 @@ export default () => {
 									tpId: gameInfo.value,
 									...list
 								});
+								console.log(list);
+								_categoryOptions.push({
+									displayText: list.category1,
+									id: defCategoryId[list.category1]
+								});
+								console.log(_categoryOptions);
 							});
 						}
 					});
@@ -235,6 +245,7 @@ export default () => {
 						setTpList(_tpList);
 						setGameDatas(games);
 						setTpOptions(_tpOptions);
+						setCategoryOptions(_categoryOptions);
 
 						let _searchInfo = searchInfo;
 
@@ -310,6 +321,7 @@ export default () => {
 				<SearchBox
 					t={t}
 					tpOptions={tpOptions}
+					categoryOptions={categoryOptions}
 					EditSearchField={EditSearchField}
 					searchInfo={searchInfo}
 					submitSearch={SubmitSearch.bind(this, searchInfo)}

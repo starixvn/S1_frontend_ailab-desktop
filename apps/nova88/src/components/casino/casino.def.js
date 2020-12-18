@@ -22,5 +22,11 @@ export const defNav = {
 
 export const defSearchColumn = {
 	searchText: "searchText",
-	provider: "provider"
+	provider: "provider",
+	gameType: "gameType"
+};
+
+export const defCategoryId = {
+	Slots: 1,
+	Table: 2
 };
