@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import LoadingImg from "../../styles/img/loading_star.png";
+import { loadingContext } from "./context";
 
 export default () => {
-	return (
+	const { loading } = useContext(loadingContext);
+	return loading ? (
 		<div className="loading">
 			<div>
 				<img src={LoadingImg} />
@@ -12,5 +14,5 @@ export default () => {
 				<img src={LoadingImg} />
 			</div>
 		</div>
-	);
+	) : null;
 };

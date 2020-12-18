@@ -4,6 +4,7 @@ import Header from "../layout/header";
 import Footer from "../footer/footer";
 import SEO from "../seo";
 import PopBox from "./popBox";
+import Loading from "./loading";
 import "../../styles/css/swiper.css";
 import "../../styles/css/style.css";
 import "../../styles/css/font.css";
@@ -78,6 +79,7 @@ const Layout = ({ children, showFooter = false }) => {
 			{children}
 			{showFooter ? <Footer /> : null}
 			<PopBox />
+			<Loading />
 		</>
 	);
 };
