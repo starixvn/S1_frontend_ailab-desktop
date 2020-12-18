@@ -74,6 +74,11 @@ const defPlatfrom = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.CQ9.name },
 		imgName: "cq9"
+	},
+	{
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.CQ9.name },
+		imgName: "one789"
 	}
 ];
 
