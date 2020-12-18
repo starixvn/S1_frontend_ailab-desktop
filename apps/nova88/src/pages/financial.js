@@ -166,7 +166,7 @@ const Content = () => {
 	return (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_History">
-				<span>{t("lbl_Statement")}</span>
+				<span>{t("lbl_Financial")}</span>
 			</div>
 			<Filter submitHandler={clickDateSubmit} keepData={keepData} />
 

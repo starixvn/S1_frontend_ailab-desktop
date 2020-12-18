@@ -93,3 +93,53 @@ export const api_payment_SetWithdrawalCancel = TransId =>
 	paymentRequest.post("/SetWithdrawalCancel", { TransId });
 
 export const api_payment_KycCheck = () => paymentRequest.post("/KycCheck");
+
+export const api_payment_CustTpBetRecordListDateRange = ({
+	StartDate,
+	EndDate,
+	PageNumber,
+	PageSize
+}) =>
+	paymentRequest.post("/CustTpBetRecordListDateRange", {
+		StartDate,
+		EndDate,
+		PageNumber,
+		PageSize
+	});
+
+export const api_payment_GetCustTpBetRecordListOneDay = ({
+	SelDate,
+	PageNumber,
+	PageSize
+}) =>
+	paymentRequest.post("/GetCustTpBetRecordListOneDay", {
+		SelDate,
+		PageNumber,
+		PageSize
+	});
+
+export const api_payment_GetCustTpBetRecordListbyCategoryId = ({
+	SelDate,
+	CategoryId,
+	PageNumber,
+	PageSize
+}) =>
+	paymentRequest.post("/GetCustTpBetRecordListbyCategoryId", {
+		SelDate,
+		CategoryId,
+		PageNumber,
+		PageSize
+	});
+
+export const api_payment_GetCustTpBetRecordDetailListbyGameType = ({
+	SelDate,
+	gameTypeId,
+	PageNumber,
+	PageSize
+}) =>
+	paymentRequest.post("/GetCustTpBetRecordDetailListbyGameType", {
+		SelDate,
+		gameTypeId,
+		PageNumber,
+		PageSize
+	});
