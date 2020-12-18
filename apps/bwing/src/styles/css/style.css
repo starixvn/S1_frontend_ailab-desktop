@@ -234,8 +234,8 @@ header .header > div.menu > a.liveIcon::after,
 header .header > div.menu > button.liveIcon::after {
   content: "";
   position: absolute;
-  top: -10px;
-  left: 25px;
+  top: -2px;
+  left: 27px;
   width: 5px;
   height: 5px;
   border-radius: 10px;
@@ -246,14 +246,15 @@ header .header > div.menu > a.liveIcon::before,
 header .header > div.menu > button.liveIcon::before {
   content: "LIVE";
   position: absolute;
-  padding: 2px 8px 2px 18px;
+  padding: 1px 5px 1px 15px;
   background-color: #56ceff;
-  top: -20px;
-  left: 20px;
+  top: -10px;
+  left: 22px;
   border-radius: 3px;
-  color: #070d22;
+  color: #fff;
   -webkit-animation: live 0.8s linear infinite alternate;
           animation: live 0.8s linear infinite alternate;
+  font-size: 12px;
 }
 
 @-webkit-keyframes live {
@@ -413,6 +414,22 @@ header .header > div.menu .gameList .lottery:hover {
   background: url(../img/lottery_a.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .gameList .one789 {
+  background: url(../img/one789.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .one789:hover {
+  background: url(../img/lottery789_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .traditional {
+  background: url(../img/lotteryTra.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .traditional:hover {
+  background: url(../img/lotteryTra_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .casinoList .GPI {
   background: url(../img/casinoGPI.png) no-repeat center/auto 100%;
 }
@@ -559,6 +576,18 @@ header .header > div.menu .livecasinoList .liveEB:hover {
 
 header .header > div.menu .livecasinoList .liveEB .icon-EB:before {
   font-size: 16px;
+}
+
+header .header > div.menu .livecasinoList .live789 {
+  background: url(../img/live789.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .live789:hover {
+  background: url(../img/live789_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .live789 .icon-one789:before {
+  font-size: 14px;
 }
 
 header .header > div.menu .fishList .fgg {
@@ -6070,80 +6099,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 89.73836%;
-  top: -2.57404%;
-  width: 5.35736px;
-  height: 5.35736px;
+  left: 3.03397%;
+  top: -15.30917%;
+  width: 13.96757px;
+  height: 13.96757px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 15.32845%;
-  top: 36.4314%;
-  width: 5.42267px;
-  height: 5.42267px;
+  left: 10.76533%;
+  top: 2.14615%;
+  width: 5.69684px;
+  height: 5.69684px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 32.65277%;
-  top: 26.21997%;
-  width: 14.54656px;
-  height: 14.54656px;
+  left: 33.94704%;
+  top: 22.73438%;
+  width: 10.46425px;
+  height: 10.46425px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 47.12949%;
-  top: 8.35687%;
-  width: 12.14741px;
-  height: 12.14741px;
+  left: 58.12672%;
+  top: 18.95188%;
+  width: 14.95932px;
+  height: 14.95932px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 8.02656%;
-  top: -10.48392%;
-  width: 13.42175px;
-  height: 13.42175px;
+  left: 23.99194%;
+  top: -47.27343%;
+  width: 12.50752px;
+  height: 12.50752px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 42.41099%;
-  top: -57.09211%;
-  width: 8.02728px;
-  height: 8.02728px;
+  left: 13.6375%;
+  top: -59.50232%;
+  width: 13.73966px;
+  height: 13.73966px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 84.98258%;
-  top: 10.57985%;
-  width: 13.59553px;
-  height: 13.59553px;
+  left: 60.65008%;
+  top: -11.38031%;
+  width: 14.99052px;
+  height: 14.99052px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 93.7462%;
-  top: 8.33304%;
-  width: 10.57066px;
-  height: 10.57066px;
+  left: 26.75396%;
+  top: 10.27002%;
+  width: 12.9841px;
+  height: 12.9841px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
