@@ -374,5 +374,21 @@
 	"lbl_Hours": "Hours",
 	"lbl_5mins": "5 mins",
 	"lbl_Minutes": "Minutes",
-	"lbl_Seconds": "Seconds"
+	"lbl_Seconds": "Seconds",
+
+	"leaderboard ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Event": "Event",
+	"lbl_Records": "Records",
+	"lbl_Ranking": "Ranking",
+	"lbl_Rank": "Rank",
+	"lbl_Points": "Points",
+	"lbl_LastUpdTime": "Last Update On {{time}} (Update Every 30 Minutes)",
+	"lbl_Rewards": "Rewards",
+	"lbl_MoreDetails": "MORE DETAILS",
+	"lbl_Goal123_EventTitle": "Xmas Tournament Win Cash Prizes",
+	"lbl_last_2_day": "Last 2 Day",
+	"lbl_last_3_day": "Last 3 Day",
+	"lbl_TotalValue":"Total of all prizes",
+	"lbl_No1Award":"No. 1 Award"
 }
+

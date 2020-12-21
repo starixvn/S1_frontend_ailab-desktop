@@ -948,4 +948,8 @@
 .icon-new:before {
   content: "\e9b2";
 }
+
+.icon-live:before {
+  content: "\e9b6";
+}
 /*# sourceMappingURL=font.css.map */

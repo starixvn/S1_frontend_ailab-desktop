@@ -97,5 +97,8 @@ export default {
 	},
 	howToPlay: {
 		root: "howToPlay"
+	},
+	leaderBoard: {
+		root: "leaderBoard"
 	}
 };

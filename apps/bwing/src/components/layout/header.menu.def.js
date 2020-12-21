@@ -249,6 +249,15 @@ export const defMenuLinks = {
 	promotion: {
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"
+	},
+	affiliate: {
+		affiliate: true,
+		displayKey: "lbl_Affiliates"
+	},
+	ranking: {
+		path: path.leaderBoard.root,
+		displayKey: "lbl_Ranking",
+		className: "liveIcon"
 	}
 	// lottery: {
 	// 	productInfo: productList.lottery,

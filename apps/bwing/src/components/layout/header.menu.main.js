@@ -29,11 +29,11 @@ export default ({ showSubMenu }) => {
 				checkMatchPage={true}
 				toUpperCase={true}
 			/>
-			<a
+			{/* <a
 				href={siteInfo({ langId: userInfo.langId }).affiliateLink}
 				target="_blank">
 				{t("lbl_Affiliates")?.toUpperCase()}
-			</a>
+			</a> */}
 		</>
 	);
 };

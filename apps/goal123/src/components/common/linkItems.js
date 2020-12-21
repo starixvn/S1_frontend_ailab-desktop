@@ -43,15 +43,20 @@ export default ({
 	};
 
 	let currentPage = checkMatchPage ? getCurrentPage() : "";
-
-	let rows = Object.keys(defMenuLinks).map(key => {
-		let m = defMenuLinks[key];
+	const defMenus =
+		typeof defMenuLinks === "function"
+			? defMenuLinks(langId)
+			: defMenuLinks;
+	let rows = Object.keys(defMenus).map(key => {
+		let m = defMenus[key];
 		let arrowIcon =
 			m.subMenu && m.subMenu.length > 0 ? (
 				<i className="icon icon-keyboard_arrow_right"></i>
 			) : null;
 
 		let _className = m.className ? m.className : "";
+
+		let _target = m.target ? m.target : "";
 
 		if (m.isHot) {
 			_className = `${_className} hot`;
@@ -120,7 +125,17 @@ export default ({
 							? `${_className} active`
 							: "active"
 						: _className;
-				return (
+				return m.isFullPath || _target === "_blank" ? (
+					<a
+						href={_path}
+						target={_target}
+						key={key}
+						onMouseOver={_showSubMenu.bind(this, key)}
+						className={_className}>
+						{displayText}
+						{arrowIcon}
+					</a>
+				) : (
 					<Link
 						key={key}
 						to={_url}
@@ -139,7 +154,18 @@ export default ({
 							? `${_className} active`
 							: "active"
 						: _className;
-				return (
+
+				return m.isFullPath || _target === "_blank" ? (
+					<a
+						href={_path}
+						target={_target}
+						key={key}
+						onMouseOver={_showSubMenu.bind(this, key)}
+						className={_className}>
+						{displayText}
+						{arrowIcon}
+					</a>
+				) : (
 					<Link
 						key={key}
 						to={`${langId}/${_path}`}
