@@ -23,10 +23,16 @@ export const defNav = {
 export const defSearchColumn = {
 	searchText: "searchText",
 	provider: "provider",
-	gameType: "gameType"
+	gameType: "gameType",
+	category: "category"
 };
 
 export const defCategoryId = {
+	All: 0,
 	Slots: 1,
 	Table: 2
+	// ScratchCard:3,
+	// Arcade:4
 };
+
+export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };

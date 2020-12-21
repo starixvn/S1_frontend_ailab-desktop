@@ -8,9 +8,15 @@ import {
 	api_account_GetFavoriteGame
 } from "../../service/api/account";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType, defCategoryId } from "../common/popBox";
+import { defPopBoxType } from "../common/popBox";
 import { useTranslation } from "react-i18next";
-import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
+import {
+	defNav,
+	defRowsPerPage,
+	defSearchColumn,
+	defCategoryId,
+	defCategoryList
+} from "./casino.def";
 import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 
@@ -30,13 +36,17 @@ export default () => {
 	const [tpList, setTpList] = useState({});
 	const [gameDatas, setGameDatas] = useState([]);
 	const [tpOptions, setTpOptions] = useState([]);
-	const [categoryOptions, setCategoryOptions] = useState([]);
 	const [displayGames, setDisplayGames] = useState([]);
 	const [pageInfo, setPageInfo] = useState({ currentPage: 1, totalPages: 1 });
 
 	const [searchInfo, setSearchInfo] = useState({
 		[defSearchColumn.searchText]: "",
 		[defSearchColumn.provider]: { idx: 0, value: null }
+	});
+
+	const [categoryOptions, setCategoryOptions] = useState([]);
+	const [category, setCategory] = useState({
+		[defSearchColumn.category]: { idx: 0, value: null }
 	});
 
 	const isMountedRef = useRef(null);
@@ -61,6 +71,7 @@ export default () => {
 			setSelNav(navKey);
 			SetGames({
 				_searchInfo: searchInfo,
+				_category: category,
 				_selNav: navKey,
 				_gameDatas: gameDatas,
 				_tpList: tpList
@@ -70,6 +81,7 @@ export default () => {
 
 	const FilterGames = (
 		_searchInfo,
+		_category,
 		_nav,
 		initGameDatas,
 		initTpList,
@@ -80,7 +92,10 @@ export default () => {
 		let tpId = _searchInfo.provider.value;
 		let searchText = _searchInfo.searchText;
 
-		const matchFilter = (tpId, g) => {
+		let _categoryId = _category.category.idx;
+		let doNotFilterCategory = _categoryId === 0;
+
+		const matchFilter = (tpId, g, _categoryId, notFilterCategory) => {
 			let matchNav =
 				(_nav === defNav.PROMO.key && g.promotion === 1) ||
 				(_nav === defNav.FEATURED.key && g.featured === true) ||
@@ -89,20 +104,24 @@ export default () => {
 				_nav === defNav.ALLGAMES.key;
 			return (
 				matchNav &&
-				(searchText === "" || matchKeyword(g.name, searchText))
+				(searchText === "" || matchKeyword(g.name, searchText)) &&
+				(doNotFilterCategory ||
+					g.category1 === defCategoryList[_categoryId])
 			);
 		};
 
 		return _gameDatas?.filter(g => {
 			let tp = _tpList[g.tpId];
 			return (
-				(tpId === null || tp.value === tpId) && matchFilter(tp.value, g)
+				(tpId === null || tp.value === tpId) &&
+				matchFilter(tp.value, g, _categoryId, doNotFilterCategory)
 			);
 		});
 	};
 
 	const SetGames = ({
 		_searchInfo,
+		_category,
 		_selNav,
 		_gameDatas,
 		_tpList,
@@ -110,6 +129,7 @@ export default () => {
 	}) => {
 		let _displayGames = FilterGames(
 			_searchInfo,
+			_category,
 			_selNav,
 			_gameDatas,
 			_tpList,
@@ -142,6 +162,7 @@ export default () => {
 		setFavorite(newFav);
 		SetGames({
 			_searchInfo: searchInfo,
+			_category: category,
 			_selNav: selNav,
 			_gameDatas: gameDatas,
 			_tpList: tpList,
@@ -154,7 +175,6 @@ export default () => {
 
 	const EditSearchField = (column, value, pressEnter) => {
 		let _searchInfo = searchInfo;
-		console.log(column, "--", value);
 		if (column === defSearchColumn.searchText) {
 			setSearchInfo(prevS => {
 				_searchInfo = { ...prevS, [column]: value };
@@ -164,7 +184,6 @@ export default () => {
 				SubmitSearch(_searchInfo);
 			}
 		} else {
-			console.log("_searchInfo", _searchInfo);
 			setSearchInfo(prevS => {
 				_searchInfo = {
 					...prevS,
@@ -175,6 +194,7 @@ export default () => {
 
 			SetGames({
 				_searchInfo: _searchInfo,
+				_category: category,
 				_selNav: selNav,
 				_gameDatas: gameDatas,
 				_tpList: tpList
@@ -182,9 +202,32 @@ export default () => {
 		}
 	};
 
+	const onChangeCategory = (column, value) => {
+		let _category = category;
+		setCategory(prevS => {
+			_category = {
+				...prevS,
+				[column]: {
+					idx: value,
+					value: categoryOptions[value].id
+				}
+			};
+			return _category;
+		});
+
+		SetGames({
+			_searchInfo: searchInfo,
+			_category: _category,
+			_selNav: selNav,
+			_gameDatas: gameDatas,
+			_tpList: tpList
+		});
+	};
+
 	const SubmitSearch = _searchInfo => {
 		SetGames({
 			_searchInfo: searchInfo,
+			_category: category,
 			_selNav: selNav,
 			_gameDatas: gameDatas,
 			_tpList: tpList
@@ -220,12 +263,25 @@ export default () => {
 									tpId: gameInfo.value,
 									...list
 								});
-								console.log(list);
+
 								_categoryOptions.push({
 									displayText: list.category1,
 									id: defCategoryId[list.category1]
 								});
-								console.log(_categoryOptions);
+
+								let filterRepeaCategories = Array.from(
+									new Set(
+										_categoryOptions.map(JSON.stringify)
+									)
+								).map(JSON.parse);
+
+								let pickCategoryItem = filterRepeaCategories.filter(
+									item =>
+										item.id === defCategoryId.All ||
+										item.id === defCategoryId.Slots ||
+										item.id === defCategoryId.Table
+								);
+								_categoryOptions = pickCategoryItem;
 							});
 						}
 					});
@@ -248,6 +304,7 @@ export default () => {
 						setCategoryOptions(_categoryOptions);
 
 						let _searchInfo = searchInfo;
+						let _category = category;
 
 						if (urlTpId) {
 							let idx = _tpOptions.findIndex(
@@ -270,6 +327,7 @@ export default () => {
 
 						SetGames({
 							_searchInfo,
+							_category,
 							_selNav: selNav,
 							_gameDatas: games,
 							_tpList
@@ -320,11 +378,13 @@ export default () => {
 				<Nav selNav={selNav} onSelectNav={onSelectNav} t={t} />
 				<SearchBox
 					t={t}
-					tpOptions={tpOptions}
-					categoryOptions={categoryOptions}
-					EditSearchField={EditSearchField}
-					searchInfo={searchInfo}
 					submitSearch={SubmitSearch.bind(this, searchInfo)}
+					tpOptions={tpOptions}
+					onChangeCategory={onChangeCategory}
+					searchInfo={searchInfo}
+					categoryOptions={categoryOptions}
+					category={category}
+					EditSearchField={EditSearchField}
 				/>
 			</div>
 			<GameList

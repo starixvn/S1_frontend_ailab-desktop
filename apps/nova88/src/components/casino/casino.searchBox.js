@@ -5,7 +5,9 @@ export default ({
 	tpOptions,
 	categoryOptions,
 	EditSearchField,
+	onChangeCategory,
 	searchInfo,
+	category,
 	submitSearch,
 	t
 }) => {
@@ -43,15 +45,15 @@ export default ({
 				</div>
 			</div>
 			<div>
-				{/* <div className="inputBox-white">
+				<div className="inputBox-white">
 					<Dropdown
 						mainkey="casino-gameType"
 						options={categoryOptions}
-						onSelectItem={EditSearchField.bind(this, "category")}
-						// selectedIdx={searchInfo.gameType.idx}
+						onSelectItem={onChangeCategory.bind(this, "category")}
+						selectedIdx={category.category.idx}
 						i18n={t}
 					/>
-				</div> */}
+				</div>
 			</div>
 			<div className="btnGroup">
 				<button className="btn-check" onClick={submitSearch}>
