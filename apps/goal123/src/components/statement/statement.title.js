@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const BatListTitle = ({ t }) => {
+const StatementTitle = ({ t }) => {
 	return (
 		<div className="inside-title icon icon-icon32px_History">
 			<span>{t("lbl_Statement")}</span>
@@ -9,8 +9,8 @@ const BatListTitle = ({ t }) => {
 	);
 };
 
-BatListTitle.propTypes = {
+StatementTitle.propTypes = {
 	t: PropTypes.func.isRequired
 };
 
-export default BatListTitle;
+export default StatementTitle;

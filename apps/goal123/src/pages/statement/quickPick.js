@@ -11,7 +11,7 @@ export default () => {
 				<main>
 					<section className="inside">
 						<LeftMenu />
-						<div class="rightModule statementPage">
+						<div className="rightModule statementPage">
 							<Content />
 						</div>
 					</section>
