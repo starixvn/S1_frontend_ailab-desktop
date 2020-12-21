@@ -1054,7 +1054,7 @@ main section > div .articleModule > div {
 }
 
 main section .btnGroup {
-  margin: 10px auto;
+  margin: 10px 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -5978,80 +5978,80 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 [class^="snow"].snow1 {
   position: absolute;
-  left: 78.64204%;
-  top: -56.40666%;
-  width: 17.08164px;
-  height: 17.08164px;
+  left: 79.4943%;
+  top: -25.91337%;
+  width: 11.06957px;
+  height: 11.06957px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="snow"].snow2 {
   position: absolute;
-  left: 22.27574%;
-  top: 8.11142%;
-  width: 11.36823px;
-  height: 11.36823px;
+  left: 89.45025%;
+  top: -17.00995%;
+  width: 9.2067px;
+  height: 9.2067px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="snow"].snow3 {
   position: absolute;
-  left: 9.38737%;
-  top: -29.35377%;
-  width: 12.67561px;
-  height: 12.67561px;
+  left: 51.99391%;
+  top: 39.2572%;
+  width: 17.42687px;
+  height: 17.42687px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="snow"].snow4 {
   position: absolute;
-  left: 83.83644%;
-  top: -33.67238%;
-  width: 15.06122px;
-  height: 15.06122px;
+  left: 65.23136%;
+  top: -27.16447%;
+  width: 13.16674px;
+  height: 13.16674px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="snow"].snow5 {
   position: absolute;
-  left: 37.77654%;
-  top: -6.53168%;
-  width: 13.94796px;
-  height: 13.94796px;
+  left: 74.02801%;
+  top: -23.8084%;
+  width: 13.5235px;
+  height: 13.5235px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="snow"].snow6 {
   position: absolute;
-  left: 44.51567%;
-  top: 17.99851%;
-  width: 16.60806px;
-  height: 16.60806px;
+  left: 97.35719%;
+  top: 36.85047%;
+  width: 17.99907px;
+  height: 17.99907px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="snow"].snow7 {
   position: absolute;
-  left: 67.07163%;
-  top: -31.77402%;
-  width: 14.06282px;
-  height: 14.06282px;
+  left: 22.0415%;
+  top: -23.70587%;
+  width: 11.26991px;
+  height: 11.26991px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="snow"].snow8 {
   position: absolute;
-  left: 56.9063%;
-  top: -29.534%;
-  width: 16.58243px;
-  height: 16.58243px;
+  left: 11.52563%;
+  top: 2.88175%;
+  width: 11.31175px;
+  height: 11.31175px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
