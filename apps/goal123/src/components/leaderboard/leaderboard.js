@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-
 import { popBoxContext, userInfoContext } from "../common/context";
+import { number_format } from "../common/common";
 import { defPopBoxType } from "../common/popBox";
 import {
 	api_events_GetLeaderboardList,
@@ -293,7 +293,7 @@ const RankItem = ({ item, idx }) => {
 				{item?.custRank || idx + 1}
 			</div>
 			<div>{item.userName}</div>
-			<div>{item.wTurnover}</div>
+			<div>{number_format(item.wTurnover)}</div>
 		</li>
 	);
 };
