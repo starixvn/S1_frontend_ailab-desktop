@@ -7,7 +7,11 @@ import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
 } from "../../service/api/account";
-import { popBoxContext, userInfoContext } from "../common/context";
+import {
+	popBoxContext,
+	userInfoContext,
+	loadingContext
+} from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { useTranslation } from "react-i18next";
 import {
@@ -46,13 +50,13 @@ export default () => {
 
 	const [categoryOptions, setCategoryOptions] = useState([]);
 	const [category, setCategory] = useState({
-		[defSearchColumn.category]: { idx: 0, value: null }
+		category: { idx: 0, value: null }
 	});
 
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
-
+	const { loading, setLoading } = useContext(loadingContext);
 	const urlTpId = getUrlParameter("tpId");
 
 	const clickClose = () => {
@@ -240,6 +244,7 @@ export default () => {
 	});
 
 	useEffect(() => {
+		setLoading(true);
 		api_site_GetGamelist().then(
 			res => {
 				const success = res.data.errorCode === 0;
@@ -346,6 +351,7 @@ export default () => {
 							}
 						});
 					}
+					setLoading(false);
 				}
 			},
 			err => {
@@ -364,6 +370,7 @@ export default () => {
 							</div>
 						)
 					});
+					setLoading(false);
 				}
 			}
 		);
@@ -387,16 +394,22 @@ export default () => {
 					EditSearchField={EditSearchField}
 				/>
 			</div>
-			<GameList
-				t={t}
-				displayGames={displayGames}
-				tpList={tpList}
-				langId={userInfo.langId}
-				isLogin={userInfo.isLogin}
-				currentPage={pageInfo.currentPage}
-				favorite={favorite}
-				onSetFavorite={onSetFavorite}
-			/>
+
+			{loading ? (
+				<></>
+			) : (
+				<GameList
+					t={t}
+					displayGames={displayGames}
+					tpList={tpList}
+					langId={userInfo.langId}
+					isLogin={userInfo.isLogin}
+					currentPage={pageInfo.currentPage}
+					favorite={favorite}
+					onSetFavorite={onSetFavorite}
+				/>
+			)}
+
 			<Pagination
 				totalPages={pageInfo.totalPages}
 				currentPage={pageInfo.currentPage}
