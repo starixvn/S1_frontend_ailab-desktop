@@ -29,6 +29,7 @@ const BatlistSearchBox = ({
 							options={quickPickList}
 							onSelectItem={onSetQuickPickType}
 							selectedIdx={quickPickType}
+							showDropDownIcon={true}
 							i18n={t}
 						/>
 					</div>
