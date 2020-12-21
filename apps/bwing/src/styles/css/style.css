@@ -4029,6 +4029,12 @@ main > .swiper-container .swiper-slide {
   height: calc(100% - 40px);
 }
 
+.swiper-container + .quickSelect {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .quickSelect {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4040,8 +4046,11 @@ main > .swiper-container .swiper-slide {
 }
 
 .quickSelect > div {
-  width: 30%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   margin-right: 10px;
+  max-width: 520px;
 }
 
 .quickSelect > div.btnGroup:not(.promoType) {
@@ -4069,6 +4078,12 @@ main > .swiper-container .swiper-slide {
   -webkit-box-flex: 1 !important;
       -ms-flex: auto !important;
           flex: auto !important;
+}
+
+.quickSelect > div.inputBox-blue {
+  margin: 10px 10px 10px 0px;
+  min-height: auto;
+  max-width: 220px;
 }
 
 .quickSelect > div > .inputBox-blue {
@@ -4105,6 +4120,26 @@ main > .swiper-container .swiper-slide {
 .quickSelect > div:first-child.promoType > button:last-child,
 .quickSelect > div:first-child.promoType > a:last-child {
   float: right;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus,
+.quickSelect > div:first-child.promoType .specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus .inputBox-blue, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-blue,
+.quickSelect > div:first-child.promoType .specialBonus .inputBox-blue {
+  position: unset;
+  margin: 0 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
 }
 
 .quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
@@ -6039,80 +6074,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 89.14357%;
-  top: 26.384%;
-  width: 13.40392px;
-  height: 13.40392px;
+  left: 54.57106%;
+  top: 4.93107%;
+  width: 11.63248px;
+  height: 11.63248px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 32.7975%;
-  top: 30.42867%;
-  width: 8.10882px;
-  height: 8.10882px;
+  left: 92.86387%;
+  top: 4.91672%;
+  width: 12.9311px;
+  height: 12.9311px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 6.755%;
-  top: -28.25358%;
-  width: 8.32814px;
-  height: 8.32814px;
+  left: 69.54019%;
+  top: -38.17878%;
+  width: 7.98086px;
+  height: 7.98086px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 94.45716%;
-  top: -21.51763%;
-  width: 11.13431px;
-  height: 11.13431px;
+  left: 93.24816%;
+  top: 35.18655%;
+  width: 10.40739px;
+  height: 10.40739px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 45.8884%;
-  top: -9.25567%;
-  width: 12.81909px;
-  height: 12.81909px;
+  left: 88.08878%;
+  top: -59.60194%;
+  width: 14.96494px;
+  height: 14.96494px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 96.16044%;
-  top: -35.47606%;
-  width: 14.95844px;
-  height: 14.95844px;
+  left: 67.12205%;
+  top: -31.69493%;
+  width: 11.67624px;
+  height: 11.67624px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 86.61842%;
-  top: -55.51887%;
-  width: 7.95716px;
-  height: 7.95716px;
+  left: 3.40269%;
+  top: -59.08279%;
+  width: 10.67422px;
+  height: 10.67422px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 25.10133%;
-  top: 37.94011%;
-  width: 5.57061px;
-  height: 5.57061px;
+  left: 21.37918%;
+  top: -9.87051%;
+  width: 5.08573px;
+  height: 5.08573px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
