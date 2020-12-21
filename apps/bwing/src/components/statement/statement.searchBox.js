@@ -12,7 +12,7 @@ export const quickPickList = [
 	{ id: 4, displayKey: "lbl_ThisMonth" }
 ];
 
-const BatlistSearchBox = ({
+const StatementSearchBox = ({
 	t,
 	onSetQuickPickType,
 	quickPickType,
@@ -23,7 +23,7 @@ const BatlistSearchBox = ({
 			<div className="quickSelect">
 				<div>
 					<div className="txt-lightgray">{t("lbl_QuickPick")} </div>
-					<div class="inputBox-blue">
+					<div className="inputBox-blue">
 						<Dropdown
 							mainkey="statement-provider"
 							options={quickPickList}
@@ -45,11 +45,11 @@ const BatlistSearchBox = ({
 	);
 };
 
-BatlistSearchBox.propTypes = {
+StatementSearchBox.propTypes = {
 	t: PropTypes.func.isRequired,
 	onSetQuickPickType: PropTypes.func.isRequired,
 	quickPickType: PropTypes.number.isRequired,
 	submitSearch: PropTypes.func.isRequired
 };
 
-export default BatlistSearchBox;
+export default StatementSearchBox;
