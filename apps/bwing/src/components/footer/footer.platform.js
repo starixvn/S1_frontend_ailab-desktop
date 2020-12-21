@@ -77,7 +77,6 @@ const defPlatfrom = [
 	},
 	{
 		...productList.liveCasino_One789,
-		path: path.casino.root,
 		imgName: "one789"
 	}
 ];
