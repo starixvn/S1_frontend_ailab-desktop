@@ -222,13 +222,32 @@
 	"lbl_TransferHistory": "Transfer History",
 	"msg_InsufficientFund": "Insufficient Fund!",
 
-	"statement ■■■■■■■■■■■■■■■■■■■■": "",
+	"financial ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Financial": "Financial",
 	"lbl_TypeName": "Type Name",
 	"lbl_BeforeAmount": "Before Amount",
 	"lbl_AfterAmount": "After Amount",
 	"lbl_RefTransId": "Ref TransId",
 	"lbl_ChangeAmount": "Change Amount",
+
+	"statement ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Statement": "Statement",
+	"lbl_SettledDate": "Settled Date",
+	"lbl_CategoryName": "Category Name",
+	"lbl_TurnOver": "Turnover",
+	"lbl_ValidBet": "Valid Bet",
+	"lbl_WinlostAmount": "Winlost Amount",
+	"lbl_GameTypeName": "Game Type Name",
+	"lbl_TransId": "Trans Id",
+	"lbl_BonusId": "Bonus Id",
+	"lbl_BonusCode": "Bonus Code",
+	"lbl_TransTime": "Trans Time",
+	"lbl_SettledTime": "Settled Time",
+	"lbl_Byday": "By Day",
+	"lbl_Category": "By Category",
+	"lbl_Detail": "By Detail",
+	"lbl_TurnOverTotal": "Turnover Total",
+	"lbl_WinlostAmountTotal": "Winlost Amount Total",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Deposit": "Deposit",
@@ -388,7 +407,7 @@
 	"lbl_Goal123_EventTitle": "Xmas Tournament Win Cash Prizes",
 	"lbl_last_2_day": "Last 2 Day",
 	"lbl_last_3_day": "Last 3 Day",
-	"lbl_TotalValue":"Total of all prizes",
-	"lbl_No1Award":"No. 1 Award"
+	"lbl_TotalValue": "Total of all prizes",
+	"lbl_No1Award": "No. 1 Award"
 }
 

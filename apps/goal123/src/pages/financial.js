@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { api_payment_GetStatement } from "../service/api/payment";
 import { number_format } from "../components/common/common";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, popBoxContext } from "../components/common/context";
+import { popBoxContext } from "../components/common/context";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
@@ -37,14 +37,13 @@ const initPagination = {
 
 const Content = () => {
 	const { t } = useTranslation();
-	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [getHistory, setGetHistory] = useState(null);
 	const [processing, setProcessing] = useState(false);
 	const [filterData, setFilterData] = useState(null);
 	const [keepData, setKeepData] = useState(null);
 	const [pagination, setPagination] = useState(initPagination);
-	const [loading, setLoading] = useState(false);
+	const [loading] = useState(false);
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -164,7 +163,7 @@ const Content = () => {
 	) : (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_History">
-				<span>{t("lbl_Statement")}</span>
+				<span>{t("lbl_Financial")}</span>
 			</div>
 			<Filter submitHandler={clickDateSubmit} keepData={keepData} />
 
