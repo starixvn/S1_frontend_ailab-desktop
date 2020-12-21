@@ -76,8 +76,8 @@ const defPlatfrom = [
 		imgName: "cq9"
 	},
 	{
+		...productList.liveCasino_One789,
 		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.CQ9.name },
 		imgName: "one789"
 	}
 ];
