@@ -23,7 +23,6 @@ export const defNav = {
 export const defSearchColumn = {
 	searchText: "searchText",
 	provider: "provider",
-	gameType: "gameType",
 	category: "category"
 };
 
