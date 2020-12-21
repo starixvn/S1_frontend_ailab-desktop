@@ -164,29 +164,31 @@ export default () => {
 			<div className="infoModule">
 				<StatementTitle t={t} />
 
-				<StatementBreadcrumb
-					t={t}
-					userInfo={userInfo}
-					initCategoryId={initCategoryId}
-					initQuickPickType={initQuickPickType}
-					initByDaySettledDate={initByDaySettledDate}
-					initCategorySettledDate={initCategorySettledDate}
-					currentlyDisplayKey={currentlyDisplayKey}
-				/>
+				<div className="list history">
+					<StatementBreadcrumb
+						t={t}
+						userInfo={userInfo}
+						initCategoryId={initCategoryId}
+						initQuickPickType={initQuickPickType}
+						initByDaySettledDate={initByDaySettledDate}
+						initCategorySettledDate={initCategorySettledDate}
+						currentlyDisplayKey={currentlyDisplayKey}
+					/>
 
-				<StatementTable
-					t={t}
-					dataSource={detailListbyGameTypeDatas}
-					columns={columns}>
-					<StatementTable.CustomizeRow>
-						<div className="total">
-							{t("lbl_TurnOverTotal")}：
-							<span>{turnOverTotal}</span>
-							&nbsp;&nbsp; {t("lbl_WinlostAmountTotal")}：
-							<span>{winlostAmountTotal}</span>
-						</div>
-					</StatementTable.CustomizeRow>
-				</StatementTable>
+					<StatementTable
+						t={t}
+						dataSource={detailListbyGameTypeDatas}
+						columns={columns}>
+						<StatementTable.CustomizeRow>
+							<div className="total">
+								{t("lbl_TurnOverTotal")}：
+								<span>{turnOverTotal}</span>
+								&nbsp;&nbsp; {t("lbl_WinlostAmountTotal")}：
+								<span>{winlostAmountTotal}</span>
+							</div>
+						</StatementTable.CustomizeRow>
+					</StatementTable>
+				</div>
 
 				<Pagination
 					totalPages={totalPage}

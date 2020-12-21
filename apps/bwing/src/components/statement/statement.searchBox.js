@@ -22,8 +22,8 @@ const BatlistSearchBox = ({
 		<>
 			<div className="quickSelect">
 				<div>
-					<div className="inputBox-blue">
-						<i className="txt-blue">{t("lbl_QuickPick")}</i>
+					<div className="txt-lightgray">{t("lbl_QuickPick")} </div>
+					<div class="inputBox-blue">
 						<Dropdown
 							mainkey="statement-provider"
 							options={quickPickList}

@@ -35,15 +35,14 @@ const StatementTable = ({ t, dataSource, columns, children }) => {
 
 	return (
 		<>
-			<div className="statement">
-				<div>{header}</div>
-				{body}
-				{children}
-			</div>
+			<div className="listHeader">{header}</div>
+			<div className="listBody">{body}</div>
+
+			{children}
 
 			{Array.isArray(dataSource) && dataSource.length ? null : (
-				<div className="list history">
-					<div className="icon icon-nodata">{t("lbl_NoData")}</div>
+				<div class="list history">
+					<div class="nodata">{t("lbl_NoData")}</div>
 				</div>
 			)}
 		</>

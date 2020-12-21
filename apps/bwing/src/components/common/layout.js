@@ -9,11 +9,13 @@ import "../../styles/css/swiper.css";
 import "../../styles/css/style.css";
 import "../../styles/css/font.css";
 import "../../styles/css/datePicker.css";
-
+import { loadingContext } from "../../components/common/context";
 //*  xmas code ↓  */
 import { eventPeriod } from "../common/common";
 
 const Layout = ({ children, showFooter = false }) => {
+	const { loading } = useContext(loadingContext);
+
 	return (
 		<>
 			<SEO />
@@ -79,7 +81,7 @@ const Layout = ({ children, showFooter = false }) => {
 			{children}
 			{showFooter ? <Footer /> : null}
 			<PopBox />
-			<Loading />
+			{loading ? <Loading /> : null}
 		</>
 	);
 };

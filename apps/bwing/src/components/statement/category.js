@@ -159,15 +159,14 @@ export default () => {
 			dataIndex: "action",
 			key: "action",
 			render: value => (
-				<div className="btnGroup">
+				<div>
 					<a
 						onClick={() =>
 							onRoutePush({
 								gameSettledDate: value.settledDate,
 								gameTypeId: value.gameTypeID
 							})
-						}
-						className="blue">
+						}>
 						{t("lbl_Details")}
 					</a>
 				</div>
@@ -179,20 +178,21 @@ export default () => {
 		!loading && (
 			<div className="infoModule">
 				<StatementTitle t={t} />
+				<div className="list history">
+					<StatementBreadcrumb
+						t={t}
+						userInfo={userInfo}
+						initQuickPickType={initQuickPickType}
+						initByDaySettledDate={initByDaySettledDate}
+						currentlyDisplayKey={currentlyDisplayKey}
+					/>
 
-				<StatementBreadcrumb
-					t={t}
-					userInfo={userInfo}
-					initQuickPickType={initQuickPickType}
-					initByDaySettledDate={initByDaySettledDate}
-					currentlyDisplayKey={currentlyDisplayKey}
-				/>
-
-				<StatementTable
-					t={t}
-					dataSource={recordListbyCategoryDatas}
-					columns={columns}
-				/>
+					<StatementTable
+						t={t}
+						dataSource={recordListbyCategoryDatas}
+						columns={columns}
+					/>
+				</div>
 
 				<Pagination
 					totalPages={totalPage}

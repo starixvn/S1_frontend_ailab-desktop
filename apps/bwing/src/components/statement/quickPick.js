@@ -233,10 +233,8 @@ export default () => {
 			dataIndex: "action",
 			key: "action",
 			render: value => (
-				<div className="btnGroup">
-					<a onClick={() => onRoutePush(value)} className="blue">
-						{t("lbl_Details")}
-					</a>
+				<div>
+					<a onClick={() => onRoutePush(value)}>{t("lbl_Details")}</a>
 				</div>
 			)
 		}
@@ -246,22 +244,24 @@ export default () => {
 		!loading && (
 			<div className="infoModule">
 				<StatementTitle t={t} />
+				<div className="list history">
+					<Breadcrumb>
+						<Breadcrumb.Item>{t("lbl_QuickPick")}</Breadcrumb.Item>
+					</Breadcrumb>
 
-				<Breadcrumb>
-					<Breadcrumb.Item>{t("lbl_QuickPick")}</Breadcrumb.Item>
-				</Breadcrumb>
+					<StatementSearchBox
+						t={t}
+						onSetQuickPickType={onSetQuickPickType}
+						quickPickType={quickPickType}
+						submitSearch={() => getDatas()}
+					/>
+					<StatementTable
+						t={t}
+						dataSource={recordListDateDatas}
+						columns={columns}
+					/>
+				</div>
 
-				<StatementSearchBox
-					t={t}
-					onSetQuickPickType={onSetQuickPickType}
-					quickPickType={quickPickType}
-					submitSearch={() => getDatas()}
-				/>
-				<StatementTable
-					t={t}
-					dataSource={recordListDateDatas}
-					columns={columns}
-				/>
 				<Pagination
 					totalPages={totalPage}
 					currentPage={listDateInfo.PageNumber}
