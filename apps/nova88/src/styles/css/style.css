@@ -67,7 +67,7 @@ img {
   margin: 0 5px;
 }
 
-.transition, .header > div.menu .subMenu-Wrapper, main .gamelistsport a .container .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a .container .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG2.jpg"], .tip, .dropdown > .dropdown-container, .personal .list .listBody {
+.transition, .header > div.menu .subMenu-Wrapper, .tip, .dropdown > .dropdown-container, .personal .list .listBody {
   visibility: hidden;
   opacity: 0;
   height: 0;
@@ -75,7 +75,7 @@ img {
   transition: 0.7s;
 }
 
-.transition-open, .header > div.menu .subMenu-Wrapper.active, main .gamelistsport a .container .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a .container .card_left img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG1.jpg"], .tip.active, .dropdown > .dropdown-container.active, .personal .list .listBody.active {
+.transition-open, .header > div.menu .subMenu-Wrapper.active, main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG1.jpg"], .tip.active, .dropdown > .dropdown-container.active, .personal .list .listBody.active {
   visibility: visible;
   opacity: 1;
   height: auto;
@@ -1232,13 +1232,6 @@ main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jp
   margin-top: -20px;
 }
 
-main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG2.jpg"] {
-  -webkit-transform: rotate(-10deg);
-          transform: rotate(-10deg);
-  margin-left: 50px;
-  margin-top: -10px;
-}
-
 main .gamelistsport a:hover .card_right img.baseball, main .gamelistsport a:hover .card_left img.baseball, main .gamelistsport a:active .card_right img.baseball, main .gamelistsport a:active .card_left img.baseball {
   margin-left: 50px;
   -webkit-transform: rotate(-10deg);
@@ -1543,7 +1536,7 @@ footer {
   width: 54px;
 }
 
-.platform .ae {
+.platform .ae, .platform .aea {
   width: 120px;
 }
 
@@ -1559,7 +1552,7 @@ footer {
   width: 55px;
 }
 
-.platform .awc {
+.platform .awc, .platform .awca {
   width: 75px;
 }
 
@@ -4605,6 +4598,25 @@ input[type="file"] {
   height: 100%;
 }
 
+.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-org .specialBonus, .quickSelect > div.promoType.inputBox-white .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus, .quickSelect > div:first-child.promoType .specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-org .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-white .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-white, .quickSelect > div:first-child.promoType .specialBonus .inputBox-white {
+  position: unset;
+  margin: 0 5px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
 .quickSelect > div.inputBox.promoType button.orange, .quickSelect > div.promoType.inputBox-org button.orange, .quickSelect > div.promoType.inputBox-white button.orange, .quickSelect > div.promoType.inputBox-blue button.orange, .quickSelect > div:first-child.promoType button.orange {
   position: relative;
   margin-left: 25px;
@@ -6927,6 +6939,11 @@ button.icon-spinner11:before {
   margin-bottom: 30px;
 }
 
+.installGuide.mega {
+  background: url(../img/megabg.jpg) no-repeat bottom/cover;
+  padding: 20px;
+}
+
 .installGuide > div {
   background: white;
   border-radius: 15px;
@@ -6942,6 +6959,122 @@ button.icon-spinner11:before {
           align-items: center;
   margin-top: 20px;
   color: #880cba;
+}
+
+.installGuide > div.megaStyle {
+  width: 90%;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #0ad9f5;
+  color: #f4f6f8;
+  padding: 20px 40px;
+  margin: 40px auto;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  .installGuide > div.megaStyle {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 15px;
+  }
+}
+
+.installGuide > div.megaStyle .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 768px) {
+  .installGuide > div.megaStyle .left {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.installGuide > div.megaStyle .left img {
+  width: 100%;
+  max-width: 250px;
+  margin-right: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem {
+  padding-top: 20px;
+  margin-bottom: 25px;
+}
+
+.installGuide > div.megaStyle .downloadItem .title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem .readonly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 320px;
+  margin-bottom: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem .readonly .icon {
+  color: white;
+  background: #0ad9f5;
+  border: 1px solid #0ad9f5;
+  padding: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem input {
+  border: 0;
+  padding: 6px 4px;
+  outline: none;
+  -webkit-box-shadow: 1px 1px 2px #0ad9f5, -2px -2px 3px #0ad9f5;
+          box-shadow: 1px 1px 2px #0ad9f5, -2px -2px 3px #0ad9f5;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem a.downloadBtn, .installGuide > div.megaStyle .downloadItem button.downloadBtn {
+  display: block;
+  width: 70%;
+  background: #1E85EC;
+  border: 1px solid #1EECBB;
+  border-radius: 50px;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: bold;
+}
+
+.installGuide > div.megaStyle .downloadItem a.downloadBtn:hover, .installGuide > div.megaStyle .downloadItem button.downloadBtn:hover {
+  background: #0a3561;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.installGuide > div.megaStyle .icon-android {
+  color: #4bad30;
 }
 
 .installGuide img {
@@ -7554,5 +7687,229 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .ErrorPage > div .errorInfo a img {
   width: auto;
+}
+
+.christmas1 {
+  width: 100%;
+  position: fixed;
+  top: 120px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.christmas1 .toplight {
+  margin: 0 auto;
+}
+
+.christmas1 .bells {
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 32px);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-animation: tree 2s linear infinite alternate;
+          animation: tree 2s linear infinite alternate;
+}
+
+.christmas1-left {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.christmas1-right {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.christmas1 .tree {
+  width: 140px;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-animation: tree 2s linear infinite alternate;
+          animation: tree 2s linear infinite alternate;
+}
+
+.christmas1 .bomL {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.christmas1 .bomR {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes tree {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes tree {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+[class^="star"] {
+  /*選取所有star*/
+  position: absolute;
+  color: #fff;
+  -webkit-animation: falling 5s infinite;
+          animation: falling 5s infinite;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  font-size: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+}
+
+[class^="star"].star1 {
+  position: absolute;
+  left: 20.82739%;
+  top: 28.59292%;
+  width: 8.46643px;
+  height: 8.46643px;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+[class^="star"].star2 {
+  position: absolute;
+  left: 0.25978%;
+  top: -28.73701%;
+  width: 9.8607px;
+  height: 9.8607px;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+[class^="star"].star3 {
+  position: absolute;
+  left: 48.39998%;
+  top: 10.80079%;
+  width: 13.8182px;
+  height: 13.8182px;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+[class^="star"].star4 {
+  position: absolute;
+  left: 85.00946%;
+  top: -48.03004%;
+  width: 14.52743px;
+  height: 14.52743px;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+
+[class^="star"].star5 {
+  position: absolute;
+  left: 62.2439%;
+  top: 39.10852%;
+  width: 13.75376px;
+  height: 13.75376px;
+  -webkit-animation-delay: -2.5s;
+          animation-delay: -2.5s;
+}
+
+[class^="star"].star6 {
+  position: absolute;
+  left: 56.44444%;
+  top: -0.4082%;
+  width: 11.92199px;
+  height: 11.92199px;
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+}
+
+[class^="star"].star7 {
+  position: absolute;
+  left: 85.40216%;
+  top: -19.71273%;
+  width: 12.6072px;
+  height: 12.6072px;
+  -webkit-animation-delay: -3.5s;
+          animation-delay: -3.5s;
+}
+
+[class^="star"].star8 {
+  position: absolute;
+  left: 33.39149%;
+  top: -21.02202%;
+  width: 11.63554px;
+  height: 11.63554px;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+@-webkit-keyframes falling {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  70% {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 700px);
+            transform: translate(0, 700px);
+  }
+}
+
+@keyframes falling {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  70% {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 700px);
+            transform: translate(0, 700px);
+  }
 }
 /*# sourceMappingURL=style.css.map */
