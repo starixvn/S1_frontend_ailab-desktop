@@ -120,20 +120,36 @@ export default () => {
 
 			const success = errorCode === 0;
 			if (success) {
-				let idx = initPromoList.findIndex(
-					x =>
-						x.bonusCode === bonusCode &&
-						x.tpId === tpId &&
-						x.categoryId === categoryId
-				);
-				if (idx !== -1) {
-					let newPromoList = [...initPromoList];
-					newPromoList[idx].custRollOver = data.rollover;
-					newPromoList[idx].custTurnOver = data.turnover;
-
-					setInitPromoList(newPromoList);
-					onSetPromotionList(newPromoList, filter);
+				let idx = null;
+				let newPromoList = [];
+				if (filter === defFilterType.special_bonus) {
+					idx = specialPromotionList.findIndex(
+						x =>
+							x.bonusCode === bonusCode &&
+							x.tpId === tpId &&
+							x.categoryId === categoryId
+					);
+					if (idx !== -1) {
+						newPromoList = [...specialPromotionList];
+						newPromoList[idx].custRollOver = data.rollover;
+						newPromoList[idx].custTurnOver = data.turnover;
+					}
+				} else {
+					idx = initPromoList.findIndex(
+						x =>
+							x.bonusCode === bonusCode &&
+							x.tpId === tpId &&
+							x.categoryId === categoryId
+					);
+					if (idx !== -1) {
+						newPromoList = [...initPromoList];
+						newPromoList[idx].custRollOver = data.rollover;
+						newPromoList[idx].custTurnOver = data.turnover;
+					}
 				}
+
+				setInitPromoList(newPromoList);
+				onSetPromotionList(newPromoList, filter);
 			} else {
 				openErrorMessagePopBox(message || "error", errorCode);
 			}
