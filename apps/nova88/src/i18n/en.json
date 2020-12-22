@@ -71,6 +71,8 @@
 	"lbl_AllGames": "All",
 	"lbl_Favourite": "Favourite",
 	"lbl_Feature": "Feature",
+	"lbl_Table":"Table",
+	"lbl_Slots":"Slots",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Username is required.",

@@ -105,7 +105,7 @@ export const defMenuLinks = {
 		subMenu: [
 			{
 				...productList.liveCasino_WM,
-				className: "liveWM icon icon-new",
+				className: "liveWM",
 				icon: "icon icon-WM",
 				displayText: "WM",
 				menuType: defMenuType.entPage
