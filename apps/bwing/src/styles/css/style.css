@@ -199,6 +199,18 @@ header .header > div.menu > button {
   padding: 0 1%;
   font-size: 14px;
   font-family: "Segoe UI", sans-serif;
+  position: relative;
+}
+
+header .header > div.menu > a::before,
+header .header > div.menu > button::before {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 16px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu > a:hover, header .header > div.menu > a.active,
@@ -207,22 +219,6 @@ header .header > div.menu > button.active {
   cursor: pointer;
   background: #000924;
   color: #56ceff;
-}
-
-header .header > div.menu > a.casinobtn,
-header .header > div.menu > button.casinobtn {
-  position: relative;
-}
-
-header .header > div.menu > a.casinobtn::before,
-header .header > div.menu > button.casinobtn::before {
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  font-size: 16px;
-  color: #56ceff;
-  -webkit-animation: newicon 0.5s linear infinite alternate;
-          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu > a.liveIcon,
@@ -296,10 +292,6 @@ header .header > div.menu .subMenu-Wrapper.active {
   height: 240px;
 }
 
-header .header > div.menu .subMenu-Wrapper .icon:before {
-  font-size: 30px;
-}
-
 header .header > div.menu .gameList,
 header .header > div.menu .casinoList,
 header .header > div.menu .livecasinoList,
@@ -331,6 +323,7 @@ header .header > div.menu .livecasinoList a,
 header .header > div.menu .livecasinoList button,
 header .header > div.menu .fishList a,
 header .header > div.menu .fishList button {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -351,6 +344,7 @@ header .header > div.menu .fishList button {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   margin-top: -20px;
+  max-width: 200px;
 }
 
 header .header > div.menu .gameList a img,
@@ -388,6 +382,36 @@ header .header > div.menu .fishList a:hover,
 header .header > div.menu .fishList button:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
+}
+
+header .header > div.menu .gameList a i,
+header .header > div.menu .gameList button i,
+header .header > div.menu .casinoList a i,
+header .header > div.menu .casinoList button i,
+header .header > div.menu .livecasinoList a i,
+header .header > div.menu .livecasinoList button i,
+header .header > div.menu .fishList a i,
+header .header > div.menu .fishList button i {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+header .header > div.menu .gameList a i::before,
+header .header > div.menu .gameList button i::before,
+header .header > div.menu .casinoList a i::before,
+header .header > div.menu .casinoList button i::before,
+header .header > div.menu .livecasinoList a i::before,
+header .header > div.menu .livecasinoList button i::before,
+header .header > div.menu .fishList a i::before,
+header .header > div.menu .fishList button i::before {
+  content: "\e9e5";
+  top: 10px;
+  right: 0px;
+  color: #56ceff;
+  font-size: 20px;
 }
 
 header .header > div.menu .gameList .sabaclub {
@@ -487,23 +511,11 @@ header .header > div.menu .casinoList .OW:hover {
 }
 
 header .header > div.menu .casinoList .CQ9 {
-  position: relative;
   background: url(../img/casinoCQ9.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .casinoList .CQ9:hover {
   background: url(../img/casinoCQ9_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .casinoList .CQ9::before {
-  content: "\e9e5";
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  color: #56ceff;
-  font-size: 20px;
-  -webkit-animation: newicon 0.5s linear infinite alternate;
-          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu .casinoList .CQ9 .icon-cq9:before {
@@ -6074,80 +6086,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 54.57106%;
-  top: 4.93107%;
-  width: 11.63248px;
-  height: 11.63248px;
+  left: 62.86865%;
+  top: 17.58052%;
+  width: 11.5346px;
+  height: 11.5346px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 92.86387%;
-  top: 4.91672%;
-  width: 12.9311px;
-  height: 12.9311px;
+  left: 45.51376%;
+  top: -13.18847%;
+  width: 9.91486px;
+  height: 9.91486px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 69.54019%;
-  top: -38.17878%;
-  width: 7.98086px;
-  height: 7.98086px;
+  left: 88.14031%;
+  top: -5.18073%;
+  width: 5.08274px;
+  height: 5.08274px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 93.24816%;
-  top: 35.18655%;
-  width: 10.40739px;
-  height: 10.40739px;
+  left: 39.89498%;
+  top: -9.45842%;
+  width: 10.39616px;
+  height: 10.39616px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 88.08878%;
-  top: -59.60194%;
-  width: 14.96494px;
-  height: 14.96494px;
+  left: 67.49347%;
+  top: -20.91109%;
+  width: 6.77263px;
+  height: 6.77263px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 67.12205%;
-  top: -31.69493%;
-  width: 11.67624px;
-  height: 11.67624px;
+  left: 57.79019%;
+  top: 20.07783%;
+  width: 9.752px;
+  height: 9.752px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 3.40269%;
-  top: -59.08279%;
-  width: 10.67422px;
-  height: 10.67422px;
+  left: 19.36345%;
+  top: -29.09365%;
+  width: 5.29836px;
+  height: 5.29836px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 21.37918%;
-  top: -9.87051%;
-  width: 5.08573px;
-  height: 5.08573px;
+  left: 95.42654%;
+  top: -21.54326%;
+  width: 5.52446px;
+  height: 5.52446px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
