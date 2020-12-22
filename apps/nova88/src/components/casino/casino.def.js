@@ -34,4 +34,10 @@ export const defCategoryId = {
 	// Arcade:4
 };
 
+export const defCategory = [
+	{ displayKey: "lbl_AllGames", id: defCategoryId.All },
+	{ displayKey: "lbl_Slots", id: defCategoryId.Slots },
+	{ displayKey: "lbl_Table", id: defCategoryId.Table }
+];
+
 export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };

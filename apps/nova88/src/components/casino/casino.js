@@ -18,7 +18,7 @@ import {
 	defNav,
 	defRowsPerPage,
 	defSearchColumn,
-	defCategoryId,
+	defCategory,
 	defCategoryList
 } from "./casino.def";
 import { getUrlParameter } from "../common/common";
@@ -49,7 +49,6 @@ export default () => {
 		[defSearchColumn.provider]: { idx: 0, value: null }
 	});
 
-	const [categoryOptions, setCategoryOptions] = useState([]);
 	const [category, setCategory] = useState({
 		category: { idx: 0, value: null }
 	});
@@ -214,7 +213,7 @@ export default () => {
 				...prevS,
 				[column]: {
 					idx: value,
-					value: categoryOptions[value].id
+					value: defCategory[value].id
 				}
 			};
 			return _category;
@@ -253,8 +252,7 @@ export default () => {
 
 				if (success) {
 					let _tpList = {};
-					let _tpOptions = [{ displayText: "All", id: null }];
-					let _categoryOptions = [{ displayText: "All", id: 0 }];
+					let _tpOptions = [{ displayKey: "lbl_All", id: null }];
 					let games = [];
 
 					data.forEach(gameInfo => {
@@ -270,25 +268,6 @@ export default () => {
 									tpId: gameInfo.value,
 									...list
 								});
-
-								_categoryOptions.push({
-									displayText: list.category1,
-									id: defCategoryId[list.category1]
-								});
-
-								let filterRepeaCategories = Array.from(
-									new Set(
-										_categoryOptions.map(JSON.stringify)
-									)
-								).map(JSON.parse);
-
-								let pickCategoryItem = filterRepeaCategories.filter(
-									item =>
-										item.id === defCategoryId.All ||
-										item.id === defCategoryId.Slots ||
-										item.id === defCategoryId.Table
-								);
-								_categoryOptions = pickCategoryItem;
 							});
 						}
 					});
@@ -308,7 +287,6 @@ export default () => {
 						setTpList(_tpList);
 						setGameDatas(games);
 						setTpOptions(_tpOptions);
-						setCategoryOptions(_categoryOptions);
 
 						let _searchInfo = searchInfo;
 						let _category = category;
@@ -409,7 +387,7 @@ export default () => {
 								tpOptions={tpOptions}
 								onChangeCategory={onChangeCategory}
 								searchInfo={searchInfo}
-								categoryOptions={categoryOptions}
+								categoryOptions={defCategory}
 								category={category}
 								EditSearchField={EditSearchField}
 							/>
