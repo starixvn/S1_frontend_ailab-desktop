@@ -23,6 +23,7 @@ import {
 } from "./casino.def";
 import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
+import SwipperBanner from "../common/swipperBanner";
 
 const matchKeyword = (name, _keyword) => {
 	let keyword = _keyword.toLowerCase();
@@ -377,45 +378,61 @@ export default () => {
 		);
 	}, [userInfo.isLogin, urlTpId]);
 
-	return (
-		<div className="infoModule">
-			<div className="inside-title icon icon-ow-casino">
-				<span>{t("lbl_Casino")}</span>
-			</div>
-			<div className="casinoSelect">
-				<Nav selNav={selNav} onSelectNav={onSelectNav} t={t} />
-				<SearchBox
-					t={t}
-					submitSearch={SubmitSearch.bind(this, searchInfo)}
-					tpOptions={tpOptions}
-					onChangeCategory={onChangeCategory}
-					searchInfo={searchInfo}
-					categoryOptions={categoryOptions}
-					category={category}
-					EditSearchField={EditSearchField}
-				/>
-			</div>
-
-			{loading ? (
-				<></>
-			) : (
-				<GameList
-					t={t}
-					displayGames={displayGames}
-					tpList={tpList}
-					langId={userInfo.langId}
-					isLogin={userInfo.isLogin}
-					currentPage={pageInfo.currentPage}
-					favorite={favorite}
-					onSetFavorite={onSetFavorite}
-				/>
-			)}
-
-			<Pagination
-				totalPages={pageInfo.totalPages}
-				currentPage={pageInfo.currentPage}
-				clickPageNumber={clickPageNumber}
+	return loading ? (
+		<></>
+	) : (
+		<>
+			<SwipperBanner
+				ImgFolder="Casino"
+				withBtn={false}
+				openInBlank={true}
+				className="swiper-casino"
 			/>
-		</div>
+			<section className="inside">
+				<div className="rightModule">
+					<div className="infoModule">
+						<div className="inside-title icon icon-ow-casino">
+							<span>{t("lbl_Casino")}</span>
+						</div>
+						<div className="casinoSelect">
+							<Nav
+								selNav={selNav}
+								onSelectNav={onSelectNav}
+								t={t}
+							/>
+							<SearchBox
+								t={t}
+								submitSearch={SubmitSearch.bind(
+									this,
+									searchInfo
+								)}
+								tpOptions={tpOptions}
+								onChangeCategory={onChangeCategory}
+								searchInfo={searchInfo}
+								categoryOptions={categoryOptions}
+								category={category}
+								EditSearchField={EditSearchField}
+							/>
+						</div>
+						<GameList
+							t={t}
+							displayGames={displayGames}
+							tpList={tpList}
+							langId={userInfo.langId}
+							isLogin={userInfo.isLogin}
+							currentPage={pageInfo.currentPage}
+							favorite={favorite}
+							onSetFavorite={onSetFavorite}
+						/>
+						)
+						<Pagination
+							totalPages={pageInfo.totalPages}
+							currentPage={pageInfo.currentPage}
+							clickPageNumber={clickPageNumber}
+						/>
+					</div>
+				</div>
+			</section>
+		</>
 	);
 };
