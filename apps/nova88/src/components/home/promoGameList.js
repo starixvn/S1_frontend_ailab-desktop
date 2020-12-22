@@ -26,7 +26,7 @@ const defGameList = [
 		displayKey: "lbl_wm",
 		tpId: 20,
 		gameId: 20,
-		isNew: true
+		isNew: false
 	},
 	{
 		img: game2,

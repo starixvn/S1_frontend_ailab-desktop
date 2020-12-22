@@ -22,5 +22,22 @@ export const defNav = {
 
 export const defSearchColumn = {
 	searchText: "searchText",
-	provider: "provider"
+	provider: "provider",
+	category: "category"
 };
+
+export const defCategoryId = {
+	All: 0,
+	Slots: 1,
+	Table: 2
+	// ScratchCard:3,
+	// Arcade:4
+};
+
+export const defCategory = [
+	{ displayKey: "lbl_AllGames", id: defCategoryId.All },
+	{ displayKey: "lbl_Slots", id: defCategoryId.Slots },
+	{ displayKey: "lbl_Table", id: defCategoryId.Table }
+];
+
+export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
