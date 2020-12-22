@@ -71,6 +71,8 @@
 	"lbl_AllGames": "เกมทั้งหมด",
 	"lbl_Favourite": "เกมโปรด",
 	"lbl_Feature": "ลักษณะพิเศษ",
+	"lbl_Table":"เทเบิลเกมส์",
+	"lbl_Slots":"สล็อต",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "ต้องใส่ชื่อบัญชีผู้ใช้",
