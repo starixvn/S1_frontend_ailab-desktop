@@ -3,7 +3,12 @@ import { Link } from "@reach/router";
 import path from "../../router";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
-import { isNew, isClaimed, isExpiry } from "./promotion.common";
+import {
+	isNew,
+	isClaimed,
+	isExpiry,
+	isArrayNotEmpty
+} from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 
@@ -13,10 +18,14 @@ export default ({
 	userInfo,
 	filter,
 	refreshProcessBar,
-	staticPromotions,
-	getPromotionListV2
+	staticPromotions = [],
+	afterJoinCallBack
 }) => {
 	const { langId, isLogin, currencyId } = userInfo;
+
+	let isShowContent =
+		isArrayNotEmpty(promoList) ||
+		(isArrayNotEmpty(staticPromotions) && filter === defFilterType.all);
 
 	let rows = promoList?.map(p => {
 		let _isClaimed = isClaimed(p);
@@ -60,7 +69,7 @@ export default ({
 						promotionInfo={p}
 						userInfo={userInfo}
 						_isExpiry={_isExpiry}
-						callBack={getPromotionListV2}
+						callBack={afterJoinCallBack}
 					/>
 				</div>
 			</div>
@@ -69,13 +78,20 @@ export default ({
 
 	if (isLogin === null) return null;
 
+	if (isShowContent)
+		return (
+			<div
+				className={`proList${
+					filter === defFilterType.expiry ? " expired" : ""
+				}`}>
+				{rows}
+				{filter === defFilterType.all ? staticPromotions : null}
+			</div>
+		);
+
 	return (
-		<div
-			className={`proList${
-				filter === defFilterType.expiry ? " expired" : ""
-			}`}>
-			{rows}
-			{filter === defFilterType.all ? staticPromotions : null}
+		<div className="nodata icon icon-nodata">
+			<div>{t("lbl_NoData")}</div>
 		</div>
 	);
 };

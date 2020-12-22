@@ -1,6 +1,10 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { api_promotion_GetPromotionListV2 } from "../../service/api/promotion";
+import {
+	api_promotion_GetPromotionListV2,
+	api_promotion_GetSpecialPromotionList,
+	api_promotion_SetSpecialCode
+} from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
 import PromotionNavBar, { defFilterType } from "./promotion.nav";
 import PromotionList from "./promotion.list";
@@ -12,7 +16,6 @@ import {
 import { defPopBoxType } from "../common/popBox";
 import { isExpiry, isArrayNotEmpty } from "./promotion.common";
 import { defPromotionType } from "./promotion.def";
-import { SiteInfo } from "../../config";
 import staticList from "../../datas/promotionList";
 
 export default () => {
@@ -23,11 +26,12 @@ export default () => {
 	const [filter, setFilter] = useState(defFilterType.all);
 	const [initPromoList, setInitPromoList] = useState(null);
 	const [promoList, setPromoList] = useState([]);
+	const [specialCode, setSpecialCode] = useState("");
+	const [specialPromotionList, setSpecialPromotionList] = useState([]);
 
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { loading, setLoading } = useContext(loadingContext);
-	// const [staticList, setStaticList] = useState([]);
 
 	const clickClose = () => {
 		setPopBox({ isOpen: false });
@@ -88,8 +92,24 @@ export default () => {
 		setPromoList(afterFilterList);
 	};
 
+	const onSetSpecialCodeSubmit = async () => {
+		if (!specialCode) return;
+
+		await onSetSpecialCode();
+		await getSpecialPromotionList();
+		setSpecialCode("");
+	};
+
 	const onSetPromotionType = type => {
-		if (initPromoList && isArrayNotEmpty(initPromoList)) {
+		if (type === defFilterType.special_bonus && !userInfo.isLogin)
+			return setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+
+		if (type === defFilterType.special_bonus) {
+			getSpecialPromotionList();
+		} else if (initPromoList && isArrayNotEmpty(initPromoList)) {
 			onSetPromotionList(initPromoList, type);
 		}
 
@@ -129,22 +149,78 @@ export default () => {
 	const getPromotionListV2 = async () => {
 		await api_promotion_GetPromotionListV2({
 			langId: userInfo.langId
-		}).then(({ data: { data, message, errorCode } }) => {
-			if (!isMountedRef.current) return;
+		}).then(
+			({ data: { data, message, errorCode } }) => {
+				if (!isMountedRef.current) return;
 
-			const success = errorCode === 0;
-			if (success) {
-				let result = data.sort((a, b) => {
-					return a.periodFrom > b.periodFrom ? -1 : 1;
-				});
-				setInitPromoList(result);
-				onSetPromotionList(result, filter);
-			} else openErrorMessagePopBox(message || "error", errorCode);
-		});
+				const success = errorCode === 0;
+				if (success) {
+					let result = data.sort((a, b) => {
+						return a.periodFrom > b.periodFrom ? -1 : 1;
+					});
+					setInitPromoList(result);
+					onSetPromotionList(result, filter);
+				} else openErrorMessagePopBox(message || "error", errorCode);
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				openErrorMessagePopBox();
+			}
+		);
+	};
+
+	const getSpecialPromotionList = async () => {
+		setLoading(true);
+		await api_promotion_GetSpecialPromotionList({
+			langId: userInfo.langId
+		}).then(
+			({ data: { data, message, errorCode } }) => {
+				setLoading(false);
+				if (!isMountedRef.current) return;
+
+				const success = errorCode === 0;
+				if (success) {
+					setSpecialPromotionList(data);
+				} else openErrorMessagePopBox(message || "error", errorCode);
+			},
+			() => {
+				setLoading(false);
+				if (!isMountedRef.current) return;
+				openErrorMessagePopBox();
+			}
+		);
+	};
+
+	const onSetSpecialCode = async () => {
+		setLoading(true);
+		await api_promotion_SetSpecialCode({
+			langId: userInfo.langId,
+			SpecialCode: specialCode
+		}).then(
+			({ data: { message, errorCode } }) => {
+				setLoading(false);
+				if (!isMountedRef.current) return;
+
+				if (errorCode !== 0)
+					return openErrorMessagePopBox(
+						message || "error",
+						errorCode
+					);
+			},
+			() => {
+				setLoading(false);
+				if (!isMountedRef.current) return;
+				openErrorMessagePopBox();
+			}
+		);
 	};
 
 	useEffect(() => {
 		if (userInfo.isLogin === null) return;
+
+		if (!userInfo.isLogin && filter === defFilterType.special_bonus) {
+			onSetPromotionType(defFilterType.all);
+		}
 
 		async function getData() {
 			setLoading(true);
@@ -205,36 +281,44 @@ export default () => {
 		);
 	});
 
-	return loading ? (
-		<></>
-	) : (
-		<div className="infoModule">
-			<div className="inside-title icon icon-gift">
-				<span>{t("lbl_Promotions")}</span>
-			</div>
-			<PromotionNavBar
-				t={t}
-				selected={filter}
-				onClick={onSetPromotionType}
-			/>
-
-			{isArrayNotEmpty(promoList) ||
-			(filter === defFilterType.all && isArrayNotEmpty(_staticRows)) ? (
-				<PromotionList
-					t={t}
-					filter={filter}
-					userInfo={userInfo}
-					promoList={promoList}
-					staticPromotions={_staticRows}
-					refreshProcessBar={refreshProcessBar}
-					getPromotionListV2={getPromotionListV2}
-				/>
-			) : (
-				<div className="nodata icon icon-nodata">
-					<div>{t("lbl_NoData")}</div>
+	return (
+		!loading && (
+			<div className="infoModule">
+				<div className="inside-title icon icon-gift">
+					<span>{t("lbl_Promotions")}</span>
 				</div>
-			)}
-		</div>
+
+				<PromotionNavBar
+					t={t}
+					selected={filter}
+					specialCode={specialCode}
+					setSpecialCode={setSpecialCode}
+					onSetSpecialCodeSubmit={onSetSpecialCodeSubmit}
+					onClick={onSetPromotionType}
+				/>
+
+				{filter === defFilterType.special_bonus ? (
+					<PromotionList
+						t={t}
+						filter={filter}
+						userInfo={userInfo}
+						promoList={specialPromotionList}
+						refreshProcessBar={refreshProcessBar}
+						afterJoinCallBack={getSpecialPromotionList}
+					/>
+				) : (
+					<PromotionList
+						t={t}
+						filter={filter}
+						userInfo={userInfo}
+						promoList={promoList}
+						staticPromotions={_staticRows}
+						refreshProcessBar={refreshProcessBar}
+						afterJoinCallBack={getPromotionListV2}
+					/>
+				)}
+			</div>
+		)
 	);
 };
 
