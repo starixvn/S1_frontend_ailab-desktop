@@ -35,7 +35,7 @@ export const defLeftMenu = {
 			},
 			financial: {
 				path: path.financial.root,
-				displayKey: "lbl_Financial"
+				displayKey: "lbl_FinancialLog"
 			},
 			statement: {
 				path: `${path.statement.root}/${path.statement.sub.quickPick.root}`,

@@ -223,7 +223,7 @@
 	"msg_InsufficientFund": "Không đủ tiền!",
 
 	"financial  ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Financial": "Tiền vốn",
+	"lbl_FinancialLog": "Chi tiết Giao dịch",
 	"lbl_TypeName": "Nhập tên",
 	"lbl_BeforeAmount": "Số dư trước",
 	"lbl_AfterAmount": "Số dư sau",
