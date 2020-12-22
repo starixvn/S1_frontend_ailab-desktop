@@ -25,6 +25,22 @@ export const defMenuLinks = {
 		displayKey: "lbl_Games",
 		subMenu: [
 			{
+				...productList.One789_lottery,
+				path: path.sports.root,
+				className: "traditional",
+				displayKey: "lbl_TraditionalLottery",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.One789_lottery }
+			},
+			{
+				...productList.One789_lottery_789,
+				path: path.sports.root,
+				className: "one789",
+				displayKey: "lbl_789Lottery",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.One789_lottery_789 }
+			},
+			{
 				...productList.sabaClub,
 				path: path.sports.root,
 				className: "sabaclub",
@@ -130,6 +146,13 @@ export const defMenuLinks = {
 	liveCasino: {
 		displayKey: "lbl_LiveCasino",
 		subMenu: [
+			{
+				...productList.liveCasino_One789,
+				className: "live789",
+				icon: "icon icon-one789",
+				displayKey: "lbl_liveCasino_789SeDie",
+				menuType: defMenuType.entPage
+			},
 			{
 				gameId: 20,
 				tpId: 20,
