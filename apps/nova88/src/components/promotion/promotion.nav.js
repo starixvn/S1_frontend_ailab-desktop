@@ -57,6 +57,7 @@ const defPromoNavs = [
 
 export default ({
 	t,
+	userInfo,
 	selected,
 	onClick,
 	specialCode,
@@ -69,10 +70,14 @@ export default ({
 		setSpecialCode(trim(e.target.value));
 	};
 
+	let defPromoNavsFormat = defPromoNavs.filter(
+		item => item.value !== defFilterType.special_bonus || userInfo.isLogin
+	);
+
 	return (
 		<div className="quickSelect">
 			<div className="btnGroup promoType">
-				{defPromoNavs.map(item => (
+				{defPromoNavsFormat.map(item => (
 					<>
 						<button
 							key={`promo-nav-${item.displayKey}`}

@@ -101,13 +101,7 @@ export default () => {
 	};
 
 	const onSetPromotionType = type => {
-		if (type === defFilterType.special_bonus && !userInfo.isLogin)
-			return setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-
-		if (type === defFilterType.special_bonus) {
+		if (type === defFilterType.special_bonus && userInfo.isLogin) {
 			getSpecialPromotionList();
 		} else if (initPromoList && isArrayNotEmpty(initPromoList)) {
 			onSetPromotionList(initPromoList, type);
@@ -290,7 +284,9 @@ export default () => {
 
 				<PromotionNavBar
 					t={t}
+					userInfo={userInfo}
 					selected={filter}
+					userInfo={userInfo}
 					specialCode={specialCode}
 					setSpecialCode={setSpecialCode}
 					onSetSpecialCodeSubmit={onSetSpecialCodeSubmit}
