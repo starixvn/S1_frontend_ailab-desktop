@@ -3,8 +3,11 @@ import Dropdown from "../common/dropdown";
 
 export default ({
 	tpOptions,
+	categoryOptions,
 	EditSearchField,
+	onChangeCategory,
 	searchInfo,
+	category,
 	submitSearch,
 	t
 }) => {
@@ -37,6 +40,17 @@ export default ({
 						options={tpOptions}
 						onSelectItem={EditSearchField.bind(this, "provider")}
 						selectedIdx={searchInfo.provider.idx}
+						i18n={t}
+					/>
+				</div>
+			</div>
+			<div>
+				<div className="inputBox-white">
+					<Dropdown
+						mainkey="casino-gameType"
+						options={categoryOptions}
+						onSelectItem={onChangeCategory.bind(this, "category")}
+						selectedIdx={category.category.idx}
 						i18n={t}
 					/>
 				</div>

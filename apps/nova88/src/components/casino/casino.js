@@ -7,12 +7,23 @@ import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
 } from "../../service/api/account";
-import { popBoxContext, userInfoContext } from "../common/context";
+import {
+	popBoxContext,
+	userInfoContext,
+	loadingContext
+} from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { useTranslation } from "react-i18next";
-import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
+import {
+	defNav,
+	defRowsPerPage,
+	defSearchColumn,
+	defCategory,
+	defCategoryList
+} from "./casino.def";
 import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
+import SwipperBanner from "../common/swipperBanner";
 
 const matchKeyword = (name, _keyword) => {
 	let keyword = _keyword.toLowerCase();
@@ -38,10 +49,14 @@ export default () => {
 		[defSearchColumn.provider]: { idx: 0, value: null }
 	});
 
+	const [category, setCategory] = useState({
+		category: { idx: 0, value: null }
+	});
+
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
-
+	const { loading, setLoading } = useContext(loadingContext);
 	const urlTpId = getUrlParameter("tpId");
 
 	const clickClose = () => {
@@ -60,6 +75,7 @@ export default () => {
 			setSelNav(navKey);
 			SetGames({
 				_searchInfo: searchInfo,
+				_category: category,
 				_selNav: navKey,
 				_gameDatas: gameDatas,
 				_tpList: tpList
@@ -69,6 +85,7 @@ export default () => {
 
 	const FilterGames = (
 		_searchInfo,
+		_category,
 		_nav,
 		initGameDatas,
 		initTpList,
@@ -79,7 +96,10 @@ export default () => {
 		let tpId = _searchInfo.provider.value;
 		let searchText = _searchInfo.searchText;
 
-		const matchFilter = (tpId, g) => {
+		let _categoryId = _category.category.idx;
+		let doNotFilterCategory = _categoryId === 0;
+
+		const matchFilter = (tpId, g, _categoryId, notFilterCategory) => {
 			let matchNav =
 				(_nav === defNav.PROMO.key && g.promotion === 1) ||
 				(_nav === defNav.FEATURED.key && g.featured === true) ||
@@ -88,20 +108,24 @@ export default () => {
 				_nav === defNav.ALLGAMES.key;
 			return (
 				matchNav &&
-				(searchText === "" || matchKeyword(g.name, searchText))
+				(searchText === "" || matchKeyword(g.name, searchText)) &&
+				(doNotFilterCategory ||
+					g.category1 === defCategoryList[_categoryId])
 			);
 		};
 
 		return _gameDatas?.filter(g => {
 			let tp = _tpList[g.tpId];
 			return (
-				(tpId === null || tp.value === tpId) && matchFilter(tp.value, g)
+				(tpId === null || tp.value === tpId) &&
+				matchFilter(tp.value, g, _categoryId, doNotFilterCategory)
 			);
 		});
 	};
 
 	const SetGames = ({
 		_searchInfo,
+		_category,
 		_selNav,
 		_gameDatas,
 		_tpList,
@@ -109,6 +133,7 @@ export default () => {
 	}) => {
 		let _displayGames = FilterGames(
 			_searchInfo,
+			_category,
 			_selNav,
 			_gameDatas,
 			_tpList,
@@ -141,6 +166,7 @@ export default () => {
 		setFavorite(newFav);
 		SetGames({
 			_searchInfo: searchInfo,
+			_category: category,
 			_selNav: selNav,
 			_gameDatas: gameDatas,
 			_tpList: tpList,
@@ -172,6 +198,7 @@ export default () => {
 
 			SetGames({
 				_searchInfo: _searchInfo,
+				_category: category,
 				_selNav: selNav,
 				_gameDatas: gameDatas,
 				_tpList: tpList
@@ -179,9 +206,32 @@ export default () => {
 		}
 	};
 
+	const onChangeCategory = (column, value) => {
+		let _category = category;
+		setCategory(prevS => {
+			_category = {
+				...prevS,
+				[column]: {
+					idx: value,
+					value: defCategory[value].id
+				}
+			};
+			return _category;
+		});
+
+		SetGames({
+			_searchInfo: searchInfo,
+			_category: _category,
+			_selNav: selNav,
+			_gameDatas: gameDatas,
+			_tpList: tpList
+		});
+	};
+
 	const SubmitSearch = _searchInfo => {
 		SetGames({
 			_searchInfo: searchInfo,
+			_category: category,
 			_selNav: selNav,
 			_gameDatas: gameDatas,
 			_tpList: tpList
@@ -194,13 +244,15 @@ export default () => {
 	});
 
 	useEffect(() => {
+		setLoading(true);
 		api_site_GetGamelist().then(
 			res => {
 				const success = res.data.errorCode === 0;
 				const { data } = res.data;
+
 				if (success) {
 					let _tpList = {};
-					let _tpOptions = [{ displayText: "All", id: null }];
+					let _tpOptions = [{ displayKey: "lbl_All", id: null }];
 					let games = [];
 
 					data.forEach(gameInfo => {
@@ -210,7 +262,7 @@ export default () => {
 							id: gameInfo.value
 						});
 
-						if (gameInfo.gameList.data) {
+						if (gameInfo?.gameList?.data) {
 							gameInfo.gameList.data.forEach(list => {
 								games.push({
 									tpId: gameInfo.value,
@@ -237,6 +289,7 @@ export default () => {
 						setTpOptions(_tpOptions);
 
 						let _searchInfo = searchInfo;
+						let _category = category;
 
 						if (urlTpId) {
 							let idx = _tpOptions.findIndex(
@@ -259,6 +312,7 @@ export default () => {
 
 						SetGames({
 							_searchInfo,
+							_category,
 							_selNav: selNav,
 							_gameDatas: games,
 							_tpList
@@ -277,6 +331,7 @@ export default () => {
 							}
 						});
 					}
+					setLoading(false);
 				}
 			},
 			err => {
@@ -295,41 +350,67 @@ export default () => {
 							</div>
 						)
 					});
+					setLoading(false);
 				}
 			}
 		);
 	}, [userInfo.isLogin, urlTpId]);
 
-	return (
-		<div className="infoModule">
-			<div className="inside-title icon icon-ow-casino">
-				<span>{t("lbl_Casino")}</span>
-			</div>
-			<div className="casinoSelect">
-				<Nav selNav={selNav} onSelectNav={onSelectNav} t={t} />
-				<SearchBox
-					t={t}
-					tpOptions={tpOptions}
-					EditSearchField={EditSearchField}
-					searchInfo={searchInfo}
-					submitSearch={SubmitSearch.bind(this, searchInfo)}
-				/>
-			</div>
-			<GameList
-				t={t}
-				displayGames={displayGames}
-				tpList={tpList}
-				langId={userInfo.langId}
-				isLogin={userInfo.isLogin}
-				currentPage={pageInfo.currentPage}
-				favorite={favorite}
-				onSetFavorite={onSetFavorite}
+	return loading ? (
+		<></>
+	) : (
+		<>
+			<SwipperBanner
+				ImgFolder="Casino"
+				withBtn={false}
+				openInBlank={true}
+				className="swiper-casino"
 			/>
-			<Pagination
-				totalPages={pageInfo.totalPages}
-				currentPage={pageInfo.currentPage}
-				clickPageNumber={clickPageNumber}
-			/>
-		</div>
+			<section className="inside">
+				<div className="rightModule">
+					<div className="infoModule">
+						<div className="inside-title icon icon-ow-casino">
+							<span>{t("lbl_Casino")}</span>
+						</div>
+						<div className="casinoSelect">
+							<Nav
+								selNav={selNav}
+								onSelectNav={onSelectNav}
+								t={t}
+							/>
+							<SearchBox
+								t={t}
+								submitSearch={SubmitSearch.bind(
+									this,
+									searchInfo
+								)}
+								tpOptions={tpOptions}
+								onChangeCategory={onChangeCategory}
+								searchInfo={searchInfo}
+								categoryOptions={defCategory}
+								category={category}
+								EditSearchField={EditSearchField}
+							/>
+						</div>
+						<GameList
+							t={t}
+							displayGames={displayGames}
+							tpList={tpList}
+							langId={userInfo.langId}
+							isLogin={userInfo.isLogin}
+							currentPage={pageInfo.currentPage}
+							favorite={favorite}
+							onSetFavorite={onSetFavorite}
+						/>
+						)
+						<Pagination
+							totalPages={pageInfo.totalPages}
+							currentPage={pageInfo.currentPage}
+							clickPageNumber={clickPageNumber}
+						/>
+					</div>
+				</div>
+			</section>
+		</>
 	);
 };
