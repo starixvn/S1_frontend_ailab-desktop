@@ -63,7 +63,7 @@ const defCashierLinks = [
 		href: path.transferHistory.root
 	},
 	{
-		displayKey: "lbl_Financial",
+		displayKey: "lbl_FinancialLog",
 		href: path.financial.root
 	}
 ];

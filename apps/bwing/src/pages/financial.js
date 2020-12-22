@@ -163,7 +163,7 @@ const Content = () => {
 	) : (
 		<div className="infoModule">
 			<div className="inside-title">
-				<span>{t("lbl_Financial")}</span>
+				<span>{t("lbl_FinancialLog")}</span>
 			</div>
 			<Filter
 				submitHandler={clickDateSubmit}

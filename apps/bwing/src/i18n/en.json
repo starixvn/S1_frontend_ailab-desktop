@@ -240,7 +240,7 @@
 	"msg_InsufficientFund": "Insufficient Fund!",
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Financial": "Financial",
+	"lbl_FinancialLog": "Financial Log",
 	"lbl_TypeName": "Type Name",
 	"lbl_BeforeAmount": "Before Amount",
 	"lbl_AfterAmount": "After Amount",
