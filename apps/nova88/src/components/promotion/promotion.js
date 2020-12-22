@@ -1,113 +1,59 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import {
-	api_promotion_GetPromotionListV2,
-	api_promotion_GetSpecialPromotionList,
-	api_promotion_SetSpecialCode
-} from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
 import PromotionNavBar, { defFilterType } from "./promotion.nav";
 import PromotionList from "./promotion.list";
-import {
-	userInfoContext,
-	popBoxContext,
-	loadingContext
-} from "../common/context";
-import { defPopBoxType } from "../common/popBox";
-import { isExpiry, isArrayNotEmpty } from "./promotion.common";
-import { defPromotionType } from "./promotion.def";
-import staticList from "../../datas/promotionList";
+import { userInfoContext, loadingContext } from "../common/context";
+import usePopBox from "../hook/usePopBox";
+import useSpecialPromotion from "./hook/useSpecialPrmotion";
+import usePrmotion from "./hook/usePromotion";
 
 export default () => {
 	const { t } = useTranslation();
 
 	const isMountedRef = useRef(null);
 
-	const [filter, setFilter] = useState(defFilterType.all);
-	const [initPromoList, setInitPromoList] = useState(null);
-	const [promoList, setPromoList] = useState([]);
-	const [specialCode, setSpecialCode] = useState("");
-	const [specialPromotionList, setSpecialPromotionList] = useState([]);
+	const [promotionType, setPromotionType] = useState(defFilterType.all);
 
 	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
 	const { loading, setLoading } = useContext(loadingContext);
 
-	const clickClose = () => {
-		setPopBox({ isOpen: false });
-	};
+	const { errorPopBox } = usePopBox();
 
-	const openErrorMessagePopBox = (
-		message = t("msg_ApiServerError"),
-		errorCode = null
-	) => {
-		setPopBox({
-			message,
-			errorCode,
-			isOpen: true,
-			popBoxType: defPopBoxType.ErrorMsg,
-			icon: "icon-bell",
-			btnBar: (
-				<div className="btnGroup">
-					<button className="btn-cancel" onClick={clickClose}>
-						{t("lbl_Close")}
-					</button>
-				</div>
-			)
-		});
-	};
+	const {
+		promoList,
+		setPromoList,
+		promotionStaticRows,
+		afterFilterPromotionList,
+		getPromotionListV2
+	} = usePrmotion({
+		t,
+		promotionType,
+		userInfo,
+		isMountedRef,
+		errorPopBox
+	});
 
-	const onSetPromotionList = (_promoList, type) => {
-		let afterFilterList = [];
-		if (type === defFilterType.all) {
-			afterFilterList = _promoList.filter(
-				p => !isExpiry({ ...p, isLogin: userInfo.isLogin })
-			);
-		} else if (type === defFilterType.expiry) {
-			afterFilterList = _promoList.filter(p =>
-				isExpiry({ ...p, isLogin: userInfo.isLogin })
-			);
-		} else if (type === defFilterType.firstDeposit) {
-			//put 'bonus wallet' type into first deposit category as short term solution.
-			afterFilterList = _promoList.filter(
-				p =>
-					(p.promotionType === type ||
-						p.promotionType === defPromotionType.walletBonus) &&
-					!isExpiry({ ...p, isLogin: userInfo.isLogin })
-			);
-		} else if (type === defFilterType.Rebate_and_cashback) {
-			afterFilterList = _promoList.filter(
-				p =>
-					(p.promotionType === defPromotionType.rebate ||
-						p.promotionType === defPromotionType.cashback) &&
-					!isExpiry({ ...p, isLogin: userInfo.isLogin })
-			);
-		} else {
-			afterFilterList = _promoList.filter(
-				p =>
-					p.promotionType === type &&
-					!isExpiry({ ...p, isLogin: userInfo.isLogin })
-			);
-		}
-		setPromoList(afterFilterList);
-	};
-
-	const onSetSpecialCodeSubmit = async () => {
-		if (!specialCode) return;
-
-		await onSetSpecialCode();
-		await getSpecialPromotionList();
-		setSpecialCode("");
-	};
+	const {
+		specialCode,
+		setSpecialCode,
+		specialPromotionList,
+		setSpecialPromotionList,
+		onSetSpecialCodeSubmit,
+		getSpecialPromotionList
+	} = useSpecialPromotion({
+		userInfo,
+		setLoading,
+		isMountedRef,
+		errorPopBox
+	});
 
 	const onSetPromotionType = type => {
 		if (type === defFilterType.special_bonus && userInfo.isLogin) {
 			getSpecialPromotionList();
-		} else if (initPromoList && isArrayNotEmpty(initPromoList)) {
-			onSetPromotionList(initPromoList, type);
 		}
 
-		setFilter(type);
+		setPromotionType(type);
 	};
 
 	const refreshProcessBar = ({ bonusCode, tpId, categoryId }) => {
@@ -122,7 +68,7 @@ export default () => {
 			if (success) {
 				let idx = null;
 				let newPromoList = [];
-				if (filter === defFilterType.special_bonus) {
+				if (promotionType === defFilterType.special_bonus) {
 					idx = specialPromotionList.findIndex(
 						x =>
 							x.bonusCode === bonusCode &&
@@ -134,101 +80,36 @@ export default () => {
 						newPromoList[idx].custRollOver = data.rollover;
 						newPromoList[idx].custTurnOver = data.turnover;
 					}
+
+					setSpecialPromotionList(newPromoList);
 				} else {
-					idx = initPromoList.findIndex(
+					idx = promoList.findIndex(
 						x =>
 							x.bonusCode === bonusCode &&
 							x.tpId === tpId &&
 							x.categoryId === categoryId
 					);
 					if (idx !== -1) {
-						newPromoList = [...initPromoList];
+						newPromoList = [...promoList];
 						newPromoList[idx].custRollOver = data.rollover;
 						newPromoList[idx].custTurnOver = data.turnover;
 					}
-				}
 
-				setInitPromoList(newPromoList);
-				onSetPromotionList(newPromoList, filter);
+					setPromoList(newPromoList);
+				}
 			} else {
-				openErrorMessagePopBox(message || "error", errorCode);
+				errorPopBox(message || "error", errorCode);
 			}
 		});
-	};
-
-	const getPromotionListV2 = async () => {
-		await api_promotion_GetPromotionListV2({
-			langId: userInfo.langId
-		}).then(
-			({ data: { data, message, errorCode } }) => {
-				if (!isMountedRef.current) return;
-
-				const success = errorCode === 0;
-				if (success) {
-					let result = data.sort((a, b) => {
-						return a.periodFrom > b.periodFrom ? -1 : 1;
-					});
-					setInitPromoList(result);
-					onSetPromotionList(result, filter);
-				} else openErrorMessagePopBox(message || "error", errorCode);
-			},
-			() => {
-				if (!isMountedRef.current) return;
-				openErrorMessagePopBox();
-			}
-		);
-	};
-
-	const getSpecialPromotionList = async () => {
-		setLoading(true);
-		await api_promotion_GetSpecialPromotionList({
-			langId: userInfo.langId
-		}).then(
-			({ data: { data, message, errorCode } }) => {
-				setLoading(false);
-				if (!isMountedRef.current) return;
-
-				const success = errorCode === 0;
-				if (success) {
-					setSpecialPromotionList(data);
-				} else openErrorMessagePopBox(message || "error", errorCode);
-			},
-			() => {
-				setLoading(false);
-				if (!isMountedRef.current) return;
-				openErrorMessagePopBox();
-			}
-		);
-	};
-
-	const onSetSpecialCode = async () => {
-		setLoading(true);
-		await api_promotion_SetSpecialCode({
-			langId: userInfo.langId,
-			SpecialCode: specialCode
-		}).then(
-			({ data: { message, errorCode } }) => {
-				setLoading(false);
-				if (!isMountedRef.current) return;
-
-				if (errorCode !== 0)
-					return openErrorMessagePopBox(
-						message || "error",
-						errorCode
-					);
-			},
-			() => {
-				setLoading(false);
-				if (!isMountedRef.current) return;
-				openErrorMessagePopBox();
-			}
-		);
 	};
 
 	useEffect(() => {
 		if (userInfo.isLogin === null) return;
 
-		if (!userInfo.isLogin && filter === defFilterType.special_bonus) {
+		if (
+			!userInfo.isLogin &&
+			promotionType === defFilterType.special_bonus
+		) {
 			onSetPromotionType(defFilterType.all);
 		}
 
@@ -238,57 +119,11 @@ export default () => {
 			setLoading(false);
 		}
 		getData();
-
-		// fetch(SiteInfo.staticPromotions)
-		// 	.then(res => {
-		// 		return res.json();
-		// 	})
-		// 	.then(data => {
-		// 		setStaticList(data);
-		// 	});
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
-	});
-
-	let _staticRows = staticList.map(p => {
-		return (
-			<div
-				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={""}>
-				<div className=""></div>
-				<img
-					src={p.imgUrl?.[userInfo.langId]}
-					alt={p.title?.[userInfo.langId]}
-				/>
-				<div className="txt-darkBlue">{p.title?.[userInfo.langId]}</div>
-				<div className="txt-dark">{t("lbl_PromotionsDesc")}</div>
-				<div className="txt-gray">
-					{p.description?.[userInfo.langId]}
-				</div>
-
-				<div className="rollover">
-					<div>
-						<div className="icon icon-icon32px_">
-							{t("lbl_RollOver")}
-						</div>
-					</div>
-					<div className="txt-orange">
-						<div>1X</div>
-					</div>
-				</div>
-				<div
-					onClick={OpenStaticPromotion.bind(this, {
-						url: p.bannerLink?.[userInfo.langId],
-						bonusCode: p.bonusCode
-					})}
-					className="btnGroup">
-					<button className="blue">{t("lbl_Details")}</button>
-				</div>
-			</div>
-		);
 	});
 
 	return (
@@ -301,7 +136,7 @@ export default () => {
 				<PromotionNavBar
 					t={t}
 					userInfo={userInfo}
-					selected={filter}
+					selected={promotionType}
 					userInfo={userInfo}
 					specialCode={specialCode}
 					setSpecialCode={setSpecialCode}
@@ -309,10 +144,10 @@ export default () => {
 					onClick={onSetPromotionType}
 				/>
 
-				{filter === defFilterType.special_bonus ? (
+				{promotionType === defFilterType.special_bonus ? (
 					<PromotionList
 						t={t}
-						filter={filter}
+						promotionType={promotionType}
 						userInfo={userInfo}
 						promoList={specialPromotionList}
 						refreshProcessBar={refreshProcessBar}
@@ -321,24 +156,15 @@ export default () => {
 				) : (
 					<PromotionList
 						t={t}
-						filter={filter}
+						promotionType={promotionType}
 						userInfo={userInfo}
-						promoList={promoList}
-						staticPromotions={_staticRows}
+						promoList={afterFilterPromotionList}
+						staticPromotions={promotionStaticRows}
 						refreshProcessBar={refreshProcessBar}
 						afterJoinCallBack={getPromotionListV2}
 					/>
 				)}
 			</div>
 		)
-	);
-};
-
-const OpenStaticPromotion = ({ url, bonusCode }) => {
-	let windowKey = `static-promotion-${bonusCode}`;
-	window.open(
-		url,
-		windowKey,
-		"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
 	);
 };

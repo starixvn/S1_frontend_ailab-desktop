@@ -16,7 +16,7 @@ export default ({
 	promoList,
 	t,
 	userInfo,
-	filter,
+	promotionType,
 	refreshProcessBar,
 	staticPromotions = [],
 	afterJoinCallBack
@@ -25,7 +25,8 @@ export default ({
 
 	let isShowContent =
 		isArrayNotEmpty(promoList) ||
-		(isArrayNotEmpty(staticPromotions) && filter === defFilterType.all);
+		(isArrayNotEmpty(staticPromotions) &&
+			promotionType === defFilterType.all);
 
 	let rows = promoList?.map(p => {
 		let _isClaimed = isClaimed(p);
@@ -37,7 +38,7 @@ export default ({
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={_isClaimed ? "active" : ""}>
 				{_isClaimed ? <div className="claimed"></div> : null}
-				{filter === defFilterType.expiry ? (
+				{promotionType === defFilterType.expiry ? (
 					<div className="expiredIcon">EXPIRED</div>
 				) : (
 					<div className={_isNew ? "new" : ""}></div>
@@ -82,10 +83,10 @@ export default ({
 		return (
 			<div
 				className={`proList${
-					filter === defFilterType.expiry ? " expired" : ""
+					promotionType === defFilterType.expiry ? " expired" : ""
 				}`}>
 				{rows}
-				{filter === defFilterType.all ? staticPromotions : null}
+				{promotionType === defFilterType.all ? staticPromotions : null}
 			</div>
 		);
 
