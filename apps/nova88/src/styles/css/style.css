@@ -836,12 +836,16 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   right: 0;
-  text-align: right;
+  text-align: left;
   line-height: 30px;
   white-space: nowrap;
   top: 0;
   z-index: 1;
   border: 1px solid rgba(30, 133, 236, 0.5);
+}
+
+.header > div.function .cashier .submenu a, .header > div.function .wallet .submenu a, .header > div.function .memberfile .submenu a {
+  position: relative;
 }
 
 .header > div.function .cashier .submenu a:hover, .header > div.function .wallet .submenu a:hover, .header > div.function .memberfile .submenu a:hover {
@@ -1573,9 +1577,7 @@ footer {
 }
 
 .joinpop, .loginpop {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1590,7 +1592,9 @@ footer {
 }
 
 .joinpop.active, .loginpop.active {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .joinpop .joinloginModule, .loginpop .joinloginModule {
@@ -2596,6 +2600,14 @@ input[type="file"] {
 
 #leftMenu .menuModule .menuSelect span {
   z-index: 1;
+  position: relative;
+}
+
+#leftMenu .menuModule .menuSelect span.icon-new::before {
+  top: 0;
+  right: -10px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 #leftMenu .menuModule .menuSelect:before {
@@ -2794,6 +2806,7 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   padding: 5px;
+  word-break: break-all;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -3544,6 +3557,7 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 #popup .pop > div.active {
@@ -3625,7 +3639,41 @@ input[type="file"] {
   top: -20px;
 }
 
-.Submit, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
+#popup .pop .friend {
+  width: auto;
+}
+
+#popup .pop .friend .icon-close {
+  top: -25px;
+  right: -30px;
+}
+
+#popup .pop .friend > img {
+  border-radius: 5px;
+}
+
+#popup .pop .friend .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+#popup .pop .friend .checkbox input[type="checkbox"] + label {
+  border-radius: 0;
+  margin-right: 5px;
+}
+
+#popup .pop .friend .checkbox input[type="checkbox"] + label.icon:before {
+  font-size: 12px;
+  margin-top: -1px;
+}
+
+.Submit, .friend, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3638,18 +3686,18 @@ input[type="file"] {
   margin: auto;
 }
 
-.Submit.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
+.Submit.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Submit .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
+.Submit .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
   font-size: 36px;
   color: #f77900;
 }
 
-.Submit .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
+.Submit .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
   color: #f77900;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -3657,20 +3705,20 @@ input[type="file"] {
           transform: rotate(20deg);
 }
 
-.Submit .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
+.Submit .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
   margin: 10px 0 20px;
 }
 
-.Submit .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
+.Submit .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
   text-align: center;
 }
 
-.Submit .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
+.Submit .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
+.Submit .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3683,13 +3731,13 @@ input[type="file"] {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
+.Submit .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
+.Submit .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
@@ -4660,6 +4708,31 @@ input[type="file"] {
   text-align: center;
 }
 
+.specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 30px 0 10px;
+  padding: 0 34px;
+}
+
+.specialBonus .inputBox-white {
+  position: unset;
+  margin: 0 5px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.specialBonus .btnGroup {
+  margin: 0;
+}
+
 .pageSelect {
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -5274,6 +5347,11 @@ input[type="file"] {
   float: left;
   margin: 15px 5px;
   max-width: 330px;
+}
+
+.proList > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
 }
 
 .proList > div:hover {
@@ -6944,6 +7022,54 @@ button.icon-spinner11:before {
   padding: 20px;
 }
 
+.installGuide.mega .guides {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.installGuide.mega .guides .step {
+  width: calc(25% - 20px);
+  margin-right: 20px;
+  margin-top: 30px;
+  border-bottom: 3px solid #f77900;
+}
+
+.installGuide.mega .guides .content {
+  font-size: 18px;
+  color: #f77900;
+  height: 140px;
+}
+
+@media (max-width: 1024px) {
+  .installGuide.mega .guides .content {
+    font-size: 14px;
+    height: 150px;
+  }
+}
+
+.installGuide.mega .guides .content span {
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  font-weight: normal;
+}
+
+@media (max-width: 1024px) {
+  .installGuide.mega .guides .content span {
+    font-size: 10px;
+  }
+}
+
+.installGuide.mega .guides img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
 .installGuide > div {
   background: white;
   border-radius: 15px;
@@ -7588,7 +7714,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-pack: center;
           justify-content: center;
   text-transform: capitalize;
-  line-height: 50px;
+  min-height: 50px;
+  word-break: break-all;
 }
 
 .statement > div div:last-child {
@@ -7791,80 +7918,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 20.82739%;
-  top: 28.59292%;
-  width: 8.46643px;
-  height: 8.46643px;
+  left: 94.14557%;
+  top: 25.17861%;
+  width: 13.04928px;
+  height: 13.04928px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 0.25978%;
-  top: -28.73701%;
-  width: 9.8607px;
-  height: 9.8607px;
+  left: 30.75209%;
+  top: 16.01004%;
+  width: 10.43212px;
+  height: 10.43212px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 48.39998%;
-  top: 10.80079%;
-  width: 13.8182px;
-  height: 13.8182px;
+  left: 86.50382%;
+  top: -52.45711%;
+  width: 12.98375px;
+  height: 12.98375px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 85.00946%;
-  top: -48.03004%;
-  width: 14.52743px;
-  height: 14.52743px;
+  left: 6.21713%;
+  top: -8.10751%;
+  width: 5.81965px;
+  height: 5.81965px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 62.2439%;
-  top: 39.10852%;
-  width: 13.75376px;
-  height: 13.75376px;
+  left: 68.93026%;
+  top: -57.36385%;
+  width: 13.22902px;
+  height: 13.22902px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 56.44444%;
-  top: -0.4082%;
-  width: 11.92199px;
-  height: 11.92199px;
+  left: 73.44384%;
+  top: -37.63416%;
+  width: 8.22799px;
+  height: 8.22799px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 85.40216%;
-  top: -19.71273%;
-  width: 12.6072px;
-  height: 12.6072px;
+  left: 20.47297%;
+  top: 21.82974%;
+  width: 10.56094px;
+  height: 10.56094px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 33.39149%;
-  top: -21.02202%;
-  width: 11.63554px;
-  height: 11.63554px;
+  left: 93.72987%;
+  top: -39.59283%;
+  width: 14.37236px;
+  height: 14.37236px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -7911,5 +8038,96 @@ nav.breadcrumb ul .breadcrumb-item.active a {
     -webkit-transform: translate(0, 700px);
             transform: translate(0, 700px);
   }
+}
+
+.refbanner {
+  width: calc(100% - 140px);
+  margin: auto;
+}
+
+.referralModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% - 140px);
+  margin: 15px 0 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 70px;
+}
+
+.referralModule > div {
+  margin-right: 10px;
+}
+
+.referralModule > div:last-child {
+  margin-right: 0;
+}
+
+.referralModule > div .title {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.referralModule > div .refBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: rgba(33, 33, 33, 0.7);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.referralModule > div .refBox > div {
+  width: calc(50% - 32px);
+  margin: 10px 10px 10px 0;
+  border: 1px solid #1E85EC;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.referralModule > div .refBox > div.active {
+  background: rgba(19, 77, 174, 0.7);
+}
+
+.referralModule > div .refBox > div span {
+  color: #f77900;
+}
+
+.referralModule > div .refBox > div a {
+  color: #1E85EC;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.referralModule > div .refBox .icon {
+  color: white;
+}
+
+.referralModule > div.refLink {
+  width: 65%;
+}
+
+.referralModule > div.refLink .refBox {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.referralModule > div.refLink .refBox > div {
+  width: calc(100% - 20px);
+}
+
+.referralModule > div.refLink .refBox > div > a {
+  width: 50%;
+  float: left;
+  line-height: 30px;
 }
 /*# sourceMappingURL=style.css.map */

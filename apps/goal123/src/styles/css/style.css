@@ -2209,6 +2209,7 @@ main > .swiper-container .swiper-slide {
           align-items: center;
   border-right: 1px solid #435068;
   padding: 5px;
+  word-break: break-all;
 }
 
 .list .listBody > div div:nth-child(2) {
@@ -4434,6 +4435,11 @@ main > .swiper-container .swiper-slide {
   max-width: 330px;
 }
 
+.proList > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
 .proList > div:hover {
   background: #e2e2e2;
   -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
@@ -6001,80 +6007,80 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 [class^="snow"].snow1 {
   position: absolute;
-  left: 79.04184%;
-  top: 34.05255%;
-  width: 13.22712px;
-  height: 13.22712px;
+  left: 12.03774%;
+  top: -4.5449%;
+  width: 15.71369px;
+  height: 15.71369px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="snow"].snow2 {
   position: absolute;
-  left: 75.25051%;
-  top: 6.67065%;
-  width: 16.73667px;
-  height: 16.73667px;
+  left: 6.56442%;
+  top: 31.28645%;
+  width: 9.51566px;
+  height: 9.51566px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="snow"].snow3 {
   position: absolute;
-  left: 3.48719%;
-  top: 21.88609%;
-  width: 9.93533px;
-  height: 9.93533px;
+  left: 52.35875%;
+  top: 36.1831%;
+  width: 10.93524px;
+  height: 10.93524px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="snow"].snow4 {
   position: absolute;
-  left: 15.7688%;
-  top: -30.46462%;
-  width: 13.07811px;
-  height: 13.07811px;
+  left: 40.56466%;
+  top: 23.83809%;
+  width: 14.71091px;
+  height: 14.71091px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="snow"].snow5 {
   position: absolute;
-  left: 43.51091%;
-  top: 9.8121%;
-  width: 12.24875px;
-  height: 12.24875px;
+  left: 40.27594%;
+  top: -58.59075%;
+  width: 15.06584px;
+  height: 15.06584px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="snow"].snow6 {
   position: absolute;
-  left: 68.17985%;
-  top: 17.19875%;
-  width: 17.3959px;
-  height: 17.3959px;
+  left: 76.51721%;
+  top: -9.31393%;
+  width: 9.74667px;
+  height: 9.74667px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="snow"].snow7 {
   position: absolute;
-  left: 40.86294%;
-  top: 26.70805%;
-  width: 14.67797px;
-  height: 14.67797px;
+  left: 30.87559%;
+  top: -34.12179%;
+  width: 8.51501px;
+  height: 8.51501px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="snow"].snow8 {
   position: absolute;
-  left: 93.81386%;
-  top: -49.92765%;
-  width: 9.84388px;
-  height: 9.84388px;
+  left: 93.21359%;
+  top: -39.14011%;
+  width: 15.42617px;
+  height: 15.42617px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
