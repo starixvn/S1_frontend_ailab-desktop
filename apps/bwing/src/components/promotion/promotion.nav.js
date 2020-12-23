@@ -65,6 +65,10 @@ export default ({
 		setSpecialCode(trim(e.target.value));
 	};
 
+	const onKeyPress = e => {
+		if (e.key === "Enter") onSetSpecialCodeSubmit();
+	};
+
 	let defPromoNavsFormat = defPromoNavs.filter(
 		item => item.value !== defFilterType.special_bonus || userInfo.isLogin
 	);
@@ -92,6 +96,7 @@ export default ({
 								<div className="inputBox-blue">
 									<input
 										value={specialCode}
+										onKeyPress={onKeyPress}
 										placeholder={t("lbl_SpecialBonusCode")}
 										onChange={onChangeSpecialCode}
 									/>
