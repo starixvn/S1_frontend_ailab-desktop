@@ -9,7 +9,6 @@ import {
 } from "../../components/common/context";
 import usePopBox from "../../components/hook/usePopBox";
 import {
-	isConvert,
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath
@@ -37,11 +36,10 @@ export default () => {
 		PageSize: defPageSize
 	});
 	const [totalPage, setTotalPage] = useState(0);
-	const [recordListOneDayDatas, setRecordListOneDayDatas] = useState([]);
+	const [recordListOneDayDatas, setRecordListOneDayDatas] = useState(null);
 
 	const { userInfo } = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);
-	const _isConvert = isConvert(userInfo.currencyId);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -120,19 +118,19 @@ export default () => {
 			title: t("lbl_TurnOver"),
 			dataIndex: "turnOver",
 			key: "turnOver",
-			render: value => number_format(value.turnOver, _isConvert)
+			render: value => number_format(value.turnOver)
 		},
 		{
 			title: t("lbl_ValidBet"),
 			dataIndex: "validBet",
 			key: "validBet",
-			render: value => number_format(value.validBet, _isConvert)
+			render: value => number_format(value.validBet)
 		},
 		{
 			title: t("lbl_WinlostAmount"),
 			dataIndex: "winlostAmount",
 			key: "winlostAmount",
-			render: value => number_format(value.winlostAmount, _isConvert)
+			render: value => number_format(value.winlostAmount)
 		},
 		{
 			title: t("lbl_Action"),
