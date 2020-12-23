@@ -44,13 +44,12 @@ export default () => {
 	});
 	const [totalPage, setTotalPage] = useState(0);
 	const [detailListbyGameTypeDatas, setDetailListbyGameTypeDatas] = useState(
-		[]
+		null
 	);
 
 	const { userInfo } = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);
 
-	const _isConvert = isConvert(userInfo.currencyId);
 	const currentlyDisplayKey = quickPickList[initQuickPickType].displayKey;
 
 	useEffect(() => {
@@ -121,43 +120,38 @@ export default () => {
 			title: t("lbl_TurnOver"),
 			dataIndex: "turnOver",
 			key: "turnOver",
-			render: value => number_format(value.turnOver, _isConvert)
+			render: value => number_format(value.turnOver)
 		},
 		{
 			title: t("lbl_ValidBet"),
 			dataIndex: "validBet",
 			key: "validBet",
-			render: value => number_format(value.validBet, _isConvert)
+			render: value => number_format(value.validBet)
 		},
 		{
 			title: t("lbl_WinlostAmount"),
 			dataIndex: "winlostAmount",
 			key: "winlostAmount",
-			render: value => number_format(value.winlostAmount, _isConvert)
-		},
-		{
-			title: t("lbl_TransTime"),
-			dataIndex: "transTime",
-			key: "transTime",
-			render: value => moment(value).format("YYYY-MM-DD hh:mm:ss")
+			render: value => number_format(value.winlostAmount)
 		},
 		{
 			title: t("lbl_SettledTime"),
 			dataIndex: "settledTime",
 			key: "settledTime",
-			render: value => moment(value).format("YYYY-MM-DD hh:mm:ss")
+			render: value =>
+				moment(value.settledTime).format("YYYY-MM-DD HH:MM:ss")
 		}
 	];
 
-	let turnOverTotal = number_format(
-		numberSumReducer(detailListbyGameTypeDatas, "turnOver"),
-		_isConvert
-	);
+	let turnOverTotal =
+		detailListbyGameTypeDatas &&
+		number_format(numberSumReducer(detailListbyGameTypeDatas, "turnOver"));
 
-	let winlostAmountTotal = number_format(
-		numberSumReducer(detailListbyGameTypeDatas, "winlostAmount"),
-		_isConvert
-	);
+	let winlostAmountTotal =
+		detailListbyGameTypeDatas &&
+		number_format(
+			numberSumReducer(detailListbyGameTypeDatas, "winlostAmount")
+		);
 
 	return (
 		!loading && (
