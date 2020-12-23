@@ -30,7 +30,11 @@ export default ({
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={_isClaimed ? "active" : ""}>
+				className={`${_isClaimed ? "active" : ""}   ${
+					promotionType === defFilterType.special_bonus && !p.canJoin
+						? "expired"
+						: ""
+				}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
 				{promotionType === defFilterType.expiry ? (
 					<div className="expiredIcon">{t("lbl_Expired")}</div>
@@ -46,13 +50,17 @@ export default ({
 					</ul>
 				</div>
 				<PromoRule t={t} promotionInfo={p} inListPage={true} />
-				<ProcessBar
-					{...p}
-					t={t}
-					currencyId={currencyId}
-					RefreshProcessBar={refreshProcessBar.bind(this, p)}
-					hideReloadBtn={_isExpiry}
-				/>
+
+				{promotionType === defFilterType.special_bonus && p.isJoin ? (
+					<ProcessBar
+						{...p}
+						t={t}
+						currencyId={currencyId}
+						RefreshProcessBar={refreshProcessBar.bind(this, p)}
+						hideReloadBtn={_isExpiry}
+					/>
+				) : null}
+
 				<div className="btnGroup">
 					<Link
 						type="button"

@@ -36,7 +36,11 @@ export default ({
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={_isClaimed ? "active" : ""}>
+				className={`${_isClaimed ? "active" : ""}   ${
+					promotionType === defFilterType.special_bonus && !p.canJoin
+						? "expired"
+						: ""
+				}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
 				{promotionType === defFilterType.expiry ? (
 					<div className="expiredIcon">EXPIRED</div>
@@ -50,13 +54,15 @@ export default ({
 
 				<PromoRule promotionInfo={p} t={t} />
 
-				<ProcessBar
-					{...p}
-					t={t}
-					currencyId={currencyId}
-					refreshProcessBar={() => refreshProcessBar(p)}
-					hideReloadBtn={_isExpiry}
-				/>
+				{promotionType === defFilterType.special_bonus && p.isJoin ? (
+					<ProcessBar
+						{...p}
+						t={t}
+						currencyId={currencyId}
+						refreshProcessBar={() => refreshProcessBar(p)}
+						hideReloadBtn={_isExpiry}
+					/>
+				) : null}
 
 				<div className="btnGroup">
 					<Link
