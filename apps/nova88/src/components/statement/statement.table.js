@@ -8,7 +8,7 @@ const StatementTable = ({ t, dataSource, columns, children }) => {
 		return <div key={colItem.key}>{colItem.title}</div>;
 	});
 
-	let body = dataSource.map(item => {
+	let body = dataSource?.map(item => {
 		return (
 			<div key={`key-${item.settledDate || item.settledTime}`}>
 				{columns.map(colItem => {
@@ -41,7 +41,7 @@ const StatementTable = ({ t, dataSource, columns, children }) => {
 				{children}
 			</div>
 
-			{Array.isArray(dataSource) && dataSource.length ? null : (
+			{Array.isArray(dataSource) && !dataSource.length && (
 				<div className="list history">
 					<div className="icon icon-nodata">{t("lbl_NoData")}</div>
 				</div>
@@ -52,7 +52,7 @@ const StatementTable = ({ t, dataSource, columns, children }) => {
 
 StatementTable.propTypes = {
 	t: PropTypes.func.isRequired,
-	dataSource: PropTypes.array.isRequired,
+	dataSource: PropTypes.array,
 	columns: PropTypes.array.isRequired
 };
 

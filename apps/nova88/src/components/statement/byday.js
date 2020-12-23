@@ -37,7 +37,7 @@ export default () => {
 		PageSize: defPageSize
 	});
 	const [totalPage, setTotalPage] = useState(0);
-	const [recordListOneDayDatas, setRecordListOneDayDatas] = useState([]);
+	const [recordListOneDayDatas, setRecordListOneDayDatas] = useState(null);
 
 	const { userInfo } = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);

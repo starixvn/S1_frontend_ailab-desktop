@@ -48,7 +48,7 @@ export default () => {
 		PageSize: defPageSize
 	});
 	const [totalPage, setTotalPage] = useState(0);
-	const [recordListDateDatas, setRecordListDateDatas] = useState([]);
+	const [recordListDateDatas, setRecordListDateDatas] = useState(null);
 	const [quickPickType, setQuickPickType] = useState(originQuickPickType);
 
 	const { userInfo } = useContext(userInfoContext);
