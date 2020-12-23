@@ -1054,7 +1054,7 @@ main section > div .articleModule > div {
 }
 
 main section .btnGroup {
-  margin: 10px auto;
+  margin: 10px 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3805,6 +3805,29 @@ main > .swiper-container .swiper-slide {
   font-size: 24px;
 }
 
+.quickSelect > div.inputBox.promoType button.blueBorder, .quickSelect > div.promoType.inputBox-org button.blueBorder, .quickSelect > div.promoType.inputBox-white button.blueBorder, .quickSelect > div.promoType.inputBox-blue button.blueBorder, .quickSelect > div.promoType.inputBox-gray button.blueBorder, .quickSelect > div.promoType.inputBox-yellow button.blueBorder, .quickSelect > div:first-child.promoType button.blueBorder {
+  white-space: nowrap;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-org .specialBonus, .quickSelect > div.promoType.inputBox-white .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus, .quickSelect > div.promoType.inputBox-gray .specialBonus, .quickSelect > div.promoType.inputBox-yellow .specialBonus, .quickSelect > div:first-child.promoType .specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-org .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-white .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-gray .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-yellow .specialBonus .inputBox-white, .quickSelect > div:first-child.promoType .specialBonus .inputBox-white {
+  position: unset;
+  margin: 0 5px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
 .quickSelect > div:first-child {
   position: relative;
   max-width: 322px;
@@ -5978,80 +6001,80 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 [class^="snow"].snow1 {
   position: absolute;
-  left: 78.64204%;
-  top: -56.40666%;
-  width: 17.08164px;
-  height: 17.08164px;
+  left: 79.04184%;
+  top: 34.05255%;
+  width: 13.22712px;
+  height: 13.22712px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="snow"].snow2 {
   position: absolute;
-  left: 22.27574%;
-  top: 8.11142%;
-  width: 11.36823px;
-  height: 11.36823px;
+  left: 75.25051%;
+  top: 6.67065%;
+  width: 16.73667px;
+  height: 16.73667px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="snow"].snow3 {
   position: absolute;
-  left: 9.38737%;
-  top: -29.35377%;
-  width: 12.67561px;
-  height: 12.67561px;
+  left: 3.48719%;
+  top: 21.88609%;
+  width: 9.93533px;
+  height: 9.93533px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="snow"].snow4 {
   position: absolute;
-  left: 83.83644%;
-  top: -33.67238%;
-  width: 15.06122px;
-  height: 15.06122px;
+  left: 15.7688%;
+  top: -30.46462%;
+  width: 13.07811px;
+  height: 13.07811px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="snow"].snow5 {
   position: absolute;
-  left: 37.77654%;
-  top: -6.53168%;
-  width: 13.94796px;
-  height: 13.94796px;
+  left: 43.51091%;
+  top: 9.8121%;
+  width: 12.24875px;
+  height: 12.24875px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="snow"].snow6 {
   position: absolute;
-  left: 44.51567%;
-  top: 17.99851%;
-  width: 16.60806px;
-  height: 16.60806px;
+  left: 68.17985%;
+  top: 17.19875%;
+  width: 17.3959px;
+  height: 17.3959px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="snow"].snow7 {
   position: absolute;
-  left: 67.07163%;
-  top: -31.77402%;
-  width: 14.06282px;
-  height: 14.06282px;
+  left: 40.86294%;
+  top: 26.70805%;
+  width: 14.67797px;
+  height: 14.67797px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="snow"].snow8 {
   position: absolute;
-  left: 56.9063%;
-  top: -29.534%;
-  width: 16.58243px;
-  height: 16.58243px;
+  left: 93.81386%;
+  top: -49.92765%;
+  width: 9.84388px;
+  height: 9.84388px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
