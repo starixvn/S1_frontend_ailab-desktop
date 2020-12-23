@@ -79,10 +79,10 @@ export default ({
 	);
 
 	return (
-		<div className="quickSelect">
-			<div className="btnGroup promoType">
-				{defPromoNavsFormat.map(item => (
-					<>
+		<>
+			<div className="quickSelect">
+				<div className="btnGroup promoType">
+					{defPromoNavsFormat.map(item => (
 						<button
 							key={`promo-nav-${item.displayKey}`}
 							className={
@@ -93,27 +93,29 @@ export default ({
 							onClick={() => onClick(item.value)}>
 							{t(item.displayKey)}
 						</button>
-						{item.value === defFilterType.special_bonus &&
-						selected === defFilterType.special_bonus ? (
-							<div className="specialBonus">
-								<div className="inputBox-white">
-									<input
-										value={specialCode}
-										onKeyPress={onKeyPress}
-										placeholder={t("lbl_SpecialBonusCode")}
-										onChange={onChangeSpecialCode}
-									/>
-								</div>
-								<button
-									className="btn-check"
-									onClick={onSetSpecialCodeSubmit}>
-									{t("lbl_Submit")}
-								</button>
-							</div>
-						) : null}
-					</>
-				))}
+					))}
+				</div>
 			</div>
-		</div>
+			{selected === defFilterType.special_bonus ? (
+				<div className="specialBonus">
+					<div className="inputBox-white">
+						<input
+							value={specialCode}
+							onKeyPress={onKeyPress}
+							placeholder={t("lbl_SpecialBonusCode")}
+							onChange={onChangeSpecialCode}
+						/>
+					</div>
+
+					<div className="btnGroup">
+						<button
+							className="btn-check"
+							onClick={onSetSpecialCodeSubmit}>
+							{t("lbl_Submit")}
+						</button>
+					</div>
+				</div>
+			) : null}
+		</>
 	);
 };
