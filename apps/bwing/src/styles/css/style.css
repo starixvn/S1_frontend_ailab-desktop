@@ -199,6 +199,18 @@ header .header > div.menu > button {
   padding: 0 1%;
   font-size: 14px;
   font-family: "Segoe UI", sans-serif;
+  position: relative;
+}
+
+header .header > div.menu > a::before,
+header .header > div.menu > button::before {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 16px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu > a:hover, header .header > div.menu > a.active,
@@ -207,22 +219,6 @@ header .header > div.menu > button.active {
   cursor: pointer;
   background: #000924;
   color: #56ceff;
-}
-
-header .header > div.menu > a.casinobtn,
-header .header > div.menu > button.casinobtn {
-  position: relative;
-}
-
-header .header > div.menu > a.casinobtn::before,
-header .header > div.menu > button.casinobtn::before {
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  font-size: 16px;
-  color: #56ceff;
-  -webkit-animation: newicon 0.5s linear infinite alternate;
-          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu > a.liveIcon,
@@ -296,10 +292,6 @@ header .header > div.menu .subMenu-Wrapper.active {
   height: 240px;
 }
 
-header .header > div.menu .subMenu-Wrapper .icon:before {
-  font-size: 30px;
-}
-
 header .header > div.menu .gameList,
 header .header > div.menu .casinoList,
 header .header > div.menu .livecasinoList,
@@ -331,6 +323,7 @@ header .header > div.menu .livecasinoList a,
 header .header > div.menu .livecasinoList button,
 header .header > div.menu .fishList a,
 header .header > div.menu .fishList button {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -351,6 +344,7 @@ header .header > div.menu .fishList button {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   margin-top: -20px;
+  max-width: 200px;
 }
 
 header .header > div.menu .gameList a img,
@@ -388,6 +382,36 @@ header .header > div.menu .fishList a:hover,
 header .header > div.menu .fishList button:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
+}
+
+header .header > div.menu .gameList a i,
+header .header > div.menu .gameList button i,
+header .header > div.menu .casinoList a i,
+header .header > div.menu .casinoList button i,
+header .header > div.menu .livecasinoList a i,
+header .header > div.menu .livecasinoList button i,
+header .header > div.menu .fishList a i,
+header .header > div.menu .fishList button i {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+header .header > div.menu .gameList a i::before,
+header .header > div.menu .gameList button i::before,
+header .header > div.menu .casinoList a i::before,
+header .header > div.menu .casinoList button i::before,
+header .header > div.menu .livecasinoList a i::before,
+header .header > div.menu .livecasinoList button i::before,
+header .header > div.menu .fishList a i::before,
+header .header > div.menu .fishList button i::before {
+  content: "\e9e5";
+  top: 10px;
+  right: 0px;
+  color: #56ceff;
+  font-size: 20px;
 }
 
 header .header > div.menu .gameList .sabaclub {
@@ -487,23 +511,11 @@ header .header > div.menu .casinoList .OW:hover {
 }
 
 header .header > div.menu .casinoList .CQ9 {
-  position: relative;
   background: url(../img/casinoCQ9.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .casinoList .CQ9:hover {
   background: url(../img/casinoCQ9_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .casinoList .CQ9::before {
-  content: "\e9e5";
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  color: #56ceff;
-  font-size: 20px;
-  -webkit-animation: newicon 0.5s linear infinite alternate;
-          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu .casinoList .CQ9 .icon-cq9:before {
@@ -1452,8 +1464,6 @@ footer > div.copyright {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .inputBox .dropdown > .dropdown-container, .inputBox-blue .dropdown > .dropdown-container {
@@ -1492,6 +1502,10 @@ footer > div.copyright {
       -ms-flex-align: center;
           align-items: center;
   color: #aeb2bc;
+}
+
+.inputBox .dropdown > .icon, .inputBox-blue .dropdown > .icon {
+  margin-right: 5px;
 }
 
 .inputBox-blue {
@@ -2100,6 +2114,8 @@ main > .swiper-container .swiper-slide {
   border-right: 1px solid #465682;
   border-bottom: 1px solid #465682;
   padding: 10px;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .list .listBody > div div:nth-child(2) {
@@ -4027,6 +4043,12 @@ main > .swiper-container .swiper-slide {
   height: calc(100% - 40px);
 }
 
+.swiper-container + .quickSelect {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .quickSelect {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4038,8 +4060,11 @@ main > .swiper-container .swiper-slide {
 }
 
 .quickSelect > div {
-  width: 30%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   margin-right: 10px;
+  max-width: 520px;
 }
 
 .quickSelect > div.btnGroup:not(.promoType) {
@@ -4067,6 +4092,12 @@ main > .swiper-container .swiper-slide {
   -webkit-box-flex: 1 !important;
       -ms-flex: auto !important;
           flex: auto !important;
+}
+
+.quickSelect > div.inputBox-blue {
+  margin: 10px 10px 10px 0px;
+  min-height: auto;
+  max-width: 220px;
 }
 
 .quickSelect > div > .inputBox-blue {
@@ -4103,6 +4134,26 @@ main > .swiper-container .swiper-slide {
 .quickSelect > div:first-child.promoType > button:last-child,
 .quickSelect > div:first-child.promoType > a:last-child {
   float: right;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus,
+.quickSelect > div:first-child.promoType .specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus .inputBox-blue, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-blue,
+.quickSelect > div:first-child.promoType .specialBonus .inputBox-blue {
+  position: unset;
+  margin: 0 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
 }
 
 .quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
@@ -6037,80 +6088,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 53.23949%;
-  top: -59.3913%;
-  width: 6.14208px;
-  height: 6.14208px;
+  left: 50.81323%;
+  top: -43.33428%;
+  width: 5.33503px;
+  height: 5.33503px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 13.24357%;
-  top: 2.99407%;
-  width: 6.3441px;
-  height: 6.3441px;
+  left: 3.20425%;
+  top: 27.06785%;
+  width: 10.25256px;
+  height: 10.25256px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 92.44119%;
-  top: -20.60893%;
-  width: 10.39992px;
-  height: 10.39992px;
+  left: 12.32555%;
+  top: -1.69775%;
+  width: 6.92344px;
+  height: 6.92344px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 61.69336%;
-  top: 30.80413%;
-  width: 9.18641px;
-  height: 9.18641px;
+  left: 93.81862%;
+  top: -45.09434%;
+  width: 11.24922px;
+  height: 11.24922px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 31.39538%;
-  top: 39.54066%;
-  width: 13.14258px;
-  height: 13.14258px;
+  left: 63.15026%;
+  top: -17.89076%;
+  width: 5.7331px;
+  height: 5.7331px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 97.37147%;
-  top: -55.32845%;
-  width: 5.65674px;
-  height: 5.65674px;
+  left: 14.47829%;
+  top: -37.11734%;
+  width: 13.86497px;
+  height: 13.86497px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 0.74423%;
-  top: -4.06533%;
-  width: 12.7191px;
-  height: 12.7191px;
+  left: 22.44831%;
+  top: 9.06306%;
+  width: 12.44849px;
+  height: 12.44849px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 3.45473%;
-  top: 27.12766%;
-  width: 5.53891px;
-  height: 5.53891px;
+  left: 81.72531%;
+  top: -5.61503%;
+  width: 9.57682px;
+  height: 9.57682px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
