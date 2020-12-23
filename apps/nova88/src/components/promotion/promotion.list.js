@@ -63,12 +63,17 @@ export default ({
 						hideReloadBtn={_isExpiry}
 					/>
 				) : null}
-
 				<div className="btnGroup">
 					<Link
 						type="button"
 						className="blue"
-						to={`/${langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${p.bonusCode}`}>
+						to={`/${langId}/${path.promotion.root}/${
+							path.promotion.sub.promotionInfo.root
+						}?BonusCode=${p.bonusCode}${
+							promotionType === defFilterType.special_bonus
+								? `&FilterType=9001`
+								: ""
+						}`}>
 						{t("lbl_Details")}
 					</Link>
 
@@ -76,6 +81,7 @@ export default ({
 						promotionInfo={p}
 						userInfo={userInfo}
 						_isExpiry={_isExpiry}
+						promotionNavType={promotionType}
 						callBack={afterJoinCallBack}
 					/>
 				</div>
