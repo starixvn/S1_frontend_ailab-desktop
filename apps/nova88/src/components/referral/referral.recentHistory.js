@@ -12,7 +12,7 @@ import { isConvert } from "../common/common";
 
 // import Loading from "../common/loading";
 
-export default ({ recentHistory, refreshData, GetWithdrawalInfoRecent }) => {
+export default ({ recentHistory, refreshData, getReferralRecent }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -26,7 +26,7 @@ export default ({ recentHistory, refreshData, GetWithdrawalInfoRecent }) => {
 	});
 
 	useEffect(() => {
-		GetWithdrawalInfoRecent();
+		getReferralRecent();
 	}, []);
 
 	const ClosePopBox = () => {
@@ -133,7 +133,7 @@ export default ({ recentHistory, refreshData, GetWithdrawalInfoRecent }) => {
 					<div>
 						{t("lbl_Action")}
 						<ReloadSpin
-							func={GetWithdrawalInfoRecent}
+							func={getReferralRecent}
 							btnActive={false}
 						/>
 					</div>

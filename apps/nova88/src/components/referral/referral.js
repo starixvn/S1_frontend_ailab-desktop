@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../common/context";
-
+import { defPopBoxType } from "../common/popBox";
 import Loading from "../common/loading";
-import { api_site_GetCountryList } from "../../service/api/site";
+import { api_payment_GetWithdrawalInfoRecent } from "../../service/api/payment";
 
+import ReferralContent from "./referral.content";
+import ReferralStepBar from "./referral.stepBar";
 import RecentHistory from "./referral.recentHistory";
 
 export default () => {
@@ -13,10 +15,65 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 
+	const [recentData, setRecentData] = useState([]);
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
 	});
+
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+
+	const getReferralRecent = async () => {
+		await api_payment_GetWithdrawalInfoRecent().then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setRecentData(res.data.data);
+					} else {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: res.data.message,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={clickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
+			},
+			err => {
+				if (isMountedRef.current) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={clickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			}
+		);
+	};
+
+	const refreshData = () => {
+		getReferralRecent();
+	};
 
 	return (
 		<>
@@ -29,101 +86,13 @@ export default () => {
 						using your referral code.
 					</div>
 				</div>
-				<div className="stepBar">
-					{/* <div className="stepLine" style="width: 33.3%;"></div> */}
-					<div className="active">
-						<span>01</span>
-						<span>
-							Copy your Nova88 referral link and share it with
-							your friends
-						</span>
-					</div>
-					<div>
-						<span>02</span>
-						<span>
-							Friends register and make deposits and withdrawals
-						</span>
-					</div>
-					<div>
-						<span>OK</span>
-						<span>Reward together!</span>
-					</div>
-				</div>
-				<div className="referralModule">
-					<div className="refShare">
-						<div className="title">
-							Share your favorite offers with friend!
-						</div>
-						<div className="refBox">
-							<div>
-								<div>
-									FREE <span>MYR 88</span>
-								</div>
-								<div>
-									Turn <span>8x</span>
-								</div>
-								<div>
-									Deposit <span>888</span>
-								</div>
-								<a>More Details</a>
-							</div>
-							<div>
-								<div>
-									FREE <span>MYR 88</span>
-								</div>
-								<div>
-									Turn <span>8x</span>
-								</div>
-								<div>
-									Deposit <span>888</span>
-								</div>
-								<a>More Details</a>
-							</div>
-							<div>
-								<div>
-									FREE <span>MYR 88</span>
-								</div>
-								<div>
-									Turn <span>8x</span>
-								</div>
-								<div>
-									Deposit <span>888</span>
-								</div>
-								<a>More Details</a>
-							</div>
-						</div>
-					</div>
-					<div className="refLink">
-						<div className="title">Your unique link invite</div>
-						<div className="refBox">
-							<div>
-								Referral Code:{" "}
-								<span>xxxReferralCodexxxxxx</span>
-								<button class="icon icon-files-empty"></button>
-							</div>
-							<div>
-								Referral Link:{" "}
-								<span>https://www.nova88.net/?refid=xxxx</span>
-								<button class="icon icon-files-empty"></button>
-							</div>
-							<div>
-								<a className="icon icon-files-empty">
-									Copy to Clipboard
-								</a>
-								<a className="icon icon-download2">Download</a>
-								<a className="icon icon-facebook2">Facebook</a>
-								<a className="icon icon-telegram">Telegram</a>
-								<a className="icon icon-whatsapp">Whatsapp</a>
-								<a className="icon icon-skype">Skype</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				<ReferralStepBar />
+				<ReferralContent />
 			</div>
 			<RecentHistory
 				refreshData={refreshData}
-				recentHistory={state.recentHistory ?? []}
-				GetWithdrawalInfoRecent={GetWithdrawalInfoRecent}
+				recentHistory={recentData ?? []}
+				getReferralRecent={getReferralRecent}
 			/>
 		</>
 	);
