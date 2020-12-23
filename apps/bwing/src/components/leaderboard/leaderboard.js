@@ -35,7 +35,7 @@ export default () => {
 	const [tab, setTab] = useState(defTabId.event);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 	const lBCategoryId = 0;
-	const TopNum = 20;
+	const TopNum = 16;
 
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??

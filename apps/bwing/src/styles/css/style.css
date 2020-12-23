@@ -199,6 +199,18 @@ header .header > div.menu > button {
   padding: 0 1%;
   font-size: 14px;
   font-family: "Segoe UI", sans-serif;
+  position: relative;
+}
+
+header .header > div.menu > a::before,
+header .header > div.menu > button::before {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 16px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu > a:hover, header .header > div.menu > a.active,
@@ -207,22 +219,6 @@ header .header > div.menu > button.active {
   cursor: pointer;
   background: #000924;
   color: #56ceff;
-}
-
-header .header > div.menu > a.casinobtn,
-header .header > div.menu > button.casinobtn {
-  position: relative;
-}
-
-header .header > div.menu > a.casinobtn::before,
-header .header > div.menu > button.casinobtn::before {
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  font-size: 16px;
-  color: #56ceff;
-  -webkit-animation: newicon 0.5s linear infinite alternate;
-          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu > a.liveIcon,
@@ -296,10 +292,6 @@ header .header > div.menu .subMenu-Wrapper.active {
   height: 240px;
 }
 
-header .header > div.menu .subMenu-Wrapper .icon:before {
-  font-size: 30px;
-}
-
 header .header > div.menu .gameList,
 header .header > div.menu .casinoList,
 header .header > div.menu .livecasinoList,
@@ -331,6 +323,7 @@ header .header > div.menu .livecasinoList a,
 header .header > div.menu .livecasinoList button,
 header .header > div.menu .fishList a,
 header .header > div.menu .fishList button {
+  position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -351,6 +344,7 @@ header .header > div.menu .fishList button {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   margin-top: -20px;
+  max-width: 200px;
 }
 
 header .header > div.menu .gameList a img,
@@ -388,6 +382,36 @@ header .header > div.menu .fishList a:hover,
 header .header > div.menu .fishList button:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
+}
+
+header .header > div.menu .gameList a i,
+header .header > div.menu .gameList button i,
+header .header > div.menu .casinoList a i,
+header .header > div.menu .casinoList button i,
+header .header > div.menu .livecasinoList a i,
+header .header > div.menu .livecasinoList button i,
+header .header > div.menu .fishList a i,
+header .header > div.menu .fishList button i {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+header .header > div.menu .gameList a i::before,
+header .header > div.menu .gameList button i::before,
+header .header > div.menu .casinoList a i::before,
+header .header > div.menu .casinoList button i::before,
+header .header > div.menu .livecasinoList a i::before,
+header .header > div.menu .livecasinoList button i::before,
+header .header > div.menu .fishList a i::before,
+header .header > div.menu .fishList button i::before {
+  content: "\e9e5";
+  top: 10px;
+  right: 0px;
+  color: #56ceff;
+  font-size: 20px;
 }
 
 header .header > div.menu .gameList .sabaclub {
@@ -487,23 +511,11 @@ header .header > div.menu .casinoList .OW:hover {
 }
 
 header .header > div.menu .casinoList .CQ9 {
-  position: relative;
   background: url(../img/casinoCQ9.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .casinoList .CQ9:hover {
   background: url(../img/casinoCQ9_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .casinoList .CQ9::before {
-  content: "\e9e5";
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  color: #56ceff;
-  font-size: 20px;
-  -webkit-animation: newicon 0.5s linear infinite alternate;
-          animation: newicon 0.5s linear infinite alternate;
 }
 
 header .header > div.menu .casinoList .CQ9 .icon-cq9:before {
@@ -912,76 +924,6 @@ header .header > div.function .wallet button.icon-eye {
   margin-left: 5px;
 }
 
-header .header > div.function .wallet .submenu .walletTitle {
-  position: relative;
-  font-size: 14;
-}
-
-header .header > div.function .wallet .submenu .walletTitle button {
-  position: absolute;
-  top: 0px;
-  right: 20px;
-}
-
-header .header > div.function .wallet .submenu .walletTitle button::before {
-  color: #56ceff;
-  font-size: 14px;
-}
-
-header .header > div.function .wallet .submenu .walletArea {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-header .header > div.function .wallet .submenu .walletArea .walletBox {
-  -webkit-box-flex: 7;
-      -ms-flex: 7;
-          flex: 7;
-  font-weight: bold;
-  width: 100%;
-  margin-bottom: 5px;
-}
-
-header .header > div.function .wallet .submenu .walletArea .walletBox .walletBalance {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 5px 10px;
-  background-color: #18203b;
-  border-top: 1px solid #2c3968;
-}
-
-header .header > div.function .wallet .submenu .walletArea .walletBox .walletBalance:nth-last-child(1) {
-  border-radius: 0 0 3px 3px;
-}
-
-header .header > div.function .wallet .submenu .walletArea .walletBox .walletBalance:nth-child(1) {
-  border: 0;
-  border-radius: 3px 3px 0 0;
-  color: #ff7940;
-}
-
-header .header > div.function .wallet .submenu .walletArea .walletBox .walletBalance > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 header .header > div.function .wallet .submenu > div {
   padding: 0 20px;
   display: -webkit-box;
@@ -994,6 +936,35 @@ header .header > div.function .wallet .submenu > div {
       -ms-flex-align: center;
           align-items: center;
   min-width: 260px;
+}
+
+header .header > div.function .wallet .submenu > div > div {
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  font-weight: bold;
+  border-right: 1px dashed rgba(255, 255, 255, 0.5);
+  margin-right: 10px;
+}
+
+header .header > div.function .wallet .submenu > div > div .walletBalance {
+  padding-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header .header > div.function .wallet .submenu > div > div .walletBalance > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 header .header > div.function .wallet .submenu > div.btnGroup {
@@ -1107,10 +1078,6 @@ main section > div .articleModule > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 10px);
           flex: 0 0 calc(100% / 3 - 10px);
-}
-
-main section .btnGroup {
-  margin: 10px auto;
 }
 
 footer {
@@ -1497,8 +1464,6 @@ footer > div.copyright {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .inputBox .dropdown > .dropdown-container, .inputBox-blue .dropdown > .dropdown-container {
@@ -1537,6 +1502,10 @@ footer > div.copyright {
       -ms-flex-align: center;
           align-items: center;
   color: #aeb2bc;
+}
+
+.inputBox .dropdown > .icon, .inputBox-blue .dropdown > .icon {
+  margin-right: 5px;
 }
 
 .inputBox-blue {
@@ -2182,13 +2151,13 @@ main > .swiper-container .swiper-slide {
   margin: 0 5px;
 }
 
-.list .listBody > div button {
+.list .listBody > div a {
   padding: 5px 20px;
   background-color: #284985;
   border-radius: 50px;
 }
 
-.list .listBody > div button:hover {
+.list .listBody > div a:hover {
   -webkit-filter: brightness(1.4);
           filter: brightness(1.4);
 }
@@ -4072,6 +4041,12 @@ main > .swiper-container .swiper-slide {
   height: calc(100% - 40px);
 }
 
+.swiper-container + .quickSelect {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .quickSelect {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4086,8 +4061,8 @@ main > .swiper-container .swiper-slide {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  padding: 0 0 0 10px;
   margin-right: 10px;
+  max-width: 520px;
 }
 
 .quickSelect > div.btnGroup:not(.promoType) {
@@ -4115,6 +4090,12 @@ main > .swiper-container .swiper-slide {
   -webkit-box-flex: 1 !important;
       -ms-flex: auto !important;
           flex: auto !important;
+}
+
+.quickSelect > div.inputBox-blue {
+  margin: 10px 10px 10px 0px;
+  min-height: auto;
+  max-width: 220px;
 }
 
 .quickSelect > div > .inputBox-blue {
@@ -4151,6 +4132,26 @@ main > .swiper-container .swiper-slide {
 .quickSelect > div:first-child.promoType > button:last-child,
 .quickSelect > div:first-child.promoType > a:last-child {
   float: right;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus,
+.quickSelect > div:first-child.promoType .specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus .inputBox-blue, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-blue,
+.quickSelect > div:first-child.promoType .specialBonus .inputBox-blue {
+  position: unset;
+  margin: 0 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
 }
 
 .quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
@@ -5883,51 +5884,37 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-left: 0;
 }
 
-.guided {
+.breadcrumb ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 0 2vw;
-  border-radius: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  width: calc(100% - 100px);
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #030c1b;
+  border-radius: 30px;
+  font-size: 13px;
 }
 
-.guided span {
+.breadcrumb ul .breadcrumb-item a {
   opacity: 0.5;
-  cursor: pointer;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  color: #fff;
+  text-transform: capitalize;
 }
 
-.guided span.guidedText:hover {
-  color: #56ceff;
+.breadcrumb ul .breadcrumb-item a:hover {
   opacity: 1;
-}
-
-.guided span:nth-child(even) {
-  margin: 0 10px;
-}
-
-.guided span:nth-child(even)::after {
-  font-family: "icomoon";
-  content: "\e954";
-  font-size: 16px;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-
-.guided span.active {
   color: #56ceff;
+}
+
+.breadcrumb ul .breadcrumb-item + .breadcrumb-item::before {
+  content: "\e95c";
+  margin: 0 5px;
+}
+
+.breadcrumb ul .breadcrumb-item.active a {
   opacity: 1;
+  color: #56ceff;
 }
 
 .essayPage {
@@ -6099,80 +6086,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 3.03397%;
-  top: -15.30917%;
-  width: 13.96757px;
-  height: 13.96757px;
+  left: 62.86865%;
+  top: 17.58052%;
+  width: 11.5346px;
+  height: 11.5346px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 10.76533%;
-  top: 2.14615%;
-  width: 5.69684px;
-  height: 5.69684px;
+  left: 45.51376%;
+  top: -13.18847%;
+  width: 9.91486px;
+  height: 9.91486px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 33.94704%;
-  top: 22.73438%;
-  width: 10.46425px;
-  height: 10.46425px;
+  left: 88.14031%;
+  top: -5.18073%;
+  width: 5.08274px;
+  height: 5.08274px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 58.12672%;
-  top: 18.95188%;
-  width: 14.95932px;
-  height: 14.95932px;
+  left: 39.89498%;
+  top: -9.45842%;
+  width: 10.39616px;
+  height: 10.39616px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 23.99194%;
-  top: -47.27343%;
-  width: 12.50752px;
-  height: 12.50752px;
+  left: 67.49347%;
+  top: -20.91109%;
+  width: 6.77263px;
+  height: 6.77263px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 13.6375%;
-  top: -59.50232%;
-  width: 13.73966px;
-  height: 13.73966px;
+  left: 57.79019%;
+  top: 20.07783%;
+  width: 9.752px;
+  height: 9.752px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 60.65008%;
-  top: -11.38031%;
-  width: 14.99052px;
-  height: 14.99052px;
+  left: 19.36345%;
+  top: -29.09365%;
+  width: 5.29836px;
+  height: 5.29836px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 26.75396%;
-  top: 10.27002%;
-  width: 12.9841px;
-  height: 12.9841px;
+  left: 95.42654%;
+  top: -21.54326%;
+  width: 5.52446px;
+  height: 5.52446px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }

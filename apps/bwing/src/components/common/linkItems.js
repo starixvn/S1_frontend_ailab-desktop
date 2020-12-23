@@ -28,7 +28,8 @@ export default ({
 	langId,
 	isLogin,
 	checkMatchPage,
-	toUpperCase = false
+	toUpperCase = false,
+	mainKey = ""
 }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -49,6 +50,8 @@ export default ({
 
 	let rows = Object.keys(defMenuLinks).map(key => {
 		let m = defMenuLinks[key];
+		let elemKey = `${mainKey}${key}`;
+
 		let arrowIcon =
 			m.subMenu && m.subMenu.length > 0 ? (
 				<i className="icon icon-arrow_drop_down"></i>
@@ -69,6 +72,7 @@ export default ({
 		if (m.affiliate) {
 			return (
 				<a
+					key={elemKey}
 					href={siteInfo({ langId: userInfo.langId }).affiliateLink}
 					target="_blank">
 					{t("lbl_Affiliates")?.toUpperCase()}
@@ -91,7 +95,7 @@ export default ({
 			if (rule.needLogin && isLogin === false) {
 				return (
 					<button
-						key={key}
+						key={elemKey}
 						onClick={showLogin}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}>
@@ -102,7 +106,7 @@ export default ({
 			} else if (isBlank) {
 				return (
 					<a
-						key={key}
+						key={elemKey}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onClick={OPEN_IN_BLANK.bind(
@@ -117,7 +121,7 @@ export default ({
 			} else if (!_path) {
 				return (
 					<button
-						key={key}
+						key={elemKey}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}>
 						{displayText}
@@ -135,7 +139,7 @@ export default ({
 						: _className;
 				return (
 					<Link
-						key={key}
+						key={elemKey}
 						to={_url}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}>
@@ -154,7 +158,7 @@ export default ({
 						: _className;
 				return (
 					<Link
-						key={key}
+						key={elemKey}
 						to={`${langId}/${_path}`}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						className={_className}>
@@ -165,7 +169,7 @@ export default ({
 			} else {
 				return (
 					<button
-						key={key}
+						key={elemKey}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						className={_className}>
 						{displayText}
@@ -176,5 +180,5 @@ export default ({
 		}
 	});
 
-	return <>{rows}</>;
+	return rows;
 };

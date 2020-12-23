@@ -21,6 +21,7 @@ export default ({ showSubMenu }) => {
 				<i className="icon icon-home"></i>
 			</Link>
 			<LinkItems
+				mainKey={`header-`}
 				defMenuLinks={defMenuLinks}
 				t={t}
 				showSubMenu={showSubMenu}
