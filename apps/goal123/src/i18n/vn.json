@@ -166,6 +166,8 @@
 	"lbl_ClaimAmountRange": "Khoảng tiền nạp",
 	"lbl_ClaimAmount": "Số tiền đạt",
 	"lbl_PleaseEnterClaimAmount": "Vui lòng nhập số tiền bạn muốn để nhận khuyến mãi",
+	"lbl_SpecialBonus": "Special Bonus",
+	"lbl_SpecialBonusCode": "Special Bonus Code",
 	"lbl_MinAmount": "Số tiền tối thiểu",
 	"lbl_RemainingTime": "Thời gian còn lại",
 	"lbl_RequireMinAmountHint_Front": "Tiền gửi tối thiểu là",
@@ -382,12 +384,12 @@
 	"lbl_Ranking": "THỨ HẠNG",
 	"lbl_Rank": "Thứ Hạng",
 	"lbl_Points": "Điểm Số",
-	"lbl_LastUpdTime":"Cập nhật vào lúc {{time}}  (Cập nhật mỗi 30 phút)",
+	"lbl_LastUpdTime": "Cập nhật vào lúc {{time}}  (Cập nhật mỗi 30 phút)",
 	"lbl_Rewards": "Giải Thưởng",
 	"lbl_MoreDetails": "XEM CHI TIẾT",
 	"lbl_Goal123_EventTitle": "ĐUA TOP GIÁNG SINH TRÚNG TIỀN MAY MẮN",
 	"lbl_last_2_day": "2 ngày qua",
 	"lbl_last_3_day": "3 ngày qua",
-	"lbl_TotalValue":"Tổng Giải Thưởng",
-	"lbl_No1Award":"Giải Nhất"
+	"lbl_TotalValue": "Tổng Giải Thưởng",
+	"lbl_No1Award": "Giải Nhất"
 }
