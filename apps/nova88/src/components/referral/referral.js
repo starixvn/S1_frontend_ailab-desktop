@@ -6,8 +6,9 @@ import Loading from "../common/loading";
 import { api_payment_GetWithdrawalInfoRecent } from "../../service/api/payment";
 
 import ReferralContent from "./referral.content";
-import ReferralStepBar from "./referral.stepBar";
 import RecentHistory from "./referral.recentHistory";
+
+import refBanner from "../../styles/img/refBanner.png";
 
 export default () => {
 	const { t } = useTranslation();
@@ -86,7 +87,7 @@ export default () => {
 						using your referral code.
 					</div>
 				</div>
-				<ReferralStepBar />
+				<img src={refBanner} class="ref_banner" />
 				<ReferralContent />
 			</div>
 			<RecentHistory

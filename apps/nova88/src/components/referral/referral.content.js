@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, createRef } from "react";
 import QRCode from "qrcode.react";
 
 export default () => {
@@ -11,7 +11,12 @@ export default () => {
 	let ref_fb = `https://www.facebook.com/sharer/sharer.php?u=${link_default}&quote=${text_welCome}`;
 	let ref_telegram = `https://t.me/share/url?url=${link_default}&text=${text_welCome}`;
 	let ref_skype = `https://web.skype.com/share?url=${link_default}&text=${text_welCome}`;
-	let ref_whatsapp = `https://wa.me/?text=${text_welCome}`;
+	let ref_whatsapp = `https://wa.me/?&text=${text_welCome}`;
+
+	const [data, setData] = useState({
+		ref_code: ref_code,
+		ref_link: ref_link
+	});
 
 	return (
 		<div className="referralModule">
@@ -62,12 +67,12 @@ export default () => {
 				<div className="title">Your unique link invite</div>
 				<div className="refBox">
 					<div>
-						Referral Code: <span>{ref_code}</span>
-						<button className="icon icon-files-empty"></button>
+						{/* Referral Code: <span ref="">{ref_code}</span> */}
+						<ButtonWithCopyBtn value={data?.ref_code} />
 					</div>
 					<div>
-						Referral Link: <span>{ref_link}</span>
-						<button className="icon icon-files-empty"></button>
+						{/* Referral Link: <span>{ref_link}</span> */}
+						<ButtonWithCopyBtn value={data?.ref_link} />
 					</div>
 					<div>
 						<a className="icon icon-files-empty">
@@ -83,6 +88,14 @@ export default () => {
 						<a className="icon icon-whatsapp" href={ref_whatsapp}>
 							Whatsapp
 						</a>
+
+						<a
+							className="icon icon-whatsapp"
+							href="whatsapp://send?text=https://tw.yahoo.com/"
+							data-action="share/whatsapp/share">
+							Whatsapp-2
+						</a>
+
 						<a className="icon icon-skype" href={ref_skype}>
 							Skype
 						</a>
@@ -90,6 +103,26 @@ export default () => {
 					<QRCode value={ref_link} />
 				</div>
 			</div>
+		</div>
+	);
+};
+
+const ButtonWithCopyBtn = ({ value }) => {
+	const ipt = createRef();
+	const OnCopy = () => {
+		ipt.current.select();
+		document.execCommand("copy");
+	};
+	return (
+		<div>
+			Referral Code:
+			<span defaultValue={value} ref={ipt}>
+				{value}
+			</span>
+			<button
+				className="icon icon-files-empty"
+				value={value}
+				onClick={OnCopy}></button>
 		</div>
 	);
 };
