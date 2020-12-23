@@ -3,17 +3,22 @@ import { Link } from "@reach/router";
 import path from "../../router";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
-import { isNew, isClaimed, isExpiry } from "./promotion.common";
+import {
+	isNew,
+	isClaimed,
+	isExpiry,
+	isArrayNotEmpty
+} from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 
 export default ({
 	t,
-	filter,
 	userInfo,
+	promotionType,
 	promoList,
-	RefreshProcessBar,
-	getPromotionListV2
+	refreshProcessBar,
+	afterJoinCallBack
 }) => {
 	const { langId, isLogin, currencyId } = userInfo;
 
@@ -27,7 +32,7 @@ export default ({
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={_isClaimed ? "active" : ""}>
 				{_isClaimed ? <div className="claimed"></div> : null}
-				{filter === defFilterType.expiry ? (
+				{promotionType === defFilterType.expiry ? (
 					<div className="expiredIcon">{t("lbl_Expired")}</div>
 				) : (
 					<div className={_isNew ? "new" : ""}></div>
@@ -45,7 +50,7 @@ export default ({
 					{...p}
 					t={t}
 					currencyId={currencyId}
-					RefreshProcessBar={RefreshProcessBar.bind(this, p)}
+					RefreshProcessBar={refreshProcessBar.bind(this, p)}
 					hideReloadBtn={_isExpiry}
 				/>
 				<div className="btnGroup">
@@ -61,7 +66,7 @@ export default ({
 						userInfo={userInfo}
 						_isExpiry={_isExpiry}
 						inListPage={true}
-						callBack={getPromotionListV2}
+						callBack={afterJoinCallBack}
 					/>
 				</div>
 			</div>
@@ -70,14 +75,15 @@ export default ({
 
 	if (isLogin === null) return null;
 
-	return rows && rows.length > 0 ? (
-		<div
-			className={`proList${
-				filter === defFilterType.expiry ? " expired" : ""
-			}`}>
-			{rows}
-		</div>
-	) : (
-		<div className="nodata">{t("msg_NoData")}</div>
-	);
+	if (isArrayNotEmpty(promoList))
+		return (
+			<div
+				className={`proList${
+					promotionType === defFilterType.expiry ? " expired" : ""
+				}`}>
+				{rows}
+			</div>
+		);
+
+	return <div className="nodata">{t("msg_NoData")}</div>;
 };

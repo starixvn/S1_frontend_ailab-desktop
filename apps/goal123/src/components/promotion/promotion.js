@@ -19,7 +19,6 @@ export default () => {
 	const [promotionType, setPromotionType] = useState(defFilterType.all);
 
 	const { userInfo } = useContext(userInfoContext);
-	console.log(userInfo);
 	const [loading, setLoading] = useState(true);
 	const { errorPopBox } = usePopBox();
 
