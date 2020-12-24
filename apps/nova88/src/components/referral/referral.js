@@ -5,10 +5,10 @@ import { defPopBoxType } from "../common/popBox";
 import Loading from "../common/loading";
 import { api_payment_GetWithdrawalInfoRecent } from "../../service/api/payment";
 
-import ReferralContent from "./referral.content";
+import ReferralLinks from "./referral.links";
 import RecentHistory from "./referral.recentHistory";
 
-import refBanner from "../../styles/img/refBanner.png";
+import refStepBanner from "../../styles/img/refBanner.png";
 
 export default () => {
 	const { t } = useTranslation();
@@ -80,15 +80,11 @@ export default () => {
 		<>
 			<div className="infoModule">
 				<div className="inside-title icon icon-friend">
-					<span>Referral</span>
-					<div>
-						Share the Nova88 referral code with your friend.You will
-						get exclusive referral bonus when your friend sign up
-						using your referral code.
-					</div>
+					<span>{t("lbl_Referral")}</span>
+					<div>{t("lbl_Referral_description")}</div>
 				</div>
-				<img src={refBanner} class="ref_banner" />
-				<ReferralContent />
+				<img src={refStepBanner} className="referral_banner" />
+				<ReferralLinks t={t} />
 			</div>
 			<RecentHistory
 				refreshData={refreshData}

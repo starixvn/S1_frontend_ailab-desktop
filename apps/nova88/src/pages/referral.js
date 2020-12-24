@@ -3,7 +3,6 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";
 import Referral from "../components/referral/referral";
-import Profile from "../components/profile/profile";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
 export default () => {
@@ -14,7 +13,6 @@ export default () => {
 					<section className="inside">
 						<LeftMenu />
 						<div className="rightModule">
-							{/* <Profile /> */}
 							<Referral />
 						</div>
 					</section>

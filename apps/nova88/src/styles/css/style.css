@@ -5349,6 +5349,11 @@ input[type="file"] {
   max-width: 330px;
 }
 
+.proList > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
 .proList > div:hover {
   background: #e2e2e2;
   -webkit-box-shadow: 0 0 0 3px #f77900 inset;
@@ -7017,6 +7022,54 @@ button.icon-spinner11:before {
   padding: 20px;
 }
 
+.installGuide.mega .guides {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.installGuide.mega .guides .step {
+  width: calc(25% - 20px);
+  margin-right: 20px;
+  margin-top: 30px;
+  border-bottom: 3px solid #f77900;
+}
+
+.installGuide.mega .guides .content {
+  font-size: 18px;
+  color: #f77900;
+  height: 140px;
+}
+
+@media (max-width: 1024px) {
+  .installGuide.mega .guides .content {
+    font-size: 14px;
+    height: 150px;
+  }
+}
+
+.installGuide.mega .guides .content span {
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  font-weight: normal;
+}
+
+@media (max-width: 1024px) {
+  .installGuide.mega .guides .content span {
+    font-size: 10px;
+  }
+}
+
+.installGuide.mega .guides img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
 .installGuide > div {
   background: white;
   border-radius: 15px;
@@ -7865,80 +7918,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 85.48901%;
-  top: 32.76693%;
-  width: 10.1388px;
-  height: 10.1388px;
+  left: 94.14557%;
+  top: 25.17861%;
+  width: 13.04928px;
+  height: 13.04928px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 86.02099%;
-  top: 22.49631%;
-  width: 6.11176px;
-  height: 6.11176px;
+  left: 30.75209%;
+  top: 16.01004%;
+  width: 10.43212px;
+  height: 10.43212px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 81.53565%;
-  top: -49.41667%;
-  width: 6.94101px;
-  height: 6.94101px;
+  left: 86.50382%;
+  top: -52.45711%;
+  width: 12.98375px;
+  height: 12.98375px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 68.53854%;
-  top: -39.21875%;
-  width: 8.0751px;
-  height: 8.0751px;
+  left: 6.21713%;
+  top: -8.10751%;
+  width: 5.81965px;
+  height: 5.81965px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 43.32218%;
-  top: -26.05176%;
-  width: 11.47847px;
-  height: 11.47847px;
+  left: 68.93026%;
+  top: -57.36385%;
+  width: 13.22902px;
+  height: 13.22902px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 80.11953%;
-  top: -10.69815%;
-  width: 14.6254px;
-  height: 14.6254px;
+  left: 73.44384%;
+  top: -37.63416%;
+  width: 8.22799px;
+  height: 8.22799px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 31.59551%;
-  top: -7.46555%;
-  width: 12.20327px;
-  height: 12.20327px;
+  left: 20.47297%;
+  top: 21.82974%;
+  width: 10.56094px;
+  height: 10.56094px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 17.11567%;
-  top: 28.22429%;
-  width: 6.57906px;
-  height: 6.57906px;
+  left: 93.72987%;
+  top: -39.59283%;
+  width: 14.37236px;
+  height: 14.37236px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
