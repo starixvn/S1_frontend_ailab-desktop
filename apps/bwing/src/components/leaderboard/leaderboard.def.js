@@ -40,3 +40,5 @@ export const defRewardList = {
 		{ displayRank: "7~16", reward: "5,888,000", winnersNum: 10 }
 	]
 };
+
+export const defTopWinnerNum = 16;

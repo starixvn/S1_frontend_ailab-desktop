@@ -58,8 +58,8 @@ export default () => {
 	const [amount, setAmount] = useState("");
 	const [walletInfo, setWalletInfo] = useState([]);
 	const [selectedTpId, setSelectedTpId] = useState({
-		from: 0,
-		to: 1
+		from: null,
+		to: null
 	});
 	const [status, setStatus] = useState(initStatus);
 	const [getHistory, setGetHistory] = useState(null);
