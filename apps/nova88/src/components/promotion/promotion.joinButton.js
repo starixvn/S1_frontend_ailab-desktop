@@ -121,7 +121,8 @@ export default ({
 			(canJoin &&
 				bonusType === defPromotionType.firstDeposit &&
 				promotionType === defPromotionType.redeposit) ||
-			promotionNavType === defFilterType.special_bonus
+			(promotionNavType === defFilterType.special_bonus &&
+				promotionType === defPromotionType.firstDeposit)
 		)
 			return setPopBox({
 				isOpen: true,

@@ -209,7 +209,7 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType }) => {
 	if (
 		!refList ||
 		promotionType !== defPromotionType.redeposit ||
-		isSpecialType
+		(isSpecialType && promotionInfo === defPromotionType.firstDeposit)
 	)
 		return null;
 

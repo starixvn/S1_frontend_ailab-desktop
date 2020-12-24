@@ -23,30 +23,26 @@ export default ({
 }) => {
 	const { langId, isLogin, currencyId } = userInfo;
 
-	let isShowContent =
-		isArrayNotEmpty(promoList) ||
-		(isArrayNotEmpty(staticPromotions) &&
-			promotionType === defFilterType.all);
-
 	let rows = promoList?.map(p => {
 		let _isClaimed = isClaimed(p);
 		let _isNew = _isClaimed ? false : isNew(p);
 		let _isExpiry = isExpiry({ ...p, isLogin });
 
-		let isSpecialBonusCanNotJoin =
-			promotionType === defFilterType.special_bonus && !p.canJoin;
-
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={`${_isClaimed ? "active" : ""}   ${
-					isSpecialBonusCanNotJoin ? "expired" : ""
+					promotionType === defFilterType.expiry ||
+					(promotionType === defFilterType.special_bonus &&
+						!p.canJoin)
+						? "expired"
+						: ""
 				}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
 				{promotionType === defFilterType.expiry ? (
 					<div className="expiredIcon">EXPIRED</div>
 				) : (
-					<div className={_isNew ? "new" : ""}></div>
+					<div className={_isNew && p.canJoin ? "new" : ""}></div>
 				)}
 				<img src={p.banner} alt={p.title} />
 				<div className="txt-darkBlue">{p.title}</div>
@@ -92,16 +88,12 @@ export default ({
 
 	if (isLogin === null) return null;
 
-	if (isShowContent)
-		return (
-			<div
-				className={`proList${
-					promotionType === defFilterType.expiry ? " expired" : ""
-				}`}>
-				{rows}
-				{promotionType === defFilterType.all ? staticPromotions : null}
-			</div>
-		);
+	if (
+		isArrayNotEmpty(promoList) ||
+		(isArrayNotEmpty(staticPromotions) &&
+			promotionType === defFilterType.all)
+	)
+		return <div className="proList">{rows}</div>;
 
 	return (
 		<div className="nodata icon icon-nodata">
