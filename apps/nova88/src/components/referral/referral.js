@@ -9,6 +9,7 @@ import ReferralLinks from "./referral.links";
 import RecentHistory from "./referral.recentHistory";
 
 import refStepBanner from "../../styles/img/refBanner.png";
+import message from "../message/message";
 
 export default () => {
 	const { t } = useTranslation();
@@ -23,8 +24,23 @@ export default () => {
 		return () => (isMountedRef.current = false);
 	});
 
-	const clickClose = () => {
-		setPopBox({ isOpen: false });
+	const showErrorPopBox = (message, errorCode) => {
+		const clickClose = () => {
+			setPopBox({ isOpen: false });
+		};
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.ErrorMsg,
+			message: message,
+			errorCode: errorCode,
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={clickClose}>
+						{t("lbl_Close")}
+					</button>
+				</div>
+			)
+		});
 	};
 
 	const getReferralRecent = async () => {
@@ -34,39 +50,13 @@ export default () => {
 					if (res.data.errorCode === 0) {
 						setRecentData(res.data.data);
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={clickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						showErrorPopBox(message, res.data.errorCode);
 					}
 				}
 			},
 			err => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={clickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					showErrorPopBox(message);
 				}
 			}
 		);

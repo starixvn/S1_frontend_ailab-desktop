@@ -1,11 +1,11 @@
-import React, { useState, createRef } from "react";
+import React, { useState } from "react";
 import QRCode from "qrcode.react";
-import config from "../../config";
 
 export default ({ t }) => {
-	let link_default = config.refLink; // https://www.nova88.net/
+	// console.log(window.location.origin);
+	let link_default = window.location.origin; //`https://www.nova88.net/`;
 	let ref_code = "Mayo888";
-	let ref_link = `${config.refLink}?refid=${ref_code}`;
+	let ref_link = `${link_default}?refid=${ref_code}`;
 
 	let text_welCome = "nova888 is my88 !! Nova88 讚哦~ ";
 
@@ -28,6 +28,12 @@ export default ({ t }) => {
 		document.body.removeChild(virtualInput);
 	};
 
+	const onCopy = column_id => {
+		let copyColumn = document.getElementById(column_id);
+		window.getSelection().selectAllChildren(copyColumn);
+		document.execCommand("copy");
+	};
+
 	return (
 		<div className="referralModule">
 			<div className="refShare">
@@ -47,25 +53,25 @@ export default ({ t }) => {
 					</div>
 					<div>
 						<div>
-							FREE <span>MYR 88</span>
+							FREE <span>MYR 99</span>
 						</div>
 						<div>
-							Turn <span>8x</span>
+							Turn <span>5x</span>
 						</div>
 						<div>
-							Deposit <span>888</span>
+							Deposit <span>321</span>
 						</div>
 						<a>More Details</a>
 					</div>
 					<div>
 						<div>
-							FREE <span>MYR 88</span>
+							FREE <span>VND 88</span>
 						</div>
 						<div>
-							Turn <span>8x</span>
+							Turn <span>1x</span>
 						</div>
 						<div>
-							Deposit <span>888</span>
+							Deposit <span>1,500</span>
 						</div>
 						<a>More Details</a>
 					</div>
@@ -74,14 +80,21 @@ export default ({ t }) => {
 			<div className="refLink">
 				<div className="title">{t("lbl_Your_link_invite")}</div>
 				<div className="refBox">
-					<ButtonWithCopyBtn
-						value={data?.ref_code}
-						colName="Referral ID"
-					/>
-					<ButtonWithCopyBtn
-						value={data?.ref_link}
-						colName="Referral Link"
-					/>
+					<div>
+						{t("lbl_Referral_code")} :{" "}
+						<span id="ref_code">{data?.ref_code}</span>
+						<button
+							className="icon icon-files-empty"
+							onClick={onCopy.bind(this, "ref_code")}></button>
+					</div>
+					<div>
+						{t("lbl_Referral_link")} :{" "}
+						<span id="ref_link">{data?.ref_link}</span>
+						<button
+							className="icon icon-files-empty"
+							onClick={onCopy.bind(this, "ref_link")}></button>
+					</div>
+
 					<div>
 						<a
 							className="icon icon-files-empty"
@@ -92,38 +105,21 @@ export default ({ t }) => {
 							{t("lbl_Download")}
 						</a>
 						<a className="icon icon-facebook2" href={ref_fb}>
-							Facebook
+							{t("lbl_Facebook")}
 						</a>
 						<a className="icon icon-telegram" href={ref_telegram}>
-							Telegram
+							{t("lbl_Telegram")}
 						</a>
 						<a className="icon icon-whatsapp" href={ref_whatsapp}>
-							WhatsApp
+							{t("lbl_WhatsApp")}
 						</a>
 						<a className="icon icon-line" href={ref_line}>
-							LINE
+							{t("lbl_LINE")}
 						</a>
 					</div>
 					<QRCode value={ref_link} />
 				</div>
 			</div>
-		</div>
-	);
-};
-
-const ButtonWithCopyBtn = ({ value, colName }) => {
-	const onCopy = colName => {
-		let copyCol = document.getElementById(colName);
-		window.getSelection().selectAllChildren(copyCol);
-		document.execCommand("Copy");
-	};
-
-	return (
-		<div>
-			{colName} : <span id={colName}>{value}</span>
-			<button
-				className="icon icon-files-empty"
-				onClick={onCopy.bind(this, colName)}></button>
 		</div>
 	);
 };

@@ -28,6 +28,9 @@
 	"lbl_Instagram": "Instagram",
 	"lbl_Facebook": "Facebook",
 	"lbl_Twitter": "Twitter",
+	"lbl_Telegram":"Telegram",
+	"lbl_WhatsApp":"WhatsApp",
+	"lbl_LINE":"LINE",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "แบดมินตัน",
@@ -424,6 +427,8 @@
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral":"การอ้างอิง",
+	"lbl_Referral_code":"Referral Code",
+	"lbl_Referral_link":"Referral Link",
 	"lbl_Referral_description":"Share the Nova88 referral code with your friend.You will get exclusive referral bonus when your friend sign up using your referral code.",
 	"lbl_Referral_Welcome":"Welcome to Nova88, you are invited to join us. There are a lot of rewarding program offer for NEW MEMBER. Simply click and sign up with us to get yourself and help your friend to be rewarded!",
 	"lbl_Share_with_friend":"Share your favorite offers with friend!",

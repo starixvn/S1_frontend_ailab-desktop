@@ -41,8 +41,7 @@ export default process.env.NODE_ENV === "production"
 			openURL: "",
 			imgUrl: "",
 			t_and_cURL: "",
-			cloudImgUrl: "https://image.n88media.com",
-			refLink: "https://www.nova88.net/"
+			cloudImgUrl: "https://image.n88media.com"
 	  }
 	: {
 			siteName,
@@ -56,6 +55,5 @@ export default process.env.NODE_ENV === "production"
 			imgUrl: "http://www.n88dev.com",
 			cloudImgUrl: "https://image.n88media.com",
 			t_and_cURL: "http://www.n88dev.com",
-			openURL: "http://www.n88dev.com",
-			refLink: "https://www.nova88.net/"
+			openURL: "http://www.n88dev.com"
 	  };
