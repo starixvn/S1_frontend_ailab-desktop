@@ -30,8 +30,10 @@ export default ({
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={`${_isClaimed ? "active" : ""}   ${
-					promotionType === defFilterType.special_bonus && !p.canJoin
+				className={`${_isClaimed ? "active" : ""} ${
+					promotionType === defFilterType.expiry ||
+					(promotionType === defFilterType.special_bonus &&
+						!p.canJoin)
 						? "expired"
 						: ""
 				}`}>
@@ -39,7 +41,7 @@ export default ({
 				{promotionType === defFilterType.expiry ? (
 					<div className="expiredIcon">{t("lbl_Expired")}</div>
 				) : (
-					<div className={_isNew ? "new" : ""}></div>
+					<div className={_isNew && p.canJoin ? "new" : ""}></div>
 				)}
 				<img src={p.banner} alt={p.title} />
 				<div className="txt-blue15">{p.title}</div>
@@ -65,7 +67,13 @@ export default ({
 					<Link
 						type="button"
 						className="blueBorder"
-						to={`/${langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${p.bonusCode}`}>
+						to={`/${langId}/${path.promotion.root}/${
+							path.promotion.sub.promotionInfo.root
+						}?BonusCode=${p.bonusCode}${
+							promotionType === defFilterType.special_bonus
+								? `&FilterType=9001`
+								: ""
+						}`}>
 						{t("lbl_Details").toUpperCase()}
 					</Link>
 
@@ -74,6 +82,7 @@ export default ({
 						userInfo={userInfo}
 						_isExpiry={_isExpiry}
 						inListPage={true}
+						promotionNavType={promotionType}
 						callBack={afterJoinCallBack}
 					/>
 				</div>
@@ -84,14 +93,7 @@ export default ({
 	if (isLogin === null) return null;
 
 	if (isArrayNotEmpty(promoList))
-		return (
-			<div
-				className={`proList${
-					promotionType === defFilterType.expiry ? " expired" : ""
-				}`}>
-				{rows}
-			</div>
-		);
+		return <div className="proList">{rows}</div>;
 
 	return <div className="nodata">{t("msg_NoData")}</div>;
 };
