@@ -3810,25 +3810,6 @@ main > .swiper-container .swiper-slide {
   white-space: nowrap;
 }
 
-.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-org .specialBonus, .quickSelect > div.promoType.inputBox-white .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus, .quickSelect > div.promoType.inputBox-gray .specialBonus, .quickSelect > div.promoType.inputBox-yellow .specialBonus, .quickSelect > div:first-child.promoType .specialBonus {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.quickSelect > div.inputBox.promoType .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-org .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-white .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-gray .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-yellow .specialBonus .inputBox-white, .quickSelect > div:first-child.promoType .specialBonus .inputBox-white {
-  position: unset;
-  margin: 0 5px;
-  border: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
-}
-
 .quickSelect > div:first-child {
   position: relative;
   max-width: 322px;
@@ -3843,6 +3824,30 @@ main > .swiper-container .swiper-slide {
 
 .quickSelect i {
   white-space: nowrap;
+}
+
+.specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0 34px;
+}
+
+.specialBonus .inputBox-white {
+  position: unset;
+  margin: 0 5px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.specialBonus .btnGroup {
+  margin: 0;
 }
 
 .pageSelect {
@@ -6007,80 +6012,80 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 [class^="snow"].snow1 {
   position: absolute;
-  left: 12.03774%;
-  top: -4.5449%;
-  width: 15.71369px;
-  height: 15.71369px;
+  left: 8.47049%;
+  top: -7.29618%;
+  width: 13.21633px;
+  height: 13.21633px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="snow"].snow2 {
   position: absolute;
-  left: 6.56442%;
-  top: 31.28645%;
-  width: 9.51566px;
-  height: 9.51566px;
+  left: 99.69213%;
+  top: 9.2278%;
+  width: 13.96332px;
+  height: 13.96332px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="snow"].snow3 {
   position: absolute;
-  left: 52.35875%;
-  top: 36.1831%;
-  width: 10.93524px;
-  height: 10.93524px;
+  left: 46.74287%;
+  top: 15.64738%;
+  width: 8.24152px;
+  height: 8.24152px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="snow"].snow4 {
   position: absolute;
-  left: 40.56466%;
-  top: 23.83809%;
-  width: 14.71091px;
-  height: 14.71091px;
+  left: 0.01133%;
+  top: -39.62947%;
+  width: 11.57336px;
+  height: 11.57336px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="snow"].snow5 {
   position: absolute;
-  left: 40.27594%;
-  top: -58.59075%;
-  width: 15.06584px;
-  height: 15.06584px;
+  left: 93.53751%;
+  top: -37.99132%;
+  width: 11.95391px;
+  height: 11.95391px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="snow"].snow6 {
   position: absolute;
-  left: 76.51721%;
-  top: -9.31393%;
-  width: 9.74667px;
-  height: 9.74667px;
+  left: 55.63726%;
+  top: -43.35589%;
+  width: 10.92137px;
+  height: 10.92137px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="snow"].snow7 {
   position: absolute;
-  left: 30.87559%;
-  top: -34.12179%;
-  width: 8.51501px;
-  height: 8.51501px;
+  left: 29.97084%;
+  top: 8.84623%;
+  width: 16.09717px;
+  height: 16.09717px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="snow"].snow8 {
   position: absolute;
-  left: 93.21359%;
-  top: -39.14011%;
-  width: 15.42617px;
-  height: 15.42617px;
+  left: 1.62374%;
+  top: 6.2262%;
+  width: 8.68884px;
+  height: 8.68884px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
