@@ -40,12 +40,14 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		}
 
 		let _urlParams = params !== null ? `?${params.join("&")}` : "";
+		let newIcon = s.isNew ? <i className="icon icon-newicon"></i> : null;
 		if (s.menuType === defMenuType.Link) {
 			return (
 				<Link
 					key={key}
 					className={s.className}
 					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
+					{newIcon}
 					<span className={s.icon}>{displayText}</span>
 				</Link>
 			);
@@ -55,6 +57,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 					key={key}
 					className={s.className}
 					onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
+					{newIcon}
 					<span className={s.icon}>{displayText}</span>
 				</button>
 			);

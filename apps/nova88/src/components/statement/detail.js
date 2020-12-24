@@ -44,7 +44,7 @@ export default () => {
 	});
 	const [totalPage, setTotalPage] = useState(0);
 	const [detailListbyGameTypeDatas, setDetailListbyGameTypeDatas] = useState(
-		[]
+		null
 	);
 
 	const { userInfo } = useContext(userInfoContext);
@@ -136,28 +136,27 @@ export default () => {
 			render: value => number_format(value.winlostAmount, _isConvert)
 		},
 		{
-			title: t("lbl_TransTime"),
-			dataIndex: "transTime",
-			key: "transTime",
-			render: value => moment(value).format("YYYY-MM-DD hh:mm:ss")
-		},
-		{
 			title: t("lbl_SettledTime"),
 			dataIndex: "settledTime",
 			key: "settledTime",
-			render: value => moment(value).format("YYYY-MM-DD hh:mm:ss")
+			render: value =>
+				moment(value.settledTime).format("YYYY-MM-DD HH:MM:ss")
 		}
 	];
 
-	let turnOverTotal = number_format(
-		numberSumReducer(detailListbyGameTypeDatas, "turnOver"),
-		_isConvert
-	);
+	let turnOverTotal =
+		detailListbyGameTypeDatas &&
+		number_format(
+			numberSumReducer(detailListbyGameTypeDatas, "turnOver"),
+			_isConvert
+		);
 
-	let winlostAmountTotal = number_format(
-		numberSumReducer(detailListbyGameTypeDatas, "winlostAmount"),
-		_isConvert
-	);
+	let winlostAmountTotal =
+		detailListbyGameTypeDatas &&
+		number_format(
+			numberSumReducer(detailListbyGameTypeDatas, "winlostAmount"),
+			_isConvert
+		);
 
 	return (
 		!loading && (
