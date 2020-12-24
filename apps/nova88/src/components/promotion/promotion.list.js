@@ -33,13 +33,14 @@ export default ({
 		let _isNew = _isClaimed ? false : isNew(p);
 		let _isExpiry = isExpiry({ ...p, isLogin });
 
+		let isSpecialBonusCanNotJoin =
+			promotionType === defFilterType.special_bonus && !p.canJoin;
+
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={`${_isClaimed ? "active" : ""}   ${
-					promotionType === defFilterType.special_bonus && !p.canJoin
-						? "expired"
-						: ""
+					isSpecialBonusCanNotJoin ? "expired" : ""
 				}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
 				{promotionType === defFilterType.expiry ? (

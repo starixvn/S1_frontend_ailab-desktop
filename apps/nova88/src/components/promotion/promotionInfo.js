@@ -17,6 +17,8 @@ const promotionNavType = {
 };
 export default () => {
 	const filterType = getUrlParameter("FilterType");
+	let isSpecialType =
+		promotionNavType[filterType] === defFilterType.special_bonus;
 
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
@@ -122,11 +124,15 @@ export default () => {
 		? " expiredClaimedInfo"
 		: "";
 
+	let specialBonusWrapperClass =
+		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
+
 	if (promotionInfo === null) return null;
 
 	return (
 		<div className="infoModule">
-			<div className={`promotionsInfo${wrapperClass}`}>
+			<div
+				className={`promotionsInfo${wrapperClass}  ${specialBonusWrapperClass} `}>
 				{_isClaimed ? <div className="claimed"></div> : null}
 				<img
 					src={promotionInfo.banner}
@@ -157,7 +163,7 @@ export default () => {
 
 					<DepositSlip
 						promotionInfo={promotionInfo}
-						filterType={filterType}
+						isSpecialType={isSpecialType}
 						t={t}
 					/>
 
@@ -197,13 +203,13 @@ export default () => {
 	);
 };
 
-const DepositSlip = ({ promotionInfo, t, filterType }) => {
+const DepositSlip = ({ promotionInfo, t, isSpecialType }) => {
 	const { promotionType, refList, depositAmount, bonusCode } = promotionInfo;
 
 	if (
 		!refList ||
 		promotionType !== defPromotionType.redeposit ||
-		promotionNavType[filterType] === defFilterType.special_bonus
+		isSpecialType
 	)
 		return null;
 
@@ -247,7 +253,8 @@ const DepositMenu = ({
 		depositId &&
 		canJoin &&
 		!isJoin &&
-		(promotionType === 1 || promotionType === 2)
+		(promotionType === defPromotionType.firstDeposit ||
+			promotionType === defPromotionType.redeposit)
 	)
 		return (
 			<div className="minAmount">

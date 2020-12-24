@@ -135,8 +135,13 @@ export default ({
 		let success = await setClaimPromotion(langId, bonusCode, maxAmount);
 		if (success) return callBack();
 	};
-
-	if ((promotionInfo.isJoin && isLogin) || _isExpiry) return null;
+	if (
+		(promotionInfo.isJoin && isLogin) ||
+		_isExpiry ||
+		(promotionNavType === defFilterType.special_bonus &&
+			!promotionInfo.canJoin)
+	)
+		return null;
 
 	return (
 		<button className="orange" onClick={onJoinPromotion}>
