@@ -29,7 +29,6 @@ export default () => {
 	let isSpecialType =
 		promotionNavType[filterType] === defFilterType.special_bonus;
 
-	console.log({ isSpecialType });
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
