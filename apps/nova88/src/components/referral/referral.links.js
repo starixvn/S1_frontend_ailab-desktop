@@ -1,10 +1,11 @@
 import React, { useState, createRef } from "react";
 import QRCode from "qrcode.react";
+import config from "../../config";
 
 export default ({ t }) => {
-	let link_default = "https://www.nova88.net/";
+	let link_default = config.refLink; // https://www.nova88.net/
 	let ref_code = "Mayo888";
-	let ref_link = `https://www.nova88.net/?refid=${ref_code}`;
+	let ref_link = `${config.refLink}?refid=${ref_code}`;
 
 	let text_welCome = "nova888 is my88 !! Nova88 讚哦~ ";
 
@@ -84,7 +85,6 @@ export default ({ t }) => {
 					<div>
 						<a
 							className="icon icon-files-empty"
-							id="welComeText"
 							onClick={copyWelComeText}>
 							{t("lbl_Copy_to_clipboard")}
 						</a>
