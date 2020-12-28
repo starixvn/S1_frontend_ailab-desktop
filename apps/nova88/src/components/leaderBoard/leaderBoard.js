@@ -138,7 +138,7 @@ export default () => {
 
 					if (rankDatas?.length > 0) {
 						const custRankRes = await api_events_GetCustRank({
-							lBCategoryId: payload.lBCategoryId,
+							LBCategoryId: payload.lBCategoryId,
 							BeforeDays: payload.BeforeDays
 						});
 
