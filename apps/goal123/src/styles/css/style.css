@@ -887,6 +887,24 @@ header .header > div.function .wallet .submenu div.loginLog {
   }
 }
 
+@-webkit-keyframes flash2 {
+  0% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash2 {
+  0% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .gameMenu {
   background: #d93643;
   padding: 10px 0;
@@ -1054,7 +1072,7 @@ main section > div .articleModule > div {
 }
 
 main section .btnGroup {
-  margin: 10px auto;
+  margin: 10px 0;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -2209,6 +2227,7 @@ main > .swiper-container .swiper-slide {
           align-items: center;
   border-right: 1px solid #435068;
   padding: 5px;
+  word-break: break-all;
 }
 
 .list .listBody > div div:nth-child(2) {
@@ -3805,6 +3824,10 @@ main > .swiper-container .swiper-slide {
   font-size: 24px;
 }
 
+.quickSelect > div.inputBox.promoType button.blueBorder, .quickSelect > div.promoType.inputBox-org button.blueBorder, .quickSelect > div.promoType.inputBox-white button.blueBorder, .quickSelect > div.promoType.inputBox-blue button.blueBorder, .quickSelect > div.promoType.inputBox-gray button.blueBorder, .quickSelect > div.promoType.inputBox-yellow button.blueBorder, .quickSelect > div:first-child.promoType button.blueBorder {
+  white-space: nowrap;
+}
+
 .quickSelect > div:first-child {
   position: relative;
   max-width: 322px;
@@ -3819,6 +3842,30 @@ main > .swiper-container .swiper-slide {
 
 .quickSelect i {
   white-space: nowrap;
+}
+
+.specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0 34px;
+}
+
+.specialBonus .inputBox-white {
+  position: unset;
+  margin: 0 5px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.specialBonus .btnGroup {
+  margin: 0;
 }
 
 .pageSelect {
@@ -4369,6 +4416,18 @@ main > .swiper-container .swiper-slide {
   border-radius: 10px;
 }
 
+.proList > div .new-icon, .slotList > div .new-icon, .newsList > div .new-icon {
+  position: absolute;
+  top: 244px;
+  right: 15px;
+  border-radius: 9px 0 9px 0;
+  color: #fff;
+  background-color: #f72626;
+  padding: 5px 10px;
+  -webkit-animation: flash2 linear infinite alternate .7s;
+          animation: flash2 linear infinite alternate .7s;
+}
+
 .proList .rollover, .slotList .rollover, .newsList .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4409,6 +4468,11 @@ main > .swiper-container .swiper-slide {
   float: left;
   margin: 15px 5px;
   max-width: 330px;
+}
+
+.proList > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
 }
 
 .proList > div:hover {
@@ -5978,80 +6042,80 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 [class^="snow"].snow1 {
   position: absolute;
-  left: 78.64204%;
-  top: -56.40666%;
-  width: 17.08164px;
-  height: 17.08164px;
+  left: 75.10373%;
+  top: -12.5688%;
+  width: 10.36596px;
+  height: 10.36596px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="snow"].snow2 {
   position: absolute;
-  left: 22.27574%;
-  top: 8.11142%;
-  width: 11.36823px;
-  height: 11.36823px;
+  left: 60.3738%;
+  top: -12.99354%;
+  width: 11.8967px;
+  height: 11.8967px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="snow"].snow3 {
   position: absolute;
-  left: 9.38737%;
-  top: -29.35377%;
-  width: 12.67561px;
-  height: 12.67561px;
+  left: 90.78511%;
+  top: -36.81646%;
+  width: 15.98552px;
+  height: 15.98552px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="snow"].snow4 {
   position: absolute;
-  left: 83.83644%;
-  top: -33.67238%;
-  width: 15.06122px;
-  height: 15.06122px;
+  left: 58.06984%;
+  top: -40.03444%;
+  width: 15.77547px;
+  height: 15.77547px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="snow"].snow5 {
   position: absolute;
-  left: 37.77654%;
-  top: -6.53168%;
-  width: 13.94796px;
-  height: 13.94796px;
+  left: 67.44611%;
+  top: -54.23709%;
+  width: 12.43855px;
+  height: 12.43855px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="snow"].snow6 {
   position: absolute;
-  left: 44.51567%;
-  top: 17.99851%;
-  width: 16.60806px;
-  height: 16.60806px;
+  left: 66.16479%;
+  top: -36.58688%;
+  width: 15.93896px;
+  height: 15.93896px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="snow"].snow7 {
   position: absolute;
-  left: 67.07163%;
-  top: -31.77402%;
-  width: 14.06282px;
-  height: 14.06282px;
+  left: 30.82461%;
+  top: -9.01788%;
+  width: 13.03887px;
+  height: 13.03887px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="snow"].snow8 {
   position: absolute;
-  left: 56.9063%;
-  top: -29.534%;
-  width: 16.58243px;
-  height: 16.58243px;
+  left: 23.23245%;
+  top: -49.84123%;
+  width: 10.0268px;
+  height: 10.0268px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
