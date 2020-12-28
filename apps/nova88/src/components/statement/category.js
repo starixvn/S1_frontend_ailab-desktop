@@ -42,7 +42,7 @@ export default () => {
 	});
 	const [totalPage, setTotalPage] = useState(0);
 	const [recordListbyCategoryDatas, setRecordListbyCategoryDatas] = useState(
-		[]
+		null
 	);
 
 	const { userInfo } = useContext(userInfoContext);
