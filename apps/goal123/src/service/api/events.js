@@ -11,8 +11,8 @@ export const api_events_GetLeaderboardList = ({
 		BeforeDays
 	});
 
-export const api_events_GetCustRank = ({ lBCategoryId, BeforeDays }) =>
+export const api_events_GetCustRank = ({ LBCategoryId, BeforeDays }) =>
 	eventsRequest.post("/GetCustRank", {
-		lBCategoryId,
+		LBCategoryId,
 		BeforeDays
 	});
