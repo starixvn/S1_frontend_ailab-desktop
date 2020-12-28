@@ -5,7 +5,7 @@ import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
 } from "../../service/api/account";
-import { api_site_GetGamelist } from "../../service/api/site";
+import { api_site_GetGamelistV2 } from "../../service/api/site";
 import { userInfoContext } from "../common/context";
 import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
 import GameList from "./casino.gamelist";
@@ -51,7 +51,7 @@ export default () => {
 
 	useEffect(() => {
 		setDisplayGames([]);
-		api_site_GetGamelist().then(res => {
+		api_site_GetGamelistV2().then(res => {
 			if (res.data.errorCode === 0) {
 				let _tpList = {};
 				let _tpOptions = [{ displayText: "All", id: null }];
@@ -66,7 +66,7 @@ export default () => {
 						id: t.value
 					});
 
-					if (t.gameList.data) {
+					if (t?.gameList?.data) {
 						t.gameList.data.forEach(g => {
 							hasPromo =
 								hasPromo === false

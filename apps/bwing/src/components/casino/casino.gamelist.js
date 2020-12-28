@@ -34,6 +34,7 @@ export default ({
 		?.filter(g => tpList[g.tpId] !== undefined)
 		.slice(startIdx, endIdx)
 		.map(g => {
+			console.log(g);
 			let tpInfo = tpList[g.tpId];
 			let imgName = g.imgName[langId] ? g.imgName[langId] : g.imgName.en;
 			let gameDisplayName = g.name[langId] ? g.name[langId] : g.name.en;
@@ -47,6 +48,7 @@ export default ({
 					<div className="brand">
 						<span>{tpInfo.displayText}</span>
 					</div>
+					{g.new ? <div className="newTag">NEW</div> : null}
 					<div
 						onClick={onSetFavorite.bind(this, g.tpId, g.gameId)}
 						className={`icon icon-star-full${
@@ -68,7 +70,7 @@ export default ({
 							)}>
 							{t("lbl_PlayNow").toUpperCase()}
 						</button>
-						{tpInfo.playFree ? (
+						{g.playFree ? (
 							<button
 								className="blueBorder"
 								onClick={onClickPlay.bind(
