@@ -47,6 +47,7 @@ export default ({
 					<div className="brand">
 						<span>{tpInfo.displayText}</span>
 					</div>
+
 					<div
 						onClick={onSetFavorite.bind(this, g.tpId, g.gameId)}
 						className={`icon icon-star-full${
@@ -68,7 +69,7 @@ export default ({
 							)}>
 							{t("lbl_PlayNow")}
 						</button>
-						{tpInfo.playFree ? (
+						{g.playFree ? (
 							<button
 								className="blue"
 								onClick={onClickPlay.bind(
@@ -81,6 +82,7 @@ export default ({
 							</button>
 						) : null}
 					</div>
+					{g.new ? <div className="new-icon">NEW</div> : null}
 				</div>
 			);
 		});
