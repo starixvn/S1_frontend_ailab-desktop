@@ -5,6 +5,8 @@ import { defPopBoxType } from "../common/popBox";
 import Loading from "../common/loading";
 import { api_payment_GetWithdrawalInfoRecent } from "../../service/api/payment";
 
+import { api_account_GetReferralCode } from "../../service/api/account";
+
 import ReferralLinks from "./referral.links";
 import RecentHistory from "./referral.recentHistory";
 
@@ -16,13 +18,17 @@ export default () => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
-
+	const [myRef, setMyRef] = useState("");
 	const [recentData, setRecentData] = useState([]);
 
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
 	});
+
+	useEffect(() => {
+		getReferralCode();
+	}, []);
 
 	const showErrorPopBox = (message, errorCode) => {
 		const clickClose = () => {
@@ -41,6 +47,26 @@ export default () => {
 				</div>
 			)
 		});
+	};
+
+	const getReferralCode = async () => {
+		await api_account_GetReferralCode().then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						// console.log(res.data.data);
+						setMyRef(res.data.data);
+					} else {
+						// setMyRef(message, res.data.errorCode);
+					}
+				}
+			},
+			err => {
+				if (isMountedRef.current) {
+					showErrorPopBox(message);
+				}
+			}
+		);
 	};
 
 	const getReferralRecent = async () => {
@@ -74,7 +100,7 @@ export default () => {
 					<div>{t("lbl_Referral_description")}</div>
 				</div>
 				<img src={refStepBanner} className="referral_banner" />
-				<ReferralLinks t={t} />
+				<ReferralLinks t={t} myRef={myRef} />
 			</div>
 			<RecentHistory
 				refreshData={refreshData}
