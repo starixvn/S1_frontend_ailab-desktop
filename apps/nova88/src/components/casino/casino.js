@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
-import { api_site_GetGamelist } from "../../service/api/site";
+import { api_site_GetGamelistV2 } from "../../service/api/site";
 import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
@@ -245,7 +245,7 @@ export default () => {
 
 	useEffect(() => {
 		setLoading(true);
-		api_site_GetGamelist().then(
+		api_site_GetGamelistV2().then(
 			res => {
 				const success = res.data.errorCode === 0;
 				const { data } = res.data;
@@ -334,7 +334,7 @@ export default () => {
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
