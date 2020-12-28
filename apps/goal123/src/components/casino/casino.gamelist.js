@@ -68,7 +68,7 @@ export default ({
 							)}>
 							{t("lbl_PlayNow")}
 						</button>
-						{tpInfo.playFree ? (
+						{g.playFree ? (
 							<button
 								className="blue"
 								onClick={onClickPlay.bind(
