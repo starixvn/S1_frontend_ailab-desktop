@@ -20,6 +20,7 @@ import {
 import { defPopBoxType } from "../common/popBox";
 import useInterval from "../hook/useInterval";
 import { GET_LANG_ID } from "../../service/language";
+import useGetWalletInfo from "./wrapper.walletInfo";
 
 export default ({ children, afterLogin = false }) => {
 	const { t, i18n } = useTranslation();
@@ -28,9 +29,9 @@ export default ({ children, afterLogin = false }) => {
 		popBoxType: null
 	});
 
-	const [walletInfo, setWalletInfo] = useState({
-		main: null
-	});
+	// const [walletInfo, setWalletInfo] = useState({
+	// 	main: null
+	// });
 	const [bonusWallets, setBonusWallets] = useState([]);
 	const [msgCount, setMsgCount] = useState(0);
 	const [userInfo, setUserInfo] = useState({
@@ -46,6 +47,8 @@ export default ({ children, afterLogin = false }) => {
 	const [redirectPath, setRedirectPath] = useState(null);
 
 	const isMountedRef = useRef(null);
+	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
@@ -127,9 +130,9 @@ export default ({ children, afterLogin = false }) => {
 				}
 			});
 
-			if (userInfo.userName) {
-				getContentWalletInfo();
-			}
+			// if (userInfo.userName) {
+			// 	getContentWalletInfo();
+			// }
 		} else if (isMountedRef.current) {
 			if (userInfo.isLogin === false) {
 				setUserInfo(prevState => ({
@@ -219,29 +222,29 @@ export default ({ children, afterLogin = false }) => {
 		userInfo.isLogin ? 10000 : null
 	);
 
-	const getContentWalletInfo = () => {
-		api_account_GetWalletInfo().then(res => {
-			if (res.data.errorCode === 0 && isMountedRef.current) {
-				let tpWallets = res.data.data.tpWallets?.map(t => {
-					return {
-						tpId: t.tpId,
-						balance: t.balance,
-						tpName: t.tpName,
-						bonus: t.bonus
-					};
-				});
-				setWalletInfo(prevState => ({
-					...prevState,
-					isHideBalance: res.data.data.isHideBalance,
-					main: res.data.data?.balance,
-					tpWallets,
-					lastTransaction: res.data.data.lastTransaction
-				}));
+	// const getContentWalletInfo = () => {
+	// 	api_account_GetWalletInfo().then(res => {
+	// 		if (res.data.errorCode === 0 && isMountedRef.current) {
+	// 			let tpWallets = res.data.data.tpWallets?.map(t => {
+	// 				return {
+	// 					tpId: t.tpId,
+	// 					balance: t.balance,
+	// 					tpName: t.tpName,
+	// 					bonus: t.bonus
+	// 				};
+	// 			});
+	// 			setWalletInfo(prevState => ({
+	// 				...prevState,
+	// 				isHideBalance: res.data.data.isHideBalance,
+	// 				main: res.data.data?.balance,
+	// 				tpWallets,
+	// 				lastTransaction: res.data.data.lastTransaction
+	// 			}));
 
-				setBonusWallets(res.data.data.bonusWallets);
-			}
-		});
-	};
+	// 			setBonusWallets(res.data.data.bonusWallets);
+	// 		}
+	// 	});
+	// };
 
 	if (redirectPath === null) {
 		if (
@@ -253,9 +256,8 @@ export default ({ children, afterLogin = false }) => {
 				<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
 					<ct.walletInfoContext.Provider
 						value={{
-							walletInfo,
-							setWalletInfo,
-							getContentWalletInfo
+							...walletInfo.state,
+							dispatch: walletInfo.dispatch
 						}}>
 						<ct.bonusWalletsContext.Provider
 							value={{

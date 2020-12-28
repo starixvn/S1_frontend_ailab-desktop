@@ -34,25 +34,37 @@ export class Dropdown extends Component {
 		}
 	};
 
-	selectItem = i => {
+	// selectItem = i => {
+	// 	this.setState({ isOpen: false });
+	// 	this.props.onSelectItem(i);
+	// };
+
+	selectItem = ({ idx, item }) => {
 		this.setState({ isOpen: false });
-		this.props.onSelectItem(i);
+		this.props.onSelectItem(idx, item);
 	};
 
 	render() {
-		let arr = this.props.options.map((item, i) => {
-			return (
-				<Item
-					key={`${this.props.mainKey}_${item.id}`}
-					displayKey={item.displayKey}
-					i18n={this.props.i18n}
-					onClick={this.selectItem.bind(null, i)}
-					displayText={item.displayText}
-					imgUrl={this.props.imgUrl + item.image}
-					className={this.props.className}
-				/>
+		let arr = this.props.options
+			.map((item, i) => {
+				return (
+					<Item
+						key={`${this.props.mainKey}_${item.id}`}
+						displayKey={item.displayKey}
+						i18n={this.props.i18n}
+						onClick={this.selectItem.bind(this, { idx: i, item })}
+						displayText={item.displayText}
+						imgUrl={this.props.imgUrl + item.image}
+						className={this.props.className}
+					/>
+				);
+			})
+			.filter(
+				(_, idx) =>
+					(this.props.isHideSelfItem &&
+						idx !== this.props.selectedIdx) ||
+					!this.props.isHideSelfItem
 			);
-		});
 
 		let selected = null;
 		if (
@@ -75,6 +87,7 @@ export class Dropdown extends Component {
 				className="dropdown"
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
+				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`}></i>
 				) : null}
@@ -85,12 +98,20 @@ export class Dropdown extends Component {
 					) : null}
 				</button>
 
-				<div
+				{/* <div
 					className={`dropdown-container${
 						this.state.isOpen ? " active" : ""
 					}`}>
 					{arr}
-				</div>
+				</div> */}
+				{arr.length < 1 ? null : (
+					<div
+						className={`dropdown-container${
+							this.state.isOpen ? " active" : ""
+						}`}>
+						{arr}
+					</div>
+				)}
 			</div>
 		);
 	}
