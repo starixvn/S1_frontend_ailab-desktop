@@ -64,24 +64,45 @@ export default ({ referralCode, t }) => {
 						onClick={copyWelComeText}>
 						{t("lbl_Copy_to_clipboard")}
 					</a>
-
 					<a className="icon icon-download2" onClick={downloadQR}>
 						{t("lbl_Download")}
 					</a>
-
-					<a className="icon icon-facebook2" href={ref_fb}>
+					<a
+						className="icon icon-facebook2"
+						onClick={() =>
+							window.open(ref_fb, "", "height=600,width=600")
+						}>
 						{t("lbl_Facebook")}
 					</a>
-
-					<a className="icon icon-telegram" href={ref_telegram}>
+					<a
+						className="icon icon-telegram"
+						onClick={() =>
+							window.open(
+								ref_telegram,
+								"",
+								"height=600,width=600"
+							)
+						}>
 						{t("lbl_Telegram")}
 					</a>
 
-					<a className="icon icon-whatsapp" href={ref_whatsapp}>
+					<a
+						className="icon icon-whatsapp"
+						onClick={() =>
+							window.open(
+								ref_whatsapp,
+								"",
+								"height=600,width=600"
+							)
+						}>
 						{t("lbl_WhatsApp")}
 					</a>
 
-					<a className="icon icon-line" href={ref_line}>
+					<a
+						className="icon icon-line"
+						onClick={() =>
+							window.open(ref_line, "", "height=600,width=600")
+						}>
 						{t("lbl_LINE")}
 					</a>
 				</div>
