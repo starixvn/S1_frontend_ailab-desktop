@@ -1,25 +1,21 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
-import Loading from "../common/loading";
-import { api_payment_GetWithdrawalInfoRecent } from "../../service/api/payment";
-
 import { api_account_GetReferralCode } from "../../service/api/account";
+import { loadingContext } from "../common/context";
+import usePopBox from "../hook/usePopBox";
 
 import ReferralLinks from "./referral.links";
-import RecentHistory from "./referral.recentHistory";
 
 import refStepBanner from "../../styles/img/refBanner.png";
-import message from "../message/message";
 
 export default () => {
 	const { t } = useTranslation();
-	const { userInfo, setUserInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
-	const [myRef, setMyRef] = useState("");
-	const [recentData, setRecentData] = useState([]);
+
+	const [referralCode, setReferralCode] = useState("");
+
+	const { loading, setLoading } = useContext(loadingContext);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -30,83 +26,39 @@ export default () => {
 		getReferralCode();
 	}, []);
 
-	const showErrorPopBox = (message, errorCode) => {
-		const clickClose = () => {
-			setPopBox({ isOpen: false });
-		};
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.ErrorMsg,
-			message: message,
-			errorCode: errorCode,
-			btnBar: (
-				<div className="btnGroup">
-					<button className="btn-cancel" onClick={clickClose}>
-						{t("lbl_Close")}
-					</button>
-				</div>
-			)
-		});
-	};
-
 	const getReferralCode = async () => {
+		setLoading(true);
 		await api_account_GetReferralCode().then(
 			res => {
+				setLoading(false);
+
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						// console.log(res.data.data);
-						setMyRef(res.data.data);
+						setReferralCode(res.data.data);
 					} else {
-						// setMyRef(message, res.data.errorCode);
+						errorPopBox(res.data.message, res.data.errorCode);
 					}
 				}
 			},
-			err => {
+			() => {
+				setLoading(false);
 				if (isMountedRef.current) {
-					showErrorPopBox(message);
+					errorPopBox();
 				}
 			}
 		);
-	};
-
-	const getReferralRecent = async () => {
-		await api_payment_GetWithdrawalInfoRecent().then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setRecentData(res.data.data);
-					} else {
-						showErrorPopBox(message, res.data.errorCode);
-					}
-				}
-			},
-			err => {
-				if (isMountedRef.current) {
-					showErrorPopBox(message);
-				}
-			}
-		);
-	};
-
-	const refreshData = () => {
-		getReferralRecent();
 	};
 
 	return (
-		<>
+		!loading && (
 			<div className="infoModule">
 				<div className="inside-title icon icon-friend">
 					<span>{t("lbl_Referral")}</span>
 					<div>{t("lbl_Referral_description")}</div>
 				</div>
 				<img src={refStepBanner} className="referral_banner" />
-				<ReferralLinks t={t} myRef={myRef} />
+				<ReferralLinks t={t} referralCode={referralCode} />
 			</div>
-			<RecentHistory
-				refreshData={refreshData}
-				recentHistory={recentData ?? []}
-				getReferralRecent={getReferralRecent}
-			/>
-		</>
+		)
 	);
 };
