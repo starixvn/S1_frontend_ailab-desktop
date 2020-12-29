@@ -54,6 +54,10 @@ export const defLeftMenu = {
 				path: path.profile.root,
 				displayKey: "lbl_Profile"
 			},
+			referral: {
+				path: path.referral.root,
+				displayKey: "lbl_Referral"
+			},
 			bankInfo: {
 				path: path.bankInfo.root,
 				displayKey: "lbl_BankInfo"

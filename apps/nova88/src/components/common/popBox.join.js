@@ -382,7 +382,11 @@ export default () => {
 		);
 	};
 
-	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
+	const hasRefOrAffCode =
+		getUrlParameter("AffId") ||
+		readCookie("AffId") ||
+		getUrlParameter("AffCode") ||
+		readCookie("AffCode");
 
 	const clickSubmit = async e => {
 		e.preventDefault();
@@ -402,7 +406,8 @@ export default () => {
 			regData["RefId"] = getUrlParameter("RefId") || readCookie("RefId");
 			regData["AffId"] = getUrlParameter("AffId") || readCookie("AffId");
 			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
-			regData["AffCode"] = isUrlAffCode ?? userValue.affCode;
+			regData["AffCode"] =
+				getUrlParameter("AffCode") || readCookie("AffCode");
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
@@ -678,9 +683,9 @@ export default () => {
 							className={`inputBox-org`}
 							icon="icon-affiliate txt-orange"
 							placeholder={t("lbl_Affiliate_ID")}
-							value={isUrlAffCode ?? userValue.affCode}
+							value={hasRefOrAffCode ?? userValue.affCode}
 							onChange={EditField.bind(null, "affCode")}
-							readOnly={isUrlAffCode}
+							readOnly={hasRefOrAffCode}
 							checked={tip.affCode.checked}
 							tip={tip.affCode.msg}
 							clickInfo={clickInfo.bind(this, "affCode")}
