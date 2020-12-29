@@ -309,13 +309,12 @@ const IndexPage = () => {
 	});
 
 	useEffect(() => {
-		if (getUrlParameter("AffId")) {
-			 setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.Join
-				});
+		if (!userInfo.isLogin && getUrlParameter("AffId")) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Join
+			});
 		}
-			
 	}, []);
 
 	useEffect(() => {
