@@ -38,6 +38,7 @@ export default () => {
 	const { t } = useTranslation();
 	const [selNav, setSelNav] = useState(defNav.ALLGAMES.key);
 	const [favorite, setFavorite] = useState([]);
+	const [imgUrl, setImgUrl] = useState("");
 	const [tpList, setTpList] = useState({});
 	const [gameDatas, setGameDatas] = useState([]);
 	const [tpOptions, setTpOptions] = useState([]);
@@ -248,14 +249,17 @@ export default () => {
 		api_site_GetGamelistV2().then(
 			res => {
 				const success = res.data.errorCode === 0;
-				const { data } = res.data;
 
 				if (success) {
+					const { imgUrl, providerList } = res.data.data;
+
 					let _tpList = {};
 					let _tpOptions = [{ displayKey: "lbl_All", id: null }];
 					let games = [];
 
-					data.forEach(gameInfo => {
+					setImgUrl(imgUrl);
+
+					providerList.forEach(gameInfo => {
 						_tpList[gameInfo.value] = { ...gameInfo };
 						_tpOptions.push({
 							displayText: gameInfo.displayText,
@@ -266,6 +270,7 @@ export default () => {
 							gameInfo.gameList.data.forEach(list => {
 								games.push({
 									tpId: gameInfo.value,
+									tpName: gameInfo.name,
 									...list
 								});
 							});
@@ -394,6 +399,7 @@ export default () => {
 						</div>
 						<GameList
 							t={t}
+							imgUrl={imgUrl}
 							displayGames={displayGames}
 							tpList={tpList}
 							langId={userInfo.langId}

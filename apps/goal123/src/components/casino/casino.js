@@ -30,6 +30,7 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const [selNav, setSelNav] = useState(defNav.ALLGAMES.key);
 	const [favorite, setFavorite] = useState([]);
+	const [imgUrl, setImgUrl] = useState("");
 	const [tpList, setTpList] = useState({});
 	const [tpOptions, setTpOptions] = useState([]);
 	const [gameDatas, setGameDatas] = useState(null);
@@ -53,13 +54,17 @@ export default () => {
 		setDisplayGames([]);
 		api_site_GetGamelistV2().then(res => {
 			if (res.data.errorCode === 0) {
+				const { imgUrl, providerList } = res.data.data;
+
 				let _tpList = {};
 				let _tpOptions = [{ displayText: "All", id: null }];
 				let games = [];
 
+				setImgUrl(imgUrl);
+
 				let hasPromo = false;
 				let hasFeature = false;
-				res.data.data.forEach(t => {
+				providerList.forEach(t => {
 					_tpList[t.value] = { ...t };
 					_tpOptions.push({
 						displayText: t.displayText,
@@ -79,6 +84,7 @@ export default () => {
 
 							games.push({
 								tpId: t.value,
+								tpName: t.name,
 								...g
 							});
 						});
@@ -313,6 +319,7 @@ export default () => {
 			</div>
 			<GameList
 				t={t}
+				imgUrl={imgUrl}
 				displayGames={displayGames}
 				tpList={tpList}
 				langId={userInfo.langId}

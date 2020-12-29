@@ -7,6 +7,7 @@ import { defPopBoxType } from "../common/popBox";
 
 export default ({
 	displayGames,
+	imgUrl,
 	langId,
 	isLogin,
 	tpList,
@@ -30,11 +31,11 @@ export default ({
 		}
 	};
 
+	let _imgUrl = "";
 	let rows = displayGames
 		?.filter(g => tpList[g.tpId] !== undefined)
 		.slice(startIdx, endIdx)
 		.map(g => {
-			console.log(g);
 			let tpInfo = tpList[g.tpId];
 			let imgName = g.imgName[langId] ? g.imgName[langId] : g.imgName.en;
 			let gameDisplayName = g.name[langId] ? g.name[langId] : g.name.en;
@@ -43,6 +44,9 @@ export default ({
 					let fArr = f.split("_");
 					return Number(fArr[0]) === g.tpId && fArr[1] === g.gameId;
 				})?.length > 0;
+
+			_imgUrl = ` ${imgUrl}/${g.tpName}/${imgName}`;
+
 			return (
 				<div key={`casino-game-${g.tpId}-${g.gameId}`}>
 					<div className="brand">
@@ -54,10 +58,7 @@ export default ({
 						className={`icon icon-star-full${
 							isFavorite ? " active" : ""
 						}`}></div>
-					<img
-						alt="Casino_tpInfo"
-						src={`${config.imgUrl}/common/images/Casino/${tpInfo.name}/${imgName}`}
-					/>
+					<img alt="Casino_tpInfo" src={_imgUrl} />
 					<div className="txt-blue15">{gameDisplayName}</div>
 					<div className="btnGroup">
 						<button
