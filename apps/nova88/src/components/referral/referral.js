@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { api_account_GetReferralCode } from "../../service/api/account";
-import { loadingContext } from "../common/context";
+import { loadingContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 
 import ReferralLinks from "./referral.links";
+import ReferralShare from "./referral.share";
 
 import refStepBanner from "../../styles/img/refBanner.png";
 
@@ -16,6 +17,7 @@ export default () => {
 	const [referralCode, setReferralCode] = useState("");
 
 	const { loading, setLoading } = useContext(loadingContext);
+	const { userInfo } = useContext(userInfoContext);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -57,7 +59,10 @@ export default () => {
 					<div>{t("lbl_Referral_description")}</div>
 				</div>
 				<img src={refStepBanner} className="referral_banner" />
-				<ReferralLinks t={t} referralCode={referralCode} />
+				<div className="referralModule">
+					<ReferralShare t={t} langId={userInfo.langId} />
+					<ReferralLinks t={t} referralCode={referralCode} />
+				</div>
 			</div>
 		)
 	);

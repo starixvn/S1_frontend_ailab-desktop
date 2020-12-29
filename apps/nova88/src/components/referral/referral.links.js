@@ -40,57 +40,56 @@ export default ({ referralCode, t }) => {
 	};
 
 	return (
-		<div className="referralModule">
-			<div className="refLink">
-				<div className="title">{t("lbl_Your_link_invite")}</div>
-				<div className="refBox">
-					<div style={{ display: "none" }}>
-						<span id="ref_code">{referralCode}</span>
-						<button
-							className="icon icon-files-empty"
-							onClick={onCopy.bind(this, "ref_code")}></button>
-					</div>
-					<div>
-						{t("lbl_Referral_link")} :{" "}
-						<span id="ref_link">{ref_link}</span>
-						<button
-							className="icon icon-files-empty"
-							onClick={onCopy.bind(this, "ref_link")}></button>
-					</div>
+		<div className="refLink">
+			<div className="title">{t("lbl_Your_link_invite")}</div>
 
-					<div>
-						<a
-							className="icon icon-files-empty"
-							onClick={copyWelComeText}>
-							{t("lbl_Copy_to_clipboard")}
-						</a>
-
-						<a className="icon icon-download2" onClick={downloadQR}>
-							{t("lbl_Download")}
-						</a>
-
-						<a className="icon icon-facebook2" href={ref_fb}>
-							{t("lbl_Facebook")}
-						</a>
-
-						<a className="icon icon-telegram" href={ref_telegram}>
-							{t("lbl_Telegram")}
-						</a>
-
-						<a className="icon icon-whatsapp" href={ref_whatsapp}>
-							{t("lbl_WhatsApp")}
-						</a>
-
-						<a className="icon icon-line" href={ref_line}>
-							{t("lbl_LINE")}
-						</a>
-					</div>
-					<QRCode
-						style={{ display: "none" }}
-						id={referralCode}
-						value={ref_link}
-					/>
+			<div className="refBox">
+				<div style={{ display: "none" }}>
+					<span id="ref_code">{referralCode}</span>
+					<button
+						className="icon icon-files-empty"
+						onClick={onCopy.bind(this, "ref_code")}></button>
 				</div>
+				<div>
+					{t("lbl_Referral_link")} :{" "}
+					<span id="ref_link">{ref_link}</span>
+					<button
+						className="icon icon-files-empty"
+						onClick={onCopy.bind(this, "ref_link")}></button>
+				</div>
+
+				<div>
+					<a
+						className="icon icon-files-empty"
+						onClick={copyWelComeText}>
+						{t("lbl_Copy_to_clipboard")}
+					</a>
+
+					<a className="icon icon-download2" onClick={downloadQR}>
+						{t("lbl_Download")}
+					</a>
+
+					<a className="icon icon-facebook2" href={ref_fb}>
+						{t("lbl_Facebook")}
+					</a>
+
+					<a className="icon icon-telegram" href={ref_telegram}>
+						{t("lbl_Telegram")}
+					</a>
+
+					<a className="icon icon-whatsapp" href={ref_whatsapp}>
+						{t("lbl_WhatsApp")}
+					</a>
+
+					<a className="icon icon-line" href={ref_line}>
+						{t("lbl_LINE")}
+					</a>
+				</div>
+				<QRCode
+					style={{ display: "none" }}
+					id={referralCode}
+					value={ref_link}
+				/>
 			</div>
 		</div>
 	);
