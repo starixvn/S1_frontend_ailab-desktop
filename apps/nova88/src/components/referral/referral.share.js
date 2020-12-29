@@ -35,7 +35,7 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 						</span>
 					</div>
 					<a
-						href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/referral/${langId}.html`}
+						href={`${config.cloudImgUrl}/SiteSkin/NovaPromotion/referral/${langId}.html`}
 						target="_blank">
 						{t("lbl_MoreDetails")}
 					</a>
