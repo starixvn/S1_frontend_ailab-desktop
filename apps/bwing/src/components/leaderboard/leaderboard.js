@@ -109,7 +109,7 @@ export default () => {
 			BeforeDays: daysValue
 		};
 		const payload_self = {
-			lBCategoryId: lBCategoryId,
+			LBCategoryId: lBCategoryId,
 			BeforeDays: daysValue
 		};
 		await api_events_GetLeaderboardList(payload_topWinner).then(

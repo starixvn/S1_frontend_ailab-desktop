@@ -18,8 +18,17 @@ import { isExpiry, isClaimed } from "./promotion.common";
 import Loading from "../common/loading";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
+import { defFilterType } from "./promotion.nav";
+
+const promotionNavType = {
+	"9001": defFilterType.special_bonus
+};
 
 export default () => {
+	const filterType = getUrlParameter("FilterType");
+	let isSpecialType =
+		promotionNavType[filterType] === defFilterType.special_bonus;
+
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -80,7 +89,7 @@ export default () => {
 					openErrorMessagePopBox(message || "error", errorCode);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					openErrorMessagePopBox();
 					setLoading(false);
@@ -94,22 +103,19 @@ export default () => {
 			BonusCode: bonusCode,
 			TpId: tpId,
 			PromoCategoryId: categoryId
-		}).then(
-			res => {
-				if (
-					isMountedRef.current &&
-					res.data.errorCode === 0 &&
-					res.data.data
-				) {
-					setPromotionInfo(prevS => ({
-						...prevS,
-						custRollOver: res.data.data.rollover,
-						custTurnOver: res.data.data.turnover
-					}));
-				}
-			},
-			err => {}
-		);
+		}).then(res => {
+			if (
+				isMountedRef.current &&
+				res.data.errorCode === 0 &&
+				res.data.data
+			) {
+				setPromotionInfo(prevS => ({
+					...prevS,
+					custRollOver: res.data.data.rollover,
+					custTurnOver: res.data.data.turnover
+				}));
+			}
+		});
 	};
 
 	let _isClaimed = false;
@@ -130,6 +136,9 @@ export default () => {
 
 	let _isConvert = isConvert(userInfo.currencyId);
 
+	let specialBonusWrapperClass =
+		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
+
 	return loading ? (
 		<Loading />
 	) : (
@@ -138,7 +147,8 @@ export default () => {
 				<></>
 			) : (
 				<div className="infoModule">
-					<div className={`promotionsInfo${wrapperClass}`}>
+					<div
+						className={`promotionsInfo${wrapperClass} ${specialBonusWrapperClass}`}>
 						{_isClaimed ? <div className="claimed"></div> : null}
 						<img
 							src={promotionInfo.banner}
@@ -158,6 +168,9 @@ export default () => {
 										promotionInfo={promotionInfo}
 										userInfo={userInfo}
 										_isExpiry={_isExpiry}
+										promotionNavType={
+											promotionNavType[filterType]
+										}
 										callBack={() =>
 											getPromotionDetail(
 												userInfo.langId,
@@ -168,7 +181,11 @@ export default () => {
 								</div>
 							</div>
 
-							<DepositSlip promotionInfo={promotionInfo} t={t} />
+							<DepositSlip
+								promotionInfo={promotionInfo}
+								isSpecialType={isSpecialType}
+								t={t}
+							/>
 
 							<DepositMenu
 								cash={number_format(
@@ -207,10 +224,15 @@ export default () => {
 	);
 };
 
-const DepositSlip = ({ promotionInfo, t }) => {
+const DepositSlip = ({ promotionInfo, t, isSpecialType }) => {
 	const { promotionType, refList, depositAmount, bonusCode } = promotionInfo;
 
-	if (!refList || promotionType !== defPromotionType.redeposit) return null;
+	if (
+		!refList ||
+		promotionType !== defPromotionType.redeposit ||
+		(isSpecialType && promotionInfo === defPromotionType.firstDeposit)
+	)
+		return null;
 
 	return (
 		<>
@@ -252,7 +274,8 @@ const DepositMenu = ({
 		depositId &&
 		canJoin &&
 		!isJoin &&
-		(promotionType === 1 || promotionType === 2)
+		(promotionType === defPromotionType.firstDeposit ||
+			promotionType === defPromotionType.redeposit)
 	)
 		return (
 			<div className="minAmount">
