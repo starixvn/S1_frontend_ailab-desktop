@@ -7,8 +7,15 @@ import { popBoxContext } from "../common/context";
 import { checkPromotion } from "./promotion.common";
 import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
 import path from "../../router";
+import { defFilterType } from "./promotion.nav";
 
-export default ({ promotionInfo, userInfo, _isExpiry, callBack }) => {
+export default ({
+	promotionInfo,
+	userInfo,
+	_isExpiry,
+	promotionNavType,
+	callBack
+}) => {
 	const { t } = useTranslation();
 	const { isLogin } = userInfo;
 	const isMountedRef = useRef(null);
@@ -102,7 +109,6 @@ export default ({ promotionInfo, userInfo, _isExpiry, callBack }) => {
 			promotionType,
 			maxAmount
 		} = promotionInfo;
-
 		const promotionCanJoin = checkPromotion({
 			promotionInfo,
 			userInfo,
@@ -111,11 +117,12 @@ export default ({ promotionInfo, userInfo, _isExpiry, callBack }) => {
 		});
 
 		if (!promotionCanJoin) return;
-
 		if (
-			canJoin &&
-			bonusType === 1 &&
-			promotionType === defPromotionType.redeposit
+			(canJoin &&
+				bonusType === defPromotionType.firstDeposit &&
+				promotionType === defPromotionType.redeposit) ||
+			(promotionNavType === defFilterType.special_bonus &&
+				promotionType === defPromotionType.firstDeposit)
 		)
 			return setPopBox({
 				isOpen: true,
@@ -129,8 +136,13 @@ export default ({ promotionInfo, userInfo, _isExpiry, callBack }) => {
 		let success = await setClaimPromotion(langId, bonusCode, maxAmount);
 		if (success) return callBack();
 	};
-
-	if ((promotionInfo.isJoin && isLogin) || _isExpiry) return null;
+	if (
+		(promotionInfo.isJoin && isLogin) ||
+		_isExpiry ||
+		(promotionNavType === defFilterType.special_bonus &&
+			!promotionInfo.canJoin)
+	)
+		return null;
 
 	return (
 		<button className="orange" onClick={onJoinPromotion}>
