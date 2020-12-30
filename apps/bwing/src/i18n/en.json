@@ -428,6 +428,8 @@
 	"lbl_check_history": "submit",
 	"lbl_restore_all_hint": "By clicking Restore All button, you will restore all of your funds from the other wallet.",
 	"lbl_PleaseEnterClaimAmount": "Please enter your prefer amount to claim promotion",
+	"lbl_SpecialBonus": "Special Bonus",
+	"lbl_SpecialBonusCode": "Special Bonus Code",
 	"lbl_ClaimAmountRange": "Claim Amount Range",
 	"lbl_history_submit": "Submit",
 	"lbl_statement_submit": "Submit",
