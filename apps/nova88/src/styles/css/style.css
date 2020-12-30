@@ -432,6 +432,14 @@ header {
   background: url(../img/casinoJOKER_a.png) no-repeat center 0px/auto 100%;
 }
 
+.header > div.menu .casinoList .mega {
+  background: url(../img/casinomega.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .mega:hover {
+  background: url(../img/casinomega_a.png) no-repeat center 0px/auto 100%;
+}
+
 .header > div.menu .casinoList .CQ9 {
   background: url(../img/casinocq9.png) no-repeat center 10px/auto 100%;
 }
@@ -7910,80 +7918,136 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
+<<<<<<< HEAD
   left: 18.90885%;
   top: -30.84%;
   width: 13.5823px;
   height: 13.5823px;
+=======
+  left: 66.14232%;
+  top: 15.06264%;
+  width: 5.88272px;
+  height: 5.88272px;
+>>>>>>> DEV
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
+<<<<<<< HEAD
   left: 73.72845%;
   top: -56.25804%;
   width: 10.44779px;
   height: 10.44779px;
+=======
+  left: 64.14721%;
+  top: -20.62207%;
+  width: 10.73962px;
+  height: 10.73962px;
+>>>>>>> DEV
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
+<<<<<<< HEAD
   left: 80.9742%;
   top: -36.5638%;
   width: 12.27108px;
   height: 12.27108px;
+=======
+  left: 35.91107%;
+  top: -11.80961%;
+  width: 13.01001px;
+  height: 13.01001px;
+>>>>>>> DEV
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
+<<<<<<< HEAD
   left: 97.749%;
   top: -42.98022%;
   width: 11.26199px;
   height: 11.26199px;
+=======
+  left: 8.69012%;
+  top: -51.99109%;
+  width: 14.55003px;
+  height: 14.55003px;
+>>>>>>> DEV
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
+<<<<<<< HEAD
   left: 59.80945%;
   top: 24.45684%;
   width: 9.02929px;
   height: 9.02929px;
+=======
+  left: 1.01996%;
+  top: 11.60325%;
+  width: 9.87834px;
+  height: 9.87834px;
+>>>>>>> DEV
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
+<<<<<<< HEAD
   left: 98.83997%;
   top: -7.91781%;
   width: 9.34769px;
   height: 9.34769px;
+=======
+  left: 12.24497%;
+  top: 25.8621%;
+  width: 14.50621px;
+  height: 14.50621px;
+>>>>>>> DEV
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
+<<<<<<< HEAD
   left: 81.47569%;
   top: -55.01509%;
   width: 7.73517px;
   height: 7.73517px;
+=======
+  left: 68.76675%;
+  top: -5.47324%;
+  width: 13.12955px;
+  height: 13.12955px;
+>>>>>>> DEV
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
+<<<<<<< HEAD
   left: 7.90934%;
   top: -3.54488%;
   width: 10.77219px;
   height: 10.77219px;
+=======
+  left: 56.67308%;
+  top: 18.78853%;
+  width: 14.69515px;
+  height: 14.69515px;
+>>>>>>> DEV
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8087,6 +8151,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .referralModule > div .refBox > div div {
   line-height: 30px;
+}
+
+.referralModule > div .refBox > div.active {
+  background: rgba(19, 77, 174, 0.7);
 }
 
 .referralModule > div .refBox > div.active {

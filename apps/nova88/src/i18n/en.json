@@ -329,6 +329,8 @@
 	"lbl_ClaimAmountRange": "Claim Amount Range",
 	"lbl_ClaimAmount": "Claim Amount",
 	"lbl_PleaseEnterClaimAmount": "Please enter your prefer amount to claim promotion",
+	"lbl_SpecialBonus": "Special Bonus",
+	"lbl_SpecialBonusCode":"Special Bonus Code",
 	"lbl_Expired_Promo": "Expired",
 	"lbl_UpdatePersonalInfoPromotion": "Please update your personal information before join promotion.",
 	"lbl_PromotionCategory1": "First Deposit",

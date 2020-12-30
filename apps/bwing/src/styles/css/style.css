@@ -2114,6 +2114,8 @@ main > .swiper-container .swiper-slide {
   border-right: 1px solid #465682;
   border-bottom: 1px solid #465682;
   padding: 10px;
+  overflow: hidden;
+  word-break: break-all;
 }
 
 .list .listBody > div div:nth-child(2) {
@@ -4134,26 +4136,6 @@ main > .swiper-container .swiper-slide {
   float: right;
 }
 
-.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus,
-.quickSelect > div:first-child.promoType .specialBonus {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.quickSelect > div.inputBox.promoType .specialBonus .inputBox-blue, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-blue,
-.quickSelect > div:first-child.promoType .specialBonus .inputBox-blue {
-  position: unset;
-  margin: 0 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 10px;
-}
-
 .quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
 .quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue {
   margin: 20px 0 0 10px;
@@ -4176,6 +4158,28 @@ main > .swiper-container .swiper-slide {
 .quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue + button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue + button,
 .quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue + button {
   float: left;
+}
+
+.specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.specialBonus .inputBox-blue {
+  position: unset;
+  margin: 0 5px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+}
+
+.specialBonus .btnGroup {
+  margin: 0;
 }
 
 .pageSelect {
@@ -4844,6 +4848,11 @@ main > .swiper-container .swiper-slide {
   min-width: 348px;
   background: #081129;
   border: 1px solid #182852;
+}
+
+.proList > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
 }
 
 .proList > div:hover {
@@ -6086,80 +6095,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 62.86865%;
-  top: 17.58052%;
-  width: 11.5346px;
-  height: 11.5346px;
+  left: 13.61766%;
+  top: 12.9215%;
+  width: 5.2475px;
+  height: 5.2475px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 45.51376%;
-  top: -13.18847%;
-  width: 9.91486px;
-  height: 9.91486px;
+  left: 28.82572%;
+  top: -19.24217%;
+  width: 9.03461px;
+  height: 9.03461px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 88.14031%;
-  top: -5.18073%;
-  width: 5.08274px;
-  height: 5.08274px;
+  left: 5.03734%;
+  top: 2.11701%;
+  width: 9.81738px;
+  height: 9.81738px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 39.89498%;
-  top: -9.45842%;
-  width: 10.39616px;
-  height: 10.39616px;
+  left: 73.47%;
+  top: 36.14016%;
+  width: 10.95389px;
+  height: 10.95389px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 67.49347%;
-  top: -20.91109%;
-  width: 6.77263px;
-  height: 6.77263px;
+  left: 88.93361%;
+  top: 8.94778%;
+  width: 6.1365px;
+  height: 6.1365px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 57.79019%;
-  top: 20.07783%;
-  width: 9.752px;
-  height: 9.752px;
+  left: 74.52961%;
+  top: 14.48239%;
+  width: 9.68471px;
+  height: 9.68471px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 19.36345%;
-  top: -29.09365%;
-  width: 5.29836px;
-  height: 5.29836px;
+  left: 3.88874%;
+  top: 20.68599%;
+  width: 12.67014px;
+  height: 12.67014px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 95.42654%;
-  top: -21.54326%;
-  width: 5.52446px;
-  height: 5.52446px;
+  left: 48.57633%;
+  top: 36.41257%;
+  width: 12.96906px;
+  height: 12.96906px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }

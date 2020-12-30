@@ -65,6 +65,7 @@
   font-size: 12px;
 }
 
+<<<<<<< HEAD
 .icon-cockFight:before {
   content: "\e988";
 }
@@ -87,6 +88,19 @@
 
 .icon-visit:before {
   content: "\e9c1";
+=======
+.icon-mega888:before {
+  font-size: 16px !important;
+}
+
+.icon-mega888:before {
+  content: "\e9bb";
+  color: #fff;
+}
+
+.icon-mega888a:before {
+  content: "\e9bc";
+>>>>>>> DEV
 }
 
 .icon-friend:before {

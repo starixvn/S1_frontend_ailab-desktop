@@ -4,7 +4,7 @@ import { number_format, checkAmount, _isConvert } from "../common/common";
 
 export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
 	const { t } = useTranslation();
-	const [amount, setAmount] = useState(null);
+	const [amount, setAmount] = useState("");
 	const [validationError, setValidationError] = useState({});
 	const { bonusCode, requiredAmount, maxAmount } = promotionInfo;
 
