@@ -92,15 +92,13 @@ class Dropdown extends Component {
 			handleIsHideBalance
 		} = this.props;
 
-		let allTpWalletBalance = tpWallets.reduce((prev, curr) => {
+		let tpWalletsBonusSum = tpWallets.reduce((prev, curr) => {
 			return prev + curr.balance;
 		}, 0);
 
-		let balance = isHideBalance
-			? "*****"
-			: !isNaN(mainWallet.balance)
+		let balance = !isNaN(mainWallet.balance)
 			? number_format(
-					mainWallet.balance + allTpWalletBalance,
+					mainWallet.balance + tpWalletsBonusSum,
 					this.props._isConvert
 			  )
 			: 0;
@@ -112,7 +110,7 @@ class Dropdown extends Component {
 					<div
 						className="walletBalance"
 						key={`header-tpwallet-${t.tpId}`}>
-						<div>
+						<div className="walletName">
 							<span>
 								{this.props.i18n(`lbl_TpWallet_${t.tpId}`)}
 							</span>
@@ -127,27 +125,6 @@ class Dropdown extends Component {
 				);
 			});
 
-		const bonusWalletRows = bonusWallets.map(item => {
-			return (
-				<div
-					className="walletBalance"
-					key={`header-bonuswallet-${item.tpId}`}>
-					<div>
-						<span>
-							{this.props.i18n(
-								`lbl_BonusWallet_${item.promoCategoryId}`
-							)}
-						</span>
-						<span>{number_format(item.bonus)}</span>
-					</div>
-					<HeaderProcessBar
-						turnover={item.turnover}
-						rollover={item.rollover}
-					/>
-				</div>
-			);
-		});
-
 		return (
 			<div
 				className={`wallet icon icon-balance${
@@ -155,15 +132,15 @@ class Dropdown extends Component {
 				}`}
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
-				<button>
+				<span>
 					{`${
 						this.props.currencyId === 51
 							? "VNĐ"
 							: this.props.i18n(
 									`Currency_${this.props.currencyId}`
 							  )
-					} ${balance}`}
-				</button>
+					} ${isHideBalance ? "*****" : balance}`}
+				</span>
 				<button
 					aria-label="HandleDisplayBalance"
 					value={!isHideBalance}
@@ -177,10 +154,7 @@ class Dropdown extends Component {
 							`Currency_${this.props.currencyId}`
 						)}`}</span>
 						<span>
-							{number_format(
-								mainWallet.balance,
-								this.props._isConvert
-							)}
+							{balance}
 							<ReloadSpin
 								btnActive={false}
 								func={this.props.RefreshAllWallets}
@@ -188,7 +162,13 @@ class Dropdown extends Component {
 						</span>
 					</div>
 
-					{bonusWalletRows}
+					<BonusWalletRows
+						bonusWallets={bonusWallets}
+						i18n={this.props.i18n}
+						mainWallet={mainWallet}
+						_isConvert={this.props._isConvert}
+					/>
+
 					{tpWalletRows}
 
 					<div className="btnGroup">
@@ -226,6 +206,35 @@ class Dropdown extends Component {
 		);
 	}
 }
+
+const BonusWalletRows = ({ bonusWallets, i18n, mainWallet, _isConvert }) => {
+	return (
+		<div className="walletBalance">
+			<div className="walletName">
+				<span>{i18n("lbl_MainWallet")}</span>
+				<span>{number_format(mainWallet.balance, _isConvert)}</span>
+			</div>
+			{bonusWallets.map(item => {
+				return (
+					<div key={`header-bonuswallet-${item.tpId}`}>
+						<div>
+							<span>
+								{i18n(
+									`lbl_BonusWallet_${item.promoCategoryId}`
+								)}
+							</span>
+							<span>{number_format(item.bonus)}</span>
+						</div>
+						<HeaderProcessBar
+							turnover={item.turnover}
+							rollover={item.rollover}
+						/>
+					</div>
+				);
+			})}
+		</div>
+	);
+};
 
 Dropdown.propTypes = {
 	i18n: PropTypes.func.isRequired

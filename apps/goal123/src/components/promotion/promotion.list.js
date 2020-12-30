@@ -30,11 +30,11 @@ export default ({
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={`${_isClaimed ? "active" : ""} ${
+				className={`${_isClaimed ? "active" : ""}${
 					promotionType === defFilterType.expiry ||
 					(promotionType === defFilterType.special_bonus &&
 						!p.canJoin)
-						? "expired"
+						? " expired"
 						: ""
 				}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
@@ -88,7 +88,14 @@ export default ({
 	if (isLogin === null) return null;
 
 	if (isArrayNotEmpty(promoList))
-		return <div className="proList">{rows}</div>;
+		return (
+			<div
+				className={`proList${
+					promotionType === defFilterType.expiry ? " expired" : ""
+				}`}>
+				{rows}
+			</div>
+		);
 
 	return <div className="nodata">{t("msg_NoData")}</div>;
 };

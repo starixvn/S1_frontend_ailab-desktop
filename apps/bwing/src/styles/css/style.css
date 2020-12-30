@@ -924,31 +924,45 @@ header .header > div.function .wallet button.icon-eye {
   margin-left: 5px;
 }
 
-header .header > div.function .wallet .submenu > div {
-  padding: 0 20px;
+header .header > div.function .wallet .submenu {
+  padding: 15px;
+  background: rgba(37, 50, 88, 0.9);
+  width: 300px;
+}
+
+header .header > div.function .wallet .submenu div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-radius: 5px;
-  line-height: 24px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .header > div.function .wallet .submenu div.balance {
+  font-weight: bold;
+}
+
+header .header > div.function .wallet .submenu div.balance button {
   font-size: 12px;
+  margin-left: 5px;
+  background: #1E85EC;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 260px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 5px;
 }
 
-header .header > div.function .wallet .submenu > div > div {
-  -webkit-box-flex: 7;
-      -ms-flex: 7;
-          flex: 7;
-  font-weight: bold;
-  border-right: 1px dashed rgba(255, 255, 255, 0.5);
-  margin-right: 10px;
-}
-
-header .header > div.function .wallet .submenu > div > div .walletBalance {
-  padding-right: 10px;
+header .header > div.function .wallet .submenu div.walletBalance {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -956,54 +970,52 @@ header .header > div.function .wallet .submenu > div > div .walletBalance {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-header .header > div.function .wallet .submenu > div > div .walletBalance > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-header .header > div.function .wallet .submenu > div.btnGroup {
-  margin-bottom: 10px;
-  margin-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-header .header > div.function .wallet .submenu > div.btnGroup a,
-header .header > div.function .wallet .submenu > div.btnGroup button {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  margin: 0;
-  margin-right: 10px;
-}
-
-header .header > div.function .wallet .submenu > div.btnGroup a:last-child,
-header .header > div.function .wallet .submenu > div.btnGroup button:last-child {
-  margin-right: 0;
-}
-
-header .header > div.function .wallet .submenu > div.loginLog, header .header > div.function .wallet .submenu > div.transactionLog {
+  background-color: #18203b;
+  border-radius: 3px;
+  padding: 10px 10px;
+  line-height: 20px;
   font-size: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  margin-top: 5px;
+  position: relative;
 }
 
-header .header > div.function .wallet .submenu > div.loginLog span, header .header > div.function .wallet .submenu > div.transactionLog span {
-  line-height: 24px;
+header .header > div.function .wallet .submenu div.walletBalance .walletName {
+  font-weight: bold;
+  font-size: 13px;
+}
+
+header .header > div.function .wallet .submenu div.walletBalance .walletName + div {
+  padding-top: 5px;
+  margin-top: 10px;
+}
+
+header .header > div.function .wallet .submenu div.walletBalance button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -8px;
+}
+
+header .header > div.function .wallet .submenu div.btnGroup {
+  margin: 20px 0 10px;
+}
+
+header .header > div.function .wallet .submenu div.btnGroup a {
+  height: 32px;
+  font-size: 13px;
+  padding: 0;
+}
+
+header .header > div.function .wallet .submenu div.btnGroup a:hover {
+  color: white;
+}
+
+header .header > div.function .wallet .submenu div.loginLog, header .header > div.function .wallet .submenu div.transactionLog {
+  font-size: 12px;
+}
+
+header .header > div.function .wallet .submenu div.loginLog span, header .header > div.function .wallet .submenu div.transactionLog span {
+  height: 20px;
 }
 
 main {
@@ -3454,6 +3466,50 @@ main > .swiper-container .swiper-slide {
           justify-content: space-between;
 }
 
+.walletModule > .walletType {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.walletModule > .walletType > .walletBalanceModule {
+  width: calc(50% - 45px);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  float: left;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  max-width: none;
+}
+
+.walletModule > .walletType + .icon-spinner11 {
+  margin-top: 10px;
+  width: 60px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #0c1a3f;
+  border-radius: 5px;
+  border: 1px solid #1a2b58;
+  color: #56ceff;
+}
+
+.walletModule > .walletType + .icon-spinner11:before {
+  font-size: 28px;
+}
+
+.walletModule > .walletType + .icon-spinner11.active:before {
+  -webkit-animation: rotate 0.7s linear 2;
+          animation: rotate 0.7s linear 2;
+}
+
 .walletModule .walletBalanceModule {
   padding: 15px;
   -webkit-box-flex: 1;
@@ -3508,32 +3564,6 @@ main > .swiper-container .swiper-slide {
   color: white;
   margin-right: 10px;
   font-size: 24px;
-}
-
-.walletModule .walletBalanceModule + .icon-spinner11 {
-  width: 61px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background: #0c1a3f;
-  border-radius: 5px;
-  border: 1px solid #1a2b58;
-  color: #56ceff;
-}
-
-.walletModule .walletBalanceModule + .icon-spinner11:before {
-  font-size: 28px;
-}
-
-.walletModule .walletBalanceModule + .icon-spinner11.active:before {
-  -webkit-animation: rotate 0.7s linear 2;
-          animation: rotate 0.7s linear 2;
 }
 
 .walletModule .walletBalanceModule .icon-error {
@@ -6095,80 +6125,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 13.61766%;
-  top: 12.9215%;
-  width: 5.2475px;
-  height: 5.2475px;
+  left: 79.77953%;
+  top: -18.08392%;
+  width: 14.4791px;
+  height: 14.4791px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 28.82572%;
-  top: -19.24217%;
-  width: 9.03461px;
-  height: 9.03461px;
+  left: 31.14808%;
+  top: -19.68776%;
+  width: 9.3089px;
+  height: 9.3089px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 5.03734%;
-  top: 2.11701%;
-  width: 9.81738px;
-  height: 9.81738px;
+  left: 4.57709%;
+  top: 34.93519%;
+  width: 12.4302px;
+  height: 12.4302px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 73.47%;
-  top: 36.14016%;
-  width: 10.95389px;
-  height: 10.95389px;
+  left: 12.85716%;
+  top: -58.37488%;
+  width: 9.22068px;
+  height: 9.22068px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 88.93361%;
-  top: 8.94778%;
-  width: 6.1365px;
-  height: 6.1365px;
+  left: 90.80349%;
+  top: -50.09949%;
+  width: 9.41813px;
+  height: 9.41813px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 74.52961%;
-  top: 14.48239%;
-  width: 9.68471px;
-  height: 9.68471px;
+  left: 32.88378%;
+  top: -38.17749%;
+  width: 13.4429px;
+  height: 13.4429px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 3.88874%;
-  top: 20.68599%;
-  width: 12.67014px;
-  height: 12.67014px;
+  left: 40.16518%;
+  top: -18.44749%;
+  width: 9.36555px;
+  height: 9.36555px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 48.57633%;
-  top: 36.41257%;
-  width: 12.96906px;
-  height: 12.96906px;
+  left: 87.3121%;
+  top: -39.16247%;
+  width: 9.98369px;
+  height: 9.98369px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6693,5 +6723,78 @@ input + .iconModule i.icon.icon-checkmark:before {
   background: -webkit-gradient(linear, left bottom, left top, from(#f20c05), to(#f85f05));
   background: linear-gradient(0deg, #f20c05, #f85f05);
   color: #fff;
+}
+
+.transferModule {
+  position: relative;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.transferModule .inputBox, .transferModule .inputBox-blue {
+  padding: 10px 20px;
+  margin: 0;
+  z-index: 3;
+  display: block;
+  width: calc(50% - 60px);
+  min-height: auto;
+}
+
+.transferModule .inputBox .dropdown .dropdown-container, .transferModule .inputBox-blue .dropdown .dropdown-container {
+  position: absolute;
+  top: 40px;
+  left: -1px;
+  background: #070e22;
+  border: 1px solid #1E85EC;
+  margin-left: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding-left: 0;
+  width: 100%;
+}
+
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item {
+  padding: 5px 33px 5px 0;
+}
+
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover {
+  background: #1E85EC;
+}
+
+.transferModule .inputBox .dropdown span, .transferModule .inputBox-blue .dropdown span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.transferModule .inputBox .dropdown button.btn, .transferModule .inputBox-blue .dropdown button.btn {
+  color: white;
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 15px;
+}
+
+.transferModule .inputBox .dropdown button.btn:after, .transferModule .inputBox-blue .dropdown button.btn:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  position: absolute;
+  right: 15px;
+  border-color: #c6c6c6 transparent transparent transparent;
+}
+
+.transferModule .inputBox .dropdown .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-item {
+  color: white;
+  text-align: right;
 }
 /*# sourceMappingURL=style.css.map */

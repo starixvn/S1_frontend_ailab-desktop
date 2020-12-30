@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
-import { api_site_GetGamelist } from "../../service/api/site";
+import { api_site_GetGamelistV2 } from "../../service/api/site";
 import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
@@ -38,6 +38,7 @@ export default () => {
 	const { t } = useTranslation();
 	const [selNav, setSelNav] = useState(defNav.ALLGAMES.key);
 	const [favorite, setFavorite] = useState([]);
+	const [imgUrl, setImgUrl] = useState("");
 	const [tpList, setTpList] = useState({});
 	const [gameDatas, setGameDatas] = useState([]);
 	const [tpOptions, setTpOptions] = useState([]);
@@ -103,6 +104,7 @@ export default () => {
 			let matchNav =
 				(_nav === defNav.PROMO.key && g.promotion === 1) ||
 				(_nav === defNav.FEATURED.key && g.featured === true) ||
+				(_nav === defNav.NEW.key && g.new) ||
 				(_nav === defNav.FAVOURITE.key &&
 					_favorite.includes(`${tpId}_${g.gameId}`)) ||
 				_nav === defNav.ALLGAMES.key;
@@ -245,17 +247,22 @@ export default () => {
 
 	useEffect(() => {
 		setLoading(true);
-		api_site_GetGamelist().then(
+		api_site_GetGamelistV2().then(
 			res => {
 				const success = res.data.errorCode === 0;
-				const { data } = res.data;
 
 				if (success) {
+					const { imgUrl, providerList } = res.data.data;
+
 					let _tpList = {};
-					let _tpOptions = [{ displayKey: "lbl_All", id: null }];
+					let _tpOptions = [
+						{ displayKey: "lbl_AllProvider", id: null }
+					];
 					let games = [];
 
-					data.forEach(gameInfo => {
+					setImgUrl(imgUrl);
+
+					providerList?.forEach(gameInfo => {
 						_tpList[gameInfo.value] = { ...gameInfo };
 						_tpOptions.push({
 							displayText: gameInfo.displayText,
@@ -266,6 +273,7 @@ export default () => {
 							gameInfo.gameList.data.forEach(list => {
 								games.push({
 									tpId: gameInfo.value,
+									tpName: gameInfo.name,
 									...list
 								});
 							});
@@ -334,7 +342,7 @@ export default () => {
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -394,6 +402,7 @@ export default () => {
 						</div>
 						<GameList
 							t={t}
+							imgUrl={imgUrl}
 							displayGames={displayGames}
 							tpList={tpList}
 							langId={userInfo.langId}

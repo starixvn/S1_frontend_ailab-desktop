@@ -27,6 +27,7 @@ export default ({
 					onSelectItem={EditSearchField.bind(this, "provider")}
 					selectedIdx={searchInfo.provider.idx}
 					showDropDownIcon={true}
+					i18n={t}
 				/>
 			</div>
 
@@ -36,6 +37,7 @@ export default ({
 					type="text"
 					onKeyPress={KeyPress}
 					onChange={EditField}
+					placeholder={t("lbl_SearchGames")}
 					value={searchInfo.searchText}
 				/>
 			</div>
