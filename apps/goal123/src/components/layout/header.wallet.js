@@ -84,11 +84,9 @@ class Dropdown extends Component {
 			0
 		);
 
-		let balance = isHideBalance
-			? "*****"
-			: this.props.walletInfo.main === null
-			? 0
-			: number_format(this.props.walletInfo.main + tpWalletsBonusSum);
+		let balance = !isNaN(this.props.walletInfo.main)
+			? number_format(this.props.walletInfo.main + tpWalletsBonusSum)
+			: 0;
 
 		const tpWallets =
 			this.props.walletInfo.tpWallets &&
@@ -107,27 +105,6 @@ class Dropdown extends Component {
 				);
 			});
 
-		const bonusWallets = this.props.bonusWallets.map(item => {
-			return (
-				<div
-					className="walletBalance"
-					key={`header-bonuswallet-${item.tpId}`}>
-					<div>
-						<span>
-							{this.props.i18n(
-								`lbl_BonusWallet_${item.promoCategoryId}`
-							)}
-						</span>
-						<span>{number_format(item.bonus)}</span>
-					</div>
-					<HeaderProcessBar
-						turnover={item.turnover}
-						rollover={item.rollover}
-					/>
-				</div>
-			);
-		});
-
 		return (
 			<div
 				className={`wallet icon icon-balance${
@@ -136,8 +113,8 @@ class Dropdown extends Component {
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
 				<button>
-					{this.props.currencyId === 51 ? "VNĐ" : "$"}
-					{balance}
+					{this.props.currencyId === 51 ? "VNĐ" : "$"} &nbsp;
+					{isHideBalance ? "*****" : balance}
 				</button>
 				<button
 					aria-label="HandleDisplayBalance"
@@ -150,16 +127,22 @@ class Dropdown extends Component {
 					}`}></button>
 				<div className="submenu">
 					<div className="balance">
-						<span>{`${this.props.i18n("lbl_MainWallet")}`}</span>
 						<span>
-							{number_format(this.props.walletInfo.main)}
+							{this.props.currencyId === 51 ? "VNĐ" : "$"}
+						</span>
+						<span>
+							{balance}
 							<ReloadSpin
 								func={this.props.getContentWalletInfo}
 							/>
 						</span>
 					</div>
 
-					{bonusWallets}
+					<BonusWalletRows
+						bonusWallets={this.props.bonusWallets}
+						i18n={this.props.i18n}
+						mainWallet={this.props.walletInfo.main}
+					/>
 					{tpWallets}
 
 					<div className="btnGroup">
@@ -197,6 +180,37 @@ class Dropdown extends Component {
 		);
 	}
 }
+
+const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
+	return (
+		<div className="walletBalance mainWallet">
+			<div>
+				<span>{i18n("lbl_MainWallet")}</span>
+				<span>{number_format(mainWallet)}</span>
+			</div>
+			{bonusWallets.map(item => {
+				return (
+					<div
+						className="walletBalance"
+						key={`header-bonuswallet-${item.tpId}`}>
+						<div>
+							<span>
+								{i18n(
+									`lbl_BonusWallet_${item.promoCategoryId}`
+								)}
+							</span>
+							<span>{number_format(item.bonus)}</span>
+						</div>
+						<HeaderProcessBar
+							turnover={item.turnover}
+							rollover={item.rollover}
+						/>
+					</div>
+				);
+			})}
+		</div>
+	);
+};
 
 Dropdown.propTypes = {
 	i18n: PropTypes.func.isRequired

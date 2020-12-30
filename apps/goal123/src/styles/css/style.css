@@ -887,6 +887,24 @@ header .header > div.function .wallet .submenu div.loginLog {
   }
 }
 
+@-webkit-keyframes flash2 {
+  0% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash2 {
+  0% {
+    opacity: .8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .gameMenu {
   background: #d93643;
   padding: 10px 0;
@@ -2209,6 +2227,7 @@ main > .swiper-container .swiper-slide {
           align-items: center;
   border-right: 1px solid #435068;
   padding: 5px;
+  word-break: break-all;
 }
 
 .list .listBody > div div:nth-child(2) {
@@ -3235,12 +3254,26 @@ main > .swiper-container .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: calc(100% - 140px);
   margin: 15px 0 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 70px 30px;
+}
+
+.walletModule > .walletType .walletBalanceModule {
+  width: calc(50% - 30px);
+  margin-right: 10px;
+  float: left;
+  margin-top: 10px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  max-width: none;
 }
 
 .walletModule .walletBalanceModule {
@@ -3805,6 +3838,10 @@ main > .swiper-container .swiper-slide {
   font-size: 24px;
 }
 
+.quickSelect > div.inputBox.promoType button.blueBorder, .quickSelect > div.promoType.inputBox-org button.blueBorder, .quickSelect > div.promoType.inputBox-white button.blueBorder, .quickSelect > div.promoType.inputBox-blue button.blueBorder, .quickSelect > div.promoType.inputBox-gray button.blueBorder, .quickSelect > div.promoType.inputBox-yellow button.blueBorder, .quickSelect > div:first-child.promoType button.blueBorder {
+  white-space: nowrap;
+}
+
 .quickSelect > div:first-child {
   position: relative;
   max-width: 322px;
@@ -3819,6 +3856,30 @@ main > .swiper-container .swiper-slide {
 
 .quickSelect i {
   white-space: nowrap;
+}
+
+.specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 0 34px;
+}
+
+.specialBonus .inputBox-white {
+  position: unset;
+  margin: 0 5px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.specialBonus .btnGroup {
+  margin: 0;
 }
 
 .pageSelect {
@@ -4369,6 +4430,18 @@ main > .swiper-container .swiper-slide {
   border-radius: 10px;
 }
 
+.proList > div .new-icon, .slotList > div .new-icon, .newsList > div .new-icon {
+  position: absolute;
+  top: 244px;
+  right: 15px;
+  border-radius: 9px 0 9px 0;
+  color: #fff;
+  background-color: #f72626;
+  padding: 5px 10px;
+  -webkit-animation: flash2 linear infinite alternate .7s;
+          animation: flash2 linear infinite alternate .7s;
+}
+
 .proList .rollover, .slotList .rollover, .newsList .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4409,6 +4482,11 @@ main > .swiper-container .swiper-slide {
   float: left;
   margin: 15px 5px;
   max-width: 330px;
+}
+
+.proList > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
 }
 
 .proList > div:hover {
@@ -5978,80 +6056,80 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 [class^="snow"].snow1 {
   position: absolute;
-  left: 79.4943%;
-  top: -25.91337%;
-  width: 11.06957px;
-  height: 11.06957px;
+  left: 73.56936%;
+  top: 12.98746%;
+  width: 16.24558px;
+  height: 16.24558px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="snow"].snow2 {
   position: absolute;
-  left: 89.45025%;
-  top: -17.00995%;
-  width: 9.2067px;
-  height: 9.2067px;
+  left: 4.35574%;
+  top: -10.78418%;
+  width: 9.52246px;
+  height: 9.52246px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="snow"].snow3 {
   position: absolute;
-  left: 51.99391%;
-  top: 39.2572%;
-  width: 17.42687px;
-  height: 17.42687px;
+  left: 2.11894%;
+  top: 19.9468%;
+  width: 10.07103px;
+  height: 10.07103px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="snow"].snow4 {
   position: absolute;
-  left: 65.23136%;
-  top: -27.16447%;
-  width: 13.16674px;
-  height: 13.16674px;
+  left: 28.30329%;
+  top: -56.30595%;
+  width: 15.90952px;
+  height: 15.90952px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="snow"].snow5 {
   position: absolute;
-  left: 74.02801%;
-  top: -23.8084%;
-  width: 13.5235px;
-  height: 13.5235px;
+  left: 43.12037%;
+  top: 23.90994%;
+  width: 15.22556px;
+  height: 15.22556px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="snow"].snow6 {
   position: absolute;
-  left: 97.35719%;
-  top: 36.85047%;
-  width: 17.99907px;
-  height: 17.99907px;
+  left: 74.25754%;
+  top: 17.85958%;
+  width: 14.89032px;
+  height: 14.89032px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="snow"].snow7 {
   position: absolute;
-  left: 22.0415%;
-  top: -23.70587%;
-  width: 11.26991px;
-  height: 11.26991px;
+  left: 59.90443%;
+  top: -18.72066%;
+  width: 16.41001px;
+  height: 16.41001px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="snow"].snow8 {
   position: absolute;
-  left: 11.52563%;
-  top: 2.88175%;
-  width: 11.31175px;
-  height: 11.31175px;
+  left: 76.06919%;
+  top: 25.86894%;
+  width: 9.63229px;
+  height: 9.63229px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6098,5 +6176,64 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
     -webkit-transform: translate(0, 750px);
             transform: translate(0, 750px);
   }
+}
+
+.transferModule {
+  position: relative;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.transferModule .inputBox, .transferModule .inputBox-org, .transferModule .inputBox-white, .transferModule .inputBox-blue, .transferModule .inputBox-gray, .transferModule .inputBox-yellow {
+  padding: 10px 20px;
+  margin: 0;
+  z-index: 2;
+  display: block;
+  width: calc(50% - 60px);
+}
+
+.transferModule .inputBox .dropdown .dropdown-container, .transferModule .inputBox-org .dropdown .dropdown-container, .transferModule .inputBox-white .dropdown .dropdown-container, .transferModule .inputBox-blue .dropdown .dropdown-container, .transferModule .inputBox-gray .dropdown .dropdown-container, .transferModule .inputBox-yellow .dropdown .dropdown-container {
+  position: absolute;
+  top: 45px;
+  left: -1px;
+  width: calc(100% - 1px);
+  background: #030c1b;
+  border: 1px solid #1E85EC;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-org .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-white .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-gray .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-yellow .dropdown .dropdown-container .dropdown-item {
+  padding: 5px 33px 5px 0;
+}
+
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-org .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-white .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-gray .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-yellow .dropdown .dropdown-container .dropdown-item:hover {
+  background: #1E85EC;
+}
+
+.transferModule .inputBox .dropdown span, .transferModule .inputBox-org .dropdown span, .transferModule .inputBox-white .dropdown span, .transferModule .inputBox-blue .dropdown span, .transferModule .inputBox-gray .dropdown span, .transferModule .inputBox-yellow .dropdown span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.transferModule .inputBox .dropdown button.btn, .transferModule .inputBox-org .dropdown button.btn, .transferModule .inputBox-white .dropdown button.btn, .transferModule .inputBox-blue .dropdown button.btn, .transferModule .inputBox-gray .dropdown button.btn, .transferModule .inputBox-yellow .dropdown button.btn {
+  color: white;
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 15px;
+}
+
+.transferModule .inputBox .dropdown .dropdown-item, .transferModule .inputBox-org .dropdown .dropdown-item, .transferModule .inputBox-white .dropdown .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-item, .transferModule .inputBox-gray .dropdown .dropdown-item, .transferModule .inputBox-yellow .dropdown .dropdown-item {
+  color: white;
+  text-align: right;
 }
 /*# sourceMappingURL=style.css.map */

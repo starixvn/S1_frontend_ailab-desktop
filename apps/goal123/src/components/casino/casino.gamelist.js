@@ -7,6 +7,7 @@ import { defPopBoxType } from "../common/popBox";
 
 export default ({
 	displayGames,
+	imgUrl,
 	langId,
 	isLogin,
 	tpList,
@@ -29,7 +30,7 @@ export default ({
 			});
 		}
 	};
-
+	let _imgUrl = "";
 	let rows = displayGames
 		?.filter(g => tpList[g.tpId] !== undefined)
 		.slice(startIdx, endIdx)
@@ -42,20 +43,21 @@ export default ({
 					let fArr = f.split("_");
 					return Number(fArr[0]) === g.tpId && fArr[1] === g.gameId;
 				})?.length > 0;
+
+			_imgUrl = ` ${imgUrl}/${g.tpName}/${imgName}`;
+
 			return (
 				<div key={`casino-game-${g.tpId}-${g.gameId}`}>
 					<div className="brand">
 						<span>{tpInfo.displayText}</span>
 					</div>
+
 					<div
 						onClick={onSetFavorite.bind(this, g.tpId, g.gameId)}
 						className={`icon icon-star-full${
 							isFavorite ? " active" : ""
 						}`}></div>
-					<img
-						alt="Casino_tpInfo"
-						src={`${config.imgUrl}/common/images/Casino/${tpInfo.name}/${imgName}`}
-					/>
+					<img alt="Casino_tpInfo" src={_imgUrl} />
 					<div className="txt-darkBlue">{gameDisplayName}</div>
 					<div className="btnGroup">
 						<button
@@ -68,7 +70,7 @@ export default ({
 							)}>
 							{t("lbl_PlayNow")}
 						</button>
-						{tpInfo.playFree ? (
+						{g.playFree ? (
 							<button
 								className="blue"
 								onClick={onClickPlay.bind(
@@ -81,6 +83,7 @@ export default ({
 							</button>
 						) : null}
 					</div>
+					{g.new ? <div className="new-icon">NEW</div> : null}
 				</div>
 			);
 		});

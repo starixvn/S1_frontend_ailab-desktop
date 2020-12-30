@@ -3,12 +3,16 @@ export const defRowsPerPage = 20;
 export const defNav = {
 	ALLGAMES: {
 		key: "ALLGAMES",
-		displayKey: "lbl_AllGames"
+		displayKey: "lbl_All"
 	},
 	PROMO: {
 		key: "PROMO",
 		displayKey: "lbl_Promo",
 		hot: true
+	},
+	NEW: {
+		key: "NEW",
+		displayKey: "lbl_New"
 	},
 	FEATURED: {
 		key: "FEATURED",

@@ -12,5 +12,7 @@ export const defPromotionType = {
 	freeBet: 3,
 	walletBonus: 5,
 	rebate: 6,
-	cashback: 7
+	cashback: 7,
+	cashback: 7,
+	special_bonus: "special_bonus"
 };

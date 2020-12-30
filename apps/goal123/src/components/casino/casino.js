@@ -5,7 +5,7 @@ import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
 } from "../../service/api/account";
-import { api_site_GetGamelist } from "../../service/api/site";
+import { api_site_GetGamelistV2 } from "../../service/api/site";
 import { userInfoContext } from "../common/context";
 import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
 import GameList from "./casino.gamelist";
@@ -30,6 +30,7 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const [selNav, setSelNav] = useState(defNav.ALLGAMES.key);
 	const [favorite, setFavorite] = useState([]);
+	const [imgUrl, setImgUrl] = useState("");
 	const [tpList, setTpList] = useState({});
 	const [tpOptions, setTpOptions] = useState([]);
 	const [gameDatas, setGameDatas] = useState(null);
@@ -51,22 +52,26 @@ export default () => {
 
 	useEffect(() => {
 		setDisplayGames([]);
-		api_site_GetGamelist().then(res => {
+		api_site_GetGamelistV2().then(res => {
 			if (res.data.errorCode === 0) {
+				const { imgUrl, providerList } = res.data.data;
+
 				let _tpList = {};
-				let _tpOptions = [{ displayText: "All", id: null }];
+				let _tpOptions = [{ displayKey: "lbl_AllProvider", id: null }];
 				let games = [];
+
+				setImgUrl(imgUrl);
 
 				let hasPromo = false;
 				let hasFeature = false;
-				res.data.data.forEach(t => {
+				providerList?.forEach(t => {
 					_tpList[t.value] = { ...t };
 					_tpOptions.push({
 						displayText: t.displayText,
 						id: t.value
 					});
 
-					if (t.gameList.data) {
+					if (t?.gameList?.data) {
 						t.gameList.data.forEach(g => {
 							hasPromo =
 								hasPromo === false
@@ -79,6 +84,7 @@ export default () => {
 
 							games.push({
 								tpId: t.value,
+								tpName: t.name,
 								...g
 							});
 						});
@@ -163,6 +169,7 @@ export default () => {
 			let matchNav =
 				(_nav === defNav.PROMO.key && g.promotion === 1) ||
 				(_nav === defNav.FEATURED.key && g.featured === true) ||
+				(_nav === defNav.NEW.key && g.new) ||
 				(_nav === defNav.FAVOURITE.key &&
 					_favorite.includes(`${tpId}_${g.gameId}`)) ||
 				_nav === defNav.ALLGAMES.key;
@@ -313,6 +320,7 @@ export default () => {
 			</div>
 			<GameList
 				t={t}
+				imgUrl={imgUrl}
 				displayGames={displayGames}
 				tpList={tpList}
 				langId={userInfo.langId}
