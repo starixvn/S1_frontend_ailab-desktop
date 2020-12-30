@@ -3,17 +3,22 @@ import { Link } from "@reach/router";
 import path from "../../router";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
-import { isNew, isClaimed, isExpiry } from "./promotion.common";
+import {
+	isNew,
+	isClaimed,
+	isExpiry,
+	isArrayNotEmpty
+} from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 
 export default ({
 	t,
-	filter,
 	userInfo,
+	promotionType,
 	promoList,
-	RefreshProcessBar,
-	getPromotionListV2
+	refreshProcessBar,
+	afterJoinCallBack
 }) => {
 	const { langId, isLogin, currencyId } = userInfo;
 
@@ -25,12 +30,18 @@ export default ({
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={_isClaimed ? "active" : ""}>
+				className={`${_isClaimed ? "active" : ""}${
+					promotionType === defFilterType.expiry ||
+					(promotionType === defFilterType.special_bonus &&
+						!p.canJoin)
+						? " expired"
+						: ""
+				}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
-				{filter === defFilterType.expiry ? (
+				{promotionType === defFilterType.expiry ? (
 					<div className="expiredIcon">{t("lbl_Expired")}</div>
 				) : (
-					<div className={_isNew ? "new" : ""}></div>
+					<div className={_isNew && p.canJoin ? "new" : ""}></div>
 				)}
 				<img src={p.banner} alt={p.title} />
 				<div className="txt-blue15">{p.title}</div>
@@ -41,18 +52,28 @@ export default ({
 					</ul>
 				</div>
 				<PromoRule t={t} promotionInfo={p} inListPage={true} />
-				<ProcessBar
-					{...p}
-					t={t}
-					currencyId={currencyId}
-					RefreshProcessBar={RefreshProcessBar.bind(this, p)}
-					hideReloadBtn={_isExpiry}
-				/>
+
+				{promotionType === defFilterType.special_bonus && p.isJoin ? (
+					<ProcessBar
+						{...p}
+						t={t}
+						currencyId={currencyId}
+						RefreshProcessBar={refreshProcessBar.bind(this, p)}
+						hideReloadBtn={_isExpiry}
+					/>
+				) : null}
+
 				<div className="btnGroup">
 					<Link
 						type="button"
 						className="blueBorder"
-						to={`/${langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${p.bonusCode}`}>
+						to={`/${langId}/${path.promotion.root}/${
+							path.promotion.sub.promotionInfo.root
+						}?BonusCode=${p.bonusCode}${
+							promotionType === defFilterType.special_bonus
+								? `&FilterType=9001`
+								: ""
+						}`}>
 						{t("lbl_Details").toUpperCase()}
 					</Link>
 
@@ -61,7 +82,8 @@ export default ({
 						userInfo={userInfo}
 						_isExpiry={_isExpiry}
 						inListPage={true}
-						callBack={getPromotionListV2}
+						promotionNavType={promotionType}
+						callBack={afterJoinCallBack}
 					/>
 				</div>
 			</div>
@@ -70,14 +92,15 @@ export default ({
 
 	if (isLogin === null) return null;
 
-	return rows && rows.length > 0 ? (
-		<div
-			className={`proList${
-				filter === defFilterType.expiry ? " expired" : ""
-			}`}>
-			{rows}
-		</div>
-	) : (
-		<div className="nodata">{t("msg_NoData")}</div>
-	);
+	if (isArrayNotEmpty(promoList))
+		return (
+			<div
+				className={`proList${
+					promotionType === defFilterType.expiry ? " expired" : ""
+				}`}>
+				{rows}
+			</div>
+		);
+
+	return <div className="nodata">{t("msg_NoData")}</div>;
 };

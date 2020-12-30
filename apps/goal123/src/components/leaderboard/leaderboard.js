@@ -130,7 +130,7 @@ export default () => {
 	const getSelfLeaderboardData = async (daysValue = beforeDays) => {
 		if (!userInfo.isLogin) return;
 		let payload = {
-			lBCategoryId: lBCategoryId,
+			LBCategoryId: lBCategoryId,
 			BeforeDays: daysValue
 		};
 		await api_events_GetCustRank(payload).then(res => {

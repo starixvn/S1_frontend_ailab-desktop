@@ -4,7 +4,11 @@ import { promoStatus, defPromotionType } from "./promotion.def";
 import { defPopBoxType } from "../common/popBox";
 import { Link } from "@reach/router";
 import path from "../../router";
-import { isConvert, number_format } from "../../components/common/common";
+import { number_format } from "../../components/common/common";
+
+export const isArrayNotEmpty = arr => {
+	return Array.isArray(arr) && arr.length;
+};
 
 export const isExpiry = ({
 	periodTo,

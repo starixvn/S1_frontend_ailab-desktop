@@ -65,6 +65,19 @@
   font-size: 12px;
 }
 
+.icon-mega888:before {
+  font-size: 16px !important;
+}
+
+.icon-mega888:before {
+  content: "\e9bb";
+  color: #fff;
+}
+
+.icon-mega888a:before {
+  content: "\e9bc";
+}
+
 .icon-friend:before {
   content: "\e9ba";
 }

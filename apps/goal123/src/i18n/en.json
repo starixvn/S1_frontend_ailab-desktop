@@ -166,6 +166,8 @@
 	"lbl_ClaimAmountRange": "Claim Amount Range",
 	"lbl_ClaimAmount": "Claim Amount",
 	"lbl_PleaseEnterClaimAmount": "Please enter your prefer amount to claim promotion",
+	"lbl_SpecialBonus": "Special Bonus",
+	"lbl_SpecialBonusCode": "Special Bonus Code",
 	"lbl_MinAmount": "Min Amount",
 	"lbl_RemainingTime": "REMAINING TIME",
 	"lbl_RequireMinAmountHint_Front": "The minimum amount of deposit are required to be at least",
@@ -326,8 +328,8 @@
 	"lbl_BankInfo": "Bank Info",
 	"lbl_Action": "Action",
 	"lbl_LastTransaction": "Last Transaction",
-	"lbl_BonusWallet_1": "Slots Wallet",
-	"lbl_BonusWallet_2": "Live Casino Wallet",
+	"lbl_BonusWallet_1": "Casino Bonus Wallet",
+	"lbl_BonusWallet_2": "Live Casino Bonus Wallet",
 	"lbl_BonusWallet_3": "Fishing Wallet",
 	"lbl_BankName": "Bank Name",
 	"lbl_AmountTooltip": "Amount can not be less than {0}.",
@@ -390,7 +392,7 @@
 	"lbl_Goal123_EventTitle": "Xmas Tournament Win Cash Prizes",
 	"lbl_last_2_day": "Last 2 Day",
 	"lbl_last_3_day": "Last 3 Day",
-	"lbl_TotalValue":"Total of all prizes",
-	"lbl_No1Award":"No. 1 Award"
+	"lbl_TotalValue": "Total of all prizes",
+	"lbl_No1Award": "No. 1 Award"
 }
 

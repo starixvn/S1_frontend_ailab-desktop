@@ -225,16 +225,20 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 			</div>
 			{bonusWallets.map(item => {
 				return (
-					<div key={`header-bonuswallet-${item.tpId}`}>
-						<span>
-							{i18n(`lbl_BonusWallet_${item.promoCategoryId}`)}
-						</span>
-						<span>{number_format(item.bonus)}</span>
-					</div>
-					// <HeaderProcessBar
-					// 	turnover={item.turnover}
-					// 	rollover={item.rollover}
-					// />
+					<>
+						<div key={`header-bonuswallet-${item.tpId}`}>
+							<span>
+								{i18n(
+									`lbl_BonusWallet_${item.promoCategoryId}`
+								)}
+							</span>
+							<span>{number_format(item.bonus)}</span>
+						</div>
+						<HeaderProcessBar
+							turnover={item.turnover}
+							rollover={item.rollover}
+						/>
+					</>
 				);
 			})}
 		</div>
