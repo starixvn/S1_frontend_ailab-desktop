@@ -1,28 +1,8 @@
-// import React, { useContext, useState, useEffect, useRef } from "react";
-// import Wrapper from "../common/wrapper";
-// import Layout from "../common/layout";
-// import { useTranslation } from "react-i18next";
-// import {
-// 	userInfoContext,
-// 	popBoxContext,
-// 	walletInfoContext
-// } from "../common/context";
-// import { api_account_GetWalletInfo } from "../service/api/account";
-// import { isConvert, checkAmount } from "../common/common.js";
-// import { api_tp_Transfer, api_tp_GetTransferRecent } from "../../service/api/tp";
-// import { defPopBoxType } from "../common/popBox";
-// import RecentHistory from "../transferFunds/recentHistory";
-// import ShowWallets from "../transferFunds/showWallets";
-// import SetAmount from "../transferFunds/setAmount";
-// import LeftMenu from "../common/leftMenu";
-// import Loading from "../common/loading";
-
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
 	popBoxContext,
-	// loadingContext,
 	walletInfoContext
 } from "../common/context";
 import {
@@ -40,6 +20,7 @@ import ShowWallets from "./showWallets";
 import SetAmount from "./setAmount";
 import RecentHistory from "./recentHistory";
 import { GetAllWallets } from "../common/wrapper.walletInfo";
+import Loading from "../common/loading";
 
 const defDirection = {
 	MainToTp: 1,
@@ -392,7 +373,9 @@ export default () => {
 		oppositeTpId: selectedTpId.from
 	});
 
-	return loading ? null : (
+	return loading ? (
+		<Loading />
+	) : (
 		<div className="rightModule">
 			<div className="infoModule">
 				<div className="inside-title icon icon-icon32px_Funds-transfer">

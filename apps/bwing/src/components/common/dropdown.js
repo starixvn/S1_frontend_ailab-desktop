@@ -97,13 +97,6 @@ export class Dropdown extends Component {
 						<i className="icon icon-arrow_drop_down"></i>
 					) : null}
 				</button>
-
-				{/* <div
-					className={`dropdown-container${
-						this.state.isOpen ? " active" : ""
-					}`}>
-					{arr}
-				</div> */}
 				{arr.length < 1 ? null : (
 					<div
 						className={`dropdown-container${

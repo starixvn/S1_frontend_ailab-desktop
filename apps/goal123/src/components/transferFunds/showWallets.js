@@ -25,7 +25,7 @@ const ShowWallet = props => {
 						<span>{number_format(item.balance, false)}</span>
 						<div className="btnGroup">
 							<button
-								className="orange"
+								className="blue"
 								onClick={props.restoreAll.bind(this, item.id)}>
 								{props.i18n("lbl_RestoreAll")}
 							</button>
@@ -40,7 +40,7 @@ const ShowWallet = props => {
 
 	return (
 		<div className="walletModule">
-			{getWalletCardList()}
+			<div className="walletType">{getWalletCardList()}</div>
 			<ReloadSpin btnActive={false} func={props.getAllWalletData} />
 		</div>
 	);
