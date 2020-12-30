@@ -326,6 +326,8 @@
 	"lbl_ClaimAmountRange": "领取金额范围",
 	"lbl_ClaimAmount": "领取金额",
 	"lbl_PleaseEnterClaimAmount": "请填入您欲用于领取优惠的金额",
+	"lbl_SpecialBonus":"特别优惠",
+	"lbl_SpecialBonusCode":"特别优惠代码",
 	"lbl_Expired_Promo": "已过期",
 	"lbl_UpdatePersonalInfoPromotion": "参与优惠前，请更新您的个人信息",
 	"lbl_PromotionCategory1": "首次存款",

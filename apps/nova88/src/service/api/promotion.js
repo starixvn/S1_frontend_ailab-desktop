@@ -17,3 +17,11 @@ export const api_promotion_SetClaimPromotion = ({
 		BonusCode,
 		LockedAmount
 	});
+
+export const api_promotion_GetSpecialPromotionList = ({ langId }) =>
+	promotionRequest.post(`/GetSpecialPromotionList/${langId}`);
+
+export const api_promotion_SetSpecialCode = ({ langId, SpecialCode }) =>
+	promotionRequest.post(`/SetSpecialCode/${langId}`, {
+		SpecialCode
+	});

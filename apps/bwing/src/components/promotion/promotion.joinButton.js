@@ -7,6 +7,7 @@ import { popBoxContext } from "../common/context";
 import { checkPromotion } from "./promotion.common";
 import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
 import path from "../../router";
+import { defFilterType } from "./promotion.nav";
 import { navigate } from "@reach/router";
 
 export default ({
@@ -15,6 +16,7 @@ export default ({
 	_isExpiry,
 	_isClaimed,
 	inListPage,
+	promotionNavType,
 	callBack
 }) => {
 	const { t } = useTranslation();
@@ -97,7 +99,7 @@ export default ({
 				}
 				openErrorMessagePopBox(message || "error", errorCode);
 			},
-			err => {
+			() => {
 				if (!isMountedRef.current) return;
 
 				openErrorMessagePopBox();
@@ -124,9 +126,11 @@ export default ({
 
 		if (!promotionCanJoin) return;
 		if (
-			canJoin &&
-			bonusType === 1 &&
-			promotionType === defPromotionType.redeposit
+			(canJoin &&
+				bonusType === defPromotionType.firstDeposit &&
+				promotionType === defPromotionType.redeposit) ||
+			(promotionNavType === defFilterType.special_bonus &&
+				promotionType === defPromotionType.firstDeposit)
 		)
 			return setPopBox({
 				isOpen: true,
@@ -142,8 +146,6 @@ export default ({
 		if (success) return callBack();
 	};
 
-	// if ((promotionInfo.isJoin && isLogin) || _isExpiry) return null;
-
 	const clickBack = () => {
 		navigate(`/${userInfo.langId}/${path.promotion.root}`);
 	};
@@ -157,7 +159,9 @@ export default ({
 			)}
 			{(promotionInfo.isJoin && isLogin) ||
 			_isExpiry ||
-			_isClaimed ? null : (
+			_isClaimed ||
+			(promotionNavType === defFilterType.special_bonus &&
+				!promotionInfo.canJoin) ? null : (
 				<button className="orange" onClick={onJoinPromotion}>
 					{t("lbl_PromoJoinNow").toUpperCase()}
 				</button>
