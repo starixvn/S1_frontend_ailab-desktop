@@ -42,7 +42,7 @@ const ShowWallet = props => {
 
 	return (
 		<div className="walletModule">
-			{getWalletCardList()}
+			<div className="walletType">{getWalletCardList()}</div>
 			<ReloadSpin btnActive={false} func={props.getAllWalletData} />
 		</div>
 	);
