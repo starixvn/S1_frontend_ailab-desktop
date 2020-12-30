@@ -355,7 +355,10 @@
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "CASINO",
+	"lbl_New": "New",
 	"lbl_Favourite": "Favourite",
+	"lbl_AllProvider": "All Platform",
+	"lbl_SearchGames": "Search Games",
 	"lbl_AllGames": "All",
 	"lbl_Feature": "Feature",
 

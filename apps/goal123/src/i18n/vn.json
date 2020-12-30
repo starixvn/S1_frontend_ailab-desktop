@@ -355,7 +355,10 @@
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "CASINO",
+	"lbl_New": "Mới",
 	"lbl_Favourite": "Ưa chuộng",
+	"lbl_AllProvider": "Tất cả nền tảng",
+	"lbl_SearchGames": "Tìm kiếm trò chơi",
 	"lbl_AllGames": "Tất cả trò chơi",
 	"lbl_Feature": "Đặc điểm",
 
