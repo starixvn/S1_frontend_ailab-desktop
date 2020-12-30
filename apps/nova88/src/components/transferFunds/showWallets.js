@@ -9,40 +9,32 @@ const walletIcon = [
 ];
 
 const ShowWallet = props => {
-	const getWalletCardList = () => {
-		try {
-			return props.walletInfo.map(item => {
-				return (
-					<div
-						className="walletBalanceModule"
-						key={`wallets-${item.id}`}>
-						<span
-							className={`icon ${
-								item.id === 0 ? walletIcon[0] : walletIcon[1]
-							}`}>
-							{props.i18n(item.displayKey)}
-						</span>
-						<span>
-							{number_format(item.balance ?? 0, props._isConvert)}
-						</span>
-						<div className="btnGroup">
-							<button
-								className="orange"
-								onClick={props.restoreAll.bind(this, item.id)}>
-								{props.i18n("lbl_RestoreAll")}
-							</button>
-						</div>
-					</div>
-				);
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	const walletCardList = props.walletInfo?.map(item => {
+		return (
+			<div className="walletBalanceModule" key={`wallets-${item.id}`}>
+				<span
+					className={`icon ${
+						item.id === 0 ? walletIcon[0] : walletIcon[1]
+					}`}>
+					{props.i18n(item.displayKey)}
+				</span>
+				<span>
+					{number_format(item.balance ?? 0, props._isConvert)}
+				</span>
+				<div className="btnGroup">
+					<button
+						className="orange"
+						onClick={props.restoreAll.bind(this, item.id)}>
+						{props.i18n("lbl_RestoreAll")}
+					</button>
+				</div>
+			</div>
+		);
+	});
 
 	return (
 		<div className="walletModule">
-			<div className="walletType">{getWalletCardList()}</div>
+			<div className="walletType">{walletCardList}</div>
 			<ReloadSpin btnActive={false} func={props.getAllWalletData} />
 		</div>
 	);
