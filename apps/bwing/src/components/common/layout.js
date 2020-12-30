@@ -4,15 +4,18 @@ import Header from "../layout/header";
 import Footer from "../footer/footer";
 import SEO from "../seo";
 import PopBox from "./popBox";
+import Loading from "./loading";
 import "../../styles/css/swiper.css";
 import "../../styles/css/style.css";
 import "../../styles/css/font.css";
 import "../../styles/css/datePicker.css";
-
+import { loadingContext } from "../../components/common/context";
 //*  xmas code ↓  */
 import { eventPeriod } from "../common/common";
 
 const Layout = ({ children, showFooter = false }) => {
+	const { loading } = useContext(loadingContext);
+
 	return (
 		<>
 			<SEO />
@@ -78,6 +81,7 @@ const Layout = ({ children, showFooter = false }) => {
 			{children}
 			{showFooter ? <Footer /> : null}
 			<PopBox />
+			{loading ? <Loading /> : null}
 		</>
 	);
 };
