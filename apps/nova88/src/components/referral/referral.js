@@ -10,18 +10,15 @@ import usePopBox from "../hook/usePopBox";
 import ReferralLinks from "./referral.links";
 import ReferralShare from "./referral.share";
 
-import refStepBanner from "../../styles/img/refBanner.png";
-
 export default () => {
 	const { t } = useTranslation();
 	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
-
 	const [referralCode, setReferralCode] = useState("");
 	const [referralSettingData, setReferralSettingData] = useState({});
-
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo } = useContext(userInfoContext);
+	const refStepBanner = require(`../../styles/img/refbanner-${userInfo.langId}.png`);
 
 	useEffect(() => {
 		isMountedRef.current = true;
