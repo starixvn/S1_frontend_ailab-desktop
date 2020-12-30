@@ -3254,12 +3254,26 @@ main > .swiper-container .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: calc(100% - 140px);
   margin: 15px 0 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 70px 30px;
+}
+
+.walletModule > .walletType .walletBalanceModule {
+  width: calc(50% - 30px);
+  margin-right: 10px;
+  float: left;
+  margin-top: 10px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  max-width: none;
 }
 
 .walletModule .walletBalanceModule {
@@ -6042,80 +6056,80 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 [class^="snow"].snow1 {
   position: absolute;
-  left: 75.10373%;
-  top: -12.5688%;
-  width: 10.36596px;
-  height: 10.36596px;
+  left: 73.56936%;
+  top: 12.98746%;
+  width: 16.24558px;
+  height: 16.24558px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="snow"].snow2 {
   position: absolute;
-  left: 60.3738%;
-  top: -12.99354%;
-  width: 11.8967px;
-  height: 11.8967px;
+  left: 4.35574%;
+  top: -10.78418%;
+  width: 9.52246px;
+  height: 9.52246px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="snow"].snow3 {
   position: absolute;
-  left: 90.78511%;
-  top: -36.81646%;
-  width: 15.98552px;
-  height: 15.98552px;
+  left: 2.11894%;
+  top: 19.9468%;
+  width: 10.07103px;
+  height: 10.07103px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="snow"].snow4 {
   position: absolute;
-  left: 58.06984%;
-  top: -40.03444%;
-  width: 15.77547px;
-  height: 15.77547px;
+  left: 28.30329%;
+  top: -56.30595%;
+  width: 15.90952px;
+  height: 15.90952px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="snow"].snow5 {
   position: absolute;
-  left: 67.44611%;
-  top: -54.23709%;
-  width: 12.43855px;
-  height: 12.43855px;
+  left: 43.12037%;
+  top: 23.90994%;
+  width: 15.22556px;
+  height: 15.22556px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="snow"].snow6 {
   position: absolute;
-  left: 66.16479%;
-  top: -36.58688%;
-  width: 15.93896px;
-  height: 15.93896px;
+  left: 74.25754%;
+  top: 17.85958%;
+  width: 14.89032px;
+  height: 14.89032px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="snow"].snow7 {
   position: absolute;
-  left: 30.82461%;
-  top: -9.01788%;
-  width: 13.03887px;
-  height: 13.03887px;
+  left: 59.90443%;
+  top: -18.72066%;
+  width: 16.41001px;
+  height: 16.41001px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="snow"].snow8 {
   position: absolute;
-  left: 23.23245%;
-  top: -49.84123%;
-  width: 10.0268px;
-  height: 10.0268px;
+  left: 76.06919%;
+  top: 25.86894%;
+  width: 9.63229px;
+  height: 9.63229px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6162,5 +6176,64 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
     -webkit-transform: translate(0, 750px);
             transform: translate(0, 750px);
   }
+}
+
+.transferModule {
+  position: relative;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.transferModule .inputBox, .transferModule .inputBox-org, .transferModule .inputBox-white, .transferModule .inputBox-blue, .transferModule .inputBox-gray, .transferModule .inputBox-yellow {
+  padding: 10px 20px;
+  margin: 0;
+  z-index: 2;
+  display: block;
+  width: calc(50% - 60px);
+}
+
+.transferModule .inputBox .dropdown .dropdown-container, .transferModule .inputBox-org .dropdown .dropdown-container, .transferModule .inputBox-white .dropdown .dropdown-container, .transferModule .inputBox-blue .dropdown .dropdown-container, .transferModule .inputBox-gray .dropdown .dropdown-container, .transferModule .inputBox-yellow .dropdown .dropdown-container {
+  position: absolute;
+  top: 45px;
+  left: -1px;
+  width: calc(100% - 1px);
+  background: #030c1b;
+  border: 1px solid #1E85EC;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-org .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-white .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-gray .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-yellow .dropdown .dropdown-container .dropdown-item {
+  padding: 5px 33px 5px 0;
+}
+
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-org .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-white .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-gray .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-yellow .dropdown .dropdown-container .dropdown-item:hover {
+  background: #1E85EC;
+}
+
+.transferModule .inputBox .dropdown span, .transferModule .inputBox-org .dropdown span, .transferModule .inputBox-white .dropdown span, .transferModule .inputBox-blue .dropdown span, .transferModule .inputBox-gray .dropdown span, .transferModule .inputBox-yellow .dropdown span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.transferModule .inputBox .dropdown button.btn, .transferModule .inputBox-org .dropdown button.btn, .transferModule .inputBox-white .dropdown button.btn, .transferModule .inputBox-blue .dropdown button.btn, .transferModule .inputBox-gray .dropdown button.btn, .transferModule .inputBox-yellow .dropdown button.btn {
+  color: white;
+  -webkit-box-flex: 7;
+      -ms-flex: 7;
+          flex: 7;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 15px;
+}
+
+.transferModule .inputBox .dropdown .dropdown-item, .transferModule .inputBox-org .dropdown .dropdown-item, .transferModule .inputBox-white .dropdown .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-item, .transferModule .inputBox-gray .dropdown .dropdown-item, .transferModule .inputBox-yellow .dropdown .dropdown-item {
+  color: white;
+  text-align: right;
 }
 /*# sourceMappingURL=style.css.map */
