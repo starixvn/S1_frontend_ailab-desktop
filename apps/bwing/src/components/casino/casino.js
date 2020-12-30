@@ -65,7 +65,7 @@ export default () => {
 
 				setImgUrl(imgUrl);
 
-				providerList.forEach(t => {
+				providerList?.forEach(t => {
 					_tpList[t.value] = { ...t };
 					_tpOptions.push({
 						displayText: t.displayText,

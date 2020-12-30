@@ -262,7 +262,7 @@ export default () => {
 
 					setImgUrl(imgUrl);
 
-					providerList.forEach(gameInfo => {
+					providerList?.forEach(gameInfo => {
 						_tpList[gameInfo.value] = { ...gameInfo };
 						_tpOptions.push({
 							displayText: gameInfo.displayText,
