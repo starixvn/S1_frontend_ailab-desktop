@@ -6962,13 +6962,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -7916,80 +7910,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 33.81943%;
-  top: -32.97882%;
-  width: 8.60597px;
-  height: 8.60597px;
+  left: 18.90885%;
+  top: -30.84%;
+  width: 13.5823px;
+  height: 13.5823px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 20.53724%;
-  top: -24.49259%;
-  width: 7.61069px;
-  height: 7.61069px;
+  left: 73.72845%;
+  top: -56.25804%;
+  width: 10.44779px;
+  height: 10.44779px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 62.91401%;
-  top: -28.35362%;
-  width: 9.39246px;
-  height: 9.39246px;
+  left: 80.9742%;
+  top: -36.5638%;
+  width: 12.27108px;
+  height: 12.27108px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 94.6914%;
-  top: -59.76458%;
-  width: 13.75405px;
-  height: 13.75405px;
+  left: 97.749%;
+  top: -42.98022%;
+  width: 11.26199px;
+  height: 11.26199px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 75.99799%;
-  top: -7.82698%;
-  width: 12.48218px;
-  height: 12.48218px;
+  left: 59.80945%;
+  top: 24.45684%;
+  width: 9.02929px;
+  height: 9.02929px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 56.58189%;
-  top: -39.47804%;
-  width: 7.28614px;
-  height: 7.28614px;
+  left: 98.83997%;
+  top: -7.91781%;
+  width: 9.34769px;
+  height: 9.34769px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 25.91077%;
-  top: -19.6395%;
-  width: 13.79361px;
-  height: 13.79361px;
+  left: 81.47569%;
+  top: -55.01509%;
+  width: 7.73517px;
+  height: 7.73517px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 21.89699%;
-  top: -55.32528%;
-  width: 8.58495px;
-  height: 8.58495px;
+  left: 7.90934%;
+  top: -3.54488%;
+  width: 10.77219px;
+  height: 10.77219px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8088,7 +8082,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 10px 10px 10px 0;
   border: 1px solid #1E85EC;
   border-radius: 15px;
-  padding: 10px;
+  padding: 15px 10px;
+}
+
+.referralModule > div .refBox > div div {
+  line-height: 30px;
 }
 
 .referralModule > div .refBox > div.active {
@@ -8151,5 +8149,16 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .list.refhistory .btnGroup a {
   padding: 0;
+}
+
+.qrcode {
+  background: #191919;
+  padding: 40px 40px 0;
+  border-radius: 15px;
+  overflow-y: auto;
+}
+
+.qrcode img {
+  max-width: 200px;
 }
 /*# sourceMappingURL=style.css.map */

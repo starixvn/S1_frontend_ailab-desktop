@@ -11,7 +11,7 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 		<div className="refShare">
 			<div className="title">{t("lbl_Share_with_friend")}</div>
 			<div className="refBox">
-				<div className="active">
+				<div>
 					<div>
 						{t("lbl_ValidPeriod")}{" "}
 						<span>{`${periodDays} ${t("lbl_Days")}`}</span>

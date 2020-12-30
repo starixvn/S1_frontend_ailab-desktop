@@ -56,7 +56,8 @@ export const defLeftMenu = {
 			},
 			referral: {
 				path: path.referral.root,
-				displayKey: "lbl_Referral"
+				displayKey: "lbl_Referral",
+				icon: "icon-new"
 			},
 			bankInfo: {
 				path: path.bankInfo.root,
