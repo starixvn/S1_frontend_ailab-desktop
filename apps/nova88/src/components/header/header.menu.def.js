@@ -28,6 +28,14 @@ export const defMenuLinks = {
 		className: "COCK icon icon-new",
 		subMenu: [
 			{
+				className: "SG",
+				icon: "icon icon-ICG",
+				displayText: "ICG",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.casino_ICG },
+				...productList.casino_ICG
+			},
+			{
 				className: "JOKER",
 				icon: "icon icon-JOKER",
 				displayText: "JOKER",
@@ -199,7 +207,36 @@ export const defMenuLinks = {
 	fishing: {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
+		className: "icon icon-new",
 		subMenu: [
+			{
+				...productList.ICG_DRAGONBALL_FISHING,
+				className: "fsgw icon icon-new",
+				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
+			},
+			{
+				...productList.ICG_FISHING_OF_SAVIORS,
+				className: "fsgw icon icon-new",
+				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
+			},
+			{
+				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
+				className: "fsgw icon icon-new",
+				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS }
+			},
+			{
+				...productList.ICG_TOWER_OF_SAVIORS,
+				className: "fsgw icon icon-new",
+				displayKey: "lbl_Game_ICG_TOWER_OF_SAVIORS",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.ICG_TOWER_OF_SAVIORS }
+			},
 			{
 				...productList.fishing,
 				className: "fgg",
