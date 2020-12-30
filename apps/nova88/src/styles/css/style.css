@@ -432,14 +432,6 @@ header {
   background: url(../img/casinoJOKER_a.png) no-repeat center 0px/auto 100%;
 }
 
-.header > div.menu .casinoList .mega {
-  background: url(../img/casinomega.png) no-repeat center 10px/auto 100%;
-}
-
-.header > div.menu .casinoList .mega:hover {
-  background: url(../img/casinomega_a.png) no-repeat center 0px/auto 100%;
-}
-
 .header > div.menu .casinoList .CQ9 {
   background: url(../img/casinocq9.png) no-repeat center 10px/auto 100%;
 }
@@ -4105,6 +4097,17 @@ input[type="file"] {
           align-items: center;
 }
 
+.walletModule > .walletType .walletBalanceModule {
+  width: calc(50% - 30px);
+  margin-right: 10px;
+  float: left;
+  margin-top: 10px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  max-width: none;
+}
+
 .walletModule .walletBalanceModule {
   background: #212121;
   border-radius: 15px;
@@ -4652,25 +4655,6 @@ input[type="file"] {
   background: #666;
   width: 1px;
   height: 100%;
-}
-
-.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-org .specialBonus, .quickSelect > div.promoType.inputBox-white .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus, .quickSelect > div:first-child.promoType .specialBonus {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.quickSelect > div.inputBox.promoType .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-org .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-white .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-white, .quickSelect > div:first-child.promoType .specialBonus .inputBox-white {
-  position: unset;
-  margin: 0 5px;
-  border: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
 }
 
 .quickSelect > div.inputBox.promoType button.orange, .quickSelect > div.promoType.inputBox-org button.orange, .quickSelect > div.promoType.inputBox-white button.orange, .quickSelect > div.promoType.inputBox-blue button.orange, .quickSelect > div:first-child.promoType button.orange {
@@ -7926,80 +7910,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 66.14232%;
-  top: 15.06264%;
-  width: 5.88272px;
-  height: 5.88272px;
+  left: 18.90885%;
+  top: -30.84%;
+  width: 13.5823px;
+  height: 13.5823px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 64.14721%;
-  top: -20.62207%;
-  width: 10.73962px;
-  height: 10.73962px;
+  left: 73.72845%;
+  top: -56.25804%;
+  width: 10.44779px;
+  height: 10.44779px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 35.91107%;
-  top: -11.80961%;
-  width: 13.01001px;
-  height: 13.01001px;
+  left: 80.9742%;
+  top: -36.5638%;
+  width: 12.27108px;
+  height: 12.27108px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 8.69012%;
-  top: -51.99109%;
-  width: 14.55003px;
-  height: 14.55003px;
+  left: 97.749%;
+  top: -42.98022%;
+  width: 11.26199px;
+  height: 11.26199px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 1.01996%;
-  top: 11.60325%;
-  width: 9.87834px;
-  height: 9.87834px;
+  left: 59.80945%;
+  top: 24.45684%;
+  width: 9.02929px;
+  height: 9.02929px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 12.24497%;
-  top: 25.8621%;
-  width: 14.50621px;
-  height: 14.50621px;
+  left: 98.83997%;
+  top: -7.91781%;
+  width: 9.34769px;
+  height: 9.34769px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 68.76675%;
-  top: -5.47324%;
-  width: 13.12955px;
-  height: 13.12955px;
+  left: 81.47569%;
+  top: -55.01509%;
+  width: 7.73517px;
+  height: 7.73517px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 56.67308%;
-  top: 18.78853%;
-  width: 14.69515px;
-  height: 14.69515px;
+  left: 7.90934%;
+  top: -3.54488%;
+  width: 10.77219px;
+  height: 10.77219px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8067,6 +8051,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .referralModule > div {
   margin-right: 10px;
+  width: calc(35% - 10px);
 }
 
 .referralModule > div:last-child {
@@ -8093,11 +8078,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .referralModule > div .refBox > div {
-  width: calc(50% - 32px);
+  width: 100%;
   margin: 10px 10px 10px 0;
   border: 1px solid #1E85EC;
   border-radius: 15px;
-  padding: 10px;
+  padding: 15px 10px;
+}
+
+.referralModule > div .refBox > div div {
+  line-height: 30px;
 }
 
 .referralModule > div .refBox > div.active {
@@ -8137,5 +8126,39 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 50%;
   float: left;
   line-height: 30px;
+}
+
+.achievement {
+  color: white;
+  font-weight: bold;
+  width: calc(100% - 150px);
+  margin: 15px 0 0;
+  padding: 0 70px 0 80px;
+}
+
+.achievement span {
+  margin-left: 10px;
+  color: #f77900;
+}
+
+.list.refhistory div:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.list.refhistory .btnGroup a {
+  padding: 0;
+}
+
+.qrcode {
+  background: #191919;
+  padding: 40px 40px 0;
+  border-radius: 15px;
+  overflow-y: auto;
+}
+
+.qrcode img {
+  max-width: 200px;
 }
 /*# sourceMappingURL=style.css.map */
