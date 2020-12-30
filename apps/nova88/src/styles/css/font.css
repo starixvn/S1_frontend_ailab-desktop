@@ -61,6 +61,27 @@
   font-size: 16px !important;
 }
 
+.icon-friend:before {
+  font-size: 12px;
+}
+
+.icon-mega888:before {
+  font-size: 16px !important;
+}
+
+.icon-mega888:before {
+  content: "\e9bb";
+  color: #fff;
+}
+
+.icon-mega888a:before {
+  content: "\e9bc";
+}
+
+.icon-friend:before {
+  content: "\e9ba";
+}
+
 .icon-cq9:before {
   content: "\e9b9";
 }
@@ -781,6 +802,10 @@
   content: "\e9ac";
 }
 
+.icon-download2:before {
+  content: "\e9c5";
+}
+
 .icon-sphere:before {
   content: "\e9c9";
 }
@@ -919,6 +944,10 @@
 
 .icon-android:before {
   content: "\eac0";
+}
+
+.icon-skype:before {
+  content: "\eac5";
 }
 
 .icon-IcoMoon:before {

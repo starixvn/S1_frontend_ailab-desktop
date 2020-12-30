@@ -3,12 +3,16 @@ export const defRowsPerPage = 20;
 export const defNav = {
 	ALLGAMES: {
 		key: "ALLGAMES",
-		displayKey: "lbl_AllGames"
+		displayKey: "lbl_All"
 	},
 	PROMO: {
 		key: "PROMO",
 		displayKey: "lbl_Promotion",
 		hot: true
+	},
+	NEW: {
+		key: "NEW",
+		displayKey: "lbl_New"
 	},
 	FEATURED: {
 		key: "FEATURED",
@@ -35,7 +39,7 @@ export const defCategoryId = {
 };
 
 export const defCategory = [
-	{ displayKey: "lbl_AllGames", id: defCategoryId.All },
+	{ displayKey: "lbl_AllGameType", id: defCategoryId.All },
 	{ displayKey: "lbl_Slots", id: defCategoryId.Slots },
 	{ displayKey: "lbl_Table", id: defCategoryId.Table }
 ];

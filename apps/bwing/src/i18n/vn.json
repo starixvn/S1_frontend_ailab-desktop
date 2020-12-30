@@ -87,7 +87,7 @@
 	"lbl_VirtualSports": "Thể thao ảo",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Affiliate_ID": "ID Đại lý/ Người giới thiệu",
+	"lbl_Affiliate_ID": "ID đại lý/ Người giới thiệu (nếu có)",
 	"lbl_Birthday": "Ngày sinh",
 	"lbl_BirthRequired": "Vui lòng nhập ngày sinh",
 	"lbl_ChangePassword": "Đổi Mật Khẩu",
@@ -362,8 +362,8 @@
 	"lbl_BankInfo": "Thông tin ngân hàng",
 	"lbl_Action": "Thao tác",
 	"lbl_LastTransaction": "Giao dịch gần đây",
-	"lbl_BonusWallet_1": "Ví Slots",
-	"lbl_BonusWallet_2": "Ví Sòng bài",
+	"lbl_BonusWallet_1": "Ví thưởng quay hũ",
+	"lbl_BonusWallet_2": "Ví thưởng sòng bài",
 	"lbl_BonusWallet_3": "Ví Bắn cá",
 	"lbl_AmountTooltip": "Số tiền không thể nhỏ hơn {0}.",
 	"lbl_NotinLimit": "ngoài hạn mức.",
@@ -391,8 +391,11 @@
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "QUAY HŨ",
+	"lbl_New": "Mới",
 	"lbl_Favourite": "Ưa chuộng",
 	"lbl_AllGames": "Tất cả trò chơi",
+	"lbl_AllProvider": "Tất cả nền tảng",
+	"lbl_SearchGames": "Tìm kiếm trò chơi",
 	"lbl_Feature": "Đặc điểm",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
@@ -428,7 +431,7 @@
 	"lbl_MoreDetails": "XEM CHI TIẾT",
 	"lbl_NoOfWinners": "Người Chiến Thắng",
 	"lbl_HighestWinningRecord": "THÀNH TÍCH THẮNG CAO NHẤT",
-	"lbl_Ranking_Top20": "TOP 20 NGƯỜI THẮNG",
+	"lbl_Ranking_Top20": "TOP 16 NGƯỜI THẮNG",
 	"lbl_No1_Reward": "GIẢI NHẤT",
 	"lbl_leaderboardTitle_1": "GIÁNG SINH MAY MẮN",
 	"lbl_leaderboardTitle_2": "TRÚNG LỚN IPHONE12",
@@ -444,6 +447,8 @@
 	"lbl_check_history": "Xem lịch sử",
 	"lbl_restore_all_hint": "Khi chọn nút Phục hồi quỹ, toàn bộ quỹ từ các ví khác của bạn sẽ được chuyển về ví này.",
 	"lbl_PleaseEnterClaimAmount": "Vui lòng nhập số tiền bạn muốn để nhận khuyến mãi",
+	"lbl_SpecialBonus": "Khuyến mãi đặc biệt",
+	"lbl_SpecialBonusCode": "Code khuyến mãi đặc biệt",
 	"lbl_ClaimAmountRange": "Khoảng tiền nạp",
 	"lbl_history_submit": "Xem lịch sử",
 	"lbl_statement_submit": "Xem sao kê",
@@ -455,8 +460,8 @@
 	"lbl_withdraw_submit": "RÚT TIỀN",
 	"lbl_total": "Toàn bộ",
 
-	"lbl_TraditionalLottery":"Xổ Số Truyền thống",
-	"lbl_789Lottery":"Xổ số tự quay 789",
-	"lbl_liveCasino_789SeDie":"Xóc Đĩa 789",
+	"lbl_TraditionalLottery": "Xổ Số Truyền thống",
+	"lbl_789Lottery": "Xổ số tự quay 789",
+	"lbl_liveCasino_789SeDie": "Xóc Đĩa 789",
 	"---end---": "---"
 }

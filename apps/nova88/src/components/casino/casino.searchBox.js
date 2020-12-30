@@ -29,6 +29,7 @@ export default ({
 					type="text"
 					onKeyPress={KeyPress}
 					onChange={EditField}
+					placeholder={t("lbl_SearchGames")}
 					value={searchInfo.searchText}
 				/>
 			</div>

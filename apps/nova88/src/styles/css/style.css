@@ -67,7 +67,7 @@ img {
   margin: 0 5px;
 }
 
-.transition, .header > div.menu .subMenu-Wrapper, main .gamelistsport a .container .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a .container .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG2.jpg"], .tip, .dropdown > .dropdown-container, .personal .list .listBody {
+.transition, .header > div.menu .subMenu-Wrapper, .tip, .dropdown > .dropdown-container, .personal .list .listBody {
   visibility: hidden;
   opacity: 0;
   height: 0;
@@ -75,7 +75,7 @@ img {
   transition: 0.7s;
 }
 
-.transition-open, .header > div.menu .subMenu-Wrapper.active, main .gamelistsport a .container .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a .container .card_left img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG1.jpg"], .tip.active, .dropdown > .dropdown-container.active, .personal .list .listBody.active {
+.transition-open, .header > div.menu .subMenu-Wrapper.active, main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG1.jpg"], .tip.active, .dropdown > .dropdown-container.active, .personal .list .listBody.active {
   visibility: visible;
   opacity: 1;
   height: auto;
@@ -430,6 +430,14 @@ header {
 
 .header > div.menu .eSportsList .JOKER:hover {
   background: url(../img/casinoJOKER_a.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .casinoList .mega {
+  background: url(../img/casinomega.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .mega:hover {
+  background: url(../img/casinomega_a.png) no-repeat center 0px/auto 100%;
 }
 
 .header > div.menu .casinoList .CQ9 {
@@ -836,12 +844,16 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   right: 0;
-  text-align: right;
+  text-align: left;
   line-height: 30px;
   white-space: nowrap;
   top: 0;
   z-index: 1;
   border: 1px solid rgba(30, 133, 236, 0.5);
+}
+
+.header > div.function .cashier .submenu a, .header > div.function .wallet .submenu a, .header > div.function .memberfile .submenu a {
+  position: relative;
 }
 
 .header > div.function .cashier .submenu a:hover, .header > div.function .wallet .submenu a:hover, .header > div.function .memberfile .submenu a:hover {
@@ -1232,13 +1244,6 @@ main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jp
   margin-top: -20px;
 }
 
-main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG2.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG2.jpg"] {
-  -webkit-transform: rotate(-10deg);
-          transform: rotate(-10deg);
-  margin-left: 50px;
-  margin-top: -10px;
-}
-
 main .gamelistsport a:hover .card_right img.baseball, main .gamelistsport a:hover .card_left img.baseball, main .gamelistsport a:active .card_right img.baseball, main .gamelistsport a:active .card_left img.baseball {
   margin-left: 50px;
   -webkit-transform: rotate(-10deg);
@@ -1543,7 +1548,7 @@ footer {
   width: 54px;
 }
 
-.platform .ae {
+.platform .ae, .platform .aea {
   width: 120px;
 }
 
@@ -1559,7 +1564,7 @@ footer {
   width: 55px;
 }
 
-.platform .awc {
+.platform .awc, .platform .awca {
   width: 75px;
 }
 
@@ -1580,9 +1585,7 @@ footer {
 }
 
 .joinpop, .loginpop {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1597,7 +1600,9 @@ footer {
 }
 
 .joinpop.active, .loginpop.active {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .joinpop .joinloginModule, .loginpop .joinloginModule {
@@ -2603,6 +2608,14 @@ input[type="file"] {
 
 #leftMenu .menuModule .menuSelect span {
   z-index: 1;
+  position: relative;
+}
+
+#leftMenu .menuModule .menuSelect span.icon-new::before {
+  top: 0;
+  right: -10px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 
 #leftMenu .menuModule .menuSelect:before {
@@ -2801,6 +2814,7 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   padding: 5px;
+  word-break: break-all;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -3551,6 +3565,7 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 #popup .pop > div.active {
@@ -3632,7 +3647,41 @@ input[type="file"] {
   top: -20px;
 }
 
-.Submit, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
+#popup .pop .friend {
+  width: auto;
+}
+
+#popup .pop .friend .icon-close {
+  top: -25px;
+  right: -30px;
+}
+
+#popup .pop .friend > img {
+  border-radius: 5px;
+}
+
+#popup .pop .friend .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+#popup .pop .friend .checkbox input[type="checkbox"] + label {
+  border-radius: 0;
+  margin-right: 5px;
+}
+
+#popup .pop .friend .checkbox input[type="checkbox"] + label.icon:before {
+  font-size: 12px;
+  margin-top: -1px;
+}
+
+.Submit, .friend, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3645,18 +3694,18 @@ input[type="file"] {
   margin: auto;
 }
 
-.Submit.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
+.Submit.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Submit .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
+.Submit .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
   font-size: 36px;
   color: #f77900;
 }
 
-.Submit .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
+.Submit .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
   color: #f77900;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -3664,20 +3713,20 @@ input[type="file"] {
           transform: rotate(20deg);
 }
 
-.Submit .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
+.Submit .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
   margin: 10px 0 20px;
 }
 
-.Submit .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
+.Submit .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
   text-align: center;
 }
 
-.Submit .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
+.Submit .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
+.Submit .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3690,13 +3739,13 @@ input[type="file"] {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
+.Submit .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
+.Submit .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
@@ -4605,6 +4654,25 @@ input[type="file"] {
   height: 100%;
 }
 
+.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-org .specialBonus, .quickSelect > div.promoType.inputBox-white .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus, .quickSelect > div:first-child.promoType .specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.quickSelect > div.inputBox.promoType .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-org .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-white .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-white, .quickSelect > div:first-child.promoType .specialBonus .inputBox-white {
+  position: unset;
+  margin: 0 5px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
 .quickSelect > div.inputBox.promoType button.orange, .quickSelect > div.promoType.inputBox-org button.orange, .quickSelect > div.promoType.inputBox-white button.orange, .quickSelect > div.promoType.inputBox-blue button.orange, .quickSelect > div:first-child.promoType button.orange {
   position: relative;
   margin-left: 25px;
@@ -4646,6 +4714,31 @@ input[type="file"] {
   margin-top: 10px;
   border-radius: 15px;
   text-align: center;
+}
+
+.specialBonus {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 30px 0 10px;
+  padding: 0 34px;
+}
+
+.specialBonus .inputBox-white {
+  position: unset;
+  margin: 0 5px;
+  border: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+}
+
+.specialBonus .btnGroup {
+  margin: 0;
 }
 
 .pageSelect {
@@ -5262,6 +5355,11 @@ input[type="file"] {
   float: left;
   margin: 15px 5px;
   max-width: 330px;
+}
+
+.proList > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
 }
 
 .proList > div:hover {
@@ -6927,6 +7025,59 @@ button.icon-spinner11:before {
   margin-bottom: 30px;
 }
 
+.installGuide.mega {
+  background: url(../img/megabg.jpg) no-repeat bottom/cover;
+  padding: 20px;
+}
+
+.installGuide.mega .guides {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.installGuide.mega .guides .step {
+  width: calc(25% - 20px);
+  margin-right: 20px;
+  margin-top: 30px;
+  border-bottom: 3px solid #f77900;
+}
+
+.installGuide.mega .guides .content {
+  font-size: 18px;
+  color: #f77900;
+  height: 140px;
+}
+
+@media (max-width: 1024px) {
+  .installGuide.mega .guides .content {
+    font-size: 14px;
+    height: 150px;
+  }
+}
+
+.installGuide.mega .guides .content span {
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  font-weight: normal;
+}
+
+@media (max-width: 1024px) {
+  .installGuide.mega .guides .content span {
+    font-size: 10px;
+  }
+}
+
+.installGuide.mega .guides img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
 .installGuide > div {
   background: white;
   border-radius: 15px;
@@ -6942,6 +7093,122 @@ button.icon-spinner11:before {
           align-items: center;
   margin-top: 20px;
   color: #880cba;
+}
+
+.installGuide > div.megaStyle {
+  width: 90%;
+  background: rgba(255, 255, 255, 0.25);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #0ad9f5;
+  color: #f4f6f8;
+  padding: 20px 40px;
+  margin: 40px auto;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  .installGuide > div.megaStyle {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 15px;
+  }
+}
+
+.installGuide > div.megaStyle .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 768px) {
+  .installGuide > div.megaStyle .left {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.installGuide > div.megaStyle .left img {
+  width: 100%;
+  max-width: 250px;
+  margin-right: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem {
+  padding-top: 20px;
+  margin-bottom: 25px;
+}
+
+.installGuide > div.megaStyle .downloadItem .title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem .readonly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 320px;
+  margin-bottom: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem .readonly .icon {
+  color: white;
+  background: #0ad9f5;
+  border: 1px solid #0ad9f5;
+  padding: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem input {
+  border: 0;
+  padding: 6px 4px;
+  outline: none;
+  -webkit-box-shadow: 1px 1px 2px #0ad9f5, -2px -2px 3px #0ad9f5;
+          box-shadow: 1px 1px 2px #0ad9f5, -2px -2px 3px #0ad9f5;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.installGuide > div.megaStyle .downloadItem a.downloadBtn, .installGuide > div.megaStyle .downloadItem button.downloadBtn {
+  display: block;
+  width: 70%;
+  background: #1E85EC;
+  border: 1px solid #1EECBB;
+  border-radius: 50px;
+  color: #fff;
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: bold;
+}
+
+.installGuide > div.megaStyle .downloadItem a.downloadBtn:hover, .installGuide > div.megaStyle .downloadItem button.downloadBtn:hover {
+  background: #0a3561;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.installGuide > div.megaStyle .icon-android {
+  color: #4bad30;
 }
 
 .installGuide img {
@@ -7455,7 +7722,8 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-pack: center;
           justify-content: center;
   text-transform: capitalize;
-  line-height: 50px;
+  min-height: 50px;
+  word-break: break-all;
 }
 
 .statement > div div:last-child {
@@ -7554,5 +7822,320 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .ErrorPage > div .errorInfo a img {
   width: auto;
+}
+
+.christmas1 {
+  width: 100%;
+  position: fixed;
+  top: 120px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.christmas1 .toplight {
+  margin: 0 auto;
+}
+
+.christmas1 .bells {
+  position: absolute;
+  top: -5px;
+  left: calc(50% - 32px);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-animation: tree 2s linear infinite alternate;
+          animation: tree 2s linear infinite alternate;
+}
+
+.christmas1-left {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.christmas1-right {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.christmas1 .tree {
+  width: 140px;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-animation: tree 2s linear infinite alternate;
+          animation: tree 2s linear infinite alternate;
+}
+
+.christmas1 .bomL {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.christmas1 .bomR {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+@-webkit-keyframes tree {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes tree {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+[class^="star"] {
+  /*選取所有star*/
+  position: absolute;
+  color: #fff;
+  -webkit-animation: falling 5s infinite;
+          animation: falling 5s infinite;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  font-size: 14px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+}
+
+[class^="star"].star1 {
+  position: absolute;
+  left: 66.14232%;
+  top: 15.06264%;
+  width: 5.88272px;
+  height: 5.88272px;
+  -webkit-animation-delay: -0.5s;
+          animation-delay: -0.5s;
+}
+
+[class^="star"].star2 {
+  position: absolute;
+  left: 64.14721%;
+  top: -20.62207%;
+  width: 10.73962px;
+  height: 10.73962px;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+[class^="star"].star3 {
+  position: absolute;
+  left: 35.91107%;
+  top: -11.80961%;
+  width: 13.01001px;
+  height: 13.01001px;
+  -webkit-animation-delay: -1.5s;
+          animation-delay: -1.5s;
+}
+
+[class^="star"].star4 {
+  position: absolute;
+  left: 8.69012%;
+  top: -51.99109%;
+  width: 14.55003px;
+  height: 14.55003px;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+
+[class^="star"].star5 {
+  position: absolute;
+  left: 1.01996%;
+  top: 11.60325%;
+  width: 9.87834px;
+  height: 9.87834px;
+  -webkit-animation-delay: -2.5s;
+          animation-delay: -2.5s;
+}
+
+[class^="star"].star6 {
+  position: absolute;
+  left: 12.24497%;
+  top: 25.8621%;
+  width: 14.50621px;
+  height: 14.50621px;
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+}
+
+[class^="star"].star7 {
+  position: absolute;
+  left: 68.76675%;
+  top: -5.47324%;
+  width: 13.12955px;
+  height: 13.12955px;
+  -webkit-animation-delay: -3.5s;
+          animation-delay: -3.5s;
+}
+
+[class^="star"].star8 {
+  position: absolute;
+  left: 56.67308%;
+  top: 18.78853%;
+  width: 14.69515px;
+  height: 14.69515px;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+@-webkit-keyframes falling {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  70% {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 700px);
+            transform: translate(0, 700px);
+  }
+}
+
+@keyframes falling {
+  0%,
+  100% {
+    opacity: 0;
+    -webkit-filter: blur(0);
+            filter: blur(0);
+  }
+  70% {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    opacity: 1;
+  }
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 700px);
+            transform: translate(0, 700px);
+  }
+}
+
+.refbanner {
+  width: calc(100% - 140px);
+  margin: auto;
+}
+
+.referralModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% - 140px);
+  margin: 15px 0 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 70px;
+}
+
+.referralModule > div {
+  margin-right: 10px;
+}
+
+.referralModule > div:last-child {
+  margin-right: 0;
+}
+
+.referralModule > div .title {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.referralModule > div .refBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: rgba(33, 33, 33, 0.7);
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.referralModule > div .refBox > div {
+  width: calc(50% - 32px);
+  margin: 10px 10px 10px 0;
+  border: 1px solid #1E85EC;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.referralModule > div .refBox > div.active {
+  background: rgba(19, 77, 174, 0.7);
+}
+
+.referralModule > div .refBox > div span {
+  color: #f77900;
+}
+
+.referralModule > div .refBox > div a {
+  color: #1E85EC;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.referralModule > div .refBox .icon {
+  color: white;
+}
+
+.referralModule > div.refLink {
+  width: 65%;
+}
+
+.referralModule > div.refLink .refBox {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.referralModule > div.refLink .refBox > div {
+  width: calc(100% - 20px);
+}
+
+.referralModule > div.refLink .refBox > div > a {
+  width: 50%;
+  float: left;
+  line-height: 30px;
 }
 /*# sourceMappingURL=style.css.map */

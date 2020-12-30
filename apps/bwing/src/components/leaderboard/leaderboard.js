@@ -12,7 +12,8 @@ import {
 	defTabId,
 	defBackground,
 	defDayNum,
-	defRewardList
+	defRewardList,
+	defTopWinnerNum
 } from "./leaderboard.def";
 import EventTab from "./leaderboard.eventTab";
 import RankingTab from "./leaderboard.rankingTab";
@@ -35,7 +36,6 @@ export default () => {
 	const [tab, setTab] = useState(defTabId.event);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 	const lBCategoryId = 0;
-	const TopNum = 16;
 
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??
@@ -103,58 +103,60 @@ export default () => {
 
 	const getLeaderboardData = async daysValue => {
 		if (!userInfo.isLogin) return;
-		const payload_top20 = {
+		const payload_topWinner = {
 			lBCategoryId: lBCategoryId,
-			TopNum: TopNum,
+			TopNum: defTopWinnerNum,
 			BeforeDays: daysValue
 		};
 		const payload_self = {
-			lBCategoryId: lBCategoryId,
+			LBCategoryId: lBCategoryId,
 			BeforeDays: daysValue
 		};
-		await api_events_GetLeaderboardList(payload_top20).then(async res => {
-			if (isMountedRef.current) {
-				if (res.data.errorCode === 0) {
-					let top20Arr = res.data.data;
+		await api_events_GetLeaderboardList(payload_topWinner).then(
+			async res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						let topArr = res.data.data;
 
-					let userInTop20 =
-						top20Arr.findIndex(
-							r => r.username === userInfo.userName
-						) !== -1;
+						let userInTop =
+							topArr.findIndex(
+								r => r.username === userInfo.userName
+							) !== -1;
 
-					if (!top20Arr || top20Arr.length === 0) {
-						setRankingData([]);
-					} else if (userInTop20) {
-						setRankingData(top20Arr);
+						if (!topArr || topArr.length === 0) {
+							setRankingData([]);
+						} else if (userInTop) {
+							setRankingData(topArr);
+						} else {
+							let selfItem = await api_events_GetCustRank(
+								payload_self
+							).then(res => {
+								if (res.data.errorCode === 0) {
+									return {
+										userName: userInfo.userName,
+										wTurnover: res.data.data.point,
+										custRank:
+											res.data.data.custRank === 0 ||
+											res.data.data.custRank > 999
+												? "999+"
+												: res.data.data.custRank
+									};
+								} else {
+									showErrorPopBox(res.data.message);
+								}
+							});
+							let filterRepeatArr = topArr.filter(
+								r => r.username !== userInfo.userName
+							);
+							let concatArr = [...filterRepeatArr, selfItem];
+							setRankingData(concatArr);
+						}
 					} else {
-						let selfItem = await api_events_GetCustRank(
-							payload_self
-						).then(res => {
-							if (res.data.errorCode === 0) {
-								return {
-									userName: userInfo.userName,
-									wTurnover: res.data.data.point,
-									custRank:
-										res.data.data.custRank === 0 ||
-										res.data.data.custRank > 999
-											? "999+"
-											: res.data.data.custRank
-								};
-							} else {
-								showErrorPopBox(res.data.message);
-							}
-						});
-						let filterRepeatArr = top20Arr.filter(
-							r => r.username !== userInfo.userName
-						);
-						let concatArr = [...filterRepeatArr, selfItem];
-						setRankingData(concatArr);
+						showErrorPopBox(res.data.message);
 					}
-				} else {
-					showErrorPopBox(res.data.message);
 				}
 			}
-		});
+		);
 	};
 
 	return (

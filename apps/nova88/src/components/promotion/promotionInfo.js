@@ -10,10 +10,17 @@ import { isExpiry, isClaimed } from "./promotion.common";
 import ProcessBar from "./promotion.processBar";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
+import { defFilterType } from "./promotion.nav";
 
+const promotionNavType = {
+	"9001": defFilterType.special_bonus
+};
 export default () => {
-	const { t } = useTranslation();
+	const filterType = getUrlParameter("FilterType");
+	let isSpecialType =
+		promotionNavType[filterType] === defFilterType.special_bonus;
 
+	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
 
 	const [promotionInfo, setPromotionInfo] = useState(null);
@@ -59,7 +66,7 @@ export default () => {
 				if (success) return setPromotionInfo(data);
 				openErrorMessagePopBox(message || "error", errorCode);
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					openErrorMessagePopBox();
 				}
@@ -82,7 +89,7 @@ export default () => {
 
 				openErrorMessagePopBox(message || "error", errorCode);
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) openErrorMessagePopBox();
 			}
 		);
@@ -117,11 +124,15 @@ export default () => {
 		? " expiredClaimedInfo"
 		: "";
 
+	let specialBonusWrapperClass =
+		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
+
 	if (promotionInfo === null) return null;
 
 	return (
 		<div className="infoModule">
-			<div className={`promotionsInfo${wrapperClass}`}>
+			<div
+				className={`promotionsInfo${wrapperClass}  ${specialBonusWrapperClass} `}>
 				{_isClaimed ? <div className="claimed"></div> : null}
 				<img
 					src={promotionInfo.banner}
@@ -139,6 +150,7 @@ export default () => {
 								promotionInfo={promotionInfo}
 								userInfo={userInfo}
 								_isExpiry={_isExpiry}
+								promotionNavType={promotionNavType[filterType]}
 								callBack={() =>
 									getPromotionDetail(
 										userInfo.langId,
@@ -149,7 +161,11 @@ export default () => {
 						</div>
 					</div>
 
-					<DepositSlip promotionInfo={promotionInfo} t={t} />
+					<DepositSlip
+						promotionInfo={promotionInfo}
+						isSpecialType={isSpecialType}
+						t={t}
+					/>
 
 					<DepositMenu
 						cash={number_format(
@@ -160,6 +176,7 @@ export default () => {
 						promotionInfo={promotionInfo}
 						t={t}
 					/>
+
 					<ProcessBar
 						t={t}
 						{...promotionInfo}
@@ -186,10 +203,15 @@ export default () => {
 	);
 };
 
-const DepositSlip = ({ promotionInfo, t }) => {
+const DepositSlip = ({ promotionInfo, t, isSpecialType }) => {
 	const { promotionType, refList, depositAmount, bonusCode } = promotionInfo;
 
-	if (!refList || promotionType !== defPromotionType.redeposit) return null;
+	if (
+		!refList ||
+		promotionType !== defPromotionType.redeposit ||
+		(isSpecialType && promotionInfo === defPromotionType.firstDeposit)
+	)
+		return null;
 
 	return (
 		<>
@@ -231,7 +253,8 @@ const DepositMenu = ({
 		depositId &&
 		canJoin &&
 		!isJoin &&
-		(promotionType === 1 || promotionType === 2)
+		(promotionType === defPromotionType.firstDeposit ||
+			promotionType === defPromotionType.redeposit)
 	)
 		return (
 			<div className="minAmount">

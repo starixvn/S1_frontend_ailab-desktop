@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { number_format } from "../common/common";
-import { defTabId } from "./leaderboard.def";
+import { defTabId, defTopWinnerNum } from "./leaderboard.def";
 import DayDropdown from "./leaderboard.dayDropdown";
 import moment from "moment";
 
@@ -73,7 +73,10 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 			}
 			if (item.userName === userInfo.userName) {
 				myClass = idx < 3 ? " myRank" : "myRank";
-			} else if (item.userName === userInfo.userName && idx < 20) {
+			} else if (
+				item.userName === userInfo.userName &&
+				idx < defTopWinnerNum
+			) {
 				myClass = idx < 3 ? " myInRank" : "myInRank";
 			}
 			return top3Class + myClass;
@@ -93,7 +96,7 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 						alt="ranking_top"
 					/>
 					{item.userName === userInfo.userName &&
-					rankingData.length > 20
+					rankingData.length > defTopWinnerNum
 						? item.custRank
 						: idx + 1}
 				</div>
