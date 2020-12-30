@@ -104,6 +104,7 @@ export default () => {
 			let matchNav =
 				(_nav === defNav.PROMO.key && g.promotion === 1) ||
 				(_nav === defNav.FEATURED.key && g.featured === true) ||
+				(_nav === defNav.NEW.key && g.new) ||
 				(_nav === defNav.FAVOURITE.key &&
 					_favorite.includes(`${tpId}_${g.gameId}`)) ||
 				_nav === defNav.ALLGAMES.key;
@@ -254,7 +255,9 @@ export default () => {
 					const { imgUrl, providerList } = res.data.data;
 
 					let _tpList = {};
-					let _tpOptions = [{ displayKey: "lbl_All", id: null }];
+					let _tpOptions = [
+						{ displayKey: "lbl_AllProvider", id: null }
+					];
 					let games = [];
 
 					setImgUrl(imgUrl);

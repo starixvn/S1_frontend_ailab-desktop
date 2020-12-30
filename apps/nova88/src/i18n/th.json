@@ -68,7 +68,11 @@
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "เกมอิเล็กทรอนิกส์",
+	"lbl_New": "ใหม่",
 	"lbl_AllGames": "เกมทั้งหมด",
+	"lbl_AllProvider": "แพลตฟอร์มทั้งหมด",
+	"lbl_AllGameType": "ทุกหมวดหมู่",
+	"lbl_SearchGames": "ค้นหาเกมส์",
 	"lbl_Favourite": "เกมโปรด",
 	"lbl_Feature": "ลักษณะพิเศษ",
 	"lbl_Table": "เทเบิลเกมส์",

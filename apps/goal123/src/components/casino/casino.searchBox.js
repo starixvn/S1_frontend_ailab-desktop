@@ -27,6 +27,7 @@ export default ({
 						options={tpOptions}
 						onSelectItem={EditSearchField.bind(this, "provider")}
 						selectedIdx={searchInfo.provider.idx}
+						i18n={t}
 					/>
 				</div>
 			</div>
@@ -37,6 +38,7 @@ export default ({
 					onKeyPress={KeyPress}
 					onChange={EditField}
 					value={searchInfo.searchText}
+					placeholder={t("lbl_SearchGames")}
 				/>
 			</div>
 			<div className="btnGroup">

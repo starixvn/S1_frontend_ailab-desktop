@@ -68,7 +68,11 @@
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Slots",
+	"lbl_New":"New",
 	"lbl_AllGames": "All Games",
+	"lbl_AllProvider":"All Platform",
+	"lbl_AllGameType":"All Categories",
+	"lbl_SearchGames":"Search Games",
 	"lbl_Favourite": "Favourite",
 	"lbl_Feature": "Feature",
 	"lbl_Table": "Table",

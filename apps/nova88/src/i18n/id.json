@@ -68,7 +68,11 @@
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Slots",
+	"lbl_New": "Baru",
 	"lbl_AllGames": "Semua Permainan",
+	"lbl_AllProvider": "Semua Platform",
+	"lbl_AllGameType": "Semua Kategori",
+	"lbl_SearchGames": "Cari Permainan",
 	"lbl_Favourite": "Kesukaan",
 	"lbl_Feature": "Fitur",
 	"lbl_Table": "Meja",
