@@ -80,7 +80,7 @@
 	"msg_UsernameLength": "Panjang Karakter nama pengguna harus antara 6 dan 18 karakter..",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
 	"msg_PasswordLength": "Panjang karakter kata sandi harus antara 6 hingga 18 karakter.",
-	"msg_PasswordVaildate": "6-18 karakter alfanumerik (A-Z, a-z, 0-9) atau karakter khusus @ $ *!% #? &.",
+	"msg_PasswordVaildate": "Kata sandi harus terdiri dari 8-20 karakter, kombinasi huruf besar / kecil dan karakter khusus.",
 	"msg_MailWrongFormat": "Format Email salah",
 	"msg_MailExisted": "Email ini sudah digunakan.",
 	"msg_EnterRealName": "Silakan masukkan nama asli anda",

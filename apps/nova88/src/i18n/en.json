@@ -80,7 +80,7 @@
 	"msg_UsernameLength": "Username must between 6 and 18 characters long.",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
 	"msg_PasswordLength": "Password must between 6 and 18 characters long.",
-	"msg_PasswordVaildate": "6-18 alphanumeric (A-Z, a-z, 0-9) characters or special characters @$*!%#?&",
+	"msg_PasswordVaildate": "Password must be 8-20 characters, contain both upper/lower alphabets and a special characters.",
 	"msg_MailWrongFormat": "Mail Format is wrong.",
 	"msg_MailExisted": "Mail already exists.",
 	"msg_EnterRealName": "Please enter your real name.",
