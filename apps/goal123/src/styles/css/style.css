@@ -339,6 +339,15 @@ header .header > div.menu .gameList .lottery:hover {
   background: url(../img/lottery_a.png) no-repeat center 0px/auto 100%;
 }
 
+header .header > div.menu .casinoList .ICG {
+  background: url(../img/casinoICG.png) no-repeat center 10px/auto 100%;
+  position: relative;
+}
+
+header .header > div.menu .casinoList .ICG:hover {
+  background: url(../img/casinoICG_a.png) no-repeat center 0px/auto 100%;
+}
+
 header .header > div.menu .casinoList .CQ9 {
   background: url(../img/casinoCQ9.png) no-repeat center 10px/auto 100%;
   position: relative;
@@ -478,6 +487,42 @@ header .header > div.menu .livecasinoList .liveEB:hover {
 
 header .header > div.menu .livecasinoList .liveEB .icon-EB:before {
   font-size: 16px;
+}
+
+header .header > div.menu .fishList a {
+  position: relative;
+}
+
+header .header > div.menu .fishList .fttatp {
+  background: url(../img/fishingICG-TTATP.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fttatp:hover {
+  background: url(../img/fishingICG-TTATP_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .ftos {
+  background: url(../img/fishingICG-TOS.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .ftos:hover {
+  background: url(../img/fishingICG-TOS_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .ffos {
+  background: url(../img/fishingICG-FOS.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .ffos:hover {
+  background: url(../img/fishingICG-FOS_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fdb {
+  background: url(../img/fishingICG-DB.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fdb:hover {
+  background: url(../img/fishingICG-DB_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.menu .fishList .fgg {
@@ -845,6 +890,20 @@ header .header > div.function .wallet .submenu div.loginLog, header .header > di
 
 header .header > div.function .wallet .submenu div.loginLog {
   margin-top: 10px;
+}
+
+header .header .appDownload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff92c;
+  white-space: nowrap;
+  margin-right: 3%;
+}
+
+header .header .appDownload .icon-mobile::before {
+  font-size: 15px;
+  margin-right: 5px;
 }
 
 @-webkit-keyframes MoveTopDown {
@@ -3427,6 +3486,10 @@ main > .swiper-container .swiper-slide {
   color: #1E85EC;
 }
 
+.walletTransfer .walletModule .dropdown-item.active {
+  background: #1E85EC;
+}
+
 .walletTransfer .inputBox, .walletTransfer .inputBox-org, .walletTransfer .inputBox-white, .walletTransfer .inputBox-blue, .walletTransfer .inputBox-gray, .walletTransfer .inputBox-yellow {
   float: left;
   width: calc(100% - 171px);
@@ -3856,6 +3919,10 @@ main > .swiper-container .swiper-slide {
 
 .quickSelect i {
   white-space: nowrap;
+}
+
+.quickSelect .btnGroup {
+  margin: 10px 0;
 }
 
 .specialBonus {
@@ -6056,80 +6123,80 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 [class^="snow"].snow1 {
   position: absolute;
-  left: 14.67214%;
-  top: 19.2072%;
-  width: 10.78121px;
-  height: 10.78121px;
+  left: 3.18128%;
+  top: 37.21305%;
+  width: 15.3053px;
+  height: 15.3053px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="snow"].snow2 {
   position: absolute;
-  left: 96.40812%;
-  top: -27.5602%;
-  width: 14.87095px;
-  height: 14.87095px;
+  left: 23.01238%;
+  top: -15.74967%;
+  width: 17.62426px;
+  height: 17.62426px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="snow"].snow3 {
   position: absolute;
-  left: 31.84748%;
-  top: -30.12984%;
-  width: 11.79245px;
-  height: 11.79245px;
+  left: 0.20191%;
+  top: 18.0145%;
+  width: 8.16934px;
+  height: 8.16934px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="snow"].snow4 {
   position: absolute;
-  left: 87.92377%;
-  top: 13.36431%;
-  width: 12.49169px;
-  height: 12.49169px;
+  left: 22.34054%;
+  top: -32.59399%;
+  width: 17.80424px;
+  height: 17.80424px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="snow"].snow5 {
   position: absolute;
-  left: 80.9514%;
-  top: -51.17923%;
-  width: 12.73634px;
-  height: 12.73634px;
+  left: 53.9478%;
+  top: 5.5581%;
+  width: 17.89934px;
+  height: 17.89934px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="snow"].snow6 {
   position: absolute;
-  left: 99.83227%;
-  top: 0.89568%;
-  width: 11.85839px;
-  height: 11.85839px;
+  left: 44.65771%;
+  top: -15.05011%;
+  width: 16.09446px;
+  height: 16.09446px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="snow"].snow7 {
   position: absolute;
-  left: 99.07712%;
-  top: 23.82037%;
-  width: 14.235px;
-  height: 14.235px;
+  left: 88.97326%;
+  top: -10.27216%;
+  width: 8.04497px;
+  height: 8.04497px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="snow"].snow8 {
   position: absolute;
-  left: 20.50226%;
-  top: 29.76672%;
-  width: 12.77793px;
-  height: 12.77793px;
+  left: 78.3749%;
+  top: -1.6615%;
+  width: 11.67187px;
+  height: 11.67187px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }

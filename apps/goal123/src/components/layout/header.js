@@ -40,6 +40,13 @@ export default () => {
 				</div>
 				<Menu casinoTpIds={casinoTpIds} />
 				<div className="function">
+					<a
+						className="appDownload"
+						href={`SiteSkin/Goal123/appDownload/${userInfo.langId}.html`}
+						target="_blank">
+						<i className="icon icon-mobile" />
+						App Download
+					</a>
 					<LanguageDropDown />
 					<Functions />
 				</div>
