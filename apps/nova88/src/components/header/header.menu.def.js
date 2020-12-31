@@ -28,7 +28,7 @@ export const defMenuLinks = {
 		className: "COCK icon icon-new",
 		subMenu: [
 			{
-				className: "SG",
+				className: "ICG icon icon-new",
 				icon: "icon icon-ICG icon icon-new",
 				displayText: "ICG",
 				menuType: defMenuType.Link,
