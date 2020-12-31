@@ -460,8 +460,12 @@
 	"lbl_withdraw_submit": "RÚT TIỀN",
 	"lbl_total": "Toàn bộ",
 
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TraditionalLottery": "Xổ Số Truyền thống",
 	"lbl_789Lottery": "Xổ số tự quay 789",
 	"lbl_liveCasino_789SeDie": "Xóc Đĩa 789",
-	"---end---": "---"
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"NGỌC RỒNG BẮN CÁ",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"THẦN BẮN CÁ",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"THÁP PHÒNG THỦ"
 }

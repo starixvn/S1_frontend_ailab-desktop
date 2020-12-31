@@ -413,6 +413,12 @@
 	"lbl_last_2_day": "Last 2 Day",
 	"lbl_last_3_day": "Last 3 Day",
 	"lbl_TotalValue": "Total of all prizes",
-	"lbl_No1Award": "No. 1 Award"
+	"lbl_No1Award": "No. 1 Award",
+
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"DRAGONBALL FISHING",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"FISHING OF SAVIORS",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"TOWER OF SAVIORS"
 }
 

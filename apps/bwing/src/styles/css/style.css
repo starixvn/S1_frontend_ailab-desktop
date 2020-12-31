@@ -522,6 +522,14 @@ header .header > div.menu .casinoList .CQ9 .icon-cq9:before {
   font-size: 16px;
 }
 
+header .header > div.menu .casinoList .ICG {
+  background: url(../img/casinoICG.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .ICG:hover {
+  background: url(../img/casinoICG_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .livecasinoList .liveWM {
   background: url(../img/liveWM.png) no-repeat center/auto 100%;
 }
@@ -624,6 +632,38 @@ header .header > div.menu .fishList .fsgw {
 
 header .header > div.menu .fishList .fsgw:hover {
   background: url(../img/fishingSGwara.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsdf {
+  background: url(../img/fishingICG-DB.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsdf:hover {
+  background: url(../img/fishingICG-DB_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsgfos {
+  background: url(../img/fishingICG-FOS.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsgfos:hover {
+  background: url(../img/fishingICG-FOS_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsttatp {
+  background: url(../img/fishingICG-TTATP.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsttatp:hover {
+  background: url(../img/fishingICG-TTATP_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fstos {
+  background: url(../img/fishingICG-TOS.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fstos:hover {
+  background: url(../img/fishingICG-TOS_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.function {
@@ -6125,80 +6165,80 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 79.77953%;
-  top: -18.08392%;
-  width: 14.4791px;
-  height: 14.4791px;
+  left: 49.40231%;
+  top: 12.24658%;
+  width: 7.83398px;
+  height: 7.83398px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 31.14808%;
-  top: -19.68776%;
-  width: 9.3089px;
-  height: 9.3089px;
+  left: 35.23633%;
+  top: 21.26084%;
+  width: 5.41025px;
+  height: 5.41025px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 4.57709%;
-  top: 34.93519%;
-  width: 12.4302px;
-  height: 12.4302px;
+  left: 73.36681%;
+  top: 19.22038%;
+  width: 14.37678px;
+  height: 14.37678px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 12.85716%;
-  top: -58.37488%;
-  width: 9.22068px;
-  height: 9.22068px;
+  left: 33.06323%;
+  top: -25.39993%;
+  width: 8.29325px;
+  height: 8.29325px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 90.80349%;
-  top: -50.09949%;
-  width: 9.41813px;
-  height: 9.41813px;
+  left: 20.3599%;
+  top: -0.93068%;
+  width: 14.72943px;
+  height: 14.72943px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 32.88378%;
-  top: -38.17749%;
-  width: 13.4429px;
-  height: 13.4429px;
+  left: 85.14301%;
+  top: -1.60276%;
+  width: 7.36611px;
+  height: 7.36611px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 40.16518%;
-  top: -18.44749%;
-  width: 9.36555px;
-  height: 9.36555px;
+  left: 45.24803%;
+  top: -32.74259%;
+  width: 14.77736px;
+  height: 14.77736px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 87.3121%;
-  top: -39.16247%;
-  width: 9.98369px;
-  height: 9.98369px;
+  left: 93.19767%;
+  top: -49.53202%;
+  width: 14.40739px;
+  height: 14.40739px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -6783,7 +6823,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .transferModule .inputBox .dropdown button.btn:after, .transferModule .inputBox-blue .dropdown button.btn:after {
-  content: '';
+  content: "";
   width: 0;
   height: 0;
   border-style: solid;
