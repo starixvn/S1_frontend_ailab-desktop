@@ -29,7 +29,7 @@ export const defMenuLinks = {
 		subMenu: [
 			{
 				className: "ICG icon icon-new",
-				icon: "icon icon-ICG icon icon-new",
+				icon: "icon icon-ICG",
 				displayText: "ICG",
 				menuType: defMenuType.Link,
 				parameter: { ...productList.casino_ICG },
