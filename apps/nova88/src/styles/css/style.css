@@ -432,6 +432,14 @@ header {
   background: url(../img/casinoJOKER_a.png) no-repeat center 0px/auto 100%;
 }
 
+.header > div.menu .casinoList .mega {
+  background: url(../img/casinomega.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .mega:hover {
+  background: url(../img/casinomega_a.png) no-repeat center 0px/auto 100%;
+}
+
 .header > div.menu .casinoList .CQ9 {
   background: url(../img/casinocq9.png) no-repeat center 10px/auto 100%;
 }
@@ -5349,6 +5357,11 @@ input[type="file"] {
   max-width: 330px;
 }
 
+.proList > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
 .proList > div:hover {
   background: #e2e2e2;
   -webkit-box-shadow: 0 0 0 3px #f77900 inset;
@@ -7017,6 +7030,54 @@ button.icon-spinner11:before {
   padding: 20px;
 }
 
+.installGuide.mega .guides {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.installGuide.mega .guides .step {
+  width: calc(25% - 20px);
+  margin-right: 20px;
+  margin-top: 30px;
+  border-bottom: 3px solid #f77900;
+}
+
+.installGuide.mega .guides .content {
+  font-size: 18px;
+  color: #f77900;
+  height: 140px;
+}
+
+@media (max-width: 1024px) {
+  .installGuide.mega .guides .content {
+    font-size: 14px;
+    height: 150px;
+  }
+}
+
+.installGuide.mega .guides .content span {
+  font-size: 16px;
+  color: #fff;
+  display: block;
+  font-weight: normal;
+}
+
+@media (max-width: 1024px) {
+  .installGuide.mega .guides .content span {
+    font-size: 10px;
+  }
+}
+
+.installGuide.mega .guides img {
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
 .installGuide > div {
   background: white;
   border-radius: 15px;
@@ -7865,80 +7926,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 22.26178%;
-  top: 2.4494%;
-  width: 9.00823px;
-  height: 9.00823px;
+  left: 66.14232%;
+  top: 15.06264%;
+  width: 5.88272px;
+  height: 5.88272px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 39.86092%;
-  top: -19.29323%;
-  width: 6.84725px;
-  height: 6.84725px;
+  left: 64.14721%;
+  top: -20.62207%;
+  width: 10.73962px;
+  height: 10.73962px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 23.06699%;
-  top: 0.77813%;
-  width: 7.24621px;
-  height: 7.24621px;
+  left: 35.91107%;
+  top: -11.80961%;
+  width: 13.01001px;
+  height: 13.01001px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 14.72366%;
-  top: -19.68632%;
-  width: 7.4147px;
-  height: 7.4147px;
+  left: 8.69012%;
+  top: -51.99109%;
+  width: 14.55003px;
+  height: 14.55003px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 65.44446%;
-  top: -46.66223%;
-  width: 10.0983px;
-  height: 10.0983px;
+  left: 1.01996%;
+  top: 11.60325%;
+  width: 9.87834px;
+  height: 9.87834px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 8.01959%;
-  top: 14.14237%;
-  width: 7.10193px;
-  height: 7.10193px;
+  left: 12.24497%;
+  top: 25.8621%;
+  width: 14.50621px;
+  height: 14.50621px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 30.37322%;
-  top: 30.81853%;
-  width: 9.85306px;
-  height: 9.85306px;
+  left: 68.76675%;
+  top: -5.47324%;
+  width: 13.12955px;
+  height: 13.12955px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 61.58281%;
-  top: -53.85709%;
-  width: 5.23585px;
-  height: 5.23585px;
+  left: 56.67308%;
+  top: 18.78853%;
+  width: 14.69515px;
+  height: 14.69515px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -7987,6 +8048,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   }
 }
 
+.refbanner {
+  width: calc(100% - 140px);
+  margin: auto;
+}
+
 .referralModule {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7996,7 +8062,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 30px 70px 0;
+  padding: 0 70px;
 }
 
 .referralModule > div {
@@ -8032,6 +8098,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border: 1px solid #1E85EC;
   border-radius: 15px;
   padding: 10px;
+}
+
+.referralModule > div .refBox > div.active {
+  background: rgba(19, 77, 174, 0.7);
 }
 
 .referralModule > div .refBox > div span {

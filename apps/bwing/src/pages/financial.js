@@ -163,9 +163,13 @@ const Content = () => {
 	) : (
 		<div className="infoModule">
 			<div className="inside-title">
-				<span>{t("lbl_Statement")}</span>
+				<span>{t("lbl_FinancialLog")}</span>
 			</div>
-			<Filter submitHandler={clickDateSubmit} keepData={keepData} submitTranslation={`lbl_statement_submit`}/>
+			<Filter
+				submitHandler={clickDateSubmit}
+				keepData={keepData}
+				submitTranslation={`lbl_statement_submit`}
+			/>
 
 			{getHistory ? (
 				<div className="list history">
