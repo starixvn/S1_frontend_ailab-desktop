@@ -147,7 +147,7 @@
 	"msg_OTPSendCode": "We had send the verification code to your registered mobile no. Please check and enter the verification code below.",
 	"msg_PasswordLength": "Password must between 6 and 18 characters long.",
 	"msg_PasswordReq": "Password is required.",
-	"msg_PasswordVaildate": "6-18 alphanumeric (A-Z, a-z, 0-9) characters or special characters @$*!%#?&",
+	"msg_PasswordVaildate": "Password must be 8-20 characters, contain both upper/lower alphabets and a special characters.",
 	"msg_PhoneExisted": "Phone number already exists.",
 	"msg_UsernameLength": "Username must between 6 and 18 characters long.",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
