@@ -9,26 +9,28 @@ const walletIcon = [
 ];
 
 const ShowWallet = props => {
-	const walletCardList = props.walletInfo?.map(item => {
-		return (
-			<div className="walletBalanceModule" key={`wallets-${item.id}`}>
-				<span
-					className={`icon ${
-						item.id === 0 ? walletIcon[0] : walletIcon[1]
-					}`}>
-					{props.i18n(item.displayKey)}
-				</span>
-				<span>{number_format(item.balance, false)}</span>
-				<div className="btnGroup">
-					<button
-						className="blue"
-						onClick={props.restoreAll.bind(this, item.id)}>
-						{props.i18n("lbl_RestoreAll")}
-					</button>
+	const walletCardList = props.walletInfo
+		?.filter(item => item.balance !== null)
+		.map(item => {
+			return (
+				<div className="walletBalanceModule" key={`wallets-${item.id}`}>
+					<span
+						className={`icon ${
+							item.id === 0 ? walletIcon[0] : walletIcon[1]
+						}`}>
+						{props.i18n(item.displayKey)}
+					</span>
+					<span>{number_format(item.balance, false)}</span>
+					<div className="btnGroup">
+						<button
+							className="blue"
+							onClick={props.restoreAll.bind(this, item.id)}>
+							{props.i18n("lbl_RestoreAll")}
+						</button>
+					</div>
 				</div>
-			</div>
-		);
-	});
+			);
+		});
 
 	return (
 		<div className="walletModule">

@@ -117,6 +117,14 @@ export default () => {
 	const getTpWalletBalance = tpArr => {
 		if (tpArr?.length > 0) {
 			tpArr.forEach(item => {
+				setWalletInfo(prev =>
+					AfterUpdWalletList({
+						prev,
+						tpId: item.tpId,
+						balance: null,
+						displayKey: `lbl_TpWallet_${item.tpId}`
+					})
+				);
 				api_account_GetTpWalletBalance(item.tpId).then(res => {
 					if (res.data.errorCode === 0 && isMountedRef.current) {
 						let { tpId, balance } = res.data.data;
