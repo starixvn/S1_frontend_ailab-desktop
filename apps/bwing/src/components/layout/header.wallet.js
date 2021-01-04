@@ -206,7 +206,6 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 					<div
 						className="progerssBox"
 						key={`header-bonuswallet-${item.tpId}`}>
-						{console.log(item)}
 						<div>
 							<span>
 								{i18n(
