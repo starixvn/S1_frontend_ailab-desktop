@@ -26,7 +26,7 @@ export default ({ children, afterLogin = false }) => {
 		isOpen: false,
 		popBoxType: null
 	});
-
+	const [loading, setLoading] = useState(false);
 	const [walletInfo, setWalletInfo] = useState({
 		main: null
 	});
@@ -166,7 +166,7 @@ export default ({ children, afterLogin = false }) => {
 		let RefId = getUrlParameter("RefId");
 		let Aff = getUrlParameter("Aff");
 		let AffCode = getUrlParameter("AffCode");
-	
+
 		if (AffId) {
 			setCookie("AffId", AffId, 7);
 			deleteCookie("RefId");
@@ -259,7 +259,10 @@ export default ({ children, afterLogin = false }) => {
 								value={{ msgCount, setMsgCount }}>
 								<ct.popBoxContext.Provider
 									value={{ popBox, setPopBox }}>
-									{children}
+									<ct.loadingContext.Provider
+										value={{ loading, setLoading }}>
+										{children}
+									</ct.loadingContext.Provider>
 								</ct.popBoxContext.Provider>
 							</ct.msgCountContext.Provider>
 						</ct.bonusWalletsContext.Provider>
