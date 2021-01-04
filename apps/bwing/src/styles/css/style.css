@@ -522,6 +522,14 @@ header .header > div.menu .casinoList .CQ9 .icon-cq9:before {
   font-size: 16px;
 }
 
+header .header > div.menu .casinoList .ICG {
+  background: url(../img/casinoICG.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .ICG:hover {
+  background: url(../img/casinoICG_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .livecasinoList .liveWM {
   background: url(../img/liveWM.png) no-repeat center/auto 100%;
 }
@@ -624,6 +632,38 @@ header .header > div.menu .fishList .fsgw {
 
 header .header > div.menu .fishList .fsgw:hover {
   background: url(../img/fishingSGwara.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsdf {
+  background: url(../img/fishingICG-DB.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsdf:hover {
+  background: url(../img/fishingICG-DB_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsgfos {
+  background: url(../img/fishingICG-FOS.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsgfos:hover {
+  background: url(../img/fishingICG-FOS_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsttatp {
+  background: url(../img/fishingICG-TTATP.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsttatp:hover {
+  background: url(../img/fishingICG-TTATP_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fstos {
+  background: url(../img/fishingICG-TOS.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fstos:hover {
+  background: url(../img/fishingICG-TOS_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.function {
@@ -5664,7 +5704,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .indexGameList a,
 .indexGameList button {
-  width: calc(100% / 6 - 24px);
+  width: calc(100% / 5 - 24px);
   margin-bottom: 24px;
 }
 
@@ -6021,230 +6061,6 @@ input + .iconModule i.icon.icon-checkmark:before {
 .essayPage img:hover {
   -webkit-box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
           box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
-}
-
-.christmas1 {
-  width: 100%;
-  position: fixed;
-  top: 120px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.christmas1 .toplight {
-  margin: 0 auto;
-}
-
-.christmas1 .bells {
-  position: absolute;
-  top: -5px;
-  left: calc(50% - 32px);
-  -webkit-transform-origin: top;
-          transform-origin: top;
-  -webkit-animation: tree 2s linear infinite alternate;
-          animation: tree 2s linear infinite alternate;
-}
-
-.christmas1-left {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-}
-
-.christmas1-right {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-}
-
-.christmas1 .tree {
-  width: 140px;
-  -webkit-transform-origin: top;
-          transform-origin: top;
-  -webkit-animation: tree 2s linear infinite alternate;
-          animation: tree 2s linear infinite alternate;
-}
-
-.christmas1 .bomL {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-}
-
-.christmas1 .bomR {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-}
-
-@-webkit-keyframes tree {
-  0% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg);
-  }
-  100% {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-  }
-}
-
-@keyframes tree {
-  0% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg);
-  }
-  100% {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-  }
-}
-
-[class^="star"] {
-  /*選取所有star*/
-  position: absolute;
-  color: #fff;
-  -webkit-animation: falling 5s infinite;
-          animation: falling 5s infinite;
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
-  font-size: 14px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #fff;
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-}
-
-[class^="star"].star1 {
-  position: absolute;
-  left: 79.77953%;
-  top: -18.08392%;
-  width: 14.4791px;
-  height: 14.4791px;
-  -webkit-animation-delay: -0.5s;
-          animation-delay: -0.5s;
-}
-
-[class^="star"].star2 {
-  position: absolute;
-  left: 31.14808%;
-  top: -19.68776%;
-  width: 9.3089px;
-  height: 9.3089px;
-  -webkit-animation-delay: -1s;
-          animation-delay: -1s;
-}
-
-[class^="star"].star3 {
-  position: absolute;
-  left: 4.57709%;
-  top: 34.93519%;
-  width: 12.4302px;
-  height: 12.4302px;
-  -webkit-animation-delay: -1.5s;
-          animation-delay: -1.5s;
-}
-
-[class^="star"].star4 {
-  position: absolute;
-  left: 12.85716%;
-  top: -58.37488%;
-  width: 9.22068px;
-  height: 9.22068px;
-  -webkit-animation-delay: -2s;
-          animation-delay: -2s;
-}
-
-[class^="star"].star5 {
-  position: absolute;
-  left: 90.80349%;
-  top: -50.09949%;
-  width: 9.41813px;
-  height: 9.41813px;
-  -webkit-animation-delay: -2.5s;
-          animation-delay: -2.5s;
-}
-
-[class^="star"].star6 {
-  position: absolute;
-  left: 32.88378%;
-  top: -38.17749%;
-  width: 13.4429px;
-  height: 13.4429px;
-  -webkit-animation-delay: -3s;
-          animation-delay: -3s;
-}
-
-[class^="star"].star7 {
-  position: absolute;
-  left: 40.16518%;
-  top: -18.44749%;
-  width: 9.36555px;
-  height: 9.36555px;
-  -webkit-animation-delay: -3.5s;
-          animation-delay: -3.5s;
-}
-
-[class^="star"].star8 {
-  position: absolute;
-  left: 87.3121%;
-  top: -39.16247%;
-  width: 9.98369px;
-  height: 9.98369px;
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
-}
-
-@-webkit-keyframes falling {
-  0%,
-  100% {
-    opacity: 0;
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  70% {
-    -webkit-filter: blur(3px);
-            filter: blur(3px);
-    opacity: 1;
-  }
-  0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 700px);
-            transform: translate(0, 700px);
-  }
-}
-
-@keyframes falling {
-  0%,
-  100% {
-    opacity: 0;
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  70% {
-    -webkit-filter: blur(3px);
-            filter: blur(3px);
-    opacity: 1;
-  }
-  0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 700px);
-            transform: translate(0, 700px);
-  }
 }
 
 @-webkit-keyframes newicon {
@@ -6765,6 +6581,10 @@ input + .iconModule i.icon.icon-checkmark:before {
   background: #1E85EC;
 }
 
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item.active {
+  background: #1E85EC;
+}
+
 .transferModule .inputBox .dropdown span, .transferModule .inputBox-blue .dropdown span {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -6783,7 +6603,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .transferModule .inputBox .dropdown button.btn:after, .transferModule .inputBox-blue .dropdown button.btn:after {
-  content: '';
+  content: "";
   width: 0;
   height: 0;
   border-style: solid;

@@ -18,29 +18,6 @@ const Layout = ({ children, showFooter = false }) => {
 		<>
 			<SEO />
 			<Header />
-			{/*  xmas style ↓  */}
-			<div className="Xmas">
-				<div className="Xmas_left">
-					<div className="snow1"></div>
-					<div className="snow2"></div>
-					<div className="snow3"></div>
-					<div className="snow4"></div>
-					<div className="snow5"></div>
-					<div className="snow6"></div>
-					<div className="snow7"></div>
-					<div className="snow8"></div>
-				</div>
-				<div className="Xmas_right">
-					<div className="snow1"></div>
-					<div className="snow2"></div>
-					<div className="snow3"></div>
-					<div className="snow4"></div>
-					<div className="snow5"></div>
-					<div className="snow6"></div>
-					<div className="snow7"></div>
-					<div className="snow8"></div>
-				</div>
-			</div>
 			{children}
 			{showFooter ? <Footer /> : null}
 			<PopBox />
