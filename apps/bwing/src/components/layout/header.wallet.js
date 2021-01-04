@@ -203,8 +203,11 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 			</div>
 			{bonusWallets.map(item => {
 				return (
-					<>
-						<div key={`header-bonuswallet-${item.tpId}`}>
+					<div
+						className="progerssBox"
+						key={`header-bonuswallet-${item.tpId}`}>
+						{console.log(item)}
+						<div>
 							<span>
 								{i18n(
 									`lbl_BonusWallet_${item.promoCategoryId}`
@@ -216,7 +219,7 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 							turnover={item.turnover}
 							rollover={item.rollover}
 						/>
-					</>
+					</div>
 				);
 			})}
 		</div>

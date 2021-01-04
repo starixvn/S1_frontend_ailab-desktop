@@ -1029,6 +1029,16 @@ header .header > div.function .wallet .submenu div.walletBalance .walletName + d
   margin-top: 10px;
 }
 
+header .header > div.function .wallet .submenu div.walletBalance .walletProgerss {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 header .header > div.function .wallet .submenu div.walletBalance button {
   position: absolute;
   right: 10px;
@@ -1059,6 +1069,7 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
 }
 
 main {
+  position: relative;
   padding-top: 120px;
 }
 
