@@ -65,17 +65,36 @@
   font-size: 12px;
 }
 
-.icon-mega888:before {
-  font-size: 16px !important;
+.icon-mega:before {
+  content: "\e9c3";
 }
 
-.icon-mega888:before {
-  content: "\e9bb";
-  color: #fff;
+.icon-ICG:before {
+  content: "\e909";
 }
 
-.icon-mega888a:before {
-  content: "\e9bc";
+.icon-cockFight:before {
+  content: "\e988";
+}
+
+.icon-jump:before {
+  content: "\e9bd";
+}
+
+.icon-livechat:before {
+  content: "\e9be";
+}
+
+.icon-run:before {
+  content: "\e9bf";
+}
+
+.icon-trophy:before {
+  content: "\e9c0";
+}
+
+.icon-visit:before {
+  content: "\e9c1";
 }
 
 .icon-friend:before {
@@ -728,6 +747,10 @@
 
 .icon-folder-upload:before {
   content: "\e934";
+}
+
+.icon-qrcode:before {
+  content: "\e9c2";
 }
 
 .icon-coin-dollar:before {
