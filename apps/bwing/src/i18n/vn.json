@@ -147,7 +147,7 @@
 	"msg_OTPSendCode": "Chúng tôi đã gửi mã xác minh đến số điện thoại đăng ký của bạn. Vui lòng kiểm tra và nhập mã xác minh bên dưới.",
 	"msg_PasswordLength": "Mật khẩu phải có 6 đến 20 ký tự",
 	"msg_PasswordReq": "Mật khẩu là bắt buộc",
-	"msg_PasswordVaildate": "6-18 ký tự chữ và số (A-Z, a-z, 0-9) hoặc Ký tự đặc biệt @$*!%#?&",
+	"msg_PasswordVaildate": "Mật khẩu phải có từ 8-20 ký tự, bao gồm cả bảng chữ cái viết hoa / viết thường và một ký tự đặc biệt",
 	"msg_PhoneExisted": "Số điện thoại này đã được sử dụng",
 	"msg_UsernameLength": "Tên đăng nhập phải có 6 đến 18 ký tự",
 	"msg_UsernameNotAvailable": "Tên đăng nhập này đã được sử dụng.",

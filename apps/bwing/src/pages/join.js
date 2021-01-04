@@ -1,15 +1,18 @@
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import LeftMenu from "../components/common/leftMenu";
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { useTranslation, i18n } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
 	api_site_Register
 } from "../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
-import { getUrlParameter, readCookie } from "../components/common/common";
+import {
+	getUrlParameter,
+	readCookie,
+	passwordCheck
+} from "../components/common/common";
 import { defPopBoxType } from "../components/common/popBox";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { GET_LANG_ID } from "../service/language";
@@ -182,7 +185,7 @@ const Content = () => {
 		} else if (col === "password") {
 			let result = passwordCheck(val);
 			checked = result.checked;
-			msg = result.msg;
+			msg = result.message;
 		}
 
 		setTip(prev => {
@@ -241,7 +244,7 @@ const Content = () => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -262,28 +265,6 @@ const Content = () => {
 			);
 		}
 
-		return { checked, msg };
-	};
-
-	const passwordCheck = val => {
-		let checked = false;
-		let msg = "";
-
-		const regx = /^[a-zA-Z0-9@$*!%#?&]*$/;
-		if (val === "") {
-			checked = false;
-			msg = "msg_PasswordReq";
-		} else if (val != null) {
-			if (val.length < 6 || val.length > 18) {
-				checked = false;
-				msg = "msg_PasswordLength";
-			} else if (!regx.test(val)) {
-				checked = false;
-				msg = "msg_PasswordVaildate";
-			} else {
-				checked = true;
-			}
-		}
 		return { checked, msg };
 	};
 
@@ -342,7 +323,7 @@ const Content = () => {
 					},
 					password: {
 						checked: _passwordCheck.checked,
-						msg: t(_passwordCheck.msg)
+						msg: t(_passwordCheck.message)
 					},
 					checkbox: {
 						checked: true,
@@ -416,7 +397,7 @@ const Content = () => {
 										setPopBox({ isOpen: false });
 									}
 								},
-								err => {
+								() => {
 									if (isMountedRef.current) {
 										setPopBox({
 											isOpen: true,
@@ -478,7 +459,7 @@ const Content = () => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
