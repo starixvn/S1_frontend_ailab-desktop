@@ -146,6 +146,20 @@ export const getNewLanguagePath = langId => {
 	return SetReplaceChar(url, 1, langId);
 };
 
+export const routerFlattenToPath = (path, orderNumber) => {
+	//  將 router 物件扁平化後轉換成路徑
+	const flattenDeepObject = obj => {
+		return Object.values(obj).reduce((acc, val) => {
+			return typeof val === "object"
+				? acc.concat(flattenDeepObject(val))
+				: acc.concat(val);
+		}, []);
+	};
+	return flattenDeepObject(path)
+		.splice(0, orderNumber || flattenDeepObject(path).length)
+		.join("/");
+};
+
 export const eventPeriod = () => {
 	const startDate = new Date("2020-12-10 11:00:00 GMT+0800"); //mm dd yyyy hh:mm:ss
 	const endDate = new Date("2021-01-04 11:00:00 GMT+0800"); //mm dd yyyy hh:mm:ss

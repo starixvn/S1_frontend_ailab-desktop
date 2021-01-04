@@ -65,6 +65,14 @@
   font-size: 12px;
 }
 
+.icon-mega:before {
+  content: "\e9c3";
+}
+
+.icon-ICG:before {
+  content: "\e909";
+}
+
 .icon-cockFight:before {
   content: "\e988";
 }

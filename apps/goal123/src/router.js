@@ -52,8 +52,31 @@ export default {
 	transferHistory: {
 		root: "transferHistory"
 	},
+	financial: {
+		root: "financial"
+	},
 	statement: {
-		root: "statement"
+		root: "statement",
+		sub: {
+			quickPick: {
+				root: "quickPick",
+				sub: {
+					byday: {
+						root: "byday",
+						sub: {
+							category: {
+								root: "category",
+								sub: {
+									detail: {
+										root: "detail"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	},
 	profile: {
 		root: "profile"

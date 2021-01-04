@@ -130,7 +130,6 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: url(https://image.n88media.com/SiteSkin/img/heaber_bg.png) no-repeat center/cover;
 }
 
 .header > div.menu {
@@ -432,6 +431,22 @@ header {
   background: url(../img/casinoJOKER_a.png) no-repeat center 0px/auto 100%;
 }
 
+.header > div.menu .casinoList .mega {
+  background: url(../img/casinomega.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .mega:hover {
+  background: url(../img/casinomega_a.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .casinoList .ICG {
+  background: url(../img/casinoICG.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .ICG:hover {
+  background: url(../img/casinoICG_a.png) no-repeat center 0px/auto 100%;
+}
+
 .header > div.menu .casinoList .CQ9 {
   background: url(../img/casinocq9.png) no-repeat center 10px/auto 100%;
 }
@@ -578,6 +593,38 @@ header {
 
 .header > div.menu .livecasinoList .liveEB .icon:before {
   font-size: 16px;
+}
+
+.header > div.menu .fishList .fsdf {
+  background: url(../img/fishingICG-DB.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fsdf:hover {
+  background: url(../img/fishingICG-DBa.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .fishList .fsgfos {
+  background: url(../img/fishingICG-FOS.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fsgfos:hover {
+  background: url(../img/fishingICG-FOSa.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .fishList .fsttatp {
+  background: url(../img/fishingICG-TTATP.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fsttatp:hover {
+  background: url(../img/fishingICG-TTATPa.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .fishList .fstos {
+  background: url(../img/fishingICG-TOS.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fstos:hover {
+  background: url(../img/fishingICG-TOSa.png) no-repeat center 0px/auto 100%;
 }
 
 .header > div.menu .fishList .fgg {
@@ -6688,7 +6735,7 @@ button.icon-spinner11:before {
   padding: 5px 33px 5px 0;
 }
 
-.transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover {
+.transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-org .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item.active {
   background: #f77900;
   color: white;
 }
@@ -6801,10 +6848,7 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #b12333;
-  border: 2px solid #2e6b1d;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  background: #134DAE;
   padding: 10px 0;
   border-radius: 20px;
 }
@@ -6818,7 +6862,7 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
-  background: #b12333;
+  background: #1E85EC;
   height: 25px;
   padding: 0px 10px;
   opacity: 1;
@@ -6839,13 +6883,13 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next.icon:before, .gameMenu .swiper-button-prev.icon:before {
-  color: #2e6b1d;
+  color: black;
   font-size: 12px;
   font-weight: bold;
 }
 
 .gameMenu .swiper-button-next:after, .gameMenu .swiper-button-prev:after {
-  color: #2e6b1d;
+  color: black;
   font-size: 12px;
   font-weight: bold;
 }
@@ -7910,80 +7954,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 18.90885%;
-  top: -30.84%;
-  width: 13.5823px;
-  height: 13.5823px;
+  left: 56.43146%;
+  top: -8.34447%;
+  width: 13.93293px;
+  height: 13.93293px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 73.72845%;
-  top: -56.25804%;
-  width: 10.44779px;
-  height: 10.44779px;
+  left: 50.05162%;
+  top: 3.59059%;
+  width: 7.29983px;
+  height: 7.29983px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 80.9742%;
-  top: -36.5638%;
-  width: 12.27108px;
-  height: 12.27108px;
+  left: 8.83337%;
+  top: -57.8284%;
+  width: 6.88536px;
+  height: 6.88536px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 97.749%;
-  top: -42.98022%;
-  width: 11.26199px;
-  height: 11.26199px;
+  left: 89.83572%;
+  top: -26.65538%;
+  width: 8.97481px;
+  height: 8.97481px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 59.80945%;
-  top: 24.45684%;
-  width: 9.02929px;
-  height: 9.02929px;
+  left: 53.96267%;
+  top: -31.06753%;
+  width: 5.8058px;
+  height: 5.8058px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 98.83997%;
-  top: -7.91781%;
-  width: 9.34769px;
-  height: 9.34769px;
+  left: 7.83845%;
+  top: 30.22764%;
+  width: 5.60106px;
+  height: 5.60106px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 81.47569%;
-  top: -55.01509%;
-  width: 7.73517px;
-  height: 7.73517px;
+  left: 1.43444%;
+  top: 3.41188%;
+  width: 14.79573px;
+  height: 14.79573px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 7.90934%;
-  top: -3.54488%;
-  width: 10.77219px;
-  height: 10.77219px;
+  left: 76.14311%;
+  top: -40.29352%;
+  width: 12.43453px;
+  height: 12.43453px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
