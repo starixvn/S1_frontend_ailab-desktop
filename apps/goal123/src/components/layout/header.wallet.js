@@ -8,25 +8,17 @@ import React, {
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
-import {
-	walletInfoContext,
-	userInfoContext
-	// bonusWalletsContext
-} from "../common/context";
+import { walletInfoContext, userInfoContext } from "../common/context";
 import moment from "moment";
 import ReloadSpin from "../common/reloadSpin";
 import HeaderProcessBar from "./header.processBar";
 import { isConvert, number_format } from "../common/common";
-// import { api_account_SetHideBalance } from "../../service/api/account";
 import {
 	GetAllWallets,
 	handleIsHideBalance
 } from "../common/wrapper.walletInfo";
 
 export default props => {
-	// const { walletInfo, setWalletInfo, getContentWalletInfo } = useContext(
-	// 	walletInfoContext
-	// );
 	const {
 		isHideBalance,
 		mainWallet,
@@ -55,13 +47,10 @@ export default props => {
 	return userInfo.isLogin && userInfo.currencyId !== undefined ? (
 		<Dropdown
 			{...props}
-			// lastTransaction={walletInfo.lastTransaction}
 			lastLogin={userInfo.lastLogin}
 			currencyId={userInfo.currencyId}
-			// walletInfo={walletInfo}
 			bonusWallets={bonusWallets}
 			_isConvert={isConvert(userInfo.currencyId)}
-			// getContentWalletInfo={getContentWalletInfo}
 			handleIsHideBalance={HandleIsHideBalance}
 			RefreshAllWallets={RefreshAllWallets}
 			mainWallet={mainWallet}
@@ -104,7 +93,6 @@ class Dropdown extends Component {
 			handleIsHideBalance
 		} = this.props;
 
-		// let isHideBalance = this.props.walletInfo?.isHideBalance;
 		let tpWalletsBonusSum = tpWallets.reduce((prev, curr) => {
 			return prev + curr.balance;
 		}, 0);

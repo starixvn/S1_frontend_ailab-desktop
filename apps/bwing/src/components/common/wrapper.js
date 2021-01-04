@@ -28,9 +28,6 @@ export default ({ children, afterLogin = false }) => {
 		popBoxType: null
 	});
 	const [loading, setLoading] = useState(false);
-	const [walletInfo, setWalletInfo] = useState({
-		main: null
-	});
 	const [bonusWallets, setBonusWallets] = useState([]);
 	const [msgCount, setMsgCount] = useState(0);
 	const [userInfo, setUserInfo] = useState({
