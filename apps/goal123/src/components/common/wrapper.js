@@ -28,7 +28,6 @@ export default ({ children, afterLogin = false }) => {
 		popBoxType: null
 	});
 	const [loading, setLoading] = useState(false);
-	const [bonusWallets, setBonusWallets] = useState([]);
 	const [msgCount, setMsgCount] = useState(0);
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
@@ -227,22 +226,16 @@ export default ({ children, afterLogin = false }) => {
 							...walletInfo.state,
 							dispatch: walletInfo.dispatch
 						}}>
-						<ct.bonusWalletsContext.Provider
-							value={{
-								bonusWallets,
-								setBonusWallets
-							}}>
-							<ct.msgCountContext.Provider
-								value={{ msgCount, setMsgCount }}>
-								<ct.popBoxContext.Provider
-									value={{ popBox, setPopBox }}>
-									<ct.loadingContext.Provider
-										value={{ loading, setLoading }}>
-										{children}
-									</ct.loadingContext.Provider>
-								</ct.popBoxContext.Provider>
-							</ct.msgCountContext.Provider>
-						</ct.bonusWalletsContext.Provider>
+						<ct.msgCountContext.Provider
+							value={{ msgCount, setMsgCount }}>
+							<ct.popBoxContext.Provider
+								value={{ popBox, setPopBox }}>
+								<ct.loadingContext.Provider
+									value={{ loading, setLoading }}>
+									{children}
+								</ct.loadingContext.Provider>
+							</ct.popBoxContext.Provider>
+						</ct.msgCountContext.Provider>
 					</ct.walletInfoContext.Provider>
 				</ct.userInfoContext.Provider>
 			);
