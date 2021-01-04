@@ -8,10 +8,6 @@ import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import { api_site_GetTpIds } from "../../service/api/site";
 
-// xmas code ↓
-import { eventPeriod } from "../common/common";
-import xmasLogo from "../../styles/img/christmas/logo.png";
-
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const [casinoTpIds, setCasinoTpIds] = useState(null);
@@ -39,11 +35,7 @@ export default () => {
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						{/*  xmas code in "src={..." ↓  */}
-						<img
-							src={eventPeriod() ? xmasLogo : Logo}
-							alt={config.siteName}
-						/>
+						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
 				<Menu casinoTpIds={casinoTpIds} />
