@@ -20,6 +20,21 @@ const defGameList = [
 		linkType: defLinkType.sports
 	},
 	{
+		...productList.One789_lottery,
+		img: require("../../styles/img/GameList16.png"),
+		displayKey: "lbl_TraditionalLottery"
+	},
+	{
+		...productList.One789_lottery_789,
+		img: require("../../styles/img/GameList14.png"),
+		displayKey: "lbl_789Lottery"
+	},
+	{
+		...productList.liveCasino_One789,
+		img: require("../../styles/img/GameList13.png"),
+		displayKey: "lbl_liveCasino_789SeDie"
+	},
+	{
 		img: require("../../styles/img/GameList2.png"),
 		displayKey: "lbl_Saba1Club1",
 		tpId: 1,
