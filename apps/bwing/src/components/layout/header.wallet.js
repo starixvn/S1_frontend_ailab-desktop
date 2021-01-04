@@ -8,14 +8,9 @@ import React, {
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
-import {
-	walletInfoContext,
-	userInfoContext
-	// bonusWalletsContext
-} from "../common/context";
+import { walletInfoContext, userInfoContext } from "../common/context";
 import moment from "moment";
 import { isConvert, number_format } from "../common/common";
-// import { api_account_SetHideBalance } from "../../service/api/account";
 import ReloadSpin from "../common/reloadSpin";
 import HeaderProcessBar from "./header.processBar";
 
@@ -25,9 +20,6 @@ import {
 } from "../common/wrapper.walletInfo";
 
 export default props => {
-	// const { walletInfo, setWalletInfo, getContentWalletInfo } = useContext(
-	// 	walletInfoContext
-	// );
 	const {
 		isHideBalance,
 		mainWallet,
@@ -35,7 +27,6 @@ export default props => {
 		bonusWallets,
 		dispatch
 	} = useContext(walletInfoContext);
-	// const { bonusWallets } = useContext(bonusWalletsContext);
 	const { userInfo } = useContext(userInfoContext);
 	const isMountedRef = useRef(null);
 
@@ -57,14 +48,10 @@ export default props => {
 	return userInfo.isLogin && userInfo.currencyId !== undefined ? (
 		<Dropdown
 			{...props}
-			// lastTransaction={walletInfo.lastTransaction}
 			lastLogin={userInfo.lastLogin}
 			currencyId={userInfo.currencyId}
-			// walletInfo={walletInfo}
 			bonusWallets={bonusWallets}
 			_isConvert={isConvert(userInfo.currencyId)}
-			// getContentWalletInfo={getContentWalletInfo}
-			// HandleDisplayBalance={HandleDisplayBalance}
 			handleIsHideBalance={HandleIsHideBalance}
 			RefreshAllWallets={RefreshAllWallets}
 			mainWallet={mainWallet}
@@ -106,15 +93,6 @@ class Dropdown extends Component {
 			bonusWallets,
 			handleIsHideBalance
 		} = this.props;
-		// let isHideBalance = this.props.walletInfo?.isHideBalance;
-		// let tpWalletsBonusSum = this.props.walletInfo?.tpWallets?.reduce(
-		// 	(prev, curr) => prev + curr.balance,
-		// 	0
-		// );
-
-		// let balance = !isNaN(this.props.walletInfo.main)
-		// 	? number_format(this.props.walletInfo.main + tpWalletsBonusSum)
-		// 	: 0;
 
 		let tpWalletsBonusSum = tpWallets.reduce((prev, curr) => {
 			return prev + curr.balance;

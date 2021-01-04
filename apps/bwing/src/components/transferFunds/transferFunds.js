@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
 	popBoxContext,
-	// loadingContext,
 	walletInfoContext
 } from "../common/context";
 import {
@@ -31,11 +30,6 @@ const defDirection = {
 const initStatus = {
 	checked: null,
 	tip: ""
-};
-
-const initDirection = {
-	transferFrom: "lbl_MainWallet",
-	transferTo: "lbl_TpWallet_1"
 };
 
 const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
@@ -123,6 +117,14 @@ export default () => {
 	const getTpWalletBalance = tpArr => {
 		if (tpArr?.length > 0) {
 			tpArr.forEach(item => {
+				setWalletInfo(prev =>
+					AfterUpdWalletList({
+						prev,
+						tpId: item.tpId,
+						balance: null,
+						displayKey: `lbl_TpWallet_${item.tpId}`
+					})
+				);
 				api_account_GetTpWalletBalance(item.tpId).then(res => {
 					if (res.data.errorCode === 0 && isMountedRef.current) {
 						let { tpId, balance } = res.data.data;
@@ -383,7 +385,6 @@ export default () => {
 		<Loading />
 	) : (
 		<div className="rightModule">
-			{console.log(walletInfo)}
 			<div className="infoModule">
 				<div className="inside-title icon icon-icon32px_Funds-transfer">
 					<span>{t("lbl_TransferFunds")}</span>

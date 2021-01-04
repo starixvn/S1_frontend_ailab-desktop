@@ -13,7 +13,6 @@ import {
 import { IS_LOGGED_IN } from "../../service/auth";
 import {
 	api_account_GetMsgCount,
-	api_account_GetWalletInfo,
 	api_account_onlineCheck
 } from "../../service/api/account";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
@@ -124,10 +123,6 @@ export default ({ children, afterLogin = false }) => {
 					setMsgCount(res.data.data);
 				}
 			});
-
-			// if (userInfo.userName) {
-			// 	getContentWalletInfo();
-			// }
 		} else if (isMountedRef.current) {
 			if (userInfo.isLogin === false) {
 				setUserInfo(prevState => ({
@@ -192,49 +187,19 @@ export default ({ children, afterLogin = false }) => {
 
 	useInterval(
 		() => {
-			const ClickClose = () => {
-				setPopBox({ isOpen: false });
-			};
-			api_account_onlineCheck().then(
-				res => {
-					if (res.data.errorCode !== 0) {
-						setUserInfo(prev => ({
-							...prev,
-							isLogin: false,
-							langId: prev.langId,
-							kickout: true
-						}));
-					}
-				},
-				err => {}
-			);
+			api_account_onlineCheck().then(res => {
+				if (res.data.errorCode !== 0) {
+					setUserInfo(prev => ({
+						...prev,
+						isLogin: false,
+						langId: prev.langId,
+						kickout: true
+					}));
+				}
+			});
 		},
 		userInfo.isLogin ? 10000 : null
 	);
-
-	// const getContentWalletInfo = () => {
-	// 	api_account_GetWalletInfo().then(res => {
-	// 		if (res.data.errorCode === 0 && isMountedRef.current) {
-	// 			let tpWallets = res.data.data.tpWallets?.map(t => {
-	// 				return {
-	// 					tpId: t.tpId,
-	// 					balance: t.balance,
-	// 					tpName: t.tpName,
-	// 					bonus: t.bonus
-	// 				};
-	// 			});
-	// 			setWalletInfo(prevState => ({
-	// 				...prevState,
-	// 				isHideBalance: res.data.data.isHideBalance,
-	// 				main: res.data.data?.balance,
-	// 				tpWallets,
-	// 				lastTransaction: res.data.data.lastTransaction
-	// 			}));
-
-	// 			setBonusWallets(res.data.data.bonusWallets);
-	// 		}
-	// 	});
-	// };
 
 	if (redirectPath === null) {
 		if (
