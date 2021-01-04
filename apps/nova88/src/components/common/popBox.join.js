@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	// api_site_Register,
 	api_site_Signup,
 	api_site_ExistsEmail,
 	api_site_ExistsPhoneNo,
@@ -63,9 +62,12 @@ export default () => {
 				res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
-							let resId = res.data.data.currencyId;
+							let { currencyId } = res.data.data;
 							let currencyArr = [
-								{ id: resId, displayKey: `Currency_${resId}` }
+								{
+									id: currencyId,
+									displayKey: `Currency_${currencyId}`
+								}
 							];
 							setSiteCurrency(currencyArr);
 							onSelectItem(0);
@@ -439,10 +441,14 @@ export default () => {
 		let checked = await checkAll();
 
 		let _AffId = getUrlParameter("AffId") || readCookie("AffId");
-		let affIdCheckPass = _AffId
-			? (await api_site_GetAffiliateAgent({ AffId: _AffId })).data
-					.errorCode === 0
-			: null;
+		let affIdCheckPass = false;
+		if (_AffId) {
+			try {
+				affIdCheckPass =
+					(await api_site_GetAffiliateAgent({ AffId: _AffId })).data
+						.errorCode === 0;
+			} catch (error) {}
+		}
 
 		if (checked) {
 			let regData = {
@@ -460,6 +466,7 @@ export default () => {
 			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
 			regData["AffCode"] =
 				getUrlParameter("AffCode") || readCookie("AffCode");
+			regData["blackbox"] = await Iov_GetBlackBox();
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
