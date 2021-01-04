@@ -44,3 +44,6 @@ export const api_site_GetCountryList = ({ langId }) =>
 
 export const api_site_ExistsPhoneNo = ({ AreaCode, Phone }) =>
 	siteRequest.post(`/ExistsPhoneNo`, { AreaCode, PhoneNo: Phone });
+
+export const api_site_GetAffiliateAgent = ({ AffId }) =>
+	siteRequest.post("/GetAffiliateAgent", { AffId: AffId });

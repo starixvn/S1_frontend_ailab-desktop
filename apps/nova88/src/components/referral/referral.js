@@ -10,12 +10,21 @@ import usePopBox from "../hook/usePopBox";
 import ReferralLinks from "./referral.links";
 import ReferralShare from "./referral.share";
 
+const initReferralSettingData = {
+	periodDays: 0,
+	bonusAmount: 0,
+	vaildBet: 0,
+	deposit: 0
+};
+
 export default () => {
 	const { t } = useTranslation();
 	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const [referralCode, setReferralCode] = useState("");
-	const [referralSettingData, setReferralSettingData] = useState({});
+	const [referralSettingData, setReferralSettingData] = useState(
+		initReferralSettingData
+	);
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo } = useContext(userInfoContext);
 	const refStepBanner = require(`../../styles/img/refbanner-${userInfo.langId}.png`);
@@ -58,7 +67,9 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						setReferralSettingData(res.data.data[0]);
+						if (res.data.data.length > 0) {
+							setReferralSettingData(res.data.data[0]);
+						}
 					} else {
 						errorPopBox(res.data.message, res.data.errorCode);
 					}
