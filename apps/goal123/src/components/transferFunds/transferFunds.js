@@ -37,7 +37,6 @@ const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
 	if (idx !== -1 && balance !== null) {
 		prev[idx].balance = balance;
 	} else {
-		console.log("002--");
 		prev.push({
 			id: tpId,
 			displayKey: displayKey,
