@@ -20,14 +20,9 @@ import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defFilterType } from "./promotion.nav";
 
-const promotionNavType = {
-	"9001": defFilterType.special_bonus
-};
-
 export default () => {
 	const filterType = getUrlParameter("FilterType");
-	let isSpecialType =
-		promotionNavType[filterType] === defFilterType.special_bonus;
+	let isSpecialType = filterType === defFilterType.specialBonus;
 
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -168,9 +163,7 @@ export default () => {
 										promotionInfo={promotionInfo}
 										userInfo={userInfo}
 										_isExpiry={_isExpiry}
-										promotionNavType={
-											promotionNavType[filterType]
-										}
+										filter={filterType}
 										callBack={() =>
 											getPromotionDetail(
 												userInfo.langId,
