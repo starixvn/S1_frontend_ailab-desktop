@@ -3546,9 +3546,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #0c1a3f;
   border-radius: 5px;
-  border: 1px solid #1a2b58;
   color: #56ceff;
 }
 
