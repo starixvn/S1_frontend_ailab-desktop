@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import {
 	api_account_GetReferralCode,
-	api_account_GetReferralSetting
+	api_account_GetReferralSetting,
+	api_account_GetReferralSummary
 } from "../../service/api/account";
 import { loadingContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
@@ -28,6 +29,11 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo } = useContext(userInfoContext);
 	const refStepBanner = require(`../../styles/img/refbanner-${userInfo.langId}.png`);
+	const [referralSum, setReferralSum] = useState({
+		amountCount: 0,
+		referralCount: 0,
+		amountSum: 0
+	});
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -37,6 +43,7 @@ export default () => {
 	useEffect(() => {
 		getReferralCode();
 		getReferralSetting();
+		getReferralSummary();
 	}, []);
 
 	const getReferralCode = async () => {
@@ -83,13 +90,50 @@ export default () => {
 		);
 	};
 
+	const getReferralSummary = async () => {
+		setLoading(true);
+		await api_account_GetReferralSummary().then(
+			res => {
+				setLoading(false);
+
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setReferralSum(prevS => ({
+							...prevS,
+							amountCount: res.data.data.amountCount,
+							amountSum: res.data.data.amountSum,
+							referralCount: res.data.data.referralCount
+						}));
+					} else {
+						errorPopBox(res.data.message, res.data.errorCode);
+					}
+				}
+			},
+			() => {
+				setLoading(false);
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
+			}
+		);
+	};
+
 	return (
 		!loading && (
 			<div className="infoModule">
+				{console.log(referralSum)}
 				<div className="inside-title icon icon-friend">
 					<span>{t("lbl_Referral")}</span>
 					<div>{t("lbl_Referral_description")}</div>
 				</div>
+				<div className="achievement">
+					Achievement rate
+					<span>
+						{referralSum.amountCount}/{referralSum.referralCount}
+					</span>{" "}
+					, Achievement amount<span>{referralSum.amountSum}</span>
+				</div>
+
 				<img src={refStepBanner} className="referral_banner" />
 				<div className="referralModule">
 					<ReferralShare

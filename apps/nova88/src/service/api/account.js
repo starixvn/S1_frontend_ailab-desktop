@@ -85,3 +85,6 @@ export const api_account_GetReferralCode = () =>
 
 export const api_account_GetReferralSetting = () =>
 	accountRequest.post("/GetReferralSetting");
+
+export const api_account_GetReferralSummary = () =>
+	accountRequest.post("/GetReferralSummary ");
