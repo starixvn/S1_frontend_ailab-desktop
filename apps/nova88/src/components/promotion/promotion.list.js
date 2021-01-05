@@ -16,7 +16,7 @@ export default ({
 	promoList,
 	t,
 	userInfo,
-	promotionType,
+	filter,
 	refreshProcessBar,
 	staticPromotions = [],
 	afterJoinCallBack
@@ -32,14 +32,13 @@ export default ({
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={`${_isClaimed ? "active" : ""}${
-					promotionType === defFilterType.expiry ||
-					(promotionType === defFilterType.special_bonus &&
-						!p.canJoin)
+					filter === defFilterType.expiry ||
+					(filter === defFilterType.specialBonus && !p.canJoin)
 						? " expired"
 						: ""
 				}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
-				{promotionType === defFilterType.expiry ? (
+				{filter === defFilterType.expiry ? (
 					<div className="expiredIcon">EXPIRED</div>
 				) : (
 					<div className={_isNew && p.canJoin ? "new" : ""}></div>
@@ -51,7 +50,7 @@ export default ({
 
 				<PromoRule promotionInfo={p} t={t} />
 
-				{promotionType === defFilterType.special_bonus && p.isJoin ? (
+				{filter === defFilterType.specialBonus && p.isJoin ? (
 					<ProcessBar
 						{...p}
 						t={t}
@@ -67,8 +66,8 @@ export default ({
 						to={`/${langId}/${path.promotion.root}/${
 							path.promotion.sub.promotionInfo.root
 						}?BonusCode=${p.bonusCode}${
-							promotionType === defFilterType.special_bonus
-								? `&FilterType=9001`
+							filter === defFilterType.specialBonus
+								? `&FilterType=${defFilterType.specialBonus}`
 								: ""
 						}`}>
 						{t("lbl_Details")}
@@ -78,7 +77,7 @@ export default ({
 						promotionInfo={p}
 						userInfo={userInfo}
 						_isExpiry={_isExpiry}
-						promotionNavType={promotionType}
+						filter={filter}
 						callBack={afterJoinCallBack}
 					/>
 				</div>
@@ -90,13 +89,12 @@ export default ({
 
 	if (
 		isArrayNotEmpty(promoList) ||
-		(isArrayNotEmpty(staticPromotions) &&
-			promotionType === defFilterType.all)
+		(isArrayNotEmpty(staticPromotions) && filter === defFilterType.all)
 	)
 		return (
 			<div
 				className={`proList${
-					promotionType === defFilterType.expiry ? " expired" : ""
+					filter === defFilterType.expiry ? " expired" : ""
 				}`}>
 				{rows}
 			</div>
