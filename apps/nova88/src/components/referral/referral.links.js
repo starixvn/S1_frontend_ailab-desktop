@@ -9,7 +9,7 @@ export default ({ referralCode, t }) => {
 	const ref_fb = `https://www.facebook.com/sharer/sharer.php?u=${link_default}&quote=${welcomeMessage}`;
 	const ref_telegram = `https://t.me/share/url?url=${link_default}&text=${welcomeMessage}`;
 	const ref_line = `http://line.naver.jp/R/msg/text/?${welcomeMessage}%0D%0A${link_default}`;
-	const ref_whatsapp = `https://wa.me/?&text=${welcomeMessage}`;
+	const ref_whatsapp = `https://wa.me/?&text=${welcomeMessage} ${link_default}`;
 
 	const copyWelComeText = () => {
 		let virtualInput = document.createElement("input");
