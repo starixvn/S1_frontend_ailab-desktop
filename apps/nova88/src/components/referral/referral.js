@@ -7,7 +7,7 @@ import {
 } from "../../service/api/account";
 import { loadingContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
-
+import { number_format, isConvert } from "../common/common";
 import ReferralLinks from "./referral.links";
 import ReferralShare from "./referral.share";
 
@@ -34,6 +34,7 @@ export default () => {
 		referralCount: 0,
 		amountSum: 0
 	});
+	const _isConvert = isConvert(userInfo.currencyId);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -121,17 +122,19 @@ export default () => {
 	return (
 		!loading && (
 			<div className="infoModule">
-				{console.log(referralSum)}
 				<div className="inside-title icon icon-friend">
 					<span>{t("lbl_Referral")}</span>
 					<div>{t("lbl_Referral_description")}</div>
 				</div>
 				<div className="achievement">
-					Achievement rate
+					{t("lbl_Achievement")}
 					<span>
 						{referralSum.amountCount}/{referralSum.referralCount}
 					</span>{" "}
-					, Achievement amount<span>{referralSum.amountSum}</span>
+					, {t("lbl_Referral_rewards")}
+					<span>
+						{number_format(referralSum.amountSum, _isConvert)}
+					</span>
 				</div>
 
 				<img src={refStepBanner} className="referral_banner" />

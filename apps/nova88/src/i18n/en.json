@@ -444,7 +444,9 @@
 	"lbl_Your_link_invite": "Share your unique link/code",
 	"lbl_Copy_to_clipboard": "Copy to Clipboard",
 	"lbl_Bonus": "BONUS",
-    "lbl_ValidPeriod":"Valid Period",
+	"lbl_ValidPeriod":"Valid Period",
+	"lbl_Achievement":"Achievement",
+	"lbl_Referral_rewards":"Rewards",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "Download",
