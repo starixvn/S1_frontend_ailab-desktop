@@ -49,13 +49,26 @@
       "projectType": "application",
       "schematics": {},
       "architect": {
-        "build": {
+        "autoBuild": {
           "builder": "@nrwl/gatsby:build",
           "options": {
             "outputPath": "apps/nova88/public",
             "uglify": true,
             "color": true,
             "profile": false
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "build": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "build.cmd",
+              "nx autoBuild nova88 --skip-nx-cache"
+            ],
+            "parallel": false
           },
           "configurations": {
             "production": {}
