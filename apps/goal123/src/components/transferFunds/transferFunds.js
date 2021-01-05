@@ -34,9 +34,10 @@ const initStatus = {
 
 const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
 	let idx = prev.findIndex(p => p.id === tpId);
-	if (idx !== -1) {
+	if (idx !== -1 && balance !== null) {
 		prev[idx].balance = balance;
 	} else {
+		console.log("002--");
 		prev.push({
 			id: tpId,
 			displayKey: displayKey,
