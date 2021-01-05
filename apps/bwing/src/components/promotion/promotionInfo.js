@@ -123,15 +123,13 @@ export default () => {
 
 	let _isConvert = isConvert(userInfo.currencyId);
 
-	let showClassStatus = () => {
-		if (_isClaimed) {
-			return "claimed";
-		} else if (_isClaimed && _isExpiry) {
-			return "expiredClaimedInfo";
-		} else {
-			return "";
-		}
-	};
+	let wrapperClass = _isClaimed
+		? _isExpiry
+			? "expiredClaimedInfo"
+			: "claimed"
+		: _isExpiry
+		? "expiredClaimedInfo"
+		: "";
 
 	let specialBonusWrapperClass =
 		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
@@ -148,7 +146,7 @@ export default () => {
 						<span>{t("lbl_Promotion_info")}</span>
 					</div>
 					<div
-						className={`promotionsInfo ${showClassStatus()} ${specialBonusWrapperClass}`}>
+						className={`promotionsInfo ${wrapperClass} ${specialBonusWrapperClass}`}>
 						<img
 							src={promotionInfo.banner}
 							alt={promotionInfo.description}
