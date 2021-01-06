@@ -28,6 +28,9 @@
 	"lbl_Instagram": "Instagram",
 	"lbl_Facebook": "脸书",
 	"lbl_Twitter": "Twitter",
+	"lbl_Telegram": "Telegram",
+	"lbl_WhatsApp": "WhatsApp",
+	"lbl_LINE": "LINE",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "羽毛球",
@@ -430,8 +433,22 @@
 	"lbl_Ranking_LiveCasino": "真人排行榜",
 	"lbl_Ranking_Slots": "老虎机排行榜",
 
+	"referral ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Referral": "推荐",
+	"lbl_Referral_code": "推荐代码",
+	"lbl_Referral_link": "推荐连结",
+	"lbl_Referral_description": "推荐好友奖励。您的朋友从您推荐链接/代码注册账号，您将获得推荐奖金",
+	"lbl_Referral_Welcome": "欢迎来到Nova88，您已被邀请加入我们。我们将提供各种奖励与优惠予新会员。只需点击并注册便能加入我们，帮助您和您的朋友获得奖励！*标准规则和条款适用",
+	"lbl_Share_with_friend": "选择您最喜欢的优惠并立即推荐您的朋友！",
+	"lbl_Your_link_invite": "分享您的推荐链接 / 代码",
+	"lbl_Copy_to_clipboard": "复制到剪贴板",
+	"lbl_Bonus": "优惠",
+	"lbl_ValidPeriod": "有效期限",
+	"lbl_Achievement":"绩效",
+	"lbl_Referral_rewards":"奖励",
+
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Download": "Download",
+	"lbl_Download": "下载",
 	"lbl_918KissMobileApp": "918KISS MOBILE APP",
 	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide"
 }

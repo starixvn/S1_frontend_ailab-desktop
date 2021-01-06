@@ -117,5 +117,8 @@ export default {
 	},
 	leaderBoard: {
 		root: "leaderBoard"
+	},
+	referral: {
+		root: "referral"
 	}
 };
