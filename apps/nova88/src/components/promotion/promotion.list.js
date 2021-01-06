@@ -97,6 +97,7 @@ export default ({
 					filter === defFilterType.expiry ? " expired" : ""
 				}`}>
 				{rows}
+				{staticPromotions}
 			</div>
 		);
 
