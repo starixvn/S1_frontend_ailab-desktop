@@ -123,8 +123,7 @@ export default () => {
 		!loading && (
 			<div className="infoModule">
 				<div className="inside-title icon icon-friend">
-					<span>{t("lbl_Referral")}</span>
-					<div>{t("lbl_Referral_description")}</div>
+					<span>{t("lbl_ReferFriends")}</span>
 				</div>
 				<div className="achievement">
 					{t("lbl_Achievement")}
@@ -135,6 +134,9 @@ export default () => {
 					<span>
 						{number_format(referralSum.amountSum, _isConvert)}
 					</span>
+					<div className="txt-lightgray">
+						{t("lbl_Referral_description")}
+					</div>
 				</div>
 
 				<img src={refStepBanner} className="referral_banner" />
