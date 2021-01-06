@@ -53,6 +53,12 @@ export const ClickLink = (
 			}
 		} else if (href === "leaderBoard") {
 			window.location.href = `/${lang}/${path.leaderBoard.root}`;
+		} else if (href === "referral") {
+			if (isLogin) {
+				window.location.href = `/${lang}/${path.referral.root}`;
+			} else {
+				HandleLogin();
+			}
 		} else {
 			window.open(
 				isOuterLink
