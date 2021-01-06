@@ -15,7 +15,7 @@ import PromoRule from "./promotion.promoRule";
 export default ({
 	t,
 	userInfo,
-	promotionType,
+	filter,
 	promoList,
 	refreshProcessBar,
 	afterJoinCallBack
@@ -31,14 +31,13 @@ export default ({
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={`${_isClaimed ? "active" : ""}${
-					promotionType === defFilterType.expiry ||
-					(promotionType === defFilterType.special_bonus &&
-						!p.canJoin)
+					filter === defFilterType.expiry ||
+					(filter === defFilterType.specialBonus && !p.canJoin)
 						? " expired"
 						: ""
 				}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
-				{promotionType === defFilterType.expiry ? (
+				{filter === defFilterType.expiry ? (
 					<div className="expiredIcon">{t("lbl_Expired")}</div>
 				) : (
 					<div className={_isNew && p.canJoin ? "new" : ""}></div>
@@ -49,7 +48,7 @@ export default ({
 				<div className="txt-gray">{p.description}</div>
 				<PromoRule t={t} promotionInfo={p} />
 
-				{promotionType === defFilterType.special_bonus && p.isJoin ? (
+				{filter === defFilterType.specialBonus && p.isJoin ? (
 					<ProcessBar
 						{...p}
 						t={t}
@@ -66,8 +65,8 @@ export default ({
 						to={`/${langId}/${path.promotion.root}/${
 							path.promotion.sub.promotionInfo.root
 						}?BonusCode=${p.bonusCode}${
-							promotionType === defFilterType.special_bonus
-								? `&FilterType=9001`
+							filter === defFilterType.specialBonus
+								? `&FilterType=${defFilterType.specialBonus}`
 								: ""
 						}`}>
 						{t("lbl_Details")}
@@ -77,7 +76,7 @@ export default ({
 						promotionInfo={p}
 						userInfo={userInfo}
 						_isExpiry={_isExpiry}
-						promotionNavType={promotionType}
+						filter={filter}
 						callBack={afterJoinCallBack}
 					/>
 				</div>
@@ -91,7 +90,7 @@ export default ({
 		return (
 			<div
 				className={`proList${
-					promotionType === defFilterType.expiry ? " expired" : ""
+					filter === defFilterType.expiry ? " expired" : ""
 				}`}>
 				{rows}
 			</div>
