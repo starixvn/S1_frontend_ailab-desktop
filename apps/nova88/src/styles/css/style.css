@@ -130,7 +130,6 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: url(https://image.n88media.com/SiteSkin/img/heaber_bg.png) no-repeat center/cover;
 }
 
 .header > div.menu {
@@ -440,6 +439,14 @@ header {
   background: url(../img/casinomega_a.png) no-repeat center 0px/auto 100%;
 }
 
+.header > div.menu .casinoList .ICG {
+  background: url(../img/casinoICG.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .ICG:hover {
+  background: url(../img/casinoICG_a.png) no-repeat center 0px/auto 100%;
+}
+
 .header > div.menu .casinoList .CQ9 {
   background: url(../img/casinocq9.png) no-repeat center 10px/auto 100%;
 }
@@ -586,6 +593,38 @@ header {
 
 .header > div.menu .livecasinoList .liveEB .icon:before {
   font-size: 16px;
+}
+
+.header > div.menu .fishList .fsdf {
+  background: url(../img/fishingICG-DB.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fsdf:hover {
+  background: url(../img/fishingICG-DBa.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .fishList .fsgfos {
+  background: url(../img/fishingICG-FOS.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fsgfos:hover {
+  background: url(../img/fishingICG-FOSa.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .fishList .fsttatp {
+  background: url(../img/fishingICG-TTATP.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fsttatp:hover {
+  background: url(../img/fishingICG-TTATPa.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .fishList .fstos {
+  background: url(../img/fishingICG-TOS.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .fishList .fstos:hover {
+  background: url(../img/fishingICG-TOSa.png) no-repeat center 0px/auto 100%;
 }
 
 .header > div.menu .fishList .fgg {
@@ -4105,6 +4144,21 @@ input[type="file"] {
           align-items: center;
 }
 
+.walletModule > .walletType {
+  width: 100%;
+}
+
+.walletModule > .walletType .walletBalanceModule {
+  width: calc(50% - 30px);
+  margin-right: 10px;
+  float: left;
+  margin-top: 10px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  max-width: none;
+}
+
 .walletModule .walletBalanceModule {
   background: #212121;
   border-radius: 15px;
@@ -4652,25 +4706,6 @@ input[type="file"] {
   background: #666;
   width: 1px;
   height: 100%;
-}
-
-.quickSelect > div.inputBox.promoType .specialBonus, .quickSelect > div.promoType.inputBox-org .specialBonus, .quickSelect > div.promoType.inputBox-white .specialBonus, .quickSelect > div.promoType.inputBox-blue .specialBonus, .quickSelect > div:first-child.promoType .specialBonus {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-}
-
-.quickSelect > div.inputBox.promoType .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-org .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-white .specialBonus .inputBox-white, .quickSelect > div.promoType.inputBox-blue .specialBonus .inputBox-white, .quickSelect > div:first-child.promoType .specialBonus .inputBox-white {
-  position: unset;
-  margin: 0 5px;
-  border: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
 }
 
 .quickSelect > div.inputBox.promoType button.orange, .quickSelect > div.promoType.inputBox-org button.orange, .quickSelect > div.promoType.inputBox-white button.orange, .quickSelect > div.promoType.inputBox-blue button.orange, .quickSelect > div:first-child.promoType button.orange {
@@ -6704,7 +6739,7 @@ button.icon-spinner11:before {
   padding: 5px 33px 5px 0;
 }
 
-.transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover {
+.transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-org .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item.active {
   background: #f77900;
   color: white;
 }
@@ -6817,10 +6852,7 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #b12333;
-  border: 2px solid #2e6b1d;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  background: #134DAE;
   padding: 10px 0;
   border-radius: 20px;
 }
@@ -6834,7 +6866,7 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
-  background: #b12333;
+  background: #1E85EC;
   height: 25px;
   padding: 0px 10px;
   opacity: 1;
@@ -6855,13 +6887,13 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next.icon:before, .gameMenu .swiper-button-prev.icon:before {
-  color: #2e6b1d;
+  color: black;
   font-size: 12px;
   font-weight: bold;
 }
 
 .gameMenu .swiper-button-next:after, .gameMenu .swiper-button-prev:after {
-  color: #2e6b1d;
+  color: black;
   font-size: 12px;
   font-weight: bold;
 }
@@ -7926,80 +7958,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 66.14232%;
-  top: 15.06264%;
-  width: 5.88272px;
-  height: 5.88272px;
+  left: 97.4163%;
+  top: -33.94418%;
+  width: 10.59423px;
+  height: 10.59423px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 64.14721%;
-  top: -20.62207%;
-  width: 10.73962px;
-  height: 10.73962px;
+  left: 6.83516%;
+  top: -1.80339%;
+  width: 5.09994px;
+  height: 5.09994px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 35.91107%;
-  top: -11.80961%;
-  width: 13.01001px;
-  height: 13.01001px;
+  left: 0.29411%;
+  top: 3.32965%;
+  width: 10.65146px;
+  height: 10.65146px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 8.69012%;
-  top: -51.99109%;
-  width: 14.55003px;
-  height: 14.55003px;
+  left: 36.29323%;
+  top: -28.71966%;
+  width: 9.07007px;
+  height: 9.07007px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 1.01996%;
-  top: 11.60325%;
-  width: 9.87834px;
-  height: 9.87834px;
+  left: 92.48383%;
+  top: -30.0487%;
+  width: 6.10763px;
+  height: 6.10763px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 12.24497%;
-  top: 25.8621%;
-  width: 14.50621px;
-  height: 14.50621px;
+  left: 14.80624%;
+  top: -16.17%;
+  width: 7.61308px;
+  height: 7.61308px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 68.76675%;
-  top: -5.47324%;
-  width: 13.12955px;
-  height: 13.12955px;
+  left: 27.51187%;
+  top: -50.65143%;
+  width: 5.26345px;
+  height: 5.26345px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 56.67308%;
-  top: 18.78853%;
-  width: 14.69515px;
-  height: 14.69515px;
+  left: 13.70363%;
+  top: -18.82471%;
+  width: 9.0049px;
+  height: 9.0049px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8067,6 +8099,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .referralModule > div {
   margin-right: 10px;
+  width: calc(35% - 10px);
 }
 
 .referralModule > div:last-child {
@@ -8093,11 +8126,15 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .referralModule > div .refBox > div {
-  width: calc(50% - 32px);
+  width: 100%;
   margin: 10px 10px 10px 0;
   border: 1px solid #1E85EC;
   border-radius: 15px;
-  padding: 10px;
+  padding: 15px 10px;
+}
+
+.referralModule > div .refBox > div div {
+  line-height: 30px;
 }
 
 .referralModule > div .refBox > div.active {
@@ -8137,5 +8174,39 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 50%;
   float: left;
   line-height: 30px;
+}
+
+.achievement {
+  color: white;
+  font-weight: bold;
+  width: calc(100% - 150px);
+  margin: 15px 0 0;
+  padding: 0 70px 0 80px;
+}
+
+.achievement span {
+  margin-left: 10px;
+  color: #f77900;
+}
+
+.list.refhistory div:first-child {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.list.refhistory .btnGroup a {
+  padding: 0;
+}
+
+.qrcode {
+  background: #191919;
+  padding: 40px 40px 0;
+  border-radius: 15px;
+  overflow-y: auto;
+}
+
+.qrcode img {
+  max-width: 200px;
 }
 /*# sourceMappingURL=style.css.map */

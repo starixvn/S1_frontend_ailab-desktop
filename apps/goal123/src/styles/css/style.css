@@ -119,7 +119,7 @@ header .logo {
 }
 
 header .logo img:nth-child(1) {
-  max-width: 160px;
+  max-width: 130px;
   height: auto;
 }
 
@@ -134,7 +134,6 @@ header .header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: url(../img/header1.png) no-repeat 40%/contain;
 }
 
 header .header > div {
@@ -204,7 +203,7 @@ header .header > div.menu > a, header .header > div.menu > button {
 
 header .header > div.menu > a:hover, header .header > div.menu > a.active, header .header > div.menu > button:hover, header .header > div.menu > button.active {
   cursor: pointer;
-  background: #d93643;
+  background: #fab617;
   -webkit-transform: skewX(-10deg);
           transform: skewX(-10deg);
 }
@@ -337,6 +336,15 @@ header .header > div.menu .gameList .lottery {
 
 header .header > div.menu .gameList .lottery:hover {
   background: url(../img/lottery_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .casinoList .ICG {
+  background: url(../img/casinoICG.png) no-repeat center 10px/auto 100%;
+  position: relative;
+}
+
+header .header > div.menu .casinoList .ICG:hover {
+  background: url(../img/casinoICG_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.menu .casinoList .CQ9 {
@@ -478,6 +486,42 @@ header .header > div.menu .livecasinoList .liveEB:hover {
 
 header .header > div.menu .livecasinoList .liveEB .icon-EB:before {
   font-size: 16px;
+}
+
+header .header > div.menu .fishList a, header .header > div.menu .fishList button {
+  position: relative;
+}
+
+header .header > div.menu .fishList .fttatp {
+  background: url(../img/fishingICG-TTATP.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fttatp:hover {
+  background: url(../img/fishingICG-TTATP_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .ftos {
+  background: url(../img/fishingICG-TOS.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .ftos:hover {
+  background: url(../img/fishingICG-TOS_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .ffos {
+  background: url(../img/fishingICG-FOS.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .ffos:hover {
+  background: url(../img/fishingICG-FOS_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fdb {
+  background: url(../img/fishingICG-DB.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fdb:hover {
+  background: url(../img/fishingICG-DB_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.menu .fishList .fgg {
@@ -847,6 +891,20 @@ header .header > div.function .wallet .submenu div.loginLog {
   margin-top: 10px;
 }
 
+header .header .appDownload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff92c;
+  white-space: nowrap;
+  margin-right: 3%;
+}
+
+header .header .appDownload .icon-mobile::before {
+  font-size: 15px;
+  margin-right: 5px;
+}
+
 @-webkit-keyframes MoveTopDown {
   0% {
     -webkit-transform: translateY(0);
@@ -906,7 +964,7 @@ header .header > div.function .wallet .submenu div.loginLog {
 }
 
 .gameMenu {
-  background: #d93643;
+  background: #284985;
   padding: 10px 0;
 }
 
@@ -930,8 +988,7 @@ header .header > div.function .wallet .submenu div.loginLog {
       -ms-flex-align: center;
           align-items: center;
   font-size: 12px;
-  background: #ab2631;
-  border: 1px solid #fff;
+  background: #1a2e56;
   margin-right: 15px;
   border-radius: 10px;
   padding: 10px 5px;
@@ -953,7 +1010,7 @@ header .header > div.function .wallet .submenu div.loginLog {
   top: -15px;
   left: calc(50% - 23px);
   display: block;
-  color: #ffffff;
+  color: #f72626;
   font-size: 16px;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
@@ -969,7 +1026,7 @@ header .header > div.function .wallet .submenu div.loginLog {
 
 .gameMenu div .hot:after {
   content: 'HOT !';
-  background: #04ad48;
+  background: #db2c01;
   font-size: 12px;
   border-radius: 5px;
   position: absolute;
@@ -1020,7 +1077,7 @@ main section > div > div > .title {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #d93643;
+  background: #1E85EC;
 }
 
 main section > div .articleModule {
@@ -3265,6 +3322,11 @@ main > .swiper-container .swiper-slide {
   padding: 0 70px 30px;
 }
 
+.walletModule > .walletType {
+  width: 100%;
+  margin-top: 10px;
+}
+
 .walletModule > .walletType .walletBalanceModule {
   width: calc(50% - 30px);
   margin-right: 10px;
@@ -3425,6 +3487,10 @@ main > .swiper-container .swiper-slide {
 .walletTransfer .walletModule .from span:nth-child(1), .walletTransfer .walletModule .to span:nth-child(1) {
   display: block;
   color: #1E85EC;
+}
+
+.walletTransfer .walletModule .dropdown-item.active {
+  background: #1E85EC;
 }
 
 .walletTransfer .inputBox, .walletTransfer .inputBox-org, .walletTransfer .inputBox-white, .walletTransfer .inputBox-blue, .walletTransfer .inputBox-gray, .walletTransfer .inputBox-yellow {
@@ -3856,6 +3922,10 @@ main > .swiper-container .swiper-slide {
 
 .quickSelect i {
   white-space: nowrap;
+}
+
+.quickSelect .btnGroup {
+  margin: 10px 0;
 }
 
 .specialBonus {
@@ -5343,25 +5413,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 20px calc(50% - 508px);
-  background: url(../img/gamelistBG.jpg) no-repeat 50%/cover;
   position: relative;
-}
-
-.indexGameList::before {
-  content: "";
-  display: block;
-  width: 205px;
-  height: 376px;
-  position: absolute;
-  left: -65px;
-  bottom: -50px;
-  background: url(../img/downdeco.png) no-repeat 50%/cover;
-}
-
-@media (max-width: 1024px) {
-  .indexGameList::before {
-    display: none;
-  }
 }
 
 .indexGameList a {
@@ -5383,7 +5435,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   top: -16px;
   left: calc(50% - 25px);
   display: block;
-  color: #ffffff;
+  color: #f72626;
   font-size: 16px;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
@@ -6008,174 +6060,6 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   right: 15px;
   top: 15px;
   font-size: 20px;
-}
-
-.Xmas {
-  width: 100%;
-  position: fixed;
-  top: 120px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.Xmas_left {
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 10%;
-}
-
-.Xmas_right {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 10%;
-}
-
-[class^="snow"] {
-  /*選取所有snow*/
-  position: absolute;
-  -webkit-animation: falling 5s infinite;
-          animation: falling 5s infinite;
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: #fae9e9;
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-}
-
-[class^="snow"].snow1 {
-  position: absolute;
-  left: 14.67214%;
-  top: 19.2072%;
-  width: 10.78121px;
-  height: 10.78121px;
-  -webkit-animation-delay: -0.5s;
-          animation-delay: -0.5s;
-}
-
-[class^="snow"].snow2 {
-  position: absolute;
-  left: 96.40812%;
-  top: -27.5602%;
-  width: 14.87095px;
-  height: 14.87095px;
-  -webkit-animation-delay: -1s;
-          animation-delay: -1s;
-}
-
-[class^="snow"].snow3 {
-  position: absolute;
-  left: 31.84748%;
-  top: -30.12984%;
-  width: 11.79245px;
-  height: 11.79245px;
-  -webkit-animation-delay: -1.5s;
-          animation-delay: -1.5s;
-}
-
-[class^="snow"].snow4 {
-  position: absolute;
-  left: 87.92377%;
-  top: 13.36431%;
-  width: 12.49169px;
-  height: 12.49169px;
-  -webkit-animation-delay: -2s;
-          animation-delay: -2s;
-}
-
-[class^="snow"].snow5 {
-  position: absolute;
-  left: 80.9514%;
-  top: -51.17923%;
-  width: 12.73634px;
-  height: 12.73634px;
-  -webkit-animation-delay: -2.5s;
-          animation-delay: -2.5s;
-}
-
-[class^="snow"].snow6 {
-  position: absolute;
-  left: 99.83227%;
-  top: 0.89568%;
-  width: 11.85839px;
-  height: 11.85839px;
-  -webkit-animation-delay: -3s;
-          animation-delay: -3s;
-}
-
-[class^="snow"].snow7 {
-  position: absolute;
-  left: 99.07712%;
-  top: 23.82037%;
-  width: 14.235px;
-  height: 14.235px;
-  -webkit-animation-delay: -3.5s;
-          animation-delay: -3.5s;
-}
-
-[class^="snow"].snow8 {
-  position: absolute;
-  left: 20.50226%;
-  top: 29.76672%;
-  width: 12.77793px;
-  height: 12.77793px;
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
-}
-
-@-webkit-keyframes falling {
-  0%,
-  100% {
-    opacity: 0;
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  70% {
-    -webkit-filter: blur(5px);
-            filter: blur(5px);
-    opacity: 1;
-  }
-  0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 750px);
-            transform: translate(0, 750px);
-  }
-}
-
-@keyframes falling {
-  0%,
-  100% {
-    opacity: 0;
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  70% {
-    -webkit-filter: blur(5px);
-            filter: blur(5px);
-    opacity: 1;
-  }
-  0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 750px);
-            transform: translate(0, 750px);
-  }
 }
 
 .transferModule {
