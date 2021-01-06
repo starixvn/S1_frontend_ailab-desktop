@@ -8,7 +8,7 @@ export const defFilterType = {
 	redeposit: defPromotionType.redeposit,
 	freeBet: defPromotionType.freeBet,
 	Rebate_and_cashback: [defPromotionType.rebate, defPromotionType.cashback],
-	special_bonus: defPromotionType.special_bonus
+	specialBonus: defPromotionType.specialBonus
 };
 
 const defPromoNavs = [
@@ -39,7 +39,7 @@ const defPromoNavs = [
 	},
 	// {
 	// 	displayKey: "lbl_SpecialBonus",
-	// 	value: defFilterType.special_bonus,
+	// 	value: defFilterType.specialBonus,
 	// 	className: "blueBorder"
 	// },
 	{
@@ -70,7 +70,7 @@ export default ({
 	};
 
 	let defPromoNavsFormat = defPromoNavs.filter(
-		item => item.value !== defFilterType.special_bonus || userInfo.isLogin
+		item => item.value !== defFilterType.specialBonus || userInfo.isLogin
 	);
 
 	return (
@@ -96,7 +96,7 @@ export default ({
 				</div>
 			</div>
 
-			{selected === defFilterType.special_bonus ? (
+			{selected === defFilterType.specialBonus ? (
 				<div className="specialBonus">
 					<div className="inputBox-white">
 						<input

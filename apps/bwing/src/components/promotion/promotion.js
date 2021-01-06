@@ -16,7 +16,7 @@ export default () => {
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
 
-	const [promotionType, setPromotionType] = useState(defFilterType.all);
+	const [filter, setFilter] = useState(defFilterType.all);
 
 	const { userInfo } = useContext(userInfoContext);
 	const [loading, setLoading] = useState(true);
@@ -43,11 +43,11 @@ export default () => {
 	});
 
 	const onSetPromotionType = type => {
-		if (type === defFilterType.special_bonus && userInfo.isLogin) {
+		if (type === defFilterType.specialBonus && userInfo.isLogin) {
 			getSpecialPromotionList();
 		}
 
-		setPromotionType(type);
+		setFilter(type);
 	};
 
 	const refreshProcessBar = ({ bonusCode, tpId, categoryId }) => {
@@ -62,7 +62,7 @@ export default () => {
 			if (success) {
 				let idx = null;
 				let newPromoList = [];
-				if (promotionType === defFilterType.special_bonus) {
+				if (filter === defFilterType.specialBonus) {
 					idx = specialPromotionList.findIndex(
 						x =>
 							x.bonusCode === bonusCode &&
@@ -100,10 +100,7 @@ export default () => {
 	useEffect(() => {
 		if (userInfo.isLogin === null) return;
 
-		if (
-			!userInfo.isLogin &&
-			promotionType === defFilterType.special_bonus
-		) {
+		if (!userInfo.isLogin && filter === defFilterType.specialBonus) {
 			onSetPromotionType(defFilterType.all);
 		}
 
@@ -120,23 +117,23 @@ export default () => {
 		return () => (isMountedRef.current = false);
 	});
 
-	const typeFilter = promotionType => {
-		if (promotionType === defFilterType.all)
+	const typeFilter = type => {
+		if (type === defFilterType.all)
 			return p => !isExpiry({ ...p, isLogin: userInfo.isLogin });
 
-		if (promotionType === defFilterType.expiry)
+		if (type === defFilterType.expiry)
 			return p => isExpiry({ ...p, isLogin: userInfo.isLogin });
 
-		if (promotionType === defFilterType.firstDeposit)
+		if (type === defFilterType.firstDeposit)
 			return p =>
-				(p.promotionType === promotionType ||
+				(p.promotionType === type ||
 					p.promotionType === defPromotionType.walletBonus) &&
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin
 				});
 
-		if (promotionType === defFilterType.Rebate_and_cashback)
+		if (type === defFilterType.Rebate_and_cashback)
 			return p =>
 				(p.promotionType === defPromotionType.rebate ||
 					p.promotionType === defPromotionType.cashback) &&
@@ -146,13 +143,11 @@ export default () => {
 				});
 
 		return p =>
-			p.promotionType === promotionType &&
+			p.promotionType === type &&
 			!isExpiry({ ...p, isLogin: userInfo.isLogin });
 	};
 
-	const afterFilterPromotionList = promoList.filter(
-		typeFilter(promotionType)
-	);
+	const afterFilterPromotionList = promoList.filter(typeFilter(filter));
 
 	return loading ? (
 		<Loading />
@@ -165,17 +160,17 @@ export default () => {
 			<PromotionNavBar
 				t={t}
 				userInfo={userInfo}
-				selected={promotionType}
+				selected={filter}
 				userInfo={userInfo}
 				specialCode={specialCode}
 				setSpecialCode={setSpecialCode}
 				onSetSpecialCodeSubmit={onSetSpecialCodeSubmit}
 				onClick={onSetPromotionType}
 			/>
-			{promotionType === defFilterType.special_bonus ? (
+			{filter === defFilterType.specialBonus ? (
 				<PromotionList
 					t={t}
-					promotionType={promotionType}
+					filter={filter}
 					userInfo={userInfo}
 					promoList={specialPromotionList}
 					refreshProcessBar={refreshProcessBar}
@@ -184,7 +179,7 @@ export default () => {
 			) : (
 				<PromotionList
 					t={t}
-					promotionType={promotionType}
+					filter={filter}
 					userInfo={userInfo}
 					promoList={afterFilterPromotionList}
 					refreshProcessBar={refreshProcessBar}

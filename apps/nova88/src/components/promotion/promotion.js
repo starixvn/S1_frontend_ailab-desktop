@@ -16,7 +16,7 @@ export default () => {
 
 	const isMountedRef = useRef(null);
 
-	const [promotionType, setPromotionType] = useState(defFilterType.all);
+	const [filter, setFilter] = useState(defFilterType.all);
 
 	const { userInfo } = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);
@@ -44,11 +44,11 @@ export default () => {
 	});
 
 	const onSetPromotionType = type => {
-		if (type === defFilterType.special_bonus && userInfo.isLogin) {
+		if (type === defFilterType.specialBonus && userInfo.isLogin) {
 			getSpecialPromotionList();
 		}
 
-		setPromotionType(type);
+		setFilter(type);
 	};
 
 	const refreshProcessBar = ({ bonusCode, tpId, categoryId }) => {
@@ -63,7 +63,7 @@ export default () => {
 			if (success) {
 				let idx = null;
 				let newPromoList = [];
-				if (promotionType === defFilterType.special_bonus) {
+				if (filter === defFilterType.specialBonus) {
 					idx = specialPromotionList.findIndex(
 						x =>
 							x.bonusCode === bonusCode &&
@@ -101,10 +101,7 @@ export default () => {
 	useEffect(() => {
 		if (userInfo.isLogin === null) return;
 
-		if (
-			!userInfo.isLogin &&
-			promotionType === defFilterType.special_bonus
-		) {
+		if (!userInfo.isLogin && filter === defFilterType.specialBonus) {
 			onSetPromotionType(defFilterType.all);
 		}
 
@@ -124,9 +121,7 @@ export default () => {
 	let promotionStaticRows = staticList.map(p => {
 		return (
 			<div
-				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={""}>
-				<div className=""></div>
+				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
 				<img
 					src={p.imgUrl?.[userInfo.langId]}
 					alt={p.title?.[userInfo.langId]}
@@ -159,27 +154,27 @@ export default () => {
 		);
 	});
 
-	const typeFilter = promotionType => {
-		if (promotionType === defFilterType.all)
+	const typeFilter = type => {
+		if (type === defFilterType.all)
 			return p =>
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin
 				});
 
-		if (promotionType === defFilterType.expiry)
+		if (type === defFilterType.expiry)
 			return p => isExpiry({ ...p, isLogin: userInfo.isLogin });
 
-		if (promotionType === defFilterType.firstDeposit)
+		if (type === defFilterType.firstDeposit)
 			return p =>
-				(p.promotionType === promotionType ||
+				(p.promotionType === type ||
 					p.promotionType === defPromotionType.walletBonus) &&
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin
 				});
 
-		if (promotionType === defFilterType.Rebate_and_cashback)
+		if (type === defFilterType.Rebate_and_cashback)
 			return p =>
 				(p.promotionType === defPromotionType.rebate ||
 					p.promotionType === defPromotionType.cashback) &&
@@ -189,13 +184,11 @@ export default () => {
 				});
 
 		return p =>
-			p.promotionType === promotionType &&
+			p.promotionType === type &&
 			!isExpiry({ ...p, isLogin: userInfo.isLogin });
 	};
 
-	const afterFilterPromotionList = promoList.filter(
-		typeFilter(promotionType)
-	);
+	const afterFilterPromotionList = promoList.filter(typeFilter(filter));
 
 	return (
 		!loading && (
@@ -207,7 +200,7 @@ export default () => {
 				<PromotionNavBar
 					t={t}
 					userInfo={userInfo}
-					selected={promotionType}
+					selected={filter}
 					userInfo={userInfo}
 					specialCode={specialCode}
 					setSpecialCode={setSpecialCode}
@@ -215,10 +208,10 @@ export default () => {
 					onClick={onSetPromotionType}
 				/>
 
-				{promotionType === defFilterType.special_bonus ? (
+				{filter === defFilterType.specialBonus ? (
 					<PromotionList
 						t={t}
-						promotionType={promotionType}
+						filter={filter}
 						userInfo={userInfo}
 						promoList={specialPromotionList}
 						refreshProcessBar={refreshProcessBar}
@@ -227,7 +220,7 @@ export default () => {
 				) : (
 					<PromotionList
 						t={t}
-						promotionType={promotionType}
+						filter={filter}
 						userInfo={userInfo}
 						promoList={afterFilterPromotionList}
 						staticPromotions={promotionStaticRows}

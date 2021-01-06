@@ -16,7 +16,7 @@ export default ({
 	_isExpiry,
 	_isClaimed,
 	inListPage,
-	promotionNavType,
+	filter,
 	callBack
 }) => {
 	const { t } = useTranslation();
@@ -129,7 +129,7 @@ export default ({
 			(canJoin &&
 				bonusType === defPromotionType.firstDeposit &&
 				promotionType === defPromotionType.redeposit) ||
-			(promotionNavType === defFilterType.special_bonus &&
+			(filter === defFilterType.special_bonus &&
 				promotionType === defPromotionType.firstDeposit)
 		)
 			return setPopBox({
@@ -160,7 +160,7 @@ export default ({
 			{(promotionInfo.isJoin && isLogin) ||
 			_isExpiry ||
 			_isClaimed ||
-			(promotionNavType === defFilterType.special_bonus &&
+			(filter === defFilterType.special_bonus &&
 				!promotionInfo.canJoin) ? null : (
 				<button className="orange" onClick={onJoinPromotion}>
 					{t("lbl_PromoJoinNow").toUpperCase()}
