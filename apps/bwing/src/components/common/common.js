@@ -177,7 +177,7 @@ export const passwordCheck = val => {
 	if (val === "") {
 		checked = false;
 		message = "msg_PasswordReq";
-	} else if (val != null) {
+	} else if (val !== null) {
 		if (val.length < 6 || val.length > 15) {
 			checked = false;
 			message = "msg_PasswordLength";
