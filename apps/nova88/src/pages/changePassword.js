@@ -34,6 +34,7 @@ const initPsw = {
 };
 
 const initStatus = {
+	oldPsw: { checked: null, msg: "" },
 	newPsw: { checked: null, msg: "" }
 };
 
@@ -55,7 +56,23 @@ const Content = () => {
 		return () => (isMountedRef.current = false);
 	});
 
+	let _oldPsw =
+		userPsw.oldPsw === ""
+			? { checked: false, message: "msg_PasswordReq" }
+			: { checked: true, message: "" };
+	let _newPsw = passwordCheck(userPsw.newPsw);
+
 	const checkPswHandler = (col, e) => {
+		console.log(col);
+		if (col === "oldPsw")
+			return setStatus(prev => ({
+				...prev,
+				oldPsw: {
+					checked: _oldPsw.checked,
+					msg: t(_oldPsw.message)
+				}
+			}));
+
 		let val = e.target.value;
 		let { checked, message } = passwordCheck(val);
 
@@ -86,13 +103,12 @@ const Content = () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let _newPsw = passwordCheck(userPsw.newPsw);
 
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
 		};
 
-		if (_newPsw.checked) {
+		if (_oldPsw.checked && _newPsw.checked) {
 			api_account_ChangePassword({
 				OldPassword: userPsw.oldPsw,
 				NewPassword: userPsw.newPsw
@@ -164,6 +180,7 @@ const Content = () => {
 			);
 		} else {
 			setStatus({
+				oldPsw: { checked: _oldPsw.checked, msg: t(_oldPsw.message) },
 				newPsw: { checked: _newPsw.checked, msg: t(_newPsw.message) }
 			});
 		}
@@ -185,6 +202,7 @@ const Content = () => {
 					showPsw={showPsw.oldPsw}
 					showPswHandler={showPswHandler.bind(this, "oldPsw")}
 					clickInfo={clickInfo.bind(this, "oldPsw")}
+					tip={status.oldPsw.msg}
 				/>
 				<Inputbox
 					inputType={showPsw.newPsw ? "text" : "password"}
