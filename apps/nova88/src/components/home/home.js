@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { useTranslation } from "react-i18next";
-import { readCookie, setCookie } from "../common/common";
+import { readCookie, setCookie, getUrlParameter } from "../common/common";
 import { defPopBoxType } from "../common/popBox";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import SwipperBanner from "../common/swipperBanner";
@@ -307,6 +307,15 @@ const IndexPage = () => {
 		isMountedRef.current = true;
 		return () => (isMountedRef.current = false);
 	});
+
+	useEffect(() => {
+		if (!userInfo.isLogin && getUrlParameter("AffId")) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Join
+			});
+		}
+	}, []);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {

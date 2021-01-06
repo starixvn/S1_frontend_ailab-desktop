@@ -21,12 +21,18 @@ export default () => {
 				? " active"
 				: "";
 
+			let showIcon = menu.subMenu[_key].icon
+				? `icon ${menu.subMenu[_key].icon}`
+				: "";
+
 			return (
 				<Link
 					key={`leftMenu-subMenu-${_key}`}
 					to={`/${userInfo.langId}/${menu.subMenu[_key].path}`}
 					className={`menuSelect${_active}`}>
-					<span>{t(menu.subMenu[_key].displayKey)}</span>
+					<span className={showIcon}>
+						{t(menu.subMenu[_key].displayKey)}
+					</span>
 				</Link>
 			);
 		});
