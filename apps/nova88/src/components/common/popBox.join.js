@@ -10,7 +10,12 @@ import {
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import areaCode from "../../datas/areaCode";
-import { getUrlParameter, readCookie, setCookie } from "./common";
+import {
+	getUrlParameter,
+	readCookie,
+	setCookie,
+	passwordCheck
+} from "./common";
 import { defPopBoxType } from "../common/popBox";
 import { userInfoContext, popBoxContext } from "./context";
 import { GET_LANG_ID } from "../../service/language";
@@ -22,12 +27,7 @@ import Dropdown from "./dropdown";
 import Checkbox from "./checkbox";
 import { Iov_GetBlackBox } from "../common/iovation";
 
-import {
-	initValue,
-	initTip,
-	passwordCheck,
-	currencyToAreacode
-} from "./join.data";
+import { initValue, initTip, currencyToAreacode } from "./join.data";
 
 const defaultLangId = GET_LANG_ID();
 
@@ -212,7 +212,7 @@ export default () => {
 		} else if (col === "password") {
 			let result = passwordCheck(val);
 			checked = result.checked;
-			msg = result.msg;
+			msg = result.message;
 		} else if (col === "email") {
 			let result = await emailCheck(val);
 			checked = result.checked;
@@ -401,7 +401,7 @@ export default () => {
 							},
 							password: {
 								checked: _passwordCheck.checked,
-								msg: t(_passwordCheck.msg)
+								msg: t(_passwordCheck.message)
 							},
 							phone: {
 								checked: _phoneCheck.checked,
@@ -424,7 +424,7 @@ export default () => {
 				}
 				return checked;
 			},
-			err => {
+			() => {
 				return false;
 			}
 		);
