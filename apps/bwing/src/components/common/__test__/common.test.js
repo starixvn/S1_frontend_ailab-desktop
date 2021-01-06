@@ -1,4 +1,5 @@
 import { passwordCheck } from "../common";
+
 describe("passwordCheck test", () => {
 	let result = {
 		checked: true,
@@ -14,21 +15,15 @@ describe("passwordCheck test", () => {
 		expect(passwordCheck("")).toStrictEqual(result);
 	});
 
-	test("check Length must be 6-15 characters.", () => {
-		result = {
-			checked: false,
-			message: "msg_PasswordLength"
-		};
-
-		expect(passwordCheck("@Aa11")).toStrictEqual(result);
-		expect(passwordCheck("@Aa1111111111111")).toStrictEqual(result);
-	});
-
 	test("callback `checked` should be false", () => {
 		result = {
 			checked: false,
 			message: "msg_PasswordVaildate"
 		};
+
+		// check Length must be 6-15 characters.
+		expect(passwordCheck("@Aa11")).toStrictEqual(result);
+		expect(passwordCheck("@Aa1111111111111")).toStrictEqual(result);
 
 		expect(passwordCheck("Aa1111")).toStrictEqual(result);
 		expect(passwordCheck("1111aA")).toStrictEqual(result);

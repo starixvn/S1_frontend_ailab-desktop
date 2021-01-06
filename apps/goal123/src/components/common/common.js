@@ -166,21 +166,17 @@ export const routerFlattenToPath = (path, orderNumber) => {
 export const passwordCheck = val => {
 	const passwordRegx = /^(?=.{6,15}$)(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*]).*$/;
 
-	let checked = true;
-	let message = "";
+	if (val === "")
+		return {
+			checked: false,
+			message: "msg_PasswordReq"
+		};
 
-	if (val === "") {
-		checked = false;
-		message = "msg_PasswordReq";
-	} else if (val !== null) {
-		if (val.length < 6 || val.length > 15) {
-			checked = false;
-			message = "msg_PasswordLength";
-		} else if (!passwordRegx.test(val)) {
-			checked = false;
-			message = "msg_PasswordVaildate";
-		}
-	}
+	if (val !== null && !passwordRegx.test(val))
+		return {
+			checked: false,
+			message: "msg_PasswordVaildate"
+		};
 
-	return { checked, message };
+	return { checked: true, message: "" };
 };
