@@ -319,6 +319,11 @@ const IndexPage = () => {
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.JoinReferral
+			});
+
 			let cookieName = `balanceHint${userInfo.userName}`;
 			let showDepositHint = false;
 			if (readCookie(cookieName) !== "1") {

@@ -906,6 +906,11 @@ header {
   transition: 0.7s;
 }
 
+.header > div.function .cashier .submenu a.icon-new, .header > div.function .wallet .submenu a.icon-new, .header > div.function .memberfile .submenu a.icon-new {
+  margin-top: 5px;
+  margin-right: -15px;
+}
+
 .header > div.function .cashier .submenu .icon-exit, .header > div.function .wallet .submenu .icon-exit, .header > div.function .memberfile .submenu .icon-exit {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5512,6 +5517,39 @@ input[type="file"] {
   margin-top: 20px;
 }
 
+.icon-icon32px_deposit {
+  position: relative;
+}
+
+.icon-icon32px_deposit .icon-friend {
+  position: absolute;
+  right: 40px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1E85EC;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+.icon-icon32px_deposit .icon-friend:hover {
+  background: #134DAE;
+}
+
+.icon-icon32px_deposit .icon-friend:before {
+  font-size: 18px;
+  margin-left: 0;
+}
+
+.icon-icon32px_deposit .icon-friend span {
+  margin: 0;
+}
+
 .icon-icon32px_deposit + .stepBar + .subModuleList {
   padding: 0 50px 40px;
 }
@@ -7958,80 +7996,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 97.4163%;
-  top: -33.94418%;
-  width: 10.59423px;
-  height: 10.59423px;
+  left: 66.33839%;
+  top: 21.89538%;
+  width: 8.94147px;
+  height: 8.94147px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 6.83516%;
-  top: -1.80339%;
-  width: 5.09994px;
-  height: 5.09994px;
+  left: 9.70332%;
+  top: 33.29007%;
+  width: 5.5726px;
+  height: 5.5726px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 0.29411%;
-  top: 3.32965%;
-  width: 10.65146px;
-  height: 10.65146px;
+  left: 61.36056%;
+  top: 35.08793%;
+  width: 10.15121px;
+  height: 10.15121px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 36.29323%;
-  top: -28.71966%;
-  width: 9.07007px;
-  height: 9.07007px;
+  left: 37.10033%;
+  top: 30.16103%;
+  width: 11.76926px;
+  height: 11.76926px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 92.48383%;
-  top: -30.0487%;
-  width: 6.10763px;
-  height: 6.10763px;
+  left: 31.88337%;
+  top: 29.90368%;
+  width: 14.37723px;
+  height: 14.37723px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 14.80624%;
-  top: -16.17%;
-  width: 7.61308px;
-  height: 7.61308px;
+  left: 69.66111%;
+  top: -33.24643%;
+  width: 11.67659px;
+  height: 11.67659px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 27.51187%;
-  top: -50.65143%;
-  width: 5.26345px;
-  height: 5.26345px;
+  left: 82.36891%;
+  top: -18.35201%;
+  width: 13.89339px;
+  height: 13.89339px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 13.70363%;
-  top: -18.82471%;
-  width: 9.0049px;
-  height: 9.0049px;
+  left: 31.78059%;
+  top: 0.35903%;
+  width: 11.0456px;
+  height: 11.0456px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8187,6 +8225,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .achievement span {
   margin-left: 10px;
   color: #f77900;
+}
+
+.achievement .txt-lightgray {
+  font-weight: normal;
+  margin-top: 10px;
 }
 
 .list.refhistory div:first-child {

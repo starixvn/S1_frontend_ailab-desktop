@@ -23,6 +23,7 @@ import TurnoverAccumulated from "./popBox.turnoverAccumulated";
 import RegisterSuccess from "./popBox.registerSuccess";
 import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
 import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
+import JoinReferral from "./popBox.joinReferral";
 
 export const defPopBoxType = {
 	Cancel: "Cancel",
@@ -47,7 +48,8 @@ export const defPopBoxType = {
 	RegisterSuccess: "RegisterSuccess",
 	PromotionDepositConfirm: "PromotionDepositConfirm",
 	PromotionAmountConfirm: "PromotionAmountConfirm",
-	kiss918: "918kiss"
+	kiss918: "918kiss",
+	JoinReferral: "JoinReferral"
 };
 
 export default () => {
@@ -214,6 +216,10 @@ export default () => {
 					<Kiss918 ClickClose={popBox.ClickClose} />
 				</Suspense>
 			);
+
+		case defPopBoxType.JoinReferral:
+			content = <JoinReferral />;
+			break;
 
 		case defPopBoxType.default:
 			break;
