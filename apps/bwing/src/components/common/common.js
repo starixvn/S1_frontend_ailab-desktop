@@ -169,7 +169,7 @@ export const eventPeriod = () => {
 };
 
 export const passwordCheck = val => {
-	const passwordRegx = /^(?=.{8,20}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*]).*$/;
+	const passwordRegx = /^(?=.{6,15}$)(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*]).*$/;
 
 	let checked = true;
 	let message = "";
@@ -178,7 +178,7 @@ export const passwordCheck = val => {
 		checked = false;
 		message = "msg_PasswordReq";
 	} else if (val != null) {
-		if (val.length < 8 || val.length > 20) {
+		if (val.length < 6 || val.length > 15) {
 			checked = false;
 			message = "msg_PasswordLength";
 		} else if (!passwordRegx.test(val)) {

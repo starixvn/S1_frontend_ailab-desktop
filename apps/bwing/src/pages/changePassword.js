@@ -56,7 +56,22 @@ const Content = () => {
 		return () => (isMountedRef.current = false);
 	});
 
+	let _oldPsw =
+		userPsw.oldPsw === ""
+			? { checked: false, message: "msg_PasswordReq" }
+			: { checked: true, message: "" };
+	let _newPsw = passwordCheck(userPsw.newPsw);
+
 	const checkPswHandler = (col, e) => {
+		if (col === "oldPsw")
+			return setStatus(prev => ({
+				...prev,
+				oldPsw: {
+					checked: _oldPsw.checked,
+					msg: t(_oldPsw.message)
+				}
+			}));
+
 		let val = e.target.value;
 		let { checked, message } = passwordCheck(val);
 
@@ -88,13 +103,10 @@ const Content = () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let _oldPsw = passwordCheck(userPsw.oldPsw);
-		let _newPsw = passwordCheck(userPsw.newPsw);
 
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
 		};
-
 		if (_oldPsw.checked && _newPsw.checked) {
 			setLoading(true);
 
@@ -172,8 +184,8 @@ const Content = () => {
 			);
 		} else {
 			setStatus({
-				oldPsw: { checked: _oldPsw.checked, msg: _oldPsw.message },
-				newPsw: { checked: _newPsw.checked, msg: _newPsw.message }
+				oldPsw: { checked: _oldPsw.checked, msg: t(_oldPsw.message) },
+				newPsw: { checked: _newPsw.checked, msg: t(_newPsw.message) }
 			});
 		}
 	};
@@ -194,8 +206,8 @@ const Content = () => {
 					onChange={editField.bind(this, "oldPsw")}
 					onBlur={checkPswHandler.bind(this, "oldPsw")}
 					showPsw={showPsw.oldPsw}
-					showPswHandler={showPswHandler.bind(this, "oldPsw")}
 					checked={status.oldPsw.checked}
+					showPswHandler={showPswHandler.bind(this, "oldPsw")}
 					clickInfo={clickInfo.bind(this, "oldPsw")}
 					tip={status.oldPsw.msg}
 				/>
