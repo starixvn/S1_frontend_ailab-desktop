@@ -1,4 +1,4 @@
-import { passwordCheck } from "../common.js";
+import { passwordCheck } from "../common";
 
 describe("passwordCheck test", () => {
 	let result = {
@@ -15,14 +15,14 @@ describe("passwordCheck test", () => {
 		expect(passwordCheck("")).toStrictEqual(result);
 	});
 
-	test("check Length must be 8-20 characters.", () => {
+	test("check Length must be 6-15 characters.", () => {
 		result = {
 			checked: false,
 			message: "msg_PasswordLength"
 		};
 
-		expect(passwordCheck("Ss@7777")).toStrictEqual(result);
-		expect(passwordCheck("Ss@777777777777777777")).toStrictEqual(result);
+		expect(passwordCheck("@Aa11")).toStrictEqual(result);
+		expect(passwordCheck("@Aa1111111111111")).toStrictEqual(result);
 	});
 
 	test("callback `checked` should be false", () => {
@@ -31,21 +31,10 @@ describe("passwordCheck test", () => {
 			message: "msg_PasswordVaildate"
 		};
 
-		expect(passwordCheck("Ss777777")).toStrictEqual(result);
-		expect(passwordCheck("S@777777")).toStrictEqual(result);
-		expect(passwordCheck("s@777777")).toStrictEqual(result);
-		expect(passwordCheck("77777777")).toStrictEqual(result);
-		expect(passwordCheck("ssssssss")).toStrictEqual(result);
-		expect(passwordCheck("SSSSSSSS")).toStrictEqual(result);
-		expect(passwordCheck("@@@@@@@@")).toStrictEqual(result);
-		expect(passwordCheck("7777777S")).toStrictEqual(result);
-		expect(passwordCheck("7777777s")).toStrictEqual(result);
-		expect(passwordCheck("7777777@")).toStrictEqual(result);
-		expect(passwordCheck("777777Ss")).toStrictEqual(result);
-		expect(passwordCheck("777777s@")).toStrictEqual(result);
-		expect(passwordCheck("777777S@")).toStrictEqual(result);
-		expect(passwordCheck("77777SS@")).toStrictEqual(result);
-		expect(passwordCheck("77777ss@")).toStrictEqual(result);
+		expect(passwordCheck("Aa1111")).toStrictEqual(result);
+		expect(passwordCheck("1111aA")).toStrictEqual(result);
+		expect(passwordCheck("1111aa")).toStrictEqual(result);
+		expect(passwordCheck("111111")).toStrictEqual(result);
 	});
 
 	test("callback `checked` should be true", () => {
@@ -54,10 +43,9 @@ describe("passwordCheck test", () => {
 			message: ""
 		};
 
-		expect(passwordCheck("77777Ss@")).toStrictEqual(result);
-		expect(passwordCheck("S77777s@")).toStrictEqual(result);
-		expect(passwordCheck("s77777S@")).toStrictEqual(result);
-		expect(passwordCheck("Ss777777@")).toStrictEqual(result);
-		expect(passwordCheck("Ss@77777")).toStrictEqual(result);
+		expect(passwordCheck("@Aa111")).toStrictEqual(result);
+		expect(passwordCheck("111aA@")).toStrictEqual(result);
+		expect(passwordCheck("1111a@")).toStrictEqual(result);
+		expect(passwordCheck("1111A@")).toStrictEqual(result);
 	});
 });
