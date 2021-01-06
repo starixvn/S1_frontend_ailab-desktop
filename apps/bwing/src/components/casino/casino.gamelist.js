@@ -45,7 +45,7 @@ export default ({
 					return Number(fArr[0]) === g.tpId && fArr[1] === g.gameId;
 				})?.length > 0;
 
-			_imgUrl = ` ${imgUrl}/${g.tpName}/${imgName}`;
+			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
 			return (
 				<div key={`casino-game-${g.tpId}-${g.gameId}`}>
