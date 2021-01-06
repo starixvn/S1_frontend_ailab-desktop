@@ -122,7 +122,6 @@ export default () => {
 		return (
 			<div
 				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
-				<div className=""></div>
 				<img
 					src={p.imgUrl?.[userInfo.langId]}
 					alt={p.title?.[userInfo.langId]}

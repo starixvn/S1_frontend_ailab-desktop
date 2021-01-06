@@ -119,14 +119,14 @@ export default () => {
 		: "";
 
 	let specialBonusWrapperClass =
-		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
+		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
 	if (promotionInfo === null) return null;
 
 	return (
 		<div className="infoModule">
 			<div
-				className={`promotionsInfo${wrapperClass}  ${specialBonusWrapperClass} `}>
+				className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
 				{_isClaimed ? <div className="claimed"></div> : null}
 				<img
 					src={promotionInfo.banner}

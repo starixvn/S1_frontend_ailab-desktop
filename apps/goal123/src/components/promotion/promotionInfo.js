@@ -130,7 +130,7 @@ export default () => {
 	let _isConvert = isConvert(userInfo.currencyId);
 
 	let specialBonusWrapperClass =
-		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
+		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
 	return loading ? (
 		<Loading />
@@ -141,7 +141,7 @@ export default () => {
 			) : (
 				<div className="infoModule">
 					<div
-						className={`promotionsInfo${wrapperClass} ${specialBonusWrapperClass}`}>
+						className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
 						{_isClaimed ? <div className="claimed"></div> : null}
 						<img
 							src={promotionInfo.banner}

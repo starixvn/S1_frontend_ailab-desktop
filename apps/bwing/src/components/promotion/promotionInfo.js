@@ -130,7 +130,7 @@ export default () => {
 		: "";
 
 	let specialBonusWrapperClass =
-		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
+		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
 	return loading ? (
 		<Loading />
@@ -144,7 +144,7 @@ export default () => {
 						<span>{t("lbl_Promotion_info")}</span>
 					</div>
 					<div
-						className={`promotionsInfo ${wrapperClass} ${specialBonusWrapperClass}`}>
+						className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
 						<img
 							src={promotionInfo.banner}
 							alt={promotionInfo.description}
