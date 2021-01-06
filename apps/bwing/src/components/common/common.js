@@ -161,8 +161,8 @@ export const routerFlattenToPath = (path, orderNumber) => {
 };
 
 export const eventPeriod = () => {
-	const startDate = new Date("2020-12-10 11:00:00 GMT+0800"); //mm dd yyyy hh:mm:ss
-	const endDate = new Date("2021-01-04 11:00:00 GMT+0800"); //mm dd yyyy hh:mm:ss
+	const startDate = new Date("2020/12/10 11:00:00 GMT+0800"); //yyyy/mm/dd hh:mm:ss
+	const endDate = new Date("2021/01/07 11:00:00 GMT+0800"); //yyyy/mm/dd hh:mm:ss
 	const now = new Date();
 
 	return now > startDate && now < endDate;
