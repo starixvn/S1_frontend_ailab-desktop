@@ -213,12 +213,17 @@ export default () => {
 			const Kiss918 = lazy(() => import("./popBox.918kiss"));
 			content = (
 				<Suspense fallback={<>Loading...</>}>
-					<Kiss918 ClickClose={popBox.ClickClose} />
+					<Kiss918 ClickClose={popBox.onClickClose} />
 				</Suspense>
 			);
 
 		case defPopBoxType.JoinReferral:
-			content = <JoinReferral />;
+			content = (
+				<JoinReferral
+					onClickClose={popBox.onClickClose}
+					closePopBoxName={popBox.closePopBoxName}
+				/>
+			);
 			break;
 
 		case defPopBoxType.default:

@@ -1,17 +1,24 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import path from "../../router";
-import { popBoxContext, userInfoContext } from "../common/context";
-import imgReferral from "../../styles/img/friend.jpg";
+import { userInfoContext } from "../common/context";
+import { setCookie } from "../common/common";
 
-export default () => {
+export default ({ onClickClose }) => {
 	const { t } = useTranslation();
-	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const [selectDontShow, setSelectDontShow] = useState(false);
+	const refeCookieName = `referral_${userInfo.userName}`;
 
-	const clickClose = () => {
-		setPopBox({ isOpen: false });
+	const onChangeDontShow = () => {
+		let check = !selectDontShow;
+		setSelectDontShow(check);
+		if (check) {
+			setCookie(refeCookieName, "1", 1);
+		} else {
+			setCookie(refeCookieName, null, 0);
+		}
 	};
 
 	return (
@@ -19,14 +26,22 @@ export default () => {
 			<div className="friend active">
 				<button
 					className="icon icon-close"
-					onClick={clickClose}></button>
-				<img src={imgReferral} alt="img_referral" />
+					onClick={onClickClose}></button>
+				<img
+					src={require(`../../styles/img/friend-${userInfo.langId}.jpg`)}
+					alt="img_referral"
+				/>
 				<div className="checkbox">
-					<input type="checkbox" id="c1" />
+					<input
+						type="checkbox"
+						id="c1"
+						onChange={onChangeDontShow}
+						checked={selectDontShow}
+					/>
 					<label
 						for="c1"
 						className="icon icon-checkbox-checked"></label>
-					Don't show me again
+					{t("lbl_Dont_show_me_again")}
 				</div>
 			</div>
 		</>
