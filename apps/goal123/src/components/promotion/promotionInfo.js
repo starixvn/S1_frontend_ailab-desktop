@@ -121,12 +121,10 @@ export default () => {
 		_isExpiry = isExpiry({ ...promotionInfo, isLogin: userInfo.isLogin });
 	}
 
-	let wrapperClass = _isClaimed
-		? _isExpiry
-			? " expiredClaimedInfo"
-			: " claimedInfo"
-		: _isExpiry
+	let wrapperClass = _isExpiry
 		? " expiredClaimedInfo"
+		: _isClaimed
+		? " claimedInfo"
 		: "";
 
 	let _isConvert = isConvert(userInfo.currencyId);

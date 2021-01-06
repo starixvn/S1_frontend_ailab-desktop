@@ -123,12 +123,10 @@ export default () => {
 
 	let _isConvert = isConvert(userInfo.currencyId);
 
-	let wrapperClass = _isClaimed
-		? _isExpiry
-			? "expiredClaimedInfo"
-			: "claimed"
-		: _isExpiry
-		? "expiredClaimedInfo"
+	let wrapperClass = _isExpiry
+		? " expiredClaimedInfo"
+		: _isClaimed
+		? " claimedInfo"
 		: "";
 
 	let specialBonusWrapperClass =

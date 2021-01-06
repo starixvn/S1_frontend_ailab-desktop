@@ -112,12 +112,10 @@ export default () => {
 		});
 	}
 
-	let wrapperClass = _isClaimed
-		? _isExpiry
-			? " expiredClaimedInfo"
-			: " claimedInfo"
-		: _isExpiry
+	let wrapperClass = _isExpiry
 		? " expiredClaimedInfo"
+		: _isClaimed
+		? " claimedInfo"
 		: "";
 
 	let specialBonusWrapperClass =
