@@ -36,6 +36,6 @@ export default process.env.NODE_ENV === "production"
 
 			apiURL: "http://stag.goal123.com",
 			imgUrl: "http://stag.goal123.com",
-			t_and_cURL: "http://www.n88dev.com",
+			t_and_cURL: "http://stag.goal123.com",
 			openURL: "http://stag.goal123.com"
 	  };

@@ -20,14 +20,9 @@ import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defFilterType } from "./promotion.nav";
 
-const promotionNavType = {
-	"9001": defFilterType.special_bonus
-};
-
 export default () => {
 	const filterType = getUrlParameter("FilterType");
-	let isSpecialType =
-		promotionNavType[filterType] === defFilterType.special_bonus;
+	let isSpecialType = filterType === defFilterType.specialBonus;
 
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -126,18 +121,16 @@ export default () => {
 		_isExpiry = isExpiry({ ...promotionInfo, isLogin: userInfo.isLogin });
 	}
 
-	let wrapperClass = _isClaimed
-		? _isExpiry
-			? " expiredClaimedInfo"
-			: " claimedInfo"
-		: _isExpiry
+	let wrapperClass = _isExpiry
 		? " expiredClaimedInfo"
+		: _isClaimed
+		? " claimedInfo"
 		: "";
 
 	let _isConvert = isConvert(userInfo.currencyId);
 
 	let specialBonusWrapperClass =
-		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
+		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
 	return loading ? (
 		<Loading />
@@ -148,7 +141,7 @@ export default () => {
 			) : (
 				<div className="infoModule">
 					<div
-						className={`promotionsInfo${wrapperClass} ${specialBonusWrapperClass}`}>
+						className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
 						{_isClaimed ? <div className="claimed"></div> : null}
 						<img
 							src={promotionInfo.banner}
@@ -168,9 +161,7 @@ export default () => {
 										promotionInfo={promotionInfo}
 										userInfo={userInfo}
 										_isExpiry={_isExpiry}
-										promotionNavType={
-											promotionNavType[filterType]
-										}
+										filter={filterType}
 										callBack={() =>
 											getPromotionDetail(
 												userInfo.langId,

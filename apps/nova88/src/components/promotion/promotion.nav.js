@@ -1,13 +1,14 @@
 import React from "react";
+import { defPromotionType } from "./promotion.def";
 
 export const defFilterType = {
 	all: 0,
 	expiry: 999,
-	firstDeposit: 1,
-	redeposit: 2,
-	freeBet: 3,
-	Rebate_and_cashback: "6_7",
-	special_bonus: "special_bonus"
+	firstDeposit: defPromotionType.firstDeposit,
+	redeposit: defPromotionType.redeposit,
+	freeBet: defPromotionType.freeBet,
+	Rebate_and_cashback: [defPromotionType.rebate, defPromotionType.cashback],
+	specialBonus: defPromotionType.specialBonus
 };
 
 const defPromoNavs = [
@@ -43,7 +44,7 @@ const defPromoNavs = [
 	},
 	{
 		displayKey: "lbl_SpecialBonus",
-		value: defFilterType.special_bonus,
+		value: defFilterType.specialBonus,
 		className: "blueBorder",
 		selectedClassName: "blue"
 	},
@@ -75,7 +76,7 @@ export default ({
 	};
 
 	let defPromoNavsFormat = defPromoNavs.filter(
-		item => item.value !== defFilterType.special_bonus || userInfo.isLogin
+		item => item.value !== defFilterType.specialBonus || userInfo.isLogin
 	);
 
 	return (
@@ -96,7 +97,7 @@ export default ({
 					))}
 				</div>
 			</div>
-			{selected === defFilterType.special_bonus ? (
+			{selected === defFilterType.specialBonus ? (
 				<div className="specialBonus">
 					<div className="inputBox-white">
 						<input
