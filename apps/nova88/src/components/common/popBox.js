@@ -221,7 +221,6 @@ export default () => {
 			content = (
 				<JoinReferral
 					onClickClose={popBox.onClickClose}
-					closePopBoxName={popBox.closePopBoxName}
 				/>
 			);
 			break;

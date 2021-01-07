@@ -27,10 +27,14 @@ export default ({ onClickClose }) => {
 				<button
 					className="icon icon-close"
 					onClick={onClickClose}></button>
-				<img
-					src={require(`../../styles/img/friend-${userInfo.langId}.jpg`)}
-					alt="img_referral"
-				/>
+				<Link
+					className=""
+					to={`/${userInfo.langId}/${path.referral.root}`}>
+					<img
+						src={require(`../../styles/img/friend-${userInfo.langId}.jpg`)}
+						alt="img_referral"
+					/>
+				</Link>
 				<div className="checkbox">
 					<input
 						type="checkbox"
@@ -39,7 +43,7 @@ export default ({ onClickClose }) => {
 						checked={selectDontShow}
 					/>
 					<label
-						for="c1"
+						htmlFor="c1"
 						className="icon icon-checkbox-checked"></label>
 					{t("lbl_Dont_show_me_again")}
 				</div>

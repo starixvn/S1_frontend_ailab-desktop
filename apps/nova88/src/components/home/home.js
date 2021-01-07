@@ -318,50 +318,31 @@ const IndexPage = () => {
 	}, []);
 
 	useEffect(() => {
-		// if (userInfo.isLogin && userInfo.userName) {
-		showReferralPopBox();
-		// }
-	}, [
-		userInfo.isLogin,
-		userInfo.userName,
-		setPopBox,
-		popBox.closePopBoxName
-	]);
-
-	const clickClose = _closePopBoxName => {
-		setPopBox({ isOpen: false, closePopBoxName: _closePopBoxName });
-	};
+		if (userInfo.isLogin && userInfo.userName) {
+			showReferralPopBox();
+		}
+	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
 	const showReferralPopBox = () => {
+		const clickClose = () => {
+			setPopBox({ isOpen: false });
+			showDepositPopBox();
+		};
+
 		let refeCookieName = `referral_${userInfo.userName}`;
 
 		if (readCookie(refeCookieName) === "1") {
-			console.log("step--1 ");
 			showDepositPopBox();
 		} else {
-			if (
-				readCookie(refeCookieName) !== "1" &&
-				popBox.popBoxType === null
-			) {
-				console.log("step--2 ");
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.JoinReferral,
-					onClickClose: clickClose.bind(this, "popBox_referral")
-				});
-			}
-			if (
-				popBox.isOpen === false &&
-				popBox.closePopBoxName === "popBox_referral"
-			) {
-				console.log("step--3 ");
-				showDepositPopBox();
-			}
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.JoinReferral,
+				onClickClose: clickClose
+			});
 		}
 	};
 
 	const showDepositPopBox = () => {
-		console.log("do showDepositPopBox~~");
 		let cookieName = `balanceHint${userInfo.userName}`;
 		let showDepositHint = false;
 		if (readCookie(cookieName) !== "1") {
