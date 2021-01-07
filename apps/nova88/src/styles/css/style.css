@@ -889,6 +889,9 @@ header {
   top: 0;
   z-index: 1;
   border: 1px solid rgba(30, 133, 236, 0.5);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .header > div.function .cashier .submenu a, .header > div.function .wallet .submenu a, .header > div.function .memberfile .submenu a {
@@ -904,6 +907,12 @@ header {
   color: white;
   -webkit-transition: 0.7s;
   transition: 0.7s;
+}
+
+.header > div.function .cashier .submenu a.icon-new:before, .header > div.function .wallet .submenu a.icon-new:before, .header > div.function .memberfile .submenu a.icon-new:before {
+  position: unset;
+  float: right;
+  margin-left: 10px;
 }
 
 .header > div.function .cashier .submenu .icon-exit, .header > div.function .wallet .submenu .icon-exit, .header > div.function .memberfile .submenu .icon-exit {
@@ -5512,6 +5521,39 @@ input[type="file"] {
   margin-top: 20px;
 }
 
+.icon-icon32px_deposit {
+  position: relative;
+}
+
+.icon-icon32px_deposit .icon-friend {
+  position: absolute;
+  right: 40px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1E85EC;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+.icon-icon32px_deposit .icon-friend:hover {
+  background: #134DAE;
+}
+
+.icon-icon32px_deposit .icon-friend:before {
+  font-size: 18px;
+  margin-left: 0;
+}
+
+.icon-icon32px_deposit .icon-friend span {
+  margin: 0;
+}
+
 .icon-icon32px_deposit + .stepBar + .subModuleList {
   padding: 0 50px 40px;
 }
@@ -7958,80 +8000,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 97.4163%;
-  top: -33.94418%;
-  width: 10.59423px;
-  height: 10.59423px;
+  left: 22.60817%;
+  top: -10.55312%;
+  width: 10.99149px;
+  height: 10.99149px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 6.83516%;
-  top: -1.80339%;
-  width: 5.09994px;
-  height: 5.09994px;
+  left: 40.89462%;
+  top: 33.78341%;
+  width: 7.64312px;
+  height: 7.64312px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 0.29411%;
-  top: 3.32965%;
-  width: 10.65146px;
-  height: 10.65146px;
+  left: 15.90147%;
+  top: 30.97596%;
+  width: 9.57466px;
+  height: 9.57466px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 36.29323%;
-  top: -28.71966%;
-  width: 9.07007px;
-  height: 9.07007px;
+  left: 97.14166%;
+  top: 37.66436%;
+  width: 8.57116px;
+  height: 8.57116px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 92.48383%;
-  top: -30.0487%;
-  width: 6.10763px;
-  height: 6.10763px;
+  left: 57.11792%;
+  top: 18.6926%;
+  width: 13.14659px;
+  height: 13.14659px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 14.80624%;
-  top: -16.17%;
-  width: 7.61308px;
-  height: 7.61308px;
+  left: 5.39969%;
+  top: -14.25861%;
+  width: 6.70472px;
+  height: 6.70472px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 27.51187%;
-  top: -50.65143%;
-  width: 5.26345px;
-  height: 5.26345px;
+  left: 24.9481%;
+  top: -29.97697%;
+  width: 7.80651px;
+  height: 7.80651px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 13.70363%;
-  top: -18.82471%;
-  width: 9.0049px;
-  height: 9.0049px;
+  left: 72.80662%;
+  top: -59.89936%;
+  width: 7.40413px;
+  height: 7.40413px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8187,6 +8229,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .achievement span {
   margin-left: 10px;
   color: #f77900;
+}
+
+.achievement .txt-lightgray {
+  font-weight: normal;
+  margin-top: 10px;
 }
 
 .list.refhistory div:first-child {

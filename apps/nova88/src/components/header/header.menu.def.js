@@ -28,6 +28,22 @@ export const defMenuLinks = {
 		className: "COCK icon icon-new",
 		subMenu: [
 			{
+				className: "PP",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.casino_PP },
+				...productList.casino_PP
+			},
+			{
+				className: "ICG icon icon-new",
+				icon: "icon icon-ICG",
+				displayText: "ICG",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.casino_ICG },
+				...productList.casino_ICG
+			},
+			{
 				className: "JOKER",
 				icon: "icon icon-JOKER",
 				displayText: "JOKER",
@@ -66,14 +82,6 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { ...productList.casino_SG },
 				...productList.casino_SG
-			},
-			{
-				className: "PP",
-				icon: "icon icon-PP",
-				displayText: "PP",
-				menuType: defMenuType.Link,
-				parameter: { ...productList.casino_PP },
-				...productList.casino_PP
 			},
 			{
 				className: "PG",
@@ -199,7 +207,36 @@ export const defMenuLinks = {
 	fishing: {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
+		className: "icon icon-new",
 		subMenu: [
+			{
+				...productList.ICG_DRAGONBALL_FISHING,
+				className: "fsdf icon icon-new",
+				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
+			},
+			{
+				...productList.ICG_FISHING_OF_SAVIORS,
+				className: "fsgfos icon icon-new",
+				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
+			},
+			{
+				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
+				className: "fsttatp icon icon-new",
+				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS }
+			},
+			{
+				...productList.ICG_TOWER_OF_SAVIORS,
+				className: "fstos icon icon-new",
+				displayKey: "lbl_Game_ICG_TOWER_OF_SAVIORS",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.ICG_TOWER_OF_SAVIORS }
+			},
 			{
 				...productList.fishing,
 				className: "fgg",
