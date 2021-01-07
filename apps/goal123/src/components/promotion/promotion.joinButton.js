@@ -9,13 +9,7 @@ import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
 import path from "../../router";
 import { defFilterType } from "./promotion.nav";
 
-export default ({
-	promotionInfo,
-	userInfo,
-	_isExpiry,
-	promotionNavType,
-	callBack
-}) => {
+export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 	const { t } = useTranslation();
 	const { isLogin } = userInfo;
 	const isMountedRef = useRef(null);
@@ -128,7 +122,7 @@ export default ({
 			(canJoin &&
 				bonusType === defPromotionType.firstDeposit &&
 				promotionType === defPromotionType.redeposit) ||
-			(promotionNavType === defFilterType.special_bonus &&
+			(filter === defFilterType.special_bonus &&
 				promotionType === defPromotionType.firstDeposit)
 		)
 			return setPopBox({
@@ -147,8 +141,7 @@ export default ({
 	if (
 		(promotionInfo.isJoin && isLogin) ||
 		_isExpiry ||
-		(promotionNavType === defFilterType.special_bonus &&
-			!promotionInfo.canJoin)
+		(filter === defFilterType.special_bonus && !promotionInfo.canJoin)
 	)
 		return null;
 

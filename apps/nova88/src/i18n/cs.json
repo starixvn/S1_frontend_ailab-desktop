@@ -86,8 +86,8 @@
 	"msg_PasswordReq": "请输入密码。",
 	"msg_UsernameLength": "用户名必须介于 6 和 18 个字符之间。",
 	"msg_UsernameNotAvailable": "用户名已有人使用。",
-	"msg_PasswordLength": "密码长度必须介于6 和18 个字符之间。",
-	"msg_PasswordVaildate": "6到18个数字、英文字母大小写或特殊符号(@$*!%#?&)",
+	"msg_PasswordLength": "密码长度必须介于 6 和 15 个字符之间。",
+	"msg_PasswordVaildate": "密码长度必须 6 至 15 个字符，包含字母数字混合特别字元符号 (!@#$%^&*)。",
 	"msg_MailWrongFormat": "电子邮箱格式错误",
 	"msg_MailExisted": "此电子邮件地址已有人使用。",
 	"msg_EnterRealName": "请输入您的真实姓名",
@@ -453,5 +453,9 @@
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "下载",
 	"lbl_918KissMobileApp": "918KISS MOBILE APP",
-	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide"
+	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide",
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"龙珠捕鱼",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"中国神魔捕鱼",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"霸王虞姬",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"中国神魔塔防"
 }

@@ -86,8 +86,8 @@
 	"msg_PasswordReq": "Password is required.",
 	"msg_UsernameLength": "Username must between 6 and 18 characters long.",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
-	"msg_PasswordLength": "Password must between 6 and 18 characters long.",
-	"msg_PasswordVaildate": "6-18 alphanumeric (A-Z, a-z, 0-9) characters or special characters @$*!%#?&",
+	"msg_PasswordLength": "Password must between 6 and 15 characters long.",
+	"msg_PasswordVaildate": "Password must be 6-15 characters, contain both alphanumeric and a special characters (!@#$%^&*).",
 	"msg_MailWrongFormat": "Mail Format is wrong.",
 	"msg_MailExisted": "Mail already exists.",
 	"msg_EnterRealName": "Please enter your real name.",
@@ -454,5 +454,9 @@
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "Download",
 	"lbl_918KissMobileApp": "918KISS MOBILE APP",
-	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide"
+	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide",
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"DRAGONBALL FISHING",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"FISHING OF SAVIORS",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"TOWER OF SAVIORS"
 }

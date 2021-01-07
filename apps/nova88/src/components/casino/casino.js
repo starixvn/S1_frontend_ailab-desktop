@@ -411,7 +411,6 @@ export default () => {
 							favorite={favorite}
 							onSetFavorite={onSetFavorite}
 						/>
-						)
 						<Pagination
 							totalPages={pageInfo.totalPages}
 							currentPage={pageInfo.currentPage}

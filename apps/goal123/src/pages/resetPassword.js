@@ -8,7 +8,7 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import { defPopBoxType } from "../components/common/popBox";
 import Inputbox from "../components/common/inputbox.password";
-import { getUrlParameter } from "../components/common/common";
+import { getUrlParameter, passwordCheck } from "../components/common/common";
 import { LOGOUT } from "../service/auth";
 import path from "../router";
 
@@ -61,7 +61,7 @@ const Content = () => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -89,30 +89,12 @@ const Content = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const pswCheck = val => {
-		let _checked = true;
-		let _msg = "";
-
-		const regx = /^[a-zA-Z0-9@$*!%#?&]*$/;
-		if (val === "") {
-			_checked = false;
-			_msg = t("msg_PasswordReq");
-		} else if (val !== null) {
-			if (val.length < 6 || val.length > 18) {
-				_checked = false;
-				_msg = t("msg_PasswordLength");
-			} else if (!regx.test(val)) {
-				_checked = false;
-				_msg = t("msg_PasswordVaildate");
-			}
-		}
-
+	const checkPswHandler = val => {
+		let { checked, message } = passwordCheck(val);
 		setStatus({
-			checked: _checked,
-			msg: _msg
+			checked,
+			msg: t(message)
 		});
-
-		return _checked;
 	};
 
 	const editField = e => {
@@ -136,9 +118,8 @@ const Content = () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let checked = pswCheck(newPsw);
 
-		if (checked) {
+		if (status.checked) {
 			api_accountStrict_ResetPassword({ NewPassword: newPsw }).then(
 				res => {
 					if (isMountedRef.current) {
@@ -255,7 +236,7 @@ const Content = () => {
 						title={t("lbl_NewPassword")}
 						value={newPsw}
 						onChange={editField.bind(this)}
-						onBlur={pswCheck.bind(this, newPsw)}
+						onBlur={checkPswHandler.bind(this, newPsw)}
 						checked={status.checked}
 						clickInfo={clickInfo.bind(this)}
 						tip={status.msg}

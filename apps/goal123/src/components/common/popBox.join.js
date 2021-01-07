@@ -6,7 +6,7 @@ import {
 	api_site_Register
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
-import { getUrlParameter, readCookie } from "./common";
+import { getUrlParameter, readCookie, passwordCheck } from "./common";
 import { defPopBoxType } from "../common/popBox";
 import { userInfoContext, popBoxContext } from "./context";
 import { GET_LANG_ID } from "../../service/language";
@@ -36,28 +36,6 @@ const initTip = {
 };
 
 const defaultLangId = GET_LANG_ID();
-
-const passwordCheck = val => {
-	let checked = false;
-	let msg = "";
-
-	const regx = /^[a-zA-Z0-9@$*!%#?&]*$/;
-	if (val === "") {
-		checked = false;
-		msg = "msg_PasswordReq";
-	} else if (val != null) {
-		if (val.length < 6 || val.length > 18) {
-			checked = false;
-			msg = "msg_PasswordLength";
-		} else if (!regx.test(val)) {
-			checked = false;
-			msg = "msg_PasswordVaildate";
-		} else {
-			checked = true;
-		}
-	}
-	return { checked, msg };
-};
 
 const JoinPanel = () => {
 	const { t } = useTranslation();
@@ -180,7 +158,7 @@ const JoinPanel = () => {
 		} else if (col === "password") {
 			let result = passwordCheck(val);
 			checked = result.checked;
-			msg = result.msg;
+			msg = result.message;
 		}
 
 		setTip(prev => {
@@ -317,7 +295,7 @@ const JoinPanel = () => {
 					},
 					password: {
 						checked: _passwordCheck.checked,
-						msg: t(_passwordCheck.msg)
+						msg: t(_passwordCheck.message)
 					},
 					checkbox: {
 						checked: true,
@@ -393,7 +371,7 @@ const JoinPanel = () => {
 										setPopBox({ isOpen: false });
 									}
 								},
-								err => {
+								() => {
 									if (isMountedRef.current) {
 										setPopBox({
 											isOpen: true,
