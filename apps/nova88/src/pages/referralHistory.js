@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { api_payment_GetStatement } from "../service/api/payment";
-import {
-	api_account_GetRefFriendList,
-	api_account_GetReferralSetting
-} from "../service/api/account";
+import { api_account_GetRefFriendList } from "../service/api/account";
 import { number_format, isConvert } from "../components/common/common";
 import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../components/common/context";
@@ -50,7 +46,6 @@ const Content = () => {
 	const [keepData, setKeepData] = useState(null);
 	const [pagination, setPagination] = useState(initPagination);
 	const isMountedRef = useRef(null);
-
 	const _pageSize = 10;
 
 	useEffect(() => {
@@ -58,24 +53,49 @@ const Content = () => {
 		return () => (isMountedRef.current = false);
 	});
 
-	const GetStatement = (transactionData, pageNumber) => {
+	const clickDateSubmit = (startDate, endDate, isUnix, quickPick) => {
+		if (!processing) {
+			setProcessing(true);
+			let transactionData = filterData;
+			if (!isUnix) {
+				transactionData = {
+					StartDate: moment(startDate).unix(),
+					EndDate: moment(endDate).endOf("day").unix()
+				};
+				setFilterData(transactionData);
+
+				setKeepData({
+					startDate: startDate,
+					endDate: endDate,
+					quickPick: quickPick
+				});
+			}
+			setPagination(prev => ({ ...prev, currentPage: 1 }));
+			GetData(transactionData, 1);
+		}
+	};
+
+	const clickPageNumber = page => {
+		if (!processing) {
+			setProcessing(true);
+			let transactionData = filterData;
+			setPagination(prev => ({ ...prev, currentPage: page }));
+			GetData(transactionData, page);
+		}
+	};
+
+	const GetData = (transactionData, pageNumber) => {
 		const clickClose = () => {
 			setPopBox({ isOpen: false });
 		};
 
-		let payload = {
+		api_account_GetRefFriendList({
 			...transactionData,
 			PageNumber: pageNumber,
 			PageSize: _pageSize
-		};
-		console.log(payload);
-
-		api_account_GetRefFriendList({
-			payload
 		}).then(
 			res => {
 				if (isMountedRef.current) {
-					console.log("001");
 					if (res.data.errorCode === 0) {
 						setGetHistory(res.data.data);
 						setPagination(prev => ({
@@ -123,55 +143,22 @@ const Content = () => {
 		);
 	};
 
-	const clickDateSubmit = (startDate, endDate, isUnix, quickPick) => {
-		if (!processing) {
-			setProcessing(true);
-			let transactionData = filterData;
-
-			if (!isUnix) {
-				transactionData = {
-					StartDate: moment(startDate).unix(),
-					EndDate: moment(endDate).endOf("day").unix()
-				};
-				setFilterData(transactionData);
-
-				setKeepData({
-					startDate: startDate,
-					endDate: endDate,
-					quickPick: quickPick
-				});
-			}
-
-			setPagination(prev => ({ ...prev, currentPage: 1 }));
-			GetStatement(transactionData, 1);
-		}
-	};
-
-	const clickPageNumber = page => {
-		if (!processing) {
-			setProcessing(true);
-			let transactionData = filterData;
-			setPagination(prev => ({ ...prev, currentPage: page }));
-
-			GetStatement(transactionData, page);
-		}
-	};
-
 	let arr = getHistory?.map((item, idx) => {
 		return (
-			<div key={`statement-${idx}`}>
+			<div key={`referral-${idx}`}>
 				<div>{idx + 1}</div>
+				<div>{item.userName}</div>
 				<div>
 					{moment(item.createTime).format("DD/MM/YYYY")}
 					<span className="txt-blue2">
 						{moment(item.createTime).format("HH:mm:ss")}
 					</span>
 				</div>
-				<div>{item.refTransId}</div>
-				<div>{item.typeName}</div>
-				<div>{number_format(item.changeAmount, _isConvert)}</div>
-				<div>{number_format(item.beforeAmount, _isConvert)}</div>
-				<div>{number_format(item.afterAmount, _isConvert)}</div>
+				<div>{t(`Currency_${item.currencyId}`)}</div>
+				<div>{number_format(item.totalDeposit, _isConvert)}</div>
+				<div>{number_format(item.totalBet, _isConvert)}</div>
+				<div>{number_format(item.bonusAmount, _isConvert)}</div>
+				<div>{t(`lbl_ReferralStatus${item.status}`)}</div>
 			</div>
 		);
 	});
@@ -187,14 +174,15 @@ const Content = () => {
 				<div className="list history">
 					<div className="listHeader">
 						<div>{t("lbl_NO")}</div>
+						<div>{t("lbl_Username")}</div>
 						<div>
-							{t("lbl_Date")} ({moment().format("Z")})
+							{t("lbl_RegisterDate")} ({moment().format("Z")})
 						</div>
-						<div>{t("lbl_RefTransId")}</div>
-						<div>{t("lbl_TypeName")}</div>
-						<div>{t("lbl_ChangeAmount")}</div>
-						<div>{t("lbl_BeforeAmount")}</div>
-						<div>{t("lbl_AfterAmount")}</div>
+						<div>{t("lbl_Currency")}</div>
+						<div>{t("lbl_TotalDeposit")}</div>
+						<div>{t("lbl_TotalBet")}</div>
+						<div>{t("lbl_BonusAmount")}</div>
+						<div>{t("lbl_Status")}</div>
 					</div>
 					{getHistory?.length > 0 ? (
 						<div className="listBody">{arr}</div>
