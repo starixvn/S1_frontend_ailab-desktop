@@ -28,6 +28,14 @@ export const defMenuLinks = {
 		className: "COCK icon icon-new",
 		subMenu: [
 			{
+				className: "PP",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.casino_PP },
+				...productList.casino_PP
+			},
+			{
 				className: "ICG icon icon-new",
 				icon: "icon icon-ICG",
 				displayText: "ICG",
@@ -74,14 +82,6 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { ...productList.casino_SG },
 				...productList.casino_SG
-			},
-			{
-				className: "PP",
-				icon: "icon icon-PP",
-				displayText: "PP",
-				menuType: defMenuType.Link,
-				parameter: { ...productList.casino_PP },
-				...productList.casino_PP
 			},
 			{
 				className: "PG",

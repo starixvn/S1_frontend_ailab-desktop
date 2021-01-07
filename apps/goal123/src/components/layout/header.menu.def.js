@@ -225,6 +225,7 @@ export const defMenuLinks = langId => {
 		fishing: {
 			productInfo: productList.fishing,
 			displayKey: "lbl_Fishing",
+			className: "icon icon-new",
 			subMenu: [
 				{
 					...productList.ICG_DRAGONBALL_FISHING,
