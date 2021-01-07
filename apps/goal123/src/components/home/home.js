@@ -159,7 +159,8 @@ const defPlatform = [
 	"eb",
 	"wm",
 	"s123",
-	"cq9"
+	"cq9",
+	"icg"
 ];
 
 const Platforms = () => {

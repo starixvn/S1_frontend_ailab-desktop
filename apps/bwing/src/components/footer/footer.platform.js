@@ -78,6 +78,11 @@ const defPlatfrom = [
 	{
 		...productList.liveCasino_One789,
 		imgName: "one789"
+	},
+	{
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.ICG.name },
+		imgName: "icg"
 	}
 ];
 
