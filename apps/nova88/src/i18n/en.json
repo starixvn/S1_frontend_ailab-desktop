@@ -450,6 +450,11 @@
 	"lbl_Referral_rewards":"Rewards",
 	"lbl_Refer_friends_rewards":"Refer Friends Rewards",
 	"lbl_Dont_show_me_again":"Don't show me again",
+	"lbl_ReferralStatus":"Your Referral Status",
+	"lbl_InvitationAccepted":"Invitation Accepted",
+	"lbl_MissionCompleted":"Mission completed",
+	"lbl_NoOfAchievements":"No. of achievements",
+	"lbl_RewardAmount":"Rewards Amounts",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "Download",

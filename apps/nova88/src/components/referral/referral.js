@@ -30,6 +30,7 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const refStepBanner = require(`../../styles/img/refbanner-${userInfo.langId}.png`);
 	const [referralSum, setReferralSum] = useState({
+		conditionCount: 0,
 		amountCount: 0,
 		referralCount: 0,
 		amountSum: 0
@@ -101,9 +102,10 @@ export default () => {
 					if (res.data.errorCode === 0) {
 						setReferralSum(prevS => ({
 							...prevS,
+							conditionCount: res.data.data.conditionCount,
 							amountCount: res.data.data.amountCount,
-							amountSum: res.data.data.amountSum,
-							referralCount: res.data.data.referralCount
+							referralCount: res.data.data.referralCount,
+							amountSum: res.data.data.amountSum
 						}));
 					} else {
 						errorPopBox(res.data.message, res.data.errorCode);
@@ -126,12 +128,16 @@ export default () => {
 					<span>{t("lbl_ReferFriends")}</span>
 				</div>
 				<div className="achievement">
-					{t("lbl_Achievement")}
+					{t("lbl_ReferralStatus")} :
+					<br />
+					{t("lbl_InvitationAccepted")} / {t("lbl_MissionCompleted")}
 					<span>
-						{referralSum.amountCount}/{referralSum.referralCount}
-					</span>{" "}
-					, {t("lbl_Referral_rewards")}
+						{referralSum.conditionCount} / {referralSum.amountCount}
+					</span>
+					<br /> {t("lbl_NoOfAchievements")} / {t("lbl_RewardAmount")}
 					<span>
+						{referralSum.referralCount} /{" "}
+						{t(`Currency_${userInfo.currencyId}`)}{" "}
 						{number_format(referralSum.amountSum, _isConvert)}
 					</span>
 					<div className="txt-lightgray">
