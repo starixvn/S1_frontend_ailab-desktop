@@ -87,6 +87,26 @@ export default {
 		gameId: "F-SF02",
 		tpId: 10,
 		name: "fishing_SGW"
+	},
+	ICG_DRAGONBALL_FISHING: {
+		gameId: "cmf0001",
+		tpId: 24,
+		name: "ICG_DRAGONBALL_FISHING"
+	},
+	ICG_FISHING_OF_SAVIORS: {
+		gameId: "cmf0002",
+		tpId: 24,
+		name: "ICG_FISHING_OF_SAVIORS"
+	},
+	ICG_THE_TYRANT_AND_THE_PRINCESS: {
+		gameId: "cmf0003",
+		tpId: 24,
+		name: "ICG_TOWER_OF_SAVIORS"
+	},
+	ICG_TOWER_OF_SAVIORS: {
+		gameId: "cmt0001",
+		tpId: 24,
+		name: "cockFighting"
 	}
 };
 
@@ -119,5 +139,9 @@ export const defCasinoProviders = {
 	CQ9: {
 		tpId: 16,
 		name: "CQ9"
+	},
+	ICG: {
+		tpId: 24,
+		name: "ICG"
 	}
 };

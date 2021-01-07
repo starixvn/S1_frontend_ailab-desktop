@@ -462,8 +462,12 @@
 	"lbl_withdraw_submit": "Submit",
 	"lbl_total": "Total",
 
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TraditionalLottery": "Traditional Lottery",
 	"lbl_789Lottery": "789 Lottery",
 	"lbl_liveCasino_789SeDie": "789 Se Die",
-	"---end---": "---"
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"DRAGONBALL FISHING",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"FISHING OF SAVIORS",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"TOWER OF SAVIORS"
 }
