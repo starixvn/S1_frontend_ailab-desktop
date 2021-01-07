@@ -65,3 +65,17 @@ export const api_account_ExistsPhone = ({ AreaCode, Phone }) =>
 		AreaCode: AreaCode,
 		PhoneNo: Phone
 	});
+
+export const api_account_GetTpWalletList = ListType =>
+	accountRequest.post("/GetTpWalletList", { ListType: ListType });
+
+export const api_account_GetTpWalletBalance = TpId =>
+	accountRequest.post("/GetTpWalletBalance", { TpId: TpId });
+
+export const api_account_GetBalance = () => accountRequest.post("/GetBalance");
+
+export const api_account_GetCustBonusWallet = () =>
+	accountRequest.post("/GetCustBonusWallet");
+
+export const api_account_GetWalletBalance = () =>
+	accountRequest.post("/GetWalletBalance");

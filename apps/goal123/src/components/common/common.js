@@ -162,3 +162,21 @@ export const routerFlattenToPath = (path, orderNumber) => {
 		.splice(0, orderNumber || flattenDeepObject(path).length)
 		.join("/");
 };
+
+export const passwordCheck = val => {
+	const passwordRegx = /^(?=.{6,15}$)(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*]).*$/;
+
+	if (val === "")
+		return {
+			checked: false,
+			message: "msg_PasswordReq"
+		};
+
+	if (val !== null && !passwordRegx.test(val))
+		return {
+			checked: false,
+			message: "msg_PasswordVaildate"
+		};
+
+	return { checked: true, message: "" };
+};

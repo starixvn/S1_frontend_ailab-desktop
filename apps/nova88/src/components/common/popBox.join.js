@@ -3,14 +3,19 @@ import { useTranslation } from "react-i18next";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	// api_site_Register,
 	api_site_Signup,
 	api_site_ExistsEmail,
-	api_site_ExistsPhoneNo
+	api_site_ExistsPhoneNo,
+	api_site_GetAffiliateAgent
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import areaCode from "../../datas/areaCode";
-import { getUrlParameter, readCookie, setCookie } from "./common";
+import {
+	getUrlParameter,
+	readCookie,
+	setCookie,
+	passwordCheck
+} from "./common";
 import { defPopBoxType } from "../common/popBox";
 import { userInfoContext, popBoxContext } from "./context";
 import { GET_LANG_ID } from "../../service/language";
@@ -22,12 +27,7 @@ import Dropdown from "./dropdown";
 import Checkbox from "./checkbox";
 import { Iov_GetBlackBox } from "../common/iovation";
 
-import {
-	initValue,
-	initTip,
-	passwordCheck,
-	currencyToAreacode
-} from "./join.data";
+import { initValue, initTip, currencyToAreacode } from "./join.data";
 
 const defaultLangId = GET_LANG_ID();
 
@@ -50,6 +50,55 @@ export default () => {
 	});
 
 	useEffect(() => {
+		checkAffiliate();
+	}, []);
+
+	const checkAffiliate = async () => {
+		let _AffId = getUrlParameter("AffId") || readCookie("AffId");
+		if (!_AffId) {
+			getCurrencyList();
+		} else {
+			await api_site_GetAffiliateAgent({ AffId: _AffId }).then(
+				res => {
+					if (isMountedRef.current) {
+						if (res.data.errorCode === 0) {
+							let { currencyId } = res.data.data;
+							let currencyArr = [
+								{
+									id: currencyId,
+									displayKey: `Currency_${currencyId}`
+								}
+							];
+							setSiteCurrency(currencyArr);
+							onSelectItem(0);
+						} else {
+							getCurrencyList();
+						}
+					}
+				},
+				err => {
+					if (isMountedRef.current) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClosePopBox}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
+			);
+		}
+	};
+
+	const getCurrencyList = () => {
 		api_site_GetSiteCurrencyList().then(
 			res => {
 				if (isMountedRef.current) {
@@ -96,7 +145,7 @@ export default () => {
 				}
 			}
 		);
-	}, []);
+	};
 
 	const ClosePopBox = () => {
 		setPopBox({ isOpen: false });
@@ -163,7 +212,7 @@ export default () => {
 		} else if (col === "password") {
 			let result = passwordCheck(val);
 			checked = result.checked;
-			msg = result.msg;
+			msg = result.message;
 		} else if (col === "email") {
 			let result = await emailCheck(val);
 			checked = result.checked;
@@ -303,7 +352,6 @@ export default () => {
 
 	const onSelectItem = i => {
 		setDefaultOption(null);
-
 		setUserValue(prev => {
 			return { ...prev, currencyIdx: i };
 		});
@@ -353,7 +401,7 @@ export default () => {
 							},
 							password: {
 								checked: _passwordCheck.checked,
-								msg: t(_passwordCheck.msg)
+								msg: t(_passwordCheck.message)
 							},
 							phone: {
 								checked: _phoneCheck.checked,
@@ -376,17 +424,31 @@ export default () => {
 				}
 				return checked;
 			},
-			err => {
+			() => {
 				return false;
 			}
 		);
 	};
 
-	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
+	const hasRefOrAffCode =
+		getUrlParameter("AffId") ||
+		readCookie("AffId") ||
+		getUrlParameter("AffCode") ||
+		readCookie("AffCode");
 
 	const clickSubmit = async e => {
 		e.preventDefault();
 		let checked = await checkAll();
+
+		let _AffId = getUrlParameter("AffId") || readCookie("AffId");
+		let affIdCheckPass = false;
+		if (_AffId) {
+			try {
+				affIdCheckPass =
+					(await api_site_GetAffiliateAgent({ AffId: _AffId })).data
+						.errorCode === 0;
+			} catch (error) {}
+		}
 
 		if (checked) {
 			let regData = {
@@ -400,9 +462,11 @@ export default () => {
 			};
 
 			regData["RefId"] = getUrlParameter("RefId") || readCookie("RefId");
-			regData["AffId"] = getUrlParameter("AffId") || readCookie("AffId");
+			regData["AffId"] = affIdCheckPass ? _AffId : null;
 			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
-			regData["AffCode"] = isUrlAffCode ?? userValue.affCode;
+			regData["AffCode"] =
+				getUrlParameter("AffCode") || readCookie("AffCode");
+			regData["blackbox"] = await Iov_GetBlackBox();
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
@@ -678,9 +742,9 @@ export default () => {
 							className={`inputBox-org`}
 							icon="icon-affiliate txt-orange"
 							placeholder={t("lbl_Affiliate_ID")}
-							value={isUrlAffCode ?? userValue.affCode}
+							value={hasRefOrAffCode ?? userValue.affCode}
 							onChange={EditField.bind(null, "affCode")}
-							readOnly={isUrlAffCode}
+							readOnly={hasRefOrAffCode}
 							checked={tip.affCode.checked}
 							tip={tip.affCode.msg}
 							clickInfo={clickInfo.bind(this, "affCode")}

@@ -35,7 +35,9 @@ const initStatus = {
 const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
 	let idx = prev.findIndex(p => p.id === tpId);
 	if (idx !== -1) {
-		prev[idx].balance = balance;
+		if (balance !== null) {
+			prev[idx].balance = balance;
+		}
 	} else {
 		prev.push({
 			id: tpId,
@@ -117,6 +119,14 @@ export default () => {
 	const getTpWalletBalance = tpArr => {
 		if (tpArr?.length > 0) {
 			tpArr.forEach(item => {
+				setWalletInfo(prev =>
+					AfterUpdWalletList({
+						prev,
+						tpId: item.tpId,
+						balance: null,
+						displayKey: `lbl_TpWallet_${item.tpId}`
+					})
+				);
 				api_account_GetTpWalletBalance(item.tpId).then(res => {
 					if (res.data.errorCode === 0 && isMountedRef.current) {
 						let { tpId, balance } = res.data.data;

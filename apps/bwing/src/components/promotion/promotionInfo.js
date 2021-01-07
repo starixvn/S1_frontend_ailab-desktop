@@ -20,14 +20,9 @@ import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defFilterType } from "./promotion.nav";
 
-const promotionNavType = {
-	"9001": defFilterType.special_bonus
-};
-
 export default () => {
-	const filterType = getUrlParameter("FilterType");
-	let isSpecialType =
-		promotionNavType[filterType] === defFilterType.special_bonus;
+	const filterType = Number(getUrlParameter("FilterType"));
+	let isSpecialType = filterType === defFilterType.specialBonus;
 
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -128,18 +123,14 @@ export default () => {
 
 	let _isConvert = isConvert(userInfo.currencyId);
 
-	let showClassStatus = () => {
-		if (_isClaimed) {
-			return "promotionsInfo claimed";
-		} else if (_isClaimed && _isExpiry) {
-			return "promotionsInfo expiredClaimedInfo";
-		} else {
-			return "promotionsInfo";
-		}
-	};
+	let wrapperClass = _isExpiry
+		? " expiredClaimedInfo"
+		: _isClaimed
+		? " claimedInfo"
+		: "";
 
 	let specialBonusWrapperClass =
-		isSpecialType && !promotionInfo?.canJoin ? "expiredClaimedInfo" : "";
+		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
 	return loading ? (
 		<Loading />
@@ -153,7 +144,7 @@ export default () => {
 						<span>{t("lbl_Promotion_info")}</span>
 					</div>
 					<div
-						className={`${showClassStatus()} ${specialBonusWrapperClass}`}>
+						className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
 						<img
 							src={promotionInfo.banner}
 							alt={promotionInfo.description}
@@ -178,9 +169,7 @@ export default () => {
 										_isExpiry={_isExpiry}
 										_isClaimed={_isClaimed}
 										inListPage={false}
-										promotionNavType={
-											promotionNavType[filterType]
-										}
+										filter={filterType}
 										callBack={() =>
 											getPromotionDetail(
 												userInfo.langId,

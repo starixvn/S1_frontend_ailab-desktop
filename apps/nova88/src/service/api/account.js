@@ -79,3 +79,12 @@ export const api_account_GetCustBonusWallet = () =>
 
 export const api_account_GetWalletBalance = () =>
 	accountRequest.post("/GetWalletBalance");
+
+export const api_account_GetReferralCode = () =>
+	accountRequest.post("/GetReferralCode");
+
+export const api_account_GetReferralSetting = () =>
+	accountRequest.post("/GetReferralSetting");
+
+export const api_account_GetReferralSummary = () =>
+	accountRequest.post("/GetReferralSummary ");

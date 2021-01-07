@@ -130,7 +130,6 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: url(https://image.n88media.com/SiteSkin/img/heaber_bg.png) no-repeat center/cover;
 }
 
 .header > div.menu {
@@ -430,6 +429,14 @@ header {
 
 .header > div.menu .eSportsList .JOKER:hover {
   background: url(../img/casinoJOKER_a.png) no-repeat center 0px/auto 100%;
+}
+
+.header > div.menu .casinoList .mega {
+  background: url(../img/casinomega.png) no-repeat center 10px/auto 100%;
+}
+
+.header > div.menu .casinoList .mega:hover {
+  background: url(../img/casinomega_a.png) no-repeat center 0px/auto 100%;
 }
 
 .header > div.menu .casinoList .ICG {
@@ -882,6 +889,9 @@ header {
   top: 0;
   z-index: 1;
   border: 1px solid rgba(30, 133, 236, 0.5);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .header > div.function .cashier .submenu a, .header > div.function .wallet .submenu a, .header > div.function .memberfile .submenu a {
@@ -897,6 +907,12 @@ header {
   color: white;
   -webkit-transition: 0.7s;
   transition: 0.7s;
+}
+
+.header > div.function .cashier .submenu a.icon-new:before, .header > div.function .wallet .submenu a.icon-new:before, .header > div.function .memberfile .submenu a.icon-new:before {
+  position: unset;
+  float: right;
+  margin-left: 10px;
 }
 
 .header > div.function .cashier .submenu .icon-exit, .header > div.function .wallet .submenu .icon-exit, .header > div.function .memberfile .submenu .icon-exit {
@@ -4137,6 +4153,10 @@ input[type="file"] {
           align-items: center;
 }
 
+.walletModule > .walletType {
+  width: 100%;
+}
+
 .walletModule > .walletType .walletBalanceModule {
   width: calc(50% - 30px);
   margin-right: 10px;
@@ -5501,6 +5521,39 @@ input[type="file"] {
   margin-top: 20px;
 }
 
+.icon-icon32px_deposit {
+  position: relative;
+}
+
+.icon-icon32px_deposit .icon-friend {
+  position: absolute;
+  right: 40px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1E85EC;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+.icon-icon32px_deposit .icon-friend:hover {
+  background: #134DAE;
+}
+
+.icon-icon32px_deposit .icon-friend:before {
+  font-size: 18px;
+  margin-left: 0;
+}
+
+.icon-icon32px_deposit .icon-friend span {
+  margin: 0;
+}
+
 .icon-icon32px_deposit + .stepBar + .subModuleList {
   padding: 0 50px 40px;
 }
@@ -6728,7 +6781,7 @@ button.icon-spinner11:before {
   padding: 5px 33px 5px 0;
 }
 
-.transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover {
+.transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-org .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item.active {
   background: #f77900;
   color: white;
 }
@@ -6841,10 +6894,7 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #b12333;
-  border: 2px solid #2e6b1d;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  background: #134DAE;
   padding: 10px 0;
   border-radius: 20px;
 }
@@ -6858,7 +6908,7 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
-  background: #b12333;
+  background: #1E85EC;
   height: 25px;
   padding: 0px 10px;
   opacity: 1;
@@ -6879,13 +6929,13 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next.icon:before, .gameMenu .swiper-button-prev.icon:before {
-  color: #2e6b1d;
+  color: black;
   font-size: 12px;
   font-weight: bold;
 }
 
 .gameMenu .swiper-button-next:after, .gameMenu .swiper-button-prev:after {
-  color: #2e6b1d;
+  color: black;
   font-size: 12px;
   font-weight: bold;
 }
@@ -7950,80 +8000,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 39.75797%;
-  top: -43.22284%;
-  width: 10.72312px;
-  height: 10.72312px;
+  left: 22.60817%;
+  top: -10.55312%;
+  width: 10.99149px;
+  height: 10.99149px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 99.25046%;
-  top: -46.44911%;
-  width: 5.60552px;
-  height: 5.60552px;
+  left: 40.89462%;
+  top: 33.78341%;
+  width: 7.64312px;
+  height: 7.64312px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 67.38262%;
-  top: -6.45915%;
-  width: 12.44883px;
-  height: 12.44883px;
+  left: 15.90147%;
+  top: 30.97596%;
+  width: 9.57466px;
+  height: 9.57466px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 14.18767%;
-  top: -40.34225%;
-  width: 7.90992px;
-  height: 7.90992px;
+  left: 97.14166%;
+  top: 37.66436%;
+  width: 8.57116px;
+  height: 8.57116px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 63.97811%;
-  top: -15.95959%;
-  width: 12.11764px;
-  height: 12.11764px;
+  left: 57.11792%;
+  top: 18.6926%;
+  width: 13.14659px;
+  height: 13.14659px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 32.61698%;
-  top: 33.20948%;
-  width: 10.7925px;
-  height: 10.7925px;
+  left: 5.39969%;
+  top: -14.25861%;
+  width: 6.70472px;
+  height: 6.70472px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 6.25672%;
-  top: -38.35376%;
-  width: 5.42579px;
-  height: 5.42579px;
+  left: 24.9481%;
+  top: -29.97697%;
+  width: 7.80651px;
+  height: 7.80651px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 42.83289%;
-  top: -21.93268%;
-  width: 8.33655px;
-  height: 8.33655px;
+  left: 72.80662%;
+  top: -59.89936%;
+  width: 7.40413px;
+  height: 7.40413px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8179,6 +8229,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .achievement span {
   margin-left: 10px;
   color: #f77900;
+}
+
+.achievement .txt-lightgray {
+  font-weight: normal;
+  margin-top: 10px;
 }
 
 .list.refhistory div:first-child {
