@@ -41,7 +41,7 @@ export default process.env.NODE_ENV === "production"
 			openURL: "",
 			imgUrl: "",
 			t_and_cURL: "",
-			cloudImgUrl: "https://image.n88media.com"
+			cloudImgUrl: "http://image.n88media.com"
 	  }
 	: {
 			siteName,
@@ -51,9 +51,9 @@ export default process.env.NODE_ENV === "production"
 			// imgUrl: "http://localhost:60930",
 			// t_and_cURL: "http://localhost:60930"
 
-			apiURL: "https://www.n88dev.com",
-			imgUrl: "https://www.n88dev.com",
-			cloudImgUrl: "https://image.n88media.com",
-			t_and_cURL: "https://www.n88dev.com",
-			openURL: "https://www.n88dev.com"
+			apiURL: "http://www.n88dev.com",
+			imgUrl: "http://www.n88dev.com",
+			cloudImgUrl: "http://image.n88media.com",
+			t_and_cURL: "http://www.n88dev.com",
+			openURL: "http://www.n88dev.com"
 	  };

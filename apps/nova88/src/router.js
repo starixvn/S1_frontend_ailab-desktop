@@ -120,5 +120,8 @@ export default {
 	},
 	referral: {
 		root: "referral"
+	},
+	referralHistory: {
+		root: "referralHistory"
 	}
 };
