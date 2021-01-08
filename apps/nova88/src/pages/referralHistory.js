@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { api_account_GetRefFriendList } from "../service/api/account";
 import { number_format, isConvert } from "../components/common/common";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, popBoxContext } from "../components/common/context";
+import { popBoxContext } from "../components/common/context";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
@@ -37,8 +37,6 @@ const initPagination = {
 
 const Content = () => {
 	const { t } = useTranslation();
-	const { userInfo } = useContext(userInfoContext);
-	const _isConvert = isConvert(userInfo.currencyId);
 	const { setPopBox } = useContext(popBoxContext);
 	const [getHistory, setGetHistory] = useState(null);
 	const [processing, setProcessing] = useState(false);
@@ -144,6 +142,7 @@ const Content = () => {
 	};
 
 	let arr = getHistory?.map((item, idx) => {
+		const _isConvert = isConvert(item.currencyId);
 		return (
 			<div key={`referral-${idx}`}>
 				<div>{idx + 1}</div>
@@ -155,8 +154,14 @@ const Content = () => {
 					</span>
 				</div>
 				<div>{t(`Currency_${item.currencyId}`)}</div>
-				<div>{number_format(item.totalDeposit, _isConvert)}</div>
-				<div>{number_format(item.totalBet, _isConvert)}</div>
+				<div>
+					{number_format(item.totalDeposit, _isConvert)} /{" "}
+					{number_format(item.depositC, _isConvert)}
+				</div>
+				<div>
+					{number_format(item.totalBet, _isConvert)} /{" "}
+					{number_format(item.vaildBetC, _isConvert)}
+				</div>
 				<div>{number_format(item.bonusAmount, _isConvert)}</div>
 				<div>{t(`lbl_ReferralStatus${item.status}`)}</div>
 			</div>
@@ -169,7 +174,6 @@ const Content = () => {
 				<span>{t("lbl_ReferralHistory")}</span>
 			</div>
 			<Filter submitHandler={clickDateSubmit} keepData={keepData} />
-
 			{getHistory ? (
 				<div className="list history">
 					<div className="listHeader">
@@ -193,7 +197,6 @@ const Content = () => {
 					)}
 				</div>
 			) : null}
-
 			{pagination.totalPages !== 0 ? (
 				<Pagination
 					totalPages={pagination.totalPages}
