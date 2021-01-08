@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`showWallet render correctly 1`] = `
+<div
+  className="walletModule"
+>
+  <div
+    className="walletType"
+  />
+  <button
+    aria-label="clickSpin"
+    className="icon icon-spinner11"
+    disabled={false}
+    onClick={[Function]}
+  />
+</div>
+`;
