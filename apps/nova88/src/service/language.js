@@ -1,8 +1,14 @@
 import { readCookie } from "../components/common/common";
 
+const siteLangList = ["en", "cs", "th", "id"];
+
+export const isVaildLang = lang => {
+	lang = lang.replace("/");
+	return siteLangList.includes(lang);
+};
+
 export const GET_LANG_ID = userLangId => {
 	let siteDefLangId = "en";
-	let siteLangList = ["en", "cs", "th", "id"];
 
 	let langId = userLangId ? userLangId : readCookie("LangId");
 	let browserDefLang =

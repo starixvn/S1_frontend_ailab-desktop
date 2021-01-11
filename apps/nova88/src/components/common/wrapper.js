@@ -18,11 +18,19 @@ import {
 } from "../../service/api/account";
 import { defPopBoxType } from "../common/popBox";
 import useInterval from "../hook/useInterval";
-import { GET_LANG_ID } from "../../service/language";
+import { GET_LANG_ID, isVaildLang } from "../../service/language";
 import { SiteInfo } from "../../config";
 import path from "../../router";
 import useGetWalletInfo from "./wrapper.walletInfo";
 import SEO from "../seo";
+
+const defaultPathLang = () => {
+	let urlLang = window.location.pathname.split("/")?.[1];
+	let cookieLang = readCookie(SiteInfo.langCookie);
+	let defaultLang = GET_LANG_ID();
+
+	return isVaildLang(urlLang) ? urlLang : cookieLang ?? defaultLang;
+};
 
 export default ({ children, afterLogin = false }) => {
 	const { t, i18n } = useTranslation();
@@ -35,7 +43,7 @@ export default ({ children, afterLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: readCookie(SiteInfo.langCookie) ?? GET_LANG_ID()
+		langId: defaultPathLang()
 	});
 
 	const [currentPath] = useState(
@@ -146,8 +154,7 @@ export default ({ children, afterLogin = false }) => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
 				let pathLang = window.location.pathname.split("/")?.[1];
-				let currentLang =
-					readCookie(SiteInfo.langCookie) ?? userInfo.langId;
+				let currentLang = userInfo.langId;
 
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);
