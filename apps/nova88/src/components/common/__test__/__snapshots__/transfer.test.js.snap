@@ -10,8 +10,11 @@ exports[`showWallet render correctly 1`] = `
   <button
     aria-label="clickSpin"
     className="icon icon-spinner11"
+    data-testid="reload-btn"
     disabled={false}
     onClick={[Function]}
-  />
+  >
+    aaaa
+  </button>
 </div>
 `;
