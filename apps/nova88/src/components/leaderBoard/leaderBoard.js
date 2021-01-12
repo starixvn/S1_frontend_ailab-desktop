@@ -5,7 +5,9 @@ import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
 import {
 	api_events_GetLeaderboardList,
-	api_events_GetCustRank
+	api_events_GetCustRank,
+	api_events_GetLeaderboardListV2,
+	api_events_GetCustRankV2
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
 import ButtonGroups from "./leaderBoard.btnGroups";
@@ -98,7 +100,7 @@ export default () => {
 						? defDayNum.yesterDay
 						: defDayNum.today;
 				setBeforeDays(days);
-				getLeaderboardData(defTabId.sports, days);
+				getLeaderboardData(defTabId.sports, days, tabValue);
 				setCategoryID(1);
 			} else {
 				onChangeGameType(tabValue, false, tabValue);
@@ -111,7 +113,8 @@ export default () => {
 		if (!updateStateOnly) {
 			getLeaderboardData(
 				typeValue,
-				tabValue !== defTabId.records ? 0 : beforeDays
+				tabValue !== defTabId.records ? 0 : beforeDays,
+				tabValue
 			);
 		}
 	};
@@ -125,7 +128,7 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const getLeaderboardData = (typeValue, daysValue) => {
+	const getLeaderboardData = (typeValue, daysValue, tabValue) => {
 		if (!userInfo.isLogin) return;
 		let payload = {
 			lBCategoryId: typeValue ?? categoryID,
@@ -133,17 +136,33 @@ export default () => {
 			BeforeDays: daysValue ?? beforeDays
 		};
 
+		let payloadV2 = {
+			lBCategoryId: typeValue ?? categoryID,
+			TopNum: TopNum,
+			BeforeDays: 0,
+			EventCode: "xmas2020"
+		};
+
 		const GetRankDatas = async () => {
 			try {
-				const res = await api_events_GetLeaderboardList(payload);
+				let isLastEvent = tabValue === defTabId.lastEvent;
+				const res = isLastEvent
+					? await api_events_GetLeaderboardListV2(payloadV2)
+					: await api_events_GetLeaderboardList(payload);
 				if (res.data.errorCode === 0) {
 					const rankDatas = res.data.data;
 
 					if (rankDatas?.length > 0) {
-						const custRankRes = await api_events_GetCustRank({
-							LBCategoryId: payload.lBCategoryId,
-							BeforeDays: payload.BeforeDays
-						});
+						const custRankRes = isLastEvent
+							? await api_events_GetCustRankV2({
+									LBCategoryId: payloadV2.lBCategoryId,
+									BeforeDays: payloadV2.BeforeDays,
+									EventCode: payloadV2.EventCode
+							  })
+							: await api_events_GetCustRank({
+									LBCategoryId: payload.lBCategoryId,
+									BeforeDays: payload.BeforeDays
+							  });
 
 						if (custRankRes.data.errorCode === 0) {
 							const { custRank, point } = custRankRes.data.data;
