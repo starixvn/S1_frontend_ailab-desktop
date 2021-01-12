@@ -8,26 +8,13 @@ import "../../styles/css/swiper.css";
 import "../../styles/css/style.css";
 import "../../styles/css/font.css";
 import "../../styles/css/datePicker.css";
-
-// const Canvas = () => {
-// 	let canvasRef = useRef(null);
-// 	return (
-// 		<canvas
-// 			ref={canvasRef}
-// 			id="canvas"
-// 			width={window.innerWidth}
-// 			height={window.innerHeight}
-// 		>
-// 			Canvas is not supported in your browser.
-// 		</canvas>
-// 	);
-// };
+import CanvasFireworks from "./canvasFireworks";
 
 const Layout = ({ children, showFooter = false }) => {
 	return (
 		<>
-			{/* new year style */}
-			{/* <Canvas /> */}
+			<CanvasFireworks />
+			{/* new year style ↑ */}
 			<Header />
 			{children}
 			{showFooter ? <Footer /> : null}
