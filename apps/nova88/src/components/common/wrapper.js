@@ -22,6 +22,7 @@ import { GET_LANG_ID } from "../../service/language";
 import { SiteInfo } from "../../config";
 import path from "../../router";
 import useGetWalletInfo from "./wrapper.walletInfo";
+import SEO from "../seo";
 
 export default ({ children, afterLogin = false }) => {
 	const { t, i18n } = useTranslation();
@@ -249,53 +250,35 @@ export default ({ children, afterLogin = false }) => {
 	);
 
 	if (redirectPath === null) {
-		// if (
-		// 	(correctPath && userInfo.isLogin) ||
-		// 	(afterLogin && userInfo.isLogin === false && userInfo.kickout)
-		// ) {
-		// 	return (
-		// 		<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
-		// 			<ct.walletInfoContext.Provider
-		// 				value={{
-		// 					...walletInfo.state,
-		// 					dispatch: walletInfo.dispatch
-		// 				}}>
-		// 				<ct.msgCountContext.Provider
-		// 					value={{ msgCount, setMsgCount }}>
-		// 					<ct.popBoxContext.Provider
-		// 						value={{ popBox, setPopBox }}>
-		// 						<ct.loadingContext.Provider
-		// 							value={{ loading, setLoading }}>
-		// 							{children}
-		// 						</ct.loadingContext.Provider>
-		// 					</ct.popBoxContext.Provider>
-		// 				</ct.msgCountContext.Provider>
-		// 			</ct.walletInfoContext.Provider>
-		// 		</ct.userInfoContext.Provider>
-		// 	);
-		// } else {
-		// 	return <></>;
-		// }
-		return correctPath ? (
-			<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
-				<ct.walletInfoContext.Provider
-					value={{
-						...walletInfo.state,
-						dispatch: walletInfo.dispatch
-					}}>
-					<ct.msgCountContext.Provider
-						value={{ msgCount, setMsgCount }}>
-						<ct.popBoxContext.Provider
-							value={{ popBox, setPopBox }}>
-							<ct.loadingContext.Provider
-								value={{ loading, setLoading }}>
-								{children}
-							</ct.loadingContext.Provider>
-						</ct.popBoxContext.Provider>
-					</ct.msgCountContext.Provider>
-				</ct.walletInfoContext.Provider>
-			</ct.userInfoContext.Provider>
+		const content = correctPath ? (
+			<>
+				<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
+					<ct.walletInfoContext.Provider
+						value={{
+							...walletInfo.state,
+							dispatch: walletInfo.dispatch
+						}}>
+						<ct.msgCountContext.Provider
+							value={{ msgCount, setMsgCount }}>
+							<ct.popBoxContext.Provider
+								value={{ popBox, setPopBox }}>
+								<ct.loadingContext.Provider
+									value={{ loading, setLoading }}>
+									{children}
+								</ct.loadingContext.Provider>
+							</ct.popBoxContext.Provider>
+						</ct.msgCountContext.Provider>
+					</ct.walletInfoContext.Provider>
+				</ct.userInfoContext.Provider>
+			</>
 		) : null;
+
+		return (
+			<>
+				<SEO />
+				{content}
+			</>
+		);
 	} else {
 		return <Redirect to={redirectPath} noThrow />;
 	}

@@ -62,7 +62,7 @@ export default props => {
 					<div>{t("lbl_Amount")}</div>
 					<div>
 						{t("lbl_Status")}
-						<ReloadSpin func={props.GetTransferRecent} />
+						<ReloadSpin func={props.getTransferRecent} />
 					</div>
 				</div>
 				{props.getHistory?.length > 0 ? (

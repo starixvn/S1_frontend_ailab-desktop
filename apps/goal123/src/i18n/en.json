@@ -138,9 +138,9 @@
 	"msg_OTP_NotReceiveVerificationCode": "Did not receive verification code?",
 	"msg_OTPHint": "Please complete your profile and verify your phone to enjoy our promotions.",
 	"msg_OTPSendCode": "We had send the verification code to your registered mobile no. Please check and enter the verification code below.",
-	"msg_PasswordLength": "Password must between 6 and 18 characters long.",
+	"msg_PasswordLength": "Password must between 6 and 15 characters long.",
 	"msg_PasswordReq": "Password is required.",
-	"msg_PasswordVaildate": "6-18 alphanumeric (A-Z, a-z, 0-9) characters or special characters @$*!%#?&",
+	"msg_PasswordVaildate": "Password must be 6-15 characters, contain both alphanumeric and a special characters (!@#$%^&*).",
 	"msg_PhoneExisted": "Phone number already exists.",
 	"msg_UsernameLength": "Username must between 6 and 18 characters long.",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
@@ -219,12 +219,16 @@
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",
 	"lbl_TpWallet_1": "Sportsbook Wallet",
+	"lbl_TpWallet_21": "918Kiss Wallet",
+	"lbl_TpWallet_22": "Mega Wallet",
 	"lbl_Wallet_Saba": "Sportsbook Wallet",
 	"lbl_MainWallet": "Main Wallet",
 	"lbl_RestoreAll": "Restore All",
 	"lbl_TransferHistory": "Transfer History",
 	"msg_InsufficientFund": "Insufficient Fund!",
-
+	"lbl_please_select_from_wallet": "Kindly select preferable fund out wallet",
+	"lbl_please_select_to_wallet": "Kindly select preferable fund in wallet",
+	
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_FinancialLog": "Financial Log",
 	"lbl_TypeName": "Type Name",
@@ -414,6 +418,12 @@
 	"lbl_last_2_day": "Last 2 Day",
 	"lbl_last_3_day": "Last 3 Day",
 	"lbl_TotalValue": "Total of all prizes",
-	"lbl_No1Award": "No. 1 Award"
+	"lbl_No1Award": "No. 1 Award",
+
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"DRAGONBALL FISHING",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"FISHING OF SAVIORS",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"TOWER OF SAVIORS"
 }
 

@@ -28,6 +28,9 @@
 	"lbl_Instagram": "Instagram",
 	"lbl_Facebook": "Facebook",
 	"lbl_Twitter": "Twitter",
+	"lbl_Telegram": "Telegram",
+	"lbl_WhatsApp": "WhatsApp",
+	"lbl_LINE": "LINE",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
@@ -83,8 +86,8 @@
 	"msg_PasswordReq": "Kata Sandi wajib diisi",
 	"msg_UsernameLength": "Panjang Karakter nama pengguna harus antara 6 dan 18 karakter..",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
-	"msg_PasswordLength": "Panjang karakter kata sandi harus antara 6 hingga 18 karakter.",
-	"msg_PasswordVaildate": "6-18 karakter alfanumerik (A-Z, a-z, 0-9) atau karakter khusus @ $ *!% #? &.",
+	"msg_PasswordLength": "Panjang karakter kata sandi harus antara 6 hingga 15 karakter.",
+	"msg_PasswordVaildate": "Kata sandi harus terdiri 6-15 karakter, kombinasi huruf dan angka dengan karakter khusus (!@#$%^&*).  ",
 	"msg_MailWrongFormat": "Format Email salah",
 	"msg_MailExisted": "Email ini sudah digunakan.",
 	"msg_EnterRealName": "Silakan masukkan nama asli anda",
@@ -430,8 +433,26 @@
 	"lbl_Ranking_LiveCasino": "Peringkat",
 	"lbl_Ranking_Slots": "Peringkat",
 
+	"referral ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Referral": "Referral",
+	"lbl_Referral_code": "Referral Code",
+	"lbl_Referral_link": "Referral Link",
+	"lbl_Referral_description": "Hadiah Refer Friends. Anda akan mendapatkan Hadiah Referensi Teman eksklusif setelah teman-teman Anda Mendaftar dengan tautan/kode unik Anda.",
+	"lbl_Referral_Welcome": "Selamat datang di Nova88, Anda diundang untuk bergabung dengan kami. Ada banyak sekali penawaran program bermanfaat bagi MEMBER BARU. Cukup klik dan daftar dengan kami untuk membantu Anda dan teman Anda mendapatkan hadiah! *Syarat dan ketentuan berlaku.",
+	"lbl_Share_with_friend": "Pilih penawaran favorit Anda untuk Referensikan Teman Anda Sekarang!",
+	"lbl_Your_link_invite": "Bagikan tautan / kode unik Anda",
+	"lbl_Copy_to_clipboard": "Salin ke clipboard",
+	"lbl_Bonus": "BONUS",
+	"lbl_ValidPeriod": "Waktu berlaku",
+	"lbl_Achievement":"Prestasi",
+	"lbl_Referral_rewards":"Hadiah",
+
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "Download",
 	"lbl_918KissMobileApp": "918KISS MOBILE APP",
-	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide"
+	"lbl_IOSInstallGuide": "iOS 9+ Installation Guide",
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"DRAGONBALL FISHING",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"FISHING OF SAVIORS",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"TOWER OF SAVIORS"
 }

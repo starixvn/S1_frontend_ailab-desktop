@@ -8,6 +8,7 @@ import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";
 import Inputbox from "../components/common/inputbox.password";
 import Loading from "../components/common/loading";
+import { passwordCheck } from "../components/common/common";
 
 export default () => {
 	return (
@@ -55,34 +56,28 @@ const Content = () => {
 		return () => (isMountedRef.current = false);
 	});
 
-	const pswCheck = val => {
-		let checked = true;
-		let message = "";
-
-		const regx = /^[a-zA-Z0-9@$*!%#?&]*$/;
-		if (val === "") {
-			checked = false;
-			message = t("msg_PasswordReq");
-		} else if (val !== null) {
-			if (val.length < 6 || val.length > 18) {
-				checked = false;
-				message = t("msg_PasswordLength");
-			} else if (!regx.test(val)) {
-				checked = false;
-				message = t("msg_PasswordVaildate");
-			}
-		}
-
-		return { checked, message };
-	};
+	let _oldPsw =
+		userPsw.oldPsw === ""
+			? { checked: false, message: "msg_PasswordReq" }
+			: { checked: true, message: "" };
+	let _newPsw = passwordCheck(userPsw.newPsw);
 
 	const checkPswHandler = (col, e) => {
+		if (col === "oldPsw")
+			return setStatus(prev => ({
+				...prev,
+				oldPsw: {
+					checked: _oldPsw.checked,
+					msg: t(_oldPsw.message)
+				}
+			}));
+
 		let val = e.target.value;
-		let result = pswCheck(val);
+		let { checked, message } = passwordCheck(val);
 
 		setStatus(prev => ({
 			...prev,
-			[col]: { checked: result.checked, msg: result.message }
+			[col]: { checked, msg: t(message) }
 		}));
 	};
 
@@ -108,8 +103,6 @@ const Content = () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let _oldPsw = pswCheck(userPsw.oldPsw);
-		let _newPsw = pswCheck(userPsw.newPsw);
 
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
@@ -169,7 +162,7 @@ const Content = () => {
 						setLoading(false);
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -191,8 +184,8 @@ const Content = () => {
 			);
 		} else {
 			setStatus({
-				oldPsw: { checked: _oldPsw.checked, msg: _oldPsw.message },
-				newPsw: { checked: _newPsw.checked, msg: _newPsw.message }
+				oldPsw: { checked: _oldPsw.checked, msg: t(_oldPsw.message) },
+				newPsw: { checked: _newPsw.checked, msg: t(_newPsw.message) }
 			});
 		}
 	};

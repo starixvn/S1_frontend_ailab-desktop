@@ -27,23 +27,3 @@ export const currencyToAreacode = {
 	51: "VN",
 	96: "MY"
 };
-
-export const passwordCheck = val => {
-	let checked = true;
-	let msg = "";
-
-	const regx = /^[a-zA-Z0-9@$*!%#?&]*$/;
-	if (val === "") {
-		checked = false;
-		msg = "msg_PasswordReq";
-	} else if (val != null) {
-		if (val.length < 6 || val.length > 18) {
-			checked = false;
-			msg = "msg_PasswordLength";
-		} else if (!regx.test(val)) {
-			checked = false;
-			msg = "msg_PasswordVaildate";
-		}
-	}
-	return { checked, msg };
-};

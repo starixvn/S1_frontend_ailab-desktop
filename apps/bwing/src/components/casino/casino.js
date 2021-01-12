@@ -47,98 +47,107 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
 		setDisplayGames([]);
-		api_site_GetGamelistV2().then(res => {
-			if (res.data.errorCode === 0) {
-				const { imgUrl, providerList } = res.data.data;
+		api_site_GetGamelistV2().then(
+			res => {
+				if (res.data.errorCode === 0) {
+					const { imgUrl, providerList } = res.data.data;
 
-				let _tpList = {};
-				let _tpOptions = [{ displayKey: "lbl_AllProvider", id: null }];
-				let games = [];
+					let _tpList = {};
+					let _tpOptions = [
+						{ displayKey: "lbl_AllProvider", id: null }
+					];
+					let games = [];
 
-				let hasPromo = false;
-				let hasFeature = false;
+					let hasPromo = false;
+					let hasFeature = false;
 
-				setImgUrl(imgUrl);
+					setImgUrl(imgUrl);
 
-				providerList?.forEach(t => {
-					_tpList[t.value] = { ...t };
-					_tpOptions.push({
-						displayText: t.displayText,
-						id: t.value
+					providerList?.forEach(t => {
+						_tpList[t.value] = { ...t };
+						_tpOptions.push({
+							displayText: t.displayText,
+							id: t.value
+						});
+
+						if (t?.gameList?.data) {
+							t.gameList.data.forEach(g => {
+								hasPromo =
+									hasPromo === false
+										? g.promotion === 1
+										: hasPromo;
+								hasFeature =
+									hasFeature === false
+										? g.featured === true
+										: hasFeature;
+
+								games.push({
+									tpId: t.value,
+									tpName: t.name,
+									...g
+								});
+							});
+						}
 					});
 
-					if (t?.gameList?.data) {
-						t.gameList.data.forEach(g => {
-							hasPromo =
-								hasPromo === false
-									? g.promotion === 1
-									: hasPromo;
-							hasFeature =
-								hasFeature === false
-									? g.featured === true
-									: hasFeature;
+					if (games.length) {
+						for (let i = 0; i < games.length; i++) {
+							let idx = Math.floor(Math.random() * games.length);
+							let tempEle1 = games[i];
+							let tempEle2 = games[idx];
 
-							games.push({
-								tpId: t.value,
-								tpName: t.name,
-								...g
-							});
-						});
-					}
-				});
-
-				if (games.length) {
-					for (let i = 0; i < games.length; i++) {
-						let idx = Math.floor(Math.random() * games.length);
-						let tempEle1 = games[i];
-						let tempEle2 = games[idx];
-
-						games[i] = tempEle2;
-						games[idx] = tempEle1;
-					}
-				}
-
-				if (isMountedRef.current) {
-					setTpList(_tpList);
-					setGameDatas(games);
-					setTpOptions(_tpOptions);
-
-					let _searchInfo = searchInfo;
-
-					if (tpId) {
-						let idx = _tpOptions.findIndex(
-							x => x.id === Number(tpId)
-						);
-
-						if (idx !== -1) {
-							setSearchInfo(prevS => {
-								_searchInfo = {
-									...prevS,
-									provider: {
-										idx: idx,
-										value: _tpOptions[idx].id
-									}
-								};
-								return _searchInfo;
-							});
+							games[i] = tempEle2;
+							games[idx] = tempEle1;
 						}
 					}
 
-					SetGames({
-						_searchInfo: _searchInfo,
-						_selNav: selNav,
-						_gameDatas: games,
-						_tpList: _tpList
-					});
+					if (isMountedRef.current) {
+						setTpList(_tpList);
+						setGameDatas(games);
+						setTpOptions(_tpOptions);
+
+						let _searchInfo = searchInfo;
+
+						if (tpId) {
+							let idx = _tpOptions.findIndex(
+								x => x.id === Number(tpId)
+							);
+
+							if (idx !== -1) {
+								setSearchInfo(prevS => {
+									_searchInfo = {
+										...prevS,
+										provider: {
+											idx: idx,
+											value: _tpOptions[idx].id
+										}
+									};
+									return _searchInfo;
+								});
+							}
+						}
+
+						SetGames({
+							_searchInfo: _searchInfo,
+							_selNav: selNav,
+							_gameDatas: games,
+							_tpList: _tpList
+						});
+					}
 				}
+				setLoading(false);
+			},
+			err => {
+				setLoading(false);
 			}
-			setLoading(false);
-		});
+		);
 
 		if (userInfo.isLogin) {
 			api_account_GetFavoriteGame().then(res => {
@@ -212,6 +221,7 @@ export default () => {
 			pageInfo.currentPage > _totalPages
 				? _totalPages
 				: pageInfo.currentPage;
+
 		setDisplayGames(_displayGames);
 		setPageInfo(prevS => ({
 			...prevS,
