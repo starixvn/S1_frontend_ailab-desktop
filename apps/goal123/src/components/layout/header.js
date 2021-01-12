@@ -7,10 +7,12 @@ import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import { api_site_GetTpIds } from "../../service/api/site";
+import { useTranslation } from "react-i18next";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const [casinoTpIds, setCasinoTpIds] = useState(null);
+	const { t } = useTranslation();
 
 	useEffect(() => {
 		if (userInfo.isLogin && casinoTpIds === null) {
@@ -45,7 +47,7 @@ export default () => {
 						href={`SiteSkin/Goal123/appDownload/${userInfo.langId}.html`}
 						target="_blank">
 						<i className="icon icon-mobile" />
-						App Download
+						{t("lbl_APPDownload")}
 					</a>
 					<LanguageDropDown />
 					<Functions />
