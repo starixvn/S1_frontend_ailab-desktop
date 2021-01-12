@@ -73,7 +73,7 @@ export default () => {
 				</div>
 			</div>
 			<div className="copyright">
-				© Copyright 2020. Bwing. All Rights Reserved.
+				{`© Copyright ${new Date().getFullYear()}. Bwing. All Rights Reserved.`}
 			</div>
 		</footer>
 	);
