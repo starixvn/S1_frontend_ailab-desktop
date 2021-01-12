@@ -3,7 +3,8 @@ export const defTabId = {
 	sports: 1,
 	liveCasino: 3,
 	slots: 2,
-	records: 5
+	records: 5,
+	lastEvent: 6
 };
 
 export const defTabList = [
@@ -11,7 +12,8 @@ export const defTabList = [
 	{ id: defTabId.sports, displayKey: "lbl_Sports" },
 	{ id: defTabId.liveCasino, displayKey: "lbl_LiveCasino" },
 	{ id: defTabId.slots, displayKey: "lbl_Casino" },
-	{ id: defTabId.records, displayKey: "lbl_Records" }
+	{ id: defTabId.records, displayKey: "lbl_Records" },
+	{ id: defTabId.lastEvent, displayKey: "lbl_Last_Event" }
 ];
 
 export const defBackground = {
@@ -19,7 +21,8 @@ export const defBackground = {
 	1: "ranksports",
 	3: "rankLivecasino",
 	2: "rankSlots",
-	5: "rankRecords"
+	5: "rankRecords",
+	6: "lastGameRecords"
 };
 
 export const defTabDisplayKey = {
@@ -59,6 +62,13 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "5", reward: `588 MYR (${cash})` }
 			],
 			[defTabId.liveCasino]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
+				{ displayRank: "2", reward: `888 MYR (${cash})` },
+				{ displayRank: "3", reward: `788 MYR (${cash})` },
+				{ displayRank: "4", reward: `688 MYR (${cash})` },
+				{ displayRank: "5", reward: `588 MYR (${cash})` }
+			],
+			[defTabId.slots]: [
 				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
 				{ displayRank: "2", reward: `888 MYR (${cash})` },
 				{ displayRank: "3", reward: `788 MYR (${cash})` },

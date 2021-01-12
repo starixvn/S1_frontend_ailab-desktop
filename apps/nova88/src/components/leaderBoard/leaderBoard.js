@@ -89,7 +89,10 @@ export default () => {
 			setTab(tabValue);
 			if (tabValue === defTabId.event) {
 				setCategoryID(1);
-			} else if (tabValue === defTabId.records) {
+			} else if (
+				tabValue === defTabId.records ||
+				tabValue === defTabId.lastEvent
+			) {
 				const days =
 					tabValue === defTabId.records
 						? defDayNum.yesterDay
@@ -211,7 +214,10 @@ export default () => {
 					currencyName={currencyName}
 				/>
 			) : (
-				<div className="champion">
+				<div
+					className={
+						tab === defTabId.lastEvent ? "lastevent" : "champion"
+					}>
 					<div className="highest">
 						{isGameTypeTab ? (
 							<div className="title">
@@ -253,9 +259,13 @@ export default () => {
 								{t("lbl_NoData")}
 							</div>
 						)}
-						<div className="lastUpdate">
-							{t(`lbl_LastUpdTime`, { time: showUpdateTime() })}
-						</div>
+						{tab === defTabId.lastEvent ? null : (
+							<div className="lastUpdate">
+								{t(`lbl_LastUpdTime`, {
+									time: showUpdateTime()
+								})}
+							</div>
+						)}
 					</div>
 				</div>
 			)}
