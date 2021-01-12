@@ -12,24 +12,6 @@ export const getUrlParameter = name => {
 };
 
 export const number_format = (number, IsConvertRequired = false) => {
-	// if (!isNaN(n)) {
-	// 	n /= 1000;
-	// }
-
-	// n += "";
-	// let arr = n.split(".");
-	// let re = /(\d{1,3})(?=(\d{3})+$)/g;
-
-	// if (IsConvertRequired) {
-	// 	return (
-	// 		arr[0].replace(re, "$1,") +
-	// 		(arr.length === 2 ? "." + arr[1] : "") +
-	// 		(IsConvertRequired ? " ('000)" : "")
-	// 	);
-	// } else {
-	// 	return arr[0].replace(re, "$1,");
-	// }
-
 	let n = number;
 	if (!isNaN(n)) {
 		n /= 1000;
