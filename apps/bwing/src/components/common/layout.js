@@ -18,6 +18,29 @@ const Layout = ({ children, showFooter = false }) => {
 		<>
 			<SEO />
 			<Header />
+			{/* new year style ↓ */}
+			<div className="newyear">
+				<div className="newyearLeft">
+					<div className="line"></div>
+					<div className="lantern"></div>
+					<div className="lantern"></div>
+				</div>
+				<div className="newyearLeft newyearRight">
+					<div className="line"></div>
+					<div className="lantern"></div>
+					<div className="lantern"></div>
+				</div>
+				<div className="money">
+					<div className="box"></div>
+					<div className="l"></div>
+					<div className="l"></div>
+					<div className="l"></div>
+					<div className="l"></div>
+					<div className="l"></div>
+				</div>
+				<div className="cow"></div>
+			</div>
+			{/* new year style ↑ */}
 			{children}
 			{showFooter ? <Footer /> : null}
 			<PopBox />
