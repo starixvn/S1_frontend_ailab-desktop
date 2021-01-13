@@ -4,8 +4,6 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
 import {
-	api_events_GetLeaderboardList,
-	api_events_GetCustRank,
 	api_events_GetLeaderboardListV2,
 	api_events_GetCustRankV2
 } from "../../service/api/events";
@@ -81,40 +79,40 @@ export default () => {
 		return displayTime;
 	};
 
-	const onChangeTab = tabValue => {
-		if (tabValue !== defTabId.event && !userInfo.isLogin) {
+	const onChangeTab = tabId => {
+		if (tabId !== defTabId.event && !userInfo.isLogin) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		} else {
-			setTab(tabValue);
-			if (tabValue === defTabId.event) {
+			setTab(tabId);
+			if (tabId === defTabId.event) {
 				setCategoryID(1);
 			} else if (
-				tabValue === defTabId.records ||
-				tabValue === defTabId.lastEvent
+				tabId === defTabId.records ||
+				tabId === defTabId.lastEvent
 			) {
 				const days =
-					tabValue === defTabId.records
+					tabId === defTabId.records
 						? defDayNum.yesterDay
 						: defDayNum.today;
 				setBeforeDays(days);
-				getLeaderboardData(defTabId.sports, days, tabValue);
+				getLeaderboardData(defTabId.sports, days, tabId);
 				setCategoryID(1);
 			} else {
-				onChangeGameType(tabValue, false, tabValue);
+				onChangeGameType(tabId, false, tabId);
 			}
 		}
 	};
 
-	const onChangeGameType = (typeValue, updateStateOnly, tabValue) => {
-		setCategoryID(typeValue);
+	const onChangeGameType = (gameType, updateStateOnly, tabId) => {
+		setCategoryID(gameType);
 		if (!updateStateOnly) {
 			getLeaderboardData(
-				typeValue,
-				tabValue !== defTabId.records ? 0 : beforeDays,
-				tabValue
+				gameType,
+				tabId !== defTabId.records ? 0 : beforeDays,
+				tabId
 			);
 		}
 	};
@@ -124,98 +122,111 @@ export default () => {
 		getLeaderboardData(categoryID, daysValue);
 	};
 
-	const ClickClose = () => {
+	const clickClose = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const getLeaderboardData = (typeValue, daysValue, tabValue) => {
-		if (!userInfo.isLogin) return;
-		let payload = {
-			lBCategoryId: typeValue ?? categoryID,
-			TopNum: TopNum,
-			BeforeDays: daysValue ?? beforeDays
-		};
+	const openErrorMessagePopBox = (message, errorCode) => {
+		setPopBox({
+			message: message ?? t("msg_ApiServerError"),
+			errorCode,
+			isOpen: true,
+			popBoxType: defPopBoxType.ErrorMsg,
+			icon: "icon-bell",
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={clickClose}>
+						{t("lbl_Close")}
+					</button>
+				</div>
+			)
+		});
+	};
 
-		let payloadV2 = {
-			lBCategoryId: typeValue ?? categoryID,
+	const getLeaderboardData = (gameType, daysValue, tabId) => {
+		if (!userInfo.isLogin) return;
+
+		const isLastEventTab = tabId === defTabId.lastEvent;
+		let current_eventCode = "xmas2020";
+		let last_eventCode = "xmas2020";
+
+		const payload = {
+			lBCategoryId: gameType ?? categoryID,
 			TopNum: TopNum,
-			BeforeDays: 0,
-			EventCode: "xmas2020"
+			BeforeDays: daysValue ?? beforeDays,
+			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
 
 		const GetRankDatas = async () => {
-			try {
-				let isLastEvent = tabValue === defTabId.lastEvent;
-				const res = isLastEvent
-					? await api_events_GetLeaderboardListV2(payloadV2)
-					: await api_events_GetLeaderboardList(payload);
-				if (res.data.errorCode === 0) {
-					const rankDatas = res.data.data;
+			await api_events_GetLeaderboardListV2(payload).then(
+				res => {
+					if (res.data.errorCode === 0) {
+						const rankDatas = res.data.data;
 
-					if (rankDatas?.length > 0) {
-						const custRankRes = isLastEvent
-							? await api_events_GetCustRankV2({
-									LBCategoryId: payloadV2.lBCategoryId,
-									BeforeDays: payloadV2.BeforeDays,
-									EventCode: payloadV2.EventCode
-							  })
-							: await api_events_GetCustRank({
-									LBCategoryId: payload.lBCategoryId,
-									BeforeDays: payload.BeforeDays
-							  });
+						if (rankDatas?.length > 0) {
+							api_events_GetCustRankV2({
+								LBCategoryId: payload.lBCategoryId,
+								BeforeDays: payload.BeforeDays,
+								EventCode: payload.EventCode
+							}).then(
+								res => {
+									if (res.data.errorCode === 0) {
+										const {
+											custRank,
+											point
+										} = res.data.data;
+										setRankingData(() => {
+											let rank =
+												custRank > 999 || custRank === 0
+													? "999+"
+													: custRank;
 
-						if (custRankRes.data.errorCode === 0) {
-							const { custRank, point } = custRankRes.data.data;
-							setRankingData(() => {
-								let rank =
-									custRank > 999 || custRank === 0
-										? "999+"
-										: custRank;
-
-								let result = [];
-								if (custRank <= TopNum && custRank !== 0) {
-									rankDatas[custRank - 1] = {
-										...rankDatas[custRank - 1],
-										userName: userInfo.userName,
-										rank
-									};
-									result = rankDatas;
-								} else {
-									result = [
-										...rankDatas,
-										{
-											userName: userInfo.userName,
-											wTurnover: point,
-											rank
-										}
-									];
-								}
-
-								return result;
-							});
+											let result = [];
+											if (
+												custRank <= TopNum &&
+												custRank !== 0
+											) {
+												rankDatas[custRank - 1] = {
+													...rankDatas[custRank - 1],
+													userName: userInfo.userName,
+													rank
+												};
+												result = rankDatas;
+											} else {
+												result = [
+													...rankDatas,
+													{
+														userName:
+															userInfo.userName,
+														wTurnover: point,
+														rank
+													}
+												];
+											}
+											return result;
+										});
+									} else {
+										openErrorMessagePopBox(
+											res.data.message,
+											res.data.errorCode
+										);
+									}
+								},
+								() => {}
+							);
+						} else {
+							setRankingData([]);
 						}
 					} else {
-						setRankingData([]);
+						openErrorMessagePopBox(
+							res.data.message,
+							res.data.errorCode
+						);
 					}
-				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-				}
-			} catch (error) {}
+				},
+				() => {}
+			);
 		};
-
 		GetRankDatas();
 	};
 
