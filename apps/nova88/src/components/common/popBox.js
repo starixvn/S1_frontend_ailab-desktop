@@ -218,11 +218,7 @@ export default () => {
 			);
 
 		case defPopBoxType.JoinReferral:
-			content = (
-				<JoinReferral
-					onClickClose={popBox.onClickClose}
-				/>
-			);
+			content = <JoinReferral onClickClose={popBox.onClickClose} />;
 			break;
 
 		case defPopBoxType.default:

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import path from "../../router";
 import { userInfoContext } from "../common/context";
-import { setCookie } from "../common/common";
+import { setCookie, deleteCookie } from "../common/common";
 
 export default ({ onClickClose }) => {
 	const { t } = useTranslation();
@@ -12,14 +12,21 @@ export default ({ onClickClose }) => {
 	const refeCookieName = `referral_${userInfo.userName}`;
 
 	const onChangeDontShow = () => {
-		let check = !selectDontShow;
-		setSelectDontShow(check);
-		if (check) {
-			setCookie(refeCookieName, "1", 1);
-		} else {
-			setCookie(refeCookieName, null, 0);
-		}
+		setSelectDontShow(prev => {
+			const check = !prev;
+			if (check) {
+				setCookie(refeCookieName, "1", 7);
+			} else {
+				deleteCookie(refeCookieName);
+			}
+			return check;
+		});
 	};
+
+	let src = null;
+	try {
+		src = require(`../../styles/img/friend-${userInfo.langId}.jpg`);
+	} catch (error) {}
 
 	return (
 		<>
@@ -30,20 +37,17 @@ export default ({ onClickClose }) => {
 				<Link
 					className=""
 					to={`/${userInfo.langId}/${path.referral.root}`}>
-					<img
-						src={require(`../../styles/img/friend-${userInfo.langId}.jpg`)}
-						alt="img_referral"
-					/>
+					<img src={src} alt="img_referral" />
 				</Link>
 				<div className="checkbox">
 					<input
 						type="checkbox"
-						id="c1"
+						id="home-popbox-joinReferral"
 						onChange={onChangeDontShow}
 						checked={selectDontShow}
 					/>
 					<label
-						htmlFor="c1"
+						htmlFor="home-popbox-joinReferral"
 						className="icon icon-checkbox-checked"></label>
 					{t("lbl_Dont_show_me_again")}
 				</div>
