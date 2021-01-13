@@ -12,11 +12,12 @@ import ShallowRenderer from "react-test-renderer/shallow";
 import renderer from "react-test-renderer";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import ShowWallets from "../../transferFunds/ShowWallets";
+import SetAmount from "../../transferFunds/setAmount";
 import TransferFunds from "../../transferFunds/transferFunds";
 import { checkAmount } from "../../transferFunds/transferFunds";
-import ReloadSpin from "../../common/reloadSpin";
-import { isConvert } from "../../common/common.js";
-import Inputbox from "../../common/inputbox";
+import ReloadSpin from "../reloadSpin";
+import { isConvert } from "../common.js";
+import Inputbox from "../inputbox";
 
 // describe("showWallet Snapshot", () => {
 // 	afterEach(cleanup);
@@ -32,43 +33,35 @@ import Inputbox from "../../common/inputbox";
 // 	});
 // });
 
-describe("render showWallet", () => {
-	const axios = require("axios");
-
-	const getAllGoods = () => {
-		return axios.get("url/allGoods").then(resp => {
-			return resp.data;
-		});
-	};
-
-	jest.mock("axios");
-
-	test("render showWallet card with fake api", () => {
-		const fake_walletInfo = {
+describe("wallet dropdown", () => {
+	test("render dropdown item", () => {
+		const fake_data = {
 			i18n: jest.fn(),
-			_isConvert: false,
-			restoreAll: jest.fn(),
-			getAllWalletData: jest.fn(),
-			walletInfo: [
-				{ id: 0, displayKey: "lbl_MainWallet", balance: 500 },
-				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 100 }
-			]
+			onSelectWallet: jest.fn(),
+			fomOptions: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
+				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
+				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
+			],
+			tomOptions: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
+				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
+				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
+			],
+			selectedFromIdx: -1,
+			selectedToIdx: -1,
+			clickSubmit: jest.fn()
 		};
-		const res = { data: fake_walletInfo };
-		axios.get.mockResolvedValue(res);
 
-		return getAllGoods().then(() => {
-			const { container } = render(<ShowWallets {...fake_walletInfo} />);
-			// expect(container.firstChild.className).toBe("walletModule");
-			expect(
-				container.getElementsByClassName("walletBalanceModule").length
-			).toBe(2);
-		});
+		const { container } = render(<SetAmount {...fake_data} />);
+		// expect(container.firstChild.className).toBe("walletModule");
+		expect(container.getByTestId("setAmount_dropdown_from").length).toBe(2);
 	});
 });
 
+// not render event:
 describe("test function: onSelectWallet()", () => {
-	test("selected item correctly", () => {
+	test("dropdown selected item correctly", () => {
 		let col = "from";
 		let value = { id: 0 };
 		let oppsCol = col === "from" ? "to" : "from";
@@ -83,6 +76,7 @@ describe("test function: onSelectWallet()", () => {
 	});
 });
 
+// not render event:
 describe("test function: checkSelectWallet()", () => {
 	const selectedTpId = {
 		from: null,
@@ -92,7 +86,7 @@ describe("test function: checkSelectWallet()", () => {
 		lbl_please_select_from_wallet: "Please select from wallet",
 		lbl_please_select_to_wallet: "Please select to wallet"
 	};
-	test("if select wallet is null show error tip", () => {
+	test("if select wallet is null, show error tip", () => {
 		let message =
 			selectedTpId.from === null
 				? i18n.lbl_please_select_from_wallet
@@ -100,7 +94,7 @@ describe("test function: checkSelectWallet()", () => {
 
 		expect(message).toBe(i18n.lbl_please_select_from_wallet);
 	});
-	test("if select wallet is null return false", () => {
+	test("if select wallet is null, return false", () => {
 		let checkPass = true;
 		if (selectedTpId.from === null || selectedTpId.to === null) {
 			checkPass = false;
@@ -135,6 +129,7 @@ describe("test function: checkSelectWallet()", () => {
 // 	expect(wrapper.dive().instance().checkAmount(test_value)).toEqual(true);
 // });
 
+// not render event:
 describe("test function: clickSubmit", () => {
 	test("transfer post value", () => {
 		let selectedTpId = {
@@ -161,25 +156,6 @@ describe("test function: clickSubmit", () => {
 		expect(_direction).toBe(defDirection.MainToTp);
 		expect(real_amount).toBe(amount * 1000);
 		expect(_wallet).toBe(selectedTpId.to);
-	});
-});
-
-describe("test click reload spin icon(beside showWallet)", () => {
-	afterEach(cleanup);
-
-	test("default reload spin not active", () => {
-		const { container } = render(
-			<ReloadSpin btnActive={false} func={jest.fn()} />
-		);
-		expect(container.firstChild.classList.contains("active")).toBe(false);
-	});
-
-	test("click reload spin will active", () => {
-		const { container } = render(
-			<ReloadSpin btnActive={false} func={jest.fn()} />
-		);
-		fireEvent.click(container.firstChild);
-		expect(container.firstChild.classList.contains("active")).toBe(true);
 	});
 });
 

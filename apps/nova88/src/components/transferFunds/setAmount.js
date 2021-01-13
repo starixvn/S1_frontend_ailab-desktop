@@ -11,6 +11,7 @@ export default props => {
 			<div className="walletTransfer">
 				<div className="walletModule transferModule">
 					<div className="inputBox-org">
+						{console.log(props)}
 						<Dropdown
 							i18n={t}
 							mainKey={`from_wallet`}
@@ -21,6 +22,7 @@ export default props => {
 								"from"
 							)}
 							title={t("lbl_From")}
+							data-testid={`setAmount_dropdown_from`}
 						/>
 					</div>
 					<div className="inputBox-blue">
