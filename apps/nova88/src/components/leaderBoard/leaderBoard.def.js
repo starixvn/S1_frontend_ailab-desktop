@@ -52,6 +52,7 @@ export const defDayOptions = [
 
 export const defRewardList = ({ t }) => {
 	let unit = "Ang Pao";
+	let unitCS = "紅包";
 	return {
 		MYR: {
 			[defTabId.sports]: [
@@ -117,6 +118,72 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "8", reward: `588 ${unit}` },
 				{ displayRank: "9", reward: `188 ${unit}` },
 				{ displayRank: "10", reward: `88 ${unit}` }
+			]
+		},
+		RMB: {
+			[defTabId.sports]: [
+				{
+					displayRank: "1",
+					reward:
+						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "4", reward: `988 ${unitCS}` },
+				{ displayRank: "5", reward: `888 ${unitCS}` },
+				{ displayRank: "6", reward: `788 ${unitCS}` },
+				{ displayRank: "7", reward: `688 ${unitCS}` },
+				{ displayRank: "8", reward: `588 ${unitCS}` },
+				{ displayRank: "9", reward: `188 ${unitCS}` },
+				{ displayRank: "10", reward: `88 ${unitCS}` }
+			],
+			[defTabId.liveCasino]: [
+				{
+					displayRank: "1",
+					reward:
+						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "4", reward: `988 ${unitCS}` },
+				{ displayRank: "5", reward: `888 ${unitCS}` },
+				{ displayRank: "6", reward: `788 ${unitCS}` },
+				{ displayRank: "7", reward: `688 ${unitCS}` },
+				{ displayRank: "8", reward: `588 ${unitCS}` },
+				{ displayRank: "9", reward: `188 ${unitCS}` },
+				{ displayRank: "10", reward: `88 ${unitCS}` }
+			],
+			[defTabId.slots]: [
+				{
+					displayRank: "1",
+					reward:
+						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "4", reward: `988 ${unitCS}` },
+				{ displayRank: "5", reward: `888 ${unitCS}` },
+				{ displayRank: "6", reward: `788 ${unitCS}` },
+				{ displayRank: "7", reward: `688 ${unitCS}` },
+				{ displayRank: "8", reward: `588 ${unitCS}` },
+				{ displayRank: "9", reward: `188 ${unitCS}` },
+				{ displayRank: "10", reward: `88 ${unitCS}` }
+			],
+			[defTabId.slots]: [
+				{
+					displayRank: "1",
+					reward:
+						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "4", reward: `988 ${unitCS}` },
+				{ displayRank: "5", reward: `888 ${unitCS}` },
+				{ displayRank: "6", reward: `788 ${unitCS}` },
+				{ displayRank: "7", reward: `688 ${unitCS}` },
+				{ displayRank: "8", reward: `588 ${unitCS}` },
+				{ displayRank: "9", reward: `188 ${unitCS}` },
+				{ displayRank: "10", reward: `88 ${unitCS}` }
 			]
 		},
 		IDR: {

@@ -147,7 +147,7 @@ export default () => {
 		if (!userInfo.isLogin) return;
 
 		const isLastEventTab = tabId === defTabId.lastEvent;
-		let current_eventCode = "xmas2020";
+		let current_eventCode = "202101";
 		let last_eventCode = "xmas2020";
 
 		const payload = {
