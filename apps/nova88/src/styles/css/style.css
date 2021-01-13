@@ -7068,7 +7068,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -7452,6 +7458,7 @@ button.icon-spinner11:before {
           flex: 1;
   margin: 0 20px;
   text-align: center;
+  max-width: 295px
 }
 
 .ranking .champion .highest .txt-orange, .ranking .eventRule .highest .txt-orange, .ranking .lastevent .highest .txt-orange {
