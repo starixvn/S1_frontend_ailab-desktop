@@ -437,6 +437,7 @@
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "Referral",
+	"lbl_ReferFriends":"Refer Friends",
 	"lbl_Referral_code": "Referral Code",
 	"lbl_Referral_link": "Referral Link",
 	"lbl_Referral_description": "Refer Freinds Rewards. You will get exclusive Refer Friends Rewards upon your friends Sign-up with your unique link/code",
@@ -448,6 +449,13 @@
 	"lbl_ValidPeriod":"Valid Period",
 	"lbl_Achievement":"Achievement",
 	"lbl_Referral_rewards":"Rewards",
+	"lbl_Refer_friends_rewards":"Refer Friends Rewards",
+	"lbl_Dont_show_me_again":"Don't show me again",
+	"lbl_ReferralStatus":"Your Referral Status",
+	"lbl_InvitationAccepted":"Invitation Accepted",
+	"lbl_MissionCompleted":"Mission completed",
+	"lbl_NoOfAchievements":"No. of achievements",
+	"lbl_RewardAmount":"Rewards Amounts",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "Download",

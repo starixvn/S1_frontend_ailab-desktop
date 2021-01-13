@@ -436,6 +436,7 @@
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "Referral",
+	"lbl_ReferFriends":"Referensikan Teman",
 	"lbl_Referral_code": "Referral Code",
 	"lbl_Referral_link": "Referral Link",
 	"lbl_Referral_description": "Hadiah Refer Friends. Anda akan mendapatkan Hadiah Referensi Teman eksklusif setelah teman-teman Anda Mendaftar dengan tautan/kode unik Anda.",
@@ -447,6 +448,13 @@
 	"lbl_ValidPeriod": "Waktu berlaku",
 	"lbl_Achievement":"Prestasi",
 	"lbl_Referral_rewards":"Hadiah",
+	"lbl_Refer_friends_rewards":"Hadiah Refer Friend",
+	"lbl_Dont_show_me_again":"Jangan tampilkan lagi",
+	"lbl_ReferralStatus":"Status Referensi Anda",
+	"lbl_InvitationAccepted":"Undangan Diterima",
+	"lbl_MissionCompleted":"Misi selesai",
+	"lbl_NoOfAchievements":"Jumlah Pencapaian",
+	"lbl_RewardAmount":"Hadiah",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "Download",

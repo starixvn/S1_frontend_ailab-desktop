@@ -217,7 +217,7 @@ export default () => {
 				isLogin={userInfo.isLogin}
 			/>
 			<div className="copyright">
-				© Copyright 2020. Nova88. All Rights Reserved.
+				{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved.`}
 			</div>
 		</footer>
 	);
