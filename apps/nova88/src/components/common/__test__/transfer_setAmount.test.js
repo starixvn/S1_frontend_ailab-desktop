@@ -1,9 +1,6 @@
-// onSelectWallet  v
-// checkSelectWallet
-// checkAmount
-// clickSubmit
-// Restore all
-// Transfer
+// render: dropdown-item
+// click: open-dropdown, select-item,
+// onchange: input
 
 import React from "react";
 import { create } from "react-test-renderer";
@@ -11,13 +8,8 @@ import { create } from "react-test-renderer";
 import ShallowRenderer from "react-test-renderer/shallow";
 import renderer from "react-test-renderer";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import ShowWallets from "../../transferFunds/ShowWallets";
 import SetAmount from "../../transferFunds/setAmount";
-import TransferFunds from "../../transferFunds/transferFunds";
-import { checkAmount } from "../../transferFunds/transferFunds";
-import ReloadSpin from "../reloadSpin";
 import { isConvert } from "../common.js";
-import Inputbox from "../inputbox";
 
 describe("render wallet dropdown", () => {
 	test("render dropdown item num correct", () => {
@@ -75,12 +67,12 @@ describe("render wallet dropdown", () => {
 			selectedToIdx: -1,
 			clickSubmit: jest.fn()
 		};
-		const { container } = render(<SetAmount {...fake_data} />);
-		fireEvent.change(getByDisplayValue(container, 'lbl_MainWallet'), { target: { value: 'lbl_TpWallet_1' } });
-
-		expect(container.getElementsByClassName("dropdown-item").length).toBe(
-			fake_data.fomOptions.length + fake_data.toOptions.length
+		const { container, getElementsByClassName } = render(
+			<SetAmount {...fake_data} />
 		);
+		getElementsByClassName("dropdown-item").fireEvent.click;
+
+		expect(container.getElementsByClassName("btn")).toBe(" ");
 	});
 });
 
