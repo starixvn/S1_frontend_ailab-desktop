@@ -22,7 +22,6 @@ export default props => {
 								"from"
 							)}
 							title={t("lbl_From")}
-							data-testid={`setAmount_dropdown_from`}
 						/>
 					</div>
 					<div className="inputBox-blue">

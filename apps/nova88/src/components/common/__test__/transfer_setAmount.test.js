@@ -19,31 +19,22 @@ import ReloadSpin from "../reloadSpin";
 import { isConvert } from "../common.js";
 import Inputbox from "../inputbox";
 
-// describe("showWallet Snapshot", () => {
-// 	afterEach(cleanup);
-// 	test("render correctly", () => {
-// 		const fake_walletInfo = [
-// 			{ id: 0, displayKey: "lbl_MainWallet", balance: 500 },
-// 			{ id: 1, displayKey: "lbl_TpWallet_1", balance: 100 }
-// 		];
-// 		const tree = renderer
-// 			.create(<ShowWallets {...fake_walletInfo} />)
-// 			.toJSON();
-// 		expect(tree).toMatchSnapshot();
-// 	});
-// });
-
-describe("wallet dropdown", () => {
-	test("render dropdown item", () => {
+describe("render wallet dropdown", () => {
+	test("render dropdown item num correct", () => {
 		const fake_data = {
 			i18n: jest.fn(),
+			useTranslation: () => {
+				return {
+					t: jest.fn()
+				};
+			},
 			onSelectWallet: jest.fn(),
 			fomOptions: [
 				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
-			tomOptions: [
+			toOptions: [
 				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
@@ -54,8 +45,42 @@ describe("wallet dropdown", () => {
 		};
 
 		const { container } = render(<SetAmount {...fake_data} />);
-		// expect(container.firstChild.className).toBe("walletModule");
-		expect(container.getByTestId("setAmount_dropdown_from").length).toBe(2);
+		expect(container.getElementsByClassName("dropdown-item").length).toBe(
+			fake_data.fomOptions.length + fake_data.toOptions.length
+		);
+	});
+
+	// ----------
+
+	test("onchange select item correct", () => {
+		const fake_data = {
+			i18n: jest.fn(),
+			useTranslation: () => {
+				return {
+					t: jest.fn()
+				};
+			},
+			onSelectWallet: jest.fn(),
+			fomOptions: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
+				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
+				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
+			],
+			toOptions: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
+				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
+				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
+			],
+			selectedFromIdx: -1,
+			selectedToIdx: -1,
+			clickSubmit: jest.fn()
+		};
+		const { container } = render(<SetAmount {...fake_data} />);
+		fireEvent.change(getByDisplayValue(container, 'lbl_MainWallet'), { target: { value: 'lbl_TpWallet_1' } });
+
+		expect(container.getElementsByClassName("dropdown-item").length).toBe(
+			fake_data.fomOptions.length + fake_data.toOptions.length
+		);
 	});
 });
 

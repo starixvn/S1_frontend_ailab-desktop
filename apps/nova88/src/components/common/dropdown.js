@@ -9,6 +9,7 @@ export class Dropdown extends Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props);
 		if (typeof document !== `undefined`) {
 			document.addEventListener("mousedown", this.handleClickOutside);
 		}
