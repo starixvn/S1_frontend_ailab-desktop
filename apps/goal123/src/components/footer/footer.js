@@ -57,7 +57,7 @@ export default () => {
 				</div>
 			</div>
 			<div className="copyright">
-				© Copyright 2020. Goal123. All Rights Reserved.
+				{`© Copyright ${new Date().getFullYear()}. Goal123. All Rights Reserved.`}
 			</div>
 		</footer>
 	);
