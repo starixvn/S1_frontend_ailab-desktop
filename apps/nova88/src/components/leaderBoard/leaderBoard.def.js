@@ -58,8 +58,7 @@ export const defRewardList = ({ t }) => {
 			[defTabId.sports]: [
 				{
 					displayRank: "1",
-					reward:
-						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+					reward: "MacBook Pro 13 M1 256GB"
 				},
 				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
 				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
@@ -74,8 +73,7 @@ export const defRewardList = ({ t }) => {
 			[defTabId.liveCasino]: [
 				{
 					displayRank: "1",
-					reward:
-						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+					reward: "MacBook Pro 13 M1 256GB"
 				},
 				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
 				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
@@ -90,8 +88,7 @@ export const defRewardList = ({ t }) => {
 			[defTabId.slots]: [
 				{
 					displayRank: "1",
-					reward:
-						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+					reward: "MacBook Pro 13 M1 256GB"
 				},
 				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
 				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
@@ -108,8 +105,7 @@ export const defRewardList = ({ t }) => {
 			[defTabId.sports]: [
 				{
 					displayRank: "1",
-					reward:
-						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+					reward: "MacBook Pro 13 M1 256GB"
 				},
 				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
 				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
@@ -124,8 +120,7 @@ export const defRewardList = ({ t }) => {
 			[defTabId.liveCasino]: [
 				{
 					displayRank: "1",
-					reward:
-						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+					reward: "MacBook Pro 13 M1 256GB"
 				},
 				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
 				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
@@ -140,8 +135,7 @@ export const defRewardList = ({ t }) => {
 			[defTabId.slots]: [
 				{
 					displayRank: "1",
-					reward:
-						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
+					reward: "MacBook Pro 13 M1 256GB"
 				},
 				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
 				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
