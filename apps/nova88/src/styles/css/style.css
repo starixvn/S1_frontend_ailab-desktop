@@ -6818,6 +6818,10 @@ button.icon-spinner11:before {
   background: #1E85EC;
 }
 
+.transferModule .inputBox-blue .dropdown-container .dropdown-item.active {
+  background: #1E85EC;
+}
+
 .swiper-casino {
   width: 1560px;
   margin-top: 30px;
@@ -7452,6 +7456,7 @@ button.icon-spinner11:before {
           flex: 1;
   margin: 0 20px;
   text-align: center;
+  max-width: 295px;
 }
 
 .ranking .champion .highest .txt-orange, .ranking .eventRule .highest .txt-orange, .ranking .lastevent .highest .txt-orange {
@@ -8027,80 +8032,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 1.90238%;
-  top: -35.18837%;
-  width: 14.39824px;
-  height: 14.39824px;
+  left: 82.24788%;
+  top: -18.91417%;
+  width: 10.61686px;
+  height: 10.61686px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 76.96598%;
-  top: 18.09136%;
-  width: 13.48822px;
-  height: 13.48822px;
+  left: 41.51462%;
+  top: -0.13951%;
+  width: 8.74068px;
+  height: 8.74068px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 80.1186%;
-  top: -34.15998%;
-  width: 7.70122px;
-  height: 7.70122px;
+  left: 68.07065%;
+  top: 0.04368%;
+  width: 12.72581px;
+  height: 12.72581px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 6.05987%;
-  top: 28.4376%;
-  width: 14.05036px;
-  height: 14.05036px;
+  left: 45.26656%;
+  top: -4.82881%;
+  width: 7.2406px;
+  height: 7.2406px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 91.68176%;
-  top: -52.83836%;
-  width: 12.58754px;
-  height: 12.58754px;
+  left: 99.04213%;
+  top: -46.12118%;
+  width: 10.4966px;
+  height: 10.4966px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 18.06982%;
-  top: 27.22754%;
-  width: 14.36997px;
-  height: 14.36997px;
+  left: 64.07281%;
+  top: 9.45999%;
+  width: 5.42862px;
+  height: 5.42862px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 70.4227%;
-  top: 25.1021%;
-  width: 5.16153px;
-  height: 5.16153px;
+  left: 12.50883%;
+  top: 12.64778%;
+  width: 10.77068px;
+  height: 10.77068px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 95.32809%;
-  top: -7.47564%;
-  width: 5.17515px;
-  height: 5.17515px;
+  left: 4.68678%;
+  top: -31.91936%;
+  width: 8.1237px;
+  height: 8.1237px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
