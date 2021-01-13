@@ -102,22 +102,6 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "8", reward: `588 ${unit}` },
 				{ displayRank: "9", reward: `188 ${unit}` },
 				{ displayRank: "10", reward: `88 ${unit}` }
-			],
-			[defTabId.slots]: [
-				{
-					displayRank: "1",
-					reward:
-						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
-				},
-				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
-				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
-				{ displayRank: "4", reward: `988 ${unit}` },
-				{ displayRank: "5", reward: `888 ${unit}` },
-				{ displayRank: "6", reward: `788 ${unit}` },
-				{ displayRank: "7", reward: `688 ${unit}` },
-				{ displayRank: "8", reward: `588 ${unit}` },
-				{ displayRank: "9", reward: `188 ${unit}` },
-				{ displayRank: "10", reward: `88 ${unit}` }
 			]
 		},
 		RMB: {
@@ -138,22 +122,6 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "10", reward: `88 ${unitCS}` }
 			],
 			[defTabId.liveCasino]: [
-				{
-					displayRank: "1",
-					reward:
-						"MacBook Pro 13 Apple M1 Chip with 8-Core CPU and 8-Core GPU 256 GB Storage"
-				},
-				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
-				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
-				{ displayRank: "4", reward: `988 ${unitCS}` },
-				{ displayRank: "5", reward: `888 ${unitCS}` },
-				{ displayRank: "6", reward: `788 ${unitCS}` },
-				{ displayRank: "7", reward: `688 ${unitCS}` },
-				{ displayRank: "8", reward: `588 ${unitCS}` },
-				{ displayRank: "9", reward: `188 ${unitCS}` },
-				{ displayRank: "10", reward: `88 ${unitCS}` }
-			],
-			[defTabId.slots]: [
 				{
 					displayRank: "1",
 					reward:
@@ -227,7 +195,6 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "4", reward: `5,588 THB ${unit}` },
 				{ displayRank: "5", reward: `4,888 THB ${unit}` },
 				{ displayRank: "6", reward: `4,388 THB ${unit}` },
-				,
 				{ displayRank: "7", reward: `1,388 THB ${unit}` },
 				{ displayRank: "8", reward: `688 THB ${unit}` }
 			],
@@ -238,7 +205,6 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "4", reward: `5,588 THB ${unit}` },
 				{ displayRank: "5", reward: `4,888 THB ${unit}` },
 				{ displayRank: "6", reward: `4,388 THB ${unit}` },
-				,
 				{ displayRank: "7", reward: `1,388 THB ${unit}` },
 				{ displayRank: "8", reward: `688 THB ${unit}` }
 			],
@@ -249,7 +215,6 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "4", reward: `5,588 THB ${unit}` },
 				{ displayRank: "5", reward: `4,888 THB ${unit}` },
 				{ displayRank: "6", reward: `4,388 THB ${unit}` },
-				,
 				{ displayRank: "7", reward: `1,388 THB ${unit}` },
 				{ displayRank: "8", reward: `688 THB ${unit}` }
 			]
