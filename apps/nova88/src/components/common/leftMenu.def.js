@@ -37,6 +37,11 @@ export const defLeftMenu = {
 				path: path.financial.root,
 				displayKey: "lbl_Financial"
 			},
+			referralHistory: {
+				path: path.referralHistory.root,
+				displayKey: "lbl_ReferralHistory",
+				icon: "icon-new"
+			},
 			statement: {
 				path: `${path.statement.root}/${path.statement.sub.quickPick.root}`,
 				displayKey: "lbl_Statement"
