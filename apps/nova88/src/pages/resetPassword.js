@@ -230,25 +230,28 @@ const Content = () => {
 			<div className="inside-title icon icon-icon32px_password">
 				<span>{t("lbl_ResetPassword")}</span>
 			</div>
-			<form className="forgetPassWord" onSubmit={clickSubmit}>
-				<InputboxPassword
-					className="inputBox-white"
-					inputType={showPsw ? "text" : "password"}
-					showPswHandler={showPswHandler}
-					title={t("lbl_NewPassword")}
-					value={newPsw}
-					onChange={editField.bind(this)}
-					onBlur={checkPswHandler.bind(this, newPsw)}
-					checked={status.checked}
-					clickInfo={clickInfo.bind(this)}
-					tip={status.msg}
-				/>
-				<div className="btnGroup">
-					<button className="btn-check" type="submit">
-						{t("lbl_Submit")}
-					</button>
-				</div>
-			</form>
+
+			<div className="forgetPassWord">
+				<form className="inputModuleRow" onSubmit={clickSubmit}>
+					<InputboxPassword
+						className="inputBox-white"
+						inputType={showPsw ? "text" : "password"}
+						showPswHandler={showPswHandler}
+						title={t("lbl_NewPassword")}
+						value={newPsw}
+						onChange={editField.bind(this)}
+						onBlur={checkPswHandler.bind(this, newPsw)}
+						checked={status.checked}
+						clickInfo={clickInfo.bind(this)}
+						tip={status.msg}
+					/>
+					<div className="btnGroup">
+						<button className="btn-check" type="submit">
+							{t("lbl_Submit")}
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 };

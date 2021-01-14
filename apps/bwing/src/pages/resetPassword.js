@@ -7,7 +7,7 @@ import { navigate } from "@reach/router";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import { defPopBoxType } from "../components/common/popBox";
-import Inputbox from "../components/common/inputbox.password";
+import InputboxPassword from "../components/common/inputbox.password";
 import { getUrlParameter, passwordCheck } from "../components/common/common";
 import { LOGOUT } from "../service/auth";
 import path from "../router";
@@ -92,7 +92,7 @@ const Content = () => {
 		let { checked, message } = passwordCheck(val);
 		setStatus({
 			checked,
-			msg: message
+			msg: t(message)
 		});
 	};
 
@@ -200,7 +200,7 @@ const Content = () => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -228,24 +228,25 @@ const Content = () => {
 				<span>{t("lbl_ResetPassword")}</span>
 			</div>
 			<div className="forgetPassWord">
-				<form className="inputModuleRow" onSubmit={clickSubmit}>
-					<Inputbox
-						inputType={showPsw ? "text" : "password"}
-						showPswHandler={showPswHandler}
-						title={t("lbl_NewPassword")}
-						value={newPsw}
-						onChange={editField.bind(this)}
-						onBlur={checkPswHandler.bind(this, newPsw)}
-						checked={status.checked}
-						clickInfo={clickInfo.bind(this)}
-						tip={status.msg}
-					/>
-					<div className="btnGroup">
-						<button className="btn-check" type="submit">
-							{t("lbl_Submit")}
-						</button>
-					</div>
-				</form>
+				<InputboxPassword
+					inputType={showPsw ? "text" : "password"}
+					showPswHandler={showPswHandler}
+					title={t("lbl_NewPassword")}
+					value={newPsw}
+					onChange={editField.bind(this)}
+					onBlur={checkPswHandler.bind(this, newPsw)}
+					checked={status.checked}
+					clickInfo={clickInfo.bind(this)}
+					tip={status.msg}
+				/>
+				<div className="btnGroup">
+					<button
+						className="btn-check"
+						type="submit"
+						onClick={clickSubmit}>
+						{t("lbl_Submit")}
+					</button>
+				</div>
 			</div>
 		</div>
 	);
