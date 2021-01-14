@@ -91,40 +91,19 @@ const Content = () => {
 			...transactionData,
 			PageNumber: pageNumber,
 			PageSize: _pageSize
-		}).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setGetHistory(res.data.data);
-						setPagination(prev => ({
-							...prev,
-							totalPages: res.data.totalPages
-						}));
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={clickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-					setProcessing(false);
-				}
-			},
-			err => {
-				if (isMountedRef.current) {
+		}).then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					setGetHistory(res.data.data);
+					setPagination(prev => ({
+						...prev,
+						totalPages: res.data.totalPages
+					}));
+				} else {
 					setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
+						message: `[${res.data.errorCode}] ${res.data.message}`,
 						btnBar: (
 							<div className="btnGroup">
 								<button
@@ -135,10 +114,10 @@ const Content = () => {
 							</div>
 						)
 					});
-					setProcessing(false);
 				}
+				setProcessing(false);
 			}
-		);
+		});
 	};
 
 	let arr = getHistory?.map((item, idx) => {
