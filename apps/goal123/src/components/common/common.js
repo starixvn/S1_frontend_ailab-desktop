@@ -179,3 +179,34 @@ export const passwordCheck = val => {
 
 	return { checked: true, message: "" };
 };
+
+export const showPeriodIcon = values => {
+	const iconValues = {
+		icon: values?.icon,
+		start: values?.start,
+		end: values?.end
+	};
+	const { icon, start, end } = iconValues;
+
+	const startDate = start ? new Date(`${start} GMT+0800`) : null;
+	const endDate = end ? new Date(`${end} GMT+0800`) : null;
+	const now = new Date();
+
+	let result = "";
+	if (!icon) return;
+	if (startDate && !endDate) {
+		if (now > startDate) {
+			result = icon;
+		}
+	} else if (!startDate && endDate) {
+		if (now < endDate) {
+			result = icon;
+		}
+	} else if (startDate && endDate) {
+		if (now > startDate && now < endDate) {
+			result = icon;
+		}
+	}
+
+	return result;
+};
