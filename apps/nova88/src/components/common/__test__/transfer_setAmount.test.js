@@ -7,12 +7,55 @@ import { create } from "react-test-renderer";
 // import shallow from "react-test-renderer";
 import ShallowRenderer from "react-test-renderer/shallow";
 import renderer from "react-test-renderer";
-import { render, cleanup, fireEvent } from "@testing-library/react";
+import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import SetAmount from "../../transferFunds/setAmount";
 import { isConvert } from "../common.js";
 
-describe("render wallet dropdown", () => {
-	test("render dropdown item num correct", () => {
+describe("open dropdown ", () => {
+	test("The dropdown menu can be opened/closed correctly", () => {
+		const fake_data = {
+			i18n: jest.fn(),
+			useTranslation: () => {
+				return {
+					t: jest.fn()
+				};
+			},
+			onSelectWallet: jest.fn(),
+			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
+			toOptions: [
+				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
+				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
+			],
+			clickSubmit: jest.fn(),
+			title: "lbl_From"
+		};
+
+		const { getByTestId } = render(<SetAmount {...fake_data} />);
+
+		//click to open ↓
+
+		fireEvent.click(getByTestId(`dropdown_${fake_data.title}`));
+
+		expect(
+			getByTestId(
+				`dropdown_container_${fake_data.title}`
+			).className.includes("active")
+		).toBe(true);
+
+		//click to close ↓
+
+		fireEvent.click(getByTestId(`dropdown_${fake_data.title}`));
+
+		expect(
+			getByTestId(
+				`dropdown_container_${fake_data.title}`
+			).className.includes("active")
+		).toBe(false);
+	});
+});
+
+describe("render wallet dropdown items", () => {
+	test("render dropdown items num correct", () => {
 		const fake_data = {
 			i18n: jest.fn(),
 			useTranslation: () => {
@@ -37,48 +80,44 @@ describe("render wallet dropdown", () => {
 		};
 
 		const { container } = render(<SetAmount {...fake_data} />);
+
 		expect(container.getElementsByClassName("dropdown-item").length).toBe(
 			fake_data.fomOptions.length + fake_data.toOptions.length
 		);
 	});
-
-	// ----------
-
-	test("onchange select item correct", () => {
-		const fake_data = {
-			i18n: jest.fn(),
-			useTranslation: () => {
-				return {
-					t: jest.fn()
-				};
-			},
-			onSelectWallet: jest.fn(),
-			fomOptions: [
-				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
-				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
-				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
-			],
-			toOptions: [
-				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
-				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
-				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
-			],
-			selectedFromIdx: -1,
-			selectedToIdx: -1,
-			clickSubmit: jest.fn()
-		};
-		const { container, getElementsByClassName } = render(
-			<SetAmount {...fake_data} />
-		);
-		getElementsByClassName("dropdown-item").fireEvent.click;
-
-		expect(container.getElementsByClassName("btn")).toBe(" ");
-	});
 });
+
+// ----------
+
+// 	test("onchange select item", () => {
+// 		const fake_data = {
+// 			i18n: jest.fn(),
+// 			useTranslation: () => {
+// 				return {
+// 					t: jest.fn(),
+// 				};
+// 			},
+// 			onSelectWallet: jest.fn(),
+// 			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
+// 			toOptions: [
+// 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
+// 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
+// 			],
+// 			selectedFromIdx: -1,
+// 			selectedToIdx: -1,
+// 			clickSubmit: jest.fn()
+// 		};
+// 		const { container, getByText } = render(<SetAmount {...fake_data} />);
+// 		fireEvent.click(getByText("lbl_MainWallet"));
+
+// 		expect(fake_data.onSelectWallet).toHaveBeenCalled();
+// 		// expect(container.getElementsByClassName("btn").textContent).toBe("_");
+// 	});
+// });
 
 // not render event:
 describe("test function: onSelectWallet()", () => {
-	test("dropdown selected item correctly", () => {
+	test("selected the dropdown item correctly", () => {
 		let col = "from";
 		let value = { id: 0 };
 		let oppsCol = col === "from" ? "to" : "from";

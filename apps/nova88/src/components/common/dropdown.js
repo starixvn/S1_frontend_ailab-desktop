@@ -87,7 +87,8 @@ export class Dropdown extends Component {
 			<div
 				className="dropdown"
 				ref={this.wrapper}
-				onClick={this.clickDropdown}>
+				onClick={this.clickDropdown}
+				data-testid={`dropdown_${this.props.title}`}>
 				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`}></i>
@@ -99,7 +100,9 @@ export class Dropdown extends Component {
 					<div
 						className={`dropdown-container${
 							this.state.isOpen ? " active" : ""
-						}`}>
+						}`}
+						data-testid={`dropdown_container_${this.props.title}`}
+						>
 						{arr}
 					</div>
 				)}
