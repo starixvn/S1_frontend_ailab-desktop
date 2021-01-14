@@ -113,7 +113,6 @@ const Item = props => {
 	return (
 		<div
 			className={`dropdown-item ${props.active ? "active" : ""}`}
-			style={props.itemHeightLightStyle}
 			onClick={props.onClick}>
 			{props.imgUrl ? (
 				<>

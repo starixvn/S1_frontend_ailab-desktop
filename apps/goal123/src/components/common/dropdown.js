@@ -51,6 +51,7 @@ export class Dropdown extends Component {
 						displayText={item.displayText}
 						imgUrl={this.props.imgUrl + item.image}
 						className={this.props.className}
+						active={this.props.selectedIdx === i}
 					/>
 				);
 			})
@@ -102,7 +103,9 @@ export class Dropdown extends Component {
 
 const Item = props => {
 	return (
-		<div className="dropdown-item" onClick={props.onClick}>
+		<div
+			className={`dropdown-item ${props.active ? "active" : ""}`}
+			onClick={props.onClick}>
 			{props.imgUrl ? (
 				<>
 					<div className={props.className}>
