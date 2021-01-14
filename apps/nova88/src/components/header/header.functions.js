@@ -84,6 +84,11 @@ const defSettingLinks = [
 		href: path.bankInfo.root
 	},
 	{
+		displayKey: "lbl_ReferFriends",
+		href: path.referral.root,
+		icon: "icon icon-new"
+	},
+	{
 		displayKey: "lbl_ChangePassword",
 		href: path.changePassword.root
 	}

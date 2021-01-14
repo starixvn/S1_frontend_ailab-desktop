@@ -47,7 +47,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -202,7 +204,6 @@ export default () => {
 		_tpList,
 		_favorite = favorite
 	}) => {
-		if (!gameDatas) return;
 		let _displayGames = FilterGames(
 			_searchInfo,
 			_selNav,
@@ -220,6 +221,7 @@ export default () => {
 			pageInfo.currentPage > _totalPages
 				? _totalPages
 				: pageInfo.currentPage;
+
 		setDisplayGames(_displayGames);
 		setPageInfo(prevS => ({
 			...prevS,

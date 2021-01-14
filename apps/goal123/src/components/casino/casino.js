@@ -201,7 +201,6 @@ export default () => {
 		_tpList,
 		_favorite = favorite
 	}) => {
-		if (!gameDatas) return;
 		let _displayGames = FilterGames(
 			_searchInfo,
 			_selNav,

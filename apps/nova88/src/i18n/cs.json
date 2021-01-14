@@ -435,6 +435,7 @@
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "推荐",
+	"lbl_ReferFriends":"推荐朋友",
 	"lbl_Referral_code": "推荐代码",
 	"lbl_Referral_link": "推荐连结",
 	"lbl_Referral_description": "推荐好友奖励。您的朋友从您推荐链接/代码注册账号，您将获得推荐奖金",
@@ -455,6 +456,13 @@
 	"lbl_ReferralStatus0": "已核准",
 	"lbl_ReferralStatus1": "处理中",
 	"lbl_ReferralStatus2": "逾期",
+	"lbl_Refer_friends_rewards":"推荐好友奖励",
+	"lbl_Dont_show_me_again":"不再显示",
+	"lbl_ReferralStatus":"您的推荐状态",
+	"lbl_InvitationAccepted":"好友已接受邀请",
+	"lbl_MissionCompleted":"任务已完成",
+	"lbl_NoOfAchievements":"您推荐的朋友人数",
+	"lbl_RewardAmount":"奖励金额",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "下载",

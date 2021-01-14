@@ -128,10 +128,11 @@ export const readCookie = cookieName => {
 };
 
 export const deleteCookie = cookieName => {
-	if (typeof document !== `undefined`) {
-		document.cookie =
-			cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
-	}
+	setCookie(cookieName, null, 0);
+	// if (typeof document !== `undefined`) {
+	// 	document.cookie =
+	// 		cookieName + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;";
+	// }
 };
 
 const SetReplaceChar = (str, idx, newChar) => {

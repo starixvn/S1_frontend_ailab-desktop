@@ -51,22 +51,22 @@ export const defLeftMenu = {
 	MyAccount: {
 		displayKey: "lbl_MyAccount",
 		subMenu: {
-			changePassword: {
-				path: path.changePassword.root,
-				displayKey: "lbl_ChangePassword"
-			},
 			profile: {
 				path: path.profile.root,
 				displayKey: "lbl_Profile"
 			},
-			referral: {
-				path: path.referral.root,
-				displayKey: "lbl_Referral",
-				icon: "icon-new"
-			},
 			bankInfo: {
 				path: path.bankInfo.root,
 				displayKey: "lbl_BankInfo"
+			},
+			referral: {
+				path: path.referral.root,
+				displayKey: "lbl_ReferFriends",
+				icon: "icon-new"
+			},
+			changePassword: {
+				path: path.changePassword.root,
+				displayKey: "lbl_ChangePassword"
 			}
 		}
 	},
