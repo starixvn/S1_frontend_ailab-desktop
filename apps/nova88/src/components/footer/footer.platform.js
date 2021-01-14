@@ -97,6 +97,10 @@ const defPlatfrom = [
 		path: path.casino.root,
 		parameter: { ...productList.casino_ICG },
 		imgName: "icg"
+	},
+	{
+		...productList.poker,
+		imgName: "1g"
 	}
 	// {
 	// 	...productList.kiss918,

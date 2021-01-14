@@ -273,6 +273,11 @@ export const defMenuLinks = {
 		path: path.leaderBoard.root,
 		displayKey: "lbl_Ranking",
 		className: "live"
+	},
+	poker: {
+		productInfo: productList.poker,
+		displayKey: "lbl_Poker",
+		className: "icon icon-new"
 	}
 };
 
