@@ -7,8 +7,8 @@ const getAffiliate = () => {
 	let arr = fullPath.split(".");
 
 	return arr.length === 3
-		? `http://aff.${arr.filter((p, idx) => idx !== 0).join(".")}`
-		: `http://aff.${arr.join(".")}`;
+		? `https://aff.${arr.filter((p, idx) => idx !== 0).join(".")}`
+		: `https://aff.${arr.join(".")}`;
 };
 
 export const SiteInfo = {
@@ -53,7 +53,7 @@ export default process.env.NODE_ENV === "production"
 
 			apiURL: "http://www.n88dev.com",
 			imgUrl: "http://www.n88dev.com",
-			cloudImgUrl: "http://image.n88media.com",
+			cloudImgUrl: "https://image.n88media.com",
 			t_and_cURL: "http://www.n88dev.com",
 			openURL: "http://www.n88dev.com"
 	  };
