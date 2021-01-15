@@ -50,6 +50,38 @@ export const defDayOptions = [
 	{ id: defDayNum.lastThreeDay, displayKey: "lbl_last_3_day" }
 ];
 
+export const defLastChampionReward = () => {
+	return {
+		MYR: {
+			[defTabId.sports]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.liveCasino]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.slots]: [{ displayRank: "1", reward: "iPhone 12 (64GB)" }]
+		},
+		IDR: {
+			[defTabId.sports]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.liveCasino]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.slots]: [{ displayRank: "1", reward: "iPhone 12 (64GB)" }]
+		},
+		THB: {
+			[defTabId.sports]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.liveCasino]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.slots]: [{ displayRank: "1", reward: "iPhone 12 (64GB)" }]
+		}
+	};
+};
+
 export const defRewardList = ({ t }) => {
 	let unit = "Ang Pao";
 	let unitCS = "紅包";

@@ -14,7 +14,8 @@ import {
 	defBackground,
 	defDayNum,
 	defRewardList,
-	defLeaderBoardTitle
+	defLeaderBoardTitle,
+	defLastChampionReward
 } from "./leaderboard.def";
 import moment from "moment";
 import { number_format } from "../common/common";
@@ -53,6 +54,9 @@ export default () => {
 		: langMapping[userInfo.langId];
 
 	const rewardList = defRewardList({ t })[currencyName][categoryID];
+	const LastChampionReward = defLastChampionReward({ t })[currencyName][
+		categoryID
+	];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -268,7 +272,9 @@ export default () => {
 							<span className="arrow_t_int"></span>
 							<span className="arrow_t_out"></span>
 							<div className="txt-orange">
-								{rewardList[0].reward}
+								{tab === defTabId.lastEvent
+									? LastChampionReward[0].reward
+									: rewardList[0].reward}
 							</div>
 						</div>
 					</div>
