@@ -38,13 +38,21 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				return `${key}=${s.parameter[key]}`;
 			});
 		}
+		let _iconClassName = s.className ? s.className : "";
+		if (s.periodIcons) {
+			let iconStrings = "";
+			for (let i = 0; i < s.periodIcons.length; i++) {
+				iconStrings += s.periodIcons[i] + " ";
+			}
+			_iconClassName = `${s.className} ${iconStrings}`;
+		}
 
 		let _urlParams = params !== null ? `?${params.join("&")}` : "";
 		if (s.menuType === defMenuType.Link) {
 			return (
 				<Link
 					key={key}
-					className={s.className}
+					className={_iconClassName}
 					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
 					<span className={s.icon}>{displayText}</span>
 				</Link>
@@ -53,7 +61,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			return (
 				<button
 					key={key}
-					className={s.className}
+					className={_iconClassName}
 					onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
 					<span className={s.icon}>{displayText}</span>
 				</button>

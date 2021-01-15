@@ -62,6 +62,24 @@ export default ({
 			_className = `${_className} hot`;
 		}
 
+		let iconList = [];
+		let newIconList = [];
+		m.subMenu?.forEach(o => {
+			if (o.periodIcons) {
+				for (let i = 0; i < o.periodIcons.length; i++) {
+					iconList.push(o.periodIcons[i]);
+				}
+			}
+			let iconList_unique = [...new Set(iconList)];
+			newIconList.push(...iconList_unique);
+		});
+		let newIconList_unique = [...new Set(newIconList)];
+		let iconStrings = "";
+		for (let i = 0; i < newIconList_unique.length; i++) {
+			iconStrings += newIconList_unique[i] + " ";
+		}
+		_className = `${_className} ${iconStrings}`;
+
 		let displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
 			: t(m.displayKey);

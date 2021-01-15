@@ -1,5 +1,10 @@
 import productList from "../../datas/productList";
 import path from "../../router";
+import {
+	defIconType,
+	defEventPeriod,
+	showPeriodIcon
+} from "../../components/common/defEventIcon";
 
 export const defMenuType = {
 	entPage: "entPage",
@@ -25,7 +30,7 @@ export const defMenuLinks = {
 	casino: {
 		path: path.casino.root,
 		displayKey: "lbl_Casino",
-		className: "COCK icon icon-new",
+		className: "COCK icon ",
 		subMenu: [
 			{
 				className: "PP",
@@ -37,6 +42,12 @@ export const defMenuLinks = {
 			},
 			{
 				className: "ICG icon icon-new",
+				periodIcons: [
+					showPeriodIcon({
+						icon: defIconType.new,
+						period: defEventPeriod.icg
+					})
+				],
 				icon: "icon icon-ICG",
 				displayText: "ICG",
 				menuType: defMenuType.Link,
@@ -207,32 +218,56 @@ export const defMenuLinks = {
 	fishing: {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
-		className: "icon icon-new",
+		className: "icon",
 		subMenu: [
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
-				className: "fsdf icon icon-new",
+				className: "fsdf icon",
+				periodIcons: [
+					showPeriodIcon({
+						icon: defIconType.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
 			},
 			{
 				...productList.ICG_FISHING_OF_SAVIORS,
-				className: "fsgfos icon icon-new",
+				className: "fsgfos icon",
+				periodIcons: [
+					showPeriodIcon({
+						icon: defIconType.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
 			},
 			{
 				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
-				className: "fsttatp icon icon-new",
+				className: "fsttatp icon",
+				periodIcons: [
+					showPeriodIcon({
+						icon: defIconType.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS }
 			},
 			{
 				...productList.ICG_TOWER_OF_SAVIORS,
-				className: "fstos icon icon-new",
+				className: "fstos icon",
+				periodIcons: [
+					showPeriodIcon({
+						icon: defIconType.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_TOWER_OF_SAVIORS",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_TOWER_OF_SAVIORS }

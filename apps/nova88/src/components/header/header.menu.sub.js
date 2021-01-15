@@ -45,6 +45,15 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			let displayText = s.displayText ? s.displayText : t(s.displayKey);
 			let key = `${menuKey}-${userInfo.isLogin}-${s.tpId}-${s.gameId}`;
 
+			let _iconClassName = s.className ? s.className : "";
+			if (s.periodIcons) {
+				let iconStrings = "";
+				for (let i = 0; i < s.periodIcons.length; i++) {
+					iconStrings += s.periodIcons[i] + " ";
+				}
+				_iconClassName = `${s.className} ${iconStrings}`;
+			}
+
 			let params = null;
 			if (s.parameter) {
 				params = Object.keys(s.parameter).map(key => {
@@ -58,7 +67,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				return (
 					<Link
 						key={key}
-						className={s.className}
+						className={_iconClassName}
 						to={`/${userInfo.langId}/${url}${_urlParams}`}>
 						<span className={s.icon}>{displayText}</span>
 					</Link>
@@ -67,7 +76,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				return (
 					<button
 						key={key}
-						className={s.className}
+						className={_iconClassName}
 						onClick={ClickItem.bind(this, {
 							tpId: s.tpId,
 							gameId: s.gameId,

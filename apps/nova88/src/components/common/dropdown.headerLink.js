@@ -34,16 +34,27 @@ export class Dropdown extends Component {
 	render() {
 		let arr = this.props.options.map((item, idx) => {
 			let key = `${this.props.mainKey}_${idx}`;
+
+			let _iconClassName = "";
+
+			if (item.periodIcons) {
+				let iconStrings = "";
+				for (let i = 0; i < item.periodIcons.length; i++) {
+					iconStrings += item.periodIcons[i] + " ";
+				}
+				_iconClassName = `icon ${iconStrings}`;
+			}
+
 			return item.elemType === defElemType.btn ? (
 				<button
 					key={key}
-					className={item.icon}
+					className={_iconClassName}
 					onClick={item.href.bind(this, item.value)}>
 					{item.displayKey ? this.props.i18n(item.displayKey) : null}
 				</button>
 			) : (
 				<Link
-					className={item.icon}
+					className={_iconClassName}
 					key={key}
 					to={`/${this.props.langId}/${item.href}`}>
 					{item.displayKey ? this.props.i18n(item.displayKey) : null}
