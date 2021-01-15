@@ -11,6 +11,26 @@ export default function HTML(props) {
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
 				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href="/styles/css/swiper.css"
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href="/styles/css/style.css"
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href="/styles/css/font.css"
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href="/styles/css/datePicker.css"
+				/>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
