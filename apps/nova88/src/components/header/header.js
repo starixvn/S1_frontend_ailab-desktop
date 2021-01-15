@@ -76,7 +76,11 @@ export default () => {
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						<img src={SiteInfo.logo} alt={config.siteName} />
+						{/* <img src={SiteInfo.logo} alt={config.siteName} /> */}
+						<img
+							src={require("../../styles/img/nova88_logo_ny.png")}
+							alt={config.siteName}
+						/>
 					</Link>
 				</div>
 				<Menu casinoTpIds={casinoTpIds} />
