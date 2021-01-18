@@ -56,30 +56,29 @@ export default ({
 
 		let _className = m.className ? m.className : "";
 
-		let _target = m.target ? m.target : "";
-
 		if (m.isHot) {
 			_className = `${_className} hot`;
 		}
 
-		let iconList = [];
-		let newIconList = [];
-		m.subMenu?.forEach(o => {
-			if (o.periodIcons) {
-				for (let i = 0; i < o.periodIcons.length; i++) {
-					iconList.push(o.periodIcons[i]);
+		if (m.subMenu) {
+			let iconList = [];
+			let iconList_unique = [];
+			m.subMenu.forEach(sub => {
+				if (sub.periodIcons) {
+					for (let i = 0; i < sub.periodIcons.length; i++) {
+						iconList.push(sub.periodIcons[i]);
+					}
 				}
+				iconList_unique = [...new Set(iconList)];
+			});
+			let iconStrings = "";
+			for (let i = 0; i < iconList_unique.length; i++) {
+				iconStrings += iconList_unique[i] + " ";
 			}
-			let iconList_unique = [...new Set(iconList)];
-			newIconList.push(...iconList_unique);
-		});
-		let newIconList_unique = [...new Set(newIconList)];
-		let iconStrings = "";
-		for (let i = 0; i < newIconList_unique.length; i++) {
-			iconStrings += newIconList_unique[i] + " ";
+			_className = `${_className} ${iconStrings}`;
 		}
-		_className = `${_className} ${iconStrings}`;
 
+		let _target = m.target ? m.target : "";
 		let displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
 			: t(m.displayKey);
