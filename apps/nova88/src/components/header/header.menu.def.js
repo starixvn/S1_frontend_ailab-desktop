@@ -456,7 +456,6 @@ export const defSubListClassName = {
 	eSports: "eSportsList",
 	casino: "slotList",
 	liveCasino: "livecasinoList",
-	slot: "slotList",
 	lottery: "gameList",
 	fishing: "fishList"
 };
