@@ -92,8 +92,8 @@ export const defRewardList = ({ t }) => {
 					displayRank: "1",
 					reward: "MacBook Pro 13 M1 256GB"
 				},
-				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
-				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
 				{ displayRank: "4", reward: `988 ${unit}` },
 				{ displayRank: "5", reward: `888 ${unit}` },
 				{ displayRank: "6", reward: `788 ${unit}` },
@@ -107,8 +107,8 @@ export const defRewardList = ({ t }) => {
 					displayRank: "1",
 					reward: "MacBook Pro 13 M1 256GB"
 				},
-				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
-				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
 				{ displayRank: "4", reward: `988 ${unit}` },
 				{ displayRank: "5", reward: `888 ${unit}` },
 				{ displayRank: "6", reward: `788 ${unit}` },
@@ -122,8 +122,8 @@ export const defRewardList = ({ t }) => {
 					displayRank: "1",
 					reward: "MacBook Pro 13 M1 256GB"
 				},
-				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
-				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
 				{ displayRank: "4", reward: `988 ${unit}` },
 				{ displayRank: "5", reward: `888 ${unit}` },
 				{ displayRank: "6", reward: `788 ${unit}` },
@@ -139,8 +139,8 @@ export const defRewardList = ({ t }) => {
 					displayRank: "1",
 					reward: "MacBook Pro 13 M1 256GB"
 				},
-				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
-				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
 				{ displayRank: "4", reward: `988 ${unitCS}` },
 				{ displayRank: "5", reward: `888 ${unitCS}` },
 				{ displayRank: "6", reward: `788 ${unitCS}` },
@@ -154,8 +154,8 @@ export const defRewardList = ({ t }) => {
 					displayRank: "1",
 					reward: "MacBook Pro 13 M1 256GB"
 				},
-				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
-				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
 				{ displayRank: "4", reward: `988 ${unitCS}` },
 				{ displayRank: "5", reward: `888 ${unitCS}` },
 				{ displayRank: "6", reward: `788 ${unitCS}` },
@@ -169,8 +169,8 @@ export const defRewardList = ({ t }) => {
 					displayRank: "1",
 					reward: "MacBook Pro 13 M1 256GB"
 				},
-				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular ` },
-				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi ` },
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
 				{ displayRank: "4", reward: `988 ${unitCS}` },
 				{ displayRank: "5", reward: `888 ${unitCS}` },
 				{ displayRank: "6", reward: `788 ${unitCS}` },
@@ -215,7 +215,7 @@ export const defRewardList = ({ t }) => {
 
 		THB: {
 			[defTabId.sports]: [
-				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi " },
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
 				{ displayRank: "2", reward: `7,788 THB ${unit}` },
 				{ displayRank: "3", reward: `6,688 THB ${unit}` },
 				{ displayRank: "4", reward: `5,588 THB ${unit}` },
@@ -225,7 +225,7 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "8", reward: `688 THB ${unit}` }
 			],
 			[defTabId.liveCasino]: [
-				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi " },
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
 				{ displayRank: "2", reward: `7,788 THB ${unit}` },
 				{ displayRank: "3", reward: `6,688 THB ${unit}` },
 				{ displayRank: "4", reward: `5,588 THB ${unit}` },
@@ -235,7 +235,7 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: "8", reward: `688 THB ${unit}` }
 			],
 			[defTabId.slots]: [
-				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi " },
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
 				{ displayRank: "2", reward: `7,788 THB ${unit}` },
 				{ displayRank: "3", reward: `6,688 THB ${unit}` },
 				{ displayRank: "4", reward: `5,588 THB ${unit}` },
