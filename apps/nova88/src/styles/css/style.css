@@ -5498,7 +5498,7 @@ input[type="file"] {
           justify-content: center;
 }
 
-.proList, .slotList, .newsList {
+.proList, .newsList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5508,7 +5508,7 @@ input[type="file"] {
   line-height: 20px;
 }
 
-.proList > div, .slotList > div, .newsList > div {
+.proList > div, .newsList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
@@ -5520,17 +5520,17 @@ input[type="file"] {
   position: relative;
 }
 
-.proList > div.active, .slotList > div.active, .newsList > div.active {
+.proList > div.active, .newsList > div.active {
   opacity: 0.7;
 }
 
-.proList > div.active .claimed, .slotList > div.active .claimed, .newsList > div.active .claimed {
+.proList > div.active .claimed, .newsList > div.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed, .newsList > div .new, .newsList > div .claimed {
+.proList > div .new, .proList > div .claimed, .newsList > div .new, .newsList > div .claimed {
   position: absolute;
   top: -10px;
   left: -10px;
@@ -5550,17 +5550,17 @@ input[type="file"] {
   font-weight: bold;
 }
 
-.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before, .newsList > div .new:before, .newsList > div .claimed:before {
+.proList > div .new:before, .proList > div .claimed:before, .newsList > div .new:before, .newsList > div .claimed:before {
   content: "NEW";
 }
 
-.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active, .newsList > div .new.active, .newsList > div .claimed.active {
+.proList > div .new.active, .proList > div .claimed.active, .newsList > div .new.active, .newsList > div .claimed.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .claimed, .slotList > div .claimed, .newsList > div .claimed {
+.proList > div .claimed, .newsList > div .claimed {
   background: rgba(167, 3, 3, 0.8);
   width: 75px;
   height: 75px;
@@ -5568,26 +5568,26 @@ input[type="file"] {
           transform: rotate(-25deg);
 }
 
-.proList > div .claimed:before, .slotList > div .claimed:before, .newsList > div .claimed:before {
+.proList > div .claimed:before, .newsList > div .claimed:before {
   content: "CLAIMED";
 }
 
-.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue, .newsList > div .txt-dark, .newsList > div .txt-darkBlue {
+.proList > div .txt-dark, .proList > div .txt-darkBlue, .newsList > div .txt-dark, .newsList > div .txt-darkBlue {
   font-weight: bold;
   margin: 15px 0;
 }
 
-.proList > div .txt-gray li, .slotList > div .txt-gray li, .newsList > div .txt-gray li {
+.proList > div .txt-gray li, .newsList > div .txt-gray li {
   font-size: 12px;
   list-style: disc;
   margin-left: 16px;
 }
 
-.proList > div img, .slotList > div img, .newsList > div img {
+.proList > div img, .newsList > div img {
   border-radius: 10px;
 }
 
-.proList .rollover, .slotList .rollover, .newsList .rollover {
+.proList .rollover, .newsList .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5596,13 +5596,13 @@ input[type="file"] {
   margin: 10px 0;
 }
 
-.proList .rollover > div, .slotList .rollover > div, .newsList .rollover > div {
+.proList .rollover > div, .newsList .rollover > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before, .newsList .rollover > div .icon:before {
+.proList .rollover > div .icon:before, .newsList .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
 }
@@ -5821,7 +5821,7 @@ form {
   min-height: 22px;
 }
 
-.slotList .icon-new, .newsList .icon-new {
+.newsList .icon-new {
   background: #f77900;
   position: absolute;
   right: 25px;
@@ -5830,12 +5830,12 @@ form {
   border-radius: 5px;
 }
 
-.slotList .icon-new:before, .newsList .icon-new:before {
+.newsList .icon-new:before {
   position: unset;
   color: white;
 }
 
-.slotList > div, .newsList > div {
+.newsList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 5 - 45px);
           flex: 0 0 calc(100% / 5 - 45px);
@@ -5843,19 +5843,19 @@ form {
   margin: 10px 7px;
 }
 
-.slotList > div .txt-darkBlue, .newsList > div .txt-darkBlue {
+.newsList > div .txt-darkBlue {
   font-size: 12px;
   margin: 0;
 }
 
-.slotList > div .btnGroup, .newsList > div .btnGroup {
+.newsList > div .btnGroup {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
 }
 
-.slotList > div .btnGroup button, .newsList > div .btnGroup button {
+.newsList > div .btnGroup button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -5863,13 +5863,13 @@ form {
   margin: 0 1px;
 }
 
-.slotList > div .brand, .newsList > div .brand {
+.newsList > div .brand {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.slotList > div .brand:before, .newsList > div .brand:before {
+.newsList > div .brand:before {
   content: "";
   border-color: #134DAE transparent transparent #134DAE;
   border-style: solid;
@@ -5882,7 +5882,7 @@ form {
           filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .brand span, .newsList > div .brand span {
+.newsList > div .brand span {
   z-index: 1;
   position: absolute;
   top: 7px;
@@ -5891,7 +5891,7 @@ form {
   font-weight: bold;
 }
 
-.slotList > div .icon-star-full, .newsList > div .icon-star-full {
+.newsList > div .icon-star-full {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -5901,7 +5901,7 @@ form {
           filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .icon-star-full.active, .newsList > div .icon-star-full.active {
+.newsList > div .icon-star-full.active {
   color: #fab617;
 }
 
@@ -8252,80 +8252,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 77.87651%;
-  top: -40.54649%;
-  width: 7.43317px;
-  height: 7.43317px;
+  left: 90.90921%;
+  top: -1.71041%;
+  width: 7.13797px;
+  height: 7.13797px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 93.1423%;
-  top: -42.2225%;
-  width: 13.49868px;
-  height: 13.49868px;
+  left: 3.80616%;
+  top: -4.58421%;
+  width: 9.03644px;
+  height: 9.03644px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 96.23782%;
-  top: -26.21021%;
-  width: 8.52856px;
-  height: 8.52856px;
+  left: 78.88091%;
+  top: 31.80081%;
+  width: 13.93389px;
+  height: 13.93389px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 43.76664%;
-  top: 13.20076%;
-  width: 11.03534px;
-  height: 11.03534px;
+  left: 14.49302%;
+  top: 5.11039%;
+  width: 13.64571px;
+  height: 13.64571px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 80.1115%;
-  top: -23.59707%;
-  width: 14.21766px;
-  height: 14.21766px;
+  left: 71.12072%;
+  top: -33.58239%;
+  width: 11.58036px;
+  height: 11.58036px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 35.25014%;
-  top: -54.10819%;
-  width: 6.21968px;
-  height: 6.21968px;
+  left: 11.91804%;
+  top: 26.46253%;
+  width: 11.75581px;
+  height: 11.75581px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 24.15609%;
-  top: 37.31383%;
-  width: 11.8805px;
-  height: 11.8805px;
+  left: 40.54134%;
+  top: 31.03282%;
+  width: 11.50786px;
+  height: 11.50786px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 20.89086%;
-  top: -24.18023%;
-  width: 8.7244px;
-  height: 8.7244px;
+  left: 60.88532%;
+  top: -3.03928%;
+  width: 5.99118px;
+  height: 5.99118px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
