@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function HTML(props) {
+	const vkey = `${Date.now()}`;
 	return (
 		<html {...props.htmlAttributes}>
 			<head>
@@ -14,22 +15,22 @@ export default function HTML(props) {
 				<link
 					rel="stylesheet"
 					type="text/css"
-					href="/styles/css/swiper.css"
+					href={`/styles/css/swiper.css?v=${vkey}`}
 				/>
 				<link
 					rel="stylesheet"
 					type="text/css"
-					href="/styles/css/style.css"
+					href={`/styles/css/style.css?v=${vkey}`}
 				/>
 				<link
 					rel="stylesheet"
 					type="text/css"
-					href="/styles/css/font.css"
+					href={`/styles/css/font.css?v=${vkey}`}
 				/>
 				<link
 					rel="stylesheet"
 					type="text/css"
-					href="/styles/css/datePicker.css"
+					href={`/styles/css/datePicker.css?v=${v_key}`}
 				/>
 				{props.headComponents}
 			</head>
