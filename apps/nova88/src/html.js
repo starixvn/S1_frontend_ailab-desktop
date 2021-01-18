@@ -30,7 +30,7 @@ export default function HTML(props) {
 				<link
 					rel="stylesheet"
 					type="text/css"
-					href={`/styles/css/datePicker.css?v=${v_key}`}
+					href={`/styles/css/datePicker.css?v=${vkey}`}
 				/>
 				{props.headComponents}
 			</head>
