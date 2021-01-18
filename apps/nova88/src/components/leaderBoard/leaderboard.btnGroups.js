@@ -27,7 +27,7 @@ export default ({
 				tab={tab}
 				updateStateOnly={updateStateOnly}
 			/>
-			{tab === defTabId.event ? null : (
+			{tab === defTabId.records ? (
 				<BtnBar
 					t={t}
 					title={t("lbl_Date")}
@@ -36,7 +36,7 @@ export default ({
 					selected={beforeDays}
 					tab={tab}
 				/>
-			)}
+			) : null}
 		</div>
 	);
 };

@@ -4,8 +4,8 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
 import {
-	api_events_GetLeaderboardList,
-	api_events_GetCustRank
+	api_events_GetLeaderboardListV2,
+	api_events_GetCustRankV2
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
 import ButtonGroups from "./leaderBoard.btnGroups";
@@ -14,7 +14,8 @@ import {
 	defBackground,
 	defDayNum,
 	defRewardList,
-	defLeaderBoardTitle
+	defLeaderBoardTitle,
+	defLastChampionReward
 } from "./leaderboard.def";
 import moment from "moment";
 import { number_format } from "../common/common";
@@ -52,7 +53,13 @@ export default () => {
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
-	const rewardList = defRewardList({ t })[currencyName][categoryID];
+	const rewardList = defRewardList({ t })[currencyName]
+		? defRewardList({ t })[currencyName][categoryID]
+		: defRewardList({ t }).MYR[categoryID];
+
+	const LastChampionReward = defLastChampionReward({ t })[currencyName][
+		categoryID
+	];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -79,36 +86,40 @@ export default () => {
 		return displayTime;
 	};
 
-	const onChangeTab = tabValue => {
-		if (tabValue !== defTabId.event && !userInfo.isLogin) {
+	const onChangeTab = tabId => {
+		if (tabId !== defTabId.event && !userInfo.isLogin) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		} else {
-			setTab(tabValue);
-			if (tabValue === defTabId.event) {
+			setTab(tabId);
+			if (tabId === defTabId.event) {
 				setCategoryID(1);
-			} else if (tabValue === defTabId.records) {
+			} else if (
+				tabId === defTabId.records ||
+				tabId === defTabId.lastEvent
+			) {
 				const days =
-					tabValue === defTabId.records
+					tabId === defTabId.records
 						? defDayNum.yesterDay
 						: defDayNum.today;
 				setBeforeDays(days);
-				getLeaderboardData(defTabId.sports, days);
+				getLeaderboardData(defTabId.sports, days, tabId);
 				setCategoryID(1);
 			} else {
-				onChangeGameType(tabValue, false, tabValue);
+				onChangeGameType(tabId, false, tabId);
 			}
 		}
 	};
 
-	const onChangeGameType = (typeValue, updateStateOnly, tabValue) => {
-		setCategoryID(typeValue);
+	const onChangeGameType = (gameType, updateStateOnly, tabId) => {
+		setCategoryID(gameType);
 		if (!updateStateOnly) {
 			getLeaderboardData(
-				typeValue,
-				tabValue !== defTabId.records ? 0 : beforeDays
+				gameType,
+				tabId !== defTabId.records ? 0 : beforeDays,
+				tabId
 			);
 		}
 	};
@@ -118,82 +129,111 @@ export default () => {
 		getLeaderboardData(categoryID, daysValue);
 	};
 
-	const ClickClose = () => {
+	const clickClose = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const getLeaderboardData = (typeValue, daysValue) => {
+	const openErrorMessagePopBox = (message, errorCode) => {
+		setPopBox({
+			message: message ?? t("msg_ApiServerError"),
+			errorCode,
+			isOpen: true,
+			popBoxType: defPopBoxType.ErrorMsg,
+			icon: "icon-bell",
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={clickClose}>
+						{t("lbl_Close")}
+					</button>
+				</div>
+			)
+		});
+	};
+
+	const getLeaderboardData = (gameType, daysValue, tabId) => {
 		if (!userInfo.isLogin) return;
-		let payload = {
-			lBCategoryId: typeValue ?? categoryID,
+
+		const isLastEventTab = tabId === defTabId.lastEvent;
+		let current_eventCode = "202101";
+		let last_eventCode = "xmas2020";
+
+		const payload = {
+			lBCategoryId: gameType ?? categoryID,
 			TopNum: TopNum,
-			BeforeDays: daysValue ?? beforeDays
+			BeforeDays: daysValue ?? beforeDays,
+			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
 
 		const GetRankDatas = async () => {
-			try {
-				const res = await api_events_GetLeaderboardList(payload);
-				if (res.data.errorCode === 0) {
-					const rankDatas = res.data.data;
+			await api_events_GetLeaderboardListV2(payload).then(
+				res => {
+					if (res.data.errorCode === 0) {
+						const rankDatas = res.data.data;
 
-					if (rankDatas?.length > 0) {
-						const custRankRes = await api_events_GetCustRank({
-							LBCategoryId: payload.lBCategoryId,
-							BeforeDays: payload.BeforeDays
-						});
+						if (rankDatas?.length > 0) {
+							api_events_GetCustRankV2({
+								LBCategoryId: payload.lBCategoryId,
+								BeforeDays: payload.BeforeDays,
+								EventCode: payload.EventCode
+							}).then(
+								res => {
+									if (res.data.errorCode === 0) {
+										const {
+											custRank,
+											point
+										} = res.data.data;
+										setRankingData(() => {
+											let rank =
+												custRank > 999 || custRank === 0
+													? "999+"
+													: custRank;
 
-						if (custRankRes.data.errorCode === 0) {
-							const { custRank, point } = custRankRes.data.data;
-							setRankingData(() => {
-								let rank =
-									custRank > 999 || custRank === 0
-										? "999+"
-										: custRank;
-
-								let result = [];
-								if (custRank <= TopNum && custRank !== 0) {
-									rankDatas[custRank - 1] = {
-										...rankDatas[custRank - 1],
-										userName: userInfo.userName,
-										rank
-									};
-									result = rankDatas;
-								} else {
-									result = [
-										...rankDatas,
-										{
-											userName: userInfo.userName,
-											wTurnover: point,
-											rank
-										}
-									];
-								}
-
-								return result;
-							});
+											let result = [];
+											if (
+												custRank <= TopNum &&
+												custRank !== 0
+											) {
+												rankDatas[custRank - 1] = {
+													...rankDatas[custRank - 1],
+													userName: userInfo.userName,
+													rank
+												};
+												result = rankDatas;
+											} else {
+												result = [
+													...rankDatas,
+													{
+														userName:
+															userInfo.userName,
+														wTurnover: point,
+														rank
+													}
+												];
+											}
+											return result;
+										});
+									} else {
+										openErrorMessagePopBox(
+											res.data.message,
+											res.data.errorCode
+										);
+									}
+								},
+								() => {}
+							);
+						} else {
+							setRankingData([]);
 						}
 					} else {
-						setRankingData([]);
+						openErrorMessagePopBox(
+							res.data.message,
+							res.data.errorCode
+						);
 					}
-				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-				}
-			} catch (error) {}
+				},
+				() => {}
+			);
 		};
-
 		GetRankDatas();
 	};
 
@@ -211,7 +251,10 @@ export default () => {
 					currencyName={currencyName}
 				/>
 			) : (
-				<div className="champion">
+				<div
+					className={
+						tab === defTabId.lastEvent ? "lastevent" : "champion"
+					}>
 					<div className="highest">
 						{isGameTypeTab ? (
 							<div className="title">
@@ -232,7 +275,9 @@ export default () => {
 							<span className="arrow_t_int"></span>
 							<span className="arrow_t_out"></span>
 							<div className="txt-orange">
-								{rewardList[0].reward}
+								{tab === defTabId.lastEvent
+									? LastChampionReward[0].reward
+									: rewardList[0].reward}
 							</div>
 						</div>
 					</div>
@@ -253,9 +298,13 @@ export default () => {
 								{t("lbl_NoData")}
 							</div>
 						)}
-						<div className="lastUpdate">
-							{t(`lbl_LastUpdTime`, { time: showUpdateTime() })}
-						</div>
+						{tab === defTabId.lastEvent ? null : (
+							<div className="lastUpdate">
+								{t(`lbl_LastUpdTime`, {
+									time: showUpdateTime()
+								})}
+							</div>
+						)}
 					</div>
 				</div>
 			)}

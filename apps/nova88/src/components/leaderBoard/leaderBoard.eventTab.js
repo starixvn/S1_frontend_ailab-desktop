@@ -62,7 +62,7 @@ export default ({
 				<a
 					href={`${
 						config.cloudImgUrl
-					}/NovaPromotion/iPhone12Giveaway/${userInfo.langId.toUpperCase()}.html`}
+					}/NovaPromotion/year-of-OX/${userInfo.langId.toUpperCase()}.html`}
 					target="_blank">
 					{t("lbl_MoreDetails")}
 				</a>
