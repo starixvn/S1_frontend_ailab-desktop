@@ -36,6 +36,8 @@ import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
 import config from "../../config";
 
+import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
+
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
@@ -389,10 +391,12 @@ const IndexPage = () => {
 					{...userInfo}
 				/>
 			</section>
-			<img
+			{/* New Year Theme */}
+			<img src={indexCenterBanner} alt="IndexCenterBanner" />
+			{/* <img
 				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
 				alt="IndexCenterBanner"
-			/>
+			/> */}
 			<SideBarQuickLink />
 		</main>
 	);

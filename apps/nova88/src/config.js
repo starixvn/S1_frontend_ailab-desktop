@@ -7,8 +7,8 @@ const getAffiliate = () => {
 	let arr = fullPath.split(".");
 
 	return arr.length === 3
-		? `http://aff.${arr.filter((p, idx) => idx !== 0).join(".")}`
-		: `http://aff.${arr.join(".")}`;
+		? `https://aff.${arr.filter((p, idx) => idx !== 0).join(".")}`
+		: `https://aff.${arr.join(".")}`;
 };
 
 export const SiteInfo = {
@@ -34,6 +34,8 @@ export const SiteInfo = {
 		"http://image.n88media.com/NovaPromotion/promotionList.json"
 };
 
+const cloudImgUrl = "https://image.n88media.com";
+
 export default process.env.NODE_ENV === "production"
 	? {
 			siteName,
@@ -41,11 +43,12 @@ export default process.env.NODE_ENV === "production"
 			openURL: "",
 			imgUrl: "",
 			t_and_cURL: "",
-			cloudImgUrl: "https://image.n88media.com"
+			cloudImgUrl
 	  }
 	: {
 			siteName,
-			appURL: "http://localhost:8000",
+			cloudImgUrl,
+			appURL: "http://localhost:4201",
 
 			// apiURL: "http://localhost:60930",
 			// imgUrl: "http://localhost:60930",
@@ -53,7 +56,6 @@ export default process.env.NODE_ENV === "production"
 
 			apiURL: "http://www.n88dev.com",
 			imgUrl: "http://www.n88dev.com",
-			cloudImgUrl: "http://image.n88media.com",
 			t_and_cURL: "http://www.n88dev.com",
 			openURL: "http://www.n88dev.com"
 	  };
