@@ -130,6 +130,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background: url(../img/heaber_bg.png) no-repeat center/cover;
 }
 
 .header > div.menu {
@@ -144,6 +145,7 @@ header {
   left: 0;
   text-transform: uppercase;
   width: 100%;
+  background: #000 url(../img/menu_bg.png) repeat-x top center;
 }
 
 .header > div.menu > div {
@@ -186,6 +188,13 @@ header {
 
 .header > div.menu > div > a.icon-home, .header > div.menu > div > button.icon-home {
   font-size: 24px;
+}
+
+.header > div.menu > div > a.icon-home:before, .header > div.menu > div > button.icon-home:before {
+  width: 35px;
+  height: 35px;
+  content: "" !important;
+  background: url(../img/icon_home.svg) no-repeat center/100% !important;
 }
 
 .header > div.menu .subMenu-Wrapper {
@@ -1230,7 +1239,7 @@ main .gamelistsport a .container .card_right img.badminton, main .gamelistsport 
 main .gamelistsport a .container .card_right:before, main .gamelistsport a .container .card_left:before {
   content: "";
   position: absolute;
-  border: 10px solid white;
+  background: url(../img/card_bg.png) no-repeat center/cover;
   width: 60%;
   height: 50%;
   z-index: 1;
@@ -1316,10 +1325,6 @@ main .gamelistsport a:hover .card_right img.esport, main .gamelistsport a:hover 
   margin-left: -95px;
   -webkit-transform: rotate(6deg);
           transform: rotate(6deg);
-}
-
-main .gamelistsport a:hover .card_right:before, main .gamelistsport a:hover .card_left:before, main .gamelistsport a:active .card_right:before, main .gamelistsport a:active .card_left:before {
-  border: 10px solid #f77900;
 }
 
 main .gamelistother {
@@ -2361,6 +2366,12 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#Marquee .marquee-box.icon-marquee:before {
+  width: 40px !important;
+  content: "" !important;
+  background: #212121 url(../img/icon_post.svg) no-repeat center/100% !important;
 }
 
 #Marquee .marquee-box.icon:before {
@@ -6807,6 +6818,10 @@ button.icon-spinner11:before {
   background: #1E85EC;
 }
 
+.transferModule .inputBox-blue .dropdown-container .dropdown-item.active {
+  background: #1E85EC;
+}
+
 .swiper-casino {
   width: 1560px;
   margin-top: 30px;
@@ -6870,6 +6885,7 @@ button.icon-spinner11:before {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  background: url(../img/gameMenu_bg.png) no-repeat center/cover;
 }
 
 .gameMenu .icon-new:before {
@@ -6894,7 +6910,9 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #134DAE;
+  background: #d3162c;
+  border: 1px solid #b28750;
+  margin: 0 8.5px !important;
   padding: 10px 0;
   border-radius: 20px;
 }
@@ -6908,11 +6926,13 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
-  background: #1E85EC;
+  background: #d3162c;
+  border: 1px solid #b28750;
   height: 25px;
   padding: 0px 10px;
   opacity: 1;
   z-index: 1;
+  outline: none;
 }
 
 .gameMenu .swiper-button-next.icon, .gameMenu .swiper-button-prev.icon {
@@ -7325,6 +7345,10 @@ button.icon-spinner11:before {
   background-image: url(../img/rankingRecordsBg.jpg);
 }
 
+.ranking.lastGameRecords {
+  background-image: url(../img/lastGameBg.jpg);
+}
+
 .ranking a {
   color: #f77900;
   text-decoration: underline;
@@ -7357,16 +7381,16 @@ button.icon-spinner11:before {
   -webkit-box-flex: 0;
       -ms-flex: 0;
           flex: 0;
-  margin: 0 5px 0 0;
+  margin: 0 4px 0 0;
 }
 
 .ranking > .btnGroup button.active {
-  background: #1E85EC;
+  background: #cf0404;
   color: white;
 }
 
 .ranking > .btnGroup button:hover {
-  background: #134DAE;
+  background: #9b0a0a;
   color: white;
 }
 
@@ -7398,7 +7422,7 @@ button.icon-spinner11:before {
   height: 0px;
   border-width: 15px;
   border-style: solid;
-  border-color: transparent transparent white transparent;
+  border-color: transparent transparent transparent transparent;
   position: absolute;
   top: -29px;
   left: 50%;
@@ -7406,7 +7430,7 @@ button.icon-spinner11:before {
           transform: translateX(-50%);
 }
 
-.ranking .champion, .ranking .eventRule {
+.ranking .champion, .ranking .eventRule, .ranking .lastevent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7414,34 +7438,33 @@ button.icon-spinner11:before {
   min-width: 770px;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  border: 3px solid #1E85EC;
-  border-radius: 0 15px 15px;
+  border: 2px solid #9b0a0a;
+  border-radius: 0 10px 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 10px;
-  background-color: white;
   min-height: 725px;
 }
 
-.ranking .champion .title, .ranking .eventRule .title {
-  font-size: 32px;
-  text-transform: uppercase;
+.ranking .champion .title, .ranking .eventRule .title, .ranking .lastevent .title {
+  font-size: 28px;
 }
 
-.ranking .champion .highest, .ranking .eventRule .highest {
+.ranking .champion .highest, .ranking .eventRule .highest, .ranking .lastevent .highest {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   margin: 0 20px;
   text-align: center;
+  max-width: 295px;
 }
 
-.ranking .champion .highest .txt-orange, .ranking .eventRule .highest .txt-orange {
+.ranking .champion .highest .txt-orange, .ranking .eventRule .highest .txt-orange, .ranking .lastevent .highest .txt-orange {
   font-size: 26px;
   font-weight: bold;
 }
 
-.ranking .champion .rankModule, .ranking .eventRule .rankModule {
+.ranking .champion .rankModule, .ranking .eventRule .rankModule, .ranking .lastevent .rankModule {
   -webkit-box-flex: 1.4;
       -ms-flex: 1.4;
           flex: 1.4;
@@ -7457,33 +7480,39 @@ button.icon-spinner11:before {
           justify-content: center;
 }
 
-.ranking .champion .rankModule .btnGroup button, .ranking .eventRule .rankModule .btnGroup button {
+.ranking .champion .rankModule .btnGroup button, .ranking .eventRule .rankModule .btnGroup button, .ranking .lastevent .rankModule .btnGroup button {
   border-radius: 0;
   min-width: auto;
   padding: 5px 10px;
 }
 
-.ranking .champion .title, .ranking .eventRule .title {
-  color: #f77900;
+.ranking .champion .title, .ranking .eventRule .title, .ranking .lastevent .title {
+  color: #f2c145;
   margin-top: 15px;
 }
 
-.ranking .champion .highest .title {
+.ranking .champion, .ranking .lastevent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ranking .champion .highest .title, .ranking .lastevent .highest .title {
   text-align: left;
   margin-bottom: 20px;
   white-space: nowrap;
 }
 
-.ranking .champion .highest .title div {
+.ranking .champion .highest .title div, .ranking .lastevent .highest .title div {
   margin-bottom: 10px;
   font-size: 32px;
 }
 
-.ranking .champion li {
+.ranking .champion li, .ranking .lastevent li {
   min-height: auto;
 }
 
-.ranking .champion li.userRank {
+.ranking .champion li.userRank, .ranking .lastevent li.userRank {
   background: #1E85EC;
   color: white;
 }
@@ -7508,9 +7537,9 @@ button.icon-spinner11:before {
 .ranking .rankTag .btnGroup button {
   text-transform: uppercase;
   background: transparent;
-  border-radius: 0;
-  border: 1px solid #f77900;
-  color: #f77900;
+  border-radius: 5px;
+  border: 1px solid #f2c145;
+  color: #f2c145;
   padding: 5px;
   min-width: auto;
   white-space: nowrap;
@@ -7518,12 +7547,12 @@ button.icon-spinner11:before {
 }
 
 .ranking .rankTag .btnGroup button.active {
-  background: #f77900;
+  background: #cf0404;
   color: white;
 }
 
 .ranking .eventRule {
-  background: url(../img/eventRuleInfoBG.jpg) no-repeat center/cover;
+  background: url(../img/eventRuleInfoBG.png) no-repeat center/cover;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -7571,6 +7600,7 @@ button.icon-spinner11:before {
   margin-top: 20px;
   width: 100%;
   padding-bottom: 30px;
+  padding-right: 10px;
 }
 
 .rankList::-webkit-scrollbar {
@@ -7623,13 +7653,12 @@ button.icon-spinner11:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: #191919;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   line-height: 30px;
-  border-radius: 15px;
-  background: #d9ecff;
+  border-radius: 5px;
+  background: #212121;
   margin-bottom: 10px;
   min-height: 60px;
 }
@@ -7659,15 +7688,18 @@ button.icon-spinner11:before {
 }
 
 .rankList li:nth-child(2) {
-  background: #feff85;
+  background: #980b0b;
+  border: 1px solid #f5c346;
 }
 
 .rankList li:nth-child(3) {
-  background: #e5e5e5;
+  background: #ba4908;
+  border: 1px solid #f5c346;
 }
 
 .rankList li:nth-child(4) {
-  background: #fcd3c1;
+  background: #b45e08;
+  border: 1px solid #f5c346;
 }
 
 .rankList li div {
@@ -7711,6 +7743,7 @@ button.icon-spinner11:before {
   position: absolute;
   bottom: 0;
   width: 100%;
+  color: white;
 }
 
 nav {
@@ -8000,80 +8033,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 22.60817%;
-  top: -10.55312%;
-  width: 10.99149px;
-  height: 10.99149px;
+  left: 29.44783%;
+  top: -30.53101%;
+  width: 10.56401px;
+  height: 10.56401px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 40.89462%;
-  top: 33.78341%;
-  width: 7.64312px;
-  height: 7.64312px;
+  left: 27.12464%;
+  top: 27.35785%;
+  width: 5.79564px;
+  height: 5.79564px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 15.90147%;
-  top: 30.97596%;
-  width: 9.57466px;
-  height: 9.57466px;
+  left: 9.65963%;
+  top: -26.6791%;
+  width: 10.32252px;
+  height: 10.32252px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 97.14166%;
-  top: 37.66436%;
-  width: 8.57116px;
-  height: 8.57116px;
+  left: 0.26423%;
+  top: -6.75228%;
+  width: 14.95799px;
+  height: 14.95799px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 57.11792%;
-  top: 18.6926%;
-  width: 13.14659px;
-  height: 13.14659px;
+  left: 87.76888%;
+  top: -0.33739%;
+  width: 10.02364px;
+  height: 10.02364px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 5.39969%;
-  top: -14.25861%;
-  width: 6.70472px;
-  height: 6.70472px;
+  left: 5.16993%;
+  top: -46.91682%;
+  width: 9.12952px;
+  height: 9.12952px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 24.9481%;
-  top: -29.97697%;
-  width: 7.80651px;
-  height: 7.80651px;
+  left: 18.32445%;
+  top: -2.16079%;
+  width: 12.74355px;
+  height: 12.74355px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 72.80662%;
-  top: -59.89936%;
-  width: 7.40413px;
-  height: 7.40413px;
+  left: 1.15597%;
+  top: -36.68123%;
+  width: 9.09581px;
+  height: 9.09581px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8218,9 +8251,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   line-height: 30px;
 }
 
+.icon-friend + .title {
+  width: calc(100% - 150px);
+  margin: 15px 0 0;
+  padding: 0 70px 0 80px;
+}
+
 .achievement {
   color: white;
-  font-weight: bold;
   width: calc(100% - 150px);
   margin: 15px 0 0;
   padding: 0 70px 0 80px;
@@ -8231,9 +8269,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #f77900;
 }
 
-.achievement .txt-lightgray {
+.achievement + .txt-lightgray {
   font-weight: normal;
-  margin-top: 10px;
+  width: calc(100% - 150px);
+  margin: 15px 0 0;
+  padding: 0 70px 0 80px;
 }
 
 .list.refhistory div:first-child {
@@ -8255,5 +8295,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .qrcode img {
   max-width: 200px;
+}
+
+canvas {
+  position: fixed;
+  z-index: 999;
+  pointer-events: none;
 }
 /*# sourceMappingURL=style.css.map */
