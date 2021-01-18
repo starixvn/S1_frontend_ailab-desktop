@@ -11,15 +11,19 @@ import { render, cleanup, fireEvent, screen } from "@testing-library/react";
 import SetAmount from "../../transferFunds/setAmount";
 import { isConvert } from "../common.js";
 
+jest.mock("react-i18next", () => ({
+	// this mock makes sure any components using the translate hook can use it without a warning being shown
+	useTranslation: () => {
+		return {
+			t: jest.fn()
+		};
+	}
+}));
+
 describe("open dropdown ", () => {
 	test("The dropdown menu can be opened/closed correctly", () => {
 		const fake_data = {
 			i18n: jest.fn(),
-			useTranslation: () => {
-				return {
-					t: jest.fn()
-				};
-			},
 			onSelectWallet: jest.fn(),
 			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
 			toOptions: [
@@ -27,28 +31,28 @@ describe("open dropdown ", () => {
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
 			clickSubmit: jest.fn(),
-			title: "lbl_From"
+			mainKey: `from_wallet`
 		};
 
 		const { getByTestId } = render(<SetAmount {...fake_data} />);
 
 		//click to open ↓
 
-		fireEvent.click(getByTestId(`dropdown_${fake_data.title}`));
+		fireEvent.click(getByTestId(`dropdown_${fake_data.mainKey}`));
 
 		expect(
 			getByTestId(
-				`dropdown_container_${fake_data.title}`
+				`dropdown_container_${fake_data.mainKey}`
 			).className.includes("active")
 		).toBe(true);
 
 		//click to close ↓
 
-		fireEvent.click(getByTestId(`dropdown_${fake_data.title}`));
+		fireEvent.click(getByTestId(`dropdown_${fake_data.mainKey}`));
 
 		expect(
 			getByTestId(
-				`dropdown_container_${fake_data.title}`
+				`dropdown_container_${fake_data.mainKey}`
 			).className.includes("active")
 		).toBe(false);
 	});
@@ -58,11 +62,6 @@ describe("render wallet dropdown items", () => {
 	test("render dropdown items num correct", () => {
 		const fake_data = {
 			i18n: jest.fn(),
-			useTranslation: () => {
-				return {
-					t: jest.fn()
-				};
-			},
 			onSelectWallet: jest.fn(),
 			fomOptions: [
 				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
@@ -187,7 +186,7 @@ describe("test function: checkSelectWallet()", () => {
 
 // not render event:
 describe("test function: clickSubmit", () => {
-	test("transfer post value", () => {
+	test("transfer post value correctly", () => {
 		let selectedTpId = {
 			from: 0
 		};
