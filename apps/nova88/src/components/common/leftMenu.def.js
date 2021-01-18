@@ -3,7 +3,7 @@ import {
 	defIconType,
 	defEventPeriod,
 	showPeriodIcon
-} from "../../components/common/defEventIcon";
+} from "./eventIcon";
 
 export const defLeftMenu = {
 	Cashier: {

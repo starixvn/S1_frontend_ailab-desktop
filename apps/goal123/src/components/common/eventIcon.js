@@ -1,6 +1,6 @@
 export const defIconType = {
-	new: "icon-newicon",
-	live: "liveIcon"
+	new: "icon-new",
+	live: "icon-live"
 };
 
 export const defEventPeriod = {
@@ -17,9 +17,10 @@ export const showPeriodIcon = ({ icon, period }) => {
 	const now = new Date();
 
 	if (
-		(startDate && !endDate && now > startDate) ||
-		(!startDate && endDate && now < endDate) ||
-		(startDate && endDate && now > startDate && now < endDate)
+		icon &&
+		((startDate && !endDate && now > startDate) ||
+			(!startDate && endDate && now < endDate) ||
+			(startDate && endDate && now > startDate && now < endDate))
 	) {
 		return icon;
 	}

@@ -4,7 +4,7 @@ import {
 	defIconType,
 	defEventPeriod,
 	showPeriodIcon
-} from "../../components/common/defEventIcon";
+} from "../common/eventIcon";
 
 export const defMenuType = {
 	entPage: "entPage",
@@ -186,7 +186,7 @@ export const defMenuLinks = {
 				icon: "icon icon-one789",
 				periodIcons: [
 					showPeriodIcon({
-						icon: defIconType.new,
+						icon: defIconType.casino,
 						period: defEventPeriod.one789
 					})
 				],

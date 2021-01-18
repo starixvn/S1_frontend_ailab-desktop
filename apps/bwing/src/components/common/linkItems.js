@@ -64,21 +64,18 @@ export default ({
 		}
 
 		let iconList = [];
-		let newIconList = [];
-		m.subMenu?.forEach(o => {
-			if (o.periodIcons) {
-				for (let i = 0; i < o.periodIcons.length; i++) {
-					iconList.push(o.periodIcons[i]);
+		let iconList_unique = [];
+		m.subMenu?.forEach(sub => {
+			if (sub.periodIcons) {
+				for (let i = 0; i < sub.periodIcons.length; i++) {
+					iconList.push(sub.periodIcons[i]);
 				}
 			}
-			let iconList_unique = [...new Set(iconList)];
-			newIconList.push(...iconList_unique);
+			iconList_unique = [...new Set(iconList)];
 		});
-
-		let newIconList_unique = [...new Set(newIconList)];
 		let iconStrings = "";
-		for (let i = 0; i < newIconList_unique.length; i++) {
-			iconStrings += newIconList_unique[i] + " ";
+		for (let i = 0; i < iconList_unique.length; i++) {
+			iconStrings += iconList_unique[i] + " ";
 		}
 		_className = `${_className} ${iconStrings}`;
 

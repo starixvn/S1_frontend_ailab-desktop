@@ -5,7 +5,7 @@ import {
 	defIconType,
 	defEventPeriod,
 	showPeriodIcon
-} from "../../components/common/defEventIcon";
+} from "../common/eventIcon";
 
 export const defMenuType = {
 	entPage: "entPage",

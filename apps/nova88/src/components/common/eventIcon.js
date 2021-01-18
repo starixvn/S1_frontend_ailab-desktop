@@ -1,12 +1,11 @@
 export const defIconType = {
 	new: "icon-new",
-	live: "icon-live"
+	live: "live"
 };
 
 export const defEventPeriod = {
 	referral: { end: "2021/02/18 00:00:00" },
-	icg: { end: "2021/02/18 00:00:00" },
-	one789: { end: "2021/01/22 11:00:00" }
+	icg: { end: "2021/02/18 00:00:00" }
 };
 
 export const showPeriodIcon = ({ icon, period }) => {
@@ -17,9 +16,10 @@ export const showPeriodIcon = ({ icon, period }) => {
 	const now = new Date();
 
 	if (
-		(startDate && !endDate && now > startDate) ||
-		(!startDate && endDate && now < endDate) ||
-		(startDate && endDate && now > startDate && now < endDate)
+		icon &&
+		((startDate && !endDate && now > startDate) ||
+			(!startDate && endDate && now < endDate) ||
+			(startDate && endDate && now > startDate && now < endDate))
 	) {
 		return icon;
 	}
