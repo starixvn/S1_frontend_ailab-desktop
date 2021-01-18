@@ -6,6 +6,10 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 
+import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.png";
+import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
+import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
+
 export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
@@ -62,6 +66,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			}
 
 			let _urlParams = params !== null ? `?${params.join("&")}` : "";
+
 			if (s.menuType === defMenuType.Link) {
 				let url = s.path || mainUrl;
 				return (
@@ -69,7 +74,34 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 						key={key}
 						className={_iconClassName}
 						to={`/${userInfo.langId}/${url}${_urlParams}`}>
-						<span className={s.icon}>{displayText}</span>
+						<img
+							className="ListBG-left"
+							src={SubMenuListBGLeftImg}
+						/>
+						<img
+							className="ListBG-right"
+							src={SubMenuListBGRightImg}
+						/>
+						<img
+							className="ListBG-center"
+							src={SubMenuListBGCenterImg}
+						/>
+
+						{s.listNpcImgUrl ? (
+							<img
+								className="List-npc"
+								src={require(`../../styles/img/${s.listNpcImgUrl}`)}
+							/>
+						) : null}
+
+						{s.listBgImgUrl ? (
+							<img
+								className="List-bg"
+								src={require(`../../styles/img/${s.listBgImgUrl}`)}
+							/>
+						) : null}
+
+						<span>{displayText}</span>
 					</Link>
 				);
 			} else {
@@ -83,7 +115,34 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 							needLogin: s.needLogin,
 							path: s.path
 						})}>
-						<span className={s.icon}>{displayText}</span>
+						<img
+							className="ListBG-left"
+							src={SubMenuListBGLeftImg}
+						/>
+						<img
+							className="ListBG-right"
+							src={SubMenuListBGRightImg}
+						/>
+						<img
+							className="ListBG-center"
+							src={SubMenuListBGCenterImg}
+						/>
+
+						{s.listNpcImgUrl ? (
+							<img
+								className="List-npc"
+								src={require(`../../styles/img/${s.listNpcImgUrl}`)}
+							/>
+						) : null}
+
+						{s.listBgImgUrl ? (
+							<img
+								className="List-bg"
+								src={require(`../../styles/img/${s.listBgImgUrl}`)}
+							/>
+						) : null}
+
+						<span>{displayText}</span>
 					</button>
 				);
 			}

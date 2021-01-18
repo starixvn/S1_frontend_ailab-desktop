@@ -62,11 +62,9 @@ export default class Panel extends Component {
 				<div>
 					<MainMenu showSubMenu={this.showSubMenu} />
 					{subItems ? (
-						<div
-							className="subMenu-Wrapper active"
-							ref={this.wrapper}>
+						<div className="subMenu-Wrapper-new" ref={this.wrapper}>
 							<SubMenu
-								MenuKey={this.state.menuKey}
+								menuKey={this.state.menuKey}
 								listClassName={
 									defSubListClassName[this.state.menuKey]
 								}
