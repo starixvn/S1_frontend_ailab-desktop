@@ -8,20 +8,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
-import { useMatch, useLocation } from "@reach/router";
+import { useLocation } from "@reach/router";
 import config from "../config";
 import path from "../router";
-
-const query = graphql`
-	query {
-		site {
-			siteMetadata {
-				supportedLanguages
-			}
-		}
-	}
-`;
 
 const defMetaData = {
 	"/": {
@@ -115,11 +104,7 @@ const defMetaData = {
 };
 
 function SEO({ description, lang, meta, title }) {
-	const {
-		site: {
-			siteMetadata: { supportedLanguages }
-		}
-	} = useStaticQuery(query);
+	const supportedLanguages = ["en", "cs", "th", "id"];
 
 	const location = useLocation()
 		?.pathname?.split("/")

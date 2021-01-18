@@ -275,7 +275,7 @@ export default ({ children, afterLogin = false }) => {
 
 		return (
 			<>
-				<SEO />
+				<SEO lang={userInfo.langId} />
 				{content}
 			</>
 		);
