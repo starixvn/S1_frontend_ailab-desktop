@@ -53,7 +53,10 @@ export default () => {
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
-	const rewardList = defRewardList({ t })[currencyName][categoryID];
+	const rewardList = defRewardList({ t })[currencyName]
+		? defRewardList({ t })[currencyName][categoryID]
+		: defRewardList({ t }).MYR[categoryID];
+
 	const LastChampionReward = defLastChampionReward({ t })[currencyName][
 		categoryID
 	];
