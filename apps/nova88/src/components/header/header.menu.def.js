@@ -143,7 +143,6 @@ export const defMenuLinks = {
 		className: "slotbtn icon icon-new",
 		subMenu: [
 			{
-				className: "PP",
 				icon: "icon icon-PP",
 				displayText: "PP",
 				menuType: defMenuType.Link,
@@ -153,7 +152,6 @@ export const defMenuLinks = {
 				...productList.casino_PP
 			},
 			{
-				className: "ICG icon icon-new",
 				icon: "icon icon-ICG",
 				displayText: "ICG",
 				menuType: defMenuType.Link,
@@ -163,7 +161,6 @@ export const defMenuLinks = {
 				...productList.casino_ICG
 			},
 			{
-				className: "JOKER",
 				icon: "icon icon-JOKER",
 				displayText: "JOKER",
 				menuType: defMenuType.Link,
@@ -173,7 +170,6 @@ export const defMenuLinks = {
 				...productList.casino_JOKER
 			},
 			{
-				className: "CQ9",
 				icon: "icon icon-cq9",
 				displayText: "CQ9",
 				menuType: defMenuType.Link,
@@ -183,7 +179,6 @@ export const defMenuLinks = {
 				...productList.casino_CQ9
 			},
 			{
-				className: "GPI",
 				icon: "icon icon-GPI",
 				displayText: "GPI",
 				menuType: defMenuType.Link,
@@ -193,7 +188,6 @@ export const defMenuLinks = {
 				...productList.casino_GPI
 			},
 			{
-				className: "YGG",
 				icon: "icon icon-YGG",
 				displayText: "YGG",
 				menuType: defMenuType.Link,
@@ -203,7 +197,6 @@ export const defMenuLinks = {
 				...productList.casino_YGG
 			},
 			{
-				className: "SG",
 				icon: "icon icon-SG",
 				displayText: "SG",
 				menuType: defMenuType.Link,
@@ -213,7 +206,6 @@ export const defMenuLinks = {
 				...productList.casino_SG
 			},
 			{
-				className: "PG",
 				icon: "icon icon-PG",
 				displayText: "PG",
 				menuType: defMenuType.Link,
@@ -231,7 +223,6 @@ export const defMenuLinks = {
 			// 	...productList.kiss918
 			// },
 			{
-				className: "OW",
 				icon: "icon icon-OW",
 				displayText: "OW",
 				menuType: defMenuType.entPage,
