@@ -57,9 +57,9 @@ export default () => {
 		? defRewardList({ t })[currencyName][categoryID]
 		: defRewardList({ t }).MYR[categoryID];
 
-	const LastChampionReward = defLastChampionReward({ t })[currencyName][
-		categoryID
-	];
+	const LastChampionReward = defLastChampionReward({ t })[currencyName]
+		? defLastChampionReward({ t })[currencyName][categoryID]
+		: defLastChampionReward({ t }).MYR[categoryID];
 
 	useEffect(() => {
 		isMountedRef.current = true;
