@@ -36,6 +36,8 @@ import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
 import config from "../../config";
 
+import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
+
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
@@ -293,7 +295,7 @@ const IndexPage = () => {
 	const { t } = useTranslation();
 
 	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
+	const { popBox, setPopBox } = useContext(popBoxContext);
 
 	const showLogin = () => {
 		setPopBox({
@@ -319,36 +321,54 @@ const IndexPage = () => {
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
-			let cookieName = `balanceHint${userInfo.userName}`;
-			let showDepositHint = false;
-			if (readCookie(cookieName) !== "1") {
-				setCookie(cookieName, "1", 1);
-				showDepositHint = true;
-			}
+			const showDepositPopBox = () => {
+				const cookieName = `balanceHint${userInfo.userName}`;
+				let showDepositHint = false;
+				if (readCookie(cookieName) !== "1") {
+					setCookie(cookieName, "1", 1);
+					showDepositHint = true;
+				}
 
-			if (showDepositHint) {
-				api_account_GetWalletInfo().then(res => {
-					if (res.data.errorCode === 0 && isMountedRef.current) {
-						let tpWallets = res.data.data.tpWallets?.map(t => {
-							return {
-								tpId: t.tpId,
-								balance: t.balance
-							};
-						});
-
-						let hasBalance =
-							res.data.data?.balance ||
-							tpWallets?.filter(t => {
-								return t.balance > 0;
-							}).length >= 1;
-
-						if (!hasBalance && showDepositHint) {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.DepositHint
+				if (showDepositHint) {
+					api_account_GetWalletInfo().then(res => {
+						if (res.data.errorCode === 0 && isMountedRef.current) {
+							let tpWallets = res.data.data.tpWallets?.map(t => {
+								return {
+									tpId: t.tpId,
+									balance: t.balance
+								};
 							});
+
+							let hasBalance =
+								res.data.data?.balance ||
+								tpWallets?.filter(t => {
+									return t.balance > 0;
+								}).length >= 1;
+
+							if (!hasBalance && showDepositHint) {
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.DepositHint
+								});
+							}
 						}
-					}
+					});
+				}
+			};
+
+			const clickClose = () => {
+				setPopBox({ isOpen: false });
+				showDepositPopBox();
+			};
+
+			const refeCookieName = `referral_${userInfo.userName}`;
+			if (readCookie(refeCookieName) === "1") {
+				showDepositPopBox();
+			} else {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.JoinReferral,
+					onClickClose: clickClose
 				});
 			}
 		}
@@ -371,10 +391,12 @@ const IndexPage = () => {
 					{...userInfo}
 				/>
 			</section>
-			<img
+			{/* New Year Theme */}
+			<img src={indexCenterBanner} alt="IndexCenterBanner" />
+			{/* <img
 				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
 				alt="IndexCenterBanner"
-			/>
+			/> */}
 			<SideBarQuickLink />
 		</main>
 	);

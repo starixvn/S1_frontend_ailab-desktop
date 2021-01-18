@@ -13,21 +13,20 @@ export default () => {
 	const [casinoTpIds, setCasinoTpIds] = useState(null);
 
 	useEffect(() => {
+		let mounted = true;
 		if (userInfo.isLogin && casinoTpIds === null) {
-			api_site_GetTpIds().then(
-				res => {
-					if (res.data.errorCode === 0) {
-						setCasinoTpIds(res.data.data);
-					}
-				},
-				err => {
-					if (this.isMountedRef) {
-					}
+			api_site_GetTpIds().then(res => {
+				if (res.data.errorCode === 0 && mounted) {
+					setCasinoTpIds(res.data.data);
 				}
-			);
+			});
 		} else if (userInfo.isLogin === false && casinoTpIds?.length > 0) {
 			setCasinoTpIds(null);
 		}
+
+		return () => {
+			mounted = false;
+		};
 	}, [userInfo.isLogin, casinoTpIds]);
 
 	return (

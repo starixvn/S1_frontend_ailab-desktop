@@ -17,37 +17,14 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const [casinoTpIds, setCasinoTpIds] = useState(null);
 	const isMountedRef = useRef(null);
-	const ClosePopBox = () => {
-		setPopBox({ isOpen: false });
-	};
 
 	useEffect(() => {
 		if (userInfo.isLogin && casinoTpIds === null) {
-			api_site_GetTpIds().then(
-				res => {
-					if (res.data.errorCode === 0) {
-						setCasinoTpIds(res.data.data);
-					}
-				},
-				err => {
-					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
+			api_site_GetTpIds().then(res => {
+				if (res.data.errorCode === 0 && isMountedRef.current) {
+					setCasinoTpIds(res.data.data);
 				}
-			);
+			});
 		} else if (userInfo.isLogin === false && casinoTpIds?.length > 0) {
 			setCasinoTpIds(null);
 		}
