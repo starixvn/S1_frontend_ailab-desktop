@@ -8,11 +8,11 @@ import { create } from "react-test-renderer";
 import ShallowRenderer from "react-test-renderer/shallow";
 import renderer from "react-test-renderer";
 import { render, cleanup, fireEvent, screen } from "@testing-library/react";
+import TransferFunds from "../../transferFunds/transferFunds";
 import SetAmount from "../../transferFunds/setAmount";
 import { isConvert } from "../common.js";
 
 jest.mock("react-i18next", () => ({
-	// this mock makes sure any components using the translate hook can use it without a warning being shown
 	useTranslation: () => {
 		return {
 			t: jest.fn()
@@ -86,37 +86,33 @@ describe("render wallet dropdown items", () => {
 	});
 });
 
-// ----------
-
-// 	test("onchange select item", () => {
-// 		const fake_data = {
-// 			i18n: jest.fn(),
-// 			useTranslation: () => {
-// 				return {
-// 					t: jest.fn(),
-// 				};
-// 			},
-// 			onSelectWallet: jest.fn(),
-// 			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
-// 			toOptions: [
-// 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
-// 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
-// 			],
-// 			selectedFromIdx: -1,
-// 			selectedToIdx: -1,
-// 			clickSubmit: jest.fn()
-// 		};
-// 		const { container, getByText } = render(<SetAmount {...fake_data} />);
-// 		fireEvent.click(getByText("lbl_MainWallet"));
-
-// 		expect(fake_data.onSelectWallet).toHaveBeenCalled();
-// 		// expect(container.getElementsByClassName("btn").textContent).toBe("_");
-// 	});
-// });
-
-// not render event:
 describe("test function: onSelectWallet()", () => {
-	test("selected the dropdown item correctly", () => {
+	test("onchange function have been called", () => {
+		const fake_data = {
+			i18n: jest.fn(),
+			useTranslation: () => {
+				return {
+					t: jest.fn()
+				};
+			},
+			onSelectWallet: jest.fn(),
+			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
+			toOptions: [
+				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
+				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
+			],
+			selectedFromIdx: -1,
+			selectedToIdx: -1,
+			clickSubmit: jest.fn()
+		};
+		const { getByTestId } = render(<SetAmount {...fake_data} />);
+		fireEvent.click(getByTestId(`dropdown-item-lbl_TpWallet_1`));
+
+		expect(fake_data.onSelectWallet).toHaveBeenCalled();
+	});
+
+	// not render event:
+	test("selected the dropdown item parameter correctly", () => {
 		let col = "from";
 		let value = { id: 0 };
 		let oppsCol = col === "from" ? "to" : "from";
@@ -160,33 +156,33 @@ describe("test function: checkSelectWallet()", () => {
 
 // describe("test function: checkAmount()", () => {
 // 	afterEach(cleanup);
-// 	test("amount > 0 ,return true", () => {
-// 		let result = checkAmount(100);
-// 		expect(result).toBe(true);
-// 	});
-// 	test("amount < 0,return false", () => {
-// 		let result = checkAmount(-50);
-// 		expect(result).toBe(true);
-// 	});
+// 	// test("amount > 0 ,return true", () => {
+// 	// 	let result = checkAmount(100);
+// 	// 	expect(result).toBe(true);
+// 	// });
+// 	// test("amount < 0,return false", () => {
+// 	// 	let result = checkAmount(-50);
+// 	// 	expect(result).toBe(true);
+// 	// });
 
-// 	const component = create(<TransferFunds />);
-// 	const instance = component.getInstance();
-// 	let result = instance.checkAmount();
-// 	expect(result).toBe(true);
+// 	// const component = create(<TransferFunds />);
+// 	// const instance = component.getInstance();
+// 	// let result = instance.checkAmount();
+// 	// expect(result).toBe(true);
 
 // 	const wrapper = ShallowRenderer(<TransferFunds />);
 // 	expect(wrapper.instance().checkAmount(100)).toBe(true);
 // });
 
-// describe("test function: checkAmount", () => {
-// 	let test_value = 10;
-// 	const wrapper = new ShallowRenderer().render(<TransferFunds />);
-// 	expect(wrapper.dive().instance().checkAmount(test_value)).toEqual(true);
-// });
+describe("test function: checkAmount", () => {
+	let test_value = 10;
+	const wrapper = new ShallowRenderer().render(<TransferFunds />);
+	expect(wrapper.dive().instance().checkAmount(test_value)).toEqual(true);
+});
 
 // not render event:
 describe("test function: clickSubmit", () => {
-	test("transfer post value correctly", () => {
+	test("transfer post parameter correctly", () => {
 		let selectedTpId = {
 			from: 0
 		};

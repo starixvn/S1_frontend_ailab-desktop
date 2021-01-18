@@ -89,7 +89,6 @@ export class Dropdown extends Component {
 				ref={this.wrapper}
 				onClick={this.clickDropdown}
 				data-testid={`dropdown_${this.props.mainKey}`}>
-				{console.log(this.props)}
 				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`}></i>
@@ -113,7 +112,10 @@ export class Dropdown extends Component {
 
 const Item = props => {
 	return (
-		<div className="dropdown-item" onClick={props.onClick}>
+		<div
+			className="dropdown-item"
+			onClick={props.onClick}
+			data-testid={`dropdown-item-${props.displayKey}`}>
 			{props.imgUrl ? (
 				<>
 					<div className={props.className}>
