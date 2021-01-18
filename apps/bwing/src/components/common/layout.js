@@ -5,10 +5,6 @@ import Footer from "../footer/footer";
 import SEO from "../seo";
 import PopBox from "./popBox";
 import Loading from "./loading";
-import "../../styles/css/swiper.css";
-import "../../styles/css/style.css";
-import "../../styles/css/font.css";
-import "../../styles/css/datePicker.css";
 import { loadingContext } from "../../components/common/context";
 
 const Layout = ({ children, showFooter = false }) => {

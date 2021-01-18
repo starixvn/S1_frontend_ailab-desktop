@@ -33,6 +33,11 @@ export const defLeftMenu = {
 				path: path.withdrawalHistory.root,
 				displayKey: "lbl_WithdrawalHistory"
 			},
+			referralHistory: {
+				path: path.referralHistory.root,
+				displayKey: "lbl_ReferralHistory",
+				icon: "icon-new"
+			},
 			financial: {
 				path: path.financial.root,
 				displayKey: "lbl_Financial"

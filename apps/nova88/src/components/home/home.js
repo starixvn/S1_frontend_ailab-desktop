@@ -36,6 +36,8 @@ import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
 import config from "../../config";
 
+import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
+
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,

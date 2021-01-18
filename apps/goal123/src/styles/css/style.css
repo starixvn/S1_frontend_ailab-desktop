@@ -276,6 +276,7 @@ header .header > div.menu .gameList a, header .header > div.menu .gameList butto
   min-height: 140px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
+  position: relative;
 }
 
 header .header > div.menu .gameList a img, header .header > div.menu .gameList button img, header .header > div.menu .casinoList a img, header .header > div.menu .casinoList button img, header .header > div.menu .livecasinoList a img, header .header > div.menu .livecasinoList button img, header .header > div.menu .fishList a img, header .header > div.menu .fishList button img {
@@ -6119,5 +6120,16 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 .transferModule .inputBox .dropdown .dropdown-item, .transferModule .inputBox-org .dropdown .dropdown-item, .transferModule .inputBox-white .dropdown .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-item, .transferModule .inputBox-gray .dropdown .dropdown-item, .transferModule .inputBox-yellow .dropdown .dropdown-item {
   color: white;
   text-align: right;
+}
+
+.socialMedia {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+}
+
+.socialMedia img {
+  max-width: 50px;
 }
 /*# sourceMappingURL=style.css.map */

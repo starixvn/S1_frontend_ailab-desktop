@@ -4,10 +4,6 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import PopBox from "./popBox";
 import Loading from "./loading";
-import "../../styles/css/swiper.css";
-import "../../styles/css/style.css";
-import "../../styles/css/font.css";
-import "../../styles/css/datePicker.css";
 import CanvasFireworks from "./canvasFireworks";
 
 const Layout = ({ children, showFooter = false }) => {
