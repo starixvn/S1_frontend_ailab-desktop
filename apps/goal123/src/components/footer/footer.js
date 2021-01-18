@@ -11,6 +11,9 @@ import OurPolicies from "./footer.ourPolicies";
 import HelpSupport from "./footer.helpSupport";
 import Promotions from "./footer.promotions";
 import About from "./footer.about";
+import imgTelegram from "../../styles/img/te_1.png";
+import imgSkype from "../../styles/img/sk_1.png";
+import imgZalo from "../../styles/img/zalo_1.png";
 
 export default () => {
 	const { t } = useTranslation();
@@ -32,28 +35,17 @@ export default () => {
 				<div>
 					<span className="title">{t("lbl_ContactUs")}</span>
 					<div>{t("lbl_ConatctUsHint")}</div>
-					{/* <div>
-					<span className="title">Social Media</span>
-					<div>
-						<a href="">
-							<img src={SocialMedia1} />
+					<div className="socialMedia">
+						<a href="https://t.me/Goal123csd" target="_blank">
+							<img src={imgTelegram} alt="img_Telegram" />
 						</a>
-						<a href="">
-							<img src={SocialMedia2} />
+						<a href="skype:live:.cid.d357533c71e50fb5?chat">
+							<img src={imgSkype} alt="img_Skype" />
 						</a>
-						<a href="">
-							<img src={SocialMedia3} />
+						<a href="https://zalo.me/Goal123csd" target="_blank">
+							<img src={imgZalo} alt="img_Zalo" />
 						</a>
 					</div>
-					<div>
-						<a href="">
-							<img src={SocialMedia4} />
-						</a>
-						<a href="">
-							<img src={SocialMedia5} />
-						</a>
-					</div>
-				</div> */}
 				</div>
 			</div>
 			<div className="copyright">
