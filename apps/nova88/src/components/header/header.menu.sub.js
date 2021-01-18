@@ -91,7 +91,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 							/>
 						) : null}
 
-						<span className={s.icon}>{displayText}</span>
+						<span>{displayText}</span>
 					</Link>
 				);
 			} else {
@@ -132,7 +132,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 							/>
 						) : null}
 
-						<span className={s.icon}>{displayText}</span>
+						<span>{displayText}</span>
 					</button>
 				);
 			}

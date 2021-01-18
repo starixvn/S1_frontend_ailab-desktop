@@ -152,6 +152,7 @@ export const defMenuLinks = {
 				...productList.casino_PP
 			},
 			{
+				className: "icon icon-new",
 				icon: "icon icon-ICG",
 				displayText: "ICG",
 				menuType: defMenuType.Link,
