@@ -454,7 +454,7 @@ export const defMenuLinks = {
 export const defSubListClassName = {
 	sports: "sportsList",
 	eSports: "eSportsList",
-	casino: "slotList",
+	casino: "casinoList",
 	liveCasino: "livecasinoList",
 	lottery: "gameList",
 	fishing: "fishList"
