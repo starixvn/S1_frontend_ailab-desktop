@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { number_format } from "../common/common";
 import { useTranslation } from "react-i18next";
+import { number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 
 export default props => {
@@ -20,7 +20,8 @@ export default props => {
 					</span>
 					<i
 						className="icon icon-error"
-						onClick={onHandleRealNameHint}></i>
+						onClick={onHandleRealNameHint}
+					/>
 					<div className={`tip${showRealNameHint ? " active" : ""}`}>
 						{t("lbl_BankAccountName")}
 					</div>

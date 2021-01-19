@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import {
-	userInfoContext,
-	popBoxContext
-} from "../../components/common/context";
-import {
-	getUrlParameter,
-	isConvert,
-	number_format
-} from "../../components/common/common";
+import { userInfoContext, popBoxContext } from "../common/context";
+import { getUrlParameter, isConvert, number_format } from "../common/common";
 import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
 import { defPopBoxType } from "../common/popBox";
@@ -22,25 +15,25 @@ import { defFilterType } from "./promotion.nav";
 
 export default () => {
 	const filterType = getUrlParameter("FilterType");
-	let isSpecialType = filterType === defFilterType.specialBonus;
-
+	const isSpecialType = filterType === defFilterType.specialBonus;
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [promotionInfo, setPromotionInfo] = useState(null);
 	const isMountedRef = useRef(null);
 	const [loading, setLoading] = useState(true);
-
-	let _currency = t(`Currency_${userInfo.currencyId}`);
+	const _currency = t(`Currency_${userInfo.currencyId}`);
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
 		if (userInfo.isLogin !== null) {
-			let _bonusCode = getUrlParameter("bonusCode");
+			const _bonusCode = getUrlParameter("bonusCode");
 			getPromotionDetail(userInfo.langId, _bonusCode);
 		}
 	}, [userInfo.isLogin, userInfo.langId]);
@@ -80,7 +73,8 @@ export default () => {
 				setLoading(false);
 				if (success) {
 					return setPromotionInfo(data);
-				} else {
+				}
+				if (!success) {
 					openErrorMessagePopBox(message || "error", errorCode);
 				}
 			},
@@ -121,15 +115,15 @@ export default () => {
 		_isExpiry = isExpiry({ ...promotionInfo, isLogin: userInfo.isLogin });
 	}
 
-	let wrapperClass = _isExpiry
+	const wrapperClass = _isExpiry
 		? " expiredClaimedInfo"
 		: _isClaimed
 		? " claimedInfo"
 		: "";
 
-	let _isConvert = isConvert(userInfo.currencyId);
+	const _isConvert = isConvert(userInfo.currencyId);
 
-	let specialBonusWrapperClass =
+	const specialBonusWrapperClass =
 		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
 	return loading ? (
@@ -142,7 +136,7 @@ export default () => {
 				<div className="infoModule">
 					<div
 						className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
-						{_isClaimed ? <div className="claimed"></div> : null}
+						{_isClaimed ? <div className="claimed" /> : null}
 						<img
 							src={promotionInfo.banner}
 							alt={promotionInfo.description}
@@ -206,7 +200,8 @@ export default () => {
 								className="proDataBody"
 								dangerouslySetInnerHTML={{
 									__html: `${promotionInfo.details}`
-								}}></div>
+								}}
+							/>
 						</div>
 					</div>
 				</div>
@@ -229,12 +224,12 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType }) => {
 		<>
 			<div className="colorInfo">
 				<div>
-					<span></span>
+					<span />
 					{t("lbl_ID")}
 				</div>
 				<div>
-					<span></span>
-					{"lbl_Amount"}
+					<span />
+					{t("lbl_Amount")}
 				</div>
 			</div>
 			<div className="depositSlip">

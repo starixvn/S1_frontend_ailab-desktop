@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
-import Favicon from "../styles/img/favicon-n8g.ico";
 import { useLocation } from "@reach/router";
+import Favicon from "../styles/img/favicon-n8g.ico";
 
 const defHrefLang = {
 	en: "en-us",
@@ -29,9 +29,9 @@ function SEO({ description, lang, meta, title }) {
 
 	const metaDescription = description || site.siteMetadata.description;
 
-	let splitPath =
+	const splitPath =
 		typeof window !== undefined && window.location.pathname.split("/");
-	let htmlClass =
+	const htmlClass =
 		typeof window !== undefined &&
 		(window.location.pathname === "/" ||
 			((splitPath.length === 2 ||
@@ -93,8 +93,9 @@ function SEO({ description, lang, meta, title }) {
 						name: `twitter:description`,
 						content: metaDescription
 					}
-				].concat(meta)}></Helmet>
-			<GATag gaCode={"UA-163812389-1"} />
+				].concat(meta)}
+			/>
+			<GATag gaCode="UA-163812389-1" />
 			<FBPixelCode />
 			<LiveChat />
 			<FPS />
@@ -138,9 +139,8 @@ const GATag = ({ gaCode }) => {
 		<Helmet>
 			<script
 				async
-				src={
-					"https://www.googletagmanager.com/gtag/js?id=" + gaCode
-				}></script>
+				src={`https://www.googletagmanager.com/gtag/js?id=${gaCode}`}
+			/>
 			<script async>
 				{`window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
@@ -174,7 +174,7 @@ const FBPixelCode = () => {
 					  src="https://www.facebook.com/tr?id=1012937295810473&ev=PageView&noscript=1"
 					/>`}
 			</noscript>
-			<script>{`fbq('track', 'CompleteRegistration')`}</script>
+			<script>fbq('track', 'CompleteRegistration')</script>
 		</Helmet>
 	);
 };
@@ -185,7 +185,8 @@ const FPS = () => {
 			<script
 				async=""
 				defer=""
-				src="//sc.detecas.com/di/activator.ashx"></script>
+				src="//sc.detecas.com/di/activator.ashx"
+			/>
 		</Helmet>
 	);
 };
@@ -199,8 +200,7 @@ SEO.defaultProps = {
 SEO.propTypes = {
 	description: PropTypes.string,
 	lang: PropTypes.string,
-	meta: PropTypes.arrayOf(PropTypes.object),
-	title: PropTypes.string
+	meta: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default SEO;

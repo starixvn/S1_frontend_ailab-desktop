@@ -1,6 +1,6 @@
 import React, { Component, createRef } from "react";
 
-export class Dropdown extends Component {
+class Dropdown extends Component {
 	constructor(props) {
 		super(props);
 
@@ -8,15 +8,15 @@ export class Dropdown extends Component {
 		this.wrapper = createRef(null);
 	}
 
-	componentDidMount() {
+	UNSAFE_componentWillMount() {
 		if (typeof document !== `undefined`) {
-			document.addEventListener("mousedown", this.handleClickOutside);
+			document.removeEventListener("mousedown", this.handleClickOutside);
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		if (typeof document !== `undefined`) {
-			document.removeEventListener("mousedown", this.handleClickOutside);
+			document.addEventListener("mousedown", this.handleClickOutside);
 		}
 	}
 
@@ -28,7 +28,7 @@ export class Dropdown extends Component {
 
 	clickDropdown = e => {
 		e.preventDefault();
-		this.setState({ isOpen: !this.state.isOpen });
+		this.setState(prev => ({ isOpen: !prev.isOpen }));
 		if (this.props.clickDropdown) {
 			this.props.clickDropdown();
 		}
@@ -40,7 +40,7 @@ export class Dropdown extends Component {
 	};
 
 	render() {
-		let arr = this.props.options
+		const arr = this.props.options
 			.map((item, i) => {
 				return (
 					<Item
@@ -67,7 +67,7 @@ export class Dropdown extends Component {
 			this.props.options?.length > 0 &&
 			this.props.options[this.props.selectedIdx]
 		) {
-			let _s = this.props.options[this.props.selectedIdx];
+			const _s = this.props.options[this.props.selectedIdx];
 
 			if (_s.displayText) {
 				selected = _s.displayText;
@@ -85,7 +85,7 @@ export class Dropdown extends Component {
 				onClick={this.clickDropdown}>
 				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
-					<i className={`icon ${this.props.icon}`}></i>
+					<i className={`icon ${this.props.icon}`} />
 				) : null}
 				<button className="btn">{selected}</button>
 				{arr.length < 1 ? null : (
