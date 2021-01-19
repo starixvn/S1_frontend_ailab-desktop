@@ -71,7 +71,7 @@ export default ({
 	const SelectAmount = (_amount, e) => {
 		e.preventDefault();
 		ValidAmount(_amount);
-		dispatch({ type: defActionType.EDIT_AMOUNT, _amount });
+		dispatch({ type: defActionType.EDIT_AMOUNT, amount: _amount });
 	};
 
 	const typeIsSelAmount = channelInfo.amountRule === 3;
