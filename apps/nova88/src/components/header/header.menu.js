@@ -1,6 +1,5 @@
 import React, { createRef, Component } from "react";
 import SubMenu from "./header.menu.sub";
-import { defMenuLinks, defSubListClassName } from "./header.menu.def";
 import MainMenu from "./header.menu.main";
 
 export default class Panel extends Component {
@@ -44,7 +43,10 @@ export default class Panel extends Component {
 		return (
 			<div className="menu">
 				<div>
-					<MainMenu showSubMenu={this.showSubMenu} />
+					<MainMenu
+						showSubMenu={this.showSubMenu}
+						currentMenuKey={this.state.menuKey}
+					/>
 
 					<div className="subMenu-Wrapper-new" ref={this.wrapper}>
 						<SubMenu

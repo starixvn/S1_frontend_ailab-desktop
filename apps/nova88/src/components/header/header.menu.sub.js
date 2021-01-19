@@ -43,10 +43,9 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {
-		let subClassName =
-			`${defSubListClassName[menuKey]} ${
-				menuKey === currentMenuKey ? "active" : ""
-			}` || "";
+		let subClassName = `${defSubListClassName[menuKey] || ""}${
+			menuKey === currentMenuKey ? " active" : ""
+		}`;
 		let subMenu = [];
 
 		if (typeof defMenuLinks[menuKey]?.subMenu !== undefined) {
