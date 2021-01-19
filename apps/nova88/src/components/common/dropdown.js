@@ -35,7 +35,7 @@ class Dropdown extends Component {
 	};
 
 	selectItem = ({ idx, item }, e) => {
-		e.preventDefault();
+		e.stopPropagation();
 		this.setState({ isOpen: false });
 		this.props.onSelectItem(idx, item);
 	};

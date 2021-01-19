@@ -50,13 +50,14 @@ export class Dropdown extends Component {
 		}
 	};
 
-	selectItem = async (value, newPath) => {
+	selectItem = async (value, newPath, e) => {
+		e.stopPropagation();
 		if (value !== this.props.selectedValue) {
 			this.setState({ isOpen: false });
 			if (this.props.isLogin) {
 				try {
 					api_account_SetLanguage(value);
-				} catch (e) {}
+				} catch (error) {}
 			}
 
 			window.location.href = newPath;
