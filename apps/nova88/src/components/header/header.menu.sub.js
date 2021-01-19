@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
 import { defMenuType } from "./header.menu.def";
@@ -77,20 +78,15 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 							src={SubMenuListBGCenterImg}
 						/>
 
-						{s.listNpcImgUrl ? (
-							<img
-								className="List-npc"
-								src={require(`../../styles/img/${s.listNpcImgUrl}`)}
-							/>
-						) : null}
+						<ImgsRender
+							className="List-npc"
+							listImgUrl={s.listNpcImgUrl}
+						/>
 
-						{s.listBgImgUrl ? (
-							<img
-								className="List-bg"
-								src={require(`../../styles/img/${s.listBgImgUrl}`)}
-							/>
-						) : null}
-
+						<ImgsRender
+							className="List-bg"
+							listImgUrl={s.listBgImgUrl}
+						/>
 						<span>{displayText}</span>
 					</Link>
 				);
@@ -118,19 +114,15 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 							src={SubMenuListBGCenterImg}
 						/>
 
-						{s.listNpcImgUrl ? (
-							<img
-								className="List-npc"
-								src={require(`../../styles/img/${s.listNpcImgUrl}`)}
-							/>
-						) : null}
+						<ImgsRender
+							className="List-npc"
+							listImgUrl={s.listNpcImgUrl}
+						/>
 
-						{s.listBgImgUrl ? (
-							<img
-								className="List-bg"
-								src={require(`../../styles/img/${s.listBgImgUrl}`)}
-							/>
-						) : null}
+						<ImgsRender
+							className="List-bg"
+							listImgUrl={s.listBgImgUrl}
+						/>
 
 						<span>{displayText}</span>
 					</button>
@@ -139,4 +131,30 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		});
 
 	return <div className={`${listClassName} active`}>{rows}</div>;
+};
+
+const ImgsRender = ({ listImgUrl, className }) => {
+	if (typeof listImgUrl === "string" || listImgUrl instanceof String)
+		return (
+			<img
+				className={className}
+				src={require(`../../styles/img/${listImgUrl}`)}
+			/>
+		);
+
+	if (Array.isArray(listImgUrl) && listImgUrl.length)
+		return listImgUrl.map(imgUrl => (
+			<img
+				key={`imgs-key-${imgUrl}`}
+				className={className}
+				src={require(`../../styles/img/${imgUrl}`)}
+			/>
+		));
+
+	return null;
+};
+
+ImgsRender.propTypes = {
+	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+	className: PropTypes.string
 };

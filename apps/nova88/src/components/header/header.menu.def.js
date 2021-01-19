@@ -243,7 +243,7 @@ export const defMenuLinks = {
 				icon: "icon icon-WM",
 				displayText: "WM",
 				listNpcImgUrl: "casino-WM.png",
-				listBgImgUrl: "wmBG.png",
+				listBgImgUrl: ["wmBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -252,7 +252,7 @@ export const defMenuLinks = {
 				icon: "icon icon-AB",
 				displayText: "Allbet",
 				listNpcImgUrl: "casino-ALL.png",
-				listBgImgUrl: "allBG.png",
+				listBgImgUrl: ["allBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -261,7 +261,7 @@ export const defMenuLinks = {
 				icon: "icon icon-EB",
 				displayText: "eBET",
 				listNpcImgUrl: "casino-EB.png",
-				listBgImgUrl: "ebBG.png",
+				listBgImgUrl: ["ebBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -270,7 +270,7 @@ export const defMenuLinks = {
 				icon: "icon icon-SA",
 				displayText: "SA",
 				listNpcImgUrl: "casino-SA.png",
-				listBgImgUrl: "saBG.png",
+				listBgImgUrl: ["saBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -279,7 +279,7 @@ export const defMenuLinks = {
 				icon: "icon icon-AE",
 				displayText: "AE",
 				listNpcImgUrl: "casino-AE.png",
-				listBgImgUrl: "aeBG.png",
+				listBgImgUrl: ["aeBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -288,7 +288,7 @@ export const defMenuLinks = {
 				icon: "icon icon-PP",
 				displayText: "PP",
 				listNpcImgUrl: "casino-PP.png",
-				listBgImgUrl: "ppBG.png",
+				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -297,7 +297,7 @@ export const defMenuLinks = {
 				icon: "icon icon-DG",
 				displayText: "DG",
 				listNpcImgUrl: "casino-DG.png",
-				listBgImgUrl: "dgBG.png",
+				listBgImgUrl: ["dgBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -306,7 +306,7 @@ export const defMenuLinks = {
 				icon: "icon icon-AG",
 				displayText: "AG",
 				listNpcImgUrl: "casino-AG.png",
-				listBgImgUrl: "agBG.png",
+				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			}
 		]
