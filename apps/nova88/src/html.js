@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export default function HTML(props) {
 	const vkey = `${Date.now()}`;
 	return (
-		<html lang {...props.htmlAttributes}>
+		<html lang="en" {...props.htmlAttributes}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta httpEquiv="x-ua-compatible" content="ie=edge" />
