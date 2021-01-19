@@ -1,37 +1,14 @@
 import React, { useContext, lazy, Suspense } from "react";
 import { popBoxContext } from "./context";
 import Loading from "./loading";
-
-export const defPopBoxType = {
-	Cancel: "Cancel",
-	UploadBankSlip: "UploadBankSlip",
-	Success: "Success",
-	ErrorMsg: "ErrorMsg",
-	Login: "Login",
-	Join: "Join",
-	AddBankAccount: "AddBankAccount",
-	AddBankSuccess: "AddBankSuccess",
-	ConfirmDelete: "ConfirmDelete",
-	ProfileConfirmCheck: "ProfileConfirmCheck",
-	ProfileCompelete: "ProfileCompelete",
-	ChangePsw: "ChangePsw",
-	LogoutHint: "LogoutHint",
-	DepositHint: "DepositHint",
-	OTPHint: "OTPHint",
-	VerifyPhoneForm: "verifyPhoneForm",
-	WithdrawalSuccess: "WithdrawalSuccess",
-	UpdateProfile: "UpdateProfile",
-	TurnoverAccumulated: "TurnoverAccumulated",
-	PromotionDepositConfirm: "PromotionDepositConfirm",
-	PromotionAmountConfirm: "PromotionAmountConfirm"
-};
+import { defPopBoxType } from "./defPopBoxType";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
 
 	let content = null;
 	switch (popBox.popBoxType) {
-		case defPopBoxType.Cancel:
+		case defPopBoxType.Cancel: {
 			const Cancel = lazy(() => import("./popBox.cancel"));
 			content = (
 				<Cancel
@@ -42,8 +19,9 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.Success:
+		case defPopBoxType.Success: {
 			const Success = lazy(() => import("./popBox.success"));
 			content = (
 				<Success
@@ -56,16 +34,18 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.UploadBankSlip:
+		case defPopBoxType.UploadBankSlip: {
 			const { isOpen, ...restProps } = popBox;
 			const UploadBankSlip = lazy(() =>
 				import("./popBox.uploadBankSlip")
 			);
 			content = <UploadBankSlip {...restProps} />;
 			break;
+		}
 
-		case defPopBoxType.ErrorMsg:
+		case defPopBoxType.ErrorMsg: {
 			const ErrorMsg = lazy(() => import("./popBox.errorMsg"));
 			content = (
 				<ErrorMsg
@@ -76,18 +56,21 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.Login:
+		case defPopBoxType.Login: {
 			const Login = lazy(() => import("./popBox.login"));
 			content = <Login />;
 			break;
+		}
 
-		case defPopBoxType.Join:
+		case defPopBoxType.Join: {
 			const Join = lazy(() => import("./popBox.join"));
 			content = <Join />;
 			break;
+		}
 
-		case defPopBoxType.AddBankAccount:
+		case defPopBoxType.AddBankAccount: {
 			const AddBankAccount = lazy(() =>
 				import("./popBox.addBankAccount")
 			);
@@ -95,16 +78,18 @@ export default () => {
 				<AddBankAccount bankInfoSysList={popBox.bankInfoSysList} />
 			);
 			break;
+		}
 
-		case defPopBoxType.AddBankSuccess:
+		case defPopBoxType.AddBankSuccess: {
 			const AddBankSuccess = lazy(() =>
 				import("./popBox.addBankSuccess")
 			);
 			content = <AddBankSuccess btnBar={popBox.btnBar} />;
 			break;
+		}
 
-		case defPopBoxType.ConfirmDelete:
-			const ConfirmDelete = lazy(() => import("./popBox.ConfirmDelete"));
+		case defPopBoxType.ConfirmDelete: {
+			const ConfirmDelete = lazy(() => import("./popBox.confirmDelete"));
 			content = (
 				<ConfirmDelete
 					btnBar={popBox.btnBar}
@@ -113,8 +98,9 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.ProfileConfirmCheck:
+		case defPopBoxType.ProfileConfirmCheck: {
 			const ProfileConfirmCheck = lazy(() =>
 				import("./popBox.profileConfirmCheck")
 			);
@@ -125,15 +111,17 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.ProfileCompelete:
+		case defPopBoxType.ProfileCompelete: {
 			const ProfileCompelete = lazy(() =>
 				import("./popBox.profileCompelete")
 			);
 			content = <ProfileCompelete {...popBox} />;
 			break;
+		}
 
-		case defPopBoxType.ChangePsw:
+		case defPopBoxType.ChangePsw: {
 			const ChangePsw = lazy(() => import("./popBox.changePsw"));
 			content = (
 				<ChangePsw
@@ -145,20 +133,22 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.LogoutHint:
+		case defPopBoxType.LogoutHint: {
 			const LogoutHint = lazy(() => import("./popBox.logoutHint"));
 			content = (
 				<LogoutHint btnBar={popBox.btnBar} content={popBox.content} />
 			);
 			break;
-
-		case defPopBoxType.DepositHint:
+		}
+		case defPopBoxType.DepositHint: {
 			const DepositHint = lazy(() => import("./popBox.depositHint"));
 			content = <DepositHint />;
 			break;
+		}
 
-		case defPopBoxType.WithdrawalSuccess:
+		case defPopBoxType.WithdrawalSuccess: {
 			const WithdrawalSuccess = lazy(() =>
 				import("./popBox.withdrawalSuccess")
 			);
@@ -169,20 +159,23 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.OTPHint:
+		case defPopBoxType.OTPHint: {
 			const OTPHint = lazy(() => import("./popBox.otpHint"));
 			content = <OTPHint btnBar={popBox.btnBar} />;
 			break;
+		}
 
-		case defPopBoxType.VerifyPhoneForm:
+		case defPopBoxType.VerifyPhoneForm: {
 			const VerifyPhoneForm = lazy(() =>
 				import("./popBox.verifyPhoneForm")
 			);
 			content = <VerifyPhoneForm startUnixTime={popBox.startUnixTime} />;
 			break;
+		}
 
-		case defPopBoxType.UpdateProfile:
+		case defPopBoxType.UpdateProfile: {
 			const UpdateProfile = lazy(() => import("./popBox.updateProfile"));
 			content = (
 				<UpdateProfile
@@ -192,15 +185,17 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.TurnoverAccumulated:
+		case defPopBoxType.TurnoverAccumulated: {
 			const TurnoverAccumulated = lazy(() =>
 				import("./popBox.turnoverAccumulated")
 			);
 			content = <TurnoverAccumulated {...popBox} />;
 			break;
+		}
 
-		case defPopBoxType.PromotionDepositConfirm:
+		case defPopBoxType.PromotionDepositConfirm: {
 			const PromotionDepositConfirm = lazy(() =>
 				import("./popBox.promotionDepositConfirm")
 			);
@@ -211,8 +206,9 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
-		case defPopBoxType.PromotionAmountConfirm:
+		case defPopBoxType.PromotionAmountConfirm: {
 			const PromotionAmountConfirm = lazy(() =>
 				import("./popBox.promotionAmountConfirm")
 			);
@@ -226,6 +222,7 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
 		case defPopBoxType.default:
 			break;

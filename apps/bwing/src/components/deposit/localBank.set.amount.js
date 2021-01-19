@@ -6,7 +6,7 @@ import LimitTip from "./limitTip";
 import config from "../../config";
 import Inputbox from "../common/inputbox";
 import { api_accountStrict_SetAccountName } from "../../service/api/accountStrict";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 
 export default ({
@@ -35,7 +35,9 @@ export default ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const clickInfo = col => {
@@ -62,12 +64,12 @@ export default ({
 	};
 
 	const onChangeName = e => {
-		let value = e.target.value;
+		const { value } = e.target;
 		setNameValue(value);
 	};
 
 	const onChangeAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 		ValidAmount(value);
 		dispatch({ type: defActionType.EDIT_AMOUNT, amount: value });
@@ -99,7 +101,7 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		let result = checkAmount(
+		const result = checkAmount(
 			_amount,
 			bankInfo.minAmount,
 			bankInfo.maxAmount,
@@ -127,7 +129,7 @@ export default ({
 	};
 
 	const berforeSubmitCheck = () => {
-		let result = ValidAmount(amount) && checkName();
+		const result = ValidAmount(amount) && checkName();
 		if (result) {
 			if (!userInfo.accountName) {
 				setPopBox({
@@ -155,7 +157,7 @@ export default ({
 
 	const toConfirmAmountPage = () => {
 		api_accountStrict_SetAccountName({
-			name: nameValue ? nameValue : userInfo.accountName
+			name: nameValue || userInfo.accountName
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -235,15 +237,13 @@ export default ({
 					{userInfo.isLogin === true &&
 					!userInfo.accountName &&
 					userInfo.accountName !== undefined ? (
-						<>
-							<Inputbox
-								placeholder={t("lbl_RealName")}
-								onChange={onChangeName}
-								value={nameValue}
-								onBlur={checkName}
-								checked={status.accountName.checked}
-							/>
-						</>
+						<Inputbox
+							placeholder={t("lbl_RealName")}
+							onChange={onChangeName}
+							value={nameValue}
+							onBlur={checkName}
+							checked={status.accountName.checked}
+						/>
 					) : null}
 
 					{status.accountName.tip === "" ? null : (

@@ -8,7 +8,7 @@ export default ({ t, langId, isLogin }) => {
 			<span className="title">{t("lbl_SportsBetting")}</span>
 			<div>
 				<LinkItems
-					mainKey={`footer-`}
+					mainKey="footer-"
 					defMenuLinks={defSportsBetting}
 					t={t}
 					langId={langId}

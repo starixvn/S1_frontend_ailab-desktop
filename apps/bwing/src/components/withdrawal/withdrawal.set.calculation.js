@@ -1,6 +1,6 @@
 import React from "react";
-import { number_format } from "../common/common";
 import { useTranslation } from "react-i18next";
+import { number_format } from "../common/common";
 
 export default ({ balanceData, _isConvert }) => {
 	const { t } = useTranslation();

@@ -7,9 +7,9 @@ import React, {
 } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
+import moment from "moment";
 import path from "../../router";
 import { walletInfoContext, userInfoContext } from "../common/context";
-import moment from "moment";
 import { isConvert, number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 import HeaderProcessBar from "./header.processBar";
@@ -32,12 +32,14 @@ export default props => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const HandleIsHideBalance = e => {
 		e.stopPropagation();
-		let value = e.target.value === "true";
+		const value = e.target.value === "true";
 		handleIsHideBalance({ dispatch, value });
 	};
 
@@ -82,27 +84,27 @@ class Dropdown extends Component {
 
 	clickDropdown = e => {
 		e.preventDefault();
-		this.setState({ isOpen: !this.state.isOpen });
+		this.setState(prev => ({ isOpen: !prev.isOpen }));
 	};
 
 	render() {
-		let {
+		const {
 			isHideBalance,
 			tpWallets,
 			mainWallet,
 			bonusWallets,
-			handleIsHideBalance
+			handleIsHideBalance: _handleIsHideBalance
 		} = this.props;
 
-		let tpWalletsBonusSum = tpWallets.reduce((prev, curr) => {
+		const tpWalletsBonusSum = tpWallets.reduce((prev, curr) => {
 			return prev + curr.balance;
 		}, 0);
 
-		let balance = !isNaN(mainWallet.balance)
+		const balance = !isNaN(mainWallet.balance)
 			? number_format(mainWallet.balance + tpWalletsBonusSum)
 			: 0;
 
-		let tpWalletRows = tpWallets
+		const tpWalletRows = tpWallets
 			.sort((a, b) => (a.tpId > b.tpId ? 1 : -1))
 			.map(t => {
 				return (
@@ -133,11 +135,12 @@ class Dropdown extends Component {
 				<button
 					aria-label="HandleDisplayBalance"
 					value={!isHideBalance}
-					onClick={handleIsHideBalance}
+					onClick={_handleIsHideBalance}
 					className={`icon icon-eye${
 						isHideBalance ? "-blocked" : ""
-					}`}></button>
-				<i className="icon icon-arrow_drop_down"></i>
+					}`}
+				/>
+				<i className="icon icon-arrow_drop_down" />
 				<div className="submenu">
 					<div className="balance">
 						<span>

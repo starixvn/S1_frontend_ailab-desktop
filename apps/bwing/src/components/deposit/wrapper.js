@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import StepBar from "../common/stepBar";
-import defStep from "../deposit/defStep";
+import defStep from "./defStep";
 
 export default ({ step, children }) => {
 	const { t } = useTranslation();

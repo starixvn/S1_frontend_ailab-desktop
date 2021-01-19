@@ -6,11 +6,11 @@ import React, {
 	useContext
 } from "react";
 import { useTranslation } from "react-i18next";
-import { popBoxContext, userInfoContext } from "../common/context";
+import { popBoxContext } from "../common/context";
 import config from "../../config";
 import { api_accountStrict_UploadCustPhotoId } from "../../service/api/accountStrict";
 import Loading from "../common/loading";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default props => {
 	const { t } = useTranslation();
@@ -18,7 +18,6 @@ export default props => {
 	const filebox = createRef();
 	const [loading, setLoading] = useState(false);
 	const { setPopBox } = useContext(popBoxContext);
-	const { userInfo } = useContext(userInfoContext);
 
 	const dragOver = e => {
 		e.preventDefault();
@@ -26,7 +25,9 @@ export default props => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const [fileImg, setFileImg] = useState("");
@@ -35,12 +36,12 @@ export default props => {
 
 	const onChangeFile = (action, e) => {
 		e.preventDefault();
-		let files =
+		const files =
 			action === "onDrop" ? e.dataTransfer.files : filebox.current.files;
 		if (files.length > 0) {
 			setPicFileName(files[0].name);
 			setFileData(files);
-			let reader = new FileReader();
+			const reader = new FileReader();
 			reader.readAsDataURL(files[0]);
 			reader.onload = () => {
 				setFileImg(reader.result);
@@ -54,7 +55,7 @@ export default props => {
 		};
 
 		if (fileData.length > 0) {
-			let formData = new FormData();
+			const formData = new FormData();
 			formData.append("PhotoId", fileData[0]);
 			api_accountStrict_UploadCustPhotoId(formData).then(
 				res => {
@@ -134,7 +135,7 @@ export default props => {
 								<img alt="for kyc" src={fileImg} />
 							) : (
 								<>
-									<i className="icon icon-cloud_upload"></i>
+									<i className="icon icon-cloud_upload" />
 									{t("lbl_DragToUploadFile")}
 								</>
 							)}

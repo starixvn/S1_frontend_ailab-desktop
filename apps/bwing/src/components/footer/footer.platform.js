@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
+import { navigate } from "@reach/router";
 import path from "../../router";
 import productList, { defCasinoProviders } from "../../datas/productList";
-import { navigate } from "@reach/router";
 import { popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import config from "../../config";
 
@@ -89,7 +89,7 @@ const defPlatfrom = [
 export default ({ langId, isLogin }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
-	const ClickItem = ({ path, urlParams, tpId, gameId }) => {
+	const ClickItem = ({ path: _path, urlParams, tpId, gameId }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -97,29 +97,29 @@ export default ({ langId, isLogin }) => {
 			});
 		};
 
-		if (path) {
-			navigate(`/${langId}/${path}${urlParams}`);
+		if (_path) {
+			navigate(`/${langId}/${_path}${urlParams}`);
 		} else {
 			SET_ENTER_PAGE({
 				isLogin,
 				langId,
 				tpId,
 				gameId,
-				loginCallback: loginCallback
+				loginCallback
 			});
 		}
 	};
 
-	let rows = defPlatfrom.map(p => {
-		let key = `footer-platform-${p.imgName}`;
+	const rows = defPlatfrom.map(p => {
+		const key = `footer-platform-${p.imgName}`;
 		let params = null;
 		if (p.parameter) {
-			params = Object.keys(p.parameter).map(key => {
-				return `${key}=${p.parameter[key]}`;
+			params = Object.keys(p.parameter).map(_key => {
+				return `${_key}=${p.parameter[_key]}`;
 			});
 		}
 
-		let _urlParams = params !== null ? `?${params.join("&")}` : "";
+		const _urlParams = params !== null ? `?${params.join("&")}` : "";
 
 		return (
 			<button

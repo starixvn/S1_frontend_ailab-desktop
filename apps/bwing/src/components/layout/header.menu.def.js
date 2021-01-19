@@ -101,7 +101,7 @@ export const defMenuLinks = {
 			{
 				...defCasinoProviders.CQ9,
 				className: "CQ9",
-				//isNew: true,
+				// isNew: true,
 				icon: "icon icon-cq9",
 				displayText: "CQ9",
 				menuType: defMenuType.Link,
