@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { readCookie, setCookie, getUrlParameter } from "../common/common";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import SwipperBanner from "../common/swipperBanner";
 

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
 import { defMenuType } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 
 export default ({ listClassName, subItems, menuKey, mainUrl }) => {

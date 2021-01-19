@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useContext } from "react";
 import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { defPromotionType } from "./promotion.def";
 import { popBoxContext } from "../common/context";
 import { checkPromotion } from "./promotion.common";

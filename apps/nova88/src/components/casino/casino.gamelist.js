@@ -3,7 +3,7 @@ import { popBoxContext } from "../common/context";
 import config from "../../config";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defRowsPerPage } from "./casino.def";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 
 export default ({
 	displayGames,

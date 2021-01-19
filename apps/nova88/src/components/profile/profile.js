@@ -10,7 +10,7 @@ import {
 	api_accountStrict_SetProfile,
 	api_accountStrict_SendOTPSMS
 } from "../../service/api/accountStrict";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import EditModule from "./profile.edit";
 import { getUrlParameter } from "../common/common";
 import { defPrevPage } from "./profile.dev";

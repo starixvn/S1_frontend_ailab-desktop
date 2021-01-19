@@ -6,7 +6,7 @@ import {
 	api_account_GetMsgCount
 } from "../../service/api/account";
 import { popBoxContext, msgCountContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 
 export default props => {
 	const { t } = useTranslation();

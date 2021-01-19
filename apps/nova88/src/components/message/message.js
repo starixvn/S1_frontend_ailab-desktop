@@ -12,7 +12,7 @@ import {
 	msgCountContext,
 	loadingContext
 } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 
 export default () => {

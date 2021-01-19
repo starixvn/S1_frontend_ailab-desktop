@@ -18,7 +18,7 @@ import InitPanel from "./bankInfo.set.init";
 import BankPanel from "./bankInfo.set.selectBank";
 import AccountPanel from "./bankInfo.set.account";
 import ShowCard from "./bankInfo.set.bankCard";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 import StepBar from "../common/stepBar";
 import bankInfoStep from "./bankInfo.set.defStep";

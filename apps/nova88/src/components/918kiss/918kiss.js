@@ -9,7 +9,7 @@ import React, {
 import { useTranslation } from "react-i18next";
 import kiss from "../../styles/img/kiss.jpg";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { api_tp_GotoGame } from "../../service/api/tp";
 import productList from "../../datas/productList";
 

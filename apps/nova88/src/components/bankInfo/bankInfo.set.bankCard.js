@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import config from "../../config";
 import { popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
 import Loading from "../common/loading";
 

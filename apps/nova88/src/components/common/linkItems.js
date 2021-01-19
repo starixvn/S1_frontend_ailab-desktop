@@ -5,7 +5,7 @@ import {
 	_ACTION_TYPE,
 	OPEN_IN_BLANK
 } from "../../service/enterPage";
-import { defPopBoxType } from "./popBox";
+import defPopBoxType from "./defPopBoxType";
 import { popBoxContext } from "./context";
 import path from "../../router";
 

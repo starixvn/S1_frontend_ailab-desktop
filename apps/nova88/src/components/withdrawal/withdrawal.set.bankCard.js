@@ -4,7 +4,7 @@ import { defActionType, defPanel } from "./withdrawal.reducer";
 import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 import { popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 
 export default ({
 	dispatch,

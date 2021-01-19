@@ -6,7 +6,7 @@ import { api_accountStrict_ResetPassword } from "../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "../components/common/context";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 import InputboxPassword from "../components/common/inputbox.password";
 import { getUrlParameter, passwordCheck } from "../components/common/common";
 import { LOGOUT } from "../service/auth";

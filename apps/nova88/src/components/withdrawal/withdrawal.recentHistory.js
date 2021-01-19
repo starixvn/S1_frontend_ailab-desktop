@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { Link } from "@reach/router";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { HistoryResult } from "./withdrawal.historyResult";
 import { api_payment_SetWithdrawalCancel } from "../../service/api/payment";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
 import { isConvert } from "../common/common";

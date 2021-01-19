@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { popBoxContext } from "../components/common/context";
 import { api_account_ChangePassword } from "../service/api/account";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";

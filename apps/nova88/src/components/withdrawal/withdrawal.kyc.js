@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useContext, createRef } from "react";
 import { defActionType } from "./withdrawal.reducer";
 import { api_accountStrict_UploadCustPhotoId } from "../../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import config from "../../config";
 
 export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {

@@ -6,7 +6,7 @@ import { number_format } from "../common/common";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { api_payment_DepositReqWireTransfer } from "../../service/api/payment";
 import { defActionType } from "./localBank.reducer";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import config from "../../config";
 import path from "../../router";
 

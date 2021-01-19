@@ -5,7 +5,7 @@ import { popBoxContext, userInfoContext } from "../components/common/context";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Inputbox from "../components/common/inputbox";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
 export default () => {

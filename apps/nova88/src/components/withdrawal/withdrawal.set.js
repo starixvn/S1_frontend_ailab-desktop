@@ -5,7 +5,7 @@ import AmountPanel from "./withdrawal.set.amount";
 import ConfirmPanel from "./withdrawal.set.confirm";
 import { isConvert } from "../common/common";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { defActionType } from "./withdrawal.reducer";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
 
