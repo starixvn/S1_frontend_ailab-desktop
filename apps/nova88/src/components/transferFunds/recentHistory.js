@@ -66,6 +66,7 @@ export default props => {
 						<ReloadSpin
 							btnActive={false}
 							func={props.getTransferRecent}
+							data-test-id="reloadSpin"
 						/>
 					</div>
 				</div>
