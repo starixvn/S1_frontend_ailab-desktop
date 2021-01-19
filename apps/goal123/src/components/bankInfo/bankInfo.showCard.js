@@ -14,7 +14,9 @@ export default ({ accountName, custBankList, reload }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const delBankAccount = (sysId, accountNo) => {

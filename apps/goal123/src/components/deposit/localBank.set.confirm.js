@@ -20,7 +20,9 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClickCancel = () => {

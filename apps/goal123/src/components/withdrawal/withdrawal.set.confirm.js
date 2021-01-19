@@ -19,10 +19,10 @@ export default props => {
 				<ul>
 					<li>{t("lbl_AccountNumber")}</li>
 					<li className="accountNumber">
-						{props.accountNoValue?.slice(0, 4) + " "}
-						{props.accountNoValue?.slice(4, 8) + " "}
-						{props.accountNoValue?.slice(8, 12) + " "}
-						{props.accountNoValue?.slice(12, 16)}
+						{`${props.accountNoValue?.slice(0, 4)}  `}
+						{`${props.accountNoValue?.slice(4, 8)} `}
+						{`${props.accountNoValue?.slice(8, 12)} `}
+						{`${props.accountNoValue?.slice(12, 16)} `}
 					</li>
 				</ul>
 				<ul>

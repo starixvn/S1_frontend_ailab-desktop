@@ -3,23 +3,20 @@ import { navigate, Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import path from "../../router";
-import {
-	userInfoContext,
-	loadingContext
-} from "../../components/common/context";
-import usePopBox from "../../components/hook/usePopBox";
+import { userInfoContext, loadingContext } from "../common/context";
+import usePopBox from "../hook/usePopBox";
 import {
 	isConvert,
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath
-} from "../../components/common/common";
+} from "../common/common";
 
 import StatementTitle from "./statement.title";
-import { Breadcrumb } from "../../components/common/breadcrumb";
+import { Breadcrumb } from "../common/breadcrumb";
 import { defPageSize } from "./statement.searchBox";
 import StatementTable from "./statement.table";
-import { Pagination } from "../../components/common/pagination";
+import { Pagination } from "../common/pagination";
 import { api_payment_GetCustTpBetRecordListOneDay } from "../../service/api/payment";
 
 export default () => {
@@ -44,7 +41,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -60,9 +59,9 @@ export default () => {
 	};
 
 	const onRoutePush = ({ categorySettledDate, categoryId }) => {
-		let formatDate = moment(categorySettledDate).format("YYYY-MM-DD");
+		const formatDate = moment(categorySettledDate).format("YYYY-MM-DD");
 
-		let toByCategory = `/${userInfo.langId}/${routerFlattenToPath(
+		const toByCategory = `/${userInfo.langId}/${routerFlattenToPath(
 			path.statement,
 			4
 		)}?quickpicktype=${initQuickPickType}&bydaysettleddate=${

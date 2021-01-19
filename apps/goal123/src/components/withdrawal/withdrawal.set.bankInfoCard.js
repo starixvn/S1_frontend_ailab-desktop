@@ -17,7 +17,9 @@ export default props => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -92,7 +94,7 @@ export default props => {
 		setPopBox({ isOpen: false });
 		setLoading(true);
 
-		let selected =
+		const selected =
 			props.currentBankInfo.sysIdValue === sysId &&
 			props.currentBankInfo.accountNoValue === accountNo;
 
@@ -155,9 +157,9 @@ export default props => {
 		);
 	};
 
-	let bankCardArr = props.bankInfoList.map(item => {
-		let key = `withdrawal-banklist-${item.sysId}-${item.accountNo}`;
-		let checkKey = `${key}-check`;
+	const bankCardArr = props.bankInfoList.map(item => {
+		const key = `withdrawal-banklist-${item.sysId}-${item.accountNo}`;
+		const checkKey = `${key}-check`;
 
 		return (
 			<div className="addBankName" key={key}>
@@ -187,7 +189,8 @@ export default props => {
 						/>
 						<label
 							htmlFor={checkKey}
-							className="icon icon-checkbox-checked"></label>
+							className="icon icon-checkbox-checked"
+						/>
 					</div>
 				</div>
 				<div className="addBankInfo">
@@ -204,7 +207,8 @@ export default props => {
 								this,
 								item.sysId,
 								item.accountNo
-							)}></div>
+							)}
+						/>
 					) : null}
 				</div>
 			</div>
