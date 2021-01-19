@@ -23,18 +23,17 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			return needLogin && !userInfo.isLogin
 				? handleCallBack()
 				: navigate(`/${userInfo.langId}/${path}`);
-		} else {
-			return SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId: tpId,
-				gameId: gameId,
-				loginCallback: handleCallBack
-			});
 		}
+		return SET_ENTER_PAGE({
+			isLogin: userInfo.isLogin,
+			langId: userInfo.langId,
+			tpId,
+			gameId,
+			loginCallback: handleCallBack
+		});
 	};
 
-	let rows = subItems
+	const rows = subItems
 		.filter(
 			s =>
 				userInfo.isLogin !== true ||
@@ -42,19 +41,19 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				s.allowCurrency.includes(userInfo.currencyId)
 		)
 		.map(s => {
-			let displayText = s.displayText ? s.displayText : t(s.displayKey);
-			let key = `${menuKey}-${userInfo.isLogin}-${s.tpId}-${s.gameId}`;
+			const displayText = s.displayText ? s.displayText : t(s.displayKey);
+			const key = `${menuKey}-${userInfo.isLogin}-${s.tpId}-${s.gameId}`;
 
 			let params = null;
 			if (s.parameter) {
-				params = Object.keys(s.parameter).map(key => {
-					return `${key}=${s.parameter[key]}`;
+				params = Object.keys(s.parameter).map(_key => {
+					return `${_key}=${s.parameter[_key]}`;
 				});
 			}
 
-			let _urlParams = params !== null ? `?${params.join("&")}` : "";
+			const _urlParams = params !== null ? `?${params.join("&")}` : "";
 			if (s.menuType === defMenuType.Link) {
-				let url = s.path || mainUrl;
+				const url = s.path || mainUrl;
 				return (
 					<Link
 						key={key}
@@ -63,21 +62,20 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 						<span className={s.icon}>{displayText}</span>
 					</Link>
 				);
-			} else {
-				return (
-					<button
-						key={key}
-						className={s.className}
-						onClick={ClickItem.bind(this, {
-							tpId: s.tpId,
-							gameId: s.gameId,
-							needLogin: s.needLogin,
-							path: s.path
-						})}>
-						<span className={s.icon}>{displayText}</span>
-					</button>
-				);
 			}
+			return (
+				<button
+					key={key}
+					className={s.className}
+					onClick={ClickItem.bind(this, {
+						tpId: s.tpId,
+						gameId: s.gameId,
+						needLogin: s.needLogin,
+						path: s.path
+					})}>
+					<span className={s.icon}>{displayText}</span>
+				</button>
+			);
 		});
 
 	return <div className={`${listClassName} active`}>{rows}</div>;

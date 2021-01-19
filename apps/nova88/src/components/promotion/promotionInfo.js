@@ -14,7 +14,7 @@ import { defFilterType } from "./promotion.nav";
 
 export default () => {
 	const filterType = Number(getUrlParameter("FilterType"));
-	let isSpecialType = filterType === defFilterType.specialBonus;
+	const isSpecialType = filterType === defFilterType.specialBonus;
 
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
@@ -24,7 +24,7 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 
-	let _currency = t(`Currency_${userInfo.currencyId}`);
+	const _currency = t(`Currency_${userInfo.currencyId}`);
 
 	const clickClose = () => {
 		setPopBox({ isOpen: false });
@@ -98,7 +98,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	let _isClaimed = false;
@@ -112,13 +114,13 @@ export default () => {
 		});
 	}
 
-	let wrapperClass = _isExpiry
+	const wrapperClass = _isExpiry
 		? " expiredClaimedInfo"
 		: _isClaimed
 		? " claimedInfo"
 		: "";
 
-	let specialBonusWrapperClass =
+	const specialBonusWrapperClass =
 		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
 	if (promotionInfo === null) return null;
@@ -127,7 +129,7 @@ export default () => {
 		<div className="infoModule">
 			<div
 				className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
-				{_isClaimed ? <div className="claimed"></div> : null}
+				{_isClaimed ? <div className="claimed" /> : null}
 				<img
 					src={promotionInfo.banner}
 					alt="promotionDetailData_banner"
@@ -190,7 +192,8 @@ export default () => {
 						className="proDataBody"
 						dangerouslySetInnerHTML={{
 							__html: promotionInfo.details
-						}}></div>
+						}}
+					/>
 				</div>
 			</div>
 		</div>
@@ -211,11 +214,11 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType }) => {
 		<>
 			<div className="colorInfo">
 				<div>
-					<span></span>
+					<span />
 					{t("lbl_ID")}
 				</div>
 				<div>
-					<span></span>
+					<span />
 					{t("lbl_Amount")}
 				</div>
 			</div>

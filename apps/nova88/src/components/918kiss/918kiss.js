@@ -6,8 +6,8 @@ import React, {
 	lazy,
 	Suspense
 } from "react";
-import kiss from "../../styles/img/kiss.jpg";
 import { useTranslation } from "react-i18next";
+import kiss from "../../styles/img/kiss.jpg";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { api_tp_GotoGame } from "../../service/api/tp";
@@ -52,7 +52,9 @@ const useGotoGame = ({ isLogin, langId, tpId }) => {
 			});
 		}
 
-		return () => (mounted = false);
+		return () => {
+			mounted = false;
+		};
 	}, [isLogin, langId, tpId]);
 
 	return { data };
@@ -71,7 +73,7 @@ const useHandleDownloadPopBox = () => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.kiss918,
-			ClickClose: ClickClose
+			ClickClose
 		});
 	};
 
@@ -121,14 +123,14 @@ const Kiss918 = () => {
 								{t("lbl_918KissMobileApp")}
 							</div>
 							<button onClick={ClickDownload}>
-								<Suspense fallback={<div></div>}>
+								<Suspense fallback={<div />}>
 									<DownloadImg />
 								</Suspense>
 							</button>
 						</div>
 					</div>
 				</div>
-				<Suspense fallback={<div></div>}>
+				<Suspense fallback={<div />}>
 					<InstallGuide displayText={t("lbl_IOSInstallGuide")} />
 				</Suspense>
 			</div>
@@ -148,7 +150,8 @@ const ButtonWithCopyBtn = ({ value }) => {
 			<button
 				className="icon icon-files-empty"
 				value={value}
-				onClick={OnCopy}></button>
+				onClick={OnCopy}
+			/>
 		</div>
 	);
 };

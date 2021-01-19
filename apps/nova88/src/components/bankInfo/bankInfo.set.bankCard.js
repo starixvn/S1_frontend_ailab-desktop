@@ -14,7 +14,9 @@ export default props => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const deleteBankAccount = (sysId, accountNo) => {
@@ -24,7 +26,7 @@ export default props => {
 			});
 		};
 
-		const deleteCard = (sysId, accountNo) => {
+		const deleteCard = (SysId, AccountNo) => {
 			setPopBox({
 				isOpen: false
 			});
@@ -32,8 +34,8 @@ export default props => {
 
 			api_accountStrict_DelCustBankInfo({
 				AccountName: props.accountName,
-				AccountNo: accountNo,
-				SysId: sysId
+				AccountNo,
+				SysId
 			}).then(
 				res => {
 					if (isMountedRef.current) {
@@ -103,7 +105,7 @@ export default props => {
 		});
 	};
 
-	let arr = props.custBankList?.map(item => {
+	const arr = props.custBankList?.map(item => {
 		return (
 			<div className="addBankName" key={`bankCard-${item.accountNo}`}>
 				<div className="addBankInfo">
@@ -123,7 +125,8 @@ export default props => {
 							this,
 							item.sysId,
 							item.accountNo
-						)}></button>
+						)}
+					/>
 				</div>
 			</div>
 		);

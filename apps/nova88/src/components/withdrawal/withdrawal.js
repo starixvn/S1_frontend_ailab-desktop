@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useContext, useReducer } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import MainPanel from "./withdrawal.set";
 import WalletPanel from "./withdrawal.showWallet";
 import KycPanel from "./withdrawal.kyc";
@@ -19,7 +20,6 @@ import RecentHistory from "./withdrawal.recentHistory";
 import StepBar from "../common/stepBar";
 import defStep from "./withdrawal.defStep";
 import path from "../../router";
-import { Link } from "@reach/router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -31,7 +31,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -173,7 +175,7 @@ export default () => {
 		await api_payment_KycCheck().then(
 			res => {
 				if (isMountedRef.current) {
-					let errorCode = res.data.errorCode;
+					const { errorCode } = res.data;
 					let kycStatus = "";
 					if (errorCode === 0) {
 						kycStatus = "normal";
@@ -184,7 +186,7 @@ export default () => {
 					}
 					dispatch({
 						type: defActionType.SET_KYC_STATUS,
-						kycStatus: kycStatus
+						kycStatus
 					});
 				}
 			},

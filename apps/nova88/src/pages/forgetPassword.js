@@ -37,7 +37,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const emailCheck = val => {
@@ -64,12 +66,12 @@ const Content = () => {
 	};
 
 	const editField = e => {
-		let val = e.target.value;
+		const val = e.target.value;
 		setUserEmail(val);
 	};
 
 	const clickInfo = () => {
-		let _msg = status.msg === "" ? t("lbl_EmailRequired") : "";
+		const _msg = status.msg === "" ? t("lbl_EmailRequired") : "";
 
 		setStatus({
 			checked: null,
@@ -79,7 +81,7 @@ const Content = () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let checked = emailCheck(userEmail);
+		const checked = emailCheck(userEmail);
 
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
@@ -107,7 +109,7 @@ const Content = () => {
 										</button>
 									</div>
 								),
-								ClickClose: ClickClose
+								ClickClose
 							});
 							// setUserEmail("");
 							// setStatus(initStatus);

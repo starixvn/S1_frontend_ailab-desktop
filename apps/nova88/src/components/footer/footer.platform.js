@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
+import { navigate } from "@reach/router";
 import path from "../../router";
 import productList from "../../datas/productList";
-import { navigate } from "@reach/router";
 import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
@@ -119,7 +119,7 @@ export default ({ langId, isLogin }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { onMouseOverImg, handleOnMouseOverImg } = useHandleLogoList();
 
-	const ClickItem = ({ path, urlParams, tpId, gameId, needLogin }) => {
+	const ClickItem = ({ path: _path, urlParams, tpId, gameId, needLogin }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -127,31 +127,30 @@ export default ({ langId, isLogin }) => {
 			});
 		};
 
-		if (path) {
+		if (_path) {
 			return needLogin && !isLogin
 				? loginCallback()
-				: navigate(`/${langId}/${path}${urlParams}`);
-		} else {
-			SET_ENTER_PAGE({
-				isLogin,
-				langId,
-				tpId,
-				gameId,
-				loginCallback: loginCallback
-			});
+				: navigate(`/${langId}/${_path}${urlParams}`);
 		}
+		SET_ENTER_PAGE({
+			isLogin,
+			langId,
+			tpId,
+			gameId,
+			loginCallback
+		});
 	};
 
-	let rows = defPlatfrom.map(p => {
-		let key = `footer-platform-${p.tpId}-${p.gameId}`;
+	const rows = defPlatfrom.map(p => {
+		const key = `footer-platform-${p.tpId}-${p.gameId}`;
 		let params = null;
 		if (p.parameter) {
-			params = Object.keys(p.parameter).map(key => {
-				return `${key}=${p.parameter[key]}`;
+			params = Object.keys(p.parameter).map(_key => {
+				return `${_key}=${p.parameter[_key]}`;
 			});
 		}
 
-		let _urlParams = params !== null ? `?${params.join("&")}` : "";
+		const _urlParams = params !== null ? `?${params.join("&")}` : "";
 		const imgName =
 			onMouseOverImg === p.imgName ? `${p.imgName}a` : p.imgName;
 		return (
@@ -165,6 +164,8 @@ export default ({ langId, isLogin }) => {
 					alt={`logo ${imgName}`}
 					onMouseOver={handleOnMouseOverImg.bind(this, p.imgName)}
 					onMouseOut={handleOnMouseOverImg.bind(this, "")}
+					onBlur={() => 0}
+					onFocus={() => 0}
 				/>
 			</button>
 		);

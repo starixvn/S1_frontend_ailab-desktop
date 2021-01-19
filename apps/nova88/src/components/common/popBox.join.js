@@ -16,7 +16,7 @@ import {
 	setCookie,
 	passwordCheck
 } from "./common";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "./defPopBoxType";
 import { userInfoContext, popBoxContext } from "./context";
 import { GET_LANG_ID } from "../../service/language";
 import config from "../../config";
@@ -25,7 +25,7 @@ import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
 import Dropdown from "./dropdown";
 import Checkbox from "./checkbox";
-import { Iov_GetBlackBox } from "../common/iovation";
+import { Iov_GetBlackBox } from "./iovation";
 
 import { initValue, initTip, currencyToAreacode } from "./join.data";
 
@@ -46,7 +46,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -54,7 +56,7 @@ export default () => {
 	}, []);
 
 	const checkAffiliate = async () => {
-		let _AffId = getUrlParameter("AffId") || readCookie("AffId");
+		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
 		if (!_AffId) {
 			getCurrencyList();
 		} else {
@@ -62,8 +64,8 @@ export default () => {
 				res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
-							let { currencyId } = res.data.data;
-							let currencyArr = [
+							const { currencyId } = res.data.data;
+							const currencyArr = [
 								{
 									id: currencyId,
 									displayKey: `Currency_${currencyId}`
@@ -103,9 +105,9 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						const data = res.data.data;
-						let currencyArr = data.map(id => {
-							return { id: id, displayKey: `Currency_${id}` };
+						const { data } = res.data;
+						const currencyArr = data.map(id => {
+							return { id, displayKey: `Currency_${id}` };
 						});
 						setSiteCurrency(() => currencyArr);
 					} else {
@@ -179,7 +181,7 @@ export default () => {
 				...prev,
 				[col]: {
 					checked: tip[col].checked,
-					msg: msg
+					msg
 				}
 			};
 		});
@@ -201,28 +203,28 @@ export default () => {
 	};
 
 	const checkValue = async (col, e) => {
-		let val = e.target.value;
+		const val = e.target.value;
 		let checked = true;
 		let msg = "";
 
 		if (col === "username") {
-			let result = await usernameCheck(val);
+			const result = await usernameCheck(val);
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "password") {
-			let result = passwordCheck(val);
+			const result = passwordCheck(val);
 			checked = result.checked;
 			msg = result.message;
 		} else if (col === "email") {
-			let result = await emailCheck(val);
+			const result = await emailCheck(val);
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "currency") {
-			let result = currencyCheck();
+			const result = currencyCheck();
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "phone") {
-			let result = await phoneCheck(val);
+			const result = await phoneCheck(val);
 			checked = result.checked;
 			msg = result.msg;
 		}
@@ -231,7 +233,7 @@ export default () => {
 			return {
 				...prev,
 				[col]: {
-					checked: checked,
+					checked,
 					msg: t(msg)
 				}
 			};
@@ -329,9 +331,9 @@ export default () => {
 		return { checked, msg };
 	};
 
-	let _currencyId = siteCurrency[userValue.currencyIdx]?.id;
+	const _currencyId = siteCurrency[userValue.currencyIdx]?.id;
 
-	let currencyToCountryCode = _currencyId
+	const currencyToCountryCode = _currencyId
 		? currencyToAreacode[_currencyId]
 		: null;
 
@@ -364,70 +366,69 @@ export default () => {
 	};
 
 	const checkAll = async () => {
-		return await Promise.all([
-			usernameCheck(userValue.username),
-			phoneCheck(userValue.phone),
-			emailCheck(userValue.email)
-		]).then(
-			res => {
-				let _usernameCheck = res[0];
-				let _phoneCheck = res[1];
-				let _emailCheck = res[2];
-				let _passwordCheck = passwordCheck(userValue.password);
-				let _currencyCheck = currencyCheck();
-				let _termsCheck = userValue.termsCheck;
-				let _ageCheck = userValue.ageCheck;
+		try {
+			const res = await Promise.all([
+				usernameCheck(userValue.username),
+				phoneCheck(userValue.phone),
+				emailCheck(userValue.email)
+			]);
 
-				let checked =
-					_usernameCheck.checked &&
-					_passwordCheck.checked &&
-					_phoneCheck.checked &&
-					_emailCheck.checked &&
-					_currencyCheck.checked &&
-					_termsCheck &&
-					_ageCheck;
+			const _usernameCheck = res[0];
+			const _phoneCheck = res[1];
+			const _emailCheck = res[2];
+			const _passwordCheck = passwordCheck(userValue.password);
+			const _currencyCheck = currencyCheck();
+			const _termsCheck = userValue.termsCheck;
+			const _ageCheck = userValue.ageCheck;
 
-				if (!checked) {
-					let checkboxMsg = "";
-					if (!_termsCheck || !_ageCheck) {
-						checkboxMsg = "lbl_Check18TCTooltip";
-					}
-					setTip(prev => {
-						return {
-							...prev,
-							username: {
-								checked: _usernameCheck.checked,
-								msg: t(_usernameCheck.msg)
-							},
-							password: {
-								checked: _passwordCheck.checked,
-								msg: t(_passwordCheck.message)
-							},
-							phone: {
-								checked: _phoneCheck.checked,
-								msg: t(_phoneCheck.msg)
-							},
-							email: {
-								checked: _emailCheck.checked,
-								msg: t(_emailCheck.msg)
-							},
-							currency: {
-								checked: _currencyCheck.checked,
-								msg: t(_currencyCheck.msg)
-							},
-							checkbox: {
-								checked: true,
-								msg: t(checkboxMsg)
-							}
-						};
-					});
+			const checked =
+				_usernameCheck.checked &&
+				_passwordCheck.checked &&
+				_phoneCheck.checked &&
+				_emailCheck.checked &&
+				_currencyCheck.checked &&
+				_termsCheck &&
+				_ageCheck;
+
+			if (!checked) {
+				let checkboxMsg = "";
+				if (!_termsCheck || !_ageCheck) {
+					checkboxMsg = "lbl_Check18TCTooltip";
 				}
-				return checked;
-			},
-			() => {
-				return false;
+				setTip(prev => {
+					return {
+						...prev,
+						username: {
+							checked: _usernameCheck.checked,
+							msg: t(_usernameCheck.msg)
+						},
+						password: {
+							checked: _passwordCheck.checked,
+							msg: t(_passwordCheck.message)
+						},
+						phone: {
+							checked: _phoneCheck.checked,
+							msg: t(_phoneCheck.msg)
+						},
+						email: {
+							checked: _emailCheck.checked,
+							msg: t(_emailCheck.msg)
+						},
+						currency: {
+							checked: _currencyCheck.checked,
+							msg: t(_currencyCheck.msg)
+						},
+						checkbox: {
+							checked: true,
+							msg: t(checkboxMsg)
+						}
+					};
+				});
 			}
-		);
+			return checked;
+		} catch (error) {
+			return false;
+		}
 	};
 
 	const hasRefOrAffCode =
@@ -438,9 +439,9 @@ export default () => {
 
 	const clickSubmit = async e => {
 		e.preventDefault();
-		let checked = await checkAll();
+		const checked = await checkAll();
 
-		let _AffId = getUrlParameter("AffId") || readCookie("AffId");
+		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
 		let affIdCheckPass = false;
 		if (_AffId) {
 			try {
@@ -451,7 +452,7 @@ export default () => {
 		}
 
 		if (checked) {
-			let regData = {
+			const regData = {
 				UserName: userValue.username,
 				Userpwd: userValue.password,
 				Email: userValue.email,
@@ -461,18 +462,18 @@ export default () => {
 				AreaCode: _areaCode
 			};
 
-			regData["RefId"] = getUrlParameter("RefId") || readCookie("RefId");
-			regData["AffId"] = affIdCheckPass ? _AffId : null;
-			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
-			regData["AffCode"] =
+			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
+			regData.AffId = affIdCheckPass ? _AffId : null;
+			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
+			regData.AffCode =
 				getUrlParameter("AffCode") || readCookie("AffCode");
-			regData["blackbox"] = await Iov_GetBlackBox();
+			regData.blackbox = await Iov_GetBlackBox();
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
 					if (isMountedRef.current) {
-						const errorCode = res.data.errorCode;
-						const message = res.data.message;
+						const { errorCode } = res.data;
+						const { message } = res.data;
 						if (errorCode === 0) {
 							api_accountStrict_GetCustProfile().then(
 								res_custInfo => {
@@ -483,7 +484,7 @@ export default () => {
 											userName: userValue.username
 										};
 										if (res_custInfo.data.errorCode === 0) {
-											let cookieName = `balanceHint${_user.userName}`;
+											const cookieName = `balanceHint${_user.userName}`;
 											setCookie(cookieName, "1", 1);
 											_user = {
 												isJoin: true,
@@ -562,7 +563,7 @@ export default () => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: message,
+								message,
 								btnBar: (
 									<div className="btnGroup">
 										<button
@@ -697,7 +698,6 @@ export default () => {
 							className={`inputBox-org${
 								tip.currency.msg !== "" ? " error" : ""
 							}`}
-							tabIndex="0"
 							onBlur={checkValue.bind(null, "currency")}>
 							<Dropdown
 								defaultOption={defaultOption}
@@ -739,7 +739,7 @@ export default () => {
 						)}
 
 						<Inputbox
-							className={`inputBox-org`}
+							className="inputBox-org"
 							icon="icon-affiliate txt-orange"
 							placeholder={t("lbl_Affiliate_ID")}
 							value={hasRefOrAffCode ?? userValue.affCode}

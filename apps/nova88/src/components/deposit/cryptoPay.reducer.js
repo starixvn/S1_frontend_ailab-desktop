@@ -31,8 +31,8 @@ export function reducer(state, action) {
 				channelItem: action.channelItem
 			};
 
-		case defActionType.SELECT_CHANNEL:
-			var newStep = 2;
+		case defActionType.SELECT_CHANNEL: {
+			const newStep = 2;
 			return {
 				...state,
 				channelItem: action.channelItem,
@@ -42,6 +42,7 @@ export function reducer(state, action) {
 				checked: null,
 				tip: ""
 			};
+		}
 
 		case defActionType.EDIT_AMOUNT:
 			return {
@@ -49,21 +50,23 @@ export function reducer(state, action) {
 				amount: action.amount
 			};
 
-		case defActionType.SUBMIT_AMOUNT:
-			var newStep = state.step + 1;
+		case defActionType.SUBMIT_AMOUNT: {
+			const newStep = state.step + 1;
 			return {
 				...state,
 				step: newStep,
 				displayMoudle: defStepModule[newStep]
 			};
+		}
 
-		case defActionType.CLICK_BACK:
-			var newStep = state.step - 1;
+		case defActionType.CLICK_BACK: {
+			const newStep = state.step - 1;
 			return {
 				...state,
 				step: newStep,
 				displayMoudle: defStepModule[newStep]
 			};
+		}
 
 		case defActionType.SET_CHECK_STATUS:
 			return {

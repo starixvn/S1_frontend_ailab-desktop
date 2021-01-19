@@ -1,4 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import { api_message_GetAnnouncement } from "../service/api/message";
@@ -8,8 +10,6 @@ import {
 	loadingContext
 } from "../components/common/context";
 import { defPopBoxType } from "../components/common/popBox";
-import { useTranslation } from "react-i18next";
-import moment from "moment";
 import LeftMenu from "../components/common/leftMenu";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
@@ -89,19 +89,21 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
-	let arr = announcementDatas?.map(item => {
-		let isToday =
+	const arr = announcementDatas?.map(item => {
+		const isToday =
 			moment(item.startTime).format("YYYY-MM-DD") ===
 			moment().format("YYYY-MM-DD");
 
-		let displayTime = isToday
+		const displayTime = isToday
 			? moment(item.startTime).format("hh:mm:ss A")
 			: moment(item.startTime).format("MM/DD/YYYY");
 
-		let textColor = isToday ? "txt-blue" : "";
+		const textColor = isToday ? "txt-blue" : "";
 
 		return (
 			<div key={`announcement-${item.id}`}>

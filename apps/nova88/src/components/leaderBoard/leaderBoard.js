@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import championImg from "../../styles/img/champion.png";
@@ -16,10 +17,9 @@ import {
 	defRewardList,
 	defLeaderBoardTitle,
 	defLastChampionReward
-} from "./leaderboard.def";
-import moment from "moment";
+} from "./leaderBoard.def";
 import { number_format } from "../common/common";
-import EventTab from "./LeaderBoard.eventTab";
+import EventTab from "./leaderBoard.eventTab";
 
 const langMapping = {
 	cs: "MYR",
@@ -63,7 +63,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -78,11 +80,11 @@ export default () => {
 	}, [userInfo.isLogin]);
 
 	const showUpdateTime = () => {
-		let _time = new Date();
-		let _convertMin = _time.getMinutes() < 30 ? 0 : 30;
+		const _time = new Date();
+		const _convertMin = _time.getMinutes() < 30 ? 0 : 30;
 		_time.setMinutes(_convertMin);
 		_time.setSeconds(0);
-		let displayTime = moment(_time).format("YYYY/MM/DD hh:mm:ss");
+		const displayTime = moment(_time).format("YYYY/MM/DD hh:mm:ss");
 		return displayTime;
 	};
 
@@ -154,85 +156,72 @@ export default () => {
 		if (!userInfo.isLogin) return;
 
 		const isLastEventTab = tabId === defTabId.lastEvent;
-		let current_eventCode = "202101";
-		let last_eventCode = "xmas2020";
+		const current_eventCode = "202101";
+		const last_eventCode = "xmas2020";
 
 		const payload = {
 			lBCategoryId: gameType ?? categoryID,
-			TopNum: TopNum,
+			TopNum,
 			BeforeDays: daysValue ?? beforeDays,
 			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
 
 		const GetRankDatas = async () => {
-			await api_events_GetLeaderboardListV2(payload).then(
-				res => {
-					if (res.data.errorCode === 0) {
-						const rankDatas = res.data.data;
+			await api_events_GetLeaderboardListV2(payload).then(res => {
+				if (res.data.errorCode === 0) {
+					const rankDatas = res.data.data;
 
-						if (rankDatas?.length > 0) {
-							api_events_GetCustRankV2({
-								LBCategoryId: payload.lBCategoryId,
-								BeforeDays: payload.BeforeDays,
-								EventCode: payload.EventCode
-							}).then(
-								res => {
-									if (res.data.errorCode === 0) {
-										const {
-											custRank,
-											point
-										} = res.data.data;
-										setRankingData(() => {
-											let rank =
-												custRank > 999 || custRank === 0
-													? "999+"
-													: custRank;
+					if (rankDatas?.length > 0) {
+						api_events_GetCustRankV2({
+							LBCategoryId: payload.lBCategoryId,
+							BeforeDays: payload.BeforeDays,
+							EventCode: payload.EventCode
+						}).then(resRank => {
+							if (resRank.data.errorCode === 0) {
+								const { custRank, point } = resRank.data.data;
+								setRankingData(() => {
+									const rank =
+										custRank > 999 || custRank === 0
+											? "999+"
+											: custRank;
 
-											let result = [];
-											if (
-												custRank <= TopNum &&
-												custRank !== 0
-											) {
-												rankDatas[custRank - 1] = {
-													...rankDatas[custRank - 1],
-													userName: userInfo.userName,
-													rank
-												};
-												result = rankDatas;
-											} else {
-												result = [
-													...rankDatas,
-													{
-														userName:
-															userInfo.userName,
-														wTurnover: point,
-														rank
-													}
-												];
-											}
-											return result;
-										});
+									let result = [];
+									if (custRank <= TopNum && custRank !== 0) {
+										rankDatas[custRank - 1] = {
+											...rankDatas[custRank - 1],
+											userName: userInfo.userName,
+											rank
+										};
+										result = rankDatas;
 									} else {
-										openErrorMessagePopBox(
-											res.data.message,
-											res.data.errorCode
-										);
+										result = [
+											...rankDatas,
+											{
+												userName: userInfo.userName,
+												wTurnover: point,
+												rank
+											}
+										];
 									}
-								},
-								() => {}
-							);
-						} else {
-							setRankingData([]);
-						}
+									return result;
+								});
+							} else {
+								openErrorMessagePopBox(
+									resRank.data.message,
+									resRank.data.errorCode
+								);
+							}
+						});
 					} else {
-						openErrorMessagePopBox(
-							res.data.message,
-							res.data.errorCode
-						);
+						setRankingData([]);
 					}
-				},
-				() => {}
-			);
+				} else {
+					openErrorMessagePopBox(
+						res.data.message,
+						res.data.errorCode
+					);
+				}
+			});
 		};
 		GetRankDatas();
 	};
@@ -272,8 +261,8 @@ export default () => {
 						)}
 						<img src={championImg} alt="champion" />
 						<div className="mwt_border">
-							<span className="arrow_t_int"></span>
-							<span className="arrow_t_out"></span>
+							<span className="arrow_t_int" />
+							<span className="arrow_t_out" />
 							<div className="txt-orange">
 								{tab === defTabId.lastEvent
 									? LastChampionReward[0].reward
@@ -331,7 +320,7 @@ const Ranking = ({ RankingDatas }) =>
 							alt="ranking_gold"
 						/>
 					)}
-					{rank ? rank : idx + 1}
+					{rank || idx + 1}
 				</div>
 				<div>{item.userName}</div>
 				<div>{number_format(item.wTurnover)}</div>

@@ -1,4 +1,5 @@
 import React, { useRef, useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
 	api_account_GetMsgList,
 	api_account_DelMsg,
@@ -6,7 +7,6 @@ import {
 } from "../../service/api/account";
 import MessageList from "./messageList";
 import { Pagination } from "../common/pagination";
-import { useTranslation } from "react-i18next";
 import {
 	popBoxContext,
 	msgCountContext,
@@ -153,7 +153,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 	return loading ? (
 		<></>
@@ -169,18 +171,20 @@ export default () => {
 							<div className="checkbox">
 								<input
 									type="checkbox"
-									id={`message-selectAll`}
+									id="message-selectAll"
 									onChange={onClickCheckAll}
 									checked={isCheckAll}
 								/>
 								<label
-									htmlFor={`message-selectAll`}
-									className="icon icon-checkbox-checked"></label>
+									htmlFor="message-selectAll"
+									className="icon icon-checkbox-checked"
+								/>
 							</div>
 							<div>
 								<button
 									className="icon icon-bin"
-									onClick={popDelete}></button>
+									onClick={popDelete}
+								/>
 							</div>
 							<div>
 								<ReloadSpin

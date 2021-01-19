@@ -6,7 +6,9 @@ export default ({ func, btnDisabled = false }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const clickSpin = e => {
@@ -27,6 +29,7 @@ export default ({ func, btnDisabled = false }) => {
 			disabled={btnDisabled}
 			aria-label="clickSpin"
 			onClick={clickSpin}
-			className={`icon icon-spinner11${spin ? " active" : ""}`}></button>
+			className={`icon icon-spinner11${spin ? " active" : ""}`}
+		/>
 	);
 };

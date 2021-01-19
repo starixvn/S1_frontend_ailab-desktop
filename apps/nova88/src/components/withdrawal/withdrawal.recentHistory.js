@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import { popBoxContext, userInfoContext } from "../common/context";
-import { HistoryResult } from "./withdrawal.historyResult";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
+import { Link } from "@reach/router";
+import { popBoxContext, userInfoContext } from "../common/context";
+import { HistoryResult } from "./withdrawal.historyResult";
 import { api_payment_SetWithdrawalCancel } from "../../service/api/payment";
 import { defPopBoxType } from "../common/popBox";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
-import { Link } from "@reach/router";
 import { isConvert } from "../common/common";
 import { defActionType } from "./withdrawal.reducer";
 
@@ -28,7 +28,9 @@ export default ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -48,8 +50,8 @@ export default ({
 				res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
-							let newData = [...recentHistory];
-							let idx = newData.findIndex(
+							const newData = [...recentHistory];
+							const idx = newData.findIndex(
 								_i => _i.transId === transId
 							);
 							newData[idx].status = 5;
@@ -115,7 +117,7 @@ export default ({
 		});
 	};
 
-	let arr = recentHistory?.map((item, idx) => {
+	const arr = recentHistory?.map((item, idx) => {
 		return (
 			<HistoryResult
 				key={`withdrawal-recent-${item.transId}`}
@@ -157,7 +159,8 @@ export default ({
 			</div>
 			<Link
 				to={`/${userInfo.langId}/${path.withdrawalHistory.root}`}
-				className="icon icon-books"></Link>{" "}
+				className="icon icon-books"
+			/>{" "}
 		</>
 	) : (
 		<></>

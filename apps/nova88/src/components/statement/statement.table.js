@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const StatementTable = ({ t, dataSource, columns, children }) => {
-	let header = columns.map(colItem => {
+	const header = columns.map(colItem => {
 		if (!colItem.dataIndex) return null;
 
 		return <div key={colItem.key}>{colItem.title}</div>;
 	});
 
-	let body = dataSource?.map(item => {
+	const body = dataSource?.map(item => {
 		return (
 			<div key={`key-${item.settledDate || item.settledTime}`}>
 				{columns.map(colItem => {
@@ -52,8 +52,8 @@ const StatementTable = ({ t, dataSource, columns, children }) => {
 
 StatementTable.propTypes = {
 	t: PropTypes.func.isRequired,
-	dataSource: PropTypes.array,
-	columns: PropTypes.array.isRequired
+	dataSource: PropTypes.arrayOf(PropTypes.any).isRequired,
+	columns: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 const CustomizeRow = ({ children }) => <>{children}</>;

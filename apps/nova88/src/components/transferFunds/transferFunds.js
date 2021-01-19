@@ -5,13 +5,13 @@ import {
 	popBoxContext,
 	loadingContext,
 	walletInfoContext
-} from "..//common/context";
+} from "../common/context";
 import {
 	api_account_GetTpWalletList,
 	api_account_GetTpWalletBalance,
 	api_account_GetBalance
 } from "../../service/api/account";
-import { isConvert } from "../common/common.js";
+import { isConvert } from "../common/common";
 import {
 	api_tp_Transfer,
 	api_tp_GetTransferRecent
@@ -33,7 +33,7 @@ const initStatus = {
 };
 
 const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
-	let idx = prev.findIndex(p => p.id === tpId);
+	const idx = prev.findIndex(p => p.id === tpId);
 	if (idx !== -1) {
 		if (balance !== null) {
 			prev[idx].balance = balance;
@@ -41,8 +41,8 @@ const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
 	} else {
 		prev.push({
 			id: tpId,
-			displayKey: displayKey,
-			balance: balance
+			displayKey,
+			balance
 		});
 	}
 	return [...prev].sort((a, b) => a.id - b.id);
@@ -73,7 +73,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -108,7 +110,7 @@ export default () => {
 	};
 
 	const getTpWalletList = () => {
-		let allWallet = 0;
+		const allWallet = 0;
 		api_account_GetTpWalletList(allWallet).then(res => {
 			if (isMountedRef.current && res.data.errorCode === 0) {
 				getTpWalletBalance(res.data.data);
@@ -129,7 +131,7 @@ export default () => {
 				);
 				api_account_GetTpWalletBalance(item.tpId).then(res => {
 					if (res.data.errorCode === 0 && isMountedRef.current) {
-						let { tpId, balance } = res.data.data;
+						const { tpId, balance } = res.data.data;
 						setWalletInfo(prev =>
 							AfterUpdWalletList({
 								prev,
@@ -167,7 +169,7 @@ export default () => {
 							isOpen: true,
 							popBoxType: defPopBoxType.TurnoverAccumulated,
 							currencyId: userInfo.currencyId,
-							_isConvert: _isConvert,
+							_isConvert,
 							turnover: res.data.data.turnover,
 							rollover: res.data.data.rollover,
 							btnBar: (
@@ -289,7 +291,7 @@ export default () => {
 	};
 
 	const clickInfo = () => {
-		let _msg =
+		const _msg =
 			status.tip === ""
 				? t("lbl_AmountTooltip")?.replace("{0}", "1")
 				: "";
@@ -300,7 +302,7 @@ export default () => {
 	};
 
 	const EditAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 		setAmount(value);
 	};
@@ -324,18 +326,18 @@ export default () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let result = checkAmount() && checkSelectWallet();
+		const result = checkAmount() && checkSelectWallet();
 		if (result) {
-			let _direction =
+			const _direction =
 				selectedTpId.from === 0
 					? defDirection.MainToTp
 					: defDirection.TpToMain;
 
-			let real_amount = _isConvert
+			const real_amount = _isConvert
 				? Number(amount) * 1000
 				: Number(amount);
 
-			let _wallet =
+			const _wallet =
 				_direction === defDirection.MainToTp
 					? selectedTpId.to
 					: selectedTpId.from;
@@ -364,7 +366,7 @@ export default () => {
 
 	const onSelectWallet = (col, i, value) => {
 		setSelectedTpId(prev => {
-			let oppsCol = col === "from" ? "to" : "from";
+			const oppsCol = col === "from" ? "to" : "from";
 			return {
 				[col]: value.id,
 				[oppsCol]:
@@ -373,12 +375,12 @@ export default () => {
 		});
 	};
 
-	let fromOptions = OptFilter({
+	const fromOptions = OptFilter({
 		allWallets: walletInfo,
 		oppositeTpId: selectedTpId.to
 	});
 
-	let toOptions = OptFilter({
+	const toOptions = OptFilter({
 		allWallets: walletInfo,
 		oppositeTpId: selectedTpId.from
 	});
@@ -412,7 +414,7 @@ export default () => {
 						f => f.id === selectedTpId.from
 					)}
 					selectedToIdx={toOptions.findIndex(
-						t => t.id === selectedTpId.to
+						tp => tp.id === selectedTpId.to
 					)}
 					onSelectWallet={onSelectWallet}
 				/>

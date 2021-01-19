@@ -13,7 +13,9 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const dragOver = e => {
@@ -22,12 +24,12 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 
 	const onChangeFile = (action, e) => {
 		e.preventDefault();
-		let files =
+		const files =
 			action === "onDrop" ? e.dataTransfer.files : filebox.current.files;
 		let fileImg = null;
 
 		if (files.length > 0) {
-			let reader = new FileReader();
+			const reader = new FileReader();
 			reader.readAsDataURL(files[0]);
 			reader.onload = () => {
 				fileImg = reader.result;
@@ -36,7 +38,7 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 					kycData: {
 						picFileName: files[0].name,
 						fileData: files,
-						fileImg: fileImg
+						fileImg
 					}
 				});
 			};
@@ -49,7 +51,7 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 		};
 
 		if (kycData?.fileData?.length > 0) {
-			let formData = new FormData();
+			const formData = new FormData();
 			formData.append("PhotoId", kycData.fileData[0]);
 
 			api_accountStrict_UploadCustPhotoId(formData).then(
@@ -122,7 +124,7 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 							<img alt="DepositReceipt" src={kycData.fileImg} />
 						) : (
 							<>
-								<i className="icon icon-plus"></i>
+								<i className="icon icon-plus" />
 								<i className="icon icon-folder-upload">
 									{t("lbl_ImageUploadWarning")}
 								</i>
@@ -154,7 +156,7 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 		<div className="subModuleList kycHeight">
 			<div className="subModule">
 				<div className="subModuleBody column align-items-center">
-					<div className="icon icon-icon32px_worker"></div>
+					<div className="icon icon-icon32px_worker" />
 					<span className="title txt-yellow">{t("lbl_WaitKYC")}</span>
 					<div className="txt-lightgray">{t("lbl_WaitKYCHint")}</div>
 				</div>

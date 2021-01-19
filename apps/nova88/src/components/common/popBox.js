@@ -8,7 +8,7 @@ import Login from "./popBox.login";
 import Join from "./popBox.join";
 import AddBankAccount from "./popBox.addBankAccount";
 import AddBankSuccess from "./popBox.addBankSuccess";
-import ConfirmDelete from "./popBox.ConfirmDelete";
+import ConfirmDelete from "./popBox.confirmDelete";
 import ProfileConfirmCheck from "./popBox.profileConfirmCheck";
 import ProfileCompelete from "./popBox.profileCompelete";
 import ChangePsw from "./popBox.changePsw";
@@ -24,33 +24,7 @@ import RegisterSuccess from "./popBox.registerSuccess";
 import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
 import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
 import JoinReferral from "./popBox.joinReferral";
-
-export const defPopBoxType = {
-	Cancel: "Cancel",
-	UploadBankSlip: "UploadBankSlip",
-	Success: "Success",
-	ErrorMsg: "ErrorMsg",
-	Login: "Login",
-	Join: "Join",
-	AddBankAccount: "AddBankAccount",
-	AddBankSuccess: "AddBankSuccess",
-	ConfirmDelete: "ConfirmDelete",
-	ProfileConfirmCheck: "ProfileConfirmCheck",
-	ProfileCompelete: "ProfileCompelete",
-	ChangePsw: "ChangePsw",
-	LogoutHint: "LogoutHint",
-	DepositHint: "DepositHint",
-	OTPHint: "OTPHint",
-	VerifyPhoneForm: "verifyPhoneForm",
-	WithdrawalSuccess: "WithdrawalSuccess",
-	UpdateProfile: "UpdateProfile",
-	TurnoverAccumulated: "TurnoverAccumulated",
-	RegisterSuccess: "RegisterSuccess",
-	PromotionDepositConfirm: "PromotionDepositConfirm",
-	PromotionAmountConfirm: "PromotionAmountConfirm",
-	kiss918: "918kiss",
-	JoinReferral: "JoinReferral"
-};
+import defPopBoxType from "./defPopBoxType";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -61,10 +35,11 @@ export default () => {
 			content = <Cancel btnBar={popBox.btnBar} />;
 			break;
 
-		case defPopBoxType.UploadBankSlip:
+		case defPopBoxType.UploadBankSlip: {
 			const { isOpen, ...restProps } = popBox;
 			content = <UploadBankSlip {...restProps} />;
 			break;
+		}
 
 		case defPopBoxType.Success:
 			content = <Success btnBar={popBox.btnBar} />;
@@ -209,14 +184,14 @@ export default () => {
 			);
 			break;
 
-		case defPopBoxType.kiss918:
+		case defPopBoxType.kiss918: {
 			const Kiss918 = lazy(() => import("./popBox.918kiss"));
 			content = (
 				<Suspense fallback={<>Loading...</>}>
 					<Kiss918 ClickClose={popBox.onClickClose} />
 				</Suspense>
 			);
-
+		}
 		case defPopBoxType.JoinReferral:
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
 			break;

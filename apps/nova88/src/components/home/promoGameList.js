@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import Swiper from "react-id-swiper";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defPopBoxType } from "../common/popBox";
 import { popBoxContext } from "../common/context";
@@ -13,7 +14,6 @@ import game8 from "../../styles/img/game8.png";
 import game9 from "../../styles/img/game9.png";
 import game10 from "../../styles/img/game10.png";
 import game11 from "../../styles/img/game11.png";
-import Swiper from "react-id-swiper";
 
 const defLinkType = {
 	default: "default",
@@ -118,8 +118,8 @@ export default ({ t, userInfo }) => {
 		} else {
 			SET_ENTER_PAGE({
 				langId: userInfo.langId,
-				tpId: tpId,
-				gameId: gameId,
+				tpId,
+				gameId,
 				isLogin: userInfo.isLogin,
 				loginCallback: LoginPopBox
 			});
@@ -142,8 +142,8 @@ export default ({ t, userInfo }) => {
 		...defSwipperConfig
 	};
 
-	let Rows = defGameList.map(g => {
-		let displayText = t(g.displayKey) ?? g.displayKey;
+	const Rows = defGameList.map(g => {
+		const displayText = t(g.displayKey) ?? g.displayKey;
 		return (
 			<div
 				className="swiper-slide"
@@ -182,10 +182,12 @@ export default ({ t, userInfo }) => {
 			</div>
 			<div
 				className="swiper-button-next icon icon-keyboard_arrow_right1"
-				onClick={goNext}></div>
+				onClick={goNext}
+			/>
 			<div
 				className="swiper-button-prev icon icon-keyboard_arrow_left"
-				onClick={goPrev}></div>
+				onClick={goPrev}
+			/>
 		</div>
 	) : (
 		<></>

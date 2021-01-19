@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
@@ -13,7 +14,6 @@ import {
 	loadingContext
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
-import { useTranslation } from "react-i18next";
 import {
 	defNav,
 	defRowsPerPage,
@@ -26,7 +26,7 @@ import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
 
 const matchKeyword = (name, _keyword) => {
-	let keyword = _keyword.toLowerCase();
+	const keyword = _keyword.toLowerCase();
 	return (
 		Object.keys(name)?.filter(key => {
 			return name[key].toLowerCase().indexOf(keyword) !== -1;
@@ -92,32 +92,32 @@ export default () => {
 		initTpList,
 		_favorite
 	) => {
-		let _gameDatas = initGameDatas ?? gameDatas;
-		let _tpList = initTpList ?? tpList;
-		let tpId = _searchInfo.provider.value;
-		let searchText = _searchInfo.searchText;
+		const _gameDatas = initGameDatas ?? gameDatas;
+		const _tpList = initTpList ?? tpList;
+		const tpId = _searchInfo.provider.value;
+		const { searchText } = _searchInfo;
 
-		let _categoryId = _category.category.idx;
-		let doNotFilterCategory = _categoryId === 0;
+		const _categoryId = _category.category.idx;
+		const doNotFilterCategory = _categoryId === 0;
 
-		const matchFilter = (tpId, g, _categoryId, notFilterCategory) => {
-			let matchNav =
+		const matchFilter = (_tpId, g, categoryId, notFilterCategory) => {
+			const matchNav =
 				(_nav === defNav.PROMO.key && g.promotion === 1) ||
 				(_nav === defNav.FEATURED.key && g.featured === true) ||
 				(_nav === defNav.NEW.key && g.new) ||
 				(_nav === defNav.FAVOURITE.key &&
-					_favorite.includes(`${tpId}_${g.gameId}`)) ||
+					_favorite.includes(`${_tpId}_${g.gameId}`)) ||
 				_nav === defNav.ALLGAMES.key;
 			return (
 				matchNav &&
 				(searchText === "" || matchKeyword(g.name, searchText)) &&
 				(doNotFilterCategory ||
-					g.category1 === defCategoryList[_categoryId])
+					g.category1 === defCategoryList[categoryId])
 			);
 		};
 
 		return _gameDatas?.filter(g => {
-			let tp = _tpList[g.tpId];
+			const tp = _tpList[g.tpId];
 			return (
 				(tpId === null || tp.value === tpId) &&
 				matchFilter(tp.value, g, _categoryId, doNotFilterCategory)
@@ -133,7 +133,7 @@ export default () => {
 		_tpList,
 		_favorite = favorite
 	}) => {
-		let _displayGames = FilterGames(
+		const _displayGames = FilterGames(
 			_searchInfo,
 			_category,
 			_selNav,
@@ -142,12 +142,12 @@ export default () => {
 			_favorite
 		);
 
-		let _totalPages =
+		const _totalPages =
 			_displayGames.length === 0
 				? 1
 				: Math.ceil(_displayGames.length / defRowsPerPage);
 
-		let _currentPage =
+		const _currentPage =
 			pageInfo.currentPage > _totalPages
 				? _totalPages
 				: pageInfo.currentPage;
@@ -160,9 +160,9 @@ export default () => {
 	};
 
 	const onSetFavorite = (tpId, gameId) => {
-		let key = `${tpId}_${gameId}`;
-		let isRemove = favorite?.includes(key);
-		let newFav = isRemove
+		const key = `${tpId}_${gameId}`;
+		const isRemove = favorite?.includes(key);
+		const newFav = isRemove
 			? favorite?.filter(f => f !== key)
 			: [...favorite, key];
 		setFavorite(newFav);
@@ -199,7 +199,7 @@ export default () => {
 			});
 
 			SetGames({
-				_searchInfo: _searchInfo,
+				_searchInfo,
 				_category: category,
 				_selNav: selNav,
 				_gameDatas: gameDatas,
@@ -223,7 +223,7 @@ export default () => {
 
 		SetGames({
 			_searchInfo: searchInfo,
-			_category: _category,
+			_category,
 			_selNav: selNav,
 			_gameDatas: gameDatas,
 			_tpList: tpList
@@ -242,7 +242,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -252,15 +254,15 @@ export default () => {
 				const success = res.data.errorCode === 0;
 
 				if (success) {
-					const { imgUrl, providerList } = res.data.data;
+					const { imgUrl: _imgUrl, providerList } = res.data.data;
 
-					let _tpList = {};
-					let _tpOptions = [
+					const _tpList = {};
+					const _tpOptions = [
 						{ displayKey: "lbl_AllProvider", id: null }
 					];
-					let games = [];
+					const games = [];
 
-					setImgUrl(imgUrl);
+					setImgUrl(_imgUrl);
 
 					providerList?.forEach(gameInfo => {
 						_tpList[gameInfo.value] = { ...gameInfo };
@@ -282,9 +284,11 @@ export default () => {
 
 					if (games.length) {
 						for (let index = 0; index < games.length; index++) {
-							let idx = Math.floor(Math.random() * games.length);
-							let tempEle1 = games[index];
-							let tempEle2 = games[idx];
+							const idx = Math.floor(
+								Math.random() * games.length
+							);
+							const tempEle1 = games[index];
+							const tempEle2 = games[idx];
 
 							games[index] = tempEle2;
 							games[idx] = tempEle1;
@@ -297,10 +301,10 @@ export default () => {
 						setTpOptions(_tpOptions);
 
 						let _searchInfo = searchInfo;
-						let _category = category;
+						const _category = category;
 
 						if (urlTpId) {
-							let idx = _tpOptions.findIndex(
+							const idx = _tpOptions.findIndex(
 								x => x.id === Number(urlTpId)
 							);
 
@@ -328,9 +332,12 @@ export default () => {
 					}
 
 					if (userInfo.isLogin) {
-						api_account_GetFavoriteGame().then(res => {
-							if (res.data.errorCode === 0 && res.data.data) {
-								let fav = res.data.data.map(f => {
+						api_account_GetFavoriteGame().then(resFav => {
+							if (
+								resFav.data.errorCode === 0 &&
+								resFav.data.data
+							) {
+								const fav = resFav.data.data.map(f => {
 									return `${f.providerId}_${f.gameId}`;
 								});
 								if (isMountedRef.current) {

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "gatsby";
+import { useTranslation } from "react-i18next";
 import LimitTip from "./limitTip";
 import { isConvert } from "../common/common";
 import { userInfoContext } from "../common/context";
 import path from "../../router";
-import { useTranslation } from "react-i18next";
 import config from "../../config";
 
 const _path = path.deposit.sub.onlineBank.root;
@@ -15,7 +15,7 @@ export default ({ onlineBankingList }) => {
 
 	const _isConvert = isConvert(userInfo.currencyId);
 
-	let rows = onlineBankingList?.map(p => {
+	const rows = onlineBankingList?.map(p => {
 		return (
 			<li key={`deposit-onlineBank-${p.payId}-${p.channelId}`}>
 				<Link

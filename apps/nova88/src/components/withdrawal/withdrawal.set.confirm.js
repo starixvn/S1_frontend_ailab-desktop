@@ -23,7 +23,9 @@ export default ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const toAmountPanel = () => {
@@ -34,7 +36,7 @@ export default ({
 	};
 
 	const clickSubmit = async () => {
-		let real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
+		const real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
 
 		const setInitState = () => {
 			dispatch({ type: defActionType.SET_INIT_STATE });
@@ -49,7 +51,7 @@ export default ({
 			setPopBox({ isOpen: false });
 		};
 
-		let blackbox = await Iov_GetBlackBox();
+		const blackbox = await Iov_GetBlackBox();
 		api_payment_WithdrawalReq(
 			selectedAccount.accountNo,
 			real_amount,
@@ -76,8 +78,9 @@ export default ({
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message:
-								t("lbl_RolloverOver") + ":" + res.data.message,
+							message: `${t("lbl_RolloverOver")}:${
+								res.data.message
+							}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -92,8 +95,9 @@ export default ({
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message:
-								t("lbl_DepositOver") + ":" + res.data.message,
+							message: `${t("lbl_DepositOver")}:${
+								res.data.message
+							}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -108,10 +112,10 @@ export default ({
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message:
-								t("lbl_WithdrawalOver") +
-								": " +
-								parseInt(res.data.message, 10).toString(),
+							message: `${t("lbl_WithdrawalOver")}: ${parseInt(
+								res.data.message,
+								10
+							).toString()}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button

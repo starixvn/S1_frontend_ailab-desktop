@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
 import { api_payment_GetStatement } from "../service/api/payment";
 import { number_format, isConvert } from "../components/common/common";
-import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Filter from "../components/common/historyFilter";
-import moment from "moment";
 import LeftMenu from "../components/common/leftMenu";
 import { defPopBoxType } from "../components/common/popBox";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
@@ -49,7 +49,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const GetStatement = (transactionData, pageNumber) => {
@@ -123,9 +125,9 @@ const Content = () => {
 				setFilterData(transactionData);
 
 				setKeepData({
-					startDate: startDate,
-					endDate: endDate,
-					quickPick: quickPick
+					startDate,
+					endDate,
+					quickPick
 				});
 			}
 
@@ -137,14 +139,14 @@ const Content = () => {
 	const clickPageNumber = page => {
 		if (!processing) {
 			setProcessing(true);
-			let transactionData = filterData;
+			const transactionData = filterData;
 			setPagination(prev => ({ ...prev, currentPage: page }));
 
 			GetStatement(transactionData, page);
 		}
 	};
 
-	let arr = getHistory?.map((item, idx) => {
+	const arr = getHistory?.map((item, idx) => {
 		return (
 			<div key={`statement-${idx}`}>
 				<div>{idx + 1}</div>

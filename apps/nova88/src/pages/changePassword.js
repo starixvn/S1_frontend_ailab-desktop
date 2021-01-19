@@ -53,17 +53,18 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
-	let _oldPsw =
+	const _oldPsw =
 		userPsw.oldPsw === ""
 			? { checked: false, message: "msg_PasswordReq" }
 			: { checked: true, message: "" };
-	let _newPsw = passwordCheck(userPsw.newPsw);
+	const _newPsw = passwordCheck(userPsw.newPsw);
 
 	const checkPswHandler = (col, e) => {
-		console.log(col);
 		if (col === "oldPsw")
 			return setStatus(prev => ({
 				...prev,
@@ -73,8 +74,8 @@ const Content = () => {
 				}
 			}));
 
-		let val = e.target.value;
-		let { checked, message } = passwordCheck(val);
+		const val = e.target.value;
+		const { checked, message } = passwordCheck(val);
 
 		setStatus(prev => ({
 			...prev,
@@ -83,7 +84,7 @@ const Content = () => {
 	};
 
 	const clickInfo = col => {
-		let _msg = status[col].msg === "" ? t("lbl_PasswordTooltip") : "";
+		const _msg = status[col].msg === "" ? t("lbl_PasswordTooltip") : "";
 
 		setStatus(prev => ({
 			...prev,
@@ -92,12 +93,12 @@ const Content = () => {
 	};
 
 	const editField = (col, e) => {
-		let val = e.target.value;
+		const val = e.target.value;
 		setUserPsw(prev => ({ ...prev, [col]: val }));
 	};
 
 	const showPswHandler = col => {
-		let _showPsw = !showPsw[col];
+		const _showPsw = !showPsw[col];
 		setShowPsw(prev => ({ ...prev, [col]: _showPsw }));
 	};
 
@@ -136,7 +137,7 @@ const Content = () => {
 										</button>
 									</div>
 								),
-								ClickClose: ClickClose
+								ClickClose
 							});
 							setUserPsw(initPsw);
 							setStatus(initStatus);

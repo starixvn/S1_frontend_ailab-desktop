@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link, navigate } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../common/context";
 import Menu from "./header.menu";
 import config, { SiteInfo } from "../../config";
@@ -9,7 +10,6 @@ import { api_site_GetTpIds } from "../../service/api/site";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import { defPopBoxType } from "../common/popBox";
-import { useTranslation } from "react-i18next";
 
 export default () => {
 	const { t } = useTranslation();

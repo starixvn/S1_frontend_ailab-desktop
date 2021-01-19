@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import {
 	api_payment_GetOnlinePaymentList,
 	api_payment_GetBankInfoOffList,
@@ -11,7 +13,6 @@ import MobilePayList from "./mobilePay.list";
 import CryptoList from "./cryptoPay.list";
 import DepositWrapper from "./wrapper";
 import RecentHistory from "./deposit.recentHistory";
-import { useTranslation } from "react-i18next";
 import {
 	popBoxContext,
 	loadingContext,
@@ -19,7 +20,6 @@ import {
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import path from "../../router";
-import { Link } from "@reach/router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -125,7 +125,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {

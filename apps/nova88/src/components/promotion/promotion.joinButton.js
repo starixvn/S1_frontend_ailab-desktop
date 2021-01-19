@@ -18,7 +18,9 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const clickClose = () => {
@@ -127,7 +129,7 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 				setClaimPromotion
 			});
 
-		let success = await setClaimPromotion(langId, bonusCode, maxAmount);
+		const success = await setClaimPromotion(langId, bonusCode, maxAmount);
 		if (success) return callBack();
 	};
 	if (

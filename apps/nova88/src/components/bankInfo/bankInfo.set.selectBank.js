@@ -15,7 +15,9 @@ export default ({ dispatch, bankList }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -80,7 +82,7 @@ export default ({ dispatch, bankList }) => {
 		dispatch({ type: defActionType.SELECT_BANK, bankIdx });
 	};
 
-	let bankOptions = bankList?.map((item, i) => {
+	const bankOptions = bankList?.map((item, i) => {
 		return (
 			<li key={`addBankAccount-${item.sysId}`}>
 				<a onClick={selectBank.bind(this, i)}>
@@ -98,13 +100,14 @@ export default ({ dispatch, bankList }) => {
 	) : (
 		<>
 			<div className="platformName">
-				<div className="icon icon-arrow-right2"></div>
+				<div className="icon icon-arrow-right2" />
 				<div>
 					<div>{t("lbl_SelectBank")}</div>
 				</div>
 				<button
 					className="icon icon-arrow-left2"
-					onClick={toLastStep}></button>
+					onClick={toLastStep}
+				/>
 			</div>
 			<div className="subModuleList">
 				<div className="subModule">

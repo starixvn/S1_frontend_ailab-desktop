@@ -33,7 +33,9 @@ export default ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClickClose = () => {
@@ -85,7 +87,7 @@ export default ({
 		setStatus(prev => ({
 			...prev,
 			[col]: {
-				checked: checked,
+				checked,
 				tip: message
 			}
 		}));
@@ -94,7 +96,7 @@ export default ({
 	};
 
 	const editField = (_col, e) => {
-		let val = e.target.value;
+		const val = e.target.value;
 
 		let regex = null;
 		if (_col === "accountNumber") {
@@ -112,8 +114,8 @@ export default ({
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let _accountName = checkAccount(accountName, "accountName");
-		let _accountNumber = checkAccount(accountNumber, "accountNumber");
+		const _accountName = checkAccount(accountName, "accountName");
+		const _accountNumber = checkAccount(accountNumber, "accountNumber");
 
 		if (_accountNumber.checked && _accountName.checked) {
 			setLoading(true);
@@ -173,14 +175,15 @@ export default ({
 	) : (
 		<>
 			<div className="platformName">
-				<div className="icon icon-arrow-right2"></div>
+				<div className="icon icon-arrow-right2" />
 				<div>
 					<div>{t("lbl_EnterAccountNumber")}</div>
 				</div>
 				<button
 					aria-label="toLastStep"
 					className="icon icon-arrow-left2"
-					onClick={toLastStep}></button>
+					onClick={toLastStep}
+				/>
 			</div>
 			<div className="subModuleList">
 				<div className="subModule">
