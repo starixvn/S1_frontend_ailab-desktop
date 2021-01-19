@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
-import { defMenuType } from "./header.menu.def";
+import {
+	defMenuLinks,
+	defMenuType,
+	defSubListClassName
+} from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
@@ -11,12 +15,12 @@ import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.p
 import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 
-export default ({ listClassName, subItems, menuKey, mainUrl }) => {
+export default ({ currentMenuKey, casinoTpIds }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
-	const ClickItem = ({ tpId, gameId, needLogin, path }) => {
+	const clickItem = ({ tpId, gameId, needLogin, path }) => {
 		const handleCallBack = () => {
 			setPopBox({
 				isOpen: true,
@@ -24,113 +28,123 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			});
 		};
 
-		if (path) {
+		if (path)
 			return needLogin && !userInfo.isLogin
 				? handleCallBack()
 				: navigate(`/${userInfo.langId}/${path}`);
-		} else {
-			return SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId: tpId,
-				gameId: gameId,
-				loginCallback: handleCallBack
-			});
-		}
+
+		return SET_ENTER_PAGE({
+			isLogin: userInfo.isLogin,
+			langId: userInfo.langId,
+			tpId: tpId,
+			gameId: gameId,
+			loginCallback: handleCallBack
+		});
 	};
 
-	let rows = subItems
-		.filter(
-			s =>
-				userInfo.isLogin !== true ||
-				!s.allowCurrency ||
-				s.allowCurrency.includes(userInfo.currencyId)
-		)
-		.map(s => {
-			let displayText = s.displayText ? s.displayText : t(s.displayKey);
-			let key = `${menuKey}-${userInfo.isLogin}-${s.tpId}-${s.gameId}`;
-			let params = null;
-			if (s.parameter) {
-				params = Object.keys(s.parameter).map(key => {
-					return `${key}=${s.parameter[key]}`;
-				});
-			}
+	return Object.keys(defMenuLinks).map(menuKey => {
+		let subClassName =
+			`${defSubListClassName[menuKey]} ${
+				menuKey === currentMenuKey ? "active" : ""
+			}` || "";
+		let subMenu = [];
 
-			let _urlParams = params !== null ? `?${params.join("&")}` : "";
+		if (typeof defMenuLinks[menuKey]?.subMenu !== undefined) {
+			subMenu = defMenuLinks[menuKey]?.subMenu;
 
-			if (s.menuType === defMenuType.Link) {
-				let url = s.path || mainUrl;
-				return (
-					<Link
-						key={key}
-						className={s.className}
-						to={`/${userInfo.langId}/${url}${_urlParams}`}>
-						<img
-							className="ListBG-left"
-							src={SubMenuListBGLeftImg}
-						/>
-						<img
-							className="ListBG-right"
-							src={SubMenuListBGRightImg}
-						/>
-						<img
-							className="ListBG-center"
-							src={SubMenuListBGCenterImg}
-						/>
-
-						<ImgsRender
-							className="List-npc"
-							listImgUrl={s.listNpcImgUrl}
-						/>
-
-						<ImgsRender
-							className="List-bg"
-							listImgUrl={s.listBgImgUrl}
-						/>
-						<span>{displayText}</span>
-					</Link>
-				);
-			} else {
-				return (
-					<button
-						key={key}
-						className={s.className}
-						onClick={ClickItem.bind(this, {
-							tpId: s.tpId,
-							gameId: s.gameId,
-							needLogin: s.needLogin,
-							path: s.path
-						})}>
-						<img
-							className="ListBG-left"
-							src={SubMenuListBGLeftImg}
-						/>
-						<img
-							className="ListBG-right"
-							src={SubMenuListBGRightImg}
-						/>
-						<img
-							className="ListBG-center"
-							src={SubMenuListBGCenterImg}
-						/>
-
-						<ImgsRender
-							className="List-npc"
-							listImgUrl={s.listNpcImgUrl}
-						/>
-
-						<ImgsRender
-							className="List-bg"
-							listImgUrl={s.listBgImgUrl}
-						/>
-
-						<span>{displayText}</span>
-					</button>
+			if (
+				currentMenuKey === "casino" &&
+				subMenu &&
+				casinoTpIds?.length > 0
+			) {
+				subMenu = subMenu.filter(
+					s => s.alwaysShow || casinoTpIds.includes(s.tpId)
 				);
 			}
+
+			subMenu = subMenu?.filter(
+				s =>
+					userInfo.isLogin !== true ||
+					!s.allowCurrency ||
+					s.allowCurrency.includes(userInfo.currencyId)
+			);
+		}
+
+		return (
+			<div className={subClassName} key={`main-key-${menuKey}`}>
+				{subMenu?.map(subMenuItem => (
+					<SunMenuItem
+						key={`${subMenuItem.tpId}-${subMenuItem.gameId}`}
+						subMenuItem={subMenuItem}
+						clickItem={clickItem}
+						userInfo={userInfo}
+						t={t}
+						menuKey={menuKey}
+					/>
+				))}
+			</div>
+		);
+	});
+};
+
+const SunMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
+	let displayText = subMenuItem.displayText
+		? subMenuItem.displayText
+		: t(subMenuItem.displayKey);
+
+	let params = null;
+
+	if (subMenuItem.parameter) {
+		params = Object.keys(subMenuItem.parameter).map(key => {
+			return `${key}=${subMenuItem.parameter[key]}`;
 		});
-
-	return <div className={`${listClassName} active`}>{rows}</div>;
+	}
+	let _urlParams = params !== null ? `?${params.join("&")}` : "";
+	if (subMenuItem.menuType === defMenuType.Link) {
+		let url = subMenuItem.path || defMenuLinks[menuKey].path;
+		return (
+			<Link
+				className={subMenuItem.className}
+				to={`/${userInfo.langId}/${url}${_urlParams}`}>
+				<img className="ListBG-left" src={SubMenuListBGLeftImg} />
+				<img className="ListBG-right" src={SubMenuListBGRightImg} />
+				<img className="ListBG-center" src={SubMenuListBGCenterImg} />
+				<ImgsRender
+					className="List-npc"
+					listImgUrl={subMenuItem.listNpcImgUrl}
+				/>
+				<ImgsRender
+					className="List-bg"
+					listImgUrl={subMenuItem.listBgImgUrl}
+				/>
+				<span>{displayText}</span>
+			</Link>
+		);
+	} else {
+		return (
+			<button
+				className={subMenuItem.className}
+				onClick={clickItem.bind(this, {
+					tpId: subMenuItem.tpId,
+					gameId: subMenuItem.gameId,
+					needLogin: subMenuItem.needLogin,
+					path: subMenuItem.path
+				})}>
+				<img className="ListBG-left" src={SubMenuListBGLeftImg} />
+				<img className="ListBG-right" src={SubMenuListBGRightImg} />
+				<img className="ListBG-center" src={SubMenuListBGCenterImg} />
+				<ImgsRender
+					className="List-npc"
+					listImgUrl={subMenuItem.listNpcImgUrl}
+				/>
+				<ImgsRender
+					className="List-bg"
+					listImgUrl={subMenuItem.listBgImgUrl}
+				/>
+				<span>{displayText}</span>
+			</button>
+		);
+	}
 };
 
 const ImgsRender = ({ listImgUrl, className }) => {

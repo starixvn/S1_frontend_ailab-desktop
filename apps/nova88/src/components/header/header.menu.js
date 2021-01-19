@@ -41,38 +41,17 @@ export default class Panel extends Component {
 	}
 
 	render() {
-		let subItems = null;
-		let mainUrl = "";
-		if (typeof defMenuLinks[this.state.menuKey]?.subMenu !== undefined) {
-			subItems = defMenuLinks[this.state.menuKey]?.subMenu;
-			mainUrl = defMenuLinks[this.state.menuKey]?.path;
-			if (
-				this.state.menuKey === "casino" &&
-				subItems &&
-				this.props.casinoTpIds?.length > 0
-			) {
-				subItems = subItems.filter(
-					s => s.alwaysShow || this.props.casinoTpIds.includes(s.tpId)
-				);
-			}
-		}
-
 		return (
 			<div className="menu">
 				<div>
 					<MainMenu showSubMenu={this.showSubMenu} />
-					{subItems ? (
-						<div className="subMenu-Wrapper-new" ref={this.wrapper}>
-							<SubMenu
-								menuKey={this.state.menuKey}
-								listClassName={
-									defSubListClassName[this.state.menuKey]
-								}
-								mainUrl={mainUrl}
-								subItems={subItems}
-							/>
-						</div>
-					) : null}
+
+					<div className="subMenu-Wrapper-new" ref={this.wrapper}>
+						<SubMenu
+							currentMenuKey={this.state.menuKey}
+							casinoTpIds={this.props.casinoTpIds}
+						/>
+					</div>
 				</div>
 			</div>
 		);
