@@ -1,23 +1,22 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
+import { Redirect, Link } from "@reach/router";
+import Loading from "../common/loading";
+import handleError from "../common/handleError";
+import { defPrevPage } from "./profile.dev";
 import { api_site_ExistsEmail } from "../../service/api/site";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
 	api_accountStrict_SetProfile,
 	api_accountStrict_SendOTPSMS
 } from "../../service/api/accountStrict";
-import { useTranslation } from "react-i18next";
+import { popBoxContext, userInfoContext } from "../common/context";
+import { getCountryCode, getUrlParameter } from "../common/common";
 import areaCode from "../../datas/areaCode";
 import ProfileRead from "./profileRead";
 import ProfileEdit from "./profileEdit";
-import moment from "moment";
 import { defPopBoxType } from "../common/popBox";
-import { popBoxContext, userInfoContext } from "../common/context";
-import { getCountryCode, getUrlParameter } from "../common/common";
-import { Redirect } from "@reach/router";
-import Loading from "../common/loading";
-import handleError from "../common/handleError";
-import { Link } from "@reach/router";
-import { defPrevPage } from "./profile.dev";
 
 const initStatus = {
 	accountName: {
@@ -92,16 +91,16 @@ export default () => {
 
 	const getAreaCode = () => {
 		if (!userInfo.country) {
-			let value_areaCode =
+			const value_areaCode =
 				areaCode[getCountryCode(userInfo.currencyId)].AreaCode;
-			let value_country = getCountryCode(userInfo.currencyId);
+			const value_country = getCountryCode(userInfo.currencyId);
 			setUserInfo(prev => ({
 				...prev,
 				AreaCode: value_areaCode,
 				country: value_country
 			}));
 		} else {
-			let value_areaCode = areaCode[userInfo.country].AreaCode;
+			const value_areaCode = areaCode[userInfo.country].AreaCode;
 			setUserInfo(prev => ({
 				...prev,
 				AreaCode: value_areaCode
@@ -110,27 +109,26 @@ export default () => {
 	};
 
 	const onChangeName = e => {
-		let value = e.target.value;
+		const { value } = e.target;
 		setNameValue(value);
 	};
 
 	const onChangeBirth = value => {
-		let selectDate = moment(value).format("YYYY-MM-DD");
+		const selectDate = moment(value).format("YYYY-MM-DD");
 		setBirthValue(selectDate);
 	};
 
 	const onChangePhone = e => {
-		let value = e.target.value;
-		let regex = /^(\(?\+?[0-9]*\?)?[0-9_]*$/;
+		const { value } = e.target;
+		const regex = /^(\(?\+?[0-9]*\?)?[0-9_]*$/;
 		if (!(regex.test(value) || value === "") || value.length > 10) {
 			return false;
-		} else {
-			setPhoneValue(value);
 		}
+		setPhoneValue(value);
 	};
 
 	const onChangeEmail = e => {
-		let value = e.target.value;
+		const { value } = e.target;
 		setEmailValue(value);
 	};
 
@@ -169,8 +167,9 @@ export default () => {
 			return date instanceof Date && !isNaN(date);
 		};
 
-		let checkResult = Boolean(userInfo.birth_d) || isValidDate(birthValue);
-		let checkTip = isValidDate(birthValue) ? "" : t("lbl_BirthRequired");
+		const checkResult =
+			Boolean(userInfo.birth_d) || isValidDate(birthValue);
+		const checkTip = isValidDate(birthValue) ? "" : t("lbl_BirthRequired");
 
 		setStatus(prev => ({
 			...prev,
@@ -201,16 +200,15 @@ export default () => {
 								}
 							}));
 							return false;
-						} else {
-							setStatus(prev => ({
-								...prev,
-								phoneNo: {
-									tip: "",
-									checked: true
-								}
-							}));
-							return true;
 						}
+						setStatus(prev => ({
+							...prev,
+							phoneNo: {
+								tip: "",
+								checked: true
+							}
+						}));
+						return true;
 					}
 				}
 			}
@@ -280,7 +278,8 @@ export default () => {
 								}
 							}));
 							return false;
-						} else if (data.data === false) {
+						}
+						if (data.data === false) {
 							setStatus(prev => ({
 								...prev,
 								email: {
@@ -311,7 +310,7 @@ export default () => {
 		let checkResult = false;
 
 		let checkTip = "";
-		let emailRegex = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+		const emailRegex = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 		if (userInfo.email) {
 			checkResult = true;
@@ -427,7 +426,7 @@ export default () => {
 		ClickClose();
 		setLoading(true);
 
-		let _prevPage = getUrlParameter("prevPage");
+		const _prevPage = getUrlParameter("prevPage");
 
 		api_accountStrict_SetProfile({
 			AccountName: !userInfo.accountName

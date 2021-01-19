@@ -4,30 +4,25 @@ import { useTranslation } from "react-i18next";
 
 export default props => {
 	const { t } = useTranslation();
-	const birth =
-		props.userInfo.birth_d +
-		"/" +
-		props.userInfo.birth_m +
-		"/" +
-		props.userInfo.birth_y;
+	const birth = `${props.userInfo.birth_d}/${props.userInfo.birth_m}/${props.userInfo.birth_y}`;
 
 	const dataList = [
 		{
 			label: t("lbl_RealName"),
 			value: props.userInfo.accountName,
-			show: props.userInfo.accountName ? true : false
+			show: props.userInfo.accountName ?? false
 		},
 		{
 			label: t("lbl_Birthday"),
 			value: birth,
 			format: "normal",
-			show: props.userInfo.birth_d ? true : false
+			show: props.userInfo.birth_d ?? false
 		},
 		{
 			label: t("lbl_Phone"),
-			value: "(" + props.userInfo.AreaCode + ")" + props.userInfo.phoneNo,
+			value: `(${props.userInfo.AreaCode})${props.userInfo.phoneNo}`,
 			format: "phone",
-			show: props.userInfo.phoneNo ? true : false
+			show: props.userInfo.phoneNo ?? false
 		},
 		{
 			label: t("lbl_Username"),
@@ -42,7 +37,7 @@ export default props => {
 		{
 			label: t("lbl_Email"),
 			value: props.userInfo.email,
-			show: props.userInfo.email ? true : false
+			show: props.userInfo.email ?? false
 		},
 		{
 			label: t("lbl_RegisterTime"),
@@ -81,16 +76,16 @@ const MobileVerifiy = ({ item, props, t }) => {
 	if (props.mobileVerificationLoading)
 		return (
 			<div className="otpLoading">
-				<i className="icon icon-spinner11"></i>
+				<i className="icon icon-spinner11" />
 			</div>
 		);
 
 	if (props.userInfo.phoneVerified)
-		return <span className="icon icon-checkmark"></span>;
+		return <span className="icon icon-checkmark" />;
 
 	return (
 		<button onClick={props.sendOTPSMS}>
-			<span className="icon icon-error otp"></span>
+			<span className="icon icon-error otp" />
 			<span>{t("lbl_MobileVerify")}</span>
 		</button>
 	);
