@@ -13,7 +13,7 @@ import {
 	userInfoContext,
 	loadingContext
 } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import {
 	defNav,
 	defRowsPerPage,

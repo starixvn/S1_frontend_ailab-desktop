@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import { Link } from "@reach/router";
 import { promoStatus, defPromotionType } from "./promotion.def";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import path from "../../router";
 import { isConvert, number_format } from "../common/common";
 

@@ -9,7 +9,7 @@ import {
 import path from "../../router";
 import DropdownHeader from "../common/dropdown.headerLink";
 import Wallet from "./header.wallet";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);

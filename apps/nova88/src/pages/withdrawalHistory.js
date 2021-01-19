@@ -7,7 +7,7 @@ import {
 } from "../service/api/payment";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { HistoryResult } from "../components/withdrawal/withdrawal.historyResult";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";

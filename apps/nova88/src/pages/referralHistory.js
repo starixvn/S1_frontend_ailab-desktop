@@ -9,7 +9,7 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Filter from "../components/common/historyFilter";
 import LeftMenu from "../components/common/leftMenu";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
 export default () => {

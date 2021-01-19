@@ -16,7 +16,7 @@ import {
 	api_tp_Transfer,
 	api_tp_GetTransferRecent
 } from "../../service/api/tp";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import ShowWallets from "./showWallets";
 import SetAmount from "./setAmount";
 import RecentHistory from "./recentHistory";

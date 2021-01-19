@@ -16,7 +16,7 @@ import {
 	api_account_GetMsgCount,
 	api_account_onlineCheck
 } from "../../service/api/account";
-import { defPopBoxType } from "./popBox";
+import defPopBoxType from "./defPopBoxType";
 import useInterval from "../hook/useInterval";
 import { GET_LANG_ID } from "../../service/language";
 import { SiteInfo } from "../../config";

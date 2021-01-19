@@ -6,7 +6,7 @@ import { api_site_GetBanner } from "../../service/api/site";
 import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
-import { defPopBoxType } from "./popBox";
+import defPopBoxType from "./defPopBoxType";
 
 export const defBannerFolder = {
 	Sports: "Sports"

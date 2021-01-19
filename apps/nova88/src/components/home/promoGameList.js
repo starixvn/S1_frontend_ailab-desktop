@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Swiper from "react-id-swiper";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import game1 from "../../styles/img/game1.png";
 import game2 from "../../styles/img/game2.png";

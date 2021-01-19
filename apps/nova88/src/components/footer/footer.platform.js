@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 import path from "../../router";
 import productList from "../../datas/productList";
 import { popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import config from "../../config";
 

@@ -3,7 +3,7 @@ import { number_format, checkAmount, getAmountTip } from "../common/common";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { popBoxContext, userInfoContext } from "../common/context";
 import Inputbox from "../common/inputbox";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import CashBar from "./withdrawal.set.cashBar";
 
 export default ({ dispatch, state, t, _isConvert }) => {

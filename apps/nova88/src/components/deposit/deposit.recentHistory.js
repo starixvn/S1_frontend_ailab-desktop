@@ -9,7 +9,7 @@ import {
 	api_payment_SetDepositCancel
 } from "../../service/api/payment";
 import { isConvert } from "../common/common";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
 

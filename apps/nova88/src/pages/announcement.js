@@ -9,7 +9,7 @@ import {
 	popBoxContext,
 	loadingContext
 } from "../components/common/context";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 import LeftMenu from "../components/common/leftMenu";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 

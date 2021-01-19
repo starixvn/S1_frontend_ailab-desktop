@@ -4,7 +4,7 @@ import { defActionType } from "./bankInfo.reducer";
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 import { popBoxContext } from "../common/context";
 import config from "../../config";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
 export default ({ dispatch, bankList }) => {

@@ -27,7 +27,7 @@ export class Dropdown extends Component {
 	};
 
 	selectItem = (i, e) => {
-		e.preventDefault();
+		e.stopPropagation();
 		this.setState({ isOpen: false });
 		this.props.onSelectItem(i);
 	};

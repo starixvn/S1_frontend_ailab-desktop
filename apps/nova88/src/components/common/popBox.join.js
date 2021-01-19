@@ -220,7 +220,7 @@ export default () => {
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "currency") {
-			const result = currencyCheck();
+			const result = currencyCheck(defaultOption);
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "phone") {
@@ -342,14 +342,28 @@ export default () => {
 			? areaCode[currencyToCountryCode]?.AreaCode
 			: null;
 
-	const currencyCheck = () => {
+	const currencyCheck = _defaultOption => {
 		let checked = true;
 		let msg = "";
-		if (defaultOption !== null) {
+		if (_defaultOption !== null) {
 			checked = false;
 			msg = "lbl_RemindPrefferedCurrency";
 		}
 		return { checked, msg };
+	};
+
+	const setCurrencyTip = (col, _defaultOption) => {
+		const result = currencyCheck(_defaultOption);
+		const { checked, msg } = result.checked;
+		setTip(prev => {
+			return {
+				...prev,
+				[col]: {
+					checked,
+					msg: t(msg)
+				}
+			};
+		});
 	};
 
 	const onSelectItem = i => {
@@ -357,6 +371,7 @@ export default () => {
 		setUserValue(prev => {
 			return { ...prev, currencyIdx: i };
 		});
+		setCurrencyTip("currency", null);
 	};
 
 	const checkboxHandler = col => {
@@ -377,7 +392,7 @@ export default () => {
 			const _phoneCheck = res[1];
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
-			const _currencyCheck = currencyCheck();
+			const _currencyCheck = currencyCheck(defaultOption);
 			const _termsCheck = userValue.termsCheck;
 			const _ageCheck = userValue.ageCheck;
 
@@ -697,8 +712,7 @@ export default () => {
 						<div
 							className={`inputBox-org${
 								tip.currency.msg !== "" ? " error" : ""
-							}`}
-							onBlur={checkValue.bind(null, "currency")}>
+							}`}>
 							<Dropdown
 								defaultOption={defaultOption}
 								mainKey="join_currency"

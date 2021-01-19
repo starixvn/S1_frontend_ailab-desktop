@@ -50,9 +50,13 @@ const StatementTable = ({ t, dataSource, columns, children }) => {
 	);
 };
 
+StatementTable.defaultProps = {
+	dataSource: []
+};
+
 StatementTable.propTypes = {
 	t: PropTypes.func.isRequired,
-	dataSource: PropTypes.arrayOf(PropTypes.any).isRequired,
+	dataSource: PropTypes.arrayOf(PropTypes.any),
 	columns: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 

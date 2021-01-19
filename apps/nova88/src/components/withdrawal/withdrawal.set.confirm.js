@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext } from "react";
 import { popBoxContext } from "../common/context";
 import { number_format } from "../common/common";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { api_payment_WithdrawalReq } from "../../service/api/payment";
 import { Iov_GetBlackBox } from "../common/iovation";

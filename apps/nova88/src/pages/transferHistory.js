@@ -9,7 +9,7 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Filter from "../components/common/historyFilter";
 import LeftMenu from "../components/common/leftMenu";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 import ReloadSpin from "../components/common/reloadSpin";
 import { isConvert } from "../components/common/common";
 import Loading from "../components/common/loading";

@@ -4,7 +4,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { getUrlParameter, isConvert, number_format } from "../common/common";
 import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { defPromotionType } from "./promotion.def";
 import { isExpiry, isClaimed } from "./promotion.common";
 import ProcessBar from "./promotion.processBar";

@@ -5,7 +5,7 @@ import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStri
 import { popBoxContext } from "../common/context";
 import config from "../../config";
 import Inputbox from "../common/inputbox";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
 export default ({

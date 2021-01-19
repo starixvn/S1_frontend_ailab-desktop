@@ -9,7 +9,7 @@ import LanguageDropDown from "./header.langDropdown";
 import { api_site_GetTpIds } from "../../service/api/site";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 
 export default () => {
 	const { t } = useTranslation();

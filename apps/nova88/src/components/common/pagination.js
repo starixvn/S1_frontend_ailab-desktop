@@ -75,8 +75,13 @@ const pageNumbers = (currentPage, totalPages) => {
 	return rangeWithDots;
 };
 
+Pagination.defaultProps = {
+	currentPage: 1,
+	totalPages: 0
+};
+
 Pagination.propTypes = {
-	currentPage: PropTypes.number.isRequired,
-	totalPages: PropTypes.number.isRequired,
+	currentPage: PropTypes.number,
+	totalPages: PropTypes.number,
 	clickPageNumber: PropTypes.func.isRequired
 };

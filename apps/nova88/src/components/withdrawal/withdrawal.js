@@ -9,7 +9,7 @@ import {
 	userInfoContext,
 	loadingContext
 } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWithdrawalAvailableBalance } from "../../service/api/account";
 import {
 	api_payment_GetWithdrawalInfoRecent,
