@@ -2,9 +2,9 @@ import productList, { defCasinoProviders } from "../../datas/productList";
 import path from "../../router";
 import { siteInfo } from "../../config";
 import {
-	defIconType,
+	defEventIcon,
 	defEventPeriod,
-	showPeriodIcon
+	showEventIcon
 } from "../common/eventIcon";
 
 export const defMenuType = {
@@ -88,9 +88,9 @@ export const defMenuLinks = langId => {
 				{
 					...defCasinoProviders.ICG,
 					className: "ICG icon",
-					periodIcons: [
-						showPeriodIcon({
-							icon: defIconType.new,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
 							period: defEventPeriod.icg
 						})
 					],
@@ -241,9 +241,9 @@ export const defMenuLinks = langId => {
 				{
 					...productList.ICG_DRAGONBALL_FISHING,
 					className: "fdb icon",
-					periodIcons: [
-						showPeriodIcon({
-							icon: defIconType.new,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
 							period: defEventPeriod.icg
 						})
 					],
@@ -254,9 +254,9 @@ export const defMenuLinks = langId => {
 				{
 					...productList.ICG_FISHING_OF_SAVIORS,
 					className: "ffos icon",
-					periodIcons: [
-						showPeriodIcon({
-							icon: defIconType.new,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
 							period: defEventPeriod.icg
 						})
 					],
@@ -269,9 +269,9 @@ export const defMenuLinks = langId => {
 				{
 					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
 					className: "fttatp icon",
-					periodIcons: [
-						showPeriodIcon({
-							icon: defIconType.new,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
 							period: defEventPeriod.icg
 						})
 					],
@@ -284,9 +284,9 @@ export const defMenuLinks = langId => {
 				{
 					...productList.ICG_TOWER_OF_SAVIORS,
 					className: "ftos icon",
-					periodIcons: [
-						showPeriodIcon({
-							icon: defIconType.new,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
 							period: defEventPeriod.icg
 						})
 					],

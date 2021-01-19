@@ -1,4 +1,4 @@
-export const defIconType = {
+export const defEventIcon = {
 	new: "icon-new",
 	live: "live"
 };
@@ -8,7 +8,7 @@ export const defEventPeriod = {
 	icg: { end: "2021/02/18 00:00:00" }
 };
 
-export const showPeriodIcon = ({ icon, period }) => {
+export const showEventIcon = ({ icon, period }) => {
 	const startDate = period.start
 		? new Date(`${period.start} GMT+0800`)
 		: null;

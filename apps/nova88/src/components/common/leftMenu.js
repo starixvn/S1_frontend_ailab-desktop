@@ -23,10 +23,10 @@ export default () => {
 
 			let _iconClassName = "";
 			let s = menu.subMenu[_key];
-			if (s.periodIcons) {
+			if (s.eventIcons) {
 				let iconStrings = "";
-				for (let i = 0; i < s.periodIcons.length; i++) {
-					iconStrings += s.periodIcons[i] + " ";
+				for (let i = 0; i < s.eventIcons.length; i++) {
+					iconStrings += s.eventIcons[i] + " ";
 				}
 				_iconClassName = `icon ${iconStrings}`;
 			}

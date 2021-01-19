@@ -42,17 +42,15 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		let _urlParams = params !== null ? `?${params.join("&")}` : "";
 
 		let _iconClassName = "";
-		if (s.periodIcons) {
+		if (s.eventIcons) {
 			let iconStrings = "";
-			for (let i = 0; i < s.periodIcons.length; i++) {
-				iconStrings += s.periodIcons[i] + " ";
+			for (let i = 0; i < s.eventIcons.length; i++) {
+				iconStrings += ` ${s.eventIcons[i]}`;
 			}
-			_iconClassName = `icon ${iconStrings}`;
+			_iconClassName = `icon${iconStrings}`;
 		}
 
-		let showIcon = s.periodIcons ? (
-			<i className={_iconClassName}></i>
-		) : null;
+		let showIcon = s.eventIcons ? <i className={_iconClassName}></i> : null;
 
 		if (s.menuType === defMenuType.Link) {
 			return (

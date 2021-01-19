@@ -11,9 +11,9 @@ import DropdownHeader from "../common/dropdown.headerLink";
 import Wallet from "./header.wallet";
 import { defPopBoxType } from "../common/popBox";
 import {
-	defIconType,
+	defEventIcon,
 	defEventPeriod,
-	showPeriodIcon
+	showEventIcon
 } from "../common/eventIcon";
 
 export default () => {
@@ -91,9 +91,9 @@ const defSettingLinks = [
 	{
 		displayKey: "lbl_ReferFriends",
 		href: path.referral.root,
-		periodIcons: [
-			showPeriodIcon({
-				icon: defIconType.new,
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
 				period: defEventPeriod.referral
 			})
 		]

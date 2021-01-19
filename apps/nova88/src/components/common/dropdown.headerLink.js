@@ -37,10 +37,10 @@ export class Dropdown extends Component {
 
 			let _iconClassName = "";
 
-			if (item.periodIcons) {
+			if (item.eventIcons) {
 				let iconStrings = "";
-				for (let i = 0; i < item.periodIcons.length; i++) {
-					iconStrings += item.periodIcons[i] + " ";
+				for (let i = 0; i < item.eventIcons.length; i++) {
+					iconStrings += item.eventIcons[i] + " ";
 				}
 				_iconClassName = `icon ${iconStrings}`;
 			}

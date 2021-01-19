@@ -56,18 +56,18 @@ export default ({
 			let iconList = [];
 			let iconList_unique = [];
 			m.subMenu.forEach(sub => {
-				if (sub.periodIcons) {
-					for (let i = 0; i < sub.periodIcons.length; i++) {
-						iconList.push(sub.periodIcons[i]);
+				if (sub.eventIcons) {
+					for (let i = 0; i < sub.eventIcons.length; i++) {
+						iconList.push(sub.eventIcons[i]);
 					}
 				}
 				iconList_unique = [...new Set(iconList)];
 			});
 			let iconStrings = "";
 			for (let i = 0; i < iconList_unique.length; i++) {
-				iconStrings += iconList_unique[i] + " ";
+				iconStrings += " " + iconList_unique[i];
 			}
-			_className = `${_className} ${iconStrings}`;
+			_className = `${_className}${iconStrings}`;
 		}
 
 		let displayText = toUpperCase

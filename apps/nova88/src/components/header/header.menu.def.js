@@ -1,9 +1,9 @@
 import productList from "../../datas/productList";
 import path from "../../router";
 import {
-	defIconType,
+	defEventIcon,
 	defEventPeriod,
-	showPeriodIcon
+	showEventIcon
 } from "../common/eventIcon";
 
 export const defMenuType = {
@@ -145,7 +145,7 @@ export const defMenuLinks = {
 	casino: {
 		path: path.casino.root,
 		displayKey: "lbl_Casino",
-		className: "slotbtn icon ",
+		className: "slotbtn icon",
 		subMenu: [
 			{
 				icon: "icon icon-PP",
@@ -158,9 +158,9 @@ export const defMenuLinks = {
 			},
 			{
 				className: "icon",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
@@ -377,14 +377,14 @@ export const defMenuLinks = {
 	fishing: {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
-		className: "fishbtn icon ",
+		className: "fishbtn icon",
 		subMenu: [
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf icon",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
@@ -397,9 +397,9 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_FISHING_OF_SAVIORS,
 				className: "fsgfos icon",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
@@ -412,9 +412,9 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
 				className: "fsttatp icon",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
@@ -429,9 +429,9 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_TOWER_OF_SAVIORS,
 				className: "fstos icon",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],

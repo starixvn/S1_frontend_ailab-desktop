@@ -39,12 +39,12 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			});
 		}
 		let _iconClassName = s.className ? s.className : "";
-		if (s.periodIcons) {
+		if (s.eventIcons) {
 			let iconStrings = "";
-			for (let i = 0; i < s.periodIcons.length; i++) {
-				iconStrings += s.periodIcons[i] + " ";
+			for (let i = 0; i < s.eventIcons.length; i++) {
+				iconStrings += ` ${s.eventIcons[i]}`;
 			}
-			_iconClassName = `${s.className} ${iconStrings}`;
+			_iconClassName = `${s.className}${iconStrings}`;
 		}
 
 		let _urlParams = params !== null ? `?${params.join("&")}` : "";

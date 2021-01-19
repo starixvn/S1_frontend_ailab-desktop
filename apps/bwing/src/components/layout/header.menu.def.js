@@ -1,9 +1,9 @@
 import productList, { defCasinoProviders } from "../../datas/productList";
 import path from "../../router";
 import {
-	defIconType,
+	defEventIcon,
 	defEventPeriod,
-	showPeriodIcon
+	showEventIcon
 } from "../common/eventIcon";
 
 export const defMenuType = {
@@ -34,9 +34,9 @@ export const defMenuLinks = {
 				...productList.One789_lottery,
 				path: path.sports.root,
 				className: "traditional",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.one789
 					})
 				],
@@ -49,9 +49,9 @@ export const defMenuLinks = {
 				...productList.One789_lottery_789,
 				path: path.sports.root,
 				className: "one789",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.one789
 					})
 				],
@@ -108,9 +108,9 @@ export const defMenuLinks = {
 			{
 				...defCasinoProviders.ICG,
 				className: "ICG",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
@@ -184,9 +184,9 @@ export const defMenuLinks = {
 				...productList.liveCasino_One789,
 				className: "live789",
 				icon: "icon icon-one789",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.casino,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.casino,
 						period: defEventPeriod.one789
 					})
 				],
@@ -267,9 +267,9 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
@@ -280,9 +280,9 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_FISHING_OF_SAVIORS,
 				className: "fsgfos",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
@@ -293,9 +293,9 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
 				className: "fsttatp",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
@@ -306,9 +306,9 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_TOWER_OF_SAVIORS,
 				className: "fstos",
-				periodIcons: [
-					showPeriodIcon({
-						icon: defIconType.new,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
 						period: defEventPeriod.icg
 					})
 				],
