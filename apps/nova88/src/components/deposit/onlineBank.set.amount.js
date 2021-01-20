@@ -19,7 +19,7 @@ export default ({
 	const { t } = useTranslation();
 
 	const EditAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 
 		ValidAmount(value);
@@ -27,7 +27,13 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		let result = checkAmount(_amount, minAmount, maxAmount, _isConvert, t);
+		const result = checkAmount(
+			_amount,
+			minAmount,
+			maxAmount,
+			_isConvert,
+			t
+		);
 		if (result.status !== 0) {
 			dispatch({
 				type: defActionType.SET_CHECK_STATUS,
@@ -45,7 +51,7 @@ export default ({
 	};
 
 	const clickInfo = () => {
-		let _msg = tip === "" ? getAmountTip(minAmount, _isConvert, t) : "";
+		const _msg = tip === "" ? getAmountTip(minAmount, _isConvert, t) : "";
 		dispatch({
 			type: defActionType.SET_CHECK_STATUS,
 			checked: null,
@@ -56,7 +62,7 @@ export default ({
 	const SubmitAmount = e => {
 		e.preventDefault();
 
-		let result = ValidAmount(amount);
+		const result = ValidAmount(amount);
 		if (result) {
 			dispatch({ type: defActionType.SUBMIT_AMOUNT });
 		}
@@ -79,8 +85,8 @@ export default ({
 						<LimitTip
 							minAmount={minAmount}
 							maxAmount={maxAmount}
-							displayTextLimit={"Limit"}
-							displayTextUnLimit={"Unlimit"}
+							displayTextLimit="Limit"
+							displayTextUnLimit="Unlimit"
 							_isConvert={_isConvert}
 						/>
 					</div>

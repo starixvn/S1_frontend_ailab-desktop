@@ -1,11 +1,11 @@
 import { readCookie } from "../components/common/common";
 
 export const GET_LANG_ID = userLangId => {
-	let siteDefLangId = "en";
-	let siteLangList = ["en", "cs", "th", "id"];
+	const siteDefLangId = "en";
+	const siteLangList = ["en", "cs", "th", "id"];
 
-	let langId = userLangId ? userLangId : readCookie("LangId");
-	let browserDefLang =
+	let langId = userLangId || readCookie("LangId");
+	const browserDefLang =
 		typeof window !== `undefined` ? navigator.language.toLowerCase() : null;
 
 	if (!langId && browserDefLang) {

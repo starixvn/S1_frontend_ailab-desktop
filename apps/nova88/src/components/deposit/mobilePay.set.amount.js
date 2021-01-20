@@ -16,7 +16,7 @@ export default ({
 }) => {
 	const { t } = useTranslation();
 	const EditAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 
 		ValidAmount(value);
@@ -24,7 +24,7 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		let result = checkAmount(
+		const result = checkAmount(
 			_amount,
 			channelInfo.minAmount,
 			channelInfo.maxAmount,
@@ -48,7 +48,7 @@ export default ({
 	};
 
 	const clickInfo = () => {
-		let _msg =
+		const _msg =
 			tip === ""
 				? getAmountTip(channelInfo.minAmount, _isConvert, t)
 				: "";
@@ -62,16 +62,16 @@ export default ({
 	const SubmitAmount = e => {
 		e.preventDefault();
 
-		let result = ValidAmount(amount);
+		const result = ValidAmount(amount);
 		if (result) {
 			dispatch({ type: defActionType.SUBMIT_AMOUNT });
 		}
 	};
 
-	const SelectAmount = (amount, e) => {
+	const SelectAmount = (_amount, e) => {
 		e.preventDefault();
-		ValidAmount(amount);
-		dispatch({ type: defActionType.EDIT_AMOUNT, amount: amount });
+		ValidAmount(_amount);
+		dispatch({ type: defActionType.EDIT_AMOUNT, amount: _amount });
 	};
 
 	const typeIsSelAmount = channelInfo.amountRule === 3;
@@ -90,8 +90,8 @@ export default ({
 						<LimitTip
 							minAmount={channelInfo.minAmount}
 							maxAmount={channelInfo.maxAmount}
-							displayTextLimit={"Limit"}
-							displayTextUnLimit={"Unlimit"}
+							displayTextLimit="Limit"
+							displayTextUnLimit="Unlimit"
 							_isConvert={_isConvert}
 						/>
 					</div>
@@ -138,11 +138,11 @@ const FixedAmountList = ({
 	amount,
 	onSelectAmount
 }) => {
-	let rows = amountList
+	const rows = amountList
 		?.filter(a => a >= minAmount && a <= maxAmount)
 		.map(a => {
-			let _afterConvertAmount = _isConvert ? a / 1000 : a;
-			let isSelected = amount === _afterConvertAmount;
+			const _afterConvertAmount = _isConvert ? a / 1000 : a;
+			const isSelected = amount === _afterConvertAmount;
 
 			return (
 				<button
@@ -150,7 +150,7 @@ const FixedAmountList = ({
 					className={`blue${isSelected ? " active" : ""}`}
 					key={`deposit-mobile-${a}`}>
 					{number_format(a, _isConvert)}
-					<i className="icon icon-checkmark"></i>
+					<i className="icon icon-checkmark" />
 				</button>
 			);
 		});

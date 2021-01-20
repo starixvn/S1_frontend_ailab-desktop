@@ -11,7 +11,9 @@ export default props => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const openPopBox = () => {
@@ -30,7 +32,7 @@ export default props => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const datas = res.data.data;
-						let bankInfoArr = datas.map((item, i) => {
+						const bankInfoArr = datas.map((item, i) => {
 							return {
 								id: i,
 								sysId: item.sysId,
@@ -66,7 +68,7 @@ export default props => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -100,7 +102,7 @@ export default props => {
 			role="button"
 			onKeyDown={openPopBox}
 			tabIndex="0">
-			<div className="icon icon-plus"></div>
+			<div className="icon icon-plus" />
 			<div className="txt-yellow">{t("lbl_AddNewAccount")}</div>
 		</div>
 	);

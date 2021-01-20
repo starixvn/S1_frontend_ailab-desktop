@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
 import { api_tp_GetTransferHistory } from "../service/api/tp";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { TransactionHistory } from "../components/transferFunds/historyResult";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import moment from "moment";
 import Filter from "../components/common/historyFilter";
 import LeftMenu from "../components/common/leftMenu";
 import Loading from "../components/common/loading";
@@ -63,7 +63,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const GetTransferHistory = (transactionData, pageNumber) => {
@@ -137,9 +139,9 @@ const Content = () => {
 				setFilterData(transactionData);
 
 				setKeepData({
-					startDate: startDate,
-					endDate: endDate,
-					quickPick: quickPick
+					startDate,
+					endDate,
+					quickPick
 				});
 			}
 
@@ -151,13 +153,13 @@ const Content = () => {
 	const clickPageNumber = page => {
 		if (!processing) {
 			setProcessing(true);
-			let transactionData = filterData;
+			const transactionData = filterData;
 			setPagination(prev => ({ ...prev, currentPage: page }));
 			GetTransferHistory(transactionData, page);
 		}
 	};
 
-	let arr = getHistory?.map((item, i) => {
+	const arr = getHistory?.map((item, i) => {
 		const _transferDirection = transferDirection(
 			item.direction,
 			t("lbl_MainWallet"),

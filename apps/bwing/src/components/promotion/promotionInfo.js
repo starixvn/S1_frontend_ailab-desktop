@@ -1,17 +1,10 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import {
-	userInfoContext,
-	popBoxContext
-} from "../../components/common/context";
-import {
-	getUrlParameter,
-	isConvert,
-	number_format
-} from "../../components/common/common";
+import { userInfoContext, popBoxContext } from "../common/context";
+import { getUrlParameter, isConvert, number_format } from "../common/common";
 import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import { defPromotionType } from "./promotion.def";
 import ProcessBar from "./promotion.processBar";
 import { isExpiry, isClaimed } from "./promotion.common";
@@ -22,7 +15,7 @@ import { defFilterType } from "./promotion.nav";
 
 export default () => {
 	const filterType = Number(getUrlParameter("FilterType"));
-	let isSpecialType = filterType === defFilterType.specialBonus;
+	const isSpecialType = filterType === defFilterType.specialBonus;
 
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -31,16 +24,18 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const [loading, setLoading] = useState(true);
 
-	let _currency = t(`Currency_${userInfo.currencyId}`);
+	const _currency = t(`Currency_${userInfo.currencyId}`);
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
 		if (userInfo.isLogin !== null) {
-			let _bonusCode = getUrlParameter("bonusCode");
+			const _bonusCode = getUrlParameter("bonusCode");
 			getPromotionDetail(userInfo.langId, _bonusCode);
 		}
 	}, [userInfo.isLogin, userInfo.langId]);
@@ -80,9 +75,8 @@ export default () => {
 				setLoading(false);
 				if (success) {
 					return setPromotionInfo(data);
-				} else {
-					openErrorMessagePopBox(message || "error", errorCode);
 				}
+				openErrorMessagePopBox(message || "error", errorCode);
 			},
 			() => {
 				if (isMountedRef.current) {
@@ -121,15 +115,15 @@ export default () => {
 		_isExpiry = isExpiry({ ...promotionInfo, isLogin: userInfo.isLogin });
 	}
 
-	let _isConvert = isConvert(userInfo.currencyId);
+	const _isConvert = isConvert(userInfo.currencyId);
 
-	let wrapperClass = _isExpiry
+	const wrapperClass = _isExpiry
 		? " expiredClaimedInfo"
 		: _isClaimed
 		? " claimedInfo"
 		: "";
 
-	let specialBonusWrapperClass =
+	const specialBonusWrapperClass =
 		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
 	return loading ? (
@@ -214,7 +208,8 @@ export default () => {
 								className="proDataBody"
 								dangerouslySetInnerHTML={{
 									__html: `${promotionInfo.details}`
-								}}></div>
+								}}
+							/>
 						</div>
 					</div>
 				</div>

@@ -26,7 +26,9 @@ export default props => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const [fileImg, setFileImg] = useState("");
@@ -35,12 +37,12 @@ export default props => {
 
 	const onChangeFile = (action, e) => {
 		e.preventDefault();
-		let files =
+		const files =
 			action === "onDrop" ? e.dataTransfer.files : filebox.current.files;
 		if (files.length > 0) {
 			setPicFileName(files[0].name);
 			setFileData(files);
-			let reader = new FileReader();
+			const reader = new FileReader();
 			reader.readAsDataURL(files[0]);
 			reader.onload = () => {
 				setFileImg(reader.result);
@@ -54,7 +56,7 @@ export default props => {
 		};
 
 		if (fileData.length > 0) {
-			let formData = new FormData();
+			const formData = new FormData();
 			formData.append("PhotoId", fileData[0]);
 			api_accountStrict_UploadCustPhotoId(formData).then(
 				res => {
@@ -133,7 +135,7 @@ export default props => {
 						{picFileName ? (
 							<img alt="for kyc" src={fileImg} />
 						) : (
-							<i className="icon icon-plus"></i>
+							<i className="icon icon-plus" />
 						)}
 					</label>
 					<div className="directions">

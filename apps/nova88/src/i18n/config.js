@@ -4,7 +4,7 @@ export const langList = ["cs", "en", "th", "id"];
 export const defaultLang = "en";
 
 const setResources = () => {
-	let result = {};
+	const result = {};
 	langList.forEach(l => {
 		result[l] = {
 			translations: require(`./${l}.json`)

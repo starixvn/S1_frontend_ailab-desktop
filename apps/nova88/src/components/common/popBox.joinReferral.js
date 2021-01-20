@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import path from "../../router";
-import { userInfoContext } from "../common/context";
-import { setCookie, deleteCookie } from "../common/common";
+import { userInfoContext } from "./context";
+import { setCookie, deleteCookie } from "./common";
 
 export default ({ onClickClose }) => {
 	const { t } = useTranslation();
@@ -29,29 +29,24 @@ export default ({ onClickClose }) => {
 	} catch (error) {}
 
 	return (
-		<>
-			<div className="friend active">
-				<button
-					className="icon icon-close"
-					onClick={onClickClose}></button>
-				<Link
-					className=""
-					to={`/${userInfo.langId}/${path.referral.root}`}>
-					<img src={src} alt="img_referral" />
-				</Link>
-				<div className="checkbox">
-					<input
-						type="checkbox"
-						id="home-popbox-joinReferral"
-						onChange={onChangeDontShow}
-						checked={selectDontShow}
-					/>
-					<label
-						htmlFor="home-popbox-joinReferral"
-						className="icon icon-checkbox-checked"></label>
-					{t("lbl_Dont_show_me_again")}
-				</div>
+		<div className="friend active">
+			<button className="icon icon-close" onClick={onClickClose} />
+			<Link className="" to={`/${userInfo.langId}/${path.referral.root}`}>
+				<img src={src} alt="img_referral" />
+			</Link>
+			<div className="checkbox">
+				<input
+					type="checkbox"
+					id="home-popbox-joinReferral"
+					onChange={onChangeDontShow}
+					checked={selectDontShow}
+				/>
+				<label
+					htmlFor="home-popbox-joinReferral"
+					className="icon icon-checkbox-checked"
+				/>
+				{t("lbl_Dont_show_me_again")}
 			</div>
-		</>
+		</div>
 	);
 };

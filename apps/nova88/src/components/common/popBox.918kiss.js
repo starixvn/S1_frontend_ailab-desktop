@@ -17,7 +17,7 @@ export default ({ ClickClose }) => {
 	};
 	return (
 		<div className="download active">
-			<button onClick={ClickClose} className="icon icon-close"></button>
+			<button onClick={ClickClose} className="icon icon-close" />
 			<div>
 				<div className="icon icon-android">Android</div>
 				<div>918Kiss Android</div>

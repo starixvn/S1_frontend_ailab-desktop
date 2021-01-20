@@ -1,6 +1,6 @@
 import React from "react";
 import { defDayOptions } from "./leaderboard.def";
-import Dropdown from "../../components/common/dropdown";
+import Dropdown from "../common/dropdown";
 
 export default ({ t, onChangeDays, beforeDays, updateStateOnly = false }) => {
 	return (

@@ -3,7 +3,7 @@ import { popBoxContext } from "../common/context";
 import config from "../../config";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defRowsPerPage } from "./casino.def";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default ({
 	displayGames,
@@ -17,8 +17,8 @@ export default ({
 	t
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	let startIdx = (currentPage - 1) * defRowsPerPage;
-	let endIdx = currentPage * defRowsPerPage;
+	const startIdx = (currentPage - 1) * defRowsPerPage;
+	const endIdx = currentPage * defRowsPerPage;
 
 	const onClickPlay = (tpId, gameId, isFree) => {
 		if (isLogin) {
@@ -32,16 +32,18 @@ export default ({
 	};
 
 	let _imgUrl = "";
-	let rows = displayGames
+	const rows = displayGames
 		?.filter(g => tpList[g.tpId] !== undefined)
 		.slice(startIdx, endIdx)
 		.map(g => {
-			let tpInfo = tpList[g.tpId];
-			let imgName = g.imgName[langId] ? g.imgName[langId] : g.imgName.en;
-			let gameDisplayName = g.name[langId] ? g.name[langId] : g.name.en;
-			let isFavorite =
+			const tpInfo = tpList[g.tpId];
+			const imgName = g.imgName[langId]
+				? g.imgName[langId]
+				: g.imgName.en;
+			const gameDisplayName = g.name[langId] ? g.name[langId] : g.name.en;
+			const isFavorite =
 				favorite?.filter(f => {
-					let fArr = f.split("_");
+					const fArr = f.split("_");
 					return Number(fArr[0]) === g.tpId && fArr[1] === g.gameId;
 				})?.length > 0;
 
@@ -57,7 +59,8 @@ export default ({
 						onClick={onSetFavorite.bind(this, g.tpId, g.gameId)}
 						className={`icon icon-star-full${
 							isFavorite ? " active" : ""
-						}`}></div>
+						}`}
+					/>
 					<img alt="Casino_tpInfo" src={_imgUrl} />
 					<div className="txt-blue15">{gameDisplayName}</div>
 					<div className="btnGroup">

@@ -7,7 +7,7 @@ export default ({ bankList, dispatch }) => {
 		dispatch({ type: defActionType.SELECT_BANK, bankIdx });
 	};
 
-	let rows = bankList.map((b, bIdx) => {
+	const rows = bankList.map((b, bIdx) => {
 		return (
 			<li key={`onlineBank-selBank-${b.sysId}`}>
 				<a onClick={SelectBank.bind(this, bIdx)}>

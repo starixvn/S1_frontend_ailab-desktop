@@ -56,7 +56,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -66,11 +68,11 @@ export default () => {
 	}, [userInfo.isLogin]);
 
 	const showUpdateTime = () => {
-		let _time = new Date();
-		let _convertMin = _time.getMinutes() < 30 ? 0 : 30;
+		const _time = new Date();
+		const _convertMin = _time.getMinutes() < 30 ? 0 : 30;
 		_time.setMinutes(_convertMin);
 		_time.setSeconds(0);
-		let displayTime = moment(_time).format("YYYY/MM/DD HH:mm:ss");
+		const displayTime = moment(_time).format("YYYY/MM/DD HH:mm:ss");
 		return displayTime;
 	};
 
@@ -94,9 +96,9 @@ export default () => {
 
 	const getLeaderboardData = async daysValue => {
 		if (!userInfo.isLogin) return;
-		let payload = {
-			lBCategoryId: lBCategoryId,
-			TopNum: TopNum,
+		const payload = {
+			lBCategoryId,
+			TopNum,
 			BeforeDays: daysValue ?? beforeDays
 		};
 
@@ -129,7 +131,7 @@ export default () => {
 
 	const getSelfLeaderboardData = async (daysValue = beforeDays) => {
 		if (!userInfo.isLogin) return;
-		let payload = {
+		const payload = {
 			LBCategoryId: lBCategoryId,
 			BeforeDays: daysValue
 		};
@@ -157,14 +159,14 @@ export default () => {
 		});
 	};
 
-	const fetchData = beforeDays => {
-		setBeforeDays(beforeDays);
-		getLeaderboardData(beforeDays);
+	const fetchData = _beforeDays => {
+		setBeforeDays(_beforeDays);
+		getLeaderboardData(_beforeDays);
 	};
 
 	const title = t(defTabList.find(item => item.id === tab).displayKey);
 	const { custRank, point } = selfRankingData;
-	let rank = custRank > 999 || custRank === 0 ? "999+" : custRank;
+	const rank = custRank > 999 || custRank === 0 ? "999+" : custRank;
 	let rankResult = [];
 	if (custRank <= TopNum && custRank !== 0) {
 		rankingData[custRank - 1] = {
@@ -230,7 +232,7 @@ export default () => {
 								<div className="highest">
 									{t("lbl_No1Award")}
 									<span>
-										VND {defRewardList["VND"][0].reward}
+										VND {defRewardList.VND[0].reward}
 									</span>
 								</div>
 							</div>

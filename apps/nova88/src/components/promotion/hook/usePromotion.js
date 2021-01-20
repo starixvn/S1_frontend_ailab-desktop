@@ -13,7 +13,7 @@ export default ({ userInfo, isMountedRef, errorPopBox }) => {
 
 				const success = errorCode === 0;
 				if (success) {
-					let result = data.sort((a, b) => {
+					const result = data.sort((a, b) => {
 						return a.periodFrom > b.periodFrom ? -1 : 1;
 					});
 

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
+import moment from "moment";
 import { number_format } from "../common/common";
 import { defTabId, defTopWinnerNum } from "./leaderboard.def";
 import DayDropdown from "./leaderboard.dayDropdown";
-import moment from "moment";
 
 export default ({
 	t,
@@ -13,11 +13,11 @@ export default ({
 	beforeDays
 }) => {
 	const showUpdateTime = () => {
-		let _time = new Date();
-		let _convertMin = _time.getMinutes() < 30 ? 0 : 30;
+		const _time = new Date();
+		const _convertMin = _time.getMinutes() < 30 ? 0 : 30;
 		_time.setMinutes(_convertMin);
 		_time.setSeconds(0);
-		let displayTime = moment(_time).format("YYYY/MM/DD HH:mm:ss");
+		const displayTime = moment(_time).format("YYYY/MM/DD HH:mm:ss");
 		return displayTime;
 	};
 
@@ -65,20 +65,19 @@ export default ({
 
 const Ranking = ({ rankingData, t, userInfo }) =>
 	rankingData?.map((item, idx) => {
-		let liStyle = () => {
+		const liStyle = () => {
 			let top3Class = "";
 			let myClass = "";
 			if (idx < 3) {
-				top3Class = "no" + (idx + 1);
+				top3Class = `no${idx + 1}`;
 			}
-			if (item.userName === userInfo.userName) {
-				myClass = idx < 3 ? " myRank" : "myRank";
-			} else if (
-				item.userName === userInfo.userName &&
-				idx < defTopWinnerNum
-			) {
+
+			if (item.userName === userInfo.userName && idx < defTopWinnerNum) {
 				myClass = idx < 3 ? " myInRank" : "myInRank";
+			} else if (item.userName === userInfo.userName) {
+				myClass = idx < 3 ? " myRank" : "myRank";
 			}
+
 			return top3Class + myClass;
 		};
 

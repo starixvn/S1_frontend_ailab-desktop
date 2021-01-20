@@ -4,6 +4,18 @@ module.exports = {
 		supportedLanguages: ["en", "cs", "ch", "vn", "id", "th"]
 	},
 	plugins: [
+		{
+			resolve: "gatsby-plugin-eslint",
+			options: {
+				test: /\.js$|\.jsx$/,
+				exclude: /(node_modules|.cache|public)/,
+				stages: ["develop"],
+				options: {
+					emitWarning: true,
+					failOnError: true
+				}
+			}
+		},
 		`gatsby-plugin-react-helmet`,
 		{
 			resolve: `gatsby-source-filesystem`,

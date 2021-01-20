@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
+import { navigate } from "@reach/router";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import productList from "../../datas/productList";
 import path from "../../router";
-import { navigate } from "@reach/router";
 
 const defLinkType = {
 	default: "default",
@@ -127,17 +127,17 @@ export default ({ t, userInfo }) => {
 		} else {
 			SET_ENTER_PAGE({
 				langId: userInfo.langId,
-				tpId: tpId,
-				gameId: gameId,
+				tpId,
+				gameId,
 				isLogin: userInfo.isLogin,
-				betType: betType,
+				betType,
 				loginCallback: LoginPopBox
 			});
 		}
 	};
 
-	let rows = defGameList.map(g => {
-		let displayText = t(g.displayKey) ?? g.displayKey;
+	const rows = defGameList.map(g => {
+		const displayText = t(g.displayKey) ?? g.displayKey;
 		return (
 			<button
 				key={`promoGameList-${g.displayKey}`}

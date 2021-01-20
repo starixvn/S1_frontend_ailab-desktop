@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import { userInfoContext } from "../common/context";
 import { TransactionHistory } from "./historyResult";
-import { Link } from "@reach/router";
 import path from "../../router";
 import ReloadSpin from "../common/reloadSpin";
 
@@ -25,7 +25,7 @@ export default props => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
-	let arr = props.getHistory?.map((item, i) => {
+	const arr = props.getHistory?.map((item, i) => {
 		const _transferDirection = transferDirection(
 			item.direction,
 			t("lbl_MainWallet"),
@@ -73,7 +73,8 @@ export default props => {
 			</div>
 			<Link
 				to={`/${userInfo.langId}/${path.transferHistory.root}`}
-				className="icon icon-books"></Link>
+				className="icon icon-books"
+			/>
 		</>
 	);
 };

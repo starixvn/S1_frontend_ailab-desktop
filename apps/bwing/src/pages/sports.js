@@ -19,9 +19,9 @@ export default () => {
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const game = getUrlParameter("game");
-	let tpId = productList[game]?.tpId;
-	let gameId = productList[game]?.gameId;
-	let matchid = getUrlParameter("matchid");
+	const tpId = productList[game]?.tpId;
+	const gameId = productList[game]?.gameId;
+	const matchid = getUrlParameter("matchid");
 	return (
 		<main>
 			<section className="inside">
@@ -33,7 +33,8 @@ const Content = () => {
 						tpId,
 						gameId,
 						matchid
-					)}></iframe>
+					)}
+				/>
 			</section>
 		</main>
 	);

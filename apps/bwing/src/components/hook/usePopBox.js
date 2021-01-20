@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { defPopBoxType } from "../../components/common/popBox";
-import { popBoxContext } from "../../components/common/context";
+import { defPopBoxType } from "../common/defPopBoxType";
+import { popBoxContext } from "../common/context";
 
 const usePopBox = () => {
 	const { t } = useTranslation();

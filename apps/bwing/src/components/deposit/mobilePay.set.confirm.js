@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import { number_format } from "../common/common";
-import { userInfoContext, popBoxContext } from "../common/context";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
+import { number_format } from "../common/common";
+import { userInfoContext, popBoxContext } from "../common/context";
 import config from "../../config";
 import path from "../../router";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default ({ channelInfo, amount, _isConvert }) => {
 	const { userInfo } = useContext(userInfoContext);
@@ -47,7 +47,7 @@ export default ({ channelInfo, amount, _isConvert }) => {
 
 	const ClickSubmit = () => {
 		if (typeof window !== undefined) {
-			let real_amount = _isConvert ? amount * 1000 : amount;
+			const real_amount = _isConvert ? amount * 1000 : amount;
 			window.open(
 				`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${channelInfo.channelId}&Amount=${real_amount}`
 			);

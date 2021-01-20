@@ -19,7 +19,7 @@ import BankPanel from "./bankInfo.set.bank";
 import AccountPanel from "./bankInfo.set.account";
 import ShowCard from "./bankInfo.showCard";
 import Loading from "../common/loading";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import StepBar from "../common/stepBar";
 import bankInfoStep from "./bankInfo.set.defStep";
 
@@ -34,7 +34,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -50,7 +52,7 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
+						const datas = res.data.data;
 						if (setAccountName) {
 							setUserInfo(prev => ({
 								...prev,
@@ -60,7 +62,7 @@ export default () => {
 
 						dispatch({
 							type: defActionType.GET_CUST_BANK_INFO,
-							datas: datas
+							datas
 						});
 					} else {
 						setPopBox({
@@ -104,7 +106,7 @@ export default () => {
 	};
 
 	const clickTip = () => {
-		let _showTip = !showTip;
+		const _showTip = !showTip;
 		setShowTip(_showTip);
 	};
 
@@ -138,7 +140,7 @@ export default () => {
 							? userInfo.accountName
 							: state.accountName
 					}
-					alreadyHasAccountName={userInfo.accountName ? true : false}
+					alreadyHasAccountName={!!userInfo.accountName}
 					reload={GetCustBankInfo}
 				/>
 			);
@@ -168,7 +170,8 @@ export default () => {
 								<span>{userInfo.accountName}</span>
 								<button
 									className="icon icon-error"
-									onClick={clickTip}></button>
+									onClick={clickTip}
+								/>
 							</div>
 						</div>
 						{showTip ? (

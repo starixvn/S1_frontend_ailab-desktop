@@ -1,7 +1,7 @@
 import React from "react";
-import path from "../../router";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
+import path from "../../router";
 import config from "../../config";
 
 const _path = path.deposit.sub.crypto.root;
@@ -9,7 +9,7 @@ const _path = path.deposit.sub.crypto.root;
 export default ({ cryptoList }) => {
 	const { t } = useTranslation();
 
-	let rows = cryptoList?.map(p => {
+	const rows = cryptoList?.map(p => {
 		return (
 			<li key={`deposit-crypto-${p.channelName}}`}>
 				<Link to={`${_path}?name=${p.channelName}&gId=${p.groupId}`}>
