@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import AddBankAccount from "./addBankAccount";
 import Available from "./withdrawal.set.available";
 import Calculation from "./withdrawal.set.calculation";
@@ -11,12 +12,15 @@ import KycPending from "./withdrawal.set.kycPending";
 import WithdrawalConfirm from "./withdrawal.set.confirm";
 import { api_payment_WithdrawalReq } from "../../service/api/payment";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
-import { isConvert } from "../common/common";
+import { defPopBoxType } from "../common/defPopBoxType";
+import {
+	isConvert,
+	checkWithdrawalAmount,
+	getAmountTip
+} from "../common/common";
 import StepBar from "../common/stepBar";
-import defStep from "../withdrawal/defStep";
-import { checkWithdrawalAmount, getAmountTip } from "../common/common";
-import { Link } from "@reach/router";
+import defStep from "./defStep";
+
 import path from "../../router";
 
 export default ({
@@ -45,7 +49,9 @@ export default ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -118,14 +124,14 @@ export default ({
 	};
 
 	const onChangeAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 		ValidAmount(value);
 		setAmountValue(value);
 	};
 
 	const ValidAmount = _amount => {
-		let result = checkWithdrawalAmount(
+		const result = checkWithdrawalAmount(
 			_amount,
 			balanceData.availableBalance,
 			_isConvert,
@@ -146,7 +152,7 @@ export default ({
 	};
 
 	const clickInfo = () => {
-		let _msg = status.tip === "" ? getAmountTip(0, _isConvert, t) : "";
+		const _msg = status.tip === "" ? getAmountTip(0, _isConvert, t) : "";
 		setStatus({
 			checked: null,
 			tip: _msg
@@ -185,7 +191,7 @@ export default ({
 	};
 
 	const confirmSubmit = () => {
-		let ClickDone = () => {
+		const ClickDone = () => {
 			setAmountValue("");
 			setCurrentlyBankInfo(0, 0, "");
 			refreshAvailableBalance();
@@ -200,11 +206,11 @@ export default ({
 			getKycStatus();
 		};
 
-		let AccountNo = accountNoValue;
-		let amount = _isConvert
+		const AccountNo = accountNoValue;
+		const amount = _isConvert
 			? amountValue * 1000
 			: parseInt(amountValue, 10);
-		let sysId = sysIdValue;
+		const sysId = sysIdValue;
 		api_payment_WithdrawalReq(AccountNo, amount, sysId).then(
 			res => {
 				if (isMountedRef.current) {
@@ -229,8 +235,9 @@ export default ({
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message:
-								t("lbl_RolloverOver") + ":" + res.data.message,
+							message: `${t("lbl_RolloverOver")}:${
+								res.data.message
+							}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -245,8 +252,9 @@ export default ({
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message:
-								t("lbl_DepositOver") + ":" + res.data.message,
+							message: `${t("lbl_DepositOver")}:${
+								res.data.message
+							}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -261,10 +269,10 @@ export default ({
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message:
-								t("lbl_WithdrawalOver") +
-								": " +
-								parseInt(res.data.message, 10).toString(),
+							message: `${t("lbl_WithdrawalOver")}: ${parseInt(
+								res.data.message,
+								10
+							).toString()}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { TransactionHistory } from "./deposit.historyResult";
 import {
@@ -8,9 +9,8 @@ import {
 	api_payment_SetDepositCancel
 } from "../../service/api/payment";
 import { isConvert } from "../common/common";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
-import { Link } from "@reach/router";
 import path from "../../router";
 
 export default () => {
@@ -23,7 +23,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -54,8 +56,8 @@ export default () => {
 		picFileName,
 		refId
 	) => {
-		let { currencyId, ...restBankInfo } = bankInfo;
-		let { accountName, accountNo } = depositRep;
+		const { currencyId, ...restBankInfo } = bankInfo;
+		const { accountName, accountNo } = depositRep;
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.UploadBankSlip,
@@ -63,41 +65,35 @@ export default () => {
 				"hh:mm A"
 			)}`,
 			...restBankInfo,
-			transId: transId,
-			accountNo: accountNo,
-			accountName: accountName,
+			transId,
+			accountNo,
+			accountName,
 			isOpen: true,
-			amount: amount,
-			picFileName: picFileName,
-			refId: refId,
+			amount,
+			picFileName,
+			refId,
 			refreshDatas: GetRecentDatas,
-			_isConvert: _isConvert
+			_isConvert
 		});
 	};
 
 	const ClickCancel = transId => {
 		const ClickConfirm = () => {
 			setPopBox({ isOpen: false });
-			api_payment_SetDepositCancel(transId).then(
-				res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0) {
-							setGetHistory(prevState => {
-								let newD = [...prevState];
-								let idx = newD.findIndex(
-									x => x.transId === transId
-								);
-								newD[idx].status = 5;
-								return newD;
-							});
-						}
-					}
-				},
-				err => {
-					if (isMountedRef.current) {
+			api_payment_SetDepositCancel(transId).then(res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setGetHistory(prevState => {
+							const newD = [...prevState];
+							const idx = newD.findIndex(
+								x => x.transId === transId
+							);
+							newD[idx].status = 5;
+							return newD;
+						});
 					}
 				}
-			);
+			});
 		};
 
 		setPopBox({
@@ -116,7 +112,7 @@ export default () => {
 		});
 	};
 
-	let arr = getHistory?.map((item, i) => {
+	const arr = getHistory?.map((item, i) => {
 		return (
 			<TransactionHistory
 				key={`deposit-recent-${item.transId}`}
@@ -164,7 +160,8 @@ export default () => {
 			</div>
 			<Link
 				to={`/${userInfo.langId}/${path.depositHistory.root}`}
-				className="icon icon-books"></Link>
+				className="icon icon-books"
+			/>
 		</>
 	);
 };

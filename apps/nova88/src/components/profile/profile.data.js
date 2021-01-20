@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { userInfoContext } from "../common/context";
 import moment from "moment";
+import { userInfoContext } from "../common/context";
 
 export const initValue = {
 	accountName: "",
@@ -103,13 +103,13 @@ export const DisplayRow = ({
 				{displayKey === "lbl_Phone" ? (
 					mobileVerificationLoading ? (
 						<div className="otpLoading">
-							<i className="icon icon-spinner11"></i>
+							<i className="icon icon-spinner11" />
 						</div>
 					) : phoneVerified ? (
-						<span className="icon icon-checkmark"></span>
+						<span className="icon icon-checkmark" />
 					) : (
 						<button onClick={sendOTPSMS}>
-							<span className="icon icon-error otp"></span>
+							<span className="icon icon-error otp" />
 							<span>{t("lbl_MobileVerify")}</span>
 						</button>
 					)

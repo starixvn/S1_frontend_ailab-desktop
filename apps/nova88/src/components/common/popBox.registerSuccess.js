@@ -7,7 +7,7 @@ export default ({ btnBar, closeBtn }) => {
 	return (
 		<div className="joinSuccess active">
 			{closeBtn}
-			<div className="icon icon-icon_1_cop"></div>
+			<div className="icon icon-icon_1_cop" />
 			<div className="title">{t("lbl_Congratulations")}</div>
 			<div className="txt-orange">
 				{t("lbl_BecomingDistinguishedPlayer")}

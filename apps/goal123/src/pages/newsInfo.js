@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
+import { Redirect } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";
-import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { getUrlParameter } from "../components/common/common";
 import { api_news_GetNewsById } from "../service/api/news";
-import { Redirect } from "@reach/router";
 import path from "../router";
 import Loading from "../components/common/loading";
 import { defPopBoxType } from "../components/common/popBox";
@@ -43,7 +43,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -51,7 +53,7 @@ const Content = () => {
 	}, []);
 
 	const openNews = () => {
-		let newsId = getUrlParameter("newsId");
+		const newsId = getUrlParameter("newsId");
 
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
@@ -64,7 +66,7 @@ const Content = () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
+						const datas = res.data.data;
 						setNewsInfo({
 							title: datas.title,
 							content: datas.content,

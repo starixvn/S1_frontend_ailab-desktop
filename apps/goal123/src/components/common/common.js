@@ -1,10 +1,10 @@
 import countryCode from "../../datas/countryCode";
 
 export const getUrlParameter = name => {
-	name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-	var regex = new RegExp("[\\?&]" + name + "=([^&#]*)", "i");
+	const _name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	const regex = new RegExp(`[\\?&]${_name}=([^&#]*)`, "i");
 	if (typeof window !== `undefined`) {
-		var results = regex.exec(window.location.search);
+		const results = regex.exec(window.location.search);
 		return results === null
 			? ""
 			: decodeURIComponent(results[1].replace(/\+/g, " "));
@@ -68,17 +68,16 @@ export const checkAmount = (amount, minAmount, maxAmount, _isConvert, i18n) => {
 			(num_Amount > maxAmount || num_Amount < minAmount)
 		) {
 			status = 2;
-			msg =
-				number_format(num_Amount, _isConvert) +
-				" " +
-				i18n("lbl_NotinLimit");
+			msg = `${number_format(num_Amount, _isConvert)} ${i18n(
+				"lbl_NotinLimit"
+			)}`;
 		}
 	} else {
 		status = 3;
 		msg = getAmountTip(minAmount, _isConvert, i18n);
 	}
 
-	return { status: status, msg: msg };
+	return { status, msg };
 };
 
 export const checkWithdrawalAmount = (amount, maxAmount, _isConvert, i18n) => {
@@ -94,38 +93,35 @@ export const checkWithdrawalAmount = (amount, maxAmount, _isConvert, i18n) => {
 			msg = getAmountTip(0, _isConvert, i18n);
 		} else if (maxAmount !== 0 && num_Amount > maxAmount) {
 			status = 2;
-			msg =
-				number_format(num_Amount, _isConvert) +
-				" " +
-				i18n("lbl_NotinLimit");
+			msg = `${number_format(num_Amount, _isConvert)} ${i18n(
+				"lbl_NotinLimit"
+			)}`;
 		}
 	} else {
 		status = 3;
 		msg = getAmountTip(0, _isConvert, i18n);
 	}
 
-	return { status: status, msg: msg };
+	return { status, msg };
 };
 
 export const setCookie = (cookieName, cookieValue, exdays) => {
-	let d = new Date();
+	const d = new Date();
 	d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-	var expires = "expires=" + d.toUTCString();
+	const expires = `expires=${d.toUTCString()}`;
 	if (typeof document !== `undefined`) {
-		document.cookie =
-			cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+		document.cookie = `${cookieName}=${cookieValue};${expires};path=/`;
 	}
 };
 
 export const readCookie = cookieName => {
 	if (typeof document !== `undefined`) {
-		let match = document.cookie.match(
-			new RegExp("(^| )" + cookieName + "=([^;]+)")
+		const match = document.cookie.match(
+			new RegExp(`(^| )${cookieName}=([^;]+)`)
 		);
 		return match ? match[2] : null;
-	} else {
-		return null;
 	}
+	return null;
 };
 
 export const deleteCookie = cookieName => {
@@ -141,7 +137,7 @@ const SetReplaceChar = (str, idx, newChar) => {
 };
 
 export const getNewLanguagePath = langId => {
-	let url =
+	const url =
 		window.location.pathname +
 		window.location.search +
 		window.location.hash;

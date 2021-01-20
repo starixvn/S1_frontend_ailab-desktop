@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import { api_payment_GetStatement } from "../service/api/payment";
-import { number_format } from "../components/common/common";
+import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { popBoxContext } from "../components/common/context";
+import { number_format } from "../components/common/common";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
+import { api_payment_GetStatement } from "../service/api/payment";
 import Layout from "../components/common/layout";
 import Filter from "../components/common/historyFilter";
-import moment from "moment";
 import LeftMenu from "../components/common/leftMenu";
 import Loading from "../components/common/loading";
 import { defPopBoxType } from "../components/common/popBox";
@@ -48,7 +48,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const GetStatement = (transactionData, pageNumber) => {
@@ -122,9 +124,9 @@ const Content = () => {
 				setFilterData(transactionData);
 
 				setKeepData({
-					startDate: startDate,
-					endDate: endDate,
-					quickPick: quickPick
+					startDate,
+					endDate,
+					quickPick
 				});
 			}
 
@@ -136,14 +138,14 @@ const Content = () => {
 	const clickPageNumber = page => {
 		if (!processing) {
 			setProcessing(true);
-			let transactionData = filterData;
+			const transactionData = filterData;
 			setPagination(prev => ({ ...prev, currentPage: page }));
 
 			GetStatement(transactionData, page);
 		}
 	};
 
-	let arr = getHistory?.map((item, i) => {
+	const arr = getHistory?.map((item, i) => {
 		return (
 			<TansactionHistory
 				key={`statement-${item.refTransId}-${item.typeName}`}

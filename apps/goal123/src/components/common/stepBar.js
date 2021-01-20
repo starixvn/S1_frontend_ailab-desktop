@@ -1,7 +1,7 @@
 import React from "react";
 
 export default ({ t, step, defStep }) => {
-	let rows = defStep.map((s, sIdx) => {
+	const rows = defStep.map((s, sIdx) => {
 		return (
 			<div
 				className={sIdx <= step - 1 ? "active" : ""}

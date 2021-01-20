@@ -18,7 +18,7 @@ import InitPanel from "./bankInfo.set.init";
 import BankPanel from "./bankInfo.set.selectBank";
 import AccountPanel from "./bankInfo.set.account";
 import ShowCard from "./bankInfo.set.bankCard";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 import StepBar from "../common/stepBar";
 import bankInfoStep from "./bankInfo.set.defStep";
@@ -34,7 +34,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -54,7 +56,7 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let resData = res.data.data;
+						const resData = res.data.data;
 						if (setAccountName) {
 							setUserInfo(prev => ({
 								...prev,
@@ -137,7 +139,7 @@ export default () => {
 							? userInfo.accountName
 							: state.accountName
 					}
-					alreadyHasAccountName={userInfo.accountName ? true : false}
+					alreadyHasAccountName={!!userInfo.accountName}
 					reload={getBankInfo}
 				/>
 			);
@@ -166,7 +168,8 @@ export default () => {
 							<span>{userInfo.accountName}</span>
 							<button
 								className="icon icon-error"
-								onClick={clickTip}></button>
+								onClick={clickTip}
+							/>
 							{showTip ? (
 								<div className="tip active">
 									{t("lbl_ContactCSD")}

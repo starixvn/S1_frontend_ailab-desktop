@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { number_format, getUrlParameter } from "../common/common";
-import { userInfoContext, popBoxContext } from "../common/context";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
+import { number_format, getUrlParameter } from "../common/common";
+import { userInfoContext } from "../common/context";
 import config from "../../config";
 import path from "../../router";
 import { defActionType } from "./onlineBank.reducer";
@@ -18,17 +18,14 @@ export default ({ bankInfo = { sysId: 0 }, amount, _isConvert, dispatch }) => {
 
 	const ClickSubmit = () => {
 		if (typeof window !== undefined) {
-			let real_amount = _isConvert ? amount * 1000 : amount;
+			const real_amount = _isConvert ? amount * 1000 : amount;
 			window.open(
-				`${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking` +
-					"?sysId=" +
-					bankInfo.sysId +
-					"&payId=" +
-					getUrlParameter("pId") +
-					"&ChannelId=" +
-					getUrlParameter("cId") +
-					"&Amount=" +
-					real_amount
+				`${
+					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking` +
+					"?sysId="
+				}${bankInfo.sysId}&payId=${getUrlParameter(
+					"pId"
+				)}&ChannelId=${getUrlParameter("cId")}&Amount=${real_amount}`
 			);
 		}
 	};

@@ -5,7 +5,7 @@ import Footer from "../footer/footer";
 import SEO from "../seo";
 import PopBox from "./popBox";
 import Loading from "./loading";
-import { loadingContext } from "../../components/common/context";
+import { loadingContext } from "./context";
 
 const Layout = ({ children, showFooter = false }) => {
 	const { loading } = useContext(loadingContext);

@@ -6,8 +6,8 @@ export default ({ btnBar, titleIcon, title, message, ClickClose }) => {
 
 	return (
 		<div className="changePassWordpop active">
-			<div className="icon icon-close" onClick={ClickClose}></div>
-			<div className={titleIcon ? `icon ${titleIcon}` : "icon "}></div>
+			<div className="icon icon-close" onClick={ClickClose} />
+			<div className={titleIcon ? `icon ${titleIcon}` : "icon "} />
 			<div className="title">{title}</div>
 			<div className="txt-lightgray">{message}</div>
 			{btnBar}

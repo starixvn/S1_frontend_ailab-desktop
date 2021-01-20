@@ -32,7 +32,7 @@ export default ({
 				</div>
 			</div>
 			<div className="inputBox">
-				<i className="txt-blue12 icon icon-search"></i>
+				<i className="txt-blue12 icon icon-search" />
 				<input
 					type="text"
 					onKeyPress={KeyPress}

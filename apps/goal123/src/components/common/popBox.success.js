@@ -6,12 +6,10 @@ export default ({ btnBar }) => {
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-library"></div>
+			<div className="icon icon-library" />
 			<div className="title">{t("lbl_Information")}</div>
 			<div>{t("lbl_UpdateSuccessful")}</div>
-			<div>
-				{t("lbl_UpdateSuccessWillProcess")}
-			</div>
+			<div>{t("lbl_UpdateSuccessWillProcess")}</div>
 			{btnBar}
 		</div>
 	);

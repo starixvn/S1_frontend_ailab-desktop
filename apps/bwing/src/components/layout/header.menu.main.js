@@ -9,7 +9,7 @@ import { siteInfo } from "../../config";
 export default ({ showSubMenu }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
-	let currentPage = getCurrentPage();
+	const currentPage = getCurrentPage();
 
 	return (
 		<>
@@ -18,10 +18,10 @@ export default ({ showSubMenu }) => {
 				className={
 					currentPage === `/${userInfo.langId}` ? "active" : ""
 				}>
-				<i className="icon icon-home"></i>
+				<i className="icon icon-home" />
 			</Link>
 			<LinkItems
-				mainKey={`header-`}
+				mainKey="header-"
 				defMenuLinks={defMenuLinks}
 				t={t}
 				showSubMenu={showSubMenu}

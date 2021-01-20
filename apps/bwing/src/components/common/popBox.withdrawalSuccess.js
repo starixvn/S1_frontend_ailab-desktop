@@ -6,8 +6,8 @@ export default ({ btnBar, onClickClose }) => {
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-close" onClick={onClickClose}></div>
-			<div className="icon icon-library"></div>
+			<div className="icon icon-close" onClick={onClickClose} />
+			<div className="icon icon-library" />
 			<div className="title">{t("lbl_Withdrawal")}</div>
 			<div className="txt-lightgray">
 				{t("lbl_WithdrawalSuccess")} <br />

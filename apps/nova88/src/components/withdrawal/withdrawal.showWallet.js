@@ -13,11 +13,13 @@ export default ({ balanceData, GetWithdrawalAvailableBalance }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const showRealNameTip = () => {
-		let tip = realNameTip === "" ? t("lbl_ContactCSD") : "";
+		const tip = realNameTip === "" ? t("lbl_ContactCSD") : "";
 		setRealNameTip(tip);
 	};
 
@@ -31,7 +33,8 @@ export default ({ balanceData, GetWithdrawalAvailableBalance }) => {
 					<span>{userInfo?.accountName}</span>
 					<button
 						className="icon icon-error"
-						onClick={showRealNameTip}></button>
+						onClick={showRealNameTip}
+					/>
 					<div className={`tip${realNameTip ? " active" : ""}`}>
 						{realNameTip}
 					</div>

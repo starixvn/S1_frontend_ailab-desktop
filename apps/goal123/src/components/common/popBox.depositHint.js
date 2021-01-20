@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import path from "../../router";
-import { popBoxContext, userInfoContext } from "../common/context";
+import { popBoxContext, userInfoContext } from "./context";
 
 export default () => {
 	const { t } = useTranslation();
@@ -15,7 +15,7 @@ export default () => {
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-bell"></div>
+			<div className="icon icon-bell" />
 			<div className="title">{t("lbl_Information")}</div>
 			<div>{t("msg_DepositHint")}</div>
 			<div className="btnGroup">

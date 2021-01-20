@@ -57,7 +57,7 @@ export const api_payment_GetDepositInfoRecent = () =>
 	paymentRequest.post("/GetDepositInfoRecent");
 
 export const api_payment_SetDepositCancel = TransId =>
-	paymentRequest.post("/SetDepositCancel", { TransId: TransId });
+	paymentRequest.post("/SetDepositCancel", { TransId });
 
 export const api_payment_UploadReceipt = formData =>
 	paymentRequest.post("/UploadReceipt", formData, {
@@ -68,14 +68,14 @@ export const api_payment_UploadReceipt = formData =>
 
 export const api_payment_SetDepositReceipt = (TransId, DepositTime, RefNo) =>
 	paymentRequest.post("/SetDepositReceipt", {
-		TransId: TransId,
-		DepositTime: DepositTime,
-		RefNo: RefNo
+		TransId,
+		DepositTime,
+		RefNo
 	});
 
 export const api_payment_GetMobilePayInfoList = GroupId =>
 	paymentRequest.post("/GetMobilePayInfoList", {
-		GroupId: GroupId
+		GroupId
 	});
 
 export const api_payment_WithdrawalReq = (AccountNo, amount, sysId, blackbox) =>

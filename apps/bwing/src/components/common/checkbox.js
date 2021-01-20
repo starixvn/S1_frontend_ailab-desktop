@@ -10,9 +10,7 @@ export default props => {
 					checked={props.checked}
 					onChange={props.onChange}
 				/>
-				<label
-					className="icon icon-checkmark"
-					htmlFor={props.id}></label>
+				<label className="icon icon-checkmark" htmlFor={props.id} />
 			</div>
 			<div>{props.children}</div>
 		</div>
