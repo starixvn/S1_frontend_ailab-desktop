@@ -253,12 +253,11 @@ const Content = () => {
 						<div>
 							{t("lbl_Action")}
 							<ReloadSpin
-								func={() =>
-									clickDateSubmit(
-										filterData?.StartDate,
-										filterData?.EndDate
-									)
-								}
+								func={clickDateSubmit.bind(
+									this,
+									filterData?.StartDate,
+									filterData?.EndDate
+								)}
 							/>
 						</div>
 					</div>
