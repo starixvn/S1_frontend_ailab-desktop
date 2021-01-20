@@ -3,15 +3,15 @@ import { number_format, checkAmount, getAmountTip } from "../common/common";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { popBoxContext, userInfoContext } from "../common/context";
 import Inputbox from "../common/inputbox";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import CashBar from "./withdrawal.set.cashBar";
 
 export default ({ dispatch, state, t, _isConvert }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
-	const EditAmount = value => {
-		value = String(value).replace(/^(0+)|[^\d]+/g, "");
+	const EditAmount = Value => {
+		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
 
 		ValidAmount(value);
 		dispatch({
@@ -21,7 +21,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 	};
 
 	const ValidAmount = _amount => {
-		let result = checkAmount(
+		const result = checkAmount(
 			_amount,
 			0,
 			state.balanceData?.availableBalance,
@@ -45,7 +45,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 	};
 
 	const clickInfo = () => {
-		let _msg =
+		const _msg =
 			state.tip === "" || !state.tip
 				? getAmountTip(0, _isConvert, t)
 				: "";
@@ -62,7 +62,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let amountChecked = ValidAmount(state.amount);
+		const amountChecked = ValidAmount(state.amount);
 
 		if (state.selectedAccount.accountNo && amountChecked) {
 			dispatch({

@@ -11,7 +11,7 @@ export default ({ langId }) => {
 				withBtn={false}
 				openInBlank={true}
 			/>
-			<span className="straightBorder"></span>
+			<span className="straightBorder" />
 			{langId === "en" ? (
 				<img src={Rebate_EN} alt="Daily Rebate Unlimited" />
 			) : (

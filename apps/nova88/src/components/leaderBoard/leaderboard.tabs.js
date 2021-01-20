@@ -1,8 +1,8 @@
 import React from "react";
-import { defTabList } from "./leaderboard.def";
+import { defTabList } from "./leaderBoard.def";
 
 export default ({ t, onChangeTab, tab }) => {
-	let rows = defTabList.map(item => {
+	const rows = defTabList.map(item => {
 		return (
 			<button
 				key={`leaderboard-tab-${item.id}`}

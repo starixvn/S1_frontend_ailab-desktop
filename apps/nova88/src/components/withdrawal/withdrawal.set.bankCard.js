@@ -4,7 +4,7 @@ import { defActionType, defPanel } from "./withdrawal.reducer";
 import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 import { popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 
 export default ({
 	dispatch,
@@ -19,7 +19,9 @@ export default ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const selectAccount = accountData => {
@@ -43,8 +45,8 @@ export default ({
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
-						let _bankInfoSysList = datas.map((item, i) => {
+						const datas = res.data.data;
+						const _bankInfoSysList = datas.map((item, i) => {
 							return {
 								id: i,
 								sysId: item.sysId,
@@ -56,7 +58,7 @@ export default ({
 							isOpen: true,
 							popBoxType: defPopBoxType.AddBankAccount,
 							bankInfoSysList: _bankInfoSysList,
-							GetCustBankInfo: GetCustBankInfo
+							GetCustBankInfo
 						});
 					} else {
 						setPopBox({
@@ -181,9 +183,9 @@ export default ({
 		});
 	};
 
-	let arr = custBankInfo?.map(item => {
-		let _key = `withdrawal-bankCard-${item.accountNo}`;
-		let _checked = item.accountNo === state.selectedAccount?.accountNo;
+	const arr = custBankInfo?.map(item => {
+		const _key = `withdrawal-bankCard-${item.accountNo}`;
+		const _checked = item.accountNo === state.selectedAccount?.accountNo;
 
 		return (
 			<BankCard
@@ -207,7 +209,7 @@ export default ({
 					<div
 						className="addBankName noBank"
 						onClick={addBankAccount}>
-						<div className="icon icon-plus"></div>
+						<div className="icon icon-plus" />
 						<div>{t("lbl_AddBankAccount")}</div>
 					</div>
 				) : null
@@ -243,7 +245,8 @@ const BankCard = props => {
 					/>
 					<label
 						htmlFor={props.checkKey}
-						className="icon icon-checkbox-checked"></label>
+						className="icon icon-checkbox-checked"
+					/>
 				</div>
 			</div>
 			<div className="addBankInfo">
@@ -256,7 +259,8 @@ const BankCard = props => {
 				{props.hideDelBtn ? null : (
 					<button
 						className="icon icon-bin"
-						onClick={props.delAccount}></button>
+						onClick={props.delAccount}
+					/>
 				)}
 			</div>
 		</div>

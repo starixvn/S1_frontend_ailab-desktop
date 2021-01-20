@@ -26,6 +26,9 @@ export const initState = {
 };
 
 export function reducer(state, action) {
+	const newStep = state.step + 1;
+	const newStep_SUBMIT_AMOUNT = state.step + 1;
+	const newStep_CLICK_BACK = state.step - 1;
 	switch (action.type) {
 		case defActionType.SET_BANKLIST:
 			return {
@@ -34,7 +37,6 @@ export function reducer(state, action) {
 			};
 
 		case defActionType.SELECT_BANK:
-			var newStep = state.step + 1;
 			return {
 				...state,
 				bankIdx: action.bankIdx,
@@ -49,7 +51,6 @@ export function reducer(state, action) {
 			};
 
 		case defActionType.SUBMIT_AMOUNT:
-			var newStep_SUBMIT_AMOUNT = state.step + 1;
 			return {
 				...state,
 				step: newStep_SUBMIT_AMOUNT,
@@ -57,7 +58,6 @@ export function reducer(state, action) {
 			};
 
 		case defActionType.CLICK_BACK:
-			var newStep_CLICK_BACK = state.step - 1;
 			return {
 				...state,
 				step: newStep_CLICK_BACK,

@@ -6,7 +6,7 @@ export default ({ btnBar }) => {
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-bell"></div>
+			<div className="icon icon-bell" />
 			<div className="title">Oh</div>
 			<div>{t("lbl_CancelConfirm")}</div>
 			{btnBar}

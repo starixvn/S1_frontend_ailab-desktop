@@ -12,11 +12,12 @@ export default ({
 	const { t } = useTranslation();
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-close" onClick={onClickClose}></div>
+			<div className="icon icon-close" onClick={onClickClose} />
 			<div
 				className={
 					titleIcon ? `icon ${titleIcon}` : "icon icon32px_deposit "
-				}></div>
+				}
+			/>
 			<div className="title">
 				{titleText ? t(titleText) : t("lbl_Information")}
 			</div>

@@ -8,7 +8,7 @@ import LinkItems, { getCurrentPage } from "../common/linkItems";
 export default ({ showSubMenu }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
-	let currentPage = getCurrentPage();
+	const currentPage = getCurrentPage();
 
 	return (
 		<>
@@ -17,7 +17,7 @@ export default ({ showSubMenu }) => {
 				className={
 					currentPage === `/${userInfo.langId}` ? "active" : ""
 				}>
-				<i className="icon icon-home"></i>
+				<i className="icon icon-home" />
 			</Link>
 			<LinkItems
 				defMenuLinks={defMenuLinks(userInfo.langId)}

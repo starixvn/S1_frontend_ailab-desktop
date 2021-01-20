@@ -1,7 +1,8 @@
-import Wrapper from "../components/common/wrapper";
-import Layout from "../components/common/layout";
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { navigate } from "@reach/router";
+import Wrapper from "../components/common/wrapper";
+import Layout from "../components/common/layout";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
@@ -13,7 +14,7 @@ import {
 	readCookie,
 	passwordCheck
 } from "../components/common/common";
-import { defPopBoxType } from "../components/common/popBox";
+import { defPopBoxType } from "../components/common/defPopBoxType";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { GET_LANG_ID } from "../service/language";
 import config from "../config";
@@ -23,7 +24,6 @@ import InputboxPSW from "../components/common/inputbox.password";
 import Dropdown from "../components/common/dropdown";
 import Checkbox from "../components/common/checkbox";
 import joinBanner from "../styles/img/joinBanner.jpg";
-import { navigate } from "@reach/router";
 
 export default () => {
 	return (
@@ -69,7 +69,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -83,9 +85,9 @@ const Content = () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						const data = res.data.data;
-						let currencyArr = data.map(id => {
-							return { id: id, displayKey: `Currency_${id}` };
+						const { data } = res.data;
+						const currencyArr = data.map(id => {
+							return { id, displayKey: `Currency_${id}` };
 						});
 						setSiteCurrency(() => currencyArr);
 					} else {
@@ -154,7 +156,7 @@ const Content = () => {
 				...prev,
 				[col]: {
 					checked: tip[col].checked,
-					msg: msg
+					msg
 				}
 			};
 		});
@@ -174,16 +176,16 @@ const Content = () => {
 	};
 
 	const checkValue = (col, e) => {
-		let val = e.target.value;
+		const val = e.target.value;
 		let checked = true;
 		let msg = "";
 
 		if (col === "username") {
-			let result = usernameCheck(val);
+			const result = usernameCheck(val);
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "password") {
-			let result = passwordCheck(val);
+			const result = passwordCheck(val);
 			checked = result.checked;
 			msg = result.message;
 		}
@@ -192,7 +194,7 @@ const Content = () => {
 			return {
 				...prev,
 				[col]: {
-					checked: checked,
+					checked,
 					msg: t(msg)
 				}
 			};
@@ -297,13 +299,13 @@ const Content = () => {
 	};
 
 	const checkAll = () => {
-		let _usernameCheck = usernameCheck(userValue.username);
-		let _passwordCheck = passwordCheck(userValue.password);
+		const _usernameCheck = usernameCheck(userValue.username);
+		const _passwordCheck = passwordCheck(userValue.password);
 		// let _emailCheck = emailCheck(userValue.email);
-		let _termsCheck = userValue.termsCheck;
-		let _ageCheck = userValue.ageCheck;
+		const _termsCheck = userValue.termsCheck;
+		const _ageCheck = userValue.ageCheck;
 
-		let checked =
+		const checked =
 			_usernameCheck.checked &&
 			_passwordCheck.checked &&
 			_termsCheck &&
@@ -339,25 +341,25 @@ const Content = () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let checked = checkAll();
+		const checked = checkAll();
 
 		if (checked && !userInfo.isLogin) {
-			let regData = {
+			const regData = {
 				UserName: userValue.username,
 				Userpwd: userValue.password,
 				CurrencyId: siteCurrency[userValue.currency].id,
 				UserLang: defaultLangId
 			};
 
-			regData["RefId"] = getUrlParameter("RefId") || readCookie("RefId");
-			regData["AffId"] = getUrlParameter("AffId") || readCookie("AffId");
-			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
-			regData["AffCode"] = isUrlAffCode ?? userValue.affCode;
+			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
+			regData.AffId = getUrlParameter("AffId") || readCookie("AffId");
+			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
+			regData.AffCode = isUrlAffCode ?? userValue.affCode;
 			api_site_Register(regData).then(
 				res => {
 					if (isMountedRef.current) {
-						const errorCode = res.data.errorCode;
-						const message = res.data.message;
+						const { errorCode } = res.data;
+						const { message } = res.data;
 						if (errorCode === 0) {
 							api_accountStrict_GetCustProfile().then(
 								res_custInfo => {
@@ -445,7 +447,7 @@ const Content = () => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: message,
+								message,
 								btnBar: (
 									<div className="btnGroup">
 										<button

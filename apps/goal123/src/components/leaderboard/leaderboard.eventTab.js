@@ -20,7 +20,7 @@ export default ({ t, tab, rewardList, userInfo }) => {
 			</div>
 			<div className="right">
 				<div className="title">{t("lbl_Goal123_EventTitle")}</div>
-				<div className="titleGroup"></div>
+				<div className="titleGroup" />
 				<div className="rankingList">
 					<ul>
 						<li>
@@ -42,9 +42,9 @@ export default ({ t, tab, rewardList, userInfo }) => {
 										/>
 										{rewardList[idx].displayRank}
 									</div>
-									<div>{`VND ${number_format(
-										item.reward
-									)}`}</div>
+									<div>
+										{`VND ${number_format(item.reward)}`}
+									</div>
 								</li>
 							);
 						})}

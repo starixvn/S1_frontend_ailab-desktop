@@ -15,7 +15,7 @@ export default ({
 }) => {
 	const { t } = useTranslation();
 	const EditAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 
 		ValidAmount(value);
@@ -23,7 +23,7 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		let result = checkAmount(
+		const result = checkAmount(
 			_amount,
 			channelInfo.minAmount,
 			channelInfo.maxAmount,
@@ -47,7 +47,7 @@ export default ({
 	};
 
 	const clickInfo = () => {
-		let _msg =
+		const _msg =
 			tip === ""
 				? getAmountTip(channelInfo.minAmount, _isConvert, t)
 				: "";
@@ -61,17 +61,17 @@ export default ({
 	const SubmitAmount = e => {
 		e.preventDefault();
 
-		let result = ValidAmount(amount);
+		const result = ValidAmount(amount);
 		if (result) {
 			dispatch({ type: defActionType.SUBMIT_AMOUNT });
 		}
 	};
 
-	const SelectAmount = (amount, e) => {
-		e.preventDefault();
-		ValidAmount(amount);
-		dispatch({ type: defActionType.EDIT_AMOUNT, amount: amount });
-	};
+	// const SelectAmount = (amount, e) => {
+	// 	e.preventDefault();
+	// 	ValidAmount(amount);
+	// 	dispatch({ type: defActionType.EDIT_AMOUNT, amount });
+	// };
 
 	return (
 		<div className="subModuleList">
@@ -81,8 +81,8 @@ export default ({
 						<LimitTip
 							minAmount={channelInfo.minAmount}
 							maxAmount={channelInfo.maxAmount}
-							displayTextLimit={"Limit"}
-							displayTextUnLimit={"Unlimit"}
+							displayTextLimit="Limit"
+							displayTextUnLimit="Unlimit"
 							_isConvert={_isConvert}
 						/>
 					</div>

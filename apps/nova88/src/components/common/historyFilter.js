@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import Dropdown from "./dropdown";
 import DateTime from "react-datetime";
+import Dropdown from "./dropdown";
 
 const quickPickList = [
 	{ id: 0, displayKey: "lbl_Today" },
@@ -79,7 +79,7 @@ export default props => {
 	};
 
 	const onChangeDate = (col, val) => {
-		let _val = moment.isMoment(val) ? val : moment(val);
+		const _val = moment.isMoment(val) ? val : moment(val);
 		if (moment.isMoment(_val) && _val.isValid()) {
 			col === "start" ? setStartDate(_val) : setEndtDate(_val);
 		}
@@ -109,7 +109,7 @@ export default props => {
 					isValidDate={start_valid}
 				/>
 				<div className="iconModule">
-					<i className="icon icon-calendar"></i>
+					<i className="icon icon-calendar" />
 				</div>
 			</div>
 
@@ -122,7 +122,7 @@ export default props => {
 					isValidDate={end_valid}
 				/>
 				<div className="iconModule">
-					<i className="icon icon-calendar"></i>
+					<i className="icon icon-calendar" />
 				</div>
 			</div>
 

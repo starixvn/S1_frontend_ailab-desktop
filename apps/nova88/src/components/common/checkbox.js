@@ -11,7 +11,7 @@ export default props => {
 					onChange={props.onChange}
 				/>
 				<label htmlFor={props.id}>
-					<div></div>
+					<div />
 				</label>
 			</div>
 			{props.children}

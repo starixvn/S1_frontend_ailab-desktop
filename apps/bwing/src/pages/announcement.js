@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { api_message_GetAnnouncement } from "../service/api/message";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";
-import moment from "moment";
 import Loading from "../components/common/loading";
-import { defPopBoxType } from "../components/common/popBox";
+import { defPopBoxType } from "../components/common/defPopBoxType";
 
 export default () => {
 	return (
@@ -36,7 +36,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -90,12 +92,12 @@ const Content = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	let arr = getAnnouncement?.map(item => {
-		let isToday =
+	const arr = getAnnouncement?.map(item => {
+		const isToday =
 			moment(item.startTime).format("YYYY-MM-DD") ===
 			moment().format("YYYY-MM-DD");
 
-		let displayTime = isToday
+		const displayTime = isToday
 			? moment(item.startTime).format("hh:mm:ss A")
 			: moment(item.startTime).format("MM/DD/YYYY");
 

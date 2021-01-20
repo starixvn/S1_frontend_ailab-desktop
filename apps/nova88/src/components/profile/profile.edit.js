@@ -21,7 +21,7 @@ export default ({
 		return current.isBefore(legalDate);
 	};
 
-	let _areaCode = areaCode[userInfo.perCountry]?.AreaCode;
+	const _areaCode = areaCode[userInfo.perCountry]?.AreaCode;
 	return (
 		<div className="profileEdit">
 			<div className="profile">{arr}</div>
@@ -58,7 +58,7 @@ export default ({
 								)}
 							/>
 							<div className="iconModule">
-								<i className="icon icon-calendar"></i>
+								<i className="icon icon-calendar" />
 							</div>
 						</div>
 						<div

@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import {
 	api_account_GetMsgList,
 	api_account_DelMsg,
 	api_account_GetMsgCount
 } from "../../service/api/account";
-import { useTranslation } from "react-i18next";
 import MessageList from "./messageList";
 import { Pagination } from "../common/pagination";
 import { popBoxContext, msgCountContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import Loading from "../common/loading";
 import ReloadSpin from "../common/reloadSpin";
 
@@ -28,7 +28,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const clickPageNumber = page => {
@@ -96,7 +98,7 @@ export default () => {
 	};
 
 	const onClickCheckAll = () => {
-		let checkAll = !isCheckAll;
+		const checkAll = !isCheckAll;
 		setIsCheckAll(checkAll);
 		if (checkAll) {
 			setSelectItems(msgListData.map(item => item.id));
@@ -139,10 +141,10 @@ export default () => {
 							setSelectItems([]);
 							setIsCheckAll(false);
 
-							api_account_GetMsgCount().then(res => {
+							api_account_GetMsgCount().then(resMsg => {
 								if (isMountedRef.current) {
-									if (res.data.errorCode === 0) {
-										setMsgCount(res.data.data);
+									if (resMsg.data.errorCode === 0) {
+										setMsgCount(resMsg.data.data);
 									}
 								}
 							});
@@ -221,18 +223,20 @@ export default () => {
 						<div className="checkbox">
 							<input
 								type="checkbox"
-								id={`message-selectAll`}
+								id="message-selectAll"
 								onChange={onClickCheckAll}
 								checked={isCheckAll}
 							/>
 							<label
-								htmlFor={`message-selectAll`}
-								className="icon icon-checkbox-checked"></label>
+								htmlFor="message-selectAll"
+								className="icon icon-checkbox-checked"
+							/>
 						</div>
 						<button
 							aria-label="popDelete"
 							className="icon icon-bin"
-							onClick={popDelete}></button>
+							onClick={popDelete}
+						/>
 						<ReloadSpin
 							func={getMsgList.bind(this, pagination.currentPage)}
 						/>

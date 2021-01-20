@@ -6,7 +6,7 @@ export default ({ btnBar, content }) => {
 
 	return (
 		<div className="Success active">
-			<div className="icon icon-exit"></div>
+			<div className="icon icon-exit" />
 			<div className="title">{t("lbl_Logout")}</div>
 			<div>{content}</div>
 			{btnBar}

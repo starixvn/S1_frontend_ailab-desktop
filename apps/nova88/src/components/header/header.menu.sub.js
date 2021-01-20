@@ -8,7 +8,7 @@ import {
 	defSubListClassName
 } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 
 import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.png";
@@ -36,19 +36,19 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 		return SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
 			langId: userInfo.langId,
-			tpId: tpId,
-			gameId: gameId,
+			tpId,
+			gameId,
 			loginCallback: handleCallBack
 		});
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {
-		let subClassName = `${defSubListClassName[menuKey] || ""}${
+		const subClassName = `${defSubListClassName[menuKey] || ""}${
 			menuKey === currentMenuKey ? " active" : ""
 		}`;
 		let subMenu = [];
 
-		if (typeof defMenuLinks[menuKey]?.subMenu !== undefined) {
+		if (!(typeof defMenuLinks[menuKey]?.subMenu == "undefined")) {
 			subMenu = defMenuLinks[menuKey]?.subMenu;
 
 			if (
@@ -79,6 +79,10 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 						userInfo={userInfo}
 						t={t}
 						menuKey={menuKey}
+						className={subMenuItem.className}
+						displayText={subMenuItem.displayText}
+						displayKey={subMenuItem.displayKey}
+						parameter={subMenuItem.parameter}
 					/>
 				))}
 			</div>
@@ -87,7 +91,7 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 };
 
 const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
-	let displayText = subMenuItem.displayText
+	const displayText = subMenuItem.displayText
 		? subMenuItem.displayText
 		: t(subMenuItem.displayKey);
 
@@ -98,16 +102,29 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 			return `${key}=${subMenuItem.parameter[key]}`;
 		});
 	}
-	let _urlParams = params !== null ? `?${params.join("&")}` : "";
+	const _urlParams = params !== null ? `?${params.join("&")}` : "";
 	if (subMenuItem.menuType === defMenuType.Link) {
-		let url = subMenuItem.path || defMenuLinks[menuKey].path;
+		const url = subMenuItem.path || defMenuLinks[menuKey].path;
+		const className = subMenuItem.className || "";
 		return (
 			<Link
-				className={subMenuItem.className}
+				className={className}
 				to={`/${userInfo.langId}/${url}${_urlParams}`}>
-				<img className="ListBG-left" src={SubMenuListBGLeftImg} />
-				<img className="ListBG-right" src={SubMenuListBGRightImg} />
-				<img className="ListBG-center" src={SubMenuListBGCenterImg} />
+				<img
+					className="ListBG-left"
+					alt="ListBG-left"
+					src={SubMenuListBGLeftImg}
+				/>
+				<img
+					className="ListBG-right"
+					alt="ListBG-right"
+					src={SubMenuListBGRightImg}
+				/>
+				<img
+					className="ListBG-center"
+					alt="ListBG-center"
+					src={SubMenuListBGCenterImg}
+				/>
 				<ImgsRender
 					className="List-npc"
 					listImgUrl={subMenuItem.listNpcImgUrl}
@@ -119,31 +136,51 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 				<span>{displayText}</span>
 			</Link>
 		);
-	} else {
-		return (
-			<button
-				className={subMenuItem.className}
-				onClick={clickItem.bind(this, {
-					tpId: subMenuItem.tpId,
-					gameId: subMenuItem.gameId,
-					needLogin: subMenuItem.needLogin,
-					path: subMenuItem.path
-				})}>
-				<img className="ListBG-left" src={SubMenuListBGLeftImg} />
-				<img className="ListBG-right" src={SubMenuListBGRightImg} />
-				<img className="ListBG-center" src={SubMenuListBGCenterImg} />
-				<ImgsRender
-					className="List-npc"
-					listImgUrl={subMenuItem.listNpcImgUrl}
-				/>
-				<ImgsRender
-					className="List-bg"
-					listImgUrl={subMenuItem.listBgImgUrl}
-				/>
-				<span>{displayText}</span>
-			</button>
-		);
 	}
+
+	return (
+		<button
+			className={subMenuItem.className}
+			onClick={clickItem.bind(this, {
+				tpId: subMenuItem.tpId,
+				gameId: subMenuItem.gameId,
+				needLogin: subMenuItem.needLogin,
+				path: subMenuItem.path
+			})}>
+			<img
+				className="ListBG-left"
+				alt="ListBG-left"
+				src={SubMenuListBGLeftImg}
+			/>
+			<img
+				className="ListBG-right"
+				alt="ListBG-right"
+				src={SubMenuListBGRightImg}
+			/>
+			<img
+				className="ListBG-center"
+				alt="ListBG-center"
+				src={SubMenuListBGCenterImg}
+			/>
+			<ImgsRender
+				className="List-npc"
+				listImgUrl={subMenuItem.listNpcImgUrl}
+			/>
+			<ImgsRender
+				className="List-bg"
+				listImgUrl={subMenuItem.listBgImgUrl}
+			/>
+			<span>{displayText}</span>
+		</button>
+	);
+};
+
+SubMenuItem.propTypes = {
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
+	clickItem: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	t: PropTypes.func.isRequired,
+	menuKey: PropTypes.string.isRequired
 };
 
 const ImgsRender = ({ listImgUrl, className }) => {
@@ -151,6 +188,7 @@ const ImgsRender = ({ listImgUrl, className }) => {
 		return (
 			<img
 				className={className}
+				alt="listImgUrl"
 				src={require(`../../styles/img/${listImgUrl}`)}
 			/>
 		);
@@ -159,6 +197,7 @@ const ImgsRender = ({ listImgUrl, className }) => {
 		return listImgUrl.map(imgUrl => (
 			<img
 				key={`imgs-key-${imgUrl}`}
+				alt="listImgUrl"
 				className={className}
 				src={require(`../../styles/img/${imgUrl}`)}
 			/>
@@ -168,6 +207,7 @@ const ImgsRender = ({ listImgUrl, className }) => {
 };
 
 ImgsRender.propTypes = {
-	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
-	className: PropTypes.string
+	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+		.isRequired,
+	className: PropTypes.string.isRequired
 };

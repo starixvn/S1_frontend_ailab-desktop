@@ -83,8 +83,8 @@ export const defLastChampionReward = () => {
 };
 
 export const defRewardList = ({ t }) => {
-	let unit = "Ang Pao";
-	let unitCS = "紅包";
+	const unit = "Ang Pao";
+	const unitCS = "紅包";
 	return {
 		MYR: {
 			[defTabId.sports]: [

@@ -1,7 +1,7 @@
 import React from "react";
-import path from "../../router";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
+import path from "../../router";
 
 const _path = path.deposit.sub.localBank.root;
 
@@ -21,7 +21,7 @@ export default ({ localBankList }) => {
 			<div className="subModuleBody">
 				<ul>
 					<li>
-						<Link to={_path} className="icon icon-library"></Link>
+						<Link to={_path} className="icon icon-library" />
 					</li>
 				</ul>
 			</div>

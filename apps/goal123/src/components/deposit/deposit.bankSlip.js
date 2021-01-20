@@ -13,17 +13,22 @@ import ClipboardJS from "../../lib/clipboard.min";
 import { number_format } from "../common/common";
 
 export class Module extends Component {
-	state = {
-		processing: false,
-		loading: false,
-		depositTime: this.props.depositTime ? this.props.depositTime : moment(),
-		refId: this.props.refId ? this.props.refId : "",
-		picFileName: this.props.picFileName ? this.props.picFileName : null,
-		fileImg: null,
-		refIdTip: { checked: null, tip: "" }
-	};
-	isMountedRef = false;
-	filebox = createRef();
+	constructor(props) {
+		super(props);
+		this.state = {
+			processing: false,
+			loading: false,
+			depositTime: this.props.depositTime
+				? this.props.depositTime
+				: moment(),
+			refId: this.props.refId ? this.props.refId : "",
+			picFileName: this.props.picFileName ? this.props.picFileName : null,
+			fileImg: null,
+			refIdTip: { checked: null, tip: "" }
+		};
+		this.isMountedRef = false;
+		this.filebox = createRef();
+	}
 
 	componentDidMount() {
 		this.isMountedRef = true;
@@ -42,14 +47,14 @@ export class Module extends Component {
 
 	onUploadFile = (action, e) => {
 		e.preventDefault();
-		let files =
+		const files =
 			action === "onDrop"
 				? e.dataTransfer.files
 				: this.filebox.current.files;
 
 		this.setState({ picFileName: files[0].name });
 
-		let reader = new FileReader();
+		const reader = new FileReader();
 		reader.readAsDataURL(files[0]);
 		reader.onload = () => {
 			this.setState({ fileImg: reader.result });
@@ -58,7 +63,7 @@ export class Module extends Component {
 		if (files.length > 0) {
 			this.setState({ loading: true });
 
-			let formData = new FormData();
+			const formData = new FormData();
 			formData.append("TransId", this.props.transId);
 			formData.append("Receipt", files[0]);
 			api_payment_UploadReceipt(formData).then(
@@ -66,6 +71,7 @@ export class Module extends Component {
 					if (this.isMountedRef) {
 						this.setState({ loading: false });
 						if (res.data.errorCode === 0) {
+							//
 						} else {
 							alert(res.data.message);
 						}
@@ -84,12 +90,13 @@ export class Module extends Component {
 	dragOver = e => {
 		e.preventDefault();
 	};
+
 	editField = (col, value, e) => {
 		this.setState({ [col]: value === null ? e.target.value : value });
 	};
 
 	checkTip = e => {
-		let val = e.target.value;
+		const val = e.target.value;
 		let _tip = "";
 		let _checked = true;
 
@@ -102,11 +109,14 @@ export class Module extends Component {
 	};
 
 	clickInfo = () => {
-		let _msg =
+		const _msg =
 			this.state.refIdTip.tip !== ""
 				? ""
 				: this.props.i18n("lbl_RefNoHint");
-		this.setState({ refIdTip: { checked: null, tip: _msg } });
+		this.setState(prev => ({
+			...prev,
+			refIdTip: { checked: null, tip: _msg }
+		}));
 	};
 
 	clickSubmit = e => {
@@ -164,21 +174,20 @@ export class Module extends Component {
 						}
 					}
 				);
-			} else {
-				if (this.isMountedRef) {
-					this.setState({
-						refIdTip: {
-							checked: false,
-							tip: this.props.i18n("lbl_RemindForRefNum")
-						}
-					});
-					this.setState({ processing: false });
-				}
+			} else if (this.isMountedRef) {
+				this.setState({
+					refIdTip: {
+						checked: false,
+						tip: this.props.i18n("lbl_RemindForRefNum")
+					}
+				});
+				this.setState({ processing: false });
 			}
 		}
 	};
+
 	render() {
-		return this.loading ? (
+		return this.state.loading ? (
 			<Loading />
 		) : (
 			<>
@@ -208,7 +217,7 @@ export class Module extends Component {
 							}
 						/>
 					) : (
-						<i className="icon icon-plus"></i>
+						<i className="icon icon-plus" />
 					)}
 				</label>
 				{this.state.picFileName !== null ? (
@@ -240,7 +249,8 @@ export class Module extends Component {
 							<a
 								href={this.props.bankSite}
 								className="icon icon-new-tab"
-								target="_blank"></a>
+								target="_blank"
+							/>
 						</li>
 					</ul>
 					<ul>
@@ -249,9 +259,8 @@ export class Module extends Component {
 						<li>
 							<button
 								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={
-									this.props.accountName
-								}></button>
+								data-clipboard-text={this.props.accountName}
+							/>
 						</li>
 					</ul>
 					<ul>
@@ -260,9 +269,8 @@ export class Module extends Component {
 						<li>
 							<button
 								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={
-									this.props.accountNo
-								}></button>
+								data-clipboard-text={this.props.accountNo}
+							/>
 						</li>
 					</ul>
 					<ul>
@@ -276,9 +284,8 @@ export class Module extends Component {
 						<li>
 							<button
 								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={
-									this.props.amount
-								}></button>
+								data-clipboard-text={this.props.amount}
+							/>
 						</li>
 					</ul>
 				</div>
@@ -295,7 +302,7 @@ export class Module extends Component {
 							onChange={this.editField.bind(this, "depositTime")}
 						/>
 						<div className="iconModule">
-							<i className="icon icon-calendar"></i>
+							<i className="icon icon-calendar" />
 						</div>
 					</div>
 					<Inputbox

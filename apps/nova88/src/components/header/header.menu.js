@@ -5,15 +5,19 @@ import MainMenu from "./header.menu.main";
 export default class Panel extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { menuKey: "", casinoTpIds: [] };
+		this.state = { menuKey: "" };
 		this.wrapper = createRef(null);
 	}
 
-	handleMoveToOutside = e => {
-		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
-			this.setState({ menuKey: "" });
+	UNSAFE_componentWillMount() {
+		if (typeof document !== `undefined`) {
+			document.removeEventListener(
+				"mouseover",
+				this.handleMoveToOutside,
+				false
+			);
 		}
-	};
+	}
 
 	componentDidMount() {
 		if (typeof document !== `undefined`) {
@@ -25,19 +29,15 @@ export default class Panel extends Component {
 		}
 	}
 
+	handleMoveToOutside = e => {
+		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
+			this.setState({ menuKey: "" });
+		}
+	};
+
 	showSubMenu = col => {
 		this.setState({ menuKey: col });
 	};
-
-	componentWillMount() {
-		if (typeof document !== `undefined`) {
-			document.removeEventListener(
-				"mouseover",
-				this.handleMoveToOutside,
-				false
-			);
-		}
-	}
 
 	render() {
 		return (

@@ -1,13 +1,13 @@
 import React from "react";
 import moment from "moment";
-import Inputbox from "../common/inputbox";
 import { useTranslation } from "react-i18next";
 import DateTime from "react-datetime";
+import Inputbox from "../common/inputbox";
 
 export default props => {
 	const { t } = useTranslation();
 
-	let legalDate = moment().subtract(21, "year");
+	const legalDate = moment().subtract(21, "year");
 
 	const valid = current => {
 		return current.isBefore(legalDate);
@@ -16,9 +16,9 @@ export default props => {
 	const dateTimeIcon = birth => {
 		if (birth.checked === null) return <i className="icon icon-calendar" />;
 
-		if (birth.checked) return <i className={`icon icon-checkmark`} />;
+		if (birth.checked) return <i className="icon icon-checkmark" />;
 
-		if (!birth.checked) return <i className={`icon icon-cross`} />;
+		if (!birth.checked) return <i className="icon icon-cross" />;
 	};
 
 	return (
@@ -43,7 +43,7 @@ export default props => {
 							value={props.birthValue}
 							onChange={props.onChangeBirth}
 							timeFormat={false}
-							dateFormat={"YYYY-MM-DD"}
+							dateFormat="YYYY-MM-DD"
 							onBlur={props.checkBirth}
 							viewDate={moment(legalDate).format("YYYY-MM-DD")}
 							isValidDate={valid}
