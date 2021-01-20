@@ -4,7 +4,7 @@ export const GET_LANG_ID = userLangId => {
 	const siteDefLangId = "vn";
 	const siteLangList = ["en", "vn"];
 
-	const langId = userLangId || readCookie("LangId");
+	let langId = userLangId || readCookie("LangId");
 	const browserDefLang =
 		typeof window !== `undefined` ? navigator.language.toLowerCase() : null;
 

@@ -233,9 +233,7 @@ const Content = () => {
 		);
 	});
 
-	return loading ? (
-		<Loading />
-	) : (
+	return (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_History">
 				<span>{t("lbl_WithdrawalHistory")}</span>

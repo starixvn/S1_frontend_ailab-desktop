@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import path from "../../router";
-import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
+import { Link } from "gatsby";
+import path from "../../router";
 import { api_payment_GetBankInfoOffList } from "../../service/api/payment";
 import { popBoxContext } from "../common/context";
 import Loading from "../common/loading";
@@ -91,7 +91,7 @@ export default () => {
 			<div className="subModuleBody">
 				<ul>
 					<li>
-						<Link to={_path} className="icon icon-library"></Link>
+						<Link to={_path} className="icon icon-library" />
 					</li>
 				</ul>
 			</div>

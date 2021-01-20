@@ -64,12 +64,12 @@ export default ({
 	};
 
 	const onChangeName = e => {
-		let value = e.target.value;
+		const { value } = e.target;
 		setNameValue(value);
 	};
 
 	const onChangeAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 		ValidAmount(value);
 		dispatch({ type: defActionType.EDIT_AMOUNT, amount: value });
@@ -101,7 +101,7 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		let result = checkAmount(
+		const result = checkAmount(
 			_amount,
 			bankInfo.minAmount,
 			bankInfo.maxAmount,
@@ -129,7 +129,7 @@ export default ({
 	};
 
 	const berforeSubmitCheck = () => {
-		let result = ValidAmount(amount) && checkName();
+		const result = ValidAmount(amount) && checkName();
 		if (result) {
 			if (!userInfo.accountName) {
 				setPopBox({
@@ -157,7 +157,7 @@ export default ({
 
 	const toConfirmAmountPage = () => {
 		api_accountStrict_SetAccountName({
-			name: nameValue ? nameValue : userInfo.accountName
+			name: nameValue || userInfo.accountName
 		}).then(
 			res => {
 				if (isMountedRef.current) {

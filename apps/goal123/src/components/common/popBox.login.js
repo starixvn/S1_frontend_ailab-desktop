@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import loginBanner from "../../styles/img/loginBanner.jpg";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
-import { defPopBoxType } from "../common/popBox";
-import { Link } from "@reach/router";
+import { defPopBoxType } from "./popBox";
 import path from "../../router";
 
 const initValue = {
@@ -69,7 +69,7 @@ const LoginPanel = () => {
 	};
 
 	const checkValue = (col, e) => {
-		let val = e.target.value;
+		const val = e.target.value;
 
 		let checked = true;
 		let msg = "";
@@ -86,8 +86,8 @@ const LoginPanel = () => {
 			return {
 				...prev,
 				[col]: {
-					checked: checked,
-					msg: msg
+					checked,
+					msg
 				}
 			};
 		});
@@ -96,7 +96,7 @@ const LoginPanel = () => {
 	const handleLogin = async e => {
 		e.preventDefault();
 
-		let checked = userValue.username && userValue.password;
+		const checked = userValue.username && userValue.password;
 		if (checked) {
 			await LOGIN({
 				userName: userValue.username,

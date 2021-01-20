@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import { api_payment_GetOnlinePaymentList } from "../../service/api/payment";
 import LimitTip from "./limitTip";
 import { isConvert } from "../common/common";
 import { userInfoContext } from "../common/context";
 import path from "../../router";
-import { useTranslation } from "react-i18next";
 import Loading from "../common/loading";
 import config from "../../config";
 
@@ -35,7 +35,7 @@ export default () => {
 	}, []);
 
 	const _isConvert = isConvert(userInfo.currencyId);
-	let rows = onlineBankingList?.map(p => {
+	const rows = onlineBankingList?.map(p => {
 		return (
 			<li key={`deposit-onlineBank-${p.payId}-${p.channelId}`}>
 				<Link
@@ -43,7 +43,8 @@ export default () => {
 					to={`${_path}?name=${p.payName}&pId=${p.payId}&cId=${p.channelId}&max=${p.maxAmount}&min=${p.minAmount}`}>
 					<img
 						src={`${config.imgUrl}/common/images/Payment/${p.payName}.png`}
-						alt={p.payName}></img>
+						alt={p.payName}
+					/>
 				</Link>
 				<LimitTip
 					minAmount={p.minAmount}

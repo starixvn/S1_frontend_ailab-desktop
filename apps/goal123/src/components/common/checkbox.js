@@ -10,7 +10,7 @@ export default props => {
 					checked={props.checked}
 					onChange={props.onChange}
 				/>
-				<label htmlFor={props.id}></label>
+				<label htmlFor={props.id} />
 			</div>
 			{props.children}
 		</div>

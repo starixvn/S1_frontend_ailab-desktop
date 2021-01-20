@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
+import { Redirect } from "@reach/router";
 import DropdownHeader from "../common/dropdown.langList";
 import { userInfoContext } from "../common/context";
-import { Redirect } from "@reach/router";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -17,7 +17,7 @@ export default () => {
 
 	return redirectPath === null ? (
 		<DropdownHeader
-			mainKey={`header-langList`}
+			mainKey="header-langList"
 			className="country"
 			subClassName="countryList"
 			selectedValue={userInfo.langId}

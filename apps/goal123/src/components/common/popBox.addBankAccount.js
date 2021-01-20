@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
-import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import { popBoxContext, userInfoContext } from "./context";
+import { defPopBoxType } from "./popBox";
 import config from "../../config";
-import Dropdown from "../common/dropdown";
-import Inputbox from "../common/inputbox";
+import Dropdown from "./dropdown";
+import Inputbox from "./inputbox";
 
 const initValue = {
 	realName: "",
@@ -40,7 +40,9 @@ export default ({ bankInfoSysList = [] }) => {
 		};
 	});
 
-	useEffect(() => {}, []);
+	useEffect(() => {
+		//
+	}, []);
 
 	const onSelectItem = i => {
 		setUserValue(prev => ({ ...prev, bankId: i }));
@@ -93,26 +95,24 @@ export default ({ bankInfoSysList = [] }) => {
 				message = t("msg_NeedAccountNo");
 				checked = false;
 			}
-		} else {
-			if (col === "realName" && !val) {
-				message = t("msg_EnterRealName");
-				checked = false;
-			} else if (col === "accountNo" && !val) {
-				message = t("msg_NeedAccountNo");
-				checked = false;
-			}
+		} else if (col === "realName" && !val) {
+			message = t("msg_EnterRealName");
+			checked = false;
+		} else if (col === "accountNo" && !val) {
+			message = t("msg_NeedAccountNo");
+			checked = false;
 		}
 
 		setStatus(prev => ({
 			...prev,
 			[col]: {
-				checked: checked,
+				checked,
 				tip: message
 			}
 		}));
 
 		if (bankInfoSysList?.length <= 0) {
-			console.log("Bank list is null.");
+			// console.log("Bank list is null.");
 			checked = false;
 		}
 
@@ -125,8 +125,8 @@ export default ({ bankInfoSysList = [] }) => {
 
 	const ClickSubmit = e => {
 		e.preventDefault();
-		let _realName = checkAll(userValue.realName, "realName");
-		let _accountNo = checkAll(userValue.accountNo, "accountNo");
+		const _realName = checkAll(userValue.realName, "realName");
+		const _accountNo = checkAll(userValue.accountNo, "accountNo");
 
 		if (_realName.checked && _accountNo.checked) {
 			api_accountStrict_SetCustBankInfo({
@@ -175,7 +175,7 @@ export default ({ bankInfoSysList = [] }) => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -223,7 +223,7 @@ export default ({ bankInfoSysList = [] }) => {
 						<div
 							className="iconModule"
 							onClick={clickInfo.bind(this, "realName_after")}>
-							<i className="icon icon-information-solid"></i>
+							<i className="icon icon-information-solid" />
 						</div>
 					</div>
 					<div>{status.realName_after.tip}</div>

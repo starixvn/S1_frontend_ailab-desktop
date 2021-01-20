@@ -7,7 +7,7 @@ import {
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import { getUrlParameter, readCookie, passwordCheck } from "./common";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "./popBox";
 import { userInfoContext, popBoxContext } from "./context";
 import { GET_LANG_ID } from "../../service/language";
 import config from "../../config";
@@ -59,9 +59,9 @@ const JoinPanel = () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						const data = res.data.data;
-						let currencyArr = data.map(id => {
-							return { id: id, displayKey: `Currency_${id}` };
+						const { data } = res.data;
+						const currencyArr = data.map(id => {
+							return { id, displayKey: `Currency_${id}` };
 						});
 						setSiteCurrency(() => currencyArr);
 					} else {
@@ -129,7 +129,7 @@ const JoinPanel = () => {
 				...prev,
 				[col]: {
 					checked: tip[col].checked,
-					msg: msg
+					msg
 				}
 			};
 		});
@@ -149,16 +149,16 @@ const JoinPanel = () => {
 	};
 
 	const checkValue = (col, e) => {
-		let val = e.target.value;
+		const val = e.target.value;
 		let checked = true;
 		let msg = "";
 
 		if (col === "username") {
-			let result = usernameCheck(val);
+			const result = usernameCheck(val);
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "password") {
-			let result = passwordCheck(val);
+			const result = passwordCheck(val);
 			checked = result.checked;
 			msg = result.message;
 		}
@@ -167,7 +167,7 @@ const JoinPanel = () => {
 			return {
 				...prev,
 				[col]: {
-					checked: checked,
+					checked,
 					msg: t(msg)
 				}
 			};
@@ -272,12 +272,12 @@ const JoinPanel = () => {
 	};
 
 	const checkAll = () => {
-		let _usernameCheck = usernameCheck(userValue.username);
-		let _passwordCheck = passwordCheck(userValue.password);
-		let _termsCheck = userValue.termsCheck;
-		let _ageCheck = userValue.ageCheck;
+		const _usernameCheck = usernameCheck(userValue.username);
+		const _passwordCheck = passwordCheck(userValue.password);
+		const _termsCheck = userValue.termsCheck;
+		const _ageCheck = userValue.ageCheck;
 
-		let checked =
+		const checked =
 			_usernameCheck.checked &&
 			_passwordCheck.checked &&
 			_termsCheck &&
@@ -313,24 +313,24 @@ const JoinPanel = () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let checked = checkAll();
+		const checked = checkAll();
 
 		if (checked) {
-			let regData = {
+			const regData = {
 				UserName: userValue.username,
 				Userpwd: userValue.password,
 				CurrencyId: siteCurrency[userValue.currency].id,
 				UserLang: defaultLangId
 			};
 
-			regData["RefId"] = getUrlParameter("RefId") || readCookie("RefId");
-			regData["Aff"] = getUrlParameter("Aff") || readCookie("Aff");
-			regData["AffCode"] = isUrlAffCode ?? userValue.affCode;
+			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
+			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
+			regData.AffCode = isUrlAffCode ?? userValue.affCode;
 			api_site_Register(regData).then(
 				res => {
 					if (isMountedRef.current) {
-						const errorCode = res.data.errorCode;
-						const message = res.data.message;
+						const { errorCode } = res.data;
+						const { message } = res.data;
 						if (errorCode === 0) {
 							api_accountStrict_GetCustProfile().then(
 								res_custInfo => {
@@ -421,7 +421,7 @@ const JoinPanel = () => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: message,
+								message,
 								btnBar: (
 									<div className="btnGroup">
 										<button

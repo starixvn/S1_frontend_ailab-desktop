@@ -1,7 +1,7 @@
 import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { api_account_SetLanguage } from "../../service/api/account";
-import { getNewLanguagePath, setCookie, readCookie } from "../common/common";
+import { getNewLanguagePath, setCookie, readCookie } from "./common";
 import { GET_LANG_ID } from "../../service/language";
 
 const defLangDisplayText = {
@@ -22,15 +22,15 @@ export class Dropdown extends Component {
 		this.wrapper = createRef(null);
 	}
 
-	componentDidMount() {
+	UNSAFE_componentWillMount() {
 		if (typeof document !== `undefined`) {
-			document.addEventListener("mousedown", this.handleClickOutside);
+			document.removeEventListener("mousedown", this.handleClickOutside);
 		}
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		if (typeof document !== `undefined`) {
-			document.removeEventListener("mousedown", this.handleClickOutside);
+			document.addEventListener("mousedown", this.handleClickOutside);
 		}
 	}
 
@@ -42,7 +42,7 @@ export class Dropdown extends Component {
 
 	clickDropdown = e => {
 		e.preventDefault();
-		this.setState({ isOpen: !this.state.isOpen });
+		this.setState(prev => ({ isOpen: !prev.isOpen }));
 		if (this.props.clickDropdown) {
 			this.props.clickDropdown();
 		}
@@ -61,8 +61,8 @@ export class Dropdown extends Component {
 	};
 
 	render() {
-		let arr = defLangList().map((item, idx) => {
-			let key = `${this.props.mainKey}_${idx}`;
+		const arr = defLangList().map((item, idx) => {
+			const key = `${this.props.mainKey}_${idx}`;
 
 			return (
 				<button
@@ -79,7 +79,7 @@ export class Dropdown extends Component {
 			);
 		});
 
-		let selected = (
+		const selected = (
 			<button className={`flag ${this.props.selectedValue}`}>
 				{defLangDisplayText[this.props.selectedValue]}
 			</button>
@@ -93,7 +93,7 @@ export class Dropdown extends Component {
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
 				{selected}
-				<i className="icon icon-keyboard_arrow_right"></i>
+				<i className="icon icon-keyboard_arrow_right" />
 				<div className={this.props.subClassName}>{arr}</div>
 			</div>
 		);

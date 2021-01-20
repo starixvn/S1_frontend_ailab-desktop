@@ -6,7 +6,7 @@ export default ({ btnBar, contentMsg }) => {
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-icon32px_Profile"></div>
+			<div className="icon icon-icon32px_Profile" />
 			<div className="title">{t("lbl_UpdateSuccessful")}</div>
 			<div>
 				{t("lbl_Awesome")}!

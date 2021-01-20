@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "gatsby";
 import { api_payment_GetMobilePayGroupList } from "../../service/api/payment";
 import path from "../../router";
-import { Link } from "gatsby";
 import Loading from "../common/loading";
 import config from "../../config";
 
@@ -53,13 +53,14 @@ export default () => {
 		);
 	}, []);
 
-	let rows = paymentList?.map(p => {
+	const rows = paymentList?.map(p => {
 		return (
 			<li key={`deposit-mobilePay-${p.groupName}}`}>
 				<Link to={`${_path}?name=${p.groupName}&gId=${p.groupId}`}>
 					<img
 						src={`${config.imgUrl}/common/images/MobilePay/${p.groupName}.png`}
-						alt={p.groupName}></img>
+						alt={p.groupName}
+					/>
 				</Link>
 			</li>
 		);

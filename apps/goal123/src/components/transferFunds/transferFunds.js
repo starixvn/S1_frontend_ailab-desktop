@@ -302,7 +302,7 @@ export default () => {
 	};
 
 	const EditAmount = e => {
-		const { value } = e.target;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 		setAmount(value);
 	};

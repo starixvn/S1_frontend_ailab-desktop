@@ -34,7 +34,9 @@ class Dropdown extends Component {
 		}
 	};
 
-	selectItem = ({ idx, item }) => {
+	selectItem = (props, e) => {
+		e.stopPropagation();
+		const { idx, item } = props;
 		this.setState({ isOpen: false });
 		this.props.onSelectItem(idx, item);
 	};

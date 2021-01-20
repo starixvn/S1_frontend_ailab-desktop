@@ -28,11 +28,12 @@ const initialState = {
 };
 
 function reducer(state, action) {
+	let allDatas = state.tpWallets;
+	const newValue = { tpId: action.tpId, balance: action.balance };
+	const idx = allDatas.findIndex(tp => tp.tpId === newValue.tpId);
+	const { tpId, balance, isHideBalance, lastTransaction } = action;
 	switch (action.type) {
 		case defAction.GET_TP_WALLETS:
-			let allDatas = state.tpWallets;
-			let newValue = { tpId: action.tpId, balance: action.balance };
-			let idx = allDatas.findIndex(tp => tp.tpId === newValue.tpId);
 			if (idx === -1) {
 				allDatas = [...allDatas, newValue];
 			} else {
@@ -41,7 +42,6 @@ function reducer(state, action) {
 			return { ...state, tpWallets: allDatas };
 
 		case defAction.GET_MAIN_WALLETS:
-			const { tpId, balance, isHideBalance, lastTransaction } = action;
 			return {
 				...state,
 				mainWallet: {
@@ -81,10 +81,10 @@ const GetTpWallets = ({
 const GetTpWalletBalance = ({ tpId, dispatch }) => {
 	api_account_GetTpWalletBalance(tpId).then(res => {
 		if (res.data.errorCode === 0 && res.data.data) {
-			const { tpId, balance } = res.data.data;
+			const { tpId: _tpId, balance } = res.data.data;
 			dispatch({
 				type: defAction.GET_TP_WALLETS,
-				tpId,
+				tpId: _tpId,
 				balance
 			});
 		}

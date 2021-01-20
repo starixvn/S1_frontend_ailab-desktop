@@ -50,7 +50,7 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
+						const datas = res.data.data;
 						if (setAccountName) {
 							setUserInfo(prev => ({
 								...prev,
@@ -60,7 +60,7 @@ export default () => {
 
 						dispatch({
 							type: defActionType.GET_CUST_BANK_INFO,
-							datas: datas
+							datas
 						});
 					} else {
 						setPopBox({
@@ -104,7 +104,7 @@ export default () => {
 	};
 
 	const clickTip = () => {
-		let _showTip = !showTip;
+		const _showTip = !showTip;
 		setShowTip(_showTip);
 	};
 
@@ -138,7 +138,7 @@ export default () => {
 							? userInfo.accountName
 							: state.accountName
 					}
-					alreadyHasAccountName={userInfo.accountName ? true : false}
+					alreadyHasAccountName={userInfo.accountName ?? false}
 					reload={GetCustBankInfo}
 				/>
 			);
@@ -164,7 +164,8 @@ export default () => {
 						<span>{userInfo.accountName}</span>
 						<button
 							className="icon icon-error"
-							onClick={clickTip}></button>
+							onClick={clickTip}
+						/>
 						{showTip ? (
 							<div className="tip active">
 								{t("lbl_ContactCSD")}

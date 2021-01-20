@@ -1,15 +1,15 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { popBoxContext, userInfoContext } from "../common/context";
 import { useTranslation } from "react-i18next";
-import { defPopBoxType } from "../common/popBox";
+import moment from "moment";
+import { Link } from "@reach/router";
 import {
 	api_accountStrict_VerifyOTP,
 	api_accountStrict_SendOTPSMS
 } from "../../service/api/accountStrict";
-import moment from "moment";
-import { Link } from "@reach/router";
+import { popBoxContext, userInfoContext } from "./context";
 import { defPrevPage } from "../profile/profile.dev";
-import { getUrlParameter } from "../common/common";
+import { getUrlParameter } from "./common";
+import { defPopBoxType } from "./popBox";
 
 export default ({ startUnixTime = 0 }) => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -84,13 +84,13 @@ export default ({ startUnixTime = 0 }) => {
 
 	const secondsToTime = secondsInTime => {
 		const pad = (num, size) => {
-			return ("000" + num).slice(size * -1);
+			return `000${num.slice(size * -1)}`;
 		};
-		let time = parseFloat(secondsInTime).toFixed(3);
-		// let hours = Math.floor(time / 60 / 60);
-		let minutes = Math.floor(time / 60) % 60;
-		let seconds = Math.floor(time - minutes * 60);
-		// let milliseconds = time.slice(-3);
+		const time = parseFloat(secondsInTime).toFixed(3);
+		// const hours = Math.floor(time / 60 / 60);
+		const minutes = Math.floor(time / 60) % 60;
+		const seconds = Math.floor(time - minutes * 60);
+		// const milliseconds = time.slice(-3);
 		return `${pad(minutes, 2)}:${pad(seconds, 2)}`;
 	};
 
@@ -102,7 +102,7 @@ export default ({ startUnixTime = 0 }) => {
 				if (isMountedRef.current) {
 					const {
 						data: {
-							data: { startUnixTime },
+							data: { startUnixTime: _startUnixTime },
 							errorCode,
 							message
 						}
@@ -118,7 +118,7 @@ export default ({ startUnixTime = 0 }) => {
 						clickClose();
 					} else if (success) {
 						setRetransmitCountDownSecond(
-							startUnixTime + 300 - moment().unix()
+							_startUnixTime + 300 - moment().unix()
 						);
 						startTimer();
 					} else {
@@ -155,7 +155,7 @@ export default ({ startUnixTime = 0 }) => {
 					} = res;
 					const success = errorCode === 0;
 					if (success) {
-						let _prevPage = getUrlParameter("prevPage");
+						const _prevPage = getUrlParameter("prevPage");
 
 						setUserInfo(prev => ({
 							...prev,
@@ -190,7 +190,7 @@ export default ({ startUnixTime = 0 }) => {
 						setVerifyPhoneError(
 							errorCode === 1000
 								? t("msg_OTP_Invalid")
-								: message | "error"
+								: message || "error"
 						);
 					}
 					setVerifyPhoneloading(false);
@@ -208,7 +208,7 @@ export default ({ startUnixTime = 0 }) => {
 
 	return (
 		<div className="editSuccess active" style={{ display: "flex" }}>
-			<div className="icon icon-icon32px_notification"></div>
+			<div className="icon icon-icon32px_notification" />
 			<div className="title">{t("lbl_ImportantNote")}</div>
 			<div>{t("msg_OTPSendCode")}</div>
 			<div className="inputModuleRow">
@@ -271,7 +271,7 @@ const MobileVerificationLoading = () => {
 	return (
 		<div style={{ minWidth: "128px" }}>
 			<div className="otpLoading">
-				<i className="icon icon-spinner11"></i>
+				<i className="icon icon-spinner11" />
 			</div>
 		</div>
 	);
