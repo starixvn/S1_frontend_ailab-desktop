@@ -52,7 +52,7 @@ export default ({ channelInfo, _isConvert, amount, dispatch }) => {
 
 	const SelectAmount = _amount => {
 		VaildAmount(_amount);
-		dispatch({ type: defActionType.EDIT_AMOUNT, _amount });
+		dispatch({ type: defActionType.EDIT_AMOUNT, amount: _amount });
 	};
 
 	const clickInfo = () => {
