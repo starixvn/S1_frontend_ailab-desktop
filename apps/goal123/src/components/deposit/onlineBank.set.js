@@ -79,7 +79,7 @@ export default () => {
 
 	useEffect(() => {
 		const pId = getUrlParameter("pId");
-		const pIdNumber = parseInt(getUrlParameter("pId"), 10);
+		const pIdNumber = Number(getUrlParameter("pId"));
 		if (location.state) {
 			if (location.state.selBank) {
 				getInfoSysList(pId);
@@ -89,25 +89,26 @@ export default () => {
 				});
 			}
 			setLoading(false);
-		}
-		async function getOnlinePaymentList() {
-			await api_payment_GetOnlinePaymentList().then(res => {
-				if (res.data.errorCode === 0 && isMountedRef.current) {
-					if (
-						res.data.data.filter(i => i.payId === pIdNumber)[0]
-							.selBank
-					) {
-						getInfoSysList(pId);
-					} else {
-						dispatch({
-							type: defActionType.SELECT_BANK
-						});
+		} else {
+			const getOnlinePaymentList = async () => {
+				await api_payment_GetOnlinePaymentList().then(res => {
+					if (res.data.errorCode === 0 && isMountedRef.current) {
+						if (
+							res.data.data.filter(i => i.payId === pIdNumber)[0]
+								.selBank
+						) {
+							getInfoSysList(pId);
+						} else {
+							dispatch({
+								type: defActionType.SELECT_BANK
+							});
+						}
+						setLoading(false);
 					}
-					setLoading(false);
-				}
-			});
+				});
+			};
+			getOnlinePaymentList();
 		}
-		getOnlinePaymentList();
 	}, [userInfo.langId]);
 
 	const ClickBack = () => {
@@ -117,15 +118,16 @@ export default () => {
 	const pName = getUrlParameter("name");
 	let displayMoudle = null;
 	const _isConvert = isConvert(userInfo.currencyId);
-	const maxAmount = getUrlParameter("max");
-	const minAmount = getUrlParameter("min");
 	switch (state.displayMoudle) {
 		case defModule.BankPanel:
 			displayMoudle = (
 				<BankPanel dispatch={dispatch} bankList={state.bankList} />
 			);
 			break;
-		case defModule.AmountPanel:
+		case defModule.AmountPanel: {
+			const maxAmount = getUrlParameter("max");
+			const minAmount = getUrlParameter("min");
+
 			displayMoudle = (
 				<AmountPanel
 					dispatch={dispatch}
@@ -137,6 +139,7 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
 		case defModule.ConfirmPanel:
 			displayMoudle = (

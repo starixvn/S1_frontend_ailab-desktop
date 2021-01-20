@@ -138,7 +138,7 @@ export default () => {
 							? userInfo.accountName
 							: state.accountName
 					}
-					alreadyHasAccountName={userInfo.accountName ?? false}
+					alreadyHasAccountName={!!userInfo.accountName}
 					reload={GetCustBankInfo}
 				/>
 			);

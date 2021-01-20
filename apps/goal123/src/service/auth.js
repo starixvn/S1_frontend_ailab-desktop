@@ -83,10 +83,12 @@ export const LOGIN = async ({ userName, password, langId }) => {
 };
 
 export const IS_LOGGED_IN = async () => {
-	const result = await api_site_CheckSignIn().then(
-		res => res.data.errorCode === 0
-	);
-	return result;
+	try {
+		const res = await api_site_CheckSignIn();
+		return res.data.errorCode === 0;
+	} catch (error) {
+		return false;
+	}
 };
 
 export const LOGOUT = callback => {

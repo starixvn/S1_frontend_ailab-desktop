@@ -40,10 +40,6 @@ export default ({ bankInfoSysList = [] }) => {
 		};
 	});
 
-	useEffect(() => {
-		//
-	}, []);
-
 	const onSelectItem = i => {
 		setUserValue(prev => ({ ...prev, bankId: i }));
 	};
@@ -112,7 +108,6 @@ export default ({ bankInfoSysList = [] }) => {
 		}));
 
 		if (bankInfoSysList?.length <= 0) {
-			// console.log("Bank list is null.");
 			checked = false;
 		}
 

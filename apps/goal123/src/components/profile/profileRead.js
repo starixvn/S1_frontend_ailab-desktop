@@ -10,19 +10,19 @@ export default props => {
 		{
 			label: t("lbl_RealName"),
 			value: props.userInfo.accountName,
-			show: props.userInfo.accountName ?? false
+			show: !!props.userInfo.accountName
 		},
 		{
 			label: t("lbl_Birthday"),
 			value: birth,
 			format: "normal",
-			show: props.userInfo.birth_d ?? false
+			show: !!props.userInfo.birth_d
 		},
 		{
 			label: t("lbl_Phone"),
 			value: `(${props.userInfo.AreaCode})${props.userInfo.phoneNo}`,
 			format: "phone",
-			show: props.userInfo.phoneNo ?? false
+			show: !!props.userInfo.phoneNo
 		},
 		{
 			label: t("lbl_Username"),
@@ -37,7 +37,7 @@ export default props => {
 		{
 			label: t("lbl_Email"),
 			value: props.userInfo.email,
-			show: props.userInfo.email ?? false
+			show: !!props.userInfo.email
 		},
 		{
 			label: t("lbl_RegisterTime"),

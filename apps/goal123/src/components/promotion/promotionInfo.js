@@ -16,12 +16,14 @@ import { defFilterType } from "./promotion.nav";
 export default () => {
 	const filterType = getUrlParameter("FilterType");
 	const isSpecialType = filterType === defFilterType.specialBonus;
+
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [promotionInfo, setPromotionInfo] = useState(null);
 	const isMountedRef = useRef(null);
 	const [loading, setLoading] = useState(true);
+
 	const _currency = t(`Currency_${userInfo.currencyId}`);
 
 	useEffect(() => {
@@ -74,9 +76,7 @@ export default () => {
 				if (success) {
 					return setPromotionInfo(data);
 				}
-				if (!success) {
-					openErrorMessagePopBox(message || "error", errorCode);
-				}
+				openErrorMessagePopBox(message || "error", errorCode);
 			},
 			() => {
 				if (isMountedRef.current) {

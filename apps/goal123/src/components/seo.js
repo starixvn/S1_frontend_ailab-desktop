@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-brace-presence */
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
@@ -174,7 +175,7 @@ const FBPixelCode = () => {
 					  src="https://www.facebook.com/tr?id=1012937295810473&ev=PageView&noscript=1"
 					/>`}
 			</noscript>
-			<script>fbq('track', 'CompleteRegistration')</script>
+			<script>{`fbq("track", "CompleteRegistration")`}</script>
 		</Helmet>
 	);
 };
@@ -194,13 +195,15 @@ const FPS = () => {
 SEO.defaultProps = {
 	lang: `en`,
 	meta: [],
-	description: ``
+	description: ``,
+	title: ""
 };
 
 SEO.propTypes = {
 	description: PropTypes.string,
 	lang: PropTypes.string,
-	meta: PropTypes.arrayOf(PropTypes.object)
+	meta: PropTypes.arrayOf(PropTypes.object),
+	title: PropTypes.string
 };
 
 export default SEO;
