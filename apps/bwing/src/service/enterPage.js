@@ -9,10 +9,10 @@ export const _ACTION_TYPE = {
 export const SET_CASINO_ENTER_PAGE = (tpId, gameId, isFree, langId) => {
 	if (typeof window !== `undefined`) {
 		const appUrl = window.location.href;
-		let homeUrl = `${appUrl}`;
-		let signupUrl = `${appUrl}${path.join.root}`;
-		let LoginUrl = `${appUrl}${path.login.root}`;
-		let entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}`;
+		const homeUrl = `${appUrl}`;
+		const signupUrl = `${appUrl}${path.join.root}`;
+		const LoginUrl = `${appUrl}${path.login.root}`;
+		const entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}`;
 		window
 			.open(
 				`${entPageUrl}&fun=${
@@ -35,7 +35,7 @@ export const SET_ENTER_PAGE = ({
 	betType,
 	openInBlank = false
 }) => {
-	let result = GET_OPEN_RULE(langId, tpId, gameId, matchid, betType);
+	const result = GET_OPEN_RULE(langId, tpId, gameId, matchid, betType);
 	if (!isLogin && result.needLogin) {
 		loginCallback();
 	} else if (result.actionType === _ACTION_TYPE.blank || openInBlank) {
@@ -86,21 +86,21 @@ export const GET_ENTER_PAGE_URL = (langId, tpId, gameId, matchid, betType) => {
 		typeof window !== `undefined`
 			? `${window.location.origin}${window.location.pathname}`
 			: null;
-	let homeUrl = `${appUrl}`;
-	let signupUrl = `${appUrl}${path.join.root}`;
-	let LoginUrl = `${appUrl}${path.login.root}`;
-	let lobbyUrl = ``;
-	let cashierUrl = `${appUrl}${path.deposit.root}`;
-	let _matchid = matchid ? matchid : "";
-	let _betType = betType ? `&betType=${betType}` : "";
+	const homeUrl = `${appUrl}`;
+	const signupUrl = `${appUrl}${path.join.root}`;
+	const LoginUrl = `${appUrl}${path.login.root}`;
+	const lobbyUrl = ``;
+	const cashierUrl = `${appUrl}${path.deposit.root}`;
+	const _matchid = matchid || "";
+	const _betType = betType ? `&betType=${betType}` : "";
 	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}`;
 };
 
 const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {
 	return {
-		url: url,
-		needLogin: needLogin,
-		actionType: actionType,
+		url,
+		needLogin,
+		actionType,
 		windowKey: tpId === 1 ? `Tp_${tpId}_${gameId}` : `Tp_${tpId}`
 	};
 };

@@ -1,14 +1,13 @@
 import React, { useRef, useEffect, useContext } from "react";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import { defPromotionType } from "./promotion.def";
 import { popBoxContext } from "../common/context";
 import { checkPromotion } from "./promotion.common";
 import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
 import path from "../../router";
 import { defFilterType } from "./promotion.nav";
-import { navigate } from "@reach/router";
 
 export default ({
 	promotionInfo,
@@ -26,7 +25,9 @@ export default ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const clickClose = () => {
@@ -141,7 +142,7 @@ export default ({
 				setClaimPromotion
 			});
 
-		let success = await setClaimPromotion(langId, bonusCode, maxAmount);
+		const success = await setClaimPromotion(langId, bonusCode, maxAmount);
 
 		if (success) return callBack();
 	};

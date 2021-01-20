@@ -7,7 +7,7 @@ export default ({ t, rewardList, userInfo }) => {
 			<li
 				key={`leaderBoard-event-${item.displayRank}`}
 				className={idx < 3 ? `no${idx + 1}` : null}>
-				{parseInt(item.displayRank) === 1 ? (
+				{Number(item.displayRank) === 1 ? (
 					<div>
 						<img
 							src={require(`../../styles/img/ranking/trophy1.png`)}

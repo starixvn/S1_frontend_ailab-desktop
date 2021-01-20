@@ -1,14 +1,14 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import path from "../router";
-import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { api_news_GetNews } from "../service/api/news";
 import { Pagination } from "../components/common/pagination";
-import { Link } from "@reach/router";
 import Loading from "../components/common/loading";
-import { defPopBoxType } from "../components/common/popBox";
+import { defPopBoxType } from "../components/common/defPopBoxType";
 
 export default () => {
 	return (
@@ -41,7 +41,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -115,7 +117,7 @@ const Content = () => {
 		}
 	};
 
-	let arr = getNews?.map(item => {
+	const arr = getNews?.map(item => {
 		return (
 			<div key={`News-${item.newsId}`}>
 				<img src={item.imageURL} alt={item.title} />

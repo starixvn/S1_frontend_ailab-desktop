@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { TransactionHistory } from "./deposit.historyResult";
 import {
 	api_payment_GetDepositInfoRecent,
 	api_payment_SetDepositCancel
 } from "../../service/api/payment";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import path from "../../router";
-import { Link } from "@reach/router";
 import Loading from "../common/loading";
 import ReloadSpin from "../common/reloadSpin";
 
@@ -23,7 +23,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -87,19 +89,19 @@ export default () => {
 		picFileName,
 		refId
 	) => {
-		let { currencyId, ...restBankInfo } = bankInfo;
-		let { accountName, accountNo } = depositRep;
+		const { currencyId, ...restBankInfo } = bankInfo;
+		const { accountName, accountNo } = depositRep;
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.UploadBankSlip,
 			depositTime: `${moment().format()}`,
 			...restBankInfo,
-			transId: transId,
-			accountNo: accountNo,
-			accountName: accountName,
-			amount: amount,
-			picFileName: picFileName,
-			refId: refId,
+			transId,
+			accountNo,
+			accountName,
+			amount,
+			picFileName,
+			refId,
 			refreshDatas: GetRecentDatas
 		});
 	};
@@ -114,8 +116,8 @@ export default () => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
 							setGetHistory(prevState => {
-								let newD = [...prevState];
-								let idx = newD.findIndex(
+								const newD = [...prevState];
+								const idx = newD.findIndex(
 									x => x.transId === transId
 								);
 								newD[idx].status = 5;
@@ -164,7 +166,7 @@ export default () => {
 		});
 	};
 
-	let arr = getHistory?.map((item, i) => {
+	const arr = getHistory?.map((item, i) => {
 		return (
 			<TransactionHistory
 				key={`deposit-recent-${item.transId}`}
@@ -212,7 +214,8 @@ export default () => {
 			</div>
 			<Link
 				to={`/${userInfo.langId}/${path.depositHistory.root}`}
-				className="icon icon-books"></Link>
+				className="icon icon-books"
+			/>
 		</>
 	) : null;
 };

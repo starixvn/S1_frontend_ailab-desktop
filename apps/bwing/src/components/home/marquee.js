@@ -1,17 +1,17 @@
 import React, { Component, useContext, createRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Redirect } from "@reach/router";
 import { api_message_GetAnnouncement } from "../../service/api/message";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
-import { Redirect } from "@reach/router";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-	let langId = GET_LANG_ID(userInfo.langId);
+	const langId = GET_LANG_ID(userInfo.langId);
 
 	const ClickClose = () => {
 		setPopBox({ isOpen: false });
@@ -29,15 +29,19 @@ export default () => {
 };
 
 class Marquee extends Component {
-	state = {
-		datas: [],
-		pos: null,
-		initWidth: 0,
-		redirectPath: null
-	};
-	isMountedRef = false;
-	marquee = createRef();
-	content = createRef();
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			datas: [],
+			pos: null,
+			redirectPath: null
+		};
+
+		this.isMountedRef = false;
+		this.marquee = createRef();
+		this.content = createRef();
+	}
 
 	componentDidMount = () => {
 		this.isMountedRef = true;
@@ -55,30 +59,29 @@ class Marquee extends Component {
 
 	componentDidUpdate = () => {
 		if (this.state.pos === null && this.isMountedRef) {
-			let style = window.getComputedStyle(this.marquee.current, null);
-			let pos = parseFloat(style.width);
+			const style = window.getComputedStyle(this.marquee.current, null);
+			const pos = parseFloat(style.width);
 
-			this.setState({ pos: pos, initWidth: pos });
+			this.setState({ pos });
 		}
 	};
 
 	SetPos = () => {
 		if (this.isMountedRef && this.state.prev !== null) {
-			let _style = window.getComputedStyle(this.content.current, null);
-			let contentBox = parseFloat(_style.width);
+			const _style = window.getComputedStyle(this.content.current, null);
+			const contentBox = parseFloat(_style.width);
 
 			this.setState(prev => {
 				if (prev.pos <= -contentBox) {
-					let style = window.getComputedStyle(
+					const style = window.getComputedStyle(
 						this.marquee.current,
 						null
 					);
-					let outerBox = parseFloat(style.width);
+					const outerBox = parseFloat(style.width);
 
 					return { pos: outerBox };
-				} else {
-					return { pos: prev.pos - 1.5 };
 				}
+				return { pos: prev.pos - 1.5 };
 			});
 		}
 	};
@@ -87,20 +90,20 @@ class Marquee extends Component {
 		api_message_GetAnnouncement(langId).then(res => {
 			if (this.isMountedRef) {
 				if (res.data.errorCode === 0) {
-					let resData = res.data.data;
-					let stateData = this.state.datas;
+					const resData = res.data.data;
+					const stateData = this.state.datas;
 					let update = false;
 
 					if (resData.length !== 0 && stateData.length !== 0) {
-						for (let d in resData) {
-							let find = stateData.find(
-								x =>
-									x.id === resData[d].id &&
-									x.subject === resData[d].subject &&
-									x.content === resData[d].content
-							);
-
-							if (!find) {
+						for (const d in resData) {
+							if (
+								!stateData.find(
+									x =>
+										x.id === resData[d].id &&
+										x.subject === resData[d].subject &&
+										x.content === resData[d].content
+								)
+							) {
 								update = true;
 								break;
 							}
@@ -158,20 +161,22 @@ class Marquee extends Component {
 	};
 
 	render() {
-		let arr = this.state.datas.map(item => {
+		const arr = this.state.datas.map(item => {
 			return (
 				<button
 					key={`announcement-${item.id}`}
 					style={{ paddingLeft: "2rem" }}
 					onClick={this.ClickMarquee}
 					onMouseOver={this.MarqueeOnMouseOver}
-					onMouseOut={this.MarqueeOnMouseOut}>
+					onMouseOut={this.MarqueeOnMouseOut}
+					onFocus={() => 0}
+					onBlur={() => 0}>
 					{item.subject}
 				</button>
 			);
 		});
 
-		let style = this.state.pos === null ? {} : { left: this.state.pos };
+		const style = this.state.pos === null ? {} : { left: this.state.pos };
 		return this.state.redirectPath === null ? (
 			<div id="Marquee">
 				<div

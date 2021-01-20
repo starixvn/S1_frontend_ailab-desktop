@@ -11,11 +11,9 @@ export default ({
 
 	return (
 		<div className="Error active">
-			<div className={`icon ${icon}`}></div>
+			<div className={`icon ${icon}`} />
 			<div className="title">{t("lbl_ImportantNote")}</div>
-			<div className="txt-lightgray">
-				{message}
-			</div>
+			<div className="txt-lightgray">{message}</div>
 			{btnBar}
 		</div>
 	);

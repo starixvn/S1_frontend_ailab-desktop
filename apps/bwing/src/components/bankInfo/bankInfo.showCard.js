@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import config from "../../config";
 import { popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
 import Loading from "../common/loading";
 
@@ -14,7 +14,9 @@ export default ({ accountName, custBankList, reload }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const delBankAccount = (sysId, accountNo) => {
@@ -24,7 +26,7 @@ export default ({ accountName, custBankList, reload }) => {
 			});
 		};
 
-		const deleteCard = (sysId, accountNo) => {
+		const deleteCard = (SysId, AccountNo) => {
 			setPopBox({
 				isOpen: false
 			});
@@ -32,8 +34,8 @@ export default ({ accountName, custBankList, reload }) => {
 
 			api_accountStrict_DelCustBankInfo({
 				AccountName: accountName,
-				AccountNo: accountNo,
-				SysId: sysId
+				AccountNo,
+				SysId
 			}).then(
 				res => {
 					if (isMountedRef.current) {
@@ -104,7 +106,7 @@ export default ({ accountName, custBankList, reload }) => {
 		});
 	};
 
-	let arr = custBankList?.map(item => {
+	const arr = custBankList?.map(item => {
 		return (
 			<div className="addBankName" key={`bankCard-${item.accountNo}`}>
 				<div className="addBankInfo">
@@ -122,7 +124,8 @@ export default ({ accountName, custBankList, reload }) => {
 								this,
 								item.sysId,
 								item.accountNo
-							)}></button>
+							)}
+						/>
 					</div>
 				</div>
 				<div className="addBankInfo">

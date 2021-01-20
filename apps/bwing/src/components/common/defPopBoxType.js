@@ -1,0 +1,23 @@
+export const defPopBoxType = {
+	Cancel: "Cancel",
+	UploadBankSlip: "UploadBankSlip",
+	Success: "Success",
+	ErrorMsg: "ErrorMsg",
+	Login: "Login",
+	Join: "Join",
+	AddBankAccount: "AddBankAccount",
+	AddBankSuccess: "AddBankSuccess",
+	ConfirmDelete: "ConfirmDelete",
+	ProfileConfirmCheck: "ProfileConfirmCheck",
+	ProfileCompelete: "ProfileCompelete",
+	ChangePsw: "ChangePsw",
+	LogoutHint: "LogoutHint",
+	DepositHint: "DepositHint",
+	OTPHint: "OTPHint",
+	VerifyPhoneForm: "verifyPhoneForm",
+	WithdrawalSuccess: "WithdrawalSuccess",
+	UpdateProfile: "UpdateProfile",
+	TurnoverAccumulated: "TurnoverAccumulated",
+	PromotionDepositConfirm: "PromotionDepositConfirm",
+	PromotionAmountConfirm: "PromotionAmountConfirm"
+};

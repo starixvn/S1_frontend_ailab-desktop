@@ -17,7 +17,7 @@ import Loading from "../common/loading";
 import { defCasinoProviders } from "../../datas/productList";
 
 const matchKeyword = (name, _keyword) => {
-	let keyword = _keyword.toLowerCase();
+	const keyword = _keyword.toLowerCase();
 	return (
 		Object.keys(name)?.filter(key => {
 			return name[key].toLowerCase().indexOf(keyword) !== -1;
@@ -57,28 +57,28 @@ export default () => {
 		api_site_GetGamelistV2().then(
 			res => {
 				if (res.data.errorCode === 0) {
-					const { imgUrl, providerList } = res.data.data;
+					const { imgUrl: _imgUrl, providerList } = res.data.data;
 
-					let _tpList = {};
-					let _tpOptions = [
+					const _tpList = {};
+					const _tpOptions = [
 						{ displayKey: "lbl_AllProvider", id: null }
 					];
-					let games = [];
+					const games = [];
 
 					let hasPromo = false;
 					let hasFeature = false;
 
-					setImgUrl(imgUrl);
+					setImgUrl(_imgUrl);
 
-					providerList?.forEach(t => {
-						_tpList[t.value] = { ...t };
+					providerList?.forEach(tp => {
+						_tpList[tp.value] = { ...tp };
 						_tpOptions.push({
-							displayText: t.displayText,
-							id: t.value
+							displayText: tp.displayText,
+							id: tp.value
 						});
 
-						if (t?.gameList?.data) {
-							t.gameList.data.forEach(g => {
+						if (tp?.gameList?.data) {
+							tp.gameList.data.forEach(g => {
 								hasPromo =
 									hasPromo === false
 										? g.promotion === 1
@@ -89,8 +89,8 @@ export default () => {
 										: hasFeature;
 
 								games.push({
-									tpId: t.value,
-									tpName: t.name,
+									tpId: tp.value,
+									tpName: tp.name,
 									...g
 								});
 							});
@@ -99,9 +99,11 @@ export default () => {
 
 					if (games.length) {
 						for (let i = 0; i < games.length; i++) {
-							let idx = Math.floor(Math.random() * games.length);
-							let tempEle1 = games[i];
-							let tempEle2 = games[idx];
+							const idx = Math.floor(
+								Math.random() * games.length
+							);
+							const tempEle1 = games[i];
+							const tempEle2 = games[idx];
 
 							games[i] = tempEle2;
 							games[idx] = tempEle1;
@@ -116,7 +118,7 @@ export default () => {
 						let _searchInfo = searchInfo;
 
 						if (tpId) {
-							let idx = _tpOptions.findIndex(
+							const idx = _tpOptions.findIndex(
 								x => x.id === Number(tpId)
 							);
 
@@ -125,7 +127,7 @@ export default () => {
 									_searchInfo = {
 										...prevS,
 										provider: {
-											idx: idx,
+											idx,
 											value: _tpOptions[idx].id
 										}
 									};
@@ -135,10 +137,10 @@ export default () => {
 						}
 
 						SetGames({
-							_searchInfo: _searchInfo,
+							_searchInfo,
 							_selNav: selNav,
 							_gameDatas: games,
-							_tpList: _tpList
+							_tpList
 						});
 					}
 				}
@@ -152,7 +154,7 @@ export default () => {
 		if (userInfo.isLogin) {
 			api_account_GetFavoriteGame().then(res => {
 				if (res.data.errorCode === 0 && res.data.data) {
-					let fav = res.data.data.map(f => {
+					const fav = res.data.data.map(f => {
 						return `${f.providerId}_${f.gameId}`;
 					});
 					if (isMountedRef.current) {
@@ -170,18 +172,18 @@ export default () => {
 		initTpList,
 		_favorite
 	) => {
-		let _gameDatas = initGameDatas ?? gameDatas;
-		let _tpList = initTpList ?? tpList;
-		let tpId = _searchInfo.provider.value;
-		let searchText = _searchInfo.searchText;
+		const _gameDatas = initGameDatas ?? gameDatas;
+		const _tpList = initTpList ?? tpList;
+		const _tpId = _searchInfo.provider.value;
+		const { searchText } = _searchInfo;
 
-		const matchFilter = (tpId, g) => {
-			let matchNav =
+		const matchFilter = (TpId, g) => {
+			const matchNav =
 				(_nav === defNav.PROMO.key && g.promotion === 1) ||
 				(_nav === defNav.FEATURED.key && g.featured === true) ||
 				(_nav === defNav.NEW.key && g.new) ||
 				(_nav === defNav.FAVOURITE.key &&
-					_favorite.includes(`${tpId}_${g.gameId}`)) ||
+					_favorite.includes(`${TpId}_${g.gameId}`)) ||
 				_nav === defNav.ALLGAMES.key;
 			return (
 				matchNav &&
@@ -190,9 +192,10 @@ export default () => {
 		};
 
 		return _gameDatas?.filter(g => {
-			let tp = _tpList[g.tpId];
+			const tp = _tpList[g.tpId];
 			return (
-				(tpId === null || tp.value === tpId) && matchFilter(tp.value, g)
+				(_tpId === null || tp.value === _tpId) &&
+				matchFilter(tp.value, g)
 			);
 		});
 	};
@@ -204,7 +207,7 @@ export default () => {
 		_tpList,
 		_favorite = favorite
 	}) => {
-		let _displayGames = FilterGames(
+		const _displayGames = FilterGames(
 			_searchInfo,
 			_selNav,
 			_gameDatas,
@@ -212,12 +215,12 @@ export default () => {
 			_favorite
 		);
 
-		let _totalPages =
+		const _totalPages =
 			_displayGames.length === 0
 				? 1
 				: Math.ceil(_displayGames.length / defRowsPerPage);
 
-		let _currentPage =
+		const _currentPage =
 			pageInfo.currentPage > _totalPages
 				? _totalPages
 				: pageInfo.currentPage;
@@ -249,10 +252,10 @@ export default () => {
 		}));
 	};
 
-	const onSetFavorite = (tpId, gameId) => {
-		let key = `${tpId}_${gameId}`;
-		let isRemove = favorite?.includes(key);
-		let newFav = isRemove
+	const onSetFavorite = (_tpId, gameId) => {
+		const key = `${_tpId}_${gameId}`;
+		const isRemove = favorite?.includes(key);
+		const newFav = isRemove
 			? favorite?.filter(f => f !== key)
 			: [...favorite, key];
 
@@ -265,7 +268,7 @@ export default () => {
 			_favorite: newFav
 		});
 		if (userInfo.isLogin) {
-			api_account_SetFavoriteGame(tpId, gameId, isRemove);
+			api_account_SetFavoriteGame(_tpId, gameId, isRemove);
 		}
 	};
 
@@ -290,7 +293,7 @@ export default () => {
 			});
 
 			SetGames({
-				_searchInfo: _searchInfo,
+				_searchInfo,
 				_selNav: selNav,
 				_gameDatas: gameDatas,
 				_tpList: tpList
