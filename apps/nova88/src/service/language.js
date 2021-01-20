@@ -8,10 +8,10 @@ export const isVaildLang = lang => {
 };
 
 export const GET_LANG_ID = userLangId => {
-	let siteDefLangId = "en";
+	const siteDefLangId = "en";
 
-	let langId = userLangId ? userLangId : readCookie("LangId");
-	let browserDefLang =
+	let langId = userLangId || readCookie("LangId");
+	const browserDefLang =
 		typeof window !== `undefined` ? navigator.language.toLowerCase() : null;
 
 	if (!langId && browserDefLang) {

@@ -13,19 +13,19 @@ export default ({ promotionInfo, t }) => {
 		rollOver
 	} = promotionInfo;
 
-	let _expiryTime = moment.unix(
+	const _expiryTime = moment.unix(
 		isJoin && status === promoStatus.running && custExpiryTime
 			? moment(custExpiryTime).unix()
 			: periodTo
 	);
 
-	let diffDays = Math.ceil(
+	const diffDays = Math.ceil(
 		moment.duration(_expiryTime.diff(moment())).asDays() - 1
 	);
 
-	let expiryTime = moment.duration(_expiryTime.diff(new Date()));
+	const expiryTime = moment.duration(_expiryTime.diff(new Date()));
 
-	// let expiryTime = moment.duration(
+	// const expiryTime = moment.duration(
 	// 	moment
 	// 		.unix(
 	// 			isJoin && status === promoStatus.running && custExpiryTime
@@ -35,14 +35,10 @@ export default ({ promotionInfo, t }) => {
 	// 		.diff(new Date())
 	// );
 
-	let displayExpiryTime =
-		diffDays +
-		" " +
-		t("lbl_Days") +
-		" " +
-		expiryTime.hours() +
-		" " +
-		t("lbl_Hours");
+	const displayExpiryTime = `${diffDays} ${t(
+		"lbl_Days"
+	)} ${expiryTime.hours()} ${t("lbl_Hours")}`;
+
 	return (
 		<div className="rollover">
 			<div>

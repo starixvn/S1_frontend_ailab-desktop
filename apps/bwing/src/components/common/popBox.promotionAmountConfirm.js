@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { number_format, checkAmount, _isConvert } from "../common/common";
+import { number_format, checkAmount, _isConvert } from "./common";
 
 export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
 	const { t } = useTranslation();
@@ -15,7 +15,7 @@ export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
 	};
 
 	const validAmount = _amount => {
-		let result = checkAmount(
+		const result = checkAmount(
 			_amount,
 			requiredAmount,
 			maxAmount,
@@ -31,15 +31,14 @@ export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
 
 	return (
 		<div className="loackAmount">
-			<div class="icon icon-close" onClick={clickClose}></div>
-			<div className="icon icon-gift"></div>
+			<div className="icon icon-close" onClick={clickClose} />
+			<div className="icon icon-gift" />
 			<div className="title">{t("lbl_ImportantNote")}</div>
 			<div className="txt-lightgray">
 				{t("lbl_PleaseEnterClaimAmount")}
 			</div>
 			<div className="inputBox-blue">
 				<input
-					autoFocus
 					value={amount}
 					onBlur={() => validAmount(amount)}
 					onChange={e => setAmount(e.target.value)}

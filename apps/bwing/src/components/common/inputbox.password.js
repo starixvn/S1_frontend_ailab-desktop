@@ -4,7 +4,7 @@ export default props => {
 	return (
 		<>
 			<div className="inputBox-blue">
-				{props.icon ? <i className={`icon ${props.icon}`}></i> : null}
+				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
 				{props.title ? (
 					<i className="txt-blue12">{props.title}</i>
 				) : null}
@@ -27,19 +27,21 @@ export default props => {
 							className={`icon ${
 								!props.showPsw ? "icon-eye-blocked" : "icon-eye"
 							}`}
-							onClick={props.showPswHandler}></i>
+							onClick={props.showPswHandler}
+						/>
 					) : null}
 
 					{props.checked !== undefined ? (
 						<div className="iconModule">
 							{props.checked === null ? (
 								<i
-									className={`icon icon-information-solid`}
-									onClick={props.clickInfo}></i>
+									className="icon icon-information-solid"
+									onClick={props.clickInfo}
+								/>
 							) : props.checked ? (
-								<i className={`icon icon-checkmark`}></i>
+								<i className="icon icon-checkmark" />
 							) : !props.checked && props.checked !== null ? (
-								<i className={`icon icon-cross`}></i>
+								<i className="icon icon-cross" />
 							) : null}
 						</div>
 					) : null}

@@ -1,10 +1,10 @@
 import React from "react";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "./popBox";
 
 export default ({ setPopBox, t, err }) => {
-	const { name, message, response } = err;
+	const { message, response } = err;
 	if (message === "Network Error") {
-		//network error.
+		// network error.
 	} else if (response) {
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });

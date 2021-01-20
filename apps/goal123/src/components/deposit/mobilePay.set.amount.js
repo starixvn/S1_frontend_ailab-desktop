@@ -14,7 +14,7 @@ export default ({ channelInfo, _isConvert, amount, dispatch }) => {
 	});
 
 	const EditAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 
 		VaildAmount(value);
@@ -22,7 +22,7 @@ export default ({ channelInfo, _isConvert, amount, dispatch }) => {
 	};
 
 	const VaildAmount = _amount => {
-		let result = checkAmount(
+		const result = checkAmount(
 			_amount,
 			channelInfo.minAmount,
 			channelInfo.maxAmount,
@@ -44,19 +44,19 @@ export default ({ channelInfo, _isConvert, amount, dispatch }) => {
 	};
 
 	const SubmitAmount = () => {
-		let result = VaildAmount(amount);
+		const result = VaildAmount(amount);
 		if (result) {
 			dispatch({ type: defActionType.SUBMIT_AMOUNT });
 		}
 	};
 
-	const SelectAmount = amount => {
-		VaildAmount(amount);
-		dispatch({ type: defActionType.EDIT_AMOUNT, amount: amount });
+	const SelectAmount = _amount => {
+		VaildAmount(_amount);
+		dispatch({ type: defActionType.EDIT_AMOUNT, amount: _amount });
 	};
 
 	const clickInfo = () => {
-		let _msg =
+		const _msg =
 			status.tip === ""
 				? getAmountTip(channelInfo.minAmount, _isConvert, t)
 				: "";
@@ -133,11 +133,11 @@ const FixedAmountList = ({
 	amount,
 	onSelectAmount
 }) => {
-	let rows = amountList
+	const rows = amountList
 		?.filter(a => a >= minAmount && a <= maxAmount)
 		.map(a => {
-			let _afterConvertAmount = _isConvert ? a / 1000 : a;
-			let isSelected = amount === _afterConvertAmount;
+			const _afterConvertAmount = _isConvert ? a / 1000 : a;
+			const isSelected = amount === _afterConvertAmount;
 
 			return (
 				<button
@@ -145,7 +145,7 @@ const FixedAmountList = ({
 					className={`blue${isSelected ? " active" : ""}`}
 					key={`deposit-mobile-${a}`}>
 					{number_format(a, _isConvert)}
-					<i className="icon icon-checkmark"></i>
+					<i className="icon icon-checkmark" />
 				</button>
 			);
 		});

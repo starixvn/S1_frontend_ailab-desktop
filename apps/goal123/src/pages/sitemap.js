@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
+import { Link } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../components/common/context";
 import Bettings from "../components/footer/footer.bettings";
 import OurPolicies from "../components/footer/footer.ourPolicies";
@@ -9,7 +10,6 @@ import HelpSupport from "../components/footer/footer.helpSupport";
 import About from "../components/footer/footer.about";
 import Promotions from "../components/footer/footer.promotions";
 import { defLeftMenu } from "../components/common/leftMenu.def";
-import { Link } from "@reach/router";
 
 export default () => {
 	return (
@@ -26,10 +26,10 @@ export default () => {
 };
 
 const Menus = ({ langId, t }) => {
-	let rows = Object.keys(defLeftMenu).map(k => {
-		let mainMenuInfo = defLeftMenu[k];
-		let subMenus = Object.keys(mainMenuInfo?.subMenu)?.map(sk => {
-			let subMenuInfo = mainMenuInfo?.subMenu[sk];
+	const rows = Object.keys(defLeftMenu).map(k => {
+		const mainMenuInfo = defLeftMenu[k];
+		const subMenus = Object.keys(mainMenuInfo?.subMenu)?.map(sk => {
+			const subMenuInfo = mainMenuInfo?.subMenu[sk];
 			return (
 				<Link
 					key={`sitemap-menu-${k}-${sk}`}

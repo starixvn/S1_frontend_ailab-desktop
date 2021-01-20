@@ -24,8 +24,8 @@ export const Pagination = ({ currentPage, totalPages, clickPageNumber }) => {
 		}
 	};
 
-	let arr = pageNumbers(currentPage, totalPages);
-	let _arr = arr?.map(i => {
+	const arr = pageNumbers(currentPage, totalPages);
+	const _arr = arr?.map(i => {
 		return (
 			<a
 				key={`pageNumber-${i}`}
@@ -46,21 +46,21 @@ export const Pagination = ({ currentPage, totalPages, clickPageNumber }) => {
 };
 
 const pageNumbers = (currentPage, totalPages) => {
-	let pairs = 2,
-		range = [1];
+	const pairs = 2;
+	const range = [1];
 
 	if (totalPages <= 1) return range;
 
-	let range_of_head = currentPage - pairs;
-	let range_of_tail = currentPage + pairs;
+	const range_of_head = currentPage - pairs;
+	const range_of_tail = currentPage + pairs;
 	for (let i = range_of_head; i <= range_of_tail; i++) {
 		if (i < totalPages && i > 1) range.push(i);
 	}
 	range.push(totalPages);
 
-	let tmp,
-		rangeWithDots = [];
-	for (let i of range) {
+	let tmp;
+	const rangeWithDots = [];
+	for (const i of range) {
 		if (tmp) {
 			if (i - tmp === 2) {
 				rangeWithDots.push(tmp + 1);

@@ -33,14 +33,15 @@ export function reducer(state, action) {
 				bankList: action.bankList
 			};
 
-		case defActionType.SELECT_BANK:
-			var newStep = state.step + 1;
+		case defActionType.SELECT_BANK: {
+			const newStep = state.step + 1;
 			return {
 				...state,
 				bankIdx: action.bankIdx,
 				step: newStep,
 				displayModule: defStepModule[newStep]
 			};
+		}
 
 		case defActionType.EDIT_AMOUNT:
 			return {
@@ -48,21 +49,23 @@ export function reducer(state, action) {
 				amount: action.amount
 			};
 
-		case defActionType.SUBMIT_AMOUNT:
-			var newStep_SUBMIT_AMOUNT = state.step + 1;
+		case defActionType.SUBMIT_AMOUNT: {
+			const newStep_SUBMIT_AMOUNT = state.step + 1;
 			return {
 				...state,
 				step: newStep_SUBMIT_AMOUNT,
 				displayModule: defStepModule[newStep_SUBMIT_AMOUNT]
 			};
+		}
 
-		case defActionType.CLICK_BACK:
-			var newStep_CLICK_BACK = state.step - 1;
+		case defActionType.CLICK_BACK: {
+			const newStep_CLICK_BACK = state.step - 1;
 			return {
 				...state,
 				step: newStep_CLICK_BACK,
 				displayModule: defStepModule[newStep_CLICK_BACK]
 			};
+		}
 
 		default:
 			console.log("action type not exists");

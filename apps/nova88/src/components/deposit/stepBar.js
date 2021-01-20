@@ -40,12 +40,12 @@ export default ({ step }) => {
 		}
 	];
 
-	let defStepList =
+	const defStepList =
 		location.pathname.indexOf("cryptoPay") === -1
 			? fourStepList
 			: threeStepList;
 
-	let rows = defStepList.map((s, sIdx) => {
+	const rows = defStepList.map((s, sIdx) => {
 		return (
 			<div
 				className={sIdx <= step - 1 ? "active" : ""}
@@ -56,11 +56,11 @@ export default ({ step }) => {
 		);
 	});
 
-	let percent = (step / defStepList.length) * 100;
+	const percent = (step / defStepList.length) * 100;
 
 	return (
 		<div className="stepBar">
-			<div className="stepLine" style={{ width: percent + "%" }}></div>
+			<div className="stepLine" style={{ width: `${percent}%` }} />
 			{rows}
 		</div>
 	);

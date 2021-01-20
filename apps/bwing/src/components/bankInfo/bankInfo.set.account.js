@@ -6,7 +6,7 @@ import { popBoxContext } from "../common/context";
 import config from "../../config";
 import Inputbox from "../common/inputbox";
 import Loading from "../common/loading";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default ({
 	dispatch,
@@ -33,7 +33,9 @@ export default ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClickClose = () => {
@@ -64,7 +66,7 @@ export default ({
 	};
 
 	const checkAccount = (val, col) => {
-		let pattern_punct = new RegExp(
+		const pattern_punct = new RegExp(
 			"[`~!@#$^&*()=|{}':;',ˇˋ˙ˊ\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？]"
 		);
 
@@ -92,7 +94,7 @@ export default ({
 		setStatus(prev => ({
 			...prev,
 			[col]: {
-				checked: checked,
+				checked,
 				tip: message
 			}
 		}));
@@ -101,7 +103,7 @@ export default ({
 	};
 
 	const editField = (_col, e) => {
-		let val = e.target.value;
+		const val = e.target.value;
 
 		let regex = null;
 		if (_col === "accountNumber") {
@@ -119,8 +121,8 @@ export default ({
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let _accountName = checkAccount(accountName, "accountName");
-		let _accountNumber = checkAccount(accountNumber, "accountNumber");
+		const _accountName = checkAccount(accountName, "accountName");
+		const _accountNumber = checkAccount(accountNumber, "accountNumber");
 
 		if (_accountNumber.checked && _accountName.checked) {
 			setLoading(true);

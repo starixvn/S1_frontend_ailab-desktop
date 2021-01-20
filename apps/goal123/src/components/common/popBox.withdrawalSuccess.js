@@ -6,12 +6,10 @@ export default ({ btnBar }) => {
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-icon32px_Withdraw"></div>
+			<div className="icon icon-icon32px_Withdraw" />
 			<div className="title">{t("lbl_Withdrawal")}</div>
 			<div>{t("lbl_WithdrawalSuccess")}</div>
-			<div>
-				{t("lbl_WithdrawalSuccessNotify")}
-			</div>
+			<div>{t("lbl_WithdrawalSuccessNotify")}</div>
 			{btnBar}
 		</div>
 	);

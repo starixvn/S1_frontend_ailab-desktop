@@ -2,12 +2,12 @@ import React from "react";
 import { defTabList } from "./leaderboard.def";
 
 export default ({ t, onChangeTab, tab }) => {
-	let rows = defTabList.map(item => {
+	const rows = defTabList.map(item => {
 		return (
 			<button
 				key={`leaderboard-tab-${item.id}`}
 				className={item.id === tab ? "active" : ""}
-				onClick={onChangeTab.bind(this, item.id)}>
+				onClick={() => onChangeTab(item.id)}>
 				{t(item.displayKey).toUpperCase()}
 			</button>
 		);

@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { popBoxContext, userInfoContext } from "../common/context";
 import { useTranslation } from "react-i18next";
+import { popBoxContext, userInfoContext } from "./context";
 import { Module } from "../deposit/deposit.bankSlip";
-import { isConvert } from "../common/common";
+import { isConvert } from "./common";
 
 export default props => {
 	const { t } = useTranslation();
@@ -12,7 +12,9 @@ export default props => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClosePopBox = () => {

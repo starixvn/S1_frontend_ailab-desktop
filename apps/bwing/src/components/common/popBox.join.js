@@ -7,7 +7,7 @@
 // } from "../../service/api/site";
 // import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 // import { getUrlParameter, readCookie } from "./common";
-// import { defPopBoxType } from "../common/popBox";
+// import { defPopBoxType } from "../common/defPopBoxType";
 // import { userInfoContext, popBoxContext } from "./context";
 // import { GET_LANG_ID } from "../../service/language";
 // import config from "../../config";

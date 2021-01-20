@@ -5,10 +5,10 @@ import React, {
 	useRef,
 	useReducer
 } from "react";
-import { api_payment_GetCryptoPayInfoList } from "../../service/api/payment";
-import { getUrlParameter, isConvert } from "../common/common";
 import { Redirect, Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
+import { api_payment_GetCryptoPayInfoList } from "../../service/api/payment";
+import { getUrlParameter, isConvert } from "../common/common";
 import path from "../../router";
 import { userInfoContext } from "../common/context";
 import DepositWrapper from "./wrapper";
@@ -31,23 +31,25 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
-		let name = getUrlParameter("name");
+		const name = getUrlParameter("name");
 		if (!name) {
 			setRedirectPath(`/${userInfo.langId}/${path.deposit.root}`);
 		}
 	}, [setRedirectPath, userInfo.langId]);
 
 	useEffect(() => {
-		let url_name_value = getUrlParameter("name");
+		const url_name_value = getUrlParameter("name");
 		if (url_name_value) {
 			api_payment_GetCryptoPayInfoList().then(res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let filterItem = res.data.data.find(
+						const filterItem = res.data.data.find(
 							i => i.channelName === url_name_value
 						);
 						dispatch({
@@ -60,7 +62,7 @@ export default () => {
 		}
 	}, [userInfo.langId]);
 
-	let gName = getUrlParameter("name");
+	const gName = getUrlParameter("name");
 	let displayMoudle = null;
 	const _isConvert = isConvert(userInfo.currencyId);
 	switch (state.displayMoudle) {
@@ -113,11 +115,10 @@ export default () => {
 				{state.step === 2 ? (
 					<Link
 						to={`/${userInfo.langId}/${path.deposit.root}`}
-						className="icon icon-arrow-left2"></Link>
+						className="icon icon-arrow-left2"
+					/>
 				) : (
-					<a
-						onClick={ClickBack}
-						className="icon icon-arrow-left2"></a>
+					<a onClick={ClickBack} className="icon icon-arrow-left2" />
 				)}
 			</div>
 			{displayMoudle}

@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import moment from "moment";
-import { number_format } from "../common/common";
-import { userInfoContext, popBoxContext } from "../common/context";
-import { api_payment_DepositReqWireTransfer } from "../../service/api/payment";
 import { useTranslation } from "react-i18next";
 import { Redirect, Link } from "@reach/router";
 import { defPopBoxType } from "../common/popBox";
+import { userInfoContext, popBoxContext } from "../common/context";
+import { api_payment_DepositReqWireTransfer } from "../../service/api/payment";
+import { number_format } from "../common/common";
 import config from "../../config";
 import path from "../../router";
 import Loading from "../common/loading";
@@ -20,7 +20,9 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClickCancel = () => {
@@ -60,7 +62,7 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 			setPopBox({ isOpen: false });
 		};
 
-		let real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
+		const real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
 		api_payment_DepositReqWireTransfer({
 			amount: real_amount,
 			sysId: bankInfo.sysId
@@ -68,7 +70,7 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
+						const datas = res.data.data;
 
 						const backDeposit = () => {
 							setRedirectPath(
@@ -81,7 +83,7 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 							popBoxType: defPopBoxType.UploadBankSlip,
 							depositTime: moment(),
 							amount: real_amount,
-							backDeposit: backDeposit,
+							backDeposit,
 							...datas
 						});
 					} else {

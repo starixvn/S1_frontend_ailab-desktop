@@ -5,24 +5,26 @@ export default props => {
 		if (props.checked === null) {
 			return (
 				<i
-					className={`icon icon-information-solid`}
-					onClick={props.clickInfo}></i>
+					className="icon icon-information-solid"
+					onClick={props.clickInfo}
+				/>
 			);
-		} else {
-			if (props.checked === true) {
-				return <i className={`icon icon-checkmark`}></i>;
-			} else if (props.checked === false) {
-				return <i className={`icon icon-cross`}></i>;
-			} else if (props.checked === "loading") {
-				return <i className={`icon icon-spinner11`}></i>;
-			}
+		}
+		if (props.checked === true) {
+			return <i className="icon icon-checkmark" />;
+		}
+		if (props.checked === false) {
+			return <i className="icon icon-cross" />;
+		}
+		if (props.checked === "loading") {
+			return <i className="icon icon-spinner11" />;
 		}
 	};
 
 	return (
 		<>
 			<div className="inputBox">
-				{props.icon ? <i className={`icon ${props.icon}`}></i> : null}
+				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
 				{props.title ? (
 					<i className="txt-blue12">{props.title}</i>
 				) : null}
@@ -58,7 +60,7 @@ export default props => {
 				) : null}
 				{props.checkIcon ? (
 					<div className="iconModule">
-						<i className={`icon ${props.checkIcon}`}></i>
+						<i className={`icon ${props.checkIcon}`} />
 					</div>
 				) : null}
 			</div>

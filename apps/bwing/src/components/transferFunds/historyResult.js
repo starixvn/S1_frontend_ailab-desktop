@@ -15,7 +15,7 @@ export const TransactionHistory = props => {
 			<div>{props.transId}</div>
 			<div>
 				<span className="txt-blue15">{props.startWallet}</span>
-				<i className="icon icon-keyboard_arrow_right"></i>
+				<i className="icon icon-keyboard_arrow_right" />
 				{props.endWallet}
 			</div>
 			<div>{number_format(props.amount, false)}</div>

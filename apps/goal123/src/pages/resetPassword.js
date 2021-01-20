@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { navigate } from "@reach/router";
 import { api_site_CheckResetPwdTokens } from "../service/api/site";
 import { api_accountStrict_ResetPassword } from "../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "../components/common/context";
-import { navigate } from "@reach/router";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import { defPopBoxType } from "../components/common/popBox";
@@ -41,12 +41,14 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
 		if (userInfo.isLogin === false) {
-			let _key = getUrlParameter("key");
+			const _key = getUrlParameter("key");
 			api_site_CheckResetPwdTokens({ key: _key }).then(
 				res => {
 					if (isMountedRef.current) {
@@ -90,7 +92,7 @@ const Content = () => {
 	};
 
 	const checkPswHandler = val => {
-		let { checked, message } = passwordCheck(val);
+		const { checked, message } = passwordCheck(val);
 		setStatus({
 			checked,
 			msg: t(message)
@@ -98,12 +100,12 @@ const Content = () => {
 	};
 
 	const editField = e => {
-		let val = e.target.value;
+		const val = e.target.value;
 		setNewPsw(val);
 	};
 
 	const clickInfo = () => {
-		let _msg = status.msg === "" ? t("msg_PasswordVaildate") : "";
+		const _msg = status.msg === "" ? t("msg_PasswordVaildate") : "";
 
 		setStatus({
 			checked: null,
@@ -112,7 +114,7 @@ const Content = () => {
 	};
 
 	const showPswHandler = () => {
-		let _showPsw = !showPsw;
+		const _showPsw = !showPsw;
 		setShowPsw(_showPsw);
 	};
 
@@ -126,7 +128,7 @@ const Content = () => {
 						if (res.data.errorCode === 0) {
 							const handleLogout = () => {
 								LOGOUT(() => {
-									const ClickClose = () => {
+									const clickLogOutClose = () => {
 										if (
 											window.location.pathname.includes(
 												`/${userInfo.langId}/${path.resetPassword.root}`
@@ -152,7 +154,7 @@ const Content = () => {
 											<div className="btnGroup">
 												<button
 													className="btn-cancel"
-													onClick={ClickClose}>
+													onClick={clickLogOutClose}>
 													{t("lbl_Close")}
 												</button>
 											</div>
@@ -201,7 +203,7 @@ const Content = () => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,

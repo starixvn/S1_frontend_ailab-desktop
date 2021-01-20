@@ -4,30 +4,25 @@ import { useTranslation } from "react-i18next";
 
 export default props => {
 	const { t } = useTranslation();
-	const birth =
-		props.userInfo.birth_d +
-		"/" +
-		props.userInfo.birth_m +
-		"/" +
-		props.userInfo.birth_y;
+	const birth = `${props.userInfo.birth_d}/${props.userInfo.birth_m}/${props.userInfo.birth_y}`;
 
 	const dataList = [
 		{
 			label: t("lbl_RealName"),
 			value: props.userInfo.accountName,
-			show: props.userInfo.accountName ? true : false
+			show: !!props.userInfo.accountName
 		},
 		{
 			label: t("lbl_Birthday"),
 			value: birth,
 			format: "normal",
-			show: props.userInfo.birth_d ? true : false
+			show: !!props.userInfo.birth_d
 		},
 		{
 			label: t("lbl_Phone"),
-			value: "(" + props.userInfo.AreaCode + ")" + props.userInfo.phoneNo,
+			value: `(${props.userInfo.AreaCode})${props.userInfo.phoneNo}`,
 			format: "phone",
-			show: props.userInfo.phoneNo ? true : false
+			show: !!props.userInfo.phoneNo
 		},
 		{
 			label: t("lbl_Username"),
@@ -42,7 +37,7 @@ export default props => {
 		{
 			label: t("lbl_Email"),
 			value: props.userInfo.email,
-			show: props.userInfo.email ? true : false
+			show: !!props.userInfo.email
 		}
 		// ,
 		// {
@@ -61,24 +56,24 @@ export default props => {
 
 	const showColumn = dataList?.filter(item => item.show);
 
-	const MobileVerifiy = ({ item, props, t }) => {
+	const MobileVerifiy = ({ item, props: _props, t: _t }) => {
 		if (item.format !== "phone") return null;
 
-		if (props.mobileVerificationLoading)
-			return <div className="icon icon-spinner11"></div>;
+		if (_props.mobileVerificationLoading)
+			return <div className="icon icon-spinner11" />;
 
-		if (props.userInfo.phoneVerified)
+		if (_props.userInfo.phoneVerified)
 			return (
 				<button>
-					<span>{t("lbl_Verified")}</span>
-					<span className="icon icon-icon32px_check"></span>
+					<span>{_t("lbl_Verified")}</span>
+					<span className="icon icon-icon32px_check" />
 				</button>
 			);
 
 		return (
-			<button className="notVer" onClick={props.sendOTPSMS}>
-				<span>{t("lbl_Unverified")}</span>
-				<span className="icon icon-error"></span>
+			<button className="notVer" onClick={_props.sendOTPSMS}>
+				<span>{_t("lbl_Unverified")}</span>
+				<span className="icon icon-error" />
 			</button>
 		);
 	};
@@ -93,5 +88,5 @@ export default props => {
 		);
 	});
 
-	return <>{layout}</>;
+	return layout;
 };

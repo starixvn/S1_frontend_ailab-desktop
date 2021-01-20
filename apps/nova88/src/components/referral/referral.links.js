@@ -12,7 +12,7 @@ export default ({ referralCode, t }) => {
 	const ref_whatsapp = `https://wa.me/?&text=${welcomeMessage} ${link_default}`;
 
 	const copyWelComeText = () => {
-		let virtualInput = document.createElement("input");
+		const virtualInput = document.createElement("input");
 		virtualInput.value = welcomeMessage;
 		document.body.appendChild(virtualInput);
 		virtualInput.select();
@@ -21,7 +21,7 @@ export default ({ referralCode, t }) => {
 	};
 
 	const onCopy = column_id => {
-		let copyColumn = document.getElementById(column_id);
+		const copyColumn = document.getElementById(column_id);
 		window.getSelection().selectAllChildren(copyColumn);
 		document.execCommand("copy");
 	};
@@ -31,7 +31,7 @@ export default ({ referralCode, t }) => {
 		const pngUrl = canvas
 			.toDataURL("image/png")
 			.replace("image/png", "image/octet-stream");
-		let downloadLink = document.createElement("a");
+		const downloadLink = document.createElement("a");
 		downloadLink.href = pngUrl;
 		downloadLink.download = `${referralCode}.png`;
 		document.body.appendChild(downloadLink);
@@ -48,14 +48,16 @@ export default ({ referralCode, t }) => {
 					<span id="ref_code">{referralCode}</span>
 					<button
 						className="icon icon-files-empty"
-						onClick={onCopy.bind(this, "ref_code")}></button>
+						onClick={onCopy.bind(this, "ref_code")}
+					/>
 				</div>
 				<div>
 					{t("lbl_Referral_link")} :{" "}
 					<span id="ref_link">{ref_link}</span>
 					<button
 						className="icon icon-files-empty"
-						onClick={onCopy.bind(this, "ref_link")}></button>
+						onClick={onCopy.bind(this, "ref_link")}
+					/>
 				</div>
 
 				<div>

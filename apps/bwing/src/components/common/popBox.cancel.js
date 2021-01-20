@@ -6,8 +6,8 @@ export default ({ btnBar, onClickClose }) => {
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-close" onClick={onClickClose}></div>
-			<div className="icon icon-icon32px_notification"></div>
+			<div className="icon icon-close" onClick={onClickClose} />
+			<div className="icon icon-icon32px_notification" />
 			<div className="title">{t("lbl_ImportantNote")}</div>
 			<div className="txt-lightgray">{t("lbl_CancelConfirm")}</div>
 			{btnBar}

@@ -9,28 +9,33 @@ import {
 import config from "../../config";
 import ClipboardJS from "../../lib/clipboard.min";
 import Inputbox from "../common/inputbox";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 
 export class Module extends Component {
-	state = {
-		processing: false,
-		depositTime: this.props.depositTime ? this.props.depositTime : moment(),
-		refId: this.props.refId ? this.props.refId : "",
-		picFileName: this.props.picFileName ? this.props.picFileName : null,
-		fileImg: null,
-		refIdStatus: { checked: null, tip: "" },
-		picFormatTip: null,
-		depositTimeTip: ""
-	};
-	isMountedRef = false;
-	filebox = createRef();
+	constructor(props) {
+		super(props);
+		this.state = {
+			processing: false,
+			depositTime: this.props.depositTime
+				? this.props.depositTime
+				: moment(),
+			refId: this.props.refId ? this.props.refId : "",
+			picFileName: this.props.picFileName ? this.props.picFileName : null,
+			fileImg: null,
+			refIdStatus: { checked: null, tip: "" },
+			picFormatTip: null,
+			depositTimeTip: ""
+		};
+		this.isMountedRef = false;
+		this.filebox = createRef();
+	}
 
 	componentDidMount() {
 		this.isMountedRef = true;
 
 		this._clipboard = new ClipboardJS(".copyBtn");
-		this._clipboard.on("success", e => {});
-		this._clipboard.on("error", e => {});
+		this._clipboard.on("success", () => 0);
+		this._clipboard.on("error", () => 0);
 	}
 
 	componentWillUnmount() {
@@ -41,14 +46,14 @@ export class Module extends Component {
 
 	onUploadFile = (action, e) => {
 		e.preventDefault();
-		let files =
+		const files =
 			action === "onDrop"
 				? e.dataTransfer.files
 				: this.filebox.current.files;
 
 		this.setState({ picFileName: files[0].name });
 
-		let reader = new FileReader();
+		const reader = new FileReader();
 		reader.readAsDataURL(files[0]);
 		reader.onload = () => {
 			this.setState({ fileImg: reader.result });
@@ -57,7 +62,7 @@ export class Module extends Component {
 		if (files.length > 0 && files[0].type.includes("image")) {
 			this.setState({ picFormatTip: null });
 
-			let formData = new FormData();
+			const formData = new FormData();
 			formData.append("TransId", this.props.transId);
 			formData.append("Receipt", files[0]);
 
@@ -146,24 +151,22 @@ export class Module extends Component {
 						}
 					}
 				);
-			} else {
-				if (this.isMountedRef) {
-					this.setState({
-						refIdStatus: {
-							checked: false,
-							tip: this.props.i18n("lbl_RemindForRefNum")
-						}
-					});
-					this.setState({ processing: false });
-				}
+			} else if (this.isMountedRef) {
+				this.setState({
+					refIdStatus: {
+						checked: false,
+						tip: this.props.i18n("lbl_RemindForRefNum")
+					}
+				});
+				this.setState({ processing: false });
 			}
 		}
 	};
 
 	checkTip = e => {
-		let val = e.target.value;
+		const val = e.target.value;
 
-		let _tip = val === "" ? this.props.i18n("lbl_RemindForRefNum") : "";
+		const _tip = val === "" ? this.props.i18n("lbl_RemindForRefNum") : "";
 		this.setState({ refIdStatus: { checked: val !== "", tip: _tip } });
 	};
 
@@ -215,9 +218,9 @@ export class Module extends Component {
 							}
 						/>
 					) : this.state.picFormatTip ? (
-						<i className="icon icon-broken_image"></i>
+						<i className="icon icon-broken_image" />
 					) : (
-						<i className="icon icon-plus"></i>
+						<i className="icon icon-plus" />
 					)}
 				</label>
 				{this.state.picFileName !== null ? (
@@ -310,13 +313,14 @@ export class Module extends Component {
 							onChange={this.editField.bind(this, "depositTime")}
 						/>
 						<div className="iconModule">
-							<i className="icon icon-calendar"></i>
+							<i className="icon icon-calendar" />
 							<i
-								className={`icon icon-information-solid`}
+								className="icon icon-information-solid"
 								onClick={this.clickInfo.bind(
 									this,
 									"depositTimeTip"
-								)}></i>
+								)}
+							/>
 						</div>
 					</div>
 					<div

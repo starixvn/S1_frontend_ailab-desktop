@@ -5,13 +5,13 @@ import React, {
 	useRef,
 	useReducer
 } from "react";
+import { Redirect, Link, useLocation } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import {
 	api_payment_GetOnlinePaymentList,
 	api_payment_GetOnlineBankInfoSysList
 } from "../../service/api/payment";
 import { getUrlParameter, isConvert } from "../common/common";
-import { Redirect, Link, useLocation } from "@reach/router";
-import { useTranslation } from "react-i18next";
 import path from "../../router";
 import { userInfoContext } from "../common/context";
 import DepositWrapper from "./wrapper";
@@ -38,13 +38,15 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
-		let pId = getUrlParameter("pId");
-		let cId = getUrlParameter("cId");
-		let name = getUrlParameter("name");
+		const pId = getUrlParameter("pId");
+		const cId = getUrlParameter("cId");
+		const name = getUrlParameter("name");
 		if (!pId || !cId || !name) {
 			setRedirectPath(`/${userInfo.langId}/${path.deposit.root}`);
 		}
@@ -55,7 +57,7 @@ export default () => {
 			payId: Number(pId)
 		}).then(res => {
 			if (res.data.errorCode === 0) {
-				let datas = res.data.data.map(b => {
+				const datas = res.data.data.map(b => {
 					return b;
 				});
 
@@ -77,8 +79,9 @@ export default () => {
 	};
 
 	useEffect(() => {
-		let pId = getUrlParameter("pId");
-		let pIdNumber = parseInt(getUrlParameter("pId"));
+		const pId = getUrlParameter("pId");
+		const pIdNumber = Number(getUrlParameter("pId"));
+
 		if (location.state) {
 			if (location.state.selBank) {
 				getInfoSysList(pId);
@@ -89,7 +92,7 @@ export default () => {
 			}
 			setLoading(false);
 		} else {
-			async function getOnlinePaymentList() {
+			const getOnlinePaymentList = async () => {
 				await api_payment_GetOnlinePaymentList().then(res => {
 					if (res.data.errorCode === 0 && isMountedRef.current) {
 						if (
@@ -105,7 +108,8 @@ export default () => {
 						setLoading(false);
 					}
 				});
-			}
+			};
+
 			getOnlinePaymentList();
 		}
 	}, [userInfo.langId]);
@@ -122,9 +126,9 @@ export default () => {
 				<BankPanel dispatch={dispatch} bankList={state.bankList} />
 			);
 			break;
-		case defModule.AmountPanel:
-			let maxAmount = getUrlParameter("max");
-			let minAmount = getUrlParameter("min");
+		case defModule.AmountPanel: {
+			const maxAmount = getUrlParameter("max");
+			const minAmount = getUrlParameter("min");
 
 			displayMoudle = (
 				<AmountPanel
@@ -137,6 +141,7 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
 		case defModule.ConfirmPanel:
 			displayMoudle = (
@@ -152,7 +157,7 @@ export default () => {
 			break;
 	}
 
-	let pName = getUrlParameter("name");
+	const pName = getUrlParameter("name");
 
 	return loading ? (
 		<Loading />
@@ -162,7 +167,8 @@ export default () => {
 				<div>
 					<img
 						src={`${config.imgUrl}/common/images/Payment/${pName}.png`}
-						alt={pName}></img>
+						alt={pName}
+					/>
 					<div>
 						<div>{t("lbl_OnlineBanking")}</div>
 						<div>
