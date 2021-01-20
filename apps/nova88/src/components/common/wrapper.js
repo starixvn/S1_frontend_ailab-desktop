@@ -27,9 +27,9 @@ import SEO from "../seo";
 const defaultPathLang = () => {
 	const urlLang = window.location.pathname.split("/")?.[1];
 	const cookieLang = readCookie(SiteInfo.langCookie);
-	const defaultLang = GET_LANG_ID();
+	const _defaultLang = GET_LANG_ID();
 
-	return isVaildLang(urlLang) ? urlLang : cookieLang ?? defaultLang;
+	return isVaildLang(urlLang) ? urlLang : cookieLang ?? _defaultLang;
 };
 
 export default ({ children, afterLogin = false }) => {
