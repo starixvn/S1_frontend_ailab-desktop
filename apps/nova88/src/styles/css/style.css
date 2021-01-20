@@ -180,7 +180,7 @@ header {
   position: relative;
 }
 
-.header > div.menu > div > a:hover, .header > div.menu > div > button:hover {
+.header > div.menu > div > a:hover, .header > div.menu > div > a.active, .header > div.menu > div > button:hover, .header > div.menu > div > button.active {
   color: #f77900;
   border-color: #f77900;
   cursor: pointer;
@@ -203,7 +203,6 @@ header {
   left: 0;
   top: 49px;
   background: rgba(0, 0, 0, 0.9);
-  z-index: -1;
 }
 
 .header > div.menu .subMenu-Wrapper-new .icon:before {
@@ -293,6 +292,11 @@ header {
   z-index: 0;
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
+}
+
+.header > div.menu .subMenu-Wrapper-new .sportsList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .gameList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .gameList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .fishList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .fishList button img.List-bg + .List-bg {
+  z-index: 1;
+  left: 0;
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img {
@@ -7592,7 +7596,7 @@ button.icon-spinner11:before {
   border-radius: 15px 15px 0 0;
   color: #666;
   white-space: nowrap;
-  background: #b2b2b2;
+  background: #5a0303;
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
@@ -7600,16 +7604,15 @@ button.icon-spinner11:before {
       -ms-flex: 0;
           flex: 0;
   margin: 0 4px 0 0;
+  color: white;
 }
 
 .ranking > .btnGroup button.active {
   background: #cf0404;
-  color: white;
 }
 
 .ranking > .btnGroup button:hover {
   background: #9b0a0a;
-  color: white;
 }
 
 .ranking .mwt_border {
@@ -7662,6 +7665,7 @@ button.icon-spinner11:before {
           box-sizing: border-box;
   padding: 10px;
   min-height: 725px;
+  background: #121212;
 }
 
 .ranking .champion .title, .ranking .eventRule .title, .ranking .lastevent .title {
@@ -7696,6 +7700,7 @@ button.icon-spinner11:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 478px;
 }
 
 .ranking .champion .rankModule .btnGroup button, .ranking .eventRule .rankModule .btnGroup button, .ranking .lastevent .rankModule .btnGroup button {
@@ -7781,6 +7786,7 @@ button.icon-spinner11:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #121212;
 }
 
 .ranking .eventRule .title {
@@ -7795,6 +7801,7 @@ button.icon-spinner11:before {
 .ranking .eventRule .rankList {
   width: 66.6%;
   text-align: center;
+  max-height: 450px;
 }
 
 .ranking .eventRule .rankList button {
@@ -7814,7 +7821,6 @@ button.icon-spinner11:before {
 
 .rankList {
   overflow-y: auto;
-  max-height: 650px;
   margin-top: 20px;
   width: 100%;
   padding-bottom: 30px;
@@ -7826,16 +7832,14 @@ button.icon-spinner11:before {
 }
 
 .rankList::-webkit-scrollbar-track {
-  background: -webkit-gradient(linear, left top, right top, from(white), to(#f2f5f9));
-  background: linear-gradient(to right, white, #f2f5f9);
-  border: 1px solid #aac9ce;
+  background: -webkit-gradient(linear, left top, right top, from(#212121), to(#313131));
+  background: linear-gradient(to right, #212121, #313131);
   border-radius: 10px;
 }
 
 .rankList::-webkit-scrollbar-thumb {
-  background: -webkit-gradient(linear, left top, right top, from(#d5e8ed), to(#eaf6f9));
-  background: linear-gradient(to right, #d5e8ed, #eaf6f9);
-  border: 1px solid #aac9ce;
+  background: -webkit-gradient(linear, left top, right top, from(#940202), to(#cb0404));
+  background: linear-gradient(to right, #940202, #cb0404);
   border-radius: 10px;
 }
 
@@ -8252,80 +8256,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 81.49447%;
-  top: 23.40998%;
-  width: 9.33419px;
-  height: 9.33419px;
+  left: 37.04659%;
+  top: -55.86229%;
+  width: 11.74338px;
+  height: 11.74338px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 6.67222%;
-  top: -51.06031%;
-  width: 6.27767px;
-  height: 6.27767px;
+  left: 34.82277%;
+  top: -32.05117%;
+  width: 13.12716px;
+  height: 13.12716px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 15.31696%;
-  top: -24.59669%;
-  width: 13.78588px;
-  height: 13.78588px;
+  left: 14.31918%;
+  top: 32.54692%;
+  width: 14.74942px;
+  height: 14.74942px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 53.136%;
-  top: -20.0841%;
-  width: 5.70844px;
-  height: 5.70844px;
+  left: 78.31548%;
+  top: -27.13946%;
+  width: 9.64464px;
+  height: 9.64464px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 30.10683%;
-  top: -7.20355%;
-  width: 14.55573px;
-  height: 14.55573px;
+  left: 8.51494%;
+  top: -23.64695%;
+  width: 12.03662px;
+  height: 12.03662px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 1.44595%;
-  top: -56.13087%;
-  width: 7.41822px;
-  height: 7.41822px;
+  left: 2.52743%;
+  top: -52.5738%;
+  width: 14.44826px;
+  height: 14.44826px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 21.40251%;
-  top: 22.21343%;
-  width: 13.87606px;
-  height: 13.87606px;
+  left: 95.59229%;
+  top: -24.88864%;
+  width: 10.74255px;
+  height: 10.74255px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 95.82819%;
-  top: 18.56395%;
-  width: 9.42251px;
-  height: 9.42251px;
+  left: 45.99606%;
+  top: -37.61463%;
+  width: 14.1937px;
+  height: 14.1937px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
