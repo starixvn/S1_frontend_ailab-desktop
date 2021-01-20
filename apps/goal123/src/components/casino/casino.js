@@ -57,15 +57,15 @@ export default () => {
 		api_site_GetGamelistV2().then(
 			res => {
 				if (res.data.errorCode === 0) {
-					const { _imgUrl, providerList } = res.data.data;
-
+					const { providerList } = res.data.data;
+					const imgUrlData = res.data.data.imgUrl;
 					const _tpList = {};
 					const _tpOptions = [
 						{ displayKey: "lbl_AllProvider", id: null }
 					];
 					const games = [];
 
-					setImgUrl(_imgUrl);
+					setImgUrl(imgUrlData);
 
 					let hasPromo = false;
 					let hasFeature = false;
@@ -76,8 +76,8 @@ export default () => {
 							id: tp.value
 						});
 
-						if (t?.gameList?.data) {
-							t.gameList.data.forEach(g => {
+						if (tp?.gameList?.data) {
+							tp.gameList.data.forEach(g => {
 								hasPromo =
 									hasPromo === false
 										? g.promotion === 1
@@ -88,8 +88,8 @@ export default () => {
 										: hasFeature;
 
 								games.push({
-									tpId: t.value,
-									tpName: t.name,
+									tpId: tp.value,
+									tpName: tp.name,
 									...g
 								});
 							});
@@ -145,7 +145,7 @@ export default () => {
 				}
 				setLoading(false);
 			},
-			err => {
+			() => {
 				setLoading(false);
 			}
 		);
