@@ -207,7 +207,7 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 			{bonusWallets.map(item => {
 				return (
 					<div
-						className="progerssBox"
+						className="walletProgerss"
 						key={`header-bonuswallet-${item.tpId}`}>
 						<div>
 							<span>
