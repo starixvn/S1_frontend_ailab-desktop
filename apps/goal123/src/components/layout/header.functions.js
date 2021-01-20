@@ -1,11 +1,11 @@
 import React, { useContext, lazy, Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
 import {
 	userInfoContext,
 	popBoxContext,
 	msgCountContext
 } from "../common/context";
-import { useTranslation } from "react-i18next";
 import path from "../../router";
 import DropdownHeader, { defElemType } from "../common/dropdown.headerLink";
 import { LOGOUT } from "../../service/auth";
@@ -143,7 +143,7 @@ const AfterLogin = () => {
 				{t("lbl_Deposit")}
 			</Link>
 			<DropdownHeader
-				mainKey={`header-cashierLink`}
+				mainKey="header-cashierLink"
 				langId={userInfo.langId}
 				className="cashier icon icon-library"
 				subClassName="submenu"
@@ -156,7 +156,7 @@ const AfterLogin = () => {
 				<Wallet langId={userInfo.langId} i18n={t} />
 			</Suspense>
 			<DropdownHeader
-				mainKey={`header-settingLink`}
+				mainKey="header-settingLink"
 				langId={userInfo.langId}
 				className="memberfile icon icon-member"
 				subClassName="submenu"
@@ -166,7 +166,8 @@ const AfterLogin = () => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}></Link>
+				to={`/${userInfo.langId}/${path.message.root}`}
+			/>
 		</>
 	);
 };

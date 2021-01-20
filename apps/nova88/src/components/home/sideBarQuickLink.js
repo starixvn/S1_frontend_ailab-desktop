@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { SiteInfo } from "../../config";
 import { useTranslation } from "react-i18next";
+import { SiteInfo } from "../../config";
 
 export default () => {
 	const { t } = useTranslation();
@@ -24,9 +24,7 @@ export default () => {
 			className="quickLink"
 			className={`quickLink ${active ? "active" : ""}`}>
 			<div>
-				<button
-					className="icon icon-chat"
-					onClick={openLiveChat}></button>
+				<button className="icon icon-chat" onClick={openLiveChat} />
 
 				<i
 					className={`icon ${

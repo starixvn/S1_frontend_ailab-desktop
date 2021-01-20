@@ -19,7 +19,7 @@ export default ({
 		promotionType !== defPromotionType.cashback &&
 		promotionType !== defPromotionType.rebate
 	) {
-		let percentage =
+		const percentage =
 			status === promoStatus.Fulfill || custTurnOver >= custRollOver
 				? 100
 				: ((custTurnOver / custRollOver) * 100).toFixed(2);
@@ -42,13 +42,13 @@ export default ({
 					<div className="bar">
 						<div
 							className="progress"
-							style={{ width: `${percentage}%` }}></div>
+							style={{ width: `${percentage}%` }}
+						/>
 					</div>
 					<div className="percentage">{percentage}%</div>
 				</div>
 			</div>
 		);
-	} else {
-		return <></>;
 	}
+	return <></>;
 };

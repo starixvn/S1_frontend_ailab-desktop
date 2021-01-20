@@ -20,7 +20,7 @@ export default ({
 		tip: ""
 	});
 	const EditAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 
 		VaildAmount(value);
@@ -28,7 +28,13 @@ export default ({
 	};
 
 	const VaildAmount = _amount => {
-		let result = checkAmount(_amount, minAmount, maxAmount, _isConvert, t);
+		const result = checkAmount(
+			_amount,
+			minAmount,
+			maxAmount,
+			_isConvert,
+			t
+		);
 		if (result.status !== 0) {
 			setStatus({
 				checked: false,
@@ -44,14 +50,14 @@ export default ({
 	};
 
 	const SubmitAmount = () => {
-		let result = VaildAmount(amount);
+		const result = VaildAmount(amount);
 		if (result) {
 			dispatch({ type: defActionType.SUBMIT_AMOUNT });
 		}
 	};
 
 	const clickInfo = () => {
-		let _msg =
+		const _msg =
 			status.tip === "" ? getAmountTip(minAmount, _isConvert, t) : "";
 		setStatus({
 			checked: null,

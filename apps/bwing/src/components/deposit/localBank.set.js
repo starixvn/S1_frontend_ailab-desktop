@@ -5,10 +5,10 @@ import React, {
 	useContext,
 	useState
 } from "react";
-import { api_payment_GetBankInfoOffList } from "../../service/api/payment";
 import { Redirect, Link } from "@reach/router";
-import { isConvert } from "../common/common";
 import { useTranslation } from "react-i18next";
+import { api_payment_GetBankInfoOffList } from "../../service/api/payment";
+import { isConvert } from "../common/common";
 import { userInfoContext, popBoxContext } from "../common/context";
 import DepositWrapper from "./wrapper";
 import BankPanel from "./localBank.set.bank";
@@ -22,7 +22,7 @@ import {
 	defActionType
 } from "./localBank.reducer";
 import Loading from "../common/loading";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default () => {
 	const { t } = useTranslation();
@@ -36,7 +36,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -44,7 +46,7 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
+						const datas = res.data.data;
 						if (datas.length > 0) {
 							dispatch({
 								type: defActionType.SET_BANKLIST,
@@ -146,7 +148,7 @@ export default () => {
 		<DepositWrapper step={state.step}>
 			<div className="platformName">
 				<div>
-					<div className="icon icon-library"></div>
+					<div className="icon icon-library" />
 					<div>
 						<div>{t("lbl_WireTransfers")}</div>
 						<div>

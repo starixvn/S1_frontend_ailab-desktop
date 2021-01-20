@@ -115,10 +115,12 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
-	let promotionStaticRows = staticList.map(p => {
+	const promotionStaticRows = staticList.map(p => {
 		return (
 			<div
 				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
@@ -234,7 +236,7 @@ export default () => {
 };
 
 const openStaticPromotion = ({ url, bonusCode }) => {
-	let windowKey = `static-promotion-${bonusCode}`;
+	const windowKey = `static-promotion-${bonusCode}`;
 	window.open(
 		url,
 		windowKey,

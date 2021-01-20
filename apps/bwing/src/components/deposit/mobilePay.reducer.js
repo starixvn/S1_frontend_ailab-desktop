@@ -32,14 +32,15 @@ export function reducer(state, action) {
 				channelList: action.channelList
 			};
 
-		case defActionType.SELECT_CHANNEL:
-			let newStep_SELECT_CHANNEL = 3;
+		case defActionType.SELECT_CHANNEL: {
+			const newStep_SELECT_CHANNEL = 3;
 			return {
 				...state,
 				channelIdx: action.channelIdx,
 				step: newStep_SELECT_CHANNEL,
 				displayMoudle: defStepModule[newStep_SELECT_CHANNEL]
 			};
+		}
 
 		case defActionType.EDIT_AMOUNT:
 			return {
@@ -47,21 +48,23 @@ export function reducer(state, action) {
 				amount: action.amount
 			};
 
-		case defActionType.SUBMIT_AMOUNT:
-			let newStep_SUBMIT_AMOUNT = state.step + 1;
+		case defActionType.SUBMIT_AMOUNT: {
+			const newStep_SUBMIT_AMOUNT = state.step + 1;
 			return {
 				...state,
 				step: newStep_SUBMIT_AMOUNT,
 				displayMoudle: defStepModule[newStep_SUBMIT_AMOUNT]
 			};
+		}
 
-		case defActionType.CLICK_BACK:
-			let newStep_CLICK_BACK = state.step - 1;
+		case defActionType.CLICK_BACK: {
+			const newStep_CLICK_BACK = state.step - 1;
 			return {
 				...state,
 				step: newStep_CLICK_BACK,
 				displayMoudle: defStepModule[newStep_CLICK_BACK]
 			};
+		}
 
 		default:
 			console.log("action type not exists");

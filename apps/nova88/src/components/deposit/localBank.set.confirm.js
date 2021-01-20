@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
+import { Redirect } from "@reach/router";
 import { number_format } from "../common/common";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { api_payment_DepositReqWireTransfer } from "../../service/api/payment";
-import { useTranslation } from "react-i18next";
-import { Redirect } from "@reach/router";
 import { defActionType } from "./localBank.reducer";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import config from "../../config";
 import path from "../../router";
 
@@ -19,7 +19,9 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClickCancel = () => {
@@ -29,7 +31,7 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 	};
 
 	const ClickConfirm = () => {
-		let real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
+		const real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
 		api_payment_DepositReqWireTransfer({
 			amount: real_amount,
 			sysId: bankInfo.sysId
@@ -37,7 +39,7 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
+						const datas = res.data.data;
 
 						const backDeposit = () => {
 							setRedirectPath(
@@ -52,8 +54,8 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 								"yyyy-MM-DD "
 							)}${moment().format("hh:mm A")}`,
 							amount: real_amount,
-							backDeposit: backDeposit,
-							_isConvert: _isConvert,
+							backDeposit,
+							_isConvert,
 							...datas
 						});
 					} else {

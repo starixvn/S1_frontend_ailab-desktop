@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
 import {
 	api_payment_GetWithdrawalInfoHistory,
 	api_payment_SetWithdrawalCancel
 } from "../service/api/payment";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { TransactionHistory } from "../components/withdrawal/historyResult";
-import { defPopBoxType } from "../components/common/popBox";
+import { defPopBoxType } from "../components/common/defPopBoxType";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import moment from "moment";
 import Filter from "../components/common/historyFilter";
 import LeftMenu from "../components/common/leftMenu";
 import Loading from "../components/common/loading";
@@ -52,7 +52,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClickClose = () => {
@@ -126,9 +128,9 @@ const Content = () => {
 				setFilterData(transactionData);
 
 				setKeepData({
-					startDate: startDate,
-					endDate: endDate,
-					quickPick: quickPick
+					startDate,
+					endDate,
+					quickPick
 				});
 			}
 
@@ -149,8 +151,8 @@ const Content = () => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
 							setGetHistory(prev => {
-								let newData = [...prev];
-								let idx = newData.findIndex(
+								const newData = [...prev];
+								const idx = newData.findIndex(
 									x => x.transId === transId
 								);
 								newData[idx].status = 5;
@@ -198,7 +200,7 @@ const Content = () => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.Cancel,
-			onClickClose:ClosePopBox,
+			onClickClose: ClosePopBox,
 			btnBar: (
 				<div className="btnGroup">
 					<button className="btn-cancel" onClick={ClickConfirm}>
@@ -215,13 +217,13 @@ const Content = () => {
 	const clickPageNumber = page => {
 		if (!processing) {
 			setProcessing(true);
-			let transactionData = filterData;
+			const transactionData = filterData;
 			setPagination(prev => ({ ...prev, currentPage: page }));
 			GetWithdrawalInfoHistory(transactionData, page);
 		}
 	};
 
-	let arr = getHistory?.map((item, i) => {
+	const arr = getHistory?.map((item, i) => {
 		return (
 			<TransactionHistory
 				key={`withdrawaal-${item.transId}`}

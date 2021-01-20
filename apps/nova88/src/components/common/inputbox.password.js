@@ -4,7 +4,7 @@ export default props => {
 	return (
 		<>
 			<div className={props.className ?? "inputBox-white"}>
-				{props.icon ? <i className={`icon ${props.icon}`}></i> : null}
+				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
 				<i className="txt-blue">{props.title}</i>
 				<input
 					type={props.inputType ?? "text"}
@@ -25,12 +25,11 @@ export default props => {
 							className={`icon ${
 								!props.showPsw ? "icon-eye-blocked" : "icon-eye"
 							}`}
-							onClick={props.showPswHandler}></i>
+							onClick={props.showPswHandler}
+						/>
 					) : null}
 
-					{props.warning ? (
-						<i className="icon icon-warning"></i>
-					) : null}
+					{props.warning ? <i className="icon icon-warning" /> : null}
 				</div>
 			</div>
 			{props.tip ? <div className="tip active">{props.tip}</div> : null}

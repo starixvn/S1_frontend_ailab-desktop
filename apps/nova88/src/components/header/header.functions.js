@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
 import { Link } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
 	popBoxContext,
 	msgCountContext
 } from "../common/context";
-import { useTranslation } from "react-i18next";
 import path from "../../router";
 import DropdownHeader from "../common/dropdown.headerLink";
 import Wallet from "./header.wallet";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -110,7 +110,7 @@ const AfterLogin = () => {
 			{navMenu}
 			<Wallet i18n={t} />
 			<DropdownHeader
-				mainKey={`header-settingLink`}
+				mainKey="header-settingLink"
 				langId={userInfo.langId}
 				className="memberfile icon icon-member"
 				subClassName="submenu"
@@ -120,7 +120,8 @@ const AfterLogin = () => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}></Link>
+				to={`/${userInfo.langId}/${path.message.root}`}
+			/>
 		</>
 	);
 };

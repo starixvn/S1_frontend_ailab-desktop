@@ -1,7 +1,7 @@
 import React from "react";
-import path from "../../router";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
+import path from "../../router";
 import config from "../../config";
 
 const _path = path.deposit.sub.mobilePay.root;
@@ -9,7 +9,7 @@ const _path = path.deposit.sub.mobilePay.root;
 export default ({ mobileBankList }) => {
 	const { t } = useTranslation();
 
-	let rows = mobileBankList?.map(p => {
+	const rows = mobileBankList?.map(p => {
 		return (
 			<li key={`deposit-mobilePay-${p.groupName}}`}>
 				<Link to={`${_path}?name=${p.groupName}&gId=${p.groupId}`}>

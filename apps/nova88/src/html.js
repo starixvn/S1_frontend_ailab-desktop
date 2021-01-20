@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function HTML(props) {
+	const vkey = `${Date.now()}`;
 	return (
-		<html {...props.htmlAttributes}>
+		<html lang="en" {...props.htmlAttributes}>
 			<head>
 				<meta charSet="utf-8" />
 				<meta httpEquiv="x-ua-compatible" content="ie=edge" />
@@ -11,12 +12,32 @@ export default function HTML(props) {
 					name="viewport"
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
 				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href={`/styles/css/swiper.css?v=${vkey}`}
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href={`/styles/css/style.css?v=${vkey}`}
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href={`/styles/css/font.css?v=${vkey}`}
+				/>
+				<link
+					rel="stylesheet"
+					type="text/css"
+					href={`/styles/css/datePicker.css?v=${vkey}`}
+				/>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
 				{props.preBodyComponents}
 				<div
-					key={`body`}
+					key="body"
 					id="___gatsby"
 					dangerouslySetInnerHTML={{ __html: props.body }}
 				/>
@@ -26,11 +47,20 @@ export default function HTML(props) {
 	);
 }
 
+HTML.defaultProps = {
+	htmlAttributes: {},
+	headComponents: [],
+	bodyAttributes: {},
+	preBodyComponents: [],
+	body: "",
+	postBodyComponents: []
+};
+
 HTML.propTypes = {
-	htmlAttributes: PropTypes.object,
-	headComponents: PropTypes.array,
-	bodyAttributes: PropTypes.object,
-	preBodyComponents: PropTypes.array,
+	htmlAttributes: PropTypes.objectOf(PropTypes.any),
+	headComponents: PropTypes.arrayOf(PropTypes.any),
+	bodyAttributes: PropTypes.objectOf(PropTypes.any),
+	preBodyComponents: PropTypes.arrayOf(PropTypes.any),
 	body: PropTypes.string,
-	postBodyComponents: PropTypes.array
+	postBodyComponents: PropTypes.arrayOf(PropTypes.any)
 };

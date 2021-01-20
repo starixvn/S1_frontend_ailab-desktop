@@ -1,6 +1,5 @@
 import React from "react";
-import { defTabList, defTabId } from "./leaderboard.def";
-import { defDayOptions } from "./leaderboard.def";
+import { defTabList, defTabId, defDayOptions } from "./leaderBoard.def";
 
 export default ({
 	t,
@@ -12,8 +11,8 @@ export default ({
 	updateStateOnly = false
 }) => {
 	const btnOptions = [defTabId.sports, defTabId.liveCasino, defTabId.slots];
-	const gameTypeBtnList = defTabList.filter(tab =>
-		btnOptions.includes(tab.id)
+	const gameTypeBtnList = defTabList.filter(_tab =>
+		btnOptions.includes(_tab.id)
 	);
 
 	return (
@@ -27,7 +26,7 @@ export default ({
 				tab={tab}
 				updateStateOnly={updateStateOnly}
 			/>
-			{tab === defTabId.event ? null : (
+			{tab === defTabId.records ? (
 				<BtnBar
 					t={t}
 					title={t("lbl_Date")}
@@ -36,7 +35,7 @@ export default ({
 					selected={beforeDays}
 					tab={tab}
 				/>
-			)}
+			) : null}
 		</div>
 	);
 };

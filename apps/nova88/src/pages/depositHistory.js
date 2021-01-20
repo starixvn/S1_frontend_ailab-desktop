@@ -1,17 +1,17 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
 import {
 	api_payment_GetDepositInfoHistory,
 	api_payment_SetDepositCancel
 } from "../service/api/payment";
-import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { TransactionHistory } from "../components/deposit/deposit.historyResult";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Filter from "../components/common/historyFilter";
-import moment from "moment";
 import LeftMenu from "../components/common/leftMenu";
 import { isConvert } from "../components/common/common";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
@@ -51,7 +51,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClickClose = () => {
@@ -125,9 +127,9 @@ const Content = () => {
 				setFilterData(transactionData);
 
 				setKeepData({
-					startDate: startDate,
-					endDate: endDate,
-					quickPick: quickPick
+					startDate,
+					endDate,
+					quickPick
 				});
 			}
 
@@ -144,19 +146,19 @@ const Content = () => {
 		picFileName,
 		refId
 	) => {
-		let { currencyId, ...restBankInfo } = bankInfo;
-		let { accountName, accountNo } = depositRep;
+		const { currencyId, ...restBankInfo } = bankInfo;
+		const { accountName, accountNo } = depositRep;
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.UploadBankSlip,
 			depositTime: `${moment().format()}`,
 			...restBankInfo,
-			transId: transId,
-			accountNo: accountNo,
-			accountName: accountName,
-			amount: amount,
-			picFileName: picFileName,
-			refId: refId
+			transId,
+			accountNo,
+			accountName,
+			amount,
+			picFileName,
+			refId
 		});
 	};
 
@@ -218,14 +220,14 @@ const Content = () => {
 
 	const clickPageNumber = page => {
 		if (!processing) {
-			let transactionData = filterData;
+			const transactionData = filterData;
 			setProcessing(true);
 			setPagination(prev => ({ ...prev, currentPage: page }));
 			getDepositHistory(transactionData, page);
 		}
 	};
 
-	let arr = history?.map((item, i) => {
+	const arr = history?.map((item, i) => {
 		return (
 			<TransactionHistory
 				key={`depositHistory-${item.transId}`}

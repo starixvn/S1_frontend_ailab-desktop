@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
 import loginBanner from "../../styles/img/loginBanner.jpg";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
-import { defPopBoxType } from "../common/popBox";
 import path from "../../router";
-import { Link, navigate } from "@reach/router";
 
 const initValue = {
 	username: "",
@@ -30,7 +29,9 @@ const LoginPanel = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const showPswHandler = () => {
@@ -67,7 +68,7 @@ const LoginPanel = () => {
 	};
 
 	const checkValue = (col, e) => {
-		let val = e.target.value;
+		const val = e.target.value;
 
 		let checked = true;
 		let msg = "";
@@ -84,8 +85,8 @@ const LoginPanel = () => {
 			return {
 				...prev,
 				[col]: {
-					checked: checked,
-					msg: msg
+					checked,
+					msg
 				}
 			};
 		});
@@ -94,7 +95,7 @@ const LoginPanel = () => {
 	const handleLogin = async e => {
 		e.preventDefault();
 
-		let checked = userValue.username && userValue.password;
+		const checked = userValue.username && userValue.password;
 		if (checked) {
 			await LOGIN({
 				userName: userValue.username,
@@ -168,7 +169,7 @@ const LoginPanel = () => {
 
 	return (
 		<div className="loginpop">
-			<div className="icon icon-close" onClick={clickCancel}></div>
+			<div className="icon icon-close" onClick={clickCancel} />
 			<div className="loginModule">
 				<img src={loginBanner} alt="loginBanner" />
 

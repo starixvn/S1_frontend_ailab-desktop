@@ -3,7 +3,8 @@ export const defTabId = {
 	sports: 1,
 	liveCasino: 3,
 	slots: 2,
-	records: 5
+	records: 5,
+	lastEvent: 6
 };
 
 export const defTabList = [
@@ -11,7 +12,8 @@ export const defTabList = [
 	{ id: defTabId.sports, displayKey: "lbl_Sports" },
 	{ id: defTabId.liveCasino, displayKey: "lbl_LiveCasino" },
 	{ id: defTabId.slots, displayKey: "lbl_Casino" },
-	{ id: defTabId.records, displayKey: "lbl_Records" }
+	{ id: defTabId.records, displayKey: "lbl_Records" },
+	{ id: defTabId.lastEvent, displayKey: "lbl_Last_Event" }
 ];
 
 export const defBackground = {
@@ -19,7 +21,8 @@ export const defBackground = {
 	1: "ranksports",
 	3: "rankLivecasino",
 	2: "rankSlots",
-	5: "rankRecords"
+	5: "rankRecords",
+	6: "lastGameRecords"
 };
 
 export const defTabDisplayKey = {
@@ -47,77 +50,199 @@ export const defDayOptions = [
 	{ id: defDayNum.lastThreeDay, displayKey: "lbl_last_3_day" }
 ];
 
-export const defRewardList = ({ t }) => {
-	let cash = t("lbl_Cash");
+export const defLastChampionReward = () => {
 	return {
 		MYR: {
 			[defTabId.sports]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `888 MYR (${cash})` },
-				{ displayRank: "3", reward: `788 MYR (${cash})` },
-				{ displayRank: "4", reward: `688 MYR (${cash})` },
-				{ displayRank: "5", reward: `588 MYR (${cash})` }
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
 			],
 			[defTabId.liveCasino]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `888 MYR (${cash})` },
-				{ displayRank: "3", reward: `788 MYR (${cash})` },
-				{ displayRank: "4", reward: `688 MYR (${cash})` },
-				{ displayRank: "5", reward: `588 MYR (${cash})` }
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.slots]: [{ displayRank: "1", reward: "iPhone 12 (64GB)" }]
+		},
+		IDR: {
+			[defTabId.sports]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.liveCasino]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.slots]: [{ displayRank: "1", reward: "iPhone 12 (64GB)" }]
+		},
+		THB: {
+			[defTabId.sports]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.liveCasino]: [
+				{ displayRank: "1", reward: "iPhone 12 (64GB)" }
+			],
+			[defTabId.slots]: [{ displayRank: "1", reward: "iPhone 12 (64GB)" }]
+		}
+	};
+};
+
+export const defRewardList = ({ t }) => {
+	const unit = "Ang Pao";
+	const unitCS = "紅包";
+	return {
+		MYR: {
+			[defTabId.sports]: [
+				{
+					displayRank: "1",
+					reward: "MacBook Pro 13 M1 256GB"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
+				{ displayRank: "4", reward: `988 ${unit}` },
+				{ displayRank: "5", reward: `888 ${unit}` },
+				{ displayRank: "6", reward: `788 ${unit}` },
+				{ displayRank: "7", reward: `688 ${unit}` },
+				{ displayRank: "8", reward: `588 ${unit}` },
+				{ displayRank: "9", reward: `188 ${unit}` },
+				{ displayRank: "10", reward: `88 ${unit}` }
+			],
+			[defTabId.liveCasino]: [
+				{
+					displayRank: "1",
+					reward: "MacBook Pro 13 M1 256GB"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
+				{ displayRank: "4", reward: `988 ${unit}` },
+				{ displayRank: "5", reward: `888 ${unit}` },
+				{ displayRank: "6", reward: `788 ${unit}` },
+				{ displayRank: "7", reward: `688 ${unit}` },
+				{ displayRank: "8", reward: `588 ${unit}` },
+				{ displayRank: "9", reward: `188 ${unit}` },
+				{ displayRank: "10", reward: `88 ${unit}` }
 			],
 			[defTabId.slots]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `888 MYR (${cash})` },
-				{ displayRank: "3", reward: `788 MYR (${cash})` },
-				{ displayRank: "4", reward: `688 MYR (${cash})` },
-				{ displayRank: "5", reward: `588 MYR (${cash})` }
+				{
+					displayRank: "1",
+					reward: "MacBook Pro 13 M1 256GB"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
+				{ displayRank: "4", reward: `988 ${unit}` },
+				{ displayRank: "5", reward: `888 ${unit}` },
+				{ displayRank: "6", reward: `788 ${unit}` },
+				{ displayRank: "7", reward: `688 ${unit}` },
+				{ displayRank: "8", reward: `588 ${unit}` },
+				{ displayRank: "9", reward: `188 ${unit}` },
+				{ displayRank: "10", reward: `88 ${unit}` }
+			]
+		},
+		RMB: {
+			[defTabId.sports]: [
+				{
+					displayRank: "1",
+					reward: "MacBook Pro 13 M1 256GB"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
+				{ displayRank: "4", reward: `988 ${unitCS}` },
+				{ displayRank: "5", reward: `888 ${unitCS}` },
+				{ displayRank: "6", reward: `788 ${unitCS}` },
+				{ displayRank: "7", reward: `688 ${unitCS}` },
+				{ displayRank: "8", reward: `588 ${unitCS}` },
+				{ displayRank: "9", reward: `188 ${unitCS}` },
+				{ displayRank: "10", reward: `88 ${unitCS}` }
+			],
+			[defTabId.liveCasino]: [
+				{
+					displayRank: "1",
+					reward: "MacBook Pro 13 M1 256GB"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
+				{ displayRank: "4", reward: `988 ${unitCS}` },
+				{ displayRank: "5", reward: `888 ${unitCS}` },
+				{ displayRank: "6", reward: `788 ${unitCS}` },
+				{ displayRank: "7", reward: `688 ${unitCS}` },
+				{ displayRank: "8", reward: `588 ${unitCS}` },
+				{ displayRank: "9", reward: `188 ${unitCS}` },
+				{ displayRank: "10", reward: `88 ${unitCS}` }
+			],
+			[defTabId.slots]: [
+				{
+					displayRank: "1",
+					reward: "MacBook Pro 13 M1 256GB"
+				},
+				{ displayRank: "2", reward: `iPad Air 64GB Wi-Fi+Cellular` },
+				{ displayRank: "3", reward: `iPad 10.2inch 128GB Wi-Fi` },
+				{ displayRank: "4", reward: `988 ${unitCS}` },
+				{ displayRank: "5", reward: `888 ${unitCS}` },
+				{ displayRank: "6", reward: `788 ${unitCS}` },
+				{ displayRank: "7", reward: `688 ${unitCS}` },
+				{ displayRank: "8", reward: `588 ${unitCS}` },
+				{ displayRank: "9", reward: `188 ${unitCS}` },
+				{ displayRank: "10", reward: `88 ${unitCS}` }
 			]
 		},
 		IDR: {
 			[defTabId.sports]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `3,000,000 IDR (${cash})` },
-				{ displayRank: "3", reward: `2,688,000 IDR (${cash})` },
-				{ displayRank: "4", reward: `2,388,000 IDR (${cash})` },
-				{ displayRank: "5", reward: `1,388,000 IDR (${cash})` }
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
+				{ displayRank: "2", reward: `3,388,000 IDR ${unit}` },
+				{ displayRank: "3", reward: `3,088,000 IDR ${unit}` },
+				{ displayRank: "4", reward: `2,688,000 IDR ${unit}` },
+				{ displayRank: "5", reward: `2,388,000 IDR ${unit}` },
+				{ displayRank: "6", reward: `2,088,000 IDR ${unit}` },
+				{ displayRank: "7", reward: `688,000 IDR ${unit}` },
+				{ displayRank: "8", reward: `388,000 IDR ${unit}` }
 			],
 			[defTabId.liveCasino]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `3,000,000 IDR (${cash})` },
-				{ displayRank: "3", reward: `2,688,000 IDR (${cash})` },
-				{ displayRank: "4", reward: `2,388,000 IDR (${cash})` },
-				{ displayRank: "5", reward: `1,388,000 IDR (${cash})` }
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
+				{ displayRank: "2", reward: `3,388,000 IDR ${unit}` },
+				{ displayRank: "3", reward: `3,088,000 IDR ${unit}` },
+				{ displayRank: "4", reward: `2,688,000 IDR ${unit}` },
+				{ displayRank: "5", reward: `2,388,000 IDR ${unit}` },
+				{ displayRank: "6", reward: `2,088,000 IDR ${unit}` },
+				{ displayRank: "7", reward: `688,000 IDR ${unit}` },
+				{ displayRank: "8", reward: `388,000 IDR ${unit}` }
 			],
 			[defTabId.slots]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `3,000,000 IDR (${cash})` },
-				{ displayRank: "3", reward: `2,688,000 IDR (${cash})` },
-				{ displayRank: "4", reward: `2,388,000 IDR (${cash})` },
-				{ displayRank: "5", reward: `1,388,000 IDR (${cash})` }
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
+				{ displayRank: "2", reward: `3,388,000 IDR ${unit}` },
+				{ displayRank: "3", reward: `3,088,000 IDR ${unit}` },
+				{ displayRank: "4", reward: `2,688,000 IDR ${unit}` },
+				{ displayRank: "5", reward: `2,388,000 IDR ${unit}` },
+				{ displayRank: "6", reward: `2,088,000 IDR ${unit}` },
+				{ displayRank: "7", reward: `688,000 IDR ${unit}` },
+				{ displayRank: "8", reward: `388,000 IDR ${unit}` }
 			]
 		},
 
 		THB: {
 			[defTabId.sports]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `6,588 THB (${cash})` },
-				{ displayRank: "3", reward: `5,588 THB (${cash})` },
-				{ displayRank: "4", reward: `5,088 THB (${cash})` },
-				{ displayRank: "5", reward: `4,088 THB (${cash})` }
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
+				{ displayRank: "2", reward: `7,788 THB ${unit}` },
+				{ displayRank: "3", reward: `6,688 THB ${unit}` },
+				{ displayRank: "4", reward: `5,588 THB ${unit}` },
+				{ displayRank: "5", reward: `4,888 THB ${unit}` },
+				{ displayRank: "6", reward: `4,388 THB ${unit}` },
+				{ displayRank: "7", reward: `1,388 THB ${unit}` },
+				{ displayRank: "8", reward: `688 THB ${unit}` }
 			],
 			[defTabId.liveCasino]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `6,588 THB (${cash})` },
-				{ displayRank: "3", reward: `5,588 THB (${cash})` },
-				{ displayRank: "4", reward: `5,088 THB (${cash})` },
-				{ displayRank: "5", reward: `4,088 THB (${cash})` }
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
+				{ displayRank: "2", reward: `7,788 THB ${unit}` },
+				{ displayRank: "3", reward: `6,688 THB ${unit}` },
+				{ displayRank: "4", reward: `5,588 THB ${unit}` },
+				{ displayRank: "5", reward: `4,888 THB ${unit}` },
+				{ displayRank: "6", reward: `4,388 THB ${unit}` },
+				{ displayRank: "7", reward: `1,388 THB ${unit}` },
+				{ displayRank: "8", reward: `688 THB ${unit}` }
 			],
 			[defTabId.slots]: [
-				{ displayRank: "1", reward: "iPhone 12 (64GB)" },
-				{ displayRank: "2", reward: `6,588 THB (${cash})` },
-				{ displayRank: "3", reward: `5,588 THB (${cash})` },
-				{ displayRank: "4", reward: `5,088 THB (${cash})` },
-				{ displayRank: "5", reward: `4,088 THB (${cash})` }
+				{ displayRank: "1", reward: "iPad 10.2inch 128GB Wi-Fi" },
+				{ displayRank: "2", reward: `7,788 THB ${unit}` },
+				{ displayRank: "3", reward: `6,688 THB ${unit}` },
+				{ displayRank: "4", reward: `5,588 THB ${unit}` },
+				{ displayRank: "5", reward: `4,888 THB ${unit}` },
+				{ displayRank: "6", reward: `4,388 THB ${unit}` },
+				{ displayRank: "7", reward: `1,388 THB ${unit}` },
+				{ displayRank: "8", reward: `688 THB ${unit}` }
 			]
 		}
 	};

@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { userInfoContext, popBoxContext } from "../common/context";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
+import { userInfoContext, popBoxContext } from "../common/context";
 import { readCookie, setCookie, getUrlParameter } from "../common/common";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import SwipperBanner from "../common/swipperBanner";
 
@@ -30,11 +31,12 @@ import indexBannerAffiliate from "../../styles/img/indexBannerAffiliate.png";
 
 import Marquee from "./marquee";
 import productList from "../../datas/productList";
-import { Link } from "@reach/router";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
-import config from "../../config";
+import config, { SiteInfo } from "../../config";
+
+import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
 
 import {
 	GET_OPEN_RULE,
@@ -42,8 +44,7 @@ import {
 	OPEN_IN_BLANK
 } from "../../service/enterPage";
 
-import { getUrl } from "../../components/common/linkItems";
-import { SiteInfo } from "../../config";
+import { getUrl } from "../common/linkItems";
 
 const defGameListDatas = [
 	{
@@ -101,11 +102,11 @@ const defGameListDatas = [
 
 const SportsSection = ({ t, langId, isLogin, showLogin }) => {
 	const gameListRows = defGameListDatas.map(m => {
-		let displayText = t(m.displayKey) ?? m.displayKey;
+		const displayText = t(m.displayKey) ?? m.displayKey;
 		let _path = m.path;
-		let key = `home-SportsSection-${m.displayKey}`;
+		const key = `home-SportsSection-${m.displayKey}`;
 
-		let leftImgs = m.leftImg.map((img, imgIdx) => {
+		const leftImgs = m.leftImg.map((img, imgIdx) => {
 			return (
 				<img
 					key={`${m.displayKey}-leftImg-${imgIdx}`}
@@ -127,7 +128,7 @@ const SportsSection = ({ t, langId, isLogin, showLogin }) => {
 		);
 
 		if (m.productInfo) {
-			let rule = GET_OPEN_RULE(
+			const rule = GET_OPEN_RULE(
 				langId,
 				m.productInfo.tpId,
 				m.productInfo.gameId
@@ -146,7 +147,8 @@ const SportsSection = ({ t, langId, isLogin, showLogin }) => {
 						{content}
 					</a>
 				);
-			} else if (rule.actionType === _ACTION_TYPE.blank) {
+			}
+			if (rule.actionType === _ACTION_TYPE.blank) {
 				return (
 					<a
 						key={key}
@@ -158,22 +160,20 @@ const SportsSection = ({ t, langId, isLogin, showLogin }) => {
 						{content}
 					</a>
 				);
-			} else {
-				let _url = getUrl(`${langId}/${_path}`, m.productInfo);
-
-				return (
-					<Link key={key} to={_url}>
-						{content}
-					</Link>
-				);
 			}
-		} else {
+			const _url = getUrl(`${langId}/${_path}`, m.productInfo);
+
 			return (
-				<Link key={key} to={`/${langId}/${_path}`}>
+				<Link key={key} to={_url}>
 					{content}
 				</Link>
 			);
 		}
+		return (
+			<Link key={key} to={`/${langId}/${_path}`}>
+				{content}
+			</Link>
+		);
 	});
 
 	return <div className="gamelistsport">{gameListRows}</div>;
@@ -205,14 +205,14 @@ const defSideBarProducts = langId => [
 
 const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 	const rows = defSideBarProducts(langId).map(m => {
-		let displayText = t(m.displayKey) ?? m.displayKey;
+		const displayText = t(m.displayKey) ?? m.displayKey;
 		let _path = m.path;
-		let key = `home-sideBarProduct-${m.displayKey}`;
+		const key = `home-sideBarProduct-${m.displayKey}`;
 
 		const content = (
 			<>
 				<div>
-					<i className={m.icon}></i>
+					<i className={m.icon} />
 					<span>{displayText}</span>
 					<span>{t(m.descriptionKey) ?? m.descriptionKey}</span>
 				</div>
@@ -221,7 +221,7 @@ const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 		);
 
 		if (m.productInfo) {
-			let rule = GET_OPEN_RULE(
+			const rule = GET_OPEN_RULE(
 				langId,
 				m.productInfo.tpId,
 				m.productInfo.gameId
@@ -240,7 +240,8 @@ const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 						{content}
 					</button>
 				);
-			} else if (rule.actionType === _ACTION_TYPE.blank) {
+			}
+			if (rule.actionType === _ACTION_TYPE.blank) {
 				return (
 					<a
 						key={key}
@@ -252,28 +253,27 @@ const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 						{content}
 					</a>
 				);
-			} else {
-				let _url = getUrl(`${langId}/${_path}`, m.productInfo);
-
-				return (
-					<Link key={key} to={_url}>
-						{content}
-					</Link>
-				);
 			}
-		} else if (m.href) {
+			const _url = getUrl(`${langId}/${_path}`, m.productInfo);
+
+			return (
+				<Link key={key} to={_url}>
+					{content}
+				</Link>
+			);
+		}
+		if (m.href) {
 			return (
 				<a key={key} target="_blank" href={m.href}>
 					{content}
 				</a>
 			);
-		} else {
-			return (
-				<Link key={key} to={`/${langId}/${_path}`}>
-					{content}
-				</Link>
-			);
 		}
+		return (
+			<Link key={key} to={`/${langId}/${_path}`}>
+				{content}
+			</Link>
+		);
 	});
 
 	return (
@@ -305,7 +305,9 @@ const IndexPage = () => {
 	const isMountedRef = useRef(null);
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -330,17 +332,19 @@ const IndexPage = () => {
 				if (showDepositHint) {
 					api_account_GetWalletInfo().then(res => {
 						if (res.data.errorCode === 0 && isMountedRef.current) {
-							let tpWallets = res.data.data.tpWallets?.map(t => {
-								return {
-									tpId: t.tpId,
-									balance: t.balance
-								};
-							});
+							const tpWallets = res.data.data.tpWallets?.map(
+								tp => {
+									return {
+										tpId: tp.tpId,
+										balance: tp.balance
+									};
+								}
+							);
 
-							let hasBalance =
+							const hasBalance =
 								res.data.data?.balance ||
-								tpWallets?.filter(t => {
-									return t.balance > 0;
+								tpWallets?.filter(tp => {
+									return tp.balance > 0;
 								}).length >= 1;
 
 							if (!hasBalance && showDepositHint) {
@@ -389,10 +393,12 @@ const IndexPage = () => {
 					{...userInfo}
 				/>
 			</section>
-			<img
+			{/* New Year Theme */}
+			<img src={indexCenterBanner} alt="IndexCenterBanner" />
+			{/* <img
 				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
 				alt="IndexCenterBanner"
-			/>
+			/> */}
 			<SideBarQuickLink />
 		</main>
 	);

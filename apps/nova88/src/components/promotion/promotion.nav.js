@@ -66,7 +66,7 @@ export default ({
 	onSetSpecialCodeSubmit
 }) => {
 	const onChangeSpecialCode = e => {
-		let trim = string =>
+		const trim = string =>
 			string.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, "");
 		setSpecialCode(trim(e.target.value));
 	};
@@ -75,7 +75,7 @@ export default ({
 		if (e.key === "Enter") onSetSpecialCodeSubmit();
 	};
 
-	let defPromoNavsFormat = defPromoNavs.filter(
+	const defPromoNavsFormat = defPromoNavs.filter(
 		item => item.value !== defFilterType.specialBonus || userInfo.isLogin
 	);
 

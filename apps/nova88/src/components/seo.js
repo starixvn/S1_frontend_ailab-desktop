@@ -8,20 +8,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
-import { useMatch, useLocation } from "@reach/router";
+import { useLocation } from "@reach/router";
 import config from "../config";
 import path from "../router";
-
-const query = graphql`
-	query {
-		site {
-			siteMetadata {
-				supportedLanguages
-			}
-		}
-	}
-`;
 
 const defMetaData = {
 	"/": {
@@ -115,11 +104,7 @@ const defMetaData = {
 };
 
 function SEO({ description, lang, meta, title }) {
-	const {
-		site: {
-			siteMetadata: { supportedLanguages }
-		}
-	} = useStaticQuery(query);
+	const supportedLanguages = ["en", "cs", "th", "id"];
 
 	const location = useLocation()
 		?.pathname?.split("/")
@@ -187,7 +172,7 @@ function SEO({ description, lang, meta, title }) {
 					}
 				].concat(meta)}
 			/>
-			<GATag gaCode={"UA-163834722-1"} />
+			<GATag gaCode="UA-163834722-1" />
 			<LiveChat />
 			<Iovation />
 			<FPS />
@@ -198,7 +183,8 @@ function SEO({ description, lang, meta, title }) {
 SEO.defaultProps = {
 	lang: `en`,
 	meta: [],
-	description: ``
+	description: ``,
+	title: ""
 };
 
 SEO.propTypes = {
@@ -228,9 +214,8 @@ const GATag = ({ gaCode }) => {
 		<Helmet>
 			<script
 				async
-				src={
-					"https://www.googletagmanager.com/gtag/js?id=" + gaCode
-				}></script>
+				src={`https://www.googletagmanager.com/gtag/js?id=${gaCode}`}
+			/>
 			<script>
 				{`window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
@@ -258,7 +243,8 @@ const Iovation = () => {
 			</script>
 			<script
 				src={`${config.t_and_cURL}/common/js/loader_only.js?v=201027`}
-				type="text/javascript"></script>
+				type="text/javascript"
+			/>
 		</Helmet>
 	);
 };
@@ -269,7 +255,8 @@ const FPS = () => {
 			<script
 				async=""
 				defer=""
-				src="//sc.detecas.com/di/activator.ashx"></script>
+				src="//sc.detecas.com/di/activator.ashx"
+			/>
 		</Helmet>
 	);
 };

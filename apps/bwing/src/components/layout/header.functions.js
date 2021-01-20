@@ -1,15 +1,15 @@
 import React, { useContext, lazy, Suspense } from "react";
 import { Link, navigate } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
 	popBoxContext,
 	msgCountContext
 } from "../common/context";
-import { useTranslation } from "react-i18next";
 import path from "../../router";
 import DropdownHeader, { defElemType } from "../common/dropdown.headerLink";
 import { LOGOUT } from "../../service/auth";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -153,7 +153,7 @@ const AfterLogin = () => {
 			</Suspense>
 
 			<DropdownHeader
-				mainKey={`header-cashierLink`}
+				mainKey="header-cashierLink"
 				langId={userInfo.langId}
 				className="cashier icon icon-library"
 				subClassName="submenu"
@@ -163,7 +163,7 @@ const AfterLogin = () => {
 			/>
 
 			<DropdownHeader
-				mainKey={`header-settingLink`}
+				mainKey="header-settingLink"
 				langId={userInfo.langId}
 				className="memberfile icon icon-member"
 				subClassName="submenu"
@@ -173,7 +173,8 @@ const AfterLogin = () => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}></Link>
+				to={`/${userInfo.langId}/${path.message.root}`}
+			/>
 		</>
 	);
 };

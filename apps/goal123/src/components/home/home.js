@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
-import { useTranslation } from "react-i18next";
 import { setCookie, readCookie } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 
@@ -32,12 +32,14 @@ export default () => {
 	const isMountedRef = useRef(null);
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
-			let cookieName = `balanceHint${userInfo.userName}`;
+			const cookieName = `balanceHint${userInfo.userName}`;
 			let showDepositHint = false;
 			if (readCookie(cookieName) !== "1") {
 				setCookie(cookieName, "1", 1);
@@ -47,17 +49,17 @@ export default () => {
 			if (showDepositHint) {
 				api_account_GetWalletInfo().then(res => {
 					if (res.data.errorCode === 0 && isMountedRef.current) {
-						let tpWallets = res.data.data.tpWallets?.map(t => {
+						const tpWallets = res.data.data.tpWallets?.map(tp => {
 							return {
-								tpId: t.tpId,
-								balance: t.balance
+								tpId: tp.tpId,
+								balance: tp.balance
 							};
 						});
 
-						let hasBalance =
+						const hasBalance =
 							res.data.data?.balance ||
-							tpWallets?.filter(t => {
-								return t.balance > 0;
+							tpWallets?.filter(tp => {
+								return tp.balance > 0;
 							}).length >= 1;
 
 						if (!hasBalance && showDepositHint) {
@@ -85,7 +87,7 @@ export default () => {
 				<div className="edge">
 					<div>
 						<div className="title">{t("lbl_EdgeOfGoal123")}</div>
-						<span></span>
+						<span />
 					</div>
 					<div className="articleModule">
 						<div>

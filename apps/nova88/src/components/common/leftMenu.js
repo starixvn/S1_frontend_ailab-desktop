@@ -1,27 +1,27 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
-import { userInfoContext } from "../common/context";
+import { userInfoContext } from "./context";
 import { defLeftMenu } from "./leftMenu.def";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
-	let currentPage =
+	const currentPage =
 		typeof window !== undefined ? `${window.location.pathname}/` : "";
 
-	let arr = Object.keys(defLeftMenu).map(menuKey => {
-		let menu = defLeftMenu[menuKey];
+	const arr = Object.keys(defLeftMenu).map(menuKey => {
+		const menu = defLeftMenu[menuKey];
 
-		let subMenuArr = Object.keys(menu.subMenu).map(_key => {
-			let _active = currentPage.includes(
+		const subMenuArr = Object.keys(menu.subMenu).map(_key => {
+			const _active = currentPage.includes(
 				`/${userInfo.langId}/${menu.subMenu[_key].path}/`
 			)
 				? " active"
 				: "";
 
-			let showIcon = menu.subMenu[_key].icon
+			const showIcon = menu.subMenu[_key].icon
 				? `icon ${menu.subMenu[_key].icon}`
 				: "";
 
