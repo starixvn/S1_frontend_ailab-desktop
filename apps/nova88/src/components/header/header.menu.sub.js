@@ -72,7 +72,7 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 		return (
 			<div className={subClassName} key={`main-key-${menuKey}`}>
 				{subMenu?.map(subMenuItem => (
-					<SunMenuItem
+					<SubMenuItem
 						key={`${subMenuItem.tpId}-${subMenuItem.gameId}`}
 						subMenuItem={subMenuItem}
 						clickItem={clickItem}
@@ -86,7 +86,7 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 	});
 };
 
-const SunMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
+const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	let displayText = subMenuItem.displayText
 		? subMenuItem.displayText
 		: t(subMenuItem.displayKey);
