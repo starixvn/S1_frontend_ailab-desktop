@@ -56,7 +56,7 @@ export default ({
 
 		_className = `${_className}${currentMenuKey === key ? " active" : ""}`;
 
-		let displayText = toUpperCase
+		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
 			: t(m.displayKey);
 		// let displayText = t(m.displayKey);

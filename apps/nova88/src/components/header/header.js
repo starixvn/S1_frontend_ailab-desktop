@@ -3,7 +3,7 @@ import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../common/context";
 import Menu from "./header.menu";
-import config, { SiteInfo } from "../../config";
+import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import { api_site_GetTpIds } from "../../service/api/site";
@@ -20,7 +20,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
