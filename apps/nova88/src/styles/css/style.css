@@ -7132,7 +7132,7 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #d3162c;
+  background: #191919;
   border: 1px solid #b28750;
   margin: 0 8.5px !important;
   padding: 10px 0;
@@ -7330,6 +7330,99 @@ button.icon-spinner11:before {
 
 .userpassword img {
   width: auto;
+}
+
+.onegameModule {
+  padding: 0 40px;
+  min-width: calc(1024px - 80px);
+  margin-bottom: 35px;
+}
+
+.onegameModule .promotionsInfo {
+  position: relative;
+  background: url(../img/onegame/bg.jpg) no-repeat center;
+  height: 500px;
+}
+
+.onegameModule .onegame {
+  position: absolute;
+  height: 100%;
+  padding: 0;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.onegameModule .onegame > div, .onegameModule .onegame > button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.onegameModule .onegame .left {
+  width: 288px;
+  height: 200p;
+  background: url(../img/onegame/btnBgl.png) no-repeat center;
+}
+
+.onegameModule .onegame .left.right {
+  background: url(../img/onegame/btnBg.png) no-repeat center;
+}
+
+.onegameModule .onegame .left .downloadItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.onegameModule .onegame .left .downloadItem .title {
+  font-size: 14px;
+  color: #73ccff;
+  margin-top: 10px;
+}
+
+.onegameModule .onegame .left .downloadItem .readonly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 230px;
+  height: 40px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #55c1ff;
+}
+
+.onegameModule .onegame .left .downloadItem .readonly input {
+  border: 0;
+  padding: 0px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  color: white;
+}
+
+.onegameModule .onegame .left .downloadItem .readonly .icon {
+  color: white;
+  background: -webkit-gradient(linear, left bottom, left top, from(#3694ff), to(#66cfff));
+  background: linear-gradient(to top, #3694ff 0%, #66cfff 100%);
+  width: 50px;
 }
 
 .installGuide {
@@ -8256,80 +8349,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 37.04659%;
-  top: -55.86229%;
-  width: 11.74338px;
-  height: 11.74338px;
+  left: 34.5006%;
+  top: 3.04503%;
+  width: 14.65575px;
+  height: 14.65575px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 34.82277%;
-  top: -32.05117%;
-  width: 13.12716px;
-  height: 13.12716px;
+  left: 32.95373%;
+  top: 13.58027%;
+  width: 14.52809px;
+  height: 14.52809px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 14.31918%;
-  top: 32.54692%;
-  width: 14.74942px;
-  height: 14.74942px;
+  left: 64.22365%;
+  top: -27.80233%;
+  width: 13.3385px;
+  height: 13.3385px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 78.31548%;
-  top: -27.13946%;
-  width: 9.64464px;
-  height: 9.64464px;
+  left: 40.49063%;
+  top: -50.92003%;
+  width: 13.20103px;
+  height: 13.20103px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 8.51494%;
-  top: -23.64695%;
-  width: 12.03662px;
-  height: 12.03662px;
+  left: 4.47034%;
+  top: -58.26765%;
+  width: 11.13671px;
+  height: 11.13671px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 2.52743%;
-  top: -52.5738%;
-  width: 14.44826px;
-  height: 14.44826px;
+  left: 71.61024%;
+  top: 15.1115%;
+  width: 13.60156px;
+  height: 13.60156px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 95.59229%;
-  top: -24.88864%;
-  width: 10.74255px;
-  height: 10.74255px;
+  left: 4.98531%;
+  top: 22.72848%;
+  width: 14.60239px;
+  height: 14.60239px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 45.99606%;
-  top: -37.61463%;
-  width: 14.1937px;
-  height: 14.1937px;
+  left: 24.92099%;
+  top: -10.09757%;
+  width: 12.73435px;
+  height: 12.73435px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
