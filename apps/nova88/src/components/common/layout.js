@@ -4,12 +4,12 @@ import Header from "../header/header";
 import Footer from "../footer/footer";
 import PopBox from "./popBox";
 import Loading from "./loading";
-import CanvasFireworks from "./canvasFireworks";
+import Fireworks from "./canvasFireworks";
 
 const Layout = ({ children, showFooter = false }) => {
 	return (
 		<>
-			<CanvasFireworks />
+			<Fireworks />
 			{/* new year style ↑ */}
 			<Header />
 			{children}

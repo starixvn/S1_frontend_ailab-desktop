@@ -1,31 +1,45 @@
-import React, { useEffect, useContext } from "react";
-import { userInfoContext } from "../common/context";
-import { getCurrentPage } from "../common/linkItems";
+import React, { Component, useContext, createRef } from "react";
+import { userInfoContext } from "./context";
+import { GET_LANG_ID } from "../../service/language";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
-	let currentPage = getCurrentPage();
-	let inHomePage = currentPage === `/${userInfo.langId}`;
+	const langId = GET_LANG_ID(userInfo.langId);
+	return <CanvasFireworks langId={langId} />;
+};
 
-	useEffect(() => {
+export class CanvasFireworks extends Component {
+	constructor(props) {
+		super(props);
+		this.isMountedRef = false;
+		this.content = createRef();
+	}
+
+	UNSAFE_componentWillMount() {
+		this.isMountedRef = false;
+	}
+
+	componentDidMount() {
+		this.isMountedRef = true;
+		const inHomePage = window.location.pathname === `/${this.props.langId}`;
 		if (inHomePage) {
-			showFireworks();
+			this.showFireworks();
 		}
-	}, []);
+	}
 
-	const showFireworks = () => {
-		let canvas = document.getElementById("canvas");
-		let ctx = canvas.getContext("2d");
-		let cw = window.innerWidth;
-		let ch = window.innerHeight;
-		let fireworks = [];
-		let particles = [];
+	showFireworks = () => {
+		const canvas = document.getElementById("canvas");
+		const ctx = canvas.getContext("2d");
+		const cw = window.innerWidth;
+		const ch = window.innerHeight;
+		const fireworks = [];
+		const particles = [];
 		let hue = 120;
-		let limiterTotal = 5;
+		const limiterTotal = 5;
 		let limiterTick = 0;
-		let timerTotal = 50;
+		const timerTotal = 50;
 		let timerTick = 50;
-		let mousedown = false;
+		const mousedown = false;
 		let mx;
 		let my;
 		canvas.width = cw;
@@ -46,8 +60,8 @@ export default () => {
 			return Math.random() * (max - min) + min;
 		}
 		function calculateDistance(p1x, p1y, p2x, p2y) {
-			let xDistance = p1x - p2x,
-				yDistance = p1y - p2y;
+			const xDistance = p1x - p2x;
+			const yDistance = p1y - p2y;
 			return Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2));
 		}
 		function Firework(sx, sy, tx, ty) {
@@ -61,7 +75,8 @@ export default () => {
 			this.distanceTraveled = 0;
 			this.coordinates = [];
 			this.coordinateCount = 3;
-			while (this.coordinateCount--) {
+			while (this.coordinateCount) {
+				this.coordinateCount -= 1;
 				this.coordinates.push([this.x, this.y]);
 			}
 			this.angle = Math.atan2(ty - sy, tx - sx);
@@ -79,8 +94,8 @@ export default () => {
 				this.targetRadius = 1;
 			}
 			this.speed *= this.acceleration;
-			let vx = Math.cos(this.angle) * this.speed,
-				vy = Math.sin(this.angle) * this.speed;
+			const vx = Math.cos(this.angle) * this.speed;
+			const vy = Math.sin(this.angle) * this.speed;
 			this.distanceTraveled = calculateDistance(
 				this.sx,
 				this.sy,
@@ -102,8 +117,7 @@ export default () => {
 				this.coordinates[this.coordinates.length - 1][1]
 			);
 			ctx.lineTo(this.x, this.y);
-			ctx.strokeStyle =
-				"hsl(" + hue + ", 100%, " + this.brightness + "%)";
+			ctx.strokeStyle = `hsl(${this.hue},100%,${this.brightness}%)`;
 			ctx.stroke();
 			ctx.beginPath();
 			ctx.arc(this.tx, this.ty, this.targetRadius, 0, Math.PI * 2);
@@ -114,8 +128,9 @@ export default () => {
 			this.y = y;
 			this.coordinates = [];
 			this.coordinateCount = 5;
-			while (this.coordinateCount--) {
+			while (this.coordinateCount > 0) {
 				this.coordinates.push([this.x, this.y]);
+				this.coordinateCount = -1;
 			}
 			this.angle = random(0, Math.PI * 2);
 			this.speed = random(1, 10);
@@ -144,19 +159,13 @@ export default () => {
 				this.coordinates[this.coordinates.length - 1][1]
 			);
 			ctx.lineTo(this.x, this.y);
-			ctx.strokeStyle =
-				"hsla(" +
-				this.hue +
-				", 100%, " +
-				this.brightness +
-				"%, " +
-				this.alpha +
-				")";
+			ctx.strokeStyle = `hsla(${this.hue},100%,${this.brightness}%,${this.alpha})`;
 			ctx.stroke();
 		};
 		function createParticles(x, y) {
 			let particleCount = 300;
-			while (particleCount--) {
+			while (particleCount) {
+				particleCount -= 1;
 				particles.push(new Particle(x, y));
 			}
 		}
@@ -169,12 +178,15 @@ export default () => {
 			ctx.fillRect(0, 0, cw, ch);
 			ctx.globalCompositeOperation = "lighter";
 			let i = fireworks.length;
-			while (i--) {
+
+			while (i) {
+				i -= 1;
 				fireworks[i].draw();
 				fireworks[i].update(i);
 			}
 			let o = particles.length;
-			while (o--) {
+			while (o) {
+				o -= 1;
 				particles[o].draw();
 				particles[o].update(o);
 			}
@@ -191,7 +203,7 @@ export default () => {
 					timerTick = 0;
 				}
 			} else {
-				timerTick++;
+				timerTick += 1;
 			}
 			if (limiterTick >= limiterTotal) {
 				if (mousedown) {
@@ -199,11 +211,13 @@ export default () => {
 					limiterTick = 0;
 				}
 			} else {
-				limiterTick++;
+				limiterTick += 1;
 			}
 		}
 		loop();
 	};
 
-	return <canvas id="canvas"></canvas>;
-};
+	render() {
+		return <canvas id="canvas" ref={this.content} />;
+	}
+}
