@@ -275,7 +275,8 @@ export const defMenuLinks = {
 		className: "live"
 	},
 	poker: {
-		productInfo: productList.poker,
+		// productInfo: productList.poker,
+		path: path.oneGame.root,
 		displayKey: "lbl_Poker",
 		className: "icon icon-new"
 	}
