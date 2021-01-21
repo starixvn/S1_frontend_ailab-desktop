@@ -3,13 +3,7 @@ import { Redirect, navigate, Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
-import {
-	getUrlParameter,
-	setCookie,
-	deleteCookie,
-	getNewLanguagePath,
-	readCookie
-} from "./common";
+import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
 import { api_site_CheckSignIn } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
@@ -18,14 +12,21 @@ import {
 } from "../../service/api/account";
 import defPopBoxType from "./defPopBoxType";
 import useInterval from "../hook/useInterval";
-import { GET_LANG_ID, isVaildLang } from "../../service/language";
+import {
+	GET_LANG_ID,
+	isVaildLang,
+	getNewLanguagePath
+} from "../../service/language";
 import { SiteInfo } from "../../config";
 import path from "../../router";
 import useGetWalletInfo from "./wrapper.walletInfo";
 import SEO from "../seo";
 
 const defaultPathLang = () => {
-	const urlLang = window.location.pathname.split("/")?.[1];
+	const urlLang =
+		typeof document === `undefined`
+			? ""
+			: window.location.pathname.split("/")?.[1];
 	const cookieLang = readCookie(SiteInfo.langCookie);
 	const _defaultLang = GET_LANG_ID();
 
