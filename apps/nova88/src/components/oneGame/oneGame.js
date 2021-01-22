@@ -19,11 +19,7 @@ const OneGame = () => {
 		return typeof window !== undefined ? window.open(e.target.value) : null;
 	};
 
-	const APPDownloadLink = {
-		Android: "https://aka-dd-mega-appsetup.siderby.com/apk/Mega888_V1.2.apk"
-		// IOS: "https://link.dm-918kiss.com/mega888/",
-		// IOS32: "itms-services://?action=download-manifest&url=https://aka-dd-mega-appsetup.siderby.com/ios32/Mega888.plist"
-	};
+	const APPDownloadLink = "http://interdownload.info/download/OneGaming.apk";
 
 	return (
 		<section className="inside">
@@ -49,12 +45,12 @@ const OneGame = () => {
 							<div className="left right">
 								<div className="downloadItem">
 									<div className="title icon icon-android">
-										Download App
+										{t("lbl_Download_App")}
 									</div>
 									<button
 										onClick={OnClick}
-										value={APPDownloadLink.android}>
-										Android
+										value={APPDownloadLink}>
+										{t("lbl_Android")}
 									</button>
 								</div>
 								<img src={imgOneGameQr} alt="img_go" />
