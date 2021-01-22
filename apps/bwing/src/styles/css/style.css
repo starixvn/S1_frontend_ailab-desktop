@@ -125,6 +125,7 @@ html {
 }
 
 header {
+  position: relative;
   position: fixed;
   background: #010e33;
   width: 100%;
@@ -428,6 +429,14 @@ header .header > div.menu .gameList .keno {
 
 header .header > div.menu .gameList .keno:hover {
   background: url(../img/keno_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .v8 {
+  background: url(../img/lotteryV8.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .v8:hover {
+  background: url(../img/lotteryV8_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .gameList .lottery {
@@ -1066,6 +1075,246 @@ header .header > div.function .wallet .submenu div.loginLog, header .header > di
 
 header .header > div.function .wallet .submenu div.loginLog span, header .header > div.function .wallet .submenu div.transactionLog span {
   height: 20px;
+}
+
+.flower {
+  position: fixed;
+  top: 0px;
+  background: url(../img/newyear/flowerL.png) no-repeat;
+  background-size: 100%;
+  width: 10%;
+  padding-bottom: 8%;
+  z-index: 10;
+}
+
+.flower.flowerR {
+  background: url(../img/newyear/flowerR.png) no-repeat;
+  background-size: 100%;
+  right: 0;
+}
+
+.newyear {
+  width: 100%;
+  position: fixed;
+  top: 120px;
+  z-index: 2;
+}
+
+.newyear .newyearLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.newyear .newyearLeft .line {
+  background: url(../img/newyear/line.png) no-repeat;
+  background-size: 100%;
+  width: 200px;
+  height: 40px;
+}
+
+.newyear .newyearLeft .lantern {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  background: url(../img/newyear/lantern.png) no-repeat;
+  background-size: 100%;
+  width: 90px;
+  height: 170px;
+  -webkit-animation: lantern 2s ease-in-out infinite alternate;
+          animation: lantern 2s ease-in-out infinite alternate;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.newyear .newyearLeft .lantern:nth-child(2) {
+  top: 10px;
+  left: 130px;
+  width: 60px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.newyear .newyearLeft.newyearRight {
+  right: 0;
+  left: auto;
+}
+
+.newyear .newyearLeft.newyearRight .line {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.newyear .newyearLeft.newyearRight .lantern {
+  left: 80px;
+}
+
+.newyear .newyearLeft.newyearRight .lantern:nth-child(2) {
+  left: 10px;
+}
+
+.newyear .cow {
+  position: fixed;
+  width: 230px;
+  height: 160px;
+  background-image: url(../img/newyear/cow.png);
+  background-size: 100%;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.newyear .money {
+  position: fixed;
+  bottom: 0px;
+  right: 0;
+  width: 300px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.newyear .money .box {
+  position: absolute;
+  width: 280px;
+  height: 130px;
+  right: 0;
+  bottom: 0;
+  background-image: url(../img/newyear/money.png);
+  background-size: 100%;
+  z-index: 2;
+}
+
+.newyear .money .l {
+  position: absolute;
+  top: 100px;
+  left: 130px;
+  width: 50px;
+  height: 60px;
+  background-image: url(https://pic.90sjimg.com/design/00/23/31/57/5a353c05b36fc.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transform: rotate(-320deg);
+          transform: rotate(-320deg);
+  -webkit-animation: l 1s 1s ease-in-out infinite;
+          animation: l 1s 1s ease-in-out infinite;
+}
+
+.newyear .money .l:nth-child(2) {
+  top: 70px;
+  left: 140px;
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.newyear .money .l:nth-child(3) {
+  top: 80px;
+  left: 160px;
+  -webkit-animation-delay: 0.2 0.5s;
+          animation-delay: 0.2 0.5s;
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+.newyear .money .l:nth-child(4) {
+  top: 50px;
+  left: 170px;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.newyear .money .l:nth-child(5) {
+  top: 80px;
+  left: 190px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+
+@-webkit-keyframes l {
+  0% {
+    margin-top: 0px;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    margin-top: -250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes l {
+  0% {
+    margin-top: 0px;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    margin-top: -250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes lantern {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes lantern {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+.newyearBg {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../img/newyear/bg.png);
+  pointer-events: none;
+}
+
+.newyearBg .pillarL {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url(../img/newyear/pillarL.png) no-repeat center;
+  background-size: 100%;
+  width: 14%;
+  height: 1481px;
+}
+
+.newyearBg .pillarL.pillarR {
+  left: auto;
+  right: 0;
+  background: url(../img/newyear/pillarL.png) no-repeat bottom;
+  background-size: 100%;
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
 }
 
 main {
@@ -5709,6 +5958,8 @@ input + .iconModule i.icon.icon-checkmark:before {
       flex-wrap: wrap;
   padding: 20px 0;
   text-align: center;
+  position: relative;
+  z-index: 0;
 }
 
 .indexGameList a,
@@ -5742,6 +5993,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 .guide > div {
@@ -6121,6 +6373,10 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .rankingPage.recordsBg {
   background: url(../img/ranking/recordsBg.png) no-repeat center top;
+}
+
+.rankingPage.listeventBg {
+  background: url(../img/ranking/listeventBg.png) no-repeat center top;
 }
 
 .rankingPage .bottomImg {
