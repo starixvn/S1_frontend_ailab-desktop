@@ -149,7 +149,8 @@ export default {
 		gameId: 1
 	},
 	V8_Poker: {
-		tpId: 25
+		tpId: 25,
+		gameId: 0
 	}
 };
 

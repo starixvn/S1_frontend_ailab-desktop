@@ -109,7 +109,8 @@ export default {
 		name: "cockFighting"
 	},
 	V8_Poker: {
-		tpId: 25
+		tpId: 25,
+		gameId: 0
 	}
 };
 
