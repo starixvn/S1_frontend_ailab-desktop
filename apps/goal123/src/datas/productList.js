@@ -107,6 +107,9 @@ export default {
 		gameId: "cmt0001",
 		tpId: 24,
 		name: "cockFighting"
+	},
+	V8_Poker: {
+		tpId: 25
 	}
 };
 

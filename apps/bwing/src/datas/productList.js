@@ -147,6 +147,9 @@ export default {
 	One789_lottery_789: {
 		tpId: 23,
 		gameId: 1
+	},
+	V8_Poker: {
+		tpId: 25
 	}
 };
 
