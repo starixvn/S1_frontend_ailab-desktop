@@ -119,15 +119,9 @@ export default ({
 					setPopBox({ isOpen: false });
 				};
 
-				const openNewWindow = (url, windowKey) => {
-					if (typeof window !== `undefined`) {
-						window.open(
-							url,
-							windowKey,
-							"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
-						);
-						clickClose();
-					}
+				const openNewWindow = () => {
+					OPEN_IN_BLANK(rule.entPageUrl, rule.windowKey);
+					clickClose();
 				};
 
 				const linkToPage = () => {
@@ -143,14 +137,7 @@ export default ({
 						clickClose,
 						btnBar: (
 							<div className="btnGroup">
-								<a
-									className="blue"
-									onClick={openNewWindow.bind(
-										this,
-										rule.entPageUrl,
-										rule.windowKey,
-										true
-									)}>
+								<a className="blue" onClick={openNewWindow}>
 									{t("lbl_GoToGame")}
 								</a>
 								<a className="orange" onClick={linkToPage}>
