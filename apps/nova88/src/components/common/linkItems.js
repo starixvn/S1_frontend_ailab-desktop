@@ -8,7 +8,6 @@ import {
 import defPopBoxType from "./defPopBoxType";
 import { popBoxContext } from "./context";
 import path from "../../router";
-import productList from "../../datas/productList";
 
 export const getUrl = (preUrl, info) => {
 	return `/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;
@@ -41,13 +40,6 @@ export default ({
 		if (showSubMenu) {
 			showSubMenu(key);
 		}
-	};
-	// popBox.oneGamingLink
-	const showOneGamingLink = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.showOneGamingLink
-		});
 	};
 
 	const currentPage = checkMatchPage ? getCurrentPage() : "";
@@ -225,5 +217,5 @@ export default ({
 		);
 	});
 
-	return <>{rows}</>;
+	return rows;
 };
