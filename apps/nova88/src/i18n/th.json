@@ -467,10 +467,10 @@
 	
 	"oneGaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Poker":"โป๊กเกอร์",
-	"lbl_Download_app":"Download App",
+	"lbl_DownloadApp":"ดาวน์โหลดแอพ",
 	"lbl_Android":"Android",
-	"lbl_Go_to_game":"GO TO GAME",
-	"lbl_Go_to_download_app":"GO TO DOWNLOAD APP",
+	"lbl_GoToGame":"GO TO GAME",
+	"lbl_GoToDownloadApp":"GO TO DOWNLOAD APP",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "Download",

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
@@ -92,48 +92,8 @@ export default ({
 					</button>
 				);
 			}
-			if (isBlank && m.productInfo.tpId === productList.poker.tpId) {
-				const clickClose = () => {
-					setPopBox({ isOpen: false });
-				};
-				const showOneGamingLinkPopBox = () =>
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.showOneGamingLink,
-						clickClose,
-						btnBar: (
-							<div className="btnGroup">
-								<a
-									key={key}
-									className="blue"
-									onClick={OPEN_IN_BLANK.bind(
-										this,
-										rule.entPageUrl,
-										rule.windowKey
-									)}
-									onFocus={() => 0}>
-									{t("lbl_Go_to_game")}
-								</a>
-								<Link
-									to={`${langId}/${_path}`}
-									className="orange">
-									{t("lbl_Go_to_download_app")}
-								</Link>
-							</div>
-						)
-					});
 
-				return (
-					<button
-						key={key}
-						className={_className}
-						onClick={showOneGamingLinkPopBox}>
-						{displayText}
-					</button>
-				);
-			}
-
-			if (isBlank && rule.windowKey) {
+			if (isBlank && rule.windowKey && !m.openPopBox) {
 				return (
 					<a
 						key={key}
@@ -161,6 +121,63 @@ export default ({
 					</button>
 				);
 			}
+
+			if (m.openPopBox) {
+				const clickClose = () => {
+					setPopBox({ isOpen: false });
+				};
+
+				const openNewWindow = (url, windowKey) => {
+					if (typeof window !== `undefined`) {
+						window.open(
+							url,
+							windowKey,
+							"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
+						);
+						clickClose();
+					}
+				};
+
+				const linkToPage = () => {
+					currentPage === `/${langId}/${_path}`
+						? clickClose()
+						: navigate(`/${langId}/${_path}`);
+				};
+
+				const showLinkOptionsPopBox = () =>
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.showOneGamingLink,
+						clickClose,
+						btnBar: (
+							<div className="btnGroup">
+								<a
+									className="blue"
+									onClick={openNewWindow.bind(
+										this,
+										rule.entPageUrl,
+										rule.windowKey,
+										true
+									)}>
+									{t("lbl_GoToGame")}
+								</a>
+								<a className="orange" onClick={linkToPage}>
+									{t("lbl_GoToDownloadApp")}
+								</a>
+							</div>
+						)
+					});
+
+				return (
+					<button
+						key={key}
+						className={_className}
+						onClick={showLinkOptionsPopBox}>
+						{displayText}
+					</button>
+				);
+			}
+
 			const _url = getUrl(`${langId}/${_path}`, m.productInfo);
 
 			_className =
@@ -196,6 +213,7 @@ export default ({
 				</Link>
 			);
 		}
+
 		return (
 			<button
 				key={key}

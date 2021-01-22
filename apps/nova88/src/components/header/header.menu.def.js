@@ -278,7 +278,8 @@ export const defMenuLinks = {
 		productInfo: productList.poker,
 		path: path.oneGame.root,
 		displayKey: "lbl_Poker",
-		className: "icon icon-new"
+		className: "icon icon-new",
+		openPopBox: true
 	}
 };
 
