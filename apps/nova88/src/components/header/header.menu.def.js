@@ -87,55 +87,55 @@ export const defMenuLinks = {
 		productInfo: productList.eSport,
 		path: path.sports.root,
 		displayKey: "lbl_eSports",
-		className: "eSportsbtn",
-		subMenu: [
-			{
-				className: "icon",
-				displayKey: "lbl_eSports",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "esportALL.png",
-				listBgImgUrl: "eSportsListHover.png",
-				parameter: { ...productList.eSport },
-				...productList.eSport
-			},
-			{
-				className: "icon",
-				displayKey: "lbl_Dota2",
-				listNpcImgUrl: "esportDOTA2.png",
-				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.eSport_Dota2 },
-				...productList.eSport_Dota2
-			},
-			{
-				className: "icon",
-				displayKey: "lbl_LeagueOfLegends",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "esportLOL.png",
-				listBgImgUrl: "eSportsListHover.png",
-				parameter: { ...productList.eSport_LeagueOfLegends },
-				...productList.eSport_LeagueOfLegends
-			},
-			{
-				className: "icon",
-				displayKey: "lbl_CSGO",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "esportCS.png",
-				listBgImgUrl: "eSportsListHover.png",
-				parameter: { ...productList.eSport_Csgo },
-				...productList.eSport_Csgo
-			},
+		className: "eSportsbtn"
+		// subMenu: [
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_eSports",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		listNpcImgUrl: "esportALL.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		parameter: { ...productList.eSport },
+		// 		...productList.eSport
+		// 	},
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_Dota2",
+		// 		listNpcImgUrl: "esportDOTA2.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		parameter: { ...productList.eSport_Dota2 },
+		// 		...productList.eSport_Dota2
+		// 	},
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_LeagueOfLegends",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		listNpcImgUrl: "esportLOL.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		parameter: { ...productList.eSport_LeagueOfLegends },
+		// 		...productList.eSport_LeagueOfLegends
+		// 	},
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_CSGO",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		listNpcImgUrl: "esportCS.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		parameter: { ...productList.eSport_Csgo },
+		// 		...productList.eSport_Csgo
+		// 	},
 
-			{
-				className: "icon",
-				displayKey: "lbl_Kog",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "esportKOG.png",
-				listBgImgUrl: "eSportsListHover.png",
-				parameter: { ...productList.eSport_KingOfGlory },
-				...productList.eSport_KingOfGlory
-			}
-		]
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_Kog",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		listNpcImgUrl: "esportKOG.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		parameter: { ...productList.eSport_KingOfGlory },
+		// 		...productList.eSport_KingOfGlory
+		// 	}
+		// ]
 	},
 	casino: {
 		path: path.casino.root,
