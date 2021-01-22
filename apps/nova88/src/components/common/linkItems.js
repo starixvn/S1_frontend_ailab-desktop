@@ -8,6 +8,7 @@ import {
 import defPopBoxType from "./defPopBoxType";
 import { popBoxContext } from "./context";
 import path from "../../router";
+import productList from "../../datas/productList";
 
 export const getUrl = (preUrl, info) => {
 	return `/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;
@@ -41,6 +42,13 @@ export default ({
 			showSubMenu(key);
 		}
 	};
+	// popBox.oneGamingLink
+	const showOneGamingLink = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.showOneGamingLink
+		});
+	};
 
 	const currentPage = checkMatchPage ? getCurrentPage() : "";
 
@@ -56,7 +64,6 @@ export default ({
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
 			: t(m.displayKey);
-		// let displayText = t(m.displayKey);
 
 		let _path = m.path;
 
@@ -72,6 +79,7 @@ export default ({
 			}
 
 			const isBlank = rule.actionType === _ACTION_TYPE.blank;
+
 			if (rule.needLogin && isLogin === false) {
 				return (
 					<button
@@ -84,7 +92,48 @@ export default ({
 					</button>
 				);
 			}
-			if (isBlank) {
+			if (isBlank && m.productInfo.tpId === productList.poker.tpId) {
+				const clickClose = () => {
+					setPopBox({ isOpen: false });
+				};
+				const showOneGamingLinkPopBox = () =>
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.showOneGamingLink,
+						clickClose,
+						btnBar: (
+							<div className="btnGroup">
+								<a
+									key={key}
+									className="blue"
+									onClick={OPEN_IN_BLANK.bind(
+										this,
+										rule.entPageUrl,
+										rule.windowKey
+									)}
+									onFocus={() => 0}>
+									{t("lbl_Go_to_game")}
+								</a>
+								<Link
+									to={`${langId}/${_path}`}
+									className="orange">
+									{t("lbl_Go_to_download_app")}
+								</Link>
+							</div>
+						)
+					});
+
+				return (
+					<button
+						key={key}
+						className={_className}
+						onClick={showOneGamingLinkPopBox}>
+						{displayText}
+					</button>
+				);
+			}
+
+			if (isBlank && rule.windowKey) {
 				return (
 					<a
 						key={key}
@@ -100,6 +149,7 @@ export default ({
 					</a>
 				);
 			}
+
 			if (!_path) {
 				return (
 					<button

@@ -45,7 +45,7 @@ const OneGame = () => {
 							<div className="left right">
 								<div className="downloadItem">
 									<div className="title icon icon-android">
-										{t("lbl_Download_App")}
+										{t("lbl_Download_app")}
 									</div>
 									<button
 										onClick={OnClick}

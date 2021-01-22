@@ -24,6 +24,7 @@ import RegisterSuccess from "./popBox.registerSuccess";
 import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
 import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
 import JoinReferral from "./popBox.joinReferral";
+import OneGamingLink from "./popBox.oneGamingLink";
 import defPopBoxType from "./defPopBoxType";
 
 export default () => {
@@ -152,6 +153,7 @@ export default () => {
 				/>
 			);
 			break;
+
 		case defPopBoxType.TurnoverAccumulated:
 			content = <TurnoverAccumulated {...popBox} />;
 			break;
@@ -184,16 +186,28 @@ export default () => {
 			);
 			break;
 
-		case defPopBoxType.kiss918: {
-			const Kiss918 = lazy(() => import("./popBox.918kiss"));
-			content = (
-				<Suspense fallback={<>Loading...</>}>
-					<Kiss918 ClickClose={popBox.onClickClose} />
-				</Suspense>
-			);
-		}
+		case defPopBoxType.kiss918:
+			{
+				const Kiss918 = lazy(() => import("./popBox.918kiss"));
+				content = (
+					<Suspense fallback={<>Loading...</>}>
+						<Kiss918 ClickClose={popBox.onClickClose} />
+					</Suspense>
+				);
+			}
+			break;
+
 		case defPopBoxType.JoinReferral:
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
+			break;
+
+		case defPopBoxType.OneGamingLink:
+			content = (
+				<OneGamingLink
+					btnBar={popBox.btnBar}
+					clickClose={popBox.clickClose}
+				/>
+			);
 			break;
 
 		case defPopBoxType.default:

@@ -464,6 +464,13 @@
 	"lbl_MissionCompleted":"任务已完成",
 	"lbl_NoOfAchievements":"您推荐的朋友人数",
 	"lbl_RewardAmount":"奖励金额",
+	
+	"oneGaming ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Poker":"Poker",
+	"lbl_Download_app":"下载APP",
+	"lbl_Android":"安卓",
+	"lbl_Go_to_game":"前往游戏",
+	"lbl_Go_to_download_app":"前往下载APP",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "下载",
@@ -472,8 +479,6 @@
 	"lbl_Game_ICG_DRAGONBALL_FISHING":"龙珠捕鱼",
 	"lbl_Game_ICG_FISHING_OF_SAVIORS":"中国神魔捕鱼",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"霸王虞姬",
-	"lbl_Game_ICG_TOWER_OF_SAVIORS":"中国神魔塔防",
-	"lbl_Poker":"Poker",
-	"lbl_Download_App":"下载App",
-	"lbl_Android":"安卓"
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"中国神魔塔防"
+
 }

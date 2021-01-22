@@ -464,6 +464,13 @@
 	"lbl_MissionCompleted":"การแนะนำสำเร็จ",
 	"lbl_NoOfAchievements":"จำนวนการตอบรับ",
 	"lbl_RewardAmount":"รางวัล",
+	
+	"oneGaming ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Poker":"Poker",
+	"lbl_Download_app":"Download App",
+	"lbl_Android":"Android",
+	"lbl_Go_to_game":"GO TO GAME",
+	"lbl_Go_to_download_app":"GO TO DOWNLOAD APP",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Download": "Download",
@@ -472,8 +479,5 @@
 	"lbl_Game_ICG_DRAGONBALL_FISHING":"ดราก้อนบอล ฟิชชิ่ง",
 	"lbl_Game_ICG_FISHING_OF_SAVIORS":"ฟิชชิ่ง ออฟ เซเวียร์ส",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"ปาอ๋องหยูจี",
-	"lbl_Game_ICG_TOWER_OF_SAVIORS":"ทาวเวอร์ ออฟ เซเวียร์ส",
-	"lbl_Poker":"Poker",
-	"lbl_Download_App":"Download App",
-	"lbl_Android":"Android"
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"ทาวเวอร์ ออฟ เซเวียร์ส"
 }
