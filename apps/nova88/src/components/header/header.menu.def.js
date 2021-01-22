@@ -169,6 +169,12 @@ export const defMenuLinks = {
 			}
 		]
 	},
+	poker: {
+		// productInfo: productList.poker,
+		path: path.oneGame.root,
+		displayKey: "lbl_Poker",
+		className: "icon icon-new"
+	},
 	lottery: {
 		productInfo: productList.lottery,
 		displayKey: "lbl_Lottery",
@@ -273,12 +279,6 @@ export const defMenuLinks = {
 		path: path.leaderBoard.root,
 		displayKey: "lbl_Ranking",
 		className: "live"
-	},
-	poker: {
-		// productInfo: productList.poker,
-		path: path.oneGame.root,
-		displayKey: "lbl_Poker",
-		className: "icon icon-new"
 	}
 };
 
