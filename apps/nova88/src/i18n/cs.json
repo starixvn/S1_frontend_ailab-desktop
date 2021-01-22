@@ -466,7 +466,7 @@
 	"lbl_RewardAmount":"奖励金额",
 	
 	"oneGaming ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Poker":"Poker",
+	"lbl_Poker":"扑克",
 	"lbl_Download_app":"下载APP",
 	"lbl_Android":"安卓",
 	"lbl_Go_to_game":"前往游戏",
@@ -480,5 +480,4 @@
 	"lbl_Game_ICG_FISHING_OF_SAVIORS":"中国神魔捕鱼",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"霸王虞姬",
 	"lbl_Game_ICG_TOWER_OF_SAVIORS":"中国神魔塔防"
-
 }
