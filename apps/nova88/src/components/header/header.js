@@ -10,6 +10,7 @@ import { api_site_GetTpIds } from "../../service/api/site";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
+import Logo from "../../styles/img/nova88_logo_ny.png";
 
 export default () => {
 	const { t } = useTranslation();
@@ -83,11 +84,7 @@ export default () => {
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						{/* <img src={SiteInfo.logo} alt={config.siteName} /> */}
-						<img
-							src={require("../../styles/img/nova88_logo_ny.png")}
-							alt={config.siteName}
-						/>
+						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
 				<Menu casinoTpIds={casinoTpIds} />
