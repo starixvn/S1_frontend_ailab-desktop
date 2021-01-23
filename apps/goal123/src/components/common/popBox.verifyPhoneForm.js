@@ -84,7 +84,7 @@ export default ({ startUnixTime = 0 }) => {
 
 	const secondsToTime = secondsInTime => {
 		const pad = (num, size) => {
-			return `000${num.slice(size * -1)}`;
+			return `000${num}`.slice(size * -1);
 		};
 		const time = parseFloat(secondsInTime).toFixed(3);
 		// const hours = Math.floor(time / 60 / 60);
