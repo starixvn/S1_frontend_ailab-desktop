@@ -18,9 +18,9 @@ export default ({ t, tab, rewardList, userInfo }) => {
 			</div>
 			<div className="right">
 				<div className="title">
-					{t("lbl_Goal123_LeaderBoard_Title_1")}
+					{t("lbl_leaderboardTitle_1")}
 					<br />
-					{t("lbl_Goal123_LeaderBoard_Title_2")}
+					{t("lbl_leaderboardTitle_2")}
 				</div>
 				<div className="titleGroup" />
 				<div className="rankingList">
