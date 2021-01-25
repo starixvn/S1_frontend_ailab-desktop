@@ -65,7 +65,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "build.bat buildNova88",
+              "gulp minify --gulpfile=apps/nova88/gulpfile.js",
               "nx autoBuild nova88 --skip-nx-cache"
             ],
             "parallel": false
@@ -90,7 +90,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "build.bat serveNova88",
+              "gulp minify --gulpfile=apps/nova88/gulpfile.js",
               "nx autoServe nova88"
             ],
             "parallel": false

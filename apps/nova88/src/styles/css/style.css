@@ -3962,7 +3962,56 @@ input[type="file"] {
   margin-top: -1px;
 }
 
-.Submit, .friend, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
+#popup .pop .poker {
+  width: 680px;
+}
+
+#popup .pop .poker .icon-close {
+  top: -25px;
+  right: -30px;
+}
+
+#popup .pop .poker .pokerModule {
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+}
+
+#popup .pop .poker .pokerModule img {
+  width: auto;
+}
+
+#popup .pop .poker .pokerModule .btnGroup {
+  position: absolute;
+}
+
+#popup .pop .poker .pokerModule .btnGroup button, #popup .pop .poker .pokerModule .btnGroup a {
+  background: rgba(30, 133, 236, 0.5);
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+  font-style: italic;
+  border: 1px solid #1E85EC;
+  text-align: center;
+}
+
+#popup .pop .poker .pokerModule .btnGroup button.blue, #popup .pop .poker .pokerModule .btnGroup a.blue {
+  background: rgba(247, 121, 0, 0.8);
+  border: 1px solid #f77900;
+}
+
+.Submit, .poker, .friend, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3975,18 +4024,18 @@ input[type="file"] {
   margin: auto;
 }
 
-.Submit.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
+.Submit.active, .poker.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Submit .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
+.Submit .icon, .poker .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
   font-size: 36px;
   color: #f77900;
 }
 
-.Submit .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
+.Submit .icon.icon-bell, .poker .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
   color: #f77900;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -3994,20 +4043,20 @@ input[type="file"] {
           transform: rotate(20deg);
 }
 
-.Submit .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
+.Submit .title, .poker .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
   margin: 10px 0 20px;
 }
 
-.Submit .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
+.Submit .txt-lightgray, .poker .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
   text-align: center;
 }
 
-.Submit .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
+.Submit .popList, .poker .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
+.Submit .popList ul, .poker .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4020,13 +4069,13 @@ input[type="file"] {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
+.Submit .popList ul li, .poker .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
+.Submit .popList ul li:first-child, .poker .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
@@ -7132,7 +7181,7 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #d3162c;
+  background: #191919;
   border: 1px solid #b28750;
   margin: 0 8.5px !important;
   padding: 10px 0;
@@ -7336,6 +7385,142 @@ button.icon-spinner11:before {
 
 .userpassword img {
   width: auto;
+}
+
+.onegameModule {
+  padding: 40px;
+  min-width: calc(768px - 80px);
+  margin-bottom: 35px;
+}
+
+.onegameModule .promotionsInfo {
+  position: relative;
+  background: url(../img/onegame/bg.jpg) no-repeat center;
+  height: 500px;
+  padding: 0;
+}
+
+.onegameModule .onegame {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1115px;
+  margin: auto;
+}
+
+.onegameModule .onegame > div, .onegameModule .onegame > button, .onegameModule .onegame > a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.onegameModule .onegame > button, .onegameModule .onegame > a {
+  margin: 0 15px;
+}
+
+.onegameModule .onegame .left {
+  height: 252px;
+  background: url(../img/onegame/btnleftbg.png) no-repeat center right/cover;
+}
+
+.onegameModule .onegame .left.right {
+  background: url(../img/onegame/btnrightbg.png) no-repeat center left/cover;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 0 10px;
+  height: 222px;
+}
+
+.onegameModule .onegame .left.right .downloadItem {
+  margin-bottom: 10px;
+}
+
+.onegameModule .onegame .left img {
+  width: auto;
+  max-height: 60%;
+  border-radius: 0;
+}
+
+.onegameModule .onegame .left .icon-android {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.onegameModule .onegame .left .icon-android + button {
+  width: 150px;
+  height: 30px;
+  border-radius: 30px;
+  background: cornflowerblue;
+  border: 1px solid #1E85EC;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.onegameModule .onegame .left .downloadItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.onegameModule .onegame .left .downloadItem .title {
+  font-size: 14px;
+  color: #73ccff;
+}
+
+.onegameModule .onegame .left .downloadItem .readonly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 230px;
+  height: 40px;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #55c1ff;
+}
+
+.onegameModule .onegame .left .downloadItem .readonly input {
+  border: 0;
+  padding: 0px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  color: white;
+}
+
+.onegameModule .onegame .left .downloadItem .readonly .icon {
+  color: white;
+  background: -webkit-gradient(linear, left bottom, left top, from(#3694ff), to(#66cfff));
+  background: linear-gradient(to top, #3694ff 0%, #66cfff 100%);
+  width: 50px;
 }
 
 .installGuide {
@@ -8262,80 +8447,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 37.04659%;
-  top: -55.86229%;
-  width: 11.74338px;
-  height: 11.74338px;
+  left: 27.88155%;
+  top: 22.06771%;
+  width: 12.38195px;
+  height: 12.38195px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 34.82277%;
-  top: -32.05117%;
-  width: 13.12716px;
-  height: 13.12716px;
+  left: 17.54021%;
+  top: -46.61989%;
+  width: 11.09713px;
+  height: 11.09713px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 14.31918%;
-  top: 32.54692%;
-  width: 14.74942px;
-  height: 14.74942px;
+  left: 42.22619%;
+  top: -59.59405%;
+  width: 11.26462px;
+  height: 11.26462px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 78.31548%;
-  top: -27.13946%;
-  width: 9.64464px;
-  height: 9.64464px;
+  left: 44.30272%;
+  top: -46.42656%;
+  width: 7.64861px;
+  height: 7.64861px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 8.51494%;
-  top: -23.64695%;
-  width: 12.03662px;
-  height: 12.03662px;
+  left: 42.70816%;
+  top: 25.76025%;
+  width: 8.39274px;
+  height: 8.39274px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 2.52743%;
-  top: -52.5738%;
-  width: 14.44826px;
-  height: 14.44826px;
+  left: 39.64141%;
+  top: 17.35194%;
+  width: 14.35344px;
+  height: 14.35344px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 95.59229%;
-  top: -24.88864%;
-  width: 10.74255px;
-  height: 10.74255px;
+  left: 86.83163%;
+  top: 7.48114%;
+  width: 6.11084px;
+  height: 6.11084px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 45.99606%;
-  top: -37.61463%;
-  width: 14.1937px;
-  height: 14.1937px;
+  left: 62.48855%;
+  top: -51.728%;
+  width: 8.57461px;
+  height: 8.57461px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
