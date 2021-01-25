@@ -5,12 +5,14 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { number_format } from "../common/common";
 import { defPopBoxType } from "../common/popBox";
 import {
-	api_events_GetLeaderboardList,
-	api_events_GetCustRank
+	api_events_GetLeaderboardListV2,
+	api_events_GetCustRankV2
 } from "../../service/api/events";
 import LeaderBoardTabs from "./leaderboard.tabs";
 import LeaderboardEventTab from "./leaderboard.eventTab";
 import {
+	current_eventCode,
+	last_eventCode,
 	defTabId,
 	defDayNum,
 	defImgRankId,
@@ -18,7 +20,8 @@ import {
 	defBackground,
 	TopNum,
 	defDayOptions,
-	defTabList
+	defTabList,
+	defLastChampionReward
 } from "./leaderboard.def";
 
 const langMapping = {
@@ -82,32 +85,35 @@ export default () => {
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
-
 		setTab(tabValue);
-
-		if (tabValue === defTabId.ranking) return fetchData(defDayNum.today);
+		if (tabValue === defTabId.ranking)
+			return fetchData(defDayNum.today, tabValue);
 		if (tabValue === defTabId.records)
-			return fetchData(defDayNum.yesterDay);
+			return fetchData(defDayNum.yesterDay, tabValue);
+		if (tabValue === defTabId.lastEvent)
+			return fetchData(defDayNum.today, tabValue);
 	};
 
 	const ClickClose = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const getLeaderboardData = async daysValue => {
+	const getLeaderboardData = async (daysValue, tabValue) => {
 		if (!userInfo.isLogin) return;
+		const isLastEventTab = tabValue === defTabId.lastEvent;
 		const payload = {
 			lBCategoryId,
 			TopNum,
-			BeforeDays: daysValue ?? beforeDays
+			BeforeDays: daysValue ?? beforeDays,
+			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
 
-		await api_events_GetLeaderboardList(payload).then(res => {
+		await api_events_GetLeaderboardListV2(payload).then(res => {
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
 					setRankingData(res.data.data);
-					if (res.data.data.length !== 0) {
-						getSelfLeaderboardData(daysValue);
+					if (res.data.data.length > 0) {
+						getSelfLeaderboardData(daysValue, tabValue);
 					}
 				} else {
 					setPopBox({
@@ -129,13 +135,15 @@ export default () => {
 		});
 	};
 
-	const getSelfLeaderboardData = async (daysValue = beforeDays) => {
+	const getSelfLeaderboardData = async (daysValue, tabValue) => {
 		if (!userInfo.isLogin) return;
+		const isLastEventTab = tabValue === defTabId.lastEvent;
 		const payload = {
 			LBCategoryId: lBCategoryId,
-			BeforeDays: daysValue
+			BeforeDays: daysValue,
+			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
-		await api_events_GetCustRank(payload).then(res => {
+		await api_events_GetCustRankV2(payload).then(res => {
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
 					setSelfRankingData(res.data.data);
@@ -159,9 +167,9 @@ export default () => {
 		});
 	};
 
-	const fetchData = _beforeDays => {
+	const fetchData = (_beforeDays, tabValue) => {
 		setBeforeDays(_beforeDays);
-		getLeaderboardData(_beforeDays);
+		getLeaderboardData(_beforeDays, tabValue);
 	};
 
 	const title = t(defTabList.find(item => item.id === tab).displayKey);
@@ -232,7 +240,11 @@ export default () => {
 								<div className="highest">
 									{t("lbl_No1Award")}
 									<span>
-										VND {defRewardList.VND[0].reward}
+										VND
+										{tab === defTabId.lastEvent
+											? defLastChampionReward.VND[0]
+													.reward
+											: defRewardList.VND[0].reward}
 									</span>
 								</div>
 							</div>

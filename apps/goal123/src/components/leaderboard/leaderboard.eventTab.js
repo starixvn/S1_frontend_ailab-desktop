@@ -1,11 +1,9 @@
 import React from "react";
 import { number_format } from "../common/common";
 import config from "../../config";
-import { defTabId, defImgRankId } from "./leaderboard.def";
+import { defTabId, defImgRankId, rewardPrizeSum } from "./leaderboard.def";
 
 export default ({ t, tab, rewardList, userInfo }) => {
-	const rewardTotalValue = "161,000,000";
-
 	return (
 		<div
 			className={`rank_content ${
@@ -15,11 +13,15 @@ export default ({ t, tab, rewardList, userInfo }) => {
 				<img src={require("../../styles/img/coins.png")} />
 				<div className="highest">
 					{t("lbl_TotalValue")}
-					<span>VND {rewardTotalValue}</span>
+					<span>VND {rewardPrizeSum}</span>
 				</div>
 			</div>
 			<div className="right">
-				<div className="title">{t("lbl_Goal123_EventTitle")}</div>
+				<div className="title">
+					{t("lbl_Goal123_LeaderBoard_Title_1")}
+					<br />
+					{t("lbl_Goal123_LeaderBoard_Title_2")}
+				</div>
 				<div className="titleGroup" />
 				<div className="rankingList">
 					<ul>
@@ -53,7 +55,7 @@ export default ({ t, tab, rewardList, userInfo }) => {
 
 				<a
 					className="more"
-					href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/ranking/${userInfo.langId}.html`}
+					href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/ranking/${userInfo.langId}2.html`}
 					target="_blank">
 					{t("lbl_MoreDetails")}
 				</a>
