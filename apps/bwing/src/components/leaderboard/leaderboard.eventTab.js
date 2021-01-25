@@ -43,7 +43,7 @@ export default ({ t, rewardList, userInfo }) => {
 			</div>
 			<a
 				className="remind btn"
-				href={`${config.t_and_cURL}/SiteSkin/Bwing/ranking/${userInfo.langId}.html`}
+				href={`${config.t_and_cURL}/SiteSkin/Bwing/ranking/${userInfo.langId}2.html`}
 				target="_blank">
 				{t("lbl_MoreDetails")}
 			</a>

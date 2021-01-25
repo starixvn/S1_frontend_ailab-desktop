@@ -30,11 +30,15 @@ export default ({
 			{tab === defTabId.ranking ? (
 				<h1 className="title">{t("lbl_Ranking_Top20")}</h1>
 			) : (
-				<DayDropdown
-					t={t}
-					onChangeDays={onChangeDays}
-					beforeDays={beforeDays}
-				/>
+				<>
+					{tab === defTabId.lastEvent ? null : (
+						<DayDropdown
+							t={t}
+							onChangeDays={onChangeDays}
+							beforeDays={beforeDays}
+						/>
+					)}
+				</>
 			)}
 			{rankingData?.length > 0 ? (
 				<div className="ranklist">
@@ -54,11 +58,13 @@ export default ({
 			) : (
 				<div className="icon icon-nodata">{t("lbl_NoData")}</div>
 			)}
-			<p className="remind">
-				{t(`lbl_LastUpdTime`, {
-					time: showUpdateTime()
-				})}
-			</p>
+			{tab === defTabId.lastEvent ? null : (
+				<p className="remind">
+					{t(`lbl_LastUpdTime`, {
+						time: showUpdateTime()
+					})}
+				</p>
+			)}
 		</>
 	);
 };

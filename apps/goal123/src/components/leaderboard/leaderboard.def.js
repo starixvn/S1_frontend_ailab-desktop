@@ -12,7 +12,12 @@ export const defTabId = {
 
 export const defImgRankId = ["", "first", "second", "third"];
 
-export const defBackground = ["", "", "bg_rank", "bg_record", "bg_last"];
+export const defBackground = {
+	1: "",
+	2: "bg_rank",
+	3: "bg_record",
+	4: "bg_last"
+};
 
 export const defTabList = [
 	{ id: defTabId.event, displayKey: "lbl_Event" },

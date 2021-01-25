@@ -56,6 +56,10 @@ export default () => {
 		: langMapping[userInfo.langId];
 
 	const rewardList = defRewardList[currencyName];
+	const no1Reward =
+		tab === defTabId.lastEvent
+			? defLastChampionReward[currencyName][0].reward
+			: defRewardList[currencyName][0].reward;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -86,12 +90,10 @@ export default () => {
 				popBoxType: defPopBoxType.Login
 			});
 		setTab(tabValue);
-		if (tabValue === defTabId.ranking)
+		if (tabValue === defTabId.ranking || tabValue === defTabId.lastEvent)
 			return fetchData(defDayNum.today, tabValue);
 		if (tabValue === defTabId.records)
 			return fetchData(defDayNum.yesterDay, tabValue);
-		if (tabValue === defTabId.lastEvent)
-			return fetchData(defDayNum.today, tabValue);
 	};
 
 	const ClickClose = () => {
@@ -241,10 +243,7 @@ export default () => {
 									{t("lbl_No1Award")}
 									<span>
 										VND
-										{tab === defTabId.lastEvent
-											? defLastChampionReward.VND[0]
-													.reward
-											: defRewardList.VND[0].reward}
+										{no1Reward}
 									</span>
 								</div>
 							</div>
@@ -275,11 +274,14 @@ export default () => {
 										)}
 									</ul>
 								</div>
-								<div className="message">
-									{t(`lbl_LastUpdTime`, {
-										time: showUpdateTime()
-									})}
-								</div>
+
+								{tab === defTabId.lastEvent ? null : (
+									<div className="message">
+										{t(`lbl_LastUpdTime`, {
+											time: showUpdateTime()
+										})}
+									</div>
+								)}
 							</div>
 						</div>
 					)}
