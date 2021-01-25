@@ -20,6 +20,13 @@ export default () => {
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
 		if (userInfo.isLogin && casinoTpIds === null) {
 			api_site_GetTpIds().then(res => {
 				if (res.data.errorCode === 0 && isMountedRef.current) {
