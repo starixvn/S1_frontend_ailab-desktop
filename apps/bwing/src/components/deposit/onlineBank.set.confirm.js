@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from "react";
-import { number_format, getUrlParameter } from "../common/common";
-import { userInfoContext, popBoxContext } from "../common/context";
+import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
+import { number_format, getUrlParameter } from "../common/common";
+import { userInfoContext, popBoxContext } from "../common/context";
 import config from "../../config";
 import path from "../../router";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default ({ bankInfo, amount, _isConvert }) => {
 	const { userInfo } = useContext(userInfoContext);
@@ -46,18 +46,15 @@ export default ({ bankInfo, amount, _isConvert }) => {
 
 	const ClickSubmit = () => {
 		if (typeof window !== undefined) {
-			let real_amount = _isConvert ? amount * 1000 : amount;
-			let bankInfoValue = bankInfo ? bankInfo.sysId : "0";
+			const real_amount = _isConvert ? amount * 1000 : amount;
+			const bankInfoValue = bankInfo ? bankInfo.sysId : "0";
 			window.open(
-				`${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking` +
-					"?sysId=" +
-					bankInfoValue +
-					"&payId=" +
-					getUrlParameter("pId") +
-					"&ChannelId=" +
-					getUrlParameter("cId") +
-					"&Amount=" +
-					real_amount
+				`${
+					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking` +
+					"?sysId="
+				}${bankInfoValue}&payId=${getUrlParameter(
+					"pId"
+				)}&ChannelId=${getUrlParameter("cId")}&Amount=${real_amount}`
 			);
 		}
 	};

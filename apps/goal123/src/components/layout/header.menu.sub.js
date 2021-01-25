@@ -22,20 +22,20 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
 			langId: userInfo.langId,
-			tpId: tpId,
-			gameId: gameId,
-			loginCallback: loginCallback
+			tpId,
+			gameId,
+			loginCallback
 		});
 	};
 
-	let rows = subItems.map(s => {
-		let displayText = s.displayText ? s.displayText : t(s.displayKey);
-		let key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
+	const rows = subItems.map(s => {
+		const displayText = s.displayText ? s.displayText : t(s.displayKey);
+		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
 		let params = null;
 		if (s.parameter) {
-			params = Object.keys(s.parameter).map(key => {
-				return `${key}=${s.parameter[key]}`;
+			params = Object.keys(s.parameter).map(_key => {
+				return `${_key}=${s.parameter[_key]}`;
 			});
 		}
 		let _iconClassName = s.className ? s.className : "";
@@ -47,7 +47,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			_iconClassName = `${s.className}${iconStrings}`;
 		}
 
-		let _urlParams = params !== null ? `?${params.join("&")}` : "";
+		const _urlParams = params !== null ? `?${params.join("&")}` : "";
 		if (s.menuType === defMenuType.Link) {
 			return (
 				<Link
@@ -57,16 +57,15 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 					<span className={s.icon}>{displayText}</span>
 				</Link>
 			);
-		} else {
-			return (
-				<button
-					key={key}
-					className={_iconClassName}
-					onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
-					<span className={s.icon}>{displayText}</span>
-				</button>
-			);
 		}
+		return (
+			<button
+				key={key}
+				className={_iconClassName}
+				onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
+				<span className={s.icon}>{displayText}</span>
+			</button>
+		);
 	});
 
 	return <div className={`${listClassName} active`}>{rows}</div>;

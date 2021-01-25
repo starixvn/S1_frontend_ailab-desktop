@@ -5,11 +5,11 @@ import React, {
 	useContext,
 	useState
 } from "react";
-import { api_payment_GetBankInfoOffList } from "../../service/api/payment";
 import { Redirect, Link } from "@reach/router";
-import { isConvert } from "../common/common";
 import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../common/context";
+import { api_payment_GetBankInfoOffList } from "../../service/api/payment";
+import { isConvert } from "../common/common";
 import DepositWrapper from "./wrapper";
 import BankPanel from "./localBank.set.bank";
 import AmountPanel from "./localBank.set.amount";
@@ -36,7 +36,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -44,7 +46,7 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
+						const datas = res.data.data;
 						if (datas.length > 0) {
 							dispatch({
 								type: defActionType.SET_BANKLIST,
@@ -74,7 +76,7 @@ export default () => {
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -145,7 +147,7 @@ export default () => {
 	) : redirectPath === null ? (
 		<DepositWrapper step={state.step}>
 			<div className="platformName">
-				<div className="icon icon-library"></div>
+				<div className="icon icon-library" />
 				<div>
 					<div className="txt-yellow">{t("lbl_WireTransfers")}</div>
 					<div className="txt-red">
@@ -155,11 +157,10 @@ export default () => {
 				{state.step === 2 ? (
 					<Link
 						to={`/${userInfo.langId}/${path.deposit.root}`}
-						className="icon icon-arrow-left2"></Link>
-				) : (
-					<a
 						className="icon icon-arrow-left2"
-						onClick={ClickBack}></a>
+					/>
+				) : (
+					<a className="icon icon-arrow-left2" onClick={ClickBack} />
 				)}
 			</div>
 			{displayModule}

@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
+import { Link } from "@reach/router";
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
 	OPEN_IN_BLANK
 } from "../../service/enterPage";
-import { Link } from "@reach/router";
-import { defPopBoxType } from "./popBox";
-import { popBoxContext } from "./context";
+import { defPopBoxType } from "./defPopBoxType";
+import { popBoxContext, userInfoContext } from "./context";
 import path from "../../router";
-import { userInfoContext } from "../common/context";
+
 import { siteInfo } from "../../config";
 
 const getUrl = (preUrl, info) => {
@@ -46,15 +46,15 @@ export default ({
 		}
 	};
 
-	let currentPage = checkMatchPage ? getCurrentPage() : "";
+	const currentPage = checkMatchPage ? getCurrentPage() : "";
 
-	let rows = Object.keys(defMenuLinks).map(key => {
-		let m = defMenuLinks[key];
-		let elemKey = `${mainKey}${key}`;
+	const rows = Object.keys(defMenuLinks).map(key => {
+		const m = defMenuLinks[key];
+		const elemKey = `${mainKey}${key}`;
 
-		let arrowIcon =
+		const arrowIcon =
 			m.subMenu && m.subMenu.length > 0 ? (
-				<i className="icon icon-arrow_drop_down"></i>
+				<i className="icon icon-arrow_drop_down" />
 			) : null;
 
 		let _className = m.className ? m.className : "";
@@ -99,7 +99,7 @@ export default ({
 		}
 
 		if (m.productInfo) {
-			let rule = GET_OPEN_RULE(
+			const rule = GET_OPEN_RULE(
 				langId,
 				m.productInfo.tpId,
 				m.productInfo.gameId
@@ -109,19 +109,21 @@ export default ({
 				_path = path.sports.root;
 			}
 
-			let isBlank = rule.actionType === _ACTION_TYPE.blank;
+			const isBlank = rule.actionType === _ACTION_TYPE.blank;
 			if (rule.needLogin && isLogin === false) {
 				return (
 					<button
 						key={elemKey}
 						onClick={showLogin}
 						className={_className}
-						onMouseOver={_showSubMenu.bind(this, key)}>
+						onMouseOver={_showSubMenu.bind(this, key)}
+						onFocus={() => 0}>
 						{displayText}
 						{arrowIcon}
 					</button>
 				);
-			} else if (isBlank) {
+			}
+			if (isBlank) {
 				return (
 					<a
 						key={elemKey}
@@ -131,71 +133,72 @@ export default ({
 							this,
 							rule.entPageUrl,
 							rule.windowKey
-						)}>
+						)}
+						onFocus={() => 0}>
 						{displayText}
 						{arrowIcon}
 					</a>
 				);
-			} else if (!_path) {
+			}
+			if (!_path) {
 				return (
 					<button
 						key={elemKey}
 						className={_className}
-						onMouseOver={_showSubMenu.bind(this, key)}>
+						onMouseOver={_showSubMenu.bind(this, key)}
+						onFocus={() => 0}>
 						{displayText}
 						{arrowIcon}
 					</button>
 				);
-			} else {
-				let _url = getUrl(`${langId}/${_path}`, m.productInfo);
+			}
+			const _url = getUrl(`${langId}/${_path}`, m.productInfo);
 
-				_className =
-					checkMatchPage && _url === currentPage
-						? _className
-							? `${_className} active`
-							: "active"
-						: _className;
-				return (
-					<Link
-						key={elemKey}
-						to={_url}
-						className={_className}
-						onMouseOver={_showSubMenu.bind(this, key)}>
-						{displayText}
-						{arrowIcon}
-					</Link>
-				);
-			}
-		} else {
-			if (_path) {
-				_className =
-					checkMatchPage && `${langId}/${_path}` === currentPage
-						? _className
-							? `${_className} active`
-							: "active"
-						: _className;
-				return (
-					<Link
-						key={elemKey}
-						to={`${langId}/${_path}`}
-						onMouseOver={_showSubMenu.bind(this, key)}
-						className={_className}>
-						{displayText}
-						{arrowIcon}
-					</Link>
-				);
-			} else {
-				return (
-					<button
-						key={elemKey}
-						onMouseOver={_showSubMenu.bind(this, key)}
-						className={_className}>
-						{displayText}
-						{arrowIcon}
-					</button>
-				);
-			}
+			_className =
+				checkMatchPage && _url === currentPage
+					? _className
+						? `${_className} active`
+						: "active"
+					: _className;
+			return (
+				<Link
+					key={elemKey}
+					to={_url}
+					className={_className}
+					onMouseOver={_showSubMenu.bind(this, key)}>
+					{displayText}
+					{arrowIcon}
+				</Link>
+			);
 		}
+		if (_path) {
+			_className =
+				checkMatchPage && `${langId}/${_path}` === currentPage
+					? _className
+						? `${_className} active`
+						: "active"
+					: _className;
+			return (
+				<Link
+					key={elemKey}
+					to={`${langId}/${_path}`}
+					onMouseOver={_showSubMenu.bind(this, key)}
+					className={_className}>
+					{displayText}
+					{arrowIcon}
+				</Link>
+			);
+		}
+		return (
+			<button
+				key={elemKey}
+				onMouseOver={_showSubMenu.bind(this, key)}
+				className={_className}
+				onFocus={() => 0}>
+				{displayText}
+				{arrowIcon}
+			</button>
+		);
 	});
 
 	return rows;

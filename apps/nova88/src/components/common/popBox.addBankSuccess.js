@@ -5,7 +5,7 @@ export default ({ btnBar }) => {
 	const { t } = useTranslation();
 	return (
 		<div className="updateSuccess active">
-			<div className="icon icon-library"></div>
+			<div className="icon icon-library" />
 			<div className="title">{t("lbl_AddBankAccount")}</div>
 			<div>{t("lbl_UpdateSuccessful")}</div>
 			{btnBar}

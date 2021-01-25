@@ -10,7 +10,7 @@ export default ({ langId, t, hideSiteMap = false }) => (
 		<div>
 			<a
 				style={{ fontWeight: "bold" }}
-				href={siteInfo({ langId: langId }).affiliateLink}
+				href={siteInfo({ langId }).affiliateLink}
 				target="_blank"
 				rel="noreferrer">
 				{t("lbl_Affiliates")?.toUpperCase()}

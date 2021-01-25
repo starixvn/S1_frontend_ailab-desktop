@@ -1,9 +1,6 @@
-import {
-	api_account_UserLogin,
-	api_account_UserLogout
-} from "../service/api/account";
-import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
-import { api_site_CheckSignIn } from "../service/api/site";
+import { api_account_UserLogin, api_account_UserLogout } from "./api/account";
+import { api_accountStrict_GetCustProfile } from "./api/accountStrict";
+import { api_site_CheckSignIn } from "./api/site";
 import { setCookie } from "../components/common/common";
 
 const isBrowser = typeof window !== `undefined`;
@@ -14,11 +11,11 @@ export const LOGIN = async ({ userName, password, langId }) => {
 	let result = {};
 
 	try {
-		let url,
-			platform,
-			userAgent,
-			screen,
-			di = "";
+		let url;
+		let platform;
+		let userAgent;
+		let screen;
+		let di = "";
 		if (typeof window !== undefined) {
 			url = window.location.origin;
 			platform = navigator.platform;
@@ -42,17 +39,17 @@ export const LOGIN = async ({ userName, password, langId }) => {
 		let isLogin = false;
 		let userData = {};
 		if (res.data.errorCode === 0) {
-			let userlangId = res.data.message.replace("/", "");
+			const userlangId = res.data.message.replace("/", "");
 
 			const res_custInfo = await api_accountStrict_GetCustProfile();
 			let _loginUser = {
-				userName: userName,
+				userName,
 				langId: userlangId,
 				isLogin: true
 			};
 
 			if (res_custInfo.data.errorCode === 0) {
-				let data = res_custInfo.data.data;
+				const { data } = res_custInfo.data;
 				_loginUser = {
 					..._loginUser,
 					...data
@@ -68,8 +65,8 @@ export const LOGIN = async ({ userName, password, langId }) => {
 		result = {
 			errorCode: res.data.errorCode,
 			message: errMsg,
-			isLogin: isLogin,
-			userData: userData
+			isLogin,
+			userData
 		};
 	} catch (error) {
 		result = {
@@ -84,7 +81,12 @@ export const LOGIN = async ({ userName, password, langId }) => {
 };
 
 export const IS_LOGGED_IN = async () => {
-	return await api_site_CheckSignIn().then(res => res.data.errorCode === 0);
+	try {
+		const res = await api_site_CheckSignIn();
+		return res.data.errorCode === 0;
+	} catch (error) {
+		return false;
+	}
 };
 
 export const LOGOUT = callback => {

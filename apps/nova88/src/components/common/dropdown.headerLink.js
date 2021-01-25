@@ -20,27 +20,28 @@ export class Dropdown extends Component {
 
 	clickDropdown = e => {
 		e.preventDefault();
-		this.setState({ isOpen: !this.state.isOpen });
+		this.setState(prev => ({ isOpen: !prev.isOpen }));
 		if (this.props.clickDropdown) {
 			this.props.clickDropdown();
 		}
 	};
 
-	selectItem = i => {
+	selectItem = (i, e) => {
+		e.stopPropagation();
 		this.setState({ isOpen: false });
 		this.props.onSelectItem(i);
 	};
 
 	render() {
-		let arr = this.props.options.map((item, idx) => {
-			let key = `${this.props.mainKey}_${idx}`;
+		const arr = this.props.options.map((item, idx) => {
+			const key = `${this.props.mainKey}_${idx}`;
 
 			let _iconClassName = "";
 
 			if (item.eventIcons) {
 				let iconStrings = "";
 				for (let i = 0; i < item.eventIcons.length; i++) {
-					iconStrings += item.eventIcons[i] + " ";
+					iconStrings += `${item.eventIcons[i]} `;
 				}
 				_iconClassName = `icon ${iconStrings}`;
 			}
@@ -64,9 +65,7 @@ export class Dropdown extends Component {
 
 		let selected = null;
 		if (this.props.placeholder?.elemType === defElemType.btn) {
-			selected = (
-				<button className={this.props.placeholder.icon}></button>
-			);
+			selected = <button className={this.props.placeholder.icon} />;
 		} else {
 			selected = <button>{this.props.placeholder}</button>;
 		}
@@ -85,13 +84,21 @@ export class Dropdown extends Component {
 	}
 }
 
+Dropdown.defaultProps = {
+	placeholder: ""
+};
+
 Dropdown.propTypes = {
 	className: PropTypes.string.isRequired,
 	subClassName: PropTypes.string.isRequired,
 	i18n: PropTypes.func.isRequired,
-	options: PropTypes.array.isRequired,
+	options: PropTypes.arrayOf(PropTypes.any).isRequired,
 	mainKey: PropTypes.string.isRequired,
-	placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
+	placeholder: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.node,
+		PropTypes.object
+	])
 };
 
 export const defElemType = {

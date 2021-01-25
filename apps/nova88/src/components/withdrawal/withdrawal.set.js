@@ -5,7 +5,7 @@ import AmountPanel from "./withdrawal.set.amount";
 import ConfirmPanel from "./withdrawal.set.confirm";
 import { isConvert } from "../common/common";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import { defActionType } from "./withdrawal.reducer";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
 
@@ -18,7 +18,9 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -34,8 +36,8 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let datas = res.data.data;
-						let _custBankInfo =
+						const datas = res.data.data;
+						const _custBankInfo =
 							datas === null ? [] : datas.bankInfoDetail;
 						dispatch({
 							type: defActionType.GET_CUST_BANKINFO,

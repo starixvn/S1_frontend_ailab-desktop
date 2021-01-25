@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import { Link, navigate } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../common/context";
 import Menu from "./header.menu";
-import config, { SiteInfo } from "../../config";
+import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import { api_site_GetTpIds } from "../../service/api/site";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
-import { defPopBoxType } from "../common/popBox";
-import { useTranslation } from "react-i18next";
+import defPopBoxType from "../common/defPopBoxType";
+import Logo from "../../styles/img/nova88_logo_ny.png";
 
 export default () => {
 	const { t } = useTranslation();
@@ -17,6 +18,13 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const [casinoTpIds, setCasinoTpIds] = useState(null);
 	const isMountedRef = useRef(null);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
 
 	useEffect(() => {
 		if (userInfo.isLogin && casinoTpIds === null) {
@@ -76,11 +84,7 @@ export default () => {
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						{/* <img src={SiteInfo.logo} alt={config.siteName} /> */}
-						<img
-							src={require("../../styles/img/nova88_logo_ny.png")}
-							alt={config.siteName}
-						/>
+						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
 				<Menu casinoTpIds={casinoTpIds} />

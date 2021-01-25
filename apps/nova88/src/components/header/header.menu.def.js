@@ -92,55 +92,55 @@ export const defMenuLinks = {
 		productInfo: productList.eSport,
 		path: path.sports.root,
 		displayKey: "lbl_eSports",
-		className: "eSportsbtn",
-		subMenu: [
-			{
-				className: "icon",
-				displayKey: "lbl_eSports",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "esportALL.png",
-				listBgImgUrl: "eSportsListHover.png",
-				parameter: { ...productList.eSport },
-				...productList.eSport
-			},
-			{
-				className: "icon",
-				displayKey: "lbl_Dota2",
-				listNpcImgUrl: "esportDOTA2.png",
-				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.eSport_Dota2 },
-				...productList.eSport_Dota2
-			},
-			{
-				className: "icon",
-				displayKey: "lbl_LeagueOfLegends",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "esportLOL.png",
-				listBgImgUrl: "eSportsListHover.png",
-				parameter: { ...productList.eSport_LeagueOfLegends },
-				...productList.eSport_LeagueOfLegends
-			},
-			{
-				className: "icon",
-				displayKey: "lbl_CSGO",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "esportCS.png",
-				listBgImgUrl: "eSportsListHover.png",
-				parameter: { ...productList.eSport_Csgo },
-				...productList.eSport_Csgo
-			},
+		className: "eSportsbtn"
+		// subMenu: [
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_eSports",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		listNpcImgUrl: "esportALL.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		parameter: { ...productList.eSport },
+		// 		...productList.eSport
+		// 	},
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_Dota2",
+		// 		listNpcImgUrl: "esportDOTA2.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		parameter: { ...productList.eSport_Dota2 },
+		// 		...productList.eSport_Dota2
+		// 	},
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_LeagueOfLegends",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		listNpcImgUrl: "esportLOL.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		parameter: { ...productList.eSport_LeagueOfLegends },
+		// 		...productList.eSport_LeagueOfLegends
+		// 	},
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_CSGO",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		listNpcImgUrl: "esportCS.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		parameter: { ...productList.eSport_Csgo },
+		// 		...productList.eSport_Csgo
+		// 	},
 
-			{
-				className: "icon",
-				displayKey: "lbl_Kog",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "esportKOG.png",
-				listBgImgUrl: "eSportsListHover.png",
-				parameter: { ...productList.eSport_KingOfGlory },
-				...productList.eSport_KingOfGlory
-			}
-		]
+		// 	{
+		// 		className: "icon",
+		// 		displayKey: "lbl_Kog",
+		// 		menuType: defMenuType.LinkOrBtn,
+		// 		listNpcImgUrl: "esportKOG.png",
+		// 		listBgImgUrl: "eSportsListHover.png",
+		// 		parameter: { ...productList.eSport_KingOfGlory },
+		// 		...productList.eSport_KingOfGlory
+		// 	}
+		// ]
 	},
 	casino: {
 		path: path.casino.root,
@@ -254,7 +254,7 @@ export const defMenuLinks = {
 				icon: "icon icon-WM",
 				displayText: "WM",
 				listNpcImgUrl: "casino-WM.png",
-				listBgImgUrl: "wmBG.png",
+				listBgImgUrl: ["wmBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -263,7 +263,7 @@ export const defMenuLinks = {
 				icon: "icon icon-AB",
 				displayText: "Allbet",
 				listNpcImgUrl: "casino-ALL.png",
-				listBgImgUrl: "allBG.png",
+				listBgImgUrl: ["allBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -272,7 +272,7 @@ export const defMenuLinks = {
 				icon: "icon icon-EB",
 				displayText: "eBET",
 				listNpcImgUrl: "casino-EB.png",
-				listBgImgUrl: "ebBG.png",
+				listBgImgUrl: ["ebBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -281,7 +281,7 @@ export const defMenuLinks = {
 				icon: "icon icon-SA",
 				displayText: "SA",
 				listNpcImgUrl: "casino-SA.png",
-				listBgImgUrl: "saBG.png",
+				listBgImgUrl: ["saBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -290,7 +290,7 @@ export const defMenuLinks = {
 				icon: "icon icon-AE",
 				displayText: "AE",
 				listNpcImgUrl: "casino-AE.png",
-				listBgImgUrl: "aeBG.png",
+				listBgImgUrl: ["aeBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -299,7 +299,7 @@ export const defMenuLinks = {
 				icon: "icon icon-PP",
 				displayText: "PP",
 				listNpcImgUrl: "casino-PP.png",
-				listBgImgUrl: "ppBG.png",
+				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -308,7 +308,7 @@ export const defMenuLinks = {
 				icon: "icon icon-DG",
 				displayText: "DG",
 				listNpcImgUrl: "casino-DG.png",
-				listBgImgUrl: "dgBG.png",
+				listBgImgUrl: ["dgBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			},
 			{
@@ -317,7 +317,7 @@ export const defMenuLinks = {
 				icon: "icon icon-AG",
 				displayText: "AG",
 				listNpcImgUrl: "casino-AG.png",
-				listBgImgUrl: "agBG.png",
+				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			}
 		]

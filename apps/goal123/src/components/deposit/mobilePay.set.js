@@ -5,12 +5,12 @@ import React, {
 	useRef,
 	useReducer
 } from "react";
-import { api_payment_GetMobilePayInfoList } from "../../service/api/payment";
-import { getUrlParameter, isConvert } from "../common/common";
 import { Redirect, Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
+import { api_payment_GetMobilePayInfoList } from "../../service/api/payment";
+import { getUrlParameter, isConvert } from "../common/common";
 import path from "../../router";
-import { userInfoContext } from "../common/context";
+import { userInfoContext, popBoxContext } from "../common/context";
 import DepositWrapper from "./wrapper";
 import ChannelPanel from "./mobilePay.set.channel";
 import AmountPanel from "./mobilePay.set.amount";
@@ -23,7 +23,6 @@ import {
 } from "./mobilePay.reducer";
 import Loading from "../common/loading";
 import { defPopBoxType } from "../common/popBox";
-import { popBoxContext } from "../common/context";
 
 export default () => {
 	const { t } = useTranslation();
@@ -35,19 +34,21 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
-		let gId = getUrlParameter("gId");
-		let name = getUrlParameter("name");
+		const gId = getUrlParameter("gId");
+		const name = getUrlParameter("name");
 		if (!gId || !name) {
 			setRedirectPath(`/${userInfo.langId}/${path.deposit.root}`);
 		}
 	}, [setRedirectPath, userInfo.langId]);
 
 	useEffect(() => {
-		let gId = getUrlParameter("gId");
+		const gId = getUrlParameter("gId");
 		if (gId) {
 			api_payment_GetMobilePayInfoList(Number(gId)).then(
 				res => {
@@ -70,7 +71,7 @@ export default () => {
 		}
 	}, [userInfo.langId]);
 
-	let gName = getUrlParameter("name");
+	const gName = getUrlParameter("name");
 	let displayMoudle = null;
 	const _isConvert = isConvert(userInfo.currencyId);
 	switch (state.displayMoudle) {
@@ -115,7 +116,7 @@ export default () => {
 	) : redirectPath === null ? (
 		<DepositWrapper step={state.step}>
 			<div className="platformName">
-				<div className={`icon icon-${gName}`}></div>
+				<div className={`icon icon-${gName}`} />
 				<div>
 					<div className="txt-yellow">{t("lbl_MobileDeposit")}</div>
 					<div className="txt-red">
@@ -125,11 +126,10 @@ export default () => {
 				{state.step === 2 ? (
 					<Link
 						to={`/${userInfo.langId}/${path.deposit.root}`}
-						className="icon icon-arrow-left2"></Link>
+						className="icon icon-arrow-left2"
+					/>
 				) : (
-					<a
-						onClick={ClickBack}
-						className="icon icon-arrow-left2"></a>
+					<a onClick={ClickBack} className="icon icon-arrow-left2" />
 				)}
 			</div>
 			{displayMoudle}

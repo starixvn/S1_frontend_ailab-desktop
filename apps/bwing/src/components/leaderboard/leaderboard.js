@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import {
 	api_events_GetLeaderboardList,
 	api_events_GetCustRank
 } from "../../service/api/events";
-import LeaderBoardTab from "./leaderBoard.tabs";
+import LeaderBoardTab from "./leaderboard.tabs";
 
 import {
 	defTabId,
@@ -43,11 +43,13 @@ export default () => {
 		: langMapping[userInfo.langId];
 
 	const rewardList = defRewardList[currencyName];
-	let no1Reward = rewardList[0].reward;
+	const no1Reward = rewardList[0].reward;
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -104,7 +106,7 @@ export default () => {
 	const getLeaderboardData = async daysValue => {
 		if (!userInfo.isLogin) return;
 		const payload_topWinner = {
-			lBCategoryId: lBCategoryId,
+			lBCategoryId,
 			TopNum: defTopWinnerNum,
 			BeforeDays: daysValue
 		};
@@ -116,9 +118,9 @@ export default () => {
 			async res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let topArr = res.data.data;
+						const topArr = res.data.data;
 
-						let userInTop =
+						const userInTop =
 							topArr.findIndex(
 								r => r.username === userInfo.userName
 							) !== -1;
@@ -128,27 +130,26 @@ export default () => {
 						} else if (userInTop) {
 							setRankingData(topArr);
 						} else {
-							let selfItem = await api_events_GetCustRank(
+							const selfItem = await api_events_GetCustRank(
 								payload_self
-							).then(res => {
-								if (res.data.errorCode === 0) {
+							).then(resRank => {
+								if (resRank.data.errorCode === 0) {
 									return {
 										userName: userInfo.userName,
-										wTurnover: res.data.data.point,
+										wTurnover: resRank.data.data.point,
 										custRank:
-											res.data.data.custRank === 0 ||
-											res.data.data.custRank > 999
+											resRank.data.data.custRank === 0 ||
+											resRank.data.data.custRank > 999
 												? "999+"
-												: res.data.data.custRank
+												: resRank.data.data.custRank
 									};
-								} else {
-									showErrorPopBox(res.data.message);
 								}
+								showErrorPopBox(resRank.data.message);
 							});
-							let filterRepeatArr = topArr.filter(
+							const filterRepeatArr = topArr.filter(
 								r => r.username !== userInfo.userName
 							);
-							let concatArr = [...filterRepeatArr, selfItem];
+							const concatArr = [...filterRepeatArr, selfItem];
 							setRankingData(concatArr);
 						}
 					} else {

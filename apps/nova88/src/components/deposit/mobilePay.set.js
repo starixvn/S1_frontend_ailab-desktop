@@ -5,10 +5,10 @@ import React, {
 	useRef,
 	useReducer
 } from "react";
-import { api_payment_GetMobilePayInfoList } from "../../service/api/payment";
-import { getUrlParameter, isConvert } from "../common/common";
 import { Redirect, Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
+import { api_payment_GetMobilePayInfoList } from "../../service/api/payment";
+import { getUrlParameter, isConvert } from "../common/common";
 import path from "../../router";
 import { userInfoContext } from "../common/context";
 import DepositWrapper from "./wrapper";
@@ -32,40 +32,36 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
-		let gId = getUrlParameter("gId");
-		let name = getUrlParameter("name");
+		const gId = getUrlParameter("gId");
+		const name = getUrlParameter("name");
 		if (!gId || !name) {
 			setRedirectPath(`/${userInfo.langId}/${path.deposit.root}`);
 		}
 	}, [setRedirectPath, userInfo.langId]);
 
 	useEffect(() => {
-		let gId = getUrlParameter("gId");
+		const gId = getUrlParameter("gId");
 		if (gId) {
-			api_payment_GetMobilePayInfoList(Number(gId)).then(
-				res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0) {
-							dispatch({
-								type: defActionType.SET_CHANNELLIST,
-								channelList: res.data.data
-							});
-						}
-					}
-				},
-				err => {
-					if (isMountedRef.current) {
+			api_payment_GetMobilePayInfoList(Number(gId)).then(res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						dispatch({
+							type: defActionType.SET_CHANNELLIST,
+							channelList: res.data.data
+						});
 					}
 				}
-			);
+			});
 		}
 	}, [userInfo.langId]);
 
-	let gName = getUrlParameter("name");
+	const gName = getUrlParameter("name");
 	let displayMoudle = null;
 	const _isConvert = isConvert(userInfo.currencyId);
 	switch (state.displayMoudle) {
@@ -125,11 +121,10 @@ export default () => {
 				{state.step === 2 ? (
 					<Link
 						to={`/${userInfo.langId}/${path.deposit.root}`}
-						className="icon icon-arrow-left2"></Link>
+						className="icon icon-arrow-left2"
+					/>
 				) : (
-					<a
-						onClick={ClickBack}
-						className="icon icon-arrow-left2"></a>
+					<a onClick={ClickBack} className="icon icon-arrow-left2" />
 				)}
 			</div>
 			{displayMoudle}

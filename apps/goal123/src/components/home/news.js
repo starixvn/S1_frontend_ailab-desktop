@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { userInfoContext, popBoxContext } from "../common/context";
-import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
+import { userInfoContext, popBoxContext } from "../common/context";
 import { api_news_GetNews } from "../../service/api/news";
 import { defPopBoxType } from "../common/popBox";
 import path from "../../router";
@@ -15,7 +15,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -87,7 +89,7 @@ export default () => {
 			<div className="news">
 				<div>
 					<div className="title">{t("lbl_Goal123News")}</div>
-					<span></span>
+					<span />
 				</div>
 				<div className="articleModule">{newsRows}</div>
 			</div>

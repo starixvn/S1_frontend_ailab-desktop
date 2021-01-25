@@ -1,8 +1,8 @@
 import React from "react";
 
 export default props => {
-	let minValue = 0;
-	let maxValue = props.availableBalance;
+	const minValue = 0;
+	const maxValue = props.availableBalance;
 
 	return (
 		<div className="cashBar">

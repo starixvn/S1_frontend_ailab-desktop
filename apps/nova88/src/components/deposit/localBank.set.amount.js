@@ -10,7 +10,7 @@ export default ({ bankInfo, _isConvert, amount, dispatch, checked, tip }) => {
 	const { t } = useTranslation();
 
 	const EditAmount = e => {
-		let value = e.target.value;
+		let { value } = e.target;
 		value = value.replace(/^(0+)|[^\d]+/g, "");
 
 		ValidAmount(value);
@@ -18,7 +18,7 @@ export default ({ bankInfo, _isConvert, amount, dispatch, checked, tip }) => {
 	};
 
 	const ValidAmount = _amount => {
-		let result = checkAmount(
+		const result = checkAmount(
 			_amount,
 			bankInfo.minAmount,
 			bankInfo.maxAmount,
@@ -42,7 +42,7 @@ export default ({ bankInfo, _isConvert, amount, dispatch, checked, tip }) => {
 	};
 
 	const clickInfo = () => {
-		let _msg =
+		const _msg =
 			tip === "" ? getAmountTip(bankInfo.minAmount, _isConvert, t) : "";
 		dispatch({
 			type: defActionType.SET_CHECK_STATUS,
@@ -53,7 +53,7 @@ export default ({ bankInfo, _isConvert, amount, dispatch, checked, tip }) => {
 
 	const SubmitAmount = e => {
 		e.preventDefault();
-		let result = ValidAmount(amount);
+		const result = ValidAmount(amount);
 		if (result) {
 			dispatch({ type: defActionType.SUBMIT_AMOUNT });
 		}
@@ -73,8 +73,8 @@ export default ({ bankInfo, _isConvert, amount, dispatch, checked, tip }) => {
 						<LimitTip
 							minAmount={bankInfo.minAmount}
 							maxAmount={bankInfo.maxAmount}
-							displayTextLimit={"Limit"}
-							displayTextUnLimit={"Unlimit"}
+							displayTextLimit="Limit"
+							displayTextUnLimit="Unlimit"
 							_isConvert={_isConvert}
 						/>
 					</div>

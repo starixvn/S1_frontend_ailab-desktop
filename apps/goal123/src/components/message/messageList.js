@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
 import {
 	api_account_GetMsgContent,
 	api_account_GetMsgCount
 } from "../../service/api/account";
 import { popBoxContext, msgCountContext } from "../common/context";
-import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/popBox";
-import moment from "moment";
 import Loading from "../common/loading";
 
 export default props => {
@@ -20,7 +20,9 @@ export default props => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const ClickClose = () => {
@@ -39,10 +41,10 @@ export default props => {
 							setMsgContentData(res.data.data.content);
 							props.getMsgList();
 
-							api_account_GetMsgCount().then(res => {
+							api_account_GetMsgCount().then(resMsgCount => {
 								if (isMountedRef.current) {
-									if (res.data.errorCode === 0) {
-										setMsgCount(res.data.data);
+									if (resMsgCount.data.errorCode === 0) {
+										setMsgCount(resMsgCount.data.data);
 									}
 								}
 							});
@@ -90,7 +92,7 @@ export default props => {
 		}
 	};
 
-	let compareDay = moment().diff(
+	const compareDay = moment().diff(
 		moment(props.createTime, "YYYY-MM-DD"),
 		"day"
 	);
@@ -98,11 +100,10 @@ export default props => {
 	const dateTimeFormat = () => {
 		if (showContent) {
 			return moment(props.createTime).format("YYYY-MM-DD HH:MM:ss");
-		} else {
-			return compareDay < 1
-				? moment(props.createTime).format("HH:MM:ss")
-				: moment(props.createTime).format("YYYY-MM-DD");
 		}
+		return compareDay < 1
+			? moment(props.createTime).format("HH:MM:ss")
+			: moment(props.createTime).format("YYYY-MM-DD");
 	};
 
 	return loading ? (
@@ -120,12 +121,10 @@ export default props => {
 					<label
 						aria-label="msgList-checkBox"
 						htmlFor={`msgList-checkBox-${props.id}`}
-						className="icon icon-checkbox-checked"></label>
+						className="icon icon-checkbox-checked"
+					/>
 				</div>
-				<div
-					onClick={getMsgContent.bind(this, !showContent)}
-					role="button"
-					onKeyDown={getMsgContent.bind(this, !showContent)}>
+				<div onClick={getMsgContent.bind(this, !showContent)}>
 					{props.title}
 				</div>
 				<div
@@ -134,7 +133,8 @@ export default props => {
 					{dateTimeFormat()}
 					<button
 						aria-label="getMsgContent"
-						className="icon icon-keyboard_arrow_down"></button>
+						className="icon icon-keyboard_arrow_down"
+					/>
 				</div>
 			</div>
 			<div className={`listBody ${showContent ? "active" : ""}`}>

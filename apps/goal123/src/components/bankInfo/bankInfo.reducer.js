@@ -26,7 +26,8 @@ export const initState = {
 
 export function reducer(state, action) {
 	let newStep = 1;
-
+	let _accountName = "";
+	let _custBankList = [];
 	switch (action.type) {
 		case defActionType.TO_NEXT_STEP:
 			newStep = state.step + 1;
@@ -46,8 +47,7 @@ export function reducer(state, action) {
 
 		case defActionType.GET_CUST_BANK_INFO:
 			newStep = 1;
-			let _accountName = "";
-			let _custBankList = [];
+
 			if (action.datas) {
 				_accountName = action.datas.accountName;
 				_custBankList = action.datas.bankInfoDetail;

@@ -7,13 +7,13 @@ import Withdrawal from "../components/withdrawal/withdrawal.set.bank";
 import RecentHistory from "../components/withdrawal/recentHistory";
 import Loading from "../components/common/loading";
 import { popBoxContext } from "../components/common/context";
-import { defPopBoxType } from "../components/common/popBox";
-
+import { defPopBoxType } from "../components/common/defPopBoxType";
 import { api_account_GetWithdrawalAvailableBalance } from "../service/api/account";
 import {
 	api_payment_KycCheck,
 	api_payment_GetWithdrawalInfoRecent
 } from "../service/api/payment";
+
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
@@ -45,7 +45,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {

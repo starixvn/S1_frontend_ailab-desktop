@@ -1,10 +1,10 @@
 import React from "react";
 import moment from "moment";
-import { promoStatus, defPromotionType } from "./promotion.def";
-import { defPopBoxType } from "../common/popBox";
 import { Link } from "@reach/router";
+import { promoStatus, defPromotionType } from "./promotion.def";
+import { defPopBoxType } from "../common/defPopBoxType";
 import path from "../../router";
-import { number_format } from "../../components/common/common";
+import { number_format } from "../common/common";
 
 export const isArrayNotEmpty = arr => {
 	return Array.isArray(arr) && arr.length;
@@ -86,9 +86,9 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 		});
 
 	if (canJoin && !isJoin && result === 1 && requiredAmount > 0) {
-		let lessAmount = number_format(requiredAmount - depositAmount);
-		let _currency = t(`Currency_${currencyId}`);
-		let hint = `${_currency} ${lessAmount}$`;
+		const lessAmount = number_format(requiredAmount - depositAmount);
+		const _currency = t(`Currency_${currencyId}`);
+		const hint = `${_currency} ${lessAmount}$`;
 
 		return setPopBox({
 			isOpen: true,

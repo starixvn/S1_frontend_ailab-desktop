@@ -5,7 +5,7 @@ export const Iov_GetBlackBox = async () => {
 		typeof window.IGLOO.getBlackbox === "function"
 	) {
 		try {
-			let result = await window.IGLOO.getBlackbox();
+			const result = await window.IGLOO.getBlackbox();
 			blackBox = result?.blackbox || "";
 		} catch (e) {}
 	}

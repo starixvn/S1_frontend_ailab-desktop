@@ -5,10 +5,10 @@ import React, {
 	useRef,
 	useReducer
 } from "react";
-import { api_payment_GetMobilePayInfoList } from "../../service/api/payment";
-import { getUrlParameter, isConvert } from "../common/common";
 import { Redirect, Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
+import { api_payment_GetMobilePayInfoList } from "../../service/api/payment";
+import { getUrlParameter, isConvert } from "../common/common";
 import path from "../../router";
 import { userInfoContext } from "../common/context";
 import DepositWrapper from "./wrapper";
@@ -34,19 +34,21 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
-		let gId = getUrlParameter("gId");
-		let name = getUrlParameter("name");
+		const gId = getUrlParameter("gId");
+		const name = getUrlParameter("name");
 		if (!gId || !name) {
 			setRedirectPath(`/${userInfo.langId}/${path.deposit.root}`);
 		}
 	}, [setRedirectPath, userInfo.langId]);
 
 	useEffect(() => {
-		let gId = getUrlParameter("gId");
+		const gId = getUrlParameter("gId");
 		if (gId) {
 			api_payment_GetMobilePayInfoList(Number(gId)).then(
 				res => {
@@ -69,7 +71,7 @@ export default () => {
 		}
 	}, [userInfo.langId]);
 
-	let gName = getUrlParameter("name");
+	const gName = getUrlParameter("name");
 	let displayMoudle = null;
 	const _isConvert = isConvert(userInfo.currencyId);
 	switch (state.displayMoudle) {
@@ -118,7 +120,8 @@ export default () => {
 					{/* <div className={`icon icon-${gName}`}></div> */}
 					<img
 						src={`${config.imgUrl}/common/images/MobilePay/${gName}.png`}
-						alt={gName}></img>
+						alt={gName}
+					/>
 					<div>
 						<div>{t("lbl_MobileDeposit")}</div>
 						<div>

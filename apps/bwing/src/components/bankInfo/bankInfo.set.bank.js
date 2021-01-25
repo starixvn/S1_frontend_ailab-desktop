@@ -5,7 +5,7 @@ import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 import { popBoxContext } from "../common/context";
 import config from "../../config";
 import Loading from "../common/loading";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 
 export default ({ dispatch, bankList }) => {
 	const { t } = useTranslation();
@@ -15,7 +15,9 @@ export default ({ dispatch, bankList }) => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -80,7 +82,7 @@ export default ({ dispatch, bankList }) => {
 		dispatch({ type: defActionType.SELECT_BANK, bankIdx });
 	};
 
-	let arr = bankList?.map((item, i) => {
+	const arr = bankList?.map((item, i) => {
 		return (
 			<li key={`addBankAccount-${item.sysId}`}>
 				<a onClick={selectBank.bind(this, i)}>
@@ -96,23 +98,19 @@ export default ({ dispatch, bankList }) => {
 	return loading ? (
 		<Loading />
 	) : (
-		<>
-			<div className="walletModule">
-				<div className="addBank bankselect">
-					<button
-						className="icon icon-arrow-left2"
-						onClick={toLastStep}>
-						{t("lbl_back")}
-					</button>
-					<div className="subModuleList">
-						<div className="subModule">
-							<div className="subModuleBody">
-								<ul>{arr}</ul>
-							</div>
+		<div className="walletModule">
+			<div className="addBank bankselect">
+				<button className="icon icon-arrow-left2" onClick={toLastStep}>
+					{t("lbl_back")}
+				</button>
+				<div className="subModuleList">
+					<div className="subModule">
+						<div className="subModuleBody">
+							<ul>{arr}</ul>
 						</div>
 					</div>
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };

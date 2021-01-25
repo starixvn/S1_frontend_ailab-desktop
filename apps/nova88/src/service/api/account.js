@@ -1,5 +1,4 @@
-import { loginRequest } from "./base";
-import { accountRequest } from "./base";
+import { loginRequest, accountRequest } from "./base";
 
 export const api_account_SetLanguage = lang =>
 	accountRequest.post("/SetLanguage", { LangId: lang });
@@ -21,21 +20,21 @@ export const api_account_GetMsgList = ({ PageNumber }) =>
 
 export const api_account_GetMsgContent = MsgId =>
 	accountRequest.post("/GetMsgContent", {
-		MsgId: MsgId
+		MsgId
 	});
 
 export const api_account_DelMsg = MsgIds =>
-	accountRequest.post("/DelMsg", { MsgIds: MsgIds });
+	accountRequest.post("/DelMsg", { MsgIds });
 
-///// old api ↓↓
+/// // old api ↓↓
 export const api_account_GetWalletInfo = () =>
 	accountRequest.post("/GetWalletInfo");
 
 export const api_account_GetTpWalletList = ListType =>
-	accountRequest.post("/GetTpWalletList", { ListType: ListType });
+	accountRequest.post("/GetTpWalletList", { ListType });
 
 export const api_account_GetTpWalletBalance = TpId =>
-	accountRequest.post("/GetTpWalletBalance", { TpId: TpId });
+	accountRequest.post("/GetTpWalletBalance", { TpId });
 
 export const api_account_GetBalance = () => accountRequest.post("/GetBalance");
 
@@ -67,7 +66,7 @@ export const api_account_GetCustSpecificBonus = ({
 
 export const api_account_ExistsPhone = ({ AreaCode, Phone }) =>
 	accountRequest.post(`/ExistsPhoneNo`, {
-		AreaCode: AreaCode,
+		AreaCode,
 		PhoneNo: Phone
 	});
 

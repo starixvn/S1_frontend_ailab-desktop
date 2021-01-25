@@ -1,13 +1,12 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import moment from "moment";
 import {
 	api_account_GetMsgContent,
 	api_account_GetMsgCount
 } from "../../service/api/account";
-import { useTranslation } from "react-i18next";
 import { popBoxContext, msgCountContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
-
-import moment from "moment";
+import defPopBoxType from "../common/defPopBoxType";
 
 export default props => {
 	const { t } = useTranslation();
@@ -19,14 +18,16 @@ export default props => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { setMsgCount } = useContext(msgCountContext);
 
-	let compareDay = moment().diff(
+	const compareDay = moment().diff(
 		moment(props.createTime, "YYYY-MM-DD"),
 		"day"
 	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	const clickClose = () => {
@@ -36,11 +37,10 @@ export default props => {
 	const dateTimeFormat = () => {
 		if (showContent) {
 			return moment(props.createTime).format("YYYY-MM-DD HH:MM:ss");
-		} else {
-			return compareDay < 1
-				? moment(props.createTime).format("HH:MM:ss")
-				: moment(props.createTime).format("YYYY-MM-DD");
 		}
+		return compareDay < 1
+			? moment(props.createTime).format("HH:MM:ss")
+			: moment(props.createTime).format("YYYY-MM-DD");
 	};
 
 	const updateMsgList = () => {
@@ -124,7 +124,8 @@ export default props => {
 					<label
 						aria-label="msgList-checkBox"
 						htmlFor={`msgList-checkBox-${props.id}`}
-						className="icon icon-checkbox-checked"></label>
+						className="icon icon-checkbox-checked"
+					/>
 				</div>
 				<div onClick={() => getMsgContent(!showContent)}>
 					{props.title}
@@ -134,7 +135,7 @@ export default props => {
 					onClick={() => getMsgContent(!showContent)}>
 					{dateTimeFormat()}
 
-					<button className="icon icon-keyboard_arrow_down"></button>
+					<button className="icon icon-keyboard_arrow_down" />
 				</div>
 			</div>
 			<div className={`listBody ${showContent ? "active" : ""}`}>
