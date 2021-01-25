@@ -1,8 +1,9 @@
 import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { api_account_SetLanguage } from "../../service/api/account";
-import { getNewLanguagePath, setCookie } from "./common";
+import { setCookie } from "./common";
 import { SiteInfo } from "../../config";
+import { getNewLanguagePath } from "../../service/language";
 
 const defLangDisplayText = {
 	en: "English",

@@ -1,45 +1,16 @@
 export default {
+	/* === sports === */
+
 	sports: {
 		tpId: 1,
 		gameId: 1
 	},
-	eSport: {
-		tpId: 1,
-		gameId: 43
-	},
-	numberGame: {
-		tpId: 1,
-		gameId: 161
-	},
-	virtualSports: {
-		tpId: 1,
-		gameId: 180
-	},
-	lottery: {
-		tpId: 1,
-		gameId: 220
-	},
-	keno: {
-		tpId: 1,
-		gameId: 202
-	},
-	fishing: {
-		tpId: 7,
-		gameId: 10
-	},
-	cockFighting_vn: {
-		tpId: 17
-	},
-	cockFighting: {
-		tpId: 19,
-		gameId: 19
-	},
-	sabaClub: {
-		tpId: 1,
-		gameId: 200
-	},
 	soccer: {
 		gameId: 1,
+		tpId: 1
+	},
+	sabaSoccer: {
+		gameId: 997,
 		tpId: 1
 	},
 	basketball: {
@@ -66,10 +37,59 @@ export default {
 		gameId: 8,
 		tpId: 1
 	},
-	indo4D: {
-		gameId: 223,
+	volleyball: {
+		gameId: 6,
+		tpId: 1
+	},
+	cricket: {
+		gameId: 50,
+		tpId: 1
+	},
+	virtualSports: {
+		gameId: 180,
+		tpId: 1
+	},
+	sabaClub: {
 		tpId: 1,
-		allowCurrency: [4, 15]
+		gameId: 200
+	},
+
+	/* === eSport === */
+
+	eSport: {
+		tpId: 1,
+		gameId: 43
+	},
+	eSport_Csgo: {
+		tpId: 1,
+		gameId: 4319
+	},
+	eSport_Dota2: {
+		tpId: 1,
+		gameId: 4320
+	},
+	eSport_KingOfGlory: {
+		tpId: 1,
+		gameId: 4324
+	},
+	eSport_LeagueOfLegends: {
+		tpId: 1,
+		gameId: 4325
+	},
+
+	/* === casino === */
+
+	casino_PP: {
+		tpId: 5
+	},
+	casino_ICG: {
+		tpId: 24
+	},
+	casino_JOKER: {
+		tpId: 9
+	},
+	casino_CQ9: {
+		tpId: 16
 	},
 	casino_GPI: {
 		tpId: 6
@@ -77,14 +97,8 @@ export default {
 	casino_YGG: {
 		tpId: 8
 	},
-	casino_JOKER: {
-		tpId: 9
-	},
 	casino_SG: {
 		tpId: 10
-	},
-	casino_PP: {
-		tpId: 5
 	},
 	casino_PG: {
 		tpId: 14
@@ -93,24 +107,25 @@ export default {
 		tpId: 1,
 		gameId: 208
 	},
-	casino_CQ9: {
-		tpId: 16
+	kiss918: {
+		tpId: 21,
+		alwaysShow: true,
+		needLogin: true
 	},
-	liveCasino_DG: {
-		gameId: 4,
-		tpId: 4
+
+	/* === live casino === */
+
+	liveCasino_WM: {
+		tpId: 20,
+		gameId: 20
 	},
 	liveCasino_Allbet: {
 		gameId: 12,
 		tpId: 12
 	},
-	liveCasino_AG: {
-		gameId: 3,
-		tpId: 3
-	},
-	liveCasino_PP: {
-		gameId: 101,
-		tpId: 5
+	liveCasino_eBET: {
+		gameId: 18,
+		tpId: 18
 	},
 	liveCasino_SA: {
 		gameId: 2,
@@ -120,34 +135,50 @@ export default {
 		gameId: 15,
 		tpId: 15
 	},
-	liveCasino_eBET: {
-		gameId: 18,
-		tpId: 18
+	liveCasino_PP: {
+		gameId: 101,
+		tpId: 5
+	},
+	liveCasino_DG: {
+		gameId: 4,
+		tpId: 4
+	},
+	liveCasino_AG: {
+		gameId: 3,
+		tpId: 3
 	},
 	liveCasino_MW: {
 		tpId: 5,
 		gameId: 105
 	},
-	liveCasino_WM: {
-		tpId: 20,
-		gameId: 20
+
+	/* === lottery === */
+
+	keno: {
+		tpId: 1,
+		gameId: 202
 	},
-	fishing_SG: {
-		gameId: "F-SF01",
-		tpId: 10
+	lottery: {
+		tpId: 1,
+		gameId: 220
 	},
-	fishing_SGW: {
-		gameId: "F-SF02",
-		tpId: 10
+	tablegame: {
+		gameId: 222,
+		tpId: 1
 	},
-	kiss918: {
-		tpId: 21,
-		alwaysShow: true,
-		needLogin: true
+	numberGame: {
+		tpId: 1,
+		gameId: 161
 	},
-	casino_ICG: {
-		tpId: 24
+
+	indo4D: {
+		gameId: 223,
+		tpId: 1,
+		allowCurrency: [4, 15]
 	},
+
+	/* === fishing === */
+
 	ICG_DRAGONBALL_FISHING: {
 		tpId: 24,
 		gameId: "cmf0001"
@@ -166,5 +197,27 @@ export default {
 	},
 	poker: {
 		tpId: 13
+	},
+	fishing: {
+		tpId: 7,
+		gameId: 10
+	},
+	fishing_SG: {
+		gameId: "F-SF01",
+		tpId: 10
+	},
+	fishing_SGW: {
+		gameId: "F-SF02",
+		tpId: 10
+	},
+
+	/* === cook fight === */
+
+	cockFighting_vn: {
+		tpId: 17
+	},
+	cockFighting: {
+		tpId: 19,
+		gameId: 19
 	}
 };

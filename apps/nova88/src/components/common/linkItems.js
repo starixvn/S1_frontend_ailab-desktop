@@ -23,6 +23,7 @@ export default ({
 	defMenuLinks,
 	t,
 	showSubMenu,
+	currentMenuKey,
 	langId,
 	isLogin,
 	checkMatchPage,
@@ -52,6 +53,8 @@ export default ({
 		if (m.isHot) {
 			_className = `${_className} hot`;
 		}
+
+		_className = `${_className}${currentMenuKey === key ? " active" : ""}`;
 
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
