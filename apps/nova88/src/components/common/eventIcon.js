@@ -1,5 +1,5 @@
 export const defEventIcon = {
-	new: "icon-new",
+	new: "icon icon-new",
 	live: "live"
 };
 
