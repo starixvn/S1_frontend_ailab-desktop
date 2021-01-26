@@ -15,6 +15,8 @@ const Layout = ({ children, showFooter = false }) => {
 			<SEO />
 			<Header />
 			{/* new year style ↓ */}
+			<div className="flower" />
+			<div className="flower flowerR" />
 			<div className="newyear">
 				<div className="newyearLeft">
 					<div className="line" />
@@ -26,14 +28,14 @@ const Layout = ({ children, showFooter = false }) => {
 					<div className="lantern" />
 					<div className="lantern" />
 				</div>
-				<div className="money">
+				<a href="" className="money">
 					<div className="box" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
-				</div>
+				</a>
 				<div className="cow" />
 			</div>
 			{/* new year style ↑ */}
