@@ -393,12 +393,15 @@ const IndexPage = () => {
 					{...userInfo}
 				/>
 			</section>
-			{/* New Year Theme */}
-			<img src={indexCenterBanner} alt="IndexCenterBanner" />
 			{/* <img
 				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
 				alt="IndexCenterBanner"
 			/> */}
+			{/* new year style ↓ */}
+			<img
+				src={require(`../../styles/img/indexCenterBanner.jpg`)}
+				alt="indexCenterBanner"
+			/>
 			<SideBarQuickLink />
 		</main>
 	);

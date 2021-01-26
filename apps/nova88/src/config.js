@@ -13,7 +13,7 @@ const getAffiliate = () => {
 
 export const SiteInfo = {
 	siteName,
-	logo: "http://image.n88media.com/SiteSkin/img/logo.png",
+	logo: "http://image.n88media.com/SiteSkin/img/logo_evt.png",
 	affiliateLink: getAffiliate(),
 	langCookie: "nova88LangId",
 	socialMedia: {
