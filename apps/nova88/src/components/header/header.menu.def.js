@@ -355,7 +355,7 @@ export const defMenuLinks = {
 			{
 				...productList.indo4D,
 				className: "indo",
-				displayKey: "Indo 4D",
+				displayKey: "lbl_Indo4D",
 				menuType: defMenuType.LinkOrBtn,
 				listNpcImgUrl: "lo-indo.png",
 				listBgImgUrl: "gameListHover.png",
