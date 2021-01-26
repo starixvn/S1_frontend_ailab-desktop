@@ -24,7 +24,6 @@ export const useGotoGame = ({ isLogin, langId, tpId }) => {
 			}).then(res => {
 				if (mounted) {
 					if (res.data.errorCode === 0 && res.data.message) {
-						// console.log(res.data.message);
 						setData(() => JSON.parse(res.data.message));
 					} else {
 						setPopBox({

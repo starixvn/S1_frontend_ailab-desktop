@@ -6,7 +6,7 @@ import OneGame from "../components/oneGame/oneGame";
 
 export default () => {
 	return (
-		<Wrapper afterLogin={false}>
+		<Wrapper afterLogin={true}>
 			<Layout showFooter={true}>
 				<main>
 					<OneGame />
