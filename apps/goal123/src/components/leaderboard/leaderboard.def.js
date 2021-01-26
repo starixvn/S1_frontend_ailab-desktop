@@ -1,7 +1,7 @@
 export const current_eventCode = "202101";
 export const last_eventCode = "xmas2020";
 
-export const TopNum = 20;
+export const TopNum = 6;
 
 export const defTabId = {
 	event: 1,
