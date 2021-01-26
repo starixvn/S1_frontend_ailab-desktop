@@ -998,6 +998,40 @@ header .header .appDownload .icon-mobile::before {
 .gameMenu {
   background: url(../img/gameMenuBG.jpg) no-repeat center/cover;
   padding: 10px 0;
+  position: relative;
+}
+
+.gameMenu::before, .gameMenu::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 162px;
+  height: 239px;
+  z-index: 1;
+  pointer-events: none;
+  -webkit-animation: routate linear infinite alternate 3s;
+          animation: routate linear infinite alternate 3s;
+}
+
+@media (max-width: 1024px) {
+  .gameMenu::before, .gameMenu::after {
+    display: none;
+  }
+}
+
+.gameMenu::before {
+  background: url(../img/lantern_L.png) no-repeat center;
+  left: 0;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.gameMenu::after {
+  background: url(../img/lantern_R.png) no-repeat center;
+  right: 0;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
 }
 
 .gameMenu div {

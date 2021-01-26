@@ -1,18 +1,27 @@
-export const TopNum = 20;
+export const current_eventCode = "202101";
+export const last_eventCode = "xmas2020";
 
 export const defTabId = {
 	event: 1,
 	ranking: 2,
-	records: 3
+	records: 3,
+	lastEvent: 4
 };
 
 export const defImgRankId = ["", "first", "second", "third"];
-export const defBackground = ["", "", "bg_rank", "bg_record"];
+
+export const defBackground = {
+	1: "",
+	2: "bg_rank",
+	3: "bg_record",
+	4: "bg_last"
+};
 
 export const defTabList = [
 	{ id: defTabId.event, displayKey: "lbl_Event" },
 	{ id: defTabId.ranking, displayKey: "lbl_Ranking" },
-	{ id: defTabId.records, displayKey: "lbl_Records" }
+	{ id: defTabId.records, displayKey: "lbl_Records" },
+	{ id: defTabId.lastEvent, displayKey: "lbl_Last_Event" }
 ];
 
 export const defDayNum = {
@@ -28,16 +37,22 @@ export const defDayOptions = [
 	{ id: defDayNum.lastThreeDay, displayKey: "lbl_last_3_day" }
 ];
 
+export const currentTopNum = 6;
+export const lastTopNum = 20;
+
 export const defRewardList = {
 	VND: [
-		{ displayRank: "1", reward: "38,888,000" },
-		{ displayRank: "2", reward: "28,888,000" },
-		{ displayRank: "3", reward: "18,888,000" },
-		{ displayRank: "4", reward: "12,888,000" },
-		{ displayRank: "5", reward: "8,888,000" },
-		{ displayRank: "6", reward: "6,888,000" },
-		{ displayRank: "7", reward: "5,888,000" },
-		{ displayRank: "8~10", reward: "3,888,000" },
-		{ displayRank: "11~20", reward: "2,888,000" }
+		{ displayRank: "1", reward: "5,888,123" },
+		{ displayRank: "2", reward: "2,888,123" },
+		{ displayRank: "3", reward: "880,123" },
+		{ displayRank: "4", reward: "680,123" },
+		{ displayRank: "5", reward: "380,123" },
+		{ displayRank: "6", reward: "280,123" }
 	]
+};
+
+export const rewardPrizeSum = "10,996,738";
+
+export const defLastChampionReward = {
+	VND: [{ displayRank: "1", reward: "38,888,000" }]
 };
