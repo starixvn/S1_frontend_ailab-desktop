@@ -75,6 +75,12 @@ export default () => {
 
 	return (
 		<main>
+			{/* new year style ↓ */}
+			<div className="newyearBg">
+				<div className="pillarL" />
+				<div className="pillarL pillarR" />
+			</div>
+			{/* new year style ↑ */}
 			<SwipperBanner ImgFolder="Promotion" filterHideInHome={true} />
 			<Marquee />
 			<section>
