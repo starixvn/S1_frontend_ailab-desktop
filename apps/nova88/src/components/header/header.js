@@ -10,7 +10,7 @@ import { api_site_GetTpIds } from "../../service/api/site";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-import Logo from "../../styles/img/nova88_logo_ny.png";
+// import Logo from "../../styles/img/nova88_logo_ny.png";
 
 export default () => {
 	const { t } = useTranslation();
@@ -18,6 +18,9 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const [casinoTpIds, setCasinoTpIds] = useState(null);
 	const isMountedRef = useRef(null);
+	const logoNewYear = `http://image.n88media.com/SiteSkin/img/logo_evt${
+		userInfo.langId === "cs" ? "_cs" : ""
+	}.png `;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -84,7 +87,7 @@ export default () => {
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						<img src={Logo} alt={config.siteName} />
+						<img src={logoNewYear} alt={config.siteName} />
 					</Link>
 				</div>
 				<Menu casinoTpIds={casinoTpIds} />

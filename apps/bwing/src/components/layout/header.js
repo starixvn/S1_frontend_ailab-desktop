@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "@reach/router";
 import { userInfoContext } from "../common/context";
 import Logo from "../../styles/img/logo.png";
+import LogoNewYear from "../../styles/img/newyear/logo.png";
 import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
@@ -34,7 +35,9 @@ export default () => {
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						<img src={Logo} alt={config.siteName} />
+						{/* <img src={Logo} alt={config.siteName} /> */}
+						{/* new year style ↓ */}
+						<img src={LogoNewYear} alt={config.siteName} />
 					</Link>
 				</div>
 				<Menu casinoTpIds={casinoTpIds} />

@@ -1330,7 +1330,7 @@ main section .btnGroup {
 
 footer {
   width: 100%;
-  min-width: 1600px;
+  min-width: 1010px;
   background: url(../img/footerBG.jpg) no-repeat top center/cover;
   position: relative;
 }
@@ -1368,7 +1368,7 @@ footer span.title {
 }
 
 footer .webmap {
-  padding: 0 calc((100% - 1600px) / 2);
+  padding: 0 calc((100% - 1010px) / 2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3350,6 +3350,7 @@ main > .swiper-container .swiper-slide {
 
 .offers .swiper-container {
   height: 263px;
+  background: url(../img/hotevent_bg.jpg) no-repeat center/cover;
 }
 
 .offers .swiper-slide {
@@ -3367,6 +3368,8 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .offers .swiper-slide .team div, .offers .swiper-slide .odds div {
@@ -3376,10 +3379,6 @@ main > .swiper-container .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -3387,10 +3386,62 @@ main > .swiper-container .swiper-slide {
       -ms-flex-align: center;
           align-items: center;
   margin-top: 20px;
+  font-size: 20px;
 }
 
 .offers .swiper-slide .team div img, .offers .swiper-slide .odds div img {
-  width: auto;
+  width: 100px;
+}
+
+.offers .swiper-slide .team div:nth-child(3), .offers .swiper-slide .odds div:nth-child(3) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.offers .swiper-slide .teamR span {
+  margin-right: 25px;
+}
+
+.offers .swiper-slide .teamL span {
+  margin-left: 25px;
+}
+
+.offers .swiper-slide .teamL span, .offers .swiper-slide .teamR span {
+  background: rgba(5, 6, 46, 0.55);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  padding: 5%;
+  border-radius: 5px;
+}
+
+.offers .swiper-slide .gameName {
+  width: 50%;
+  margin: 1% auto;
+  position: relative;
+  background: rgba(0, 0, 0, 0.692);
+  height: 40px;
+  -webkit-transform: skewX(-10deg);
+          transform: skewX(-10deg);
+  font-size: 22px;
+  font-weight: 700;
+  color: #FAB617;
+  line-height: 1.8;
+}
+
+.offers .swiper-slide .gameName::before {
+  position: absolute;
+  font-family: 'icomoon';
+  content: "\e917";
+  font-size: 26px;
+  font-weight: 600;
+  color: #134DAE;
+  display: block;
+  background: #FAB617;
+  width: 45px;
+  height: 40px;
+  line-height: 1.5;
 }
 
 .offers .swiper-slide .team {
@@ -3398,10 +3449,13 @@ main > .swiper-container .swiper-slide {
 }
 
 .offers .swiper-slide .team .schedule {
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 100%;
-  max-width: 40px;
-  height: 40px;
+  background: url(../img/hotevent_vs.png) no-repeat center/contain;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3412,15 +3466,17 @@ main > .swiper-container .swiper-slide {
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  letter-spacing: 2px;
+  -webkit-transform: skewX(-10deg);
+          transform: skewX(-10deg);
 }
 
-.offers .swiper-slide .team .icon:before {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  font-size: 24px;
+.offers .swiper-slide .team .schedule span {
+  display: block;
+  font-size: 36px;
 }
 
 .offers .swiper-slide .odds {
@@ -5559,6 +5615,41 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding: 25px calc(50% - 508px);
   position: relative;
   background: url(../img/gamelistBG.jpg) no-repeat top/cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.indexGameList::before, .indexGameList::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 162px;
+  height: 239px;
+  z-index: 1;
+  pointer-events: none;
+  -webkit-animation: routate linear infinite alternate 3s;
+          animation: routate linear infinite alternate 3s;
+}
+
+@media (max-width: 1024px) {
+  .indexGameList::before, .indexGameList::after {
+    display: none;
+  }
+}
+
+.indexGameList::before {
+  background: url(../img/lantern_L.png) no-repeat center;
+  left: 0;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.indexGameList::after {
+  background: url(../img/lantern_R.png) no-repeat center;
+  right: 0;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
 }
 
 .indexGameList a {
