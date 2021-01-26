@@ -17,24 +17,24 @@ const Layout = ({ children, showFooter = false }) => {
 			{/* new year style ↓ */}
 			<div className="newyear">
 				<div className="newyearLeft">
-					<div className="line"></div>
-					<div className="lantern"></div>
-					<div className="lantern"></div>
+					<div className="line" />
+					<div className="lantern" />
+					<div className="lantern" />
 				</div>
 				<div className="newyearLeft newyearRight">
-					<div className="line"></div>
-					<div className="lantern"></div>
-					<div className="lantern"></div>
+					<div className="line" />
+					<div className="lantern" />
+					<div className="lantern" />
 				</div>
 				<div className="money">
-					<div className="box"></div>
-					<div className="l"></div>
-					<div className="l"></div>
-					<div className="l"></div>
-					<div className="l"></div>
-					<div className="l"></div>
+					<div className="box" />
+					<div className="l" />
+					<div className="l" />
+					<div className="l" />
+					<div className="l" />
+					<div className="l" />
 				</div>
-				<div className="cow"></div>
+				<div className="cow" />
 			</div>
 			{/* new year style ↑ */}
 			{children}
