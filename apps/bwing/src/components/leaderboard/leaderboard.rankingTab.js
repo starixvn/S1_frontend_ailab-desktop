@@ -80,8 +80,11 @@ const Ranking = ({ rankingData, userInfo }) =>
 
 			if (item.custRank === "999+") return " myRank";
 
-			if (item.userName === userInfo.userName && idx < defTopWinnerNum) {
-				myClass = idx < 3 ? " myInRank" : "myInRank";
+			if (
+				item.userName === userInfo.userName &&
+				item.custRank < defTopWinnerNum
+			) {
+				myClass = item.custRank <= 3 ? " myInRank" : "myInRank";
 			} else if (item.userName === userInfo.userName) {
 				myClass = idx < 3 ? " myRank" : "myRank";
 			}
@@ -89,11 +92,11 @@ const Ranking = ({ rankingData, userInfo }) =>
 			return top3Class + myClass;
 		};
 
-		const getRankingImgUrl = (custRank, scopeIdx) => {
-			if (custRank && custRank <= 3)
+		const getRankingImgUrl = (custRank, scopeIdx, _username) => {
+			if (_username === userInfo.userName && custRank <= 3)
 				return `../../styles/img/ranking/trophy${item.custRank}.png`;
 
-			if (!custRank && scopeIdx < 3)
+			if (_username !== userInfo.userName && scopeIdx < 3)
 				return `../../styles/img/ranking/trophy${scopeIdx + 1}.png`;
 
 			return `../../styles/img/ranking/trophy4.png`;
@@ -105,7 +108,11 @@ const Ranking = ({ rankingData, userInfo }) =>
 				className={liStyle()}>
 				<div>
 					<img
-						src={getRankingImgUrl(item?.custRank, idx)}
+						src={getRankingImgUrl(
+							item?.custRank,
+							idx,
+							item?.username
+						)}
 						alt="ranking_top"
 					/>
 
