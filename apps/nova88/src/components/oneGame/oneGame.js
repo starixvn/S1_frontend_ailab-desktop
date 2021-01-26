@@ -19,7 +19,7 @@ const OneGame = () => {
 		return typeof window !== undefined ? window.open(e.target.value) : null;
 	};
 
-	const APPDownloadLink = "http://interdownload.info/download/OneGaming.apk";
+	const APPDownloadLink = "https://interdownload.info/download/OneGaming.apk";
 
 	return (
 		<section className="inside">
