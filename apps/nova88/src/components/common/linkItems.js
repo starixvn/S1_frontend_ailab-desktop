@@ -64,13 +64,9 @@ export default ({
 				}
 				iconList_unique = [...new Set(iconList)];
 			});
-			let iconStrings = "";
-			for (let i = 0; i < iconList_unique.length; i++) {
-				iconStrings += ` ${iconList_unique[i]}`;
-			}
 			_className = `${_className}${
 				currentMenuKey === key ? " active" : ""
-			}${iconStrings}`;
+			} ${iconList_unique.join(" ")}`;
 		}
 
 		const displayText = toUpperCase

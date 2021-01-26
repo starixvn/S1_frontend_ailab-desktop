@@ -64,7 +64,7 @@ export default ({
 		}
 
 		if (m.subMenu) {
-			let iconList = [];
+			const iconList = [];
 			let iconList_unique = [];
 			m.subMenu.forEach(sub => {
 				if (sub.eventIcons) {
@@ -74,14 +74,10 @@ export default ({
 				}
 				iconList_unique = [...new Set(iconList)];
 			});
-			let iconStrings = "";
-			for (let i = 0; i < iconList_unique.length; i++) {
-				iconStrings += ` ${iconList_unique[i]}`;
-			}
-			_className = `${_className}${iconStrings}`;
+			_className = `${_className} ${iconList_unique.join(" ")}`;
 		}
 
-		let displayText = toUpperCase
+		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
 			: t(m.displayKey);
 
