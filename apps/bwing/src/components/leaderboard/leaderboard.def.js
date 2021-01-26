@@ -75,4 +75,4 @@ export const defLastChampionReward = {
 	]
 };
 
-export const defTopWinnerNum = 16;
+export const defTopWinnerNum = 20;

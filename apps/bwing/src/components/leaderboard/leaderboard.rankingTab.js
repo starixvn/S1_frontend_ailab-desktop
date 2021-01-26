@@ -69,7 +69,7 @@ export default ({
 	);
 };
 
-const Ranking = ({ rankingData, t, userInfo }) =>
+const Ranking = ({ rankingData, userInfo }) =>
 	rankingData?.map((item, idx) => {
 		const liStyle = () => {
 			let top3Class = "";
@@ -77,6 +77,8 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 			if (idx < 3) {
 				top3Class = `no${idx + 1}`;
 			}
+
+			if (item.custRank === "999+") return " myRank";
 
 			if (item.userName === userInfo.userName && idx < defTopWinnerNum) {
 				myClass = idx < 3 ? " myInRank" : "myInRank";
@@ -87,23 +89,27 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 			return top3Class + myClass;
 		};
 
+		const getRankingImgUrl = (custRank, scopeIdx) => {
+			if (custRank && custRank <= 3)
+				return `../../styles/img/ranking/trophy${item.custRank}.png`;
+
+			if (!custRank && scopeIdx < 3)
+				return `../../styles/img/ranking/trophy${scopeIdx + 1}.png`;
+
+			return `../../styles/img/ranking/trophy4.png`;
+		};
+
 		return (
-			<li key={`leaderboard_item_${item.custId}`} className={liStyle()}>
+			<li
+				key={`leaderboard_item_${item.custId}_${item.custRank}`}
+				className={liStyle()}>
 				<div>
 					<img
-						src={
-							idx < 3
-								? require(`../../styles/img/ranking/trophy${
-										idx + 1
-								  }.png`)
-								: require(`../../styles/img/ranking/trophy4.png`)
-						}
+						src={getRankingImgUrl(item?.custRank, idx)}
 						alt="ranking_top"
 					/>
-					{item.userName === userInfo.userName &&
-					rankingData.length > defTopWinnerNum
-						? item.custRank
-						: idx + 1}
+
+					{item?.custRank || idx + 1}
 				</div>
 				<div>{item.userName}</div>
 				<div className="point">{number_format(item.wTurnover)}</div>

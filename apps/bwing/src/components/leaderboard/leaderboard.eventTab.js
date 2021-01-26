@@ -7,16 +7,20 @@ export default ({ t, rewardList, userInfo }) => {
 			<li
 				key={`leaderBoard-event-${item.displayRank}`}
 				className={idx < 3 ? `no${idx + 1}` : null}>
-				{Number(item.displayRank) === 1 ? (
-					<div>
-						<img
-							src={require(`../../styles/img/ranking/trophy1.png`)}
-							alt="top_ranking"
-						/>
-					</div>
-				) : (
-					<div>{item.displayRank}</div>
-				)}
+				<div>
+					<img
+						src={
+							idx < 3
+								? require(`../../styles/img/ranking/trophy${
+										Number(idx) + 1
+								  }.png`)
+								: require(`../../styles/img/ranking/trophy4.png`)
+						}
+						alt="ranking_top"
+					/>
+
+					{item.displayRank}
+				</div>
 				<div>{item.reward}</div>
 				<div>{item.winnersNum}</div>
 			</li>
