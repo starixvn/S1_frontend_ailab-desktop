@@ -1296,8 +1296,34 @@ main section .btnGroup {
 
 footer {
   width: 100%;
-  min-width: 1600px;
+  min-width: 1010px;
   background: url(../img/footerBG.jpg) no-repeat top center/cover;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -60px;
+  left: 10px;
+  background: url(../img/footerItem.png) no-repeat center/cover;
+  width: 250px;
+  height: 250px;
+  pointer-events: none;
+}
+
+@media (max-width: 1440px) {
+  footer::before {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 1200px) {
+  footer::before {
+    display: none;
+  }
 }
 
 footer span.title {
@@ -1308,7 +1334,7 @@ footer span.title {
 }
 
 footer .webmap {
-  padding: 0 calc((100% - 1600px) / 2);
+  padding: 0 calc((100% - 1010px) / 2);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
