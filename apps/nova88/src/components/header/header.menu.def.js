@@ -133,7 +133,7 @@ export const defMenuLinks = {
 	casino: {
 		path: path.casino.root,
 		displayKey: "lbl_Casino",
-		className: "slotbtn icon",
+		className: "slotbtn",
 		subMenu: [
 			{
 				icon: "icon icon-PP",
@@ -364,7 +364,7 @@ export const defMenuLinks = {
 	fishing: {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
-		className: "fishbtn icon",
+		className: "fishbtn",
 		subMenu: [
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
