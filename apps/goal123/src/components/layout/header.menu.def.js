@@ -83,11 +83,11 @@ export const defMenuLinks = langId => {
 		casino: {
 			path: path.casino.root,
 			displayKey: "lbl_Slots",
-			className: "casinobtn icon",
+			className: "casinobtn",
 			subMenu: [
 				{
 					...defCasinoProviders.ICG,
-					className: "ICG icon",
+					className: "ICG",
 					eventIcons: [
 						showEventIcon({
 							icon: defEventIcon.new,
@@ -236,14 +236,17 @@ export const defMenuLinks = langId => {
 		fishing: {
 			productInfo: productList.fishing,
 			displayKey: "lbl_Fishing",
-			className: "icon",
 			subMenu: [
 				{
 					...productList.ICG_DRAGONBALL_FISHING,
-					className: "fdb icon",
+					className: "fdb",
 					eventIcons: [
 						showEventIcon({
 							icon: defEventIcon.new,
+							period: defEventPeriod.icg
+						}),
+						showEventIcon({
+							icon: defEventIcon.live,
 							period: defEventPeriod.icg
 						})
 					],
@@ -253,10 +256,14 @@ export const defMenuLinks = langId => {
 				},
 				{
 					...productList.ICG_FISHING_OF_SAVIORS,
-					className: "ffos icon",
+					className: "ffos",
 					eventIcons: [
 						showEventIcon({
 							icon: defEventIcon.new,
+							period: defEventPeriod.icg
+						}),
+						showEventIcon({
+							icon: defEventIcon.live,
 							period: defEventPeriod.icg
 						})
 					],
@@ -268,7 +275,7 @@ export const defMenuLinks = langId => {
 				},
 				{
 					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
-					className: "fttatp icon",
+					className: "fttatp",
 					eventIcons: [
 						showEventIcon({
 							icon: defEventIcon.new,
@@ -283,7 +290,7 @@ export const defMenuLinks = langId => {
 				},
 				{
 					...productList.ICG_TOWER_OF_SAVIORS,
-					className: "ftos icon",
+					className: "ftos",
 					eventIcons: [
 						showEventIcon({
 							icon: defEventIcon.new,
