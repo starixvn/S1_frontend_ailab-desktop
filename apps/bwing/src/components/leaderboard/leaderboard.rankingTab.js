@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import moment from "moment";
 import { number_format } from "../common/common";
-import { defTabId, defTopWinnerNum } from "./leaderboard.def";
+import { defTabId, currentTopNum, lastTopNum } from "./leaderboard.def";
 import DayDropdown from "./leaderboard.dayDropdown";
 
 export default ({
@@ -52,6 +52,7 @@ export default ({
 							rankingData={rankingData}
 							userInfo={userInfo}
 							t={t}
+							tab={tab}
 						/>
 					</ul>
 				</div>
@@ -69,8 +70,10 @@ export default ({
 	);
 };
 
-const Ranking = ({ rankingData, userInfo }) =>
-	rankingData?.map((item, idx) => {
+const Ranking = ({ rankingData, userInfo, tab }) => {
+	const isLastEventTab = tab === defTabId.lastEvent;
+	const _TopNum = isLastEventTab ? lastTopNum : currentTopNum;
+	return rankingData?.map((item, idx) => {
 		const liStyle = () => {
 			let top3Class = "";
 			let myClass = "";
@@ -82,7 +85,7 @@ const Ranking = ({ rankingData, userInfo }) =>
 
 			if (
 				item.userName === userInfo.userName &&
-				item.custRank < defTopWinnerNum
+				item.custRank < _TopNum
 			) {
 				myClass = item.custRank <= 3 ? " myInRank" : "myInRank";
 			} else if (item.userName === userInfo.userName) {
@@ -123,3 +126,4 @@ const Ranking = ({ rankingData, userInfo }) =>
 			</li>
 		);
 	});
+};

@@ -1,8 +1,6 @@
 export const current_eventCode = "202101";
 export const last_eventCode = "xmas2020";
 
-export const TopNum = 6;
-
 export const defTabId = {
 	event: 1,
 	ranking: 2,
@@ -38,6 +36,9 @@ export const defDayOptions = [
 	{ id: defDayNum.lastTwoDay, displayKey: "lbl_last_2_day" },
 	{ id: defDayNum.lastThreeDay, displayKey: "lbl_last_3_day" }
 ];
+
+export const currentTopNum = 6;
+export const lastTopNum = 20;
 
 export const defRewardList = {
 	VND: [

@@ -54,6 +54,9 @@ export const defDayOptions = [
 	{ id: defDayNum.lastThreeDay, displayKey: "lbl_last_3_day" }
 ];
 
+export const currentTopNum = 20;
+export const lastTopNum = 16;
+
 export const defRewardList = {
 	VND: [
 		{
@@ -74,5 +77,3 @@ export const defLastChampionReward = {
 		{ displayRank: "1", reward: "iPhone 12 Pro Max (256GB)", winnersNum: 1 }
 	]
 };
-
-export const defTopWinnerNum = 20;

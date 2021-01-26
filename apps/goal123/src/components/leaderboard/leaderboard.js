@@ -19,7 +19,8 @@ import {
 	defImgRankId,
 	defRewardList,
 	defBackground,
-	TopNum,
+	currentTopNum,
+	lastTopNum,
 	defDayOptions,
 	defTabList,
 	defLastChampionReward
@@ -103,10 +104,12 @@ export default () => {
 
 	const getLeaderboardData = async (daysValue, tabValue) => {
 		if (!userInfo.isLogin) return;
+
 		const isLastEventTab = tabValue === defTabId.lastEvent;
+		const _TopNum = isLastEventTab ? lastTopNum : currentTopNum;
 		const payload = {
 			lBCategoryId,
-			TopNum,
+			TopNum: _TopNum,
 			BeforeDays: daysValue ?? beforeDays,
 			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
@@ -127,7 +130,7 @@ export default () => {
 											: custRank;
 
 									let result = [];
-									if (custRank <= TopNum && custRank !== 0) {
+									if (custRank <= _TopNum && custRank !== 0) {
 										rankDatas[custRank - 1] = {
 											...rankDatas[custRank - 1],
 											userName: userInfo.userName,
@@ -244,6 +247,7 @@ export default () => {
 														key={`leaderboard_item_${item.userName}`}
 														item={item}
 														idx={idx}
+														tab={tab}
 													/>
 												);
 											})
@@ -271,11 +275,14 @@ export default () => {
 	);
 };
 
-const RankItem = ({ item, idx }) => {
+const RankItem = ({ item, idx, tab }) => {
 	let mineClass = "";
 
+	const isLastEventTab = tab === defTabId.lastEvent;
+	const _TopNum = isLastEventTab ? lastTopNum : currentTopNum;
+
 	if (item.rank) {
-		if ((mineClass = item.rank <= TopNum && item.rank !== 0)) {
+		if ((mineClass = item.rank <= _TopNum && item.rank !== 0)) {
 			mineClass = "mineInner";
 		} else {
 			mineClass = "mine";

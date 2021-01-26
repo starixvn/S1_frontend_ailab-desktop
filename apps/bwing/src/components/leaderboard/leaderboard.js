@@ -13,7 +13,8 @@ import {
 	defBackground,
 	defDayNum,
 	defRewardList,
-	defTopWinnerNum,
+	currentTopNum,
+	lastTopNum,
 	current_eventCode,
 	last_eventCode,
 	defLastChampionReward,
@@ -113,10 +114,11 @@ export default () => {
 
 	const getLeaderboardData = async (daysValue, tabValue) => {
 		const isLastEventTab = tabValue === defTabId.lastEvent;
+		const _TopNum = isLastEventTab ? lastTopNum : currentTopNum;
 		if (!userInfo.isLogin) return;
 		const payload_topWinner = {
 			lBCategoryId,
-			TopNum: defTopWinnerNum,
+			TopNum: _TopNum,
 			BeforeDays: daysValue,
 			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
