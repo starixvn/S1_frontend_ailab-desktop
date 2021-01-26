@@ -28,14 +28,14 @@ const Layout = ({ children, showFooter = false }) => {
 					<div className="lantern" />
 					<div className="lantern" />
 				</div>
-				<a href="" className="money">
+				{/* <a href="" className="money">
 					<div className="box" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
-				</a>
+				</a> */}
 				<div className="cow" />
 			</div>
 			{/* new year style ↑ */}
