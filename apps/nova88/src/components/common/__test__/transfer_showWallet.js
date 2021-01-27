@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import ShowWallets from "../../transferFunds/ShowWallets";
+import ShowWallets from "../../transferFunds/showWallets";
 import ReloadSpin from "../reloadSpin";
 
 describe("showWallet Snapshot", () => {

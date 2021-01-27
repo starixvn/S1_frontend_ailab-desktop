@@ -14,7 +14,7 @@ jest.mock("react-i18next", () => ({
 
 describe("test click reload spin icon(beside showWallet)", () => {
 	afterEach(cleanup);
-	let fake_data = {
+	const fake_data = {
 		getHistory: jest.fn(),
 		getTransferRecent: jest.fn()
 	};

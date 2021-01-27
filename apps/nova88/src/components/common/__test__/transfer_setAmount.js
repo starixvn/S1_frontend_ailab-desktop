@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 // import TransferFunds from "../../transferFunds/transferFunds";
 import SetAmount from "../../transferFunds/setAmount";
-import { isConvert } from "../common.js";
+import { isConvert } from "../common";
 
 jest.mock("react-i18next", () => ({
 	useTranslation: () => {
@@ -28,7 +28,7 @@ describe("open dropdown ", () => {
 
 		const { getByTestId } = render(<SetAmount {...fake_data} />);
 
-		//click to open ↓
+		// click to open ↓
 		fireEvent.click(getByTestId(`dropdown_${fake_data.mainKey}`));
 		expect(
 			getByTestId(
@@ -36,7 +36,7 @@ describe("open dropdown ", () => {
 			).className.includes("active")
 		).toBe(true);
 
-		//click to close ↓
+		// click to close ↓
 		fireEvent.click(getByTestId(`dropdown_${fake_data.mainKey}`));
 		expect(
 			getByTestId(
@@ -99,11 +99,11 @@ describe("test function: onSelectWallet()", () => {
 
 	// not render test:
 	test("selected the dropdown item parameter correctly", () => {
-		let col = "from";
-		let value = { id: 0 };
-		let oppsCol = col === "from" ? "to" : "from";
+		const col = "from";
+		const value = { id: 0 };
+		const oppsCol = col === "from" ? "to" : "from";
 
-		let result = {
+		const result = {
 			[col]: value.id,
 			[oppsCol]: value.id === 0 && oppsCol === 0 ? null : oppsCol
 		};
@@ -124,7 +124,7 @@ describe("test function: checkSelectWallet()", () => {
 		lbl_please_select_to_wallet: "Please select to wallet"
 	};
 	test("if select wallet is null, show error tip", () => {
-		let message =
+		const message =
 			selectedTpId.from === null
 				? i18n.lbl_please_select_from_wallet
 				: i18n.lbl_please_select_to_wallet;
@@ -192,23 +192,23 @@ describe("test function: clickSubmit", () => {
 
 	// not render test:
 	test("transfer post parameter correctly", () => {
-		let selectedTpId = {
+		const selectedTpId = {
 			from: 0
 		};
-		let amount = 100;
+		const amount = 100;
 		const defDirection = {
 			MainToTp: 1,
 			TpToMain: 2
 		};
 
-		let _direction =
+		const _direction =
 			selectedTpId.from === 0
 				? defDirection.MainToTp
 				: defDirection.TpToMain;
 
-		let real_amount = isConvert ? Number(amount) * 1000 : Number(amount);
+		const real_amount = isConvert ? Number(amount) * 1000 : Number(amount);
 
-		let _wallet =
+		const _wallet =
 			_direction === defDirection.MainToTp
 				? selectedTpId.to
 				: selectedTpId.from;
