@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import {
-	api_events_GetLeaderboardList,
-	api_events_GetCustRank
+	api_events_GetLeaderboardListV2,
+	api_events_GetCustRankV2
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderboard.tabs";
 
@@ -13,7 +13,12 @@ import {
 	defBackground,
 	defDayNum,
 	defRewardList,
-	defTopWinnerNum
+	currentTopNum,
+	lastTopNum,
+	current_eventCode,
+	last_eventCode,
+	defLastChampionReward,
+	defRightSectionRewardImg
 } from "./leaderboard.def";
 import EventTab from "./leaderboard.eventTab";
 import RankingTab from "./leaderboard.rankingTab";
@@ -43,7 +48,10 @@ export default () => {
 		: langMapping[userInfo.langId];
 
 	const rewardList = defRewardList[currencyName];
-	const no1Reward = rewardList[0].reward;
+	const no1Reward =
+		tab === defTabId.lastEvent
+			? defLastChampionReward[currencyName][0].reward
+			: defRewardList[currencyName][0].reward;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -66,15 +74,16 @@ export default () => {
 			});
 		} else {
 			setTab(tabValue);
-			setBeforeDays(
-				tabValue === defTabId.records
-					? defDayNum.yesterDay
-					: defDayNum.today
-			);
+			if (
+				tabValue === defTabId.ranking ||
+				tabValue === defTabId.lastEvent
+			) {
+				setBeforeDays(defDayNum.today);
+				getLeaderboardData(defDayNum.today, tabValue);
+			}
 			if (tabValue === defTabId.records) {
-				getLeaderboardData(1);
-			} else {
-				getLeaderboardData(0);
+				setBeforeDays(defDayNum.yesterDay);
+				getLeaderboardData(defDayNum.yesterDay, tabValue);
 			}
 		}
 	};
@@ -103,18 +112,22 @@ export default () => {
 		});
 	};
 
-	const getLeaderboardData = async daysValue => {
+	const getLeaderboardData = async (daysValue, tabValue) => {
+		const isLastEventTab = tabValue === defTabId.lastEvent;
+		const _TopNum = isLastEventTab ? lastTopNum : currentTopNum;
 		if (!userInfo.isLogin) return;
 		const payload_topWinner = {
 			lBCategoryId,
-			TopNum: defTopWinnerNum,
-			BeforeDays: daysValue
+			TopNum: _TopNum,
+			BeforeDays: daysValue,
+			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
 		const payload_self = {
 			LBCategoryId: lBCategoryId,
-			BeforeDays: daysValue
+			BeforeDays: daysValue,
+			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
-		await api_events_GetLeaderboardList(payload_topWinner).then(
+		await api_events_GetLeaderboardListV2(payload_topWinner).then(
 			async res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
@@ -130,7 +143,7 @@ export default () => {
 						} else if (userInTop) {
 							setRankingData(topArr);
 						} else {
-							const selfItem = await api_events_GetCustRank(
+							const selfItem = await api_events_GetCustRankV2(
 								payload_self
 							).then(resRank => {
 								if (resRank.data.errorCode === 0) {
@@ -197,8 +210,8 @@ export default () => {
 							<p>{no1Reward}</p>
 						</div>
 						<img
-							src={require("../../styles/img/ranking/iphone.png")}
-							alt="iphone"
+							src={require(`../../styles/img/ranking/${defRightSectionRewardImg[tab]}.png`)}
+							alt="reward"
 						/>
 					</div>
 				</div>
