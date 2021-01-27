@@ -14,18 +14,18 @@ jest.mock("react-i18next", () => ({
 
 describe("test click reload spin icon(beside showWallet)", () => {
 	afterEach(cleanup);
-	const fake_data = {
+	const fakeData = {
 		getHistory: jest.fn(),
 		getTransferRecent: jest.fn()
 	};
 	test("default reload spin not active", () => {
-		const { getByTestId } = render(<RecentHistory {...fake_data} />);
+		const { getByTestId } = render(<RecentHistory {...fakeData} />);
 		fireEvent.click(getByTestId(`reloadSpin`));
 		expect(container.firstChild.classList.contains("active")).toBe(false);
 	});
 
 	test("click reload spin will active", () => {
-		const { getByTestId } = render(<RecentHistory {...fake_data} />);
+		const { getByTestId } = render(<RecentHistory {...fakeData} />);
 		fireEvent.click(getByTestId(`reloadSpin`));
 		expect(container.firstChild.classList.contains("active")).toBe(true);
 	});

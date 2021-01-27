@@ -14,7 +14,7 @@ jest.mock("react-i18next", () => ({
 
 describe("open dropdown ", () => {
 	test("The dropdown menu can be opened/closed correctly", () => {
-		const fake_data = {
+		const fakeData = {
 			i18n: jest.fn(),
 			onSelectWallet: jest.fn(),
 			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
@@ -26,21 +26,21 @@ describe("open dropdown ", () => {
 			mainKey: `from_wallet`
 		};
 
-		const { getByTestId } = render(<SetAmount {...fake_data} />);
+		const { getByTestId } = render(<SetAmount {...fakeData} />);
 
 		// click to open ↓
-		fireEvent.click(getByTestId(`dropdown_${fake_data.mainKey}`));
+		fireEvent.click(getByTestId(`dropdown_${fakeData.mainKey}`));
 		expect(
 			getByTestId(
-				`dropdown_container_${fake_data.mainKey}`
+				`dropdown_container_${fakeData.mainKey}`
 			).className.includes("active")
 		).toBe(true);
 
 		// click to close ↓
-		fireEvent.click(getByTestId(`dropdown_${fake_data.mainKey}`));
+		fireEvent.click(getByTestId(`dropdown_${fakeData.mainKey}`));
 		expect(
 			getByTestId(
-				`dropdown_container_${fake_data.mainKey}`
+				`dropdown_container_${fakeData.mainKey}`
 			).className.includes("active")
 		).toBe(false);
 	});
@@ -48,7 +48,7 @@ describe("open dropdown ", () => {
 
 describe("render wallet dropdown items", () => {
 	test("render dropdown items num correct", () => {
-		const fake_data = {
+		const fakeData = {
 			i18n: jest.fn(),
 			onSelectWallet: jest.fn(),
 			fomOptions: [
@@ -64,17 +64,17 @@ describe("render wallet dropdown items", () => {
 			clickSubmit: jest.fn()
 		};
 
-		const { container } = render(<SetAmount {...fake_data} />);
+		const { container } = render(<SetAmount {...fakeData} />);
 
 		expect(container.getElementsByClassName("dropdown-item").length).toBe(
-			fake_data.fomOptions.length + fake_data.toOptions.length
+			fakeData.fomOptions.length + fakeData.toOptions.length
 		);
 	});
 });
 
 describe("test function: onSelectWallet()", () => {
 	test("onchange function have been called", () => {
-		const fake_data = {
+		const fakeData = {
 			i18n: jest.fn(),
 			useTranslation: () => {
 				return {
@@ -91,10 +91,10 @@ describe("test function: onSelectWallet()", () => {
 			selectedToIdx: -1,
 			clickSubmit: jest.fn()
 		};
-		const { getByTestId } = render(<SetAmount {...fake_data} />);
+		const { getByTestId } = render(<SetAmount {...fakeData} />);
 		fireEvent.click(getByTestId(`dropdown-item-lbl_TpWallet_1`));
 
-		expect(fake_data.onSelectWallet).toHaveBeenCalled();
+		expect(fakeData.onSelectWallet).toHaveBeenCalled();
 	});
 
 	// not render test:
@@ -142,7 +142,7 @@ describe("test function: checkSelectWallet()", () => {
 
 describe("input value", () => {
 	test("input value passing corectly", () => {
-		const fake_data = {
+		const fakeData = {
 			i18n: jest.fn(),
 			useTranslation: () => {
 				return {
@@ -159,18 +159,18 @@ describe("input value", () => {
 			onChange: jest.fn(),
 			amount: "100"
 		};
-		const { getByTestId } = render(<SetAmount {...fake_data} />);
+		const { getByTestId } = render(<SetAmount {...fakeData} />);
 		const input = getByTestId("input");
 
-		fireEvent.change(input, { target: { value: fake_data.amount } });
-		// expect(fake_data.EditAmount).toHaveBeenCalled();
-		expect(input.value).toBe(fake_data.amount);
+		fireEvent.change(input, { target: { value: fakeData.amount } });
+		// expect(fakeData.EditAmount).toHaveBeenCalled();
+		expect(input.value).toBe(fakeData.amount);
 	});
 });
 
 describe("test function: clickSubmit", () => {
 	test("clickSubmit() has been called ", () => {
-		const fake_data = {
+		const fakeData = {
 			i18n: jest.fn(),
 			useTranslation: () => {
 				return {
@@ -185,9 +185,9 @@ describe("test function: clickSubmit", () => {
 			],
 			clickSubmit: jest.fn()
 		};
-		const { getByTestId } = render(<SetAmount {...fake_data} />);
+		const { getByTestId } = render(<SetAmount {...fakeData} />);
 		fireEvent.click(getByTestId(`setAmount_submit`));
-		expect(fake_data.clickSubmit).toHaveBeenCalled();
+		expect(fakeData.clickSubmit).toHaveBeenCalled();
 	});
 
 	// not render test:
