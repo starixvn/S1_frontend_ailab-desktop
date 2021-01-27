@@ -186,7 +186,7 @@ export const defMenuLinks = {
 				icon: "icon icon-one789",
 				eventIcons: [
 					showEventIcon({
-						icon: defEventIcon.casino,
+						icon: defEventIcon.new,
 						period: defEventPeriod.one789
 					})
 				],
