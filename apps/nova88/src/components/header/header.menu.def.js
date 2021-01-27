@@ -1,5 +1,10 @@
 import productList from "../../datas/productList";
 import path from "../../router";
+import {
+	defEventIcon,
+	defEventPeriod,
+	showEventIcon
+} from "../common/eventIcon";
 
 export const defMenuType = {
 	entPage: "entPage",
@@ -19,7 +24,6 @@ export const defMenuLinks = {
 		className: "sportsbtn",
 		subMenu: [
 			{
-				className: "icon",
 				displayKey: "lbl_Soccer",
 				listNpcImgUrl: "soccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
@@ -28,7 +32,6 @@ export const defMenuLinks = {
 				...productList.soccer
 			},
 			{
-				className: "icon",
 				displayKey: "lbl_SabaSoccer",
 				listNpcImgUrl: "sabssoccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
@@ -37,7 +40,6 @@ export const defMenuLinks = {
 				...productList.sabaSoccer
 			},
 			{
-				className: "icon",
 				displayKey: "lbl_Basketball",
 				listNpcImgUrl: "basketballNPC.png",
 				listBgImgUrl: "basketballBG.png",
@@ -46,7 +48,6 @@ export const defMenuLinks = {
 				...productList.basketball
 			},
 			{
-				className: "icon",
 				displayKey: "lbl_Tennis",
 				listNpcImgUrl: "tennisNPC.png",
 				listBgImgUrl: "tennisBG.png",
@@ -55,7 +56,6 @@ export const defMenuLinks = {
 				...productList.tennis
 			},
 			{
-				className: "icon",
 				displayKey: "lbl_Baseball",
 				listNpcImgUrl: "baseballNPC.png",
 				listBgImgUrl: "baseballBG.png",
@@ -64,7 +64,6 @@ export const defMenuLinks = {
 				...productList.baseball
 			},
 			{
-				className: "icon",
 				displayKey: "lbl_Volleyball",
 				listNpcImgUrl: "volleyballNPC.png",
 				listBgImgUrl: "volleyballBG.png",
@@ -73,7 +72,6 @@ export const defMenuLinks = {
 				...productList.volleyball
 			},
 			{
-				className: "icon",
 				displayKey: "lbl_Cricket",
 				listNpcImgUrl: "cricketNPC.png",
 				listBgImgUrl: "cricketBG.png",
@@ -90,7 +88,6 @@ export const defMenuLinks = {
 		className: "eSportsbtn"
 		// subMenu: [
 		// 	{
-		// 		className: "icon",
 		// 		displayKey: "lbl_eSports",
 		// 		menuType: defMenuType.LinkOrBtn,
 		// 		listNpcImgUrl: "esportALL.png",
@@ -99,7 +96,6 @@ export const defMenuLinks = {
 		// 		...productList.eSport
 		// 	},
 		// 	{
-		// 		className: "icon",
 		// 		displayKey: "lbl_Dota2",
 		// 		listNpcImgUrl: "esportDOTA2.png",
 		// 		listBgImgUrl: "eSportsListHover.png",
@@ -108,7 +104,6 @@ export const defMenuLinks = {
 		// 		...productList.eSport_Dota2
 		// 	},
 		// 	{
-		// 		className: "icon",
 		// 		displayKey: "lbl_LeagueOfLegends",
 		// 		menuType: defMenuType.LinkOrBtn,
 		// 		listNpcImgUrl: "esportLOL.png",
@@ -117,7 +112,6 @@ export const defMenuLinks = {
 		// 		...productList.eSport_LeagueOfLegends
 		// 	},
 		// 	{
-		// 		className: "icon",
 		// 		displayKey: "lbl_CSGO",
 		// 		menuType: defMenuType.LinkOrBtn,
 		// 		listNpcImgUrl: "esportCS.png",
@@ -127,7 +121,6 @@ export const defMenuLinks = {
 		// 	},
 
 		// 	{
-		// 		className: "icon",
 		// 		displayKey: "lbl_Kog",
 		// 		menuType: defMenuType.LinkOrBtn,
 		// 		listNpcImgUrl: "esportKOG.png",
@@ -140,7 +133,7 @@ export const defMenuLinks = {
 	casino: {
 		path: path.casino.root,
 		displayKey: "lbl_Casino",
-		className: "slotbtn icon icon-new",
+		className: "slotbtn",
 		subMenu: [
 			{
 				icon: "icon icon-PP",
@@ -152,8 +145,13 @@ export const defMenuLinks = {
 				...productList.casino_PP
 			},
 			{
-				className: "icon icon-new",
 				icon: "icon icon-ICG",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayText: "ICG",
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotICG.png",
@@ -355,7 +353,7 @@ export const defMenuLinks = {
 			{
 				...productList.indo4D,
 				className: "indo",
-				displayKey: "lbl_Indo4D",
+				displayKey: "Indo 4D",
 				menuType: defMenuType.LinkOrBtn,
 				listNpcImgUrl: "lo-indo.png",
 				listBgImgUrl: "gameListHover.png",
@@ -366,11 +364,17 @@ export const defMenuLinks = {
 	fishing: {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
-		className: "fishbtn icon icon-new",
+		className: "fishbtn",
 		subMenu: [
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
-				className: "fsdf icon icon-new",
+				className: "fsdf",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "fishICG-DB.png",
@@ -379,7 +383,13 @@ export const defMenuLinks = {
 			},
 			{
 				...productList.ICG_FISHING_OF_SAVIORS,
-				className: "fsgfos icon icon-new",
+				className: "fsgfos",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "fishICG-FOS.png",
@@ -388,7 +398,13 @@ export const defMenuLinks = {
 			},
 			{
 				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
-				className: "fsttatp icon icon-new",
+				className: "fsttatp",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "fishICG-TTATP.png",
@@ -399,7 +415,13 @@ export const defMenuLinks = {
 			},
 			{
 				...productList.ICG_TOWER_OF_SAVIORS,
-				className: "fstos icon icon-new",
+				className: "fstos",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_TOWER_OF_SAVIORS",
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "fishICG-TOS.png",

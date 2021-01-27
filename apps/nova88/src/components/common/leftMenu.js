@@ -21,16 +21,22 @@ export default () => {
 				? " active"
 				: "";
 
-			const showIcon = menu.subMenu[_key].icon
-				? `icon ${menu.subMenu[_key].icon}`
-				: "";
+			let _iconClassName = "";
+			const s = menu.subMenu[_key];
+			if (s.eventIcons) {
+				let iconStrings = "";
+				for (let i = 0; i < s.eventIcons.length; i++) {
+					iconStrings += `${s.eventIcons[i]} `;
+				}
+				_iconClassName = `icon ${iconStrings}`;
+			}
 
 			return (
 				<Link
 					key={`leftMenu-subMenu-${_key}`}
 					to={`/${userInfo.langId}/${menu.subMenu[_key].path}`}
 					className={`menuSelect${_active}`}>
-					<span className={showIcon}>
+					<span className={_iconClassName}>
 						{t(menu.subMenu[_key].displayKey)}
 					</span>
 				</Link>

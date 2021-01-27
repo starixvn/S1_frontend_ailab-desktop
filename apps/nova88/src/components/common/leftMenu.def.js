@@ -1,4 +1,5 @@
 import path from "../../router";
+import { defEventIcon, defEventPeriod, showEventIcon } from "./eventIcon";
 
 export const defLeftMenu = {
 	Cashier: {
@@ -36,7 +37,12 @@ export const defLeftMenu = {
 			referralHistory: {
 				path: path.referralHistory.root,
 				displayKey: "lbl_ReferralHistory",
-				icon: "icon-new"
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.referral
+					})
+				]
 			},
 			financial: {
 				path: path.financial.root,
@@ -62,7 +68,12 @@ export const defLeftMenu = {
 			referral: {
 				path: path.referral.root,
 				displayKey: "lbl_ReferFriends",
-				icon: "icon-new"
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.referral
+					})
+				]
 			},
 			changePassword: {
 				path: path.changePassword.root,
