@@ -1313,7 +1313,7 @@ main section .btnGroup {
 footer {
   width: 100%;
   min-width: 1010px;
-  background: url(../img/footerBG.jpg) no-repeat top center/cover;
+  background: url(../img/footerBg.jpg) no-repeat top center/cover;
   position: relative;
 }
 
@@ -5631,6 +5631,10 @@ input + .iconModule i.icon.icon-checkmark:before {
           transform-origin: top right;
 }
 
+.indexGameList button {
+  z-index: 1;
+}
+
 .indexGameList a {
   margin: 2.5px;
   width: calc(100% / 7 - 5px);
@@ -6578,6 +6582,14 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
           transform: scale(-1);
 }
 
+.event .eventModule .nodata {
+  color: #fab617;
+}
+
+.event .eventModule .nodata > div {
+  background: transparent;
+}
+
 .eventLink {
   position: fixed;
   right: 10px;
@@ -6888,7 +6900,16 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   color: white;
   text-align: center;
   border: 3px solid #fff384;
+  padding: 0;
+  min-width: auto;
   padding-bottom: 17px;
+  max-height: none;
+  overflow-y: unset;
+}
+
+#popup .eventpop > div {
+  display: block;
+  min-width: auto;
 }
 
 #popup .eventpop .icon-close {
