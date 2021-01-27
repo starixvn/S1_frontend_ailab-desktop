@@ -105,12 +105,15 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	const _urlParams = params !== null ? `?${params.join("&")}` : "";
 
 	let className = subMenuItem.className || "";
+
 	if (subMenuItem.eventIcons) {
 		let iconStrings = "";
 		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
-			iconStrings += ` ${subMenuItem.eventIcons[i]}`;
+			if (subMenuItem.eventIcons[i] !== "") {
+				iconStrings += ` ${subMenuItem.eventIcons[i]}`;
+			}
 		}
-		className = `${subMenuItem.className}${iconStrings}`;
+		className += ` icon${iconStrings}`;
 	}
 
 	if (subMenuItem.menuType === defMenuType.Link) {

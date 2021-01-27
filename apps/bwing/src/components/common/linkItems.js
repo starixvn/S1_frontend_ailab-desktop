@@ -65,16 +65,22 @@ export default ({
 
 		if (m.subMenu) {
 			const iconList = [];
-			let iconList_unique = [];
+			let iconStrings = "";
 			m.subMenu.forEach(sub => {
 				if (sub.eventIcons) {
 					for (let i = 0; i < sub.eventIcons.length; i++) {
-						iconList.push(sub.eventIcons[i]);
+						if (sub.eventIcons[i] !== "") {
+							iconList.push(sub.eventIcons[i]);
+						}
+					}
+					if (iconList.length > 0) {
+						iconStrings = ` icon ${[...new Set(iconList)].join(
+							" "
+						)}`;
 					}
 				}
-				iconList_unique = [...new Set(iconList)];
 			});
-			_className = `${_className} ${iconList_unique.join(" ")}`;
+			_className += iconStrings;
 		}
 
 		const displayText = toUpperCase

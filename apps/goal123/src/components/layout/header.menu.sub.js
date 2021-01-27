@@ -42,9 +42,11 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		if (s.eventIcons) {
 			let iconStrings = "";
 			for (let i = 0; i < s.eventIcons.length; i++) {
-				iconStrings += ` ${s.eventIcons[i]}`;
+				if (s.eventIcons[i] !== "") {
+					iconStrings += ` ${s.eventIcons[i]}`;
+				}
 			}
-			_iconClassName = `${s.className}${iconStrings}`;
+			_iconClassName += ` icon${iconStrings}`;
 		}
 
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";

@@ -1,5 +1,5 @@
 export const defEventIcon = {
-	new: "icon icon-new",
+	new: "icon-new",
 	live: "live"
 };
 
@@ -9,6 +9,7 @@ export const defEventPeriod = {
 };
 
 export const showEventIcon = ({ icon, period }) => {
+	if (!period) return "";
 	const startDate = period.start
 		? new Date(`${period.start} GMT+0800`)
 		: null;

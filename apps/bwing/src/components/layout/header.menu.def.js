@@ -40,7 +40,6 @@ export const defMenuLinks = {
 						period: defEventPeriod.one789
 					})
 				],
-
 				displayKey: "lbl_TraditionalLottery",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.One789_lottery }

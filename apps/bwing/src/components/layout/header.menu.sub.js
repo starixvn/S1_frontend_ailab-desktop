@@ -45,12 +45,17 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		if (s.eventIcons) {
 			let iconStrings = "";
 			for (let i = 0; i < s.eventIcons.length; i++) {
-				iconStrings += ` ${s.eventIcons[i]}`;
+				if (s.eventIcons[i] !== "") {
+					iconStrings += `${s.eventIcons[i]}`;
+				}
 			}
-			_iconClassName = `icon${iconStrings}`;
+			_iconClassName = `${iconStrings}`;
 		}
 
-		const showIcon = s.eventIcons ? <i className={_iconClassName} /> : null;
+		const showIcon =
+			_iconClassName === "" ? null : (
+				<i className={`icon ${_iconClassName}`} />
+			);
 
 		// const _urlParams = params !== null ? `?${params.join("&")}` : "";
 		// const newIcon = s.isNew ? <i className="icon icon-newicon" /> : null;
