@@ -244,10 +244,6 @@ export const defMenuLinks = langId => {
 						showEventIcon({
 							icon: defEventIcon.new,
 							period: defEventPeriod.icg
-						}),
-						showEventIcon({
-							icon: defEventIcon.live,
-							period: defEventPeriod.icg
 						})
 					],
 					displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
@@ -260,10 +256,6 @@ export const defMenuLinks = langId => {
 					eventIcons: [
 						showEventIcon({
 							icon: defEventIcon.new,
-							period: defEventPeriod.icg
-						}),
-						showEventIcon({
-							icon: defEventIcon.live,
 							period: defEventPeriod.icg
 						})
 					],

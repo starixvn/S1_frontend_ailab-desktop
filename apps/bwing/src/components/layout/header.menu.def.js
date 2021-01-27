@@ -28,7 +28,7 @@ export const defMenuLinks = {
 	// },
 	games: {
 		displayKey: "lbl_Games",
-		className: "game icon",
+		className: "game",
 		subMenu: [
 			{
 				...productList.One789_lottery,
@@ -103,7 +103,7 @@ export const defMenuLinks = {
 	casino: {
 		path: path.casino.root,
 		displayKey: "lbl_Slots",
-		className: "casinobtn icon",
+		className: "casinobtn",
 		subMenu: [
 			{
 				...defCasinoProviders.ICG,
@@ -179,7 +179,7 @@ export const defMenuLinks = {
 	},
 	liveCasino: {
 		displayKey: "lbl_LiveCasino",
-		className: "livecasinobtn icon",
+		className: "livecasinobtn",
 		subMenu: [
 			{
 				...productList.liveCasino_One789,
@@ -263,7 +263,6 @@ export const defMenuLinks = {
 	fishing: {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
-		className: "icon",
 		subMenu: [
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
