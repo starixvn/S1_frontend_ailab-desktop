@@ -86,7 +86,7 @@ const GetTpWalletBalance = ({ tpId, dispatch }) => {
 			const { tpId: _tpId, balance } = res.data.data;
 			dispatch({
 				type: defAction.GET_TP_WALLETS,
-				_tpId,
+				tpId: _tpId,
 				balance
 			});
 		}
