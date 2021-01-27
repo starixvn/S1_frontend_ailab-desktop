@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { navigate } from "@reach/router";
 import { api_site_ForgetPwd } from "../service/api/site";
 import { popBoxContext, userInfoContext } from "../components/common/context";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Inputbox from "../components/common/inputbox";
-import { defPopBoxType } from "../components/common/popBox";
-import { navigate } from "@reach/router";
+import { defPopBoxType } from "../components/common/defPopBoxType";
 
 export default () => {
 	return (
@@ -36,7 +36,9 @@ const Content = () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -69,12 +71,12 @@ const Content = () => {
 	};
 
 	const editField = e => {
-		let val = e.target.value;
+		const val = e.target.value;
 		setUserEmail(val);
 	};
 
 	const clickInfo = () => {
-		let _msg = status.msg === "" ? t("lbl_EmailRequired") : "";
+		const _msg = status.msg === "" ? t("lbl_EmailRequired") : "";
 
 		setStatus({
 			checked: null,
@@ -84,7 +86,7 @@ const Content = () => {
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		let checked = emailCheck(userEmail);
+		const checked = emailCheck(userEmail);
 
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
@@ -113,7 +115,7 @@ const Content = () => {
 										</button>
 									</div>
 								),
-								ClickClose: ClickClose
+								ClickClose
 							});
 							setUserEmail("");
 							setStatus(initStatus);

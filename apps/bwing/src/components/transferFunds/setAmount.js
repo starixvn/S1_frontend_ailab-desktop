@@ -1,7 +1,7 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import Inputbox from "../common/inputbox";
 import Dropdown from "../common/dropdown";
-import { useTranslation } from "react-i18next";
 
 export default props => {
 	const { t } = useTranslation();
@@ -13,7 +13,7 @@ export default props => {
 					<div className="inputBox-blue">
 						<Dropdown
 							i18n={t}
-							mainKey={`from_wallet`}
+							mainKey="from_wallet"
 							options={props.fomOptions}
 							selectedIdx={props.selectedFromIdx}
 							onSelectItem={props.onSelectWallet.bind(
@@ -27,7 +27,7 @@ export default props => {
 					<div className="inputBox-blue">
 						<Dropdown
 							i18n={t}
-							mainKey={`to_wallet`}
+							mainKey="to_wallet"
 							options={props.toOptions}
 							selectedIdx={props.selectedToIdx}
 							onSelectItem={props.onSelectWallet.bind(this, "to")}

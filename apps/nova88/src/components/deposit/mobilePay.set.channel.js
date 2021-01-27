@@ -7,7 +7,7 @@ export default ({ channelList, dispatch }) => {
 		dispatch({ type: defActionType.SELECT_CHANNEL, channelIdx });
 	};
 
-	let rows = channelList.map((c, cIdx) => {
+	const rows = channelList.map((c, cIdx) => {
 		return (
 			<li key={`mobilePay-selChannel-${c.channelId}`}>
 				<a onClick={OnSelect.bind(this, cIdx)}>

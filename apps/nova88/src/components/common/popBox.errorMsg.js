@@ -16,13 +16,13 @@ export default ({ btnBar, message, errorCode, icon = "icon-library" }) => {
 
 	const secondsToTime = secondsInTime => {
 		const pad = (num, size) => {
-			return ("000" + num).slice(size * -1);
+			return `000${num}`.slice(size * -1);
 		};
-		let time = parseFloat(secondsInTime).toFixed(3);
-		let hours = Math.floor(time / 60 / 60);
-		let minutes = Math.floor(time / 60) % 60;
-		let seconds = Math.floor(time - minutes * 60);
-		let milliseconds = time.slice(-3);
+		const time = parseFloat(secondsInTime).toFixed(3);
+		const hours = Math.floor(time / 60 / 60);
+		const minutes = Math.floor(time / 60) % 60;
+		const seconds = Math.floor(time - minutes * 60);
+		const milliseconds = time.slice(-3);
 		return `${pad(minutes, 2)}:${pad(seconds, 2)}`;
 	};
 
@@ -47,7 +47,7 @@ export default ({ btnBar, message, errorCode, icon = "icon-library" }) => {
 
 	return (
 		<div className="Success active">
-			<div className={`icon ${icon}`}></div>
+			<div className={`icon ${icon}`} />
 			<div className="title">{t("lbl_Information")}</div>
 			<div>
 				{hasTooManyRequestError ? (

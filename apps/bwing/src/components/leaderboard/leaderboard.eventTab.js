@@ -7,16 +7,20 @@ export default ({ t, rewardList, userInfo }) => {
 			<li
 				key={`leaderBoard-event-${item.displayRank}`}
 				className={idx < 3 ? `no${idx + 1}` : null}>
-				{parseInt(item.displayRank) === 1 ? (
-					<div>
-						<img
-							src={require(`../../styles/img/ranking/trophy1.png`)}
-							alt="top_ranking"
-						/>
-					</div>
-				) : (
-					<div>{item.displayRank}</div>
-				)}
+				<div>
+					<img
+						src={
+							idx < 3
+								? require(`../../styles/img/ranking/trophy${
+										Number(idx) + 1
+								  }.png`)
+								: require(`../../styles/img/ranking/trophy4.png`)
+						}
+						alt="ranking_top"
+					/>
+
+					{item.displayRank}
+				</div>
 				<div>{item.reward}</div>
 				<div>{item.winnersNum}</div>
 			</li>
@@ -43,7 +47,7 @@ export default ({ t, rewardList, userInfo }) => {
 			</div>
 			<a
 				className="remind btn"
-				href={`${config.t_and_cURL}/SiteSkin/Bwing/ranking/${userInfo.langId}.html`}
+				href={`${config.t_and_cURL}/SiteSkin/Bwing/ranking/${userInfo.langId}2.html`}
 				target="_blank">
 				{t("lbl_MoreDetails")}
 			</a>

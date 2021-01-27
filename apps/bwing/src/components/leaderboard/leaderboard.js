@@ -1,19 +1,24 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../common/context";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "../common/defPopBoxType";
 import {
-	api_events_GetLeaderboardList,
-	api_events_GetCustRank
+	api_events_GetLeaderboardListV2,
+	api_events_GetCustRankV2
 } from "../../service/api/events";
-import LeaderBoardTab from "./leaderBoard.tabs";
+import LeaderBoardTab from "./leaderboard.tabs";
 
 import {
 	defTabId,
 	defBackground,
 	defDayNum,
 	defRewardList,
-	defTopWinnerNum
+	currentTopNum,
+	lastTopNum,
+	current_eventCode,
+	last_eventCode,
+	defLastChampionReward,
+	defRightSectionRewardImg
 } from "./leaderboard.def";
 import EventTab from "./leaderboard.eventTab";
 import RankingTab from "./leaderboard.rankingTab";
@@ -43,11 +48,16 @@ export default () => {
 		: langMapping[userInfo.langId];
 
 	const rewardList = defRewardList[currencyName];
-	let no1Reward = rewardList[0].reward;
+	const no1Reward =
+		tab === defTabId.lastEvent
+			? defLastChampionReward[currencyName][0].reward
+			: defRewardList[currencyName][0].reward;
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -64,15 +74,16 @@ export default () => {
 			});
 		} else {
 			setTab(tabValue);
-			setBeforeDays(
-				tabValue === defTabId.records
-					? defDayNum.yesterDay
-					: defDayNum.today
-			);
+			if (
+				tabValue === defTabId.ranking ||
+				tabValue === defTabId.lastEvent
+			) {
+				setBeforeDays(defDayNum.today);
+				getLeaderboardData(defDayNum.today, tabValue);
+			}
 			if (tabValue === defTabId.records) {
-				getLeaderboardData(1);
-			} else {
-				getLeaderboardData(0);
+				setBeforeDays(defDayNum.yesterDay);
+				getLeaderboardData(defDayNum.yesterDay, tabValue);
 			}
 		}
 	};
@@ -101,24 +112,28 @@ export default () => {
 		});
 	};
 
-	const getLeaderboardData = async daysValue => {
+	const getLeaderboardData = async (daysValue, tabValue) => {
+		const isLastEventTab = tabValue === defTabId.lastEvent;
+		const _TopNum = isLastEventTab ? lastTopNum : currentTopNum;
 		if (!userInfo.isLogin) return;
 		const payload_topWinner = {
-			lBCategoryId: lBCategoryId,
-			TopNum: defTopWinnerNum,
-			BeforeDays: daysValue
+			lBCategoryId,
+			TopNum: _TopNum,
+			BeforeDays: daysValue,
+			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
 		const payload_self = {
 			LBCategoryId: lBCategoryId,
-			BeforeDays: daysValue
+			BeforeDays: daysValue,
+			EventCode: isLastEventTab ? last_eventCode : current_eventCode
 		};
-		await api_events_GetLeaderboardList(payload_topWinner).then(
+		await api_events_GetLeaderboardListV2(payload_topWinner).then(
 			async res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						let topArr = res.data.data;
+						const topArr = res.data.data;
 
-						let userInTop =
+						const userInTop =
 							topArr.findIndex(
 								r => r.username === userInfo.userName
 							) !== -1;
@@ -128,27 +143,26 @@ export default () => {
 						} else if (userInTop) {
 							setRankingData(topArr);
 						} else {
-							let selfItem = await api_events_GetCustRank(
+							const selfItem = await api_events_GetCustRankV2(
 								payload_self
-							).then(res => {
-								if (res.data.errorCode === 0) {
+							).then(resRank => {
+								if (resRank.data.errorCode === 0) {
 									return {
 										userName: userInfo.userName,
-										wTurnover: res.data.data.point,
+										wTurnover: resRank.data.data.point,
 										custRank:
-											res.data.data.custRank === 0 ||
-											res.data.data.custRank > 999
+											resRank.data.data.custRank === 0 ||
+											resRank.data.data.custRank > 999
 												? "999+"
-												: res.data.data.custRank
+												: resRank.data.data.custRank
 									};
-								} else {
-									showErrorPopBox(res.data.message);
 								}
+								showErrorPopBox(resRank.data.message);
 							});
-							let filterRepeatArr = topArr.filter(
+							const filterRepeatArr = topArr.filter(
 								r => r.username !== userInfo.userName
 							);
-							let concatArr = [...filterRepeatArr, selfItem];
+							const concatArr = [...filterRepeatArr, selfItem];
 							setRankingData(concatArr);
 						}
 					} else {
@@ -196,8 +210,8 @@ export default () => {
 							<p>{no1Reward}</p>
 						</div>
 						<img
-							src={require("../../styles/img/ranking/iphone.png")}
-							alt="iphone"
+							src={require(`../../styles/img/ranking/${defRightSectionRewardImg[tab]}.png`)}
+							alt="reward"
 						/>
 					</div>
 				</div>

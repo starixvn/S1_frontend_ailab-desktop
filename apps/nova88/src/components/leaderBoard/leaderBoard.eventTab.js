@@ -1,5 +1,4 @@
 import React from "react";
-import { number_format } from "../common/common";
 import ButtonGroups from "./leaderBoard.btnGroups";
 import config from "../../config";
 
@@ -16,7 +15,7 @@ export default ({
 		return (
 			<li key={`leaderBoard-event-${item.displayRank}`}>
 				<div>
-					{parseInt(item.displayRank) < 4 ? (
+					{Number(item.displayRank) < 4 ? (
 						<img
 							src={require(`../../styles/img/no${item.displayRank}.png`)}
 							alt="top_ranking"
@@ -53,7 +52,7 @@ export default ({
 			<div className="rankList">
 				<ul>
 					<li>
-						<div></div>
+						<div />
 						<div>{t("lbl_Ranking")}</div>
 						<div>{t("lbl_Rewards")}</div>
 					</li>

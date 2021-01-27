@@ -5,14 +5,13 @@ import React, {
 	useRef,
 	useReducer
 } from "react";
+import { Redirect, Link, useLocation, navigate } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import {
 	api_payment_GetOnlineBankInfoSysList,
 	api_payment_GetOnlinePaymentList
 } from "../../service/api/payment";
-import { navigate } from "@reach/router";
 import { getUrlParameter, isConvert } from "../common/common";
-import { Redirect, Link, useLocation } from "@reach/router";
-import { useTranslation } from "react-i18next";
 import path from "../../router";
 import { userInfoContext } from "../common/context";
 import DepositWrapper from "./wrapper";
@@ -40,16 +39,18 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 
 	const getOnlinePaymentInfo = async pId => {
-		return await api_payment_GetOnlinePaymentList().then(
-			({ data: { data, errorCode } }) => {
-				if (!isMountedRef.current) return;
+		try {
+			const {
+				data: { data, errorCode }
+			} = await api_payment_GetOnlinePaymentList();
+			if (!isMountedRef.current) return;
 
-				const success = errorCode === 0;
-				if (success) {
-					return data.find(item => item.payId === pId);
-				}
+			const success = errorCode === 0;
+
+			if (success) {
+				return data.find(item => item.payId === pId);
 			}
-		);
+		} catch (error) {}
 	};
 
 	const getOnlineBankInfoSysList = async pId => {
@@ -57,7 +58,7 @@ export default () => {
 			payId: Number(pId)
 		}).then(res => {
 			if (res.data.errorCode === 0) {
-				let datas = res.data.data.map(b => {
+				const datas = res.data.data.map(b => {
 					return b;
 				});
 
@@ -79,13 +80,15 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
-		let pId = getUrlParameter("pId");
-		let cId = getUrlParameter("cId");
-		let name = getUrlParameter("name");
+		const pId = getUrlParameter("pId");
+		const cId = getUrlParameter("cId");
+		const name = getUrlParameter("name");
 		if (!pId || !cId || !name) {
 			setRedirectPath(`/${userInfo.langId}/${path.deposit.root}`);
 		}
@@ -93,10 +96,10 @@ export default () => {
 
 	useEffect(() => {
 		async function fetchData() {
-			let pId = getUrlParameter("pId");
+			const pId = getUrlParameter("pId");
 
 			if (location.state?.selBank === undefined) {
-				let paymentInfo = await getOnlinePaymentInfo(Number(pId));
+				const paymentInfo = await getOnlinePaymentInfo(Number(pId));
 				if (!paymentInfo?.selBank)
 					return navigate(`/${userInfo.langId}/${path.deposit.root}`);
 
@@ -126,7 +129,7 @@ export default () => {
 		fetchData();
 	}, [userInfo.langId]);
 
-	let pName = getUrlParameter("name");
+	const pName = getUrlParameter("name");
 	let displayMoudle = null;
 	const _isConvert = isConvert(userInfo.currencyId);
 	switch (state.displayMoudle) {
@@ -135,9 +138,9 @@ export default () => {
 				<BankPanel dispatch={dispatch} bankList={state.bankList} />
 			);
 			break;
-		case defModule.AmountPanel:
-			let maxAmount = getUrlParameter("max");
-			let minAmount = getUrlParameter("min");
+		case defModule.AmountPanel: {
+			const maxAmount = getUrlParameter("max");
+			const minAmount = getUrlParameter("min");
 			displayMoudle = (
 				<AmountPanel
 					dispatch={dispatch}
@@ -151,6 +154,7 @@ export default () => {
 				/>
 			);
 			break;
+		}
 
 		case defModule.ConfirmPanel:
 			displayMoudle = (
@@ -189,11 +193,10 @@ export default () => {
 				(state.step === 3 && location.state?.selBank === false) ? (
 					<Link
 						to={`/${userInfo.langId}/${path.deposit.root}`}
-						className="icon icon-arrow-left2"></Link>
+						className="icon icon-arrow-left2"
+					/>
 				) : (
-					<a
-						onClick={ClickBack}
-						className="icon icon-arrow-left2"></a>
+					<a onClick={ClickBack} className="icon icon-arrow-left2" />
 				)}
 			</div>
 			{displayMoudle}

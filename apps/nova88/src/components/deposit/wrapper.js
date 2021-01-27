@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import StepBar from "./stepBar";
 import { Link } from "@reach/router";
+import StepBar from "./stepBar";
 import path from "../../router";
-import { userInfoContext } from "../../components/common/context";
+import { userInfoContext } from "../common/context";
 
 export default ({ step, children }) => {
 	const { t } = useTranslation();

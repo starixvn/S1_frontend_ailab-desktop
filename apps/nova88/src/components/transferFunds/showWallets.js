@@ -1,6 +1,6 @@
 import React from "react";
-import { number_format } from "../common/common";
 import PropTypes from "prop-types";
+import { number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 
 const walletIcon = [

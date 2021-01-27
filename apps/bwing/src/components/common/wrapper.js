@@ -1,22 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Redirect } from "@reach/router";
-import * as ct from "../common/context";
-import { defaultLang } from "../../i18n/config";
 import { useTranslation } from "react-i18next";
+import * as ct from "./context";
+import { defaultLang } from "../../i18n/config";
 import {
 	getUrlParameter,
 	setCookie,
 	deleteCookie,
 	getNewLanguagePath,
 	readCookie
-} from "../common/common";
+} from "./common";
 import { IS_LOGGED_IN } from "../../service/auth";
 import {
 	api_account_GetMsgCount,
 	api_account_onlineCheck
 } from "../../service/api/account";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
-import { defPopBoxType } from "../common/popBox";
+import { defPopBoxType } from "./defPopBoxType";
 import useInterval from "../hook/useInterval";
 import useGetWalletInfo from "./wrapper.walletInfo";
 
@@ -45,7 +45,9 @@ export default ({ children, afterLogin = false }) => {
 	const isMountedRef = useRef(null);
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -86,7 +88,7 @@ export default ({ children, afterLogin = false }) => {
 			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
 				setUserInfo(prevState => ({
 					...prevState,
-					isLogin: isLogin
+					isLogin
 				}));
 			}
 		});
@@ -107,7 +109,7 @@ export default ({ children, afterLogin = false }) => {
 						res_custInfo.data.errorCode === 0 &&
 						isMountedRef.current
 					) {
-						let data = res_custInfo.data.data;
+						const { data } = res_custInfo.data;
 						setCookie("bwingLangId", data.langId);
 						setUserInfo(prevState => ({
 							...prevState,
@@ -136,8 +138,9 @@ export default ({ children, afterLogin = false }) => {
 	useEffect(() => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
-				let pathLang = window.location.pathname.split("/")?.[1];
-				let currentLang = readCookie("bwingLangId") ?? userInfo.langId;
+				const pathLang = window.location.pathname.split("/")?.[1];
+				const currentLang =
+					readCookie("bwingLangId") ?? userInfo.langId;
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);
 				} else if (pathLang !== "" && pathLang !== currentLang) {
@@ -146,7 +149,7 @@ export default ({ children, afterLogin = false }) => {
 						langId: currentLang
 					}));
 
-					let newPathArr = getNewLanguagePath(currentLang);
+					const newPathArr = getNewLanguagePath(currentLang);
 					window.location.href = newPathArr;
 				} else {
 					setCorrectPath(true);
@@ -156,10 +159,10 @@ export default ({ children, afterLogin = false }) => {
 	}, [currentPath, i18n.language, userInfo.langId, userInfo.isLogin]);
 
 	useEffect(() => {
-		let AffId = getUrlParameter("AffId");
-		let RefId = getUrlParameter("RefId");
-		let Aff = getUrlParameter("Aff");
-		let AffCode = getUrlParameter("AffCode");
+		const AffId = getUrlParameter("AffId");
+		const RefId = getUrlParameter("RefId");
+		const Aff = getUrlParameter("Aff");
+		const AffCode = getUrlParameter("AffCode");
 
 		if (AffId) {
 			setCookie("AffId", AffId, 7);
@@ -226,10 +229,8 @@ export default ({ children, afterLogin = false }) => {
 					</ct.walletInfoContext.Provider>
 				</ct.userInfoContext.Provider>
 			);
-		} else {
-			return <></>;
 		}
-	} else {
-		return <Redirect to={redirectPath} noThrow />;
+		return <></>;
 	}
+	return <Redirect to={redirectPath} noThrow />;
 };

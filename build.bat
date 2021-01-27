@@ -6,15 +6,7 @@ rmdir /s/q public
 rmdir /s/q .cache
 mkdir public
 rmdir /s/q static\styles
-xcopy /s /i src\styles static\styles
-@REM xcopy /s static public
-cd ../../
-goto :eof
-
-:serveNova88
-cd apps/nova88
-rmdir /s/q static\styles
-xcopy /s /i src\styles static\styles
+@REM xcopy /s /i src\styles static\styles
 @REM xcopy /s static public
 cd ../../
 goto :eof

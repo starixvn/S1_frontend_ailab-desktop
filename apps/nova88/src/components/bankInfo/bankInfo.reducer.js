@@ -44,7 +44,7 @@ export function reducer(state, action) {
 				displayModule: defStepModule[newStep]
 			};
 
-		case defActionType.GET_CUST_BANK_INFO:
+		case defActionType.GET_CUST_BANK_INFO: {
 			newStep = 1;
 			let _accountName = "";
 			let _custBankList = [];
@@ -60,6 +60,7 @@ export function reducer(state, action) {
 				step: newStep,
 				displayModule: defStepModule[newStep]
 			};
+		}
 
 		case defActionType.SET_BANKLIST:
 			return {

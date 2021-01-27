@@ -6,7 +6,7 @@ export default ({ btnBar, message, errorCode, icon = "icon-library" }) => {
 
 	return (
 		<div className="Success active">
-			<div className={`icon ${icon}`}></div>
+			<div className={`icon ${icon}`} />
 			<div className="title">{t("lbl_Information")}</div>
 			<div>
 				<span>{message}</span>

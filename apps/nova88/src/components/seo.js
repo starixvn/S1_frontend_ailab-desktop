@@ -172,7 +172,7 @@ function SEO({ description, lang, meta, title }) {
 					}
 				].concat(meta)}
 			/>
-			<GATag gaCode={"UA-163834722-1"} />
+			<GATag gaCode="UA-163834722-1" />
 			<LiveChat />
 			<Iovation />
 			<FPS />
@@ -183,7 +183,8 @@ function SEO({ description, lang, meta, title }) {
 SEO.defaultProps = {
 	lang: `en`,
 	meta: [],
-	description: ``
+	description: ``,
+	title: ""
 };
 
 SEO.propTypes = {
@@ -213,9 +214,8 @@ const GATag = ({ gaCode }) => {
 		<Helmet>
 			<script
 				async
-				src={
-					"https://www.googletagmanager.com/gtag/js?id=" + gaCode
-				}></script>
+				src={`https://www.googletagmanager.com/gtag/js?id=${gaCode}`}
+			/>
 			<script>
 				{`window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
@@ -243,7 +243,8 @@ const Iovation = () => {
 			</script>
 			<script
 				src={`${config.t_and_cURL}/common/js/loader_only.js?v=201027`}
-				type="text/javascript"></script>
+				type="text/javascript"
+			/>
 		</Helmet>
 	);
 };
@@ -254,7 +255,8 @@ const FPS = () => {
 			<script
 				async=""
 				defer=""
-				src="//sc.detecas.com/di/activator.ashx"></script>
+				src="//sc.detecas.com/di/activator.ashx"
+			/>
 		</Helmet>
 	);
 };

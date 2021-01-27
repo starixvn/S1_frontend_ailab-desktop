@@ -65,7 +65,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "build.bat buildNova88",
+              "gulp minify --gulpfile=apps/nova88/gulpfile.js",
               "nx autoBuild nova88 --skip-nx-cache"
             ],
             "parallel": false
@@ -90,7 +90,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "build.bat serveNova88",
+              "gulp minify --gulpfile=apps/nova88/gulpfile.js",
               "nx autoServe nova88"
             ],
             "parallel": false
@@ -160,7 +160,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "build.bat buildGoal123",
+              "gulp minify --gulpfile=apps/goal123/gulpfile.js",
               "nx autoBuild goal123 --skip-nx-cache"
             ],
             "parallel": false
@@ -185,7 +185,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "build.bat serveGoal123",
+              "gulp minify --gulpfile=apps/goal123/gulpfile.js",
               "nx autoServe goal123"
             ],
             "parallel": false
@@ -255,7 +255,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "build.bat buildBwing",
+              "gulp minify --gulpfile=apps/bwing/gulpfile.js",
               "nx autoBuild bwing --skip-nx-cache"
             ],
             "parallel": false
@@ -280,7 +280,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "commands": [
-              "build.bat serveBwing",
+              "gulp minify --gulpfile=apps/bwing/gulpfile.js",
               "nx autoServe bwing"
             ],
             "parallel": false

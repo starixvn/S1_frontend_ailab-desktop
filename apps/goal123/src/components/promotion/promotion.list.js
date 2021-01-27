@@ -22,10 +22,10 @@ export default ({
 }) => {
 	const { langId, isLogin, currencyId } = userInfo;
 
-	let rows = promoList?.map(p => {
-		let _isClaimed = isClaimed(p);
-		let _isNew = _isClaimed ? false : isNew(p);
-		let _isExpiry = isExpiry({ ...p, isLogin });
+	const rows = promoList?.map(p => {
+		const _isClaimed = isClaimed(p);
+		const _isNew = _isClaimed ? false : isNew(p);
+		const _isExpiry = isExpiry({ ...p, isLogin });
 
 		return (
 			<div
@@ -36,11 +36,11 @@ export default ({
 						? " expired"
 						: ""
 				}`}>
-				{_isClaimed ? <div className="claimed"></div> : null}
+				{_isClaimed ? <div className="claimed" /> : null}
 				{filter === defFilterType.expiry ? (
 					<div className="expiredIcon">{t("lbl_Expired")}</div>
 				) : (
-					<div className={_isNew && p.canJoin ? "new" : ""}></div>
+					<div className={_isNew && p.canJoin ? "new" : ""} />
 				)}
 				<img src={p.banner} alt={p.title} />
 				<div className="txt-darkBlue">{p.title}</div>

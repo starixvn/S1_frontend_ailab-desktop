@@ -18,9 +18,9 @@ export default () => {
 
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
-	let tpId = getUrlParameter("tpId");
-	let gameId = getUrlParameter("gameId");
-	let matchid = getUrlParameter("matchid");
+	const tpId = getUrlParameter("tpId");
+	const gameId = getUrlParameter("gameId");
+	const matchid = getUrlParameter("matchid");
 	return (
 		<main>
 			<section className="inside">
@@ -32,7 +32,8 @@ const Content = () => {
 						tpId,
 						gameId,
 						matchid
-					)}></iframe>
+					)}
+				/>
 			</section>
 			<SideBarQuickLink />
 		</main>

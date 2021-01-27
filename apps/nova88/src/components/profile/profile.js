@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import moment from "moment";
+import { Link } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { InfoList, initValue, initStatus, DisplayRow } from "./profile.data";
 import areaCode from "../../datas/areaCode";
-import moment from "moment";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
 	api_accountStrict_SetProfile,
 	api_accountStrict_SendOTPSMS
 } from "../../service/api/accountStrict";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import EditModule from "./profile.edit";
 import { getUrlParameter } from "../common/common";
-import { Link } from "@reach/router";
 import { defPrevPage } from "./profile.dev";
 import Loading from "../common/loading";
 import { api_site_GetCountryList } from "../../service/api/site";
@@ -38,7 +38,9 @@ export default () => {
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		return () => (isMountedRef.current = false);
+		return () => {
+			isMountedRef.current = false;
+		};
 	});
 
 	useEffect(() => {
@@ -113,7 +115,7 @@ export default () => {
 			val = moment(e).format("YYYY-MM-DD");
 		} else if (col === "accountName") {
 			val = e.target.value;
-			let pattern = new RegExp(/["'`_^+-@#!<>%;)(&$.]/);
+			const pattern = new RegExp(/["'`_^+-@#!<>%;)(&$.]/);
 			val = val.replace(pattern, "");
 		} else {
 			val = e.target.value;
@@ -185,8 +187,8 @@ export default () => {
 		setStatus(prev => ({
 			...prev,
 			phoneNo: {
-				checked: checked,
-				tip: tip
+				checked,
+				tip
 			}
 		}));
 
@@ -208,8 +210,8 @@ export default () => {
 		setStatus(prev => ({
 			...prev,
 			[col]: {
-				checked: checked,
-				tip: tip
+				checked,
+				tip
 			}
 		}));
 
@@ -219,20 +221,20 @@ export default () => {
 	const clickSubmit = e => {
 		e.preventDefault();
 
-		let accountNameCheck = userInfo.accountName
+		const accountNameCheck = userInfo.accountName
 			? true
 			: valueCheck(userValue.accountName, "accountName");
 
-		let birthCheck = userInfo.birth_d
+		const birthCheck = userInfo.birth_d
 			? true
 			: valueCheck(userValue.birth, "birth");
 
-		let phoneNoCheck = userInfo.phoneNo
+		const phoneNoCheck = userInfo.phoneNo
 			? true
 			: phoneCheck(userValue.phoneNo, "phoneNo");
 
 		const SetProfile = () => {
-			let profileDatas = {
+			const profileDatas = {
 				AccountName: userInfo.accountName ?? userValue.accountName,
 				Birth_d: userInfo.birth_d ?? userValue.birth.slice(8, 10),
 				Birth_m: userInfo.birth_m ?? userValue.birth.slice(5, 7),
@@ -256,13 +258,13 @@ export default () => {
 								birth_m: profileDatas.Birth_m,
 								birth_y: profileDatas.Birth_y,
 								phoneNo: profileDatas.PhoneNo,
-								country: country
+								country
 							}));
 
 							setUserValue(initValue);
 							setStatus(initStatus);
 
-							let prevPage = getUrlParameter("prevPage");
+							const prevPage = getUrlParameter("prevPage");
 
 							if (!userInfo.phoneVerified)
 								return setPopBox({

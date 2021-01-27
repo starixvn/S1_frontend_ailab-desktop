@@ -3,8 +3,8 @@ const siteName = "Nova88";
 const getAffiliate = () => {
 	if (typeof window === `undefined`) return "";
 
-	let fullPath = window.location.hostname;
-	let arr = fullPath.split(".");
+	const fullPath = window.location.hostname;
+	const arr = fullPath.split(".");
 
 	return arr.length === 3
 		? `https://aff.${arr.filter((p, idx) => idx !== 0).join(".")}`
@@ -12,8 +12,8 @@ const getAffiliate = () => {
 };
 
 export const SiteInfo = {
-	siteName: siteName,
-	logo: "http://image.n88media.com/SiteSkin/img/logo.png",
+	siteName,
+	logo: "http://image.n88media.com/SiteSkin/img/logo_evt.png",
 	affiliateLink: getAffiliate(),
 	langCookie: "nova88LangId",
 	socialMedia: {
