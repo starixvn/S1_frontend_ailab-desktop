@@ -5,6 +5,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { readCookie, setCookie, getUrlParameter } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import { defBannerType } from "../../service/api/site";
 import SwipperBanner from "../common/swipperBanner";
 
 import NpcSoccer from "../../styles/img/npc-soccer.png";
@@ -34,6 +35,7 @@ import productList from "../../datas/productList";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
+import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
 
 import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
@@ -278,12 +280,7 @@ const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 
 	return (
 		<div className="gamelistother">
-			<SwipperBanner
-				// ImgFolder="Casino"
-				ImgFolder="Sports"
-				withBtn={false}
-				filterHideInHome={true}
-			/>
+			<EventSwipper langId={langId} />
 			{rows}
 		</div>
 	);
@@ -293,7 +290,7 @@ const IndexPage = () => {
 	const { t } = useTranslation();
 
 	const { userInfo } = useContext(userInfoContext);
-	const { popBox, setPopBox } = useContext(popBoxContext);
+	const { setPopBox } = useContext(popBoxContext);
 
 	const showLogin = () => {
 		setPopBox({
@@ -378,11 +375,7 @@ const IndexPage = () => {
 
 	return (
 		<main>
-			<SwipperBanner
-				ImgFolder="Promotion"
-				withBtn={false}
-				filterHideInHome={true}
-			/>
+			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
 			<PromoGameList t={t} userInfo={userInfo} />
 			<section>

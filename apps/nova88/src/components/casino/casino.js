@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
-import { api_site_GetGamelistV2 } from "../../service/api/site";
+import { api_site_GetGamelistV2, defBannerType } from "../../service/api/site";
 import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
@@ -376,8 +376,7 @@ export default () => {
 	) : (
 		<>
 			<SwipperBanner
-				ImgFolder="Casino"
-				withBtn={false}
+				ImgFolder={[defBannerType.Slots]}
 				openInBlank={true}
 				className="swiper-casino"
 			/>
