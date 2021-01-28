@@ -23,6 +23,7 @@ const ShowWallet = props => {
 					<span>{number_format(item.balance, false)}</span>
 					<div className="btnGroup">
 						<button
+							data-testid={`showWallet_restoreAll_${item.id}`}
 							className="blue"
 							onClick={props.restoreAll.bind(this, item.id)}>
 							{props.i18n("lbl_RestoreAll")}
