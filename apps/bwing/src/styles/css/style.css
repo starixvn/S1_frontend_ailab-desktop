@@ -3731,6 +3731,18 @@ main > .swiper-container .swiper-slide {
   padding: 0;
 }
 
+@media screen and (max-width: 1100px) {
+  .offers {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .offers .straightBorder {
+    display: none;
+  }
+}
+
 .offers .pagination {
   display: none;
 }
@@ -3776,6 +3788,28 @@ main > .swiper-container .swiper-slide {
 
 .offers .swiper-container {
   width: 501px;
+  position: relative;
+}
+
+.offers .swiper-container .swiper-button-next {
+  left: auto;
+  right: 12px;
+  top: 56%;
+  width: 25px;
+  height: 25px;
+  background-size: 100%;
+  background-color: transparent;
+  background-image: none;
+}
+
+.offers .swiper-container .swiper-button-prev {
+  left: 12px;
+  top: 56%;
+  width: 25px;
+  height: 25px;
+  background-size: 100%;
+  background-color: transparent;
+  background-image: none;
 }
 
 .offers .swiper-container .eventImg {
@@ -3785,6 +3819,8 @@ main > .swiper-container .swiper-slide {
   background: url(../img/eventBg.png) no-repeat;
   margin: 0 auto;
   position: relative;
+  padding-bottom: 20px;
+  cursor: pointer;
 }
 
 .offers .swiper-container .eventImg .team {
@@ -3806,12 +3842,15 @@ main > .swiper-container .swiper-slide {
 }
 
 .offers .swiper-container .eventImg .team .teamL {
-  margin-right: 14px;
+  width: 40px;
+  height: 40px;
+  background-size: 100%;
+  margin-right: 10px;
 }
 
 .offers .swiper-container .eventImg .team .teamL.teamR {
   margin-right: 0;
-  margin-left: 14px;
+  margin-left: 10px;
 }
 
 .offers .swiper-container .eventImg .team p {
@@ -3854,7 +3893,7 @@ main > .swiper-container .swiper-slide {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  bottom: 8px;
+  bottom: 28px;
   font-size: 12px;
   color: #021e46;
   font-weight: bold;
