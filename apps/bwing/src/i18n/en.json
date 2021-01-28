@@ -435,7 +435,7 @@
 	"lbl_MoreDetails": "MORE DETAILS",
 	"lbl_NoOfWinners": "No. of Winners",
 	"lbl_HighestWinningRecord": "HIGHEST WINNING RECORD",
-	"lbl_Ranking_Top20": "TOP 16 WINNING",
+	"lbl_Ranking_TopNum": "TOP {{topNum}} WINNING",
 	"lbl_No1_Reward": "NO.1 REWARD",
 	"lbl_leaderboardTitle_1": "HAPPY NEW YEAR",
 	"lbl_leaderboardTitle_2": "GET MORE LUCKY MONEY",
