@@ -1,17 +1,21 @@
 import React from "react";
-// import renderer from "react-test-renderer";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import ShowWallets from "../../transferFunds/showWallets";
-import ReloadSpin from "../reloadSpin";
 
 describe("showWallet Snapshot", () => {
 	afterEach(cleanup);
 	test("render correctly", () => {
-		const fakeData = [
-			{ id: 0, displayKey: "lbl_MainWallet", balance: 500 },
-			{ id: 1, displayKey: "lbl_TpWallet_1", balance: 100 }
-		];
-		const tree = render.create(<ShowWallets {...fakeData} />).toJSON();
+		const fakeData = {
+			i18n: jest.fn(),
+			_isConvert: false,
+			restoreAll: jest.fn(),
+			getAllWalletData: jest.fn(),
+			walletInfo: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 500 },
+				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 100 }
+			]
+		};
+		const tree = render(<ShowWallets {...fakeData} />);
 		expect(tree).toMatchSnapshot();
 	});
 });
