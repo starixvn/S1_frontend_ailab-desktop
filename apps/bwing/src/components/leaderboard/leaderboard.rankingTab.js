@@ -28,7 +28,9 @@ export default ({
 	return (
 		<>
 			{tab === defTabId.ranking ? (
-				<h1 className="title">{t("lbl_Ranking_Top20")}</h1>
+				<h1 className="title">
+					{t(`lbl_Ranking_TopNum`, { topNum: currentTopNum })}
+				</h1>
 			) : (
 				<>
 					{tab === defTabId.lastEvent ? null : (

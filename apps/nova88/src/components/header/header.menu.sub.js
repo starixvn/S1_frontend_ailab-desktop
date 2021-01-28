@@ -103,9 +103,22 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 		});
 	}
 	const _urlParams = params !== null ? `?${params.join("&")}` : "";
+
+	let className = subMenuItem.className || "";
+
+	if (subMenuItem.eventIcons) {
+		let iconStrings = "";
+		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
+			if (subMenuItem.eventIcons[i] !== "") {
+				iconStrings += ` ${subMenuItem.eventIcons[i]}`;
+			}
+		}
+		className += ` icon${iconStrings}`;
+	}
+
 	if (subMenuItem.menuType === defMenuType.Link) {
 		const url = subMenuItem.path || defMenuLinks[menuKey].path;
-		const className = subMenuItem.className || "";
+
 		return (
 			<Link
 				className={className}
@@ -140,7 +153,7 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 
 	return (
 		<button
-			className={subMenuItem.className}
+			className={className}
 			onClick={clickItem.bind(this, {
 				tpId: subMenuItem.tpId,
 				gameId: subMenuItem.gameId,

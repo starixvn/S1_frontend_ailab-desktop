@@ -15,8 +15,6 @@ const Layout = ({ children, showFooter = false }) => {
 			<SEO />
 			<Header />
 			{/* new year style ↓ */}
-			<div className="flower" />
-			<div className="flower flowerR" />
 			<div className="newyear">
 				<div className="newyearLeft">
 					<div className="line" />
