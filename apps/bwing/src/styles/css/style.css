@@ -1093,11 +1093,22 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   z-index: 1;
 }
 
-.flower.flowerR {
+@media screen and (max-width: 1400px) {
+  .flower {
+    display: none;
+  }
+}
+
+.flowerR {
+  position: fixed;
+  top: 0px;
+  right: 0;
   background: url(../img/newyear/flowerR.png) no-repeat;
   background-size: 100%;
-  left: auto;
-  right: 0;
+  width: 10%;
+  padding-bottom: 8%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .newyear {
@@ -1203,8 +1214,8 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   background-repeat: no-repeat;
   -webkit-transform: rotate(-320deg);
           transform: rotate(-320deg);
-  -webkit-animation: l 1s 1s ease-in-out infinite;
-          animation: l 1s 1s ease-in-out infinite;
+  -webkit-animation: ang 1s 1s ease-in-out infinite;
+          animation: ang 1s 1s ease-in-out infinite;
 }
 
 .newyear .money .l:nth-child(2) {
@@ -1243,7 +1254,7 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
           transform: rotate(300deg);
 }
 
-@-webkit-keyframes l {
+@-webkit-keyframes ang {
   0% {
     margin-top: 0px;
   }
@@ -1258,7 +1269,7 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   }
 }
 
-@keyframes l {
+@keyframes ang {
   0% {
     margin-top: 0px;
   }
@@ -3763,7 +3774,12 @@ main > .swiper-container .swiper-slide {
   background: #1d2f62;
 }
 
-.offers .eventImg {
+.offers .swiper-container {
+  width: 501px;
+}
+
+.offers .swiper-container .eventImg {
+  display: inline-block;
   width: 500px;
   height: 145px;
   background: url(../img/eventBg.png) no-repeat;
@@ -3771,7 +3787,7 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
-.offers .eventImg .team {
+.offers .swiper-container .eventImg .team {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3789,22 +3805,22 @@ main > .swiper-container .swiper-slide {
           transform: translateX(-50%);
 }
 
-.offers .eventImg .team .teamL {
+.offers .swiper-container .eventImg .team .teamL {
   margin-right: 14px;
 }
 
-.offers .eventImg .team .teamL.teamR {
+.offers .swiper-container .eventImg .team .teamL.teamR {
   margin-right: 0;
   margin-left: 14px;
 }
 
-.offers .eventImg .team p {
+.offers .swiper-container .eventImg .team p {
   width: 200px;
   text-align: center;
   font-size: 12px;
 }
 
-.offers .eventImg .teamName {
+.offers .swiper-container .eventImg .teamName {
   width: 100%;
   position: absolute;
   top: 89px;
@@ -3819,7 +3835,7 @@ main > .swiper-container .swiper-slide {
           box-sizing: border-box;
 }
 
-.offers .eventImg .teamName p {
+.offers .swiper-container .eventImg .teamName p {
   width: 170px;
   color: #021e46;
   text-transform: uppercase;
@@ -3829,11 +3845,11 @@ main > .swiper-container .swiper-slide {
   text-overflow: ellipsis;
 }
 
-.offers .eventImg .teamName p:nth-child(2) {
+.offers .swiper-container .eventImg .teamName p:nth-child(2) {
   text-align: right;
 }
 
-.offers .eventImg .time {
+.offers .swiper-container .eventImg .time {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -7012,16 +7028,6 @@ input + .iconModule i.icon.icon-checkmark:before {
           animation: top2 0.3s 0.2s forwards;
 }
 
-.event .eventTopPage .angpao:visited .top {
-  -webkit-transform: rotateX(90deg);
-          transform: rotateX(90deg);
-}
-
-.event .eventTopPage .angpao:visited .top2 {
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
-}
-
 .event .eventTopPage .angpao.active .top {
   -webkit-transform: rotateX(90deg);
           transform: rotateX(90deg);
@@ -7277,6 +7283,25 @@ input + .iconModule i.icon.icon-checkmark:before {
   color: #f77900;
 }
 
+.event .eventModule > div > div.moduleCenter > div .more {
+  background: -webkit-gradient(linear, left bottom, left top, from(#e9bc49), to(#fdd97b));
+  background: linear-gradient(to top, #e9bc49, #fdd97b);
+  border: 1px solid #fdd97b;
+  width: 200px;
+  line-height: 40px;
+  color: #000;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.event .eventModule > div > div.moduleCenter > div .more:hover {
+  -webkit-box-shadow: 0px 0px 8px rgba(253, 217, 123, 0.7);
+          box-shadow: 0px 0px 8px rgba(253, 217, 123, 0.7);
+}
+
 .event .eventModule > div > div.moduleCenter > div .eventList {
   border-collapse: separate;
   border-spacing: 0;
@@ -7429,8 +7454,8 @@ input + .iconModule i.icon.icon-checkmark:before {
   position: absolute;
   top: -80px;
   display: none;
-  -webkit-animation: moneyArea 0.8s linear;
-          animation: moneyArea 0.8s linear;
+  -webkit-animation: moneyArea 0.8s 1s linear;
+          animation: moneyArea 0.8s 1s linear;
 }
 
 .moneyArea .box {
@@ -7470,8 +7495,8 @@ input + .iconModule i.icon.icon-checkmark:before {
 .moneyArea .l:nth-child(3) {
   bottom: -75px;
   left: 245px;
-  -webkit-animation-delay: 0.2 0.5s;
-          animation-delay: 0.2 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
   -webkit-transform: rotate(240deg);
           transform: rotate(240deg);
 }
@@ -7492,6 +7517,80 @@ input + .iconModule i.icon.icon-checkmark:before {
           animation-delay: 0.5s;
   -webkit-transform: rotate(300deg);
           transform: rotate(300deg);
+}
+
+@-webkit-keyframes switch {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes switch {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes gold {
+  0% {
+    margin-top: 0px;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    margin-bottom: 250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes gold {
+  0% {
+    margin-top: 0px;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    margin-bottom: 250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes l {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-bottom: 250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
 }
 
 @keyframes l {
@@ -7549,6 +7648,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   text-align: center;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+  display: none;
+}
+
+#popup .eventpop.active {
+  display: block;
+  -webkit-animation: switch 0.8s ease-in-out;
+          animation: switch 0.8s ease-in-out;
 }
 
 #popup .eventpop .icon-close {
@@ -7586,5 +7692,111 @@ input + .iconModule i.icon.icon-checkmark:before {
   text-align: center;
   line-height: 40px;
   margin: 25px 0;
+}
+
+.gold {
+  background: url(../img/eventpage/goldbox.png) bottom;
+  background-size: 100%;
+  width: 326px;
+  height: 310px;
+  position: absolute;
+  display: none;
+  cursor: pointer;
+}
+
+.gold.active {
+  display: block;
+  -webkit-animation: switch 0.8s ease-in-out;
+          animation: switch 0.8s ease-in-out;
+}
+
+.gold .textBox {
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ffedbb;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9a6031), to(#56361c));
+  background: linear-gradient(to bottom, #9a6031 0%, #56361c 100%);
+  margin: 0 auto;
+  margin-top: 205px;
+  text-align: center;
+}
+
+.gold .textBox p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffcf6f;
+  padding: 10px 0;
+}
+
+.gold .moneyArea {
+  display: block;
+  position: absolute;
+  top: -80px;
+  -webkit-animation: moneyArea 0.8s linear;
+          animation: moneyArea 0.8s linear;
+}
+
+.gold .moneyArea .box {
+  position: absolute;
+  width: 425px;
+  height: 170px;
+  background-image: url(../img/eventpage/gold.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index: 2;
+  top: 71px;
+  left: -50px;
+}
+
+.gold .moneyArea .l {
+  position: absolute;
+  bottom: -230px;
+  left: 30px;
+  width: 100px;
+  height: 50px;
+  background-image: url(../img/eventpage/gold1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transform: rotate(-320deg);
+          transform: rotate(-320deg);
+  -webkit-animation: gold 1s ease-in-out infinite;
+          animation: gold 1s ease-in-out infinite;
+}
+
+.gold .moneyArea .l:nth-child(2) {
+  bottom: -230px;
+  left: 170px;
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.gold .moneyArea .l:nth-child(3) {
+  bottom: -230px;
+  left: 230px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+.gold .moneyArea .l:nth-child(4) {
+  bottom: -230px;
+  left: 145px;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.gold .moneyArea .l:nth-child(5) {
+  bottom: -230px;
+  left: 90px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
 }
 /*# sourceMappingURL=style.css.map */
