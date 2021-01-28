@@ -22,3 +22,4 @@ gulp.task("minify-css", async () => {
 });
 
 gulp.task("minify", gulp.series("clean-folder", "copy-asset", "minify-css"));
+gulp.task("compress", gulp.series("copy-asset", "minify-css"));
