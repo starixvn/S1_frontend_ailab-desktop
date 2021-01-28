@@ -14,10 +14,6 @@ import productList, { defCasinoProviders } from "../../datas/productList";
 
 const NeedLoginRoute = [];
 
-export const defSpecialActionLink = {
-	SportsIndex: "Sports/Index"
-};
-
 export const ClickLink = ({
 	tpId,
 	gameId,
