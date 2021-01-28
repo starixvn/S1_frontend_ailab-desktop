@@ -35,7 +35,7 @@ export default () => {
 			<div className="header">
 				{/* new year style ↓ */}
 				{/* <div className="flower" /> */}
-				<div className="flower flowerR" />
+				<div className="flowerR" />
 				{/* new year style ↑ */}
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
