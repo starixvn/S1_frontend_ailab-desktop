@@ -161,7 +161,6 @@ header {
 }
 
 .header > div.menu > div > a, .header > div.menu > div > button {
-  margin-right: 20px;
   font-family: Microsoft YaHei,sans-serif;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -172,18 +171,32 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 30px;
-  border-bottom: 3px solid transparent;
+  padding-left: 30px;
   font-size: 14px;
   color: #fff;
-  height: calc(100% - 3px);
+  height: 100%;
   position: relative;
+}
+
+.header > div.menu > div > a:after, .header > div.menu > div > button:after {
+  content: '';
+  display: block;
+  background: #f77900;
+  width: calc(100% - 30px);
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  z-index: 999;
+  display: none;
 }
 
 .header > div.menu > div > a:hover, .header > div.menu > div > a.active, .header > div.menu > div > button:hover, .header > div.menu > div > button.active {
   color: #f77900;
-  border-color: #f77900;
   cursor: pointer;
+}
+
+.header > div.menu > div > a:hover:after, .header > div.menu > div > a.active:after, .header > div.menu > div > button:hover:after, .header > div.menu > div > button.active:after {
+  display: block;
 }
 
 .header > div.menu > div > a.icon-home, .header > div.menu > div > button.icon-home {
@@ -203,6 +216,7 @@ header {
   left: 0;
   top: 49px;
   background: rgba(0, 0, 0, 0.9);
+  z-index: -1;
 }
 
 .header > div.menu .subMenu-Wrapper-new .icon:before {
@@ -425,6 +439,7 @@ header {
   left: 0;
   top: 49px;
   background: rgba(0, 0, 0, 0.9);
+  z-index: -1;
 }
 
 .header > div.menu .subMenu-Wrapper.active {
@@ -8475,80 +8490,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 11.81981%;
-  top: -10.22957%;
-  width: 14.46303px;
-  height: 14.46303px;
+  left: 6.42343%;
+  top: -9.05457%;
+  width: 9.5044px;
+  height: 9.5044px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 12.94136%;
-  top: 22.13011%;
-  width: 6.56361px;
-  height: 6.56361px;
+  left: 11.92507%;
+  top: 11.92179%;
+  width: 13.19343px;
+  height: 13.19343px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 80.4133%;
-  top: -19.46683%;
-  width: 10.28249px;
-  height: 10.28249px;
+  left: 23.35642%;
+  top: -3.29467%;
+  width: 11.35031px;
+  height: 11.35031px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 93.35198%;
-  top: 31.76906%;
-  width: 12.47062px;
-  height: 12.47062px;
+  left: 3.99472%;
+  top: -57.8907%;
+  width: 14.62065px;
+  height: 14.62065px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 60.70997%;
-  top: -40.38986%;
-  width: 8.15808px;
-  height: 8.15808px;
+  left: 3.76081%;
+  top: -57.95134%;
+  width: 13.67326px;
+  height: 13.67326px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 90.66081%;
-  top: -18.90298%;
-  width: 9.99592px;
-  height: 9.99592px;
+  left: 47.7064%;
+  top: -59.03547%;
+  width: 10.84529px;
+  height: 10.84529px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 34.27097%;
-  top: 15.91779%;
-  width: 8.59987px;
-  height: 8.59987px;
+  left: 59.54217%;
+  top: -55.60701%;
+  width: 9.4777px;
+  height: 9.4777px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 4.94414%;
-  top: -21.8711%;
-  width: 6.10207px;
-  height: 6.10207px;
+  left: 84.76468%;
+  top: -5.38972%;
+  width: 7.05707px;
+  height: 7.05707px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9217,6 +9232,14 @@ canvas {
           align-items: center;
   color: white;
   text-align: center;
+  min-width: auto;
+  padding: 0;
+  max-height: none;
+  overflow-y: unset;
+}
+
+#popup .eventpop > div {
+  display: block;
 }
 
 #popup .eventpop .icon-close {
@@ -9225,6 +9248,7 @@ canvas {
   right: 10px;
   top: 17px;
   font-size: 14px;
+  z-index: 1;
 }
 
 #popup .eventpop .title {
