@@ -21,12 +21,12 @@ const transferDirection = (direction, tpName, t) => {
 	return { startWallet, endWallet };
 };
 
-export default props => {
+export default ({ getHistory, getTransferRecent }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const _isConvert = isConvert(userInfo.currencyId);
 
-	const arr = props.getHistory?.map((item, i) => {
+	const arr = getHistory?.map((item, i) => {
 		const _transferDirection = transferDirection(
 			item.direction,
 			item.tpName,
@@ -46,6 +46,7 @@ export default props => {
 				status={_status}
 				statusColor={_statusColor}
 				_isConvert={_isConvert}
+				data-testid="transactionHistory-item"
 			/>
 		);
 	});
@@ -65,12 +66,12 @@ export default props => {
 						{t("lbl_Status")}
 						<ReloadSpin
 							btnActive={false}
-							func={props.getTransferRecent}
-							data-test-id="reloadSpin"
+							func={getTransferRecent}
+							data-testid="reloadSpin"
 						/>
 					</div>
 				</div>
-				{props.getHistory?.length > 0 ? (
+				{getHistory?.length > 0 ? (
 					<div className="listBody">{arr}</div>
 				) : (
 					<div className="nodata icon icon-nodata">

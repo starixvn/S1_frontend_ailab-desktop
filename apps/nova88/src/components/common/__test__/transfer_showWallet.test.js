@@ -20,13 +20,11 @@ describe("showWallet Snapshot", () => {
 
 describe("render showWallet", () => {
 	const axios = require("axios");
-
 	const getData = () => {
 		return axios.get("url/apiData").then(resp => {
 			return resp.data;
 		});
 	};
-
 	jest.mock("axios");
 
 	test("render showWallet card with fake api", () => {
