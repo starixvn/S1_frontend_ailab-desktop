@@ -76,7 +76,7 @@
 	"lbl_5_fortune_dragons": "5 Fortune Dragons",
 	"lbl_god_of_fortune": "God of Fortune",
 	"lbl_lucky_neko": "Lucky Neko",
-	"lbl_Indo4D":"Indo 4D",
+	"lbl_Indo4D": "Indo 4D",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Slots",
@@ -481,5 +481,23 @@
 	"lbl_Game_ICG_DRAGONBALL_FISHING": "DRAGONBALL FISHING",
 	"lbl_Game_ICG_FISHING_OF_SAVIORS": "FISHING OF SAVIORS",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS": "THE TYRANT AND THE PRINCESS",
-	"lbl_Game_ICG_TOWER_OF_SAVIORS": "TOWER OF SAVIORS"
+	"lbl_Game_ICG_TOWER_OF_SAVIORS": "TOWER OF SAVIORS",
+	"lbl_AngPow_Congratulations": "Selamat",
+	"lbl_AngPow_YouWon": "Anda Menang",
+	"lbl_AngPow_CreditToYourWallet": "Jumlah akan dikreditkan ke akun anda",
+	"lbl_AngPow_EntitlePromotion": "Harap lakukan deposit Anda untuk mendapatkan promosi ini",
+	"lbl_AngPow_CreditedAccount1": "Selamat, Ang Pao Anda",
+	"lbl_AngPow_CreditedAccount2": "telah dikreditkan ke akun Anda!",
+	"lbl_AngPow_Conditions": "ĐIỀU KHOẢN & ĐIỀU KIỆN",
+	"lbl_AngPow_EventTitle": "New Year Free Ang Pow Giveaway",
+	"lbl_AngPow_MemberEligibility": "at least 1 Deposit and has at least 1 settled bet before",
+	"lbl_AngPow_OtherConditions1": "1. Each account to participant 1 time/ per day on the first login",
+	"lbl_AngPow_OtherConditions2": "2. Member won before can participant again tomorrow, 1 time a day only",
+	"lbl_AngPow_MyAngPow": "My Ang Pow",
+	"lbl_AngPow_OtherConditions": "Other Conditions",
+	"lbl_AngPow_Next":"Next",
+	"lbl_AngPow_Awards":"Awards",
+	"lbl_Start":"Start",
+	"lbl_End":"End"
+
 }
