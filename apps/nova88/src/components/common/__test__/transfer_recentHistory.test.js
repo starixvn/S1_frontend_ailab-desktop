@@ -1,4 +1,5 @@
 import React from "react";
+
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import * as ct from "../context";
 import RecentHistory from "../../transferFunds/recentHistory";
@@ -17,88 +18,59 @@ const recentHistoryWrapper = ({ userInfo }) => (
 	</ct.userInfoContext.Provider>
 );
 
-describe("test click reload spin icon(beside showWallet)", () => {
+describe("test click reload spin icon(beside recent history)", () => {
 	afterEach(cleanup);
 	const getHistory = [];
 	const getTransferRecent = jest.fn();
-	const userInfo = {
-		isLogin: true,
-		currencyId: 1,
-		accountName: "",
-		phoneNo: "",
-		email: "",
-		langId: "en"
-	};
 
 	test("default reload spin not active", () => {
-		const { getByTestId } = render(
-			<recentHistoryWrapper
+		const { getByLabelText } = render(
+			<RecentHistory
 				getHistory={getHistory}
 				getTransferRecent={getTransferRecent}
-				userInfo={userInfo}
 			/>
 		);
-		const reloadComponent = getByTestId("reloadSpin");
-		expect(reloadComponent.classList.contains("active")).toBe(false);
+		expect(getByLabelText("clickSpin").classList.contains("active")).toBe(
+			false
+		);
 	});
-
 	test("click reload spin will active", () => {
-		const { getByTestId } = render(
-			<recentHistoryWrapper
+		const { getByLabelText } = render(
+			<RecentHistory
 				getHistory={getHistory}
 				getTransferRecent={getTransferRecent}
-				userInfo={userInfo}
 			/>
 		);
-		const reloadComponent = getByTestId("reloadSpin");
-		fireEvent.click(reloadComponent);
-		expect(reloadComponent.classList.contains("active")).toBe(true);
+		fireEvent.click(getByLabelText(`clickSpin`));
+		expect(getByLabelText(`clickSpin`).className.includes("active")).toBe(
+			true
+		);
 	});
 });
 
-describe("render ", () => {
-	test("render history items num correct", () => {
-		const getHistory = [
-			{
-				amount: 204831,
-				createTime: "2021-01-11T09:09:54+00:00",
-				direction: 1,
-				memo: "amount isn't not enough: 204831.0000",
-				status: 1,
-				tpName: "体育钱包",
-				transId: "TD4366"
-			},
-			{
-				amount: 204831,
-				createTime: "2021-01-11T09:09:52+00:00",
-				direction: 1,
-				memo: "amount isn't not enough: 204831.0000",
-				status: 1,
-				tpName: "918Kiss",
-				transId: "TD4365"
-			}
-		];
-
+describe("recentHistory array item render ", () => {
+	test("if getHistory length > 0 ,table body class show`listBody` ", () => {
+		const getHistory = [{ amount: 100 }, { amount: 200 }];
 		const getTransferRecent = jest.fn();
-		const userInfo = {
-			isLogin: true,
-			currencyId: 1,
-			accountName: "",
-			phoneNo: "",
-			email: "",
-			langId: "en"
-		};
-
 		const { container } = render(
-			<recentHistoryWrapper
+			<RecentHistory
 				getHistory={getHistory}
 				getTransferRecent={getTransferRecent}
-				userInfo={userInfo}
 			/>
 		);
-		// const listBody = container.getElementsByClassName("listBody");
-		// expect(listBody.children.length).toBe(2);
-		// expect(container.getElementsByClassName("listBody").length).toBe(1);
+		expect(container.getElementsByClassName("listBody").length).toBe(1);
+	});
+
+	test("if getHistory length = 0 ,table body class show`no-data` ", () => {
+		const getHistory = [];
+		const getTransferRecent = jest.fn();
+		const { container } = render(
+			<RecentHistory
+				getHistory={getHistory}
+				getTransferRecent={getTransferRecent}
+			/>
+		);
+
 		expect(
 			container.getElementsByClassName("nodata icon icon-nodata").length
 		).toBe(1);

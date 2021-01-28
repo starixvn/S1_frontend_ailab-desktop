@@ -46,7 +46,6 @@ export default ({ getHistory, getTransferRecent }) => {
 				status={_status}
 				statusColor={_statusColor}
 				_isConvert={_isConvert}
-				data-testid="transactionHistory-item"
 			/>
 		);
 	});
@@ -67,7 +66,6 @@ export default ({ getHistory, getTransferRecent }) => {
 						<ReloadSpin
 							btnActive={false}
 							func={getTransferRecent}
-							data-testid="reloadSpin"
 						/>
 					</div>
 				</div>
