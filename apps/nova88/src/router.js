@@ -123,5 +123,8 @@ export default {
 	},
 	referralHistory: {
 		root: "referralHistory"
+	},
+	angpow: {
+		root: "angpow"
 	}
 };

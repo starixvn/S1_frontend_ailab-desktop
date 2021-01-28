@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const getUrlParameter = name => {
 	const _name = name.replace(/[[]/, "\\[").replace(/[\]]/, "\\]");
 	const regex = new RegExp(`[\\?&]${_name}=([^&#]*)`, "i");
@@ -133,4 +135,12 @@ export const passwordCheck = val => {
 		};
 
 	return { checked: true, message: "" };
+};
+
+export const isDateRange = (currentDate, startDate, endDate) => {
+	const isRange =
+		moment(currentDate).isSameOrAfter(startDate) &&
+		moment(currentDate).isSameOrBefore(endDate);
+
+	return isRange;
 };

@@ -34,6 +34,7 @@ import productList from "../../datas/productList";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
+import AngpowLink from "./angpowLink";
 import config, { SiteInfo } from "../../config";
 
 import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
@@ -403,6 +404,7 @@ const IndexPage = () => {
 				alt="indexCenterBanner"
 			/>
 			<SideBarQuickLink />
+			<AngpowLink to={`/${userInfo.langId}/${path.angpow.root}`} />
 		</main>
 	);
 };

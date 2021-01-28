@@ -24,6 +24,7 @@ import RegisterSuccess from "./popBox.registerSuccess";
 import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
 import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
 import JoinReferral from "./popBox.joinReferral";
+import SuccessAngPow from "./popBox.successAngPow";
 import defPopBoxType from "./defPopBoxType";
 
 export default () => {
@@ -194,6 +195,16 @@ export default () => {
 		}
 		case defPopBoxType.JoinReferral:
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
+			break;
+
+		case defPopBoxType.SuccessAngPow:
+			content = (
+				<SuccessAngPow
+					closePopBox={popBox.closePopBox}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
+				/>
+			);
 			break;
 
 		case defPopBoxType.default:
