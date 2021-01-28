@@ -1,6 +1,6 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import ShowWallets from "../../transferFunds/showWallets";
+import ShowWallets from "../showWallets";
 
 describe("showWallet Snapshot", () => {
 	afterEach(cleanup);

@@ -1,8 +1,8 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 // import TransferFunds from "../../transferFunds/transferFunds";
-import SetAmount from "../../transferFunds/setAmount";
-import { isConvert } from "../common";
+import SetAmount from "../setAmount";
+import { isConvert } from "../../common/common";
 
 jest.mock("react-i18next", () => ({
 	useTranslation: () => {

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
-import * as ct from "../context";
-import RecentHistory from "../../transferFunds/recentHistory";
+import * as ct from "../../common/context";
+import RecentHistory from "../recentHistory";
 
 jest.mock("react-i18next", () => ({
 	useTranslation: () => {
