@@ -4322,15 +4322,11 @@ input[type="file"] {
   position: relative;
   font-weight: bold;
   line-height: normal;
+  padding: 0 20px;
 }
 
 .offers .swiper-slide .team div {
-  width: 145px;
-  text-align: right;
-}
-
-.offers .swiper-slide .team div:last-child {
-  text-align: left;
+  width: 134.5px;
 }
 
 .offers .swiper-slide .team div.teamL, .offers .swiper-slide .team div.teamR {
@@ -4342,6 +4338,9 @@ input[type="file"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -4349,14 +4348,15 @@ input[type="file"] {
 }
 
 .offers .swiper-slide .team div img {
-  width: 75px;
-  height: 75px;
-  margin: 30px auto 40px;
+  width: 70px;
+  height: 70px;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
 .offers .swiper-slide .team div.schedule {
   margin-top: 35px;
-  width: 158px;
+  width: 139px;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4380,7 +4380,7 @@ input[type="file"] {
 
 .offers .swiper-slide .team div.gameName {
   position: absolute;
-  width: 100%;
+  width: calc(100% - 40px);
   bottom: 20px;
   text-align: center;
 }
@@ -8434,80 +8434,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 74.97169%;
-  top: -55.30801%;
-  width: 8.85287px;
-  height: 8.85287px;
+  left: 90.32811%;
+  top: -36.28355%;
+  width: 14.17511px;
+  height: 14.17511px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 89.90106%;
-  top: -47.89687%;
-  width: 14.00461px;
-  height: 14.00461px;
+  left: 29.13424%;
+  top: 24.12487%;
+  width: 6.25154px;
+  height: 6.25154px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 65.04049%;
-  top: -24.03466%;
-  width: 6.52508px;
-  height: 6.52508px;
+  left: 59.2631%;
+  top: 31.02904%;
+  width: 5.49845px;
+  height: 5.49845px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 12.29721%;
-  top: -52.12282%;
-  width: 6.47048px;
-  height: 6.47048px;
+  left: 23.88791%;
+  top: -52.75103%;
+  width: 11.49136px;
+  height: 11.49136px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 96.03748%;
-  top: 16.35293%;
-  width: 5.03575px;
-  height: 5.03575px;
+  left: 12.44566%;
+  top: -22.8841%;
+  width: 6.18702px;
+  height: 6.18702px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 97.8732%;
-  top: -57.04516%;
-  width: 12.00112px;
-  height: 12.00112px;
+  left: 27.40713%;
+  top: -28.42278%;
+  width: 13.79787px;
+  height: 13.79787px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 25.48155%;
-  top: -21.26936%;
-  width: 14.52867px;
-  height: 14.52867px;
+  left: 89.36397%;
+  top: -37.39045%;
+  width: 12.3009px;
+  height: 12.3009px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 45.26314%;
-  top: 10.92348%;
-  width: 12.72162px;
-  height: 12.72162px;
+  left: 29.5973%;
+  top: 32.00795%;
+  width: 8.10981px;
+  height: 8.10981px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }

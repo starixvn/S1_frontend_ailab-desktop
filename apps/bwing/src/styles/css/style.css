@@ -3854,7 +3854,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .offers .swiper-container .eventImg .team p {
-  width: 200px;
+  width: 202px;
   text-align: center;
   font-size: 12px;
 }
@@ -3875,17 +3875,14 @@ main > .swiper-container .swiper-slide {
 }
 
 .offers .swiper-container .eventImg .teamName p {
-  width: 170px;
+  width: 160px;
   color: #021e46;
   text-transform: uppercase;
   font-weight: bold;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.offers .swiper-container .eventImg .teamName p:nth-child(2) {
-  text-align: right;
+  text-align: center;
 }
 
 .offers .swiper-container .eventImg .time {
@@ -7837,5 +7834,267 @@ input + .iconModule i.icon.icon-checkmark:before {
           animation-delay: 0.5s;
   -webkit-transform: rotate(300deg);
           transform: rotate(300deg);
+}
+
+.flowerArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.allstars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+[class^="star"] {
+  /*選取所有star*/
+  color: #fff;
+  background: url(../img/newyear/flowerS.png);
+  background-size: 100%;
+  width: 15px;
+  height: 15px;
+  -webkit-animation: falling 8s ease-in infinite;
+          animation: falling 8s ease-in infinite;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+}
+
+[class^="star"].star1 {
+  position: absolute;
+  left: 12.94011%;
+  top: -26.65377%;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+[class^="star"].star2 {
+  position: absolute;
+  left: 26.13814%;
+  top: -62.42397%;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+
+[class^="star"].star3 {
+  position: absolute;
+  left: 88.46109%;
+  top: -65.913%;
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+}
+
+[class^="star"].star4 {
+  position: absolute;
+  left: 20.20017%;
+  top: -25.89446%;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+[class^="star"].star5 {
+  position: absolute;
+  left: 44.87491%;
+  top: -57.49735%;
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+}
+
+[class^="star"].star6 {
+  position: absolute;
+  left: 89.73213%;
+  top: -47.60442%;
+  -webkit-animation-delay: -6s;
+          animation-delay: -6s;
+}
+
+[class^="star"].star7 {
+  position: absolute;
+  left: 22.05626%;
+  top: -46.66138%;
+  -webkit-animation-delay: -7s;
+          animation-delay: -7s;
+}
+
+[class^="star"].star8 {
+  position: absolute;
+  left: 4.42491%;
+  top: -87.60042%;
+  -webkit-animation-delay: -8s;
+          animation-delay: -8s;
+}
+
+[class^="star"].star9 {
+  position: absolute;
+  left: 39.28087%;
+  top: 1.3146%;
+  -webkit-animation-delay: -9s;
+          animation-delay: -9s;
+}
+
+[class^="star"].star10 {
+  position: absolute;
+  left: 94.99399%;
+  top: -6.4968%;
+  -webkit-animation-delay: -10s;
+          animation-delay: -10s;
+}
+
+[class^="star"].star11 {
+  position: absolute;
+  left: 53.88462%;
+  top: -34.03316%;
+  -webkit-animation-delay: -11s;
+          animation-delay: -11s;
+}
+
+[class^="star"].star12 {
+  position: absolute;
+  left: 94.44145%;
+  top: -51.71481%;
+  -webkit-animation-delay: -12s;
+          animation-delay: -12s;
+}
+
+[class^="star"].star13 {
+  position: absolute;
+  left: 0.12435%;
+  top: -45.84482%;
+  -webkit-animation-delay: -13s;
+          animation-delay: -13s;
+}
+
+[class^="star"].star14 {
+  position: absolute;
+  left: 92.90898%;
+  top: -26.51188%;
+  -webkit-animation-delay: -14s;
+          animation-delay: -14s;
+}
+
+[class^="star"].star15 {
+  position: absolute;
+  left: 21.31977%;
+  top: -72.07374%;
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
+}
+
+[class^="star"].star16 {
+  position: absolute;
+  left: 99.9341%;
+  top: -75.0937%;
+  -webkit-animation-delay: -16s;
+          animation-delay: -16s;
+}
+
+[class^="star"].star17 {
+  position: absolute;
+  left: 70.37759%;
+  top: 1.58529%;
+  -webkit-animation-delay: -17s;
+          animation-delay: -17s;
+}
+
+[class^="star"].star18 {
+  position: absolute;
+  left: 68.0985%;
+  top: -68.20501%;
+  -webkit-animation-delay: -18s;
+          animation-delay: -18s;
+}
+
+[class^="star"].star19 {
+  position: absolute;
+  left: 56.1079%;
+  top: -50.39143%;
+  -webkit-animation-delay: -19s;
+          animation-delay: -19s;
+}
+
+[class^="star"].star20 {
+  position: absolute;
+  left: 82.08867%;
+  top: -70.05669%;
+  -webkit-animation-delay: -20s;
+          animation-delay: -20s;
+}
+
+@-webkit-keyframes falling {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(0px, 120vh) rotate(360deg);
+            transform: translate(0px, 120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes falling {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(0px, 120vh) rotate(360deg);
+            transform: translate(0px, 120vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
