@@ -5,7 +5,7 @@ import {
 	api_events_DrawPrize,
 	api_events_GetCustDrawPrizeList
 } from "../../../service/api/events";
-import { defDrawPrizeStatus } from "../angPow.def";
+import { defDrawPrizeStatus, defEventId } from "../angPow.def";
 // import defPopBoxType from "../../common/defPopBoxType";
 import { defPopBoxType } from "../../common/popBox";
 import usePopBox from "../../hook/usePopBox";
@@ -32,7 +32,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 	const checkDrawPrize = () => {
 		if (!userInfo.isLogin) return;
 
-		api_events_CheckDrawPrize({ eventId: 0 }).then(
+		api_events_CheckDrawPrize({ eventId: defEventId }).then(
 			res => {
 				if (!isMountedRef) return;
 
@@ -58,7 +58,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 
 	const postDrawPrize = () => {
 		if (drawPrize.errorCode !== defDrawPrizeStatus.isJoin)
-			return api_events_DrawPrize({ eventId: 0 }).then(
+			return api_events_DrawPrize({ eventId: defEventId }).then(
 				res => {
 					if (!isMountedRef) return;
 					const { errorCode, data, message } = res.data;
@@ -98,7 +98,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 			return;
 		}
 
-		await api_events_GetCustDrawPrizeList({ eventId: 0 }).then(
+		await api_events_GetCustDrawPrizeList({ eventId: defEventId }).then(
 			res => {
 				setLoading(false);
 
