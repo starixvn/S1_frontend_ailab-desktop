@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import {
 	api_events_CheckDrawPrize,
 	api_events_DrawPrize,
@@ -24,6 +25,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 	const { setLoading } = useContext(loadingContext);
 	const { setPopBox } = useContext(popBoxContext);
 
+	const { t } = useTranslation();
 	const { errorPopBox, closePopBox } = usePopBox();
 
 	const checkDrawPrize = () => {
@@ -37,6 +39,13 @@ const useDrawPrize = ({ isMountedRef }) => {
 					data: res.data.data,
 					errorCode: res.data.errorCode
 				});
+
+				if (res.data.errorCode === defDrawPrizeStatus.drawOut) {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
 			},
 			() => {
 				if (!isMountedRef) return;
@@ -47,48 +56,42 @@ const useDrawPrize = ({ isMountedRef }) => {
 	};
 
 	const postDrawPrize = () => {
-		if (!userInfo.isLogin)
-			return setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
+		if (drawPrize.errorCode !== defDrawPrizeStatus.isJoin)
+			return api_events_DrawPrize({ eventId: 0 }).then(
+				res => {
+					if (!isMountedRef) return;
+					const { errorCode, data, message } = res.data;
 
-		if (drawPrize.errorCode === defDrawPrizeStatus.isJoin) return;
-
-		setLoading(true);
-
-		return api_events_DrawPrize({ eventId: 0 }).then(
-			res => {
-				setLoading(false);
-
-				if (!isMountedRef) return;
-				const { errorCode, data, message } = res.data;
-
-				if (errorCode !== 0) {
-					setDrawPrize({
-						data,
-						errorCode
-					});
-					setPopBox({
-						isOpen: true,
-						t,
-						drawPrizeDatas: data,
-						popBoxType: defPopBoxType.SuccessAngPow,
-						closePopBox
-					});
-				} else if (errorCode === 100) {
-					checkDrawPrize();
-				} else if (errorCode === 102) {
-					errorPopBox(message || "error", errorCode);
+					if (errorCode === 0) {
+						setDrawPrize({
+							data,
+							errorCode
+						});
+						setPopBox({
+							isOpen: true,
+							t,
+							drawPrizeDatas: data,
+							popBoxType: defPopBoxType.SuccessAngPow,
+							closePopBox
+						});
+					} else if (errorCode === defDrawPrizeStatus.isJoin) {
+						checkDrawPrize();
+						errorPopBox(t("lbl_AngPow_AlreadyDrawn"));
+					} else if (
+						errorCode === defDrawPrizeStatus.drawOut ||
+						errorCode === defDrawPrizeStatus.notEligible
+					) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				},
+				() => {
+					if (!isMountedRef) return;
+					errorPopBox();
 				}
-			},
-			() => {
-				setLoading(false);
-
-				if (!isMountedRef) return;
-				errorPopBox();
-			}
-		);
+			);
 	};
 
 	const getCustDrawPrizeList = async () => {

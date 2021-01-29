@@ -1571,38 +1571,6 @@ main .gamelistother {
   max-width: 448px;
 }
 
-main .gamelistother .timetable {
-  background: #212121;
-  overflow: hidden;
-}
-
-main .gamelistother .timetable .swiper-button-next, main .gamelistother .timetable .swiper-button-prev {
-  background: #1E85EC;
-  height: 25px;
-  padding: 0px 3px;
-  opacity: 1;
-  top: auto;
-  bottom: 0;
-}
-
-main .gamelistother .timetable .swiper-button-next:after, main .gamelistother .timetable .swiper-button-prev:after {
-  color: black;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-main .gamelistother .timetable .swiper-button-next {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  right: 0;
-}
-
-main .gamelistother .timetable .swiper-button-prev {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  left: 0;
-}
-
 main .gamelistother > a {
   background: #212121;
   display: -webkit-box;
@@ -4332,39 +4300,47 @@ input[type="file"] {
 }
 
 .offers {
-  background: #1a2e56;
-  padding: 40px 20px 20px;
   border-radius: 15px;
   position: relative;
 }
 
 .offers .swiper-container {
-  height: 200px;
+  height: 260px;
 }
 
 .offers .swiper-slide {
   text-align: center;
-  height: 165px;
-  font-size: 12px;
-  padding: 10px 0;
+  background: url(../img/offersbg.png);
 }
 
-.offers .swiper-slide .team, .offers .swiper-slide .odds {
+.offers .swiper-slide .team {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  height: 100%;
+  position: relative;
+  font-weight: bold;
 }
 
-.offers .swiper-slide .team div, .offers .swiper-slide .odds div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+.offers .swiper-slide .team div {
+  width: 145px;
+  text-align: right;
+}
+
+.offers .swiper-slide .team div:last-child {
+  text-align: left;
+}
+
+.offers .swiper-slide .team div img {
+  width: 88px;
+  height: 88px;
+  margin: 25px auto 45px;
+}
+
+.offers .swiper-slide .team div.schedule {
+  margin-top: 35px;
+  width: 158px;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4372,84 +4348,39 @@ input[type="file"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 20px;
-}
-
-.offers .swiper-slide .team div img, .offers .swiper-slide .odds div img {
-  width: auto;
-}
-
-.offers .swiper-slide .team {
-  position: relative;
-}
-
-.offers .swiper-slide .team .schedule {
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 100%;
-  max-width: 40px;
-  height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 10px;
-}
-
-.offers .swiper-slide .team .icon:before {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  color: #333333;
   font-size: 24px;
 }
 
-.offers .swiper-slide .odds {
-  padding: 10px;
+.offers .swiper-slide .team div.schedule span {
+  margin-top: 40px;
+  color: white;
+  font-size: 36px;
+  background: -webkit-linear-gradient(bottom, #fff 0%, #fff 100%);
+  -webkit-text-stroke: 1.5px #c8aa8c;
 }
 
-.offers .swiper-slide .odds div {
-  height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transform: skewX(-10deg);
-          transform: skewX(-10deg);
+.offers .swiper-slide .team div.gameName {
+  position: absolute;
+  width: 100%;
+  bottom: 30px;
+  text-align: center;
 }
 
-.offers .swiper-slide .odds div:nth-child(odd) {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-.offers .swiper-slide .odds div:nth-child(2) {
-  background: #fab617;
-  color: black;
+.offers .swiper-slide .team div.gameName span {
+  background: -webkit-linear-gradient(bottom, #df9b5c 10%, #faf0d5 25%, #fdf0d6 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 18px;
 }
 
 .offers .swiper-button-next, .offers .swiper-button-prev {
   width: 50px;
   height: 50px;
-  border-radius: 100%;
-  background: rgba(0, 0, 0, 0.6);
   outline: none;
   z-index: 1;
+  bottom: 7px;
+  top: auto;
 }
 
 .offers .swiper-button-next:after, .offers .swiper-button-prev:after {
@@ -4459,14 +4390,9 @@ input[type="file"] {
   color: white;
 }
 
-.offers .swiper-button-next {
-  right: 0;
-}
-
 .offers .swiper-button-prev {
-  left: 0;
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
 }
 
 .walletModule {
@@ -8490,80 +8416,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 6.42343%;
-  top: -9.05457%;
-  width: 9.5044px;
-  height: 9.5044px;
+  left: 21.80917%;
+  top: -1.09387%;
+  width: 6.99885px;
+  height: 6.99885px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 11.92507%;
-  top: 11.92179%;
-  width: 13.19343px;
-  height: 13.19343px;
+  left: 35.2961%;
+  top: 22.00633%;
+  width: 10.61164px;
+  height: 10.61164px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 23.35642%;
-  top: -3.29467%;
-  width: 11.35031px;
-  height: 11.35031px;
+  left: 14.52237%;
+  top: 13.62271%;
+  width: 10.53099px;
+  height: 10.53099px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 3.99472%;
-  top: -57.8907%;
-  width: 14.62065px;
-  height: 14.62065px;
+  left: 44.19214%;
+  top: -25.0781%;
+  width: 8.7791px;
+  height: 8.7791px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 3.76081%;
-  top: -57.95134%;
-  width: 13.67326px;
-  height: 13.67326px;
+  left: 97.77514%;
+  top: -8.22713%;
+  width: 14.7569px;
+  height: 14.7569px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 47.7064%;
-  top: -59.03547%;
-  width: 10.84529px;
-  height: 10.84529px;
+  left: 55.71158%;
+  top: -46.99932%;
+  width: 13.81582px;
+  height: 13.81582px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 59.54217%;
-  top: -55.60701%;
-  width: 9.4777px;
-  height: 9.4777px;
+  left: 79.72445%;
+  top: 2.75017%;
+  width: 5.6017px;
+  height: 5.6017px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 84.76468%;
-  top: -5.38972%;
-  width: 7.05707px;
-  height: 7.05707px;
+  left: 77.1881%;
+  top: -10.82254%;
+  width: 13.98551px;
+  height: 13.98551px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }

@@ -7,13 +7,14 @@ import { eventPeriod } from "../angPow/angPow.def";
 import eventlinkImg from "../../styles/img/event/eventlink.png";
 
 const { startDate, endDate } = eventPeriod;
-const currentDate = moment("2021-02-10");
+const currentDate = moment();
+const isInPeriod = isDateRange(currentDate, startDate, endDate);
 
 const AngpowLink = ({ to }) => {
 	const [display, setDisplay] = useState(true);
 	const [buttonDisplay, setButtonDisplay] = useState(false);
 
-	if (!isDateRange(currentDate, startDate, endDate)) return null;
+	if (isInPeriod) return null;
 
 	if (display)
 		return (

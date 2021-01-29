@@ -1,13 +1,18 @@
-import React, { useContext, useEffect, useRef } from "react";
-import { navigate } from "@reach/router";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Redirect } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
+
 import AngPowAnimation from "./angPow.animation";
 import AngPowEventModule from "./angPow.eventModule";
 import { userInfoContext, loadingContext } from "../common/context";
 import useDrawPrize from "./hook/useDrawPrize";
 import { eventPeriod } from "./angPow.def";
 import { isDateRange } from "../common/common";
+
+const { startDate, endDate } = eventPeriod;
+const currentDate = moment();
+const isInPeriod = isDateRange(currentDate, startDate, endDate);
 
 const AngPow = () => {
 	const { t } = useTranslation();
@@ -34,22 +39,30 @@ const AngPow = () => {
 		};
 	});
 
+	//  TODOS:
+	// function onImageLoaded(url, cb) {
+	// 	const image = new Image();
+	// 	image.src = url;
+
+	// 	if (image.complete) {
+	// 		// 圖片已經被載入
+	// 		cb(image);
+	// 	} else {
+	// 		// 如果圖片未被載入，則設定載入時的回調
+	// 		image.onload = function () {
+	// 			cb(image);
+	// 		};
+	// 	}
+	// }
+
 	useEffect(() => {
-		const checkDate = () => {
-			const { startDate, endDate } = eventPeriod;
-			const currentDate = moment();
-
-			if (!isDateRange(currentDate, startDate, endDate)) {
-				navigate("/");
-			}
-		};
-
-		checkDate();
 		checkDrawPrize();
 		getCustDrawPrizeList();
 	}, [userInfo.isLogin]);
 
 	if (loading) return null;
+
+	if (isInPeriod) return <Redirect to={`/${userInfo.langId}`} noThrow />;
 
 	return (
 		<div className="event">

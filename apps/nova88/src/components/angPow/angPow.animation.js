@@ -1,11 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
+import usePopBox from "../hook/usePopBox";
+import defPopBoxType from "../common/defPopBoxType";
+
 import { defDrawPrizeStatus } from "./angPow.def";
 
-const eventTime = moment().set({ hour: 24, minute: 59, second: 59 }).unix();
-const currentTime = moment().unix();
-const diffTime = eventTime - currentTime;
+const getDiffTime = () => {
+	const eventTime = moment().set({ hour: 24, minute: 59, second: 59 }).unix();
+	const currentTime = moment().unix();
+	const diffTime = eventTime - currentTime;
+
+	return diffTime;
+};
 
 const AngPowAnimation = ({
 	t,
@@ -15,23 +22,16 @@ const AngPowAnimation = ({
 	postDrawPrize
 }) => {
 	const timerRef = useRef(null);
-	const [downDiffTime, setDownDiffTime] = useState(diffTime);
+	const [downDiffTime, setDownDiffTime] = useState(20);
+	const [angpowActive, setAngpowActive] = useState(false);
 
-	const startTimer = () => {
-		timerRef.current = setInterval(() => {
-			setDownDiffTime(prev => {
-				if (prev - 1 === 0 && timerRef.current) {
-					clearInterval(timerRef.current);
-					timerRef.current = null;
-				}
-				if (prev - 1 === 0) {
-					checkDrawPrize();
-				}
+	const { setPopBox } = usePopBox();
 
-				return prev - 1;
-			});
-		}, 1000);
-	};
+	const { canJoin, isJoin, drawOut, notEligible } = defDrawPrizeStatus;
+	const _canJoin = drawPrize.errorCode === canJoin;
+	const _isJoin = drawPrize.errorCode === isJoin;
+	const _drawOut = drawPrize.errorCode === drawOut;
+	const _notEligible = drawPrize.errorCode === notEligible;
 
 	const secondsToTime = secondsInTime => {
 		const pad = (num, size) => {
@@ -45,21 +45,58 @@ const AngPowAnimation = ({
 		return `${pad(hours, 2)}:${pad(minutes, 2)}:${pad(seconds, 2)}`;
 	};
 
+	const onPostDrawPrize = async () => {
+		if (!isLogin) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+			return;
+		}
+
+		if (_isJoin || _drawOut || _notEligible) return;
+
+		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+		setAngpowActive(true);
+
+		await delay(3000);
+
+		await postDrawPrize();
+
+		setAngpowActive(false);
+	};
+
 	useEffect(() => {
-		if (drawPrize.errorCode === defDrawPrizeStatus.isJoin) {
+		const startTimer = () => {
+			setDownDiffTime(getDiffTime());
+
+			timerRef.current = setInterval(() => {
+				setDownDiffTime(prev => {
+					if (prev - 1 === 0 && timerRef.current) {
+						checkDrawPrize();
+						clearInterval(timerRef.current);
+						timerRef.current = null;
+					}
+
+					return prev - 1;
+				});
+			}, 1000);
+		};
+
+		if (_isJoin) {
 			clearInterval(timerRef.current);
 			startTimer();
 		}
 		return () => {
 			clearInterval(timerRef.current);
 		};
-	});
+	}, [drawPrize.errorCode, _isJoin, checkDrawPrize]);
 
 	return (
-		<div className="animation">
-			<div className="angpao" onClick={postDrawPrize}>
-				{!isLogin ||
-				drawPrize.errorCode === defDrawPrizeStatus.canJoin ? (
+		<div className="animation" onClick={onPostDrawPrize}>
+			<div className={`angpao${angpowActive ? " active" : ""}`}>
+				{!isLogin || _canJoin || _drawOut || _notEligible ? (
 					<img
 						src={require(`../../styles/img/event/text_en.png`)}
 						alt="img-event-text-en"
@@ -67,20 +104,14 @@ const AngPowAnimation = ({
 					/>
 				) : null}
 
-				<div className="box" />
+				<div className={`box${isLogin && _isJoin ? " active" : ""}`} />
 				<div className="coin" />
 				<div className="coin" />
 				<div className="coin" />
 				<div className="coin" />
 				<div className="coin" />
-				<div
-					className={`time ${
-						isLogin &&
-						drawPrize.errorCode === defDrawPrizeStatus.isJoin
-							? "active"
-							: ""
-					}`}>
-					{t("lbl_AngPow_Next")}
+				<div className={`time ${isLogin && _isJoin ? "active" : ""}`}>
+					{t("lbl_Next")}
 					<div>{secondsToTime(downDiffTime)}</div>
 				</div>
 			</div>
