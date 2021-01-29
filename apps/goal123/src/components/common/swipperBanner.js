@@ -135,7 +135,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 					<img
 						src={b.bannerMobileUrl}
 						className="banner"
-						alt={b.img ?? ""}
+						alt={b.bannerName ?? ""}
 					/>
 				</Link>
 			);
