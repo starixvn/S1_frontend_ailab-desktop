@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext, Suspense, lazy } from "react";
 import { popBoxContext } from "./context";
 import Cancel from "./popBox.cancel";
@@ -44,16 +45,6 @@ export default () => {
 
 		case defPopBoxType.Success:
 			content = <Success btnBar={popBox.btnBar} />;
-			break;
-		case defPopBoxType.ErrorMsg:
-			content = (
-				<ErrorMsg
-					btnBar={popBox.btnBar}
-					message={popBox.message}
-					errorCode={popBox.errorCode}
-					icon={popBox.icon}
-				/>
-			);
 			break;
 
 		case defPopBoxType.ErrorMsg:
@@ -192,7 +183,9 @@ export default () => {
 					<Kiss918 ClickClose={popBox.onClickClose} />
 				</Suspense>
 			);
+			break;
 		}
+
 		case defPopBoxType.JoinReferral:
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
 			break;
@@ -218,9 +211,7 @@ export default () => {
 		<div id="popup" className="active">
 			<div className="pop">{content}</div>
 		</div>
-	) : (
-		<></>
-	);
+	) : null;
 
 	// return popBox.isOpen ? (
 	// 	popBox.loading ? (
