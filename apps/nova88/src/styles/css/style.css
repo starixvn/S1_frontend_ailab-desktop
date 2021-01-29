@@ -7318,7 +7318,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -8416,80 +8422,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 21.80917%;
-  top: -1.09387%;
-  width: 6.99885px;
-  height: 6.99885px;
+  left: 6.42343%;
+  top: -9.05457%;
+  width: 9.5044px;
+  height: 9.5044px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 35.2961%;
-  top: 22.00633%;
-  width: 10.61164px;
-  height: 10.61164px;
+  left: 11.92507%;
+  top: 11.92179%;
+  width: 13.19343px;
+  height: 13.19343px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 14.52237%;
-  top: 13.62271%;
-  width: 10.53099px;
-  height: 10.53099px;
+  left: 23.35642%;
+  top: -3.29467%;
+  width: 11.35031px;
+  height: 11.35031px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 44.19214%;
-  top: -25.0781%;
-  width: 8.7791px;
-  height: 8.7791px;
+  left: 3.99472%;
+  top: -57.8907%;
+  width: 14.62065px;
+  height: 14.62065px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 97.77514%;
-  top: -8.22713%;
-  width: 14.7569px;
-  height: 14.7569px;
+  left: 3.76081%;
+  top: -57.95134%;
+  width: 13.67326px;
+  height: 13.67326px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 55.71158%;
-  top: -46.99932%;
-  width: 13.81582px;
-  height: 13.81582px;
+  left: 47.7064%;
+  top: -59.03547%;
+  width: 10.84529px;
+  height: 10.84529px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 79.72445%;
-  top: 2.75017%;
-  width: 5.6017px;
-  height: 5.6017px;
+  left: 59.54217%;
+  top: -55.60701%;
+  width: 9.4777px;
+  height: 9.4777px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 77.1881%;
-  top: -10.82254%;
-  width: 13.98551px;
-  height: 13.98551px;
+  left: 84.76468%;
+  top: -5.38972%;
+  width: 7.05707px;
+  height: 7.05707px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
