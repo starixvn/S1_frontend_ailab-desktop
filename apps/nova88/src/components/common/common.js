@@ -138,9 +138,18 @@ export const passwordCheck = val => {
 };
 
 export const isDateRange = (currentDate, startDate, endDate) => {
-	const isRange =
-		moment(currentDate).isSameOrAfter(startDate) &&
-		moment(currentDate).isSameOrBefore(endDate);
+	const now = new Date();
+	const _startDate = startDate ? new Date(`${startDate} GMT+0800`) : null; // yyyy/mm/dd hh:mm:ss
+	const _endDate = endDate ? new Date(`${endDate} GMT+0800`) : null; // yyyy/mm/dd hh:mm:ss
 
-	return isRange;
+	let result = false;
+	if (_startDate && _endDate) {
+		result = now > _startDate && now < _endDate;
+	} else if (_startDate) {
+		result = now > _startDate;
+	} else if (_endDate) {
+		result = now < _endDate;
+	}
+
+	return result;
 };
