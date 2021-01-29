@@ -9,8 +9,7 @@ export default ({ closePopBox, t, drawPrizeDatas }) => {
 	return (
 		<>
 			<button onClick={closePopBox} className="icon icon-close" />
-			<div className="title">{t("lbl_ImportantNote")}</div>
-
+			<div className="title">{t("lbl_Congratulations")}</div>
 			<div>{t("lbl_AngPow_CreditedAccount1")}</div>
 			<div className="am">{prizeName}</div>
 			<div>{t("lbl_AngPow_CreditedAccount2")}</div>
