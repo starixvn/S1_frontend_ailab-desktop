@@ -22,5 +22,6 @@ export default {
 	PromotionDepositConfirm: "PromotionDepositConfirm",
 	PromotionAmountConfirm: "PromotionAmountConfirm",
 	kiss918: "918kiss",
-	JoinReferral: "JoinReferral"
+	JoinReferral: "JoinReferral",
+	SuccessAngPow: "SuccessAngPow"
 };
