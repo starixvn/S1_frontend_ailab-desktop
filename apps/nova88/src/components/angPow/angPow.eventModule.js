@@ -21,7 +21,7 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 							{`${t("lbl_Start")}}: ${
 								eventPeriod.startDate
 							} GMT+8`}
-							{`${t("lbl_Start")}}: ${eventPeriod.lbl_End} GMT+8`}
+							{`${t("lbl_Start")}}: ${eventPeriod.endDate} GMT+8`}
 						</div>
 						<div>{t("lbl_AngPow_MemberEligibility")}</div>
 						<div className="title txt-orange">

@@ -63,10 +63,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 					const { errorCode, data, message } = res.data;
 
 					if (errorCode === 0) {
-						setDrawPrize({
-							data,
-							errorCode
-						});
+						checkDrawPrize();
 						setPopBox({
 							isOpen: true,
 							t,
@@ -81,10 +78,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 						errorCode === defDrawPrizeStatus.drawOut ||
 						errorCode === defDrawPrizeStatus.notEligible
 					) {
-						errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
+						errorPopBox(message || "error", errorCode);
 					}
 				},
 				() => {
