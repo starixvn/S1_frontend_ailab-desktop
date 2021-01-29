@@ -45,7 +45,6 @@ describe("render showWallet", () => {
 
 		return getData().then(() => {
 			const { container } = render(<ShowWallets {...fakeData} />);
-			// expect(container.firstChild.className).toBe("walletModule");
 			expect(
 				container.getElementsByClassName("walletBalanceModule").length
 			).toBe(fakeData.walletInfo.length);

@@ -83,8 +83,6 @@ describe("recentHistory array item render ", () => {
 			/>
 		);
 
-		expect(
-			container.getElementsByClassName("nodata icon icon-nodata").length
-		).toBe(1);
+		expect(container.getElementsByClassName("nodata").length).toBe(1);
 	});
 });

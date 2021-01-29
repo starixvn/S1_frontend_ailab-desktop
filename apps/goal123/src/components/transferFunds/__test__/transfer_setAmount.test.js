@@ -1,6 +1,5 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-// import TransferFunds from "../../transferFunds/transferFunds";
 import SetAmount from "../setAmount";
 import { isConvert } from "../../common/common";
 
@@ -163,7 +162,6 @@ describe("input value", () => {
 		const input = getByTestId("input");
 
 		fireEvent.change(input, { target: { value: fakeData.amount } });
-		// expect(fakeData.EditAmount).toHaveBeenCalled();
 		expect(input.value).toBe(fakeData.amount);
 	});
 });

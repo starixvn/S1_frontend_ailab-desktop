@@ -163,7 +163,6 @@ describe("input value", () => {
 		const input = getByTestId("input");
 
 		fireEvent.change(input, { target: { value: fakeData.amount } });
-		// expect(fakeData.EditAmount).toHaveBeenCalled();
 		expect(input.value).toBe(fakeData.amount);
 	});
 });

@@ -2,23 +2,23 @@ import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import ShowWallets from "../showWallets";
 
-// describe("showWallet Snapshot", () => {
-// 	afterEach(cleanup);
-// 	test("render correctly", () => {
-// 		const fakeData = {
-// 			i18n: jest.fn(),
-// 			_isConvert: false,
-// 			restoreAll: jest.fn(),
-// 			getAllWalletData: jest.fn(),
-// 			walletInfo: [
-// 				{ id: 0, displayKey: "lbl_MainWallet", balance: 500 },
-// 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 100 }
-// 			]
-// 		};
-// 		const tree = render(<ShowWallets {...fakeData} />);
-// 		expect(tree).toMatchSnapshot();
-// 	});
-// });
+describe("showWallet Snapshot", () => {
+	afterEach(cleanup);
+	test("render correctly", () => {
+		const fakeData = {
+			i18n: jest.fn(),
+			_isConvert: false,
+			restoreAll: jest.fn(),
+			getAllWalletData: jest.fn(),
+			walletInfo: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 500 },
+				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 100 }
+			]
+		};
+		const tree = render(<ShowWallets {...fakeData} />);
+		expect(tree).toMatchSnapshot();
+	});
+});
 
 describe("render showWallet", () => {
 	const axios = require("axios");
@@ -45,7 +45,6 @@ describe("render showWallet", () => {
 
 		return getData().then(() => {
 			const { container } = render(<ShowWallets {...fakeData} />);
-			// expect(container.firstChild.className).toBe("walletModule");
 			expect(
 				container.getElementsByClassName("walletBalanceModule").length
 			).toBe(fakeData.walletInfo.length);

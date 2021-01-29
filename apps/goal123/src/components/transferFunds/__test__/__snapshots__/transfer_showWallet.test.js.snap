@@ -18,13 +18,13 @@ Object {
               class="icon icon-icon32px_Main-Wallet"
             />
             <span>
-              500.00
+              0.50
             </span>
             <div
               class="btnGroup"
             >
               <button
-                class="orange"
+                class="blue"
                 data-testid="showWallet_restoreAll_0"
               />
             </div>
@@ -36,13 +36,13 @@ Object {
               class="icon icon-icon32px_Sportsbook-Wallet"
             />
             <span>
-              100.00
+              0.10
             </span>
             <div
               class="btnGroup"
             >
               <button
-                class="orange"
+                class="blue"
                 data-testid="showWallet_restoreAll_1"
               />
             </div>
@@ -69,13 +69,13 @@ Object {
             class="icon icon-icon32px_Main-Wallet"
           />
           <span>
-            500.00
+            0.50
           </span>
           <div
             class="btnGroup"
           >
             <button
-              class="orange"
+              class="blue"
               data-testid="showWallet_restoreAll_0"
             />
           </div>
@@ -87,13 +87,13 @@ Object {
             class="icon icon-icon32px_Sportsbook-Wallet"
           />
           <span>
-            100.00
+            0.10
           </span>
           <div
             class="btnGroup"
           >
             <button
-              class="orange"
+              class="blue"
               data-testid="showWallet_restoreAll_1"
             />
           </div>
