@@ -136,7 +136,7 @@ export default ({
 				const showLinkOptionsPopBox = () =>
 					setPopBox({
 						isOpen: true,
-						popBoxType: defPopBoxType.showOneGamingLink,
+						popBoxType: defPopBoxType.OneGamingLink,
 						clickClose,
 						btnBar: (
 							<div className="btnGroup">
