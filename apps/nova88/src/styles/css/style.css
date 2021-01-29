@@ -4321,6 +4321,7 @@ input[type="file"] {
   height: 100%;
   position: relative;
   font-weight: bold;
+  line-height: normal;
 }
 
 .offers .swiper-slide .team div {
@@ -4332,10 +4333,25 @@ input[type="file"] {
   text-align: left;
 }
 
+.offers .swiper-slide .team div.teamL, .offers .swiper-slide .team div.teamR {
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 165px;
+}
+
 .offers .swiper-slide .team div img {
-  width: 88px;
-  height: 88px;
-  margin: 25px auto 45px;
+  width: 75px;
+  height: 75px;
+  margin: 30px auto 40px;
 }
 
 .offers .swiper-slide .team div.schedule {
@@ -4351,6 +4367,7 @@ input[type="file"] {
           flex-direction: column;
   color: #333333;
   font-size: 24px;
+  line-height: 0;
 }
 
 .offers .swiper-slide .team div.schedule span {
@@ -4364,7 +4381,7 @@ input[type="file"] {
 .offers .swiper-slide .team div.gameName {
   position: absolute;
   width: 100%;
-  bottom: 30px;
+  bottom: 20px;
   text-align: center;
 }
 
@@ -8417,80 +8434,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 67.83736%;
-  top: 35.31453%;
-  width: 12.36555px;
-  height: 12.36555px;
+  left: 74.97169%;
+  top: -55.30801%;
+  width: 8.85287px;
+  height: 8.85287px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 18.96776%;
-  top: -47.5425%;
-  width: 13.0683px;
-  height: 13.0683px;
+  left: 89.90106%;
+  top: -47.89687%;
+  width: 14.00461px;
+  height: 14.00461px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 54.14207%;
-  top: 31.68986%;
-  width: 5.73277px;
-  height: 5.73277px;
+  left: 65.04049%;
+  top: -24.03466%;
+  width: 6.52508px;
+  height: 6.52508px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 20.84604%;
-  top: 5.84299%;
-  width: 5.44535px;
-  height: 5.44535px;
+  left: 12.29721%;
+  top: -52.12282%;
+  width: 6.47048px;
+  height: 6.47048px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 9.4571%;
-  top: -49.08224%;
-  width: 13.89154px;
-  height: 13.89154px;
+  left: 96.03748%;
+  top: 16.35293%;
+  width: 5.03575px;
+  height: 5.03575px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 72.98363%;
-  top: -41.6854%;
-  width: 8.63341px;
-  height: 8.63341px;
+  left: 97.8732%;
+  top: -57.04516%;
+  width: 12.00112px;
+  height: 12.00112px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 70.75203%;
-  top: 21.61093%;
-  width: 8.12673px;
-  height: 8.12673px;
+  left: 25.48155%;
+  top: -21.26936%;
+  width: 14.52867px;
+  height: 14.52867px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 85.33958%;
-  top: 14.13783%;
-  width: 8.51902px;
-  height: 8.51902px;
+  left: 45.26314%;
+  top: 10.92348%;
+  width: 12.72162px;
+  height: 12.72162px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
