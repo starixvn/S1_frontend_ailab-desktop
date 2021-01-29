@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import usePopBox from "../hook/usePopBox";
 // import defPopBoxType from "../common/defPopBoxType";
 import { defPopBoxType } from "../common/popBox";
 import { defDrawPrizeStatus } from "./angPow.def";
+import { popBoxContext } from "../common/context";
 
 const getDiffTime = () => {
-	const eventTime = moment().set({ hour: 24, minute: 59, second: 59 }).unix();
+	const eventTime = moment().set({ hour: 23, minute: 59, second: 59 }).unix();
 	const currentTime = moment().unix();
 	const diffTime = eventTime - currentTime;
 
@@ -25,7 +26,8 @@ const AngPowAnimation = ({
 	const [downDiffTime, setDownDiffTime] = useState(getDiffTime());
 	const [angpowActive, setAngpowActive] = useState(false);
 
-	const { setPopBox } = usePopBox();
+	// const { setPopBox } = usePopBox();
+	const { setPopBox } = useContext(popBoxContext);
 
 	const { canJoin, isJoin, drawOut, notEligible } = defDrawPrizeStatus;
 	const _canJoin = drawPrize.errorCode === canJoin;

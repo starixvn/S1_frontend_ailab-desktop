@@ -29,6 +29,10 @@ const useDrawPrize = ({ isMountedRef }) => {
 	const { t } = useTranslation();
 	const { errorPopBox, closePopBox } = usePopBox();
 
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+
 	const checkDrawPrize = () => {
 		if (!userInfo.isLogin) return;
 
@@ -70,7 +74,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 							t,
 							drawPrizeDatas: data,
 							popBoxType: defPopBoxType.SuccessAngPow,
-							closePopBox
+							clickClose
 						});
 					} else if (errorCode === defDrawPrizeStatus.isJoin) {
 						checkDrawPrize();

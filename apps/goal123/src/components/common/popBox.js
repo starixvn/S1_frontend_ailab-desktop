@@ -23,7 +23,8 @@ export const defPopBoxType = {
 	UpdateProfile: "UpdateProfile",
 	TurnoverAccumulated: "TurnoverAccumulated",
 	PromotionDepositConfirm: "PromotionDepositConfirm",
-	PromotionAmountConfirm: "PromotionAmountConfirm"
+	PromotionAmountConfirm: "PromotionAmountConfirm",
+	SuccessAngPow: "SuccessAngPow"
 };
 
 export default () => {
@@ -223,6 +224,18 @@ export default () => {
 				/>
 			);
 
+			break;
+		}
+
+		case defPopBoxType.SuccessAngPow: {
+			const SuccessAngPow = lazy(() => import("./popBox.successAngPow"));
+			content = (
+				<SuccessAngPow
+					closePopBox={popBox.closePopBox}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
+				/>
+			);
 			break;
 		}
 
