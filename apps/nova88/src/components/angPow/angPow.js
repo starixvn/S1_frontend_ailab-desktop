@@ -62,7 +62,7 @@ const AngPow = () => {
 
 	if (loading) return null;
 
-	if (isInPeriod) return <Redirect to={`/${userInfo.langId}`} noThrow />;
+	if (!isInPeriod) return <Redirect to={`/${userInfo.langId}`} noThrow />;
 
 	return (
 		<div className="event">

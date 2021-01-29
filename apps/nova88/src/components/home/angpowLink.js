@@ -14,7 +14,7 @@ const AngpowLink = ({ to }) => {
 	const [display, setDisplay] = useState(true);
 	const [buttonDisplay, setButtonDisplay] = useState(false);
 
-	if (isInPeriod) return null;
+	if (!isInPeriod) return null;
 
 	if (display)
 		return (
