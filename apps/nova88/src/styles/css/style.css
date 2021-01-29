@@ -4302,6 +4302,7 @@ input[type="file"] {
 .offers {
   border-radius: 15px;
   position: relative;
+  cursor: pointer;
 }
 
 .offers .swiper-container {
@@ -7318,13 +7319,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -8422,80 +8417,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 6.42343%;
-  top: -9.05457%;
-  width: 9.5044px;
-  height: 9.5044px;
+  left: 67.83736%;
+  top: 35.31453%;
+  width: 12.36555px;
+  height: 12.36555px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 11.92507%;
-  top: 11.92179%;
-  width: 13.19343px;
-  height: 13.19343px;
+  left: 18.96776%;
+  top: -47.5425%;
+  width: 13.0683px;
+  height: 13.0683px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 23.35642%;
-  top: -3.29467%;
-  width: 11.35031px;
-  height: 11.35031px;
+  left: 54.14207%;
+  top: 31.68986%;
+  width: 5.73277px;
+  height: 5.73277px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 3.99472%;
-  top: -57.8907%;
-  width: 14.62065px;
-  height: 14.62065px;
+  left: 20.84604%;
+  top: 5.84299%;
+  width: 5.44535px;
+  height: 5.44535px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 3.76081%;
-  top: -57.95134%;
-  width: 13.67326px;
-  height: 13.67326px;
+  left: 9.4571%;
+  top: -49.08224%;
+  width: 13.89154px;
+  height: 13.89154px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 47.7064%;
-  top: -59.03547%;
-  width: 10.84529px;
-  height: 10.84529px;
+  left: 72.98363%;
+  top: -41.6854%;
+  width: 8.63341px;
+  height: 8.63341px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 59.54217%;
-  top: -55.60701%;
-  width: 9.4777px;
-  height: 9.4777px;
+  left: 70.75203%;
+  top: 21.61093%;
+  width: 8.12673px;
+  height: 8.12673px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 84.76468%;
-  top: -5.38972%;
-  width: 7.05707px;
-  height: 7.05707px;
+  left: 85.33958%;
+  top: 14.13783%;
+  width: 8.51902px;
+  height: 8.51902px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
