@@ -6,7 +6,8 @@ import {
 	api_events_GetCustDrawPrizeList
 } from "../../../service/api/events";
 import { defDrawPrizeStatus } from "../angPow.def";
-import defPopBoxType from "../../common/defPopBoxType";
+// import defPopBoxType from "../../common/defPopBoxType";
+import { defPopBoxType } from "../../common/popBox";
 import usePopBox from "../../hook/usePopBox";
 import {
 	userInfoContext,
