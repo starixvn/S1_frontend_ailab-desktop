@@ -22,7 +22,7 @@ const AngPowAnimation = ({
 	postDrawPrize
 }) => {
 	const timerRef = useRef(null);
-	const [downDiffTime, setDownDiffTime] = useState(20);
+	const [downDiffTime, setDownDiffTime] = useState(getDiffTime());
 	const [angpowActive, setAngpowActive] = useState(false);
 
 	const { setPopBox } = usePopBox();

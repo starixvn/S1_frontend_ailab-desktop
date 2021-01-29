@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
+import { eventPeriod } from "./angPow.def";
 
 const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 	return (
@@ -17,8 +18,10 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 							{t("lbl_AngPow_EventTitle")}
 						</div>
 						<div>
-							{t("lbl_Start")}: 11-02-2021 00:00:00 GMT+8{" "}
-							{t("lbl_End")}: 26-02-2021 23:59:59 GMT+8
+							{`${t("lbl_Start")}}: ${
+								eventPeriod.startDate
+							} GMT+8`}
+							{`${t("lbl_Start")}}: ${eventPeriod.lbl_End} GMT+8`}
 						</div>
 						<div>{t("lbl_AngPow_MemberEligibility")}</div>
 						<div className="title txt-orange">
