@@ -22,7 +22,22 @@ const RecentHistoryWrapper = ({ userInfo, getHistory, getTransferRecent }) => (
 
 describe("test click reload spin icon(beside recent history)", () => {
 	afterEach(cleanup);
-	const getHistory = [{ amount: 100 }, { amount: 200 }];
+	const getHistory = [
+		{
+			amount: 1000,
+			direction: 1,
+			status: 0,
+			tpName: "Sportsbook Wallet",
+			transId: "TD4378"
+		},
+		{
+			amount: 1000,
+			direction: 2,
+			status: 0,
+			tpName: "Sportsbook Wallet",
+			transId: "TD4298"
+		}
+	];
 	const getTransferRecent = jest.fn();
 	const userInfo = {
 		currencyId: 2,
@@ -62,7 +77,22 @@ describe("recentHistory array item render ", () => {
 		langId: "en"
 	};
 	test("if getHistory length > 0 ,table body class show`listBody` ", () => {
-		const getHistory = [{ amount: 100 }, { amount: 200 }];
+		const getHistory = [
+			{
+				amount: 1000,
+				direction: 1,
+				status: 0,
+				tpName: "Sportsbook Wallet",
+				transId: "TD4378"
+			},
+			{
+				amount: 1000,
+				direction: 2,
+				status: 0,
+				tpName: "Sportsbook Wallet",
+				transId: "TD4298"
+			}
+		];
 		const { container } = render(
 			<RecentHistoryWrapper
 				getHistory={getHistory}

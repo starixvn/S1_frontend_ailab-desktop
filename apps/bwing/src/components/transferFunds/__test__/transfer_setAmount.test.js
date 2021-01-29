@@ -22,8 +22,9 @@ describe("open dropdown ", () => {
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
-			clickSubmit: jest.fn(),
-			mainKey: `from_wallet`
+			mainKey: `from_wallet`,
+			onChange: jest.fn(),
+			clickSubmit: jest.fn()
 		};
 
 		const { getByTestId } = render(<SetAmount {...fakeData} />);
@@ -61,6 +62,7 @@ describe("render wallet dropdown items", () => {
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
+			onChange: jest.fn(),
 			clickSubmit: jest.fn()
 		};
 
@@ -89,6 +91,7 @@ describe("test function: onSelectWallet()", () => {
 			],
 			selectedFromIdx: -1,
 			selectedToIdx: -1,
+			onChange: jest.fn(),
 			clickSubmit: jest.fn()
 		};
 		const { getByTestId } = render(<SetAmount {...fakeData} />);
@@ -182,10 +185,11 @@ describe("test function: clickSubmit", () => {
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
+			onChange: jest.fn(),
 			clickSubmit: jest.fn()
 		};
 		const { getByTestId } = render(<SetAmount {...fakeData} />);
-		fireEvent.click(getByTestId(`setAmount_submit`));
+		fireEvent.submit(getByTestId(`setAmount_submit`));
 		expect(fakeData.clickSubmit).toHaveBeenCalled();
 	});
 
