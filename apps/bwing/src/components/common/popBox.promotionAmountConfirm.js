@@ -13,11 +13,11 @@ export default ({
 	const [amount, setAmount] = useState("");
 	const [validationError, setValidationError] = useState({});
 	const { bonusCode, requiredAmount, maxAmount } = promotionInfo;
-	const _isConvert = isConvert(currencyId);
 
 	const onSetClaimPromotion = () => {
 		if (validationError.status !== 0) return;
 
+		const _isConvert = isConvert(currencyId);
 		const _amount = _isConvert ? amount * 1000 : amount;
 		setClaimPromotion(langId, bonusCode, _amount);
 	};
@@ -27,7 +27,7 @@ export default ({
 			_amount,
 			requiredAmount,
 			maxAmount,
-			_isConvert,
+			false,
 			t
 		);
 		setValidationError(result);
@@ -62,8 +62,8 @@ export default ({
 
 			<div className="txt-orange">
 				{`${t("lbl_ClaimAmountRange")}: 
-				 ${number_format(requiredAmount, _isConvert)} ~ 
-				 ${number_format(maxAmount, _isConvert)}`}
+				 ${number_format(requiredAmount)} ~ 
+				 ${number_format(maxAmount)}`}
 			</div>
 
 			<div className="btnGroup">
