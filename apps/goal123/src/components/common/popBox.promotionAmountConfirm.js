@@ -1,17 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { number_format, checkAmount, _isConvert } from "./common";
+import { number_format, checkAmount, isConvert } from "./common";
 
-export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
+export default ({
+	currencyId,
+	langId,
+	promotionInfo,
+	clickClose,
+	setClaimPromotion
+}) => {
 	const { t } = useTranslation();
 	const [amount, setAmount] = useState("");
 	const [validationError, setValidationError] = useState({});
 	const { bonusCode, requiredAmount, maxAmount } = promotionInfo;
+	const _isConvert = isConvert(currencyId);
 
 	const onSetClaimPromotion = () => {
 		if (validationError.status !== 0) return;
 
-		setClaimPromotion(langId, bonusCode, amount);
+		const _amount = _isConvert ? amount * 1000 : amount;
+		setClaimPromotion(langId, bonusCode, _amount);
 	};
 
 	const validAmount = _amount => {

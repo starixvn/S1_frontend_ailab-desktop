@@ -44,16 +44,6 @@ export default () => {
 		case defPopBoxType.Success:
 			content = <Success btnBar={popBox.btnBar} />;
 			break;
-		case defPopBoxType.ErrorMsg:
-			content = (
-				<ErrorMsg
-					btnBar={popBox.btnBar}
-					message={popBox.message}
-					errorCode={popBox.errorCode}
-					icon={popBox.icon}
-				/>
-			);
-			break;
 
 		case defPopBoxType.ErrorMsg:
 			content = (
@@ -176,6 +166,7 @@ export default () => {
 		case defPopBoxType.PromotionAmountConfirm:
 			content = (
 				<PromotionAmountConfirm
+					currencyId={popBox.currencyId}
 					langId={popBox.langId}
 					promotionInfo={popBox.promotionInfo}
 					clickClose={popBox.clickClose}
@@ -191,6 +182,7 @@ export default () => {
 					<Kiss918 ClickClose={popBox.onClickClose} />
 				</Suspense>
 			);
+			break;
 		}
 		case defPopBoxType.JoinReferral:
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
