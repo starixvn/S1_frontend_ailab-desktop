@@ -6,6 +6,6 @@ export const defDrawPrizeStatus = {
 };
 
 export const eventPeriod = {
-	startDate: "2020/02/11 00:00:00",
+	startDate: "2021/02/11 00:00:00",
 	endDate: "2021/02/26 23:59:59"
 };
