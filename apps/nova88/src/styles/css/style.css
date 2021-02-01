@@ -130,7 +130,6 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: url(../img/heaber_bg.png) no-repeat center/cover;
 }
 
 .header > div.menu {
@@ -8431,80 +8430,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 99.67751%;
-  top: -25.51481%;
-  width: 10.92464px;
-  height: 10.92464px;
+  left: 30.11933%;
+  top: -22.79228%;
+  width: 14.08654px;
+  height: 14.08654px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 33.82216%;
-  top: -6.66951%;
-  width: 14.06663px;
-  height: 14.06663px;
+  left: 33.08742%;
+  top: 39.84576%;
+  width: 9.83104px;
+  height: 9.83104px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 1.34605%;
-  top: 12.10332%;
-  width: 6.56722px;
-  height: 6.56722px;
+  left: 80.61736%;
+  top: 11.40211%;
+  width: 12.23308px;
+  height: 12.23308px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 41.8413%;
-  top: -28.51142%;
-  width: 13.23037px;
-  height: 13.23037px;
+  left: 72.86737%;
+  top: -5.02932%;
+  width: 11.73716px;
+  height: 11.73716px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 91.89024%;
-  top: -0.15679%;
-  width: 9.29377px;
-  height: 9.29377px;
+  left: 39.86263%;
+  top: -11.95129%;
+  width: 12.59419px;
+  height: 12.59419px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 70.32386%;
-  top: -38.29671%;
-  width: 12.04745px;
-  height: 12.04745px;
+  left: 12.55784%;
+  top: 18.49671%;
+  width: 10.69482px;
+  height: 10.69482px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 78.71462%;
-  top: -16.8055%;
-  width: 12.75342px;
-  height: 12.75342px;
+  left: 86.40533%;
+  top: 2.20541%;
+  width: 10.48915px;
+  height: 10.48915px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 60.67605%;
-  top: -56.41115%;
-  width: 14.44806px;
-  height: 14.44806px;
+  left: 10.08033%;
+  top: 17.12763%;
+  width: 11.25218px;
+  height: 11.25218px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
