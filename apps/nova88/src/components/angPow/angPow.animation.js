@@ -17,9 +17,11 @@ const getDiffTime = () => {
 const AngPowAnimation = ({
 	t,
 	isLogin,
+	langId,
 	drawPrize,
 	checkDrawPrize,
-	postDrawPrize
+	postDrawPrize,
+	getCustDrawPrizeList
 }) => {
 	const timerRef = useRef(null);
 	const [downDiffTime, setDownDiffTime] = useState(getDiffTime());
@@ -54,7 +56,7 @@ const AngPowAnimation = ({
 			return;
 		}
 
-		if (_isJoin || _drawOut || _notEligible) return;
+		if (_isJoin || _drawOut || _notEligible || angpowActive) return;
 
 		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -65,6 +67,8 @@ const AngPowAnimation = ({
 		await postDrawPrize();
 
 		setAngpowActive(false);
+
+		getCustDrawPrizeList();
 	};
 
 	useEffect(() => {
@@ -93,24 +97,38 @@ const AngPowAnimation = ({
 		};
 	}, [drawPrize.errorCode, _isJoin, checkDrawPrize]);
 
+	let eventTextImg = "";
+	if (langId === "id") {
+		eventTextImg = "../../styles/img/event/text_id.png";
+	} else {
+		eventTextImg = "../../styles/img/event/text_en.png";
+	}
+
 	return (
 		<div className="animation" onClick={onPostDrawPrize}>
 			<div className={`angpao${angpowActive ? " active" : ""}`}>
-				{!isLogin || _canJoin || _drawOut || _notEligible ? (
+				{!isLogin || _canJoin || _notEligible ? (
 					<img
-						src={require(`../../styles/img/event/text_en.png`)}
+						src={eventTextImg}
 						alt="img-event-text-en"
 						className="bigtitle"
 					/>
 				) : null}
 
-				<div className={`box${isLogin && _isJoin ? " active" : ""}`} />
+				<div
+					className={`box${
+						isLogin && (_isJoin || _drawOut) ? " active" : ""
+					}`}
+				/>
 				<div className="coin" />
 				<div className="coin" />
 				<div className="coin" />
 				<div className="coin" />
 				<div className="coin" />
-				<div className={`time ${isLogin && _isJoin ? "active" : ""}`}>
+				<div
+					className={`time ${
+						isLogin && (_isJoin || _drawOut) ? "active" : ""
+					}`}>
 					{t("lbl_Next")}
 					<div>{secondsToTime(downDiffTime)}</div>
 				</div>
@@ -122,8 +140,10 @@ const AngPowAnimation = ({
 AngPowAnimation.propTypes = {
 	t: PropTypes.func.isRequired,
 	isLogin: PropTypes.bool.isRequired,
+	langId: PropTypes.string.isRequired,
 	drawPrize: PropTypes.objectOf(PropTypes.any).isRequired,
 	checkDrawPrize: PropTypes.func.isRequired,
-	postDrawPrize: PropTypes.func.isRequired
+	postDrawPrize: PropTypes.func.isRequired,
+	getCustDrawPrizeList: PropTypes.func.isRequired
 };
 export default AngPowAnimation;

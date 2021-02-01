@@ -489,16 +489,16 @@
 	"lbl_AngPow_CreditedAccount1": "Selamat, Ang Pao Anda",
 	"lbl_AngPow_CreditedAccount2": "telah dikreditkan ke akun Anda!",
 	"lbl_AngPow_Conditions": "Ketentuan Angpao",
-	"lbl_AngPow_EventTitle": "Hadiah Ang Pow Gratis Tahun Baru",
+	"lbl_AngPow_EventTitle": "Hadiah Ang Pao Gratis Tahun Baru",
 	"lbl_AngPow_MemberEligibility": "setidaknya 1 Deposit dan memiliki 1 taruhan yang diselesaikan sebelumnya",
 	"lbl_AngPow_OtherConditions1": "1. Anggota dapat berpartisipasi setiap hari hingga promosi berakhir.",
 	"lbl_AngPow_OtherConditions2": "2. Setiap anggota hanya dapat berpartisipasi satu kali sehari.",
-	"lbl_AngPow_MyAngPow": "Ang Pow Saya",
+	"lbl_AngPow_MyAngPow": "Ang Pao Saya",
 	"lbl_AngPow_OtherConditions": "Kondisi lain",
 	"lbl_Next":"Lanjut",
 	"lbl_AngPow_Awards":"Penghargaan",
 	"lbl_Start":"Mulai",
 	"lbl_End":"Akhir",
-    "lbl_AngPow_AlreadyDrawn":"Anda sudah mengambil Ang Pow hari ini, coba lagi besok!"
-
+    "lbl_AngPow_AlreadyDrawn":"Anda sudah mengambil Ang Pao hari ini, coba lagi besok!",
+	"lbl_AngPow_NotWinning":"Ups! ANG PAO sudah berakhir, Silakan kembali besok!"
 }

@@ -42,8 +42,10 @@ const useDrawPrize = ({ isMountedRef }) => {
 				});
 
 				if (res.data.errorCode === defDrawPrizeStatus.drawOut) {
+					errorPopBox(t("lbl_AngPow_NotWinning"), res.data.errorCode);
+				} else if (res.data.errorCode === defDrawPrizeStatus.isJoin) {
 					errorPopBox(
-						res.data.message || "error",
+						t("lbl_AngPow_AlreadyDrawn"),
 						res.data.errorCode
 					);
 				}

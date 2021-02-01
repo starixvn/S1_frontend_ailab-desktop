@@ -102,7 +102,7 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 	};
 
 	const onJoinPromotion = async () => {
-		const { langId } = userInfo;
+		const { langId, currencyId } = userInfo;
 		const {
 			bonusCode,
 			bonusType,
@@ -131,6 +131,7 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 				isOpen: true,
 				popBoxType: defPopBoxType.PromotionAmountConfirm,
 				langId,
+				currencyId,
 				promotionInfo,
 				clickClose,
 				setClaimPromotion
