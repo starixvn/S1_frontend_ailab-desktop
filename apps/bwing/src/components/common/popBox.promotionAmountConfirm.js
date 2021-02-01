@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { number_format, checkAmount, _isConvert } from "./common";
+import { number_format, checkAmount, isConvert } from "./common";
 
-export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
+export default ({
+	currencyId,
+	langId,
+	promotionInfo,
+	clickClose,
+	setClaimPromotion
+}) => {
 	const { t } = useTranslation();
 	const [amount, setAmount] = useState("");
 	const [validationError, setValidationError] = useState({});
@@ -11,7 +17,9 @@ export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
 	const onSetClaimPromotion = () => {
 		if (validationError.status !== 0) return;
 
-		setClaimPromotion(langId, bonusCode, amount);
+		const _isConvert = isConvert(currencyId);
+		const _amount = _isConvert ? amount * 1000 : amount;
+		setClaimPromotion(langId, bonusCode, _amount);
 	};
 
 	const validAmount = _amount => {
@@ -19,7 +27,7 @@ export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
 			_amount,
 			requiredAmount,
 			maxAmount,
-			_isConvert,
+			false,
 			t
 		);
 		setValidationError(result);
@@ -54,8 +62,8 @@ export default ({ langId, promotionInfo, clickClose, setClaimPromotion }) => {
 
 			<div className="txt-orange">
 				{`${t("lbl_ClaimAmountRange")}: 
-				 ${number_format(requiredAmount, _isConvert)} ~ 
-				 ${number_format(maxAmount, _isConvert)}`}
+				 ${number_format(requiredAmount)} ~ 
+				 ${number_format(maxAmount)}`}
 			</div>
 
 			<div className="btnGroup">

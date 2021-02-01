@@ -1,6 +1,6 @@
 import React, { Component, useContext, createRef } from "react";
 import { userInfoContext } from "./context";
-import { GET_LANG_ID } from "../../service/language";
+import { GET_LANG_ID, isVaildLang } from "../../service/language";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -21,7 +21,14 @@ export class CanvasFireworks extends Component {
 
 	componentDidMount() {
 		this.isMountedRef = true;
-		const inHomePage = window.location.pathname === `/${this.props.langId}`;
+		const _path = window.location.pathname
+			.split("/")
+			?.filter(x => x !== "");
+
+		const inHomePage =
+			_path?.length === 0 ||
+			(_path?.length === 1 && isVaildLang(_path[0]));
+
 		if (inHomePage) {
 			this.showFireworks();
 		}

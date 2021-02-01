@@ -15,7 +15,7 @@ import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.p
 import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 
-export default ({ currentMenuKey, casinoTpIds }) => {
+export default ({ currentMenuKey, casinoTpIds, closeSubMenu }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -70,7 +70,10 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 		}
 
 		return (
-			<div className={subClassName} key={`main-key-${menuKey}`}>
+			<div
+				className={subClassName}
+				key={`main-key-${menuKey}`}
+				onClick={closeSubMenu}>
 				{subMenu?.map(subMenuItem => (
 					<SubMenuItem
 						key={`${subMenuItem.tpId}-${subMenuItem.gameId}`}
@@ -103,9 +106,22 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 		});
 	}
 	const _urlParams = params !== null ? `?${params.join("&")}` : "";
+
+	let className = subMenuItem.className || "";
+
+	if (subMenuItem.eventIcons) {
+		let iconStrings = "";
+		for (let i = 0; i < subMenuItem.eventIcons.length; i++) {
+			if (subMenuItem.eventIcons[i] !== "") {
+				iconStrings += ` ${subMenuItem.eventIcons[i]}`;
+			}
+		}
+		className += ` icon${iconStrings}`;
+	}
+
 	if (subMenuItem.menuType === defMenuType.Link) {
 		const url = subMenuItem.path || defMenuLinks[menuKey].path;
-		const className = subMenuItem.className || "";
+
 		return (
 			<Link
 				className={className}
@@ -140,7 +156,7 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 
 	return (
 		<button
-			className={subMenuItem.className}
+			className={className}
 			onClick={clickItem.bind(this, {
 				tpId: subMenuItem.tpId,
 				gameId: subMenuItem.gameId,

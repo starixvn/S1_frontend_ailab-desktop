@@ -435,7 +435,7 @@
 	"lbl_MoreDetails": "XEM CHI TIẾT",
 	"lbl_NoOfWinners": "Người Chiến Thắng",
 	"lbl_HighestWinningRecord": "THÀNH TÍCH THẮNG CAO NHẤT",
-	"lbl_Ranking_Top20": "TOP 16 NGƯỜI THẮNG",
+	"lbl_Ranking_TopNum": "TOP {{topNum}} NGƯỜI THẮNG",
 	"lbl_No1_Reward": "GIẢI NHẤT",
 	"lbl_leaderboardTitle_1": "CÙNG ĐÓN TẾT ĐẾN",
 	"lbl_leaderboardTitle_2": "RƯỚC HÊN NHẬN LỘC",

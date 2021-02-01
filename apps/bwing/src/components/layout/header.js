@@ -33,6 +33,10 @@ export default () => {
 	return (
 		<header>
 			<div className="header">
+				{/* new year style ↓ */}
+				{/* <div className="flower" /> */}
+				<div className="flowerR" />
+				{/* new year style ↑ */}
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
 						{/* <img src={Logo} alt={config.siteName} /> */}
