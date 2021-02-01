@@ -20,8 +20,7 @@ const AngPowAnimation = ({
 	langId,
 	drawPrize,
 	checkDrawPrize,
-	postDrawPrize,
-	getCustDrawPrizeList
+	postDrawPrize
 }) => {
 	const timerRef = useRef(null);
 	const [downDiffTime, setDownDiffTime] = useState(getDiffTime());
@@ -67,8 +66,6 @@ const AngPowAnimation = ({
 		await postDrawPrize();
 
 		setAngpowActive(false);
-
-		getCustDrawPrizeList();
 	};
 
 	useEffect(() => {
@@ -143,7 +140,6 @@ AngPowAnimation.propTypes = {
 	langId: PropTypes.string.isRequired,
 	drawPrize: PropTypes.objectOf(PropTypes.any).isRequired,
 	checkDrawPrize: PropTypes.func.isRequired,
-	postDrawPrize: PropTypes.func.isRequired,
-	getCustDrawPrizeList: PropTypes.func.isRequired
+	postDrawPrize: PropTypes.func.isRequired
 };
 export default AngPowAnimation;

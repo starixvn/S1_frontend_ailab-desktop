@@ -67,6 +67,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 
 					if (errorCode === 0) {
 						checkDrawPrize();
+						getCustDrawPrizeList();
 						setPopBox({
 							isOpen: true,
 							t,
