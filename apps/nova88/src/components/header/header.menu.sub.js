@@ -15,7 +15,7 @@ import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.p
 import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 
-export default ({ currentMenuKey, casinoTpIds }) => {
+export default ({ currentMenuKey, casinoTpIds, closeSubMenu }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -70,7 +70,10 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 		}
 
 		return (
-			<div className={subClassName} key={`main-key-${menuKey}`}>
+			<div
+				className={subClassName}
+				key={`main-key-${menuKey}`}
+				onClick={closeSubMenu}>
 				{subMenu?.map(subMenuItem => (
 					<SubMenuItem
 						key={`${subMenuItem.tpId}-${subMenuItem.gameId}`}
