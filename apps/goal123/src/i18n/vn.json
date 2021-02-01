@@ -214,6 +214,7 @@
 	"lbl_Free": "Chơi Thử",
 	"lbl_PlayNow": "Tham gia",
 	"lbl_total": "Total",
+	"lbl_Congratulations": "Congratulations",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Chuyển quỹ",
@@ -430,7 +431,7 @@
 	"lbl_AngPow_CreditedAccount1": "Xin chúc mừng, tiền lì xì VNĐ {0}",
 	"lbl_AngPow_CreditedAccount2": "đã được ghi có vào ví của bạn!",
 	"lbl_AngPow_Conditions": "Điều Khoản & Điều Kiện",
-	"lbl_AngPow_EventTitle": "Tặng Lì Xì miễn phí cho Năm Mới",
+	"lbl_AngPow_EventTitle": "Lì Xì Tài Lộc – May Mắn Trọn Năm",
 	"lbl_AngPow_MemberEligibility": "Có ít nhất 1 lệnh gửi tiền và 1 đơn được đã được thanh toán trước đó",
 	"lbl_AngPow_OtherConditions1": "1. Thành viên có thể tham gia hàng ngày cho đến khi chương trình khuyến mãi kết thúc.",
 	"lbl_AngPow_OtherConditions2": "2. Mỗi thành viên chỉ có thể tham gia một lần mỗi ngày.",
@@ -441,7 +442,7 @@
 	"lbl_Start":"Bắt đầu",
 	"lbl_End":"Kết thúc",
     "lbl_AngPow_AlreadyDrawn":"Bạn đã nhận lì xì cho ngày hôm nay, vui lòng thử lại vào ngày mai!",
-
+	"lbl_AngPow_NotWinning":"Rất tiếc ! Đã hết lì xì cho ngày hôm nay. Vui lòng quay lại vào ngày mai!",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Game_ICG_DRAGONBALL_FISHING":"NGỌC RỒNG BẮN CÁ",

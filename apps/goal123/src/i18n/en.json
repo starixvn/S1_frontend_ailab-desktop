@@ -215,6 +215,7 @@
 	"lbl_Free": "Free Play",
 	"lbl_PlayNow": "Play Now",
 	"lbl_total": "Total",
+	"lbl_Congratulations": "Congratulations",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",
@@ -441,6 +442,7 @@
 	"lbl_Start":"Start",
 	"lbl_End":"End",
     "lbl_AngPow_AlreadyDrawn":"You already drawn Ang Pow today, please try again tomorrow!",
+	"lbl_AngPow_NotWinning":"Oops! ANG POW is over, Please come back tomorrow!",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Game_ICG_DRAGONBALL_FISHING":"DRAGONBALL FISHING",
