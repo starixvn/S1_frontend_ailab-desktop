@@ -14,6 +14,7 @@ export default props => {
 	const isMountedRef = useRef(null);
 	const { t } = useTranslation();
 	const popBoxData = useContext(popBoxContext).popBox;
+	const [prevDepositAccNo, setPrevDepositAccNo] = useState(null);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -24,13 +25,31 @@ export default props => {
 
 	useEffect(() => {
 		getApiBankCard();
-	}, []);
+		setPrevAccountInfo();
+	}, [props.balanceData]);
 
 	useEffect(() => {
 		if (popBoxData.refresh === true) {
 			getApiBankCard();
 		}
 	}, [popBoxData.refresh]);
+
+	useEffect(() => {
+		setPrevAccountInfo();
+	}, [prevDepositAccNo]);
+
+	const setPrevAccountInfo = () => {
+		if (prevDepositAccNo) {
+			const defAccountInfo = props.bankInfoList.filter(
+				card => card.accountNo === prevDepositAccNo
+			)[0];
+			props.setCurrentlyBankInfo(
+				defAccountInfo.sysId,
+				defAccountInfo.accountNo,
+				defAccountInfo.bankName
+			);
+		}
+	};
 
 	const getApiBankCard = () => {
 		api_account_GetCustBankInfo().then(
@@ -42,14 +61,14 @@ export default props => {
 							res.data.data.bankInfoDetail?.length > 0
 						) {
 							props.setBankInfoList(res.data.data.bankInfoDetail);
+							setPrevDepositAccNo(res.data.data.defAccountNo);
 						}
 					}
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
-					//
 					setLoading(false);
 				}
 			}
@@ -57,9 +76,9 @@ export default props => {
 	};
 
 	const checkInput = (sysId, accountNo, bankName) => {
-		props.setCurrentlyBankInfo(sysId, accountNo, bankName);
 		if (accountNo) {
 			props.setCurrentlyBankInfo(sysId, accountNo, bankName);
+			setPrevDepositAccNo(accountNo);
 		} else {
 			props.setCurrentlyBankInfo(0, 0, "");
 		}
@@ -174,10 +193,14 @@ export default props => {
 						<input
 							type="checkbox"
 							checked={
-								props.currentBankInfo.sysIdValue ===
+								(props.currentBankInfo.sysIdValue ===
 									item.sysId &&
-								props.currentBankInfo.accountNoValue ===
-									item.accountNo
+									props.currentBankInfo.accountNoValue ===
+										item.accountNo) ||
+								((props.currentBankInfo.accountNoValue === "" ||
+									props.currentBankInfo.accountNoValue ===
+										0) &&
+									item.accountNo === prevDepositAccNo)
 							}
 							onChange={checkInput.bind(
 								this,

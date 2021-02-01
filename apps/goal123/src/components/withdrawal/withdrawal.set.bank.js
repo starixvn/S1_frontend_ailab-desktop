@@ -364,6 +364,7 @@ export default ({
 						setBankInfoList={setBankInfoList}
 						_isConvert={_isConvert}
 						confirmPanel={showConfirmPage}
+						balanceData={balanceData}
 					/>
 					<AddBankAccount bankInfoList={bankInfoList} />
 				</div>
