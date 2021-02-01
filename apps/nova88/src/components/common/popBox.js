@@ -210,7 +210,14 @@ export default () => {
 
 	return popBox.isOpen ? (
 		<div id="popup" className="active">
-			<div className="pop">{content}</div>
+			<div
+				className={`pop${
+					popBox.popBoxType === defPopBoxType.SuccessAngPow
+						? " eventpop"
+						: ""
+				}`}>
+				{content}
+			</div>
 		</div>
 	) : null;
 

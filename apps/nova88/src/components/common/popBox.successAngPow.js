@@ -1,10 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 export default ({ closePopBox, t, drawPrizeDatas }) => {
-	useEffect(() => {
-		const elPopBox = document.getElementById("popup");
-		elPopBox.firstChild.classList.add("eventpop");
-	}, []);
 	const { prizeName } = drawPrizeDatas;
 	return (
 		<>
