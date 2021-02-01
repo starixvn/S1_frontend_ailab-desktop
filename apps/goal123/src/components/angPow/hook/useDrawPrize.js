@@ -36,12 +36,15 @@ const useDrawPrize = ({ isMountedRef }) => {
 		api_events_CheckDrawPrize({ eventId: defEventId }).then(
 			res => {
 				if (!isMountedRef) return;
-				setDrawPrize({
-					data: res.data.data,
-					errorCode: res.data.errorCode
-				});
-				if (res.data.errorCode === defDrawPrizeStatus.drawOut) {
-					errorPopBox(t("lbl_AngPow_NotWinning"), res.data.errorCode);
+				const { errorCode, data } = res.data;
+				setDrawPrize({ data, errorCode });
+
+				if (errorCode === defDrawPrizeStatus.canJoin) return;
+
+				if (errorCode === defDrawPrizeStatus.isJoin) {
+					errorPopBox(t("lbl_AngPow_AlreadyDrawn"), errorCode);
+				} else if (errorCode === defDrawPrizeStatus.drawOut) {
+					errorPopBox(t("lbl_AngPow_NotWinning"), errorCode);
 				}
 			},
 			() => {
@@ -58,7 +61,11 @@ const useDrawPrize = ({ isMountedRef }) => {
 					if (!isMountedRef) return;
 					const { errorCode, data, message } = res.data;
 					if (errorCode === 0) {
-						checkDrawPrize();
+						setDrawPrize({
+							data,
+							errorCode: defDrawPrizeStatus.isJoin
+						});
+
 						setPopBox({
 							isOpen: true,
 							t,
@@ -68,12 +75,15 @@ const useDrawPrize = ({ isMountedRef }) => {
 						});
 						getCustDrawPrizeList();
 					} else if (errorCode === defDrawPrizeStatus.isJoin) {
-						checkDrawPrize();
+						setDrawPrize({
+							data,
+							errorCode: defDrawPrizeStatus.isJoin
+						});
+
 						errorPopBox(t("lbl_AngPow_AlreadyDrawn"));
-					} else if (
-						errorCode === defDrawPrizeStatus.drawOut ||
-						errorCode === defDrawPrizeStatus.notEligible
-					) {
+					} else if (errorCode === defDrawPrizeStatus.drawOut) {
+						errorPopBox(t("lbl_AngPow_NotWinning"), errorCode);
+					} else if (errorCode === defDrawPrizeStatus.notEligible) {
 						errorPopBox(message || "error", errorCode);
 					}
 				},

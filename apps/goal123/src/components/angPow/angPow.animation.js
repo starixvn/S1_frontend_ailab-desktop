@@ -64,27 +64,32 @@ const AngPowAnimation = ({
 	};
 
 	useEffect(() => {
-		const startTimer = () => {
-			setDownDiffTime(getDiffTime());
-			timerRef.current = setInterval(() => {
-				setDownDiffTime(prev => {
-					if (prev - 1 === 0 && timerRef.current) {
-						checkDrawPrize();
-						clearInterval(timerRef.current);
-						timerRef.current = null;
-					}
-					return prev - 1;
-				});
-			}, 1000);
-		};
-		if (_isJoin) {
-			clearInterval(timerRef.current);
-			startTimer();
+		let isMounted = true;
+		if (isMounted) {
+			const startTimer = () => {
+				setDownDiffTime(getDiffTime());
+				timerRef.current = setInterval(() => {
+					setDownDiffTime(prev => {
+						if (prev - 1 === 0 && timerRef.current) {
+							checkDrawPrize();
+							clearInterval(timerRef.current);
+							timerRef.current = null;
+						}
+						return prev - 1;
+					});
+				}, 1000);
+			};
+			if (_isJoin || _drawOut) {
+				clearInterval(timerRef.current);
+				startTimer();
+			}
 		}
+
 		return () => {
 			clearInterval(timerRef.current);
+			isMounted = false;
 		};
-	}, [drawPrize.errorCode, _isJoin, checkDrawPrize]);
+	}, [drawPrize.errorCode, _isJoin, _drawOut, checkDrawPrize]);
 
 	return (
 		<div className="animation" onClick={onPostDrawPrize}>
