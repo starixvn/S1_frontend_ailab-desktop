@@ -72,11 +72,7 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 														</td>
 														<td>
 															<div>
-																{
-																	item.prizeName.split(
-																		" "
-																	)[1]
-																}
+																{item.prizeName}
 															</div>
 														</td>
 													</tr>
