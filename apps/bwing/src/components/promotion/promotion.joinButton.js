@@ -109,7 +109,7 @@ export default ({
 	};
 
 	const onJoinPromotion = async () => {
-		const { langId } = userInfo;
+		const { langId, currencyId } = userInfo;
 		const {
 			bonusCode,
 			bonusType,
@@ -127,16 +127,16 @@ export default ({
 
 		if (!promotionCanJoin) return;
 		if (
-			(canJoin &&
-				bonusType === defPromotionType.firstDeposit &&
-				promotionType === defPromotionType.redeposit) ||
-			(filter === defFilterType.special_bonus &&
-				promotionType === defPromotionType.firstDeposit)
+			canJoin &&
+			(promotionType === defPromotionType.redeposit ||
+				(filter === defFilterType.special_bonus &&
+					promotionType === defPromotionType.firstDeposit))
 		)
 			return setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.PromotionAmountConfirm,
 				langId,
+				currencyId,
 				promotionInfo,
 				clickClose,
 				setClaimPromotion

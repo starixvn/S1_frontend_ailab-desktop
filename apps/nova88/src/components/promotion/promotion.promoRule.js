@@ -1,9 +1,9 @@
 import React from "react";
 import moment from "moment";
 import { promoStatus } from "./promotion.def";
-import { number_format } from "../common/common";
+import { number_format, isConvert } from "../common/common";
 
-export default ({ promotionInfo, t }) => {
+export default ({ promotionInfo, t, currencyId }) => {
 	const {
 		isJoin,
 		status,
@@ -44,7 +44,9 @@ export default ({ promotionInfo, t }) => {
 			</div>
 			<div className="txt-orange">
 				{requiredAmount > 0 ? (
-					<div>{number_format(requiredAmount)}</div>
+					<div>
+						{number_format(requiredAmount, isConvert(currencyId))}
+					</div>
 				) : null}
 				<div>{displayExpiryTime}</div>
 				<div>{rollOver}X</div>
