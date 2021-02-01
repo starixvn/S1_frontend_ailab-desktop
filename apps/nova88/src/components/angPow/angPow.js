@@ -77,7 +77,6 @@ const AngPow = () => {
 				drawPrize={drawPrize}
 				checkDrawPrize={checkDrawPrize}
 				postDrawPrize={postDrawPrize}
-				getCustDrawPrizeList={getCustDrawPrizeList}
 			/>
 			<AngPowEventModule
 				drawPrizeList={drawPrizeList}
