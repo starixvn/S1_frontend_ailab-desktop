@@ -69,7 +69,7 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 															{moment(
 																item.drawTime
 															).format(
-																"YYYY-MM-DD HH:mm:ss"
+																"YYYY/MM/DD HH:mm:ss"
 															)}
 														</td>
 														<td>
