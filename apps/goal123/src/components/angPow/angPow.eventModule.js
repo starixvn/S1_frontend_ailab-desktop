@@ -36,13 +36,14 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 								{t("lbl_AngPow_OtherConditions2")}
 							</div>
 						</div>
-
-						<a className="more" href="#" target="_blank">
+						<a className="more" href="/" target="_blank">
 							{t("lbl_MoreDetails")}
 						</a>
-						<div className="tag">{t("lbl_AngPow_MyAngPow")}</div>
 						{isLogin ? (
 							<>
+								<div className="tag">
+									{t("lbl_AngPow_MyAngPow")}
+								</div>
 								{drawPrizeList.length ? (
 									<table className="eventList">
 										<tbody>
