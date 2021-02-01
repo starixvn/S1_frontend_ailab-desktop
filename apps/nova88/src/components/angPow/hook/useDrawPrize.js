@@ -32,7 +32,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 	const checkDrawPrize = () => {
 		if (!userInfo.isLogin) return;
 
-		api_events_CheckDrawPrize({ eventId: 0 }).then(
+		api_events_CheckDrawPrize({ eventId: 1 }).then(
 			res => {
 				if (!isMountedRef) return;
 
@@ -60,7 +60,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 
 	const postDrawPrize = () => {
 		if (drawPrize.errorCode !== defDrawPrizeStatus.isJoin)
-			return api_events_DrawPrize({ eventId: 0 }).then(
+			return api_events_DrawPrize({ eventId: 1 }).then(
 				res => {
 					if (!isMountedRef) return;
 					const { errorCode, data, message } = res.data;
@@ -101,7 +101,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 			return;
 		}
 
-		await api_events_GetCustDrawPrizeList({ eventId: 0 }).then(
+		await api_events_GetCustDrawPrizeList({ eventId: 1 }).then(
 			res => {
 				setLoading(false);
 
