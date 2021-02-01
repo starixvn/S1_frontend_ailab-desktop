@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
-import usePopBox from "../hook/usePopBox";
+// import usePopBox from "../hook/usePopBox";
 // import defPopBoxType from "../common/defPopBoxType";
 import { defPopBoxType } from "../common/popBox";
 import { defDrawPrizeStatus } from "./angPow.def";
@@ -16,7 +16,7 @@ const getDiffTime = () => {
 };
 
 const AngPowAnimation = ({
-	t,
+	// t,
 	isLogin,
 	drawPrize,
 	checkDrawPrize,
@@ -55,24 +55,17 @@ const AngPowAnimation = ({
 			});
 			return;
 		}
-
 		if (_isJoin || _drawOut || _notEligible) return;
-
 		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-
 		setAngpowActive(true);
-
 		await delay(3000);
-
 		await postDrawPrize();
-
 		setAngpowActive(false);
 	};
 
 	useEffect(() => {
 		const startTimer = () => {
 			setDownDiffTime(getDiffTime());
-
 			timerRef.current = setInterval(() => {
 				setDownDiffTime(prev => {
 					if (prev - 1 === 0 && timerRef.current) {
@@ -80,12 +73,10 @@ const AngPowAnimation = ({
 						clearInterval(timerRef.current);
 						timerRef.current = null;
 					}
-
 					return prev - 1;
 				});
 			}, 1000);
 		};
-
 		if (_isJoin) {
 			clearInterval(timerRef.current);
 			startTimer();
@@ -146,7 +137,7 @@ const AngPowAnimation = ({
 };
 
 AngPowAnimation.propTypes = {
-	t: PropTypes.func.isRequired,
+	// t: PropTypes.func.isRequired,
 	isLogin: PropTypes.bool.isRequired,
 	drawPrize: PropTypes.objectOf(PropTypes.any).isRequired,
 	checkDrawPrize: PropTypes.func.isRequired,

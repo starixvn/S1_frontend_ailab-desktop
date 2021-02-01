@@ -21,6 +21,7 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 							{`${t("lbl_Start")}: ${
 								eventPeriod.startDate
 							} GMT+8`}
+							<br />
 							{` ${t("lbl_End")}: ${eventPeriod.endDate} GMT+8`}
 						</div>
 						<div>{t("lbl_AngPow_MemberEligibility")}</div>
@@ -37,65 +38,60 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 						</div>
 
 						<a className="more" href="#" target="_blank">
-							MORE DETAILS
+							{t("lbl_MoreDetails")}
 						</a>
-						<div>
-							{isLogin ? (
-								<>
-									<div className="tag">
-										{t("lbl_AngPow_MyAngPow")}
-									</div>
-
-									{drawPrizeList.length ? (
-										<table className="eventList">
-											<tbody>
-												<tr>
-													<td>
-														{t("lbl_Date")} ( +08:00
-														)
-													</td>
-													<td>
-														{t("lbl_AngPow_Awards")}{" "}
-														(
-														{t(
-															`Currency_${currencyId}`
-														)}{" "}
-														)
-													</td>
-												</tr>
-												{drawPrizeList.map(item => {
-													return (
-														<tr
-															key={`key-${item.drawTime}`}>
-															<td>
-																{moment(
-																	item.drawTime
-																).format(
-																	"YYYY-MM-DD HH:mm:ss"
-																)}
-															</td>
-															<td>
-																<div>
-																	{
-																		item.prizeName
-																	}
-																</div>
-															</td>
-														</tr>
-													);
-												})}
-											</tbody>
-										</table>
-									) : (
-										<div className="nodata icon icon-nodata">
-											<div className="txt-white">
-												{t("lbl_NoData")}
-											</div>
+						<div className="tag">{t("lbl_AngPow_MyAngPow")}</div>
+						{isLogin ? (
+							<>
+								{drawPrizeList.length ? (
+									<table className="eventList">
+										<tbody>
+											<tr>
+												<td>
+													{t("lbl_Date")} ( +08:00 )
+												</td>
+												<td>
+													{t("lbl_AngPow_Awards")} (
+													{t(
+														`Currency_${currencyId}`
+													)}{" "}
+													)
+												</td>
+											</tr>
+											{drawPrizeList.map(item => {
+												return (
+													<tr
+														key={`key-${item.drawTime}`}>
+														<td>
+															{moment(
+																item.drawTime
+															).format(
+																"YYYY/MM/DD HH:mm:ss"
+															)}
+														</td>
+														<td>
+															<div>
+																{
+																	item.prizeName.split(
+																		" "
+																	)[1]
+																}
+															</div>
+														</td>
+													</tr>
+												);
+											})}
+										</tbody>
+									</table>
+								) : (
+									<div className="nodata icon icon-nodata">
+										<div className="txt-white">
+											{t("lbl_NoData")}
 										</div>
-									)}
-								</>
-							) : null}
-						</div>
+									</div>
+								)}
+							</>
+						) : null}
 					</div>
 				</div>
 				<div className="arrow-right" />

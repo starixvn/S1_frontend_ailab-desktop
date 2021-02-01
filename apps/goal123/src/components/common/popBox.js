@@ -235,6 +235,8 @@ export default () => {
 					closePopBox={popBox.closePopBox}
 					t={popBox.t}
 					drawPrizeDatas={popBox.drawPrizeDatas}
+					class="event"
+					clickClose={popBox.clickClose}
 				/>
 			);
 			break;
@@ -247,17 +249,21 @@ export default () => {
 			break;
 	}
 
+	const customLayout = popBox.popBoxType === defPopBoxType.SuccessAngPow;
+
 	return popBox.isOpen ? (
 		popBox.loading ? (
 			<Loading />
 		) : (
 			<div id="popup" className="active">
-				<div className="pop">
+				{customLayout ? (
 					<Suspense fallback={<Loading />}>{content}</Suspense>
-				</div>
+				) : (
+					<div className="pop">
+						<Suspense fallback={<Loading />}>{content}</Suspense>
+					</div>
+				)}
 			</div>
 		)
-	) : (
-		<></>
-	);
+	) : null;
 };
