@@ -499,5 +499,6 @@
 	"lbl_AngPow_Awards":"奖励",
 	"lbl_Start":"开始",
 	"lbl_End":"结束",
-	"lbl_AngPow_AlreadyDrawn":"您今日已领取过红包，请明天再试！"
+	"lbl_AngPow_AlreadyDrawn":"您今日已领取过红包，请明天再试！",
+	"lbl_AngPow_NotWinning":"抱歉！红包派送完毕，请明日再继续！"
 }
