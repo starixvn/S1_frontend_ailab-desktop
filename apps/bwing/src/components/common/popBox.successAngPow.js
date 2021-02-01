@@ -23,7 +23,7 @@ export default ({ closePopBox, t, drawPrizeDatas }) => {
 		return (
 			<div className="gold active">
 				<div className="textBox">
-					<p className="bigtitle">Gold Bar image = VND 45,688,000</p>
+					<p className="bigtitle">{prizeName}</p>
 				</div>
 				<div className="moneyArea">
 					<div className="box" />

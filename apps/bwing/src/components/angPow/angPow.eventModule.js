@@ -36,9 +36,9 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 							</div>
 						</div>
 
-						{/* <a className="more" href="#" target="_blank">
-							MORE DETAILS
-						</a> */}
+						<a className="more" href="/" target="_blank">
+							{t("lbl_MoreDetails")}
+						</a>
 
 						{isLogin ? (
 							<>

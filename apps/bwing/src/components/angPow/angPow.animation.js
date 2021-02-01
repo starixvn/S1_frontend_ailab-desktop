@@ -52,7 +52,7 @@ const AngPowAnimation = ({
 			return;
 		}
 
-		if (_isJoin || _drawOut || _notEligible) return;
+		if (_isJoin || _drawOut || _notEligible || angpowActive) return;
 
 		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -66,30 +66,35 @@ const AngPowAnimation = ({
 	};
 
 	useEffect(() => {
-		const startTimer = () => {
-			setDownDiffTime(getDiffTime());
+		let isMounted = true;
+		if (isMounted) {
+			const startTimer = () => {
+				setDownDiffTime(getDiffTime());
 
-			timerRef.current = setInterval(() => {
-				setDownDiffTime(prev => {
-					if (prev - 1 === 0 && timerRef.current) {
-						checkDrawPrize();
-						clearInterval(timerRef.current);
-						timerRef.current = null;
-					}
+				timerRef.current = setInterval(() => {
+					setDownDiffTime(prev => {
+						if (prev - 1 === 0 && timerRef.current) {
+							checkDrawPrize();
+							clearInterval(timerRef.current);
+							timerRef.current = null;
+						}
 
-					return prev - 1;
-				});
-			}, 1000);
-		};
+						return prev - 1;
+					});
+				}, 1000);
+			};
 
-		if (_isJoin) {
-			clearInterval(timerRef.current);
-			startTimer();
+			if (_isJoin || _drawOut) {
+				clearInterval(timerRef.current);
+				startTimer();
+			}
 		}
+
 		return () => {
 			clearInterval(timerRef.current);
+			isMounted = false;
 		};
-	}, [drawPrize.errorCode, _isJoin, checkDrawPrize]);
+	}, [drawPrize.errorCode, _isJoin, _drawOut, checkDrawPrize]);
 
 	return (
 		<div className="eventTopPage" onClick={onPostDrawPrize}>
@@ -101,8 +106,10 @@ const AngPowAnimation = ({
 					<div className="badge" />
 				</div>
 				<div
-					className={`textBox ${isLogin && _isJoin ? "active" : ""}`}>
-					<p className="bigtitle">FREE ANG PAO</p>
+					className={`textBox ${
+						isLogin && (_isJoin || _drawOut) ? "active" : ""
+					}`}>
+					<p className="bigtitle">{t("lbl_FreeAngPow")}</p>
 					<p className="time">{secondsToTime(downDiffTime)}</p>
 				</div>
 				<div className="moneyArea">
