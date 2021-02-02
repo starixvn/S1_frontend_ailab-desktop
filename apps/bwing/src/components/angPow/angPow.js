@@ -75,6 +75,7 @@ const AngPow = () => {
 			/>
 			<AngPowEventModule
 				drawPrizeList={drawPrizeList}
+				langId={userInfo.langId}
 				currencyId={userInfo.currencyId}
 				isLogin={userInfo.isLogin}
 				t={t}
