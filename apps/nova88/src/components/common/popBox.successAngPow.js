@@ -4,11 +4,14 @@ export default ({ closePopBox, t, drawPrizeDatas }) => {
 	const { prizeName } = drawPrizeDatas;
 	return (
 		<>
-			<button onClick={closePopBox} className="icon icon-close" />
-			<div className="title">{t("lbl_Congratulations")}</div>
-			<div>{t("lbl_AngPow_CreditedAccount1")}</div>
-			<div className="am">{prizeName}</div>
-			<div>{t("lbl_AngPow_CreditedAccount2")}</div>
+			<div className="pop eventpop">
+				<button onClick={closePopBox} className="icon icon-close" />
+				<div className="title">{t("lbl_Congratulations")}</div>
+				<div>{t("lbl_AngPow_CreditedAccount1")}</div>
+				<div className="am">{prizeName}</div>
+				<div>{t("lbl_AngPow_CreditedAccount2")}</div>
+			</div>
+			;
 		</>
 	);
 };

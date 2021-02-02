@@ -208,18 +208,19 @@ export default () => {
 			break;
 	}
 
-	return popBox.isOpen ? (
+	const customLayout = popBox.popBoxType === defPopBoxType.SuccessAngPow;
+
+	if (!popBox.isOpen) return null;
+
+	return customLayout ? (
 		<div id="popup" className="active">
-			<div
-				className={`pop${
-					popBox.popBoxType === defPopBoxType.SuccessAngPow
-						? " eventpop"
-						: ""
-				}`}>
-				{content}
-			</div>
+			{content}
 		</div>
-	) : null;
+	) : (
+		<div id="popup" className="active">
+			<div className="pop">{content}</div>
+		</div>
+	);
 
 	// return popBox.isOpen ? (
 	// 	popBox.loading ? (
