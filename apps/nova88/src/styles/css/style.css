@@ -1839,18 +1839,9 @@ footer {
 }
 
 .joinpop, .loginpop {
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 800px;
+  max-width: 850px;
   margin: auto;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
+  padding: 50px 0;
 }
 
 .joinpop.active, .loginpop.active {
@@ -1864,6 +1855,12 @@ footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .joinpop .joinloginModule .btnGroup, .loginpop .joinloginModule .btnGroup {
@@ -2815,12 +2812,42 @@ input[type="file"] {
 }
 
 .eventLink img {
-  -webkit-transform: rotate(10deg);
-          transform: rotate(10deg);
+  -webkit-animation: eventLink 2s infinite;
+          animation: eventLink 2s infinite;
 }
 
 .eventLink.active {
   display: none;
+}
+
+@-webkit-keyframes eventLink {
+  0% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  50% {
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+  100% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+}
+
+@keyframes eventLink {
+  0% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  50% {
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+  100% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
 }
 
 .rightModule {
@@ -3805,6 +3832,22 @@ input[type="file"] {
   display: flex;
 }
 
+#popup .joinpop, #popup .loginpop {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 800px;
+  margin: auto;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  max-width: none;
+}
+
 #popup .pop {
   min-width: 600px;
   background: #191919;
@@ -4326,7 +4369,7 @@ input[type="file"] {
 }
 
 .offers .swiper-slide .team div.teamL, .offers .swiper-slide .team div.teamR {
-  font-size: 12px;
+  font-size: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8430,86 +8473,85 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 30.11933%;
-  top: -22.79228%;
-  width: 14.08654px;
-  height: 14.08654px;
+  left: 74.49569%;
+  top: -25.57294%;
+  width: 14.24546px;
+  height: 14.24546px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 33.08742%;
-  top: 39.84576%;
-  width: 9.83104px;
-  height: 9.83104px;
+  left: 19.83392%;
+  top: -3.98756%;
+  width: 11.30967px;
+  height: 11.30967px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 80.61736%;
-  top: 11.40211%;
-  width: 12.23308px;
-  height: 12.23308px;
+  left: 43.80244%;
+  top: 15.60027%;
+  width: 9.97207px;
+  height: 9.97207px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 72.86737%;
-  top: -5.02932%;
-  width: 11.73716px;
-  height: 11.73716px;
+  left: 9.98184%;
+  top: 2.90249%;
+  width: 5.72367px;
+  height: 5.72367px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 39.86263%;
-  top: -11.95129%;
-  width: 12.59419px;
-  height: 12.59419px;
+  left: 21.69329%;
+  top: 15.73753%;
+  width: 13.26715px;
+  height: 13.26715px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 12.55784%;
-  top: 18.49671%;
-  width: 10.69482px;
-  height: 10.69482px;
+  left: 86.17976%;
+  top: 25.26787%;
+  width: 7.68708px;
+  height: 7.68708px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 86.40533%;
-  top: 2.20541%;
-  width: 10.48915px;
-  height: 10.48915px;
+  left: 5.76866%;
+  top: 16.96881%;
+  width: 14.85635px;
+  height: 14.85635px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 10.08033%;
-  top: 17.12763%;
-  width: 11.25218px;
-  height: 11.25218px;
+  left: 22.01339%;
+  top: -32.37701%;
+  width: 14.4732px;
+  height: 14.4732px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 @-webkit-keyframes falling {
-  0%,
   100% {
     opacity: 0;
     -webkit-filter: blur(0);
@@ -8531,7 +8573,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 @keyframes falling {
-  0%,
   100% {
     opacity: 0;
     -webkit-filter: blur(0);
@@ -8851,47 +8892,6 @@ canvas {
   margin-top: 30px;
 }
 
-.event .eventModule > div > div.moduleCenter > div .eventList {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  font-weight: bold;
-  color: black;
-  margin-top: 30px;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr {
-  background: white;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr td {
-  border: 1px solid #5e0004;
-  padding: 5px;
-  text-align: center;
-  width: 50%;
-  vertical-align: middle;
-  border-radius: 3px;
-  color: white;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr td div {
-  width: 70px;
-  margin: auto;
-  text-align: right;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr:first-child {
-  background: #980B0B;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(even) {
-  background: #333333;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(odd):not(:nth-child(1)) {
-  background: #212121;
-}
-
 .event .eventModule > div > div.moduleCenter:before, .event .eventModule > div > div.moduleCenter:after {
   content: "";
   display: block;
@@ -8906,6 +8906,47 @@ canvas {
   background: url(../img/event/border.png);
   -webkit-transform: scale(-1);
           transform: scale(-1);
+}
+
+.eventList {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-weight: bold;
+  color: black;
+  margin-top: 30px;
+}
+
+.eventList tr {
+  background: white;
+}
+
+.eventList tr td {
+  border: 1px solid #5e0004;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+  vertical-align: middle;
+  border-radius: 3px;
+  color: white;
+}
+
+.eventList tr td div {
+  width: 70px;
+  margin: auto;
+  text-align: right;
+}
+
+.eventList tr:first-child {
+  background: #980B0B;
+}
+
+.eventList tr:nth-child(even) {
+  background: #333333;
+}
+
+.eventList tr:nth-child(odd):not(:nth-child(1)) {
+  background: #212121;
 }
 
 .angpao {
@@ -9217,5 +9258,68 @@ canvas {
   text-align: center;
   line-height: 50px;
   margin: 25px 0;
+}
+
+.vip {
+  max-width: 1600px;
+  margin: 50px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.vip > .btnGroup {
+  margin: 0;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: 100%;
+}
+
+.vip > .btnGroup button {
+  color: white;
+}
+
+.vip > .btnGroup.tag button {
+  border-radius: 15px 15px 0 0;
+  color: #666;
+  white-space: nowrap;
+  background: #134DAE;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  margin: 0 4px 0 0;
+  color: white;
+}
+
+.vip > .btnGroup.tag button.active, .vip > .btnGroup.tag button:hover {
+  background: #1E85EC;
+}
+
+.vip > .eventList {
+  margin: 0;
+  border: 1px solid #1E85EC;
+}
+
+.vip > .eventList tr:first-child {
+  background: #134DAE;
+}
+
+.vip > .eventList tr td {
+  border: 0;
+  border-radius: 0;
+  width: auto;
 }
 /*# sourceMappingURL=style.css.map */

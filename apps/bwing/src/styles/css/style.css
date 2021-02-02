@@ -1183,10 +1183,31 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   pointer-events: none;
 }
 
-.newyear .money {
+.newyear .angPaoArea {
   position: fixed;
   bottom: 0px;
   right: 0;
+}
+
+.newyear .angPao_close {
+  background-color: rgba(255, 0, 0, 0.6);
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  bottom: 130px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.newyear .angPao_close:hover {
+  background-color: red;
+}
+
+.newyear .money {
   width: 300px;
   height: 150px;
   cursor: pointer;
@@ -1938,7 +1959,6 @@ input[type="file"] {
 .btnGroup button:last-child,
 .btnGroup a:last-child {
   margin-right: 0;
-  max-width: 100px;
 }
 
 .btnGroup button.orange,
@@ -2815,10 +2835,15 @@ main > .swiper-container .swiper-slide {
   background: #0c1a3f;
   border-radius: 5px;
   border: 1px solid #1a2b58;
+  margin: 0 5px;
 }
 
-.subModuleList .subModule:nth-child(2) {
-  margin: 0 10px;
+.subModuleList .subModule:nth-child(1) {
+  margin-left: 0;
+}
+
+.subModuleList .subModule:nth-last-child(1) {
+  margin-right: 0;
 }
 
 .subModuleList .subModule .subModuleTitle {
@@ -7731,7 +7756,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   color: #ffe597;
   text-align: center;
   line-height: 40px;
-  margin: 25px 0;
+  margin: 25px auto;
 }
 
 .gold {
@@ -7906,160 +7931,160 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 42.69937%;
-  top: -82.43138%;
+  left: 0.17358%;
+  top: -48.95181%;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 18.93355%;
-  top: -86.41772%;
+  left: 50.85785%;
+  top: -24.08667%;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 22.72457%;
-  top: -16.08463%;
+  left: 51.10252%;
+  top: -55.57646%;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 38.0642%;
-  top: -50.59608%;
+  left: 60.59708%;
+  top: -38.7157%;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 6.15026%;
-  top: -46.20566%;
+  left: 25.58101%;
+  top: -24.59774%;
   -webkit-animation-delay: -5s;
           animation-delay: -5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 72.55846%;
-  top: -19.83349%;
+  left: 9.8308%;
+  top: -38.1635%;
   -webkit-animation-delay: -6s;
           animation-delay: -6s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 97.36063%;
-  top: -39.57662%;
+  left: 63.76127%;
+  top: -57.38048%;
   -webkit-animation-delay: -7s;
           animation-delay: -7s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 27.36264%;
-  top: -36.87473%;
+  left: 78.0758%;
+  top: -63.92011%;
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
 }
 
 [class^="star"].star9 {
   position: absolute;
-  left: 51.16895%;
-  top: -37.93918%;
+  left: 37.2838%;
+  top: -49.65691%;
   -webkit-animation-delay: -9s;
           animation-delay: -9s;
 }
 
 [class^="star"].star10 {
   position: absolute;
-  left: 39.15904%;
-  top: 4.69231%;
+  left: 9.78815%;
+  top: -56.84744%;
   -webkit-animation-delay: -10s;
           animation-delay: -10s;
 }
 
 [class^="star"].star11 {
   position: absolute;
-  left: 37.88564%;
-  top: 6.72839%;
+  left: 87.32423%;
+  top: -15.53299%;
   -webkit-animation-delay: -11s;
           animation-delay: -11s;
 }
 
 [class^="star"].star12 {
   position: absolute;
-  left: 61.21128%;
-  top: -72.15815%;
+  left: 24.51675%;
+  top: -10.71504%;
   -webkit-animation-delay: -12s;
           animation-delay: -12s;
 }
 
 [class^="star"].star13 {
   position: absolute;
-  left: 19.34295%;
-  top: -22.7628%;
+  left: 36.95993%;
+  top: -41.50109%;
   -webkit-animation-delay: -13s;
           animation-delay: -13s;
 }
 
 [class^="star"].star14 {
   position: absolute;
-  left: 41.44168%;
-  top: -31.37029%;
+  left: 42.21681%;
+  top: -59.72601%;
   -webkit-animation-delay: -14s;
           animation-delay: -14s;
 }
 
 [class^="star"].star15 {
   position: absolute;
-  left: 28.98763%;
-  top: -84.64359%;
+  left: 48.89828%;
+  top: -83.74255%;
   -webkit-animation-delay: -15s;
           animation-delay: -15s;
 }
 
 [class^="star"].star16 {
   position: absolute;
-  left: 80.23402%;
-  top: -74.77679%;
+  left: 7.2433%;
+  top: -41.26369%;
   -webkit-animation-delay: -16s;
           animation-delay: -16s;
 }
 
 [class^="star"].star17 {
   position: absolute;
-  left: 90.83759%;
-  top: -87.41851%;
+  left: 62.50182%;
+  top: 7.18755%;
   -webkit-animation-delay: -17s;
           animation-delay: -17s;
 }
 
 [class^="star"].star18 {
   position: absolute;
-  left: 65.95965%;
-  top: -87.3314%;
+  left: 39.56128%;
+  top: -82.46287%;
   -webkit-animation-delay: -18s;
           animation-delay: -18s;
 }
 
 [class^="star"].star19 {
   position: absolute;
-  left: 21.14814%;
-  top: -74.68234%;
+  left: 65.18447%;
+  top: -52.31052%;
   -webkit-animation-delay: -19s;
           animation-delay: -19s;
 }
 
 [class^="star"].star20 {
   position: absolute;
-  left: 49.26586%;
-  top: 8.4275%;
+  left: 98.48472%;
+  top: -57.068%;
   -webkit-animation-delay: -20s;
           animation-delay: -20s;
 }

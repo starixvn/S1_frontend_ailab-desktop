@@ -65,6 +65,18 @@
   font-size: 24px !important;
 }
 
+.icon-viettel:before {
+  content: "\e9b9";
+}
+
+.icon-vinaphone:before {
+  content: "\e9ba";
+}
+
+.icon-mobifone:before {
+  content: "\e9bb";
+}
+
 .icon-icg:before {
   content: "\e9b8";
 }
