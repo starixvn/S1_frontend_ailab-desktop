@@ -316,7 +316,7 @@ header .header > div.menu .gameList a, header .header > div.menu .gameList butto
   -webkit-transition: 0.7s;
   transition: 0.7s;
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 65px;
 }
 
 header .header > div.menu .gameList a img, header .header > div.menu .gameList button img, header .header > div.menu .casinoList a img, header .header > div.menu .casinoList button img, header .header > div.menu .livecasinoList a img, header .header > div.menu .livecasinoList button img, header .header > div.menu .fishList a img, header .header > div.menu .fishList button img {
@@ -3511,7 +3511,7 @@ main > .swiper-container .swiper-slide {
           backdrop-filter: blur(2px);
   padding: 5%;
   border-radius: 5px;
-  word-break: break-all;
+  word-break: break-word;
   width: 120px;
 }
 
@@ -6721,8 +6721,8 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .eventLink {
   position: fixed;
-  right: 10px;
-  bottom: 12%;
+  left: 10px;
+  bottom: 0;
   z-index: 3;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6734,7 +6734,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   height: 35px;
   color: #ffffff;
   position: absolute;
-  right: 10px;
+  left: 10px;
   top: -20px;
   font-size: 18px;
   font-weight: bold;
@@ -6832,7 +6832,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: 130px;
   position: absolute;
   top: calc(50% + 230px);
-  left: calc(50% - 62px);
+  left: calc(50% - 64px);
   z-index: 11;
 }
 
@@ -7075,5 +7075,298 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   text-align: center;
   line-height: 110px;
   margin: 25px auto;
+}
+
+.deposit_new {
+  height: calc(100% - 50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1600px;
+  background: none;
+  margin: auto;
+}
+
+.deposit_new .subModuleList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 70px 40px;
+  margin-top: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.deposit_new .subModuleList .subModule {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: #030c1b;
+  border-radius: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.deposit_new .subModuleList .subModule:nth-child(even) {
+  margin: 40px 0;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle {
+  background: #0f2346;
+  padding: 20px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 110px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 5px;
+  color: #212121;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle div span {
+  white-space: nowrap;
+  color: white;
+  font-weight: normal;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle div span:first-child {
+  color: #fab617;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle div span:last-child {
+  color: #f73201;
+  font-size: 12px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .deposit_new .subModuleList .subModule .subModuleBody ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5px 10px;
+  width: calc(50% - 20px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li a {
+  border-radius: 40px;
+  border: 1px solid #1E85EC;
+  padding: 5px;
+  text-align: center;
+  height: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: calc(100% - 10px);
+  overflow: hidden;
+  background: white;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li a.icon-library {
+  color: #1E85EC;
+  font-size: 44px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li a img[src="img/VOB.png"] {
+  background: black;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li span {
+  color: #c6c6c6;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody .directions li {
+  display: list-item;
+  width: auto;
+  margin: 0;
+  line-height: 30px;
+  margin-left: 29px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody .txt-lightgray {
+  margin-top: 20px;
+}
+
+.deposit_new .platformName {
+  width: calc(100% / 3 - 70px);
+  background: #030c1b;
+  float: left;
+  margin-left: 70px;
+  margin-top: 30px;
+  border-radius: 5px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+}
+
+.deposit_new .platformName .icon {
+  font-size: 40px;
+}
+
+.deposit_new .platformName .icon.icon-VNPay {
+  font-size: 18px;
+}
+
+.deposit_new .platformName .icon.icon-mobifone, .deposit_new .platformName .icon.icon-vinaphone {
+  font-size: 28px;
+}
+
+.deposit_new .platformName .icon + div {
+  max-width: 200px;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.buttonBox {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 10px 0;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div > .bankName {
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.inputBtn {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.inputBtn .btnGroup {
+  margin: 10px 0 5px;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.smallList {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.smallList li {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: auto 10px auto;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.smallList li:first-child {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody ul li {
+  width: calc(25% - 20px);
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody ul li a {
+  padding: 5px 10px;
+  width: calc(100% - 20px);
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
