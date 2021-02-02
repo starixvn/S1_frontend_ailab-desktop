@@ -97,8 +97,10 @@ const AngPowAnimation = ({
 	}, [drawPrize.errorCode, _isJoin, _drawOut, checkDrawPrize]);
 
 	return (
-		<div className="eventTopPage" onClick={onPostDrawPrize}>
-			<div className={`angpao${angpowActive ? " active" : ""}`}>
+		<div className="eventTopPage">
+			<div
+				className={`angpao${angpowActive ? " active" : ""}`}
+				onClick={onPostDrawPrize}>
 				<div className="top">
 					<div className="badge" />
 				</div>
