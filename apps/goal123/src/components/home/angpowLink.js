@@ -4,17 +4,22 @@ import moment from "moment";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "../angPow/angPow.def";
 
-import eventlinkImg from "../../styles/img/event/eventlink.png";
-
 const { startDate, endDate } = eventPeriod;
 const currentDate = moment();
 const isInPeriod = isDateRange(currentDate, startDate, endDate);
 
-const AngpowLink = ({ to }) => {
+const AngpowLink = ({ to, langId }) => {
 	const [display, setDisplay] = useState(true);
 	const [buttonDisplay, setButtonDisplay] = useState(false);
 
 	if (!isInPeriod) return null;
+
+	let eventTextImg = "";
+	if (langId === "vn") {
+		eventTextImg = "../../styles/img/event/eventlink_vn.png";
+	} else {
+		eventTextImg = "../../styles/img/event/eventlink_en.png";
+	}
 
 	if (display)
 		return (
@@ -27,7 +32,7 @@ const AngpowLink = ({ to }) => {
 				) : null}
 				<Link to={to}>
 					<img
-						src={eventlinkImg}
+						src={eventTextImg}
 						alt="eventlink"
 						onLoad={() => setButtonDisplay(true)}
 					/>

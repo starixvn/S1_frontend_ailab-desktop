@@ -143,7 +143,10 @@ export default () => {
 					<img src={Bong88} alt="Bong88" />
 				</div>
 			</section>
-			<AngpowLink to={`/${userInfo.langId}/${path.angpow.root}`} />
+			<AngpowLink
+				to={`/${userInfo.langId}/${path.angpow.root}`}
+				langId={userInfo.langId}
+			/>
 		</main>
 	);
 };
