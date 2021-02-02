@@ -33,7 +33,6 @@ export class Module extends Component {
 
 	componentDidMount() {
 		this.isMountedRef = true;
-
 		/* eslint-disable */
 		this._clipboard = new ClipboardJS(".copyBtn");
 		this._clipboard.on("success", e => {});
@@ -78,7 +77,7 @@ export class Module extends Component {
 				},
 				err => {
 					if (this.isMountedRef) {
-						alert(this.datas.i18n("msg_ApiServerError"));
+						alert(this.props.i18n("msg_ApiServerError"));
 						this.setState({ loading: false });
 					}
 				}
