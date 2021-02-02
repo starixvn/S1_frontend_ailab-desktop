@@ -121,11 +121,10 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 		if (!promotionCanJoin) return;
 
 		if (
-			(canJoin &&
-				bonusType === defPromotionType.firstDeposit &&
-				promotionType === defPromotionType.redeposit) ||
-			(filter === defFilterType.special_bonus &&
-				promotionType === defPromotionType.firstDeposit)
+			canJoin &&
+			(promotionType === defPromotionType.redeposit ||
+				(filter === defFilterType.special_bonus &&
+					promotionType === defPromotionType.firstDeposit))
 		)
 			return setPopBox({
 				isOpen: true,
