@@ -125,6 +125,7 @@ html {
 }
 
 header {
+  position: relative;
   position: fixed;
   background: #010e33;
   width: 100%;
@@ -143,6 +144,8 @@ header {
 
 header .logo {
   max-width: 100px;
+  position: relative;
+  z-index: 1;
 }
 
 header .logo img:nth-child(1) {
@@ -430,6 +433,14 @@ header .header > div.menu .gameList .keno:hover {
   background: url(../img/keno_a.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .gameList .v8 {
+  background: url(../img/lotteryV8.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .v8:hover {
+  background: url(../img/lotteryV8_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .gameList .lottery {
   background: url(../img/lottery.png) no-repeat center/auto 100%;
 }
@@ -676,6 +687,8 @@ header .header > div.function {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  position: relative;
+  z-index: 1;
 }
 
 header .header > div.function > div:before {
@@ -1066,6 +1079,260 @@ header .header > div.function .wallet .submenu div.loginLog, header .header > di
 
 header .header > div.function .wallet .submenu div.loginLog span, header .header > div.function .wallet .submenu div.transactionLog span {
   height: 20px;
+}
+
+.flower {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  background: url(../img/newyear/flowerL.png) no-repeat;
+  background-size: 100%;
+  width: 10%;
+  padding-bottom: 8%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1400px) {
+  .flower {
+    display: none;
+  }
+}
+
+.flowerR {
+  position: fixed;
+  top: 0px;
+  right: 0;
+  background: url(../img/newyear/flowerR.png) no-repeat;
+  background-size: 100%;
+  width: 10%;
+  padding-bottom: 8%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.newyear {
+  width: 100%;
+  position: fixed;
+  top: 120px;
+  z-index: 2;
+}
+
+.newyear .newyearLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.newyear .newyearLeft .line {
+  background: url(../img/newyear/line.png) no-repeat;
+  background-size: 100%;
+  width: 200px;
+  height: 40px;
+}
+
+.newyear .newyearLeft .lantern {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  background: url(../img/newyear/lantern.png) no-repeat;
+  background-size: 100%;
+  width: 90px;
+  height: 170px;
+  -webkit-animation: lantern 2s ease-in-out infinite alternate;
+          animation: lantern 2s ease-in-out infinite alternate;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+}
+
+.newyear .newyearLeft .lantern:nth-child(2) {
+  top: 10px;
+  left: 130px;
+  width: 60px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.newyear .newyearLeft.newyearRight {
+  right: 0;
+  left: auto;
+}
+
+.newyear .newyearLeft.newyearRight .line {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.newyear .newyearLeft.newyearRight .lantern {
+  left: 80px;
+}
+
+.newyear .newyearLeft.newyearRight .lantern:nth-child(2) {
+  left: 10px;
+}
+
+.newyear .cow {
+  position: fixed;
+  width: 230px;
+  height: 160px;
+  background-image: url(../img/newyear/cow.png);
+  background-size: 100%;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.newyear .money {
+  position: fixed;
+  bottom: 0px;
+  right: 0;
+  width: 300px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.newyear .money .box {
+  position: absolute;
+  width: 280px;
+  height: 130px;
+  right: 0;
+  bottom: 0;
+  background-image: url(../img/newyear/money.png);
+  background-size: 100%;
+  z-index: 2;
+}
+
+.newyear .money .l {
+  position: absolute;
+  top: 100px;
+  left: 130px;
+  width: 50px;
+  height: 60px;
+  background-image: url(https://pic.90sjimg.com/design/00/23/31/57/5a353c05b36fc.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transform: rotate(-320deg);
+          transform: rotate(-320deg);
+  -webkit-animation: ang 1s 1s ease-in-out infinite;
+          animation: ang 1s 1s ease-in-out infinite;
+}
+
+.newyear .money .l:nth-child(2) {
+  top: 70px;
+  left: 140px;
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.newyear .money .l:nth-child(3) {
+  top: 80px;
+  left: 160px;
+  -webkit-animation-delay: 0.2 0.5s;
+          animation-delay: 0.2 0.5s;
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+.newyear .money .l:nth-child(4) {
+  top: 50px;
+  left: 170px;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.newyear .money .l:nth-child(5) {
+  top: 80px;
+  left: 190px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+
+@-webkit-keyframes ang {
+  0% {
+    margin-top: 0px;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    margin-top: -250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes ang {
+  0% {
+    margin-top: 0px;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    margin-top: -250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes lantern {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+@keyframes lantern {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+}
+
+.newyearBg {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../img/newyear/bg.png);
+  pointer-events: none;
+}
+
+.newyearBg .pillarL {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: url(../img/newyear/pillarL.png) no-repeat center;
+  background-size: 100%;
+  width: 14%;
+  height: 1481px;
+}
+
+.newyearBg .pillarL.pillarR {
+  left: auto;
+  right: 0;
+  background: url(../img/newyear/pillarL.png) no-repeat bottom;
+  background-size: 100%;
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
 }
 
 main {
@@ -3464,6 +3731,18 @@ main > .swiper-container .swiper-slide {
   padding: 0;
 }
 
+@media screen and (max-width: 1100px) {
+  .offers {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .offers .straightBorder {
+    display: none;
+  }
+}
+
 .offers .pagination {
   display: none;
 }
@@ -3488,11 +3767,11 @@ main > .swiper-container .swiper-slide {
 }
 
 .offers .swiper-button-next {
-  right: 65px;
+  right: 53px;
 }
 
 .offers .swiper-button-prev {
-  left: 65px;
+  left: 53px;
 }
 
 .offers > img,
@@ -3505,6 +3784,116 @@ main > .swiper-container .swiper-slide {
   width: 1px;
   height: 190px;
   background: #1d2f62;
+}
+
+.offers .swiper-container {
+  width: 501px;
+  position: relative;
+}
+
+.offers .swiper-container .swiper-button-next {
+  left: auto;
+  right: 12px;
+  top: 56%;
+  width: 25px;
+  height: 25px;
+  background-size: 100%;
+  background-color: transparent;
+  background-image: none;
+}
+
+.offers .swiper-container .swiper-button-prev {
+  left: 12px;
+  top: 56%;
+  width: 25px;
+  height: 25px;
+  background-size: 100%;
+  background-color: transparent;
+  background-image: none;
+}
+
+.offers .swiper-container .eventImg {
+  display: inline-block;
+  width: 500px;
+  height: 145px;
+  background: url(../img/eventBg.png) no-repeat;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.offers .swiper-container .eventImg .team {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.offers .swiper-container .eventImg .team .teamL {
+  width: 40px;
+  height: 40px;
+  background-size: 100%;
+  margin-right: 10px;
+}
+
+.offers .swiper-container .eventImg .team .teamL.teamR {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.offers .swiper-container .eventImg .team p {
+  width: 202px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.offers .swiper-container .eventImg .teamName {
+  width: 100%;
+  position: absolute;
+  top: 89px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.offers .swiper-container .eventImg .teamName p {
+  width: 160px;
+  color: #021e46;
+  text-transform: uppercase;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.offers .swiper-container .eventImg .time {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 28px;
+  font-size: 12px;
+  color: #021e46;
+  font-weight: bold;
 }
 
 .walletModule {
@@ -5709,6 +6098,8 @@ input + .iconModule i.icon.icon-checkmark:before {
       flex-wrap: wrap;
   padding: 20px 0;
   text-align: center;
+  position: relative;
+  z-index: 0;
 }
 
 .indexGameList a,
@@ -5742,6 +6133,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 .guide > div {
@@ -6121,6 +6513,10 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .rankingPage.recordsBg {
   background: url(../img/ranking/recordsBg.png) no-repeat center top;
+}
+
+.rankingPage.lasteventBg {
+  background: url(../img/ranking/listeventBg.png) no-repeat center top;
 }
 
 .rankingPage .bottomImg {
@@ -6625,5 +7021,1084 @@ input + .iconModule i.icon.icon-checkmark:before {
 .transferModule .inputBox .dropdown .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-item {
   color: white;
   text-align: right;
+}
+
+.event {
+  background-color: #7d2626;
+}
+
+.event .eventTopPage {
+  background: url(../img/eventpage/bg.png) no-repeat center;
+  width: 100%;
+  height: 750px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.event .eventTopPage .angpao {
+  background: url(../img/eventpage/box.png) bottom;
+  width: 326px;
+  height: 310px;
+  margin-top: 60px;
+  position: relative;
+  cursor: pointer;
+  -webkit-animation: box 2s ease-in-out infinite alternate;
+          animation: box 2s ease-in-out infinite alternate;
+}
+
+.event .eventTopPage .angpao:hover .top {
+  -webkit-animation: top1 0.3s forwards;
+          animation: top1 0.3s forwards;
+}
+
+.event .eventTopPage .angpao:hover .top2 {
+  -webkit-animation: top2 0.3s 0.2s forwards;
+          animation: top2 0.3s 0.2s forwards;
+}
+
+.event .eventTopPage .angpao.active .top {
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
+}
+
+.event .eventTopPage .angpao.active .top2 {
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+}
+
+.event .eventTopPage .angpao.active .moneyArea {
+  display: block;
+}
+
+.event .eventTopPage .angpao.active:hover .top {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.event .eventTopPage .angpao.active:hover .top2 {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.event .eventTopPage .angpao .top {
+  position: absolute;
+  top: -1px;
+  background: url(../img/eventpage/top1.png) no-repeat center;
+  width: 326px;
+  height: 80px;
+  border-radius: 0 0 10px 10px;
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: 1s;
+  transition: 1s;
+  z-index: 1;
+}
+
+.event .eventTopPage .angpao .top .badge {
+  position: absolute;
+  top: 40px;
+  left: calc(50% - 40px);
+  background: url(../img/eventpage/badge.png) no-repeat center;
+  background-size: 100%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.event .eventTopPage .angpao .top2 {
+  position: absolute;
+  top: -80px;
+  background: url(../img/eventpage/top2.png) no-repeat center;
+  width: 326px;
+  height: 80px;
+  border-radius: 10px 10px 0 0;
+  -webkit-box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
+  z-index: 0;
+}
+
+.event .eventTopPage .angpao .top2 .badge {
+  position: absolute;
+  top: -39px;
+  left: calc(50% - 40px);
+  background: url(../img/eventpage/badge.png) no-repeat top;
+  background-size: 100%;
+  width: 80px;
+  height: 40px;
+  border-radius: 50px 50px 0 0;
+  -webkit-box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.2);
+}
+
+.event .eventTopPage .angpao .textBox {
+  width: 200px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 5px;
+  border: 1px solid #ffedbb;
+  background: -webkit-gradient(linear, left top, left bottom, from(#783535), to(#280b0b));
+  background: linear-gradient(to bottom, #783535 0%, #280b0b 100%);
+  margin: 0 auto;
+  margin-top: 140px;
+  text-align: center;
+}
+
+.event .eventTopPage .angpao .textBox p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffcf6f;
+  white-space: nowrap;
+}
+
+.event .eventTopPage .angpao .textBox.active .bigtitle {
+  display: none;
+}
+
+.event .eventTopPage .angpao .textBox.active .time {
+  display: block;
+}
+
+.event .eventTopPage .angpao .textBox .bigtitle {
+  display: block;
+}
+
+.event .eventTopPage .angpao .textBox .time {
+  display: none;
+}
+
+.event .eventTopPage .light {
+  position: absolute;
+  bottom: 170px;
+  width: 300px;
+  height: 140px;
+  background: url(../img/eventpage/light.png) no-repeat bottom;
+  background-size: 100%;
+  -webkit-animation: light 2s ease-in-out infinite alternate;
+          animation: light 2s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.event .eventModule {
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4b1416), to(#802626));
+  background: linear-gradient(to bottom, #4b1416 0%, #802626 100%);
+  background-image: url(../img/eventpage/bg2.png);
+  background-position: top;
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 30px 0;
+}
+
+.event .eventModule > div {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  width: 768px;
+}
+
+.event .eventModule > div > div.arrow-top, .event .eventModule > div > div.arrow-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.event .eventModule > div > div.arrow-top .border, .event .eventModule > div > div.arrow-bottom .border {
+  width: calc(100% - 120px);
+  background: url(../img/eventpage/bordertop.png);
+}
+
+.event .eventModule > div > div.arrow-top:before, .event .eventModule > div > div.arrow-top:after, .event .eventModule > div > div.arrow-bottom:before, .event .eventModule > div > div.arrow-bottom:after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.event .eventModule > div > div.arrow-top:before {
+  background: url(../img/eventpage/border_arrow.png);
+}
+
+.event .eventModule > div > div.arrow-top:after {
+  background: url(../img/eventpage/border_arrow.png);
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.event .eventModule > div > div.arrow-bottom .border {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+.event .eventModule > div > div.arrow-bottom:before {
+  background: url(../img/eventpage/border_arrow.png);
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+.event .eventModule > div > div.arrow-bottom:after {
+  background: url(../img/eventpage/border_arrow.png);
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+}
+
+.event .eventModule > div > div.moduleCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.event .eventModule > div > div.moduleCenter > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 30px;
+  margin-top: -60px;
+}
+
+.event .eventModule > div > div.moduleCenter > div .tag {
+  background: url(../img/eventpage/title_bg.png) no-repeat center/cover;
+  width: 260px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+  margin-top: -12px;
+}
+
+.event .eventModule > div > div.moduleCenter > div .tag + .title {
+  background: transparent;
+  font-size: 28px;
+  color: #ffd97b;
+  width: auto;
+  margin: 20px 0;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventInfo {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventInfo .title {
+  color: #f77900;
+}
+
+.event .eventModule > div > div.moduleCenter > div .more {
+  background: -webkit-gradient(linear, left bottom, left top, from(#e9bc49), to(#fdd97b));
+  background: linear-gradient(to top, #e9bc49, #fdd97b);
+  border: 1px solid #fdd97b;
+  width: 200px;
+  line-height: 40px;
+  color: #000;
+  text-align: center;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.event .eventModule > div > div.moduleCenter > div .more:hover {
+  -webkit-box-shadow: 0px 0px 8px rgba(253, 217, 123, 0.7);
+          box-shadow: 0px 0px 8px rgba(253, 217, 123, 0.7);
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-weight: bold;
+  color: black;
+  margin-top: 30px;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr {
+  background: white;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr td {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+  vertical-align: middle;
+  color: white;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr td div {
+  width: 70px;
+  margin: auto;
+  text-align: right;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:first-child {
+  background: #980b0b;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(even) {
+  background: #333333;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(odd):not(:nth-child(1)) {
+  background: #212121;
+}
+
+.event .eventModule > div > div.moduleCenter:before, .event .eventModule > div > div.moduleCenter:after {
+  content: "";
+  display: block;
+  min-width: 60px;
+}
+
+.event .eventModule > div > div.moduleCenter:before {
+  background: url(../img/eventpage/border.png);
+}
+
+.event .eventModule > div > div.moduleCenter:after {
+  background: url(../img/eventpage/border.png);
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+}
+
+@-webkit-keyframes box {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-box-shadow: 0 0 0 rgba(255, 253, 151, 0);
+            box-shadow: 0 0 0 rgba(255, 253, 151, 0);
+  }
+  100% {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    -webkit-box-shadow: 0 0 15px rgba(255, 253, 151, 0.8);
+            box-shadow: 0 0 15px rgba(255, 253, 151, 0.8);
+  }
+}
+
+@keyframes box {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-box-shadow: 0 0 0 rgba(255, 253, 151, 0);
+            box-shadow: 0 0 0 rgba(255, 253, 151, 0);
+  }
+  100% {
+    -webkit-transform: translateY(-10%);
+            transform: translateY(-10%);
+    -webkit-box-shadow: 0 0 15px rgba(255, 253, 151, 0.8);
+            box-shadow: 0 0 15px rgba(255, 253, 151, 0.8);
+  }
+}
+
+@-webkit-keyframes light {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes light {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes top1 {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+}
+
+@keyframes top1 {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+}
+
+@-webkit-keyframes top2 {
+  0% {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@keyframes top2 {
+  0% {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+.moneyArea {
+  position: absolute;
+  top: -80px;
+  display: none;
+  -webkit-animation: moneyArea 0.8s 1s linear;
+          animation: moneyArea 0.8s 1s linear;
+}
+
+.moneyArea .box {
+  position: absolute;
+  width: 326px;
+  height: 80px;
+  background-image: url(../img/eventpage/moneyAll.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.moneyArea .l {
+  position: absolute;
+  bottom: -90px;
+  left: 30px;
+  width: 50px;
+  height: 60px;
+  background-image: url(../img/eventpage/money.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transform: rotate(-320deg);
+          transform: rotate(-320deg);
+  -webkit-animation: l 1s ease-in-out infinite;
+          animation: l 1s ease-in-out infinite;
+}
+
+.moneyArea .l:nth-child(2) {
+  bottom: -77px;
+  left: 170px;
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.moneyArea .l:nth-child(3) {
+  bottom: -75px;
+  left: 245px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+.moneyArea .l:nth-child(4) {
+  bottom: -85px;
+  left: 145px;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.moneyArea .l:nth-child(5) {
+  bottom: -85px;
+  left: 90px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+
+@-webkit-keyframes switch {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes switch {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@-webkit-keyframes gold {
+  0% {
+    margin-top: 0px;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    margin-bottom: 250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes gold {
+  0% {
+    margin-top: 0px;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    margin-bottom: 250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes l {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-bottom: 250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes l {
+  0% {
+    margin-top: 0px;
+  }
+  100% {
+    margin-bottom: 250px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes moneyArea {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes moneyArea {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#popup .eventpop {
+  position: relative;
+  width: 315px;
+  height: 265px;
+  background: rgba(218, 39, 73, 0.85);
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  text-align: center;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  display: none;
+}
+
+#popup .eventpop.active {
+  display: block;
+  -webkit-animation: switch 0.8s ease-in-out;
+          animation: switch 0.8s ease-in-out;
+}
+
+#popup .eventpop .icon-close {
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 17px;
+  font-size: 14px;
+}
+
+#popup .eventpop .title {
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 1px solid white;
+  margin-bottom: 25px;
+}
+
+#popup .eventpop .am {
+  width: 85%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid #ffe597;
+  color: #ffe597;
+  text-align: center;
+  line-height: 40px;
+  margin: 25px 0;
+}
+
+.gold {
+  background: url(../img/eventpage/goldbox.png) bottom;
+  background-size: 100%;
+  width: 326px;
+  height: 310px;
+  position: absolute;
+  display: none;
+  cursor: pointer;
+}
+
+.gold.active {
+  display: block;
+  -webkit-animation: switch 0.8s ease-in-out;
+          animation: switch 0.8s ease-in-out;
+}
+
+.gold .textBox {
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ffedbb;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9a6031), to(#56361c));
+  background: linear-gradient(to bottom, #9a6031 0%, #56361c 100%);
+  margin: 0 auto;
+  margin-top: 205px;
+  text-align: center;
+}
+
+.gold .textBox p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffcf6f;
+  padding: 10px 0;
+}
+
+.gold .moneyArea {
+  display: block;
+  position: absolute;
+  top: -80px;
+  -webkit-animation: moneyArea 0.8s linear;
+          animation: moneyArea 0.8s linear;
+}
+
+.gold .moneyArea .box {
+  position: absolute;
+  width: 425px;
+  height: 170px;
+  background-image: url(../img/eventpage/gold.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  z-index: 2;
+  top: 71px;
+  left: -50px;
+}
+
+.gold .moneyArea .l {
+  position: absolute;
+  bottom: -230px;
+  left: 30px;
+  width: 100px;
+  height: 50px;
+  background-image: url(../img/eventpage/gold1.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  -webkit-transform: rotate(-320deg);
+          transform: rotate(-320deg);
+  -webkit-animation: gold 1s ease-in-out infinite;
+          animation: gold 1s ease-in-out infinite;
+}
+
+.gold .moneyArea .l:nth-child(2) {
+  bottom: -230px;
+  left: 170px;
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+
+.gold .moneyArea .l:nth-child(3) {
+  bottom: -230px;
+  left: 230px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+.gold .moneyArea .l:nth-child(4) {
+  bottom: -230px;
+  left: 145px;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+.gold .moneyArea .l:nth-child(5) {
+  bottom: -230px;
+  left: 90px;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+
+.flowerArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.allstars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+[class^="star"] {
+  /*選取所有star*/
+  color: #fff;
+  background: url(../img/newyear/flowerS.png);
+  background-size: 100%;
+  width: 15px;
+  height: 15px;
+  -webkit-animation: falling 8s ease-in infinite;
+          animation: falling 8s ease-in infinite;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+  /*1~30的數數*/
+}
+
+[class^="star"].star1 {
+  position: absolute;
+  left: 42.69937%;
+  top: -82.43138%;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+[class^="star"].star2 {
+  position: absolute;
+  left: 18.93355%;
+  top: -86.41772%;
+  -webkit-animation-delay: -2s;
+          animation-delay: -2s;
+}
+
+[class^="star"].star3 {
+  position: absolute;
+  left: 22.72457%;
+  top: -16.08463%;
+  -webkit-animation-delay: -3s;
+          animation-delay: -3s;
+}
+
+[class^="star"].star4 {
+  position: absolute;
+  left: 38.0642%;
+  top: -50.59608%;
+  -webkit-animation-delay: -4s;
+          animation-delay: -4s;
+}
+
+[class^="star"].star5 {
+  position: absolute;
+  left: 6.15026%;
+  top: -46.20566%;
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+}
+
+[class^="star"].star6 {
+  position: absolute;
+  left: 72.55846%;
+  top: -19.83349%;
+  -webkit-animation-delay: -6s;
+          animation-delay: -6s;
+}
+
+[class^="star"].star7 {
+  position: absolute;
+  left: 97.36063%;
+  top: -39.57662%;
+  -webkit-animation-delay: -7s;
+          animation-delay: -7s;
+}
+
+[class^="star"].star8 {
+  position: absolute;
+  left: 27.36264%;
+  top: -36.87473%;
+  -webkit-animation-delay: -8s;
+          animation-delay: -8s;
+}
+
+[class^="star"].star9 {
+  position: absolute;
+  left: 51.16895%;
+  top: -37.93918%;
+  -webkit-animation-delay: -9s;
+          animation-delay: -9s;
+}
+
+[class^="star"].star10 {
+  position: absolute;
+  left: 39.15904%;
+  top: 4.69231%;
+  -webkit-animation-delay: -10s;
+          animation-delay: -10s;
+}
+
+[class^="star"].star11 {
+  position: absolute;
+  left: 37.88564%;
+  top: 6.72839%;
+  -webkit-animation-delay: -11s;
+          animation-delay: -11s;
+}
+
+[class^="star"].star12 {
+  position: absolute;
+  left: 61.21128%;
+  top: -72.15815%;
+  -webkit-animation-delay: -12s;
+          animation-delay: -12s;
+}
+
+[class^="star"].star13 {
+  position: absolute;
+  left: 19.34295%;
+  top: -22.7628%;
+  -webkit-animation-delay: -13s;
+          animation-delay: -13s;
+}
+
+[class^="star"].star14 {
+  position: absolute;
+  left: 41.44168%;
+  top: -31.37029%;
+  -webkit-animation-delay: -14s;
+          animation-delay: -14s;
+}
+
+[class^="star"].star15 {
+  position: absolute;
+  left: 28.98763%;
+  top: -84.64359%;
+  -webkit-animation-delay: -15s;
+          animation-delay: -15s;
+}
+
+[class^="star"].star16 {
+  position: absolute;
+  left: 80.23402%;
+  top: -74.77679%;
+  -webkit-animation-delay: -16s;
+          animation-delay: -16s;
+}
+
+[class^="star"].star17 {
+  position: absolute;
+  left: 90.83759%;
+  top: -87.41851%;
+  -webkit-animation-delay: -17s;
+          animation-delay: -17s;
+}
+
+[class^="star"].star18 {
+  position: absolute;
+  left: 65.95965%;
+  top: -87.3314%;
+  -webkit-animation-delay: -18s;
+          animation-delay: -18s;
+}
+
+[class^="star"].star19 {
+  position: absolute;
+  left: 21.14814%;
+  top: -74.68234%;
+  -webkit-animation-delay: -19s;
+          animation-delay: -19s;
+}
+
+[class^="star"].star20 {
+  position: absolute;
+  left: 49.26586%;
+  top: 8.4275%;
+  -webkit-animation-delay: -20s;
+          animation-delay: -20s;
+}
+
+@-webkit-keyframes falling {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(0px, 120vh) rotate(360deg);
+            transform: translate(0px, 120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes falling {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
+            transform: translate(0px, 0px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(0px, 120vh) rotate(360deg);
+            transform: translate(0px, 120vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */

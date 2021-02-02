@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import moment from "moment";
 import { number_format } from "../common/common";
-import { defTabId, defTopWinnerNum } from "./leaderboard.def";
+import { defTabId, currentTopNum, lastTopNum } from "./leaderboard.def";
 import DayDropdown from "./leaderboard.dayDropdown";
 
 export default ({
@@ -28,13 +28,19 @@ export default ({
 	return (
 		<>
 			{tab === defTabId.ranking ? (
-				<h1 className="title">{t("lbl_Ranking_Top20")}</h1>
+				<h1 className="title">
+					{t(`lbl_Ranking_TopNum`, { topNum: currentTopNum })}
+				</h1>
 			) : (
-				<DayDropdown
-					t={t}
-					onChangeDays={onChangeDays}
-					beforeDays={beforeDays}
-				/>
+				<>
+					{tab === defTabId.lastEvent ? null : (
+						<DayDropdown
+							t={t}
+							onChangeDays={onChangeDays}
+							beforeDays={beforeDays}
+						/>
+					)}
+				</>
 			)}
 			{rankingData?.length > 0 ? (
 				<div className="ranklist">
@@ -48,23 +54,28 @@ export default ({
 							rankingData={rankingData}
 							userInfo={userInfo}
 							t={t}
+							tab={tab}
 						/>
 					</ul>
 				</div>
 			) : (
 				<div className="icon icon-nodata">{t("lbl_NoData")}</div>
 			)}
-			<p className="remind">
-				{t(`lbl_LastUpdTime`, {
-					time: showUpdateTime()
-				})}
-			</p>
+			{tab === defTabId.lastEvent ? null : (
+				<p className="remind">
+					{t(`lbl_LastUpdTime`, {
+						time: showUpdateTime()
+					})}
+				</p>
+			)}
 		</>
 	);
 };
 
-const Ranking = ({ rankingData, t, userInfo }) =>
-	rankingData?.map((item, idx) => {
+const Ranking = ({ rankingData, userInfo, tab }) => {
+	const isLastEventTab = tab === defTabId.lastEvent;
+	const _TopNum = isLastEventTab ? lastTopNum : currentTopNum;
+	return rankingData?.map((item, idx) => {
 		const liStyle = () => {
 			let top3Class = "";
 			let myClass = "";
@@ -72,8 +83,13 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 				top3Class = `no${idx + 1}`;
 			}
 
-			if (item.userName === userInfo.userName && idx < defTopWinnerNum) {
-				myClass = idx < 3 ? " myInRank" : "myInRank";
+			if (item.custRank === "999+") return " myRank";
+
+			if (
+				item.userName === userInfo.userName &&
+				item.custRank < _TopNum
+			) {
+				myClass = item.custRank <= 3 ? " myInRank" : "myInRank";
 			} else if (item.userName === userInfo.userName) {
 				myClass = idx < 3 ? " myRank" : "myRank";
 			}
@@ -81,26 +97,35 @@ const Ranking = ({ rankingData, t, userInfo }) =>
 			return top3Class + myClass;
 		};
 
+		const getRankingImgUrl = (custRank, scopeIdx, _username) => {
+			if (_username === userInfo.userName && custRank <= 3)
+				return `../../styles/img/ranking/trophy${item.custRank}.png`;
+
+			if (_username !== userInfo.userName && scopeIdx < 3)
+				return `../../styles/img/ranking/trophy${scopeIdx + 1}.png`;
+
+			return `../../styles/img/ranking/trophy4.png`;
+		};
+
 		return (
-			<li key={`leaderboard_item_${item.custId}`} className={liStyle()}>
+			<li
+				key={`leaderboard_item_${item.custId}_${item.custRank}`}
+				className={liStyle()}>
 				<div>
 					<img
-						src={
-							idx < 3
-								? require(`../../styles/img/ranking/trophy${
-										idx + 1
-								  }.png`)
-								: require(`../../styles/img/ranking/trophy4.png`)
-						}
+						src={getRankingImgUrl(
+							item?.custRank,
+							idx,
+							item?.username
+						)}
 						alt="ranking_top"
 					/>
-					{item.userName === userInfo.userName &&
-					rankingData.length > defTopWinnerNum
-						? item.custRank
-						: idx + 1}
+
+					{item?.custRank || idx + 1}
 				</div>
 				<div>{item.userName}</div>
 				<div className="point">{number_format(item.wTurnover)}</div>
 			</li>
 		);
 	});
+};

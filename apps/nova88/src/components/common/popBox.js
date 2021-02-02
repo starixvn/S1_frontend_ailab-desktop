@@ -45,16 +45,6 @@ export default () => {
 		case defPopBoxType.Success:
 			content = <Success btnBar={popBox.btnBar} />;
 			break;
-		case defPopBoxType.ErrorMsg:
-			content = (
-				<ErrorMsg
-					btnBar={popBox.btnBar}
-					message={popBox.message}
-					errorCode={popBox.errorCode}
-					icon={popBox.icon}
-				/>
-			);
-			break;
 
 		case defPopBoxType.ErrorMsg:
 			content = (
@@ -178,6 +168,7 @@ export default () => {
 		case defPopBoxType.PromotionAmountConfirm:
 			content = (
 				<PromotionAmountConfirm
+					currencyId={popBox.currencyId}
 					langId={popBox.langId}
 					promotionInfo={popBox.promotionInfo}
 					clickClose={popBox.clickClose}
@@ -186,17 +177,15 @@ export default () => {
 			);
 			break;
 
-		case defPopBoxType.kiss918:
-			{
-				const Kiss918 = lazy(() => import("./popBox.918kiss"));
-				content = (
-					<Suspense fallback={<>Loading...</>}>
-						<Kiss918 ClickClose={popBox.onClickClose} />
-					</Suspense>
-				);
-			}
+		case defPopBoxType.kiss918: {
+			const Kiss918 = lazy(() => import("./popBox.918kiss"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<Kiss918 ClickClose={popBox.onClickClose} />
+				</Suspense>
+			);
 			break;
-
+		}
 		case defPopBoxType.JoinReferral:
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
 			break;
@@ -221,9 +210,7 @@ export default () => {
 		<div id="popup" className="active">
 			<div className="pop">{content}</div>
 		</div>
-	) : (
-		<></>
-	);
+	) : null;
 
 	// return popBox.isOpen ? (
 	// 	popBox.loading ? (

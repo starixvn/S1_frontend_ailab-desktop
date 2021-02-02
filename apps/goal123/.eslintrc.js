@@ -10,7 +10,8 @@ module.exports = {
 		"gatsby-config.js",
 		"gatsby-node.js",
 		"gatsby-ssr.js",
-		"jest.config.js"
+		"jest.config.js",
+		"gulpfile.js"
 	],
 	env: {
 		browser: true,

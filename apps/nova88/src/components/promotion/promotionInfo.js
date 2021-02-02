@@ -186,7 +186,11 @@ export default () => {
 						currencyId={userInfo.currencyId}
 					/>
 
-					<PromoRule promotionInfo={promotionInfo} t={t} />
+					<PromoRule
+						promotionInfo={promotionInfo}
+						t={t}
+						currencyId={userInfo.currencyId}
+					/>
 
 					<div
 						className="proDataBody"
