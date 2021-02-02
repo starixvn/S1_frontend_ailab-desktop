@@ -74,67 +74,118 @@ export default () => {
 	// };
 
 	return (
-		<main>
+		<>
 			{/* new year style ↓ */}
-			<div className="newyearBg">
-				<div className="pillarL" />
-				<div className="pillarL pillarR" />
+			<div className="newyear">
+				<section className="flowerArea">
+					<div className="allstars">
+						<div className="star1" />
+						<div className="star2" />
+						<div className="star3" />
+						<div className="star4" />
+						<div className="star5" />
+						<div className="star6" />
+						<div className="star7" />
+						<div className="star8" />
+						<div className="star9" />
+						<div className="star10" />
+						<div className="star11" />
+						<div className="star12" />
+						<div className="star13" />
+						<div className="star14" />
+						<div className="star15" />
+						<div className="star16" />
+						<div className="star17" />
+						<div className="star18" />
+						<div className="star19" />
+						<div className="star20" />
+					</div>
+				</section>
+				<div className="newyearLeft">
+					<div className="line" />
+					<div className="lantern" />
+					<div className="lantern" />
+				</div>
+				<div className="newyearLeft newyearRight">
+					<div className="line" />
+					<div className="lantern" />
+					<div className="lantern" />
+				</div>
+				{/* <a href="" className="money">
+					<div className="box" />
+					<div className="l" />
+					<div className="l" />
+					<div className="l" />
+					<div className="l" />
+					<div className="l" />
+				</a> */}
+				<div className="cow" />
 			</div>
 			{/* new year style ↑ */}
-			<SwipperBanner ImgFolder="Promotion" filterHideInHome={true} />
-			<Marquee />
-			<section>
-				<EventSwipper langId={userInfo.langId} />
-			</section>
-			<section>
-				<PromoGameList t={t} userInfo={userInfo} />
-			</section>
-			<section>
-				<div className="guide">
-					<div className="guidelist">
-						<span className="title">{t("lbl_UserGuide")}</span>
-						<UserGuide t={t} langId={userInfo.langId} />
-					</div>
-					<div className="exGroup">
-						<div className="ex">
-							<img
-								src={require("../../styles/img/24hr.png")}
-								alt="24/7 customer care service"
-							/>
-							<ul>
-								<li className="title">
-									{t("lbl_ExcellentCustomerCare")}
-								</li>
-								<li>{t("lbl_ExcellentCustomerCareDesc")}</li>
-							</ul>
-						</div>
-						<div className="ex">
-							<img
-								src={require("../../styles/img/games.png")}
-								alt="games"
-							/>
-							<ul>
-								<li className="title">
-									{t("lbl_ExtensiveGames")}
-								</li>
-								<li>{t("lbl_ExtensiveGamesDesc")}</li>
-							</ul>
-						</div>
-					</div>
-					<div>
-						<img
-							src={
-								userInfo.langId === defaultLang
-									? require("../../styles/img/D&W.png")
-									: require(`../../styles/img/D&W_${userInfo.langId}.png`)
-							}
-							alt="deposit and withdrawal"
-						/>
-					</div>
+			<main>
+				{/* new year style ↓ */}
+				<div className="newyearBg">
+					<div className="pillarL" />
+					<div className="pillarL pillarR" />
 				</div>
-			</section>
-			<SideBarQuickLink />
-		</main>
+				{/* new year style ↑ */}
+				<SwipperBanner ImgFolder="Promotion" filterHideInHome={true} />
+				<Marquee />
+				<section>
+					<EventSwipper langId={userInfo.langId} />
+				</section>
+				<section>
+					<PromoGameList t={t} userInfo={userInfo} />
+				</section>
+				<section>
+					<div className="guide">
+						<div className="guidelist">
+							<span className="title">{t("lbl_UserGuide")}</span>
+							<UserGuide t={t} langId={userInfo.langId} />
+						</div>
+						<div className="exGroup">
+							<div className="ex">
+								<img
+									src={require("../../styles/img/24hr.png")}
+									alt="24/7 customer care service"
+								/>
+								<ul>
+									<li className="title">
+										{t("lbl_ExcellentCustomerCare")}
+									</li>
+									<li>
+										{t("lbl_ExcellentCustomerCareDesc")}
+									</li>
+								</ul>
+							</div>
+							<div className="ex">
+								<img
+									src={require("../../styles/img/games.png")}
+									alt="games"
+								/>
+								<ul>
+									<li className="title">
+										{t("lbl_ExtensiveGames")}
+									</li>
+									<li>{t("lbl_ExtensiveGamesDesc")}</li>
+								</ul>
+							</div>
+						</div>
+						<div>
+							<img
+								src={
+									userInfo.langId === defaultLang
+										? require("../../styles/img/D&W.png")
+										: require(`../../styles/img/D&W_${userInfo.langId}.png`)
+								}
+								alt="deposit and withdrawal"
+							/>
+						</div>
+					</div>
+				</section>
+				<SideBarQuickLink />
+			</main>
+		</>
 	);
 };
 
