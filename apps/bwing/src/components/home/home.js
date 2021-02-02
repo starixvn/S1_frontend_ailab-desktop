@@ -5,8 +5,8 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { setCookie, readCookie } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import { defBannerType } from "../../service/api/site";
 import { defaultLang } from "../../i18n/config";
-
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
 import SwipperBanner from "../common/swipperBanner";
@@ -65,14 +65,6 @@ export default () => {
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
-	// const getDepositWithdrawImage = () => {
-	// 	if (userInfo.langId === "en") {
-	// 		return require(`../../styles/img/D&W.png"`);
-	// 	} else {
-	// 		return require(`../../styles/img/D&W_vn.png"`);
-	// 	}
-	// };
-
 	return (
 		<>
 			{/* new year style ↓ */}
@@ -129,7 +121,7 @@ export default () => {
 					<div className="pillarL pillarR" />
 				</div>
 				{/* new year style ↑ */}
-				<SwipperBanner ImgFolder="Promotion" filterHideInHome={true} />
+				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 				<Marquee />
 				<section>
 					<EventSwipper langId={userInfo.langId} />
