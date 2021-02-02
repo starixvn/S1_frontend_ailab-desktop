@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "@reach/router";
 import PropTypes from "prop-types";
 import Header from "../layout/header";
 import Footer from "../footer/footer";
@@ -20,10 +19,7 @@ const Layout = ({ children, showFooter = false }) => {
 			<SEO />
 			<Header />
 			<div className="newyear">
-				<AngpowLink
-					to={`/${userInfo.langId}/${path.angpow.root}`}
-					langId={userInfo.langId}
-				/>
+				<AngpowLink to={`/${userInfo.langId}/${path.angpow.root}`} />
 			</div>
 			{children}
 			{showFooter ? <Footer /> : null}

@@ -1,7 +1,11 @@
 import React, { useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
-import { userInfoContext, popBoxContext } from "../common/context";
+import {
+	userInfoContext,
+	popBoxContext,
+	isRootContext
+} from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { setCookie, readCookie } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
@@ -19,12 +23,15 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { setIsRoot } = useContext(isRootContext);
 
 	const isMountedRef = useRef(null);
 	useEffect(() => {
 		isMountedRef.current = true;
+		setIsRoot(true);
 		return () => {
 			isMountedRef.current = false;
+			setIsRoot(false);
 		};
 	});
 
