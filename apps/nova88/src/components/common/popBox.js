@@ -24,6 +24,7 @@ import RegisterSuccess from "./popBox.registerSuccess";
 import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
 import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
 import JoinReferral from "./popBox.joinReferral";
+import OneGamingLink from "./popBox.oneGamingLink";
 import defPopBoxType from "./defPopBoxType";
 
 export default () => {
@@ -142,6 +143,7 @@ export default () => {
 				/>
 			);
 			break;
+
 		case defPopBoxType.TurnoverAccumulated:
 			content = <TurnoverAccumulated {...popBox} />;
 			break;
@@ -188,6 +190,15 @@ export default () => {
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
 			break;
 
+		case defPopBoxType.OneGamingLink:
+			content = (
+				<OneGamingLink
+					btnBar={popBox.btnBar}
+					clickClose={popBox.clickClose}
+				/>
+			);
+			break;
+
 		case defPopBoxType.default:
 			break;
 
@@ -199,9 +210,7 @@ export default () => {
 		<div id="popup" className="active">
 			<div className="pop">{content}</div>
 		</div>
-	) : (
-		<></>
-	);
+	) : null;
 
 	// return popBox.isOpen ? (
 	// 	popBox.loading ? (
