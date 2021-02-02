@@ -25,7 +25,7 @@ export default props => {
 
 	useEffect(() => {
 		getApiBankCard();
-		setPrevAccountInfo();
+		selectPrevAccount();
 	}, [props.balanceData]);
 
 	useEffect(() => {
@@ -35,10 +35,10 @@ export default props => {
 	}, [popBoxData.refresh]);
 
 	useEffect(() => {
-		setPrevAccountInfo();
+		selectPrevAccount();
 	}, [prevWithdrawAccNo]);
 
-	const setPrevAccountInfo = () => {
+	const selectPrevAccount = () => {
 		if (prevWithdrawAccNo) {
 			const defAccountInfo = props.bankInfoList.filter(
 				card => card.accountNo === prevWithdrawAccNo
@@ -190,7 +190,6 @@ export default props => {
 						/>
 					</div>
 					<div className="checkbox">
-						{console.log(props.currentBankInfo.accountNoValue)}
 						<input
 							type="checkbox"
 							checked={

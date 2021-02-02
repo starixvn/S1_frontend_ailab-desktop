@@ -20,7 +20,8 @@ export const initState = {
 	kycStatus: "normal",
 	loading: true,
 	redirectPath: null,
-	panel: "amount"
+	panel: "amount",
+	prevWithdrawAccNo: null
 };
 
 export const defPanel = {
@@ -41,7 +42,8 @@ export function reducer(state, action) {
 		case defActionType.GET_CUST_BANKINFO:
 			return {
 				...state,
-				custBankInfo: action.custBankInfo
+				custBankInfo: action.custBankInfo,
+				prevWithdrawAccNo: action.prevWithdrawAccNo
 			};
 
 		case defActionType.SELECT_ACCOUNT:

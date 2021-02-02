@@ -185,7 +185,10 @@ export default ({
 
 	const arr = custBankInfo?.map(item => {
 		const _key = `withdrawal-bankCard-${item.accountNo}`;
-		const _checked = item.accountNo === state.selectedAccount?.accountNo;
+		const _checked =
+			item.accountNo === state.selectedAccount?.accountNo ||
+			(!state.selectedAccount.accountNo &&
+				item.accountNo === state.prevWithdrawAccNo);
 
 		return (
 			<BankCard

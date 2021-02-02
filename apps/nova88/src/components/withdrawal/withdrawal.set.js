@@ -25,7 +25,28 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 
 	useEffect(() => {
 		GetCustBankInfo();
-	}, []);
+	}, [state.balanceData]);
+
+	useEffect(() => {
+		selectPrevAccount();
+	}, [state.prevWithdrawAccNo]);
+
+	const selectPrevAccount = () => {
+		if (state.prevWithdrawAccNo) {
+			const defAccountInfo = state.custBankInfo.filter(
+				card => card.accountNo === state.prevWithdrawAccNo
+			)[0];
+			dispatch({
+				type: defActionType.SELECT_ACCOUNT,
+				selectedAccount: {
+					bankName: defAccountInfo.bankName,
+					accountNo: defAccountInfo.accountNo,
+					sysId: defAccountInfo.sysId
+				},
+				step: state.amount ? 3 : 2
+			});
+		}
+	};
 
 	const GetCustBankInfo = () => {
 		const ClosePopBox = () => {
@@ -39,9 +60,12 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 						const datas = res.data.data;
 						const _custBankInfo =
 							datas === null ? [] : datas.bankInfoDetail;
+						const _prevWithdrawAccNo =
+							datas === null ? null : datas.defAccountNo;
 						dispatch({
 							type: defActionType.GET_CUST_BANKINFO,
-							custBankInfo: _custBankInfo
+							custBankInfo: _custBankInfo,
+							prevWithdrawAccNo: _prevWithdrawAccNo
 						});
 					} else {
 						setPopBox({

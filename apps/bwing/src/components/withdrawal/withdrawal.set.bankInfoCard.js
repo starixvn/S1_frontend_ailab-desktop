@@ -26,7 +26,7 @@ const BankInfoCard = props => {
 
 	useEffect(() => {
 		getApiBankCard();
-		setPrevAccountInfo();
+		selectPrevAccount();
 	}, [props.balanceData]);
 
 	useEffect(() => {
@@ -36,10 +36,10 @@ const BankInfoCard = props => {
 	}, [popBoxData.refresh]);
 
 	useEffect(() => {
-		setPrevAccountInfo();
+		selectPrevAccount();
 	}, [prevWithdrawAccNo]);
 
-	const setPrevAccountInfo = () => {
+	const selectPrevAccount = () => {
 		if (prevWithdrawAccNo) {
 			const defAccountInfo = props.bankInfoList.filter(
 				card => card.accountNo === prevWithdrawAccNo
