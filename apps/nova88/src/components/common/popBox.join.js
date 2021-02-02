@@ -474,7 +474,8 @@ export default () => {
 				PhoneNo: userValue.phone,
 				CurrencyId: _currencyId,
 				UserLang: defaultLangId,
-				AreaCode: _areaCode
+				AreaCode: _areaCode,
+				PromoCode: userValue.specialBonusCode
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
