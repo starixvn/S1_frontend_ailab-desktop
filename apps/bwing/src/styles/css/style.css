@@ -1183,10 +1183,31 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   pointer-events: none;
 }
 
-.newyear .money {
+.newyear .angPaoArea {
   position: fixed;
   bottom: 0px;
   right: 0;
+}
+
+.newyear .angPao_close {
+  background-color: rgba(255, 0, 0, 0.6);
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  bottom: 130px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.newyear .angPao_close:hover {
+  background-color: red;
+}
+
+.newyear .money {
   width: 300px;
   height: 150px;
   cursor: pointer;
@@ -1938,7 +1959,6 @@ input[type="file"] {
 .btnGroup button:last-child,
 .btnGroup a:last-child {
   margin-right: 0;
-  max-width: 100px;
 }
 
 .btnGroup button.orange,
@@ -2815,10 +2835,15 @@ main > .swiper-container .swiper-slide {
   background: #0c1a3f;
   border-radius: 5px;
   border: 1px solid #1a2b58;
+  margin: 0 5px;
 }
 
-.subModuleList .subModule:nth-child(2) {
-  margin: 0 10px;
+.subModuleList .subModule:nth-child(1) {
+  margin-left: 0;
+}
+
+.subModuleList .subModule:nth-last-child(1) {
+  margin-right: 0;
 }
 
 .subModuleList .subModule .subModuleTitle {
@@ -7169,16 +7194,20 @@ input + .iconModule i.icon.icon-checkmark:before {
   white-space: nowrap;
 }
 
-.event .eventTopPage .angpao .textBox .bigtitle.active {
+.event .eventTopPage .angpao .textBox.active .bigtitle {
   display: none;
+}
+
+.event .eventTopPage .angpao .textBox.active .time {
+  display: block;
+}
+
+.event .eventTopPage .angpao .textBox .bigtitle {
+  display: block;
 }
 
 .event .eventTopPage .angpao .textBox .time {
   display: none;
-}
-
-.event .eventTopPage .angpao .textBox .time.active {
-  display: block;
 }
 
 .event .eventTopPage .light {
@@ -7727,7 +7756,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   color: #ffe597;
   text-align: center;
   line-height: 40px;
-  margin: 25px 0;
+  margin: 25px auto;
 }
 
 .gold {
@@ -7902,160 +7931,160 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 12.94011%;
-  top: -26.65377%;
+  left: 0.17358%;
+  top: -48.95181%;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 26.13814%;
-  top: -62.42397%;
+  left: 50.85785%;
+  top: -24.08667%;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 88.46109%;
-  top: -65.913%;
+  left: 51.10252%;
+  top: -55.57646%;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 20.20017%;
-  top: -25.89446%;
+  left: 60.59708%;
+  top: -38.7157%;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 44.87491%;
-  top: -57.49735%;
+  left: 25.58101%;
+  top: -24.59774%;
   -webkit-animation-delay: -5s;
           animation-delay: -5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 89.73213%;
-  top: -47.60442%;
+  left: 9.8308%;
+  top: -38.1635%;
   -webkit-animation-delay: -6s;
           animation-delay: -6s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 22.05626%;
-  top: -46.66138%;
+  left: 63.76127%;
+  top: -57.38048%;
   -webkit-animation-delay: -7s;
           animation-delay: -7s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 4.42491%;
-  top: -87.60042%;
+  left: 78.0758%;
+  top: -63.92011%;
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
 }
 
 [class^="star"].star9 {
   position: absolute;
-  left: 39.28087%;
-  top: 1.3146%;
+  left: 37.2838%;
+  top: -49.65691%;
   -webkit-animation-delay: -9s;
           animation-delay: -9s;
 }
 
 [class^="star"].star10 {
   position: absolute;
-  left: 94.99399%;
-  top: -6.4968%;
+  left: 9.78815%;
+  top: -56.84744%;
   -webkit-animation-delay: -10s;
           animation-delay: -10s;
 }
 
 [class^="star"].star11 {
   position: absolute;
-  left: 53.88462%;
-  top: -34.03316%;
+  left: 87.32423%;
+  top: -15.53299%;
   -webkit-animation-delay: -11s;
           animation-delay: -11s;
 }
 
 [class^="star"].star12 {
   position: absolute;
-  left: 94.44145%;
-  top: -51.71481%;
+  left: 24.51675%;
+  top: -10.71504%;
   -webkit-animation-delay: -12s;
           animation-delay: -12s;
 }
 
 [class^="star"].star13 {
   position: absolute;
-  left: 0.12435%;
-  top: -45.84482%;
+  left: 36.95993%;
+  top: -41.50109%;
   -webkit-animation-delay: -13s;
           animation-delay: -13s;
 }
 
 [class^="star"].star14 {
   position: absolute;
-  left: 92.90898%;
-  top: -26.51188%;
+  left: 42.21681%;
+  top: -59.72601%;
   -webkit-animation-delay: -14s;
           animation-delay: -14s;
 }
 
 [class^="star"].star15 {
   position: absolute;
-  left: 21.31977%;
-  top: -72.07374%;
+  left: 48.89828%;
+  top: -83.74255%;
   -webkit-animation-delay: -15s;
           animation-delay: -15s;
 }
 
 [class^="star"].star16 {
   position: absolute;
-  left: 99.9341%;
-  top: -75.0937%;
+  left: 7.2433%;
+  top: -41.26369%;
   -webkit-animation-delay: -16s;
           animation-delay: -16s;
 }
 
 [class^="star"].star17 {
   position: absolute;
-  left: 70.37759%;
-  top: 1.58529%;
+  left: 62.50182%;
+  top: 7.18755%;
   -webkit-animation-delay: -17s;
           animation-delay: -17s;
 }
 
 [class^="star"].star18 {
   position: absolute;
-  left: 68.0985%;
-  top: -68.20501%;
+  left: 39.56128%;
+  top: -82.46287%;
   -webkit-animation-delay: -18s;
           animation-delay: -18s;
 }
 
 [class^="star"].star19 {
   position: absolute;
-  left: 56.1079%;
-  top: -50.39143%;
+  left: 65.18447%;
+  top: -52.31052%;
   -webkit-animation-delay: -19s;
           animation-delay: -19s;
 }
 
 [class^="star"].star20 {
   position: absolute;
-  left: 82.08867%;
-  top: -70.05669%;
+  left: 98.48472%;
+  top: -57.068%;
   -webkit-animation-delay: -20s;
           animation-delay: -20s;
 }
