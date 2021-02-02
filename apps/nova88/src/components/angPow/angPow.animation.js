@@ -7,7 +7,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { defDrawPrizeStatus } from "./angPow.def";
 
 const getDiffTime = () => {
-	const eventTime = moment().set({ hour: 24, minute: 59, second: 59 }).unix();
+	const eventTime = moment().set({ hour: 23, minute: 59, second: 59 }).unix();
 	const currentTime = moment().unix();
 	const diffTime = eventTime - currentTime;
 
