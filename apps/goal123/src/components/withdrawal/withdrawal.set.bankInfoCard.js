@@ -14,7 +14,7 @@ export default props => {
 	const isMountedRef = useRef(null);
 	const { t } = useTranslation();
 	const popBoxData = useContext(popBoxContext).popBox;
-	const [prevDepositAccNo, setPrevDepositAccNo] = useState(null);
+	const [prevWithdrawAccNo, setPrevWithdrawAccNo] = useState(null);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -36,12 +36,12 @@ export default props => {
 
 	useEffect(() => {
 		setPrevAccountInfo();
-	}, [prevDepositAccNo]);
+	}, [prevWithdrawAccNo]);
 
 	const setPrevAccountInfo = () => {
-		if (prevDepositAccNo) {
+		if (prevWithdrawAccNo) {
 			const defAccountInfo = props.bankInfoList.filter(
-				card => card.accountNo === prevDepositAccNo
+				card => card.accountNo === prevWithdrawAccNo
 			)[0];
 			props.setCurrentlyBankInfo(
 				defAccountInfo.sysId,
@@ -61,7 +61,7 @@ export default props => {
 							res.data.data.bankInfoDetail?.length > 0
 						) {
 							props.setBankInfoList(res.data.data.bankInfoDetail);
-							setPrevDepositAccNo(res.data.data.defAccountNo);
+							setPrevWithdrawAccNo(res.data.data.defAccountNo);
 						}
 					}
 					setLoading(false);
@@ -78,7 +78,7 @@ export default props => {
 	const checkInput = (sysId, accountNo, bankName) => {
 		if (accountNo) {
 			props.setCurrentlyBankInfo(sysId, accountNo, bankName);
-			setPrevDepositAccNo(accountNo);
+			setPrevWithdrawAccNo(accountNo);
 		} else {
 			props.setCurrentlyBankInfo(0, 0, "");
 		}
@@ -190,6 +190,7 @@ export default props => {
 						/>
 					</div>
 					<div className="checkbox">
+						{console.log(props.currentBankInfo.accountNoValue)}
 						<input
 							type="checkbox"
 							checked={
@@ -197,10 +198,8 @@ export default props => {
 									item.sysId &&
 									props.currentBankInfo.accountNoValue ===
 										item.accountNo) ||
-								((props.currentBankInfo.accountNoValue === "" ||
-									props.currentBankInfo.accountNoValue ===
-										0) &&
-									item.accountNo === prevDepositAccNo)
+								(props.currentBankInfo.accountNoValue === 0 &&
+									item.accountNo === prevWithdrawAccNo)
 							}
 							onChange={checkInput.bind(
 								this,

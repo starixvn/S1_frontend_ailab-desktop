@@ -34,7 +34,7 @@ export default ({
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 	const [sysIdValue, setSysIdValue] = useState(0);
-	const [accountNoValue, setAccountNoValue] = useState("");
+	const [accountNoValue, setAccountNoValue] = useState(0);
 	const [bankNameValue, setBankNameValue] = useState("");
 	const [amountValue, setAmountValue] = useState("");
 	const [showConfirmPage, setShowConfirmPage] = useState(false);
