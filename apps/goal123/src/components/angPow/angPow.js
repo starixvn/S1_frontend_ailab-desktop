@@ -81,6 +81,7 @@ const AngPow = () => {
 				drawPrizeList={drawPrizeList}
 				currencyId={userInfo.currencyId}
 				isLogin={userInfo.isLogin}
+				langId={userInfo.langId}
 				t={t}
 			/>
 		</div>

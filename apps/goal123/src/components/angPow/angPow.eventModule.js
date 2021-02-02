@@ -2,8 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { eventPeriod } from "./angPow.def";
+import config from "../../config";
 
-const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
+const AngPowEventModule = ({
+	drawPrizeList,
+	currencyId,
+	isLogin,
+	t,
+	langId
+}) => {
 	return (
 		<div className="eventModule">
 			<div>
@@ -36,9 +43,14 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 								{t("lbl_AngPow_OtherConditions2")}
 							</div>
 						</div>
-						<a className="more" href="/" target="_blank">
+
+						<a
+							className="more"
+							href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/ranking/${langId}3.html`}
+							target="_blank">
 							{t("lbl_MoreDetails")}
 						</a>
+
 						{isLogin ? (
 							<>
 								<div className="tag">
