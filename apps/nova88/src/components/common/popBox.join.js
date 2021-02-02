@@ -748,9 +748,16 @@ export default () => {
 								onChange={EditField.bind(null, "phone")}
 								onBlur={checkValue.bind(null, "phone")}
 							/>
-						) : (
-							<></>
-						)}
+						) : null}
+
+						<Inputbox
+							className="inputBox-org"
+							icon="icon-email txt-orange"
+							placeholder={t("lbl_JoinPromoCode")}
+							value={userValue.specialBonusCode}
+							onChange={EditField.bind(null, "specialBonusCode")}
+							onBlur={checkValue.bind(null, "specialBonusCode")}
+						/>
 
 						<Inputbox
 							className="inputBox-org"

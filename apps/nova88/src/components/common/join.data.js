@@ -6,7 +6,8 @@ export const initValue = {
 	currencyIdx: null,
 	termsCheck: false,
 	ageCheck: false,
-	affCode: null
+	affCode: null,
+	specialBonusCode: ""
 };
 
 export const initTip = {
