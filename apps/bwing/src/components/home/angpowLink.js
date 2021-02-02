@@ -4,15 +4,20 @@ import { Link } from "@reach/router";
 import moment from "moment";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "../angPow/angPow.def";
+import path from "../../router";
 
 const { startDate, endDate } = eventPeriod;
 const currentDate = moment();
 const isInPeriod = isDateRange(currentDate, startDate, endDate);
 
-const AngpowLink = ({ to }) => {
+const AngpowLink = ({ to, langId }) => {
 	const [display, setDisplay] = useState(true);
 
-	if (!isInPeriod) return null;
+	if (
+		!isInPeriod ||
+		window.location.pathname !== `${path.home.root}${langId}`
+	)
+		return null;
 
 	return display ? (
 		<div className="angPaoArea">
