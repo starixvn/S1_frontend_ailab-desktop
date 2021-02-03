@@ -85,7 +85,18 @@
 	"lbl_VirtualGames": "Trò Chơi Ảo",
 	"lbl_VirtualSport": "Thể Thao Ảo",
 	"lbl_VirtualSports": "Thể thao ảo",
-
+	"lbl_789Lottery": "Xổ số tự quay 789",
+	"lbl_liveCasino_789SeDie": "Xóc Đĩa 789",
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"NGỌC RỒNG BẮN CÁ",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"THẦN BẮN CÁ",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"THÁP PHÒNG THỦ",
+	"lbl_Thunder_Fighter":"Thunder Fighter",
+	"lbl_Water_Margin_Fishing":"Water Margin Fishing",
+	"lbl_Oneshot_Fishing":"Oneshot Fishing",
+	"lbl_Lucky_Fishing":"Lucky Fishing",
+	"lbl_Paradise":"Paradise",
+	
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "ID đại lý/ Người giới thiệu (nếu có)",
 	"lbl_Birthday": "Ngày sinh",
@@ -466,11 +477,5 @@
 	"lbl_total": "Toàn bộ",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_TraditionalLottery": "Xổ Số Truyền thống",
-	"lbl_789Lottery": "Xổ số tự quay 789",
-	"lbl_liveCasino_789SeDie": "Xóc Đĩa 789",
-	"lbl_Game_ICG_DRAGONBALL_FISHING":"NGỌC RỒNG BẮN CÁ",
-	"lbl_Game_ICG_FISHING_OF_SAVIORS":"THẦN BẮN CÁ",
-	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
-	"lbl_Game_ICG_TOWER_OF_SAVIORS":"THÁP PHÒNG THỦ"
+	"lbl_TraditionalLottery": "Xổ Số Truyền thống"
 }

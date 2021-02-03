@@ -34,12 +34,6 @@ export const defMenuLinks = {
 				...productList.One789_lottery,
 				path: path.sports.root,
 				className: "traditional",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.one789
-					})
-				],
 				displayKey: "lbl_TraditionalLottery",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.One789_lottery }
@@ -48,12 +42,6 @@ export const defMenuLinks = {
 				...productList.One789_lottery_789,
 				path: path.sports.root,
 				className: "one789",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.one789
-					})
-				],
 				displayKey: "lbl_789Lottery",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.One789_lottery_789 }
@@ -184,12 +172,6 @@ export const defMenuLinks = {
 				...productList.liveCasino_One789,
 				className: "live789",
 				icon: "icon icon-one789",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.one789
-					})
-				],
 				displayKey: "lbl_liveCasino_789SeDie",
 				menuType: defMenuType.entPage
 			},
@@ -263,6 +245,71 @@ export const defMenuLinks = {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
 		subMenu: [
+			{
+				...productList.CQ9_Paradise,
+				className: "fstparadise",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Paradise",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Paradise }
+			},
+			{
+				...productList.CQ9_Lucky_Fishing,
+				className: "fsluckey",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Lucky_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Lucky_Fishing }
+			},
+			{
+				...productList.CQ9_Oneshot_Fishing,
+				className: "fsoneshot",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Oneshot_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Oneshot_Fishing }
+			},
+			{
+				...productList.CQ9_Water_Margin_Fishing,
+				className: "fswatermargin",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Water_Margin_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Water_Margin_Fishing }
+			},
+			{
+				...productList.CQ9_Thunder_Fighter,
+				className: "fsthunderfighter",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Thunder_Fighter",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Thunder_Fighter }
+			},
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf",
