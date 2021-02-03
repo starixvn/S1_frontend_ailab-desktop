@@ -108,30 +108,30 @@ export default {
 		tpId: 24,
 		name: "cockFighting"
 	},
-	CQ9_Thunder_Fighter: {
-		gameId: "AT04",
+	CQ9_Paradise: {
+		gameId: "AB3",
 		tpId: 16,
-		name: "CQ9_Thunder_Fighter:"
-	},
-	CQ9_Water_Margin_Fishing: {
-		gameId: "AT06",
-		tpId: 16,
-		name: "CQ9_Water_Margin_Fishing"
-	},
-	CQ9_Oneshot_Fishing: {
-		gameId: "AT01",
-		tpId: 16,
-		name: "CQ9_Oneshot_Fishing"
+		name: "CQ9_Paradise"
 	},
 	CQ9_LuckyFishing: {
 		gameId: "AT05",
 		tpId: 16,
 		name: "CQ9_Lucky_Fishing"
 	},
-	CQ9_Paradise: {
-		gameId: "AB3",
+	CQ9_Oneshot_Fishing: {
+		gameId: "AT01",
 		tpId: 16,
-		name: "CQ9_Paradise"
+		name: "CQ9_Oneshot_Fishing"
+	},
+	CQ9_Water_Margin_Fishing: {
+		gameId: "AT06",
+		tpId: 16,
+		name: "CQ9_Water_Margin_Fishing"
+	},
+	CQ9_Thunder_Fighter: {
+		gameId: "AT04",
+		tpId: 16,
+		name: "CQ9_Thunder_Fighter:"
 	}
 };
 
