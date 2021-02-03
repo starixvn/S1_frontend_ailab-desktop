@@ -313,7 +313,12 @@ export const defMenuLinks = {
 		productInfo: productList.poker,
 		path: path.oneGame.root,
 		displayKey: "lbl_Poker",
-		className: "icon icon-new",
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.oneGaming
+			})
+		],
 		openPopBox: true
 	},
 	lottery: {

@@ -53,9 +53,8 @@ export default ({
 			_className = `${_className} hot`;
 		}
 
+		const iconList = m.eventIcons?.length > 0 ? [...m.eventIcons] : [];
 		if (m.subMenu) {
-			const iconList = [];
-			let iconStrings = "";
 			m.subMenu.forEach(sub => {
 				if (sub.eventIcons) {
 					for (let i = 0; i < sub.eventIcons.length; i++) {
@@ -63,17 +62,18 @@ export default ({
 							iconList.push(sub.eventIcons[i]);
 						}
 					}
-					if (iconList.length > 0) {
-						iconStrings = ` icon ${[...new Set(iconList)].join(
-							" "
-						)}`;
-					}
 				}
 			});
-			_className = `${_className}${
-				currentMenuKey === key ? " active" : ""
-			}${iconStrings}`;
 		}
+
+		let iconStrings = "";
+		if (iconList.length > 0) {
+			iconStrings = ` icon ${[...new Set(iconList)].join(" ")}`;
+		}
+
+		_className = `${_className}${
+			currentMenuKey === key ? " active" : ""
+		}${iconStrings}`;
 
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
