@@ -78,6 +78,15 @@
 	"lbl_VirtualGames": "Virtual Games",
 	"lbl_VirtualSport": "VIRTUAL SPORT",
 	"lbl_VirtualSports": "Virtual Sports",
+	"lbl_Game_ICG_DRAGONBALL_FISHING":"DRAGONBALL FISHING",
+	"lbl_Game_ICG_FISHING_OF_SAVIORS":"FISHING OF SAVIORS",
+	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
+	"lbl_Game_ICG_TOWER_OF_SAVIORS":"TOWER OF SAVIORS",
+	"lbl_Thunder_Fighter":"Thunder Fighter",
+	"lbl_Water_Margin_Fishing":"Water Margin Fishing",
+	"lbl_Oneshot_Fishing":"Oneshot Fishing",
+	"lbl_Lucky_Fishing":"Lucky Fishing",
+	"lbl_Paradise":"Paradise",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "Affiliate ID/Referral",
@@ -421,17 +430,6 @@
 	"lbl_TotalValue": "Total of all prizes",
 	"lbl_No1Award": "No. 1 Award",
 	"lbl_Last_Event": "Last Event",
-
-	"header ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Game_ICG_DRAGONBALL_FISHING":"DRAGONBALL FISHING",
-	"lbl_Game_ICG_FISHING_OF_SAVIORS":"FISHING OF SAVIORS",
-	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS":"THE TYRANT AND THE PRINCESS",
-	"lbl_Game_ICG_TOWER_OF_SAVIORS":"TOWER OF SAVIORS",
-	"lbl_Thunder_Fighter":"Thunder Fighter",
-	"lbl_Water_Margin_Fishing":"Water Margin Fishing",
-	"lbl_Oneshot_Fishing":"Oneshot Fishing",
-	"lbl_Lucky_Fishing":"Lucky Fishing",
-	"lbl_Paradise":"Paradise",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"new/uncategorized":"new/uncategorized"
