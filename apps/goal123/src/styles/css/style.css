@@ -329,6 +329,7 @@ header .header > div.menu .gameList a span, header .header > div.menu .gameList 
   top: 35px;
   position: relative;
   color: white;
+  text-align: center;
 }
 
 header .header > div.menu .gameList a:hover, header .header > div.menu .gameList button:hover, header .header > div.menu .casinoList a:hover, header .header > div.menu .casinoList button:hover, header .header > div.menu .livecasinoList a:hover, header .header > div.menu .livecasinoList button:hover, header .header > div.menu .fishList a:hover, header .header > div.menu .fishList button:hover {
@@ -385,6 +386,10 @@ header .header > div.menu .gameList .lottery {
 
 header .header > div.menu .gameList .lottery:hover {
   background: url(../img/lottery_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .casinoList a span, header .header > div.menu .casinoList button span {
+  top: 45px;
 }
 
 header .header > div.menu .casinoList .ICG {
@@ -459,6 +464,10 @@ header .header > div.menu .casinoList .OW {
 
 header .header > div.menu .casinoList .OW:hover {
   background: url(../img/casinoOW_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .livecasinoList a span, header .header > div.menu .livecasinoList button span {
+  top: 50px;
 }
 
 header .header > div.menu .livecasinoList .liveWM {

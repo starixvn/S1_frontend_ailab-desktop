@@ -65,6 +65,14 @@
   font-size: 12px;
 }
 
+.icon-nova88:before {
+  content: "\e9c6";
+}
+
+.icon-policies:before {
+  content: "\e9c7";
+}
+
 .icon-mega:before {
   content: "\e9c3";
 }
