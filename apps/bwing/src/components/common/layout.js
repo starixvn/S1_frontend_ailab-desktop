@@ -5,22 +5,15 @@ import Footer from "../footer/footer";
 import SEO from "../seo";
 import PopBox from "./popBox";
 import Loading from "./loading";
-import AngpowLink from "../home/angpowLink";
-
-import { loadingContext, userInfoContext } from "./context";
-import path from "../../router";
+import { loadingContext } from "./context";
 
 const Layout = ({ children, showFooter = false }) => {
 	const { loading } = useContext(loadingContext);
-	const { userInfo } = useContext(userInfoContext);
 
 	return (
 		<>
 			<SEO />
 			<Header />
-			<div className="newyear">
-				<AngpowLink to={`/${userInfo.langId}/${path.angpow.root}`} />
-			</div>
 			{children}
 			{showFooter ? <Footer /> : null}
 			<PopBox />

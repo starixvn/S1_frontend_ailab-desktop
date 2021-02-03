@@ -17,6 +17,7 @@ import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
 import SideBarQuickLink from "./sideBarQuickLink";
+import AngpowLink from "./angpowLink";
 import path from "../../router";
 
 export default () => {
@@ -126,6 +127,10 @@ export default () => {
 					<div className="l" />
 					<div className="l" />
 				</a> */}
+				<AngpowLink
+					to={`/${userInfo.langId}/${path.angpow.root}`}
+					langId={userInfo.langId}
+				/>
 				<div className="cow" />
 			</div>
 			{/* new year style ↑ */}

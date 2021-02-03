@@ -68,7 +68,7 @@ const AngPow = () => {
 		<div className="event">
 			<img
 				src={require(`../../styles/img/event/title_${userInfo.langId}.png`)}
-				alt="title_en"
+				alt="titleimg"
 			/>
 			<AngPowAnimation
 				t={t}

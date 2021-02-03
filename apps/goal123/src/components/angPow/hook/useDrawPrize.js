@@ -54,9 +54,9 @@ const useDrawPrize = ({ isMountedRef }) => {
 		);
 	};
 
-	const postDrawPrize = () => {
+	const postDrawPrize = async () => {
 		if (drawPrize.errorCode !== defDrawPrizeStatus.isJoin)
-			return api_events_DrawPrize({ eventId: defEventId }).then(
+			await api_events_DrawPrize({ eventId: defEventId }).then(
 				res => {
 					if (!isMountedRef) return;
 					const { errorCode, data, message } = res.data;

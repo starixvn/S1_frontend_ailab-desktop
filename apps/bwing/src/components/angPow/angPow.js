@@ -69,6 +69,7 @@ const AngPow = () => {
 			<AngPowAnimation
 				t={t}
 				isLogin={userInfo.isLogin}
+				langId={userInfo.langId}
 				drawPrize={drawPrize}
 				checkDrawPrize={checkDrawPrize}
 				postDrawPrize={postDrawPrize}

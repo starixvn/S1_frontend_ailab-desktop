@@ -17,6 +17,7 @@ const getDiffTime = () => {
 const AngPowAnimation = ({
 	t,
 	isLogin,
+	langId,
 	drawPrize,
 	checkDrawPrize,
 	postDrawPrize
@@ -96,8 +97,17 @@ const AngPowAnimation = ({
 		};
 	}, [drawPrize.errorCode, _isJoin, _drawOut, checkDrawPrize]);
 
+	let eventTextImg = "";
+
+	if (langId === "vn") {
+		eventTextImg = "../../styles/img/eventpage/bg_vn.png";
+	} else {
+		eventTextImg = "../../styles/img/eventpage/bg_en.png";
+	}
 	return (
 		<div className="eventTopPage">
+			<img src={eventTextImg} className="eventBg" alt="eventBg" />
+
 			<div
 				className={`angpao${angpowActive ? " active" : ""}`}
 				onClick={onPostDrawPrize}>
@@ -129,7 +139,9 @@ const AngPowAnimation = ({
 };
 
 AngPowAnimation.propTypes = {
+	t: PropTypes.func.isRequired,
 	isLogin: PropTypes.bool.isRequired,
+	langId: PropTypes.string.isRequired,
 	drawPrize: PropTypes.objectOf(PropTypes.any).isRequired,
 	checkDrawPrize: PropTypes.func.isRequired,
 	postDrawPrize: PropTypes.func.isRequired

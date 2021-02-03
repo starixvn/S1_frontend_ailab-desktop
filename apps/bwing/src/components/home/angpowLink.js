@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import moment from "moment";
-import { isRootContext } from "../common/context";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "../angPow/angPow.def";
 
@@ -10,11 +9,17 @@ const { startDate, endDate } = eventPeriod;
 const currentDate = moment();
 const isInPeriod = isDateRange(currentDate, startDate, endDate);
 
-const AngpowLink = ({ to }) => {
+const AngpowLink = ({ to, langId }) => {
 	const [display, setDisplay] = useState(true);
-	const { isRoot } = useContext(isRootContext);
 
-	if (!isInPeriod || !isRoot) return null;
+	let eventlinkImg = "";
+	if (langId === "vn") {
+		eventlinkImg = "../../styles/img/newyear/money_vn.png";
+	} else {
+		eventlinkImg = "../../styles/img/newyear/money_en.png";
+	}
+
+	if (!isInPeriod) return null;
 
 	return display ? (
 		<div className="angPaoArea">
@@ -22,7 +27,7 @@ const AngpowLink = ({ to }) => {
 				X
 			</button>
 			<Link to={to} alt="money" className="money">
-				<div className="box" />
+				<img className="box" src={eventlinkImg} alt="angpowlink" />
 				<div className="l" />
 				<div className="l" />
 				<div className="l" />
@@ -34,7 +39,8 @@ const AngpowLink = ({ to }) => {
 };
 
 AngpowLink.propTypes = {
-	to: PropTypes.string.isRequired
+	to: PropTypes.string.isRequired,
+	langId: PropTypes.string.isRequired
 };
 
 export default AngpowLink;

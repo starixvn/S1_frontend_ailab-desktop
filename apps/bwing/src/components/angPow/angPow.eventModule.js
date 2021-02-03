@@ -120,7 +120,8 @@ AngPowEventModule.propTypes = {
 	drawPrizeList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	currencyId: PropTypes.number,
 	isLogin: PropTypes.bool.isRequired,
-	t: PropTypes.func.isRequired
+	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired
 };
 
 AngPowEventModule.defaultProps = {
