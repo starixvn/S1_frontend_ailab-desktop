@@ -374,6 +374,81 @@ export const defMenuLinks = {
 		className: "fishbtn",
 		subMenu: [
 			{
+				...productList.CQ9_Paradise,
+				className: "fsgw",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				listNpcImgUrl: "paradise.png",
+				listBgImgUrl: "fishListHover.png",
+				displayKey: "lbl_Paradise",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Paradise }
+			},
+			{
+				...productList.CQ9_Lucky_Fishing,
+				className: "fsgw",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				listNpcImgUrl: "luckyfishing.png",
+				listBgImgUrl: "fishListHover.png",
+				displayKey: "lbl_Lucky_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Lucky_Fishing }
+			},
+			{
+				...productList.CQ9_Oneshot_Fishing,
+				className: "fsgw",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				listNpcImgUrl: "oneshotfishing.png",
+				listBgImgUrl: "fishListHover.png",
+				displayKey: "lbl_Oneshot_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Oneshot_Fishing }
+			},
+			{
+				...productList.CQ9_Water_Margin_Fishing,
+				className: "fsgw",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				listNpcImgUrl: "watermarginfishing.png",
+				listBgImgUrl: "fishListHover.png",
+				displayKey: "lbl_Water_Margin_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Water_Margin_Fishing }
+			},
+			{
+				...productList.CQ9_Thunder_Fighter,
+				className: "fsgw",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				listNpcImgUrl: "thunderfighter.png",
+				listBgImgUrl: "fishListHover.png",
+				displayKey: "lbl_Thunder_Fighter",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Thunder_Fighter }
+			},
+			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf",
 				eventIcons: [
