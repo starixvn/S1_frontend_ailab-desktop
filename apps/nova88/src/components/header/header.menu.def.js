@@ -55,22 +55,22 @@ export const defMenuLinks = {
 				parameter: { ...productList.tennis },
 				...productList.tennis
 			},
-			{
-				displayKey: "lbl_Baseball",
-				listNpcImgUrl: "baseballNPC.png",
-				listBgImgUrl: "baseballBG.png",
-				menuType: defMenuType.Link,
-				parameter: { ...productList.baseball },
-				...productList.baseball
-			},
-			{
-				displayKey: "lbl_Volleyball",
-				listNpcImgUrl: "volleyballNPC.png",
-				listBgImgUrl: "volleyballBG.png",
-				menuType: defMenuType.Link,
-				parameter: { ...productList.volleyball },
-				...productList.volleyball
-			},
+			// {
+			// 	displayKey: "lbl_Baseball",
+			// 	listNpcImgUrl: "baseballNPC.png",
+			// 	listBgImgUrl: "baseballBG.png",
+			// 	menuType: defMenuType.Link,
+			// 	parameter: { ...productList.baseball },
+			// 	...productList.baseball
+			// },
+			// {
+			// 	displayKey: "lbl_Volleyball",
+			// 	listNpcImgUrl: "volleyballNPC.png",
+			// 	listBgImgUrl: "volleyballBG.png",
+			// 	menuType: defMenuType.Link,
+			// 	parameter: { ...productList.volleyball },
+			// 	...productList.volleyball
+			// },
 			{
 				displayKey: "lbl_Cricket",
 				listNpcImgUrl: "cricketNPC.png",
