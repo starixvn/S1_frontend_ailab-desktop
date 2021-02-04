@@ -292,7 +292,7 @@ header .header > div.menu .subMenu-Wrapper {
 }
 
 header .header > div.menu .subMenu-Wrapper.active {
-  height: 240px;
+  padding-bottom: 30px;
 }
 
 header .header > div.menu .gameList,
@@ -316,6 +316,8 @@ header .header > div.menu .fishList div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 header .header > div.menu .gameList a,
@@ -327,9 +329,6 @@ header .header > div.menu .livecasinoList button,
 header .header > div.menu .fishList a,
 header .header > div.menu .fishList button {
   position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -343,11 +342,11 @@ header .header > div.menu .fishList button {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  min-height: 140px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  margin-top: -20px;
-  max-width: 200px;
+  margin: 20px;
+  width: calc(100% / 8);
+  height: 150px;
 }
 
 header .header > div.menu .gameList a img,
@@ -675,6 +674,46 @@ header .header > div.menu .fishList .fstos {
 
 header .header > div.menu .fishList .fstos:hover {
   background: url(../img/fishingICG-TOS_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsluckey {
+  background: url(../img/luckyfishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsluckey:hover {
+  background: url(../img/luckyfishing_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsoneshot {
+  background: url(../img/oneshot-fishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsoneshot:hover {
+  background: url(../img/oneshot-fishing_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fstparadise {
+  background: url(../img/paradise.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fstparadise:hover {
+  background: url(../img/paradise_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsthunderfighter {
+  background: url(../img/thunderfighter.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsthunderfighter:hover {
+  background: url(../img/thunderfighter_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fswatermargin {
+  background: url(../img/watermarginfishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fswatermargin:hover {
+  background: url(../img/watermarginfishing_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.function {
@@ -1208,6 +1247,7 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
 }
 
 .newyear .money {
+  position: relative;
   width: 300px;
   height: 150px;
   cursor: pointer;
@@ -1219,7 +1259,6 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   height: 130px;
   right: 0;
   bottom: 0;
-  background-image: url(../img/newyear/money.png);
   background-size: 100%;
   z-index: 2;
 }
@@ -3897,6 +3936,7 @@ main > .swiper-container .swiper-slide {
   padding: 0 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 15px;
 }
 
 .offers .swiper-container .eventImg .teamName p {
@@ -7053,8 +7093,6 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .event .eventTopPage {
-  background: url(../img/eventpage/bg.png) no-repeat center;
-  width: 100%;
   height: 750px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7066,6 +7104,14 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+}
+
+.event .eventTopPage .eventBg {
+  position: absolute;
+  width: 100%;
+  height: 753px;
+  top: 0%;
+  left: 0;
 }
 
 .event .eventTopPage .angpao {
@@ -7931,160 +7977,160 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 0.17358%;
-  top: -48.95181%;
+  left: 75.46017%;
+  top: -65.68989%;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 50.85785%;
-  top: -24.08667%;
+  left: 74.82076%;
+  top: -13.00098%;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 51.10252%;
-  top: -55.57646%;
+  left: 48.633%;
+  top: -51.03008%;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 60.59708%;
-  top: -38.7157%;
+  left: 81.57713%;
+  top: -30.69508%;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 25.58101%;
-  top: -24.59774%;
+  left: 55.24646%;
+  top: -62.80874%;
   -webkit-animation-delay: -5s;
           animation-delay: -5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 9.8308%;
-  top: -38.1635%;
+  left: 52.07234%;
+  top: -64.91102%;
   -webkit-animation-delay: -6s;
           animation-delay: -6s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 63.76127%;
-  top: -57.38048%;
+  left: 95.11989%;
+  top: -7.86163%;
   -webkit-animation-delay: -7s;
           animation-delay: -7s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 78.0758%;
-  top: -63.92011%;
+  left: 0.69847%;
+  top: -17.80511%;
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
 }
 
 [class^="star"].star9 {
   position: absolute;
-  left: 37.2838%;
-  top: -49.65691%;
+  left: 31.85038%;
+  top: -41.72163%;
   -webkit-animation-delay: -9s;
           animation-delay: -9s;
 }
 
 [class^="star"].star10 {
   position: absolute;
-  left: 9.78815%;
-  top: -56.84744%;
+  left: 10.66261%;
+  top: -63.96489%;
   -webkit-animation-delay: -10s;
           animation-delay: -10s;
 }
 
 [class^="star"].star11 {
   position: absolute;
-  left: 87.32423%;
-  top: -15.53299%;
+  left: 71.25807%;
+  top: -4.1313%;
   -webkit-animation-delay: -11s;
           animation-delay: -11s;
 }
 
 [class^="star"].star12 {
   position: absolute;
-  left: 24.51675%;
-  top: -10.71504%;
+  left: 66.63479%;
+  top: -48.9254%;
   -webkit-animation-delay: -12s;
           animation-delay: -12s;
 }
 
 [class^="star"].star13 {
   position: absolute;
-  left: 36.95993%;
-  top: -41.50109%;
+  left: 36.89477%;
+  top: -34.536%;
   -webkit-animation-delay: -13s;
           animation-delay: -13s;
 }
 
 [class^="star"].star14 {
   position: absolute;
-  left: 42.21681%;
-  top: -59.72601%;
+  left: 19.39318%;
+  top: -83.2565%;
   -webkit-animation-delay: -14s;
           animation-delay: -14s;
 }
 
 [class^="star"].star15 {
   position: absolute;
-  left: 48.89828%;
-  top: -83.74255%;
+  left: 80.14518%;
+  top: -38.23163%;
   -webkit-animation-delay: -15s;
           animation-delay: -15s;
 }
 
 [class^="star"].star16 {
   position: absolute;
-  left: 7.2433%;
-  top: -41.26369%;
+  left: 5.70473%;
+  top: -81.75711%;
   -webkit-animation-delay: -16s;
           animation-delay: -16s;
 }
 
 [class^="star"].star17 {
   position: absolute;
-  left: 62.50182%;
-  top: 7.18755%;
+  left: 19.02108%;
+  top: -61.44012%;
   -webkit-animation-delay: -17s;
           animation-delay: -17s;
 }
 
 [class^="star"].star18 {
   position: absolute;
-  left: 39.56128%;
-  top: -82.46287%;
+  left: 72.60931%;
+  top: -24.1008%;
   -webkit-animation-delay: -18s;
           animation-delay: -18s;
 }
 
 [class^="star"].star19 {
   position: absolute;
-  left: 65.18447%;
-  top: -52.31052%;
+  left: 16.63421%;
+  top: -24.33996%;
   -webkit-animation-delay: -19s;
           animation-delay: -19s;
 }
 
 [class^="star"].star20 {
   position: absolute;
-  left: 98.48472%;
-  top: -57.068%;
+  left: 93.62277%;
+  top: -23.95254%;
   -webkit-animation-delay: -20s;
           animation-delay: -20s;
 }

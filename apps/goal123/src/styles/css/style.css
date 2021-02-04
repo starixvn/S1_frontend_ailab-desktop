@@ -388,7 +388,7 @@ header .header > div.menu .gameList .lottery:hover {
   background: url(../img/lottery_a.png) no-repeat center 0px/auto 100%;
 }
 
-header .header > div.menu .casinoList a span, header .header > div.menu .casinoList button span {
+header .header > div.menu .casinoList a span {
   top: 45px;
 }
 
@@ -466,7 +466,7 @@ header .header > div.menu .casinoList .OW:hover {
   background: url(../img/casinoOW_a.png) no-repeat center 0px/auto 100%;
 }
 
-header .header > div.menu .livecasinoList a span, header .header > div.menu .livecasinoList button span {
+header .header > div.menu .livecasinoList a span {
   top: 50px;
 }
 

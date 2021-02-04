@@ -19,5 +19,6 @@ export const defPopBoxType = {
 	UpdateProfile: "UpdateProfile",
 	TurnoverAccumulated: "TurnoverAccumulated",
 	PromotionDepositConfirm: "PromotionDepositConfirm",
-	PromotionAmountConfirm: "PromotionAmountConfirm"
+	PromotionAmountConfirm: "PromotionAmountConfirm",
+	SuccessAngPow: "SuccessAngPow"
 };
