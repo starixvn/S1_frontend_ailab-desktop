@@ -753,7 +753,7 @@ export default () => {
 
 						<Inputbox
 							className="inputBox-org"
-							icon="icon-email txt-orange"
+							icon="icon-promotion txt-orange"
 							placeholder={t("lbl_JoinPromoCode")}
 							value={userValue.specialBonusCode}
 							onChange={EditField.bind(null, "specialBonusCode")}
