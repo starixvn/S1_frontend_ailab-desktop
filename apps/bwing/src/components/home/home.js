@@ -1,30 +1,38 @@
 import React, { useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
-import { userInfoContext, popBoxContext } from "../common/context";
+import {
+	userInfoContext,
+	popBoxContext,
+	isRootContext
+} from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { setCookie, readCookie } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import { defBannerType } from "../../service/api/site";
 import { defaultLang } from "../../i18n/config";
-
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
 import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
 import SideBarQuickLink from "./sideBarQuickLink";
+import AngpowLink from "./angpowLink";
 import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { setIsRoot } = useContext(isRootContext);
 
 	const isMountedRef = useRef(null);
 	useEffect(() => {
 		isMountedRef.current = true;
+		setIsRoot(true);
 		return () => {
 			isMountedRef.current = false;
+			setIsRoot(false);
 		};
 	});
 
@@ -64,14 +72,6 @@ export default () => {
 			}
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
-
-	// const getDepositWithdrawImage = () => {
-	// 	if (userInfo.langId === "en") {
-	// 		return require(`../../styles/img/D&W.png"`);
-	// 	} else {
-	// 		return require(`../../styles/img/D&W_vn.png"`);
-	// 	}
-	// };
 
 	return (
 		<>
@@ -119,6 +119,10 @@ export default () => {
 					<div className="l" />
 					<div className="l" />
 				</a> */}
+				<AngpowLink
+					to={`/${userInfo.langId}/${path.angpow.root}`}
+					langId={userInfo.langId}
+				/>
 				<div className="cow" />
 			</div>
 			{/* new year style ↑ */}
@@ -129,7 +133,7 @@ export default () => {
 					<div className="pillarL pillarR" />
 				</div>
 				{/* new year style ↑ */}
-				<SwipperBanner ImgFolder="Promotion" filterHideInHome={true} />
+				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 				<Marquee />
 				<section>
 					<EventSwipper langId={userInfo.langId} />

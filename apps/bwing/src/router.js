@@ -124,5 +124,8 @@ export default {
 	},
 	leaderBoard: {
 		root: "leaderBoard"
+	},
+	angpow: {
+		root: "angPow"
 	}
 };

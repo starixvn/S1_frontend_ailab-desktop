@@ -23,7 +23,8 @@ export const defPopBoxType = {
 	UpdateProfile: "UpdateProfile",
 	TurnoverAccumulated: "TurnoverAccumulated",
 	PromotionDepositConfirm: "PromotionDepositConfirm",
-	PromotionAmountConfirm: "PromotionAmountConfirm"
+	PromotionAmountConfirm: "PromotionAmountConfirm",
+	SuccessAngPow: "SuccessAngPow"
 };
 
 export default () => {
@@ -227,6 +228,20 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.SuccessAngPow: {
+			const SuccessAngPow = lazy(() => import("./popBox.successAngPow"));
+			content = (
+				<SuccessAngPow
+					closePopBox={popBox.closePopBox}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
+					class="event"
+					clickClose={popBox.clickClose}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 
@@ -234,17 +249,21 @@ export default () => {
 			break;
 	}
 
+	const customLayout = popBox.popBoxType === defPopBoxType.SuccessAngPow;
+
 	return popBox.isOpen ? (
 		popBox.loading ? (
 			<Loading />
 		) : (
 			<div id="popup" className="active">
-				<div className="pop">
+				{customLayout ? (
 					<Suspense fallback={<Loading />}>{content}</Suspense>
-				</div>
+				) : (
+					<div className="pop">
+						<Suspense fallback={<Loading />}>{content}</Suspense>
+					</div>
+				)}
 			</div>
 		)
-	) : (
-		<></>
-	);
+	) : null;
 };

@@ -225,6 +225,19 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.SuccessAngPow: {
+			const SuccessAngPow = lazy(() => import("./popBox.successAngPow"));
+
+			content = (
+				<SuccessAngPow
+					closePopBox={popBox.closePopBox}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 

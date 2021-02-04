@@ -292,7 +292,7 @@ header .header > div.menu .subMenu-Wrapper {
 }
 
 header .header > div.menu .subMenu-Wrapper.active {
-  height: 240px;
+  padding-bottom: 30px;
 }
 
 header .header > div.menu .gameList,
@@ -316,6 +316,8 @@ header .header > div.menu .fishList div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 header .header > div.menu .gameList a,
@@ -327,9 +329,6 @@ header .header > div.menu .livecasinoList button,
 header .header > div.menu .fishList a,
 header .header > div.menu .fishList button {
   position: relative;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -343,11 +342,11 @@ header .header > div.menu .fishList button {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  min-height: 140px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  margin-top: -20px;
-  max-width: 200px;
+  margin: 20px;
+  width: calc(100% / 8);
+  height: 150px;
 }
 
 header .header > div.menu .gameList a img,
@@ -675,6 +674,46 @@ header .header > div.menu .fishList .fstos {
 
 header .header > div.menu .fishList .fstos:hover {
   background: url(../img/fishingICG-TOS_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsluckey {
+  background: url(../img/luckyfishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsluckey:hover {
+  background: url(../img/luckyfishing_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsoneshot {
+  background: url(../img/oneshot-fishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsoneshot:hover {
+  background: url(../img/oneshot-fishing_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fstparadise {
+  background: url(../img/paradise.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fstparadise:hover {
+  background: url(../img/paradise_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsthunderfighter {
+  background: url(../img/thunderfighter.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fsthunderfighter:hover {
+  background: url(../img/thunderfighter_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .fswatermargin {
+  background: url(../img/watermarginfishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .fswatermargin:hover {
+  background: url(../img/watermarginfishing_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.function {
@@ -1183,10 +1222,32 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   pointer-events: none;
 }
 
-.newyear .money {
+.newyear .angPaoArea {
   position: fixed;
   bottom: 0px;
   right: 0;
+}
+
+.newyear .angPao_close {
+  background-color: rgba(255, 0, 0, 0.6);
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  bottom: 130px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.newyear .angPao_close:hover {
+  background-color: red;
+}
+
+.newyear .money {
+  position: relative;
   width: 300px;
   height: 150px;
   cursor: pointer;
@@ -1198,7 +1259,6 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   height: 130px;
   right: 0;
   bottom: 0;
-  background-image: url(../img/newyear/money.png);
   background-size: 100%;
   z-index: 2;
 }
@@ -1938,7 +1998,6 @@ input[type="file"] {
 .btnGroup button:last-child,
 .btnGroup a:last-child {
   margin-right: 0;
-  max-width: 100px;
 }
 
 .btnGroup button.orange,
@@ -2815,10 +2874,15 @@ main > .swiper-container .swiper-slide {
   background: #0c1a3f;
   border-radius: 5px;
   border: 1px solid #1a2b58;
+  margin: 0 5px;
 }
 
-.subModuleList .subModule:nth-child(2) {
-  margin: 0 10px;
+.subModuleList .subModule:nth-child(1) {
+  margin-left: 0;
+}
+
+.subModuleList .subModule:nth-last-child(1) {
+  margin-right: 0;
 }
 
 .subModuleList .subModule .subModuleTitle {
@@ -3872,6 +3936,7 @@ main > .swiper-container .swiper-slide {
   padding: 0 40px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 15px;
 }
 
 .offers .swiper-container .eventImg .teamName p {
@@ -7028,8 +7093,6 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .event .eventTopPage {
-  background: url(../img/eventpage/bg.png) no-repeat center;
-  width: 100%;
   height: 750px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7041,6 +7104,14 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+}
+
+.event .eventTopPage .eventBg {
+  position: absolute;
+  width: 100%;
+  height: 753px;
+  top: 0%;
+  left: 0;
 }
 
 .event .eventTopPage .angpao {
@@ -7731,7 +7802,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   color: #ffe597;
   text-align: center;
   line-height: 40px;
-  margin: 25px 0;
+  margin: 25px auto;
 }
 
 .gold {
@@ -7906,160 +7977,160 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 42.69937%;
-  top: -82.43138%;
+  left: 75.46017%;
+  top: -65.68989%;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 18.93355%;
-  top: -86.41772%;
+  left: 74.82076%;
+  top: -13.00098%;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 22.72457%;
-  top: -16.08463%;
+  left: 48.633%;
+  top: -51.03008%;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 38.0642%;
-  top: -50.59608%;
+  left: 81.57713%;
+  top: -30.69508%;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 6.15026%;
-  top: -46.20566%;
+  left: 55.24646%;
+  top: -62.80874%;
   -webkit-animation-delay: -5s;
           animation-delay: -5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 72.55846%;
-  top: -19.83349%;
+  left: 52.07234%;
+  top: -64.91102%;
   -webkit-animation-delay: -6s;
           animation-delay: -6s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 97.36063%;
-  top: -39.57662%;
+  left: 95.11989%;
+  top: -7.86163%;
   -webkit-animation-delay: -7s;
           animation-delay: -7s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 27.36264%;
-  top: -36.87473%;
+  left: 0.69847%;
+  top: -17.80511%;
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
 }
 
 [class^="star"].star9 {
   position: absolute;
-  left: 51.16895%;
-  top: -37.93918%;
+  left: 31.85038%;
+  top: -41.72163%;
   -webkit-animation-delay: -9s;
           animation-delay: -9s;
 }
 
 [class^="star"].star10 {
   position: absolute;
-  left: 39.15904%;
-  top: 4.69231%;
+  left: 10.66261%;
+  top: -63.96489%;
   -webkit-animation-delay: -10s;
           animation-delay: -10s;
 }
 
 [class^="star"].star11 {
   position: absolute;
-  left: 37.88564%;
-  top: 6.72839%;
+  left: 71.25807%;
+  top: -4.1313%;
   -webkit-animation-delay: -11s;
           animation-delay: -11s;
 }
 
 [class^="star"].star12 {
   position: absolute;
-  left: 61.21128%;
-  top: -72.15815%;
+  left: 66.63479%;
+  top: -48.9254%;
   -webkit-animation-delay: -12s;
           animation-delay: -12s;
 }
 
 [class^="star"].star13 {
   position: absolute;
-  left: 19.34295%;
-  top: -22.7628%;
+  left: 36.89477%;
+  top: -34.536%;
   -webkit-animation-delay: -13s;
           animation-delay: -13s;
 }
 
 [class^="star"].star14 {
   position: absolute;
-  left: 41.44168%;
-  top: -31.37029%;
+  left: 19.39318%;
+  top: -83.2565%;
   -webkit-animation-delay: -14s;
           animation-delay: -14s;
 }
 
 [class^="star"].star15 {
   position: absolute;
-  left: 28.98763%;
-  top: -84.64359%;
+  left: 80.14518%;
+  top: -38.23163%;
   -webkit-animation-delay: -15s;
           animation-delay: -15s;
 }
 
 [class^="star"].star16 {
   position: absolute;
-  left: 80.23402%;
-  top: -74.77679%;
+  left: 5.70473%;
+  top: -81.75711%;
   -webkit-animation-delay: -16s;
           animation-delay: -16s;
 }
 
 [class^="star"].star17 {
   position: absolute;
-  left: 90.83759%;
-  top: -87.41851%;
+  left: 19.02108%;
+  top: -61.44012%;
   -webkit-animation-delay: -17s;
           animation-delay: -17s;
 }
 
 [class^="star"].star18 {
   position: absolute;
-  left: 65.95965%;
-  top: -87.3314%;
+  left: 72.60931%;
+  top: -24.1008%;
   -webkit-animation-delay: -18s;
           animation-delay: -18s;
 }
 
 [class^="star"].star19 {
   position: absolute;
-  left: 21.14814%;
-  top: -74.68234%;
+  left: 16.63421%;
+  top: -24.33996%;
   -webkit-animation-delay: -19s;
           animation-delay: -19s;
 }
 
 [class^="star"].star20 {
   position: absolute;
-  left: 49.26586%;
-  top: 8.4275%;
+  left: 93.62277%;
+  top: -23.95254%;
   -webkit-animation-delay: -20s;
           animation-delay: -20s;
 }

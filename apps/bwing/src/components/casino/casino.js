@@ -5,7 +5,7 @@ import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
 } from "../../service/api/account";
-import { api_site_GetGamelistV2 } from "../../service/api/site";
+import { api_site_GetGamelistV2, defBannerType } from "../../service/api/site";
 import { userInfoContext } from "../common/context";
 import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
 import GameList from "./casino.gamelist";
@@ -317,8 +317,7 @@ export default () => {
 			<div className="inside-title ">{t("lbl_Slots")}</div>
 
 			<SwipperBanner
-				ImgFolder="Casino"
-				withBtn={false}
+				ImgFolder={[defBannerType.Slots]}
 				openInBlank={true}
 			/>
 

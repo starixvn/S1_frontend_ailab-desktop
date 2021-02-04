@@ -270,7 +270,7 @@ header .header > div.menu .subMenu-Wrapper {
 }
 
 header .header > div.menu .subMenu-Wrapper.active {
-  height: 220px;
+  height: auto;
 }
 
 header .header > div.menu .subMenu-Wrapper .icon:before {
@@ -287,6 +287,9 @@ header .header > div.menu .gameList.active, header .header > div.menu .casinoLis
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header .header > div.menu .gameList.active div, header .header > div.menu .casinoList.active div, header .header > div.menu .livecasinoList.active div, header .header > div.menu .fishList.active div {
@@ -316,6 +319,7 @@ header .header > div.menu .gameList a, header .header > div.menu .gameList butto
   -webkit-transition: 0.7s;
   transition: 0.7s;
   position: relative;
+  margin-bottom: 65px;
 }
 
 header .header > div.menu .gameList a img, header .header > div.menu .gameList button img, header .header > div.menu .casinoList a img, header .header > div.menu .casinoList button img, header .header > div.menu .livecasinoList a img, header .header > div.menu .livecasinoList button img, header .header > div.menu .fishList a img, header .header > div.menu .fishList button img {
@@ -328,6 +332,7 @@ header .header > div.menu .gameList a span, header .header > div.menu .gameList 
   top: 35px;
   position: relative;
   color: white;
+  text-align: center;
 }
 
 header .header > div.menu .gameList a:hover, header .header > div.menu .gameList button:hover, header .header > div.menu .casinoList a:hover, header .header > div.menu .casinoList button:hover, header .header > div.menu .livecasinoList a:hover, header .header > div.menu .livecasinoList button:hover, header .header > div.menu .fishList a:hover, header .header > div.menu .fishList button:hover {
@@ -384,6 +389,10 @@ header .header > div.menu .gameList .lottery {
 
 header .header > div.menu .gameList .lottery:hover {
   background: url(../img/lottery_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .casinoList a span, header .header > div.menu .casinoList button span {
+  top: 45px;
 }
 
 header .header > div.menu .casinoList .ICG {
@@ -458,6 +467,10 @@ header .header > div.menu .casinoList .OW {
 
 header .header > div.menu .casinoList .OW:hover {
   background: url(../img/casinoOW_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .livecasinoList a span, header .header > div.menu .livecasinoList button span {
+  top: 50px;
 }
 
 header .header > div.menu .livecasinoList .liveWM {
@@ -536,8 +549,59 @@ header .header > div.menu .livecasinoList .liveEB .icon-EB:before {
   font-size: 16px;
 }
 
+header .header > div.menu .fishList {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 1380px;
+}
+
 header .header > div.menu .fishList a, header .header > div.menu .fishList button {
   position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 230px;
+          flex: 1 1 230px;
+  text-align: center;
+  max-width: 230px;
+}
+
+header .header > div.menu .fishList .thunderfighter {
+  background: url(../img/6b-fcq9_thunderfighter.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .thunderfighter:hover {
+  background: url(../img/6b-fcq9_thunderfighter_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .watermarginfishing {
+  background: url(../img/6b-fcq9_watermarginfishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .watermarginfishing:hover {
+  background: url(../img/6b-fcq9_watermarginfishing_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .oneshotfishing {
+  background: url(../img/6b-fcq9_oneshot-fishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .oneshotfishing:hover {
+  background: url(../img/6b-fcq9_oneshot-fishing_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .luckyfishing {
+  background: url(../img/6b-fcq9_luckyfishing.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .luckyfishing:hover {
+  background: url(../img/6b-fcq9_luckyfishing_a.png) no-repeat center 0px/auto 100%;
+}
+
+header .header > div.menu .fishList .paradise {
+  background: url(../img/6b-fcq9_paradise.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .fishList .paradise:hover {
+  background: url(../img/6b-fcq9_paradise_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.menu .fishList .fttatp {
@@ -1492,6 +1556,65 @@ footer .copyright {
 }
 
 .joinpop .joinloginModule .joinloginFunction .inputBox.active, .joinpop .joinloginModule .joinloginFunction .active.inputBox-org, .joinpop .joinloginModule .joinloginFunction .active.inputBox-white, .joinpop .joinloginModule .joinloginFunction .active.inputBox-blue, .joinpop .joinloginModule .joinloginFunction .active.inputBox-gray, .joinpop .joinloginModule .joinloginFunction .active.inputBox-yellow, .loginpop .joinloginModule .joinloginFunction .inputBox.active, .loginpop .joinloginModule .joinloginFunction .active.inputBox-org, .loginpop .joinloginModule .joinloginFunction .active.inputBox-white, .loginpop .joinloginModule .joinloginFunction .active.inputBox-blue, .loginpop .joinloginModule .joinloginFunction .active.inputBox-gray, .loginpop .joinloginModule .joinloginFunction .active.inputBox-yellow {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.joinloginModule {
+  width: 900px;
+  margin: 2vw auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.joinloginModule img {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
+.joinloginModule .joinloginFunction {
+  margin-left: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.joinloginModule .joinloginFunction .title + div button {
+  text-decoration: underline;
+  font-size: 12px;
+  text-align: right;
+  margin-left: 10px;
+}
+
+.joinloginModule .joinloginFunction .noAccount {
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+.joinloginModule .joinloginFunction .btnGroup {
+  margin: 10px 0;
+}
+
+.joinloginModule .joinloginFunction .inputBox.active, .joinloginModule .joinloginFunction .active.inputBox-org, .joinloginModule .joinloginFunction .active.inputBox-white, .joinloginModule .joinloginFunction .active.inputBox-blue, .joinloginModule .joinloginFunction .active.inputBox-gray, .joinloginModule .joinloginFunction .active.inputBox-yellow {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -2695,6 +2818,7 @@ main > .swiper-container .swiper-slide {
   font-size: 18px;
   font-weight: bold;
   margin-right: 40px;
+  display: block;
 }
 
 .inside-title div {
@@ -3331,6 +3455,7 @@ main > .swiper-container .swiper-slide {
   padding: 20px;
   border-radius: 15px;
   position: relative;
+  cursor: pointer;
 }
 
 .offers .swiper-container {
@@ -3353,7 +3478,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
 }
 
@@ -3375,7 +3500,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .offers .swiper-slide .team div img, .offers .swiper-slide .odds div img {
-  width: 100px;
+  width: 130px;
 }
 
 .offers .swiper-slide .team div:nth-child(3), .offers .swiper-slide .odds div:nth-child(3) {
@@ -3399,11 +3524,13 @@ main > .swiper-container .swiper-slide {
           backdrop-filter: blur(2px);
   padding: 5%;
   border-radius: 5px;
+  word-break: break-word;
+  width: 120px;
 }
 
 .offers .swiper-slide .gameName {
   width: 50%;
-  margin: 1% auto;
+  margin: 2% auto 1% auto;
   position: relative;
   background: rgba(0, 0, 0, 0.692);
   height: 40px;
@@ -3440,7 +3567,7 @@ main > .swiper-container .swiper-slide {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  height: 80px;
+  height: 130px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3451,17 +3578,19 @@ main > .swiper-container .swiper-slide {
       -ms-flex-pack: center;
           justify-content: center;
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   letter-spacing: 2px;
-  -webkit-transform: skewX(-10deg);
-          transform: skewX(-10deg);
+  -webkit-transform: skewX(-12deg);
+          transform: skewX(-12deg);
 }
 
 .offers .swiper-slide .team .schedule span {
   display: block;
-  font-size: 36px;
+  font-size: 42px;
+  margin-top: 10px;
+  text-shadow: 0 0 black, 0 0 black, 0 0 black, 0 0 black;
 }
 
 .offers .swiper-slide .odds {
@@ -6475,6 +6604,19 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   display: flex;
 }
 
+.event .eventModule > div > div.moduleCenter a.more, .event .eventModule > div > div.moduleCenter button.more {
+  border: 1px solid #e0c78d;
+  padding: 5px 10px;
+  margin-bottom: 30px;
+}
+
+.event .eventModule > div > div.moduleCenter a.more:hover, .event .eventModule > div > div.moduleCenter button.more:hover {
+  background: #e0c78d;
+  color: #900000;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
 .event .eventModule > div > div.moduleCenter > div {
   width: 100%;
   display: -webkit-box;
@@ -6592,8 +6734,8 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .eventLink {
   position: fixed;
-  right: 10px;
-  bottom: 12%;
+  left: 10px;
+  bottom: 0;
   z-index: 3;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6605,7 +6747,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   height: 35px;
   color: #ffffff;
   position: absolute;
-  right: 10px;
+  left: 10px;
   top: -20px;
   font-size: 18px;
   font-weight: bold;
@@ -6703,7 +6845,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: 130px;
   position: absolute;
   top: calc(50% + 230px);
-  left: calc(50% - 62px);
+  left: calc(50% - 64px);
   z-index: 11;
 }
 
@@ -6946,5 +7088,298 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   text-align: center;
   line-height: 110px;
   margin: 25px auto;
+}
+
+.deposit_new {
+  height: calc(100% - 50px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1600px;
+  background: none;
+  margin: auto;
+}
+
+.deposit_new .subModuleList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 70px 40px;
+  margin-top: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.deposit_new .subModuleList .subModule {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: #030c1b;
+  border-radius: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.deposit_new .subModuleList .subModule:nth-child(even) {
+  margin: 40px 0;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle {
+  background: #0f2346;
+  padding: 20px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 110px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 5px;
+  color: #212121;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle div span {
+  white-space: nowrap;
+  color: white;
+  font-weight: normal;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle div span:first-child {
+  color: #fab617;
+}
+
+.deposit_new .subModuleList .subModule .subModuleTitle div span:last-child {
+  color: #f73201;
+  font-size: 12px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .deposit_new .subModuleList .subModule .subModuleBody ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5px 10px;
+  width: calc(50% - 20px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 150px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li a {
+  border-radius: 40px;
+  border: 1px solid #1E85EC;
+  padding: 5px;
+  text-align: center;
+  height: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: calc(100% - 10px);
+  overflow: hidden;
+  background: white;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li a.icon-library {
+  color: #1E85EC;
+  font-size: 44px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li a img[src="img/VOB.png"] {
+  background: black;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody ul li span {
+  color: #c6c6c6;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody .directions li {
+  display: list-item;
+  width: auto;
+  margin: 0;
+  line-height: 30px;
+  margin-left: 29px;
+}
+
+.deposit_new .subModuleList .subModule .subModuleBody .txt-lightgray {
+  margin-top: 20px;
+}
+
+.deposit_new .platformName {
+  width: calc(100% / 3 - 70px);
+  background: #030c1b;
+  float: left;
+  margin-left: 70px;
+  margin-top: 30px;
+  border-radius: 5px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+}
+
+.deposit_new .platformName .icon {
+  font-size: 40px;
+}
+
+.deposit_new .platformName .icon.icon-VNPay {
+  font-size: 18px;
+}
+
+.deposit_new .platformName .icon.icon-mobifone, .deposit_new .platformName .icon.icon-vinaphone {
+  font-size: 28px;
+}
+
+.deposit_new .platformName .icon + div {
+  max-width: 200px;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.buttonBox {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 10px 0;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div > .bankName {
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.inputBtn {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.inputBtn .btnGroup {
+  margin: 10px 0 5px;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.smallList {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.smallList li {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: auto 10px auto;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody > div.smallList li:first-child {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody ul li {
+  width: calc(25% - 20px);
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody ul li a {
+  padding: 5px 10px;
+  width: calc(100% - 20px);
+}
+
+.deposit_new .platformName + div.subModuleList .subModuleBody.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
