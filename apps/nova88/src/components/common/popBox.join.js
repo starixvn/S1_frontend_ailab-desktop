@@ -227,6 +227,9 @@ export default () => {
 			const result = await phoneCheck(val);
 			checked = result.checked;
 			msg = result.msg;
+		} else {
+			checked = null;
+			msg = "";
 		}
 
 		setTip(prev => {
@@ -234,7 +237,7 @@ export default () => {
 				...prev,
 				[col]: {
 					checked,
-					msg: t(msg)
+					msg: msg ? t(msg) : ""
 				}
 			};
 		});
@@ -575,6 +578,16 @@ export default () => {
 									}
 								};
 							});
+						} else if (errorCode === -7) {
+							setTip(prev => {
+								return {
+									...prev,
+									specialBonusCode: {
+										checked: false,
+										msg: message
+									}
+								};
+							});
 						} else {
 							setPopBox({
 								isOpen: true,
@@ -758,6 +771,8 @@ export default () => {
 							value={userValue.specialBonusCode}
 							onChange={EditField.bind(null, "specialBonusCode")}
 							onBlur={checkValue.bind(null, "specialBonusCode")}
+							tip={tip.specialBonusCode.msg}
+							checked={tip.specialBonusCode.checked}
 						/>
 
 						<Inputbox
