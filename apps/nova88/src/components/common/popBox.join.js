@@ -765,7 +765,9 @@ export default () => {
 						) : null}
 
 						<Inputbox
-							className="inputBox-org"
+							className={`inputBox-org${
+								tip.specialBonusCode.msg !== "" ? " error" : ""
+							}`}
 							icon="icon-promotion txt-orange"
 							placeholder={t("lbl_JoinPromoCode")}
 							value={userValue.specialBonusCode}
