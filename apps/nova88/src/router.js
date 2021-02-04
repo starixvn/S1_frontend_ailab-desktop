@@ -126,5 +126,11 @@ export default {
 	},
 	vip: {
 		root: "vip"
+	},
+	angpow: {
+		root: "angPow"
+	},
+	oneGame: {
+		root: "oneGame"
 	}
 };

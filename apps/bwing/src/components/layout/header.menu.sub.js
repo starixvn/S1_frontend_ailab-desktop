@@ -28,7 +28,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		});
 	};
 
-	const rows = subItems.map(s => {
+	const rows = subItems?.map(s => {
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
@@ -40,14 +40,32 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		}
 
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
-		const newIcon = s.isNew ? <i className="icon icon-newicon" /> : null;
+
+		let _iconClassName = "";
+		if (s.eventIcons) {
+			let iconStrings = "";
+			for (let i = 0; i < s.eventIcons.length; i++) {
+				if (s.eventIcons[i] !== "") {
+					iconStrings += `${s.eventIcons[i]}`;
+				}
+			}
+			_iconClassName = `${iconStrings}`;
+		}
+
+		const showIcon =
+			_iconClassName === "" ? null : (
+				<i className={`icon ${_iconClassName}`} />
+			);
+
+		// const _urlParams = params !== null ? `?${params.join("&")}` : "";
+		// const newIcon = s.isNew ? <i className="icon icon-newicon" /> : null;
 		if (s.menuType === defMenuType.Link) {
 			return (
 				<Link
 					key={key}
 					className={s.className}
 					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
-					{newIcon}
+					{showIcon}
 					<span className={s.icon}>{displayText}</span>
 				</Link>
 			);
@@ -57,11 +75,21 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				key={key}
 				className={s.className}
 				onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
-				{newIcon}
+				{showIcon}
 				<span className={s.icon}>{displayText}</span>
 			</button>
 		);
+
+		// return (
+		// 	<button
+		// 		key={key}
+		// 		className={s.className}
+		// 		onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
+		// 		{newIcon}
+		// 		<span className={s.icon}>{displayText}</span>
+		// 	</button>
+		// );
 	});
 
-	return <div className={`${listClassName} active`}>{rows}</div>;
+	return <div className={`${listClassName ?? ""} active`}>{rows}</div>;
 };

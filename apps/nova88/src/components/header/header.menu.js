@@ -39,6 +39,10 @@ export default class Panel extends Component {
 		this.setState({ menuKey: col });
 	};
 
+	closeSubMenu = () => {
+		this.setState({ menuKey: "" });
+	};
+
 	render() {
 		return (
 			<div className="menu">
@@ -48,7 +52,10 @@ export default class Panel extends Component {
 						currentMenuKey={this.state.menuKey}
 					/>
 
-					<div className="subMenu-Wrapper-new" ref={this.wrapper}>
+					<div
+						className="subMenu-Wrapper-new"
+						ref={this.wrapper}
+						onClick={this.closeSubMenu}>
 						<SubMenu
 							currentMenuKey={this.state.menuKey}
 							casinoTpIds={this.props.casinoTpIds}

@@ -28,5 +28,5 @@ export const api_tp_GotoGame = ({ GameId = null, TpId, LangId }) =>
 		GameId,
 		TpId,
 		LangId,
-		AppType: defGotoGame_AppType.Desktop
+		AppType: 3
 	});

@@ -1,78 +1,49 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState, useContext, useRef } from "react";
+import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import { Link } from "@reach/router";
-import config from "../../config";
-import { api_site_GetBanner } from "../../service/api/site";
+import {
+	api_site_GetBannerV3,
+	defBannerActionMode
+} from "../../service/api/site";
 import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import defPopBoxType from "./defPopBoxType";
 
-export const defBannerFolder = {
-	Sports: "Sports"
-};
+const NeedLoginRoute = [];
 
-export const defSpecialActionLink = {
-	SportsIndex: "Sports/Index"
-};
-
-export const ClickLink = (
+export const ClickLink = ({
 	tpId,
 	gameId,
+	matchId,
+	actionMode,
+	bannerLink,
 	lang,
-	href,
-	isOuterLink,
-	urlWithLang,
 	isLogin,
 	setPopBox,
-	matchid,
 	openInBlank
-) => {
+}) => {
 	const HandleLogin = () => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.Login
 		});
 	};
-	if (href === "Casino/Lobby") {
-		window.location.href = `/${lang}/${path.casino.root}${
-			tpId ? `/${tpId}` : ""
-		}`;
-	} else if (tpId === null) {
-		if (href === "Promotion/Index") {
-			window.location.href = `/${lang}/${path.promotion.root}`;
-		} else if (href === "Home/Register") {
-			//
-		} else if (href === "918kiss") {
-			if (isLogin) {
-				window.location.href = `/${lang}/${path["918kiss"].root}`;
-			} else {
-				HandleLogin();
-			}
-		} else if (href === "leaderBoard") {
-			window.location.href = `/${lang}/${path.leaderBoard.root}`;
-		} else if (href === "referral") {
-			if (isLogin) {
-				window.location.href = `/${lang}/${path.referral.root}`;
-			} else {
-				HandleLogin();
-			}
-		} else {
-			window.open(
-				isOuterLink
-					? href
-					: `${config.t_and_cURL}${
-							urlWithLang ? `/${lang}` : ""
-					  }/${href}`,
-				"_blank"
-			);
-		}
-	} else {
+
+	if (actionMode === defBannerActionMode.OpenWindow) {
+		window.open(bannerLink, "_blank");
+	} else if (actionMode === defBannerActionMode.RedirectPage) {
+		window.location.href = bannerLink;
+	} else if (actionMode === defBannerActionMode.RedirectPageOfThisSite) {
+		HandleLogin();
+	} else if (actionMode === defBannerActionMode.GoToGame) {
 		SET_ENTER_PAGE({
 			langId: lang,
 			tpId,
 			gameId,
-			matchid,
+			matchid: matchId,
 			isLogin: isLogin === true,
 			loginCallback: HandleLogin,
 			openInBlank
@@ -80,115 +51,122 @@ export const ClickLink = (
 	}
 };
 
-const Panel = ({
-	ImgFolder,
-	withBtn,
-	openInBlank,
-	filterHideInHome = false,
-	className = ""
-}) => {
+export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
+	let result = "";
+	if (urlRouter === path.casino.root) {
+		result = `?tpId=${tpId}${gameId ? `&gameId=${gameId}` : ""}`;
+	} else if (urlRouter === path.sports.root) {
+		result = `?tpId=${tpId}${gameId ? `&gameId=${gameId}` : ""}${
+			matchId ? `&matchId=${matchId}` : ""
+		}`;
+	}
+	return result;
+};
+
+export const useGetBanner = ({ langId, ImgFolder }) => {
 	const [banner, setBanner] = useState([]);
-	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
 
 	useEffect(() => {
 		let mounted = true;
-		if (userInfo.isLogin === null) {
-			if (mounted) {
-				setBanner([]);
+
+		const getBanner = async () => {
+			setBanner([]);
+			try {
+				ImgFolder.forEach(async BannerType => {
+					const res = await api_site_GetBannerV3({
+						lang: langId,
+						BannerType
+					});
+
+					if (res.data.errorCode === 0 && mounted) {
+						setBanner(prev => [...prev, ...res.data.data]);
+					}
+				});
+
+				return true;
+			} catch (error) {
+				return false;
 			}
-		} else {
-			api_site_GetBanner(
-				ImgFolder,
-				"",
-				userInfo.langId,
-				filterHideInHome
-			).then(res => {
-				if (res.data.errorCode === 0 && mounted) {
-					setBanner(res.data.data);
-				}
-			});
-		}
+		};
+
+		getBanner();
 
 		return () => {
 			mounted = false;
 		};
-	}, [userInfo.langId, userInfo.isLogin, ImgFolder, filterHideInHome]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [langId]);
 
-	const rows = banner?.map((b, idx) => {
-		const _imgFolder = b.imgFolder ?? ImgFolder;
-		const lang =
-			b.fromDB || b.lang?.includes(userInfo.langId)
-				? userInfo.langId
-				: "en";
+	return { banner };
+};
 
-		const actionLinkByLang = b.fromDB
-			? null
-			: b.actionLinkByLang?.find(a => a.lang === userInfo.langId);
-		const actionLink = actionLinkByLang
-			? actionLinkByLang.link
-			: b.actionLink;
-		const imgSRC = b.imgURL
-			? b.imgURL
-			: `${config.imgUrl}/CMS/${config.siteName}/${_imgFolder}/${lang}/${b.img}`;
+const Panel = ({ ImgFolder, className, openInBlank }) => {
+	const { userInfo } = useContext(userInfoContext);
+	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
+	const { setPopBox } = useContext(popBoxContext);
 
-		const key = `${lang}-${b.img}-${idx}`;
+	const rows = banner?.map((b, bIdx) => {
+		let redirectLink = null;
 
-		if (actionLink === defSpecialActionLink.SportsIndex) {
-			return (
-				<Link
-					key={key}
-					to={`/${userInfo.langId}/${path.sports.root}?tpId=${b.tpId}&gameId=${b.gameId}&matchid=${b.matchid}`}>
-					<img src={imgSRC} className="banner" alt={b.img ?? ""} />
-				</Link>
-			);
-		}
-		if (actionLink?.startsWith("Promotion/Bonus?")) {
-			const promoUrlParam = actionLink.split("?")?.[1];
-			return (
-				<Link
-					key={key}
-					to={`/${userInfo.langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?${promoUrlParam}`}>
-					<img src={imgSRC} className="banner" alt={b.img ?? ""} />
-				</Link>
-			);
-		}
-		if (
-			b.fromDB &&
-			b.actionLink.startsWith("promotion/promotionInfo?BonusCode=")
+		if (b.actionMode === defBannerActionMode.GoToBonus) {
+			redirectLink = `/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${b.bonusCode}`;
+		} else if (
+			b.actionMode === defBannerActionMode.RedirectPageOfThisSite
 		) {
+			const parameter = SetPathParameter({ ...b });
+			redirectLink =
+				!userInfo.isLogin && NeedLoginRoute.includes(b.urlRouter)
+					? null
+					: `/${b.urlRouter}${parameter}`;
+		}
+
+		if (redirectLink) {
 			return (
-				<Link key={key} to={`${userInfo.langId}/${b.actionLink}`}>
-					<img src={imgSRC} className="banner" alt={b.img ?? ""} />
+				<Link
+					key={`${userInfo.langId}-${bIdx}`}
+					to={`/${userInfo.langId}${redirectLink}`}>
+					<img
+						src={b.bannerMobileUrl}
+						className="banner"
+						alt={b.bannerName ?? ""}
+					/>
 				</Link>
 			);
 		}
+
 		return (
 			<button
-				onClick={ClickLink.bind(
-					this,
-					b.tpId,
-					b.gameId,
-					lang,
-					actionLink,
-					b.outerLink === true,
-					b.urlWithLang,
-					userInfo.isLogin,
+				key={`${userInfo.langId}-${bIdx}`}
+				onClick={ClickLink.bind(this, {
+					...b,
+					isLogin: userInfo.isLogin,
+					lang: userInfo.langId,
 					setPopBox,
-					b.matchid,
 					openInBlank
-				)}
-				key={key}>
-				<img src={imgSRC} className="banner" alt={b.img ?? ""} />
+				})}>
+				<img
+					src={b.bannerMobileUrl}
+					className="banner"
+					alt={b.bannerName ?? ""}
+				/>
 			</button>
 		);
 	});
 
-	return withBtn ? (
-		<AutoPlayWithBtn Rows={rows} className={className} />
-	) : (
-		<Autoplay Rows={rows} className={className} />
-	);
+	return <Autoplay Rows={rows} className={className} />;
+};
+
+Panel.defaultProps = {
+	openInBlank: false,
+	className: null
+};
+
+Panel.propTypes = {
+	ImgFolder: PropTypes.arrayOf(
+		PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+	).isRequired,
+	openInBlank: PropTypes.bool,
+	className: PropTypes.string
 };
 
 const defSwipperConfig = {
@@ -206,20 +184,28 @@ const defSwipperConfig = {
 	rebuildOnUpdate: true
 };
 
-const Autoplay = ({ Rows, className }) => {
+export const Autoplay = ({ Rows, className }) => {
 	const params = defSwipperConfig;
 	return Rows && Rows.length > 0 ? (
 		<div className={`swiper-container ${className}`}>
 			<div className="swiper-wrapper">
+				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 				<Swiper {...params}>{Rows}</Swiper>
 			</div>
 		</div>
-	) : (
-		<></>
-	);
+	) : null;
 };
 
-const AutoPlayWithBtn = ({ Rows, className }) => {
+Autoplay.defaultProps = {
+	className: null
+};
+
+Autoplay.propTypes = {
+	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
+	className: PropTypes.string
+};
+
+export const AutoPlayWithBtn = ({ Rows, className }) => {
 	const params = {
 		...defSwipperConfig,
 		navigation: {
@@ -253,12 +239,20 @@ const AutoPlayWithBtn = ({ Rows, className }) => {
 	return Rows && Rows.length > 0 ? (
 		<div className={`swiper-container ${className}`}>
 			<div className="swiper-wrapper">
+				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 				<Swiper {...params}>{Rows}</Swiper>
 			</div>
 		</div>
-	) : (
-		<></>
-	);
+	) : null;
+};
+
+AutoPlayWithBtn.defaultProps = {
+	className: null
+};
+
+AutoPlayWithBtn.propTypes = {
+	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
+	className: PropTypes.string
 };
 
 export default Panel;

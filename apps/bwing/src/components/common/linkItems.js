@@ -63,6 +63,26 @@ export default ({
 			_className = `${_className} hot`;
 		}
 
+		if (m.subMenu) {
+			const iconList = [];
+			let iconStrings = "";
+			m.subMenu.forEach(sub => {
+				if (sub.eventIcons) {
+					for (let i = 0; i < sub.eventIcons.length; i++) {
+						if (sub.eventIcons[i] !== "") {
+							iconList.push(sub.eventIcons[i]);
+						}
+					}
+					if (iconList.length > 0) {
+						iconStrings = ` icon ${[...new Set(iconList)].join(
+							" "
+						)}`;
+					}
+				}
+			});
+			_className += iconStrings;
+		}
+
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
 			: t(m.displayKey);

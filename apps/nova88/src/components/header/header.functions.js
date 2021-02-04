@@ -9,6 +9,12 @@ import {
 import path from "../../router";
 import DropdownHeader from "../common/dropdown.headerLink";
 import Wallet from "./header.wallet";
+// import { defPopBoxType } from "../common/popBox";
+import {
+	defEventIcon,
+	defEventPeriod,
+	showEventIcon
+} from "../common/eventIcon";
 import defPopBoxType from "../common/defPopBoxType";
 
 export default () => {
@@ -86,7 +92,12 @@ const defSettingLinks = [
 	{
 		displayKey: "lbl_ReferFriends",
 		href: path.referral.root,
-		icon: "icon icon-new"
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.referral
+			})
+		]
 	},
 	{
 		displayKey: "lbl_ChangePassword",
