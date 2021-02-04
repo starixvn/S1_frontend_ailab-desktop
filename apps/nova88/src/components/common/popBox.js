@@ -26,6 +26,7 @@ import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
 import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
 import JoinReferral from "./popBox.joinReferral";
 import SuccessAngPow from "./popBox.successAngPow";
+import OneGamingLink from "./popBox.oneGamingLink";
 import defPopBoxType from "./defPopBoxType";
 
 export default () => {
@@ -144,6 +145,7 @@ export default () => {
 				/>
 			);
 			break;
+
 		case defPopBoxType.TurnoverAccumulated:
 			content = <TurnoverAccumulated {...popBox} />;
 			break;
@@ -197,6 +199,15 @@ export default () => {
 					closePopBox={popBox.closePopBox}
 					t={popBox.t}
 					drawPrizeDatas={popBox.drawPrizeDatas}
+				/>
+			);
+			break;
+
+		case defPopBoxType.OneGamingLink:
+			content = (
+				<OneGamingLink
+					btnBar={popBox.btnBar}
+					clickClose={popBox.clickClose}
 				/>
 			);
 			break;

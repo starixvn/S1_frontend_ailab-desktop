@@ -4,6 +4,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { setCookie, readCookie } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import { defBannerType } from "../../service/api/site";
 
 import edgeImg1 from "../../styles/img/EDGE1.jpg";
 import edgeImg2 from "../../styles/img/EDGE2.jpg";
@@ -78,13 +79,13 @@ export default () => {
 
 	return (
 		<main>
-			<SwipperBanner ImgFolder="Promotion" filterHideInHome={true} />
+			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
 			<CountDown />
 			<GameQuickLinks t={t} />
 			<PromoGameList t={t} userInfo={userInfo} />
 			<section>
-				<EventSwipper />
+				<EventSwipper langId={userInfo.langId} />
 				<News />
 				<div className="edge">
 					<div>

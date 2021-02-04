@@ -195,6 +195,9 @@ export default {
 		tpId: 24,
 		gameId: "cmt0001"
 	},
+	poker: {
+		tpId: 13
+	},
 	fishing: {
 		tpId: 7,
 		gameId: 10

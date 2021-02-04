@@ -309,6 +309,18 @@ export const defMenuLinks = {
 			}
 		]
 	},
+	poker: {
+		productInfo: productList.poker,
+		path: path.oneGame.root,
+		displayKey: "lbl_Poker",
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.oneGaming
+			})
+		],
+		openPopBox: true
+	},
 	lottery: {
 		productInfo: productList.lottery,
 		displayKey: "lbl_Lottery",

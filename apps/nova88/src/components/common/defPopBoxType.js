@@ -23,5 +23,6 @@ export default {
 	PromotionAmountConfirm: "PromotionAmountConfirm",
 	kiss918: "918kiss",
 	JoinReferral: "JoinReferral",
-	SuccessAngPow: "SuccessAngPow"
+	SuccessAngPow: "SuccessAngPow",
+	OneGamingLink: "OneGamingLink"
 };
