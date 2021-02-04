@@ -22,7 +22,7 @@ export default () => {
 				<i
 					className="icon icon-contactIcon"
 					onClick={activeToggleHandler}>
-					{t("lbl_ContactUs")}
+					{t("lbl_ContactUs").toUpperCase()}
 				</i>
 			</div>
 			<div>
