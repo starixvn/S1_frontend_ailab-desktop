@@ -259,7 +259,7 @@ export const defMenuLinks = {
 				parameter: { ...productList.CQ9_Paradise }
 			},
 			{
-				...productList.CQ9_Lucky_Fishing,
+				...productList.CQ9_LuckyFishing,
 				className: "fsluckey",
 				eventIcons: [
 					showEventIcon({
