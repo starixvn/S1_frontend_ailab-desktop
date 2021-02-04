@@ -700,7 +700,7 @@
   color: #fff;
 }
 
-.icon-contactUS3:before {
+.icon-Telegram:before {
   content: "\e910";
   color: #fff;
 }
@@ -1179,5 +1179,17 @@
 
 .icon-ICG:before {
   content: "\e9e7";
+}
+
+.icon-zelo:before {
+  content: "\e9ea";
+}
+
+.icon-skype:before {
+  content: "\e9eb";
+}
+
+.icon-live-chat:before {
+  content: "\e9ec";
 }
 /*# sourceMappingURL=font.css.map */

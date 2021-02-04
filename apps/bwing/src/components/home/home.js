@@ -16,7 +16,7 @@ import EventSwipper from "./eventSwipper";
 import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
-import SideBarQuickLink from "./sideBarQuickLink";
+
 import AngpowLink from "./angpowLink";
 import path from "../../router";
 
@@ -187,7 +187,7 @@ export default () => {
 						</div>
 					</div>
 				</section>
-				<SideBarQuickLink />
+			
 			</main>
 		</>
 	);
