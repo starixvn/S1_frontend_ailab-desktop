@@ -287,6 +287,9 @@ header .header > div.menu .gameList.active, header .header > div.menu .casinoLis
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header .header > div.menu .gameList.active div, header .header > div.menu .casinoList.active div, header .header > div.menu .livecasinoList.active div, header .header > div.menu .fishList.active div {
@@ -558,6 +561,7 @@ header .header > div.menu .fishList a, header .header > div.menu .fishList butto
       -ms-flex: 1 1 230px;
           flex: 1 1 230px;
   text-align: center;
+  max-width: 230px;
 }
 
 header .header > div.menu .fishList .thunderfighter {

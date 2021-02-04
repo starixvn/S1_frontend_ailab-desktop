@@ -52,9 +52,11 @@ export default class Panel extends Component {
 						currentMenuKey={this.state.menuKey}
 					/>
 
-					<div className="subMenu-Wrapper-new" ref={this.wrapper}>
+					<div
+						className="subMenu-Wrapper-new"
+						ref={this.wrapper}
+						onClick={this.closeSubMenu}>
 						<SubMenu
-							closeSubMenu={this.closeSubMenu}
 							currentMenuKey={this.state.menuKey}
 							casinoTpIds={this.props.casinoTpIds}
 						/>

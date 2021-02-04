@@ -27,7 +27,7 @@ const EventSwipper = memo(({ langId }) => {
 		navigate(`/${langId}/${path.sports.root}${parameters}`);
 	};
 
-	const rows = banner?.map(b => {
+	const rows = banner?.map((b, bIdx) => {
 		const {
 			sportBattleDateTime,
 			sportTeamsHomePic,
@@ -38,7 +38,8 @@ const EventSwipper = memo(({ langId }) => {
 		} = b;
 		return (
 			<HotEventContent
-				key={b.sportLeaguesId}
+				// eslint-disable-next-line react/no-array-index-key
+				key={`HotEvent-${b.sportLeaguesId}-${bIdx}`}
 				sportBattleDateTime={sportBattleDateTime}
 				sportTeamsHomePic={sportTeamsHomePic}
 				sportTeamsAwayPic={sportTeamsAwayPic}

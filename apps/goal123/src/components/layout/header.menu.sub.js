@@ -28,7 +28,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		});
 	};
 
-	const rows = subItems.map(s => {
+	const rows = subItems?.map(s => {
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
@@ -70,5 +70,5 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		);
 	});
 
-	return <div className={`${listClassName} active`}>{rows}</div>;
+	return <div className={`${listClassName ?? ""} active`}>{rows}</div>;
 };

@@ -24,6 +24,8 @@ import GameQuickLinks from "./gameQuickLinks";
 import SwipperBanner from "../common/swipperBanner";
 import CountDown from "./countDown";
 import PromoGameList from "./promoGameList";
+import AngpowLink from "./angpowLink";
+import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -142,6 +144,10 @@ export default () => {
 					<img src={Bong88} alt="Bong88" />
 				</div>
 			</section>
+			<AngpowLink
+				to={`/${userInfo.langId}/${path.angpow.root}`}
+				langId={userInfo.langId}
+			/>
 		</main>
 	);
 };
