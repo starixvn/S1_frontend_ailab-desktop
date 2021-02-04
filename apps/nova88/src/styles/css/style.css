@@ -8470,80 +8470,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 53.97714%;
-  top: 36.71476%;
-  width: 8.44906px;
-  height: 8.44906px;
+  left: 15.53415%;
+  top: -13.72881%;
+  width: 6.44063px;
+  height: 6.44063px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 84.38044%;
-  top: -27.95687%;
-  width: 11.79526px;
-  height: 11.79526px;
+  left: 60.3539%;
+  top: 12.39607%;
+  width: 9.36967px;
+  height: 9.36967px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 44.05034%;
-  top: -48.94271%;
-  width: 7.32681px;
-  height: 7.32681px;
+  left: 13.25232%;
+  top: -12.49377%;
+  width: 6.70414px;
+  height: 6.70414px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 19.38284%;
-  top: 0.22949%;
-  width: 11.15791px;
-  height: 11.15791px;
+  left: 25.93596%;
+  top: -53.40811%;
+  width: 10.1134px;
+  height: 10.1134px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 42.2952%;
-  top: -37.39575%;
-  width: 10.64922px;
-  height: 10.64922px;
+  left: 1.99337%;
+  top: 38.66521%;
+  width: 6.50886px;
+  height: 6.50886px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 33.53352%;
-  top: -51.16806%;
-  width: 11.31992px;
-  height: 11.31992px;
+  left: 67.89593%;
+  top: 30.28116%;
+  width: 14.31757px;
+  height: 14.31757px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 71.82351%;
-  top: -44.30433%;
-  width: 6.23831px;
-  height: 6.23831px;
+  left: 60.23331%;
+  top: -0.58496%;
+  width: 6.16643px;
+  height: 6.16643px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 65.02769%;
-  top: 21.53394%;
-  width: 11.43707px;
-  height: 11.43707px;
+  left: 20.22208%;
+  top: 0.64391%;
+  width: 7.77004px;
+  height: 7.77004px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9268,46 +9268,77 @@ canvas {
   margin-bottom: 25px;
 }
 
-.vip iframe {
-  margin: auto;
+.vip .vipPage {
   width: 100%;
-  max-width: 1200px;
+  padding-bottom: 30px;
 }
 
-.vip > .btnGroup {
-  margin: 15px auto 0;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  max-width: 1200px;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  width: 100%;
+.vip .vipPage .eventList {
+  margin: 0;
+  border: 1px solid #1E85EC;
+  font-weight: normal;
 }
 
-.vip > .btnGroup a {
-  color: white;
-  -webkit-box-flex: 0;
-      -ms-flex: 0;
-          flex: 0;
-  border-right: 0;
-  border-radius: 15px;
-  padding: 10px;
-  margin: 0 10px 10px 0;
-  white-space: nowrap;
+.vip .vipPage .eventList .icon-nova88 {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.vip .vipPage .eventList .icon-nova88:before {
+  font-weight: normal;
+  margin-left: 0;
+}
+
+.vip .vipPage .eventList tr.title {
   background: #134DAE;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
 }
 
-.vip > .btnGroup a:first-child {
-  padding-left: 0;
+.vip .vipPage .eventList tr:last-child {
+  background: black;
+  font-weight: bold;
 }
 
-.vip > .btnGroup a.active, .vip > .btnGroup a:hover {
+.vip .vipPage .eventList tr:last-child td {
+  color: #f77900;
+}
+
+.vip .vipPage .eventList tr:not(.title):not(.lastTd) td:first-child {
+  border-right: 1px solid black;
+  background: #444;
+}
+
+.vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
   background: #1E85EC;
+}
+
+.vip .vipPage .eventList tr td {
+  border-radius: 0;
+  border: 0;
+  width: 11%;
+  line-height: 30px;
+}
+
+.vip .vipPage .eventList tr td:first-child {
+  text-align: left;
+  width: 34%;
+  padding-left: 10px;
+}
+
+.vip .medal {
+  margin-bottom: 20px;
+}
+
+.vip .medal tr td {
+  width: 11%;
+  text-align: center;
+}
+
+.vip .medal tr td:first-child {
+  width: 34%;
+}
+
+.vip .medal tr td img {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 /*# sourceMappingURL=style.css.map */
