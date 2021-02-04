@@ -1,3 +1,5 @@
+import { currencyCode } from "../../datas/countryCode";
+
 export const getUrlParameter = name => {
 	const _name = name.replace(/[[]/, "\\[").replace(/[\]]/, "\\]");
 	const regex = new RegExp(`[\\?&]${_name}=([^&#]*)`, "i");
@@ -36,6 +38,10 @@ const _isConvertList = {
 
 export const isConvert = currencyId => {
 	return _isConvertList[currencyId] === true;
+};
+
+export const getCurrencyCode = langId => {
+	return currencyCode[langId.toUpperCase()];
 };
 
 export const checkAmount = (amount, minAmount, maxAmount, _isConvert, i18n) => {

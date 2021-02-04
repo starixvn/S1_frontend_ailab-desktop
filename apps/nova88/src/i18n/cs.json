@@ -76,7 +76,7 @@
 	"lbl_5_fortune_dragons": "五龙吐珠",
 	"lbl_god_of_fortune": "财神到",
 	"lbl_lucky_neko": "招财幸运猫",
-	"lbl_Indo4D":"Indo 4D",
+	"lbl_Indo4D": "Indo 4D",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "电子游戏",
@@ -481,5 +481,37 @@
 	"lbl_Game_ICG_DRAGONBALL_FISHING": "龙珠捕鱼",
 	"lbl_Game_ICG_FISHING_OF_SAVIORS": "中国神魔捕鱼",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS": "霸王虞姬",
-	"lbl_Game_ICG_TOWER_OF_SAVIORS": "中国神魔塔防"
+	"lbl_Game_ICG_TOWER_OF_SAVIORS": "中国神魔塔防",
+
+	"vip ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Vip_Service_Support": "VIP尊荣服务",
+	"lbl_Vip_Deposit_Priority": "存款优先办理",
+	"lbl_Vip_WithDrawal_Priority": "提款优先办理",
+	"lbl_Vip_Service_Support_At_Date": "24/7在线客服",
+	"lbl_Vip_Designated_Account_Manager": "特别账户经理",
+	"lbl_Vip_Unlimited_Withdrawal_amount": "无限提款金额",
+	"lbl_Vip_Exclusive_Bonus": "独家优惠",
+	"lbl_Vip_Tier_UpGrade_Bonus": "等级升级奖励",
+	"lbl_Vip_Special_Rebate": "特别返水",
+	"lbl_Vip_Sport_Rebate": "体育返水",
+	"lbl_Vip_Live_Casino_Rebate": "真人娱乐返水",
+	"lbl_Vip_Slot_Fishing_Rebate": "老虎机和捕鱼返水",
+	"lbl_Vip_Virtual_Sport_Rebate": "虚拟运动返水",
+	"lbl_Vip_Referral_bonus_Program": "推荐奖金计划",
+	"lbl_Vip_Referral_bonus": "推荐奖金",
+	"lbl_Vip_Tire_Upgrade_Requirement": "等级升级要求",
+	"lbl_Vip_Monthly_Minimum_Deposit": "每月最低存款",
+	"lbl_Vip_Tier_Maintenance_Requirement": "等级保留要求",
+	"lbl_Vip_Minimum_Deposit_Within_Validity_Period": "有效期内最低存款",
+	"lbl_Vip_Minimum_Turnover_Within_Validity_Period": "有效期内最低有效投注",
+	"lbl_Vip_Ranking_Validity_Membership_renewal": "会员等级续约",
+	"lbl_Vip_Status1": "待定",
+
+	"lbl_Vip_Tier": "Tier",
+	"lbl_Vip_High": "High",
+	"lbl_Vip_Months": "Months",
+	"lbl_Vip_Lifetime": "Lifetime",
+	"lbl_Vip_Normal": "Normal",
+	"lbl_Vip_Invisible": "Invisible"
+
 }

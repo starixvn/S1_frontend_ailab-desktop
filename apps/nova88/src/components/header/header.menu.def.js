@@ -440,6 +440,11 @@ export const defMenuLinks = {
 		displayKey: "lbl_CockFighting",
 		className: "COCK"
 	},
+	vip: {
+		path: path.vip.root,
+		displayKey: "VIP",
+		className: "icon icon-new"
+	},
 	promotion: {
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"
