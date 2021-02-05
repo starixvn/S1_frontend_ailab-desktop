@@ -531,6 +531,8 @@
 	"lbl_Vip_Minimum_Deposit_Within_Validity_Period": "การฝากขั้นต่ำภายในระยะเวลาที่กำหนด",
 	"lbl_Vip_Minimum_Turnover_Within_Validity_Period": "การเทิร์นโอเวอร์ขั้นต่ำภายในระยะเวลากำหนด",
 	"lbl_Vip_Ranking_Validity_Membership_renewal": "การจัดอันดับการต่ออายุสมาชิก",
+	"lbl_Vip_Accumulated_Deposit_Within_3_Months":"ACCUMULATED DEPOSIT WITHIN 3 MONTHS",
+	"lbl_Vip_Accumulated_Turnover_Within_3_Months":"ACCUMULATED TURNOVER WITHIN 3 MONTHS",
 	"lbl_Vip_Status1": "รอดำเนินการ",
 	"lbl_Vip_Tier": "ระดับ",
 	"lbl_Vip_High": "สูง",

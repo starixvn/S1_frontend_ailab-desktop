@@ -194,9 +194,7 @@ const PageEventListTh = ({ currencyId }) => {
 					<td colSpan="6">{t("lbl_Vip_Tier")}</td>
 				</tr>
 				<tr>
-					<td>
-						{t("lbl_Vip_Minimum_Deposit_Within_Validity_Period")}
-					</td>
+					<td>{t("lbl_Vip_Accumulated_Deposit_Within_3_Months")}</td>
 					<td />
 					<td />
 					<td>380,000.00</td>
@@ -205,9 +203,7 @@ const PageEventListTh = ({ currencyId }) => {
 					<td>3,800,000.00</td>
 				</tr>
 				<tr>
-					<td>
-						{t("lbl_Vip_Minimum_Turnover_Within_Validity_Period")}
-					</td>
+					<td>{t("lbl_Vip_Accumulated_Turnover_Within_3_Months")}</td>
 					<td />
 					<td />
 					<td>3,800,000.00</td>

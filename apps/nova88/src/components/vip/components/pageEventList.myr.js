@@ -57,9 +57,7 @@ const PageEventListMyr = ({ currencyId }) => {
 					<td>{t("lbl_Vip_Designated_Account_Manager")}</td>
 					<td />
 					<td />
-					<td>
-						<i className="icon icon-checkmark" />
-					</td>
+					<td />
 					<td>
 						<i className="icon icon-checkmark" />
 					</td>
