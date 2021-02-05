@@ -532,11 +532,10 @@
 	"lbl_Vip_Minimum_Turnover_Within_Validity_Period": "TURNOVER MINIMUM DALAM PERIODE VALIDITAS",
 	"lbl_Vip_Ranking_Validity_Membership_renewal": "PERINGKAT PEMBARUAN KEANGGOTAAN VALIDITAS",
 	"lbl_Vip_Status1":"Ditunda",
-
-	"lbl_Vip_Tier": "Tier",
-	"lbl_Vip_High": "High",
-	"lbl_Vip_Months": "Months",
-	"lbl_Vip_Lifetime": "Lifetime",
+	"lbl_Vip_Tier": "Tingkat",
+	"lbl_Vip_High": "Tinggi",
+	"lbl_Vip_Months": "Bulan",
+	"lbl_Vip_Lifetime": "Seumur Hidup",
 	"lbl_Vip_Normal": "Normal",
-	"lbl_Vip_Invisible": "Invisible"
+	"lbl_Vip_Invisible": "Tak Terlihat"
 }

@@ -532,11 +532,10 @@
 	"lbl_Vip_Minimum_Turnover_Within_Validity_Period": "有效期内最低有效投注",
 	"lbl_Vip_Ranking_Validity_Membership_renewal": "会员等级续约",
 	"lbl_Vip_Status1": "待定",
-
-	"lbl_Vip_Tier": "Tier",
-	"lbl_Vip_High": "High",
-	"lbl_Vip_Months": "Months",
-	"lbl_Vip_Lifetime": "Lifetime",
-	"lbl_Vip_Normal": "Normal",
-	"lbl_Vip_Invisible": "Invisible"
+	"lbl_Vip_Tier": "层级",
+	"lbl_Vip_High": "高",
+	"lbl_Vip_Months": "月",
+	"lbl_Vip_Lifetime": "终身",
+	"lbl_Vip_Normal": "普通",
+	"lbl_Vip_Invisible": "隐藏"
 }
