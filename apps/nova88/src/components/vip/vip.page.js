@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { currencyCode } from "../../datas/countryCode";
-
+import { isConvert } from "../common/common";
 import PageEventListMyr from "./components/pageEventList.myr";
 import PageEventListTh from "./components/pageEventList.th";
 import PageEventListId from "./components/pageEventList.id";
@@ -29,13 +29,18 @@ const VipPage = ({ pageClubImg, currencyId }) => {
 };
 
 const VipPageEventList = ({ currencyId }) => {
+	const _isConvert = isConvert(currencyId);
 	if (currencyId === currencyCode.TH)
-		return <PageEventListTh currencyId={currencyId} />;
+		return (
+			<PageEventListTh currencyId={currencyId} isConvert={_isConvert} />
+		);
 
 	if (currencyId === currencyCode.ID)
-		return <PageEventListId currencyId={currencyId} />;
+		return (
+			<PageEventListId currencyId={currencyId} isConvert={_isConvert} />
+		);
 
-	return <PageEventListMyr currencyId={currencyId} />;
+	return <PageEventListMyr currencyId={currencyId} isConvert={_isConvert} />;
 };
 
 VipPage.propTypes = {

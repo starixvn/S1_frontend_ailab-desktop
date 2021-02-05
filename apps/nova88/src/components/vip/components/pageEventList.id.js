@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
+import { number_format } from "../../common/common";
 
-const PageEventListId = ({ currencyId }) => {
+const PageEventListId = ({ currencyId, isConvert }) => {
 	const { t } = useTranslation();
 	return (
 		<table className="eventList">
@@ -90,10 +91,10 @@ const PageEventListId = ({ currencyId }) => {
 				<tr>
 					<td>{t("lbl_Vip_Tier_UpGrade_Bonus")}</td>
 					<td />
-					<td>100,000.00</td>
-					<td>300,000.00</td>
-					<td>900,000.00</td>
-					<td>3,300,000.00</td>
+					<td>{number_format(100000, isConvert)}</td>
+					<td>{number_format(300000, isConvert)}</td>
+					<td>{number_format(900000, isConvert)}</td>
+					<td>{number_format(3300000, isConvert)}</td>
 					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 
@@ -178,10 +179,10 @@ const PageEventListId = ({ currencyId }) => {
 				<tr>
 					<td>{t("lbl_Vip_Monthly_Minimum_Deposit")}</td>
 					<td />
-					<td>25,000,00.00</td>
-					<td>100,000,000.00</td>
-					<td>250,000,000.00</td>
-					<td>500,000,000.00</td>
+					<td>{number_format(25000000, isConvert)}</td>
+					<td>{number_format(100000000, isConvert)}</td>
+					<td>{number_format(250000000, isConvert)}</td>
+					<td>{number_format(500000000, isConvert)}</td>
 					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 				<tr className="title">
@@ -199,9 +200,9 @@ const PageEventListId = ({ currencyId }) => {
 					</td>
 					<td />
 					<td />
-					<td>100,000,000</td>
-					<td>250,000,000</td>
-					<td>500,000,000</td>
+					<td>{number_format(100000000, isConvert)}</td>
+					<td>{number_format(250000000, isConvert)}</td>
+					<td>{number_format(500000000, isConvert)}</td>
 					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 				<tr>
@@ -210,9 +211,9 @@ const PageEventListId = ({ currencyId }) => {
 					</td>
 					<td />
 					<td />
-					<td>100,000,000</td>
-					<td>250,000,000</td>
-					<td>500,000,000</td>
+					<td>{number_format(100000000, isConvert)}</td>
+					<td>{number_format(250000000, isConvert)}</td>
+					<td>{number_format(500000000, isConvert)}</td>
 					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 				<tr className="lastTd">
@@ -230,7 +231,8 @@ const PageEventListId = ({ currencyId }) => {
 };
 
 PageEventListId.propTypes = {
-	currencyId: PropTypes.number.isRequired
+	currencyId: PropTypes.number.isRequired,
+	isConvert: PropTypes.bool.isRequired
 };
 
 export default PageEventListId;
