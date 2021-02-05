@@ -30,6 +30,7 @@ export const defMenuLinks = langId => {
 		// },
 		games: {
 			displayKey: "lbl_Games",
+			className: "game icon icon-new",
 			subMenu: [
 				{
 					...productList.sabaClub,
@@ -38,6 +39,12 @@ export const defMenuLinks = langId => {
 					displayKey: "lbl_SabaClub",
 					menuType: defMenuType.LinkOrBtn,
 					parameter: { ...productList.sabaClub }
+				},
+				{
+					...productList.V8_Poker,
+					className: "v8 icon icon-new",
+					displayKey: "lbl_V8Poker",
+					menuType: defMenuType.entPage
 				},
 				// {
 				// 	...productList.fishing,

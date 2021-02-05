@@ -108,6 +108,10 @@ export default {
 		tpId: 24,
 		name: "cockFighting"
 	},
+	V8_Poker: {
+		tpId: 25,
+		gameId: 0
+	},
 	CQ9_Paradise: {
 		gameId: "AB3",
 		tpId: 16,

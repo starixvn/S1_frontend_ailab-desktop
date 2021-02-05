@@ -28,7 +28,7 @@ export const defMenuLinks = {
 	// },
 	games: {
 		displayKey: "lbl_Games",
-		className: "game",
+		className: "game icon icon-new",
 		subMenu: [
 			{
 				...productList.One789_lottery,
@@ -53,6 +53,13 @@ export const defMenuLinks = {
 				displayKey: "lbl_SabaClub",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.sabaClub }
+			},
+			{
+				...productList.V8_Poker,
+				className: "v8",
+				isNew: true,
+				displayKey: "lbl_V8Poker",
+				menuType: defMenuType.entPage
 			},
 			{
 				...productList.keno,
