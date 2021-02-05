@@ -39,6 +39,7 @@ export default ({ children, afterLogin = false }) => {
 	);
 	const [correctPath, setCorrectPath] = useState(false);
 	const [redirectPath, setRedirectPath] = useState(null);
+	const [isRoot, setIsRoot] = useState(false);
 
 	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
 
@@ -222,7 +223,10 @@ export default ({ children, afterLogin = false }) => {
 								value={{ popBox, setPopBox }}>
 								<ct.loadingContext.Provider
 									value={{ loading, setLoading }}>
-									{children}
+									<ct.isRootContext.Provider
+										value={{ isRoot, setIsRoot }}>
+										{children}
+									</ct.isRootContext.Provider>
 								</ct.loadingContext.Provider>
 							</ct.popBoxContext.Provider>
 						</ct.msgCountContext.Provider>

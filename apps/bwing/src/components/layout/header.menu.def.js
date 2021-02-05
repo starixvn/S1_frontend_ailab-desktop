@@ -1,5 +1,10 @@
 import productList, { defCasinoProviders } from "../../datas/productList";
 import path from "../../router";
+import {
+	defEventIcon,
+	defEventPeriod,
+	showEventIcon
+} from "../common/eventIcon";
 
 export const defMenuType = {
 	entPage: "entPage",
@@ -92,12 +97,17 @@ export const defMenuLinks = {
 	casino: {
 		path: path.casino.root,
 		displayKey: "lbl_Slots",
-		className: "casinobtn icon icon-newicon",
+		className: "casinobtn",
 		subMenu: [
 			{
 				...defCasinoProviders.ICG,
 				className: "ICG",
-				isNew: true,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				icon: "icon icon-ICG",
 				displayText: "ICG",
 				menuType: defMenuType.Link,
@@ -241,12 +251,81 @@ export const defMenuLinks = {
 	fishing: {
 		productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
-		className: "icon icon-new",
 		subMenu: [
+			{
+				...productList.CQ9_Paradise,
+				className: "fstparadise",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Paradise",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Paradise }
+			},
+			{
+				...productList.CQ9_LuckyFishing,
+				className: "fsluckey",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Lucky_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Lucky_Fishing }
+			},
+			{
+				...productList.CQ9_Oneshot_Fishing,
+				className: "fsoneshot",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Oneshot_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Oneshot_Fishing }
+			},
+			{
+				...productList.CQ9_Water_Margin_Fishing,
+				className: "fswatermargin",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Water_Margin_Fishing",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Water_Margin_Fishing }
+			},
+			{
+				...productList.CQ9_Thunder_Fighter,
+				className: "fsthunderfighter",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.cq9
+					})
+				],
+				displayKey: "lbl_Thunder_Fighter",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.CQ9_Thunder_Fighter }
+			},
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf",
-				isNew: true,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
@@ -254,7 +333,12 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_FISHING_OF_SAVIORS,
 				className: "fsgfos",
-				isNew: true,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
@@ -262,7 +346,12 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
 				className: "fsttatp",
-				isNew: true,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS }
@@ -270,7 +359,12 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_TOWER_OF_SAVIORS,
 				className: "fstos",
-				isNew: true,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.icg
+					})
+				],
 				displayKey: "lbl_Game_ICG_TOWER_OF_SAVIORS",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_TOWER_OF_SAVIORS }

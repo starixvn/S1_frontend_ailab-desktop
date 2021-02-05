@@ -215,10 +215,24 @@ export default () => {
 
 			content = (
 				<PromotionAmountConfirm
+					currencyId={popBox.currencyId}
 					langId={popBox.langId}
 					promotionInfo={popBox.promotionInfo}
 					clickClose={popBox.clickClose}
 					setClaimPromotion={popBox.setClaimPromotion}
+				/>
+			);
+			break;
+		}
+
+		case defPopBoxType.SuccessAngPow: {
+			const SuccessAngPow = lazy(() => import("./popBox.successAngPow"));
+
+			content = (
+				<SuccessAngPow
+					closePopBox={popBox.closePopBox}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
 				/>
 			);
 			break;

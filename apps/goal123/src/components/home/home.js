@@ -4,6 +4,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { setCookie, readCookie } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import { defBannerType } from "../../service/api/site";
 
 import edgeImg1 from "../../styles/img/EDGE1.jpg";
 import edgeImg2 from "../../styles/img/EDGE2.jpg";
@@ -23,6 +24,8 @@ import GameQuickLinks from "./gameQuickLinks";
 import SwipperBanner from "../common/swipperBanner";
 import CountDown from "./countDown";
 import PromoGameList from "./promoGameList";
+import AngpowLink from "./angpowLink";
+import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -76,13 +79,13 @@ export default () => {
 
 	return (
 		<main>
-			<SwipperBanner ImgFolder="Promotion" filterHideInHome={true} />
+			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
 			<CountDown />
 			<GameQuickLinks t={t} />
 			<PromoGameList t={t} userInfo={userInfo} />
 			<section>
-				<EventSwipper />
+				<EventSwipper langId={userInfo.langId} />
 				<News />
 				<div className="edge">
 					<div>
@@ -141,6 +144,10 @@ export default () => {
 					<img src={Bong88} alt="Bong88" />
 				</div>
 			</section>
+			<AngpowLink
+				to={`/${userInfo.langId}/${path.angpow.root}`}
+				langId={userInfo.langId}
+			/>
 		</main>
 	);
 };

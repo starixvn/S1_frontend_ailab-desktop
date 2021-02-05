@@ -11,7 +11,8 @@ export const getUrlParameter = name => {
 	}
 };
 
-export const number_format = (number, IsConvertRequired = false) => {
+// formatRequired: display with ('000)
+export const number_format = (number, formatRequired = false) => {
 	let n = number;
 	if (!isNaN(n)) {
 		n /= 1000;
@@ -25,7 +26,7 @@ export const number_format = (number, IsConvertRequired = false) => {
 	return (
 		arr[0].replace(re, "$1,") +
 		(arr.length === 2 ? `.${arr[1]}` : "") +
-		(IsConvertRequired ? " ('000)" : "")
+		(formatRequired ? " ('000)" : "")
 	);
 };
 
@@ -42,64 +43,69 @@ export const getCountryCode = currencyId => {
 	return countryCode[currencyId];
 };
 
-export const getAmountTip = (minAmount, _isConvert, i18n) => {
+export const getAmountTip = (minAmount, formatRequired, i18n) => {
 	return isNaN(minAmount)
 		? i18n("lbl_AmountTooltip")?.replace("{0}", 0)
 		: i18n("lbl_AmountTooltip")?.replace(
 				"{0}",
-				number_format(minAmount, _isConvert)
+				number_format(minAmount, formatRequired)
 		  );
 };
 
-export const checkAmount = (amount, minAmount, maxAmount, _isConvert, i18n) => {
+export const checkAmount = (
+	amount,
+	minAmount,
+	maxAmount,
+	formatRequired,
+	i18n
+) => {
 	let status = 0;
 	let msg = "";
 	if (amount !== null && amount !== undefined) {
-		let num_Amount = isNaN(amount) ? 0 : Number(amount);
-		if (_isConvert) {
-			num_Amount *= 1000;
-		}
+		const num_Amount = isNaN(amount) ? 0 : Number(amount) * 1000;
 		if (num_Amount <= 0) {
 			status = 2;
-			msg = getAmountTip(minAmount, _isConvert, i18n);
+			msg = getAmountTip(minAmount, formatRequired, i18n);
 		} else if (
 			minAmount !== 0 &&
 			maxAmount !== 0 &&
 			(num_Amount > maxAmount || num_Amount < minAmount)
 		) {
 			status = 2;
-			msg = `${number_format(num_Amount, _isConvert)} ${i18n(
+			msg = `${number_format(num_Amount, formatRequired)} ${i18n(
 				"lbl_NotinLimit"
 			)}`;
 		}
 	} else {
 		status = 3;
-		msg = getAmountTip(minAmount, _isConvert, i18n);
+		msg = getAmountTip(minAmount, formatRequired, i18n);
 	}
 
 	return { status, msg };
 };
 
-export const checkWithdrawalAmount = (amount, maxAmount, _isConvert, i18n) => {
+export const checkWithdrawalAmount = (
+	amount,
+	maxAmount,
+	formatRequired,
+	i18n
+) => {
 	let status = 0;
 	let msg = "";
 	if (amount !== null && amount !== undefined) {
-		let num_Amount = isNaN(amount) ? 0 : Number(amount);
-		if (_isConvert) {
-			num_Amount *= 1000;
-		}
+		const num_Amount = isNaN(amount) ? 0 : Number(amount) * 1000;
 		if (num_Amount <= 0) {
 			status = 2;
-			msg = getAmountTip(0, _isConvert, i18n);
+			msg = getAmountTip(0, formatRequired, i18n);
 		} else if (maxAmount !== 0 && num_Amount > maxAmount) {
 			status = 2;
-			msg = `${number_format(num_Amount, _isConvert)} ${i18n(
+			msg = `${number_format(num_Amount, formatRequired)} ${i18n(
 				"lbl_NotinLimit"
 			)}`;
 		}
 	} else {
 		status = 3;
-		msg = getAmountTip(0, _isConvert, i18n);
+		msg = getAmountTip(0, formatRequired, i18n);
 	}
 
 	return { status, msg };
@@ -182,4 +188,21 @@ export const passwordCheck = val => {
 		};
 
 	return { checked: true, message: "" };
+};
+
+export const isDateRange = (currentDate, startDate, endDate) => {
+	const now = new Date();
+	const _startDate = startDate ? new Date(`${startDate} GMT+0800`) : null; // yyyy/mm/dd hh:mm:ss
+	const _endDate = endDate ? new Date(`${endDate} GMT+0800`) : null; // yyyy/mm/dd hh:mm:ss
+
+	let result = false;
+	if (_startDate && _endDate) {
+		result = now > _startDate && now < _endDate;
+	} else if (_startDate) {
+		result = now > _startDate;
+	} else if (_endDate) {
+		result = now < _endDate;
+	}
+
+	return result;
 };

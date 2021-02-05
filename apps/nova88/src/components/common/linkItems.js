@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
@@ -23,6 +23,7 @@ export default ({
 	defMenuLinks,
 	t,
 	showSubMenu,
+	currentMenuKey,
 	langId,
 	isLogin,
 	checkMatchPage,
@@ -48,15 +49,35 @@ export default ({
 		const m = defMenuLinks[key];
 
 		let _className = m.className ? m.className : "";
-
 		if (m.isHot) {
 			_className = `${_className} hot`;
 		}
 
+		const iconList = m.eventIcons?.length > 0 ? [...m.eventIcons] : [];
+		if (m.subMenu) {
+			m.subMenu.forEach(sub => {
+				if (sub.eventIcons) {
+					for (let i = 0; i < sub.eventIcons.length; i++) {
+						if (sub.eventIcons[i] !== "") {
+							iconList.push(sub.eventIcons[i]);
+						}
+					}
+				}
+			});
+		}
+
+		let iconStrings = "";
+		if (iconList.length > 0) {
+			iconStrings = ` icon ${[...new Set(iconList)].join(" ")}`;
+		}
+
+		_className = `${_className}${
+			currentMenuKey === key ? " active" : ""
+		}${iconStrings}`;
+
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
 			: t(m.displayKey);
-		// let displayText = t(m.displayKey);
 
 		let _path = m.path;
 
@@ -72,6 +93,7 @@ export default ({
 			}
 
 			const isBlank = rule.actionType === _ACTION_TYPE.blank;
+
 			if (rule.needLogin && isLogin === false) {
 				return (
 					<button
@@ -84,7 +106,8 @@ export default ({
 					</button>
 				);
 			}
-			if (isBlank) {
+
+			if (isBlank && rule.windowKey && !m.openPopBox) {
 				return (
 					<a
 						key={key}
@@ -100,6 +123,7 @@ export default ({
 					</a>
 				);
 			}
+
 			if (!_path) {
 				return (
 					<button
@@ -111,6 +135,50 @@ export default ({
 					</button>
 				);
 			}
+
+			if (m.openPopBox) {
+				const clickClose = () => {
+					setPopBox({ isOpen: false });
+				};
+
+				const openNewWindow = () => {
+					OPEN_IN_BLANK(rule.entPageUrl, rule.windowKey);
+					clickClose();
+				};
+
+				const linkToPage = () => {
+					currentPage === `/${langId}/${_path}`
+						? clickClose()
+						: navigate(`/${langId}/${_path}`);
+				};
+
+				const showLinkOptionsPopBox = () =>
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.OneGamingLink,
+						clickClose,
+						btnBar: (
+							<div className="btnGroup">
+								<a className="blue" onClick={openNewWindow}>
+									{t("lbl_GoToGame")}
+								</a>
+								<a className="orange" onClick={linkToPage}>
+									{t("lbl_GoToDownloadApp")}
+								</a>
+							</div>
+						)
+					});
+
+				return (
+					<button
+						key={key}
+						className={_className}
+						onClick={showLinkOptionsPopBox}>
+						{displayText}
+					</button>
+				);
+			}
+
 			const _url = getUrl(`${langId}/${_path}`, m.productInfo);
 
 			_className =
@@ -146,6 +214,7 @@ export default ({
 				</Link>
 			);
 		}
+
 		return (
 			<button
 				key={key}
@@ -157,5 +226,5 @@ export default ({
 		);
 	});
 
-	return <>{rows}</>;
+	return rows;
 };

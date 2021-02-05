@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useContext, Suspense, lazy } from "react";
 import { popBoxContext } from "./context";
 import Cancel from "./popBox.cancel";
@@ -24,6 +25,8 @@ import RegisterSuccess from "./popBox.registerSuccess";
 import PromotionDepositConfirm from "./popBox.promotionDepositConfirm";
 import PromotionAmountConfirm from "./popBox.promotionAmountConfirm";
 import JoinReferral from "./popBox.joinReferral";
+import SuccessAngPow from "./popBox.successAngPow";
+import OneGamingLink from "./popBox.oneGamingLink";
 import defPopBoxType from "./defPopBoxType";
 
 export default () => {
@@ -43,16 +46,6 @@ export default () => {
 
 		case defPopBoxType.Success:
 			content = <Success btnBar={popBox.btnBar} />;
-			break;
-		case defPopBoxType.ErrorMsg:
-			content = (
-				<ErrorMsg
-					btnBar={popBox.btnBar}
-					message={popBox.message}
-					errorCode={popBox.errorCode}
-					icon={popBox.icon}
-				/>
-			);
 			break;
 
 		case defPopBoxType.ErrorMsg:
@@ -152,6 +145,7 @@ export default () => {
 				/>
 			);
 			break;
+
 		case defPopBoxType.TurnoverAccumulated:
 			content = <TurnoverAccumulated {...popBox} />;
 			break;
@@ -176,6 +170,7 @@ export default () => {
 		case defPopBoxType.PromotionAmountConfirm:
 			content = (
 				<PromotionAmountConfirm
+					currencyId={popBox.currencyId}
 					langId={popBox.langId}
 					promotionInfo={popBox.promotionInfo}
 					clickClose={popBox.clickClose}
@@ -191,9 +186,30 @@ export default () => {
 					<Kiss918 ClickClose={popBox.onClickClose} />
 				</Suspense>
 			);
+			break;
 		}
+
 		case defPopBoxType.JoinReferral:
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
+			break;
+
+		case defPopBoxType.SuccessAngPow:
+			content = (
+				<SuccessAngPow
+					closePopBox={popBox.closePopBox}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
+				/>
+			);
+			break;
+
+		case defPopBoxType.OneGamingLink:
+			content = (
+				<OneGamingLink
+					btnBar={popBox.btnBar}
+					clickClose={popBox.clickClose}
+				/>
+			);
 			break;
 
 		case defPopBoxType.default:
@@ -203,12 +219,18 @@ export default () => {
 			break;
 	}
 
-	return popBox.isOpen ? (
+	const customLayout = popBox.popBoxType === defPopBoxType.SuccessAngPow;
+
+	if (!popBox.isOpen) return null;
+
+	return customLayout ? (
+		<div id="popup" className="active">
+			{content}
+		</div>
+	) : (
 		<div id="popup" className="active">
 			<div className="pop">{content}</div>
 		</div>
-	) : (
-		<></>
 	);
 
 	// return popBox.isOpen ? (
