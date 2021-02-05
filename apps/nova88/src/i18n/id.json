@@ -531,6 +531,8 @@
 	"lbl_Vip_Minimum_Deposit_Within_Validity_Period": "DEPOSIT MINIMUM DALAM PERIODE VALIDITAS",
 	"lbl_Vip_Minimum_Turnover_Within_Validity_Period": "TURNOVER MINIMUM DALAM PERIODE VALIDITAS",
 	"lbl_Vip_Ranking_Validity_Membership_renewal": "PERINGKAT PEMBARUAN KEANGGOTAAN VALIDITAS",
+	"lbl_Vip_Accumulated_Deposit_Within_3_Months": "AKUMULASI DEPOSIT DALAM 3 BULAN",
+	"lbl_Vip_Accumulated_Turnover_Within_3_Months": "AKUMULASI TURNOVER DALAM 3 BULAN",
 	"lbl_Vip_Status1": "Ditunda",
 	"lbl_Vip_Tier": "Tingkat",
 	"lbl_Vip_High": "Tinggi",

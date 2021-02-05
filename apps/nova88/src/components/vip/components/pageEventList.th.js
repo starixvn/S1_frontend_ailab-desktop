@@ -70,7 +70,7 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 						<i className="icon icon-checkmark" />
 					</td>
 				</tr>
-				<tr>
+				{/* <tr>
 					<td>{t("lbl_Vip_Unlimited_Withdrawal_amount")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
@@ -78,7 +78,7 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td>{t("lbl_Vip_Status1")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
-				</tr>
+				</tr> */}
 				<tr className="title">
 					<td className="icon icon-nova88">
 						{t("lbl_Vip_Exclusive_Bonus")}{" "}
@@ -183,7 +183,7 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td>{number_format(800000, isConvert)}</td>
 					<td>{number_format(2800000, isConvert)}</td>
 					<td>{number_format(4800000, isConvert)}</td>
-					<td>{number_format(7800000, isConvert)}</td>
+					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 				<tr className="title">
 					<td className="icon icon-nova88">
@@ -198,19 +198,19 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td>{t("lbl_Vip_Accumulated_Deposit_Within_3_Months")}</td>
 					<td />
 					<td />
-					<td>{number_format(380000, isConvert)}</td>
+					<td>{number_format(400000, isConvert)}</td>
 					<td>{number_format(1300000, isConvert)}</td>
 					<td>{number_format(2300000, isConvert)}</td>
-					<td>{number_format(3800000, isConvert)}</td>
+					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Accumulated_Turnover_Within_3_Months")}</td>
 					<td />
 					<td />
-					<td>{number_format(3800000, isConvert)}</td>
+					<td>{number_format(4000000, isConvert)}</td>
 					<td>{number_format(13000000, isConvert)}</td>
 					<td>{number_format(23000000, isConvert)}</td>
-					<td>{number_format(38000000, isConvert)}</td>
+					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 				<tr className="lastTd">
 					<td>{t("lbl_Vip_Ranking_Validity_Membership_renewal")}</td>

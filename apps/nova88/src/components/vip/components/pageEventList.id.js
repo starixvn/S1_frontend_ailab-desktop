@@ -70,7 +70,7 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 						<i className="icon icon-checkmark" />
 					</td>
 				</tr>
-				<tr>
+				{/* <tr>
 					<td>{t("lbl_Vip_Unlimited_Withdrawal_amount")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
@@ -78,7 +78,7 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 					<td>{t("lbl_Vip_Status1")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
-				</tr>
+				</tr> */}
 				<tr className="title">
 					<td className="icon icon-nova88">
 						{t("lbl_Vip_Exclusive_Bonus")}{" "}
@@ -179,7 +179,7 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 				<tr>
 					<td>{t("lbl_Vip_Monthly_Minimum_Deposit")}</td>
 					<td />
-					<td>{number_format(25000000, isConvert)}</td>
+					<td>{number_format(30000000, isConvert)}</td>
 					<td>{number_format(100000000, isConvert)}</td>
 					<td>{number_format(250000000, isConvert)}</td>
 					<td>{number_format(500000000, isConvert)}</td>
