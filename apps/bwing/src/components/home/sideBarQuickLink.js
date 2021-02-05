@@ -8,7 +8,7 @@ export default () => {
 	const [active, setActive] = useState(false);
 
 	const activeToggleHandler = () => {
-		setActive(!active);
+		setActive(prev=> !prev);
 	};
 
 	const openLiveChat = () => {
