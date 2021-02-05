@@ -7,10 +7,11 @@ import {
 	api_site_GetBannerV3,
 	defBannerActionMode
 } from "../../service/api/site";
-import { userInfoContext, navContext, defNavPanel } from "./context";
+import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import productList, { defCasinoProviders } from "../../datas/productList";
+import { defPopBoxType } from "./popBox";
 
 const NeedLoginRoute = [];
 
@@ -22,11 +23,14 @@ export const ClickLink = ({
 	bannerLink,
 	lang,
 	isLogin,
-	setNav,
+	setPopBox,
 	openInBlank
 }) => {
 	const HandleLogin = () => {
-		setNav(defNavPanel.login);
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Login
+		});
 	};
 
 	if (actionMode === defBannerActionMode.OpenWindow) {
@@ -110,7 +114,7 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 const Panel = ({ ImgFolder, openInBlank }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
-	const { setNav } = useContext(navContext);
+	const { setPopBox } = useContext(popBoxContext);
 
 	const rows = banner?.map((b, bIdx) => {
 		let redirectLink = null;
@@ -148,7 +152,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 					...b,
 					isLogin: userInfo.isLogin,
 					lang: userInfo.langId,
-					setNav,
+					setPopBox,
 					openInBlank
 				})}>
 				<img
