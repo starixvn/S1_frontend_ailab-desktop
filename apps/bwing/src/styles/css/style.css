@@ -1247,6 +1247,7 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
 }
 
 .newyear .money {
+  position: relative;
   width: 300px;
   height: 150px;
   cursor: pointer;
@@ -2208,46 +2209,138 @@ main > .swiper-container .swiper-slide {
 
 .quickLink {
   position: fixed;
-  top: 25%;
-  z-index: 2;
+  left: 0px;
+  top: 15%;
+  z-index: 3;
+  width: 215px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-transform: translateX(-77%);
+          transform: translateX(-77%);
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  padding-right: 10px;
+}
+
+.quickLink > div:nth-child(1) {
   background: #00b9ff;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  padding: 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 10px 10px;
+  -webkit-box-flex: 0.5;
+      -ms-flex: 0.5;
+          flex: 0.5;
+  height: 200px;
+  border-radius: 0 10px 10px 0;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.quickLink > div:nth-child(1) .icon-chat {
+  background: white;
+  color: #1e85ec;
+  font-weight: bold;
+  position: absolute;
+  width: 43px;
+  height: 43px;
+  left: 0;
+  font-size: 18px;
+  z-index: 1;
+  top: 0;
+  border-radius: 0 10px 0 0;
+}
+
+.quickLink > div:nth-child(1) i {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  width: 200px;
+  height: 43px;
+  letter-spacing: 1px;
+}
+
+.quickLink > div:nth-child(1) i::before {
+  margin-right: 5px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
   font-size: 18px;
-  font-weight: bold;
-  width: 40px;
-  height: 200px;
+}
+
+.quickLink > div:nth-child(2) {
+  background: #fff;
+  -webkit-box-flex: 3.5;
+      -ms-flex: 3.5;
+          flex: 3.5;
+  padding: 5px 10px;
+  border-radius: 0 0 10px 0;
+}
+
+.quickLink > div:nth-child(2) ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  height: 100%;
 }
 
-.quickLink span {
-  -webkit-transform: translateY(10px) rotate(-90deg);
-          transform: translateY(10px) rotate(-90deg);
-  width: 175px;
+.quickLink > div:nth-child(2) ul li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  color: #666;
+  margin: 5px 0;
 }
 
-.quickLink img {
-  width: 25px;
-  height: 25px;
+.quickLink > div:nth-child(2) ul li .icon {
+  color: #333;
+  vertical-align: middle;
+}
+
+.quickLink > div:nth-child(2) ul li .icon::before {
+  font-size: 18px;
+  color: #00b9ff;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.quickLink.active {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
 }
 
 .rightModule {
@@ -7976,160 +8069,160 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 39.80821%;
-  top: -40.61694%;
+  left: 30.2132%;
+  top: 1.96004%;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 18.13022%;
-  top: -3.79242%;
+  left: 45.24124%;
+  top: -77.65594%;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 96.63955%;
-  top: -3.38926%;
+  left: 34.8377%;
+  top: -28.42028%;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 65.63639%;
-  top: -2.57049%;
+  left: 34.26158%;
+  top: 7.818%;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 91.11574%;
-  top: 4.17391%;
+  left: 60.96573%;
+  top: -13.58889%;
   -webkit-animation-delay: -5s;
           animation-delay: -5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 93.27935%;
-  top: -15.87659%;
+  left: 54.76982%;
+  top: -67.46555%;
   -webkit-animation-delay: -6s;
           animation-delay: -6s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 56.45773%;
-  top: -9.20578%;
+  left: 6.49195%;
+  top: -58.51671%;
   -webkit-animation-delay: -7s;
           animation-delay: -7s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 16.51196%;
-  top: -7.0638%;
+  left: 88.25914%;
+  top: 3.52918%;
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
 }
 
 [class^="star"].star9 {
   position: absolute;
-  left: 53.68755%;
-  top: -62.19629%;
+  left: 17.60546%;
+  top: 3.47241%;
   -webkit-animation-delay: -9s;
           animation-delay: -9s;
 }
 
 [class^="star"].star10 {
   position: absolute;
-  left: 77.85016%;
-  top: -23.74964%;
+  left: 11.28559%;
+  top: -28.64999%;
   -webkit-animation-delay: -10s;
           animation-delay: -10s;
 }
 
 [class^="star"].star11 {
   position: absolute;
-  left: 42.61815%;
-  top: -28.07926%;
+  left: 19.6913%;
+  top: -6.42967%;
   -webkit-animation-delay: -11s;
           animation-delay: -11s;
 }
 
 [class^="star"].star12 {
   position: absolute;
-  left: 82.55259%;
-  top: -85.95585%;
+  left: 22.10435%;
+  top: -1.09096%;
   -webkit-animation-delay: -12s;
           animation-delay: -12s;
 }
 
 [class^="star"].star13 {
   position: absolute;
-  left: 30.73133%;
-  top: -3.49612%;
+  left: 27.44497%;
+  top: -54.84117%;
   -webkit-animation-delay: -13s;
           animation-delay: -13s;
 }
 
 [class^="star"].star14 {
   position: absolute;
-  left: 8.76685%;
-  top: -47.27554%;
+  left: 98.53548%;
+  top: 0.68656%;
   -webkit-animation-delay: -14s;
           animation-delay: -14s;
 }
 
 [class^="star"].star15 {
   position: absolute;
-  left: 73.13384%;
-  top: -33.7078%;
+  left: 19.22681%;
+  top: -66.40115%;
   -webkit-animation-delay: -15s;
           animation-delay: -15s;
 }
 
 [class^="star"].star16 {
   position: absolute;
-  left: 68.80474%;
-  top: -74.95049%;
+  left: 83.67695%;
+  top: -80.68633%;
   -webkit-animation-delay: -16s;
           animation-delay: -16s;
 }
 
 [class^="star"].star17 {
   position: absolute;
-  left: 96.03874%;
-  top: -47.17206%;
+  left: 25.99374%;
+  top: -8.2202%;
   -webkit-animation-delay: -17s;
           animation-delay: -17s;
 }
 
 [class^="star"].star18 {
   position: absolute;
-  left: 58.48175%;
-  top: -66.56453%;
+  left: 26.95021%;
+  top: -6.32021%;
   -webkit-animation-delay: -18s;
           animation-delay: -18s;
 }
 
 [class^="star"].star19 {
   position: absolute;
-  left: 65.48773%;
-  top: -48.79213%;
+  left: 18.14553%;
+  top: -43.42663%;
   -webkit-animation-delay: -19s;
           animation-delay: -19s;
 }
 
 [class^="star"].star20 {
   position: absolute;
-  left: 26.59364%;
-  top: -49.55971%;
+  left: 90.89723%;
+  top: -82.29927%;
   -webkit-animation-delay: -20s;
           animation-delay: -20s;
 }

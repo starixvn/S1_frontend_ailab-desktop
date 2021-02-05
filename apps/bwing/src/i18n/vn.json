@@ -40,6 +40,10 @@
 	"lbl_Twitter": "Twitter",
 	"lbl_YouTube": "YouTube",
 	"lbl_TikTok": "TikTok",
+	"lbl_LiveChat": "Live Chat",
+	"lbl_Skype": "Skype",
+	"lbl_Telegram": "Telegram",
+	"lbl_ZALO": "Zalo",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_SiteNews": "Điểm báo Bwing",
@@ -477,5 +481,22 @@
 	"lbl_total": "Toàn bộ",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_TraditionalLottery": "Xổ Số Truyền thống"
+	"lbl_TraditionalLottery": "Xổ Số Truyền thống",
+	"lbl_AngPow_Congratulations": "Xin chúc mừng!",
+	"lbl_AngPow_CreditedAccount1": "Xin chúc mừng, tiền lì xì",
+	"lbl_AngPow_CreditedAccount2": "đã được ghi có vào ví của bạn!",
+	"lbl_AngPow_Conditions": "Điều Khoản & Điều Kiện",
+	"lbl_AngPow_EventTitle": "Cơn Mưa Lì Xì Đầu Năm",
+	"lbl_AngPow_MemberEligibility": "Có ít nhất 1 lệnh gửi tiền và 1 đơn cược đã được thanh toán trước đó",
+	"lbl_AngPow_OtherConditions1": "1. Thành viên có thể tham gia hàng ngày cho đến khi chương trình khuyến mãi kết thúc.",
+	"lbl_AngPow_OtherConditions2": "2. Mỗi thành viên chỉ có thể tham gia một lần mỗi ngày.",
+	"lbl_AngPow_MyAngPow": "Lộc Lì Xì đã trúng",
+	"lbl_AngPow_OtherConditions": "Điều kiện khác",
+	"lbl_Next":"Tiếp theo",
+	"lbl_AngPow_Awards":"Giải thưởng",
+	"lbl_Start":"Bắt đầu",
+	"lbl_End":"Kết thúc",
+	"lbl_AngPow_AlreadyDrawn":"Bạn đã nhận lì xì cho ngày hôm nay, vui lòng thử lại vào ngày mai!",
+	"lbl_AngPow_NotWinning":"Rất tiếc ! Đã hết lì xì cho ngày hôm nay. Vui lòng quay lại vào ngày mai!",
+	"lbl_FreeAngPow":"Lắc Lì Xì"
 }

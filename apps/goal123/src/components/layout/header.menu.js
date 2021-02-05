@@ -40,6 +40,10 @@ export default class Panel extends Component {
 		this.setState({ menuKey: col });
 	};
 
+	closeSubMenu = () => {
+		this.setState({ menuKey: "" });
+	};
+
 	render() {
 		let subItems = null;
 		let mainUrl = "";
@@ -60,18 +64,21 @@ export default class Panel extends Component {
 		return (
 			<div className="menu">
 				<MainMenu showSubMenu={this.showSubMenu} />
-				{subItems ? (
-					<div className="subMenu-Wrapper active" ref={this.wrapper}>
+				<div
+					className={`subMenu-Wrapper${subItems ? " active" : ""}`}
+					ref={this.wrapper}
+					onClick={this.closeSubMenu}>
+					{subItems ? (
 						<SubMenu
-							MenuKey={this.state.menuKey}
+							menuKey={this.state.menuKey}
 							listClassName={
 								defSubListClassName[this.state.menuKey]
 							}
 							mainUrl={mainUrl}
 							subItems={subItems}
 						/>
-					</div>
-				) : null}
+					) : null}
+				</div>
 			</div>
 		);
 	}

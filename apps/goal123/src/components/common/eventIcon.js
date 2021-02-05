@@ -4,9 +4,10 @@ export const defEventIcon = {
 };
 
 export const defEventPeriod = {
-	referral: { end: "2021/02/18 00:00:00" },
-	icg: { end: "2021/02/18 00:00:00" },
-	cq9: { end: "2021/03/06 00:00:00" }
+	cq9: { end: "2021/03/06 00:00:00" },
+	referral: { end: "2021/02/05 11:00:00" },
+	icg: { end: "2021/02/05 11:00:00" },
+	one789: { end: "2021/01/22 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

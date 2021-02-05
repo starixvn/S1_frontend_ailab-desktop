@@ -124,6 +124,9 @@ export default {
 	referralHistory: {
 		root: "referralHistory"
 	},
+	angpow: {
+		root: "angPow"
+	},
 	oneGame: {
 		root: "oneGame"
 	}
