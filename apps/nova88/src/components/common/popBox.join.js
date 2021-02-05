@@ -29,11 +29,9 @@ import { Iov_GetBlackBox } from "./iovation";
 
 import { initValue, initTip, currencyToAreacode } from "./join.data";
 
-const defaultLangId = GET_LANG_ID();
-
 export default () => {
 	const { t } = useTranslation();
-	const { setUserInfo } = useContext(userInfoContext);
+	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [userValue, setUserValue] = useState(initValue);
 	const [tip, setTip] = useState(initTip);
@@ -43,6 +41,8 @@ export default () => {
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
+
+	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 
 	useEffect(() => {
 		isMountedRef.current = true;
