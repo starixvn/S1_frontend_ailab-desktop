@@ -30,6 +30,7 @@ export const defMenuLinks = langId => {
 		// },
 		games: {
 			displayKey: "lbl_Games",
+			className: "game icon icon-new",
 			subMenu: [
 				{
 					...productList.sabaClub,
@@ -38,6 +39,18 @@ export const defMenuLinks = langId => {
 					displayKey: "lbl_SabaClub",
 					menuType: defMenuType.LinkOrBtn,
 					parameter: { ...productList.sabaClub }
+				},
+				{
+					...productList.V8_Poker,
+					className: "v8",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.v8Poker
+						})
+					],
+					displayKey: "lbl_V8Poker",
+					menuType: defMenuType.entPage
 				},
 				// {
 				// 	...productList.fishing,
@@ -237,6 +250,72 @@ export const defMenuLinks = langId => {
 			productInfo: productList.fishing,
 			displayKey: "lbl_Fishing",
 			subMenu: [
+				{
+					...productList.CQ9_Paradise,
+					className: "paradise",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.cq9
+						})
+					],
+					displayKey: "lbl_Paradise",
+					menuType: defMenuType.entPage,
+					parameter: { ...productList.CQ9_Paradise }
+				},
+				// {
+				// 	...productList.CQ9_LuckyFishing,
+				// 	className: "luckyfishing",
+				// 	eventIcons: [
+				// 		showEventIcon({
+				// 			icon: defEventIcon.new,
+				// 			period: defEventPeriod.cq9
+				// 		})
+				// 	],
+				// 	displayKey: "lbl_Lucky_Fishing",
+				// 	menuType: defMenuType.entPage,
+				// 	parameter: { ...productList.CQ9_Lucky_Fishing }
+				// },
+				{
+					...productList.CQ9_Oneshot_Fishing,
+					className: "oneshotfishing",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.cq9
+						})
+					],
+					displayKey: "lbl_Oneshot_Fishing",
+					menuType: defMenuType.entPage,
+					parameter: { ...productList.CQ9_Oneshot_Fishing }
+				},
+				// {
+				// 	...productList.CQ9_Water_Margin_Fishing,
+				// 	className: "watermarginfishing",
+				// 	eventIcons: [
+				// 		showEventIcon({
+				// 			icon: defEventIcon.new,
+				// 			period: defEventPeriod.cq9
+				// 		})
+				// 	],
+				// 	displayKey: "lbl_Water_Margin_Fishing",
+				// 	menuType: defMenuType.entPage,
+				// 	parameter: { ...productList.CQ9_Water_Margin_Fishing }
+				// },
+				// {
+				// 	...productList.CQ9_Thunder_Fighter,
+				// 	className: "thunderfighter",
+				// 	eventIcons: [
+				// 		showEventIcon({
+				// 			icon: defEventIcon.new,
+				// 			period: defEventPeriod.cq9
+				// 		})
+				// 	],
+				// 	displayKey: "lbl_Thunder_Fighter",
+				// 	menuType: defMenuType.entPage,
+				// 	parameter: { ...productList.CQ9_Thunder_Fighter }
+				// },
+
 				{
 					...productList.ICG_DRAGONBALL_FISHING,
 					className: "fdb",
