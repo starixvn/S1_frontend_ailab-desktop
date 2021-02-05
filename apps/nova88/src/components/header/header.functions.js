@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
@@ -27,15 +27,12 @@ export default () => {
 	);
 };
 
-const BeforeLogin = () => {
+const BeforeLogin = ({ langId }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 
 	const clickJoin = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.Join
-		});
+		navigate(`/${langId}/${path.join.root}`);
 	};
 
 	const clickLogin = () => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import loginBanner from "../../styles/img/loginBanner.jpg";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
@@ -165,10 +165,8 @@ const LoginPanel = () => {
 	};
 
 	const openJoin = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.Join
-		});
+		navigate(`/${userInfo.langId}/${path.join.root}`);
+		setPopBox({ isOpen: false });
 	};
 
 	return (
