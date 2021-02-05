@@ -6,6 +6,7 @@ import SEO from "../seo";
 import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext } from "./context";
+import SideBarQuickLink from "../home/sideBarQuickLink";
 
 const Layout = ({ children, showFooter = false }) => {
 	const { loading } = useContext(loadingContext);
@@ -16,6 +17,7 @@ const Layout = ({ children, showFooter = false }) => {
 			<Header />
 			{children}
 			{showFooter ? <Footer /> : null}
+			<SideBarQuickLink />
 			<PopBox />
 			{loading ? <Loading /> : null}
 		</>
