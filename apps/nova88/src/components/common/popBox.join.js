@@ -29,11 +29,9 @@ import { Iov_GetBlackBox } from "./iovation";
 
 import { initValue, initTip, currencyToAreacode } from "./join.data";
 
-const defaultLangId = GET_LANG_ID();
-
 export default () => {
 	const { t } = useTranslation();
-	const { setUserInfo } = useContext(userInfoContext);
+	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [userValue, setUserValue] = useState(initValue);
 	const [tip, setTip] = useState(initTip);
@@ -43,6 +41,8 @@ export default () => {
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
+
+	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -227,6 +227,9 @@ export default () => {
 			const result = await phoneCheck(val);
 			checked = result.checked;
 			msg = result.msg;
+		} else {
+			checked = null;
+			msg = "";
 		}
 
 		setTip(prev => {
@@ -234,7 +237,7 @@ export default () => {
 				...prev,
 				[col]: {
 					checked,
-					msg: t(msg)
+					msg: msg ? t(msg) : ""
 				}
 			};
 		});
@@ -474,7 +477,8 @@ export default () => {
 				PhoneNo: userValue.phone,
 				CurrencyId: _currencyId,
 				UserLang: defaultLangId,
-				AreaCode: _areaCode
+				AreaCode: _areaCode,
+				PromoCode: userValue.specialBonusCode
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -569,6 +573,16 @@ export default () => {
 								return {
 									...prev,
 									password: {
+										checked: false,
+										msg: message
+									}
+								};
+							});
+						} else if (errorCode === -7) {
+							setTip(prev => {
+								return {
+									...prev,
+									specialBonusCode: {
 										checked: false,
 										msg: message
 									}
@@ -748,9 +762,20 @@ export default () => {
 								onChange={EditField.bind(null, "phone")}
 								onBlur={checkValue.bind(null, "phone")}
 							/>
-						) : (
-							<></>
-						)}
+						) : null}
+
+						<Inputbox
+							className={`inputBox-org${
+								tip.specialBonusCode.msg !== "" ? " error" : ""
+							}`}
+							icon="icon-promotion txt-orange"
+							placeholder={t("lbl_JoinPromoCode")}
+							value={userValue.specialBonusCode}
+							onChange={EditField.bind(null, "specialBonusCode")}
+							onBlur={checkValue.bind(null, "specialBonusCode")}
+							tip={tip.specialBonusCode.msg}
+							checked={tip.specialBonusCode.checked}
+						/>
 
 						<Inputbox
 							className="inputBox-org"
