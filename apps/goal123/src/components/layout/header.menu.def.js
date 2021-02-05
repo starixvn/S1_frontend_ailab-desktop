@@ -42,7 +42,13 @@ export const defMenuLinks = langId => {
 				},
 				{
 					...productList.V8_Poker,
-					className: "v8 icon icon-new",
+					className: "v8",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.v8Poker
+						})
+					],
 					displayKey: "lbl_V8Poker",
 					menuType: defMenuType.entPage
 				},

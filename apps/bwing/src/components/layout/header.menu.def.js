@@ -57,7 +57,12 @@ export const defMenuLinks = {
 			{
 				...productList.V8_Poker,
 				className: "v8",
-				isNew: true,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.v8Poker
+					})
+				],
 				displayKey: "lbl_V8Poker",
 				menuType: defMenuType.entPage
 			},
