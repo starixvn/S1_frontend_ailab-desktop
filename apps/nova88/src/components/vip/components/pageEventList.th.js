@@ -181,8 +181,8 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td />
 					<td>{number_format(300000, isConvert)}</td>
 					<td>{number_format(800000, isConvert)}</td>
-					<td>{number_format(2800000, isConvert)}</td>
-					<td>{number_format(4800000, isConvert)}</td>
+					<td>{number_format(2500000, isConvert)}</td>
+					<td>{number_format(4500000, isConvert)}</td>
 					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 				<tr className="title">
@@ -195,7 +195,9 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td colSpan="6">{t("lbl_Vip_Tier")}</td>
 				</tr>
 				<tr>
-					<td>{t("lbl_Vip_Accumulated_Deposit_Within_3_Months")}</td>
+					<td>
+						{t("lbl_Vip_Minimum_Deposit_Within_Validity_Period")}
+					</td>
 					<td />
 					<td />
 					<td>{number_format(400000, isConvert)}</td>
@@ -204,7 +206,9 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 				<tr>
-					<td>{t("lbl_Vip_Accumulated_Turnover_Within_3_Months")}</td>
+					<td>
+						{t("lbl_Vip_Minimum_Turnover_Within_Validity_Period")}
+					</td>
 					<td />
 					<td />
 					<td>{number_format(4000000, isConvert)}</td>

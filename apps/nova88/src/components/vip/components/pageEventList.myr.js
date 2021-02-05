@@ -221,7 +221,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 					<td>3 {t("lbl_Vip_Months")}</td>
 					<td>3 {t("lbl_Vip_Months")}</td>
 					<td>3 {t("lbl_Vip_Months")}</td>
-					<td>3 {t("lbl_Vip_Months")}</td>
+					<td>{t("lbl_Vip_Invisible")}</td>
 				</tr>
 			</tbody>
 		</table>
