@@ -30,9 +30,7 @@ export default () => {
 		<Wrapper>
 			<Layout>
 				<main className="joinlogin">
-					{/* <section> */}
 					<Content />
-					{/* </section> */}
 				</main>
 			</Layout>
 		</Wrapper>

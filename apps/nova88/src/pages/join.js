@@ -39,7 +39,7 @@ export default () => {
 	return (
 		<Wrapper>
 			<Layout>
-				<main className="joinlogin">
+				<main>
 					<Content />
 				</main>
 			</Layout>
@@ -648,7 +648,7 @@ const Content = () => {
 		return <Redirect to={`/${userInfo.langId}`} noThrow />;
 
 	return (
-		<div className="joinpop active">
+		<div className="joinpop">
 			<div className="joinloginModule">
 				<div className="joinAnimation">
 					<img
