@@ -368,7 +368,6 @@ const Content = () => {
 														.langId
 												)
 											};
-											navigate(`/${userInfo.langId}`);
 										} else {
 											setPopBox({
 												isOpen: true,
