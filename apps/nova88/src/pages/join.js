@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { navigate, Redirect } from "@reach/router";
+import { navigate, Redirect, Link } from "@reach/router";
+import path from "../router";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import {
@@ -96,7 +97,7 @@ const Content = () => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -146,7 +147,7 @@ const Content = () => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -528,7 +529,7 @@ const Content = () => {
 												..._user,
 												...res_custInfo.data.data
 											};
-											navigate(`/${userInfo.langId}`);
+											showRegisterSuccess();
 										} else {
 											setPopBox({
 												isOpen: true,
@@ -550,10 +551,10 @@ const Content = () => {
 											});
 										}
 										setUserInfo(_user);
-										setPopBox({ isOpen: false });
+										// setPopBox({ isOpen: false });
 									}
 								},
-								err => {
+								() => {
 									if (isMountedRef.current) {
 										setPopBox({
 											isOpen: true,
@@ -615,7 +616,7 @@ const Content = () => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -637,6 +638,30 @@ const Content = () => {
 		}
 	};
 
+	const showRegisterSuccess = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.RegisterSuccess,
+			closeBtn: (
+				<button className="icon icon-close" onClick={clickCancel} />
+			),
+			btnBar: (
+				<div className="btnGroup">
+					<Link
+						className="blue"
+						to={`/${userInfo.langId}/${path.deposit.root}`}>
+						{t("lbl_DepositNow")}
+					</Link>
+					<Link
+						className="btn-check"
+						to={`/${userInfo.langId}/${path.profile.root}`}>
+						{t("lbl_UpdatePersonalDetail")}
+					</Link>
+				</div>
+			)
+		});
+	};
+
 	const openLogin = () => {
 		setPopBox({
 			isOpen: true,
@@ -644,7 +669,7 @@ const Content = () => {
 		});
 	};
 
-	if (userInfo.isLogin)
+	if (userInfo.isLogin && !userInfo.isJoin)
 		return <Redirect to={`/${userInfo.langId}`} noThrow />;
 
 	return (

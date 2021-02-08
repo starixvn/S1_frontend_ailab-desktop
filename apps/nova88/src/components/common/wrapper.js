@@ -176,38 +176,38 @@ export default ({ children, afterLogin = false }) => {
 		}
 	}, [currentPath, i18n.language, userInfo.langId, userInfo.isLogin]);
 
-	useEffect(() => {
-		if (userInfo.isLogin && userInfo.isJoin) {
-			const clickClose = () => {
-				setPopBox({ isOpen: false });
-				setUserInfo(prev => ({ ...prev, isJoin: false }));
-			};
+	// useEffect(() => {
+	// 	if (userInfo.isLogin && userInfo.isJoin) {
+	// 		const clickClose = () => {
+	// 			setPopBox({ isOpen: false });
+	// 			setUserInfo(prev => ({ ...prev, isJoin: false }));
+	// 		};
 
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.RegisterSuccess,
-				closeBtn: (
-					<button className="icon icon-close" onClick={clickClose} />
-				),
-				btnBar: (
-					<div className="btnGroup">
-						<Link
-							className="blue"
-							onClick={clickClose}
-							to={`/${userInfo.langId}/${path.deposit.root}`}>
-							{t("lbl_DepositNow")}
-						</Link>
-						<Link
-							className="btn-check"
-							onClick={clickClose}
-							to={`/${userInfo.langId}/${path.profile.root}`}>
-							{t("lbl_UpdatePersonalDetail")}
-						</Link>
-					</div>
-				)
-			});
-		}
-	}, [userInfo.isLogin, userInfo.isJoin, t]);
+	// 		setPopBox({
+	// 			isOpen: true,
+	// 			popBoxType: defPopBoxType.RegisterSuccess,
+	// 			closeBtn: (
+	// 				<button className="icon icon-close" onClick={clickClose} />
+	// 			),
+	// 			btnBar: (
+	// 				<div className="btnGroup">
+	// 					<Link
+	// 						className="blue"
+	// 						onClick={clickClose}
+	// 						to={`/${userInfo.langId}/${path.deposit.root}`}>
+	// 						{t("lbl_DepositNow")}
+	// 					</Link>
+	// 					<Link
+	// 						className="btn-check"
+	// 						onClick={clickClose}
+	// 						to={`/${userInfo.langId}/${path.profile.root}`}>
+	// 						{t("lbl_UpdatePersonalDetail")}
+	// 					</Link>
+	// 				</div>
+	// 			)
+	// 		});
+	// 	}
+	// }, [userInfo.isLogin, userInfo.isJoin, t]);
 
 	useEffect(() => {
 		const AffId = getUrlParameter("AffId");
