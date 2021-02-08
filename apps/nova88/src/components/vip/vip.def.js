@@ -28,32 +28,32 @@ export const defbanner = [
 export const defPageClubImg = [
 	{
 		url: "https://image.n88media.com/VIP/img/vip01.png",
-		displayKey: "VINTAGE CLUB",
+		displayKey: "lbl_Vintage_Club",
 		alt: "vip01"
 	},
 	{
 		url: "https://image.n88media.com/VIP/img/vip02.png",
-		displayKey: "SILVER CLUB",
+		displayKey: "lbl_Silver_Club",
 		alt: "vip02"
 	},
 	{
 		url: "https://image.n88media.com/VIP/img/vip03.png",
-		displayKey: "GOLD CLUB",
+		displayKey: "lbl_Gold_Club",
 		alt: "vip03"
 	},
 	{
 		url: "https://image.n88media.com/VIP/img/vip04.png",
-		displayKey: "TITANIUM CLUB",
+		displayKey: "lbl_Titanium_Club",
 		alt: "vip04"
 	},
 	{
 		url: "https://image.n88media.com/VIP/img/vip05.png",
-		displayKey: "DIAMOND CLUB",
+		displayKey: "lbl_Diamond_Club",
 		alt: "vip05"
 	},
 	{
 		url: "https://image.n88media.com/VIP/img/vip06.png",
-		displayKey: "NOVA CLUB",
+		displayKey: "lbl_Nova_Club",
 		alt: "vip06"
 	}
 ];

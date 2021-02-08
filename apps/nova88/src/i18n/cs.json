@@ -540,10 +540,16 @@
 	"lbl_Vip_Accumulated_Deposit_Within_3_Months": "三个月内累计存款",
 	"lbl_Vip_Accumulated_Turnover_Within_3_Months": "三个月内的累计有效投注",
 	"lbl_Vip_Status1": "待定",
-	"lbl_Vip_Tier": "层级",
+	"lbl_Vip_Tier": "阶级",
 	"lbl_Vip_High": "高",
-	"lbl_Vip_Months": "月",
+	"lbl_Vip_3Months": "三个月",
 	"lbl_Vip_Lifetime": "终身",
-	"lbl_Vip_Normal": "普通",
-	"lbl_Vip_Invisible": "隐藏"
+	"lbl_Vip_Normal": "普通会员",
+	"lbl_Vip_ByInvitation": "邀请",
+	"lbl_Vintage_Club": "古铜俱乐部",
+	"lbl_Silver_Club": "白银俱乐部",
+	"lbl_Gold_Club": "黄金俱乐部",
+	"lbl_Titanium_Club": "钛金俱乐部",
+	"lbl_Diamond_Club": "钻石俱乐部",
+	"lbl_Nova_Club": "欧亚俱乐部"
 }

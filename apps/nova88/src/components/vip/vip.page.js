@@ -6,7 +6,7 @@ import PageEventListMyr from "./components/pageEventList.myr";
 import PageEventListTh from "./components/pageEventList.th";
 import PageEventListId from "./components/pageEventList.id";
 
-const VipPage = ({ pageClubImg, currencyId }) => {
+const VipPage = ({ pageClubImg, currencyId, t }) => {
 	return (
 		<div className="vipPage">
 			<table className="medal">
@@ -16,7 +16,8 @@ const VipPage = ({ pageClubImg, currencyId }) => {
 						{pageClubImg.map(item => (
 							<td key={`${item.displayKey}-${item.alt}`}>
 								<img src={item.url} alt={item.alt} />
-								{item.displayKey}
+
+								{t(item.displayKey)}
 							</td>
 						))}
 					</tr>

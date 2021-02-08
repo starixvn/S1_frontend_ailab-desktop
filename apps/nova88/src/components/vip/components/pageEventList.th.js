@@ -95,7 +95,7 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td>{number_format(2500, isConvert)}</td>
 					<td>{number_format(5000, isConvert)}</td>
 					<td>{number_format(10000, isConvert)}</td>
-					<td>{t("lbl_Vip_Invisible")}</td>
+					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 
 				<tr className="title">
@@ -183,7 +183,7 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td>{number_format(800000, isConvert)}</td>
 					<td>{number_format(2500000, isConvert)}</td>
 					<td>{number_format(4500000, isConvert)}</td>
-					<td>{t("lbl_Vip_Invisible")}</td>
+					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr className="title">
 					<td className="icon icon-nova88">
@@ -203,7 +203,7 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td>{number_format(400000, isConvert)}</td>
 					<td>{number_format(1300000, isConvert)}</td>
 					<td>{number_format(2300000, isConvert)}</td>
-					<td>{t("lbl_Vip_Invisible")}</td>
+					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr>
 					<td>
@@ -214,16 +214,16 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 					<td>{number_format(4000000, isConvert)}</td>
 					<td>{number_format(13000000, isConvert)}</td>
 					<td>{number_format(23000000, isConvert)}</td>
-					<td>{t("lbl_Vip_Invisible")}</td>
+					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr className="lastTd">
 					<td>{t("lbl_Vip_Ranking_Validity_Membership_renewal")}</td>
 					<td>{t("lbl_Vip_Normal")}</td>
 					<td>{t("lbl_Vip_Lifetime")}</td>
-					<td>3 {t("lbl_Vip_Months")}</td>
-					<td>3 {t("lbl_Vip_Months")}</td>
-					<td>3 {t("lbl_Vip_Months")}</td>
-					<td>3 {t("lbl_Vip_Months")}</td>
+					<td>{t("lbl_Vip_3Months")}</td>
+					<td>{t("lbl_Vip_3Months")}</td>
+					<td>{t("lbl_Vip_3Months")}</td>
+					<td>{t("lbl_Vip_3Months")}</td>
 				</tr>
 			</tbody>
 		</table>
