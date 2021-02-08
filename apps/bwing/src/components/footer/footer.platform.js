@@ -83,6 +83,10 @@ const defPlatfrom = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.ICG.name },
 		imgName: "icg"
+	},
+	{
+		...productList.V8_Poker,
+		imgName: "v8"
 	}
 ];
 
