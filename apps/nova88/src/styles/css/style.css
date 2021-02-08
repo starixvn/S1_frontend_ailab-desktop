@@ -7372,13 +7372,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -8476,80 +8470,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 15.53415%;
-  top: -13.72881%;
-  width: 6.44063px;
-  height: 6.44063px;
+  left: 75.94312%;
+  top: -52.24665%;
+  width: 6.88553px;
+  height: 6.88553px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 60.3539%;
-  top: 12.39607%;
-  width: 9.36967px;
-  height: 9.36967px;
+  left: 65.26823%;
+  top: -52.96348%;
+  width: 13.45053px;
+  height: 13.45053px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 13.25232%;
-  top: -12.49377%;
-  width: 6.70414px;
-  height: 6.70414px;
+  left: 23.41784%;
+  top: -11.5948%;
+  width: 9.46447px;
+  height: 9.46447px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 25.93596%;
-  top: -53.40811%;
-  width: 10.1134px;
-  height: 10.1134px;
+  left: 97.20678%;
+  top: 34.09027%;
+  width: 5.17222px;
+  height: 5.17222px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 1.99337%;
-  top: 38.66521%;
-  width: 6.50886px;
-  height: 6.50886px;
+  left: 27.68613%;
+  top: -22.4704%;
+  width: 11.41418px;
+  height: 11.41418px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 67.89593%;
-  top: 30.28116%;
-  width: 14.31757px;
-  height: 14.31757px;
+  left: 42.74938%;
+  top: 1.35583%;
+  width: 9.72274px;
+  height: 9.72274px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 60.23331%;
-  top: -0.58496%;
-  width: 6.16643px;
-  height: 6.16643px;
+  left: 28.17998%;
+  top: 23.18528%;
+  width: 7.26628px;
+  height: 7.26628px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 20.22208%;
-  top: 0.64391%;
-  width: 7.77004px;
-  height: 7.77004px;
+  left: 78.4445%;
+  top: -16.55566%;
+  width: 12.03884px;
+  height: 12.03884px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9346,5 +9340,34 @@ canvas {
 .vip .medal tr td img {
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
+}
+
+.vipLv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 700px;
+  margin: 60px auto 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.vipLv img {
+  width: 100px;
+}
+
+.vipLv > div {
+  margin-top: 15px;
+  background: #1E85EC;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 /*# sourceMappingURL=style.css.map */
