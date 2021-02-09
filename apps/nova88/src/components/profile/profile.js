@@ -441,7 +441,9 @@ export default () => {
 		) : null;
 	});
 
-	const vipClubImg = defPageClubImg[userInfo.userLevel - 1];
+	const vipClubImg = userInfo.userLevel
+		? defPageClubImg[userInfo.userLevel - 1]
+		: {};
 
 	return loading ? (
 		<Loading />
@@ -452,10 +454,12 @@ export default () => {
 				<div>{t("lbl_ProfileModifyWarning")}</div>
 			</div>
 
-			<div className="vipLv">
-				<img src={vipClubImg.url} alt={vipClubImg.alt} />
-				<div>{t(vipClubImg.displayKey)}</div>
-			</div>
+			{userInfo?.userLevel ? (
+				<div className="vipLv">
+					<img src={vipClubImg.url} alt={vipClubImg.alt} />
+					<div>{t(vipClubImg.displayKey)}</div>
+				</div>
+			) : null}
 
 			{userInfo.accountName && userInfo.birth_d && userInfo.phoneNo ? (
 				<div className="profile">{arr}</div>
