@@ -16,7 +16,7 @@ const Vip = () => {
 
 	return (
 		<main className="vip">
-			<VipSwipper banner={defbanner} />
+			<VipSwipper banner={defbanner(userInfo.langId)} />
 			<VipPage
 				pageClubImg={defPageClubImg}
 				t={t}

@@ -1,26 +1,26 @@
-export const defbanner = [
+export const defbanner = langId => [
 	{
-		url: "https://image.n88media.com/VIP/img/en/vip_1.png",
+		url: `https://image.n88media.com/VIP/img/${langId}/vip_1.png`,
 		alt: "vip_1"
 	},
 	{
-		url: "https://image.n88media.com/VIP/img/en/vip_2.png",
+		url: `https://image.n88media.com/VIP/img/${langId}/vip_2.png`,
 		alt: "vip_2"
 	},
 	{
-		url: "https://image.n88media.com/VIP/img/en/vip_3.png",
+		url: `https://image.n88media.com/VIP/img/${langId}/vip_3.png`,
 		alt: "vip_3"
 	},
 	{
-		url: "https://image.n88media.com/VIP/img/en/vip_4.png",
+		url: `https://image.n88media.com/VIP/img/${langId}/vip_4.png`,
 		alt: "vip_4"
 	},
 	{
-		url: "https://image.n88media.com/VIP/img/en/vip_5.png",
+		url: `https://image.n88media.com/VIP/img/${langId}/vip_5.png`,
 		alt: "vip_5"
 	},
 	{
-		url: "https://image.n88media.com/VIP/img/en/vip_6.png",
+		url: `https://image.n88media.com/VIP/img/${langId}/vip_6.png`,
 		alt: "vip_6"
 	}
 ];
