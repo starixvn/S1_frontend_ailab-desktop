@@ -454,7 +454,7 @@ export default () => {
 
 			<div className="vipLv">
 				<img src={vipClubImg.url} alt={vipClubImg.alt} />
-				<div>{vipClubImg.displayKey}</div>
+				<div>{t(vipClubImg.displayKey)}</div>
 			</div>
 
 			{userInfo.accountName && userInfo.birth_d && userInfo.phoneNo ? (
