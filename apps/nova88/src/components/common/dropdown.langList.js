@@ -57,7 +57,7 @@ export class Dropdown extends Component {
 			this.setState({ isOpen: false });
 			if (this.props.isLogin) {
 				try {
-					api_account_SetLanguage(value);
+					await api_account_SetLanguage(value);
 				} catch (error) {}
 			}
 
