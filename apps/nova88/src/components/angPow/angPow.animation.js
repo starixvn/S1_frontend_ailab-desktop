@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import usePopBox from "../hook/usePopBox";
 import defPopBoxType from "../common/defPopBoxType";
+import imgTextID from "../../styles/img/event/text_id.png";
+import imgTextEN from "../../styles/img/event/text_en.png";
 
 import { defDrawPrizeStatus } from "./angPow.def";
 
@@ -99,13 +101,7 @@ const AngPowAnimation = ({
 		};
 	}, [drawPrize.errorCode, _isJoin, _drawOut, checkDrawPrize]);
 
-	let eventTextImg = "";
-	if (langId === "id") {
-		eventTextImg = "../../styles/img/event/text_id.png";
-	} else {
-		eventTextImg = "../../styles/img/event/text_en.png";
-	}
-
+	const eventTextImg = langId === "id" ? imgTextID : imgTextEN;
 	return (
 		<div className="animation" onClick={onPostDrawPrize}>
 			<div className={`angpao${angpowActive ? " active" : ""}`}>
