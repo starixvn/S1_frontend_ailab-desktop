@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
 import { api_account_SetLanguage } from "../../service/api/account";
 import { getNewLanguagePath, setCookie } from "./common";
-import { GET_LANG_ID } from "../../service/language";
 
 const defLangDisplayText = {
 	vn: "Tiếng Việt",

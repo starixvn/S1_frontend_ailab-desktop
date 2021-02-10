@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import usePopBox from "../hook/usePopBox";
 import { defPopBoxType } from "../common/defPopBoxType";
-
 import { defDrawPrizeStatus } from "./angPow.def";
+import imgBgVN from "../../styles/img/eventpage/bg_vn.png";
+import imgBgEN from "../../styles/img/eventpage/bg_en.png";
 
 const getDiffTime = () => {
 	const eventTime = moment().set({ hour: 23, minute: 59, second: 59 }).unix();
@@ -97,13 +98,8 @@ const AngPowAnimation = ({
 		};
 	}, [drawPrize.errorCode, _isJoin, _drawOut, checkDrawPrize]);
 
-	let eventTextImg = "";
+	const eventTextImg = langId === "vn" ? imgBgVN : imgBgEN;
 
-	if (langId === "vn") {
-		eventTextImg = "../../styles/img/eventpage/bg_vn.png";
-	} else {
-		eventTextImg = "../../styles/img/eventpage/bg_en.png";
-	}
 	return (
 		<div className="eventTopPage">
 			<img src={eventTextImg} className="eventBg" alt="eventBg" />

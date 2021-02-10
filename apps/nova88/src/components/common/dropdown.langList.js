@@ -55,7 +55,7 @@ export class Dropdown extends Component {
 		if (value !== this.props.selectedValue) {
 			if (this.props.isLogin) {
 				try {
-					api_account_SetLanguage(value);
+					await api_account_SetLanguage(value);
 				} catch (error) {}
 			}
 
