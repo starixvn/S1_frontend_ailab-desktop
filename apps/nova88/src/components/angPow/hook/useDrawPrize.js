@@ -88,7 +88,15 @@ const useDrawPrize = ({ isMountedRef }) => {
 					} else if (errorCode === defDrawPrizeStatus.drawOut) {
 						errorPopBox(t("lbl_AngPow_NotWinning"), errorCode);
 					} else if (errorCode === defDrawPrizeStatus.notEligible) {
-						errorPopBox(message || "error", errorCode);
+						errorPopBox(
+							message || `[${errorCode}] error`,
+							errorCode
+						);
+					} else {
+						errorPopBox(
+							message || `[${errorCode}] error`,
+							errorCode
+						);
 					}
 				},
 				() => {

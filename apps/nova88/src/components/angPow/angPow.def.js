@@ -9,3 +9,5 @@ export const eventPeriod = {
 	startDate: "2021/02/11 00:00:00",
 	endDate: "2021/02/26 23:59:59"
 };
+
+export const defEventId = 1;
