@@ -191,10 +191,6 @@ export default {
 		tpId: 24,
 		gameId: "cmf0003"
 	},
-	ICG_TOWER_OF_SAVIORS: {
-		tpId: 24,
-		gameId: "cmt0001"
-	},
 	poker: {
 		tpId: 13
 	},

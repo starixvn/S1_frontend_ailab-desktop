@@ -362,19 +362,6 @@ export const defMenuLinks = {
 				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS }
 			},
 			{
-				...productList.ICG_TOWER_OF_SAVIORS,
-				className: "fstos",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_TOWER_OF_SAVIORS",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.ICG_TOWER_OF_SAVIORS }
-			},
-			{
 				...productList.fishing,
 				className: "fgg",
 				displayKey: "lbl_FishingGG",
