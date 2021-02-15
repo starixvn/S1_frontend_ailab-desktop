@@ -79,12 +79,12 @@ const defGameList = [
 		tpId: 1,
 		gameId: 43
 	},
-	{
-		img: require("../../styles/img/GameList9.png"),
-		displayKey: "lbl_FishingGG",
-		tpId: 7,
-		gameId: 10
-	},
+	// {
+	// 	img: require("../../styles/img/GameList9.png"),
+	// 	displayKey: "lbl_FishingGG",
+	// 	tpId: 7,
+	// 	gameId: 10
+	// },
 	{
 		...productList.virtualSports,
 		img: require("../../styles/img/GameList10.png"),
