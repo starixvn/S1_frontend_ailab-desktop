@@ -374,7 +374,7 @@ export const defMenuLinks = {
 		]
 	},
 	fishing: {
-		productInfo: productList.fishing,
+		// productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
 		className: "fishbtn",
 		subMenu: [

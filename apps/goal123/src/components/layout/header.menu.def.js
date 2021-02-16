@@ -247,7 +247,7 @@ export const defMenuLinks = langId => {
 			]
 		},
 		fishing: {
-			productInfo: productList.fishing,
+			// productInfo: productList.fishing,
 			displayKey: "lbl_Fishing",
 			subMenu: [
 				{
