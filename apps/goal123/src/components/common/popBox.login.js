@@ -23,7 +23,7 @@ const LoginPanel = () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const [userValue, setUserValue] = useState(initValue);
-	const { setPopBox } = useContext(popBoxContext);
+	const { popBox, setPopBox } = useContext(popBoxContext);
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const isMountedRef = useRef(null);
@@ -164,9 +164,11 @@ const LoginPanel = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const openJoin = () => {
+	const clickJoin = () => {
 		navigate(`/${userInfo.langId}/${path.join.root}`);
-		setPopBox({ isOpen: false });
+		if (popBox.isOpen) {
+			setPopBox({ isOpen: false });
+		}
 	};
 
 	return (
@@ -180,7 +182,7 @@ const LoginPanel = () => {
 						<button
 							className="txt-blue2"
 							type="button"
-							onClick={openJoin}>
+							onClick={clickJoin}>
 							{t("lbl_JoinNow")}
 						</button>
 					</div>
