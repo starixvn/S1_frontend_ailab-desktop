@@ -36,7 +36,7 @@ export default () => {
 			</div>
 			<div>
 				<ul>
-					<li className="icon icon-skype" onClick={openLiveChat}>
+					<li className="icon icon-chat" onClick={openLiveChat}>
 						<a>Live Chat</a>
 					</li>
 					{/* <li className="icon icon-instagram">

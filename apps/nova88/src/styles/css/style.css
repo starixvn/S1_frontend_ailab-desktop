@@ -2718,6 +2718,7 @@ input[type="file"] {
           flex: 3.5;
   padding: 5px 10px;
   border-bottom-left-radius: 10px;
+  pointer-events: all;
 }
 
 .quickLink > div:nth-child(2) ul {
@@ -8470,80 +8471,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 15.53415%;
-  top: -13.72881%;
-  width: 6.44063px;
-  height: 6.44063px;
+  left: 20.11011%;
+  top: -17.60656%;
+  width: 10.95768px;
+  height: 10.95768px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 60.3539%;
-  top: 12.39607%;
-  width: 9.36967px;
-  height: 9.36967px;
+  left: 83.6031%;
+  top: 19.77698%;
+  width: 14.84044px;
+  height: 14.84044px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 13.25232%;
-  top: -12.49377%;
-  width: 6.70414px;
-  height: 6.70414px;
+  left: 74.58963%;
+  top: -26.5787%;
+  width: 13.26475px;
+  height: 13.26475px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 25.93596%;
-  top: -53.40811%;
-  width: 10.1134px;
-  height: 10.1134px;
+  left: 68.82242%;
+  top: -19.35732%;
+  width: 11.11524px;
+  height: 11.11524px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 1.99337%;
-  top: 38.66521%;
-  width: 6.50886px;
-  height: 6.50886px;
+  left: 80.21805%;
+  top: 34.70779%;
+  width: 7.6378px;
+  height: 7.6378px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 67.89593%;
-  top: 30.28116%;
-  width: 14.31757px;
-  height: 14.31757px;
+  left: 51.16947%;
+  top: -52.49832%;
+  width: 7.78525px;
+  height: 7.78525px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 60.23331%;
-  top: -0.58496%;
-  width: 6.16643px;
-  height: 6.16643px;
+  left: 10.21493%;
+  top: -31.0546%;
+  width: 11.50375px;
+  height: 11.50375px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 20.22208%;
-  top: 0.64391%;
-  width: 7.77004px;
-  height: 7.77004px;
+  left: 2.22658%;
+  top: -30.41654%;
+  width: 11.66633px;
+  height: 11.66633px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9340,5 +9341,35 @@ canvas {
 .vip .medal tr td img {
   -webkit-transform: scale(0.8);
           transform: scale(0.8);
+}
+
+.vipLv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 700px;
+  margin: 60px auto 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
+}
+
+.vipLv img {
+  width: 100px;
+}
+
+.vipLv > div {
+  margin-top: 15px;
+  background: #1E85EC;
+  padding: 5px 10px;
+  border-radius: 15px;
 }
 /*# sourceMappingURL=style.css.map */
