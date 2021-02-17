@@ -374,7 +374,7 @@ export const defMenuLinks = {
 		]
 	},
 	fishing: {
-		productInfo: productList.fishing,
+		// productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
 		className: "fishbtn",
 		subMenu: [
@@ -500,30 +500,15 @@ export const defMenuLinks = {
 					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
 				}
 			},
-			{
-				...productList.ICG_TOWER_OF_SAVIORS,
-				className: "fstos",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_TOWER_OF_SAVIORS",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishICG-TOS.png",
-				listBgImgUrl: "fishListHover.png",
-				parameter: { ...productList.ICG_TOWER_OF_SAVIORS }
-			},
-			{
-				...productList.fishing,
-				className: "fgg",
-				displayKey: "lbl_FishingGG",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishGG.png",
-				listBgImgUrl: "fishListHover.png",
-				parameter: { ...productList.fishing }
-			},
+			// {
+			// 	...productList.fishing,
+			// 	className: "fgg",
+			// 	displayKey: "lbl_FishingGG",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishGG.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	parameter: { ...productList.fishing }
+			// },
 			{
 				...productList.fishing_SG,
 				className: "fsg",
