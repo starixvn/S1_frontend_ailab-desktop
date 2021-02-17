@@ -43,7 +43,7 @@ export default class Panel extends Component {
 	showSubMenu = col => {
 		const timerId = setTimeout(() => {
 			this.setState({ menuKey: col });
-		}, 300);
+		}, 350);
 
 		this.setState({ timerId });
 	};
