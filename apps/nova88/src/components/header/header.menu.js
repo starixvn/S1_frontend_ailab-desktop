@@ -5,7 +5,7 @@ import MainMenu from "./header.menu.main";
 export default class Panel extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { menuKey: "" };
+		this.state = { menuKey: "", timerId: null };
 		this.wrapper = createRef(null);
 	}
 
@@ -29,18 +29,31 @@ export default class Panel extends Component {
 		}
 	}
 
+	componentWillUnmount() {
+		this.clearTimer();
+	}
+
 	handleMoveToOutside = e => {
+		this.clearTimer();
 		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
-			this.setState({ menuKey: "" });
+			this.setState({ menuKey: "", timerId: null });
 		}
 	};
 
 	showSubMenu = col => {
-		this.setState({ menuKey: col });
+		const timerId = setTimeout(() => {
+			this.setState({ menuKey: col });
+		}, 300);
+
+		this.setState({ timerId });
 	};
 
 	closeSubMenu = () => {
 		this.setState({ menuKey: "" });
+	};
+
+	clearTimer = () => {
+		clearTimeout(this.state.timerId);
 	};
 
 	render() {
