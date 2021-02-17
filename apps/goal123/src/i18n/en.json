@@ -184,6 +184,7 @@
 	"lbl_PromotionRebateAndCashback": "Rebate / Cashback",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_NoData": "No information is available now.",
 	"msg_ApiServerError": "Oops! Something wrong, please try again.",
 	"msg_NoData": "No Data",
 	"lbl_Cancel": "Cancel",
