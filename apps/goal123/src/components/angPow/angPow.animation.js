@@ -6,6 +6,8 @@ import moment from "moment";
 import { defPopBoxType } from "../common/popBox";
 import { defDrawPrizeStatus } from "./angPow.def";
 import { popBoxContext } from "../common/context";
+import imgWordVN from "../../styles/img/event/word_vn.png";
+import imgWordEN from "../../styles/img/event/word_en.png";
 
 const getDiffTime = () => {
 	const eventTime = moment().set({ hour: 23, minute: 59, second: 59 }).unix();
@@ -92,12 +94,7 @@ const AngPowAnimation = ({
 		};
 	}, [drawPrize.errorCode, _isJoin, _drawOut, checkDrawPrize]);
 
-	let eventTextImg = "";
-	if (langId === "vn") {
-		eventTextImg = "../../styles/img/event/word_vn.png";
-	} else {
-		eventTextImg = "../../styles/img/event/word_en.png";
-	}
+	const eventTextImg = langId === "vn" ? imgWordVN : imgWordEN;
 
 	return (
 		<div className="animation" onClick={onPostDrawPrize}>

@@ -32,7 +32,7 @@ export default ({ children, afterLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: GET_LANG_ID(readCookie("goalLangId"))
+		langId: readCookie("goalLangId") ?? "vn"
 	});
 
 	const [currentPath] = useState(
