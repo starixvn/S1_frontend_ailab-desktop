@@ -101,12 +101,7 @@ export default {
 	ICG_THE_TYRANT_AND_THE_PRINCESS: {
 		gameId: "cmf0003",
 		tpId: 24,
-		name: "ICG_TOWER_OF_SAVIORS"
-	},
-	ICG_TOWER_OF_SAVIORS: {
-		gameId: "cmt0001",
-		tpId: 24,
-		name: "cockFighting"
+		name: "ICG_THE_TYRANT_AND_THE_PRINCESS"
 	},
 	V8_Poker: {
 		tpId: 25,

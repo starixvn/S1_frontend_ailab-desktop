@@ -1,8 +1,8 @@
 import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
+import { navigate } from "@reach/router";
 import { api_account_SetLanguage } from "../../service/api/account";
-import { getNewLanguagePath, setCookie, readCookie } from "./common";
-import { GET_LANG_ID } from "../../service/language";
+import { getNewLanguagePath, setCookie } from "./common";
 
 const defLangDisplayText = {
 	vn: "Tiếng Việt",
@@ -43,22 +43,21 @@ export class Dropdown extends Component {
 	clickDropdown = e => {
 		e.preventDefault();
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
-		if (this.props.clickDropdown) {
-			this.props.clickDropdown();
-		}
 	};
 
-	selectItem = async (value, newPath, e) => {
+	selectItem = (value, newPath, e) => {
 		e.stopPropagation();
 		this.setState({ isOpen: false });
-		if (this.props.isLogin) {
-			try {
-				api_account_SetLanguage(value);
-			} catch (error) {}
-		}
+		if (value !== this.props.selectedValue) {
+			if (this.props.isLogin) {
+				try {
+					api_account_SetLanguage(value);
+				} catch (error) {}
+			}
 
-		window.location.href = newPath;
-		setCookie("goalLangId", GET_LANG_ID(value));
+			navigate(newPath);
+			setCookie("goalLangId", value);
+		}
 	};
 
 	render() {

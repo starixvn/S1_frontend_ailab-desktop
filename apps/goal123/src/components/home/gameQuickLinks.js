@@ -56,12 +56,12 @@ export const defSportsQuickLinks = {
 		path: path.sports.root,
 		className: "icon icon-virtual-sports",
 		displayKey: "lbl_VirtualSports"
-	},
-	fishing: {
-		productInfo: productList.fishing,
-		className: "icon icon-game",
-		displayKey: "lbl_Fishing"
 	}
+	// fishing: {
+	// 	productInfo: productList.fishing,
+	// 	className: "icon icon-game",
+	// 	displayKey: "lbl_Fishing"
+	// }
 };
 
 export default ({ t }) => {

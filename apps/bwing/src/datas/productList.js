@@ -59,11 +59,6 @@ export default {
 		tpId: 24,
 		name: "ICG_THE_TYRANT_AND_THE_PRINCESS"
 	},
-	ICG_TOWER_OF_SAVIORS: {
-		gameId: "cmt0001",
-		tpId: 24,
-		name: "ICG_TOWER_OF_SAVIORS"
-	},
 	cockFighting: {
 		tpId: 17,
 		name: "cockFighting"
