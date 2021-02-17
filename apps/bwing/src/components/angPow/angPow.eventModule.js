@@ -27,10 +27,10 @@ const AngPowEventModule = ({
 						<div>
 							{`${t("lbl_Start")}: ${
 								eventPeriod.startDate
-							} GMT${moment().format("Z")}`}
+							} GMT+07:00`}
 							{` ${t("lbl_End")}: ${
 								eventPeriod.endDate
-							} GMT${moment().format("Z")}`}
+							} GMT+07:00`}
 						</div>
 						<div>{t("lbl_AngPow_MemberEligibility")}</div>
 						<div className="eventInfo">

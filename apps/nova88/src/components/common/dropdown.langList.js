@@ -1,5 +1,6 @@
 import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
+import { navigate } from "@reach/router";
 import { api_account_SetLanguage } from "../../service/api/account";
 import { setCookie } from "./common";
 import { SiteInfo } from "../../config";
@@ -46,22 +47,19 @@ export class Dropdown extends Component {
 	clickDropdown = e => {
 		e.preventDefault();
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
-		if (this.props.clickDropdown) {
-			this.props.clickDropdown();
-		}
 	};
 
-	selectItem = async (value, newPath, e) => {
+	selectItem = (value, newPath, e) => {
 		e.stopPropagation();
+		this.setState({ isOpen: false });
 		if (value !== this.props.selectedValue) {
-			this.setState({ isOpen: false });
 			if (this.props.isLogin) {
 				try {
 					api_account_SetLanguage(value);
 				} catch (error) {}
 			}
 
-			window.location.href = newPath;
+			navigate(newPath);
 			setCookie(SiteInfo.langCookie, value);
 		}
 	};
