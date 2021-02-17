@@ -1387,7 +1387,6 @@ footer::before {
   position: absolute;
   top: -60px;
   left: 10px;
-  background: url(../img/footerItem.png) no-repeat center/cover;
   width: 250px;
   height: 250px;
   pointer-events: none;
