@@ -669,8 +669,9 @@ const Content = () => {
 		});
 	};
 
-	if (userInfo.isLogin && !userInfo.isJoin)
+	if (userInfo.isLogin && !userInfo.isJoin) {
 		return <Redirect to={`/${userInfo.langId}`} noThrow />;
+	}
 
 	return (
 		<div className="joinpop">
