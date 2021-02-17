@@ -183,6 +183,7 @@
 	"lbl_PromotionRebateAndCashback": "Hoàn trả / Hoàn lại tiền",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_NoData": "Không có dữ liệu",
 	"msg_ApiServerError": "Rất tiếc! Đã xảy ra lỗi, vui lòng thử lại.",
 	"msg_NoData": "Không có dữ liệu",
 	"lbl_Cancel": "Hủy",
