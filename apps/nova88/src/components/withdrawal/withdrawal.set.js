@@ -27,30 +27,24 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 		GetCustBankInfo();
 	}, [state.balanceData]);
 
-	useEffect(() => {
-		selectPrevAccount();
-	}, [state.prevWithdrawAccNo]);
+	const GetCustBankInfo = () => {
+		const ClosePopBox = () => {
+			setPopBox({ isOpen: false });
+		};
 
-	const selectPrevAccount = () => {
-		if (state.prevWithdrawAccNo) {
-			const defAccountInfo = state.custBankInfo.filter(
-				card => card.accountNo === state.prevWithdrawAccNo
+		const selectPrevAccount = (_defAccountNo, _bankInfoDetail) => {
+			const _preAccInfo = _bankInfoDetail.filter(
+				card => card.accountNo === _defAccountNo
 			)[0];
 			dispatch({
 				type: defActionType.SELECT_ACCOUNT,
 				selectedAccount: {
-					bankName: defAccountInfo.bankName,
-					accountNo: defAccountInfo.accountNo,
-					sysId: defAccountInfo.sysId
+					bankName: _preAccInfo.bankName,
+					accountNo: _preAccInfo.accountNo,
+					sysId: _preAccInfo.sysId
 				},
 				step: state.amount ? 3 : 2
 			});
-		}
-	};
-
-	const GetCustBankInfo = () => {
-		const ClosePopBox = () => {
-			setPopBox({ isOpen: false });
 		};
 
 		api_account_GetCustBankInfo().then(
@@ -60,13 +54,20 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 						const datas = res.data.data;
 						const _custBankInfo =
 							datas === null ? [] : datas.bankInfoDetail;
-						const _prevWithdrawAccNo =
-							datas === null ? null : datas.defAccountNo;
+
 						dispatch({
 							type: defActionType.GET_CUST_BANKINFO,
-							custBankInfo: _custBankInfo,
-							prevWithdrawAccNo: _prevWithdrawAccNo
+							custBankInfo: _custBankInfo
 						});
+						if (
+							datas.bankInfoDetail?.length > 0 &&
+							datas.defAccountNo
+						) {
+							selectPrevAccount(
+								datas.defAccountNo,
+								datas.bankInfoDetail
+							);
+						}
 					} else {
 						setPopBox({
 							isOpen: true,
@@ -89,7 +90,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 					});
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
