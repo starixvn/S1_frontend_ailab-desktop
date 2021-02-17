@@ -2658,6 +2658,7 @@ input[type="file"] {
   transition: 0.7s;
   padding-right: 10px;
   pointer-events: none;
+  cursor: pointer;
 }
 
 .quickLink > div:nth-child(1) {
@@ -2679,7 +2680,6 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  cursor: pointer;
   pointer-events: all;
 }
 
@@ -3418,9 +3418,9 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .inside-title.icon:before {
@@ -4468,7 +4468,7 @@ input[type="file"] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 30px 70px 0;
+  padding: 15px 70px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -5339,6 +5339,38 @@ input[type="file"] {
 
 .haveBank > div.addBankName:hover {
   border-color: #f77900;
+}
+
+.haveBank > div.addBankName:hover .cryptoInfo .icon-bin, .haveBank > div.addBankName:hover .cryptoInfo .icon-BTC {
+  color: white;
+}
+
+.haveBank > div.addBankName .cryptoInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.haveBank > div.addBankName .cryptoInfo .icon-BTC {
+  font-size: 24px;
+}
+
+.haveBank > div.addBankName .cryptoInfo .icon-bin {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  position: static;
+  color: #666;
+}
+
+.haveBank > div.addBankName .cryptoInfo div {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  word-break: break-all;
+  margin: 0 10px;
 }
 
 .accountName {
@@ -8471,80 +8503,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 20.11011%;
-  top: -17.60656%;
-  width: 10.95768px;
-  height: 10.95768px;
+  left: 8.17768%;
+  top: 18.80916%;
+  width: 10.90258px;
+  height: 10.90258px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 83.6031%;
-  top: 19.77698%;
-  width: 14.84044px;
-  height: 14.84044px;
+  left: 18.85715%;
+  top: 10.78089%;
+  width: 12.80276px;
+  height: 12.80276px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 74.58963%;
-  top: -26.5787%;
-  width: 13.26475px;
-  height: 13.26475px;
+  left: 96.94798%;
+  top: -56.40634%;
+  width: 7.5007px;
+  height: 7.5007px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 68.82242%;
-  top: -19.35732%;
-  width: 11.11524px;
-  height: 11.11524px;
+  left: 72.76345%;
+  top: 13.3698%;
+  width: 6.52517px;
+  height: 6.52517px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 80.21805%;
-  top: 34.70779%;
-  width: 7.6378px;
-  height: 7.6378px;
+  left: 35.95641%;
+  top: 1.43882%;
+  width: 7.32222px;
+  height: 7.32222px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 51.16947%;
-  top: -52.49832%;
-  width: 7.78525px;
-  height: 7.78525px;
+  left: 41.25295%;
+  top: -57.30986%;
+  width: 6.10219px;
+  height: 6.10219px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 10.21493%;
-  top: -31.0546%;
-  width: 11.50375px;
-  height: 11.50375px;
+  left: 87.04742%;
+  top: -23.26932%;
+  width: 10.36014px;
+  height: 10.36014px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 2.22658%;
-  top: -30.41654%;
-  width: 11.66633px;
-  height: 11.66633px;
+  left: 93.73798%;
+  top: 12.61248%;
+  width: 6.24737px;
+  height: 6.24737px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
