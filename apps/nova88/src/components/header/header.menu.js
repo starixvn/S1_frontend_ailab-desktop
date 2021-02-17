@@ -5,8 +5,9 @@ import MainMenu from "./header.menu.main";
 export default class Panel extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { menuKey: "", timerId: null };
+		this.state = { menuKey: "" };
 		this.wrapper = createRef(null);
+		this.timerId = null;
 	}
 
 	UNSAFE_componentWillMount() {
@@ -35,17 +36,17 @@ export default class Panel extends Component {
 
 	handleMoveToOutside = e => {
 		this.clearTimer();
+
 		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
-			this.setState({ menuKey: "", timerId: null });
+			this.setState({ menuKey: "" });
+			this.timerId = null;
 		}
 	};
 
 	showSubMenu = col => {
-		const timerId = setTimeout(() => {
+		this.timerId = setTimeout(() => {
 			this.setState({ menuKey: col });
 		}, 350);
-
-		this.setState({ timerId });
 	};
 
 	closeSubMenu = () => {
@@ -53,7 +54,7 @@ export default class Panel extends Component {
 	};
 
 	clearTimer = () => {
-		clearTimeout(this.state.timerId);
+		clearTimeout(this.timerId);
 	};
 
 	render() {
