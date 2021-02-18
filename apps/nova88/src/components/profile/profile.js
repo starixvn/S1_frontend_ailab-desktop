@@ -15,6 +15,7 @@ import EditModule from "./profile.edit";
 import { getUrlParameter } from "../common/common";
 import { defPrevPage } from "./profile.dev";
 import Loading from "../common/loading";
+import { defPageClubImg } from "../vip/vip.def";
 import { api_site_GetCountryList } from "../../service/api/site";
 
 export default () => {
@@ -440,6 +441,10 @@ export default () => {
 		) : null;
 	});
 
+	const vipClubImg = userInfo.userLevel
+		? defPageClubImg[userInfo.userLevel - 1]
+		: {};
+
 	return loading ? (
 		<Loading />
 	) : (
@@ -448,6 +453,15 @@ export default () => {
 				<span>{t("lbl_Profile")}</span>
 				<div>{t("lbl_ProfileModifyWarning")}</div>
 			</div>
+
+			{userInfo?.userLevel ? (
+				<div className="vipLv">
+					<div className="vipbg">
+						<img src={vipClubImg.url} alt={vipClubImg.alt} />
+					</div>
+					<div>{t(vipClubImg.displayKey)}</div>
+				</div>
+			) : null}
 
 			{userInfo.accountName && userInfo.birth_d && userInfo.phoneNo ? (
 				<div className="profile">{arr}</div>

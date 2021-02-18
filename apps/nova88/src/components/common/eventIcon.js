@@ -7,7 +7,8 @@ export const defEventPeriod = {
 	oneGaming: { end: "2021/03/03 11:00:00" },
 	cq9: { end: "2021/03/06 00:00:00" },
 	referral: { end: "2021/02/05 11:00:00" },
-	icg: { end: "2021/02/05 11:00:00" }
+	icg: { end: "2021/02/05 11:00:00" },
+	vip: { start: "2021/02/05 12:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {
