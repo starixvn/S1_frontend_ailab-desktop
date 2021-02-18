@@ -529,7 +529,6 @@ const Content = () => {
 												..._user,
 												...res_custInfo.data.data
 											};
-											showRegisterSuccess();
 										} else {
 											setPopBox({
 												isOpen: true,
@@ -551,7 +550,6 @@ const Content = () => {
 											});
 										}
 										setUserInfo(_user);
-										// setPopBox({ isOpen: false });
 									}
 								},
 								() => {
@@ -638,30 +636,6 @@ const Content = () => {
 		}
 	};
 
-	const showRegisterSuccess = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.RegisterSuccess,
-			closeBtn: (
-				<button className="icon icon-close" onClick={clickCancel} />
-			),
-			btnBar: (
-				<div className="btnGroup">
-					<Link
-						className="blue"
-						to={`/${userInfo.langId}/${path.deposit.root}`}>
-						{t("lbl_DepositNow")}
-					</Link>
-					<Link
-						className="btn-check"
-						to={`/${userInfo.langId}/${path.profile.root}`}>
-						{t("lbl_UpdatePersonalDetail")}
-					</Link>
-				</div>
-			)
-		});
-	};
-
 	const openLogin = () => {
 		setPopBox({
 			isOpen: true,
@@ -669,8 +643,14 @@ const Content = () => {
 		});
 	};
 
-	if (userInfo.isLogin && !userInfo.isJoin) {
-		return <Redirect to={`/${userInfo.langId}`} noThrow />;
+	if (userInfo.isLogin) {
+		if (userInfo.isJoin) {
+			navigate(`/${userInfo.langId}`, {
+				state: { isJoin: true }
+			});
+		} else {
+			navigate(`/${userInfo.langId}`);
+		}
 	}
 
 	return (
