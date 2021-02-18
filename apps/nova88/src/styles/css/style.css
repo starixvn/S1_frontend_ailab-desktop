@@ -2263,6 +2263,12 @@ footer {
   opacity: 0;
 }
 
+.inputBox .iconModule, .inputBox-org .iconModule, .inputBox-white .iconModule, .inputBox-blue .iconModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .inputBox .iconModule .icon:before, .inputBox-org .iconModule .icon:before, .inputBox-white .iconModule .icon:before, .inputBox-blue .iconModule .icon:before {
   font-weight: normal;
 }
@@ -4472,6 +4478,9 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .walletModule > .walletType {
@@ -4650,13 +4659,17 @@ input[type="file"] {
   background: #1E85EC;
 }
 
-.addBank .addBankName:hover .addBankInfo div, .addBank .addBankName:hover .addBankInfo button {
+.addBank .addBankName:hover .addBankInfo div, .addBank .addBankName:hover .addBankInfo button, .addBank .addBankName:hover .cryptoInfo div, .addBank .addBankName:hover .cryptoInfo button {
   color: white;
 }
 
-.addBank .addBankName:hover .addBankInfo div.checkbox label, .addBank .addBankName:hover .addBankInfo button.checkbox label {
+.addBank .addBankName:hover .addBankInfo div.checkbox label, .addBank .addBankName:hover .addBankInfo button.checkbox label, .addBank .addBankName:hover .cryptoInfo div.checkbox label, .addBank .addBankName:hover .cryptoInfo button.checkbox label {
   color: white;
   border-color: white;
+}
+
+.addBank .addBankName:hover .addBankInfo .icon-BTC, .addBank .addBankName:hover .cryptoInfo .icon-BTC {
+  color: white;
 }
 
 .addBank .addBankName.noBank {
@@ -4673,11 +4686,15 @@ input[type="file"] {
   min-height: 55px;
 }
 
+.addBank .addBankName.noBank .icon-warning {
+  font-size: 24px;
+}
+
 .addBank .addBankName.noBank:hover .icon {
   color: white;
 }
 
-.addBank .addBankName .addBankInfo {
+.addBank .addBankName .addBankInfo, .addBank .addBankName .cryptoInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4689,27 +4706,27 @@ input[type="file"] {
           align-items: center;
 }
 
-.addBank .addBankName .addBankInfo:last-child {
+.addBank .addBankName .addBankInfo:last-child, .addBank .addBankName .cryptoInfo:last-child {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
 }
 
-.addBank .addBankName .addBankInfo:last-child span {
+.addBank .addBankName .addBankInfo:last-child span, .addBank .addBankName .cryptoInfo:last-child span {
   margin-right: 5px;
 }
 
-.addBank .addBankName .addBankInfo .bankName, .addBank .addBankName .addBankInfo .icon-bin {
+.addBank .addBankName .addBankInfo .bankName, .addBank .addBankName .addBankInfo .icon-bin, .addBank .addBankName .cryptoInfo .bankName, .addBank .addBankName .cryptoInfo .icon-bin {
   margin: 0;
 }
 
-.addBank .addBankName .addBankInfo .checkbox {
+.addBank .addBankName .addBankInfo .checkbox, .addBank .addBankName .cryptoInfo .checkbox {
   -webkit-transform: translateY(0);
           transform: translateY(0);
   margin-right: 9px;
 }
 
-.addBank .addBankName .addBankInfo .checkbox label {
+.addBank .addBankName .addBankInfo .checkbox label, .addBank .addBankName .cryptoInfo .checkbox label {
   border-radius: 0;
   width: 15px;
   height: 15px;
@@ -4718,11 +4735,16 @@ input[type="file"] {
   color: #1E85EC;
 }
 
-.addBank .addBankName .addBankInfo .icon-bin {
+.addBank .addBankName .cryptoInfo .icon-BTC {
   font-size: 24px;
-  color: #666;
-  margin-top: -4px;
-  position: static;
+}
+
+.addBank .addBankName .cryptoInfo div {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  word-break: break-all;
+  margin: 0 10px;
 }
 
 .addBank .addBankName button.icon {
@@ -5339,38 +5361,6 @@ input[type="file"] {
 
 .haveBank > div.addBankName:hover {
   border-color: #f77900;
-}
-
-.haveBank > div.addBankName:hover .cryptoInfo .icon-bin, .haveBank > div.addBankName:hover .cryptoInfo .icon-BTC {
-  color: white;
-}
-
-.haveBank > div.addBankName .cryptoInfo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.haveBank > div.addBankName .cryptoInfo .icon-BTC {
-  font-size: 24px;
-}
-
-.haveBank > div.addBankName .cryptoInfo .icon-bin {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  position: static;
-  color: #666;
-}
-
-.haveBank > div.addBankName .cryptoInfo div {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-  word-break: break-all;
-  margin: 0 10px;
 }
 
 .accountName {
@@ -7347,9 +7337,27 @@ button.icon-spinner11:before {
   margin-right: 10px;
 }
 
-.icon-icon32px_bank-account ~ .platformName {
+.icon-icon32px_bank-account ~ .platformName, .icon-BTC ~ .platformName {
   background: #1E85EC;
   border: 0;
+}
+
+.icon-BTC ~ .accountName {
+  padding-top: 0;
+}
+
+.icon-BTC ~ .walletModule .remainder {
+  text-align: left;
+}
+
+.icon-BTC ~ .walletModule .remainder .icon {
+  display: inline-block;
+}
+
+.icon-BTC ~ .walletModule .remainder ~ .tip {
+  padding: 0;
+  margin-top: 10px;
+  color: #1E85EC;
 }
 
 .icon-new::before {
@@ -8503,80 +8511,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 8.17768%;
-  top: 18.80916%;
-  width: 10.90258px;
-  height: 10.90258px;
+  left: 42.50392%;
+  top: -28.54944%;
+  width: 6.90744px;
+  height: 6.90744px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 18.85715%;
-  top: 10.78089%;
-  width: 12.80276px;
-  height: 12.80276px;
+  left: 74.60046%;
+  top: 14.77524%;
+  width: 10.37015px;
+  height: 10.37015px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 96.94798%;
-  top: -56.40634%;
-  width: 7.5007px;
-  height: 7.5007px;
+  left: 71.42592%;
+  top: -39.62162%;
+  width: 13.12611px;
+  height: 13.12611px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 72.76345%;
-  top: 13.3698%;
-  width: 6.52517px;
-  height: 6.52517px;
+  left: 20.61316%;
+  top: 4.71852%;
+  width: 9.31906px;
+  height: 9.31906px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 35.95641%;
-  top: 1.43882%;
-  width: 7.32222px;
-  height: 7.32222px;
+  left: 70.99716%;
+  top: -15.76669%;
+  width: 12.05932px;
+  height: 12.05932px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 41.25295%;
-  top: -57.30986%;
-  width: 6.10219px;
-  height: 6.10219px;
+  left: 91.84792%;
+  top: -33.78986%;
+  width: 11.56904px;
+  height: 11.56904px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 87.04742%;
-  top: -23.26932%;
-  width: 10.36014px;
-  height: 10.36014px;
+  left: 21.59095%;
+  top: -23.94773%;
+  width: 6.29543px;
+  height: 6.29543px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 93.73798%;
-  top: 12.61248%;
-  width: 6.24737px;
-  height: 6.24737px;
+  left: 17.7724%;
+  top: -18.37965%;
+  width: 12.2895px;
+  height: 12.2895px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9391,7 +9399,6 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
 }
 
 .vipLv img {
@@ -9403,5 +9410,18 @@ canvas {
   background: #1E85EC;
   padding: 5px 10px;
   border-radius: 15px;
+}
+
+.vipLv > div.vipbg {
+  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
+  padding: 20px;
+  margin-top: 0;
+}
+
+.walletNickname {
+  border-top: 1px dotted #666;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px 10px 0;
 }
 /*# sourceMappingURL=style.css.map */

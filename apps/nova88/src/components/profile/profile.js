@@ -456,7 +456,9 @@ export default () => {
 
 			{userInfo?.userLevel ? (
 				<div className="vipLv">
-					<img src={vipClubImg.url} alt={vipClubImg.alt} />
+					<div className="vipbg">
+						<img src={vipClubImg.url} alt={vipClubImg.alt} />
+					</div>
 					<div>{t(vipClubImg.displayKey)}</div>
 				</div>
 			) : null}
