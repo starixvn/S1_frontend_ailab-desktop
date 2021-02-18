@@ -1105,6 +1105,11 @@ header {
   position: relative;
 }
 
+.header > div.function .cashier > img:first-child, .header > div.function .wallet > img:first-child, .header > div.function .memberfile > img:first-child {
+  width: 30px;
+  margin-right: 10px;
+}
+
 .header > div.function .cashier button, .header > div.function .wallet button, .header > div.function .memberfile button {
   color: white;
   font-size: 14px;
@@ -4865,6 +4870,16 @@ input[type="file"] {
   text-align: center;
 }
 
+.remainder .icon {
+  display: inline-block;
+}
+
+.remainder ~ .tip {
+  padding: 0;
+  margin-top: 10px;
+  color: #1E85EC;
+}
+
 .calculation {
   width: 100%;
   -webkit-box-align: center;
@@ -4923,6 +4938,10 @@ input[type="file"] {
 .calculation > div span {
   color: #f77900;
   margin-left: 5px;
+}
+
+.calculation ~ .inputModuleRow {
+  margin-top: 20px;
 }
 
 .addBankpop > .txt-lightgray {
@@ -7346,20 +7365,6 @@ button.icon-spinner11:before {
   padding-top: 0;
 }
 
-.icon-BTC ~ .walletModule .remainder {
-  text-align: left;
-}
-
-.icon-BTC ~ .walletModule .remainder .icon {
-  display: inline-block;
-}
-
-.icon-BTC ~ .walletModule .remainder ~ .tip {
-  padding: 0;
-  margin-top: 10px;
-  color: #1E85EC;
-}
-
 .icon-new::before {
   position: absolute;
   top: -5px;
@@ -8511,80 +8516,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 42.50392%;
-  top: -28.54944%;
-  width: 6.90744px;
-  height: 6.90744px;
+  left: 32.36633%;
+  top: 10.22125%;
+  width: 12.60688px;
+  height: 12.60688px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 74.60046%;
-  top: 14.77524%;
-  width: 10.37015px;
-  height: 10.37015px;
+  left: 3.07008%;
+  top: 38.77289%;
+  width: 8.8018px;
+  height: 8.8018px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 71.42592%;
-  top: -39.62162%;
-  width: 13.12611px;
-  height: 13.12611px;
+  left: 93.75667%;
+  top: 15.51545%;
+  width: 11.75411px;
+  height: 11.75411px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 20.61316%;
-  top: 4.71852%;
-  width: 9.31906px;
-  height: 9.31906px;
+  left: 53.00524%;
+  top: -7.02747%;
+  width: 6.07209px;
+  height: 6.07209px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 70.99716%;
-  top: -15.76669%;
-  width: 12.05932px;
-  height: 12.05932px;
+  left: 1.36226%;
+  top: -48.98801%;
+  width: 8.37106px;
+  height: 8.37106px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 91.84792%;
-  top: -33.78986%;
-  width: 11.56904px;
-  height: 11.56904px;
+  left: 22.20699%;
+  top: 25.87079%;
+  width: 6.24345px;
+  height: 6.24345px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 21.59095%;
-  top: -23.94773%;
-  width: 6.29543px;
-  height: 6.29543px;
+  left: 2.13415%;
+  top: 12.70301%;
+  width: 11.26095px;
+  height: 11.26095px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 17.7724%;
-  top: -18.37965%;
-  width: 12.2895px;
-  height: 12.2895px;
+  left: 17.66705%;
+  top: -55.07351%;
+  width: 5.55267px;
+  height: 5.55267px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
