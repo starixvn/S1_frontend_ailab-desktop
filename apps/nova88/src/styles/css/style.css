@@ -2658,6 +2658,7 @@ input[type="file"] {
   transition: 0.7s;
   padding-right: 10px;
   pointer-events: none;
+  cursor: pointer;
 }
 
 .quickLink > div:nth-child(1) {
@@ -2679,7 +2680,6 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  cursor: pointer;
   pointer-events: all;
 }
 
@@ -2718,6 +2718,7 @@ input[type="file"] {
           flex: 3.5;
   padding: 5px 10px;
   border-bottom-left-radius: 10px;
+  pointer-events: all;
 }
 
 .quickLink > div:nth-child(2) ul {
@@ -3417,9 +3418,9 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .inside-title.icon:before {
@@ -4467,7 +4468,7 @@ input[type="file"] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 30px 70px 0;
+  padding: 15px 70px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -5338,6 +5339,38 @@ input[type="file"] {
 
 .haveBank > div.addBankName:hover {
   border-color: #f77900;
+}
+
+.haveBank > div.addBankName:hover .cryptoInfo .icon-bin, .haveBank > div.addBankName:hover .cryptoInfo .icon-BTC {
+  color: white;
+}
+
+.haveBank > div.addBankName .cryptoInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.haveBank > div.addBankName .cryptoInfo .icon-BTC {
+  font-size: 24px;
+}
+
+.haveBank > div.addBankName .cryptoInfo .icon-bin {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  position: static;
+  color: #666;
+}
+
+.haveBank > div.addBankName .cryptoInfo div {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  word-break: break-all;
+  margin: 0 10px;
 }
 
 .accountName {
@@ -8470,80 +8503,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 75.94312%;
-  top: -52.24665%;
-  width: 6.88553px;
-  height: 6.88553px;
+  left: 8.17768%;
+  top: 18.80916%;
+  width: 10.90258px;
+  height: 10.90258px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 65.26823%;
-  top: -52.96348%;
-  width: 13.45053px;
-  height: 13.45053px;
+  left: 18.85715%;
+  top: 10.78089%;
+  width: 12.80276px;
+  height: 12.80276px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 23.41784%;
-  top: -11.5948%;
-  width: 9.46447px;
-  height: 9.46447px;
+  left: 96.94798%;
+  top: -56.40634%;
+  width: 7.5007px;
+  height: 7.5007px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 97.20678%;
-  top: 34.09027%;
-  width: 5.17222px;
-  height: 5.17222px;
+  left: 72.76345%;
+  top: 13.3698%;
+  width: 6.52517px;
+  height: 6.52517px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 27.68613%;
-  top: -22.4704%;
-  width: 11.41418px;
-  height: 11.41418px;
+  left: 35.95641%;
+  top: 1.43882%;
+  width: 7.32222px;
+  height: 7.32222px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 42.74938%;
-  top: 1.35583%;
-  width: 9.72274px;
-  height: 9.72274px;
+  left: 41.25295%;
+  top: -57.30986%;
+  width: 6.10219px;
+  height: 6.10219px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 28.17998%;
-  top: 23.18528%;
-  width: 7.26628px;
-  height: 7.26628px;
+  left: 87.04742%;
+  top: -23.26932%;
+  width: 10.36014px;
+  height: 10.36014px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 78.4445%;
-  top: -16.55566%;
-  width: 12.03884px;
-  height: 12.03884px;
+  left: 93.73798%;
+  top: 12.61248%;
+  width: 6.24737px;
+  height: 6.24737px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9358,6 +9391,7 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
 }
 
 .vipLv img {
