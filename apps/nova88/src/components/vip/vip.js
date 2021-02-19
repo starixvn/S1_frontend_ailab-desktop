@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import { AutoPlayWithBtn } from "../common/swipperBanner";
+import { InfoEn, InfoTh, InfoId, InfoCs } from "./vip.info";
 import VipPage from "./vip.page";
 import { defbanner, defPageClubImg } from "./vip.def";
 
@@ -24,14 +25,30 @@ const Vip = () => {
 		</div>
 	));
 
+	let vipInfo = null;
+	if (userInfo.langId === "en") {
+		vipInfo = <InfoEn />;
+	} else if (userInfo.langId === "th") {
+		vipInfo = <InfoTh />;
+	} else if (userInfo.langId === "id") {
+		vipInfo = <InfoId />;
+	} else if (userInfo.langId === "cs") {
+		vipInfo = <InfoCs />;
+	} else {
+		vipInfo = null;
+	}
+
 	return (
 		<main className="vip">
 			<AutoPlayWithBtn Rows={rows} />
+
+			{vipInfo}
 
 			<VipPage
 				pageClubImg={defPageClubImg}
 				t={t}
 				currencyId={currencyId}
+				langId={userInfo.langId}
 			/>
 		</main>
 	);

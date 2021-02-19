@@ -6,26 +6,35 @@ import PageEventListMyr from "./components/pageEventList.myr";
 import PageEventListTh from "./components/pageEventList.th";
 import PageEventListId from "./components/pageEventList.id";
 
-const VipPage = ({ pageClubImg, currencyId, t }) => {
+const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
 	return (
-		<div className="vipPage">
-			<table className="medal">
-				<tbody>
-					<tr>
-						<td />
-						{pageClubImg.map(item => (
-							<td key={`${item.displayKey}-${item.alt}`}>
-								<img src={item.url} alt={item.alt} />
+		<>
+			<div className="vipPage">
+				<table className="medal">
+					<tbody>
+						<tr>
+							<td />
+							{pageClubImg.map(item => (
+								<td key={`${item.displayKey}-${item.alt}`}>
+									<img src={item.url} alt={item.alt} />
 
-								{t(item.displayKey)}
-							</td>
-						))}
-					</tr>
-				</tbody>
-			</table>
+									{t(item.displayKey)}
+								</td>
+							))}
+						</tr>
+					</tbody>
+				</table>
 
-			<VipPageEventList currencyId={currencyId} />
-		</div>
+				<VipPageEventList currencyId={currencyId} />
+			</div>
+
+			{langId ? (
+				<img
+					src={require(`../../styles/img/vip/vip_program_${langId}.jpg`)}
+					alt={`vip-program-${langId}`}
+				/>
+			) : null}
+		</>
 	);
 };
 
@@ -46,7 +55,9 @@ const VipPageEventList = ({ currencyId }) => {
 
 VipPage.propTypes = {
 	pageClubImg: PropTypes.arrayOf(PropTypes.object).isRequired,
-	currencyId: PropTypes.number.isRequired
+	currencyId: PropTypes.number.isRequired,
+	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired
 };
 
 export default VipPage;
