@@ -67,14 +67,13 @@ export class Dropdown extends Component {
 		let selected = null;
 		if (this.props.placeholder?.elemType === defElemType.btn) {
 			selected = <button className={this.props.placeholder.icon} />;
-		} else if (this.props.userLevel) {
-			const vipClubImg = this.props.userLevel
-				? defPageClubImg[this.props.userLevel - 1]
-				: {};
-			selected = <img src={vipClubImg.url} alt={vipClubImg.alt} />;
 		} else {
 			selected = <button>{this.props.placeholder}</button>;
 		}
+
+		const userLevelImgInfo = this.props?.userLevel
+			? defPageClubImg[this.props.userLevel - 1]
+			: null;
 
 		return (
 			<div
@@ -83,6 +82,13 @@ export class Dropdown extends Component {
 				}`}
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
+				{userLevelImgInfo ? (
+					<img
+						src={userLevelImgInfo.url}
+						alt={userLevelImgInfo.alt}
+					/>
+				) : null}
+
 				{selected}
 				<div className={this.props.subClassName}>{arr}</div>
 			</div>
@@ -91,7 +97,8 @@ export class Dropdown extends Component {
 }
 
 Dropdown.defaultProps = {
-	placeholder: ""
+	placeholder: "",
+	userLevel: 0
 };
 
 Dropdown.propTypes = {
@@ -105,7 +112,7 @@ Dropdown.propTypes = {
 		PropTypes.node,
 		PropTypes.object
 	]),
-	userLevel: PropTypes.number.isRequired
+	userLevel: PropTypes.number
 };
 
 export const defElemType = {
