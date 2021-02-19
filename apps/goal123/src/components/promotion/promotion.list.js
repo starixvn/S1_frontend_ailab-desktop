@@ -29,7 +29,7 @@ export default ({
 
 		return (
 			<div
-				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+				key={`promotionList-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={`${_isClaimed ? "active" : ""}${
 					filter === defFilterType.expiry ||
 					(filter === defFilterType.specialBonus && !p.canJoin)
@@ -39,9 +39,9 @@ export default ({
 				{_isClaimed ? <div className="claimed" /> : null}
 				{filter === defFilterType.expiry ? (
 					<div className="expiredIcon">{t("lbl_Expired")}</div>
-				) : (
-					<div className={_isNew && p.canJoin ? "new" : ""} />
-				)}
+				) : _isNew && p.canJoin ? (
+					<div className="new" />
+				) : null}
 				<img src={p.banner} alt={p.title} />
 				<div className="txt-darkBlue">{p.title}</div>
 				<div className="txt-dark">{t("lbl_PromotionsDesc")}</div>

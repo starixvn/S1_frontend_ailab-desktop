@@ -78,20 +78,18 @@ export default ({
 			<div className="quickSelect">
 				<div className="btnGroup promoType">
 					{defPromoNavsFormat.map(item => (
-						<>
-							<button
-								key={`promo-nav-${item.displayKey}`}
-								className={
-									item.value === selected
+						<button
+							key={`promo-nav-${item.displayKey}`}
+							className={
+								item.value === selected
+									? item.selectedClass
 										? item.selectedClass
-											? item.selectedClass
-											: "btn-check"
-										: item.className
-								}
-								onClick={() => onClick(item.value)}>
-								{t(item.displayKey)}
-							</button>
-						</>
+										: "btn-check"
+									: item.className
+							}
+							onClick={() => onClick(item.value)}>
+							{t(item.displayKey)}
+						</button>
 					))}
 				</div>
 			</div>

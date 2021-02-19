@@ -2,7 +2,12 @@ import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { readCookie, setCookie, getUrlParameter } from "../common/common";
+import {
+	readCookie,
+	setCookie,
+	getUrlParameter,
+	isDateRange
+} from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
@@ -47,6 +52,10 @@ import {
 } from "../../service/enterPage";
 
 import { getUrl } from "../common/linkItems";
+
+const displayRankingWinnerPeriod = {
+	endDate: "2021/02/22 12:00:00"
+};
 
 const defGameListDatas = [
 	{
@@ -308,13 +317,24 @@ const IndexPage = () => {
 	});
 
 	useEffect(() => {
-		if (!userInfo.isLogin && getUrlParameter("AffId")) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Join
-			});
+		if (!userInfo.isLogin) {
+			if (getUrlParameter("AffId")) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Join
+				});
+			} else if (
+				isDateRange(null, null, displayRankingWinnerPeriod.endDate)
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.RankingWinner,
+					langId: userInfo.langId,
+					clickClose: () => setPopBox({ isOpen: false })
+				});
+			}
 		}
-	}, []);
+	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
