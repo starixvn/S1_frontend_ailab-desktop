@@ -92,7 +92,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Sport_Rebate")}</td>
-					<td>0.5%</td>
+					<td>0.55%</td>
 					<td>0.6%</td>
 					<td>0.7%</td>
 					<td>0.8%</td>

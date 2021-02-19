@@ -27,7 +27,7 @@ export const InfoTh = () => {
 			Nova88 ได้เปิดตัวโปรแกรม VIP Rewards
 			เพื่อให้สมาชิกสามารถดื่มด่ำกับรางวัลที่ดีขึ้นเร็วขึ้นและง่ายขึ้น
 			ค้นพบสิทธิประโยชน์และสิทธิพิเศษที่มากขึ้นเมื่อคุณอัปเกรดเป็นระดับที่สูงขึ้น!
-			<div className="vipTitle">Overview</div>
+			<div className="vipTitle">ภาพรวม</div>
 			เราได้จัดระดับสมาชิกเป็น Vintage Club, Silver Club, Gold Club,
 			Titanium Club, Diamond Club และ Nova Club
 			เพลิดเพลินกับผลิตภัณฑ์และบริการที่เป็นส่วนตัวของเราเมื่อคุณมีสมาชิกสูงขึ้น
@@ -46,7 +46,7 @@ export const InfoId = () => {
 			menikmati hadiah yang lebih banyak, lebih cepat dan lebih mudah.
 			Dapatkan keuntungan yang lebih besar saat Anda meningkatkan ke level
 			yang lebih tinggi!
-			<div className="vipTitle">Overview</div>
+			<div className="vipTitle">Keterangan</div>
 			Kami telah mengklasifikasikan tingkatan keanggotaan ke Klub Vintage,
 			Klub Silver, Klub Gold, Klub Titanium, Klub Diamond dan Klub Nova.
 			Nikmati semua produk dan layanan khusus kami saat Anda mencapai
@@ -63,7 +63,7 @@ export const InfoCs = () => {
 		<div className="vipInfo">
 			<div className="vipTitle">VIP计划</div>
 			Nova88启动了VIP奖励计划，使会员可以更快，更轻松地享受更好的奖励。升级到更高级别后，发现更大的特权和权利！
-			<div className="vipTitle">Overview</div>
+			<div className="vipTitle">概观</div>
 			我们将会员等级分为复古俱乐部，银俱乐部，金俱乐部，钛俱乐部，钻石俱乐部和新星俱乐部。当您获得更高的会员资格时，请享受我们所有的privillege产品和服务。
 			<div className="vipTitle">享受会员级别不同的优惠和特权</div>
 		</div>

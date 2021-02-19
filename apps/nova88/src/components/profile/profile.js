@@ -454,14 +454,14 @@ export default () => {
 				<div>{t("lbl_ProfileModifyWarning")}</div>
 			</div>
 
-			{/* {userInfo?.userLevel ? (
+			{userInfo?.userLevel ? (
 				<div className="vipLv">
 					<div className="vipbg">
 						<img src={vipClubImg.url} alt={vipClubImg.alt} />
 					</div>
 					<div>{t(vipClubImg.displayKey)}</div>
 				</div>
-			) : null} */}
+			) : null}
 
 			{userInfo.accountName && userInfo.birth_d && userInfo.phoneNo ? (
 				<div className="profile">{arr}</div>
