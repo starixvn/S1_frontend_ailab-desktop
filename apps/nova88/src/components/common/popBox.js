@@ -28,6 +28,7 @@ import JoinReferral from "./popBox.joinReferral";
 import SuccessAngPow from "./popBox.successAngPow";
 import OneGamingLink from "./popBox.oneGamingLink";
 import defPopBoxType from "./defPopBoxType";
+import RankingWinner from "./popBox.rankingWinner";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -212,7 +213,13 @@ export default () => {
 			);
 			break;
 
-		case defPopBoxType.default:
+		case defPopBoxType.RankingWinner:
+			content = (
+				<RankingWinner
+					clickClose={popBox.clickClose}
+					langId={popBox.langId}
+				/>
+			);
 			break;
 
 		default:
