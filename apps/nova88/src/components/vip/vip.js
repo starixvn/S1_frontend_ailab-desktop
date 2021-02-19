@@ -16,7 +16,11 @@ const Vip = () => {
 
 	const rows = defbanner(userInfo.langId).map(item => (
 		<div className="swiper-slide" key={item.alt}>
-			<img src={item.url} className="banner" alt={item.alt ?? ""} />
+			<img
+				src={item.url}
+				className="banner"
+				alt={item.alt ?? "vip level"}
+			/>
 		</div>
 	));
 
