@@ -13,25 +13,25 @@ const getAffiliate = () => {
 
 export const SiteInfo = {
 	siteName,
-	logo: "http://image.n88media.com/SiteSkin/img/logo_evt.png",
+	logo: "https://image.n88media.com/SiteSkin/img/logo_evt.png",
 	affiliateLink: getAffiliate(),
 	langCookie: "nova88LangId",
 	socialMedia: {
 		fb: {
-			link: "http://www.facebook.com/nova88official/",
+			link: "https://www.facebook.com/nova88official/",
 			displayKey: "lbl_Facebook"
 		},
 		twitter: {
-			link: "http://twitter.com/nova88official",
+			link: "https://twitter.com/nova88official",
 			displayKey: "lbl_Twitter"
 		},
 		ig: {
-			link: "http://www.instagram.com/nova88.net_official",
+			link: "https://www.instagram.com/nova88.net_official",
 			displayKey: "lbl_Instagram"
 		}
 	},
 	staticPromotions:
-		"http://image.n88media.com/NovaPromotion/promotionList.json"
+		"https://image.n88media.com/NovaPromotion/promotionList.json"
 };
 
 const cloudImgUrl = "https://image.n88media.com";
