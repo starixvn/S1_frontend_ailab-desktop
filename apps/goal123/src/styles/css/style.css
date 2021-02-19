@@ -275,6 +275,7 @@ header .header > div.menu .subMenu-Wrapper.active {
 
 header .header > div.menu .subMenu-Wrapper .icon:before {
   font-size: 30px;
+  display: block;
 }
 
 header .header > div.menu .gameList, header .header > div.menu .casinoList, header .header > div.menu .livecasinoList, header .header > div.menu .fishList {

@@ -24,5 +24,6 @@ export default {
 	kiss918: "918kiss",
 	JoinReferral: "JoinReferral",
 	SuccessAngPow: "SuccessAngPow",
-	OneGamingLink: "OneGamingLink"
+	OneGamingLink: "OneGamingLink",
+	RankingWinner: "RankingWinner"
 };
