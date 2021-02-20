@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		defaultLanguage: "en",
-		supportedLanguages: ["en", "cs", "ch", "vn", "id", "th"]
+		supportedLanguages: ["en", "cs", "id", "th"]
 	},
 	plugins: [
 		{
