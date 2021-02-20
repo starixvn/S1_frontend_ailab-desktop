@@ -17,8 +17,14 @@ const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
 							{pageClubImg.map(item => (
 								<td key={`${item.displayKey}-${item.alt}`}>
 									<img src={item.url} alt={item.alt} />
-
-									{t(item.displayKey)}
+									{langId === "cs" ? (
+										<>
+											{t(item.displayKey)}
+											<p>{t("lbl_Club")}</p>
+										</>
+									) : (
+										t(item.displayKey)
+									)}
 								</td>
 							))}
 						</tr>

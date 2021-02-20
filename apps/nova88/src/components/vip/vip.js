@@ -25,18 +25,12 @@ const Vip = () => {
 		</div>
 	));
 
-	let vipInfo = null;
-	if (userInfo.langId === "en") {
-		vipInfo = <InfoEn />;
-	} else if (userInfo.langId === "th") {
-		vipInfo = <InfoTh />;
-	} else if (userInfo.langId === "id") {
-		vipInfo = <InfoId />;
-	} else if (userInfo.langId === "cs") {
-		vipInfo = <InfoCs />;
-	} else {
-		vipInfo = null;
-	}
+	const vipInfo = {
+		en: <InfoEn />,
+		th: <InfoTh />,
+		id: <InfoId />,
+		cs: <InfoCs />
+	}[userInfo.langId];
 
 	return (
 		<main className="vip">
