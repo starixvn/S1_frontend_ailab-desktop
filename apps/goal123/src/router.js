@@ -117,5 +117,8 @@ export default {
 	},
 	angpow: {
 		root: "angPow"
+	},
+	mysteryBox: {
+		root: "mysteryBox"
 	}
 };

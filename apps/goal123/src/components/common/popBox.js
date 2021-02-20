@@ -24,7 +24,8 @@ export const defPopBoxType = {
 	TurnoverAccumulated: "TurnoverAccumulated",
 	PromotionDepositConfirm: "PromotionDepositConfirm",
 	PromotionAmountConfirm: "PromotionAmountConfirm",
-	SuccessAngPow: "SuccessAngPow"
+	SuccessAngPow: "SuccessAngPow",
+	SuccessMySteryBox: "SuccessMySteryBox"
 };
 
 export default () => {
@@ -242,6 +243,21 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.SuccessMySteryBox: {
+			const SuccessMySteryBox = lazy(() =>
+				import("./popBox.successMySteryBox")
+			);
+			content = (
+				<SuccessMySteryBox
+					closePopBox={popBox.closePopBox}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
+					clickClose={popBox.clickClose}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 
@@ -249,7 +265,9 @@ export default () => {
 			break;
 	}
 
-	const customLayout = popBox.popBoxType === defPopBoxType.SuccessAngPow;
+	const customLayout =
+		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
+		popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
 
 	return popBox.isOpen ? (
 		popBox.loading ? (
