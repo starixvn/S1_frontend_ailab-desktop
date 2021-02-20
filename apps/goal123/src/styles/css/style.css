@@ -2795,6 +2795,10 @@ main > .swiper-container .swiper-slide {
   margin: 0 40px;
 }
 
+.subModuleList .subModule:nth-child(3) {
+  margin-right: 40px;
+}
+
 .subModuleList .subModule .subModuleTitle {
   background: #0f2346;
   padding: 20px 40px;
@@ -6461,6 +6465,10 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   background: #690000 url(../img/event/bg.jpg) no-repeat top center;
 }
 
+.event.goldbox {
+  background: #000 url(../img/event/box/bg.jpg) no-repeat top center;
+}
+
 .event .animation {
   width: 300px;
   height: 270px;
@@ -6475,6 +6483,10 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   height: min-content;
   max-width: 395px;
   margin: 20px 0 135px;
+}
+
+.event > img.title {
+  margin: 95px 0 97px;
 }
 
 .event .eventModule {
@@ -6692,7 +6704,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 .eventLink .icon-close {
   width: 35px;
   height: 35px;
-  color: #ffffff;
+  color: #FBD68D;
   position: absolute;
   left: 10px;
   top: -20px;
@@ -6970,7 +6982,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: 350px;
   height: auto;
   background: url(../img/event/pop_bg.png) no-repeat;
-  border-radius: 14px;
+  border-radius: 15px;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
   display: -webkit-box;
@@ -6988,7 +7000,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
           align-items: center;
   color: white;
   text-align: center;
-  border: 3px solid #fff384;
+  border: 3px solid #ffdd80;
   padding: 0;
   min-width: auto;
   padding-bottom: 17px;
@@ -7035,6 +7047,22 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   text-align: center;
   line-height: 110px;
   margin: 25px auto;
+}
+
+#popup .eventpop.goldbox_pop {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  border: 1px solid #FBD68D;
+}
+
+#popup .eventpop.goldbox_pop .title {
+  border-bottom: 1px solid #FBD68D;
+}
+
+#popup .eventpop.goldbox_pop .am {
+  background: url(../img/event/box/myframe.png) no-repeat center center/cover;
+  border: 0 solid #FBD68D;
+  border-radius: 0;
 }
 
 .deposit_new {
@@ -7328,5 +7356,399 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+}
+
+.goldbox__wrapper {
+  width: 300px;
+}
+
+.goldbox__item {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.goldbox__item__open {
+  bottom: 0;
+  max-width: 298px;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  display: none;
+  -webkit-filter: drop-shadow(0px 0px 65px rgba(255, 201, 25, 0.7));
+          filter: drop-shadow(0px 0px 65px rgba(255, 201, 25, 0.7));
+}
+
+.goldbox__item__open.active {
+  display: block;
+}
+
+.goldbox__item__close {
+  margin-top: 90px;
+  max-width: 300px;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  z-index: 2;
+  -webkit-filter: drop-shadow(0px 0px 25px rgba(255, 201, 25, 0.5));
+          filter: drop-shadow(0px 0px 25px rgba(255, 201, 25, 0.5));
+  -webkit-animation: shakebox .9s ease-in-out infinite;
+          animation: shakebox .9s ease-in-out infinite;
+}
+
+.goldbox__item__close.active {
+  display: none;
+}
+
+.goldbox__item.active {
+  -webkit-animation: bounce3 .9s ease-in-out;
+          animation: bounce3 .9s ease-in-out;
+}
+
+.goldbox__item .element {
+  position: relative;
+  height: 50px;
+}
+
+.goldbox__item .time {
+  width: 260px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 130px);
+  font-size: 30px;
+  color: #fff;
+  font-weight: bold;
+  z-index: 3;
+  display: none;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid #ffdd80;
+  text-align: center;
+}
+
+.goldbox__item .time.active {
+  display: block;
+}
+
+.goldbox .eventModule {
+  width: 100%;
+  margin: 123px 0 0;
+  background: #191919 url(../img/event/box/eventInfo_bg.jpg) no-repeat top center/cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 30px 0;
+}
+
+.goldbox .eventModule > div {
+  background: transparent;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  width: 768px;
+  padding: 10px;
+}
+
+.goldbox .eventModule > div > div.arrow-top, .goldbox .eventModule > div > div.arrow-bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.goldbox .eventModule > div > div.arrow-top .border, .goldbox .eventModule > div > div.arrow-bottom .border {
+  width: calc(100% - 5px);
+  background: url(../img/event/box/border_top.png);
+}
+
+.goldbox .eventModule > div > div.arrow-top:before, .goldbox .eventModule > div > div.arrow-top:after, .goldbox .eventModule > div > div.arrow-bottom:before, .goldbox .eventModule > div > div.arrow-bottom:after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 60px;
+}
+
+.goldbox .eventModule > div > div.arrow-top:before {
+  background: url(../img/event/box/border_arrow.png);
+}
+
+.goldbox .eventModule > div > div.arrow-top:after {
+  background: url(../img/event/box/border_arrow.png);
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.goldbox .eventModule > div > div.arrow-bottom .border {
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+.goldbox .eventModule > div > div.arrow-bottom:before {
+  background: url(../img/event/box/border_arrow.png);
+  -webkit-transform: scaleY(-1);
+          transform: scaleY(-1);
+}
+
+.goldbox .eventModule > div > div.arrow-bottom:after {
+  background: url(../img/event/box/border_arrow.png);
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+}
+
+.goldbox .eventModule > div > div.moduleCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.goldbox .eventModule > div > div.moduleCenter a.more, .goldbox .eventModule > div > div.moduleCenter button.more {
+  background: url(../img/event/box/btn_bg.png) no-repeat center center/cover;
+  border: 0;
+  padding: 5px 25px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.goldbox .eventModule > div > div.moduleCenter a.more:hover, .goldbox .eventModule > div > div.moduleCenter button.more:hover {
+  background: url(../img/event/box/btn_bg.png) no-repeat center center/cover;
+  color: #fab617;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .tag {
+  background: transparent;
+  width: 325px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .tag::before {
+  content: "";
+  display: block;
+  background: url(../img/event/box/title_bg.png) no-repeat;
+  width: 48px;
+  height: 5px;
+  margin-right: 10px;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .tag::after {
+  content: "";
+  display: block;
+  background: url(../img/event/box/title_bg.png) no-repeat;
+  width: 48px;
+  height: 5px;
+  margin-left: 10px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .tag + .title {
+  background: transparent;
+  font-size: 28px;
+  color: #FFFFFF;
+  width: auto;
+  margin: 20px 0;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventInfo {
+  width: 100%;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventInfo .title {
+  color: #f77900;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventList {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-weight: bold;
+  color: black;
+  margin-top: 30px;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventList tr {
+  background: white;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventList tr td {
+  border: 1px solid #000000;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+  vertical-align: middle;
+  color: white;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventList tr td div {
+  width: 70px;
+  margin: auto;
+  text-align: right;
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventList tr:first-child {
+  background: rgba(251, 214, 141, 0.8);
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(even) {
+  background: rgba(5, 5, 5, 0.8);
+}
+
+.goldbox .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(odd):not(:nth-child(1)) {
+  background: rgba(57, 57, 57, 0.5);
+}
+
+.goldbox .eventModule > div > div.moduleCenter:before, .goldbox .eventModule > div > div.moduleCenter:after {
+  content: "";
+  display: block;
+  min-width: 60px;
+}
+
+.goldbox .eventModule > div > div.moduleCenter:before {
+  background: url(../img/event/box/border.png);
+}
+
+.goldbox .eventModule > div > div.moduleCenter:after {
+  background: url(../img/event/box/border.png);
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+}
+
+.goldbox .eventModule .nodata {
+  color: #fab617;
+}
+
+.goldbox .eventModule .nodata > div {
+  background: transparent;
+}
+
+@-webkit-keyframes shakebox {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 2px, 2px);
+            transform: translate3d(-1px, 2px, 2px);
+  }
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 2px, 3px);
+            transform: translate3d(2px, 2px, 3px);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-2px, 0, 0);
+            transform: translate3d(-2px, 0, 0);
+  }
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes shakebox {
+  10%, 90% {
+    -webkit-transform: translate3d(-1px, 2px, 2px);
+            transform: translate3d(-1px, 2px, 2px);
+  }
+  20%, 80% {
+    -webkit-transform: translate3d(2px, 2px, 3px);
+            transform: translate3d(2px, 2px, 3px);
+  }
+  30%, 50%, 70% {
+    -webkit-transform: translate3d(-2px, 0, 0);
+            transform: translate3d(-2px, 0, 0);
+  }
+  40%, 60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+
+@-webkit-keyframes bounce3 {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  10% {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+  20% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  25% {
+    -webkit-transform: translateY(-7%);
+            transform: translateY(-7%);
+  }
+  30% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  32% {
+    -webkit-transform: translateY(-3%);
+            transform: translateY(-3%);
+  }
+  40% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes bounce3 {
+  0% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  10% {
+    -webkit-transform: translateY(-15%);
+            transform: translateY(-15%);
+  }
+  20% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  25% {
+    -webkit-transform: translateY(-7%);
+            transform: translateY(-7%);
+  }
+  30% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  32% {
+    -webkit-transform: translateY(-3%);
+            transform: translateY(-3%);
+  }
+  40% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 /*# sourceMappingURL=style.css.map */
