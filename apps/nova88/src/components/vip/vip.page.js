@@ -6,7 +6,7 @@ import PageEventListMyr from "./components/pageEventList.myr";
 import PageEventListTh from "./components/pageEventList.th";
 import PageEventListId from "./components/pageEventList.id";
 
-const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
+const VipPage = ({ pageClubImg, currencyId, t, langId, showJoinPopBox }) => {
 	return (
 		<>
 			<div className="vipPage">
@@ -36,6 +36,7 @@ const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
 
 			{langId ? (
 				<img
+					onClick={showJoinPopBox}
 					src={require(`../../styles/img/vip/vip_program_${langId}.jpg`)}
 					alt={`vip-program-${langId}`}
 				/>
@@ -63,7 +64,8 @@ VipPage.propTypes = {
 	pageClubImg: PropTypes.arrayOf(PropTypes.object).isRequired,
 	currencyId: PropTypes.number.isRequired,
 	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired
+	langId: PropTypes.string.isRequired,
+	showJoinPopBox: PropTypes.func.isRequired
 };
 
 export default VipPage;
