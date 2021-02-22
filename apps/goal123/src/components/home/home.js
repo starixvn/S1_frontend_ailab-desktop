@@ -24,7 +24,8 @@ import GameQuickLinks from "./gameQuickLinks";
 import SwipperBanner from "../common/swipperBanner";
 import CountDown from "./countDown";
 import PromoGameList from "./promoGameList";
-import AngpowLink from "./angpowLink";
+// import AngpowLink from "./angpowLink";
+import MysteryBoxLink from "./mysteryBoxLink";
 import path from "../../router";
 
 export default () => {
@@ -144,9 +145,13 @@ export default () => {
 					<img src={Bong88} alt="Bong88" />
 				</div>
 			</section>
-			<AngpowLink
+			{/* <AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}
 				langId={userInfo.langId}
+			/> */}
+
+			<MysteryBoxLink
+				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 			/>
 		</main>
 	);

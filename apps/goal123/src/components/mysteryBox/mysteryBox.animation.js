@@ -55,9 +55,8 @@ const MysteryBoxAnimation = ({
 			return;
 		}
 		if (_isJoin || _drawOut || _notEligible || angpowActive) return;
-		// const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 		setAngpowActive(true);
-		// await delay(3000);
 		await postDrawPrize();
 		setAngpowActive(false);
 	};

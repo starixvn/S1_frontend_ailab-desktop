@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import {
 	api_events_CheckDrawPrize,
@@ -82,7 +82,10 @@ const useDrawPrize = ({ isMountedRef }) => {
 							"{0}",
 							data.prizeName
 						);
+
 						errorPopBox(hint, errorCode);
+
+						getCustDrawPrizeList();
 					} else if (errorCode === defDrawPrizeStatus.notEligible) {
 						errorPopBox(
 							message || `[${errorCode}] error`,
