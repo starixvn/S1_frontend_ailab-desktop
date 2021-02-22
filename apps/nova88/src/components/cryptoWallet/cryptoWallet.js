@@ -140,9 +140,9 @@ export default () => {
 							: state.accountName
 					}
 					address={state.address}
-					accountNumber={state.accountNumber}
 					alreadyHasAccountName={!!userInfo.accountName}
 					reload={getBankInfo}
+					walletList={state.walletList}
 				/>
 			);
 			break;
@@ -189,7 +189,7 @@ export default () => {
 				{displayModule}
 			</div>
 			<ShowCard
-				accountName={state.accountName}
+				// accountName={state.accountName}
 				custBankList={state.custBankList}
 				reload={getBankInfo.bind(this, false)}
 			/>

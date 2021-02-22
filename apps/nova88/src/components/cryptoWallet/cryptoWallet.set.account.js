@@ -15,7 +15,8 @@ export default ({
 	accountName,
 	address,
 	alreadyHasAccountName,
-	reload
+	reload,
+	walletList
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
@@ -24,11 +25,27 @@ export default ({
 			checked: null,
 			tip: ""
 		},
-		accountNumber: {
+		nickname_0: {
 			checked: null,
 			tip: ""
 		},
-		address: {
+		address_0: {
+			checked: null,
+			tip: ""
+		},
+		nickname_1: {
+			checked: null,
+			tip: ""
+		},
+		address_1: {
+			checked: null,
+			tip: ""
+		},
+		nickname_2: {
+			checked: null,
+			tip: ""
+		},
+		address_2: {
 			checked: null,
 			tip: ""
 		}
@@ -52,10 +69,21 @@ export default ({
 	};
 
 	const clickInfo = col => {
-		let _msg =
-			col === "accountName"
-				? t("lbl_BankAccountNameHint")
-				: t("lbl_BankNumber");
+		const getColType = () => {
+			let msg;
+			if (col === "accountName") {
+				msg = t("lbl_BankAccountNameHint");
+			} else if (col.indexOf("nickname") !== -1) {
+				msg = t("lbl_Wallet_Nickname_Tip");
+			} else {
+				msg = t("lbl_Wallet_Address_Tip");
+			}
+			return msg;
+		};
+
+		let _msg = getColType();
+
+		console.log(_msg);
 
 		if (status[col].tip === _msg) {
 			_msg = "";
@@ -73,22 +101,20 @@ export default ({
 	const checkAccount = (val, col) => {
 		let checked = true;
 		let message = "";
-
-		if (col === "accountName") {
+		if (col === "accountName" && !alreadyHasAccountName) {
 			if (!val) {
 				message = t("msg_EnterRealName");
 				checked = false;
 			}
-		} else if (col === "accountNumber") {
+		} else if (col.indexOf("address") !== -1) {
 			if (!val) {
-				message = t("msg_NeedAccountNo");
+				message = t("lbl_Wallet_Address_Required");
 				checked = false;
 			} else if (isNaN(val)) {
 				message = t("msg_AccountWrongFormat");
 				checked = false;
 			}
 		}
-
 		setStatus(prev => ({
 			...prev,
 			[col]: {
@@ -96,18 +122,18 @@ export default ({
 				tip: message
 			}
 		}));
-
 		return { checked, message };
 	};
 
-	const editField = (_col, e) => {
-		const val = e.target.value;
-		console.log("edit =>", _col);
-		let regex = null;
-		if (_col === "accountNumber") {
-			regex = /^[0-9]+$/;
-		}
+	console.log(status);
 
+	const editField = (_col, e) => {
+		let regex = null;
+		if (_col.indexOf("address") !== -1) {
+			regex = /^[a-zA-Z0-9@$*!%#?&]*$/;
+			//  /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+		}
+		const val = e.target.value;
 		if (val === "" || regex === null || (regex && regex.test(val))) {
 			dispatch({
 				type: defActionType.EDIT_FIELD,
@@ -152,7 +178,7 @@ export default ({
 						setLoading(false);
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -175,6 +201,51 @@ export default ({
 		}
 	};
 
+	const inputList = [{ groupId: 0 }, { groupId: 1 }, { groupId: 2 }];
+	const fake_walletList = [
+		{ nickname: "a", address: null },
+		{ nickname: "b", address: "yyy" },
+		{ nickname: "c", address: null }
+	];
+
+	const inputListLayout = inputList?.map(item => {
+		const groupIdx = item.groupId;
+		return (
+			<span key={groupIdx}>
+				<Inputbox
+					className="inputBox-white"
+					// value={walletList[`nickname_${groupIdx}`]}
+					onChange={editField.bind(this, `nickname_${groupIdx}`)}
+					onBlur={checkAccount.bind(
+						this,
+						fake_walletList[groupIdx].nickname,
+						`nickname_${groupIdx}`
+					)}
+					clickInfo={clickInfo.bind(this, `nickname_${groupIdx}`)}
+					title={t("lbl_Wallet_Nickname")}
+					checked={status[`nickname_${groupIdx}`].checked}
+					tip={status[`nickname_${groupIdx}`].tip}
+					placeholder="Optional"
+				/>
+
+				<Inputbox
+					className="inputBox-white"
+					// value={walletList[`address_${groupIdx}`]}
+					onChange={editField.bind(this, `address_${groupIdx}`)}
+					onBlur={checkAccount.bind(
+						this,
+						fake_walletList[groupIdx].address,
+						`address_${groupIdx}`
+					)}
+					clickInfo={clickInfo.bind(this, `address_${groupIdx}`)}
+					title={t("lbl_Wallet_Address")}
+					checked={status[`address_${groupIdx}`].checked}
+					tip={status[`address_${groupIdx}`].tip}
+				/>
+			</span>
+		);
+	});
+
 	return loading ? (
 		<Loading />
 	) : (
@@ -195,46 +266,15 @@ export default ({
 					<form
 						className="subModuleBody column"
 						onSubmit={clickSubmit}>
-						<>
-							<Inputbox
-								className="inputBox-white"
-								value={accountNumber}
-								onChange={editField.bind(this, "accountNumber")}
-								onBlur={checkAccount.bind(
-									this,
-									accountNumber,
-									"accountNumber"
-								)}
-								clickInfo={clickInfo.bind(
-									this,
-									"accountNumber"
-								)}
-								title={t("lbl_BankNumber")}
-								checked={status.accountNumber.checked}
-								tip={status.accountNumber.tip}
-							/>
-
-							<Inputbox
-								className="inputBox-white"
-								value={accountNumber}
-								onChange={editField.bind(this, "address")}
-								onBlur={checkAccount.bind(
-									this,
-									address,
-									"address"
-								)}
-								clickInfo={clickInfo.bind(this, "address")}
-								title={t("lbl_address")}
-								checked={status.address.checked}
-								tip={status.address.tip}
-							/>
-
-							<div className="btnGroup">
-								<button className="btn-check" type="submit">
-									{t("lbl_Submit")}
-								</button>
-							</div>
-						</>
+						{inputListLayout}
+						<div className="tip active">
+							{t("lbl_Crypto_Wallet_Submit_Note")}
+						</div>
+						<div className="btnGroup">
+							<button className="btn-check" type="submit">
+								{t("lbl_Submit")}
+							</button>
+						</div>
 					</form>
 				</div>
 			</div>

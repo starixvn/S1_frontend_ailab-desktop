@@ -11,7 +11,7 @@ export default ({ dispatch, numberOfAccount }) => {
 	return (
 		<div className="walletModule">
 			<div className="addBank">
-				{numberOfAccount < 3 ? (
+				{numberOfAccount < 10 ? (
 					<div className="addBankName noBank" onClick={toNextStep}>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddCryptoWallet")}</div>

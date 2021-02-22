@@ -560,6 +560,13 @@
 	"lbl_NumberOfWallet": "Number of wallet",
 	"lbl_WalletisFull": "Wallet Is Full",
 	"lbl_EnterWalletNumber": "Enter Wallet Address",
+	"lbl_Wallet_Nickname": "Wallet Nickname",
+	"lbl_Wallet_Address": "Wallet Address",
+	"lbl_Crypto_Wallet_Submit_Note":"Please note:Once the crypto wallet is submitted,it cannot be modified/ deleted.<br>For any request of modification, please contact CSD.",
+	"lbl_Wallet_Address_Required": "Wallet Address is required",
+	"lbl_Wallet_Nickname_Tip": "This is on optional wallet nickname to facilitate your identification",
+	"lbl_Wallet_Address_Tip": "Enter only letters (a-z) and diguts(0-9).  ",
+
 	"end":"end"
 }
 
