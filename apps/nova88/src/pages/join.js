@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { navigate, Redirect, Link } from "@reach/router";
-import path from "../router";
+import { navigate } from "@reach/router";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import {
@@ -38,8 +37,8 @@ import {
 
 export default () => {
 	return (
-		<Wrapper>
-			<Layout>
+		<Wrapper onlyBeforeLogin={true}>
+			<Layout showFooter={true}>
 				<main>
 					<Content />
 				</main>
@@ -47,8 +46,6 @@ export default () => {
 		</Wrapper>
 	);
 };
-
-const defaultLangId = GET_LANG_ID();
 
 const Content = () => {
 	const { t } = useTranslation();
@@ -59,6 +56,8 @@ const Content = () => {
 	const [showPsw, setShowPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const isMountedRef = useRef(null);
+	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
+
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
@@ -648,8 +647,6 @@ const Content = () => {
 			navigate(`/${userInfo.langId}`, {
 				state: { isJoin: true }
 			});
-		} else {
-			navigate(`/${userInfo.langId}`);
 		}
 	}
 

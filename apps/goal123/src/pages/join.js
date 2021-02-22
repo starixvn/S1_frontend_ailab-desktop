@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { navigate, Redirect } from "@reach/router";
+import { navigate } from "@reach/router";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import {
@@ -27,8 +27,8 @@ import joinBanner from "../styles/img/joinBanner.jpg";
 
 export default () => {
 	return (
-		<Wrapper>
-			<Layout>
+		<Wrapper onlyBeforeLogin={true}>
+			<Layout showFooter={true}>
 				<main className="joinlogin">
 					<Content />
 				</main>
@@ -54,8 +54,6 @@ const initTip = {
 	checkbox: { checked: null, msg: "" }
 };
 
-const defaultLangId = GET_LANG_ID();
-
 const Content = () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -65,6 +63,7 @@ const Content = () => {
 	const [showPsw, setShowPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const isMountedRef = useRef(null);
+	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -482,9 +481,6 @@ const Content = () => {
 			popBoxType: defPopBoxType.Login
 		});
 	};
-
-	if (userInfo.isLogin)
-		return <Redirect to={`/${userInfo.langId}`} noThrow />;
 
 	return (
 		<div className="joinloginModule">

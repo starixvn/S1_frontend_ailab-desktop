@@ -33,7 +33,7 @@ const defaultPathLang = () => {
 	return isVaildLang(urlLang) ? urlLang : cookieLang ?? _defaultLang;
 };
 
-export default ({ children, afterLogin = false }) => {
+export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -100,7 +100,11 @@ export default ({ children, afterLogin = false }) => {
 							)
 						});
 					}
-				} else if (afterLogin && !isLogin && isMountedRef.current) {
+				} else if (
+					isMountedRef.current &&
+					((afterLogin && !isLogin) ||
+						(isLogin && onlyBeforeLogin && !userInfo.isJoin))
+				) {
 					setRedirectPath(`/${userInfo.langId}`);
 				}
 				if (isLogin !== userInfo.isLogin && isMountedRef.current) {
@@ -114,6 +118,7 @@ export default ({ children, afterLogin = false }) => {
 		userInfo.isLogin,
 		userInfo.kickout,
 		userInfo.willLogout,
+		userInfo.isJoin,
 		setUserInfo,
 		setRedirectPath,
 		setPopBox
