@@ -1105,6 +1105,11 @@ header {
   position: relative;
 }
 
+.header > div.function .cashier > img:first-child, .header > div.function .wallet > img:first-child, .header > div.function .memberfile > img:first-child {
+  width: 30px;
+  margin-right: 10px;
+}
+
 .header > div.function .cashier button, .header > div.function .wallet button, .header > div.function .memberfile button {
   color: white;
   font-size: 14px;
@@ -2166,6 +2171,10 @@ footer {
   color: #fab617;
 }
 
+.txt-yellow2 {
+  color: #edbd46;
+}
+
 .txt-red {
   color: #cf0404;
 }
@@ -2801,7 +2810,7 @@ input[type="file"] {
 
 .eventLink {
   position: fixed;
-  right: 10px;
+  left: 10px;
   bottom: 5%;
   z-index: 3;
   display: -webkit-box;
@@ -2812,9 +2821,9 @@ input[type="file"] {
 .eventLink .icon-close {
   width: 35px;
   height: 35px;
-  color: #F80B3B;
+  color: #0F2D54;
   position: absolute;
-  right: 10px;
+  left: 10px;
   top: -20px;
   font-size: 18px;
   font-weight: bold;
@@ -3862,7 +3871,6 @@ input[type="file"] {
 }
 
 #popup .pop {
-  min-width: 600px;
   background: #191919;
   padding: 40px;
   border-radius: 15px;
@@ -4010,25 +4018,34 @@ input[type="file"] {
   border-radius: 5px;
 }
 
-#popup .pop .friend .checkbox {
+#popup .pop .checkbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  width: auto;
   margin: 0;
 }
 
-#popup .pop .friend .checkbox input[type="checkbox"] + label {
-  border-radius: 0;
+#popup .pop .checkbox input[type="checkbox"] + label {
   margin-right: 5px;
 }
 
-#popup .pop .friend .checkbox input[type="checkbox"] + label.icon:before {
+#popup .pop .checkbox input[type="checkbox"] + label.icon:before {
   font-size: 12px;
   margin-top: -1px;
+}
+
+#popup .pop .rankpop .icon-close {
+  top: -25px;
+  right: -25px;
+}
+
+#popup .pop .rankpop img {
+  width: auto;
+  max-height: 400px;
 }
 
 #popup .pop .poker {
@@ -4749,7 +4766,6 @@ input[type="file"] {
 
 .addBank .addBankName button.icon {
   font-size: 24px;
-  position: absolute;
   right: 0;
   bottom: -40px;
   color: #1E85EC;
@@ -4865,6 +4881,16 @@ input[type="file"] {
   text-align: center;
 }
 
+.remainder .icon {
+  display: inline-block;
+}
+
+.remainder ~ .tip {
+  padding: 0;
+  margin-top: 10px;
+  color: #1E85EC;
+}
+
 .calculation {
   width: 100%;
   -webkit-box-align: center;
@@ -4923,6 +4949,10 @@ input[type="file"] {
 .calculation > div span {
   color: #f77900;
   margin-left: 5px;
+}
+
+.calculation ~ .inputModuleRow {
+  margin-top: 20px;
 }
 
 .addBankpop > .txt-lightgray {
@@ -7346,20 +7376,6 @@ button.icon-spinner11:before {
   padding-top: 0;
 }
 
-.icon-BTC ~ .walletModule .remainder {
-  text-align: left;
-}
-
-.icon-BTC ~ .walletModule .remainder .icon {
-  display: inline-block;
-}
-
-.icon-BTC ~ .walletModule .remainder ~ .tip {
-  padding: 0;
-  margin-top: 10px;
-  color: #1E85EC;
-}
-
 .icon-new::before {
   position: absolute;
   top: -5px;
@@ -8511,80 +8527,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 42.50392%;
-  top: -28.54944%;
-  width: 6.90744px;
-  height: 6.90744px;
+  left: 99.47634%;
+  top: 34.54817%;
+  width: 12.45362px;
+  height: 12.45362px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 74.60046%;
-  top: 14.77524%;
-  width: 10.37015px;
-  height: 10.37015px;
+  left: 2.30322%;
+  top: -58.50578%;
+  width: 6.61349px;
+  height: 6.61349px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 71.42592%;
-  top: -39.62162%;
-  width: 13.12611px;
-  height: 13.12611px;
+  left: 68.22186%;
+  top: 34.61431%;
+  width: 9.40698px;
+  height: 9.40698px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 20.61316%;
-  top: 4.71852%;
-  width: 9.31906px;
-  height: 9.31906px;
+  left: 23.13386%;
+  top: 17.51048%;
+  width: 8.54493px;
+  height: 8.54493px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 70.99716%;
-  top: -15.76669%;
-  width: 12.05932px;
-  height: 12.05932px;
+  left: 91.8686%;
+  top: 38.45258%;
+  width: 12.39403px;
+  height: 12.39403px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 91.84792%;
-  top: -33.78986%;
-  width: 11.56904px;
-  height: 11.56904px;
+  left: 38.72826%;
+  top: 38.07754%;
+  width: 8.90016px;
+  height: 8.90016px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 21.59095%;
-  top: -23.94773%;
-  width: 6.29543px;
-  height: 6.29543px;
+  left: 33.2332%;
+  top: -48.72584%;
+  width: 6.86934px;
+  height: 6.86934px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 17.7724%;
-  top: -18.37965%;
-  width: 12.2895px;
-  height: 12.2895px;
+  left: 75.96213%;
+  top: 39.25563%;
+  width: 9.03873px;
+  height: 9.03873px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8930,6 +8946,47 @@ canvas {
   margin-top: 30px;
 }
 
+.event .eventModule > div > div.moduleCenter > div .eventList {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-weight: bold;
+  color: black;
+  margin-top: 30px;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr {
+  background: white;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr td {
+  border: 1px solid #5e0004;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+  vertical-align: middle;
+  border-radius: 3px;
+  color: white;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr td div {
+  width: 70px;
+  margin: auto;
+  text-align: right;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:first-child {
+  background: #980B0B;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(even) {
+  background: #333333;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(odd):not(:nth-child(1)) {
+  background: #212121;
+}
+
 .event .eventModule > div > div.moduleCenter:before, .event .eventModule > div > div.moduleCenter:after {
   content: "";
   display: block;
@@ -8944,47 +9001,6 @@ canvas {
   background: url(../img/event/border.png);
   -webkit-transform: scale(-1);
           transform: scale(-1);
-}
-
-.eventList {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  font-weight: bold;
-  color: black;
-  margin-top: 30px;
-}
-
-.eventList tr {
-  background: white;
-}
-
-.eventList tr td {
-  border: 1px solid #5e0004;
-  padding: 5px;
-  text-align: center;
-  width: 50%;
-  vertical-align: middle;
-  border-radius: 3px;
-  color: white;
-}
-
-.eventList tr td div {
-  width: 70px;
-  margin: auto;
-  text-align: right;
-}
-
-.eventList tr:first-child {
-  background: #980B0B;
-}
-
-.eventList tr:nth-child(even) {
-  background: #333333;
-}
-
-.eventList tr:nth-child(odd):not(:nth-child(1)) {
-  background: #212121;
 }
 
 .angpao {
@@ -9314,10 +9330,15 @@ canvas {
   padding-bottom: 30px;
 }
 
+.vip .vipPage ~ img {
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
 .vip .vipPage .eventList {
   margin: 0;
-  border: 1px solid #1E85EC;
   font-weight: normal;
+  width: 100%;
 }
 
 .vip .vipPage .eventList .icon-nova88 {
@@ -9363,6 +9384,10 @@ canvas {
   text-align: left;
   width: 34%;
   padding-left: 10px;
+}
+
+.vip .vipPage .eventList tr:first-child td {
+  color: white;
 }
 
 .vip .medal {
@@ -9423,5 +9448,31 @@ canvas {
   text-align: center;
   margin-top: 10px;
   padding: 10px 10px 0;
+}
+
+.vipInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: rgba(51, 51, 51, 0.5);
+  border-radius: 15px;
+  padding: 20px 40px;
+  margin-bottom: 30px;
+}
+
+.vipInfo .vipTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #1E85EC;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
