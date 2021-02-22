@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
@@ -111,6 +111,7 @@ const LoginPanel = () => {
 						isLogin: res.isLogin
 					}));
 					setPopBox({ isOpen: false });
+					navigate(`/${userInfo.langId}/${path.deposit.root}`);
 				} else if (
 					res.errorCode === 1101 ||
 					res.errorCode === 1102 ||
