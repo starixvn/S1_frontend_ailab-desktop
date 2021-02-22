@@ -459,7 +459,13 @@ export default () => {
 					<div className="vipbg">
 						<img src={vipClubImg.url} alt={vipClubImg.alt} />
 					</div>
-					<div>{t(vipClubImg.displayKey)}</div>
+					{userInfo.langId === "cs" ? (
+						<div>
+							{`${t(vipClubImg.displayKey)}${t("lbl_Club")}`}
+						</div>
+					) : (
+						<div>{t(vipClubImg.displayKey)}</div>
+					)}
 				</div>
 			) : null}
 
