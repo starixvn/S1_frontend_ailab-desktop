@@ -2826,7 +2826,7 @@ input[type="file"] {
   z-index: 4;
   background: #E3CE9B;
   border-radius: 100%;
-  line-height: 35px;
+  line-height: 50px;
 }
 
 .eventLink img {
@@ -4763,7 +4763,6 @@ input[type="file"] {
 
 .addBank .addBankName button.icon {
   font-size: 24px;
-  position: absolute;
   right: 0;
   bottom: -40px;
   color: #1E85EC;
@@ -8525,80 +8524,136 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 41.92475%;
-  top: 38.43852%;
-  width: 11.88252px;
-  height: 11.88252px;
+<<<<<<< HEAD
+  left: 17.60299%;
+  top: -58.77799%;
+  width: 14.88356px;
+  height: 14.88356px;
+=======
+  left: 91.82608%;
+  top: -10.15106%;
+  width: 13.71734px;
+  height: 13.71734px;
+>>>>>>> 30fc7ba32bc0e17858f19b3e43062c52f02228cc
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 84.59844%;
-  top: 17.18798%;
-  width: 5.00752px;
-  height: 5.00752px;
+<<<<<<< HEAD
+  left: 95.48344%;
+  top: -43.92085%;
+  width: 9.47336px;
+  height: 9.47336px;
+=======
+  left: 2.85074%;
+  top: 18.47735%;
+  width: 14.18559px;
+  height: 14.18559px;
+>>>>>>> 30fc7ba32bc0e17858f19b3e43062c52f02228cc
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 75.5993%;
-  top: -9.13345%;
-  width: 14.82409px;
-  height: 14.82409px;
+<<<<<<< HEAD
+  left: 26.96696%;
+  top: -16.00921%;
+  width: 8.55408px;
+  height: 8.55408px;
+=======
+  left: 24.8298%;
+  top: 26.66334%;
+  width: 8.72444px;
+  height: 8.72444px;
+>>>>>>> 30fc7ba32bc0e17858f19b3e43062c52f02228cc
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 11.51453%;
-  top: -35.69618%;
-  width: 9.40245px;
-  height: 9.40245px;
+<<<<<<< HEAD
+  left: 38.23897%;
+  top: -25.36117%;
+  width: 7.96929px;
+  height: 7.96929px;
+=======
+  left: 15.02953%;
+  top: -14.08553%;
+  width: 12.61282px;
+  height: 12.61282px;
+>>>>>>> 30fc7ba32bc0e17858f19b3e43062c52f02228cc
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 63.02696%;
-  top: -18.01104%;
-  width: 10.52347px;
-  height: 10.52347px;
+<<<<<<< HEAD
+  left: 80.48457%;
+  top: 3.48992%;
+  width: 11.67603px;
+  height: 11.67603px;
+=======
+  left: 41.94114%;
+  top: -49.31446%;
+  width: 12.25387px;
+  height: 12.25387px;
+>>>>>>> 30fc7ba32bc0e17858f19b3e43062c52f02228cc
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 82.88753%;
-  top: -48.15828%;
-  width: 6.48709px;
-  height: 6.48709px;
+<<<<<<< HEAD
+  left: 99.33789%;
+  top: 15.34712%;
+  width: 5.46191px;
+  height: 5.46191px;
+=======
+  left: 16.51474%;
+  top: -55.83825%;
+  width: 13.81074px;
+  height: 13.81074px;
+>>>>>>> 30fc7ba32bc0e17858f19b3e43062c52f02228cc
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 88.61047%;
-  top: -12.94733%;
-  width: 10.77342px;
-  height: 10.77342px;
+<<<<<<< HEAD
+  left: 71.50376%;
+  top: -38.20492%;
+  width: 8.11308px;
+  height: 8.11308px;
+=======
+  left: 76.05235%;
+  top: -18.85996%;
+  width: 6.17532px;
+  height: 6.17532px;
+>>>>>>> 30fc7ba32bc0e17858f19b3e43062c52f02228cc
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 85.88872%;
-  top: -13.32144%;
-  width: 5.64953px;
-  height: 5.64953px;
+<<<<<<< HEAD
+  left: 73.52378%;
+  top: -57.74413%;
+  width: 12.89235px;
+  height: 12.89235px;
+=======
+  left: 73.13731%;
+  top: 28.73825%;
+  width: 9.29366px;
+  height: 9.29366px;
+>>>>>>> 30fc7ba32bc0e17858f19b3e43062c52f02228cc
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9328,9 +9383,12 @@ canvas {
   padding-bottom: 30px;
 }
 
+.vip .vipPage ~ img {
+  margin-bottom: 30px;
+}
+
 .vip .vipPage .eventList {
   margin: 0;
-  border: 1px solid #1E85EC;
   font-weight: normal;
 }
 
@@ -9437,5 +9495,31 @@ canvas {
   text-align: center;
   margin-top: 10px;
   padding: 10px 10px 0;
+}
+
+.vipInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: rgba(51, 51, 51, 0.5);
+  border-radius: 15px;
+  padding: 20px 40px;
+  margin-bottom: 30px;
+}
+
+.vipInfo .vipTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #1E85EC;
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */
