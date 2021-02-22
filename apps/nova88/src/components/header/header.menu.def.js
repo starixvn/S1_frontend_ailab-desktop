@@ -534,16 +534,16 @@ export const defMenuLinks = {
 		displayKey: "lbl_CockFighting",
 		className: "COCK"
 	},
-	// vip: {
-	// 	path: path.vip.root,
-	// 	displayKey: "VIP",
-	// 	eventIcons: [
-	// 		showEventIcon({
-	// 			icon: defEventIcon.new,
-	// 			period: defEventPeriod.vip
-	// 		})
-	// 	]
-	// },
+	vip: {
+		path: path.vip.root,
+		displayKey: "VIP",
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.vip
+			})
+		]
+	},
 	promotion: {
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"
