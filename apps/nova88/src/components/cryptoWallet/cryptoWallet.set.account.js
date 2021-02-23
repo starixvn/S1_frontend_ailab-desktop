@@ -1,6 +1,11 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { defActionType } from "./cryptoWallet.reducer";
+import {
+	defActionType,
+	defStatus,
+	defColType,
+	defColList
+} from "./cryptoWallet.reducer";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
 import config from "../../config";
@@ -20,36 +25,7 @@ export default ({
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
-	const [status, setStatus] = useState({
-		accountName: {
-			checked: null,
-			tip: ""
-		},
-		nickname_0: {
-			checked: null,
-			tip: ""
-		},
-		address_0: {
-			checked: null,
-			tip: ""
-		},
-		nickname_1: {
-			checked: null,
-			tip: ""
-		},
-		address_1: {
-			checked: null,
-			tip: ""
-		},
-		nickname_2: {
-			checked: null,
-			tip: ""
-		},
-		address_2: {
-			checked: null,
-			tip: ""
-		}
-	});
+	const [status, setStatus] = useState(defStatus);
 	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
 
@@ -69,26 +45,21 @@ export default ({
 	};
 
 	const clickInfo = col => {
-		const getColType = () => {
+		const getMsg = () => {
 			let msg;
-			if (col === "accountName") {
+			if (col === defColType.accountName) {
 				msg = t("lbl_BankAccountNameHint");
-			} else if (col.indexOf("nickname") !== -1) {
+			} else if (col.indexOf(defColType.nickname) !== -1) {
 				msg = t("lbl_Wallet_Nickname_Tip");
 			} else {
 				msg = t("lbl_Wallet_Address_Tip");
 			}
 			return msg;
 		};
-
-		let _msg = getColType();
-
-		console.log(_msg);
-
+		let _msg = getMsg();
 		if (status[col].tip === _msg) {
 			_msg = "";
 		}
-
 		setStatus(prev => ({
 			...prev,
 			[col]: {
@@ -98,23 +69,38 @@ export default ({
 		}));
 	};
 
-	const checkAccount = (val, col) => {
-		let checked = true;
+	const checkInput = (val, col) => {
+		// console.log("val:", val, " ----", "col:", col);
+		let checked = null;
 		let message = "";
+		const addressRegex = /^[a-zA-Z0-9@$*!%#?&]*$/;
 		if (col === "accountName" && !alreadyHasAccountName) {
 			if (!val) {
 				message = t("msg_EnterRealName");
 				checked = false;
 			}
-		} else if (col.indexOf("address") !== -1) {
-			if (!val) {
+		} else if (val && col.indexOf(defColType.nickname) !== -1) {
+			checked = true;
+		} else if (col.indexOf(defColType.address) !== -1) {
+			if (val) {
+				if (!addressRegex.test(val)) {
+					message = t("msg_AccountWrongFormat");
+					checked = false;
+				} else {
+					checked = true;
+				}
+			} else if (
+				(col === defColList[0].address && !val) ||
+				(col === defColList[1]?.address &&
+					fake_walletList[1]?.nickname?.length > 0) ||
+				(col === defColList[2]?.address &&
+					fake_walletList[2]?.nickname?.length > 0)
+			) {
 				message = t("lbl_Wallet_Address_Required");
-				checked = false;
-			} else if (isNaN(val)) {
-				message = t("msg_AccountWrongFormat");
 				checked = false;
 			}
 		}
+
 		setStatus(prev => ({
 			...prev,
 			[col]: {
@@ -125,122 +111,169 @@ export default ({
 		return { checked, message };
 	};
 
-	console.log(status);
-
-	const editField = (_col, e) => {
+	const editField = (col, e) => {
 		let regex = null;
-		if (_col.indexOf("address") !== -1) {
+		if (col.indexOf(defColType.address) !== -1) {
 			regex = /^[a-zA-Z0-9@$*!%#?&]*$/;
-			//  /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 		}
 		const val = e.target.value;
 		if (val === "" || regex === null || (regex && regex.test(val))) {
 			dispatch({
 				type: defActionType.EDIT_FIELD,
-				col: _col,
+				col,
 				value: val
 			});
 		}
 	};
 
-	const clickSubmit = e => {
-		e.preventDefault();
-		const _accountName = checkAccount(accountName, "accountName");
-		const _accountNumber = checkAccount(accountNumber, "accountNumber");
-
-		if (_accountNumber.checked && _accountName.checked) {
-			setLoading(true);
-			api_accountStrict_SetCustBankInfo({
-				AccountName: accountName,
-				AccountNo: accountNumber
-				// SysId: bankInfo.sysId
-			}).then(
-				res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0) {
-							reload(!alreadyHasAccountName);
-						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-cancel"
-											onClick={clickClose}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
-						}
-						setLoading(false);
-					}
-				},
-				() => {
-					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={clickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-						setLoading(false);
-					}
-				}
-			);
-		}
-	};
-
-	const inputList = [{ groupId: 0 }, { groupId: 1 }, { groupId: 2 }];
 	const fake_walletList = [
-		{ nickname: "a", address: null },
-		{ nickname: "b", address: "yyy" },
-		{ nickname: "c", address: null }
+		{ nickname: null, address: "asd5as1d51" },
+		{ nickname: "asdas", address: null },
+		{ nickname: "asdas", address: null }
 	];
 
-	const inputListLayout = inputList?.map(item => {
+	const checkBeforeSubmit = () => {
+		let finalResult = false;
+		const _accountNameResult = checkInput(accountName, "accountName")
+			.checked;
+
+		const _nickNameResultList = [];
+		fake_walletList.forEach((item, idx) => {
+			const check = checkInput(item.nickname, `nickname_${[idx + 1]}`)
+				.checked;
+			_nickNameResultList.push(check);
+		});
+
+		const _addressResultList = [];
+		fake_walletList.forEach((item, idx) => {
+			const check = checkInput(item.address, `address_${[idx + 1]}`)
+				.checked;
+			_addressResultList.push(check);
+		});
+
+		if (
+			_accountNameResult === false ||
+			_nickNameResultList.includes(false) ||
+			_addressResultList.includes(false)
+		) {
+			finalResult = false;
+		}
+		// else if (_nickNameResultList[1] && _addressResultList[1] === null) {
+		// 	setStatus(prev => ({
+		// 		...prev,
+		// 		address_2: {
+		// 			checked: false,
+		// 			tip: t("lbl_Wallet_Address_Required")
+		// 		}
+		// 	}));
+		// 	finalResult = false;
+		// } else if (_nickNameResultList[2] && _addressResultList[2] === null) {
+		// 	setStatus(prev => ({
+		// 		...prev,
+		// 		address_3: {
+		// 			checked: false,
+		// 			tip: t("lbl_Wallet_Address_Required")
+		// 		}
+		// 	}));
+		// 	finalResult = false;
+		// }
+		else {
+			finalResult = true;
+		}
+		console.log("finalResult -> ", finalResult);
+		return finalResult;
+	};
+
+	const clickSubmit = e => {
+		e.preventDefault();
+		checkBeforeSubmit();
+		// if (checkBeforeSubmit()) {
+		// 	setLoading(true);
+		// 	api_accountStrict_SetCustBankInfo({
+		// 		AccountName: accountName,
+		// 		AccountNo: accountNumber
+		// 		// SysId: bankInfo.sysId
+		// 	}).then(
+		// 		res => {
+		// 			if (isMountedRef.current) {
+		// 				if (res.data.errorCode === 0) {
+		// 					reload(!alreadyHasAccountName);
+		// 				} else {
+		// 					setPopBox({
+		// 						isOpen: true,
+		// 						popBoxType: defPopBoxType.ErrorMsg,
+		// 						message: res.data.message,
+		// 						btnBar: (
+		// 							<div className="btnGroup">
+		// 								<button
+		// 									className="btn-cancel"
+		// 									onClick={clickClose}>
+		// 									{t("lbl_Close")}
+		// 								</button>
+		// 							</div>
+		// 						)
+		// 					});
+		// 				}
+		// 				setLoading(false);
+		// 			}
+		// 		},
+		// 		() => {
+		// 			if (isMountedRef.current) {
+		// 				setPopBox({
+		// 					isOpen: true,
+		// 					popBoxType: defPopBoxType.ErrorMsg,
+		// 					message: t("msg_ApiServerError"),
+		// 					btnBar: (
+		// 						<div className="btnGroup">
+		// 							<button
+		// 								className="btn-cancel"
+		// 								onClick={clickClose}>
+		// 								{t("lbl_Close")}
+		// 							</button>
+		// 						</div>
+		// 					)
+		// 				});
+		// 				setLoading(false);
+		// 			}
+		// 		}
+		// 	);
+		// }
+	};
+
+	const inputListLayout = defColList?.map(item => {
 		const groupIdx = item.groupId;
 		return (
 			<span key={groupIdx}>
 				<Inputbox
 					className="inputBox-white"
-					// value={walletList[`nickname_${groupIdx}`]}
-					onChange={editField.bind(this, `nickname_${groupIdx}`)}
-					onBlur={checkAccount.bind(
+					value={fake_walletList[groupIdx - 1]?.nickname}
+					onChange={editField.bind(this, item.nickname)}
+					onBlur={checkInput.bind(
 						this,
-						fake_walletList[groupIdx].nickname,
-						`nickname_${groupIdx}`
+						fake_walletList[groupIdx - 1]?.nickname,
+						item.nickname
 					)}
-					clickInfo={clickInfo.bind(this, `nickname_${groupIdx}`)}
+					clickInfo={clickInfo.bind(this, item.nickname)}
 					title={t("lbl_Wallet_Nickname")}
-					checked={status[`nickname_${groupIdx}`].checked}
-					tip={status[`nickname_${groupIdx}`].tip}
-					placeholder="Optional"
+					checked={status[item.nickname].checked}
+					tip={status[item.nickname].tip}
+					placeholder={t("lbl_Optional")}
 				/>
 
 				<Inputbox
 					className="inputBox-white"
-					// value={walletList[`address_${groupIdx}`]}
-					onChange={editField.bind(this, `address_${groupIdx}`)}
-					onBlur={checkAccount.bind(
+					value={fake_walletList[groupIdx - 1]?.address}
+					onChange={editField.bind(this, item.address)}
+					onBlur={checkInput.bind(
 						this,
-						fake_walletList[groupIdx].address,
-						`address_${groupIdx}`
+						fake_walletList[groupIdx - 1]?.address,
+						item.address
 					)}
-					clickInfo={clickInfo.bind(this, `address_${groupIdx}`)}
+					clickInfo={clickInfo.bind(this, item.address)}
 					title={t("lbl_Wallet_Address")}
-					checked={status[`address_${groupIdx}`].checked}
-					tip={status[`address_${groupIdx}`].tip}
+					checked={status[item.address].checked}
+					tip={status[item.address].tip}
+					placeholder={t("lbl_Please_Enter_Wallet_Address")}
 				/>
 			</span>
 		);
@@ -253,7 +286,7 @@ export default ({
 			<div className="platformName">
 				<div className="icon icon-arrow-right2" />
 				<div>
-					<div>{t("lbl_EnterWalletNumber")}</div>
+					<div>{t("lbl_Enter_Wallet_Address")}</div>
 				</div>
 				<button
 					aria-label="toLastStep"
@@ -266,9 +299,27 @@ export default ({
 					<form
 						className="subModuleBody column"
 						onSubmit={clickSubmit}>
+						{!alreadyHasAccountName ? (
+							<Inputbox
+								className="inputBox-white"
+								value={accountName}
+								onChange={editField.bind(this, "accountName")}
+								onBlur={checkInput.bind(
+									this,
+									accountName,
+									"accountName"
+								)}
+								title={t("lbl_RealName")}
+								clickInfo={clickInfo.bind(this, "accountName")}
+								checked={status.accountName.checked}
+								tip={status.accountName.tip}
+							/>
+						) : null}
 						{inputListLayout}
 						<div className="tip active">
 							{t("lbl_Crypto_Wallet_Submit_Note")}
+							<br />
+							{t("lbl_Modification_Please_Contact_CSD")}
 						</div>
 						<div className="btnGroup">
 							<button className="btn-check" type="submit">

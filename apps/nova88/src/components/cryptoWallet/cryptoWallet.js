@@ -157,8 +157,8 @@ export default () => {
 		<>
 			<div className="infoModule">
 				<div className="inside-title icon icon-BTC">
-					<span>{t("lbl_CryptoWallet")}</span>
-					<div>{t("lbl_UpdateCryptoWallet")}</div>
+					<span>{t("lbl_Crypto_Wallet")}</span>
+					<div>{t("lbl_Update_Crypto_Wallet")}</div>
 				</div>
 
 				<StepBar

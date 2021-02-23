@@ -5,7 +5,7 @@ export default props => {
 		if (props.checked === null) {
 			return (
 				<i
-					className="icon icon-information-solid"
+					className="icon icon-information"
 					onClick={props.clickInfo}
 				/>
 			);

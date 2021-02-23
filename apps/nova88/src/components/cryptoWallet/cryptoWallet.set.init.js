@@ -14,17 +14,17 @@ export default ({ dispatch, numberOfAccount }) => {
 				{numberOfAccount < 10 ? (
 					<div className="addBankName noBank" onClick={toNextStep}>
 						<div className="icon icon-plus" />
-						<div>{t("lbl_AddCryptoWallet")}</div>
+						<div>{t("lbl_Add_Crypto_Wallet")}</div>
 					</div>
 				) : (
 					<div className="addBankName noBank">
 						<div className="icon icon-warning" />
-						<div>{t("lbl_WalletisFull")}</div>
+						<div>{t("lbl_Wallet_Is_Full")}</div>
 					</div>
 				)}
 
 				<div className="remainder">
-					{t("lbl_NumberOfWallet")}: {numberOfAccount || 0}/3
+					{t("lbl_Number_Of_Wallet")}: {numberOfAccount || 0}/3
 				</div>
 			</div>
 		</div>

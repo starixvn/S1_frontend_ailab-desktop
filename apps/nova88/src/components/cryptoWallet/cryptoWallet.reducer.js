@@ -13,9 +13,51 @@ const defStepModule = {
 	2: "AccountPanel"
 };
 
+export const defStatus = {
+	accountName: {
+		checked: null,
+		tip: ""
+	},
+	nickname_1: {
+		checked: null,
+		tip: ""
+	},
+	address_1: {
+		checked: null,
+		tip: ""
+	},
+	nickname_2: {
+		checked: null,
+		tip: ""
+	},
+	address_2: {
+		checked: null,
+		tip: ""
+	},
+	nickname_3: {
+		checked: null,
+		tip: ""
+	},
+	address_3: {
+		checked: null,
+		tip: ""
+	}
+};
+
+export const defColType = {
+	accountName: "accountName",
+	nickname: "nickname",
+	address: "address"
+};
+
+export const defColList = [
+	{ groupId: 1, nickname: "nickname_1", address: "address_1" },
+	{ groupId: 2, nickname: "nickname_2", address: "address_2" },
+	{ groupId: 3, nickname: "nickname_3", address: "address_3" }
+];
+
 export const defModule = {
 	[defStepModule[1]]: "InitPanel",
-	// [defStepModule[2]]: "BankPanel",
 	[defStepModule[2]]: "AccountPanel"
 };
 
