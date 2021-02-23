@@ -45,54 +45,40 @@ const MysteryBoxEventModule = ({
 							</div>
 
 							{drawPrizeList.length ? (
-								<>
-									<table className="eventList">
-										<tbody>
-											<tr>
-												<td>
-													{t("lbl_Date")} (
-													{moment().format("Z")})
-												</td>
-												<td>
-													{t("lbl_MysteryBox_Awards")}{" "}
-													({" "}
-													{t(
-														`Currency_${currencyId}`
-													)}{" "}
-													)
-												</td>
-											</tr>
+								<table className="eventList">
+									<tbody>
+										<tr>
+											<td>
+												{t("lbl_Date")} (
+												{moment().format("Z")})
+											</td>
+											<td>
+												{t("lbl_MysteryBox_Awards")} ({" "}
+												{t(`Currency_${currencyId}`)} )
+											</td>
+										</tr>
 
-											{drawPrizeList.map(item => {
-												return (
-													<tr
-														key={`key-${item.drawTime}`}>
-														<td>
-															{moment(
-																item.drawTime
-															).format(
-																"YYYY/MM/DD HH:mm:ss"
-															)}
-														</td>
-														<td>
-															<div>
-																{item.prizeName}
-															</div>
-														</td>
-													</tr>
-												);
-											})}
-										</tbody>
-									</table>
-									<div className="btnGroup">
-										<a
-											className="more"
-											target="_blank"
-											href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/ranking/${langId}3.html`}>
-											{t("lbl_MoreDetails")}
-										</a>
-									</div>
-								</>
+										{drawPrizeList.map(item => {
+											return (
+												<tr
+													key={`key-${item.drawTime}`}>
+													<td>
+														{moment(
+															item.drawTime
+														).format(
+															"YYYY/MM/DD HH:mm:ss"
+														)}
+													</td>
+													<td>
+														<div>
+															{item.prizeName}
+														</div>
+													</td>
+												</tr>
+											);
+										})}
+									</tbody>
+								</table>
 							) : (
 								<div className="nodata icon icon-nodata">
 									<div className="txt-white">

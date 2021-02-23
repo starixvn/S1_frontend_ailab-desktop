@@ -49,13 +49,6 @@ const MysteryBoxEventModule = ({
 							</div>
 						</div>
 
-						{/* <a
-							className="more"
-							target="_blank"
-							href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/ranking/${langId}3.html`}>
-							{t("lbl_MoreDetails")}
-						</a> */}
-
 						{isLogin ? (
 							<>
 								<div className="tag">
