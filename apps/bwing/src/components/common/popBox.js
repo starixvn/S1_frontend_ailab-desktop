@@ -262,7 +262,9 @@ export default () => {
 
 	if (popBox.loading) return <Loading />;
 
-	const customLayout = popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
+	const customLayout =
+		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
+		popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
 
 	if (!popBox.isOpen) return null;
 

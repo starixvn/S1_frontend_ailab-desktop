@@ -263,23 +263,22 @@ export default () => {
 			break;
 	}
 
+	if (popBox.loading) return <Loading />;
+
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
 
-	return popBox.isOpen ? (
-		popBox.loading ? (
-			<Loading />
-		) : (
-			<div id="popup" className="active">
-				{customLayout ? (
-					<Suspense fallback={<Loading />}>{content}</Suspense>
-				) : (
-					<div className="pop">
-						<Suspense fallback={<Loading />}>{content}</Suspense>
-					</div>
-				)}
+	if (!popBox.isOpen) return null;
+
+	if (customLayout)
+		return <Suspense fallback={<Loading />}>{content}</Suspense>;
+
+	return (
+		<div id="popup" className="active">
+			<div className="pop">
+				<Suspense fallback={<Loading />}>{content}</Suspense>
 			</div>
-		)
-	) : null;
+		</div>
+	);
 };
