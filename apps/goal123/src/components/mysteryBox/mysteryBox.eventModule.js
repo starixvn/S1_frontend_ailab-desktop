@@ -112,9 +112,7 @@ const MysteryBoxEventModule = ({
 									</div>
 								)}
 							</>
-						) : (
-							""
-						)}
+						) : null}
 					</div>
 				</div>
 				<div className="arrow-right" />
