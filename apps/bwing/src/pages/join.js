@@ -64,7 +64,7 @@ const Content = () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
-	const defaultLangId = GET_LANG_ID();
+	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
