@@ -233,7 +233,6 @@ export default () => {
 			const SuccessAngPow = lazy(() => import("./popBox.successAngPow"));
 			content = (
 				<SuccessAngPow
-					closePopBox={popBox.closePopBox}
 					t={popBox.t}
 					drawPrizeDatas={popBox.drawPrizeDatas}
 					class="event"
@@ -249,7 +248,6 @@ export default () => {
 			);
 			content = (
 				<SuccessMySteryBox
-					closePopBox={popBox.closePopBox}
 					t={popBox.t}
 					drawPrizeDatas={popBox.drawPrizeDatas}
 					clickClose={popBox.clickClose}
