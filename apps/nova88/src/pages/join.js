@@ -38,7 +38,7 @@ import {
 export default () => {
 	return (
 		<Wrapper onlyBeforeLogin={true}>
-			<Layout showFooter={true}>
+			<Layout>
 				<main>
 					<Content />
 				</main>

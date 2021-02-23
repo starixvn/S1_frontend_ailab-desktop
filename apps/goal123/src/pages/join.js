@@ -28,7 +28,7 @@ import joinBanner from "../styles/img/joinBanner.jpg";
 export default () => {
 	return (
 		<Wrapper onlyBeforeLogin={true}>
-			<Layout showFooter={true}>
+			<Layout>
 				<main className="joinlogin">
 					<Content />
 				</main>
