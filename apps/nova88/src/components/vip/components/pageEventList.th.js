@@ -17,12 +17,8 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Deposit_Priority")}</td>
-					<td>
-						<i className="icon icon-checkmark" />
-					</td>
-					<td>
-						<i className="icon icon-checkmark" />
-					</td>
+					<td />
+					<td />
 					<td>{t("lbl_Vip_High")}</td>
 					<td>{t("lbl_Vip_High")}</td>
 					<td>{t("lbl_Vip_High")}</td>
@@ -30,12 +26,8 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_WithDrawal_Priority")}</td>
-					<td>
-						<i className="icon icon-checkmark" />
-					</td>
-					<td>
-						<i className="icon icon-checkmark" />
-					</td>
+					<td />
+					<td />
 					<td>{t("lbl_Vip_High")}</td>
 					<td>{t("lbl_Vip_High")}</td>
 					<td>{t("lbl_Vip_High")}</td>
@@ -43,12 +35,8 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Service_Support_At_Date")}</td>
-					<td>
-						<i className="icon icon-checkmark" />
-					</td>
-					<td>
-						<i className="icon icon-checkmark" />
-					</td>
+					<td />
+					<td />
 					<td>{t("lbl_Vip_High")}</td>
 					<td>{t("lbl_Vip_High")}</td>
 					<td>{t("lbl_Vip_High")}</td>
@@ -106,7 +94,7 @@ const PageEventListTh = ({ currencyId, isConvert }) => {
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Sport_Rebate")}</td>
-					<td>0.5%</td>
+					<td>0.55%</td>
 					<td>0.6%</td>
 					<td>0.7%</td>
 					<td>0.8%</td>
