@@ -40,7 +40,8 @@ import productList from "../../datas/productList";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
-import AngpowLink from "./angpowLink";
+// import AngpowLink from "./angpowLink";
+import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
 import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
@@ -416,9 +417,12 @@ const IndexPage = () => {
 				alt="indexCenterBanner"
 			/>
 			<SideBarQuickLink />
-			<AngpowLink
+			{/* <AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}
 				langId={userInfo.langId}
+			/> */}
+			<MysteryBoxLink
+				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 			/>
 		</main>
 	);
