@@ -26,10 +26,7 @@ const BeforeLogin = ({ langId }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
 	const clickJoin = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.Join
-		});
+		navigate(`/${langId}/${path.join.root}`);
 	};
 
 	const clickLogin = () => {
