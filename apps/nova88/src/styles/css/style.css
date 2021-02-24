@@ -3878,8 +3878,8 @@ input[type="file"] {
   overflow-y: auto;
 }
 
-#popup .pop .upload, #popup .pop .uploadError, #popup .pop .uploadSuccess, #popup .pop .updateSuccess {
-  min-width: 600px;
+#popup .pop .upload, #popup .pop .uploadError, #popup .pop .uploadSuccess, #popup .pop .updateSuccess, #popup .pop .update {
+  width: 600px;
 }
 
 #popup .pop .upload_new {
@@ -8548,80 +8548,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 55.48329%;
-  top: -39.23471%;
-  width: 9.01422px;
-  height: 9.01422px;
+  left: 88.80481%;
+  top: -48.71305%;
+  width: 9.82276px;
+  height: 9.82276px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 26.67593%;
-  top: -55.30137%;
-  width: 11.90735px;
-  height: 11.90735px;
+  left: 84.88385%;
+  top: -1.28089%;
+  width: 14.51117px;
+  height: 14.51117px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 66.35122%;
-  top: -27.62372%;
-  width: 5.22173px;
-  height: 5.22173px;
+  left: 65.30629%;
+  top: -22.62813%;
+  width: 13.04559px;
+  height: 13.04559px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 64.04812%;
-  top: 6.81174%;
-  width: 13.63543px;
-  height: 13.63543px;
+  left: 55.89923%;
+  top: 8.81862%;
+  width: 12.91974px;
+  height: 12.91974px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 13.64746%;
-  top: -42.85419%;
-  width: 11.93041px;
-  height: 11.93041px;
+  left: 71.09432%;
+  top: 3.03413%;
+  width: 8.05788px;
+  height: 8.05788px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 95.86132%;
-  top: -48.89804%;
-  width: 14.72684px;
-  height: 14.72684px;
+  left: 61.32349%;
+  top: 11.18492%;
+  width: 8.87383px;
+  height: 8.87383px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 31.95395%;
-  top: 5.08453%;
-  width: 11.56387px;
-  height: 11.56387px;
+  left: 64.62235%;
+  top: -46.00326%;
+  width: 9.48448px;
+  height: 9.48448px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 85.03081%;
-  top: -51.43077%;
-  width: 10.1525px;
-  height: 10.1525px;
+  left: 58.46187%;
+  top: 21.72304%;
+  width: 12.26512px;
+  height: 12.26512px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
