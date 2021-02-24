@@ -20,10 +20,10 @@ export const defMenuLinks = langId => {
 			path: path.sports.root,
 			displayKey: "lbl_Sports"
 		},
-		cockFighting: {
-			productInfo: productList.cockFighting,
-			displayKey: "lbl_CockFighting"
-		},
+		// cockFighting: {
+		// 	productInfo: productList.cockFighting,
+		// 	displayKey: "lbl_CockFighting"
+		// },
 		// sabaClub: {
 		// 	productInfo: productList.sabaClub,
 		// 	displayKey: "lbl_SabaClub"
