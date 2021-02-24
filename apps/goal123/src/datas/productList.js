@@ -131,6 +131,10 @@ export default {
 		gameId: "AT04",
 		tpId: 16,
 		name: "CQ9_Thunder_Fighter:"
+	},
+	CQ9: {
+		tpId: 16,
+		name: "CQ9"
 	}
 };
 
