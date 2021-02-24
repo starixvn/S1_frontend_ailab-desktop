@@ -25,6 +25,7 @@ const ShowWallet = props => {
 					</span>
 					<div className="btnGroup">
 						<button
+							data-testid={`showWallet_restoreAll_${item.id}`}
 							className="orange"
 							onClick={props.restoreAll.bind(this, item.id)}>
 							{props.i18n("lbl_RestoreAll")}
