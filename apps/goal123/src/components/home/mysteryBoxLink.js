@@ -3,16 +3,22 @@ import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "../mysteryBox/mysteryBox.def";
-import imgEventlink from "../../styles/img/event/box/eventlink.png";
+import imgEventlinkEn from "../../styles/img/event/box/eventlink.png";
+import imgEventlinkVn from "../../styles/img/event/box/eventlink_vn.png";
 
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
 
-const MysteryBoxLink = ({ to }) => {
+const MysteryBoxLink = ({ to, langId }) => {
 	const [display, setDisplay] = useState(true);
 	const [buttonDisplay, setButtonDisplay] = useState(false);
 
 	if (!isInPeriod) return null;
+
+	const imgEventlink = {
+		en: imgEventlinkEn,
+		vn: imgEventlinkVn
+	}[langId];
 
 	if (display)
 		return (
@@ -37,6 +43,7 @@ const MysteryBoxLink = ({ to }) => {
 };
 
 MysteryBoxLink.propTypes = {
-	to: PropTypes.string.isRequired
+	to: PropTypes.string.isRequired,
+	langId: PropTypes.string.isRequired
 };
 export default MysteryBoxLink;
