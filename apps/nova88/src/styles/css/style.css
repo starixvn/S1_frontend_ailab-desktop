@@ -4023,8 +4023,8 @@ input[type="file"] {
 #popup .pop .joinSuccess .icon-close {
   font-size: 16px;
   position: absolute;
-  right: -120px;
-  top: -20px;
+  right: 0px;
+  top: 0px;
 }
 
 #popup .pop .friend {
@@ -8548,80 +8548,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 50.29346%;
-  top: -39.98325%;
-  width: 12.98485px;
-  height: 12.98485px;
+  left: 86.24401%;
+  top: 23.59485%;
+  width: 7.88717px;
+  height: 7.88717px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 44.71932%;
-  top: -6.18552%;
-  width: 11.97032px;
-  height: 11.97032px;
+  left: 34.54453%;
+  top: 34.61687%;
+  width: 5.42981px;
+  height: 5.42981px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 73.81135%;
-  top: -40.81978%;
-  width: 6.4906px;
-  height: 6.4906px;
+  left: 64.95892%;
+  top: -28.87243%;
+  width: 9.80471px;
+  height: 9.80471px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 70.84006%;
-  top: -7.25181%;
-  width: 11.78358px;
-  height: 11.78358px;
+  left: 80.52755%;
+  top: -30.22302%;
+  width: 14.1412px;
+  height: 14.1412px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 19.96737%;
-  top: -15.43028%;
-  width: 7.8165px;
-  height: 7.8165px;
+  left: 54.54635%;
+  top: 6.3803%;
+  width: 12.863px;
+  height: 12.863px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 89.85932%;
-  top: 37.67351%;
-  width: 13.2855px;
-  height: 13.2855px;
+  left: 49.65175%;
+  top: 38.52574%;
+  width: 13.69274px;
+  height: 13.69274px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 58.18299%;
-  top: -11.19013%;
-  width: 5.63437px;
-  height: 5.63437px;
+  left: 56.99149%;
+  top: -30.59966%;
+  width: 7.71152px;
+  height: 7.71152px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 70.69874%;
-  top: -5.43728%;
-  width: 13.48849px;
-  height: 13.48849px;
+  left: 65.93805%;
+  top: -16.63133%;
+  width: 14.89549px;
+  height: 14.89549px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
