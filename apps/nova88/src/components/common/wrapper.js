@@ -33,7 +33,7 @@ const defaultPathLang = () => {
 	return isVaildLang(urlLang) ? urlLang : cookieLang ?? _defaultLang;
 };
 
-export default ({ children, afterLogin = false }) => {
+export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -100,7 +100,11 @@ export default ({ children, afterLogin = false }) => {
 							)
 						});
 					}
-				} else if (afterLogin && !isLogin && isMountedRef.current) {
+				} else if (
+					isMountedRef.current &&
+					((afterLogin && !isLogin) ||
+						(isLogin && onlyBeforeLogin && !userInfo.isJoin))
+				) {
 					setRedirectPath(`/${userInfo.langId}`);
 				}
 				if (isLogin !== userInfo.isLogin && isMountedRef.current) {
@@ -114,6 +118,7 @@ export default ({ children, afterLogin = false }) => {
 		userInfo.isLogin,
 		userInfo.kickout,
 		userInfo.willLogout,
+		userInfo.isJoin,
 		setUserInfo,
 		setRedirectPath,
 		setPopBox
@@ -175,39 +180,6 @@ export default ({ children, afterLogin = false }) => {
 			}
 		}
 	}, [currentPath, i18n.language, userInfo.langId, userInfo.isLogin]);
-
-	useEffect(() => {
-		if (userInfo.isLogin && userInfo.isJoin) {
-			const clickClose = () => {
-				setPopBox({ isOpen: false });
-				setUserInfo(prev => ({ ...prev, isJoin: false }));
-			};
-
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.RegisterSuccess,
-				closeBtn: (
-					<button className="icon icon-close" onClick={clickClose} />
-				),
-				btnBar: (
-					<div className="btnGroup">
-						<Link
-							className="blue"
-							onClick={clickClose}
-							to={`/${userInfo.langId}/${path.deposit.root}`}>
-							{t("lbl_DepositNow")}
-						</Link>
-						<Link
-							className="btn-check"
-							onClick={clickClose}
-							to={`/${userInfo.langId}/${path.profile.root}`}>
-							{t("lbl_UpdatePersonalDetail")}
-						</Link>
-					</div>
-				)
-			});
-		}
-	}, [userInfo.isLogin, userInfo.isJoin, t]);
 
 	useEffect(() => {
 		const AffId = getUrlParameter("AffId");
