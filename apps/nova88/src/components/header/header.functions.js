@@ -31,10 +31,6 @@ const BeforeLogin = ({ langId }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 
-	const clickJoin = () => {
-		navigate(`/${langId}/${path.join.root}`);
-	};
-
 	const clickLogin = () => {
 		setPopBox({
 			isOpen: true,
@@ -44,9 +40,9 @@ const BeforeLogin = ({ langId }) => {
 
 	return (
 		<>
-			<button className="join" onClick={clickJoin}>
+			<Link className="join" to={`/${langId}/${path.join.root}`}>
 				{t("lbl_JoinNow")}
-			</button>
+			</Link>
 			<button className="login" onClick={clickLogin}>
 				{t("lbl_Login")}
 			</button>
