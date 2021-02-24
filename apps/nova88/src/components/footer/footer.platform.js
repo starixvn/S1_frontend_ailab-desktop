@@ -50,7 +50,7 @@ const defPlatfrom = [
 		...productList.casino_YGG,
 		path: path.casino.root,
 		parameter: { ...productList.casino_YGG },
-		imgName: "yg	"
+		imgName: "yg"
 	},
 	{
 		...productList.casino_PP,
