@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import { isDateRange } from "../common/common";
-import { eventPeriod } from "../angPow/angPow.def";
+import { eventPeriod } from "../mysteryBox/mysteryBox.def";
 import mysteryhomeImg from "../../styles/img/mystery/homeImg.png";
 
 const { startDate, endDate } = eventPeriod;

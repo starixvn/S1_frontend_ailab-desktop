@@ -106,7 +106,7 @@ const MysteryBoxAnimation = ({
 					<div className="coin" />
 					<div
 						className={`time${
-							isLogin && _isJoin ? " active" : ""
+							isLogin && (_isJoin || _drawOut) ? " active" : ""
 						}`}>
 						{t("lbl_Next")}
 						<div>{secondsToTime(downDiffTime)}</div>

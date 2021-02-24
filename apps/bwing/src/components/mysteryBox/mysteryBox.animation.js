@@ -113,7 +113,9 @@ const MysteryBoxAnimation = ({
 					<div />
 				</div>
 				<div
-					className={`textBox${isLogin && _isJoin ? " active" : ""}`}>
+					className={`textBox${
+						isLogin && (_isJoin || _drawOut) ? " active" : ""
+					}`}>
 					<p>{t("lbl_Next")}</p>
 					<p>{secondsToTime(downDiffTime)}</p>
 				</div>

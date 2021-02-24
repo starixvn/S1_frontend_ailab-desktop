@@ -37,14 +37,15 @@ const useDrawPrize = ({ isMountedRef }) => {
 			res => {
 				if (!isMountedRef) return;
 				const { errorCode, data } = res.data;
-				setDrawPrize({ data, errorCode });
 
-				if (errorCode === defDrawPrizeStatus.canJoin) return;
-
-				if (errorCode === defDrawPrizeStatus.isJoin) {
-					errorPopBox(t("lbl_AngPow_AlreadyDrawn"), errorCode);
-				} else if (errorCode === defDrawPrizeStatus.drawOut) {
-					errorPopBox(t("lbl_AngPow_NotWinning"), errorCode);
+				if (
+					errorCode === defDrawPrizeStatus.canJoin ||
+					errorCode === defDrawPrizeStatus.isJoin ||
+					errorCode === defDrawPrizeStatus.drawOut
+				) {
+					setDrawPrize({ data, errorCode });
+				} else {
+					errorPopBox(message || `[${errorCode}] error`, errorCode);
 				}
 			},
 			() => {

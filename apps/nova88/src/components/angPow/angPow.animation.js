@@ -105,7 +105,7 @@ const AngPowAnimation = ({
 	return (
 		<div className="animation" onClick={onPostDrawPrize}>
 			<div className={`angpao${angpowActive ? " active" : ""}`}>
-				{_isJoin ? null : (
+				{_isJoin || _drawOut ? null : (
 					<img
 						src={eventTextImg}
 						alt="img-event-text-en"

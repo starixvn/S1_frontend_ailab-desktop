@@ -272,7 +272,11 @@ export default () => {
 	if (!popBox.isOpen) return null;
 
 	if (customLayout)
-		return <Suspense fallback={<Loading />}>{content}</Suspense>;
+		return (
+			<div id="popup" className="active">
+				<Suspense fallback={<Loading />}>{content}</Suspense>;
+			</div>
+		);
 
 	return (
 		<div id="popup" className="active">

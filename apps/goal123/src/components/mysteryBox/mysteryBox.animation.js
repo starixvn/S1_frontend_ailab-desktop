@@ -97,7 +97,7 @@ const MysteryBoxAnimation = ({
 					className={`goldbox__item${angpowActive ? " active" : ""}`}>
 					<div
 						className={`time${
-							isLogin && _isJoin ? " active" : ""
+							isLogin && (_isJoin || _drawOut) ? " active" : ""
 						}`}>
 						{secondsToTime(downDiffTime)}
 					</div>

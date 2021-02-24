@@ -39,6 +39,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 
 				if (
 					errorCode === defDrawPrizeStatus.canJoin ||
+					errorCode === defDrawPrizeStatus.drawOut ||
 					errorCode === defDrawPrizeStatus.isJoin
 				) {
 					setDrawPrize({ data, errorCode });
