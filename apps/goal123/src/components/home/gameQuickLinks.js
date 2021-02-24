@@ -63,7 +63,7 @@ export const defSportsQuickLinks = {
 	// 	displayKey: "lbl_Fishing"
 	// },
 	V8Poker: {
-		productInfo: productList.V8Poker,
+		productInfo: productList.V8_Poker,
 		className: "icon icon-casino",
 		displayKey: "lbl_V8Poker"
 	},
