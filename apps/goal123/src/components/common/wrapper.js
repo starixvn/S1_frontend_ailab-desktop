@@ -21,7 +21,7 @@ import * as ct from "./context";
 import { GET_LANG_ID } from "../../service/language";
 import useGetWalletInfo from "./wrapper.walletInfo";
 
-export default ({ children, afterLogin = false }) => {
+export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -83,7 +83,10 @@ export default ({ children, afterLogin = false }) => {
 						)
 					});
 				}
-			} else if (afterLogin && !isLogin && isMountedRef.current) {
+			} else if (
+				isMountedRef.current &&
+				((afterLogin && !isLogin) || (isLogin && onlyBeforeLogin))
+			) {
 				setRedirectPath(`/${userInfo.langId}`);
 			}
 			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
