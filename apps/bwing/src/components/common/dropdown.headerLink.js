@@ -44,16 +44,24 @@ export class Dropdown extends Component {
 	render() {
 		const arr = this.props.options.map((item, idx) => {
 			const key = `${this.props.mainKey}_${idx}`;
+
+			let _iconClassName = "";
+			if (item.eventIcons) {
+				let iconStrings = "";
+				for (let i = 0; i < item.eventIcons.length; i++) {
+					iconStrings += `${item.eventIcons[i]} `;
+				}
+				_iconClassName = `icon ${iconStrings}`;
+			}
+
 			return item.elemType === defElemType.btn ? (
-				<button
-					key={key}
-					className={item.icon}
-					onClick={item.href.bind(this, item.value)}>
+				<button key={key} onClick={item.href.bind(this, item.value)}>
 					{item.displayKey ? this.props.i18n(item.displayKey) : null}
 				</button>
 			) : (
 				<Link key={key} to={`/${this.props.langId}/${item.href}`}>
 					{item.displayKey ? this.props.i18n(item.displayKey) : null}
+					<i className={_iconClassName} />
 				</Link>
 			);
 		});
