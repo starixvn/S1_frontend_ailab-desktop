@@ -132,6 +132,7 @@ export default () => {
 
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
+				langId={userInfo.langId}
 			/>
 
 			<main>
