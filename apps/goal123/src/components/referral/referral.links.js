@@ -1,14 +1,12 @@
 import React from "react";
 import QRCode from "qrcode.react";
 
-export default ({ referralCode, t }) => {
+export default ({ referralCode, t, langId }) => {
 	const link_default = window.location.origin;
-	const ref_link = `${link_default}/join?AffId=${referralCode}`;
-	const welcomeMessage = t("lbl_Referral_Welcome");
-
+	const ref_link = `${link_default}/${langId}/join?AffId=${referralCode}`;
+	const welcomeMessage = t("lbl_Referral_Welcome_Goal123");
 	const ref_telegram = `https://t.me/share/url?url=${link_default}&text=${welcomeMessage}`;
-	const ref_skype = `skype:live:.cid.d357533c71e50fb5?chat`;
-	const ref_zalo = `https://zalo.me/Goal123csd`;
+	const ref_fb = `https://www.facebook.com/sharer/sharer.php?u=${link_default}&quote=${welcomeMessage}`;
 
 	const copyWelComeText = () => {
 		const virtualInput = document.createElement("input");
@@ -67,6 +65,15 @@ export default ({ referralCode, t }) => {
 					<a className="icon icon-download" onClick={downloadQR}>
 						{t("lbl_Download")}
 					</a>
+
+					<a
+						className="icon icon-facebook2"
+						onClick={() =>
+							window.open(ref_fb, "", "height=600,width=600")
+						}>
+						{t("lbl_Facebook")}
+					</a>
+
 					<a
 						className="icon icon-telegram"
 						onClick={() =>
@@ -77,21 +84,6 @@ export default ({ referralCode, t }) => {
 							)
 						}>
 						{t("lbl_Telegram")}
-					</a>
-					<a
-						className="icon icon-skype"
-						onClick={() =>
-							window.open(ref_skype, "", "height=600,width=600")
-						}>
-						{t("lbl_Skype")}
-					</a>
-
-					<a
-						className="icon icon-zalo"
-						onClick={() =>
-							window.open(ref_zalo, "", "height=600,width=600")
-						}>
-						{t("lbl_Zalo")}
 					</a>
 				</div>
 				<QRCode

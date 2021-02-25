@@ -35,6 +35,7 @@
 	"lbl_Skype": "Skype",
 	"lbl_Telegram": "Telegram",
 	"lbl_Zalo": "Zalo",
+	"lbl_Facebook": "Facebook",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Goal123News": "Điểm báo Goal123",
@@ -227,7 +228,7 @@
 	"lbl_PlayNow": "Tham gia",
 	"lbl_total": "Total",
 	"lbl_Congratulations": "Congratulations",
-	"lbl_Download": "Download",
+	"lbl_Download": "Tải về",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Chuyển quỹ",
@@ -463,7 +464,7 @@
 	"lbl_Referral_code": "Mã giới thiệu",
 	"lbl_Referral_link": "Đường dẫn giới thiệu",
 	"lbl_Referral_description": "Chương trình Giới Thiệu Bạn Bè Nhận ngay giải thưởng đặc biệt khi rủ bạn cùng chơi bằng đường dẫn/mã code của riêng bạn",
-	"lbl_Referral_Welcome": "Chào mừng bạn đến với Nova88. Tham gia ngay và hưởng các ưu đãi dành riêng cho THÀNH VIÊN MỚI. Chỉ cần click và đăng ký, bạn và người giới thiệu sẽ nhận ngay những phần thưởng hấp dẫn. Áp dụng Điều khoản và Điều kiện",
+	"lbl_Referral_Welcome_Goal123": "Chào mừng bạn đến với Goal123. Tham gia ngay và hưởng các ưu đãi dành riêng cho THÀNH VIÊN MỚI. Chỉ cần click và đăng ký, bạn và người giới thiệu sẽ nhận ngay những phần thưởng hấp dẫn. Áp dụng Điều khoản và Điều kiện",
 	"lbl_Share_with_friend": "Chọn phần thưởng yêu thích và giới thiệu bạn bè chơi ngay hôm nay!",
 	"lbl_Your_link_invite": "Chia sẻ đường dẫn/mã code của bạn",
 	"lbl_Copy_to_clipboard": "Sao chép vào bộ nhớ tạm thời",
@@ -482,11 +483,11 @@
 	"lbl_ReferralStatus2": "Hết hạn",
 	"lbl_Refer_friends_rewards": "GIỚI THIỆU BẠN BÈ, TƯNG BỪNG NHẬN THƯỞNG ",
 	"lbl_Dont_show_me_again": "Đừng cho tôi xem lại",
-	"lbl_ReferralStatus": "Your Referral Status",
-	"lbl_InvitationAccepted": "Invitation Accepted",
-	"lbl_MissionCompleted": "Mission completed",
-	"lbl_NoOfAchievements": "No. of achievements",
-	"lbl_RewardAmount": "Rewards Amounts",
+	"lbl_ReferralStatus": "Lời mời của bạn",
+	"lbl_InvitationAccepted": "Được chấp nhận",
+	"lbl_MissionCompleted": "Đã hoàn thành",
+	"lbl_NoOfAchievements": "Số bạn giới thiệu thành công",
+	"lbl_RewardAmount": "Số tiền thưởng",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_V8Poker":"V8 Xì tố"

@@ -36,7 +36,7 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 					</div>
 					<a
 						className="more"
-						href={`SiteSkin/Goal123/Static/${langId}/ReferralConditions.html`}
+						href={`${config.t_and_cURL}/SiteSkin/Goal123/Static/${langId}/ReferralConditions.html`}
 						target="_blank"
 						rel="noreferrer">
 						{t("lbl_MoreDetails")}

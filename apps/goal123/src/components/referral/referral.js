@@ -165,7 +165,11 @@ export default () => {
 						currencyId={userInfo.currencyId}
 						referralSettingData={referralSettingData}
 					/>
-					<ReferralLinks t={t} referralCode={referralCode} />
+					<ReferralLinks
+						t={t}
+						referralCode={referralCode}
+						langId={userInfo.langId}
+					/>
 				</div>
 			</div>
 		)
