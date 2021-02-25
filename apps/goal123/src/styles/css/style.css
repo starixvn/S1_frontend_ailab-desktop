@@ -857,6 +857,22 @@ header .header > div.function .cashier .submenu a:hover.icon-exit span, header .
   transition: 0.7s;
 }
 
+header .header > div.function .cashier .submenu a.icon-new, header .header > div.function .wallet .submenu a.icon-new, header .header > div.function .memberfile .submenu a.icon-new {
+  position: relative;
+}
+
+header .header > div.function .cashier .submenu a.icon-new:before, header .header > div.function .wallet .submenu a.icon-new:before, header .header > div.function .memberfile .submenu a.icon-new:before {
+  font-family: 'icomoon';
+  content: "\e9b2";
+  position: absolute;
+  left: -12px;
+  bottom: 2px;
+  color: #fab617;
+  margin-right: 10px;
+  -webkit-animation: MoveTopDown linear infinite alternate 1s;
+          animation: MoveTopDown linear infinite alternate 1s;
+}
+
 header .header > div.function .cashier .submenu .icon-exit, header .header > div.function .wallet .submenu .icon-exit, header .header > div.function .memberfile .submenu .icon-exit {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2315,6 +2331,22 @@ main > .swiper-container .swiper-slide {
   font-weight: normal;
 }
 
+#leftMenu .menuModule a.menuSelect span.icon-new {
+  position: relative;
+}
+
+#leftMenu .menuModule a.menuSelect span.icon-new::before {
+  position: absolute;
+  right: -60px;
+  top: 0;
+  font-family: 'icomoon';
+  content: "\e9b2";
+  font-size: 16px;
+  color: #fab617;
+  -webkit-animation: MoveTopDown linear infinite alternate 1s;
+          animation: MoveTopDown linear infinite alternate 1s;
+}
+
 #leftMenu .menuModule a.menuSelect:before {
   font-family: 'icomoon';
   content: "\e94e";
@@ -3163,6 +3195,42 @@ main > .swiper-container .swiper-slide {
 
 #popup .pop > div > .txt-lightgray {
   text-align: center;
+}
+
+#popup .friend {
+  width: auto;
+  position: relative;
+}
+
+#popup .friend .icon-close {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+}
+
+#popup .friend img {
+  width: 750px;
+  border-radius: 5px;
+}
+
+#popup .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  margin: 0;
+}
+
+#popup .checkbox input[type="checkbox"] + label {
+  margin-right: 5px;
+}
+
+#popup .checkbox input[type="checkbox"] + label.icon:before {
+  font-size: 12px;
+  margin-top: -1px;
 }
 
 .Submit.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .loackAmount.active {
@@ -7246,7 +7314,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .goldbox .eventModule > div > div.moduleCenter > div .tag {
   background: transparent;
-  width: 325px;
+  width: 500px;
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
