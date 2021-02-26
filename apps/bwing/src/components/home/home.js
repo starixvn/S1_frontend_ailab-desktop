@@ -80,6 +80,12 @@ export default () => {
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 				langId={userInfo.langId}
 			/>
+			<div className="newyear">
+				<AngpowLink
+					to={`/${userInfo.langId}/${path.angpow.root}`}
+					langId={userInfo.langId}
+				/>
+			</div>
 
 			<main>
 				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
@@ -124,28 +130,17 @@ export default () => {
 								</ul>
 							</div>
 						</div>
-						<div className="ex">
+
+						<div>
 							<img
-								src={require("../../styles/img/games.png")}
-								alt="games"
+								src={
+									userInfo.langId === defaultLang
+										? require("../../styles/img/D&W.png")
+										: require(`../../styles/img/D&W_${userInfo.langId}.png`)
+								}
+								alt="deposit and withdrawal"
 							/>
-							<ul>
-								<li className="title">
-									{t("lbl_ExtensiveGames")}
-								</li>
-								<li>{t("lbl_ExtensiveGamesDesc")}</li>
-							</ul>
 						</div>
-					</div>
-					<div>
-						<img
-							src={
-								userInfo.langId === defaultLang
-									? require("../../styles/img/D&W.png")
-									: require(`../../styles/img/D&W_${userInfo.langId}.png`)
-							}
-							alt="deposit and withdrawal"
-						/>
 					</div>
 				</section>
 			</main>
