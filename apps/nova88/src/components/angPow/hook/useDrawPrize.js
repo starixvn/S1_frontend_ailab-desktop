@@ -34,7 +34,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 
 		api_events_CheckDrawPrize({ eventId: defEventId }).then(
 			res => {
-				if (!isMountedRef) return;
+				if (!isMountedRef.current) return;
 				const { errorCode, data, message } = res.data;
 
 				if (
@@ -48,7 +48,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 				}
 			},
 			() => {
-				if (!isMountedRef) return;
+				if (!isMountedRef.current) return;
 
 				errorPopBox();
 			}
@@ -59,7 +59,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 		if (drawPrize.errorCode !== defDrawPrizeStatus.isJoin) {
 			await api_events_DrawPrize({ eventId: defEventId }).then(
 				res => {
-					if (!isMountedRef) return;
+					if (!isMountedRef.current) return;
 					const { errorCode, data, message } = res.data;
 
 					if (errorCode === 0) {
@@ -97,7 +97,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 					}
 				},
 				() => {
-					if (!isMountedRef) return;
+					if (!isMountedRef.current) return;
 					errorPopBox();
 				}
 			);
@@ -117,7 +117,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 			res => {
 				setLoading(false);
 
-				if (!isMountedRef) return;
+				if (!isMountedRef.current) return;
 				if (res.data.errorCode === 0) {
 					setDrawPrizeList(res.data.data);
 				} else {
@@ -127,7 +127,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 			() => {
 				setLoading(false);
 
-				if (!isMountedRef) return;
+				if (!isMountedRef.current) return;
 				errorPopBox();
 			}
 		);
