@@ -1135,281 +1135,6 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   height: 20px;
 }
 
-.flower {
-  position: fixed;
-  top: 0px;
-  left: 0;
-  background: url(../img/newyear/flowerL.png) no-repeat;
-  background-size: 100%;
-  width: 10%;
-  padding-bottom: 8%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-@media screen and (max-width: 1400px) {
-  .flower {
-    display: none;
-  }
-}
-
-.flowerR {
-  position: fixed;
-  top: 0px;
-  right: 0;
-  background: url(../img/newyear/flowerR.png) no-repeat;
-  background-size: 100%;
-  width: 10%;
-  padding-bottom: 8%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.newyear {
-  width: 100%;
-  position: fixed;
-  top: 120px;
-  z-index: 2;
-}
-
-.newyear .newyearLeft {
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-.newyear .newyearLeft .line {
-  background: url(../img/newyear/line.png) no-repeat;
-  background-size: 100%;
-  width: 200px;
-  height: 40px;
-}
-
-.newyear .newyearLeft .lantern {
-  position: absolute;
-  top: 20px;
-  left: 25px;
-  background: url(../img/newyear/lantern.png) no-repeat;
-  background-size: 100%;
-  width: 90px;
-  height: 170px;
-  -webkit-animation: lantern 2s ease-in-out infinite alternate;
-          animation: lantern 2s ease-in-out infinite alternate;
-  -webkit-transform-origin: top;
-          transform-origin: top;
-}
-
-.newyear .newyearLeft .lantern:nth-child(2) {
-  top: 10px;
-  left: 130px;
-  width: 60px;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-}
-
-.newyear .newyearLeft.newyearRight {
-  right: 0;
-  left: auto;
-}
-
-.newyear .newyearLeft.newyearRight .line {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-.newyear .newyearLeft.newyearRight .lantern {
-  left: 80px;
-}
-
-.newyear .newyearLeft.newyearRight .lantern:nth-child(2) {
-  left: 10px;
-}
-
-.newyear .cow {
-  position: fixed;
-  width: 230px;
-  height: 160px;
-  background-image: url(../img/newyear/cow.png);
-  background-size: 100%;
-  bottom: 0;
-  left: 0;
-  pointer-events: none;
-}
-
-.newyear .angPaoArea {
-  position: fixed;
-  bottom: 0px;
-  right: 0;
-}
-
-.newyear .angPao_close {
-  background-color: rgba(255, 0, 0, 0.6);
-  color: #fff;
-  position: absolute;
-  right: 20px;
-  bottom: 130px;
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.newyear .angPao_close:hover {
-  background-color: red;
-}
-
-.newyear .money {
-  position: relative;
-  width: 300px;
-  height: 150px;
-  cursor: pointer;
-}
-
-.newyear .money .box {
-  position: absolute;
-  width: 280px;
-  height: 130px;
-  right: 0;
-  bottom: 0;
-  background-size: 100%;
-  z-index: 2;
-}
-
-.newyear .money .l {
-  position: absolute;
-  top: 100px;
-  left: 130px;
-  width: 50px;
-  height: 60px;
-  background-image: url(https://pic.90sjimg.com/design/00/23/31/57/5a353c05b36fc.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  -webkit-transform: rotate(-320deg);
-          transform: rotate(-320deg);
-  -webkit-animation: ang 1s 1s ease-in-out infinite;
-          animation: ang 1s 1s ease-in-out infinite;
-}
-
-.newyear .money .l:nth-child(2) {
-  top: 70px;
-  left: 140px;
-  -webkit-transform: rotate(190deg);
-          transform: rotate(190deg);
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-}
-
-.newyear .money .l:nth-child(3) {
-  top: 80px;
-  left: 160px;
-  -webkit-animation-delay: 0.2 0.5s;
-          animation-delay: 0.2 0.5s;
-  -webkit-transform: rotate(240deg);
-          transform: rotate(240deg);
-}
-
-.newyear .money .l:nth-child(4) {
-  top: 50px;
-  left: 170px;
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
-  -webkit-transform: rotate(150deg);
-          transform: rotate(150deg);
-}
-
-.newyear .money .l:nth-child(5) {
-  top: 80px;
-  left: 190px;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-  -webkit-transform: rotate(300deg);
-          transform: rotate(300deg);
-}
-
-@-webkit-keyframes ang {
-  0% {
-    margin-top: 0px;
-  }
-  30% {
-    opacity: 1;
-  }
-  100% {
-    margin-top: -250px;
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-@keyframes ang {
-  0% {
-    margin-top: 0px;
-  }
-  30% {
-    opacity: 1;
-  }
-  100% {
-    margin-top: -250px;
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes lantern {
-  0% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg);
-  }
-  100% {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-  }
-}
-
-@keyframes lantern {
-  0% {
-    -webkit-transform: rotate(-10deg);
-            transform: rotate(-10deg);
-  }
-  100% {
-    -webkit-transform: rotate(10deg);
-            transform: rotate(10deg);
-  }
-}
-
-.newyearBg {
-  position: absolute;
-  top: 0px;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url(../img/newyear/bg.png);
-  pointer-events: none;
-}
-
-.newyearBg .pillarL {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: url(../img/newyear/pillarL.png) no-repeat center;
-  background-size: 100%;
-  width: 14%;
-  height: 1481px;
-}
-
-.newyearBg .pillarL.pillarR {
-  left: auto;
-  right: 0;
-  background: url(../img/newyear/pillarL.png) no-repeat bottom;
-  background-size: 100%;
-  -webkit-transform: scale(-1);
-          transform: scale(-1);
-}
-
 main {
   position: relative;
   padding-top: 120px;
@@ -8834,160 +8559,160 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 19.53654%;
-  top: -42.114%;
+  left: 11.24884%;
+  top: 3.56405%;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 55.97507%;
-  top: -16.55352%;
+  left: 72.73257%;
+  top: -40.04593%;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 94.06293%;
-  top: -35.97911%;
+  left: 91.84041%;
+  top: -70.24631%;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 77.12375%;
-  top: -62.7607%;
+  left: 88.38354%;
+  top: -36.83815%;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 82.87633%;
-  top: -42.11061%;
+  left: 22.86278%;
+  top: -61.83368%;
   -webkit-animation-delay: -5s;
           animation-delay: -5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 29.6595%;
-  top: 9.37945%;
+  left: 47.12623%;
+  top: -50.40144%;
   -webkit-animation-delay: -6s;
           animation-delay: -6s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 87.71911%;
-  top: -37.76668%;
+  left: 97.7425%;
+  top: -9.87535%;
   -webkit-animation-delay: -7s;
           animation-delay: -7s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 45.79046%;
-  top: -25.92437%;
+  left: 74.84761%;
+  top: 0.98329%;
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
 }
 
 [class^="star"].star9 {
   position: absolute;
-  left: 62.98398%;
-  top: -20.44443%;
+  left: 47.10462%;
+  top: -58.00024%;
   -webkit-animation-delay: -9s;
           animation-delay: -9s;
 }
 
 [class^="star"].star10 {
   position: absolute;
-  left: 45.81085%;
-  top: -76.3503%;
+  left: 95.73306%;
+  top: 9.25867%;
   -webkit-animation-delay: -10s;
           animation-delay: -10s;
 }
 
 [class^="star"].star11 {
   position: absolute;
-  left: 1.52482%;
-  top: -47.75588%;
+  left: 71.0454%;
+  top: -88.38881%;
   -webkit-animation-delay: -11s;
           animation-delay: -11s;
 }
 
 [class^="star"].star12 {
   position: absolute;
-  left: 22.63545%;
-  top: 2.79258%;
+  left: 64.54207%;
+  top: -30.81138%;
   -webkit-animation-delay: -12s;
           animation-delay: -12s;
 }
 
 [class^="star"].star13 {
   position: absolute;
-  left: 30.14008%;
-  top: -25.004%;
+  left: 78.76386%;
+  top: -59.65961%;
   -webkit-animation-delay: -13s;
           animation-delay: -13s;
 }
 
 [class^="star"].star14 {
   position: absolute;
-  left: 7.75016%;
-  top: -27.91851%;
+  left: 65.14722%;
+  top: -79.26043%;
   -webkit-animation-delay: -14s;
           animation-delay: -14s;
 }
 
 [class^="star"].star15 {
   position: absolute;
-  left: 44.23731%;
-  top: -80.90855%;
+  left: 67.48788%;
+  top: -77.5533%;
   -webkit-animation-delay: -15s;
           animation-delay: -15s;
 }
 
 [class^="star"].star16 {
   position: absolute;
-  left: 15.35697%;
-  top: -63.72473%;
+  left: 13.11192%;
+  top: -25.54117%;
   -webkit-animation-delay: -16s;
           animation-delay: -16s;
 }
 
 [class^="star"].star17 {
   position: absolute;
-  left: 67.79365%;
-  top: 3.88292%;
+  left: 96.82482%;
+  top: -37.66129%;
   -webkit-animation-delay: -17s;
           animation-delay: -17s;
 }
 
 [class^="star"].star18 {
   position: absolute;
-  left: 57.81968%;
-  top: -16.25896%;
+  left: 39.33111%;
+  top: -45.42294%;
   -webkit-animation-delay: -18s;
           animation-delay: -18s;
 }
 
 [class^="star"].star19 {
   position: absolute;
-  left: 77.49001%;
-  top: 9.41982%;
+  left: 9.93212%;
+  top: -40.51753%;
   -webkit-animation-delay: -19s;
           animation-delay: -19s;
 }
 
 [class^="star"].star20 {
   position: absolute;
-  left: 86.06017%;
-  top: -84.7771%;
+  left: 7.59553%;
+  top: -86.52467%;
   -webkit-animation-delay: -20s;
           animation-delay: -20s;
 }
