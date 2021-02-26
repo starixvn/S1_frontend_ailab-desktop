@@ -18,6 +18,7 @@ import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
 
 import AngpowLink from "./angpowLink";
+import MysteryBoxLink from "./mysteryBoxLink";
 import path from "../../router";
 
 export default () => {
@@ -74,33 +75,54 @@ export default () => {
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
 	return (
-		<main>
-			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
-			<Marquee />
-			<section>
-				<EventSwipper langId={userInfo.langId} />
-			</section>
-			<section>
-				<PromoGameList t={t} userInfo={userInfo} />
-			</section>
-			<section>
-				<div className="guide">
-					<div className="guidelist">
-						<span className="title">{t("lbl_UserGuide")}</span>
-						<UserGuide t={t} langId={userInfo.langId} />
-					</div>
-					<div className="exGroup">
-						<div className="ex">
-							<img
-								src={require("../../styles/img/24hr.png")}
-								alt="24/7 customer care service"
-							/>
-							<ul>
-								<li className="title">
-									{t("lbl_ExcellentCustomerCare")}
-								</li>
-								<li>{t("lbl_ExcellentCustomerCareDesc")}</li>
-							</ul>
+		<>
+			<MysteryBoxLink
+				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
+				langId={userInfo.langId}
+			/>
+
+			<main>
+				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
+				<Marquee />
+				<section>
+					<EventSwipper langId={userInfo.langId} />
+				</section>
+				<section>
+					<PromoGameList t={t} userInfo={userInfo} />
+				</section>
+				<section>
+					<div className="guide">
+						<div className="guidelist">
+							<span className="title">{t("lbl_UserGuide")}</span>
+							<UserGuide t={t} langId={userInfo.langId} />
+						</div>
+						<div className="exGroup">
+							<div className="ex">
+								<img
+									src={require("../../styles/img/24hr.png")}
+									alt="24/7 customer care service"
+								/>
+								<ul>
+									<li className="title">
+										{t("lbl_ExcellentCustomerCare")}
+									</li>
+									<li>
+										{t("lbl_ExcellentCustomerCareDesc")}
+									</li>
+								</ul>
+							</div>
+							<div className="ex">
+								<img
+									src={require("../../styles/img/games.png")}
+									alt="games"
+								/>
+								<ul>
+									<li className="title">
+										{t("lbl_ExtensiveGames")}
+									</li>
+									<li>{t("lbl_ExtensiveGamesDesc")}</li>
+								</ul>
+							</div>
 						</div>
 						<div className="ex">
 							<img
@@ -125,9 +147,9 @@ export default () => {
 							alt="deposit and withdrawal"
 						/>
 					</div>
-				</div>
-			</section>
-		</main>
+				</section>
+			</main>
+		</>
 	);
 };
 

@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Redirect } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import moment from "moment";
 
 import AngPowAnimation from "./angPow.animation";
 import AngPowEventModule from "./angPow.eventModule";
@@ -11,8 +10,7 @@ import { eventPeriod } from "./angPow.def";
 import { isDateRange } from "../common/common";
 
 const { startDate, endDate } = eventPeriod;
-const currentDate = moment();
-const isInPeriod = isDateRange(currentDate, startDate, endDate);
+const isInPeriod = isDateRange(startDate, endDate);
 
 const AngPow = () => {
 	const { t } = useTranslation();
