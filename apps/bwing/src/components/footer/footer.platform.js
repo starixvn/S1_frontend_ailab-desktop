@@ -17,10 +17,10 @@ const defPlatfrom = [
 		...productList.liveCasino_Allbet,
 		imgName: "ab"
 	},
-	// {
-	// 	...productList.fishing,
-	// 	imgName: "yl"
-	// },
+	{
+		...productList.fishing,
+		imgName: "yl"
+	},
 	{
 		...productList.liveCasino_AG,
 		imgName: "ag"
