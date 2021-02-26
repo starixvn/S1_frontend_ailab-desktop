@@ -7270,12 +7270,14 @@ button.icon-spinner11:before {
   max-width: 1560px;
 }
 
+/* 20210226 */
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #134DAE;
+  background: #212121;
   padding: 10px 0;
   border-radius: 20px;
+  border:1px solid #333;
 }
 
 .gameMenu .gameSwiper .swiper-slide img {
