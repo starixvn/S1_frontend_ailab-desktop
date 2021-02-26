@@ -32,7 +32,8 @@
 	"lbl_Announcement": "Thông Báo",
 	"lbl_TermsConditions": "Điều Khoản và Điều Kiện",
 	"lbl_RuleRegulations": "Quy Tắc và Quy Định đặt cược",
-
+	"lbl_APPDownload":"Tải ứng dụng",
+	
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Goal123News": "Điểm báo Goal123",
 	"lbl_News": "Tin Tức",
@@ -85,6 +86,7 @@
 	"lbl_Oneshot_Fishing":"Oneshot Fishing",
 	"lbl_Water_Margin_Fishing":"Water Margin Fishing",
 	"lbl_Thunder_Fighter":"Thunder Fighter",
+	"lbl_CQ9":"CQ9",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "ID Đại lý/ Người giới thiệu",
@@ -309,7 +311,6 @@
 	"lbl_UpdatePersonalInfoDeposit": "Vui lòng cập nhật thông tin cá nhân trước khi nạp tiền.",
 	"lbl_DepositNow": "Nạp tiền ngay",
 	"lbl_GoDepositPage": "Đến trang gửi tiền?",
-	"lbl_APPDownload":"Tải ứng dụng",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",
@@ -446,13 +447,30 @@
 	"lbl_AngPow_OtherConditions2": "2. Mỗi thành viên chỉ có thể tham gia một lần mỗi ngày.",
 	"lbl_AngPow_MyAngPow": "Lộc Lì Xì đã trúng",
 	"lbl_AngPow_OtherConditions": "Điều kiện khác",
-	"lbl_Next":"Tiếp theo",
-	"lbl_AngPow_Awards":"Giải thưởng",
-	"lbl_Start":"Bắt đầu",
-	"lbl_End":"Kết thúc",
-    "lbl_AngPow_AlreadyDrawn":"Bạn đã nhận lì xì cho ngày hôm nay, vui lòng thử lại vào ngày mai!",
-	"lbl_AngPow_NotWinning":"Rất tiếc ! Đã hết lì xì cho ngày hôm nay. Vui lòng quay lại vào ngày mai!",
+	"lbl_Next": "Tiếp theo",
+	"lbl_AngPow_Awards": "Giải thưởng",
+	"lbl_Start": "Bắt đầu",
+	"lbl_End": "Kết thúc",
+	"lbl_AngPow_AlreadyDrawn": "Bạn đã nhận lì xì cho ngày hôm nay, vui lòng thử lại vào ngày mai!",
+	"lbl_AngPow_NotWinning": "Rất tiếc ! Đã hết lì xì cho ngày hôm nay. Vui lòng quay lại vào ngày mai!",
+
+	"MysteryBox ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_MysteryBox_CreditedAccount1": "Bạn đã nhận thưởng",
+	"lbl_MysteryBox_CreditedAccount2": " hôm nay. Vui lòng thử lại vào ngày mai!",
+	"lbl_MysteryBox_Congratulations": "Xin chúc mừng! ",
+	"lbl_MysteryBox_Conditions": "Điều kiện nhận thưởng",
+	"lbl_MysteryBox_EventTitle": "Rương Thần Huyền Bí Goal123",
+	"lbl_MysteryBox_MemberEligibility": "Nạp tiền hôm nay, lộc phát trao tay.",
+	"lbl_MysteryBoxw_OtherConditions": "Điều kiện khác",
+	"lbl_MysteryBox_OtherConditions1": "1. Mỗi thành viên chỉ được tham gia chơi một lần trong ngày.",
+	"lbl_MysteryBox_OtherConditions2": "2. Thành viên được tham gia mỗi ngày cho đến khi chương trình kết thúc.",
+	"lbl_MysteryBox_OtherConditions3": "3. Goal123 có toàn quyền sửa đổi hoặc huỷ bỏ khuyến mãi bất kỳ lúc nào.",
+	"lbl_MysteryBox_OtherConditions4": "4. Quyền quyết định cuối cùng thuộc về Goal123.",
+	"lbl_MysteryBox_OtherConditions5": "5. Áp dụng Điều khoản và Điều kiện chung của Goal123.",
+	"lbl_MysteryBox_MysteryBoxRewards": "Phần thưởng từ rương thần",
+	"lbl_MysteryBox_Awards": "Phần thưởng gần đây",
+	"lbl_MysteryBox_AlreadyDrawn": "Bạn đã nhận lì xì cho ngày hôm nay, vui lòng thử lại vào ngày mai!",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_V8Poker":"V8 Xì tố"
+	"lbl_V8Poker": "V8 Xì tố"
 }

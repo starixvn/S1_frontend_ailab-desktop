@@ -44,6 +44,7 @@ export default props => {
 					}
 					max={props.max ? props.max : null}
 					readOnly={props.readOnly}
+					data-testid="input"
 				/>
 				{props.tooltip ? (
 					<div className="description">{props.tooltip}</div>

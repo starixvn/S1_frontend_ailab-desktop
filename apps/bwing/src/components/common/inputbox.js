@@ -44,6 +44,7 @@ export default props => {
 					}
 					max={props.max ? props.max : null}
 					readOnly={props.readOnly}
+					data-testid="input"
 					onKeyPress={props.onKeyPress}
 				/>
 				{props.checked !== undefined ? (
