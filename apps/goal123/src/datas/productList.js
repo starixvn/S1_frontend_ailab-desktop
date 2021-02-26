@@ -43,11 +43,6 @@ export default {
 		gameId: 200,
 		name: "sabaClub"
 	},
-	soccer: {
-		gameId: 1,
-		tpId: 1,
-		name: "soccer"
-	},
 	basketball: {
 		gameId: 2,
 		tpId: 1,
@@ -131,6 +126,10 @@ export default {
 		gameId: "AT04",
 		tpId: 16,
 		name: "CQ9_Thunder_Fighter:"
+	},
+	CQ9: {
+		tpId: 16,
+		name: "CQ9"
 	}
 };
 
