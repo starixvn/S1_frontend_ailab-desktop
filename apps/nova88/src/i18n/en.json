@@ -516,6 +516,7 @@
 	"lbl_AngPow_NotWinning": "Oops! ANG POW is over, Please come back tomorrow!",
 
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Vip":"VIP",
 	"lbl_Vip_Service_Support": "SERVICE SUPPORT",
 	"lbl_Vip_Deposit_Priority": "DEPOSIT PRIORITY",
 	"lbl_Vip_WithDrawal_Priority": "WITHDRAWAL PRIORITY",

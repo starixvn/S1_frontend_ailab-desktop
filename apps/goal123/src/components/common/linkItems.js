@@ -180,6 +180,8 @@ export default ({
 						: "active"
 					: _className;
 
+			const providerLink = `?provider=${m.provider}`;
+
 			return m.isFullPath || _target === "_blank" ? (
 				<a
 					href={_path}
@@ -194,7 +196,7 @@ export default ({
 			) : (
 				<Link
 					key={key}
-					to={`${langId}/${_path}`}
+					to={`${langId}/${_path}${m.provider ? providerLink : ""}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
 					{displayText}

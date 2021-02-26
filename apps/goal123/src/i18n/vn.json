@@ -32,6 +32,7 @@
 	"lbl_Announcement": "Thông Báo",
 	"lbl_TermsConditions": "Điều Khoản và Điều Kiện",
 	"lbl_RuleRegulations": "Quy Tắc và Quy Định đặt cược",
+	"lbl_APPDownload":"Tải ứng dụng",
 	"lbl_Skype": "Skype",
 	"lbl_Telegram": "Telegram",
 	"lbl_Zalo": "Zalo",
@@ -89,6 +90,7 @@
 	"lbl_Oneshot_Fishing":"Oneshot Fishing",
 	"lbl_Water_Margin_Fishing":"Water Margin Fishing",
 	"lbl_Thunder_Fighter":"Thunder Fighter",
+	"lbl_CQ9":"CQ9",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "ID Đại lý/ Người giới thiệu",
@@ -314,7 +316,6 @@
 	"lbl_UpdatePersonalInfoDeposit": "Vui lòng cập nhật thông tin cá nhân trước khi nạp tiền.",
 	"lbl_DepositNow": "Nạp tiền ngay",
 	"lbl_GoDepositPage": "Đến trang gửi tiền?",
-	"lbl_APPDownload":"Tải ứng dụng",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",
