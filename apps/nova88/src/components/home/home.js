@@ -44,7 +44,7 @@ import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
-import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
+
 
 import {
 	GET_OPEN_RULE,
@@ -450,14 +450,9 @@ const IndexPage = ({ location }) => {
 					{...userInfo}
 				/>
 			</section>
-			{/* <img
+			<img
 				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
 				alt="IndexCenterBanner"
-			/> */}
-			{/* new year style ↓ */}
-			<img
-				src={require(`../../styles/img/indexCenterBanner.jpg`)}
-				alt="indexCenterBanner"
 			/>
 			<SideBarQuickLink />
 			<AngpowLink

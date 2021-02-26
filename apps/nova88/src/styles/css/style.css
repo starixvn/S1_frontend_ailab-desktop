@@ -140,11 +140,10 @@ header {
   position: absolute;
   margin-top: 85px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.9);
+  background: #191919;
   left: 0;
   text-transform: uppercase;
   width: 100%;
-  background: #000 url(../img/menu_bg.png) repeat-x top center;
 }
 
 .header > div.menu > div {
@@ -200,13 +199,6 @@ header {
 
 .header > div.menu > div > a.icon-home, .header > div.menu > div > button.icon-home {
   font-size: 24px;
-}
-
-.header > div.menu > div > a.icon-home:before, .header > div.menu > div > button.icon-home:before {
-  width: 35px;
-  height: 35px;
-  content: "" !important;
-  background: url(../img/icon_home.svg) no-repeat center/100% !important;
 }
 
 .header > div.menu .subMenu-Wrapper-new {
@@ -1482,7 +1474,7 @@ main .gamelistsport a .container .card_right img.badminton, main .gamelistsport 
 main .gamelistsport a .container .card_right:before, main .gamelistsport a .container .card_left:before {
   content: "";
   position: absolute;
-  background: url(../img/card_bg.png) no-repeat center/cover;
+  border: 10px solid white;
   width: 60%;
   height: 50%;
   z-index: 1;
@@ -1568,6 +1560,10 @@ main .gamelistsport a:hover .card_right img.esport, main .gamelistsport a:hover 
   margin-left: -95px;
   -webkit-transform: rotate(6deg);
           transform: rotate(6deg);
+}
+
+main .gamelistsport a:hover .card_right:before, main .gamelistsport a:hover .card_left:before, main .gamelistsport a:active .card_right:before, main .gamelistsport a:active .card_left:before {
+  border: 10px solid #f77900;
 }
 
 main .gamelistother {
@@ -2585,12 +2581,6 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-#Marquee .marquee-box.icon-marquee:before {
-  width: 40px !important;
-  content: "" !important;
-  background: #212121 url(../img/icon_post.svg) no-repeat center/100% !important;
 }
 
 #Marquee .marquee-box.icon:before {
@@ -7259,7 +7249,6 @@ button.icon-spinner11:before {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  background: url(../img/gameMenu_bg.png) no-repeat center/cover;
 }
 
 .gameMenu .icon-new:before {
@@ -7284,9 +7273,7 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #191919;
-  border: 1px solid #b28750;
-  margin: 0 8.5px !important;
+  background: #134DAE;
   padding: 10px 0;
   border-radius: 20px;
 }
@@ -7300,8 +7287,7 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
-  background: #d3162c;
-  border: 1px solid #b28750;
+  background: #1E85EC;
   height: 25px;
   padding: 0px 10px;
   opacity: 1;
@@ -8554,80 +8540,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 21.67366%;
-  top: -42.36926%;
-  width: 12.54587px;
-  height: 12.54587px;
+  left: 56.85648%;
+  top: 33.54612%;
+  width: 13.50981px;
+  height: 13.50981px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 23.07261%;
-  top: 23.58127%;
-  width: 7.54262px;
-  height: 7.54262px;
+  left: 26.08763%;
+  top: -21.15392%;
+  width: 11.31035px;
+  height: 11.31035px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 66.92796%;
-  top: -48.98837%;
-  width: 9.31516px;
-  height: 9.31516px;
+  left: 17.84414%;
+  top: -39.22507%;
+  width: 12.75807px;
+  height: 12.75807px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 17.01834%;
-  top: -2.82299%;
-  width: 7.17488px;
-  height: 7.17488px;
+  left: 5.55378%;
+  top: -7.30665%;
+  width: 11.6835px;
+  height: 11.6835px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 45.30648%;
-  top: -39.55729%;
-  width: 7.77725px;
-  height: 7.77725px;
+  left: 20.87762%;
+  top: -46.09737%;
+  width: 12.80837px;
+  height: 12.80837px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 96.0469%;
-  top: -10.72587%;
-  width: 10.76494px;
-  height: 10.76494px;
+  left: 83.48647%;
+  top: -8.27324%;
+  width: 7.65751px;
+  height: 7.65751px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 66.0672%;
-  top: -23.03898%;
-  width: 14.00219px;
-  height: 14.00219px;
+  left: 26.35653%;
+  top: 38.9496%;
+  width: 9.18215px;
+  height: 9.18215px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 70.46695%;
-  top: -38.08421%;
-  width: 7.36283px;
-  height: 7.36283px;
+  left: 87.33677%;
+  top: 14.09525%;
+  width: 13.0146px;
+  height: 13.0146px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
