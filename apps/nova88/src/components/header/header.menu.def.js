@@ -536,7 +536,7 @@ export const defMenuLinks = {
 	},
 	vip: {
 		path: path.vip.root,
-		displayKey: "VIP",
+		displayKey: "lbl_Vip",
 		eventIcons: [
 			showEventIcon({
 				icon: defEventIcon.new,
