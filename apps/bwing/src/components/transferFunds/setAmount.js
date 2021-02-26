@@ -46,7 +46,10 @@ export default props => {
 						textRight={true}
 					/>
 					<div className="btnGroup">
-						<button className="btn-check" type="submit">
+						<button
+							className="btn-check"
+							type="submit"
+							data-testid="setAmount_submit">
 							{props.i18n("lbl_Submit")}
 						</button>
 					</div>

@@ -24,7 +24,7 @@ export default props => {
 
 	useEffect(() => {
 		getApiBankCard();
-	}, []);
+	}, [props.balanceData]);
 
 	useEffect(() => {
 		if (popBoxData.refresh === true) {
@@ -33,6 +33,16 @@ export default props => {
 	}, [popBoxData.refresh]);
 
 	const getApiBankCard = () => {
+		const selectPrevAccount = (_defAccountNo, _bankInfoDetail) => {
+			const _preAccInfo = _bankInfoDetail.filter(
+				card => card.accountNo === _defAccountNo
+			)[0];
+			props.setCurrentlyBankInfo(
+				_preAccInfo.sysId,
+				_preAccInfo.accountNo,
+				_preAccInfo.bankName
+			);
+		};
 		api_account_GetCustBankInfo().then(
 			res => {
 				if (isMountedRef.current) {
@@ -42,14 +52,19 @@ export default props => {
 							res.data.data.bankInfoDetail?.length > 0
 						) {
 							props.setBankInfoList(res.data.data.bankInfoDetail);
+							if (res.data.data.defAccountNo) {
+								selectPrevAccount(
+									res.data.data.defAccountNo,
+									res.data.data.bankInfoDetail
+								);
+							}
 						}
 					}
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
-					//
 					setLoading(false);
 				}
 			}
@@ -57,7 +72,6 @@ export default props => {
 	};
 
 	const checkInput = (sysId, accountNo, bankName) => {
-		props.setCurrentlyBankInfo(sysId, accountNo, bankName);
 		if (accountNo) {
 			props.setCurrentlyBankInfo(sysId, accountNo, bankName);
 		} else {
@@ -135,7 +149,7 @@ export default props => {
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,

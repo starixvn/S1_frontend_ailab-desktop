@@ -97,7 +97,7 @@ body, html {
 
 header {
   position: fixed;
-  background: url(../img/headerBG.jpg) no-repeat center/cover;
+  background: #030c1b;
   width: 100%;
   height: 65px;
   display: -webkit-box;
@@ -107,44 +107,6 @@ header {
       -ms-flex-pack: center;
           justify-content: center;
   z-index: 2;
-}
-
-header::before, header::after {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: 1;
-  pointer-events: none;
-  -webkit-animation: flash2 linear infinite alternate 1.5s;
-          animation: flash2 linear infinite alternate 1.5s;
-}
-
-header::before {
-  background: url(../img/headerFlower_L.png) no-repeat center/cover;
-  left: 0;
-  width: 250px;
-  height: 120px;
-}
-
-@media (max-width: 1400px) {
-  header::before {
-    width: 120px;
-    height: 70px;
-  }
-}
-
-header::after {
-  background: url(../img/headerFlower_R.png) no-repeat center/cover;
-  width: 160px;
-  height: 100px;
-  right: 0;
-}
-
-@media (max-width: 1400px) {
-  header::after {
-    width: 100px;
-    height: 60px;
-  }
 }
 
 header .logo {
@@ -158,7 +120,7 @@ header .logo {
 }
 
 header .logo img:nth-child(1) {
-  max-width: 150px;
+  max-width: 130px;
   height: auto;
 }
 
@@ -193,7 +155,7 @@ header .header > div.menu {
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
-  background: rgba(144, 0, 0, 0.65);
+  background: rgba(29, 54, 98, 0.7);
   position: fixed;
   left: 0;
   top: 65px;
@@ -206,7 +168,7 @@ header .header > div.menu .icon-new::before {
   top: -4px;
   left: calc(50% - 35px);
   display: block;
-  color: #fdc94e;
+  color: #f72626;
   font-size: 16px;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
@@ -857,6 +819,22 @@ header .header > div.function .cashier .submenu a:hover.icon-exit span, header .
   transition: 0.7s;
 }
 
+header .header > div.function .cashier .submenu a.icon-new, header .header > div.function .wallet .submenu a.icon-new, header .header > div.function .memberfile .submenu a.icon-new {
+  position: relative;
+}
+
+header .header > div.function .cashier .submenu a.icon-new:before, header .header > div.function .wallet .submenu a.icon-new:before, header .header > div.function .memberfile .submenu a.icon-new:before {
+  font-family: 'icomoon';
+  content: "\e9b2";
+  position: absolute;
+  left: -12px;
+  bottom: 2px;
+  color: #fab617;
+  margin-right: 10px;
+  -webkit-animation: MoveTopDown linear infinite alternate 1s;
+          animation: MoveTopDown linear infinite alternate 1s;
+}
+
 header .header > div.function .cashier .submenu .icon-exit, header .header > div.function .wallet .submenu .icon-exit, header .header > div.function .memberfile .submenu .icon-exit {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1078,7 +1056,7 @@ header .header .appDownload .icon-mobile::before {
 }
 
 .gameMenu {
-  background: url(../img/gameMenuBG.jpg) no-repeat center/cover;
+  background: #284985;
   padding: 10px 0;
 }
 
@@ -1105,8 +1083,7 @@ header .header .appDownload .icon-mobile::before {
       -ms-flex-align: center;
           align-items: center;
   font-size: 12px;
-  background: linear-gradient(135deg, #BF953F 3%, #FCF6BA 40%, #B38728 90%);
-  color: #900000;
+  background: #1a2e56;
   margin-right: 15px;
   border-radius: 10px;
   padding: 10px 5px;
@@ -1128,7 +1105,6 @@ header .header .appDownload .icon-mobile::before {
   top: -15px;
   left: calc(50% - 24px);
   display: block;
-  border-radius: 5px;
   padding: 1px;
   color: #f72626;
   font-size: 16px;
@@ -1156,36 +1132,6 @@ header .header .appDownload .icon-mobile::before {
           transform: translateY(-50%) scale(0.8);
   padding: 0 5px;
   color: #fff;
-}
-
-@-webkit-keyframes routate {
-  0% {
-    -webkit-transform: rotate(2deg);
-    transform: rotate(2deg);
-  }
-  50% {
-    -webkit-transform: rotate(-2deg);
-    transform: rotate(-2deg);
-  }
-  100% {
-    -webkit-transform: rotate(2deg);
-    transform: rotate(2deg);
-  }
-}
-
-@keyframes routate {
-  0% {
-    -webkit-transform: rotate(2deg);
-    transform: rotate(2deg);
-  }
-  50% {
-    -webkit-transform: rotate(-2deg);
-    transform: rotate(-2deg);
-  }
-  100% {
-    -webkit-transform: rotate(2deg);
-    transform: rotate(2deg);
-  }
 }
 
 main {
@@ -1229,19 +1175,7 @@ main section > div > div > .title {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #fab617;
-  position: relative;
-}
-
-main section > div > div > span::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -17px;
-  left: -20px;
-  background: url(../img/titleLine.png) no-repeat center/cover;
-  width: 30px;
-  height: 30px;
+  background: #1E85EC;
 }
 
 main section > div .articleModule {
@@ -1383,33 +1317,6 @@ footer {
   width: 100%;
   min-width: 1010px;
   background: url(../img/footerBg.jpg) no-repeat top center/cover;
-  position: relative;
-}
-
-footer::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -60px;
-  left: 10px;
-  width: 250px;
-  height: 250px;
-  pointer-events: none;
-  z-index: 0;
-}
-
-@media (max-width: 1440px) {
-  footer::before {
-    width: 160px;
-    height: 160px;
-  }
-}
-
-@media (max-width: 1200px) {
-  footer::before {
-    width: 100px;
-    height: 100px;
-  }
 }
 
 footer span.title {
@@ -2154,7 +2061,7 @@ main > .swiper-container .swiper-slide {
 .swiper-button-next:after, .swiper-button-prev:after {
   content: "\e954";
   font-family: 'icomoon';
-  color: #fab617;
+  color: white;
 }
 
 .swiper-button-prev {
@@ -2313,6 +2220,22 @@ main > .swiper-container .swiper-slide {
 #leftMenu .menuModule a.menuSelect span {
   z-index: 1;
   font-weight: normal;
+}
+
+#leftMenu .menuModule a.menuSelect span.icon-new {
+  position: relative;
+}
+
+#leftMenu .menuModule a.menuSelect span.icon-new::before {
+  position: absolute;
+  right: -60px;
+  top: 0;
+  font-family: 'icomoon';
+  content: "\e9b2";
+  font-size: 16px;
+  color: #fab617;
+  -webkit-animation: MoveTopDown linear infinite alternate 1s;
+          animation: MoveTopDown linear infinite alternate 1s;
 }
 
 #leftMenu .menuModule a.menuSelect:before {
@@ -3165,6 +3088,42 @@ main > .swiper-container .swiper-slide {
   text-align: center;
 }
 
+#popup .friend {
+  width: auto;
+  position: relative;
+}
+
+#popup .friend .icon-close {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+}
+
+#popup .friend img {
+  width: 750px;
+  border-radius: 5px;
+}
+
+#popup .checkbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  margin: 0;
+}
+
+#popup .checkbox input[type="checkbox"] + label {
+  margin-right: 5px;
+}
+
+#popup .checkbox input[type="checkbox"] + label.icon:before {
+  font-size: 12px;
+  margin-top: -1px;
+}
+
 .Submit.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .loackAmount.active {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3405,8 +3364,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .offers {
-  background: none;
-  border: 1px solid #fab617;
+  background: #1a2e56;
   padding: 20px;
   border-radius: 15px;
   position: relative;
@@ -5683,36 +5641,8 @@ input + .iconModule i.icon.icon-checkmark:before {
       flex-wrap: wrap;
   padding: 25px calc(50% - 508px);
   position: relative;
-  background: url(../img/gamelistBG.jpg) no-repeat top/cover;
   position: relative;
   overflow: hidden;
-}
-
-.indexGameList::before, .indexGameList::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  width: 162px;
-  height: 239px;
-  pointer-events: none;
-  -webkit-animation: routate linear infinite alternate 3s;
-          animation: routate linear infinite alternate 3s;
-  z-index: 0;
-}
-
-.indexGameList::before {
-  background: url(../img/lantern_L.png) no-repeat center;
-  left: 0;
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
-}
-
-.indexGameList::after {
-  background: url(../img/lantern_R.png) no-repeat center;
-  right: 0;
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
 }
 
 .indexGameList button {
@@ -5739,10 +5669,8 @@ input + .iconModule i.icon.icon-checkmark:before {
   top: -16px;
   left: calc(50% - 34px);
   display: block;
-  background-color: #fdc94e;
-  border-radius: 5px;
   padding: 1px 0;
-  color: #900000;
+  color: #f72626;
   font-size: 16px;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
@@ -7461,6 +7389,36 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   40% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes routate {
+  0% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+  }
+  50% {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+  }
+  100% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+  }
+}
+
+@keyframes routate {
+  0% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+  }
+  50% {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+  }
+  100% {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
   }
 }
 
