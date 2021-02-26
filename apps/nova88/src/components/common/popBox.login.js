@@ -111,6 +111,7 @@ const LoginPanel = () => {
 						isLogin: res.isLogin
 					}));
 					setPopBox({ isOpen: false });
+					navigate(`/${userInfo.langId}/${path.deposit.root}`);
 				} else if (
 					res.errorCode === 1101 ||
 					res.errorCode === 1102 ||
