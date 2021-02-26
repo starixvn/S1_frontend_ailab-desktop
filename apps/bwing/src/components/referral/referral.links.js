@@ -7,6 +7,8 @@ export default ({ referralCode, t, langId }) => {
 	const welcomeMessage = t("lbl_Referral_Welcome_Bwing");
 	const ref_telegram = `https://t.me/share/url?url=${link_default}&text=${welcomeMessage}`;
 	const ref_fb = `https://www.facebook.com/sharer/sharer.php?u=${link_default}&quote=${welcomeMessage}`;
+	const ref_line = `http://line.naver.jp/R/msg/text/?${welcomeMessage}%0D%0A${link_default}`;
+	const ref_whatsapp = `https://wa.me/?&text=${welcomeMessage} ${link_default}`;
 
 	const copyWelComeText = () => {
 		const virtualInput = document.createElement("input");
@@ -83,6 +85,26 @@ export default ({ referralCode, t, langId }) => {
 							)
 						}>
 						{t("lbl_Telegram")}
+					</a>
+
+					<a
+						className="icon icon-whatsapp"
+						onClick={() =>
+							window.open(
+								ref_whatsapp,
+								"",
+								"height=600,width=600"
+							)
+						}>
+						{t("lbl_WhatsApp")}
+					</a>
+
+					<a
+						className="icon icon-line"
+						onClick={() =>
+							window.open(ref_line, "", "height=600,width=600")
+						}>
+						{t("lbl_LINE")}
 					</a>
 				</div>
 				<QRCode

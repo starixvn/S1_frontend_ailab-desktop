@@ -25,27 +25,31 @@ export default ({ onClickClose }) => {
 
 	let src = null;
 	try {
-		src = require(`../../styles/img/friend-${userInfo.langId}.jpg`);
+		src = require(`../../styles/img/friendpop_${userInfo.langId}.png`);
 	} catch (error) {}
 
 	return (
-		<div className="friend active">
-			<button className="icon icon-close" onClick={onClickClose} />
-			<Link className="" to={`/${userInfo.langId}/${path.referral.root}`}>
-				<img src={src} alt="img_referral" />
-			</Link>
-			<div className="checkbox">
-				<input
-					type="checkbox"
-					id="home-popbox-joinReferral"
-					onChange={onChangeDontShow}
-					checked={selectDontShow}
-				/>
-				<label
-					htmlFor="home-popbox-joinReferral"
-					className="icon icon-checkbox-checked"
-				/>
-				{t("lbl_Dont_show_me_again")}
+		<div className="pop">
+			<div className="friend active">
+				<button className="icon icon-close" onClick={onClickClose} />
+				<Link
+					className=""
+					to={`/${userInfo.langId}/${path.referral.root}`}>
+					<img src={src} alt="img_referral" />
+				</Link>
+				<div className="checkbox">
+					<input
+						type="checkbox"
+						id="home-popbox-joinReferral"
+						onChange={onChangeDontShow}
+						checked={selectDontShow}
+					/>
+					<label
+						htmlFor="home-popbox-joinReferral"
+						className="icon icon-checkbox-checked"
+					/>
+					{t("lbl_Dont_show_me_again")}
+				</div>
 			</div>
 		</div>
 	);
