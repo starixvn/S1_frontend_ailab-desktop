@@ -18,6 +18,7 @@ import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
 
 import AngpowLink from "./angpowLink";
+import MysteryBoxLink from "./mysteryBoxLink";
 import path from "../../router";
 
 export default () => {
@@ -76,6 +77,7 @@ export default () => {
 	return (
 		<>
 			{/* new year style ↓ */}
+
 			<div className="newyear">
 				<section className="flowerArea">
 					<div className="allstars">
@@ -111,21 +113,28 @@ export default () => {
 					<div className="lantern" />
 					<div className="lantern" />
 				</div>
-				{/* <a href="" className="money">
+				<a href="" className="money">
 					<div className="box" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
 					<div className="l" />
-				</a> */}
+				</a>
 				<AngpowLink
 					to={`/${userInfo.langId}/${path.angpow.root}`}
 					langId={userInfo.langId}
 				/>
 				<div className="cow" />
 			</div>
+
 			{/* new year style ↑ */}
+
+			<MysteryBoxLink
+				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
+				langId={userInfo.langId}
+			/>
+
 			<main>
 				{/* new year style ↓ */}
 				<div className="newyearBg">
@@ -187,7 +196,6 @@ export default () => {
 						</div>
 					</div>
 				</section>
-			
 			</main>
 		</>
 	);

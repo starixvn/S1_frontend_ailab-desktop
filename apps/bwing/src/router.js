@@ -133,5 +133,8 @@ export default {
 	},
 	referralHistory: {
 		root: "referralHistory"
+	},
+	mysteryBox: {
+		root: "mysteryBox"
 	}
 };

@@ -190,7 +190,7 @@ export const passwordCheck = val => {
 	return { checked: true, message: "" };
 };
 
-export const isDateRange = (currentDate, startDate, endDate) => {
+export const isDateRange = (startDate, endDate) => {
 	const now = new Date();
 	const _startDate = startDate ? new Date(`${startDate} GMT+0700`) : null; // yyyy/mm/dd hh:mm:ss
 	const _endDate = endDate ? new Date(`${endDate} GMT+0700`) : null; // yyyy/mm/dd hh:mm:ss
