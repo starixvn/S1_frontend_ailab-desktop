@@ -29,6 +29,7 @@ import SuccessAngPow from "./popBox.successAngPow";
 import OneGamingLink from "./popBox.oneGamingLink";
 import defPopBoxType from "./defPopBoxType";
 import RankingWinner from "./popBox.rankingWinner";
+import SuccessMySteryBox from "./popBox.successMySteryBox";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -204,6 +205,16 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.SuccessMySteryBox:
+			content = (
+				<SuccessMySteryBox
+					closePopBox={popBox.closePopBox}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
+				/>
+			);
+			break;
+
 		case defPopBoxType.OneGamingLink:
 			content = (
 				<OneGamingLink
@@ -226,7 +237,9 @@ export default () => {
 			break;
 	}
 
-	const customLayout = popBox.popBoxType === defPopBoxType.SuccessAngPow;
+	const customLayout =
+		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
+		popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
 
 	if (!popBox.isOpen) return null;
 

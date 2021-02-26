@@ -89,6 +89,18 @@
   font-size: 24px !important;
 }
 
+.icon-whatsapp:before {
+  content: "\ea93";
+}
+
+.icon-facebook:before {
+  content: "\ea90";
+}
+
+.icon-line1:before {
+  content: "\e9c4";
+}
+
 .icon-slots:before {
   content: "\e9c2";
 }
