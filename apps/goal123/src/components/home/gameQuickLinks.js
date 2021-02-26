@@ -1,5 +1,4 @@
-import React, { useContext, useRef } from "react";
-import Swiper from "react-id-swiper";
+import React, { useContext } from "react";
 import { userInfoContext } from "../common/context";
 import LinkItems from "../common/linkItems";
 
