@@ -18,9 +18,6 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const [casinoTpIds, setCasinoTpIds] = useState(null);
 	const isMountedRef = useRef(null);
-	const logoNewYear = `http://image.n88media.com/SiteSkin/img/logo_evt${
-		userInfo.langId === "cs" ? "_cs" : ""
-	}.png `;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -82,12 +79,16 @@ export default () => {
 		return <button className="icon icon-exit" onClick={handleLogout} />;
 	};
 
+	const Logo = `https://image.n88media.com/SiteSkin/img/logo${
+		userInfo.langId === "cs" ? "_cs" : ""
+	}.png`;
+
 	return (
 		<header>
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						<img src={logoNewYear} alt={config.siteName} />
+						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
 				<Menu casinoTpIds={casinoTpIds} />
