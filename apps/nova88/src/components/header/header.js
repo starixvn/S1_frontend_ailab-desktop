@@ -79,7 +79,7 @@ export default () => {
 		return <button className="icon icon-exit" onClick={handleLogout} />;
 	};
 
-	const Logo = `https://image.n88media.com/SiteSkin/img/logo${
+	const Logo = `${config.cloudImgUrl}/SiteSkin/img/logo${
 		userInfo.langId === "cs" ? "_cs" : ""
 	}.png`;
 
