@@ -1,5 +1,4 @@
-import React, { useContext, useRef } from "react";
-import Swiper from "react-id-swiper";
+import React, { useContext } from "react";
 import { userInfoContext } from "../common/context";
 import LinkItems from "../common/linkItems";
 
@@ -19,12 +18,12 @@ export const defSportsQuickLinks = {
 		displayKey: "lbl_SabaClub",
 		isHot: true
 	},
-	cockFighting: {
-		productInfo: productList.cockFighting,
-		className: "icon icon-cock",
-		displayKey: "lbl_CockFighting",
-		isHot: true
-	},
+	// cockFighting: {
+	// 	productInfo: productList.cockFighting,
+	// 	className: "icon icon-cock",
+	// 	displayKey: "lbl_CockFighting",
+	// 	isHot: true
+	// },
 	eSport: {
 		productInfo: productList.eSport,
 		className: "icon icon-esport",
@@ -56,12 +55,23 @@ export const defSportsQuickLinks = {
 		path: path.sports.root,
 		className: "icon icon-virtual-sports",
 		displayKey: "lbl_VirtualSports"
-	}
+	},
 	// fishing: {
 	// 	productInfo: productList.fishing,
 	// 	className: "icon icon-game",
 	// 	displayKey: "lbl_Fishing"
-	// }
+	// },
+	V8Poker: {
+		productInfo: productList.V8_Poker,
+		className: "icon icon-casino",
+		displayKey: "lbl_V8Poker"
+	},
+	CQ9: {
+		path: path.casino.root,
+		provider: "CQ9",
+		className: "icon icon-slots",
+		displayKey: "lbl_CQ9"
+	}
 };
 
 export default ({ t }) => {

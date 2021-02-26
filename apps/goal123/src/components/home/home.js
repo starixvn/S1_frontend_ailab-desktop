@@ -167,7 +167,7 @@ const defPlatform = [
 	"ae",
 	"eb",
 	"wm",
-	"s123",
+	// "s123",
 	"cq9",
 	"icg",
 	"v8"
