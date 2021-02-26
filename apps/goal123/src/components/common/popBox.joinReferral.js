@@ -25,7 +25,6 @@ export default ({ onClickClose }) => {
 
 	let src = null;
 	try {
-		console.log(userInfo.langId);
 		src = require(`../../styles/img/img_referral_${userInfo.langId}.jpg`);
 	} catch (error) {}
 

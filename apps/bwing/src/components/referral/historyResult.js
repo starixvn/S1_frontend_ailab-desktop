@@ -5,7 +5,6 @@ import { number_format } from "../common/common";
 
 export default props => {
 	const { t } = useTranslation();
-	console.log("▼▼▼▼ props", props);
 	return (
 		<div key={`referral-${props.idx}`}>
 			<div>{props.idx + 1}</div>
