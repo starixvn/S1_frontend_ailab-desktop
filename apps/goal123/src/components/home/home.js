@@ -41,43 +41,6 @@ export default () => {
 		};
 	});
 
-	// useEffect(() => {
-	// 	if (userInfo.isLogin && userInfo.userName) {
-	// 		const cookieName = `balanceHint${userInfo.userName}`;
-	// 		let showDepositHint = false;
-	// 		if (readCookie(cookieName) !== "1") {
-	// 			setCookie(cookieName, "1", 1);
-	// 			showDepositHint = true;
-	// 		}
-
-	// 		if (showDepositHint) {
-	// 			api_account_GetWalletInfo().then(res => {
-	// 				if (res.data.errorCode === 0 && isMountedRef.current) {
-	// 					const tpWallets = res.data.data.tpWallets?.map(tp => {
-	// 						return {
-	// 							tpId: tp.tpId,
-	// 							balance: tp.balance
-	// 						};
-	// 					});
-
-	// 					const hasBalance =
-	// 						res.data.data?.balance ||
-	// 						tpWallets?.filter(tp => {
-	// 							return tp.balance > 0;
-	// 						}).length >= 1;
-
-	// 					if (!hasBalance && showDepositHint) {
-	// 						setPopBox({
-	// 							isOpen: true,
-	// 							popBoxType: defPopBoxType.DepositHint
-	// 						});
-	// 					}
-	// 				}
-	// 			});
-	// 		}
-	// 	}
-	// }, [userInfo.isLogin, userInfo.userName, setPopBox]);
-
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
 			const showDepositPopBox = () => {
