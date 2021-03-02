@@ -306,6 +306,13 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-AG.png",
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
+			},
+			{
+				...productList.liveCasino_N2,
+				displayText: "N2",
+				listNpcImgUrl: "casino-n2.png",
+				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
+				menuType: defMenuType.entPage
 			}
 		]
 	},

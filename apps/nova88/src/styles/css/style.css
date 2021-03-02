@@ -7270,14 +7270,13 @@ button.icon-spinner11:before {
   max-width: 1560px;
 }
 
-/* 20210226 */
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
   background: #212121;
+  border: 1px solid #333;
   padding: 10px 0;
   border-radius: 20px;
-  border:1px solid #333;
 }
 
 .gameMenu .gameSwiper .swiper-slide img {
@@ -7438,13 +7437,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -8542,80 +8535,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 56.85648%;
-  top: 33.54612%;
-  width: 13.50981px;
-  height: 13.50981px;
+  left: 61.2659%;
+  top: -53.95374%;
+  width: 14.16395px;
+  height: 14.16395px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 26.08763%;
-  top: -21.15392%;
-  width: 11.31035px;
-  height: 11.31035px;
+  left: 45.15748%;
+  top: -44.1936%;
+  width: 14.4974px;
+  height: 14.4974px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 17.84414%;
-  top: -39.22507%;
-  width: 12.75807px;
-  height: 12.75807px;
+  left: 57.78881%;
+  top: 39.47188%;
+  width: 5.12966px;
+  height: 5.12966px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 5.55378%;
-  top: -7.30665%;
-  width: 11.6835px;
-  height: 11.6835px;
+  left: 48.93844%;
+  top: -0.28396%;
+  width: 6.21763px;
+  height: 6.21763px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 20.87762%;
-  top: -46.09737%;
-  width: 12.80837px;
-  height: 12.80837px;
+  left: 48.21092%;
+  top: -35.21983%;
+  width: 5.66035px;
+  height: 5.66035px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 83.48647%;
-  top: -8.27324%;
-  width: 7.65751px;
-  height: 7.65751px;
+  left: 41.46388%;
+  top: -24.95928%;
+  width: 11.56332px;
+  height: 11.56332px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 26.35653%;
-  top: 38.9496%;
-  width: 9.18215px;
-  height: 9.18215px;
+  left: 63.6154%;
+  top: -44.34794%;
+  width: 9.9247px;
+  height: 9.9247px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 87.33677%;
-  top: 14.09525%;
-  width: 13.0146px;
-  height: 13.0146px;
+  left: 0.85302%;
+  top: 13.09903%;
+  width: 5.72114px;
+  height: 5.72114px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9937,18 +9930,14 @@ canvas {
 
 .subModuleListColumn > .subModule > div > button i, .subModuleListColumn > .subModule > div > a i {
   position: absolute;
-  right: 0;
-  top: 0;
-  color: white;
+  right: -5px;
+  bottom: 0px;
+  color: #f77900;
   display: none;
-  font-size: 48px;
-  background: rgba(30, 133, 236, 0.9);
-  width: 100%;
-  height: 100%;
+  font-size: 24px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -9981,6 +9970,11 @@ canvas {
 
 .subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > a.active > div {
   color: #1E85EC;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 4px #1E85EC inset;
+          box-shadow: 0px 0px 0px 4px #1E85EC inset;
 }
 
 .subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > a.active > div i {
@@ -10025,7 +10019,11 @@ canvas {
 }
 
 .subModuleListColumn .btnGroup.buttonBox button.blue .icon {
-  width: 13px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  color: #f77900;
+  font-size: 16px;
 }
 
 .subModuleListColumn .btnGroup.buttonBox button.blue .icon:before {
