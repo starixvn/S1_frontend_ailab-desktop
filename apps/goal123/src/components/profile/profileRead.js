@@ -3,6 +3,7 @@ import moment from "moment";
 import { useTranslation } from "react-i18next";
 
 export default props => {
+	console.log(props);
 	const { t } = useTranslation();
 	const birth = `${props.userInfo.birth_d}/${props.userInfo.birth_m}/${props.userInfo.birth_y}`;
 
