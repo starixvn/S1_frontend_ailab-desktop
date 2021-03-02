@@ -176,7 +176,8 @@ const defPlatform = [
 	// "s123",
 	"cq9",
 	"icg",
-	"v8"
+	"v8",
+	"n2live"
 ];
 
 const Platforms = () => {
