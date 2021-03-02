@@ -236,6 +236,19 @@ export const defMenuLinks = {
 		className: "livecasinobtn",
 		subMenu: [
 			{
+				...productList.liveCasino_N2,
+				displayText: "N2",
+				listNpcImgUrl: "casino-n2.png",
+				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.n2
+					})
+				]
+			},
+			{
 				...productList.liveCasino_WM,
 				className: "liveWM",
 				icon: "icon icon-WM",
@@ -305,13 +318,6 @@ export const defMenuLinks = {
 				displayText: "AG",
 				listNpcImgUrl: "casino-AG.png",
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
-				menuType: defMenuType.entPage
-			},
-			{
-				...productList.liveCasino_N2,
-				displayText: "N2",
-				listNpcImgUrl: "casino-n2.png",
-				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
 			}
 		]
