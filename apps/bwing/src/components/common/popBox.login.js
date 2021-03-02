@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import loginBanner from "../../styles/img/loginBanner.jpg";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
@@ -109,6 +109,7 @@ const LoginPanel = () => {
 							isLogin: res.isLogin
 						}));
 						setPopBox({ isOpen: false });
+						navigate(`/${userInfo.langId}/${path.deposit.root}`);
 					}
 				} else if (
 					res.errorCode === 1101 ||

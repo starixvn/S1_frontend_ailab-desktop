@@ -7273,7 +7273,8 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #134DAE;
+  background: #212121;
+  border: 1px solid #333;
   padding: 10px 0;
   border-radius: 20px;
 }
@@ -7436,13 +7437,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -8540,80 +8535,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 56.85648%;
-  top: 33.54612%;
-  width: 13.50981px;
-  height: 13.50981px;
+  left: 71.37381%;
+  top: -0.93025%;
+  width: 10.30526px;
+  height: 10.30526px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 26.08763%;
-  top: -21.15392%;
-  width: 11.31035px;
-  height: 11.31035px;
+  left: 91.29386%;
+  top: -35.28326%;
+  width: 13.72807px;
+  height: 13.72807px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 17.84414%;
-  top: -39.22507%;
-  width: 12.75807px;
-  height: 12.75807px;
+  left: 17.9098%;
+  top: -1.93201%;
+  width: 11.42181px;
+  height: 11.42181px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 5.55378%;
-  top: -7.30665%;
-  width: 11.6835px;
-  height: 11.6835px;
+  left: 89.93746%;
+  top: -13.04664%;
+  width: 14.40256px;
+  height: 14.40256px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 20.87762%;
-  top: -46.09737%;
-  width: 12.80837px;
-  height: 12.80837px;
+  left: 72.75526%;
+  top: 19.2365%;
+  width: 13.49117px;
+  height: 13.49117px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 83.48647%;
-  top: -8.27324%;
-  width: 7.65751px;
-  height: 7.65751px;
+  left: 67.47138%;
+  top: 36.07709%;
+  width: 10.76005px;
+  height: 10.76005px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 26.35653%;
-  top: 38.9496%;
-  width: 9.18215px;
-  height: 9.18215px;
+  left: 81.93514%;
+  top: -55.17961%;
+  width: 13.96885px;
+  height: 13.96885px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 87.33677%;
-  top: 14.09525%;
-  width: 13.0146px;
-  height: 13.0146px;
+  left: 0.63013%;
+  top: 37.78779%;
+  width: 12.13688px;
+  height: 12.13688px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9629,8 +9624,8 @@ canvas {
 }
 
 .event2 .angpao.active {
-  -webkit-animation: rotate 0.3s infinite alternate;
-          animation: rotate 0.3s infinite alternate;
+  -webkit-animation: rotate2 0.3s infinite alternate;
+          animation: rotate2 0.3s infinite alternate;
   background: url(../img/event/mysterybox/angpao_backa.png) no-repeat bottom center/auto;
   cursor: auto;
 }
@@ -9935,18 +9930,14 @@ canvas {
 
 .subModuleListColumn > .subModule > div > button i, .subModuleListColumn > .subModule > div > a i {
   position: absolute;
-  right: 0;
-  top: 0;
-  color: white;
+  right: -5px;
+  bottom: 0px;
+  color: #f77900;
   display: none;
-  font-size: 48px;
-  background: rgba(30, 133, 236, 0.9);
-  width: 100%;
-  height: 100%;
+  font-size: 24px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-radius: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -9979,6 +9970,11 @@ canvas {
 
 .subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > a.active > div {
   color: #1E85EC;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 4px #1E85EC inset;
+          box-shadow: 0px 0px 0px 4px #1E85EC inset;
 }
 
 .subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > a.active > div i {
@@ -10023,7 +10019,11 @@ canvas {
 }
 
 .subModuleListColumn .btnGroup.buttonBox button.blue .icon {
-  width: 13px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  color: #f77900;
+  font-size: 16px;
 }
 
 .subModuleListColumn .btnGroup.buttonBox button.blue .icon:before {
