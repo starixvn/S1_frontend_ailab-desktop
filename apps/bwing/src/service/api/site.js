@@ -23,6 +23,9 @@ export const api_site_ExistsEmail = ({ Email }) =>
 
 export const api_site_Register = data => siteRequest.post(`/Register/`, data);
 
+export const api_site_Signup = (data, langId) =>
+	siteRequest.post(`/Signup/${langId}`, data);
+
 export const api_site_GetSiteCurrencyList = () =>
 	siteRequest.post(`/GetSiteCurrencyList/`);
 
