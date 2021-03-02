@@ -143,8 +143,8 @@ describe("click submit", () => {
 	});
 });
 
-describe("click submit", () => {
-	test("if click submit but the column value is null, show tip", () => {
+describe("show tip text", () => {
+	test("if click submit but the column value is null, show tip text", () => {
 		const { container } = render(<ProfileEdit {...fakeData_2} />);
 		const submitBtn = container.getElementsByClassName("btn-check")[0];
 		fireEvent.click(submitBtn);
@@ -153,7 +153,7 @@ describe("click submit", () => {
 	});
 });
 
-describe("click submit", () => {
+describe("show icon-cross", () => {
 	const fakeData_checkFalse = {
 		userInfo: {
 			accountName: null,
