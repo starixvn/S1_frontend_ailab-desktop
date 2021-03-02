@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`showWallet Snapshot render correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="walletModule"
+      >
+        <div
+          class="walletType"
+        >
+          <div
+            class="walletBalanceModule"
+          >
+            <span
+              class="icon icon-icon32px_Main-Wallet"
+            />
+            <span>
+              0.50
+            </span>
+            <div
+              class="btnGroup"
+            >
+              <button
+                class="blue"
+                data-testid="showWallet_restoreAll_0"
+              />
+            </div>
+          </div>
+          <div
+            class="walletBalanceModule"
+          >
+            <span
+              class="icon icon-icon32px_Sportsbook-Wallet"
+            />
+            <span>
+              0.10
+            </span>
+            <div
+              class="btnGroup"
+            >
+              <button
+                class="blue"
+                data-testid="showWallet_restoreAll_1"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          aria-label="clickSpin"
+          class="icon icon-spinner11"
+        />
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="walletModule"
+    >
+      <div
+        class="walletType"
+      >
+        <div
+          class="walletBalanceModule"
+        >
+          <span
+            class="icon icon-icon32px_Main-Wallet"
+          />
+          <span>
+            0.50
+          </span>
+          <div
+            class="btnGroup"
+          >
+            <button
+              class="blue"
+              data-testid="showWallet_restoreAll_0"
+            />
+          </div>
+        </div>
+        <div
+          class="walletBalanceModule"
+        >
+          <span
+            class="icon icon-icon32px_Sportsbook-Wallet"
+          />
+          <span>
+            0.10
+          </span>
+          <div
+            class="btnGroup"
+          >
+            <button
+              class="blue"
+              data-testid="showWallet_restoreAll_1"
+            />
+          </div>
+        </div>
+      </div>
+      <button
+        aria-label="clickSpin"
+        class="icon icon-spinner11"
+      />
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

@@ -32,7 +32,7 @@
 	"lbl_Announcement": "Announcement",
 	"lbl_TermsConditions": "Terms and Conditions",
 	"lbl_RuleRegulations": "Rules and Regulations",
-	"lbl_APPDownload":"APP Download",
+	"lbl_APPDownload": "APP Download",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Goal123News": "Goal123 News",
@@ -86,6 +86,7 @@
 	"lbl_Oneshot_Fishing":"Oneshot Fishing",
 	"lbl_Water_Margin_Fishing":"Water Margin Fishing",
 	"lbl_Thunder_Fighter":"Thunder Fighter",
+	"lbl_CQ9":"CQ9",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "Affiliate ID/Referral",
@@ -238,7 +239,7 @@
 	"msg_InsufficientFund": "Insufficient Fund!",
 	"lbl_please_select_from_wallet": "Kindly select preferable fund out wallet",
 	"lbl_please_select_to_wallet": "Kindly select preferable fund in wallet",
-	
+
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_FinancialLog": "Financial Log",
 	"lbl_TypeName": "Type Name",
@@ -446,14 +447,32 @@
 	"lbl_AngPow_OtherConditions2": "2. Each member can participant once per day only.",
 	"lbl_AngPow_MyAngPow": "My Ang Pow",
 	"lbl_AngPow_OtherConditions": "Other Conditions",
-	"lbl_Next":"Next",
-	"lbl_AngPow_Awards":"Awards",
-	"lbl_Start":"Start",
-	"lbl_End":"End",
-    "lbl_AngPow_AlreadyDrawn":"You already drawn Ang Pow today, please try again tomorrow!",
-	"lbl_AngPow_NotWinning":"Oops! ANG POW is over, Please come back tomorrow!",
+	"lbl_Next": "Next",
+	"lbl_AngPow_Awards": "Awards",
+	"lbl_Start": "Start",
+	"lbl_End": "End",
+	"lbl_AngPow_AlreadyDrawn": "You already drawn Ang Pow today, please try again tomorrow!",
+	"lbl_AngPow_NotWinning": "Oops! ANG POW is over, Please come back tomorrow!",
+
+	"MysteryBox ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_MysteryBox_CreditedAccount1": "You are rewarded today",
+	"lbl_MysteryBox_CreditedAccount2": "please come back again tomorrow!",
+	"lbl_MysteryBox_Congratulations": "Congratulations",
+	"lbl_MysteryBox_Conditions": "Rewards Condition",
+	"lbl_MysteryBox_EventTitle": "Goal123 Mystery Box",
+	"lbl_MysteryBox_MemberEligibility": "Deposit Today Get Your Rewards Tomorrow.",
+	"lbl_MysteryBox_OtherConditions": "Other Conditions",
+	"lbl_MysteryBox_OtherConditions1": "1. Each member can participate once per day only.",
+	"lbl_MysteryBox_OtherConditions2": "2. Member is able to participate daily until the promotion ends.",
+	"lbl_MysteryBox_OtherConditions3": "3. Goal123 reserves the right to amend or withdraw the Promotion at any time.",
+	"lbl_MysteryBox_OtherConditions4": "4. Goal123 is the sole arbiter of the Promotion and its decision is final.",
+	"lbl_MysteryBox_OtherConditions5": "5. Goal123 Standard Terms and Conditions apply.",
+	"lbl_MysteryBox_MysteryBoxRewards": "My Mystery Box Rewards",
+	"lbl_MysteryBox_Awards": "Latest Awards",
+	"lbl_MysteryBox_AlreadyDrawn": "You have already drawn today, please try again tomorrow!",
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_V8Poker":"V8 Poker"
+	"lbl_V8Poker": "V8 Poker"
 }
+
 

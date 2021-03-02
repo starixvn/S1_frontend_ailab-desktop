@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import loginBanner from "../../styles/img/loginBanner.jpg";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
@@ -23,7 +23,7 @@ const LoginPanel = () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const [userValue, setUserValue] = useState(initValue);
-	const { setPopBox } = useContext(popBoxContext);
+	const { popBox, setPopBox } = useContext(popBoxContext);
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const isMountedRef = useRef(null);
@@ -110,6 +110,7 @@ const LoginPanel = () => {
 							isLogin: res.isLogin
 						}));
 						setPopBox({ isOpen: false });
+						navigate(`/${userInfo.langId}/${path.deposit.root}`);
 					}
 				} else if (
 					res.errorCode === 1101 ||
@@ -164,11 +165,11 @@ const LoginPanel = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const openJoin = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.Join
-		});
+	const clickJoin = () => {
+		navigate(`/${userInfo.langId}/${path.join.root}`);
+		if (popBox.isOpen) {
+			setPopBox({ isOpen: false });
+		}
 	};
 
 	return (
@@ -182,7 +183,7 @@ const LoginPanel = () => {
 						<button
 							className="txt-blue2"
 							type="button"
-							onClick={openJoin}>
+							onClick={clickJoin}>
 							{t("lbl_JoinNow")}
 						</button>
 					</div>

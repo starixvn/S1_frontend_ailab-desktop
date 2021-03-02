@@ -71,16 +71,16 @@ img {
   visibility: hidden;
   opacity: 0;
   height: 0;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .transition-open, .header > div.menu .subMenu-Wrapper.active, main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG1.jpg"], .tip.active, .dropdown > .dropdown-container.active, .personal .list .listBody.active {
   visibility: visible;
   opacity: 1;
   height: auto;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 body, html {
@@ -140,11 +140,10 @@ header {
   position: absolute;
   margin-top: 85px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.9);
+  background: #191919;
   left: 0;
   text-transform: uppercase;
   width: 100%;
-  background: #000 url(../img/menu_bg.png) repeat-x top center;
 }
 
 .header > div.menu > div {
@@ -202,13 +201,6 @@ header {
   font-size: 24px;
 }
 
-.header > div.menu > div > a.icon-home:before, .header > div.menu > div > button.icon-home:before {
-  width: 35px;
-  height: 35px;
-  content: "" !important;
-  background: url(../img/icon_home.svg) no-repeat center/100% !important;
-}
-
 .header > div.menu .subMenu-Wrapper-new {
   position: absolute;
   width: 100%;
@@ -254,8 +246,8 @@ header {
       -ms-flex-pack: end;
           justify-content: flex-end;
   height: 200px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   color: white;
   max-width: 210px;
   position: relative;
@@ -273,8 +265,8 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList a img, .header > div.menu .subMenu-Wrapper-new .sportsList button img, .header > div.menu .subMenu-Wrapper-new .eSportsList a img, .header > div.menu .subMenu-Wrapper-new .eSportsList button img, .header > div.menu .subMenu-Wrapper-new .casinoList a img, .header > div.menu .subMenu-Wrapper-new .casinoList button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img, .header > div.menu .subMenu-Wrapper-new .gameList a img, .header > div.menu .subMenu-Wrapper-new .gameList button img, .header > div.menu .subMenu-Wrapper-new .fishList a img, .header > div.menu .subMenu-Wrapper-new .fishList button img {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   position: absolute;
   width: 150px;
 }
@@ -313,8 +305,8 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   opacity: 1;
 }
 
@@ -335,8 +327,8 @@ header {
   height: 25px;
   font-weight: bold;
   background: url(../img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   left: 10px;
   bottom: -30px;
   z-index: 2;
@@ -383,15 +375,15 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a, .header > div.menu .subMenu-Wrapper-new .sportsList.active button, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button, .header > div.menu .subMenu-Wrapper-new .casinoList.active a, .header > div.menu .subMenu-Wrapper-new .casinoList.active button, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button, .header > div.menu .subMenu-Wrapper-new .gameList.active a, .header > div.menu .subMenu-Wrapper-new .gameList.active button, .header > div.menu .subMenu-Wrapper-new .fishList.active a, .header > div.menu .subMenu-Wrapper-new .fishList.active button {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   opacity: 1;
   top: 0px;
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a img, .header > div.menu .subMenu-Wrapper-new .sportsList.active button img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button img, .header > div.menu .subMenu-Wrapper-new .casinoList.active a img, .header > div.menu .subMenu-Wrapper-new .casinoList.active button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button img, .header > div.menu .subMenu-Wrapper-new .gameList.active a img, .header > div.menu .subMenu-Wrapper-new .gameList.active button img, .header > div.menu .subMenu-Wrapper-new .fishList.active a img, .header > div.menu .subMenu-Wrapper-new .fishList.active button img {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   margin-left: 0;
 }
 
@@ -400,22 +392,22 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-left {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   left: 0;
   top: 0;
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-right {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   right: 0;
   bottom: 0;
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a > span, .header > div.menu .subMenu-Wrapper-new .sportsList.active button > span, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a > span, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button > span, .header > div.menu .subMenu-Wrapper-new .casinoList.active a > span, .header > div.menu .subMenu-Wrapper-new .casinoList.active button > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button > span, .header > div.menu .subMenu-Wrapper-new .gameList.active a > span, .header > div.menu .subMenu-Wrapper-new .gameList.active button > span, .header > div.menu .subMenu-Wrapper-new .fishList.active a > span, .header > div.menu .subMenu-Wrapper-new .fishList.active button > span {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   left: 0;
   bottom: 0;
 }
@@ -487,8 +479,8 @@ header {
       -ms-flex-pack: end;
           justify-content: flex-end;
   min-height: 160px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   color: white;
   margin-bottom: 50px;
   max-width: 160px;
@@ -517,8 +509,8 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper .sportsList a:hover, .header > div.menu .subMenu-Wrapper .sportsList button:hover, .header > div.menu .subMenu-Wrapper .eSportsList a:hover, .header > div.menu .subMenu-Wrapper .eSportsList button:hover, .header > div.menu .subMenu-Wrapper .gameList a:hover, .header > div.menu .subMenu-Wrapper .gameList button:hover, .header > div.menu .subMenu-Wrapper .casinoList a:hover, .header > div.menu .subMenu-Wrapper .casinoList button:hover, .header > div.menu .subMenu-Wrapper .livecasinoList a:hover, .header > div.menu .subMenu-Wrapper .livecasinoList button:hover, .header > div.menu .subMenu-Wrapper .fishList a:hover, .header > div.menu .subMenu-Wrapper .fishList button:hover {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.menu .subMenu-Wrapper .gameList .sabaclub {
@@ -908,11 +900,11 @@ header {
       flex-wrap: wrap;
 }
 
-.header > div.function > a:nth-child(-n+5) {
+.header > div.function > a:nth-child(-n+5):not(.login):not(.join) {
   color: #abafae;
 }
 
-.header > div.function > a:nth-child(-n+5):before {
+.header > div.function > a:nth-child(-n+5):not(.login):not(.join):before {
   content: '...';
   font-size: 20px;
   -webkit-transform: rotate(90deg);
@@ -954,14 +946,13 @@ header {
   background: -webkit-gradient(linear, left top, right top, from(#f77900), to(#f55c00));
   background: linear-gradient(to right, #f77900, #f55c00);
   border-radius: 20px;
-  padding: 10px;
   white-space: nowrap;
   min-width: 100px;
   letter-spacing: 1px;
   margin-right: 10px;
-  font-weight: bold;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .header > div.function > div[class=join]:hover, .header > div.function > div[class=login]:hover, .header > div.function > a[class=join]:hover, .header > div.function > a[class=login]:hover, .header > div.function > button[class=join]:hover, .header > div.function > button[class=login]:hover {
@@ -970,8 +961,8 @@ header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #f55c00;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function > div[class=login], .header > div.function > a[class=login], .header > div.function > button[class=login] {
@@ -1113,8 +1104,8 @@ header {
 .header > div.function .cashier button, .header > div.function .wallet button, .header > div.function .memberfile button {
   color: white;
   font-size: 14px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   white-space: nowrap;
 }
 
@@ -1152,8 +1143,8 @@ header {
 .header > div.function .cashier .submenu a:hover.icon-exit span, .header > div.function .wallet .submenu a:hover.icon-exit span, .header > div.function .memberfile .submenu a:hover.icon-exit span {
   background: #1E85EC;
   color: white;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier .submenu a.icon-new:before, .header > div.function .wallet .submenu a.icon-new:before, .header > div.function .memberfile .submenu a.icon-new:before {
@@ -1180,14 +1171,14 @@ header {
 
 .header > div.function .cashier .submenu .icon-exit span, .header > div.function .wallet .submenu .icon-exit span, .header > div.function .memberfile .submenu .icon-exit span {
   padding: 0 5px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier.active > button, .header > div.function .cashier.active:before, .header > div.function .cashier.active:after, .header > div.function .wallet.active > button, .header > div.function .wallet.active:before, .header > div.function .wallet.active:after, .header > div.function .memberfile.active > button, .header > div.function .memberfile.active:before, .header > div.function .memberfile.active:after {
   color: #1E85EC;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier.active .submenu, .header > div.function .wallet.active .submenu, .header > div.function .memberfile.active .submenu {
@@ -1199,8 +1190,8 @@ header {
 .header > div.function .cashier.active:after, .header > div.function .wallet.active:after, .header > div.function .memberfile.active:after {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier:after, .header > div.function .wallet:after, .header > div.function .memberfile:after {
@@ -1210,8 +1201,8 @@ header {
           transform: rotate(90deg);
   color: white;
   font-size: 18px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier:before, .header > div.function .wallet:before, .header > div.function .memberfile:before {
@@ -1394,16 +1385,16 @@ main .gamelistsport a span {
   width: calc(100% - 15%);
   z-index: 2;
   left: -30px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a span:before {
   margin-right: 8px;
   font-size: 1.5vw;
   opacity: 0;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a .npc {
@@ -1419,8 +1410,8 @@ main .gamelistsport a .npc {
           justify-content: center;
   top: 10px;
   left: 20px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   z-index: 1;
 }
 
@@ -1443,8 +1434,8 @@ main .gamelistsport a .container {
 }
 
 main .gamelistsport a .container .card_right, main .gamelistsport a .container .card_left {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1462,8 +1453,8 @@ main .gamelistsport a .container .card_right img, main .gamelistsport a .contain
   width: auto;
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a .container .card_right img.baseball, main .gamelistsport a .container .card_left img.baseball {
@@ -1483,7 +1474,7 @@ main .gamelistsport a .container .card_right img.badminton, main .gamelistsport 
 main .gamelistsport a .container .card_right:before, main .gamelistsport a .container .card_left:before {
   content: "";
   position: absolute;
-  background: url(../img/card_bg.png) no-repeat center/cover;
+  border: 10px solid white;
   width: 60%;
   height: 50%;
   z-index: 1;
@@ -1505,35 +1496,35 @@ main .gamelistsport a .container .card_left {
 
 main .gamelistsport a:hover span, main .gamelistsport a:active span {
   left: 15%;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover span:before, main .gamelistsport a:active span:before {
   opacity: 1;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover .npc, main .gamelistsport a:active .npc {
   top: 0px;
   left: 0px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover .card_right, main .gamelistsport a:hover .card_left, main .gamelistsport a:active .card_right, main .gamelistsport a:active .card_left {
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover .card_right img, main .gamelistsport a:hover .card_left img, main .gamelistsport a:active .card_right img, main .gamelistsport a:active .card_left img {
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover .card_right img.soccer, main .gamelistsport a:hover .card_left img.soccer, main .gamelistsport a:active .card_right img.soccer, main .gamelistsport a:active .card_left img.soccer {
@@ -1571,6 +1562,10 @@ main .gamelistsport a:hover .card_right img.esport, main .gamelistsport a:hover 
           transform: rotate(6deg);
 }
 
+main .gamelistsport a:hover .card_right:before, main .gamelistsport a:hover .card_left:before, main .gamelistsport a:active .card_right:before, main .gamelistsport a:active .card_left:before {
+  border: 10px solid #f77900;
+}
+
 main .gamelistother {
   -webkit-box-flex: 5;
       -ms-flex: 5;
@@ -1598,8 +1593,8 @@ main .gamelistother > a {
 
 main .gamelistother > a > img {
   max-width: 70%;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistother > a div {
@@ -1639,8 +1634,8 @@ main .gamelistother > a:hover {
 main .gamelistother > a:hover > img {
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 footer {
@@ -1926,8 +1921,8 @@ footer {
   width: auto;
   height: auto;
   position: absolute;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .joinpop .joinloginModule .loginAnimation img.animationlogo, .joinpop .joinloginModule .joinAnimation img.animationlogo, .loginpop .joinloginModule .loginAnimation img.animationlogo, .loginpop .joinloginModule .joinAnimation img.animationlogo {
@@ -2171,6 +2166,10 @@ footer {
   color: #fab617;
 }
 
+.txt-yellow2 {
+  color: #edbd46;
+}
+
 .txt-red {
   color: #cf0404;
 }
@@ -2226,6 +2225,7 @@ footer {
           align-items: center;
   padding: 6px 10px;
   z-index: 1;
+  border: 1px solid transparent;
 }
 
 .inputBox.error, .error.inputBox-org, .error.inputBox-white, .error.inputBox-blue {
@@ -2583,12 +2583,6 @@ input[type="file"] {
           align-items: center;
 }
 
-#Marquee .marquee-box.icon-marquee:before {
-  width: 40px !important;
-  content: "" !important;
-  background: #212121 url(../img/icon_post.svg) no-repeat center/100% !important;
-}
-
 #Marquee .marquee-box.icon:before {
   width: 20px;
   color: #1E85EC;
@@ -2665,8 +2659,8 @@ input[type="file"] {
   display: flex;
   -webkit-transform: translateX(77%);
           transform: translateX(77%);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   padding-right: 10px;
   pointer-events: none;
   cursor: pointer;
@@ -2800,13 +2794,13 @@ input[type="file"] {
 .quickLink.active {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .eventLink {
   position: fixed;
-  right: 10px;
+  left: 10px;
   bottom: 5%;
   z-index: 3;
   display: -webkit-box;
@@ -2817,9 +2811,9 @@ input[type="file"] {
 .eventLink .icon-close {
   width: 35px;
   height: 35px;
-  color: #F80B3B;
+  color: #0F2D54;
   position: absolute;
-  right: 10px;
+  left: 10px;
   top: -20px;
   font-size: 18px;
   font-weight: bold;
@@ -2924,8 +2918,8 @@ input[type="file"] {
 #leftMenu .menuModule .menuHeader.active:after {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 #leftMenu .menuModule .menuHeader:after {
@@ -2935,8 +2929,8 @@ input[type="file"] {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   font-weight: normal;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 #leftMenu .menuModule .menuSelect {
@@ -3874,6 +3868,26 @@ input[type="file"] {
   overflow-y: auto;
 }
 
+#popup .pop .upload, #popup .pop .uploadError, #popup .pop .uploadSuccess, #popup .pop .updateSuccess, #popup .pop .update {
+  width: 600px;
+}
+
+#popup .pop .upload_new {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 800px;
+}
+
+#popup .pop .upload_new .title {
+  margin: 0;
+  font-size: 32px;
+}
+
 #popup .pop .download {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -3962,6 +3976,8 @@ input[type="file"] {
 
 #popup .pop .joinSuccess {
   position: relative;
+  min-width: 600px;
+  overflow: hidden;
 }
 
 #popup .pop .joinSuccess .icon-icon_1_cop {
@@ -3997,8 +4013,8 @@ input[type="file"] {
 #popup .pop .joinSuccess .icon-close {
   font-size: 16px;
   position: absolute;
-  right: -120px;
-  top: -20px;
+  right: 0px;
+  top: 0px;
 }
 
 #popup .pop .friend {
@@ -4021,12 +4037,11 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  width: auto;
   margin: 0;
 }
 
 #popup .pop .checkbox input[type="checkbox"] + label {
-  border-radius: 0;
   margin-right: 5px;
 }
 
@@ -4201,7 +4216,7 @@ input[type="file"] {
   margin-top: 30px;
 }
 
-.smallList ul li {
+.smallList > ul li {
   width: 100%;
   line-height: 30px;
   letter-spacing: 1px;
@@ -4209,11 +4224,11 @@ input[type="file"] {
   white-space: nowrap;
 }
 
-.smallList ul li:nth-child(odd) {
+.smallList > ul li:nth-child(odd) {
   color: #1E85EC;
 }
 
-.smallList ul li:first-child {
+.smallList > ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
   text-align: left;
@@ -4305,7 +4320,6 @@ input[type="file"] {
 
 .upload_img img {
   height: 100%;
-  width: auto;
 }
 
 .upload_img + .smallList {
@@ -4763,7 +4777,6 @@ input[type="file"] {
 
 .addBank .addBankName button.icon {
   font-size: 24px;
-  position: absolute;
   right: 0;
   bottom: -40px;
   color: #1E85EC;
@@ -7236,7 +7249,6 @@ button.icon-spinner11:before {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  background: url(../img/gameMenu_bg.png) no-repeat center/cover;
 }
 
 .gameMenu .icon-new:before {
@@ -7261,9 +7273,8 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #191919;
-  border: 1px solid #b28750;
-  margin: 0 8.5px !important;
+  background: #212121;
+  border: 1px solid #333;
   padding: 10px 0;
   border-radius: 20px;
 }
@@ -7277,8 +7288,7 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
-  background: #d3162c;
-  border: 1px solid #b28750;
+  background: #1E85EC;
   height: 25px;
   padding: 0px 10px;
   opacity: 1;
@@ -8525,80 +8535,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 41.92475%;
-  top: 38.43852%;
-  width: 11.88252px;
-  height: 11.88252px;
+  left: 71.37381%;
+  top: -0.93025%;
+  width: 10.30526px;
+  height: 10.30526px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 84.59844%;
-  top: 17.18798%;
-  width: 5.00752px;
-  height: 5.00752px;
+  left: 91.29386%;
+  top: -35.28326%;
+  width: 13.72807px;
+  height: 13.72807px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 75.5993%;
-  top: -9.13345%;
-  width: 14.82409px;
-  height: 14.82409px;
+  left: 17.9098%;
+  top: -1.93201%;
+  width: 11.42181px;
+  height: 11.42181px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 11.51453%;
-  top: -35.69618%;
-  width: 9.40245px;
-  height: 9.40245px;
+  left: 89.93746%;
+  top: -13.04664%;
+  width: 14.40256px;
+  height: 14.40256px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 63.02696%;
-  top: -18.01104%;
-  width: 10.52347px;
-  height: 10.52347px;
+  left: 72.75526%;
+  top: 19.2365%;
+  width: 13.49117px;
+  height: 13.49117px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 82.88753%;
-  top: -48.15828%;
-  width: 6.48709px;
-  height: 6.48709px;
+  left: 67.47138%;
+  top: 36.07709%;
+  width: 10.76005px;
+  height: 10.76005px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 88.61047%;
-  top: -12.94733%;
-  width: 10.77342px;
-  height: 10.77342px;
+  left: 81.93514%;
+  top: -55.17961%;
+  width: 13.96885px;
+  height: 13.96885px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 85.88872%;
-  top: -13.32144%;
-  width: 5.64953px;
-  height: 5.64953px;
+  left: 0.63013%;
+  top: 37.78779%;
+  width: 12.13688px;
+  height: 12.13688px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -8944,6 +8954,47 @@ canvas {
   margin-top: 30px;
 }
 
+.event .eventModule > div > div.moduleCenter > div .eventList {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  font-weight: bold;
+  color: black;
+  margin-top: 30px;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr {
+  background: white;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr td {
+  border: 1px solid #5e0004;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+  vertical-align: middle;
+  border-radius: 3px;
+  color: white;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr td div {
+  width: 70px;
+  margin: auto;
+  text-align: right;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:first-child {
+  background: #980B0B;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(even) {
+  background: #333333;
+}
+
+.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(odd):not(:nth-child(1)) {
+  background: #212121;
+}
+
 .event .eventModule > div > div.moduleCenter:before, .event .eventModule > div > div.moduleCenter:after {
   content: "";
   display: block;
@@ -8958,47 +9009,6 @@ canvas {
   background: url(../img/event/border.png);
   -webkit-transform: scale(-1);
           transform: scale(-1);
-}
-
-.eventList {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  font-weight: bold;
-  color: black;
-  margin-top: 30px;
-}
-
-.eventList tr {
-  background: white;
-}
-
-.eventList tr td {
-  border: 1px solid #5e0004;
-  padding: 5px;
-  text-align: center;
-  width: 50%;
-  vertical-align: middle;
-  border-radius: 3px;
-  color: white;
-}
-
-.eventList tr td div {
-  width: 70px;
-  margin: auto;
-  text-align: right;
-}
-
-.eventList tr:first-child {
-  background: #980B0B;
-}
-
-.eventList tr:nth-child(even) {
-  background: #333333;
-}
-
-.eventList tr:nth-child(odd):not(:nth-child(1)) {
-  background: #212121;
 }
 
 .angpao {
@@ -9021,8 +9031,8 @@ canvas {
 }
 
 .angpao.active {
-  -webkit-animation: rotate 0.3s infinite alternate;
-          animation: rotate 0.3s infinite alternate;
+  -webkit-animation: rotate2 0.3s infinite alternate;
+          animation: rotate2 0.3s infinite alternate;
   cursor: auto;
 }
 
@@ -9219,7 +9229,7 @@ canvas {
   }
 }
 
-@keyframes rotate {
+@-webkit-keyframes rotate2 {
   0% {
     -webkit-transform: rotate(3deg);
             transform: rotate(3deg);
@@ -9242,7 +9252,30 @@ canvas {
   }
 }
 
-#popup .eventpop {
+@keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+  15% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+  30% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  45% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  70% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+}
+
+#popup .eventpop, #popup .eventpop2 {
   position: relative;
   width: 315px;
   height: 265px;
@@ -9271,11 +9304,11 @@ canvas {
   overflow-y: unset;
 }
 
-#popup .eventpop > div {
+#popup .eventpop > div, #popup .eventpop2 > div {
   display: block;
 }
 
-#popup .eventpop .icon-close {
+#popup .eventpop .icon-close, #popup .eventpop2 .icon-close {
   color: white;
   position: absolute;
   right: 10px;
@@ -9284,7 +9317,7 @@ canvas {
   z-index: 1;
 }
 
-#popup .eventpop .title {
+#popup .eventpop .title, #popup .eventpop2 .title {
   width: 100%;
   height: 50px;
   display: -webkit-box;
@@ -9300,7 +9333,7 @@ canvas {
   margin-bottom: 25px;
 }
 
-#popup .eventpop .am {
+#popup .eventpop .am, #popup .eventpop2 .am {
   width: 90%;
   background: #121212;
   border-radius: 3px;
@@ -9310,6 +9343,19 @@ canvas {
   text-align: center;
   line-height: 50px;
   margin: 25px 0;
+}
+
+#popup .eventpop2 {
+  background: rgba(191, 154, 119, 0.85);
+}
+
+#popup .eventpop2 .icon-close {
+  color: #0F2D54;
+}
+
+#popup .eventpop2 .title {
+  border-bottom: 1px solid #0F2D54;
+  color: #0F2D54;
 }
 
 .vip {
@@ -9328,10 +9374,15 @@ canvas {
   padding-bottom: 30px;
 }
 
+.vip .vipPage ~ img {
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
 .vip .vipPage .eventList {
   margin: 0;
-  border: 1px solid #1E85EC;
   font-weight: normal;
+  width: 100%;
 }
 
 .vip .vipPage .eventList .icon-nova88 {
@@ -9371,12 +9422,18 @@ canvas {
   border: 0;
   width: 11%;
   line-height: 30px;
+  text-align: center;
 }
 
 .vip .vipPage .eventList tr td:first-child {
   text-align: left;
   width: 34%;
   padding-left: 10px;
+}
+
+.vip .vipPage .eventList tr:first-child td {
+  color: white;
+  text-align: center;
 }
 
 .vip .medal {
@@ -9437,5 +9494,613 @@ canvas {
   text-align: center;
   margin-top: 10px;
   padding: 10px 10px 0;
+}
+
+.vipInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background: rgba(51, 51, 51, 0.5);
+  border-radius: 15px;
+  padding: 20px 40px;
+  margin-bottom: 30px;
+}
+
+.vipInfo .vipTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  margin: 20px 0;
+  font-weight: bold;
+  color: #1E85EC;
+  width: 100%;
+}
+
+.eventTitle {
+  color: #ffff67;
+  margin-top: 150px;
+  font-size: 48px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(top, #f0b52d 30%, #fffccf 40%, #e2a625 65%, #ff6c00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.5px #ffff9b;
+  -webkit-filter: drop-shadow(0px 3px 1px #922707);
+          filter: drop-shadow(0px 3px 1px #922707);
+  letter-spacing: 1px;
+}
+
+.event2 {
+  max-width: 1600px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #191919 url(../img/event/mysterybox/bg.jpg) no-repeat top center;
+}
+
+.event2 .eventList {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 550px;
+  font-weight: bold;
+  color: black;
+  margin-top: 30px;
+}
+
+.event2 .eventList + .btnGroup a {
+  background: #F5C346;
+  color: #0F2D54;
+  padding: 0;
+  font-weight: bold;
+}
+
+.event2 .eventList tr {
+  background: white;
+}
+
+.event2 .eventList tr td {
+  border: 1px solid #866c55;
+  padding: 5px;
+  text-align: center;
+  width: 50%;
+  vertical-align: middle;
+  border-radius: 3px;
+  color: white;
+}
+
+.event2 .eventList tr td div {
+  width: 70px;
+  margin: auto;
+  text-align: right;
+}
+
+.event2 .eventList tr:first-child {
+  background: #F5C346;
+}
+
+.event2 .eventList tr:first-child td {
+  color: #0F2D54;
+}
+
+.event2 .eventList tr:nth-child(even) {
+  background: #333333;
+}
+
+.event2 .eventList tr:nth-child(odd):not(:nth-child(1)) {
+  background: #212121;
+}
+
+.event2 .angpao {
+  position: relative;
+  width: 332px;
+  height: 400px;
+  -webkit-animation: whose .6s ease-in-out infinite alternate;
+          animation: whose .6s ease-in-out infinite alternate;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(../img/event/mysterybox/angpao_back.png) no-repeat bottom center/auto;
+  cursor: pointer;
+}
+
+.event2 .angpao.active {
+  -webkit-animation: rotate2 0.3s infinite alternate;
+          animation: rotate2 0.3s infinite alternate;
+  background: url(../img/event/mysterybox/angpao_backa.png) no-repeat bottom center/auto;
+  cursor: auto;
+}
+
+.event2 .angpao.active .coin {
+  -webkit-animation: coin2 1s 1s infinite linear;
+          animation: coin2 1s 1s infinite linear;
+  display: block;
+}
+
+@-webkit-keyframes coin2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    opacity: 0.9;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    margin-top: 0;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    margin-top: -200px;
+    opacity: 0;
+  }
+}
+
+@keyframes coin2 {
+  0% {
+    opacity: 0;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  20% {
+    opacity: 0.9;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    margin-top: 0;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    margin-top: -200px;
+    opacity: 0;
+  }
+}
+
+.event2 .angpao .time {
+  text-align: center;
+  font-size: 30px;
+  z-index: 2;
+  margin-top: 100px;
+  font-weight: bold;
+  background: rgba(15, 45, 84, 0.9);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  padding: 10px 40px;
+  border-radius: 10px;
+  border: 2px solid #BF9A77;
+  display: none;
+}
+
+.event2 .angpao .time div {
+  color: #fdae04;
+  font-size: 3˙px;
+}
+
+.event2 .angpao .time.active {
+  display: block;
+}
+
+.event2 .angpao .bigtitle {
+  position: absolute;
+  margin-top: 30px;
+  width: auto;
+  height: auto;
+  z-index: 3;
+}
+
+.event2 .angpao .bigtitle.active {
+  display: none;
+}
+
+.event2 .angpao .box {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  background: url(../img/event/angpao_inf.png) no-repeat center/cover;
+  z-index: 2;
+}
+
+.event2 .angpao .box.active {
+  background: url(../img/event/angpao_inf_d.png) no-repeat center/cover;
+}
+
+.event2 .angpao .coin {
+  position: absolute;
+  top: 200px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+  background: url(../img/event/mysterybox/coin.png) no-repeat center/100% auto;
+  opacity: 0;
+}
+
+.event2 .angpao .coin:nth-child(2) {
+  top: 160px;
+  left: 150px;
+  width: 90px;
+  height: 90px;
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s;
+}
+
+.event2 .angpao .coin:nth-child(3) {
+  top: 140px;
+  left: 70px;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+.event2 .angpao .coin:nth-child(4) {
+  top: 110px;
+  left: 40px;
+  -webkit-animation-delay: .3s;
+          animation-delay: .3s;
+}
+
+.event2 .angpao .coin:nth-child(5) {
+  top: 150px;
+  width: 80px;
+  height: 80px;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+
+.event2 > img {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  max-width: 395px;
+  margin: 100px 0 35px;
+}
+
+.event2 .eventModule {
+  width: 100%;
+  margin: 55px 0 30px;
+  background: #191919 url(../img/event/mysterybox/eventInfo_bg.jpg) no-repeat top center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 60px;
+}
+
+.event2 .eventModule > div {
+  background: #0e213c;
+  border: 2px solid #BF9A77;
+  border-radius: 10px;
+  width: 728px;
+  padding: 0 20px;
+}
+
+.event2 .eventModule > div > div.moduleCenter .txt-yellow2 {
+  margin-top: 40px;
+}
+
+.event2 .eventModule > div > div.moduleCenter > div {
+  background: #866c55;
+  border: 3px solid #e3ce9b;
+  border-radius: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 30px;
+  margin: 20px 0;
+  padding: 30px 0;
+}
+
+.event2 .eventModule > div > div.moduleCenter > div .tag {
+  background: url(../img/event/mysterybox/title_bg.png) no-repeat center/cover;
+  width: 400px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+  color: #0F2D54;
+  font-size: 20px;
+}
+
+.event2 .eventModule > div > div.moduleCenter > div .tag + .title {
+  background: transparent;
+  font-size: 28px;
+  color: #F5C346;
+  width: auto;
+  margin: 20px 0;
+}
+
+.event2 .eventModule > div > div.moduleCenter > div .tag ~ .icon-nodata {
+  color: #F5C346;
+}
+
+.event2 .eventModule > div > div.moduleCenter > div .tag ~ .icon-nodata:before {
+  font-size: 80px;
+}
+
+.event2 .eventModule > div > div.moduleCenter > div .tag ~ .icon-nodata .txt-white {
+  background: #191919;
+  border: 1px solid #BF9A77;
+}
+
+.event2 .eventModule > div > div.moduleCenter > div .txt-orange, .event2 .eventModule > div > div.moduleCenter > div .tag:nth-child(8) {
+  margin-top: 30px;
+}
+
+.subModuleListColumn {
+  padding: 50px;
+}
+
+.subModuleListColumn > .subModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(33, 33, 33, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup {
+  margin: 0 0 0 15px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup button {
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule .icon-information {
+  color: #1E85EC;
+  cursor: pointer;
+}
+
+.subModuleListColumn > .subModule .icon-information + .tip {
+  padding: 0;
+  margin-top: -3px;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle {
+  min-width: 120px;
+}
+
+.subModuleListColumn > .subModule > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+  color: white;
+  width: 145px;
+  position: relative;
+}
+
+.subModuleListColumn > .subModule > div > button i, .subModuleListColumn > .subModule > div > a i {
+  position: absolute;
+  right: -5px;
+  bottom: 0px;
+  color: #f77900;
+  display: none;
+  font-size: 24px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subModuleListColumn > .subModule > div > button i::before, .subModuleListColumn > .subModule > div > a i::before {
+  display: none;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
+  margin-bottom: 10px;
+  border-radius: 15px;
+  width: 100px;
+  padding: 10px 5px;
+  background: white;
+  position: relative;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child.icon, .subModuleListColumn > .subModule > div > a > div:first-child.icon {
+  padding: 13px 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child:before, .subModuleListColumn > .subModule > div > a > div:first-child:before {
+  color: #1E85EC;
+  font-size: 48px;
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > a.active > div {
+  color: #1E85EC;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 4px #1E85EC inset;
+          box-shadow: 0px 0px 0px 4px #1E85EC inset;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > a.active > div i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before {
+  display: block;
+}
+
+.subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 4px #1E85EC inset;
+          box-shadow: 0px 0px 0px 4px #1E85EC inset;
+}
+
+.subModuleListColumn > .subModule > div > button:hover > div:nth-child(n+2), .subModuleListColumn > .subModule > div > a:hover > div:nth-child(n+2) {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  color: #1E85EC;
+}
+
+.subModuleListColumn .column {
+  width: calc(100% - 135px);
+}
+
+.subModuleListColumn .inputBox-white {
+  margin-left: 15px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox {
+  margin-top: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue {
+  max-width: 156px;
+  min-width: 156px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon {
+  width: 12px;
+  height: 12px;
+  background: white;
+  color: #f77900;
+  font-size: 16px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon:before {
+  margin: 0;
+}
+
+.subModuleListColumn .btnGroup:not(.buttonBox) {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.subModuleListColumn .bankAccount {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 15px;
+}
+
+.subModuleListColumn .bankAccount .smallList {
+  margin-top: 10px;
+}
+
+.subModuleListColumn .bankAccount .smallList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn .bankAccount .smallList ul button {
+  color: #1E85EC;
+}
+
+.subModuleListColumn .bankAccount .smallList ul li {
+  width: 130px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.upload_new .checkBankSlip {
+  max-width: unset;
+  min-width: unset;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.upload_new .checkBankSlip:nth-child(2) {
+  border-right: 1px dotted #1E85EC;
+  padding-right: 20px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.upload_new .checkBankSlip ul {
+  width: 100%;
+}
+
+.upload_new .checkBankSlip .upload_img {
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */

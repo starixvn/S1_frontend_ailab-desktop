@@ -100,16 +100,16 @@ const AngPowAnimation = ({
 		<div className="animation" onClick={onPostDrawPrize}>
 			<div className="angpao__wrapper">
 				<div className={`angpao${angpowActive ? " active" : ""}`}>
-					{!isLogin || _canJoin || _drawOut || _notEligible ? (
+					{_isJoin || _drawOut ? null : (
 						<img
 							src={eventTextImg}
 							alt="bigtitle"
 							className="bigtitle"
 						/>
-					) : null}
+					)}
 					<div
 						className={`time ${
-							isLogin && _isJoin ? "active" : ""
+							isLogin && (_isJoin || _drawOut) ? "active" : ""
 						}`}>
 						{secondsToTime(downDiffTime)}
 					</div>

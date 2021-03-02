@@ -34,7 +34,7 @@ export default ({
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 	const [sysIdValue, setSysIdValue] = useState(0);
-	const [accountNoValue, setAccountNoValue] = useState("");
+	const [accountNoValue, setAccountNoValue] = useState(0);
 	const [bankNameValue, setBankNameValue] = useState("");
 	const [amountValue, setAmountValue] = useState("");
 	const [showConfirmPage, setShowConfirmPage] = useState(false);
@@ -364,7 +364,8 @@ export default ({
 						bankInfoList={bankInfoList}
 						setBankInfoList={setBankInfoList}
 						_isConvert={_isConvert}
-						confirmPage={showConfirmPage}
+						isShowConfirmPage={showConfirmPage}
+						balanceData={balanceData}
 					/>
 					<AddBankAccount bankInfoList={bankInfoList} />
 				</div>

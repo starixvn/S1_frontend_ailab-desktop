@@ -25,11 +25,26 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 
 	useEffect(() => {
 		GetCustBankInfo();
-	}, []);
+	}, [state.balanceData]);
 
 	const GetCustBankInfo = () => {
 		const ClosePopBox = () => {
 			setPopBox({ isOpen: false });
+		};
+
+		const selectPrevAccount = (_defAccountNo, _bankInfoDetail) => {
+			const _preAccInfo = _bankInfoDetail.filter(
+				card => card.accountNo === _defAccountNo
+			)[0];
+			dispatch({
+				type: defActionType.SELECT_ACCOUNT,
+				selectedAccount: {
+					bankName: _preAccInfo.bankName,
+					accountNo: _preAccInfo.accountNo,
+					sysId: _preAccInfo.sysId
+				},
+				step: state.amount ? 3 : 2
+			});
 		};
 
 		api_account_GetCustBankInfo().then(
@@ -39,10 +54,20 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 						const datas = res.data.data;
 						const _custBankInfo =
 							datas === null ? [] : datas.bankInfoDetail;
+
 						dispatch({
 							type: defActionType.GET_CUST_BANKINFO,
 							custBankInfo: _custBankInfo
 						});
+						if (
+							datas.bankInfoDetail?.length > 0 &&
+							datas.defAccountNo
+						) {
+							selectPrevAccount(
+								datas.defAccountNo,
+								datas.bankInfoDetail
+							);
+						}
 					} else {
 						setPopBox({
 							isOpen: true,
@@ -65,7 +90,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 					});
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,

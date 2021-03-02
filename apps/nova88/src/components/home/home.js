@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import {
 	readCookie,
@@ -41,9 +41,10 @@ import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
 import AngpowLink from "./angpowLink";
+import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
-import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
+
 
 import {
 	GET_OPEN_RULE,
@@ -295,9 +296,8 @@ const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 	);
 };
 
-const IndexPage = () => {
+const IndexPage = ({ location }) => {
 	const { t } = useTranslation();
-
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 
@@ -375,20 +375,64 @@ const IndexPage = () => {
 				}
 			};
 
-			const clickClose = () => {
+			const clickCloseReferral = () => {
 				setPopBox({ isOpen: false });
 				showDepositPopBox();
 			};
 
-			const refeCookieName = `referral_${userInfo.userName}`;
-			if (readCookie(refeCookieName) === "1") {
-				showDepositPopBox();
-			} else {
+			const showsJoinSuccess = () => {
+				const closeJoinSuccess = () => {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.JoinReferral,
+						onClickClose: clickCloseReferral
+					});
+				};
 				setPopBox({
 					isOpen: true,
-					popBoxType: defPopBoxType.JoinReferral,
-					onClickClose: clickClose
+					popBoxType: defPopBoxType.RegisterSuccess,
+					closeBtn: (
+						<button
+							className="icon icon-close"
+							onClick={closeJoinSuccess}
+						/>
+					),
+					btnBar: (
+						<div className="btnGroup">
+							<Link
+								className="blue"
+								to={`/${userInfo.langId}/${path.deposit.root}`}>
+								{t("lbl_DepositNow")}
+							</Link>
+							<Link
+								className="btn-check"
+								to={`/${userInfo.langId}/${path.profile.root}`}>
+								{t("lbl_UpdatePersonalDetail")}
+							</Link>
+						</div>
+					)
 				});
+			};
+
+			const refeCookieName = `referral_${userInfo.userName}`;
+			const isJoinCurrently = location.state?.isJoin;
+			const clearLocationJoinState = () => {
+				navigate(`/${userInfo.langId}`, { state: null });
+			};
+
+			if (!isJoinCurrently) {
+				if (readCookie(refeCookieName) === "1") {
+					showDepositPopBox();
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.JoinReferral,
+						onClickClose: clickCloseReferral
+					});
+				}
+			} else {
+				showsJoinSuccess();
+				clearLocationJoinState();
 			}
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
@@ -406,19 +450,17 @@ const IndexPage = () => {
 					{...userInfo}
 				/>
 			</section>
-			{/* <img
+			<img
 				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
 				alt="IndexCenterBanner"
-			/> */}
-			{/* new year style ↓ */}
-			<img
-				src={require(`../../styles/img/indexCenterBanner.jpg`)}
-				alt="indexCenterBanner"
 			/>
 			<SideBarQuickLink />
 			<AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}
 				langId={userInfo.langId}
+			/>
+			<MysteryBoxLink
+				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 			/>
 		</main>
 	);

@@ -24,7 +24,8 @@ export const defPopBoxType = {
 	TurnoverAccumulated: "TurnoverAccumulated",
 	PromotionDepositConfirm: "PromotionDepositConfirm",
 	PromotionAmountConfirm: "PromotionAmountConfirm",
-	SuccessAngPow: "SuccessAngPow"
+	SuccessAngPow: "SuccessAngPow",
+	SuccessMySteryBox: "SuccessMySteryBox"
 };
 
 export default () => {
@@ -232,10 +233,23 @@ export default () => {
 			const SuccessAngPow = lazy(() => import("./popBox.successAngPow"));
 			content = (
 				<SuccessAngPow
-					closePopBox={popBox.closePopBox}
 					t={popBox.t}
 					drawPrizeDatas={popBox.drawPrizeDatas}
 					class="event"
+					clickClose={popBox.clickClose}
+				/>
+			);
+			break;
+		}
+
+		case defPopBoxType.SuccessMySteryBox: {
+			const SuccessMySteryBox = lazy(() =>
+				import("./popBox.successMySteryBox")
+			);
+			content = (
+				<SuccessMySteryBox
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
 					clickClose={popBox.clickClose}
 				/>
 			);
@@ -249,21 +263,26 @@ export default () => {
 			break;
 	}
 
-	const customLayout = popBox.popBoxType === defPopBoxType.SuccessAngPow;
+	if (popBox.loading) return <Loading />;
 
-	return popBox.isOpen ? (
-		popBox.loading ? (
-			<Loading />
-		) : (
+	const customLayout =
+		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
+		popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
+
+	if (!popBox.isOpen) return null;
+
+	if (customLayout)
+		return (
 			<div id="popup" className="active">
-				{customLayout ? (
-					<Suspense fallback={<Loading />}>{content}</Suspense>
-				) : (
-					<div className="pop">
-						<Suspense fallback={<Loading />}>{content}</Suspense>
-					</div>
-				)}
+				<Suspense fallback={<Loading />}>{content}</Suspense>;
 			</div>
-		)
-	) : null;
+		);
+
+	return (
+		<div id="popup" className="active">
+			<div className="pop">
+				<Suspense fallback={<Loading />}>{content}</Suspense>
+			</div>
+		</div>
+	);
 };

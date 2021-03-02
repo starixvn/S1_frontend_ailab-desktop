@@ -1,6 +1,7 @@
 import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
+import { defPageClubImg } from "../vip/vip.def";
 
 export class Dropdown extends Component {
 	constructor(props) {
@@ -70,6 +71,10 @@ export class Dropdown extends Component {
 			selected = <button>{this.props.placeholder}</button>;
 		}
 
+		const userLevelImgInfo = this.props?.userLevel
+			? defPageClubImg[this.props.userLevel - 1]
+			: null;
+
 		return (
 			<div
 				className={`${this.props.className}${
@@ -77,6 +82,13 @@ export class Dropdown extends Component {
 				}`}
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
+				{userLevelImgInfo ? (
+					<img
+						src={userLevelImgInfo.url}
+						alt={userLevelImgInfo.alt}
+					/>
+				) : null}
+
 				{selected}
 				<div className={this.props.subClassName}>{arr}</div>
 			</div>
@@ -85,7 +97,8 @@ export class Dropdown extends Component {
 }
 
 Dropdown.defaultProps = {
-	placeholder: ""
+	placeholder: "",
+	userLevel: 0
 };
 
 Dropdown.propTypes = {
@@ -98,7 +111,8 @@ Dropdown.propTypes = {
 		PropTypes.string,
 		PropTypes.node,
 		PropTypes.object
-	])
+	]),
+	userLevel: PropTypes.number
 };
 
 export const defElemType = {
