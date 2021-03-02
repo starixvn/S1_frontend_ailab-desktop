@@ -237,7 +237,7 @@ export const defMenuLinks = {
 		subMenu: [
 			{
 				...productList.liveCasino_N2,
-				displayText: "N2",
+				displayText: "N2Live",
 				listNpcImgUrl: "casino-n2.png",
 				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
