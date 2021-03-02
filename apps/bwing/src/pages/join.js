@@ -6,7 +6,8 @@ import Layout from "../components/common/layout";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	api_site_Register
+	api_site_Register,
+	api_site_ExistsPhoneNo
 } from "../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
 import {
@@ -24,6 +25,9 @@ import InputboxPSW from "../components/common/inputbox.password";
 import Dropdown from "../components/common/dropdown";
 import Checkbox from "../components/common/checkbox";
 import joinBanner from "../styles/img/joinBanner.jpg";
+
+import areaCode from "../datas/areaCode";
+import { currencyToAreacode } from "./join.data";
 
 export default () => {
 	return (
@@ -53,6 +57,7 @@ const Content = () => {
 		username: { checked: null, msg: "" },
 		password: { checked: null, msg: "" },
 		currency: { checked: null, msg: "" },
+		phone: { checked: null, msg: "" },
 		affCode: { checked: null, msg: "" },
 		checkbox: { checked: null, msg: "" }
 	};
@@ -108,7 +113,7 @@ const Content = () => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -186,6 +191,10 @@ const Content = () => {
 			msg = result.msg;
 		} else if (col === "password") {
 			const result = passwordCheck(val);
+			checked = result.checked;
+			msg = result.message;
+		} else if (col === "phone") {
+			const result = phoneCheck(val);
 			checked = result.checked;
 			msg = result.message;
 		}
@@ -282,6 +291,64 @@ const Content = () => {
 		});
 	};
 
+	const _currencyId = siteCurrency[userValue.currency]?.id;
+
+	const currencyToCountryCode = _currencyId
+		? currencyToAreacode[_currencyId]
+		: null;
+
+	const _areaCode =
+		currencyToCountryCode !== null
+			? areaCode[currencyToCountryCode]?.AreaCode
+			: null;
+
+	const phoneCheck = async val => {
+		let checked = false;
+		let msg = "";
+
+		if (val === "") {
+			checked = false;
+			msg = t("lbl_PhoneRequired");
+		} else {
+			checked = true;
+			msg = t("lbl_CantChangePhone"); // no translation
+		}
+
+		if (checked) {
+			const res = await api_site_ExistsPhoneNo({
+				AreaCode: _areaCode,
+				Phone: val
+			});
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					if (res.data.data === false) {
+						setTip(prev => {
+							return {
+								...prev,
+								phone: {
+									checked: true,
+									msg: ""
+								}
+							};
+						});
+					} else {
+						setTip(prev => {
+							return {
+								...prev,
+								phone: {
+									checked: false,
+									msg: t("msg_PhoneExisted")
+								}
+							};
+						});
+					}
+				}
+			}
+		}
+
+		return { checked, msg };
+	};
+
 	const onSelectItem = i => {
 		setUserValue(prev => {
 			return { ...prev, currency: i };
@@ -301,6 +368,7 @@ const Content = () => {
 	const checkAll = () => {
 		const _usernameCheck = usernameCheck(userValue.username);
 		const _passwordCheck = passwordCheck(userValue.password);
+		const _phoneCheck = phoneCheck(userValue.phone);
 		// let _emailCheck = emailCheck(userValue.email);
 		const _termsCheck = userValue.termsCheck;
 		const _ageCheck = userValue.ageCheck;
@@ -308,6 +376,7 @@ const Content = () => {
 		const checked =
 			_usernameCheck.checked &&
 			_passwordCheck.checked &&
+			_phoneCheck.checked &&
 			_termsCheck &&
 			_ageCheck;
 
@@ -552,6 +621,21 @@ const Content = () => {
 						{tip.currency.msg !== "" ? (
 							<div className="tip active">{tip.currency.msg}</div>
 						) : null}
+
+						<div className="title">{t("lbl_Phone")}</div>
+						{console.log(tip.phone)}
+						<Inputbox
+							icon="icon-phone txt-orange"
+							areaCode={_areaCode}
+							placeholder={t("lbl_Phone")}
+							value={userValue.phone}
+							tip={tip.phone.msg}
+							checked={tip.phone.checked}
+							clickInfo={clickInfo.bind(this, "phone")}
+							onChange={EditField.bind(null, "phone")}
+							onBlur={checkValue.bind(null, "phone")}
+						/>
+
 						<div className="title">{t("lbl_Affiliates")}</div>
 						<Inputbox
 							icon="icon-affiliate txt-blue12"

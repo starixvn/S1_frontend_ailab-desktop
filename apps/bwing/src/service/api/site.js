@@ -54,3 +54,6 @@ export const api_site_GetBannerV3 = ({ lang, BannerType }) =>
 
 export const api_site_CheckResetPwdTokens = ({ key }) =>
 	siteRequest.post(`/CheckResetPwdToken`, `key=${key}`);
+
+export const api_site_ExistsPhoneNo = ({ AreaCode, Phone }) =>
+	siteRequest.post(`/ExistsPhoneNo`, { AreaCode, PhoneNo: Phone });
