@@ -128,7 +128,7 @@ export default ({ children, afterLogin = false }) => {
 						isMountedRef.current
 					) {
 						const { data } = res_custInfo.data;
-						data.langId = GET_LANG_ID(data.langId);
+						// data.langId = GET_LANG_ID(data.langId);
 						setCookie(langCookie, data.langId);
 						setUserInfo(prevState => ({
 							...prevState,
