@@ -142,14 +142,6 @@ const SetReplaceChar = (str, idx, newChar) => {
 	return `${str.substr(0, idx)}${newChar}${str.substr(idx + newChar.length)}`;
 };
 
-export const getNewLanguagePath = langId => {
-	const url =
-		window.location.pathname +
-		window.location.search +
-		window.location.hash;
-	return SetReplaceChar(url, 1, langId);
-};
-
 export const routerFlattenToPath = (path, orderNumber) => {
 	//  將 router 物件扁平化後轉換成路徑
 	const flattenDeepObject = obj => {
