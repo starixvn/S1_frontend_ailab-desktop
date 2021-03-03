@@ -15,9 +15,12 @@ const getAffiliate = ({ langId }) => {
 
 export const siteInfo = ({ langId }) => {
 	return {
-		affiliateLink: getAffiliate({ langId })
+		affiliateLink: getAffiliate({ langId }),
+		langCookie: "goalLangId"
 	};
 };
+
+export const langCookie = "goalLangId";
 
 export default process.env.NODE_ENV === "production"
 	? {

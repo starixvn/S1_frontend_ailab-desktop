@@ -19,6 +19,8 @@ export const siteInfo = ({ langId }) => {
 	};
 };
 
+export const langCookie = "bwingLangId";
+
 export default process.env.NODE_ENV === "production"
 	? {
 			siteName,

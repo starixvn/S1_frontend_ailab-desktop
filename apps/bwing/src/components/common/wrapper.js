@@ -3,13 +3,7 @@ import { Redirect } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
-import {
-	getUrlParameter,
-	setCookie,
-	deleteCookie,
-	getNewLanguagePath,
-	readCookie
-} from "./common";
+import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
 import { IS_LOGGED_IN } from "../../service/auth";
 import {
 	api_account_GetMsgCount,
@@ -18,7 +12,30 @@ import {
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import { defPopBoxType } from "./defPopBoxType";
 import useInterval from "../hook/useInterval";
+import {
+	GET_LANG_ID,
+	isVaildLang,
+	getNewLanguagePath
+} from "../../service/language";
 import useGetWalletInfo from "./wrapper.walletInfo";
+import { langCookie } from "../../config";
+
+const defaultPathLang = () => {
+	const urlLang =
+		typeof document === `undefined`
+			? ""
+			: window.location.pathname.split("/")?.[1];
+	const cookieLang = readCookie(langCookie);
+	const _defaultLang = "vn";
+
+	let result = _defaultLang;
+	if (isVaildLang(urlLang)) {
+		result = urlLang;
+	} else if (isVaildLang(cookieLang)) {
+		result = cookieLang;
+	}
+	return result;
+};
 
 export default ({ children, afterLogin = false }) => {
 	const { t, i18n } = useTranslation();
@@ -31,7 +48,7 @@ export default ({ children, afterLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: readCookie("bwingLangId") ?? "vn"
+		langId: defaultPathLang()
 	});
 
 	const [currentPath] = useState(
@@ -111,7 +128,8 @@ export default ({ children, afterLogin = false }) => {
 						isMountedRef.current
 					) {
 						const { data } = res_custInfo.data;
-						setCookie("bwingLangId", data.langId);
+						data.langId = GET_LANG_ID(data.langId);
+						setCookie(langCookie, data.langId);
 						setUserInfo(prevState => ({
 							...prevState,
 							...data
@@ -140,8 +158,8 @@ export default ({ children, afterLogin = false }) => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
 				const pathLang = window.location.pathname.split("/")?.[1];
-				const currentLang =
-					readCookie("bwingLangId") ?? userInfo.langId;
+				const currentLang = userInfo.langId;
+
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);
 				} else if (pathLang !== "" && pathLang !== currentLang) {
@@ -151,7 +169,7 @@ export default ({ children, afterLogin = false }) => {
 					}));
 
 					const newPathArr = getNewLanguagePath(currentLang);
-					window.location.href = newPathArr;
+					navigate(newPathArr);
 				} else {
 					setCorrectPath(true);
 				}
@@ -234,7 +252,7 @@ export default ({ children, afterLogin = false }) => {
 				</ct.userInfoContext.Provider>
 			);
 		}
-		return <></>;
+		return null;
 	}
 	return <Redirect to={redirectPath} noThrow />;
 };
