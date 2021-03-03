@@ -32,7 +32,7 @@ export const getNewLanguagePath = langId => {
 };
 
 export const isVaildLang = lang => {
-	const _lang = lang.replace("/");
+	const _lang = lang?.replace("/");
 	return siteLangList.includes(_lang);
 };
 

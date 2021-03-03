@@ -138,10 +138,6 @@ export const deleteCookie = cookieName => {
 	// }
 };
 
-const SetReplaceChar = (str, idx, newChar) => {
-	return `${str.substr(0, idx)}${newChar}${str.substr(idx + newChar.length)}`;
-};
-
 export const routerFlattenToPath = (path, orderNumber) => {
 	//  將 router 物件扁平化後轉換成路徑
 	const flattenDeepObject = obj => {
