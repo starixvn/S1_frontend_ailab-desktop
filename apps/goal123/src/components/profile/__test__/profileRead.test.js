@@ -10,54 +10,18 @@ jest.mock("react-i18next", () => ({
 	}
 }));
 
-const fake_dataList = [
-	{
-		label: "testValue-1",
-		value: "testValue",
+const fake_dataList = [];
+for (let i = 0; i < 9; i++) {
+	fake_dataList[i] = {
+		label: `label_${i}`,
+		value: "value",
+		format: i === 2 ? "phone" : null,
 		show: true
-	},
-	{
-		label: "testValue-2",
-		value: "testValue",
-		format: "normal",
-		show: true
-	},
-	{
-		label: "testValue-3",
-		value: "testValue",
-		format: "phone",
-		show: true
-	},
-	{
-		label: "testValue-4",
-		value: "testValue",
-		show: true
-	},
-	{
-		label: "testValue-5",
-		value: "testValue",
-		show: true
-	},
-	{
-		label: "testValue-6",
-		value: "testValue",
-		show: true
-	},
-	{
-		label: "testValue-7",
-		value: "testValue",
-		show: true
-	},
-	{
-		label: "testValue-8",
-		value: "testValue",
-		show: true
-	}
-];
+	};
+}
 
-describe("send OTP button", () => {
+describe("click send OTP button", () => {
 	afterEach(cleanup);
-
 	const fakeData = {
 		userInfo: {
 			accountName: "testValue",
@@ -83,18 +47,37 @@ describe("show OTP verify loading", () => {
 			accountName: "testValue",
 			birth_d: "testValue",
 			phoneNo: "testValue",
-			userName: "testValue",
-			country: "testValue",
-			email: "testValue",
-			regTime: "testValue",
-			lastLogin: "testValue"
+			userName: "testValue"
 		},
 		sendOTPSMS: jest.fn(),
-		mobileVerificationLoading: true
+		mobileVerificationLoading: true,
+		dataList: fake_dataList
 	};
-	test("if click verify button show loading", () => {
+	test("if props mobileVerificationLoading=true show loading", () => {
 		const { container } = render(<ProfileRead {...fakeData} />);
 		const sendOtpBtn = container.getElementsByClassName("otpLoading")[0];
+		expect(sendOtpBtn).toBeTruthy();
+	});
+});
+
+describe("phone is verified", () => {
+	afterEach(cleanup);
+	const fakeData = {
+		userInfo: {
+			accountName: "testValue",
+			birth_d: "testValue",
+			phoneNo: "testValue",
+			userName: "testValue",
+			phoneVerified: true
+		},
+		sendOTPSMS: jest.fn(),
+		dataList: fake_dataList
+	};
+	test("if phone is verified show check icon ", () => {
+		const { container } = render(<ProfileRead {...fakeData} />);
+		const sendOtpBtn = container.getElementsByClassName(
+			"icon-checkmark"
+		)[0];
 		expect(sendOtpBtn).toBeTruthy();
 	});
 });
