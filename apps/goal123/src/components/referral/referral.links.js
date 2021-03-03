@@ -51,7 +51,7 @@ export default ({ referralCode, t, langId }) => {
 				</div> */}
 				<div className="refLink_inner">
 					{t("lbl_Referral_link")} :{" "}
-					<span id="ref_link">{ref_link}</span>
+					<span id="ref_link">{ref_link}</span>{" "}
 					<button
 						className="icon icon-files-empty"
 						onClick={onCopy.bind(this, "ref_link")}
