@@ -45,7 +45,6 @@ import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
 
-
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
@@ -451,7 +450,7 @@ const IndexPage = ({ location }) => {
 				/>
 			</section>
 			<img
-				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
+				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner_${userInfo.langId}.jpg`}
 				alt="IndexCenterBanner"
 			/>
 			<SideBarQuickLink />
