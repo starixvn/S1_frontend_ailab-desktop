@@ -74,7 +74,7 @@ button {
   outline: none;
 }
 
-.transition, header .header > div.menu .subMenu-Wrapper, .inputBox .dropdown > .dropdown-container, .inputBox-blue .dropdown > .dropdown-container, .tip, .personal .list .listBody {
+.transition, header .header > div.menu .subMenu-Wrapper, .inputBox .dropdown > .dropdown-container, .inputBox-blue .dropdown > .dropdown-container, .inputBox-white .dropdown > .dropdown-container, .tip, .personal .list .listBody {
   visibility: hidden;
   opacity: 0;
   height: 0;
@@ -82,7 +82,7 @@ button {
   transition: 0.7s;
 }
 
-.transition-open, header .header > div.menu .subMenu-Wrapper.active, .inputBox .dropdown > .dropdown-container.active, .inputBox-blue .dropdown > .dropdown-container.active, .tip.active, .personal .list .listBody.active {
+.transition-open, header .header > div.menu .subMenu-Wrapper.active, .inputBox .dropdown > .dropdown-container.active, .inputBox-blue .dropdown > .dropdown-container.active, .inputBox-white .dropdown > .dropdown-container.active, .tip.active, .personal .list .listBody.active {
   visibility: visible;
   opacity: 1;
   height: auto;
@@ -620,6 +620,14 @@ header .header > div.menu .livecasinoList .live789 .icon-one789:before {
   font-size: 14px;
 }
 
+header .header > div.menu .livecasinoList .liveN2LIVE {
+  background: url(../img/liven2live.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .liveN2LIVE:hover {
+  background: url(../img/liven2live_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .fishList .fgg {
   background: url(../img/fishingGG.png) no-repeat center 10px/auto 100%;
 }
@@ -970,7 +978,7 @@ header .header > div.function .memberfile .submenu .icon-exit {
 header .header > div.function .cashier .submenu .icon-exit:before,
 header .header > div.function .wallet .submenu .icon-exit:before,
 header .header > div.function .memberfile .submenu .icon-exit:before {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 header .header > div.function .cashier .submenu .icon-exit span,
@@ -991,7 +999,7 @@ header .header > div.function .memberfile.active > button,
 header .header > div.function .memberfile.active > a,
 header .header > div.function .memberfile.active:before,
 header .header > div.function .memberfile.active:after {
-  color: #1e85ec;
+  color: #1E85EC;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -1053,7 +1061,7 @@ header .header > div.function .wallet .submenu div.balance {
 header .header > div.function .wallet .submenu div.balance button {
   font-size: 12px;
   margin-left: 5px;
-  background: #1e85ec;
+  background: #1E85EC;
   border-radius: 100%;
   width: 20px;
   height: 20px;
@@ -1156,7 +1164,7 @@ main section > div {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #1e85ec;
+  background: #1E85EC;
 }
 
 main section > div .articleModule {
@@ -1409,11 +1417,11 @@ footer > div.copyright {
 }
 
 .txt-org {
-  color: #f85b05;
+  color: #F85B05;
 }
 
 .txt-blue2 {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .txt-blue15 {
@@ -1441,7 +1449,7 @@ footer > div.copyright {
 }
 
 .txt-red {
-  color: #f52805;
+  color: #F52805;
 }
 
 .txt-dark {
@@ -1488,11 +1496,11 @@ footer > div.copyright {
   text-align: right;
 }
 
-.inputBox, .inputBox-blue {
+.inputBox, .inputBox-blue, .subModuleListColumn > .subModule .inputBox-white, .inputBox-white {
   width: calc(100% - 22px);
   background: #070e22;
   color: white;
-  border: 1px solid #1d3662;
+  border: 1px solid #1D3662;
   outline: none;
   border-radius: 3px;
   position: relative;
@@ -1507,42 +1515,44 @@ footer > div.copyright {
   min-height: 30px;
 }
 
-.inputBox input[type="date"]::-webkit-inner-spin-button, .inputBox-blue input[type="date"]::-webkit-inner-spin-button,
+.inputBox input[type="date"]::-webkit-inner-spin-button, .inputBox-blue input[type="date"]::-webkit-inner-spin-button, .subModuleListColumn > .subModule .inputBox-white input[type="date"]::-webkit-inner-spin-button, .inputBox-white input[type="date"]::-webkit-inner-spin-button,
 .inputBox input[type="date"]::-webkit-calendar-picker-indicator,
-.inputBox-blue input[type="date"]::-webkit-calendar-picker-indicator {
+.inputBox-blue input[type="date"]::-webkit-calendar-picker-indicator,
+.subModuleListColumn > .subModule .inputBox-white input[type="date"]::-webkit-calendar-picker-indicator,
+.inputBox-white input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
 
-.inputBox input[type="date"] + .iconModule, .inputBox-blue input[type="date"] + .iconModule {
+.inputBox input[type="date"] + .iconModule, .inputBox-blue input[type="date"] + .iconModule, .inputBox-white input[type="date"] + .iconModule {
   pointer-events: none;
 }
 
-.inputBox::-webkit-input-placeholder, .inputBox-blue::-webkit-input-placeholder {
+.inputBox::-webkit-input-placeholder, .inputBox-blue::-webkit-input-placeholder, .subModuleListColumn > .subModule .inputBox-white::-webkit-input-placeholder, .inputBox-white::-webkit-input-placeholder {
   color: #aeb2bc;
 }
 
-.inputBox:-ms-input-placeholder, .inputBox-blue:-ms-input-placeholder {
+.inputBox:-ms-input-placeholder, .inputBox-blue:-ms-input-placeholder, .subModuleListColumn > .subModule .inputBox-white:-ms-input-placeholder, .inputBox-white:-ms-input-placeholder {
   color: #aeb2bc;
 }
 
-.inputBox::-ms-input-placeholder, .inputBox-blue::-ms-input-placeholder {
+.inputBox::-ms-input-placeholder, .inputBox-blue::-ms-input-placeholder, .subModuleListColumn > .subModule .inputBox-white::-ms-input-placeholder, .inputBox-white::-ms-input-placeholder {
   color: #aeb2bc;
 }
 
-.inputBox::placeholder, .inputBox-blue::placeholder {
+.inputBox::placeholder, .inputBox-blue::placeholder, .subModuleListColumn > .subModule .inputBox-white::placeholder, .inputBox-white::placeholder {
   color: #aeb2bc;
 }
 
-.inputBox.active, .active.inputBox-blue {
-  border: 1px solid #1e85ec;
-  outline: #1e85ec;
+.inputBox.active, .active.inputBox-blue, .subModuleListColumn > .subModule .active.inputBox-white, .active.inputBox-white {
+  border: 1px solid #1E85EC;
+  outline: #1E85EC;
 }
 
-.inputBox > .icon, .inputBox-blue > .icon {
+.inputBox > .icon, .inputBox-blue > .icon, .subModuleListColumn > .subModule .inputBox-white > .icon, .inputBox-white > .icon {
   margin-right: 5px;
 }
 
-.inputBox input, .inputBox-blue input {
+.inputBox input, .inputBox-blue input, .subModuleListColumn > .subModule .inputBox-white input, .inputBox-white input {
   background: transparent;
   border: 0;
   color: white;
@@ -1554,49 +1564,49 @@ footer > div.copyright {
   margin-left: 5px;
 }
 
-.inputBox input::-webkit-input-placeholder, .inputBox-blue input::-webkit-input-placeholder {
+.inputBox input::-webkit-input-placeholder, .inputBox-blue input::-webkit-input-placeholder, .subModuleListColumn > .subModule .inputBox-white input::-webkit-input-placeholder, .inputBox-white input::-webkit-input-placeholder {
   color: #aeb2bc;
 }
 
-.inputBox input:-ms-input-placeholder, .inputBox-blue input:-ms-input-placeholder {
+.inputBox input:-ms-input-placeholder, .inputBox-blue input:-ms-input-placeholder, .subModuleListColumn > .subModule .inputBox-white input:-ms-input-placeholder, .inputBox-white input:-ms-input-placeholder {
   color: #aeb2bc;
 }
 
-.inputBox input::-ms-input-placeholder, .inputBox-blue input::-ms-input-placeholder {
+.inputBox input::-ms-input-placeholder, .inputBox-blue input::-ms-input-placeholder, .subModuleListColumn > .subModule .inputBox-white input::-ms-input-placeholder, .inputBox-white input::-ms-input-placeholder {
   color: #aeb2bc;
 }
 
-.inputBox input::placeholder, .inputBox-blue input::placeholder {
+.inputBox input::placeholder, .inputBox-blue input::placeholder, .subModuleListColumn > .subModule .inputBox-white input::placeholder, .inputBox-white input::placeholder {
   color: #aeb2bc;
 }
 
-.inputBox input.text-right, .inputBox-blue input.text-right {
+.inputBox input.text-right, .inputBox-blue input.text-right, .subModuleListColumn > .subModule .inputBox-white input.text-right, .inputBox-white input.text-right {
   text-align: right;
 }
 
-.inputBox .iconModule, .inputBox-blue .iconModule {
+.inputBox .iconModule, .inputBox-blue .iconModule, .subModuleListColumn > .subModule .inputBox-white .iconModule, .inputBox-white .iconModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.inputBox .iconModule .icon, .inputBox-blue .iconModule .icon {
+.inputBox .iconModule .icon, .inputBox-blue .iconModule .icon, .inputBox-white .iconModule .icon {
   margin-left: 5px;
   color: #aeb2bc;
 }
 
-.inputBox .iconModule .icon.icon-checkmark, .inputBox-blue .iconModule .icon.icon-checkmark {
+.inputBox .iconModule .icon.icon-checkmark, .inputBox-blue .iconModule .icon.icon-checkmark, .inputBox-white .iconModule .icon.icon-checkmark {
   margin-right: 0;
 }
 
-.inputBox .dropdown, .inputBox-blue .dropdown {
+.inputBox .dropdown, .inputBox-blue .dropdown, .subModuleListColumn > .subModule .inputBox-white .dropdown, .inputBox-white .dropdown {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.inputBox .dropdown > .dropdown-container, .inputBox-blue .dropdown > .dropdown-container {
+.inputBox .dropdown > .dropdown-container, .inputBox-blue .dropdown > .dropdown-container, .inputBox-white .dropdown > .dropdown-container {
   position: absolute;
   background: #070e22;
   border: 1px solid #64789b;
@@ -1609,18 +1619,18 @@ footer > div.copyright {
   z-index: 1;
 }
 
-.inputBox .dropdown > .dropdown-container .dropdown-item, .inputBox-blue .dropdown > .dropdown-container .dropdown-item {
+.inputBox .dropdown > .dropdown-container .dropdown-item, .inputBox-blue .dropdown > .dropdown-container .dropdown-item, .inputBox-white .dropdown > .dropdown-container .dropdown-item {
   font-size: 13px;
   padding: 5px 0;
   color: #aeb2bc;
   cursor: pointer;
 }
 
-.inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
+.inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1), .inputBox-white .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
   padding-top: 10px;
 }
 
-.inputBox .dropdown > .btn, .inputBox-blue .dropdown > .btn {
+.inputBox .dropdown > .btn, .inputBox-blue .dropdown > .btn, .inputBox-white .dropdown > .btn {
   width: calc(100% - 26px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1634,7 +1644,7 @@ footer > div.copyright {
   color: #aeb2bc;
 }
 
-.inputBox .dropdown > .icon, .inputBox-blue .dropdown > .icon {
+.inputBox .dropdown > .icon, .inputBox-blue .dropdown > .icon, .inputBox-white .dropdown > .icon {
   margin-right: 5px;
 }
 
@@ -1705,6 +1715,7 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 0 auto;
 }
 
 .btnGroup button,
@@ -1832,7 +1843,7 @@ input[type="file"] {
 
 .btnGroup button.red,
 .btnGroup a.red {
-  background: #f52805;
+  background: #F52805;
   color: white;
 }
 
@@ -1849,7 +1860,7 @@ input[type="file"] {
 
 .btnGroup button.blueBorder:hover,
 .btnGroup a.blueBorder:hover {
-  background: #1e85ec;
+  background: #1E85EC;
 }
 
 .btnGroup button.icon:before,
@@ -2202,7 +2213,7 @@ main > .swiper-container .swiper-slide {
 
 .list + button,
 .list + a {
-  color: #1e85ec;
+  color: #1E85EC;
   float: right;
   font-size: 30px;
   text-align: right;
@@ -2220,14 +2231,14 @@ main > .swiper-container .swiper-slide {
 .list .listTag .icon-books {
   position: absolute;
   right: 5px;
-  color: #1e85ec;
+  color: #1E85EC;
   font-size: 24px;
 }
 
 .list .listTag button,
 .list .listTag a {
   line-height: 30px;
-  background: #1e85ec;
+  background: #1E85EC;
   color: white;
   padding: 0 10px;
   border-top-left-radius: 10px;
@@ -2236,7 +2247,7 @@ main > .swiper-container .swiper-slide {
 
 .list .listTag button.active,
 .list .listTag a.active {
-  background: #134dae;
+  background: #134DAE;
 }
 
 .list .listHeader div,
@@ -2306,7 +2317,7 @@ main > .swiper-container .swiper-slide {
   font-size: 12px;
   position: absolute;
   right: 12px;
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .list .listHeader div {
@@ -2368,7 +2379,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div div.reject {
-  color: #f52805;
+  color: #F52805;
   font-weight: bold;
 }
 
@@ -2619,7 +2630,7 @@ main > .swiper-container .swiper-slide {
 
 .cashBar .cashLine input {
   height: 10px;
-  background: #1e85ec;
+  background: #1E85EC;
   border-radius: 30px;
   border: 0;
   position: absolute;
@@ -2666,7 +2677,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #1e85ec;
+  background: #1E85EC;
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -2706,6 +2717,30 @@ main > .swiper-container .swiper-slide {
 
 .inside-title div {
   max-width: 400px;
+}
+
+.inside-title .icon-friend {
+  position: absolute;
+  right: 40px;
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #56ceff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.inside-title .icon-friend:hover {
+  background: #1fbdfd;
+}
+
+.inside-title .icon-friend span {
+  margin: 0;
 }
 
 .achievement {
@@ -2940,7 +2975,7 @@ main > .swiper-container .swiper-slide {
 
 .subModuleList .subModule .subModuleBody ul li a.icon-library,
 .subModuleList .subModule .subModuleBody ul li button.icon-library {
-  color: #1e85ec;
+  color: #1E85EC;
   font-size: 44px;
 }
 
@@ -3157,7 +3192,7 @@ main > .swiper-container .swiper-slide {
   right: -10px;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .mysteryArea {
@@ -3355,7 +3390,7 @@ main > .swiper-container .swiper-slide {
 #popup {
   background: rgba(0, 0, 0, 0.7);
   position: fixed;
-  z-index: 5;
+  z-index: 10;
   top: 0;
   width: 100%;
   height: 100%;
@@ -3547,7 +3582,7 @@ main > .swiper-container .swiper-slide {
 .upload > .icon.icon-information-solid,
 .update > .icon.icon-information-solid,
 .loackAmount > .icon.icon-information-solid {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .Submit .title,
@@ -3724,7 +3759,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img {
   border-radius: 15px;
-  border: 1px solid #1e85ec;
+  border: 1px solid #1E85EC;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3741,7 +3776,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img .icon {
   font-size: 48px;
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .upload_img img {
@@ -3770,7 +3805,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -3830,7 +3865,7 @@ main > .swiper-container .swiper-slide {
           flex-direction: column;
 }
 
-.directions ~ form .inputBox .iconModule .icon:before, .directions ~ form .inputBox-blue .iconModule .icon:before {
+.directions ~ form .inputBox .iconModule .icon:before, .directions ~ form .inputBox-blue .iconModule .icon:before, .subModuleListColumn > .subModule .directions ~ form .inputBox-white .iconModule .icon:before, .directions ~ form .inputBox-white .iconModule .icon:before {
   font-weight: normal;
 }
 
@@ -4267,12 +4302,12 @@ main > .swiper-container .swiper-slide {
       -ms-flex-align: center;
           align-items: center;
   width: 55px;
-  color: #f85b05;
+  color: #F85B05;
   font-size: 24px;
 }
 
 .walletTransfer .walletModule .walletBalanceModule {
-  background: #1d3662;
+  background: #1D3662;
   font-weight: bold;
   margin-right: 0;
   padding: 30px;
@@ -4303,7 +4338,7 @@ main > .swiper-container .swiper-slide {
   display: block;
 }
 
-.walletTransfer .inputBox, .walletTransfer .inputBox-blue {
+.walletTransfer .inputBox, .walletTransfer .inputBox-blue, .walletTransfer .subModuleListColumn > .subModule .inputBox-white, .subModuleListColumn > .subModule .walletTransfer .inputBox-white, .walletTransfer .inputBox-white {
   width: 100%;
   margin-right: 10px;
 }
@@ -4460,7 +4495,7 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .addBank .addBankName .icon-plus {
@@ -4653,23 +4688,23 @@ main > .swiper-container .swiper-slide {
   font-size: 14px;
 }
 
-.addBankpop .inputBox, .addBankpop .inputBox-blue {
+.addBankpop .inputBox, .addBankpop .inputBox-blue, .addBankpop .subModuleListColumn > .subModule .inputBox-white, .subModuleListColumn > .subModule .addBankpop .inputBox-white, .addBankpop .inputBox-white {
   padding: 2px 10px;
 }
 
-.addBankpop .inputBox .dropdown > .btn, .addBankpop .inputBox-blue .dropdown > .btn {
+.addBankpop .inputBox .dropdown > .btn, .addBankpop .inputBox-blue .dropdown > .btn, .addBankpop .inputBox-white .dropdown > .btn {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   font-size: 13px;
 }
 
-.addBankpop .inputBox .dropdown > .dropdown-container, .addBankpop .inputBox-blue .dropdown > .dropdown-container {
+.addBankpop .inputBox .dropdown > .dropdown-container, .addBankpop .inputBox-blue .dropdown > .dropdown-container, .addBankpop .inputBox-white .dropdown > .dropdown-container {
   overflow-y: scroll;
   max-height: 200px;
 }
 
-.addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item, .addBankpop .inputBox-blue .dropdown > .dropdown-container .dropdown-item {
+.addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item, .addBankpop .inputBox-blue .dropdown > .dropdown-container .dropdown-item, .addBankpop .inputBox-white .dropdown > .dropdown-container .dropdown-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4679,11 +4714,11 @@ main > .swiper-container .swiper-slide {
   padding: 7.5px 0;
 }
 
-.addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), .addBankpop .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
+.addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), .addBankpop .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1), .addBankpop .inputBox-white .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
   padding-top: 15px;
 }
 
-.addBankpop .inputBox img, .addBankpop .inputBox-blue img {
+.addBankpop .inputBox img, .addBankpop .inputBox-blue img, .addBankpop .subModuleListColumn > .subModule .inputBox-white img, .subModuleListColumn > .subModule .addBankpop .inputBox-white img, .addBankpop .inputBox-white img {
   max-width: 44px;
   border-radius: 5px;
   margin-right: 10px;
@@ -4779,9 +4814,11 @@ main > .swiper-container .swiper-slide {
   margin: 10px 0 0;
 }
 
-.quickSelect > div.inputBox.promoType > button, .quickSelect > div.promoType.inputBox-blue > button,
+.quickSelect > div.inputBox.promoType > button, .quickSelect > div.promoType.inputBox-blue > button, .subModuleListColumn > .subModule .quickSelect > div.promoType.inputBox-white > button, .quickSelect > div.promoType.inputBox-white > button,
 .quickSelect > div.inputBox.promoType > a,
 .quickSelect > div.promoType.inputBox-blue > a,
+.subModuleListColumn > .subModule .quickSelect > div.promoType.inputBox-white > a,
+.quickSelect > div.promoType.inputBox-white > a,
 .quickSelect > div:first-child.promoType > button,
 .quickSelect > div:first-child.promoType > a {
   -webkit-box-flex: 1;
@@ -4790,11 +4827,15 @@ main > .swiper-container .swiper-slide {
   white-space: nowrap;
 }
 
-.quickSelect > div.inputBox.promoType > button.orange, .quickSelect > div.promoType.inputBox-blue > button.orange, .quickSelect > div.inputBox.promoType > button.red, .quickSelect > div.promoType.inputBox-blue > button.red,
+.quickSelect > div.inputBox.promoType > button.orange, .quickSelect > div.promoType.inputBox-blue > button.orange, .subModuleListColumn > .subModule .quickSelect > div.promoType.inputBox-white > button.orange, .quickSelect > div.promoType.inputBox-white > button.orange, .quickSelect > div.inputBox.promoType > button.red, .quickSelect > div.promoType.inputBox-blue > button.red, .subModuleListColumn > .subModule .quickSelect > div.promoType.inputBox-white > button.red, .quickSelect > div.promoType.inputBox-white > button.red,
 .quickSelect > div.inputBox.promoType > a.orange,
 .quickSelect > div.promoType.inputBox-blue > a.orange,
+.subModuleListColumn > .subModule .quickSelect > div.promoType.inputBox-white > a.orange,
+.quickSelect > div.promoType.inputBox-white > a.orange,
 .quickSelect > div.inputBox.promoType > a.red,
 .quickSelect > div.promoType.inputBox-blue > a.red,
+.subModuleListColumn > .subModule .quickSelect > div.promoType.inputBox-white > a.red,
+.quickSelect > div.promoType.inputBox-white > a.red,
 .quickSelect > div:first-child.promoType > button.orange,
 .quickSelect > div:first-child.promoType > button.red,
 .quickSelect > div:first-child.promoType > a.orange,
@@ -4803,15 +4844,17 @@ main > .swiper-container .swiper-slide {
   margin-left: 25px;
 }
 
-.quickSelect > div.inputBox.promoType > button:last-child, .quickSelect > div.promoType.inputBox-blue > button:last-child,
+.quickSelect > div.inputBox.promoType > button:last-child, .quickSelect > div.promoType.inputBox-blue > button:last-child, .subModuleListColumn > .subModule .quickSelect > div.promoType.inputBox-white > button:last-child, .quickSelect > div.promoType.inputBox-white > button:last-child,
 .quickSelect > div.inputBox.promoType > a:last-child,
 .quickSelect > div.promoType.inputBox-blue > a:last-child,
+.subModuleListColumn > .subModule .quickSelect > div.promoType.inputBox-white > a:last-child,
+.quickSelect > div.promoType.inputBox-white > a:last-child,
 .quickSelect > div:first-child.promoType > button:last-child,
 .quickSelect > div:first-child.promoType > a:last-child {
   float: right;
 }
 
-.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
+.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue, .subModuleListColumn > .subModule .quickSelect > div.promoType.btnGroup.inputBox-white .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-white .blueBorder ~ .inputBox-blue,
 .quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue {
   margin: 20px 0 0 10px;
   min-height: auto;
@@ -4820,17 +4863,17 @@ main > .swiper-container .swiper-slide {
   margin-top: 20px;
 }
 
-.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7), .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue:nth-child(7),
+.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7), .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue:nth-child(7), .subModuleListColumn > .subModule .quickSelect > div.promoType.btnGroup.inputBox-white .blueBorder ~ .inputBox-blue:nth-child(7), .quickSelect > div.promoType.btnGroup.inputBox-white .blueBorder ~ .inputBox-blue:nth-child(7),
 .quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7) {
   width: 397px;
 }
 
-.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue .dropdown button,
+.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue .dropdown button, .subModuleListColumn > .subModule .quickSelect > div.promoType.btnGroup.inputBox-white .blueBorder ~ .inputBox-blue .dropdown button, .quickSelect > div.promoType.btnGroup.inputBox-white .blueBorder ~ .inputBox-blue .dropdown button,
 .quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button {
   padding: 0;
 }
 
-.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue + button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue + button,
+.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue + button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue + button, .subModuleListColumn > .subModule .quickSelect > div.promoType.btnGroup.inputBox-white .blueBorder ~ .inputBox-blue + button, .quickSelect > div.promoType.btnGroup.inputBox-white .blueBorder ~ .inputBox-blue + button,
 .quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue + button {
   float: left;
 }
@@ -5234,7 +5277,7 @@ main > .swiper-container .swiper-slide {
 
 .personal .list .listHeader .checkbox label.icon.icon:before,
 .personal .list .functionMenu .checkbox label.icon.icon:before {
-  color: #1e85ec;
+  color: #1E85EC;
   font-size: 18px;
   margin-left: -1px;
 }
@@ -5344,7 +5387,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp {
-  color: #1e85ec;
+  color: #1E85EC;
   font-size: 16px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -5358,7 +5401,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp + span {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .otpBtn {
@@ -5377,7 +5420,7 @@ main > .swiper-container .swiper-slide {
   display: flex;
   top: 13px;
   left: -2px;
-  background: #f52805;
+  background: #F52805;
   border-bottom-right-radius: 10px;
   width: 28px;
   height: 25px;
@@ -5531,8 +5574,8 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div:hover {
-  -webkit-box-shadow: 0 0 0 3px #1e85ec inset;
-          box-shadow: 0 0 0 3px #1e85ec inset;
+  -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
+          box-shadow: 0 0 0 3px #1E85EC inset;
 }
 
 .proList > div .turnover {
@@ -5540,24 +5583,24 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div .turnover span {
-  color: #f52805;
+  color: #F52805;
 }
 
 .proList > div .turnover button,
 .proList > div .turnover a {
-  background: #f52805;
+  background: #F52805;
 }
 
 .proList > div .progressBar .bar {
-  border: 1px solid #f52805;
+  border: 1px solid #F52805;
 }
 
 .proList > div .progressBar .bar .progress {
-  background: #f52805;
+  background: #F52805;
 }
 
 .proList > div .progressBar .percentage {
-  color: #f52805;
+  color: #F52805;
 }
 
 .proList .btnGroup {
@@ -5799,7 +5842,7 @@ article h1,
 article h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #1e85ec;
+  color: #1E85EC;
   font-weight: bold;
 }
 
@@ -5839,12 +5882,12 @@ article pre {
   color: #aeb2bc;
 }
 
-.rdt .inputBox, .rdt .inputBox-blue {
+.rdt .inputBox, .rdt .inputBox-blue, .rdt .subModuleListColumn > .subModule .inputBox-white, .subModuleListColumn > .subModule .rdt .inputBox-white, .rdt .inputBox-white {
   width: 100%;
 }
 
 .rdt i.icon.icon-cross:before {
-  color: #f52805;
+  color: #F52805;
 }
 
 .rdt i.icon.icon-checkmark:before {
@@ -5946,7 +5989,7 @@ iframe {
 
 .progressBarModule .bounsName {
   font-weight: bold;
-  color: #f52805;
+  color: #F52805;
 }
 
 .progressBarModule .turnover {
@@ -5959,7 +6002,7 @@ iframe {
 
 .progressBarModule .turnover button,
 .progressBarModule .turnover a {
-  background: #1e85ec;
+  background: #1E85EC;
   color: white;
   border-radius: 100%;
   padding: 4px;
@@ -6054,7 +6097,7 @@ input:-moz-placeholder {
   display: none;
   margin-left: 5px;
   background: white;
-  color: #1e85ec;
+  color: #1E85EC;
   border-radius: 100%;
   padding: 1px;
   -webkit-box-pack: center;
@@ -6067,7 +6110,7 @@ input:-moz-placeholder {
 
 .buttonBox button.active,
 .buttonBox a.active {
-  background: #134dae;
+  background: #134DAE;
   color: white;
 }
 
@@ -6169,7 +6212,7 @@ a.icon-books:hover:after {
 }
 
 input + .iconModule i.icon.icon-cross:before {
-  color: #f52805;
+  color: #F52805;
   font-size: 12px;
 }
 
@@ -6225,7 +6268,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .checkBankSlip.smallList ul li .icon {
-  color: #1e85ec;
+  color: #1E85EC;
   margin-left: 10px;
 }
 
@@ -6472,13 +6515,13 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .minAmount > div > div {
-  border: 1px solid #134dae;
+  border: 1px solid #134DAE;
   padding: 5px 10px;
-  background: #134dae;
+  background: #134DAE;
 }
 
 .minAmount > div > div:last-child {
-  color: #1e85ec;
+  color: #1E85EC;
   background: white;
 }
 
@@ -7163,7 +7206,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding: 0;
 }
 
-.transferModule .inputBox, .transferModule .inputBox-blue {
+.transferModule .inputBox, .transferModule .inputBox-blue, .transferModule .subModuleListColumn > .subModule .inputBox-white, .subModuleListColumn > .subModule .transferModule .inputBox-white, .transferModule .inputBox-white {
   padding: 10px 20px;
   margin: 0;
   z-index: 3;
@@ -7172,12 +7215,12 @@ input + .iconModule i.icon.icon-checkmark:before {
   min-height: auto;
 }
 
-.transferModule .inputBox .dropdown .dropdown-container, .transferModule .inputBox-blue .dropdown .dropdown-container {
+.transferModule .inputBox .dropdown .dropdown-container, .transferModule .inputBox-blue .dropdown .dropdown-container, .transferModule .inputBox-white .dropdown .dropdown-container {
   position: absolute;
   top: 40px;
   left: -1px;
   background: #070e22;
-  border: 1px solid #1e85ec;
+  border: 1px solid #1E85EC;
   margin-left: 0;
   overflow: hidden;
   margin-top: 0;
@@ -7185,25 +7228,25 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: 100%;
 }
 
-.transferModule .inputBox .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item {
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item, .transferModule .inputBox-white .dropdown .dropdown-container .dropdown-item {
   padding: 5px 33px 5px 0;
 }
 
-.transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover {
-  background: #1e85ec;
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-white .dropdown .dropdown-container .dropdown-item:hover {
+  background: #1E85EC;
 }
 
-.transferModule .inputBox .dropdown .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item.active {
-  background: #1e85ec;
+.transferModule .inputBox .dropdown .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item.active, .transferModule .inputBox-white .dropdown .dropdown-container .dropdown-item.active {
+  background: #1E85EC;
 }
 
-.transferModule .inputBox .dropdown span, .transferModule .inputBox-blue .dropdown span {
+.transferModule .inputBox .dropdown span, .transferModule .inputBox-blue .dropdown span, .transferModule .inputBox-white .dropdown span {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.transferModule .inputBox .dropdown button.btn, .transferModule .inputBox-blue .dropdown button.btn {
+.transferModule .inputBox .dropdown button.btn, .transferModule .inputBox-blue .dropdown button.btn, .transferModule .inputBox-white .dropdown button.btn {
   color: white;
   -webkit-box-flex: 7;
       -ms-flex: 7;
@@ -7214,7 +7257,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-right: 15px;
 }
 
-.transferModule .inputBox .dropdown button.btn:after, .transferModule .inputBox-blue .dropdown button.btn:after {
+.transferModule .inputBox .dropdown button.btn:after, .transferModule .inputBox-blue .dropdown button.btn:after, .transferModule .inputBox-white .dropdown button.btn:after {
   content: "";
   width: 0;
   height: 0;
@@ -7225,7 +7268,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   border-color: #c6c6c6 transparent transparent transparent;
 }
 
-.transferModule .inputBox .dropdown .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-item {
+.transferModule .inputBox .dropdown .dropdown-item, .transferModule .inputBox-blue .dropdown .dropdown-item, .transferModule .inputBox-white .dropdown .dropdown-item {
   color: white;
   text-align: right;
 }
@@ -8579,160 +8622,160 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 81.76861%;
-  top: -0.8097%;
+  left: 40.863%;
+  top: -77.96189%;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 59.58396%;
-  top: -70.49341%;
+  left: 28.91959%;
+  top: -79.75332%;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 88.63338%;
-  top: 0.21167%;
+  left: 89.08261%;
+  top: 2.19291%;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 49.38573%;
-  top: -65.90936%;
+  left: 29.46603%;
+  top: -66.68178%;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 77.70935%;
-  top: -47.51931%;
+  left: 71.69637%;
+  top: -29.66142%;
   -webkit-animation-delay: -5s;
           animation-delay: -5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 18.98998%;
-  top: -62.24647%;
+  left: 64.11224%;
+  top: -52.05323%;
   -webkit-animation-delay: -6s;
           animation-delay: -6s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 58.47301%;
-  top: -51.31767%;
+  left: 35.69318%;
+  top: -48.15749%;
   -webkit-animation-delay: -7s;
           animation-delay: -7s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 38.09586%;
-  top: -46.50901%;
+  left: 67.91044%;
+  top: -22.64689%;
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
 }
 
 [class^="star"].star9 {
   position: absolute;
-  left: 46.4953%;
-  top: -77.00522%;
+  left: 49.29006%;
+  top: -86.75908%;
   -webkit-animation-delay: -9s;
           animation-delay: -9s;
 }
 
 [class^="star"].star10 {
   position: absolute;
-  left: 43.19429%;
-  top: -25.25284%;
+  left: 89.5758%;
+  top: -84.04739%;
   -webkit-animation-delay: -10s;
           animation-delay: -10s;
 }
 
 [class^="star"].star11 {
   position: absolute;
-  left: 13.68365%;
-  top: -57.26532%;
+  left: 4.93378%;
+  top: -46.83768%;
   -webkit-animation-delay: -11s;
           animation-delay: -11s;
 }
 
 [class^="star"].star12 {
   position: absolute;
-  left: 20.40287%;
-  top: -75.16405%;
+  left: 44.55587%;
+  top: -45.86217%;
   -webkit-animation-delay: -12s;
           animation-delay: -12s;
 }
 
 [class^="star"].star13 {
   position: absolute;
-  left: 31.87504%;
-  top: -79.63099%;
+  left: 64.1271%;
+  top: 2.81372%;
   -webkit-animation-delay: -13s;
           animation-delay: -13s;
 }
 
 [class^="star"].star14 {
   position: absolute;
-  left: 75.26089%;
-  top: -6.89015%;
+  left: 76.6415%;
+  top: -47.19196%;
   -webkit-animation-delay: -14s;
           animation-delay: -14s;
 }
 
 [class^="star"].star15 {
   position: absolute;
-  left: 89.00094%;
-  top: -3.8049%;
+  left: 51.73598%;
+  top: -14.32477%;
   -webkit-animation-delay: -15s;
           animation-delay: -15s;
 }
 
 [class^="star"].star16 {
   position: absolute;
-  left: 96.07061%;
-  top: -19.759%;
+  left: 50.83756%;
+  top: -85.66834%;
   -webkit-animation-delay: -16s;
           animation-delay: -16s;
 }
 
 [class^="star"].star17 {
   position: absolute;
-  left: 76.25434%;
-  top: -23.50865%;
+  left: 16.58607%;
+  top: 4.64307%;
   -webkit-animation-delay: -17s;
           animation-delay: -17s;
 }
 
 [class^="star"].star18 {
   position: absolute;
-  left: 91.65945%;
-  top: -88.74807%;
+  left: 85.51615%;
+  top: -43.84474%;
   -webkit-animation-delay: -18s;
           animation-delay: -18s;
 }
 
 [class^="star"].star19 {
   position: absolute;
-  left: 8.22819%;
-  top: -10.7322%;
+  left: 11.84436%;
+  top: 8.45207%;
   -webkit-animation-delay: -19s;
           animation-delay: -19s;
 }
 
 [class^="star"].star20 {
   position: absolute;
-  left: 65.8207%;
-  top: 4.57823%;
+  left: 89.57775%;
+  top: -39.41372%;
   -webkit-animation-delay: -20s;
           animation-delay: -20s;
 }
@@ -8811,5 +8854,461 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .pop .friend .checkbox label.icon:before {
   color: #00b9ff;
+}
+
+.pop .upload, .pop .uploadError, .pop .uploadSuccess, .pop .updateSuccess, .pop .update, .pop .submitSuccess {
+  width: 600px;
+}
+
+.pop .updateSuccess {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+}
+
+.pop .upload_new {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 800px;
+}
+
+.pop .upload_new .title {
+  margin: 0;
+  font-size: 32px;
+}
+
+.pop .download {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+.pop .download > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: center;
+  line-height: 30px;
+}
+
+.pop .download > div .icon {
+  color: #f77900;
+}
+
+.pop .download > div .btnGroup {
+  margin: 20px 0;
+}
+
+.pop .icon-close {
+  color: white;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  font-size: 14px;
+}
+
+.pop > div {
+  display: none;
+}
+
+.pop > div.active {
+  display: block;
+}
+
+.pop > div.upload_new {
+  display: none;
+}
+
+.pop > div.upload_new.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn {
+  padding: 20px 50px 50px;
+}
+
+.subModuleListColumn > .subModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(33, 33, 33, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup {
+  margin: 0 0 0 15px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup button {
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule .icon-information-solid {
+  color: #1E85EC;
+  cursor: pointer;
+  margin: 0 2px;
+}
+
+.subModuleListColumn > .subModule .icon-information-solid + .tip {
+  padding: 0;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle {
+  min-width: 120px;
+}
+
+.subModuleListColumn > .subModule > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+  color: white;
+  width: 145px;
+  position: relative;
+}
+
+.subModuleListColumn > .subModule > div > button i, .subModuleListColumn > .subModule > div > a i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: white;
+  display: none;
+  font-size: 18px;
+  padding: 4px;
+  background: rgba(245, 40, 5, 0.85);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subModuleListColumn > .subModule > div > button i::before, .subModuleListColumn > .subModule > div > a i::before {
+  display: none;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
+  margin-bottom: 10px;
+  border-radius: 15px;
+  width: 100px;
+  padding: 10px 5px;
+  background: white;
+  position: relative;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child.icon, .subModuleListColumn > .subModule > div > a > div:first-child.icon {
+  padding: 13px 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child:before, .subModuleListColumn > .subModule > div > a > div:first-child:before {
+  color: #56ceff;
+  font-size: 48px;
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > a.active > div {
+  color: #56ceff;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 6px #56ceff inset;
+          box-shadow: 0px 0px 0px 6px #56ceff inset;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > a.active > div i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before {
+  display: block;
+}
+
+.subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 6px #56ceff inset;
+          box-shadow: 0px 0px 0px 6px #56ceff inset;
+}
+
+.subModuleListColumn > .subModule > div > button:hover > div:nth-child(n+2), .subModuleListColumn > .subModule > div > a:hover > div:nth-child(n+2) {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  color: #56ceff;
+}
+
+.subModuleListColumn > .subModule .inputBox-white {
+  width: calc(100% - 100px);
+  background: white;
+}
+
+.subModuleListColumn > .subModule .inputBox-white > i {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.subModuleListColumn > .subModule .inputBox-white input {
+  border: 0;
+  color: #666;
+}
+
+.subModuleListColumn > .subModule .inputBox-white .iconModule .icon, .subModuleListColumn > .subModule .inputBox-white i:not(.icon) {
+  color: #1fbdfd;
+}
+
+.subModuleListColumn > .subModule .inputBox-white .dropdown button.btn {
+  color: #1fbdfd;
+}
+
+.subModuleListColumn > .subModule .inputBox-white .txt-blue {
+  color: #1fbdfd;
+}
+
+.subModuleListColumn .column {
+  width: calc(100% - 135px);
+}
+
+.subModuleListColumn .inputBox-white {
+  margin-left: 15px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox {
+  margin-top: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue {
+  max-width: 156px;
+  min-width: 156px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon {
+  width: 13px;
+  background: rgba(245, 40, 5, 0.85);
+  padding: 2px;
+  color: #fff;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon:before {
+  margin: 0;
+}
+
+.subModuleListColumn .btnGroup:not(.buttonBox) {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.subModuleListColumn .bankAccount {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 15px;
+}
+
+.subModuleListColumn .bankAccount .smallList {
+  margin-top: 10px;
+}
+
+.subModuleListColumn .bankAccount .smallList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn .bankAccount .smallList ul button {
+  color: #1E85EC;
+}
+
+.subModuleListColumn .bankAccount .smallList ul li {
+  width: 130px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.upload_new .checkBankSlip {
+  max-width: unset;
+  min-width: unset;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.upload_new .checkBankSlip:nth-child(2) {
+  border-right: 1px  dotted #1fbdfd;
+  padding-right: 20px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.upload_new .checkBankSlip ul {
+  width: 100%;
+}
+
+.upload_new .upload_img {
+  margin: 5px 0 0;
+}
+
+.inputBox-white {
+  width: calc(100% - 100px);
+  background: white;
+}
+
+.inputBox-white > i {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.inputBox-white input {
+  border: 0;
+  color: #666;
+}
+
+.inputBox-white .iconModule .icon, .inputBox-white i:not(.icon) {
+  color: #1fbdfd;
+}
+
+.inputBox-white .dropdown button.btn {
+  color: #1fbdfd;
+}
+
+.directions {
+  border-bottom: 1px solid #666;
+  color: #b2b2b2;
+  margin: 20px 0;
+  padding-bottom: 20px;
+  max-width: 80%;
+  min-width: 75%;
+}
+
+.upload_img {
+  max-width: 80%;
+  min-width: 75%;
+  border-radius: 15px;
+  border: 1px solid #1fbdfd;
+  height: 250px;
+  margin: 40px 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.upload_img .icon-folder-upload {
+  display: none;
+}
+
+.upload_img.error {
+  border-color: #F52805;
+}
+
+.upload_img .icon {
+  font-size: 48px;
+  color: #1fbdfd;
+}
+
+.upload_img .icon.icon-broken_image:before {
+  font-size: 48px;
+  color: #666;
+}
+
+.upload_img img {
+  height: 100%;
+}
+
+.upload_img + .smallList {
+  max-width: 80%;
+  min-width: 75%;
+  border-bottom: 1px solid #666;
+  padding-bottom: 20px;
+}
+
+.upload_img + .smallList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.upload_img + .smallList ul li {
+  margin-left: 10px;
+  width: auto;
+}
+
+.upload_img + .smallList ul li .icon {
+  color: #1E85EC;
+}
+
+.upload_img + .smallList ul li:nth-child(1) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 0;
 }
 /*# sourceMappingURL=style.css.map */
