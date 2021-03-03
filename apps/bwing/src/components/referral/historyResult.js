@@ -6,13 +6,13 @@ import { number_format } from "../common/common";
 export default props => {
 	const { t } = useTranslation();
 	return (
-		<div key={`referral-${props.idx}`}>
-			<div>{props.idx + 1}</div>
+		<div key={`referral-${props.idx}-${props.custId}`}>
+			<div>{props.idx}</div>
 			<div>{props.userName}</div>
 			<div>
-				{moment(props.createTime).format("DD/MM/YYYY")}
+				{moment(props.registerDate).format("DD/MM/YYYY")}
 				<span className="txt-blue2">
-					{moment(props.createTime).format("HH:mm:ss")}
+					{moment(props.registerDate).format("HH:mm:ss")}
 				</span>
 			</div>
 			<div>{t(`Currency_${props.currencyId}`)}</div>

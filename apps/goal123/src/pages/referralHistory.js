@@ -124,11 +124,9 @@ const Content = () => {
 		const _isConvert = isConvert(item.currencyId);
 		return (
 			<ReferralHistory
-				key={`referral-${item.transId}`}
+				key={`referral-${idx + 1}-${item.custId}`}
 				idx={idx + 1}
 				_isConvert={_isConvert}
-				createTime={item.createTime}
-				amount={item.amount}
 				{...item}
 			/>
 		);
