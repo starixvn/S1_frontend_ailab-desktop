@@ -123,7 +123,6 @@ const Content = () => {
 	};
 
 	const arr = getHistory?.map((item, idx) => {
-		console.log(getHistory);
 		const _isConvert = isConvert(item.currencyId);
 		return (
 			<div key={`referral-${idx}`}>
