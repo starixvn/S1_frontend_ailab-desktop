@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import moment from "moment";
 import DateTime from "react-datetime";
+import moment from "moment";
+import "moment/locale/vi";
+import "moment/locale/en-au";
+import renderCustomizeMonths, { changeLocale } from "./renderMonth";
 import Dropdown from "./dropdown";
+import { userInfoContext } from "./context";
 
 const quickPickList = [
 	{ id: 0, displayKey: "lbl_Today" },
@@ -14,8 +18,8 @@ const quickPickList = [
 ];
 
 export default props => {
+	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
-
 	const initQuickPick = props.keepData?.quickPick ?? 0;
 	const [selectedIdx, setSelectedIdx] = useState(initQuickPick);
 
@@ -85,7 +89,6 @@ export default props => {
 		<div className="quickSelect">
 			<div>
 				<div className="txt-lightgray">{t("lbl_QuickPick")}</div>
-
 				<div className="inputBox-blue">
 					<Dropdown
 						i18n={t}
@@ -97,7 +100,6 @@ export default props => {
 					/>
 				</div>
 			</div>
-
 			<div>
 				<div className="txt-lightgray">{t("lbl_From")}</div>
 				<div className="inputBox-blue">
@@ -106,6 +108,13 @@ export default props => {
 						onChange={selectDate.bind(this, "start")}
 						timeFormat={false}
 						isValidDate={valid}
+						closeOnSelect={true}
+						renderMonth={renderCustomizeMonths.bind(
+							this,
+							t,
+							userInfo.langId
+						)}
+						locale={`${changeLocale(userInfo.langId)}`}
 					/>{" "}
 					<div className="iconModule">
 						<i className="icon icon-calendar" />
@@ -121,6 +130,13 @@ export default props => {
 						onChange={selectDate.bind(this, "end")}
 						timeFormat={false}
 						isValidDate={valid}
+						closeOnSelect={true}
+						renderMonth={renderCustomizeMonths.bind(
+							this,
+							t,
+							userInfo.langId
+						)}
+						locale={`${changeLocale(userInfo.langId)}`}
 					/>
 					<div className="iconModule">
 						<i className="icon icon-calendar" />

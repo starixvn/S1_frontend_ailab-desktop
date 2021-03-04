@@ -1,7 +1,10 @@
 import React from "react";
-import moment from "moment";
 import { useTranslation } from "react-i18next";
 import DateTime from "react-datetime";
+import moment from "moment";
+import "moment/locale/vi";
+import "moment/locale/en-au";
+import renderCustomizeMonths, { changeLocale } from "../common/renderMonth";
 import Inputbox from "../common/inputbox";
 
 export default props => {
@@ -50,6 +53,14 @@ export default props => {
 							onBlur={props.checkBirth}
 							viewDate={moment(legalDate).format("YYYY-MM-DD")}
 							isValidDate={valid}
+							viewMode="years"
+							closeOnSelect={true}
+							renderMonth={renderCustomizeMonths.bind(
+								this,
+								t,
+								props.userInfo.langId
+							)}
+							locale={`${changeLocale(props.userInfo.langId)}`}
 						/>
 						<div className="iconModule">
 							{dateTimeIcon(props.status.birth)}
