@@ -9,7 +9,7 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 
 	return (
 		<div className="refShare">
-			<div className="title">{t("lbl_Share_with_friend")}</div>
+			{/* <div className="title">{t("lbl_Share_with_friend")}</div> */}
 			<div className="refBox">
 				<div>
 					<div>
