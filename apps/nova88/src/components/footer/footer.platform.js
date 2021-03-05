@@ -145,13 +145,9 @@ export default ({ langId, isLogin, productTpIds }) => {
 		});
 	};
 
-	const filterPlatform = defPlatfrom.filter(item => {
-		let resultList = [];
-		if (item.tpId) {
-			resultList = productTpIds?.includes(item.tpId);
-		}
-		return resultList;
-	});
+	const filterPlatform = defPlatfrom.filter(
+		item => !item.tpId || (item.tpId && productTpIds?.includes(item.tpId))
+	);
 
 	const showRows = isLogin ? filterPlatform : defPlatfrom;
 

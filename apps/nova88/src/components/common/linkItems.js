@@ -49,9 +49,21 @@ export default ({
 	const fullMenuLinks = Object.keys(defMenuLinks);
 
 	const filterMenuLinks = fullMenuLinks.filter(key => {
+		if (defMenuLinks[key].alwaysShow) return true;
+
+		let hasSub = false;
+		if (defMenuLinks[key].subMenu?.length > 0) {
+			const subItems = defMenuLinks[key].subMenu.filter(s =>
+				productTpIds?.includes(s.tpId)
+			);
+
+			hasSub = subItems.length > 0;
+		}
+
 		const subProduct = defMenuLinks[key].productInfo;
 		const hasAuthSubProduct = productTpIds?.includes(subProduct?.tpId);
-		return !subProduct || hasAuthSubProduct;
+
+		return hasSub || hasAuthSubProduct;
 	});
 
 	const showRows = isLogin ? filterMenuLinks : fullMenuLinks;
