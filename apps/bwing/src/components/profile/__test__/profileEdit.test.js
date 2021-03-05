@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup, fireEvent, screen } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 import ProfileEdit from "../profileEdit";
 
 jest.mock("react-i18next", () => ({
@@ -137,7 +137,7 @@ describe("click info icon", () => {
 describe("click submit", () => {
 	test("if click submit button function-submitCheck toHaveBeenCalled", () => {
 		const { container } = render(<ProfileEdit {...fakeData} />);
-		const submitBtn = container.getElementsByClassName("btn-check")[0];
+		const submitBtn = container.getElementsByTagName("button")[0];
 		fireEvent.click(submitBtn);
 		expect(fakeData.submitCheck).toHaveBeenCalled();
 	});
@@ -146,7 +146,7 @@ describe("click submit", () => {
 describe("show tip text", () => {
 	test("if click submit but the column value is null, show tip text", () => {
 		const { container } = render(<ProfileEdit {...fakeData_2} />);
-		const submitBtn = container.getElementsByClassName("btn-check")[0];
+		const submitBtn = container.getElementsByTagName("button")[0];
 		fireEvent.click(submitBtn);
 		const accName_tip = container.getElementsByClassName("tip")[0];
 		expect(accName_tip.className.includes("active")).toBe(true);
@@ -162,7 +162,8 @@ describe("show icon-cross", () => {
 			email: "testValue"
 		},
 		status: {
-			accountName: { checked: false, tip: "test-tip" }
+			accountName: { checked: false, tip: "test-tip" },
+			email: { checked: false, tip: "test-tip" }
 		},
 		clickInfo: jest.fn(),
 		onChangeName: jest.fn(),
@@ -172,7 +173,7 @@ describe("show icon-cross", () => {
 	};
 	test("if click submit and status checked is false, show icon-cross", () => {
 		const { container } = render(<ProfileEdit {...fakeData_checkFalse} />);
-		const submitBtn = container.getElementsByClassName("btn-check")[0];
+		const submitBtn = container.getElementsByTagName("button")[0];
 		fireEvent.click(submitBtn);
 		const allIcon = container.getElementsByClassName("iconModule")[0];
 		expect(allIcon.firstChild.className.includes("icon-cross")).toBe(true);

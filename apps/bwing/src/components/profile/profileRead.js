@@ -39,5 +39,5 @@ export default props => {
 		);
 	});
 
-	return layout;
+	return <div className="profile">{layout}</div>;
 };

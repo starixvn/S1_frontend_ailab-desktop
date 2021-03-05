@@ -55,7 +55,7 @@ export default () => {
 	const [emailValue, setEmailValue] = useState("");
 	const [status, setStatus] = useState(initStatus);
 
-	const birth = `${userInfo.birth_d}/${userInfo.birth_m}/${userInfo.birth_y}`
+	const birth = `${userInfo.birth_d}/${userInfo.birth_m}/${userInfo.birth_y}`;
 	const dataList = [
 		{
 			label: t("lbl_RealName"),
@@ -620,51 +620,39 @@ export default () => {
 		<div className="infoModule">
 			<div className="inside-title">{t("lbl_Profile")}</div>
 			<div className="txt-white">{t("lbl_ProfileModifyWarning")}</div>
-			<div className="profile">
-				<ProfileRead
-					userInfo={userInfo}
-					sendOTPSMS={sendOTPSMS}
-					mobileVerificationLoading={mobileVerificationLoading}
-					dataList={dataList}
-				/>
 
-				{!userInfo.accountName ||
-				!userInfo.birth_d ||
-				!userInfo.phoneNo ||
-				!userInfo.email ? (
-					<ProfileEdit
-						userInfo={userInfo}
-						submitCheck={submitCheck}
-						onChangeName={onChangeName}
-						onChangeBirth={onChangeBirth}
-						onChangePhone={onChangePhone}
-						onChangeEmail={onChangeEmail}
-						nameValue={nameValue}
-						birthValue={birthValue}
-						phoneValue={phoneValue}
-						emailValue={emailValue}
-						checkName={checkName}
-						checkBirth={checkBirth}
-						checkPhone={checkPhone}
-						checkEmail={checkEmail}
-						clickInfo={clickInfo.bind(this)}
-						checked={status.checked}
-						col={status.col}
-						tip={status.tip}
-						status={status}
-					/>
-				) : null}
-			</div>
+			<ProfileRead
+				userInfo={userInfo}
+				sendOTPSMS={sendOTPSMS}
+				mobileVerificationLoading={mobileVerificationLoading}
+				dataList={dataList}
+			/>
 
 			{!userInfo.accountName ||
 			!userInfo.birth_d ||
 			!userInfo.phoneNo ||
 			!userInfo.email ? (
-				<div className="btnGroup">
-					<button className="blueGradient" onClick={submitCheck}>
-						{t("lbl_Submit")}
-					</button>
-				</div>
+				<ProfileEdit
+					userInfo={userInfo}
+					submitCheck={submitCheck}
+					onChangeName={onChangeName}
+					onChangeBirth={onChangeBirth}
+					onChangePhone={onChangePhone}
+					onChangeEmail={onChangeEmail}
+					nameValue={nameValue}
+					birthValue={birthValue}
+					phoneValue={phoneValue}
+					emailValue={emailValue}
+					checkName={checkName}
+					checkBirth={checkBirth}
+					checkPhone={checkPhone}
+					checkEmail={checkEmail}
+					clickInfo={clickInfo.bind(this)}
+					checked={status.checked}
+					col={status.col}
+					tip={status.tip}
+					status={status}
+				/>
 			) : null}
 		</div>
 	) : (
