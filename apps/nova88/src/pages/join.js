@@ -245,6 +245,8 @@ const Content = () => {
 			const result = await phoneCheck(val);
 			checked = result.checked;
 			msg = result.msg;
+		} else if (col === "specialBonusCode") {
+			checked = null;
 		}
 
 		setTip(prev => {
@@ -496,6 +498,7 @@ const Content = () => {
 				PhoneNo: userValue.phone,
 				CurrencyId: _currencyId,
 				UserLang: defaultLangId,
+				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode
 			};
 
@@ -590,6 +593,16 @@ const Content = () => {
 								return {
 									...prev,
 									password: {
+										checked: false,
+										msg: message
+									}
+								};
+							});
+						} else if (errorCode === -7) {
+							setTip(prev => {
+								return {
+									...prev,
+									specialBonusCode: {
 										checked: false,
 										msg: message
 									}
@@ -780,6 +793,19 @@ const Content = () => {
 						) : (
 							<></>
 						)}
+
+						<Inputbox
+							className={`inputBox-org${
+								tip.specialBonusCode.msg !== "" ? " error" : ""
+							}`}
+							icon="icon-promotion txt-orange"
+							placeholder={t("lbl_JoinPromoCode")}
+							value={userValue.specialBonusCode}
+							onChange={EditField.bind(null, "specialBonusCode")}
+							onBlur={checkValue.bind(null, "specialBonusCode")}
+							tip={tip.specialBonusCode.msg}
+							checked={tip.specialBonusCode.checked}
+						/>
 
 						<Inputbox
 							className="inputBox-org"
