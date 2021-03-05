@@ -14,7 +14,6 @@ export const defMenuType = {
 
 export const defMenuLinks = {
 	home: {
-		alwaysShow: true,
 		path: path.home.root,
 		className: "icon icon-home"
 	},
@@ -536,7 +535,6 @@ export const defMenuLinks = {
 	// 	className: "COCK"
 	// },
 	vip: {
-		alwaysShow: true,
 		path: path.vip.root,
 		displayKey: "lbl_Vip",
 		eventIcons: [
@@ -547,12 +545,10 @@ export const defMenuLinks = {
 		]
 	},
 	promotion: {
-		alwaysShow: true,
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"
 	},
 	ranking: {
-		alwaysShow: true,
 		path: path.leaderBoard.root,
 		displayKey: "lbl_Ranking",
 		className: "live"
