@@ -78,15 +78,19 @@ export default ({
 
 		const iconList = m.eventIcons?.length > 0 ? [...m.eventIcons] : [];
 		if (m.subMenu) {
-			m.subMenu.forEach(sub => {
-				if (sub.eventIcons) {
-					for (let i = 0; i < sub.eventIcons.length; i++) {
-						if (sub.eventIcons[i] !== "") {
-							iconList.push(sub.eventIcons[i]);
+			m.subMenu
+				.filter(
+					s => productTpIds === null || productTpIds.includes(s.tpId)
+				)
+				.forEach(sub => {
+					if (sub.eventIcons) {
+						for (let i = 0; i < sub.eventIcons.length; i++) {
+							if (sub.eventIcons[i] !== "") {
+								iconList.push(sub.eventIcons[i]);
+							}
 						}
 					}
-				}
-			});
+				});
 		}
 
 		let iconStrings = "";
