@@ -437,6 +437,14 @@ header .header > div.menu .livecasinoList a span, header .header > div.menu .liv
   top: 50px;
 }
 
+header .header > div.menu .livecasinoList .liveN2LIVE {
+  background: url(../img/liven2live.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .liveN2LIVE:hover {
+  background: url(../img/liven2live_a.png) no-repeat center 0px/auto 100%;
+}
+
 header .header > div.menu .livecasinoList .liveWM {
   background: url(../img/liveWM.png) no-repeat center 10px/auto 100%;
 }
@@ -1617,7 +1625,6 @@ footer .copyright {
       -ms-flex-align: center;
           align-items: center;
   padding: 4px 10px;
-  z-index: 1;
 }
 
 .inputBox input[type="date"]::-webkit-inner-spin-button, .inputBox-org input[type="date"]::-webkit-inner-spin-button, .inputBox-white input[type="date"]::-webkit-inner-spin-button, .inputBox-blue input[type="date"]::-webkit-inner-spin-button, .inputBox-gray input[type="date"]::-webkit-inner-spin-button, .inputBox-yellow input[type="date"]::-webkit-inner-spin-button, .inputBox input[type="date"]::-webkit-calendar-picker-indicator, .inputBox-org input[type="date"]::-webkit-calendar-picker-indicator, .inputBox-white input[type="date"]::-webkit-calendar-picker-indicator, .inputBox-blue input[type="date"]::-webkit-calendar-picker-indicator, .inputBox-gray input[type="date"]::-webkit-calendar-picker-indicator, .inputBox-yellow input[type="date"]::-webkit-calendar-picker-indicator {
@@ -3076,6 +3083,7 @@ main > .swiper-container .swiper-slide {
       -ms-flex-align: center;
           align-items: center;
   min-width: 600px;
+  position: relative;
 }
 
 #popup .pop > div.active {
@@ -3086,6 +3094,35 @@ main > .swiper-container .swiper-slide {
 
 #popup .pop > div > .txt-lightgray {
   text-align: center;
+}
+
+#popup .pop .upload, #popup .pop .uploadError, #popup .pop .uploadSuccess, #popup .pop .updateSuccess, #popup .pop .update, #popup .pop .submitSuccess {
+  min-width: 500px;
+}
+
+#popup .pop .upload_new {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  width: 500px;
+}
+
+#popup .pop .upload_new .title {
+  margin: 0;
+  font-size: 32px;
+}
+
+#popup .pop .icon-close {
+  color: white;
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 #popup .friend {
@@ -4901,6 +4938,39 @@ main > .swiper-container .swiper-slide {
 
 .promotionsInfo .proData .bounsName {
   color: #1E85EC;
+}
+
+.icon-icon32px_deposit {
+  position: relative;
+}
+
+.icon-icon32px_deposit .icon-friend {
+  position: absolute;
+  right: 40px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #1E85EC;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.icon-icon32px_deposit .icon-friend:hover {
+  background: #134DAE;
+}
+
+.icon-icon32px_deposit .icon-friend:before {
+  font-size: 20px;
+  margin-left: 0;
+}
+
+.icon-icon32px_deposit .icon-friend span {
+  margin: 0;
 }
 
 .icon-icon32px_deposit + .stepBar + .subModuleList .subModule {
@@ -7629,5 +7699,291 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .qrcode img {
   max-width: 200px;
+}
+
+.subModuleListColumn {
+  padding: 50px;
+}
+
+.subModuleListColumn > .subModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(3, 12, 27, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup {
+  margin: 0 0 0 15px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup button {
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule .icon-information-solid {
+  color: #1E85EC;
+  cursor: pointer;
+  margin: 0 2px 0 5px;
+}
+
+.subModuleListColumn > .subModule .icon-information-solid + .tip {
+  padding: 0;
+  margin-top: -3px;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle {
+  min-width: 120px;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle.important {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 30px;
+  text-align: center;
+  color: #fab617;
+}
+
+.subModuleListColumn > .subModule > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+  color: white;
+  width: 145px;
+  position: relative;
+}
+
+.subModuleListColumn > .subModule > div > button i, .subModuleListColumn > .subModule > div > a i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: white;
+  display: none;
+  font-size: 20px;
+  padding: 4px;
+  background: rgba(250, 182, 23, 0.9);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subModuleListColumn > .subModule > div > button i::before, .subModuleListColumn > .subModule > div > a i::before {
+  display: none;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
+  margin-bottom: 10px;
+  border-radius: 15px;
+  width: 100px;
+  padding: 10px 5px;
+  background: white;
+  position: relative;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child.icon, .subModuleListColumn > .subModule > div > a > div:first-child.icon {
+  padding: 13px 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child:before, .subModuleListColumn > .subModule > div > a > div:first-child:before {
+  color: #1E85EC;
+  font-size: 48px;
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > a.active > div {
+  color: #1E85EC;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 6px #1E85EC inset;
+          box-shadow: 0px 0px 0px 6px #1E85EC inset;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > a.active > div i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before {
+  display: block;
+}
+
+.subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 6px #1E85EC inset;
+          box-shadow: 0px 0px 0px 6px #1E85EC inset;
+}
+
+.subModuleListColumn > .subModule > div > button:hover > div:nth-child(n+2), .subModuleListColumn > .subModule > div > a:hover > div:nth-child(n+2) {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  color: #1E85EC;
+}
+
+.subModuleListColumn > .subModule input::-webkit-input-placeholder {
+  color: #a1a1a1;
+}
+
+.subModuleListColumn > .subModule input:-ms-input-placeholder {
+  color: #a1a1a1;
+}
+
+.subModuleListColumn > .subModule input::-ms-input-placeholder {
+  color: #a1a1a1;
+}
+
+.subModuleListColumn > .subModule input::placeholder {
+  color: #a1a1a1;
+}
+
+.subModuleListColumn > .subModule .txt-blue {
+  color: #134DAE;
+}
+
+.subModuleListColumn > .subModule .subModuleContent {
+  line-height: 1.75;
+}
+
+.subModuleListColumn > .subModule .subModuleContent ol, .subModuleListColumn > .subModule .subModuleContent li {
+  list-style-type: decimal !important;
+}
+
+.subModuleListColumn .column {
+  width: calc(100% - 135px);
+}
+
+.subModuleListColumn .inputBox-white {
+  margin-left: 15px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox {
+  margin-top: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue {
+  max-width: 156px;
+  min-width: 156px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon {
+  width: 13px;
+  background: #fab617;
+  padding: 2px;
+  color: #fff;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon:before {
+  margin: 0;
+}
+
+.subModuleListColumn .btnGroup:not(.buttonBox) {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.subModuleListColumn .bankAccount {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 15px;
+}
+
+.subModuleListColumn .bankAccount .smallList {
+  margin-top: 10px;
+}
+
+.subModuleListColumn .bankAccount .smallList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn .bankAccount .smallList ul button {
+  color: #1E85EC;
+}
+
+.subModuleListColumn .bankAccount .smallList ul li {
+  width: 130px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.upload_new .checkBankSlip {
+  max-width: unset;
+  min-width: unset;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.upload_new .checkBankSlip:nth-child(2) {
+  padding-right: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.upload_new .checkBankSlip ul {
+  width: 100%;
+}
+
+.upload_new .checkBankSlip .upload_img {
+  margin: 0;
+}
+
+.upload_new .txt-blue {
+  color: #1E85EC;
+}
+
+.rdtPicker {
+  width: 280px !important;
 }
 /*# sourceMappingURL=style.css.map */
