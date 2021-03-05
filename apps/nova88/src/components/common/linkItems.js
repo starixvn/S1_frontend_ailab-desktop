@@ -27,7 +27,8 @@ export default ({
 	langId,
 	isLogin,
 	checkMatchPage,
-	toUpperCase = false
+	toUpperCase = false,
+	productTpIds
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const showLogin = () => {
@@ -45,7 +46,13 @@ export default ({
 
 	const currentPage = checkMatchPage ? getCurrentPage() : "";
 
-	const rows = Object.keys(defMenuLinks).map(key => {
+	const filterMenuLinks = Object.keys(defMenuLinks)?.filter(key => {
+		const subProduct = defMenuLinks[key].productInfo;
+		const hasAuthSubProduct = productTpIds?.includes(subProduct?.tpId);
+		return !subProduct || hasAuthSubProduct;
+	});
+
+	const rows = filterMenuLinks.map(key => {
 		const m = defMenuLinks[key];
 
 		let _className = m.className ? m.className : "";

@@ -119,7 +119,7 @@ const useHandleLogoList = () => {
 	return { onMouseOverImg, handleOnMouseOverImg };
 };
 
-export default ({ langId, isLogin }) => {
+export default ({ langId, isLogin, productTpIds }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { onMouseOverImg, handleOnMouseOverImg } = useHandleLogoList();
 
@@ -145,7 +145,15 @@ export default ({ langId, isLogin }) => {
 		});
 	};
 
-	const rows = defPlatfrom.map(p => {
+	const filterPlatform = defPlatfrom.filter(item => {
+		let resultList = [];
+		if (item.tpId) {
+			resultList = productTpIds?.includes(item.tpId);
+		}
+		return resultList;
+	});
+
+	const rows = filterPlatform?.map(p => {
 		const key = `footer-platform-${p.tpId}-${p.gameId}`;
 		let params = null;
 		if (p.parameter) {
