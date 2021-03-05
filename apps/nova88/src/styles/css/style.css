@@ -63,6 +63,10 @@ img {
   display: block;
 }
 
+.icon-close {
+  cursor: pointer;
+}
+
 .icon:before {
   margin: 0 5px;
 }
@@ -7437,7 +7441,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -8535,80 +8545,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 71.37381%;
-  top: -0.93025%;
-  width: 10.30526px;
-  height: 10.30526px;
+  left: 47.8263%;
+  top: 32.17436%;
+  width: 5.71638px;
+  height: 5.71638px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 91.29386%;
-  top: -35.28326%;
-  width: 13.72807px;
-  height: 13.72807px;
+  left: 58.99814%;
+  top: -27.50694%;
+  width: 11.33444px;
+  height: 11.33444px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 17.9098%;
-  top: -1.93201%;
-  width: 11.42181px;
-  height: 11.42181px;
+  left: 18.75682%;
+  top: -55.23129%;
+  width: 13.45354px;
+  height: 13.45354px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 89.93746%;
-  top: -13.04664%;
-  width: 14.40256px;
-  height: 14.40256px;
+  left: 37.83737%;
+  top: 20.358%;
+  width: 8.20693px;
+  height: 8.20693px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 72.75526%;
-  top: 19.2365%;
-  width: 13.49117px;
-  height: 13.49117px;
+  left: 39.95248%;
+  top: 34.97513%;
+  width: 13.15281px;
+  height: 13.15281px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 67.47138%;
-  top: 36.07709%;
-  width: 10.76005px;
-  height: 10.76005px;
+  left: 33.10971%;
+  top: -40.80143%;
+  width: 8.00328px;
+  height: 8.00328px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 81.93514%;
-  top: -55.17961%;
-  width: 13.96885px;
-  height: 13.96885px;
+  left: 28.40911%;
+  top: -7.6662%;
+  width: 9.03049px;
+  height: 9.03049px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 0.63013%;
-  top: 37.78779%;
-  width: 12.13688px;
-  height: 12.13688px;
+  left: 41.83352%;
+  top: 13.32392%;
+  width: 10.52607px;
+  height: 10.52607px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9879,6 +9889,8 @@ canvas {
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .subModuleListColumn > .subModule > .btnGroup {
@@ -9897,10 +9909,11 @@ canvas {
 .subModuleListColumn > .subModule .icon-information + .tip {
   padding: 0;
   margin-top: -3px;
+  width: auto;
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle {
-  min-width: 120px;
+  width: 120px;
 }
 
 .subModuleListColumn > .subModule > div {
@@ -9909,6 +9922,7 @@ canvas {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: calc(100% - 157px);
 }
 
 .subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
@@ -10002,8 +10016,16 @@ canvas {
   width: calc(100% - 135px);
 }
 
+.subModuleListColumn .column .inputBox-white + .tip {
+  margin: 0 5px 10px;
+}
+
 .subModuleListColumn .inputBox-white {
   margin-left: 15px;
+}
+
+.subModuleListColumn .inputBox-white + .tip {
+  margin-left: 125px;
 }
 
 .subModuleListColumn .btnGroup.buttonBox {
@@ -10054,7 +10076,7 @@ canvas {
   display: flex;
 }
 
-.subModuleListColumn .bankAccount .smallList ul button {
+.subModuleListColumn .bankAccount .smallList ul button, .subModuleListColumn .bankAccount .smallList ul a {
   color: #1E85EC;
 }
 
