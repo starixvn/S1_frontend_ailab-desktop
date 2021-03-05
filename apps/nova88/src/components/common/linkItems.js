@@ -46,13 +46,17 @@ export default ({
 
 	const currentPage = checkMatchPage ? getCurrentPage() : "";
 
-	const filterMenuLinks = Object.keys(defMenuLinks)?.filter(key => {
+	const fullMenuLinks = Object.keys(defMenuLinks);
+
+	const filterMenuLinks = fullMenuLinks.filter(key => {
 		const subProduct = defMenuLinks[key].productInfo;
 		const hasAuthSubProduct = productTpIds?.includes(subProduct?.tpId);
 		return !subProduct || hasAuthSubProduct;
 	});
 
-	const rows = filterMenuLinks.map(key => {
+	const showRows = isLogin ? filterMenuLinks : fullMenuLinks;
+
+	const rows = showRows.map(key => {
 		const m = defMenuLinks[key];
 
 		let _className = m.className ? m.className : "";

@@ -153,7 +153,9 @@ export default ({ langId, isLogin, productTpIds }) => {
 		return resultList;
 	});
 
-	const rows = filterPlatform?.map(p => {
+	const showRows = isLogin ? filterPlatform : defPlatfrom;
+
+	const rows = showRows?.map(p => {
 		const key = `footer-platform-${p.tpId}-${p.gameId}`;
 		let params = null;
 		if (p.parameter) {
