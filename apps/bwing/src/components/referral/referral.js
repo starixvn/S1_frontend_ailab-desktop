@@ -145,7 +145,7 @@ export default () => {
 						{t(`Currency_${userInfo.currencyId}`)}{" "}
 						{number_format(referralSum.amountSum, _isConvert)}
 					</span>
-					<div className="txt-lightgray">
+					<div className="txt-blue">
 						{t("lbl_Referral_description")}
 					</div>
 				</div>

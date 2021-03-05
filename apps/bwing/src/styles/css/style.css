@@ -2755,6 +2755,11 @@ main > .swiper-container .swiper-slide {
   color: #56ceff;
 }
 
+.achievement .txt-blue {
+  color: #1fbdfd;
+  font-weight: bold;
+}
+
 .referral_banner {
   margin: 0 auto;
 }
@@ -8622,160 +8627,160 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 40.863%;
-  top: -77.96189%;
+  left: 38.22212%;
+  top: -44.45609%;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 28.91959%;
-  top: -79.75332%;
+  left: 44.86556%;
+  top: -16.50417%;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 89.08261%;
-  top: 2.19291%;
+  left: 34.90002%;
+  top: -43.44777%;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 29.46603%;
-  top: -66.68178%;
+  left: 70.37613%;
+  top: -54.34504%;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 71.69637%;
-  top: -29.66142%;
+  left: 7.55166%;
+  top: -44.08231%;
   -webkit-animation-delay: -5s;
           animation-delay: -5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 64.11224%;
-  top: -52.05323%;
+  left: 82.3745%;
+  top: -6.27319%;
   -webkit-animation-delay: -6s;
           animation-delay: -6s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 35.69318%;
-  top: -48.15749%;
+  left: 43.68105%;
+  top: -80.69465%;
   -webkit-animation-delay: -7s;
           animation-delay: -7s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 67.91044%;
-  top: -22.64689%;
+  left: 10.84398%;
+  top: -58.80684%;
   -webkit-animation-delay: -8s;
           animation-delay: -8s;
 }
 
 [class^="star"].star9 {
   position: absolute;
-  left: 49.29006%;
-  top: -86.75908%;
+  left: 11.32529%;
+  top: -64.93681%;
   -webkit-animation-delay: -9s;
           animation-delay: -9s;
 }
 
 [class^="star"].star10 {
   position: absolute;
-  left: 89.5758%;
-  top: -84.04739%;
+  left: 31.17048%;
+  top: -64.57155%;
   -webkit-animation-delay: -10s;
           animation-delay: -10s;
 }
 
 [class^="star"].star11 {
   position: absolute;
-  left: 4.93378%;
-  top: -46.83768%;
+  left: 98.75953%;
+  top: -36.89238%;
   -webkit-animation-delay: -11s;
           animation-delay: -11s;
 }
 
 [class^="star"].star12 {
   position: absolute;
-  left: 44.55587%;
-  top: -45.86217%;
+  left: 50.4857%;
+  top: -55.39295%;
   -webkit-animation-delay: -12s;
           animation-delay: -12s;
 }
 
 [class^="star"].star13 {
   position: absolute;
-  left: 64.1271%;
-  top: 2.81372%;
+  left: 80.79337%;
+  top: -13.33937%;
   -webkit-animation-delay: -13s;
           animation-delay: -13s;
 }
 
 [class^="star"].star14 {
   position: absolute;
-  left: 76.6415%;
-  top: -47.19196%;
+  left: 45.8915%;
+  top: -13.12013%;
   -webkit-animation-delay: -14s;
           animation-delay: -14s;
 }
 
 [class^="star"].star15 {
   position: absolute;
-  left: 51.73598%;
-  top: -14.32477%;
+  left: 49.40472%;
+  top: -38.16301%;
   -webkit-animation-delay: -15s;
           animation-delay: -15s;
 }
 
 [class^="star"].star16 {
   position: absolute;
-  left: 50.83756%;
-  top: -85.66834%;
+  left: 66.68836%;
+  top: -42.14726%;
   -webkit-animation-delay: -16s;
           animation-delay: -16s;
 }
 
 [class^="star"].star17 {
   position: absolute;
-  left: 16.58607%;
-  top: 4.64307%;
+  left: 80.57039%;
+  top: -17.4913%;
   -webkit-animation-delay: -17s;
           animation-delay: -17s;
 }
 
 [class^="star"].star18 {
   position: absolute;
-  left: 85.51615%;
-  top: -43.84474%;
+  left: 72.04676%;
+  top: -24.15485%;
   -webkit-animation-delay: -18s;
           animation-delay: -18s;
 }
 
 [class^="star"].star19 {
   position: absolute;
-  left: 11.84436%;
-  top: 8.45207%;
+  left: 28.90869%;
+  top: -5.03444%;
   -webkit-animation-delay: -19s;
           animation-delay: -19s;
 }
 
 [class^="star"].star20 {
   position: absolute;
-  left: 89.57775%;
-  top: -39.41372%;
+  left: 85.43725%;
+  top: -46.18883%;
   -webkit-animation-delay: -20s;
           animation-delay: -20s;
 }
