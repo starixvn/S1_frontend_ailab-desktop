@@ -2,5 +2,8 @@ User-Agent: *
 Disallow: /*affCode*
 Disallow: /*refID*
 Disallow: /*AffID*
+Disallow: /en*
+Disallow: /id*
+Disallow: /th*
 
 Sitemap: https://www.nova88gol.com/sitemapcs.xml
