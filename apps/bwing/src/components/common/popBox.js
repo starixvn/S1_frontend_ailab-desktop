@@ -253,6 +253,12 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.JoinReferral: {
+			const JoinReferral = lazy(() => import("./popBox.joinReferral"));
+			content = <JoinReferral onClickClose={popBox.onClickClose} />;
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 

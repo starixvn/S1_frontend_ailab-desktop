@@ -128,6 +128,12 @@ export default {
 	angpow: {
 		root: "angPow"
 	},
+	referral: {
+		root: "referral"
+	},
+	referralHistory: {
+		root: "referralHistory"
+	},
 	mysteryBox: {
 		root: "mysteryBox"
 	}

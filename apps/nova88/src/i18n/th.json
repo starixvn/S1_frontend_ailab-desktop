@@ -360,6 +360,7 @@
 	"lbl_RemainingTime": "เวลาคงเหลือ",
 	"lbl_RequireMinAmountHint_Front": "ฝากเงินขั้นต่ำเริ่มต้นที่",
 	"lbl_RequireMinAmountHint_Back": "บาท ฝากเลย?",
+	"lbl_MaxBonusAmount":"จำนวนโบนัสสูงสุด",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "ไม่มีข้อมูล",

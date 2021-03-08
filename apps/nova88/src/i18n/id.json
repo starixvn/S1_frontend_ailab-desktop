@@ -360,6 +360,7 @@
 	"lbl_RemainingTime": "SISA WAKTU",
 	"lbl_RequireMinAmountHint_Front": "Jumlah minimal setoran yang diwajibkan adalah minimal Rp",
 	"lbl_RequireMinAmountHint_Back": "Deposit sekarang?",
+	"lbl_MaxBonusAmount":"Jumlah Maksimal Bonus",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Tidak Ada Informasi Yang Tersedia",

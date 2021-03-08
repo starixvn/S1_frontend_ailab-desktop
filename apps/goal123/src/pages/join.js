@@ -6,7 +6,8 @@ import Layout from "../components/common/layout";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	api_site_Register
+	api_site_Register,
+	api_site_GetAffiliateAgent
 } from "../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
 import {
@@ -73,6 +74,55 @@ const Content = () => {
 	});
 
 	useEffect(() => {
+		checkAffiliate();
+	}, []);
+
+	const checkAffiliate = async () => {
+		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
+		if (!_AffId) {
+			getCurrencyList();
+		} else {
+			await api_site_GetAffiliateAgent({ AffId: _AffId }).then(
+				res => {
+					if (isMountedRef.current) {
+						if (res.data.errorCode === 0) {
+							const { currencyId } = res.data.data;
+							const currencyArr = [
+								{
+									id: currencyId,
+									displayKey: `Currency_${currencyId}`
+								}
+							];
+							setSiteCurrency(currencyArr);
+							onSelectItem(0);
+						} else {
+							getCurrencyList();
+						}
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClosePopBox}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
+			);
+		}
+	};
+
+	const getCurrencyList = () => {
 		api_site_GetSiteCurrencyList().then(
 			res => {
 				if (isMountedRef.current) {
@@ -119,7 +169,7 @@ const Content = () => {
 				}
 			}
 		);
-	}, []);
+	};
 
 	const ClickClose = () => {
 		setPopBox({ isOpen: false });
@@ -327,13 +377,27 @@ const Content = () => {
 		return checked;
 	};
 
-	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
+	const hasRefOrAffCode =
+		getUrlParameter("AffId") ||
+		readCookie("AffId") ||
+		getUrlParameter("AffCode") ||
+		readCookie("AffCode");
 
-	const clickSubmit = e => {
+	const clickSubmit = async e => {
 		e.preventDefault();
 		const checked = checkAll();
 
-		if (checked) {
+		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
+		let affIdCheckPass = false;
+		if (_AffId) {
+			try {
+				affIdCheckPass =
+					(await api_site_GetAffiliateAgent({ AffId: _AffId })).data
+						.errorCode === 0;
+			} catch (error) {}
+		}
+
+		if (checked && !userInfo.isLogin) {
 			const regData = {
 				UserName: userValue.username,
 				Userpwd: userValue.password,
@@ -342,8 +406,11 @@ const Content = () => {
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
+			regData.AffId = affIdCheckPass ? _AffId : null;
 			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
-			regData.AffCode = isUrlAffCode ?? userValue.affCode;
+			regData.AffCode =
+				getUrlParameter("AffCode") || readCookie("AffCode");
+
 			api_site_Register(regData).then(
 				res => {
 					if (isMountedRef.current) {
@@ -534,9 +601,9 @@ const Content = () => {
 					<Inputbox
 						icon="icon-affiliate txt-blue12"
 						placeholder={t("lbl_Affiliate_ID")}
-						value={isUrlAffCode ?? userValue.affCode}
+						value={hasRefOrAffCode ?? userValue.affCode}
 						onChange={EditField.bind(null, "affCode")}
-						readOnly={isUrlAffCode}
+						readOnly={hasRefOrAffCode}
 						checked={tip.affCode.checked}
 						tip={tip.affCode.msg}
 						clickInfo={clickInfo.bind(this, "affCode")}

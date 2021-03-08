@@ -360,6 +360,7 @@
 	"lbl_RemainingTime": "剩余时间",
 	"lbl_RequireMinAmountHint_Front": "最低存款金额为",
 	"lbl_RequireMinAmountHint_Back": "立即存款？",
+	"lbl_MaxBonusAmount":"最高奖金",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "目前没有可用的信息。",
