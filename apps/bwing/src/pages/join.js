@@ -26,7 +26,11 @@ import Dropdown from "../components/common/dropdown";
 import Checkbox from "../components/common/checkbox";
 import joinBanner from "../styles/img/joinBanner.jpg";
 import areaCode from "../datas/areaCode";
-import { initValue, initTip, currencyToAreacode } from "./join.data";
+import {
+	initValue,
+	initTip,
+	currencyToAreacode
+} from "../components/join/join.def";
 
 export default () => {
 	return (
