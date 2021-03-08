@@ -85,8 +85,20 @@
   font-size: 24px !important;
 }
 
+.livecasinoList .icon-N2LIVE:before {
+  font-size: 15px !important;
+}
+
 .icon-balance:before {
   font-size: 24px !important;
+}
+
+.icon-N2LIVE:before {
+  content: "\e9c6";
+}
+
+.icon-topup:before {
+  content: "\e9c5";
 }
 
 .icon-whatsapp:before {

@@ -25,7 +25,8 @@ export const defPopBoxType = {
 	PromotionDepositConfirm: "PromotionDepositConfirm",
 	PromotionAmountConfirm: "PromotionAmountConfirm",
 	SuccessAngPow: "SuccessAngPow",
-	SuccessMySteryBox: "SuccessMySteryBox"
+	SuccessMySteryBox: "SuccessMySteryBox",
+	JoinReferral: "JoinReferral"
 };
 
 export default () => {
@@ -253,6 +254,12 @@ export default () => {
 					clickClose={popBox.clickClose}
 				/>
 			);
+			break;
+		}
+
+		case defPopBoxType.JoinReferral: {
+			const JoinReferral = lazy(() => import("./popBox.joinReferral"));
+			content = <JoinReferral onClickClose={popBox.onClickClose} />;
 			break;
 		}
 

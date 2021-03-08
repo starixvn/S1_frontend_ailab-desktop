@@ -8,7 +8,7 @@ export default () => {
 	const [active, setActive] = useState(false);
 
 	const activeToggleHandler = () => {
-		setActive(prev=> !prev);
+		setActive(prev => !prev);
 	};
 
 	const openLiveChat = () => {
@@ -49,7 +49,7 @@ export default () => {
 						<img src={telegramImg} alt="telegramImg" />
 					</li>
 					<li>
-						<div className="icon icon-zelo">{t("lbl_ZALO")}</div>
+						<div className="icon icon-zelo">{t("lbl_Zalo")}</div>
 						<img src={zaloImg} alt="zaloImg" />
 					</li>
 				</ul>
