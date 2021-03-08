@@ -78,3 +78,25 @@ export const api_account_GetCustBonusWallet = () =>
 
 export const api_account_GetWalletBalance = () =>
 	accountRequest.post("/GetWalletBalance");
+
+export const api_account_GetReferralCode = () =>
+	accountRequest.post("/GetReferralCode");
+
+export const api_account_GetReferralSetting = () =>
+	accountRequest.post("/GetReferralSetting");
+
+export const api_account_GetReferralSummary = () =>
+	accountRequest.post("/GetReferralSummary ");
+
+export const api_account_GetRefFriendList = ({
+	StartDate,
+	EndDate,
+	PageNumber,
+	PageSize
+}) =>
+	accountRequest.post("/GetRefFriendList", {
+		StartDate,
+		EndDate,
+		PageNumber,
+		PageSize
+	});
