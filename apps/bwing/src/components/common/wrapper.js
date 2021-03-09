@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect } from "@reach/router";
+import { Redirect, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
@@ -128,7 +128,7 @@ export default ({ children, afterLogin = false }) => {
 						isMountedRef.current
 					) {
 						const { data } = res_custInfo.data;
-						data.langId = GET_LANG_ID(data.langId);
+						// data.langId = GET_LANG_ID(data.langId);
 						setCookie(langCookie, data.langId);
 						setUserInfo(prevState => ({
 							...prevState,

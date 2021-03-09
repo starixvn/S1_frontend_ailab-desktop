@@ -21,5 +21,6 @@ export const defPopBoxType = {
 	PromotionDepositConfirm: "PromotionDepositConfirm",
 	PromotionAmountConfirm: "PromotionAmountConfirm",
 	SuccessAngPow: "SuccessAngPow",
-	SuccessMySteryBox: "SuccessMySteryBox"
+	SuccessMySteryBox: "SuccessMySteryBox",
+	JoinReferral: "JoinReferral"
 };
