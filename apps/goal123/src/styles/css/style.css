@@ -7716,6 +7716,8 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .subModuleListColumn > .subModule > .btnGroup {
@@ -7735,10 +7737,11 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 .subModuleListColumn > .subModule .icon-information-solid + .tip {
   padding: 0;
   margin-top: -3px;
+  width: auto;
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle {
-  min-width: 120px;
+  width: 120px;
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle.important {
@@ -7755,6 +7758,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: calc(100% - 160px);
 }
 
 .subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
@@ -7879,8 +7883,16 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: calc(100% - 135px);
 }
 
+.subModuleListColumn .column .inputBox-white + .tip {
+  margin: 0 5px 10px;
+}
+
 .subModuleListColumn .inputBox-white {
   margin-left: 15px;
+}
+
+.subModuleListColumn .inputBox-white + .tip {
+  margin-left: 130px;
 }
 
 .subModuleListColumn .btnGroup.buttonBox {
@@ -7932,10 +7944,12 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .subModuleListColumn .bankAccount .smallList ul button {
   color: #1E85EC;
+  margin-left: 10px;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li {
-  width: 130px;
+  min-width: 130px;
+  width: auto;
 }
 
 .text-center {
@@ -7977,6 +7991,14 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .upload_new .checkBankSlip .upload_img {
   margin: 0;
+}
+
+.upload_new .checkBankSlip .upload_img.error {
+  border-color: #e91010;
+}
+
+.upload_new .checkBankSlip .upload_img.error i {
+  color: #c6c6c6;
 }
 
 .upload_new .txt-blue {
