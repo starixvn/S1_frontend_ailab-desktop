@@ -1,32 +1,47 @@
 import React from "react";
-import { defTabList, defTabId, defDayOptions } from "./leaderBoard.def";
+import {
+	defTabList,
+	defTabId,
+	defDayOptions,
+	defPeriodId,
+	defButtonOptions
+} from "./leaderBoard.def";
 
 export default ({
 	t,
-	onChangeGameType,
-	categoryID,
+	onChangeButton,
+	buttonID,
 	onChangeDays,
 	beforeDays,
 	tab,
 	updateStateOnly = false
 }) => {
-	const btnOptions = [defTabId.sports, defTabId.liveCasino, defTabId.slots];
-	const gameTypeBtnList = defTabList.filter(_tab =>
-		btnOptions.includes(_tab.id)
-	);
+	// const buttonOptions = [
+	// 	defPeriodId.period1,
+	// 	defPeriodId.period2,
+	// 	defPeriodId.period3
+	// ];
+	// const gameTypeBtnList = defTabList.filter(_tab =>
+	// 	buttonOptions.includes(_tab.id)
+	// );
+	// console.log(gameTypeBtnList);
+
+	// console.log(defTabId);
+	// console.log(tab);
 
 	return (
-		<div className="rankTag">
-			<BtnBar
-				t={t}
-				title={t("lbl_Game_type")}
-				btnList={gameTypeBtnList}
-				onClick={onChangeGameType}
-				selected={categoryID}
-				tab={tab}
-				updateStateOnly={updateStateOnly}
-			/>
-			{tab === defTabId.records ? (
+		<>
+			{tab === defTabId.second ? (
+				<BtnBar
+					t={t}
+					title={t("lbl_Game_type")}
+					btnList={defButtonOptions}
+					onClick={onChangeButton}
+					selected={buttonID}
+					tab={tab}
+					updateStateOnly={updateStateOnly}
+				/>
+			) : (
 				<BtnBar
 					t={t}
 					title={t("lbl_Date")}
@@ -35,8 +50,8 @@ export default ({
 					selected={beforeDays}
 					tab={tab}
 				/>
-			) : null}
-		</div>
+			)}
+		</>
 	);
 };
 
@@ -50,19 +65,16 @@ const BtnBar = ({
 	updateStateOnly
 }) => {
 	const rows = btnList.map(item => {
+		// console.log("item--", item);
+		// console.log("selected--", selected);
 		return (
 			<button
-				key={`leaderboard-gameType-btn-${item.id}`}
-				className={`orange${item.id === selected ? " active" : ""}`}
-				onClick={onClick.bind(this, item.id, updateStateOnly, tab)}>
+				key={`leaderboard-btn-${item.id}`}
+				className={`${item.id === selected ? " active" : ""}`}
+				onClick={onClick.bind(this, item.id, tab)}>
 				{t(item.displayKey)}
 			</button>
 		);
 	});
-	return (
-		<>
-			{tab === defTabId.event ? null : <div>{title}</div>}
-			<div className="btnGroup">{rows}</div>
-		</>
-	);
+	return <div className="btnGroup">{rows}</div>;
 };

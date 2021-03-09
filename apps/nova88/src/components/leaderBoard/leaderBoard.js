@@ -12,11 +12,14 @@ import LeaderBoardTab from "./leaderBoard.tabs";
 import ButtonGroups from "./leaderBoard.btnGroups";
 import {
 	defTabId,
-	defBackground,
+	// defBackground,
 	defDayNum,
 	defRewardList,
-	defLeaderBoardTitle,
-	defLastChampionReward
+	// defLeaderBoardTitle,
+	// defLastChampionReward,
+	defPeriodId,
+	defPeriodList,
+	defEventTimeList
 } from "./leaderBoard.def";
 import { number_format } from "../common/common";
 import EventTab from "./leaderBoard.eventTab";
@@ -39,13 +42,9 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState([]);
 	const [tab, setTab] = useState(defTabId.event);
-	const [categoryID, setCategoryID] = useState(defTabId.sports);
+	const [buttonID, setButtonID] = useState(1);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
-	const TopNum = 10;
-	const isGameTypeTab =
-		tab === defTabId.sports ||
-		tab === defTabId.liveCasino ||
-		tab === defTabId.slots;
+	const defTopNum = 10;
 	const isEventTab = tab === defTabId.event;
 
 	const currencyName = userInfo.currencyId
@@ -53,13 +52,13 @@ export default () => {
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
-	const rewardList = defRewardList({ t })[currencyName]
-		? defRewardList({ t })[currencyName][categoryID]
-		: defRewardList({ t }).MYR[categoryID];
+	// console.log(currencyName);
 
-	const LastChampionReward = defLastChampionReward({ t })[currencyName]
-		? defLastChampionReward({ t })[currencyName][categoryID]
-		: defLastChampionReward({ t }).MYR[categoryID];
+	const rewardList = defRewardList({ t })[currencyName]
+		? defRewardList({ t })[currencyName][0] // <--- need update
+		: defRewardList({ t }).MYR[0]; // <--- need update
+
+	// console.log(defRewardList({ t }));
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -88,6 +87,52 @@ export default () => {
 		return displayTime;
 	};
 
+	useEffect(() => {
+		getCurrentPeriod();
+		// console.log(getCurrentPeriod());
+		setButtonID(getCurrentPeriod());
+	}, []);
+
+	const getCurrentPeriod = () => {
+		//  need update ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+		const today = new Date("2021/05/20");
+		let result;
+		Object.values(defPeriodList).forEach(item => {
+			// console.log(today);
+
+			// console.log("start", new Date(item.startDate));
+			// console.log("end", new Date(item.endDate));
+
+			// console.log("start?", today > new Date(item.startDate));
+			// console.log("end?", today < new Date(item.endDate));
+
+			if (
+				today > new Date(item.startDate) &&
+				today < new Date(item.endDate)
+			) {
+				// console.log("ANSWER::", item.id);
+				result = item.id;
+			}
+		});
+		return result;
+	};
+
+	const onChangeButton = (_buttonID, _tabId) => {
+		// console.log("_buttonID:", _buttonID, "/ _tabId:", _tabId);
+		setButtonID(_buttonID);
+		getLeaderboardData(_buttonID, beforeDays, _tabId);
+	};
+
+	const onChangeDays = _days => {
+		console.log("_days::", _days);
+		setBeforeDays(_days);
+		getLeaderboardData(buttonID, _days, tab);
+	};
+
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+
 	const onChangeTab = tabId => {
 		if (tabId !== defTabId.event && !userInfo.isLogin) {
 			setPopBox({
@@ -95,76 +140,49 @@ export default () => {
 				popBoxType: defPopBoxType.Login
 			});
 		} else {
+			const cleanButtonId = () => setButtonID(buttonID);
+			const cleanBeforeDay = () => setBeforeDays(defDayNum.today);
+			const getDefaultData = () =>
+				getLeaderboardData(defPeriodId.period1, defDayNum.today, tabId);
 			setTab(tabId);
 			if (tabId === defTabId.event) {
-				setCategoryID(1);
-			} else if (
-				tabId === defTabId.records ||
-				tabId === defTabId.lastEvent
-			) {
-				const days =
-					tabId === defTabId.records
-						? defDayNum.yesterDay
-						: defDayNum.today;
-				setBeforeDays(days);
-				getLeaderboardData(defTabId.sports, days, tabId);
-				setCategoryID(1);
+				cleanButtonId();
+				cleanBeforeDay();
+				// don't get data
+			} else if (tabId === defTabId.second) {
+				cleanButtonId();
+				cleanBeforeDay();
+				getDefaultData();
+			} else if (tabId === defTabId.third) {
+				cleanButtonId();
+				cleanBeforeDay();
+				getDefaultData();
 			} else {
-				onChangeGameType(tabId, false, tabId);
+				cleanButtonId();
+				setBeforeDays(defDayNum.yesterDay);
+				getDefaultData();
 			}
 		}
 	};
 
-	const onChangeGameType = (gameType, updateStateOnly, tabId) => {
-		setCategoryID(gameType);
-		if (!updateStateOnly) {
-			getLeaderboardData(
-				gameType,
-				tabId !== defTabId.records ? 0 : beforeDays,
-				tabId
-			);
-		}
-	};
-
-	const onChangeDays = daysValue => {
-		setBeforeDays(daysValue);
-		getLeaderboardData(categoryID, daysValue);
-	};
-
-	const clickClose = () => {
-		setPopBox({ isOpen: false });
-	};
-
-	const openErrorMessagePopBox = (message, errorCode) => {
-		setPopBox({
-			message: message ?? t("msg_ApiServerError"),
-			errorCode,
-			isOpen: true,
-			popBoxType: defPopBoxType.ErrorMsg,
-			icon: "icon-bell",
-			btnBar: (
-				<div className="btnGroup">
-					<button className="btn-cancel" onClick={clickClose}>
-						{t("lbl_Close")}
-					</button>
-				</div>
-			)
-		});
-	};
-
-	const getLeaderboardData = (gameType, daysValue, tabId) => {
+	// ■■■■■■■■■■■■■■■■■ api ■■■■■■■■■■■■■■■■■■■■■■■■
+	// ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+	const getLeaderboardData = (_buttonID, _days, _tabId) => {
 		if (!userInfo.isLogin) return;
-
-		const isLastEventTab = tabId === defTabId.lastEvent;
-		const current_eventCode = "202101";
-		const last_eventCode = "xmas2020";
+		// console.log("_tabId-", _tabId);
+		// console.log("tab-", tab);
+		if (_tabId === defTabId.event) return;
+		// console.log(_buttonID, "--", _days, "--", _tabId);
+		const currentButtonId = _buttonID ?? buttonID;
 
 		const payload = {
-			lBCategoryId: gameType ?? categoryID,
-			TopNum,
-			BeforeDays: daysValue ?? beforeDays,
-			EventCode: isLastEventTab ? last_eventCode : current_eventCode
+			lBCategoryId: 0,
+			TopNum: defTopNum,
+			BeforeDays: _days ?? beforeDays,
+			EventCode: defPeriodList[currentButtonId].eventCode
 		};
+
+		console.log("payload--", payload);
 
 		const GetRankDatas = async () => {
 			await api_events_GetLeaderboardListV2(payload).then(res => {
@@ -173,7 +191,7 @@ export default () => {
 
 					if (rankDatas?.length > 0) {
 						api_events_GetCustRankV2({
-							LBCategoryId: payload.lBCategoryId,
+							LBbuttonId: payload.lBbuttonId,
 							BeforeDays: payload.BeforeDays,
 							EventCode: payload.EventCode
 						}).then(resRank => {
@@ -186,7 +204,10 @@ export default () => {
 											: custRank;
 
 									let result = [];
-									if (custRank <= TopNum && custRank !== 0) {
+									if (
+										custRank <= defTopNum &&
+										custRank !== 0
+									) {
 										rankDatas[custRank - 1] = {
 											...rankDatas[custRank - 1],
 											userName: userInfo.userName,
@@ -226,14 +247,72 @@ export default () => {
 		GetRankDatas();
 	};
 
+	const openErrorMessagePopBox = (message, errorCode) => {
+		setPopBox({
+			message: message ?? t("msg_ApiServerError"),
+			errorCode,
+			isOpen: true,
+			popBoxType: defPopBoxType.ErrorMsg,
+			icon: "icon-bell",
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={clickClose}>
+						{t("lbl_Close")}
+					</button>
+				</div>
+			)
+		});
+	};
+
+	// console.log("tab--> ", tab);
+
+	const innerTopLayout = () => {
+		if (tab === defTabId.second) {
+			return (
+				<>
+					<div className="rankTag">
+						<div>Tournament</div>
+						<ButtonGroups
+							t={t}
+							onChangeButton={onChangeButton}
+							buttonID={buttonID}
+							onChangeDays={onChangeDays}
+							beforeDays={beforeDays}
+							tab={tab}
+						/>
+					</div>
+					<button className="finalTour">EURO 2020 FINAL</button>
+				</>
+			);
+		}
+		if (tab === defTabId.third) {
+			return <div className="txt">SPORTS , LIVE CASINO & SLOTS</div>;
+		}
+		if (tab === defTabId.fourth) {
+			return (
+				<div className="rankTag">
+					<div>Date</div>
+					<ButtonGroups
+						t={t}
+						onChangeButton={onChangeButton}
+						buttonID={buttonID}
+						onChangeDays={onChangeDays}
+						beforeDays={beforeDays}
+						tab={tab}
+					/>
+				</div>
+			);
+		}
+	};
+
 	return (
-		<section className={`ranking ${defBackground[tab]}`}>
+		<section className="ranking">
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 			{isEventTab ? (
 				<EventTab
 					t={t}
-					onChangeGameType={onChangeGameType}
-					categoryID={categoryID}
+					// onChangeButton={onChangeButton}
+					buttonID={buttonID}
 					tab={tab}
 					rewardList={rewardList}
 					userInfo={userInfo}
@@ -242,32 +321,25 @@ export default () => {
 			) : (
 				<div
 					className={
-						tab === defTabId.lastEvent ? "lastevent" : "champion"
+						tab === defTabId.second
+							? "lastevent active"
+							: "champion active"
 					}>
+					{innerTopLayout()}
 					<div className="highest">
-						{isGameTypeTab ? (
-							<div className="title">
-								<div>{t(defLeaderBoardTitle[tab])}</div>
+						{tab === defTabId.third ? (
+							<div>
+								* Current tournament schedule: 13 Apr 2021 ~ 12
+								May 2021
 							</div>
-						) : (
-							<ButtonGroups
-								t={t}
-								onChangeGameType={onChangeGameType}
-								categoryID={categoryID}
-								onChangeDays={onChangeDays}
-								beforeDays={beforeDays}
-								tab={tab}
-							/>
-						)}
-						<img src={championImg} alt="champion" />
+						) : null}
+						<img src="https://image.n88media.com/SiteSkin/img/champion.png" />
 						<div className="mwt_border">
 							<span className="arrow_t_int" />
 							<span className="arrow_t_out" />
-							<div className="txt-orange">
-								{tab === defTabId.lastEvent
-									? LastChampionReward[0].reward
-									: rewardList[0].reward}
-							</div>
+							<div>HIGHEST WINNING RECORD</div>
+							<div>(Last 7 Days) ******kboy</div>
+							<div className="txt-yellow">MYR 10,000,000.00</div>
 						</div>
 					</div>
 					<div className="rankModule">
@@ -287,7 +359,7 @@ export default () => {
 								{t("lbl_NoData")}
 							</div>
 						)}
-						{tab === defTabId.lastEvent ? null : (
+						{tab === defTabId.second ? null : (
 							<div className="lastUpdate">
 								{t(`lbl_LastUpdTime`, {
 									time: showUpdateTime()

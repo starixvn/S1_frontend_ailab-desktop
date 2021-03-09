@@ -2,6 +2,7 @@ import React from "react";
 import { defTabList } from "./leaderBoard.def";
 
 export default ({ t, onChangeTab, tab }) => {
+	// console.log(defTabList);
 	const rows = defTabList.map(item => {
 		return (
 			<button

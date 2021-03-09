@@ -1,16 +1,18 @@
 import React from "react";
 import ButtonGroups from "./leaderBoard.btnGroups";
 import config from "../../config";
+import { defTabId } from "./leaderBoard.def";
 
 export default ({
 	t,
-	onChangeGameType,
+	// onChangeButton,
 	categoryID,
 	tab,
 	rewardList,
 	userInfo,
 	currencyName
 }) => {
+	// console.log("event::", rewardList);
 	const rows = rewardList.map(item => {
 		return (
 			<li key={`leaderBoard-event-${item.displayRank}`}>
@@ -39,22 +41,18 @@ export default ({
 	});
 
 	return (
-		<div className="eventRule">
-			<ButtonGroups
-				t={t}
-				onChangeGameType={onChangeGameType}
-				categoryID={categoryID}
-				tab={tab}
-				updateStateOnly={true}
-			/>
-			<div className="title">{t("lbl_leaderboardTitle_1")}</div>
-			<div className="title">{t("lbl_leaderboardTitle_2")}</div>
+		<div className={`eventRule ${tab === defTabId.event ? "active" : ""}`}>
+			<div className="title">
+				{t("lbl_leaderboardTitle_1")}
+				<br />
+				{t("lbl_leaderboardTitle_2")}
+			</div>
 			<div className="rankList">
 				<ul>
 					<li>
 						<div />
 						<div>{t("lbl_Ranking")}</div>
-						<div>{t("lbl_Rewards")}</div>
+						<div>{t("lbl_Prizes")}</div>
 					</li>
 					{rows}
 				</ul>
