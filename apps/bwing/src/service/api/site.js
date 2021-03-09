@@ -60,3 +60,6 @@ export const api_site_CheckResetPwdTokens = ({ key }) =>
 
 export const api_site_ExistsPhoneNo = ({ AreaCode, Phone }) =>
 	siteRequest.post(`/ExistsPhoneNo`, { AreaCode, PhoneNo: Phone });
+
+export const api_site_GetAffiliateAgent = ({ AffId }) =>
+	siteRequest.post("/GetAffiliateAgent", { AffId });
