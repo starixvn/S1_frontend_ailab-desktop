@@ -13,6 +13,9 @@ const getAffiliate = ({ langId }) => {
 		: `https://aff.${arr.join(".")}/?lang=${langId}`;
 };
 
+export const errorPageUrl = langId =>
+	`https://error.goal123.org/404/index_${langId}.html`;
+
 export const siteInfo = ({ langId }) => {
 	return {
 		affiliateLink: getAffiliate({ langId }),
