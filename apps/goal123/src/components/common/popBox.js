@@ -25,7 +25,9 @@ export const defPopBoxType = {
 	PromotionDepositConfirm: "PromotionDepositConfirm",
 	PromotionAmountConfirm: "PromotionAmountConfirm",
 	SuccessAngPow: "SuccessAngPow",
-	SuccessMySteryBox: "SuccessMySteryBox"
+	SuccessMySteryBox: "SuccessMySteryBox",
+	JoinReferral: "JoinReferral",
+	DepositUploadBankSlip: "DepositUploadBankSlip"
 };
 
 export default () => {
@@ -45,6 +47,34 @@ export default () => {
 				import("./popBox.uploadBankSlip")
 			);
 			content = <UploadBankSlip {...restProps} />;
+			break;
+		}
+
+		case defPopBoxType.DepositUploadBankSlip: {
+			const DepositUploadBankSlip = lazy(() =>
+				import("./popBox.depositUploadBankSlip")
+			);
+			content = (
+				<DepositUploadBankSlip
+					t={popBox.t}
+					langId={popBox.langId}
+					localBankInfo={popBox.localBankInfo}
+					setPopBox={popBox.setPopBox}
+					setInfoData={popBox.setInfoData}
+					infoDataReceiptImgFile={popBox.infoDataReceiptImgFile}
+					infoDataDepositTime={popBox.infoDataDepositTime}
+					infoDataDepositRefNo={popBox.infoDataDepositRefNo}
+					picFileName={popBox.picFileName}
+					uploadLocalBankReceipt={popBox.uploadLocalBankReceipt}
+					getDepositInfoRecent={popBox.getDepositInfoRecent}
+					refId={popBox.refId}
+					amount={popBox.amount}
+					from={popBox.from}
+					_isConvert={popBox._isConvert}
+					setLocalBankReceipt={popBox.setLocalBankReceipt}
+					historyDepositTime={popBox.historyDepositTime}
+				/>
+			);
 			break;
 		}
 

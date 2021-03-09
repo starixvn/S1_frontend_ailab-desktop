@@ -1,0 +1,85 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "@reach/router";
+import { defDepositOption } from "./depositnew.def";
+import path from "../../router";
+
+const DepositnewInfoMoule = ({
+	t,
+	langId,
+	depositType,
+	setDepositType,
+	checked,
+	onSubmit,
+	children
+}) => {
+	return (
+		<div className="infoModule">
+			<div className="inside-title icon icon-icon32px_deposit">
+				<span>{t("lbl_Deposit")}</span>
+				<div>{t("lbl_DepositOptionHint")}</div>
+
+				<Link
+					className="icon icon-friend"
+					to={`/${langId}/${path.referral.root}`}>
+					<span>{t("lbl_Refer_friends_rewards")}</span>
+				</Link>
+			</div>
+			<div className="subModuleListColumn">
+				<div className="subModule">
+					<div className="subModuleTitle">
+						{t("lbl_DepositOptions")}
+					</div>
+					<div>
+						{defDepositOption.map(item => {
+							return (
+								<button
+									onClick={() => setDepositType(item.type)}
+									className={
+										item.type === depositType
+											? "active"
+											: ""
+									}
+									key={`${item.type}-key`}>
+									<div className={item.iconClass}>
+										<i className="icon icon-checkmark" />
+									</div>
+									<div>{t(item.depositDisplaykey)}</div>
+									<div>
+										{t("lbl_CreditTime")} ：
+										{t(item.creditTime)}
+									</div>
+								</button>
+							);
+						})}
+					</div>
+				</div>
+
+				{children}
+
+				<div className="btnGroup">
+					<button
+						onClick={onSubmit}
+						className={checked ? "btn-check" : "darkGray"}>
+						{t("lbl_Submit")}
+					</button>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+DepositnewInfoMoule.defaultProps = {
+	checked: true
+};
+
+DepositnewInfoMoule.propTypes = {
+	t: PropTypes.func.isRequired,
+	depositType: PropTypes.string.isRequired,
+	setDepositType: PropTypes.func.isRequired,
+	checked: PropTypes.bool,
+	onSubmit: PropTypes.func.isRequired,
+	children: PropTypes.node.isRequired
+};
+
+export default DepositnewInfoMoule;
