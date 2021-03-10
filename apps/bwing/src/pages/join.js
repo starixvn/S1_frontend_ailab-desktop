@@ -251,19 +251,15 @@ const Content = () => {
 	};
 
 	const usernameCheck = async val => {
-		let checked = false;
+		let checked = true;
 		let msg = "";
 
 		if (val === "") {
 			checked = false;
 			msg = "msg_UsernameReq";
-		} else if (val !== "") {
-			if (val.length < 6 || val.length > 18) {
-				checked = false;
-				msg = "msg_UsernameLength";
-			} else {
-				checked = true;
-			}
+		} else if ((val !== "" && val.length < 6) || val.length > 18) {
+			checked = false;
+			msg = "msg_UsernameLength";
 		}
 
 		if (checked === true) {
@@ -432,7 +428,9 @@ const Content = () => {
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
 			regData.AffId = affIdCheckPass ? _AffId : null;
 			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
-			regData.AffCode = isUrlAffCode ?? userValue.affCode;
+			regData.AffCode =
+				getUrlParameter("AffCode") || readCookie("AffCode");
+
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
 					if (isMountedRef.current) {
