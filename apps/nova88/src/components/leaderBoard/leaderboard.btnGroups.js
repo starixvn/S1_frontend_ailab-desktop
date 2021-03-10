@@ -1,72 +1,28 @@
 import React from "react";
-import {
-	defTabList,
-	defTabId,
-	defDayOptions,
-	defPeriodId,
-	defButtonOptions
-} from "./leaderBoard.def";
+import { defTabId, defDayOptions, defPeriodOptions } from "./leaderBoard.def";
 
 export default ({
 	t,
-	onChangeButton,
-	buttonID,
-	onChangeDays,
-	beforeDays,
 	tab,
-	updateStateOnly = false
+	onChangePeriod,
+	periodId,
+	onChangeDays,
+	beforeDays
 }) => {
-	// const buttonOptions = [
-	// 	defPeriodId.period1,
-	// 	defPeriodId.period2,
-	// 	defPeriodId.period3
-	// ];
-	// const gameTypeBtnList = defTabList.filter(_tab =>
-	// 	buttonOptions.includes(_tab.id)
-	// );
-	// console.log(gameTypeBtnList);
-
-	// console.log(defTabId);
-	// console.log(tab);
-
+	const isFinalTab = tab === defTabId.second;
 	return (
-		<>
-			{tab === defTabId.second ? (
-				<BtnBar
-					t={t}
-					title={t("lbl_Game_type")}
-					btnList={defButtonOptions}
-					onClick={onChangeButton}
-					selected={buttonID}
-					tab={tab}
-					updateStateOnly={updateStateOnly}
-				/>
-			) : (
-				<BtnBar
-					t={t}
-					title={t("lbl_Date")}
-					btnList={defDayOptions}
-					onClick={onChangeDays}
-					selected={beforeDays}
-					tab={tab}
-				/>
-			)}
-		</>
+		<BtnBar
+			t={t}
+			btnList={isFinalTab ? defPeriodOptions : defDayOptions}
+			onClick={isFinalTab ? onChangePeriod : onChangeDays}
+			selected={isFinalTab ? periodId : beforeDays}
+			tab={tab}
+		/>
 	);
 };
 
-const BtnBar = ({
-	t,
-	title,
-	btnList,
-	onClick,
-	selected,
-	tab,
-	updateStateOnly
-}) => {
+const BtnBar = ({ t, btnList, onClick, selected, tab }) => {
 	const rows = btnList.map(item => {
-		// console.log("item--", item);
-		// console.log("selected--", selected);
 		return (
 			<button
 				key={`leaderboard-btn-${item.id}`}

@@ -3,26 +3,22 @@ import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import championImg from "../../styles/img/champion.png";
 import {
 	api_events_GetLeaderboardListV2,
 	api_events_GetCustRankV2
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
-import ButtonGroups from "./leaderBoard.btnGroups";
 import {
 	defTabId,
-	// defBackground,
 	defDayNum,
 	defRewardList,
-	// defLeaderBoardTitle,
-	// defLastChampionReward,
-	defPeriodId,
 	defPeriodList,
-	defEventTimeList
+	defPeriodId,
+	defRewardTabId
 } from "./leaderBoard.def";
-import { number_format } from "../common/common";
-import EventTab from "./leaderBoard.eventTab";
+
+import ContentEvent from "./leaderBoard.content.event";
+import Content from "./leaderBoard.content";
 
 const langMapping = {
 	cs: "MYR",
@@ -35,30 +31,30 @@ const currMapping = {
 	13: "MYR"
 };
 
+//  need update ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+const Today = new Date("2021/03/20");
+const defLBCategoryId = 1;
+
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState([]);
-	const [tab, setTab] = useState(defTabId.event);
-	const [buttonID, setButtonID] = useState(1);
+	const [tab, setTab] = useState(defTabId.first);
+	const [periodId, setPeriodId] = useState(1);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
+	const [rewardTab, setRewardTab] = useState(defRewardTabId.final);
 	const defTopNum = 10;
-	const isEventTab = tab === defTabId.event;
 
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??
 		  t(`Currency_${userInfo.currencyId}`)
 		: langMapping[userInfo.langId];
 
-	// console.log(currencyName);
-
 	const rewardList = defRewardList({ t })[currencyName]
-		? defRewardList({ t })[currencyName][0] // <--- need update
-		: defRewardList({ t }).MYR[0]; // <--- need update
-
-	// console.log(defRewardList({ t }));
+		? defRewardList({ t })[currencyName][rewardTab]
+		: defRewardList({ t }).MYR[rewardTab]; 
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -70,11 +66,13 @@ export default () => {
 	useEffect(() => {
 		getLeaderboardData();
 		showUpdateTime();
+		getCurrentPeriod();
+		setPeriodId(getCurrentPeriod());
 	}, [userInfo.userName]);
 
 	useEffect(() => {
 		if (!userInfo.isLogin) {
-			setTab(defTabId.event);
+			setTab(defTabId.first);
 		}
 	}, [userInfo.isLogin]);
 
@@ -87,46 +85,33 @@ export default () => {
 		return displayTime;
 	};
 
-	useEffect(() => {
-		getCurrentPeriod();
-		// console.log(getCurrentPeriod());
-		setButtonID(getCurrentPeriod());
-	}, []);
-
 	const getCurrentPeriod = () => {
-		//  need update ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-		const today = new Date("2021/05/20");
-		let result;
-		Object.values(defPeriodList).forEach(item => {
-			// console.log(today);
-
-			// console.log("start", new Date(item.startDate));
-			// console.log("end", new Date(item.endDate));
-
-			// console.log("start?", today > new Date(item.startDate));
-			// console.log("end?", today < new Date(item.endDate));
-
-			if (
-				today > new Date(item.startDate) &&
-				today < new Date(item.endDate)
-			) {
-				// console.log("ANSWER::", item.id);
-				result = item.id;
-			}
-		});
+		let result = 4;
+		Object.values(defPeriodList)
+			.filter(pd => pd.id !== defPeriodId.period4)
+			.forEach(pd => {
+				if (
+					Today > new Date(pd.startDate) &&
+					Today < new Date(pd.endDate)
+				) {
+					result = pd.id;
+				}
+			});
 		return result;
 	};
 
-	const onChangeButton = (_buttonID, _tabId) => {
-		// console.log("_buttonID:", _buttonID, "/ _tabId:", _tabId);
-		setButtonID(_buttonID);
-		getLeaderboardData(_buttonID, beforeDays, _tabId);
+	const changeRewardTab = _tab => {
+		setRewardTab(_tab);
+	};
+
+	const onChangePeriod = (_periodId, _tabId) => {
+		setPeriodId(_periodId);
+		getLeaderboardData(_periodId, beforeDays, _tabId);
 	};
 
 	const onChangeDays = _days => {
-		console.log("_days::", _days);
 		setBeforeDays(_days);
-		getLeaderboardData(buttonID, _days, tab);
+		getLeaderboardData(periodId, _days, tab);
 	};
 
 	const clickClose = () => {
@@ -134,55 +119,43 @@ export default () => {
 	};
 
 	const onChangeTab = tabId => {
-		if (tabId !== defTabId.event && !userInfo.isLogin) {
+		const currentPeriod = getCurrentPeriod();
+		if (tabId !== defTabId.first && !userInfo.isLogin) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		} else {
-			const cleanButtonId = () => setButtonID(buttonID);
-			const cleanBeforeDay = () => setBeforeDays(defDayNum.today);
-			const getDefaultData = () =>
-				getLeaderboardData(defPeriodId.period1, defDayNum.today, tabId);
 			setTab(tabId);
-			if (tabId === defTabId.event) {
-				cleanButtonId();
-				cleanBeforeDay();
-				// don't get data
-			} else if (tabId === defTabId.second) {
-				cleanButtonId();
-				cleanBeforeDay();
-				getDefaultData();
-			} else if (tabId === defTabId.third) {
-				cleanButtonId();
-				cleanBeforeDay();
-				getDefaultData();
-			} else {
-				cleanButtonId();
+			setPeriodId(currentPeriod);
+			setRewardTab(defRewardTabId.final);
+			if (tabId === defTabId.first) {
+				setBeforeDays(defDayNum.today);
+			}
+			if (tabId === defTabId.second || tabId === defTabId.third) {
+				setBeforeDays(defDayNum.today);
+				getLeaderboardData(currentPeriod, defDayNum.today, tabId);
+			}
+			if (tabId === defTabId.fourth) {
 				setBeforeDays(defDayNum.yesterDay);
-				getDefaultData();
+				getLeaderboardData(currentPeriod, defDayNum.yesterDay, tabId);
 			}
 		}
 	};
 
-	// ■■■■■■■■■■■■■■■■■ api ■■■■■■■■■■■■■■■■■■■■■■■■
-	// ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
-	const getLeaderboardData = (_buttonID, _days, _tabId) => {
+	const getLeaderboardData = (_periodId, _days, _tabId) => {
 		if (!userInfo.isLogin) return;
-		// console.log("_tabId-", _tabId);
-		// console.log("tab-", tab);
-		if (_tabId === defTabId.event) return;
-		// console.log(_buttonID, "--", _days, "--", _tabId);
-		const currentButtonId = _buttonID ?? buttonID;
+		if (_tabId === defTabId.first) return;
+		const currentperiodId = _periodId ?? periodId;
 
 		const payload = {
-			lBCategoryId: 0,
+			lBCategoryId: defLBCategoryId,
 			TopNum: defTopNum,
 			BeforeDays: _days ?? beforeDays,
-			EventCode: defPeriodList[currentButtonId].eventCode
+			EventCode: defPeriodList[currentperiodId].eventCode
 		};
 
-		console.log("payload--", payload);
+		console.log(" ▼▼ Payload ▼▼", payload);
 
 		const GetRankDatas = async () => {
 			await api_events_GetLeaderboardListV2(payload).then(res => {
@@ -191,7 +164,7 @@ export default () => {
 
 					if (rankDatas?.length > 0) {
 						api_events_GetCustRankV2({
-							LBbuttonId: payload.lBbuttonId,
+							lBCategoryId: payload.lBCategoryId,
 							BeforeDays: payload.BeforeDays,
 							EventCode: payload.EventCode
 						}).then(resRank => {
@@ -264,138 +237,32 @@ export default () => {
 		});
 	};
 
-	// console.log("tab--> ", tab);
-
-	const innerTopLayout = () => {
-		if (tab === defTabId.second) {
-			return (
-				<>
-					<div className="rankTag">
-						<div>Tournament</div>
-						<ButtonGroups
-							t={t}
-							onChangeButton={onChangeButton}
-							buttonID={buttonID}
-							onChangeDays={onChangeDays}
-							beforeDays={beforeDays}
-							tab={tab}
-						/>
-					</div>
-					<button className="finalTour">EURO 2020 FINAL</button>
-				</>
-			);
-		}
-		if (tab === defTabId.third) {
-			return <div className="txt">SPORTS , LIVE CASINO & SLOTS</div>;
-		}
-		if (tab === defTabId.fourth) {
-			return (
-				<div className="rankTag">
-					<div>Date</div>
-					<ButtonGroups
-						t={t}
-						onChangeButton={onChangeButton}
-						buttonID={buttonID}
-						onChangeDays={onChangeDays}
-						beforeDays={beforeDays}
-						tab={tab}
-					/>
-				</div>
-			);
-		}
-	};
-
 	return (
 		<section className="ranking">
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
-			{isEventTab ? (
-				<EventTab
+			{tab === defTabId.first ? (
+				<ContentEvent
 					t={t}
-					// onChangeButton={onChangeButton}
-					buttonID={buttonID}
+					currencyName={currencyName}
+					userInfo={userInfo}
 					tab={tab}
 					rewardList={rewardList}
-					userInfo={userInfo}
-					currencyName={currencyName}
+					changeRewardTab={changeRewardTab}
+					rewardTab={rewardTab}
 				/>
 			) : (
-				<div
-					className={
-						tab === defTabId.second
-							? "lastevent active"
-							: "champion active"
-					}>
-					{innerTopLayout()}
-					<div className="highest">
-						{tab === defTabId.third ? (
-							<div>
-								* Current tournament schedule: 13 Apr 2021 ~ 12
-								May 2021
-							</div>
-						) : null}
-						<img src="https://image.n88media.com/SiteSkin/img/champion.png" />
-						<div className="mwt_border">
-							<span className="arrow_t_int" />
-							<span className="arrow_t_out" />
-							<div>HIGHEST WINNING RECORD</div>
-							<div>(Last 7 Days) ******kboy</div>
-							<div className="txt-yellow">MYR 10,000,000.00</div>
-						</div>
-					</div>
-					<div className="rankModule">
-						{rankingData?.length > 0 ? (
-							<div className="rankList">
-								<ul>
-									<li>
-										<div>{t("lbl_Ranking")}</div>
-										<div>{t("lbl_Username")}</div>
-										<div>{t("lbl_Points")}</div>
-									</li>
-									<Ranking RankingDatas={rankingData} />
-								</ul>
-							</div>
-						) : (
-							<div className="icon icon-nodata">
-								{t("lbl_NoData")}
-							</div>
-						)}
-						{tab === defTabId.second ? null : (
-							<div className="lastUpdate">
-								{t(`lbl_LastUpdTime`, {
-									time: showUpdateTime()
-								})}
-							</div>
-						)}
-					</div>
-				</div>
+				<Content
+					t={t}
+					showUpdateTime={showUpdateTime}
+					tab={tab}
+					periodId={periodId}
+					rewardList={rewardList}
+					rankingData={rankingData}
+					onChangePeriod={onChangePeriod}
+					onChangeDays={onChangeDays}
+					beforeDays={beforeDays}
+				/>
 			)}
 		</section>
 	);
 };
-
-const Ranking = ({ RankingDatas }) =>
-	RankingDatas?.map((item, idx) => {
-		const { rank } = item;
-		return (
-			<li
-				key={`leaderboard_item_${item.userName}`}
-				className={rank ? "userRank" : null}>
-				<div>
-					{idx < 3 ? (
-						<img
-							src={require(`../../styles/img/no${idx + 1}.png`)}
-							alt="ranking_top_three"
-						/>
-					) : (
-						<img
-							src={require(`../../styles/img/gold.png`)}
-							alt="ranking_gold"
-						/>
-					)}
-					{rank || idx + 1}
-				</div>
-				<div>{item.userName}</div>
-				<div>{number_format(item.wTurnover)}</div>
-			</li>
-		);
-	});
