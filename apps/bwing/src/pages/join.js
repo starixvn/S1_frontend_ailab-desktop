@@ -305,17 +305,14 @@ const Content = () => {
 			: null;
 
 	const phoneCheck = async val => {
-		let checked = false;
-		let msg = "";
+		let checked = true;
+		let msg = "lbl_CantChangePhone";
 
 		if (val === "") {
 			checked = false;
 			msg = "lbl_PhoneRequired";
 		} else if (val.length > 0 && val.length < 9) {
 			checked = false;
-			msg = "lbl_CantChangePhone";
-		} else {
-			checked = true;
 			msg = "lbl_CantChangePhone";
 		}
 
