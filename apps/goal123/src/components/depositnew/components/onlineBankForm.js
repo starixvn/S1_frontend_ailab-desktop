@@ -102,8 +102,8 @@ const OnlineBankForm = ({
 
 	if (onlineBankGroupList.length <= 0) return null;
 
-	const formatMinAmount = number_format(infoData.minAmount, _isConvert);
-	const formatManAmount = number_format(infoData.maxAmount, _isConvert);
+	const formatMinAmount = number_format(infoData.minAmount);
+	const formatManAmount = number_format(infoData.maxAmount);
 
 	return (
 		<>
@@ -186,7 +186,7 @@ const OnlineBankForm = ({
 						isAmount={true}
 						placeholder={`${t(
 							"lbl_MinMaxAmount"
-						)} ${formatMinAmount} ~ ${formatManAmount}`}
+						)} ${formatMinAmount} / ${formatManAmount}`}
 						onKeyDown={onInputboxKeyDown}
 					/>
 				</div>

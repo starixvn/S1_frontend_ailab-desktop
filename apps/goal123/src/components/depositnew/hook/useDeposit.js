@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import moment from "moment";
+import { userInfoContext } from "../../common/context";
 import usePopBox from "../../hook/usePopBox";
 import {
 	api_payment_GetBankInfoOffList,
@@ -14,7 +15,11 @@ import {
 	api_payment_GetDepositInfoRecent
 } from "../../../service/api/payment";
 
+import { api_accountStrict_SetAccountName } from "../../../service/api/accountStrict";
+
 const useDeposit = ({ isMountedRef }) => {
+	const { setUserInfo } = useContext(userInfoContext);
+
 	const [mobilePayGourpList, setMobilePayGourpList] = useState([]);
 	const [mobilePayInfoList, setMobilePayInfoList] = useState([]);
 
@@ -251,6 +256,34 @@ const useDeposit = ({ isMountedRef }) => {
 		);
 		return result;
 	};
+
+	const setAccountName = async accountName => {
+		await api_accountStrict_SetAccountName({
+			name: accountName
+		}).then(
+			res => {
+				if (!isMountedRef.current) return;
+
+				const { message, errorCode } = res.data;
+				const success = errorCode === 0;
+
+				if (success) {
+					setUserInfo(prev => ({
+						...prev,
+						accountName
+					}));
+				}
+
+				errorPopBox(message || `[${errorCode}] error`, errorCode);
+			},
+			() => {
+				if (!isMountedRef.current) return;
+
+				errorPopBox();
+			}
+		);
+	};
+
 	return {
 		getMobilePayGroupList,
 		getMobilePayInfoList,
@@ -271,6 +304,7 @@ const useDeposit = ({ isMountedRef }) => {
 		postLocalBankReqWireTransfer,
 		uploadLocalBankReceipt,
 		setLocalBankReceipt,
+		setAccountName,
 
 		getDepositInfoRecent,
 		depositInfoRecentDatas,

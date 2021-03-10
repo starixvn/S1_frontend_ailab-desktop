@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { navigate, Link } from "@reach/router";
+import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
@@ -10,8 +10,6 @@ import config from "../../../config";
 const LocalBankForm = ({
 	t,
 	userInfo,
-	setPopBox,
-	defPopBoxType,
 	_isConvert,
 	depositType,
 	localBankGroupList,
@@ -28,6 +26,41 @@ const LocalBankForm = ({
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
+
+	const [userAccountName, setUserAccountName] = useState({
+		value: "",
+		checked: null,
+		tip: ""
+	});
+
+	const onChangeAccountName = val => {
+		const error = validate({
+			userAccountName: val
+		});
+
+		setUserAccountName({
+			value: val,
+			checked: !error.userAccountName,
+			tip: error.userAccountName
+		});
+
+		setInfoData(prev => {
+			return {
+				...prev,
+				accountName: val
+			};
+		});
+	};
+
+	const validate = datas => {
+		const errors = {};
+
+		if (!datas.userAccountName) {
+			errors.userAccountName = t("lbl_NameRequired");
+		}
+
+		return errors;
+	};
 
 	const onChangeBankInfo = item => {
 		navigate(
@@ -50,38 +83,9 @@ const LocalBankForm = ({
 		});
 	};
 
-	const checkUserName = () => {
-		const { isLogin, accountName, phoneNo, email } = userInfo;
-
-		if (
-			isLogin &&
-			((!accountName && accountName !== undefined) ||
-				(!phoneNo && phoneNo !== undefined) ||
-				(!email && email !== undefined))
-		) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.UpdateProfile,
-				title: t("lbl_ImportantNote"),
-				content: t("lbl_UpdatePersonalInfoDeposit"),
-				btnBar: (
-					<div className="btnGroup">
-						<Link
-							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
-							{t("lbl_UpdatePersonalDetail")}
-						</Link>
-					</div>
-				)
-			});
-		}
-	};
-
 	useEffect(() => {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const _clipboard = new ClipboardJS(".copyBtn");
-
-		checkUserName();
 
 		if (localBankGroupList.some(item => item.sysId === sysIdForRecord)) {
 			const gIdx = localBankGroupList.findIndex(
@@ -98,8 +102,8 @@ const LocalBankForm = ({
 
 	if (localBankGroupList.length <= 0) return null;
 
-	const formatMinAmount = number_format(infoData.minAmount, _isConvert);
-	const formatManAmount = number_format(infoData.maxAmount, _isConvert);
+	const formatMinAmount = number_format(infoData.minAmount);
+	const formatManAmount = number_format(infoData.maxAmount);
 
 	return (
 		<>
@@ -164,6 +168,22 @@ const LocalBankForm = ({
 				</div>
 			</div>
 
+			{!userInfo.accountName ? (
+				<div className="subModule">
+					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
+						{t("lbl_RealName")}
+					</div>
+					<Inputbox
+						className="inputBox-white"
+						value={userAccountName.value}
+						onChange={e => onChangeAccountName(e.target.value)}
+						onBlur={e => onChangeAccountName(e.target.value)}
+						tip={userAccountName?.tip}
+					/>
+				</div>
+			) : null}
+
 			<div className="subModule">
 				<div className="subModuleTitle">
 					<i className="txt-blue">*</i>
@@ -171,7 +191,6 @@ const LocalBankForm = ({
 				</div>
 				<Inputbox
 					className="inputBox-white"
-					title={t("lbl_Amount")}
 					value={infoData.amount}
 					onChange={e => onChangeAmount(e.target.value)}
 					onBlur={() => onValidAmount(infoData.amount)}
@@ -182,7 +201,7 @@ const LocalBankForm = ({
 					isAmount={true}
 					placeholder={`${t(
 						"lbl_MinMaxAmount"
-					)} ${formatMinAmount} ~ ${formatManAmount}`}
+					)} ${formatMinAmount} / ${formatManAmount}`}
 					onKeyDown={onInputboxKeyDown}
 				/>
 			</div>
@@ -225,9 +244,7 @@ const LocalBankForm = ({
 LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	infoData: PropTypes.objectOf(PropTypes.any).isRequired,
-	defPopBoxType: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
-	setPopBox: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	depositType: PropTypes.string.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,

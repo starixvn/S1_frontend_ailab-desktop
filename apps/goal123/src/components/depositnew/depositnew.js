@@ -73,6 +73,8 @@ const Depositnew = () => {
 		localBankInfo,
 		postLocalBankReqWireTransfer,
 		uploadLocalBankReceipt,
+		setAccountName,
+
 		setLocalBankReceipt,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
@@ -103,7 +105,7 @@ const Depositnew = () => {
 			_amount,
 			infoData.minAmount,
 			infoData.maxAmount,
-			_isConvert,
+			false,
 			t
 		);
 
@@ -141,12 +143,18 @@ const Depositnew = () => {
 			} else if (depositType === defDepositType.localBank) {
 				if (
 					loading ||
+					(!userInfo.accountName && !infoData.accountName) ||
 					// !infoData?.infoDataDepositRefNo ||
 					!infoData?.infoDataReceiptImgFile?.type.includes("image")
 				)
 					return;
 
 				setLoading(true);
+
+				if (infoData.accountName) {
+					await setAccountName(infoData.accountName);
+				}
+
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
 					sysId: infoData.sysId
@@ -304,6 +312,7 @@ const Depositnew = () => {
 	if (depositType === defDepositType.localBank) {
 		checked =
 			infoData.checked &&
+			(userInfo.accountName || infoData.accountName) &&
 			// infoData?.infoDataDepositRefNo &&
 			infoData?.infoDataReceiptImgFile?.type.includes("image");
 	} else {
@@ -341,8 +350,6 @@ const Depositnew = () => {
 					<LocalBankForm
 						t={t}
 						userInfo={userInfo}
-						setPopBox={setPopBox}
-						defPopBoxType={defPopBoxType}
 						_isConvert={_isConvert}
 						localBankGroupList={localBankGroupList}
 						depositType={depositType}
@@ -384,8 +391,6 @@ const Depositnew = () => {
 				depositInfoRecentDatas={depositInfoRecentDatas}
 				setDepositInfoRecentDatas={setDepositInfoRecentDatas}
 			/>
-
-			<button className="icon icon-books" />
 		</>
 	);
 };
