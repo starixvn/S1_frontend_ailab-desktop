@@ -64,7 +64,7 @@ const useDeposit = ({ isMountedRef }) => {
 				errorPopBox(message || `[${errorCode}] error`, errorCode);
 			}
 		);
-		return datas;
+		return datas || [];
 	};
 
 	const getOnlineBankGroupList = async () => {
@@ -113,7 +113,7 @@ const useDeposit = ({ isMountedRef }) => {
 			}
 		);
 
-		return datas;
+		return datas || [];
 	};
 
 	const getLocalBankGroupList = async () => {
