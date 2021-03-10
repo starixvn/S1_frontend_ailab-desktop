@@ -17,6 +17,10 @@ import {
 } from "../common/common";
 
 import useDeposit from "./hook/useDeposit";
+import useDepositOnline from "./hook/useDepositOnline";
+import useDepositMobilePay from "./hook/useDepositMobilePay";
+import useDepositLocalBank from "./hook/useDepositLocalBank";
+
 import path from "../../router";
 import config from "../../config";
 
@@ -55,33 +59,39 @@ const Depositnew = () => {
 		setPopBox({ isOpen: false });
 	};
 	const {
-		getMobilePayGroupList,
-		getMobilePayInfoList,
-		setMobilePayInfoList,
-		mobilePayGourpList,
-		mobilePayInfoList,
-
-		getOnlineBankGroupList,
-		getOnlineBankInfoList,
-		setOnlineBankInfoList,
-		onlineBankGroupList,
-		onlineBankInfoList,
-
-		getLocalBankGroupList,
-		getLocalBankInfo,
-		localBankGroupList,
-		localBankInfo,
-		postLocalBankReqWireTransfer,
-		uploadLocalBankReceipt,
-		setAccountName,
-
-		setLocalBankReceipt,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
 		setDepositInfoRecentDatas
 	} = useDeposit({
 		isMountedRef
 	});
+
+	const {
+		getMobilePayGroupList,
+		getMobilePayInfoList,
+		setMobilePayInfoList,
+		mobilePayGourpList,
+		mobilePayInfoList
+	} = useDepositMobilePay({ isMountedRef });
+
+	const {
+		getLocalBankGroupList,
+		getLocalBankInfo,
+		localBankGroupList,
+		localBankInfo,
+		postLocalBankReqWireTransfer,
+		setLocalBankReceipt,
+		uploadLocalBankReceipt,
+		setAccountName
+	} = useDepositLocalBank({ isMountedRef });
+
+	const {
+		getOnlineBankGroupList,
+		getOnlineBankInfoList,
+		setOnlineBankInfoList,
+		onlineBankGroupList,
+		onlineBankInfoList
+	} = useDepositOnline({ isMountedRef });
 
 	const onChangeDepositType = type => {
 		setDepositType(type);
