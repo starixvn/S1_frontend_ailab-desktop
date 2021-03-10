@@ -11,6 +11,9 @@ const getAffiliate = () => {
 		: `https://aff.${arr.join(".")}`;
 };
 
+export const errorPageUrl = langId =>
+	`https://error.n88media.com/404/index_${langId}.html`;
+
 export const SiteInfo = {
 	siteName,
 	logo: "https://image.n88media.com/SiteSkin/img/logo_evt.png",
