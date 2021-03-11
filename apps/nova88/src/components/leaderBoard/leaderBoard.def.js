@@ -79,9 +79,9 @@ export const defRewardTabId = {
 };
 
 export const defRewardList = ({ t }) => {
-	const unit = "Ang Pao";
 	const unitMYR = "MYR";
-	const unitIDR = "THB";
+	const unitIDR = "IDR";
+	const unitTHB = "THB";
 
 	return {
 		MYR: {
@@ -144,6 +144,30 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: t("lbl_Rank2"), reward: `${unitMYR} 3,000` }
 			]
 		},
+		THB: {
+			[defRewardTabId.final]: [
+				{
+					displayRank: t("lbl_RankChampion"),
+					reward: `${unitTHB} 80,000`
+				},
+				{ displayRank: t("lbl_Rank1"), reward: `${unitTHB} 50,000` },
+				{ displayRank: t("lbl_Rank2"), reward: `${unitTHB} 35,000` },
+				{ displayRank: t("lbl_Rank3"), reward: `${unitTHB} 30,000` },
+				{ displayRank: t("lbl_Rank4"), reward: `${unitTHB} 25,000` },
+				{ displayRank: t("lbl_Rank5"), reward: `${unitTHB} 20,000` },
+				{ displayRank: t("lbl_Rank6"), reward: `${unitTHB} 15,000` },
+				{ displayRank: t("lbl_Rank7"), reward: `${unitTHB} 10,000` },
+				{ displayRank: t("lbl_Rank8"), reward: `${unitTHB} 5,000` }
+			],
+			[defRewardTabId.monthly]: [
+				{
+					displayRank: t("lbl_RankChampion"),
+					reward: `${unitTHB} 15,000`
+				},
+				{ displayRank: t("lbl_Rank1"), reward: `${unitTHB} 12,000` },
+				{ displayRank: t("lbl_Rank2"), reward: `${unitTHB} 8,000` }
+			]
+		},
 		IDR: {
 			[defRewardTabId.final]: [
 				{
@@ -152,42 +176,20 @@ export const defRewardList = ({ t }) => {
 				},
 				{ displayRank: t("lbl_Rank1"), reward: "LOGAM MULIA 75g" },
 				{ displayRank: t("lbl_Rank2"), reward: "LOGAM MULIA 50g" },
-				{ displayRank: t("lbl_Rank3"), reward: `18,000` },
-				{ displayRank: t("lbl_Rank4"), reward: `15,000` },
-				{ displayRank: t("lbl_Rank5"), reward: `13,000` },
-				{ displayRank: t("lbl_Rank6"), reward: `10,000` },
-				{ displayRank: t("lbl_Rank7"), reward: `8,000` },
-				{ displayRank: t("lbl_Rank8"), reward: `5,000` }
-			],
-			[defRewardTabId.monthly]: [
-				{ displayRank: t("lbl_RankChampion"), reward: "15,000,000" },
-				{ displayRank: t("lbl_Rank1"), reward: `12,000,000` },
-				{ displayRank: t("lbl_Rank2"), reward: `8,000,000` }
-			]
-		},
-
-		THB: {
-			[defRewardTabId.final]: [
-				{
-					displayRank: t("lbl_RankChampion"),
-					reward: `${unitIDR} 80,000`
-				},
-				{ displayRank: t("lbl_Rank1"), reward: `${unitIDR} 50,000` },
-				{ displayRank: t("lbl_Rank2"), reward: `${unitIDR} 35,000` },
-				{ displayRank: t("lbl_Rank3"), reward: `${unitIDR} 30,000` },
-				{ displayRank: t("lbl_Rank4"), reward: `${unitIDR} 25,000` },
-				{ displayRank: t("lbl_Rank5"), reward: `${unitIDR} 20,000` },
+				{ displayRank: t("lbl_Rank3"), reward: `${unitIDR} 35,000` },
+				{ displayRank: t("lbl_Rank4"), reward: `${unitIDR} 30,000` },
+				{ displayRank: t("lbl_Rank5"), reward: `${unitIDR} 25,000` },
 				{ displayRank: t("lbl_Rank6"), reward: `${unitIDR} 15,000` },
-				{ displayRank: t("lbl_Rank7"), reward: `${unitIDR} 10,000` },
+				{ displayRank: t("lbl_Rank7"), reward: `${unitIDR} 8,000` },
 				{ displayRank: t("lbl_Rank8"), reward: `${unitIDR} 5,000` }
 			],
 			[defRewardTabId.monthly]: [
+				{ displayRank: t("lbl_RankChampion"), reward: "15,000,000" },
 				{
-					displayRank: t("lbl_RankChampion"),
-					reward: `${unitIDR} 15,000`
+					displayRank: t("lbl_Rank1"),
+					reward: `${unitIDR} 12,000,000`
 				},
-				{ displayRank: t("lbl_Rank1"), reward: `${unitIDR} 12,000` },
-				{ displayRank: t("lbl_Rank2"), reward: `${unitIDR} 8,000` }
+				{ displayRank: t("lbl_Rank2"), reward: `${unitIDR} 8,000,000` }
 			]
 		}
 	};

@@ -415,7 +415,8 @@
 	"Currency_13": "RMB",
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
-
+	"Currency_96": "USDT",
+	
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "วันนี้",
 	"lbl_YesterDay": "เมื่อวานนี้",
@@ -460,7 +461,6 @@
 	"lbl_Monthly_Deposit_Turnover_Race_Tournament":"การแข่งขันยอดเงินฝากรายเดือน & ยอดเทิร์นโอเวอร์",
 	"lbl_EURO_2020_Final":"ยูฟ่าแชมเปียนส์ลีกรอบชิงชนะเลิศ 2020",
 	"lbl_Tournament_Points":"Tournament-Points",
-	"lbl_HighestWinningRecord": "HIGHEST WINNING RECORD",
 	"lbl_Stage1":"Stage 1",
 	"lbl_Stage2":"Stage 2",
 	"lbl_Stage3":"Stage 3",

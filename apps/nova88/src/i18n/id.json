@@ -415,6 +415,7 @@
 	"Currency_13": "RMB",
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
+	"Currency_96": "USDT",
 
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "Hari Ini",
@@ -448,7 +449,6 @@
 	"lbl_Ranking_LiveCasino": "Peringkat",
 	"lbl_Ranking_Slots": "Peringkat",
 	"lbl_Last_Event": "Event terakhir",
-
 	"lbl_Prizes":"HADIAH",
 	"lbl_Bonus_credit":"BONUS KREDIT",
 	"lbl_period1":"13 Mar - 12 Apr",
@@ -461,7 +461,6 @@
 	"lbl_Monthly_Deposit_Turnover_Race_Tournament":"TURNAMEN DEPOSIT BULANAN & TURNOVER",
 	"lbl_EURO_2020_Final":"FINAL PIALA EROPA 2020",
 	"lbl_Tournament_Points":"Tournament-Points",
-	"lbl_HighestWinningRecord": "HIGHEST WINNING RECORD",
 	"lbl_Stage1":"Stage 1",
 	"lbl_Stage2":"Stage 2",
 	"lbl_Stage3":"Stage 3",

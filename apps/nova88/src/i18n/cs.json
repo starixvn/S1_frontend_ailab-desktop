@@ -415,7 +415,8 @@
 	"Currency_13": "RMB",
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
-
+	"Currency_96": "USDT",
+	
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "今日",
 	"lbl_YesterDay": "昨日",
@@ -448,7 +449,6 @@
 	"lbl_Ranking_LiveCasino": "真人排行榜",
 	"lbl_Ranking_Slots": "老虎机排行榜",
 	"lbl_Last_Event": "上个活动",
-
 	"lbl_Prizes":"奖品",
 	"lbl_Bonus_credit":"优惠奖金",
 	"lbl_period1":"13 Mar - 12 Apr",
@@ -461,7 +461,6 @@
 	"lbl_Monthly_Deposit_Turnover_Race_Tournament":"每月存款 和 流水倍数竞赛",
 	"lbl_EURO_2020_Final":"2020 欧洲冠军杯决赛",
 	"lbl_Tournament_Points":"Tournament-Points",
-	"lbl_HighestWinningRecord": "HIGHEST WINNING RECORD",
 	"lbl_Stage1":"Stage 1",
 	"lbl_Stage2":"Stage 2",
 	"lbl_Stage3":"Stage 3",
@@ -479,7 +478,6 @@
 	"lbl_Rank6":"第七名",
 	"lbl_Rank7":"第八名",
 	"lbl_Rank8":"第九名",
-
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "推荐",

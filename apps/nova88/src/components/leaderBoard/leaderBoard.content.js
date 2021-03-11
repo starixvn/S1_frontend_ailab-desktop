@@ -46,7 +46,7 @@ const leaderBoardContent = ({
 			);
 		}
 		if (tab === defTabId.third) {
-			return <div className="txt">{t("lbl_Sport_LiveCasino_Slots")}</div>;
+			return null;
 		}
 		if (tab === defTabId.fourth) {
 			return (
@@ -95,12 +95,6 @@ const leaderBoardContent = ({
 			);
 		});
 
-	// const periodStart = new Date(defPeriodList[periodId].startDate);
-	// const periodStartFormat = moment(periodStart).format("DD MMM YYYY");
-
-	// const periodEnd = new Date(defPeriodList[periodId].endDate);
-	// const periodEndFormat = moment(periodEnd).format("DD MMM YYYY");
-
 	const currentStartMonth = defPeriodList[periodId].StartMonth;
 	const currentEndMonth = defPeriodList[periodId].StartMonth;
 
@@ -112,18 +106,25 @@ const leaderBoardContent = ({
 			<ContentTopLayout />
 			<div className="highest">
 				{tab === defTabId.third ? (
-					<div>
-						* {t("lbl_Current_tournament_schedule")} : 13{" "}
-						{t(`${currentStartMonth}`)} 2021 ~ 12{" "}
-						{t(`${currentEndMonth}`)} 2021
-					</div>
+					<>
+						<div className="title">
+							{t("lbl_Sport_LiveCasino_Slots")}
+						</div>
+						<div>
+							* {t("lbl_Current_tournament_schedule")} : 13{" "}
+							{t(`${currentStartMonth}`)} 2021 ~ 12{" "}
+							{t(`${currentEndMonth}`)} 2021
+						</div>
+					</>
 				) : null}
-				<img src="https://image.n88media.com/SiteSkin/img/champion.png" />
+				<img
+					src="https://image.n88media.com/SiteSkin/img/champion.png"
+					alt="champion"
+				/>
 				<div className="mwt_border">
 					<span className="arrow_t_int" />
 					<span className="arrow_t_out" />
-					<div>{t("lbl_HighestWinningRecord")}</div>
-					{/* <div>(Last 7 Days) ******kboy</div> */}
+					{/* <div>{t("lbl_HighestWinningRecord")}</div> */}
 					<div className="txt-yellow">{rewardList[0].reward}</div>
 				</div>
 			</div>

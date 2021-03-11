@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ButtonGroups from "./leaderBoard.btnGroups";
 import config from "../../config";
 import { defTabId, defRewardTabId } from "./leaderBoard.def";
 

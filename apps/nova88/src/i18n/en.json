@@ -449,7 +449,6 @@
 	"lbl_Ranking_LiveCasino": "Ranking",
 	"lbl_Ranking_Slots": "Ranking",
 	"lbl_Last_Event": "Last Event",
-
 	"lbl_Prizes":"Prizes",
 	"lbl_Bonus_credit":"Bonus credit",
 	"lbl_period1":"13 Mar - 12 Apr",
@@ -462,7 +461,6 @@
 	"lbl_Monthly_Deposit_Turnover_Race_Tournament":"MONTHLY DEPOSIT & TURNOVER RACE TOURNAMENT",
 	"lbl_EURO_2020_Final":"UEFA EURO 2020 FINAL",
 	"lbl_Tournament_Points":"Tournament-Points",
-	"lbl_HighestWinningRecord": "HIGHEST WINNING RECORD",
 	"lbl_Stage1":"Stage 1",
 	"lbl_Stage2":"Stage 2",
 	"lbl_Stage3":"Stage 3",
@@ -471,7 +469,6 @@
 	"lbl_May":"May",
 	"lbl_Jun":"Jun",
 	"lbl_Jul":"Jul",
-	"lbl_rank":"st Runner Up",
 	"lbl_RankChampion":"Champion",
 	"lbl_Rank1":"1st Runner Up",
 	"lbl_Rank2":"2nd Runner Up",
