@@ -12,13 +12,13 @@ const leaderBoardEventContent = ({
 	changeRewardTab,
 	rewardTab
 }) => {
-	const rows = rewardList.map(item => {
+	const rows = rewardList.map((item, idx) => {
 		return (
 			<li key={`leaderBoard-event-${item.displayRank}`}>
 				<div>
-					{Number(item.displayRank) < 4 ? (
+					{idx + 1 < 4 ? (
 						<img
-							src={require(`../../styles/img/no${item.displayRank}.png`)}
+							src={require(`../../styles/img/no${idx + 1}.png`)}
 							alt="top_ranking"
 						/>
 					) : (
