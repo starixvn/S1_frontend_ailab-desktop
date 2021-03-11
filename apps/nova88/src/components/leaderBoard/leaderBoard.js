@@ -32,8 +32,9 @@ const currMapping = {
 };
 
 //  need update ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-const Today = new Date("2021/03/20");
+const Today = new Date("2021/09/20");
 const defLBCategoryId = 1;
+const defTopNum = 9;
 
 export default () => {
 	const { t } = useTranslation();
@@ -42,10 +43,9 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState([]);
 	const [tab, setTab] = useState(defTabId.first);
-	const [periodId, setPeriodId] = useState(1);
-	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 	const [rewardTab, setRewardTab] = useState(defRewardTabId.final);
-	const defTopNum = 10;
+	const [periodId, setPeriodId] = useState(defPeriodId.period4);
+	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??
@@ -64,10 +64,9 @@ export default () => {
 	});
 
 	useEffect(() => {
+		getRealTiimePeriod();
 		getLeaderboardData();
 		showUpdateTime();
-		getCurrentPeriod();
-		setPeriodId(getCurrentPeriod());
 	}, [userInfo.userName]);
 
 	useEffect(() => {
@@ -85,8 +84,8 @@ export default () => {
 		return displayTime;
 	};
 
-	const getCurrentPeriod = () => {
-		let result = 4;
+	const getRealTiimePeriod = () => {
+		let result = defPeriodId.period4;
 		Object.values(defPeriodList)
 			.filter(pd => pd.id !== defPeriodId.period4)
 			.forEach(pd => {
@@ -97,29 +96,12 @@ export default () => {
 					result = pd.id;
 				}
 			});
+		setPeriodId(result);
 		return result;
 	};
 
-	const changeRewardTab = _tab => {
-		setRewardTab(_tab);
-	};
-
-	const onChangePeriod = (_periodId, _tabId) => {
-		setPeriodId(_periodId);
-		getLeaderboardData(_periodId, beforeDays, _tabId);
-	};
-
-	const onChangeDays = _days => {
-		setBeforeDays(_days);
-		getLeaderboardData(periodId, _days, tab);
-	};
-
-	const clickClose = () => {
-		setPopBox({ isOpen: false });
-	};
-
 	const onChangeTab = tabId => {
-		const currentPeriod = getCurrentPeriod();
+		const realTimePeriod = getRealTiimePeriod();
 		if (tabId !== defTabId.first && !userInfo.isLogin) {
 			setPopBox({
 				isOpen: true,
@@ -127,25 +109,25 @@ export default () => {
 			});
 		} else {
 			setTab(tabId);
-			setPeriodId(currentPeriod);
+			setPeriodId(realTimePeriod);
 			setRewardTab(defRewardTabId.final);
 			if (tabId === defTabId.first) {
 				setBeforeDays(defDayNum.today);
 			}
 			if (tabId === defTabId.second || tabId === defTabId.third) {
 				setBeforeDays(defDayNum.today);
-				getLeaderboardData(currentPeriod, defDayNum.today, tabId);
+				getLeaderboardData(realTimePeriod, defDayNum.today, tabId);
 			}
 			if (tabId === defTabId.fourth) {
 				setBeforeDays(defDayNum.yesterDay);
-				getLeaderboardData(currentPeriod, defDayNum.yesterDay, tabId);
+				getLeaderboardData(realTimePeriod, defDayNum.yesterDay, tabId);
 			}
 		}
 	};
 
 	const getLeaderboardData = (_periodId, _days, _tabId) => {
 		if (!userInfo.isLogin) return;
-		if (_tabId === defTabId.first) return;
+		if (!_tabId || _tabId === defTabId.first) return;
 		const currentperiodId = _periodId ?? periodId;
 
 		const payload = {
@@ -162,7 +144,7 @@ export default () => {
 
 					if (rankDatas?.length > 0) {
 						api_events_GetCustRankV2({
-							lBCategoryId: payload.lBCategoryId,
+							LBCategoryId: payload.lBCategoryId,
 							BeforeDays: payload.BeforeDays,
 							EventCode: payload.EventCode
 						}).then(resRank => {
@@ -233,6 +215,24 @@ export default () => {
 				</div>
 			)
 		});
+	};
+
+	const changeRewardTab = _tab => {
+		setRewardTab(_tab);
+	};
+
+	const onChangePeriod = (_periodId, _tabId) => {
+		setPeriodId(_periodId);
+		getLeaderboardData(_periodId, beforeDays, _tabId);
+	};
+
+	const onChangeDays = _days => {
+		setBeforeDays(_days);
+		getLeaderboardData(periodId, _days, tab);
+	};
+
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
 	};
 
 	return (

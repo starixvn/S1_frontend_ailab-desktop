@@ -49,8 +49,8 @@ export const defPeriodList = {
 		eventCode: "2021024",
 		startDate: "2021/03/13",
 		endDate: "2021/07/12",
-		StartMonth: "Mar",
-		EndMonth: "Jul"
+		StartMonth: "lbl_Mar",
+		EndMonth: "lbl_Jul"
 	}
 };
 
@@ -184,7 +184,10 @@ export const defRewardList = ({ t }) => {
 				{ displayRank: t("lbl_Rank8"), reward: `${unitIDR} 5,000` }
 			],
 			[defRewardTabId.monthly]: [
-				{ displayRank: t("lbl_RankChampion"), reward: "15,000,000" },
+				{
+					displayRank: t("lbl_RankChampion"),
+					reward: `${unitIDR} 15,000,000`
+				},
 				{
 					displayRank: t("lbl_Rank1"),
 					reward: `${unitIDR} 12,000,000`

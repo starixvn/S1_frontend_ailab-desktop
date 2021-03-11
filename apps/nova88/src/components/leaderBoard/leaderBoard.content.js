@@ -33,7 +33,7 @@ const leaderBoardContent = ({
 					</div>
 					<button
 						className={`finalTour ${
-							periodId === defPeriodId.period4 ? " active" : ""
+							periodId === defPeriodId.period4 ? "active" : ""
 						}`}
 						onClick={onChangePeriod.bind(
 							this,
