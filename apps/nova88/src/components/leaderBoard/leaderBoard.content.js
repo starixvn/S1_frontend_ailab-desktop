@@ -96,7 +96,7 @@ const leaderBoardContent = ({
 		});
 
 	const currentStartMonth = defPeriodList[periodId].StartMonth;
-	const currentEndMonth = defPeriodList[periodId].StartMonth;
+	const currentEndMonth = defPeriodList[periodId].EndMonth;
 
 	return (
 		<div

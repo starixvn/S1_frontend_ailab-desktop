@@ -85,16 +85,23 @@ export default () => {
 
 	const getRealTiimePeriod = () => {
 		let result = defPeriodId.period4;
-		Object.values(defPeriodList)
-			.filter(pd => pd.id !== defPeriodId.period4)
-			.forEach(pd => {
-				if (
-					Today > new Date(pd.startDate) &&
-					Today < new Date(pd.endDate)
-				) {
-					result = pd.id;
-				}
-			});
+		if (Today < new Date(defPeriodList[1].startDate)) {
+			result = defPeriodList[1].id;
+		} else if (Today > new Date(defPeriodList[3].endDate)) {
+			result = defPeriodList[3].id;
+		} else {
+			Object.values(defPeriodList)
+				.filter(pd => pd.id !== defPeriodId.period4)
+				.forEach(pd => {
+					if (
+						Today > new Date(pd.startDate) &&
+						Today < new Date(pd.endDate)
+					) {
+						result = pd.id;
+					}
+				});
+		}
+
 		setPeriodId(result);
 		return result;
 	};
