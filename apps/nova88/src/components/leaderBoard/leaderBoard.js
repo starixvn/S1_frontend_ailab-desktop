@@ -54,7 +54,7 @@ export default () => {
 
 	const rewardList = defRewardList({ t })[currencyName]
 		? defRewardList({ t })[currencyName][rewardTab]
-		: defRewardList({ t }).MYR[rewardTab]; 
+		: defRewardList({ t }).MYR[rewardTab];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -154,8 +154,6 @@ export default () => {
 			BeforeDays: _days ?? beforeDays,
 			EventCode: defPeriodList[currentperiodId].eventCode
 		};
-
-		console.log(" ▼▼ Payload ▼▼", payload);
 
 		const GetRankDatas = async () => {
 			await api_events_GetLeaderboardListV2(payload).then(res => {

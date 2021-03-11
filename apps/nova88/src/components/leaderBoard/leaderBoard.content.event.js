@@ -13,7 +13,6 @@ const leaderBoardEventContent = ({
 	changeRewardTab,
 	rewardTab
 }) => {
-	// console.log("event::", rewardList);
 	const rows = rewardList.map(item => {
 		return (
 			<li key={`leaderBoard-event-${item.displayRank}`}>
@@ -66,7 +65,7 @@ const leaderBoardEventContent = ({
 							this,
 							defRewardTabId.final
 						)}>
-						{t("lbl_UEFA_EURO_2020_FINAL_TOURNAMENT")}
+						{t("lbl_EURO_2020_Final")}
 					</button>
 					<button
 						className={
@@ -129,7 +128,7 @@ const leaderBoardEventContent = ({
 						<li>
 							<div />
 							<div>{t("lbl_Ranking")}</div>
-							<div>{t("lbl_Prizes")}</div>
+							<div>{t("lbl_Bonus_credit")}</div>
 						</li>
 						{rows}
 					</ul>
