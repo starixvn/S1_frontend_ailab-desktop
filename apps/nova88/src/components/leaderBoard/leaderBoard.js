@@ -32,7 +32,7 @@ const currMapping = {
 };
 
 //  need update ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-const Today = new Date("2021/09/20");
+const Today = new Date("2021/03/20");
 const defLBCategoryId = 1;
 const defTopNum = 9;
 
