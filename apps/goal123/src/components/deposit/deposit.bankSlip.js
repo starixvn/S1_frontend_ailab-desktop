@@ -1,9 +1,6 @@
 import React, { createRef, Component } from "react";
-import DateTime from "react-datetime";
 import moment from "moment";
-import "moment/locale/vi";
-import "moment/locale/en-au";
-import renderCustomizeMonths, { changeLocale } from "../common/renderMonth";
+import DateTime from "../common/dateTime";
 import config from "../../config";
 import Loading from "../common/loading";
 import { defPopBoxType } from "../common/popBox";
@@ -304,12 +301,6 @@ export class Module extends Component {
 							)}
 							onChange={this.editField.bind(this, "depositTime")}
 							closeOnSelect={true}
-							renderMonth={renderCustomizeMonths.bind(
-								this,
-								this.props.i18n,
-								this.props.langId
-							)}
-							locale={`${changeLocale(this.props.langId)}`}
 						/>
 						<div className="iconModule">
 							<i className="icon icon-calendar" />
