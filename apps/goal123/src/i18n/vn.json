@@ -32,7 +32,7 @@
 	"lbl_Announcement": "Thông Báo",
 	"lbl_TermsConditions": "Điều Khoản và Điều Kiện",
 	"lbl_RuleRegulations": "Quy Tắc và Quy Định đặt cược",
-	"lbl_APPDownload":"Tải ứng dụng",
+	"lbl_APPDownload": "Tải ứng dụng",
 	"lbl_Facebook": "Facebook",
 	"lbl_Twitter": "Twitter",
 	"lbl_YouTube": "YouTube",
@@ -43,7 +43,7 @@
 	"lbl_Zalo": "Zalo",
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
-	
+
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Goal123News": "Điểm báo Goal123",
 	"lbl_News": "Tin Tức",
@@ -297,7 +297,7 @@
 	"lbl_DepositAmount": "Tiền nạp",
 	"lbl_DepositTime": "Thời gian nạp tiền",
 	"lbl_SubmitProof": "Gửi biên lai ngân hàng",
-	"lbl_AttachFile": "Vui lòng đính kèm Biên lai ngân hàng của bạn ở đây. (Không bắt buộc)",
+	"lbl_AttachFile": "Vui lòng đính kèm Biên lai ngân hàng của bạn ở đây.",
 	"lbl_Refno": "Số tham chiếu",
 	"lbl_RefNoHint": "Vui lòng nhập Số tham chiếu trên biên lai ngân hàng của bạn.",
 	"lbl_RemindForRefNum": "Vui lòng nhập số tham chiếu!",
@@ -322,7 +322,7 @@
 	"lbl_UpdatePersonalInfoDeposit": "Vui lòng cập nhật thông tin cá nhân trước khi nạp tiền.",
 	"lbl_DepositNow": "Nạp tiền ngay",
 	"lbl_GoDepositPage": "Đến trang gửi tiền?",
-	
+
 	"lbl_UploadReceipt": "Upload Receipt",
 	"lbl_BankAccount": "Bank Account",
 	"lbl_PaymentModes": "Payment Modes",
@@ -335,6 +335,7 @@
 	"lbl_DepositLocalBankNotes3": "Please choose “Sender bears the transfer fee”.",
 	"lbl_DepositLocalBankNotes4": "Upload your pay slip to speed up processing time.",
 	"lbl_MinMaxAmount": "Min/Max Limit",
+	"lbl_DepositAccountNamePlaceholder": "Please use the BANK ACCOUNT WITH NAME AS IN YOUR ID",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",

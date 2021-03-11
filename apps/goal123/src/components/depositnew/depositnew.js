@@ -9,12 +9,7 @@ import {
 } from "../common/context";
 import { defDepositType } from "./depositnew.def";
 import { defPopBoxType } from "../common/popBox";
-import {
-	checkAmount,
-	isConvert,
-	getUrlParameter,
-	getAmountTip
-} from "../common/common";
+import { checkAmount, isConvert, getUrlParameter } from "../common/common";
 
 import useDeposit from "./hook/useDeposit";
 import useDepositOnline from "./hook/useDepositOnline";
@@ -159,11 +154,40 @@ const Depositnew = () => {
 				)
 					return;
 
-				setLoading(true);
+				const asyncAccountNameConfirm = () =>
+					new Promise(resolve => {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ProfileConfirmCheck,
+							accountName: infoData.accountName,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={() => resolve(false)}>
+										{t("lbl_ReModify")}
+									</button>
+									<button
+										className="btn-check"
+										onClick={() => resolve(true)}>
+										{t("lbl_Confirm")}
+									</button>
+								</div>
+							)
+						});
+					});
 
 				if (infoData.accountName) {
+					const success = await asyncAccountNameConfirm();
+
+					closePopBox();
+
+					if (!success) return;
+
 					await setAccountName(infoData.accountName);
 				}
+
+				setLoading(true);
 
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
@@ -235,15 +259,6 @@ const Depositnew = () => {
 	const resetDepositForm = () => {
 		setMobilePayInfoList([]);
 		setOnlineBankInfoList([]);
-	};
-
-	const clickInfo = () => {
-		const _msg =
-			tip === "" ? getAmountTip(infoData.minAmount, _isConvert, t) : "";
-
-		setInfoData(prev => {
-			return { ...prev, checked: null, tip: _msg };
-		});
 	};
 
 	const onInputboxKeyDown = event => {
@@ -341,18 +356,15 @@ const Depositnew = () => {
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}
-						langId={userInfo.langId}
 						_isConvert={_isConvert}
 						mobilePayGourpList={mobilePayGourpList}
 						getMobilePayInfoList={getMobilePayInfoList}
 						mobilePayInfoList={mobilePayInfoList}
 						infoData={infoData}
-						depositType={depositType}
 						setInfoData={setInfoData}
 						onChangeAmount={onChangeAmount}
 						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
-						clickInfo={clickInfo}
 					/>
 				)}
 
@@ -362,12 +374,10 @@ const Depositnew = () => {
 						userInfo={userInfo}
 						_isConvert={_isConvert}
 						localBankGroupList={localBankGroupList}
-						depositType={depositType}
 						infoData={infoData}
 						setInfoData={setInfoData}
 						onChangeAmount={onChangeAmount}
 						onValidAmount={onValidAmount}
-						clickInfo={clickInfo}
 						onInputboxKeyDown={onInputboxKeyDown}
 						getLocalBankInfo={getLocalBankInfo}
 						localBankInfo={localBankInfo}
@@ -378,19 +388,16 @@ const Depositnew = () => {
 				{depositType === defDepositType.onlineBank && (
 					<OnlineBankForm
 						t={t}
-						langId={userInfo.langId}
 						_isConvert={_isConvert}
 						onlineBankGroupList={onlineBankGroupList}
 						getOnlineBankInfoList={getOnlineBankInfoList}
 						onlineBankInfoList={onlineBankInfoList}
 						infoData={infoData}
-						depositType={depositType}
 						onChangeAmount={onChangeAmount}
 						onValidAmount={onValidAmount}
 						setInfoData={setInfoData}
 						setOnlineBankInfoList={setOnlineBankInfoList}
 						onInputboxKeyDown={onInputboxKeyDown}
-						clickInfo={clickInfo}
 					/>
 				)}
 			</DepositnewInfoMoule>

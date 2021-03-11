@@ -297,7 +297,7 @@
 	"lbl_DepositAmount": "Deposit Amount",
 	"lbl_DepositTime": "Deposit Time",
 	"lbl_SubmitProof": "Submit Bank Slip",
-	"lbl_AttachFile": "Please attach your bank slip here. (Optional)",
+	"lbl_AttachFile": "Please attach your bank slip here.",
 	"lbl_Refno": "Reference No.",
 	"lbl_RefNoHint": "Please submit your bank slip reference number",
 	"lbl_RemindForRefNum": "Reference Number is required.",
@@ -322,7 +322,6 @@
 	"lbl_UpdatePersonalInfoDeposit": "Please update your personal information before making deposit.",
 	"lbl_DepositNow": "Deposit Now",
 	"lbl_GoDepositPage": "Go to deposit page?",
-
 	"lbl_UploadReceipt": "Upload Receipt",
 	"lbl_BankAccount": "Bank Account",
 	"lbl_PaymentModes": "Payment Modes",
@@ -335,6 +334,7 @@
 	"lbl_DepositLocalBankNotes3": "Please choose “Sender bears the transfer fee”.",
 	"lbl_DepositLocalBankNotes4": "Upload your pay slip to speed up processing time.",
 	"lbl_MinMaxAmount": "Min/Max Limit",
+	"lbl_DepositAccountNamePlaceholder": "Please use the BANK ACCOUNT WITH NAME AS IN YOUR ID",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",

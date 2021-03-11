@@ -2,7 +2,7 @@ import React from "react";
 
 export default props => {
 	const showCheckIcon = () => {
-		if (props.checked === null) {
+		if (props.checked === null && props.clickInfo) {
 			return (
 				<i
 					className="icon icon-information-solid"

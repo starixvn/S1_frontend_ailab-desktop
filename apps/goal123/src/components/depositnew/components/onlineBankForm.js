@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
-import path from "../../../router";
 import config from "../../../config";
 
 const OnlineBankForm = ({
 	t,
-	langId,
 	_isConvert,
 	onlineBankGroupList,
 	getOnlineBankInfoList,
 	onlineBankInfoList,
 	infoData,
-	depositType,
 	onChangeAmount,
 	onValidAmount,
 	setInfoData,
 	setOnlineBankInfoList,
-	onInputboxKeyDown,
-	clickInfo
+	onInputboxKeyDown
 }) => {
 	const parameterPayName = getUrlParameter("pName");
 	const parameterPayId = Number(getUrlParameter("pId"));
@@ -35,9 +30,9 @@ const OnlineBankForm = ({
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
 
 	const onChangeBankGroup = async item => {
-		navigate(
-			`/${langId}/${path.deposit.root}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
-		);
+		// navigate(
+		// 	`/${langId}/${path.deposit.root}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
+		// );
 
 		setInfoData(item);
 		setSysIdForRecord(null);
@@ -64,9 +59,9 @@ const OnlineBankForm = ({
 	};
 
 	const onSetSysIdToInfoData = (item, pId) => {
-		navigate(
-			`/${langId}/${path.deposit.root}?type=${depositType}&pName=${parameterPayName}&pId=${pId}&sysId=${item.sysId}`
-		);
+		// navigate(
+		// 	`/${langId}/${path.deposit.root}?type=${depositType}&pName=${parameterPayName}&pId=${pId}&sysId=${item.sysId}`
+		// );
 
 		setSysIdForRecord(item.sysId);
 
@@ -179,7 +174,6 @@ const OnlineBankForm = ({
 						value={infoData.amount}
 						onChange={e => onChangeAmount(e.target.value)}
 						onBlur={() => onValidAmount(infoData.amount)}
-						clickInfo={clickInfo}
 						checked={infoData?.checked}
 						tip={infoData?.tip}
 						_isConvert={_isConvert}
@@ -197,19 +191,16 @@ const OnlineBankForm = ({
 
 OnlineBankForm.propTypes = {
 	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	onlineBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getOnlineBankInfoList: PropTypes.func.isRequired,
 	onlineBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	infoData: PropTypes.objectOf(PropTypes.any).isRequired,
-	depositType: PropTypes.string.isRequired,
 	setInfoData: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onValidAmount: PropTypes.func.isRequired,
-	onInputboxKeyDown: PropTypes.func.isRequired,
-	clickInfo: PropTypes.func.isRequired
+	onInputboxKeyDown: PropTypes.func.isRequired
 };
 
 export default OnlineBankForm;

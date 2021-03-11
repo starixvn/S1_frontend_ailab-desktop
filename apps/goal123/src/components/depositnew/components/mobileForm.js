@@ -1,25 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
-import path from "../../../router";
 import config from "../../../config";
 
 const MobileForm = ({
 	t,
-	langId,
 	_isConvert,
 	mobilePayGourpList,
 	getMobilePayInfoList,
 	mobilePayInfoList,
 	infoData,
-	depositType,
 	setInfoData,
 	onChangeAmount,
 	onValidAmount,
-	onInputboxKeyDown,
-	clickInfo
+	onInputboxKeyDown
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
@@ -30,9 +25,9 @@ const MobileForm = ({
 	);
 
 	const onGetMobileInfoList = async gId => {
-		navigate(
-			`/${langId}/${path.deposit.root}?type=${depositType}&gId=${gId}`
-		);
+		// navigate(
+		// 	`/${langId}/${path.deposit.root}?type=${depositType}&gId=${gId}`
+		// );
 
 		setGroupIdForRecord(gId);
 		setInfoChannelIdForRecord(null);
@@ -51,9 +46,9 @@ const MobileForm = ({
 	};
 
 	const onSetInfoData = item => {
-		navigate(
-			`/${langId}/${path.deposit.root}?type=${depositType}&gId=${groupIdForRecord}&channelId=${item.channelId}`
-		);
+		// navigate(
+		// 	`/${langId}/${path.deposit.root}?type=${depositType}&gId=${groupIdForRecord}&channelId=${item.channelId}`
+		// );
 		setInfoChannelIdForRecord(item.channelId);
 		setInfoData(item);
 	};
@@ -157,7 +152,6 @@ const MobileForm = ({
 							value={infoData.amount}
 							onChange={e => onChangeAmount(e.target.value)}
 							onBlur={() => onValidAmount(infoData.amount)}
-							clickInfo={clickInfo}
 							checked={infoData?.checked}
 							tip={infoData?.tip}
 							_isConvert={_isConvert}
@@ -186,7 +180,7 @@ const FixedAmountList = ({
 		?.filter(a => a >= minAmount && a <= maxAmount)
 		.map(a => {
 			const _afterConvertAmount = _isConvert ? a / 1000 : a;
-			const isSelected = amount === _afterConvertAmount;
+			const isSelected = Number(amount) === _afterConvertAmount;
 
 			return (
 				<button
@@ -216,18 +210,15 @@ FixedAmountList.propTypes = {
 
 MobileForm.propTypes = {
 	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	mobilePayGourpList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getMobilePayInfoList: PropTypes.func.isRequired,
 	mobilePayInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	infoData: PropTypes.objectOf(PropTypes.any).isRequired,
-	depositType: PropTypes.string.isRequired,
 	setInfoData: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onValidAmount: PropTypes.func.isRequired,
-	onInputboxKeyDown: PropTypes.func.isRequired,
-	clickInfo: PropTypes.func.isRequired
+	onInputboxKeyDown: PropTypes.func.isRequired
 };
 
 export default MobileForm;

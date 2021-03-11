@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
 import ClipboardJS from "../../../lib/clipboard.min";
-import path from "../../../router";
 import config from "../../../config";
 
 const LocalBankForm = ({
 	t,
 	userInfo,
 	_isConvert,
-	depositType,
 	localBankGroupList,
 	infoData,
 	setInfoData,
 	onChangeAmount,
 	onValidAmount,
-	clickInfo,
 	onInputboxKeyDown,
 	getLocalBankInfo,
 	localBankInfo,
@@ -63,9 +59,9 @@ const LocalBankForm = ({
 	};
 
 	const onChangeBankInfo = item => {
-		navigate(
-			`/${userInfo.langId}/${path.deposit.root}?type=${depositType}&sysId=${item.sysId}`
-		);
+		// navigate(
+		// 	`/${userInfo.langId}/${path.deposit.root}?type=${depositType}&sysId=${item.sysId}`
+		// );
 
 		setSysIdForRecord(item.sysId);
 		getLocalBankInfo({ sysId: item.sysId });
@@ -180,6 +176,7 @@ const LocalBankForm = ({
 						onChange={e => onChangeAccountName(e.target.value)}
 						onBlur={e => onChangeAccountName(e.target.value)}
 						tip={userAccountName?.tip}
+						placeholder={t("lbl_DepositAccountNamePlaceholder")}
 					/>
 				</div>
 			) : null}
@@ -194,7 +191,6 @@ const LocalBankForm = ({
 					value={infoData.amount}
 					onChange={e => onChangeAmount(e.target.value)}
 					onBlur={() => onValidAmount(infoData.amount)}
-					clickInfo={clickInfo}
 					checked={infoData?.checked}
 					tip={infoData?.tip}
 					_isConvert={_isConvert}
@@ -246,12 +242,10 @@ LocalBankForm.propTypes = {
 	infoData: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	depositType: PropTypes.string.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setInfoData: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onValidAmount: PropTypes.func.isRequired,
-	clickInfo: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	getLocalBankInfo: PropTypes.func.isRequired,
 	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
