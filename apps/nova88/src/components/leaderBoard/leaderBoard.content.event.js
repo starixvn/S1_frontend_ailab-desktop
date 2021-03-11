@@ -41,9 +41,7 @@ const leaderBoardEventContent = ({
 
 	const linkToTnc = () => {
 		window.open(
-			`${
-				config.cloudImgUrl
-			}/NovaPromotion/year-of-OX/${userInfo.langId.toUpperCase()}.html`
+			`${config.cloudImgUrl}/NovaPromotion/UEFAEuro/${userInfo.langId}.html`
 		);
 	};
 
