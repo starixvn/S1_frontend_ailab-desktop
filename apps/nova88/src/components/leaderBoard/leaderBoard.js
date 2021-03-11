@@ -31,9 +31,8 @@ const currMapping = {
 	13: "MYR"
 };
 
-//  need update ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-const Today = new Date("2021/03/20");
-const defLBCategoryId = 1;
+const Today = new Date();
+const defLBCategoryId = 0;
 const defTopNum = 9;
 
 export default () => {
