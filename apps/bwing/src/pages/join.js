@@ -432,7 +432,8 @@ const Content = () => {
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
 			regData.AffId = affIdCheckPass ? _AffId : null;
 			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
-			regData.AffCode = isUrlAffCode ?? userValue.affCode;
+			regData.AffCode =
+				getUrlParameter("AffCode") || readCookie("AffCode");
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
 					if (isMountedRef.current) {
