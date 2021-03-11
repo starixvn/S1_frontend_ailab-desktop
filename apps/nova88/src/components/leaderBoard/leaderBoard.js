@@ -33,7 +33,7 @@ const currMapping = {
 
 const Today = new Date();
 const defLBCategoryId = 0;
-const defTopNum = 9;
+const defTopNum = 10;
 
 export default () => {
 	const { t } = useTranslation();
