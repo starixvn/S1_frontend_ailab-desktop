@@ -7985,13 +7985,6 @@ button.icon-spinner11:before {
   padding: 5px 10px;
 }
 
-.ranking .champion .txt, .ranking .lastevent .txt {
-  position: absolute;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
 .ranking .champion .rankTag, .ranking .lastevent .rankTag {
   position: absolute;
   top: 0;
@@ -8020,6 +8013,7 @@ button.icon-spinner11:before {
   -webkit-animation: finaltour 1s infinite;
           animation: finaltour 1s infinite;
   cursor: pointer;
+  z-index: 1;
 }
 
 @-webkit-keyframes finaltour {
@@ -8066,9 +8060,11 @@ button.icon-spinner11:before {
 }
 
 .ranking .champion .highest .title, .ranking .lastevent .highest .title {
-  text-align: left;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 0px;
   white-space: nowrap;
+  font-size: 14px;
+  color: #fab617;
 }
 
 .ranking .champion .highest .title div, .ranking .lastevent .highest .title div {
@@ -8697,80 +8693,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 98.66757%;
-  top: -33.98565%;
-  width: 9.75014px;
-  height: 9.75014px;
+  left: 70.79002%;
+  top: 34.08728%;
+  width: 12.47592px;
+  height: 12.47592px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 15.26421%;
-  top: 24.70844%;
-  width: 8.78911px;
-  height: 8.78911px;
+  left: 1.03308%;
+  top: -59.70322%;
+  width: 6.95139px;
+  height: 6.95139px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 38.71656%;
-  top: 1.72933%;
-  width: 7.69334px;
-  height: 7.69334px;
+  left: 16.6214%;
+  top: -21.84836%;
+  width: 5.46351px;
+  height: 5.46351px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 18.32064%;
-  top: -52.48507%;
-  width: 13.09437px;
-  height: 13.09437px;
+  left: 38.61864%;
+  top: 4.0463%;
+  width: 13.5324px;
+  height: 13.5324px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 46.40906%;
-  top: -32.20492%;
-  width: 5.3995px;
-  height: 5.3995px;
+  left: 10.93845%;
+  top: 35.99477%;
+  width: 7.65953px;
+  height: 7.65953px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 78.13624%;
-  top: -37.18252%;
-  width: 13.67428px;
-  height: 13.67428px;
+  left: 32.48371%;
+  top: -37.18347%;
+  width: 12.50527px;
+  height: 12.50527px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 83.92927%;
-  top: -23.87635%;
-  width: 8.60466px;
-  height: 8.60466px;
+  left: 80.42396%;
+  top: -54.33785%;
+  width: 5.64539px;
+  height: 5.64539px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 82.62607%;
-  top: -54.1266%;
-  width: 8.74614px;
-  height: 8.74614px;
+  left: 47.11472%;
+  top: -39.48369%;
+  width: 6.72249px;
+  height: 6.72249px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -10234,6 +10230,11 @@ canvas {
 
 .subModuleListColumn .bankAccount .smallList ul li {
   width: 130px;
+}
+
+.subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
+  min-width: 130px;
+  width: auto;
 }
 
 .text-center {
