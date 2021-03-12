@@ -28,7 +28,7 @@ export const defMenuLinks = {
 	// },
 	games: {
 		displayKey: "lbl_Games",
-		className: "game icon icon-new",
+		className: "game icon",
 		subMenu: [
 			{
 				...productList.One789_lottery,
@@ -180,6 +180,19 @@ export const defMenuLinks = {
 		displayKey: "lbl_LiveCasino",
 		className: "livecasinobtn",
 		subMenu: [
+			{
+				tpId: 28,
+				className: "liveN2LIVE",
+				icon: "icon icon-N2LIVE",
+				displayText: "N2Live",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.n2Live
+					})
+				]
+			},
 			{
 				...productList.liveCasino_One789,
 				className: "live789",
@@ -361,13 +374,13 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS }
 			},
-			// {
-			// 	...productList.fishing,
-			// 	className: "fgg",
-			// 	displayKey: "lbl_FishingGG",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.fishing }
-			// },
+			{
+				...productList.fishing,
+				className: "fgg",
+				displayKey: "lbl_FishingGG",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.fishing }
+			},
 			{
 				...productList.fishing_SG,
 				className: "fsg",

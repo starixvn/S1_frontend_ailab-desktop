@@ -5,7 +5,7 @@ import { userInfoContext } from "../common/context";
 import { defMenuLinks } from "./header.menu.def";
 import LinkItems, { getCurrentPage } from "../common/linkItems";
 
-export default ({ showSubMenu }) => {
+export default ({ showSubMenu, productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const currentPage = getCurrentPage();
@@ -27,6 +27,7 @@ export default ({ showSubMenu }) => {
 				isLogin={userInfo.isLogin}
 				checkMatchPage={true}
 				toUpperCase={true}
+				productTpIds={productTpIds}
 			/>
 		</>
 	);

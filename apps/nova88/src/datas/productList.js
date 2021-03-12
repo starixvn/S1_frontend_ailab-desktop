@@ -151,6 +151,9 @@ export default {
 		tpId: 5,
 		gameId: 105
 	},
+	liveCasino_N2: {
+		tpId: 28
+	},
 
 	/* === lottery === */
 

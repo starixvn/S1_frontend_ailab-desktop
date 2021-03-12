@@ -15,7 +15,7 @@ import imgTelegram from "../../styles/img/te_1.png";
 import imgSkype from "../../styles/img/sk_1.png";
 import imgZalo from "../../styles/img/zalo_1.png";
 
-export default () => {
+export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
@@ -26,6 +26,7 @@ export default () => {
 					t={t}
 					langId={userInfo.langId}
 					isLogin={userInfo.isLogin}
+					productTpIds={productTpIds}
 				/>
 				<OurPolicies langId={userInfo.langId} t={t} />
 				<HelpSupport langId={userInfo.langId} t={t} />

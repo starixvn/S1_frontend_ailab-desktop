@@ -51,19 +51,22 @@ export default class Panel extends Component {
 			subItems = defMenuLinks()[this.state.menuKey]?.subMenu;
 			mainUrl = defMenuLinks()[this.state.menuKey]?.path;
 			if (
-				this.state.menuKey === "casino" &&
+				// this.state.menuKey === "casino" &&
 				subItems &&
-				this.props.casinoTpIds?.length > 0
+				this.props.productTpIds?.length > 0
 			) {
 				subItems = subItems.filter(s =>
-					this.props.casinoTpIds.includes(s.tpId)
+					this.props.productTpIds.includes(s.tpId)
 				);
 			}
 		}
 
 		return (
 			<div className="menu">
-				<MainMenu showSubMenu={this.showSubMenu} />
+				<MainMenu
+					showSubMenu={this.showSubMenu}
+					productTpIds={this.props.productTpIds}
+				/>
 				<div
 					className={`subMenu-Wrapper${subItems ? " active" : ""}`}
 					ref={this.wrapper}
@@ -76,6 +79,7 @@ export default class Panel extends Component {
 							}
 							mainUrl={mainUrl}
 							subItems={subItems}
+							productTpIds={this.props.productTpIds}
 						/>
 					) : null}
 				</div>

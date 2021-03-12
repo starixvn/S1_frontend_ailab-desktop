@@ -6,7 +6,7 @@ import { defMenuLinks } from "./header.menu.def";
 import LinkItems, { getCurrentPage } from "../common/linkItems";
 import { siteInfo } from "../../config";
 
-export default ({ showSubMenu }) => {
+export default ({ showSubMenu, productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const currentPage = getCurrentPage();
@@ -29,6 +29,7 @@ export default ({ showSubMenu }) => {
 				isLogin={userInfo.isLogin}
 				checkMatchPage={true}
 				toUpperCase={true}
+				productTpIds={productTpIds}
 			/>
 			{/* <a
 				href={siteInfo({ langId: userInfo.langId }).affiliateLink}
