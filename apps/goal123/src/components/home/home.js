@@ -19,7 +19,6 @@ import Bong88 from "../../styles/img/bong88.png";
 import Marquee from "./marquee";
 import News from "./news";
 import EventSwipper from "./eventSwipper";
-import config from "../../config";
 import GameQuickLinks from "./gameQuickLinks";
 import SwipperBanner from "../common/swipperBanner";
 import CountDown from "./countDown";
@@ -27,8 +26,9 @@ import PromoGameList from "./promoGameList";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import path from "../../router";
+import PlatformSection from "./footer.platform";
 
-export default () => {
+export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -103,7 +103,7 @@ export default () => {
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
 			<CountDown />
-			<GameQuickLinks t={t} />
+			<GameQuickLinks t={t} productTpIds={productTpIds} />
 			<PromoGameList t={t} userInfo={userInfo} />
 			<section>
 				<EventSwipper langId={userInfo.langId} />
@@ -159,7 +159,11 @@ export default () => {
 						</ul>
 					</div>
 				</div>
-				<Platforms />
+				<PlatformSection
+					langId={userInfo.langId}
+					isLogin={userInfo.isLogin}
+					productTpIds={productTpIds}
+				/>
 				<div className="powered">
 					<div>{t("lbl_PoweredBy")}</div>
 					<img src={Bong88} alt="Bong88" />
@@ -176,41 +180,4 @@ export default () => {
 			/>
 		</main>
 	);
-};
-
-const defPlatform = [
-	"saba",
-	"ab",
-	"yl",
-	"ag",
-	"gp",
-	"dg",
-	"sa",
-	"yg",
-	"pp",
-	"sg",
-	"pg",
-	"ae",
-	"eb",
-	"wm",
-	// "s123",
-	"cq9",
-	"icg",
-	"v8",
-	"n2live"
-];
-
-const Platforms = () => {
-	const platformRows = defPlatform.map(item => {
-		return (
-			<button key={`platform-${item}`}>
-				<img
-					alt="logo"
-					src={`${config.imgUrl}/common/images/logo/${item}.png`}
-				/>
-			</button>
-		);
-	});
-
-	return <div className="platform">{platformRows}</div>;
 };

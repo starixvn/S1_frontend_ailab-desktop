@@ -30,7 +30,7 @@ export const defMenuLinks = langId => {
 		// },
 		games: {
 			displayKey: "lbl_Games",
-			className: "game icon icon-new",
+			className: "game icon",
 			subMenu: [
 				{
 					...productList.sabaClub,
