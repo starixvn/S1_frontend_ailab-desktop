@@ -190,7 +190,7 @@ const PaymentSection = ({ t }) => (
 	</div>
 );
 
-export default () => {
+export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
@@ -215,6 +215,7 @@ export default () => {
 				t={t}
 				langId={userInfo.langId}
 				isLogin={userInfo.isLogin}
+				productTpIds={productTpIds}
 			/>
 			<div className="copyright">
 				{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved.`}

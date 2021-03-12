@@ -1,68 +1,36 @@
 import React from "react";
-import { defTabList, defTabId, defDayOptions } from "./leaderBoard.def";
+import { defTabId, defDayOptions, defPeriodOptions } from "./leaderBoard.def";
 
 export default ({
 	t,
-	onChangeGameType,
-	categoryID,
-	onChangeDays,
-	beforeDays,
 	tab,
-	updateStateOnly = false
+	onChangePeriod,
+	periodId,
+	onChangeDays,
+	beforeDays
 }) => {
-	const btnOptions = [defTabId.sports, defTabId.liveCasino, defTabId.slots];
-	const gameTypeBtnList = defTabList.filter(_tab =>
-		btnOptions.includes(_tab.id)
-	);
-
+	const isFinalTab = tab === defTabId.second;
 	return (
-		<div className="rankTag">
-			<BtnBar
-				t={t}
-				title={t("lbl_Game_type")}
-				btnList={gameTypeBtnList}
-				onClick={onChangeGameType}
-				selected={categoryID}
-				tab={tab}
-				updateStateOnly={updateStateOnly}
-			/>
-			{tab === defTabId.records ? (
-				<BtnBar
-					t={t}
-					title={t("lbl_Date")}
-					btnList={defDayOptions}
-					onClick={onChangeDays}
-					selected={beforeDays}
-					tab={tab}
-				/>
-			) : null}
-		</div>
+		<BtnBar
+			t={t}
+			btnList={isFinalTab ? defPeriodOptions : defDayOptions}
+			onClick={isFinalTab ? onChangePeriod : onChangeDays}
+			selected={isFinalTab ? periodId : beforeDays}
+			tab={tab}
+		/>
 	);
 };
 
-const BtnBar = ({
-	t,
-	title,
-	btnList,
-	onClick,
-	selected,
-	tab,
-	updateStateOnly
-}) => {
+const BtnBar = ({ t, btnList, onClick, selected, tab }) => {
 	const rows = btnList.map(item => {
 		return (
 			<button
-				key={`leaderboard-gameType-btn-${item.id}`}
-				className={`orange${item.id === selected ? " active" : ""}`}
-				onClick={onClick.bind(this, item.id, updateStateOnly, tab)}>
+				key={`leaderboard-btn-${item.id}`}
+				className={`${item.id === selected ? " active" : ""}`}
+				onClick={onClick.bind(this, item.id, tab)}>
 				{t(item.displayKey)}
 			</button>
 		);
 	});
-	return (
-		<>
-			{tab === defTabId.event ? null : <div>{title}</div>}
-			<div className="btnGroup">{rows}</div>
-		</>
-	);
+	return <div className="btnGroup">{rows}</div>;
 };

@@ -6,4 +6,4 @@ Disallow: /cs*
 Disallow: /id*
 Disallow: /th*
 
-Sitemap: https://www.nova88gol.com/sitemapen.xml
+Sitemap: https://www.nova88.net/sitemapen.xml

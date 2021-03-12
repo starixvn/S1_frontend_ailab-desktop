@@ -436,9 +436,10 @@
 	"lbl_Date": "Date",
 	"lbl_Days": "Days",
 	"lbl_Hours": "Hours",
-	"lbl_5mins": "5 mins",
 	"lbl_Minutes": "Minutes",
 	"lbl_Seconds": "Seconds",
+	"lbl_5mins": "5 mins",
+	"lbl_Month": "Month",
 
 	"leaderboard ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Event": "Event",
