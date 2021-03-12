@@ -180,19 +180,19 @@ export const defMenuLinks = langId => {
 		liveCasino: {
 			displayKey: "lbl_LiveCasino",
 			subMenu: [
-				{
-					tpId: 28,
-					className: "liveN2LIVE",
-					icon: "icon icon-N2LIVE",
-					displayText: "N2Live",
-					menuType: defMenuType.entPage,
-					eventIcons: [
-						showEventIcon({
-							icon: defEventIcon.new,
-							period: defEventPeriod.n2Live
-						})
-					]
-				},
+				// {
+				// 	tpId: 28,
+				// 	className: "liveN2LIVE",
+				// 	icon: "icon icon-N2LIVE",
+				// 	displayText: "N2Live",
+				// 	menuType: defMenuType.entPage,
+				// 	eventIcons: [
+				// 		showEventIcon({
+				// 			icon: defEventIcon.new,
+				// 			period: defEventPeriod.n2Live
+				// 		})
+				// 	]
+				// },
 				{
 					gameId: 20,
 					tpId: 20,
