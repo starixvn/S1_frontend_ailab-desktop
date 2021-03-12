@@ -513,15 +513,15 @@ export const defMenuLinks = {
 					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
 				}
 			},
-			// {
-			// 	...productList.fishing,
-			// 	className: "fgg",
-			// 	displayKey: "lbl_FishingGG",
-			// 	menuType: defMenuType.entPage,
-			// 	listNpcImgUrl: "fishGG.png",
-			// 	listBgImgUrl: "fishListHover.png",
-			// 	parameter: { ...productList.fishing }
-			// },
+			{
+				...productList.fishing,
+				className: "fgg",
+				displayKey: "lbl_FishingGG",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishGG.png",
+				listBgImgUrl: "fishListHover.png",
+				parameter: { ...productList.fishing }
+			},
 			{
 				...productList.fishing_SG,
 				className: "fsg",
