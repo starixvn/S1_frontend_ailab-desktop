@@ -1,13 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect } from "@reach/router";
+import { Redirect, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import {
-	getUrlParameter,
-	setCookie,
-	deleteCookie,
-	getNewLanguagePath,
-	readCookie
-} from "./common";
+import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
 import { defaultLang } from "../../i18n/config";
 import { IS_LOGGED_IN } from "../../service/auth";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
@@ -18,8 +12,30 @@ import {
 import { defPopBoxType } from "./popBox";
 import useInterval from "../hook/useInterval";
 import * as ct from "./context";
-import { GET_LANG_ID } from "../../service/language";
+import {
+	GET_LANG_ID,
+	isVaildLang,
+	getNewLanguagePath
+} from "../../service/language";
 import useGetWalletInfo from "./wrapper.walletInfo";
+import { langCookie } from "../../config";
+
+const defaultPathLang = () => {
+	const urlLang =
+		typeof document === `undefined`
+			? ""
+			: window.location.pathname.split("/")?.[1];
+	const cookieLang = readCookie(langCookie);
+	const _defaultLang = "vn";
+
+	let result = _defaultLang;
+	if (isVaildLang(urlLang)) {
+		result = urlLang;
+	} else if (isVaildLang(cookieLang)) {
+		result = cookieLang;
+	}
+	return result;
+};
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
@@ -32,7 +48,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: readCookie("goalLangId") ?? "vn"
+		langId: defaultPathLang()
 	});
 
 	const [currentPath] = useState(
@@ -114,8 +130,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 						isMountedRef.current
 					) {
 						const { data } = res_custInfo.data;
-						data.langId = GET_LANG_ID(data.langId);
-						setCookie("goalLangId", data.langId);
+						// data.langId = GET_LANG_ID(data.langId);
+						setCookie(langCookie, data.langId);
 						setUserInfo(prevState => ({
 							...prevState,
 							...data
@@ -144,11 +160,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
 				const pathLang = window.location.pathname.split("/")?.[1];
-				const cookie = readCookie("goalLangId");
-				let currentLang = readCookie("goalLangId") ?? userInfo.langId;
-				currentLang = GET_LANG_ID(currentLang);
-				if (cookie && cookie !== currentLang)
-					setCookie("goalLangId", currentLang);
+				const currentLang = userInfo.langId;
 
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);
@@ -159,7 +171,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 					}));
 
 					const newPathArr = getNewLanguagePath(currentLang);
-					window.location.href = newPathArr;
+					navigate(newPathArr);
 				} else {
 					setCorrectPath(true);
 				}
@@ -198,9 +210,6 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	useInterval(
 		() => {
-			const ClickClose = () => {
-				setPopBox({ isOpen: false });
-			};
 			api_account_onlineCheck().then(res => {
 				if (res.data.errorCode !== 0) {
 					setUserInfo(prev => ({

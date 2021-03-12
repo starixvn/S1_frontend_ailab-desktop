@@ -82,10 +82,10 @@ const defPlatfrom = [
 		...productList.liveCasino_WM,
 		imgName: "wm"
 	},
-	{
-		...productList.cockFighting,
-		imgName: "awc"
-	},
+	// {
+	// 	...productList.cockFighting,
+	// 	imgName: "awc"
+	// },
 	{
 		...productList.casino_CQ9,
 		path: path.casino.root,

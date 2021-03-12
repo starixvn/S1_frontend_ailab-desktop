@@ -7,7 +7,7 @@ export const initValue = {
 	termsCheck: false,
 	ageCheck: false,
 	affCode: null,
-	specialBonusCode: ""
+	specialBonusCode: null
 };
 
 export const initTip = {

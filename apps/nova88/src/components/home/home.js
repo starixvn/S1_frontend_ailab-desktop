@@ -45,7 +45,6 @@ import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
 
-
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
@@ -199,13 +198,13 @@ const defSideBarProducts = langId => [
 	// 	descriptionKey: "lbl_PromotionSlog",
 	// 	mainImg: indexBannerPromotions
 	// },
-	{
-		path: path.casino.root,
-		icon: "icon icon-casino",
-		displayKey: "lbl_Casino",
-		descriptionKey: "lbl_CasinoSlog",
-		mainImg: IndexBannerCasino
-	},
+	// {
+	// 	path: path.casino.root,
+	// 	icon: "icon icon-casino",
+	// 	displayKey: "lbl_Casino",
+	// 	descriptionKey: "lbl_CasinoSlog",
+	// 	mainImg: IndexBannerCasino
+	// },
 	{
 		href: `${SiteInfo.affiliateLink}/?lang=${langId}`,
 		icon: "icon icon-affiliate",
@@ -214,6 +213,25 @@ const defSideBarProducts = langId => [
 		mainImg: indexBannerAffiliate
 	}
 ];
+
+const Vedio = ({ langId }) => {
+	const vedioKey = {
+		cs: "UWzzO3lBYiI",
+		en: "Cn74XFuYAcE",
+		th: "Ta44fCPbD-Q",
+		id: "m5_QAn0fHzY"
+	};
+	return (
+		<iframe
+			width="448"
+			height="315"
+			src={`https://www.youtube.com/embed/${vedioKey[langId]}?controls=0`}
+			frameBorder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowFullScreen
+		/>
+	);
+};
 
 const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 	const rows = defSideBarProducts(langId).map(m => {
@@ -291,6 +309,7 @@ const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 	return (
 		<div className="gamelistother">
 			<EventSwipper langId={langId} />
+			<Vedio langId={langId} />
 			{rows}
 		</div>
 	);
@@ -451,7 +470,7 @@ const IndexPage = ({ location }) => {
 				/>
 			</section>
 			<img
-				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
+				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner_${userInfo.langId}.jpg`}
 				alt="IndexCenterBanner"
 			/>
 			<SideBarQuickLink />

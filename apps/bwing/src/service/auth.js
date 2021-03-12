@@ -2,6 +2,7 @@ import { api_account_UserLogin, api_account_UserLogout } from "./api/account";
 import { api_accountStrict_GetCustProfile } from "./api/accountStrict";
 import { api_site_CheckSignIn } from "./api/site";
 import { setCookie } from "../components/common/common";
+import { langCookie } from "../config";
 
 const isBrowser = typeof window !== `undefined`;
 
@@ -54,7 +55,7 @@ export const LOGIN = async ({ userName, password, langId }) => {
 					..._loginUser,
 					...data
 				};
-				setCookie("bwingLangId", data.langId);
+				setCookie(langCookie, data.langId);
 			}
 
 			errMsg = "";

@@ -2,7 +2,9 @@ import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
 import { api_account_SetLanguage } from "../../service/api/account";
-import { getNewLanguagePath, setCookie } from "./common";
+import { setCookie } from "./common";
+import { getNewLanguagePath } from "../../service/language";
+import { langCookie } from "../../config";
 
 const defLangDisplayText = {
 	vn: "Tiếng Việt",
@@ -56,7 +58,7 @@ export class Dropdown extends Component {
 			}
 
 			navigate(newPath);
-			setCookie("goalLangId", value);
+			setCookie(langCookie, value);
 		}
 	};
 
