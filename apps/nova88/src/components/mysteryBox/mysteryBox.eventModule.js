@@ -29,7 +29,7 @@ const MysteryBoxEventModule = ({
 						</div>
 						<div>{t("lbl_MysteryBox_MemberEligibility")}</div>
 						<div className="title txt-yellow2">
-							{t("lbl_MysteryBoxw_OtherConditions")}
+							{t("lbl_MysteryBox_OtherConditions")}
 						</div>
 						<div>{t("lbl_MysteryBox_OtherConditions1")}</div>
 						<div>{t("lbl_MysteryBox_OtherConditions2")}</div>

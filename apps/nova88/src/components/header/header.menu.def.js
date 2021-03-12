@@ -529,11 +529,11 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	cockFighting: {
-		productInfo: productList.cockFighting,
-		displayKey: "lbl_CockFighting",
-		className: "COCK"
-	},
+	// cockFighting: {
+	// 	productInfo: productList.cockFighting,
+	// 	displayKey: "lbl_CockFighting",
+	// 	className: "COCK"
+	// },
 	vip: {
 		path: path.vip.root,
 		displayKey: "lbl_Vip",

@@ -19,7 +19,6 @@ import Bong88 from "../../styles/img/bong88.png";
 import Marquee from "./marquee";
 import News from "./news";
 import EventSwipper from "./eventSwipper";
-import config from "../../config";
 import GameQuickLinks from "./gameQuickLinks";
 import SwipperBanner from "../common/swipperBanner";
 import CountDown from "./countDown";
@@ -27,8 +26,9 @@ import PromoGameList from "./promoGameList";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import path from "../../router";
+import PlatformSection from "./footer.platform";
 
-export default () => {
+export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -43,36 +43,56 @@ export default () => {
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
-			const cookieName = `balanceHint${userInfo.userName}`;
-			let showDepositHint = false;
-			if (readCookie(cookieName) !== "1") {
-				setCookie(cookieName, "1", 1);
-				showDepositHint = true;
-			}
+			const showDepositPopBox = () => {
+				const cookieName = `balanceHint${userInfo.userName}`;
+				let showDepositHint = false;
+				if (readCookie(cookieName) !== "1") {
+					setCookie(cookieName, "1", 1);
+					showDepositHint = true;
+				}
 
-			if (showDepositHint) {
-				api_account_GetWalletInfo().then(res => {
-					if (res.data.errorCode === 0 && isMountedRef.current) {
-						const tpWallets = res.data.data.tpWallets?.map(tp => {
-							return {
-								tpId: tp.tpId,
-								balance: tp.balance
-							};
-						});
+				if (showDepositHint) {
+					api_account_GetWalletInfo().then(res => {
+						if (res.data.errorCode === 0 && isMountedRef.current) {
+							const tpWallets = res.data.data.tpWallets?.map(
+								tp => {
+									return {
+										tpId: tp.tpId,
+										balance: tp.balance
+									};
+								}
+							);
 
-						const hasBalance =
-							res.data.data?.balance ||
-							tpWallets?.filter(tp => {
-								return tp.balance > 0;
-							}).length >= 1;
+							const hasBalance =
+								res.data.data?.balance ||
+								tpWallets?.filter(tp => {
+									return tp.balance > 0;
+								}).length >= 1;
 
-						if (!hasBalance && showDepositHint) {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.DepositHint
-							});
+							if (!hasBalance && showDepositHint) {
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.DepositHint
+								});
+							}
 						}
-					}
+					});
+				}
+			};
+
+			const clickClose = () => {
+				setPopBox({ isOpen: false });
+				showDepositPopBox();
+			};
+
+			const refeCookieName = `referral_${userInfo.userName}`;
+			if (readCookie(refeCookieName) === "1") {
+				showDepositPopBox();
+			} else {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.JoinReferral,
+					onClickClose: clickClose
 				});
 			}
 		}
@@ -83,7 +103,7 @@ export default () => {
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
 			<CountDown />
-			<GameQuickLinks t={t} />
+			<GameQuickLinks t={t} productTpIds={productTpIds} />
 			<PromoGameList t={t} userInfo={userInfo} />
 			<section>
 				<EventSwipper langId={userInfo.langId} />
@@ -139,7 +159,11 @@ export default () => {
 						</ul>
 					</div>
 				</div>
-				<Platforms />
+				<PlatformSection
+					langId={userInfo.langId}
+					isLogin={userInfo.isLogin}
+					productTpIds={productTpIds}
+				/>
 				<div className="powered">
 					<div>{t("lbl_PoweredBy")}</div>
 					<img src={Bong88} alt="Bong88" />
@@ -156,40 +180,4 @@ export default () => {
 			/>
 		</main>
 	);
-};
-
-const defPlatform = [
-	"saba",
-	"ab",
-	"yl",
-	"ag",
-	"gp",
-	"dg",
-	"sa",
-	"yg",
-	"pp",
-	"sg",
-	"pg",
-	"ae",
-	"eb",
-	"wm",
-	// "s123",
-	// "cq9",
-	"icg",
-	"v8"
-];
-
-const Platforms = () => {
-	const platformRows = defPlatform.map(item => {
-		return (
-			<button key={`platform-${item}`}>
-				<img
-					alt="logo"
-					src={`${config.imgUrl}/common/images/logo/${item}.png`}
-				/>
-			</button>
-		);
-	});
-
-	return <div className="platform">{platformRows}</div>;
 };

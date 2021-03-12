@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext } from "react";
 import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { userInfoContext, popBoxContext } from "../common/context";
@@ -6,37 +6,15 @@ import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
-import { api_site_GetTpIds } from "../../service/api/site";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
 // import Logo from "../../styles/img/nova88_logo_ny.png";
 
-export default () => {
+export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-	const [casinoTpIds, setCasinoTpIds] = useState(null);
-	const isMountedRef = useRef(null);
-
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
-
-	useEffect(() => {
-		if (userInfo.isLogin && casinoTpIds === null) {
-			api_site_GetTpIds().then(res => {
-				if (res.data.errorCode === 0 && isMountedRef.current) {
-					setCasinoTpIds(res.data.data);
-				}
-			});
-		} else if (userInfo.isLogin === false && casinoTpIds?.length > 0) {
-			setCasinoTpIds(null);
-		}
-	}, [userInfo.isLogin, casinoTpIds]);
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -91,7 +69,7 @@ export default () => {
 						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
-				<Menu casinoTpIds={casinoTpIds} />
+				<Menu productTpIds={productTpIds} />
 				<div className="function">
 					<Functions />
 					<LanguageDropDown />

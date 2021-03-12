@@ -64,7 +64,7 @@ const defGameList = [
 	},
 	{
 		img: require("../../styles/img/GameList6.png"),
-		displayKey: "AE Baccarat",
+		displayKey: "lbl_baccarat",
 		tpId: 15,
 		gameId: 15
 	},

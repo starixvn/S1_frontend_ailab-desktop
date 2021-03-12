@@ -74,9 +74,8 @@ export const defSportsQuickLinks = {
 	// }
 };
 
-export default ({ t }) => {
+export default ({ t, productTpIds }) => {
 	const { userInfo } = useContext(userInfoContext);
-
 	return (
 		<div className="gameMenu">
 			<div>
@@ -85,6 +84,7 @@ export default ({ t }) => {
 					t={t}
 					langId={userInfo.langId}
 					isLogin={userInfo.isLogin}
+					productTpIds={productTpIds}
 				/>
 			</div>
 		</div>

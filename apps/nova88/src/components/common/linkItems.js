@@ -27,7 +27,8 @@ export default ({
 	langId,
 	isLogin,
 	checkMatchPage,
-	toUpperCase = false
+	toUpperCase = false,
+	productTpIds
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const showLogin = () => {
@@ -45,7 +46,29 @@ export default ({
 
 	const currentPage = checkMatchPage ? getCurrentPage() : "";
 
-	const rows = Object.keys(defMenuLinks).map(key => {
+	const fullMenuLinks = Object.keys(defMenuLinks);
+
+	const filterMenuLinks = fullMenuLinks.filter(key => {
+		if (defMenuLinks[key].subMenu?.length > 0) {
+			const subItems = defMenuLinks[key].subMenu.filter(s =>
+				productTpIds?.includes(s.tpId)
+			);
+
+			return subItems.length > 0;
+		}
+
+		const subProduct = defMenuLinks[key].productInfo;
+		if (subProduct) {
+			const hasAuthSubProduct = productTpIds?.includes(subProduct?.tpId);
+			return hasAuthSubProduct;
+		}
+
+		return true;
+	});
+
+	const showRows = isLogin ? filterMenuLinks : fullMenuLinks;
+
+	const rows = showRows.map(key => {
 		const m = defMenuLinks[key];
 
 		let _className = m.className ? m.className : "";
@@ -55,15 +78,19 @@ export default ({
 
 		const iconList = m.eventIcons?.length > 0 ? [...m.eventIcons] : [];
 		if (m.subMenu) {
-			m.subMenu.forEach(sub => {
-				if (sub.eventIcons) {
-					for (let i = 0; i < sub.eventIcons.length; i++) {
-						if (sub.eventIcons[i] !== "") {
-							iconList.push(sub.eventIcons[i]);
+			m.subMenu
+				.filter(
+					s => productTpIds === null || productTpIds.includes(s.tpId)
+				)
+				.forEach(sub => {
+					if (sub.eventIcons) {
+						for (let i = 0; i < sub.eventIcons.length; i++) {
+							if (sub.eventIcons[i] !== "") {
+								iconList.push(sub.eventIcons[i]);
+							}
 						}
 					}
-				}
-			});
+				});
 		}
 
 		let iconStrings = "";

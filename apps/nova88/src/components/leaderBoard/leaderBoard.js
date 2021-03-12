@@ -3,23 +3,22 @@ import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import championImg from "../../styles/img/champion.png";
 import {
 	api_events_GetLeaderboardListV2,
 	api_events_GetCustRankV2
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
-import ButtonGroups from "./leaderBoard.btnGroups";
 import {
 	defTabId,
-	defBackground,
 	defDayNum,
 	defRewardList,
-	defLeaderBoardTitle,
-	defLastChampionReward
+	defPeriodList,
+	defPeriodId,
+	defRewardTabId
 } from "./leaderBoard.def";
-import { number_format } from "../common/common";
-import EventTab from "./leaderBoard.eventTab";
+
+import ContentEvent from "./leaderBoard.content.event";
+import Content from "./leaderBoard.content";
 
 const langMapping = {
 	cs: "MYR",
@@ -32,21 +31,20 @@ const currMapping = {
 	13: "MYR"
 };
 
+const Today = new Date();
+const defLBCategoryId = 0;
+const defTopNum = 10;
+
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState([]);
-	const [tab, setTab] = useState(defTabId.event);
-	const [categoryID, setCategoryID] = useState(defTabId.sports);
+	const [tab, setTab] = useState(defTabId.first);
+	const [rewardTab, setRewardTab] = useState(defRewardTabId.final);
+	const [periodId, setPeriodId] = useState(defPeriodId.period4);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
-	const TopNum = 10;
-	const isGameTypeTab =
-		tab === defTabId.sports ||
-		tab === defTabId.liveCasino ||
-		tab === defTabId.slots;
-	const isEventTab = tab === defTabId.event;
 
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??
@@ -54,12 +52,8 @@ export default () => {
 		: langMapping[userInfo.langId];
 
 	const rewardList = defRewardList({ t })[currencyName]
-		? defRewardList({ t })[currencyName][categoryID]
-		: defRewardList({ t }).MYR[categoryID];
-
-	const LastChampionReward = defLastChampionReward({ t })[currencyName]
-		? defLastChampionReward({ t })[currencyName][categoryID]
-		: defLastChampionReward({ t }).MYR[categoryID];
+		? defRewardList({ t })[currencyName][rewardTab]
+		: defRewardList({ t }).MYR[rewardTab];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -69,13 +63,14 @@ export default () => {
 	});
 
 	useEffect(() => {
+		getRealTiimePeriod();
 		getLeaderboardData();
 		showUpdateTime();
 	}, [userInfo.userName]);
 
 	useEffect(() => {
 		if (!userInfo.isLogin) {
-			setTab(defTabId.event);
+			setTab(defTabId.first);
 		}
 	}, [userInfo.isLogin]);
 
@@ -88,82 +83,64 @@ export default () => {
 		return displayTime;
 	};
 
+	const getRealTiimePeriod = () => {
+		let result = defPeriodId.period4;
+		if (Today < new Date(defPeriodList[1].startDate)) {
+			result = defPeriodList[1].id;
+		} else if (Today > new Date(defPeriodList[3].endDate)) {
+			result = defPeriodList[3].id;
+		} else {
+			Object.values(defPeriodList)
+				.filter(pd => pd.id !== defPeriodId.period4)
+				.forEach(pd => {
+					if (
+						Today > new Date(pd.startDate) &&
+						Today < new Date(pd.endDate)
+					) {
+						result = pd.id;
+					}
+				});
+		}
+
+		setPeriodId(result);
+		return result;
+	};
+
 	const onChangeTab = tabId => {
-		if (tabId !== defTabId.event && !userInfo.isLogin) {
+		const realTimePeriod = getRealTiimePeriod();
+		if (tabId !== defTabId.first && !userInfo.isLogin) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		} else {
 			setTab(tabId);
-			if (tabId === defTabId.event) {
-				setCategoryID(1);
-			} else if (
-				tabId === defTabId.records ||
-				tabId === defTabId.lastEvent
-			) {
-				const days =
-					tabId === defTabId.records
-						? defDayNum.yesterDay
-						: defDayNum.today;
-				setBeforeDays(days);
-				getLeaderboardData(defTabId.sports, days, tabId);
-				setCategoryID(1);
-			} else {
-				onChangeGameType(tabId, false, tabId);
+			setPeriodId(realTimePeriod);
+			setRewardTab(defRewardTabId.final);
+			if (tabId === defTabId.first) {
+				setBeforeDays(defDayNum.today);
+			}
+			if (tabId === defTabId.second || tabId === defTabId.third) {
+				setBeforeDays(defDayNum.today);
+				getLeaderboardData(realTimePeriod, defDayNum.today, tabId);
+			}
+			if (tabId === defTabId.fourth) {
+				setBeforeDays(defDayNum.yesterDay);
+				getLeaderboardData(realTimePeriod, defDayNum.yesterDay, tabId);
 			}
 		}
 	};
 
-	const onChangeGameType = (gameType, updateStateOnly, tabId) => {
-		setCategoryID(gameType);
-		if (!updateStateOnly) {
-			getLeaderboardData(
-				gameType,
-				tabId !== defTabId.records ? 0 : beforeDays,
-				tabId
-			);
-		}
-	};
-
-	const onChangeDays = daysValue => {
-		setBeforeDays(daysValue);
-		getLeaderboardData(categoryID, daysValue);
-	};
-
-	const clickClose = () => {
-		setPopBox({ isOpen: false });
-	};
-
-	const openErrorMessagePopBox = (message, errorCode) => {
-		setPopBox({
-			message: message ?? t("msg_ApiServerError"),
-			errorCode,
-			isOpen: true,
-			popBoxType: defPopBoxType.ErrorMsg,
-			icon: "icon-bell",
-			btnBar: (
-				<div className="btnGroup">
-					<button className="btn-cancel" onClick={clickClose}>
-						{t("lbl_Close")}
-					</button>
-				</div>
-			)
-		});
-	};
-
-	const getLeaderboardData = (gameType, daysValue, tabId) => {
+	const getLeaderboardData = (_periodId, _days, _tabId) => {
 		if (!userInfo.isLogin) return;
-
-		const isLastEventTab = tabId === defTabId.lastEvent;
-		const current_eventCode = "202101";
-		const last_eventCode = "xmas2020";
+		if (!_tabId || _tabId === defTabId.first) return;
+		const currentperiodId = _periodId ?? periodId;
 
 		const payload = {
-			lBCategoryId: gameType ?? categoryID,
-			TopNum,
-			BeforeDays: daysValue ?? beforeDays,
-			EventCode: isLastEventTab ? last_eventCode : current_eventCode
+			lBCategoryId: defLBCategoryId,
+			TopNum: defTopNum,
+			BeforeDays: _days ?? beforeDays,
+			EventCode: defPeriodList[currentperiodId].eventCode
 		};
 
 		const GetRankDatas = async () => {
@@ -186,7 +163,10 @@ export default () => {
 											: custRank;
 
 									let result = [];
-									if (custRank <= TopNum && custRank !== 0) {
+									if (
+										custRank <= defTopNum &&
+										custRank !== 0
+									) {
 										rankDatas[custRank - 1] = {
 											...rankDatas[custRank - 1],
 											userName: userInfo.userName,
@@ -226,104 +206,67 @@ export default () => {
 		GetRankDatas();
 	};
 
+	const openErrorMessagePopBox = (message, errorCode) => {
+		setPopBox({
+			message: message ?? t("msg_ApiServerError"),
+			errorCode,
+			isOpen: true,
+			popBoxType: defPopBoxType.ErrorMsg,
+			icon: "icon-bell",
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={clickClose}>
+						{t("lbl_Close")}
+					</button>
+				</div>
+			)
+		});
+	};
+
+	const changeRewardTab = _tab => {
+		setRewardTab(_tab);
+	};
+
+	const onChangePeriod = (_periodId, _tabId) => {
+		setPeriodId(_periodId);
+		getLeaderboardData(_periodId, beforeDays, _tabId);
+	};
+
+	const onChangeDays = _days => {
+		setBeforeDays(_days);
+		getLeaderboardData(periodId, _days, tab);
+	};
+
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+
 	return (
-		<section className={`ranking ${defBackground[tab]}`}>
+		<section className="ranking">
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
-			{isEventTab ? (
-				<EventTab
+			{tab === defTabId.first ? (
+				<ContentEvent
 					t={t}
-					onChangeGameType={onChangeGameType}
-					categoryID={categoryID}
+					currencyName={currencyName}
+					userInfo={userInfo}
 					tab={tab}
 					rewardList={rewardList}
-					userInfo={userInfo}
-					currencyName={currencyName}
+					changeRewardTab={changeRewardTab}
+					rewardTab={rewardTab}
 				/>
 			) : (
-				<div
-					className={
-						tab === defTabId.lastEvent ? "lastevent" : "champion"
-					}>
-					<div className="highest">
-						{isGameTypeTab ? (
-							<div className="title">
-								<div>{t(defLeaderBoardTitle[tab])}</div>
-							</div>
-						) : (
-							<ButtonGroups
-								t={t}
-								onChangeGameType={onChangeGameType}
-								categoryID={categoryID}
-								onChangeDays={onChangeDays}
-								beforeDays={beforeDays}
-								tab={tab}
-							/>
-						)}
-						<img src={championImg} alt="champion" />
-						<div className="mwt_border">
-							<span className="arrow_t_int" />
-							<span className="arrow_t_out" />
-							<div className="txt-orange">
-								{tab === defTabId.lastEvent
-									? LastChampionReward[0].reward
-									: rewardList[0].reward}
-							</div>
-						</div>
-					</div>
-					<div className="rankModule">
-						{rankingData?.length > 0 ? (
-							<div className="rankList">
-								<ul>
-									<li>
-										<div>{t("lbl_Ranking")}</div>
-										<div>{t("lbl_Username")}</div>
-										<div>{t("lbl_Points")}</div>
-									</li>
-									<Ranking RankingDatas={rankingData} />
-								</ul>
-							</div>
-						) : (
-							<div className="icon icon-nodata">
-								{t("lbl_NoData")}
-							</div>
-						)}
-						{tab === defTabId.lastEvent ? null : (
-							<div className="lastUpdate">
-								{t(`lbl_LastUpdTime`, {
-									time: showUpdateTime()
-								})}
-							</div>
-						)}
-					</div>
-				</div>
+				<Content
+					t={t}
+					showUpdateTime={showUpdateTime}
+					tab={tab}
+					periodId={periodId}
+					rewardList={rewardList}
+					rankingData={rankingData}
+					onChangePeriod={onChangePeriod}
+					onChangeDays={onChangeDays}
+					beforeDays={beforeDays}
+				/>
 			)}
 		</section>
 	);
 };
-
-const Ranking = ({ RankingDatas }) =>
-	RankingDatas?.map((item, idx) => {
-		const { rank } = item;
-		return (
-			<li
-				key={`leaderboard_item_${item.userName}`}
-				className={rank ? "userRank" : null}>
-				<div>
-					{idx < 3 ? (
-						<img
-							src={require(`../../styles/img/no${idx + 1}.png`)}
-							alt="ranking_top_three"
-						/>
-					) : (
-						<img
-							src={require(`../../styles/img/gold.png`)}
-							alt="ranking_gold"
-						/>
-					)}
-					{rank || idx + 1}
-				</div>
-				<div>{item.userName}</div>
-				<div>{number_format(item.wTurnover)}</div>
-			</li>
-		);
-	});

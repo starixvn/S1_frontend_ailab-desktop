@@ -1,9 +1,0 @@
-User-Agent: *
-Disallow: /*affCode*
-Disallow: /*refID*
-Disallow: /*AffID*
-
-Sitemap: https://www.nova88.net/sitemapen.xml
-Sitemap: https://www.nova88apple.com/sitemapth.xml
-Sitemap: https://www.nova88gol.com/sitemapcs.xml
-Sitemap: https://www.nova88-indo.com/sitemapid.xml
