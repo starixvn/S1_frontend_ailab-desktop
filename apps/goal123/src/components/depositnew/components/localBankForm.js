@@ -121,14 +121,17 @@ const LocalBankForm = ({
 									src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
 									alt={item.bankName}
 								/>
-								<i className="icon icon-icon32px_check" />
+								<i className="icon icon-checkmark" />
 							</div>
 						</button>
 					))}
 				</div>
 			</div>
 			<div className="subModule">
-				<div className="subModuleTitle">{t("lbl_BankAccount")}</div>
+				<div className="subModuleTitle">
+					<i className="txt-blue">*</i>
+					{t("lbl_BankAccount")}
+				</div>
 				<div className="bankAccount">
 					{t("lbl_DepositProcessingDescription")}
 					<div className="smallList">

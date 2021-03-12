@@ -78,7 +78,10 @@ const MobileForm = ({
 	return (
 		<>
 			<div className="subModule">
-				<div className="subModuleTitle">{t("lbl_PaymentModes")}</div>
+				<div className="subModuleTitle">
+					<i className="txt-blue">*</i>
+					{t("lbl_PaymentModes")}
+				</div>
 				<div>
 					{mobilePayGourpList.map(item => (
 						<button
@@ -104,6 +107,7 @@ const MobileForm = ({
 			{!!mobilePayInfoList.length && (
 				<div className="subModule">
 					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
 						{t("lbl_SelectChannel")}
 					</div>
 					<div>
@@ -132,6 +136,7 @@ const MobileForm = ({
 			{infoChannelIdForRecord ? (
 				<div className="subModule">
 					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
 						{t("lbl_DepositAmount")}
 					</div>
 					<div className="column">
@@ -196,11 +201,11 @@ const FixedAmountList = ({
 };
 
 FixedAmountList.defaultProps = {
-	amount: 0
+	amount: ""
 };
 
 FixedAmountList.propTypes = {
-	amount: PropTypes.number,
+	amount: PropTypes.string,
 	amountList: PropTypes.arrayOf(PropTypes.number).isRequired,
 	maxAmount: PropTypes.number.isRequired,
 	minAmount: PropTypes.number.isRequired,

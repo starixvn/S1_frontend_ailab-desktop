@@ -28,6 +28,7 @@ const DepositnewInfoMoule = ({
 			<div className="subModuleListColumn">
 				<div className="subModule">
 					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
 						{t("lbl_DepositOptions")}
 					</div>
 					<div>
