@@ -64,6 +64,7 @@ export default class Panel extends Component {
 					<MainMenu
 						showSubMenu={this.showSubMenu}
 						currentMenuKey={this.state.menuKey}
+						productTpIds={this.props.productTpIds}
 					/>
 
 					<div
@@ -72,7 +73,7 @@ export default class Panel extends Component {
 						onClick={this.closeSubMenu}>
 						<SubMenu
 							currentMenuKey={this.state.menuKey}
-							casinoTpIds={this.props.casinoTpIds}
+							productTpIds={this.props.productTpIds}
 						/>
 					</div>
 				</div>

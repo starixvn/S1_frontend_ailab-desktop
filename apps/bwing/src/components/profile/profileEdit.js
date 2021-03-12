@@ -1,7 +1,7 @@
 import React from "react";
-import moment from "moment";
 import { useTranslation } from "react-i18next";
-import DateTime from "react-datetime";
+import moment from "moment";
+import DateTime from "../common/dateTime";
 import Inputbox from "../common/inputbox";
 
 export default props => {
@@ -50,6 +50,8 @@ export default props => {
 							onBlur={props.checkBirth}
 							viewDate={moment(legalDate).format("YYYY-MM-DD")}
 							isValidDate={valid}
+							viewMode="years"
+							closeOnSelect={true}
 						/>
 						<div className="iconModule">
 							{dateTimeIcon(props.status.birth)}

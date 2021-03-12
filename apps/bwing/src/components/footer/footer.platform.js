@@ -7,8 +7,9 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import config from "../../config";
 
-const defPlatfrom = [
+const defPlatform = [
 	{
+		...productList.sabaClub,
 		path: path.sports.root,
 		parameter: { game: "soccer" },
 		imgName: "saba"
@@ -17,15 +18,16 @@ const defPlatfrom = [
 		...productList.liveCasino_Allbet,
 		imgName: "ab"
 	},
-	// {
-	// 	...productList.fishing,
-	// 	imgName: "yl"
-	// },
+	{
+		...productList.fishing,
+		imgName: "yl"
+	},
 	{
 		...productList.liveCasino_AG,
 		imgName: "ag"
 	},
 	{
+		...defCasinoProviders.GPI,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.GPI.name },
 		imgName: "gp"
@@ -39,21 +41,25 @@ const defPlatfrom = [
 		imgName: "sa"
 	},
 	{
+		...defCasinoProviders.YGG,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.YGG.name },
 		imgName: "yg"
 	},
 	{
+		...defCasinoProviders.PP,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.PP.name },
 		imgName: "pp"
 	},
 	{
+		...defCasinoProviders.SG,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.SG.name },
 		imgName: "sg"
 	},
 	{
+		...defCasinoProviders.PG,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.PG.name },
 		imgName: "pg"
@@ -71,6 +77,7 @@ const defPlatfrom = [
 		imgName: "wm"
 	},
 	{
+		...defCasinoProviders.CQ9,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.CQ9.name },
 		imgName: "cq9"
@@ -80,6 +87,7 @@ const defPlatfrom = [
 		imgName: "one789"
 	},
 	{
+		...defCasinoProviders.ICG,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.ICG.name },
 		imgName: "icg"
@@ -88,9 +96,13 @@ const defPlatfrom = [
 		...productList.V8_Poker,
 		imgName: "v8"
 	}
+	// {
+	// 	...productList.N2_Live,
+	// 	imgName: "n2live"
+	// }
 ];
 
-export default ({ langId, isLogin }) => {
+export default ({ langId, isLogin, productTpIds }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
 	const ClickItem = ({ path: _path, urlParams, tpId, gameId }) => {
@@ -114,7 +126,13 @@ export default ({ langId, isLogin }) => {
 		}
 	};
 
-	const rows = defPlatfrom.map(p => {
+	const filterPlatform = defPlatform.filter(
+		item => !item.tpId || (item.tpId && productTpIds?.includes(item.tpId))
+	);
+
+	const showRows = isLogin ? filterPlatform : defPlatform;
+
+	const rows = showRows.map(p => {
 		const key = `footer-platform-${p.imgName}`;
 		let params = null;
 		if (p.parameter) {

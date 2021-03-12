@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
@@ -7,29 +7,10 @@ import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
-import { api_site_GetTpIds } from "../../service/api/site";
 
-export default () => {
+export default ({ productTpIds }) => {
 	const { userInfo } = useContext(userInfoContext);
-	const [casinoTpIds, setCasinoTpIds] = useState(null);
 	const { t } = useTranslation();
-
-	useEffect(() => {
-		let mounted = true;
-		if (userInfo.isLogin && casinoTpIds === null) {
-			api_site_GetTpIds().then(res => {
-				if (res.data.errorCode === 0 && mounted) {
-					setCasinoTpIds(res.data.data);
-				}
-			});
-		} else if (userInfo.isLogin === false && casinoTpIds?.length > 0) {
-			setCasinoTpIds(null);
-		}
-
-		return () => {
-			mounted = false;
-		};
-	}, [userInfo.isLogin, casinoTpIds]);
 
 	return (
 		<header>
@@ -39,7 +20,7 @@ export default () => {
 						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
-				<Menu casinoTpIds={casinoTpIds} />
+				<Menu productTpIds={productTpIds} />
 				<div className="function">
 					<a
 						className="appDownload"

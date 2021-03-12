@@ -6,10 +6,9 @@ import OurPolicies from "./footer.ourPolicies";
 import HelpSupport from "./footer.helpSupport";
 import Promotions from "./footer.promotions";
 import About from "./footer.about";
-import config from "../../config";
 import PlatformSection from "./footer.platform";
 
-export default () => {
+export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
@@ -20,6 +19,7 @@ export default () => {
 					t={t}
 					langId={userInfo.langId}
 					isLogin={userInfo.isLogin}
+					productTpIds={productTpIds}
 				/>
 				<OurPolicies langId={userInfo.langId} t={t} />
 				<div>
@@ -63,6 +63,7 @@ export default () => {
 					t={t}
 					langId={userInfo.langId}
 					isLogin={userInfo.isLogin}
+					productTpIds={productTpIds}
 				/>
 				<div className="powered">
 					<div>{t("lbl_PoweredBy")}</div>
