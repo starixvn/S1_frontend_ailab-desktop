@@ -341,14 +341,14 @@ const Depositnew = () => {
 
 	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
 
-	const isDefaultDepositIsHide = depositOptions.find(
+	const defaultDepositOption = depositOptions.find(
 		option => option.type === parameterDefaultType
 	);
 
 	if (filterDepositOptions.length > 0) {
 		if (
 			!isDepositTypeIncludes ||
-			(isDepositTypeIncludes && isDefaultDepositIsHide.isHide)
+			(isDepositTypeIncludes && defaultDepositOption.isHide)
 		) {
 			onChangeDepositType(filterDepositOptions[0].type);
 		}
