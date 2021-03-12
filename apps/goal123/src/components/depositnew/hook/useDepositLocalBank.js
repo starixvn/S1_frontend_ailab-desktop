@@ -92,6 +92,8 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 	};
 
 	const setLocalBankReceipt = async ({ transId, depositTime, fefNo }) => {
+		let success = false;
+
 		await api_payment_SetDepositReceipt(
 			transId,
 			moment(depositTime).unix(),
@@ -101,7 +103,7 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				if (!isMountedRef.current) return;
 
 				const { message, errorCode } = res.data;
-				const success = errorCode === 0;
+				success = errorCode === 0;
 
 				if (!success)
 					errorPopBox(message || `[${errorCode}] error`, errorCode);
@@ -112,9 +114,13 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				errorPopBox();
 			}
 		);
+
+		return success;
 	};
 
 	const uploadLocalBankReceipt = async ({ transId, imgFile }) => {
+		let success = false;
+
 		const formData = new FormData();
 
 		formData.append("TransId", transId);
@@ -125,7 +131,7 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				if (!isMountedRef.current) return;
 
 				const { message, errorCode } = res.data;
-				const success = errorCode === 0;
+				success = errorCode === 0;
 
 				if (!success)
 					errorPopBox(message || `[${errorCode}] error`, errorCode);
@@ -136,6 +142,8 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				errorPopBox();
 			}
 		);
+
+		return success;
 	};
 
 	const setAccountName = async accountName => {

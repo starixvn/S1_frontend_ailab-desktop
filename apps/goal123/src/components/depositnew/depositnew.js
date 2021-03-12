@@ -24,6 +24,7 @@ import DepositnewRecentHistory from "./depositnew.recentHistory";
 import MobileForm from "./components/mobileForm";
 import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
+import usePopBox from "../hook/usePopBox";
 
 const Depositnew = () => {
 	const parameterDefaultType = getUrlParameter("type");
@@ -50,6 +51,7 @@ const Depositnew = () => {
 
 	const _isConvert = isConvert(userInfo.currencyId);
 
+	const { errorPopBox } = usePopBox();
 	const closePopBox = () => {
 		setPopBox({ isOpen: false });
 	};
@@ -202,33 +204,39 @@ const Depositnew = () => {
 				});
 
 				if (transId) {
-					await Promise.all([
-						uploadLocalBankReceipt({
-							transId,
-							imgFile: infoData.infoDataReceiptImgFile
-						}),
-						setLocalBankReceipt({
-							transId,
-							depositTime:
-								infoData.infoDataDepositTime || moment(),
-							fefNo: infoData.infoDataDepositRefNo
-						})
-					]);
-				}
+					try {
+						const result = await Promise.all([
+							uploadLocalBankReceipt({
+								transId,
+								imgFile: infoData.infoDataReceiptImgFile
+							}),
+							setLocalBankReceipt({
+								transId,
+								depositTime:
+									infoData.infoDataDepositTime || moment(),
+								fefNo: infoData.infoDataDepositRefNo
+							})
+						]);
 
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.Success,
-					btnBar: (
-						<div className="btnGroup">
-							<button
-								className="btn-cancel"
-								onClick={closePopBox}>
-								OK
-							</button>
-						</div>
-					)
-				});
+						if (result.every(res => res)) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.Success,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={closePopBox}>
+											OK
+										</button>
+									</div>
+								)
+							});
+						}
+					} catch (e) {
+						errorPopBox();
+					}
+				}
 
 				setLoading(false);
 			} else if (depositType === defDepositType.onlineBank) {
