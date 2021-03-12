@@ -101,6 +101,11 @@ const defPlatfrom = [
 	{
 		...productList.poker,
 		imgName: "1g"
+	},
+	,
+	{
+		...productList.liveCasino_N2,
+		imgName: "n2"
 	}
 	// {
 	// 	...productList.kiss918,

@@ -181,6 +181,19 @@ export const defMenuLinks = {
 		className: "livecasinobtn",
 		subMenu: [
 			{
+				tpId: 28,
+				className: "liveN2LIVE",
+				icon: "icon icon-N2LIVE",
+				displayText: "N2Live",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.n2Live
+					})
+				]
+			},
+			{
 				...productList.liveCasino_One789,
 				className: "live789",
 				icon: "icon icon-one789",

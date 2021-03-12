@@ -95,6 +95,10 @@ const defPlatform = [
 	{
 		...productList.V8_Poker,
 		imgName: "v8"
+	},
+	{
+		...productList.N2_Live,
+		imgName: "n2live"
 	}
 ];
 
