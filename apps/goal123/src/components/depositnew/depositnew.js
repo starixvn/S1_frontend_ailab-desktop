@@ -7,7 +7,7 @@ import {
 	userInfoContext,
 	popBoxContext
 } from "../common/context";
-import { defDepositType } from "./depositnew.def";
+import { defDepositType, defDepositOptions } from "./depositnew.def";
 import { defPopBoxType } from "../common/popBox";
 import { checkAmount, isConvert, getUrlParameter } from "../common/common";
 
@@ -88,10 +88,17 @@ const Depositnew = () => {
 		onlineBankInfoList
 	} = useDepositOnline({ isMountedRef });
 
-	const onChangeDepositType = type => {
+	const onChangeDepositType = async type => {
 		setDepositType(type);
 		navigate(`/${userInfo.langId}/${path.deposit.root}?type=${type}`);
-		getData(type);
+
+		if (type === defDepositType.mobile) {
+			await getMobilePayGroupList();
+		} else if (type === defDepositType.localBank) {
+			await getLocalBankGroupList();
+		} else if (type === defDepositType.onlineBank) {
+			await getOnlineBankGroupList();
+		}
 
 		resetDepositForm();
 	};
@@ -242,20 +249,6 @@ const Depositnew = () => {
 		}
 	};
 
-	const getData = async type => {
-		setLoading(true);
-
-		if (type === defDepositType.mobile) {
-			await getMobilePayGroupList();
-		} else if (type === defDepositType.localBank) {
-			await getLocalBankGroupList();
-		} else if (type === defDepositType.onlineBank) {
-			await getOnlineBankGroupList();
-		}
-
-		setLoading(false);
-	};
-
 	const resetDepositForm = () => {
 		setMobilePayInfoList([]);
 		setOnlineBankInfoList([]);
@@ -313,13 +306,23 @@ const Depositnew = () => {
 	};
 
 	useEffect(() => {
-		if (!isDepositTypeIncludes) {
-			navigate(
-				`/${userInfo.langId}/${path.deposit.root}?type=${defDepositType.mobile}`
-			);
-		}
+		const getData = async () => {
+			setLoading(true);
+			try {
+				await Promise.all([
+					getMobilePayGroupList(),
+					getLocalBankGroupList(),
+					getOnlineBankGroupList()
+				]);
+			} catch (e) {
+				errorPopBox();
+			}
 
-		getData(depositType);
+			setLoading(false);
+			//
+		};
+
+		getData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -329,6 +332,27 @@ const Depositnew = () => {
 			isMountedRef.current = false;
 		};
 	});
+
+	const depositOptions = defDepositOptions({
+		mobilePayGourpList,
+		onlineBankGroupList,
+		localBankGroupList
+	});
+
+	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
+
+	const isDefaultDepositIsHide = depositOptions.find(
+		option => option.type === parameterDefaultType
+	);
+
+	if (filterDepositOptions.length > 0) {
+		if (
+			!isDepositTypeIncludes ||
+			(isDepositTypeIncludes && isDefaultDepositIsHide.isHide)
+		) {
+			onChangeDepositType(filterDepositOptions[0].type);
+		}
+	}
 
 	if (loading) return null;
 
@@ -349,6 +373,7 @@ const Depositnew = () => {
 			<DepositnewInfoMoule
 				t={t}
 				langId={userInfo.langId}
+				depositOptions={depositOptions}
 				depositType={depositType}
 				checked={!!checked}
 				onSubmit={onSubmit}

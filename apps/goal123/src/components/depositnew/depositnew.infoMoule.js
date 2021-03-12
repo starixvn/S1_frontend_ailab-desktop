@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
-import { defDepositOption } from "./depositnew.def";
 import path from "../../router";
 
 const DepositnewInfoMoule = ({
 	t,
 	langId,
+	depositOptions,
 	depositType,
 	setDepositType,
 	checked,
@@ -31,7 +31,9 @@ const DepositnewInfoMoule = ({
 						{t("lbl_DepositOptions")}
 					</div>
 					<div>
-						{defDepositOption.map(item => {
+						{depositOptions.map(item => {
+							if (item.isHide) return null;
+
 							return (
 								<button
 									onClick={() => setDepositType(item.type)}
@@ -75,6 +77,8 @@ DepositnewInfoMoule.defaultProps = {
 
 DepositnewInfoMoule.propTypes = {
 	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired,
+	depositOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string.isRequired,
 	setDepositType: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
