@@ -6,6 +6,7 @@ import config from "../../../config";
 
 const OnlineBankForm = ({
 	t,
+	depositType,
 	_isConvert,
 	onlineBankGroupList,
 	getOnlineBankInfoList,
@@ -30,9 +31,11 @@ const OnlineBankForm = ({
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
 
 	const onChangeBankGroup = async item => {
-		// navigate(
-		// 	`/${langId}/${path.deposit.root}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
-		// );
+		window.history.replaceState(
+			{},
+			"",
+			`${window.location.pathname}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
+		);
 
 		setInfoData(item);
 		setSysIdForRecord(null);
@@ -59,9 +62,11 @@ const OnlineBankForm = ({
 	};
 
 	const onSetSysIdToInfoData = (item, pId) => {
-		// navigate(
-		// 	`/${langId}/${path.deposit.root}?type=${depositType}&pName=${parameterPayName}&pId=${pId}&sysId=${item.sysId}`
-		// );
+		window.history.replaceState(
+			{},
+			"",
+			`${window.location.pathname}?type=${depositType}&pName=${parameterPayName}&pId=${pId}&sysId=${item.sysId}`
+		);
 
 		setSysIdForRecord(item.sysId);
 
@@ -191,6 +196,7 @@ const OnlineBankForm = ({
 
 OnlineBankForm.propTypes = {
 	t: PropTypes.func.isRequired,
+	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	onlineBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getOnlineBankInfoList: PropTypes.func.isRequired,

@@ -8,6 +8,7 @@ import config from "../../../config";
 const LocalBankForm = ({
 	t,
 	userInfo,
+	depositType,
 	_isConvert,
 	localBankGroupList,
 	infoData,
@@ -59,9 +60,11 @@ const LocalBankForm = ({
 	};
 
 	const onChangeBankInfo = item => {
-		// navigate(
-		// 	`/${userInfo.langId}/${path.deposit.root}?type=${depositType}&sysId=${item.sysId}`
-		// );
+		window.history.replaceState(
+			{},
+			"",
+			`${window.location.pathname}?type=${depositType}&sysId=${item.sysId}`
+		);
 
 		setSysIdForRecord(item.sysId);
 		getLocalBankInfo({ sysId: item.sysId });
@@ -244,6 +247,7 @@ LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	infoData: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
+	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setInfoData: PropTypes.func.isRequired,

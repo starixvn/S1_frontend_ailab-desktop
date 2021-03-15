@@ -6,6 +6,7 @@ import config from "../../../config";
 
 const MobileForm = ({
 	t,
+	depositType,
 	_isConvert,
 	mobilePayGourpList,
 	getMobilePayInfoList,
@@ -25,9 +26,11 @@ const MobileForm = ({
 	);
 
 	const onGetMobileInfoList = async gId => {
-		// navigate(
-		// 	`/${langId}/${path.deposit.root}?type=${depositType}&gId=${gId}`
-		// );
+		window.history.replaceState(
+			{},
+			"",
+			`${window.location.pathname}?type=${depositType}&gId=${gId}`
+		);
 
 		setGroupIdForRecord(gId);
 		setInfoChannelIdForRecord(null);
@@ -46,9 +49,12 @@ const MobileForm = ({
 	};
 
 	const onSetInfoData = item => {
-		// navigate(
-		// 	`/${langId}/${path.deposit.root}?type=${depositType}&gId=${groupIdForRecord}&channelId=${item.channelId}`
-		// );
+		window.history.replaceState(
+			{},
+			"",
+			`${window.location.pathname}?type=${depositType}&gId=${groupIdForRecord}&channelId=${item.channelId}`
+		);
+
 		setInfoChannelIdForRecord(item.channelId);
 		setInfoData(item);
 	};
@@ -215,6 +221,7 @@ FixedAmountList.propTypes = {
 
 MobileForm.propTypes = {
 	t: PropTypes.func.isRequired,
+	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	mobilePayGourpList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getMobilePayInfoList: PropTypes.func.isRequired,

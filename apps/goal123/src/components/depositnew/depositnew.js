@@ -390,6 +390,7 @@ const Depositnew = () => {
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}
+						depositType={depositType}
 						_isConvert={_isConvert}
 						mobilePayGourpList={mobilePayGourpList}
 						getMobilePayInfoList={getMobilePayInfoList}
@@ -406,6 +407,7 @@ const Depositnew = () => {
 					<LocalBankForm
 						t={t}
 						userInfo={userInfo}
+						depositType={depositType}
 						_isConvert={_isConvert}
 						localBankGroupList={localBankGroupList}
 						infoData={infoData}
@@ -422,6 +424,7 @@ const Depositnew = () => {
 				{depositType === defDepositType.onlineBank && (
 					<OnlineBankForm
 						t={t}
+						depositType={depositType}
 						_isConvert={_isConvert}
 						onlineBankGroupList={onlineBankGroupList}
 						getOnlineBankInfoList={getOnlineBankInfoList}
