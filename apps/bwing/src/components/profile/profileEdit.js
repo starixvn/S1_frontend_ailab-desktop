@@ -51,7 +51,6 @@ export default props => {
 							viewDate={moment(legalDate).format("YYYY-MM-DD")}
 							isValidDate={valid}
 							viewMode="years"
-							closeOnSelect={true}
 						/>
 						<div className="iconModule">
 							{dateTimeIcon(props.status.birth)}

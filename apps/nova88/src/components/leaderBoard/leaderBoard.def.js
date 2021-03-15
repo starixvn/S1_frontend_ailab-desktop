@@ -176,12 +176,24 @@ export const defRewardList = ({ t }) => {
 				},
 				{ displayRank: t("lbl_Rank1"), reward: "LOGAM MULIA 75g" },
 				{ displayRank: t("lbl_Rank2"), reward: "LOGAM MULIA 50g" },
-				{ displayRank: t("lbl_Rank3"), reward: `${unitIDR} 35,000` },
-				{ displayRank: t("lbl_Rank4"), reward: `${unitIDR} 30,000` },
-				{ displayRank: t("lbl_Rank5"), reward: `${unitIDR} 25,000` },
-				{ displayRank: t("lbl_Rank6"), reward: `${unitIDR} 15,000` },
-				{ displayRank: t("lbl_Rank7"), reward: `${unitIDR} 8,000` },
-				{ displayRank: t("lbl_Rank8"), reward: `${unitIDR} 5,000` }
+				{
+					displayRank: t("lbl_Rank3"),
+					reward: `${unitIDR} 35.000.000`
+				},
+				{
+					displayRank: t("lbl_Rank4"),
+					reward: `${unitIDR} 30.000.000`
+				},
+				{
+					displayRank: t("lbl_Rank5"),
+					reward: `${unitIDR} 25.000.000`
+				},
+				{
+					displayRank: t("lbl_Rank6"),
+					reward: `${unitIDR} 15.000.000`
+				},
+				{ displayRank: t("lbl_Rank7"), reward: `${unitIDR} 8.000.000` },
+				{ displayRank: t("lbl_Rank8"), reward: `${unitIDR} 5.000.000` }
 			],
 			[defRewardTabId.monthly]: [
 				{
