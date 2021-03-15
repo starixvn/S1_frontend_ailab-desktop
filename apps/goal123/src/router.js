@@ -124,6 +124,9 @@ export default {
 	referralHistory: {
 		root: "referralHistory"
 	},
+	vip: {
+		root: "vip"
+	},
 	mysteryBox: {
 		root: "mysteryBox"
 	}
