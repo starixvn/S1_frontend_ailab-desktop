@@ -382,7 +382,7 @@ const Depositnew = () => {
 			<DepositnewInfoMoule
 				t={t}
 				langId={userInfo.langId}
-				depositOptions={depositOptions}
+				depositOptions={filterDepositOptions}
 				depositType={depositType}
 				checked={!!checked}
 				onSubmit={onSubmit}
