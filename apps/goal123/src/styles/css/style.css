@@ -8016,7 +8016,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .vip .swiper-container {
-  width: 100%;
+  width: 100% !important;
   margin-bottom: 25px;
 }
 
@@ -8158,7 +8158,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   background: rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   padding: 20px 40px;
-  margin: 60px 40px;
+  margin: 60px auto;
 }
 
 .vip .vipInfo .vipTitle {
