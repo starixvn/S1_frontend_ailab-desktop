@@ -18,10 +18,10 @@ const defPlatfrom = [
 		...productList.liveCasino_Allbet,
 		imgName: "ab"
 	},
-	// {
-	// 	...productList.fishing,
-	// 	imgName: "yl"
-	// },
+	{
+		...productList.fishing,
+		imgName: "yl"
+	},
 	{
 		...productList.liveCasino_AG,
 		imgName: "ag"
@@ -82,10 +82,10 @@ const defPlatfrom = [
 		...productList.liveCasino_WM,
 		imgName: "wm"
 	},
-	{
-		...productList.cockFighting,
-		imgName: "awc"
-	},
+	// {
+	// 	...productList.cockFighting,
+	// 	imgName: "awc"
+	// },
 	{
 		...productList.casino_CQ9,
 		path: path.casino.root,
@@ -101,6 +101,11 @@ const defPlatfrom = [
 	{
 		...productList.poker,
 		imgName: "1g"
+	},
+	,
+	{
+		...productList.liveCasino_N2,
+		imgName: "n2"
 	}
 	// {
 	// 	...productList.kiss918,
@@ -119,7 +124,7 @@ const useHandleLogoList = () => {
 	return { onMouseOverImg, handleOnMouseOverImg };
 };
 
-export default ({ langId, isLogin }) => {
+export default ({ langId, isLogin, productTpIds }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { onMouseOverImg, handleOnMouseOverImg } = useHandleLogoList();
 
@@ -145,7 +150,13 @@ export default ({ langId, isLogin }) => {
 		});
 	};
 
-	const rows = defPlatfrom.map(p => {
+	const filterPlatform = defPlatfrom.filter(
+		item => !item.tpId || (item.tpId && productTpIds?.includes(item.tpId))
+	);
+
+	const showRows = isLogin ? filterPlatform : defPlatfrom;
+
+	const rows = showRows?.map(p => {
 		const key = `footer-platform-${p.tpId}-${p.gameId}`;
 		let params = null;
 		if (p.parameter) {

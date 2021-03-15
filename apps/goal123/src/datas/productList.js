@@ -73,6 +73,42 @@ export default {
 		tpId: 1,
 		name: "baseball"
 	},
+	liveCasino_Allbet: {
+		gameId: 12,
+		tpId: 12
+	},
+	liveCasino_AG: {
+		gameId: 3,
+		tpId: 3
+	},
+	liveCasino_DG: {
+		gameId: 4,
+		tpId: 4
+	},
+	liveCasino_SA: {
+		gameId: 2,
+		tpId: 2
+	},
+	liveCasino_AE: {
+		gameId: 15,
+		tpId: 15
+	},
+	liveCasino_eBET: {
+		gameId: 18,
+		tpId: 18
+	},
+	liveCasino_WM: {
+		gameId: 20,
+		tpId: 20
+	},
+	liveCasino_One789: {
+		tpId: 23,
+		gameId: 2
+	},
+	liveCasino_n2live: {
+		tpId: 28,
+		gameId: 2
+	},
 	fishing_SG: {
 		gameId: "F-SF01",
 		tpId: 10,

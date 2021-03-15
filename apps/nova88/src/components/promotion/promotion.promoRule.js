@@ -9,7 +9,8 @@ export default ({ promotionInfo, t, currencyId }) => {
 		status,
 		custExpiryTime,
 		periodTo,
-		requiredAmount,
+		// requiredAmount,
+		maxBonus,
 		rollOver
 	} = promotionInfo;
 
@@ -32,22 +33,26 @@ export default ({ promotionInfo, t, currencyId }) => {
 	return (
 		<div className="rollover">
 			<div>
-				{requiredAmount > 0 ? (
+				<div className="icon icon-icon32px_money">
+					{t("lbl_MaxBonusAmount")}
+				</div>
+				{/* {requiredAmount > 0 ? (
 					<div className="icon icon-icon32px_money">
 						{t("lbl_MinAmount")}
 					</div>
-				) : null}
+				) : null} */}
 				<div className="icon icon-icon32px_time">
 					{t("lbl_RemainingTime")}
 				</div>
 				<div className="icon icon-icon32px_">{t("lbl_RollOver")}</div>
 			</div>
 			<div className="txt-orange">
-				{requiredAmount > 0 ? (
+				<div>{number_format(maxBonus, isConvert(currencyId))}</div>
+				{/* {requiredAmount > 0 ? (
 					<div>
 						{number_format(requiredAmount, isConvert(currencyId))}
 					</div>
-				) : null}
+				) : null} */}
 				<div>{displayExpiryTime}</div>
 				<div>{rollOver}X</div>
 			</div>

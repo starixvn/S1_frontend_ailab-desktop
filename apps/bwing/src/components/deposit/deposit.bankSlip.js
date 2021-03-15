@@ -1,6 +1,6 @@
 import React, { createRef, Component } from "react";
 import moment from "moment";
-import DateTime from "react-datetime";
+import DateTime from "../common/dateTime";
 import config from "../../config";
 import Loading from "../common/loading";
 import { defPopBoxType } from "../common/defPopBoxType";
@@ -305,6 +305,7 @@ export class Module extends Component {
 								"YYYY-MM-DD HH:mm A"
 							)}
 							onChange={this.editField.bind(this, "depositTime")}
+							closeOnSelect={true}
 						/>
 						<div className="rdt" />
 						<div className="iconModule">

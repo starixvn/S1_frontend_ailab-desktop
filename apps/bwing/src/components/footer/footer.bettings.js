@@ -2,7 +2,7 @@ import React from "react";
 import { defSportsBetting } from "./footer.def";
 import LinkItems from "../common/linkItems";
 
-export default ({ t, langId, isLogin }) => {
+export default ({ t, langId, isLogin, productTpIds }) => {
 	return (
 		<div>
 			<span className="title">{t("lbl_SportsBetting")}</span>
@@ -14,6 +14,7 @@ export default ({ t, langId, isLogin }) => {
 					langId={langId}
 					isLogin={isLogin}
 					checkMatchPage={false}
+					productTpIds={productTpIds}
 				/>
 			</div>
 		</div>

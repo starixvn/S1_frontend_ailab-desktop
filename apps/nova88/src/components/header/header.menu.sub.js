@@ -15,7 +15,7 @@ import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.p
 import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 
-export default ({ currentMenuKey, casinoTpIds }) => {
+export default ({ currentMenuKey, productTpIds }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -52,12 +52,12 @@ export default ({ currentMenuKey, casinoTpIds }) => {
 			subMenu = defMenuLinks[menuKey]?.subMenu;
 
 			if (
-				currentMenuKey === "casino" &&
+				// currentMenuKey === "casino" &&
 				subMenu &&
-				casinoTpIds?.length > 0
+				productTpIds?.length > 0
 			) {
 				subMenu = subMenu.filter(
-					s => s.alwaysShow || casinoTpIds.includes(s.tpId)
+					s => s.alwaysShow || productTpIds.includes(s.tpId)
 				);
 			}
 

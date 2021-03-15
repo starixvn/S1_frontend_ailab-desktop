@@ -56,27 +56,26 @@ export const defSportsQuickLinks = {
 		className: "icon icon-virtual-sports",
 		displayKey: "lbl_VirtualSports"
 	},
-	// fishing: {
-	// 	productInfo: productList.fishing,
-	// 	className: "icon icon-game",
-	// 	displayKey: "lbl_Fishing"
-	// },
+	fishing: {
+		productInfo: productList.fishing,
+		className: "icon icon-game",
+		displayKey: "lbl_Fishing"
+	},
 	V8Poker: {
 		productInfo: productList.V8_Poker,
 		className: "icon icon-casino",
 		displayKey: "lbl_V8Poker"
-	},
-	CQ9: {
-		path: path.casino.root,
-		provider: "CQ9",
-		className: "icon icon-slots",
-		displayKey: "lbl_CQ9"
 	}
+	// CQ9: {
+	// 	path: path.casino.root,
+	// 	provider: "CQ9",
+	// 	className: "icon icon-slots",
+	// 	displayKey: "lbl_CQ9"
+	// }
 };
 
-export default ({ t }) => {
+export default ({ t, productTpIds }) => {
 	const { userInfo } = useContext(userInfoContext);
-
 	return (
 		<div className="gameMenu">
 			<div>
@@ -85,6 +84,7 @@ export default ({ t }) => {
 					t={t}
 					langId={userInfo.langId}
 					isLogin={userInfo.isLogin}
+					productTpIds={productTpIds}
 				/>
 			</div>
 		</div>
