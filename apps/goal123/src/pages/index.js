@@ -8,7 +8,7 @@ const IndexPage = () => {
 	return (
 		<Wrapper>
 			<Layout showFooter={true}>
-				<Content isIndex={true} />
+				<Content />
 			</Layout>
 		</Wrapper>
 	);

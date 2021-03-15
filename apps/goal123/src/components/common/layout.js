@@ -7,6 +7,7 @@ import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext, userInfoContext } from "./context";
 import Home from "../home/home";
+import path from "../../router";
 import { api_site_GetTpIds } from "../../service/api/site";
 
 const Layout = ({ children, showFooter = false }) => {
@@ -38,13 +39,16 @@ const Layout = ({ children, showFooter = false }) => {
 		return <Home productTpIds={productTpIds} />;
 	};
 
-	const centerLayout = children.props.isIndex ? showHomePage() : children;
+	const custChildren =
+		!children?.length && children.type.displayName === path.home.root
+			? showHomePage()
+			: children;
 
 	return (
 		<>
 			<SEO />
 			<Header productTpIds={productTpIds} />
-			{centerLayout}
+			{custChildren}
 			{showFooter ? <Footer productTpIds={productTpIds} /> : null}
 			<PopBox />
 			{loading ? <Loading /> : null}

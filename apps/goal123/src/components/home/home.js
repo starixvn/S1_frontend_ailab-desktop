@@ -28,7 +28,7 @@ import MysteryBoxLink from "./mysteryBoxLink";
 import path from "../../router";
 import PlatformSection from "./footer.platform";
 
-export default ({ productTpIds }) => {
+const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -181,3 +181,7 @@ export default ({ productTpIds }) => {
 		</main>
 	);
 };
+
+Home.displayName = path.home.root;
+
+export default Home;
