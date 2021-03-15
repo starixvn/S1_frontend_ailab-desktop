@@ -132,7 +132,9 @@ function SEO({ description, lang, meta, title }) {
 					lang
 				}}
 				title={_title}
-				link={[{ rel: "icon", type: "image/png", href: "favicon.ico" }]}
+				link={[
+					{ rel: "icon", type: "image/x-icon", href: "favicon.ico" }
+				]}
 				meta={[
 					{
 						name: `description`,
