@@ -49,6 +49,8 @@ const Depositnew = () => {
 		tip: ""
 	});
 
+	const [isInitDataDone, setIsInitDataDone] = useState(false);
+
 	const _isConvert = isConvert(userInfo.currencyId);
 
 	const { errorPopBox } = usePopBox();
@@ -322,6 +324,8 @@ const Depositnew = () => {
 					getLocalBankGroupList(),
 					getOnlineBankGroupList()
 				]);
+
+				setIsInitDataDone(true);
 			} catch (e) {
 				errorPopBox();
 			}
@@ -341,6 +345,8 @@ const Depositnew = () => {
 		};
 	});
 
+	if (loading || !isInitDataDone) return null;
+
 	const depositOptions = defDepositOptions({
 		mobilePayGourpList,
 		onlineBankGroupList,
@@ -349,20 +355,15 @@ const Depositnew = () => {
 
 	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
 
+	if (!filterDepositOptions.length) return null;
+
 	const defaultDepositOption = depositOptions.find(
 		option => option.type === parameterDefaultType
 	);
 
-	if (filterDepositOptions.length > 0) {
-		if (
-			!isDepositTypeIncludes ||
-			(isDepositTypeIncludes && defaultDepositOption.isHide)
-		) {
-			onChangeDepositType(filterDepositOptions[0].type);
-		}
+	if (!isDepositTypeIncludes || defaultDepositOption.isHide) {
+		onChangeDepositType(filterDepositOptions[0].type);
 	}
-
-	if (loading) return null;
 
 	let checked = false;
 

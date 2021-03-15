@@ -32,29 +32,22 @@ const DepositnewInfoMoule = ({
 						{t("lbl_DepositOptions")}
 					</div>
 					<div>
-						{depositOptions.map(item => {
-							if (item.isHide) return null;
-
-							return (
-								<button
-									onClick={() => setDepositType(item.type)}
-									className={
-										item.type === depositType
-											? "active"
-											: ""
-									}
-									key={`${item.type}-key`}>
-									<div className={item.iconClass}>
-										<i className="icon icon-checkmark" />
-									</div>
-									<div>{t(item.depositDisplaykey)}</div>
-									<div>
-										{t("lbl_CreditTime")} ：
-										{t(item.creditTime)}
-									</div>
-								</button>
-							);
-						})}
+						{depositOptions.map(item => (
+							<button
+								onClick={() => setDepositType(item.type)}
+								className={
+									item.type === depositType ? "active" : ""
+								}
+								key={`${item.type}-key`}>
+								<div className={item.iconClass}>
+									<i className="icon icon-checkmark" />
+								</div>
+								<div>{t(item.depositDisplaykey)}</div>
+								<div>
+									{t("lbl_CreditTime")} ：{t(item.creditTime)}
+								</div>
+							</button>
+						))}
 					</div>
 				</div>
 
