@@ -900,6 +900,11 @@ header .header > div.function .cashier:before, header .header > div.function .wa
   font-size: 18px;
 }
 
+header .header > div.function .cashier > img:first-child, header .header > div.function .wallet > img:first-child, header .header > div.function .memberfile > img:first-child {
+  width: 30px;
+  margin: 0 10px;
+}
+
 header .header > div.function .cashier {
   color: #fab617;
 }
@@ -8107,41 +8112,6 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
           transform: scale(0.8);
 }
 
-.vip .vipLv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 700px;
-  margin: 60px auto 60px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.vip .vipLv img {
-  width: 100px;
-}
-
-.vip .vipLv > div {
-  margin-top: 15px;
-  background: #1E85EC;
-  padding: 5px 10px;
-  border-radius: 15px;
-}
-
-.vip .vipLv > div.vipbg {
-  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
-  padding: 20px;
-  margin-top: 0;
-}
-
 .vip .walletNickname {
   border-top: 1px dotted #666;
   text-align: center;
@@ -8173,5 +8143,41 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   font-weight: bold;
   color: #1E85EC;
   width: 100%;
+}
+
+.vipLv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 700px;
+  margin: 60px auto 60px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.vipLv img {
+  width: 100px;
+  margin-top: 5px;
+}
+
+.vipLv > div {
+  margin-top: 15px;
+  background: #1E85EC;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.vipLv > div.vipbg {
+  background: url(../img/vip/vipbg.png) no-repeat center/auto 100%;
+  padding: 25px;
+  margin-top: 0;
 }
 /*# sourceMappingURL=style.css.map */
