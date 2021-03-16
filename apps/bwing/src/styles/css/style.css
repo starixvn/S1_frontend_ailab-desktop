@@ -906,6 +906,12 @@ header .header > div.function .memberfile > a {
   transition: 0.7s;
 }
 
+header .header > div.function .cashier > img,
+header .header > div.function .wallet > img,
+header .header > div.function .memberfile > img {
+  width: 50px;
+}
+
 header .header > div.function .cashier .submenu,
 header .header > div.function .wallet .submenu,
 header .header > div.function .memberfile .submenu {
@@ -2094,6 +2100,26 @@ main > .swiper-container .swiper-slide {
 
 .rightModule {
   width: 100%;
+}
+
+.porfileVip {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.porfileVip img {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.porfileVip > div {
+  width: 150px;
+  margin: 0 auto;
+  padding: 8px 0px;
+  border-radius: 20px;
+  background-color: #243a6e;
+  margin-top: 10px;
 }
 
 #leftMenu {
@@ -7851,7 +7877,12 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn > .subModule .icon-information-solid + .tip {
   padding: 0;
   width: auto;
-  margin-top: 8px;
+  height: auto;
+}
+
+.subModuleListColumn > .subModule .icon-information-solid.active + .tip {
+  visibility: visible;
+  opacity: 1;
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle {
@@ -7881,7 +7912,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           align-items: center;
   margin-bottom: 15px;
   color: white;
-  width: 145px;
+  width: 220px;
   position: relative;
 }
 
@@ -7931,6 +7962,25 @@ input + .iconModule i.icon.icon-checkmark:before {
   color: #56ceff;
   font-size: 48px;
   margin: 0;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank,
+.subModuleListColumn > .subModule > div > a > div.bank {
+  color: white;
+  margin: 0 0 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div,
+.subModuleListColumn > .subModule > div > a > div.bank > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div:last-child,
+.subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
+  color: #56ceff;
+  margin: 10px 0 0;
 }
 
 .subModuleListColumn > .subModule > div > button.active > div,
