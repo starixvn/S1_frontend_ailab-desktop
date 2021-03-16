@@ -198,13 +198,13 @@ export const defRewardList = ({ t }) => {
 			[defRewardTabId.monthly]: [
 				{
 					displayRank: t("lbl_RankChampion"),
-					reward: `${unitIDR} 15,000,000`
+					reward: `${unitIDR} 15.000.000`
 				},
 				{
 					displayRank: t("lbl_Rank1"),
-					reward: `${unitIDR} 12,000,000`
+					reward: `${unitIDR} 12.000.000`
 				},
-				{ displayRank: t("lbl_Rank2"), reward: `${unitIDR} 8,000,000` }
+				{ displayRank: t("lbl_Rank2"), reward: `${unitIDR} 8.000.000` }
 			]
 		}
 	};
