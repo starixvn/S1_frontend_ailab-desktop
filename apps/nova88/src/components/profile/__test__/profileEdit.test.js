@@ -87,20 +87,20 @@ describe("birthday column calendar (react dateTime)", () => {
 	});
 });
 
-describe("click submit", () => {
-	test("if click submit button function-submitCheck toHaveBeenCalled", () => {
+describe("subumit form", () => {
+	test("if form has been submit, function-submitCheck toHaveBeenCalled", () => {
 		const { container } = render(<ProfileEdit {...fakeData} />);
-		const submitBtn = container.getElementsByTagName("button")[0];
-		fireEvent.click(submitBtn);
+		const form = container.getElementsByTagName("form")[0];
+		fireEvent.submit(form);
 		expect(fakeData.clickSubmit).toHaveBeenCalled();
 	});
 });
 
 describe("show tip text", () => {
-	test("if click submit but the column value is null, show tip text", () => {
+	test("if form has been submit, but the column value is null, show tip text", () => {
 		const { container } = render(<ProfileEdit {...fakeData_2} />);
-		const submitBtn = container.getElementsByTagName("button")[0];
-		fireEvent.click(submitBtn);
+		const form = container.getElementsByTagName("form")[0];
+		fireEvent.submit(form);
 		const accName_tip = container.getElementsByClassName("tip")[0];
 		expect(accName_tip.className.includes("active")).toBe(true);
 	});
@@ -108,6 +108,8 @@ describe("show tip text", () => {
 
 describe("show icon-cross", () => {
 	const fakeData_checkFalse = {
+		t: jest.fn(),
+		userValue: { accountName: "", birth: "", phoneNo: "" },
 		userInfo: {
 			accountName: null,
 			birth_d: "testValue",
@@ -115,18 +117,21 @@ describe("show icon-cross", () => {
 			email: "testValue"
 		},
 		status: {
-			accountName: { checked: false, tip: "test-tip" }
+			accountName: { checked: false, tip: "test-tip" },
+			birth: { checked: null, tip: "" },
+			phoneNo: { checked: null, tip: "" }
 		},
 		clickInfo: jest.fn(),
 		onChangeName: jest.fn(),
 		onChangeBirth: jest.fn(),
 		onChangePhone: jest.fn(),
-		onChangeEmail: jest.fn()
+		onChangeEmail: jest.fn(),
+		editField: jest.fn()
 	};
-	test("if click submit and status checked is false, show icon-cross", () => {
+	test("if form has been submit, and status checked is false, show icon-cross", () => {
 		const { container } = render(<ProfileEdit {...fakeData_checkFalse} />);
-		const submitBtn = container.getElementsByTagName("button")[0];
-		fireEvent.click(submitBtn);
+		const form = container.getElementsByTagName("form")[0];
+		fireEvent.submit(form);
 		const allIcon = container.getElementsByClassName("iconModule")[0];
 		expect(allIcon.firstChild.className.includes("icon-cross")).toBe(true);
 	});
