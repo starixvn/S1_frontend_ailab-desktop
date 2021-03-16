@@ -1,4 +1,12 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, {
+	useContext,
+	useEffect,
+	useState,
+	useRef,
+	Children,
+	isValidElement,
+	cloneElement
+} from "react";
 import PropTypes from "prop-types";
 import Header from "../layout/header";
 import Footer from "../footer/footer";
@@ -6,8 +14,6 @@ import SEO from "../seo";
 import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext, userInfoContext } from "./context";
-import Home from "../home/home";
-import path from "../../router";
 import { api_site_GetTpIds } from "../../service/api/site";
 
 const Layout = ({ children, showFooter = false }) => {
@@ -35,20 +41,15 @@ const Layout = ({ children, showFooter = false }) => {
 		}
 	}, [userInfo.isLogin, productTpIds]);
 
-	const showHomePage = () => {
-		return <Home productTpIds={productTpIds} />;
-	};
-
-	const custChildren =
-		!children?.length && children.type.displayName === path.home.root
-			? showHomePage()
-			: children;
+	const childrenWithProps = Children.map(children, child =>
+		isValidElement(child) ? cloneElement(child, { productTpIds }) : child
+	);
 
 	return (
 		<>
 			<SEO />
 			<Header productTpIds={productTpIds} />
-			{custChildren}
+			{childrenWithProps}
 			{showFooter ? <Footer productTpIds={productTpIds} /> : null}
 			<PopBox />
 			{loading ? <Loading /> : null}
