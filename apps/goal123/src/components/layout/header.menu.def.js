@@ -398,7 +398,12 @@ export const defMenuLinks = langId => {
 		vip: {
 			path: path.vip.root,
 			displayKey: "lbl_Vip",
-			className: "icon icon-new"
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.vip
+				})
+			]
 		},
 		promotion: {
 			path: path.promotion.root,
