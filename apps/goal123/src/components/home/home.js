@@ -182,6 +182,4 @@ const Home = ({ productTpIds }) => {
 	);
 };
 
-Home.displayName = path.home.root;
-
 export default Home;
