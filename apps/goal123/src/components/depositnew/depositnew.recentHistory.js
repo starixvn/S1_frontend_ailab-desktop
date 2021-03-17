@@ -105,7 +105,6 @@ const DepositnewRecentHistory = ({
 			<TransactionHistory
 				key={`deposit-recent-${item.transId}`}
 				{...item}
-				_isConvert={_isConvert}
 				idx={i + 1}
 				ClickCancel={ClickCancel.bind(this, item.transId)}
 				SubmitProof={SubmitProof.bind(
@@ -126,7 +125,7 @@ const DepositnewRecentHistory = ({
 		<>
 			<div className="list">
 				<div className="listHeader">
-					<div>{t("NO")}</div>
+					<div>{t("lbl_NO")}</div>
 					<div>
 						{t("lbl_Date")} ({moment().format("Z")})
 					</div>

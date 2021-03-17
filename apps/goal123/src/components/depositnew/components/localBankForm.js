@@ -24,6 +24,16 @@ const LocalBankForm = ({
 
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
 
+	const [infoActive, setInfoActive] = useState({
+		upload: false
+	});
+
+	const clickInfo = col =>
+		setInfoActive(prev => ({
+			...prev,
+			[col]: !prev[col]
+		}));
+
 	const [userAccountName, setUserAccountName] = useState({
 		value: "",
 		checked: null,
@@ -102,14 +112,16 @@ const LocalBankForm = ({
 	if (localBankGroupList.length <= 0) return null;
 
 	const formatMinAmount = number_format(infoData.minAmount);
-	const formatManAmount = number_format(infoData.maxAmount);
+	const formatMaxAmount = number_format(infoData.maxAmount);
 
 	return (
 		<>
 			<div className="subModule">
 				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_SelectBank")}
+					<span>
+						<i className="txt-blue">*</i>
+						{t("lbl_SelectBank")}
+					</span>
 				</div>
 				<div>
 					{localBankGroupList.map(item => (
@@ -126,17 +138,36 @@ const LocalBankForm = ({
 								/>
 								<i className="icon icon-checkmark" />
 							</div>
+
+							<div className="bank">
+								<div>{item.bankName}</div>
+
+								<div>
+									<div>
+										{`${t("lbl_Min")}: ${number_format(
+											item.minAmount
+										)}`}
+									</div>
+									<div>
+										{`${t("lbl_Max")}: ${number_format(
+											item.maxAmount
+										)}`}
+									</div>
+								</div>
+							</div>
 						</button>
 					))}
 				</div>
 			</div>
 			<div className="subModule">
 				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_BankAccount")}
+					<span>
+						<i className="txt-blue">*</i>
+						{t("lbl_BankAccount")}
+					</span>
 				</div>
 				<div className="bankAccount">
-					{t("lbl_DepositProcessingDescription")}
+					{t("lbl_TransactionHint")}
 					<div className="smallList">
 						<ul>
 							<li>{t("lbl_BankName")}</li>
@@ -173,8 +204,10 @@ const LocalBankForm = ({
 			{!userInfo.accountName ? (
 				<div className="subModule">
 					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_RealName")}
+						<span>
+							<i className="txt-blue">*</i>
+							{t("lbl_RealName")}
+						</span>
 					</div>
 					<Inputbox
 						className="inputBox-white"
@@ -189,8 +222,10 @@ const LocalBankForm = ({
 
 			<div className="subModule">
 				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_DepositAmount")}
+					<span>
+						<i className="txt-blue">*</i>
+						{t("lbl_DepositAmount")}
+					</span>
 				</div>
 				<Inputbox
 					className="inputBox-white"
@@ -203,33 +238,38 @@ const LocalBankForm = ({
 					isAmount={true}
 					placeholder={`${t(
 						"lbl_MinMaxAmount"
-					)} ${formatMinAmount} / ${formatManAmount}`}
+					)} ${formatMinAmount} / ${formatMaxAmount}`}
 					onKeyDown={onInputboxKeyDown}
 				/>
 			</div>
 			<div className="subModule">
 				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_SubmitProof")}
+					<span>
+						<i className="txt-blue">*</i>
+						{t("lbl_SubmitProof")}
+					</span>
 				</div>
 				<div className="btnGroup">
 					<button className="blue" onClick={onOpenUploadBankPopBox}>
 						{t("lbl_UploadReceipt")}
 					</button>
 				</div>
-				<i className="icon icon-information-solid" />
-				<div
-					className={`tip${
-						infoData.infoDataReceiptImgFile?.type.includes("image")
-							? ""
-							: " active"
-					}`}>
+				<i
+					className="icon icon-information-solid"
+					onClick={() => clickInfo("upload")}
+				/>
+
+				<div className={`tip${infoActive.upload ? " active" : ""}`}>
 					{t("lbl_DepositProvideBankSlip")}
 				</div>
 			</div>
 
 			<div className="subModule">
-				<div className="subModuleTitle important">IMPORTANT NOTES</div>
+				<div
+					className="subModuleTitle important"
+					style={{ textTransform: "uppercase" }}>
+					{t("lbl_ImportantNote")}
+				</div>
 				<div className="subModuleContent">
 					<ol>
 						<li>{t("lbl_DepositLocalBankNotes1")}</li>

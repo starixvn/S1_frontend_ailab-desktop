@@ -28,7 +28,9 @@ const DepositnewInfoMoule = ({
 			<div className="subModuleListColumn">
 				<div className="subModule">
 					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
+						<span>
+							<i className="txt-blue">*</i>
+						</span>
 						{t("lbl_DepositOptions")}
 					</div>
 					<div>
@@ -42,9 +44,12 @@ const DepositnewInfoMoule = ({
 								<div className={item.iconClass}>
 									<i className="icon icon-checkmark" />
 								</div>
-								<div>{t(item.depositDisplaykey)}</div>
-								<div>
-									{t("lbl_CreditTime")} ：{t(item.creditTime)}
+								<div className="bank">
+									<div>{t(item.depositDisplaykey)}</div>
+									<div>
+										{t("lbl_CreditTime")} ：
+										{t(item.creditTime)}
+									</div>
 								</div>
 							</button>
 						))}

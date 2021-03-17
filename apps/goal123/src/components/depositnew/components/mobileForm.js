@@ -79,14 +79,16 @@ const MobileForm = ({
 	if (mobilePayGourpList.length <= 0) return null;
 
 	const formatMinAmount = number_format(infoData.minAmount);
-	const formatManAmount = number_format(infoData.maxAmount);
+	const formatMaxAmount = number_format(infoData.maxAmount);
 
 	return (
 		<>
 			<div className="subModule">
 				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_PaymentModes")}
+					<span>
+						<i className="txt-blue">*</i>
+						{t("lbl_PaymentModes")}
+					</span>
 				</div>
 				<div>
 					{mobilePayGourpList.map(item => (
@@ -105,6 +107,11 @@ const MobileForm = ({
 								/>
 								<i className="icon icon-checkmark" />
 							</div>
+
+							<div className="bank">
+								<div>{item.groupName}</div>
+								<div className="" />
+							</div>
 						</button>
 					))}
 				</div>
@@ -113,8 +120,10 @@ const MobileForm = ({
 			{!!mobilePayInfoList.length && (
 				<div className="subModule">
 					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_SelectChannel")}
+						<span>
+							<i className="txt-blue">*</i>
+							{t("lbl_SelectChannel")}
+						</span>
 					</div>
 					<div>
 						{mobilePayInfoList.map(item => (
@@ -133,6 +142,23 @@ const MobileForm = ({
 									/>
 									<i className="icon icon-checkmark" />
 								</div>
+
+								<div className="bank">
+									<div>{item.channelName}</div>
+
+									<div>
+										<div>
+											{`${t("lbl_Min")}: ${number_format(
+												item.minAmount
+											)}`}
+										</div>
+										<div>
+											{`${t("lbl_Max")}: ${number_format(
+												item.maxAmount
+											)}`}
+										</div>
+									</div>
+								</div>
 							</button>
 						))}
 					</div>
@@ -142,8 +168,10 @@ const MobileForm = ({
 			{infoChannelIdForRecord ? (
 				<div className="subModule">
 					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_DepositAmount")}
+						<span>
+							<i className="txt-blue">*</i>
+							{t("lbl_DepositAmount")}
+						</span>
 					</div>
 					<div className="column">
 						{isSelAmountType ? (
@@ -169,7 +197,7 @@ const MobileForm = ({
 							isAmount={true}
 							placeholder={`${t(
 								"lbl_MinMaxAmount"
-							)} ${formatMinAmount} / ${formatManAmount}`}
+							)} ${formatMinAmount} / ${formatMaxAmount}`}
 							onKeyDown={onInputboxKeyDown}
 						/>
 					</div>

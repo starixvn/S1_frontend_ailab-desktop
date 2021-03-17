@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { popBoxContext } from "../components/common/context";
-import { TransactionHistory } from "../components/deposit/deposit.historyResult";
+import { TransactionHistory } from "../components/depositnew/deposit.historyResult";
 import { defPopBoxType } from "../components/common/popBox";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";

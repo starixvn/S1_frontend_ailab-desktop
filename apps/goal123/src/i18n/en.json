@@ -32,7 +32,7 @@
 	"lbl_Announcement": "Announcement",
 	"lbl_TermsConditions": "Terms and Conditions",
 	"lbl_RuleRegulations": "Rules and Regulations",
-	"lbl_APPDownload":"APP Download",
+	"lbl_APPDownload": "APP Download",
 	"lbl_Facebook": "Facebook",
 	"lbl_Twitter": "Twitter",
 	"lbl_YouTube": "YouTube",
@@ -213,6 +213,7 @@
 	"lbl_Information": "Information",
 	"lbl_No": "No",
 	"lbl_Yes": "Yes",
+
 	"lbl_Success": "Success",
 	"lbl_Fail": "Failed",
 	"lbl_Close": "Close",
@@ -237,6 +238,8 @@
 	"lbl_total": "Total",
 	"lbl_Congratulations": "Congratulations",
 	"lbl_Download": "Download",
+	"lbl_Min": "Min",
+	"lbl_Max": "Max",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",

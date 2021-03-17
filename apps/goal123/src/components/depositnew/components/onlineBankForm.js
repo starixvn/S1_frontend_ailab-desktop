@@ -103,14 +103,16 @@ const OnlineBankForm = ({
 	if (onlineBankGroupList.length <= 0) return null;
 
 	const formatMinAmount = number_format(infoData.minAmount);
-	const formatManAmount = number_format(infoData.maxAmount);
+	const formatMaxAmount = number_format(infoData.maxAmount);
 
 	return (
 		<>
 			<div className="subModule">
 				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_PaymentModes")}
+					<span>
+						<i className="txt-blue">*</i>
+						{t("lbl_PaymentModes")}
+					</span>
 				</div>
 				<div>
 					{onlineBankGroupList.map(item => (
@@ -129,6 +131,23 @@ const OnlineBankForm = ({
 								/>
 								<i className="icon icon-checkmark" />
 							</div>
+
+							<div className="bank">
+								<div>{item.payName}</div>
+
+								<div>
+									<div>
+										{`${t("lbl_Min")}: ${number_format(
+											item.minAmount
+										)}`}
+									</div>
+									<div>
+										{`${t("lbl_Max")}: ${number_format(
+											item.maxAmount
+										)}`}
+									</div>
+								</div>
+							</div>
 						</button>
 					))}
 				</div>
@@ -137,8 +156,10 @@ const OnlineBankForm = ({
 			{!!onlineBankInfoList.length && (
 				<div className="subModule">
 					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_SelectBank")}
+						<span>
+							<i className="txt-blue">*</i>
+							{t("lbl_SelectBank")}
+						</span>
 					</div>
 					<div>
 						{onlineBankInfoList.map(item => (
@@ -159,6 +180,11 @@ const OnlineBankForm = ({
 									/>
 									<i className="icon icon-checkmark" />
 								</div>
+
+								<div className="bank">
+									<div>{item.bankName}</div>
+									<div className="" />
+								</div>
 							</button>
 						))}
 					</div>
@@ -169,8 +195,10 @@ const OnlineBankForm = ({
 			onlineBankInfoList.some(item => item.sysId === sysIdForRecord) ? (
 				<div className="subModule">
 					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_DepositAmount")}
+						<span>
+							<i className="txt-blue">*</i>
+							{t("lbl_DepositAmount")}
+						</span>
 					</div>
 
 					<Inputbox
@@ -185,7 +213,7 @@ const OnlineBankForm = ({
 						isAmount={true}
 						placeholder={`${t(
 							"lbl_MinMaxAmount"
-						)} ${formatMinAmount} / ${formatManAmount}`}
+						)} ${formatMinAmount} / ${formatMaxAmount}`}
 						onKeyDown={onInputboxKeyDown}
 					/>
 				</div>
