@@ -18,7 +18,7 @@ const LocalBankForm = ({
 	onInputboxKeyDown,
 	getLocalBankInfo,
 	localBankInfo,
-	openUploadBankPopBox
+	asyncUploadBankPopBox
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
@@ -81,15 +81,30 @@ const LocalBankForm = ({
 		setInfoData(item);
 	};
 
-	const onOpenUploadBankPopBox = () => {
+	const onOpenUploadBankPopBox = async () => {
 		const { bankName, accountNo, accountName } = localBankInfo;
 
-		openUploadBankPopBox({
+		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			bankName,
 			accountNo,
 			accountName,
 			from: "new"
 		});
+
+		if (uploadPopBoxResult.type) {
+			const {
+				datas: { depositImgFiles }
+			} = uploadPopBoxResult;
+
+			if (!depositImgFiles.file) return;
+
+			setInfoData(prev => {
+				return {
+					...prev,
+					infoDataReceiptImgFile: depositImgFiles.file
+				};
+			});
+		}
 	};
 
 	useEffect(() => {
@@ -296,6 +311,6 @@ LocalBankForm.propTypes = {
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	getLocalBankInfo: PropTypes.func.isRequired,
 	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	openUploadBankPopBox: PropTypes.func.isRequired
+	asyncUploadBankPopBox: PropTypes.func.isRequired
 };
 export default LocalBankForm;

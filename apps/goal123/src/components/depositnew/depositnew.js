@@ -270,48 +270,57 @@ const Depositnew = () => {
 		}
 	};
 
-	const openUploadBankPopBox = ({
+	const asyncUploadBankPopBox = ({
 		bankName,
 		accountNo,
 		accountName,
 		transId,
 		picFileName,
-		refId,
-		amount,
-		from,
-		historyDepositTime
+		refId
 	}) => {
 		const {
 			infoDataReceiptImgFile,
 			infoDataDepositTime,
 			infoDataDepositRefNo
 		} = infoData;
-
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.DepositUploadBankSlip,
-			t,
-			langId: userInfo.langId,
-			localBankInfo: {
-				bankName,
-				accountNo,
-				accountName,
-				transId
-			},
-			infoDataReceiptImgFile,
-			infoDataDepositTime,
-			infoDataDepositRefNo,
-			setPopBox,
-			picFileName,
-			refId,
-			amount,
-			from,
-			_isConvert,
-			historyDepositTime,
-			setInfoData,
-			uploadLocalBankReceipt,
-			getDepositInfoRecent,
-			setLocalBankReceipt
+		return new Promise(resolve => {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.DepositUploadBankSlip,
+				t,
+				langId: userInfo.langId,
+				localBankInfo: {
+					bankName,
+					accountNo,
+					accountName,
+					transId
+				},
+				infoDataReceiptImgFile,
+				infoDataDepositTime,
+				infoDataDepositRefNo,
+				setPopBox,
+				picFileName,
+				refId,
+				setInfoData,
+				uploadLocalBankReceipt,
+				getDepositInfoRecent,
+				setLocalBankReceipt,
+				resolve,
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => resolve({ type: false })}>
+							{t("lbl_Cancel")}
+						</button>
+						<button
+							className="btn-check"
+							onClick={() => resolve({ type: true })}>
+							{t("lbl_Submit")}
+						</button>
+					</div>
+				)
+			});
 		});
 	};
 
@@ -417,7 +426,7 @@ const Depositnew = () => {
 						onInputboxKeyDown={onInputboxKeyDown}
 						getLocalBankInfo={getLocalBankInfo}
 						localBankInfo={localBankInfo}
-						openUploadBankPopBox={openUploadBankPopBox}
+						asyncUploadBankPopBox={asyncUploadBankPopBox}
 					/>
 				)}
 
@@ -440,10 +449,11 @@ const Depositnew = () => {
 			</DepositnewInfoMoule>
 
 			<DepositnewRecentHistory
-				openUploadBankPopBox={openUploadBankPopBox}
+				asyncUploadBankPopBox={asyncUploadBankPopBox}
 				getDepositInfoRecent={getDepositInfoRecent}
 				depositInfoRecentDatas={depositInfoRecentDatas}
 				setDepositInfoRecentDatas={setDepositInfoRecentDatas}
+				uploadLocalBankReceipt={uploadLocalBankReceipt}
 			/>
 		</>
 	);
