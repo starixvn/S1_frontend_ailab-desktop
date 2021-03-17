@@ -132,7 +132,13 @@ const PopBoxDepositUploadBankSlip = ({
 
 	return (
 		<div className="upload_new active">
-			<div className="icon icon-close" onClick={closePopBox} />
+			<div
+				className="icon icon-close"
+				onClick={() => {
+					closePopBox();
+					resolve({ type: false });
+				}}
+			/>
 
 			<div className="smallList checkBankSlip">
 				<span className="title">{t("lbl_SubmitProof")}</span>
