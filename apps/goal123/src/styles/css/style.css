@@ -1967,6 +1967,7 @@ input[type="file"] {
 .btnGroup button.darkGray, .btnGroup a.darkGray {
   background: #666;
   color: white;
+  cursor: auto;
 }
 
 .btnGroup button.yellow, .btnGroup a.yellow {
@@ -7743,6 +7744,12 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   padding: 0;
   margin-top: -3px;
   width: auto;
+  visibility: hidden;
+}
+
+.subModuleListColumn > .subModule .icon-information-solid.active + .tip {
+  visibility: visible;
+  opacity: 1;
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle {
@@ -7777,9 +7784,9 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-bottom: 15px;
+  margin: 0 5px 15px;
   color: white;
-  width: 145px;
+  width: 220px;
   position: relative;
 }
 
@@ -7805,6 +7812,26 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   display: none;
 }
 
+.subModuleListColumn > .subModule > div > button > div, .subModuleListColumn > .subModule > div > a > div {
+  width: 100%;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank, .subModuleListColumn > .subModule > div > a > div.bank {
+  color: #ffffff;
+  margin: 0 0 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div, .subModuleListColumn > .subModule > div > a > div.bank > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div:last-child, .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
+  color: #fab617;
+  margin: 10px 0 0;
+}
+
 .subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
   margin-bottom: 10px;
   border-radius: 15px;
@@ -7826,22 +7853,26 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   margin: 0;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > a.active > div {
+.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > button:hover > div, .subModuleListColumn > .subModule > div > a.active > div, .subModuleListColumn > .subModule > div > a:hover > div {
   color: #1E85EC;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child {
+.subModuleListColumn > .subModule > div > button.active > div.bank, .subModuleListColumn > .subModule > div > button:hover > div.bank, .subModuleListColumn > .subModule > div > a.active > div.bank, .subModuleListColumn > .subModule > div > a:hover > div.bank {
+  color: #fff;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
   -webkit-box-shadow: 0px 0px 0px 6px #1E85EC inset;
           box-shadow: 0px 0px 0px 6px #1E85EC inset;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > a.active > div i {
+.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > button:hover > div i, .subModuleListColumn > .subModule > div > a.active > div i, .subModuleListColumn > .subModule > div > a:hover > div i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before {
+.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
   display: block;
 }
 
@@ -8017,7 +8048,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 .vip {
   margin: auto;
   max-width: 1200px;
-  min-height: 1900px;
+  min-height: 2050px;
 }
 
 .vip .swiper-container {
