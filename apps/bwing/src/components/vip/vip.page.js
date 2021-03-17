@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "@reach/router";
 import PropTypes from "prop-types";
+import path from "../../router";
+
 import PageEventListVn from "./components/pageEventList.vn";
 
 import imgProgramEn from "../../styles/img/vip/en/vip_program_en.png";
 import imgProgramVn from "../../styles/img/vip/vn/vip_program_vn.png";
 
-const VipPage = ({ pageClubImg, currencyId, t, langId, showJoinPopBox }) => {
+const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
 	const programImgs = {
 		en: imgProgramEn,
 		vn: imgProgramVn
@@ -38,11 +41,12 @@ const VipPage = ({ pageClubImg, currencyId, t, langId, showJoinPopBox }) => {
 			</div>
 
 			{langId ? (
-				<img
-					onClick={showJoinPopBox}
-					src={programImgs[langId]}
-					alt={`vip-program-${langId}`}
-				/>
+				<Link to={`/${langId}/${path.join.root}`}>
+					<img
+						src={programImgs[langId]}
+						alt={`vip-program-${langId}`}
+					/>
+				</Link>
 			) : null}
 		</>
 	);
@@ -52,8 +56,7 @@ VipPage.propTypes = {
 	pageClubImg: PropTypes.arrayOf(PropTypes.object).isRequired,
 	currencyId: PropTypes.number.isRequired,
 	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired,
-	showJoinPopBox: PropTypes.func.isRequired
+	langId: PropTypes.string.isRequired
 };
 
 export default VipPage;
