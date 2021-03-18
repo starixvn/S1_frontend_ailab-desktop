@@ -157,12 +157,7 @@ const Depositnew = () => {
 				await delay(1000);
 				resetForm();
 			} else if (depositType === defDepositType.localBank) {
-				if (
-					loading ||
-					(!userInfo.accountName && !infoData.accountName) ||
-					// !infoData?.infoDataDepositRefNo ||
-					!infoData?.infoDataReceiptImgFile?.type.includes("image")
-				)
+				if (loading || (!userInfo.accountName && !infoData.accountName))
 					return;
 
 				const asyncAccountNameConfirm = () =>
@@ -208,16 +203,11 @@ const Depositnew = () => {
 				if (transId) {
 					try {
 						const result = await Promise.all([
-							uploadLocalBankReceipt({
-								transId,
-								imgFile: infoData.infoDataReceiptImgFile
-							}),
-							setLocalBankReceipt({
-								transId,
-								depositTime:
-									infoData.infoDataDepositTime || moment(),
-								fefNo: infoData.infoDataDepositRefNo
-							})
+							!infoData.infoDataReceiptImgFile ||
+								uploadLocalBankReceipt({
+									transId,
+									imgFile: infoData.infoDataReceiptImgFile
+								})
 						]);
 
 						if (result.every(res => res)) {
@@ -352,10 +342,9 @@ const Depositnew = () => {
 
 	if (depositType === defDepositType.localBank) {
 		checked =
-			infoData.checked &&
-			(userInfo.accountName || infoData.accountName) &&
-			// infoData?.infoDataDepositRefNo &&
-			infoData?.infoDataReceiptImgFile?.type.includes("image");
+			infoData.checked && (userInfo.accountName || infoData.accountName);
+		// infoData?.infoDataDepositRefNo &&
+		// infoData?.infoDataReceiptImgFile?.type.includes("image");
 	} else {
 		checked = infoData.checked;
 	}
