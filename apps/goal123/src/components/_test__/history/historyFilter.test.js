@@ -1,10 +1,9 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import HistoryFilter from "../historyFilter";
+import HistoryFilter from "../../common/historyFilter";
 import "@testing-library/jest-dom";
-import * as ct from "../context";
-import Dropdown from "../dropdown";
-import { Pagination } from "../pagination";
+import * as ct from "../../common/context";
+import Dropdown from "../../common/dropdown";
 
 jest.mock("react-i18next", () => ({
 	useTranslation: () => {
@@ -24,7 +23,6 @@ const Wrapper = fakeData => (
 	</ct.userInfoContext.Provider>
 );
 
-// ---------- test component <HistoryFilter> ----------
 describe("click quick-pick", () => {
 	test("if click quick-pick input, dropdown will open", () => {
 		const fakeData = {
@@ -88,49 +86,5 @@ describe("dropdown item num", () => {
 		const { container } = render(<Dropdown {...fakeData} />);
 		const items = container.getElementsByClassName("dropdown-item");
 		expect(items.length).toBe(fakeData.options.length);
-	});
-});
-
-// ---------- test component <Pagination> ----------
-describe("Pagination items num", () => {
-	test("is the number of pagination correct?", () => {
-		const fakeData = {
-			totalPages: 3,
-			currentPage: 1,
-			clickPageNumber: jest.fn()
-		};
-		const controlButtons = ["prevPage", "nextPage"];
-		const { container } = render(<Pagination {...fakeData} />);
-		const items = container.getElementsByTagName("a");
-		expect(items.length).toBe(fakeData.totalPages + controlButtons.length);
-	});
-});
-
-describe("click prevPageLink", () => {
-	test("click prevPageLink, function-clickPageNumber toHaveBeenCalled", () => {
-		const fakeData = {
-			totalPages: 3,
-			currentPage: 2,
-			clickPageNumber: jest.fn()
-		};
-		const { container } = render(<Pagination {...fakeData} />);
-		const items = container.getElementsByTagName("a");
-		const prevPageLink = items[0];
-		fireEvent.click(prevPageLink);
-		expect(fakeData.clickPageNumber).toHaveBeenCalled();
-	});
-});
-
-describe("Pagination current page highlight", () => {
-	test("currentPage item has active class style?", () => {
-		const fakeData = {
-			totalPages: 3,
-			currentPage: 1,
-			clickPageNumber: jest.fn()
-		};
-		const { container } = render(<Pagination {...fakeData} />);
-		const items = container.getElementsByTagName("a");
-		const firstPageLink = items[1];
-		expect(firstPageLink.classList.contains("active")).toBe(true);
 	});
 });

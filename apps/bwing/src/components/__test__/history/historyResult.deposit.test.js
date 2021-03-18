@@ -21,21 +21,20 @@ const fakeData = {
 	ClickCancel: jest.fn(),
 	SubmitProof: jest.fn()
 };
+describe("click submit bank slip button", () => {
+	test("click submit bank slip button, function-ClickCancel toHaveBeenCalled", () => {
+		const { container } = render(<TransactionHistory {...fakeData} />);
+		const bankSlipBtn = container.getElementsByTagName("button")[0];
+		fireEvent.click(bankSlipBtn);
+		expect(fakeData.SubmitProof).toHaveBeenCalled();
+	});
+});
 
 describe("click cancel button", () => {
 	test("click cancel button, function-ClickCancel toHaveBeenCalled", () => {
 		const { container } = render(<TransactionHistory {...fakeData} />);
-		const cancelBtn = container.getElementsByClassName("btn-cancel")[0];
+		const cancelBtn = container.getElementsByTagName("button")[1];
 		fireEvent.click(cancelBtn);
 		expect(fakeData.ClickCancel).toHaveBeenCalled();
-	});
-});
-
-describe("click submit bank slip button", () => {
-	test("click submit bank slip button, function-ClickCancel toHaveBeenCalled", () => {
-		const { container } = render(<TransactionHistory {...fakeData} />);
-		const bankSlipBtn = container.getElementsByClassName("btn-check")[0];
-		fireEvent.click(bankSlipBtn);
-		expect(fakeData.SubmitProof).toHaveBeenCalled();
 	});
 });

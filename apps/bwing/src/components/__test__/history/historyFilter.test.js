@@ -23,7 +23,6 @@ const Wrapper = fakeData => (
 	</ct.userInfoContext.Provider>
 );
 
-// ---------- test component <HistoryFilter> ----------
 describe("click quick-pick", () => {
 	test("if click quick-pick input, dropdown will open", () => {
 		const fakeData = {
