@@ -73,7 +73,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 							({t(`Currency_${currencyId}`)})
 						</span>
 					</td>
-					<td colSpan="6">{t("lbl_Vip_Tier")}</td>
+					<td colSpan="6" />
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Tier_UpGrade_Bonus")}</td>
@@ -88,7 +88,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 					<td className="icon icon-nova88">
 						{t("lbl_Vip_Special_Rebate")}
 					</td>
-					<td colSpan="6">{t("lbl_Vip_Tier")}</td>
+					<td colSpan="6" />
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Sport_Rebate")}</td>
@@ -130,7 +130,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 					<td className="icon icon-nova88">
 						{t("lbl_Vip_Referral_bonus_Program")}
 					</td>
-					<td colSpan="6">{t("lbl_Vip_Tier")}</td>
+					<td colSpan="6" />
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Referral_bonus")}</td>
@@ -160,7 +160,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 							({t(`Currency_${currencyId}`)})
 						</span>
 					</td>
-					<td colSpan="6">{t("lbl_Vip_Tier")}</td>
+					<td colSpan="6" />
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Monthly_Minimum_Deposit")}</td>
@@ -178,7 +178,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 							({t(`Currency_${currencyId}`)})
 						</span>
 					</td>
-					<td colSpan="6">{t("lbl_Vip_Tier")}</td>
+					<td colSpan="6" />
 				</tr>
 				<tr>
 					<td>

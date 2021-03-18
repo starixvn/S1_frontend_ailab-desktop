@@ -241,7 +241,6 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 					imgUrl={`${config.imgUrl}/common/images/BankLogo/`}
 					className="bankLogo"
 					i18n={t}
-					title={t("lbl_BankNumber")}
 				/>
 			</div>
 			<Inputbox
