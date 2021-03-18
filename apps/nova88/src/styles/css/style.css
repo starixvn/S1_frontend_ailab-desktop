@@ -2455,6 +2455,7 @@ input[type="file"] {
 .btnGroup button.darkGray, .btnGroup a.darkGray {
   background: #666;
   color: white;
+  cursor: auto;
 }
 
 .btnGroup button.red, .btnGroup a.red {
@@ -4472,6 +4473,7 @@ input[type="file"] {
 .offers .swiper-slide .team div.gameName span {
   background: -webkit-linear-gradient(bottom, #df9b5c 10%, #faf0d5 25%, #fdf0d6 90%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 18px;
 }
@@ -7872,6 +7874,9 @@ button.icon-spinner11:before {
   width: min-content;
   margin: 0 4px 0 0;
   color: #19a4bb;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
 }
 
 .ranking > .btnGroup button.active, .ranking > .btnGroup button:hover {
@@ -8693,80 +8698,80 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 [class^="star"].star1 {
   position: absolute;
-  left: 70.79002%;
-  top: 34.08728%;
-  width: 12.47592px;
-  height: 12.47592px;
+  left: 53.14762%;
+  top: -17.33756%;
+  width: 14.04817px;
+  height: 14.04817px;
   -webkit-animation-delay: -0.5s;
           animation-delay: -0.5s;
 }
 
 [class^="star"].star2 {
   position: absolute;
-  left: 1.03308%;
-  top: -59.70322%;
-  width: 6.95139px;
-  height: 6.95139px;
+  left: 12.40544%;
+  top: -33.54939%;
+  width: 10.01212px;
+  height: 10.01212px;
   -webkit-animation-delay: -1s;
           animation-delay: -1s;
 }
 
 [class^="star"].star3 {
   position: absolute;
-  left: 16.6214%;
-  top: -21.84836%;
-  width: 5.46351px;
-  height: 5.46351px;
+  left: 89.15595%;
+  top: 38.08803%;
+  width: 12.66495px;
+  height: 12.66495px;
   -webkit-animation-delay: -1.5s;
           animation-delay: -1.5s;
 }
 
 [class^="star"].star4 {
   position: absolute;
-  left: 38.61864%;
-  top: 4.0463%;
-  width: 13.5324px;
-  height: 13.5324px;
+  left: 88.93137%;
+  top: 2.65968%;
+  width: 13.38924px;
+  height: 13.38924px;
   -webkit-animation-delay: -2s;
           animation-delay: -2s;
 }
 
 [class^="star"].star5 {
   position: absolute;
-  left: 10.93845%;
-  top: 35.99477%;
-  width: 7.65953px;
-  height: 7.65953px;
+  left: 65.70516%;
+  top: -24.9377%;
+  width: 14.44742px;
+  height: 14.44742px;
   -webkit-animation-delay: -2.5s;
           animation-delay: -2.5s;
 }
 
 [class^="star"].star6 {
   position: absolute;
-  left: 32.48371%;
-  top: -37.18347%;
-  width: 12.50527px;
-  height: 12.50527px;
+  left: 23.67505%;
+  top: -46.77293%;
+  width: 12.77501px;
+  height: 12.77501px;
   -webkit-animation-delay: -3s;
           animation-delay: -3s;
 }
 
 [class^="star"].star7 {
   position: absolute;
-  left: 80.42396%;
-  top: -54.33785%;
-  width: 5.64539px;
-  height: 5.64539px;
+  left: 34.41295%;
+  top: -16.84523%;
+  width: 11.45341px;
+  height: 11.45341px;
   -webkit-animation-delay: -3.5s;
           animation-delay: -3.5s;
 }
 
 [class^="star"].star8 {
   position: absolute;
-  left: 47.11472%;
-  top: -39.48369%;
-  width: 6.72249px;
-  height: 6.72249px;
+  left: 11.37162%;
+  top: 10.31248%;
+  width: 14.97566px;
+  height: 14.97566px;
   -webkit-animation-delay: -4s;
           animation-delay: -4s;
 }
@@ -9687,6 +9692,7 @@ canvas {
   font-weight: bold;
   background: -webkit-linear-gradient(top, #f0b52d 30%, #fffccf 40%, #e2a625 65%, #ff6c00 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.5px #ffff9b;
   -webkit-filter: drop-shadow(0px 3px 1px #922707);
@@ -10056,8 +10062,13 @@ canvas {
 
 .subModuleListColumn > .subModule .icon-information + .tip {
   padding: 0;
-  margin-top: -3px;
   width: auto;
+  height: auto;
+}
+
+.subModuleListColumn > .subModule .icon-information.active + .tip {
+  visibility: visible;
+  opacity: 1;
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle {
@@ -10086,7 +10097,7 @@ canvas {
           align-items: center;
   margin-bottom: 15px;
   color: white;
-  width: 145px;
+  width: 240px;
   position: relative;
 }
 
@@ -10107,6 +10118,26 @@ canvas {
 
 .subModuleListColumn > .subModule > div > button i::before, .subModuleListColumn > .subModule > div > a i::before {
   display: none;
+}
+
+.subModuleListColumn > .subModule > div > button > div, .subModuleListColumn > .subModule > div > a > div {
+  width: 100%;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank, .subModuleListColumn > .subModule > div > a > div.bank {
+  color: white;
+  margin: 0 0 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div, .subModuleListColumn > .subModule > div > a > div.bank > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div:last-child, .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
+  color: #f77900;
+  margin: 10px 0 0;
 }
 
 .subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
@@ -10130,34 +10161,27 @@ canvas {
   margin: 0;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > a.active > div {
+.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > button:hover > div, .subModuleListColumn > .subModule > div > a.active > div, .subModuleListColumn > .subModule > div > a:hover > div {
   color: #1E85EC;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child {
+.subModuleListColumn > .subModule > div > button.active > div.bank, .subModuleListColumn > .subModule > div > button:hover > div.bank, .subModuleListColumn > .subModule > div > a.active > div.bank, .subModuleListColumn > .subModule > div > a:hover > div.bank {
+  color: white;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
   -webkit-box-shadow: 0px 0px 0px 4px #1E85EC inset;
           box-shadow: 0px 0px 0px 4px #1E85EC inset;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > a.active > div i {
+.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > button:hover > div i, .subModuleListColumn > .subModule > div > a.active > div i, .subModuleListColumn > .subModule > div > a:hover > div i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before {
+.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
   display: block;
-}
-
-.subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
-  -webkit-box-shadow: 0px 0px 0px 4px #1E85EC inset;
-          box-shadow: 0px 0px 0px 4px #1E85EC inset;
-}
-
-.subModuleListColumn > .subModule > div > button:hover > div:nth-child(n+2), .subModuleListColumn > .subModule > div > a:hover > div:nth-child(n+2) {
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  color: #1E85EC;
 }
 
 .subModuleListColumn .column {

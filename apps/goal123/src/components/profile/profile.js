@@ -464,9 +464,12 @@ export default () => {
 							birth_y: !userInfo.birth_d
 								? birthValue.slice(0, 4)
 								: userInfo.birth_y,
-							phoneNo: phoneValue,
+							phoneNo: !userInfo.phoneNo
+								? phoneValue
+								: userInfo.phoneNo,
 							email: !userInfo.email ? emailValue : userInfo.email
 						}));
+
 						setNameValue("");
 						setBirthValue("");
 						setPhoneValue("");
