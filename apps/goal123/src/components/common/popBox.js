@@ -61,16 +61,7 @@ export default () => {
 					localBankInfo={popBox.localBankInfo}
 					setPopBox={popBox.setPopBox}
 					infoDataReceiptImgFile={popBox.infoDataReceiptImgFile}
-					infoDataDepositTime={popBox.infoDataDepositTime}
-					infoDataDepositRefNo={popBox.infoDataDepositRefNo}
 					picFileName={popBox.picFileName}
-					uploadLocalBankReceipt={popBox.uploadLocalBankReceipt}
-					getDepositInfoRecent={popBox.getDepositInfoRecent}
-					refId={popBox.refId}
-					_isConvert={popBox._isConvert}
-					setLocalBankReceipt={popBox.setLocalBankReceipt}
-					historyDepositTime={popBox.historyDepositTime}
-					btnBar={popBox.btnBar}
 					resolve={popBox.resolve}
 				/>
 			);

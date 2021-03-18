@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import ClipboardJS from "../../lib/clipboard.min";
 import config from "../../config";
 
@@ -35,15 +36,16 @@ const PopBoxDepositUploadBankSlip = ({
 
 		const isValid = file?.type.includes("image");
 
-		if (!isValid)
-			return setDepositImgFiles({
+		if (!isValid) {
+			setDepositImgFiles({
 				value: null,
 				name: "",
 				checked: isValid,
 				tip: t("msg_ApiServerError")
 			});
-
-		onImgFileReaderHandlar(file);
+		} else {
+			onImgFileReaderHandlar(file);
+		}
 	};
 
 	const onImgFileReaderHandlar = imgFile => {
@@ -197,6 +199,21 @@ const PopBoxDepositUploadBankSlip = ({
 			</div>
 		</div>
 	);
+};
+
+PopBoxDepositUploadBankSlip.defaultProps = {
+	picFileName: "",
+	infoDataReceiptImgFile: null
+};
+
+PopBoxDepositUploadBankSlip.propTypes = {
+	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired,
+	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	setPopBox: PropTypes.func.isRequired,
+	infoDataReceiptImgFile: PropTypes.objectOf(PropTypes.any),
+	picFileName: PropTypes.string,
+	resolve: PropTypes.func.isRequired
 };
 
 export default PopBoxDepositUploadBankSlip;

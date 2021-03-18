@@ -38,14 +38,7 @@ const DepositnewRecentHistory = ({
 		setPopBox({ isOpen: false });
 	};
 
-	const SubmitProof = async (
-		bankInfo,
-		depositRep,
-		amount,
-		transId,
-		picFileName,
-		refId
-	) => {
+	const SubmitProof = async (bankInfo, depositRep, transId, picFileName) => {
 		const { bankName } = bankInfo;
 		const { accountName, accountNo } = depositRep;
 
@@ -54,9 +47,7 @@ const DepositnewRecentHistory = ({
 			accountNo,
 			accountName,
 			transId,
-			picFileName,
-			refId,
-			amount
+			picFileName
 		});
 
 		if (uploadPopBoxResult.type) {
@@ -121,11 +112,8 @@ const DepositnewRecentHistory = ({
 					this,
 					item.bankInfo,
 					item.depositRep,
-					item.amount,
 					item.transId,
-					item.picFileName,
-					item.refId,
-					item.depositTime
+					item.picFileName
 				)}
 			/>
 		);

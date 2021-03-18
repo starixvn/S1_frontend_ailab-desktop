@@ -275,14 +275,9 @@ const Depositnew = () => {
 		accountNo,
 		accountName,
 		transId,
-		picFileName,
-		refId
+		picFileName
 	}) => {
-		const {
-			infoDataReceiptImgFile,
-			infoDataDepositTime,
-			infoDataDepositRefNo
-		} = infoData;
+		const { infoDataReceiptImgFile } = infoData;
 		return new Promise(resolve => {
 			setPopBox({
 				isOpen: true,
@@ -295,31 +290,10 @@ const Depositnew = () => {
 					accountName,
 					transId
 				},
-				infoDataReceiptImgFile,
-				infoDataDepositTime,
-				infoDataDepositRefNo,
 				setPopBox,
+				infoDataReceiptImgFile,
 				picFileName,
-				refId,
-				setInfoData,
-				uploadLocalBankReceipt,
-				getDepositInfoRecent,
-				setLocalBankReceipt,
-				resolve,
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => resolve({ type: false })}>
-							{t("lbl_Cancel")}
-						</button>
-						<button
-							className="btn-check"
-							onClick={() => resolve({ type: true })}>
-							{t("lbl_Submit")}
-						</button>
-					</div>
-				)
+				resolve
 			});
 		});
 	};

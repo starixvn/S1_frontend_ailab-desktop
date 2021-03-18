@@ -87,8 +87,7 @@ const LocalBankForm = ({
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
 			bankName,
 			accountNo,
-			accountName,
-			from: "new"
+			accountName
 		});
 
 		if (uploadPopBoxResult.type) {

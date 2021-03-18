@@ -16,7 +16,6 @@ import {
 	api_payment_SetDepositCancel
 } from "../service/api/payment";
 
-import useDeposit from "../components/depositnew/hook/useDeposit";
 import useDepositLocalBank from "../components/depositnew/hook/useDepositLocalBank";
 
 export default () => {
@@ -53,14 +52,7 @@ const Content = () => {
 	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
 
-	const { getDepositInfoRecent } = useDeposit({
-		isMountedRef
-	});
-
-	const {
-		setLocalBankReceipt,
-		uploadLocalBankReceipt
-	} = useDepositLocalBank({ isMountedRef });
+	const { uploadLocalBankReceipt } = useDepositLocalBank({ isMountedRef });
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -156,7 +148,7 @@ const Content = () => {
 		accountName,
 		transId,
 		picFileName,
-		refId
+		historyRefId
 	}) =>
 		new Promise(resolve => {
 			setPopBox({
@@ -172,36 +164,12 @@ const Content = () => {
 				},
 				setPopBox,
 				picFileName,
-				refId,
-				uploadLocalBankReceipt,
-				getDepositInfoRecent,
-				setLocalBankReceipt,
-				resolve,
-				btnBar: (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() => resolve({ type: false })}>
-							{t("lbl_Cancel")}
-						</button>
-						<button
-							className="btn-check"
-							onClick={() => resolve({ type: true })}>
-							{t("lbl_Submit")}
-						</button>
-					</div>
-				)
+				historyRefId,
+				resolve
 			});
 		});
 
-	const SubmitProof = async (
-		bankInfo,
-		depositRep,
-		amount,
-		transId,
-		picFileName,
-		refId
-	) => {
+	const SubmitProof = async (bankInfo, depositRep, transId, picFileName) => {
 		const { bankName } = bankInfo;
 		const { accountName, accountNo } = depositRep;
 
@@ -210,8 +178,7 @@ const Content = () => {
 			accountNo,
 			accountName,
 			transId,
-			picFileName,
-			refId
+			picFileName
 		});
 
 		if (uploadPopBoxResult.type) {
@@ -317,11 +284,8 @@ const Content = () => {
 					this,
 					item.bankInfo,
 					item.depositRep,
-					item.amount,
 					item.transId,
-					item.picFileName,
-					item.refId,
-					item.depositTime
+					item.picFileName
 				)}
 			/>
 		);
