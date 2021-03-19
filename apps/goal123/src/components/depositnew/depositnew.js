@@ -141,7 +141,13 @@ const Depositnew = () => {
 	const onSubmit = async () => {
 		const resetForm = () => {
 			setFormInfo(prev => {
-				return { ...prev, checked: null, amount: null, tip: "" };
+				return {
+					...prev,
+					imgFile: null,
+					checked: null,
+					amount: null,
+					tip: ""
+				};
 			});
 		};
 
@@ -232,6 +238,7 @@ const Depositnew = () => {
 				}
 
 				setLoading(false);
+				resetForm();
 			} else if (depositType === defDepositType.onlineBank) {
 				window.open(
 					`${config.openURL}/${
@@ -245,8 +252,6 @@ const Depositnew = () => {
 				await delay(1000);
 				resetForm();
 			}
-
-			await getDepositInfoRecent();
 		}
 	};
 
