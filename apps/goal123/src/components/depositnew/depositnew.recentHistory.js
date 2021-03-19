@@ -43,14 +43,21 @@ const DepositnewRecentHistory = ({
 		const { accountName, accountNo } = depositRep;
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
-			bankName,
-			accountNo,
-			accountName,
-			transId,
-			picFileName
+			formInfo: {
+				imgFile: {
+					name: picFileName
+				}
+			},
+			localBankInfo: {
+				bankName,
+				accountNo,
+				accountName,
+				transId
+			},
+			langId: userInfo.langId
 		});
 
-		if (uploadPopBoxResult.type) {
+		if (uploadPopBoxResult.success) {
 			const {
 				datas: { depositImgFiles }
 			} = uploadPopBoxResult;

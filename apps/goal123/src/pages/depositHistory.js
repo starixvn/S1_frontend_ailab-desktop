@@ -16,6 +16,7 @@ import {
 	api_payment_SetDepositCancel
 } from "../service/api/payment";
 
+import useDeposit from "../components/depositnew/hook/useDeposit";
 import useDepositLocalBank from "../components/depositnew/hook/useDepositLocalBank";
 
 export default () => {
@@ -51,6 +52,8 @@ const Content = () => {
 
 	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
+
+	const { asyncUploadBankPopBox } = useDeposit({ isMountedRef });
 
 	const { uploadLocalBankReceipt } = useDepositLocalBank({ isMountedRef });
 
@@ -142,46 +145,26 @@ const Content = () => {
 		}
 	};
 
-	const asyncUploadBankPopBox = ({
-		bankName,
-		accountNo,
-		accountName,
-		transId,
-		picFileName,
-		historyRefId
-	}) =>
-		new Promise(resolve => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.DepositUploadBankSlip,
-				t,
-				langId: userInfo.langId,
-				localBankInfo: {
-					bankName,
-					accountNo,
-					accountName,
-					transId
-				},
-				setPopBox,
-				picFileName,
-				historyRefId,
-				resolve
-			});
-		});
-
 	const SubmitProof = async (bankInfo, depositRep, transId, picFileName) => {
 		const { bankName } = bankInfo;
 		const { accountName, accountNo } = depositRep;
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
-			bankName,
-			accountNo,
-			accountName,
-			transId,
-			picFileName
+			formInfo: {
+				imgFile: {
+					name: picFileName
+				}
+			},
+			localBankInfo: {
+				bankName,
+				accountNo,
+				accountName,
+				transId
+			},
+			langId: userInfo.langId
 		});
 
-		if (uploadPopBoxResult.type) {
+		if (uploadPopBoxResult.success) {
 			const {
 				datas: { depositImgFiles }
 			} = uploadPopBoxResult;

@@ -43,7 +43,8 @@ const Depositnew = () => {
 	const [depositType, setDepositType] = useState(
 		isDepositTypeIncludes ? parameterDefaultType : defDepositType.mobile
 	);
-	const [infoData, setInfoData] = useState({
+	const [formInfo, setFormInfo] = useState({
+		imgFile: null,
 		amount: null,
 		checked: null,
 		tip: ""
@@ -58,6 +59,7 @@ const Depositnew = () => {
 		setPopBox({ isOpen: false });
 	};
 	const {
+		asyncUploadBankPopBox,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
 		setDepositInfoRecentDatas
@@ -79,7 +81,6 @@ const Depositnew = () => {
 		localBankGroupList,
 		localBankInfo,
 		postLocalBankReqWireTransfer,
-		setLocalBankReceipt,
 		uploadLocalBankReceipt,
 		setAccountName
 	} = useDepositLocalBank({ isMountedRef });
@@ -111,7 +112,7 @@ const Depositnew = () => {
 		const amount = String(_amount).replace(/^(0+)|[^\d]+/g, "");
 
 		onValidAmount(amount);
-		setInfoData(prev => {
+		setFormInfo(prev => {
 			return { ...prev, amount };
 		});
 	};
@@ -119,18 +120,18 @@ const Depositnew = () => {
 	const onValidAmount = _amount => {
 		const result = checkAmount(
 			_amount,
-			infoData.minAmount,
-			infoData.maxAmount,
+			formInfo.minAmount,
+			formInfo.maxAmount,
 			false,
 			t
 		);
 
 		if (result.status !== 0) {
-			setInfoData(prev => {
+			setFormInfo(prev => {
 				return { ...prev, checked: false, tip: result.msg };
 			});
 		} else {
-			setInfoData(prev => {
+			setFormInfo(prev => {
 				return { ...prev, checked: true, tip: "" };
 			});
 		}
@@ -139,25 +140,25 @@ const Depositnew = () => {
 
 	const onSubmit = async () => {
 		const resetForm = () => {
-			setInfoData(prev => {
+			setFormInfo(prev => {
 				return { ...prev, checked: null, amount: null, tip: "" };
 			});
 		};
 
 		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-		if (infoData.checked && typeof window !== "undefined") {
-			const { amount } = infoData;
+		if (formInfo.checked && typeof window !== "undefined") {
+			const { amount } = formInfo;
 			const resultAmount = _isConvert ? amount * 1000 : amount;
 
 			if (depositType === defDepositType.mobile) {
 				window.open(
-					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${infoData.channelId}&Amount=${resultAmount}`
+					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
 				);
 				await delay(1000);
 				resetForm();
 			} else if (depositType === defDepositType.localBank) {
-				if (loading || (!userInfo.accountName && !infoData.accountName))
+				if (loading || (!userInfo.accountName && !formInfo.accountName))
 					return;
 
 				const asyncAccountNameConfirm = () =>
@@ -165,7 +166,7 @@ const Depositnew = () => {
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ProfileConfirmCheck,
-							accountName: infoData.accountName,
+							accountName: formInfo.accountName,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -183,30 +184,30 @@ const Depositnew = () => {
 						});
 					});
 
-				if (infoData.accountName) {
+				if (formInfo.accountName) {
 					const success = await asyncAccountNameConfirm();
 
 					closePopBox();
 
 					if (!success) return;
 
-					await setAccountName(infoData.accountName);
+					await setAccountName(formInfo.accountName);
 				}
 
 				setLoading(true);
 
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
-					sysId: infoData.sysId
+					sysId: formInfo.sysId
 				});
 
 				if (transId) {
 					try {
 						const result = await Promise.all([
-							!infoData.infoDataReceiptImgFile ||
+							!formInfo.imgFile ||
 								uploadLocalBankReceipt({
 									transId,
-									imgFile: infoData.infoDataReceiptImgFile
+									imgFile: formInfo.imgFile
 								})
 						]);
 
@@ -236,9 +237,9 @@ const Depositnew = () => {
 					`${config.openURL}/${
 						userInfo.langId
 					}/Cashier/DepositReqOnlineBanking?sysId=${
-						infoData?.sysId || 0
-					}&payId=${infoData.payId}&ChannelId=${
-						infoData.channelId
+						formInfo?.sysId || 0
+					}&payId=${formInfo.payId}&ChannelId=${
+						formInfo.channelId
 					}&Amount=${resultAmount}`
 				);
 				await delay(1000);
@@ -258,34 +259,6 @@ const Depositnew = () => {
 		if (event.key === "Enter") {
 			onSubmit();
 		}
-	};
-
-	const asyncUploadBankPopBox = ({
-		bankName,
-		accountNo,
-		accountName,
-		transId,
-		picFileName
-	}) => {
-		const { infoDataReceiptImgFile } = infoData;
-		return new Promise(resolve => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.DepositUploadBankSlip,
-				t,
-				langId: userInfo.langId,
-				localBankInfo: {
-					bankName,
-					accountNo,
-					accountName,
-					transId
-				},
-				setPopBox,
-				infoDataReceiptImgFile,
-				picFileName,
-				resolve
-			});
-		});
 	};
 
 	useEffect(() => {
@@ -342,11 +315,9 @@ const Depositnew = () => {
 
 	if (depositType === defDepositType.localBank) {
 		checked =
-			infoData.checked && (userInfo.accountName || infoData.accountName);
-		// infoData?.infoDataDepositRefNo &&
-		// infoData?.infoDataReceiptImgFile?.type.includes("image");
+			formInfo.checked && (userInfo.accountName || formInfo.accountName);
 	} else {
-		checked = infoData.checked;
+		checked = formInfo.checked;
 	}
 
 	return (
@@ -367,8 +338,8 @@ const Depositnew = () => {
 						mobilePayGourpList={mobilePayGourpList}
 						getMobilePayInfoList={getMobilePayInfoList}
 						mobilePayInfoList={mobilePayInfoList}
-						infoData={infoData}
-						setInfoData={setInfoData}
+						formInfo={formInfo}
+						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
 						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
@@ -382,8 +353,8 @@ const Depositnew = () => {
 						depositType={depositType}
 						_isConvert={_isConvert}
 						localBankGroupList={localBankGroupList}
-						infoData={infoData}
-						setInfoData={setInfoData}
+						formInfo={formInfo}
+						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
 						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
@@ -401,10 +372,10 @@ const Depositnew = () => {
 						onlineBankGroupList={onlineBankGroupList}
 						getOnlineBankInfoList={getOnlineBankInfoList}
 						onlineBankInfoList={onlineBankInfoList}
-						infoData={infoData}
+						formInfo={formInfo}
 						onChangeAmount={onChangeAmount}
 						onValidAmount={onValidAmount}
-						setInfoData={setInfoData}
+						setFormInfo={setFormInfo}
 						setOnlineBankInfoList={setOnlineBankInfoList}
 						onInputboxKeyDown={onInputboxKeyDown}
 					/>

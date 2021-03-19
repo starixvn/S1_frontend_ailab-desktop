@@ -58,10 +58,9 @@ export default () => {
 				<DepositUploadBankSlip
 					t={popBox.t}
 					langId={popBox.langId}
-					localBankInfo={popBox.localBankInfo}
 					setPopBox={popBox.setPopBox}
-					infoDataReceiptImgFile={popBox.infoDataReceiptImgFile}
-					picFileName={popBox.picFileName}
+					formInfo={popBox.formInfo}
+					localBankInfo={popBox.localBankInfo}
 					resolve={popBox.resolve}
 				/>
 			);

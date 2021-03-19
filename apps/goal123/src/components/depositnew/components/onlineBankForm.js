@@ -11,10 +11,10 @@ const OnlineBankForm = ({
 	onlineBankGroupList,
 	getOnlineBankInfoList,
 	onlineBankInfoList,
-	infoData,
+	formInfo,
 	onChangeAmount,
 	onValidAmount,
-	setInfoData,
+	setFormInfo,
 	setOnlineBankInfoList,
 	onInputboxKeyDown
 }) => {
@@ -37,7 +37,7 @@ const OnlineBankForm = ({
 			`${window.location.pathname}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
 		);
 
-		setInfoData(item);
+		setFormInfo(item);
 		setSysIdForRecord(null);
 		setPayIdForRecord(item.payId);
 		setPayNameForRecordSelectBank(item.payName);
@@ -70,7 +70,7 @@ const OnlineBankForm = ({
 
 		setSysIdForRecord(item.sysId);
 
-		setInfoData(prev => {
+		setFormInfo(prev => {
 			return {
 				...prev,
 				sysId: item.sysId,
@@ -102,8 +102,8 @@ const OnlineBankForm = ({
 
 	if (onlineBankGroupList.length <= 0) return null;
 
-	const formatMinAmount = number_format(infoData.minAmount);
-	const formatMaxAmount = number_format(infoData.maxAmount);
+	const formatMinAmount = number_format(formInfo.minAmount);
+	const formatMaxAmount = number_format(formInfo.maxAmount);
 
 	return (
 		<>
@@ -191,7 +191,7 @@ const OnlineBankForm = ({
 				</div>
 			)}
 
-			{!infoData.selBank ||
+			{!formInfo.selBank ||
 			onlineBankInfoList.some(item => item.sysId === sysIdForRecord) ? (
 				<div className="subModule">
 					<div className="subModuleTitle">
@@ -204,11 +204,11 @@ const OnlineBankForm = ({
 					<Inputbox
 						className="inputBox-white"
 						title={t("lbl_Amount")}
-						value={infoData.amount}
+						value={formInfo.amount}
 						onChange={e => onChangeAmount(e.target.value)}
-						onBlur={() => onValidAmount(infoData.amount)}
-						checked={infoData?.checked}
-						tip={infoData?.tip}
+						onBlur={() => onValidAmount(formInfo.amount)}
+						checked={formInfo?.checked}
+						tip={formInfo?.tip}
 						_isConvert={_isConvert}
 						isAmount={true}
 						placeholder={`${t(
@@ -229,8 +229,8 @@ OnlineBankForm.propTypes = {
 	onlineBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getOnlineBankInfoList: PropTypes.func.isRequired,
 	onlineBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	infoData: PropTypes.objectOf(PropTypes.any).isRequired,
-	setInfoData: PropTypes.func.isRequired,
+	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onValidAmount: PropTypes.func.isRequired,

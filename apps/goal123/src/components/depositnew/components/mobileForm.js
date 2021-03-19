@@ -11,8 +11,8 @@ const MobileForm = ({
 	mobilePayGourpList,
 	getMobilePayInfoList,
 	mobilePayInfoList,
-	infoData,
-	setInfoData,
+	formInfo,
+	setFormInfo,
 	onChangeAmount,
 	onValidAmount,
 	onInputboxKeyDown
@@ -56,7 +56,7 @@ const MobileForm = ({
 		);
 
 		setInfoChannelIdForRecord(item.channelId);
-		setInfoData(item);
+		setFormInfo(item);
 	};
 
 	useEffect(() => {
@@ -74,12 +74,12 @@ const MobileForm = ({
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const isSelAmountType = infoData.amountRule === 3;
+	const isSelAmountType = formInfo.amountRule === 3;
 
 	if (mobilePayGourpList.length <= 0) return null;
 
-	const formatMinAmount = number_format(infoData.minAmount);
-	const formatMaxAmount = number_format(infoData.maxAmount);
+	const formatMinAmount = number_format(formInfo.minAmount);
+	const formatMaxAmount = number_format(formInfo.maxAmount);
 
 	return (
 		<>
@@ -176,10 +176,10 @@ const MobileForm = ({
 					<div className="column">
 						{isSelAmountType ? (
 							<FixedAmountList
-								minAmount={infoData.minAmount}
-								maxAmount={infoData.maxAmount}
-								amountList={infoData.amountList}
-								amount={infoData.amount}
+								minAmount={formInfo.minAmount}
+								maxAmount={formInfo.maxAmount}
+								amountList={formInfo.amountList}
+								amount={formInfo.amount}
 								_isConvert={_isConvert}
 								onChangeAmount={onChangeAmount}
 							/>
@@ -188,11 +188,11 @@ const MobileForm = ({
 							className="inputBox-white"
 							readOnly={isSelAmountType}
 							title={t("lbl_Amount")}
-							value={infoData.amount}
+							value={formInfo.amount}
 							onChange={e => onChangeAmount(e.target.value)}
-							onBlur={() => onValidAmount(infoData.amount)}
-							checked={infoData?.checked}
-							tip={infoData?.tip}
+							onBlur={() => onValidAmount(formInfo.amount)}
+							checked={formInfo?.checked}
+							tip={formInfo?.tip}
 							_isConvert={_isConvert}
 							isAmount={true}
 							placeholder={`${t(
@@ -254,8 +254,8 @@ MobileForm.propTypes = {
 	mobilePayGourpList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getMobilePayInfoList: PropTypes.func.isRequired,
 	mobilePayInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	infoData: PropTypes.objectOf(PropTypes.any).isRequired,
-	setInfoData: PropTypes.func.isRequired,
+	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onValidAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired

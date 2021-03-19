@@ -11,8 +11,8 @@ const LocalBankForm = ({
 	depositType,
 	_isConvert,
 	localBankGroupList,
-	infoData,
-	setInfoData,
+	formInfo,
+	setFormInfo,
 	onChangeAmount,
 	onValidAmount,
 	onInputboxKeyDown,
@@ -51,7 +51,7 @@ const LocalBankForm = ({
 			tip: error.userAccountName
 		});
 
-		setInfoData(prev => {
+		setFormInfo(prev => {
 			return {
 				...prev,
 				accountName: val
@@ -78,29 +78,36 @@ const LocalBankForm = ({
 
 		setSysIdForRecord(item.sysId);
 		getLocalBankInfo({ sysId: item.sysId });
-		setInfoData(item);
+		setFormInfo(item);
 	};
 
 	const onOpenUploadBankPopBox = async () => {
 		const { bankName, accountNo, accountName } = localBankInfo;
+		const { imgFile } = formInfo;
 
 		const uploadPopBoxResult = await asyncUploadBankPopBox({
-			bankName,
-			accountNo,
-			accountName
+			formInfo: {
+				imgFile
+			},
+			localBankInfo: {
+				bankName,
+				accountNo,
+				accountName
+			},
+			langId: userInfo.langId
 		});
 
-		if (uploadPopBoxResult.type) {
+		if (uploadPopBoxResult.success) {
 			const {
 				datas: { depositImgFiles }
 			} = uploadPopBoxResult;
 
 			if (!depositImgFiles.file) return;
 
-			setInfoData(prev => {
+			setFormInfo(prev => {
 				return {
 					...prev,
-					infoDataReceiptImgFile: depositImgFiles.file
+					imgFile: depositImgFiles.file
 				};
 			});
 		}
@@ -125,8 +132,8 @@ const LocalBankForm = ({
 
 	if (localBankGroupList.length <= 0) return null;
 
-	const formatMinAmount = number_format(infoData.minAmount);
-	const formatMaxAmount = number_format(infoData.maxAmount);
+	const formatMinAmount = number_format(formInfo.minAmount);
+	const formatMaxAmount = number_format(formInfo.maxAmount);
 
 	return (
 		<>
@@ -243,11 +250,11 @@ const LocalBankForm = ({
 				</div>
 				<Inputbox
 					className="inputBox-white"
-					value={infoData.amount}
+					value={formInfo.amount}
 					onChange={e => onChangeAmount(e.target.value)}
-					onBlur={() => onValidAmount(infoData.amount)}
-					checked={infoData?.checked}
-					tip={infoData?.tip}
+					onBlur={() => onValidAmount(formInfo.amount)}
+					checked={formInfo?.checked}
+					tip={formInfo?.tip}
 					_isConvert={_isConvert}
 					isAmount={true}
 					placeholder={`${t(
@@ -299,12 +306,12 @@ const LocalBankForm = ({
 
 LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	infoData: PropTypes.objectOf(PropTypes.any).isRequired,
+	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	setInfoData: PropTypes.func.isRequired,
+	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onValidAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,

@@ -8,8 +8,7 @@ const PopBoxDepositUploadBankSlip = ({
 	langId,
 	localBankInfo,
 	setPopBox,
-	infoDataReceiptImgFile,
-	picFileName = "",
+	formInfo,
 	resolve
 }) => {
 	const isMountedRef = useRef(null);
@@ -66,10 +65,7 @@ const PopBoxDepositUploadBankSlip = ({
 	const onSubmit = async e => {
 		e.preventDefault();
 
-		if (
-			(!depositImgFiles.name && !picFileName) ||
-			!depositImgFiles.checked
-		) {
+		if (!depositImgFiles.name || !depositImgFiles.checked) {
 			setDepositImgFiles({
 				value: null,
 				name: "",
@@ -80,7 +76,7 @@ const PopBoxDepositUploadBankSlip = ({
 		}
 
 		resolve({
-			type: true,
+			success: true,
 			datas: {
 				depositImgFiles
 			}
@@ -97,9 +93,6 @@ const PopBoxDepositUploadBankSlip = ({
 		if (!depositImgFiles.checked && depositImgFiles.checked !== null)
 			return <i className="icon icon-broken_image" />;
 
-		if (picFileName)
-			return <img alt={depositImgFiles.name} src={imgResult} />;
-
 		if (!depositImgFiles.name) return <i className="icon icon-plus" />;
 
 		return <img alt={depositImgFiles.name} src={imgResult} />;
@@ -113,18 +106,18 @@ const PopBoxDepositUploadBankSlip = ({
 	});
 
 	useEffect(() => {
-		if (picFileName) {
+		const { imgFile } = formInfo;
+
+		if (imgFile?.type?.includes("image")) {
+			onImgFileReaderHandlar(imgFile);
+		} else if (imgFile?.name) {
 			setDepositImgFiles(prev => {
 				return {
 					...prev,
-					name: picFileName,
+					name: imgFile.name,
 					checked: true
 				};
 			});
-		}
-
-		if (infoDataReceiptImgFile?.type.includes("image")) {
-			onImgFileReaderHandlar(infoDataReceiptImgFile);
 		}
 
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -138,7 +131,7 @@ const PopBoxDepositUploadBankSlip = ({
 				className="icon icon-close"
 				onClick={() => {
 					closePopBox();
-					resolve({ type: false });
+					resolve({ success: false });
 				}}
 			/>
 
@@ -187,7 +180,7 @@ const PopBoxDepositUploadBankSlip = ({
 							className="btn-cancel"
 							onClick={() => {
 								closePopBox();
-								resolve({ type: false });
+								resolve({ success: false });
 							}}>
 							{t("lbl_Cancel")}
 						</button>
@@ -201,18 +194,22 @@ const PopBoxDepositUploadBankSlip = ({
 	);
 };
 
-PopBoxDepositUploadBankSlip.defaultProps = {
-	picFileName: "",
-	infoDataReceiptImgFile: null
-};
-
 PopBoxDepositUploadBankSlip.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
-	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+
+	formInfo: PropTypes.shape({
+		imgFile: PropTypes.objectOf(PropTypes.any)
+	}).isRequired,
+
+	localBankInfo: PropTypes.shape({
+		bankName: PropTypes.string,
+		accountNo: PropTypes.string,
+		accountName: PropTypes.string,
+		transId: PropTypes.string
+	}).isRequired,
+
 	setPopBox: PropTypes.func.isRequired,
-	infoDataReceiptImgFile: PropTypes.objectOf(PropTypes.any),
-	picFileName: PropTypes.string,
 	resolve: PropTypes.func.isRequired
 };
 
