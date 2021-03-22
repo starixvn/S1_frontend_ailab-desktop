@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { Redirect, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import Loading from "../common/loading";
 import handleError from "../common/handleError";
 import { defPrevPage } from "./profile.dev";
@@ -16,6 +16,7 @@ import { getCountryCode, getUrlParameter } from "../common/common";
 import areaCode from "../../datas/areaCode";
 import ProfileRead from "./profileRead";
 import ProfileEdit from "./profileEdit";
+import { defPageClubImg } from "../vip/vip.def";
 import { defPopBoxType } from "../common/popBox";
 
 const initStatus = {
@@ -42,7 +43,6 @@ export default () => {
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
-	const [redirectPath, setRedirectPath] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [mobileVerificationLoading, setMobileVerificationLoading] = useState(
 		false
@@ -625,14 +625,28 @@ export default () => {
 		);
 	};
 
-	return loading ? (
-		<Loading />
-	) : redirectPath === null ? (
+	const vipClubImg = userInfo.userLevel
+		? defPageClubImg[userInfo.userLevel - 1]
+		: {};
+
+	if (loading) return <Loading />;
+
+	return (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_Profile">
 				<span>{t("lbl_Profile")}</span>
 				<div>{t("lbl_ProfileModifyWarning")}</div>
 			</div>
+
+			{userInfo?.userLevel ? (
+				<div className="vipLv">
+					<div className="vipbg">
+						<img src={vipClubImg.img} alt={vipClubImg.alt} />
+					</div>
+					<div>{t(vipClubImg.displayKey)}</div>
+				</div>
+			) : null}
+
 			<div
 				className={
 					!userInfo.accountName ||
@@ -677,7 +691,5 @@ export default () => {
 				) : null}
 			</div>
 		</div>
-	) : (
-		<Redirect to={redirectPath} noThrow />
 	);
 };
