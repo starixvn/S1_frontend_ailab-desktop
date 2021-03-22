@@ -395,10 +395,21 @@ export const defMenuLinks = langId => {
 				}
 			]
 		},
+		vip: {
+			path: path.vip.root,
+			displayKey: "lbl_Vip",
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.vip
+				})
+			]
+		},
 		promotion: {
 			path: path.promotion.root,
 			displayKey: "lbl_Promotions"
 		},
+
 		affiliate: {
 			path: siteInfo({ langId }).affiliateLink,
 			displayKey: "lbl_Affiliates",
