@@ -6,8 +6,9 @@ import Layout from "../components/common/layout";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	api_site_Register,
-	api_site_GetAffiliateAgent
+	// api_site_Register,
+	api_site_GetAffiliateAgent,
+	api_site_Signup
 } from "../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
 import {
@@ -44,7 +45,8 @@ const initValue = {
 	affCode: null,
 	currency: 0,
 	termsCheck: false,
-	ageCheck: false
+	ageCheck: false,
+	specialBonusCode: null
 };
 
 const initTip = {
@@ -52,7 +54,8 @@ const initTip = {
 	password: { checked: null, msg: "" },
 	currency: { checked: null, msg: "" },
 	affCode: { checked: null, msg: "" },
-	checkbox: { checked: null, msg: "" }
+	checkbox: { checked: null, msg: "" },
+	specialBonusCode: { checked: null, msg: "" }
 };
 
 const Content = () => {
@@ -187,8 +190,9 @@ const Content = () => {
 			msg = t("lbl_PasswordTooltip");
 		} else if (col === "affCode") {
 			msg = t("lbl_Please_enter_Affiliate_ID");
-		}
-		if (tip[col].msg === msg) {
+		} else if (col === "specialBonusCode") {
+			msg = t("lbl_JoinPromoCode");
+		} else if (tip[col].msg === msg) {
 			msg = "";
 		}
 
@@ -402,7 +406,8 @@ const Content = () => {
 				UserName: userValue.username,
 				Userpwd: userValue.password,
 				CurrencyId: siteCurrency[userValue.currency].id,
-				UserLang: defaultLangId
+				UserLang: defaultLangId,
+				PromoCode: userValue.specialBonusCode
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -411,7 +416,7 @@ const Content = () => {
 			regData.AffCode =
 				getUrlParameter("AffCode") || readCookie("AffCode");
 
-			api_site_Register(regData).then(
+			api_site_Signup(regData, defaultLangId).then(
 				res => {
 					if (isMountedRef.current) {
 						const { errorCode } = res.data;
@@ -497,6 +502,16 @@ const Content = () => {
 								return {
 									...prev,
 									password: {
+										checked: false,
+										msg: message
+									}
+								};
+							});
+						} else if (errorCode === -7) {
+							setTip(prev => {
+								return {
+									...prev,
+									specialBonusCode: {
 										checked: false,
 										msg: message
 									}
@@ -598,6 +613,16 @@ const Content = () => {
 							clickDropdown={clickDropdown}
 						/>
 					</div>
+					<Inputbox
+						icon="icon-promotion txt-blue12"
+						placeholder={t("lbl_JoinPromoCode")}
+						value={userValue.specialBonusCode}
+						onChange={EditField.bind(null, "specialBonusCode")}
+						onBlur={checkValue.bind(null, "specialBonusCode")}
+						tip={tip.specialBonusCode.msg}
+						checked={tip.specialBonusCode.checked}
+						clickInfo={clickInfo.bind(this, "specialBonusCode")}
+					/>
 					<Inputbox
 						icon="icon-affiliate txt-blue12"
 						placeholder={t("lbl_Affiliate_ID")}

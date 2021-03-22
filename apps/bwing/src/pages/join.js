@@ -524,6 +524,16 @@ const Content = () => {
 									}
 								};
 							});
+						} else if (errorCode === -7) {
+							setTip(prev => {
+								return {
+									...prev,
+									specialBonusCode: {
+										checked: false,
+										msg: message
+									}
+								};
+							});
 						} else {
 							setPopBox({
 								isOpen: true,
