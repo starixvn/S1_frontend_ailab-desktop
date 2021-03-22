@@ -1,58 +1,64 @@
 {
-  "npmScope": "ailab-desktop",
-  "affected": {
-    "defaultBase": "master"
-  },
-  "implicitDependencies": {
-    "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
-    "tsconfig.base.json": "*",
-    "tslint.json": "*",
-    ".eslintrc.json": "*",
-    "nx.json": "*"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
-    }
-  },
-  "projects": {
-    "promotion": {
-      "tags": []
-    },
-    "service": {
-      "tags": []
-    },
-
-    "nova88": {
-      "tags": []
-    },
-    "nova88-e2e": {
-      "tags": [],
-      "implicitDependencies": ["nova88"]
-    },
-    "goal123": {
-      "tags": []
-    },
-    "goal123-e2e": {
-      "tags": [],
-      "implicitDependencies": ["goal123"]
-    },
-    "bwing": {
-      "tags": []
-    },
-    "bwing-e2e": {
-      "tags": [],
-      "implicitDependencies": ["bwing"]
-    },
-    "api": {
-      "tags": []
-    }
-  }
+	"npmScope": "ailab-desktop",
+	"affected": {
+		"defaultBase": "master"
+	},
+	"implicitDependencies": {
+		"workspace.json": "*",
+		"package.json": {
+			"dependencies": "*",
+			"devDependencies": "*"
+		},
+		"tsconfig.base.json": "*",
+		"tslint.json": "*",
+		".eslintrc.json": "*",
+		"nx.json": "*"
+	},
+	"tasksRunnerOptions": {
+		"default": {
+			"runner": "@nrwl/workspace/tasks-runners/default",
+			"options": {
+				"cacheableOperations": ["build", "lint", "test", "e2e"]
+			}
+		}
+	},
+	"projects": {
+		"promotion": {
+			"tags": []
+		},
+		"service": {
+			"tags": []
+		},
+		"nova88": {
+			"tags": []
+		},
+		"nova88-e2e": {
+			"tags": [],
+			"implicitDependencies": ["nova88"]
+		},
+		"goal123": {
+			"tags": []
+		},
+		"goal123-e2e": {
+			"tags": [],
+			"implicitDependencies": ["goal123"]
+		},
+		"bwing": {
+			"tags": []
+		},
+		"bwing-e2e": {
+			"tags": [],
+			"implicitDependencies": ["bwing"]
+		},
+		"api": {
+			"tags": []
+		},
+		"nova88v2": {
+			"tags": []
+		},
+		"nova88v2-e2e": {
+			"tags": [],
+			"implicitDependencies": ["nova88v2"]
+		}
+	}
 }

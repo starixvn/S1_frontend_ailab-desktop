@@ -1,0 +1,174 @@
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
+import {
+	api_payment_GetOnlinePaymentList,
+	api_payment_GetBankInfoOffList,
+	api_payment_GetMobilePayGroupList,
+	api_payment_GetCryptoPayInfoList
+} from "../../service/api/payment";
+import LocalBankList from "./localBank.list";
+import OnlineBankList from "./onlineBank.list";
+import MobilePayList from "./mobilePay.list";
+import CryptoList from "./cryptoPay.list";
+import DepositWrapper from "./wrapper";
+import RecentHistory from "./deposit.recentHistory";
+import {
+	popBoxContext,
+	loadingContext,
+	userInfoContext
+} from "../common/context";
+import defPopBoxType from "../common/defPopBoxType";
+import path from "../../router";
+
+export default () => {
+	const { t } = useTranslation();
+
+	const isMountedRef = useRef(null);
+	const [onlineBankingList, setOnlineBankingList] = useState([]);
+	const [localBankList, setLocalBankList] = useState([]);
+	const [mobileBankList, setMobileBankList] = useState([]);
+	const [cryptoList, setCryptoList] = useState([]);
+
+	const { setPopBox } = useContext(popBoxContext);
+	const { userInfo } = useContext(userInfoContext);
+	const { loading, setLoading } = useContext(loadingContext);
+
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+
+	const openErrorMessagePopBox = (
+		message = t("msg_ApiServerError"),
+		errorCode = null
+	) => {
+		setPopBox({
+			message,
+			errorCode,
+			isOpen: true,
+			popBoxType: defPopBoxType.ErrorMsg,
+			icon: "icon-bell",
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={clickClose}>
+						{t("lbl_Close")}
+					</button>
+				</div>
+			)
+		});
+	};
+
+	const getOnlinePaymentList = async () => {
+		await api_payment_GetOnlinePaymentList().then(
+			({ data: { data, message, errorCode } }) => {
+				if (!isMountedRef.current) return;
+
+				const success = errorCode === 0;
+				if (success) {
+					setOnlineBankingList(data);
+				} else openErrorMessagePopBox(message || "error", errorCode);
+			}
+		);
+	};
+
+	const getBankInfoOffList = async () => {
+		await api_payment_GetBankInfoOffList().then(
+			({ data: { data, message, errorCode } }) => {
+				if (!isMountedRef.current) return;
+
+				const success = errorCode === 0;
+				if (success) {
+					if (data.length > 0) setLocalBankList(data);
+				} else openErrorMessagePopBox(message || "error", errorCode);
+			}
+		);
+	};
+
+	const getMobilePayGroupList = async () => {
+		await api_payment_GetMobilePayGroupList().then(
+			({ data: { data, message, errorCode } }) => {
+				if (!isMountedRef.current) return;
+
+				const success = errorCode === 0;
+				if (success) {
+					if (data.length > 0) setMobileBankList(data);
+				} else openErrorMessagePopBox(message || "error", errorCode);
+			}
+		);
+	};
+
+	const getCryptoPayInfoList = async () => {
+		await api_payment_GetCryptoPayInfoList().then(
+			({ data: { data, message, errorCode } }) => {
+				if (!isMountedRef.current) return;
+				const success = errorCode === 0;
+				if (success) {
+					if (data.length > 0) setCryptoList(data);
+				} else openErrorMessagePopBox(message || "error", errorCode);
+			}
+		);
+	};
+
+	useEffect(() => {
+		async function getData() {
+			setLoading(true);
+			await Promise.all([
+				getBankInfoOffList(),
+				getOnlinePaymentList(),
+				getMobilePayGroupList(),
+				getCryptoPayInfoList()
+			]);
+			setLoading(false);
+		}
+		getData();
+	}, []);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		if (userInfo.isLogin === true) {
+			if (
+				(!userInfo.accountName && userInfo.accountName !== undefined) ||
+				(!userInfo.phoneNo && userInfo.phoneNo !== undefined) ||
+				(!userInfo.email && userInfo.email !== undefined)
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.UpdateProfile,
+					title: t("lbl_ImportantNote"),
+					content: t("lbl_UpdatePersonalInfoDeposit"),
+					btnBar: (
+						<div className="btnGroup">
+							<Link
+								className="btn-check"
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
+								{t("lbl_UpdatePersonalDetail")}
+							</Link>
+						</div>
+					)
+				});
+			}
+		}
+	}, [userInfo]);
+
+	return loading ? (
+		<></>
+	) : (
+		<>
+			<DepositWrapper step={1}>
+				<div className="subModuleList">
+					<OnlineBankList onlineBankingList={onlineBankingList} />
+					<LocalBankList localBankList={localBankList} />
+					<MobilePayList mobileBankList={mobileBankList} />
+					<CryptoList cryptoList={cryptoList} />
+				</div>
+			</DepositWrapper>
+			<RecentHistory />
+		</>
+	);
+};
