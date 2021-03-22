@@ -78,8 +78,8 @@ const MobileForm = ({
 
 	if (mobilePayGourpList.length <= 0) return null;
 
-	const formatMinAmount = number_format(formInfo.minAmount);
-	const formatMaxAmount = number_format(formInfo.maxAmount);
+	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
+	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
 
 	return (
 		<>
@@ -149,12 +149,14 @@ const MobileForm = ({
 									<div>
 										<div>
 											{`${t("lbl_Min")}: ${number_format(
-												item.minAmount
+												item.minAmount,
+												_isConvert
 											)}`}
 										</div>
 										<div>
 											{`${t("lbl_Max")}: ${number_format(
-												item.maxAmount
+												item.maxAmount,
+												_isConvert
 											)}`}
 										</div>
 									</div>

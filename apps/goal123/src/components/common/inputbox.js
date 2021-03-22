@@ -48,20 +48,6 @@ export default props => {
 					<div className="iconModule">
 						{props._isConvert ? "('000)" : null}
 						{showCheckIcon()}
-						{/* {props.checked === null ? (
-							<i
-								className={`icon icon-information-solid`}
-								onClick={props.clickInfo}></i>
-						) : props.checked ? (
-							<i className={`icon icon-checkmark`}></i>
-						) : !props.checked && props.checked !== null ? (
-							<i className={`icon icon-cross`}></i>
-						) : null} */}
-					</div>
-				) : null}
-				{props.checkIcon ? (
-					<div className="iconModule">
-						<i className={`icon ${props.checkIcon}`} />
 					</div>
 				) : null}
 			</div>
