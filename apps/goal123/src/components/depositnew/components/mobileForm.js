@@ -187,7 +187,6 @@ const MobileForm = ({
 							/>
 						) : null}
 						<Inputbox
-							className="inputBox-white"
 							readOnly={isSelAmountType}
 							title={t("lbl_Amount")}
 							value={formInfo.amount}

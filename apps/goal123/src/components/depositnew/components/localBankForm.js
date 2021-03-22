@@ -233,7 +233,6 @@ const LocalBankForm = ({
 						</span>
 					</div>
 					<Inputbox
-						className="inputBox-white"
 						value={userAccountName.value}
 						onChange={e => onChangeAccountName(e.target.value)}
 						onBlur={e => onChangeAccountName(e.target.value)}
@@ -251,7 +250,6 @@ const LocalBankForm = ({
 					</span>
 				</div>
 				<Inputbox
-					className="inputBox-white"
 					value={formInfo.amount}
 					onChange={e => onChangeAmount(e.target.value)}
 					onBlur={() => onValidAmount(formInfo.amount)}

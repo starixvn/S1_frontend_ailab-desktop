@@ -7772,8 +7772,8 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: calc(100% - 160px);
 }
 
-.subModuleListColumn > .subModule > div.inputBox-white {
-  margin-right: 20vw;
+.subModuleListColumn > .subModule > div.inputBox, .subModuleListColumn > .subModule > div.inputBox-org, .subModuleListColumn > .subModule > div.inputBox-white, .subModuleListColumn > .subModule > div.inputBox-blue, .subModuleListColumn > .subModule > div.inputBox-gray, .subModuleListColumn > .subModule > div.inputBox-yellow {
+  width: 60%;
 }
 
 .subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
@@ -7922,24 +7922,20 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: calc(100% - 135px);
 }
 
-.subModuleListColumn .column .inputBox-white {
-  width: 60%;
+.subModuleListColumn .column .inputBox-white, .subModuleListColumn .column .inputBox-blue, .subModuleListColumn .column .inputBox, .subModuleListColumn .column .inputBox-org, .subModuleListColumn .column .inputBox-white, .subModuleListColumn .column .inputBox-blue, .subModuleListColumn .column .inputBox-gray, .subModuleListColumn .column .inputBox-yellow {
+  width: 60% !important;
 }
 
-.subModuleListColumn .column .inputBox-white + .tip {
+.subModuleListColumn .column .inputBox-white + .tip, .subModuleListColumn .column .inputBox-blue + .tip, .subModuleListColumn .column .inputBox + .tip, .subModuleListColumn .column .inputBox-org + .tip, .subModuleListColumn .column .inputBox-white + .tip, .subModuleListColumn .column .inputBox-blue + .tip, .subModuleListColumn .column .inputBox-gray + .tip, .subModuleListColumn .column .inputBox-yellow + .tip {
   margin: 0 5px 10px;
 }
 
-.subModuleListColumn .inputBox-white {
+.subModuleListColumn .inputBox-white, .subModuleListColumn .inputBox-blue, .subModuleListColumn .inputBox, .subModuleListColumn .inputBox-org, .subModuleListColumn .inputBox-white, .subModuleListColumn .inputBox-blue, .subModuleListColumn .inputBox-gray, .subModuleListColumn .inputBox-yellow {
   margin-left: 15px;
 }
 
-.subModuleListColumn .inputBox-white + .tip {
+.subModuleListColumn .inputBox-white + .tip, .subModuleListColumn .inputBox-blue + .tip, .subModuleListColumn .inputBox + .tip, .subModuleListColumn .inputBox-org + .tip, .subModuleListColumn .inputBox-white + .tip, .subModuleListColumn .inputBox-blue + .tip, .subModuleListColumn .inputBox-gray + .tip, .subModuleListColumn .inputBox-yellow + .tip {
   margin-left: 130px;
-}
-
-.subModuleListColumn .inputBox-white .iconModule {
-  color: #1E85EC;
 }
 
 .subModuleListColumn .btnGroup.buttonBox {
