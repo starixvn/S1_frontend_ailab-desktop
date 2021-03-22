@@ -7772,6 +7772,10 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: calc(100% - 160px);
 }
 
+.subModuleListColumn > .subModule > div.inputBox-white {
+  margin-right: 20vw;
+}
+
 .subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7918,6 +7922,10 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: calc(100% - 135px);
 }
 
+.subModuleListColumn .column .inputBox-white {
+  width: 60%;
+}
+
 .subModuleListColumn .column .inputBox-white + .tip {
   margin: 0 5px 10px;
 }
@@ -7928,6 +7936,10 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .subModuleListColumn .inputBox-white + .tip {
   margin-left: 130px;
+}
+
+.subModuleListColumn .inputBox-white .iconModule {
+  color: #1E85EC;
 }
 
 .subModuleListColumn .btnGroup.buttonBox {
