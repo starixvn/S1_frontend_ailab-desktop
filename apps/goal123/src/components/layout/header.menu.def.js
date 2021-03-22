@@ -180,19 +180,19 @@ export const defMenuLinks = langId => {
 		liveCasino: {
 			displayKey: "lbl_LiveCasino",
 			subMenu: [
-				// {
-				// 	tpId: 28,
-				// 	className: "liveN2LIVE",
-				// 	icon: "icon icon-N2LIVE",
-				// 	displayText: "N2Live",
-				// 	menuType: defMenuType.entPage,
-				// 	eventIcons: [
-				// 		showEventIcon({
-				// 			icon: defEventIcon.new,
-				// 			period: defEventPeriod.n2Live
-				// 		})
-				// 	]
-				// },
+				{
+					tpId: 28,
+					className: "liveN2LIVE",
+					icon: "icon icon-N2LIVE",
+					displayText: "N2Live",
+					menuType: defMenuType.entPage,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.n2Live
+						})
+					]
+				},
 				{
 					gameId: 20,
 					tpId: 20,
@@ -395,10 +395,21 @@ export const defMenuLinks = langId => {
 				}
 			]
 		},
+		vip: {
+			path: path.vip.root,
+			displayKey: "lbl_Vip",
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.vip
+				})
+			]
+		},
 		promotion: {
 			path: path.promotion.root,
 			displayKey: "lbl_Promotions"
 		},
+
 		affiliate: {
 			path: siteInfo({ langId }).affiliateLink,
 			displayKey: "lbl_Affiliates",

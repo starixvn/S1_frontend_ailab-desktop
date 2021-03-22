@@ -1,4 +1,4 @@
-import countryCode from "../../datas/countryCode";
+import countryCode, { currencyCode } from "../../datas/countryCode";
 
 export const getUrlParameter = name => {
 	const _name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");

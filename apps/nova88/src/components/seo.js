@@ -11,6 +11,7 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
 import config from "../config";
 import path from "../router";
+import Favicon from "../styles/img/favicon.ico";
 
 const defMetaData = {
 	"/": {
@@ -132,7 +133,9 @@ function SEO({ description, lang, meta, title }) {
 					lang
 				}}
 				title={_title}
-				link={[{ rel: "icon", type: "image/png", href: "favicon.ico" }]}
+				link={[
+					{ rel: "icon", type: "image/x-icon", href: `${Favicon}` }
+				]}
 				meta={[
 					{
 						name: `description`,

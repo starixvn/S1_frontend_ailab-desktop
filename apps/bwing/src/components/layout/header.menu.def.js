@@ -180,19 +180,19 @@ export const defMenuLinks = {
 		displayKey: "lbl_LiveCasino",
 		className: "livecasinobtn",
 		subMenu: [
-			// {
-			// 	tpId: 28,
-			// 	className: "liveN2LIVE",
-			// 	icon: "icon icon-N2LIVE",
-			// 	displayText: "N2Live",
-			// 	menuType: defMenuType.entPage,
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.n2Live
-			// 		})
-			// 	]
-			// },
+			{
+				...productList.liveCasino_n2live,
+				className: "liveN2LIVE",
+				icon: "icon icon-N2LIVE",
+				displayText: "N2Live",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.n2Live
+					})
+				]
+			},
 			{
 				...productList.liveCasino_One789,
 				className: "live789",
@@ -397,6 +397,17 @@ export const defMenuLinks = {
 			}
 		]
 	},
+	vip: {
+		path: path.vip.root,
+		displayKey: "lbl_Vip",
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.vip
+			})
+		]
+	},
+
 	promotion: {
 		path: path.promotion.root,
 		displayKey: "lbl_Promotions"

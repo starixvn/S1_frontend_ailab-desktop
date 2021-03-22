@@ -105,6 +105,10 @@ export default {
 		tpId: 23,
 		gameId: 2
 	},
+	liveCasino_n2live: {
+		tpId: 28,
+		gameId: 2
+	},
 	fishing_SG: {
 		gameId: "F-SF01",
 		tpId: 10,

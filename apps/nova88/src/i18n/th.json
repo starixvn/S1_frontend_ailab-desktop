@@ -31,6 +31,7 @@
 	"lbl_Telegram": "Telegram",
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
+	"lbl_Youtube":"Youtube",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "แบดมินตัน",
@@ -443,8 +444,8 @@
 	"lbl_Rewards": "รางวัล",
 	"lbl_MoreDetails": "รายละเอียดเพิ่มเติม",
 	"lbl_EventTitle": "ชื่อกิจกรรม",
-	"lbl_leaderboardTitle_1": "ยูฟ่าแชมเปียนส์ลีกรอบชิงชนะเลิศ 2020",
-	"lbl_leaderboardTitle_2": "มูลค่าสูงสุดถึง 500,000 ริงกิตมาเลเซีย!",
+	"lbl_leaderboardTitle_1": "การแข่งรอบสุดท้ายลีก UEFA EURO 2020",
+	"lbl_leaderboardTitle_2": "ลุ้นรับรางวัลสูงสุด มูลค่า 388,000 บาท!",
 	"lbl_Ranking_Sports": "กีฬา อันดับที่",
 	"lbl_Ranking_LiveCasino": "คาสิโนสด อันดับที่",
 	"lbl_Ranking_Slots": "สล็อต อันดับที่",

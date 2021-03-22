@@ -180,7 +180,10 @@ const AfterLogin = () => {
 			<DropdownHeader
 				mainKey="header-settingLink"
 				langId={userInfo.langId}
-				className="memberfile icon icon-member"
+				userLevel={userInfo.userLevel}
+				className={`memberfile${
+					userInfo.userLevel ? "" : " icon icon-member"
+				}`}
 				subClassName="submenu"
 				i18n={t}
 				options={defSettingLinks({ logoutFunc: handleLogout })}

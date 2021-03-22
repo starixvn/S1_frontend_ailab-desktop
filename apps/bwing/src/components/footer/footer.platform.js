@@ -95,11 +95,11 @@ const defPlatform = [
 	{
 		...productList.V8_Poker,
 		imgName: "v8"
+	},
+	{
+		...productList.liveCasino_n2live,
+		imgName: "n2live"
 	}
-	// {
-	// 	...productList.N2_Live,
-	// 	imgName: "n2live"
-	// }
 ];
 
 export default ({ langId, isLogin, productTpIds }) => {

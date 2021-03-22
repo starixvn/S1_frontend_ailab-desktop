@@ -121,20 +121,30 @@ const SocialMediaSection = ({ t }) => (
 			<a
 				href={SiteInfo.socialMedia.ig.link}
 				target="_blank"
+				rel="noreferrer"
 				className="icon icon-instagram">
 				{t(SiteInfo.socialMedia.ig.displayKey)}
 			</a>
 			<a
 				href={SiteInfo.socialMedia.fb.link}
 				target="_blank"
+				rel="noreferrer"
 				className="icon icon-facebook">
 				{t(SiteInfo.socialMedia.fb.displayKey)}
 			</a>
 			<a
 				href={SiteInfo.socialMedia.twitter.link}
 				target="_blank"
+				rel="noreferrer"
 				className="icon icon-twitter">
 				{t(SiteInfo.socialMedia.twitter.displayKey)}
+			</a>
+			<a
+				href={SiteInfo.socialMedia.youtube.link}
+				target="_blank"
+				rel="noreferrer"
+				className="icon icon-youtube">
+				{t(SiteInfo.socialMedia.youtube.displayKey)}
 			</a>
 		</div>
 	</div>
