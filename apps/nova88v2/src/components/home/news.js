@@ -1,0 +1,115 @@
+import React, { useContext, useState, useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
+import { Link, navigate } from "@reach/router";
+import { userInfoContext, popBoxContext } from "../common/context";
+import { api_news_GetNews } from "../../service/api/news";
+import { defPopBoxType } from "../common/popBox";
+import path from "../../router";
+
+export default () => {
+	const { userInfo } = useContext(userInfoContext);
+	const { setPopBox } = useContext(popBoxContext);
+	const { t } = useTranslation();
+	const [getNews, setGetNews] = useState([]);
+	const isMountedRef = useRef(null);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		const ClickClose = () => {
+			setPopBox({ isOpen: false });
+		};
+		api_news_GetNews({
+			langId: userInfo.langId,
+			PageNumber: 1,
+			PageSize: 4
+		}).then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setGetNews(res.data.data);
+					} else {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: res.data.message,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
+			},
+			err => {
+				if (isMountedRef.current) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={ClickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			}
+		);
+	}, [userInfo.langId]);
+
+	const clickToNews = _newsId => {
+		navigate(
+			`/${userInfo.langId}/${path.news.sub.newsInfo.root}?newsId=${_newsId}`
+		);
+	};
+
+	// console.log("getNews:", getNews);
+
+	const newsRows = getNews.map(item => {
+		return (
+			<div
+				className="newsModule"
+				key={`index-news-${item.newsId}-${userInfo.langId}`}>
+				<img src={item.imageURL} />
+				<div>
+					<div>{item.postTime.slice(0, 10)}</div>
+					<div>{item.title}</div>
+					<div>{item.content}</div>
+					<div className="btnGroup">
+						<button
+							className="lightblue"
+							onClick={clickToNews.bind(this, item.newsId)}>
+							{t("lbl_MoreDetails")}
+						</button>
+					</div>
+				</div>
+			</div>
+		);
+	});
+
+	return (
+		<>
+			<div className="newsList">
+				<div className="moduleTitle icon icon-news">SPORT NEWS</div>
+				{newsRows}
+				<div className="newsBorder" />
+			</div>
+			;
+		</>
+	);
+};

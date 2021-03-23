@@ -40,10 +40,14 @@ import productList from "../../datas/productList";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
+import HotGameList from "./hotGameList";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
+
+import News from "./news";
+import LiveTv from "./liveTv";
 
 import {
 	GET_OPEN_RULE,
@@ -461,15 +465,104 @@ const IndexPage = ({ location }) => {
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
 			<PromoGameList t={t} userInfo={userInfo} />
-			<section>
+			{/* <section>
 				<SportsSection t={t} showLogin={showLogin} {...userInfo} />
 				<SideBarProductSection
 					t={t}
 					showLogin={showLogin}
 					{...userInfo}
 				/>
-			</section>
+			</section> */}
+			<div className="liveVideo">
+				<div className="latestVideo">
+					<div className="moduleTitle icon icon-gift">
+						Latest Highlight Video
+					</div>
+					<iframe
+						width="100%"
+						height="440"
+						src="https://www.youtube.com/embed/j1Jzeldqvlk"
+						title="YouTube video player"
+						frameBorder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowFullscreen
+					/>
+					<div className="title">
+						3/07 Bundesliga BAY vs DOR Highlight
+					</div>
+				</div>
+				<div>
+					<div className="moduleTitle icon icon-upcomingmatches">
+						Upcoming Matches
+					</div>
+					<div className="swiper-container matchesSwiper">
+						<div className="swiper-wrapper">
+							<div className="swiper-slide">
+								<div className="upcomingmatches">
+									<div className="team">
+										<div>ENGLISH PREMIER LEAGUE</div>
+										<div>
+											<div className="teamL">
+												<img src="https://img.n88media.com/Sports/ENGLISH%20PREMIER%20LEAGUE/Tottenham%20Hotspur.png" />
+												Tottenham Hotspur
+											</div>
+											<div className="btnGroup">
+												<button className="orange">
+													BET NOW
+												</button>
+											</div>
+											<div className="teamR">
+												<img src="https://img.n88media.com/Sports/ENGLISH%20PREMIER%20LEAGUE/Tottenham%20Hotspur.png" />
+												Tottenham Hotspur
+											</div>
+										</div>
+										<div> 21/02/2021 22:00</div>
+									</div>
+								</div>
+							</div>
+							<div className="swiper-slide">
+								<div className="upcomingmatches">
+									<div className="team">
+										<div>ENGLISH PREMIER LEAGUE</div>
+										<div>
+											<div className="teamL">
+												<img src="https://img.n88media.com/Sports/ENGLISH%20PREMIER%20LEAGUE/Tottenham%20Hotspur.png" />
+												Tottenham Hotspur
+											</div>
+											<div className="btnGroup">
+												<button className="orange">
+													BET NOW
+												</button>
+											</div>
+											<div className="teamR">
+												<img src="https://img.n88media.com/Sports/ENGLISH%20PREMIER%20LEAGUE/Tottenham%20Hotspur.png" />
+												Tottenham Hotspur
+											</div>
+										</div>
+										<div> 21/02/2021 22:00</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="moduleTitle icon icon-saba">LIVE SCORE</div>
+					<div className="matches">
+						<iframe
+							width="100%"
+							src="https://www.sabasports.com/category/board.html"
+							frameBorder="0"
+							id="mainframe"
+						/>
+					</div>
+				</div>
+			</div>
+			<HotGameList t={t} userInfo={userInfo} />
+			<div className="newsVideo">
+				<News />
+				<LiveTv />
+			</div>
 			<img
+				className="indexCenterBanner"
 				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner_${userInfo.langId}.jpg`}
 				alt="IndexCenterBanner"
 			/>

@@ -91,12 +91,10 @@ export default ({ t, userInfo }) => {
 		<>
 			<div className="moduleTitle icon icon-gift">Promos</div>
 			<div className="promos">
-				<div className="swiper-container gameSwiper">
-					<div className="swiper-wrapper">
-						<Swiper {...params} getSwiper={setSwiper}>
-							{Rows}
-						</Swiper>
-					</div>
+				<div className="swiper-container promosSwiper">
+					<Swiper {...params} getSwiper={setSwiper}>
+						{Rows}
+					</Swiper>
 				</div>
 			</div>
 		</>
