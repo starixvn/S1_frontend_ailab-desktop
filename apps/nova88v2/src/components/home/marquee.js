@@ -136,6 +136,7 @@ class Marquee extends Component {
 		const arr = this.state.datas.map(item => {
 			return (
 				<button
+					className="white"
 					key={`announcement-${item.id}`}
 					style={{ paddingLeft: "2rem" }}
 					onClick={this.ClickMarquee}
@@ -159,6 +160,11 @@ class Marquee extends Component {
 						ref={this.content}
 						style={style}>
 						{arr}
+					</div>
+					<div className="mq-btn">
+						<button className="active" />
+						<button />
+						<button />
 					</div>
 				</div>
 			</div>
