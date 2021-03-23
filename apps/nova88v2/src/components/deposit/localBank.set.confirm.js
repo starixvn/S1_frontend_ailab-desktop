@@ -1,0 +1,117 @@
+import React, { useContext, useState, useEffect, useRef } from "react";
+import moment from "moment";
+import { useTranslation } from "react-i18next";
+import { Redirect } from "@reach/router";
+import { number_format } from "../common/common";
+import { userInfoContext, popBoxContext } from "../common/context";
+import { api_payment_DepositReqWireTransfer } from "../../service/api/payment";
+import { defActionType } from "./localBank.reducer";
+import defPopBoxType from "../common/defPopBoxType";
+import config from "../../config";
+import path from "../../router";
+
+export default ({ bankInfo, amount, _isConvert, dispatch }) => {
+	const { t } = useTranslation();
+	const { setPopBox } = useContext(popBoxContext);
+	const { userInfo } = useContext(userInfoContext);
+	const [redirectPath, setRedirectPath] = useState(null);
+	const isMountedRef = useRef(null);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	const ClickCancel = () => {
+		dispatch({
+			type: defActionType.CLICK_BACK
+		});
+	};
+
+	const ClickConfirm = () => {
+		const real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
+		api_payment_DepositReqWireTransfer({
+			amount: real_amount,
+			sysId: bankInfo.sysId
+		}).then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						const datas = res.data.data;
+
+						const backDeposit = () => {
+							setRedirectPath(
+								`/${userInfo.langId}/${path.deposit.root}`
+							);
+						};
+
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.UploadBankSlip,
+							depositTime: `${moment().format(
+								"yyyy-MM-DD "
+							)}${moment().format("hh:mm A")}`,
+							amount: real_amount,
+							backDeposit,
+							_isConvert,
+							...datas
+						});
+					} else {
+						alert(res.data.message);
+					}
+				}
+			},
+			err => {
+				if (isMountedRef.current) {
+					alert(t("msg_ApiServerError"));
+				}
+			}
+		);
+	};
+
+	return redirectPath === null ? (
+		<div className="subModuleList">
+			<div className="subModule">
+				<div className="subModuleBody column align-items-center">
+					<span className="title">{t("lbl_ImportantNote")}</span>
+					<div className="txt-lightgray">
+						{t("lbl_ConfirmDeposit")}
+					</div>
+					<div className="bankName">
+						<img
+							src={`${config.imgUrl}/common/images/BankLogo/${bankInfo.bankLogo}`}
+							alt={bankInfo.bankName}
+						/>
+					</div>
+					<div className="smallList">
+						<ul>
+							<li>{t("lbl_SelectedBank")}</li>
+							<li>{bankInfo.bankName}</li>
+						</ul>
+						<ul>
+							<li>{t("lbl_Amount")}</li>
+							<li>
+								{number_format(
+									_isConvert ? amount * 1000 : amount,
+									_isConvert
+								)}
+							</li>
+						</ul>
+					</div>
+					<div className="btnGroup">
+						<button onClick={ClickCancel} className="gray">
+							{t("lbl_Cancel")}
+						</button>
+						<button onClick={ClickConfirm} className="orange">
+							{t("lbl_Confirm")}
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	) : (
+		<Redirect to={redirectPath} noThrow />
+	);
+};

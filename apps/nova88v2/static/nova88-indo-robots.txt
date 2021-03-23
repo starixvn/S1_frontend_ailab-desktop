@@ -1,0 +1,9 @@
+User-Agent: *
+Disallow: /*affCode*
+Disallow: /*refID*
+Disallow: /*AffID*
+Disallow: /en*
+Disallow: /cs*
+Disallow: /th*
+
+Sitemap: https://www.nova88-indo.com/sitemapid.xml
