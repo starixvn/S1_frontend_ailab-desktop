@@ -5,8 +5,12 @@ export const defEventIcon = {
 
 export const defEventPeriod = {
 	cq9: { end: "2021/03/06 00:00:00" },
-	referral: { start: "2021/03/08 00:00:00", end: "2021/04/08 11:00:00" },
+	referral: {
+		start: "2021/03/08 00:00:00",
+		end: "2021/04/08 11:00:00"
+	},
 	icg: { end: "2021/02/05 11:00:00" },
+	vip: { start: "2021/02/05 12:00:00" },
 	one789: { end: "2021/01/22 11:00:00" },
 	v8Poker: { end: "2021/03/06 00:00:00" },
 	n2Live: { start: "2021/03/12 11:00:00" }
