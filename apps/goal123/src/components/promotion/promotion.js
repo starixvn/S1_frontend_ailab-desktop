@@ -141,7 +141,7 @@ export default () => {
 						</div>
 					</div>
 					<div className="txt-orange">
-						<div>1X</div>
+						<div>0X</div>
 					</div>
 				</div>
 				<div
