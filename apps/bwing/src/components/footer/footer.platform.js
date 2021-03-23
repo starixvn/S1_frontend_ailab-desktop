@@ -83,7 +83,7 @@ const defPlatform = [
 		imgName: "cq9"
 	},
 	{
-		...productList.liveCasino_One789,
+		// ...productList.liveCasino_One789,
 		imgName: "one789"
 	},
 	{
@@ -115,7 +115,7 @@ export default ({ langId, isLogin, productTpIds }) => {
 
 		if (_path) {
 			navigate(`/${langId}/${_path}${urlParams}`);
-		} else {
+		} else if (tpId || gameId) {
 			SET_ENTER_PAGE({
 				isLogin,
 				langId,
