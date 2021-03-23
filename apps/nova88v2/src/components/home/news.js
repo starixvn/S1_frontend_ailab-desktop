@@ -73,9 +73,7 @@ export default () => {
 	}, [userInfo.langId]);
 
 	const clickToNews = _newsId => {
-		navigate(
-			`/${userInfo.langId}/${path.news.sub.newsInfo.root}?newsId=${_newsId}`
-		);
+		navigate(`/${userInfo.langId}/${path.newsInfo.root}?newsId=${_newsId}`);
 	};
 
 	// console.log("getNews:", getNews);

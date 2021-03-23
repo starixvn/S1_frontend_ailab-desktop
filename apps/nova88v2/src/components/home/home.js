@@ -45,7 +45,7 @@ import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
-
+import UpcomingMatches from "./upcomingMatches";
 import News from "./news";
 import LiveTv from "./liveTv";
 
@@ -485,66 +485,15 @@ const IndexPage = ({ location }) => {
 						title="YouTube video player"
 						frameBorder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowFullscreen
+						allowFullScreen
 					/>
 					<div className="title">
 						3/07 Bundesliga BAY vs DOR Highlight
 					</div>
 				</div>
 				<div>
-					<div className="moduleTitle icon icon-upcomingmatches">
-						Upcoming Matches
-					</div>
-					<div className="swiper-container matchesSwiper">
-						<div className="swiper-wrapper">
-							<div className="swiper-slide">
-								<div className="upcomingmatches">
-									<div className="team">
-										<div>ENGLISH PREMIER LEAGUE</div>
-										<div>
-											<div className="teamL">
-												<img src="https://img.n88media.com/Sports/ENGLISH%20PREMIER%20LEAGUE/Tottenham%20Hotspur.png" />
-												Tottenham Hotspur
-											</div>
-											<div className="btnGroup">
-												<button className="orange">
-													BET NOW
-												</button>
-											</div>
-											<div className="teamR">
-												<img src="https://img.n88media.com/Sports/ENGLISH%20PREMIER%20LEAGUE/Tottenham%20Hotspur.png" />
-												Tottenham Hotspur
-											</div>
-										</div>
-										<div> 21/02/2021 22:00</div>
-									</div>
-								</div>
-							</div>
-							<div className="swiper-slide">
-								<div className="upcomingmatches">
-									<div className="team">
-										<div>ENGLISH PREMIER LEAGUE</div>
-										<div>
-											<div className="teamL">
-												<img src="https://img.n88media.com/Sports/ENGLISH%20PREMIER%20LEAGUE/Tottenham%20Hotspur.png" />
-												Tottenham Hotspur
-											</div>
-											<div className="btnGroup">
-												<button className="orange">
-													BET NOW
-												</button>
-											</div>
-											<div className="teamR">
-												<img src="https://img.n88media.com/Sports/ENGLISH%20PREMIER%20LEAGUE/Tottenham%20Hotspur.png" />
-												Tottenham Hotspur
-											</div>
-										</div>
-										<div> 21/02/2021 22:00</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					{/* // */}
+					<UpcomingMatches t={t} userInfo={userInfo} />
 					<div className="moduleTitle icon icon-saba">LIVE SCORE</div>
 					<div className="matches">
 						<iframe
