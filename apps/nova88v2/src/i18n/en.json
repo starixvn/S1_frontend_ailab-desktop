@@ -628,8 +628,22 @@
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo":"Latest Highlight Video",
+	"lbl_LiveScore":"Live Score",
 
-	"lbl_LiveScore":"Live Score"
+	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_LiveChat":"Live Chat",
+	"lbl_PaymentMethods": "Payment methods",
+	"lbl_Follow_Us": "Follow Us",
+	"lbl_Gaming_License":"Gaming License",
+	"lbl_Gaming_License_Describe":"nova88 is a Registered Trade Mark, brand and registered business 30, Ghar Id-Dud Street Sliema SLM1572, Malta. Regulated & Licensed by the Government of Curacao and operates under the Master License of Gaming Services Provider, N.V. #365/JAZ",
+	"lbl_Brand_Ambassador": "Brand Ambassador 2021/22",
+	"lbl_Former_National_Team": "Former National team",
+	"lbl_England_1998_2010": "England 1998-2010",
+	"lbl_NASL_Best_XI_2016": "NASL Best XI 2016",
+
+
+
+	"end-----":"end-----"
 }
 
 
