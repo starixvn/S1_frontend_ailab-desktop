@@ -613,7 +613,7 @@ const Content = () => {
 							clickDropdown={clickDropdown}
 						/>
 					</div>
-					<Inputbox
+					{/* <Inputbox
 						icon="icon-promotion txt-blue12"
 						placeholder={t("lbl_JoinPromoCode")}
 						value={userValue.specialBonusCode}
@@ -622,7 +622,7 @@ const Content = () => {
 						tip={tip.specialBonusCode.msg}
 						checked={tip.specialBonusCode.checked}
 						clickInfo={clickInfo.bind(this, "specialBonusCode")}
-					/>
+					/> */}
 					<Inputbox
 						icon="icon-affiliate txt-blue12"
 						placeholder={t("lbl_Affiliate_ID")}

@@ -657,7 +657,7 @@ const Content = () => {
 							onBlur={checkValue.bind(null, "phone")}
 						/>
 
-						<div className="title">{t("lbl_JoinPromoCode")}</div>
+						{/* <div className="title">{t("lbl_JoinPromoCode")}</div>
 						<Inputbox
 							icon="icon-promotion txt-blue12"
 							placeholder={t("lbl_JoinPromoCode")}
@@ -667,7 +667,7 @@ const Content = () => {
 							tip={tip.specialBonusCode.msg}
 							checked={tip.specialBonusCode.checked}
 							clickInfo={clickInfo.bind(this, "specialBonusCode")}
-						/>
+						/> */}
 
 						<div className="title">{t("lbl_Affiliates")}</div>
 						<Inputbox

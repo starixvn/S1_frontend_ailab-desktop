@@ -188,7 +188,7 @@
 	"lbl_ClaimAmount": "Số tiền đạt",
 	"lbl_PleaseEnterClaimAmount": "Vui lòng nhập số tiền bạn muốn để nhận khuyến mãi",
 	"lbl_SpecialBonus": "Khuyến mãi đặc biệt",
-	"lbl_SpecialBonusCode": "Code khuyến mãi đặc biệt",
+	"lbl_SpecialBonusCode": "Mã khuyến mãi đặc biệt",
 	"lbl_MinAmount": "Số tiền tối thiểu",
 	"lbl_RemainingTime": "Thời gian còn lại",
 	"lbl_RequireMinAmountHint_Front": "Tiền gửi tối thiểu là",
