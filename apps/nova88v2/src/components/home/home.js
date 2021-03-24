@@ -39,7 +39,7 @@ import Marquee from "./marquee";
 import productList from "../../datas/productList";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
-import PromoGameList from "./promoGameList";
+import PromoList from "./promoList";
 import HotGameList from "./hotGameList";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
@@ -465,7 +465,7 @@ const IndexPage = ({ location }) => {
 		<main>
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
-			<PromoGameList t={t} userInfo={userInfo} />
+			<PromoList t={t} userInfo={userInfo} />
 			<div className="liveVideo">
 				<LatestVideo />
 				<div>
