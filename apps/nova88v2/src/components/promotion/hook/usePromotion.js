@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { api_promotion_GetPromotionListV2 } from "../../../service/api/promotion";
+import { isExpiry } from "../promotion.common";
 
-export default ({ userInfo, isMountedRef, errorPopBox }) => {
-	const [promoList, setPromoList] = useState([]);
+export default ({
+	userInfo,
+	isMountedRef,
+	errorPopBox,
+	filterExpiry = false
+}) => {
+	const [promoDatas, setPromoList] = useState([]);
 
 	const getPromotionListV2 = async () => {
 		await api_promotion_GetPromotionListV2({
@@ -26,6 +32,16 @@ export default ({ userInfo, isMountedRef, errorPopBox }) => {
 			}
 		);
 	};
+
+	const promoList = filterExpiry
+		? promoDatas.filter(
+				p =>
+					!isExpiry({
+						...p,
+						isLogin: userInfo.isLogin
+					})
+		  )
+		: promoDatas;
 
 	return {
 		promoList,
