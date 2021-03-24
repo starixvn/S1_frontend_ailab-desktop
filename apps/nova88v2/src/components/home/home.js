@@ -48,6 +48,7 @@ import config, { SiteInfo } from "../../config";
 import UpcomingMatches from "./upcomingMatches";
 import News from "./news";
 import Streaming from "./streaming";
+import LatestVideo from "./latestVideo";
 
 import {
 	GET_OPEN_RULE,
@@ -474,23 +475,7 @@ const IndexPage = ({ location }) => {
 				/>
 			</section> */}
 			<div className="liveVideo">
-				<div className="latestVideo">
-					<div className="moduleTitle icon icon-gift">
-						Latest Highlight Video
-					</div>
-					<iframe
-						width="100%"
-						height="440"
-						src="https://www.youtube.com/embed/j1Jzeldqvlk"
-						title="YouTube video player"
-						frameBorder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowFullScreen
-					/>
-					<div className="title">
-						3/07 Bundesliga BAY vs DOR Highlight
-					</div>
-				</div>
+				<LatestVideo />
 				<div>
 					{/* // */}
 					<UpcomingMatches t={t} userInfo={userInfo} />
