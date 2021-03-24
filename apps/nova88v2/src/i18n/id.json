@@ -226,6 +226,15 @@
 	"lbl_ExchangeRateReferenceOnly": "Tarif ini hanya untuk referensi",
 	"lbl_ExchangeAmount": "Nilai tukar",
 	"lbl_CryptoPay": "Pembayaran Crypto",
+	"lbl_UploadReceipt": "Unggah Tanda Terima",
+	"lbl_BankName": "Nama bank",
+	"lbl_BankAccount": "Akun bank",
+	"lbl_PaymentModes": "Mode Pembayaran",
+	"lbl_DepositOptions": "Pilihan Deposit",
+	"lbl_DepositProcessingDescription": "Memproses setoran, harap perbarui di bawah ini atau klik tautan riwayat untuk melihat hasil setoran.",
+	"lbl_DepositProvideBankSlip": "Berikan slip bank di sini agar permintaan Anda dapat kami proses dengan cepat.",
+	"lbl_SelectChannel": "Pilih Saluran",
+	"lbl_MinMaxAmount": "Batas Min / Maks",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
@@ -361,7 +370,7 @@
 	"lbl_RemainingTime": "SISA WAKTU",
 	"lbl_RequireMinAmountHint_Front": "Jumlah minimal setoran yang diwajibkan adalah minimal Rp",
 	"lbl_RequireMinAmountHint_Back": "Deposit sekarang?",
-	"lbl_MaxBonusAmount":"Jumlah Maksimal Bonus",
+	"lbl_MaxBonusAmount": "Jumlah Maksimal Bonus",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Tidak Ada Informasi Yang Tersedia",
@@ -409,6 +418,8 @@
 	"lbl_Details": "Rincian",
 	"lbl_total": "Total",
 	"lbl_Cash": "Cash",
+	"lbl_Min": "Minimum",
+	"lbl_Max": "Maksimum",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
