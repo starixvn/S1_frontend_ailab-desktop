@@ -1,15 +1,13 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
-import { userInfoContext, popBoxContext } from "../common/context";
+import { popBoxContext } from "../common/context";
 import { api_news_GetNews } from "../../service/api/news";
 import { defPopBoxType } from "../common/popBox";
 import path from "../../router";
 
-export default () => {
-	const { userInfo } = useContext(userInfoContext);
+export default ({ t, userInfo }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	const { t } = useTranslation();
+
 	const [getNews, setGetNews] = useState([]);
 	const isMountedRef = useRef(null);
 

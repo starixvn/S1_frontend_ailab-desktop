@@ -31,8 +31,8 @@ export default ({ t, userInfo }) => {
 	});
 
 	const defSwipperConfig = {
-		spaceBetween: 20,
-		slidesPerView: 8,
+		slidesPerView: 5,
+		spaceBetween: 15,
 		centeredSlides: true,
 		loopFillGroupWithBlank: true,
 		loop: true,
@@ -40,6 +40,7 @@ export default ({ t, userInfo }) => {
 			delay: 2500,
 			disableOnInteraction: false
 		}
+		// autoplay: false
 	};
 
 	const params = {

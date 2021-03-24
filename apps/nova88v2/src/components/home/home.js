@@ -45,7 +45,6 @@ import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
-import UpcomingMatches from "./upcomingMatches";
 import News from "./news";
 import LiveTv from "./liveTv";
 
@@ -465,14 +464,6 @@ const IndexPage = ({ location }) => {
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 			<Marquee />
 			<PromoGameList t={t} userInfo={userInfo} />
-			{/* <section>
-				<SportsSection t={t} showLogin={showLogin} {...userInfo} />
-				<SideBarProductSection
-					t={t}
-					showLogin={showLogin}
-					{...userInfo}
-				/>
-			</section> */}
 			<div className="liveVideo">
 				<div className="latestVideo">
 					<div className="moduleTitle icon icon-gift">
@@ -492,8 +483,10 @@ const IndexPage = ({ location }) => {
 					</div>
 				</div>
 				<div>
-					{/* // */}
-					<UpcomingMatches t={t} userInfo={userInfo} />
+					<div className="moduleTitle icon icon-upcomingmatches">
+						Upcoming Matches
+					</div>
+					<EventSwipper langId={userInfo.langId} />
 					<div className="moduleTitle icon icon-saba">LIVE SCORE</div>
 					<div className="matches">
 						<iframe
@@ -507,7 +500,7 @@ const IndexPage = ({ location }) => {
 			</div>
 			<HotGameList t={t} userInfo={userInfo} />
 			<div className="newsVideo">
-				<News />
+				<News t={t} userInfo={userInfo} />
 				<LiveTv />
 			</div>
 			<img
