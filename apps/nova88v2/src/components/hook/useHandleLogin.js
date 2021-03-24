@@ -5,14 +5,14 @@ import defPopBoxType from "../common/defPopBoxType";
 const useHandleLogin = () => {
 	const { setPopBox } = useContext(popBoxContext);
 
-	const loginCallback = () => {
+	const handleLogin = () => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.Login
 		});
 	};
 
-	return { loginCallback };
+	return { handleLogin };
 };
 
 export default useHandleLogin;
