@@ -47,6 +47,8 @@ import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
 import News from "./news";
 import Streaming from "./streaming";
+import LatestVideo from "./latestVideo";
+import LiveScore from "./liveScore";
 
 import {
 	GET_OPEN_RULE,
@@ -465,37 +467,13 @@ const IndexPage = ({ location }) => {
 			<Marquee />
 			<PromoGameList t={t} userInfo={userInfo} />
 			<div className="liveVideo">
-				<div className="latestVideo">
-					<div className="moduleTitle icon icon-gift">
-						Latest Highlight Video
-					</div>
-					<iframe
-						width="100%"
-						height="440"
-						src="https://www.youtube.com/embed/j1Jzeldqvlk"
-						title="YouTube video player"
-						frameBorder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowFullScreen
-					/>
-					<div className="title">
-						3/07 Bundesliga BAY vs DOR Highlight
-					</div>
-				</div>
+				<LatestVideo />
 				<div>
 					<div className="moduleTitle icon icon-upcomingmatches">
 						Upcoming Matches
 					</div>
 					<EventSwipper langId={userInfo.langId} />
-					<div className="moduleTitle icon icon-saba">LIVE SCORE</div>
-					<div className="matches">
-						<iframe
-							width="100%"
-							src="https://www.sabasports.com/category/board.html"
-							frameBorder="0"
-							id="mainframe"
-						/>
-					</div>
+					<LiveScore langId={userInfo.langId} />
 				</div>
 			</div>
 			<HotGameList t={t} userInfo={userInfo} />
