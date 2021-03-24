@@ -47,7 +47,7 @@ import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
 import UpcomingMatches from "./upcomingMatches";
 import News from "./news";
-import LiveTv from "./liveTv";
+import Streaming from "./streaming";
 
 import {
 	GET_OPEN_RULE,
@@ -508,7 +508,7 @@ const IndexPage = ({ location }) => {
 			<HotGameList t={t} userInfo={userInfo} />
 			<div className="newsVideo">
 				<News />
-				<LiveTv />
+				<Streaming />
 			</div>
 			<img
 				className="indexCenterBanner"

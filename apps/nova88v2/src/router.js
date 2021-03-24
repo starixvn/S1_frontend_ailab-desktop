@@ -130,5 +130,8 @@ export default {
 	},
 	mysteryBox: {
 		root: "mysteryBox"
+	},
+	streaming: {
+		root: "streaming"
 	}
 };
