@@ -1,10 +1,12 @@
 import React, { useEffect, useContext, useRef } from "react";
+import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 import { defStreamingCategory } from "../streaming/defStreaming";
 import { useGetVideo } from "../streaming/hook";
 import { StreamingModule } from "../streaming/streaming.row";
 import { StreamingNoData } from "../streaming/streaming.noData";
+import path from "../../router";
 
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -50,6 +52,9 @@ const Content = () => {
 		<div className="liveTv">
 			<div className="moduleTitle icon icon-film">
 				{t("lbl_LiveStreaming")}
+				<Link to={`/${userInfo.langId}/${path.streaming.root}`}>
+					{`${t("lbl_More")}...`}
+				</Link>
 			</div>
 			<div className="liveTvBox">
 				<div className="liveTvTag">{btns}</div>
