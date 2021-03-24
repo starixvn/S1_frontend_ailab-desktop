@@ -62,7 +62,7 @@ const defGameList = [
 	{
 		name: "Multihand Blackjack",
 		provider: "PP",
-		providerImg: "pp",
+		providerImg: "ppa",
 		gameTypeKey: gameType.table,
 		img: MultihandBlackjack,
 		tpId: 5,
@@ -71,7 +71,7 @@ const defGameList = [
 	{
 		name: "888 Dragon",
 		provider: "PP",
-		providerImg: "pp",
+		providerImg: "ppa",
 		gameTypeKey: gameType.slots,
 		img: Baccarat,
 		tpId: 5,
@@ -80,7 +80,7 @@ const defGameList = [
 	{
 		name: "Three Star Fortune",
 		provider: "PP",
-		providerImg: "pp",
+		providerImg: "ppa",
 		gameTypeKey: gameType.slots,
 		img: Baccarat,
 		tpId: 5,
@@ -98,7 +98,7 @@ const defGameList = [
 	{
 		name: "God Of Fortune",
 		provider: "GPI",
-		providerImg: "gp",
+		providerImg: "gpa",
 		gameTypeKey: gameType.slots,
 		img: Baccarat,
 		tpId: 6,
@@ -107,7 +107,7 @@ const defGameList = [
 	{
 		name: "Lucky Neko",
 		provider: "YGG",
-		providerImg: "yg",
+		providerImg: "yga",
 		gameTypeKey: gameType.slots,
 		img: Baccarat,
 		tpId: 5,
@@ -116,7 +116,7 @@ const defGameList = [
 	{
 		name: "Poker",
 		provider: "OneGame",
-		providerImg: "1g",
+		providerImg: "1ga",
 		gameTypeKey: gameType.poker,
 		img: Baccarat,
 		tpId: 13
@@ -152,8 +152,8 @@ export default ({ t, userInfo }) => {
 	};
 
 	const defSwipperConfig = {
-		spaceBetween: 20,
-		slidesPerView: 8,
+		slidesPerView: 5,
+		spaceBetween: 15,
 		centeredSlides: true,
 		loopFillGroupWithBlank: true,
 		loop: true,
@@ -161,6 +161,7 @@ export default ({ t, userInfo }) => {
 			delay: 2500,
 			disableOnInteraction: false
 		}
+		// autoplay: false
 	};
 
 	const params = {

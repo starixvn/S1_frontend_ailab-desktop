@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
+import Swiper from "react-id-swiper";
 import {
 	useGetBanner,
 	Autoplay,
@@ -26,7 +27,7 @@ const EventSwipper = memo(({ langId }) => {
 
 		navigate(`/${langId}/${path.sports.root}${parameters}`);
 	};
-
+	console.log(banner);
 	const rows = banner?.map((b, bIdx) => {
 		const {
 			sportBattleDateTime,
@@ -39,7 +40,7 @@ const EventSwipper = memo(({ langId }) => {
 		return (
 			<HotEventContent
 				// eslint-disable-next-line react/no-array-index-key
-				key={`HotEvent-${b.sportLeaguesId}-${bIdx}`}
+				key={`Upcoming-Matches-${b.sportLeaguesId}-${bIdx}`}
 				sportBattleDateTime={sportBattleDateTime}
 				sportTeamsHomePic={sportTeamsHomePic}
 				sportTeamsAwayPic={sportTeamsAwayPic}
@@ -51,12 +52,29 @@ const EventSwipper = memo(({ langId }) => {
 		);
 	});
 
-	return (
-		<div className="offers">
-			{" "}
-			<Autoplay Rows={rows} />
-		</div>
-	);
+	const defSwipperConfig = {
+		slidesPerView: 2,
+		spaceBetween: 5,
+		// centeredSlides: true,
+		loop: true,
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false
+		},
+		// autoplay: false,
+		// pagination: {
+		// 	el: ".swiper-pagination",
+		// 	clickable: true
+		// },
+		rebuildOnUpdate: true,
+		containerClass: "swiper-container matchesSwiper"
+	};
+
+	const params = {
+		...defSwipperConfig
+	};
+
+	return rows && rows.length > 0 ? <Swiper {...params}>{rows}</Swiper> : null;
 });
 
 EventSwipper.propTypes = {
@@ -76,21 +94,25 @@ const HotEventContent = ({
 	const time = moment(sportBattleDateTime).format("HH:mm");
 	return (
 		<div className="swiper-slide">
-			<div className="team" onClick={OnClickEvent}>
-				<div className="gameName">
-					<span>{sportLeaguesId}</span>
-				</div>
-				<div className="teamL">
-					<img src={sportTeamsHomePic} alt={sportTeamsHome} />
-					{sportTeamsHome}
-				</div>
-				<div className="schedule">
-					{`${date} `}
-					<span>{time}</span>
-				</div>
-				<div className="teamR">
-					<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
-					{sportTeamsAway}
+			<div className="upcomingmatches">
+				<div className="team" onClick={OnClickEvent}>
+					<div>{sportLeaguesId}</div>
+					<div>
+						<div className="teamL">
+							<img src={sportTeamsHomePic} alt={sportTeamsHome} />
+							{sportTeamsHome}
+						</div>
+						<div className="btnGroup">
+							<button className="orange">BET NOW</button>
+						</div>
+						<div className="teamR">
+							<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
+							{sportTeamsAway}
+						</div>
+					</div>
+					<div>
+						{date} {time}
+					</div>
 				</div>
 			</div>
 		</div>
