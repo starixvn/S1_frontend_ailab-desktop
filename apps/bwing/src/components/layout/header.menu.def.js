@@ -193,13 +193,13 @@ export const defMenuLinks = {
 					})
 				]
 			},
-			// {
-			// 	...productList.liveCasino_One789,
-			// 	className: "live789",
-			// 	icon: "icon icon-one789",
-			// 	displayKey: "lbl_liveCasino_789SeDie",
-			// 	menuType: defMenuType.entPage
-			// },
+			{
+				...productList.liveCasino_One789,
+				className: "live789",
+				icon: "icon icon-one789",
+				displayKey: "lbl_liveCasino_789SeDie",
+				menuType: defMenuType.entPage
+			},
 			{
 				gameId: 20,
 				tpId: 20,
