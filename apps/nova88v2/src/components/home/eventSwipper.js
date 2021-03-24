@@ -27,7 +27,7 @@ const EventSwipper = memo(({ langId }) => {
 
 		navigate(`/${langId}/${path.sports.root}${parameters}`);
 	};
-	console.log(banner);
+
 	const rows = banner?.map((b, bIdx) => {
 		const {
 			sportBattleDateTime,

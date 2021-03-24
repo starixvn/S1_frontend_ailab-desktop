@@ -116,7 +116,7 @@ $(function(){
         $('.listTag > button').removeClass('active')
         $(this).addClass('active')
     })
-    $('.quickLink > div').click(function() {
+    $('.quickLink > div').hover(function() {
         $('.quickLink').toggleClass('active')
         $('#chat-widget-container').toggleClass('active')
         if ($(".icon").hasClass("icon-arrow-up2")) {
@@ -124,6 +124,20 @@ $(function(){
         }else {
             $(".icon-cancel-circle").removeClass("icon-cancel-circle").addClass("icon-arrow-up2")
         }
+    })
+    $('.quickLinkNew1').mouseover(function() {
+        $('.quickLinkNew1').addClass('active')
+        $('.quickLinkNew2').removeClass('active')
+        $('.quickLinkNew2').mouseleave(function() {
+            $('.quickLinkNew2').addClass('active')
+            $('.quickLinkNew1').removeClass('active')
+        })
+    })
+    $('.quickLinkNew2 > a').mouseover(function() {
+        $(this).addClass('active')
+        $(this).mouseleave(function() {
+            $(this).removeClass('active')
+        })
     })
     $('#popup').click(function(n) {
         if($(n.target).parents("#popup").length==0) {
@@ -208,6 +222,9 @@ $(function(){
         $('.ranking > .btnGroup ~ div').removeClass('active')
         $('.ranking > .btnGroup ~ div').eq($(this).index()).addClass('active')
     })
+    if ($('html').hasClass('newIndex')) {
+        $('.logo > a > img').attr("src","https://image.n88media.com/SiteSkin/img/logo_en_w.png")
+    }
     //紅包    
     $('.angpao').click(function() {
         $(this).addClass('active')

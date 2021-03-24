@@ -81,6 +81,10 @@
   content: "\e9c3";
 }
 
+.icon-livechat1:before {
+  content: "\e9db";
+}
+
 .icon-ICG:before {
   content: "\e9c4";
 }
@@ -107,6 +111,10 @@
 
 .icon-visit:before {
   content: "\e9c1";
+}
+
+.icon-friendreferral:before {
+  content: "\e9da";
 }
 
 .icon-friend:before {
@@ -615,6 +623,10 @@
 
 .icon-withdrawal:before {
   content: "\e910";
+}
+
+.icon-live_tv:before {
+  content: "\e9d8";
 }
 
 .icon-cricket:before {
