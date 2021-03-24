@@ -62,7 +62,7 @@ const defGameList = [
 	{
 		name: "Multihand Blackjack",
 		provider: "PP",
-		providerImg: "pp",
+		providerImg: "ppa",
 		gameTypeKey: gameType.table,
 		img: MultihandBlackjack,
 		tpId: 5,
@@ -71,7 +71,7 @@ const defGameList = [
 	{
 		name: "888 Dragon",
 		provider: "PP",
-		providerImg: "pp",
+		providerImg: "ppa",
 		gameTypeKey: gameType.slots,
 		img: Baccarat,
 		tpId: 5,
@@ -80,7 +80,7 @@ const defGameList = [
 	{
 		name: "Three Star Fortune",
 		provider: "PP",
-		providerImg: "pp",
+		providerImg: "ppa",
 		gameTypeKey: gameType.slots,
 		img: Baccarat,
 		tpId: 5,
@@ -98,7 +98,7 @@ const defGameList = [
 	{
 		name: "God Of Fortune",
 		provider: "GPI",
-		providerImg: "gp",
+		providerImg: "gpa",
 		gameTypeKey: gameType.slots,
 		img: Baccarat,
 		tpId: 6,
@@ -107,7 +107,7 @@ const defGameList = [
 	{
 		name: "Lucky Neko",
 		provider: "YGG",
-		providerImg: "yg",
+		providerImg: "yga",
 		gameTypeKey: gameType.slots,
 		img: Baccarat,
 		tpId: 5,
@@ -116,7 +116,7 @@ const defGameList = [
 	{
 		name: "Poker",
 		provider: "OneGame",
-		providerImg: "1g",
+		providerImg: "1ga",
 		gameTypeKey: gameType.poker,
 		img: Baccarat,
 		tpId: 13
