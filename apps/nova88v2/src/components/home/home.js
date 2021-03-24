@@ -48,6 +48,7 @@ import config, { SiteInfo } from "../../config";
 import News from "./news";
 import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
+import LiveScore from "./liveScore";
 
 import {
 	GET_OPEN_RULE,
@@ -472,15 +473,7 @@ const IndexPage = ({ location }) => {
 						Upcoming Matches
 					</div>
 					<EventSwipper langId={userInfo.langId} />
-					<div className="moduleTitle icon icon-saba">LIVE SCORE</div>
-					<div className="matches">
-						<iframe
-							width="100%"
-							src="https://www.sabasports.com/category/board.html"
-							frameBorder="0"
-							id="mainframe"
-						/>
-					</div>
+					<LiveScore langId={userInfo.langId} />
 				</div>
 			</div>
 			<HotGameList t={t} userInfo={userInfo} />
