@@ -46,7 +46,7 @@ import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
 import News from "./news";
-import LiveTv from "./liveTv";
+import Streaming from "./streaming";
 
 import {
 	GET_OPEN_RULE,
@@ -501,7 +501,7 @@ const IndexPage = ({ location }) => {
 			<HotGameList t={t} userInfo={userInfo} />
 			<div className="newsVideo">
 				<News t={t} userInfo={userInfo} />
-				<LiveTv />
+				<Streaming />
 			</div>
 			<img
 				className="indexCenterBanner"
