@@ -141,8 +141,8 @@ const LocalBankForm = ({
 
 	if (localBankGroupList.length <= 0) return null;
 
-	const formatMinAmount = number_format(formInfo.minAmount);
-	const formatMaxAmount = number_format(formInfo.maxAmount);
+	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
+	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
 
 	return (
 		<>
