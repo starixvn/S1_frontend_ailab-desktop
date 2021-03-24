@@ -76,25 +76,29 @@ export default ({ t, userInfo }) => {
 
 	// console.log("getNews:", getNews);
 
-	const newsRows = getNews.map(item => {
+	const newsRows = getNews.map((item, idx) => {
 		return (
-			<div
-				className="newsModule"
-				key={`index-news-${item.newsId}-${userInfo.langId}`}>
-				<img src={item.imageURL} />
-				<div>
-					<div>{item.postTime.slice(0, 10)}</div>
-					<div>{item.title}</div>
-					<div>{item.content}</div>
-					<div className="btnGroup">
-						<button
-							className="lightblue"
-							onClick={clickToNews.bind(this, item.newsId)}>
-							{t("lbl_MoreDetails")}
-						</button>
+			<>
+				<div
+					className="newsModule"
+					key={`index-news-${item.newsId}-${userInfo.langId}`}>
+					<img src={item.imageURL} />
+					{/* <img src={require(`../../styles/img/news01.jpg`)} /> */}
+					<div>
+						<div>{item.postTime.slice(0, 10)}</div>
+						<div>{item.title}</div>
+						<div>{item.content}</div>
+						<div className="btnGroup">
+							<button
+								className="lightblue"
+								onClick={clickToNews.bind(this, item.newsId)}>
+								{t("lbl_MoreDetails")}
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
+				{idx < 2 ? <div className="newsBorder" /> : null}
+			</>
 		);
 	});
 
@@ -103,9 +107,7 @@ export default ({ t, userInfo }) => {
 			<div className="newsList">
 				<div className="moduleTitle icon icon-news">SPORT NEWS</div>
 				{newsRows}
-				<div className="newsBorder" />
 			</div>
-			;
 		</>
 	);
 };
