@@ -87,13 +87,14 @@ export const StreamingModule = ({
 StreamingModule.defaultProps = {
 	isStreamingPage: false,
 	homeScore: null,
-	awayScore: null
+	awayScore: null,
+	isLogin: null
 };
 
 StreamingModule.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
-	isLogin: PropTypes.bool.isRequired,
+	isLogin: PropTypes.bool,
 	isStreamingPage: PropTypes.bool,
 	league: PropTypes.string.isRequired,
 	home: PropTypes.string.isRequired,
