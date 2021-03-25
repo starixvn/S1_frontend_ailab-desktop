@@ -15,19 +15,16 @@ const Panel = ({ handleSelect, selected }) => {
 		return (
 			<button
 				key={`streaming-quickSelect-${item.displayKey}`}
-				className={item.type === selected ? "active" : ""}
+				className={`${item.icon}${
+					item.type === selected ? " active" : ""
+				}`}
 				onClick={clickQuickSelect.bind(this, item.type)}>
 				{t(item.displayKey) ?? item.displayKey}
 			</button>
 		);
 	});
 
-	return (
-		<div className="quickSelect">
-			{quickSelectArr}
-			<i className="icon icon-keyboard_arrow_right" />
-		</div>
-	);
+	return <div className="liveTvTag">{quickSelectArr}</div>;
 };
 
 Panel.propTypes = {

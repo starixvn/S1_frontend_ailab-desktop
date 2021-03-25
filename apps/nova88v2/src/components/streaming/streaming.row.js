@@ -1,16 +1,13 @@
 import React from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
-import { useNavigate } from "@reach/router";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
-import useHandleLogin from "../hook/useHandleLogin";
+import { useNavigate, Link } from "@reach/router";
 import config from "../../config";
 import path from "../../router";
 
 export const StreamingModule = ({
 	t,
 	langId,
-	isLogin,
 	isStreamingPage,
 	league,
 	home,
@@ -23,23 +20,13 @@ export const StreamingModule = ({
 	channel
 }) => {
 	const navigate = useNavigate();
-	const { handleLogin } = useHandleLogin();
-	const ClickBetNow = e => {
-		e.stopPropagation();
-		SET_ENTER_PAGE({
-			langId,
-			tpId: 1,
-			gameId: 1,
-			matchid: matchID,
-			isLogin: isLogin === true,
-			loginCallback: handleLogin
-		});
-	};
 
 	const ClickLiveTv = () => {
 		if (isStreamingPage) {
 			window.open(
-				`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`
+				`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
+				`streaming-${channel}`,
+				"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
 			);
 		} else {
 			navigate(`/${langId}/${path.streaming.root}`);
@@ -68,10 +55,12 @@ export const StreamingModule = ({
 						{awayScore !== null ? <span>{awayScore}</span> : null}
 					</div>
 					{isStreamingPage ? (
-						<div className="btn-group">
-							<button className="title" onClick={ClickBetNow}>
+						<div className="btnGroup">
+							<Link
+								className="lightblue"
+								to={`/${langId}/${path.sports.root}?tpId=1&gameId=1&matchId=${matchID}`}>
 								{t("lbl_BetNow")?.toUpperCase()}
-							</button>
+							</Link>
 						</div>
 					) : null}
 				</div>
@@ -87,14 +76,12 @@ export const StreamingModule = ({
 StreamingModule.defaultProps = {
 	isStreamingPage: false,
 	homeScore: null,
-	awayScore: null,
-	isLogin: null
+	awayScore: null
 };
 
 StreamingModule.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
-	isLogin: PropTypes.bool,
 	isStreamingPage: PropTypes.bool,
 	league: PropTypes.string.isRequired,
 	home: PropTypes.string.isRequired,

@@ -9878,7 +9878,7 @@ canvas {
 }
 
 .subModuleListColumn > .subModule .inputBox-white {
-  width: 45%;
+  width: 300px;
 }
 
 .subModuleListColumn > .subModule .inputBox-white input {
@@ -10095,7 +10095,8 @@ canvas {
 }
 
 .subModuleListColumn .bankAccount .smallList ul li {
-  width: 130px;
+  min-width: 130px;
+  width: auto;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {

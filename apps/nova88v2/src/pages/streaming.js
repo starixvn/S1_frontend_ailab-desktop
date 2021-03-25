@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Layout from "../components/common/layout";
-// import Filter from "../components/streaming/filter";
+import Filter from "../components/streaming/filter";
 import Wrapper from "../components/common/wrapper";
 import { userInfoContext } from "../components/common/context";
 import { useGetVideo } from "../components/streaming/hook";
@@ -13,7 +13,9 @@ const IndexPage = () => {
 		<Wrapper>
 			<Layout showFooter={true}>
 				<main>
-					<Content />
+					<section className="inside streaming">
+						<Content />
+					</section>
 				</main>
 			</Layout>
 		</Wrapper>
@@ -51,8 +53,19 @@ const Content = () => {
 	});
 
 	return (
-		<div className="liveTv active">
-			{rows.length <= 0 ? <StreamingNoData t={t} /> : rows}
+		<div className="infoModule">
+			<div className="inside-title icon icon-live_tv">
+				<span>{t("lbl_LiveStreaming")}</span>
+			</div>
+			<div className="subModuleListColumn">
+				<Filter
+					handleSelect={handleSelectCategory}
+					selected={selCategory.type}
+				/>
+				<div className="liveTv active">
+					{rows.length <= 0 ? <StreamingNoData t={t} /> : rows}
+				</div>
+			</div>
 		</div>
 	);
 };

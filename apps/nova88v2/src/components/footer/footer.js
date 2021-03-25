@@ -57,7 +57,7 @@ const LicensesSection = ({ t }) => (
 				title="YouTube video player"
 				frameBorder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowFullscreen
+				allowFullScreen
 			/>
 			<div>
 				<div>{t("lbl_Brand_Ambassador")}</div>
