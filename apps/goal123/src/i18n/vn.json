@@ -336,7 +336,7 @@
 	"lbl_DepositLocalBankNotes3": "Vui lòng chọn “Người chuyển trả phí giao dịch”.",
 	"lbl_DepositLocalBankNotes4": "Vui lòng tải biên lai ngân hàng để giao dịch được xử lý nhanh hơn.",
 	"lbl_MinMaxAmount": "Tối thiểu/Tối đa",
-	"lbl_DepositAccountNamePlaceholder": "Vui lòng sử dụng TÀI KHOẢN NGÂN HÀNG CÓ CÙNG TÊN VỚI CMND CỦA BẠN",
+	"lbl_DepositAccountNamePlaceholder": "Tên phải trùng với tên tài khoản và CMND",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",

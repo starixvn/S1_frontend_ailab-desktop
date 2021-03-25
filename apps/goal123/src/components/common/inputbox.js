@@ -44,12 +44,11 @@ export default props => {
 					readOnly={props.readOnly}
 					data-testid="input"
 				/>
-				{props.checked !== undefined ? (
-					<div className="iconModule">
-						{props._isConvert ? "('000)" : null}
-						{showCheckIcon()}
-					</div>
-				) : null}
+
+				<div className="iconModule">
+					{props._isConvert ? "('000)" : null}
+					{props.checked !== undefined ? showCheckIcon() : null}
+				</div>
 			</div>
 			{props.inputType !== "date" ? (
 				<div className={`tip${props.tip ? " active" : ""}`}>

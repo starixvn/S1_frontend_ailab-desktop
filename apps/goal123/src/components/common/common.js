@@ -57,7 +57,8 @@ export const checkAmount = (
 	minAmount,
 	maxAmount,
 	formatRequired,
-	i18n
+	i18n,
+	isInteger
 ) => {
 	let status = 0;
 	let msg = "";
@@ -72,15 +73,19 @@ export const checkAmount = (
 			(num_Amount > maxAmount || num_Amount < minAmount)
 		) {
 			status = 2;
-			msg = `${number_format(num_Amount, formatRequired)} ${i18n(
-				"lbl_NotinLimit"
-			)}`;
+			msg = `${
+				isInteger
+					? isConvert
+						? num_Amount / 1000
+						: num_Amount
+					: number_format(num_Amount, formatRequired)
+			} ${i18n("lbl_NotinLimit")}`;
 		}
 	} else {
 		status = 3;
 		msg = getAmountTip(minAmount, formatRequired, i18n);
 	}
-
+	console.log("status::", status);
 	return { status, msg };
 };
 

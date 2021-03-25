@@ -63,7 +63,7 @@ export const checkAmount = (amount, minAmount, maxAmount, _isConvert, i18n) => {
 		) {
 			status = 2;
 			msg = `${number_format(num_Amount, _isConvert)} ${i18n(
-				"lbl_NotinLimit"
+				"lbl_NotinLimit654654"
 			)}`;
 		}
 	} else {

@@ -117,13 +117,16 @@ const Depositnew = () => {
 		});
 	};
 
+	const isInteger = true;
+
 	const onValidAmount = _amount => {
 		const result = checkAmount(
 			_amount,
 			formInfo.minAmount,
 			formInfo.maxAmount,
 			false,
-			t
+			t,
+			isInteger
 		);
 
 		if (result.status !== 0) {

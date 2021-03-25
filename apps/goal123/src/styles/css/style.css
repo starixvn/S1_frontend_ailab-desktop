@@ -7774,7 +7774,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .subModuleListColumn > .subModule > div.inputBox, .subModuleListColumn > .subModule > div.inputBox-org, .subModuleListColumn > .subModule > div.inputBox-white, .subModuleListColumn > .subModule > div.inputBox-blue, .subModuleListColumn > .subModule > div.inputBox-gray, .subModuleListColumn > .subModule > div.inputBox-yellow {
-  width: 27%;
+  width: 300px;
 }
 
 .subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
@@ -7928,7 +7928,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .subModuleListColumn .column .inputBox-white, .subModuleListColumn .column .inputBox-blue, .subModuleListColumn .column .inputBox, .subModuleListColumn .column .inputBox-org, .subModuleListColumn .column .inputBox-white, .subModuleListColumn .column .inputBox-blue, .subModuleListColumn .column .inputBox-gray, .subModuleListColumn .column .inputBox-yellow {
-  width: 32.5% !important;
+  width: 300px !important;
 }
 
 .subModuleListColumn .column .inputBox-white + .tip, .subModuleListColumn .column .inputBox-blue + .tip, .subModuleListColumn .column .inputBox + .tip, .subModuleListColumn .column .inputBox-org + .tip, .subModuleListColumn .column .inputBox-white + .tip, .subModuleListColumn .column .inputBox-blue + .tip, .subModuleListColumn .column .inputBox-gray + .tip, .subModuleListColumn .column .inputBox-yellow + .tip {

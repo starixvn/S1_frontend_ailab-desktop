@@ -337,7 +337,7 @@
 	"lbl_DepositLocalBankNotes3": "Please choose “Sender bears the transfer fee”.",
 	"lbl_DepositLocalBankNotes4": "Upload your pay slip to speed up processing time.",
 	"lbl_MinMaxAmount": "Min/Max Limit",
-	"lbl_DepositAccountNamePlaceholder": "Please use the BANK ACCOUNT WITH NAME AS IN YOUR ID",
+	"lbl_DepositAccountNamePlaceholder": "BANK & ID must be same",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",

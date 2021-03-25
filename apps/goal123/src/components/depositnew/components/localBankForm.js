@@ -132,8 +132,12 @@ const LocalBankForm = ({
 
 	if (localBankGroupList.length <= 0) return null;
 
-	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
-	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
+	const formatMinAmount = _isConvert
+		? formInfo.minAmount / 1000
+		: formInfo.minAmount;
+	const formatMaxAmount = _isConvert
+		? formInfo.maxAmount / 1000
+		: formInfo.maxAmount;
 
 	return (
 		<>
@@ -162,19 +166,24 @@ const LocalBankForm = ({
 
 							<div className="bank">
 								<div>{item.bankName}</div>
-
 								<div>
 									<div>
-										{`${t("lbl_Min")}: ${number_format(
-											item.minAmount,
+										{`${t("lbl_Min")}: ${
 											_isConvert
-										)}`}
+												? `${
+														item.minAmount / 1000
+												  } (000)`
+												: item.minAmount
+										}`}
 									</div>
 									<div>
-										{`${t("lbl_Max")}: ${number_format(
-											item.maxAmount,
+										{`${t("lbl_Max")}:  ${
 											_isConvert
-										)}`}
+												? `${
+														item.maxAmount / 1000
+												  } (000)`
+												: item.maxAmount
+										}`}
 									</div>
 								</div>
 							</div>
