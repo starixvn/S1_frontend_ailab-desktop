@@ -22,11 +22,11 @@ const LatestVideo = () => {
 		};
 	}, [userInfo.langId]);
 
-	const title = video.date
+	const title = video?.date
 		? `${moment(video.date).format("MM/DD")} ${video.title}`
 		: "";
 
-	return video.link ? (
+	return video?.link ? (
 		<div className="latestVideo">
 			<div className="moduleTitle icon icon-gift">
 				{t("lbl_LatestHighlightVideo")}

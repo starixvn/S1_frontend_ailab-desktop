@@ -47,7 +47,7 @@ const LicensesSection = ({ t }) => (
 		<div>
 			<div className="title">{t("lbl_Gaming_License")}</div>
 			<img src={Licenses} />
-			{t("lbl_Gaming_License_Describe")}
+			{t("lbl_Gaming_License_desc")}
 		</div>
 		<div>
 			<iframe
@@ -60,14 +60,14 @@ const LicensesSection = ({ t }) => (
 				allowFullScreen
 			/>
 			<div>
-				<div>{t("lbl_Brand_Ambassador")}</div>
+				<div>{t("lbl_JOE_COLE")}</div>
 				{/* <img
 					src={require(`../../styles/img/joecole_w.png`)}
 					alt="joecole_w"
 				/> */}
-				<div>{t("lbl_Former_National_Team")}</div>
-				<div>{t("lbl_England_1998_2010")}</div>
-				<div>{t("lbl_NASL_Best_XI_2016")}</div>
+				<div>{t("lbl_Brand_Ambassador")}</div>
+				<div>{t("lbl_Former_Chelsea_Liverpool")}</div>
+				<div>{t("lbl_England_International")}</div>
 			</div>
 			<img
 				className="star"
