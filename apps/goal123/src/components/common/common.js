@@ -12,11 +12,11 @@ export const getUrlParameter = name => {
 };
 
 // formatRequired: display with ('000)
-export const number_format = (number, formatRequired = false) => {
+export const number_format = (number, formatRequired = false, isInteger) => {
 	let n = number;
 	if (!isNaN(n)) {
 		n /= 1000;
-		n = Number(n).toFixed(2);
+		n = isInteger ? Number(n) : Number(n).toFixed(2);
 	}
 
 	n += "";
@@ -43,12 +43,12 @@ export const getCountryCode = currencyId => {
 	return countryCode[currencyId];
 };
 
-export const getAmountTip = (minAmount, formatRequired, i18n) => {
+export const getAmountTip = (minAmount, formatRequired, i18n, isInteger) => {
 	return isNaN(minAmount)
 		? i18n("lbl_AmountTooltip")?.replace("{0}", 0)
 		: i18n("lbl_AmountTooltip")?.replace(
 				"{0}",
-				number_format(minAmount, formatRequired)
+				number_format(minAmount, formatRequired, isInteger)
 		  );
 };
 
@@ -66,26 +66,23 @@ export const checkAmount = (
 		const num_Amount = isNaN(amount) ? 0 : Number(amount) * 1000;
 		if (num_Amount <= 0) {
 			status = 2;
-			msg = getAmountTip(minAmount, formatRequired, i18n);
+			msg = getAmountTip(minAmount, formatRequired, i18n, isInteger);
 		} else if (
 			minAmount !== 0 &&
 			maxAmount !== 0 &&
 			(num_Amount > maxAmount || num_Amount < minAmount)
 		) {
 			status = 2;
-			msg = `${
+			msg = `${number_format(
+				num_Amount,
+				formatRequired,
 				isInteger
-					? isConvert
-						? num_Amount / 1000
-						: num_Amount
-					: number_format(num_Amount, formatRequired)
-			} ${i18n("lbl_NotinLimit")}`;
+			)} ${i18n("lbl_NotinLimit")}`;
 		}
 	} else {
 		status = 3;
-		msg = getAmountTip(minAmount, formatRequired, i18n);
+		msg = getAmountTip(minAmount, formatRequired, i18n, isInteger);
 	}
-	console.log("status::", status);
 	return { status, msg };
 };
 

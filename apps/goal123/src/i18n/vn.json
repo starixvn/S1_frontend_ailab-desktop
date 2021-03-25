@@ -391,7 +391,7 @@
 	"lbl_BonusWallet_2": "Ví thưởng sòng bài",
 	"lbl_BonusWallet_3": "Ví Bắn cá",
 	"lbl_BankName": "Tên ngân hàng",
-	"lbl_AmountTooltip": "Số tiền không thể nhỏ hơn {0}.",
+	"lbl_AmountTooltip": "Số tiền không thể nhỏ hơn {0}",
 	"lbl_NotinLimit": "ngoài hạn mức.",
 	"lbl_SelectBank": "Chọn ngân hàng",
 	"lbl_SelectedBank": "Ngân hàng",

@@ -392,7 +392,7 @@
 	"lbl_BonusWallet_2": "Live Casino Bonus Wallet",
 	"lbl_BonusWallet_3": "Fishing Wallet",
 	"lbl_BankName": "Bank Name",
-	"lbl_AmountTooltip": "Amount can not be less than {0}.",
+	"lbl_AmountTooltip": "Amount can not be less than {0}",
 	"lbl_NotinLimit": "Not in Limit.",
 	"lbl_SelectBank": "Select Bank",
 	"lbl_SelectedBank": "Selected Bank",

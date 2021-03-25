@@ -117,9 +117,8 @@ const Depositnew = () => {
 		});
 	};
 
-	const isInteger = true;
-
 	const onValidAmount = _amount => {
+		const isInteger = true;
 		const result = checkAmount(
 			_amount,
 			formInfo.minAmount,
