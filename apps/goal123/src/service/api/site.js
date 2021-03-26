@@ -57,3 +57,6 @@ export const api_site_CheckResetPwdTokens = ({ key }) =>
 
 export const api_site_GetAffiliateAgent = ({ AffId }) =>
 	siteRequest.post("/GetAffiliateAgent", { AffId });
+
+export const api_site_Signup = (data, langId) =>
+	siteRequest.post(`/Signup/${langId}`, data);
