@@ -78,12 +78,10 @@ const MobileForm = ({
 
 	if (mobilePayGourpList.length <= 0) return null;
 
-	const formatMinAmount = _isConvert
-		? formInfo.minAmount / 1000
-		: formInfo.minAmount;
-	const formatMaxAmount = _isConvert
-		? formInfo.maxAmount / 1000
-		: formInfo.maxAmount;
+	const isInteger = true;
+
+	const formatMinAmount = number_format(formInfo.minAmount, false, isInteger);
+	const formatMaxAmount = number_format(formInfo.maxAmount, false, isInteger);
 
 	return (
 		<>
@@ -152,24 +150,18 @@ const MobileForm = ({
 
 									<div>
 										<div>
-											{`${t("lbl_Min")}: ${
-												_isConvert
-													? `${
-															item.minAmount /
-															1000
-													  } (000)`
-													: item.minAmount
-											}`}
+											{`${t("lbl_Min")}: ${number_format(
+												item.minAmount,
+												_isConvert,
+												isInteger
+											)}`}
 										</div>
 										<div>
-											{`${t("lbl_Max")}:  ${
-												_isConvert
-													? `${
-															item.maxAmount /
-															1000
-													  } (000)`
-													: item.maxAmount
-											}`}
+											{`${t("lbl_Max")}: ${number_format(
+												item.maxAmount,
+												_isConvert,
+												isInteger
+											)}`}
 										</div>
 									</div>
 								</div>
@@ -200,7 +192,7 @@ const MobileForm = ({
 						) : null}
 						<Inputbox
 							readOnly={isSelAmountType}
-							title={t("lbl_Amount")}
+							// title={t("lbl_Amount")}
 							value={formInfo.amount}
 							onChange={e => onChangeAmount(e.target.value)}
 							onBlur={() => onValidAmount(formInfo.amount)}
