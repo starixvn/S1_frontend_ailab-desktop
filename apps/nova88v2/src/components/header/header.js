@@ -58,23 +58,23 @@ export default ({ productTpIds }) => {
 	};
 
 	const Logo = `${config.cloudImgUrl}/SiteSkin/img/logo${
-		userInfo.langId === "cs" ? "_cs" : ""
+		userInfo.langId === "cs" ? "_cs" : "_en"
 	}.png`;
 
 	return (
-		<header>
+		<header id="header">
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
 						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
-				<Menu productTpIds={productTpIds} />
 				<div className="function">
 					<Functions />
 					<LanguageDropDown />
 					<LogoutButton />
 				</div>
+				<Menu productTpIds={productTpIds} />
 			</div>
 		</header>
 	);
