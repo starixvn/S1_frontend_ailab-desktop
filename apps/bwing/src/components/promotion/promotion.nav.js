@@ -37,11 +37,11 @@ const defPromoNavs = [
 		value: defFilterType.redeposit,
 		className: "blueBorder"
 	},
-	// {
-	// 	displayKey: "lbl_SpecialBonus",
-	// 	value: defFilterType.specialBonus,
-	// 	className: "blueBorder"
-	// },
+	{
+		displayKey: "lbl_SpecialBonus",
+		value: defFilterType.specialBonus,
+		className: "blueBorder"
+	},
 	{
 		displayKey: "lbl_Expired",
 		value: defFilterType.expiry,
