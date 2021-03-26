@@ -8,7 +8,7 @@ import {
 	api_site_GetSiteCurrencyList,
 	api_site_Signup,
 	api_site_ExistsPhoneNo,
-	api_site_Register,
+	// api_site_Register,
 	api_site_GetAffiliateAgent
 } from "../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
@@ -188,6 +188,8 @@ const Content = () => {
 			msg = t("lbl_PhoneTooltip");
 		} else if (col === "affCode") {
 			msg = t("lbl_Please_enter_Affiliate_ID");
+		} else if (col === "specialBonusCode") {
+			msg = t("lbl_JoinPromoCode");
 		}
 
 		if (tip[col].msg === msg) {
@@ -237,6 +239,8 @@ const Content = () => {
 			const result = await phoneCheck(val);
 			checked = result.checked;
 			msg = result.msg;
+		} else if (col === "specialBonusCode") {
+			checked = null;
 		}
 
 		setTip(prev => {
@@ -422,6 +426,7 @@ const Content = () => {
 				CurrencyId: siteCurrency[userValue.currency].id,
 				PhoneNo: userValue.phone,
 				UserLang: defaultLangId,
+				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode
 			};
 
@@ -514,6 +519,16 @@ const Content = () => {
 								return {
 									...prev,
 									password: {
+										checked: false,
+										msg: message
+									}
+								};
+							});
+						} else if (errorCode === -7) {
+							setTip(prev => {
+								return {
+									...prev,
+									specialBonusCode: {
 										checked: false,
 										msg: message
 									}
@@ -641,6 +656,18 @@ const Content = () => {
 							onChange={EditField.bind(null, "phone")}
 							onBlur={checkValue.bind(null, "phone")}
 						/>
+
+						{/* <div className="title">{t("lbl_JoinPromoCode")}</div>
+						<Inputbox
+							icon="icon-promotion txt-blue12"
+							placeholder={t("lbl_JoinPromoCode")}
+							value={userValue.specialBonusCode}
+							onChange={EditField.bind(null, "specialBonusCode")}
+							onBlur={checkValue.bind(null, "specialBonusCode")}
+							tip={tip.specialBonusCode.msg}
+							checked={tip.specialBonusCode.checked}
+							clickInfo={clickInfo.bind(this, "specialBonusCode")}
+						/> */}
 
 						<div className="title">{t("lbl_Affiliates")}</div>
 						<Inputbox
