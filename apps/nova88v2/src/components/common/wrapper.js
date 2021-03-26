@@ -19,7 +19,7 @@ import {
 } from "../../service/language";
 import { SiteInfo } from "../../config";
 import useGetWalletInfo from "./wrapper.walletInfo";
-import SEO from "../seo";
+import SEO from "../seo/seo";
 
 const defaultPathLang = () => {
 	const urlLang =

@@ -83,7 +83,7 @@ const defPlatform = [
 		imgName: "cq9"
 	},
 	{
-		// ...productList.liveCasino_One789,
+		...productList.liveCasino_One789,
 		imgName: "one789"
 	},
 	{
