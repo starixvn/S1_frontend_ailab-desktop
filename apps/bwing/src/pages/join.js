@@ -399,6 +399,8 @@ const Content = () => {
 		return checked;
 	};
 
+	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
+
 	const hasRefOrAffCode =
 		getUrlParameter("AffId") ||
 		readCookie("AffId") ||
@@ -433,8 +435,7 @@ const Content = () => {
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
 			regData.AffId = affIdCheckPass ? _AffId : null;
 			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
-			regData.AffCode =
-				getUrlParameter("AffCode") || readCookie("AffCode");
+			regData.AffCode = isUrlAffCode ?? userValue.affCode;
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
