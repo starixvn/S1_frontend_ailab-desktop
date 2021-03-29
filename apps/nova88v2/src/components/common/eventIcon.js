@@ -1,5 +1,5 @@
 export const defEventIcon = {
-	new: "icon-new",
+	new: "icon icon-new",
 	live: "live"
 };
 
@@ -9,7 +9,8 @@ export const defEventPeriod = {
 	referral: { end: "2021/02/05 11:00:00" },
 	icg: { end: "2021/02/05 11:00:00" },
 	vip: { start: "2021/02/05 12:00:00" },
-	n2: { start: "2021/03/02 12:00:00" }
+	n2: { start: "2021/03/02 12:00:00" },
+	ranking: { start: "2021/03/01 12:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

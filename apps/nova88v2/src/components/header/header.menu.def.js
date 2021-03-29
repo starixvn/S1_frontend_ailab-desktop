@@ -564,7 +564,12 @@ export const defMenuLinks = {
 	ranking: {
 		path: path.leaderBoard.root,
 		displayKey: "lbl_Ranking",
-		className: "live"
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.live,
+				period: defEventPeriod.ranking
+			})
+		]
 	}
 };
 

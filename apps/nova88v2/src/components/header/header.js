@@ -58,7 +58,7 @@ export default ({ productTpIds }) => {
 	};
 
 	const Logo = `${config.cloudImgUrl}/SiteSkin/img/logo${
-		userInfo.langId === "cs" ? "_cs" : "_en"
+		userInfo.langId === "cs" ? "_cs_w" : "_en_w"
 	}.png`;
 
 	return (

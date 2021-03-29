@@ -95,12 +95,10 @@ export default ({
 
 		let iconStrings = "";
 		if (iconList.length > 0) {
-			iconStrings = ` icon ${[...new Set(iconList)].join(" ")}`;
+			iconStrings = `${[...new Set(iconList)].join(" ")}`;
 		}
 
-		_className = `${_className}${
-			currentMenuKey === key ? " active" : ""
-		}${iconStrings}`;
+		_className = `${_className}${currentMenuKey === key ? " active" : ""}`;
 
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
@@ -129,6 +127,7 @@ export default ({
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
+						<div className={iconStrings} />
 						{displayText}
 					</button>
 				);
@@ -146,6 +145,7 @@ export default ({
 							rule.windowKey
 						)}
 						onFocus={() => 0}>
+						<div className={iconStrings} />
 						{displayText}
 					</a>
 				);
@@ -158,6 +158,7 @@ export default ({
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
+						<div className={iconStrings} />
 						{displayText}
 					</button>
 				);
@@ -220,6 +221,7 @@ export default ({
 					to={_url}
 					className={_className}
 					onMouseOver={_showSubMenu.bind(this, key)}>
+					<div className={iconStrings} />
 					{displayText}
 				</Link>
 			);
@@ -237,6 +239,7 @@ export default ({
 					to={`${langId}/${_path}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
+					<div className={iconStrings} />
 					{displayText}
 				</Link>
 			);
@@ -248,6 +251,7 @@ export default ({
 				onMouseOver={_showSubMenu.bind(this, key)}
 				className={_className}
 				onFocus={() => 0}>
+				<div className={iconStrings} />
 				{displayText}
 			</button>
 		);
