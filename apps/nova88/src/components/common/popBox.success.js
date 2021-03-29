@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export default ({ btnBar }) => {
+export default ({ btnBar, description }) => {
 	const { t } = useTranslation();
 
 	return (
@@ -9,7 +9,10 @@ export default ({ btnBar }) => {
 			<div className="icon icon-library" />
 			<div className="title">{t("lbl_Information")}</div>
 			<div>{t("lbl_UpdateSuccessful")}</div>
-			<div>{t("lbl_UpdateSuccessWillProcess")}</div>
+
+			<div className="text-center">
+				{description || t("lbl_UpdateSuccessWillProcess")}
+			</div>
 			{btnBar}
 		</div>
 	);

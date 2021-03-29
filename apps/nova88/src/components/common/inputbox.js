@@ -2,7 +2,7 @@ import React from "react";
 
 export default props => {
 	const showCheckIcon = () => {
-		if (props.checked === null) {
+		if (props.checked === null && props.clickInfo) {
 			return (
 				<i
 					className="icon icon-information-solid"
@@ -44,6 +44,7 @@ export default props => {
 					}
 					max={props.max ? props.max : null}
 					readOnly={props.readOnly}
+					onKeyDown={props.onKeyDown}
 					data-testid="input"
 				/>
 				{props.tooltip ? (

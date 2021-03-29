@@ -902,6 +902,7 @@ header {
   align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  z-index: 3;
 }
 
 .header > div.function > a:nth-child(-n+5):not(.login):not(.join) {
@@ -989,8 +990,7 @@ header {
   position: absolute;
   margin-top: 60px;
   background: rgba(0, 0, 0, 0.7);
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-radius: 30px;
   padding: 0 5px;
   right: 0;
   top: 0;
@@ -2452,6 +2452,17 @@ input[type="file"] {
   background: #134DAE;
 }
 
+.btnGroup button.lightblue, .btnGroup a.lightblue {
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  color: white;
+}
+
+.btnGroup button.lightblue:hover, .btnGroup a.lightblue:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+}
+
 .btnGroup button.darkGray, .btnGroup a.darkGray {
   background: #666;
   color: white;
@@ -2549,7 +2560,7 @@ input[type="file"] {
 }
 
 .swiper-slide {
-  line-height: 0;
+  height: auto;
 }
 
 .swiper-pagination {
@@ -3885,7 +3896,7 @@ input[type="file"] {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-  width: 800px;
+  max-width: 800px;
 }
 
 #popup .pop .upload_new .title {
@@ -5659,7 +5670,7 @@ input[type="file"] {
           justify-content: center;
 }
 
-.proList, .slotList, .newsList {
+.proList, .slotList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5669,7 +5680,7 @@ input[type="file"] {
   line-height: 20px;
 }
 
-.proList > div, .slotList > div, .newsList > div {
+.proList > div, .slotList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
@@ -5681,17 +5692,17 @@ input[type="file"] {
   position: relative;
 }
 
-.proList > div.active, .slotList > div.active, .newsList > div.active {
+.proList > div.active, .slotList > div.active {
   opacity: 0.7;
 }
 
-.proList > div.active .claimed, .slotList > div.active .claimed, .newsList > div.active .claimed {
+.proList > div.active .claimed, .slotList > div.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed, .newsList > div .new, .newsList > div .claimed {
+.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed {
   position: absolute;
   top: -10px;
   left: -10px;
@@ -5711,17 +5722,17 @@ input[type="file"] {
   font-weight: bold;
 }
 
-.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before, .newsList > div .new:before, .newsList > div .claimed:before {
+.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before {
   content: "NEW";
 }
 
-.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active, .newsList > div .new.active, .newsList > div .claimed.active {
+.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .claimed, .slotList > div .claimed, .newsList > div .claimed {
+.proList > div .claimed, .slotList > div .claimed {
   background: rgba(167, 3, 3, 0.8);
   width: 75px;
   height: 75px;
@@ -5729,26 +5740,26 @@ input[type="file"] {
           transform: rotate(-25deg);
 }
 
-.proList > div .claimed:before, .slotList > div .claimed:before, .newsList > div .claimed:before {
+.proList > div .claimed:before, .slotList > div .claimed:before {
   content: "CLAIMED";
 }
 
-.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue, .newsList > div .txt-dark, .newsList > div .txt-darkBlue {
+.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue {
   font-weight: bold;
   margin: 15px 0;
 }
 
-.proList > div .txt-gray li, .slotList > div .txt-gray li, .newsList > div .txt-gray li {
+.proList > div .txt-gray li, .slotList > div .txt-gray li {
   font-size: 12px;
   list-style: disc;
   margin-left: 16px;
 }
 
-.proList > div img, .slotList > div img, .newsList > div img {
+.proList > div img, .slotList > div img {
   border-radius: 10px;
 }
 
-.proList .rollover, .slotList .rollover, .newsList .rollover {
+.proList .rollover, .slotList .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5757,13 +5768,13 @@ input[type="file"] {
   margin: 10px 0;
 }
 
-.proList .rollover > div, .slotList .rollover > div, .newsList .rollover > div {
+.proList .rollover > div, .slotList .rollover > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before, .newsList .rollover > div .icon:before {
+.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
 }
@@ -5982,7 +5993,7 @@ form {
   min-height: 22px;
 }
 
-.slotList .icon-new, .newsList .icon-new {
+.slotList .icon-new {
   background: #f77900;
   position: absolute;
   right: 25px;
@@ -5991,12 +6002,12 @@ form {
   border-radius: 5px;
 }
 
-.slotList .icon-new:before, .newsList .icon-new:before {
+.slotList .icon-new:before {
   position: unset;
   color: white;
 }
 
-.slotList > div, .newsList > div {
+.slotList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 5 - 45px);
           flex: 0 0 calc(100% / 5 - 45px);
@@ -6004,19 +6015,19 @@ form {
   margin: 10px 7px;
 }
 
-.slotList > div .txt-darkBlue, .newsList > div .txt-darkBlue {
+.slotList > div .txt-darkBlue {
   font-size: 12px;
   margin: 0;
 }
 
-.slotList > div .btnGroup, .newsList > div .btnGroup {
+.slotList > div .btnGroup {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
 }
 
-.slotList > div .btnGroup button, .newsList > div .btnGroup button {
+.slotList > div .btnGroup button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -6024,13 +6035,13 @@ form {
   margin: 0 1px;
 }
 
-.slotList > div .brand, .newsList > div .brand {
+.slotList > div .brand {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.slotList > div .brand:before, .newsList > div .brand:before {
+.slotList > div .brand:before {
   content: "";
   border-color: #134DAE transparent transparent #134DAE;
   border-style: solid;
@@ -6043,7 +6054,7 @@ form {
           filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .brand span, .newsList > div .brand span {
+.slotList > div .brand span {
   z-index: 1;
   position: absolute;
   top: 7px;
@@ -6052,7 +6063,7 @@ form {
   font-weight: bold;
 }
 
-.slotList > div .icon-star-full, .newsList > div .icon-star-full {
+.slotList > div .icon-star-full {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -6062,51 +6073,8 @@ form {
           filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .icon-star-full.active, .newsList > div .icon-star-full.active {
+.slotList > div .icon-star-full.active {
   color: #fab617;
-}
-
-.newsList > div {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(100% / 3 - 45px);
-          flex: 0 0 calc(100% / 3 - 45px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.newsList > div .btnGroup button {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-}
-
-.newsList > div .time {
-  font-size: 12px;
-}
-
-.newsList > div .txt-darkBlue {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-}
-
-.newsList > div .txt-gray {
-  font-size: 12px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal;
 }
 
 article {
@@ -6495,6 +6463,9 @@ button.icon-spinner11:before {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100%;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
 }
 
 .checkBankSlip.smallList ul li {
@@ -6513,8 +6484,9 @@ button.icon-spinner11:before {
 
 .checkBankSlip.smallList ul li:nth-child(1) {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  width: 100%;
 }
 
 .checkBankSlip.smallList ul li .icon {
@@ -8672,152 +8644,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   }
 }
 
-[class^="star"] {
-  /*選取所有star*/
-  position: absolute;
-  color: #fff;
-  -webkit-animation: falling 5s infinite;
-          animation: falling 5s infinite;
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
-  font-size: 14px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #fff;
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-}
-
-[class^="star"].star1 {
-  position: absolute;
-  left: 53.14762%;
-  top: -17.33756%;
-  width: 14.04817px;
-  height: 14.04817px;
-  -webkit-animation-delay: -0.5s;
-          animation-delay: -0.5s;
-}
-
-[class^="star"].star2 {
-  position: absolute;
-  left: 12.40544%;
-  top: -33.54939%;
-  width: 10.01212px;
-  height: 10.01212px;
-  -webkit-animation-delay: -1s;
-          animation-delay: -1s;
-}
-
-[class^="star"].star3 {
-  position: absolute;
-  left: 89.15595%;
-  top: 38.08803%;
-  width: 12.66495px;
-  height: 12.66495px;
-  -webkit-animation-delay: -1.5s;
-          animation-delay: -1.5s;
-}
-
-[class^="star"].star4 {
-  position: absolute;
-  left: 88.93137%;
-  top: 2.65968%;
-  width: 13.38924px;
-  height: 13.38924px;
-  -webkit-animation-delay: -2s;
-          animation-delay: -2s;
-}
-
-[class^="star"].star5 {
-  position: absolute;
-  left: 65.70516%;
-  top: -24.9377%;
-  width: 14.44742px;
-  height: 14.44742px;
-  -webkit-animation-delay: -2.5s;
-          animation-delay: -2.5s;
-}
-
-[class^="star"].star6 {
-  position: absolute;
-  left: 23.67505%;
-  top: -46.77293%;
-  width: 12.77501px;
-  height: 12.77501px;
-  -webkit-animation-delay: -3s;
-          animation-delay: -3s;
-}
-
-[class^="star"].star7 {
-  position: absolute;
-  left: 34.41295%;
-  top: -16.84523%;
-  width: 11.45341px;
-  height: 11.45341px;
-  -webkit-animation-delay: -3.5s;
-          animation-delay: -3.5s;
-}
-
-[class^="star"].star8 {
-  position: absolute;
-  left: 11.37162%;
-  top: 10.31248%;
-  width: 14.97566px;
-  height: 14.97566px;
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
-}
-
-@-webkit-keyframes falling {
-  100% {
-    opacity: 0;
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  70% {
-    -webkit-filter: blur(3px);
-            filter: blur(3px);
-    opacity: 1;
-  }
-  0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 700px);
-            transform: translate(0, 700px);
-  }
-}
-
-@keyframes falling {
-  100% {
-    opacity: 0;
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  70% {
-    -webkit-filter: blur(3px);
-            filter: blur(3px);
-    opacity: 1;
-  }
-  0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 700px);
-            transform: translate(0, 700px);
-  }
-}
-
 .refbanner {
   width: calc(100% - 140px);
   margin: auto;
@@ -10047,6 +9873,14 @@ canvas {
       flex-wrap: wrap;
 }
 
+.subModuleListColumn > .subModule .inputBox-white {
+  width: 300px;
+}
+
+.subModuleListColumn > .subModule .inputBox-white input {
+  text-align: right;
+}
+
 .subModuleListColumn > .subModule > .btnGroup {
   margin: 0 0 0 15px;
 }
@@ -10184,6 +10018,10 @@ canvas {
   display: block;
 }
 
+.subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
+  display: none;
+}
+
 .subModuleListColumn .column {
   width: calc(100% - 135px);
 }
@@ -10253,7 +10091,8 @@ canvas {
 }
 
 .subModuleListColumn .bankAccount .smallList ul li {
-  width: 130px;
+  min-width: 130px;
+  width: auto;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
@@ -10263,6 +10102,15 @@ canvas {
 
 .text-center {
   text-align: center;
+}
+
+@media (max-width: 800px) {
+  .upload_new {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-flow: column !important;
+            flex-flow: column !important;
+  }
 }
 
 .upload_new .checkBankSlip {
@@ -10295,11 +10143,1347 @@ canvas {
           flex: 1;
 }
 
+@media (max-width: 800px) {
+  .upload_new .checkBankSlip:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px dotted #1E85EC;
+    padding-right: 0;
+    margin-bottom: 30px;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
+}
+
 .upload_new .checkBankSlip ul {
   width: 100%;
 }
 
 .upload_new .checkBankSlip .upload_img {
   margin: 0;
+}
+
+.newIndex body, .newIndex html {
+  background: #e8eff5;
+}
+
+.newIndex body .eventLink, .newIndex html .eventLink {
+  display: none;
+}
+
+.newIndex #header {
+  background: white;
+}
+
+.newIndex #header .header {
+  width: 1400px;
+}
+
+.newIndex #header .header .function .wallet, .newIndex #header .header .function .memberfile, .newIndex #header .header .function .icon-email, .newIndex #header .header .function .icon-exit {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet:after, .newIndex #header .header .function .memberfile:after, .newIndex #header .header .function .icon-email:after, .newIndex #header .header .function .icon-exit:after {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet button, .newIndex #header .header .function .memberfile button, .newIndex #header .header .function .icon-email button, .newIndex #header .header .function .icon-exit button {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu, .newIndex #header .header .function .memberfile .submenu, .newIndex #header .header .function .icon-email .submenu, .newIndex #header .header .function .icon-exit .submenu {
+  background: white;
+}
+
+.newIndex #header .header .function .wallet .submenu > a, .newIndex #header .header .function .memberfile .submenu > a, .newIndex #header .header .function .icon-email .submenu > a, .newIndex #header .header .function .icon-exit .submenu > a {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu div.balance button, .newIndex #header .header .function .memberfile .submenu div.balance button, .newIndex #header .header .function .icon-email .submenu div.balance button, .newIndex #header .header .function .icon-exit .submenu div.balance button {
+  background: #5574A7;
+  color: white;
+}
+
+.newIndex #header .header .function .wallet .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .memberfile .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .icon-email .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .icon-exit .submenu div.walletBalance .walletName + div {
+  border-top: 1px solid #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu div .progressBar .percentage, .newIndex #header .header .function .memberfile .submenu div .progressBar .percentage, .newIndex #header .header .function .icon-email .submenu div .progressBar .percentage, .newIndex #header .header .function .icon-exit .submenu div .progressBar .percentage {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu div .progressBar .bar, .newIndex #header .header .function .memberfile .submenu div .progressBar .bar, .newIndex #header .header .function .icon-email .submenu div .progressBar .bar, .newIndex #header .header .function .icon-exit .submenu div .progressBar .bar {
+  border: 1px solid #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu div .progressBar .bar .progress, .newIndex #header .header .function .memberfile .submenu div .progressBar .bar .progress, .newIndex #header .header .function .icon-email .submenu div .progressBar .bar .progress, .newIndex #header .header .function .icon-exit .submenu div .progressBar .bar .progress {
+  background: #5574A7;
+}
+
+.newIndex #header .header .function .icon-email:after {
+  color: #f77900;
+  top: 0;
+}
+
+.newIndex #header .header .function > a:nth-child(5) span {
+  background: #5574A7;
+}
+
+.newIndex #header .header .function > div .countryList {
+  background: white;
+  border-radius: 15px;
+  border: 1px solid rgba(30, 133, 236, 0.5);
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.newIndex #header .header .function > div .countryList a {
+  color: #5574A7;
+}
+
+.newIndex #header input {
+  margin: 0 10px 0 0;
+  line-height: 30px;
+  border: 1px solid #7591C1;
+  border-radius: 5px;
+  padding: 0 5px;
+  color: #7591C1;
+  width: 120px;
+  font-size: 16px;
+}
+
+.newIndex #header input::-webkit-input-placeholder {
+  color: #7591C1;
+  text-align: center;
+}
+
+.newIndex #header input:-ms-input-placeholder {
+  color: #7591C1;
+  text-align: center;
+}
+
+.newIndex #header input::-ms-input-placeholder {
+  color: #7591C1;
+  text-align: center;
+}
+
+.newIndex #header input::placeholder {
+  color: #7591C1;
+  text-align: center;
+}
+
+.newIndex #header input:focus-within {
+  border: 1px solid #7591C1;
+  outline: #7591C1;
+}
+
+.newIndex #header a[class=join], .newIndex #header a[class=login] {
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  border-radius: 5px;
+  border: 1px solid #BFCCE2;
+  font-weight: bold;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.newIndex #header a[class=join]:hover, .newIndex #header a[class=login]:hover {
+  color: white;
+}
+
+.newIndex #header a[class=login] {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F0F7FF), to(#BFCCE2));
+  background: linear-gradient(to bottom, #F0F7FF, #BFCCE2);
+  color: #7591C1;
+}
+
+.newIndex #header a[class=login]:hover {
+  color: #7591C1;
+}
+
+.newIndex #header .flag:before {
+  border: 3px solid #BFCCE2;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+}
+
+.newIndex #header .menu {
+  background: #7591C1;
+  height: 60px;
+}
+
+.newIndex #header .menu > div {
+  width: 1400px;
+}
+
+.newIndex #header .menu > div .subMenu-Wrapper-new {
+  background: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.newIndex #header .menu > div .subMenu-Wrapper-new > div > a > span {
+  color: #7591C1;
+}
+
+.newIndex #header .menu > div > a {
+  padding-left: 0;
+  padding-right: 30px;
+  position: relative;
+}
+
+.newIndex #header .menu > div > a:hover {
+  color: #284985;
+}
+
+.newIndex #header .menu > div > a:after {
+  background: #284985;
+}
+
+.newIndex #header .menu > div > a div.icon-new:before {
+  background: #f77900;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  -webkit-animation: none;
+          animation: none;
+  width: 45px;
+  padding: 2px 0 3px 5px;
+  color: white;
+  font-size: 13px;
+}
+
+.newIndex #header .menu > div > a div.icon-new:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 18px 10px;
+  border-color: transparent transparent transparent #f77900;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 50px;
+}
+
+.newIndex #header .menu > div > a div.live:before {
+  content: 'Live';
+}
+
+.newIndex #header .menu > div > a div.live i {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  -webkit-animation: livePoint 1s 1s infinite linear;
+          animation: livePoint 1s 1s infinite linear;
+}
+
+@-webkit-keyframes livePoint {
+  from {
+    background: white;
+  }
+  to {
+    background: #FC0404;
+  }
+}
+
+@keyframes livePoint {
+  from {
+    background: white;
+  }
+  to {
+    background: #FC0404;
+  }
+}
+
+.newIndex #header .menu > div > a div.live:before {
+  background: #05BC0B;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  -webkit-animation: none;
+          animation: none;
+  width: 36px;
+  padding-left: 16px;
+  padding-right: 0;
+}
+
+.newIndex #header .menu > div > a div.live:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 16px 10px;
+  border-color: transparent transparent transparent #05BC0B;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 52px;
+}
+
+.newIndex main {
+  background: #e8eff5;
+  padding-top: 145px;
+}
+
+.newIndex main #Marquee {
+  background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
+}
+
+.newIndex main #Marquee .marquee-box {
+  max-width: 1400px;
+}
+
+.newIndex main #Marquee .mq-btn {
+  display: none;
+}
+
+.newIndex main #Marquee .marquee-box.icon:before {
+  background: url(../img/marqueeboxbg.png) no-repeat center/auto 100%;
+  content: '';
+  color: white;
+  width: 90px;
+}
+
+.newIndex main .moduleTitle {
+  background: url(../img/indextitle.png) no-repeat;
+  margin: 30px auto 0;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1400px;
+  height: 42px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.newIndex main .moduleTitle > a {
+  margin: auto 0 auto auto;
+  color: #7591C1;
+}
+
+.newIndex main .moduleTitle.icon:before {
+  margin: 0 10px;
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.newIndex main .moduleTitle.icon-upcomingmatches:before, .newIndex main .moduleTitle.icon-saba:before, .newIndex main .moduleTitle.icon-film:before, .newIndex main .moduleTitle.icon-news:before, .newIndex main .moduleTitle.icon-live_tv:before {
+  font-size: 24px;
+  margin: 0 14px;
+}
+
+.newIndex main .moduleTitle.icon-saba {
+  margin-top: 20px;
+}
+
+.newIndex main .hotGame, .newIndex main .promos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 1400px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div, .newIndex main .promos .swiper-container .swiper-wrapper > div {
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #BFCCE2;
+  line-height: normal;
+  background: url(../img/promosbg.jpg) no-repeat center/cover;
+  min-width: 280px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div .title, .newIndex main .promos .swiper-container .swiper-wrapper > div .title {
+  color: #5574A7;
+  margin: 5px 0;
+  padding: 0 10px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div, .newIndex main .promos .swiper-container .swiper-wrapper > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup, .newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup {
+  margin: 0 0 10px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, .newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup button {
+  max-width: 120px;
+  border-radius: 5px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div > img, .newIndex main .promos .swiper-container .swiper-wrapper > div > div > img {
+  width: 400px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div {
+  max-width: 260px;
+  min-width: 260px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin: 0 0 10px 10px;
+  color: #949494;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div .title {
+  padding: 0;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div + img {
+  width: 70px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  margin: auto;
+}
+
+.newIndex main .liveVideo, .newIndex main .newsVideo {
+  width: 1400px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.newIndex main .liveVideo .latestVideo, .newIndex main .liveVideo .newsList, .newIndex main .newsVideo .latestVideo, .newIndex main .newsVideo .newsList {
+  width: 780px;
+  float: left;
+  margin-right: 15px;
+}
+
+.newIndex main .liveVideo .latestVideo .title, .newIndex main .liveVideo .newsList .title, .newIndex main .newsVideo .latestVideo .title, .newIndex main .newsVideo .newsList .title {
+  background: url(../img/latestvideotitlebg.png) no-repeat;
+  line-height: 65px;
+  padding-left: 20px;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule, .newIndex main .liveVideo .newsList .newsModule, .newIndex main .newsVideo .latestVideo .newsModule, .newIndex main .newsVideo .newsList .newsModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  color: #949494;
+  margin: 2px 0;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule img, .newIndex main .liveVideo .newsList .newsModule img, .newIndex main .newsVideo .latestVideo .newsModule img, .newIndex main .newsVideo .newsList .newsModule img {
+  width: auto;
+  height: auto;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule .lightblue, .newIndex main .liveVideo .newsList .newsModule .lightblue, .newIndex main .newsVideo .latestVideo .newsModule .lightblue, .newIndex main .newsVideo .newsList .newsModule .lightblue {
+  font-weight: normal;
+  border-radius: 5px;
+  margin: 10px 5px 0 0;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div, .newIndex main .liveVideo .newsList .newsModule > div, .newIndex main .newsVideo .latestVideo .newsModule > div, .newIndex main .newsVideo .newsList .newsModule > div {
+  width: 100%;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div > div, .newIndex main .liveVideo .newsList .newsModule > div > div, .newIndex main .newsVideo .latestVideo .newsModule > div > div, .newIndex main .newsVideo .newsList .newsModule > div > div {
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  display: -webkit-box;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(1), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(1), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(1), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(1) {
+  color: #CDAE8E;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(2), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(2), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(2), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(2) {
+  color: #113158;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(3), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(3), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(3), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(3) {
+  font-weight: normal;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div .btnGroup, .newIndex main .liveVideo .newsList .newsModule > div .btnGroup, .newIndex main .newsVideo .latestVideo .newsModule > div .btnGroup, .newIndex main .newsVideo .newsList .newsModule > div .btnGroup {
+  display: unset;
+  margin: 0;
+}
+
+.newIndex main .liveVideo .latestVideo .newsBorder, .newIndex main .liveVideo .newsList .newsBorder, .newIndex main .newsVideo .latestVideo .newsBorder, .newIndex main .newsVideo .newsList .newsBorder {
+  height: 1px;
+  background: #5574A7;
+  margin: 10px 0;
+}
+
+.newIndex main .liveVideo .latestVideo + div, .newIndex main .liveVideo .newsList + div, .newIndex main .newsVideo .latestVideo + div, .newIndex main .newsVideo .newsList + div {
+  width: 605px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches, .newIndex main .liveVideo .latestVideo + div .liveTv, .newIndex main .liveVideo .newsList + div .upcomingmatches, .newIndex main .liveVideo .newsList + div .liveTv, .newIndex main .newsVideo .latestVideo + div .upcomingmatches, .newIndex main .newsVideo .latestVideo + div .liveTv, .newIndex main .newsVideo .newsList + div .upcomingmatches, .newIndex main .newsVideo .newsList + div .liveTv {
+  background: url(../img/upcomingmatchesbg.jpg) no-repeat top center/100% auto;
+  height: 180px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team, .newIndex main .liveVideo .latestVideo + div .liveTv .team, .newIndex main .liveVideo .newsList + div .upcomingmatches .team, .newIndex main .liveVideo .newsList + div .liveTv .team, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team, .newIndex main .newsVideo .latestVideo + div .liveTv .team, .newIndex main .newsVideo .newsList + div .upcomingmatches .team, .newIndex main .newsVideo .newsList + div .liveTv .team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div, .newIndex main .liveVideo .newsList + div .liveTv .team > div, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div, .newIndex main .newsVideo .newsList + div .liveTv .team > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div:first-child, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:first-child, .newIndex main .liveVideo .newsList + div .liveTv .team > div:first-child, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div:first-child, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:first-child, .newIndex main .newsVideo .newsList + div .liveTv .team > div:first-child {
+  background: url(../img/upcomingmatchestitle.png) no-repeat top center/auto;
+  line-height: 27px;
+  font-size: 12px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div:last-child, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:last-child, .newIndex main .liveVideo .newsList + div .liveTv .team > div:last-child, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div:last-child, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:last-child, .newIndex main .newsVideo .newsList + div .liveTv .team > div:last-child {
+  background: url(../img/upcomingmatchestitledown.png) no-repeat top center/auto;
+  line-height: 27px;
+  font-size: 12px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  text-align: right;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
+  text-align: left;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
+  width: 45px;
+  margin: 35px auto 5px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup, .newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup, .newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin: 0;
+  height: 100%;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup button, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup button {
+  border-radius: 5px;
+  padding: 2px 5px;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  margin-bottom: 10px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox, .newIndex main .liveVideo .newsList + div .liveTvBox, .newIndex main .newsVideo .latestVideo + div .liveTvBox, .newIndex main .newsVideo .newsList + div .liveTvBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 320px;
+  margin-top: 5px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  min-width: 160px;
+  margin-right: 5px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button {
+  background: #acc1e0;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: left;
+  margin: 0 0 7px;
+  color: #7591C1;
+  font-weight: bold;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  color: white;
+  border: 1px solid #CDAE8E;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active::after, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent #cdae8e;
+  position: absolute;
+  right: -8px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  height: auto;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #CDAE8E;
+  padding: 10px;
+  display: none;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv.active, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv.active, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv.active, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv.active {
+  display: block;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar {
+  width: 8px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track {
+  background: #B18E6A;
+  border-radius: 8px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, right top, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to right, #435F8B, #6383B9);
+  border-radius: 8px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule {
+  background: white;
+  height: 70px;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  margin-bottom: 2px;
+  margin-right: 5px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before {
+  font-size: 60px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
+  background: url(../img/livetvtitlebggold.png) no-repeat center/75% 100%;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
+  color: red;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time {
+  color: red;
+  font-weight: bold;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span {
+  display: unset;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(../img/livetvtitlebg.png) no-repeat center/75% 100%;
+  color: white;
+  position: relative;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #aec3e1;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 5px;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 20px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 12px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
+  text-align: left;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title {
+  font-size: 18px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3) {
+  text-align: right;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
+  color: #5574A7;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
+  background: #7591C1;
+  border-radius: 5px;
+  color: white;
+  display: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  font-size: 12px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2) {
+  font-weight: bold;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
+  color: #b2b2b2;
+}
+
+.newIndex main .liveVideo .matches, .newIndex main .newsVideo .matches {
+  height: 265px;
+  overflow: hidden;
+}
+
+.newIndex main .liveVideo .matches iframe, .newIndex main .newsVideo .matches iframe {
+  margin-top: -102px;
+  height: calc(100% + 102px);
+}
+
+.newIndex #footer {
+  background: #112240;
+}
+
+.newIndex #footer .platform, .newIndex #footer .copyright, .newIndex #footer .footerList, .newIndex #footer .license, .newIndex #footer .sfp {
+  background: transparent;
+  width: 1400px;
+  margin: auto;
+  border-bottom: 1px solid #7591C1;
+  padding: 25px 0;
+}
+
+.newIndex #footer .copyright {
+  font-size: 14px;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.newIndex #footer .copyright a, .newIndex #footer .copyright button {
+  border-right: 1px solid #7591C1;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.newIndex #footer .copyright a:nth-child(1), .newIndex #footer .copyright button:nth-child(1) {
+  padding-left: 0;
+}
+
+.newIndex #footer .copyright span {
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 auto auto;
+}
+
+.newIndex #footer .copyright span span {
+  border-radius: 25px;
+  border: 1px solid white;
+  padding: 1px;
+  width: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.newIndex #footer .platform > div {
+  width: 100%;
+}
+
+.newIndex #footer .license {
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: url(../img/licensebg.png) no-repeat bottom right;
+}
+
+.newIndex #footer .license > div:nth-child(1) {
+  width: 560px;
+  padding-right: 90px;
+}
+
+.newIndex #footer .license > div:nth-child(1) img {
+  width: auto;
+  margin: 20px 0;
+}
+
+.newIndex #footer .license > div:nth-child(2) {
+  width: 730px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.newIndex #footer .license > div:nth-child(2) iframe {
+  margin-right: 30px;
+}
+
+.newIndex #footer .license > div:nth-child(2) div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.newIndex #footer .license > div:nth-child(2) div img {
+  width: 65px;
+  margin-left: 10px;
+}
+
+.newIndex #footer .license > div .star {
+  width: auto;
+  position: absolute;
+  right: 0;
+  bottom: -25px;
+}
+
+.newIndex #footer .sfp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 0;
+}
+
+.newIndex #footer .sfp > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  margin-right: 150px;
+}
+
+.newIndex #footer .sfp > div > div img {
+  width: auto;
+  margin-right: 10px;
+}
+
+.newIndex #footer .footerList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  color: #BFCCE2;
+}
+
+.newIndex #footer .footerList > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 35px;
+  text-align: center;
+}
+
+.newIndex #footer .footerList > div:last-child {
+  margin-right: 0;
+}
+
+.newIndex #footer .footerList > div > a, .newIndex #footer .footerList > div > button {
+  color: #F1D5B6;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.newIndex #footer .footerList > div > a ~ div, .newIndex #footer .footerList > div > button ~ div {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.newIndex #footer .footerList > div > div .title {
+  margin: 15px 0;
+}
+
+.newIndex #footer .footerList > div > div.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 76px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 16px;
+  color: white;
+}
+
+.newIndex #footer .footerList > div > div.title + div {
+  margin: 10px 0;
+}
+
+.newIndex #footer .footerList > div > div.title:before {
+  font-size: 56px;
+  font-weight: normal;
+  color: #F1D5B6;
+}
+
+.newIndex #footer .footerList > div > div > div {
+  text-align: left;
+}
+
+.newIndex .quickLinkNew1, .newIndex .quickLinkNew2 {
+  position: fixed;
+  right: 0;
+  top: 145px;
+  z-index: 1;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  padding: 10px;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.3));
+  color: #7591C1;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 150px;
+}
+
+.newIndex .quickLinkNew1 i, .newIndex .quickLinkNew2 i {
+  position: absolute;
+  top: 10px;
+}
+
+.newIndex .quickLinkNew1 i::before, .newIndex .quickLinkNew2 i::before {
+  margin: 0;
+}
+
+.newIndex .quickLinkNew1 > div, .newIndex .quickLinkNew2 > div {
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  -webkit-transform: scaleY(-1) scaleX(-1);
+          transform: scaleY(-1) scaleX(-1);
+  letter-spacing: 1px;
+}
+
+.newIndex .quickLinkNew1.active, .newIndex .quickLinkNew2.active {
+  -webkit-transform: translateX(40px);
+          transform: translateX(40px);
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.newIndex .quickLinkNew2 {
+  background: white;
+  height: calc(100% - 175px);
+  padding: 30px 0 10px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.newIndex .quickLinkNew2 a, .newIndex .quickLinkNew2 button {
+  border-bottom: 1px dotted #b2b2b2;
+  color: #b2b2b2;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+}
+
+.newIndex .quickLinkNew2 a:not(.icon-chat), .newIndex .quickLinkNew2 button:not(.icon-chat) {
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.newIndex .quickLinkNew2 a.active, .newIndex .quickLinkNew2 button.active {
+  color: #7591C1;
+}
+
+.newIndex .quickLinkNew2 a.active > div, .newIndex .quickLinkNew2 button.active > div {
+  display: block;
+}
+
+.newIndex .quickLinkNew2 a > div, .newIndex .quickLinkNew2 button > div {
+  display: none;
+  position: absolute;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  white-space: nowrap;
+  font-size: 12px;
+  top: 0;
+  background: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.newIndex .quickLinkNew2 a > div img, .newIndex .quickLinkNew2 button > div img {
+  width: 120px;
+  height: 120px;
+}
+
+.indexCenterBanner {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: 30px auto 0;
+}
+
+.streaming {
+  padding: 30vw 4vw;
+  width: calc(100% - 8vw);
+}
+
+.streaming .liveTvTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.streaming .liveTvTag button {
+  background: #acc1e0;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  margin: 0 10px 0 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #5574A7;
+}
+
+.streaming .liveTvTag button:before {
+  font-size: 24px;
+  font-weight: normal;
+  margin-left: 0;
+}
+
+.streaming .liveTvTag button.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  color: #884500;
+  border: 1px solid #CDAE8E;
+}
+
+.streaming .liveTv {
+  border-radius: 0 5px 5px 5px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#CDAE8E), to(#F1D5B6));
+  background: linear-gradient(to bottom, #CDAE8E, #F1D5B6);
+  padding: 20px;
+  display: none;
+}
+
+.streaming .liveTv.active {
+  display: block;
+}
+
+.streaming .liveTv > .liveTvModule {
+  background: white;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  margin: 0 0 10px;
+  border: 1px solid #7591C1;
+}
+
+.streaming .liveTv > .liveTvModule.icon {
+  padding: 50px 0;
+  color: #7591C1;
+}
+
+.streaming .liveTv > .liveTvModule.icon:before {
+  font-size: 72px;
+}
+
+.streaming .liveTv > .liveTvModule.active {
+  border: 1px solid #884500;
+}
+
+.streaming .liveTv > .liveTvModule.active > .title {
+  background: url(../img/livetvtitlebggold.png) no-repeat center/40% 100%;
+}
+
+.streaming .liveTv > .liveTvModule.active > .title:before {
+  color: red;
+}
+
+.streaming .liveTv > .liveTvModule.active .time {
+  color: red;
+  font-weight: bold;
+}
+
+.streaming .liveTv > .liveTvModule.active .time + .title span {
+  display: unset;
+}
+
+.streaming .liveTv > .liveTvModule > .title {
+  width: 100%;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(../img/livetvtitlebg.png) no-repeat center/40% 100%;
+  color: white;
+  position: relative;
+}
+
+.streaming .liveTv > .liveTvModule > .title:before {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  color: #aec3e1;
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 10px;
+  line-height: 30px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div {
+  color: #5574A7;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup {
+  margin: 15px auto 0;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup button, .streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup a {
+  padding: 5px 10px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div span {
+  background: #7591C1;
+  padding: 5px 10px;
+  margin: 20px;
+  border-radius: 5px;
+  color: white;
+  display: none;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
+  color: #b2b2b2;
+}
+
+#popup.nopadding .pop {
+  padding: 0;
+}
+
+#popup.nopadding .pop > div {
+  margin-top: 20px;
+}
+
+#popup.nopadding .pop .friend {
+  margin: 0;
+}
+
+#popup.nopadding .pop .checkbox {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  margin: 10px;
 }
 /*# sourceMappingURL=style.css.map */

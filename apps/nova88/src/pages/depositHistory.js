@@ -16,6 +16,9 @@ import LeftMenu from "../components/common/leftMenu";
 import { isConvert } from "../components/common/common";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
+import useDeposit from "../components/depositnew/hook/useDeposit";
+import useDepositLocalBank from "../components/depositnew/hook/useDepositLocalBank";
+
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
@@ -48,6 +51,13 @@ const Content = () => {
 	});
 	const isMountedRef = useRef(null);
 	const _isConvert = isConvert(userInfo.currencyId);
+
+	const { asyncUploadBankPopBox } = useDeposit({ isMountedRef });
+
+	const {
+		setLocalBankReceipt,
+		uploadLocalBankReceipt
+	} = useDepositLocalBank({ isMountedRef });
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -114,7 +124,7 @@ const Content = () => {
 		);
 	};
 
-	const clickDateSubmit = (startDate, endDate, isUnix, quickPick) => {
+	const updateHistoryList = (startDate, endDate, isUnix, quickPick) => {
 		if (!processing) {
 			setProcessing(true);
 			let transactionData = filterData;
@@ -138,28 +148,73 @@ const Content = () => {
 		}
 	};
 
-	const SubmitProof = (
+	const SubmitProof = async (
 		bankInfo,
 		depositRep,
 		amount,
 		transId,
 		picFileName,
-		refId
+		historyRefId,
+		historyDepositTime
 	) => {
-		const { currencyId, ...restBankInfo } = bankInfo;
+		const { bankName, bankSite } = bankInfo;
 		const { accountName, accountNo } = depositRep;
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.UploadBankSlip,
-			depositTime: `${moment().format()}`,
-			...restBankInfo,
-			transId,
-			accountNo,
-			accountName,
-			amount,
-			picFileName,
-			refId
+
+		const uploadPopBoxResult = await asyncUploadBankPopBox({
+			formInfo: {
+				imgFile: {
+					name: picFileName
+				},
+				// refId: historyRefId,
+				// time: historyDepositTime
+			},
+			localBankInfo: {
+				bankName,
+				bankSite,
+				accountNo,
+				accountName,
+				transId,
+				amount
+			},
+			_isConvert,
+			langId: userInfo.langId
 		});
+
+		if (uploadPopBoxResult.success) {
+			const {
+				datas: { depositTime, depositRefNo, depositImgFiles }
+			} = uploadPopBoxResult;
+
+			// const isSameRefId = historyRefId === depositRefNo.value;
+
+			// const isSameDepositTime = moment(depositTime.value).isSame(
+			// 	moment(historyDepositTime)
+			// );
+
+			if (depositImgFiles.file) {
+				await uploadLocalBankReceipt({
+					imgFile: depositImgFiles.file,
+					transId
+				});
+			}
+
+			// if (!isSameDepositTime || !isSameRefId) {
+			// 	await setLocalBankReceipt({
+			// 		transId,
+			// 		depositTime: depositTime.value,
+			// 		fefNo: depositRefNo.value
+			// 	});
+			// }
+
+			if (depositImgFiles.file 
+				// || !isSameDepositTime || !isSameRefId
+				)
+				updateHistoryList(
+					filterData?.StartDate,
+					filterData?.EndDate,
+					true
+				);
+		}
 	};
 
 	const ClickCancel = transId => {
@@ -177,7 +232,7 @@ const Content = () => {
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -246,7 +301,8 @@ const Content = () => {
 					item.amount,
 					item.transId,
 					item.picFileName,
-					item.refId
+					item.refId,
+					item.depositTime
 				)}
 			/>
 		);
@@ -257,7 +313,7 @@ const Content = () => {
 			<div className="inside-title icon icon-icon32px_History">
 				<span>{t("lbl_DepositHistory")}</span>
 			</div>
-			<Filter submitHandler={clickDateSubmit} keepData={keepData} />
+			<Filter submitHandler={updateHistoryList} keepData={keepData} />
 
 			{history ? (
 				<div className="list history">
