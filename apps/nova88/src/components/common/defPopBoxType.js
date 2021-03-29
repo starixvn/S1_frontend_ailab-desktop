@@ -26,5 +26,6 @@ export default {
 	SuccessAngPow: "SuccessAngPow",
 	SuccessMySteryBox: "SuccessMySteryBox",
 	OneGamingLink: "OneGamingLink",
-	RankingWinner: "RankingWinner"
+	RankingWinner: "RankingWinner",
+	DepositUploadBankSlip: "DepositUploadBankSlip"
 };
