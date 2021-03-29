@@ -5,11 +5,11 @@ import { Link } from "@reach/router";
 export const HeaderLogin = ({
 	t,
 	showPswHandler,
+	showPsw,
 	EditField,
 	checkValue,
 	handleLogin,
 	userValue,
-	showPsw,
 	langId,
 	path
 }) => {
@@ -28,6 +28,13 @@ export const HeaderLogin = ({
 				value={userValue.password}
 				onBlur={checkValue.bind(null, "password")}
 			/>
+			<i className="eye-off" />
+			{/* <button
+				aria-label="HandleDisplayBalance"
+				value={!showPsw}
+				onClick={showPswHandler}
+				className={`icon icon-eye${!showPsw ? "-blocked" : ""}`}
+			/> */}
 			<a className="login" onClick={handleLogin}>
 				{t("lbl_Login")}
 			</a>
@@ -41,11 +48,11 @@ export const HeaderLogin = ({
 HeaderLogin.propTypes = {
 	t: PropTypes.func.isRequired,
 	showPswHandler: PropTypes.func.isRequired,
+	showPsw: PropTypes.bool.isRequired,
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
 	handleLogin: PropTypes.func.isRequired,
 	userValue: PropTypes.objectOf(PropTypes.any).isRequired,
 	path: PropTypes.objectOf(PropTypes.any).isRequired,
-	showPsw: PropTypes.bool.isRequired,
 	langId: PropTypes.string.isRequired
 };

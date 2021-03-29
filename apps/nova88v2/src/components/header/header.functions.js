@@ -146,11 +146,11 @@ const BeforeLogin = ({ t }) => {
 	return (
 		<HeaderLogin
 			showPswHandler={showPswHandler}
+			showPsw={showPsw}
 			EditField={EditField}
 			checkValue={checkValue}
 			handleLogin={handleLogin}
 			userValue={userValue}
-			showPsw={showPsw}
 			langId={userInfo.langId}
 			path={path}
 			t={t}
