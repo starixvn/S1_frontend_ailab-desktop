@@ -20,6 +20,7 @@ import { LOGIN } from "../../service/auth";
 import { setCookie } from "../common/common";
 import { SiteInfo } from "../../config";
 import { HeaderLogin } from "./header.login";
+import usePopBox from "../hook/usePopBox";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -51,6 +52,7 @@ const BeforeLogin = ({ t }) => {
 	const [showPsw, setShowPsw] = useState(false);
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox, closePopBox } = usePopBox();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -124,46 +126,20 @@ const BeforeLogin = ({ t }) => {
 					res.errorCode === 9000
 				) {
 					if (isMountedRef.current) {
-						setTip(prev => {
-							return {
-								...prev,
-								username: {
-									checked: false,
-									msg: res.message
-								}
-							};
-						});
+						errorPopBox(res.message, res.errorCode);
 					}
 				} else if (res.errorCode === 1001) {
-					if (isMountedRef.current) {
-						setTip(prev => {
-							return {
-								...prev,
-								password: {
-									checked: false,
-									msg: res.message
-								}
-							};
-						});
-					}
+					errorPopBox(res.message, res.errorCode);
 				}
 			});
 		} else {
 			const usernameMsg =
-				userValue.username === "" ? "msg_UsernameReq" : "";
+				userValue.username === "" ? "msg_UsernameReq" : null;
 			const passwordMsg =
-				userValue.password === "" ? "msg_PasswordReq" : "";
-
-			setTip({
-				username: {
-					checked: !(userValue.username === ""),
-					msg: t(usernameMsg)
-				},
-				password: {
-					checked: !(userValue.password === ""),
-					msg: t(passwordMsg)
-				}
-			});
+				userValue.password === "" ? "msg_PasswordReq" : null;
+			if (usernameMsg !== null || passwordMsg !== null) {
+				errorPopBox(t(usernameMsg ?? passwordMsg));
+			}
 		}
 	};
 
