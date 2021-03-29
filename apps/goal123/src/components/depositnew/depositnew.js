@@ -158,14 +158,9 @@ const Depositnew = () => {
 		if (formInfo.checked && typeof window !== "undefined") {
 			const { amount } = formInfo;
 			const resultAmount = _isConvert ? amount * 1000 : amount;
+			setLoading(true);
 
-			if (depositType === defDepositType.mobile) {
-				window.open(
-					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
-				);
-				await delay(1000);
-				resetForm();
-			} else if (depositType === defDepositType.localBank) {
+			if (depositType === defDepositType.localBank) {
 				if (loading || (!userInfo.accountName && !formInfo.accountName))
 					return;
 
@@ -202,8 +197,6 @@ const Depositnew = () => {
 					await setAccountName(formInfo.accountName);
 				}
 
-				setLoading(true);
-
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
 					sysId: formInfo.sysId
@@ -238,10 +231,16 @@ const Depositnew = () => {
 						errorPopBox();
 					}
 				}
+			}
 
-				setLoading(false);
-				resetForm();
-			} else if (depositType === defDepositType.onlineBank) {
+			if (depositType === defDepositType.mobile) {
+				window.open(
+					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
+				);
+				await delay(1000);
+			}
+
+			if (depositType === defDepositType.onlineBank) {
 				window.open(
 					`${config.openURL}/${
 						userInfo.langId
@@ -252,8 +251,10 @@ const Depositnew = () => {
 					}&Amount=${resultAmount}`
 				);
 				await delay(1000);
-				resetForm();
 			}
+
+			setLoading(false);
+			resetForm();
 		}
 	};
 
