@@ -18,7 +18,7 @@ export default () => {
 							<RecentHistory />
 						</div>
 					</section>
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>

@@ -18,7 +18,7 @@ export default () => {
 							<Content />
 						</div>
 					</section>
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>

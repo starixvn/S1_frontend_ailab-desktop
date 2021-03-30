@@ -16,7 +16,7 @@ export default () => {
 							<TransferFunds />
 						</div>
 					</section>
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>

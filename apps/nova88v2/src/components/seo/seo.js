@@ -43,14 +43,12 @@ function SEO({ description, lang, meta, title }) {
 		links = defMetaData[location[1]]?.[lang]?.links ?? links;
 	}
 
-	console.log(isRoot);
-
 	return (
 		<>
 			<Helmet
 				htmlAttributes={{
 					lang,
-					className: isRoot ? "newIndex" : ""
+					class: isRoot ? "newIndex" : ""
 				}}
 				title={_title}
 				link={[

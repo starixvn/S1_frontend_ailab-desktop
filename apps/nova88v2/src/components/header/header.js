@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, popBoxContext } from "../common/context";
+import {
+	userInfoContext,
+	popBoxContext,
+	isRootContext
+} from "../common/context";
 import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
@@ -15,6 +19,7 @@ export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { isRoot } = useContext(isRootContext);
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -57,9 +62,13 @@ export default ({ productTpIds }) => {
 		return <button className="icon icon-exit" onClick={handleLogout} />;
 	};
 
-	const Logo = `${config.cloudImgUrl}/SiteSkin/img/logo${
-		userInfo.langId === "cs" ? "_cs_w" : "_en_w"
-	}.png`;
+	const Logo = isRoot
+		? `${config.cloudImgUrl}/SiteSkin/img/logo${
+				userInfo.langId === "cs" ? "_cs_w" : "_en_w"
+		  }.png`
+		: `${config.cloudImgUrl}/SiteSkin/img/logo${
+				userInfo.langId === "cs" ? "_cs" : "_en"
+		  }.png`;
 
 	return (
 		<header id="header">

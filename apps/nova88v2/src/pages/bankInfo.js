@@ -16,7 +16,7 @@ export default () => {
 							<BankInfo />
 						</div>
 					</section>
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>
