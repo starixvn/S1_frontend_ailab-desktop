@@ -50,15 +50,18 @@ export default ({
 	const fullMenuLinks = Object.keys(defMenuLinks);
 
 	const filterMenuLinks = fullMenuLinks.filter(key => {
-		if (defMenuLinks[key].subMenu?.length > 0) {
+		if (
+			defMenuLinks[key].subMenu?.length > 0 &&
+			defMenuLinks[key].filterByAuth
+		) {
 			const subItems = defMenuLinks[key].subMenu.filter(s =>
 				productTpIds?.includes(s.tpId)
 			);
-
 			return subItems.length > 0;
 		}
 
-		const subProduct = defMenuLinks[key].productInfo;
+		const subProduct =
+			defMenuLinks[key].productInfo && defMenuLinks[key].filterByAuth;
 		if (subProduct) {
 			const hasAuthSubProduct = productTpIds?.includes(subProduct?.tpId);
 			return hasAuthSubProduct;

@@ -54,7 +54,8 @@ export default ({ currentMenuKey, productTpIds }) => {
 			if (
 				// currentMenuKey === "casino" &&
 				subMenu &&
-				productTpIds?.length > 0
+				productTpIds?.length > 0 &&
+				defMenuLinks[menuKey].filterByAuth
 			) {
 				subMenu = subMenu.filter(
 					s => s.alwaysShow || productTpIds.includes(s.tpId)

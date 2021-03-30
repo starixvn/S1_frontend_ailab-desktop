@@ -60,6 +60,7 @@ export const defMenuLinks = {
 		path: path.sports.root,
 		displayKey: "lbl_Sports",
 		className: "sportsbtn",
+		filterByAuth: true,
 		subMenu: [
 			{
 				displayKey: "lbl_Soccer",
@@ -113,6 +114,7 @@ export const defMenuLinks = {
 		path: path.casino.root,
 		displayKey: "lbl_Casino",
 		className: "slotbtn",
+		filterByAuth: true,
 		subMenu: [
 			{
 				icon: "icon icon-PP",
@@ -199,6 +201,7 @@ export const defMenuLinks = {
 	liveCasino: {
 		displayKey: "lbl_LiveCasino",
 		className: "livecasinobtn",
+		filterByAuth: true,
 		subMenu: [
 			{
 				...productList.liveCasino_N2,
@@ -297,6 +300,7 @@ export const defMenuLinks = {
 		productInfo: productList.lottery,
 		displayKey: "lbl_Lottery",
 		className: "game",
+		filterByAuth: true,
 		subMenu: [
 			{
 				...productList.keno,
@@ -349,6 +353,7 @@ export const defMenuLinks = {
 		// productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
 		className: "fishbtn",
+		filterByAuth: true,
 		subMenu: [
 			{
 				...productList.CQ9_Paradise,
