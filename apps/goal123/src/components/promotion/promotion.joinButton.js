@@ -143,6 +143,7 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 	if (
 		(promotionInfo.isJoin && isLogin) ||
 		_isExpiry ||
+		promotionInfo.promotionType === defPromotionType.rebate ||
 		(filter === defFilterType.special_bonus && !promotionInfo.canJoin)
 	)
 		return null;
