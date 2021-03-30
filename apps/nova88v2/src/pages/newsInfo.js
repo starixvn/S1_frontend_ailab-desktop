@@ -121,9 +121,11 @@ const Content = () => {
 		<Loading />
 	) : redirectPath === null ? (
 		<div className="infoModule">
-			<a className="icon icon-arrow-left2" onClick={clickBack}>
+			<button
+				className="btn-check icon icon-arrow-left2"
+				onClick={clickBack}>
 				{t("lbl_Back")}
-			</a>
+			</button>
 			<article>
 				<img src={newsInfo.imageURL} alt={newsInfo.title} />
 				<h1>{newsInfo.title}</h1>
