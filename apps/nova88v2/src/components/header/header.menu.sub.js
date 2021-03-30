@@ -43,16 +43,20 @@ export default ({ currentMenuKey, productTpIds }) => {
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {
+		if (!defSubListClassName[menuKey]) return;
+
 		const subClassName = `${defSubListClassName[menuKey] || ""}${
 			menuKey === currentMenuKey ? " active" : ""
 		}`;
 		let subMenu = [];
 
-		if (!(typeof defMenuLinks[menuKey]?.subMenu == "undefined")) {
-			subMenu = defMenuLinks[menuKey]?.subMenu;
+		const subWithManyItems = !(
+			typeof defMenuLinks[menuKey]?.subMenu == "undefined"
+		);
 
+		if (subWithManyItems) {
+			subMenu = defMenuLinks[menuKey]?.subMenu;
 			if (
-				// currentMenuKey === "casino" &&
 				subMenu &&
 				productTpIds?.length > 0 &&
 				defMenuLinks[menuKey].filterByAuth
@@ -70,7 +74,7 @@ export default ({ currentMenuKey, productTpIds }) => {
 			);
 		}
 
-		return (
+		return subWithManyItems ? (
 			<div className={subClassName} key={`main-key-${menuKey}`}>
 				{subMenu?.map(subMenuItem => (
 					<SubMenuItem
@@ -86,6 +90,10 @@ export default ({ currentMenuKey, productTpIds }) => {
 						parameter={subMenuItem.parameter}
 					/>
 				))}
+			</div>
+		) : (
+			<div className={subClassName} key={`main-key-${menuKey}`}>
+				<SubContent menuKey={menuKey} userInfo={userInfo} t={t} />
 			</div>
 		);
 	});
@@ -265,4 +273,54 @@ ImgsRender.propTypes = {
 	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 		.isRequired,
 	className: PropTypes.string.isRequired
+};
+
+const SubContent = ({ menuKey, userInfo, t }) => {
+	const pathLink = defMenuLinks[menuKey].path;
+	if (menuKey === "poker") {
+		return (
+			<div>
+				<div>GET READY TO ENJOY</div>
+				<div>
+					<span className="txt-orange">NOVA88</span> VIP PROGRAM
+				</div>
+				<div className="btnGroup">
+					<Link
+						className="lightblue"
+						to={`/${userInfo.langId}/${pathLink}`}>
+						UPGRADE AND JOIN NOW
+					</Link>
+				</div>
+			</div>
+		);
+	}
+	if (menuKey === "vip") {
+		return (
+			<div>
+				<div>GET READY TO ENJOY</div>
+				<div>
+					<span className="txt-orange">NOVA88</span> VIP PROGRAM
+				</div>
+				<div className="btnGroup">
+					<Link
+						className="lightblue"
+						to={`/${userInfo.langId}/${pathLink}`}>
+						UPGRADE AND JOIN NOW
+					</Link>
+				</div>
+			</div>
+		);
+	}
+	if (menuKey === "ranking") {
+		return (
+			<div>
+				<div>
+					<div>THE world's most Advanced</div>
+					<div className="txt-orange">Ranking</div>
+					<div>The higher you rank, the bigger the prize!</div>
+				</div>
+			</div>
+		);
+	}
+	return <div />;
 };

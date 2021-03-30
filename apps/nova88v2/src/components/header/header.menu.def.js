@@ -20,10 +20,13 @@ export const defSubListClassName = {
 	eSports: "eSportsList",
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
-	promotion: "promoList",
+	poker: "pokerList",
 	lottery: "gameList",
 	fishing: "fishList",
-	tv: "tvList"
+	promotion: "promoList",
+	tv: "tvList",
+	vip: "vipList",
+	ranking: "rankingList"
 };
 
 export const defMenuLinks = {
@@ -108,7 +111,49 @@ export const defMenuLinks = {
 		productInfo: productList.eSport,
 		path: path.sports.root,
 		displayKey: "lbl_eSports",
-		className: "eSportsbtn"
+		className: "eSportsbtn",
+		subMenu: [
+			{
+				displayKey: "lbl_All",
+				listNpcImgUrl: "esportALL.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.eSport_All },
+				...productList.eSport_All
+			},
+			{
+				displayKey: "lbl_Dota2",
+				listNpcImgUrl: "esportDOTA2.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.eSport_DOTA2 },
+				...productList.eSport_DOTA2
+			},
+			{
+				displayKey: "lbl_LOL",
+				listNpcImgUrl: "esportLOL.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.eSport_LOL },
+				...productList.eSport_LOL
+			},
+			{
+				displayKey: "lbl_CSGO",
+				listNpcImgUrl: "esportCS.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.eSport_CSGO },
+				...productList.eSport_CSGO
+			},
+			{
+				displayKey: "lbl_Kog",
+				listNpcImgUrl: "esportKOG.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.eSport_KOG },
+				...productList.eSport_KOG
+			}
+		]
 	},
 	casino: {
 		path: path.casino.root,
@@ -294,6 +339,7 @@ export const defMenuLinks = {
 		productInfo: productList.poker,
 		path: path.oneGame.root,
 		displayKey: "lbl_Poker",
+		className: "pokerbtn",
 		openPopBox: true
 	},
 	lottery: {

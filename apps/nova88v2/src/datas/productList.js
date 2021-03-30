@@ -77,6 +77,27 @@ export default {
 		gameId: 4325
 	},
 
+	eSportAll: {
+		tpId: 1,
+		gameId: 43
+	},
+	eSport_DOTA2: {
+		tpId: 1,
+		gameId: 43
+	},
+	eSport_LOL: {
+		tpId: 1,
+		gameId: 43
+	},
+	eSport_CSGO: {
+		tpId: 1,
+		gameId: 43
+	},
+	eSport_KOG: {
+		tpId: 1,
+		gameId: 43
+	},
+
 	/* === casino === */
 
 	casino_PP: {
