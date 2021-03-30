@@ -371,11 +371,6 @@ header {
   height: auto;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .sportsList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .eSportsList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .casinoList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .pokerList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .gameList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .fishList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .promoList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .tvList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .vipList.active.casinoList, .header > div.menu .subMenu-Wrapper-new .rankingList.active.casinoList {
-  overflow-y: auto;
-  max-height: 420px;
-}
-
 .header > div.menu .subMenu-Wrapper-new .homeList.active a, .header > div.menu .subMenu-Wrapper-new .homeList.active button, .header > div.menu .subMenu-Wrapper-new .sportsList.active a, .header > div.menu .subMenu-Wrapper-new .sportsList.active button, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button, .header > div.menu .subMenu-Wrapper-new .casinoList.active a, .header > div.menu .subMenu-Wrapper-new .casinoList.active button, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button, .header > div.menu .subMenu-Wrapper-new .pokerList.active a, .header > div.menu .subMenu-Wrapper-new .pokerList.active button, .header > div.menu .subMenu-Wrapper-new .gameList.active a, .header > div.menu .subMenu-Wrapper-new .gameList.active button, .header > div.menu .subMenu-Wrapper-new .fishList.active a, .header > div.menu .subMenu-Wrapper-new .fishList.active button, .header > div.menu .subMenu-Wrapper-new .promoList.active a, .header > div.menu .subMenu-Wrapper-new .promoList.active button, .header > div.menu .subMenu-Wrapper-new .tvList.active a, .header > div.menu .subMenu-Wrapper-new .tvList.active button, .header > div.menu .subMenu-Wrapper-new .vipList.active a, .header > div.menu .subMenu-Wrapper-new .vipList.active button, .header > div.menu .subMenu-Wrapper-new .rankingList.active a, .header > div.menu .subMenu-Wrapper-new .rankingList.active button {
   -webkit-transition: 0.6s;
   transition: 0.6s;
@@ -414,7 +409,7 @@ header {
   bottom: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new > div:not(.homeList):not(.sportsList):not(.livecasinoList):not(.gameList) img.List-bg {
+.header > div.menu .subMenu-Wrapper-new > div:not(.homeList):not(.sportsList):not(.livecasinoList):not(.gameList):not(.tvList) img.List-bg {
   z-index: 1;
   margin-left: -70px;
 }
@@ -2719,7 +2714,7 @@ input[type="file"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-left: 20px;
+  padding-left: 20px;
 }
 
 #Marquee .marquee-box .marquee-run button {
@@ -4735,6 +4730,27 @@ input[type="file"] {
 
 .walletModule .icon-icon32px_Main-Wallet {
   color: #f77900;
+}
+
+.checkbox.autotransfer {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkbox.autotransfer input[type="checkbox"] + label {
+  border-radius: 0;
+  width: 15px;
+  height: 15px;
+  color: #f77900;
+  margin-right: 5px;
 }
 
 .walletTransfer {
@@ -10332,7 +10348,7 @@ canvas {
   padding: 0 20px;
 }
 
-.newIndex #header .header .function > div .countryList a {
+.newIndex #header .header .function > div .countryList button, .newIndex #header .header .function > div .countryList a {
   color: #5574A7;
 }
 
@@ -10419,30 +10435,30 @@ canvas {
   top: 59px;
 }
 
-.newIndex #header .menu > div .subMenu-Wrapper-new > div > a > span {
+.newIndex #header .menu > div .subMenu-Wrapper-new > div > a > span, .newIndex #header .menu > div .subMenu-Wrapper-new > div > button > span {
   color: #7591C1;
   background: url(https://banner.n88media.com/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
 }
 
-.newIndex #header .menu > div > a {
+.newIndex #header .menu > div > a, .newIndex #header .menu > div > button {
   padding-left: 0;
   padding-right: 30px;
   position: relative;
 }
 
-.newIndex #header .menu > div > a:hover {
+.newIndex #header .menu > div > a:hover, .newIndex #header .menu > div > button:hover {
   color: #284985;
 }
 
-.newIndex #header .menu > div > a:after {
+.newIndex #header .menu > div > a:after, .newIndex #header .menu > div > button:after {
   background: #284985;
 }
 
-.newIndex #header .menu > div > a.active {
+.newIndex #header .menu > div > a.active, .newIndex #header .menu > div > button.active {
   color: #284985;
 }
 
-.newIndex #header .menu > div > a div.icon-new:before {
+.newIndex #header .menu > div > a div.icon-new:before, .newIndex #header .menu > div > button div.icon-new:before {
   background: #f77900;
   border-radius: 0;
   left: 0;
@@ -10456,7 +10472,7 @@ canvas {
   font-size: 13px;
 }
 
-.newIndex #header .menu > div > a div.icon-new:after {
+.newIndex #header .menu > div > a div.icon-new:after, .newIndex #header .menu > div > button div.icon-new:after {
   content: '';
   display: block;
   width: 0;
@@ -10470,11 +10486,11 @@ canvas {
   left: 50px;
 }
 
-.newIndex #header .menu > div > a div.live:before {
+.newIndex #header .menu > div > a div.live:before, .newIndex #header .menu > div > button div.live:before {
   content: 'Live';
 }
 
-.newIndex #header .menu > div > a div.live i {
+.newIndex #header .menu > div > a div.live i, .newIndex #header .menu > div > button div.live i {
   position: absolute;
   top: 6px;
   left: 6px;
@@ -10503,7 +10519,7 @@ canvas {
   }
 }
 
-.newIndex #header .menu > div > a div.live:before {
+.newIndex #header .menu > div > a div.live:before, .newIndex #header .menu > div > button div.live:before {
   background: #05BC0B;
   border-radius: 0;
   left: 0;
@@ -10516,7 +10532,7 @@ canvas {
   padding-right: 0;
 }
 
-.newIndex #header .menu > div > a div.live:after {
+.newIndex #header .menu > div > a div.live:after, .newIndex #header .menu > div > button div.live:after {
   content: '';
   display: block;
   width: 0;
@@ -10533,6 +10549,7 @@ canvas {
 .newIndex main {
   background: #e8eff5;
   padding-top: 145px;
+  min-width: 1400px;
 }
 
 .newIndex main #Marquee {
@@ -10705,8 +10722,8 @@ canvas {
 }
 
 .newIndex main .liveVideo .latestVideo .newsModule img, .newIndex main .liveVideo .newsList .newsModule img, .newIndex main .newsVideo .latestVideo .newsModule img, .newIndex main .newsVideo .newsList .newsModule img {
-  width: auto;
   height: auto;
+  max-width: 260px;
 }
 
 .newIndex main .liveVideo .latestVideo .newsModule .lightblue, .newIndex main .liveVideo .newsList .newsModule .lightblue, .newIndex main .newsVideo .latestVideo .newsModule .lightblue, .newIndex main .newsVideo .newsList .newsModule .lightblue {
@@ -11093,6 +11110,7 @@ canvas {
 
 .newIndex #footer {
   background: #112240;
+  min-width: 1400px;
 }
 
 .newIndex #footer .platform, .newIndex #footer .copyright, .newIndex #footer .footerList, .newIndex #footer .license, .newIndex #footer .sfp {
@@ -11321,6 +11339,7 @@ canvas {
       -ms-flex-align: center;
           align-items: center;
   height: 150px;
+  width: 20px;
 }
 
 .newIndex .quickLinkNew1 i, .newIndex .quickLinkNew2 i {
@@ -11333,12 +11352,17 @@ canvas {
 }
 
 .newIndex .quickLinkNew1 > div, .newIndex .quickLinkNew2 > div {
-  -webkit-writing-mode: vertical-lr;
-      -ms-writing-mode: tb-lr;
-          writing-mode: vertical-lr;
-  -webkit-transform: scaleY(-1) scaleX(-1);
-          transform: scaleY(-1) scaleX(-1);
   letter-spacing: 1px;
+  height: 24px;
+  width: 100px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .newIndex .quickLinkNew1.active, .newIndex .quickLinkNew2.active {
@@ -11355,6 +11379,7 @@ canvas {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  width: auto;
 }
 
 .newIndex .quickLinkNew2 a, .newIndex .quickLinkNew2 button {
@@ -11568,23 +11593,5 @@ canvas {
 
 .streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
-}
-
-#popup.nopadding .pop {
-  padding: 0;
-}
-
-#popup.nopadding .pop > div {
-  margin-top: 20px;
-}
-
-#popup.nopadding .pop .friend {
-  margin: 0;
-}
-
-#popup.nopadding .pop .checkbox {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  margin: 10px;
 }
 /*# sourceMappingURL=style.css.map */
