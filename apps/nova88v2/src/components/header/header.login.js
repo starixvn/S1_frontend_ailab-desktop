@@ -4,7 +4,7 @@ import { Link } from "@reach/router";
 
 export const HeaderLogin = ({
 	t,
-	showPswHandler,
+	// showPswHandler,
 	showPsw,
 	EditField,
 	checkValue,
@@ -27,6 +27,11 @@ export const HeaderLogin = ({
 				onChange={EditField.bind(null, "password")}
 				value={userValue.password}
 				onBlur={checkValue.bind(null, "password")}
+				onKeyPress={e => {
+					if (e.key === "Enter") {
+						handleLogin(e);
+					}
+				}}
 			/>
 			<i className="eye-off" />
 			{/* <button
@@ -47,7 +52,7 @@ export const HeaderLogin = ({
 
 HeaderLogin.propTypes = {
 	t: PropTypes.func.isRequired,
-	showPswHandler: PropTypes.func.isRequired,
+	// showPswHandler: PropTypes.func.isRequired,
 	showPsw: PropTypes.bool.isRequired,
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
