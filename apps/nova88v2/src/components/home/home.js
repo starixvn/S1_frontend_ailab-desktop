@@ -1,7 +1,11 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
-import { userInfoContext, popBoxContext } from "../common/context";
+import {
+	userInfoContext,
+	popBoxContext,
+	isRootContext
+} from "../common/context";
 import {
 	readCookie,
 	setCookie,
@@ -325,20 +329,24 @@ const IndexPage = ({ location }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 
+	const { setIsRoot } = useContext(isRootContext);
+
+	const isMountedRef = useRef(null);
+	useEffect(() => {
+		isMountedRef.current = true;
+		setIsRoot(true);
+		return () => {
+			isMountedRef.current = false;
+			setIsRoot(false);
+		};
+	});
+
 	const showLogin = () => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.Login
 		});
 	};
-
-	const isMountedRef = useRef(null);
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
 
 	useEffect(() => {
 		if (!userInfo.isLogin) {
