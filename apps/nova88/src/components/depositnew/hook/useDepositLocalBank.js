@@ -24,7 +24,7 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				const { data, message, errorCode } = res.data;
 				const success = errorCode === 0;
 
-				if (success && data.length > 0) {
+				if (success) {
 					setLocalBankGroupList(data);
 				} else {
 					errorPopBox(message || `[${errorCode}] error`, errorCode);

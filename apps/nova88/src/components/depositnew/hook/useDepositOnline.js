@@ -20,7 +20,7 @@ const useDepositOnline = ({ isMountedRef }) => {
 				const { data, message, errorCode } = res.data;
 				const success = errorCode === 0;
 
-				if (success && data.length > 0) {
+				if (success) {
 					setOnlineBankGroupList(data);
 				} else {
 					errorPopBox(message || `[${errorCode}] error`, errorCode);
