@@ -18,8 +18,6 @@ export default ({ t, userInfo }) => {
 		};
 	});
 
-	console.log(defPopBoxType);
-
 	useEffect(() => {
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
@@ -75,8 +73,6 @@ export default ({ t, userInfo }) => {
 	const clickToNews = _newsId => {
 		navigate(`/${userInfo.langId}/${path.newsInfo.root}?newsId=${_newsId}`);
 	};
-
-	// console.log("getNews:", getNews);
 
 	const newsRows = getNews.map((item, idx) => {
 		return (

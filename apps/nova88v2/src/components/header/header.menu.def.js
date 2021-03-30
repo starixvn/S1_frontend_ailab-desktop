@@ -10,13 +10,50 @@ export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
 	LinkOrBtn: "LinkOrBtn",
-	Url: "URL"
+	LinkNoImg: "LinkNoImg",
+	DirectUrl: "DirectUrl"
+};
+
+export const defSubListClassName = {
+	home: "homeList",
+	sports: "sportsList",
+	eSports: "eSportsList",
+	casino: "casinoList",
+	liveCasino: "livecasinoList",
+	promotion: "promoList",
+	lottery: "gameList",
+	fishing: "fishList",
+	tv: "tvList"
 };
 
 export const defMenuLinks = {
 	home: {
 		path: path.home.root,
-		className: "icon icon-home"
+		className: "icon icon-home",
+		menuType: defMenuType.Link,
+		subMenu: [
+			{
+				displayKey: "lbl_Vip",
+				listNpcImgUrl: "home-vip.png",
+				listBgImgUrl: "vipbg.png",
+				menuType: defMenuType.Link,
+				path: path.vip.root
+			},
+			{
+				displayKey: "lbl_Live_Streaming",
+				listNpcImgUrl: "home-livesports.png",
+				listBgImgUrl: "livesportsbg.png",
+				menuType: defMenuType.Link,
+				path: path.streaming.root
+			},
+			{
+				displayKey: "lbl_TV",
+				listNpcImgUrl: "home-movie.png",
+				listBgImgUrl: "moviebg.png",
+				menuType: defMenuType.DirectUrl,
+				path: "https://nova88tv.com/"
+			}
+		]
 	},
 	sports: {
 		productInfo: productList.sports,
@@ -88,12 +125,6 @@ export const defMenuLinks = {
 			},
 			{
 				icon: "icon icon-ICG",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
 				displayText: "ICG",
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotICG.png",
@@ -260,12 +291,6 @@ export const defMenuLinks = {
 		productInfo: productList.poker,
 		path: path.oneGame.root,
 		displayKey: "lbl_Poker",
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.oneGaming
-			})
-		],
 		openPopBox: true
 	},
 	lottery: {
@@ -328,12 +353,6 @@ export const defMenuLinks = {
 			{
 				...productList.CQ9_Paradise,
 				className: "fsgw",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.cq9
-					})
-				],
 				listNpcImgUrl: "paradise.png",
 				listBgImgUrl: "fishListHover.png",
 				displayKey: "lbl_Paradise",
@@ -343,12 +362,6 @@ export const defMenuLinks = {
 			{
 				...productList.CQ9_Oneshot_Fishing,
 				className: "fsgw",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.cq9
-					})
-				],
 				listNpcImgUrl: "oneshotfishing.png",
 				listBgImgUrl: "fishListHover.png",
 				displayKey: "lbl_Oneshot_Fishing",
@@ -358,12 +371,6 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
 				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "fishICG-DB.png",
@@ -373,12 +380,6 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_FISHING_OF_SAVIORS,
 				className: "fsgfos",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
 				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "fishICG-FOS.png",
@@ -388,12 +389,6 @@ export const defMenuLinks = {
 			{
 				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
 				className: "fsttatp",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
 				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "fishICG-TTATP.png",
@@ -433,30 +428,55 @@ export const defMenuLinks = {
 	},
 	promotion: {
 		path: path.promotion.root,
-		displayKey: "lbl_Promotions"
+		displayKey: "lbl_Promotions",
+		className: "promobtn",
+		subMenu: [
+			{
+				displayKey: "lbl_Promotion_Link_1",
+				menuType: defMenuType.LinkNoImg,
+				path: path.promotion.root
+			},
+			{
+				displayKey: "lbl_Promotion_Link_2",
+				menuType: defMenuType.LinkNoImg,
+				path: path.promotion.root
+			},
+			{
+				displayKey: "lbl_Promotion_Link_3",
+				menuType: defMenuType.LinkNoImg,
+				path: path.promotion.root
+			},
+			{
+				displayKey: "lbl_Promotion_Link_4",
+				menuType: defMenuType.LinkNoImg,
+				path: path.promotion.root
+			}
+		]
 	},
 	tv: {
 		displayKey: "lbl_TV",
 		className: "tvbtn",
 		menuType: defMenuType.Link,
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.live,
+				period: defEventPeriod.tv
+			})
+		],
 		subMenu: [
 			{
-				displayKey: "lbl_TV",
+				displayKey: "lbl_Live_Streaming",
 				listNpcImgUrl: "home-livesports.png",
 				listBgImgUrl: "livesportsbg.png",
 				menuType: defMenuType.Link,
 				path: path.streaming.root
-				// parameter: { ...productList.soccer },
-				// ...productList.soccer
 			},
 			{
-				displayKey: "lbl_Live_Streaming",
+				displayKey: "lbl_TV",
 				listNpcImgUrl: "home-movie.png",
 				listBgImgUrl: "moviebg.png",
-				menuType: defMenuType.Url,
+				menuType: defMenuType.DirectUrl,
 				path: "https://nova88tv.com/"
-				// parameter: { ...productList.sabaSoccer },
-				// ...productList.sabaSoccer
 			}
 		]
 	},
@@ -481,14 +501,4 @@ export const defMenuLinks = {
 			})
 		]
 	}
-};
-
-export const defSubListClassName = {
-	sports: "sportsList",
-	eSports: "eSportsList",
-	casino: "casinoList",
-	liveCasino: "livecasinoList",
-	lottery: "gameList",
-	fishing: "fishList",
-	tv: "tvList"
 };

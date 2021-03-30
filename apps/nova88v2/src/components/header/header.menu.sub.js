@@ -69,13 +69,11 @@ export default ({ currentMenuKey, productTpIds }) => {
 			);
 		}
 
-		console.log(subMenu);
-
 		return (
 			<div className={subClassName} key={`main-key-${menuKey}`}>
 				{subMenu?.map(subMenuItem => (
 					<SubMenuItem
-						key={`${subMenuItem.tpId}-${subMenuItem.gameId}`}
+						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
 						subMenuItem={subMenuItem}
 						clickItem={clickItem}
 						userInfo={userInfo}
@@ -100,8 +98,8 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	let params = null;
 
 	if (subMenuItem.parameter) {
-		params = Object.keys(subMenuItem.parameter).map(key => {
-			return `${key}=${subMenuItem.parameter[key]}`;
+		params = Object.keys(subMenuItem.parameter).map(keys => {
+			return `${keys}=${subMenuItem.parameter[keys]}`;
 		});
 	}
 	const _urlParams = params !== null ? `?${params.join("&")}` : "";
@@ -118,38 +116,10 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 		className += ` icon${iconStrings}`;
 	}
 
-	const _isDirectUrl = subMenuItem.menuType === defMenuType.Url;
-	if (subMenuItem.menuType === defMenuType.Link || _isDirectUrl) {
-		const pathLink = subMenuItem.path || defMenuLinks[menuKey].path;
+	const pathLink = subMenuItem.path || defMenuLinks[menuKey].path;
 
-		return _isDirectUrl ? (
-			<a href={pathLink} target="_blank">
-				<img
-					className="ListBG-left"
-					alt="ListBG-left"
-					src={SubMenuListBGLeftImg}
-				/>
-				<img
-					className="ListBG-right"
-					alt="ListBG-right"
-					src={SubMenuListBGRightImg}
-				/>
-				<img
-					className="ListBG-center"
-					alt="ListBG-center"
-					src={SubMenuListBGCenterImg}
-				/>
-				<ImgsRender
-					className="List-npc"
-					listImgUrl={subMenuItem.listNpcImgUrl}
-				/>
-				<ImgsRender
-					className="List-bg"
-					listImgUrl={subMenuItem.listBgImgUrl}
-				/>
-				<span>{displayText}</span>
-			</a>
-		) : (
+	if (subMenuItem.menuType === defMenuType.Link) {
+		return (
 			<Link
 				className={className}
 				to={`/${userInfo.langId}/${pathLink}${_urlParams}`}>
@@ -177,6 +147,47 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 					listImgUrl={subMenuItem.listBgImgUrl}
 				/>
 				<span>{displayText}</span>
+			</Link>
+		);
+	}
+
+	if (subMenuItem.menuType === defMenuType.DirectUrl) {
+		return (
+			<a href={pathLink} target="_blank">
+				<img
+					className="ListBG-left"
+					alt="ListBG-left"
+					src={SubMenuListBGLeftImg}
+				/>
+				<img
+					className="ListBG-right"
+					alt="ListBG-right"
+					src={SubMenuListBGRightImg}
+				/>
+				<img
+					className="ListBG-center"
+					alt="ListBG-center"
+					src={SubMenuListBGCenterImg}
+				/>
+				<ImgsRender
+					className="List-npc"
+					listImgUrl={subMenuItem.listNpcImgUrl}
+				/>
+				<ImgsRender
+					className="List-bg"
+					listImgUrl={subMenuItem.listBgImgUrl}
+				/>
+				<span>{displayText}</span>
+			</a>
+		);
+	}
+
+	if (subMenuItem.menuType === defMenuType.LinkNoImg) {
+		return (
+			<Link className={className} to={`/${userInfo.langId}/${pathLink}`}>
+				<div>{displayText}</div>
+				<div>100%</div>
+				<div>WELCOME BONUS</div>
 			</Link>
 		);
 	}

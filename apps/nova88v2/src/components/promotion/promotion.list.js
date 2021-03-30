@@ -28,8 +28,6 @@ export default ({
 		const _isNew = _isClaimed ? false : isNew(p);
 		const _isExpiry = isExpiry({ ...p, isLogin });
 
-		// console.log(promoList);
-
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}

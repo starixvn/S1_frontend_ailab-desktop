@@ -4,13 +4,14 @@ export const defEventIcon = {
 };
 
 export const defEventPeriod = {
-	oneGaming: { end: "2021/03/03 11:00:00" },
-	cq9: { end: "2021/03/06 00:00:00" },
-	referral: { end: "2021/02/05 11:00:00" },
-	icg: { end: "2021/02/05 11:00:00" },
+	// oneGaming: { end: "2021/03/03 11:00:00" },
+	// cq9: { end: "2021/03/06 00:00:00" },
+	// referral: { end: "2021/02/05 11:00:00" },
+	// icg: { end: "2021/02/05 11:00:00" },
 	vip: { start: "2021/02/05 12:00:00" },
 	n2: { start: "2021/03/02 12:00:00" },
-	ranking: { start: "2021/03/01 12:00:00" }
+	ranking: { start: "2021/03/01 12:00:00" },
+	tv: { start: "2021/03/30 00:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {
