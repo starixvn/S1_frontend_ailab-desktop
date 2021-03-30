@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import { Link, navigate } from "@reach/router";
 import { popBoxContext } from "../common/context";
 import { api_news_GetNews } from "../../service/api/news";
-import { defPopBoxType } from "../common/popBox";
+import defPopBoxType from "../common/defPopBoxType";
 import path from "../../router";
 
 export default ({ t, userInfo }) => {
@@ -17,6 +17,8 @@ export default ({ t, userInfo }) => {
 			isMountedRef.current = false;
 		};
 	});
+
+	console.log(defPopBoxType);
 
 	useEffect(() => {
 		const ClickClose = () => {

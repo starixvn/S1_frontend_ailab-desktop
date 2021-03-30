@@ -69,6 +69,8 @@ export default ({ currentMenuKey, productTpIds }) => {
 			);
 		}
 
+		console.log(subMenu);
+
 		return (
 			<div className={subClassName} key={`main-key-${menuKey}`}>
 				{subMenu?.map(subMenuItem => (
@@ -116,13 +118,41 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 		className += ` icon${iconStrings}`;
 	}
 
-	if (subMenuItem.menuType === defMenuType.Link) {
-		const url = subMenuItem.path || defMenuLinks[menuKey].path;
+	const _isDirectUrl = subMenuItem.menuType === defMenuType.Url;
+	if (subMenuItem.menuType === defMenuType.Link || _isDirectUrl) {
+		const pathLink = subMenuItem.path || defMenuLinks[menuKey].path;
 
-		return (
+		return _isDirectUrl ? (
+			<a href={pathLink} target="_blank">
+				<img
+					className="ListBG-left"
+					alt="ListBG-left"
+					src={SubMenuListBGLeftImg}
+				/>
+				<img
+					className="ListBG-right"
+					alt="ListBG-right"
+					src={SubMenuListBGRightImg}
+				/>
+				<img
+					className="ListBG-center"
+					alt="ListBG-center"
+					src={SubMenuListBGCenterImg}
+				/>
+				<ImgsRender
+					className="List-npc"
+					listImgUrl={subMenuItem.listNpcImgUrl}
+				/>
+				<ImgsRender
+					className="List-bg"
+					listImgUrl={subMenuItem.listBgImgUrl}
+				/>
+				<span>{displayText}</span>
+			</a>
+		) : (
 			<Link
 				className={className}
-				to={`/${userInfo.langId}/${url}${_urlParams}`}>
+				to={`/${userInfo.langId}/${pathLink}${_urlParams}`}>
 				<img
 					className="ListBG-left"
 					alt="ListBG-left"

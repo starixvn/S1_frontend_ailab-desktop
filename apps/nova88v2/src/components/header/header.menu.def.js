@@ -9,7 +9,8 @@ import {
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
-	LinkOrBtn: "LinkOrBtn"
+	LinkOrBtn: "LinkOrBtn",
+	Url: "URL"
 };
 
 export const defMenuLinks = {
@@ -55,22 +56,6 @@ export const defMenuLinks = {
 				parameter: { ...productList.tennis },
 				...productList.tennis
 			},
-			// {
-			// 	displayKey: "lbl_Baseball",
-			// 	listNpcImgUrl: "baseballNPC.png",
-			// 	listBgImgUrl: "baseballBG.png",
-			// 	menuType: defMenuType.Link,
-			// 	parameter: { ...productList.baseball },
-			// 	...productList.baseball
-			// },
-			// {
-			// 	displayKey: "lbl_Volleyball",
-			// 	listNpcImgUrl: "volleyballNPC.png",
-			// 	listBgImgUrl: "volleyballBG.png",
-			// 	menuType: defMenuType.Link,
-			// 	parameter: { ...productList.volleyball },
-			// 	...productList.volleyball
-			// },
 			{
 				displayKey: "lbl_Cricket",
 				listNpcImgUrl: "cricketNPC.png",
@@ -86,49 +71,6 @@ export const defMenuLinks = {
 		path: path.sports.root,
 		displayKey: "lbl_eSports",
 		className: "eSportsbtn"
-		// subMenu: [
-		// 	{
-		// 		displayKey: "lbl_eSports",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		listNpcImgUrl: "esportALL.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		parameter: { ...productList.eSport },
-		// 		...productList.eSport
-		// 	},
-		// 	{
-		// 		displayKey: "lbl_Dota2",
-		// 		listNpcImgUrl: "esportDOTA2.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		parameter: { ...productList.eSport_Dota2 },
-		// 		...productList.eSport_Dota2
-		// 	},
-		// 	{
-		// 		displayKey: "lbl_LeagueOfLegends",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		listNpcImgUrl: "esportLOL.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		parameter: { ...productList.eSport_LeagueOfLegends },
-		// 		...productList.eSport_LeagueOfLegends
-		// 	},
-		// 	{
-		// 		displayKey: "lbl_CSGO",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		listNpcImgUrl: "esportCS.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		parameter: { ...productList.eSport_Csgo },
-		// 		...productList.eSport_Csgo
-		// 	},
-
-		// 	{
-		// 		displayKey: "lbl_Kog",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		listNpcImgUrl: "esportKOG.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		parameter: { ...productList.eSport_KingOfGlory },
-		// 		...productList.eSport_KingOfGlory
-		// 	}
-		// ]
 	},
 	casino: {
 		path: path.casino.root,
@@ -213,14 +155,6 @@ export const defMenuLinks = {
 				parameter: { ...productList.casino_PG },
 				...productList.casino_PG
 			},
-			// {
-			// 	className: "Kiss icon icon-new",
-			// 	icon: "icon icon-kiss",
-			// 	displayText: "918Kiss",
-			// 	menuType: defMenuType.LinkOrBtn,
-			// 	path: path["918kiss"].root,
-			// 	...productList.kiss918
-			// },
 			{
 				icon: "icon icon-OW",
 				displayText: "OW",
@@ -406,21 +340,6 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Paradise }
 			},
-			// {
-			// 	...productList.CQ9_LuckyFishing,
-			// 	className: "fsgw",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.cq9
-			// 		})
-			// 	],
-			// 	listNpcImgUrl: "luckyfishing.png",
-			// 	listBgImgUrl: "fishListHover.png",
-			// 	displayKey: "lbl_Lucky_Fishing",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.CQ9_Lucky_Fishing }
-			// },
 			{
 				...productList.CQ9_Oneshot_Fishing,
 				className: "fsgw",
@@ -436,36 +355,6 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Oneshot_Fishing }
 			},
-			// {
-			// 	...productList.CQ9_Water_Margin_Fishing,
-			// 	className: "fsgw",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.cq9
-			// 		})
-			// 	],
-			// 	listNpcImgUrl: "watermarginfishing.png",
-			// 	listBgImgUrl: "fishListHover.png",
-			// 	displayKey: "lbl_Water_Margin_Fishing",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.CQ9_Water_Margin_Fishing }
-			// },
-			// {
-			// 	...productList.CQ9_Thunder_Fighter,
-			// 	className: "fsgw",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.cq9
-			// 		})
-			// 	],
-			// 	listNpcImgUrl: "thunderfighter.png",
-			// 	listBgImgUrl: "fishListHover.png",
-			// 	displayKey: "lbl_Thunder_Fighter",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.CQ9_Thunder_Fighter }
-			// },
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf",
@@ -542,24 +431,45 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	// cockFighting: {
-	// 	productInfo: productList.cockFighting,
-	// 	displayKey: "lbl_CockFighting",
-	// 	className: "COCK"
-	// },
+	promotion: {
+		path: path.promotion.root,
+		displayKey: "lbl_Promotions"
+	},
+	tv: {
+		displayKey: "lbl_TV",
+		className: "tvbtn",
+		menuType: defMenuType.Link,
+		subMenu: [
+			{
+				displayKey: "lbl_TV",
+				listNpcImgUrl: "home-livesports.png",
+				listBgImgUrl: "livesportsbg.png",
+				menuType: defMenuType.Link,
+				path: path.streaming.root
+				// parameter: { ...productList.soccer },
+				// ...productList.soccer
+			},
+			{
+				displayKey: "lbl_Live_Streaming",
+				listNpcImgUrl: "home-movie.png",
+				listBgImgUrl: "moviebg.png",
+				menuType: defMenuType.Url,
+				path: "https://nova88tv.com/"
+				// parameter: { ...productList.sabaSoccer },
+				// ...productList.sabaSoccer
+			}
+		]
+	},
 	vip: {
 		path: path.vip.root,
 		displayKey: "lbl_Vip",
+		menuType: defMenuType.Link,
 		eventIcons: [
 			showEventIcon({
 				icon: defEventIcon.new,
 				period: defEventPeriod.vip
 			})
 		]
-	},
-	promotion: {
-		path: path.promotion.root,
-		displayKey: "lbl_Promotions"
 	},
 	ranking: {
 		path: path.leaderBoard.root,
@@ -579,5 +489,6 @@ export const defSubListClassName = {
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
 	lottery: "gameList",
-	fishing: "fishList"
+	fishing: "fishList",
+	tv: "tvList"
 };

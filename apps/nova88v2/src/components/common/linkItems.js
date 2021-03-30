@@ -21,6 +21,7 @@ export const getCurrentPage = () => {
 
 export default ({
 	defMenuLinks,
+	defMenuType,
 	t,
 	showSubMenu,
 	currentMenuKey,
@@ -226,7 +227,10 @@ export default ({
 				</Link>
 			);
 		}
-		if (_path) {
+
+		const _menuType = m.menuType ?? "";
+
+		if (_path || _menuType === defMenuType.Link) {
 			_className =
 				checkMatchPage && `${langId}/${_path}` === currentPage
 					? _className

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
-import { defMenuLinks } from "./header.menu.def";
+import { defMenuLinks, defMenuType } from "./header.menu.def";
 import LinkItems from "../common/linkItems";
 
 export default ({ showSubMenu, currentMenuKey, productTpIds }) => {
@@ -11,6 +11,7 @@ export default ({ showSubMenu, currentMenuKey, productTpIds }) => {
 	return (
 		<LinkItems
 			defMenuLinks={defMenuLinks}
+			defMenuType={defMenuType}
 			t={t}
 			showSubMenu={showSubMenu}
 			currentMenuKey={currentMenuKey}
