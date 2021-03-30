@@ -55,7 +55,7 @@ const Content = () => {
 	return (
 		<div className="infoModule">
 			<div className="inside-title icon icon-live_tv">
-				<span>{t("lbl_LiveStreaming")}</span>
+				<span>{t("lbl_Live_Streaming")}</span>
 			</div>
 			<div className="subModuleListColumn">
 				<Filter

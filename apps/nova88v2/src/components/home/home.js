@@ -32,7 +32,7 @@ import NpcTennisBG from "../../styles/img/tennisBG.jpg";
 import NpcESport from "../../styles/img/npc-esport.png";
 import NpcESportBG from "../../styles/img/esportBG.jpg";
 
-import IndexBannerCasino from "../../styles/img/indexBannerCasion.png";
+// import IndexBannerCasino from "../../styles/img/indexBannerCasion.png";
 import indexBannerAffiliate from "../../styles/img/indexBannerAffiliate.png";
 
 import Marquee from "./marquee";
@@ -45,7 +45,7 @@ import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
-import News from "./news";
+import { HomeNews } from "./homeNews";
 import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
 import LiveScore from "./liveScore";
@@ -478,7 +478,7 @@ const IndexPage = ({ location }) => {
 			</div>
 			<HotGameList t={t} userInfo={userInfo} />
 			<div className="newsVideo">
-				<News t={t} userInfo={userInfo} />
+				<HomeNews t={t} userInfo={userInfo} />
 				<Streaming />
 			</div>
 			<img

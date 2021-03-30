@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { Link, navigate } from "@reach/router";
+import PropTypes from "prop-types";
+import { navigate } from "@reach/router";
 import { popBoxContext } from "../common/context";
 import { api_news_GetNews } from "../../service/api/news";
 import defPopBoxType from "../common/defPopBoxType";
 import path from "../../router";
 
-export default ({ t, userInfo }) => {
+export const HomeNews = ({ t, userInfo }) => {
 	const { setPopBox } = useContext(popBoxContext);
-
 	const [getNews, setGetNews] = useState([]);
 	const isMountedRef = useRef(null);
 
@@ -49,7 +49,7 @@ export default ({ t, userInfo }) => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -80,7 +80,7 @@ export default ({ t, userInfo }) => {
 				<div
 					className="newsModule"
 					key={`index-news-${item.newsId}-${userInfo.langId}`}>
-					<img src={item.imageURL} />
+					<img src={item.imageURL} alt="news-img" />
 					{/* <img src={require(`../../styles/img/news01.jpg`)} /> */}
 					<div>
 						<div>{item.postTime.slice(0, 10)}</div>
@@ -101,11 +101,18 @@ export default ({ t, userInfo }) => {
 	});
 
 	return (
-		<>
-			<div className="newsList">
-				<div className="moduleTitle icon icon-news">SPORT NEWS</div>
-				{newsRows}
+		<div className="newsList">
+			<div className="moduleTitle icon icon-news">
+				{t("lbl_Sport_News")}
 			</div>
-		</>
+			{newsRows}
+		</div>
 	);
 };
+
+HomeNews.propTypes = {
+	t: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired
+};
+
+export default HomeNews;

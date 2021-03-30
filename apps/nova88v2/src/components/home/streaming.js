@@ -51,7 +51,7 @@ const Content = () => {
 	return (
 		<div className="liveTv">
 			<div className="moduleTitle icon icon-film">
-				{t("lbl_LiveStreaming")}
+				{t("lbl_Live_Streaming")}
 				<Link to={`/${userInfo.langId}/${path.streaming.root}`}>
 					{`${t("lbl_More")}...`}
 				</Link>
