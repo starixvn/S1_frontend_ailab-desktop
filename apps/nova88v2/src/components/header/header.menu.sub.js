@@ -278,6 +278,7 @@ ImgsRender.propTypes = {
 const SubContent = ({ menuKey, userInfo, t }) => {
 	const pathLink = defMenuLinks[menuKey].path;
 	if (menuKey === "poker") {
+		return null;
 		return (
 			<div>
 				<div>GET READY TO ENJOY</div>
