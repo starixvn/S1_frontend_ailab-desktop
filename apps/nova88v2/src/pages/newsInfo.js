@@ -3,11 +3,11 @@ import { Redirect } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import LeftMenu from "../components/common/leftMenu";
+// import LeftMenu from "../components/common/leftMenu";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { getUrlParameter } from "../components/common/common";
 import { api_news_GetNewsById } from "../service/api/news";
-import path from "../router";
+// import path from "../router";
 import Loading from "../components/common/loading";
 import { defPopBoxType } from "../components/common/popBox";
 
@@ -17,7 +17,7 @@ export default () => {
 			<Layout>
 				<main>
 					<section className="inside">
-						<LeftMenu />
+						{/* <LeftMenu /> */}
 						<div className="rightModule">
 							<Content />
 						</div>
@@ -91,7 +91,7 @@ const Content = () => {
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -122,7 +122,7 @@ const Content = () => {
 	) : redirectPath === null ? (
 		<div className="infoModule">
 			<a className="icon icon-arrow-left2" onClick={clickBack}>
-				{t("lbl_BackToNews")}
+				{t("lbl_Back")}
 			</a>
 			<article>
 				<img src={newsInfo.imageURL} alt={newsInfo.title} />
