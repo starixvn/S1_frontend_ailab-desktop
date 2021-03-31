@@ -29,7 +29,7 @@ const LatestVideo = () => {
 	return video?.link ? (
 		<div className="latestVideo">
 			<div className="moduleTitle icon icon-film">
-				{t("lbl_LatestHighlightVideo")}
+				{t("lbl_LatestHighlightVideo").toUpperCase()}
 			</div>
 			<iframe
 				width="100%"

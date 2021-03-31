@@ -480,7 +480,7 @@ const IndexPage = ({ location }) => {
 				<LatestVideo />
 				<div>
 					<div className="moduleTitle icon icon-upcomingmatches">
-						Upcoming Matches
+						{t("lbl_Upcoming_Matches").toUpperCase()}
 					</div>
 					<EventSwipper langId={userInfo.langId} />
 					<LiveScore langId={userInfo.langId} />
