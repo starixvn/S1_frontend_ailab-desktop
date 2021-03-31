@@ -612,6 +612,7 @@
 	"lbl_Titanium_Club": "ไททาเนียม คลับ",
 	"lbl_Diamond_Club": "ไดมอนด์ คลับ",
 	"lbl_Nova_Club": "โนวา คลับ",
+	"lbl_Club": "Club",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL":"FOOTBALL",
@@ -642,6 +643,8 @@
 	"lbl_VIP_Program":"โปรแกรม VIP",
 	"lbl_VIP_Program_desc":"ร่วมเป็นส่วนหนึ่งของเราเพื่อรับสิทธิประโยชน์และรางวัลสุดพิเศษ.",
 	"lbl_Live_Sport":"ถ่ายทอดสดแบบสตรีมมิ่ง",
+	"lbl_TV":"TV",
+	"lbl_Movie_TV":"Movie TV",
 	"lbl_LiveStreaming_desc":"รับชมการถ่ายทอดสดกีฬาทั่วโลกได้ตลอดเวลา",
 	"lbl_Customer_Support":"ฝ่ายบริการลูกค้า ",
 	"lbl_Customer_Support_desc":"สอบถามและพูดคุยกับฝ่ายบริการลูกค้าของเรา ",
@@ -681,7 +684,6 @@
 	"lbl_Brand_Ambassador":"NOVA88 แบรนด์แอมบาสเดอร์ 21/22",
 	"lbl_Former_Chelsea_Liverpool":"อดีตนักฟุตบอลของเชลซีและลิเวอร์พูล",
 	"lbl_England_International":"ทีมชาติอังกฤษ",
-	"lbl_Movie_TV":"Movie TV",
 	"lbl_Sport_News":"Sport News",
 	"lbl_Sportsbook":"Sportsbook",
 	"lbl_Promotion_Link_1":"Sportsbook",
@@ -690,6 +692,9 @@
 	"lbl_Promotion_Link_4":"Sportsbook",
 	"lbl_Back":"กลับ",
 	"lbl_LOL":"LOL",
-	
+	"lbl_Ambassador":"Ambassador",
+	"lbl_Promos":"Promos",
+
+
 	"end-----":"end-----"
 }

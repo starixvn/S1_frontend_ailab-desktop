@@ -9,11 +9,16 @@ import {
 } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
+import {
+	SET_ENTER_PAGE,
+	GET_OPEN_RULE,
+	OPEN_IN_BLANK
+} from "../../service/enterPage";
 
 import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.png";
 import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
+import productList from "../../datas/productList";
 
 export default ({ currentMenuKey, productTpIds }) => {
 	const { t } = useTranslation();
@@ -50,11 +55,11 @@ export default ({ currentMenuKey, productTpIds }) => {
 		}`;
 		let subMenu = [];
 
-		const subWithManyItems = !(
+		const isSubWithManyItems = !(
 			typeof defMenuLinks[menuKey]?.subMenu == "undefined"
 		);
 
-		if (subWithManyItems) {
+		if (isSubWithManyItems) {
 			subMenu = defMenuLinks[menuKey]?.subMenu;
 			if (
 				subMenu &&
@@ -74,10 +79,10 @@ export default ({ currentMenuKey, productTpIds }) => {
 			);
 		}
 
-		return subWithManyItems ? (
+		return isSubWithManyItems ? (
 			<div className={subClassName} key={`main-key-${menuKey}`}>
 				{subMenu?.map(subMenuItem => (
-					<SubMenuItem
+					<SubMenuItems
 						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
 						subMenuItem={subMenuItem}
 						clickItem={clickItem}
@@ -93,13 +98,13 @@ export default ({ currentMenuKey, productTpIds }) => {
 			</div>
 		) : (
 			<div className={subClassName} key={`main-key-${menuKey}`}>
-				<SubContent menuKey={menuKey} userInfo={userInfo} t={t} />
+				<SubSingleContent menuKey={menuKey} userInfo={userInfo} t={t} />
 			</div>
 		);
 	});
 };
 
-const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
+const SubMenuItems = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	const displayText = subMenuItem.displayText
 		? subMenuItem.displayText
 		: t(subMenuItem.displayKey);
@@ -238,7 +243,7 @@ const SubMenuItem = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	);
 };
 
-SubMenuItem.propTypes = {
+SubMenuItems.propTypes = {
 	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
 	clickItem: PropTypes.func.isRequired,
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
@@ -246,52 +251,49 @@ SubMenuItem.propTypes = {
 	menuKey: PropTypes.string.isRequired
 };
 
-const ImgsRender = ({ listImgUrl, className }) => {
-	if (typeof listImgUrl === "string" || listImgUrl instanceof String)
-		return (
-			<img
-				className={className}
-				alt="listImgUrl"
-				src={require(`../../styles/img/${listImgUrl}`)}
-			/>
-		);
-
-	if (Array.isArray(listImgUrl) && listImgUrl.length)
-		return listImgUrl.map(imgUrl => (
-			<img
-				key={`imgs-key-${imgUrl}`}
-				alt="listImgUrl"
-				className={className}
-				src={require(`../../styles/img/${imgUrl}`)}
-			/>
-		));
-
-	return null;
-};
-
-ImgsRender.propTypes = {
-	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
-		.isRequired,
-	className: PropTypes.string.isRequired
-};
-
-const SubContent = ({ menuKey, userInfo, t }) => {
+const SubSingleContent = ({ menuKey, userInfo, t }) => {
+	const { setPopBox } = useContext(popBoxContext);
 	const pathLink = defMenuLinks[menuKey].path;
+	const isAlreadyLogin = userInfo.isLogin;
+
+	const showLoginPopBox = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Login
+		});
+	};
+
 	if (menuKey === "poker") {
-		return null;
+		const rule = GET_OPEN_RULE(
+			userInfo.langId,
+			productList.poker.tpId,
+			null
+		);
+		const openNewWindow = () => {
+			isAlreadyLogin
+				? OPEN_IN_BLANK(rule.entPageUrl, rule.windowKey)
+				: showLoginPopBox();
+		};
+
+		const linkToPage = () => {
+			isAlreadyLogin
+				? navigate(`/${userInfo.langId}/${pathLink}`)
+				: showLoginPopBox();
+		};
+
 		return (
 			<div>
-				<div>GET READY TO ENJOY</div>
-				<div>
-					<span className="txt-orange">NOVA88</span> VIP PROGRAM
-				</div>
+				<div>MULTI TABLE</div>
+				<div>FUNCTION</div>
 				<div className="btnGroup">
-					<Link
-						className="lightblue"
-						to={`/${userInfo.langId}/${pathLink}`}>
-						UPGRADE AND JOIN NOW
-					</Link>
+					<button className="lightblue" onClick={openNewWindow}>
+						{t("lbl_GoToGame")}
+					</button>
+					<button className="lightblue" onClick={linkToPage}>
+						{t("lbl_Download")}
+					</button>
 				</div>
+				<div>1G Poker available now!</div>
 			</div>
 		);
 	}
@@ -324,4 +326,33 @@ const SubContent = ({ menuKey, userInfo, t }) => {
 		);
 	}
 	return <div />;
+};
+
+const ImgsRender = ({ listImgUrl, className }) => {
+	if (typeof listImgUrl === "string" || listImgUrl instanceof String)
+		return (
+			<img
+				className={className}
+				alt="listImgUrl"
+				src={require(`../../styles/img/${listImgUrl}`)}
+			/>
+		);
+
+	if (Array.isArray(listImgUrl) && listImgUrl.length)
+		return listImgUrl.map(imgUrl => (
+			<img
+				key={`imgs-key-${imgUrl}`}
+				alt="listImgUrl"
+				className={className}
+				src={require(`../../styles/img/${imgUrl}`)}
+			/>
+		));
+
+	return null;
+};
+
+ImgsRender.propTypes = {
+	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+		.isRequired,
+	className: PropTypes.string.isRequired
 };

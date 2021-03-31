@@ -55,6 +55,28 @@ export const defMenuLinks = {
 				listBgImgUrl: "moviebg.png",
 				menuType: defMenuType.DirectUrl,
 				path: "https://nova88tv.com/"
+			},
+			{
+				displayKey: "lbl_Referral",
+				listNpcImgUrl: "home-refer.png",
+				listBgImgUrl: "referbg.png",
+				menuType: defMenuType.LinkOrBtn,
+				path: path.referral.root,
+				needLogin: true
+			},
+			{
+				displayKey: "lbl_Ranking",
+				listNpcImgUrl: "home-ranking.png",
+				listBgImgUrl: "rankingbg.png",
+				menuType: defMenuType.Link,
+				path: path.leaderBoard.root
+			},
+			{
+				displayKey: "lbl_Ambassador",
+				listNpcImgUrl: "home-ambassador.png",
+				listBgImgUrl: "ambassadorbg.png",
+				menuType: defMenuType.DirectUrl,
+				path: "https://banner.n88media.com/JohnCole/index.html"
 			}
 		]
 	},
@@ -157,7 +179,7 @@ export const defMenuLinks = {
 	},
 	casino: {
 		path: path.casino.root,
-		displayKey: "lbl_Casino",
+		displayKey: "lbl_Slots",
 		className: "slotbtn",
 		filterByAuth: true,
 		subMenu: [
@@ -244,7 +266,7 @@ export const defMenuLinks = {
 		]
 	},
 	liveCasino: {
-		displayKey: "lbl_LiveCasino",
+		displayKey: "lbl_Casino",
 		className: "livecasinobtn",
 		filterByAuth: true,
 		subMenu: [
@@ -339,61 +361,8 @@ export const defMenuLinks = {
 		productInfo: productList.poker,
 		path: path.oneGame.root,
 		displayKey: "lbl_Poker",
-		className: "pokerbtn",
-		openPopBox: true
-	},
-	lottery: {
-		productInfo: productList.lottery,
-		displayKey: "lbl_Lottery",
-		className: "game",
-		filterByAuth: true,
-		subMenu: [
-			{
-				...productList.keno,
-				className: "keno",
-				displayKey: "lbl_Keno",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-keno.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.keno }
-			},
-			{
-				...productList.lottery,
-				className: "lottery",
-				displayKey: "lbl_Lottery",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-lottery.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.lottery }
-			},
-			{
-				...productList.numberGame,
-				path: path.sports.root,
-				className: "numberGame",
-				displayKey: "lbl_NumberGame",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-numberGame.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.numberGame }
-			},
-			{
-				...productList.tablegame,
-				displayKey: "lbl_TableGame",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-tableGame.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.tablegame }
-			},
-			{
-				...productList.indo4D,
-				className: "indo",
-				displayKey: "lbl_Indo4D",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-indo.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.indo4D }
-			}
-		]
+		className: "pokerbtn"
+		// openPopBox: true
 	},
 	fishing: {
 		// productInfo: productList.fishing,
@@ -477,9 +446,62 @@ export const defMenuLinks = {
 			}
 		]
 	},
+	lottery: {
+		productInfo: productList.lottery,
+		displayKey: "lbl_Lottery",
+		className: "game",
+		filterByAuth: true,
+		subMenu: [
+			{
+				...productList.keno,
+				className: "keno",
+				displayKey: "lbl_Keno",
+				menuType: defMenuType.LinkOrBtn,
+				listNpcImgUrl: "lo-keno.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.keno }
+			},
+			{
+				...productList.lottery,
+				className: "lottery",
+				displayKey: "lbl_Lottery",
+				menuType: defMenuType.LinkOrBtn,
+				listNpcImgUrl: "lo-lottery.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.lottery }
+			},
+			{
+				...productList.numberGame,
+				path: path.sports.root,
+				className: "numberGame",
+				displayKey: "lbl_NumberGame",
+				menuType: defMenuType.LinkOrBtn,
+				listNpcImgUrl: "lo-numberGame.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.numberGame }
+			},
+			{
+				...productList.tablegame,
+				displayKey: "lbl_TableGame",
+				menuType: defMenuType.LinkOrBtn,
+				listNpcImgUrl: "lo-tableGame.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.tablegame }
+			},
+			{
+				...productList.indo4D,
+				className: "indo",
+				displayKey: "lbl_Indo4D",
+				menuType: defMenuType.LinkOrBtn,
+				listNpcImgUrl: "lo-indo.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.indo4D }
+			}
+		]
+	},
 	promotion: {
 		path: path.promotion.root,
-		displayKey: "lbl_Promotions",
+		displayKey: "lbl_Promos",
 		className: "promobtn",
 		subMenu: [
 			{
@@ -505,7 +527,7 @@ export const defMenuLinks = {
 		]
 	},
 	tv: {
-		displayKey: "lbl_Movie_TV",
+		displayKey: "lbl_TV",
 		className: "tvbtn",
 		menuType: defMenuType.Link,
 		eventIcons: [

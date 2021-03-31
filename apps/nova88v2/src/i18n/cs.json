@@ -606,13 +606,13 @@
 	"lbl_Vip_Lifetime": "终身",
 	"lbl_Vip_Normal": "普通会员",
 	"lbl_Vip_ByInvitation": "邀请",
-	"lbl_Club": "俱乐部",
 	"lbl_Vintage_Club": "古铜",
 	"lbl_Silver_Club": "白银",
 	"lbl_Gold_Club": "黄金",
 	"lbl_Titanium_Club": "钛金",
 	"lbl_Diamond_Club": "钻石",
 	"lbl_Nova_Club": "欧亚",
+	"lbl_Club": "俱乐部",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL":"FOOTBALL",
@@ -643,6 +643,8 @@
 	"lbl_VIP_Program":"贵宾会所计划",
 	"lbl_VIP_Program_desc":"成为我们的尊贵会员以享有专属福利与超值回馈.",
 	"lbl_Live_Sport":"现场视频",
+	"lbl_TV":"TV",
+	"lbl_Movie_TV":"Movie TV",
 	"lbl_LiveStreaming_desc":"全天候无限制观看全球国际赛事直播",
 	"lbl_Customer_Support":"客户服务",
 	"lbl_Customer_Support_desc":"随时联系在线客服专员",
@@ -682,7 +684,6 @@
 	"lbl_Brand_Ambassador":"欧亚体育 21/22 品牌大使",
 	"lbl_Former_Chelsea_Liverpool":"切尔西 & 利物浦御用球员",
 	"lbl_England_International":"英格兰国际",
-	"lbl_Movie_TV":"Movie TV",
 	"lbl_Sport_News":"Sport News",
 	"lbl_Sportsbook":"Sportsbook",
 	"lbl_Promotion_Link_1":"Sportsbook",
@@ -691,6 +692,9 @@
 	"lbl_Promotion_Link_4":"Sportsbook",
 	"lbl_Back":"返回",
 	"lbl_LOL":"LOL",
+	"lbl_Ambassador":"Ambassador",
+	"lbl_Promos":"Promos",
+
 
 	"end-----":"end-----"
 }
