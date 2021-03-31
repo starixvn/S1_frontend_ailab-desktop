@@ -73,12 +73,27 @@ export default ({ t }) => {
 	return (
 		<div className="footerList">
 			<div>
+				<div className="title icon icon-friendreferral">
+					{t("lbl_Referral_Program")}
+				</div>
+				<div>{t("lbl_Referral_Program_desc")}</div>
+				<a href="">{t("lbl_PlayNow")}</a>
+				{defFooterList[1].map(item => {
+					return (
+						<div>
+							<div className="title">{t(item.title)}</div>
+							<div>{t(item.content)}</div>
+						</div>
+					);
+				})}
+			</div>
+			<div>
 				<div className="title icon icon-affiliate">
 					{t("lbl_Affiliate_Program")}
 				</div>
 				<div>{t("lbl_Affiliate_Program_desc")}</div>
 				<a href="">{t("lbl_JoinNow")}</a>
-				{defFooterList[1].map(item => {
+				{defFooterList[2].map(item => {
 					return (
 						<div>
 							<div className="title">{t(item.title)}</div>
@@ -93,37 +108,7 @@ export default ({ t }) => {
 				</div>
 				<div>{t("lbl_VIP_Program_desc")}</div>
 				<a href="">{t("lbl_Apply_Now")}</a>
-				{defFooterList[2].map(item => {
-					return (
-						<div>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					);
-				})}
-			</div>
-			<div>
-				<div className="title icon icon-friendreferral">
-					{t("lbl_Referral_Program")}
-				</div>
-				<div>{t("lbl_Referral_Program_desc")}</div>
-				<a href="">{t("lbl_PlayNow")}</a>
 				{defFooterList[3].map(item => {
-					return (
-						<div>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					);
-				})}
-			</div>
-			<div>
-				<div className="title icon icon-livechat1">
-					{t("lbl_Customer_Support")}
-				</div>
-				<div>{t("lbl_Customer_Support_desc")}</div>
-				<a href="">{t("lbl_Chat_Now")}</a>
-				{defFooterList[4].map(item => {
 					return (
 						<div>
 							<div className="title">{t(item.title)}</div>
@@ -138,6 +123,21 @@ export default ({ t }) => {
 				</div>
 				<div>{t("lbl_LiveStreaming_desc")}</div>
 				<a href="">{t("lbl_Watch_Now")}</a>
+				{defFooterList[4].map(item => {
+					return (
+						<div>
+							<div className="title">{t(item.title)}</div>
+							<div>{t(item.content)}</div>
+						</div>
+					);
+				})}
+			</div>
+			<div>
+				<div className="title icon icon-livechat1">
+					{t("lbl_Customer_Support")}
+				</div>
+				<div>{t("lbl_Customer_Support_desc")}</div>
+				<a href="">{t("lbl_Chat_Now")}</a>
 				{defFooterList[5].map(item => {
 					return (
 						<div>
