@@ -76,10 +76,8 @@ export const HomeNews = ({ t, userInfo }) => {
 
 	const newsRows = getNews.slice(0, 2).map((item, idx) => {
 		return (
-			<>
-				<div
-					className="newsModule"
-					key={`index-news-${item.newsId}-${userInfo.langId}`}>
+			<div key={`index-news-${item.newsId}-${userInfo.langId}`}>
+				<div className="newsModule">
 					<img src={item.imageURL} alt="news-img" />
 					<div>
 						<div>{item.postTime.slice(0, 10)}</div>
@@ -89,13 +87,13 @@ export const HomeNews = ({ t, userInfo }) => {
 							<button
 								className="lightblue"
 								onClick={clickToNews.bind(this, item.newsId)}>
-								{t("lbl_Read_more")}
+								{t("lbl_MoreDetails")}
 							</button>
 						</div>
 					</div>
 				</div>
-				{idx < 1 ? <div className="newsBorder" /> : null}
-			</>
+				{idx === 0 ? <div className="newsBorder" /> : null}
+			</div>
 		);
 	});
 
