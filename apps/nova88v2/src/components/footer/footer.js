@@ -47,7 +47,6 @@ const LicensesSection = ({ t }) => (
 		<div>
 			<div className="title">{t("lbl_Gaming_License")}</div>
 			{/* <img src={Licenses} /> */}
-			{/* {t("lbl_Gaming_License_desc")} */}
 		</div>
 		<div>
 			<iframe

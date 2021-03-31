@@ -110,6 +110,9 @@ const SubMenuItems = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 		? subMenuItem.displayText
 		: t(subMenuItem.displayKey);
 
+	const displayText2 = subMenuItem.displayText2 ?? null;
+	const displayText3 = subMenuItem.displayText3 ?? null;
+
 	let params = null;
 
 	if (subMenuItem.parameter) {
@@ -201,8 +204,8 @@ const SubMenuItems = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 		return (
 			<Link className={className} to={`/${userInfo.langId}/${pathLink}`}>
 				<div>{displayText}</div>
-				<div>100%</div>
-				<div>WELCOME BONUS</div>
+				<div>{displayText2}</div>
+				<div>{displayText3}</div>
 			</Link>
 		);
 	}

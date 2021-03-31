@@ -507,22 +507,30 @@ export const defMenuLinks = {
 			{
 				displayKey: "lbl_Promotion_Link_1",
 				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root
+				path: path.promotion.root,
+				displayText2: "100%",
+				displayText3: "WELCOME BONUS"
 			},
 			{
 				displayKey: "lbl_Promotion_Link_2",
 				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root
+				path: path.promotion.root,
+				displayText2: "10%",
+				displayText3: "RELOAD BONUS"
 			},
 			{
-				displayKey: "lbl_Promotion_Link_3",
+				displayKey: "lbl_LiveCasino",
 				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root
+				path: path.promotion.root,
+				displayText2: "100%",
+				displayText3: "WELCOME BONUS"
 			},
 			{
-				displayKey: "lbl_Promotion_Link_4",
+				displayKey: "lbl_Slots",
 				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root
+				path: path.promotion.root,
+				displayText2: "100%",
+				displayText3: "WELCOME BONUS"
 			}
 		]
 	},
