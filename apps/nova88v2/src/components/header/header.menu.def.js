@@ -43,14 +43,14 @@ export const defMenuLinks = {
 				path: path.vip.root
 			},
 			{
-				displayKey: "lbl_Live_Streaming",
+				displayKey: "lbl_Live_Sport",
 				listNpcImgUrl: "home-livesports.png",
 				listBgImgUrl: "livesportsbg.png",
 				menuType: defMenuType.Link,
 				path: path.streaming.root
 			},
 			{
-				displayKey: "lbl_TV",
+				displayKey: "lbl_Movie_TV",
 				listNpcImgUrl: "home-movie.png",
 				listBgImgUrl: "moviebg.png",
 				menuType: defMenuType.DirectUrl,
@@ -505,7 +505,7 @@ export const defMenuLinks = {
 		]
 	},
 	tv: {
-		displayKey: "lbl_TV",
+		displayKey: "lbl_Movie_TV",
 		className: "tvbtn",
 		menuType: defMenuType.Link,
 		eventIcons: [
@@ -516,14 +516,14 @@ export const defMenuLinks = {
 		],
 		subMenu: [
 			{
-				displayKey: "lbl_Live_Streaming",
+				displayKey: "lbl_Live_Sport",
 				listNpcImgUrl: "home-livesports.png",
 				listBgImgUrl: "livesportsbg.png",
 				menuType: defMenuType.Link,
 				path: path.streaming.root
 			},
 			{
-				displayKey: "lbl_TV",
+				displayKey: "lbl_Movie_TV",
 				listNpcImgUrl: "home-movie.png",
 				listBgImgUrl: "moviebg.png",
 				menuType: defMenuType.DirectUrl,
@@ -534,22 +534,22 @@ export const defMenuLinks = {
 	vip: {
 		path: path.vip.root,
 		displayKey: "lbl_Vip",
-		menuType: defMenuType.Link,
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.vip
-			})
-		]
+		menuType: defMenuType.Link
+		// eventIcons: [
+		// 	showEventIcon({
+		// 		icon: defEventIcon.new,
+		// 		period: defEventPeriod.vip
+		// 	})
+		// ]
 	},
 	ranking: {
 		path: path.leaderBoard.root,
-		displayKey: "lbl_Ranking",
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.live,
-				period: defEventPeriod.ranking
-			})
-		]
+		displayKey: "lbl_Ranking"
+		// eventIcons: [
+		// 	showEventIcon({
+		// 		icon: defEventIcon.live,
+		// 		period: defEventPeriod.ranking
+		// 	})
+		// ]
 	}
 };

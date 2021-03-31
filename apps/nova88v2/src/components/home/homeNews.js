@@ -74,7 +74,7 @@ export const HomeNews = ({ t, userInfo }) => {
 		navigate(`/${userInfo.langId}/${path.newsInfo.root}?newsId=${_newsId}`);
 	};
 
-	const newsRows = getNews.map((item, idx) => {
+	const newsRows = getNews.slice(0, 2).map((item, idx) => {
 		return (
 			<>
 				<div

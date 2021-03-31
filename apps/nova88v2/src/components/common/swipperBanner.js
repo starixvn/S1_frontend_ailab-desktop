@@ -153,7 +153,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 		);
 	});
 
-	return <AutoPlayWithBtn Rows={rows} className={className} />;
+	return <Autoplay Rows={rows} className={className} />;
 };
 
 Panel.defaultProps = {

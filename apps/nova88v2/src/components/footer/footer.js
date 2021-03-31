@@ -24,21 +24,21 @@ const CopyrightSection = ({ t, langId }) => (
 		<a href={TandC(langId).AboutUs} target="_blank" rel="noreferrer">
 			{t("lbl_AboutUs")}
 		</a>
-		<a onClick={openLiveChat}>{t("lbl_LiveChat")}</a>
+		{/* <a onClick={openLiveChat}>{t("lbl_LiveChat")}</a> */}
 		<a href={TandC(langId).ContactUs} target="_blank" rel="noreferrer">
 			{t("lbl_ContactUs")}
 		</a>
 		<a href={TandC(langId).Terms} target="_blank" rel="noreferrer">
 			{t("lbl_TermsConditions")}
 		</a>
-		<a
+		{/* <a
 			style={{ fontWeight: "bold" }}
 			href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
 			target="_blank"
 			rel="noreferrer">
 			{t("lbl_Affiliates")}
-		</a>
-		<span>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved.`}</span>
+		</a> */}
+		<span>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved. 21+`}</span>
 	</div>
 );
 
@@ -46,8 +46,8 @@ const LicensesSection = ({ t }) => (
 	<div className="license">
 		<div>
 			<div className="title">{t("lbl_Gaming_License")}</div>
-			<img src={Licenses} />
-			{t("lbl_Gaming_License_desc")}
+			{/* <img src={Licenses} /> */}
+			{/* {t("lbl_Gaming_License_desc")} */}
 		</div>
 		<div>
 			<iframe
@@ -61,10 +61,10 @@ const LicensesSection = ({ t }) => (
 			/>
 			<div>
 				<div>{t("lbl_JOE_COLE")}</div>
-				{/* <img
+				<img
 					src={require(`../../styles/img/joecole_w.png`)}
 					alt="joecole_w"
-				/> */}
+				/>
 				<div>{t("lbl_Brand_Ambassador")}</div>
 				<div>{t("lbl_Former_Chelsea_Liverpool")}</div>
 				<div>{t("lbl_England_International")}</div>
