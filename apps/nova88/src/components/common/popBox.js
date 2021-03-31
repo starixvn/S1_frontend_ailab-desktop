@@ -29,6 +29,7 @@ import SuccessAngPow from "./popBox.successAngPow";
 import OneGamingLink from "./popBox.oneGamingLink";
 import defPopBoxType from "./defPopBoxType";
 import RankingWinner from "./popBox.rankingWinner";
+import DepositUploadBankSlip from "./popBox.depositUploadBankSlip";
 import SuccessMySteryBox from "./popBox.successMySteryBox";
 
 export default () => {
@@ -46,8 +47,29 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.DepositUploadBankSlip: {
+			content = (
+				<DepositUploadBankSlip
+					t={popBox.t}
+					currencyId={popBox.currencyId}
+					langId={popBox.langId}
+					_isConvert={popBox._isConvert}
+					setPopBox={popBox.setPopBox}
+					formInfo={popBox.formInfo}
+					localBankInfo={popBox.localBankInfo}
+					resolve={popBox.resolve}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.Success:
-			content = <Success btnBar={popBox.btnBar} />;
+			content = (
+				<Success
+					btnBar={popBox.btnBar}
+					description={popBox.description}
+				/>
+			);
 			break;
 
 		case defPopBoxType.ErrorMsg:

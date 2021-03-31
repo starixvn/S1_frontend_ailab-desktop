@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
-import ButtonGroups from "./leaderBoard.btnGroups";
+import ButtonGroups from "./leaderBoard.btnGroup";
 import { defTabId, defPeriodId, defPeriodList } from "./leaderBoard.def";
 import { number_format } from "../common/common";
 

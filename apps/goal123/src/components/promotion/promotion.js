@@ -7,6 +7,7 @@ import { userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import useSpecialPromotion from "./hook/useSpecialPromotion";
 import usePrmotion from "./hook/usePromotion";
+import staticList from "../../datas/promotionList";
 import { isExpiry } from "./promotion.common";
 import { defPromotionType } from "./promotion.def";
 
@@ -119,6 +120,42 @@ export default () => {
 		};
 	});
 
+	const promotionStaticRows = staticList.map(p => {
+		return (
+			<div
+				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
+				<img
+					src={p.imgUrl?.[userInfo.langId]}
+					alt={p.title?.[userInfo.langId]}
+				/>
+				<div className="txt-darkBlue">{p.title?.[userInfo.langId]}</div>
+				<div className="txt-dark">{t("lbl_PromotionsDesc")}</div>
+				<div className="txt-gray">
+					{p.description?.[userInfo.langId]}
+				</div>
+
+				<div className="rollover">
+					<div>
+						<div className="icon icon-icon32px_">
+							{t("lbl_RollOver")}
+						</div>
+					</div>
+					<div className="txt-orange">
+						<div>0X</div>
+					</div>
+				</div>
+				<div
+					onClick={openStaticPromotion.bind(this, {
+						url: p.bannerLink?.[userInfo.langId],
+						bonusCode: p.bonusCode
+					})}
+					className="btnGroup">
+					<button className="blue">{t("lbl_Details")}</button>
+				</div>
+			</div>
+		);
+	});
+
 	const typeFilter = type => {
 		if (type === defFilterType.all)
 			return p => !isExpiry({ ...p, isLogin: userInfo.isLogin });
@@ -163,7 +200,6 @@ export default () => {
 				t={t}
 				userInfo={userInfo}
 				selected={filter}
-				userInfo={userInfo}
 				specialCode={specialCode}
 				setSpecialCode={setSpecialCode}
 				onSetSpecialCodeSubmit={onSetSpecialCodeSubmit}
@@ -185,10 +221,20 @@ export default () => {
 					filter={filter}
 					userInfo={userInfo}
 					promoList={afterFilterPromotionList}
+					staticPromotions={promotionStaticRows}
 					refreshProcessBar={refreshProcessBar}
 					afterJoinCallBack={getPromotionListV2}
 				/>
 			)}
 		</div>
+	);
+};
+
+const openStaticPromotion = ({ url, bonusCode }) => {
+	const windowKey = `static-promotion-${bonusCode}`;
+	window.open(
+		url,
+		windowKey,
+		"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
 	);
 };

@@ -36,6 +36,25 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.DepositUploadBankSlip: {
+			const DepositUploadBankSlip = lazy(() =>
+				import("./popBox.depositUploadBankSlip")
+			);
+
+			content = (
+				<DepositUploadBankSlip
+					t={popBox.t}
+					langId={popBox.langId}
+					_isConvert={popBox._isConvert}
+					setPopBox={popBox.setPopBox}
+					formInfo={popBox.formInfo}
+					localBankInfo={popBox.localBankInfo}
+					resolve={popBox.resolve}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.UploadBankSlip: {
 			const { isOpen, ...restProps } = popBox;
 			const UploadBankSlip = lazy(() =>
