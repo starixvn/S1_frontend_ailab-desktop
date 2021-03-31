@@ -39,17 +39,16 @@ const SubMenuSingle = ({ menuKey, userInfo, t }) => {
 
 		return (
 			<div>
-				<div>MULTI TABLE</div>
-				<div>FUNCTION</div>
+				<div>{t("lbl_BLUFF_RAISE_OR_CALL")}</div>
+				<div>{t("lbl_KEEP_CALM_GO_ALL_IN")}</div>
 				<div className="btnGroup">
 					<button className="lightblue" onClick={linkToPokerWeb}>
-						{t("lbl_GoToGame")}
+						{t("lbl_POKER_NOW")}
 					</button>
 					<button className="lightblue" onClick={linkToPokerRoot}>
-						{t("lbl_Download")}
+						{t("lbl_DOWNLOAD_APP_NOW")}
 					</button>
 				</div>
-				<div>1G Poker available now!</div>
 			</div>
 		);
 	}
