@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { defStreamingCategory } from "./defStreaming";
 import { api_video_GetLiveStreamingList } from "../../service/api/video";
 
-export const useGetVideo = ({ langId, isMounted }) => {
+export const useGetVideo = ({ langId }) => {
 	const [videoList, setVideoList] = useState([]);
 	const [selCategory, setSelCategory] = useState({
 		type: defStreamingCategory.FOOTBALL.type,
@@ -11,7 +11,7 @@ export const useGetVideo = ({ langId, isMounted }) => {
 
 	useEffect(() => {
 		api_video_GetLiveStreamingList(langId).then(res => {
-			if (isMounted && res.data.errorCode === 0) {
+			if (res.data.errorCode === 0) {
 				setVideoList(res.data.data);
 				setSelCategory(prev => ({
 					...prev,
@@ -19,7 +19,7 @@ export const useGetVideo = ({ langId, isMounted }) => {
 				}));
 			}
 		});
-	}, [langId, isMounted]);
+	}, [langId]);
 
 	const handleSelectCategory = type => {
 		setSelCategory({

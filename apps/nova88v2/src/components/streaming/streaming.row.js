@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
-import { useNavigate, Link } from "@reach/router";
+import { useNavigate } from "@reach/router";
 import config from "../../config";
 import path from "../../router";
 
@@ -21,13 +21,20 @@ export const StreamingModule = ({
 }) => {
 	const navigate = useNavigate();
 
-	const ClickLiveTv = () => {
+	const ClickLiveTv = (clickBtn, e) => {
+		e.stopPropagation();
 		if (isStreamingPage) {
-			window.open(
-				`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
-				`streaming-${channel}`,
-				"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
-			);
+			if (clickBtn) {
+				navigate(
+					`/${langId}/${path.sports.root}?tpId=1&gameId=1&matchId=${matchID}`
+				);
+			} else {
+				window.open(
+					`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
+					`streaming-${channel}`,
+					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
+				);
+			}
 		} else {
 			navigate(`/${langId}/${path.streaming.root}`);
 		}
@@ -36,7 +43,7 @@ export const StreamingModule = ({
 	return (
 		<div
 			className={`liveTvModule${nowPlaying ? " active" : ""}`}
-			onClick={ClickLiveTv}>
+			onClick={ClickLiveTv.bind(this, false)}>
 			<div className="title icon icon-youtube">{league}</div>
 			<div className="liveTvInfo">
 				<div>
@@ -56,11 +63,11 @@ export const StreamingModule = ({
 					</div>
 					{isStreamingPage ? (
 						<div className="btnGroup">
-							<Link
+							<button
 								className="lightblue"
-								to={`/${langId}/${path.sports.root}?tpId=1&gameId=1&matchId=${matchID}`}>
+								onClick={ClickLiveTv.bind(this, true)}>
 								{t("lbl_BetNow")?.toUpperCase()}
-							</Link>
+							</button>
 						</div>
 					) : null}
 				</div>
