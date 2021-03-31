@@ -1224,6 +1224,11 @@ main section > div .articleModule > div {
           flex: 0 0 calc(100% / 3 - 10px);
 }
 
+main > .swiper-container .swiper-slide img {
+  line-height: 0;
+  max-width: none;
+}
+
 footer {
   background: #0a132e;
 }
@@ -1832,6 +1837,7 @@ input[type="file"] {
 .btnGroup a.darkGray {
   background: #666;
   color: white;
+  cursor: auto;
 }
 
 .btnGroup button.yellow,
@@ -7085,6 +7091,548 @@ input + .iconModule i.icon.icon-checkmark:before {
   text-align: left;
 }
 
+.rankingNew {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+.rankingNew.baskballBg {
+  background: url(../img/ranking/baskballBg.png) no-repeat center top;
+}
+
+.rankingNew .cupImg {
+  position: absolute;
+  left: 16%;
+  bottom: 2%;
+  z-index: 1;
+  -webkit-animation: cupImg 2s ease-in-out infinite alternate;
+          animation: cupImg 2s ease-in-out infinite alternate;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+}
+
+@-webkit-keyframes cupImg {
+  0% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+
+@keyframes cupImg {
+  0% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+}
+
+.rankingNew .ballImg {
+  position: absolute;
+  left: 13%;
+  bottom: 2%;
+  z-index: 1;
+  -webkit-animation: ballImg 2s ease-in-out infinite alternate;
+          animation: ballImg 2s ease-in-out infinite alternate;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+@-webkit-keyframes ballImg {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    left: 13%;
+  }
+  100% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    left: 11%;
+  }
+}
+
+@keyframes ballImg {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    left: 13%;
+  }
+  100% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    left: 11%;
+  }
+}
+
+.rankingNew .bottomImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.rankingNew .rankContent {
+  min-width: 1000px;
+  position: relative;
+  z-index: 2;
+}
+
+.rankingNew .rankContent .rankBotton {
+  position: relative;
+}
+
+.rankingNew .rankContent .rankBotton::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: -20px;
+  width: 20px;
+  height: 350px;
+  border-radius: 5px 0 0 5px;
+  border-left: 1px solid #56ceff;
+  border-top: 1px solid #56ceff;
+  border-bottom: 1px solid #56ceff;
+}
+
+.rankingNew .rankContent .rankBotton > button {
+  width: 200px;
+  height: 50px;
+  border: 1px solid #56ceff;
+  color: #56ceff;
+  border-radius: 5px;
+  margin-right: 10px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  background-color: rgba(45, 50, 75, 0.4);
+  text-transform: uppercase;
+}
+
+.rankingNew .rankContent .rankBotton > button.active {
+  background-color: #56ceff;
+  color: #070e22;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+}
+
+.rankingNew .rankContent .rankBotton > button:hover {
+  background-color: #56ceff;
+  color: #070e22;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+}
+
+.rankingNew .rankContent .rankBox {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox {
+  width: 49%;
+  height: 600px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #56ceff;
+  background-color: rgba(45, 50, 75, 0.4);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-align: center;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .finalBtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  padding: 5px 10px;
+  color: #56ceff;
+  font-weight: bold;
+  border: 1px solid #56ceff;
+  background-color: rgba(45, 50, 75, 0.4);
+  border-radius: 3px;
+  -webkit-animation: finalBtn 0.5s ease-in-out infinite alternate;
+          animation: finalBtn 0.5s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes finalBtn {
+  to {
+    opacity: 0.5;
+  }
+  from {
+    opacity: 1;
+  }
+}
+
+@keyframes finalBtn {
+  to {
+    opacity: 0.5;
+  }
+  from {
+    opacity: 1;
+  }
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .finalBtn.active {
+  border-radius: 3px;
+  border: 1px solid #56ceff;
+  background-color: #56ceff;
+  color: #2d324b;
+  -webkit-animation: none;
+          animation: none;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .icon-nodata {
+  font-size: 20px;
+  line-height: 430px;
+  color: #ff5722;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .title {
+  font-size: 30px;
+  color: #56ceff;
+  text-align: center;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .textBox {
+  text-align: center;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .rankTag .btnGroup > button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #56ceff;
+  background-color: rgba(45, 50, 75, 0.4);
+  font-weight: inherit;
+  color: #56ceff;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .rankTag .btnGroup > button:hover {
+  background-color: #56ceff;
+  color: #070e22;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .rankTag .btnGroup > button.active {
+  background-color: #56ceff;
+  color: #070e22;
+  font-weight: bold;
+  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #003b44;
+  width: calc(100% - 20px);
+  height: 10px;
+  border-radius: 30px;
+  margin: 69px 0 35px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div {
+  width: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  text-align: left;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #19a4bb;
+  border-radius: 30px;
+  display: block;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(2) > div {
+  background: #19a4bb;
+  z-index: 2;
+  margin-left: -125px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(2) > div:before {
+  border-color: transparent transparent transparent #19a4bb;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(3) > div {
+  background: #288894;
+  z-index: 1;
+  margin-left: -70px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(3) > div:before {
+  border-color: transparent transparent transparent #288894;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(4) > div {
+  margin-left: -35px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div > div {
+  position: absolute;
+  bottom: 15px;
+  line-height: normal;
+  padding: 5px 40px 5px 40px;
+  background: #003b44;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  margin-left: -100px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div > div:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 24px 0 24px 15px;
+  border-color: transparent transparent transparent #003b44;
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .timeLine > div > div > div {
+  color: #fab617;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist {
+  margin: 20px 0;
+  position: relative;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist > div {
+  display: none;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist > div.active {
+  display: block;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 380px;
+  overflow: auto;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul::-webkit-scrollbar {
+  width: 0px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 206, 255, 0.5)), to(rgba(86, 206, 255, 0)));
+  background: linear-gradient(0deg, rgba(86, 206, 255, 0.5), rgba(86, 206, 255, 0));
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul.event {
+  height: 450px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: transparent;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: auto;
+  margin-bottom: 10px;
+  height: 40px;
+  border: 1px solid #56ceff;
+  border-radius: 5px;
+  padding: 0 0 0 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 5px 0;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li:nth-child(1) {
+  border: 0;
+  margin: 0;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.no1 {
+  border: 1px solid #ffdd33;
+  background-color: rgba(255, 216, 100, 0.1);
+  height: 60px;
+  padding: 10px 0;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.no2 {
+  border: 1px solid #cbe5ff;
+  background-color: rgba(203, 229, 255, 0.1);
+  height: 60px;
+  padding: 10px 0;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.no3 {
+  border: 1px solid #ffa64d;
+  background-color: rgba(255, 166, 77, 0.1);
+  height: 60px;
+  padding: 10px 0;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.myInRank {
+  background-color: #56ceff;
+  color: #070e22;
+  -webkit-box-shadow: 0px 0px 10px #56ceff;
+          box-shadow: 0px 0px 10px #56ceff;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.myRank {
+  width: 100%;
+  background-color: #56ceff;
+  position: absolute;
+  bottom: -50px;
+  border-radius: 0 0 3px 3px;
+  color: #070e22;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div:nth-child(1) {
+  width: 10%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div:nth-child(2) {
+  width: 35%;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div:nth-last-child(1) {
+  width: 55%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  padding-right: 15px;
+  white-space: initial;
+  text-align: right;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div img {
+  margin-right: 10px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .remind {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox .remind.btn {
+  color: #56ceff;
+  cursor: pointer;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox.rankInBox2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox.rankInBox2 p {
+  font-size: 18px;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox.rankInBox2 h1 {
+  color: #ffd13c;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.rankingNew .rankContent .rankBox .rankInBox.rankInBox2 img {
+  width: 80%;
+}
+
+.rankingNew .rankContent .rankBox .quickSelect > div {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
 .errorPage {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7782,7 +8330,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-  width: 800px;
+  max-width: 800px;
 }
 
 .pop .upload_new .title {
@@ -7886,7 +8434,22 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle {
-  width: 120px;
+  width: 160px;
+  white-space: nowrap;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle i {
+  color: #56ceff;
+  margin-right: 3px;
+}
+
+.subModuleListColumn > .subModule > .subModuleContent {
+  width: calc(100% - 200px);
+  margin-left: 35px;
+}
+
+.subModuleListColumn > .subModule > .subModuleContent ol li {
+  list-style: decimal;
 }
 
 .subModuleListColumn > .subModule > div {
@@ -7895,7 +8458,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: calc(100% - 157px);
+  width: calc(100% - 180px);
 }
 
 .subModuleListColumn > .subModule > div > button,
@@ -7912,7 +8475,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           align-items: center;
   margin-bottom: 15px;
   color: white;
-  width: 220px;
+  width: 215px;
   position: relative;
 }
 
@@ -7985,7 +8548,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .subModuleListColumn > .subModule > div > button.active > div,
 .subModuleListColumn > .subModule > div > a.active > div {
-  color: #56ceff;
+  color: #fff;
 }
 
 .subModuleListColumn > .subModule > div > button.active > div:first-child,
@@ -8016,12 +8579,16 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn > .subModule > div > a:hover > div:nth-child(n + 2) {
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  color: #56ceff;
 }
 
 .subModuleListColumn > .subModule .column .inputBox-white {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  width: 300px;
+}
+
+.subModuleListColumn > .subModule .column .inputBox-white input::-webkit-input-placeholder {
+  text-align: right;
 }
 
 .subModuleListColumn > .subModule .column .inputBox-white + .tip {
@@ -8031,10 +8598,16 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn > .subModule .inputBox-white {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  text-align: end;
+  width: 300px;
+}
+
+.subModuleListColumn > .subModule .inputBox-white input::-webkit-input-placeholder {
+  text-align: right;
 }
 
 .subModuleListColumn > .subModule .inputBox-white + .tip {
-  margin-left: 135px;
+  margin-left: 175px;
 }
 
 .subModuleListColumn > .subModule .inputBox-white > i {
@@ -8046,11 +8619,17 @@ input + .iconModule i.icon.icon-checkmark:before {
   border: 0;
   color: white;
   outline: none;
-  padding: 0 10px;
+  text-align: right;
+}
+
+.subModuleListColumn > .subModule .inputBox-white .iconModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .subModuleListColumn > .subModule .inputBox-white .iconModule .icon,
-.subModuleListColumn > .subModule .inputBox-white i:not(.icon) {
+.subModuleListColumn > .subModule .inputBox-white .iconModule i:not(.icon) {
   color: #1fbdfd;
 }
 
@@ -8139,6 +8718,15 @@ input + .iconModule i.icon.icon-checkmark:before {
   text-align: center;
 }
 
+@media (max-width: 800px) {
+  .upload_new {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-flow: column !important;
+            flex-flow: column !important;
+  }
+}
+
 .upload_new .checkBankSlip {
   max-width: unset;
   min-width: unset;
@@ -8167,6 +8755,18 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+}
+
+@media (max-width: 800px) {
+  .upload_new .checkBankSlip:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px dotted #1fbdfd;
+    padding-right: 0;
+    margin-bottom: 30px;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
 }
 
 .upload_new .checkBankSlip ul {
@@ -8203,7 +8803,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   background-color: rgba(255, 255, 255, 0);
   color: white;
   outline: none;
-  padding: 0 10px;
 }
 
 .inputBox-white .iconModule .icon,
