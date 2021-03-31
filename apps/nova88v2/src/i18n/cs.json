@@ -624,7 +624,8 @@
 	"lbl_Streaming_BADMINTON":"BADMINTON",
 	"lbl_Streaming_VOLLEYBALL":"VOLLEYBALL",
 	"lbl_BetNow":"Bet Now",
-	"lbl_Streaming_NoData":"No LIVE STREAMING available now,please try again later.",
+	"lbl_Streaming_NoData1":"暂无现场视频，",
+	"lbl_Streaming_NoData2":"请稍后再试。",
 	"lbl_More":"More",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
