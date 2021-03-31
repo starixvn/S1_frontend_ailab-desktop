@@ -81,7 +81,7 @@ const LicensesSection = ({ t }) => (
 const PromoteSection = ({ t }) => (
 	<div className="sfp">
 		<div>
-			<div className="title">{t("lbl_SocialMedia")}</div>
+			<div className="title">{t("lbl_Follow_Us")}</div>
 			<div>
 				<a href="">
 					<img src={require(`../../styles/img/fb.png`)} alt="fb" />
@@ -98,24 +98,14 @@ const PromoteSection = ({ t }) => (
 			</div>
 		</div>
 		<div>
-			<div className="title">{t("lbl_Follow_Us")}</div>
+			<div className="title">{t("lbl_Suggested_Browser")}</div>
 			<div>
-				<a href="">
-					<img
-						src={require(`../../styles/img/gg.png`)}
-						alt="chrome"
-					/>
-				</a>
-				<a href="">
-					<img
-						src={require(`../../styles/img/ff.png`)}
-						alt="FireFox"
-					/>
-				</a>
+				<img src={require(`../../styles/img/gg.png`)} alt="chrome" />
+				<img src={require(`../../styles/img/ff.png`)} alt="FireFox" />
 			</div>
 		</div>
 		<div>
-			<div className="title">{t("lbl_PaymentMethods")}</div>
+			<div className="title">{t("lbl_Payment_Method")}</div>
 			<div>
 				<button>
 					<img src={`${config.imgUrl}/common/images/logo/h2p.png`} />

@@ -634,7 +634,7 @@
 		
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LiveChat":"Live Chat",
-	"lbl_PaymentMethods": "ช่องทางการฝากเงิน",
+	"lbl_Payment_Method": "ช่องทางการฝากเงิน",
 	"lbl_Follow_Us": "Follow Us",
 	"lbl_Referral_Program":"โปรแกรมแนะนำ",
 	"lbl_Referral_Program_desc":"แนะนำเพื่อนและรับรางวัลของคุณ",
@@ -694,7 +694,13 @@
 	"lbl_LOL":"LOL",
 	"lbl_Ambassador":"Ambassador",
 	"lbl_Promos":"Promos",
-
+	"lbl_Suggested_Browser":"Suggested Browser",
+	"lbl_Read_more":"Read more",
+	"lbl_VIP_CLUB":"VIP คลับ",
+	"lbl_EARN_EXCLUSIVE_VIP_BENEFIT":"รับสิทธิประโยชน์ของ VIP สุดพิเศษ",
+	"lbl_JOIN_US_NOW":"เข้าร่วมกับเราตอนนี้ ",
+	"lbl_THE_WORLD_CLASS_LEADERBOARD":"ลีดเดอร์บอร์ดระดับโลก",
+	"lbl_Bring_you_the_best_experience":"นำประสบการณ์ที่ดีที่สุดมาให้คุณและของรางวัลมากมายกำลังรอคุณอยู่!",
 
 	"end-----":"end-----"
 }

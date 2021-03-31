@@ -19,13 +19,14 @@ import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.p
 import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 import productList from "../../datas/productList";
+import path from "../../router";
 
 export default ({ currentMenuKey, productTpIds }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
-	const clickItem = ({ tpId, gameId, needLogin, path }) => {
+	const clickItem = ({ tpId, gameId, needLogin, _path }) => {
 		const handleCallBack = () => {
 			setPopBox({
 				isOpen: true,
@@ -33,10 +34,10 @@ export default ({ currentMenuKey, productTpIds }) => {
 			});
 		};
 
-		if (path)
+		if (_path)
 			return needLogin && !userInfo.isLogin
 				? handleCallBack()
-				: navigate(`/${userInfo.langId}/${path}`);
+				: navigate(`/${userInfo.langId}/${_path}`);
 
 		return SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
@@ -254,7 +255,6 @@ SubMenuItems.propTypes = {
 const SubSingleContent = ({ menuKey, userInfo, t }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const pathLink = defMenuLinks[menuKey].path;
-	const isAlreadyLogin = userInfo.isLogin;
 
 	const showLoginPopBox = () => {
 		setPopBox({
@@ -269,15 +269,15 @@ const SubSingleContent = ({ menuKey, userInfo, t }) => {
 			productList.poker.tpId,
 			null
 		);
-		const openNewWindow = () => {
-			isAlreadyLogin
+		const linkToPokerWeb = () => {
+			userInfo.isLogin
 				? OPEN_IN_BLANK(rule.entPageUrl, rule.windowKey)
 				: showLoginPopBox();
 		};
 
-		const linkToPage = () => {
-			isAlreadyLogin
-				? navigate(`/${userInfo.langId}/${pathLink}`)
+		const linkToPokerRoot = () => {
+			userInfo.isLogin
+				? navigate(`/${userInfo.langId}/${path.oneGame.root}`)
 				: showLoginPopBox();
 		};
 
@@ -286,10 +286,10 @@ const SubSingleContent = ({ menuKey, userInfo, t }) => {
 				<div>MULTI TABLE</div>
 				<div>FUNCTION</div>
 				<div className="btnGroup">
-					<button className="lightblue" onClick={openNewWindow}>
+					<button className="lightblue" onClick={linkToPokerWeb}>
 						{t("lbl_GoToGame")}
 					</button>
-					<button className="lightblue" onClick={linkToPage}>
+					<button className="lightblue" onClick={linkToPokerRoot}>
 						{t("lbl_Download")}
 					</button>
 				</div>
@@ -300,15 +300,17 @@ const SubSingleContent = ({ menuKey, userInfo, t }) => {
 	if (menuKey === "vip") {
 		return (
 			<div>
-				<div>GET READY TO ENJOY</div>
+				<div>{t("lbl_VIP_CLUB")}</div>
 				<div>
-					<span className="txt-orange">NOVA88</span> VIP PROGRAM
+					<span className="txt-orange">
+						{t("lbl_EARN_EXCLUSIVE_VIP_BENEFIT")}
+					</span>
 				</div>
 				<div className="btnGroup">
 					<Link
 						className="lightblue"
 						to={`/${userInfo.langId}/${pathLink}`}>
-						UPGRADE AND JOIN NOW
+						{t("lbl_JOIN_US_NOW")}
 					</Link>
 				</div>
 			</div>
@@ -317,11 +319,8 @@ const SubSingleContent = ({ menuKey, userInfo, t }) => {
 	if (menuKey === "ranking") {
 		return (
 			<div>
-				<div>
-					<div>THE world's most Advanced</div>
-					<div className="txt-orange">Ranking</div>
-					<div>The higher you rank, the bigger the prize!</div>
-				</div>
+				<div>{t("lbl_THE_WORLD_CLASS_LEADERBOARD")}</div>
+				<div>{t("lbl_Bring_you_the_best_experience")}</div>
 			</div>
 		);
 	}

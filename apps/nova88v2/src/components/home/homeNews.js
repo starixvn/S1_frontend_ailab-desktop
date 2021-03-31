@@ -81,7 +81,6 @@ export const HomeNews = ({ t, userInfo }) => {
 					className="newsModule"
 					key={`index-news-${item.newsId}-${userInfo.langId}`}>
 					<img src={item.imageURL} alt="news-img" />
-					{/* <img src={require(`../../styles/img/news01.jpg`)} /> */}
 					<div>
 						<div>{item.postTime.slice(0, 10)}</div>
 						<div>{item.title}</div>
@@ -90,7 +89,7 @@ export const HomeNews = ({ t, userInfo }) => {
 							<button
 								className="lightblue"
 								onClick={clickToNews.bind(this, item.newsId)}>
-								{t("lbl_MoreDetails")}
+								{t("lbl_Read_more")}
 							</button>
 						</div>
 					</div>

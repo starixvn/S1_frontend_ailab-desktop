@@ -634,7 +634,7 @@
 	
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LiveChat":"Live Chat",
-	"lbl_PaymentMethods": "付款方式",
+	"lbl_Payment_Method": "付款方式",
 	"lbl_Follow_Us": "Follow Us",
 	"lbl_Referral_Program":"代理计划",
 	"lbl_Referral_Program_desc":"引领您迈向成功的伙伴",
@@ -694,7 +694,13 @@
 	"lbl_LOL":"LOL",
 	"lbl_Ambassador":"Ambassador",
 	"lbl_Promos":"Promos",
-
+	"lbl_Suggested_Browser":"Suggested Browser",
+	"lbl_Read_more":"Read more",
+	"lbl_VIP_CLUB":"尊贵配套",
+	"lbl_EARN_EXCLUSIVE_VIP_BENEFIT":"赚取专属尊贵福利",
+	"lbl_JOIN_US_NOW":"立即加入我们",
+	"lbl_THE_WORLD_CLASS_LEADERBOARD":"世界级排行榜",
+	"lbl_Bring_you_the_best_experience":"带给您盛世体验以及更多丰厚奖励等您领取！",
 
 	"end-----":"end-----"
 }

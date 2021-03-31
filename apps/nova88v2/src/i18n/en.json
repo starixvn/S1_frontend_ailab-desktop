@@ -634,7 +634,7 @@
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LiveChat":"Live Chat",
-	"lbl_PaymentMethods": "Payment methods",
+	"lbl_Payment_Method": "Payment Method",
 	"lbl_Follow_Us": "Follow Us",
 	"lbl_Referral_Program":"Referral Program",
 	"lbl_Referral_Program_desc":"Refer someone and start earning your rewards.",
@@ -694,6 +694,13 @@
 	"lbl_LOL":"LOL",
 	"lbl_Ambassador":"Ambassador",
 	"lbl_Promos":"Promos",
+	"lbl_Suggested_Browser":"Suggested Browser",
+	"lbl_Read_more":"Read more",
+	"lbl_VIP_CLUB":"VIP CLUB",
+	"lbl_EARN_EXCLUSIVE_VIP_BENEFIT":"EARN EXCLUSIVE VIP BENEFIT",
+	"lbl_JOIN_US_NOW":"JOIN US NOW",
+	"lbl_THE_WORLD_CLASS_LEADERBOARD":"THE WORLD CLASS LEADERBOARD",
+	"lbl_Bring_you_the_best_experience":"Bring you the best experience ever & lots of prizes are waiting for you!",
 
 
 	"end-----":"end-----"

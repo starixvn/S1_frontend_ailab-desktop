@@ -358,8 +358,8 @@ export const defMenuLinks = {
 		]
 	},
 	poker: {
-		productInfo: productList.poker,
-		path: path.oneGame.root,
+		// productInfo: productList.poker,
+		// path: path.oneGame.root,
 		displayKey: "lbl_Poker",
 		className: "pokerbtn"
 		// openPopBox: true
