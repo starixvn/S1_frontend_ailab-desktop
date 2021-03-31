@@ -17,6 +17,8 @@ import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
 import SwipperBanner from "../common/swipperBanner";
 
+import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
+
 import NpcSoccer from "../../styles/img/npc-soccer.png";
 import NpcSoccerBG from "../../styles/img/soccerBG.jpg";
 
@@ -491,7 +493,7 @@ const IndexPage = ({ location }) => {
 			</div>
 			<img
 				className="indexCenterBanner"
-				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner_${userInfo.langId}.jpg`}
+				src={indexCenterBanner}
 				alt="IndexCenterBanner"
 			/>
 			<SideBarQuickLink />

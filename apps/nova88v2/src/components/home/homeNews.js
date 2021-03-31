@@ -94,7 +94,7 @@ export const HomeNews = ({ t, userInfo }) => {
 						</div>
 					</div>
 				</div>
-				{idx < 2 ? <div className="newsBorder" /> : null}
+				{idx < 1 ? <div className="newsBorder" /> : null}
 			</>
 		);
 	});
