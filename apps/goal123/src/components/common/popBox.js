@@ -26,7 +26,8 @@ export const defPopBoxType = {
 	PromotionAmountConfirm: "PromotionAmountConfirm",
 	SuccessAngPow: "SuccessAngPow",
 	SuccessMySteryBox: "SuccessMySteryBox",
-	JoinReferral: "JoinReferral"
+	JoinReferral: "JoinReferral",
+	DepositUploadBankSlip: "DepositUploadBankSlip"
 };
 
 export default () => {
@@ -46,6 +47,23 @@ export default () => {
 				import("./popBox.uploadBankSlip")
 			);
 			content = <UploadBankSlip {...restProps} />;
+			break;
+		}
+
+		case defPopBoxType.DepositUploadBankSlip: {
+			const DepositUploadBankSlip = lazy(() =>
+				import("./popBox.depositUploadBankSlip")
+			);
+			content = (
+				<DepositUploadBankSlip
+					t={popBox.t}
+					langId={popBox.langId}
+					setPopBox={popBox.setPopBox}
+					formInfo={popBox.formInfo}
+					localBankInfo={popBox.localBankInfo}
+					resolve={popBox.resolve}
+				/>
+			);
 			break;
 		}
 

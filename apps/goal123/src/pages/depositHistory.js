@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { popBoxContext } from "../components/common/context";
-import { TransactionHistory } from "../components/deposit/deposit.historyResult";
+import { popBoxContext, userInfoContext } from "../components/common/context";
+import { TransactionHistory } from "../components/depositnew/deposit.historyResult";
 import { defPopBoxType } from "../components/common/popBox";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Filter from "../components/common/historyFilter";
-
 import LeftMenu from "../components/common/leftMenu";
 import Loading from "../components/common/loading";
 import ReloadSpin from "../components/common/reloadSpin";
@@ -16,6 +15,9 @@ import {
 	api_payment_GetDepositInfoHistory,
 	api_payment_SetDepositCancel
 } from "../service/api/payment";
+
+import useDeposit from "../components/depositnew/hook/useDeposit";
+import useDepositLocalBank from "../components/depositnew/hook/useDepositLocalBank";
 
 export default () => {
 	return (
@@ -45,8 +47,15 @@ const Content = () => {
 		totalPages: 0,
 		currentPage: 1
 	});
+
+	const { userInfo } = useContext(userInfoContext);
+
 	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
+
+	const { asyncUploadBankPopBox } = useDeposit({ isMountedRef });
+
+	const { uploadLocalBankReceipt } = useDepositLocalBank({ isMountedRef });
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -59,7 +68,7 @@ const Content = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const GetDepositInfoHistory = (transactionData, pageNumber) => {
+	const GetDepositInfoHistory = (transactionData, pageNumber) =>
 		api_payment_GetDepositInfoHistory({
 			...transactionData,
 			PageNumber: pageNumber
@@ -91,7 +100,7 @@ const Content = () => {
 					setProcessing(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -111,9 +120,8 @@ const Content = () => {
 				}
 			}
 		);
-	};
 
-	const clickDateSubmit = (startDate, endDate, isUnix, quickPick) => {
+	const updateHistoryList = (startDate, endDate, isUnix, quickPick) => {
 		if (!processing) {
 			setProcessing(true);
 			let transactionData = filterData;
@@ -137,28 +145,39 @@ const Content = () => {
 		}
 	};
 
-	const SubmitProof = (
-		bankInfo,
-		depositRep,
-		amount,
-		transId,
-		picFileName,
-		refId
-	) => {
-		const { currencyId, ...restBankInfo } = bankInfo;
+	const SubmitProof = async (bankInfo, depositRep, transId, picFileName) => {
+		const { bankName } = bankInfo;
 		const { accountName, accountNo } = depositRep;
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.UploadBankSlip,
-			depositTime: `${moment().format()}`,
-			...restBankInfo,
-			transId,
-			accountNo,
-			accountName,
-			amount,
-			picFileName,
-			refId
+
+		const uploadPopBoxResult = await asyncUploadBankPopBox({
+			formInfo: {
+				imgFile: {
+					name: picFileName
+				}
+			},
+			localBankInfo: {
+				bankName,
+				accountNo,
+				accountName,
+				transId
+			},
+			langId: userInfo.langId
 		});
+
+		if (uploadPopBoxResult.success) {
+			const {
+				datas: { depositImgFiles }
+			} = uploadPopBoxResult;
+
+			if (!depositImgFiles.file) return;
+
+			await uploadLocalBankReceipt({
+				imgFile: depositImgFiles.file,
+				transId
+			});
+
+			updateHistoryList(filterData?.StartDate, filterData?.EndDate, true);
+		}
 	};
 
 	const ClickCancel = transId => {
@@ -248,10 +267,8 @@ const Content = () => {
 					this,
 					item.bankInfo,
 					item.depositRep,
-					item.amount,
 					item.transId,
-					item.picFileName,
-					item.refId
+					item.picFileName
 				)}
 			/>
 		);
@@ -264,7 +281,7 @@ const Content = () => {
 			<div className="inside-title icon icon-icon32px_History">
 				<span>{t("lbl_DepositHistory")}</span>
 			</div>
-			<Filter submitHandler={clickDateSubmit} keepData={keepData} />
+			<Filter submitHandler={updateHistoryList} keepData={keepData} />
 
 			{getHistory ? (
 				<div className="list history">
@@ -281,7 +298,7 @@ const Content = () => {
 						<div>
 							{t("lbl_Action")}
 							<ReloadSpin
-								func={clickDateSubmit.bind(
+								func={updateHistoryList.bind(
 									this,
 									filterData?.StartDate,
 									filterData?.EndDate

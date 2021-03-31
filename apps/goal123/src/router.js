@@ -17,19 +17,22 @@ export default {
 	liveCasino: {
 		root: "liveCasino"
 	},
+	// deposit: {
+	// 	root: "deposit",
+	// 	sub: {
+	// 		onlineBank: {
+	// 			root: "onlineBank"
+	// 		},
+	// 		mobilePay: {
+	// 			root: "mobilePay"
+	// 		},
+	// 		localBank: {
+	// 			root: "localBank"
+	// 		}
+	// 	}
+	// },
 	deposit: {
-		root: "deposit",
-		sub: {
-			onlineBank: {
-				root: "onlineBank"
-			},
-			mobilePay: {
-				root: "mobilePay"
-			},
-			localBank: {
-				root: "localBank"
-			}
-		}
+		root: "deposit"
 	},
 	depositHistory: {
 		root: "depositHistory"

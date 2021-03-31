@@ -36,7 +36,7 @@ export default props => {
 				</div>
 				<form className="inputModuleRow" onSubmit={props.clickSubmit}>
 					<Inputbox
-						className="inputBox-white"
+						className="inputBox"
 						title={props.i18n("lbl_Amount")}
 						value={props.amount}
 						onChange={props.onChange}

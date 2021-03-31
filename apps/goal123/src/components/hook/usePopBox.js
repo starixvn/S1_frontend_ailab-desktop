@@ -31,7 +31,7 @@ const usePopBox = () => {
 		});
 	};
 
-	return { closePopBox, errorPopBox };
+	return { closePopBox, errorPopBox, setPopBox };
 };
 
 export default usePopBox;
