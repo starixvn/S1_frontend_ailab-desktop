@@ -43,7 +43,7 @@ export const defMenuLinks = {
 				path: path.vip.root
 			},
 			{
-				displayKey: "lbl_Live_Sport",
+				displayKey: "lbl_Live_Sports",
 				listNpcImgUrl: "home-livesports.png",
 				listBgImgUrl: "livesportsbg.png",
 				menuType: defMenuType.Link,
@@ -546,7 +546,7 @@ export const defMenuLinks = {
 		],
 		subMenu: [
 			{
-				displayKey: "lbl_Live_Sport",
+				displayKey: "lbl_Live_Sports",
 				listNpcImgUrl: "home-livesports.png",
 				listBgImgUrl: "livesportsbg.png",
 				menuType: defMenuType.Link,

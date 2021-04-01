@@ -629,11 +629,11 @@
 	"lbl_More":"More",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo":"Latest Highlight Video",
+	"lbl_LatestHighlightVideo":"LATEST HIGHLIGHT VIDEO",
 	"lbl_LiveScore":"Live Score",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Upcoming_Matches":"Upcoming Matches",
+	"lbl_UPCOMING_MATCHES":"UPCOMING MATCHES",
 	"lbl_LiveChat":"Live Chat",
 	"lbl_Payment_Method": "Payment Method",
 	"lbl_Follow_Us": "Follow Us",
@@ -643,7 +643,7 @@
 	"lbl_Affiliate_Program_desc":"Your Partner to success.",
 	"lbl_VIP_Program":"VIP Program",
 	"lbl_VIP_Program_desc":"Be a part of us, to enjoy exclusive benefit and rewards.",
-	"lbl_Live_Sport":"Live Sports",
+	"lbl_Live_Sports":"Live Sports",
 	"lbl_TV":"TV",
 	"lbl_Movie_TV":"Movie TV",
 	"lbl_LiveStreaming_desc":"Watch worldwide live sports broadcast at anytime.",
@@ -684,12 +684,10 @@
 	"lbl_Brand_Ambassador":"Brand Ambassador 2021/22",
 	"lbl_Former_Chelsea_Liverpool":"Former Chelsea & Liverpool",
 	"lbl_England_International":"England International",
-	"lbl_Sport_News":"Sport News",
+	"lbl_SPORT_NEWS":"SPORT NEWS",
 	"lbl_Sportsbook":"Sportsbook",
 	"lbl_Promotion_Link_1":"Sportsbook",
 	"lbl_Promotion_Link_2":"Sportsbook",
-	"lbl_Promotion_Link_3":"Sportsbook",
-	"lbl_Promotion_Link_4":"Sportsbook",
 	"lbl_Back":"Back",
 	"lbl_LOL":"LOL",
 	"lbl_Ambassador":"Ambassador",
@@ -705,6 +703,7 @@
 	"lbl_KEEP_CALM_GO_ALL_IN":"KEEP CALM & GO ALL IN!",
 	"lbl_POKER_NOW":"POKER NOW",
 	"lbl_DOWNLOAD_APP_NOW":"DOWNLOAD APP NOW",
+	"lbl_HOT_GAMES":"HOT GAMES",
 
 	"end-----":"end-----"
 }

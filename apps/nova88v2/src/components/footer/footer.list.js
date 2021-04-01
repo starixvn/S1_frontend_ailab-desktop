@@ -119,7 +119,7 @@ export default ({ t }) => {
 			</div>
 			<div>
 				<div className="title icon icon-live_tv">
-					{t("lbl_Live_Sport")}
+					{t("lbl_Live_Sports")}
 				</div>
 				<div>{t("lbl_LiveStreaming_desc")}</div>
 				<a href="">{t("lbl_Watch_Now")}</a>

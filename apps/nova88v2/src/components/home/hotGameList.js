@@ -193,7 +193,9 @@ export default ({ t, userInfo }) => {
 
 	return Rows && Rows.length > 0 ? (
 		<>
-			<div className="moduleTitle icon icon-mediafire">Hot Games</div>
+			<div className="moduleTitle icon icon-mediafire">
+				{t("lbl_HOT_GAMES")}
+			</div>
 			{/* <div className="hotGame"> */}
 			<div className="hotGame">
 				<div className="swiper-container promosSwiper">

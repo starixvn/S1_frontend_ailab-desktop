@@ -100,7 +100,7 @@ export const HomeNews = ({ t, userInfo }) => {
 	return (
 		<div className="newsList">
 			<div className="moduleTitle icon icon-news">
-				{t("lbl_Sport_News")}
+				{t("lbl_SPORT_NEWS")}
 			</div>
 			{newsRows}
 		</div>
