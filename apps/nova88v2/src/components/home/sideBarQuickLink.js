@@ -69,6 +69,7 @@ export default () => {
 	const iconList = defIconList.map(_icon => {
 		return (
 			<a
+				key={`sidebar-link-${_icon.id}`}
 				onClick={getIconAction.bind(this, _icon.id)}
 				target="_blank"
 				rel="noreferrer"
