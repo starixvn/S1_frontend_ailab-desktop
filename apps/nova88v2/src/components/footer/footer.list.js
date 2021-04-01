@@ -77,7 +77,10 @@ export default ({ t }) => {
 					{t("lbl_Referral_Program")}
 				</div>
 				<div>{t("lbl_Referral_Program_desc")}</div>
-				<a href="">{t("lbl_PlayNow")}</a>
+				<a href="">
+					{t("lbl_PlayNow")}
+					{" >"}
+				</a>
 				{defFooterList[1].map(item => {
 					return (
 						<div>
@@ -92,7 +95,10 @@ export default ({ t }) => {
 					{t("lbl_Affiliate_Program")}
 				</div>
 				<div>{t("lbl_Affiliate_Program_desc")}</div>
-				<a href="">{t("lbl_JoinNow")}</a>
+				<a href="">
+					{t("lbl_JoinNow")}
+					{" >"}
+				</a>
 				{defFooterList[2].map(item => {
 					return (
 						<div>
@@ -107,7 +113,10 @@ export default ({ t }) => {
 					{t("lbl_VIP_Program")}
 				</div>
 				<div>{t("lbl_VIP_Program_desc")}</div>
-				<a href="">{t("lbl_Apply_Now")}</a>
+				<a href="">
+					{t("lbl_Apply_Now")}
+					{" >"}
+				</a>
 				{defFooterList[3].map(item => {
 					return (
 						<div>
@@ -122,7 +131,10 @@ export default ({ t }) => {
 					{t("lbl_Live_Sports")}
 				</div>
 				<div>{t("lbl_LiveStreaming_desc")}</div>
-				<a href="">{t("lbl_Watch_Now")}</a>
+				<a href="">
+					{t("lbl_Watch_Now")}
+					{" >"}
+				</a>
 				{defFooterList[4].map(item => {
 					return (
 						<div>
@@ -137,7 +149,10 @@ export default ({ t }) => {
 					{t("lbl_Customer_Support")}
 				</div>
 				<div>{t("lbl_Customer_Support_desc")}</div>
-				<a href="">{t("lbl_Chat_Now")}</a>
+				<a href="">
+					{t("lbl_Chat_Now")}
+					{" >"}
+				</a>
 				{defFooterList[5].map(item => {
 					return (
 						<div>
