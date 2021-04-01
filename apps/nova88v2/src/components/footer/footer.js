@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
+import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import TandC from "../../service/t_and_c";
-import { userInfoContext } from "../common/context";
-import config from "../../config";
+import { userInfoContext, popBoxContext } from "../common/context";
+import config, { SiteInfo } from "../../config";
 import PlatformSection from "./footer.platform";
-import FooterListSection from "./footer.list";
+import ProductSection from "./footer.product";
 import ImgLicense from "../../styles/img/licenses.png";
+import { defFooterProductList } from "./footer.def";
+import path from "../../router";
+import defPopBoxType from "../common/defPopBoxType";
 
 const CopyrightSection = ({ t, langId }) => (
 	<div className="copyright">
@@ -57,7 +61,7 @@ const LicensesSection = ({ t }) => (
 	</div>
 );
 
-const PromoteSection = ({ t }) => (
+const FollowUsSection = ({ t }) => (
 	<div className="sfp">
 		<div>
 			<div className="title">{t("lbl_Follow_Us")}</div>
@@ -100,6 +104,21 @@ const PromoteSection = ({ t }) => (
 export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
+	const { setPopBox } = useContext(popBoxContext);
+
+	const openLiveChat = () => {
+		window.LiveChatWidget.call("maximize");
+	};
+
+	const linkToReferral = () => {
+		console.log("xxxx");
+		userInfo.isLogin
+			? navigate(`/${userInfo.langId}/${path.referral.root}`)
+			: setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login
+			  });
+	};
 
 	return (
 		<footer id="footer">
@@ -110,9 +129,17 @@ export default ({ productTpIds }) => {
 				isLogin={userInfo.isLogin}
 				productTpIds={productTpIds}
 			/>
-			<FooterListSection t={t} langId={userInfo.langId} />
+			<ProductSection
+				t={t}
+				defFooterProductList={defFooterProductList}
+				path={path}
+				SiteInfo={SiteInfo}
+				langId={userInfo.langId}
+				linkToReferral={linkToReferral}
+				openLiveChat={openLiveChat}
+			/>
 			<LicensesSection t={t} />
-			<PromoteSection t={t} />
+			<FollowUsSection t={t} />
 		</footer>
 	);
 };

@@ -23,10 +23,10 @@ function SEO({ description, lang, meta, title }) {
 		.filter(p => p !== "");
 
 	let metaData = defMetaData["/"];
-	let _title = metaData?.[lang].title ?? "";
-	let _keyword = metaData?.[lang].keyword ?? "";
-	let _description = metaData?.[lang].description ?? "";
-	let links = metaData?.[lang].links ?? [];
+	let _title = metaData?.[lang]?.title ?? "";
+	let _keyword = metaData?.[lang]?.keyword ?? "";
+	let _description = metaData?.[lang]?.description ?? "";
+	let links = metaData?.[lang]?.links ?? [];
 	if (
 		location.length >= 2 &&
 		supportedLanguages.includes(location[0]) &&
