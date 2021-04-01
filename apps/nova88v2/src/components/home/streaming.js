@@ -50,7 +50,7 @@ const Content = () => {
 
 	return (
 		<div className="liveTv">
-			<div className="moduleTitle icon icon-film">
+			<div className="moduleTitle icon icon-live_tv">
 				{t("lbl_Live_Sports").toUpperCase()}
 				<Link to={`/${userInfo.langId}/${path.streaming.root}`}>
 					{`${t("lbl_More")}...`}

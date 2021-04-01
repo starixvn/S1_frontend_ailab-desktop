@@ -4,7 +4,7 @@ import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import TandC from "../../service/t_and_c";
 import { userInfoContext, popBoxContext } from "../common/context";
-import config, { SiteInfo } from "../../config";
+import { SiteInfo } from "../../config";
 import PlatformSection from "./footer.platform";
 import ProductSection from "./footer.product";
 import { defFooterProductList } from "./footer.def";
@@ -20,6 +20,8 @@ import ImgTW from "../../styles/img/tw.png";
 import ImgYT from "../../styles/img/yt.png";
 import ImgChrome from "../../styles/img/gg.png";
 import ImgFireFox from "../../styles/img/ff.png";
+import ImgHP from "../../styles/img/hp.png";
+import ImgEZ from "../../styles/img/ez.png";
 
 const CopyrightSection = ({ t, langId }) => (
 	<div className="copyright">
@@ -105,14 +107,8 @@ const FollowUsSection = ({ t }) => (
 		<div>
 			<div className="title">{t("lbl_Payment_Method")}</div>
 			<div>
-				<img
-					src={`${config.imgUrl}/common/images/logo/h2p.png`}
-					alt="payment-h2p"
-				/>
-				<img
-					src={`${config.imgUrl}/common/images/logo/ep.png`}
-					alt="payment-ep"
-				/>
+				<img src={ImgHP} alt="payment-h2p" />
+				<img src={ImgEZ} alt="payment-ep" />
 			</div>
 		</div>
 	</div>
@@ -173,8 +169,12 @@ FollowUsSection.propTypes = {
 	t: PropTypes.func.isRequired
 };
 
+Footer.defaultProps = {
+	productTpIds: null
+};
+
 Footer.propTypes = {
-	productTpIds: PropTypes.arrayOf(PropTypes.object).isRequired
+	productTpIds: PropTypes.arrayOf(PropTypes.any)
 };
 
 export default Footer;

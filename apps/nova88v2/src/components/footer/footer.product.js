@@ -107,7 +107,7 @@ export const FooterProduct = ({
 };
 FooterProduct.propTypes = {
 	t: PropTypes.func.isRequired,
-	defFooterProductList: PropTypes.arrayOf(PropTypes.object).isRequired,
+	defFooterProductList: PropTypes.objectOf(PropTypes.any).isRequired,
 	path: PropTypes.objectOf(PropTypes.any).isRequired,
 	SiteInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	langId: PropTypes.string.isRequired,
