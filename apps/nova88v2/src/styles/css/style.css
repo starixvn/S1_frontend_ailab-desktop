@@ -493,13 +493,15 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .promoList > div, .header > div.menu .subMenu-Wrapper-new .promoList > a {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   width: 200px;
+  padding: 50px 0;
   color: #7591C1;
   text-align: center;
   font-weight: bold;
+  height: auto;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .header > div.menu .subMenu-Wrapper-new .promoList > div > div:nth-child(1), .header > div.menu .subMenu-Wrapper-new .promoList > a > div:nth-child(1) {
@@ -513,6 +515,23 @@ header {
 
 .header > div.menu .subMenu-Wrapper-new .promoList > div > div:nth-child(3), .header > div.menu .subMenu-Wrapper-new .promoList > a > div:nth-child(3) {
   color: #5574A7;
+}
+
+.header > div.menu .subMenu-Wrapper-new .promoList > div > div.txt-orange, .header > div.menu .subMenu-Wrapper-new .promoList > a > div.txt-orange {
+  display: none;
+  font-size: 24px;
+  position: absolute;
+  line-height: 24px;
+  padding-top: 30px;
+}
+
+.header > div.menu .subMenu-Wrapper-new .promoList > div:hover > div, .header > div.menu .subMenu-Wrapper-new .promoList > a:hover > div {
+  opacity: 0.2;
+}
+
+.header > div.menu .subMenu-Wrapper-new .promoList > div:hover > div.txt-orange, .header > div.menu .subMenu-Wrapper-new .promoList > a:hover > div.txt-orange {
+  display: block;
+  opacity: 1;
 }
 
 .header > div.menu .subMenu-Wrapper {
@@ -2654,19 +2673,19 @@ input[type="file"] {
 }
 
 .swiper-pagination {
-  padding: 0 calc((100% - 1560px) / 2);
-  text-align: right;
-  max-width: 1560px;
+  text-align: center;
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-  border: 1px solid #f77900;
+  width: 10px;
   opacity: 1;
-  background: transparent;
+  background: -webkit-gradient(linear, left top, left bottom, from(#95aacf), to(#bdcbe2));
+  background: linear-gradient(to bottom, #95aacf, #bdcbe2);
+  border-radius: 10px;
 }
 
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: #f77900;
+  width: 30px;
 }
 
 #Marquee {
@@ -2714,7 +2733,6 @@ input[type="file"] {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding-left: 20px;
 }
 
 #Marquee .marquee-box .marquee-run button {
@@ -2749,159 +2767,6 @@ input[type="file"] {
 
 #Marquee .mq-btn button.active {
   background: #1E85EC;
-}
-
-.quickLink {
-  position: fixed;
-  right: -10px;
-  top: 15%;
-  z-index: 3;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  width: 215px;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-transform: translateX(77%);
-          transform: translateX(77%);
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  padding-right: 10px;
-  pointer-events: none;
-  cursor: pointer;
-}
-
-.quickLink > div:nth-child(1) {
-  background: #134DAE;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 0 10px 10px;
-  -webkit-box-flex: 0.5;
-      -ms-flex: 0.5;
-          flex: 0.5;
-  height: 200px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  position: relative;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  pointer-events: all;
-}
-
-.quickLink > div:nth-child(1) .icon-chat {
-  background: white;
-  color: #1E85EC;
-  font-weight: bold;
-  position: absolute;
-  width: 43px;
-  height: 43px;
-  left: 0;
-  font-size: 18px;
-  z-index: 1;
-  top: 0;
-}
-
-.quickLink > div:nth-child(1) i {
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 200px;
-  height: 43px;
-  letter-spacing: 1px;
-}
-
-.quickLink > div:nth-child(2) {
-  background: #fff;
-  -webkit-box-flex: 3.5;
-      -ms-flex: 3.5;
-          flex: 3.5;
-  padding: 5px 10px;
-  border-bottom-left-radius: 10px;
-  pointer-events: all;
-}
-
-.quickLink > div:nth-child(2) ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100%;
-}
-
-.quickLink > div:nth-child(2) ul li {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  line-height: 42px;
-  color: #666;
-}
-
-.quickLink > div:nth-child(2) ul li.icon:before {
-  background: #666;
-  color: #fff;
-  width: 20px;
-  height: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 3px;
-  margin-right: 5px;
-  font-size: 12px;
-}
-
-.quickLink > div:nth-child(2) ul li.icon-facebook2:before {
-  color: #666;
-  background: transparent;
-  font-size: 19px;
-}
-
-.quickLink > div:nth-child(2) ul li.icon-whatsapp, .quickLink > div:nth-child(2) ul li.icon-line {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin-bottom: 10px;
-}
-
-.quickLink > div:nth-child(2) ul li.icon-whatsapp > div, .quickLink > div:nth-child(2) ul li.icon-line > div {
-  margin-left: 30px;
-  line-height: 24px;
-}
-
-.quickLink > div:nth-child(2) ul li a {
-  color: #666;
-}
-
-.quickLink.active {
-  -webkit-transform: translateX(0%);
-          transform: translateX(0%);
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
 }
 
 .eventLink {
@@ -10565,7 +10430,7 @@ canvas {
 }
 
 .newIndex main #Marquee .marquee-box.icon:before {
-  background: url(../img/marqueeboxbg.png) no-repeat center/auto 100%;
+  background: url(../img/marqueeboxbg.png) no-repeat left center/auto 100%;
   content: '';
   color: white;
   width: 90px;
@@ -10622,6 +10487,16 @@ canvas {
   line-height: normal;
   background: url(../img/promosbg.jpg) no-repeat center/cover;
   min-width: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .newIndex main .hotGame .swiper-container .swiper-wrapper > div .title, .newIndex main .promos .swiper-container .swiper-wrapper > div .title {
@@ -10665,15 +10540,13 @@ canvas {
 }
 
 .newIndex main .hotGame .swiper-container .swiper-wrapper > div > div {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
   margin: 0 0 10px 10px;
   color: #949494;
+  text-align: left;
 }
 
 .newIndex main .hotGame .swiper-container .swiper-wrapper > div > div .title {
@@ -10687,7 +10560,7 @@ canvas {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  margin: auto;
+  margin: auto 10px auto 0;
 }
 
 .newIndex main .liveVideo, .newIndex main .newsVideo {
@@ -10714,7 +10587,7 @@ canvas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   overflow: hidden;
   color: #949494;
@@ -10724,12 +10597,13 @@ canvas {
 .newIndex main .liveVideo .latestVideo .newsModule img, .newIndex main .liveVideo .newsList .newsModule img, .newIndex main .newsVideo .latestVideo .newsModule img, .newIndex main .newsVideo .newsList .newsModule img {
   height: auto;
   max-width: 260px;
+  max-height: 150px;
 }
 
 .newIndex main .liveVideo .latestVideo .newsModule .lightblue, .newIndex main .liveVideo .newsList .newsModule .lightblue, .newIndex main .newsVideo .latestVideo .newsModule .lightblue, .newIndex main .newsVideo .newsList .newsModule .lightblue {
   font-weight: normal;
   border-radius: 5px;
-  margin: 10px 5px 0 0;
+  margin: 5px 0;
 }
 
 .newIndex main .liveVideo .latestVideo .newsModule > div, .newIndex main .liveVideo .newsList .newsModule > div, .newIndex main .newsVideo .latestVideo .newsModule > div, .newIndex main .newsVideo .newsList .newsModule > div {
@@ -10748,7 +10622,7 @@ canvas {
 }
 
 .newIndex main .liveVideo .latestVideo .newsModule > div > div, .newIndex main .liveVideo .newsList .newsModule > div > div, .newIndex main .newsVideo .latestVideo .newsModule > div > div, .newIndex main .newsVideo .newsList .newsModule > div > div {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -10756,6 +10630,7 @@ canvas {
   -webkit-box-orient: vertical;
   white-space: normal;
   display: -webkit-box;
+  margin: 0 0 3px;
 }
 
 .newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(1), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(1), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(1), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(1) {
@@ -10842,6 +10717,7 @@ canvas {
           align-items: center;
   font-size: 14px;
   text-align: right;
+  height: 120px;
 }
 
 .newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
@@ -10894,9 +10770,10 @@ canvas {
 }
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button {
-  background: #acc1e0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f4f7fb), color-stop(20%, #aec3e2), color-stop(70%, #e2eaf4), to(white));
+  background: linear-gradient(to bottom, #f4f7fb, #aec3e2 20%, #e2eaf4 70%, white);
   border-radius: 5px;
-  border: 1px solid transparent;
+  border: 1px solid #BFCCE2;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -10904,7 +10781,7 @@ canvas {
   margin: 0 0 7px;
   color: #7591C1;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10912,11 +10789,12 @@ canvas {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  line-height: 32px;
 }
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
   font-weight: normal;
-  font-size: 32px;
+  font-size: 24px;
 }
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
@@ -10953,7 +10831,7 @@ canvas {
 }
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 100%;
 }
 
@@ -10983,7 +10861,7 @@ canvas {
 }
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
-  height: 100%;
+  height: calc(100% - 7px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11034,6 +10912,8 @@ canvas {
   background: url(../img/livetvtitlebg.png) no-repeat center/75% 100%;
   color: white;
   position: relative;
+  font-size: 12px;
+  line-height: 20px;
 }
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
@@ -11174,6 +11054,7 @@ canvas {
   display: -ms-flexbox;
   display: flex;
   background: url(../img/licensebg.png) no-repeat bottom right;
+  margin-top: 20px;
 }
 
 .newIndex #footer .license > div:nth-child(1) {
@@ -11300,6 +11181,16 @@ canvas {
 
 .newIndex #footer .footerList > div > div.title + div {
   margin: 10px 0;
+  height: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .newIndex #footer .footerList > div > div.title:before {
@@ -11321,8 +11212,8 @@ canvas {
   transition: 0.6s;
   padding: 10px;
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 255, 255, 0.3)));
-  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.3));
+  background: -webkit-gradient(linear, left top, left bottom, from(#d9ebfb), to(white));
+  background: linear-gradient(to bottom, #d9ebfb, white);
   color: #7591C1;
   font-weight: bold;
   display: -webkit-box;

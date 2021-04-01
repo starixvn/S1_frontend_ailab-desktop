@@ -1,43 +1,23 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import TandC from "../../service/t_and_c";
-// import Responsibility1 from "../../styles/img/responsibility1.png";
-// import Responsibility2 from "../../styles/img/responsibility2.png";
-import Licenses from "../../styles/img/licenses.png";
-// import Security from "../../styles/img/security.png";
-// import {
-// 	defSportsBetting_Section1,
-// 	defSportsBetting_Section2
-// } from "./footer.def";
-import LinkItems from "../common/linkItems";
 import { userInfoContext } from "../common/context";
-import config, { SiteInfo } from "../../config";
+import config from "../../config";
 import PlatformSection from "./footer.platform";
 import FooterListSection from "./footer.list";
-
-const openLiveChat = () => {
-	window.LiveChatWidget.call("maximize");
-};
+import ImgLicense from "../../styles/img/licenses.png";
 
 const CopyrightSection = ({ t, langId }) => (
 	<div className="copyright">
 		<a href={TandC(langId).AboutUs} target="_blank" rel="noreferrer">
 			{t("lbl_AboutUs")}
 		</a>
-		{/* <a onClick={openLiveChat}>{t("lbl_LiveChat")}</a> */}
 		<a href={TandC(langId).ContactUs} target="_blank" rel="noreferrer">
 			{t("lbl_ContactUs")}
 		</a>
 		<a href={TandC(langId).Terms} target="_blank" rel="noreferrer">
 			{t("lbl_TermsConditions")}
 		</a>
-		{/* <a
-			style={{ fontWeight: "bold" }}
-			href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
-			target="_blank"
-			rel="noreferrer">
-			{t("lbl_Affiliates")}
-		</a> */}
 		<span>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved. 21+`}</span>
 	</div>
 );
@@ -46,7 +26,7 @@ const LicensesSection = ({ t }) => (
 	<div className="license">
 		<div>
 			<div className="title">{t("lbl_Gaming_License")}</div>
-			{/* <img src={Licenses} /> */}
+			<img src={ImgLicense} />
 		</div>
 		<div>
 			<iframe
