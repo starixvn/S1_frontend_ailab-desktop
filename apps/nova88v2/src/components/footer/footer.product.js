@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default ({
+export const FooterProduct = ({
 	t,
 	defFooterProductList,
 	path,
@@ -104,3 +105,14 @@ export default ({
 		</div>
 	);
 };
+FooterProduct.propTypes = {
+	t: PropTypes.func.isRequired,
+	defFooterProductList: PropTypes.arrayOf(PropTypes.object).isRequired,
+	path: PropTypes.objectOf(PropTypes.any).isRequired,
+	SiteInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	langId: PropTypes.string.isRequired,
+	linkToReferral: PropTypes.func.isRequired,
+	openLiveChat: PropTypes.func.isRequired
+};
+
+export default FooterProduct;

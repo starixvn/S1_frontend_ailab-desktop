@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import TandC from "../../service/t_and_c";
@@ -6,10 +7,19 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import config, { SiteInfo } from "../../config";
 import PlatformSection from "./footer.platform";
 import ProductSection from "./footer.product";
-import ImgLicense from "../../styles/img/licenses.png";
 import { defFooterProductList } from "./footer.def";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
+
+import ImgLicense from "../../styles/img/licenses.png";
+import ImgJoeColeSignature from "../../styles/img/joecole_w.png";
+import ImgJoeColePhoto from "../../styles/img/jc.png";
+import ImgFB from "../../styles/img/fb.png";
+import ImgIN from "../../styles/img/in.png";
+import ImgTW from "../../styles/img/tw.png";
+import ImgYT from "../../styles/img/yt.png";
+import ImgChrome from "../../styles/img/gg.png";
+import ImgFireFox from "../../styles/img/ff.png";
 
 const CopyrightSection = ({ t, langId }) => (
 	<div className="copyright">
@@ -30,7 +40,7 @@ const LicensesSection = ({ t }) => (
 	<div className="license">
 		<div>
 			<div className="title">{t("lbl_Gaming_License")}</div>
-			<img src={ImgLicense} />
+			<img src={ImgLicense} alt="footer-license" />
 		</div>
 		<div>
 			<iframe
@@ -44,19 +54,12 @@ const LicensesSection = ({ t }) => (
 			/>
 			<div>
 				<div>{t("lbl_JOE_COLE")}</div>
-				<img
-					src={require(`../../styles/img/joecole_w.png`)}
-					alt="joecole_w"
-				/>
+				<img src={ImgJoeColeSignature} alt="joecole_signature" />
 				<div>{t("lbl_Brand_Ambassador")}</div>
 				<div>{t("lbl_Former_Chelsea_Liverpool")}</div>
 				<div>{t("lbl_England_International")}</div>
 			</div>
-			<img
-				className="star"
-				src={require(`../../styles/img/jc.png`)}
-				alt="joecole"
-			/>
+			<img className="star" src={ImgJoeColePhoto} alt="joecole_photo" />
 		</div>
 	</div>
 );
@@ -70,33 +73,33 @@ const FollowUsSection = ({ t }) => (
 					href={SiteInfo.socialMedia.fb.link}
 					target="_blank"
 					rel="noreferrer">
-					<img src={require(`../../styles/img/fb.png`)} alt="fb" />
+					<img src={ImgFB} alt="fb" />
 				</a>
 				<a
 					href={SiteInfo.socialMedia.ig.link}
 					target="_blank"
 					rel="noreferrer">
-					<img src={require(`../../styles/img/in.png`)} alt="in" />
+					<img src={ImgIN} alt="in" />
 				</a>
 				<a
 					href={SiteInfo.socialMedia.twitter.link}
 					target="_blank"
 					rel="noreferrer">
-					<img src={require(`../../styles/img/tw.png`)} alt="tw" />
+					<img src={ImgTW} alt="tw" />
 				</a>
 				<a
 					href={SiteInfo.socialMedia.youtube.link}
 					target="_blank"
 					rel="noreferrer">
-					<img src={require(`../../styles/img/yt.png`)} alt="yt" />
+					<img src={ImgYT} alt="yt" />
 				</a>
 			</div>
 		</div>
 		<div>
 			<div className="title">{t("lbl_Suggested_Browser")}</div>
 			<div>
-				<img src={require(`../../styles/img/gg.png`)} alt="chrome" />
-				<img src={require(`../../styles/img/ff.png`)} alt="FireFox" />
+				<img src={ImgChrome} alt="chrome" />
+				<img src={ImgFireFox} alt="FireFox" />
 			</div>
 		</div>
 		<div>
@@ -115,7 +118,7 @@ const FollowUsSection = ({ t }) => (
 	</div>
 );
 
-export default ({ productTpIds }) => {
+export const Footer = ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -156,3 +159,22 @@ export default ({ productTpIds }) => {
 		</footer>
 	);
 };
+
+CopyrightSection.propTypes = {
+	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired
+};
+
+LicensesSection.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
+FollowUsSection.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
+Footer.propTypes = {
+	productTpIds: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
+export default Footer;
