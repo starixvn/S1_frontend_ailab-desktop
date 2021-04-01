@@ -102,12 +102,14 @@ const FollowUsSection = ({ t }) => (
 		<div>
 			<div className="title">{t("lbl_Payment_Method")}</div>
 			<div>
-				<button>
-					<img src={`${config.imgUrl}/common/images/logo/h2p.png`} />
-				</button>
-				<button>
-					<img src={`${config.imgUrl}/common/images/logo/ep.png`} />
-				</button>
+				<img
+					src={`${config.imgUrl}/common/images/logo/h2p.png`}
+					alt="payment-h2p"
+				/>
+				<img
+					src={`${config.imgUrl}/common/images/logo/ep.png`}
+					alt="payment-ep"
+				/>
 			</div>
 		</div>
 	</div>
@@ -123,7 +125,6 @@ export default ({ productTpIds }) => {
 	};
 
 	const linkToReferral = () => {
-		console.log("xxxx");
 		userInfo.isLogin
 			? navigate(`/${userInfo.langId}/${path.referral.root}`)
 			: setPopBox({
