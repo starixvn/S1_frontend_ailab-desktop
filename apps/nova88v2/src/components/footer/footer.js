@@ -66,16 +66,28 @@ const FollowUsSection = ({ t }) => (
 		<div>
 			<div className="title">{t("lbl_Follow_Us")}</div>
 			<div>
-				<a href="">
+				<a
+					href={SiteInfo.socialMedia.fb.link}
+					target="_blank"
+					rel="noreferrer">
 					<img src={require(`../../styles/img/fb.png`)} alt="fb" />
 				</a>
-				<a href="">
+				<a
+					href={SiteInfo.socialMedia.ig.link}
+					target="_blank"
+					rel="noreferrer">
 					<img src={require(`../../styles/img/in.png`)} alt="in" />
 				</a>
-				<a href="">
+				<a
+					href={SiteInfo.socialMedia.twitter.link}
+					target="_blank"
+					rel="noreferrer">
 					<img src={require(`../../styles/img/tw.png`)} alt="tw" />
 				</a>
-				<a href="">
+				<a
+					href={SiteInfo.socialMedia.youtube.link}
+					target="_blank"
+					rel="noreferrer">
 					<img src={require(`../../styles/img/yt.png`)} alt="yt" />
 				</a>
 			</div>
