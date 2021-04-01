@@ -87,7 +87,7 @@ export const HomeNews = ({ t, userInfo }) => {
 							<button
 								className="lightblue"
 								onClick={clickToNews.bind(this, item.newsId)}>
-								{t("lbl_MoreDetails")}
+								{t("lbl_Read_more")}
 							</button>
 						</div>
 					</div>
