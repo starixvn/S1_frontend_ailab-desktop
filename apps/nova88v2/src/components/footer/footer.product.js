@@ -22,7 +22,7 @@ export default ({
 				</a>
 				{defFooterProductList[1].map(item => {
 					return (
-						<div>
+						<div key={`footer-profuct-${item.title}`}>
 							<div className="title">{t(item.title)}</div>
 							<div>{t(item.content)}</div>
 						</div>
@@ -40,7 +40,7 @@ export default ({
 				</a>
 				{defFooterProductList[2].map(item => {
 					return (
-						<div>
+						<div key={`footer-profuct-${item.title}`}>
 							<div className="title">{t(item.title)}</div>
 							<div>{t(item.content)}</div>
 						</div>
@@ -58,7 +58,7 @@ export default ({
 				</a>
 				{defFooterProductList[3].map(item => {
 					return (
-						<div>
+						<div key={`footer-profuct-${item.title}`}>
 							<div className="title">{t(item.title)}</div>
 							<div>{t(item.content)}</div>
 						</div>
@@ -76,7 +76,7 @@ export default ({
 				</a>
 				{defFooterProductList[4].map(item => {
 					return (
-						<div>
+						<div key={`footer-profuct-${item.title}`}>
 							<div className="title">{t(item.title)}</div>
 							<div>{t(item.content)}</div>
 						</div>
@@ -94,7 +94,7 @@ export default ({
 				</a>
 				{defFooterProductList[5].map(item => {
 					return (
-						<div>
+						<div key={`footer-profuct-${item.title}`}>
 							<div className="title">{t(item.title)}</div>
 							<div>{t(item.content)}</div>
 						</div>
