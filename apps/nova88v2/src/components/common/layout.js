@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
-import Footer from "../footer/footer";
+import { Footer } from "../footer/footer";
 import PopBox from "./popBox";
 import Loading from "./loading";
 import { api_site_GetTpIds } from "../../service/api/site";
