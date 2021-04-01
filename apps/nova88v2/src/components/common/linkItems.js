@@ -8,6 +8,7 @@ import {
 import defPopBoxType from "./defPopBoxType";
 import { popBoxContext } from "./context";
 import path from "../../router";
+import { defEventIcon } from "./eventIcon";
 
 export const getUrl = (preUrl, info) => {
 	return `/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;
@@ -246,7 +247,9 @@ export default ({
 					to={`${langId}/${_path}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
-					<div className={iconStrings} />
+					<div className={iconStrings}>
+						{iconStrings === defEventIcon.live ? <i /> : null}
+					</div>
 					{displayText}
 				</Link>
 			);
