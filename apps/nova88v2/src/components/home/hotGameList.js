@@ -10,6 +10,12 @@ import DragonTiger from "../../styles/img/hotgame02.jpg";
 import Belangkai from "../../styles/img/hotgame03.jpg";
 import Hulu from "../../styles/img/hotgame04.jpg";
 import MultihandBlackjack from "../../styles/img/hotgame05.jpg";
+import Img88Draon from "../../styles/img/hotgame06.jpg";
+import ImgThreeStarFortune from "../../styles/img/hotgame07.jpg";
+import Img5FortuneDragons from "../../styles/img/hotgame08.jpg";
+import ImgGodOfFortune from "../../styles/img/hotgame09.jpg";
+import ImgLuckyNeko from "../../styles/img/hotgame10.jpg";
+import ImgPoker from "../../styles/img/hotgame11.jpg";
 
 const defLinkType = {
 	default: "default",
@@ -73,7 +79,7 @@ const defGameList = [
 		provider: "PP",
 		providerImg: "ppb",
 		gameTypeKey: gameType.slots,
-		img: Baccarat,
+		img: Img88Draon,
 		tpId: 5,
 		gameId: "vs1dragon8"
 	},
@@ -82,7 +88,7 @@ const defGameList = [
 		provider: "PP",
 		providerImg: "ppb",
 		gameTypeKey: gameType.slots,
-		img: Baccarat,
+		img: ImgThreeStarFortune,
 		tpId: 5,
 		gameId: "vs10threestar"
 	},
@@ -91,7 +97,7 @@ const defGameList = [
 		provider: "Spade",
 		providerImg: "sabaa",
 		gameTypeKey: gameType.slots,
-		img: Baccarat,
+		img: Img5FortuneDragons,
 		tpId: 10,
 		gameId: "S-FD01"
 	},
@@ -100,7 +106,7 @@ const defGameList = [
 		provider: "GPI",
 		providerImg: "gpb",
 		gameTypeKey: gameType.slots,
-		img: Baccarat,
+		img: ImgGodOfFortune,
 		tpId: 6,
 		gameId: "godoffortune"
 	},
@@ -109,7 +115,7 @@ const defGameList = [
 		provider: "YGG",
 		providerImg: "ygb",
 		gameTypeKey: gameType.slots,
-		img: Baccarat,
+		img: ImgLuckyNeko,
 		tpId: 5,
 		gameId: 7382
 	},
@@ -118,7 +124,7 @@ const defGameList = [
 		provider: "OneGame",
 		providerImg: "1ga",
 		gameTypeKey: gameType.poker,
-		img: Baccarat,
+		img: ImgPoker,
 		tpId: 13
 	}
 ];

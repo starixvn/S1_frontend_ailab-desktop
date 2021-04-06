@@ -9867,10 +9867,6 @@ canvas {
   width: 300px;
 }
 
-.subModuleListColumn > .subModule .inputBox-white input {
-  text-align: right;
-}
-
 .subModuleListColumn > .subModule > .btnGroup {
   margin: 0 0 0 15px;
 }
@@ -10154,7 +10150,7 @@ canvas {
 }
 
 .newIndex body, .newIndex html {
-  background: #e8eff5;
+  background: white;
 }
 
 .newIndex #header {
@@ -10422,7 +10418,6 @@ canvas {
 }
 
 .newIndex main {
-  background: #e8eff5;
   padding-top: 145px;
   min-width: 1400px;
 }
