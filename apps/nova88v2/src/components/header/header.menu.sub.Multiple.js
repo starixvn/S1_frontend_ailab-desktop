@@ -107,6 +107,9 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 				<div>{displayText}</div>
 				<div>{displayText2}</div>
 				<div>{displayText3}</div>
+				<div className="txt-orange">
+					<div>{t("lbl_JoinNow")}</div>
+				</div>
 			</Link>
 		);
 	}

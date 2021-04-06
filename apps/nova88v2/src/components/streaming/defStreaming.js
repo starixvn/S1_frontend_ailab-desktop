@@ -6,7 +6,7 @@ export const defStreamingCategory = {
 	},
 	BASKETBALL: {
 		type: "BASKETBALL",
-		icon: "icon icon-baseball",
+		icon: "icon icon-basketball",
 		displayKey: "lbl_Streaming_BASKETBALL"
 	},
 	CRICKET: {

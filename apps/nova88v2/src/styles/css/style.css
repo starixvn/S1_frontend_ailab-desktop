@@ -376,6 +376,12 @@ header {
   transition: 0.6s;
   opacity: 1;
   top: 0px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header > div.menu .subMenu-Wrapper-new .homeList.active a img, .header > div.menu .subMenu-Wrapper-new .homeList.active button img, .header > div.menu .subMenu-Wrapper-new .sportsList.active a img, .header > div.menu .subMenu-Wrapper-new .sportsList.active button img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button img, .header > div.menu .subMenu-Wrapper-new .casinoList.active a img, .header > div.menu .subMenu-Wrapper-new .casinoList.active button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button img, .header > div.menu .subMenu-Wrapper-new .pokerList.active a img, .header > div.menu .subMenu-Wrapper-new .pokerList.active button img, .header > div.menu .subMenu-Wrapper-new .gameList.active a img, .header > div.menu .subMenu-Wrapper-new .gameList.active button img, .header > div.menu .subMenu-Wrapper-new .fishList.active a img, .header > div.menu .subMenu-Wrapper-new .fishList.active button img, .header > div.menu .subMenu-Wrapper-new .promoList.active a img, .header > div.menu .subMenu-Wrapper-new .promoList.active button img, .header > div.menu .subMenu-Wrapper-new .tvList.active a img, .header > div.menu .subMenu-Wrapper-new .tvList.active button img, .header > div.menu .subMenu-Wrapper-new .vipList.active a img, .header > div.menu .subMenu-Wrapper-new .vipList.active button img, .header > div.menu .subMenu-Wrapper-new .rankingList.active a img, .header > div.menu .subMenu-Wrapper-new .rankingList.active button img {
@@ -3397,6 +3403,7 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
 .inside-title.icon:before {
@@ -3412,6 +3419,13 @@ input[type="file"] {
 .inside-title div {
   color: #b2b2b2;
   max-width: 400px;
+}
+
+.inside-title div.autotransfer {
+  position: absolute;
+  right: 40px;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .subModuleList {
@@ -10143,10 +10157,6 @@ canvas {
   background: #e8eff5;
 }
 
-.newIndex body .eventLink, .newIndex html .eventLink {
-  display: none;
-}
-
 .newIndex #header {
   background: white;
 }
@@ -10503,6 +10513,10 @@ canvas {
   color: #5574A7;
   margin: 5px 0;
   padding: 0 10px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .newIndex main .hotGame .swiper-container .swiper-wrapper > div > div, .newIndex main .promos .swiper-container .swiper-wrapper > div > div {
@@ -10942,6 +10956,10 @@ canvas {
       -ms-flex: 1;
           flex: 1;
   font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 131px;
 }
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
@@ -10958,6 +10976,9 @@ canvas {
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
   color: #5574A7;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
@@ -11080,21 +11101,21 @@ canvas {
 }
 
 .newIndex #footer .license > div:nth-child(2) div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  text-align: center;
+}
+
+.newIndex #footer .license > div:nth-child(2) div:nth-child(1) {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.newIndex #footer .license > div:nth-child(2) div span {
+  font-weight: bold;
 }
 
 .newIndex #footer .license > div:nth-child(2) div img {
   width: 65px;
-  margin-left: 10px;
+  margin: auto;
 }
 
 .newIndex #footer .license > div .star {
@@ -11134,6 +11155,7 @@ canvas {
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   color: #BFCCE2;
+  padding: 25px 0 130px;
 }
 
 .newIndex #footer .footerList > div {
