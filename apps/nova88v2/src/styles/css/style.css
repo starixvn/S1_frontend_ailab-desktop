@@ -10149,69 +10149,73 @@ canvas {
   margin: 0;
 }
 
-.newIndex body, .newIndex html {
+html.newIndex {
+  background: #e8eff5;
+}
+
+html.newIndex body {
+  background: #e8eff5;
+}
+
+html.newIndex #header {
   background: white;
 }
 
-.newIndex #header {
-  background: white;
-}
-
-.newIndex #header .header {
+html.newIndex #header .header {
   width: 1400px;
 }
 
-.newIndex #header .header .function .wallet, .newIndex #header .header .function .memberfile, .newIndex #header .header .function .icon-email, .newIndex #header .header .function .icon-exit {
+html.newIndex #header .header .function .wallet, html.newIndex #header .header .function .memberfile, html.newIndex #header .header .function .icon-email, html.newIndex #header .header .function .icon-exit {
   color: #5574A7;
 }
 
-.newIndex #header .header .function .wallet:after, .newIndex #header .header .function .memberfile:after, .newIndex #header .header .function .icon-email:after, .newIndex #header .header .function .icon-exit:after {
+html.newIndex #header .header .function .wallet:after, html.newIndex #header .header .function .memberfile:after, html.newIndex #header .header .function .icon-email:after, html.newIndex #header .header .function .icon-exit:after {
   color: #5574A7;
 }
 
-.newIndex #header .header .function .wallet button, .newIndex #header .header .function .memberfile button, .newIndex #header .header .function .icon-email button, .newIndex #header .header .function .icon-exit button {
+html.newIndex #header .header .function .wallet button, html.newIndex #header .header .function .memberfile button, html.newIndex #header .header .function .icon-email button, html.newIndex #header .header .function .icon-exit button {
   color: #5574A7;
 }
 
-.newIndex #header .header .function .wallet .submenu, .newIndex #header .header .function .memberfile .submenu, .newIndex #header .header .function .icon-email .submenu, .newIndex #header .header .function .icon-exit .submenu {
+html.newIndex #header .header .function .wallet .submenu, html.newIndex #header .header .function .memberfile .submenu, html.newIndex #header .header .function .icon-email .submenu, html.newIndex #header .header .function .icon-exit .submenu {
   background: white;
 }
 
-.newIndex #header .header .function .wallet .submenu > a, .newIndex #header .header .function .memberfile .submenu > a, .newIndex #header .header .function .icon-email .submenu > a, .newIndex #header .header .function .icon-exit .submenu > a {
+html.newIndex #header .header .function .wallet .submenu > a, html.newIndex #header .header .function .memberfile .submenu > a, html.newIndex #header .header .function .icon-email .submenu > a, html.newIndex #header .header .function .icon-exit .submenu > a {
   color: #5574A7;
 }
 
-.newIndex #header .header .function .wallet .submenu div.balance button, .newIndex #header .header .function .memberfile .submenu div.balance button, .newIndex #header .header .function .icon-email .submenu div.balance button, .newIndex #header .header .function .icon-exit .submenu div.balance button {
+html.newIndex #header .header .function .wallet .submenu div.balance button, html.newIndex #header .header .function .memberfile .submenu div.balance button, html.newIndex #header .header .function .icon-email .submenu div.balance button, html.newIndex #header .header .function .icon-exit .submenu div.balance button {
   background: #5574A7;
   color: white;
 }
 
-.newIndex #header .header .function .wallet .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .memberfile .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .icon-email .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .icon-exit .submenu div.walletBalance .walletName + div {
+html.newIndex #header .header .function .wallet .submenu div.walletBalance .walletName + div, html.newIndex #header .header .function .memberfile .submenu div.walletBalance .walletName + div, html.newIndex #header .header .function .icon-email .submenu div.walletBalance .walletName + div, html.newIndex #header .header .function .icon-exit .submenu div.walletBalance .walletName + div {
   border-top: 1px solid #5574A7;
 }
 
-.newIndex #header .header .function .wallet .submenu div .progressBar .percentage, .newIndex #header .header .function .memberfile .submenu div .progressBar .percentage, .newIndex #header .header .function .icon-email .submenu div .progressBar .percentage, .newIndex #header .header .function .icon-exit .submenu div .progressBar .percentage {
+html.newIndex #header .header .function .wallet .submenu div .progressBar .percentage, html.newIndex #header .header .function .memberfile .submenu div .progressBar .percentage, html.newIndex #header .header .function .icon-email .submenu div .progressBar .percentage, html.newIndex #header .header .function .icon-exit .submenu div .progressBar .percentage {
   color: #5574A7;
 }
 
-.newIndex #header .header .function .wallet .submenu div .progressBar .bar, .newIndex #header .header .function .memberfile .submenu div .progressBar .bar, .newIndex #header .header .function .icon-email .submenu div .progressBar .bar, .newIndex #header .header .function .icon-exit .submenu div .progressBar .bar {
+html.newIndex #header .header .function .wallet .submenu div .progressBar .bar, html.newIndex #header .header .function .memberfile .submenu div .progressBar .bar, html.newIndex #header .header .function .icon-email .submenu div .progressBar .bar, html.newIndex #header .header .function .icon-exit .submenu div .progressBar .bar {
   border: 1px solid #5574A7;
 }
 
-.newIndex #header .header .function .wallet .submenu div .progressBar .bar .progress, .newIndex #header .header .function .memberfile .submenu div .progressBar .bar .progress, .newIndex #header .header .function .icon-email .submenu div .progressBar .bar .progress, .newIndex #header .header .function .icon-exit .submenu div .progressBar .bar .progress {
+html.newIndex #header .header .function .wallet .submenu div .progressBar .bar .progress, html.newIndex #header .header .function .memberfile .submenu div .progressBar .bar .progress, html.newIndex #header .header .function .icon-email .submenu div .progressBar .bar .progress, html.newIndex #header .header .function .icon-exit .submenu div .progressBar .bar .progress {
   background: #5574A7;
 }
 
-.newIndex #header .header .function .icon-email:after {
+html.newIndex #header .header .function .icon-email:after {
   color: #f77900;
   top: 0;
 }
 
-.newIndex #header .header .function > a:nth-child(5) span {
+html.newIndex #header .header .function > a:nth-child(5) span {
   background: #5574A7;
 }
 
-.newIndex #header .header .function > div .countryList {
+html.newIndex #header .header .function > div .countryList {
   background: white;
   border-radius: 15px;
   border: 1px solid rgba(30, 133, 236, 0.5);
@@ -10219,11 +10223,11 @@ canvas {
   padding: 0 20px;
 }
 
-.newIndex #header .header .function > div .countryList button, .newIndex #header .header .function > div .countryList a {
+html.newIndex #header .header .function > div .countryList button, html.newIndex #header .header .function > div .countryList a {
   color: #5574A7;
 }
 
-.newIndex #header input {
+html.newIndex #header input {
   margin: 0 10px 0 0;
   line-height: 30px;
   border: 1px solid #7591C1;
@@ -10234,32 +10238,32 @@ canvas {
   font-size: 16px;
 }
 
-.newIndex #header input::-webkit-input-placeholder {
+html.newIndex #header input::-webkit-input-placeholder {
   color: #7591C1;
   text-align: center;
 }
 
-.newIndex #header input:-ms-input-placeholder {
+html.newIndex #header input:-ms-input-placeholder {
   color: #7591C1;
   text-align: center;
 }
 
-.newIndex #header input::-ms-input-placeholder {
+html.newIndex #header input::-ms-input-placeholder {
   color: #7591C1;
   text-align: center;
 }
 
-.newIndex #header input::placeholder {
+html.newIndex #header input::placeholder {
   color: #7591C1;
   text-align: center;
 }
 
-.newIndex #header input:focus-within {
+html.newIndex #header input:focus-within {
   border: 1px solid #7591C1;
   outline: #7591C1;
 }
 
-.newIndex #header a[class=join], .newIndex #header a[class=login] {
+html.newIndex #header a[class=join], html.newIndex #header a[class=login] {
   background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
   background: linear-gradient(to bottom, #435F8B, #6383B9);
   border-radius: 5px;
@@ -10270,66 +10274,66 @@ canvas {
           box-sizing: border-box;
 }
 
-.newIndex #header a[class=join]:hover, .newIndex #header a[class=login]:hover {
+html.newIndex #header a[class=join]:hover, html.newIndex #header a[class=login]:hover {
   color: white;
 }
 
-.newIndex #header a[class=login] {
+html.newIndex #header a[class=login] {
   background: -webkit-gradient(linear, left top, left bottom, from(#F0F7FF), to(#BFCCE2));
   background: linear-gradient(to bottom, #F0F7FF, #BFCCE2);
   color: #7591C1;
 }
 
-.newIndex #header a[class=login]:hover {
+html.newIndex #header a[class=login]:hover {
   color: #7591C1;
 }
 
-.newIndex #header .flag:before {
+html.newIndex #header .flag:before {
   border: 3px solid #BFCCE2;
   width: 26px;
   height: 26px;
   line-height: 26px;
 }
 
-.newIndex #header .menu {
+html.newIndex #header .menu {
   background: #7591C1;
   height: 60px;
 }
 
-.newIndex #header .menu > div {
+html.newIndex #header .menu > div {
   width: 1400px;
 }
 
-.newIndex #header .menu > div .subMenu-Wrapper-new {
+html.newIndex #header .menu > div .subMenu-Wrapper-new {
   background: white;
   border-bottom: 1px solid #ccc;
   top: 59px;
 }
 
-.newIndex #header .menu > div .subMenu-Wrapper-new > div > a > span, .newIndex #header .menu > div .subMenu-Wrapper-new > div > button > span {
+html.newIndex #header .menu > div .subMenu-Wrapper-new > div > a > span, html.newIndex #header .menu > div .subMenu-Wrapper-new > div > button > span {
   color: #7591C1;
   background: url(https://banner.n88media.com/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
 }
 
-.newIndex #header .menu > div > a, .newIndex #header .menu > div > button {
+html.newIndex #header .menu > div > a, html.newIndex #header .menu > div > button {
   padding-left: 0;
   padding-right: 30px;
   position: relative;
 }
 
-.newIndex #header .menu > div > a:hover, .newIndex #header .menu > div > button:hover {
+html.newIndex #header .menu > div > a:hover, html.newIndex #header .menu > div > button:hover {
   color: #284985;
 }
 
-.newIndex #header .menu > div > a:after, .newIndex #header .menu > div > button:after {
+html.newIndex #header .menu > div > a:after, html.newIndex #header .menu > div > button:after {
   background: #284985;
 }
 
-.newIndex #header .menu > div > a.active, .newIndex #header .menu > div > button.active {
+html.newIndex #header .menu > div > a.active, html.newIndex #header .menu > div > button.active {
   color: #284985;
 }
 
-.newIndex #header .menu > div > a div.icon-new:before, .newIndex #header .menu > div > button div.icon-new:before {
+html.newIndex #header .menu > div > a div.icon-new:before, html.newIndex #header .menu > div > button div.icon-new:before {
   background: #f77900;
   border-radius: 0;
   left: 0;
@@ -10343,7 +10347,7 @@ canvas {
   font-size: 13px;
 }
 
-.newIndex #header .menu > div > a div.icon-new:after, .newIndex #header .menu > div > button div.icon-new:after {
+html.newIndex #header .menu > div > a div.icon-new:after, html.newIndex #header .menu > div > button div.icon-new:after {
   content: '';
   display: block;
   width: 0;
@@ -10357,11 +10361,11 @@ canvas {
   left: 50px;
 }
 
-.newIndex #header .menu > div > a div.live:before, .newIndex #header .menu > div > button div.live:before {
+html.newIndex #header .menu > div > a div.live:before, html.newIndex #header .menu > div > button div.live:before {
   content: 'Live';
 }
 
-.newIndex #header .menu > div > a div.live i, .newIndex #header .menu > div > button div.live i {
+html.newIndex #header .menu > div > a div.live i, html.newIndex #header .menu > div > button div.live i {
   position: absolute;
   top: 6px;
   left: 6px;
@@ -10390,7 +10394,7 @@ canvas {
   }
 }
 
-.newIndex #header .menu > div > a div.live:before, .newIndex #header .menu > div > button div.live:before {
+html.newIndex #header .menu > div > a div.live:before, html.newIndex #header .menu > div > button div.live:before {
   background: #05BC0B;
   border-radius: 0;
   left: 0;
@@ -10403,7 +10407,7 @@ canvas {
   padding-right: 0;
 }
 
-.newIndex #header .menu > div > a div.live:after, .newIndex #header .menu > div > button div.live:after {
+html.newIndex #header .menu > div > a div.live:after, html.newIndex #header .menu > div > button div.live:after {
   content: '';
   display: block;
   width: 0;
@@ -10417,31 +10421,31 @@ canvas {
   left: 52px;
 }
 
-.newIndex main {
+html.newIndex main {
   padding-top: 145px;
   min-width: 1400px;
 }
 
-.newIndex main #Marquee {
+html.newIndex main #Marquee {
   background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
 }
 
-.newIndex main #Marquee .marquee-box {
+html.newIndex main #Marquee .marquee-box {
   max-width: 1400px;
 }
 
-.newIndex main #Marquee .mq-btn {
+html.newIndex main #Marquee .mq-btn {
   display: none;
 }
 
-.newIndex main #Marquee .marquee-box.icon:before {
+html.newIndex main #Marquee .marquee-box.icon:before {
   background: url(../img/marqueeboxbg.png) no-repeat left center/auto 100%;
   content: '';
   color: white;
   width: 90px;
 }
 
-.newIndex main .moduleTitle {
+html.newIndex main .moduleTitle {
   background: url(../img/indextitle.png) no-repeat;
   margin: 30px auto 0;
   font-weight: bold;
@@ -10455,27 +10459,27 @@ canvas {
           align-items: center;
 }
 
-.newIndex main .moduleTitle > a {
+html.newIndex main .moduleTitle > a {
   margin: auto 0 auto auto;
   color: #7591C1;
 }
 
-.newIndex main .moduleTitle.icon:before {
+html.newIndex main .moduleTitle.icon:before {
   margin: 0 10px;
   font-weight: normal;
   font-size: 32px;
 }
 
-.newIndex main .moduleTitle.icon-upcomingmatches:before, .newIndex main .moduleTitle.icon-saba:before, .newIndex main .moduleTitle.icon-film:before, .newIndex main .moduleTitle.icon-news:before, .newIndex main .moduleTitle.icon-live_tv:before {
+html.newIndex main .moduleTitle.icon-upcomingmatches:before, html.newIndex main .moduleTitle.icon-saba:before, html.newIndex main .moduleTitle.icon-film:before, html.newIndex main .moduleTitle.icon-news:before, html.newIndex main .moduleTitle.icon-live_tv:before {
   font-size: 24px;
   margin: 0 14px;
 }
 
-.newIndex main .moduleTitle.icon-saba {
+html.newIndex main .moduleTitle.icon-saba {
   margin-top: 20px;
 }
 
-.newIndex main .hotGame, .newIndex main .promos {
+html.newIndex main .hotGame, html.newIndex main .promos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10484,7 +10488,7 @@ canvas {
   width: 1400px;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div, .newIndex main .promos .swiper-container .swiper-wrapper > div {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div, html.newIndex main .promos .swiper-container .swiper-wrapper > div {
   border-radius: 5px;
   overflow: hidden;
   position: relative;
@@ -10504,17 +10508,20 @@ canvas {
           justify-content: space-between;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div .title, .newIndex main .promos .swiper-container .swiper-wrapper > div .title {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div .title, html.newIndex main .promos .swiper-container .swiper-wrapper > div .title {
   color: #5574A7;
   margin: 5px 0;
   padding: 0 10px;
-  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div, .newIndex main .promos .swiper-container .swiper-wrapper > div > div {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div, html.newIndex main .promos .swiper-container .swiper-wrapper > div > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10524,20 +10531,20 @@ canvas {
   text-align: center;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup, .newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup, html.newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup {
   margin: 0 0 10px;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, .newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup button {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, html.newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup button {
   max-width: 120px;
   border-radius: 5px;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div > img, .newIndex main .promos .swiper-container .swiper-wrapper > div > div > img {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div > img, html.newIndex main .promos .swiper-container .swiper-wrapper > div > div > img {
   width: 400px;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div {
   max-width: 260px;
   min-width: 260px;
   background: white;
@@ -10548,7 +10555,7 @@ canvas {
       flex-flow: wrap;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -10558,13 +10565,13 @@ canvas {
   text-align: left;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div .title {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div .title {
   padding: 0;
   text-align: left;
   margin-bottom: 0;
 }
 
-.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div + img {
+html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div + img {
   width: 70px;
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -10572,7 +10579,7 @@ canvas {
   margin: auto 10px auto 0;
 }
 
-.newIndex main .liveVideo, .newIndex main .newsVideo {
+html.newIndex main .liveVideo, html.newIndex main .newsVideo {
   width: 1400px;
   margin: auto;
   display: -webkit-box;
@@ -10580,19 +10587,19 @@ canvas {
   display: flex;
 }
 
-.newIndex main .liveVideo .latestVideo, .newIndex main .liveVideo .newsList, .newIndex main .newsVideo .latestVideo, .newIndex main .newsVideo .newsList {
+html.newIndex main .liveVideo .latestVideo, html.newIndex main .liveVideo .newsList, html.newIndex main .newsVideo .latestVideo, html.newIndex main .newsVideo .newsList {
   width: 780px;
   float: left;
   margin-right: 15px;
 }
 
-.newIndex main .liveVideo .latestVideo .title, .newIndex main .liveVideo .newsList .title, .newIndex main .newsVideo .latestVideo .title, .newIndex main .newsVideo .newsList .title {
+html.newIndex main .liveVideo .latestVideo .title, html.newIndex main .liveVideo .newsList .title, html.newIndex main .newsVideo .latestVideo .title, html.newIndex main .newsVideo .newsList .title {
   background: url(../img/latestvideotitlebg.png) no-repeat;
   line-height: 65px;
   padding-left: 20px;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule, .newIndex main .liveVideo .newsList .newsModule, .newIndex main .newsVideo .latestVideo .newsModule, .newIndex main .newsVideo .newsList .newsModule {
+html.newIndex main .liveVideo .latestVideo .newsModule, html.newIndex main .liveVideo .newsList .newsModule, html.newIndex main .newsVideo .latestVideo .newsModule, html.newIndex main .newsVideo .newsList .newsModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10603,19 +10610,19 @@ canvas {
   margin: 2px 0;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule img, .newIndex main .liveVideo .newsList .newsModule img, .newIndex main .newsVideo .latestVideo .newsModule img, .newIndex main .newsVideo .newsList .newsModule img {
+html.newIndex main .liveVideo .latestVideo .newsModule img, html.newIndex main .liveVideo .newsList .newsModule img, html.newIndex main .newsVideo .latestVideo .newsModule img, html.newIndex main .newsVideo .newsList .newsModule img {
   height: auto;
   max-width: 260px;
   max-height: 150px;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule .lightblue, .newIndex main .liveVideo .newsList .newsModule .lightblue, .newIndex main .newsVideo .latestVideo .newsModule .lightblue, .newIndex main .newsVideo .newsList .newsModule .lightblue {
+html.newIndex main .liveVideo .latestVideo .newsModule .lightblue, html.newIndex main .liveVideo .newsList .newsModule .lightblue, html.newIndex main .newsVideo .latestVideo .newsModule .lightblue, html.newIndex main .newsVideo .newsList .newsModule .lightblue {
   font-weight: normal;
   border-radius: 5px;
   margin: 5px 0;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule > div, .newIndex main .liveVideo .newsList .newsModule > div, .newIndex main .newsVideo .latestVideo .newsModule > div, .newIndex main .newsVideo .newsList .newsModule > div {
+html.newIndex main .liveVideo .latestVideo .newsModule > div, html.newIndex main .liveVideo .newsList .newsModule > div, html.newIndex main .newsVideo .latestVideo .newsModule > div, html.newIndex main .newsVideo .newsList .newsModule > div {
   width: 100%;
   padding: 5px 10px;
   display: -webkit-box;
@@ -10630,7 +10637,7 @@ canvas {
           justify-content: space-between;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule > div > div, .newIndex main .liveVideo .newsList .newsModule > div > div, .newIndex main .newsVideo .latestVideo .newsModule > div > div, .newIndex main .newsVideo .newsList .newsModule > div > div {
+html.newIndex main .liveVideo .latestVideo .newsModule > div > div, html.newIndex main .liveVideo .newsList .newsModule > div > div, html.newIndex main .newsVideo .latestVideo .newsModule > div > div, html.newIndex main .newsVideo .newsList .newsModule > div > div {
   font-size: 13px;
   font-weight: bold;
   overflow: hidden;
@@ -10642,39 +10649,39 @@ canvas {
   margin: 0 0 3px;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(1), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(1), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(1), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(1) {
+html.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(1), html.newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(1), html.newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(1), html.newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(1) {
   color: #CDAE8E;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(2), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(2), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(2), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(2) {
+html.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(2), html.newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(2), html.newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(2), html.newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(2) {
   color: #113158;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(3), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(3), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(3), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(3) {
+html.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(3), html.newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(3), html.newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(3), html.newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(3) {
   font-weight: normal;
 }
 
-.newIndex main .liveVideo .latestVideo .newsModule > div .btnGroup, .newIndex main .liveVideo .newsList .newsModule > div .btnGroup, .newIndex main .newsVideo .latestVideo .newsModule > div .btnGroup, .newIndex main .newsVideo .newsList .newsModule > div .btnGroup {
+html.newIndex main .liveVideo .latestVideo .newsModule > div .btnGroup, html.newIndex main .liveVideo .newsList .newsModule > div .btnGroup, html.newIndex main .newsVideo .latestVideo .newsModule > div .btnGroup, html.newIndex main .newsVideo .newsList .newsModule > div .btnGroup {
   display: unset;
   margin: 0;
 }
 
-.newIndex main .liveVideo .latestVideo .newsBorder, .newIndex main .liveVideo .newsList .newsBorder, .newIndex main .newsVideo .latestVideo .newsBorder, .newIndex main .newsVideo .newsList .newsBorder {
+html.newIndex main .liveVideo .latestVideo .newsBorder, html.newIndex main .liveVideo .newsList .newsBorder, html.newIndex main .newsVideo .latestVideo .newsBorder, html.newIndex main .newsVideo .newsList .newsBorder {
   height: 1px;
   background: #5574A7;
   margin: 10px 0;
 }
 
-.newIndex main .liveVideo .latestVideo + div, .newIndex main .liveVideo .newsList + div, .newIndex main .newsVideo .latestVideo + div, .newIndex main .newsVideo .newsList + div {
+html.newIndex main .liveVideo .latestVideo + div, html.newIndex main .liveVideo .newsList + div, html.newIndex main .newsVideo .latestVideo + div, html.newIndex main .newsVideo .newsList + div {
   width: 605px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches, .newIndex main .liveVideo .latestVideo + div .liveTv, .newIndex main .liveVideo .newsList + div .upcomingmatches, .newIndex main .liveVideo .newsList + div .liveTv, .newIndex main .newsVideo .latestVideo + div .upcomingmatches, .newIndex main .newsVideo .latestVideo + div .liveTv, .newIndex main .newsVideo .newsList + div .upcomingmatches, .newIndex main .newsVideo .newsList + div .liveTv {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches, html.newIndex main .liveVideo .latestVideo + div .liveTv, html.newIndex main .liveVideo .newsList + div .upcomingmatches, html.newIndex main .liveVideo .newsList + div .liveTv, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches, html.newIndex main .newsVideo .latestVideo + div .liveTv, html.newIndex main .newsVideo .newsList + div .upcomingmatches, html.newIndex main .newsVideo .newsList + div .liveTv {
   background: url(../img/upcomingmatchesbg.jpg) no-repeat top center/100% auto;
   height: 180px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team, .newIndex main .liveVideo .latestVideo + div .liveTv .team, .newIndex main .liveVideo .newsList + div .upcomingmatches .team, .newIndex main .liveVideo .newsList + div .liveTv .team, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team, .newIndex main .newsVideo .latestVideo + div .liveTv .team, .newIndex main .newsVideo .newsList + div .upcomingmatches .team, .newIndex main .newsVideo .newsList + div .liveTv .team {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team, html.newIndex main .liveVideo .latestVideo + div .liveTv .team, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team, html.newIndex main .liveVideo .newsList + div .liveTv .team, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team, html.newIndex main .newsVideo .latestVideo + div .liveTv .team, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team, html.newIndex main .newsVideo .newsList + div .liveTv .team {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10688,7 +10695,7 @@ canvas {
           justify-content: space-between;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div, .newIndex main .liveVideo .newsList + div .liveTv .team > div, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div, .newIndex main .newsVideo .newsList + div .liveTv .team > div {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div, html.newIndex main .liveVideo .newsList + div .liveTv .team > div, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div, html.newIndex main .newsVideo .newsList + div .liveTv .team > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10698,19 +10705,19 @@ canvas {
   font-weight: bold;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div:first-child, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:first-child, .newIndex main .liveVideo .newsList + div .liveTv .team > div:first-child, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div:first-child, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:first-child, .newIndex main .newsVideo .newsList + div .liveTv .team > div:first-child {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div:first-child, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:first-child, html.newIndex main .liveVideo .newsList + div .liveTv .team > div:first-child, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div:first-child, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:first-child, html.newIndex main .newsVideo .newsList + div .liveTv .team > div:first-child {
   background: url(../img/upcomingmatchestitle.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div:last-child, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:last-child, .newIndex main .liveVideo .newsList + div .liveTv .team > div:last-child, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div:last-child, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:last-child, .newIndex main .newsVideo .newsList + div .liveTv .team > div:last-child {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div:last-child, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:last-child, html.newIndex main .liveVideo .newsList + div .liveTv .team > div:last-child, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div:last-child, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:last-child, html.newIndex main .newsVideo .newsList + div .liveTv .team > div:last-child {
   background: url(../img/upcomingmatchestitledown.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), html.newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup), html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), html.newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -10729,16 +10736,16 @@ canvas {
   height: 120px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, html.newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, html.newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
   text-align: left;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, html.newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, html.newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
   width: 45px;
   margin: 35px auto 5px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup, .newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup, .newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup, html.newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup, html.newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
@@ -10749,7 +10756,7 @@ canvas {
   height: 100%;
 }
 
-.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup button, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup button {
+html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, html.newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup button, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, html.newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup button {
   border-radius: 5px;
   padding: 2px 5px;
   min-width: -webkit-max-content;
@@ -10758,7 +10765,7 @@ canvas {
   margin-bottom: 10px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox, .newIndex main .liveVideo .newsList + div .liveTvBox, .newIndex main .newsVideo .latestVideo + div .liveTvBox, .newIndex main .newsVideo .newsList + div .liveTvBox {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox, html.newIndex main .liveVideo .newsList + div .liveTvBox, html.newIndex main .newsVideo .latestVideo + div .liveTvBox, html.newIndex main .newsVideo .newsList + div .liveTvBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10766,7 +10773,7 @@ canvas {
   margin-top: 5px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10778,7 +10785,7 @@ canvas {
   margin-right: 5px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button {
   background: -webkit-gradient(linear, left top, left bottom, from(#f4f7fb), color-stop(20%, #aec3e2), color-stop(70%, #e2eaf4), to(white));
   background: linear-gradient(to bottom, #f4f7fb, #aec3e2 20%, #e2eaf4 70%, white);
   border-radius: 5px;
@@ -10801,19 +10808,19 @@ canvas {
   line-height: 32px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
   font-weight: normal;
   font-size: 24px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   color: white;
   border: 1px solid #CDAE8E;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active::after, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active::after {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active::after, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active::after {
   content: "";
   width: 0;
   height: 0;
@@ -10824,7 +10831,7 @@ canvas {
   right: -8px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   height: auto;
@@ -10835,31 +10842,31 @@ canvas {
   display: none;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv.active, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv.active, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv.active, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv.active {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv.active, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv.active, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv.active, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv.active {
   display: block;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div {
   overflow-y: auto;
   height: 100%;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar {
   width: 8px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track {
   background: #B18E6A;
   border-radius: 8px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb {
   background: -webkit-gradient(linear, left top, right top, from(#435F8B), to(#6383B9));
   background: linear-gradient(to right, #435F8B, #6383B9);
   border-radius: 8px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule {
   background: white;
   height: 70px;
   border-radius: 5px;
@@ -10869,7 +10876,7 @@ canvas {
   margin-right: 5px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
   height: calc(100% - 7px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10886,28 +10893,28 @@ canvas {
           justify-content: center;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before {
   font-size: 60px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
   background: url(../img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
   color: red;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time {
   color: red;
   font-weight: bold;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span {
   display: unset;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10925,7 +10932,7 @@ canvas {
   line-height: 20px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
   position: absolute;
   left: 0;
   top: 1px;
@@ -10934,7 +10941,7 @@ canvas {
   font-size: 18px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10946,7 +10953,7 @@ canvas {
   line-height: 20px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -10957,26 +10964,26 @@ canvas {
   max-width: 131px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
   text-align: left;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title {
   font-size: 18px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3) {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3) {
   text-align: right;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
   color: #5574A7;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
   background: #7591C1;
   border-radius: 5px;
   color: white;
@@ -10986,30 +10993,30 @@ canvas {
   font-size: 12px;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2) {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2) {
   font-weight: bold;
 }
 
-.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
+html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
 }
 
-.newIndex main .liveVideo .matches, .newIndex main .newsVideo .matches {
+html.newIndex main .liveVideo .matches, html.newIndex main .newsVideo .matches {
   height: 265px;
   overflow: hidden;
 }
 
-.newIndex main .liveVideo .matches iframe, .newIndex main .newsVideo .matches iframe {
+html.newIndex main .liveVideo .matches iframe, html.newIndex main .newsVideo .matches iframe {
   margin-top: -102px;
   height: calc(100% + 102px);
 }
 
-.newIndex #footer {
+html.newIndex #footer {
   background: #112240;
   min-width: 1400px;
 }
 
-.newIndex #footer .platform, .newIndex #footer .copyright, .newIndex #footer .footerList, .newIndex #footer .license, .newIndex #footer .sfp {
+html.newIndex #footer .platform, html.newIndex #footer .copyright, html.newIndex #footer .footerList, html.newIndex #footer .license, html.newIndex #footer .sfp {
   background: transparent;
   width: 1400px;
   margin: auto;
@@ -11017,7 +11024,7 @@ canvas {
   padding: 25px 0;
 }
 
-.newIndex #footer .copyright {
+html.newIndex #footer .copyright {
   font-size: 14px;
   text-align: left;
   display: -webkit-box;
@@ -11028,17 +11035,17 @@ canvas {
           align-items: center;
 }
 
-.newIndex #footer .copyright a, .newIndex #footer .copyright button {
+html.newIndex #footer .copyright a, html.newIndex #footer .copyright button {
   border-right: 1px solid #7591C1;
   padding: 0 10px;
   font-weight: bold;
 }
 
-.newIndex #footer .copyright a:nth-child(1), .newIndex #footer .copyright button:nth-child(1) {
+html.newIndex #footer .copyright a:nth-child(1), html.newIndex #footer .copyright button:nth-child(1) {
   padding-left: 0;
 }
 
-.newIndex #footer .copyright span {
+html.newIndex #footer .copyright span {
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11049,7 +11056,7 @@ canvas {
   margin: 0 0 auto auto;
 }
 
-.newIndex #footer .copyright span span {
+html.newIndex #footer .copyright span span {
   border-radius: 25px;
   border: 1px solid white;
   padding: 1px;
@@ -11060,11 +11067,11 @@ canvas {
           transform: scale(0.8);
 }
 
-.newIndex #footer .platform > div {
+html.newIndex #footer .platform > div {
   width: 100%;
 }
 
-.newIndex #footer .license {
+html.newIndex #footer .license {
   font-size: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11073,17 +11080,17 @@ canvas {
   margin-top: 20px;
 }
 
-.newIndex #footer .license > div:nth-child(1) {
+html.newIndex #footer .license > div:nth-child(1) {
   width: 560px;
   padding-right: 90px;
 }
 
-.newIndex #footer .license > div:nth-child(1) img {
+html.newIndex #footer .license > div:nth-child(1) img {
   width: auto;
   margin: 20px 0;
 }
 
-.newIndex #footer .license > div:nth-child(2) {
+html.newIndex #footer .license > div:nth-child(2) {
   width: 730px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11091,43 +11098,43 @@ canvas {
   position: relative;
 }
 
-.newIndex #footer .license > div:nth-child(2) iframe {
+html.newIndex #footer .license > div:nth-child(2) iframe {
   margin-right: 30px;
 }
 
-.newIndex #footer .license > div:nth-child(2) div {
+html.newIndex #footer .license > div:nth-child(2) div {
   text-align: center;
 }
 
-.newIndex #footer .license > div:nth-child(2) div:nth-child(1) {
+html.newIndex #footer .license > div:nth-child(2) div:nth-child(1) {
   font-size: 24px;
   font-weight: bold;
 }
 
-.newIndex #footer .license > div:nth-child(2) div span {
+html.newIndex #footer .license > div:nth-child(2) div span {
   font-weight: bold;
 }
 
-.newIndex #footer .license > div:nth-child(2) div img {
+html.newIndex #footer .license > div:nth-child(2) div img {
   width: 65px;
   margin: auto;
 }
 
-.newIndex #footer .license > div .star {
+html.newIndex #footer .license > div .star {
   width: auto;
   position: absolute;
   right: 0;
   bottom: -25px;
 }
 
-.newIndex #footer .sfp {
+html.newIndex #footer .sfp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border-bottom: 0;
 }
 
-.newIndex #footer .sfp > div > div {
+html.newIndex #footer .sfp > div > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11138,12 +11145,12 @@ canvas {
   margin-right: 150px;
 }
 
-.newIndex #footer .sfp > div > div img {
+html.newIndex #footer .sfp > div > div img {
   width: auto;
   margin-right: 10px;
 }
 
-.newIndex #footer .footerList {
+html.newIndex #footer .footerList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11153,7 +11160,7 @@ canvas {
   padding: 25px 0 130px;
 }
 
-.newIndex #footer .footerList > div {
+html.newIndex #footer .footerList > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -11161,26 +11168,26 @@ canvas {
   text-align: center;
 }
 
-.newIndex #footer .footerList > div:last-child {
+html.newIndex #footer .footerList > div:last-child {
   margin-right: 0;
 }
 
-.newIndex #footer .footerList > div > a, .newIndex #footer .footerList > div > button {
+html.newIndex #footer .footerList > div > a, html.newIndex #footer .footerList > div > button {
   color: #F1D5B6;
   display: block;
   margin-bottom: 30px;
 }
 
-.newIndex #footer .footerList > div > a ~ div, .newIndex #footer .footerList > div > button ~ div {
+html.newIndex #footer .footerList > div > a ~ div, html.newIndex #footer .footerList > div > button ~ div {
   margin-top: 10px;
   font-size: 12px;
 }
 
-.newIndex #footer .footerList > div > div .title {
+html.newIndex #footer .footerList > div > div .title {
   margin: 15px 0;
 }
 
-.newIndex #footer .footerList > div > div.title {
+html.newIndex #footer .footerList > div > div.title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11196,7 +11203,7 @@ canvas {
   color: white;
 }
 
-.newIndex #footer .footerList > div > div.title + div {
+html.newIndex #footer .footerList > div > div.title + div {
   margin: 10px 0;
   height: 38px;
   display: -webkit-box;
@@ -11210,17 +11217,17 @@ canvas {
           align-items: center;
 }
 
-.newIndex #footer .footerList > div > div.title:before {
+html.newIndex #footer .footerList > div > div.title:before {
   font-size: 56px;
   font-weight: normal;
   color: #F1D5B6;
 }
 
-.newIndex #footer .footerList > div > div > div {
+html.newIndex #footer .footerList > div > div > div {
   text-align: left;
 }
 
-.newIndex .quickLinkNew1, .newIndex .quickLinkNew2 {
+html.newIndex .quickLinkNew1, html.newIndex .quickLinkNew2 {
   position: fixed;
   right: 0;
   top: 145px;
@@ -11250,16 +11257,16 @@ canvas {
   width: 20px;
 }
 
-.newIndex .quickLinkNew1 i, .newIndex .quickLinkNew2 i {
+html.newIndex .quickLinkNew1 i, html.newIndex .quickLinkNew2 i {
   position: absolute;
   top: 10px;
 }
 
-.newIndex .quickLinkNew1 i::before, .newIndex .quickLinkNew2 i::before {
+html.newIndex .quickLinkNew1 i::before, html.newIndex .quickLinkNew2 i::before {
   margin: 0;
 }
 
-.newIndex .quickLinkNew1 > div, .newIndex .quickLinkNew2 > div {
+html.newIndex .quickLinkNew1 > div, html.newIndex .quickLinkNew2 > div {
   letter-spacing: 1px;
   height: 24px;
   width: 100px;
@@ -11273,14 +11280,14 @@ canvas {
           align-items: center;
 }
 
-.newIndex .quickLinkNew1.active, .newIndex .quickLinkNew2.active {
+html.newIndex .quickLinkNew1.active, html.newIndex .quickLinkNew2.active {
   -webkit-transform: translateX(40px);
           transform: translateX(40px);
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
 
-.newIndex .quickLinkNew2 {
+html.newIndex .quickLinkNew2 {
   background: white;
   height: calc(100% - 175px);
   padding: 30px 0 10px;
@@ -11290,7 +11297,7 @@ canvas {
   width: auto;
 }
 
-.newIndex .quickLinkNew2 a, .newIndex .quickLinkNew2 button {
+html.newIndex .quickLinkNew2 a, html.newIndex .quickLinkNew2 button {
   border-bottom: 1px dotted #b2b2b2;
   color: #b2b2b2;
   padding: 10px 0;
@@ -11300,20 +11307,20 @@ canvas {
   font-size: 20px;
 }
 
-.newIndex .quickLinkNew2 a:not(.icon-chat), .newIndex .quickLinkNew2 button:not(.icon-chat) {
+html.newIndex .quickLinkNew2 a:not(.icon-chat), html.newIndex .quickLinkNew2 button:not(.icon-chat) {
   font-weight: normal;
   font-size: 22px;
 }
 
-.newIndex .quickLinkNew2 a.active, .newIndex .quickLinkNew2 button.active {
+html.newIndex .quickLinkNew2 a.active, html.newIndex .quickLinkNew2 button.active {
   color: #7591C1;
 }
 
-.newIndex .quickLinkNew2 a.active > div, .newIndex .quickLinkNew2 button.active > div {
+html.newIndex .quickLinkNew2 a.active > div, html.newIndex .quickLinkNew2 button.active > div {
   display: block;
 }
 
-.newIndex .quickLinkNew2 a > div, .newIndex .quickLinkNew2 button > div {
+html.newIndex .quickLinkNew2 a > div, html.newIndex .quickLinkNew2 button > div {
   display: none;
   position: absolute;
   -webkit-transform: translateX(-100%);
@@ -11326,7 +11333,7 @@ canvas {
   text-align: left;
 }
 
-.newIndex .quickLinkNew2 a > div img, .newIndex .quickLinkNew2 button > div img {
+html.newIndex .quickLinkNew2 a > div img, html.newIndex .quickLinkNew2 button > div img {
   width: 120px;
   height: 120px;
 }
