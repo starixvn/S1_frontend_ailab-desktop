@@ -519,14 +519,14 @@ export const defMenuLinks = {
 				displayText3: "RELOAD BONUS"
 			},
 			{
-				displayKey: "lbl_LiveCasino",
+				displayKey: "lbl_Promotion_Link_3",
 				menuType: defMenuType.LinkNoImg,
 				path: path.promotion.root,
 				displayText2: "100%",
 				displayText3: "WELCOME BONUS"
 			},
 			{
-				displayKey: "lbl_Slots",
+				displayKey: "lbl_Promotion_Link_4",
 				menuType: defMenuType.LinkNoImg,
 				path: path.promotion.root,
 				displayText2: "100%",

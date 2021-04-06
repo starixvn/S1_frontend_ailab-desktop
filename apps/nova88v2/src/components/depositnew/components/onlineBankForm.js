@@ -199,7 +199,7 @@ const OnlineBankForm = ({
 
 					<Inputbox
 						className="inputBox-white"
-						title={t("lbl_Amount")}
+						// title={t("lbl_Amount")}
 						value={formInfo.amount}
 						onChange={e => onChangeAmount(e.target.value)}
 						onBlur={() => onValidAmount(formInfo.amount)}
