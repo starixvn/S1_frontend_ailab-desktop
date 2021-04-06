@@ -36,6 +36,13 @@ export const defMenuLinks = {
 		menuType: defMenuType.Link,
 		subMenu: [
 			{
+				displayKey: "lbl_Ambassador",
+				listNpcImgUrl: "home-ambassador.png",
+				listBgImgUrl: "ambassadorbg.png",
+				menuType: defMenuType.DirectUrl,
+				path: "https://banner.n88media.com/JohnCole/index.html"
+			},
+			{
 				displayKey: "lbl_Vip",
 				listNpcImgUrl: "home-vip.png",
 				listBgImgUrl: "vipbg.png",
@@ -57,14 +64,6 @@ export const defMenuLinks = {
 				path: "https://nova88tv.com/"
 			},
 			{
-				displayKey: "lbl_Referral",
-				listNpcImgUrl: "home-refer.png",
-				listBgImgUrl: "referbg.png",
-				menuType: defMenuType.LinkOrBtn,
-				path: path.referral.root,
-				needLogin: true
-			},
-			{
 				displayKey: "lbl_Ranking",
 				listNpcImgUrl: "home-ranking.png",
 				listBgImgUrl: "rankingbg.png",
@@ -72,11 +71,12 @@ export const defMenuLinks = {
 				path: path.leaderBoard.root
 			},
 			{
-				displayKey: "lbl_Ambassador",
-				listNpcImgUrl: "home-ambassador.png",
-				listBgImgUrl: "ambassadorbg.png",
-				menuType: defMenuType.DirectUrl,
-				path: "https://banner.n88media.com/JohnCole/index.html"
+				displayKey: "lbl_Referral",
+				listNpcImgUrl: "home-refer.png",
+				listBgImgUrl: "referbg.png",
+				menuType: defMenuType.LinkOrBtn,
+				path: path.referral.root,
+				needLogin: true
 			}
 		]
 	},
@@ -546,14 +546,14 @@ export const defMenuLinks = {
 		],
 		subMenu: [
 			{
-				displayKey: "lbl_Live_Sports",
+				displayKey: "lbl_LIVE_SPORT",
 				listNpcImgUrl: "home-livesports.png",
 				listBgImgUrl: "livesportsbg.png",
 				menuType: defMenuType.Link,
 				path: path.streaming.root
 			},
 			{
-				displayKey: "lbl_Movie_TV",
+				displayKey: "lbl_MOVIE_TV",
 				listNpcImgUrl: "home-movie.png",
 				listBgImgUrl: "moviebg.png",
 				menuType: defMenuType.DirectUrl,

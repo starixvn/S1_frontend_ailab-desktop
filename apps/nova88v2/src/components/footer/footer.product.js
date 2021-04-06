@@ -18,7 +18,7 @@ export const FooterProduct = ({
 				</div>
 				<div>{t("lbl_Referral_Program_desc")}</div>
 				<a onClick={linkToReferral}>
-					{t("lbl_PlayNow")}
+					{t("lbl_JoinNow")}
 					{" >"}
 				</a>
 				{defFooterProductList[1].map(item => {
@@ -36,7 +36,7 @@ export const FooterProduct = ({
 				</div>
 				<div>{t("lbl_Affiliate_Program_desc")}</div>
 				<a href={`${SiteInfo.affiliateLink}/?lang=${langId}`}>
-					{t("lbl_JoinNow")}
+					{t("lbl_Apply_Now")}
 					{" >"}
 				</a>
 				{defFooterProductList[2].map(item => {
@@ -54,7 +54,7 @@ export const FooterProduct = ({
 				</div>
 				<div>{t("lbl_VIP_Program_desc")}</div>
 				<a href={`/${langId}/${path.vip.root}`}>
-					{t("lbl_Apply_Now")}
+					{t("lbl_More_Info")}
 					{" >"}
 				</a>
 				{defFooterProductList[3].map(item => {

@@ -56,8 +56,8 @@ const LicensesSection = ({ t }) => (
 			/>
 			<div>
 				<div>{t("lbl_JOE_COLE")}</div>
+				<div>NOVA88 {t("lbl_Brand_Ambassador")}</div>
 				<img src={ImgJoeColeSignature} alt="joecole_signature" />
-				<div>{t("lbl_Brand_Ambassador")}</div>
 				<div>{t("lbl_Former_Chelsea_Liverpool")}</div>
 				<div>{t("lbl_England_International")}</div>
 			</div>
