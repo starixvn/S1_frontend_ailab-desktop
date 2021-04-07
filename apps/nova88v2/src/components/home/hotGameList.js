@@ -161,6 +161,7 @@ export default ({ t, userInfo }) => {
 		slidesPerView: 5,
 		spaceBetween: 15,
 		centeredSlides: true,
+		loopFillGroupWithBlank: false,
 		loop: true,
 		autoplay: {
 			delay: 2500,
