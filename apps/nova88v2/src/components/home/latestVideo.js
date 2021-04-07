@@ -42,7 +42,9 @@ const LatestVideo = () => {
 			/>
 			<div className="title">{title}</div>
 		</div>
-	) : null;
+	) : (
+		<div className="latestVideo" />
+	);
 };
 
 export default LatestVideo;
