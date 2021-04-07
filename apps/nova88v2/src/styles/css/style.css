@@ -54,7 +54,7 @@ pre {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #5574A7;
   cursor: pointer;
 }
 
@@ -2000,13 +2000,13 @@ footer {
 
 .joinpop .joinloginModule .joinloginFunction, .loginpop .joinloginModule .joinloginFunction {
   margin-left: 25px;
+  color: #5574A7;
 }
 
 .joinpop .joinloginModule .joinloginFunction a, .joinpop .joinloginModule .joinloginFunction > div button.txt-orange, .loginpop .joinloginModule .joinloginFunction a, .loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
   text-decoration: underline;
   font-size: 12px;
   text-align: right;
-  color: #f77900;
   margin-left: 5px;
 }
 
@@ -2017,7 +2017,7 @@ footer {
 
 .joinpop .joinloginModule .joinloginFunction .dropdown > .btn, .loginpop .joinloginModule .joinloginFunction .dropdown > .btn {
   width: auto;
-  color: white;
+  color: #5574A7;
 }
 
 .joinpop .joinloginModule .joinloginFunction .icon-email, .loginpop .joinloginModule .joinloginFunction .icon-email {
@@ -2262,7 +2262,7 @@ footer {
 }
 
 .txt-blue {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .txt-blue12 {
@@ -2333,7 +2333,7 @@ footer {
 
 .inputBox, .inputBox-org, .inputBox-white, .inputBox-blue {
   width: calc(100% - 22px);
-  border-radius: 20px;
+  border-radius: 5px;
   position: relative;
   margin: 10px 0;
   display: -webkit-box;
@@ -2351,22 +2351,6 @@ footer {
   border-color: #cf0404;
 }
 
-.inputBox::-webkit-input-placeholder, .inputBox-org::-webkit-input-placeholder, .inputBox-white::-webkit-input-placeholder, .inputBox-blue::-webkit-input-placeholder {
-  color: #b2b2b2;
-}
-
-.inputBox:-ms-input-placeholder, .inputBox-org:-ms-input-placeholder, .inputBox-white:-ms-input-placeholder, .inputBox-blue:-ms-input-placeholder {
-  color: #b2b2b2;
-}
-
-.inputBox::-ms-input-placeholder, .inputBox-org::-ms-input-placeholder, .inputBox-white::-ms-input-placeholder, .inputBox-blue::-ms-input-placeholder {
-  color: #b2b2b2;
-}
-
-.inputBox::placeholder, .inputBox-org::placeholder, .inputBox-white::placeholder, .inputBox-blue::placeholder {
-  color: #b2b2b2;
-}
-
 .inputBox:focus-within, .inputBox-org:focus-within, .inputBox-white:focus-within, .inputBox-blue:focus-within {
   border: 1px solid #1E85EC;
   outline: #1E85EC;
@@ -2376,11 +2360,27 @@ footer {
   background: transparent;
   border: 0;
   padding-left: 5px;
-  color: white;
+  color: #5574A7;
   outline: none;
   -webkit-box-flex: 1;
       -ms-flex: auto;
           flex: auto;
+}
+
+.inputBox input::-webkit-input-placeholder, .inputBox-org input::-webkit-input-placeholder, .inputBox-white input::-webkit-input-placeholder, .inputBox-blue input::-webkit-input-placeholder {
+  color: #5574A7;
+}
+
+.inputBox input:-ms-input-placeholder, .inputBox-org input:-ms-input-placeholder, .inputBox-white input:-ms-input-placeholder, .inputBox-blue input:-ms-input-placeholder {
+  color: #5574A7;
+}
+
+.inputBox input::-ms-input-placeholder, .inputBox-org input::-ms-input-placeholder, .inputBox-white input::-ms-input-placeholder, .inputBox-blue input::-ms-input-placeholder {
+  color: #5574A7;
+}
+
+.inputBox input::placeholder, .inputBox-org input::placeholder, .inputBox-white input::placeholder, .inputBox-blue input::placeholder {
+  color: #5574A7;
 }
 
 .inputBox input[type="date"]::-webkit-inner-spin-button, .inputBox-org input[type="date"]::-webkit-inner-spin-button, .inputBox-white input[type="date"]::-webkit-inner-spin-button, .inputBox-blue input[type="date"]::-webkit-inner-spin-button, .inputBox input[type="date"]::-webkit-calendar-picker-indicator, .inputBox-org input[type="date"]::-webkit-calendar-picker-indicator, .inputBox-white input[type="date"]::-webkit-calendar-picker-indicator, .inputBox-blue input[type="date"]::-webkit-calendar-picker-indicator {
@@ -2403,7 +2403,7 @@ footer {
 }
 
 .inputBox .iconModule .icon.icon-checkmark:before, .inputBox-org .iconModule .icon.icon-checkmark:before, .inputBox-white .iconModule .icon.icon-checkmark:before, .inputBox-blue .iconModule .icon.icon-checkmark:before {
-  color: #007224;
+  color: #42AC5E;
 }
 
 .inputBox-org {
@@ -2444,27 +2444,23 @@ footer {
 }
 
 .inputBox-white .iconModule .icon, .inputBox-white i:not(.icon) {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .inputBox-white .dropdown button.btn {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .inputBox-blue {
-  border: 1px solid #1E85EC;
+  border: 1px solid #5574A7;
 }
 
 .inputBox-blue .dropdown .dropdown-container .txt-white, .inputBox-blue .dropdown .dropdown-container .btn {
   color: white;
 }
 
-.inputBox-blue .dropdown .dropdown-container .dropdown-item {
-  color: white;
-}
-
 .inputBox-blue .icon:before {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 input[type="file"] {
@@ -2486,7 +2482,7 @@ input[type="file"] {
 }
 
 .checkbox input[type="checkbox"] + label {
-  border: 1px solid #f77900;
+  border: 1px solid #5574A7;
   border-radius: 100%;
   width: 10px;
   height: 10px;
@@ -2522,7 +2518,7 @@ input[type="file"] {
 
 .btnGroup button, .btnGroup a {
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 5px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -2540,7 +2536,7 @@ input[type="file"] {
 }
 
 .btnGroup button.orange, .btnGroup button.btn-check, .btnGroup a.orange, .btnGroup a.btn-check {
-  background: #f77900;
+  background: #5574A7;
   color: white;
 }
 
@@ -2559,7 +2555,7 @@ input[type="file"] {
 }
 
 .btnGroup button.blue, .btnGroup a.blue {
-  background: #1E85EC;
+  background: #5574A7;
   color: white;
 }
 
@@ -2594,12 +2590,13 @@ input[type="file"] {
 }
 
 .btnGroup button.blueBorder, .btnGroup a.blueBorder {
-  border: 1px solid #1E85EC;
-  color: white;
+  border: 1px solid #5574A7;
+  color: #5574A7;
 }
 
 .btnGroup button.blueBorder:hover, .btnGroup a.blueBorder:hover {
-  background: #1E85EC;
+  background: #5574A7;
+  color: white;
 }
 
 .btnGroup button.icon:before, .btnGroup a.icon:before {
@@ -2610,6 +2607,7 @@ input[type="file"] {
   font-size: 12px;
   padding: 0 10px;
   width: 100%;
+  color: #5574A7;
 }
 
 .dropdown {
@@ -2634,7 +2632,7 @@ input[type="file"] {
   font-size: 13px;
   margin: 5px 0;
   cursor: pointer;
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .dropdown > .btn {
@@ -2661,7 +2659,7 @@ input[type="file"] {
   border-width: 5px 5px 0 5px;
   position: absolute;
   right: 15px;
-  border-color: #1E85EC transparent transparent transparent;
+  border-color: #5574A7 transparent transparent transparent;
 }
 
 .Terms {
@@ -3003,7 +3001,7 @@ input[type="file"] {
 }
 
 .list + button, .list + a {
-  color: #1E85EC;
+  color: #5574A7;
   float: right;
   font-size: 30px;
   text-align: right;
@@ -3042,7 +3040,7 @@ input[type="file"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border-right: 1px solid #b2b2b2;
+  border-right: 1px solid #D2E2F9;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -3068,7 +3066,7 @@ input[type="file"] {
 }
 
 .list .listHeader {
-  background: #134DAE;
+  background: #7591C1;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   display: -webkit-box;
@@ -3110,7 +3108,7 @@ input[type="file"] {
 }
 
 .list .listBody > div:nth-child(even) {
-  background: #e8edf3;
+  background: #F0F7FF;
 }
 
 .list .listBody > div:last-child {
@@ -3136,12 +3134,12 @@ input[type="file"] {
 }
 
 .list .listBody > div div.pending {
-  color: #dd8c00;
+  color: #F9B041;
   font-weight: bold;
 }
 
 .list .listBody > div div.approved {
-  color: #007224;
+  color: #42AC5E;
   font-weight: bold;
 }
 
@@ -3194,7 +3192,7 @@ input[type="file"] {
 }
 
 .pagination a {
-  color: #1E85EC;
+  color: #5574A7;
   float: left;
   width: 30px;
   height: 30px;
@@ -3213,12 +3211,12 @@ input[type="file"] {
 }
 
 .pagination a.active {
-  background: #1E85EC;
+  background: #5574A7;
   color: white;
 }
 
 .pagination a:hover:not(.active) {
-  background: #1E85EC;
+  background: #5574A7;
   color: white;
 }
 
@@ -3234,7 +3232,7 @@ input[type="file"] {
 }
 
 .stepBar .stepLine {
-  background: #1E85EC;
+  background: #5574A7;
   position: absolute;
   height: 100%;
   border-radius: 30px;
@@ -3284,11 +3282,11 @@ input[type="file"] {
 }
 
 .stepBar .stepLine ~ div.active span {
-  color: #f77900;
+  color: #5574A7;
 }
 
 .stepBar .stepLine ~ div.active:after {
-  background: #f77900;
+  background: #5574A7;
 }
 
 .cashBar {
@@ -3310,7 +3308,7 @@ input[type="file"] {
 }
 
 .cashBar .min, .cashBar .max {
-  color: white;
+  color: #5574A7;
 }
 
 .cashBar .min {
@@ -3442,7 +3440,7 @@ input[type="file"] {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background: rgba(33, 33, 33, 0.7);
+  background: rgba(210, 226, 249, 0.7);
   border-radius: 15px;
   overflow: hidden;
 }
@@ -3622,7 +3620,7 @@ input[type="file"] {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #1E85EC;
+  color: #5574A7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3748,7 +3746,7 @@ input[type="file"] {
 }
 
 .align-items-center .txt-lightgray + .upload_img:hover {
-  background: #1E85EC;
+  background: #5574A7;
 }
 
 .align-items-center .txt-lightgray + .upload_img:hover .icon-plus {
@@ -3779,7 +3777,7 @@ input[type="file"] {
   padding: 5px 30px;
   height: 40px;
   border-radius: 30px;
-  border: 1px solid #1E85EC;
+  border: 1px solid #5574A7;
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3846,7 +3844,7 @@ input[type="file"] {
 }
 
 #popup .pop {
-  background: #191919;
+  background: #D2E2F9;
   padding: 40px;
   border-radius: 15px;
   max-height: calc(100% - 160px);
@@ -3871,6 +3869,7 @@ input[type="file"] {
 #popup .pop .upload_new .title {
   margin: 0;
   font-size: 32px;
+  color: #5574A7;
 }
 
 #popup .pop .download {
@@ -3890,7 +3889,11 @@ input[type="file"] {
 }
 
 #popup .pop .download > div .icon {
-  color: #f77900;
+  color: #5574A7;
+}
+
+#popup .pop .download > div .icon + div {
+  color: #666;
 }
 
 #popup .pop .download > div .btnGroup {
@@ -3898,7 +3901,7 @@ input[type="file"] {
 }
 
 #popup .pop .icon-close {
-  color: white;
+  color: #5574A7;
   position: absolute;
   right: -10px;
   top: -10px;
@@ -4195,6 +4198,7 @@ input[type="file"] {
 
 .title {
   font-weight: bold;
+  color: #5574A7;
 }
 
 .smallList {
@@ -4202,6 +4206,7 @@ input[type="file"] {
 }
 
 .smallList > ul li {
+  color: #b2b2b2;
   width: 100%;
   line-height: 30px;
   letter-spacing: 1px;
@@ -4210,11 +4215,11 @@ input[type="file"] {
 }
 
 .smallList > ul li:nth-child(odd) {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .smallList > ul li:first-child {
-  color: #1E85EC;
+  color: #5574A7;
   font-weight: bold;
   text-align: left;
 }
@@ -4269,7 +4274,7 @@ input[type="file"] {
   max-width: 80%;
   min-width: 75%;
   border-radius: 15px;
-  border: 1px solid #1E85EC;
+  border: 1px solid #5574A7;
   height: 250px;
   margin: 40px 0 10px;
   display: -webkit-box;
@@ -4295,7 +4300,7 @@ input[type="file"] {
 
 .upload_img .icon {
   font-size: 48px;
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .upload_img .icon.icon-broken_image:before {
@@ -4348,7 +4353,7 @@ input[type="file"] {
 
 .slipInfo button.icon {
   font-size: 24px;
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .slipInfo .smallList li {
@@ -4513,7 +4518,7 @@ input[type="file"] {
 }
 
 .walletModule .walletBalanceModule {
-  background: #212121;
+  background: #D2E2F9;
   border-radius: 15px;
   padding: 10px;
   -webkit-box-flex: 1;
@@ -4554,8 +4559,12 @@ input[type="file"] {
 }
 
 .walletModule .walletBalanceModule span.icon-icon32px_Main-Wallet.icon:before, .walletModule .walletBalanceModule span.icon-icon32px_Sportsbook-Wallet.icon:before {
-  color: white;
+  color: #5574A7;
   font-size: 24px;
+}
+
+.walletModule .walletBalanceModule span.icon-icon32px_Main-Wallet + span, .walletModule .walletBalanceModule span.icon-icon32px_Sportsbook-Wallet + span {
+  color: #5574A7;
 }
 
 .walletModule .walletBalanceModule span.icon-icon32px_Main-Wallet + span + .btnGroup button, .walletModule .walletBalanceModule span.icon-icon32px_Sportsbook-Wallet + span + .btnGroup button {
@@ -4581,20 +4590,17 @@ input[type="file"] {
           align-items: center;
 }
 
-.walletModule .walletBalanceModule .icon-balance:before {
-  color: white;
-}
-
 .walletModule .walletBalanceModule .icon-balance + span {
   width: 100%;
   text-align: right;
+  color: #5574A7;
 }
 
 .walletModule .icon {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  color: #1E85EC;
+  color: #5574A7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4604,7 +4610,7 @@ input[type="file"] {
 }
 
 .walletModule .icon.icon-plus {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .walletModule .icon-icon32px_Main-Wallet {
@@ -4622,18 +4628,19 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #5574A7;
 }
 
 .checkbox.autotransfer input[type="checkbox"] + label {
   border-radius: 0;
   width: 15px;
   height: 15px;
-  color: #f77900;
+  color: #5574A7;
   margin-right: 5px;
 }
 
 .walletTransfer {
-  background: #212121;
+  background: #D2E2F9;
   border-radius: 15px;
   width: 100%;
   padding: 30px 100px;
@@ -4683,15 +4690,17 @@ input[type="file"] {
 
 .addBank .addBankName {
   width: calc(100% - 50px);
-  border: 1px solid #1E85EC;
+  border: 1px solid #5574A7;
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 15px;
   margin-right: 10px;
+  color: #5574A7;
 }
 
 .addBank .addBankName:hover {
-  background: #1E85EC;
+  background: #5574A7;
+  color: white;
 }
 
 .addBank .addBankName:hover .addBankInfo div, .addBank .addBankName:hover .addBankInfo button, .addBank .addBankName:hover .cryptoInfo div, .addBank .addBankName:hover .cryptoInfo button {
@@ -4719,6 +4728,7 @@ input[type="file"] {
           justify-content: space-evenly;
   cursor: pointer;
   min-height: 55px;
+  color: #5574A7;
 }
 
 .addBank .addBankName.noBank .icon-warning {
@@ -4726,6 +4736,10 @@ input[type="file"] {
 }
 
 .addBank .addBankName.noBank:hover .icon {
+  color: white;
+}
+
+.addBank .addBankName.noBank:hover .icon + div {
   color: white;
 }
 
@@ -4786,11 +4800,15 @@ input[type="file"] {
   font-size: 24px;
   right: 0;
   bottom: -40px;
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .addBank .addBankName .icon-plus {
   font-size: 40px;
+}
+
+.addBank .addBankName .icon-plus + div {
+  color: #5574A7;
 }
 
 .addBank + div.subModuleList {
@@ -4906,7 +4924,7 @@ input[type="file"] {
 .remainder ~ .tip {
   padding: 0;
   margin-top: 10px;
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .calculation {
@@ -4934,10 +4952,11 @@ input[type="file"] {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: #5574A7;
 }
 
 .calculation > div:nth-child(odd) {
-  background: #333;
+  background: #F0F7FF;
 }
 
 .calculation > div:nth-child(even) {
@@ -4960,7 +4979,7 @@ input[type="file"] {
 }
 
 .calculation > div div:first-child {
-  color: #1E85EC;
+  color: #5574A7;
   word-break: break-word;
 }
 
@@ -5052,6 +5071,7 @@ input[type="file"] {
 
 .kycHeight .icon {
   font-size: 48px;
+  color: #5574A7;
 }
 
 .history {
@@ -5072,10 +5092,6 @@ input[type="file"] {
 
 .quickSelect .btnGroup {
   margin: 10px 0;
-}
-
-.quickSelect .inputBox-blue {
-  background: #333;
 }
 
 .quickSelect > div.inputBox, .quickSelect > div.inputBox-org, .quickSelect > div.inputBox-white, .quickSelect > div.inputBox-blue, .quickSelect > div:first-child {
@@ -5216,7 +5232,7 @@ input[type="file"] {
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
   border-top: 0;
-  color: #f77900;
+  color: #5574A7;
 }
 
 .icon-nodata:before {
@@ -5231,6 +5247,7 @@ input[type="file"] {
   width: max-content;
   margin: auto;
   margin-top: 10px;
+  color: #5574A7;
 }
 
 .changePassWord, .forgetPassWord {
@@ -5244,16 +5261,16 @@ input[type="file"] {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  color: #5574A7;
 }
 
 .changePassWord .lastChange, .forgetPassWord .lastChange {
   width: calc(100% - 5px);
   padding-left: 5px;
-  color: #1E85EC;
 }
 
 .changePassWord .lastChange span, .forgetPassWord .lastChange span {
-  color: white;
+  color: #5574A7;
   margin-left: 10px;
 }
 
@@ -5287,6 +5304,7 @@ input[type="file"] {
       -ms-flex: 0 0 calc(50% - 20px);
           flex: 0 0 calc(50% - 20px);
   line-height: 35px;
+  color: #5574A7;
 }
 
 .profile > div:nth-child(odd) {
@@ -5309,7 +5327,7 @@ input[type="file"] {
 }
 
 .profile > div div:first-child {
-  color: #1E85EC;
+  font-weight: bold;
 }
 
 .profile > div div:last-child {
@@ -5400,6 +5418,7 @@ input[type="file"] {
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
   margin-bottom: 0;
+  color: #5574A7;
 }
 
 .haveBank > div.addBankName .icon-bin {
@@ -5407,23 +5426,19 @@ input[type="file"] {
           transform: translateY(-75%);
 }
 
-.haveBank > div.addBankName:hover {
-  border-color: #f77900;
-}
-
 .accountName {
   padding: 20px 70px 0;
   margin-bottom: 30px;
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .accountName span {
-  color: white;
+  color: #5574A7;
   margin: 0 10px;
 }
 
 .accountName button {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .accountName .tip {
@@ -5588,7 +5603,7 @@ input[type="file"] {
 }
 
 .personal .list .functionMenu {
-  background: #134DAE;
+  background: #5574A7;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5866,11 +5881,11 @@ input[type="file"] {
 
 .promotionsInfo .proData .rollover > div {
   margin-right: 20px;
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .promotionsInfo .proData .rollover > div:last-child {
-  color: #f77900;
+  color: #b2b2b2;
 }
 
 .promotionsInfo .proData .rollover > div .icon:before {
@@ -6081,7 +6096,7 @@ article img {
 article h1, article h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #1E85EC;
+  color: #5574A7;
   font-weight: bold;
 }
 
@@ -6166,7 +6181,7 @@ article p {
 
 .progressBar .bar {
   height: 5px;
-  border: 1px solid #f77900;
+  border: 1px solid #5574A7;
   border-radius: 10px;
   margin-right: 10px;
   -webkit-box-flex: 1;
@@ -6176,12 +6191,12 @@ article p {
 }
 
 .progressBar .bar .progress {
-  background: #f77900;
+  background: #5574A7;
   height: 100%;
 }
 
 .progressBar .percentage {
-  color: #f77900;
+  color: #5574A7;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
@@ -6480,7 +6495,7 @@ button.icon-spinner11:before {
 }
 
 .checkBankSlip.smallList ul li .icon {
-  color: #1E85EC;
+  color: #5574A7;
   margin-left: 10px;
 }
 
@@ -7097,7 +7112,7 @@ button.icon-spinner11:before {
 
 .transferModule .inputBox-org button.btn, .transferModule .inputBox-blue button.btn {
   width: auto;
-  color: white;
+  color: #f77900;
   -webkit-box-flex: 7;
       -ms-flex: 7;
           flex: 7;
@@ -7113,7 +7128,7 @@ button.icon-spinner11:before {
   left: -1px;
   width: calc(100% - 1px);
   border-radius: 15px;
-  background: #212121;
+  background: #D2E2F9;
   border: 1px solid #f77900;
   margin-left: 0;
   overflow: hidden;
@@ -7130,16 +7145,20 @@ button.icon-spinner11:before {
 }
 
 .transferModule .inputBox-org .dropdown-item, .transferModule .inputBox-blue .dropdown-item {
-  color: white;
+  color: #5574A7;
   text-align: right;
 }
 
 .transferModule .inputBox-blue span {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .transferModule .inputBox-blue:focus-within {
   border: 1px solid #1E85EC;
+}
+
+.transferModule .inputBox-blue button.btn {
+  color: #5574A7;
 }
 
 .transferModule .inputBox-blue .dropdown-container {
@@ -7183,28 +7202,29 @@ button.icon-spinner11:before {
 }
 
 .depositSlip .depositSlipList > div > div {
-  border: 1px solid #134DAE;
+  border: 1px solid #5574A7;
   padding: 5px;
-  color: #1E85EC;
+  color: #5574A7;
   text-align: right;
   border-bottom: 0;
 }
 
 .depositSlip .depositSlipList > div > div:nth-child(2) {
-  color: #f77900;
-  border-color: #f77900;
-  border-bottom: 1px solid #f77900;
+  color: #b2b2b2;
+  border-color: #b2b2b2;
+  border-bottom: 1px solid #b2b2b2;
 }
 
 .depositSlip .txt-orange {
   margin: 5px 0 15px;
   font-size: 16px;
-  border: 1px solid #f77900;
+  border: 1px solid #5574A7;
   padding: 5px 10px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   border-radius: 10px;
+  color: #5574A7;
 }
 
 .gameMenu {
@@ -7320,19 +7340,19 @@ button.icon-spinner11:before {
 }
 
 .colorInfo > div:first-child {
-  color: #1E85EC;
+  color: #5574A7;
 }
 
 .colorInfo > div:first-child span {
-  background: #1E85EC;
+  background: #5574A7;
 }
 
 .colorInfo > div:last-child {
-  color: #f77900;
+  color: #b2b2b2;
 }
 
 .colorInfo > div:last-child span {
-  background: #f77900;
+  background: #b2b2b2;
 }
 
 .colorInfo > div span {
@@ -7344,7 +7364,7 @@ button.icon-spinner11:before {
 }
 
 .icon-icon32px_bank-account ~ .platformName, .icon-BTC ~ .platformName {
-  background: #1E85EC;
+  background: #5574A7;
   border: 0;
 }
 
@@ -8099,6 +8119,7 @@ button.icon-spinner11:before {
 
 .ranking .eventRule .title {
   word-wrap: break-word;
+  color: white;
 }
 
 .ranking .eventRule .rankTag {
@@ -8387,22 +8408,23 @@ nav.breadcrumb ul {
   display: flex;
   padding: 10px 20px;
   border-radius: 30px;
-  background: #282828;
+  background: #D2E2F9;
   font-size: 13px;
 }
 
 nav.breadcrumb ul .breadcrumb-item a {
-  color: #1E85EC;
+  color: #BFCCE2;
   text-transform: capitalize;
 }
 
 nav.breadcrumb ul .breadcrumb-item + .breadcrumb-item::before {
   content: '\e95c';
   margin: 0 5px;
+  color: #5574A7;
 }
 
 nav.breadcrumb ul .breadcrumb-item.active a {
-  color: white;
+  color: #5574A7;
 }
 
 .statement {
@@ -8422,7 +8444,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .statement > div:first-child {
-  background: #134DAE;
+  background: #5574A7;
   border-radius: 10px 10px 0 0;
 }
 
@@ -8474,7 +8496,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .statement .total {
   padding: 10px;
-  color: #f77900;
+  color: #5574A7;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -8533,7 +8555,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .ErrorPage > div .icon-close {
-  color: white;
+  color: #5574A7;
   position: absolute;
   top: 10px;
   right: 10px;
@@ -8649,6 +8671,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 70px;
+  color: #5574A7;
 }
 
 .referralModule > div {
@@ -8674,7 +8697,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: rgba(33, 33, 33, 0.7);
+  background: rgba(210, 226, 249, 0.7);
   border-radius: 15px;
   padding: 20px;
 }
@@ -8682,7 +8705,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .referralModule > div .refBox > div {
   width: 100%;
   margin: 10px 10px 10px 0;
-  border: 1px solid #1E85EC;
+  border: 1px solid #5574A7;
   border-radius: 15px;
   padding: 15px 10px;
 }
@@ -8706,7 +8729,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .referralModule > div .refBox .icon {
-  color: white;
+  color: #5574A7;
 }
 
 .referralModule > div.refLink {
@@ -8737,7 +8760,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .achievement {
-  color: white;
+  color: #5574A7;
   width: calc(100% - 150px);
   margin: 15px 0 0;
   padding: 0 70px 0 80px;
@@ -8766,7 +8789,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .qrcode {
-  background: #191919;
+  background: #D2E2F9;
   padding: 40px 40px 0;
   border-radius: 15px;
   overflow-y: auto;
@@ -9288,7 +9311,7 @@ canvas {
 }
 
 #popup .eventpop .icon-close, #popup .eventpop2 .icon-close {
-  color: white;
+  color: #5574A7;
   position: absolute;
   right: 10px;
   top: 17px;
@@ -9350,7 +9373,9 @@ canvas {
 
 .vip .vipPage {
   width: 100%;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background: #D2E2F9;
+  border-radius: 5px;
 }
 
 .vip .vipPage ~ img {
@@ -9375,11 +9400,12 @@ canvas {
 }
 
 .vip .vipPage .eventList tr.title {
-  background: #134DAE;
+  background: #5574A7;
+  color: white;
 }
 
 .vip .vipPage .eventList tr:last-child {
-  background: black;
+  background: #666;
   font-weight: bold;
 }
 
@@ -9388,8 +9414,9 @@ canvas {
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd) td:first-child {
-  border-right: 1px solid black;
-  background: #444;
+  border-right: 1px solid #5574A7;
+  background: #BFCCE2;
+  color: #5574A7;
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
@@ -9402,12 +9429,14 @@ canvas {
   width: 11%;
   line-height: 30px;
   text-align: center;
+  color: #5574A7;
 }
 
 .vip .vipPage .eventList tr td:first-child {
   text-align: left;
   width: 34%;
   padding-left: 10px;
+  color: white;
 }
 
 .vip .vipPage .eventList tr:first-child td {
@@ -9422,6 +9451,7 @@ canvas {
 .vip .medal tr td {
   width: 11%;
   text-align: center;
+  color: #5574A7;
 }
 
 .vip .medal tr td:first-child {
@@ -9481,10 +9511,11 @@ canvas {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: rgba(51, 51, 51, 0.5);
+  background: rgba(210, 226, 249, 0.5);
   border-radius: 15px;
   padding: 20px 40px;
   margin-bottom: 30px;
+  color: #666;
 }
 
 .vipInfo .vipTitle {
@@ -9497,7 +9528,7 @@ canvas {
   font-size: 18px;
   margin: 20px 0;
   font-weight: bold;
-  color: #1E85EC;
+  color: #5574A7;
   width: 100%;
 }
 
@@ -10149,73 +10180,69 @@ canvas {
   margin: 0;
 }
 
-html.newIndex {
+body, html {
   background: #e8eff5;
 }
 
-html.newIndex body {
-  background: #e8eff5;
-}
-
-html.newIndex #header {
+#header {
   background: white;
 }
 
-html.newIndex #header .header {
+#header .header {
   width: 1400px;
 }
 
-html.newIndex #header .header .function .wallet, html.newIndex #header .header .function .memberfile, html.newIndex #header .header .function .icon-email, html.newIndex #header .header .function .icon-exit {
+#header .header .function .wallet, #header .header .function .memberfile, #header .header .function .icon-email, #header .header .function .icon-exit {
   color: #5574A7;
 }
 
-html.newIndex #header .header .function .wallet:after, html.newIndex #header .header .function .memberfile:after, html.newIndex #header .header .function .icon-email:after, html.newIndex #header .header .function .icon-exit:after {
+#header .header .function .wallet:after, #header .header .function .memberfile:after, #header .header .function .icon-email:after, #header .header .function .icon-exit:after {
   color: #5574A7;
 }
 
-html.newIndex #header .header .function .wallet button, html.newIndex #header .header .function .memberfile button, html.newIndex #header .header .function .icon-email button, html.newIndex #header .header .function .icon-exit button {
+#header .header .function .wallet button, #header .header .function .memberfile button, #header .header .function .icon-email button, #header .header .function .icon-exit button {
   color: #5574A7;
 }
 
-html.newIndex #header .header .function .wallet .submenu, html.newIndex #header .header .function .memberfile .submenu, html.newIndex #header .header .function .icon-email .submenu, html.newIndex #header .header .function .icon-exit .submenu {
+#header .header .function .wallet .submenu, #header .header .function .memberfile .submenu, #header .header .function .icon-email .submenu, #header .header .function .icon-exit .submenu {
   background: white;
 }
 
-html.newIndex #header .header .function .wallet .submenu > a, html.newIndex #header .header .function .memberfile .submenu > a, html.newIndex #header .header .function .icon-email .submenu > a, html.newIndex #header .header .function .icon-exit .submenu > a {
+#header .header .function .wallet .submenu > a, #header .header .function .memberfile .submenu > a, #header .header .function .icon-email .submenu > a, #header .header .function .icon-exit .submenu > a {
   color: #5574A7;
 }
 
-html.newIndex #header .header .function .wallet .submenu div.balance button, html.newIndex #header .header .function .memberfile .submenu div.balance button, html.newIndex #header .header .function .icon-email .submenu div.balance button, html.newIndex #header .header .function .icon-exit .submenu div.balance button {
+#header .header .function .wallet .submenu div.balance button, #header .header .function .memberfile .submenu div.balance button, #header .header .function .icon-email .submenu div.balance button, #header .header .function .icon-exit .submenu div.balance button {
   background: #5574A7;
   color: white;
 }
 
-html.newIndex #header .header .function .wallet .submenu div.walletBalance .walletName + div, html.newIndex #header .header .function .memberfile .submenu div.walletBalance .walletName + div, html.newIndex #header .header .function .icon-email .submenu div.walletBalance .walletName + div, html.newIndex #header .header .function .icon-exit .submenu div.walletBalance .walletName + div {
+#header .header .function .wallet .submenu div.walletBalance .walletName + div, #header .header .function .memberfile .submenu div.walletBalance .walletName + div, #header .header .function .icon-email .submenu div.walletBalance .walletName + div, #header .header .function .icon-exit .submenu div.walletBalance .walletName + div {
   border-top: 1px solid #5574A7;
 }
 
-html.newIndex #header .header .function .wallet .submenu div .progressBar .percentage, html.newIndex #header .header .function .memberfile .submenu div .progressBar .percentage, html.newIndex #header .header .function .icon-email .submenu div .progressBar .percentage, html.newIndex #header .header .function .icon-exit .submenu div .progressBar .percentage {
+#header .header .function .wallet .submenu div .progressBar .percentage, #header .header .function .memberfile .submenu div .progressBar .percentage, #header .header .function .icon-email .submenu div .progressBar .percentage, #header .header .function .icon-exit .submenu div .progressBar .percentage {
   color: #5574A7;
 }
 
-html.newIndex #header .header .function .wallet .submenu div .progressBar .bar, html.newIndex #header .header .function .memberfile .submenu div .progressBar .bar, html.newIndex #header .header .function .icon-email .submenu div .progressBar .bar, html.newIndex #header .header .function .icon-exit .submenu div .progressBar .bar {
+#header .header .function .wallet .submenu div .progressBar .bar, #header .header .function .memberfile .submenu div .progressBar .bar, #header .header .function .icon-email .submenu div .progressBar .bar, #header .header .function .icon-exit .submenu div .progressBar .bar {
   border: 1px solid #5574A7;
 }
 
-html.newIndex #header .header .function .wallet .submenu div .progressBar .bar .progress, html.newIndex #header .header .function .memberfile .submenu div .progressBar .bar .progress, html.newIndex #header .header .function .icon-email .submenu div .progressBar .bar .progress, html.newIndex #header .header .function .icon-exit .submenu div .progressBar .bar .progress {
+#header .header .function .wallet .submenu div .progressBar .bar .progress, #header .header .function .memberfile .submenu div .progressBar .bar .progress, #header .header .function .icon-email .submenu div .progressBar .bar .progress, #header .header .function .icon-exit .submenu div .progressBar .bar .progress {
   background: #5574A7;
 }
 
-html.newIndex #header .header .function .icon-email:after {
+#header .header .function .icon-email:after {
   color: #f77900;
   top: 0;
 }
 
-html.newIndex #header .header .function > a:nth-child(5) span {
+#header .header .function > a:nth-child(5) span {
   background: #5574A7;
 }
 
-html.newIndex #header .header .function > div .countryList {
+#header .header .function > div .countryList {
   background: white;
   border-radius: 15px;
   border: 1px solid rgba(30, 133, 236, 0.5);
@@ -10223,47 +10250,47 @@ html.newIndex #header .header .function > div .countryList {
   padding: 0 20px;
 }
 
-html.newIndex #header .header .function > div .countryList button, html.newIndex #header .header .function > div .countryList a {
+#header .header .function > div .countryList button, #header .header .function > div .countryList a {
   color: #5574A7;
 }
 
-html.newIndex #header input {
+#header input {
   margin: 0 10px 0 0;
   line-height: 30px;
   border: 1px solid #7591C1;
   border-radius: 5px;
   padding: 0 5px;
-  color: #7591C1;
+  color: #5574A7;
   width: 120px;
   font-size: 16px;
 }
 
-html.newIndex #header input::-webkit-input-placeholder {
-  color: #7591C1;
+#header input::-webkit-input-placeholder {
+  color: #5574A7;
   text-align: center;
 }
 
-html.newIndex #header input:-ms-input-placeholder {
-  color: #7591C1;
+#header input:-ms-input-placeholder {
+  color: #5574A7;
   text-align: center;
 }
 
-html.newIndex #header input::-ms-input-placeholder {
-  color: #7591C1;
+#header input::-ms-input-placeholder {
+  color: #5574A7;
   text-align: center;
 }
 
-html.newIndex #header input::placeholder {
-  color: #7591C1;
+#header input::placeholder {
+  color: #5574A7;
   text-align: center;
 }
 
-html.newIndex #header input:focus-within {
+#header input:focus-within {
   border: 1px solid #7591C1;
   outline: #7591C1;
 }
 
-html.newIndex #header a[class=join], html.newIndex #header a[class=login] {
+#header a[class=join], #header a[class=login] {
   background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
   background: linear-gradient(to bottom, #435F8B, #6383B9);
   border-radius: 5px;
@@ -10274,66 +10301,66 @@ html.newIndex #header a[class=join], html.newIndex #header a[class=login] {
           box-sizing: border-box;
 }
 
-html.newIndex #header a[class=join]:hover, html.newIndex #header a[class=login]:hover {
+#header a[class=join]:hover, #header a[class=login]:hover {
   color: white;
 }
 
-html.newIndex #header a[class=login] {
+#header a[class=login] {
   background: -webkit-gradient(linear, left top, left bottom, from(#F0F7FF), to(#BFCCE2));
   background: linear-gradient(to bottom, #F0F7FF, #BFCCE2);
   color: #7591C1;
 }
 
-html.newIndex #header a[class=login]:hover {
+#header a[class=login]:hover {
   color: #7591C1;
 }
 
-html.newIndex #header .flag:before {
+#header .flag:before {
   border: 3px solid #BFCCE2;
   width: 26px;
   height: 26px;
   line-height: 26px;
 }
 
-html.newIndex #header .menu {
+#header .menu {
   background: #7591C1;
   height: 60px;
 }
 
-html.newIndex #header .menu > div {
+#header .menu > div {
   width: 1400px;
 }
 
-html.newIndex #header .menu > div .subMenu-Wrapper-new {
+#header .menu > div .subMenu-Wrapper-new {
   background: white;
   border-bottom: 1px solid #ccc;
   top: 59px;
 }
 
-html.newIndex #header .menu > div .subMenu-Wrapper-new > div > a > span, html.newIndex #header .menu > div .subMenu-Wrapper-new > div > button > span {
+#header .menu > div .subMenu-Wrapper-new > div > a > span, #header .menu > div .subMenu-Wrapper-new > div > button > span {
   color: #7591C1;
   background: url(https://banner.n88media.com/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
 }
 
-html.newIndex #header .menu > div > a, html.newIndex #header .menu > div > button {
+#header .menu > div > a, #header .menu > div > button {
   padding-left: 0;
   padding-right: 30px;
   position: relative;
 }
 
-html.newIndex #header .menu > div > a:hover, html.newIndex #header .menu > div > button:hover {
+#header .menu > div > a:hover, #header .menu > div > button:hover {
   color: #284985;
 }
 
-html.newIndex #header .menu > div > a:after, html.newIndex #header .menu > div > button:after {
+#header .menu > div > a:after, #header .menu > div > button:after {
   background: #284985;
 }
 
-html.newIndex #header .menu > div > a.active, html.newIndex #header .menu > div > button.active {
+#header .menu > div > a.active, #header .menu > div > button.active {
   color: #284985;
 }
 
-html.newIndex #header .menu > div > a div.icon-new:before, html.newIndex #header .menu > div > button div.icon-new:before {
+#header .menu > div > a div.icon-new:before, #header .menu > div > button div.icon-new:before {
   background: #f77900;
   border-radius: 0;
   left: 0;
@@ -10347,7 +10374,7 @@ html.newIndex #header .menu > div > a div.icon-new:before, html.newIndex #header
   font-size: 13px;
 }
 
-html.newIndex #header .menu > div > a div.icon-new:after, html.newIndex #header .menu > div > button div.icon-new:after {
+#header .menu > div > a div.icon-new:after, #header .menu > div > button div.icon-new:after {
   content: '';
   display: block;
   width: 0;
@@ -10361,11 +10388,11 @@ html.newIndex #header .menu > div > a div.icon-new:after, html.newIndex #header 
   left: 50px;
 }
 
-html.newIndex #header .menu > div > a div.live:before, html.newIndex #header .menu > div > button div.live:before {
+#header .menu > div > a div.live:before, #header .menu > div > button div.live:before {
   content: 'Live';
 }
 
-html.newIndex #header .menu > div > a div.live i, html.newIndex #header .menu > div > button div.live i {
+#header .menu > div > a div.live i, #header .menu > div > button div.live i {
   position: absolute;
   top: 6px;
   left: 6px;
@@ -10394,7 +10421,7 @@ html.newIndex #header .menu > div > a div.live i, html.newIndex #header .menu > 
   }
 }
 
-html.newIndex #header .menu > div > a div.live:before, html.newIndex #header .menu > div > button div.live:before {
+#header .menu > div > a div.live:before, #header .menu > div > button div.live:before {
   background: #05BC0B;
   border-radius: 0;
   left: 0;
@@ -10407,7 +10434,7 @@ html.newIndex #header .menu > div > a div.live:before, html.newIndex #header .me
   padding-right: 0;
 }
 
-html.newIndex #header .menu > div > a div.live:after, html.newIndex #header .menu > div > button div.live:after {
+#header .menu > div > a div.live:after, #header .menu > div > button div.live:after {
   content: '';
   display: block;
   width: 0;
@@ -10421,31 +10448,31 @@ html.newIndex #header .menu > div > a div.live:after, html.newIndex #header .men
   left: 52px;
 }
 
-html.newIndex main {
+main {
   padding-top: 145px;
   min-width: 1400px;
 }
 
-html.newIndex main #Marquee {
+main #Marquee {
   background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
 }
 
-html.newIndex main #Marquee .marquee-box {
+main #Marquee .marquee-box {
   max-width: 1400px;
 }
 
-html.newIndex main #Marquee .mq-btn {
+main #Marquee .mq-btn {
   display: none;
 }
 
-html.newIndex main #Marquee .marquee-box.icon:before {
+main #Marquee .marquee-box.icon:before {
   background: url(../img/marqueeboxbg.png) no-repeat left center/auto 100%;
   content: '';
   color: white;
   width: 90px;
 }
 
-html.newIndex main .moduleTitle {
+main .moduleTitle {
   background: url(../img/indextitle.png) no-repeat;
   margin: 30px auto 0;
   font-weight: bold;
@@ -10459,27 +10486,27 @@ html.newIndex main .moduleTitle {
           align-items: center;
 }
 
-html.newIndex main .moduleTitle > a {
+main .moduleTitle > a {
   margin: auto 0 auto auto;
   color: #7591C1;
 }
 
-html.newIndex main .moduleTitle.icon:before {
+main .moduleTitle.icon:before {
   margin: 0 10px;
   font-weight: normal;
   font-size: 32px;
 }
 
-html.newIndex main .moduleTitle.icon-upcomingmatches:before, html.newIndex main .moduleTitle.icon-saba:before, html.newIndex main .moduleTitle.icon-film:before, html.newIndex main .moduleTitle.icon-news:before, html.newIndex main .moduleTitle.icon-live_tv:before {
+main .moduleTitle.icon-upcomingmatches:before, main .moduleTitle.icon-saba:before, main .moduleTitle.icon-film:before, main .moduleTitle.icon-news:before, main .moduleTitle.icon-live_tv:before {
   font-size: 24px;
   margin: 0 14px;
 }
 
-html.newIndex main .moduleTitle.icon-saba {
+main .moduleTitle.icon-saba {
   margin-top: 20px;
 }
 
-html.newIndex main .hotGame, html.newIndex main .promos {
+main .hotGame, main .promos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10488,7 +10515,7 @@ html.newIndex main .hotGame, html.newIndex main .promos {
   width: 1400px;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div, html.newIndex main .promos .swiper-container .swiper-wrapper > div {
+main .hotGame .swiper-container .swiper-wrapper > div, main .promos .swiper-container .swiper-wrapper > div {
   border-radius: 5px;
   overflow: hidden;
   position: relative;
@@ -10508,7 +10535,7 @@ html.newIndex main .hotGame .swiper-container .swiper-wrapper > div, html.newInd
           justify-content: space-between;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div .title, html.newIndex main .promos .swiper-container .swiper-wrapper > div .title {
+main .hotGame .swiper-container .swiper-wrapper > div .title, main .promos .swiper-container .swiper-wrapper > div .title {
   color: #5574A7;
   margin: 5px 0;
   padding: 0 10px;
@@ -10521,7 +10548,7 @@ html.newIndex main .hotGame .swiper-container .swiper-wrapper > div .title, html
   white-space: normal;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div, html.newIndex main .promos .swiper-container .swiper-wrapper > div > div {
+main .hotGame .swiper-container .swiper-wrapper > div > div, main .promos .swiper-container .swiper-wrapper > div > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10531,20 +10558,20 @@ html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div, html.
   text-align: center;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup, html.newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup {
+main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup, main .promos .swiper-container .swiper-wrapper > div > div.btnGroup {
   margin: 0 0 10px;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, html.newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup button {
+main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, main .promos .swiper-container .swiper-wrapper > div > div.btnGroup button {
   max-width: 120px;
   border-radius: 5px;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div > img, html.newIndex main .promos .swiper-container .swiper-wrapper > div > div > img {
+main .hotGame .swiper-container .swiper-wrapper > div > div > img, main .promos .swiper-container .swiper-wrapper > div > div > img {
   width: 400px;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div {
+main .hotGame .swiper-container .swiper-wrapper > div {
   max-width: 260px;
   min-width: 260px;
   background: white;
@@ -10555,7 +10582,7 @@ html.newIndex main .hotGame .swiper-container .swiper-wrapper > div {
       flex-flow: wrap;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div {
+main .hotGame .swiper-container .swiper-wrapper > div > div {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -10565,13 +10592,13 @@ html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div {
   text-align: left;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div .title {
+main .hotGame .swiper-container .swiper-wrapper > div > div .title {
   padding: 0;
   text-align: left;
   margin-bottom: 0;
 }
 
-html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div + img {
+main .hotGame .swiper-container .swiper-wrapper > div > div + img {
   width: 70px;
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -10579,7 +10606,7 @@ html.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div + img 
   margin: auto 10px auto 0;
 }
 
-html.newIndex main .liveVideo, html.newIndex main .newsVideo {
+main .liveVideo, main .newsVideo {
   width: 1400px;
   margin: auto;
   display: -webkit-box;
@@ -10587,19 +10614,19 @@ html.newIndex main .liveVideo, html.newIndex main .newsVideo {
   display: flex;
 }
 
-html.newIndex main .liveVideo .latestVideo, html.newIndex main .liveVideo .newsList, html.newIndex main .newsVideo .latestVideo, html.newIndex main .newsVideo .newsList {
+main .liveVideo .latestVideo, main .liveVideo .newsList, main .newsVideo .latestVideo, main .newsVideo .newsList {
   width: 780px;
   float: left;
   margin-right: 15px;
 }
 
-html.newIndex main .liveVideo .latestVideo .title, html.newIndex main .liveVideo .newsList .title, html.newIndex main .newsVideo .latestVideo .title, html.newIndex main .newsVideo .newsList .title {
+main .liveVideo .latestVideo .title, main .liveVideo .newsList .title, main .newsVideo .latestVideo .title, main .newsVideo .newsList .title {
   background: url(../img/latestvideotitlebg.png) no-repeat;
   line-height: 65px;
   padding-left: 20px;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule, html.newIndex main .liveVideo .newsList .newsModule, html.newIndex main .newsVideo .latestVideo .newsModule, html.newIndex main .newsVideo .newsList .newsModule {
+main .liveVideo .latestVideo .newsModule, main .liveVideo .newsList .newsModule, main .newsVideo .latestVideo .newsModule, main .newsVideo .newsList .newsModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10610,19 +10637,19 @@ html.newIndex main .liveVideo .latestVideo .newsModule, html.newIndex main .live
   margin: 2px 0;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule img, html.newIndex main .liveVideo .newsList .newsModule img, html.newIndex main .newsVideo .latestVideo .newsModule img, html.newIndex main .newsVideo .newsList .newsModule img {
+main .liveVideo .latestVideo .newsModule img, main .liveVideo .newsList .newsModule img, main .newsVideo .latestVideo .newsModule img, main .newsVideo .newsList .newsModule img {
   height: auto;
   max-width: 260px;
   max-height: 150px;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule .lightblue, html.newIndex main .liveVideo .newsList .newsModule .lightblue, html.newIndex main .newsVideo .latestVideo .newsModule .lightblue, html.newIndex main .newsVideo .newsList .newsModule .lightblue {
+main .liveVideo .latestVideo .newsModule .lightblue, main .liveVideo .newsList .newsModule .lightblue, main .newsVideo .latestVideo .newsModule .lightblue, main .newsVideo .newsList .newsModule .lightblue {
   font-weight: normal;
   border-radius: 5px;
   margin: 5px 0;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule > div, html.newIndex main .liveVideo .newsList .newsModule > div, html.newIndex main .newsVideo .latestVideo .newsModule > div, html.newIndex main .newsVideo .newsList .newsModule > div {
+main .liveVideo .latestVideo .newsModule > div, main .liveVideo .newsList .newsModule > div, main .newsVideo .latestVideo .newsModule > div, main .newsVideo .newsList .newsModule > div {
   width: 100%;
   padding: 5px 10px;
   display: -webkit-box;
@@ -10637,7 +10664,7 @@ html.newIndex main .liveVideo .latestVideo .newsModule > div, html.newIndex main
           justify-content: space-between;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule > div > div, html.newIndex main .liveVideo .newsList .newsModule > div > div, html.newIndex main .newsVideo .latestVideo .newsModule > div > div, html.newIndex main .newsVideo .newsList .newsModule > div > div {
+main .liveVideo .latestVideo .newsModule > div > div, main .liveVideo .newsList .newsModule > div > div, main .newsVideo .latestVideo .newsModule > div > div, main .newsVideo .newsList .newsModule > div > div {
   font-size: 13px;
   font-weight: bold;
   overflow: hidden;
@@ -10649,39 +10676,39 @@ html.newIndex main .liveVideo .latestVideo .newsModule > div > div, html.newInde
   margin: 0 0 3px;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(1), html.newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(1), html.newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(1), html.newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(1) {
+main .liveVideo .latestVideo .newsModule > div > div:nth-child(1), main .liveVideo .newsList .newsModule > div > div:nth-child(1), main .newsVideo .latestVideo .newsModule > div > div:nth-child(1), main .newsVideo .newsList .newsModule > div > div:nth-child(1) {
   color: #CDAE8E;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(2), html.newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(2), html.newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(2), html.newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(2) {
+main .liveVideo .latestVideo .newsModule > div > div:nth-child(2), main .liveVideo .newsList .newsModule > div > div:nth-child(2), main .newsVideo .latestVideo .newsModule > div > div:nth-child(2), main .newsVideo .newsList .newsModule > div > div:nth-child(2) {
   color: #113158;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(3), html.newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(3), html.newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(3), html.newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(3) {
+main .liveVideo .latestVideo .newsModule > div > div:nth-child(3), main .liveVideo .newsList .newsModule > div > div:nth-child(3), main .newsVideo .latestVideo .newsModule > div > div:nth-child(3), main .newsVideo .newsList .newsModule > div > div:nth-child(3) {
   font-weight: normal;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsModule > div .btnGroup, html.newIndex main .liveVideo .newsList .newsModule > div .btnGroup, html.newIndex main .newsVideo .latestVideo .newsModule > div .btnGroup, html.newIndex main .newsVideo .newsList .newsModule > div .btnGroup {
+main .liveVideo .latestVideo .newsModule > div .btnGroup, main .liveVideo .newsList .newsModule > div .btnGroup, main .newsVideo .latestVideo .newsModule > div .btnGroup, main .newsVideo .newsList .newsModule > div .btnGroup {
   display: unset;
   margin: 0;
 }
 
-html.newIndex main .liveVideo .latestVideo .newsBorder, html.newIndex main .liveVideo .newsList .newsBorder, html.newIndex main .newsVideo .latestVideo .newsBorder, html.newIndex main .newsVideo .newsList .newsBorder {
+main .liveVideo .latestVideo .newsBorder, main .liveVideo .newsList .newsBorder, main .newsVideo .latestVideo .newsBorder, main .newsVideo .newsList .newsBorder {
   height: 1px;
   background: #5574A7;
   margin: 10px 0;
 }
 
-html.newIndex main .liveVideo .latestVideo + div, html.newIndex main .liveVideo .newsList + div, html.newIndex main .newsVideo .latestVideo + div, html.newIndex main .newsVideo .newsList + div {
+main .liveVideo .latestVideo + div, main .liveVideo .newsList + div, main .newsVideo .latestVideo + div, main .newsVideo .newsList + div {
   width: 605px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches, html.newIndex main .liveVideo .latestVideo + div .liveTv, html.newIndex main .liveVideo .newsList + div .upcomingmatches, html.newIndex main .liveVideo .newsList + div .liveTv, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches, html.newIndex main .newsVideo .latestVideo + div .liveTv, html.newIndex main .newsVideo .newsList + div .upcomingmatches, html.newIndex main .newsVideo .newsList + div .liveTv {
+main .liveVideo .latestVideo + div .upcomingmatches, main .liveVideo .latestVideo + div .liveTv, main .liveVideo .newsList + div .upcomingmatches, main .liveVideo .newsList + div .liveTv, main .newsVideo .latestVideo + div .upcomingmatches, main .newsVideo .latestVideo + div .liveTv, main .newsVideo .newsList + div .upcomingmatches, main .newsVideo .newsList + div .liveTv {
   background: url(../img/upcomingmatchesbg.jpg) no-repeat top center/100% auto;
   height: 180px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team, html.newIndex main .liveVideo .latestVideo + div .liveTv .team, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team, html.newIndex main .liveVideo .newsList + div .liveTv .team, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team, html.newIndex main .newsVideo .latestVideo + div .liveTv .team, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team, html.newIndex main .newsVideo .newsList + div .liveTv .team {
+main .liveVideo .latestVideo + div .upcomingmatches .team, main .liveVideo .latestVideo + div .liveTv .team, main .liveVideo .newsList + div .upcomingmatches .team, main .liveVideo .newsList + div .liveTv .team, main .newsVideo .latestVideo + div .upcomingmatches .team, main .newsVideo .latestVideo + div .liveTv .team, main .newsVideo .newsList + div .upcomingmatches .team, main .newsVideo .newsList + div .liveTv .team {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10695,7 +10722,7 @@ html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team, html.ne
           justify-content: space-between;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div, html.newIndex main .liveVideo .newsList + div .liveTv .team > div, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div, html.newIndex main .newsVideo .newsList + div .liveTv .team > div {
+main .liveVideo .latestVideo + div .upcomingmatches .team > div, main .liveVideo .latestVideo + div .liveTv .team > div, main .liveVideo .newsList + div .upcomingmatches .team > div, main .liveVideo .newsList + div .liveTv .team > div, main .newsVideo .latestVideo + div .upcomingmatches .team > div, main .newsVideo .latestVideo + div .liveTv .team > div, main .newsVideo .newsList + div .upcomingmatches .team > div, main .newsVideo .newsList + div .liveTv .team > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10705,19 +10732,19 @@ html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div, h
   font-weight: bold;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div:first-child, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:first-child, html.newIndex main .liveVideo .newsList + div .liveTv .team > div:first-child, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div:first-child, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:first-child, html.newIndex main .newsVideo .newsList + div .liveTv .team > div:first-child {
+main .liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, main .liveVideo .latestVideo + div .liveTv .team > div:first-child, main .liveVideo .newsList + div .upcomingmatches .team > div:first-child, main .liveVideo .newsList + div .liveTv .team > div:first-child, main .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, main .newsVideo .latestVideo + div .liveTv .team > div:first-child, main .newsVideo .newsList + div .upcomingmatches .team > div:first-child, main .newsVideo .newsList + div .liveTv .team > div:first-child {
   background: url(../img/upcomingmatchestitle.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div:last-child, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:last-child, html.newIndex main .liveVideo .newsList + div .liveTv .team > div:last-child, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div:last-child, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:last-child, html.newIndex main .newsVideo .newsList + div .liveTv .team > div:last-child {
+main .liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, main .liveVideo .latestVideo + div .liveTv .team > div:last-child, main .liveVideo .newsList + div .upcomingmatches .team > div:last-child, main .liveVideo .newsList + div .liveTv .team > div:last-child, main .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, main .newsVideo .latestVideo + div .liveTv .team > div:last-child, main .newsVideo .newsList + div .upcomingmatches .team > div:last-child, main .newsVideo .newsList + div .liveTv .team > div:last-child {
   background: url(../img/upcomingmatchestitledown.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), html.newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup), html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), html.newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) {
+main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup), main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -10736,16 +10763,16 @@ html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > 
   height: 120px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, html.newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, html.newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
+main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
   text-align: left;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, html.newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, html.newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
+main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
   width: 45px;
   margin: 35px auto 5px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup, html.newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup, html.newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup {
+main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup, main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup, main .liveVideo .newsList + div .liveTv .team > div > .btnGroup, main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup, main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup, main .newsVideo .newsList + div .liveTv .team > div > .btnGroup {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
@@ -10756,7 +10783,7 @@ html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > 
   height: 100%;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, html.newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button, html.newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, html.newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup button, html.newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, html.newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button, html.newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, html.newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup button {
+main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button, main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, main .liveVideo .newsList + div .liveTv .team > div > .btnGroup button, main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button, main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, main .newsVideo .newsList + div .liveTv .team > div > .btnGroup button {
   border-radius: 5px;
   padding: 2px 5px;
   min-width: -webkit-max-content;
@@ -10765,7 +10792,7 @@ html.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > 
   margin-bottom: 10px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox, html.newIndex main .liveVideo .newsList + div .liveTvBox, html.newIndex main .newsVideo .latestVideo + div .liveTvBox, html.newIndex main .newsVideo .newsList + div .liveTvBox {
+main .liveVideo .latestVideo + div .liveTvBox, main .liveVideo .newsList + div .liveTvBox, main .newsVideo .latestVideo + div .liveTvBox, main .newsVideo .newsList + div .liveTvBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10773,7 +10800,7 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox, html.newIndex main 
   margin-top: 5px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag {
+main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, main .liveVideo .newsList + div .liveTvBox .liveTvTag, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag, main .newsVideo .newsList + div .liveTvBox .liveTvTag {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10785,7 +10812,7 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, html.new
   margin-right: 5px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button {
+main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, main .liveVideo .newsList + div .liveTvBox .liveTvTag button, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, main .newsVideo .newsList + div .liveTvBox .liveTvTag button {
   background: -webkit-gradient(linear, left top, left bottom, from(#f4f7fb), color-stop(20%, #aec3e2), color-stop(70%, #e2eaf4), to(white));
   background: linear-gradient(to bottom, #f4f7fb, #aec3e2 20%, #e2eaf4 70%, white);
   border-radius: 5px;
@@ -10808,19 +10835,19 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, h
   line-height: 32px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
+main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, main .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, main .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
   font-weight: normal;
   font-size: 24px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
+main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   color: white;
   border: 1px solid #CDAE8E;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active::after, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active::after {
+main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active::after, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active::after {
   content: "";
   width: 0;
   height: 0;
@@ -10831,7 +10858,7 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.ac
   right: -8px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv, main .liveVideo .newsList + div .liveTvBox .liveTv, main .newsVideo .latestVideo + div .liveTvBox .liveTv, main .newsVideo .newsList + div .liveTvBox .liveTv {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   height: auto;
@@ -10842,31 +10869,31 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv, html.newInd
   display: none;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv.active, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv.active, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv.active, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv.active {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv.active, main .liveVideo .newsList + div .liveTvBox .liveTv.active, main .newsVideo .latestVideo + div .liveTvBox .liveTv.active, main .newsVideo .newsList + div .liveTvBox .liveTv.active {
   display: block;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div, main .liveVideo .newsList + div .liveTvBox .liveTv > div, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div, main .newsVideo .newsList + div .liveTvBox .liveTv > div {
   overflow-y: auto;
   height: 100%;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar {
   width: 8px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track {
   background: #B18E6A;
   border-radius: 8px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb {
   background: -webkit-gradient(linear, left top, right top, from(#435F8B), to(#6383B9));
   background: linear-gradient(to right, #435F8B, #6383B9);
   border-radius: 8px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule {
   background: white;
   height: 70px;
   border-radius: 5px;
@@ -10876,7 +10903,7 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveT
   margin-right: 5px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
   height: calc(100% - 7px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10893,28 +10920,28 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveT
           justify-content: center;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before {
   font-size: 60px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
   background: url(../img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
   color: red;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time {
   color: red;
   font-weight: bold;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span {
   display: unset;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10932,7 +10959,7 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveT
   line-height: 20px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
   position: absolute;
   left: 0;
   top: 1px;
@@ -10941,7 +10968,7 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveT
   font-size: 18px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10953,7 +10980,7 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveT
   line-height: 20px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -10964,26 +10991,26 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveT
   max-width: 131px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
   text-align: left;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title {
   font-size: 18px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3) {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3) {
   text-align: right;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
   color: #5574A7;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
   background: #7591C1;
   border-radius: 5px;
   color: white;
@@ -10993,30 +11020,30 @@ html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveT
   font-size: 12px;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2) {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2) {
   font-weight: bold;
 }
 
-html.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), html.newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), html.newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), html.newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
+main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
 }
 
-html.newIndex main .liveVideo .matches, html.newIndex main .newsVideo .matches {
+main .liveVideo .matches, main .newsVideo .matches {
   height: 265px;
   overflow: hidden;
 }
 
-html.newIndex main .liveVideo .matches iframe, html.newIndex main .newsVideo .matches iframe {
+main .liveVideo .matches iframe, main .newsVideo .matches iframe {
   margin-top: -102px;
   height: calc(100% + 102px);
 }
 
-html.newIndex #footer {
+#footer {
   background: #112240;
   min-width: 1400px;
 }
 
-html.newIndex #footer .platform, html.newIndex #footer .copyright, html.newIndex #footer .footerList, html.newIndex #footer .license, html.newIndex #footer .sfp {
+#footer .platform, #footer .copyright, #footer .footerList, #footer .license, #footer .sfp {
   background: transparent;
   width: 1400px;
   margin: auto;
@@ -11024,7 +11051,7 @@ html.newIndex #footer .platform, html.newIndex #footer .copyright, html.newIndex
   padding: 25px 0;
 }
 
-html.newIndex #footer .copyright {
+#footer .copyright {
   font-size: 14px;
   text-align: left;
   display: -webkit-box;
@@ -11035,17 +11062,17 @@ html.newIndex #footer .copyright {
           align-items: center;
 }
 
-html.newIndex #footer .copyright a, html.newIndex #footer .copyright button {
+#footer .copyright a, #footer .copyright button {
   border-right: 1px solid #7591C1;
   padding: 0 10px;
   font-weight: bold;
 }
 
-html.newIndex #footer .copyright a:nth-child(1), html.newIndex #footer .copyright button:nth-child(1) {
+#footer .copyright a:nth-child(1), #footer .copyright button:nth-child(1) {
   padding-left: 0;
 }
 
-html.newIndex #footer .copyright span {
+#footer .copyright span {
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11056,7 +11083,7 @@ html.newIndex #footer .copyright span {
   margin: 0 0 auto auto;
 }
 
-html.newIndex #footer .copyright span span {
+#footer .copyright span span {
   border-radius: 25px;
   border: 1px solid white;
   padding: 1px;
@@ -11067,11 +11094,11 @@ html.newIndex #footer .copyright span span {
           transform: scale(0.8);
 }
 
-html.newIndex #footer .platform > div {
+#footer .platform > div {
   width: 100%;
 }
 
-html.newIndex #footer .license {
+#footer .license {
   font-size: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11080,17 +11107,17 @@ html.newIndex #footer .license {
   margin-top: 20px;
 }
 
-html.newIndex #footer .license > div:nth-child(1) {
+#footer .license > div:nth-child(1) {
   width: 560px;
   padding-right: 90px;
 }
 
-html.newIndex #footer .license > div:nth-child(1) img {
+#footer .license > div:nth-child(1) img {
   width: auto;
   margin: 20px 0;
 }
 
-html.newIndex #footer .license > div:nth-child(2) {
+#footer .license > div:nth-child(2) {
   width: 730px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11098,43 +11125,43 @@ html.newIndex #footer .license > div:nth-child(2) {
   position: relative;
 }
 
-html.newIndex #footer .license > div:nth-child(2) iframe {
+#footer .license > div:nth-child(2) iframe {
   margin-right: 30px;
 }
 
-html.newIndex #footer .license > div:nth-child(2) div {
+#footer .license > div:nth-child(2) div {
   text-align: center;
 }
 
-html.newIndex #footer .license > div:nth-child(2) div:nth-child(1) {
+#footer .license > div:nth-child(2) div:nth-child(1) {
   font-size: 24px;
   font-weight: bold;
 }
 
-html.newIndex #footer .license > div:nth-child(2) div span {
+#footer .license > div:nth-child(2) div span {
   font-weight: bold;
 }
 
-html.newIndex #footer .license > div:nth-child(2) div img {
+#footer .license > div:nth-child(2) div img {
   width: 65px;
   margin: auto;
 }
 
-html.newIndex #footer .license > div .star {
+#footer .license > div .star {
   width: auto;
   position: absolute;
   right: 0;
   bottom: -25px;
 }
 
-html.newIndex #footer .sfp {
+#footer .sfp {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   border-bottom: 0;
 }
 
-html.newIndex #footer .sfp > div > div {
+#footer .sfp > div > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11145,12 +11172,12 @@ html.newIndex #footer .sfp > div > div {
   margin-right: 150px;
 }
 
-html.newIndex #footer .sfp > div > div img {
+#footer .sfp > div > div img {
   width: auto;
   margin-right: 10px;
 }
 
-html.newIndex #footer .footerList {
+#footer .footerList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11160,7 +11187,7 @@ html.newIndex #footer .footerList {
   padding: 25px 0 130px;
 }
 
-html.newIndex #footer .footerList > div {
+#footer .footerList > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -11168,26 +11195,26 @@ html.newIndex #footer .footerList > div {
   text-align: center;
 }
 
-html.newIndex #footer .footerList > div:last-child {
+#footer .footerList > div:last-child {
   margin-right: 0;
 }
 
-html.newIndex #footer .footerList > div > a, html.newIndex #footer .footerList > div > button {
+#footer .footerList > div > a, #footer .footerList > div > button {
   color: #F1D5B6;
   display: block;
   margin-bottom: 30px;
 }
 
-html.newIndex #footer .footerList > div > a ~ div, html.newIndex #footer .footerList > div > button ~ div {
+#footer .footerList > div > a ~ div, #footer .footerList > div > button ~ div {
   margin-top: 10px;
   font-size: 12px;
 }
 
-html.newIndex #footer .footerList > div > div .title {
+#footer .footerList > div > div .title {
   margin: 15px 0;
 }
 
-html.newIndex #footer .footerList > div > div.title {
+#footer .footerList > div > div.title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11203,7 +11230,7 @@ html.newIndex #footer .footerList > div > div.title {
   color: white;
 }
 
-html.newIndex #footer .footerList > div > div.title + div {
+#footer .footerList > div > div.title + div {
   margin: 10px 0;
   height: 38px;
   display: -webkit-box;
@@ -11217,17 +11244,17 @@ html.newIndex #footer .footerList > div > div.title + div {
           align-items: center;
 }
 
-html.newIndex #footer .footerList > div > div.title:before {
+#footer .footerList > div > div.title:before {
   font-size: 56px;
   font-weight: normal;
   color: #F1D5B6;
 }
 
-html.newIndex #footer .footerList > div > div > div {
+#footer .footerList > div > div > div {
   text-align: left;
 }
 
-html.newIndex .quickLinkNew1, html.newIndex .quickLinkNew2 {
+.quickLinkNew1, .quickLinkNew2 {
   position: fixed;
   right: 0;
   top: 145px;
@@ -11257,16 +11284,16 @@ html.newIndex .quickLinkNew1, html.newIndex .quickLinkNew2 {
   width: 20px;
 }
 
-html.newIndex .quickLinkNew1 i, html.newIndex .quickLinkNew2 i {
+.quickLinkNew1 i, .quickLinkNew2 i {
   position: absolute;
   top: 10px;
 }
 
-html.newIndex .quickLinkNew1 i::before, html.newIndex .quickLinkNew2 i::before {
+.quickLinkNew1 i::before, .quickLinkNew2 i::before {
   margin: 0;
 }
 
-html.newIndex .quickLinkNew1 > div, html.newIndex .quickLinkNew2 > div {
+.quickLinkNew1 > div, .quickLinkNew2 > div {
   letter-spacing: 1px;
   height: 24px;
   width: 100px;
@@ -11280,14 +11307,14 @@ html.newIndex .quickLinkNew1 > div, html.newIndex .quickLinkNew2 > div {
           align-items: center;
 }
 
-html.newIndex .quickLinkNew1.active, html.newIndex .quickLinkNew2.active {
+.quickLinkNew1.active, .quickLinkNew2.active {
   -webkit-transform: translateX(40px);
           transform: translateX(40px);
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
 
-html.newIndex .quickLinkNew2 {
+.quickLinkNew2 {
   background: white;
   height: calc(100% - 175px);
   padding: 30px 0 10px;
@@ -11297,7 +11324,7 @@ html.newIndex .quickLinkNew2 {
   width: auto;
 }
 
-html.newIndex .quickLinkNew2 a, html.newIndex .quickLinkNew2 button {
+.quickLinkNew2 a, .quickLinkNew2 button {
   border-bottom: 1px dotted #b2b2b2;
   color: #b2b2b2;
   padding: 10px 0;
@@ -11307,20 +11334,20 @@ html.newIndex .quickLinkNew2 a, html.newIndex .quickLinkNew2 button {
   font-size: 20px;
 }
 
-html.newIndex .quickLinkNew2 a:not(.icon-chat), html.newIndex .quickLinkNew2 button:not(.icon-chat) {
+.quickLinkNew2 a:not(.icon-chat), .quickLinkNew2 button:not(.icon-chat) {
   font-weight: normal;
   font-size: 22px;
 }
 
-html.newIndex .quickLinkNew2 a.active, html.newIndex .quickLinkNew2 button.active {
+.quickLinkNew2 a.active, .quickLinkNew2 button.active {
   color: #7591C1;
 }
 
-html.newIndex .quickLinkNew2 a.active > div, html.newIndex .quickLinkNew2 button.active > div {
+.quickLinkNew2 a.active > div, .quickLinkNew2 button.active > div {
   display: block;
 }
 
-html.newIndex .quickLinkNew2 a > div, html.newIndex .quickLinkNew2 button > div {
+.quickLinkNew2 a > div, .quickLinkNew2 button > div {
   display: none;
   position: absolute;
   -webkit-transform: translateX(-100%);
@@ -11333,7 +11360,7 @@ html.newIndex .quickLinkNew2 a > div, html.newIndex .quickLinkNew2 button > div 
   text-align: left;
 }
 
-html.newIndex .quickLinkNew2 a > div img, html.newIndex .quickLinkNew2 button > div img {
+.quickLinkNew2 a > div img, .quickLinkNew2 button > div img {
   width: 120px;
   height: 120px;
 }
@@ -11508,5 +11535,533 @@ html.newIndex .quickLinkNew2 a > div img, html.newIndex .quickLinkNew2 button > 
 
 .streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
+}
+
+main section {
+  padding: 35px 0 0;
+  max-width: 1400px;
+}
+
+#leftMenu {
+  width: 18%;
+  margin-right: 2%;
+}
+
+#leftMenu + div {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#leftMenu .menuModule {
+  border: 1px solid #e8eff5;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: #F0F7FF;
+}
+
+#leftMenu .menuModule button, #leftMenu .menuModule a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  width: 100%;
+  color: #5574A7;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+#leftMenu .menuModule button:hover, #leftMenu .menuModule a:hover {
+  color: white;
+}
+
+#leftMenu .menuModule .menuHeader {
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 15px;
+}
+
+#leftMenu .menuModule .menuHeader.active:after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+#leftMenu .menuModule .menuHeader:after {
+  font-family: 'icomoon';
+  content: "\e954";
+  font-size: 24px;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  font-weight: normal;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+#leftMenu .menuModule .menuSelect {
+  border-bottom: 1px solid white;
+  overflow: hidden;
+  position: relative;
+}
+
+#leftMenu .menuModule .menuSelect span {
+  z-index: 1;
+  position: relative;
+}
+
+#leftMenu .menuModule .menuSelect span.icon-new::before {
+  top: 0;
+  right: -10px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+#leftMenu .menuModule .menuSelect:before {
+  font-family: 'icomoon';
+  content: "\e94e";
+  font-size: 24px;
+  margin-right: 5px;
+  font-weight: normal;
+  z-index: 1;
+}
+
+#leftMenu .menuModule .menuSelect.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  color: white;
+}
+
+#leftMenu .menuModule .menuSelect:hover:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #666;
+  position: absolute;
+  -webkit-animation: menuflash 0.5s forwards;
+          animation: menuflash 0.5s forwards;
+  z-index: 0;
+}
+
+#leftMenu .menuModule .menuSelect:last-child {
+  border-bottom: 0;
+}
+
+@keyframes menuflash {
+  0% {
+    left: 35px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+    width: 0;
+  }
+  50% {
+    left: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+    width: 100%;
+  }
+  53% {
+    background: #5574A7;
+  }
+  100% {
+    left: 0;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+    width: 100%;
+  }
+}
+
+.infoModule {
+  border-radius: 5px;
+  background: #F0F7FF;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.infoModule > button.icon-arrow-left2 {
+  color: white;
+  margin: 40px 40px 0;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #5574A7;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+.infoModule > button.icon-arrow-left2:before {
+  margin-right: 5px;
+}
+
+.subModuleListColumn {
+  padding: 20px;
+}
+
+.subModuleListColumn > .subModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #D2E2F9;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.subModuleListColumn > .subModule .inputBox-white {
+  width: 300px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup {
+  margin: 0 0 0 15px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup button {
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule .icon-information {
+  color: #5574A7;
+  cursor: pointer;
+}
+
+.subModuleListColumn > .subModule .icon-information + .tip {
+  padding: 0;
+  width: auto;
+  height: auto;
+}
+
+.subModuleListColumn > .subModule .icon-information.active + .tip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle {
+  color: #5574A7;
+  font-weight: bold;
+  width: 130px;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle .txt-blue {
+  color: #f77900;
+}
+
+.subModuleListColumn > .subModule > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: calc(100% - 157px);
+  color: #BFCCE2;
+}
+
+.subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+  color: white;
+  width: 240px;
+  position: relative;
+}
+
+.subModuleListColumn > .subModule > div > button i, .subModuleListColumn > .subModule > div > a i {
+  position: absolute;
+  right: -5px;
+  bottom: 0px;
+  color: #f77900;
+  display: none;
+  font-size: 24px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subModuleListColumn > .subModule > div > button i::before, .subModuleListColumn > .subModule > div > a i::before {
+  display: none;
+}
+
+.subModuleListColumn > .subModule > div > button > div, .subModuleListColumn > .subModule > div > a > div {
+  width: 100%;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank, .subModuleListColumn > .subModule > div > a > div.bank {
+  color: white;
+  margin: 0 0 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div, .subModuleListColumn > .subModule > div > a > div.bank > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #5574A7;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div:last-child, .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
+  color: white;
+  background: #BFCCE2;
+  margin: 10px auto 0;
+  width: 115px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px 5px;
+  background: white;
+  position: relative;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child.icon, .subModuleListColumn > .subModule > div > a > div:first-child.icon {
+  padding: 13px 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child:before, .subModuleListColumn > .subModule > div > a > div:first-child:before {
+  color: #5574A7;
+  font-size: 48px;
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > button:hover > div, .subModuleListColumn > .subModule > div > a.active > div, .subModuleListColumn > .subModule > div > a:hover > div {
+  color: #1E85EC;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div.bank, .subModuleListColumn > .subModule > div > button:hover > div.bank, .subModuleListColumn > .subModule > div > a.active > div.bank, .subModuleListColumn > .subModule > div > a:hover > div.bank {
+  color: white;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div.bank > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div.bank > div:first-child, .subModuleListColumn > .subModule > div > a.active > div.bank > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div.bank > div:first-child {
+  color: #f77900;
+  font-weight: bold;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 4px #f77900 inset;
+          box-shadow: 0px 0px 0px 4px #f77900 inset;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > button:hover > div i, .subModuleListColumn > .subModule > div > a.active > div i, .subModuleListColumn > .subModule > div > a:hover > div i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
+  display: block;
+}
+
+.subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
+  display: none;
+}
+
+.subModuleListColumn .column {
+  width: calc(100% - 135px);
+}
+
+.subModuleListColumn .column .inputBox-white + .tip {
+  margin: 0 5px 10px;
+}
+
+.subModuleListColumn .inputBox-white {
+  margin-left: 15px;
+}
+
+.subModuleListColumn .inputBox-white + .tip {
+  margin-left: 140px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox {
+  margin-top: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue {
+  max-width: 156px;
+  min-width: 156px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon {
+  width: 12px;
+  height: 12px;
+  background: white;
+  color: #f77900;
+  font-size: 16px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon:before {
+  margin: 0;
+}
+
+.subModuleListColumn .btnGroup:not(.buttonBox) {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.subModuleListColumn .bankAccount {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 15px;
+}
+
+.subModuleListColumn .bankAccount .smallList {
+  margin-top: 10px;
+}
+
+.subModuleListColumn .bankAccount .smallList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subModuleListColumn .bankAccount .smallList ul button, .subModuleListColumn .bankAccount .smallList ul a {
+  color: white;
+  background: #5574A7;
+  border-radius: 5px;
+  height: 23px;
+}
+
+.subModuleListColumn .bankAccount .smallList ul li {
+  min-width: 130px;
+  width: auto;
+  color: #5574A7;
+}
+
+.subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
+  min-width: 130px;
+  width: auto;
+  color: #030c1b;
+  font-weight: bold;
+}
+
+.inside-title {
+  padding: 20px;
+  border-bottom: 1px solid #BFCCE2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  color: #5574A7;
+}
+
+.inside-title.icon:before {
+  font-size: 50px;
+}
+
+.inside-title span {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 40px;
+}
+
+.inside-title div {
+  color: #BFCCE2;
+  max-width: 400px;
+}
+
+.inside-title div.autotransfer {
+  position: absolute;
+  right: 40px;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.icon-icon32px_deposit {
+  position: relative;
+}
+
+.icon-icon32px_deposit .icon-friend {
+  position: absolute;
+  right: 20px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #5574A7;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 24px;
+}
+
+.icon-icon32px_deposit .icon-friend:hover {
+  background: #134DAE;
+}
+
+.icon-icon32px_deposit .icon-friend:before {
+  font-size: 18px;
+  margin-left: 0;
+}
+
+.icon-icon32px_deposit .icon-friend span {
+  margin: 0;
+}
+
+.icon-icon32px_deposit + .stepBar + .subModuleList {
+  padding: 0 50px 40px;
+}
+
+.icon-icon32px_deposit + .stepBar + .subModuleList .subModule {
+  margin-left: 0;
+  margin-right: 10px;
+  max-width: calc(100% / 3 - 10px);
+  min-width: calc(100% / 4 - 10px);
+}
+
+.icon-icon32px_deposit + .stepBar + .subModuleList .subModule:last-child {
+  margin-right: 0;
 }
 /*# sourceMappingURL=style.css.map */
