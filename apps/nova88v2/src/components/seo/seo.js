@@ -48,7 +48,7 @@ function SEO({ description, lang, meta, title }) {
 			<Helmet
 				htmlAttributes={{
 					lang,
-					class: isRoot ? "newIndex" : ""
+					class: "newIndex"
 				}}
 				title={_title}
 				link={[

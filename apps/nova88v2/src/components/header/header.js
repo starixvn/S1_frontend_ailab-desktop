@@ -62,13 +62,9 @@ export default ({ productTpIds }) => {
 		return <button className="icon icon-exit" onClick={handleLogout} />;
 	};
 
-	const Logo = isRoot
-		? `${config.cloudImgUrl}/SiteSkin/img/logo${
-				userInfo.langId === "cs" ? "_cs_w" : "_en_w"
-		  }.png`
-		: `${config.cloudImgUrl}/SiteSkin/img/logo${
-				userInfo.langId === "cs" ? "_cs" : "_en"
-		  }.png`;
+	const Logo = `${config.cloudImgUrl}/SiteSkin/img/logo${
+		userInfo.langId === "cs" ? "_cs_w" : "_en_w"
+	}.png`;
 
 	return (
 		<header id="header">
