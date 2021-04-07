@@ -68,9 +68,9 @@ export const FooterProduct = ({
 			</div>
 			<div>
 				<div className="title icon icon-live_tv">
-					{t("lbl_Live_Sports")}
+					{t("lbl_Live_Streaming")}
 				</div>
-				<div>{t("lbl_LiveStreaming_desc")}</div>
+				<div>{t("lbl_Live_Streaming_desc")}</div>
 				<a href={`/${langId}/${path.streaming.root}`}>
 					{t("lbl_Watch_Now")}
 					{" >"}
