@@ -9,7 +9,7 @@ import {
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
-	LinkOrBtn: "LinkOrBtn",
+	RequireLoginButton: "RequireLoginButton",
 	LinkNoImg: "LinkNoImg",
 	DirectUrl: "DirectUrl"
 };
@@ -74,7 +74,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_Referral",
 				listNpcImgUrl: "home-refer.png",
 				listBgImgUrl: "referbg.png",
-				menuType: defMenuType.LinkOrBtn,
+				menuType: defMenuType.RequireLoginButton,
 				path: path.referral.root,
 				needLogin: true
 			}
@@ -456,7 +456,7 @@ export const defMenuLinks = {
 				...productList.keno,
 				className: "keno",
 				displayKey: "lbl_Keno",
-				menuType: defMenuType.LinkOrBtn,
+
 				listNpcImgUrl: "lo-keno.png",
 				listBgImgUrl: "gameListHover.png",
 				parameter: { ...productList.keno }
@@ -465,7 +465,6 @@ export const defMenuLinks = {
 				...productList.lottery,
 				className: "lottery",
 				displayKey: "lbl_Lottery",
-				menuType: defMenuType.LinkOrBtn,
 				listNpcImgUrl: "lo-lottery.png",
 				listBgImgUrl: "gameListHover.png",
 				parameter: { ...productList.lottery }
@@ -475,7 +474,6 @@ export const defMenuLinks = {
 				path: path.sports.root,
 				className: "numberGame",
 				displayKey: "lbl_NumberGame",
-				menuType: defMenuType.LinkOrBtn,
 				listNpcImgUrl: "lo-numberGame.png",
 				listBgImgUrl: "gameListHover.png",
 				parameter: { ...productList.numberGame }
@@ -483,7 +481,6 @@ export const defMenuLinks = {
 			{
 				...productList.tablegame,
 				displayKey: "lbl_TableGame",
-				menuType: defMenuType.LinkOrBtn,
 				listNpcImgUrl: "lo-tableGame.png",
 				listBgImgUrl: "gameListHover.png",
 				parameter: { ...productList.tablegame }
@@ -492,7 +489,6 @@ export const defMenuLinks = {
 				...productList.indo4D,
 				className: "indo",
 				displayKey: "lbl_Indo4D",
-				menuType: defMenuType.LinkOrBtn,
 				listNpcImgUrl: "lo-indo.png",
 				listBgImgUrl: "gameListHover.png",
 				parameter: { ...productList.indo4D }

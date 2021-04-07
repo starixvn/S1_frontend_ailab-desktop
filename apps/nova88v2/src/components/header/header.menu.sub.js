@@ -35,6 +35,20 @@ export default ({ currentMenuKey, productTpIds }) => {
 		});
 	};
 
+	const clickToPage = (_needLogin, _path) => {
+		const handleCallBack = () => {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		};
+
+		if (_path)
+			return _needLogin && !userInfo.isLogin
+				? handleCallBack()
+				: navigate(`/${userInfo.langId}/${_path}`);
+	};
+
 	return Object.keys(defMenuLinks).map(menuKey => {
 		if (!defSubListClassName[menuKey]) return;
 
@@ -74,6 +88,7 @@ export default ({ currentMenuKey, productTpIds }) => {
 						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
 						subMenuItem={subMenuItem}
 						clickItem={clickItem}
+						clickToPage={clickToPage}
 						userInfo={userInfo}
 						t={t}
 						menuKey={menuKey}

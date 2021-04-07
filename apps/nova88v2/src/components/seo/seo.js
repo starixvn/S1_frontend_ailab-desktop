@@ -12,11 +12,9 @@ import { useLocation } from "@reach/router";
 import config from "../../config";
 import Favicon from "../../styles/img/favicon.ico";
 import { defMetaData } from "./def";
-import { isRootContext } from "../common/context";
 
 function SEO({ description, lang, meta, title }) {
 	const supportedLanguages = ["en", "cs", "th", "id"];
-	const { isRoot } = useContext(isRootContext);
 
 	const location = useLocation()
 		?.pathname?.split("/")

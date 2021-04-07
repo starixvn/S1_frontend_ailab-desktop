@@ -6,7 +6,14 @@ import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.p
 import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 
-const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
+const SubMenuMultiple = ({
+	subMenuItem,
+	clickItem,
+	clickToPage,
+	userInfo,
+	t,
+	menuKey
+}) => {
 	const displayText = subMenuItem.displayText
 		? subMenuItem.displayText
 		: t(subMenuItem.displayKey);
@@ -117,12 +124,20 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	return (
 		<button
 			className={className}
-			onClick={clickItem.bind(this, {
-				tpId: subMenuItem.tpId,
-				gameId: subMenuItem.gameId,
-				needLogin: subMenuItem.needLogin,
-				path: subMenuItem.path
-			})}>
+			onClick={
+				subMenuItem.menuType === defMenuType.RequireLoginButton
+					? clickToPage.bind(
+							this,
+							subMenuItem.needLogin,
+							subMenuItem.path
+					  )
+					: clickItem.bind(this, {
+							tpId: subMenuItem.tpId,
+							gameId: subMenuItem.gameId,
+							needLogin: subMenuItem.needLogin,
+							path: subMenuItem.path
+					  })
+			}>
 			<img
 				className="ListBG-left"
 				alt="ListBG-left"
@@ -177,6 +192,7 @@ const ImgsRender = ({ listImgUrl, className }) => {
 SubMenuMultiple.propTypes = {
 	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
 	clickItem: PropTypes.func.isRequired,
+	clickToPage: PropTypes.func.isRequired,
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
 	menuKey: PropTypes.string.isRequired

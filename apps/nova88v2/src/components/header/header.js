@@ -3,8 +3,7 @@ import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
-	popBoxContext,
-	isRootContext
+	popBoxContext
 } from "../common/context";
 import Menu from "./header.menu";
 import config from "../../config";
@@ -19,7 +18,6 @@ export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-	const { isRoot } = useContext(isRootContext);
 
 	const handleLogout = () => {
 		LOGOUT(() => {

@@ -35,7 +35,7 @@ const Layout = ({ children, showFooter = false }) => {
 		<>
 			<Header productTpIds={productTpIds} />
 			{children}
-			{showFooter ? <Footer productTpIds={productTpIds} /> : null}
+			{showFooter ? <Footer /> : null}
 			<PopBox />
 			<Loading />
 		</>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
@@ -10,7 +10,7 @@ import ProductSection from "./footer.product";
 import { defFooterProductList } from "./footer.def";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-
+import { api_site_GetTpIds } from "../../service/api/site";
 import ImgLicense from "../../styles/img/licenses.png";
 import ImgJoeColeSignature from "../../styles/img/joecole_w.png";
 import ImgJoeColePhoto from "../../styles/img/jc.png";
@@ -114,10 +114,32 @@ const FollowUsSection = ({ t }) => (
 	</div>
 );
 
-export const Footer = ({ productTpIds }) => {
+export const Footer = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+
+	const [productTpIds, setProductTpIds] = useState(null);
+	const isMountedRef = useRef(null);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		if (userInfo.isLogin && productTpIds === null) {
+			api_site_GetTpIds().then(res => {
+				if (res.data.errorCode === 0 && isMountedRef.current) {
+					setProductTpIds(res.data.data);
+				}
+			});
+		} else if (userInfo.isLogin === false && productTpIds?.length > 0) {
+			setProductTpIds(null);
+		}
+	}, [userInfo.isLogin, productTpIds]);
 
 	const openLiveChat = () => {
 		window.LiveChatWidget.call("maximize");
@@ -169,12 +191,5 @@ FollowUsSection.propTypes = {
 	t: PropTypes.func.isRequired
 };
 
-Footer.defaultProps = {
-	productTpIds: null
-};
-
-Footer.propTypes = {
-	productTpIds: PropTypes.arrayOf(PropTypes.any)
-};
 
 export default Footer;
