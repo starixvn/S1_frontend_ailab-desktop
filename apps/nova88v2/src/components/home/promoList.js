@@ -28,7 +28,7 @@ const PromoList = ({ t, userInfo }) => {
 		slidesPerView: 5,
 		spaceBetween: 15,
 		centeredSlides: true,
-		loopFillGroupWithBlank: true,
+
 		loop: true,
 		autoplay: {
 			delay: 2500,
