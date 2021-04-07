@@ -951,7 +951,7 @@ header .header > div.function .wallet .submenu div.walletBalance {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: rgba(51, 51, 51, 0.5);
+  background: rgba(80, 80, 80, 0.5);
   border-radius: 5px;
   padding: 4px 8px;
   line-height: 20px;
@@ -1573,7 +1573,7 @@ footer .copyright {
 }
 
 .txt-red {
-  color: #f73201;
+  color: #D83B35;
 }
 
 .txt-dark {
@@ -1943,7 +1943,7 @@ input[type="file"] {
 }
 
 .btnGroup button.orange:hover, .btnGroup a.orange:hover {
-  background: #f73201;
+  background: #D83B35;
 }
 
 .btnGroup button.gray, .btnGroup button.btn-cancel, .btnGroup a.gray, .btnGroup a.btn-cancel {
@@ -1993,7 +1993,7 @@ input[type="file"] {
 }
 
 .btnGroup button.red, .btnGroup a.red {
-  background: #f73201;
+  background: #D83B35;
   color: white;
 }
 
@@ -2444,7 +2444,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div div.reject {
-  color: #f73201;
+  color: #D83B35;
   font-weight: bold;
 }
 
@@ -2781,7 +2781,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .subModuleList .subModule .subModuleTitle div span:last-child {
-  color: #f73201;
+  color: #D83B35;
   font-size: 12px;
 }
 
@@ -4831,7 +4831,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div:hover {
-  background: #e2e2e2;
+  background: #E8E8E8;
   -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
           box-shadow: 0 0 0 3px #1E85EC inset;
 }
@@ -4863,7 +4863,7 @@ main > .swiper-container .swiper-slide {
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(-20deg);
           transform: translateX(-50%) translateY(-50%) rotate(-20deg);
-  background: #e2e2e2;
+  background: #E8E8E8;
   border-radius: 20px;
   font-weight: bold;
   padding: 5px 15px;
@@ -5186,7 +5186,7 @@ article pre {
 
 .rdt + .icon-cross {
   margin-right: 0;
-  color: #f73201;
+  color: #D83B35;
 }
 
 .rdt .inputBox, .rdt .inputBox-org, .rdt .inputBox-white, .rdt .inputBox-blue, .rdt .inputBox-gray, .rdt .inputBox-yellow {
@@ -5580,7 +5580,7 @@ button.icon-books:hover:after {
 }
 
 input + .iconModule i.icon.icon-cross:before {
-  color: #f73201;
+  color: #D83B35;
   font-size: 12px;
 }
 
@@ -5963,346 +5963,6 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .breadcrumb ul .breadcrumb-item.active a {
   color: white;
-}
-
-.leaderboard {
-  min-height: 900px;
-  background: url(../img/bg1.jpg) no-repeat 50%/cover;
-}
-
-.leaderboard.bg_rank {
-  background: url(../img/bg2.jpg) no-repeat 50%/cover;
-}
-
-.leaderboard.bg_record {
-  background: url(../img/bg3.jpg) no-repeat 50%/cover;
-}
-
-.leaderboard.bg_last {
-  background: url(../img/bg4.jpg) no-repeat 50%/cover;
-}
-
-.leaderboard > section {
-  background: none;
-}
-
-.leaderboard > section > div {
-  margin: 0 20px 0 0;
-}
-
-.leaderboard .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  max-width: 1600px;
-}
-
-.leaderboard .content .topTab {
-  width: 60%;
-  max-width: 860px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: -70px;
-}
-
-.leaderboard .content .topTab > button {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  padding: 15px 25px;
-  text-transform: uppercase;
-  font-size: 18px;
-  background-color: rgba(21, 25, 33, 0.95);
-  color: #828282;
-  -webkit-transform: skew(-15deg);
-          transform: skew(-15deg);
-  white-space: nowrap;
-}
-
-.leaderboard .content .topTab > button:hover, .leaderboard .content .topTab > button.active {
-  color: #ffffff;
-  background-color: #FAB617;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.leaderboard .content .rightModule {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  height: 675px;
-}
-
-.leaderboard .content .rightModule .rank_content {
-  width: 60%;
-  max-width: 860px;
-  background-color: #000000a9;
-  display: none;
-  padding: 66px 15px;
-}
-
-.leaderboard .content .rightModule .rank_content.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.leaderboard .content .rightModule .left {
-  width: 50%;
-  max-width: 350px;
-  padding: 0 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.leaderboard .content .rightModule .left img.mb-2 {
-  margin-bottom: 30px;
-}
-
-.leaderboard .content .rightModule .right {
-  width: 100%;
-  padding: 0 15px;
-  text-align: center;
-}
-
-.leaderboard .content .rightModule .right .title {
-  font-size: 32px;
-  color: #FAB617;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.leaderboard .content .rightModule .right a.more, .leaderboard .content .rightModule .right button.more {
-  cursor: pointer;
-  color: #FAB617;
-  border: 1px solid #FAB617;
-  color: #ffffff;
-  padding: 5px;
-  margin-top: 10px;
-  display: block;
-  width: 50%;
-  margin: 15px auto 0 auto;
-}
-
-.leaderboard .content .rightModule .right a.more:hover, .leaderboard .content .rightModule .right button.more:hover {
-  background-color: #FAB617;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-.leaderboard .content .rightModule .highest {
-  border: 1px solid #FAB617;
-  padding: 10px 15px;
-  color: #ffffff;
-  font-size: 28px;
-  text-align: center;
-}
-
-@media (max-width: 1024px) {
-  .leaderboard .content .rightModule .highest {
-    font-size: 20px;
-  }
-}
-
-.leaderboard .content .rightModule .highest span {
-  color: #FAB617;
-  display: block;
-  font-size: 30px;
-  padding-top: 10px;
-  margin-top: 10px;
-  border-top: 1px solid #F77900;
-}
-
-@media (max-width: 1024px) {
-  .leaderboard .content .rightModule .highest span {
-    font-size: 18px;
-  }
-}
-
-.leaderboard .content .rightModule .highest.person {
-  font-size: 16px;
-}
-
-.leaderboard .content .rightModule .message {
-  margin-top: 50px;
-  text-align: right;
-}
-
-.leaderboard .content .rightModule .rankingList {
-  margin-top: 20px;
-  position: relative;
-}
-
-.leaderboard .content .rightModule .rankingList.eventList ul li > div {
-  -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
-  padding: 5px 10px;
-  text-align: center;
-}
-
-.leaderboard .content .rightModule .rankingList.eventList ul li > div:first-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.leaderboard .content .rightModule .rankingList ul li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  line-height: 30px;
-  margin-bottom: 5px;
-  background-color: rgba(47, 87, 157, 0.4);
-  padding: 0 0 0 15px;
-}
-
-.leaderboard .content .rightModule .rankingList ul li > div {
-  -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
-  padding: 5px 10px;
-  text-align: center;
-}
-
-.leaderboard .content .rightModule .rankingList ul li > div:first-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.leaderboard .content .rightModule .rankingList ul li > div img {
-  width: auto;
-  height: 30px;
-  display: unset;
-  margin-right: 20px;
-}
-
-.leaderboard .content .rightModule .rankingList ul li:first-child {
-  background-color: rgba(47, 87, 157, 0);
-}
-
-.leaderboard .content .rightModule .rankingList ul li:first-child > div {
-  font-weight: bold;
-}
-
-.leaderboard .content .rightModule .rankingList ul li:nth-child(2) {
-  background-color: #2f579d;
-}
-
-.leaderboard .content .rightModule .rankingList ul li:nth-child(3) {
-  background-color: rgba(47, 87, 157, 0.8);
-}
-
-.leaderboard .content .rightModule .rankingList ul li:nth-child(4) {
-  background-color: rgba(47, 87, 157, 0.6);
-}
-
-.leaderboard .content .rightModule .rankingList ul li.mine {
-  background-color: #FAB617;
-  position: absolute;
-  bottom: -45px;
-  width: 100%;
-  max-width: 533.33px;
-  padding: 0 17px 0 15px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.leaderboard .content .rightModule .rankingList ul li.mineInner {
-  background-color: #FAB617;
-}
-
-.leaderboard .content .rightModule .rankingList .rankScroll {
-  height: 425px;
-  overflow: auto;
-  overflow-x: hidden;
-  padding-right: 10px;
-}
-
-.leaderboard .content .rightModule .rankingList .rankScroll.xs {
-  height: 320px;
-}
-
-.leaderboard .content .rightModule .dateSelector {
-  margin: 20px 0 40px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-@media (max-width: 1024px) {
-  .leaderboard .content .rightModule .dateSelector {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
-.leaderboard .content .rightModule .dateSelector a, .leaderboard .content .rightModule .dateSelector button {
-  border: 1px solid #FAB617;
-  padding: 5px;
-  display: block;
-}
-
-.leaderboard .content .rightModule .dateSelector a:hover, .leaderboard .content .rightModule .dateSelector a.active, .leaderboard .content .rightModule .dateSelector button:hover, .leaderboard .content .rightModule .dateSelector button.active {
-  background-color: #FAB617;
-  -webkit-transition: .2s;
-  transition: .2s;
-}
-
-@media (max-width: 1024px) {
-  .leaderboard .content .rightModule .dateSelector a, .leaderboard .content .rightModule .dateSelector button {
-    margin-bottom: 10px;
-  }
 }
 
 ::-webkit-scrollbar {
@@ -8223,5 +7883,647 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   background: url(../img/vip/vipbg.png) no-repeat center/auto 100%;
   padding: 25px;
   margin-top: 0;
+}
+
+.leaderboard {
+  min-height: 900px;
+  background: url(../img/ranking/bg_euro.jpg) no-repeat 50%/cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 20px;
+}
+
+.leaderboard > section {
+  background: none;
+}
+
+.leaderboard > section > div {
+  margin: 0;
+}
+
+.leaderboard .content {
+  width: 100%;
+  max-width: 1600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 auto;
+}
+
+.leaderboard .content .topTab {
+  min-width: 768px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-bottom: -70px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.leaderboard .content .topTab > button {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  padding: 15px 25px;
+  text-transform: uppercase;
+  font-size: 14px;
+  background-color: #014c57;
+  color: #CAEAEF;
+  -webkit-transform: skew(-15deg);
+          transform: skew(-15deg);
+  white-space: nowrap;
+}
+
+.leaderboard .content .topTab > button:hover, .leaderboard .content .topTab > button.active {
+  color: #014C57;
+  background-color: #CAEAEF;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.leaderboard .content .rightModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 675px;
+  max-width: 768px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.leaderboard .content .rightModule .rank_content {
+  width: 100%;
+  background-color: rgba(1, 76, 87, 0.75);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border: 1px solid #CAEAEF;
+  display: none;
+  padding: 20px 15px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.leaderboard .content .rightModule .rank_content.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.leaderboard .content .rightModule .rank_content .top_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 15px;
+}
+
+.leaderboard .content .rightModule .rank_content .bottom_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.leaderboard .content .rightModule .rank_content .bottom_content.mt-5 {
+  margin-top: 67px;
+}
+
+.leaderboard .content .rightModule .rank_content .bottom_content.mt-5 span {
+  display: block;
+}
+
+.leaderboard .content .rightModule .left {
+  width: 33%;
+  max-width: 350px;
+  padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.leaderboard .content .rightModule .left img.mb-2 {
+  margin-bottom: 30px;
+}
+
+.leaderboard .content .rightModule .right {
+  margin-top: 15px;
+  padding: 0 15px;
+  text-align: center;
+}
+
+.leaderboard .content .rightModule .right.inner {
+  width: 60%;
+}
+
+.leaderboard .content .rightModule .right .title {
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.leaderboard .content .rightModule .right a.more, .leaderboard .content .rightModule .right button.more {
+  cursor: pointer;
+  color: #FAB617;
+  border: 1px solid #FAB617;
+  color: #ffffff;
+  padding: 5px;
+  margin-top: 10px;
+  display: block;
+  width: 30%;
+  margin: 15px auto 0 auto;
+}
+
+.leaderboard .content .rightModule .right a.more:hover, .leaderboard .content .rightModule .right button.more:hover {
+  background-color: #FAB617;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.leaderboard .content .rightModule .right .topTab {
+  min-width: auto;
+  margin: 10px auto -20px;
+}
+
+.leaderboard .content .rightModule .right .topTab > button {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  font-size: 10px;
+  padding: 10px 20px;
+  background-color: #016F80;
+  color: #76A2A8;
+  white-space: nowrap;
+}
+
+.leaderboard .content .rightModule .right .topTab > button:hover, .leaderboard .content .rightModule .right .topTab > button.active {
+  color: #014C57;
+  background-color: #CAEAEF;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.leaderboard .content .rightModule .right .stitle {
+  color: #014C57;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.leaderboard .content .rightModule .highest {
+  border: 1px solid #FAB617;
+  padding: 10px 15px;
+  color: #ffffff;
+  font-size: 28px;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .leaderboard .content .rightModule .highest {
+    font-size: 20px;
+  }
+}
+
+.leaderboard .content .rightModule .highest span {
+  color: #FAB617;
+  display: block;
+  font-size: 30px;
+}
+
+@media (max-width: 1024px) {
+  .leaderboard .content .rightModule .highest span {
+    font-size: 18px;
+  }
+}
+
+.leaderboard .content .rightModule .highest.person {
+  font-size: 16px;
+}
+
+.leaderboard .content .rightModule .message {
+  margin-top: 50px;
+  text-align: right;
+}
+
+.leaderboard .content .rightModule .rankingList {
+  margin: 20px auto 0;
+  position: relative;
+}
+
+.leaderboard .content .rightModule .rankingList.eventList {
+  width: 66.6%;
+  padding: 10px 30px;
+  background-color: #caeaef;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 400px;
+}
+
+.leaderboard .content .rightModule .rankingList.eventList ul li {
+  padding: 10px;
+}
+
+.leaderboard .content .rightModule .rankingList.eventList ul li:first-child {
+  color: #014C57;
+}
+
+.leaderboard .content .rightModule .rankingList.eventList ul li > div {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.leaderboard .content .rightModule .rankingList.eventList ul li > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.leaderboard .content .rightModule .rankingList.eventList ul li > div:last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  min-width: 200px;
+}
+
+.leaderboard .content .rightModule .rankingList.eventList > div {
+  display: none;
+}
+
+.leaderboard .content .rightModule .rankingList.eventList > div.active {
+  display: block;
+}
+
+.leaderboard .content .rightModule .rankingList ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 30px;
+  margin-bottom: 5px;
+  background-color: rgba(1, 111, 128, 0.4);
+  padding: 0 0 0 15px;
+}
+
+.leaderboard .content .rightModule .rankingList ul li > div {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.leaderboard .content .rightModule .rankingList ul li > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.leaderboard .content .rightModule .rankingList ul li > div img {
+  width: auto;
+  height: 30px;
+  display: unset;
+  margin-right: 20px;
+}
+
+.leaderboard .content .rightModule .rankingList ul li:first-child {
+  background-color: rgba(1, 111, 128, 0);
+}
+
+.leaderboard .content .rightModule .rankingList ul li:first-child > div {
+  font-weight: bold;
+}
+
+.leaderboard .content .rightModule .rankingList ul li:nth-child(2) {
+  background-color: #016f80;
+}
+
+.leaderboard .content .rightModule .rankingList ul li:nth-child(3) {
+  background-color: rgba(1, 111, 128, 0.8);
+}
+
+.leaderboard .content .rightModule .rankingList ul li:nth-child(4) {
+  background-color: rgba(1, 111, 128, 0.6);
+}
+
+.leaderboard .content .rightModule .rankingList ul li.mine {
+  background-color: #FAB617;
+  position: absolute;
+  bottom: -45px;
+  width: 100%;
+  max-width: 533.33px;
+  padding: 0 17px 0 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.leaderboard .content .rightModule .rankingList ul li.mineInner {
+  background-color: #FAB617;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll {
+  height: 450px;
+  overflow: auto;
+  overflow-x: hidden;
+  padding: 0 10px 0 0;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll.xs {
+  height: 320px;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll::-webkit-scrollbar-track {
+  background-color: rgba(44, 43, 43, 0.849);
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll::-webkit-scrollbar-thumb {
+  background-color: #016F80;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll::-webkit-scrollbar-button {
+  background-color: #016F80;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 30px;
+  margin-bottom: 5px;
+  background-color: rgba(202, 234, 239, 0.4);
+  padding: 0 0 0 15px;
+  color: #014c57;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li > div {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  padding: 5px 10px;
+  text-align: center;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li > div img {
+  width: auto;
+  height: 30px;
+  display: unset;
+  margin-right: 20px;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li:first-child {
+  background-color: rgba(202, 234, 239, 0);
+  color: #ffffff;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li:first-child > div {
+  font-weight: bold;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li:nth-child(2) {
+  background-color: #caeaef;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li:nth-child(3) {
+  background-color: rgba(202, 234, 239, 0.8);
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li:nth-child(4) {
+  background-color: rgba(202, 234, 239, 0.6);
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li.mine {
+  background-color: #FAB617;
+  position: absolute;
+  bottom: -45px;
+  width: 100%;
+  max-width: 533.33px;
+  padding: 0 17px 0 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.leaderboard .content .rightModule .rankingList .rankScroll li.mineInner {
+  background-color: #FAB617;
+}
+
+.leaderboard .content .rightModule .rankingList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.leaderboard .content .rightModule .rankingList::-webkit-scrollbar-track {
+  background-color: rgba(44, 43, 43, 0.849);
+}
+
+.leaderboard .content .rightModule .rankingList::-webkit-scrollbar-thumb {
+  background-color: #016F80;
+}
+
+.leaderboard .content .rightModule .rankingList::-webkit-scrollbar-button {
+  background-color: #016F80;
+}
+
+.leaderboard .content .rightModule .dateSelector {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.leaderboard .content .rightModule .dateSelector a, .leaderboard .content .rightModule .dateSelector button {
+  border: 1px solid #FAB617;
+  padding: 5px;
+  display: block;
+  margin-right: 5px;
+}
+
+.leaderboard .content .rightModule .dateSelector a:hover, .leaderboard .content .rightModule .dateSelector a.active, .leaderboard .content .rightModule .dateSelector button:hover, .leaderboard .content .rightModule .dateSelector button.active {
+  background-color: #FAB617;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+@media (max-width: 1024px) {
+  .leaderboard .content .rightModule .dateSelector a, .leaderboard .content .rightModule .dateSelector button {
+    margin-bottom: 10px;
+  }
+}
+
+.leaderboard .content .rightModule .timeLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #014C57;
+  width: calc(100% - 20px);
+  height: 10px;
+  border-radius: 30px;
+  margin: 69px 0 35px;
+  color: #014C57;
+}
+
+.leaderboard .content .rightModule .timeLine > div {
+  width: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  text-align: left;
+}
+
+.leaderboard .content .rightModule .timeLine > div:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #76A2A8;
+  border-radius: 30px;
+  display: block;
+}
+
+.leaderboard .content .rightModule .timeLine > div:nth-child(2) > div {
+  background: white;
+  z-index: 2;
+}
+
+.leaderboard .content .rightModule .timeLine > div:nth-child(2) > div:before {
+  border-color: transparent transparent transparent white;
+}
+
+.leaderboard .content .rightModule .timeLine > div:nth-child(3) > div {
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 1;
+  margin-left: -63px;
+}
+
+.leaderboard .content .rightModule .timeLine > div:nth-child(3) > div:before {
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.6);
+}
+
+.leaderboard .content .rightModule .timeLine > div:nth-child(4) > div {
+  margin-left: -51px;
+}
+
+.leaderboard .content .rightModule .timeLine > div > div {
+  position: absolute;
+  bottom: 15px;
+  line-height: normal;
+  padding: 5px 0 5px 15px;
+  background: #003b44;
+  font-size: 14px;
+  color: #014C57;
+  font-weight: bold;
+  margin-left: -75px;
+}
+
+.leaderboard .content .rightModule .timeLine > div > div:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 24px 0 24px 15px;
+  border-color: transparent transparent transparent #003b44;
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
+
+.leaderboard .content .rightModule .timeLine > div > div > div {
+  color: #016F80;
+}
+
+.leaderboard .content .rightModule .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=style.css.map */
