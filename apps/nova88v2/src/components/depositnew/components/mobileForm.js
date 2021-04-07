@@ -78,13 +78,13 @@ const MobileForm = ({
 
 	if (mobilePayGourpList.length <= 0) return null;
 
-	const formatMinAmount = number_format(formInfo.minAmount,_isConvert);
-	const formatMaxAmount = number_format(formInfo.maxAmount,_isConvert);
+	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
+	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
 
 	return (
 		<>
 			<div className="subModule">
-				<div className="subModuleTitle">{t("lbl_PaymentModes")}</div>
+				<div className="subModuleTitle">{t("lbl_Payment_Method")}</div>
 				<div>
 					{mobilePayGourpList.map(item => (
 						<button

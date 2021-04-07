@@ -110,7 +110,7 @@ const OnlineBankForm = ({
 			<div className="subModule">
 				<div className="subModuleTitle">
 					<i className="txt-blue">*</i>
-					{t("lbl_PaymentModes")}
+					{t("lbl_Payment_Method")}
 				</div>
 				<div>
 					{onlineBankGroupList.map(item => (
