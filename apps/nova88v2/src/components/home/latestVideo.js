@@ -22,10 +22,6 @@ const LatestVideo = () => {
 		};
 	}, [userInfo.langId]);
 
-	const title = video?.date
-		? `${moment(video.date).format("MM/DD")} ${video.title}`
-		: "";
-
 	return video?.link ? (
 		<div className="latestVideo">
 			<div className="moduleTitle icon icon-film">
@@ -40,7 +36,7 @@ const LatestVideo = () => {
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 				allowFullScreen
 			/>
-			<div className="title">{title}</div>
+			<div className="title">{video.title}</div>
 		</div>
 	) : (
 		<div className="latestVideo" />
