@@ -50,11 +50,14 @@ export default ({ currentMenuKey, productTpIds }) => {
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {
-		if (!defSubListClassName[menuKey]) return;
+		const subClassKey = defSubListClassName[menuKey];
 
-		const subClassName = `${defSubListClassName[menuKey] || ""}${
-			menuKey === currentMenuKey ? " active" : ""
-		}`;
+		const subClassName = `${subClassKey || ""}${
+			subClassKey === defSubListClassName.vip
+				? ` vip${userInfo.langId}`
+				: ""
+		}${menuKey === currentMenuKey ? " active" : ""}`;
+
 		let subMenu = [];
 
 		const isSubWithManyItems = !(

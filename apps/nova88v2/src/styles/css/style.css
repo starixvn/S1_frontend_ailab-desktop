@@ -468,8 +468,20 @@ header {
   font-size: 14px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .vipList {
-  background: url(../img/vipbg.jpg) no-repeat center/auto;
+.header > div.menu .subMenu-Wrapper-new .vipList.vipen {
+  background: url(../img/vipbg_en.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .vipList.vipcs {
+  background: url(../img/vipbg_cs.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .vipList.vipid {
+  background: url(../img/vipbg_id.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .vipList.vipth {
+  background: url(../img/vipbg_th.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
@@ -2858,7 +2870,6 @@ input[type="file"] {
 }
 
 #leftMenu .menuModule {
-  border: 1px solid #134DAE;
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 10px;
@@ -3912,6 +3923,10 @@ input[type="file"] {
   margin-bottom: 20px;
 }
 
+#popup .pop .title + div {
+  color: #5574A7;
+}
+
 #popup .pop > div {
   display: none;
   -webkit-box-orient: vertical;
@@ -4027,6 +4042,7 @@ input[type="file"] {
           align-items: center;
   width: auto;
   margin: 0;
+  color: #5574A7;
 }
 
 #popup .pop .checkbox input[type="checkbox"] + label {
@@ -4118,11 +4134,11 @@ input[type="file"] {
 
 .Submit .icon, .poker .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
   font-size: 36px;
-  color: #f77900;
+  color: #CDAE8E;
 }
 
 .Submit .icon.icon-bell, .poker .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
-  color: #f77900;
+  color: #CDAE8E;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   -webkit-transform: rotate(20deg);
@@ -4611,10 +4627,6 @@ input[type="file"] {
 
 .walletModule .icon.icon-plus {
   color: #5574A7;
-}
-
-.walletModule .icon-icon32px_Main-Wallet {
-  color: #f77900;
 }
 
 .checkbox.autotransfer {
@@ -6303,8 +6315,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #191919 inset;
-          box-shadow: 0 0 0px 1000px #191919 inset;
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+          box-shadow: 0 0 0px 1000px white inset;
   -webkit-text-fill-color: white;
 }
 
@@ -6598,8 +6610,8 @@ button.icon-spinner11:before {
 #Loading .cube .sides * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background-color: rgba(255, 80, 13, 0.1);
-  border: 1px solid #ff500d;
+  background-color: rgba(85, 116, 167, 0.1);
+  border: 1px solid #5574A7;
 }
 
 #Loading .cube .sides .top {
@@ -7039,6 +7051,7 @@ button.icon-spinner11:before {
   position: absolute;
   margin-top: 200px;
   font-size: 14px;
+  color: #5574A7;
 }
 
 .icon-information-solid {
@@ -7097,22 +7110,19 @@ button.icon-spinner11:before {
   margin: 0;
   z-index: 2;
   display: block;
-}
-
-.transferModule .inputBox-org:focus-within, .transferModule .inputBox-blue:focus-within {
-  border: 1px solid #f77900;
+  border: 1px solid #CDAE8E;
+  color: #CDAE8E;
 }
 
 .transferModule .inputBox-org span, .transferModule .inputBox-blue span {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  color: #f77900;
 }
 
 .transferModule .inputBox-org button.btn, .transferModule .inputBox-blue button.btn {
   width: auto;
-  color: #f77900;
+  color: #CDAE8E;
   -webkit-box-flex: 7;
       -ms-flex: 7;
           flex: 7;
@@ -7122,6 +7132,10 @@ button.icon-spinner11:before {
   margin-right: 15px;
 }
 
+.transferModule .inputBox-org button.btn:after, .transferModule .inputBox-blue button.btn:after {
+  border-color: #CDAE8E transparent transparent transparent;
+}
+
 .transferModule .inputBox-org .dropdown-container, .transferModule .inputBox-blue .dropdown-container {
   position: absolute;
   top: 45px;
@@ -7129,7 +7143,7 @@ button.icon-spinner11:before {
   width: calc(100% - 1px);
   border-radius: 15px;
   background: #D2E2F9;
-  border: 1px solid #f77900;
+  border: 1px solid #CDAE8E;
   margin-left: 0;
   overflow: hidden;
 }
@@ -7140,37 +7154,13 @@ button.icon-spinner11:before {
 }
 
 .transferModule .inputBox-org .dropdown-container .dropdown-item:hover, .transferModule .inputBox-org .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown-container .dropdown-item.active {
-  background: #f77900;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   color: white;
 }
 
 .transferModule .inputBox-org .dropdown-item, .transferModule .inputBox-blue .dropdown-item {
-  color: #5574A7;
   text-align: right;
-}
-
-.transferModule .inputBox-blue span {
-  color: #5574A7;
-}
-
-.transferModule .inputBox-blue:focus-within {
-  border: 1px solid #1E85EC;
-}
-
-.transferModule .inputBox-blue button.btn {
-  color: #5574A7;
-}
-
-.transferModule .inputBox-blue .dropdown-container {
-  border: 1px solid #1E85EC;
-}
-
-.transferModule .inputBox-blue .dropdown-container .dropdown-item:hover {
-  background: #1E85EC;
-}
-
-.transferModule .inputBox-blue .dropdown-container .dropdown-item.active {
-  background: #1E85EC;
 }
 
 .swiper-casino {
@@ -9410,7 +9400,7 @@ canvas {
 }
 
 .vip .vipPage .eventList tr:last-child td {
-  color: #f77900;
+  color: white;
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd) td:first-child {
@@ -9436,6 +9426,10 @@ canvas {
   text-align: left;
   width: 34%;
   padding-left: 10px;
+  color: white;
+}
+
+.vip .vipPage .eventList tr td span.txt-orange {
   color: white;
 }
 
@@ -10110,6 +10104,7 @@ canvas {
 .subModuleListColumn .bankAccount .smallList ul li {
   min-width: 130px;
   width: auto;
+  margin-right: 5px;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
@@ -10181,7 +10176,7 @@ canvas {
 }
 
 body, html {
-  background: #030303;
+  background: #e8edf3;
 }
 
 #header {
@@ -11560,7 +11555,6 @@ main section {
 }
 
 #leftMenu .menuModule {
-  border: 1px solid #030303;
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 10px;
@@ -11779,7 +11773,7 @@ main section {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: calc(100% - 157px);
-  color: #BFCCE2;
+  color: #5574A7;
 }
 
 .subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
