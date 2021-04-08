@@ -21,7 +21,7 @@ export default ({ currentMenuKey, productTpIds }) => {
 			});
 		};
 
-		if (path) {
+		if (path && needLogin) {
 			return needLogin && !userInfo.isLogin
 				? handleCallBack()
 				: navigate(`/${userInfo.langId}/${path}`);
