@@ -9465,7 +9465,8 @@ canvas {
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #1E85EC;
+  background: #7591C1;
+  color: white;
 }
 
 .vip .vipPage .eventList tr td {
@@ -10538,6 +10539,8 @@ main .moduleTitle {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 1;
+  position: relative;
 }
 
 main .moduleTitle > a {
@@ -10675,7 +10678,7 @@ main .liveVideo .latestVideo, main .newsVideo .latestVideo {
 main .liveVideo .latestVideo iframe, main .newsVideo .latestVideo iframe {
   -webkit-transform: scale(1.08);
           transform: scale(1.08);
-  margin-top: 17px;
+  margin-top: -15px;
 }
 
 main .liveVideo .latestVideo, main .liveVideo .newsList, main .newsVideo .latestVideo, main .newsVideo .newsList {
@@ -10688,8 +10691,9 @@ main .liveVideo .latestVideo .title, main .liveVideo .newsList .title, main .new
   background: url(../img/latestvideotitlebg.png) no-repeat;
   line-height: 65px;
   padding-left: 20px;
-  margin-top: 14px;
   color: white;
+  position: relative;
+  margin-top: 7px;
 }
 
 main .liveVideo .latestVideo .newsModule, main .liveVideo .newsList .newsModule, main .newsVideo .latestVideo .newsModule, main .newsVideo .newsList .newsModule {
