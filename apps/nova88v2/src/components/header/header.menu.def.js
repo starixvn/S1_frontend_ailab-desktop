@@ -534,6 +534,7 @@ export const defMenuLinks = {
 		displayKey: "lbl_TV",
 		className: "tvbtn",
 		menuType: defMenuType.Link,
+		path: path.streaming.root,
 		eventIcons: [
 			showEventIcon({
 				icon: defEventIcon.live,
