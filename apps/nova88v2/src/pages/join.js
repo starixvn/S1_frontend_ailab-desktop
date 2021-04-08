@@ -810,17 +810,15 @@ const Content = () => {
 					</div>
 
 					<div className="Terms">
-						<Checkbox id="joinTermsCheck" checked={true}>
-							{t("lbl_sign_up_terms_start")}
-							<a
-								className="txt-orange"
-								target="_blank"
-								rel="noreferrer"
-								href={TandC(defaultLangId).terms}>
-								{t("lbl_sign_up_terms_center")}
-							</a>
-							{t("lbl_sign_up_terms_end")}
-						</Checkbox>
+						{t("lbl_sign_up_terms_start")}
+						<a
+							className="txt-orange"
+							target="_blank"
+							rel="noreferrer"
+							href={TandC(defaultLangId).terms}>
+							{t("lbl_sign_up_terms_center")}
+						</a>
+						{t("lbl_sign_up_terms_end")}
 					</div>
 
 					<div className="btnGroup">
