@@ -39,14 +39,16 @@ const Content = () => {
 		isMounted: isMountedRef.current
 	});
 
-	const rows = selCategory.datas?.map(v => {
+	const rows = selCategory.datas?.map((v, vidx) => {
 		return (
 			<StreamingModule
-				key={`home-streaming-${v.type}-${v.matchID}`}
+				key={`home-streaming-${v.type}-${vidx}`}
 				t={t}
 				langId={userInfo.langId}
 				isLogin={userInfo.isLogin}
 				isStreamingPage={true}
+				tpId={selCategory.tpId}
+				gameId={selCategory.gameId}
 				{...v}
 			/>
 		);
