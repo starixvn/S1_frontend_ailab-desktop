@@ -10181,7 +10181,7 @@ canvas {
 }
 
 body, html {
-  background: #e8eff5;
+  background: #030303;
 }
 
 #header {
@@ -11066,6 +11066,7 @@ main .liveVideo .matches iframe, main .newsVideo .matches iframe {
   border-right: 1px solid #7591C1;
   padding: 0 10px;
   font-weight: bold;
+  color: white;
 }
 
 #footer .copyright a:nth-child(1), #footer .copyright button:nth-child(1) {
@@ -11559,7 +11560,7 @@ main section {
 }
 
 #leftMenu .menuModule {
-  border: 1px solid #e8eff5;
+  border: 1px solid #030303;
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 10px;
