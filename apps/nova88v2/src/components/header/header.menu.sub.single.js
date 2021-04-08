@@ -64,7 +64,11 @@ const SubMenuSingle = ({ menuKey, userInfo, t }) => {
 				<div className="btnGroup">
 					<Link
 						className="lightblue"
-						to={`/${userInfo.langId}/${pathLink}`}>
+						to={
+							userInfo.isLogin
+								? `/${userInfo.langId}/${pathLink}`
+								: `/${userInfo.langId}/${path.join.root}`
+						}>
 						{t("lbl_JOIN_US_NOW")}
 					</Link>
 				</div>
