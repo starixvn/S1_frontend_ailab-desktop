@@ -417,23 +417,15 @@ const Content = () => {
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
-			const _termsCheck = userValue.termsCheck;
-			const _ageCheck = userValue.ageCheck;
 
 			const checked =
 				_usernameCheck.checked &&
 				_passwordCheck.checked &&
 				_phoneCheck.checked &&
 				_emailCheck.checked &&
-				_currencyCheck.checked &&
-				_termsCheck &&
-				_ageCheck;
+				_currencyCheck.checked;
 
 			if (!checked) {
-				let checkboxMsg = "";
-				if (!_termsCheck || !_ageCheck) {
-					checkboxMsg = "lbl_Check18TCTooltip";
-				}
 				setTip(prev => {
 					return {
 						...prev,
@@ -456,10 +448,6 @@ const Content = () => {
 						currency: {
 							checked: _currencyCheck.checked,
 							msg: t(_currencyCheck.msg)
-						},
-						checkbox: {
-							checked: true,
-							msg: t(checkboxMsg)
 						}
 					};
 				});
@@ -822,10 +810,7 @@ const Content = () => {
 					</div>
 
 					<div className="Terms">
-						<Checkbox
-							id="joinTermsCheck"
-							checked={userValue.termsCheck}
-							onChange={checkboxHandler.bind(null, "termsCheck")}>
+						<Checkbox id="joinTermsCheck" checked={true}>
 							{t("lbl_sign_up_terms_start")}
 							<a
 								className="txt-orange"
@@ -837,9 +822,6 @@ const Content = () => {
 							{t("lbl_sign_up_terms_end")}
 						</Checkbox>
 					</div>
-					{tip.checkbox.msg !== "" ? (
-						<div className="tip active">{tip.checkbox.msg}</div>
-					) : null}
 
 					<div className="btnGroup">
 						<button
