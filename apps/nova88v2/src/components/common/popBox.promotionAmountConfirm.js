@@ -70,7 +70,7 @@ export default ({
 				<button className="btn-cancel" onClick={clickClose}>
 					{t("lbl_Cancel")}
 				</button>
-				<button className="orange" onClick={onSetClaimPromotion}>
+				<button className="btn-check" onClick={onSetClaimPromotion}>
 					{t("lbl_PromoJoinNow")}
 				</button>
 			</div>

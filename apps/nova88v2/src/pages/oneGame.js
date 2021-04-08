@@ -10,7 +10,7 @@ export default () => {
 			<Layout showFooter={true}>
 				<main>
 					<OneGame />
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>

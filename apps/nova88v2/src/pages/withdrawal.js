@@ -14,7 +14,7 @@ export default () => {
 						<LeftMenu />
 						<Withdrawal />
 					</section>
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>

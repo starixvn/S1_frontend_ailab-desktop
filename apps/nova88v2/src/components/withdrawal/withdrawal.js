@@ -92,7 +92,7 @@ export default () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="gray"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -114,7 +114,9 @@ export default () => {
 						message: t("msg_ApiServerError"),
 						btnBar: (
 							<div className="btnGroup">
-								<button className="gray" onClick={ClosePopBox}>
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -142,7 +144,7 @@ export default () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="gray"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -160,7 +162,9 @@ export default () => {
 						message: t("msg_ApiServerError"),
 						btnBar: (
 							<div className="btnGroup">
-								<button className="gray" onClick={ClosePopBox}>
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -198,7 +202,9 @@ export default () => {
 						message: t("msg_ApiServerError"),
 						btnBar: (
 							<div className="btnGroup">
-								<button className="gray" onClick={ClosePopBox}>
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>

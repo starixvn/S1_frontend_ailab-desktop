@@ -9,7 +9,9 @@ export default ({ btnBar }) => {
 			<div className="icon icon-library" />
 			<div className="title">{t("lbl_Information")}</div>
 			<div>{t("lbl_UpdateSuccessful")}</div>
-			<div>{t("lbl_UpdateSuccessWillProcess")}</div>
+			<div className="text-center">
+				{description || t("lbl_UpdateSuccessWillProcess")}
+			</div>
 			{btnBar}
 		</div>
 	);

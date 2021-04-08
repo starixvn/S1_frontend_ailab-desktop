@@ -42,7 +42,7 @@ export default ({ productTpIds }) => {
 				content: t("msg_loggedout"),
 				btnBar: (
 					<div className="btnGroup">
-						<button className="btn-cancel" onClick={clickClose}>
+						<button className="btn-check" onClick={clickClose}>
 							OK
 						</button>
 					</div>
@@ -58,23 +58,23 @@ export default ({ productTpIds }) => {
 	};
 
 	const Logo = `${config.cloudImgUrl}/SiteSkin/img/logo${
-		userInfo.langId === "cs" ? "_cs" : ""
+		userInfo.langId === "cs" ? "_cs_w" : "_en_w"
 	}.png`;
 
 	return (
-		<header>
+		<header id="header">
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
 						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
-				<Menu productTpIds={productTpIds} />
 				<div className="function">
 					<Functions />
 					<LanguageDropDown />
 					<LogoutButton />
 				</div>
+				<Menu productTpIds={productTpIds} />
 			</div>
 		</header>
 	);

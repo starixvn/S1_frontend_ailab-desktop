@@ -33,7 +33,7 @@ export const useGotoGame = ({ isLogin, langId, tpId }) => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>

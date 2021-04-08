@@ -1,17 +1,28 @@
 import React, { Component, useContext, createRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Redirect } from "@reach/router";
+import { Redirect, useNavigate } from "@reach/router";
 import { api_message_GetAnnouncement } from "../../service/api/message";
 import { userInfoContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
 import path from "../../router";
+import useHandleLogin from "../hook/useHandleLogin";
 
 export default () => {
+	const navigate = useNavigate();
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
+	const { handleLogin } = useHandleLogin();
 	const langId = GET_LANG_ID(userInfo.langId);
 
-	return <Marquee langId={langId} i18n={t} isLogin={userInfo.isLogin} />;
+	return (
+		<Marquee
+			langId={langId}
+			i18n={t}
+			isLogin={userInfo.isLogin}
+			handleLogin={handleLogin}
+			navigate={navigate}
+		/>
+	);
 };
 
 class Marquee extends Component {
@@ -19,8 +30,7 @@ class Marquee extends Component {
 		super(props);
 		this.state = {
 			datas: [],
-			pos: null,
-			redirectPath: null
+			pos: null
 		};
 
 		this.isMountedRef = false;
@@ -124,11 +134,11 @@ class Marquee extends Component {
 
 	ClickMarquee = () => {
 		if (this.props.isLogin) {
-			this.setState({
-				redirectPath: `/${this.props.langId}/${path.announcement.root}`
-			});
+			this.props.navigate(
+				`/${this.props.langId}/${path.announcement.root}`
+			);
 		} else {
-			this.setState({ redirectPath: `/login` });
+			this.props.handleLogin();
 		}
 	};
 
@@ -136,6 +146,7 @@ class Marquee extends Component {
 		const arr = this.state.datas.map(item => {
 			return (
 				<button
+					className="white"
 					key={`announcement-${item.id}`}
 					style={{ paddingLeft: "2rem" }}
 					onClick={this.ClickMarquee}
@@ -149,7 +160,7 @@ class Marquee extends Component {
 		});
 
 		const style = this.state.pos === null ? {} : { left: this.state.pos };
-		return this.state.redirectPath === null ? (
+		return (
 			<div id="Marquee">
 				<div
 					className="marquee-box icon icon-marquee"
@@ -160,10 +171,13 @@ class Marquee extends Component {
 						style={style}>
 						{arr}
 					</div>
+					<div className="mq-btn">
+						<button className="active" />
+						<button />
+						<button />
+					</div>
 				</div>
 			</div>
-		) : (
-			<Redirect to={this.state.redirectPath} noThrow />
 		);
 	}
 }

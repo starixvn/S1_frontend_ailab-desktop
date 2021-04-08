@@ -16,7 +16,7 @@ export default () => {
 							<Referral />
 						</div>
 					</section>
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>

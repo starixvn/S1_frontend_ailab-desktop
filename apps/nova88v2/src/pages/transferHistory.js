@@ -26,7 +26,7 @@ export default () => {
 							<Content />
 						</div>
 					</section>
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>
@@ -96,7 +96,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
@@ -116,7 +116,7 @@ const Content = () => {
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>

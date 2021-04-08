@@ -2,7 +2,7 @@ import React from "react";
 
 export default props => {
 	const showCheckIcon = () => {
-		if (props.checked === null) {
+		if (props.checked === null && props.clickInfo) {
 			return (
 				<i
 					className="icon icon-information-solid"
@@ -33,7 +33,7 @@ export default props => {
 				) : null}
 				<input
 					type={props.inputType ?? "text"}
-					className={props.isAmount ? "text-right" : ""}
+					// className={props.isAmount ? "text-right" : ""}
 					placeholder={props.placeholder}
 					onBlur={props.onBlur}
 					onChange={props.onChange}
@@ -44,6 +44,7 @@ export default props => {
 					}
 					max={props.max ? props.max : null}
 					readOnly={props.readOnly}
+					onKeyDown={props.onKeyDown}
 					data-testid="input"
 				/>
 				{props.tooltip ? (
