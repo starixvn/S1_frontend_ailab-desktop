@@ -281,6 +281,7 @@
 	"lbl_TpWallet_1": "กระเป๋าเงินสปอร์ตบุค",
 	"lbl_TpWallet_21": "918Kiss วอลเล็ท",
 	"lbl_TpWallet_22": "Mega Wallet",
+	"lbl_TpWallet_27":"กระเป๋าสตางค์ PT",
 	"lbl_MainWallet": "วอลเล็ทหลัก",
 	"lbl_Wallet_Saba": "สปอร์ตบุค วอลเล็ท",
 	"lbl_Transfer": "โอน",
@@ -710,6 +711,9 @@
 	"lbl_POKER_NOW":"ไปที่เกม",
 	"lbl_DOWNLOAD_APP_NOW":"ไปที่ดาวน์โหลดแอพ",
 	"lbl_HOT_GAMES":"เกมยอดนิยม",
+	"lbl_sign_up_terms_start":"คลิ๊กที่ปุ่มสมัครสมาชิก , ข้าพเจ้าขอรับรองว่าข้าพเจ้ามีอายุเกิน 21 ปี ได้อ่านและยอมรับข้อกำหนดและเงื่อนไขแล้ว",
+	"lbl_sign_up_terms_center":"บข้อกำหนดและเงื่อนไข",
+	"lbl_sign_up_terms_end":"แล้ว",
 
 	"end-----":"end-----"
 }

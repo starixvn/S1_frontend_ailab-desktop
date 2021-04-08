@@ -281,6 +281,7 @@
 	"lbl_TpWallet_1": "Dompet Olahraga",
 	"lbl_TpWallet_21": "Dompet 918Kiss",
 	"lbl_TpWallet_22": "Mega Wallet",
+	"lbl_TpWallet_27":"Dompet PT",
 	"lbl_MainWallet": "Dompet Utama",
 	"lbl_Wallet_Saba": "Dompet Olahraga",
 	"lbl_Transfer": "Dana Masuk",
@@ -710,6 +711,9 @@
 	"lbl_POKER_NOW":"POKER NOW",
 	"lbl_DOWNLOAD_APP_NOW":"DOWNLOAD APLIKASI SEKARANG",
 	"lbl_HOT_GAMES":"HOT GAMES",
+	"lbl_sign_up_terms_start":"Dengan meng-klik GABUNG SEKARANG, saya menyatakan hahwa saya berumur diatas 21 tahun dan telah membaca dan menyetujui",
+	"lbl_sign_up_terms_center":"syarat & ketentuan",
+	"lbl_sign_up_terms_end":".",
 
 	"end-----":"end-----"
 }

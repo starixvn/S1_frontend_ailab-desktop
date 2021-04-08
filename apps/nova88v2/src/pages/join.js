@@ -826,31 +826,15 @@ const Content = () => {
 							id="joinTermsCheck"
 							checked={userValue.termsCheck}
 							onChange={checkboxHandler.bind(null, "termsCheck")}>
-							{t("lbl_Check18TC1")}
+							{t("lbl_sign_up_terms_start")}
 							<a
+								className="txt-orange"
 								target="_blank"
 								rel="noreferrer"
 								href={TandC(defaultLangId).terms}>
-								{t("lbl_TermsConditions")}
+								{t("lbl_sign_up_terms_center")}
 							</a>
-							&nbsp;
-							{t("lbl_Check18TC2")}
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href={TandC(defaultLangId).rule}>
-								{t("lbl_RuleRegulations")}
-							</a>
-							&nbsp;
-							{t("lbl_Check18TC3")} &nbsp;
-							{config.siteName}.
-						</Checkbox>
-
-						<Checkbox
-							id="joinAgeCheck"
-							checked={userValue.ageCheck}
-							onChange={checkboxHandler.bind(null, "ageCheck")}>
-							{t("lbl_Check18TC4")}
+							{t("lbl_sign_up_terms_end")}
 						</Checkbox>
 					</div>
 					{tip.checkbox.msg !== "" ? (

@@ -104,7 +104,6 @@ const MobileForm = ({
 							</div>
 							<div className="bank">
 								<div>{item.groupName}</div>
-								<div className="" />
 							</div>
 						</button>
 					))}

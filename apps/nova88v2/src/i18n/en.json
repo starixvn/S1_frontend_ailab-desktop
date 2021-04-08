@@ -281,6 +281,7 @@
 	"lbl_TpWallet_1": "Sportsbook Wallet",
 	"lbl_TpWallet_21": "918Kiss Wallet",
 	"lbl_TpWallet_22": "Mega Wallet",
+	"lbl_TpWallet_27":"PT Wallet",
 	"lbl_MainWallet": "Main Wallet",
 	"lbl_Wallet_Saba": "Sportsbook Wallet",
 	"lbl_Transfer": "Transfer",
@@ -710,6 +711,9 @@
 	"lbl_POKER_NOW":"POKER NOW",
 	"lbl_DOWNLOAD_APP_NOW":"DOWNLOAD APP NOW",
 	"lbl_HOT_GAMES":"HOT GAMES",
+	"lbl_sign_up_terms_start":"By clicking the JOIN NOW button, I hereby acknowledge that I am above 21 years old and have read and accepted your",
+	"lbl_sign_up_terms_center":"terms & conditions",
+	"lbl_sign_up_terms_end":".",
 
 	"end-----":"end-----"
 }
