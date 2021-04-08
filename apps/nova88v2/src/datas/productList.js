@@ -207,14 +207,14 @@ export default {
 		tpId: 24,
 		gameId: "cmf0001"
 	},
-	ICG_FISHING_OF_SAVIORS: {
-		tpId: 24,
-		gameId: "cmf0002"
-	},
-	ICG_THE_TYRANT_AND_THE_PRINCESS: {
-		tpId: 24,
-		gameId: "cmf0003"
-	},
+	// ICG_FISHING_OF_SAVIORS: {
+	// 	tpId: 24,
+	// 	gameId: "cmf0002"
+	// },
+	// ICG_THE_TYRANT_AND_THE_PRINCESS: {
+	// 	tpId: 24,
+	// 	gameId: "cmf0003"
+	// },
 	poker: {
 		tpId: 13
 	},
@@ -222,10 +222,10 @@ export default {
 		tpId: 7,
 		gameId: 10
 	},
-	fishing_SG: {
-		gameId: "F-SF01",
-		tpId: 10
-	},
+	// fishing_SG: {
+	// 	gameId: "F-SF01",
+	// 	tpId: 10
+	// },
 	fishing_SGW: {
 		gameId: "F-SF02",
 		tpId: 10
@@ -240,11 +240,11 @@ export default {
 		tpId: 16,
 		name: "CQ9_Lucky_Fishing"
 	},
-	CQ9_Oneshot_Fishing: {
-		gameId: "AT01",
-		tpId: 16,
-		name: "CQ9_Oneshot_Fishing"
-	},
+	// CQ9_Oneshot_Fishing: {
+	// 	gameId: "AT01",
+	// 	tpId: 16,
+	// 	name: "CQ9_Oneshot_Fishing"
+	// },
 	CQ9_Water_Margin_Fishing: {
 		gameId: "AT06",
 		tpId: 16,

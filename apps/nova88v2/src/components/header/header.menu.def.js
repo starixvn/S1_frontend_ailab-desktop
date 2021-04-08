@@ -374,15 +374,15 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Paradise }
 			},
-			{
-				...productList.CQ9_Oneshot_Fishing,
-				className: "fsgw",
-				listNpcImgUrl: "oneshotfishing.png",
-				listBgImgUrl: "fishListHover.png",
-				displayKey: "lbl_Oneshot_Fishing",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.CQ9_Oneshot_Fishing }
-			},
+			// {
+			// 	...productList.CQ9_Oneshot_Fishing,
+			// 	className: "fsgw",
+			// 	listNpcImgUrl: "oneshotfishing.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	displayKey: "lbl_Oneshot_Fishing",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.CQ9_Oneshot_Fishing }
+			// },
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf",
@@ -392,26 +392,26 @@ export const defMenuLinks = {
 				listBgImgUrl: "fishListHover.png",
 				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
 			},
-			{
-				...productList.ICG_FISHING_OF_SAVIORS,
-				className: "fsgfos",
-				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishICG-FOS.png",
-				listBgImgUrl: "fishListHover.png",
-				parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
-			},
-			{
-				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
-				className: "fsttatp",
-				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishICG-TTATP.png",
-				listBgImgUrl: "fishListHover.png",
-				parameter: {
-					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
-				}
-			},
+			// {
+			// 	...productList.ICG_FISHING_OF_SAVIORS,
+			// 	className: "fsgfos",
+			// 	displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishICG-FOS.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
+			// },
+			// {
+			// 	...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
+			// 	className: "fsttatp",
+			// 	displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishICG-TTATP.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	parameter: {
+			// 		...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
+			// 	}
+			// },
 			{
 				...productList.fishing,
 				className: "fgg",
@@ -421,15 +421,15 @@ export const defMenuLinks = {
 				listBgImgUrl: "fishListHover.png",
 				parameter: { ...productList.fishing }
 			},
-			{
-				...productList.fishing_SG,
-				className: "fsg",
-				displayKey: "lbl_FishingSG1",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishSG.png",
-				listBgImgUrl: "fishListHover.png",
-				parameter: { ...productList.fishing_SG }
-			},
+			// {
+			// 	...productList.fishing_SG,
+			// 	className: "fsg",
+			// 	displayKey: "lbl_FishingSG1",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishSG.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	parameter: { ...productList.fishing_SG }
+			// },
 			{
 				...productList.fishing_SGW,
 				className: "fsgw",
