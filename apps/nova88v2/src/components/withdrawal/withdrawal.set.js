@@ -60,8 +60,8 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 							custBankInfo: _custBankInfo
 						});
 						if (
-							datas.bankInfoDetail?.length > 0 &&
-							datas.defAccountNo
+							datas?.bankInfoDetail?.length > 0 &&
+							datas?.defAccountNo
 						) {
 							selectPrevAccount(
 								datas.defAccountNo,
