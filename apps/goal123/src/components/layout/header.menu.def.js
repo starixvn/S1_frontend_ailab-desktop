@@ -99,6 +99,20 @@ export const defMenuLinks = langId => {
 			className: "casinobtn",
 			subMenu: [
 				{
+					...defCasinoProviders.PT,
+					className: "ICG",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_pt
+						})
+					],
+					icon: "icon icon-ICG",
+					displayText: "PlayTech",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.PT.name }
+				},
+				{
 					...defCasinoProviders.ICG,
 					className: "ICG",
 					eventIcons: [
