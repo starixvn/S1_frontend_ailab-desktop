@@ -5888,6 +5888,11 @@ input[type="file"] {
   margin: 0;
 }
 
+.proList .btnGroup .orange {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+}
+
 .proList.expired {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
@@ -6365,9 +6370,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-          box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px #e8edf3 inset;
+          box-shadow: 0 0 0px 1000px #e8edf3 inset;
+  -webkit-text-fill-color: #5574A7;
 }
 
 .buttonBox {
@@ -8745,6 +8750,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: rgba(210, 226, 249, 0.7);
   border-radius: 15px;
   padding: 20px;
+  color: #5574A7;
 }
 
 .referralModule > div .refBox > div {
@@ -8764,7 +8770,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .referralModule > div .refBox > div span {
-  color: #f77900;
+  font-weight: bold;
 }
 
 .referralModule > div .refBox > div a {
@@ -10317,7 +10323,7 @@ body, html {
   padding: 0 5px;
   color: #5574A7;
   width: 120px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #header input::-webkit-input-placeholder {
