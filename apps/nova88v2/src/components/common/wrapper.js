@@ -98,7 +98,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>

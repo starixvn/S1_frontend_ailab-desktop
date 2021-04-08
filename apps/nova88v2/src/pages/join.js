@@ -27,7 +27,6 @@ import TandC from "../service/t_and_c";
 import Inputbox from "../components/common/inputbox";
 import InputboxPSW from "../components/common/inputbox.password";
 import Dropdown from "../components/common/dropdown";
-import Checkbox from "../components/common/checkbox";
 import { Iov_GetBlackBox } from "../components/common/iovation";
 import {
 	initValue,
@@ -394,12 +393,6 @@ const Content = () => {
 		setCurrencyTip("currency", null);
 	};
 
-	const checkboxHandler = col => {
-		setUserValue(prev => {
-			return { ...prev, [col]: !userValue[col] };
-		});
-	};
-
 	const clickCancel = () => {
 		navigate(`/${userInfo.langId}`);
 	};
@@ -657,24 +650,29 @@ const Content = () => {
 			<div className="joinloginModule">
 				<div className="joinAnimation">
 					<img
-						src={require("../styles/img/animationLogo.png")}
 						className="animationlogo"
+						alt="animationlogo"
+						src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 					/>
 					<img
-						src={require("../styles/img/joinNpc01.png")}
 						className="npc1"
+						alt="npc1"
+						src={require("../styles/img/joinNpc01.png")}
 					/>
 					<img
-						src={require("../styles/img/joinNpc02.png")}
 						className="npc2"
+						alt="npc2"
+						src={require("../styles/img/joinNpc02.png")}
 					/>
 					<img
-						src={require("../styles/img/welcome.png")}
 						className="welcome"
+						alt="welcome"
+						src={require("../styles/img/welcome.png")}
 					/>
 					<img
-						src={require("../styles/img/back.png")}
 						className="back"
+						alt="back"
+						src={require("../styles/img/back.png")}
 					/>
 				</div>
 				<form className="joinloginFunction" onSubmit={clickSubmit}>

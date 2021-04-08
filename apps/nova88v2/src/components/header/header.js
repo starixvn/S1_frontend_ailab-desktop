@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import {
-	userInfoContext,
-	popBoxContext
-} from "../common/context";
+import { userInfoContext, popBoxContext } from "../common/context";
 import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
@@ -45,7 +42,7 @@ export default ({ productTpIds }) => {
 				content: t("msg_loggedout"),
 				btnBar: (
 					<div className="btnGroup">
-						<button className="btn-cancel" onClick={clickClose}>
+						<button className="btn-check" onClick={clickClose}>
 							OK
 						</button>
 					</div>
