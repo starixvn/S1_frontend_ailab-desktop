@@ -55,7 +55,7 @@ export const useGotoGame = ({
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0 && res.data.message) {
 							const result = JSON.parse(res.data.message);
-							setData(() => result);
+
 							if (_tpId === defSpecialSetting.playTech) {
 								const {
 									account: username,
@@ -71,6 +71,8 @@ export const useGotoGame = ({
 								} else {
 									launchGameWithFunMode({ ...result });
 								}
+							} else {
+								setData(() => result);
 							}
 						} else {
 							errorPopBox(
