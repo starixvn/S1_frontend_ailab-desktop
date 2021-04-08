@@ -139,15 +139,15 @@ export const defMenuLinks = {
 				displayKey: "lbl_All",
 				listNpcImgUrl: "esportALL.png",
 				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.Link,
-				parameter: { ...productList.eSport_All },
-				...productList.eSport_All
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.eSportAll },
+				...productList.eSportAll
 			},
 			{
 				displayKey: "lbl_Dota2",
 				listNpcImgUrl: "esportDOTA2.png",
 				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.Link,
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSport_DOTA2 },
 				...productList.eSport_DOTA2
 			},
@@ -155,7 +155,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_LOL",
 				listNpcImgUrl: "esportLOL.png",
 				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.Link,
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSport_LOL },
 				...productList.eSport_LOL
 			},
@@ -163,7 +163,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_CSGO",
 				listNpcImgUrl: "esportCS.png",
 				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.Link,
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSport_CSGO },
 				...productList.eSport_CSGO
 			},
