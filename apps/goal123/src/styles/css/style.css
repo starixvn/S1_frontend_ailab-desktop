@@ -1695,6 +1695,7 @@ footer .copyright {
 }
 
 .inputBox .iconModule, .inputBox-org .iconModule, .inputBox-white .iconModule, .inputBox-blue .iconModule, .inputBox-gray .iconModule, .inputBox-yellow .iconModule {
+  margin-left: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7744,7 +7745,6 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   padding: 0;
   margin-top: -3px;
   width: auto;
-  visibility: hidden;
 }
 
 .subModuleListColumn > .subModule .icon-information-solid.active + .tip {
@@ -7753,7 +7753,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle {
-  width: 120px;
+  width: 160px;
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle.important {
@@ -7770,7 +7770,11 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: calc(100% - 160px);
+  width: calc(100% - 200px);
+}
+
+.subModuleListColumn > .subModule > div.inputBox, .subModuleListColumn > .subModule > div.inputBox-org, .subModuleListColumn > .subModule > div.inputBox-white, .subModuleListColumn > .subModule > div.inputBox-blue, .subModuleListColumn > .subModule > div.inputBox-gray, .subModuleListColumn > .subModule > div.inputBox-yellow {
+  width: 300px;
 }
 
 .subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
@@ -7786,7 +7790,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
           align-items: center;
   margin: 0 5px 15px;
   color: white;
-  width: 220px;
+  width: 210px;
   position: relative;
 }
 
@@ -7866,13 +7870,13 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
           box-shadow: 0px 0px 0px 6px #1E85EC inset;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > button:hover > div i, .subModuleListColumn > .subModule > div > a.active > div i, .subModuleListColumn > .subModule > div > a:hover > div i {
+.subModuleListColumn > .subModule > div > button.active i, .subModuleListColumn > .subModule > div > a.active i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
+.subModuleListColumn > .subModule > div > button.active i::before, .subModuleListColumn > .subModule > div > a.active i::before {
   display: block;
 }
 
@@ -7885,6 +7889,10 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   color: #1E85EC;
+}
+
+.subModuleListColumn > .subModule input {
+  text-align: right;
 }
 
 .subModuleListColumn > .subModule input::-webkit-input-placeholder {
@@ -7919,20 +7927,25 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: calc(100% - 135px);
 }
 
-.subModuleListColumn .column .inputBox-white + .tip {
-  margin: 0 5px 10px;
+.subModuleListColumn .column .inputBox-white, .subModuleListColumn .column .inputBox-blue, .subModuleListColumn .column .inputBox, .subModuleListColumn .column .inputBox-org, .subModuleListColumn .column .inputBox-white, .subModuleListColumn .column .inputBox-blue, .subModuleListColumn .column .inputBox-gray, .subModuleListColumn .column .inputBox-yellow {
+  width: 300px !important;
 }
 
-.subModuleListColumn .inputBox-white {
+.subModuleListColumn .column .inputBox-white + .tip, .subModuleListColumn .column .inputBox-blue + .tip, .subModuleListColumn .column .inputBox + .tip, .subModuleListColumn .column .inputBox-org + .tip, .subModuleListColumn .column .inputBox-white + .tip, .subModuleListColumn .column .inputBox-blue + .tip, .subModuleListColumn .column .inputBox-gray + .tip, .subModuleListColumn .column .inputBox-yellow + .tip {
+  margin: 0 5px 10px 136px;
+}
+
+.subModuleListColumn .inputBox-white, .subModuleListColumn .inputBox-blue, .subModuleListColumn .inputBox, .subModuleListColumn .inputBox-org, .subModuleListColumn .inputBox-white, .subModuleListColumn .inputBox-blue, .subModuleListColumn .inputBox-gray, .subModuleListColumn .inputBox-yellow {
   margin-left: 15px;
 }
 
-.subModuleListColumn .inputBox-white + .tip {
-  margin-left: 130px;
+.subModuleListColumn .inputBox-white + .tip, .subModuleListColumn .inputBox-blue + .tip, .subModuleListColumn .inputBox + .tip, .subModuleListColumn .inputBox-org + .tip, .subModuleListColumn .inputBox-white + .tip, .subModuleListColumn .inputBox-blue + .tip, .subModuleListColumn .inputBox-gray + .tip, .subModuleListColumn .inputBox-yellow + .tip {
+  margin-left: 300px;
 }
 
 .subModuleListColumn .btnGroup.buttonBox {
   margin-top: 0;
+  margin-left: 0;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -7978,7 +7991,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   display: flex;
 }
 
-.subModuleListColumn .bankAccount .smallList ul button {
+.subModuleListColumn .bankAccount .smallList ul button, .subModuleListColumn .bankAccount .smallList ul a {
   color: #1E85EC;
   margin-left: 10px;
 }

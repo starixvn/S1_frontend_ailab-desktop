@@ -160,6 +160,7 @@ export default ({
 			)}
 			{(promotionInfo.isJoin && isLogin) ||
 			_isExpiry ||
+			promotionInfo.promotionType === defPromotionType.rebate ||
 			_isClaimed ||
 			(filter === defFilterType.special_bonus &&
 				!promotionInfo.canJoin) ? null : (
