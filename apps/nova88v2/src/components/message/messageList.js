@@ -77,7 +77,7 @@ export default props => {
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-cancel"
+											className="btn-check"
 											onClick={clickClose}>
 											{t("lbl_Close")}
 										</button>
@@ -96,7 +96,7 @@ export default props => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={clickClose}>
 										{t("lbl_Close")}
 									</button>

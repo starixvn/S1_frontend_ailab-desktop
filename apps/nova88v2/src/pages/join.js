@@ -104,7 +104,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -135,7 +135,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -154,7 +154,7 @@ const Content = () => {
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
@@ -523,7 +523,7 @@ const Content = () => {
 												btnBar: (
 													<div className="btnGroup">
 														<button
-															className="btn-cancel"
+															className="btn-check"
 															onClick={
 																ClosePopBox
 															}>
@@ -545,7 +545,7 @@ const Content = () => {
 											btnBar: (
 												<div className="btnGroup">
 													<button
-														className="btn-cancel"
+														className="btn-check"
 														onClick={ClosePopBox}>
 														{t("lbl_Close")}
 													</button>
@@ -598,7 +598,7 @@ const Content = () => {
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-cancel"
+											className="btn-check"
 											onClick={ClosePopBox}>
 											{t("lbl_Close")}
 										</button>
@@ -617,7 +617,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>

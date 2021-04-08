@@ -39,7 +39,7 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 			icon: "icon-bell",
 			btnBar: (
 				<div className="btnGroup">
-					<button className="btn-cancel" onClick={clickClose}>
+					<button className="btn-check" onClick={clickClose}>
 						{t("lbl_Close")}
 					</button>
 				</div>
@@ -78,7 +78,7 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={clickClose}>
 									OK
 								</button>

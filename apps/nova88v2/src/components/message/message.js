@@ -43,7 +43,7 @@ export default () => {
 			icon: "icon-bell",
 			btnBar: (
 				<div className="btnGroup">
-					<button className="btn-cancel" onClick={clickClose}>
+					<button className="btn-check" onClick={clickClose}>
 						{t("lbl_Close")}
 					</button>
 				</div>
@@ -131,10 +131,10 @@ export default () => {
 				message2: t("lbl_CantBeRestore"),
 				btnBar: (
 					<div className="btnGroup">
-						<button className="btn-cancel" onClick={deleteMessage}>
+						<button className="btn-check" onClick={deleteMessage}>
 							{t("lbl_Yes")}
 						</button>
-						<button className="btn-check" onClick={clickCancel}>
+						<button className="btn-cancel" onClick={clickCancel}>
 							{t("lbl_No")}
 						</button>
 					</div>

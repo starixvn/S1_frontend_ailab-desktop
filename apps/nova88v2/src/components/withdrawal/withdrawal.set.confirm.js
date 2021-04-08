@@ -84,7 +84,7 @@ export default ({
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -101,7 +101,7 @@ export default ({
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -119,7 +119,7 @@ export default ({
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -134,7 +134,7 @@ export default ({
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -153,7 +153,7 @@ export default ({
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>

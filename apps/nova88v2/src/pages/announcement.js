@@ -57,7 +57,7 @@ const Content = () => {
 			icon: "icon-bell",
 			btnBar: (
 				<div className="btnGroup">
-					<button className="btn-cancel" onClick={clickClose}>
+					<button className="btn-check" onClick={clickClose}>
 						{t("lbl_Close")}
 					</button>
 				</div>

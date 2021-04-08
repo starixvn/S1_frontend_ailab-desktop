@@ -39,7 +39,7 @@ export const HomeNews = ({ t, userInfo }) => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
@@ -58,7 +58,7 @@ export const HomeNews = ({ t, userInfo }) => {
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
