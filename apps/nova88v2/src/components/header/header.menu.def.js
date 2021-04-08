@@ -9,7 +9,6 @@ import {
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
-	RequireLoginButton: "RequireLoginButton",
 	LinkNoImg: "LinkNoImg",
 	DirectUrl: "DirectUrl"
 };
@@ -74,9 +73,9 @@ export const defMenuLinks = {
 				displayKey: "lbl_Referral",
 				listNpcImgUrl: "home-refer.png",
 				listBgImgUrl: "referbg.png",
-				menuType: defMenuType.RequireLoginButton,
-				path: path.referral.root,
-				needLogin: true
+				menuType: defMenuType.entPage,
+				needLogin: true,
+				path: path.referral.root
 			}
 		]
 	},
@@ -358,14 +357,10 @@ export const defMenuLinks = {
 		]
 	},
 	poker: {
-		// productInfo: productList.poker,
-		// path: path.oneGame.root,
 		displayKey: "lbl_Poker",
 		className: "pokerbtn"
-		// openPopBox: true
 	},
 	fishing: {
-		// productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
 		className: "fishbtn",
 		filterByAuth: true,
@@ -456,7 +451,6 @@ export const defMenuLinks = {
 				...productList.keno,
 				className: "keno",
 				displayKey: "lbl_Keno",
-
 				listNpcImgUrl: "lo-keno.png",
 				listBgImgUrl: "gameListHover.png",
 				parameter: { ...productList.keno }
@@ -559,24 +553,12 @@ export const defMenuLinks = {
 		]
 	},
 	vip: {
-		path: path.vip.root,
 		displayKey: "lbl_Vip",
+		path: path.vip.root,
 		menuType: defMenuType.Link
-		// eventIcons: [
-		// 	showEventIcon({
-		// 		icon: defEventIcon.new,
-		// 		period: defEventPeriod.vip
-		// 	})
-		// ]
 	},
 	ranking: {
-		path: path.leaderBoard.root,
-		displayKey: "lbl_Ranking"
-		// eventIcons: [
-		// 	showEventIcon({
-		// 		icon: defEventIcon.live,
-		// 		period: defEventPeriod.ranking
-		// 	})
-		// ]
+		displayKey: "lbl_Ranking",
+		path: path.leaderBoard.root
 	}
 };

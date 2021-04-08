@@ -13,7 +13,7 @@ export default ({ currentMenuKey, productTpIds }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
-	const clickItem = ({ tpId, gameId, needLogin, _path }) => {
+	const clickItem = ({ tpId, gameId, needLogin, path }) => {
 		const handleCallBack = () => {
 			setPopBox({
 				isOpen: true,
@@ -21,10 +21,11 @@ export default ({ currentMenuKey, productTpIds }) => {
 			});
 		};
 
-		if (_path)
+		if (path) {
 			return needLogin && !userInfo.isLogin
 				? handleCallBack()
-				: navigate(`/${userInfo.langId}/${_path}`);
+				: navigate(`/${userInfo.langId}/${path}`);
+		}
 
 		return SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
@@ -60,11 +61,11 @@ export default ({ currentMenuKey, productTpIds }) => {
 
 		let subMenu = [];
 
-		const isSubWithManyItems = !(
+		const isSubMultipleItems = !(
 			typeof defMenuLinks[menuKey]?.subMenu == "undefined"
 		);
 
-		if (isSubWithManyItems) {
+		if (isSubMultipleItems) {
 			subMenu = defMenuLinks[menuKey]?.subMenu;
 			if (
 				subMenu &&
@@ -84,7 +85,7 @@ export default ({ currentMenuKey, productTpIds }) => {
 			);
 		}
 
-		return isSubWithManyItems ? (
+		return isSubMultipleItems ? (
 			<div className={subClassName} key={`main-key-${menuKey}`}>
 				{subMenu?.map(subMenuItem => (
 					<SubMenuMultiple
