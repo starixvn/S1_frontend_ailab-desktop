@@ -159,24 +159,26 @@ const Content = () => {
 				<span>{t("lbl_ForgetPassword")}</span>
 				<div>{t("lbl_ForgetPwdHint")}</div>
 			</div>
-			<form onSubmit={clickSubmit} className="forgetPassWord">
-				<Inputbox
-					className="inputBox-white"
-					icon="txt-blue icon-email "
-					title={t("lbl_Email")}
-					value={userEmail}
-					onChange={editField.bind(this)}
-					onBlur={emailCheck.bind(this, userEmail)}
-					checked={status.checked}
-					clickInfo={clickInfo.bind(this)}
-					tip={status.msg}
-				/>
-				<div className="btnGroup">
-					<button className="btn-check" type="submit">
-						{t("lbl_Submit")}
-					</button>
-				</div>
-			</form>
+			<div className="forgetPassWord">
+				<form onSubmit={clickSubmit} className="inputModuleRow">
+					<Inputbox
+						className="inputBox-org"
+						icon="txt-blue icon-email "
+						title={t("lbl_Email")}
+						value={userEmail}
+						onChange={editField.bind(this)}
+						onBlur={emailCheck.bind(this, userEmail)}
+						checked={status.checked}
+						clickInfo={clickInfo.bind(this)}
+						tip={status.msg}
+					/>
+					<div className="btnGroup">
+						<button className="btn-check" type="submit">
+							{t("lbl_Submit")}
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 };

@@ -159,9 +159,9 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 						...prev,
 						accountName
 					}));
+				} else {
+					errorPopBox(message || `[${errorCode}] error`, errorCode);
 				}
-
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
 			},
 			() => {
 				if (!isMountedRef.current) return;
