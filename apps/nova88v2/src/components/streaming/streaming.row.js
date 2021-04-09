@@ -70,9 +70,7 @@ export const StreamingModule = ({
 							<button
 								className="lightblue"
 								onClick={ClickLiveTv.bind(this, true)}>
-								{nowPlaying
-									? t("lbl_WATCH_NOW")
-									: t("lbl_BetNow")?.toUpperCase()}
+								{t("lbl_BetNow")?.toUpperCase()}
 							</button>
 						</div>
 					) : null}

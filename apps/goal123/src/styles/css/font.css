@@ -93,6 +93,34 @@
   font-size: 24px !important;
 }
 
+.icon-playtech:before {
+  content: "\e9cf";
+}
+
+.icon-infocenter:before {
+  content: "\e9cd";
+}
+
+.icon-deposit2:before {
+  content: "\e9ca";
+}
+
+.icon-support:before {
+  content: "\e9cb";
+}
+
+.icon-withdrawal2:before {
+  content: "\e9cc";
+}
+
+.icon-gamecasino:before {
+  content: "\e9c7";
+}
+
+.icon-hotgame:before {
+  content: "\e9c8";
+}
+
 .icon-N2LIVE:before {
   content: "\e9c6";
 }
