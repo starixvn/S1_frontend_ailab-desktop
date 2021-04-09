@@ -241,6 +241,94 @@ header input:focus-within {
   font-size: 24px;
 }
 
+.header > div.menu > div > a div.icon-new:before, .header > div.menu > div > button div.icon-new:before {
+  background: #f77900;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  -webkit-animation: none;
+          animation: none;
+  width: 45px;
+  padding: 2px 0 3px 5px;
+  color: white;
+  font-size: 13px;
+}
+
+.header > div.menu > div > a div.icon-new:after, .header > div.menu > div > button div.icon-new:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 18px 10px;
+  border-color: transparent transparent transparent #f77900;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 50px;
+}
+
+.header > div.menu > div > a div.live:before, .header > div.menu > div > button div.live:before {
+  content: 'Live';
+}
+
+.header > div.menu > div > a div.live i, .header > div.menu > div > button div.live i {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  -webkit-animation: livePoint 1s 1s infinite linear;
+          animation: livePoint 1s 1s infinite linear;
+}
+
+@-webkit-keyframes livePoint {
+  from {
+    background: white;
+  }
+  to {
+    background: #FC0404;
+  }
+}
+
+@keyframes livePoint {
+  from {
+    background: white;
+  }
+  to {
+    background: #FC0404;
+  }
+}
+
+.header > div.menu > div > a div.live:before, .header > div.menu > div > button div.live:before {
+  background: #05BC0B;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  -webkit-animation: none;
+          animation: none;
+  width: 36px;
+  padding-left: 16px;
+  padding-right: 0;
+}
+
+.header > div.menu > div > a div.live:after, .header > div.menu > div > button div.live:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 16px 10px;
+  border-color: transparent transparent transparent #05BC0B;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 52px;
+}
+
 .header > div.menu .subMenu-Wrapper-new {
   position: absolute;
   width: 100%;
@@ -1479,7 +1567,8 @@ header input:focus-within {
 }
 
 main {
-  padding-top: 135px;
+  padding-top: 145px;
+  min-width: 1400px;
 }
 
 main section {
@@ -2756,14 +2845,14 @@ input[type="file"] {
 }
 
 #Marquee {
-  background: #212121;
+  background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
   position: relative;
   overflow: hidden;
 }
 
 #Marquee .marquee-box {
   overflow: hidden;
-  max-width: 1600px;
+  max-width: 1400px;
   height: 40px;
   margin: auto;
   position: relative;
@@ -2776,9 +2865,9 @@ input[type="file"] {
 }
 
 #Marquee .marquee-box.icon:before {
-  width: 20px;
-  color: #1E85EC;
-  background: #212121;
+  width: 90px;
+  color: white;
+  background: url(../img/marqueeboxbg.png) no-repeat left center/auto 100%;
   z-index: 1;
   height: 100%;
   display: -webkit-box;
@@ -2789,6 +2878,7 @@ input[type="file"] {
           align-items: center;
   margin: 0;
   font-size: 28px;
+  content: '';
 }
 
 #Marquee .marquee-box .marquee-run {
@@ -2822,6 +2912,7 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   background: #212121;
+  display: none;
 }
 
 #Marquee .mq-btn button {
@@ -4233,6 +4324,7 @@ input[type="file"] {
           align-items: center;
   width: 420px;
   margin: auto;
+  padding: 20px;
 }
 
 .Submit.active, .poker.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
@@ -10300,119 +10392,7 @@ canvas {
   margin: 0;
 }
 
-#header .menu > div > a div.icon-new:before, #header .menu > div > button div.icon-new:before {
-  background: #f77900;
-  border-radius: 0;
-  left: 0;
-  top: 0;
-  right: unset;
-  -webkit-animation: none;
-          animation: none;
-  width: 45px;
-  padding: 2px 0 3px 5px;
-  color: white;
-  font-size: 13px;
-}
-
-#header .menu > div > a div.icon-new:after, #header .menu > div > button div.icon-new:after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 18px 10px;
-  border-color: transparent transparent transparent #f77900;
-  position: absolute;
-  background: transparent;
-  top: 0;
-  left: 50px;
-}
-
-#header .menu > div > a div.live:before, #header .menu > div > button div.live:before {
-  content: 'Live';
-}
-
-#header .menu > div > a div.live i, #header .menu > div > button div.live i {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 6px;
-  height: 6px;
-  border-radius: 6px;
-  -webkit-animation: livePoint 1s 1s infinite linear;
-          animation: livePoint 1s 1s infinite linear;
-}
-
-@-webkit-keyframes livePoint {
-  from {
-    background: white;
-  }
-  to {
-    background: #FC0404;
-  }
-}
-
-@keyframes livePoint {
-  from {
-    background: white;
-  }
-  to {
-    background: #FC0404;
-  }
-}
-
-#header .menu > div > a div.live:before, #header .menu > div > button div.live:before {
-  background: #05BC0B;
-  border-radius: 0;
-  left: 0;
-  top: 0;
-  right: unset;
-  -webkit-animation: none;
-          animation: none;
-  width: 36px;
-  padding-left: 16px;
-  padding-right: 0;
-}
-
-#header .menu > div > a div.live:after, #header .menu > div > button div.live:after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 16px 10px;
-  border-color: transparent transparent transparent #05BC0B;
-  position: absolute;
-  background: transparent;
-  top: 0;
-  left: 52px;
-}
-
-main {
-  padding-top: 145px;
-  min-width: 1400px;
-}
-
-main #Marquee {
-  background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
-}
-
-main #Marquee .marquee-box {
-  max-width: 1400px;
-}
-
-main #Marquee .mq-btn {
-  display: none;
-}
-
-main #Marquee .marquee-box.icon:before {
-  background: url(../img/marqueeboxbg.png) no-repeat left center/auto 100%;
-  content: '';
-  color: white;
-  width: 90px;
-}
-
-main .moduleTitle {
+.moduleTitle {
   background: url(../img/indextitle.png) no-repeat;
   margin: 30px auto 0;
   font-weight: bold;
@@ -10428,23 +10408,23 @@ main .moduleTitle {
   position: relative;
 }
 
-main .moduleTitle > a {
+.moduleTitle > a {
   margin: auto 0 auto auto;
   color: #7591C1;
 }
 
-main .moduleTitle.icon:before {
+.moduleTitle.icon:before {
   margin: 0 10px;
   font-weight: normal;
   font-size: 32px;
 }
 
-main .moduleTitle.icon-upcomingmatches:before, main .moduleTitle.icon-saba:before, main .moduleTitle.icon-film:before, main .moduleTitle.icon-news:before, main .moduleTitle.icon-live_tv:before {
+.moduleTitle.icon-upcomingmatches:before, .moduleTitle.icon-saba:before, .moduleTitle.icon-film:before, .moduleTitle.icon-news:before, .moduleTitle.icon-live_tv:before {
   font-size: 24px;
   margin: 0 14px;
 }
 
-main .moduleTitle.icon-saba {
+.moduleTitle.icon-saba {
   margin-top: 20px;
 }
 
