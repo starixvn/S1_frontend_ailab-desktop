@@ -38,7 +38,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "home-ambassador.png",
 				listBgImgUrl: "ambassadorbg.png",
 				menuType: defMenuType.DirectUrl,
-				path: "https://banner.n88media.com/JohnCole/index.html"
+				path: "https://www.joecole.club"
 			},
 			{
 				displayKey: "lbl_Vip",
