@@ -27,7 +27,7 @@ export default () => {
 							<Content />
 						</div>
 					</section>
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>
@@ -83,7 +83,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
@@ -103,7 +103,7 @@ const Content = () => {
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
@@ -163,7 +163,7 @@ const Content = () => {
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-cancel"
+											className="btn-check"
 											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
@@ -182,7 +182,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
@@ -199,10 +199,10 @@ const Content = () => {
 			popBoxType: defPopBoxType.Cancel,
 			btnBar: (
 				<div className="btnGroup">
-					<button className="btn-cancel" onClick={ClickConfirm}>
+					<button className="btn-check" onClick={ClickConfirm}>
 						{t("lbl_Yes")}
 					</button>
-					<button className="btn-check" onClick={ClosePopBox}>
+					<button className="btn-cancel" onClick={ClosePopBox}>
 						{t("lbl_No")}
 					</button>
 				</div>

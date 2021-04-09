@@ -5,3 +5,4 @@ export const popBoxContext = createContext({});
 export const walletInfoContext = createContext({});
 export const msgCountContext = createContext({});
 export const loadingContext = createContext({});
+export const isRootContext = createContext({});

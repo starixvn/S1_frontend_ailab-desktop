@@ -8,6 +8,7 @@ import {
 import defPopBoxType from "./defPopBoxType";
 import { popBoxContext } from "./context";
 import path from "../../router";
+import { defEventIcon } from "./eventIcon";
 
 export const getUrl = (preUrl, info) => {
 	return `/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;
@@ -21,6 +22,7 @@ export const getCurrentPage = () => {
 
 export default ({
 	defMenuLinks,
+	defMenuType,
 	t,
 	showSubMenu,
 	currentMenuKey,
@@ -49,15 +51,18 @@ export default ({
 	const fullMenuLinks = Object.keys(defMenuLinks);
 
 	const filterMenuLinks = fullMenuLinks.filter(key => {
-		if (defMenuLinks[key].subMenu?.length > 0) {
+		if (
+			defMenuLinks[key].subMenu?.length > 0 &&
+			defMenuLinks[key].filterByAuth
+		) {
 			const subItems = defMenuLinks[key].subMenu.filter(s =>
 				productTpIds?.includes(s.tpId)
 			);
-
 			return subItems.length > 0;
 		}
 
-		const subProduct = defMenuLinks[key].productInfo;
+		const subProduct =
+			defMenuLinks[key].productInfo && defMenuLinks[key].filterByAuth;
 		if (subProduct) {
 			const hasAuthSubProduct = productTpIds?.includes(subProduct?.tpId);
 			return hasAuthSubProduct;
@@ -95,12 +100,10 @@ export default ({
 
 		let iconStrings = "";
 		if (iconList.length > 0) {
-			iconStrings = ` icon ${[...new Set(iconList)].join(" ")}`;
+			iconStrings = `${[...new Set(iconList)].join(" ")}`;
 		}
 
-		_className = `${_className}${
-			currentMenuKey === key ? " active" : ""
-		}${iconStrings}`;
+		_className = `${_className}${currentMenuKey === key ? " active" : ""}`;
 
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
@@ -129,6 +132,7 @@ export default ({
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
+						<div className={iconStrings} />
 						{displayText}
 					</button>
 				);
@@ -146,6 +150,7 @@ export default ({
 							rule.windowKey
 						)}
 						onFocus={() => 0}>
+						<div className={iconStrings} />
 						{displayText}
 					</a>
 				);
@@ -158,6 +163,7 @@ export default ({
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
+						<div className={iconStrings} />
 						{displayText}
 					</button>
 				);
@@ -220,11 +226,15 @@ export default ({
 					to={_url}
 					className={_className}
 					onMouseOver={_showSubMenu.bind(this, key)}>
+					<div className={iconStrings} />
 					{displayText}
 				</Link>
 			);
 		}
-		if (_path) {
+
+		const _menuType = m.menuType ?? "";
+
+		if (_path || _menuType === defMenuType.Link) {
 			_className =
 				checkMatchPage && `${langId}/${_path}` === currentPage
 					? _className
@@ -237,6 +247,9 @@ export default ({
 					to={`${langId}/${_path}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
+					<div className={iconStrings}>
+						{iconStrings === defEventIcon.live ? <i /> : null}
+					</div>
 					{displayText}
 				</Link>
 			);
@@ -248,6 +261,7 @@ export default ({
 				onMouseOver={_showSubMenu.bind(this, key)}
 				className={_className}
 				onFocus={() => 0}>
+				<div className={iconStrings} />
 				{displayText}
 			</button>
 		);

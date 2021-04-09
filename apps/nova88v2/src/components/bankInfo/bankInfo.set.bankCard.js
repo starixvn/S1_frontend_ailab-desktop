@@ -52,7 +52,7 @@ export default props => {
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-cancel"
+											className="btn-check"
 											onClick={ClickCancel}>
 											{t("lbl_Close")}
 										</button>
@@ -72,7 +72,7 @@ export default props => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickCancel}>
 										{t("lbl_Close")}
 									</button>
@@ -93,11 +93,11 @@ export default props => {
 			btnBar: (
 				<div className="btnGroup">
 					<button
-						className="btn-cancel"
+						className="btn-check"
 						onClick={deleteCard.bind(this, sysId, accountNo)}>
 						{t("lbl_Yes")}
 					</button>
-					<button className="btn-check" onClick={ClickCancel}>
+					<button className="btn-cancel" onClick={ClickCancel}>
 						{t("lbl_No")}
 					</button>
 				</div>

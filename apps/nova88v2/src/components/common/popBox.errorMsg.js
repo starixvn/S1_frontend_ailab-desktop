@@ -9,7 +9,6 @@ export default ({ btnBar, message, errorCode, icon = "icon-library" }) => {
 
 	const startTimer = () => {
 		timerRef.current = setInterval(() => {
-			console.log("!!");
 			setCountDownSecond(prev => prev - 1);
 		}, 1000);
 	};

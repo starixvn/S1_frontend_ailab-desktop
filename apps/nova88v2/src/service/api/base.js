@@ -52,3 +52,13 @@ export const eventsRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/Events`
 });
+
+export const newsRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/News`
+});
+
+export const videoRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/video`
+});

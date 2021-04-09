@@ -10,7 +10,7 @@ export default () => {
 			<Layout>
 				<main>
 					<Casino />
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>

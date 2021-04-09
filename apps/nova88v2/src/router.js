@@ -93,13 +93,8 @@ export default {
 	forgetPassword: {
 		root: "forgetPassword"
 	},
-	news: {
-		root: "news",
-		sub: {
-			newsInfo: {
-				root: "newsInfo"
-			}
-		}
+	newsInfo: {
+		root: "newsInfo"
 	},
 	promotion: {
 		root: "promotion",
@@ -135,5 +130,8 @@ export default {
 	},
 	mysteryBox: {
 		root: "mysteryBox"
+	},
+	streaming: {
+		root: "streaming"
 	}
 };

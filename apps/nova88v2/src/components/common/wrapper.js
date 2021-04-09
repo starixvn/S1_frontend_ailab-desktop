@@ -19,7 +19,7 @@ import {
 } from "../../service/language";
 import { SiteInfo } from "../../config";
 import useGetWalletInfo from "./wrapper.walletInfo";
-import SEO from "../seo";
+import SEO from "../seo/seo";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -58,6 +58,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [correctPath, setCorrectPath] = useState(false);
 	const [redirectPath, setRedirectPath] = useState(null);
 	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
+	const [isRoot, setIsRoot] = useState(false);
 
 	const isMountedRef = useRef(null);
 
@@ -97,7 +98,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
@@ -245,20 +246,21 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 							value={{ popBox, setPopBox }}>
 							<ct.loadingContext.Provider
 								value={{ loading, setLoading }}>
-								{children}
+								<ct.isRootContext.Provider
+									value={{ isRoot, setIsRoot }}>
+									<SEO lang={userInfo.langId} />
+									{children}
+								</ct.isRootContext.Provider>
 							</ct.loadingContext.Provider>
 						</ct.popBoxContext.Provider>
 					</ct.msgCountContext.Provider>
 				</ct.walletInfoContext.Provider>
 			</ct.userInfoContext.Provider>
-		) : null;
-
-		return (
-			<>
-				<SEO lang={userInfo.langId} />
-				{content}
-			</>
+		) : (
+			<SEO lang={userInfo.langId} />
 		);
+
+		return content;
 	}
 	return <Redirect to={redirectPath} noThrow />;
 };

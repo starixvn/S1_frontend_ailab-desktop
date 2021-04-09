@@ -76,7 +76,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 				message: t("lbl_SelectBank_Required"),
 				btnBar: (
 					<div className="btnGroup">
-						<button className="btn-cancel" onClick={ClosePopBox}>
+						<button className="btn-check" onClick={ClosePopBox}>
 							{t("lbl_Close")}
 						</button>
 					</div>
