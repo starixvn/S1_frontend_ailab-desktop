@@ -33,7 +33,7 @@ const LatestVideo = () => {
 				src={video.link}
 				title="YouTube video player"
 				frameBorder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 				allowFullScreen
 			/>
 			<div className="title">{video.title}</div>
