@@ -1886,6 +1886,10 @@ footer {
       flex-wrap: wrap;
 }
 
+.platform .title {
+  color: white;
+}
+
 .platform button {
   margin-right: 17px;
   height: 55px;
@@ -2419,7 +2423,7 @@ footer {
 }
 
 .inputBox-org {
-  background: transparent;
+  background: #e8edf3;
   border: 1px solid #f77900;
 }
 
@@ -3866,6 +3870,10 @@ input[type="file"] {
 
 #popup .pop .loackAmount {
   padding: 20px 20px 0;
+}
+
+#popup .pop .Success {
+  padding: 20px;
 }
 
 #popup .pop .editSuccess > div:not(.tip) {
@@ -11184,6 +11192,10 @@ main .liveVideo .matches iframe, main .newsVideo .matches iframe {
   margin-top: 20px;
 }
 
+#footer .license .title {
+  color: white;
+}
+
 #footer .license > div:nth-child(1) {
   width: 560px;
   padding-right: 90px;
@@ -11238,6 +11250,10 @@ main .liveVideo .matches iframe, main .newsVideo .matches iframe {
   border-bottom: 0;
 }
 
+#footer .sfp .title {
+  color: white;
+}
+
 #footer .sfp > div > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11289,6 +11305,7 @@ main .liveVideo .matches iframe, main .newsVideo .matches iframe {
 
 #footer .footerList > div > div .title {
   margin: 15px 0;
+  color: #BFCCE2;
 }
 
 #footer .footerList > div > div.title {
