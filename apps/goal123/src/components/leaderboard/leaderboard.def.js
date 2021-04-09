@@ -49,7 +49,7 @@ export const defPeriodList = {
 	4: {
 		id: defPeriodId.period4,
 		eventCode: "2021024",
-		startDate: "2021/03/13",
+		startDate: "2021/06/13",
 		endDate: "2021/07/12",
 		StartMonth: "lbl_Mar",
 		EndMonth: "lbl_Jul"
