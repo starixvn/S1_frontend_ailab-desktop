@@ -17,7 +17,9 @@ export const StreamingModule = ({
 	awayScore,
 	timeStart,
 	matchID,
-	channel
+	channel,
+	tpId,
+	gameId
 }) => {
 	const navigate = useNavigate();
 
@@ -26,7 +28,9 @@ export const StreamingModule = ({
 		if (isStreamingPage) {
 			if (clickBtn) {
 				navigate(
-					`/${langId}/${path.sports.root}?tpId=1&gameId=1&matchId=${matchID}`
+					`/${langId}/${path.sports.root}?tpId=${tpId || 1}&gameId=${
+						gameId || 1
+					}&matchId=${matchID}`
 				);
 			} else {
 				window.open(

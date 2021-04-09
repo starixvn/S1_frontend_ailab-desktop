@@ -265,7 +265,7 @@ export const defMenuLinks = {
 		]
 	},
 	liveCasino: {
-		displayKey: "lbl_Casino",
+		displayKey: "lbl_LiveCasino",
 		className: "livecasinobtn",
 		filterByAuth: true,
 		subMenu: [
