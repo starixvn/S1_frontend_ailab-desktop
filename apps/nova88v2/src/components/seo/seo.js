@@ -96,6 +96,7 @@ function SEO({ description, lang, meta, title }) {
 			<LiveChat />
 			<Iovation />
 			<FPS />
+			<PlayTech />
 		</>
 	);
 }
@@ -175,6 +176,17 @@ const FPS = () => {
 				async=""
 				defer=""
 				src="//sc.detecas.com/di/activator.ashx"
+			/>
+		</Helmet>
+	);
+};
+
+const PlayTech = () => {
+	return (
+		<Helmet>
+			<script
+				src="https://login-am.hotspin88.com/jswrapper/hotspin88am/integration.js"
+				type="text/javascript"
 			/>
 		</Helmet>
 	);

@@ -7,6 +7,33 @@ export const defSpecialSetting = {
 	playTech: defCasinoProviders.PT.tpId
 };
 
+const launchGame = ({ client, mode, game, lang }) => {
+	const real = mode == "real" ? 1 : 0;
+	// Optional Variables
+	const lobbyUrl = "";
+	const logoutUrl = "";
+	const supportUrl = "";
+	const depositUrl = "";
+
+	// Slots,Table Games and other non-live games
+	if (client == "ngm_desktop" || client == "ngm_mobile") {
+		iapiSetClientParams(
+			client,
+			`language=${lang}&real=${real}&lobby=${lobbyUrl}&logout=${logoutUrl}&deposit=${depositUrl}&support=${supportUrl}&backurl=${lobbyUrl}`
+		);
+		iapiLaunchClient(client, game, mode, "_self");
+	}
+
+	// Live Games
+	if (client == "live_desk" || client == "live_mob") {
+		iapiSetClientParams(
+			client,
+			`&launch_alias=${game}&language=${lang}&real=${real}&lobby=${lobbyUrl}&logout=${logoutUrl}&deposit=${depositUrl}&support=${supportUrl}`
+		);
+		iapiLaunchClient(client, null, mode, "_self");
+	}
+};
+
 const launchGameWithFunMode = ({ client, game, lang, mode }) => {
 	if (client === "ngm_desktop" || client === "ngm_mobile") {
 		iapiSetClientParams(client, `language=${lang}&real=0`);
@@ -33,21 +60,6 @@ export const useGotoGame = ({
 			handleGoToGame({ isLogin, langId, tpId, gameId, isFun });
 		}
 
-		iapiSetCallout("Login", response => {
-			if (response.errorCode) {
-				if (response.errorCode == 48) {
-					errorPopBox(
-						`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
-						response.errorCode
-					);
-				} else {
-					errorPopBox(
-						`Login failed, error: ${response.errorCode} ,playerMessage: ${response.playerMessage}`,
-						response.errorCode
-					);
-				}
-			}
-		});
 		return () => {
 			isMountedRef.current = false;
 		};
@@ -67,7 +79,7 @@ export const useGotoGame = ({
 					LangId: _langId,
 					gameId: _gameId,
 					fun: _isFun ? "1" : "0"
-				}).then(res => {
+				}).then(async res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0 && res.data.message) {
 							const result = JSON.parse(res.data.message);
@@ -79,6 +91,24 @@ export const useGotoGame = ({
 									lang,
 									mode
 								} = result;
+
+								await iapiSetCallout("Login", response => {
+									if (response.errorCode) {
+										if (response.errorCode == 48) {
+											errorPopBox(
+												`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
+												response.errorCode
+											);
+										} else {
+											errorPopBox(
+												`Login failed, error: ${response.errorCode} ,playerMessage: ${response.playerMessage}`,
+												response.errorCode
+											);
+										}
+									} else {
+										launchGame({ ...result });
+									}
+								});
 
 								if (mode === "real") {
 									iapiSetClientType("casino");
