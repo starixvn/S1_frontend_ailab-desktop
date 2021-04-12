@@ -9,7 +9,6 @@ const SetReplaceChar = (initPath, idx, langId) => {
 		.map(x => (siteLangList.includes(x) ? langId : x));
 
 	let result = "";
-
 	if (_path.length > 0) {
 		const pathIsLang = siteLangList.includes(_path[0]);
 		result = pathIsLang
