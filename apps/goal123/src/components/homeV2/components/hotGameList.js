@@ -80,7 +80,7 @@ const HotGameList = ({ t, langId, clickItem }) => {
 			<div>
 				<div className="title">
 					<i className="icon icon-hotgame" />
-					{t("lbl_HOT_GAMES")}
+					{t("lbl_HotGame")}
 				</div>
 				<div className="indexGamelist-wrapper">
 					<div className="leftGame">

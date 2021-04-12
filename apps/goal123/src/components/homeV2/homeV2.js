@@ -234,7 +234,7 @@ const InfoCenter = ({ t, langId }) => (
 		<div>
 			<div className="title">
 				<i className="icon icon-infocenter" />
-				{t("lbl_Info_Center")}
+				{t("lbl_InfoCenter")}
 			</div>
 			<div className="infoGroup">
 				<a
@@ -256,7 +256,7 @@ const InfoCenter = ({ t, langId }) => (
 					rel="noreferrer"
 					target="_blank">
 					<i className="icon icon-support" />
-					{t("lbl_FAQs")}
+					{t("lbl_FAQ")}
 				</a>
 			</div>
 		</div>
