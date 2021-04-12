@@ -35,7 +35,7 @@ export const StreamingModule = ({
 			} else {
 				window.open(
 					`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
-					`streaming-${channel}`,
+					`streaming`,
 					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
 				);
 			}
@@ -70,9 +70,7 @@ export const StreamingModule = ({
 							<button
 								className="lightblue"
 								onClick={ClickLiveTv.bind(this, true)}>
-								{nowPlaying
-									? t("lbl_WATCH_NOW")
-									: t("lbl_BetNow")?.toUpperCase()}
+								{t("lbl_BetNow")?.toUpperCase()}
 							</button>
 						</div>
 					) : null}

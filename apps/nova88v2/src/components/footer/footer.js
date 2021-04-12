@@ -14,6 +14,7 @@ import { api_site_GetTpIds } from "../../service/api/site";
 import ImgLicense from "../../styles/img/licenses.png";
 import ImgJoeColeSignature from "../../styles/img/joecole_w.png";
 import ImgJoeColePhoto from "../../styles/img/jc.png";
+
 import ImgFB from "../../styles/img/fb.png";
 import ImgIN from "../../styles/img/in.png";
 import ImgTW from "../../styles/img/tw.png";
@@ -22,6 +23,24 @@ import ImgChrome from "../../styles/img/gg.png";
 import ImgFireFox from "../../styles/img/ff.png";
 import ImgHP from "../../styles/img/hp.png";
 import ImgEZ from "../../styles/img/ez.png";
+
+import ImgFB_Hover from "../../styles/img/fba.png";
+import ImgIN_Hover from "../../styles/img/ina.png";
+import ImgTW_Hover from "../../styles/img/twa.png";
+import ImgYT_Hover from "../../styles/img/yta.png";
+import ImgChrome_Hover from "../../styles/img/gga.png";
+import ImgFireFox_Hover from "../../styles/img/ffa.png";
+import ImgHP_Hover from "../../styles/img/hpa.png";
+import ImgEZ_Hover from "../../styles/img/eza.png";
+
+const fbName = "fb";
+const inName = "in";
+const twName = "tw";
+const ytName = "yt";
+const chromeName = "chrome";
+const firefoxName = "firefox";
+const hpName = "hp";
+const ezName = "ez";
 
 const CopyrightSection = ({ t, langId }) => (
 	<div className="copyright">
@@ -66,7 +85,7 @@ const LicensesSection = ({ t }) => (
 	</div>
 );
 
-const FollowUsSection = ({ t }) => (
+const FollowUsSection = ({ t, handleHoverImg, hoverNamme }) => (
 	<div className="sfp">
 		<div>
 			<div className="title">{t("lbl_Follow_Us")}</div>
@@ -75,40 +94,102 @@ const FollowUsSection = ({ t }) => (
 					href={SiteInfo.socialMedia.fb.link}
 					target="_blank"
 					rel="noreferrer">
-					<img src={ImgFB} alt="fb" />
+					<img
+						src={hoverNamme === fbName ? ImgFB_Hover : ImgFB}
+						alt={fbName}
+						onMouseOver={handleHoverImg.bind(this, fbName)}
+						onMouseOut={handleHoverImg.bind(this, null)}
+						onBlur={() => 0}
+						onFocus={() => 0}
+					/>
 				</a>
 				<a
 					href={SiteInfo.socialMedia.ig.link}
 					target="_blank"
 					rel="noreferrer">
-					<img src={ImgIN} alt="in" />
+					<img
+						src={hoverNamme === inName ? ImgIN_Hover : ImgIN}
+						alt={inName}
+						onMouseOver={handleHoverImg.bind(this, inName)}
+						onMouseOut={handleHoverImg.bind(this, null)}
+						onBlur={() => 0}
+						onFocus={() => 0}
+					/>
 				</a>
 				<a
 					href={SiteInfo.socialMedia.twitter.link}
 					target="_blank"
 					rel="noreferrer">
-					<img src={ImgTW} alt="tw" />
+					<img
+						src={hoverNamme === twName ? ImgTW_Hover : ImgTW}
+						alt={twName}
+						onMouseOver={handleHoverImg.bind(this, twName)}
+						onMouseOut={handleHoverImg.bind(this, null)}
+						onBlur={() => 0}
+						onFocus={() => 0}
+					/>
 				</a>
 				<a
 					href={SiteInfo.socialMedia.youtube.link}
 					target="_blank"
 					rel="noreferrer">
-					<img src={ImgYT} alt="yt" />
+					<img
+						src={hoverNamme === ytName ? ImgYT_Hover : ImgYT}
+						alt={ytName}
+						onMouseOver={handleHoverImg.bind(this, ytName)}
+						onMouseOut={handleHoverImg.bind(this, null)}
+						onBlur={() => 0}
+						onFocus={() => 0}
+					/>
 				</a>
 			</div>
 		</div>
 		<div>
 			<div className="title">{t("lbl_Suggested_Browser")}</div>
 			<div>
-				<img src={ImgChrome} alt="chrome" />
-				<img src={ImgFireFox} alt="FireFox" />
+				<img
+					src={
+						hoverNamme === chromeName ? ImgChrome_Hover : ImgChrome
+					}
+					alt={chromeName}
+					onMouseOver={handleHoverImg.bind(this, chromeName)}
+					onMouseOut={handleHoverImg.bind(this, null)}
+					onBlur={() => 0}
+					onFocus={() => 0}
+				/>
+				<img
+					src={
+						hoverNamme === firefoxName
+							? ImgFireFox_Hover
+							: ImgFireFox
+					}
+					alt={firefoxName}
+					onMouseOver={handleHoverImg.bind(this, firefoxName)}
+					onMouseOut={handleHoverImg.bind(this, null)}
+					onBlur={() => 0}
+					onFocus={() => 0}
+				/>
 			</div>
 		</div>
 		<div>
 			<div className="title">{t("lbl_Payment_Method")}</div>
 			<div>
-				<img src={ImgHP} alt="payment-h2p" />
-				<img src={ImgEZ} alt="payment-ep" />
+				<img
+					src={hoverNamme === hpName ? ImgHP_Hover : ImgHP}
+					alt={hpName}
+					onMouseOver={handleHoverImg.bind(this, hpName)}
+					onMouseOut={handleHoverImg.bind(this, null)}
+					onBlur={() => 0}
+					onFocus={() => 0}
+				/>
+				<img
+					src={hoverNamme === ezName ? ImgEZ_Hover : ImgEZ}
+					alt={ezName}
+					onMouseOver={handleHoverImg.bind(this, ezName)}
+					onMouseOut={handleHoverImg.bind(this, null)}
+					onBlur={() => 0}
+					onFocus={() => 0}
+				/>
 			</div>
 		</div>
 	</div>
@@ -118,9 +199,13 @@ export const Footer = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-
 	const [productTpIds, setProductTpIds] = useState(null);
 	const isMountedRef = useRef(null);
+	const [hoverNamme, setHoverNamme] = useState(null);
+
+	const handleHoverImg = _hoverName => {
+		setHoverNamme(_hoverName);
+	};
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -173,7 +258,11 @@ export const Footer = () => {
 				openLiveChat={openLiveChat}
 			/>
 			<LicensesSection t={t} />
-			<FollowUsSection t={t} />
+			<FollowUsSection
+				t={t}
+				handleHoverImg={handleHoverImg}
+				hoverNamme={hoverNamme}
+			/>
 		</footer>
 	);
 };
@@ -188,8 +277,9 @@ LicensesSection.propTypes = {
 };
 
 FollowUsSection.propTypes = {
-	t: PropTypes.func.isRequired
+	t: PropTypes.func.isRequired,
+	hoverNamme: PropTypes.string.isRequired,
+	handleHoverImg: PropTypes.func.isRequired
 };
-
 
 export default Footer;

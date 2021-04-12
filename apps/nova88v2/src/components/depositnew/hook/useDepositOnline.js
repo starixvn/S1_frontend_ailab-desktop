@@ -22,7 +22,7 @@ const useDepositOnline = ({ isMountedRef }) => {
 
 				if (success && data.length > 0) {
 					setOnlineBankGroupList(data);
-				} else {
+				} else if (!success) {
 					errorPopBox(message || `[${errorCode}] error`, errorCode);
 				}
 			},
@@ -49,7 +49,9 @@ const useDepositOnline = ({ isMountedRef }) => {
 					return data;
 				}
 
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				if (!success) {
+					errorPopBox(message || `[${errorCode}] error`, errorCode);
+				}
 			},
 			() => {
 				if (!isMountedRef.current) return;
