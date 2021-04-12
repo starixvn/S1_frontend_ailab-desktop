@@ -34,16 +34,15 @@ export const defImgSourceType = {
 
 export const defMenuLinks = {
 	home: {
-		path: path.home.root,
 		className: "icon icon-home",
-		menuType: defMenuType.Link,
+		path: path.home.root,
 		subMenu: [
 			{
 				displayKey: "lbl_Ambassador",
 				listNpcImgUrl: "home-ambassador.png",
 				listBgImgUrl: "ambassadorbg.png",
 				menuType: defMenuType.DirectUrl,
-				path: "https://banner.n88media.com/JohnCole/index.html"
+				path: "https://www.joecole.club"
 			},
 			{
 				displayKey: "lbl_Vip",
@@ -84,10 +83,10 @@ export const defMenuLinks = {
 		]
 	},
 	sports: {
-		productInfo: productList.sports,
-		path: path.sports.root,
 		displayKey: "lbl_Sports",
 		className: "sportsbtn",
+		path: path.sports.root,
+		productInfo: productList.sports,
 		filterByAuth: true,
 		subMenu: [
 			{
@@ -133,10 +132,10 @@ export const defMenuLinks = {
 		]
 	},
 	eSports: {
-		productInfo: productList.eSport,
-		path: path.sports.root,
 		displayKey: "lbl_eSports",
 		className: "eSportsbtn",
+		path: path.sports.root,
+		productInfo: productList.eSport,
 		subMenu: [
 			{
 				displayKey: "lbl_All",
@@ -174,16 +173,16 @@ export const defMenuLinks = {
 				displayKey: "lbl_Kog",
 				listNpcImgUrl: "esportKOG.png",
 				listBgImgUrl: "eSportsListHover.png",
-				menuType: defMenuType.Link,
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSport_KOG },
 				...productList.eSport_KOG
 			}
 		]
 	},
 	casino: {
-		path: path.casino.root,
 		displayKey: "lbl_Slots",
 		className: "slotbtn",
+		path: path.casino.root,
 		filterByAuth: true,
 		subMenu: [
 			{
@@ -468,9 +467,9 @@ export const defMenuLinks = {
 		]
 	},
 	lottery: {
-		productInfo: productList.lottery,
 		displayKey: "lbl_Lottery",
 		className: "game",
+		productInfo: productList.lottery,
 		filterByAuth: true,
 		subMenu: [
 			{
@@ -479,6 +478,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_Keno",
 				listNpcImgUrl: "lo-keno.png",
 				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.keno }
 			},
 			{
@@ -487,6 +487,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_Lottery",
 				listNpcImgUrl: "lo-lottery.png",
 				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.lottery }
 			},
 			{
@@ -496,6 +497,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_NumberGame",
 				listNpcImgUrl: "lo-numberGame.png",
 				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.numberGame }
 			},
 			{
@@ -503,6 +505,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_TableGame",
 				listNpcImgUrl: "lo-tableGame.png",
 				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.tablegame }
 			},
 			{
@@ -511,14 +514,15 @@ export const defMenuLinks = {
 				displayKey: "lbl_Indo4D",
 				listNpcImgUrl: "lo-indo.png",
 				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
 				parameter: { ...productList.indo4D }
 			}
 		]
 	},
 	promotion: {
-		path: path.promotion.root,
 		displayKey: "lbl_Promos",
 		className: "promobtn",
+		path: path.promotion.root,
 		subMenu: [
 			{
 				displayKey: "lbl_Promotion_Link_1",
@@ -553,7 +557,6 @@ export const defMenuLinks = {
 	tv: {
 		displayKey: "lbl_TV",
 		className: "tvbtn",
-		menuType: defMenuType.Link,
 		path: path.streaming.root,
 		eventIcons: [
 			showEventIcon({
@@ -580,8 +583,7 @@ export const defMenuLinks = {
 	},
 	vip: {
 		displayKey: "lbl_Vip",
-		path: path.vip.root,
-		menuType: defMenuType.Link
+		path: path.vip.root
 	},
 	ranking: {
 		displayKey: "lbl_Ranking",
