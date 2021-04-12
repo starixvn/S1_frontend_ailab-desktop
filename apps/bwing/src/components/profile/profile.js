@@ -55,6 +55,42 @@ export default () => {
 	const [emailValue, setEmailValue] = useState("");
 	const [status, setStatus] = useState(initStatus);
 
+	const birth = `${userInfo.birth_d}/${userInfo.birth_m}/${userInfo.birth_y}`;
+	const dataList = [
+		{
+			label: t("lbl_RealName"),
+			value: userInfo.accountName,
+			show: !!userInfo.accountName
+		},
+		{
+			label: t("lbl_Birthday"),
+			value: birth,
+			format: "normal",
+			show: !!userInfo.birth_d
+		},
+		{
+			label: t("lbl_Phone"),
+			value: `(${userInfo.AreaCode})${userInfo.phoneNo}`,
+			format: "phone",
+			show: !!userInfo.phoneNo
+		},
+		{
+			label: t("lbl_Username"),
+			value: userInfo.userName,
+			show: true
+		},
+		{
+			label: t("lbl_Country"),
+			value: userInfo.country,
+			show: true
+		},
+		{
+			label: t("lbl_Email"),
+			value: userInfo.email,
+			show: !!userInfo.email
+		}
+	];
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -598,50 +634,38 @@ export default () => {
 				</div>
 			) : null}
 
-			<div className="profile">
-				<ProfileRead
-					userInfo={userInfo}
-					sendOTPSMS={sendOTPSMS}
-					mobileVerificationLoading={mobileVerificationLoading}
-				/>
-
-				{!userInfo.accountName ||
-				!userInfo.birth_d ||
-				!userInfo.phoneNo ||
-				!userInfo.email ? (
-					<ProfileEdit
-						userInfo={userInfo}
-						submitCheck={submitCheck}
-						onChangeName={onChangeName}
-						onChangeBirth={onChangeBirth}
-						onChangePhone={onChangePhone}
-						onChangeEmail={onChangeEmail}
-						nameValue={nameValue}
-						birthValue={birthValue}
-						phoneValue={phoneValue}
-						emailValue={emailValue}
-						checkName={checkName}
-						checkBirth={checkBirth}
-						checkPhone={checkPhone}
-						checkEmail={checkEmail}
-						clickInfo={clickInfo.bind(this)}
-						checked={status.checked}
-						col={status.col}
-						tip={status.tip}
-						status={status}
-					/>
-				) : null}
-			</div>
+			<ProfileRead
+				userInfo={userInfo}
+				sendOTPSMS={sendOTPSMS}
+				mobileVerificationLoading={mobileVerificationLoading}
+				dataList={dataList}
+			/>
 
 			{!userInfo.accountName ||
 			!userInfo.birth_d ||
 			!userInfo.phoneNo ||
 			!userInfo.email ? (
-				<div className="btnGroup">
-					<button className="blueGradient" onClick={submitCheck}>
-						{t("lbl_Submit")}
-					</button>
-				</div>
+				<ProfileEdit
+					userInfo={userInfo}
+					submitCheck={submitCheck}
+					onChangeName={onChangeName}
+					onChangeBirth={onChangeBirth}
+					onChangePhone={onChangePhone}
+					onChangeEmail={onChangeEmail}
+					nameValue={nameValue}
+					birthValue={birthValue}
+					phoneValue={phoneValue}
+					emailValue={emailValue}
+					checkName={checkName}
+					checkBirth={checkBirth}
+					checkPhone={checkPhone}
+					checkEmail={checkEmail}
+					clickInfo={clickInfo.bind(this)}
+					checked={status.checked}
+					col={status.col}
+					tip={status.tip}
+					status={status}
+				/>
 			) : null}
 		</div>
 	);

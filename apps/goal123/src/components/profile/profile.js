@@ -54,6 +54,53 @@ export default () => {
 	const [emailValue, setEmailValue] = useState("");
 	const [status, setStatus] = useState(initStatus);
 
+	const birth = `${userInfo.birth_d}/${userInfo.birth_m}/${userInfo.birth_y}`;
+
+	const dataList = [
+		{
+			label: t("lbl_RealName"),
+			value: userInfo.accountName,
+			show: !!userInfo.accountName
+		},
+		{
+			label: t("lbl_Birthday"),
+			value: birth,
+			format: "normal",
+			show: !!userInfo.birth_d
+		},
+		{
+			label: t("lbl_Phone"),
+			value: `(${userInfo.AreaCode})${userInfo.phoneNo}`,
+			format: "phone",
+			show: !!userInfo.phoneNo
+		},
+		{
+			label: t("lbl_Username"),
+			value: userInfo.userName,
+			show: true
+		},
+		{
+			label: t("lbl_Country"),
+			value: userInfo.country,
+			show: true
+		},
+		{
+			label: t("lbl_Email"),
+			value: userInfo.email,
+			show: !!userInfo.email
+		},
+		{
+			label: t("lbl_RegisterTime"),
+			value: moment(userInfo.regTime).format("DD/MM/YYYY HH:mm:ss"),
+			show: true
+		},
+		{
+			label: t("lbl_LastLogin"),
+			value: moment(userInfo.lastLogin).format("DD/MM/YYYY HH:mm:ss"),
+			show: true
+		}
+	];
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -613,6 +660,7 @@ export default () => {
 					userInfo={userInfo}
 					sendOTPSMS={sendOTPSMS}
 					mobileVerificationLoading={mobileVerificationLoading}
+					dataList={dataList}
 				/>
 
 				{!userInfo.accountName ||
