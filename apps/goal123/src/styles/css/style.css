@@ -8898,16 +8898,16 @@ html.Newtheme header .header > div.function {
 }
 
 html.Newtheme header .header > div.function .join, html.Newtheme header .header > div.function .login {
-  background: #1E85EC;
+  background: #D83B35;
   border-radius: 5px;
   padding: 8px 2px;
   color: white;
   min-width: 80px;
+  text-transform: uppercase;
 }
 
 html.Newtheme header .header > div.function .login {
   background: #fab617;
-  color: #212121;
 }
 
 html.Newtheme header .header > div.function > div:before {
@@ -9457,6 +9457,7 @@ html.Newtheme main section > div > div > .title i {
   font-size: 25px;
   padding-left: 10px;
   font-weight: normal;
+  margin-right: 5px;
 }
 
 html.Newtheme main section > div > div > span {
@@ -14500,6 +14501,7 @@ html.Newtheme .indexInfo > div > div > .title i {
   font-size: 25px;
   padding-left: 10px;
   font-weight: normal;
+  margin-right: 5px;
 }
 
 html.Newtheme .indexInfo > div > div .infoGroup {
