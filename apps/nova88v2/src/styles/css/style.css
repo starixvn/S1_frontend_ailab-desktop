@@ -1157,15 +1157,19 @@ header input:focus-within {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   z-index: 3;
-  width: 552px;
+  position: relative;
+  padding: 10px;
 }
 
 .header > div.function .forgot {
   width: 100%;
-  margin-top: -25px;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  position: absolute;
+  bottom: 5px;
+  margin: 0;
+  min-height: unset;
 }
 
 .header > div.function .forgot span {
@@ -1232,6 +1236,7 @@ header input:focus-within {
   border: 1px solid #BFCCE2;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  padding: 0 5px;
 }
 
 .header > div.function > div[class=join]:hover, .header > div.function > div[class=login]:hover, .header > div.function > a[class=join]:hover, .header > div.function > a[class=login]:hover, .header > div.function > button[class=join]:hover, .header > div.function > button[class=login]:hover {
@@ -1369,6 +1374,10 @@ header input:focus-within {
   color: #5574A7;
 }
 
+.header > div.function .memberfile {
+  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat left center/auto 100%;
+}
+
 .header > div.function .wallet, .header > div.function .memberfile {
   position: relative;
 }
@@ -1376,6 +1385,7 @@ header input:focus-within {
 .header > div.function .wallet > img:first-child, .header > div.function .memberfile > img:first-child {
   width: 30px;
   margin-right: 10px;
+  margin-left: 2px;
 }
 
 .header > div.function .wallet button, .header > div.function .memberfile button {
@@ -3017,13 +3027,19 @@ input[type="file"] {
 
 .dropdown > .dropdown-container .dropdown-item {
   font-size: 13px;
-  margin: 5px 0;
+  padding: 5px 0 5px 5px;
   cursor: pointer;
   color: #5574A7;
 }
 
+.dropdown > .dropdown-container .dropdown-item:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  color: white;
+}
+
 .dropdown > .btn {
-  width: calc(100% - 26px);
+  width: calc(100% - 31px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3035,6 +3051,7 @@ input[type="file"] {
           align-items: center;
   font-family: "Microsoft YaHei", sans-serif;
   margin-left: 5px;
+  padding-left: 5px;
   color: #5574A7;
 }
 
@@ -3780,7 +3797,6 @@ input[type="file"] {
 .infoModule > button.icon-arrow-left2 {
   color: white;
   margin: 40px 40px 0;
-  font-size: 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3788,12 +3804,14 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   background: #5574A7;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 5px 10px;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 
 .infoModule > button.icon-arrow-left2:before {
-  margin-right: 5px;
+  margin-left: 0;
 }
 
 .inside-title {
@@ -4335,7 +4353,7 @@ input[type="file"] {
 #popup .pop .icon-close {
   color: #5574A7;
   position: absolute;
-  right: 10px;
+  right: 30px;
   top: 30px;
   font-size: 14px;
 }
