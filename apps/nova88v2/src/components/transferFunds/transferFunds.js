@@ -175,7 +175,7 @@ export default () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										OK
 									</button>
@@ -190,7 +190,7 @@ export default () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
@@ -209,7 +209,7 @@ export default () => {
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
@@ -236,7 +236,7 @@ export default () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
@@ -255,7 +255,7 @@ export default () => {
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
@@ -279,7 +279,7 @@ export default () => {
 						: t("lbl_please_select_to_wallet"),
 				btnBar: (
 					<div className="btnGroup">
-						<button className="btn-cancel" onClick={ClickClose}>
+						<button className="btn-check" onClick={ClickClose}>
 							{t("lbl_Close")}
 						</button>
 					</div>

@@ -59,7 +59,14 @@ const EventSwipper = memo(({ langId }) => {
 				<AutoPlayWithBtn Rows={rows} />
 			</div>
 			<span className="straightBorder" />
-			<div className="bannerS">
+			<div
+				className="bannerS"
+				onClick={() =>
+					navigate(
+						`/${langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=BwingRebateNov20`
+					)
+				}
+				style={{ cursor: "pointer" }}>
 				{langId === "en" ? (
 					<img src={Rebate_EN} alt="Daily Rebate Unlimited" />
 				) : (

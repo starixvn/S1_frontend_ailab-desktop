@@ -27,7 +27,6 @@ import TandC from "../service/t_and_c";
 import Inputbox from "../components/common/inputbox";
 import InputboxPSW from "../components/common/inputbox.password";
 import Dropdown from "../components/common/dropdown";
-import Checkbox from "../components/common/checkbox";
 import { Iov_GetBlackBox } from "../components/common/iovation";
 import {
 	initValue,
@@ -105,7 +104,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -136,7 +135,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -155,7 +154,7 @@ const Content = () => {
 						btnBar: (
 							<div className="btnGroup">
 								<button
-									className="btn-cancel"
+									className="btn-check"
 									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
@@ -394,12 +393,6 @@ const Content = () => {
 		setCurrencyTip("currency", null);
 	};
 
-	const checkboxHandler = col => {
-		setUserValue(prev => {
-			return { ...prev, [col]: !userValue[col] };
-		});
-	};
-
 	const clickCancel = () => {
 		navigate(`/${userInfo.langId}`);
 	};
@@ -417,23 +410,15 @@ const Content = () => {
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
-			const _termsCheck = userValue.termsCheck;
-			const _ageCheck = userValue.ageCheck;
 
 			const checked =
 				_usernameCheck.checked &&
 				_passwordCheck.checked &&
 				_phoneCheck.checked &&
 				_emailCheck.checked &&
-				_currencyCheck.checked &&
-				_termsCheck &&
-				_ageCheck;
+				_currencyCheck.checked;
 
 			if (!checked) {
-				let checkboxMsg = "";
-				if (!_termsCheck || !_ageCheck) {
-					checkboxMsg = "lbl_Check18TCTooltip";
-				}
 				setTip(prev => {
 					return {
 						...prev,
@@ -456,10 +441,6 @@ const Content = () => {
 						currency: {
 							checked: _currencyCheck.checked,
 							msg: t(_currencyCheck.msg)
-						},
-						checkbox: {
-							checked: true,
-							msg: t(checkboxMsg)
 						}
 					};
 				});
@@ -469,6 +450,8 @@ const Content = () => {
 			return false;
 		}
 	};
+
+	const isUrlAffCode = getUrlParameter("AffCode") || readCookie("AffCode");
 
 	const hasRefOrAffCode =
 		getUrlParameter("AffId") ||
@@ -505,8 +488,7 @@ const Content = () => {
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
 			regData.AffId = affIdCheckPass ? _AffId : null;
 			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
-			regData.AffCode =
-				getUrlParameter("AffCode") || readCookie("AffCode");
+			regData.AffCode = isUrlAffCode ?? userValue.affCode;
 			regData.blackbox = await Iov_GetBlackBox();
 
 			api_site_Signup(regData, defaultLangId).then(
@@ -541,7 +523,7 @@ const Content = () => {
 												btnBar: (
 													<div className="btnGroup">
 														<button
-															className="btn-cancel"
+															className="btn-check"
 															onClick={
 																ClosePopBox
 															}>
@@ -563,7 +545,7 @@ const Content = () => {
 											btnBar: (
 												<div className="btnGroup">
 													<button
-														className="btn-cancel"
+														className="btn-check"
 														onClick={ClosePopBox}>
 														{t("lbl_Close")}
 													</button>
@@ -616,7 +598,7 @@ const Content = () => {
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-cancel"
+											className="btn-check"
 											onClick={ClosePopBox}>
 											{t("lbl_Close")}
 										</button>
@@ -635,7 +617,7 @@ const Content = () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-cancel"
+										className="btn-check"
 										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
@@ -668,24 +650,29 @@ const Content = () => {
 			<div className="joinloginModule">
 				<div className="joinAnimation">
 					<img
-						src={require("../styles/img/animationLogo.png")}
 						className="animationlogo"
+						alt="animationlogo"
+						src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 					/>
 					<img
-						src={require("../styles/img/joinNpc01.png")}
 						className="npc1"
+						alt="npc1"
+						src={require("../styles/img/joinNpc01.png")}
 					/>
 					<img
-						src={require("../styles/img/joinNpc02.png")}
 						className="npc2"
+						alt="npc2"
+						src={require("../styles/img/joinNpc02.png")}
 					/>
 					<img
-						src={require("../styles/img/welcome.png")}
 						className="welcome"
+						alt="welcome"
+						src={require("../styles/img/welcome.png")}
 					/>
 					<img
-						src={require("../styles/img/back.png")}
 						className="back"
+						alt="back"
+						src={require("../styles/img/back.png")}
 					/>
 				</div>
 				<form className="joinloginFunction" onSubmit={clickSubmit}>
@@ -821,40 +808,16 @@ const Content = () => {
 					</div>
 
 					<div className="Terms">
-						<Checkbox
-							id="joinTermsCheck"
-							checked={userValue.termsCheck}
-							onChange={checkboxHandler.bind(null, "termsCheck")}>
-							{t("lbl_Check18TC1")}
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href={TandC(defaultLangId).terms}>
-								{t("lbl_TermsConditions")}
-							</a>
-							&nbsp;
-							{t("lbl_Check18TC2")}
-							<a
-								target="_blank"
-								rel="noreferrer"
-								href={TandC(defaultLangId).rule}>
-								{t("lbl_RuleRegulations")}
-							</a>
-							&nbsp;
-							{t("lbl_Check18TC3")} &nbsp;
-							{config.siteName}.
-						</Checkbox>
-
-						<Checkbox
-							id="joinAgeCheck"
-							checked={userValue.ageCheck}
-							onChange={checkboxHandler.bind(null, "ageCheck")}>
-							{t("lbl_Check18TC4")}
-						</Checkbox>
+						{t("lbl_sign_up_terms_start")}
+						<a
+							className="txt-orange"
+							target="_blank"
+							rel="noreferrer"
+							href={TandC(defaultLangId).terms}>
+							{t("lbl_sign_up_terms_center")}
+						</a>
+						{t("lbl_sign_up_terms_end")}
 					</div>
-					{tip.checkbox.msg !== "" ? (
-						<div className="tip active">{tip.checkbox.msg}</div>
-					) : null}
 
 					<div className="btnGroup">
 						<button

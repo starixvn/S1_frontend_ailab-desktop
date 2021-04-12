@@ -132,7 +132,7 @@ export class Module extends Component {
 									btnBar: (
 										<div className="btnGroup">
 											<button
-												className="btn-cancel"
+												className="btn-check"
 												onClick={ClickClose}>
 												OK
 											</button>

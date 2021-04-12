@@ -1,235 +1,195 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
+import PropTypes from "prop-types";
+import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import TandC from "../../service/t_and_c";
-import Responsibility1 from "../../styles/img/responsibility1.png";
-import Responsibility2 from "../../styles/img/responsibility2.png";
-import Licenses from "../../styles/img/licenses.png";
-import Security from "../../styles/img/security.png";
-import {
-	defSportsBetting_Section1,
-	defSportsBetting_Section2
-} from "./footer.def";
-import LinkItems from "../common/linkItems";
-import { userInfoContext } from "../common/context";
-import config, { SiteInfo } from "../../config";
+import { userInfoContext, popBoxContext } from "../common/context";
+import { SiteInfo } from "../../config";
 import PlatformSection from "./footer.platform";
+import ProductSection from "./footer.product";
+import { defFooterProductList } from "./footer.def";
+import path from "../../router";
+import defPopBoxType from "../common/defPopBoxType";
+import { api_site_GetTpIds } from "../../service/api/site";
+import ImgLicense from "../../styles/img/licenses.png";
+import ImgJoeColeSignature from "../../styles/img/joecole_w.png";
+import ImgJoeColePhoto from "../../styles/img/jc.png";
+import ImgFB from "../../styles/img/fb.png";
+import ImgIN from "../../styles/img/in.png";
+import ImgTW from "../../styles/img/tw.png";
+import ImgYT from "../../styles/img/yt.png";
+import ImgChrome from "../../styles/img/gg.png";
+import ImgFireFox from "../../styles/img/ff.png";
+import ImgHP from "../../styles/img/hp.png";
+import ImgEZ from "../../styles/img/ez.png";
 
-const SportsBettingSection = ({ t, isLogin, langId }) => (
-	<div>
-		<span className="title">{t("lbl_SportsBetting")}</span>
-		<div>
-			<LinkItems
-				defMenuLinks={defSportsBetting_Section1}
-				t={t}
-				langId={langId}
-				isLogin={isLogin}
-				checkMatchPage={false}
-			/>
-		</div>
-		<div>
-			<LinkItems
-				defMenuLinks={defSportsBetting_Section2}
-				t={t}
-				langId={langId}
-				isLogin={isLogin}
-				checkMatchPage={false}
-			/>
-		</div>
-	</div>
-);
-
-const PoliciesSection = ({ t, langId }) => (
-	<div>
-		<span className="title">{t("lbl_OurPolicies")}</span>
-		<div>
-			<a
-				href={TandC(langId).ResposibleGaming}
-				target="_blank"
-				rel="noreferrer">
-				{t("lbl_ResposibleGaming")}
-			</a>
-			<a href={TandC(langId).terms} target="_blank" rel="noreferrer">
-				{t("lbl_TermsConditions")}
-			</a>
-			<a
-				href={TandC(langId).PrivacyPolicy}
-				target="_blank"
-				rel="noreferrer">
-				{t("lbl_PrivacyPolicy")}
-			</a>
-			<a
-				href={TandC(langId).CookiePolicy}
-				target="_blank"
-				rel="noreferrer">
-				{t("lbl_CookiePolicy")}
-			</a>
-		</div>
-	</div>
-);
-
-const HelpAndSupportSection = ({ t, langId }) => (
-	<div>
-		<span className="title">{t("lbl_HelpSupport")}</span>
-		<div>
-			<a
-				href={TandC(langId).RuleRegulations}
-				target="_blank"
-				rel="noreferrer">
-				{t("lbl_RuleRegulations")}
-			</a>
-			<a
-				href={TandC(langId).AccountTerms}
-				target="_blank"
-				rel="noreferrer">
-				{t("lbl_AccountTerms")}
-			</a>
-			<a href={TandC(langId).FAQ} target="_blank" rel="noreferrer">
-				{t("lbl_FAQ")}
-			</a>
-		</div>
-	</div>
-);
-
-const AboutUsSection = ({ t, langId }) => (
-	<div>
-		<span className="title">Nova88</span>
-		<div>
-			<a
-				style={{ fontWeight: "bold" }}
-				href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
-				target="_blank"
-				rel="noreferrer">
-				{t("lbl_Affiliates")}
-			</a>
-			<a href={TandC(langId).AboutUs} target="_blank" rel="noreferrer">
-				{t("lbl_AboutUs")}
-			</a>
-			<a href={TandC(langId).Terms} target="_blank" rel="noreferrer">
-				{t("lbl_Terms")}
-			</a>
-			<a href={TandC(langId).ContactUs} target="_blank" rel="noreferrer">
-				{t("lbl_ContactUs")}
-			</a>
-		</div>
-	</div>
-);
-
-const SocialMediaSection = ({ t }) => (
-	<div>
-		<span className="title">{t("lbl_SocialMedia")}</span>
-		<div>
-			<a
-				href={SiteInfo.socialMedia.ig.link}
-				target="_blank"
-				rel="noreferrer"
-				className="icon icon-instagram">
-				{t(SiteInfo.socialMedia.ig.displayKey)}
-			</a>
-			<a
-				href={SiteInfo.socialMedia.fb.link}
-				target="_blank"
-				rel="noreferrer"
-				className="icon icon-facebook">
-				{t(SiteInfo.socialMedia.fb.displayKey)}
-			</a>
-			<a
-				href={SiteInfo.socialMedia.twitter.link}
-				target="_blank"
-				rel="noreferrer"
-				className="icon icon-twitter">
-				{t(SiteInfo.socialMedia.twitter.displayKey)}
-			</a>
-			<a
-				href={SiteInfo.socialMedia.youtube.link}
-				target="_blank"
-				rel="noreferrer"
-				className="icon icon-youtube">
-				{t(SiteInfo.socialMedia.youtube.displayKey)}
-			</a>
-		</div>
-	</div>
-);
-
-const ResponsibilitySection = ({ t }) => (
-	<div>
-		<span className="title">{t("lbl_Responsibility")}</span>
-		<div>
-			<button>
-				<img src={Responsibility1} />
-			</button>
-			<button>
-				<img src={Responsibility2} />
-			</button>
-		</div>
+const CopyrightSection = ({ t, langId }) => (
+	<div className="copyright">
+		<a href={TandC(langId).AboutUs} target="_blank" rel="noreferrer">
+			{t("lbl_AboutUs")}
+		</a>
+		<a href={TandC(langId).ContactUs} target="_blank" rel="noreferrer">
+			{t("lbl_ContactUs")}
+		</a>
+		<a href={TandC(langId).Terms} target="_blank" rel="noreferrer">
+			{t("lbl_TermsConditions")}
+		</a>
+		<span>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved. 21+`}</span>
 	</div>
 );
 
 const LicensesSection = ({ t }) => (
-	<div>
-		<span className="title">{t("lbl_Licenses")}</span>
+	<div className="license">
 		<div>
-			<button>
-				<img src={Licenses} />
-			</button>
+			<div className="title">{t("lbl_Gaming_License")}</div>
+			<img src={ImgLicense} alt="footer-license" />
+		</div>
+		<div>
+			<iframe
+				width="256"
+				height="140"
+				src="https://www.youtube.com/embed/Cn74XFuYAcE"
+				title="YouTube video player"
+				frameBorder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowFullScreen
+			/>
+			<div>
+				<div>{t("lbl_JOE_COLE")}</div>
+				<div>{t("lbl_Brand_Ambassador")}</div>
+				<img src={ImgJoeColeSignature} alt="joecole_signature" />
+				<div>{t("lbl_Former_Chelsea_Liverpool")}</div>
+				<div>{t("lbl_England_International")}</div>
+			</div>
+			<img className="star" src={ImgJoeColePhoto} alt="joecole_photo" />
 		</div>
 	</div>
 );
 
-const SecuritySection = ({ t }) => (
-	<div>
-		<span className="title">{t("lbl_Security")}</span>
+const FollowUsSection = ({ t }) => (
+	<div className="sfp">
 		<div>
-			<button>
-				<img src={Security} />
-			</button>
+			<div className="title">{t("lbl_Follow_Us")}</div>
+			<div>
+				<a
+					href={SiteInfo.socialMedia.fb.link}
+					target="_blank"
+					rel="noreferrer">
+					<img src={ImgFB} alt="fb" />
+				</a>
+				<a
+					href={SiteInfo.socialMedia.ig.link}
+					target="_blank"
+					rel="noreferrer">
+					<img src={ImgIN} alt="in" />
+				</a>
+				<a
+					href={SiteInfo.socialMedia.twitter.link}
+					target="_blank"
+					rel="noreferrer">
+					<img src={ImgTW} alt="tw" />
+				</a>
+				<a
+					href={SiteInfo.socialMedia.youtube.link}
+					target="_blank"
+					rel="noreferrer">
+					<img src={ImgYT} alt="yt" />
+				</a>
+			</div>
+		</div>
+		<div>
+			<div className="title">{t("lbl_Suggested_Browser")}</div>
+			<div>
+				<img src={ImgChrome} alt="chrome" />
+				<img src={ImgFireFox} alt="FireFox" />
+			</div>
+		</div>
+		<div>
+			<div className="title">{t("lbl_Payment_Method")}</div>
+			<div>
+				<img src={ImgHP} alt="payment-h2p" />
+				<img src={ImgEZ} alt="payment-ep" />
+			</div>
 		</div>
 	</div>
 );
 
-const PaymentSection = ({ t }) => (
-	<div>
-		<span className="title">{t("lbl_Payment")}</span>
-		<div>
-			<button>
-				<img src={`${config.imgUrl}/common/images/logo/h2p.png`} />
-			</button>
-			<button>
-				<img src={`${config.imgUrl}/common/images/logo/ep.png`} />
-			</button>
-		</div>
-	</div>
-);
-
-export default ({ productTpIds }) => {
+export const Footer = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
+	const { setPopBox } = useContext(popBoxContext);
+
+	const [productTpIds, setProductTpIds] = useState(null);
+	const isMountedRef = useRef(null);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		if (userInfo.isLogin && productTpIds === null) {
+			api_site_GetTpIds().then(res => {
+				if (res.data.errorCode === 0 && isMountedRef.current) {
+					setProductTpIds(res.data.data);
+				}
+			});
+		} else if (userInfo.isLogin === false && productTpIds?.length > 0) {
+			setProductTpIds(null);
+		}
+	}, [userInfo.isLogin, productTpIds]);
+
+	const openLiveChat = () => {
+		window.LiveChatWidget.call("maximize");
+	};
+
+	const linkToReferral = () => {
+		userInfo.isLogin
+			? navigate(`/${userInfo.langId}/${path.referral.root}`)
+			: setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login
+			  });
+	};
 
 	return (
-		<footer>
-			<div className="webmap">
-				<SportsBettingSection
-					t={t}
-					isLogin={userInfo.isLogin}
-					langId={userInfo.langId}
-				/>
-				<PoliciesSection t={t} langId={userInfo.langId} />
-				<HelpAndSupportSection t={t} langId={userInfo.langId} />
-				<AboutUsSection t={t} langId={userInfo.langId} />
-				<ResponsibilitySection t={t} />
-				<LicensesSection t={t} />
-				<SecuritySection t={t} />
-				<PaymentSection t={t} />
-				<SocialMediaSection t={t} />
-			</div>
+		<footer id="footer">
+			<CopyrightSection t={t} langId={userInfo.langId} />
 			<PlatformSection
 				t={t}
 				langId={userInfo.langId}
 				isLogin={userInfo.isLogin}
 				productTpIds={productTpIds}
 			/>
-			<div className="copyright">
-				{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved.`}
-			</div>
+			<ProductSection
+				t={t}
+				defFooterProductList={defFooterProductList}
+				path={path}
+				SiteInfo={SiteInfo}
+				langId={userInfo.langId}
+				linkToReferral={linkToReferral}
+				openLiveChat={openLiveChat}
+			/>
+			<LicensesSection t={t} />
+			<FollowUsSection t={t} />
 		</footer>
 	);
 };
+
+CopyrightSection.propTypes = {
+	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired
+};
+
+LicensesSection.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
+FollowUsSection.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
+
+export default Footer;

@@ -9,19 +9,82 @@ import {
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
-	LinkOrBtn: "LinkOrBtn"
+	LinkNoImg: "LinkNoImg",
+	DirectUrl: "DirectUrl"
+};
+
+export const defSubListClassName = {
+	home: "homeList",
+	sports: "sportsList",
+	eSports: "eSportsList",
+	casino: "casinoList",
+	liveCasino: "livecasinoList",
+	poker: "pokerList",
+	lottery: "gameList",
+	fishing: "fishList",
+	promotion: "promoList",
+	tv: "tvList",
+	vip: "vipList",
+	ranking: "rankingList"
 };
 
 export const defMenuLinks = {
 	home: {
 		path: path.home.root,
-		className: "icon icon-home"
+		className: "icon icon-home",
+		menuType: defMenuType.Link,
+		subMenu: [
+			{
+				displayKey: "lbl_Ambassador",
+				listNpcImgUrl: "home-ambassador.png",
+				listBgImgUrl: "ambassadorbg.png",
+				menuType: defMenuType.DirectUrl,
+				path: "https://banner.n88media.com/JohnCole/index.html"
+			},
+			{
+				displayKey: "lbl_Vip",
+				listNpcImgUrl: "home-vip.png",
+				listBgImgUrl: "vipbg.png",
+				menuType: defMenuType.Link,
+				path: path.vip.root
+			},
+			{
+				displayKey: "lbl_Live_Sports",
+				listNpcImgUrl: "home-livesports.png",
+				listBgImgUrl: "livesportsbg.png",
+				menuType: defMenuType.Link,
+				path: path.streaming.root
+			},
+			{
+				displayKey: "lbl_Movie_TV",
+				listNpcImgUrl: "home-movie.png",
+				listBgImgUrl: "moviebg.png",
+				menuType: defMenuType.DirectUrl,
+				path: "https://nova88tv.com/"
+			},
+			{
+				displayKey: "lbl_Ranking",
+				listNpcImgUrl: "home-ranking.png",
+				listBgImgUrl: "rankingbg.png",
+				menuType: defMenuType.Link,
+				path: path.leaderBoard.root
+			},
+			{
+				displayKey: "lbl_Referral",
+				listNpcImgUrl: "home-refer.png",
+				listBgImgUrl: "referbg.png",
+				menuType: defMenuType.entPage,
+				needLogin: true,
+				path: path.referral.root
+			}
+		]
 	},
 	sports: {
 		productInfo: productList.sports,
 		path: path.sports.root,
 		displayKey: "lbl_Sports",
 		className: "sportsbtn",
+		filterByAuth: true,
 		subMenu: [
 			{
 				displayKey: "lbl_Soccer",
@@ -55,22 +118,6 @@ export const defMenuLinks = {
 				parameter: { ...productList.tennis },
 				...productList.tennis
 			},
-			// {
-			// 	displayKey: "lbl_Baseball",
-			// 	listNpcImgUrl: "baseballNPC.png",
-			// 	listBgImgUrl: "baseballBG.png",
-			// 	menuType: defMenuType.Link,
-			// 	parameter: { ...productList.baseball },
-			// 	...productList.baseball
-			// },
-			// {
-			// 	displayKey: "lbl_Volleyball",
-			// 	listNpcImgUrl: "volleyballNPC.png",
-			// 	listBgImgUrl: "volleyballBG.png",
-			// 	menuType: defMenuType.Link,
-			// 	parameter: { ...productList.volleyball },
-			// 	...productList.volleyball
-			// },
 			{
 				displayKey: "lbl_Cricket",
 				listNpcImgUrl: "cricketNPC.png",
@@ -85,55 +132,55 @@ export const defMenuLinks = {
 		productInfo: productList.eSport,
 		path: path.sports.root,
 		displayKey: "lbl_eSports",
-		className: "eSportsbtn"
-		// subMenu: [
-		// 	{
-		// 		displayKey: "lbl_eSports",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		listNpcImgUrl: "esportALL.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		parameter: { ...productList.eSport },
-		// 		...productList.eSport
-		// 	},
-		// 	{
-		// 		displayKey: "lbl_Dota2",
-		// 		listNpcImgUrl: "esportDOTA2.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		parameter: { ...productList.eSport_Dota2 },
-		// 		...productList.eSport_Dota2
-		// 	},
-		// 	{
-		// 		displayKey: "lbl_LeagueOfLegends",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		listNpcImgUrl: "esportLOL.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		parameter: { ...productList.eSport_LeagueOfLegends },
-		// 		...productList.eSport_LeagueOfLegends
-		// 	},
-		// 	{
-		// 		displayKey: "lbl_CSGO",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		listNpcImgUrl: "esportCS.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		parameter: { ...productList.eSport_Csgo },
-		// 		...productList.eSport_Csgo
-		// 	},
-
-		// 	{
-		// 		displayKey: "lbl_Kog",
-		// 		menuType: defMenuType.LinkOrBtn,
-		// 		listNpcImgUrl: "esportKOG.png",
-		// 		listBgImgUrl: "eSportsListHover.png",
-		// 		parameter: { ...productList.eSport_KingOfGlory },
-		// 		...productList.eSport_KingOfGlory
-		// 	}
-		// ]
+		className: "eSportsbtn",
+		subMenu: [
+			{
+				displayKey: "lbl_All",
+				listNpcImgUrl: "esportALL.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.eSportAll },
+				...productList.eSportAll
+			},
+			{
+				displayKey: "lbl_Dota2",
+				listNpcImgUrl: "esportDOTA2.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.eSport_DOTA2 },
+				...productList.eSport_DOTA2
+			},
+			{
+				displayKey: "lbl_LOL",
+				listNpcImgUrl: "esportLOL.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.eSport_LOL },
+				...productList.eSport_LOL
+			},
+			{
+				displayKey: "lbl_CSGO",
+				listNpcImgUrl: "esportCS.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.eSport_CSGO },
+				...productList.eSport_CSGO
+			},
+			{
+				displayKey: "lbl_Kog",
+				listNpcImgUrl: "esportKOG.png",
+				listBgImgUrl: "eSportsListHover.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.eSport_KOG },
+				...productList.eSport_KOG
+			}
+		]
 	},
 	casino: {
 		path: path.casino.root,
-		displayKey: "lbl_Casino",
+		displayKey: "lbl_Slots",
 		className: "slotbtn",
+		filterByAuth: true,
 		subMenu: [
 			{
 				icon: "icon icon-PP",
@@ -146,12 +193,6 @@ export const defMenuLinks = {
 			},
 			{
 				icon: "icon icon-ICG",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
 				displayText: "ICG",
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotICG.png",
@@ -213,14 +254,6 @@ export const defMenuLinks = {
 				parameter: { ...productList.casino_PG },
 				...productList.casino_PG
 			},
-			// {
-			// 	className: "Kiss icon icon-new",
-			// 	icon: "icon icon-kiss",
-			// 	displayText: "918Kiss",
-			// 	menuType: defMenuType.LinkOrBtn,
-			// 	path: path["918kiss"].root,
-			// 	...productList.kiss918
-			// },
 			{
 				icon: "icon icon-OW",
 				displayText: "OW",
@@ -234,6 +267,7 @@ export const defMenuLinks = {
 	liveCasino: {
 		displayKey: "lbl_LiveCasino",
 		className: "livecasinobtn",
+		filterByAuth: true,
 		subMenu: [
 			{
 				...productList.liveCasino_N2,
@@ -323,83 +357,17 @@ export const defMenuLinks = {
 		]
 	},
 	poker: {
-		productInfo: productList.poker,
-		path: path.oneGame.root,
 		displayKey: "lbl_Poker",
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.oneGaming
-			})
-		],
-		openPopBox: true
-	},
-	lottery: {
-		productInfo: productList.lottery,
-		displayKey: "lbl_Lottery",
-		className: "game",
-		subMenu: [
-			{
-				...productList.keno,
-				className: "keno",
-				displayKey: "lbl_Keno",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-keno.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.keno }
-			},
-			{
-				...productList.lottery,
-				className: "lottery",
-				displayKey: "lbl_Lottery",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-lottery.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.lottery }
-			},
-			{
-				...productList.numberGame,
-				path: path.sports.root,
-				className: "numberGame",
-				displayKey: "lbl_NumberGame",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-numberGame.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.numberGame }
-			},
-			{
-				...productList.tablegame,
-				displayKey: "lbl_TableGame",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-tableGame.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.tablegame }
-			},
-			{
-				...productList.indo4D,
-				className: "indo",
-				displayKey: "lbl_Indo4D",
-				menuType: defMenuType.LinkOrBtn,
-				listNpcImgUrl: "lo-indo.png",
-				listBgImgUrl: "gameListHover.png",
-				parameter: { ...productList.indo4D }
-			}
-		]
+		className: "pokerbtn"
 	},
 	fishing: {
-		// productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
 		className: "fishbtn",
+		filterByAuth: true,
 		subMenu: [
 			{
 				...productList.CQ9_Paradise,
 				className: "fsgw",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.cq9
-					})
-				],
 				listNpcImgUrl: "paradise.png",
 				listBgImgUrl: "fishListHover.png",
 				displayKey: "lbl_Paradise",
@@ -407,112 +375,43 @@ export const defMenuLinks = {
 				parameter: { ...productList.CQ9_Paradise }
 			},
 			// {
-			// 	...productList.CQ9_LuckyFishing,
+			// 	...productList.CQ9_Oneshot_Fishing,
 			// 	className: "fsgw",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.cq9
-			// 		})
-			// 	],
-			// 	listNpcImgUrl: "luckyfishing.png",
+			// 	listNpcImgUrl: "oneshotfishing.png",
 			// 	listBgImgUrl: "fishListHover.png",
-			// 	displayKey: "lbl_Lucky_Fishing",
+			// 	displayKey: "lbl_Oneshot_Fishing",
 			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.CQ9_Lucky_Fishing }
-			// },
-			{
-				...productList.CQ9_Oneshot_Fishing,
-				className: "fsgw",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.cq9
-					})
-				],
-				listNpcImgUrl: "oneshotfishing.png",
-				listBgImgUrl: "fishListHover.png",
-				displayKey: "lbl_Oneshot_Fishing",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.CQ9_Oneshot_Fishing }
-			},
-			// {
-			// 	...productList.CQ9_Water_Margin_Fishing,
-			// 	className: "fsgw",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.cq9
-			// 		})
-			// 	],
-			// 	listNpcImgUrl: "watermarginfishing.png",
-			// 	listBgImgUrl: "fishListHover.png",
-			// 	displayKey: "lbl_Water_Margin_Fishing",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.CQ9_Water_Margin_Fishing }
-			// },
-			// {
-			// 	...productList.CQ9_Thunder_Fighter,
-			// 	className: "fsgw",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.cq9
-			// 		})
-			// 	],
-			// 	listNpcImgUrl: "thunderfighter.png",
-			// 	listBgImgUrl: "fishListHover.png",
-			// 	displayKey: "lbl_Thunder_Fighter",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { ...productList.CQ9_Thunder_Fighter }
+			// 	parameter: { ...productList.CQ9_Oneshot_Fishing }
 			// },
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fsdf",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
 				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "fishICG-DB.png",
 				listBgImgUrl: "fishListHover.png",
 				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
 			},
-			{
-				...productList.ICG_FISHING_OF_SAVIORS,
-				className: "fsgfos",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishICG-FOS.png",
-				listBgImgUrl: "fishListHover.png",
-				parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
-			},
-			{
-				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
-				className: "fsttatp",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
-				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishICG-TTATP.png",
-				listBgImgUrl: "fishListHover.png",
-				parameter: {
-					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
-				}
-			},
+			// {
+			// 	...productList.ICG_FISHING_OF_SAVIORS,
+			// 	className: "fsgfos",
+			// 	displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishICG-FOS.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
+			// },
+			// {
+			// 	...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
+			// 	className: "fsttatp",
+			// 	displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishICG-TTATP.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	parameter: {
+			// 		...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
+			// 	}
+			// },
 			{
 				...productList.fishing,
 				className: "fgg",
@@ -522,15 +421,15 @@ export const defMenuLinks = {
 				listBgImgUrl: "fishListHover.png",
 				parameter: { ...productList.fishing }
 			},
-			{
-				...productList.fishing_SG,
-				className: "fsg",
-				displayKey: "lbl_FishingSG1",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "fishSG.png",
-				listBgImgUrl: "fishListHover.png",
-				parameter: { ...productList.fishing_SG }
-			},
+			// {
+			// 	...productList.fishing_SG,
+			// 	className: "fsg",
+			// 	displayKey: "lbl_FishingSG1",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishSG.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	parameter: { ...productList.fishing_SG }
+			// },
 			{
 				...productList.fishing_SGW,
 				className: "fsgw",
@@ -542,37 +441,124 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	// cockFighting: {
-	// 	productInfo: productList.cockFighting,
-	// 	displayKey: "lbl_CockFighting",
-	// 	className: "COCK"
-	// },
-	vip: {
-		path: path.vip.root,
-		displayKey: "lbl_Vip",
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.vip
-			})
+	lottery: {
+		productInfo: productList.lottery,
+		displayKey: "lbl_Lottery",
+		className: "game",
+		filterByAuth: true,
+		subMenu: [
+			{
+				...productList.keno,
+				className: "keno",
+				displayKey: "lbl_Keno",
+				listNpcImgUrl: "lo-keno.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.keno }
+			},
+			{
+				...productList.lottery,
+				className: "lottery",
+				displayKey: "lbl_Lottery",
+				listNpcImgUrl: "lo-lottery.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.lottery }
+			},
+			{
+				...productList.numberGame,
+				path: path.sports.root,
+				className: "numberGame",
+				displayKey: "lbl_NumberGame",
+				listNpcImgUrl: "lo-numberGame.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.numberGame }
+			},
+			{
+				...productList.tablegame,
+				displayKey: "lbl_TableGame",
+				listNpcImgUrl: "lo-tableGame.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.tablegame }
+			},
+			{
+				...productList.indo4D,
+				className: "indo",
+				displayKey: "lbl_Indo4D",
+				listNpcImgUrl: "lo-indo.png",
+				listBgImgUrl: "gameListHover.png",
+				parameter: { ...productList.indo4D }
+			}
 		]
 	},
 	promotion: {
 		path: path.promotion.root,
-		displayKey: "lbl_Promotions"
+		displayKey: "lbl_Promos",
+		className: "promobtn",
+		subMenu: [
+			{
+				displayKey: "lbl_Promotion_Link_1",
+				menuType: defMenuType.LinkNoImg,
+				path: path.promotion.root,
+				displayText2: "100%",
+				displayText3: "WELCOME BONUS"
+			},
+			{
+				displayKey: "lbl_Promotion_Link_2",
+				menuType: defMenuType.LinkNoImg,
+				path: path.promotion.root,
+				displayText2: "10%",
+				displayText3: "RELOAD BONUS"
+			},
+			{
+				displayKey: "lbl_Promotion_Link_3",
+				menuType: defMenuType.LinkNoImg,
+				path: path.promotion.root,
+				displayText2: "100%",
+				displayText3: "WELCOME BONUS"
+			},
+			{
+				displayKey: "lbl_Promotion_Link_4",
+				menuType: defMenuType.LinkNoImg,
+				path: path.promotion.root,
+				displayText2: "100%",
+				displayText3: "WELCOME BONUS"
+			}
+		]
+	},
+	tv: {
+		displayKey: "lbl_TV",
+		className: "tvbtn",
+		menuType: defMenuType.Link,
+		path: path.streaming.root,
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.live,
+				period: defEventPeriod.tv
+			})
+		],
+		subMenu: [
+			{
+				displayKey: "lbl_LIVE_SPORT",
+				listNpcImgUrl: "home-livesports.png",
+				listBgImgUrl: "livesportsbg.png",
+				menuType: defMenuType.Link,
+				path: path.streaming.root
+			},
+			{
+				displayKey: "lbl_MOVIE_TV",
+				listNpcImgUrl: "home-movie.png",
+				listBgImgUrl: "moviebg.png",
+				menuType: defMenuType.DirectUrl,
+				path: "https://nova88tv.com/"
+			}
+		]
+	},
+	vip: {
+		displayKey: "lbl_Vip",
+		path: path.vip.root,
+		menuType: defMenuType.Link
 	},
 	ranking: {
-		path: path.leaderBoard.root,
 		displayKey: "lbl_Ranking",
-		className: "live"
+		path: path.leaderBoard.root
 	}
-};
-
-export const defSubListClassName = {
-	sports: "sportsList",
-	eSports: "eSportsList",
-	casino: "casinoList",
-	liveCasino: "livecasinoList",
-	lottery: "gameList",
-	fishing: "fishList"
 };

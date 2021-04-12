@@ -23,7 +23,7 @@ const usePopBox = () => {
 			icon: "icon-bell",
 			btnBar: (
 				<div className="btnGroup">
-					<button className="btn-cancel" onClick={closePopBox}>
+					<button className="btn-check" onClick={closePopBox}>
 						{t("lbl_Close")}
 					</button>
 				</div>

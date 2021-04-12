@@ -82,10 +82,6 @@ const defPlatfrom = [
 		...productList.liveCasino_WM,
 		imgName: "wm"
 	},
-	// {
-	// 	...productList.cockFighting,
-	// 	imgName: "awc"
-	// },
 	{
 		...productList.casino_CQ9,
 		path: path.casino.root,
@@ -102,16 +98,10 @@ const defPlatfrom = [
 		...productList.poker,
 		imgName: "1g"
 	},
-	,
 	{
 		...productList.liveCasino_N2,
 		imgName: "n2"
 	}
-	// {
-	// 	...productList.kiss918,
-	// 	path: path["918kiss"].root,
-	// 	imgName:'kiss'
-	// }
 ];
 
 const useHandleLogoList = () => {

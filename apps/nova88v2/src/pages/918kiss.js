@@ -10,7 +10,7 @@ export default () => {
 			<Layout showFooter={true}>
 				<main>
 					<Kiss918 />
-					<SideBarQuickLink />
+					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>

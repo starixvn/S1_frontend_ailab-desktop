@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { api_promotion_GetPromotionListV2 } from "../../../service/api/promotion";
+import { isExpiry } from "../promotion.common";
 
-export default ({ userInfo, isMountedRef, errorPopBox }) => {
-	const [promoList, setPromoList] = useState([]);
+export default ({
+	userInfo,
+	isMountedRef,
+	errorPopBox,
+	filterExpiry = false,
+	autoGetData = false
+}) => {
+	const [promoDatas, setPromoList] = useState([]);
 
-	const getPromotionListV2 = async () => {
+	const getPromotionListV2 = useCallback(async () => {
 		await api_promotion_GetPromotionListV2({
 			langId: userInfo.langId
 		}).then(
@@ -25,7 +32,23 @@ export default ({ userInfo, isMountedRef, errorPopBox }) => {
 				errorPopBox();
 			}
 		);
-	};
+	}, [userInfo.langId]);
+
+	useEffect(() => {
+		if (autoGetData) {
+			getPromotionListV2();
+		}
+	}, [getPromotionListV2, autoGetData]);
+
+	const promoList = filterExpiry
+		? promoDatas.filter(
+				p =>
+					!isExpiry({
+						...p,
+						isLogin: userInfo.isLogin
+					})
+		  )
+		: promoDatas;
 
 	return {
 		promoList,

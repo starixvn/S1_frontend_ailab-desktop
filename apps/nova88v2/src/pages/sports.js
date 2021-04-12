@@ -35,7 +35,7 @@ const Content = () => {
 					)}
 				/>
 			</section>
-			<SideBarQuickLink />
+			{/* <SideBarQuickLink /> */}
 		</main>
 	);
 };
