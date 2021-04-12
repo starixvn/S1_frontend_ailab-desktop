@@ -82,7 +82,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl, isRoot }) => {
 					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
 					{isRoot && imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
 
-					<span className={s.icon}>
+					<span>
 						<p>{displayText}</p>
 					</span>
 				</Link>
@@ -96,7 +96,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl, isRoot }) => {
 				onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
 				{isRoot && imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
 
-				<span className={s.icon}>
+				<span>
 					<p>{displayText}</p>
 				</span>
 			</button>
