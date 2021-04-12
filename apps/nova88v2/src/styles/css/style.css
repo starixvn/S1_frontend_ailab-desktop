@@ -1162,7 +1162,7 @@ header input:focus-within {
 }
 
 .header > div.function .forgot {
-  width: 100%;
+  width: calc(100% - 20px);
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
