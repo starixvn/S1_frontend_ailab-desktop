@@ -1,10 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
-import { defMenuLinks, defMenuType } from "./header.menu.def";
-import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.png";
-import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
-import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
+import { defMenuLinks, defMenuType, defImgSourceType } from "./header.menu.def";
+// import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.png";
+// import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
+// import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
+import config from "../../config";
 
 const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	const displayText = subMenuItem.displayText
@@ -15,6 +16,10 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	const displayText3 = subMenuItem.displayText3 ?? null;
 
 	let params = null;
+
+	const SubMenuListBGLeftImg = `${config.bannerImgUrl}/img/subMenu-Wrapper-ListBG-left.png`;
+	const SubMenuListBGRightImg = `${config.bannerImgUrl}/img/subMenu-Wrapper-ListBG-right.png`;
+	const SubMenuListBGCenterImg = `${config.bannerImgUrl}/img/subMenu-Wrapper-ListBG-center.png`;
 
 	if (subMenuItem.parameter) {
 		params = Object.keys(subMenuItem.parameter).map(keys => {
@@ -57,13 +62,19 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 					alt="ListBG-center"
 					src={SubMenuListBGCenterImg}
 				/>
-				<ImgsRender
+				<ImgsNpcRender
 					className="List-npc"
 					listImgUrl={subMenuItem.listNpcImgUrl}
+					imgFromBannerImgUrl={
+						subMenuItem.imgSource === defImgSourceType.bannerImgUrl
+					}
 				/>
-				<ImgsRender
+				<ImgsBgRender
 					className="List-bg"
 					listImgUrl={subMenuItem.listBgImgUrl}
+					imgFromBannerImgUrl={
+						subMenuItem.imgSource === defImgSourceType.bannerImgUrl
+					}
 				/>
 				<span>{displayText}</span>
 			</Link>
@@ -72,7 +83,7 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 
 	if (subMenuItem.menuType === defMenuType.DirectUrl) {
 		return (
-			<a href={pathLink} target="_blank">
+			<a href={pathLink} target="_blank" rel="noreferrer">
 				<img
 					className="ListBG-left"
 					alt="ListBG-left"
@@ -88,11 +99,11 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 					alt="ListBG-center"
 					src={SubMenuListBGCenterImg}
 				/>
-				<ImgsRender
+				<ImgsNpcRender
 					className="List-npc"
 					listImgUrl={subMenuItem.listNpcImgUrl}
 				/>
-				<ImgsRender
+				<ImgsBgRender
 					className="List-bg"
 					listImgUrl={subMenuItem.listBgImgUrl}
 				/>
@@ -138,20 +149,43 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 				alt="ListBG-center"
 				src={SubMenuListBGCenterImg}
 			/>
-			<ImgsRender
+			<ImgsNpcRender
 				className="List-npc"
 				listImgUrl={subMenuItem.listNpcImgUrl}
+				imgFromBannerImgUrl={
+					subMenuItem.imgSource === defImgSourceType.bannerImgUrl
+				}
 			/>
-			<ImgsRender
+			<ImgsBgRender
 				className="List-bg"
 				listImgUrl={subMenuItem.listBgImgUrl}
+				imgFromBannerImgUrl={
+					subMenuItem.imgSource === defImgSourceType.bannerImgUrl
+				}
 			/>
 			<span>{displayText}</span>
 		</button>
 	);
 };
 
-const ImgsRender = ({ listImgUrl, className }) => {
+const ImgsNpcRender = ({ listImgUrl, className, imgFromBannerImgUrl }) => {
+	if (typeof listImgUrl === "string" || listImgUrl instanceof String)
+		return (
+			<img
+				className={className}
+				alt="listImgUrl"
+				src={
+					imgFromBannerImgUrl
+						? `${config.bannerImgUrl}/img/${listImgUrl}`
+						: `../../styles/img/${listImgUrl}`
+				}
+			/>
+		);
+
+	return null;
+};
+
+const ImgsBgRender = ({ listImgUrl, className }) => {
 	if (typeof listImgUrl === "string" || listImgUrl instanceof String)
 		return (
 			<img
@@ -182,7 +216,14 @@ SubMenuMultiple.propTypes = {
 	menuKey: PropTypes.string.isRequired
 };
 
-ImgsRender.propTypes = {
+ImgsNpcRender.propTypes = {
+	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+		.isRequired,
+	className: PropTypes.string.isRequired,
+	imgFromBannerImgUrl: PropTypes.bool.isRequired
+};
+
+ImgsBgRender.propTypes = {
 	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 		.isRequired,
 	className: PropTypes.string.isRequired

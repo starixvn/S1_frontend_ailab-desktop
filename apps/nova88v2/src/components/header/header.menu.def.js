@@ -28,6 +28,10 @@ export const defSubListClassName = {
 	ranking: "rankingList"
 };
 
+export const defImgSourceType = {
+	bannerImgUrl: "bannerImgUrl"
+};
+
 export const defMenuLinks = {
 	home: {
 		path: path.home.root,
@@ -186,6 +190,7 @@ export const defMenuLinks = {
 				icon: "icon icon-PP",
 				displayText: "PP",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotPP.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_PP },
@@ -195,6 +200,7 @@ export const defMenuLinks = {
 				icon: "icon icon-ICG",
 				displayText: "ICG",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotICG.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_ICG },
@@ -204,6 +210,7 @@ export const defMenuLinks = {
 				icon: "icon icon-JOKER",
 				displayText: "JOKER",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotJOKER.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_JOKER },
@@ -213,6 +220,7 @@ export const defMenuLinks = {
 				icon: "icon icon-cq9",
 				displayText: "CQ9",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotCQ9.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_CQ9 },
@@ -222,6 +230,7 @@ export const defMenuLinks = {
 				icon: "icon icon-GPI",
 				displayText: "GPI",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotGPI.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_GPI },
@@ -231,6 +240,7 @@ export const defMenuLinks = {
 				icon: "icon icon-YGG",
 				displayText: "YGG",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotYGG.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_YGG },
@@ -240,6 +250,7 @@ export const defMenuLinks = {
 				icon: "icon icon-SG",
 				displayText: "SG",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotSG.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_SG },
@@ -249,6 +260,7 @@ export const defMenuLinks = {
 				icon: "icon icon-PG",
 				displayText: "PG",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotPG.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_PG },
@@ -258,6 +270,7 @@ export const defMenuLinks = {
 				icon: "icon icon-OW",
 				displayText: "OW",
 				menuType: defMenuType.entPage,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotOW.png",
 				listBgImgUrl: "slotListHover.png",
 				...productList.casino_OW
@@ -272,6 +285,7 @@ export const defMenuLinks = {
 			{
 				...productList.liveCasino_N2,
 				displayText: "N2Live",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-n2.png",
 				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
@@ -287,6 +301,7 @@ export const defMenuLinks = {
 				className: "liveWM",
 				icon: "icon icon-WM",
 				displayText: "WM",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-WM.png",
 				listBgImgUrl: ["wmBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
@@ -296,6 +311,7 @@ export const defMenuLinks = {
 				className: "liveALL",
 				icon: "icon icon-AB",
 				displayText: "Allbet",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-ALL.png",
 				listBgImgUrl: ["allBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
@@ -305,6 +321,7 @@ export const defMenuLinks = {
 				className: "liveEB",
 				icon: "icon icon-EB",
 				displayText: "eBET",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-EB.png",
 				listBgImgUrl: ["ebBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
@@ -314,6 +331,7 @@ export const defMenuLinks = {
 				className: "liveSA",
 				icon: "icon icon-SA",
 				displayText: "SA",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-SA.png",
 				listBgImgUrl: ["saBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
@@ -323,6 +341,7 @@ export const defMenuLinks = {
 				className: "liveAE",
 				icon: "icon icon-AE",
 				displayText: "AE",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-AE.png",
 				listBgImgUrl: ["aeBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
@@ -332,6 +351,7 @@ export const defMenuLinks = {
 				className: "livePP",
 				icon: "icon icon-PP",
 				displayText: "PP",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-PP.png",
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
@@ -341,6 +361,7 @@ export const defMenuLinks = {
 				className: "liveDG",
 				icon: "icon icon-DG",
 				displayText: "DG",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-DG.png",
 				listBgImgUrl: ["dgBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
@@ -350,6 +371,7 @@ export const defMenuLinks = {
 				className: "liveAG",
 				icon: "icon icon-AG",
 				displayText: "AG",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-AG.png",
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
@@ -368,6 +390,7 @@ export const defMenuLinks = {
 			{
 				...productList.CQ9_Paradise,
 				className: "fsgw",
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "paradise.png",
 				listBgImgUrl: "fishListHover.png",
 				displayKey: "lbl_Paradise",
@@ -388,6 +411,7 @@ export const defMenuLinks = {
 				className: "fsdf",
 				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
 				menuType: defMenuType.entPage,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "fishICG-DB.png",
 				listBgImgUrl: "fishListHover.png",
 				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
@@ -417,6 +441,7 @@ export const defMenuLinks = {
 				className: "fgg",
 				displayKey: "lbl_FishingGG",
 				menuType: defMenuType.entPage,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "fishGG.png",
 				listBgImgUrl: "fishListHover.png",
 				parameter: { ...productList.fishing }
@@ -435,6 +460,7 @@ export const defMenuLinks = {
 				className: "fsgw",
 				displayKey: "lbl_FishingSG2",
 				menuType: defMenuType.entPage,
+				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "fishSGwar.png",
 				listBgImgUrl: "fishListHover.png",
 				parameter: { ...productList.fishing_SGW }
