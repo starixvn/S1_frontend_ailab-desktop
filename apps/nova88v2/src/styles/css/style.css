@@ -241,6 +241,94 @@ header input:focus-within {
   font-size: 24px;
 }
 
+.header > div.menu > div > a div.icon-new:before, .header > div.menu > div > button div.icon-new:before {
+  background: #f77900;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  -webkit-animation: none;
+          animation: none;
+  width: 45px;
+  padding: 2px 0 3px 5px;
+  color: white;
+  font-size: 13px;
+}
+
+.header > div.menu > div > a div.icon-new:after, .header > div.menu > div > button div.icon-new:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 18px 10px;
+  border-color: transparent transparent transparent #f77900;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 50px;
+}
+
+.header > div.menu > div > a div.live:before, .header > div.menu > div > button div.live:before {
+  content: 'Live';
+}
+
+.header > div.menu > div > a div.live i, .header > div.menu > div > button div.live i {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  -webkit-animation: livePoint 1s 1s infinite linear;
+          animation: livePoint 1s 1s infinite linear;
+}
+
+@-webkit-keyframes livePoint {
+  from {
+    background: white;
+  }
+  to {
+    background: #FC0404;
+  }
+}
+
+@keyframes livePoint {
+  from {
+    background: white;
+  }
+  to {
+    background: #FC0404;
+  }
+}
+
+.header > div.menu > div > a div.live:before, .header > div.menu > div > button div.live:before {
+  background: #05BC0B;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  -webkit-animation: none;
+          animation: none;
+  width: 36px;
+  padding-left: 16px;
+  padding-right: 0;
+}
+
+.header > div.menu > div > a div.live:after, .header > div.menu > div > button div.live:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 16px 10px;
+  border-color: transparent transparent transparent #05BC0B;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 52px;
+}
+
 .header > div.menu .subMenu-Wrapper-new {
   position: absolute;
   width: 100%;
@@ -1069,6 +1157,20 @@ header input:focus-within {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   z-index: 3;
+  width: 552px;
+}
+
+.header > div.function .forgot {
+  width: 100%;
+  margin-top: -25px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.header > div.function .forgot span {
+  text-decoration: underline;
+  margin-left: 4px;
 }
 
 .header > div.function > a:nth-child(-n+5):not(.login):not(.join) {
@@ -1479,7 +1581,8 @@ header input:focus-within {
 }
 
 main {
-  padding-top: 135px;
+  padding-top: 145px;
+  min-width: 1400px;
 }
 
 main section {
@@ -1487,8 +1590,8 @@ main section {
   display: -ms-flexbox;
   display: flex;
   margin: auto;
-  padding: 80px 20px 0;
-  max-width: calc(1600px - 40px);
+  padding: 35px 0 0;
+  max-width: 1400px;
 }
 
 main section.inside {
@@ -1811,8 +1914,229 @@ main .gamelistother > a:hover > img {
 }
 
 footer {
+  background: #112240;
+  min-width: 1400px;
+}
+
+footer .platform, footer .copyright, footer .footerList, footer .license, footer .sfp {
+  background: transparent;
+  width: 1400px;
+  margin: auto;
+  border-bottom: 1px solid #7591C1;
+  padding: 25px 0;
+}
+
+footer .copyright {
+  font-size: 14px;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .copyright a, footer .copyright button {
+  border-right: 1px solid #7591C1;
+  padding: 0 10px;
+  font-weight: bold;
+  color: white;
+}
+
+footer .copyright a:nth-child(1), footer .copyright button:nth-child(1) {
+  padding-left: 0;
+}
+
+footer .copyright span {
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 auto auto;
+}
+
+footer .copyright span span {
+  border-radius: 25px;
+  border: 1px solid white;
+  padding: 1px;
+  width: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+footer .platform > div {
   width: 100%;
-  background: #212121;
+}
+
+footer .license {
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: url(../img/licensebg.png) no-repeat bottom right;
+  margin-top: 20px;
+}
+
+footer .license .title {
+  color: white;
+}
+
+footer .license > div:nth-child(1) {
+  width: 560px;
+  padding-right: 90px;
+}
+
+footer .license > div:nth-child(1) img {
+  width: auto;
+  margin: 20px 0;
+}
+
+footer .license > div:nth-child(2) {
+  width: 730px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+footer .license > div:nth-child(2) iframe {
+  margin-right: 30px;
+}
+
+footer .license > div:nth-child(2) div {
+  text-align: center;
+}
+
+footer .license > div:nth-child(2) div:nth-child(1) {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+footer .license > div:nth-child(2) div span {
+  font-weight: bold;
+}
+
+footer .license > div:nth-child(2) div img {
+  width: 65px;
+  margin: auto;
+}
+
+footer .license > div .star {
+  width: auto;
+  position: absolute;
+  right: 0;
+  bottom: -25px;
+}
+
+footer .sfp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 0;
+}
+
+footer .sfp .title {
+  color: white;
+}
+
+footer .sfp > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  margin-right: 150px;
+}
+
+footer .sfp > div > div img {
+  width: auto;
+  margin-right: 10px;
+}
+
+footer .footerList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  color: #BFCCE2;
+  padding: 25px 0 130px;
+}
+
+footer .footerList > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 35px;
+  text-align: center;
+}
+
+footer .footerList > div:last-child {
+  margin-right: 0;
+}
+
+footer .footerList > div > a, footer .footerList > div > button {
+  color: #F1D5B6;
+  display: block;
+  margin-bottom: 30px;
+}
+
+footer .footerList > div > a ~ div, footer .footerList > div > button ~ div {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+footer .footerList > div > div .title {
+  margin: 15px 0;
+  color: #BFCCE2;
+}
+
+footer .footerList > div > div.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 76px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 16px;
+  color: white;
+}
+
+footer .footerList > div > div.title + div {
+  margin: 10px 0;
+  height: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .footerList > div > div.title:before {
+  font-size: 56px;
+  font-weight: normal;
+  color: #F1D5B6;
+}
+
+footer .footerList > div > div > div {
+  text-align: left;
 }
 
 .webmap {
@@ -2756,14 +3080,14 @@ input[type="file"] {
 }
 
 #Marquee {
-  background: #212121;
+  background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
   position: relative;
   overflow: hidden;
 }
 
 #Marquee .marquee-box {
   overflow: hidden;
-  max-width: 1600px;
+  max-width: 1400px;
   height: 40px;
   margin: auto;
   position: relative;
@@ -2776,9 +3100,9 @@ input[type="file"] {
 }
 
 #Marquee .marquee-box.icon:before {
-  width: 20px;
-  color: #1E85EC;
-  background: #212121;
+  width: 90px;
+  color: white;
+  background: url(../img/marqueeboxbg.png) no-repeat left center/auto 100%;
   z-index: 1;
   height: 100%;
   display: -webkit-box;
@@ -2789,6 +3113,7 @@ input[type="file"] {
           align-items: center;
   margin: 0;
   font-size: 28px;
+  content: '';
 }
 
 #Marquee .marquee-box .marquee-run {
@@ -2822,6 +3147,7 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   background: #212121;
+  display: none;
 }
 
 #Marquee .mq-btn button {
@@ -2906,12 +3232,12 @@ input[type="file"] {
 }
 
 #leftMenu {
-  width: 16%;
+  width: 18%;
   margin-right: 2%;
 }
 
 #leftMenu + div {
-  width: 82%;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2922,9 +3248,10 @@ input[type="file"] {
 }
 
 #leftMenu .menuModule {
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   margin-bottom: 10px;
+  background: #F0F7FF;
 }
 
 #leftMenu .menuModule button, #leftMenu .menuModule a {
@@ -2936,14 +3263,20 @@ input[type="file"] {
           align-items: center;
   padding: 10px;
   width: 100%;
-  color: white;
+  color: #5574A7;
   font-size: 14px;
   letter-spacing: 1px;
   text-align: left;
 }
 
+#leftMenu .menuModule button:hover, #leftMenu .menuModule a:hover {
+  color: white;
+}
+
 #leftMenu .menuModule .menuHeader {
-  background: #134DAE;
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2972,7 +3305,7 @@ input[type="file"] {
 }
 
 #leftMenu .menuModule .menuSelect {
-  border-bottom: 1px solid #134DAE;
+  border-bottom: 1px solid white;
   overflow: hidden;
   position: relative;
 }
@@ -2999,7 +3332,9 @@ input[type="file"] {
 }
 
 #leftMenu .menuModule .menuSelect.active {
-  background: #333;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  color: white;
 }
 
 #leftMenu .menuModule .menuSelect:hover:after {
@@ -3020,20 +3355,23 @@ input[type="file"] {
 @-webkit-keyframes menuflash {
   0% {
     left: 35px;
-    background: #333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
     width: 0;
   }
   50% {
     left: 0;
-    background: #333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
     width: 100%;
   }
   53% {
-    background: #1E85EC;
+    background: #5574A7;
   }
   100% {
     left: 0;
-    background: #333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
     width: 100%;
   }
 }
@@ -3041,20 +3379,23 @@ input[type="file"] {
 @keyframes menuflash {
   0% {
     left: 35px;
-    background: #333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
     width: 0;
   }
   50% {
     left: 0;
-    background: #333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
     width: 100%;
   }
   53% {
-    background: #1E85EC;
+    background: #5574A7;
   }
   100% {
     left: 0;
-    background: #333;
+    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
     width: 100%;
   }
 }
@@ -3430,8 +3771,8 @@ input[type="file"] {
 }
 
 .infoModule {
-  border-radius: 15px;
-  background: #333;
+  border-radius: 5px;
+  background: #F0F7FF;
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
@@ -3446,7 +3787,7 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #f77900;
+  background: #5574A7;
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -3456,8 +3797,8 @@ input[type="file"] {
 }
 
 .inside-title {
-  padding: 40px;
-  border-bottom: 1px solid #666;
+  padding: 20px;
+  border-bottom: 1px solid #BFCCE2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3465,6 +3806,7 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
+  color: #5574A7;
 }
 
 .inside-title.icon:before {
@@ -3478,7 +3820,7 @@ input[type="file"] {
 }
 
 .inside-title div {
-  color: #b2b2b2;
+  color: #BFCCE2;
   max-width: 400px;
 }
 
@@ -4233,6 +4575,7 @@ input[type="file"] {
           align-items: center;
   width: 420px;
   margin: auto;
+  padding: 20px;
 }
 
 .Submit.active, .poker.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
@@ -6059,7 +6402,7 @@ input[type="file"] {
 
 .icon-icon32px_deposit .icon-friend {
   position: absolute;
-  right: 40px;
+  right: 20px;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6067,7 +6410,7 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #1E85EC;
+  background: #5574A7;
   padding: 10px;
   border-radius: 5px;
   font-size: 24px;
@@ -6164,6 +6507,11 @@ form {
           flex: 1;
   min-width: auto;
   margin: 0 1px;
+}
+
+.slotList > div .btnGroup button:first-child {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
 }
 
 .slotList > div .brand {
@@ -9995,7 +10343,7 @@ canvas {
 }
 
 .subModuleListColumn {
-  padding: 50px;
+  padding: 20px;
 }
 
 .subModuleListColumn > .subModule {
@@ -10005,7 +10353,7 @@ canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: rgba(33, 33, 33, 0.5);
+  background: #D2E2F9;
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
@@ -10017,6 +10365,10 @@ canvas {
   width: 300px;
 }
 
+.subModuleListColumn > .subModule + .btnGroup + .text-center {
+  color: #5574A7;
+}
+
 .subModuleListColumn > .subModule > .btnGroup {
   margin: 0 0 0 15px;
 }
@@ -10026,7 +10378,7 @@ canvas {
 }
 
 .subModuleListColumn > .subModule .icon-information {
-  color: #1E85EC;
+  color: #5574A7;
   cursor: pointer;
 }
 
@@ -10042,7 +10394,13 @@ canvas {
 }
 
 .subModuleListColumn > .subModule > .subModuleTitle {
-  width: 120px;
+  color: #5574A7;
+  font-weight: bold;
+  width: 130px;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle .txt-blue {
+  color: #f77900;
 }
 
 .subModuleListColumn > .subModule > div {
@@ -10052,6 +10410,7 @@ canvas {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: calc(100% - 157px);
+  color: #5574A7;
 }
 
 .subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
@@ -10103,11 +10462,16 @@ canvas {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: #5574A7;
 }
 
 .subModuleListColumn > .subModule > div > button > div.bank > div:last-child, .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
-  color: #f77900;
-  margin: 10px 0 0;
+  color: white;
+  background: #BFCCE2;
+  margin: 10px auto 0;
+  width: 150px;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
@@ -10126,7 +10490,7 @@ canvas {
 }
 
 .subModuleListColumn > .subModule > div > button > div:first-child:before, .subModuleListColumn > .subModule > div > a > div:first-child:before {
-  color: #1E85EC;
+  color: #5574A7;
   font-size: 48px;
   margin: 0;
 }
@@ -10139,9 +10503,14 @@ canvas {
   color: white;
 }
 
+.subModuleListColumn > .subModule > div > button.active > div.bank > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div.bank > div:first-child, .subModuleListColumn > .subModule > div > a.active > div.bank > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div.bank > div:first-child {
+  color: #f77900;
+  font-weight: bold;
+}
+
 .subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
-  -webkit-box-shadow: 0px 0px 0px 4px #1E85EC inset;
-          box-shadow: 0px 0px 0px 4px #1E85EC inset;
+  -webkit-box-shadow: 0px 0px 0px 4px #f77900 inset;
+          box-shadow: 0px 0px 0px 4px #f77900 inset;
 }
 
 .subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > button:hover > div i, .subModuleListColumn > .subModule > div > a.active > div i, .subModuleListColumn > .subModule > div > a:hover > div i {
@@ -10171,7 +10540,7 @@ canvas {
 }
 
 .subModuleListColumn .inputBox-white + .tip {
-  margin-left: 125px;
+  margin-left: 140px;
 }
 
 .subModuleListColumn .btnGroup.buttonBox {
@@ -10220,21 +10589,30 @@ canvas {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .subModuleListColumn .bankAccount .smallList ul button, .subModuleListColumn .bankAccount .smallList ul a {
-  color: #1E85EC;
+  color: white;
+  background: #5574A7;
+  border-radius: 5px;
+  height: 23px;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li {
   min-width: 130px;
   width: auto;
   margin-right: 5px;
+  color: #5574A7;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
   min-width: 130px;
   width: auto;
+  color: #030c1b;
+  font-weight: bold;
 }
 
 .text-center {
@@ -10300,119 +10678,7 @@ canvas {
   margin: 0;
 }
 
-#header .menu > div > a div.icon-new:before, #header .menu > div > button div.icon-new:before {
-  background: #f77900;
-  border-radius: 0;
-  left: 0;
-  top: 0;
-  right: unset;
-  -webkit-animation: none;
-          animation: none;
-  width: 45px;
-  padding: 2px 0 3px 5px;
-  color: white;
-  font-size: 13px;
-}
-
-#header .menu > div > a div.icon-new:after, #header .menu > div > button div.icon-new:after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 18px 10px;
-  border-color: transparent transparent transparent #f77900;
-  position: absolute;
-  background: transparent;
-  top: 0;
-  left: 50px;
-}
-
-#header .menu > div > a div.live:before, #header .menu > div > button div.live:before {
-  content: 'Live';
-}
-
-#header .menu > div > a div.live i, #header .menu > div > button div.live i {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  width: 6px;
-  height: 6px;
-  border-radius: 6px;
-  -webkit-animation: livePoint 1s 1s infinite linear;
-          animation: livePoint 1s 1s infinite linear;
-}
-
-@-webkit-keyframes livePoint {
-  from {
-    background: white;
-  }
-  to {
-    background: #FC0404;
-  }
-}
-
-@keyframes livePoint {
-  from {
-    background: white;
-  }
-  to {
-    background: #FC0404;
-  }
-}
-
-#header .menu > div > a div.live:before, #header .menu > div > button div.live:before {
-  background: #05BC0B;
-  border-radius: 0;
-  left: 0;
-  top: 0;
-  right: unset;
-  -webkit-animation: none;
-          animation: none;
-  width: 36px;
-  padding-left: 16px;
-  padding-right: 0;
-}
-
-#header .menu > div > a div.live:after, #header .menu > div > button div.live:after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 16px 10px;
-  border-color: transparent transparent transparent #05BC0B;
-  position: absolute;
-  background: transparent;
-  top: 0;
-  left: 52px;
-}
-
-main {
-  padding-top: 145px;
-  min-width: 1400px;
-}
-
-main #Marquee {
-  background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
-}
-
-main #Marquee .marquee-box {
-  max-width: 1400px;
-}
-
-main #Marquee .mq-btn {
-  display: none;
-}
-
-main #Marquee .marquee-box.icon:before {
-  background: url(../img/marqueeboxbg.png) no-repeat left center/auto 100%;
-  content: '';
-  color: white;
-  width: 90px;
-}
-
-main .moduleTitle {
+.moduleTitle {
   background: url(../img/indextitle.png) no-repeat;
   margin: 30px auto 0;
   font-weight: bold;
@@ -10428,27 +10694,27 @@ main .moduleTitle {
   position: relative;
 }
 
-main .moduleTitle > a {
+.moduleTitle > a {
   margin: auto 0 auto auto;
   color: #7591C1;
 }
 
-main .moduleTitle.icon:before {
+.moduleTitle.icon:before {
   margin: 0 10px;
   font-weight: normal;
   font-size: 32px;
 }
 
-main .moduleTitle.icon-upcomingmatches:before, main .moduleTitle.icon-saba:before, main .moduleTitle.icon-film:before, main .moduleTitle.icon-news:before, main .moduleTitle.icon-live_tv:before {
+.moduleTitle.icon-upcomingmatches:before, .moduleTitle.icon-saba:before, .moduleTitle.icon-film:before, .moduleTitle.icon-news:before, .moduleTitle.icon-live_tv:before {
   font-size: 24px;
   margin: 0 14px;
 }
 
-main .moduleTitle.icon-saba {
+.moduleTitle.icon-saba {
   margin-top: 20px;
 }
 
-main .hotGame, main .promos {
+.hotGame, .promos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10457,7 +10723,7 @@ main .hotGame, main .promos {
   width: 1400px;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div, main .promos .swiper-container .swiper-wrapper > div {
+.hotGame .swiper-container .swiper-wrapper > div, .promos .swiper-container .swiper-wrapper > div {
   border-radius: 5px;
   overflow: hidden;
   position: relative;
@@ -10477,7 +10743,7 @@ main .hotGame .swiper-container .swiper-wrapper > div, main .promos .swiper-cont
           justify-content: space-between;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div .title, main .promos .swiper-container .swiper-wrapper > div .title {
+.hotGame .swiper-container .swiper-wrapper > div .title, .promos .swiper-container .swiper-wrapper > div .title {
   color: #5574A7;
   margin: 5px 0;
   padding: 0 10px;
@@ -10490,7 +10756,7 @@ main .hotGame .swiper-container .swiper-wrapper > div .title, main .promos .swip
   white-space: normal;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div > div, main .promos .swiper-container .swiper-wrapper > div > div {
+.hotGame .swiper-container .swiper-wrapper > div > div, .promos .swiper-container .swiper-wrapper > div > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10500,20 +10766,20 @@ main .hotGame .swiper-container .swiper-wrapper > div > div, main .promos .swipe
   text-align: center;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup, main .promos .swiper-container .swiper-wrapper > div > div.btnGroup {
+.hotGame .swiper-container .swiper-wrapper > div > div.btnGroup, .promos .swiper-container .swiper-wrapper > div > div.btnGroup {
   margin: 0 0 10px;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, main .promos .swiper-container .swiper-wrapper > div > div.btnGroup button {
+.hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup a, .promos .swiper-container .swiper-wrapper > div > div.btnGroup button, .promos .swiper-container .swiper-wrapper > div > div.btnGroup a {
   max-width: 120px;
   border-radius: 5px;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div > div > img, main .promos .swiper-container .swiper-wrapper > div > div > img {
+.hotGame .swiper-container .swiper-wrapper > div > div > img, .promos .swiper-container .swiper-wrapper > div > div > img {
   width: 400px;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div {
+.hotGame .swiper-container .swiper-wrapper > div {
   max-width: 260px;
   min-width: 260px;
   background: white;
@@ -10524,7 +10790,7 @@ main .hotGame .swiper-container .swiper-wrapper > div {
       flex-flow: wrap;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div > div {
+.hotGame .swiper-container .swiper-wrapper > div > div {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -10534,13 +10800,13 @@ main .hotGame .swiper-container .swiper-wrapper > div > div {
   text-align: left;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div > div .title {
+.hotGame .swiper-container .swiper-wrapper > div > div .title {
   padding: 0;
   text-align: left;
   margin-bottom: 0;
 }
 
-main .hotGame .swiper-container .swiper-wrapper > div > div + img {
+.hotGame .swiper-container .swiper-wrapper > div > div + img {
   width: 70px;
   height: -webkit-min-content;
   height: -moz-min-content;
@@ -10548,7 +10814,7 @@ main .hotGame .swiper-container .swiper-wrapper > div > div + img {
   margin: auto 10px auto 0;
 }
 
-main .liveVideo, main .newsVideo {
+.liveVideo, .newsVideo {
   width: 1400px;
   margin: auto;
   display: -webkit-box;
@@ -10556,23 +10822,23 @@ main .liveVideo, main .newsVideo {
   display: flex;
 }
 
-main .liveVideo .latestVideo, main .newsVideo .latestVideo {
+.liveVideo .latestVideo, .newsVideo .latestVideo {
   overflow: hidden;
 }
 
-main .liveVideo .latestVideo iframe, main .newsVideo .latestVideo iframe {
+.liveVideo .latestVideo iframe, .newsVideo .latestVideo iframe {
   -webkit-transform: scale(1.08);
           transform: scale(1.08);
   margin-top: -15px;
 }
 
-main .liveVideo .latestVideo, main .liveVideo .newsList, main .newsVideo .latestVideo, main .newsVideo .newsList {
+.liveVideo .latestVideo, .liveVideo .newsList, .newsVideo .latestVideo, .newsVideo .newsList {
   width: 780px;
   float: left;
   margin-right: 15px;
 }
 
-main .liveVideo .latestVideo .title, main .liveVideo .newsList .title, main .newsVideo .latestVideo .title, main .newsVideo .newsList .title {
+.liveVideo .latestVideo .title, .liveVideo .newsList .title, .newsVideo .latestVideo .title, .newsVideo .newsList .title {
   background: url(../img/latestvideotitlebg.png) no-repeat;
   line-height: 65px;
   padding-left: 20px;
@@ -10581,7 +10847,7 @@ main .liveVideo .latestVideo .title, main .liveVideo .newsList .title, main .new
   margin-top: 7px;
 }
 
-main .liveVideo .latestVideo .newsModule, main .liveVideo .newsList .newsModule, main .newsVideo .latestVideo .newsModule, main .newsVideo .newsList .newsModule {
+.liveVideo .latestVideo .newsModule, .liveVideo .newsList .newsModule, .newsVideo .latestVideo .newsModule, .newsVideo .newsList .newsModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10592,19 +10858,19 @@ main .liveVideo .latestVideo .newsModule, main .liveVideo .newsList .newsModule,
   margin: 2px 0;
 }
 
-main .liveVideo .latestVideo .newsModule img, main .liveVideo .newsList .newsModule img, main .newsVideo .latestVideo .newsModule img, main .newsVideo .newsList .newsModule img {
+.liveVideo .latestVideo .newsModule img, .liveVideo .newsList .newsModule img, .newsVideo .latestVideo .newsModule img, .newsVideo .newsList .newsModule img {
   height: auto;
   max-width: 260px;
   max-height: 150px;
 }
 
-main .liveVideo .latestVideo .newsModule .lightblue, main .liveVideo .newsList .newsModule .lightblue, main .newsVideo .latestVideo .newsModule .lightblue, main .newsVideo .newsList .newsModule .lightblue {
+.liveVideo .latestVideo .newsModule .lightblue, .liveVideo .newsList .newsModule .lightblue, .newsVideo .latestVideo .newsModule .lightblue, .newsVideo .newsList .newsModule .lightblue {
   font-weight: normal;
   border-radius: 5px;
   margin: 5px 0;
 }
 
-main .liveVideo .latestVideo .newsModule > div, main .liveVideo .newsList .newsModule > div, main .newsVideo .latestVideo .newsModule > div, main .newsVideo .newsList .newsModule > div {
+.liveVideo .latestVideo .newsModule > div, .liveVideo .newsList .newsModule > div, .newsVideo .latestVideo .newsModule > div, .newsVideo .newsList .newsModule > div {
   width: 100%;
   padding: 5px 10px;
   display: -webkit-box;
@@ -10619,7 +10885,7 @@ main .liveVideo .latestVideo .newsModule > div, main .liveVideo .newsList .newsM
           justify-content: space-between;
 }
 
-main .liveVideo .latestVideo .newsModule > div > div, main .liveVideo .newsList .newsModule > div > div, main .newsVideo .latestVideo .newsModule > div > div, main .newsVideo .newsList .newsModule > div > div {
+.liveVideo .latestVideo .newsModule > div > div, .liveVideo .newsList .newsModule > div > div, .newsVideo .latestVideo .newsModule > div > div, .newsVideo .newsList .newsModule > div > div {
   font-size: 13px;
   font-weight: bold;
   overflow: hidden;
@@ -10631,39 +10897,39 @@ main .liveVideo .latestVideo .newsModule > div > div, main .liveVideo .newsList 
   margin: 0 0 3px;
 }
 
-main .liveVideo .latestVideo .newsModule > div > div:nth-child(1), main .liveVideo .newsList .newsModule > div > div:nth-child(1), main .newsVideo .latestVideo .newsModule > div > div:nth-child(1), main .newsVideo .newsList .newsModule > div > div:nth-child(1) {
+.liveVideo .latestVideo .newsModule > div > div:nth-child(1), .liveVideo .newsList .newsModule > div > div:nth-child(1), .newsVideo .latestVideo .newsModule > div > div:nth-child(1), .newsVideo .newsList .newsModule > div > div:nth-child(1) {
   color: #CDAE8E;
 }
 
-main .liveVideo .latestVideo .newsModule > div > div:nth-child(2), main .liveVideo .newsList .newsModule > div > div:nth-child(2), main .newsVideo .latestVideo .newsModule > div > div:nth-child(2), main .newsVideo .newsList .newsModule > div > div:nth-child(2) {
+.liveVideo .latestVideo .newsModule > div > div:nth-child(2), .liveVideo .newsList .newsModule > div > div:nth-child(2), .newsVideo .latestVideo .newsModule > div > div:nth-child(2), .newsVideo .newsList .newsModule > div > div:nth-child(2) {
   color: #113158;
 }
 
-main .liveVideo .latestVideo .newsModule > div > div:nth-child(3), main .liveVideo .newsList .newsModule > div > div:nth-child(3), main .newsVideo .latestVideo .newsModule > div > div:nth-child(3), main .newsVideo .newsList .newsModule > div > div:nth-child(3) {
+.liveVideo .latestVideo .newsModule > div > div:nth-child(3), .liveVideo .newsList .newsModule > div > div:nth-child(3), .newsVideo .latestVideo .newsModule > div > div:nth-child(3), .newsVideo .newsList .newsModule > div > div:nth-child(3) {
   font-weight: normal;
 }
 
-main .liveVideo .latestVideo .newsModule > div .btnGroup, main .liveVideo .newsList .newsModule > div .btnGroup, main .newsVideo .latestVideo .newsModule > div .btnGroup, main .newsVideo .newsList .newsModule > div .btnGroup {
+.liveVideo .latestVideo .newsModule > div .btnGroup, .liveVideo .newsList .newsModule > div .btnGroup, .newsVideo .latestVideo .newsModule > div .btnGroup, .newsVideo .newsList .newsModule > div .btnGroup {
   display: unset;
   margin: 0;
 }
 
-main .liveVideo .latestVideo .newsBorder, main .liveVideo .newsList .newsBorder, main .newsVideo .latestVideo .newsBorder, main .newsVideo .newsList .newsBorder {
+.liveVideo .latestVideo .newsBorder, .liveVideo .newsList .newsBorder, .newsVideo .latestVideo .newsBorder, .newsVideo .newsList .newsBorder {
   height: 1px;
   background: #5574A7;
   margin: 10px 0;
 }
 
-main .liveVideo .latestVideo + div, main .liveVideo .newsList + div, main .newsVideo .latestVideo + div, main .newsVideo .newsList + div {
+.liveVideo .latestVideo + div, .liveVideo .newsList + div, .newsVideo .latestVideo + div, .newsVideo .newsList + div {
   width: 605px;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches, main .liveVideo .latestVideo + div .liveTv, main .liveVideo .newsList + div .upcomingmatches, main .liveVideo .newsList + div .liveTv, main .newsVideo .latestVideo + div .upcomingmatches, main .newsVideo .latestVideo + div .liveTv, main .newsVideo .newsList + div .upcomingmatches, main .newsVideo .newsList + div .liveTv {
+.liveVideo .latestVideo + div .upcomingmatches, .liveVideo .latestVideo + div .liveTv, .liveVideo .newsList + div .upcomingmatches, .liveVideo .newsList + div .liveTv, .newsVideo .latestVideo + div .upcomingmatches, .newsVideo .latestVideo + div .liveTv, .newsVideo .newsList + div .upcomingmatches, .newsVideo .newsList + div .liveTv {
   background: url(../img/upcomingmatchesbg.jpg) no-repeat top center/100% auto;
   height: 180px;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team, main .liveVideo .latestVideo + div .liveTv .team, main .liveVideo .newsList + div .upcomingmatches .team, main .liveVideo .newsList + div .liveTv .team, main .newsVideo .latestVideo + div .upcomingmatches .team, main .newsVideo .latestVideo + div .liveTv .team, main .newsVideo .newsList + div .upcomingmatches .team, main .newsVideo .newsList + div .liveTv .team {
+.liveVideo .latestVideo + div .upcomingmatches .team, .liveVideo .latestVideo + div .liveTv .team, .liveVideo .newsList + div .upcomingmatches .team, .liveVideo .newsList + div .liveTv .team, .newsVideo .latestVideo + div .upcomingmatches .team, .newsVideo .latestVideo + div .liveTv .team, .newsVideo .newsList + div .upcomingmatches .team, .newsVideo .newsList + div .liveTv .team {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10677,7 +10943,7 @@ main .liveVideo .latestVideo + div .upcomingmatches .team, main .liveVideo .late
           justify-content: space-between;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team > div, main .liveVideo .latestVideo + div .liveTv .team > div, main .liveVideo .newsList + div .upcomingmatches .team > div, main .liveVideo .newsList + div .liveTv .team > div, main .newsVideo .latestVideo + div .upcomingmatches .team > div, main .newsVideo .latestVideo + div .liveTv .team > div, main .newsVideo .newsList + div .upcomingmatches .team > div, main .newsVideo .newsList + div .liveTv .team > div {
+.liveVideo .latestVideo + div .upcomingmatches .team > div, .liveVideo .latestVideo + div .liveTv .team > div, .liveVideo .newsList + div .upcomingmatches .team > div, .liveVideo .newsList + div .liveTv .team > div, .newsVideo .latestVideo + div .upcomingmatches .team > div, .newsVideo .latestVideo + div .liveTv .team > div, .newsVideo .newsList + div .upcomingmatches .team > div, .newsVideo .newsList + div .liveTv .team > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10687,19 +10953,19 @@ main .liveVideo .latestVideo + div .upcomingmatches .team > div, main .liveVideo
   font-weight: bold;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, main .liveVideo .latestVideo + div .liveTv .team > div:first-child, main .liveVideo .newsList + div .upcomingmatches .team > div:first-child, main .liveVideo .newsList + div .liveTv .team > div:first-child, main .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, main .newsVideo .latestVideo + div .liveTv .team > div:first-child, main .newsVideo .newsList + div .upcomingmatches .team > div:first-child, main .newsVideo .newsList + div .liveTv .team > div:first-child {
+.liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, .liveVideo .latestVideo + div .liveTv .team > div:first-child, .liveVideo .newsList + div .upcomingmatches .team > div:first-child, .liveVideo .newsList + div .liveTv .team > div:first-child, .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, .newsVideo .latestVideo + div .liveTv .team > div:first-child, .newsVideo .newsList + div .upcomingmatches .team > div:first-child, .newsVideo .newsList + div .liveTv .team > div:first-child {
   background: url(../img/upcomingmatchestitle.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, main .liveVideo .latestVideo + div .liveTv .team > div:last-child, main .liveVideo .newsList + div .upcomingmatches .team > div:last-child, main .liveVideo .newsList + div .liveTv .team > div:last-child, main .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, main .newsVideo .latestVideo + div .liveTv .team > div:last-child, main .newsVideo .newsList + div .upcomingmatches .team > div:last-child, main .newsVideo .newsList + div .liveTv .team > div:last-child {
+.liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, .liveVideo .latestVideo + div .liveTv .team > div:last-child, .liveVideo .newsList + div .upcomingmatches .team > div:last-child, .liveVideo .newsList + div .liveTv .team > div:last-child, .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, .newsVideo .latestVideo + div .liveTv .team > div:last-child, .newsVideo .newsList + div .upcomingmatches .team > div:last-child, .newsVideo .newsList + div .liveTv .team > div:last-child {
   background: url(../img/upcomingmatchestitledown.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup), main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) {
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup), .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -10718,16 +10984,16 @@ main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGr
   height: 120px;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
   text-align: left;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
   width: 45px;
   margin: 35px auto 5px;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup, main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup, main .liveVideo .newsList + div .liveTv .team > div > .btnGroup, main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup, main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup, main .newsVideo .newsList + div .liveTv .team > div > .btnGroup {
+.liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup, .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup, .liveVideo .newsList + div .liveTv .team > div > .btnGroup, .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup, .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup, .newsVideo .newsList + div .liveTv .team > div > .btnGroup {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
@@ -10738,7 +11004,7 @@ main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, mai
   height: 100%;
 }
 
-main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button, main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, main .liveVideo .newsList + div .liveTv .team > div > .btnGroup button, main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button, main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, main .newsVideo .newsList + div .liveTv .team > div > .btnGroup button {
+.liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button, .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, .liveVideo .newsList + div .liveTv .team > div > .btnGroup button, .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button, .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, .newsVideo .newsList + div .liveTv .team > div > .btnGroup button {
   border-radius: 5px;
   padding: 2px 5px;
   min-width: -webkit-max-content;
@@ -10747,7 +11013,7 @@ main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup butt
   margin-bottom: 10px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox, main .liveVideo .newsList + div .liveTvBox, main .newsVideo .latestVideo + div .liveTvBox, main .newsVideo .newsList + div .liveTvBox {
+.liveVideo .latestVideo + div .liveTvBox, .liveVideo .newsList + div .liveTvBox, .newsVideo .latestVideo + div .liveTvBox, .newsVideo .newsList + div .liveTvBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10755,7 +11021,7 @@ main .liveVideo .latestVideo + div .liveTvBox, main .liveVideo .newsList + div .
   margin-top: 5px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, main .liveVideo .newsList + div .liveTvBox .liveTvTag, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag, main .newsVideo .newsList + div .liveTvBox .liveTvTag {
+.liveVideo .latestVideo + div .liveTvBox .liveTvTag, .liveVideo .newsList + div .liveTvBox .liveTvTag, .newsVideo .latestVideo + div .liveTvBox .liveTvTag, .newsVideo .newsList + div .liveTvBox .liveTvTag {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10767,7 +11033,7 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, main .liveVideo .newsL
   margin-right: 5px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, main .liveVideo .newsList + div .liveTvBox .liveTvTag button, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, main .newsVideo .newsList + div .liveTvBox .liveTvTag button {
+.liveVideo .latestVideo + div .liveTvBox .liveTvTag button, .liveVideo .newsList + div .liveTvBox .liveTvTag button, .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, .newsVideo .newsList + div .liveTvBox .liveTvTag button {
   background: -webkit-gradient(linear, left top, left bottom, from(#f4f7fb), color-stop(20%, #aec3e2), color-stop(70%, #e2eaf4), to(white));
   background: linear-gradient(to bottom, #f4f7fb, #aec3e2 20%, #e2eaf4 70%, white);
   border-radius: 5px;
@@ -10790,19 +11056,19 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, main .liveVideo
   line-height: 32px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, main .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, main .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
+.liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
   font-weight: normal;
   font-size: 24px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
+.liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   color: white;
   border: 1px solid #CDAE8E;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active::after, main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active::after {
+.liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, .liveVideo .newsList + div .liveTvBox .liveTvTag button.active::after, .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, .newsVideo .newsList + div .liveTvBox .liveTvTag button.active::after {
   content: "";
   width: 0;
   height: 0;
@@ -10813,7 +11079,7 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, m
   right: -8px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv, main .liveVideo .newsList + div .liveTvBox .liveTv, main .newsVideo .latestVideo + div .liveTvBox .liveTv, main .newsVideo .newsList + div .liveTvBox .liveTv {
+.liveVideo .latestVideo + div .liveTvBox .liveTv, .liveVideo .newsList + div .liveTvBox .liveTv, .newsVideo .latestVideo + div .liveTvBox .liveTv, .newsVideo .newsList + div .liveTvBox .liveTv {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   height: auto;
@@ -10824,31 +11090,31 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTv, main .liveVideo .newsList
   display: none;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv.active, main .liveVideo .newsList + div .liveTvBox .liveTv.active, main .newsVideo .latestVideo + div .liveTvBox .liveTv.active, main .newsVideo .newsList + div .liveTvBox .liveTv.active {
+.liveVideo .latestVideo + div .liveTvBox .liveTv.active, .liveVideo .newsList + div .liveTvBox .liveTv.active, .newsVideo .latestVideo + div .liveTvBox .liveTv.active, .newsVideo .newsList + div .liveTvBox .liveTv.active {
   display: block;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div, main .liveVideo .newsList + div .liveTvBox .liveTv > div, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div, main .newsVideo .newsList + div .liveTvBox .liveTv > div {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div, .liveVideo .newsList + div .liveTvBox .liveTv > div, .newsVideo .latestVideo + div .liveTvBox .liveTv > div, .newsVideo .newsList + div .liveTvBox .liveTv > div {
   overflow-y: auto;
   height: 100%;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar {
   width: 8px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track {
   background: #B18E6A;
   border-radius: 8px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb {
   background: -webkit-gradient(linear, left top, right top, from(#435F8B), to(#6383B9));
   background: linear-gradient(to right, #435F8B, #6383B9);
   border-radius: 8px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule {
   background: white;
   height: 70px;
   border-radius: 5px;
@@ -10858,7 +11124,7 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, main 
   margin-right: 5px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
   height: calc(100% - 7px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10875,28 +11141,28 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, 
           justify-content: center;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before {
   font-size: 60px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
   background: url(../img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
   color: red;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time {
   color: red;
   font-weight: bold;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span {
   display: unset;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10914,7 +11180,7 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .tit
   line-height: 20px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
   position: absolute;
   left: 0;
   top: 1px;
@@ -10923,7 +11189,7 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .tit
   font-size: 18px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10935,7 +11201,7 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveT
   line-height: 20px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -10946,26 +11212,26 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveT
   max-width: 131px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
   text-align: left;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title {
   font-size: 18px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3) {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3) {
   text-align: right;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
   color: #5574A7;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
   background: #7591C1;
   border-radius: 5px;
   color: white;
@@ -10975,248 +11241,22 @@ main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveT
   font-size: 12px;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2) {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2) {
   font-weight: bold;
 }
 
-main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
+.liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
 }
 
-main .liveVideo .matches, main .newsVideo .matches {
+.liveVideo .matches, .newsVideo .matches {
   height: 265px;
   overflow: hidden;
 }
 
-main .liveVideo .matches iframe, main .newsVideo .matches iframe {
+.liveVideo .matches iframe, .newsVideo .matches iframe {
   margin-top: -102px;
   height: calc(100% + 102px);
-}
-
-#footer {
-  background: #112240;
-  min-width: 1400px;
-}
-
-#footer .platform, #footer .copyright, #footer .footerList, #footer .license, #footer .sfp {
-  background: transparent;
-  width: 1400px;
-  margin: auto;
-  border-bottom: 1px solid #7591C1;
-  padding: 25px 0;
-}
-
-#footer .copyright {
-  font-size: 14px;
-  text-align: left;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#footer .copyright a, #footer .copyright button {
-  border-right: 1px solid #7591C1;
-  padding: 0 10px;
-  font-weight: bold;
-  color: white;
-}
-
-#footer .copyright a:nth-child(1), #footer .copyright button:nth-child(1) {
-  padding-left: 0;
-}
-
-#footer .copyright span {
-  float: right;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0 0 auto auto;
-}
-
-#footer .copyright span span {
-  border-radius: 25px;
-  border: 1px solid white;
-  padding: 1px;
-  width: 25px;
-  line-height: 25px;
-  font-size: 12px;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
-}
-
-#footer .platform > div {
-  width: 100%;
-}
-
-#footer .license {
-  font-size: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: url(../img/licensebg.png) no-repeat bottom right;
-  margin-top: 20px;
-}
-
-#footer .license .title {
-  color: white;
-}
-
-#footer .license > div:nth-child(1) {
-  width: 560px;
-  padding-right: 90px;
-}
-
-#footer .license > div:nth-child(1) img {
-  width: auto;
-  margin: 20px 0;
-}
-
-#footer .license > div:nth-child(2) {
-  width: 730px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-}
-
-#footer .license > div:nth-child(2) iframe {
-  margin-right: 30px;
-}
-
-#footer .license > div:nth-child(2) div {
-  text-align: center;
-}
-
-#footer .license > div:nth-child(2) div:nth-child(1) {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-#footer .license > div:nth-child(2) div span {
-  font-weight: bold;
-}
-
-#footer .license > div:nth-child(2) div img {
-  width: 65px;
-  margin: auto;
-}
-
-#footer .license > div .star {
-  width: auto;
-  position: absolute;
-  right: 0;
-  bottom: -25px;
-}
-
-#footer .sfp {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-bottom: 0;
-}
-
-#footer .sfp .title {
-  color: white;
-}
-
-#footer .sfp > div > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 20px;
-  margin-right: 150px;
-}
-
-#footer .sfp > div > div img {
-  width: auto;
-  margin-right: 10px;
-}
-
-#footer .footerList {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  color: #BFCCE2;
-  padding: 25px 0 130px;
-}
-
-#footer .footerList > div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  margin-right: 35px;
-  text-align: center;
-}
-
-#footer .footerList > div:last-child {
-  margin-right: 0;
-}
-
-#footer .footerList > div > a, #footer .footerList > div > button {
-  color: #F1D5B6;
-  display: block;
-  margin-bottom: 30px;
-}
-
-#footer .footerList > div > a ~ div, #footer .footerList > div > button ~ div {
-  margin-top: 10px;
-  font-size: 12px;
-}
-
-#footer .footerList > div > div .title {
-  margin: 15px 0;
-  color: #BFCCE2;
-}
-
-#footer .footerList > div > div.title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  height: 76px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: 16px;
-  color: white;
-}
-
-#footer .footerList > div > div.title + div {
-  margin: 10px 0;
-  height: 38px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#footer .footerList > div > div.title:before {
-  font-size: 56px;
-  font-weight: normal;
-  color: #F1D5B6;
-}
-
-#footer .footerList > div > div > div {
-  text-align: left;
 }
 
 .quickLinkNew1, .quickLinkNew2 {
@@ -11500,532 +11540,5 @@ main .liveVideo .matches iframe, main .newsVideo .matches iframe {
 
 .streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
-}
-
-main section {
-  padding: 35px 0 0;
-  max-width: 1400px;
-}
-
-#leftMenu {
-  width: 18%;
-  margin-right: 2%;
-}
-
-#leftMenu + div {
-  width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-#leftMenu .menuModule {
-  border-radius: 5px;
-  overflow: hidden;
-  margin-bottom: 10px;
-  background: #F0F7FF;
-}
-
-#leftMenu .menuModule button, #leftMenu .menuModule a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10px;
-  width: 100%;
-  color: #5574A7;
-  font-size: 14px;
-  letter-spacing: 1px;
-  text-align: left;
-}
-
-#leftMenu .menuModule button:hover, #leftMenu .menuModule a:hover {
-  color: white;
-}
-
-#leftMenu .menuModule .menuHeader {
-  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
-  background: linear-gradient(to bottom, #435F8B, #6383B9);
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-left: 15px;
-}
-
-#leftMenu .menuModule .menuHeader.active:after {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-#leftMenu .menuModule .menuHeader:after {
-  font-family: 'icomoon';
-  content: "\e954";
-  font-size: 24px;
-  -webkit-transform: rotate(-90deg);
-          transform: rotate(-90deg);
-  font-weight: normal;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-#leftMenu .menuModule .menuSelect {
-  border-bottom: 1px solid white;
-  overflow: hidden;
-  position: relative;
-}
-
-#leftMenu .menuModule .menuSelect span {
-  z-index: 1;
-  position: relative;
-}
-
-#leftMenu .menuModule .menuSelect span.icon-new::before {
-  top: 0;
-  right: -10px;
-  -webkit-transform: translateX(100%);
-          transform: translateX(100%);
-}
-
-#leftMenu .menuModule .menuSelect:before {
-  font-family: 'icomoon';
-  content: "\e94e";
-  font-size: 24px;
-  margin-right: 5px;
-  font-weight: normal;
-  z-index: 1;
-}
-
-#leftMenu .menuModule .menuSelect.active {
-  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
-  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
-  color: white;
-}
-
-#leftMenu .menuModule .menuSelect:hover:after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  background: #666;
-  position: absolute;
-  -webkit-animation: menuflash 0.5s forwards;
-          animation: menuflash 0.5s forwards;
-  z-index: 0;
-}
-
-#leftMenu .menuModule .menuSelect:last-child {
-  border-bottom: 0;
-}
-
-@keyframes menuflash {
-  0% {
-    left: 35px;
-    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
-    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
-    width: 0;
-  }
-  50% {
-    left: 0;
-    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
-    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
-    width: 100%;
-  }
-  53% {
-    background: #5574A7;
-  }
-  100% {
-    left: 0;
-    background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
-    background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
-    width: 100%;
-  }
-}
-
-.infoModule {
-  border-radius: 5px;
-  background: #F0F7FF;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-}
-
-.infoModule > button.icon-arrow-left2 {
-  color: white;
-  margin: 40px 40px 0;
-  font-size: 18px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #5574A7;
-  border-radius: 10px;
-  padding: 5px 10px;
-}
-
-.infoModule > button.icon-arrow-left2:before {
-  margin-right: 5px;
-}
-
-.subModuleListColumn {
-  padding: 20px;
-}
-
-.subModuleListColumn > .subModule {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #D2E2F9;
-  padding: 20px;
-  border-radius: 15px;
-  margin-bottom: 20px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.subModuleListColumn > .subModule .inputBox-white {
-  width: 300px;
-}
-
-.subModuleListColumn > .subModule > .btnGroup {
-  margin: 0 0 0 15px;
-}
-
-.subModuleListColumn > .subModule > .btnGroup button {
-  margin: 0;
-}
-
-.subModuleListColumn > .subModule .icon-information {
-  color: #5574A7;
-  cursor: pointer;
-}
-
-.subModuleListColumn > .subModule .icon-information + .tip {
-  padding: 0;
-  width: auto;
-  height: auto;
-}
-
-.subModuleListColumn > .subModule .icon-information.active + .tip {
-  visibility: visible;
-  opacity: 1;
-}
-
-.subModuleListColumn > .subModule > .subModuleTitle {
-  color: #5574A7;
-  font-weight: bold;
-  width: 130px;
-}
-
-.subModuleListColumn > .subModule > .subModuleTitle .txt-blue {
-  color: #f77900;
-}
-
-.subModuleListColumn > .subModule > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  width: calc(100% - 157px);
-  color: #5574A7;
-}
-
-.subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 15px;
-  color: white;
-  width: 240px;
-  position: relative;
-}
-
-.subModuleListColumn > .subModule > div > button i, .subModuleListColumn > .subModule > div > a i {
-  position: absolute;
-  right: -5px;
-  bottom: 0px;
-  color: #f77900;
-  display: none;
-  font-size: 24px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.subModuleListColumn > .subModule > div > button i::before, .subModuleListColumn > .subModule > div > a i::before {
-  display: none;
-}
-
-.subModuleListColumn > .subModule > div > button > div, .subModuleListColumn > .subModule > div > a > div {
-  width: 100%;
-}
-
-.subModuleListColumn > .subModule > div > button > div.bank, .subModuleListColumn > .subModule > div > a > div.bank {
-  color: white;
-  margin: 0 0 5px;
-}
-
-.subModuleListColumn > .subModule > div > button > div.bank > div, .subModuleListColumn > .subModule > div > a > div.bank > div {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #5574A7;
-}
-
-.subModuleListColumn > .subModule > div > button > div.bank > div:last-child, .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
-  color: white;
-  background: #BFCCE2;
-  margin: 10px auto 0;
-  width: 150px;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-.subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
-  margin-bottom: 10px;
-  border-radius: 5px;
-  width: 100px;
-  padding: 10px 5px;
-  background: white;
-  position: relative;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-.subModuleListColumn > .subModule > div > button > div:first-child.icon, .subModuleListColumn > .subModule > div > a > div:first-child.icon {
-  padding: 13px 5px;
-}
-
-.subModuleListColumn > .subModule > div > button > div:first-child:before, .subModuleListColumn > .subModule > div > a > div:first-child:before {
-  color: #5574A7;
-  font-size: 48px;
-  margin: 0;
-}
-
-.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > button:hover > div, .subModuleListColumn > .subModule > div > a.active > div, .subModuleListColumn > .subModule > div > a:hover > div {
-  color: #1E85EC;
-}
-
-.subModuleListColumn > .subModule > div > button.active > div.bank, .subModuleListColumn > .subModule > div > button:hover > div.bank, .subModuleListColumn > .subModule > div > a.active > div.bank, .subModuleListColumn > .subModule > div > a:hover > div.bank {
-  color: white;
-}
-
-.subModuleListColumn > .subModule > div > button.active > div.bank > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div.bank > div:first-child, .subModuleListColumn > .subModule > div > a.active > div.bank > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div.bank > div:first-child {
-  color: #f77900;
-  font-weight: bold;
-}
-
-.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
-  -webkit-box-shadow: 0px 0px 0px 4px #f77900 inset;
-          box-shadow: 0px 0px 0px 4px #f77900 inset;
-}
-
-.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > button:hover > div i, .subModuleListColumn > .subModule > div > a.active > div i, .subModuleListColumn > .subModule > div > a:hover > div i {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
-  display: block;
-}
-
-.subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
-  display: none;
-}
-
-.subModuleListColumn .column {
-  width: calc(100% - 135px);
-}
-
-.subModuleListColumn .column .inputBox-white + .tip {
-  margin: 0 5px 10px;
-}
-
-.subModuleListColumn .inputBox-white {
-  margin-left: 15px;
-}
-
-.subModuleListColumn .inputBox-white + .tip {
-  margin-left: 140px;
-}
-
-.subModuleListColumn .btnGroup.buttonBox {
-  margin-top: 0;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.subModuleListColumn .btnGroup.buttonBox button.blue {
-  max-width: 156px;
-  min-width: 156px;
-}
-
-.subModuleListColumn .btnGroup.buttonBox button.blue .icon {
-  width: 12px;
-  height: 12px;
-  background: white;
-  color: #f77900;
-  font-size: 16px;
-}
-
-.subModuleListColumn .btnGroup.buttonBox button.blue .icon:before {
-  margin: 0;
-}
-
-.subModuleListColumn .btnGroup:not(.buttonBox) {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-}
-
-.subModuleListColumn .bankAccount {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin-left: 15px;
-}
-
-.subModuleListColumn .bankAccount .smallList {
-  margin-top: 10px;
-}
-
-.subModuleListColumn .bankAccount .smallList ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.subModuleListColumn .bankAccount .smallList ul button, .subModuleListColumn .bankAccount .smallList ul a {
-  color: white;
-  background: #5574A7;
-  border-radius: 5px;
-  height: 23px;
-}
-
-.subModuleListColumn .bankAccount .smallList ul li {
-  min-width: 130px;
-  width: auto;
-  color: #5574A7;
-}
-
-.subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
-  min-width: 130px;
-  width: auto;
-  color: #030c1b;
-  font-weight: bold;
-}
-
-.inside-title {
-  padding: 20px;
-  border-bottom: 1px solid #BFCCE2;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  color: #5574A7;
-}
-
-.inside-title.icon:before {
-  font-size: 50px;
-}
-
-.inside-title span {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 0 40px;
-}
-
-.inside-title div {
-  color: #BFCCE2;
-  max-width: 400px;
-}
-
-.inside-title div.autotransfer {
-  position: absolute;
-  right: 40px;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-
-.icon-icon32px_deposit {
-  position: relative;
-}
-
-.icon-icon32px_deposit .icon-friend {
-  position: absolute;
-  right: 20px;
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #5574A7;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 24px;
-}
-
-.icon-icon32px_deposit .icon-friend:hover {
-  background: #134DAE;
-}
-
-.icon-icon32px_deposit .icon-friend:before {
-  font-size: 18px;
-  margin-left: 0;
-}
-
-.icon-icon32px_deposit .icon-friend span {
-  margin: 0;
-}
-
-.icon-icon32px_deposit + .stepBar + .subModuleList {
-  padding: 0 50px 40px;
-}
-
-.icon-icon32px_deposit + .stepBar + .subModuleList .subModule {
-  margin-left: 0;
-  margin-right: 10px;
-  max-width: calc(100% / 3 - 10px);
-  min-width: calc(100% / 4 - 10px);
-}
-
-.icon-icon32px_deposit + .stepBar + .subModuleList .subModule:last-child {
-  margin-right: 0;
 }
 /*# sourceMappingURL=style.css.map */

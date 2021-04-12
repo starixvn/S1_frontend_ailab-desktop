@@ -183,10 +183,10 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		subMenu: [
 			{
-				icon: "icon icon-PP",
+				icon: "icon icon-PT",
 				displayText: "PT",
 				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotPP.png",
+				listNpcImgUrl: "slotpt.png",
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_PT },
 				...productList.casino_PT,
