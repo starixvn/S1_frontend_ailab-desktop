@@ -20,17 +20,17 @@ export const defMenuLinks = langId => {
 			path: path.sports.root,
 			displayKey: "lbl_Sports"
 		},
-		cockFighting: {
-			productInfo: productList.cockFighting,
-			displayKey: "lbl_CockFighting"
-		},
+		// cockFighting: {
+		// 	productInfo: productList.cockFighting,
+		// 	displayKey: "lbl_CockFighting"
+		// },
 		// sabaClub: {
 		// 	productInfo: productList.sabaClub,
 		// 	displayKey: "lbl_SabaClub"
 		// },
 		games: {
 			displayKey: "lbl_Games",
-			className: "game icon icon-new",
+			className: "game icon",
 			subMenu: [
 				{
 					...productList.sabaClub,
@@ -180,6 +180,19 @@ export const defMenuLinks = langId => {
 		liveCasino: {
 			displayKey: "lbl_LiveCasino",
 			subMenu: [
+				{
+					tpId: 28,
+					className: "liveN2LIVE",
+					icon: "icon icon-N2LIVE",
+					displayText: "N2Live",
+					menuType: defMenuType.entPage,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.n2Live
+						})
+					]
+				},
 				{
 					gameId: 20,
 					tpId: 20,
@@ -359,13 +372,13 @@ export const defMenuLinks = langId => {
 						...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
 					}
 				},
-				// {
-				// 	...productList.fishing,
-				// 	className: "fgg",
-				// 	displayKey: "lbl_FishingGG",
-				// 	menuType: defMenuType.entPage,
-				// 	parameter: { ...productList.fishing }
-				// },
+				{
+					...productList.fishing,
+					className: "fgg",
+					displayKey: "lbl_FishingGG",
+					menuType: defMenuType.entPage,
+					parameter: { ...productList.fishing }
+				},
 				{
 					...productList.fishing_SG,
 					className: "fsg",
@@ -382,10 +395,21 @@ export const defMenuLinks = langId => {
 				}
 			]
 		},
+		vip: {
+			path: path.vip.root,
+			displayKey: "lbl_Vip",
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.vip
+				})
+			]
+		},
 		promotion: {
 			path: path.promotion.root,
 			displayKey: "lbl_Promotions"
 		},
+
 		affiliate: {
 			path: siteInfo({ langId }).affiliateLink,
 			displayKey: "lbl_Affiliates",

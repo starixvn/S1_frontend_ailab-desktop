@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { Redirect, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import { api_site_ExistsEmail } from "../../service/api/site";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
@@ -11,6 +11,7 @@ import {
 import areaCode from "../../datas/areaCode";
 import ProfileRead from "./profileRead";
 import ProfileEdit from "./profileEdit";
+import { defPageClubImg } from "../vip/vip.def";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { getCountryCode, getUrlParameter } from "../common/common";
@@ -43,7 +44,6 @@ export default () => {
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
-	const [redirectPath] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [mobileVerificationLoading, setMobileVerificationLoading] = useState(
 		false
@@ -54,6 +54,42 @@ export default () => {
 	const [phoneValue, setPhoneValue] = useState("");
 	const [emailValue, setEmailValue] = useState("");
 	const [status, setStatus] = useState(initStatus);
+
+	const birth = `${userInfo.birth_d}/${userInfo.birth_m}/${userInfo.birth_y}`;
+	const dataList = [
+		{
+			label: t("lbl_RealName"),
+			value: userInfo.accountName,
+			show: !!userInfo.accountName
+		},
+		{
+			label: t("lbl_Birthday"),
+			value: birth,
+			format: "normal",
+			show: !!userInfo.birth_d
+		},
+		{
+			label: t("lbl_Phone"),
+			value: `(${userInfo.AreaCode})${userInfo.phoneNo}`,
+			format: "phone",
+			show: !!userInfo.phoneNo
+		},
+		{
+			label: t("lbl_Username"),
+			value: userInfo.userName,
+			show: true
+		},
+		{
+			label: t("lbl_Country"),
+			value: userInfo.country,
+			show: true
+		},
+		{
+			label: t("lbl_Email"),
+			value: userInfo.email,
+			show: !!userInfo.email
+		}
+	];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -467,7 +503,9 @@ export default () => {
 							birth_y: !userInfo.birth_d
 								? birthValue.slice(0, 4)
 								: userInfo.birth_y,
-							phoneNo: phoneValue,
+							phoneNo: !userInfo.phoneNo
+								? phoneValue
+								: userInfo.phoneNo,
 							email: !userInfo.email ? emailValue : userInfo.email
 						}));
 						setNameValue("");
@@ -578,59 +616,57 @@ export default () => {
 		);
 	};
 
-	return loading ? (
-		<Loading />
-	) : redirectPath === null ? (
+	const vipClubImg = userInfo.userLevel
+		? defPageClubImg[userInfo.userLevel - 1]
+		: {};
+
+	if (loading) return <Loading />;
+
+	return (
 		<div className="infoModule">
 			<div className="inside-title">{t("lbl_Profile")}</div>
 			<div className="txt-white">{t("lbl_ProfileModifyWarning")}</div>
-			<div className="profile">
-				<ProfileRead
-					userInfo={userInfo}
-					sendOTPSMS={sendOTPSMS}
-					mobileVerificationLoading={mobileVerificationLoading}
-				/>
 
-				{!userInfo.accountName ||
-				!userInfo.birth_d ||
-				!userInfo.phoneNo ||
-				!userInfo.email ? (
-					<ProfileEdit
-						userInfo={userInfo}
-						submitCheck={submitCheck}
-						onChangeName={onChangeName}
-						onChangeBirth={onChangeBirth}
-						onChangePhone={onChangePhone}
-						onChangeEmail={onChangeEmail}
-						nameValue={nameValue}
-						birthValue={birthValue}
-						phoneValue={phoneValue}
-						emailValue={emailValue}
-						checkName={checkName}
-						checkBirth={checkBirth}
-						checkPhone={checkPhone}
-						checkEmail={checkEmail}
-						clickInfo={clickInfo.bind(this)}
-						checked={status.checked}
-						col={status.col}
-						tip={status.tip}
-						status={status}
-					/>
-				) : null}
-			</div>
+			{userInfo?.userLevel ? (
+				<div className="porfileVip">
+					<img src={vipClubImg.img} alt={vipClubImg.alt} />
+					<div>{t(vipClubImg.displayKey)}</div>
+				</div>
+			) : null}
+
+			<ProfileRead
+				userInfo={userInfo}
+				sendOTPSMS={sendOTPSMS}
+				mobileVerificationLoading={mobileVerificationLoading}
+				dataList={dataList}
+			/>
 
 			{!userInfo.accountName ||
 			!userInfo.birth_d ||
 			!userInfo.phoneNo ||
 			!userInfo.email ? (
-				<div className="btnGroup">
-					<button className="blueGradient" onClick={submitCheck}>
-						{t("lbl_Submit")}
-					</button>
-				</div>
+				<ProfileEdit
+					userInfo={userInfo}
+					submitCheck={submitCheck}
+					onChangeName={onChangeName}
+					onChangeBirth={onChangeBirth}
+					onChangePhone={onChangePhone}
+					onChangeEmail={onChangeEmail}
+					nameValue={nameValue}
+					birthValue={birthValue}
+					phoneValue={phoneValue}
+					emailValue={emailValue}
+					checkName={checkName}
+					checkBirth={checkBirth}
+					checkPhone={checkPhone}
+					checkEmail={checkEmail}
+					clickInfo={clickInfo.bind(this)}
+					checked={status.checked}
+					col={status.col}
+					tip={status.tip}
+					status={status}
+				/>
 			) : null}
 		</div>
-	) : (
-		<Redirect to={redirectPath} noThrow />
 	);
 };

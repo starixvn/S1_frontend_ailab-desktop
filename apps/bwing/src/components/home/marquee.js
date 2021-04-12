@@ -54,6 +54,7 @@ class Marquee extends Component {
 
 	componentWillUnmount = () => {
 		this.isMountedRef = false;
+		clearInterval(this.intervalId);
 		clearInterval(this.intervalId_Pos);
 	};
 
@@ -156,7 +157,10 @@ class Marquee extends Component {
 				redirectPath: `/${this.props.langId}/${path.announcement.root}`
 			});
 		} else {
-			this.setState({ redirectPath: `/login` });
+			this.props.setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
 		}
 	};
 

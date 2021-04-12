@@ -1,6 +1,6 @@
 import React, { createRef, Component } from "react";
 import moment from "moment";
-import DateTime from "react-datetime";
+import DateTime from "../common/dateTime";
 import config from "../../config";
 import Loading from "../common/loading";
 import { defPopBoxType } from "../common/defPopBoxType";
@@ -33,7 +33,6 @@ export class Module extends Component {
 
 	componentDidMount() {
 		this.isMountedRef = true;
-
 		/* eslint-disable */
 		this._clipboard = new ClipboardJS(".copyBtn");
 		this._clipboard.on("success", e => {});
@@ -78,7 +77,7 @@ export class Module extends Component {
 				},
 				err => {
 					if (this.isMountedRef) {
-						alert(this.datas.i18n("msg_ApiServerError"));
+						alert(this.props.i18n("msg_ApiServerError"));
 						this.setState({ loading: false });
 					}
 				}
@@ -306,6 +305,7 @@ export class Module extends Component {
 								"YYYY-MM-DD HH:mm A"
 							)}
 							onChange={this.editField.bind(this, "depositTime")}
+							closeOnSelect={true}
 						/>
 						<div className="rdt" />
 						<div className="iconModule">

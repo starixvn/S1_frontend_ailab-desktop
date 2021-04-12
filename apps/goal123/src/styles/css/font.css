@@ -5,7 +5,6 @@
 
 .icon:before {
   font-family: 'icomoon';
-  margin-bottom: 5px;
 }
 
 .casinoList .icon-GPI::before {
@@ -86,8 +85,89 @@
   font-size: 24px !important;
 }
 
+.livecasinoList .icon-N2LIVE:before {
+  font-size: 15px !important;
+}
+
 .icon-balance:before {
   font-size: 24px !important;
+}
+
+.icon-playtech:before {
+  content: "\e9cf";
+}
+
+.icon-infocenter:before {
+  content: "\e9cd";
+}
+
+.icon-deposit2:before {
+  content: "\e9ca";
+}
+
+.icon-support:before {
+  content: "\e9cb";
+}
+
+.icon-withdrawal2:before {
+  content: "\e9cc";
+}
+
+.icon-gamecasino:before {
+  content: "\e9c7";
+}
+
+.icon-hotgame:before {
+  content: "\e9c8";
+}
+
+.icon-N2LIVE:before {
+  content: "\e9c6";
+}
+
+.icon-topup:before {
+  content: "\e9c5";
+}
+
+.icon-whatsapp:before {
+  content: "\ea93";
+}
+
+.icon-facebook:before {
+  content: "\ea90";
+}
+
+.icon-line1:before {
+  content: "\e9c4";
+}
+
+.icon-slots:before {
+  content: "\e9c2";
+}
+
+.icon-pokers:before {
+  content: "\e9c1";
+}
+
+.icon-friend:before {
+  content: "\e9bd";
+}
+
+.icon-skype:before {
+  content: "\e9be";
+}
+
+.icon-telegram1:before {
+  content: "\e9bf";
+}
+
+.icon-zalo:before {
+  content: "\e9c0";
+  color: #fff;
+}
+
+.icon-download:before {
+  content: "\e9bc";
 }
 
 .icon-viettel:before {

@@ -1,0 +1,83 @@
+import React, { useContext } from "react";
+import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
+import { number_format, getUrlParameter } from "../common/common";
+import { userInfoContext } from "../common/context";
+import config from "../../config";
+import path from "../../router";
+import { defActionType } from "./onlineBank.reducer";
+
+export default ({ bankInfo = { sysId: 0 }, amount, _isConvert, dispatch }) => {
+	const { userInfo } = useContext(userInfoContext);
+	const { t } = useTranslation();
+	const ClickCancel = () => {
+		dispatch({
+			type: defActionType.CLICK_BACK
+		});
+	};
+
+	const ClickSubmit = () => {
+		if (typeof window !== undefined) {
+			const real_amount = _isConvert ? amount * 1000 : amount;
+			window.open(
+				`${
+					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking` +
+					"?sysId="
+				}${bankInfo.sysId}&payId=${getUrlParameter(
+					"pId"
+				)}&ChannelId=${getUrlParameter("cId")}&Amount=${real_amount}`
+			);
+		}
+	};
+
+	return (
+		<div className="subModuleList">
+			<div className="subModule">
+				<div className="subModuleBody column align-items-center">
+					<span className="title">{t("lbl_ImportantNote")}</span>
+					<div className="txt-lightgray">
+						{t("lbl_ConfirmDeposit")}
+					</div>
+					{bankInfo?.bankLogo && bankInfo?.bankName ? (
+						<div className="bankName">
+							<img
+								src={`${config.imgUrl}/common/images/BankLogo/${bankInfo.bankLogo}`}
+								alt={bankInfo.bankName}
+							/>
+						</div>
+					) : null}
+
+					<div className="smallList">
+						{bankInfo?.bankName ? (
+							<ul>
+								<li>{t("lbl_SelectedBank")}</li>
+								<li>{bankInfo.bankName}</li>
+							</ul>
+						) : null}
+
+						<ul>
+							<li>{t("lbl_Amount")}</li>
+							<li>
+								{number_format(
+									_isConvert ? amount * 1000 : amount,
+									_isConvert
+								)}
+							</li>
+						</ul>
+					</div>
+					<div className="btnGroup">
+						<button onClick={ClickCancel} className="gray">
+							{t("lbl_Cancel")}
+						</button>
+						<Link
+							to={`/${userInfo.langId}/${path.deposit.root}`}
+							onClick={ClickSubmit}
+							className="orange">
+							{t("lbl_Confirm")}
+						</Link>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};

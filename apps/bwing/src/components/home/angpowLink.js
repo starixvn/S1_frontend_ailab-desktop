@@ -1,13 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
-import moment from "moment";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "../angPow/angPow.def";
 
 const { startDate, endDate } = eventPeriod;
-const currentDate = moment();
-const isInPeriod = isDateRange(currentDate, startDate, endDate);
+const isInPeriod = isDateRange(startDate, endDate);
 
 const AngpowLink = ({ to, langId }) => {
 	const [display, setDisplay] = useState(true);

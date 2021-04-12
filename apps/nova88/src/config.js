@@ -11,6 +11,9 @@ const getAffiliate = () => {
 		: `https://aff.${arr.join(".")}`;
 };
 
+export const errorPageUrl = langId =>
+	`https://error.n88media.com/404/index_${langId}.html`;
+
 export const SiteInfo = {
 	siteName,
 	logo: "https://image.n88media.com/SiteSkin/img/logo_evt.png",
@@ -28,6 +31,10 @@ export const SiteInfo = {
 		ig: {
 			link: "https://www.instagram.com/nova88.net_official",
 			displayKey: "lbl_Instagram"
+		},
+		youtube: {
+			link: "https://www.youtube.com/channel/UCoUtgrQN2E10oke1Hmj0ATw",
+			displayKey: "lbl_Youtube"
 		}
 	},
 	staticPromotions:

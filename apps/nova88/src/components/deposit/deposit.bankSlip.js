@@ -80,7 +80,7 @@ export class Module extends Component {
 				},
 				err => {
 					if (this.isMountedRef) {
-						alert(this.datas.i18n("msg_ApiServerError"));
+						alert(this.props.i18n("msg_ApiServerError"));
 					}
 				}
 			);

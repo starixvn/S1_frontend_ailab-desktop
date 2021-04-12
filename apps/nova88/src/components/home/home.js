@@ -41,9 +41,9 @@ import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoGameList from "./promoGameList";
 import AngpowLink from "./angpowLink";
+import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import config, { SiteInfo } from "../../config";
-import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
 
 import {
 	GET_OPEN_RULE,
@@ -198,13 +198,13 @@ const defSideBarProducts = langId => [
 	// 	descriptionKey: "lbl_PromotionSlog",
 	// 	mainImg: indexBannerPromotions
 	// },
-	{
-		path: path.casino.root,
-		icon: "icon icon-casino",
-		displayKey: "lbl_Casino",
-		descriptionKey: "lbl_CasinoSlog",
-		mainImg: IndexBannerCasino
-	},
+	// {
+	// 	path: path.casino.root,
+	// 	icon: "icon icon-casino",
+	// 	displayKey: "lbl_Casino",
+	// 	descriptionKey: "lbl_CasinoSlog",
+	// 	mainImg: IndexBannerCasino
+	// },
 	{
 		href: `${SiteInfo.affiliateLink}/?lang=${langId}`,
 		icon: "icon icon-affiliate",
@@ -213,6 +213,25 @@ const defSideBarProducts = langId => [
 		mainImg: indexBannerAffiliate
 	}
 ];
+
+const Vedio = ({ langId }) => {
+	const vedioKey = {
+		cs: "UWzzO3lBYiI",
+		en: "Cn74XFuYAcE",
+		th: "Ta44fCPbD-Q",
+		id: "m5_QAn0fHzY"
+	};
+	return (
+		<iframe
+			width="448"
+			height="315"
+			src={`https://www.youtube.com/embed/${vedioKey[langId]}?controls=0`}
+			frameBorder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowFullScreen
+		/>
+	);
+};
 
 const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 	const rows = defSideBarProducts(langId).map(m => {
@@ -290,6 +309,7 @@ const SideBarProductSection = ({ t, langId, isLogin, showLogin }) => {
 	return (
 		<div className="gamelistother">
 			<EventSwipper langId={langId} />
+			<Vedio langId={langId} />
 			{rows}
 		</div>
 	);
@@ -449,19 +469,17 @@ const IndexPage = ({ location }) => {
 					{...userInfo}
 				/>
 			</section>
-			{/* <img
-				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner.jpg`}
-				alt="IndexCenterBanner"
-			/> */}
-			{/* new year style ↓ */}
 			<img
-				src={require(`../../styles/img/indexCenterBanner.jpg`)}
-				alt="indexCenterBanner"
+				src={`${config.cloudImgUrl}/SiteSkin/img/indexCenterBanner_${userInfo.langId}.jpg`}
+				alt="IndexCenterBanner"
 			/>
 			<SideBarQuickLink />
 			<AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}
 				langId={userInfo.langId}
+			/>
+			<MysteryBoxLink
+				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 			/>
 		</main>
 	);

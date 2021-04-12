@@ -1,4 +1,4 @@
-import countryCode from "../../datas/countryCode";
+import countryCode, { currencyCode } from "../../datas/countryCode";
 
 export const getUrlParameter = name => {
 	const _name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -12,11 +12,11 @@ export const getUrlParameter = name => {
 };
 
 // formatRequired: display with ('000)
-export const number_format = (number, formatRequired = false) => {
+export const number_format = (number, formatRequired = false, isInteger) => {
 	let n = number;
 	if (!isNaN(n)) {
 		n /= 1000;
-		n = Number(n).toFixed(2);
+		n = isInteger ? Number(n) : Number(n).toFixed(2);
 	}
 
 	n += "";
@@ -43,12 +43,12 @@ export const getCountryCode = currencyId => {
 	return countryCode[currencyId];
 };
 
-export const getAmountTip = (minAmount, formatRequired, i18n) => {
+export const getAmountTip = (minAmount, formatRequired, i18n, isInteger) => {
 	return isNaN(minAmount)
 		? i18n("lbl_AmountTooltip")?.replace("{0}", 0)
 		: i18n("lbl_AmountTooltip")?.replace(
 				"{0}",
-				number_format(minAmount, formatRequired)
+				number_format(minAmount, formatRequired, isInteger)
 		  );
 };
 
@@ -57,7 +57,8 @@ export const checkAmount = (
 	minAmount,
 	maxAmount,
 	formatRequired,
-	i18n
+	i18n,
+	isInteger
 ) => {
 	let status = 0;
 	let msg = "";
@@ -65,22 +66,23 @@ export const checkAmount = (
 		const num_Amount = isNaN(amount) ? 0 : Number(amount) * 1000;
 		if (num_Amount <= 0) {
 			status = 2;
-			msg = getAmountTip(minAmount, formatRequired, i18n);
+			msg = getAmountTip(minAmount, formatRequired, i18n, isInteger);
 		} else if (
 			minAmount !== 0 &&
 			maxAmount !== 0 &&
 			(num_Amount > maxAmount || num_Amount < minAmount)
 		) {
 			status = 2;
-			msg = `${number_format(num_Amount, formatRequired)} ${i18n(
-				"lbl_NotinLimit"
-			)}`;
+			msg = `${number_format(
+				num_Amount,
+				formatRequired,
+				isInteger
+			)} ${i18n("lbl_NotinLimit")}`;
 		}
 	} else {
 		status = 3;
-		msg = getAmountTip(minAmount, formatRequired, i18n);
+		msg = getAmountTip(minAmount, formatRequired, i18n, isInteger);
 	}
-
 	return { status, msg };
 };
 
@@ -138,18 +140,6 @@ export const deleteCookie = cookieName => {
 	// }
 };
 
-const SetReplaceChar = (str, idx, newChar) => {
-	return `${str.substr(0, idx)}${newChar}${str.substr(idx + newChar.length)}`;
-};
-
-export const getNewLanguagePath = langId => {
-	const url =
-		window.location.pathname +
-		window.location.search +
-		window.location.hash;
-	return SetReplaceChar(url, 1, langId);
-};
-
 export const routerFlattenToPath = (path, orderNumber) => {
 	//  將 router 物件扁平化後轉換成路徑
 	const flattenDeepObject = obj => {
@@ -182,7 +172,7 @@ export const passwordCheck = val => {
 	return { checked: true, message: "" };
 };
 
-export const isDateRange = (currentDate, startDate, endDate) => {
+export const isDateRange = (startDate, endDate) => {
 	const now = new Date();
 	const _startDate = startDate ? new Date(`${startDate} GMT+0700`) : null; // yyyy/mm/dd hh:mm:ss
 	const _endDate = endDate ? new Date(`${endDate} GMT+0700`) : null; // yyyy/mm/dd hh:mm:ss

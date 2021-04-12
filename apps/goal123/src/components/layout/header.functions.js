@@ -10,6 +10,11 @@ import path from "../../router";
 import DropdownHeader, { defElemType } from "../common/dropdown.headerLink";
 import { LOGOUT } from "../../service/auth";
 import { defPopBoxType } from "../common/popBox";
+import {
+	defEventIcon,
+	defEventPeriod,
+	showEventIcon
+} from "../common/eventIcon";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -76,6 +81,17 @@ const defSettingLinks = ({ logoutFunc }) => {
 		{
 			displayKey: "lbl_BankInfo",
 			href: path.bankInfo.root
+		},
+		,
+		{
+			displayKey: "lbl_ReferFriends",
+			href: path.referral.root,
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.referral
+				})
+			]
 		},
 		{
 			displayKey: "lbl_ChangePassword",
@@ -148,6 +164,7 @@ const AfterLogin = () => {
 				options={defCashierLinks}
 				placeholder={t("lbl_Cashier")}
 			/>
+
 			{/* <Wallet langId={userInfo.langId} i18n={t} /> */}
 			<Suspense fallback={<></>}>
 				<Wallet langId={userInfo.langId} i18n={t} />
@@ -155,7 +172,10 @@ const AfterLogin = () => {
 			<DropdownHeader
 				mainKey="header-settingLink"
 				langId={userInfo.langId}
-				className="memberfile icon icon-member"
+				userLevel={userInfo.userLevel}
+				className={`memberfile${
+					userInfo.userLevel ? "" : " icon icon-member"
+				}`}
 				subClassName="submenu"
 				i18n={t}
 				options={defSettingLinks({ logoutFunc: handleLogout })}

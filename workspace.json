@@ -1,376 +1,475 @@
 {
-  "version": 1,
-  "projects": {
-    "promotion": {
-      "root": "libs/promotion",
-      "sourceRoot": "libs/promotion/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/promotion/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/promotion/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "service": {
-      "root": "libs/service",
-      "sourceRoot": "libs/service/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/service/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/service/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "nova88": {
-      "root": "apps/nova88",
-      "sourceRoot": "apps/nova88/src",
-      "projectType": "application",
-      "schematics": {},
-      "architect": {
-        "autoBuild": {
-          "builder": "@nrwl/gatsby:build",
-          "options": {
-            "outputPath": "apps/nova88/public",
-            "uglify": true,
-            "color": true,
-            "profile": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "build": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "gulp minify --gulpfile=apps/nova88/gulpfile.js",
-              "nx autoBuild nova88 --skip-nx-cache"
-            ],
-            "parallel": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "autoServe": {
-          "builder": "@nrwl/gatsby:server",
-          "options": {
-            "buildTarget": "nova88:build",
-            "port": 4201
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "nova88:build:production"
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "gulp minify --gulpfile=apps/nova88/gulpfile.js",
-              "nx autoServe nova88"
-            ],
-            "parallel": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {}
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/nova88/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "nova88-e2e": {
-      "root": "apps/nova88-e2e",
-      "sourceRoot": "apps/nova88-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/nova88-e2e/cypress.json",
-            "tsConfig": "apps/nova88-e2e/tsconfig.e2e.json",
-            "devServerTarget": "nova88:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "nova88:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/nova88-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "goal123": {
-      "root": "apps/goal123",
-      "sourceRoot": "apps/goal123/src",
-      "projectType": "application",
-      "schematics": {},
-      "architect": {
-        "autoBuild": {
-          "builder": "@nrwl/gatsby:build",
-          "options": {
-            "outputPath": "apps/goal123/public",
-            "uglify": true,
-            "color": true,
-            "profile": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "build": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "gulp minify --gulpfile=apps/goal123/gulpfile.js",
-              "nx autoBuild goal123 --skip-nx-cache"
-            ],
-            "parallel": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "autoServe": {
-          "builder": "@nrwl/gatsby:server",
-          "options": {
-            "buildTarget": "goal123:build",
-            "port": 4202
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "goal123:build:production"
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "gulp minify --gulpfile=apps/goal123/gulpfile.js",
-              "nx autoServe goal123"
-            ],
-            "parallel": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {}
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/goal123/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "goal123-e2e": {
-      "root": "apps/goal123-e2e",
-      "sourceRoot": "apps/goal123-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/goal123-e2e/cypress.json",
-            "tsConfig": "apps/goal123-e2e/tsconfig.e2e.json",
-            "devServerTarget": "goal123:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "goal123:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/goal123-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "bwing": {
-      "root": "apps/bwing",
-      "sourceRoot": "apps/bwing/src",
-      "projectType": "application",
-      "schematics": {},
-      "architect": {
-        "autoBuild": {
-          "builder": "@nrwl/gatsby:build",
-          "options": {
-            "outputPath": "apps/bwing/public",
-            "uglify": true,
-            "color": true,
-            "profile": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "build": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "gulp minify --gulpfile=apps/bwing/gulpfile.js",
-              "nx autoBuild bwing --skip-nx-cache"
-            ],
-            "parallel": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "autoServe": {
-          "builder": "@nrwl/gatsby:server",
-          "options": {
-            "buildTarget": "bwing:build",
-            "port": 4203
-          },
-          "configurations": {
-            "production": {
-              "buildTarget": "bwing:build:production"
-            }
-          }
-        },
-        "serve": {
-          "builder": "@nrwl/workspace:run-commands",
-          "options": {
-            "commands": [
-              "gulp minify --gulpfile=apps/bwing/gulpfile.js",
-              "nx autoServe bwing"
-            ],
-            "parallel": false
-          },
-          "configurations": {
-            "production": {}
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {}
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "apps/bwing/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "bwing-e2e": {
-      "root": "apps/bwing-e2e",
-      "sourceRoot": "apps/bwing-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/bwing-e2e/cypress.json",
-            "tsConfig": "apps/bwing-e2e/tsconfig.e2e.json",
-            "devServerTarget": "bwing:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "bwing:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/bwing-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "api": {
-      "root": "libs/api",
-      "sourceRoot": "libs/api/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/api/**/*.{ts,tsx,js,jsx}"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/api/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
-  "schematics": {
-    "@nrwl/react": {
-      "application": {
-        "style": "css",
-        "linter": "eslint",
-        "babel": true
-      },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/gatsby": {
-      "application": {}
-    }
-  },
-  "defaultProject": "nova88"
+	"version": 1,
+	"projects": {
+		"promotion": {
+			"root": "libs/promotion",
+			"sourceRoot": "libs/promotion/src",
+			"projectType": "library",
+			"schematics": {},
+			"architect": {
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/promotion/**/*.{ts,tsx,js,jsx}"
+						]
+					}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "libs/promotion/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"service": {
+			"root": "libs/service",
+			"sourceRoot": "libs/service/src",
+			"projectType": "library",
+			"schematics": {},
+			"architect": {
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": [
+							"libs/service/**/*.{ts,tsx,js,jsx}"
+						]
+					}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "libs/service/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"nova88": {
+			"root": "apps/nova88",
+			"sourceRoot": "apps/nova88/src",
+			"projectType": "application",
+			"schematics": {},
+			"architect": {
+				"autoBuild": {
+					"builder": "@nrwl/gatsby:build",
+					"options": {
+						"outputPath": "apps/nova88/public",
+						"uglify": true,
+						"color": true,
+						"profile": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"build": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/nova88/gulpfile.js",
+							"nx autoBuild nova88 --skip-nx-cache"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"autoServe": {
+					"builder": "@nrwl/gatsby:server",
+					"options": {
+						"buildTarget": "nova88:build",
+						"port": 4201
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "nova88:build:production"
+						}
+					}
+				},
+				"serve": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/nova88/gulpfile.js",
+							"nx autoServe nova88"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "apps/nova88/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"nova88-e2e": {
+			"root": "apps/nova88-e2e",
+			"sourceRoot": "apps/nova88-e2e/src",
+			"projectType": "application",
+			"architect": {
+				"e2e": {
+					"builder": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/nova88-e2e/cypress.json",
+						"tsConfig": "apps/nova88-e2e/tsconfig.e2e.json",
+						"devServerTarget": "nova88:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "nova88:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/nova88-e2e/**/*.{js,ts}"]
+					}
+				}
+			}
+		},
+		"goal123": {
+			"root": "apps/goal123",
+			"sourceRoot": "apps/goal123/src",
+			"projectType": "application",
+			"schematics": {},
+			"architect": {
+				"autoBuild": {
+					"builder": "@nrwl/gatsby:build",
+					"options": {
+						"outputPath": "apps/goal123/public",
+						"uglify": true,
+						"color": true,
+						"profile": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"build": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/goal123/gulpfile.js",
+							"nx autoBuild goal123 --skip-nx-cache"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"autoServe": {
+					"builder": "@nrwl/gatsby:server",
+					"options": {
+						"buildTarget": "goal123:build",
+						"port": 4202
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "goal123:build:production"
+						}
+					}
+				},
+				"serve": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/goal123/gulpfile.js",
+							"nx autoServe goal123"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "apps/goal123/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"goal123-e2e": {
+			"root": "apps/goal123-e2e",
+			"sourceRoot": "apps/goal123-e2e/src",
+			"projectType": "application",
+			"architect": {
+				"e2e": {
+					"builder": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/goal123-e2e/cypress.json",
+						"tsConfig": "apps/goal123-e2e/tsconfig.e2e.json",
+						"devServerTarget": "goal123:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "goal123:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/goal123-e2e/**/*.{js,ts}"]
+					}
+				}
+			}
+		},
+		"bwing": {
+			"root": "apps/bwing",
+			"sourceRoot": "apps/bwing/src",
+			"projectType": "application",
+			"schematics": {},
+			"architect": {
+				"autoBuild": {
+					"builder": "@nrwl/gatsby:build",
+					"options": {
+						"outputPath": "apps/bwing/public",
+						"uglify": true,
+						"color": true,
+						"profile": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"build": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/bwing/gulpfile.js",
+							"nx autoBuild bwing --skip-nx-cache"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"autoServe": {
+					"builder": "@nrwl/gatsby:server",
+					"options": {
+						"buildTarget": "bwing:build",
+						"port": 4203
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "bwing:build:production"
+						}
+					}
+				},
+				"serve": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/bwing/gulpfile.js",
+							"nx autoServe bwing"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "apps/bwing/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"bwing-e2e": {
+			"root": "apps/bwing-e2e",
+			"sourceRoot": "apps/bwing-e2e/src",
+			"projectType": "application",
+			"architect": {
+				"e2e": {
+					"builder": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/bwing-e2e/cypress.json",
+						"tsConfig": "apps/bwing-e2e/tsconfig.e2e.json",
+						"devServerTarget": "bwing:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "bwing:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/bwing-e2e/**/*.{js,ts}"]
+					}
+				}
+			}
+		},
+		"api": {
+			"root": "libs/api",
+			"sourceRoot": "libs/api/src",
+			"projectType": "library",
+			"schematics": {},
+			"architect": {
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["libs/api/**/*.{ts,tsx,js,jsx}"]
+					}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "libs/api/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"nova88v2": {
+			"root": "apps/nova88v2",
+			"sourceRoot": "apps/nova88v2/src",
+			"projectType": "application",
+			"schematics": {},
+			"architect": {
+				"autoBuild": {
+					"builder": "@nrwl/gatsby:build",
+					"options": {
+						"outputPath": "apps/nova88v2/public",
+						"uglify": true,
+						"color": true,
+						"profile": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"build": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/nova88v2/gulpfile.js",
+							"nx autoBuild nova88v2 --skip-nx-cache"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"autoServe": {
+					"builder": "@nrwl/gatsby:server",
+					"options": {
+						"buildTarget": "nova88v2:build",
+						"port": 42012
+					},
+					"configurations": {
+						"production": {
+							"buildTarget": "nova88v2:build:production"
+						}
+					}
+				},
+				"serve": {
+					"builder": "@nrwl/workspace:run-commands",
+					"options": {
+						"commands": [
+							"gulp minify --gulpfile=apps/nova88v2/gulpfile.js",
+							"nx autoServe nova88v2"
+						],
+						"parallel": false
+					},
+					"configurations": {
+						"production": {}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {}
+				},
+				"test": {
+					"builder": "@nrwl/jest:jest",
+					"options": {
+						"jestConfig": "apps/nova88v2/jest.config.js",
+						"passWithNoTests": true
+					}
+				}
+			}
+		},
+		"nova88v2-e2e": {
+			"root": "apps/nova88v2-e2e",
+			"sourceRoot": "apps/nova88v2-e2e/src",
+			"projectType": "application",
+			"architect": {
+				"e2e": {
+					"builder": "@nrwl/cypress:cypress",
+					"options": {
+						"cypressConfig": "apps/nova88v2-e2e/cypress.json",
+						"tsConfig": "apps/nova88v2-e2e/tsconfig.e2e.json",
+						"devServerTarget": "nova88v2:serve"
+					},
+					"configurations": {
+						"production": {
+							"devServerTarget": "nova88v2:serve:production"
+						}
+					}
+				},
+				"lint": {
+					"builder": "@nrwl/linter:eslint",
+					"options": {
+						"lintFilePatterns": ["apps/nova88v2-e2e/**/*.{js,ts}"]
+					}
+				}
+			}
+		}
+	},
+	"cli": {
+		"defaultCollection": "@nrwl/react"
+	},
+	"schematics": {
+		"@nrwl/react": {
+			"application": {
+				"style": "css",
+				"linter": "eslint",
+				"babel": true
+			},
+			"component": {
+				"style": "css"
+			},
+			"library": {
+				"style": "css",
+				"linter": "eslint"
+			}
+		},
+		"@nrwl/gatsby": {
+			"application": {}
+		}
+	},
+	"defaultProject": "nova88"
 }

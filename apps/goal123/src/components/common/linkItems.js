@@ -26,7 +26,8 @@ export default ({
 	langId,
 	isLogin,
 	checkMatchPage,
-	toUpperCase = false
+	toUpperCase = false,
+	productTpIds
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const showLogin = () => {
@@ -43,12 +44,33 @@ export default ({
 	};
 
 	const currentPage = checkMatchPage ? getCurrentPage() : "";
+
 	const defMenus =
 		typeof defMenuLinks === "function"
 			? defMenuLinks(langId)
 			: defMenuLinks;
-	const rows = Object.keys(defMenus).map(key => {
-		const m = defMenus[key];
+
+	const fullMenuLinks = Object.keys(defMenus);
+
+	const filterMenuLinks = fullMenuLinks.filter(key => {
+		if (defMenuLinks[key].subMenu?.length > 0) {
+			const subItems = defMenuLinks[key].subMenu.filter(s =>
+				productTpIds?.includes(s.tpId)
+			);
+			return subItems.length > 0;
+		}
+		const subProduct = defMenuLinks[key].productInfo;
+		if (subProduct) {
+			const hasAuthSubProduct = productTpIds?.includes(subProduct?.tpId);
+			return hasAuthSubProduct;
+		}
+		return true;
+	});
+	const showRows = isLogin ? filterMenuLinks : fullMenuLinks;
+
+	const rows = showRows.map(key => {
+		const m = defMenuLinks[key];
+
 		const arrowIcon =
 			m.subMenu && m.subMenu.length > 0 ? (
 				<i className="icon icon-keyboard_arrow_right" />
@@ -62,25 +84,31 @@ export default ({
 			_className = `${_className} hot`;
 		}
 
+		const iconList = m.eventIcons?.length > 0 ? [...m.eventIcons] : [];
+
 		if (m.subMenu) {
-			const iconList = [];
-			let iconStrings = "";
-			m.subMenu.forEach(sub => {
-				if (sub.eventIcons) {
-					for (let i = 0; i < sub.eventIcons.length; i++) {
-						if (sub.eventIcons[i] !== "") {
-							iconList.push(sub.eventIcons[i]);
+			m.subMenu
+				.filter(
+					s => productTpIds === null || productTpIds.includes(s.tpId)
+				)
+				.forEach(sub => {
+					if (sub.eventIcons) {
+						for (let i = 0; i < sub.eventIcons.length; i++) {
+							if (sub.eventIcons[i] !== "") {
+								iconList.push(sub.eventIcons[i]);
+							}
 						}
 					}
-					if (iconList.length > 0) {
-						iconStrings = ` icon ${[...new Set(iconList)].join(
-							" "
-						)}`;
-					}
-				}
-			});
-			_className += iconStrings;
+				});
 		}
+
+		let iconStrings = "";
+
+		if (iconList.length > 0) {
+			iconStrings = ` icon ${[...new Set(iconList)].join(" ")}`;
+		}
+
+		_className = `${_className}${iconStrings}`;
 
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
@@ -180,6 +208,8 @@ export default ({
 						: "active"
 					: _className;
 
+			const providerLink = `?provider=${m.provider}`;
+
 			return m.isFullPath || _target === "_blank" ? (
 				<a
 					href={_path}
@@ -194,7 +224,7 @@ export default ({
 			) : (
 				<Link
 					key={key}
-					to={`${langId}/${_path}`}
+					to={`${langId}/${_path}${m.provider ? providerLink : ""}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
 					{displayText}

@@ -21,12 +21,24 @@ export default () => {
 				? " active"
 				: "";
 
+			let _iconClassName = "";
+			const s = menu.subMenu[_key];
+			if (s.eventIcons) {
+				let iconStrings = "";
+				for (let i = 0; i < s.eventIcons.length; i++) {
+					iconStrings += `${s.eventIcons[i]} `;
+				}
+				_iconClassName = `icon ${iconStrings}`;
+			}
+
 			return (
 				<Link
 					key={`leftMenu-subMenu-${_key}`}
 					to={`/${userInfo.langId}/${menu.subMenu[_key].path}`}
 					className={`menuSelect${_active}`}>
-					<span>{t(menu.subMenu[_key].displayKey)}</span>
+					<span className={_iconClassName}>
+						{t(menu.subMenu[_key].displayKey)}
+					</span>
 				</Link>
 			);
 		});

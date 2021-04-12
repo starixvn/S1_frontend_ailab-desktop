@@ -18,6 +18,7 @@ export default ({
 	filter,
 	promoList,
 	refreshProcessBar,
+	staticPromotions = [],
 	afterJoinCallBack
 }) => {
 	const { langId, isLogin, currencyId } = userInfo;
@@ -86,13 +87,17 @@ export default ({
 
 	if (isLogin === null) return null;
 
-	if (isArrayNotEmpty(promoList))
+	if (
+		isArrayNotEmpty(promoList) ||
+		(isArrayNotEmpty(staticPromotions) && filter === defFilterType.all)
+	)
 		return (
 			<div
 				className={`proList${
 					filter === defFilterType.expiry ? " expired" : ""
 				}`}>
 				{rows}
+				{filter === defFilterType.all ? staticPromotions : null}
 			</div>
 		);
 

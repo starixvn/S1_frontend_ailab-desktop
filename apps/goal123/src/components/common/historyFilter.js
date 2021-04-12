@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import DateTime from "react-datetime";
-import Inputbox from "./inputbox";
+import DateTime from "./dateTime";
 import Dropdown from "./dropdown";
 
 const quickPickList = [
@@ -16,7 +15,6 @@ const quickPickList = [
 
 export default props => {
 	const { t } = useTranslation();
-
 	const initQuickPick = props.keepData?.quickPick ?? 0;
 	const [selectedIdx, setSelectedIdx] = useState(initQuickPick);
 
@@ -104,6 +102,7 @@ export default props => {
 					onChange={selectDate.bind(this, "start")}
 					timeFormat={false}
 					isValidDate={valid}
+					closeOnSelect={true}
 				/>
 				<div className="iconModule">
 					<i className="icon icon-calendar" />
@@ -117,6 +116,7 @@ export default props => {
 					onChange={selectDate.bind(this, "end")}
 					timeFormat={false}
 					isValidDate={valid}
+					closeOnSelect={true}
 				/>
 				<div className="iconModule">
 					<i className="icon icon-calendar" />

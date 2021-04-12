@@ -129,9 +129,9 @@ const Content = () => {
 				<div>{idx + 1}</div>
 				<div>{item.userName}</div>
 				<div>
-					{moment(item.createTime).format("DD/MM/YYYY")}
+					{moment(item.registerDate).format("DD/MM/YYYY")}
 					<span className="txt-blue2">
-						{moment(item.createTime).format("HH:mm:ss")}
+						{moment(item.registerDate).format("HH:mm:ss")}
 					</span>
 				</div>
 				<div>{t(`Currency_${item.currencyId}`)}</div>

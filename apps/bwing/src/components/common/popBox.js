@@ -36,6 +36,25 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.DepositUploadBankSlip: {
+			const DepositUploadBankSlip = lazy(() =>
+				import("./popBox.depositUploadBankSlip")
+			);
+
+			content = (
+				<DepositUploadBankSlip
+					t={popBox.t}
+					langId={popBox.langId}
+					_isConvert={popBox._isConvert}
+					setPopBox={popBox.setPopBox}
+					formInfo={popBox.formInfo}
+					localBankInfo={popBox.localBankInfo}
+					resolve={popBox.resolve}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.UploadBankSlip: {
 			const { isOpen, ...restProps } = popBox;
 			const UploadBankSlip = lazy(() =>
@@ -238,6 +257,27 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.SuccessMySteryBox: {
+			const SuccessMySteryBox = lazy(() =>
+				import("./popBox.successMySteryBox")
+			);
+
+			content = (
+				<SuccessMySteryBox
+					clickClose={popBox.clickClose}
+					t={popBox.t}
+					drawPrizeDatas={popBox.drawPrizeDatas}
+				/>
+			);
+			break;
+		}
+
+		case defPopBoxType.JoinReferral: {
+			const JoinReferral = lazy(() => import("./popBox.joinReferral"));
+			content = <JoinReferral onClickClose={popBox.onClickClose} />;
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 
@@ -245,15 +285,20 @@ export default () => {
 			break;
 	}
 
-	return popBox.isOpen ? (
-		popBox.loading ? (
-			<Loading />
-		) : (
-			<div id="popup" className="active">
-				<Suspense fallback={<Loading />}>{content}</Suspense>
-			</div>
-		)
-	) : (
-		<></>
+	if (popBox.loading) return <Loading />;
+
+	const customLayout =
+		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
+		popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
+
+	if (!popBox.isOpen) return null;
+
+	if (customLayout)
+		return <Suspense fallback={<Loading />}>{content}</Suspense>;
+
+	return (
+		<div id="popup" className="active">
+			<Suspense fallback={<Loading />}>{content}</Suspense>
+		</div>
 	);
 };

@@ -2,7 +2,7 @@ import React from "react";
 
 export default props => {
 	const showCheckIcon = () => {
-		if (props.checked === null) {
+		if (props.checked === null && props.clickInfo) {
 			return (
 				<i
 					className="icon icon-information-solid"
@@ -23,7 +23,7 @@ export default props => {
 
 	return (
 		<>
-			<div className="inputBox">
+			<div className={props.className ?? "inputBox"}>
 				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
 				{props.title ? (
 					<i className="txt-blue12">{props.title}</i>
@@ -42,27 +42,13 @@ export default props => {
 					}
 					max={props.max ? props.max : null}
 					readOnly={props.readOnly}
+					data-testid="input"
 				/>
-				{props.checked !== undefined ? (
-					<div className="iconModule">
-						{props._isConvert ? "('000)" : null}
-						{showCheckIcon()}
-						{/* {props.checked === null ? (
-							<i
-								className={`icon icon-information-solid`}
-								onClick={props.clickInfo}></i>
-						) : props.checked ? (
-							<i className={`icon icon-checkmark`}></i>
-						) : !props.checked && props.checked !== null ? (
-							<i className={`icon icon-cross`}></i>
-						) : null} */}
-					</div>
-				) : null}
-				{props.checkIcon ? (
-					<div className="iconModule">
-						<i className={`icon ${props.checkIcon}`} />
-					</div>
-				) : null}
+
+				<div className="iconModule">
+					{props._isConvert ? "('000)" : null}
+					{props.checked !== undefined ? showCheckIcon() : null}
+				</div>
 			</div>
 			{props.inputType !== "date" ? (
 				<div className={`tip${props.tip ? " active" : ""}`}>

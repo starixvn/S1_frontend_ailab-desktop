@@ -13,13 +13,13 @@ export const getUrlParameter = name => {
 	return null;
 };
 
-export const number_format = (number, IsConvertRequired = false) => {
+export const number_format = (number, IsConvertRequired = false, isInteger) => {
 	let n = number;
 	if (!isNaN(n)) {
 		if (IsConvertRequired) {
 			n /= 1000;
 		}
-		n = Number(n).toFixed(2);
+		n = isInteger ? Number(n) : Number(n).toFixed(2);
 	}
 
 	n += "";
@@ -45,7 +45,14 @@ export const getCurrencyCode = langId => {
 	return currencyCode[langId.toUpperCase()];
 };
 
-export const checkAmount = (amount, minAmount, maxAmount, _isConvert, i18n) => {
+export const checkAmount = (
+	amount,
+	minAmount,
+	maxAmount,
+	_isConvert,
+	i18n,
+	isInteger
+) => {
 	let status = 0;
 	let msg = "";
 	if (amount !== null && amount !== undefined) {
@@ -55,14 +62,17 @@ export const checkAmount = (amount, minAmount, maxAmount, _isConvert, i18n) => {
 		}
 		if (num_Amount <= 0) {
 			status = 2;
-			msg = i18n("lbl_AmountTooltip")?.replace("{0}", minAmount);
+			msg = i18n("lbl_AmountTooltip")?.replace(
+				"{0}",
+				number_format(minAmount, _isConvert, isInteger)
+			);
 		} else if (
 			minAmount !== 0 &&
 			maxAmount !== 0 &&
 			(num_Amount > maxAmount || num_Amount < minAmount)
 		) {
 			status = 2;
-			msg = `${number_format(num_Amount, _isConvert)} ${i18n(
+			msg = `${number_format(num_Amount, _isConvert, isInteger)} ${i18n(
 				"lbl_NotinLimit"
 			)}`;
 		}
@@ -142,7 +152,7 @@ export const passwordCheck = val => {
 	return { checked: true, message: "" };
 };
 
-export const isDateRange = (currentDate, startDate, endDate) => {
+export const isDateRange = (startDate, endDate) => {
 	const now = new Date();
 	const _startDate = startDate ? new Date(`${startDate} GMT+0800`) : null; // yyyy/mm/dd hh:mm:ss
 	const _endDate = endDate ? new Date(`${endDate} GMT+0800`) : null; // yyyy/mm/dd hh:mm:ss

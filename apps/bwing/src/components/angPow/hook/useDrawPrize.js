@@ -33,20 +33,21 @@ const useDrawPrize = ({ isMountedRef }) => {
 
 		api_events_CheckDrawPrize({ eventId: defEventId }).then(
 			res => {
-				if (!isMountedRef) return;
+				if (!isMountedRef.current) return;
 				const { errorCode, data } = res.data;
-				setDrawPrize({ data, errorCode });
 
-				if (errorCode === defDrawPrizeStatus.canJoin) return;
-
-				if (errorCode === defDrawPrizeStatus.isJoin) {
-					errorPopBox(t("lbl_AngPow_AlreadyDrawn"), errorCode);
-				} else if (errorCode === defDrawPrizeStatus.drawOut) {
-					errorPopBox(t("lbl_AngPow_NotWinning"), errorCode);
+				if (
+					errorCode === defDrawPrizeStatus.canJoin ||
+					errorCode === defDrawPrizeStatus.isJoin ||
+					errorCode === defDrawPrizeStatus.drawOut
+				) {
+					setDrawPrize({ data, errorCode });
+				} else {
+					errorPopBox(message || `[${errorCode}] error`, errorCode);
 				}
 			},
 			() => {
-				if (!isMountedRef) return;
+				if (!isMountedRef.current) return;
 
 				errorPopBox();
 			}
@@ -57,7 +58,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 		if (drawPrize.errorCode !== defDrawPrizeStatus.isJoin) {
 			await api_events_DrawPrize({ eventId: defEventId }).then(
 				res => {
-					if (!isMountedRef) return;
+					if (!isMountedRef.current) return;
 
 					const { errorCode, data, message } = res.data;
 
@@ -92,7 +93,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 					}
 				},
 				() => {
-					if (!isMountedRef) return;
+					if (!isMountedRef.current) return;
 					errorPopBox();
 				}
 			);
@@ -112,7 +113,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 			res => {
 				setLoading(false);
 
-				if (!isMountedRef) return;
+				if (!isMountedRef.current) return;
 				if (res.data.errorCode === 0) {
 					setDrawPrizeList(res.data.data);
 				} else {
@@ -122,7 +123,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 			() => {
 				setLoading(false);
 
-				if (!isMountedRef) return;
+				if (!isMountedRef.current) return;
 				errorPopBox();
 			}
 		);

@@ -3,7 +3,7 @@ import React from "react";
 export const InfoEn = () => {
 	return (
 		<div className="vipInfo">
-			<div className="vipTitle">VIP Programme</div>
+			<div className="vipTitle">VIP Program</div>
 			Nova88 has launched its VIP rewards program so that members could
 			indulge in good services, more rewards, and a better experience.
 			Discover greater perks and entitlements when your tier upgraded.

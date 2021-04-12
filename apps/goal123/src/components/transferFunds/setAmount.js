@@ -36,7 +36,7 @@ export default props => {
 				</div>
 				<form className="inputModuleRow" onSubmit={props.clickSubmit}>
 					<Inputbox
-						className="inputBox-white"
+						className="inputBox"
 						title={props.i18n("lbl_Amount")}
 						value={props.amount}
 						onChange={props.onChange}
@@ -48,7 +48,10 @@ export default props => {
 						isAmount={true}
 					/>
 					<div className="btnGroup">
-						<button className="btn-check" type="submit">
+						<button
+							className="btn-check"
+							type="submit"
+							data-testid="setAmount_submit">
 							{props.i18n("lbl_Submit")}
 						</button>
 					</div>

@@ -17,19 +17,22 @@ export default {
 	liveCasino: {
 		root: "liveCasino"
 	},
+	// deposit: {
+	// 	root: "deposit",
+	// 	sub: {
+	// 		onlineBank: {
+	// 			root: "onlineBank"
+	// 		},
+	// 		mobilePay: {
+	// 			root: "mobilePay"
+	// 		},
+	// 		localBank: {
+	// 			root: "localBank"
+	// 		}
+	// 	}
+	// },
 	deposit: {
-		root: "deposit",
-		sub: {
-			onlineBank: {
-				root: "onlineBank"
-			},
-			mobilePay: {
-				root: "mobilePay"
-			},
-			localBank: {
-				root: "localBank"
-			}
-		}
+		root: "deposit"
 	},
 	depositHistory: {
 		root: "depositHistory"
@@ -117,5 +120,17 @@ export default {
 	},
 	angpow: {
 		root: "angPow"
+	},
+	referral: {
+		root: "referral"
+	},
+	referralHistory: {
+		root: "referralHistory"
+	},
+	vip: {
+		root: "vip"
+	},
+	mysteryBox: {
+		root: "mysteryBox"
 	}
 };

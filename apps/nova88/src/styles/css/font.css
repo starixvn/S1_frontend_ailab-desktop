@@ -65,6 +65,10 @@
   font-size: 12px;
 }
 
+.icon-nolive:before {
+  content: "\e9d6";
+}
+
 .icon-nova88:before {
   content: "\e9c6";
 }
@@ -75,6 +79,10 @@
 
 .icon-mega:before {
   content: "\e9c3";
+}
+
+.icon-livechat1:before {
+  content: "\e9db";
 }
 
 .icon-ICG:before {
@@ -103,6 +111,10 @@
 
 .icon-visit:before {
   content: "\e9c1";
+}
+
+.icon-friendreferral:before {
+  content: "\e9da";
 }
 
 .icon-friend:before {
@@ -141,8 +153,12 @@
   content: "\e9a4";
 }
 
-.icon-home:before {
-  content: "\e956";
+.icon-upcomingmatches:before {
+  content: "\e9cf";
+}
+
+.icon-home123:before {
+  content: "\e900";
 }
 
 .icon-deposit1:before {
@@ -183,6 +199,10 @@
 
 .icon-icon_1_cop:before {
   content: "\e996";
+}
+
+.icon-mediafire:before {
+  content: "\e9ca";
 }
 
 .icon-tiktok:before {
@@ -605,6 +625,14 @@
   content: "\e910";
 }
 
+.icon-live_tv:before {
+  content: "\e9d8";
+}
+
+.icon-cricket:before {
+  content: "\e9d0";
+}
+
 .icon-cloud_upload:before {
   content: "\e9af";
 }
@@ -681,6 +709,10 @@
   content: "\e933";
 }
 
+.icon-question:before {
+  content: "\e909";
+}
+
 .icon-envelope:before {
   content: "\e905";
 }
@@ -721,8 +753,8 @@
   content: "\e950";
 }
 
-.icon-home123:before {
-  content: "\e900";
+.icon-home:before {
+  content: "\e956";
 }
 
 .icon-newspaper:before {
@@ -735,6 +767,14 @@
 
 .icon-camera:before {
   content: "\e919";
+}
+
+.icon-film:before {
+  content: "\e9cb";
+}
+
+.icon-video-camera:before {
+  content: "\e9cc";
 }
 
 .icon-connection:before {
@@ -941,6 +981,14 @@
   content: "\ea53";
 }
 
+.icon-radio-checked:before {
+  content: "\ea54";
+}
+
+.icon-radio-checked2:before {
+  content: "\ea55";
+}
+
 .icon-radio-unchecked:before {
   content: "\ea56";
 }
@@ -971,6 +1019,10 @@
 
 .icon-twitter:before {
   content: "\ea96";
+}
+
+.icon-youtube:before {
+  content: "\ea9d";
 }
 
 .icon-appleinc:before {
@@ -1005,6 +1057,14 @@
   content: "\e939";
 }
 
+.icon-news:before {
+  content: "\e9cd";
+}
+
+.icon-paper:before {
+  content: "\e9cd";
+}
+
 .icon-like:before {
   content: "\e936";
 }
@@ -1035,6 +1095,14 @@
 
 .icon-conversation:before {
   content: "\e935";
+}
+
+.icon-volleyball:before {
+  content: "\e9d2";
+}
+
+.icon-boxing:before {
+  content: "\e9d3";
 }
 
 .icon-box-bookmark:before {

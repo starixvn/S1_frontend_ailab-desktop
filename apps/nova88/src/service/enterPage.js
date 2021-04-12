@@ -1,4 +1,4 @@
-import config from "../config";
+import config, { errorPageUrl } from "../config";
 import path from "../router";
 
 export const _ACTION_TYPE = {
@@ -12,7 +12,8 @@ export const SET_CASINO_ENTER_PAGE = (tpId, gameId, isFree, langId) => {
 		const homeUrl = `${appUrl}`;
 		const signupUrl = `${appUrl}/${path.join.root}`;
 		const LoginUrl = `${appUrl}/${path.login.root}`;
-		const entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}`;
+		const _errorPageUrl = errorPageUrl(langId);
+		const entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&errorUrl=${_errorPageUrl}`;
 		window
 			.open(
 				`${entPageUrl}&fun=${isFree ? 1 : 0}&gameType=slots`,
@@ -101,7 +102,8 @@ export const GET_ENTER_PAGE_URL = (langId, tpId, gameId, matchid, betType) => {
 	const cashierUrl = `${appUrl}/${path.deposit.root}`;
 	const _matchid = matchid || "";
 	const _betType = betType ? `&betType=${betType}` : "";
-	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}`;
+	const _errorPageUrl = errorPageUrl(langId);
+	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}`;
 };
 
 const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {

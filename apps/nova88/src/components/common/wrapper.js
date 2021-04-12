@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect, navigate, Link } from "@reach/router";
+import { Redirect, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
@@ -18,9 +18,8 @@ import {
 	getNewLanguagePath
 } from "../../service/language";
 import { SiteInfo } from "../../config";
-import path from "../../router";
 import useGetWalletInfo from "./wrapper.walletInfo";
-import SEO from "../seo";
+import SEO from "../seo/seo";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -30,7 +29,13 @@ const defaultPathLang = () => {
 	const cookieLang = readCookie(SiteInfo.langCookie);
 	const _defaultLang = GET_LANG_ID();
 
-	return isVaildLang(urlLang) ? urlLang : cookieLang ?? _defaultLang;
+	let result = _defaultLang;
+	if (isVaildLang(urlLang)) {
+		result = urlLang;
+	} else if (isVaildLang(cookieLang)) {
+		result = cookieLang;
+	}
+	return result;
 };
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {

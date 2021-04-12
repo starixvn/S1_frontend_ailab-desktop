@@ -236,6 +236,19 @@ export const defMenuLinks = {
 		className: "livecasinobtn",
 		subMenu: [
 			{
+				...productList.liveCasino_N2,
+				displayText: "N2Live",
+				listNpcImgUrl: "casino-n2.png",
+				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.n2
+					})
+				]
+			},
+			{
 				...productList.liveCasino_WM,
 				className: "liveWM",
 				icon: "icon icon-WM",
@@ -500,15 +513,15 @@ export const defMenuLinks = {
 					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
 				}
 			},
-			// {
-			// 	...productList.fishing,
-			// 	className: "fgg",
-			// 	displayKey: "lbl_FishingGG",
-			// 	menuType: defMenuType.entPage,
-			// 	listNpcImgUrl: "fishGG.png",
-			// 	listBgImgUrl: "fishListHover.png",
-			// 	parameter: { ...productList.fishing }
-			// },
+			{
+				...productList.fishing,
+				className: "fgg",
+				displayKey: "lbl_FishingGG",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishGG.png",
+				listBgImgUrl: "fishListHover.png",
+				parameter: { ...productList.fishing }
+			},
 			{
 				...productList.fishing_SG,
 				className: "fsg",
@@ -529,14 +542,14 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	cockFighting: {
-		productInfo: productList.cockFighting,
-		displayKey: "lbl_CockFighting",
-		className: "COCK"
-	},
+	// cockFighting: {
+	// 	productInfo: productList.cockFighting,
+	// 	displayKey: "lbl_CockFighting",
+	// 	className: "COCK"
+	// },
 	vip: {
 		path: path.vip.root,
-		displayKey: "VIP",
+		displayKey: "lbl_Vip",
 		eventIcons: [
 			showEventIcon({
 				icon: defEventIcon.new,

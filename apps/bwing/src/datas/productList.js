@@ -155,6 +155,9 @@ export default {
 		tpId: 23,
 		gameId: 2
 	},
+	liveCasino_n2live: {
+		tpId: 28
+	},
 	One789_lottery: {
 		tpId: 23,
 		gameId: 0

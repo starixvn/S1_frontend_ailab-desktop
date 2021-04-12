@@ -63,6 +63,10 @@ img {
   display: block;
 }
 
+.icon-close {
+  cursor: pointer;
+}
+
 .icon:before {
   margin: 0 5px;
 }
@@ -71,16 +75,16 @@ img {
   visibility: hidden;
   opacity: 0;
   height: 0;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .transition-open, .header > div.menu .subMenu-Wrapper.active, main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG1.jpg"], .tip.active, .dropdown > .dropdown-container.active, .personal .list .listBody.active {
   visibility: visible;
   opacity: 1;
   height: auto;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 body, html {
@@ -140,11 +144,10 @@ header {
   position: absolute;
   margin-top: 85px;
   height: 50px;
-  background: rgba(0, 0, 0, 0.9);
+  background: #191919;
   left: 0;
   text-transform: uppercase;
   width: 100%;
-  background: #000 url(../img/menu_bg.png) repeat-x top center;
 }
 
 .header > div.menu > div {
@@ -202,13 +205,6 @@ header {
   font-size: 24px;
 }
 
-.header > div.menu > div > a.icon-home:before, .header > div.menu > div > button.icon-home:before {
-  width: 35px;
-  height: 35px;
-  content: "" !important;
-  background: url(../img/icon_home.svg) no-repeat center/100% !important;
-}
-
 .header > div.menu .subMenu-Wrapper-new {
   position: absolute;
   width: 100%;
@@ -254,8 +250,8 @@ header {
       -ms-flex-pack: end;
           justify-content: flex-end;
   height: 200px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   color: white;
   max-width: 210px;
   position: relative;
@@ -273,8 +269,8 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList a img, .header > div.menu .subMenu-Wrapper-new .sportsList button img, .header > div.menu .subMenu-Wrapper-new .eSportsList a img, .header > div.menu .subMenu-Wrapper-new .eSportsList button img, .header > div.menu .subMenu-Wrapper-new .casinoList a img, .header > div.menu .subMenu-Wrapper-new .casinoList button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img, .header > div.menu .subMenu-Wrapper-new .gameList a img, .header > div.menu .subMenu-Wrapper-new .gameList button img, .header > div.menu .subMenu-Wrapper-new .fishList a img, .header > div.menu .subMenu-Wrapper-new .fishList button img {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   position: absolute;
   width: 150px;
 }
@@ -313,8 +309,8 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   opacity: 1;
 }
 
@@ -335,8 +331,8 @@ header {
   height: 25px;
   font-weight: bold;
   background: url(../img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   left: 10px;
   bottom: -30px;
   z-index: 2;
@@ -383,15 +379,15 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a, .header > div.menu .subMenu-Wrapper-new .sportsList.active button, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button, .header > div.menu .subMenu-Wrapper-new .casinoList.active a, .header > div.menu .subMenu-Wrapper-new .casinoList.active button, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button, .header > div.menu .subMenu-Wrapper-new .gameList.active a, .header > div.menu .subMenu-Wrapper-new .gameList.active button, .header > div.menu .subMenu-Wrapper-new .fishList.active a, .header > div.menu .subMenu-Wrapper-new .fishList.active button {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   opacity: 1;
   top: 0px;
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a img, .header > div.menu .subMenu-Wrapper-new .sportsList.active button img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button img, .header > div.menu .subMenu-Wrapper-new .casinoList.active a img, .header > div.menu .subMenu-Wrapper-new .casinoList.active button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button img, .header > div.menu .subMenu-Wrapper-new .gameList.active a img, .header > div.menu .subMenu-Wrapper-new .gameList.active button img, .header > div.menu .subMenu-Wrapper-new .fishList.active a img, .header > div.menu .subMenu-Wrapper-new .fishList.active button img {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   margin-left: 0;
 }
 
@@ -400,22 +396,22 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-left {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   left: 0;
   top: 0;
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-right {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   right: 0;
   bottom: 0;
 }
 
 .header > div.menu .subMenu-Wrapper-new .sportsList.active a > span, .header > div.menu .subMenu-Wrapper-new .sportsList.active button > span, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a > span, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button > span, .header > div.menu .subMenu-Wrapper-new .casinoList.active a > span, .header > div.menu .subMenu-Wrapper-new .casinoList.active button > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button > span, .header > div.menu .subMenu-Wrapper-new .gameList.active a > span, .header > div.menu .subMenu-Wrapper-new .gameList.active button > span, .header > div.menu .subMenu-Wrapper-new .fishList.active a > span, .header > div.menu .subMenu-Wrapper-new .fishList.active button > span {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   left: 0;
   bottom: 0;
 }
@@ -487,8 +483,8 @@ header {
       -ms-flex-pack: end;
           justify-content: flex-end;
   min-height: 160px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   color: white;
   margin-bottom: 50px;
   max-width: 160px;
@@ -517,8 +513,8 @@ header {
 }
 
 .header > div.menu .subMenu-Wrapper .sportsList a:hover, .header > div.menu .subMenu-Wrapper .sportsList button:hover, .header > div.menu .subMenu-Wrapper .eSportsList a:hover, .header > div.menu .subMenu-Wrapper .eSportsList button:hover, .header > div.menu .subMenu-Wrapper .gameList a:hover, .header > div.menu .subMenu-Wrapper .gameList button:hover, .header > div.menu .subMenu-Wrapper .casinoList a:hover, .header > div.menu .subMenu-Wrapper .casinoList button:hover, .header > div.menu .subMenu-Wrapper .livecasinoList a:hover, .header > div.menu .subMenu-Wrapper .livecasinoList button:hover, .header > div.menu .subMenu-Wrapper .fishList a:hover, .header > div.menu .subMenu-Wrapper .fishList button:hover {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.menu .subMenu-Wrapper .gameList .sabaclub {
@@ -906,13 +902,14 @@ header {
   align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  z-index: 3;
 }
 
-.header > div.function > a:nth-child(-n+5) {
+.header > div.function > a:nth-child(-n+5):not(.login):not(.join) {
   color: #abafae;
 }
 
-.header > div.function > a:nth-child(-n+5):before {
+.header > div.function > a:nth-child(-n+5):not(.login):not(.join):before {
   content: '...';
   font-size: 20px;
   -webkit-transform: rotate(90deg);
@@ -954,14 +951,13 @@ header {
   background: -webkit-gradient(linear, left top, right top, from(#f77900), to(#f55c00));
   background: linear-gradient(to right, #f77900, #f55c00);
   border-radius: 20px;
-  padding: 10px;
   white-space: nowrap;
   min-width: 100px;
   letter-spacing: 1px;
   margin-right: 10px;
-  font-weight: bold;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .header > div.function > div[class=join]:hover, .header > div.function > div[class=login]:hover, .header > div.function > a[class=join]:hover, .header > div.function > a[class=login]:hover, .header > div.function > button[class=join]:hover, .header > div.function > button[class=login]:hover {
@@ -970,8 +966,8 @@ header {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: #f55c00;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function > div[class=login], .header > div.function > a[class=login], .header > div.function > button[class=login] {
@@ -994,8 +990,7 @@ header {
   position: absolute;
   margin-top: 60px;
   background: rgba(0, 0, 0, 0.7);
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  border-radius: 30px;
   padding: 0 5px;
   right: 0;
   top: 0;
@@ -1113,8 +1108,8 @@ header {
 .header > div.function .cashier button, .header > div.function .wallet button, .header > div.function .memberfile button {
   color: white;
   font-size: 14px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   white-space: nowrap;
 }
 
@@ -1152,8 +1147,8 @@ header {
 .header > div.function .cashier .submenu a:hover.icon-exit span, .header > div.function .wallet .submenu a:hover.icon-exit span, .header > div.function .memberfile .submenu a:hover.icon-exit span {
   background: #1E85EC;
   color: white;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier .submenu a.icon-new:before, .header > div.function .wallet .submenu a.icon-new:before, .header > div.function .memberfile .submenu a.icon-new:before {
@@ -1180,14 +1175,14 @@ header {
 
 .header > div.function .cashier .submenu .icon-exit span, .header > div.function .wallet .submenu .icon-exit span, .header > div.function .memberfile .submenu .icon-exit span {
   padding: 0 5px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier.active > button, .header > div.function .cashier.active:before, .header > div.function .cashier.active:after, .header > div.function .wallet.active > button, .header > div.function .wallet.active:before, .header > div.function .wallet.active:after, .header > div.function .memberfile.active > button, .header > div.function .memberfile.active:before, .header > div.function .memberfile.active:after {
   color: #1E85EC;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier.active .submenu, .header > div.function .wallet.active .submenu, .header > div.function .memberfile.active .submenu {
@@ -1199,8 +1194,8 @@ header {
 .header > div.function .cashier.active:after, .header > div.function .wallet.active:after, .header > div.function .memberfile.active:after {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier:after, .header > div.function .wallet:after, .header > div.function .memberfile:after {
@@ -1210,8 +1205,8 @@ header {
           transform: rotate(90deg);
   color: white;
   font-size: 18px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .header > div.function .cashier:before, .header > div.function .wallet:before, .header > div.function .memberfile:before {
@@ -1394,16 +1389,16 @@ main .gamelistsport a span {
   width: calc(100% - 15%);
   z-index: 2;
   left: -30px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a span:before {
   margin-right: 8px;
   font-size: 1.5vw;
   opacity: 0;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a .npc {
@@ -1419,8 +1414,8 @@ main .gamelistsport a .npc {
           justify-content: center;
   top: 10px;
   left: 20px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   z-index: 1;
 }
 
@@ -1443,8 +1438,8 @@ main .gamelistsport a .container {
 }
 
 main .gamelistsport a .container .card_right, main .gamelistsport a .container .card_left {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1462,8 +1457,8 @@ main .gamelistsport a .container .card_right img, main .gamelistsport a .contain
   width: auto;
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a .container .card_right img.baseball, main .gamelistsport a .container .card_left img.baseball {
@@ -1483,7 +1478,7 @@ main .gamelistsport a .container .card_right img.badminton, main .gamelistsport 
 main .gamelistsport a .container .card_right:before, main .gamelistsport a .container .card_left:before {
   content: "";
   position: absolute;
-  background: url(../img/card_bg.png) no-repeat center/cover;
+  border: 10px solid white;
   width: 60%;
   height: 50%;
   z-index: 1;
@@ -1505,35 +1500,35 @@ main .gamelistsport a .container .card_left {
 
 main .gamelistsport a:hover span, main .gamelistsport a:active span {
   left: 15%;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover span:before, main .gamelistsport a:active span:before {
   opacity: 1;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover .npc, main .gamelistsport a:active .npc {
   top: 0px;
   left: 0px;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover .card_right, main .gamelistsport a:hover .card_left, main .gamelistsport a:active .card_right, main .gamelistsport a:active .card_left {
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover .card_right img, main .gamelistsport a:hover .card_left img, main .gamelistsport a:active .card_right img, main .gamelistsport a:active .card_left img {
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistsport a:hover .card_right img.soccer, main .gamelistsport a:hover .card_left img.soccer, main .gamelistsport a:active .card_right img.soccer, main .gamelistsport a:active .card_left img.soccer {
@@ -1571,6 +1566,10 @@ main .gamelistsport a:hover .card_right img.esport, main .gamelistsport a:hover 
           transform: rotate(6deg);
 }
 
+main .gamelistsport a:hover .card_right:before, main .gamelistsport a:hover .card_left:before, main .gamelistsport a:active .card_right:before, main .gamelistsport a:active .card_left:before {
+  border: 10px solid #f77900;
+}
+
 main .gamelistother {
   -webkit-box-flex: 5;
       -ms-flex: 5;
@@ -1598,8 +1597,8 @@ main .gamelistother > a {
 
 main .gamelistother > a > img {
   max-width: 70%;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 main .gamelistother > a div {
@@ -1639,8 +1638,8 @@ main .gamelistother > a:hover {
 main .gamelistother > a:hover > img {
   -webkit-transform: translateY(-10px);
           transform: translateY(-10px);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 footer {
@@ -1926,8 +1925,8 @@ footer {
   width: auto;
   height: auto;
   position: absolute;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .joinpop .joinloginModule .loginAnimation img.animationlogo, .joinpop .joinloginModule .joinAnimation img.animationlogo, .loginpop .joinloginModule .loginAnimation img.animationlogo, .loginpop .joinloginModule .joinAnimation img.animationlogo {
@@ -2230,6 +2229,7 @@ footer {
           align-items: center;
   padding: 6px 10px;
   z-index: 1;
+  border: 1px solid transparent;
 }
 
 .inputBox.error, .error.inputBox-org, .error.inputBox-white, .error.inputBox-blue {
@@ -2452,9 +2452,21 @@ input[type="file"] {
   background: #134DAE;
 }
 
+.btnGroup button.lightblue, .btnGroup a.lightblue {
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  color: white;
+}
+
+.btnGroup button.lightblue:hover, .btnGroup a.lightblue:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+}
+
 .btnGroup button.darkGray, .btnGroup a.darkGray {
   background: #666;
   color: white;
+  cursor: auto;
 }
 
 .btnGroup button.red, .btnGroup a.red {
@@ -2548,7 +2560,7 @@ input[type="file"] {
 }
 
 .swiper-slide {
-  line-height: 0;
+  height: auto;
 }
 
 .swiper-pagination {
@@ -2585,12 +2597,6 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-#Marquee .marquee-box.icon-marquee:before {
-  width: 40px !important;
-  content: "" !important;
-  background: #212121 url(../img/icon_post.svg) no-repeat center/100% !important;
 }
 
 #Marquee .marquee-box.icon:before {
@@ -2669,8 +2675,8 @@ input[type="file"] {
   display: flex;
   -webkit-transform: translateX(77%);
           transform: translateX(77%);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   padding-right: 10px;
   pointer-events: none;
   cursor: pointer;
@@ -2804,8 +2810,8 @@ input[type="file"] {
 .quickLink.active {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .eventLink {
@@ -2928,8 +2934,8 @@ input[type="file"] {
 #leftMenu .menuModule .menuHeader.active:after {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 #leftMenu .menuModule .menuHeader:after {
@@ -2939,8 +2945,8 @@ input[type="file"] {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   font-weight: normal;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 #leftMenu .menuModule .menuSelect {
@@ -3878,6 +3884,26 @@ input[type="file"] {
   overflow-y: auto;
 }
 
+#popup .pop .upload, #popup .pop .uploadError, #popup .pop .uploadSuccess, #popup .pop .updateSuccess, #popup .pop .update {
+  width: 600px;
+}
+
+#popup .pop .upload_new {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  max-width: 800px;
+}
+
+#popup .pop .upload_new .title {
+  margin: 0;
+  font-size: 32px;
+}
+
 #popup .pop .download {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -3966,6 +3992,8 @@ input[type="file"] {
 
 #popup .pop .joinSuccess {
   position: relative;
+  min-width: 600px;
+  overflow: hidden;
 }
 
 #popup .pop .joinSuccess .icon-icon_1_cop {
@@ -4001,8 +4029,8 @@ input[type="file"] {
 #popup .pop .joinSuccess .icon-close {
   font-size: 16px;
   position: absolute;
-  right: -120px;
-  top: -20px;
+  right: 0px;
+  top: 0px;
 }
 
 #popup .pop .friend {
@@ -4204,7 +4232,7 @@ input[type="file"] {
   margin-top: 30px;
 }
 
-.smallList ul li {
+.smallList > ul li {
   width: 100%;
   line-height: 30px;
   letter-spacing: 1px;
@@ -4212,11 +4240,11 @@ input[type="file"] {
   white-space: nowrap;
 }
 
-.smallList ul li:nth-child(odd) {
+.smallList > ul li:nth-child(odd) {
   color: #1E85EC;
 }
 
-.smallList ul li:first-child {
+.smallList > ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
   text-align: left;
@@ -4308,7 +4336,6 @@ input[type="file"] {
 
 .upload_img img {
   height: 100%;
-  width: auto;
 }
 
 .upload_img + .smallList {
@@ -4457,6 +4484,7 @@ input[type="file"] {
 .offers .swiper-slide .team div.gameName span {
   background: -webkit-linear-gradient(bottom, #df9b5c 10%, #faf0d5 25%, #fdf0d6 90%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 18px;
 }
@@ -5642,7 +5670,7 @@ input[type="file"] {
           justify-content: center;
 }
 
-.proList, .slotList, .newsList {
+.proList, .slotList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5652,7 +5680,7 @@ input[type="file"] {
   line-height: 20px;
 }
 
-.proList > div, .slotList > div, .newsList > div {
+.proList > div, .slotList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
@@ -5664,17 +5692,17 @@ input[type="file"] {
   position: relative;
 }
 
-.proList > div.active, .slotList > div.active, .newsList > div.active {
+.proList > div.active, .slotList > div.active {
   opacity: 0.7;
 }
 
-.proList > div.active .claimed, .slotList > div.active .claimed, .newsList > div.active .claimed {
+.proList > div.active .claimed, .slotList > div.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed, .newsList > div .new, .newsList > div .claimed {
+.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed {
   position: absolute;
   top: -10px;
   left: -10px;
@@ -5694,17 +5722,17 @@ input[type="file"] {
   font-weight: bold;
 }
 
-.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before, .newsList > div .new:before, .newsList > div .claimed:before {
+.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before {
   content: "NEW";
 }
 
-.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active, .newsList > div .new.active, .newsList > div .claimed.active {
+.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .claimed, .slotList > div .claimed, .newsList > div .claimed {
+.proList > div .claimed, .slotList > div .claimed {
   background: rgba(167, 3, 3, 0.8);
   width: 75px;
   height: 75px;
@@ -5712,26 +5740,26 @@ input[type="file"] {
           transform: rotate(-25deg);
 }
 
-.proList > div .claimed:before, .slotList > div .claimed:before, .newsList > div .claimed:before {
+.proList > div .claimed:before, .slotList > div .claimed:before {
   content: "CLAIMED";
 }
 
-.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue, .newsList > div .txt-dark, .newsList > div .txt-darkBlue {
+.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue {
   font-weight: bold;
   margin: 15px 0;
 }
 
-.proList > div .txt-gray li, .slotList > div .txt-gray li, .newsList > div .txt-gray li {
+.proList > div .txt-gray li, .slotList > div .txt-gray li {
   font-size: 12px;
   list-style: disc;
   margin-left: 16px;
 }
 
-.proList > div img, .slotList > div img, .newsList > div img {
+.proList > div img, .slotList > div img {
   border-radius: 10px;
 }
 
-.proList .rollover, .slotList .rollover, .newsList .rollover {
+.proList .rollover, .slotList .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5740,13 +5768,13 @@ input[type="file"] {
   margin: 10px 0;
 }
 
-.proList .rollover > div, .slotList .rollover > div, .newsList .rollover > div {
+.proList .rollover > div, .slotList .rollover > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before, .newsList .rollover > div .icon:before {
+.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
 }
@@ -5965,7 +5993,7 @@ form {
   min-height: 22px;
 }
 
-.slotList .icon-new, .newsList .icon-new {
+.slotList .icon-new {
   background: #f77900;
   position: absolute;
   right: 25px;
@@ -5974,12 +6002,12 @@ form {
   border-radius: 5px;
 }
 
-.slotList .icon-new:before, .newsList .icon-new:before {
+.slotList .icon-new:before {
   position: unset;
   color: white;
 }
 
-.slotList > div, .newsList > div {
+.slotList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 5 - 45px);
           flex: 0 0 calc(100% / 5 - 45px);
@@ -5987,19 +6015,19 @@ form {
   margin: 10px 7px;
 }
 
-.slotList > div .txt-darkBlue, .newsList > div .txt-darkBlue {
+.slotList > div .txt-darkBlue {
   font-size: 12px;
   margin: 0;
 }
 
-.slotList > div .btnGroup, .newsList > div .btnGroup {
+.slotList > div .btnGroup {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
 }
 
-.slotList > div .btnGroup button, .newsList > div .btnGroup button {
+.slotList > div .btnGroup button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -6007,13 +6035,13 @@ form {
   margin: 0 1px;
 }
 
-.slotList > div .brand, .newsList > div .brand {
+.slotList > div .brand {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.slotList > div .brand:before, .newsList > div .brand:before {
+.slotList > div .brand:before {
   content: "";
   border-color: #134DAE transparent transparent #134DAE;
   border-style: solid;
@@ -6026,7 +6054,7 @@ form {
           filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .brand span, .newsList > div .brand span {
+.slotList > div .brand span {
   z-index: 1;
   position: absolute;
   top: 7px;
@@ -6035,7 +6063,7 @@ form {
   font-weight: bold;
 }
 
-.slotList > div .icon-star-full, .newsList > div .icon-star-full {
+.slotList > div .icon-star-full {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -6045,51 +6073,8 @@ form {
           filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .icon-star-full.active, .newsList > div .icon-star-full.active {
+.slotList > div .icon-star-full.active {
   color: #fab617;
-}
-
-.newsList > div {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(100% / 3 - 45px);
-          flex: 0 0 calc(100% / 3 - 45px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.newsList > div .btnGroup button {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-}
-
-.newsList > div .time {
-  font-size: 12px;
-}
-
-.newsList > div .txt-darkBlue {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-}
-
-.newsList > div .txt-gray {
-  font-size: 12px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal;
 }
 
 article {
@@ -6478,6 +6463,9 @@ button.icon-spinner11:before {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100%;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
 }
 
 .checkBankSlip.smallList ul li {
@@ -6496,8 +6484,9 @@ button.icon-spinner11:before {
 
 .checkBankSlip.smallList ul li:nth-child(1) {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  width: 100%;
 }
 
 .checkBankSlip.smallList ul li .icon {
@@ -7238,7 +7227,6 @@ button.icon-spinner11:before {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  background: url(../img/gameMenu_bg.png) no-repeat center/cover;
 }
 
 .gameMenu .icon-new:before {
@@ -7263,9 +7251,8 @@ button.icon-spinner11:before {
 .gameMenu .gameSwiper .swiper-slide {
   text-align: center;
   height: 150px;
-  background: #191919;
-  border: 1px solid #b28750;
-  margin: 0 8.5px !important;
+  background: #212121;
+  border: 1px solid #333;
   padding: 10px 0;
   border-radius: 20px;
 }
@@ -7279,8 +7266,7 @@ button.icon-spinner11:before {
 }
 
 .gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
-  background: #d3162c;
-  border: 1px solid #b28750;
+  background: #1E85EC;
   height: 25px;
   padding: 0px 10px;
   opacity: 1;
@@ -7816,30 +7802,7 @@ button.icon-spinner11:before {
   background-repeat: no-repeat;
   border-radius: 15px;
   margin: 20px auto;
-}
-
-.ranking.eventRule {
-  background-image: url(../img/eventRuleBg.jpg);
-}
-
-.ranking.ranksports {
-  background-image: url(../img/rankingSportsBg.jpg);
-}
-
-.ranking.rankLivecasino {
-  background-image: url(../img/rankingLivecasinoBg.jpg);
-}
-
-.ranking.rankSlots {
-  background-image: url(../img/rankingSlotsBg.jpg);
-}
-
-.ranking.rankRecords {
-  background-image: url(../img/rankingRecordsBg.jpg);
-}
-
-.ranking.lastGameRecords {
-  background-image: url(../img/lastGameBg.jpg);
+  background-image: url(https://image.n88media.com/SiteSkin/img/eventRuleBg.jpg);
 }
 
 .ranking a {
@@ -7852,7 +7815,7 @@ button.icon-spinner11:before {
 }
 
 .ranking > .btnGroup {
-  min-width: 770px;
+  min-width: 768px;
   margin: 0;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -7863,35 +7826,41 @@ button.icon-spinner11:before {
           justify-content: flex-start;
 }
 
+.ranking > .btnGroup ~ div {
+  display: none;
+}
+
+.ranking > .btnGroup ~ div.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .ranking > .btnGroup button {
   border-radius: 15px 15px 0 0;
   color: #666;
   white-space: nowrap;
-  background: #5a0303;
+  background: #00616f;
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
-  -webkit-box-flex: 0;
-      -ms-flex: 0;
-          flex: 0;
   margin: 0 4px 0 0;
+  color: #19a4bb;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+.ranking > .btnGroup button.active, .ranking > .btnGroup button:hover {
+  background: #19a4bb;
   color: white;
-}
-
-.ranking > .btnGroup button.active {
-  background: #cf0404;
-}
-
-.ranking > .btnGroup button:hover {
-  background: #9b0a0a;
 }
 
 .ranking .mwt_border {
   position: relative;
-  border: solid 3px #f77900;
+  border: 3px solid #19a4bb;
   margin-top: 20px;
   padding: 10px;
-  color: #666;
   line-height: normal;
   font-weight: bold;
 }
@@ -7901,7 +7870,7 @@ button.icon-spinner11:before {
   height: 0px;
   border-width: 15px;
   border-style: solid;
-  border-color: transparent transparent #f77900 transparent;
+  border-color: transparent transparent #19a4bb transparent;
   position: absolute;
   top: -33px;
   left: 50%;
@@ -7927,20 +7896,25 @@ button.icon-spinner11:before {
   display: -ms-flexbox;
   display: flex;
   line-height: 30px;
-  min-width: 770px;
+  min-width: 768px;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  border: 2px solid #9b0a0a;
-  border-radius: 0 10px 10px;
+  border: 2px solid #19a4bb;
+  border-radius: 0 0 10px 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 10px;
+  padding: 30px 0;
   min-height: 725px;
-  background: #121212;
+  position: relative;
+  background: url(https://image.n88media.com/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
 }
 
 .ranking .champion .title, .ranking .eventRule .title, .ranking .lastevent .title {
   font-size: 28px;
+  clear: both;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: center;
 }
 
 .ranking .champion .highest, .ranking .eventRule .highest, .ranking .lastevent .highest {
@@ -7949,11 +7923,11 @@ button.icon-spinner11:before {
           flex: 1;
   margin: 0 20px;
   text-align: center;
-  max-width: 295px;
+  max-width: 230px;
 }
 
-.ranking .champion .highest .txt-orange, .ranking .eventRule .highest .txt-orange, .ranking .lastevent .highest .txt-orange {
-  font-size: 26px;
+.ranking .champion .highest .txt-yellow, .ranking .eventRule .highest .txt-yellow, .ranking .lastevent .highest .txt-yellow {
+  font-size: 24px;
   font-weight: bold;
 }
 
@@ -7971,7 +7945,15 @@ button.icon-spinner11:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 478px;
+  max-width: 485px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ranking .champion .rankModule .icon-nodata, .ranking .eventRule .rankModule .icon-nodata, .ranking .lastevent .rankModule .icon-nodata {
+  color: #fab617;
 }
 
 .ranking .champion .rankModule .btnGroup button, .ranking .eventRule .rankModule .btnGroup button, .ranking .lastevent .rankModule .btnGroup button {
@@ -7980,21 +7962,86 @@ button.icon-spinner11:before {
   padding: 5px 10px;
 }
 
-.ranking .champion .title, .ranking .eventRule .title, .ranking .lastevent .title {
-  color: #f2c145;
-  margin-top: 15px;
+.ranking .champion .rankTag, .ranking .lastevent .rankTag {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 1;
 }
 
-.ranking .champion, .ranking .lastevent {
+.ranking .champion .rankTag .btnGroup button, .ranking .lastevent .rankTag .btnGroup button {
+  border-radius: 5px;
+}
+
+.ranking .champion .finalTour, .ranking .lastevent .finalTour {
+  text-transform: uppercase;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+  min-width: auto;
+  white-space: nowrap;
+  margin-left: 0;
+  font-weight: bold;
+  font-size: 15px;
+  background: #003b44;
+  color: #00616f;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  -webkit-animation: finaltour 1s infinite;
+          animation: finaltour 1s infinite;
+  cursor: pointer;
+  z-index: 1;
+}
+
+@-webkit-keyframes finaltour {
+  0% {
+    background: #003b44;
+    color: #00616f;
+  }
+  50% {
+    background: #00616f;
+    color: #a9d9e7;
+  }
+  100% {
+    background: #003b44;
+    color: #00616f;
+  }
+}
+
+@keyframes finaltour {
+  0% {
+    background: #003b44;
+    color: #00616f;
+  }
+  50% {
+    background: #00616f;
+    color: #a9d9e7;
+  }
+  100% {
+    background: #003b44;
+    color: #00616f;
+  }
+}
+
+.ranking .champion .highest, .ranking .lastevent .highest {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .ranking .champion .highest .title, .ranking .lastevent .highest .title {
-  text-align: left;
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 0px;
   white-space: nowrap;
+  font-size: 14px;
+  color: #fab617;
 }
 
 .ranking .champion .highest .title div, .ranking .lastevent .highest .title div {
@@ -8019,7 +8066,6 @@ button.icon-spinner11:before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  color: #666;
   text-align: left;
   margin-bottom: 20px;
 }
@@ -8030,23 +8076,23 @@ button.icon-spinner11:before {
 
 .ranking .rankTag .btnGroup button {
   text-transform: uppercase;
-  background: transparent;
-  border-radius: 5px;
-  border: 1px solid #f2c145;
-  color: #f2c145;
-  padding: 5px;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
   min-width: auto;
   white-space: nowrap;
   margin-left: 0;
+  font-weight: bold;
+  font-size: 15px;
+  background: #003b44;
+  color: #00616f;
 }
 
 .ranking .rankTag .btnGroup button.active {
-  background: #cf0404;
-  color: white;
+  background: #00616f;
+  color: #a9d9e7;
 }
 
 .ranking .eventRule {
-  background: url(../img/eventRuleInfoBG.png) no-repeat center/cover;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -8054,10 +8100,11 @@ button.icon-spinner11:before {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: #121212;
+}
+
+.ranking .eventRule .stitle {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .ranking .eventRule .title {
@@ -8065,37 +8112,138 @@ button.icon-spinner11:before {
 }
 
 .ranking .eventRule .rankTag {
-  margin-top: 10px;
   margin-bottom: 0;
 }
 
 .ranking .eventRule .rankList {
   width: 66.6%;
   text-align: center;
-  max-height: 450px;
+}
+
+.ranking .eventRule .rankList > div {
+  display: none;
+}
+
+.ranking .eventRule .rankList > div.active {
+  display: block;
 }
 
 .ranking .eventRule .rankList button {
-  color: #f77900;
-  text-decoration: underline;
+  color: white;
+  background: #19a4bb;
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+
+.ranking .eventRule .rankList button:hover {
+  background: #00616f;
+}
+
+.ranking .eventRule .rankList li div {
+  min-width: 110px;
 }
 
 .ranking .eventRule .rankList li div:first-child {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  min-width: auto;
 }
 
 .ranking .eventRule .rankList li div:first-child img {
   float: right;
 }
 
+.ranking .eventRule .rankList li div:last-child {
+  min-width: 250px;
+}
+
+.timeLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #003b44;
+  width: calc(100% - 20px);
+  height: 10px;
+  border-radius: 30px;
+  margin: 69px 0 35px;
+}
+
+.timeLine > div {
+  width: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  text-align: left;
+}
+
+.timeLine > div:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #19a4bb;
+  border-radius: 30px;
+  display: block;
+}
+
+.timeLine > div:nth-child(2) > div {
+  background: #19a4bb;
+  z-index: 2;
+}
+
+.timeLine > div:nth-child(2) > div:before {
+  border-color: transparent transparent transparent #19a4bb;
+}
+
+.timeLine > div:nth-child(3) > div {
+  background: #288894;
+  z-index: 1;
+  margin-left: -63px;
+}
+
+.timeLine > div:nth-child(3) > div:before {
+  border-color: transparent transparent transparent #288894;
+}
+
+.timeLine > div:nth-child(4) > div {
+  margin-left: -51px;
+}
+
+.timeLine > div > div {
+  position: absolute;
+  bottom: 15px;
+  line-height: normal;
+  padding: 5px 0 5px 15px;
+  background: #003b44;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  margin-left: -75px;
+}
+
+.timeLine > div > div:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 24px 0 24px 15px;
+  border-color: transparent transparent transparent #003b44;
+  position: absolute;
+  top: 0;
+  right: -15px;
+}
+
+.timeLine > div > div > div {
+  color: #fab617;
+}
+
 .rankList {
+  background: #00616f;
   overflow-y: auto;
-  margin-top: 20px;
-  width: 100%;
-  padding-bottom: 30px;
-  padding-right: 10px;
+  max-height: 450px;
+  padding: 10px 25px 24px;
+  border-radius: 10px;
 }
 
 .rankList::-webkit-scrollbar {
@@ -8109,8 +8257,8 @@ button.icon-spinner11:before {
 }
 
 .rankList::-webkit-scrollbar-thumb {
-  background: -webkit-gradient(linear, left top, right top, from(#940202), to(#cb0404));
-  background: linear-gradient(to right, #940202, #cb0404);
+  background: -webkit-gradient(linear, left top, right top, from(#28b8ce), to(#00616f));
+  background: linear-gradient(to right, #28b8ce, #00616f);
   border-radius: 10px;
 }
 
@@ -8151,9 +8299,10 @@ button.icon-spinner11:before {
           align-items: center;
   line-height: 30px;
   border-radius: 5px;
-  background: #212121;
+  background: #00616f;
   margin-bottom: 10px;
   min-height: 60px;
+  border: 1px solid #f5c346;
 }
 
 .rankList li:first-child {
@@ -8164,11 +8313,11 @@ button.icon-spinner11:before {
   height: 30px;
   min-height: auto;
   margin: 0;
+  border: 0;
 }
 
 .rankList li:first-child div {
   font-size: 14px;
-  color: #939393;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8182,17 +8331,14 @@ button.icon-spinner11:before {
 
 .rankList li:nth-child(2) {
   background: #980b0b;
-  border: 1px solid #f5c346;
 }
 
 .rankList li:nth-child(3) {
   background: #ba4908;
-  border: 1px solid #f5c346;
 }
 
 .rankList li:nth-child(4) {
   background: #b45e08;
-  border: 1px solid #f5c346;
 }
 
 .rankList li div {
@@ -8227,7 +8373,6 @@ button.icon-spinner11:before {
       -ms-flex-pack: end;
           justify-content: flex-end;
   text-align: right;
-  white-space: nowrap;
   min-width: 195px;
 }
 
@@ -8235,8 +8380,6 @@ button.icon-spinner11:before {
   color: white;
   font-size: 12px;
   text-align: center;
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
@@ -8498,152 +8641,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   100% {
     -webkit-transform: rotate(10deg);
             transform: rotate(10deg);
-  }
-}
-
-[class^="star"] {
-  /*選取所有star*/
-  position: absolute;
-  color: #fff;
-  -webkit-animation: falling 5s infinite;
-          animation: falling 5s infinite;
-  -webkit-writing-mode: vertical-rl;
-      -ms-writing-mode: tb-rl;
-          writing-mode: vertical-rl;
-  font-size: 14px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #fff;
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-  /*1~30的數數*/
-}
-
-[class^="star"].star1 {
-  position: absolute;
-  left: 0.16361%;
-  top: -12.14412%;
-  width: 12.39114px;
-  height: 12.39114px;
-  -webkit-animation-delay: -0.5s;
-          animation-delay: -0.5s;
-}
-
-[class^="star"].star2 {
-  position: absolute;
-  left: 33.6304%;
-  top: -32.38894%;
-  width: 5.73719px;
-  height: 5.73719px;
-  -webkit-animation-delay: -1s;
-          animation-delay: -1s;
-}
-
-[class^="star"].star3 {
-  position: absolute;
-  left: 87.22939%;
-  top: -25.28497%;
-  width: 14.47671px;
-  height: 14.47671px;
-  -webkit-animation-delay: -1.5s;
-          animation-delay: -1.5s;
-}
-
-[class^="star"].star4 {
-  position: absolute;
-  left: 10.10702%;
-  top: 25.79204%;
-  width: 8.01956px;
-  height: 8.01956px;
-  -webkit-animation-delay: -2s;
-          animation-delay: -2s;
-}
-
-[class^="star"].star5 {
-  position: absolute;
-  left: 55.2917%;
-  top: 7.763%;
-  width: 5.21659px;
-  height: 5.21659px;
-  -webkit-animation-delay: -2.5s;
-          animation-delay: -2.5s;
-}
-
-[class^="star"].star6 {
-  position: absolute;
-  left: 44.506%;
-  top: -12.95576%;
-  width: 13.0515px;
-  height: 13.0515px;
-  -webkit-animation-delay: -3s;
-          animation-delay: -3s;
-}
-
-[class^="star"].star7 {
-  position: absolute;
-  left: 71.81087%;
-  top: 21.86233%;
-  width: 12.93408px;
-  height: 12.93408px;
-  -webkit-animation-delay: -3.5s;
-          animation-delay: -3.5s;
-}
-
-[class^="star"].star8 {
-  position: absolute;
-  left: 47.1251%;
-  top: 2.57578%;
-  width: 11.81933px;
-  height: 11.81933px;
-  -webkit-animation-delay: -4s;
-          animation-delay: -4s;
-}
-
-@-webkit-keyframes falling {
-  100% {
-    opacity: 0;
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  70% {
-    -webkit-filter: blur(3px);
-            filter: blur(3px);
-    opacity: 1;
-  }
-  0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 700px);
-            transform: translate(0, 700px);
-  }
-}
-
-@keyframes falling {
-  100% {
-    opacity: 0;
-    -webkit-filter: blur(0);
-            filter: blur(0);
-  }
-  70% {
-    -webkit-filter: blur(3px);
-            filter: blur(3px);
-    opacity: 1;
-  }
-  0% {
-    -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
-  }
-  100% {
-    -webkit-transform: translate(0, 700px);
-            transform: translate(0, 700px);
   }
 }
 
@@ -9023,8 +9020,8 @@ canvas {
 }
 
 .angpao.active {
-  -webkit-animation: rotate 0.3s infinite alternate;
-          animation: rotate 0.3s infinite alternate;
+  -webkit-animation: rotate2 0.3s infinite alternate;
+          animation: rotate2 0.3s infinite alternate;
   cursor: auto;
 }
 
@@ -9221,7 +9218,30 @@ canvas {
   }
 }
 
-@keyframes rotate {
+@-webkit-keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+  15% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+  30% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  45% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  70% {
+    -webkit-transform: rotate(3deg);
+            transform: rotate(3deg);
+  }
+}
+
+@keyframes rotate2 {
   0% {
     -webkit-transform: rotate(3deg);
             transform: rotate(3deg);
@@ -9498,6 +9518,7 @@ canvas {
   font-weight: bold;
   background: -webkit-linear-gradient(top, #f0b52d 30%, #fffccf 40%, #e2a625 65%, #ff6c00 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.5px #ffff9b;
   -webkit-filter: drop-shadow(0px 3px 1px #922707);
@@ -9593,8 +9614,8 @@ canvas {
 }
 
 .event2 .angpao.active {
-  -webkit-animation: rotate 0.3s infinite alternate;
-          animation: rotate 0.3s infinite alternate;
+  -webkit-animation: rotate2 0.3s infinite alternate;
+          animation: rotate2 0.3s infinite alternate;
   background: url(../img/event/mysterybox/angpao_backa.png) no-repeat bottom center/auto;
   cursor: auto;
 }
@@ -9831,5 +9852,1638 @@ canvas {
 
 .event2 .eventModule > div > div.moduleCenter > div .txt-orange, .event2 .eventModule > div > div.moduleCenter > div .tag:nth-child(8) {
   margin-top: 30px;
+}
+
+.subModuleListColumn {
+  padding: 50px;
+}
+
+.subModuleListColumn > .subModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(33, 33, 33, 0.5);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.subModuleListColumn > .subModule .inputBox-white {
+  width: 300px;
+}
+
+.subModuleListColumn > .subModule .inputBox-white input {
+  text-align: right;
+}
+
+.subModuleListColumn > .subModule > .btnGroup {
+  margin: 0 0 0 15px;
+}
+
+.subModuleListColumn > .subModule > .btnGroup button {
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule .icon-information {
+  color: #1E85EC;
+  cursor: pointer;
+}
+
+.subModuleListColumn > .subModule .icon-information + .tip {
+  padding: 0;
+  width: auto;
+  height: auto;
+}
+
+.subModuleListColumn > .subModule .icon-information.active + .tip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.subModuleListColumn > .subModule > .subModuleTitle {
+  width: 120px;
+}
+
+.subModuleListColumn > .subModule > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: calc(100% - 157px);
+}
+
+.subModuleListColumn > .subModule > div > button, .subModuleListColumn > .subModule > div > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+  color: white;
+  width: 240px;
+  position: relative;
+}
+
+.subModuleListColumn > .subModule > div > button i, .subModuleListColumn > .subModule > div > a i {
+  position: absolute;
+  right: -5px;
+  bottom: 0px;
+  color: #f77900;
+  display: none;
+  font-size: 24px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subModuleListColumn > .subModule > div > button i::before, .subModuleListColumn > .subModule > div > a i::before {
+  display: none;
+}
+
+.subModuleListColumn > .subModule > div > button > div, .subModuleListColumn > .subModule > div > a > div {
+  width: 100%;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank, .subModuleListColumn > .subModule > div > a > div.bank {
+  color: white;
+  margin: 0 0 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div, .subModuleListColumn > .subModule > div > a > div.bank > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subModuleListColumn > .subModule > div > button > div.bank > div:last-child, .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
+  color: #f77900;
+  margin: 10px 0 0;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child, .subModuleListColumn > .subModule > div > a > div:first-child {
+  margin-bottom: 10px;
+  border-radius: 15px;
+  width: 100px;
+  padding: 10px 5px;
+  background: white;
+  position: relative;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child.icon, .subModuleListColumn > .subModule > div > a > div:first-child.icon {
+  padding: 13px 5px;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child:before, .subModuleListColumn > .subModule > div > a > div:first-child:before {
+  color: #1E85EC;
+  font-size: 48px;
+  margin: 0;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > button:hover > div, .subModuleListColumn > .subModule > div > a.active > div, .subModuleListColumn > .subModule > div > a:hover > div {
+  color: #1E85EC;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div.bank, .subModuleListColumn > .subModule > div > button:hover > div.bank, .subModuleListColumn > .subModule > div > a.active > div.bank, .subModuleListColumn > .subModule > div > a:hover > div.bank {
+  color: white;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
+  -webkit-box-shadow: 0px 0px 0px 4px #1E85EC inset;
+          box-shadow: 0px 0px 0px 4px #1E85EC inset;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i, .subModuleListColumn > .subModule > div > button:hover > div i, .subModuleListColumn > .subModule > div > a.active > div i, .subModuleListColumn > .subModule > div > a:hover > div i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn > .subModule > div > button.active > div i::before, .subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a.active > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
+  display: block;
+}
+
+.subModuleListColumn > .subModule > div > button:hover > div i::before, .subModuleListColumn > .subModule > div > a:hover > div i::before {
+  display: none;
+}
+
+.subModuleListColumn .column {
+  width: calc(100% - 135px);
+}
+
+.subModuleListColumn .column .inputBox-white + .tip {
+  margin: 0 5px 10px;
+}
+
+.subModuleListColumn .inputBox-white {
+  margin-left: 15px;
+}
+
+.subModuleListColumn .inputBox-white + .tip {
+  margin-left: 125px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox {
+  margin-top: 0;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue {
+  max-width: 156px;
+  min-width: 156px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon {
+  width: 12px;
+  height: 12px;
+  background: white;
+  color: #f77900;
+  font-size: 16px;
+}
+
+.subModuleListColumn .btnGroup.buttonBox button.blue .icon:before {
+  margin: 0;
+}
+
+.subModuleListColumn .btnGroup:not(.buttonBox) {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.subModuleListColumn .bankAccount {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 15px;
+}
+
+.subModuleListColumn .bankAccount .smallList {
+  margin-top: 10px;
+}
+
+.subModuleListColumn .bankAccount .smallList ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn .bankAccount .smallList ul button, .subModuleListColumn .bankAccount .smallList ul a {
+  color: #1E85EC;
+}
+
+.subModuleListColumn .bankAccount .smallList ul li {
+  min-width: 130px;
+  width: auto;
+}
+
+.subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
+  min-width: 130px;
+  width: auto;
+}
+
+.text-center {
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .upload_new {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-flow: column !important;
+            flex-flow: column !important;
+  }
+}
+
+.upload_new .checkBankSlip {
+  max-width: unset;
+  min-width: unset;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.upload_new .checkBankSlip:nth-child(2) {
+  border-right: 1px dotted #1E85EC;
+  padding-right: 20px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+@media (max-width: 800px) {
+  .upload_new .checkBankSlip:nth-child(2) {
+    border-right: 0;
+    border-bottom: 1px dotted #1E85EC;
+    padding-right: 0;
+    margin-bottom: 30px;
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+  }
+}
+
+.upload_new .checkBankSlip ul {
+  width: 100%;
+}
+
+.upload_new .checkBankSlip .upload_img {
+  margin: 0;
+}
+
+.newIndex body, .newIndex html {
+  background: #e8eff5;
+}
+
+.newIndex body .eventLink, .newIndex html .eventLink {
+  display: none;
+}
+
+.newIndex #header {
+  background: white;
+}
+
+.newIndex #header .header {
+  width: 1400px;
+}
+
+.newIndex #header .header .function .wallet, .newIndex #header .header .function .memberfile, .newIndex #header .header .function .icon-email, .newIndex #header .header .function .icon-exit {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet:after, .newIndex #header .header .function .memberfile:after, .newIndex #header .header .function .icon-email:after, .newIndex #header .header .function .icon-exit:after {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet button, .newIndex #header .header .function .memberfile button, .newIndex #header .header .function .icon-email button, .newIndex #header .header .function .icon-exit button {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu, .newIndex #header .header .function .memberfile .submenu, .newIndex #header .header .function .icon-email .submenu, .newIndex #header .header .function .icon-exit .submenu {
+  background: white;
+}
+
+.newIndex #header .header .function .wallet .submenu > a, .newIndex #header .header .function .memberfile .submenu > a, .newIndex #header .header .function .icon-email .submenu > a, .newIndex #header .header .function .icon-exit .submenu > a {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu div.balance button, .newIndex #header .header .function .memberfile .submenu div.balance button, .newIndex #header .header .function .icon-email .submenu div.balance button, .newIndex #header .header .function .icon-exit .submenu div.balance button {
+  background: #5574A7;
+  color: white;
+}
+
+.newIndex #header .header .function .wallet .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .memberfile .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .icon-email .submenu div.walletBalance .walletName + div, .newIndex #header .header .function .icon-exit .submenu div.walletBalance .walletName + div {
+  border-top: 1px solid #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu div .progressBar .percentage, .newIndex #header .header .function .memberfile .submenu div .progressBar .percentage, .newIndex #header .header .function .icon-email .submenu div .progressBar .percentage, .newIndex #header .header .function .icon-exit .submenu div .progressBar .percentage {
+  color: #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu div .progressBar .bar, .newIndex #header .header .function .memberfile .submenu div .progressBar .bar, .newIndex #header .header .function .icon-email .submenu div .progressBar .bar, .newIndex #header .header .function .icon-exit .submenu div .progressBar .bar {
+  border: 1px solid #5574A7;
+}
+
+.newIndex #header .header .function .wallet .submenu div .progressBar .bar .progress, .newIndex #header .header .function .memberfile .submenu div .progressBar .bar .progress, .newIndex #header .header .function .icon-email .submenu div .progressBar .bar .progress, .newIndex #header .header .function .icon-exit .submenu div .progressBar .bar .progress {
+  background: #5574A7;
+}
+
+.newIndex #header .header .function .icon-email:after {
+  color: #f77900;
+  top: 0;
+}
+
+.newIndex #header .header .function > a:nth-child(5) span {
+  background: #5574A7;
+}
+
+.newIndex #header .header .function > div .countryList {
+  background: white;
+  border-radius: 15px;
+  border: 1px solid rgba(30, 133, 236, 0.5);
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+.newIndex #header .header .function > div .countryList a {
+  color: #5574A7;
+}
+
+.newIndex #header input {
+  margin: 0 10px 0 0;
+  line-height: 30px;
+  border: 1px solid #7591C1;
+  border-radius: 5px;
+  padding: 0 5px;
+  color: #7591C1;
+  width: 120px;
+  font-size: 16px;
+}
+
+.newIndex #header input::-webkit-input-placeholder {
+  color: #7591C1;
+  text-align: center;
+}
+
+.newIndex #header input:-ms-input-placeholder {
+  color: #7591C1;
+  text-align: center;
+}
+
+.newIndex #header input::-ms-input-placeholder {
+  color: #7591C1;
+  text-align: center;
+}
+
+.newIndex #header input::placeholder {
+  color: #7591C1;
+  text-align: center;
+}
+
+.newIndex #header input:focus-within {
+  border: 1px solid #7591C1;
+  outline: #7591C1;
+}
+
+.newIndex #header a[class=join], .newIndex #header a[class=login] {
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  border-radius: 5px;
+  border: 1px solid #BFCCE2;
+  font-weight: bold;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.newIndex #header a[class=join]:hover, .newIndex #header a[class=login]:hover {
+  color: white;
+}
+
+.newIndex #header a[class=login] {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F0F7FF), to(#BFCCE2));
+  background: linear-gradient(to bottom, #F0F7FF, #BFCCE2);
+  color: #7591C1;
+}
+
+.newIndex #header a[class=login]:hover {
+  color: #7591C1;
+}
+
+.newIndex #header .flag:before {
+  border: 3px solid #BFCCE2;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+}
+
+.newIndex #header .menu {
+  background: #7591C1;
+  height: 60px;
+}
+
+.newIndex #header .menu > div {
+  width: 1400px;
+}
+
+.newIndex #header .menu > div .subMenu-Wrapper-new {
+  background: white;
+  border-bottom: 1px solid #ccc;
+}
+
+.newIndex #header .menu > div .subMenu-Wrapper-new > div > a > span {
+  color: #7591C1;
+}
+
+.newIndex #header .menu > div > a {
+  padding-left: 0;
+  padding-right: 30px;
+  position: relative;
+}
+
+.newIndex #header .menu > div > a:hover {
+  color: #284985;
+}
+
+.newIndex #header .menu > div > a:after {
+  background: #284985;
+}
+
+.newIndex #header .menu > div > a div.icon-new:before {
+  background: #f77900;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  -webkit-animation: none;
+          animation: none;
+  width: 45px;
+  padding: 2px 0 3px 5px;
+  color: white;
+  font-size: 13px;
+}
+
+.newIndex #header .menu > div > a div.icon-new:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 18px 10px;
+  border-color: transparent transparent transparent #f77900;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 50px;
+}
+
+.newIndex #header .menu > div > a div.live:before {
+  content: 'Live';
+}
+
+.newIndex #header .menu > div > a div.live i {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  -webkit-animation: livePoint 1s 1s infinite linear;
+          animation: livePoint 1s 1s infinite linear;
+}
+
+@-webkit-keyframes livePoint {
+  from {
+    background: white;
+  }
+  to {
+    background: #FC0404;
+  }
+}
+
+@keyframes livePoint {
+  from {
+    background: white;
+  }
+  to {
+    background: #FC0404;
+  }
+}
+
+.newIndex #header .menu > div > a div.live:before {
+  background: #05BC0B;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  -webkit-animation: none;
+          animation: none;
+  width: 36px;
+  padding-left: 16px;
+  padding-right: 0;
+}
+
+.newIndex #header .menu > div > a div.live:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 16px 10px;
+  border-color: transparent transparent transparent #05BC0B;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 52px;
+}
+
+.newIndex main {
+  background: #e8eff5;
+  padding-top: 145px;
+}
+
+.newIndex main #Marquee {
+  background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
+}
+
+.newIndex main #Marquee .marquee-box {
+  max-width: 1400px;
+}
+
+.newIndex main #Marquee .mq-btn {
+  display: none;
+}
+
+.newIndex main #Marquee .marquee-box.icon:before {
+  background: url(../img/marqueeboxbg.png) no-repeat center/auto 100%;
+  content: '';
+  color: white;
+  width: 90px;
+}
+
+.newIndex main .moduleTitle {
+  background: url(../img/indextitle.png) no-repeat;
+  margin: 30px auto 0;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1400px;
+  height: 42px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.newIndex main .moduleTitle > a {
+  margin: auto 0 auto auto;
+  color: #7591C1;
+}
+
+.newIndex main .moduleTitle.icon:before {
+  margin: 0 10px;
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.newIndex main .moduleTitle.icon-upcomingmatches:before, .newIndex main .moduleTitle.icon-saba:before, .newIndex main .moduleTitle.icon-film:before, .newIndex main .moduleTitle.icon-news:before, .newIndex main .moduleTitle.icon-live_tv:before {
+  font-size: 24px;
+  margin: 0 14px;
+}
+
+.newIndex main .moduleTitle.icon-saba {
+  margin-top: 20px;
+}
+
+.newIndex main .hotGame, .newIndex main .promos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 1400px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div, .newIndex main .promos .swiper-container .swiper-wrapper > div {
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid #BFCCE2;
+  line-height: normal;
+  background: url(../img/promosbg.jpg) no-repeat center/cover;
+  min-width: 280px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div .title, .newIndex main .promos .swiper-container .swiper-wrapper > div .title {
+  color: #5574A7;
+  margin: 5px 0;
+  padding: 0 10px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div, .newIndex main .promos .swiper-container .swiper-wrapper > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup, .newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup {
+  margin: 0 0 10px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, .newIndex main .promos .swiper-container .swiper-wrapper > div > div.btnGroup button {
+  max-width: 120px;
+  border-radius: 5px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div > img, .newIndex main .promos .swiper-container .swiper-wrapper > div > div > img {
+  width: 400px;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div {
+  max-width: 260px;
+  min-width: 260px;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin: 0 0 10px 10px;
+  color: #949494;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div .title {
+  padding: 0;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.newIndex main .hotGame .swiper-container .swiper-wrapper > div > div + img {
+  width: 70px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  margin: auto;
+}
+
+.newIndex main .liveVideo, .newIndex main .newsVideo {
+  width: 1400px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.newIndex main .liveVideo .latestVideo, .newIndex main .liveVideo .newsList, .newIndex main .newsVideo .latestVideo, .newIndex main .newsVideo .newsList {
+  width: 780px;
+  float: left;
+  margin-right: 15px;
+}
+
+.newIndex main .liveVideo .latestVideo .title, .newIndex main .liveVideo .newsList .title, .newIndex main .newsVideo .latestVideo .title, .newIndex main .newsVideo .newsList .title {
+  background: url(../img/latestvideotitlebg.png) no-repeat;
+  line-height: 65px;
+  padding-left: 20px;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule, .newIndex main .liveVideo .newsList .newsModule, .newIndex main .newsVideo .latestVideo .newsModule, .newIndex main .newsVideo .newsList .newsModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  border-radius: 5px;
+  overflow: hidden;
+  color: #949494;
+  margin: 2px 0;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule img, .newIndex main .liveVideo .newsList .newsModule img, .newIndex main .newsVideo .latestVideo .newsModule img, .newIndex main .newsVideo .newsList .newsModule img {
+  width: auto;
+  height: auto;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule .lightblue, .newIndex main .liveVideo .newsList .newsModule .lightblue, .newIndex main .newsVideo .latestVideo .newsModule .lightblue, .newIndex main .newsVideo .newsList .newsModule .lightblue {
+  font-weight: normal;
+  border-radius: 5px;
+  margin: 10px 5px 0 0;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div, .newIndex main .liveVideo .newsList .newsModule > div, .newIndex main .newsVideo .latestVideo .newsModule > div, .newIndex main .newsVideo .newsList .newsModule > div {
+  width: 100%;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div > div, .newIndex main .liveVideo .newsList .newsModule > div > div, .newIndex main .newsVideo .latestVideo .newsModule > div > div, .newIndex main .newsVideo .newsList .newsModule > div > div {
+  font-size: 14px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  display: -webkit-box;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(1), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(1), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(1), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(1) {
+  color: #CDAE8E;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(2), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(2), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(2), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(2) {
+  color: #113158;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div > div:nth-child(3), .newIndex main .liveVideo .newsList .newsModule > div > div:nth-child(3), .newIndex main .newsVideo .latestVideo .newsModule > div > div:nth-child(3), .newIndex main .newsVideo .newsList .newsModule > div > div:nth-child(3) {
+  font-weight: normal;
+}
+
+.newIndex main .liveVideo .latestVideo .newsModule > div .btnGroup, .newIndex main .liveVideo .newsList .newsModule > div .btnGroup, .newIndex main .newsVideo .latestVideo .newsModule > div .btnGroup, .newIndex main .newsVideo .newsList .newsModule > div .btnGroup {
+  display: unset;
+  margin: 0;
+}
+
+.newIndex main .liveVideo .latestVideo .newsBorder, .newIndex main .liveVideo .newsList .newsBorder, .newIndex main .newsVideo .latestVideo .newsBorder, .newIndex main .newsVideo .newsList .newsBorder {
+  height: 1px;
+  background: #5574A7;
+  margin: 10px 0;
+}
+
+.newIndex main .liveVideo .latestVideo + div, .newIndex main .liveVideo .newsList + div, .newIndex main .newsVideo .latestVideo + div, .newIndex main .newsVideo .newsList + div {
+  width: 605px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches, .newIndex main .liveVideo .latestVideo + div .liveTv, .newIndex main .liveVideo .newsList + div .upcomingmatches, .newIndex main .liveVideo .newsList + div .liveTv, .newIndex main .newsVideo .latestVideo + div .upcomingmatches, .newIndex main .newsVideo .latestVideo + div .liveTv, .newIndex main .newsVideo .newsList + div .upcomingmatches, .newIndex main .newsVideo .newsList + div .liveTv {
+  background: url(../img/upcomingmatchesbg.jpg) no-repeat top center/100% auto;
+  height: 180px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team, .newIndex main .liveVideo .latestVideo + div .liveTv .team, .newIndex main .liveVideo .newsList + div .upcomingmatches .team, .newIndex main .liveVideo .newsList + div .liveTv .team, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team, .newIndex main .newsVideo .latestVideo + div .liveTv .team, .newIndex main .newsVideo .newsList + div .upcomingmatches .team, .newIndex main .newsVideo .newsList + div .liveTv .team {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div, .newIndex main .liveVideo .newsList + div .liveTv .team > div, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div, .newIndex main .newsVideo .newsList + div .liveTv .team > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div:first-child, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:first-child, .newIndex main .liveVideo .newsList + div .liveTv .team > div:first-child, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div:first-child, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:first-child, .newIndex main .newsVideo .newsList + div .liveTv .team > div:first-child {
+  background: url(../img/upcomingmatchestitle.png) no-repeat top center/auto;
+  line-height: 27px;
+  font-size: 12px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div:last-child, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div:last-child, .newIndex main .liveVideo .newsList + div .liveTv .team > div:last-child, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div:last-child, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div:last-child, .newIndex main .newsVideo .newsList + div .liveTv .team > div:last-child {
+  background: url(../img/upcomingmatchestitledown.png) no-repeat top center/auto;
+  line-height: 27px;
+  font-size: 12px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup), .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup), .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  text-align: right;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
+  text-align: left;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newIndex main .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
+  width: 45px;
+  margin: 35px auto 5px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup, .newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup, .newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin: 0;
+  height: 100%;
+}
+
+.newIndex main .liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button, .newIndex main .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .liveVideo .newsList + div .liveTv .team > div > .btnGroup button, .newIndex main .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button, .newIndex main .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button, .newIndex main .newsVideo .newsList + div .liveTv .team > div > .btnGroup button {
+  border-radius: 5px;
+  padding: 2px 5px;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  margin-bottom: 10px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox, .newIndex main .liveVideo .newsList + div .liveTvBox, .newIndex main .newsVideo .latestVideo + div .liveTvBox, .newIndex main .newsVideo .newsList + div .liveTvBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 320px;
+  margin-top: 5px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  min-width: 160px;
+  margin-right: 5px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button {
+  background: #acc1e0;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  text-align: left;
+  margin: 0 0 7px;
+  color: #7591C1;
+  font-weight: bold;
+  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button::before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button::before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button::before {
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  color: white;
+  border: 1px solid #CDAE8E;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTvTag button.active::after, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTvTag button.active::after, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTvTag button.active::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 8px;
+  border-color: transparent transparent transparent #cdae8e;
+  position: absolute;
+  right: -8px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  height: auto;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #CDAE8E;
+  padding: 10px;
+  display: none;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv.active, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv.active, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv.active, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv.active {
+  display: block;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar {
+  width: 8px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-track, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-track {
+  background: #B18E6A;
+  border-radius: 8px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, right top, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to right, #435F8B, #6383B9);
+  border-radius: 8px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule {
+  background: white;
+  height: 70px;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  margin-bottom: 2px;
+  margin-right: 5px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.icon:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon:before {
+  font-size: 60px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
+  background: url(../img/livetvtitlebggold.png) no-repeat center/75% 100%;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
+  color: red;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time {
+  color: red;
+  font-weight: bold;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active .time + .title span {
+  display: unset;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(../img/livetvtitlebg.png) no-repeat center/75% 100%;
+  color: white;
+  position: relative;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule > .title:before, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule > .title:before {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #aec3e1;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 5px;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 20px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 12px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(1) {
+  text-align: left;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(2) .title {
+  font-size: 18px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div:nth-child(3) {
+  text-align: right;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div {
+  color: #5574A7;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span, .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div span {
+  background: #7591C1;
+  border-radius: 5px;
+  color: white;
+  display: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  font-size: 12px;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2) {
+  font-weight: bold;
+}
+
+.newIndex main .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newIndex main .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
+  color: #b2b2b2;
+}
+
+.newIndex main .liveVideo .matches, .newIndex main .newsVideo .matches {
+  height: 265px;
+  overflow: hidden;
+}
+
+.newIndex main .liveVideo .matches iframe, .newIndex main .newsVideo .matches iframe {
+  margin-top: -102px;
+  height: calc(100% + 102px);
+}
+
+.newIndex #footer {
+  background: #112240;
+}
+
+.newIndex #footer .platform, .newIndex #footer .copyright, .newIndex #footer .footerList, .newIndex #footer .license, .newIndex #footer .sfp {
+  background: transparent;
+  width: 1400px;
+  margin: auto;
+  border-bottom: 1px solid #7591C1;
+  padding: 25px 0;
+}
+
+.newIndex #footer .copyright {
+  font-size: 14px;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.newIndex #footer .copyright a, .newIndex #footer .copyright button {
+  border-right: 1px solid #7591C1;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.newIndex #footer .copyright a:nth-child(1), .newIndex #footer .copyright button:nth-child(1) {
+  padding-left: 0;
+}
+
+.newIndex #footer .copyright span {
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 auto auto;
+}
+
+.newIndex #footer .copyright span span {
+  border-radius: 25px;
+  border: 1px solid white;
+  padding: 1px;
+  width: 25px;
+  line-height: 25px;
+  font-size: 12px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.newIndex #footer .platform > div {
+  width: 100%;
+}
+
+.newIndex #footer .license {
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: url(../img/licensebg.png) no-repeat bottom right;
+}
+
+.newIndex #footer .license > div:nth-child(1) {
+  width: 560px;
+  padding-right: 90px;
+}
+
+.newIndex #footer .license > div:nth-child(1) img {
+  width: auto;
+  margin: 20px 0;
+}
+
+.newIndex #footer .license > div:nth-child(2) {
+  width: 730px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.newIndex #footer .license > div:nth-child(2) iframe {
+  margin-right: 30px;
+}
+
+.newIndex #footer .license > div:nth-child(2) div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.newIndex #footer .license > div:nth-child(2) div img {
+  width: 65px;
+  margin-left: 10px;
+}
+
+.newIndex #footer .license > div .star {
+  width: auto;
+  position: absolute;
+  right: 0;
+  bottom: -25px;
+}
+
+.newIndex #footer .sfp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 0;
+}
+
+.newIndex #footer .sfp > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+  margin-right: 150px;
+}
+
+.newIndex #footer .sfp > div > div img {
+  width: auto;
+  margin-right: 10px;
+}
+
+.newIndex #footer .footerList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  color: #BFCCE2;
+}
+
+.newIndex #footer .footerList > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 35px;
+  text-align: center;
+}
+
+.newIndex #footer .footerList > div:last-child {
+  margin-right: 0;
+}
+
+.newIndex #footer .footerList > div > a, .newIndex #footer .footerList > div > button {
+  color: #F1D5B6;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.newIndex #footer .footerList > div > a ~ div, .newIndex #footer .footerList > div > button ~ div {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.newIndex #footer .footerList > div > div .title {
+  margin: 15px 0;
+}
+
+.newIndex #footer .footerList > div > div.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 76px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 16px;
+  color: white;
+}
+
+.newIndex #footer .footerList > div > div.title + div {
+  margin: 10px 0;
+}
+
+.newIndex #footer .footerList > div > div.title:before {
+  font-size: 56px;
+  font-weight: normal;
+  color: #F1D5B6;
+}
+
+.newIndex #footer .footerList > div > div > div {
+  text-align: left;
+}
+
+.newIndex .quickLinkNew1, .newIndex .quickLinkNew2 {
+  position: fixed;
+  right: 0;
+  top: 145px;
+  z-index: 1;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  padding: 10px;
+  cursor: pointer;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 255, 255, 0.3)));
+  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.3));
+  color: #7591C1;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 150px;
+}
+
+.newIndex .quickLinkNew1 i, .newIndex .quickLinkNew2 i {
+  position: absolute;
+  top: 10px;
+}
+
+.newIndex .quickLinkNew1 i::before, .newIndex .quickLinkNew2 i::before {
+  margin: 0;
+}
+
+.newIndex .quickLinkNew1 > div, .newIndex .quickLinkNew2 > div {
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  -webkit-transform: scaleY(-1) scaleX(-1);
+          transform: scaleY(-1) scaleX(-1);
+  letter-spacing: 1px;
+}
+
+.newIndex .quickLinkNew1.active, .newIndex .quickLinkNew2.active {
+  -webkit-transform: translateX(40px);
+          transform: translateX(40px);
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.newIndex .quickLinkNew2 {
+  background: white;
+  height: calc(100% - 175px);
+  padding: 30px 0 10px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.newIndex .quickLinkNew2 a, .newIndex .quickLinkNew2 button {
+  border-bottom: 1px dotted #b2b2b2;
+  color: #b2b2b2;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  font-size: 20px;
+}
+
+.newIndex .quickLinkNew2 a:not(.icon-chat), .newIndex .quickLinkNew2 button:not(.icon-chat) {
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.newIndex .quickLinkNew2 a.active, .newIndex .quickLinkNew2 button.active {
+  color: #7591C1;
+}
+
+.newIndex .quickLinkNew2 a.active > div, .newIndex .quickLinkNew2 button.active > div {
+  display: block;
+}
+
+.newIndex .quickLinkNew2 a > div, .newIndex .quickLinkNew2 button > div {
+  display: none;
+  position: absolute;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  white-space: nowrap;
+  font-size: 12px;
+  top: 0;
+  background: white;
+  padding: 10px;
+  text-align: left;
+}
+
+.newIndex .quickLinkNew2 a > div img, .newIndex .quickLinkNew2 button > div img {
+  width: 120px;
+  height: 120px;
+}
+
+.indexCenterBanner {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: 30px auto 0;
+}
+
+.streaming {
+  padding: 30vw 4vw;
+  width: calc(100% - 8vw);
+}
+
+.streaming .liveTvTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.streaming .liveTvTag button {
+  background: #acc1e0;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  margin: 0 10px 0 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #5574A7;
+}
+
+.streaming .liveTvTag button:before {
+  font-size: 24px;
+  font-weight: normal;
+  margin-left: 0;
+}
+
+.streaming .liveTvTag button.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  color: #884500;
+  border: 1px solid #CDAE8E;
+}
+
+.streaming .liveTv {
+  border-radius: 0 5px 5px 5px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#CDAE8E), to(#F1D5B6));
+  background: linear-gradient(to bottom, #CDAE8E, #F1D5B6);
+  padding: 20px;
+  display: none;
+}
+
+.streaming .liveTv.active {
+  display: block;
+}
+
+.streaming .liveTv > .liveTvModule {
+  background: white;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  margin: 0 0 10px;
+  border: 1px solid #7591C1;
+}
+
+.streaming .liveTv > .liveTvModule.icon {
+  padding: 50px 0;
+  color: #7591C1;
+}
+
+.streaming .liveTv > .liveTvModule.icon:before {
+  font-size: 72px;
+}
+
+.streaming .liveTv > .liveTvModule.active {
+  border: 1px solid #884500;
+}
+
+.streaming .liveTv > .liveTvModule.active > .title {
+  background: url(../img/livetvtitlebggold.png) no-repeat center/40% 100%;
+}
+
+.streaming .liveTv > .liveTvModule.active > .title:before {
+  color: red;
+}
+
+.streaming .liveTv > .liveTvModule.active .time {
+  color: red;
+  font-weight: bold;
+}
+
+.streaming .liveTv > .liveTvModule.active .time + .title span {
+  display: unset;
+}
+
+.streaming .liveTv > .liveTvModule > .title {
+  width: 100%;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: url(../img/livetvtitlebg.png) no-repeat center/40% 100%;
+  color: white;
+  position: relative;
+}
+
+.streaming .liveTv > .liveTvModule > .title:before {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  color: #aec3e1;
+  font-weight: normal;
+  font-size: 32px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 10px;
+  line-height: 30px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div {
+  color: #5574A7;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup {
+  margin: 15px auto 0;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup button, .streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup a {
+  padding: 5px 10px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div span {
+  background: #7591C1;
+  padding: 5px 10px;
+  margin: 20px;
+  border-radius: 5px;
+  color: white;
+  display: none;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
+  color: #b2b2b2;
+}
+
+#popup.nopadding .pop {
+  padding: 0;
+}
+
+#popup.nopadding .pop > div {
+  margin-top: 20px;
+}
+
+#popup.nopadding .pop .friend {
+  margin: 0;
+}
+
+#popup.nopadding .pop .checkbox {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  margin: 10px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -121,20 +121,30 @@ const SocialMediaSection = ({ t }) => (
 			<a
 				href={SiteInfo.socialMedia.ig.link}
 				target="_blank"
+				rel="noreferrer"
 				className="icon icon-instagram">
 				{t(SiteInfo.socialMedia.ig.displayKey)}
 			</a>
 			<a
 				href={SiteInfo.socialMedia.fb.link}
 				target="_blank"
+				rel="noreferrer"
 				className="icon icon-facebook">
 				{t(SiteInfo.socialMedia.fb.displayKey)}
 			</a>
 			<a
 				href={SiteInfo.socialMedia.twitter.link}
 				target="_blank"
+				rel="noreferrer"
 				className="icon icon-twitter">
 				{t(SiteInfo.socialMedia.twitter.displayKey)}
+			</a>
+			<a
+				href={SiteInfo.socialMedia.youtube.link}
+				target="_blank"
+				rel="noreferrer"
+				className="icon icon-youtube">
+				{t(SiteInfo.socialMedia.youtube.displayKey)}
 			</a>
 		</div>
 	</div>
@@ -190,7 +200,7 @@ const PaymentSection = ({ t }) => (
 	</div>
 );
 
-export default () => {
+export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
@@ -215,6 +225,7 @@ export default () => {
 				t={t}
 				langId={userInfo.langId}
 				isLogin={userInfo.isLogin}
+				productTpIds={productTpIds}
 			/>
 			<div className="copyright">
 				{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved.`}

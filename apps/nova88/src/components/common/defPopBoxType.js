@@ -24,6 +24,8 @@ export default {
 	kiss918: "918kiss",
 	JoinReferral: "JoinReferral",
 	SuccessAngPow: "SuccessAngPow",
+	SuccessMySteryBox: "SuccessMySteryBox",
 	OneGamingLink: "OneGamingLink",
-	RankingWinner: "RankingWinner"
+	RankingWinner: "RankingWinner",
+	DepositUploadBankSlip: "DepositUploadBankSlip"
 };

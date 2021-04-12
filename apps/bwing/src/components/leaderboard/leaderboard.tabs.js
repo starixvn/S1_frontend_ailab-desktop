@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { defTabList } from "./leaderboard.def";
 
-export default ({ t, onChangeTab, tab }) => {
+const LeaderboardTabs = ({ t, onChangeTab, tab }) => {
 	const rows = defTabList.map(item => {
 		return (
 			<button
@@ -15,3 +16,11 @@ export default ({ t, onChangeTab, tab }) => {
 
 	return <div className="rankBotton">{rows}</div>;
 };
+
+LeaderboardTabs.propTypes = {
+	t: PropTypes.func.isRequired,
+	tab: PropTypes.number.isRequired,
+	onChangeTab: PropTypes.func.isRequired
+};
+
+export default LeaderboardTabs;

@@ -135,5 +135,8 @@ export default {
 	},
 	oneGame: {
 		root: "oneGame"
+	},
+	mysteryBox: {
+		root: "mysteryBox"
 	}
 };

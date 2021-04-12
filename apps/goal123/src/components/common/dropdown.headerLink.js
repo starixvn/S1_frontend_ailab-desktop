@@ -1,6 +1,7 @@
 import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
+import { defPageClubImg } from "../vip/vip.def";
 
 export class Dropdown extends Component {
 	constructor(props) {
@@ -44,6 +45,16 @@ export class Dropdown extends Component {
 	render() {
 		const arr = this.props.options.map((item, idx) => {
 			const key = `${this.props.mainKey}_${idx}`;
+
+			let _iconClassName = "";
+			if (item.eventIcons) {
+				let iconStrings = "";
+				for (let i = 0; i < item.eventIcons.length; i++) {
+					iconStrings += `${item.eventIcons[i]} `;
+				}
+				_iconClassName = `icon ${iconStrings}`;
+			}
+
 			return item.elemType === defElemType.btn ? (
 				<button
 					key={key}
@@ -52,7 +63,10 @@ export class Dropdown extends Component {
 					{item.displayKey ? this.props.i18n(item.displayKey) : null}
 				</button>
 			) : (
-				<Link key={key} to={`/${this.props.langId}/${item.href}`}>
+				<Link
+					className={_iconClassName}
+					key={key}
+					to={`/${this.props.langId}/${item.href}`}>
 					{item.displayKey ? this.props.i18n(item.displayKey) : null}
 				</Link>
 			);
@@ -65,6 +79,10 @@ export class Dropdown extends Component {
 			selected = <button>{this.props.placeholder}</button>;
 		}
 
+		const userLevelImgInfo = this.props?.userLevel
+			? defPageClubImg[this.props.userLevel - 1]
+			: null;
+
 		return (
 			<div
 				className={`${this.props.className}${
@@ -72,6 +90,13 @@ export class Dropdown extends Component {
 				}`}
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
+				{userLevelImgInfo ? (
+					<img
+						src={userLevelImgInfo.img}
+						alt={userLevelImgInfo.alt}
+					/>
+				) : null}
+
 				{selected}
 				<div className={this.props.subClassName}>{arr}</div>
 			</div>
