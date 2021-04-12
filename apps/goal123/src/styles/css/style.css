@@ -1599,6 +1599,10 @@ footer .copyright {
   color: #1E85EC;
 }
 
+.txt-blue3 {
+  color: #84eeff;
+}
+
 .txt-blue12 {
   color: #64789b;
 }
@@ -8856,6 +8860,12 @@ html.Newtheme header .header > div.menu .gameList .icon-new::before, html.Newthe
   font-size: 8px;
 }
 
+html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img, html.Newtheme header .header > div.menu .livecasinoList button:hover .item-img {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  bottom: 30px;
+}
+
 html.Newtheme header .header > div.menu .gameList .item-bg, html.Newtheme header .header > div.menu .casinoList .item-bg, html.Newtheme header .header > div.menu .livecasinoList .item-bg, html.Newtheme header .header > div.menu .fishList .item-bg {
   position: absolute;
   top: calc(50% - 75px);
@@ -8874,6 +8884,20 @@ html.Newtheme header .header > div.menu .gameList .liveitem-img, html.Newtheme h
   position: absolute;
   bottom: 20px;
   left: calc(50% - 75px);
+}
+
+html.Newtheme header .header > div.menu .livecasinoList .item-bg {
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 75px);
+  z-index: 0;
+}
+
+html.Newtheme header .header > div.menu .livecasinoList .item-img {
+  position: absolute;
+  bottom: 20px;
+  right: calc(50% - 95px);
+  z-index: 1;
 }
 
 html.Newtheme header .header > div.menu .casinoList a .item-icon, html.Newtheme header .header > div.menu .casinoList button .item-icon, html.Newtheme header .header > div.menu .livecasinoList a .item-icon, html.Newtheme header .header > div.menu .livecasinoList button .item-icon, html.Newtheme header .header > div.menu .fishList a .item-icon, html.Newtheme header .header > div.menu .fishList button .item-icon {
@@ -9499,6 +9523,7 @@ html.Newtheme main section > div .articleModule a {
 html.Newtheme main section > div .articleModule a img {
   max-width: 338px;
   max-height: 226px;
+  height: 100%;
   border-radius: 5px 5px 0 0;
 }
 
@@ -12148,6 +12173,7 @@ html.Newtheme .offers .swiper-slide .teamL span, html.Newtheme .offers .swiper-s
   position: absolute;
   top: -47px;
   text-align: center;
+  white-space: nowrap;
 }
 
 html.Newtheme .offers .swiper-slide .gameName {
@@ -12933,10 +12959,12 @@ html.Newtheme .nodata {
 
 html.Newtheme .nodata:before {
   font-size: 48px;
+  display: block;
+  margin-bottom: 5px;
 }
 
 html.Newtheme .nodata div {
-  background: rgba(31, 50, 88, 0.5);
+  background: rgba(31, 50, 88, 0);
   padding: 5px 10px;
   border-radius: 5px;
   width: -webkit-max-content;
@@ -13137,7 +13165,7 @@ html.Newtheme .announcement, html.Newtheme .personal {
 }
 
 html.Newtheme .announcement pre, html.Newtheme .personal pre {
-  color: white;
+  color: #1F3258;
 }
 
 html.Newtheme .announcement .list .listHeader, html.Newtheme .announcement .list .listBody, html.Newtheme .personal .list .listHeader, html.Newtheme .personal .list .listBody {
@@ -13191,6 +13219,7 @@ html.Newtheme .personal .list > div div.listHeader {
 
 html.Newtheme .personal .list > div div.listHeader button {
   right: -12px;
+  color: white;
 }
 
 html.Newtheme .personal .list .year {
