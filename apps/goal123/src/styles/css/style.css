@@ -8120,7 +8120,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .leaderboard .content .rightModule .right .stitle {
   color: #014C57;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 
@@ -9629,6 +9629,7 @@ html.Newtheme .platform a, html.Newtheme .platform button {
 }
 
 html.Newtheme .powered {
+  color: #fff;
   padding: 15px 0 50px 0;
   text-align: center;
 }
@@ -10492,6 +10493,7 @@ html.Newtheme .quickLink {
   transition: 0.7s;
   padding-right: 10px;
   text-transform: uppercase;
+  color: #fff;
 }
 
 html.Newtheme .quickLink > div:nth-child(1) {
@@ -10640,6 +10642,7 @@ html.Newtheme .quickdownload {
   transition: 0.7s;
   text-transform: uppercase;
   padding-right: 10px;
+  color: #fff;
 }
 
 html.Newtheme .quickdownload > div:nth-child(1) {
@@ -11318,6 +11321,7 @@ html.Newtheme .infoModule .title {
   background: transparent;
   font-size: 14px;
   height: auto;
+  color: #1F3258;
 }
 
 html.Newtheme .inside-title {
@@ -11804,6 +11808,14 @@ html.Newtheme #popup .checkbox input[type="checkbox"] + label.icon:before {
   margin-top: -1px;
 }
 
+html.Newtheme #popup .joinloginModule .noAccount {
+  color: #fff;
+}
+
+html.Newtheme #popup .joinloginModule .title {
+  color: #fab617;
+}
+
 html.Newtheme .Submit.active, html.Newtheme .Cancel.active, html.Newtheme .uploadSuccess.active, html.Newtheme .updateSuccess.active, html.Newtheme .Success.active, html.Newtheme .tokyc.active, html.Newtheme .addBankpop.active, html.Newtheme .changePassWordpop.active, html.Newtheme .editSuccess.active, html.Newtheme .loackAmount.active {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12049,6 +12061,7 @@ html.Newtheme .offers {
   position: relative;
   cursor: pointer;
   border-radius: 0;
+  color: #fff;
 }
 
 html.Newtheme .offers .swiper-container {
@@ -16751,7 +16764,7 @@ html.Newtheme .leaderboard .content .rightModule .right .topTab > button:hover, 
 
 html.Newtheme .leaderboard .content .rightModule .right .stitle {
   color: #014C57;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
 }
 
