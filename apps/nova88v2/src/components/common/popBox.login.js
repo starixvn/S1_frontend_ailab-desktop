@@ -5,10 +5,9 @@ import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
-import defPopBoxType from "./defPopBoxType";
 import path from "../../router";
 import { setCookie } from "./common";
-import { SiteInfo } from "../../config";
+import config, { SiteInfo } from "../../config";
 
 const initValue = {
 	username: "",
@@ -177,24 +176,29 @@ const LoginPanel = () => {
 			<div className="joinloginModule">
 				<div className="loginAnimation">
 					<img
-						src={require("../../styles/img/animationLogo.png")}
 						className="animationlogo"
+						alt="animationlogo"
+						src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 					/>
 					<img
-						src={require("../../styles/img/loginNpc01.png")}
 						className="npc1"
+						alt="npc1"
+						src={require("../../styles/img/loginNpc01.png")}
 					/>
 					<img
-						src={require("../../styles/img/loginNpc02.png")}
 						className="npc2"
+						alt="npc2"
+						src={require("../../styles/img/loginNpc02.png")}
 					/>
 					<img
-						src={require("../../styles/img/welcome.png")}
 						className="welcome"
+						alt="welcome"
+						src={require("../../styles/img/welcome.png")}
 					/>
 					<img
-						src={require("../../styles/img/back.png")}
 						className="back"
+						alt="back"
+						src={require("../../styles/img/back.png")}
 					/>
 				</div>
 				<form className="joinloginFunction" onSubmit={handleLogin}>

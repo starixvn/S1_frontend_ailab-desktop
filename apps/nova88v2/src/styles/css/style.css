@@ -10770,7 +10770,7 @@ canvas {
   margin: 0 0 10px;
 }
 
-.hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, .promos .swiper-container .swiper-wrapper > div > div.btnGroup button {
+.hotGame .swiper-container .swiper-wrapper > div > div.btnGroup button, .hotGame .swiper-container .swiper-wrapper > div > div.btnGroup a, .promos .swiper-container .swiper-wrapper > div > div.btnGroup button, .promos .swiper-container .swiper-wrapper > div > div.btnGroup a {
   max-width: 120px;
   border-radius: 5px;
 }

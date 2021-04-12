@@ -35,7 +35,7 @@ export const StreamingModule = ({
 			} else {
 				window.open(
 					`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
-					`streaming-${channel}`,
+					`streaming`,
 					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
 				);
 			}

@@ -13,17 +13,17 @@ export default ({ currentMenuKey, productTpIds }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
-	const clickItem = ({ tpId, gameId, needLogin, path }) => {
-		const handleCallBack = () => {
+	const clickItem = ({ tpId, gameId, path, needLogin }) => {
+		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
 
-		if (path && needLogin) {
+		if (!tpId && !gameId && path) {
 			return needLogin && !userInfo.isLogin
-				? handleCallBack()
+				? showLoginPopBox()
 				: navigate(`/${userInfo.langId}/${path}`);
 		}
 
@@ -32,22 +32,8 @@ export default ({ currentMenuKey, productTpIds }) => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback: handleCallBack
+			loginCallback: showLoginPopBox
 		});
-	};
-
-	const clickToPage = (_needLogin, _path) => {
-		const handleCallBack = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		};
-
-		if (_path)
-			return _needLogin && !userInfo.isLogin
-				? handleCallBack()
-				: navigate(`/${userInfo.langId}/${_path}`);
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {
@@ -92,7 +78,6 @@ export default ({ currentMenuKey, productTpIds }) => {
 						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
 						subMenuItem={subMenuItem}
 						clickItem={clickItem}
-						clickToPage={clickToPage}
 						userInfo={userInfo}
 						t={t}
 						menuKey={menuKey}

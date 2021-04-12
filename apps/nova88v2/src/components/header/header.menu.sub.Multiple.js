@@ -131,8 +131,8 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 			onClick={clickItem.bind(this, {
 				tpId: subMenuItem.tpId,
 				gameId: subMenuItem.gameId,
-				needLogin: subMenuItem.needLogin,
-				path: subMenuItem.path
+				path: subMenuItem.path,
+				needLogin: subMenuItem.needLogin
 			})}>
 			<img
 				className="ListBG-left"
