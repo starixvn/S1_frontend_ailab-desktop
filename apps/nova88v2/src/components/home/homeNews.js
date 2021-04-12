@@ -8,7 +8,7 @@ import path from "../../router";
 
 export const HomeNews = ({ t, userInfo }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	const [getNews, setGetNews] = useState([]);
+	const [newsData, setNewsData] = useState([]);
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -25,12 +25,12 @@ export const HomeNews = ({ t, userInfo }) => {
 		api_news_GetNews({
 			langId: userInfo.langId,
 			PageNumber: 1,
-			PageSize: 4
+			PageSize: 2
 		}).then(
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						setGetNews(res.data.data);
+						setNewsData(res.data.data);
 					} else {
 						setPopBox({
 							isOpen: true,
@@ -74,7 +74,7 @@ export const HomeNews = ({ t, userInfo }) => {
 		navigate(`/${userInfo.langId}/${path.newsInfo.root}?newsId=${_newsId}`);
 	};
 
-	const newsRows = getNews.slice(0, 2).map((item, idx) => {
+	const newsRows = newsData.map((item, idx) => {
 		return (
 			<div key={`index-news-${item.newsId}-${userInfo.langId}`}>
 				<div className="newsModule">
