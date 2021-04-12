@@ -36,7 +36,9 @@ export default ({
 		.slice(startIdx, endIdx)
 		.map(g => {
 			const tpInfo = tpList[g.tpId];
-			const imgName = g.imgName[langId] ? g.imgName[langId] : g.imgName.en;
+			const imgName = g.imgName[langId]
+				? g.imgName[langId]
+				: g.imgName.en;
 			const gameDisplayName = g.name[langId] ? g.name[langId] : g.name.en;
 			const isFavorite =
 				favorite?.filter(f => {
@@ -92,6 +94,6 @@ export default ({
 	return rows && rows.length > 0 ? (
 		<div className="slotList">{rows}</div>
 	) : (
-		<div className="nodata">{t("msg_NoData")}</div>
+		<div className="nodata icon icon-nodata">{t("lbl_NoData")}</div>
 	);
 };

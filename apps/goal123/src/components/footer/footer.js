@@ -36,17 +36,6 @@ export default ({ productTpIds }) => {
 				<div>
 					<span className="title">{t("lbl_ContactUs")}</span>
 					<div>{t("lbl_ConatctUsHint")}</div>
-					<div className="socialMedia">
-						<a href="https://t.me/Goal123csd" target="_blank">
-							<img src={imgTelegram} alt="img_Telegram" />
-						</a>
-						<a href="skype:live:.cid.d357533c71e50fb5?chat">
-							<img src={imgSkype} alt="img_Skype" />
-						</a>
-						<a href="https://zalo.me/Goal123csd" target="_blank">
-							<img src={imgZalo} alt="img_Zalo" />
-						</a>
-					</div>
 				</div>
 			</div>
 			<div className="copyright">
