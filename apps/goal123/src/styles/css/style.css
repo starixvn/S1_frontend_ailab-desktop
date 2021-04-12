@@ -14488,7 +14488,7 @@ html.Newtheme .indexInfo > div:first-child {
 html.Newtheme .indexInfo > div > div > .title {
   width: 385px;
   height: 47px;
-  background: url(../img/titlebg_Xl.png) no-repeat top center/cover;
+  background: url(../img/titlebg_xl.png) no-repeat top center/cover;
   padding: 2px 5px;
   font-size: 30px;
   -webkit-box-sizing: border-box;
