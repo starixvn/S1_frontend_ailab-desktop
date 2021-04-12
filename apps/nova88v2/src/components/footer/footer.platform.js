@@ -106,7 +106,7 @@ const defPlatfrom = [
 		...productList.casino_PT,
 		path: path.casino.root,
 		parameter: { ...productList.casino_PT },
-		imgName: "playtech"
+		imgName: "pt"
 	}
 ];
 
