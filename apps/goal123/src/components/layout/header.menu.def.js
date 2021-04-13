@@ -8,6 +8,9 @@ import {
 } from "../common/eventIcon";
 
 import cq9IconImg from "../../styles/img/dropdown/fishing/cq9-icon.png";
+import icgIconImg from "../../styles/img/dropdown/fishing/icg-icon.png";
+import ggIconImg from "../../styles/img/dropdown/fishing/gg-icon.png";
+import sgIconImg from "../../styles/img/dropdown/fishing/sg-icon.png";
 
 import gamesSabaclubBgImg from "../../styles/img/dropdown/games/sabaclub.png";
 import gamesSabaclubNpcImg from "../../styles/img/dropdown/games/sabaclub-item.png";
@@ -508,7 +511,7 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.ICG_DRAGONBALL_FISHING },
 					bgImgUrl: fishingDragonballBgImg,
 					npcImgUrl: fishingDragonballNpcImg,
-					iconImgUrl: cq9IconImg
+					iconImgUrl: icgIconImg
 				},
 				{
 					...productList.ICG_FISHING_OF_SAVIORS,
@@ -526,7 +529,7 @@ export const defMenuLinks = langId => {
 					},
 					bgImgUrl: fishingSaviorsBgImg,
 					npcImgUrl: fishingSaviorsNpcImg,
-					iconImgUrl: cq9IconImg
+					iconImgUrl: icgIconImg
 				},
 				{
 					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
@@ -544,7 +547,7 @@ export const defMenuLinks = langId => {
 					},
 					bgImgUrl: fishingThetyrantBgImg,
 					npcImgUrl: fishingThetyrantNpcImg,
-					iconImgUrl: cq9IconImg
+					iconImgUrl: icgIconImg
 				},
 				{
 					...productList.fishing,
@@ -554,7 +557,7 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.fishing },
 					bgImgUrl: fishingFishingworldBgImg,
 					npcImgUrl: fishingFishingworldNpcImg,
-					iconImgUrl: cq9IconImg
+					iconImgUrl: ggIconImg
 				},
 				{
 					...productList.fishing_SG,
@@ -564,7 +567,7 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.fishing_SG },
 					bgImgUrl: fishingFishinggodBgImg,
 					npcImgUrl: fishingFishinggodNpcImg,
-					iconImgUrl: cq9IconImg
+					iconImgUrl: sgIconImg
 				},
 				{
 					...productList.fishing_SGW,
@@ -574,7 +577,7 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.fishing_SGW },
 					bgImgUrl: fishingFishingwarBgImg,
 					npcImgUrl: fishingFishingwarNpcImg,
-					iconImgUrl: cq9IconImg
+					iconImgUrl: sgIconImg
 				}
 			]
 		},
