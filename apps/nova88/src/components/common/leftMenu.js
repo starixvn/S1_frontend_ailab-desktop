@@ -33,8 +33,7 @@ export default () => {
 				_iconClassName = `icon ${iconStrings}`;
 			}
 
-			// &&&&&&&&&&&&&&&&&&& need to update currencyId ↓↓
-			const isCryptoCurrency = userInfo.currencyId === 2;
+			const isCryptoCurrency = userInfo.currencyId === 96;
 			const menuIsBankInfo =
 				menu.subMenu[_key].path === path.bankInfo.root;
 			const menuIsCryptoWallet =

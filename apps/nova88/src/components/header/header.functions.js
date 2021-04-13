@@ -84,8 +84,7 @@ const AfterLogin = () => {
 		</Link>
 	));
 
-	// &&&&&&&&&&&&&&&&&&& need to update currencyId ↓↓
-	const isCryptoCurrency = userInfo.currencyId === 2;
+	const isCryptoCurrency = userInfo.currencyId === 96;
 
 	const defSettingLinks = [
 		{

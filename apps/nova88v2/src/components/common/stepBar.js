@@ -16,7 +16,7 @@ export default ({ t, step, defStep }) => {
 		<div className="stepBar">
 			<div
 				className="stepLine"
-				style={{ width: `${(100 / 3) * step}%` }}
+				style={{ width: `${(100 / defStep.length) * step}%` }}
 			/>
 			{rows}
 		</div>
