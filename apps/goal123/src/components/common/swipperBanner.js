@@ -111,7 +111,7 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 	return { banner };
 };
 
-const Panel = ({ ImgFolder, openInBlank }) => {
+const Panel = ({ ImgFolder, openInBlank, config }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
 	const { setPopBox } = useContext(popBoxContext);
@@ -164,18 +164,20 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 		);
 	});
 
-	return <Autoplay Rows={rows} />;
+	return <Autoplay Rows={rows} config={config} />;
 };
 
 Panel.defaultProps = {
-	openInBlank: false
+	openInBlank: false,
+	config: {}
 };
 
 Panel.propTypes = {
 	ImgFolder: PropTypes.arrayOf(
 		PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 	).isRequired,
-	openInBlank: PropTypes.bool
+	openInBlank: PropTypes.bool,
+	config: PropTypes.objectOf(PropTypes.any)
 };
 
 const defSwipperConfig = {
@@ -193,14 +195,22 @@ const defSwipperConfig = {
 	rebuildOnUpdate: true
 };
 
-export const Autoplay = ({ Rows }) => {
-	const params = defSwipperConfig;
+export const Autoplay = ({ Rows, config }) => {
+	const params = {
+		...defSwipperConfig,
+		...config
+	};
 	// eslint-disable-next-line react/jsx-props-no-spreading
 	return <Swiper {...params}>{Rows}</Swiper>;
 };
 
+Autoplay.defaultProps = {
+	config: {}
+};
+
 Autoplay.propTypes = {
-	Rows: PropTypes.arrayOf(PropTypes.node).isRequired
+	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
+	config: PropTypes.objectOf(PropTypes.any)
 };
 
 export const AutoPlayWithBtn = ({ Rows, config }) => {

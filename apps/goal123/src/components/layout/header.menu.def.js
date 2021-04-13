@@ -192,23 +192,6 @@ export const defMenuLinks = langId => {
 			displayKey: "lbl_Slots",
 			className: "casinobtn",
 			subMenu: [
-				// {
-				// 	...defCasinoProviders.PT,
-				// 	className: "ICG",
-				// 	eventIcons: [
-				// 		showEventIcon({
-				// 			icon: defEventIcon.new,
-				// 			period: defEventPeriod.casino_pt
-				// 		})
-				// 	],
-				// 	icon: "icon icon-ICG",
-				// 	displayText: "PlayTech",
-				// 	menuType: defMenuType.Link,
-				// 	parameter: { provider: defCasinoProviders.PT.name },
-				// 	bgImgUrl: slotsPlaytechBgImg,
-				// 	npcImgUrl: slotsPlaytechNpcImg,
-				// 	iconImgUrl: slotsPlaytechIconImg
-				// },
 				{
 					...defCasinoProviders.ICG,
 					className: "ICG",

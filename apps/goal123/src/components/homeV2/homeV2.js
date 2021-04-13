@@ -129,7 +129,16 @@ const HomeV2 = ({ productTpIds }) => {
 
 	return (
 		<main>
-			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
+			<SwipperBanner
+				ImgFolder={[defBannerType.Promotions]}
+				config={{
+					effect: "fade",
+					autoplay: {
+						delay: 3500,
+						disableOnInteraction: false
+					}
+				}}
+			/>
 
 			<EventSwipper langId={userInfo.langId} />
 
