@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, isRootContext } from "../common/context";
+import { userInfoContext } from "../common/context";
 import Logo from "../../styles/img/logo.png";
 import Menu from "./header.menu";
 import config from "../../config";
@@ -10,7 +10,6 @@ import LanguageDropDown from "./header.langDropdown";
 
 export default ({ productTpIds }) => {
 	const { userInfo } = useContext(userInfoContext);
-	const { isRoot } = useContext(isRootContext);
 
 	const { t } = useTranslation();
 
@@ -22,7 +21,7 @@ export default ({ productTpIds }) => {
 						<img src={Logo} alt={config.siteName} />
 					</Link>
 				</div>
-				<Menu productTpIds={productTpIds} isRoot={isRoot} />
+				<Menu productTpIds={productTpIds} />
 				<div className="function">
 					<a
 						className="appDownload"

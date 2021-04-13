@@ -6,7 +6,7 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 
-export default ({ listClassName, subItems, menuKey, mainUrl, isRoot }) => {
+export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -78,9 +78,9 @@ export default ({ listClassName, subItems, menuKey, mainUrl, isRoot }) => {
 			return (
 				<Link
 					key={key}
-					className={isRoot ? "" : _iconClassName}
+					className={_iconClassName}
 					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
-					{isRoot && imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
+					{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
 
 					<span>
 						<p>{displayText}</p>
@@ -94,7 +94,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl, isRoot }) => {
 				key={key}
 				className={_iconClassName}
 				onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
-				{isRoot && imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
+				{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
 
 				<span>
 					<p>{displayText}</p>

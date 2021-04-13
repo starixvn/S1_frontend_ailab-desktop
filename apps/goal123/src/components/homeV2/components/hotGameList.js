@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { navigate, Link } from "@reach/router";
 import productList from "../../../datas/productList";
@@ -24,6 +24,8 @@ import esportsImgResult from "../../../styles/img/hotgames/esports.png";
 import esportsNpcImgResult from "../../../styles/img/hotgames/esports-item.png";
 
 const HotGameList = ({ t, langId, clickItem }) => {
+	const [showSportsHover, setShowSetspoHover] = useState(false);
+
 	const defHotGameList = [
 		{
 			title: t("lbl_SabaSoccer"),
@@ -85,13 +87,19 @@ const HotGameList = ({ t, langId, clickItem }) => {
 				<div className="indexGamelist-wrapper">
 					<div className="leftGame">
 						<Link
+							onMouseOver={() => setShowSetspoHover(true)}
+							onMouseLeave={() => setShowSetspoHover(false)}
 							to={`/${langId}/${path.sports.root}?game=${productList.soccer.name}`}>
 							<img
-								className="show"
+								className={showSportsHover ? "show" : ""}
+								src={sportsImgResult}
+								alt="home-img-sports"
+							/>
+							<img
+								className={showSportsHover ? "" : "show"}
 								src={sportsblueImgResult}
 								alt="home-img-sportsblue"
 							/>
-							<img src={sportsImgResult} alt="home-img-sports" />
 						</Link>
 					</div>
 					<div className="rightGame">
