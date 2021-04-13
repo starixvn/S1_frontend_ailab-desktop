@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { popBoxContext } from "../common/context";
-import config from "../../config";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defRowsPerPage } from "./casino.def";
 import { defPopBoxType } from "../common/popBox";
+import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 
 export default ({
 	displayGames,
@@ -16,13 +16,28 @@ export default ({
 	onSetFavorite,
 	t
 }) => {
+	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { setPopBox } = useContext(popBoxContext);
 	const startIdx = (currentPage - 1) * defRowsPerPage;
 	const endIdx = currentPage * defRowsPerPage;
 
 	const onClickPlay = (tpId, gameId, isFree) => {
 		if (isLogin) {
-			SET_CASINO_ENTER_PAGE(tpId, gameId, isFree);
+			SET_CASINO_ENTER_PAGE({
+				tpId,
+				gameId,
+				isFree,
+				langId,
+				execFunction:
+					tpId === defSpecialSetting.playTech
+						? handleGoToGame.bind(this, {
+								langId,
+								tpId,
+								gameId,
+								isFun: isFree
+						  })
+						: null
+			});
 		} else {
 			setPopBox({
 				isOpen: true,
