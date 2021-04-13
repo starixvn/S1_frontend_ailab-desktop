@@ -131,6 +131,7 @@ const HomeV2 = ({ productTpIds }) => {
 		<main>
 			<SwipperBanner
 				ImgFolder={[defBannerType.Promotions]}
+				hoverToStopPlay={true}
 				config={{
 					effect: "fade",
 					autoplay: {

@@ -53,7 +53,7 @@ const EventSwipper = memo(({ langId }) => {
 
 	return (
 		<div className="offers newHotEvent">
-			<Autoplay Rows={rows} />
+			<Autoplay Rows={rows} hoverToStopPlay={true} />
 		</div>
 	);
 });

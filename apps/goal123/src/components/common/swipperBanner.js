@@ -111,7 +111,7 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 	return { banner };
 };
 
-const Panel = ({ ImgFolder, openInBlank, config }) => {
+const Panel = ({ ImgFolder, openInBlank, hoverToStopPlay, config }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
 	const { setPopBox } = useContext(popBoxContext);
@@ -164,11 +164,18 @@ const Panel = ({ ImgFolder, openInBlank, config }) => {
 		);
 	});
 
-	return <Autoplay Rows={rows} config={config} />;
+	return (
+		<Autoplay
+			Rows={rows}
+			hoverToStopPlay={hoverToStopPlay}
+			config={config}
+		/>
+	);
 };
 
 Panel.defaultProps = {
 	openInBlank: false,
+	hoverToStopPlay: false,
 	config: {}
 };
 
@@ -177,6 +184,7 @@ Panel.propTypes = {
 		PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 	).isRequired,
 	openInBlank: PropTypes.bool,
+	hoverToStopPlay: PropTypes.bool,
 	config: PropTypes.objectOf(PropTypes.any)
 };
 
@@ -192,28 +200,84 @@ const defSwipperConfig = {
 		el: ".swiper-pagination",
 		clickable: true
 	},
-	rebuildOnUpdate: true
+	rebuildOnUpdate: false
 };
 
-export const Autoplay = ({ Rows, config }) => {
+export const Autoplay = ({ Rows, hoverToStopPlay, config }) => {
 	const params = {
 		...defSwipperConfig,
-		...config
+		...config,
+		getSwiper: obj => {
+			ref.current = obj;
+		}
 	};
+
+	const ref = useRef(null);
+
+	useEffect(() => {
+		if (
+			typeof document !== `undefined` &&
+			ref.current?.el &&
+			Rows?.length
+		) {
+			ref.current.el.addEventListener(
+				"mouseover",
+				() => {
+					onMouseOverHandlar();
+				},
+				true
+			);
+
+			ref.current.el.addEventListener(
+				"mouseleave",
+				() => {
+					onMouseLeaveHandlar();
+				},
+				true
+			);
+		}
+
+		return () => {
+			document.removeEventListener(
+				"mouseover",
+				onMouseOverHandlar(),
+				false
+			);
+
+			document.removeEventListener(
+				"mouseover",
+				onMouseLeaveHandlar(),
+				false
+			);
+		};
+	}, [Rows?.length]);
+
+	const onMouseOverHandlar = () => {
+		if (hoverToStopPlay) ref.current?.autoplay?.stop();
+	};
+
+	const onMouseLeaveHandlar = () => {
+		if (hoverToStopPlay) ref.current?.autoplay?.start();
+	};
+
+	if (Rows?.length <= 0) return null;
+
 	// eslint-disable-next-line react/jsx-props-no-spreading
 	return <Swiper {...params}>{Rows}</Swiper>;
 };
 
 Autoplay.defaultProps = {
+	hoverToStopPlay: false,
 	config: {}
 };
 
 Autoplay.propTypes = {
 	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
+	hoverToStopPlay: PropTypes.bool,
 	config: PropTypes.objectOf(PropTypes.any)
 };
 
-export const AutoPlayWithBtn = ({ Rows, config }) => {
+export const AutoPlayWithBtn = ({ Rows, hoverToStopPlay, config }) => {
 	const params = {
 		...defSwipperConfig,
 		...config,
@@ -246,22 +310,38 @@ export const AutoPlayWithBtn = ({ Rows, config }) => {
 		}
 	};
 
-	return Rows && Rows.length > 0 ? (
-		<div className="swiper-container">
+	const onMouseOverHandlar = () => {
+		if (hoverToStopPlay) ref.current.autoplay.stop();
+	};
+
+	const onMouseLeaveHandlar = () => {
+		if (hoverToStopPlay) ref.current.autoplay.start();
+	};
+
+	if (Rows?.length <= 0) return null;
+
+	return (
+		<div
+			className="swiper-container"
+			onMouseOver={() => onMouseOverHandlar()}
+			onMouseLeave={() => onMouseLeaveHandlar()}
+			onFocus={() => 0}>
 			<div className="swiper-wrapper">
 				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 				<Swiper {...params}>{Rows}</Swiper>
 			</div>
 		</div>
-	) : null;
+	);
 };
 
 AutoPlayWithBtn.defaultProps = {
+	hoverToStopPlay: false,
 	config: {}
 };
 
 AutoPlayWithBtn.propTypes = {
 	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
+	hoverToStopPlay: PropTypes.bool,
 	config: PropTypes.objectOf(PropTypes.any)
 };
 

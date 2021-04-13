@@ -56,9 +56,10 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 						<i className="icon icon-gamecasino" />
 						{t("lbl_LiveCasino")}
 					</div>
-					<div className="indexCasino ">
+					<div className="indexCasino">
 						<AutoPlayWithBtn
 							Rows={rows}
+							hoverToStopPlay={true}
 							config={{
 								slidesPerView: 5,
 								spaceBetween: 10,
@@ -66,8 +67,7 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 								pagination: {
 									el: "",
 									clickable: false
-								},
-								rebuildOnUpdate: false
+								}
 							}}
 						/>
 					</div>
