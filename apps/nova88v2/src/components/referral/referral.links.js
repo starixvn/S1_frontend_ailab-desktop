@@ -1,9 +1,9 @@
 import React from "react";
 import QRCode from "qrcode.react";
 
-export default ({ referralCode, t }) => {
+export default ({ referralCode, t, langId }) => {
 	const link_default = window.location.origin;
-	const ref_link = `${link_default}/join?AffId=${referralCode}`;
+	const ref_link = `${link_default}/${langId}/join?AffId=${referralCode}`;
 	const welcomeMessage = t("lbl_Referral_Welcome");
 
 	const ref_fb = `https://www.facebook.com/sharer/sharer.php?u=${link_default}&quote=${welcomeMessage}`;
