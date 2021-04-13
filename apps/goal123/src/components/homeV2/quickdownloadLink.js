@@ -35,7 +35,7 @@ const QuickdownloadLink = () => {
 				<ul>
 					<li>
 						<a
-							href="https://s3-ap-northeast-1.amazonaws.com/grd.fileshare/sasa/goal123/android/prodRelease-1.0.8-20201230-1804.apk"
+							href="https://mars.fadatsai88.com/v1/App?path=goal123entry_sports_android.apk"
 							target="_blank"
 							rel="noreferrer">
 							<img src={androidIconImg} alt="" />

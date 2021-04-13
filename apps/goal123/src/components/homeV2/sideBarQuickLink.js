@@ -35,7 +35,7 @@ export default () => {
 				<ul>
 					<li>
 						<a
-							href="skype:live:.cid.ae9eac1a78556dc6?chat"
+							href="skype:live:.cid.d357533c71e50fb5?chat"
 							target="_blank"
 							rel="noreferrer">
 							<img src={skypeIconImg} alt="skypeImg" />
