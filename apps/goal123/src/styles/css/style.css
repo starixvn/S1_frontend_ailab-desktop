@@ -1930,7 +1930,7 @@ input[type="file"] {
 }
 
 .checkbox input[type="checkbox"] + label {
-  border: 1px solid #1E85EC;
+  border: 1px solid white;
   border-radius: 100%;
   width: 10px;
   height: 10px;
@@ -8815,6 +8815,7 @@ html.Newtheme header .header > div.menu .gameList a span > p, html.Newtheme head
   white-space: nowrap;
   height: 20px;
   padding: 0 10px;
+  line-height: 1.45;
 }
 
 html.Newtheme header .header > div.menu .gameList a:hover, html.Newtheme header .header > div.menu .gameList button:hover, html.Newtheme header .header > div.menu .casinoList a:hover, html.Newtheme header .header > div.menu .casinoList button:hover, html.Newtheme header .header > div.menu .livecasinoList a:hover, html.Newtheme header .header > div.menu .livecasinoList button:hover, html.Newtheme header .header > div.menu .fishList a:hover, html.Newtheme header .header > div.menu .fishList button:hover {
@@ -9444,7 +9445,7 @@ html.Newtheme main {
 }
 
 html.Newtheme main section {
-  padding-top: 50px;
+  padding-top: 0;
   background: url(../img/indexbgnew.jpg) no-repeat top center/cover;
 }
 
@@ -10280,7 +10281,7 @@ html.Newtheme .btnGroup button, html.Newtheme .btnGroup a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-width: 129px;
+  min-width: 175px;
   margin: 0 5px;
   font-weight: bold;
 }
@@ -11735,6 +11736,7 @@ html.Newtheme #popup .pop {
   border-radius: 15px;
   max-height: calc(100% - 160px);
   overflow-y: auto;
+  color: white;
 }
 
 html.Newtheme #popup .pop .title {
@@ -12376,24 +12378,39 @@ html.Newtheme .indexCasino .swiper-button-next::after, html.Newtheme .indexCasin
   color: #1F3258;
 }
 
+html.Newtheme .walletWrapper {
+  margin: 40px;
+  padding: 10px 0 0 0;
+  border-radius: 15px;
+  background: #1F3258;
+}
+
 html.Newtheme .walletModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: calc(100% - 140px);
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: calc(100% - 130px);
   margin: 15px 0 0;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 0 70px 30px;
+  padding: 0 70px;
+}
+
+html.Newtheme .walletModule .icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  color: #1E85EC;
+  margin-right: 15px;
 }
 
 html.Newtheme .walletModule > .walletType {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 0;
 }
 
 html.Newtheme .walletModule > .walletType .walletBalanceModule {
@@ -12407,10 +12424,15 @@ html.Newtheme .walletModule > .walletType .walletBalanceModule {
   max-width: none;
 }
 
+html.Newtheme .walletModule > .walletType + .icon {
+  margin-right: -30px;
+}
+
 html.Newtheme .walletModule .walletBalanceModule {
-  background: #1F3258;
+  background: #1e283e;
   border-radius: 5px;
   padding: 10px;
+  margin-bottom: 10px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -12450,7 +12472,7 @@ html.Newtheme .walletModule .walletBalanceModule span.icon-balance {
 }
 
 html.Newtheme .walletModule .walletBalanceModule span.icon-balance.icon:before {
-  color: white;
+  color: #1E85EC;
   margin-right: 5px;
 }
 
@@ -12477,19 +12499,15 @@ html.Newtheme .walletModule .walletBalanceModule .btnGroup button {
   margin-bottom: 0;
 }
 
-html.Newtheme .walletModule .icon {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  color: #5084E4;
-  margin-left: 15px;
+html.Newtheme .walletModule .walletBalanceModule:nth-child(even) {
+  margin-right: 0;
 }
 
 html.Newtheme .walletTransfer {
   background: #1F3258;
   border-radius: 5px;
   width: 100%;
-  padding: 30px 100px;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12543,6 +12561,10 @@ html.Newtheme .walletTransfer .walletModule .walletBalanceModule span {
   margin: 0 10px;
 }
 
+html.Newtheme .walletTransfer .walletModule .walletBalanceModule:nth-child(even) {
+  margin-right: 0;
+}
+
 html.Newtheme .walletTransfer .walletModule .from span, html.Newtheme .walletTransfer .walletModule .to span {
   color: white;
   display: none;
@@ -12565,8 +12587,8 @@ html.Newtheme .walletTransfer .walletModule .dropdown-item.active {
 
 html.Newtheme .walletTransfer .inputBox, html.Newtheme .walletTransfer .inputBox-org, html.Newtheme .walletTransfer .inputBox-white, html.Newtheme .walletTransfer .inputBox-blue, html.Newtheme .walletTransfer .inputBox-gray, html.Newtheme .walletTransfer .inputBox-yellow {
   float: left;
-  width: calc(100% - 171px);
-  margin-right: 10px;
+  width: calc(50% - 26px);
+  margin-right: 4px;
 }
 
 html.Newtheme .walletTransfer .icon {
@@ -12589,6 +12611,10 @@ html.Newtheme .walletTransfer .icon.icon-information-solid:before {
   font-weight: normal;
 }
 
+html.Newtheme .walletTransfer .btnGroup {
+  margin: 10px 0;
+}
+
 html.Newtheme .bonusTip {
   background: rgba(30, 133, 236, 0.5);
 }
@@ -12599,7 +12625,7 @@ html.Newtheme .addBank {
 
 html.Newtheme .addBank .addBankName {
   width: calc(100% - 50px);
-  background: #1F3258;
+  background: #1e283e;
   border-radius: 5px;
   padding: 20px;
   margin-bottom: 15px;
@@ -12689,6 +12715,7 @@ html.Newtheme .addBank + div.subModuleList .subModuleBody {
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
+  padding: 10px 20px;
 }
 
 html.Newtheme .addBank + div.subModuleList .subModuleBody > div {
@@ -12706,6 +12733,7 @@ html.Newtheme .addBank + div.subModuleList .subModuleBody > div.calculation {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+  color: white;
 }
 
 html.Newtheme .addBank + div.subModuleList .subModuleBody > div.inputBtn {
@@ -12795,7 +12823,7 @@ html.Newtheme .calculation > div {
 }
 
 html.Newtheme .calculation > div:nth-child(odd) {
-  background: #1D3662;
+  background: #1e283e;
 }
 
 html.Newtheme .calculation > div:nth-child(even) {
@@ -13154,14 +13182,13 @@ html.Newtheme .profileEdit .editModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-flex: 1.5;
       -ms-flex: 1.5;
           flex: 1.5;
@@ -13169,6 +13196,7 @@ html.Newtheme .profileEdit .editModule {
 
 html.Newtheme .profileEdit .editModule .inputBox, html.Newtheme .profileEdit .editModule .inputBox-org, html.Newtheme .profileEdit .editModule .inputBox-white, html.Newtheme .profileEdit .editModule .inputBox-blue, html.Newtheme .profileEdit .editModule .inputBox-gray, html.Newtheme .profileEdit .editModule .inputBox-yellow {
   z-index: auto;
+  width: 100%;
 }
 
 html.Newtheme .profileEdit .editModule .inputBox:first-child, html.Newtheme .profileEdit .editModule .inputBox-org:first-child, html.Newtheme .profileEdit .editModule .inputBox-white:first-child, html.Newtheme .profileEdit .editModule .inputBox-blue:first-child, html.Newtheme .profileEdit .editModule .inputBox-gray:first-child, html.Newtheme .profileEdit .editModule .inputBox-yellow:first-child {
@@ -13645,7 +13673,7 @@ html.Newtheme .promotionsInfo img {
 }
 
 html.Newtheme .promotionsInfo .proData {
-  background: #0f2346;
+  background: rgba(232, 232, 232, 0.9);
   border-radius: 15px;
   margin-top: 20px;
   padding: 40px;
@@ -13704,7 +13732,7 @@ html.Newtheme .promotionsInfo .proData .proDataTitle .btnGroup button {
 }
 
 html.Newtheme .promotionsInfo .proData .turnover {
-  color: white;
+  color: #64789b;
 }
 
 html.Newtheme .promotionsInfo .proData .bounsName {
@@ -14202,8 +14230,8 @@ html.Newtheme input:-webkit-autofill,
 html.Newtheme input:-webkit-autofill:hover,
 html.Newtheme input:-webkit-autofill:focus,
 html.Newtheme input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #030c1b inset;
-          box-shadow: 0 0 0px 1000px #030c1b inset;
+  -webkit-box-shadow: 0 0 0px 1000px #1F3258 inset;
+          box-shadow: 0 0 0px 1000px #1F3258 inset;
   -webkit-text-fill-color: white;
 }
 
@@ -14931,6 +14959,10 @@ html.Newtheme .errorPage .container .icon-close {
 
 html.Newtheme .transferModule {
   position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -14944,7 +14976,7 @@ html.Newtheme .transferModule .inputBox, html.Newtheme .transferModule .inputBox
   margin: 0;
   z-index: 2;
   display: block;
-  width: calc(50% - 60px);
+  width: calc(50% - 46px);
 }
 
 html.Newtheme .transferModule .inputBox .dropdown .dropdown-container, html.Newtheme .transferModule .inputBox-org .dropdown .dropdown-container, html.Newtheme .transferModule .inputBox-white .dropdown .dropdown-container, html.Newtheme .transferModule .inputBox-blue .dropdown .dropdown-container, html.Newtheme .transferModule .inputBox-gray .dropdown .dropdown-container, html.Newtheme .transferModule .inputBox-yellow .dropdown .dropdown-container {
@@ -16663,7 +16695,7 @@ html.Newtheme .leaderboard {
           align-items: flex-end;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-top: 20px;
+  padding-top: 70px;
 }
 
 html.Newtheme .leaderboard > section {
@@ -17281,6 +17313,19 @@ html.Newtheme .leaderboard .content .rightModule .btnGroup {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+html.Newtheme .flex-end {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+html.Newtheme .column-reverse {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
 }
 
 html.Newtheme:not(.index) .swiper-container {
