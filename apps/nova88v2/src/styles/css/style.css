@@ -7896,7 +7896,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -11000,10 +11006,15 @@ canvas {
   font-size: 14px;
   text-align: right;
   height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 5px;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
   text-align: left;
+  padding-left: 0;
+  padding-right: 5px;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
@@ -11029,6 +11040,11 @@ canvas {
   min-width: -moz-max-content;
   min-width: max-content;
   margin-bottom: 10px;
+  background: #cf0404;
+}
+
+.liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button:hover, .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button:hover, .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button:hover, .liveVideo .newsList + div .liveTv .team > div > .btnGroup button:hover, .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button:hover, .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button:hover, .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button:hover, .newsVideo .newsList + div .liveTv .team > div > .btnGroup button:hover {
+  background: #f77900;
 }
 
 .liveVideo .latestVideo + div .liveTvBox, .liveVideo .newsList + div .liveTvBox, .newsVideo .latestVideo + div .liveTvBox, .newsVideo .newsList + div .liveTvBox {
