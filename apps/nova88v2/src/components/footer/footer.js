@@ -276,9 +276,13 @@ LicensesSection.propTypes = {
 	t: PropTypes.func.isRequired
 };
 
+FollowUsSection.defaultProps = {
+	hoverNamme: null
+};
+
 FollowUsSection.propTypes = {
 	t: PropTypes.func.isRequired,
-	hoverNamme: PropTypes.string.isRequired,
+	hoverNamme: PropTypes.string,
 	handleHoverImg: PropTypes.func.isRequired
 };
 
