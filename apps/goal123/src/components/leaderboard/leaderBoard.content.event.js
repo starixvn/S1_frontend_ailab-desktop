@@ -30,9 +30,8 @@ const LeaderBoardEventContent = ({
 	});
 
 	const linkToTnc = () => {
-		const t_and_cURL = "http://release.goal123.com";
 		window.open(
-			`${t_and_cURL}/SiteSkin/${config.siteName}/Ranking/${userInfo.langId}4.html`
+			`${config.t_and_cURL}/SiteSkin/${config.siteName}/Ranking/${userInfo.langId}4.html`
 		);
 	};
 
@@ -72,7 +71,7 @@ const LeaderBoardEventContent = ({
 						<ul>
 							<li>
 								<div>{t("lbl_Ranking")}</div>
-								<div>{t("lbl_Rewards")}</div>
+								<div>{t("lbl_Prizes")}</div>
 							</li>
 
 							{rows}
@@ -86,9 +85,9 @@ const LeaderBoardEventContent = ({
 							{t("lbl_Monthly_Deposit_Turnover_Race_Tournament")}
 						</div>
 						<div className="timeLine">
-							<div>{t("lbl_Mar")}</div>
+							<div>{t("lbl_Apr")}</div>
 							<div>
-								{t("lbl_Apr")}
+								{t("lbl_May")}
 
 								<div>
 									{t("lbl_Stage")}1<div>2021 4/13 - 5/12</div>
@@ -104,7 +103,7 @@ const LeaderBoardEventContent = ({
 						<ul>
 							<li>
 								<div>{t("lbl_Ranking")}</div>
-								<div>{t("lbl_Rewards")}</div>
+								<div>{t("lbl_Bonus_credit")}</div>
 							</li>
 
 							{rows}
