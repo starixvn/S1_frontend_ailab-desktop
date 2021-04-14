@@ -104,26 +104,26 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 				<tr>
 					<td>{t("lbl_Vip_Live_Casino_Rebate")}</td>
 					<td>0.5%</td>
+					<td>0.55%</td>
 					<td>0.6%</td>
 					<td>0.7%</td>
 					<td>0.8%</td>
-					<td>0.9%</td>
 					<td>1%</td>
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Slot_Fishing_Rebate")}</td>
 					<td>0.8%</td>
+					<td>0.9%</td>
 					<td>1%</td>
-					<td>1.2%</td>
+					<td>1.1%</td>
 					<td>1.3%</td>
 					<td>1.5%</td>
-					<td>1.7%</td>
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Virtual_Sport_Rebate")}</td>
 					<td>0.8%</td>
-					<td>1%</td>
-					<td>1.2%</td>
+					<td>0.9%</td>
+					<td>1.1%</td>
 					<td>1.3%</td>
 					<td>1.5%</td>
 					<td>1.7%</td>
