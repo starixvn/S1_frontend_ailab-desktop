@@ -9451,6 +9451,10 @@ html.Newtheme main section > div > div > span {
   background: #1E85EC;
 }
 
+html.Newtheme main section > div .news {
+  width: 100%;
+}
+
 html.Newtheme main section > div .articleModule {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9459,9 +9463,9 @@ html.Newtheme main section > div .articleModule {
   -webkit-box-align: normal;
       -ms-flex-align: normal;
           align-items: normal;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 html.Newtheme main section > div .articleModule a {
@@ -9479,10 +9483,10 @@ html.Newtheme main section > div .articleModule a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  max-width: 342px;
 }
 
 html.Newtheme main section > div .articleModule a img {
-  max-width: 342px;
   max-height: 226px;
   height: 100%;
   border-radius: 5px 5px 0 0;
@@ -14574,7 +14578,7 @@ html.Newtheme .indexInfo {
 
 html.Newtheme .indexInfo > div:first-child {
   margin-right: 25px;
-  width: 33%;
+  width: 30%;
 }
 
 html.Newtheme .indexInfo > div > div > .title {
