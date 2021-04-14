@@ -216,11 +216,15 @@ SubMenuMultiple.propTypes = {
 	menuKey: PropTypes.string.isRequired
 };
 
+ImgsNpcRender.defaultProps = {
+	imgFromBannerImgUrl: false
+};
+
 ImgsNpcRender.propTypes = {
 	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 		.isRequired,
 	className: PropTypes.string.isRequired,
-	imgFromBannerImgUrl: PropTypes.bool.isRequired
+	imgFromBannerImgUrl: PropTypes.bool
 };
 
 ImgsBgRender.propTypes = {
