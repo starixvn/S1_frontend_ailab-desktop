@@ -1591,50 +1591,6 @@ footer .copyright {
           align-items: flex-start;
 }
 
-.txt-orange {
-  color: #f77900;
-}
-
-.txt-blue2 {
-  color: #1E85EC;
-}
-
-.txt-blue3 {
-  color: #84eeff;
-}
-
-.txt-blue12 {
-  color: #64789b;
-}
-
-.txt-white {
-  color: white;
-}
-
-.txt-gray {
-  color: #666;
-}
-
-.txt-lightgray {
-  color: #c6c6c6;
-}
-
-.txt-yellow {
-  color: #fab617;
-}
-
-.txt-red {
-  color: #D83B35;
-}
-
-.txt-dark {
-  color: #191919;
-}
-
-.txt-darkBlue {
-  color: #284985;
-}
-
 .inputModule {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10228,7 +10184,7 @@ html.Newtheme .checkbox input[type="checkbox"] {
 }
 
 html.Newtheme .checkbox input[type="checkbox"] + label {
-  border: 1px solid #1F3258;
+  border: 1px solid #919191;
   border-radius: 100%;
   width: 10px;
   height: 10px;
@@ -11355,6 +11311,10 @@ html.Newtheme .infoModule .title {
   color: #1F3258;
 }
 
+html.Newtheme .infoModule .title.txt-yellow {
+  color: #fab617;
+}
+
 html.Newtheme .inside-title {
   padding: 40px;
   border-bottom: 1px solid #0f2346;
@@ -12380,7 +12340,7 @@ html.Newtheme .indexCasino .swiper-button-next::after, html.Newtheme .indexCasin
 
 html.Newtheme .walletWrapper {
   margin: 40px;
-  padding: 10px 0 0 0;
+  padding: 10px 0;
   border-radius: 15px;
   background: #1F3258;
 }
@@ -12398,6 +12358,7 @@ html.Newtheme .walletModule {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 0 70px;
+  color: white;
 }
 
 html.Newtheme .walletModule .icon {
@@ -12715,7 +12676,6 @@ html.Newtheme .addBank + div.subModuleList .subModuleBody {
           align-items: center;
   -ms-flex-line-pack: center;
       align-content: center;
-  padding: 10px 20px;
 }
 
 html.Newtheme .addBank + div.subModuleList .subModuleBody > div {
@@ -12923,6 +12883,7 @@ html.Newtheme .kycHeight .subModuleBody {
 
 html.Newtheme .kycHeight .icon {
   font-size: 48px;
+  color: #fab617;
 }
 
 html.Newtheme .history {
@@ -13189,6 +13150,9 @@ html.Newtheme .profileEdit .editModule {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-flex: 1.5;
       -ms-flex: 1.5;
           flex: 1.5;
@@ -17360,5 +17324,49 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   top: 0;
   left: 40px;
   z-index: -1;
+}
+
+.txt-orange {
+  color: #f77900;
+}
+
+.txt-blue2 {
+  color: #1E85EC;
+}
+
+.txt-blue3 {
+  color: #84eeff;
+}
+
+.txt-blue12 {
+  color: #64789b;
+}
+
+.txt-white {
+  color: white;
+}
+
+.txt-gray {
+  color: #666;
+}
+
+.txt-lightgray {
+  color: #c6c6c6;
+}
+
+.txt-yellow {
+  color: #fab617;
+}
+
+.txt-red {
+  color: #D83B35;
+}
+
+.txt-dark {
+  color: #191919;
+}
+
+.txt-darkBlue {
+  color: #284985;
 }
 /*# sourceMappingURL=style.css.map */
