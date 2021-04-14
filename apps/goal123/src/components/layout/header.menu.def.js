@@ -336,7 +336,7 @@ export const defMenuLinks = langId => {
 					tpId: 20,
 					className: "liveWM",
 					icon: "icon icon-WM",
-					listNpcImgUrl: "WM.png",
+					listNpcImgUrl: "wm.png",
 					displayText: "WM",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoWmNpcImg,
