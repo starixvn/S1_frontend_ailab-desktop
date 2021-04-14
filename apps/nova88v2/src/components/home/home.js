@@ -119,7 +119,7 @@ const IndexPage = ({ location }) => {
 				const closeJoinSuccess = () => {
 					setPopBox({
 						isOpen: true,
-						popBoxType: defPopBoxType.JoinReferral,
+						popBoxType: defPopBoxType.RegisterSuccess,
 						onClickClose: clickCloseReferral
 					});
 				};
@@ -155,22 +155,27 @@ const IndexPage = ({ location }) => {
 				navigate(`/${userInfo.langId}`, { state: null });
 			};
 
-			if (!isJoinCurrently) {
-				if (readCookie(refeCookieName) === "1") {
-					showDepositPopBox();
-				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.JoinReferral,
-						onClickClose: clickCloseReferral
-					});
-				}
-			} else {
+			if (isJoinCurrently) {
 				showsJoinSuccess();
 				clearLocationJoinState();
+			} else if (readCookie(refeCookieName) === "1") {
+				showDepositPopBox();
 			}
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
+
+	useEffect(() => {
+		if (
+			userInfo.isLogin === false &&
+			isDateRange(null, "2021/04/19 12:00:00")
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RankingWinner,
+				onClickClose: () => setPopBox({ isOpen: false })
+			});
+		}
+	}, [userInfo.isLogin, setPopBox]);
 
 	return (
 		<main>
