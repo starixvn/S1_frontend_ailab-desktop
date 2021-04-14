@@ -10471,8 +10471,8 @@ html.Newtheme .quickLink {
   right: -10px;
   top: 15%;
   z-index: 3;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
   width: 215px;
   overflow: hidden;
   display: -webkit-box;
@@ -10497,8 +10497,8 @@ html.Newtheme .quickLink > div:nth-child(1) {
       -ms-flex: 0.5;
           flex: 0.5;
   height: 200px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
   position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -10616,8 +10616,8 @@ html.Newtheme .quickdownload {
   left: -350px;
   top: 15%;
   z-index: 3;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
   width: 215px;
   overflow: hidden;
   display: -webkit-box;
@@ -10646,8 +10646,8 @@ html.Newtheme .quickdownload > div:nth-child(1) {
       -ms-flex: 0.5;
           flex: 0.5;
   height: 200px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
   position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -10664,12 +10664,13 @@ html.Newtheme .quickdownload > div:nth-child(1) .icon-mobile {
   color: #D83B35;
   font-weight: bold;
   position: absolute;
-  width: 42px;
+  width: 43px;
   height: 42px;
-  left: 0;
+  left: -1px;
   font-size: 18px;
   z-index: 1;
   top: 0;
+  border-top-right-radius: 3px;
 }
 
 html.Newtheme .quickdownload > div:nth-child(1) i {
