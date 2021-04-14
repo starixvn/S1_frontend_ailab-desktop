@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import config from "../../config";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
@@ -12,7 +13,8 @@ export default ({
 	t,
 	accountName,
 	GetCustBankInfo,
-	custBankInfo
+	custBankInfo,
+	isUSDT
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
@@ -25,13 +27,19 @@ export default ({
 	});
 
 	const selectAccount = accountData => {
+		const _selectInfo = !isUSDT
+			? {
+					bankName: accountData.bankName,
+					accountNo: accountData.accountNo,
+					sysId: accountData.sysId
+			  }
+			: {
+					usdtAddress: accountData.usdtAddress,
+					nickName: accountData.nickName
+			  };
 		dispatch({
 			type: defActionType.SELECT_ACCOUNT,
-			selectedAccount: {
-				bankName: accountData.bankName,
-				accountNo: accountData.accountNo,
-				sysId: accountData.sysId
-			},
+			selectedAccount: _selectInfo,
 			step: state.amount ? 3 : 2
 		});
 	};
@@ -86,7 +94,9 @@ export default ({
 						message: t("msg_ApiServerError"),
 						btnBar: (
 							<div className="btnGroup">
-								<button className="btn-check" onClick={ClosePopBox}>
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -183,7 +193,7 @@ export default ({
 		});
 	};
 
-	const arr = custBankInfo?.map(item => {
+	const bankArr = custBankInfo?.map(item => {
 		const _key = `withdrawal-bankCard-${item.accountNo}`;
 		const _checked = item.accountNo === state.selectedAccount?.accountNo;
 
@@ -200,25 +210,42 @@ export default ({
 		);
 	});
 
-	return (
+	const usdtWalletArr = custBankInfo?.map(item => {
+		const _key = `withdrawal-usdt-${item.usdtAddress}`;
+		const _checked =
+			item.usdtAddress === state.selectedAccount?.usdtAddress;
+
+		return (
+			<CryptoCard
+				key={_key}
+				checkKey={item.usdtAddress}
+				{...item}
+				selectAccount={selectAccount.bind(this, item)}
+				checked={_checked}
+			/>
+		);
+	});
+
+	return !isUSDT ? (
 		<div className="addBank">
-			{custBankInfo.length > 0 ? arr : null}
-
-			{
-				custBankInfo.length < 3 ? (
-					<div
-						className="addBankName noBank"
-						onClick={addBankAccount}>
+			{custBankInfo.length > 0 ? bankArr : null}
+			{custBankInfo.length < 3 ? (
+				<div className="addBankName" onClick={addBankAccount}>
+					<div className="cryptoInfo">
 						<div className="icon icon-plus" />
-						<div>{t("lbl_AddBankAccount")}</div>
 					</div>
-				) : null
-				// <div className="addBankName noBank">
-				// 	<div className="icon icon-warning"></div>
-				// 	<div>{t("lbl_BankCardsFull")}</div>
-				// </div>
-			}
-
+					<div className="walletNickname">
+						{t("lbl_AddBankAccount")}
+					</div>
+				</div>
+			) : null}
+			<div className="remainder">
+				{t("lbl_NumberOfBankAccounts")}:{custBankInfo?.length ?? 0}/3
+			</div>
+		</div>
+	) : (
+		<div className="addBank">
+			{custBankInfo.length > 0 ? usdtWalletArr : null}
 			<div className="remainder">
 				{t("lbl_NumberOfBankAccounts")}:{custBankInfo?.length ?? 0}/3
 			</div>
@@ -265,4 +292,58 @@ const BankCard = props => {
 			</div>
 		</div>
 	);
+};
+
+const CryptoCard = props => {
+	return (
+		<div className="addBankName">
+			<div className="cryptoInfo">
+				<i className="icon icon-BTC" />
+				<div>{props.usdtAddress}</div>
+				<div className="checkbox">
+					<input
+						type="checkbox"
+						id={props.checkKey}
+						onChange={props.selectAccount}
+						checked={props.checked}
+					/>
+					<label
+						htmlFor={props.checkKey}
+						className="icon icon-checkbox-checked"
+					/>
+				</div>
+			</div>
+			<div className="walletNickname">{props.nickName}</div>
+		</div>
+	);
+};
+
+BankCard.defaultProps = {
+	bankLogo: "",
+	accountNo: "",
+	checkKey: null
+};
+
+BankCard.propTypes = {
+	bankLogo: PropTypes.string,
+	accountNo: PropTypes.string,
+	checkKey: PropTypes.string,
+	selectAccount: PropTypes.func.isRequired,
+	checked: PropTypes.bool.isRequired,
+	hideDelBtn: PropTypes.bool.isRequired,
+	delAccount: PropTypes.func.isRequired
+};
+
+CryptoCard.defaultProps = {
+	usdtAddress: "",
+	checkKey: null,
+	nickName: ""
+};
+
+CryptoCard.propTypes = {
+	usdtAddress: PropTypes.string,
+	checkKey: PropTypes.string,
+	selectAccount: PropTypes.func.isRequired,
+	checked: PropTypes.bool.isRequired,
+	nickName: PropTypes.string
 };

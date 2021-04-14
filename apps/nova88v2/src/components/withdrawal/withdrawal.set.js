@@ -8,6 +8,7 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { defActionType } from "./withdrawal.reducer";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
+import { currencyCode } from "../../datas/countryCode";
 
 export default ({ dispatch, state, refreshData, KycCheck }) => {
 	const { t } = useTranslation();
@@ -15,6 +16,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const _isConvert = isConvert(userInfo.currencyId);
 	const isMountedRef = useRef(null);
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -52,8 +54,14 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const datas = res.data.data;
+
+						const bankOrWalletData =
+							userInfo.currencyId === currencyCode.USDT
+								? datas.uSDTDetail
+								: datas.bankInfoDetail;
+
 						const _custBankInfo =
-							datas === null ? [] : datas.bankInfoDetail;
+							datas === null ? [] : bankOrWalletData;
 
 						dispatch({
 							type: defActionType.GET_CUST_BANKINFO,
@@ -125,6 +133,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 				GetCustBankInfo={GetCustBankInfo}
 				refreshData={refreshData}
 				custBankInfo={state.custBankInfo ?? []}
+				isUSDT={isUSDT}
 			/>
 			<div className="subModuleList">
 				{state.panel === "amount" ? (
@@ -145,6 +154,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 						GetCustBankInfo={GetCustBankInfo}
 						refreshData={refreshData}
 						KycCheck={KycCheck}
+						isUSDT={isUSDT}
 					/>
 				)}
 			</div>

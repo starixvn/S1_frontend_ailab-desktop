@@ -64,7 +64,11 @@ export default ({ dispatch, state, t, _isConvert }) => {
 		e.preventDefault();
 		const amountChecked = ValidAmount(state.amount);
 
-		if (state.selectedAccount.accountNo && amountChecked) {
+		if (
+			(state.selectedAccount.accountNo ||
+				state.selectedAccount.usdtAddress) &&
+			amountChecked
+		) {
 			dispatch({
 				type: defActionType.TO_OTHER_PANEL,
 				panel: defPanel.confirm

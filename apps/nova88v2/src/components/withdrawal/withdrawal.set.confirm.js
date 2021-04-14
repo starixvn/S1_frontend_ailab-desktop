@@ -15,7 +15,8 @@ export default ({
 	amount,
 	GetCustBankInfo,
 	refreshData,
-	KycCheck
+	KycCheck,
+	isUSDT
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
@@ -52,12 +53,21 @@ export default ({
 		};
 
 		const blackbox = await Iov_GetBlackBox();
-		api_payment_WithdrawalReq(
-			selectedAccount.accountNo,
-			real_amount,
-			selectedAccount.sysId,
-			blackbox
-		).then(
+		const payload = !isUSDT
+			? {
+					AccountNo: selectedAccount.accountNo,
+					amount: real_amount,
+					sysId: selectedAccount.sysId,
+					blackbox
+			  }
+			: {
+					AccountNo: selectedAccount.usdtAddress,
+					amount: real_amount,
+					sysId: 0,
+					blackbox
+			  };
+
+		api_payment_WithdrawalReq(payload).then(
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0 || res.data.errorCode === 2) {
@@ -173,23 +183,39 @@ export default ({
 					{t("lbl_ConfirmWithdrawal")}
 				</div>
 				<div className="smallList">
-					<ul>
-						<li>{t("lbl_WithdrawalTo")}</li>
-						<li>{selectedAccount.bankName}</li>
-					</ul>
-					<ul>
-						<li>{t("lbl_AccountNumber")}</li>
-						<li className="accountNumber">
-							<span>{_accountNo?.slice(0, 4)}</span>
-							<span>{_accountNo?.slice(4, 8)}</span>
-							<span>{_accountNo?.slice(8, 12)}</span>
-							<span>{_accountNo?.slice(12, 16)}</span>
-						</li>
-					</ul>
-					<ul>
-						<li>{t("lbl_BankAccountName")}</li>
-						<li>{accountName}</li>
-					</ul>
+					{!isUSDT ? (
+						<>
+							<ul>
+								<li>{t("lbl_WithdrawalTo")}</li>
+								<li>{selectedAccount.bankName}</li>
+							</ul>
+							<ul>
+								<li>{t("lbl_AccountNumber")}</li>
+								<li className="accountNumber">
+									<span>{_accountNo?.slice(0, 4)}</span>
+									<span>{_accountNo?.slice(4, 8)}</span>
+									<span>{_accountNo?.slice(8, 12)}</span>
+									<span>{_accountNo?.slice(12, 16)}</span>
+								</li>
+							</ul>
+							<ul>
+								<li>{t("lbl_BankAccountName")}</li>
+								<li>{selectedAccount.bankName}</li>
+							</ul>
+						</>
+					) : (
+						<>
+							<ul>
+								<li>{t("lbl_Wallet_Address")}</li>
+								<li>{selectedAccount.usdtAddress}</li>
+							</ul>
+							<ul>
+								<li>{t("lbl_Wallet_Nickname")}</li>
+								<li>{selectedAccount.nickName}</li>
+							</ul>
+						</>
+					)}
+
 					<ul>
 						<li>{t("lbl_WithdrawalAmount")}</li>
 						<li>

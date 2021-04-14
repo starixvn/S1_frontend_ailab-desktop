@@ -52,7 +52,7 @@ export function reducer(state, action) {
 			};
 
 		case defActionType.EDIT_AMOUNT:
-			_step = state.selectedAccount.accountNo ? 3 : 1;
+			_step = state.selectedAccount ? 3 : 1;
 			return {
 				...state,
 				amount: action.amount,
