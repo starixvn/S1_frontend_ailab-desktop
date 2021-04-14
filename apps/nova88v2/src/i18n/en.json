@@ -225,7 +225,6 @@
 	"lbl_ExchangeRate": "Exchange rate",
 	"lbl_ExchangeRateReferenceOnly": "This rate is only for refence",
 	"lbl_ExchangeAmount": "Exchange Amount",
-	"lbl_CryptoPay": "Crypto Pay",
 	"lbl_UploadReceipt": "Upload Receipt",
 	"lbl_BankName": "Bank Name",
 	"lbl_BankAccount": "Bank Account",
@@ -650,6 +649,7 @@
 	"lbl_Wallet_Address_Tip": "Enter only letters (a-z) and digits(0-9).",
 	"lbl_Select_Crypto_Wallet":"Select Crypto Wallet",
 	"lbl_Optional":"Optional",
+	"lbl_CryptoPay":"Crypto Pay",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES":"UPCOMING MATCHES",

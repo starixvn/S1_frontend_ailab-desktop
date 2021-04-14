@@ -219,8 +219,8 @@ SubMenuMultiple.propTypes = {
 ImgsNpcRender.propTypes = {
 	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 		.isRequired,
-	className: PropTypes.string.isRequired,
-	imgFromBannerImgUrl: PropTypes.bool.isRequired
+	className: PropTypes.string.isRequired
+	// imgFromBannerImgUrl: PropTypes.bool.isRequired
 };
 
 ImgsBgRender.propTypes = {
