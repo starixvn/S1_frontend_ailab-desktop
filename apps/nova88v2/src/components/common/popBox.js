@@ -250,7 +250,7 @@ export default () => {
 		case defPopBoxType.RankingWinner:
 			content = (
 				<RankingWinner
-					clickClose={popBox.clickClose}
+					onClickClose={popBox.onClickClose}
 					langId={popBox.langId}
 				/>
 			);
