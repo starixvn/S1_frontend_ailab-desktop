@@ -167,7 +167,8 @@ const IndexPage = ({ location }) => {
 	useEffect(() => {
 		if (
 			userInfo.isLogin === false &&
-			isDateRange(null, "2021/04/19 12:00:00")
+			isDateRange(null, "2021/04/18 23:59:59") &&
+			(userInfo.langId === "en" || userInfo.langId === "cs")
 		) {
 			setPopBox({
 				isOpen: true,
@@ -175,7 +176,7 @@ const IndexPage = ({ location }) => {
 				onClickClose: () => setPopBox({ isOpen: false })
 			});
 		}
-	}, [userInfo.isLogin, setPopBox]);
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	return (
 		<main>
