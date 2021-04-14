@@ -15,7 +15,6 @@ import {
 } from "./cryptoWallet.reducer";
 import { userInfoContext, popBoxContext } from "../common/context";
 import InitPanel from "./cryptoWallet.set.init";
-// import BankPanel from "./cryptoWallet.set.selectBank";
 import AccountPanel from "./cryptoWallet.set.account";
 import ShowCard from "./cryptoWallet.set.bankCard";
 import defPopBoxType from "../common/defPopBoxType";
@@ -33,8 +32,6 @@ export default () => {
 	const [loading, setLoading] = useState(true);
 	const [accountName, setAccountName] = useState(null);
 
-	console.log("userInfo.accountName::", userInfo.accountName);
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -43,7 +40,7 @@ export default () => {
 	});
 
 	useEffect(() => {
-		getBankInfo(false);
+		getWalletInfo(false);
 	}, []);
 
 	const clickClose = () => {
@@ -54,15 +51,12 @@ export default () => {
 		setShowTip(!showTip);
 	};
 
-	// console.log(state.walletList);
-
-	const getBankInfo = _setAccountName => {
+	const getWalletInfo = _setAccountName => {
 		api_account_GetCustBankInfo().then(
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const resData = res.data.data;
-						console.log("resData----", resData);
 						if (_setAccountName && resData) {
 							setUserInfo(prev => ({
 								...prev,
@@ -93,7 +87,7 @@ export default () => {
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -128,17 +122,10 @@ export default () => {
 			);
 			break;
 
-		// case defModule.BankPanel:
-		// 	displayModule = (
-		// 		<BankPanel dispatch={dispatch} bankList={state.bankList} />
-		// 	);
-		// 	break;
-
 		case defModule.AccountPanel:
 			displayModule = (
 				<AccountPanel
 					dispatch={dispatch}
-					// bankInfo={state.bankList[state.bankIdx]}
 					accountNumber={state.accountNumber}
 					accountName={
 						userInfo.accountName
@@ -149,7 +136,7 @@ export default () => {
 					walletList={state.walletList}
 					address={state.address}
 					alreadyHasAccountName={!!userInfo.accountName}
-					reload={getBankInfo}
+					reload={getWalletInfo}
 				/>
 			);
 			break;
@@ -197,7 +184,7 @@ export default () => {
 			<ShowCard
 				accountName={state.accountName}
 				walletList={state.walletList}
-				reload={getBankInfo.bind(this, false)}
+				reload={getWalletInfo.bind(this, false)}
 			/>
 		</>
 	);

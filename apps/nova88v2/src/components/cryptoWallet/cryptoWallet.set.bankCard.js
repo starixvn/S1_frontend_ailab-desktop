@@ -1,11 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
-import config from "../../config";
 import Loading from "../common/loading";
 
 export default props => {
-	const { t } = useTranslation();
-	const [loading, setLoading] = useState(false);
+	const [loading] = useState(false);
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -17,7 +14,7 @@ export default props => {
 
 	const arr = props.walletList?.map(item => {
 		return (
-			<div className="addBankName" key={`walletCard-${item.id}`}>
+			<div className="addBankName" key={`walletCard-${item.usdtAddress}`}>
 				<div className="cryptoInfo">
 					<i className="icon icon-BTC" />
 					<div>{item.nickName}</div>
@@ -26,7 +23,7 @@ export default props => {
 			</div>
 		);
 	});
-	
+
 	return loading ? (
 		<Loading />
 	) : (

@@ -97,6 +97,7 @@ export function reducer(state, action) {
 			};
 
 		default:
+			// eslint-disable-next-line no-console
 			console.log("this action type is not exists");
 			return state;
 	}

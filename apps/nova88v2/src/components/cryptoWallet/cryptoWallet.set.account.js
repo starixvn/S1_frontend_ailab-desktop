@@ -1,9 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import {
-	defActionType,
-	defStatus,
-} from "./cryptoWallet.reducer";
+import { defActionType, defStatus } from "./cryptoWallet.reducer";
 import { api_account_SetCustUSDTInfoBatch } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
@@ -43,10 +40,6 @@ export default ({
 			isMountedRef.current = false;
 		};
 	});
-
-	const clickClose = () => {
-		setPopBox({ isOpen: false });
-	};
 
 	const toLastStep = () => {
 		dispatch({ type: defActionType.TO_LAST_STEP });
@@ -97,6 +90,8 @@ export default ({
 	const checkInput = (_col, _colType, _val) => {
 		let checked = null;
 		let message = "";
+		const WAValidator = require("multicoin-address-validator");
+		const isValidAddress = WAValidator.validate(_val, "eth");
 
 		if (_colType === colType.accountName && !alreadyHasAccountName) {
 			if (!_val) {
@@ -106,13 +101,12 @@ export default ({
 		} else if (_val && _colType === colType.nickname) {
 			checked = true;
 		} else if (_colType === colType.address) {
-			const addressRegex = /^[a-zA-Z0-9@$*!%#?&]*$/;
 			if (_val) {
-				if (!addressRegex.test(_val)) {
-					message = t("msg_AccountWrongFormat");
-					checked = false;
-				} else {
+				if (isValidAddress) {
 					checked = true;
+				} else {
+					message = t("lbl_NotERC20WalletAddr");
+					checked = false;
 				}
 			} else if (
 				(_col === "address_1" && !_val) ||
@@ -240,6 +234,12 @@ export default ({
 			);
 		}
 	};
+
+	const hasCheckFalseStatus = Object.values(status)
+		.map(item => item.checked)
+		.includes(false);
+	const firstAddressNotPass = status.address_1.checked !== true;
+	const disableSubmit = hasCheckFalseStatus || firstAddressNotPass;
 
 	return loading ? (
 		<Loading />
@@ -436,7 +436,11 @@ export default ({
 							{t("lbl_Modification_Please_Contact_CSD")}
 						</div>
 						<div className="btnGroup">
-							<button className="btn-check" type="submit">
+							<button
+								className={
+									disableSubmit ? "btn-cancel" : "btn-check"
+								}
+								type="submit">
 								{t("lbl_Submit")}
 							</button>
 						</div>
