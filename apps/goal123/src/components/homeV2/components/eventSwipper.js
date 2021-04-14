@@ -71,7 +71,7 @@ const HotEventContent = ({
 	sportTeamsAway,
 	OnClickEvent
 }) => {
-	const date = moment(sportBattleDateTime).format("DD/MM/YYYY");
+	const date = moment(sportBattleDateTime).format("DD/MM");
 	const time = moment(sportBattleDateTime).format("HH:mm");
 	return (
 		<div className="swiper-slide">
