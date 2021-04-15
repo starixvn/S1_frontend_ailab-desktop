@@ -1,25 +1,25 @@
-import React from "react";
-import WinnerID from "../../styles/img/vip/cny-winner-popup-id.jpg";
-import WinnerTH from "../../styles/img/vip/cny-winner-popup-th.jpg";
-import WinnerEN from "../../styles/img/vip/cny-winner-popup-en.jpg";
-import WinnerCS from "../../styles/img/vip/cny-winner-popup-cs.jpg";
+import React, { useContext } from "react";
+import { Link } from "@reach/router";
+import path from "../../router";
+import { userInfoContext } from "./context";
+import config from "../../config";
 
-export default ({ langId, clickClose }) => {
-	let img = null;
-	if (langId === "cs") {
-		img = WinnerCS;
-	} else if (langId === "th") {
-		img = WinnerTH;
-	} else if (langId === "id") {
-		img = WinnerID;
-	} else {
-		img = WinnerEN;
-	}
+export default ({ onClickClose }) => {
+	const { userInfo } = useContext(userInfoContext);
+
+	const src =
+		userInfo.langId === "cs"
+			? `${config.bannerImgUrl}/img/EURO-RACE-MONTHLY-WINNERS-CH.jpg`
+			: `${config.bannerImgUrl}/img/EURO-RACE-MONTHLY-WINNERS-EN.jpg`;
 
 	return (
-		<div className="rankpop active">
-			<button className="icon icon-close" onClick={clickClose} />
-			<img src={img} alt="ranking winner" />
+		<div className="friend active">
+			<button className="icon icon-close" onClick={onClickClose} />
+			<Link
+				className=""
+				to={`/${userInfo.langId}/${path.leaderBoard.root}`}>
+				<img src={src} alt="img_referral" />
+			</Link>
 		</div>
 	);
 };

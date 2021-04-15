@@ -1,14 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { number_format } from "../common/common";
-import {
-	defTabId,
-	defPeriodOptions,
-	defDayOptions,
-	defPeriodId
-} from "./leaderboard.def";
-
-import LeaderboardDropdown from "./leaderboard.dropdown";
+import { defTabId, defPeriodOptions, defDayOptions } from "./leaderboard.def";
 
 const LeaderBoardContent = ({
 	t,
@@ -23,52 +16,31 @@ const LeaderBoardContent = ({
 	defTopNum
 }) => {
 	const contentTopLayout = () => {
-		if (tab === defTabId.second) {
-			const selectedIdx = defPeriodOptions.findIndex(
-				item => periodId === item.id
-			);
+		if (tab === defTabId.second || tab === defTabId.fourth) {
+			const isFinalTab = tab === defTabId.second;
+
+			const btnList = isFinalTab ? defPeriodOptions : defDayOptions;
+			const onBtnClick = isFinalTab ? onChangePeriod : onChangeDays;
+			const selected = isFinalTab ? periodId : beforeDays;
 
 			return (
-				<>
-					<button
-						className={`finalBtn${
-							periodId === defPeriodId.period4 ? " active" : ""
-						}`}
-						onClick={() =>
-							onChangePeriod(defPeriodId.period4, tab)
-						}>
-						{t("lbl_EURO_2020_Final")}
-					</button>
-					<LeaderboardDropdown
-						t={t}
-						title={t("lbl_Tournament")}
-						options={defPeriodOptions}
-						selectedIdx={selectedIdx}
-						onSelectItem={(_, { id }) => onChangePeriod(id, tab)}
-					/>
-				</>
+				<div className="rankTag">
+					<div className="btnGroup">
+						{btnList.map(item => (
+							<button
+								key={`leaderboard-btn-${item.id}`}
+								className={item.id === selected ? "active" : ""}
+								onClick={() => onBtnClick(item.id, tab)}>
+								{t(item.displayKey)}
+							</button>
+						))}
+					</div>
+				</div>
 			);
 		}
 
-		if (tab === defTabId.third) {
+		if (tab === defTabId.third)
 			return <h1 className="title">{t("lbl_Tournament_Points")}</h1>;
-		}
-
-		if (tab === defTabId.fourth) {
-			const selectedIdx = defDayOptions.findIndex(
-				item => beforeDays === item.id
-			);
-
-			return (
-				<LeaderboardDropdown
-					t={t}
-					title={t("lbl_Date")}
-					options={defDayOptions}
-					selectedIdx={selectedIdx}
-					onSelectItem={(_, { id }) => onChangeDays(id)}
-				/>
-			);
-		}
 
 		return null;
 	};
