@@ -1,6 +1,7 @@
 export const initValue = {
 	username: "",
 	password: "",
+	areaCodeIdx: null,
 	phone: "",
 	email: "",
 	currencyIdx: null,

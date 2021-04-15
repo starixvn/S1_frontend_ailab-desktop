@@ -33,6 +33,7 @@ import {
 	initTip,
 	currencyToAreacode
 } from "../components/common/join.data";
+import { currencyCode } from "../datas/countryCode";
 
 export default () => {
 	return (
@@ -59,6 +60,10 @@ const Content = () => {
 
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
+	);
+
+	const [defaultAreaCodeOption, setAreaCodeDefaultOption] = useState(
+		t("lbl_AreaCode")
 	);
 
 	useEffect(() => {
@@ -352,14 +357,30 @@ const Content = () => {
 
 	const _currencyId = siteCurrency[userValue.currencyIdx]?.id;
 
+	const isUSDT = _currencyId === currencyCode.USDT;
+
+	const allAreaCodeArr = Object.values(areaCode)
+		.map(a => a.AreaCode)
+		.sort();
+	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => {
+		return {
+			// id: parseInt(_a.replace(/[^0-9]/gi, ""), 10),
+			id: idx,
+			displayText: _a
+		};
+	});
+
+	const usdtAreaCode = areaCodeOptions[userValue.areaCodeIdx]?.displayText;
+
 	const currencyToCountryCode = _currencyId
 		? currencyToAreacode[_currencyId]
 		: null;
 
-	const _areaCode =
-		currencyToCountryCode !== null
-			? areaCode[currencyToCountryCode]?.AreaCode
-			: null;
+	const _areaCode = isUSDT
+		? usdtAreaCode
+		: currencyToCountryCode !== null
+		? areaCode[currencyToCountryCode]?.AreaCode
+		: null;
 
 	const currencyCheck = _defaultOption => {
 		let checked = true;
@@ -391,6 +412,14 @@ const Content = () => {
 			return { ...prev, currencyIdx: i };
 		});
 		setCurrencyTip("currency", null);
+	};
+
+	const onSelectAreaCode = i => {
+		console.log(i);
+		setAreaCodeDefaultOption(null);
+		setUserValue(prev => {
+			return { ...prev, areaCodeIdx: i };
+		});
 	};
 
 	const clickCancel = () => {
@@ -676,11 +705,11 @@ const Content = () => {
 					/>
 				</div>
 				<form className="joinloginFunction" onSubmit={clickSubmit}>
-					<span className="title txt-orange">{t("lbl_JoinNow")}</span>
+					<span className="title txt-blue">{t("lbl_JoinNow")}</span>
 					<div>
 						{t("lbl_LoginMsg")}
 						<button
-							className="txt-orange"
+							className="txt-blue"
 							type="button"
 							onClick={openLogin}>
 							{t("lbl_LoginHere")}
@@ -688,12 +717,12 @@ const Content = () => {
 					</div>
 					<div className="inputModule">
 						<Inputbox
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								!tip.username.checked && tip.username.msg !== ""
 									? " error"
 									: ""
 							}`}
-							icon="icon-member txt-orange"
+							icon="icon-member txt-blue"
 							placeholder={t("lbl_Username")}
 							value={userValue.username}
 							tip={tip.username.msg}
@@ -704,12 +733,12 @@ const Content = () => {
 						/>
 
 						<InputboxPSW
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								!tip.password.checked && tip.password.msg !== ""
 									? " error"
 									: ""
 							}`}
-							icon="icon-key txt-orange"
+							icon="icon-key txt-blue"
 							inputType={`${!showPsw ? "password" : "text"}`}
 							placeholder={t("lbl_Password")}
 							value={userValue.password}
@@ -723,12 +752,12 @@ const Content = () => {
 						/>
 
 						<Inputbox
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								!tip.email.checked && tip.email.msg !== ""
 									? " error"
 									: ""
 							}`}
-							icon="icon-email txt-orange"
+							icon="icon-email txt-blue"
 							placeholder={t("lbl_Email")}
 							value={userValue.email}
 							tip={tip.email.msg}
@@ -739,13 +768,13 @@ const Content = () => {
 						/>
 
 						<div
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								tip.currency.msg !== "" ? " error" : ""
 							}`}>
 							<Dropdown
 								defaultOption={defaultOption}
 								mainKey="join_currency"
-								icon="icon-coin-dollar txt-orange"
+								icon="icon-coin-dollar txt-blue"
 								options={siteCurrency}
 								selectedIdx={userValue.currencyIdx}
 								i18n={t}
@@ -760,14 +789,33 @@ const Content = () => {
 							{t("lbl_CantChangePreferredCurrency")}
 						</div>
 
+						{/* ■■■■■■■■■■■■■■■■■■ ↓↓ ■■■■■■■■■■■■■■■■■■■ */}
+						{isUSDT ? (
+							<div
+								className={`inputBox-blue${
+									tip.currency.msg !== "" ? " error" : ""
+								}`}>
+								<Dropdown
+									defaultOption={defaultAreaCodeOption}
+									mainKey="area_code"
+									icon="icon-coin-dollar txt-blue"
+									options={areaCodeOptions}
+									selectedIdx={userValue.areaCodeIdx}
+									i18n={t}
+									onSelectItem={onSelectAreaCode}
+								/>
+							</div>
+						) : null}
+						{/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */}
+
 						{userValue.currencyIdx !== null ? (
 							<Inputbox
-								className={`inputBox-org${
+								className={`inputBox-blue${
 									!tip.phone.checked && tip.phone.msg !== ""
 										? " error"
 										: ""
 								}`}
-								icon="icon-phone txt-orange"
+								icon="icon-phone txt-blue"
 								areaCode={_areaCode}
 								placeholder={t("lbl_Phone")}
 								value={userValue.phone}
@@ -782,10 +830,10 @@ const Content = () => {
 						)}
 
 						<Inputbox
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								tip.specialBonusCode.msg !== "" ? " error" : ""
 							}`}
-							icon="icon-promotion txt-orange"
+							icon="icon-promotion txt-blue"
 							placeholder={t("lbl_JoinPromoCode")}
 							value={userValue.specialBonusCode}
 							onChange={EditField.bind(null, "specialBonusCode")}
@@ -795,8 +843,8 @@ const Content = () => {
 						/>
 
 						<Inputbox
-							className="inputBox-org"
-							icon="icon-affiliate txt-orange"
+							className="inputBox-blue"
+							icon="icon-affiliate txt-blue"
 							placeholder={t("lbl_Affiliate_ID")}
 							value={hasRefOrAffCode ?? userValue.affCode}
 							onChange={EditField.bind(null, "affCode")}
@@ -810,7 +858,7 @@ const Content = () => {
 					<div className="Terms">
 						{t("lbl_sign_up_terms_start")}
 						<a
-							className="txt-orange"
+							className="txt-blue"
 							target="_blank"
 							rel="noreferrer"
 							href={TandC(defaultLangId).terms}>

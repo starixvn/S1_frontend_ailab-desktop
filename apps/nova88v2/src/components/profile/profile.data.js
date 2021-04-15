@@ -49,13 +49,13 @@ export const InfoList = ({ countryList }) => {
 			content: userInfo.userName,
 			show: Boolean(userInfo.userName)
 		},
-		{
-			displayKey: "lbl_Country",
-			content: userInfo.perCountry,
-			show: Boolean(userInfo.perCountry),
-			format: CountryFormat,
-			bindingData: countryList
-		},
+		// {
+		// 	displayKey: "lbl_Country",
+		// 	content: userInfo.perCountry,
+		// 	show: Boolean(userInfo.perCountry),
+		// 	format: CountryFormat,
+		// 	bindingData: countryList
+		// },
 		{
 			displayKey: "lbl_Phone",
 			content: userInfo?.phoneNo,

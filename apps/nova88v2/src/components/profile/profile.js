@@ -240,7 +240,8 @@ export default () => {
 				Birth_d: userInfo.birth_d ?? userValue.birth.slice(8, 10),
 				Birth_m: userInfo.birth_m ?? userValue.birth.slice(5, 7),
 				Birth_y: userInfo.birth_y ?? userValue.birth.slice(0, 4),
-				CountryCode: country,
+				// CountryCode: country,
+				CountryCode: "",
 				AreaCode: userInfo.areaCode ?? _areaCode,
 				PhoneNo: userInfo.phoneNo ?? userValue.phoneNo
 			};
