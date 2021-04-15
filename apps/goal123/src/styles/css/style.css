@@ -8601,7 +8601,7 @@ html.Newtheme header .header > div.menu {
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
-  background: rgba(31, 50, 88, 0.9);
+  background: #284985;
   position: fixed;
   left: 0;
   top: 65px;
@@ -13605,6 +13605,10 @@ html.Newtheme .proList .btnGroup .blue {
   margin: 0;
 }
 
+html.Newtheme .proList .btnGroup a, html.Newtheme .proList .btnGroup button {
+  min-width: 129px;
+}
+
 html.Newtheme .proList.expired {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
@@ -15690,6 +15694,7 @@ html.Newtheme .goldbox .eventModule > div > div.moduleCenter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  color: white;
 }
 
 html.Newtheme .goldbox .eventModule > div > div.moduleCenter a.more, html.Newtheme .goldbox .eventModule > div > div.moduleCenter button.more {
@@ -16665,6 +16670,7 @@ html.Newtheme .leaderboard {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding-top: 70px;
+  color: white;
 }
 
 html.Newtheme .leaderboard > section {
@@ -16737,7 +16743,7 @@ html.Newtheme .leaderboard .content .rightModule {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  height: 675px;
+  height: 690px;
   max-width: 768px;
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -17298,8 +17304,8 @@ html.Newtheme .column-reverse {
 }
 
 html.Newtheme:not(.index) .swiper-container {
-  width: calc(100% - 80px);
-  top: 40px;
+  width: calc(100% - 40px);
+  top: 20px;
 }
 
 html.Newtheme:not(.index) .swiper-container + .inside-title {
