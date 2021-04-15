@@ -31,7 +31,7 @@ const HotGameList = ({ t, langId, clickItem }) => {
 			title: t("lbl_SabaSoccer"),
 			img: sabasoccerImgResult,
 			npcImg: sabasoccerNpcImgResult,
-			path: `/${langId}/${path.sports.root}?game=${productList.soccer.name}`
+			path: `/${langId}/${path.sports.root}?game=${productList.sabaSoccer.name}`
 		},
 		{
 			title: t("lbl_Slots"),

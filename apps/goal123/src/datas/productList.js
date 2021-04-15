@@ -4,6 +4,11 @@ export default {
 		gameId: 1,
 		name: "soccer"
 	},
+	sabaSoccer: {
+		tpId: 1,
+		gameId: 997,
+		name: "sabaSoccer"
+	},
 	eSport: {
 		tpId: 1,
 		gameId: 43,
