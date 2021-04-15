@@ -8,7 +8,7 @@ export const defFilterType = {
 	redeposit: defPromotionType.redeposit,
 	freeBet: defPromotionType.freeBet,
 	Rebate_and_cashback: [defPromotionType.rebate, defPromotionType.cashback],
-	otherWallet: defPromotionType.otherWallet,
+	other: defPromotionType.other,
 	specialBonus: defPromotionType.specialBonus
 };
 
@@ -44,8 +44,8 @@ const defPromoNavs = [
 		selectedClassName: "blue"
 	},
 	{
-		displayKey: "lbl_OtherWallet",
-		value: defFilterType.otherWallet,
+		displayKey: "lbl_Other",
+		value: defFilterType.other,
 		className: "blueBorder",
 		selectedClassName: "blue"
 	},

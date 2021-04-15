@@ -185,9 +185,9 @@ export default () => {
 					isLogin: userInfo.isLogin
 				});
 
-		if (type === defFilterType.otherWallet)
+		if (type === defFilterType.other)
 			return p =>
-				p.promotionType === defPromotionType.otherWallet &&
+				p.promotionType === defPromotionType.other &&
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin

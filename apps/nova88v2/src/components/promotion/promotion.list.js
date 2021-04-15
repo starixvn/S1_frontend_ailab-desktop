@@ -60,7 +60,7 @@ export default ({
 					/>
 				) : null}
 				<div className="btnGroup">
-					{p.promotionType === defFilterType.otherWallet ? (
+					{p.promotionType === defFilterType.other ? (
 						<a
 							href={p.promotionLink}
 							target="_blank"
