@@ -540,6 +540,14 @@ header .header > div.menu .casinoList .ICG:hover {
   background: url(../img/casinoICG_a.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .casinoList .PT {
+  background: url(../img/casinoPT.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .PT:hover {
+  background: url(../img/casinoPT_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .livecasinoList .liveWM {
   background: url(../img/liveWM.png) no-repeat center/auto 100%;
 }
@@ -7056,6 +7064,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingPage .rankContent .rankBox .rankInBox.rankInBox2 {
+  width: 49%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7250,7 +7259,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingNew .rankContent .rankBox .rankInBox {
-  width: 49%;
+  width: 58%;
   height: 600px;
   padding: 20px;
   border-radius: 5px;
@@ -7329,6 +7338,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   color: #56ceff;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  white-space: nowrap;
 }
 
 .rankingNew .rankContent .rankBox .rankInBox .rankTag .btnGroup > button:hover {
@@ -7597,6 +7607,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingNew .rankContent .rankBox .rankInBox.rankInBox2 {
+  width: 41%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

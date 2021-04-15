@@ -75,7 +75,8 @@ export const defDayNum = {
 
 export const defPeriodOptions = [
 	{ id: defPeriodId.period2, displayKey: "lbl_period2" },
-	{ id: defPeriodId.period3, displayKey: "lbl_period3" }
+	{ id: defPeriodId.period3, displayKey: "lbl_period3" },
+	{ id: defPeriodId.period4, displayKey: "lbl_EURO_2020_Final" }
 ];
 
 export const defDayOptions = [
