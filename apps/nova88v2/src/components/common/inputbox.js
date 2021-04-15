@@ -63,7 +63,7 @@ export default props => {
 					</div>
 				) : null}
 			</div>
-			{props.inputType !== "date" ? (
+			{props.inputType !== "date" && props.inputType !== "phone" ? (
 				<div className={`tip${props.tip ? " active" : ""}`}>
 					{props.tip}
 				</div>

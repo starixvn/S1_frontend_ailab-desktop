@@ -90,13 +90,14 @@ class Dropdown extends Component {
 			<div
 				className="dropdown"
 				ref={this.wrapper}
-				onClick={this.clickDropdown}
-				data-testid={`dropdown_${this.props.mainKey}`}>
+				onClick={this.props.disabled ? null : this.clickDropdown}
+				data-testid={`dropdown_${this.props.mainKey}`}
+				onBlur={this.props.onBlur}>
 				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`} />
 				) : null}
-				<button className="btn">
+				<button className="btn" disabled={this.props.disabled}>
 					{this.props.defaultOption ?? selected}
 				</button>
 				{arr.length < 1 ? null : (

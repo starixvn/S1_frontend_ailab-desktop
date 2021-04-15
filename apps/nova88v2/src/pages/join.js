@@ -62,10 +62,6 @@ const Content = () => {
 		t("lbl_PrefferedCurrency")
 	);
 
-	const [defaultAreaCodeOption, setAreaCodeDefaultOption] = useState(
-		t("lbl_AreaCode")
-	);
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -334,7 +330,7 @@ const Content = () => {
 			msg = "lbl_PhoneRequired";
 		} else {
 			checked = true;
-			msg = "lbl_CantChangePhone";
+			// msg = "lbl_CantChangePhone";
 		}
 
 		if (checked) {
@@ -415,8 +411,6 @@ const Content = () => {
 	};
 
 	const onSelectAreaCode = i => {
-		console.log(i);
-		setAreaCodeDefaultOption(null);
 		setUserValue(prev => {
 			return { ...prev, areaCodeIdx: i };
 		});
@@ -731,7 +725,6 @@ const Content = () => {
 							onChange={EditField.bind(null, "username")}
 							onBlur={checkValue.bind(null, "username")}
 						/>
-
 						<InputboxPSW
 							className={`inputBox-blue${
 								!tip.password.checked && tip.password.msg !== ""
@@ -750,7 +743,6 @@ const Content = () => {
 							checked={tip.password.checked}
 							clickInfo={clickInfo.bind(this, "password")}
 						/>
-
 						<Inputbox
 							className={`inputBox-blue${
 								!tip.email.checked && tip.email.msg !== ""
@@ -766,7 +758,6 @@ const Content = () => {
 							onChange={EditField.bind(null, "email")}
 							onBlur={checkValue.bind(null, "email")}
 						/>
-
 						<div
 							className={`inputBox-blue${
 								tip.currency.msg !== "" ? " error" : ""
@@ -779,44 +770,43 @@ const Content = () => {
 								selectedIdx={userValue.currencyIdx}
 								i18n={t}
 								onSelectItem={onSelectItem}
+								onBlur={checkValue.bind(null, "currency")}
 							/>
 						</div>
 						{tip.currency.msg ? (
-							<div className="active">{tip.currency.msg}</div>
-						) : null}
+							<div className="tip active">{tip.currency.msg}</div>
+						) : (
+							<div className="active">
+								{t("lbl_CantChangePreferredCurrency")}
+							</div>
+						)}
 
-						<div className="tip active">
-							{t("lbl_CantChangePreferredCurrency")}
-						</div>
-
-						{/* ■■■■■■■■■■■■■■■■■■ ↓↓ ■■■■■■■■■■■■■■■■■■■ */}
-						{isUSDT ? (
+						<div className="phone">
 							<div
 								className={`inputBox-blue${
-									tip.currency.msg !== "" ? " error" : ""
+									!tip.phone.checked && tip.phone.msg !== ""
+										? " error"
+										: ""
 								}`}>
 								<Dropdown
-									defaultOption={defaultAreaCodeOption}
+									defaultOption={_areaCode}
 									mainKey="area_code"
-									icon="icon-coin-dollar txt-blue"
+									icon="icon-phone txt-blue"
 									options={areaCodeOptions}
 									selectedIdx={userValue.areaCodeIdx}
 									i18n={t}
 									onSelectItem={onSelectAreaCode}
+									disabled={!isUSDT}
 								/>
 							</div>
-						) : null}
-						{/* ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */}
 
-						{userValue.currencyIdx !== null ? (
 							<Inputbox
 								className={`inputBox-blue${
 									!tip.phone.checked && tip.phone.msg !== ""
 										? " error"
 										: ""
 								}`}
-								icon="icon-phone txt-blue"
-								areaCode={_areaCode}
+								// areaCode={_areaCode}
 								placeholder={t("lbl_Phone")}
 								value={userValue.phone}
 								tip={tip.phone.msg}
@@ -824,9 +814,16 @@ const Content = () => {
 								clickInfo={clickInfo.bind(this, "phone")}
 								onChange={EditField.bind(null, "phone")}
 								onBlur={checkValue.bind(null, "phone")}
+								inputType="phone"
 							/>
+						</div>
+
+						{tip.phone.msg ? (
+							<div className="tip active">{tip.phone.msg}</div>
 						) : (
-							<></>
+							<div className="active">
+								{t("lbl_CantChangePhone")}
+							</div>
 						)}
 
 						<Inputbox
@@ -841,7 +838,6 @@ const Content = () => {
 							tip={tip.specialBonusCode.msg}
 							checked={tip.specialBonusCode.checked}
 						/>
-
 						<Inputbox
 							className="inputBox-blue"
 							icon="icon-affiliate txt-blue"
