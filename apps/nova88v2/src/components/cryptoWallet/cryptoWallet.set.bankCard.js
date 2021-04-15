@@ -17,9 +17,9 @@ export default props => {
 			<div className="addBankName" key={`walletCard-${item.usdtAddress}`}>
 				<div className="cryptoInfo">
 					<i className="icon icon-BTC" />
-					<div>{item.nickName}</div>
+					<div>{item.usdtAddress}</div>
 				</div>
-				<div className="walletNickname">{item.usdtAddress}</div>
+				<div className="walletNickname">{item.nickName}</div>
 			</div>
 		);
 	});
