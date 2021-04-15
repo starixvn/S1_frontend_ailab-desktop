@@ -247,7 +247,12 @@ export default ({
 		<div className="addBank">
 			{custBankInfo.length > 0 ? usdtWalletArr : null}
 			<div className="remainder">
-				{t("lbl_Number_Of_Wallet")}:{custBankInfo?.length ?? 0}/3
+				{t("lbl_Number_Of_Wallet")}:{custBankInfo?.length ?? 0}/
+				{isUSDT
+					? custBankInfo?.length === 0
+						? "3"
+						: custBankInfo?.length
+					: "3"}
 			</div>
 		</div>
 	);

@@ -19,7 +19,8 @@ export default ({ dispatch, numberOfAccount }) => {
 				) : null}
 
 				{/* <div className="remainder">
-					{t("lbl_Number_Of_Wallet")}: {numberOfAccount || 0}/3
+					{t("lbl_Number_Of_Wallet")}:{numberOfAccount ?? 0}/
+					{numberOfAccount === 0 ? "3" : numberOfAccount}
 				</div> */}
 				<div className="tip active">
 					{t("lbl_Crypto_Wallet_Submit_Note")}
