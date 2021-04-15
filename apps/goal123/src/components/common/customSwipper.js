@@ -1,5 +1,11 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState, useContext, useRef } from "react";
+import React, {
+	useEffect,
+	useState,
+	useContext,
+	useRef,
+	Children
+} from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import { Link } from "@reach/router";
@@ -111,9 +117,108 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 	return { banner };
 };
 
-const Panel = ({ ImgFolder, openInBlank, hoverToStopPlay, config }) => {
+const CustomSwipper = ({
+	withBtn = true,
+	withPagination = true,
+	config = {},
+	children
+}) => {
+	const childrenCount = Children.count(children);
+	const ref = useRef(null);
+
+	const params = {
+		spaceBetween: 30,
+		centeredSlides: true,
+		loop: true,
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false
+		},
+		rebuildOnUpdate: false,
+		pagination: {
+			el: withPagination ? ".swiper-pagination" : "",
+			clickable: true
+		},
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev"
+		},
+		getSwiper: obj => {
+			ref.current = obj;
+		},
+		renderPrevButton: () =>
+			withBtn && <div className="swiper-button-prev" onClick={goPrev} />,
+		renderNextButton: () =>
+			withBtn && <div className="swiper-button-next" onClick={goNext} />,
+		...config
+	};
+
+	const goNext = () => {
+		if (ref.current !== null) {
+			ref.current.slideNext();
+		}
+	};
+
+	const goPrev = () => {
+		if (ref.current !== null) {
+			ref.current.slidePrev();
+		}
+	};
+
+	const onMouseOverHandlar = () => {
+		if (params.autoplay) {
+			ref.current?.autoplay?.stop();
+		}
+	};
+
+	const onMouseLeaveHandlar = () => {
+		if (params.autoplay) {
+			ref.current?.autoplay?.start();
+		}
+	};
+
+	if (childrenCount <= 0) return null;
+
+	return (
+		<div
+			className="swiper-container"
+			onMouseOver={() => onMouseOverHandlar()}
+			onMouseLeave={() => onMouseLeaveHandlar()}
+			onFocus={() => 0}>
+			<div className="swiper-wrapper">
+				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
+				<Swiper {...params}>{children}</Swiper>
+			</div>
+		</div>
+	);
+};
+
+CustomSwipper.defaultProps = {
+	withBtn: true,
+	withPagination: true,
+	config: {},
+	children: null
+};
+
+CustomSwipper.propTypes = {
+	withBtn: PropTypes.bool,
+	withPagination: PropTypes.bool,
+	config: PropTypes.objectOf(PropTypes.any),
+	children: PropTypes.node
+};
+
+export const BannerSwipper = ({
+	ImgFolder,
+	openInBlank,
+	withBtn,
+	withPagination,
+	config
+}) => {
 	const { userInfo } = useContext(userInfoContext);
-	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
+	const { banner } = useGetBanner({
+		langId: userInfo.langId,
+		ImgFolder
+	});
 	const { setPopBox } = useContext(popBoxContext);
 
 	const rows = banner?.map((b, bIdx) => {
@@ -165,184 +270,30 @@ const Panel = ({ ImgFolder, openInBlank, hoverToStopPlay, config }) => {
 	});
 
 	return (
-		<Autoplay
-			Rows={rows}
-			hoverToStopPlay={hoverToStopPlay}
-			config={config}
-		/>
+		<CustomSwipper
+			withBtn={withBtn}
+			withPagination={withPagination}
+			config={config}>
+			{rows}
+		</CustomSwipper>
 	);
 };
 
-Panel.defaultProps = {
+BannerSwipper.defaultProps = {
+	withBtn: false,
+	withPagination: true,
 	openInBlank: false,
-	hoverToStopPlay: false,
 	config: {}
 };
 
-Panel.propTypes = {
+BannerSwipper.propTypes = {
 	ImgFolder: PropTypes.arrayOf(
 		PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 	).isRequired,
 	openInBlank: PropTypes.bool,
-	hoverToStopPlay: PropTypes.bool,
+	withBtn: PropTypes.bool,
+	withPagination: PropTypes.bool,
 	config: PropTypes.objectOf(PropTypes.any)
 };
 
-const defSwipperConfig = {
-	spaceBetween: 30,
-	centeredSlides: true,
-	loop: true,
-	autoplay: {
-		delay: 2500,
-		disableOnInteraction: false
-	},
-	pagination: {
-		el: ".swiper-pagination",
-		clickable: true
-	},
-	rebuildOnUpdate: false
-};
-
-export const Autoplay = ({ Rows, hoverToStopPlay, config }) => {
-	const params = {
-		...defSwipperConfig,
-		...config,
-		getSwiper: obj => {
-			ref.current = obj;
-		}
-	};
-
-	const ref = useRef(null);
-
-	useEffect(() => {
-		if (
-			typeof document !== `undefined` &&
-			ref.current?.el &&
-			Rows?.length
-		) {
-			ref.current.el.addEventListener(
-				"mouseover",
-				() => {
-					onMouseOverHandlar();
-				},
-				true
-			);
-
-			ref.current.el.addEventListener(
-				"mouseleave",
-				() => {
-					onMouseLeaveHandlar();
-				},
-				true
-			);
-		}
-
-		return () => {
-			document.removeEventListener(
-				"mouseover",
-				onMouseOverHandlar(),
-				false
-			);
-
-			document.removeEventListener(
-				"mouseover",
-				onMouseLeaveHandlar(),
-				false
-			);
-		};
-	}, [Rows?.length]);
-
-	const onMouseOverHandlar = () => {
-		if (hoverToStopPlay) ref.current?.autoplay?.stop();
-	};
-
-	const onMouseLeaveHandlar = () => {
-		if (hoverToStopPlay) ref.current?.autoplay?.start();
-	};
-
-	if (Rows?.length <= 0) return null;
-
-	// eslint-disable-next-line react/jsx-props-no-spreading
-	return <Swiper {...params}>{Rows}</Swiper>;
-};
-
-Autoplay.defaultProps = {
-	hoverToStopPlay: false,
-	config: {}
-};
-
-Autoplay.propTypes = {
-	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
-	hoverToStopPlay: PropTypes.bool,
-	config: PropTypes.objectOf(PropTypes.any)
-};
-
-export const AutoPlayWithBtn = ({ Rows, hoverToStopPlay, config }) => {
-	const params = {
-		...defSwipperConfig,
-		...config,
-		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev"
-		},
-		getSwiper: obj => {
-			ref.current = obj;
-		},
-		renderPrevButton: () => (
-			<div className="swiper-button-prev" onClick={goPrev} />
-		),
-		renderNextButton: () => (
-			<div className="swiper-button-next" onClick={goNext} />
-		)
-	};
-
-	const ref = useRef(null);
-
-	const goNext = () => {
-		if (ref.current !== null) {
-			ref.current.slideNext();
-		}
-	};
-
-	const goPrev = () => {
-		if (ref.current !== null) {
-			ref.current.slidePrev();
-		}
-	};
-
-	const onMouseOverHandlar = () => {
-		if (hoverToStopPlay) ref.current.autoplay.stop();
-	};
-
-	const onMouseLeaveHandlar = () => {
-		if (hoverToStopPlay) ref.current.autoplay.start();
-	};
-
-	if (Rows?.length <= 0) return null;
-
-	return (
-		<div
-			className="swiper-container"
-			onMouseOver={() => onMouseOverHandlar()}
-			onMouseLeave={() => onMouseLeaveHandlar()}
-			onFocus={() => 0}>
-			<div className="swiper-wrapper">
-				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
-				<Swiper {...params}>{Rows}</Swiper>
-			</div>
-		</div>
-	);
-};
-
-AutoPlayWithBtn.defaultProps = {
-	hoverToStopPlay: false,
-	config: {}
-};
-
-AutoPlayWithBtn.propTypes = {
-	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
-	hoverToStopPlay: PropTypes.bool,
-	config: PropTypes.objectOf(PropTypes.any)
-};
-
-export default Panel;
+export default CustomSwipper;
