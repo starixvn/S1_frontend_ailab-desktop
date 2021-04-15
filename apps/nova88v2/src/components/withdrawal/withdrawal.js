@@ -18,8 +18,9 @@ import {
 import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
 import StepBar from "../common/stepBar";
-import defStep from "./withdrawal.defStep";
+import { defBankStep, defWalletStep } from "./withdrawal.defStep";
 import path from "../../router";
+import { currencyCode } from "../../datas/countryCode";
 
 export default () => {
 	const { t } = useTranslation();
@@ -28,6 +29,7 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -241,7 +243,7 @@ export default () => {
 						<StepBar
 							t={t}
 							step={state.step ?? 0}
-							defStep={defStep}
+							defStep={isUSDT ? defWalletStep : defBankStep}
 						/>
 						<WalletPanel
 							balanceData={state.balanceData}
@@ -254,6 +256,7 @@ export default () => {
 							state={state}
 							refreshData={refreshData}
 							KycCheck={KycCheck}
+							isUSDT={isUSDT}
 						/>
 					</>
 				)}

@@ -16,16 +16,11 @@ export default ({ dispatch, numberOfAccount }) => {
 						<div className="icon icon-plus" />
 						<div>{t("lbl_Add_Crypto_Wallet")}</div>
 					</div>
-				) : (
-					<div className="addBankName noBank">
-						<div className="icon icon-warning" />
-						<div>{t("lbl_Wallet_Is_Full")}</div>
-					</div>
-				)}
+				) : null}
 
-				<div className="remainder">
+				{/* <div className="remainder">
 					{t("lbl_Number_Of_Wallet")}: {numberOfAccount || 0}/3
-				</div>
+				</div> */}
 				<div className="tip active">
 					{t("lbl_Crypto_Wallet_Submit_Note")}
 					<br />

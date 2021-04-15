@@ -247,7 +247,7 @@ export default ({
 		<div className="addBank">
 			{custBankInfo.length > 0 ? usdtWalletArr : null}
 			<div className="remainder">
-				{t("lbl_NumberOfBankAccounts")}:{custBankInfo?.length ?? 0}/3
+				{t("lbl_Number_Of_Wallet")}:{custBankInfo?.length ?? 0}/3
 			</div>
 		</div>
 	);

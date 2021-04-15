@@ -1,6 +1,7 @@
 import React from "react";
 
 export default ({ t, step, defStep, stepNum }) => {
+	console.log(defStep);
 	const rows = defStep.map((item, idx) => {
 		return (
 			<div

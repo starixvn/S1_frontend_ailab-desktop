@@ -6,7 +6,7 @@ import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
 import CashBar from "./withdrawal.set.cashBar";
 
-export default ({ dispatch, state, t, _isConvert }) => {
+export default ({ dispatch, state, t, _isConvert, isUSDT }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
@@ -73,11 +73,16 @@ export default ({ dispatch, state, t, _isConvert }) => {
 				type: defActionType.TO_OTHER_PANEL,
 				panel: defPanel.confirm
 			});
-		} else if (!state.selectedAccount.accountNo) {
+		} else if (
+			!state.selectedAccount.accountNo ||
+			state.selectedAccount.usdtAddress
+		) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("lbl_SelectBank_Required"),
+				message: isUSDT
+					? t("lbl_Select_Crypto_Wallet")
+					: t("lbl_SelectBank_Required"),
 				btnBar: (
 					<div className="btnGroup">
 						<button className="btn-check" onClick={ClosePopBox}>

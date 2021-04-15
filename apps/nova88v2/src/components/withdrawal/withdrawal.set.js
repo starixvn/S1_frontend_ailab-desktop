@@ -8,15 +8,13 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { defActionType } from "./withdrawal.reducer";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
-import { currencyCode } from "../../datas/countryCode";
 
-export default ({ dispatch, state, refreshData, KycCheck }) => {
+export default ({ dispatch, state, refreshData, KycCheck, isUSDT }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const _isConvert = isConvert(userInfo.currencyId);
 	const isMountedRef = useRef(null);
-	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -64,10 +62,9 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 					if (res.data.errorCode === 0) {
 						const datas = res.data.data;
 
-						const bankOrWalletData =
-							userInfo.currencyId === currencyCode.USDT
-								? datas?.uSDTDetail
-								: datas?.bankInfoDetail;
+						const bankOrWalletData = isUSDT
+							? datas?.uSDTDetail
+							: datas?.bankInfoDetail;
 
 						const _custBankInfo =
 							datas === null ? [] : bankOrWalletData;
@@ -157,6 +154,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 						state={state}
 						t={t}
 						_isConvert={_isConvert}
+						isUSDT={isUSDT}
 					/>
 				) : (
 					<ConfirmPanel
