@@ -95,38 +95,38 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 				<tr>
 					<td>{t("lbl_Vip_Sport_Rebate")}</td>
 					<td>0.55%</td>
-					<td>0.6%</td>
-					<td>0.7%</td>
-					<td>0.8%</td>
-					<td>0.9%</td>
-					<td>1%</td>
+					<td>0.60%</td>
+					<td>0.70%</td>
+					<td>0.80%</td>
+					<td>0.90%</td>
+					<td>1.00%</td>
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Live_Casino_Rebate")}</td>
-					<td>0.5%</td>
-					<td>0.6%</td>
-					<td>0.7%</td>
-					<td>0.8%</td>
-					<td>0.9%</td>
-					<td>1%</td>
+					<td>0.50%</td>
+					<td>0.55%</td>
+					<td>0.60%</td>
+					<td>0.70%</td>
+					<td>0.80%</td>
+					<td>1.00%</td>
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Slot_Fishing_Rebate")}</td>
-					<td>0.8%</td>
-					<td>1%</td>
-					<td>1.2%</td>
-					<td>1.3%</td>
-					<td>1.5%</td>
-					<td>1.7%</td>
+					<td>0.80%</td>
+					<td>0.90%</td>
+					<td>1.00%</td>
+					<td>1.10%</td>
+					<td>1.30%</td>
+					<td>1.50%</td>
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Virtual_Sport_Rebate")}</td>
-					<td>0.8%</td>
-					<td>1%</td>
-					<td>1.2%</td>
-					<td>1.3%</td>
-					<td>1.5%</td>
-					<td>1.7%</td>
+					<td>0.80%</td>
+					<td>0.90%</td>
+					<td>1.10%</td>
+					<td>1.30%</td>
+					<td>1.50%</td>
+					<td>1.70%</td>
 				</tr>
 				<tr className="title">
 					<td className="icon icon-nova88">
