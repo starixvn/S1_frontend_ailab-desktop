@@ -67,7 +67,7 @@ export const defLeftMenu = {
 			},
 			cryptoWallet: {
 				path: path.cryptoWallet.root,
-				displayKey: "lbl_Crypto_Wallet"
+				displayKey: "lbl_CryptoWallet"
 			},
 			referral: {
 				path: path.referral.root,

@@ -31,7 +31,7 @@ export default ({
 	const cryptoInputDataList = [
 		{
 			label: "nickname_1",
-			title: t("lbl_Wallet_Nickname"),
+			title: t("lbl_CryptoWalletNickName"),
 			colType: colType.nickName,
 			value: walletDatas.nickname_1,
 			checked: status.nickname_1.checked,
@@ -39,7 +39,7 @@ export default ({
 		},
 		{
 			label: "address_1",
-			title: t("lbl_Wallet_Address"),
+			title: t("lbl_CryptoWalletAddress"),
 			colType: colType.address,
 			value: walletDatas.address_1,
 			checked: status.address_1.checked,
@@ -47,7 +47,7 @@ export default ({
 		},
 		{
 			label: "nickname_2",
-			title: t("lbl_Wallet_Nickname"),
+			title: t("lbl_CryptoWalletNickName"),
 			colType: colType.nickName,
 			value: walletDatas.nickname_2,
 			checked: status.nickname_2.checked,
@@ -55,7 +55,7 @@ export default ({
 		},
 		{
 			label: "address_2",
-			title: t("lbl_Wallet_Address"),
+			title: t("lbl_CryptoWalletAddress"),
 			colType: colType.address,
 			value: walletDatas.address_2,
 			checked: status.address_2.checked,
@@ -63,7 +63,7 @@ export default ({
 		},
 		{
 			label: "nickname_3",
-			title: t("lbl_Wallet_Nickname"),
+			title: t("lbl_CryptoWalletNickName"),
 			colType: colType.nickName,
 			value: walletDatas.nickname_3,
 			checked: status.nickname_3.checked,
@@ -71,7 +71,7 @@ export default ({
 		},
 		{
 			label: "address_3",
-			title: t("lbl_Wallet_Address"),
+			title: t("lbl_CryptoWalletAddress"),
 			colType: colType.address,
 			value: walletDatas.address_3,
 			checked: status.address_3.checked,
@@ -96,7 +96,7 @@ export default ({
 			if (_colType === colType.accountName) {
 				msg = t("lbl_BankAccountNameHint");
 			} else if (_colType === colType.nickName) {
-				msg = t("lbl_Wallet_Nickname_Tip");
+				msg = t("lbl_Wallet_NickName_Tip");
 			} else {
 				msg = t("lbl_Wallet_Address_Tip");
 			}

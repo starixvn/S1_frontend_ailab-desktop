@@ -206,11 +206,11 @@ export default ({
 					) : (
 						<>
 							<ul>
-								<li>{t("lbl_Wallet_Address")}</li>
+								<li>{t("lbl_CryptoWalletAddress")}</li>
 								<li>{selectedAccount.usdtAddress}</li>
 							</ul>
 							<ul>
-								<li>{t("lbl_Wallet_Nickname")}</li>
+								<li>{t("lbl_CryptoWalletNickName")}</li>
 								<li>{selectedAccount.nickName}</li>
 							</ul>
 						</>
