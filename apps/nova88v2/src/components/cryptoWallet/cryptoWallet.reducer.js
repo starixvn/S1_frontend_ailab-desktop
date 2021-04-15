@@ -11,6 +11,12 @@ const defStepModule = {
 	2: "AccountPanel"
 };
 
+export const colType = {
+	accountName: "accountName",
+	nickName: "nickName",
+	address: "address"
+};
+
 export const defStatus = {
 	accountName: {
 		checked: null,

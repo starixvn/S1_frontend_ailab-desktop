@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { defActionType, defStatus } from "./cryptoWallet.reducer";
+import { defActionType, defStatus, colType } from "./cryptoWallet.reducer";
 import { api_account_SetCustUSDTInfoBatch } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
@@ -28,11 +28,56 @@ export default ({
 		address_3: ""
 	});
 
-	const colType = {
-		accountName: "accountName",
-		nickName: "nickName",
-		address: "address"
-	};
+	const cryptoInputDataList = [
+		{
+			label: "nickname_1",
+			title: t("lbl_Wallet_Nickname"),
+			colType: colType.nickName,
+			value: walletDatas.nickname_1,
+			checked: status.nickname_1.checked,
+			tip: status.nickname_1.tip
+		},
+		{
+			label: "address_1",
+			title: t("lbl_Wallet_Address"),
+			colType: colType.address,
+			value: walletDatas.address_1,
+			checked: status.address_1.checked,
+			tip: status.address_1.tip
+		},
+		{
+			label: "nickname_2",
+			title: t("lbl_Wallet_Nickname"),
+			colType: colType.nickName,
+			value: walletDatas.nickname_2,
+			checked: status.nickname_2.checked,
+			tip: status.nickname_2.tip
+		},
+		{
+			label: "address_2",
+			title: t("lbl_Wallet_Address"),
+			colType: colType.address,
+			value: walletDatas.address_2,
+			checked: status.address_2.checked,
+			tip: status.address_2.tip
+		},
+		{
+			label: "nickname_3",
+			title: t("lbl_Wallet_Nickname"),
+			colType: colType.nickName,
+			value: walletDatas.nickname_3,
+			checked: status.nickname_3.checked,
+			tip: status.nickname_3.tip
+		},
+		{
+			label: "address_3",
+			title: t("lbl_Wallet_Address"),
+			colType: colType.address,
+			value: walletDatas.address_3,
+			checked: status.address_3.checked,
+			tip: status.address_3.tip
+		}
+	];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -235,6 +280,29 @@ export default ({
 		}
 	};
 
+	const cryptoInputList = cryptoInputDataList.map(item => {
+		return (
+			<Inputbox
+				className={`inputBox-white${
+					item.checked === false && item.tip !== "" ? " error" : ""
+				}`}
+				value={item.value}
+				onChange={editField.bind(this, item.label, item.colType)}
+				onBlur={checkInput.bind(
+					this,
+					item.label,
+					item.colType,
+					item.value
+				)}
+				title={item.title}
+				clickInfo={clickInfo.bind(this, item.label, item.colType)}
+				checked={item.checked}
+				tip={item.tip}
+				placeholder={t("lbl_Optional")}
+			/>
+		);
+	});
+
 	const hasCheckFalseStatus = Object.values(status)
 		.map(item => item.checked)
 		.includes(false);
@@ -286,150 +354,7 @@ export default ({
 								tip={status.accountName.tip}
 							/>
 						)}
-						<Inputbox
-							className="inputBox-white"
-							value={walletDatas.nickname_1}
-							onChange={editField.bind(
-								this,
-								"nickname_1",
-								colType.nickName
-							)}
-							onBlur={checkInput.bind(
-								this,
-								"nickname_1",
-								colType.nickName,
-								walletDatas.nickname_1
-							)}
-							title={t("lbl_Wallet_Nickname")}
-							clickInfo={clickInfo.bind(
-								this,
-								"nickname_1",
-								colType.nickName
-							)}
-							checked={status.nickname_1.checked}
-							tip={status.nickname_1.tip}
-							placeholder={t("lbl_Optional")}
-						/>
-						<Inputbox
-							className="inputBox-white"
-							value={walletDatas.address_1}
-							onChange={editField.bind(
-								this,
-								"address_1",
-								colType.address
-							)}
-							onBlur={checkInput.bind(
-								this,
-								"address_1",
-								colType.address,
-								walletDatas.address_1
-							)}
-							title={t("lbl_Wallet_Address")}
-							clickInfo={clickInfo.bind(
-								this,
-								"address_1",
-								colType.address
-							)}
-							checked={status.address_1.checked}
-							tip={status.address_1.tip}
-							placeholder={t("lbl_Please_Enter_Wallet_Address")}
-						/>
-						<Inputbox
-							className="inputBox-white"
-							value={walletDatas.nickname_2}
-							onChange={editField.bind(
-								this,
-								"nickname_2",
-								colType.nickName
-							)}
-							onBlur={checkInput.bind(
-								this,
-								"nickname_2",
-								colType.nickName,
-								walletDatas.nickname_2
-							)}
-							title={t("lbl_Wallet_Nickname")}
-							clickInfo={clickInfo.bind(
-								this,
-								"nickname_2",
-								colType.nickName
-							)}
-							checked={status.nickname_2.checked}
-							tip={status.nickname_2.tip}
-							placeholder={t("lbl_Optional")}
-						/>
-						<Inputbox
-							className="inputBox-white"
-							value={walletDatas.address_2}
-							onChange={editField.bind(
-								this,
-								"address_2",
-								colType.address
-							)}
-							onBlur={checkInput.bind(
-								this,
-								"address_2",
-								colType.address,
-								walletDatas.address_2
-							)}
-							title={t("lbl_Wallet_Address")}
-							clickInfo={clickInfo.bind(
-								this,
-								"address_2",
-								colType.address
-							)}
-							checked={status.address_2.checked}
-							tip={status.address_2.tip}
-							placeholder={t("lbl_Please_Enter_Wallet_Address")}
-						/>
-						<Inputbox
-							className="inputBox-white"
-							value={walletDatas.nickname_3}
-							onChange={editField.bind(
-								this,
-								"nickname_3",
-								colType.nickName
-							)}
-							onBlur={checkInput.bind(
-								this,
-								"nickname_3",
-								colType.nickName,
-								walletDatas.nickname_3
-							)}
-							title={t("lbl_Wallet_Nickname")}
-							clickInfo={clickInfo.bind(
-								this,
-								"nickname_3",
-								colType.nickName
-							)}
-							checked={status.nickname_3.checked}
-							tip={status.nickname_3.tip}
-							placeholder={t("lbl_Optional")}
-						/>
-						<Inputbox
-							className="inputBox-white"
-							value={walletDatas.address_3}
-							onChange={editField.bind(
-								this,
-								"address_3",
-								colType.address
-							)}
-							onBlur={checkInput.bind(
-								this,
-								"address_3",
-								colType.address,
-								walletDatas.address_3
-							)}
-							title={t("lbl_Wallet_Address")}
-							clickInfo={clickInfo.bind(
-								this,
-								"address_3",
-								colType.address
-							)}
-							checked={status.address_3.checked}
-							tip={status.address_3.tip}
-							placeholder={t("lbl_Please_Enter_Wallet_Address")}
-						/>
+						{cryptoInputList}
 						<div className="tip active">
 							{t("lbl_Crypto_Wallet_Submit_Note")}
 							<br />
