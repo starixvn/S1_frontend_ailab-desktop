@@ -90,13 +90,13 @@ const LeaderBoardEventContent = ({
 								{t("lbl_May")}
 
 								<div>
-									{t("lbl_Stage")}1<div>2021 4/13 - 5/12</div>
+									{t("lbl_Stage")} 1<div>4/13 - 5/12</div>
 								</div>
 							</div>
 							<div>
 								{t("lbl_Jun")}
 								<div>
-									{t("lbl_Stage")}2<div>2021 5/13 - 6/12</div>
+									{t("lbl_Stage")} 2<div>5/13 - 6/12</div>
 								</div>
 							</div>
 						</div>
