@@ -185,6 +185,14 @@ export default () => {
 					isLogin: userInfo.isLogin
 				});
 
+		if (type === defFilterType.otherWallet)
+			return p =>
+				p.promotionType === defPromotionType.otherWallet &&
+				!isExpiry({
+					...p,
+					isLogin: userInfo.isLogin
+				});
+
 		return p =>
 			p.promotionType === type &&
 			!isExpiry({ ...p, isLogin: userInfo.isLogin });
@@ -203,7 +211,6 @@ export default () => {
 					t={t}
 					userInfo={userInfo}
 					selected={filter}
-					userInfo={userInfo}
 					specialCode={specialCode}
 					setSpecialCode={setSpecialCode}
 					onSetSpecialCodeSubmit={onSetSpecialCodeSubmit}
