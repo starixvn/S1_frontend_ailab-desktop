@@ -781,50 +781,54 @@ const Content = () => {
 							</div>
 						)}
 
-						<div className="phone">
-							<div
-								className={`inputBox-blue${
-									!tip.phone.checked && tip.phone.msg !== ""
-										? " error"
-										: ""
-								}`}>
-								<Dropdown
-									defaultOption={_areaCode}
-									mainKey="area_code"
-									icon="icon-phone txt-blue"
-									options={areaCodeOptions}
-									selectedIdx={userValue.areaCodeIdx}
-									i18n={t}
-									onSelectItem={onSelectAreaCode}
-									disabled={!isUSDT}
+						{userValue.currencyIdx !== null ? (
+							<div className="phone">
+								<div
+									className={`inputBox-blue${
+										!tip.phone.checked &&
+										tip.phone.msg !== ""
+											? " error"
+											: ""
+									}`}>
+									<Dropdown
+										defaultOption={_areaCode}
+										mainKey="area_code"
+										icon="icon-phone txt-blue"
+										options={areaCodeOptions}
+										selectedIdx={userValue.areaCodeIdx}
+										i18n={t}
+										onSelectItem={onSelectAreaCode}
+										disabled={!isUSDT}
+									/>
+								</div>
+
+								<Inputbox
+									className={`inputBox-blue${
+										!tip.phone.checked &&
+										tip.phone.msg !== ""
+											? " error"
+											: ""
+									}`}
+									// areaCode={_areaCode}
+									placeholder={t("lbl_Phone")}
+									value={userValue.phone}
+									tip={tip.phone.msg}
+									checked={tip.phone.checked}
+									clickInfo={clickInfo.bind(this, "phone")}
+									onChange={EditField.bind(null, "phone")}
+									onBlur={checkValue.bind(null, "phone")}
+									inputType="phone"
 								/>
 							</div>
-
-							<Inputbox
-								className={`inputBox-blue${
-									!tip.phone.checked && tip.phone.msg !== ""
-										? " error"
-										: ""
-								}`}
-								// areaCode={_areaCode}
-								placeholder={t("lbl_Phone")}
-								value={userValue.phone}
-								tip={tip.phone.msg}
-								checked={tip.phone.checked}
-								clickInfo={clickInfo.bind(this, "phone")}
-								onChange={EditField.bind(null, "phone")}
-								onBlur={checkValue.bind(null, "phone")}
-								inputType="phone"
-							/>
-						</div>
+						) : null}
 
 						{tip.phone.msg ? (
 							<div className="tip active">{tip.phone.msg}</div>
-						) : (
+						) : userValue.currencyIdx !== null ? (
 							<div className="active">
 								{t("lbl_CantChangePhone")}
 							</div>
-						)}
+						) : null}
 
 						<Inputbox
 							className={`inputBox-blue${
