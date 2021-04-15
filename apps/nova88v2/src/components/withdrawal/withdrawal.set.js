@@ -38,13 +38,22 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 			const _preAccInfo = _bankInfoDetail.filter(
 				card => card.accountNo === _defAccountNo
 			)[0];
+			const _preUsdtAccInfo = _bankInfoDetail.filter(
+				card => card.usdtAddress === _defAccountNo
+			)[0];
+			const _selectInfo = !isUSDT
+				? {
+						bankName: _preAccInfo.bankName,
+						accountNo: _preAccInfo.accountNo,
+						sysId: _preAccInfo.sysId
+				  }
+				: {
+						usdtAddress: _preUsdtAccInfo.usdtAddress,
+						nickName: _preUsdtAccInfo.nickName
+				  };
 			dispatch({
 				type: defActionType.SELECT_ACCOUNT,
-				selectedAccount: {
-					bankName: _preAccInfo.bankName,
-					accountNo: _preAccInfo.accountNo,
-					sysId: _preAccInfo.sysId
-				},
+				selectedAccount: _selectInfo,
 				step: state.amount ? 3 : 2
 			});
 		};
@@ -57,8 +66,8 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 
 						const bankOrWalletData =
 							userInfo.currencyId === currencyCode.USDT
-								? datas.uSDTDetail
-								: datas.bankInfoDetail;
+								? datas?.uSDTDetail
+								: datas?.bankInfoDetail;
 
 						const _custBankInfo =
 							datas === null ? [] : bankOrWalletData;
@@ -67,14 +76,20 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 							type: defActionType.GET_CUST_BANKINFO,
 							custBankInfo: _custBankInfo
 						});
-						if (
-							datas?.bankInfoDetail?.length > 0 &&
-							datas?.defAccountNo
-						) {
-							selectPrevAccount(
-								datas.defAccountNo,
-								datas.bankInfoDetail
-							);
+
+						if (datas?.defAccountNo) {
+							if (datas?.bankInfoDetail?.length > 0) {
+								selectPrevAccount(
+									datas.defAccountNo,
+									datas.bankInfoDetail
+								);
+							}
+							if (datas?.uSDTDetail?.length > 0) {
+								selectPrevAccount(
+									datas.defAccountNo,
+									datas.uSDTDetail
+								);
+							}
 						}
 					} else {
 						setPopBox({
