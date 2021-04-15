@@ -372,6 +372,7 @@
 	"lbl_RequireMinAmountHint_Front": "The minimum amount of deposit are required to be at least",
 	"lbl_RequireMinAmountHint_Back": "Deposit now?",
 	"lbl_MaxBonusAmount":"Max Bonus Amount",
+	"lbl_OtherWallet": "Other Wallet",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
