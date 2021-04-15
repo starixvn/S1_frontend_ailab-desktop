@@ -20,7 +20,7 @@ import specialImg3 from "../../styles/img/bank.png";
 import specialImg4 from "../../styles/img/speed.png";
 import bong88Img from "../../styles/img/bong88.png";
 
-import SwipperBanner from "../common/swipperBanner";
+import { BannerSwipper } from "../common/customSwipper";
 import EventSwipper from "./components/eventSwipper";
 import Marquee from "./components/marquee";
 import LiveCasinoSwipper from "./components/liveCasinoSwipper";
@@ -129,9 +129,10 @@ const HomeV2 = ({ productTpIds }) => {
 
 	return (
 		<main>
-			<SwipperBanner
+			<BannerSwipper
 				ImgFolder={[defBannerType.Promotions]}
-				hoverToStopPlay={true}
+				withBtn={false}
+				withPagination={true}
 				config={{
 					effect: "fade",
 					autoplay: {

@@ -2,11 +2,10 @@ import React, { memo } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
-import {
+import CustomSwipper, {
 	useGetBanner,
-	Autoplay,
 	SetPathParameter
-} from "../../common/swipperBanner";
+} from "../../common/customSwipper";
 import { defBannerType } from "../../../service/api/site";
 import path from "../../../router";
 
@@ -53,7 +52,14 @@ const EventSwipper = memo(({ langId }) => {
 
 	return (
 		<div className="offers newHotEvent">
-			<Autoplay Rows={rows} hoverToStopPlay={true} />
+			<CustomSwipper
+				withBtn={true}
+				withPagination={false}
+				config={{
+					autoplay: false
+				}}>
+				{rows}
+			</CustomSwipper>
 		</div>
 	);
 });

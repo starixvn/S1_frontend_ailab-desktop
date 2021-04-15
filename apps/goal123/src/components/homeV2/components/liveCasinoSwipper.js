@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { defMenuLinks } from "../../layout/header.menu.def";
-import { AutoPlayWithBtn } from "../../common/swipperBanner";
+import CustomSwipper from "../../common/customSwipper";
 
 const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 	let defLiveCasinoSubMenu = defMenuLinks(langId)?.liveCasino?.subMenu;
@@ -57,19 +57,20 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 						{t("lbl_LiveCasino")}
 					</div>
 					<div className="indexCasino">
-						<AutoPlayWithBtn
-							Rows={rows}
-							hoverToStopPlay={true}
+						<CustomSwipper
+							withBtn={true}
+							withPagination={false}
 							config={{
+								autoplay: {
+									delay: 6500,
+									disableOnInteraction: false
+								},
 								slidesPerView: 5,
 								spaceBetween: 10,
-								slidesPerGroup: 1,
-								pagination: {
-									el: "",
-									clickable: false
-								}
-							}}
-						/>
+								slidesPerGroup: 1
+							}}>
+							{rows}
+						</CustomSwipper>
 					</div>
 				</div>
 			</div>
