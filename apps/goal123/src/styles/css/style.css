@@ -8545,7 +8545,7 @@ html.Newtheme {
   background: #F3F3F3;
   font-size: 14px;
   font-family: "Microsoft YaHei", sans-serif;
-  color: #f3f3f3;
+  color: #1F3258;
   height: 100%;
 }
 
@@ -9416,30 +9416,6 @@ html.Newtheme main {
   position: relative;
 }
 
-html.Newtheme main.inner::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  content: "";
-  display: block;
-  background: url(../img/insidebg.png) no-repeat top right/auto 120%;
-  width: 50%;
-  height: 100%;
-}
-
-html.Newtheme main.inner::after {
-  position: absolute;
-  bottom: -250px;
-  left: 0;
-  content: "";
-  display: block;
-  background: url(../img/insidebg.png) no-repeat top right/auto 120%;
-  width: 50%;
-  height: 800px;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
 html.Newtheme main section {
   padding-top: 50px;
   background: url(../img/indexbgnew.jpg) no-repeat top center/cover;
@@ -9474,10 +9450,10 @@ html.Newtheme main section > div > div > .title {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-transform: uppercase;
+  color: #fff;
 }
 
 html.Newtheme main section > div > div > .title i {
-  color: #fff;
   font-size: 25px;
   padding-left: 10px;
   font-weight: normal;
@@ -9826,6 +9802,7 @@ html.Newtheme .joinpop .joinloginModule .joinloginFunction .inputBox.active, htm
 }
 
 html.Newtheme .joinloginModule {
+  padding-top: 55px;
   width: 900px;
   margin: 2vw auto;
   display: -webkit-box;
@@ -10019,19 +9996,19 @@ html.Newtheme .inputBox input, html.Newtheme .inputBox-org input, html.Newtheme 
 }
 
 html.Newtheme .inputBox input::-webkit-input-placeholder, html.Newtheme .inputBox-org input::-webkit-input-placeholder, html.Newtheme .inputBox-white input::-webkit-input-placeholder, html.Newtheme .inputBox-blue input::-webkit-input-placeholder, html.Newtheme .inputBox-gray input::-webkit-input-placeholder, html.Newtheme .inputBox-yellow input::-webkit-input-placeholder, html.Newtheme .inputBox-org input::-webkit-input-placeholder, html.Newtheme .inputBox-white input::-webkit-input-placeholder, html.Newtheme .inputBox-blue input::-webkit-input-placeholder, html.Newtheme .inputBox-gray input::-webkit-input-placeholder, html.Newtheme .inputBox-yellow input::-webkit-input-placeholder {
-  color: #c6c6c6;
+  color: #919191;
 }
 
 html.Newtheme .inputBox input:-ms-input-placeholder, html.Newtheme .inputBox-org input:-ms-input-placeholder, html.Newtheme .inputBox-white input:-ms-input-placeholder, html.Newtheme .inputBox-blue input:-ms-input-placeholder, html.Newtheme .inputBox-gray input:-ms-input-placeholder, html.Newtheme .inputBox-yellow input:-ms-input-placeholder, html.Newtheme .inputBox-org input:-ms-input-placeholder, html.Newtheme .inputBox-white input:-ms-input-placeholder, html.Newtheme .inputBox-blue input:-ms-input-placeholder, html.Newtheme .inputBox-gray input:-ms-input-placeholder, html.Newtheme .inputBox-yellow input:-ms-input-placeholder {
-  color: #c6c6c6;
+  color: #919191;
 }
 
 html.Newtheme .inputBox input::-ms-input-placeholder, html.Newtheme .inputBox-org input::-ms-input-placeholder, html.Newtheme .inputBox-white input::-ms-input-placeholder, html.Newtheme .inputBox-blue input::-ms-input-placeholder, html.Newtheme .inputBox-gray input::-ms-input-placeholder, html.Newtheme .inputBox-yellow input::-ms-input-placeholder, html.Newtheme .inputBox-org input::-ms-input-placeholder, html.Newtheme .inputBox-white input::-ms-input-placeholder, html.Newtheme .inputBox-blue input::-ms-input-placeholder, html.Newtheme .inputBox-gray input::-ms-input-placeholder, html.Newtheme .inputBox-yellow input::-ms-input-placeholder {
-  color: #c6c6c6;
+  color: #919191;
 }
 
 html.Newtheme .inputBox input::placeholder, html.Newtheme .inputBox-org input::placeholder, html.Newtheme .inputBox-white input::placeholder, html.Newtheme .inputBox-blue input::placeholder, html.Newtheme .inputBox-gray input::placeholder, html.Newtheme .inputBox-yellow input::placeholder, html.Newtheme .inputBox-org input::placeholder, html.Newtheme .inputBox-white input::placeholder, html.Newtheme .inputBox-blue input::placeholder, html.Newtheme .inputBox-gray input::placeholder, html.Newtheme .inputBox-yellow input::placeholder {
-  color: #c6c6c6;
+  color: #919191;
 }
 
 html.Newtheme .inputBox .iconModule, html.Newtheme .inputBox-org .iconModule, html.Newtheme .inputBox-white .iconModule, html.Newtheme .inputBox-blue .iconModule, html.Newtheme .inputBox-gray .iconModule, html.Newtheme .inputBox-yellow .iconModule {
@@ -10127,7 +10104,7 @@ html.Newtheme .inputBox-org + .btnGroup {
 }
 
 html.Newtheme .inputBox-white {
-  background: white;
+  background: #E8E8E8;
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
@@ -10219,7 +10196,7 @@ html.Newtheme .checkbox input[type="checkbox"] {
 }
 
 html.Newtheme .checkbox input[type="checkbox"] + label {
-  border: 1px solid #1E85EC;
+  border: 1px solid #1F3258;
   border-radius: 100%;
   width: 10px;
   height: 10px;
@@ -10229,7 +10206,7 @@ html.Newtheme .checkbox input[type="checkbox"] + label {
 }
 
 html.Newtheme .checkbox input[type="checkbox"]:checked + label {
-  background: #1E85EC;
+  background: #1F3258;
 }
 
 html.Newtheme .checkbox label.icon:before {
@@ -10362,7 +10339,7 @@ html.Newtheme .tip {
   font-size: 12px;
   padding: 0 10px;
   width: 100%;
-  color: #c6c6c6;
+  color: #919191;
 }
 
 html.Newtheme .Terms {
@@ -11226,7 +11203,8 @@ html.Newtheme .stepBar > div span:nth-child(1) {
 }
 
 html.Newtheme .stepBar > div.active {
-  background: #0f2346;
+  background: #1F3258;
+  color: #ffffff;
 }
 
 html.Newtheme .cashBar {
@@ -11334,6 +11312,12 @@ html.Newtheme .infoModule > button.icon-arrow-left2:before {
 
 html.Newtheme .infoModule .btnGroup {
   margin: 10px auto;
+}
+
+html.Newtheme .infoModule .title {
+  background: transparent;
+  font-size: 14px;
+  height: auto;
 }
 
 html.Newtheme .inside-title {
@@ -12237,13 +12221,17 @@ html.Newtheme .indexCasino {
   position: relative;
 }
 
-html.Newtheme .indexCasino .swiper-container {
-  max-width: 1340px;
-}
-
 html.Newtheme .indexCasino .swiper-container .swiper-slide-active {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+
+html.Newtheme .indexCasino .swiper-button-next {
+  right: -5px !important;
+}
+
+html.Newtheme .indexCasino .swiper-button-prev {
+  left: -5px !important;
 }
 
 html.Newtheme .indexCasino .casino-item {
@@ -12310,7 +12298,7 @@ html.Newtheme .walletModule > .walletType .walletBalanceModule {
 }
 
 html.Newtheme .walletModule .walletBalanceModule {
-  background: #030c1b;
+  background: #1F3258;
   border-radius: 5px;
   padding: 10px;
   -webkit-box-flex: 1;
@@ -12327,6 +12315,7 @@ html.Newtheme .walletModule .walletBalanceModule {
           justify-content: space-between;
   max-width: calc(50% - 40px);
   position: relative;
+  color: #fff;
 }
 
 html.Newtheme .walletModule .walletBalanceModule .tip {
@@ -12382,12 +12371,12 @@ html.Newtheme .walletModule .icon {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  color: #1E85EC;
+  color: #5084E4;
   margin-left: 15px;
 }
 
 html.Newtheme .walletTransfer {
-  background: #030c1b;
+  background: #1F3258;
   border-radius: 5px;
   width: 100%;
   padding: 30px 100px;
@@ -12664,7 +12653,7 @@ html.Newtheme .addBank + div.subModuleList .subModuleBody ul li a {
 }
 
 html.Newtheme .remainder {
-  color: #b2b2b2;
+  color: #919191;
   text-align: center;
 }
 
@@ -12933,7 +12922,7 @@ html.Newtheme .nodata:before {
 }
 
 html.Newtheme .nodata div {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(31, 50, 88, 0.5);
   padding: 5px 10px;
   border-radius: 5px;
   width: -webkit-max-content;
@@ -12963,7 +12952,7 @@ html.Newtheme .changePassWord .lastChange, html.Newtheme .forgetPassWord .lastCh
 }
 
 html.Newtheme .changePassWord .lastChange span, html.Newtheme .forgetPassWord .lastChange span {
-  color: white;
+  color: #1F3258;
   margin-left: 10px;
 }
 
@@ -13261,7 +13250,7 @@ html.Newtheme .personal .list .listBody.active {
 }
 
 html.Newtheme .personal .list .listHeader label {
-  color: #1E85EC;
+  color: #1F3258;
 }
 
 html.Newtheme .personal .list .listHeader > div:nth-child(2), html.Newtheme .personal .list .listHeader > div:nth-child(3) {
@@ -13820,11 +13809,11 @@ html.Newtheme article p {
   line-height: 18px;
   margin-bottom: 18px;
   letter-spacing: 1px;
-  color: #c6c6c6;
+  color: #505050;
 }
 
 html.Newtheme article pre {
-  color: #c6c6c6;
+  color: #505050;
 }
 
 html.Newtheme .rdt {
@@ -14491,10 +14480,10 @@ html.Newtheme .indexInfo > div > div > .title {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-transform: uppercase;
+  color: #fff;
 }
 
 html.Newtheme .indexInfo > div > div > .title i {
-  color: #fff;
   font-size: 25px;
   padding-left: 10px;
   font-weight: normal;
@@ -14630,6 +14619,7 @@ html.Newtheme .Sitemap > div > div {
 }
 
 html.Newtheme .Sitemap > div > div a, html.Newtheme .Sitemap > div > div button {
+  color: #1F3258;
   font-family: "Microsoft YaHei", sans-serif;
   font-size: 14px;
   line-height: 30px;
@@ -15810,7 +15800,7 @@ html.Newtheme .refbanner {
   width: calc(100% - 280px);
   margin: 2vw auto;
   padding: 3vw 70px;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(31, 50, 88, 0.2);
   border-radius: 5px;
 }
 
@@ -15849,9 +15839,10 @@ html.Newtheme .referralModule > div .refBox {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: #030c1b;
+  background: #1F3258;
   border-radius: 5px;
   padding: 20px;
+  color: #fff;
 }
 
 html.Newtheme .referralModule > div .refBox.mt-2 {
@@ -15972,7 +15963,7 @@ html.Newtheme .achievement_item {
   width: 100%;
   padding: 20px 30px;
   border-radius: 5px;
-  background: #030c1b;
+  background: #1F3258;
 }
 
 html.Newtheme .achievement_item:nth-child(1) {
@@ -15986,7 +15977,7 @@ html.Newtheme .achievement_item span {
   color: #fab617;
 }
 
-html.Newtheme .achievement + .txt-lightgray {
+html.Newtheme .achievement + .txt-lightgray, html.Newtheme .achievement + .txt-blue {
   font-weight: normal;
   width: calc(100% - 150px);
   margin: 15px 0 0;
@@ -16243,7 +16234,7 @@ html.Newtheme .subModuleListColumn .column .inputBox-white + .tip, html.Newtheme
 }
 
 html.Newtheme .subModuleListColumn .inputBox-white, html.Newtheme .subModuleListColumn .inputBox-blue, html.Newtheme .subModuleListColumn .inputBox, html.Newtheme .subModuleListColumn .inputBox-org, html.Newtheme .subModuleListColumn .inputBox-white, html.Newtheme .subModuleListColumn .inputBox-blue, html.Newtheme .subModuleListColumn .inputBox-gray, html.Newtheme .subModuleListColumn .inputBox-yellow {
-  margin-left: 15px;
+  margin-left: 6px;
 }
 
 html.Newtheme .subModuleListColumn .inputBox-white + .tip, html.Newtheme .subModuleListColumn .inputBox-blue + .tip, html.Newtheme .subModuleListColumn .inputBox + .tip, html.Newtheme .subModuleListColumn .inputBox-org + .tip, html.Newtheme .subModuleListColumn .inputBox-white + .tip, html.Newtheme .subModuleListColumn .inputBox-blue + .tip, html.Newtheme .subModuleListColumn .inputBox-gray + .tip, html.Newtheme .subModuleListColumn .inputBox-yellow + .tip {
@@ -16366,6 +16357,7 @@ html.Newtheme .rdtPicker {
 }
 
 html.Newtheme .vip {
+  padding-top: 115px;
   margin: auto;
   max-width: 1200px;
   min-height: 2050px;
@@ -16402,12 +16394,17 @@ html.Newtheme .vip .vipPage .eventList .icon-nova88:before {
   margin-left: 0;
 }
 
+html.Newtheme .vip .vipPage .eventList tr {
+  color: #1F3258;
+}
+
 html.Newtheme .vip .vipPage .eventList tr.title {
-  background: #1E85EC;
+  background: #4E6CA8;
+  color: #fff;
 }
 
 html.Newtheme .vip .vipPage .eventList tr:last-child {
-  background: black;
+  background: #284985;
   font-weight: bold;
 }
 
@@ -16416,12 +16413,13 @@ html.Newtheme .vip .vipPage .eventList tr:last-child td {
 }
 
 html.Newtheme .vip .vipPage .eventList tr:not(.title):not(.lastTd) td:first-child {
-  border-right: 1px solid #777777;
-  background: rgba(0, 0, 0, 0.5);
+  border-right: 1px solid #b2b2b2;
+  background: rgba(232, 232, 232, 0.5);
 }
 
 html.Newtheme .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #134DAE;
+  background: #4E6CA8;
+  color: #fff;
 }
 
 html.Newtheme .vip .vipPage .eventList tr td {
@@ -16431,7 +16429,7 @@ html.Newtheme .vip .vipPage .eventList tr td {
   line-height: 30px;
   text-align: center;
   padding: 1px 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 html.Newtheme .vip .vipPage .eventList tr td:first-child {
@@ -16446,6 +16444,7 @@ html.Newtheme .vip .vipPage .eventList tr:first-child td {
 }
 
 html.Newtheme .vip .medal {
+  color: #1F3258;
   margin-bottom: 20px;
 }
 
@@ -16476,7 +16475,7 @@ html.Newtheme .vip .vipInfo {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(31, 50, 88, 0.3);
   border-radius: 15px;
   padding: 20px 40px;
   margin: 60px auto;
@@ -16492,7 +16491,7 @@ html.Newtheme .vip .vipInfo .vipTitle {
   font-size: 18px;
   margin: 20px 0;
   font-weight: bold;
-  color: #1E85EC;
+  color: #284985;
   width: 100%;
 }
 
@@ -16521,7 +16520,8 @@ html.Newtheme .vipLv img {
 
 html.Newtheme .vipLv > div {
   margin-top: 15px;
-  background: #1F3258;
+  background: -webkit-gradient(linear, left top, left bottom, from(#3f68bb), to(#1a2e56));
+  background: linear-gradient(180deg, #3f68bb 0%, #1a2e56 100%);
   padding: 5px 10px;
   border-radius: 5px;
   color: #E8E8E8;

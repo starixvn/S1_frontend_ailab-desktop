@@ -43,7 +43,10 @@ export default () => {
 						</a>
 					</li>
 					<li>
-						<a href="https://t.me/Goal123csd" arget="_blank">
+						<a
+							href="https://t.me/Goal123csd"
+							target="_blank"
+							rel="noreferrer">
 							<img src={telegramIconImg} alt="telegramImg" />
 							{t("lbl_Telegram")}
 						</a>
