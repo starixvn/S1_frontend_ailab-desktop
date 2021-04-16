@@ -60,8 +60,8 @@ export default () => {
 		: "";
 
 	const hasRequireValueNull =
-		userValue.accountName === "" ||
-		userValue.birth === "" ||
+		(!userInfo.accountName && userValue.accountName === "") ||
+		(!userInfo.birth_d && userValue.birth === "") ||
 		(!userInfo.phoneNo &&
 			(userValue.phoneNo === "" || _areaCodeVal === ""));
 
