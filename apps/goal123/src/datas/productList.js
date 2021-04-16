@@ -202,5 +202,6 @@ export const defCasinoProviders = {
 	ICG: {
 		tpId: 24,
 		name: "ICG"
-	}
+	},
+	PT: { tpId: 27, gameId: "0", name: "PT" }
 };

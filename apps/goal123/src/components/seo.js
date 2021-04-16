@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-curly-brace-presence */
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
 import Favicon from "../styles/img/favicon-n8g.ico";
+
+import { isRootContext } from "./common/context";
 
 const defHrefLang = {
 	en: "en-us",
@@ -28,11 +30,13 @@ function SEO({ description, lang, meta, title }) {
 	const { href } = useLocation();
 	const { site } = useStaticQuery(query);
 
+	const { isRoot } = useContext(isRootContext);
+
 	const metaDescription = description || site.siteMetadata.description;
 
 	const splitPath =
 		typeof window !== undefined && window.location.pathname.split("/");
-	const htmlClass =
+	let htmlClass =
 		typeof window !== undefined &&
 		(window.location.pathname === "/" ||
 			((splitPath.length === 2 ||
@@ -40,6 +44,10 @@ function SEO({ description, lang, meta, title }) {
 				site.siteMetadata.supportedLanguages.includes(splitPath[1])))
 			? "index"
 			: "";
+
+	if (isRoot) {
+		htmlClass = `${htmlClass} Newtheme`;
+	}
 
 	return (
 		<>

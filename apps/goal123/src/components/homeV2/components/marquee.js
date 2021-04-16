@@ -1,11 +1,11 @@
 import React, { Component, useContext, createRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Redirect } from "@reach/router";
-import { api_message_GetAnnouncement } from "../../service/api/message";
-import { userInfoContext, popBoxContext } from "../common/context";
-import { GET_LANG_ID } from "../../service/language";
-import { defPopBoxType } from "../common/popBox";
-import path from "../../router";
+import { api_message_GetAnnouncement } from "../../../service/api/message";
+import { userInfoContext, popBoxContext } from "../../common/context";
+import { GET_LANG_ID } from "../../../service/language";
+import { defPopBoxType } from "../../common/popBox";
+import path from "../../../router";
 
 export default () => {
 	const { t } = useTranslation();

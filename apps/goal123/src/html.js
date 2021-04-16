@@ -18,16 +18,12 @@ export default function HTML(props) {
 					type="text/css"
 					href={`/styles/css/swiper.css?v=${vkey}`}
 				/>
-				{/* <link
-					rel="stylesheet"
-					type="text/css"
-					href={`/styles/css/style.css?v=${vkey}`}
-				/> */}
 				<link
 					rel="stylesheet"
 					type="text/css"
-					href={`/styles/css/style_newhome.css?v=${vkey}`}
+					href={`/styles/css/style.css?v=${vkey}`}
 				/>
+
 				<link
 					rel="stylesheet"
 					type="text/css"

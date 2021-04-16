@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
 import {
 	useGetBanner,
-	AutoPlayWithBtn,
+	Autoplay,
 	SetPathParameter
-} from "../common/swipperBanner";
-import { defBannerType } from "../../service/api/site";
-import path from "../../router";
+} from "../../common/swipperBanner";
+import { defBannerType } from "../../../service/api/site";
+import path from "../../../router";
 
 const EventSwipper = memo(({ langId }) => {
 	const { banner } = useGetBanner({
@@ -53,7 +53,7 @@ const EventSwipper = memo(({ langId }) => {
 
 	return (
 		<div className="offers newHotEvent">
-			<AutoPlayWithBtn Rows={rows} />
+			<Autoplay Rows={rows} />
 		</div>
 	);
 });

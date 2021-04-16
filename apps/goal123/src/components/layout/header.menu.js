@@ -45,6 +45,8 @@ export default class Panel extends Component {
 	};
 
 	render() {
+		const { isRoot } = this.props;
+
 		let subItems = null;
 		let mainUrl = "";
 		if (typeof defMenuLinks()[this.state.menuKey]?.subMenu !== undefined) {
@@ -80,6 +82,7 @@ export default class Panel extends Component {
 							mainUrl={mainUrl}
 							subItems={subItems}
 							productTpIds={this.props.productTpIds}
+							isRoot={isRoot}
 						/>
 					) : null}
 				</div>

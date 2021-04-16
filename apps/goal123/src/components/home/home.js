@@ -23,8 +23,8 @@ import GameQuickLinks from "./gameQuickLinks";
 import SwipperBanner from "../common/swipperBanner";
 import CountDown from "./countDown";
 import PromoGameList from "./promoGameList";
-import AngpowLink from "./angpowLink";
-import MysteryBoxLink from "./mysteryBoxLink";
+import AngpowLink from "../homeV2/angpowLink";
+import MysteryBoxLink from "../homeV2/mysteryBoxLink";
 import path from "../../router";
 import PlatformSection from "./footer.platform";
 

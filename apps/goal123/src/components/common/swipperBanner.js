@@ -193,7 +193,7 @@ const defSwipperConfig = {
 	rebuildOnUpdate: true
 };
 
-const Autoplay = ({ Rows }) => {
+export const Autoplay = ({ Rows }) => {
 	const params = defSwipperConfig;
 	// eslint-disable-next-line react/jsx-props-no-spreading
 	return <Swiper {...params}>{Rows}</Swiper>;
@@ -203,9 +203,10 @@ Autoplay.propTypes = {
 	Rows: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
-export const AutoPlayWithBtn = ({ Rows }) => {
+export const AutoPlayWithBtn = ({ Rows, config }) => {
 	const params = {
 		...defSwipperConfig,
+		...config,
 		navigation: {
 			nextEl: ".swiper-button-next",
 			prevEl: ".swiper-button-prev"
@@ -220,6 +221,7 @@ export const AutoPlayWithBtn = ({ Rows }) => {
 			<div className="swiper-button-next" onClick={goNext} />
 		)
 	};
+
 	const ref = useRef(null);
 
 	const goNext = () => {
@@ -244,8 +246,13 @@ export const AutoPlayWithBtn = ({ Rows }) => {
 	) : null;
 };
 
+AutoPlayWithBtn.defaultProps = {
+	config: {}
+};
+
 AutoPlayWithBtn.propTypes = {
-	Rows: PropTypes.arrayOf(PropTypes.node).isRequired
+	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
+	config: PropTypes.objectOf(PropTypes.any)
 };
 
 export default Panel;
