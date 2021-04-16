@@ -86,7 +86,9 @@ export default ({
 						message: t("msg_ApiServerError"),
 						btnBar: (
 							<div className="btnGroup">
-								<button className="btn-check" onClick={ClosePopBox}>
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -232,9 +234,11 @@ const BankCard = props => {
 			<div className="addBankInfo">
 				<div className="bankName">
 					<img
-						src={`${config.imgUrl}/common/images/BankLogo/${props.bankLogo}`}
+						src={`${config.cloudImgUrl}/SiteSkin/img/Payment/BankLogo/${props.bankLogo}`}
 						alt=""
 					/>
+
+					<span>{props.bankName}</span>
 				</div>
 				<div className="checkbox">
 					<input
