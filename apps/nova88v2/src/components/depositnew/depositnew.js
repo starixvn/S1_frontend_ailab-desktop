@@ -37,7 +37,7 @@ const Depositnew = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
 	const _isConvert = isConvert(userInfo.currencyId);
-
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const parameterDefaultType = getUrlParameter("type");
 	const isDepositTypeIncludes = Object.values(defDepositType).includes(
 		parameterDefaultType
@@ -250,7 +250,7 @@ const Depositnew = () => {
 			setLoading(true);
 			try {
 				if (userInfo?.currencyId) {
-					userInfo.currencyId === currencyCode.USDT
+					isUSDT
 						? await Promise.all([getCryptoPayGroupList()])
 						: await Promise.all([
 								getMobilePayGroupList(),

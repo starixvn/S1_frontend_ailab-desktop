@@ -10,11 +10,13 @@ import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
 // import Logo from "../../styles/img/nova88_logo_ny.png";
+import { currencyCode } from "../../datas/countryCode";
 
 export default ({ productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -70,7 +72,7 @@ export default ({ productTpIds }) => {
 					</Link>
 				</div>
 				<div className="function">
-					<Functions />
+					<Functions isUSDT={isUSDT} />
 					<LanguageDropDown />
 					{userInfo.isLogin ? null : (
 						<Link
