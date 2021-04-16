@@ -358,7 +358,7 @@
 	"lbl_WithdrawalStatus99": "Lỗi",
 	"lbl_EligibleWithdrawalAmount": "Số tiền có thể rút",
 	"lbl_SelectBank_Required": "Xin lựa chọn tài khoản ngân hàng",
-	"lbl_Deduction": "khấu trừ doanh số",
+	"lbl_Deduction": "Khấu trừ doanh số",
 	"lbl_Balance": "Số dư",
 	"lbl_ConfirmWithdrawal": "Vui lòng xác nhận thông tin rút tiền.",
 	"lbl_WithdrawalTo": "Rút tiền về",
