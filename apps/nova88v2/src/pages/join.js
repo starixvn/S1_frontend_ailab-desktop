@@ -220,6 +220,63 @@ const Content = () => {
 		}));
 	};
 
+	const _currencyId = siteCurrency[userValue.currencyIdx]?.id;
+
+	const isUSDT = _currencyId === currencyCode.USDT;
+
+	const allAreaCodeArr = Object.values(areaCode)
+		.map(a => a.AreaCode)
+		.sort();
+	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => {
+		return {
+			// id: parseInt(_a.replace(/[^0-9]/gi, ""), 10),
+			id: idx + 1,
+			displayText: _a
+		};
+	});
+
+	const usdtAreaCode = userValue.areaCodeIdx
+		? areaCodeOptions[userValue.areaCodeIdx - 1].displayText
+		: "";
+
+	const currencyToCountryCode = _currencyId
+		? currencyToAreacode[_currencyId]
+		: null;
+
+	const _areaCode = isUSDT
+		? usdtAreaCode
+		: currencyToCountryCode !== null
+		? areaCode[currencyToCountryCode]?.AreaCode
+		: null;
+
+	const setCurrencyTip = (col, _defaultOption) => {
+		const result = currencyCheck(_defaultOption);
+		const { checked, msg } = result.checked;
+		setTip(prev => {
+			return {
+				...prev,
+				[col]: {
+					checked,
+					msg: t(msg)
+				}
+			};
+		});
+	};
+
+	const onSelectItem = i => {
+		setDefaultOption(null);
+		setUserValue(prev => {
+			return { ...prev, currencyIdx: i };
+		});
+		setCurrencyTip("currency", null);
+	};
+
+	const onSelectAreaCode = i => {
+		setUserValue(prev => {
+			return { ...prev, areaCodeIdx: i + 1 };
+		});
+	};
+
 	const checkValue = async (col, e) => {
 		const val = e.target.value;
 		let checked = true;
@@ -321,16 +378,27 @@ const Content = () => {
 		return { checked, msg };
 	};
 
+	const currencyCheck = _defaultOption => {
+		let checked = true;
+		let msg = "";
+		if (_defaultOption !== null) {
+			checked = false;
+			msg = "lbl_RemindPrefferedCurrency";
+		}
+		return { checked, msg };
+	};
+
 	const phoneCheck = async val => {
 		let checked = false;
 		let msg = "";
-
-		if (val === "") {
-			checked = false;
-			msg = "lbl_PhoneRequired";
-		} else {
-			checked = true;
-			// msg = "lbl_CantChangePhone";
+		if (userValue.currencyIdx) {
+			if (val === "" || (isUSDT && _areaCode === "")) {
+				checked = false;
+				msg = "lbl_PhoneRequired";
+			} else {
+				checked = true;
+				// msg = "lbl_CantChangePhone";
+			}
 		}
 
 		if (checked) {
@@ -349,71 +417,6 @@ const Content = () => {
 		}
 
 		return { checked, msg };
-	};
-
-	const _currencyId = siteCurrency[userValue.currencyIdx]?.id;
-
-	const isUSDT = _currencyId === currencyCode.USDT;
-
-	const allAreaCodeArr = Object.values(areaCode)
-		.map(a => a.AreaCode)
-		.sort();
-	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => {
-		return {
-			// id: parseInt(_a.replace(/[^0-9]/gi, ""), 10),
-			id: idx,
-			displayText: _a
-		};
-	});
-
-	const usdtAreaCode = areaCodeOptions[userValue.areaCodeIdx]?.displayText;
-
-	const currencyToCountryCode = _currencyId
-		? currencyToAreacode[_currencyId]
-		: null;
-
-	const _areaCode = isUSDT
-		? usdtAreaCode
-		: currencyToCountryCode !== null
-		? areaCode[currencyToCountryCode]?.AreaCode
-		: null;
-
-	const currencyCheck = _defaultOption => {
-		let checked = true;
-		let msg = "";
-		if (_defaultOption !== null) {
-			checked = false;
-			msg = "lbl_RemindPrefferedCurrency";
-		}
-		return { checked, msg };
-	};
-
-	const setCurrencyTip = (col, _defaultOption) => {
-		const result = currencyCheck(_defaultOption);
-		const { checked, msg } = result.checked;
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked,
-					msg: t(msg)
-				}
-			};
-		});
-	};
-
-	const onSelectItem = i => {
-		setDefaultOption(null);
-		setUserValue(prev => {
-			return { ...prev, currencyIdx: i };
-		});
-		setCurrencyTip("currency", null);
-	};
-
-	const onSelectAreaCode = i => {
-		setUserValue(prev => {
-			return { ...prev, areaCodeIdx: i };
-		});
 	};
 
 	const clickCancel = () => {
@@ -776,7 +779,7 @@ const Content = () => {
 						{tip.currency.msg ? (
 							<div className="tip active">{tip.currency.msg}</div>
 						) : (
-							<div className="active">
+							<div className="tip active">
 								{t("lbl_CantChangePreferredCurrency")}
 							</div>
 						)}
@@ -825,7 +828,7 @@ const Content = () => {
 						{tip.phone.msg ? (
 							<div className="tip active">{tip.phone.msg}</div>
 						) : userValue.currencyIdx !== null ? (
-							<div className="active">
+							<div className="tip active">
 								{t("lbl_CantChangePhone")}
 							</div>
 						) : null}

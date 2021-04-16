@@ -11,17 +11,20 @@ import {
 	api_accountStrict_SendOTPSMS
 } from "../../service/api/accountStrict";
 import defPopBoxType from "../common/defPopBoxType";
+import usePopBox from "../hook/usePopBox";
 import EditModule from "./profile.edit";
 import { getUrlParameter } from "../common/common";
 import { defPrevPage } from "./profile.dev";
 import Loading from "../common/loading";
 import { defPageClubImg } from "../vip/vip.def";
 import { api_site_GetCountryList } from "../../service/api/site";
+import { currencyCode } from "../../datas/countryCode";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [userValue, setUserValue] = useState(initValue);
 	const [status, setStatus] = useState(initStatus);
 	const [loading, setLoading] = useState(true);
@@ -35,7 +38,38 @@ export default () => {
 		userInfo.country && userInfo.country !== "null"
 			? userInfo.country
 			: userInfo.perCountry;
-	const _areaCode = country ? areaCode[country].AreaCode : "";
+
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
+	const allAreaCodeArr = Object.values(areaCode)
+		.map(a => a.AreaCode)
+		.sort();
+	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => {
+		return {
+			id: idx,
+			displayText: _a
+		};
+	});
+	const usdtAreaCode = userValue.areaCodeIdx
+		? areaCodeOptions[userValue.areaCodeIdx - 1].displayText
+		: "";
+
+	const _areaCodeVal = isUSDT
+		? usdtAreaCode
+		: country
+		? areaCode[country].AreaCode
+		: "";
+
+	const hasRequireValueNull =
+		userValue.accountName === "" ||
+		userValue.birth === "" ||
+		userValue.phoneNo === "" ||
+		_areaCodeVal === "";
+
+	const hasCheckFalseStatus = Object.values(status)
+		.map(item => item.checked)
+		.includes(false);
+
+	const disableSubmit = hasRequireValueNull || hasCheckFalseStatus;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -66,6 +100,12 @@ export default () => {
 			setLoading(false);
 		}
 	}, [userInfo.accountName, userInfo.phoneNo]);
+
+	const onSelectAreaCode = i => {
+		setUserValue(prev => {
+			return { ...prev, areaCodeIdx: i + 1 };
+		});
+	};
 
 	const closePopBox = () => {
 		setPopBox({ isOpen: false });
@@ -129,17 +169,23 @@ export default () => {
 		}));
 	};
 
-	const phoneCheck = val => {
+	const phoneCheck = (col, val) => {
 		let checked = true;
 		let tip = "";
 
-		if (!val) {
+		if (_areaCodeVal === "") {
+			checked = false;
+			tip = t("lbl_PhoneRequired");
+		} else if (
+			(col === "areaCode" && userValue?.phoneNo.length < 1) ||
+			(col === "phoneNo" && (!val || val === ""))
+		) {
 			checked = false;
 			tip = t("lbl_PhoneRequired");
 		} else {
 			api_account_ExistsPhone({
-				AreaCode: _areaCode,
-				Phone: val
+				AreaCode: _areaCodeVal,
+				Phone: col === "areaCode" ? userValue.phoneNo : val
 			}).then(
 				res => {
 					if (isMountedRef.current) {
@@ -164,27 +210,12 @@ export default () => {
 						}
 					}
 				},
-				err => {
-					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={closePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
+				() => {
+					if (!isMountedRef.current) return;
+					errorPopBox();
 				}
 			);
 		}
-
 		setStatus(prev => ({
 			...prev,
 			phoneNo: {
@@ -222,6 +253,8 @@ export default () => {
 	const clickSubmit = e => {
 		e.preventDefault();
 
+		if (disableSubmit) return;
+
 		const accountNameCheck = userInfo.accountName
 			? true
 			: valueCheck(userValue.accountName, "accountName");
@@ -232,7 +265,7 @@ export default () => {
 
 		const phoneNoCheck = userInfo.phoneNo
 			? true
-			: phoneCheck(userValue.phoneNo, "phoneNo");
+			: phoneCheck("phoneNo", userValue.phoneNo);
 
 		const SetProfile = () => {
 			const profileDatas = {
@@ -242,7 +275,7 @@ export default () => {
 				Birth_y: userInfo.birth_y ?? userValue.birth.slice(0, 4),
 				// CountryCode: country,
 				CountryCode: "",
-				AreaCode: userInfo.areaCode ?? _areaCode,
+				AreaCode: userInfo.areaCode ?? _areaCodeVal,
 				PhoneNo: userInfo.phoneNo ?? userValue.phoneNo
 			};
 
@@ -436,7 +469,7 @@ export default () => {
 				displayKey={item.displayKey}
 				content={displayValue}
 				mobileVerificationLoading={mobileVerificationLoading}
-				areaCode={_areaCode}
+				areaCode={_areaCodeVal}
 				sendOTPSMS={sendOTPSMS}
 			/>
 		) : null;
@@ -484,6 +517,11 @@ export default () => {
 					phoneCheck={phoneCheck}
 					clickInfo={clickInfo}
 					clickSubmit={clickSubmit}
+					isUSDT={isUSDT}
+					areaCodeOptions={areaCodeOptions}
+					onSelectAreaCode={onSelectAreaCode}
+					_areaCodeVal={_areaCodeVal}
+					disableSubmit={disableSubmit}
 				/>
 			)}
 		</div>

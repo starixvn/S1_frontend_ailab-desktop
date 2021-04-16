@@ -5,7 +5,8 @@ import { userInfoContext } from "../common/context";
 export const initValue = {
 	accountName: "",
 	birth: "",
-	phoneNo: ""
+	phoneNo: "",
+	areaCodeIdx: null
 };
 
 export const initStatus = {

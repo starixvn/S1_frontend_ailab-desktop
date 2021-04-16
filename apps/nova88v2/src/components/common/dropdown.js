@@ -91,8 +91,7 @@ class Dropdown extends Component {
 				className="dropdown"
 				ref={this.wrapper}
 				onClick={this.props.disabled ? null : this.clickDropdown}
-				data-testid={`dropdown_${this.props.mainKey}`}
-				onBlur={this.props.onBlur}>
+				data-testid={`dropdown_${this.props.mainKey}`}>
 				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`} />
