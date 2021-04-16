@@ -826,7 +826,7 @@ const Content = () => {
 
 						{userValue.currencyIdx !== null ? (
 							tip.phone.msg ? (
-								<div className="tip active">
+								<div className="tip active txt-red">
 									{tip.phone.msg}
 								</div>
 							) : (

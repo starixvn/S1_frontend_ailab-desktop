@@ -39,9 +39,15 @@ export default ({
 						value={userValue.accountName}
 						checked={status.accountName.checked}
 						clickInfo={clickInfo.bind(this, "accountName")}
-						tip={status.accountName.tip}
+						// tip={status.accountName.tip}
 						tooltip={t("lbl_RemindForName")}
 					/>
+				) : null}
+
+				{status.accountName.tip ? (
+					<div className="tip active txt-red">
+						{status.accountName.tip}
+					</div>
 				) : null}
 
 				{!userInfo?.birth_d ||
@@ -65,13 +71,11 @@ export default ({
 								<i className="icon icon-calendar" />
 							</div>
 						</div>
-						<div
-							className={`tip${
-								status.birth.tip ? " active" : ""
-							}`}>
-							{status.birth.tip}
-						</div>
 					</>
+				) : null}
+
+				{status.birth.tip ? (
+					<div className="tip active txt-red">{status.birth.tip}</div>
 				) : null}
 
 				{!userInfo?.phoneNo ? (
@@ -100,14 +104,16 @@ export default ({
 							value={userValue.phoneNo}
 							checked={status.phoneNo.checked}
 							clickInfo={clickInfo.bind(this, "phoneNo")}
-							tip={status.phoneNo.tip}
+							// tip={status.phoneNo.tip}
 							inputType="phone"
 						/>
 					</div>
 				) : null}
 
 				{status.phoneNo.tip ? (
-					<div className="tip active">{status.phoneNo.tip}</div>
+					<div className="tip active txt-red">
+						{status.phoneNo.tip}
+					</div>
 				) : null}
 
 				{!userInfo?.accountName ||

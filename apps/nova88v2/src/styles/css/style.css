@@ -3008,6 +3008,10 @@ input[type="file"] {
   color: #5574A7;
 }
 
+.tip.txt-red {
+  color: #cf0404;
+}
+
 .dropdown {
   width: 100%;
   display: -webkit-box;
@@ -7572,6 +7576,7 @@ button.icon-spinner11:before {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 100%;
 }
 
 .phone .txt-orange {
