@@ -283,6 +283,7 @@ export default ({
 	const cryptoInputList = cryptoInputDataList.map(item => {
 		return (
 			<Inputbox
+				key={`crypto-wallet-input-${item.label}`}
 				className={`inputBox-white${
 					item.checked === false && item.tip !== "" ? " error" : ""
 				}`}
