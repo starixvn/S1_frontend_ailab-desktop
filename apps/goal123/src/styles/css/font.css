@@ -93,6 +93,10 @@
   font-size: 24px !important;
 }
 
+.icon-playtech:before {
+  content: "\e9cf";
+}
+
 .icon-infocenter:before {
   content: "\e9cd";
 }
