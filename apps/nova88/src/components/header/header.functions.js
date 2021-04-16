@@ -73,6 +73,31 @@ const defCashierLinks = [
 	}
 ];
 
+const defSettingLinks = [
+	{
+		displayKey: "lbl_Profile",
+		href: path.profile.root
+	},
+	{
+		displayKey: "lbl_BankInfo",
+		href: path.bankInfo.root
+	},
+	{
+		displayKey: "lbl_ReferFriends",
+		href: path.referral.root,
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.referral
+			})
+		]
+	},
+	{
+		displayKey: "lbl_ChangePassword",
+		href: path.changePassword.root
+	}
+];
+
 const AfterLogin = () => {
 	const { msgCount } = useContext(msgCountContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -83,33 +108,6 @@ const AfterLogin = () => {
 			<span>{t(item.displayKey)}</span>
 		</Link>
 	));
-
-	const isCryptoCurrency = userInfo.currencyId === 96;
-
-	const defSettingLinks = [
-		{
-			displayKey: "lbl_Profile",
-			href: path.profile.root
-		},
-		{
-			displayKey: isCryptoCurrency ? "lbl_Crypto_Wallet" : "lbl_BankInfo",
-			href: isCryptoCurrency ? path.cryptoWallet.root : path.bankInfo.root
-		},
-		{
-			displayKey: "lbl_ReferFriends",
-			href: path.referral.root,
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.referral
-				})
-			]
-		},
-		{
-			displayKey: "lbl_ChangePassword",
-			href: path.changePassword.root
-		}
-	];
 
 	return (
 		<>

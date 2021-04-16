@@ -87,9 +87,6 @@ export default {
 	bankInfo: {
 		root: "bankInfo"
 	},
-	cryptoWallet: {
-		root: "cryptoWallet"
-	},
 	changePassword: {
 		root: "changePassword"
 	},

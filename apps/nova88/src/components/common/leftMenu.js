@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import { userInfoContext } from "./context";
 import { defLeftMenu } from "./leftMenu.def";
-import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -24,7 +23,6 @@ export default () => {
 
 			let _iconClassName = "";
 			const s = menu.subMenu[_key];
-
 			if (s.eventIcons) {
 				let iconStrings = "";
 				for (let i = 0; i < s.eventIcons.length; i++) {
@@ -33,14 +31,7 @@ export default () => {
 				_iconClassName = `icon ${iconStrings}`;
 			}
 
-			const isCryptoCurrency = userInfo.currencyId === 96;
-			const menuIsBankInfo =
-				menu.subMenu[_key].path === path.bankInfo.root;
-			const menuIsCryptoWallet =
-				menu.subMenu[_key].path === path.cryptoWallet.root;
-
-			return (isCryptoCurrency && menuIsBankInfo) ||
-				(!isCryptoCurrency && menuIsCryptoWallet) ? null : (
+			return (
 				<Link
 					key={`leftMenu-subMenu-${_key}`}
 					to={`/${userInfo.langId}/${menu.subMenu[_key].path}`}
