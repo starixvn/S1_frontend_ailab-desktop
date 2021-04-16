@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { defActionType, defStatus, colType } from "./cryptoWallet.reducer";
 import { api_account_SetCustUSDTInfoBatch } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
+import usePopBox from "../hook/usePopBox";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
@@ -16,6 +17,7 @@ export default ({
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [status, setStatus] = useState(defStatus);
 	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
@@ -226,6 +228,10 @@ export default ({
 		e.preventDefault();
 		checkBeforeSubmit();
 
+		const clickClose = () => {
+			setPopBox({ isOpen: false });
+		};
+
 		const payload = {
 			AccountName: accountName,
 			USDTInfo: combineUsdtData()
@@ -246,7 +252,7 @@ export default ({
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-cancel"
+											className="btn-check"
 											onClick={clickClose}>
 											{t("lbl_Close")}
 										</button>
@@ -258,23 +264,9 @@ export default ({
 					}
 				},
 				() => {
-					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={clickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-						setLoading(false);
-					}
+					setLoading(false);
+					if (!isMountedRef.current) return;
+					errorPopBox();
 				}
 			);
 		}
