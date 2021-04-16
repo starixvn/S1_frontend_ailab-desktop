@@ -331,7 +331,12 @@ export default ({
 						onSubmit={clickSubmit}>
 						{alreadyHasAccountName ? null : (
 							<Inputbox
-								className="inputBox-white"
+								className={`inputBox-white${
+									status.accountName.checked === false &&
+									status.accountName.tip !== ""
+										? " error"
+										: ""
+								}`}
 								value={accountName}
 								onChange={editField.bind(
 									this,
