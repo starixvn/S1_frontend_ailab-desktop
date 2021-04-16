@@ -37,6 +37,6 @@ export const defDepositOptions = ({
 		depositDisplaykey: "lbl_CryptoPay",
 		isHide: !cryptoPayGroupList.length,
 		creditTime: "lbl_Instant",
-		iconClass: "icon icon-connection"
+		iconClass: "icon icon-BTC"
 	}
 ];
