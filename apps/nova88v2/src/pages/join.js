@@ -391,14 +391,13 @@ const Content = () => {
 	const phoneCheck = async val => {
 		let checked = false;
 		let msg = "";
-		if (userValue.currencyIdx) {
-			if (val === "" || (isUSDT && _areaCode === "")) {
-				checked = false;
-				msg = "lbl_PhoneRequired";
-			} else {
-				checked = true;
-				// msg = "lbl_CantChangePhone";
-			}
+
+		if (val === "" || (isUSDT && _areaCode === "")) {
+			checked = false;
+			msg = "lbl_PhoneRequired";
+		} else {
+			checked = true;
+			// msg = "lbl_CantChangePhone";
 		}
 
 		if (checked) {
@@ -825,12 +824,16 @@ const Content = () => {
 							</div>
 						) : null}
 
-						{tip.phone.msg ? (
-							<div className="tip active">{tip.phone.msg}</div>
-						) : userValue.currencyIdx !== null ? (
-							<div className="tip active">
-								{t("lbl_CantChangePhone")}
-							</div>
+						{userValue.currencyIdx !== null ? (
+							tip.phone.msg ? (
+								<div className="tip active">
+									{tip.phone.msg}
+								</div>
+							) : (
+								<div className="tip active">
+									{t("lbl_CantChangePhone")}
+								</div>
+							)
 						) : null}
 
 						<Inputbox

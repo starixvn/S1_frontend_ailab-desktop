@@ -62,8 +62,8 @@ export default () => {
 	const hasRequireValueNull =
 		userValue.accountName === "" ||
 		userValue.birth === "" ||
-		userValue.phoneNo === "" ||
-		_areaCodeVal === "";
+		(!userInfo.phoneNo &&
+			(userValue.phoneNo === "" || _areaCodeVal === ""));
 
 	const hasCheckFalseStatus = Object.values(status)
 		.map(item => item.checked)
