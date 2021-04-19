@@ -13646,7 +13646,7 @@ html.Newtheme .promotionsInfo img {
 }
 
 html.Newtheme .promotionsInfo .proData {
-  background: rgba(232, 232, 232, 0.9);
+  background: #1f3258;
   border-radius: 15px;
   margin-top: 20px;
   padding: 40px;
