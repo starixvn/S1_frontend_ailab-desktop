@@ -8677,10 +8677,10 @@ html.Newtheme header .header > div.menu > a .icon-keyboard_arrow_right, html.New
 }
 
 html.Newtheme header .header > div.menu .subMenu-Wrapper {
-  position: absolute;
+  position: fixed;
   width: 100%;
   left: 0;
-  top: 50px;
+  top: 115px;
   background: url(../img/dropdown/dropbg.jpg) no-repeat center/cover;
 }
 
