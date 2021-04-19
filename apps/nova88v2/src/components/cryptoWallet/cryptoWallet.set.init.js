@@ -1,9 +1,8 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 import { defActionType } from "./cryptoWallet.reducer";
 
-export default ({ dispatch, numberOfAccount }) => {
-	const { t } = useTranslation();
+const InitPanel = ({ dispatch, t, numberOfAccount }) => {
 	const toNextStep = () => {
 		dispatch({ type: defActionType.TO_NEXT_STEP });
 	};
@@ -17,7 +16,6 @@ export default ({ dispatch, numberOfAccount }) => {
 						<div>{t("lbl_Add_Crypto_Wallet")}</div>
 					</div>
 				) : null}
-
 				{/* <div className="remainder">
 					{t("lbl_Number_Of_Wallet")}:{numberOfAccount ?? 0}/
 					{numberOfAccount === 0 ? "3" : numberOfAccount}
@@ -31,3 +29,11 @@ export default ({ dispatch, numberOfAccount }) => {
 		</div>
 	);
 };
+
+InitPanel.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+	numberOfAccount: PropTypes.func.isRequired
+};
+
+export default InitPanel;

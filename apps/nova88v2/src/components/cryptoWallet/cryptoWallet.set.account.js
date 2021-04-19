@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
-import { defActionType, defStatus, colType } from "./cryptoWallet.reducer";
+import PropTypes from "prop-types";
+import { defActionType, colType } from "./cryptoWallet.reducer";
 import { api_account_SetCustUSDTInfoBatch } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
@@ -8,78 +8,23 @@ import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
-export default ({
+const AccountPanel = ({
 	dispatch,
+	t,
 	accountName,
 	setAccountName,
 	alreadyHasAccountName,
-	reload
+	reload,
+	cryptoInputDataList,
+	status,
+	setStatus,
+	walletDatas,
+	setWalletDatas
 }) => {
-	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
-	const [status, setStatus] = useState(defStatus);
 	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
-	const [walletDatas, setWalletDatas] = useState({
-		nickname_1: "",
-		address_1: "",
-		nickname_2: "",
-		address_2: "",
-		nickname_3: "",
-		address_3: ""
-	});
-
-	const cryptoInputDataList = [
-		{
-			label: "nickname_1",
-			title: t("lbl_CryptoWalletNickName"),
-			colType: colType.nickName,
-			value: walletDatas.nickname_1,
-			checked: status.nickname_1.checked,
-			tip: status.nickname_1.tip
-		},
-		{
-			label: "address_1",
-			title: t("lbl_CryptoWalletAddress"),
-			colType: colType.address,
-			value: walletDatas.address_1,
-			checked: status.address_1.checked,
-			tip: status.address_1.tip
-		},
-		{
-			label: "nickname_2",
-			title: t("lbl_CryptoWalletNickName"),
-			colType: colType.nickName,
-			value: walletDatas.nickname_2,
-			checked: status.nickname_2.checked,
-			tip: status.nickname_2.tip
-		},
-		{
-			label: "address_2",
-			title: t("lbl_CryptoWalletAddress"),
-			colType: colType.address,
-			value: walletDatas.address_2,
-			checked: status.address_2.checked,
-			tip: status.address_2.tip
-		},
-		{
-			label: "nickname_3",
-			title: t("lbl_CryptoWalletNickName"),
-			colType: colType.nickName,
-			value: walletDatas.nickname_3,
-			checked: status.nickname_3.checked,
-			tip: status.nickname_3.tip
-		},
-		{
-			label: "address_3",
-			title: t("lbl_CryptoWalletAddress"),
-			colType: colType.address,
-			value: walletDatas.address_3,
-			checked: status.address_3.checked,
-			tip: status.address_3.tip
-		}
-	];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -373,3 +318,19 @@ export default ({
 		</>
 	);
 };
+
+AccountPanel.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+	accountName: PropTypes.string.isRequired,
+	setAccountName: PropTypes.func.isRequired,
+	alreadyHasAccountName: PropTypes.bool.isRequired,
+	reload: PropTypes.func.isRequired,
+	cryptoInputDataList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	status: PropTypes.objectOf(PropTypes.any).isRequired,
+	setStatus: PropTypes.func.isRequired,
+	walletDatas: PropTypes.arrayOf(PropTypes.any).isRequired,
+	setWalletDatas: PropTypes.func.isRequired
+};
+
+export default AccountPanel;

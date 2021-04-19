@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import Loading from "../common/loading";
 
-export default props => {
-	const [loading] = useState(false);
+const WalletCard = ({ walletList, loading }) => {
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -12,7 +12,7 @@ export default props => {
 		};
 	});
 
-	const arr = props.walletList?.map(item => {
+	const arr = walletList?.map(item => {
 		return (
 			<div className="addBankName" key={`walletCard-${item.usdtAddress}`}>
 				<div className="cryptoInfo">
@@ -28,7 +28,7 @@ export default props => {
 		<Loading />
 	) : (
 		<>
-			{props.walletList?.length > 0 ? (
+			{walletList?.length > 0 ? (
 				<div className="infoModule">
 					<div className="walletModule">
 						<div className="addBank haveBank">{arr}</div>
@@ -38,3 +38,10 @@ export default props => {
 		</>
 	);
 };
+
+WalletCard.propTypes = {
+	walletList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	loading: PropTypes.bool.isRequired
+};
+
+export default WalletCard;

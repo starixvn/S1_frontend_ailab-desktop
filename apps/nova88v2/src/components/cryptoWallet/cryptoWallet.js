@@ -11,12 +11,14 @@ import {
 	defModule,
 	reducer,
 	initState,
-	defActionType
+	defActionType,
+	defStatus,
+	colType
 } from "./cryptoWallet.reducer";
 import { userInfoContext, popBoxContext } from "../common/context";
 import InitPanel from "./cryptoWallet.set.init";
 import AccountPanel from "./cryptoWallet.set.account";
-import ShowCard from "./cryptoWallet.set.bankCard";
+import WalletCard from "./cryptoWallet.set.walletCard";
 import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 import StepBar from "../common/stepBar";
@@ -31,6 +33,66 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const [loading, setLoading] = useState(true);
 	const [accountName, setAccountName] = useState(null);
+	const [status, setStatus] = useState(defStatus);
+	const [walletDatas, setWalletDatas] = useState({
+		nickname_1: "",
+		address_1: "",
+		nickname_2: "",
+		address_2: "",
+		nickname_3: "",
+		address_3: ""
+	});
+
+	const cryptoInputDataList = [
+		{
+			label: "nickname_1",
+			title: t("lbl_CryptoWalletNickName"),
+			colType: colType.nickName,
+			value: walletDatas.nickname_1,
+			checked: status.nickname_1.checked,
+			tip: status.nickname_1.tip
+		},
+		{
+			label: "address_1",
+			title: t("lbl_CryptoWalletAddress"),
+			colType: colType.address,
+			value: walletDatas.address_1,
+			checked: status.address_1.checked,
+			tip: status.address_1.tip
+		},
+		{
+			label: "nickname_2",
+			title: t("lbl_CryptoWalletNickName"),
+			colType: colType.nickName,
+			value: walletDatas.nickname_2,
+			checked: status.nickname_2.checked,
+			tip: status.nickname_2.tip
+		},
+		{
+			label: "address_2",
+			title: t("lbl_CryptoWalletAddress"),
+			colType: colType.address,
+			value: walletDatas.address_2,
+			checked: status.address_2.checked,
+			tip: status.address_2.tip
+		},
+		{
+			label: "nickname_3",
+			title: t("lbl_CryptoWalletNickName"),
+			colType: colType.nickName,
+			value: walletDatas.nickname_3,
+			checked: status.nickname_3.checked,
+			tip: status.nickname_3.tip
+		},
+		{
+			label: "address_3",
+			title: t("lbl_CryptoWalletAddress"),
+			colType: colType.address,
+			value: walletDatas.address_3,
+			checked: status.address_3.checked,
+			tip: status.address_3.tip
+		}
+	];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -115,6 +177,7 @@ export default () => {
 			displayModule = (
 				<InitPanel
 					dispatch={dispatch}
+					t={t}
 					numberOfAccount={
 						state.walletList ? state.walletList?.length : 0
 					}
@@ -126,6 +189,7 @@ export default () => {
 			displayModule = (
 				<AccountPanel
 					dispatch={dispatch}
+					t={t}
 					accountNumber={state.accountNumber}
 					accountName={
 						userInfo.accountName
@@ -137,6 +201,11 @@ export default () => {
 					address={state.address}
 					alreadyHasAccountName={!!userInfo.accountName}
 					reload={getWalletInfo}
+					cryptoInputDataList={cryptoInputDataList}
+					status={status}
+					setStatus={setStatus}
+					walletDatas={walletDatas}
+					setWalletDatas={setWalletDatas}
 				/>
 			);
 			break;
@@ -181,11 +250,7 @@ export default () => {
 				</div>
 				{displayModule}
 			</div>
-			<ShowCard
-				accountName={state.accountName}
-				walletList={state.walletList}
-				reload={getWalletInfo.bind(this, false)}
-			/>
+			<WalletCard walletList={state.walletList} loading={loading} />
 		</>
 	);
 };
