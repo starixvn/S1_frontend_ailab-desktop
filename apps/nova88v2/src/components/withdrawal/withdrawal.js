@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext, useReducer } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import MainPanel from "./withdrawal.set";
 import WalletPanel from "./withdrawal.showWallet";
@@ -277,11 +277,50 @@ export default () => {
 							{t("lbl_ImportantNotice")}
 						</div>
 						<ul>
-							<li>{t("lbl_ImportantNoticeContent1")}</li>
-							<li>{t("lbl_ImportantNoticeContent2")}</li>
-							<li>{t("lbl_ImportantNoticeContent3")}</li>
-							<li>{t("lbl_ImportantNoticeContent4")}</li>
-							<li>{t("lbl_ImportantNoticeContent5")}</li>
+							<li>
+								<Trans
+									i18nKey="lbl_WithdrawalImportantNoticeContent1"
+									components={{
+										Link: (
+											<a
+												onClick={() =>
+													window.LiveChatWidget.call(
+														"maximize"
+													)
+												}
+											/>
+										)
+									}}
+								/>
+							</li>
+							<li>
+								{t("lbl_WithdrawalImportantNoticeContent2")}
+							</li>
+							<li>
+								{t("lbl_WithdrawalImportantNoticeContent3")}
+							</li>
+							<li>
+								{t("lbl_WithdrawalImportantNoticeContent4")}
+							</li>
+
+							<li>
+								<Trans
+									i18nKey="lbl_WithdrawalImportantNoticeContent5"
+									components={{
+										Link: (
+											<a
+												onClick={() =>
+													window.LiveChatWidget.call(
+														"maximize"
+													)
+												}
+											/>
+										)
+									}}
+								/>
+
+								{/* lbl_LiveChat 24/7 */}
+							</li>
 						</ul>
 					</div>
 				</div>
