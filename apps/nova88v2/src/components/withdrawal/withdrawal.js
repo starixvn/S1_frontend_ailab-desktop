@@ -128,8 +128,8 @@ export default () => {
 		);
 	};
 
-	const GetWithdrawalInfoRecent = () => {
-		api_payment_GetWithdrawalInfoRecent().then(
+	const GetWithdrawalInfoRecent = async () => {
+		await api_payment_GetWithdrawalInfoRecent().then(
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
@@ -216,98 +216,82 @@ export default () => {
 		);
 	};
 
-	const refreshData = () => {
-		GetWithdrawalAvailableBalance();
-		GetWithdrawalInfoRecent();
-		KycCheck();
+	const refreshData = async () => {
+		await GetWithdrawalAvailableBalance();
+		await GetWithdrawalInfoRecent();
+		await KycCheck();
 	};
 
 	const restoreAll = async () => {
+		setLoading(true);
+
 		await restoreAllBalanceToMainWallet();
 
-		refreshData();
+		await refreshData();
+
+		setLoading(false);
 	};
-	return loading ? null : (
-		<div className="rightModule">
-			<div className="infoModule">
-				<div className="inside-title icon icon-icon32px_Withdraw">
-					<span>{t("lbl_Withdrawal")}</span>
-					<button onClick={restoreAll} className="icon icon-history">
-						<span>Restore All</span>
-					</button>
-				</div>
 
-				{state.kycStatus !== "normal" ? (
-					<KycPanel
-						t={t}
-						dispatch={dispatch}
-						kycData={state.kycData ?? {}}
-						kycStatus={state.kycStatus}
-						KycCheck={KycCheck}
-					/>
-				) : (
-					<div className="infoModuleLeft">
-						<WalletPanel
-							balanceData={state.balanceData}
-							GetWithdrawalAvailableBalance={
-								GetWithdrawalAvailableBalance
-							}
-						/>
+	return (
+		!loading && (
+			<div className="rightModule">
+				<div className="infoModule">
+					<div className="inside-title icon icon-icon32px_Withdraw">
+						<span>{t("lbl_Withdrawal")}</span>
+						<button
+							onClick={restoreAll}
+							className="icon icon-history">
+							<span>{t("lbl_RestoreAll")}</span>
+						</button>
+					</div>
 
-						<MainPanel
+					{state.kycStatus !== "normal" ? (
+						<KycPanel
+							t={t}
 							dispatch={dispatch}
-							state={state}
-							refreshData={refreshData}
+							kycData={state.kycData ?? {}}
+							kycStatus={state.kycStatus}
 							KycCheck={KycCheck}
 						/>
-					</div>
-				)}
+					) : (
+						<div className="infoModuleLeft">
+							<WalletPanel
+								balanceData={state.balanceData}
+								GetWithdrawalAvailableBalance={
+									GetWithdrawalAvailableBalance
+								}
+							/>
 
-				<div className="important">
-					<div className="title">
-						<span className="icon icon-information" />
-						IMPORTANT NO TICE
+							<MainPanel
+								dispatch={dispatch}
+								state={state}
+								refreshData={refreshData}
+								KycCheck={KycCheck}
+							/>
+						</div>
+					)}
+
+					<div className="important">
+						<div className="title">
+							<span className="icon icon-information" />
+							{t("lbl_ImportantNotice")}
+						</div>
+						<ul>
+							<li>{t("lbl_ImportantNoticeContent1")}</li>
+							<li>{t("lbl_ImportantNoticeContent2")}</li>
+							<li>{t("lbl_ImportantNoticeContent3")}</li>
+							<li>{t("lbl_ImportantNoticeContent4")}</li>
+							<li>{t("lbl_ImportantNoticeContent5")}</li>
+						</ul>
 					</div>
-					<ul>
-						<li>
-							Kindly please check for the latest active deposit
-							bank details before you making a deposit.
-						</li>
-						<li>
-							For using <span>"Local Bank Transfer"</span> deposit
-							option, please make the transfer done before submit
-							the transaction to avoid the transaction delay.
-						</li>
-						<li>
-							Depositor's <span>ACCOUNT NAME</span> must match
-							with your registered full name. We do not encourage
-							transaction made using 3rd party/company account.
-						</li>
-						<li>
-							Please <span>DO NOT</span> fill in{" "}
-							<span>"NOVA88"</span> or any sensitive words related
-							to gambling as reference/remark in your online
-							transaction.
-						</li>
-						<li>
-							Please take noted that will be 1x rollover required
-							for all deposit made before any withdrawal can be
-							processed.
-						</li>
-						<li>
-							Kindly please contact our{" "}
-							<a href="">24/7 LIVECHAT</a> if your transaction is
-							still pending for more than 5 minutes.
-						</li>
-					</ul>
 				</div>
+				<RecentHistory
+					dispatch={dispatch}
+					refreshData={refreshData}
+					recentHistory={state.recentHistory ?? []}
+					GetWithdrawalInfoRecent={GetWithdrawalInfoRecent}
+				/>
 			</div>
-			<RecentHistory
-				dispatch={dispatch}
-				refreshData={refreshData}
-				recentHistory={state.recentHistory ?? []}
-				GetWithdrawalInfoRecent={GetWithdrawalInfoRecent}
-			/>
-		</div>
+		)
 	);
 };

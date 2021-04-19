@@ -274,6 +274,12 @@
 	"lbl_RolloverOver": "Perputaran turnover anda belum mencukupi",
 	"lbl_UpdatePersonalInfoWithdrawal": "Mohon perbarui data Anda sebelum sebelum penarikan.",
 	"lbl_GoWithdrawalPage": "Pergi ke halaman penarikan?",
+	"lbl_ImportantNotice": "PEMBERITAHUAN PENTING",
+	"lbl_ImportantNoticeContent1": "Silakan hubungi Live Chat 24/7 kami jika transaksi Anda belum selesai lebih dari 10 menit.",
+	"lbl_ImportantNoticeContent2": "Nama rekening bank penarikan harus sesuai dengan nama lengkap terdaftar, anggota tidak diperbolehkan penarikan ke rekening bank pihak ke-3.",
+	"lbl_ImportantNoticeContent3": "Beberapa penyedia permainan membutuhkan waktu sinkronisasi laporan selama 15 hingga 30 menit, mohon bersabarlah selama waktu sinkronisasi yang ditentukan.",
+	"lbl_ImportantNoticeContent4": "Pastikan Turnover yang dibutuhkan tercapai, dan ajukan transaksi penarikan setelah 30 menit untuk menghindari pembatalan otomatis oleh sistem.",
+	"lbl_ImportantNoticeContent5": "Jika ada perbedaan atau Anda mungkin memiliki pertanyaan penarikan lebih lanjut, silakan hubungi LIVE CHAT 24/7 kami. Terima kasih.",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Dana",

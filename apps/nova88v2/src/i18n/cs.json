@@ -274,6 +274,12 @@
 	"lbl_RolloverOver": "您的优惠回馈流水未达最低金额",
 	"lbl_UpdatePersonalInfoWithdrawal": "提款前，请更新您的个人信息。",
 	"lbl_GoWithdrawalPage": "前往提款页面？",
+	"lbl_ImportantNotice": "重要通知",
+	"lbl_ImportantNoticeContent1": "如果您的交易超过10分钟还未完成, 请与我们的24/7在線客服。",
+	"lbl_ImportantNoticeContent2": "提款银行户口名称必须与注册的全名匹配，会员不允许提款到第三方的银行帐户。",
+	"lbl_ImportantNoticeContent3": "一些游戏平台需要15至30分钟的报告同步时间，不便之处请多多包含。",
+	"lbl_ImportantNoticeContent4": "请在达到所需求的流水量的30分钟后，提交提款申请，以避免系统自动拒绝。",
+	"lbl_ImportantNoticeContent5": "如果您有任何提款疑问或查询, 请与我们的24/7在線客服。谢谢。",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "资金转移",
