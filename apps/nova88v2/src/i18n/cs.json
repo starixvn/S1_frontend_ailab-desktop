@@ -635,7 +635,7 @@
 	"lbl_LiveScore": "即时比分",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_CryptoWallet":"数字钱包",
+	"lbl_CryptoWallet":"加密钱包",
 	"lbl_CryptoWalletNickName": "钱包昵称",
 	"lbl_CryptoWalletAddress": "钱包地址",
 	"lbl_Update_Crypto_Wallet": "请提交提款订单前，更新数字钱包资料。",
