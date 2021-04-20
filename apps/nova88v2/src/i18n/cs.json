@@ -192,7 +192,7 @@
 	"lbl_DepositStatus4": "已拒绝",
 	"lbl_DepositStatus5": "已取消",
 	"lbl_DepositStatus6": "逾期",
-	"lbl_DepositStatus7": "搁置",
+	"lbl_DepositStatus7": "处理中",
 	"lbl_DepositStatus8": "处理中",
 	"lbl_DepositStatus99": "错误",
 	"lbl_Deposit": "存款",

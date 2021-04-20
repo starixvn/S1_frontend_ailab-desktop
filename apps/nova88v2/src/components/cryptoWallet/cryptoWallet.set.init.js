@@ -15,11 +15,16 @@ const InitPanel = ({ dispatch, t, numberOfAccount }) => {
 						<div className="icon icon-plus" />
 						<div>{t("lbl_Add_Crypto_Wallet")}</div>
 					</div>
-				) : null}
-				{/* <div className="remainder">
+				) : (
+					<div className="addBankName noBank">
+						<div className="icon icon-warning" />
+						<div>{t("lbl_Wallet_Is_Full")}</div>
+					</div>
+				)}
+				<div className="remainder">
 					{t("lbl_Number_Of_Wallet")}:{numberOfAccount ?? 0}/
 					{numberOfAccount === 0 ? "3" : numberOfAccount}
-				</div> */}
+				</div>
 				<div className="tip active">
 					{t("lbl_Crypto_Wallet_Submit_Note")}
 					<br />
