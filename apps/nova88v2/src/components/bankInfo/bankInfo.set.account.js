@@ -14,7 +14,8 @@ export default ({
 	accountNumber,
 	accountName,
 	alreadyHasAccountName,
-	reload
+	reload,
+	custBankList
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
@@ -69,6 +70,13 @@ export default ({
 		let checked = true;
 		let message = "";
 
+		const isRepeatAccount =
+			custBankList.filter(
+				_bank =>
+					_bank.bankName === bankInfo.bankName &&
+					_bank.accountNo === val
+			).length > 0;
+
 		if (col === "accountName" && !alreadyHasAccountName) {
 			if (!val) {
 				message = t("msg_EnterRealName");
@@ -80,6 +88,9 @@ export default ({
 				checked = false;
 			} else if (isNaN(val)) {
 				message = t("msg_AccountWrongFormat");
+				checked = false;
+			} else if (isRepeatAccount) {
+				message = t("lbl_already_stored_this_information");
 				checked = false;
 			}
 		}
@@ -200,7 +211,12 @@ export default ({
 						</div>
 						{!alreadyHasAccountName ? (
 							<Inputbox
-								className="inputBox-white"
+								className={`inputBox-white${
+									!status.accountName.checked &&
+									status.accountName.tip !== ""
+										? " error"
+										: ""
+								}`}
 								value={accountName}
 								onChange={editField.bind(this, "accountName")}
 								onBlur={checkAccount.bind(
@@ -216,7 +232,12 @@ export default ({
 						) : null}
 						<div className="inputModuleRow">
 							<Inputbox
-								className="inputBox-white"
+								className={`inputBox-white${
+									!status.accountNumber.checked &&
+									status.accountNumber.tip !== ""
+										? " error"
+										: ""
+								}`}
 								value={accountNumber}
 								onChange={editField.bind(this, "accountNumber")}
 								onBlur={checkAccount.bind(
