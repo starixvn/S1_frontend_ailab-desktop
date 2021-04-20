@@ -8,6 +8,7 @@ import ErrorMsg from "./popBox.errorMsg";
 import Login from "./popBox.login";
 import Join from "./popBox.join";
 import AddBankAccount from "./popBox.addBankAccount";
+import AddCryptoWallet from "./popBox.addCryptoWallet";
 import AddBankSuccess from "./popBox.addBankSuccess";
 import ConfirmDelete from "./popBox.confirmDelete";
 import ProfileConfirmCheck from "./popBox.profileConfirmCheck";
@@ -98,6 +99,12 @@ export default () => {
 					bankInfoSysList={popBox.bankInfoSysList}
 					GetCustBankInfo={popBox.GetCustBankInfo}
 				/>
+			);
+			break;
+
+		case defPopBoxType.AddCryptoWallet:
+			content = (
+				<AddCryptoWallet GetCustBankInfo={popBox.GetCustBankInfo} />
 			);
 			break;
 

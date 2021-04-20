@@ -6,6 +6,7 @@ import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStri
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 import { popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
+import usePopBox from "../hook/usePopBox";
 
 export default ({
 	dispatch,
@@ -17,6 +18,7 @@ export default ({
 	isUSDT
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -69,42 +71,27 @@ export default ({
 							GetCustBankInfo
 						});
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={ClosePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
+	};
+
+	const addCryptoWallet = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.AddCryptoWallet,
+			GetCustBankInfo
+		});
 	};
 
 	const delAccount = (accountNo, sysId) => {
@@ -118,7 +105,6 @@ export default ({
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
 							GetCustBankInfo();
-
 							if (accountNo === state.selectedAccount.accountNo) {
 								dispatch({
 									type: defActionType.SELECT_ACCOUNT,
@@ -126,23 +112,12 @@ export default ({
 									step: 1
 								});
 							}
-
 							setPopBox({ isOpen: false });
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-check"
-											onClick={ClosePopBox}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 						dispatch({
 							type: defActionType.SET_LOADING,
@@ -150,22 +125,9 @@ export default ({
 						});
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 						dispatch({
 							type: defActionType.SET_LOADING,
 							loading: false
@@ -230,13 +192,9 @@ export default ({
 		<div className="addBank">
 			{custBankInfo.length > 0 ? bankArr : null}
 			{custBankInfo.length < 3 ? (
-				<div className="addBankName" onClick={addBankAccount}>
-					<div className="cryptoInfo">
-						<div className="icon icon-plus" />
-					</div>
-					<div className="walletNickname">
-						{t("lbl_AddBankAccount")}
-					</div>
+				<div className="addBankName noBank" onClick={addBankAccount}>
+					<div className="icon icon-plus" />
+					<div>{t("lbl_AddBankAccount")}</div>
 				</div>
 			) : null}
 			<div className="remainder">
@@ -246,6 +204,12 @@ export default ({
 	) : (
 		<div className="addBank">
 			{custBankInfo.length > 0 ? usdtWalletArr : null}
+			{custBankInfo.length === 0 ? (
+				<div className="addBankName noBank" onClick={addCryptoWallet}>
+					<div className="icon icon-plus" />
+					<div>{t("lbl_Add_Crypto_Wallet")}</div>
+				</div>
+			) : null}
 			<div className="remainder">
 				{t("lbl_Number_Of_Wallet")}:{custBankInfo?.length ?? 0}/
 				{isUSDT

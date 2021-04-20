@@ -85,6 +85,12 @@ const AccountPanel = ({
 		const WAValidator = require("multicoin-address-validator");
 		const isValidAddress = WAValidator.validate(_val, "eth");
 
+		const _addressList = Object.values(walletDatas).filter(
+			(_address, _index) => (_index + 1) % 2 === 0 && _address?.length > 0
+		);
+		const hasRepeatAddress =
+			_addressList.filter(_address => _address === _val).length > 1;
+
 		if (_colType === colType.accountName && !alreadyHasAccountName) {
 			if (!_val) {
 				message = t("msg_EnterRealName");
@@ -95,7 +101,12 @@ const AccountPanel = ({
 		} else if (_colType === colType.address) {
 			if (_val) {
 				if (isValidAddress) {
-					checked = true;
+					if (hasRepeatAddress) {
+						message = t("lbl_already_stored_this_information");
+						checked = false;
+					} else {
+						checked = true;
+					}
 				} else {
 					message = t("lbl_NotERC20WalletAddr");
 					checked = false;
@@ -236,7 +247,9 @@ const AccountPanel = ({
 				clickInfo={clickInfo.bind(this, item.label, item.colType)}
 				checked={item.checked}
 				tip={item.tip}
-				placeholder={t("lbl_Optional")}
+				placeholder={
+					item.colType === colType.nickName ? t("lbl_Optional") : ""
+				}
 			/>
 		);
 	});

@@ -653,6 +653,7 @@
 	"lbl_Optional":"可选",
 	"lbl_CryptoPay":"数字货币渠道",
 	"lbl_NotERC20WalletAddr":"必须符合 ERC-20 的钱包地址",
+	"lbl_already_stored_this_information":"您已经存储此信息。",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "即将的赛事",

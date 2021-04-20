@@ -653,6 +653,7 @@
 	"lbl_Optional":"Pilihan",
 	"lbl_CryptoPay":"Pembayaran Crypto",
 	"lbl_NotERC20WalletAddr":"Harus alamat dompet yang sesuai dengan ERC-20",
+	"lbl_already_stored_this_information":"Anda telah menyimpan informasi ini.",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "Pertandingan Mendatang",
