@@ -146,11 +146,12 @@ const LocalBankForm = ({
 
 	return (
 		<>
-			<div className="subModule">
-				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_SelectBank")}
-				</div>
+			<div className="subModuleTitle">
+				<i className="txt-blue">*</i>
+				{t("lbl_SelectBank")}
+			</div>
+
+			<div className="subModule selectBank">
 				<div>
 					{localBankGroupList.map(item => (
 						<button
@@ -161,7 +162,7 @@ const LocalBankForm = ({
 							onClick={() => onChangeBankInfo(item)}>
 							<div>
 								<img
-									src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+									src={`${config.cloudImgUrl}/SiteSkin/img/Payment/BankLogo/${item.bankLogo}`}
 									alt={item.bankName}
 								/>
 								<i className="icon icon-icon32px_check" />
@@ -189,8 +190,13 @@ const LocalBankForm = ({
 					))}
 				</div>
 			</div>
+
+			<div className="subModuleTitle">
+				<i className="txt-blue">*</i>
+				{t("lbl_BankAccount")}
+			</div>
+
 			<div className="subModule">
-				<div className="subModuleTitle">{t("lbl_BankAccount")}</div>
 				<div className="bankAccount">
 					{t("lbl_TransactionHint")}
 					<div className="smallList">
@@ -226,12 +232,12 @@ const LocalBankForm = ({
 				</div>
 			</div>
 
-			<div className="subModule">
-				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_DepositAmount")}
-				</div>
+			<div className="subModuleTitle">
+				<i className="txt-blue">*</i>
+				{t("lbl_DepositAmount")}
+			</div>
 
+			<div className="subModule">
 				<Inputbox
 					className="inputBox-white"
 					// title={t("lbl_Amount")}
@@ -248,11 +254,13 @@ const LocalBankForm = ({
 					onKeyDown={onInputboxKeyDown}
 				/>
 			</div>
+
+			<div className="subModuleTitle">
+				<i className="txt-blue">*</i>
+				{t("lbl_SubmitProof")}
+			</div>
+
 			<div className="subModule">
-				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_SubmitProof")}
-				</div>
 				<div className="btnGroup">
 					<button className="blue" onClick={onOpenUploadBankPopBox}>
 						{t("lbl_UploadReceipt")}

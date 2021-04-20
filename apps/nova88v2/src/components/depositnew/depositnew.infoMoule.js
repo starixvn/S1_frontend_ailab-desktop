@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Trans } from "react-i18next";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
@@ -14,6 +15,8 @@ const DepositnewInfoMoule = ({
 	processingDescriptionActive,
 	children
 }) => {
+	const [rememberInfoActive, setRememberInfoActive] = useState(false);
+
 	return (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_deposit">
@@ -27,11 +30,34 @@ const DepositnewInfoMoule = ({
 				</Link>
 			</div>
 			<div className="subModuleListColumn">
-				<div className="subModule">
-					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_DepositOptions")}
+				<div className="subModuleTitle">
+					<i className="txt-blue">*</i>
+					{t("lbl_DepositOptions")}
+					<div className="checkbox autotransfer">
+						<input type="checkbox" id="c1" />
+						<label
+							htmlFor="c1"
+							className="icon icon-checkbox-checked"
+						/>
+						Remember my last used mode
+						<button
+							className="icon icon-question"
+							onClick={() =>
+								setRememberInfoActive(!rememberInfoActive)
+							}
+						/>
+						<div
+							className={`inputInfo${
+								rememberInfoActive ? " active" : ""
+							}`}>
+							Remember the bank used for your last deposit. If the
+							bank you selected has been closed, please select
+							again.
+						</div>
 					</div>
+				</div>
+
+				<div className="subModule">
 					<div>
 						{depositOptions.map(item => (
 							<button
@@ -55,6 +81,7 @@ const DepositnewInfoMoule = ({
 						))}
 					</div>
 				</div>
+
 				{children}
 
 				<div className="btnGroup">
@@ -70,6 +97,57 @@ const DepositnewInfoMoule = ({
 						{t("lbl_DepositProcessingDescription")}
 					</div>
 				) : null}
+			</div>
+
+			<div className="important">
+				<div className="title">
+					<span className="icon icon-information" />
+					{t("lbl_ImportantNotice")}
+				</div>
+				<ul>
+					<li>{t("lbl_DepositImportantNoticeContent1")}</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent2"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent3"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent4"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>{t("lbl_DepositImportantNoticeContent5")}</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent6"
+							components={{
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
+							}}
+						/>
+					</li>
+				</ul>
 			</div>
 		</div>
 	);

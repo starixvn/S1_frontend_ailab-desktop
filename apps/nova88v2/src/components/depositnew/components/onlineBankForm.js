@@ -107,11 +107,12 @@ const OnlineBankForm = ({
 
 	return (
 		<>
+			<div className="subModuleTitle">
+				<i className="txt-blue">*</i>
+				{t("lbl_Payment_Method")}
+			</div>
+
 			<div className="subModule">
-				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_Payment_Method")}
-				</div>
 				<div>
 					{onlineBankGroupList.map(item => (
 						<button
@@ -154,7 +155,7 @@ const OnlineBankForm = ({
 			</div>
 
 			{!!onlineBankInfoList.length && (
-				<div className="subModule">
+				<div className="subModule selectBank">
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_SelectBank")}
@@ -173,15 +174,14 @@ const OnlineBankForm = ({
 								}>
 								<div>
 									<img
-										alt={item.bankLogo}
-										src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+										src={`${config.cloudImgUrl}/SiteSkin/img/Payment/BankLogo/${item.bankLogo}`}
+										alt={item.bankName}
 									/>
 									<i className="icon icon-icon32px_check" />
 								</div>
 
 								<div className="bank">
 									<div>{item.bankName}</div>
-									<div className="" />
 								</div>
 							</button>
 						))}

@@ -83,8 +83,12 @@ const MobileForm = ({
 
 	return (
 		<>
+			<div className="subModuleTitle">
+				<i className="txt-blue">*</i>
+				{t("lbl_Payment_Method")}
+			</div>
+
 			<div className="subModule">
-				<div className="subModuleTitle">{t("lbl_Payment_Method")}</div>
 				<div>
 					{mobilePayGourpList.map(item => (
 						<button
@@ -111,86 +115,100 @@ const MobileForm = ({
 			</div>
 
 			{!!mobilePayInfoList.length && (
-				<div className="subModule">
+				<>
 					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
 						{t("lbl_SelectChannel")}
 					</div>
-					<div>
-						{mobilePayInfoList.map(item => (
-							<button
-								key={`deposit-mobilePay-info-${item.groupName}-${item.channelId}}`}
-								onClick={() => onSetInfoData(item)}
-								className={
-									item.channelId === infoChannelIdForRecord
-										? "active"
-										: ""
-								}>
-								<div>
-									<img
-										alt={item.groupName}
-										src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.groupName}.png`}
-									/>
-									<i className="icon icon-icon32px_check" />
-								</div>
 
-								<div className="bank">
-									<div>{item.channelName}</div>
-
+					<div className="subModule">
+						<div>
+							{mobilePayInfoList.map(item => (
+								<button
+									key={`deposit-mobilePay-info-${item.groupName}-${item.channelId}}`}
+									onClick={() => onSetInfoData(item)}
+									className={
+										item.channelId ===
+										infoChannelIdForRecord
+											? "active"
+											: ""
+									}>
 									<div>
+										<img
+											alt={item.groupName}
+											src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.groupName}.png`}
+										/>
+										<i className="icon icon-icon32px_check" />
+									</div>
+
+									<div className="bank">
+										<div>{item.channelName}</div>
+
 										<div>
-											{`${t("lbl_Min")}: ${number_format(
-												item.minAmount,
-												_isConvert
-											)}`}
-										</div>
-										<div>
-											{`${t("lbl_Max")}: ${number_format(
-												item.maxAmount,
-												_isConvert
-											)}`}
+											<div>
+												{`${t(
+													"lbl_Min"
+												)}: ${number_format(
+													item.minAmount,
+													_isConvert
+												)}`}
+											</div>
+											<div>
+												{`${t(
+													"lbl_Max"
+												)}: ${number_format(
+													item.maxAmount,
+													_isConvert
+												)}`}
+											</div>
 										</div>
 									</div>
-								</div>
-							</button>
-						))}
+								</button>
+							))}
+						</div>
 					</div>
-				</div>
+				</>
 			)}
 
 			{infoChannelIdForRecord ? (
-				<div className="subModule">
+				<>
 					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
 						{t("lbl_DepositAmount")}
 					</div>
-					<div className="column">
-						{isSelAmountType ? (
-							<FixedAmountList
-								minAmount={formInfo.minAmount}
-								maxAmount={formInfo.maxAmount}
-								amountList={formInfo.amountList}
-								amount={formInfo.amount}
+
+					<div className="subModule">
+						<div className="column">
+							<Inputbox
+								className="inputBox-white"
+								readOnly={isSelAmountType}
+								// title={t("lbl_Amount")}
+								value={formInfo.amount}
+								onChange={e => onChangeAmount(e.target.value)}
+								onBlur={() => onValidAmount(formInfo.amount)}
+								checked={formInfo?.checked}
+								tip={formInfo?.tip}
 								_isConvert={_isConvert}
-								onChangeAmount={onChangeAmount}
+								isAmount={true}
+								placeholder={`${t(
+									"lbl_MinMaxAmount"
+								)} ${formatMinAmount} ~ ${formatMaxAmount}`}
+								onKeyDown={onInputboxKeyDown}
 							/>
-						) : null}
-						<Inputbox
-							className="inputBox-white"
-							readOnly={isSelAmountType}
-							// title={t("lbl_Amount")}
-							value={formInfo.amount}
-							onChange={e => onChangeAmount(e.target.value)}
-							onBlur={() => onValidAmount(formInfo.amount)}
-							checked={formInfo?.checked}
-							tip={formInfo?.tip}
-							_isConvert={_isConvert}
-							isAmount={true}
-							placeholder={`${t(
-								"lbl_MinMaxAmount"
-							)} ${formatMinAmount} ~ ${formatMaxAmount}`}
-							onKeyDown={onInputboxKeyDown}
-						/>
+
+							{isSelAmountType ? (
+								<FixedAmountList
+									minAmount={formInfo.minAmount}
+									maxAmount={formInfo.maxAmount}
+									amountList={formInfo.amountList}
+									amount={formInfo.amount}
+									_isConvert={_isConvert}
+									onChangeAmount={onChangeAmount}
+								/>
+							) : null}
+						</div>
 					</div>
-				</div>
+				</>
 			) : null}
 		</>
 	);
