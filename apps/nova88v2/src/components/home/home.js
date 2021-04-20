@@ -110,18 +110,9 @@ const IndexPage = ({ location }) => {
 				}
 			};
 
-			const clickCloseReferral = () => {
-				setPopBox({ isOpen: false });
-				showDepositPopBox();
-			};
-
 			const showsJoinSuccess = () => {
 				const closeJoinSuccess = () => {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.JoinReferral,
-						onClickClose: clickCloseReferral
-					});
+					setPopBox({ isOpen: false });
 				};
 				setPopBox({
 					isOpen: true,
@@ -155,22 +146,28 @@ const IndexPage = ({ location }) => {
 				navigate(`/${userInfo.langId}`, { state: null });
 			};
 
-			if (!isJoinCurrently) {
-				if (readCookie(refeCookieName) === "1") {
-					showDepositPopBox();
-				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.JoinReferral,
-						onClickClose: clickCloseReferral
-					});
-				}
-			} else {
+			if (isJoinCurrently) {
 				showsJoinSuccess();
 				clearLocationJoinState();
+			} else if (readCookie(refeCookieName) === "1") {
+				showDepositPopBox();
 			}
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
+
+	useEffect(() => {
+		if (
+			userInfo.isLogin === false &&
+			isDateRange(null, "2021/04/18 23:59:59") &&
+			(userInfo.langId === "en" || userInfo.langId === "cs")
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RankingWinner,
+				onClickClose: () => setPopBox({ isOpen: false })
+			});
+		}
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	return (
 		<main>

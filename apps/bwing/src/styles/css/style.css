@@ -7064,6 +7064,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingPage .rankContent .rankBox .rankInBox.rankInBox2 {
+  width: 49%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7258,7 +7259,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingNew .rankContent .rankBox .rankInBox {
-  width: 49%;
+  width: 58%;
   height: 600px;
   padding: 20px;
   border-radius: 5px;
@@ -7606,6 +7607,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .rankingNew .rankContent .rankBox .rankInBox.rankInBox2 {
+  width: 41%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

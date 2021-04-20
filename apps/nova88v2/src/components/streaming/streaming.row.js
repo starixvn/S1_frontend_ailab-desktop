@@ -35,7 +35,7 @@ export const StreamingModule = ({
 			} else {
 				window.open(
 					`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
-					`streaming-${channel}`,
+					`streaming`,
 					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
 				);
 			}
@@ -87,7 +87,8 @@ export const StreamingModule = ({
 StreamingModule.defaultProps = {
 	isStreamingPage: false,
 	homeScore: null,
-	awayScore: null
+	awayScore: null,
+	matchID: null
 };
 
 StreamingModule.propTypes = {
@@ -101,6 +102,6 @@ StreamingModule.propTypes = {
 	homeScore: PropTypes.number,
 	awayScore: PropTypes.number,
 	timeStart: PropTypes.string.isRequired,
-	matchID: PropTypes.number.isRequired,
+	matchID: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	channel: PropTypes.number.isRequired
 };

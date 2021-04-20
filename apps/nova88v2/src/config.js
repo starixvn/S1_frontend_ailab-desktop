@@ -42,6 +42,7 @@ export const SiteInfo = {
 };
 
 const cloudImgUrl = "https://image.n88media.com";
+const bannerImgUrl = "https://banner.n88media.com";
 
 export default process.env.NODE_ENV === "production"
 	? {
@@ -50,18 +51,20 @@ export default process.env.NODE_ENV === "production"
 			openURL: "",
 			imgUrl: "",
 			t_and_cURL: "",
-			cloudImgUrl: "https://image.n88media.com"
+			cloudImgUrl: "https://image.n88media.com",
+			bannerImgUrl
 	  }
 	: {
 			siteName,
 			cloudImgUrl,
+			bannerImgUrl,
 			appURL: "http://localhost:4201",
 
 			// apiURL: "http://localhost:60930",
 			// imgUrl: "http://localhost:60930",
 			// t_and_cURL: "http://localhost:60930"
 
-			apiURL: "http://www.n88dev.com",
+			apiURL: "https://www.n88dev.com",
 			imgUrl: "http://www.n88dev.com",
 			t_and_cURL: "http://www.n88dev.com",
 			openURL: "http://www.n88dev.com"

@@ -7,6 +7,7 @@ import { AutoPlayWithBtn } from "../common/swipperBanner";
 import { InfoEn, InfoTh, InfoId, InfoCs } from "./vip.info";
 import VipPage from "./vip.page";
 import { defbanner, defPageClubImg } from "./vip.def";
+import config from "../../config";
 
 const Vip = () => {
 	const { t } = useTranslation();
@@ -42,6 +43,8 @@ const Vip = () => {
 		cs: <InfoCs />
 	}[userInfo.langId];
 
+	const bottomImg = `${config.cloudImgUrl}/VIP/img/${userInfo.langId}/vip_program_${userInfo.langId}.jpg`;
+
 	return (
 		<main className="vip">
 			<AutoPlayWithBtn Rows={rows} />
@@ -54,6 +57,7 @@ const Vip = () => {
 				currencyId={currencyId}
 				langId={userInfo.langId}
 				showJoinPopBox={showJoinPopBox}
+				bottomImg={bottomImg}
 			/>
 		</main>
 	);

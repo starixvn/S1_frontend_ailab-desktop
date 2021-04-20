@@ -39,6 +39,7 @@ class Marquee extends Component {
 
 	componentWillUnmount = () => {
 		this.isMountedRef = false;
+		clearInterval(this.intervalId);
 		clearInterval(this.intervalId_Pos);
 	};
 

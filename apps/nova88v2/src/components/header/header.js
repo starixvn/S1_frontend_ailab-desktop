@@ -72,6 +72,13 @@ export default ({ productTpIds }) => {
 				<div className="function">
 					<Functions />
 					<LanguageDropDown />
+					{userInfo.isLogin ? null : (
+						<Link
+							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
+							className="forgot">
+							{t("lbl_ForgetPassword")}
+						</Link>
+					)}
 					<LogoutButton />
 				</div>
 				<Menu productTpIds={productTpIds} />
