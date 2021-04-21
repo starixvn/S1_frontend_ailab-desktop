@@ -101,5 +101,5 @@ export default ({
 			</div>
 		);
 
-	return <div className="nodata">{t("msg_NoData")}</div>;
+	return <div className="nodata icon icon-nodata">{t("lbl_NoData")}</div>;
 };
