@@ -10,6 +10,7 @@ import LanguageDropDown from "./header.langDropdown";
 
 export default ({ productTpIds }) => {
 	const { userInfo } = useContext(userInfoContext);
+
 	const { t } = useTranslation();
 
 	return (

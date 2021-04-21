@@ -7,7 +7,6 @@ import {
 } from "../../service/api/account";
 import { popBoxContext, msgCountContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
-import Loading from "../common/loading";
 
 export default props => {
 	const { t } = useTranslation();
@@ -16,7 +15,6 @@ export default props => {
 	const isMountedRef = useRef(null);
 	const [msgContentData, setMsgContentData] = useState("");
 	const [showContent, setShowContent] = useState(false);
-	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -31,8 +29,6 @@ export default props => {
 
 	const getMsgContent = getMsg => {
 		if (getMsg) {
-			setLoading(true);
-
 			api_account_GetMsgContent(props.id).then(
 				res => {
 					if (isMountedRef.current) {
@@ -64,10 +60,9 @@ export default props => {
 								)
 							});
 						}
-						setLoading(false);
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -83,7 +78,6 @@ export default props => {
 								</div>
 							)
 						});
-						setLoading(false);
 					}
 				}
 			);
@@ -106,9 +100,7 @@ export default props => {
 			: moment(props.createTime).format("YYYY-MM-DD");
 	};
 
-	return loading ? (
-		<Loading />
-	) : (
+	return (
 		<div className={props.flag ? "haveRead" : ""}>
 			<div className="listHeader">
 				<div className="checkbox">
@@ -128,7 +120,7 @@ export default props => {
 					{props.title}
 				</div>
 				<div
-					className="txt-blue2"
+					className="txt-blue3"
 					onClick={getMsgContent.bind(this, !showContent)}>
 					{dateTimeFormat()}
 					<button

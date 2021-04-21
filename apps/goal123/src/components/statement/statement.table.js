@@ -44,7 +44,9 @@ const StatementTable = ({ t, dataSource, columns, children }) => {
 
 			{Array.isArray(dataSource) && !dataSource.length && (
 				<div className="list history">
-					<div className="nodata">{t("msg_NoData")}</div>
+					<div className="nodata icon icon-nodata">
+						{t("lbl_NoData")}
+					</div>
 				</div>
 			)}
 		</>

@@ -4,6 +4,11 @@ export default {
 		gameId: 1,
 		name: "soccer"
 	},
+	sabaSoccer: {
+		tpId: 1,
+		gameId: 997,
+		name: "sabaSoccer"
+	},
 	eSport: {
 		tpId: 1,
 		gameId: 43,
@@ -202,5 +207,6 @@ export const defCasinoProviders = {
 	ICG: {
 		tpId: 24,
 		name: "ICG"
-	}
+	},
+	PT: { tpId: 27, gameId: "0", name: "PT" }
 };

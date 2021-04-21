@@ -156,7 +156,7 @@ const Content = () => {
 						<div className="listBody">{arr}</div>
 					) : (
 						<div className="nodata icon icon-nodata">
-							<div>{t("lbl_NoData")}</div>
+							{t("lbl_NoData")}
 						</div>
 					)}
 				</div>

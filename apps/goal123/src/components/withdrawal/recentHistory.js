@@ -151,7 +151,9 @@ export default ({
 				{recentData?.length > 0 ? (
 					<div className="listBody">{arr}</div>
 				) : (
-					<div className="nodata">{t("msg_NoData")}</div>
+					<div className="nodata icon icon-nodata">
+						{t("lbl_NoData")}
+					</div>
 				)}
 			</div>
 			<Link
