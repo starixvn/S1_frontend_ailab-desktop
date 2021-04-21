@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 export default function HTML(props) {
 	const vkey = `${Date.now()}`;
+
 	return (
 		<html lang="en" {...props.htmlAttributes}>
 			<head>
@@ -22,6 +23,7 @@ export default function HTML(props) {
 					type="text/css"
 					href={`/styles/css/style.css?v=${vkey}`}
 				/>
+
 				<link
 					rel="stylesheet"
 					type="text/css"
@@ -32,6 +34,7 @@ export default function HTML(props) {
 					type="text/css"
 					href={`/styles/css/datePicker.css?v=${vkey}`}
 				/>
+
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>

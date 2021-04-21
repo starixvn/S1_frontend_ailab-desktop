@@ -342,42 +342,45 @@ export default ({
 				<span>{t("lbl_Withdrawal")}</span>
 				<div>{t("lbl_UpdateBankInfo")}</div>
 			</div>
-			<StepBar step={step} t={t} defStep={defStep} />
-			<div className="walletModule">
-				<Available
-					availableBalance={balanceData.availableBalance}
-					refreshAvailableBalance={refreshAvailableBalance}
-					_isConvert={_isConvert}
-					accountName={userInfo.accountName}
-				/>
-			</div>
-			<div className="walletModule">
-				<div className="addBank">
-					<BankInfoCard
-						setCurrentlyBankInfo={setCurrentlyBankInfo}
-						currentBankInfo={{
-							sysIdValue,
-							accountNoValue,
-							bankNameValue
-						}}
-						bankInfoList={bankInfoList}
-						setBankInfoList={setBankInfoList}
-						_isConvert={_isConvert}
-						confirmPanel={showConfirmPage}
-						balanceData={balanceData}
-					/>
-					<AddBankAccount bankInfoList={bankInfoList} />
-				</div>
 
-				<div className="subModuleList">
-					<div className="subModule">
-						{!showConfirmPage ? (
-							<div className="subModuleBody">
-								<Calculation
-									balanceData={balanceData}
-									_isConvert={_isConvert}
-								/>
-								{/* <CashBar
+			<div className="walletWrapper">
+				{/* <StepBar step={step} t={t} defStep={defStep} /> */}
+
+				<div className="walletModule">
+					<Available
+						availableBalance={balanceData.availableBalance}
+						refreshAvailableBalance={refreshAvailableBalance}
+						_isConvert={_isConvert}
+						accountName={userInfo.accountName}
+					/>
+				</div>
+				<div className="walletModule">
+					<div className="addBank">
+						<BankInfoCard
+							setCurrentlyBankInfo={setCurrentlyBankInfo}
+							currentBankInfo={{
+								sysIdValue,
+								accountNoValue,
+								bankNameValue
+							}}
+							bankInfoList={bankInfoList}
+							setBankInfoList={setBankInfoList}
+							_isConvert={_isConvert}
+							confirmPanel={showConfirmPage}
+							balanceData={balanceData}
+						/>
+						<AddBankAccount bankInfoList={bankInfoList} />
+					</div>
+
+					<div className="subModuleList">
+						<div className="subModule">
+							{!showConfirmPage ? (
+								<div className="subModuleBody">
+									<Calculation
+										balanceData={balanceData}
+										_isConvert={_isConvert}
+									/>
+									{/* <CashBar
 											onChangeAmount={onChangeAmount}
 											amountValue={amountValue}
 											availableBalance={
@@ -385,35 +388,39 @@ export default ({
 											}
 											_isConvert={_isConvert}
 										/> */}
-								<InputModuleRow
-									onChangeAmount={onChangeAmount}
-									amountValue={amountValue}
+									<InputModuleRow
+										onChangeAmount={onChangeAmount}
+										amountValue={amountValue}
+										sysIdValue={sysIdValue}
+										accountNoValue={accountNoValue}
+										toConfirmPage={toConfirmPage}
+										_isConvert={_isConvert}
+										status={status}
+										onBlur={ValidAmount.bind(
+											this,
+											amountValue
+										)}
+										clickInfo={clickInfo}
+										checked={status.checked}
+										tip={status.tip}
+									/>
+								</div>
+							) : (
+								<WithdrawalConfirm
+									bankNameValue={bankNameValue}
+									amountValue={
+										_isConvert
+											? amountValue * 1000
+											: amountValue
+									}
 									sysIdValue={sysIdValue}
 									accountNoValue={accountNoValue}
-									toConfirmPage={toConfirmPage}
+									cancelSubmit={cancelSubmit}
+									confirmSubmit={confirmSubmit}
 									_isConvert={_isConvert}
-									status={status}
-									onBlur={ValidAmount.bind(this, amountValue)}
-									clickInfo={clickInfo}
-									checked={status.checked}
-									tip={status.tip}
 								/>
-							</div>
-						) : (
-							<WithdrawalConfirm
-								bankNameValue={bankNameValue}
-								amountValue={
-									_isConvert
-										? amountValue * 1000
-										: amountValue
-								}
-								sysIdValue={sysIdValue}
-								accountNoValue={accountNoValue}
-								cancelSubmit={cancelSubmit}
-								confirmSubmit={confirmSubmit}
-								_isConvert={_isConvert}
-							/>
-						)}
+							)}
+						</div>
 					</div>
 				</div>
 			</div>
