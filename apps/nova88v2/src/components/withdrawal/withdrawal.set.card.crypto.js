@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 const CryptoCard = ({
 	t,
 	state,
-	selectAccount,
-	addCryptoWallet,
+	isUSDT,
 	custBankInfo,
-	isUSDT
+	selectAccount,
+	addCryptoWallet
 }) => {
 	const isMountedRef = useRef(null);
 
@@ -82,10 +82,10 @@ const CryptoCardLayout = props => {
 CryptoCard.propTypes = {
 	t: PropTypes.func.isRequired,
 	state: PropTypes.objectOf(PropTypes.any).isRequired,
-	addCryptoWallet: PropTypes.func.isRequired,
-	selectAccount: PropTypes.func.isRequired,
+	isUSDT: PropTypes.bool.isRequired,
 	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	isUSDT: PropTypes.bool.isRequired
+	selectAccount: PropTypes.func.isRequired,
+	addCryptoWallet: PropTypes.func.isRequired
 };
 
 CryptoCardLayout.defaultProps = {

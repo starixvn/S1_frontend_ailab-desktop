@@ -163,7 +163,6 @@ const CardPanel = ({
 			state={state}
 			defPanel={defPanel}
 			custBankInfo={custBankInfo}
-			accountName={accountName}
 			addBankAccount={addBankAccount}
 			selectAccount={selectAccount}
 			delAccount={delAccount}
@@ -173,11 +172,9 @@ const CardPanel = ({
 			t={t}
 			state={state}
 			isUSDT={isUSDT}
-			accountName={accountName}
 			custBankInfo={custBankInfo}
 			selectAccount={selectAccount}
 			addCryptoWallet={addCryptoWallet}
-			GetCustBankInfo={GetCustBankInfo}
 		/>
 	);
 };

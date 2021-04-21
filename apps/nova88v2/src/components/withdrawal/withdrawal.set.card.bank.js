@@ -4,12 +4,12 @@ import config from "../../config";
 
 const BankCard = ({
 	t,
-	defPanel,
 	state,
+	defPanel,
+	custBankInfo,
 	addBankAccount,
 	selectAccount,
-	delAccount,
-	custBankInfo
+	delAccount
 }) => {
 	const isMountedRef = useRef(null);
 
@@ -96,12 +96,12 @@ const BankCardLayout = props => {
 
 BankCard.propTypes = {
 	t: PropTypes.func.isRequired,
-	defPanel: PropTypes.objectOf(PropTypes.any).isRequired,
 	state: PropTypes.objectOf(PropTypes.any).isRequired,
+	defPanel: PropTypes.objectOf(PropTypes.any).isRequired,
+	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	addBankAccount: PropTypes.func.isRequired,
 	selectAccount: PropTypes.func.isRequired,
-	delAccount: PropTypes.func.isRequired,
-	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired
+	delAccount: PropTypes.func.isRequired
 };
 
 BankCardLayout.defaultProps = {
