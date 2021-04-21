@@ -136,7 +136,7 @@ const HomeV2 = ({ productTpIds }) => {
 				config={{
 					effect: "fade",
 					autoplay: {
-						delay: 3500,
+						delay: 5000,
 						disableOnInteraction: false
 					}
 				}}
