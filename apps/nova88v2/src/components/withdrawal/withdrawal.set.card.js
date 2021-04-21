@@ -157,8 +157,6 @@ const CardPanel = ({
 		});
 	};
 
-	console.log(custBankInfo);
-
 	return !isUSDT ? (
 		<BankCard
 			t={t}

@@ -1,18 +1,17 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { number_format, checkAmount, getAmountTip } from "../common/common";
 import { defActionType, defPanel } from "./withdrawal.reducer";
-import { popBoxContext, userInfoContext } from "../common/context";
+import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
 import CashBar from "./withdrawal.set.cashBar";
 
-export default ({ dispatch, state, t, _isConvert, isUSDT }) => {
+const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	const { userInfo } = useContext(userInfoContext);
 
 	const EditAmount = Value => {
 		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
-
 		ValidAmount(value);
 		dispatch({
 			type: defActionType.EDIT_AMOUNT,
@@ -101,7 +100,9 @@ export default ({ dispatch, state, t, _isConvert, isUSDT }) => {
 					<div>
 						<div>{t("lbl_Balance")}</div>
 						<div>
-							{t(`Currency_${userInfo.currencyId}`)}
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
 							<span>
 								{number_format(
 									state.balanceData?.balance,
@@ -114,7 +115,9 @@ export default ({ dispatch, state, t, _isConvert, isUSDT }) => {
 					<div>
 						<div>{t("lbl_Deduction")}</div>
 						<div>
-							{t(`Currency_${userInfo.currencyId}`)}
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
 							<span>
 								{number_format(
 									state.balanceData?.deduction,
@@ -127,7 +130,9 @@ export default ({ dispatch, state, t, _isConvert, isUSDT }) => {
 					<div>
 						<div>{t("lbl_EligibleWithdrawalAmount")}</div>
 						<div>
-							{t(`Currency_${userInfo.currencyId}`)}
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
 							<span>
 								{number_format(
 									state.balanceData?.availableBalance,
@@ -169,3 +174,14 @@ export default ({ dispatch, state, t, _isConvert, isUSDT }) => {
 		</div>
 	);
 };
+
+AmountPanel.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	state: PropTypes.objectOf(PropTypes.any).isRequired,
+	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	isUSDT: PropTypes.bool.isRequired
+};
+
+export default AmountPanel;

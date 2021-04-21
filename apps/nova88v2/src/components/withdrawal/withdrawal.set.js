@@ -154,6 +154,7 @@ export default ({ dispatch, state, refreshData, KycCheck, isUSDT }) => {
 						state={state}
 						t={t}
 						_isConvert={_isConvert}
+						userInfo={userInfo}
 						isUSDT={isUSDT}
 					/>
 				) : (
