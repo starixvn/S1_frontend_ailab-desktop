@@ -83,7 +83,7 @@ CryptoCard.propTypes = {
 	t: PropTypes.func.isRequired,
 	state: PropTypes.objectOf(PropTypes.any).isRequired,
 	isUSDT: PropTypes.bool.isRequired,
-	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	custBankInfo: PropTypes.arrayOf(PropTypes.any).isRequired,
 	selectAccount: PropTypes.func.isRequired,
 	addCryptoWallet: PropTypes.func.isRequired
 };

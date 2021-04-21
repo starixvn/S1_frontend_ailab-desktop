@@ -98,7 +98,7 @@ BankCard.propTypes = {
 	t: PropTypes.func.isRequired,
 	state: PropTypes.objectOf(PropTypes.any).isRequired,
 	defPanel: PropTypes.objectOf(PropTypes.any).isRequired,
-	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	custBankInfo: PropTypes.arrayOf(PropTypes.any).isRequired,
 	addBankAccount: PropTypes.func.isRequired,
 	selectAccount: PropTypes.func.isRequired,
 	delAccount: PropTypes.func.isRequired

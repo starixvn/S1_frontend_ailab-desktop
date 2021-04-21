@@ -332,17 +332,21 @@ const AccountPanel = ({
 	);
 };
 
+AccountPanel.defaultProps = {
+	accountName: ""
+};
+
 AccountPanel.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
-	accountName: PropTypes.string.isRequired,
+	accountName: PropTypes.string,
 	setAccountName: PropTypes.func.isRequired,
 	alreadyHasAccountName: PropTypes.bool.isRequired,
 	reload: PropTypes.func.isRequired,
 	cryptoInputDataList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	status: PropTypes.objectOf(PropTypes.any).isRequired,
 	setStatus: PropTypes.func.isRequired,
-	walletDatas: PropTypes.arrayOf(PropTypes.any).isRequired,
+	walletDatas: PropTypes.objectOf(PropTypes.any).isRequired,
 	setWalletDatas: PropTypes.func.isRequired
 };
 

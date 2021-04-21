@@ -38,7 +38,7 @@ const InitPanel = ({ dispatch, t, numberOfAccount }) => {
 InitPanel.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
-	numberOfAccount: PropTypes.func.isRequired
+	numberOfAccount: PropTypes.number.isRequired
 };
 
 export default InitPanel;

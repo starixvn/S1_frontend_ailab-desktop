@@ -157,6 +157,8 @@ const CardPanel = ({
 		});
 	};
 
+	console.log(custBankInfo);
+
 	return !isUSDT ? (
 		<BankCard
 			t={t}
@@ -179,13 +181,17 @@ const CardPanel = ({
 	);
 };
 
+CardPanel.defaultProps = {
+	accountName: ""
+};
+
 CardPanel.propTypes = {
 	t: PropTypes.func.isRequired,
 	state: PropTypes.objectOf(PropTypes.any).isRequired,
 	dispatch: PropTypes.func.isRequired,
-	accountName: PropTypes.string.isRequired,
+	accountName: PropTypes.string,
 	GetCustBankInfo: PropTypes.func.isRequired,
-	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	custBankInfo: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isUSDT: PropTypes.bool.isRequired
 };
 
