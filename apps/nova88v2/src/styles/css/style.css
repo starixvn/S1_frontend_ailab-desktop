@@ -2362,19 +2362,19 @@ footer .footerList > div > div > div {
   padding: 22px 0;
 }
 
-.joinpop, .loginpop {
+.loginpop {
   max-width: 850px;
   margin: auto;
   padding: 50px 20px;
 }
 
-.joinpop.active, .loginpop.active {
+.loginpop.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.joinpop .joinloginModule, .loginpop .joinloginModule {
+.loginpop .joinloginModule {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2382,54 +2382,54 @@ footer .footerList > div > div > div {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: relative;
 }
 
-.joinpop .joinloginModule .btnGroup, .loginpop .joinloginModule .btnGroup {
+.loginpop .joinloginModule .btnGroup {
   margin: 10px 0;
 }
 
-.joinpop .joinloginModule img, .loginpop .joinloginModule img {
+.loginpop .joinloginModule img {
   width: 400px;
   height: 380px;
   pointer-events: none;
 }
 
-.joinpop .joinloginModule .joinloginFunction, .loginpop .joinloginModule .joinloginFunction {
+.loginpop .joinloginModule .joinloginFunction {
   margin-left: 25px;
   color: #5574A7;
 }
 
-.joinpop .joinloginModule .joinloginFunction a, .joinpop .joinloginModule .joinloginFunction > div button.txt-orange, .loginpop .joinloginModule .joinloginFunction a, .loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
+.loginpop .joinloginModule .joinloginFunction a, .loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
   text-decoration: underline;
   font-size: 12px;
   text-align: right;
   margin-left: 5px;
 }
 
-.joinpop .joinloginModule .joinloginFunction .noAccount, .loginpop .joinloginModule .joinloginFunction .noAccount {
+.loginpop .joinloginModule .joinloginFunction .noAccount {
   font-size: 12px;
   margin-top: 15px;
 }
 
-.joinpop .joinloginModule .joinloginFunction .dropdown > .btn, .loginpop .joinloginModule .joinloginFunction .dropdown > .btn {
+.loginpop .joinloginModule .joinloginFunction .dropdown > .btn {
   width: auto;
   color: #5574A7;
 }
 
-.joinpop .joinloginModule .joinloginFunction .icon-email, .loginpop .joinloginModule .joinloginFunction .icon-email {
+.loginpop .joinloginModule .joinloginFunction .icon-email {
   font-weight: bold;
   font-size: 16px;
 }
 
-.joinpop .joinloginModule .joinloginFunction .inputModule, .loginpop .joinloginModule .joinloginFunction .inputModule {
+.loginpop .joinloginModule .joinloginFunction .inputModule {
   margin-top: 10px;
 }
 
-.joinpop .joinloginModule .loginAnimation, .loginpop .joinloginModule .loginAnimation {
+.loginpop .joinloginModule .loginAnimation {
   min-width: 400px;
   max-height: 380px;
   min-height: 380px;
@@ -2437,7 +2437,7 @@ footer .footerList > div > div > div {
   margin: 0 20px 0 0;
 }
 
-.joinpop .joinloginModule .loginAnimation img, .loginpop .joinloginModule .loginAnimation img {
+.loginpop .joinloginModule .loginAnimation img {
   width: auto;
   height: auto;
   position: absolute;
@@ -2445,7 +2445,7 @@ footer .footerList > div > div > div {
   transition: 0.6s;
 }
 
-.joinpop .joinloginModule .loginAnimation img.animationlogo, .loginpop .joinloginModule .loginAnimation img.animationlogo {
+.loginpop .joinloginModule .loginAnimation img.animationlogo {
   bottom: 0;
   left: 30px;
   -webkit-animation: animationlogo 1s;
@@ -2453,14 +2453,14 @@ footer .footerList > div > div > div {
   z-index: 3;
 }
 
-.joinpop .joinloginModule .loginAnimation img.npc1, .loginpop .joinloginModule .loginAnimation img.npc1 {
+.loginpop .joinloginModule .loginAnimation img.npc1 {
   left: 40px;
   top: 0;
   -webkit-animation: loginnpc1 1s;
           animation: loginnpc1 1s;
 }
 
-.joinpop .joinloginModule .loginAnimation img.welcome, .loginpop .joinloginModule .loginAnimation img.welcome {
+.loginpop .joinloginModule .loginAnimation img.welcome {
   z-index: 1;
   left: 50%;
   bottom: 0;
@@ -2468,14 +2468,14 @@ footer .footerList > div > div > div {
           animation: welcome 1s;
 }
 
-.joinpop .joinloginModule .loginAnimation img.back, .loginpop .joinloginModule .loginAnimation img.back {
+.loginpop .joinloginModule .loginAnimation img.back {
   right: 100px;
   bottom: 0;
   -webkit-animation: back 1s;
           animation: back 1s;
 }
 
-.joinpop .joinloginModule .loginAnimation img.npc2, .loginpop .joinloginModule .loginAnimation img.npc2 {
+.loginpop .joinloginModule .loginAnimation img.npc2 {
   z-index: 2;
   right: -100px;
   bottom: -15px;
@@ -2483,69 +2483,25 @@ footer .footerList > div > div > div {
           animation: loginnpc2 1s;
 }
 
-.joinpop .joinloginModule .loginAnimation:hover img.animationlogo, .loginpop .joinloginModule .loginAnimation:hover img.animationlogo {
+.loginpop .joinloginModule .loginAnimation:hover img.animationlogo {
   left: 0;
 }
 
-.joinpop .joinloginModule .loginAnimation:hover img.npc1, .loginpop .joinloginModule .loginAnimation:hover img.npc1 {
+.loginpop .joinloginModule .loginAnimation:hover img.npc1 {
   left: 140px;
   top: 50px;
 }
 
-.joinpop .joinloginModule .loginAnimation:hover img.welcome, .loginpop .joinloginModule .loginAnimation:hover img.welcome {
+.loginpop .joinloginModule .loginAnimation:hover img.welcome {
   bottom: 200px;
 }
 
-.joinpop .joinloginModule .loginAnimation:hover img.back, .loginpop .joinloginModule .loginAnimation:hover img.back {
+.loginpop .joinloginModule .loginAnimation:hover img.back {
   bottom: -50px;
 }
 
-.joinpop .joinloginModule .loginAnimation:hover img.npc2, .loginpop .joinloginModule .loginAnimation:hover img.npc2 {
+.loginpop .joinloginModule .loginAnimation:hover img.npc2 {
   right: -130px;
-}
-
-.joinpop .joinloginModule .joinAnimation, .loginpop .joinloginModule .joinAnimation {
-  min-width: 360px;
-  max-height: 380px;
-  min-height: 380px;
-  position: relative;
-  margin: 0 20px 0 0;
-}
-
-.joinpop .joinloginModule .joinAnimation img, .loginpop .joinloginModule .joinAnimation img {
-  width: auto;
-  height: auto;
-  position: absolute;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-.joinpop .joinloginModule .joinAnimation img.animationlogo, .loginpop .joinloginModule .joinAnimation img.animationlogo {
-  bottom: 0;
-  left: 30px;
-  z-index: 3;
-}
-
-.joinpop .joinloginModule .joinAnimation img.npc1, .loginpop .joinloginModule .joinAnimation img.npc1 {
-  left: 40px;
-  top: 0;
-}
-
-.joinpop .joinloginModule .joinAnimation img.welcome, .loginpop .joinloginModule .joinAnimation img.welcome {
-  z-index: 1;
-  left: 50%;
-  bottom: 0;
-}
-
-.joinpop .joinloginModule .joinAnimation img.back, .loginpop .joinloginModule .joinAnimation img.back {
-  right: 100px;
-  bottom: 0;
-}
-
-.joinpop .joinloginModule .joinAnimation img.npc2, .loginpop .joinloginModule .joinAnimation img.npc2 {
-  z-index: 2;
-  right: -10px;
-  bottom: 15px;
 }
 
 @-webkit-keyframes animationlogo {
@@ -2682,6 +2638,91 @@ footer .footerList > div > div > div {
     bottom: 0;
     opacity: 1;
   }
+}
+
+.joinpop {
+  max-width: 850px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.joinpop .joinloginModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.joinpop .joinloginModule .btnGroup {
+  margin: 10px 0;
+}
+
+.joinpop .joinloginModule .joinloginFunction {
+  margin-left: 25px;
+  color: #5574A7;
+}
+
+.joinpop .joinloginModule .joinloginFunction a.txt-orange, .joinpop .joinloginModule .joinloginFunction a.txt-blue, .joinpop .joinloginModule .joinloginFunction > div button.txt-orange, .joinpop .joinloginModule .joinloginFunction > div button.txt-blue {
+  text-decoration: underline;
+  font-size: 12px;
+  text-align: right;
+  margin-left: 5px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .icon-email {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .inputModule {
+  margin-top: 10px;
+}
+
+.joinpop .joinloginModule .joinAnimation {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  width: 380px;
+  height: 380px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.joinpop .joinloginModule .joinAnimation img {
+  width: auto;
+  height: auto;
+  position: absolute;
+}
+
+.joinpop .joinloginModule .joinAnimation img.animationlogo {
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.joinpop .joinloginModule .joinAnimation img.npc1 {
+  left: 0;
+  top: 20px;
+}
+
+.joinpop .joinloginModule .joinAnimation img.welcome {
+  z-index: 1;
+  left: 50%;
+  bottom: 0;
+}
+
+.joinpop .joinloginModule .joinAnimation img.back {
+  right: 100px;
+  bottom: 0;
+}
+
+.joinpop .joinloginModule .joinAnimation img.npc2 {
+  z-index: 1;
+  right: -10px;
+  bottom: 15px;
 }
 
 .txt-orange {
@@ -11858,17 +11899,14 @@ canvas {
 }
 
 .features {
-  position: absolute;
   background: #e2e2e2;
   color: #838383;
-  top: 0;
-  height: 100%;
-  left: 0;
-  width: 380px;
   border-radius: 5px;
   float: left;
   font-size: 12px;
   padding-bottom: 20px;
+  min-width: 400px;
+  min-height: 660px;
 }
 
 .features div, .features ul {
@@ -11892,8 +11930,8 @@ canvas {
 
 .features li {
   list-style: decimal;
-  line-height: 20px;
-  margin-left: 15px;
+  line-height: 24px;
+  margin-left: 25px;
 }
 
 .features li span, .features li a {
