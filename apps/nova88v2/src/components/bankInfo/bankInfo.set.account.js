@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import { defActionType } from "./bankInfo.reducer";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
+import usePopBox from "../hook/usePopBox";
 import config from "../../config";
 import Inputbox from "../common/inputbox";
-import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
 export default ({
@@ -19,6 +19,7 @@ export default ({
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [status, setStatus] = useState({
 		accountName: {
 			checked: null,
@@ -72,9 +73,9 @@ export default ({
 
 		const isRepeatAccount =
 			custBankList.filter(
-				_bank =>
-					_bank.bankName === bankInfo.bankName &&
-					_bank.accountNo === val
+				_selectBank =>
+					_selectBank.bankName === bankInfo.bankName &&
+					_selectBank.accountNo === val
 			).length > 0;
 
 		if (col === "accountName" && !alreadyHasAccountName) {
@@ -140,40 +141,17 @@ export default ({
 						if (res.data.errorCode === 0) {
 							reload(!alreadyHasAccountName);
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-check"
-											onClick={ClickClose}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox(
+								message || `[${errorCode}] error`,
+								errorCode
+							);
 						}
 						setLoading(false);
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 						setLoading(false);
 					}
 				}

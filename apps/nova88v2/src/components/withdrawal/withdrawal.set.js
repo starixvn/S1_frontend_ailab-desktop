@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import BankCardPanel from "./withdrawal.set.bankCard";
+import CardPanel from "./withdrawal.set.card";
 import AmountPanel from "./withdrawal.set.amount";
 import ConfirmPanel from "./withdrawal.set.confirm";
 import { isConvert } from "../common/common";
@@ -137,7 +137,7 @@ export default ({ dispatch, state, refreshData, KycCheck, isUSDT }) => {
 
 	return (
 		<div className="walletModule">
-			<BankCardPanel
+			<CardPanel
 				dispatch={dispatch}
 				state={state}
 				t={t}

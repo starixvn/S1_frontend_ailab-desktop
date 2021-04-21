@@ -97,6 +97,7 @@ export default () => {
 			content = (
 				<AddBankAccount
 					bankInfoSysList={popBox.bankInfoSysList}
+					custBankInfo={popBox.custBankInfo}
 					GetCustBankInfo={popBox.GetCustBankInfo}
 				/>
 			);
