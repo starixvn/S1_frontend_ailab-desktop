@@ -130,7 +130,9 @@ const LeaderBoardContent = ({
 									);
 								})
 							) : (
-								<div className="nodata">{t("msg_NoData")}</div>
+								<div className="nodata icon icon-nodata">
+									{t("lbl_NoData")}
+								</div>
 							)}
 						</ul>
 					</div>

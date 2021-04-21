@@ -393,33 +393,35 @@ export default () => {
 				<div className="inside-title icon icon-icon32px_Funds-transfer">
 					<span>{t("lbl_TransferFunds")}</span>
 				</div>
-				<ShowWallets
-					i18n={t}
-					walletInfo={walletInfo}
-					restoreAll={restoreAll}
-					getAllWalletData={getAllWalletData}
-					_isConvert={_isConvert}
-				/>
-				<SetAmount
-					i18n={t}
-					amount={amount}
-					onChange={EditAmount}
-					clickSubmit={clickSubmit}
-					clickInfo={clickInfo}
-					onBlur={checkAmount}
-					checked={status.checked}
-					tip={status.tip}
-					_isConvert={_isConvert}
-					fomOptions={fromOptions}
-					toOptions={toOptions}
-					selectedFromIdx={fromOptions.findIndex(
-						f => f.id === selectedTpId.from
-					)}
-					selectedToIdx={toOptions.findIndex(
-						tp => tp.id === selectedTpId.to
-					)}
-					onSelectWallet={onSelectWallet}
-				/>
+				<div className="walletWrapper">
+					<ShowWallets
+						i18n={t}
+						walletInfo={walletInfo}
+						restoreAll={restoreAll}
+						getAllWalletData={getAllWalletData}
+						_isConvert={_isConvert}
+					/>
+					<SetAmount
+						i18n={t}
+						amount={amount}
+						onChange={EditAmount}
+						clickSubmit={clickSubmit}
+						clickInfo={clickInfo}
+						onBlur={checkAmount}
+						checked={status.checked}
+						tip={status.tip}
+						_isConvert={_isConvert}
+						fomOptions={fromOptions}
+						toOptions={toOptions}
+						selectedFromIdx={fromOptions.findIndex(
+							f => f.id === selectedTpId.from
+						)}
+						selectedToIdx={toOptions.findIndex(
+							tp => tp.id === selectedTpId.to
+						)}
+						onSelectWallet={onSelectWallet}
+					/>
+				</div>
 			</div>
 			<RecentHistory
 				getHistory={getHistory}

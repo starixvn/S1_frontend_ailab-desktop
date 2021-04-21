@@ -28,7 +28,31 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		});
 	};
 
+	const imgRender = ({ bgImgUrl, npcImgUrl, iconImgUrl }) => {
+		return (
+			<>
+				{bgImgUrl && (
+					<img className="item-bg" src={bgImgUrl} alt={bgImgUrl} />
+				)}
+
+				{npcImgUrl && (
+					<img className="item-img" src={npcImgUrl} alt={npcImgUrl} />
+				)}
+
+				{iconImgUrl && (
+					<img
+						className="item-icon"
+						src={iconImgUrl}
+						alt={iconImgUrl}
+					/>
+				)}
+			</>
+		);
+	};
+
 	const rows = subItems?.map(s => {
+		const { bgImgUrl, npcImgUrl, iconImgUrl } = s;
+
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
@@ -56,16 +80,25 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 					key={key}
 					className={_iconClassName}
 					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
-					<span className={s.icon}>{displayText}</span>
+					{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
+
+					<span>
+						<p>{displayText}</p>
+					</span>
 				</Link>
 			);
 		}
+
 		return (
 			<button
 				key={key}
 				className={_iconClassName}
 				onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
-				<span className={s.icon}>{displayText}</span>
+				{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
+
+				<span>
+					<p>{displayText}</p>
+				</span>
 			</button>
 		);
 	});

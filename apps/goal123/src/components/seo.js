@@ -38,8 +38,8 @@ function SEO({ description, lang, meta, title }) {
 			((splitPath.length === 2 ||
 				(splitPath.length === 3 && splitPath[2] === "")) &&
 				site.siteMetadata.supportedLanguages.includes(splitPath[1])))
-			? "index"
-			: "";
+			? "index Newtheme"
+			: "Newtheme";
 
 	return (
 		<>
@@ -100,6 +100,7 @@ function SEO({ description, lang, meta, title }) {
 			<FBPixelCode />
 			<LiveChat />
 			<FPS />
+			<PlayTech />
 		</>
 	);
 }
@@ -187,6 +188,17 @@ const FPS = () => {
 				async=""
 				defer=""
 				src="//sc.detecas.com/di/activator.ashx"
+			/>
+		</Helmet>
+	);
+};
+
+const PlayTech = () => {
+	return (
+		<Helmet>
+			<script
+				src="https://login-am.hotspin88.com/jswrapper/hotspin88am/integration.js"
+				type="text/javascript"
 			/>
 		</Helmet>
 	);
