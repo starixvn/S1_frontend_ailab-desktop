@@ -2,10 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link } from "@reach/router";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
+import Dropdown from "../../common/dropdown";
 import { getUrlParameter, number_format } from "../../common/common";
+
+import { defDepositChannel, defDepChannelIdList } from "../depositnew.def";
 import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
 import config from "../../../config";
+
+const bankStatus = {
+	open: 1,
+	suspend: 2
+};
 
 const LocalBankForm = ({
 	t,
@@ -22,9 +30,20 @@ const LocalBankForm = ({
 	onInputboxKeyDown,
 	getLocalBankInfo,
 	localBankInfo,
-	asyncUploadBankPopBox
+	asyncUploadBankPopBox,
+	getBankInfo,
+	custBankInfoList
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
+
+	const [custChannelId, setCustChannelId] = useState(
+		defDepChannelIdList.OnlineBanking
+	);
+
+	const [custBankInfo, setCustBankInfo] = useState(null);
+
+	const [custChannelIdIdx, setCustChannelIdIdx] = useState(0);
+	const [custBankInfoIdx, setCustBankInfoIdx] = useState(0);
 
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
 
@@ -136,6 +155,7 @@ const LocalBankForm = ({
 			onChangeBankInfo(localBankGroupList[0]);
 		}
 
+		getBankInfo();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -153,41 +173,51 @@ const LocalBankForm = ({
 
 			<div className="subModule selectBank">
 				<div>
-					{localBankGroupList.map(item => (
-						<button
-							key={`deposit-localPay-group-${item.sysId}}`}
-							className={
-								item.sysId === sysIdForRecord ? "active" : ""
-							}
-							onClick={() => onChangeBankInfo(item)}>
-							<div>
-								<img
-									src={`${config.cloudImgUrl}/SiteSkin/img/Payment/BankLogo/${item.bankLogo}`}
-									alt={item.bankName}
-								/>
-								<i className="icon icon-icon32px_check" />
-							</div>
+					{localBankGroupList.map(item => {
+						let className = [];
+						if (item.sysId === sysIdForRecord) {
+							className.push("active");
+						}
 
-							<div className="bank">
-								<div>{item.bankName}</div>
+						if (item.status === bankStatus.suspend) {
+							className.push("close");
+						}
 
+						className = className.join(" ");
+						return (
+							<button
+								key={`deposit-localPay-group-${item.sysId}}`}
+								className={className}
+								onClick={() => onChangeBankInfo(item)}>
 								<div>
+									<img
+										src={`${config.cloudImgUrl}/SiteSkin/img/Payment/BankLogo/${item.bankLogo}`}
+										alt={item.bankName}
+									/>
+									<i className="icon icon-icon32px_check" />
+								</div>
+
+								<div className="bank">
+									<div>{item.bankName}</div>
+
 									<div>
-										{`${t("lbl_Min")}: ${number_format(
-											item.minAmount,
-											_isConvert
-										)}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${number_format(
-											item.maxAmount,
-											_isConvert
-										)}`}
+										<div>
+											{`${t("lbl_Min")}: ${number_format(
+												item.minAmount,
+												_isConvert
+											)}`}
+										</div>
+										<div>
+											{`${t("lbl_Max")}: ${number_format(
+												item.maxAmount,
+												_isConvert
+											)}`}
+										</div>
 									</div>
 								</div>
-							</div>
-						</button>
-					))}
+							</button>
+						);
+					})}
 				</div>
 			</div>
 
@@ -257,6 +287,50 @@ const LocalBankForm = ({
 
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
+				{t("lbl_DepositChannel")}
+			</div>
+
+			<div className="subModule">
+				<div className="inputBox-blue">
+					<Dropdown
+						mainKey="deposit-localbank-channel-provider"
+						options={defDepositChannel}
+						onSelectItem={(idx, item) => {
+							setCustChannelId(item.id);
+							setCustChannelIdIdx(idx);
+						}}
+						selectedIdx={custChannelIdIdx}
+						i18n={t}
+					/>
+				</div>
+			</div>
+
+			{custBankInfoList.length > 0 && (
+				<>
+					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
+						{t("lbl_BankDetails")}
+					</div>
+
+					<div className="subModule">
+						<div className="inputBox-blue">
+							<Dropdown
+								mainKey="deposit-localbank-Bank-provider"
+								options={custBankInfoList}
+								onSelectItem={(idx, item) => {
+									setCustBankInfo(item);
+									setCustBankInfoIdx(idx);
+								}}
+								selectedIdx={custBankInfoIdx}
+								i18n={t}
+							/>
+						</div>
+					</div>
+				</>
+			)}
+
+			<div className="subModuleTitle">
+				<i className="txt-blue">*</i>
 				{t("lbl_SubmitProof")}
 			</div>
 
@@ -293,6 +367,8 @@ LocalBankForm.propTypes = {
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	getLocalBankInfo: PropTypes.func.isRequired,
 	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	asyncUploadBankPopBox: PropTypes.func.isRequired
+	asyncUploadBankPopBox: PropTypes.func.isRequired,
+	getBankInfo: PropTypes.func.isRequired,
+	custBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 export default LocalBankForm;

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { getUrlParameter, number_format } from "../../common/common";
+import {
+	getUrlParameter,
+	number_format,
+	getLocalStorage
+} from "../../common/common";
 import config from "../../../config";
 
 const MobileForm = ({
@@ -56,7 +60,9 @@ const MobileForm = ({
 		);
 
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo(item);
+		setFormInfo(prev => {
+			return { ...prev, ...item };
+		});
 	};
 
 	useEffect(() => {
@@ -71,6 +77,7 @@ const MobileForm = ({
 		};
 
 		getData();
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -104,6 +111,7 @@ const MobileForm = ({
 									alt={item.groupName}
 									src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.groupName}.png`}
 								/>
+
 								<i className="icon icon-icon32px_check" />
 							</div>
 							<div className="bank">

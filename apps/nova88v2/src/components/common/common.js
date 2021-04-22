@@ -161,3 +161,17 @@ export const isDateRange = (startDate, endDate) => {
 
 	return result;
 };
+
+export const setLocalStorage = (key, data) => {
+	localStorage.setItem(key, JSON.stringify(data));
+};
+
+export const getLocalStorage = key => {
+	const json = localStorage.getItem(key);
+
+	return json ? JSON.parse(json) : undefined;
+};
+
+export const removeLocalStorage = key => {
+	localStorage.removeItem(key);
+};

@@ -241,6 +241,15 @@
 	"lbl_DepositImportantNoticeContent4": "Please <span>DO NOT</span> fill in <span>'NOVA88'</span> or any sensitive words related to gambling as reference/remark in your online transaction.",
 	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
 	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
+	
+	"lbl_DepositChannel": "Deposit Channel",
+	"lbl_DepositChannel_1": "Online Banking",
+	"lbl_DepositChannel_2": "Cash Deposit Machine",
+	"lbl_DepositChannel_3": "ATM",
+	"lbl_DepositChannel_4": "Over The Counter (OTC)",
+	"lbl_BankDetails": "Bank Details",
+	"lbl_DepositLocalbankButton": "Remember my last used mode",
+	"lbl_DepositLocalbankButtonInfo": "Remember the bank used for your last deposit. If the bank you selected has been closed, please select again.",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",

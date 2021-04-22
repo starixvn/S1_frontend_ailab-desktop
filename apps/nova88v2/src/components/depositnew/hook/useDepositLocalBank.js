@@ -1,23 +1,26 @@
 import { useState } from "react";
-import moment from "moment";
 import usePopBox from "../../hook/usePopBox";
 
 import {
-	api_payment_GetBankInfoOffList,
+	api_payment_GetBankInfoOffListStatus,
 	api_payment_GetLocalBankInfo,
 	api_payment_DepositReqWireTransfer,
 	api_payment_UploadReceipt
 	// api_payment_SetDepositReceipt
 } from "../../../service/api/payment";
 
+import { api_account_GetCustBankInfo } from "../../../service/api/account";
+
 const useDepositLocalBank = ({ isMountedRef }) => {
 	const [localBankGroupList, setLocalBankGroupList] = useState([]);
 	const [localBankInfo, setLocalBankInfo] = useState({});
-
+	const [custBankInfoList, setCustBankInfoList] = useState([]);
 	const { errorPopBox } = usePopBox();
 
 	const getLocalBankGroupList = async () => {
-		await api_payment_GetBankInfoOffList().then(
+		const queryType = 1;
+
+		await api_payment_GetBankInfoOffListStatus(queryType).then(
 			res => {
 				if (!isMountedRef.current) return;
 
@@ -139,13 +142,54 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 	// 	return success;
 	// };
 
+	const getBankInfo = async () => {
+		await api_account_GetCustBankInfo().then(
+			res => {
+				if (!isMountedRef.current) return;
+
+				const {
+					errorCode,
+					data: { bankInfoDetail },
+					message
+				} = res.data;
+
+				if (errorCode === 0) {
+					if (bankInfoDetail?.length > 0) {
+						const formatBankInfoDetail = bankInfoDetail.map(
+							item => {
+								return {
+									...item,
+									id: item.sysId,
+									displayText: `${item.bankName} ${item.accountNo}`
+								};
+							}
+						);
+
+						setCustBankInfoList(formatBankInfoDetail);
+					} else {
+						setCustBankInfoList([]);
+					}
+				} else {
+					errorPopBox(message || "error", errorCode);
+				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+
+				errorPopBox();
+			}
+		);
+	};
+
 	return {
 		getLocalBankGroupList,
 		getLocalBankInfo,
 		localBankGroupList,
 		localBankInfo,
 		postLocalBankReqWireTransfer,
-		uploadLocalBankReceipt
+		uploadLocalBankReceipt,
+		getBankInfo,
+		custBankInfoList
 		// setLocalBankReceipt
 	};
 };

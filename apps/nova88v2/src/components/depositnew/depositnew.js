@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { navigate } from "@reach/router";
-import moment from "moment";
+import { navigate, useLocation } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import {
 	loadingContext,
@@ -9,7 +8,14 @@ import {
 } from "../common/context";
 import { defDepositType, defDepositOptions } from "./depositnew.def";
 import defPopBoxType from "../common/defPopBoxType";
-import { checkAmount, isConvert, getUrlParameter } from "../common/common";
+import {
+	checkAmount,
+	isConvert,
+	getUrlParameter,
+	setLocalStorage,
+	getLocalStorage,
+	removeLocalStorage
+} from "../common/common";
 import usePopBox from "../hook/usePopBox";
 
 import useDeposit from "./hook/useDeposit";
@@ -35,11 +41,12 @@ const Depositnew = () => {
 	);
 
 	const { t } = useTranslation();
+	const location = useLocation();
 
 	const isMountedRef = useRef(null);
 
 	const { loading, setLoading } = useContext(loadingContext);
-	const { userInfo } = useContext(userInfoContext);
+	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 
 	const [
@@ -50,6 +57,8 @@ const Depositnew = () => {
 	const [depositType, setDepositType] = useState(
 		isDepositTypeIncludes ? parameterDefaultType : defDepositType.mobile
 	);
+
+	console.log(depositType);
 	const [formInfo, setFormInfo] = useState({
 		imgFile: null,
 		// refId: null,
@@ -60,6 +69,7 @@ const Depositnew = () => {
 	});
 
 	const [isInitDataDone, setIsInitDataDone] = useState(false);
+	const [saveInfoChecked, setSaveInfoChecked] = useState(false);
 
 	const _isConvert = isConvert(userInfo.currencyId);
 
@@ -102,9 +112,15 @@ const Depositnew = () => {
 		localBankGroupList,
 		localBankInfo,
 		postLocalBankReqWireTransfer,
-		uploadLocalBankReceipt
+		uploadLocalBankReceipt,
+		getBankInfo,
+		custBankInfoList
 		// setLocalBankReceipt
-	} = useDepositLocalBank({ isMountedRef });
+	} = useDepositLocalBank({
+		isMountedRef,
+		userInfo,
+		setUserInfo
+	});
 
 	const onChangeDepositType = async type => {
 		setDepositType(type);
@@ -159,6 +175,17 @@ const Depositnew = () => {
 		return result.status === 0;
 	};
 
+	const saveInfoToLocalStorage = () => {
+		const localStoragePath = {
+			amount: formInfo.amount,
+			search: window.location.search
+		};
+
+		if (saveInfoChecked) {
+			setLocalStorage("nova88depositquery", localStoragePath);
+		}
+	};
+
 	const onSubmit = async () => {
 		const resetForm = () => {
 			setFormInfo(prev => {
@@ -181,10 +208,12 @@ const Depositnew = () => {
 			const resultAmount = _isConvert ? amount * 1000 : Number(amount);
 
 			if (depositType === defDepositType.mobile) {
+				saveInfoToLocalStorage();
 				window.open(
 					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
 				);
 				await delay(1000);
+
 				resetForm();
 			} else if (depositType === defDepositType.localBank) {
 				if (
@@ -193,6 +222,8 @@ const Depositnew = () => {
 					// !formInfo?.imgFile?.type.includes("image")
 				)
 					return;
+
+				saveInfoToLocalStorage();
 
 				setLoading(true);
 				const transId = await postLocalBankReqWireTransfer({
@@ -225,8 +256,11 @@ const Depositnew = () => {
 				}
 
 				setLoading(false);
+
 				resetForm();
 			} else if (depositType === defDepositType.onlineBank) {
+				saveInfoToLocalStorage();
+
 				window.open(
 					`${config.openURL}/${
 						userInfo.langId
@@ -237,6 +271,7 @@ const Depositnew = () => {
 					}&Amount=${resultAmount}`
 				);
 				await delay(1000);
+
 				resetForm();
 			}
 		}
@@ -253,17 +288,55 @@ const Depositnew = () => {
 		}
 	};
 
+	// useEffect(() => {
+	// 	const checkRemoveStorage = () => {
+	// 		const savedCheck = getLocalStorage(
+	// 			"nova88depositquerySavedChecked"
+	// 		);
+
+	// 		if (!savedCheck) {
+	// 			removeLocalStorage("nova88depositquery");
+	// 			removeLocalStorage("nova88depositquerySavedChecked");
+	// 		}
+	// 	};
+
+	// 	window.addEventListener("beforeunload", checkRemoveStorage);
+
+	// 	return () => {
+	// 		window.removeEventListener("beforeunload", checkRemoveStorage);
+	// 		checkRemoveStorage();
+	// 	};
+	// }, []);
+
+	const checkLocalStorageUpdateForm = () => {
+		const depositInfoStorage = getLocalStorage("nova88depositquery");
+		const savedCheck = getLocalStorage("nova88depositquerySavedChecked");
+		if (depositInfoStorage?.amount) {
+			onChangeAmount(depositInfoStorage.amount);
+		}
+
+		if (
+			depositInfoStorage?.search &&
+			depositInfoStorage.search !== location.search
+		) {
+			const { pathname } = location;
+
+			navigate(`${pathname}${depositInfoStorage.search}`);
+		}
+		if (savedCheck) {
+			setSaveInfoChecked(savedCheck);
+		}
+	};
+
 	useEffect(() => {
 		const getData = async () => {
 			setLoading(true);
-
 			try {
 				await Promise.all([
 					getMobilePayGroupList(),
 					getLocalBankGroupList(),
 					getOnlineBankGroupList()
 				]);
-
 				setIsInitDataDone(true);
 			} catch (e) {
 				errorPopBox();
@@ -271,8 +344,8 @@ const Depositnew = () => {
 
 			setLoading(false);
 		};
-
 		getData();
+		checkLocalStorageUpdateForm();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -299,8 +372,12 @@ const Depositnew = () => {
 		option => option.type === parameterDefaultType
 	);
 
-	if (!isDepositTypeIncludes || defaultDepositOption.isHide) {
-		onChangeDepositType(filterDepositOptions[0].type);
+	if (
+		location.pathname === `/${userInfo.langId}/${path.deposit.root}` &&
+		(!isDepositTypeIncludes || defaultDepositOption?.isHide)
+	) {
+		console.log("!!!");
+		// onChangeDepositType(filterDepositOptions[0].type);
 	}
 
 	let checked = false;
@@ -312,6 +389,8 @@ const Depositnew = () => {
 		checked = formInfo.checked;
 	}
 
+	console.log(depositType);
+
 	return (
 		<>
 			<DepositnewInfoMoule
@@ -321,7 +400,10 @@ const Depositnew = () => {
 				depositType={depositType}
 				checked={!!checked}
 				onSubmit={onSubmit}
+				saveInfoChecked={saveInfoChecked}
+				setSaveInfoChecked={setSaveInfoChecked}
 				processingDescriptionActive={processingDescriptionActive}
+				saveInfoChecked={saveInfoChecked}
 				setDepositType={onChangeDepositType}>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
@@ -356,6 +438,8 @@ const Depositnew = () => {
 						getLocalBankInfo={getLocalBankInfo}
 						localBankInfo={localBankInfo}
 						asyncUploadBankPopBox={asyncUploadBankPopBox}
+						getBankInfo={getBankInfo}
+						custBankInfoList={custBankInfoList}
 					/>
 				)}
 

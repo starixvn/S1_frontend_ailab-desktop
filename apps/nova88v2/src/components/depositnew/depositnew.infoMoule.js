@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Trans } from "react-i18next";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
+import { setLocalStorage, getLocalStorage } from "../common/common";
 
 const DepositnewInfoMoule = ({
 	t,
@@ -12,6 +13,8 @@ const DepositnewInfoMoule = ({
 	setDepositType,
 	checked,
 	onSubmit,
+	saveInfoChecked,
+	setSaveInfoChecked,
 	processingDescriptionActive,
 	children
 }) => {
@@ -34,12 +37,23 @@ const DepositnewInfoMoule = ({
 					<i className="txt-blue">*</i>
 					{t("lbl_DepositOptions")}
 					<div className="checkbox autotransfer">
-						<input type="checkbox" id="c1" />
+						<input
+							checked={saveInfoChecked}
+							type="checkbox"
+							id="c1"
+							onChange={() => {
+								setSaveInfoChecked(!saveInfoChecked);
+								setLocalStorage(
+									"nova88depositquerySavedChecked",
+									!saveInfoChecked
+								);
+							}}
+						/>
 						<label
 							htmlFor="c1"
 							className="icon icon-checkbox-checked"
 						/>
-						Remember my last used mode
+						{t("lbl_DepositLocalbankButton")}
 						<button
 							className="icon icon-question"
 							onClick={() =>
@@ -50,9 +64,7 @@ const DepositnewInfoMoule = ({
 							className={`inputInfo${
 								rememberInfoActive ? " active" : ""
 							}`}>
-							Remember the bank used for your last deposit. If the
-							bank you selected has been closed, please select
-							again.
+							{t("lbl_DepositLocalbankButtonInfo")}
 						</div>
 					</div>
 				</div>
@@ -165,6 +177,8 @@ DepositnewInfoMoule.propTypes = {
 	setDepositType: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
+	saveInfoChecked: PropTypes.bool.isRequired,
+	setSaveInfoChecked: PropTypes.func.isRequired,
 	processingDescriptionActive: PropTypes.bool.isRequired,
 	children: PropTypes.node.isRequired
 };

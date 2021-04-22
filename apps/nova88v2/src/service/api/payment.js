@@ -44,6 +44,11 @@ export const api_payment_GetStatement = ({ StartDate, EndDate, PageNumber }) =>
 export const api_payment_GetBankInfoOffList = () =>
 	paymentRequest.post("/GetBankInfoOffList");
 
+export const api_payment_GetBankInfoOffListStatus = queryType =>
+	paymentRequest.post("/GetBankInfoOffListStatus", {
+		queryType
+	});
+
 export const api_payment_GetLocalBankInfo = ({ sysId, amount }) =>
 	paymentRequest.post("/GetLocalBankInfo", { sysId, amount });
 

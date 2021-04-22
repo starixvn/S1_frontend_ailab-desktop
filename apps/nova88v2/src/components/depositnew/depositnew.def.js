@@ -31,3 +31,26 @@ export const defDepositOptions = ({
 		iconClass: "icon icon-connection"
 	}
 ];
+
+export const defDepChannelIdList = {
+	OnlineBanking: 1,
+	CashDepositMachine: 2,
+	ATM: 3,
+	OverTheCounter: 4
+};
+
+export const defDepositChannel = [
+	{
+		displayKey: "lbl_DepositChannel_1",
+		id: defDepChannelIdList.OnlineBanking
+	},
+	{
+		displayKey: "lbl_DepositChannel_2",
+		id: defDepChannelIdList.CashDepositMachine
+	},
+	{ displayKey: "lbl_DepositChannel_3", value: defDepChannelIdList.ATM },
+	{
+		displayKey: "lbl_DepositChannel_4",
+		id: defDepChannelIdList.OverTheCounter
+	}
+];
