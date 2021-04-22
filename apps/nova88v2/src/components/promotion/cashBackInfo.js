@@ -1,7 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { number_format, isConvert } from "../common/common";
 
 const CashbackInfo = ({ bonusCode, cashBackDetails, t, currencyId }) => {
+	if (!cashBackDetails) return null;
+
 	const { totalBonus, maxBonus, cashBackDetail } = cashBackDetails;
 
 	const rows = cashBackDetail?.map(c => (
@@ -65,6 +68,19 @@ const CashbackInfo = ({ bonusCode, cashBackDetails, t, currencyId }) => {
 			</table>
 		</div>
 	) : null;
+};
+
+CashbackInfo.defaultProps = {
+	cashBackDetails: null,
+	bonusCode: null,
+	currencyId: null
+};
+
+CashbackInfo.propTypes = {
+	bonusCode: PropTypes.string,
+	cashBackDetails: PropTypes.objectOf(PropTypes.any),
+	t: PropTypes.func.isRequired,
+	currencyId: PropTypes.number
 };
 
 export default CashbackInfo;
