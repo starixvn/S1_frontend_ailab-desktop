@@ -5,7 +5,10 @@ import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
 } from "../../service/api/account";
-import { api_site_GetGamelistV2, defBannerType } from "../../service/api/site";
+import {
+	api_site_GetGameListByDevice,
+	defBannerType
+} from "../../service/api/site";
 import { userInfoContext } from "../common/context";
 import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
 import GameList from "./casino.gamelist";
@@ -54,7 +57,7 @@ export default () => {
 
 	useEffect(() => {
 		setDisplayGames([]);
-		api_site_GetGamelistV2().then(
+		api_site_GetGameListByDevice().then(
 			res => {
 				if (res.data.errorCode === 0) {
 					const { providerList } = res.data.data;
