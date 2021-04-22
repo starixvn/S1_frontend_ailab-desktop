@@ -98,7 +98,7 @@ const MobileForm = ({
 							<div>
 								<img
 									alt={item.groupName}
-									src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.groupName}.png`}
+									src={`${config.imgUrl}/common/images/MobilePay/${item.groupName}.png`}
 								/>
 								<i className="icon icon-icon32px_check" />
 							</div>
@@ -128,7 +128,7 @@ const MobileForm = ({
 								<div>
 									<img
 										alt={item.groupName}
-										src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.groupName}.png`}
+										src={`${config.imgUrl}/common/images/MobilePay/${item.groupName}.png`}
 									/>
 									<i className="icon icon-icon32px_check" />
 								</div>

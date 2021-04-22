@@ -125,7 +125,7 @@ const OnlineBankForm = ({
 							<div>
 								<img
 									alt={item.payName}
-									src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.payName}.png`}
+									src={`${config.imgUrl}/common/images/Payment/${item.payName}.png`}
 								/>
 								<i className="icon icon-icon32px_check" />
 							</div>
