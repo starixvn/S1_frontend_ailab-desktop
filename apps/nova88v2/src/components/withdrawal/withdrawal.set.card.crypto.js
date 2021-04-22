@@ -59,7 +59,7 @@ const CryptoCardLayout = props => {
 	return (
 		<div className="addBankName">
 			<div className="cryptoInfo">
-				<i className="icon icon-BTC" />
+				<i className="icon icon-USDT" />
 				<div>{props.usdtAddress}</div>
 				<div className="checkbox">
 					<input

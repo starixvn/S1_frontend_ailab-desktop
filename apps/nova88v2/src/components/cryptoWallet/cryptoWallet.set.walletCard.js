@@ -16,7 +16,7 @@ const WalletCard = ({ walletList, loading }) => {
 		return (
 			<div className="addBankName" key={`walletCard-${item.usdtAddress}`}>
 				<div className="cryptoInfo">
-					<i className="icon icon-BTC" />
+					<i className="icon icon-USDT" />
 					<div>{item.usdtAddress}</div>
 				</div>
 				<div className="walletNickname">{item.nickName}</div>

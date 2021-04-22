@@ -197,7 +197,7 @@ export default () => {
 	) : (
 		<>
 			<div className="infoModule">
-				<div className="inside-title icon icon-BTC">
+				<div className="inside-title icon icon-USDT">
 					<span>{t("lbl_CryptoWallet")}</span>
 					<div>{t("lbl_Update_Crypto_Wallet")}</div>
 				</div>
