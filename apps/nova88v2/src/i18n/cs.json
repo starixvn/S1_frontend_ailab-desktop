@@ -167,6 +167,8 @@
 	"msg_OTP_Invalid": "Invalid OTP Code",
 	"msg_OTPHint": "请完成您的个人资料并验证您的手机以享受我们的促销。",
 	"msg_OTPSendCode": "我们已经将验证码发送到您的注册手机。 请检查您的手机并在下面输入您的验证码。",
+	"msg_We_had_send_the_verification_code": "我们已经将验证码发送到您的注册手机。",
+	"msg_Please_check_your_mobile_and_enter": "请检查您的手机并在下面输入您的验证码。",
 	"msg_EnterOTPCode": "请输入OTP代码。”",
 	"msg_OTP_NotReceiveVerificationCode": "没有收到验证码？",
 	"lbl_Retransmit": "重新发送",

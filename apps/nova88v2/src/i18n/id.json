@@ -167,6 +167,8 @@
 	"msg_OTP_Invalid": "Invalid OTP Code",
 	"msg_OTPHint": "Harap lengkapi profil Anda dan verifikasi ponsel Anda untuk menikmati promosi kami.",
 	"msg_OTPSendCode": "Kami telah mengirimkan kode verifikasi ke ponsel Anda yang terdaftar. Silakan periksa telepon Anda dan masukkan kode verifikasi Anda di bawah ini.",
+	"msg_We_had_send_the_verification_code": "Kami telah mengirimkan kode verifikasi ke ponsel Anda yang terdaftar.",
+	"msg_Please_check_your_mobile_and_enter": "Silakan periksa telepon Anda dan masukkan kode verifikasi Anda di bawah ini.",
 	"msg_EnterOTPCode": "Harap masukkan kode OTP.",
 	"msg_OTP_NotReceiveVerificationCode": "Tidak menerima kode verifikasi?",
 	"lbl_Retransmit": "Kirim ulang",
