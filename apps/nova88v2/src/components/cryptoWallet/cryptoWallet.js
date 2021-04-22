@@ -45,52 +45,58 @@ export default () => {
 
 	const cryptoInputDataList = [
 		{
-			label: "nickname_1",
-			title: t("lbl_CryptoWalletNickName"),
-			colType: colType.nickName,
-			value: walletDatas.nickname_1,
-			checked: status.nickname_1.checked,
-			tip: status.nickname_1.tip
+			nickname: {
+				label: "nickname_1",
+				title: t("lbl_CryptoWalletNickName"),
+				colType: colType.nickName,
+				value: walletDatas.nickname_1,
+				checked: status.nickname_1.checked,
+				tip: status.nickname_1.tip
+			},
+			address: {
+				label: "address_1",
+				title: t("lbl_CryptoWalletAddress"),
+				colType: colType.address,
+				value: walletDatas.address_1,
+				checked: status.address_1.checked,
+				tip: status.address_1.tip
+			}
 		},
 		{
-			label: "address_1",
-			title: t("lbl_CryptoWalletAddress"),
-			colType: colType.address,
-			value: walletDatas.address_1,
-			checked: status.address_1.checked,
-			tip: status.address_1.tip
+			nickname: {
+				label: "nickname_2",
+				title: t("lbl_CryptoWalletNickName"),
+				colType: colType.nickName,
+				value: walletDatas.nickname_2,
+				checked: status.nickname_2.checked,
+				tip: status.nickname_2.tip
+			},
+			address: {
+				label: "address_2",
+				title: t("lbl_CryptoWalletAddress"),
+				colType: colType.address,
+				value: walletDatas.address_2,
+				checked: status.address_2.checked,
+				tip: status.address_2.tip
+			}
 		},
 		{
-			label: "nickname_2",
-			title: t("lbl_CryptoWalletNickName"),
-			colType: colType.nickName,
-			value: walletDatas.nickname_2,
-			checked: status.nickname_2.checked,
-			tip: status.nickname_2.tip
-		},
-		{
-			label: "address_2",
-			title: t("lbl_CryptoWalletAddress"),
-			colType: colType.address,
-			value: walletDatas.address_2,
-			checked: status.address_2.checked,
-			tip: status.address_2.tip
-		},
-		{
-			label: "nickname_3",
-			title: t("lbl_CryptoWalletNickName"),
-			colType: colType.nickName,
-			value: walletDatas.nickname_3,
-			checked: status.nickname_3.checked,
-			tip: status.nickname_3.tip
-		},
-		{
-			label: "address_3",
-			title: t("lbl_CryptoWalletAddress"),
-			colType: colType.address,
-			value: walletDatas.address_3,
-			checked: status.address_3.checked,
-			tip: status.address_3.tip
+			nickname: {
+				label: "nickname_3",
+				title: t("lbl_CryptoWalletNickName"),
+				colType: colType.nickName,
+				value: walletDatas.nickname_3,
+				checked: status.nickname_3.checked,
+				tip: status.nickname_3.tip
+			},
+			address: {
+				label: "address_3",
+				title: t("lbl_CryptoWalletAddress"),
+				colType: colType.address,
+				value: walletDatas.address_3,
+				checked: status.address_3.checked,
+				tip: status.address_3.tip
+			}
 		}
 	];
 

@@ -287,31 +287,53 @@ export default ({ GetCustBankInfo }) => {
 		}
 	};
 
-	const cryptoInputList = cryptoInputDataList.map(item => {
-		return (
-			<Inputbox
-				key={`crypto-wallet-input-${item.label}`}
-				className={`inputBox-white${
-					item.checked === false && item.tip !== "" ? " error" : ""
-				}`}
-				value={item.value}
-				onChange={editField.bind(this, item.label, item.colType)}
-				onBlur={checkInput.bind(
-					this,
-					item.label,
-					item.colType,
-					item.value
-				)}
-				title={item.title}
-				clickInfo={clickInfo.bind(this, item.label, item.colType)}
-				checked={item.checked}
-				tip={item.tip}
-				placeholder={
-					item.colType === colType.nickName ? t("lbl_Optional") : ""
-				}
-			/>
-		);
-	});
+	const group_cryptoInputDataList = cryptoInputDataList.reduce(
+		(r, e, i) => (i % 2 ? r[r.length - 1].push(e) : r.push([e])) && r,
+		[]
+	);
+
+	const cryptoInputList = group_cryptoInputDataList.map(group =>
+		group.map(item => {
+			return (
+				<>
+					<Inputbox
+						key={`crypto-wallet-input-${item.label}`}
+						className={`inputBox-white${
+							item.checked === false && item.tip !== ""
+								? " error"
+								: ""
+						}`}
+						value={item.value}
+						onChange={editField.bind(
+							this,
+							item.label,
+							item.colType
+						)}
+						onBlur={checkInput.bind(
+							this,
+							item.label,
+							item.colType,
+							item.value
+						)}
+						title={item.title}
+						clickInfo={clickInfo.bind(
+							this,
+							item.label,
+							item.colType
+						)}
+						checked={item.checked}
+						tip={item.tip}
+						placeholder={
+							item.colType === colType.nickName
+								? t("lbl_Optional")
+								: ""
+						}
+					/>
+					{item.colType === colType.address ? <br /> : null}
+				</>
+			);
+		})
+	);
 
 	const hasCheckFalseStatus = Object.values(status)
 		.map(item => item.checked)

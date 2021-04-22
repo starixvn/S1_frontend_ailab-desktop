@@ -230,27 +230,76 @@ const AccountPanel = ({
 
 	const cryptoInputList = cryptoInputDataList.map(item => {
 		return (
-			<Inputbox
-				key={`crypto-wallet-input-${item.label}`}
-				className={`inputBox-white${
-					item.checked === false && item.tip !== "" ? " error" : ""
-				}`}
-				value={item.value}
-				onChange={editField.bind(this, item.label, item.colType)}
-				onBlur={checkInput.bind(
-					this,
-					item.label,
-					item.colType,
-					item.value
-				)}
-				title={item.title}
-				clickInfo={clickInfo.bind(this, item.label, item.colType)}
-				checked={item.checked}
-				tip={item.tip}
-				placeholder={
-					item.colType === colType.nickName ? t("lbl_Optional") : ""
-				}
-			/>
+			<div>
+				<Inputbox
+					key={`crypto-wallet-input-${item.nickname.label}`}
+					className={`inputBox-white${
+						item.nickname.checked === false &&
+						item.nickname.tip !== ""
+							? " error"
+							: ""
+					}`}
+					value={item.nickname.value}
+					onChange={editField.bind(
+						this,
+						item.nickname.label,
+						item.nickname.colType
+					)}
+					onBlur={checkInput.bind(
+						this,
+						item.nickname.label,
+						item.nickname.colType,
+						item.nickname.value
+					)}
+					title={item.nickname.title}
+					clickInfo={clickInfo.bind(
+						this,
+						item.nickname.label,
+						item.nickname.colType
+					)}
+					checked={item.nickname.checked}
+					tip={item.nickname.tip}
+					placeholder={
+						item.nickname.colType === colType.nickName
+							? t("lbl_Optional")
+							: ""
+					}
+				/>
+				<Inputbox
+					key={`crypto-wallet-input-${item.address.label}`}
+					className={`inputBox-white${
+						item.address.checked === false &&
+						item.address.tip !== ""
+							? " error"
+							: ""
+					}`}
+					value={item.address.value}
+					onChange={editField.bind(
+						this,
+						item.address.label,
+						item.address.colType
+					)}
+					onBlur={checkInput.bind(
+						this,
+						item.address.label,
+						item.address.colType,
+						item.address.value
+					)}
+					title={item.address.title}
+					clickInfo={clickInfo.bind(
+						this,
+						item.address.label,
+						item.address.colType
+					)}
+					checked={item.address.checked}
+					tip={item.address.tip}
+					placeholder={
+						item.address.colType === colType.nickName
+							? t("lbl_Optional")
+							: ""
+					}
+				/>
+			</div>
 		);
 	});
 
@@ -281,34 +330,36 @@ const AccountPanel = ({
 						className="subModuleBody column"
 						onSubmit={clickSubmit}>
 						{alreadyHasAccountName ? null : (
-							<Inputbox
-								className={`inputBox-white${
-									status.accountName.checked === false &&
-									status.accountName.tip !== ""
-										? " error"
-										: ""
-								}`}
-								value={accountName}
-								onChange={editField.bind(
-									this,
-									"accountName",
-									colType.accountName
-								)}
-								onBlur={checkInput.bind(
-									this,
-									"accountName",
-									colType.accountName,
-									accountName
-								)}
-								title={t("lbl_RealName")}
-								clickInfo={clickInfo.bind(
-									this,
-									"accountName",
-									colType.accountName
-								)}
-								checked={status.accountName.checked}
-								tip={status.accountName.tip}
-							/>
+							<div>
+								<Inputbox
+									className={`inputBox-white${
+										status.accountName.checked === false &&
+										status.accountName.tip !== ""
+											? " error"
+											: ""
+									}`}
+									value={accountName}
+									onChange={editField.bind(
+										this,
+										"accountName",
+										colType.accountName
+									)}
+									onBlur={checkInput.bind(
+										this,
+										"accountName",
+										colType.accountName,
+										accountName
+									)}
+									title={t("lbl_RealName")}
+									clickInfo={clickInfo.bind(
+										this,
+										"accountName",
+										colType.accountName
+									)}
+									checked={status.accountName.checked}
+									tip={status.accountName.tip}
+								/>
+							</div>
 						)}
 						{cryptoInputList}
 						<div className="tip active">
