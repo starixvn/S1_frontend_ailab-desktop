@@ -79,7 +79,7 @@ const Depositnew = () => {
 
 	const [saveInfoChecked, setSaveInfoChecked] = useState(false);
 
-	const [localBankChecked, setLocalBankChecked] = useState(false);
+	const [localBankChecked, setLocalBankChecked] = useState(true);
 
 	const [localBankChannelError, setLocalBankChannelError] = useState({
 		checked: true,
@@ -191,8 +191,14 @@ const Depositnew = () => {
 			const { amount } = formInfo;
 			const resultAmount = _isConvert ? amount * 1000 : Number(amount);
 
-			if (depositType === defDepositType.mobile) {
+			if (saveInfoChecked) {
 				saveInfoToLocalStorage();
+			} else {
+				removeLocalStorage("nova88depositquerySavedChecked");
+				removeLocalStorage("nova88depositquery");
+			}
+
+			if (depositType === defDepositType.mobile) {
 				window.open(
 					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
 				);
@@ -206,8 +212,6 @@ const Depositnew = () => {
 					// !formInfo?.imgFile?.type.includes("image")
 				)
 					return;
-
-				saveInfoToLocalStorage();
 
 				setLoading(true);
 
@@ -247,8 +251,6 @@ const Depositnew = () => {
 
 				resetForm();
 			} else if (depositType === defDepositType.onlineBank) {
-				saveInfoToLocalStorage();
-
 				window.open(
 					`${config.openURL}/${
 						userInfo.langId
@@ -467,6 +469,7 @@ const Depositnew = () => {
 				setSaveInfoChecked={setSaveInfoChecked}
 				processingDescriptionActive={processingDescriptionActive}
 				setDepositType={onChangeDepositType}
+				setLocalBankChecked={setLocalBankChecked}
 				setFormInfo={setFormInfo}>
 				{depositType === defDepositType.mobile && (
 					<MobileForm

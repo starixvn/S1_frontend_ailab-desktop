@@ -17,9 +17,22 @@ const DepositnewInfoMoule = ({
 	setSaveInfoChecked,
 	setFormInfo,
 	processingDescriptionActive,
+	setLocalBankChecked,
 	children
 }) => {
 	const [rememberInfoActive, setRememberInfoActive] = useState(false);
+
+	const onReset = () => {
+		setLocalBankChecked(true);
+		setFormInfo({
+			imgFile: null,
+			// refId: null,
+			// time: moment(),
+			amount: null,
+			checked: null,
+			tip: ""
+		});
+	};
 
 	return (
 		<div className="infoModule">
@@ -76,14 +89,7 @@ const DepositnewInfoMoule = ({
 							<button
 								onClick={() => {
 									setDepositType(item.type);
-									setFormInfo({
-										imgFile: null,
-										// refId: null,
-										// time: moment(),
-										amount: null,
-										checked: null,
-										tip: ""
-									});
+									onReset();
 								}}
 								className={
 									item.type === depositType ? "active" : ""
@@ -192,6 +198,7 @@ DepositnewInfoMoule.propTypes = {
 	setSaveInfoChecked: PropTypes.func.isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	processingDescriptionActive: PropTypes.bool.isRequired,
+	setLocalBankChecked: PropTypes.func.isRequired,
 	children: PropTypes.node.isRequired
 };
 
