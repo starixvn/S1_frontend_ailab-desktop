@@ -116,16 +116,18 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 	};
 
 	return (
-		<div className="walletModule">
-			<BankCardPanel
-				dispatch={dispatch}
-				state={state}
-				t={t}
-				accountName={userInfo.accountName}
-				GetCustBankInfo={GetCustBankInfo}
-				refreshData={refreshData}
-				custBankInfo={state.custBankInfo ?? []}
-			/>
+		<>
+			<div className="walletModule">
+				<BankCardPanel
+					dispatch={dispatch}
+					state={state}
+					t={t}
+					accountName={userInfo.accountName}
+					GetCustBankInfo={GetCustBankInfo}
+					refreshData={refreshData}
+					custBankInfo={state.custBankInfo ?? []}
+				/>
+			</div>
 			<div className="subModuleList">
 				{state.panel === "amount" ? (
 					<AmountPanel
@@ -148,6 +150,6 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 					/>
 				)}
 			</div>
-		</div>
+		</>
 	);
 };

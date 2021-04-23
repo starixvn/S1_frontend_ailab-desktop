@@ -51,7 +51,12 @@ class Dropdown extends Component {
 						i18n={this.props.i18n}
 						onClick={this.selectItem.bind(this, { idx: i, item })}
 						displayText={item.displayText}
-						imgUrl={this.props.imgUrl + item.image}
+						imgUrl={
+							this.props.imgUrl +
+							(item.image
+								? String(item.image).toLowerCase()
+								: item.image)
+						}
 						className={this.props.className}
 						active={this.props.selectedIdx === i}
 					/>
@@ -73,7 +78,15 @@ class Dropdown extends Component {
 			if (this.props.imgUrl) {
 				selected = (
 					<>
-						<img src={this.props.imgUrl + _s.image} alt="" />
+						<img
+							src={
+								this.props.imgUrl +
+								(_s.image
+									? String(_s.image).toLowerCase()
+									: _s.image)
+							}
+							alt=""
+						/>
 						<div>{_s.displayText}</div>
 					</>
 				);

@@ -12,6 +12,7 @@ import { isConvert } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
+import { defHistoryIdList } from "../history/def";
 
 export default () => {
 	const { t } = useTranslation();
@@ -159,7 +160,7 @@ export default () => {
 				)}
 			</div>
 			<Link
-				to={`/${userInfo.langId}/${path.depositHistory.root}`}
+				to={`/${userInfo.langId}/${path.history.root}?kind=${defHistoryIdList.depositId}`}
 				className="icon icon-books"
 			/>
 		</>
