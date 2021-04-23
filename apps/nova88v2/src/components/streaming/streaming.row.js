@@ -48,7 +48,21 @@ export const StreamingModule = ({
 		<div
 			className={`liveTvModule${nowPlaying ? " active" : ""}`}
 			onClick={ClickLiveTv.bind(this, false)}>
-			<div className="title icon icon-youtube">{league}</div>
+			{isStreamingPage ? (
+				<div className="title icon icon-youtube">
+					<span className="started">
+						{nowPlaying ? "Started" : "Not Started"}
+					</span>
+					{league}
+					<button
+						className="betbtn"
+						onClick={ClickLiveTv.bind(this, true)}>
+						{t("lbl_BetNow")?.toUpperCase()}
+					</button>
+				</div>
+			) : (
+				<div className="title icon icon-youtube">{league}</div>
+			)}
 			<div className="liveTvInfo">
 				<div>
 					<div>HOME</div>
