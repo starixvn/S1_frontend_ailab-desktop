@@ -175,6 +175,15 @@
 	"lbl_VertifyNow": "ยืนยันหมายเลขโทรศัพท์เพื่อเข้าร่วมรับโปรโมชั่น",
 	"lbl_VertifyContactConfirm": "ยืนยันตอนนี้",
 	"msg_API_SendOTPSMS_5002": "Entered the wrong phone number.",
+	"lbl_FEATURES":"คุณสมบัติ",
+	"lbl_MEMBERS_BENEFITS":"สิทธิประโยชน์ของสมาชิก",
+	"lbl_126_SPORTSBOO_WELCOME_BONUS":"126% สปอร์ตบุ๊ค โบนัสต้อนรับ",
+	"lbl_100_LIVE_CASINO_WELCOME_BONUS":"โบนัสต้อนรับคาสิโนสด 100%",
+	"lbl_100_SLOTS_WELCOME_BONUS":"โบนัสต้อนรับสล็อต 100%",
+	"lbl_DAILY_REDEPOSIT_BONUS_UP_TO_20":"โบนัสเงินฝากทุกวันมากถึง 20%",
+	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES":"เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
+	"lbl_Multiple_product_platforms_with_better_odds":"แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
+	"lbl_Speedy_deposit_and_withdrawal":"ฝากและถอนอย่างรวดเร็วด้วยตัวเลือกการฝากที่หลากหลาย",
 	
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",
@@ -314,6 +323,7 @@
 	"lbl_BonusWallet_3": "Fishing Wallet",
 	"lbl_please_select_from_wallet": "กรุณาเลือกกระเป๋าเงินที่ต้องการโอนออก",
 	"lbl_please_select_to_wallet": "กรุณาเลือกกระเป๋าเงินที่ต้องการโอนเข้า",
+	"lbl_Main_Wallet_Auto_Transfer":"ย้ายเงินกระเป๋าหลักอัตโนมัติ",
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Financial": "บันทึกทางการเงิน",

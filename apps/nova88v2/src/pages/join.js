@@ -648,6 +648,31 @@ const Content = () => {
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
+				<div className="features">
+					<div className="title">
+						<span className="icon icon-star-full" />
+						{t("lbl_FEATURES")}
+					</div>
+					<div className="title">{t("lbl_MEMBERS_BENEFITS")}</div>
+					<ul>
+						<li> - {t("lbl_126_SPORTSBOO_WELCOME_BONUS")}</li>
+						<li> - {t("lbl_100_LIVE_CASINO_WELCOME_BONUS")}</li>
+						<li> - {t("lbl_100_SLOTS_WELCOME_BONUS")}</li>
+						<li> - {t("lbl_DAILY_REDEPOSIT_BONUS_UP_TO_20")}</li>
+					</ul>
+					<div className="title">
+						{t("lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES")}
+					</div>
+					<ul>
+						<li>
+							-{" "}
+							{t(
+								"lbl_Multiple_product_platforms_with_better_odds"
+							)}
+						</li>
+						<li> - {t("lbl_Speedy_deposit_and_withdrawal")}</li>
+					</ul>
+				</div>
 				<div className="joinAnimation">
 					<img
 						className="animationlogo"
@@ -676,11 +701,11 @@ const Content = () => {
 					/>
 				</div>
 				<form className="joinloginFunction" onSubmit={clickSubmit}>
-					<span className="title txt-orange">{t("lbl_JoinNow")}</span>
+					<span className="title txt-blue">{t("lbl_JoinNow")}</span>
 					<div>
 						{t("lbl_LoginMsg")}
 						<button
-							className="txt-orange"
+							className="txt-blue"
 							type="button"
 							onClick={openLogin}>
 							{t("lbl_LoginHere")}
@@ -688,12 +713,12 @@ const Content = () => {
 					</div>
 					<div className="inputModule">
 						<Inputbox
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								!tip.username.checked && tip.username.msg !== ""
 									? " error"
 									: ""
 							}`}
-							icon="icon-member txt-orange"
+							icon="icon-member txt-blue"
 							placeholder={t("lbl_Username")}
 							value={userValue.username}
 							tip={tip.username.msg}
@@ -704,12 +729,12 @@ const Content = () => {
 						/>
 
 						<InputboxPSW
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								!tip.password.checked && tip.password.msg !== ""
 									? " error"
 									: ""
 							}`}
-							icon="icon-key txt-orange"
+							icon="icon-key txt-blue"
 							inputType={`${!showPsw ? "password" : "text"}`}
 							placeholder={t("lbl_Password")}
 							value={userValue.password}
@@ -723,12 +748,12 @@ const Content = () => {
 						/>
 
 						<Inputbox
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								!tip.email.checked && tip.email.msg !== ""
 									? " error"
 									: ""
 							}`}
-							icon="icon-email txt-orange"
+							icon="icon-email txt-blue"
 							placeholder={t("lbl_Email")}
 							value={userValue.email}
 							tip={tip.email.msg}
@@ -739,13 +764,13 @@ const Content = () => {
 						/>
 
 						<div
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								tip.currency.msg !== "" ? " error" : ""
 							}`}>
 							<Dropdown
 								defaultOption={defaultOption}
 								mainKey="join_currency"
-								icon="icon-coin-dollar txt-orange"
+								icon="icon-coin-dollar txt-blue"
 								options={siteCurrency}
 								selectedIdx={userValue.currencyIdx}
 								i18n={t}
@@ -762,12 +787,12 @@ const Content = () => {
 
 						{userValue.currencyIdx !== null ? (
 							<Inputbox
-								className={`inputBox-org${
+								className={`inputBox-blue${
 									!tip.phone.checked && tip.phone.msg !== ""
 										? " error"
 										: ""
 								}`}
-								icon="icon-phone txt-orange"
+								icon="icon-phone txt-blue"
 								areaCode={_areaCode}
 								placeholder={t("lbl_Phone")}
 								value={userValue.phone}
@@ -782,10 +807,10 @@ const Content = () => {
 						)}
 
 						<Inputbox
-							className={`inputBox-org${
+							className={`inputBox-blue${
 								tip.specialBonusCode.msg !== "" ? " error" : ""
 							}`}
-							icon="icon-promotion txt-orange"
+							icon="icon-promotion txt-blue"
 							placeholder={t("lbl_JoinPromoCode")}
 							value={userValue.specialBonusCode}
 							onChange={EditField.bind(null, "specialBonusCode")}
@@ -795,8 +820,8 @@ const Content = () => {
 						/>
 
 						<Inputbox
-							className="inputBox-org"
-							icon="icon-affiliate txt-orange"
+							className="inputBox-blue"
+							icon="icon-affiliate txt-blue"
 							placeholder={t("lbl_Affiliate_ID")}
 							value={hasRefOrAffCode ?? userValue.affCode}
 							onChange={EditField.bind(null, "affCode")}
@@ -810,7 +835,7 @@ const Content = () => {
 					<div className="Terms">
 						{t("lbl_sign_up_terms_start")}
 						<a
-							className="txt-orange"
+							className="txt-blue"
 							target="_blank"
 							rel="noreferrer"
 							href={TandC(defaultLangId).terms}>

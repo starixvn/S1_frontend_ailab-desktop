@@ -9,7 +9,9 @@ import {
 import {
 	api_account_GetTpWalletList,
 	api_account_GetTpWalletBalance,
-	api_account_GetBalance
+	api_account_GetBalance,
+	api_account_GetWalletTransferStatus,
+	api_account_SetWalletTransferStatus
 } from "../../service/api/account";
 import { isConvert } from "../common/common";
 import {
@@ -17,10 +19,12 @@ import {
 	api_tp_GetTransferRecent
 } from "../../service/api/tp";
 import defPopBoxType from "../common/defPopBoxType";
+import TransferHeader from "./transfer.header";
 import ShowWallets from "./showWallets";
 import SetAmount from "./setAmount";
 import RecentHistory from "./recentHistory";
 import { GetAllWallets } from "../common/wrapper.walletInfo";
+import usePopBox from "../hook/usePopBox";
 
 const defDirection = {
 	MainToTp: 1,
@@ -30,6 +34,11 @@ const defDirection = {
 const initStatus = {
 	checked: null,
 	tip: ""
+};
+
+const defAutoStatus = {
+	isAuto: 1,
+	notAuto: 2
 };
 
 const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
@@ -67,9 +76,11 @@ export default () => {
 	const [getHistory, setGetHistory] = useState(null);
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const { loading, setLoading } = useContext(loadingContext);
 	const _isConvert = isConvert(userInfo.currencyId);
 	const { dispatch } = useContext(walletInfoContext);
+	const [isAutoTransfer, setIsAutoTransfer] = useState(false);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -84,6 +95,7 @@ export default () => {
 			await getTransferRecent();
 			await getMainWallet();
 			getTpWalletList();
+			getAutoTransferStatus();
 			setLoading(false);
 		}
 		getInitialData();
@@ -200,22 +212,9 @@ export default () => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
@@ -246,22 +245,9 @@ export default () => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
@@ -385,12 +371,59 @@ export default () => {
 		oppositeTpId: selectedTpId.from
 	});
 
+	const getAutoTransferStatus = () => {
+		api_account_GetWalletTransferStatus().then(
+			res => {
+				if (isMountedRef.current && res.data.errorCode === 0) {
+					const _isAuto =
+						res.data.data === defAutoStatus.isAuto ?? false;
+					setIsAutoTransfer(_isAuto);
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				errorPopBox();
+			}
+		);
+	};
+
+	const onChangeAutoTransfer = () => {
+		const _autoStatus = !isAutoTransfer
+			? defAutoStatus.isAuto
+			: defAutoStatus.notAuto;
+		api_account_SetWalletTransferStatus({
+			AutoTransfer: _autoStatus
+		}).then(
+			res => {
+				if (isMountedRef.current && res.data.errorCode === 0) {
+					setIsAutoTransfer(!isAutoTransfer);
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				errorPopBox();
+			}
+		);
+	};
+
 	return loading ? null : (
 		<div className="rightModule">
 			<div className="infoModule">
-				<div className="inside-title icon icon-icon32px_Funds-transfer">
-					<span>{t("lbl_TransferFunds")}</span>
-				</div>
+				<TransferHeader
+					t={t}
+					onChangeAutoTransfer={onChangeAutoTransfer}
+					isAutoTransfer={isAutoTransfer}
+				/>
 				<ShowWallets
 					i18n={t}
 					walletInfo={walletInfo}
