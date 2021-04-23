@@ -229,12 +229,14 @@ export default ({
 };
 
 const BankCard = props => {
+	const bankLogo = String(props.bankLogo).toLowerCase();
+
 	return (
 		<div className="addBankName">
 			<div className="addBankInfo">
 				<div className="bankName">
 					<img
-						src={`${config.cloudImgUrl}/SiteSkin/img/Payment/BankLogo/${props.bankLogo}`}
+						src={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
 						alt=""
 					/>
 

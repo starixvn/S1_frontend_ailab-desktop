@@ -157,6 +157,7 @@ const LocalBankForm = ({
 	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
 	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
 
+	console.log(custBankInfoList);
 	return (
 		<>
 			<div className="subModuleTitle">
