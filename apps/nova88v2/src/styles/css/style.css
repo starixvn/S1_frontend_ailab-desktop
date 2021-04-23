@@ -63,7 +63,7 @@ img {
   display: block;
 }
 
-button[disabled="disabled"] {
+button[disabled] {
   background: #e2e2e2 !important;
   color: #b2b2b2 !important;
 }
@@ -1226,8 +1226,8 @@ header input:focus-within {
 
 .header > div.function > div[class=join], .header > div.function > div[class=login], .header > div.function > a[class=join], .header > div.function > a[class=login], .header > div.function > button[class=join], .header > div.function > button[class=login] {
   color: white;
-  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
-  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  background: -webkit-gradient(linear, left top, right top, from(#f77900), to(#f55c00));
+  background: linear-gradient(to right, #f77900, #f55c00);
   border-radius: 5px;
   white-space: nowrap;
   min-width: 100px;
@@ -1238,26 +1238,27 @@ header input:focus-within {
   transition: 0.6s;
   font-family: "Microsoft YaHei", sans-serif;
   font-weight: bold;
-  border: 1px solid #BFCCE2;
+  border: 1px solid transparent;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 0 5px;
 }
 
 .header > div.function > div[class=join]:hover, .header > div.function > div[class=login]:hover, .header > div.function > a[class=join]:hover, .header > div.function > a[class=login]:hover, .header > div.function > button[class=join]:hover, .header > div.function > button[class=login]:hover {
-  color: white;
+  color: #f77900;
+  border-color: #f77900;
+  background: transparent;
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
 
 .header > div.function > div[class=login], .header > div.function > a[class=login], .header > div.function > button[class=login] {
-  background: -webkit-gradient(linear, left top, left bottom, from(#F0F7FF), to(#BFCCE2));
-  background: linear-gradient(to bottom, #F0F7FF, #BFCCE2);
-  color: #7591C1;
+  background: #cf0404;
 }
 
 .header > div.function > div[class=login]:hover, .header > div.function > a[class=login]:hover, .header > div.function > button[class=login]:hover {
-  color: #7591C1;
+  color: #cf0404;
+  border-color: #cf0404;
 }
 
 .header > div.function > div:before, .header > div.function > a:before, .header > div.function > button:before {
@@ -2362,19 +2363,19 @@ footer .footerList > div > div > div {
   padding: 22px 0;
 }
 
-.joinpop, .loginpop {
+.loginpop {
   max-width: 850px;
   margin: auto;
   padding: 50px 20px;
 }
 
-.joinpop.active, .loginpop.active {
+.loginpop.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.joinpop .joinloginModule, .loginpop .joinloginModule {
+.loginpop .joinloginModule {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2385,57 +2386,59 @@ footer .footerList > div > div > div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
-.joinpop .joinloginModule .btnGroup, .loginpop .joinloginModule .btnGroup {
+.loginpop .joinloginModule .btnGroup {
   margin: 10px 0;
 }
 
-.joinpop .joinloginModule img, .loginpop .joinloginModule img {
+.loginpop .joinloginModule img {
   width: 400px;
   height: 380px;
   pointer-events: none;
 }
 
-.joinpop .joinloginModule .joinloginFunction, .loginpop .joinloginModule .joinloginFunction {
+.loginpop .joinloginModule .joinloginFunction {
   margin-left: 25px;
   color: #5574A7;
 }
 
-.joinpop .joinloginModule .joinloginFunction a, .joinpop .joinloginModule .joinloginFunction > div button.txt-orange, .loginpop .joinloginModule .joinloginFunction a, .loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
+.loginpop .joinloginModule .joinloginFunction a, .loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
   text-decoration: underline;
   font-size: 12px;
   text-align: right;
   margin-left: 5px;
 }
 
-.joinpop .joinloginModule .joinloginFunction .noAccount, .loginpop .joinloginModule .joinloginFunction .noAccount {
+.loginpop .joinloginModule .joinloginFunction .noAccount {
   font-size: 12px;
   margin-top: 15px;
 }
 
-.joinpop .joinloginModule .joinloginFunction .dropdown > .btn, .loginpop .joinloginModule .joinloginFunction .dropdown > .btn {
+.loginpop .joinloginModule .joinloginFunction .dropdown > .btn {
   width: auto;
   color: #5574A7;
 }
 
-.joinpop .joinloginModule .joinloginFunction .icon-email, .loginpop .joinloginModule .joinloginFunction .icon-email {
+.loginpop .joinloginModule .joinloginFunction .icon-email {
   font-weight: bold;
   font-size: 16px;
 }
 
-.joinpop .joinloginModule .joinloginFunction .inputModule, .loginpop .joinloginModule .joinloginFunction .inputModule {
+.loginpop .joinloginModule .joinloginFunction .inputModule {
   margin-top: 10px;
 }
 
-.joinpop .joinloginModule .loginAnimation, .joinpop .joinloginModule .joinAnimation, .loginpop .joinloginModule .loginAnimation, .loginpop .joinloginModule .joinAnimation {
+.loginpop .joinloginModule .loginAnimation {
   min-width: 400px;
   max-height: 380px;
   min-height: 380px;
   position: relative;
+  margin: 0 20px 0 0;
 }
 
-.joinpop .joinloginModule .loginAnimation img, .joinpop .joinloginModule .joinAnimation img, .loginpop .joinloginModule .loginAnimation img, .loginpop .joinloginModule .joinAnimation img {
+.loginpop .joinloginModule .loginAnimation img {
   width: auto;
   height: auto;
   position: absolute;
@@ -2443,7 +2446,7 @@ footer .footerList > div > div > div {
   transition: 0.6s;
 }
 
-.joinpop .joinloginModule .loginAnimation img.animationlogo, .joinpop .joinloginModule .joinAnimation img.animationlogo, .loginpop .joinloginModule .loginAnimation img.animationlogo, .loginpop .joinloginModule .joinAnimation img.animationlogo {
+.loginpop .joinloginModule .loginAnimation img.animationlogo {
   bottom: 0;
   left: 30px;
   -webkit-animation: animationlogo 1s;
@@ -2451,14 +2454,14 @@ footer .footerList > div > div > div {
   z-index: 3;
 }
 
-.joinpop .joinloginModule .loginAnimation img.npc1, .joinpop .joinloginModule .joinAnimation img.npc1, .loginpop .joinloginModule .loginAnimation img.npc1, .loginpop .joinloginModule .joinAnimation img.npc1 {
+.loginpop .joinloginModule .loginAnimation img.npc1 {
   left: 40px;
   top: 0;
   -webkit-animation: loginnpc1 1s;
           animation: loginnpc1 1s;
 }
 
-.joinpop .joinloginModule .loginAnimation img.welcome, .joinpop .joinloginModule .joinAnimation img.welcome, .loginpop .joinloginModule .loginAnimation img.welcome, .loginpop .joinloginModule .joinAnimation img.welcome {
+.loginpop .joinloginModule .loginAnimation img.welcome {
   z-index: 1;
   left: 50%;
   bottom: 0;
@@ -2466,31 +2469,14 @@ footer .footerList > div > div > div {
           animation: welcome 1s;
 }
 
-.joinpop .joinloginModule .loginAnimation img.back, .joinpop .joinloginModule .joinAnimation img.back, .loginpop .joinloginModule .loginAnimation img.back, .loginpop .joinloginModule .joinAnimation img.back {
+.loginpop .joinloginModule .loginAnimation img.back {
   right: 100px;
   bottom: 0;
   -webkit-animation: back 1s;
           animation: back 1s;
 }
 
-.joinpop .joinloginModule .loginAnimation:hover img.animationlogo, .joinpop .joinloginModule .joinAnimation:hover img.animationlogo, .loginpop .joinloginModule .loginAnimation:hover img.animationlogo, .loginpop .joinloginModule .joinAnimation:hover img.animationlogo {
-  left: 0;
-}
-
-.joinpop .joinloginModule .loginAnimation:hover img.npc1, .joinpop .joinloginModule .joinAnimation:hover img.npc1, .loginpop .joinloginModule .loginAnimation:hover img.npc1, .loginpop .joinloginModule .joinAnimation:hover img.npc1 {
-  left: 140px;
-  top: 50px;
-}
-
-.joinpop .joinloginModule .loginAnimation:hover img.welcome, .joinpop .joinloginModule .joinAnimation:hover img.welcome, .loginpop .joinloginModule .loginAnimation:hover img.welcome, .loginpop .joinloginModule .joinAnimation:hover img.welcome {
-  bottom: 200px;
-}
-
-.joinpop .joinloginModule .loginAnimation:hover img.back, .joinpop .joinloginModule .joinAnimation:hover img.back, .loginpop .joinloginModule .loginAnimation:hover img.back, .loginpop .joinloginModule .joinAnimation:hover img.back {
-  bottom: -50px;
-}
-
-.joinpop .joinloginModule .loginAnimation img.npc2, .loginpop .joinloginModule .loginAnimation img.npc2 {
+.loginpop .joinloginModule .loginAnimation img.npc2 {
   z-index: 2;
   right: -100px;
   bottom: -15px;
@@ -2498,27 +2484,25 @@ footer .footerList > div > div > div {
           animation: loginnpc2 1s;
 }
 
-.joinpop .joinloginModule .loginAnimation:hover img.npc2, .loginpop .joinloginModule .loginAnimation:hover img.npc2 {
+.loginpop .joinloginModule .loginAnimation:hover img.animationlogo {
+  left: 0;
+}
+
+.loginpop .joinloginModule .loginAnimation:hover img.npc1 {
+  left: 140px;
+  top: 50px;
+}
+
+.loginpop .joinloginModule .loginAnimation:hover img.welcome {
+  bottom: 200px;
+}
+
+.loginpop .joinloginModule .loginAnimation:hover img.back {
+  bottom: -50px;
+}
+
+.loginpop .joinloginModule .loginAnimation:hover img.npc2 {
   right: -130px;
-}
-
-.joinpop .joinloginModule .joinAnimation img.npc2, .loginpop .joinloginModule .joinAnimation img.npc2 {
-  z-index: 2;
-  right: -10px;
-  bottom: 15px;
-  -webkit-animation: joinnpc2 1s;
-          animation: joinnpc2 1s;
-}
-
-.joinpop .joinloginModule .joinAnimation img.back, .loginpop .joinloginModule .joinAnimation img.back {
-  right: 80px;
-  bottom: 0;
-  -webkit-animation: back 1s;
-          animation: back 1s;
-}
-
-.joinpop .joinloginModule .joinAnimation:hover img.npc2, .loginpop .joinloginModule .joinAnimation:hover img.npc2 {
-  right: -60px;
 }
 
 @-webkit-keyframes animationlogo {
@@ -2655,6 +2639,91 @@ footer .footerList > div > div > div {
     bottom: 0;
     opacity: 1;
   }
+}
+
+.joinpop {
+  max-width: 850px;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+.joinpop .joinloginModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.joinpop .joinloginModule .btnGroup {
+  margin: 10px 0;
+}
+
+.joinpop .joinloginModule .joinloginFunction {
+  margin-left: 25px;
+  color: #5574A7;
+}
+
+.joinpop .joinloginModule .joinloginFunction a.txt-orange, .joinpop .joinloginModule .joinloginFunction a.txt-blue, .joinpop .joinloginModule .joinloginFunction > div button.txt-orange, .joinpop .joinloginModule .joinloginFunction > div button.txt-blue {
+  text-decoration: underline;
+  font-size: 12px;
+  text-align: right;
+  margin-left: 5px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .icon-email {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .inputModule {
+  margin-top: 10px;
+}
+
+.joinpop .joinloginModule .joinAnimation {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  width: 380px;
+  height: 380px;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.joinpop .joinloginModule .joinAnimation img {
+  width: auto;
+  height: auto;
+  position: absolute;
+}
+
+.joinpop .joinloginModule .joinAnimation img.animationlogo {
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.joinpop .joinloginModule .joinAnimation img.npc1 {
+  left: 0;
+  top: 20px;
+}
+
+.joinpop .joinloginModule .joinAnimation img.welcome {
+  z-index: 1;
+  left: 50%;
+  bottom: 0;
+}
+
+.joinpop .joinloginModule .joinAnimation img.back {
+  right: 100px;
+  bottom: 0;
+}
+
+.joinpop .joinloginModule .joinAnimation img.npc2 {
+  z-index: 1;
+  right: -10px;
+  bottom: 15px;
 }
 
 .txt-orange {
@@ -3014,6 +3083,10 @@ input[type="file"] {
   padding: 0 10px;
   width: 100%;
   color: #5574A7;
+}
+
+.tip.txt-red {
+  color: #cf0404;
 }
 
 .dropdown {
@@ -3437,7 +3510,7 @@ input[type="file"] {
 }
 
 .list div {
-  line-height: 30px;
+  line-height: 24px;
   font-size: 12px;
 }
 
@@ -3476,17 +3549,36 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
 }
 
 .list .listHeader div:first-child, .list .listBody div:first-child {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 25px;
-          flex: 0 0 25px;
+      -ms-flex: 0 0 23px;
+          flex: 0 0 23px;
+}
+
+.list .listHeader div:nth-child(2), .list .listBody div:nth-child(2) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 150px;
+          flex: 0 0 150px;
+}
+
+.list .listHeader div:nth-child(3), .list .listBody div:nth-child(3) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100px;
+          flex: 0 0 100px;
+}
+
+.list .listHeader div:nth-child(4), .list .listBody div:nth-child(4) {
+  white-space: unset;
 }
 
 .list .listHeader div:last-child, .list .listBody div:last-child {
   border: 0;
-  min-width: 135px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 170px;
+          flex: 0 0 170px;
   position: relative;
 }
 
@@ -3501,7 +3593,7 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .list .listHeader button {
@@ -3523,10 +3615,6 @@ input[type="file"] {
           align-items: center;
 }
 
-.list .listHeader div:nth-child(2) {
-  max-width: 160px;
-}
-
 .list .listBody {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -3537,7 +3625,7 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 10px;
+  padding: 0 5px;
 }
 
 .list .listBody > div:nth-child(even) {
@@ -3559,12 +3647,6 @@ input[type="file"] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.list .listBody > div div:nth-child(2) {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  max-width: 160px;
 }
 
 .list .listBody > div div.pending {
@@ -3607,7 +3689,11 @@ input[type="file"] {
 }
 
 .list .listBody .btnGroup button {
-  margin: 2.5px 0;
+  margin: 2px 0 2px 6px;
+}
+
+.list .listBody .btnGroup button:before {
+  margin-left: 0;
 }
 
 .pagination {
@@ -3828,14 +3914,14 @@ input[type="file"] {
 }
 
 .inside-title {
-  padding: 20px;
+  padding: 15px 20px;
   border-bottom: 1px solid #BFCCE2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   position: relative;
   color: #5574A7;
 }
@@ -4117,7 +4203,14 @@ input[type="file"] {
   max-width: 90px;
 }
 
-.platformName + div.subModuleList .subModuleBody > div {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) {
+  background: #BFCCE2;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -4127,7 +4220,7 @@ input[type="file"] {
   display: flex;
 }
 
-.platformName + div.subModuleList .subModuleBody > div .txt-orange {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div .txt-orange {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4136,37 +4229,37 @@ input[type="file"] {
           align-items: flex-end;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.buttonBox {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.buttonBox {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin: 10px 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div > .bankName {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div > .bankName {
   margin-right: 30px;
   margin-top: 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.inputBtn {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.inputBtn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 20px 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.inputBtn .btnGroup {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.inputBtn .btnGroup {
   margin: 10px 0 5px;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList li {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList li {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -4176,7 +4269,7 @@ input[type="file"] {
   margin: auto 10px auto;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList li:first-child {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList li:first-child {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -7657,6 +7750,7 @@ button.icon-spinner11:before {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  width: 100%;
 }
 
 .phone .txt-orange {
@@ -7743,7 +7837,7 @@ button.icon-spinner11:before {
   top: 45px;
   left: -1px;
   width: calc(100% - 1px);
-  border-radius: 15px;
+  border-radius: 5px;
   background: #D2E2F9;
   border: 1px solid #CDAE8E;
   margin-left: 0;
@@ -9379,12 +9473,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   padding: 0 70px 0 80px;
 }
 
-.list.refhistory div:first-child {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
 .list.refhistory .btnGroup a {
   padding: 0;
 }
@@ -10773,7 +10861,7 @@ canvas {
   position: relative;
 }
 
-.subModuleListColumn > .subModule.selectBank > div > button:before {
+.subModuleListColumn > .subModule.selectBank > div > button.open:before {
   content: "●";
   color: #42AC5E;
   position: absolute;
@@ -10784,7 +10872,13 @@ canvas {
 }
 
 .subModuleListColumn > .subModule.selectBank > div > button.close:before {
+  content: "●";
   color: #cf0404;
+  position: absolute;
+  top: -8px;
+  left: -2px;
+  font-size: 24px;
+  z-index: 1;
 }
 
 .subModuleListColumn > .subModule.selectBank > div > button > div:first-child {
@@ -11656,8 +11750,159 @@ canvas {
 }
 
 .streaming {
-  padding: 30vw 4vw;
-  width: calc(100% - 8vw);
+  padding: 35px 0;
+  width: 1400px;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.streaming .inside-title {
+  width: 100%;
+  height: 35px;
+  padding: 0;
+  color: white;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  border: 0;
+  margin-bottom: 5px !important;
+}
+
+.streaming .inside-title:after {
+  content: '';
+  border-bottom: none;
+  border-radius: 5px 0;
+  -webkit-transform: scale(1, 1.3) perspective(110px) rotateX(-15deg);
+          transform: scale(1, 1.3) perspective(110px) rotateX(-15deg);
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  width: 340px;
+  height: 30px;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  position: absolute;
+  left: 0;
+}
+
+.streaming .inside-title:before, .streaming .inside-title span {
+  position: absolute;
+  z-index: 1;
+  left: 10px;
+}
+
+.streaming .inside-title:before {
+  font-size: 24px;
+}
+
+.streaming #streamingMenu {
+  width: 18%;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+
+.streaming #streamingMenu + div {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 10px;
+}
+
+.streaming #streamingMenu .menuModule {
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: #F0F7FF;
+}
+
+.streaming #streamingMenu .menuModule button, .streaming #streamingMenu .menuModule a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  width: 100%;
+  color: #5574A7;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.streaming #streamingMenu .menuModule button:hover, .streaming #streamingMenu .menuModule a:hover {
+  color: white;
+}
+
+.streaming #streamingMenu .menuModule .menuSelect {
+  border-bottom: 1px solid white;
+  overflow: hidden;
+  position: relative;
+}
+
+.streaming #streamingMenu .menuModule .menuSelect span {
+  z-index: 1;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  letter-spacing: 0;
+}
+
+.streaming #streamingMenu .menuModule .menuSelect span:before {
+  font-weight: normal;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.streaming #streamingMenu .menuModule .menuSelect span.icon-new::before {
+  top: 0;
+  right: -10px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.streaming #streamingMenu .menuModule .menuSelect.active span, .streaming #streamingMenu .menuModule .menuSelect:hover span {
+  color: #CDAE8E;
+}
+
+.streaming #streamingMenu .menuModule .menuSelect.active span:before, .streaming #streamingMenu .menuModule .menuSelect:hover span:before {
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.streaming #streamingMenu .menuModule .menuSelect:last-child {
+  border-bottom: 0;
+}
+
+.streaming #streamingMenu + .rightModule .infoModule {
+  width: 700px;
+  padding: 20px 20px 10px;
+}
+
+.streaming #streamingMenu + .rightModule .infoModule .subModuleListColumn {
+  width: 100%;
+  padding: 0;
+}
+
+.streaming .streamingAD {
+  width: 360px;
+  float: left;
+  margin-left: 20px;
+}
+
+.streaming .streamingTime {
+  color: #838383;
+  position: absolute;
+  margin: -25px 0 0 5px;
+  font-size: 12px;
 }
 
 .streaming .liveTvTag {
@@ -11704,10 +11949,25 @@ canvas {
 
 .streaming .liveTv {
   border-radius: 0 5px 5px 5px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#CDAE8E), to(#F1D5B6));
-  background: linear-gradient(to bottom, #CDAE8E, #F1D5B6);
-  padding: 20px;
   display: none;
+  height: 800px;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.streaming .liveTv::-webkit-scrollbar {
+  width: 8px;
+}
+
+.streaming .liveTv::-webkit-scrollbar-track {
+  background: #e2e2e2;
+  border-radius: 8px;
+}
+
+.streaming .liveTv::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, right top, from(#BFCCE2), to(#7591C1));
+  background: linear-gradient(to right, #BFCCE2, #7591C1);
+  border-radius: 8px;
 }
 
 .streaming .liveTv.active {
@@ -11719,8 +11979,9 @@ canvas {
   border-radius: 5px;
   color: black;
   text-align: center;
-  margin: 0 0 10px;
-  border: 1px solid #7591C1;
+  margin: 35px 0;
+  border: 1px solid #BFCCE2;
+  position: relative;
 }
 
 .streaming .liveTv > .liveTvModule.icon {
@@ -11732,10 +11993,6 @@ canvas {
   font-size: 72px;
 }
 
-.streaming .liveTv > .liveTvModule.active {
-  border: 1px solid #884500;
-}
-
 .streaming .liveTv > .liveTvModule.active > .title {
   background: url(../img/livetvtitlebggold.png) no-repeat center/40% 100%;
 }
@@ -11744,13 +12001,9 @@ canvas {
   color: red;
 }
 
-.streaming .liveTv > .liveTvModule.active .time {
-  color: red;
-  font-weight: bold;
-}
-
-.streaming .liveTv > .liveTvModule.active .time + .title span {
-  display: unset;
+.streaming .liveTv > .liveTvModule.active > .title .started {
+  background: -webkit-gradient(linear, left top, right top, from(#51CB33), to(#05BC0B));
+  background: linear-gradient(to right, #51CB33, #05BC0B);
 }
 
 .streaming .liveTv > .liveTvModule > .title {
@@ -11772,43 +12025,71 @@ canvas {
 
 .streaming .liveTv > .liveTvModule > .title:before {
   position: absolute;
-  left: 20px;
-  top: 10px;
+  left: 5px;
+  top: 5px;
   color: #aec3e1;
   font-weight: normal;
   font-size: 32px;
+}
+
+.streaming .liveTv > .liveTvModule > .title .started {
+  background: #949494;
+  position: absolute;
+  left: 50px;
+  padding: 3px 10px;
+  font-size: 12px;
+  top: 10px;
+  border-radius: 5px;
+}
+
+.streaming .liveTv > .liveTvModule > .title .betbtn {
+  position: absolute;
+  right: 10px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#FF5E00), to(#FC0404));
+  background: linear-gradient(to top, #FF5E00, #FC0404);
+  padding: 3px 10px;
+  font-size: 12px;
+  top: 10px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  height: 22px;
 }
 
 .streaming .liveTv > .liveTvModule .liveTvInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 30px 10px 10px;
 }
 
 .streaming .liveTv > .liveTvModule .liveTvInfo > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin: 10px;
-  line-height: 30px;
 }
 
 .streaming .liveTv > .liveTvModule .liveTvInfo > div div {
   color: #5574A7;
+  text-align: left;
+  font-size: 12px;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div.time {
+  color: #BFCCE2;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
 }
 
-.streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup {
-  margin: 15px auto 0;
-}
-
-.streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup button, .streaming .liveTv > .liveTvModule .liveTvInfo > div div.btnGroup a {
-  padding: 5px 10px;
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div.time + .title span {
+  display: unset;
 }
 
 .streaming .liveTv > .liveTvModule .liveTvInfo > div div span {
-  background: #7591C1;
+  background: -webkit-gradient(linear, left top, left bottom, from(#95AACF), to(#BFCCE2));
+  background: linear-gradient(to bottom, #95AACF, #BFCCE2);
   padding: 5px 10px;
   margin: 20px;
   border-radius: 5px;
@@ -11816,13 +12097,66 @@ canvas {
   display: none;
 }
 
+.streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2) {
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
-  color: #b2b2b2;
+  color: #949494;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div:nth-child(2) div {
+  text-align: center;
+}
+
+.streaming .liveTv > .liveTvModule .liveTvInfo > div:nth-child(3) div {
+  text-align: right;
 }
 
 .infoModuleLeft {
   float: left;
   width: 850px;
+}
+
+.features {
+  background: #e2e2e2;
+  color: #838383;
+  border-radius: 5px;
+  float: left;
+  font-size: 12px;
+  padding-bottom: 20px;
+  min-width: 400px;
+  min-height: 660px;
+}
+
+.features div, .features ul {
+  padding: 10px;
+}
+
+.features .title {
+  text-align: left;
+  color: #666;
+}
+
+.features .title:nth-child(1) {
+  background: #5574A7;
+  color: white;
+}
+
+.features .icon-information:before {
+  margin-left: 0;
+  font-weight: normal;
+}
+
+.features li {
+  list-style: decimal;
+  line-height: 24px;
+  margin-left: 25px;
+}
+
+.features li span, .features li a {
+  font-weight: bold;
 }
 
 .important {
@@ -11899,5 +12233,59 @@ canvas {
 .historyModule .quickSelect .inputBox-blue {
   background: white;
   border-color: #BFCCE2;
+}
+
+.cashBack {
+  background: #D2E2F9;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.cashBack table {
+  color: #5574A7;
+  font-size: 12px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+}
+
+.cashBack table tr:nth-child(1) {
+  background: #7591C1;
+  color: white;
+  font-weight: bold;
+}
+
+.cashBack table tr:nth-child(1) td {
+  border-right: 1px solid #134DAE;
+}
+
+.cashBack table tr:nth-child(even) {
+  background: #F0F7FF;
+}
+
+.cashBack table tr:nth-last-child(3) {
+  border-top: 1px solid #D2E2F9;
+}
+
+.cashBack table tr:nth-last-child(-n+3) {
+  font-weight: bold;
+  width: 100%;
+}
+
+.cashBack table tr:nth-last-child(-n+3) td span:nth-child(1) {
+  min-width: 90px;
+  display: inline-block;
+}
+
+.cashBack table tr td {
+  border-right: 1px solid #D2E2F9;
+  padding: 5px;
+  width: 25%;
+}
+
+.cashBack table tr td:last-child {
+  border: 0;
 }
 /*# sourceMappingURL=style.css.map */

@@ -242,6 +242,8 @@
 	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
 	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
 	
+	"lbl_DepositChannelTip": "Please select which bank channel you deposited from the local bank",
+	"lbl_LocalBankBankAccountTip": "Please select which bank account you deposited from the local bank.",
 	"lbl_DepositChannel": "Deposit Channel",
 	"lbl_DepositChannel_1": "Online Banking",
 	"lbl_DepositChannel_2": "Cash Deposit Machine",
