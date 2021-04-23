@@ -254,75 +254,83 @@ export default () => {
 							KycCheck={KycCheck}
 						/>
 					) : (
-						<div className="infoModuleLeft">
-							<WalletPanel
-								balanceData={state.balanceData}
-								GetWithdrawalAvailableBalance={
-									GetWithdrawalAvailableBalance
-								}
-							/>
+						<>
+							<div className="infoModuleLeft">
+								<WalletPanel
+									balanceData={state.balanceData}
+									GetWithdrawalAvailableBalance={
+										GetWithdrawalAvailableBalance
+									}
+								/>
 
-							<MainPanel
-								dispatch={dispatch}
-								state={state}
-								refreshData={refreshData}
-								KycCheck={KycCheck}
-							/>
-						</div>
+								<MainPanel
+									dispatch={dispatch}
+									state={state}
+									refreshData={refreshData}
+									KycCheck={KycCheck}
+								/>
+							</div>
+
+							<div className="important">
+								<div className="title">
+									<span className="icon icon-information" />
+									{t("lbl_ImportantNotice")}
+								</div>
+								<ul>
+									<li>
+										<Trans
+											i18nKey="lbl_WithdrawalImportantNoticeContent1"
+											components={{
+												Link: (
+													<a
+														onClick={() =>
+															window.LiveChatWidget.call(
+																"maximize"
+															)
+														}
+													/>
+												)
+											}}
+										/>
+									</li>
+									<li>
+										{t(
+											"lbl_WithdrawalImportantNoticeContent2"
+										)}
+									</li>
+									<li>
+										{t(
+											"lbl_WithdrawalImportantNoticeContent3"
+										)}
+									</li>
+									<li>
+										{t(
+											"lbl_WithdrawalImportantNoticeContent4"
+										)}
+									</li>
+
+									<li>
+										<Trans
+											i18nKey="lbl_WithdrawalImportantNoticeContent5"
+											components={{
+												Link: (
+													<a
+														onClick={() =>
+															window.LiveChatWidget.call(
+																"maximize"
+															)
+														}
+													/>
+												)
+											}}
+										/>
+
+										{/* lbl_LiveChat 24/7 */}
+									</li>
+								</ul>
+							</div>
+						</>
 					)}
-
-					<div className="important">
-						<div className="title">
-							<span className="icon icon-information" />
-							{t("lbl_ImportantNotice")}
-						</div>
-						<ul>
-							<li>
-								<Trans
-									i18nKey="lbl_WithdrawalImportantNoticeContent1"
-									components={{
-										Link: (
-											<a
-												onClick={() =>
-													window.LiveChatWidget.call(
-														"maximize"
-													)
-												}
-											/>
-										)
-									}}
-								/>
-							</li>
-							<li>
-								{t("lbl_WithdrawalImportantNoticeContent2")}
-							</li>
-							<li>
-								{t("lbl_WithdrawalImportantNoticeContent3")}
-							</li>
-							<li>
-								{t("lbl_WithdrawalImportantNoticeContent4")}
-							</li>
-
-							<li>
-								<Trans
-									i18nKey="lbl_WithdrawalImportantNoticeContent5"
-									components={{
-										Link: (
-											<a
-												onClick={() =>
-													window.LiveChatWidget.call(
-														"maximize"
-													)
-												}
-											/>
-										)
-									}}
-								/>
-
-								{/* lbl_LiveChat 24/7 */}
-							</li>
-						</ul>
-					</div>
 				</div>
 				<RecentHistory
 					dispatch={dispatch}
