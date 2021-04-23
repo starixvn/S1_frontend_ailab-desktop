@@ -174,7 +174,8 @@
 	"lbl_Please_enter_Affiliate_ID": "กรุณากรอก ไอดีผู้ใช้ของพันธมิตร(ไม่บังคับ) ไม่สามารถเปลี่ยนภายหลังได้!",
 	"lbl_VertifyNow": "ยืนยันหมายเลขโทรศัพท์เพื่อเข้าร่วมรับโปรโมชั่น",
 	"lbl_VertifyContactConfirm": "ยืนยันตอนนี้",
-
+	"msg_API_SendOTPSMS_5002": "Entered the wrong phone number.",
+	
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",
 	"BankSlipHint2": "ขนาดไฟล์ไม่เกิน : 1",
@@ -393,6 +394,7 @@
 	"lbl_RequireMinAmountHint_Front": "ฝากเงินขั้นต่ำเริ่มต้นที่",
 	"lbl_RequireMinAmountHint_Back": "บาท ฝากเลย?",
 	"lbl_MaxBonusAmount": "จำนวนโบนัสสูงสุด",
+	"lbl_Other":"อื่นๆ",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "ไม่มีข้อมูล",

@@ -158,7 +158,9 @@ export default ({ children, afterLogin = false }) => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
 				const pathLang = window.location.pathname.split("/")?.[1];
-				const currentLang = userInfo.langId;
+				const currentLang = isVaildLang(userInfo.langId)
+					? userInfo.langId
+					: GET_LANG_ID();
 
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);

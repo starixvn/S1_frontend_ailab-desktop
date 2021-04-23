@@ -56,6 +56,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	);
 	const [correctPath, setCorrectPath] = useState(false);
 	const [redirectPath, setRedirectPath] = useState(null);
+	const [isRoot, setIsRoot] = useState(false);
 
 	const isMountedRef = useRef(null);
 	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
@@ -160,7 +161,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		if (userInfo.isLogin !== null) {
 			if (typeof window !== `undefined`) {
 				const pathLang = window.location.pathname.split("/")?.[1];
-				const currentLang = userInfo.langId;
+				const currentLang = isVaildLang(userInfo.langId)
+					? userInfo.langId
+					: GET_LANG_ID();
 
 				if (!pathLang && currentLang !== defaultLang) {
 					setRedirectPath(`/${currentLang}`);
@@ -243,7 +246,10 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								value={{ popBox, setPopBox }}>
 								<ct.loadingContext.Provider
 									value={{ loading, setLoading }}>
-									{children}
+									<ct.isRootContext.Provider
+										value={{ isRoot, setIsRoot }}>
+										{children}
+									</ct.isRootContext.Provider>
 								</ct.loadingContext.Provider>
 							</ct.popBoxContext.Provider>
 						</ct.msgCountContext.Provider>

@@ -110,18 +110,9 @@ const IndexPage = ({ location }) => {
 				}
 			};
 
-			const clickCloseReferral = () => {
-				setPopBox({ isOpen: false });
-				showDepositPopBox();
-			};
-
 			const showsJoinSuccess = () => {
 				const closeJoinSuccess = () => {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.RegisterSuccess,
-						onClickClose: clickCloseReferral
-					});
+					setPopBox({ isOpen: false });
 				};
 				setPopBox({
 					isOpen: true,

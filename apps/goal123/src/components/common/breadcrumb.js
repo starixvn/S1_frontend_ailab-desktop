@@ -9,7 +9,7 @@ export const Breadcrumb = ({ children }) => {
 };
 
 const BreadcrumbItem = ({ children }) => {
-	return <li className="icon breadcrumb-item">{children}</li>;
+	return <li className="icon breadcrumb-item active">{children}</li>;
 };
 
 Breadcrumb.Item = BreadcrumbItem;

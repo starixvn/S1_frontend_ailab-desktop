@@ -61,13 +61,15 @@ export default props => {
 			api_accountStrict_UploadCustPhotoId(formData).then(
 				res => {
 					if (isMountedRef.current) {
+						const { message, errorCode } = res.data;
+
 						if (res.data.errorCode === 0) {
 							props.getKycStatus();
 						} else {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
+								message: message || `[${errorCode}] error`,
 								btnBar: (
 									<div className="btnGroup">
 										<button
