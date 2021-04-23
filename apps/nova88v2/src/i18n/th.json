@@ -243,7 +243,7 @@
 	"lbl_DepositImportantNoticeContent5": "โปรดทราบว่าจะต้องมีการโรลโอเวอร์ 1x สำหรับการฝากเงินทั้งหมด ก่อนที่จะสามารถดำเนินการถอนได้ ",
 	"lbl_DepositImportantNoticeContent6": "กรุณาติดต่อเราที่ <Link>แชทสดตลอด 24/7</Link> หากธุรกรรมของคุณยังคงรอดำเนินการนานกว่า 5 นาที ",
 	"lbl_DepositChannelTip": "กรุณาเลือกช่องทางธนาคารที่คุณฝากจากธนาคารในประเทศ",
-	"lbl_LocalBankBankAccountTip": "Please select which bank account you deposited from the local bank.",
+	"lbl_LocalBankBankAccountTip": "กรุณาเลือกบัญชีธนาคารที่คุณทำการฝากจากช่องทางธนาคารในประเทศ",
 	"lbl_DepositChannel": "ช่องทางการฝาก",
 	"lbl_DepositChannel_1": "ธนาคารออนไลน์",
 	"lbl_DepositChannel_2": "เครื่องฝากเงินสด",

@@ -243,7 +243,7 @@
 	"lbl_DepositImportantNoticeContent5": "所有存款金额统一必须完成1倍流水需求方可进行提款。",
 	"lbl_DepositImportantNoticeContent6": "如您的存款申请时长超过5分钟或以上，请联系 <Link>24/7在線客服 </Link> 以寻求帮助。",
 	"lbl_DepositChannelTip": "请选择您使用银行转账的银行",
-	"lbl_LocalBankBankAccountTip": "Please select which bank account you deposited from the local bank.",
+	"lbl_LocalBankBankAccountTip": "请选择您在银行转账时使用的银行户口",
 	"lbl_DepositChannel": "存款渠道",
 	"lbl_DepositChannel_1": "网络银行",
 	"lbl_DepositChannel_2": "现金存款机",
