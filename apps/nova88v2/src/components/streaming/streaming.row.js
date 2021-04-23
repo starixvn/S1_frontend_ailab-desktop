@@ -79,7 +79,7 @@ export const StreamingModule = ({
 						VS
 						{awayScore !== null ? <span>{awayScore}</span> : null}
 					</div>
-					{isStreamingPage ? (
+					{/* {isStreamingPage ? (
 						<div className="btnGroup">
 							<button
 								className="lightblue"
@@ -87,7 +87,7 @@ export const StreamingModule = ({
 								{t("lbl_BetNow")?.toUpperCase()}
 							</button>
 						</div>
-					) : null}
+					) : null} */}
 				</div>
 				<div>
 					<div>AWAY</div>
