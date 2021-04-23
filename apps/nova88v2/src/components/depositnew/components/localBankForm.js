@@ -157,7 +157,6 @@ const LocalBankForm = ({
 	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
 	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
 
-	console.log(custBankInfoList);
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -297,7 +296,10 @@ const LocalBankForm = ({
 			</div>
 
 			<div className="subModule">
-				<div className="inputBox-blue">
+				<div
+					className={`inputBox-blue${
+						localBankChannelError.checked ? "" : " error"
+					}`}>
 					<Dropdown
 						mainKey="deposit-localbank-channel-provider"
 						defaultOption={
@@ -340,7 +342,10 @@ const LocalBankForm = ({
 					</div>
 
 					<div className="subModule">
-						<div className="inputBox-blue">
+						<div
+							className={`inputBox-blue${
+								localBankBankInfoErrpr.checked ? "" : " error"
+							}`}>
 							<Dropdown
 								mainKey="deposit-localbank-Bank-provider"
 								defaultOption={

@@ -51,9 +51,15 @@ const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {
 
 export default ShortcutAmountList;
 
+ShortcutAmountList.defaultProps = {
+	amount: null,
+	minAmount: null,
+	maxAmount: null
+};
+
 ShortcutAmountList.propTypes = {
-	amount: PropTypes.number.isRequired,
-	minAmount: PropTypes.number.isRequired,
-	maxAmount: PropTypes.number.isRequired,
+	amount: PropTypes.number,
+	minAmount: PropTypes.number,
+	maxAmount: PropTypes.number,
 	onClick: PropTypes.func.isRequired
 };
