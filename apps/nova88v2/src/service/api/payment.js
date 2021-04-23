@@ -58,8 +58,20 @@ export const api_payment_GetMobilePayGroupList = () =>
 export const api_payment_GetCryptoPayInfoList = () =>
 	paymentRequest.post("/GetCryptoPayInfoList");
 
-export const api_payment_DepositReqWireTransfer = ({ amount, sysId }) =>
-	paymentRequest.post("/DepositReqWireTransfer", { amount, sysId });
+export const api_payment_DepositReqWireTransfer = ({
+	amount,
+	sysId,
+	fromChannel,
+	fromSysId,
+	fromAccountNum
+}) =>
+	paymentRequest.post("/DepositReqWireTransfer", {
+		amount,
+		sysId,
+		fromChannel,
+		fromSysId,
+		fromAccountNum
+	});
 
 export const api_payment_GetDepositInfoRecent = () =>
 	paymentRequest.post("/GetDepositInfoRecent");

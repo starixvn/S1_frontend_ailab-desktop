@@ -63,10 +63,19 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 		);
 	};
 
-	const postLocalBankReqWireTransfer = async ({ amount, sysId }) => {
+	const postLocalBankReqWireTransfer = async ({
+		amount,
+		sysId,
+		fromChannel,
+		fromSysId,
+		fromAccountNum
+	}) => {
 		const transId = await api_payment_DepositReqWireTransfer({
 			amount,
-			sysId
+			sysId,
+			fromChannel,
+			fromSysId,
+			fromAccountNum
 		}).then(
 			res => {
 				if (!isMountedRef.current) return;
@@ -147,15 +156,11 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 			res => {
 				if (!isMountedRef.current) return;
 
-				const {
-					errorCode,
-					data: { bankInfoDetail },
-					message
-				} = res.data;
+				const { errorCode, data, message } = res.data;
 
 				if (errorCode === 0) {
-					if (bankInfoDetail?.length > 0) {
-						const formatBankInfoDetail = bankInfoDetail.map(
+					if (data?.bankInfoDetail?.length > 0) {
+						const formatBankInfoDetail = data.bankInfoDetail.map(
 							item => {
 								return {
 									...item,

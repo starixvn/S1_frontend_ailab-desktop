@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Trans } from "react-i18next";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
-import { setLocalStorage, getLocalStorage } from "../common/common";
+import { setLocalStorage } from "../common/common";
 
 const DepositnewInfoMoule = ({
 	t,
@@ -15,6 +15,7 @@ const DepositnewInfoMoule = ({
 	onSubmit,
 	saveInfoChecked,
 	setSaveInfoChecked,
+	setFormInfo,
 	processingDescriptionActive,
 	children
 }) => {
@@ -73,7 +74,17 @@ const DepositnewInfoMoule = ({
 					<div>
 						{depositOptions.map(item => (
 							<button
-								onClick={() => setDepositType(item.type)}
+								onClick={() => {
+									setDepositType(item.type);
+									setFormInfo({
+										imgFile: null,
+										// refId: null,
+										// time: moment(),
+										amount: null,
+										checked: null,
+										tip: ""
+									});
+								}}
 								className={
 									item.type === depositType ? "active" : ""
 								}
@@ -179,6 +190,7 @@ DepositnewInfoMoule.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	saveInfoChecked: PropTypes.bool.isRequired,
 	setSaveInfoChecked: PropTypes.func.isRequired,
+	setFormInfo: PropTypes.func.isRequired,
 	processingDescriptionActive: PropTypes.bool.isRequired,
 	children: PropTypes.node.isRequired
 };

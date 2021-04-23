@@ -32,7 +32,7 @@ export const defDepositOptions = ({
 	}
 ];
 
-export const defDepChannelIdList = {
+export const defDepositChannelIdList = {
 	OnlineBanking: 1,
 	CashDepositMachine: 2,
 	ATM: 3,
@@ -42,15 +42,18 @@ export const defDepChannelIdList = {
 export const defDepositChannel = [
 	{
 		displayKey: "lbl_DepositChannel_1",
-		id: defDepChannelIdList.OnlineBanking
+		id: defDepositChannelIdList.OnlineBanking
 	},
 	{
 		displayKey: "lbl_DepositChannel_2",
-		id: defDepChannelIdList.CashDepositMachine
+		id: defDepositChannelIdList.CashDepositMachine
 	},
-	{ displayKey: "lbl_DepositChannel_3", value: defDepChannelIdList.ATM },
+	{
+		displayKey: "lbl_DepositChannel_3",
+		id: defDepositChannelIdList.ATM
+	},
 	{
 		displayKey: "lbl_DepositChannel_4",
-		id: defDepChannelIdList.OverTheCounter
+		id: defDepositChannelIdList.OverTheCounter
 	}
 ];

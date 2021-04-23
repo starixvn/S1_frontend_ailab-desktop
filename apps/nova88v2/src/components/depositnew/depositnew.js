@@ -6,7 +6,11 @@ import {
 	userInfoContext,
 	popBoxContext
 } from "../common/context";
-import { defDepositType, defDepositOptions } from "./depositnew.def";
+import {
+	defDepositType,
+	defDepositOptions,
+	defDepositChannelIdList
+} from "./depositnew.def";
 import defPopBoxType from "../common/defPopBoxType";
 import {
 	checkAmount,
@@ -34,13 +38,9 @@ import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
 
 const Depositnew = () => {
-	const parameterDefaultType = getUrlParameter("type");
-
-	const isDepositTypeIncludes = Object.values(defDepositType).includes(
-		parameterDefaultType
-	);
-
 	const { t } = useTranslation();
+	const depositInfoStorage = getLocalStorage("nova88depositquery");
+	const parameterType = getUrlParameter("type");
 	const location = useLocation();
 
 	const isMountedRef = useRef(null);
@@ -54,11 +54,18 @@ const Depositnew = () => {
 		setProcessingDescriptionActive
 	] = useState(false);
 
-	const [depositType, setDepositType] = useState(
-		isDepositTypeIncludes ? parameterDefaultType : defDepositType.mobile
-	);
+	const [depositType, setDepositType] = useState(() => {
+		const isDepositTypeIncludes = type =>
+			Object.values(defDepositType).includes(type);
 
-	console.log(depositType);
+		if (isDepositTypeIncludes(depositInfoStorage?.type))
+			return depositInfoStorage?.type;
+
+		if (isDepositTypeIncludes(parameterType)) return parameterType;
+
+		return defDepositType.mobile;
+	});
+
 	const [formInfo, setFormInfo] = useState({
 		imgFile: null,
 		// refId: null,
@@ -69,7 +76,19 @@ const Depositnew = () => {
 	});
 
 	const [isInitDataDone, setIsInitDataDone] = useState(false);
+
 	const [saveInfoChecked, setSaveInfoChecked] = useState(false);
+
+	const [localBankChecked, setLocalBankChecked] = useState(false);
+
+	const [localBankChannelError, setLocalBankChannelError] = useState({
+		checked: true,
+		tip: ""
+	});
+	const [localBankBankInfoErrpr, setLocalBankBankInfoErrpr] = useState({
+		checked: true,
+		tip: ""
+	});
 
 	const _isConvert = isConvert(userInfo.currencyId);
 
@@ -83,12 +102,6 @@ const Depositnew = () => {
 	} = useDeposit({
 		isMountedRef
 	});
-
-	let localBankChecked = true;
-
-	if (userInfo.currencyId === currencyCode.TH) {
-		localBankChecked = formInfo?.imgFile?.type.includes("image");
-	}
 
 	const {
 		getMobilePayGroupList,
@@ -140,45 +153,16 @@ const Depositnew = () => {
 	const onChangeAmount = _amount => {
 		const amount = String(_amount).replace(/^(0+)|[^\d]+/g, "");
 
-		onValidAmount(amount);
 		setFormInfo(prev => {
 			return { ...prev, amount };
 		});
 	};
 
-	const onValidAmount = _amount => {
-		const result = checkAmount(
-			_amount,
-			formInfo.minAmount,
-			formInfo.maxAmount,
-			_isConvert,
-			t
-		);
-
-		if (result.status !== 0) {
-			setFormInfo(prev => {
-				return {
-					...prev,
-					checked: false,
-					tip: result.msg
-				};
-			});
-		} else {
-			setFormInfo(prev => {
-				return {
-					...prev,
-					checked: true,
-					tip: ""
-				};
-			});
-		}
-		return result.status === 0;
-	};
-
 	const saveInfoToLocalStorage = () => {
 		const localStoragePath = {
 			amount: formInfo.amount,
-			search: window.location.search
+			search: window.location.search,
+			type: depositType
 		};
 
 		if (saveInfoChecked) {
@@ -226,9 +210,13 @@ const Depositnew = () => {
 				saveInfoToLocalStorage();
 
 				setLoading(true);
+
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
-					sysId: formInfo.sysId
+					sysId: formInfo.sysId,
+					fromChannel: formInfo.fromChannel,
+					fromSysId: formInfo.fromSysId,
+					fromAccountNum: formInfo.fromAccountNum
 				});
 
 				if (transId) {
@@ -288,47 +276,134 @@ const Depositnew = () => {
 		}
 	};
 
-	// useEffect(() => {
-	// 	const checkRemoveStorage = () => {
-	// 		const savedCheck = getLocalStorage(
-	// 			"nova88depositquerySavedChecked"
-	// 		);
+	useEffect(() => {
+		const onValidAmount = _amount => {
+			const result = checkAmount(
+				_amount,
+				formInfo.minAmount,
+				formInfo.maxAmount,
+				_isConvert,
+				t
+			);
 
-	// 		if (!savedCheck) {
-	// 			removeLocalStorage("nova88depositquery");
-	// 			removeLocalStorage("nova88depositquerySavedChecked");
-	// 		}
-	// 	};
+			if (result.status !== 0) {
+				setFormInfo(prev => {
+					return {
+						...prev,
+						checked: false,
+						tip: result.msg
+					};
+				});
+			} else {
+				setFormInfo(prev => {
+					return {
+						...prev,
+						checked: true,
+						tip: ""
+					};
+				});
+			}
 
-	// 	window.addEventListener("beforeunload", checkRemoveStorage);
+			return result.status === 0;
+		};
 
-	// 	return () => {
-	// 		window.removeEventListener("beforeunload", checkRemoveStorage);
-	// 		checkRemoveStorage();
-	// 	};
-	// }, []);
+		onValidAmount(formInfo.amount);
 
-	const checkLocalStorageUpdateForm = () => {
-		const depositInfoStorage = getLocalStorage("nova88depositquery");
-		const savedCheck = getLocalStorage("nova88depositquerySavedChecked");
-		if (depositInfoStorage?.amount) {
-			onChangeAmount(depositInfoStorage.amount);
-		}
-
-		if (
-			depositInfoStorage?.search &&
-			depositInfoStorage.search !== location.search
-		) {
-			const { pathname } = location;
-
-			navigate(`${pathname}${depositInfoStorage.search}`);
-		}
-		if (savedCheck) {
-			setSaveInfoChecked(savedCheck);
-		}
-	};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [formInfo.amount, formInfo.minAmount, formInfo.maxAmount]);
 
 	useEffect(() => {
+		if (depositType === defDepositType.localBank) {
+			const validate = datas => {
+				const errors = {};
+
+				if (
+					userInfo.currencyId === currencyCode.TH &&
+					!datas.imgFile?.type.includes("image")
+				) {
+					errors.imgFile = "error";
+				}
+
+				if (!datas?.fromChannel) {
+					errors.fromChannel = t("lbl_DepositChannelTip");
+				}
+
+				if (
+					(datas?.fromChannel ===
+						defDepositChannelIdList.OnlineBanking ||
+						datas?.fromChannel === defDepositChannelIdList.ATM) &&
+					!datas?.fromAccountNum
+				) {
+					errors.fromAccountNum = t("lbl_LocalBankBankAccountTip");
+				}
+
+				return errors;
+			};
+
+			const errors = validate({
+				imgFile: formInfo.imgFile,
+				fromChannel: formInfo.fromChannel,
+				fromAccountNum: formInfo.fromAccountNum
+			});
+
+			const isValid = Object.keys(errors).length === 0;
+
+			setLocalBankChecked(isValid);
+
+			setLocalBankChannelError({
+				checked: !errors.fromChannel,
+				tip: errors.fromChannel
+			});
+
+			setLocalBankBankInfoErrpr({
+				checked: !errors.fromAccountNum,
+				tip: errors.fromAccountNum
+			});
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [formInfo]);
+
+	useEffect(() => {
+		const checkRemoveStorage = () => {
+			const savedCheck = getLocalStorage(
+				"nova88depositquerySavedChecked"
+			);
+
+			if (!savedCheck) {
+				removeLocalStorage("nova88depositquery");
+				removeLocalStorage("nova88depositquerySavedChecked");
+			}
+		};
+
+		window.addEventListener("beforeunload", checkRemoveStorage);
+
+		return () => {
+			window.removeEventListener("beforeunload", checkRemoveStorage);
+			checkRemoveStorage();
+		};
+	}, []);
+
+	useEffect(() => {
+		const checkLocalStorageUpdateForm = () => {
+			const savedCheck = getLocalStorage(
+				"nova88depositquerySavedChecked"
+			);
+			if (depositInfoStorage?.amount) {
+				onChangeAmount(depositInfoStorage.amount);
+			}
+
+			if (
+				depositInfoStorage?.search &&
+				depositInfoStorage.search !== location.search
+			) {
+				const { pathname } = location;
+
+				navigate(`${pathname}${depositInfoStorage.search}`);
+			}
+			if (savedCheck) {
+				setSaveInfoChecked(savedCheck);
+			}
+		};
 		const getData = async () => {
 			setLoading(true);
 			try {
@@ -369,27 +444,15 @@ const Depositnew = () => {
 	if (!filterDepositOptions.length) return null;
 
 	const defaultDepositOption = depositOptions.find(
-		option => option.type === parameterDefaultType
+		option => option.type === parameterType
 	);
 
 	if (
 		location.pathname === `/${userInfo.langId}/${path.deposit.root}` &&
-		(!isDepositTypeIncludes || defaultDepositOption?.isHide)
+		defaultDepositOption?.isHide
 	) {
-		console.log("!!!");
-		// onChangeDepositType(filterDepositOptions[0].type);
+		onChangeDepositType(filterDepositOptions[0].type);
 	}
-
-	let checked = false;
-
-	if (depositType === defDepositType.localBank) {
-		checked = formInfo.checked && localBankChecked;
-		// formInfo?.imgFile?.type.includes("image");
-	} else {
-		checked = formInfo.checked;
-	}
-
-	console.log(depositType);
 
 	return (
 		<>
@@ -398,13 +461,13 @@ const Depositnew = () => {
 				langId={userInfo.langId}
 				depositOptions={filterDepositOptions}
 				depositType={depositType}
-				checked={!!checked}
+				checked={!!formInfo.checked && localBankChecked}
 				onSubmit={onSubmit}
 				saveInfoChecked={saveInfoChecked}
 				setSaveInfoChecked={setSaveInfoChecked}
 				processingDescriptionActive={processingDescriptionActive}
-				saveInfoChecked={saveInfoChecked}
-				setDepositType={onChangeDepositType}>
+				setDepositType={onChangeDepositType}
+				setFormInfo={setFormInfo}>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}
@@ -416,7 +479,6 @@ const Depositnew = () => {
 						formInfo={formInfo}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
-						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
 					/>
 				)}
@@ -433,13 +495,14 @@ const Depositnew = () => {
 						formInfo={formInfo}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
-						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
 						getLocalBankInfo={getLocalBankInfo}
 						localBankInfo={localBankInfo}
 						asyncUploadBankPopBox={asyncUploadBankPopBox}
 						getBankInfo={getBankInfo}
 						custBankInfoList={custBankInfoList}
+						localBankChannelError={localBankChannelError}
+						localBankBankInfoErrpr={localBankBankInfoErrpr}
 					/>
 				)}
 
@@ -453,7 +516,6 @@ const Depositnew = () => {
 						onlineBankInfoList={onlineBankInfoList}
 						formInfo={formInfo}
 						onChangeAmount={onChangeAmount}
-						onValidAmount={onValidAmount}
 						setFormInfo={setFormInfo}
 						setOnlineBankInfoList={setOnlineBankInfoList}
 						onInputboxKeyDown={onInputboxKeyDown}

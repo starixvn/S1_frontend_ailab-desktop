@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import {
-	getUrlParameter,
-	number_format,
-	getLocalStorage
-} from "../../common/common";
+import { getUrlParameter, number_format } from "../../common/common";
+import ShortcutAmountList from "./shortcutAmountList";
 import config from "../../../config";
 
 const MobileForm = ({
@@ -18,7 +15,6 @@ const MobileForm = ({
 	formInfo,
 	setFormInfo,
 	onChangeAmount,
-	onValidAmount,
 	onInputboxKeyDown
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
@@ -97,32 +93,37 @@ const MobileForm = ({
 
 			<div className="subModule">
 				<div>
-					{mobilePayGourpList.map(item => (
-						<button
-							key={`deposit-mobilePay-group-${item.groupName}}`}
-							onClick={() => onGetMobileInfoList(item.groupId)}
-							className={
-								item.groupId === groupIdForRecord
-									? "active"
-									: ""
-							}>
-							<div>
-								<img
-									alt={item.groupName}
-									src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.groupName}.png`}
-								/>
+					{mobilePayGourpList.map(item => {
+						const groupName = String(item.groupName).toLowerCase();
+						return (
+							<button
+								key={`deposit-mobilePay-group-${item.groupName}}`}
+								onClick={() =>
+									onGetMobileInfoList(item.groupId)
+								}
+								className={
+									item.groupId === groupIdForRecord
+										? "active"
+										: ""
+								}>
+								<div>
+									<img
+										alt={item.groupName}
+										src={`${config.cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
+									/>
 
-								<i className="icon icon-icon32px_check" />
-							</div>
-							<div className="bank">
-								<div>{item.groupName}</div>
-							</div>
-						</button>
-					))}
+									<i className="icon icon-icon32px_check" />
+								</div>
+								<div className="bank">
+									<div>{item.groupName}</div>
+								</div>
+							</button>
+						);
+					})}
 				</div>
 			</div>
 
-			{!!mobilePayInfoList.length && (
+			{mobilePayInfoList.length > 0 && (
 				<>
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
@@ -131,48 +132,54 @@ const MobileForm = ({
 
 					<div className="subModule">
 						<div>
-							{mobilePayInfoList.map(item => (
-								<button
-									key={`deposit-mobilePay-info-${item.groupName}-${item.channelId}}`}
-									onClick={() => onSetInfoData(item)}
-									className={
-										item.channelId ===
-										infoChannelIdForRecord
-											? "active"
-											: ""
-									}>
-									<div>
-										<img
-											alt={item.groupName}
-											src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.groupName}.png`}
-										/>
-										<i className="icon icon-icon32px_check" />
-									</div>
+							{mobilePayInfoList.map(item => {
+								const groupName = String(
+									item.groupName
+								).toLowerCase();
 
-									<div className="bank">
-										<div>{item.channelName}</div>
-
+								return (
+									<button
+										key={`deposit-mobilePay-info-${item.groupName}-${item.channelId}}`}
+										onClick={() => onSetInfoData(item)}
+										className={
+											item.channelId ===
+											infoChannelIdForRecord
+												? "active"
+												: ""
+										}>
 										<div>
+											<img
+												alt={item.groupName}
+												src={`${config.cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
+											/>
+											<i className="icon icon-icon32px_check" />
+										</div>
+
+										<div className="bank">
+											<div>{item.channelName}</div>
+
 											<div>
-												{`${t(
-													"lbl_Min"
-												)}: ${number_format(
-													item.minAmount,
-													_isConvert
-												)}`}
-											</div>
-											<div>
-												{`${t(
-													"lbl_Max"
-												)}: ${number_format(
-													item.maxAmount,
-													_isConvert
-												)}`}
+												<div>
+													{`${t(
+														"lbl_Min"
+													)}: ${number_format(
+														item.minAmount,
+														_isConvert
+													)}`}
+												</div>
+												<div>
+													{`${t(
+														"lbl_Max"
+													)}: ${number_format(
+														item.maxAmount,
+														_isConvert
+													)}`}
+												</div>
 											</div>
 										</div>
-									</div>
-								</button>
-							))}
+									</button>
+								);
+							})}
 						</div>
 					</div>
 				</>
@@ -187,24 +194,7 @@ const MobileForm = ({
 
 					<div className="subModule">
 						<div className="column">
-							<Inputbox
-								className="inputBox-white"
-								readOnly={isSelAmountType}
-								// title={t("lbl_Amount")}
-								value={formInfo.amount}
-								onChange={e => onChangeAmount(e.target.value)}
-								onBlur={() => onValidAmount(formInfo.amount)}
-								checked={formInfo?.checked}
-								tip={formInfo?.tip}
-								_isConvert={_isConvert}
-								isAmount={true}
-								placeholder={`${t(
-									"lbl_MinMaxAmount"
-								)} ${formatMinAmount} ~ ${formatMaxAmount}`}
-								onKeyDown={onInputboxKeyDown}
-							/>
-
-							{isSelAmountType ? (
+							{isSelAmountType && (
 								<FixedAmountList
 									minAmount={formInfo.minAmount}
 									maxAmount={formInfo.maxAmount}
@@ -213,8 +203,32 @@ const MobileForm = ({
 									_isConvert={_isConvert}
 									onChangeAmount={onChangeAmount}
 								/>
-							) : null}
+							)}
 						</div>
+						<Inputbox
+							className="inputBox-white"
+							readOnly={isSelAmountType}
+							// title={t("lbl_Amount")}
+							value={formInfo.amount}
+							onChange={e => onChangeAmount(e.target.value)}
+							checked={formInfo?.checked}
+							tip={formInfo?.tip}
+							_isConvert={_isConvert}
+							isAmount={true}
+							placeholder={`${t(
+								"lbl_MinMaxAmount"
+							)} ${formatMinAmount} ~ ${formatMaxAmount}`}
+							onKeyDown={onInputboxKeyDown}
+						/>
+
+						{!isSelAmountType && (
+							<ShortcutAmountList
+								amount={formInfo.amount}
+								minAmount={formInfo.minAmount}
+								maxAmount={formInfo.maxAmount}
+								onClick={amount => onChangeAmount(amount)}
+							/>
+						)}
 					</div>
 				</>
 			) : null}
@@ -272,7 +286,6 @@ MobileForm.propTypes = {
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
-	onValidAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired
 };
 
