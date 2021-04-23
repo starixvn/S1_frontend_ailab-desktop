@@ -662,6 +662,8 @@
 	"lbl_Streaming_NoData1": "暂无现场视频，",
 	"lbl_Streaming_NoData2": "请稍后再试。",
 	"lbl_More": "更多",
+	"lbl_Started":"已开始",
+	"lbl_Not_Started":"Not Started",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "最新精彩回放视频",

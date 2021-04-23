@@ -662,6 +662,8 @@
 	"lbl_Streaming_NoData1": "ไม่มีการถ่ายทอดสดให้บริการในขณะนี้",
 	"lbl_Streaming_NoData2": "โปรดลองอีกครั้งในภายหลัง",
 	"lbl_More": "ข้อมูลเพิ่มเติม",
+	"lbl_Started":"เริ่มแล้ว",
+	"lbl_Not_Started":"Not Started",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "วิดีโอไฮไลต์ล่าสุด",

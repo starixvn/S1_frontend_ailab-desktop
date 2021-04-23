@@ -51,7 +51,7 @@ export const StreamingModule = ({
 			{isStreamingPage ? (
 				<div className="title icon icon-youtube">
 					<span className="started">
-						{nowPlaying ? "Started" : "Not Started"}
+						{nowPlaying ? t("lbl_Started") : t("lbl_Not_Started")}
 					</span>
 					{league}
 					<button
