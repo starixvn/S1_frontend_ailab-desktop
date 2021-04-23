@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
+import ShortcutAmountList from "./shortcutAmountList";
+
 import { getUrlParameter, number_format } from "../../common/common";
 import config from "../../../config";
 
@@ -13,7 +15,7 @@ const OnlineBankForm = ({
 	onlineBankInfoList,
 	formInfo,
 	onChangeAmount,
-	onValidAmount,
+
 	setFormInfo,
 	setOnlineBankInfoList,
 	onInputboxKeyDown
@@ -37,7 +39,7 @@ const OnlineBankForm = ({
 			`${window.location.pathname}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
 		);
 
-		setFormInfo(item);
+		setFormInfo(prev => ({ ...prev, ...item }));
 		setSysIdForRecord(null);
 		setPayIdForRecord(item.payId);
 		setPayNameForRecordSelectBank(item.payName);
@@ -61,7 +63,7 @@ const OnlineBankForm = ({
 		}
 	};
 
-	const onSetSysIdToInfoData = (item, pId) => {
+	const onSetSysIdToInfoData = async (item, pId) => {
 		window.history.replaceState(
 			{},
 			"",
@@ -70,13 +72,10 @@ const OnlineBankForm = ({
 
 		setSysIdForRecord(item.sysId);
 
-		setFormInfo(prev => {
+		await setFormInfo(prev => {
 			return {
 				...prev,
-				sysId: item.sysId,
-				amount: "",
-				checked: null,
-				tip: ""
+				sysId: item.sysId
 			};
 		});
 	};
@@ -107,84 +106,96 @@ const OnlineBankForm = ({
 
 	return (
 		<>
-			<div className="subModule">
-				<div className="subModuleTitle">
-					<i className="txt-blue">*</i>
-					{t("lbl_Payment_Method")}
-				</div>
-				<div>
-					{onlineBankGroupList.map(item => (
-						<button
-							key={`deposit-onlinePay-group-${item.payName}}`}
-							onClick={() => onChangeBankGroup(item)}
-							className={
-								item.payName === payNameForRecordSelectBank
-									? "active"
-									: ""
-							}>
-							<div>
-								<img
-									alt={item.payName}
-									src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.payName}.png`}
-								/>
-								<i className="icon icon-icon32px_check" />
-							</div>
-
-							<div className="bank">
-								<div>{item.payName}</div>
-
-								<div>
-									<div>
-										{`${t("lbl_Min")}: ${number_format(
-											item.minAmount,
-											_isConvert
-										)}`}
-									</div>
-									<div>
-										{`${t("lbl_Max")}: ${number_format(
-											item.maxAmount,
-											_isConvert
-										)}`}
-									</div>
-								</div>
-							</div>
-						</button>
-					))}
-				</div>
+			<div className="subModuleTitle">
+				<i className="txt-blue">*</i>
+				{t("lbl_Payment_Method")}
 			</div>
 
-			{!!onlineBankInfoList.length && (
-				<div className="subModule">
-					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_SelectBank")}
-					</div>
-					<div>
-						{onlineBankInfoList.map(item => (
+			<div className="subModule">
+				<div>
+					{onlineBankGroupList.map(item => {
+						const payName = String(item.payName).toLowerCase();
+
+						return (
 							<button
-								key={`deposit-onlinePay-info-${item.bankLogo}}`}
-								onClick={() =>
-									onSetSysIdToInfoData(item, payIdForRecord)
-								}
+								key={`deposit-onlinePay-group-${item.payName}}`}
+								onClick={() => onChangeBankGroup(item)}
 								className={
-									item.sysId === sysIdForRecord
+									item.payName === payNameForRecordSelectBank
 										? "active"
 										: ""
 								}>
 								<div>
 									<img
-										alt={item.bankLogo}
-										src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+										alt={item.payName}
+										src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${payName}.png`}
 									/>
 									<i className="icon icon-icon32px_check" />
 								</div>
 
 								<div className="bank">
-									<div>{item.bankName}</div>
-									<div className="" />
+									<div>{item.payName}</div>
+
+									<div>
+										<div>
+											{`${t("lbl_Min")}: ${number_format(
+												item.minAmount,
+												_isConvert
+											)}`}
+										</div>
+										<div>
+											{`${t("lbl_Max")}: ${number_format(
+												item.maxAmount,
+												_isConvert
+											)}`}
+										</div>
+									</div>
 								</div>
 							</button>
-						))}
+						);
+					})}
+				</div>
+			</div>
+
+			{!!onlineBankInfoList.length && (
+				<div className="subModule selectBank">
+					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
+						{t("lbl_SelectBank")}
+					</div>
+					<div>
+						{onlineBankInfoList.map(item => {
+							const bankLogo = String(
+								item.bankLogo
+							).toLowerCase();
+							return (
+								<button
+									key={`deposit-onlinePay-info-${item.bankLogo}}`}
+									onClick={() =>
+										onSetSysIdToInfoData(
+											item,
+											payIdForRecord
+										)
+									}
+									className={
+										item.sysId === sysIdForRecord
+											? "active"
+											: ""
+									}>
+									<div>
+										<img
+											src={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
+											alt={item.bankName}
+										/>
+										<i className="icon icon-icon32px_check" />
+									</div>
+
+									<div className="bank">
+										<div>{item.bankName}</div>
+									</div>
+								</button>
+							);
+						})}
 					</div>
 				</div>
 			)}
@@ -202,7 +213,6 @@ const OnlineBankForm = ({
 						// title={t("lbl_Amount")}
 						value={formInfo.amount}
 						onChange={e => onChangeAmount(e.target.value)}
-						onBlur={() => onValidAmount(formInfo.amount)}
 						checked={formInfo?.checked}
 						tip={formInfo?.tip}
 						_isConvert={_isConvert}
@@ -211,6 +221,13 @@ const OnlineBankForm = ({
 							"lbl_MinMaxAmount"
 						)} ${formatMinAmount} ~ ${formatMaxAmount}`}
 						onKeyDown={onInputboxKeyDown}
+					/>
+
+					<ShortcutAmountList
+						amount={formInfo.amount}
+						minAmount={formInfo.minAmount}
+						maxAmount={formInfo.maxAmount}
+						onClick={amount => onChangeAmount(amount)}
 					/>
 				</div>
 			) : null}
@@ -229,7 +246,7 @@ OnlineBankForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
-	onValidAmount: PropTypes.func.isRequired,
+
 	onInputboxKeyDown: PropTypes.func.isRequired
 };
 

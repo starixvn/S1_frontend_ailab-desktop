@@ -44,6 +44,11 @@ export const api_payment_GetStatement = ({ StartDate, EndDate, PageNumber }) =>
 export const api_payment_GetBankInfoOffList = () =>
 	paymentRequest.post("/GetBankInfoOffList");
 
+export const api_payment_GetBankInfoOffListStatus = queryType =>
+	paymentRequest.post("/GetBankInfoOffListStatus", {
+		queryType
+	});
+
 export const api_payment_GetLocalBankInfo = ({ sysId, amount }) =>
 	paymentRequest.post("/GetLocalBankInfo", { sysId, amount });
 
@@ -53,8 +58,20 @@ export const api_payment_GetMobilePayGroupList = () =>
 export const api_payment_GetCryptoPayInfoList = () =>
 	paymentRequest.post("/GetCryptoPayInfoList");
 
-export const api_payment_DepositReqWireTransfer = ({ amount, sysId }) =>
-	paymentRequest.post("/DepositReqWireTransfer", { amount, sysId });
+export const api_payment_DepositReqWireTransfer = ({
+	amount,
+	sysId,
+	fromChannel,
+	fromSysId,
+	fromAccountNum
+}) =>
+	paymentRequest.post("/DepositReqWireTransfer", {
+		amount,
+		sysId,
+		fromChannel,
+		fromSysId,
+		fromAccountNum
+	});
 
 export const api_payment_GetDepositInfoRecent = () =>
 	paymentRequest.post("/GetDepositInfoRecent");
