@@ -377,15 +377,6 @@ const Depositnew = () => {
 			}
 		};
 
-		window.addEventListener("beforeunload", checkRemoveStorage);
-
-		return () => {
-			window.removeEventListener("beforeunload", checkRemoveStorage);
-			checkRemoveStorage();
-		};
-	}, []);
-
-	useEffect(() => {
 		const checkLocalStorageUpdateForm = () => {
 			const savedCheck = getLocalStorage(
 				"nova88depositquerySavedChecked"
@@ -419,10 +410,18 @@ const Depositnew = () => {
 				errorPopBox();
 			}
 
+			window.addEventListener("beforeunload", checkRemoveStorage);
 			setLoading(false);
 		};
 		getData();
 		checkLocalStorageUpdateForm();
+
+		return () => {
+			checkRemoveStorage();
+
+			window.removeEventListener("beforeunload", checkRemoveStorage);
+		};
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -451,7 +450,8 @@ const Depositnew = () => {
 
 	if (
 		location.pathname === `/${userInfo.langId}/${path.deposit.root}` &&
-		defaultDepositOption?.isHide
+		depositOptions?.length > 0 &&
+		(defaultDepositOption?.isHide || !defaultDepositOption)
 	) {
 		onChangeDepositType(filterDepositOptions[0].type);
 	}
