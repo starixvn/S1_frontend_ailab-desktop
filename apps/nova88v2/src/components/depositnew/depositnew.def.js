@@ -10,11 +10,11 @@ export const defDepositOptions = ({
 	onlineBankGroupList = []
 }) => [
 	{
-		type: defDepositType.mobile,
-		isHide: !mobilePayGourpList.length,
-		depositDisplaykey: "lbl_MobileDeposit",
+		type: defDepositType.onlineBank,
+		isHide: !onlineBankGroupList.length,
+		depositDisplaykey: "lbl_OnlineBanking",
 		creditTime: "lbl_Instant",
-		iconClass: "icon icon-mobile"
+		iconClass: "icon icon-connection"
 	},
 	{
 		type: defDepositType.localBank,
@@ -24,11 +24,11 @@ export const defDepositOptions = ({
 		iconClass: "icon icon-library"
 	},
 	{
-		type: defDepositType.onlineBank,
-		isHide: !onlineBankGroupList.length,
-		depositDisplaykey: "lbl_OnlineBanking",
+		type: defDepositType.mobile,
+		isHide: !mobilePayGourpList.length,
+		depositDisplaykey: "lbl_MobileDeposit",
 		creditTime: "lbl_Instant",
-		iconClass: "icon icon-connection"
+		iconClass: "icon icon-mobile"
 	}
 ];
 
