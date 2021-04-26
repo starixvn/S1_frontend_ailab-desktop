@@ -83,16 +83,16 @@ const HotEventContent = ({
 		<div className="swiper-slide">
 			<div className="team" onClick={OnClickEvent}>
 				<div className="teamL">
-					<img src={sportTeamsHomePic} alt={sportTeamsHome} />
-					<span>{sportTeamsHome}</span>
+					<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
+					<span>{sportTeamsAway}</span>
 				</div>
 				<div className="schedule">
 					{`${date} `}
 					<span>{time}</span>
 				</div>
 				<div className="teamR">
-					<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
-					<span>{sportTeamsAway}</span>
+					<img src={sportTeamsHomePic} alt={sportTeamsHome} />
+					<span>{sportTeamsHome}</span>
 				</div>
 			</div>
 
