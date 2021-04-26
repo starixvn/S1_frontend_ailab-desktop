@@ -2425,6 +2425,7 @@ footer .footerList > div > div > div {
   max-height: 380px;
   min-height: 380px;
   position: relative;
+  z-index: 0;
 }
 
 .joinpop .joinloginModule .loginAnimation img, .joinpop .joinloginModule .joinAnimation img, .loginpop .joinloginModule .loginAnimation img, .loginpop .joinloginModule .joinAnimation img {
@@ -2743,7 +2744,7 @@ footer .footerList > div > div > div {
   border-color: #cf0404;
 }
 
-.inputBox.error ~ .tip, .error.inputBox-org ~ .tip, .error.inputBox-white ~ .tip, .error.inputBox-blue ~ .tip {
+.inputBox.error + .tip, .error.inputBox-org + .tip, .error.inputBox-white + .tip, .error.inputBox-blue + .tip {
   color: #cf0404;
 }
 
@@ -3005,6 +3006,10 @@ input[type="file"] {
   padding: 0 10px;
   width: 100%;
   color: #5574A7;
+}
+
+.tip.txt-red {
+  color: #cf0404;
 }
 
 .dropdown {
@@ -4071,7 +4076,14 @@ input[type="file"] {
   max-width: 90px;
 }
 
-.platformName + div.subModuleList .subModuleBody > div {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) {
+  background: #BFCCE2;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -4081,7 +4093,7 @@ input[type="file"] {
   display: flex;
 }
 
-.platformName + div.subModuleList .subModuleBody > div .txt-orange {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div .txt-orange {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4090,37 +4102,37 @@ input[type="file"] {
           align-items: flex-end;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.buttonBox {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.buttonBox {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin: 10px 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div > .bankName {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div > .bankName {
   margin-right: 30px;
   margin-top: 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.inputBtn {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.inputBtn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 20px 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.inputBtn .btnGroup {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.inputBtn .btnGroup {
   margin: 10px 0 5px;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList li {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList li {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -4130,7 +4142,7 @@ input[type="file"] {
   margin: auto 10px auto;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList li:first-child {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList li:first-child {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -7568,10 +7580,46 @@ button.icon-spinner11:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
 }
 
 .phone .txt-orange {
   font-size: 12px;
+}
+
+.phone > div:nth-child(1) {
+  margin-right: 5px;
+  max-width: 100px;
+}
+
+.phone > div:nth-child(1) .dropdown-container {
+  overflow-y: auto;
+  max-height: 100px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-track {
+  background: #D2E2F9;
+  border-radius: 10px;
+}
+
+.phone > div:nth-child(1) .dropdown-container::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
+  border-radius: 10px;
+}
+
+.phone > div:nth-child(1) .dropdown-container .dropdown-item {
+  padding-left: 0;
 }
 
 .transferModule {
@@ -7896,13 +7944,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -10450,7 +10492,7 @@ canvas {
           align-items: center;
   margin-bottom: 15px;
   color: white;
-  width: 240px;
+  width: 220px;
   position: relative;
 }
 
@@ -10993,9 +11035,9 @@ canvas {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  /* display: -webkit-box;
+  display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; */
+  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -11006,15 +11048,10 @@ canvas {
   font-size: 14px;
   text-align: right;
   height: 120px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 5px;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
   text-align: left;
-  padding-left: 0;
-  padding-right: 5px;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
@@ -11040,11 +11077,6 @@ canvas {
   min-width: -moz-max-content;
   min-width: max-content;
   margin-bottom: 10px;
-  background: #cf0404;
-}
-
-.liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button:hover, .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button:hover, .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button:hover, .liveVideo .newsList + div .liveTv .team > div > .btnGroup button:hover, .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button:hover, .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button:hover, .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button:hover, .newsVideo .newsList + div .liveTv .team > div > .btnGroup button:hover {
-  background: #f77900;
 }
 
 .liveVideo .latestVideo + div .liveTvBox, .liveVideo .newsList + div .liveTvBox, .newsVideo .latestVideo + div .liveTvBox, .newsVideo .newsList + div .liveTvBox {
@@ -11574,5 +11606,59 @@ canvas {
 
 .streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
+}
+
+.cashBack {
+  background: #D2E2F9;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.cashBack table {
+  color: #5574A7;
+  font-size: 12px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+}
+
+.cashBack table tr:nth-child(1) {
+  background: #7591C1;
+  color: white;
+  font-weight: bold;
+}
+
+.cashBack table tr:nth-child(1) td {
+  border-right: 1px solid #134DAE;
+}
+
+.cashBack table tr:nth-child(even) {
+  background: #F0F7FF;
+}
+
+.cashBack table tr:nth-last-child(3) {
+  border-top: 1px solid #D2E2F9;
+}
+
+.cashBack table tr:nth-last-child(-n+3) {
+  font-weight: bold;
+  width: 100%;
+}
+
+.cashBack table tr:nth-last-child(-n+3) td span:nth-child(1) {
+  min-width: 90px;
+  display: inline-block;
+}
+
+.cashBack table tr td {
+  border-right: 1px solid #D2E2F9;
+  padding: 5px;
+  width: 25%;
+}
+
+.cashBack table tr td:last-child {
+  border: 0;
 }
 /*# sourceMappingURL=style.css.map */

@@ -376,6 +376,10 @@
 	"lbl_RequireMinAmountHint_Back": "บาท ฝากเลย?",
 	"lbl_MaxBonusAmount": "จำนวนโบนัสสูงสุด",
 	"lbl_Other":"อื่นๆ",
+	"lbl_LossAmount":"จำนวนเงินที่เสีย",
+	"lbl_Percentage":"เปอร์เซ็นต์",
+	"lbl_TotalAmount":"จำนวนเงินทั้งหมด",
+	"lbl_ClaimNow":"แลกตอนนี้",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "ไม่มีข้อมูล",

@@ -376,6 +376,10 @@
 	"lbl_RequireMinAmountHint_Back": "Deposit sekarang?",
 	"lbl_MaxBonusAmount": "Jumlah Maksimal Bonus",
 	"lbl_Other":"Lainnya",
+	"lbl_LossAmount":"Nilai Kekalahan",
+	"lbl_Percentage":"Persentase",
+	"lbl_TotalAmount":"Jumlah Dana",
+	"lbl_ClaimNow":"Klaim Sekarang",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Tidak Ada Informasi Yang Tersedia",
