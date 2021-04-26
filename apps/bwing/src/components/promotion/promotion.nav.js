@@ -28,15 +28,16 @@ const defPromoNavs = [
 		className: "blueBorder"
 	},
 	{
-		displayKey: "lbl_PromotionRebateAndCashback",
-		value: defFilterType.Rebate_and_cashback,
-		className: "blueBorder"
-	},
-	{
 		displayKey: "lbl_Redeposit_Promo",
 		value: defFilterType.redeposit,
 		className: "blueBorder"
 	},
+	{
+		displayKey: "lbl_PromotionRebateAndCashback",
+		value: defFilterType.Rebate_and_cashback,
+		className: "blueBorder"
+	},
+
 	{
 		displayKey: "lbl_SpecialBonus",
 		value: defFilterType.specialBonus,
