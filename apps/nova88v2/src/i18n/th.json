@@ -167,6 +167,8 @@
 	"msg_OTP_Invalid": "Invalid OTP Code",
 	"msg_OTPHint": "กรุณากรอกข้อมูลส่วนตัวและยืนยันหมายเลขโทรศัพท์ก่อนเข้าร่วมกิจกรรม",
 	"msg_OTPSendCode": "เราได้ส่งรหัสยืนยันไปยังมือถือที่ลงทะเบียนของคุณแล้ว โปรดตรวจสอบมือถือของคุณและใส่รหัสยืนยันด้านล่าง",
+	"msg_We_had_send_the_verification_code": "เราได้ส่งรหัสยืนยันไปยังมือถือที่ลงทะเบียนของคุณแล้ว",
+	"msg_Please_check_your_mobile_and_enter": "โปรดตรวจสอบมือถือของคุณและใส่รหัสยืนยันด้านล่าง",
 	"msg_EnterOTPCode": "กรุณาใส่รหัส OTP",
 	"msg_OTP_NotReceiveVerificationCode": "คุณยังไม่ได้รับรหัสยืนยัน?",
 	"lbl_Retransmit": "ส่งใหม่อีกครั้ง",
