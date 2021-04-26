@@ -32,17 +32,18 @@ const defPromoNavs = [
 		selectedClassName: "blue"
 	},
 	{
-		displayKey: "lbl_PromotionRebateAndCashback",
-		value: defFilterType.Rebate_and_cashback,
-		className: "blueBorder",
-		selectedClassName: "blue"
-	},
-	{
 		displayKey: "lbl_Redeposit_Promo",
 		value: defFilterType.redeposit,
 		className: "blueBorder",
 		selectedClassName: "blue"
 	},
+	{
+		displayKey: "lbl_PromotionRebateAndCashback",
+		value: defFilterType.Rebate_and_cashback,
+		className: "blueBorder",
+		selectedClassName: "blue"
+	},
+
 	{
 		displayKey: "lbl_Other",
 		value: defFilterType.other,
@@ -99,7 +100,7 @@ export default ({
 									: item.className
 							}
 							onClick={() => onClick(item.value)}>
-							{t(item.displayKey)}
+							{t(item.displayKey).toUpperCase()}
 						</button>
 					))}
 				</div>
