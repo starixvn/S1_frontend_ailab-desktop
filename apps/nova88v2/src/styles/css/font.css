@@ -65,6 +65,10 @@
   font-size: 12px;
 }
 
+.icon-medal:before {
+  content: "\e9dd";
+}
+
 .icon-nolive:before {
   content: "\e9d6";
 }
@@ -557,7 +561,7 @@
   content: "\e916";
 }
 
-.icon-soccer:before {
+.icon-soccer2:before {
   content: "\e917";
 }
 
@@ -623,6 +627,10 @@
 
 .icon-withdrawal:before {
   content: "\e910";
+}
+
+.icon-person:before {
+  content: "\e9dc";
 }
 
 .icon-live_tv:before {
@@ -791,6 +799,10 @@
 
 .icon-files-empty:before {
   content: "\e925";
+}
+
+.icon-download:before {
+  content: "\e9de";
 }
 
 .icon-folder-upload:before {
@@ -1095,6 +1107,10 @@
 
 .icon-conversation:before {
   content: "\e935";
+}
+
+.icon-soccer:before {
+  content: "\e9df";
 }
 
 .icon-volleyball:before {

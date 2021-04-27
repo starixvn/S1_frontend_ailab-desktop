@@ -1167,12 +1167,12 @@ header input:focus-within {
 }
 
 .header > div.function .forgot {
-  width: calc(100% - 20px);
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   position: absolute;
   bottom: 5px;
+  left: 10px;
   margin: 0;
   min-height: unset;
 }
@@ -4203,14 +4203,16 @@ input[type="file"] {
   max-width: 90px;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) {
   background: #BFCCE2;
   margin-bottom: 20px;
+  margin-top: 0;
   border-radius: 5px;
   padding: 10px;
+  width: calc(100% - 20px);
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -4218,9 +4220,11 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div .txt-orange {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div .txt-orange {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4229,37 +4233,37 @@ input[type="file"] {
           align-items: flex-end;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.buttonBox {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.buttonBox {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin: 10px 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div > .bankName {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div > .bankName {
   margin-right: 30px;
   margin-top: 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.inputBtn {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.inputBtn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 20px 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.inputBtn .btnGroup {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.inputBtn .btnGroup {
   margin: 10px 0 5px;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.smallList {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList li {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.smallList li {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -4269,7 +4273,7 @@ input[type="file"] {
   margin: auto 10px auto;
 }
 
-.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList li:first-child {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.smallList li:first-child {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -4315,6 +4319,7 @@ input[type="file"] {
 }
 
 .align-items-center .txt-lightgray + .upload_img:hover .icon-plus {
+  display: none;
   color: white;
 }
 
@@ -4336,6 +4341,20 @@ input[type="file"] {
 .align-items-center .txt-lightgray + .upload_img:hover .icon-folder-upload:before {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+.align-items-center .txt-lightgray + .smallList {
+  width: 50%;
+}
+
+.align-items-center .txt-lightgray + .smallList li:nth-child(2) {
+  text-align: right;
+}
+
+.align-items-center .txt-lightgray + .smallList .accountNumber {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .bankName {
@@ -4436,6 +4455,9 @@ input[type="file"] {
 
 #popup .pop .editSuccess > div:not(.tip).inputModuleRow {
   width: 90%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #popup .pop .editSuccess .tip {
@@ -4737,6 +4759,7 @@ input[type="file"] {
   width: 420px;
   margin: auto;
   padding: 20px;
+  text-align: center;
 }
 
 .Submit.active, .poker.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
@@ -4971,6 +4994,35 @@ input[type="file"] {
       -ms-flex: 1;
           flex: 1;
   margin-left: 0;
+}
+
+.upload_img:hover {
+  background: #5574A7;
+}
+
+.upload_img:hover .icon-plus {
+  display: none;
+  color: white;
+}
+
+.upload_img:hover .icon-folder-upload {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  font-size: 12px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.upload_img:hover .icon-folder-upload:before {
+  font-size: 48px;
+  margin-bottom: 20px;
 }
 
 .slipInfo {
@@ -5440,6 +5492,10 @@ input[type="file"] {
   font-size: 12px;
 }
 
+.addBank .addBankName .addBankInfo .txt-blue span, .addBank .addBankName .cryptoInfo .txt-blue span {
+  margin-right: 5px;
+}
+
 .addBank .addBankName .addBankInfo .bankName, .addBank .addBankName .addBankInfo .icon-bin, .addBank .addBankName .cryptoInfo .bankName, .addBank .addBankName .cryptoInfo .icon-bin {
   margin: 0;
   margin-right: -4px;
@@ -5447,6 +5503,11 @@ input[type="file"] {
 
 .addBank .addBankName .addBankInfo .bankName:before, .addBank .addBankName .addBankInfo .icon-bin:before, .addBank .addBankName .cryptoInfo .bankName:before, .addBank .addBankName .cryptoInfo .icon-bin:before {
   margin-right: 0;
+}
+
+.addBank .addBankName .addBankInfo .icon-bin:before, .addBank .addBankName .cryptoInfo .icon-bin:before {
+  font-size: 20px;
+  margin-right: 3px;
 }
 
 .addBank .addBankName .addBankInfo .checkbox, .addBank .addBankName .cryptoInfo .checkbox {
@@ -5989,42 +6050,111 @@ input[type="file"] {
       flex-wrap: wrap;
 }
 
+.profile + .btnGroup {
+  width: 270px;
+  margin-left: auto;
+}
+
+.profile + .btnGroup .btn-check {
+  color: white;
+}
+
 .profile > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(50% - 20px);
-          flex: 0 0 calc(50% - 20px);
-  line-height: 35px;
   color: #5574A7;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0;
 }
 
 .profile > div:nth-child(odd) {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .profile > div:nth-child(even) {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
-.profile > div div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.profile > div div > span {
+.profile > div > div > span {
   color: #1E85EC;
   margin-left: 5px;
 }
 
-.profile > div div:first-child {
-  font-weight: bold;
+.profile > div > div > span.icon-checkmark + button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
 }
 
-.profile > div div:last-child {
+.profile > div > div:first-child {
+  font-weight: bold;
+  width: 120px;
+}
+
+.profile > div > div:last-child {
   text-align: left;
+  width: 220px;
+}
+
+.profile > div > div.phone .inputBox-white {
+  width: 85px;
+  float: left;
+  margin-right: 5px;
+}
+
+.profile > div > div.phone .inputBox-white + .inputBox-white {
+  width: calc(100% - 94px);
+  margin: 0;
+}
+
+.profile > div > div.phone .inputBox-white + .inputBox-white input {
+  width: 78px;
+}
+
+.profile > div > div .inputBox-white {
+  margin: 0;
+  padding: 5px 0;
+  width: 100%;
+}
+
+.profile > div > div .inputBox-white .description {
+  display: none;
+  top: -5px;
+  position: absolute;
+  left: 0;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  background: rgba(19, 77, 174, 0.9);
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  color: white;
+  font-weight: normal;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-size: 12px;
+}
+
+.profile > div > div .inputBox-white:hover .description {
+  display: block;
+}
+
+.profile > div > div .inputBox-white + .tip {
+  line-height: normal;
+  padding: 0;
+}
+
+.profile .checkbox.autotransfer {
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
 }
 
 .profileEdit {
@@ -6662,6 +6792,10 @@ form {
 
 .casinoSelect > div  .inputBox-white {
   min-height: 22px;
+}
+
+.casinoSelect > div  .inputBox-white button {
+  white-space: nowrap;
 }
 
 .slotList .icon-new {
@@ -10791,7 +10925,6 @@ canvas {
 }
 
 .subModuleListColumn > .subModule > div > button > div.bank > div:last-child, .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
-  color: white;
   background: #BFCCE2;
   margin: 10px auto 0;
   width: 150px;
@@ -11064,6 +11197,7 @@ canvas {
           align-items: center;
   z-index: 1;
   position: relative;
+  pointer-events: none;
 }
 
 .moduleTitle > a {
