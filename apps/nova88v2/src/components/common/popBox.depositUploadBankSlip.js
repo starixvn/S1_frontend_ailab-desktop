@@ -166,7 +166,15 @@ const PopBoxDepositUploadBankSlip = ({
 		if (!depositImgFiles.checked && depositImgFiles.checked !== null)
 			return <i className="icon icon-broken_image" />;
 
-		if (!depositImgFiles.name) return <i className="icon icon-plus" />;
+		if (!depositImgFiles.name)
+			return (
+				<>
+					<i className="icon icon-plus" />
+					<div className="icon icon-folder-upload">
+						{t("lbl_Drop_photos_or_receipt_here")}
+					</div>
+				</>
+			);
 
 		return <img alt={depositImgFiles.name} src={imgResult} />;
 	};

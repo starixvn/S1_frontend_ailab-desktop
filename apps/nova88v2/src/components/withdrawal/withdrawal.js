@@ -273,7 +273,7 @@ export default () => {
 
 							<div className="important">
 								<div className="title">
-									<span className="icon icon-information" />
+									<span className="icon icon-warning" />
 									{t("lbl_ImportantNotice")}
 								</div>
 								<ul>
