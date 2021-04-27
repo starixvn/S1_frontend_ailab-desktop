@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { Trans } from "react-i18next";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
+import { setLocalStorage } from "../common/common";
 
 const DepositnewInfoMoule = ({
 	t,
@@ -11,9 +13,27 @@ const DepositnewInfoMoule = ({
 	setDepositType,
 	checked,
 	onSubmit,
+	saveInfoChecked,
+	setSaveInfoChecked,
+	setFormInfo,
 	processingDescriptionActive,
+	setLocalBankChecked,
 	children
 }) => {
+	const [rememberInfoActive, setRememberInfoActive] = useState(false);
+
+	const onReset = () => {
+		setLocalBankChecked(true);
+		setFormInfo({
+			imgFile: null,
+			// refId: null,
+			// time: moment(),
+			amount: null,
+			checked: null,
+			tip: ""
+		});
+	};
+
 	return (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_deposit">
@@ -27,15 +47,50 @@ const DepositnewInfoMoule = ({
 				</Link>
 			</div>
 			<div className="subModuleListColumn">
-				<div className="subModule">
-					<div className="subModuleTitle">
-						<i className="txt-blue">*</i>
-						{t("lbl_DepositOptions")}
+				<div className="subModuleTitle">
+					<i className="txt-blue">*</i>
+					{t("lbl_DepositOptions")}
+					<div className="checkbox autotransfer">
+						<input
+							checked={saveInfoChecked}
+							type="checkbox"
+							id="c1"
+							onChange={() => {
+								setSaveInfoChecked(!saveInfoChecked);
+								setLocalStorage(
+									"nova88depositquerySavedChecked",
+									!saveInfoChecked
+								);
+							}}
+						/>
+						<label
+							htmlFor="c1"
+							className="icon icon-checkbox-checked"
+						/>
+						{t("lbl_DepositLocalbankButton")}
+						<button
+							className="icon icon-question"
+							onClick={() =>
+								setRememberInfoActive(!rememberInfoActive)
+							}
+						/>
+						<div
+							className={`inputInfo${
+								rememberInfoActive ? " active" : ""
+							}`}>
+							{t("lbl_DepositLocalbankButtonInfo")}
+						</div>
 					</div>
+				</div>
+
+				<div className="subModule">
 					<div>
 						{depositOptions.map(item => (
 							<button
-								onClick={() => setDepositType(item.type)}
+								onClick={() => {
+									setDepositType(item.type);
+									onReset();
+								}}
 								className={
 									item.type === depositType ? "active" : ""
 								}
@@ -55,6 +110,7 @@ const DepositnewInfoMoule = ({
 						))}
 					</div>
 				</div>
+
 				{children}
 
 				<div className="btnGroup">
@@ -70,6 +126,57 @@ const DepositnewInfoMoule = ({
 						{t("lbl_DepositProcessingDescription")}
 					</div>
 				) : null}
+			</div>
+
+			<div className="important">
+				<div className="title">
+					<span className="icon icon-information" />
+					{t("lbl_ImportantNotice")}
+				</div>
+				<ul>
+					<li>{t("lbl_DepositImportantNoticeContent1")}</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent2"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent3"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent4"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>{t("lbl_DepositImportantNoticeContent5")}</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent6"
+							components={{
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
+							}}
+						/>
+					</li>
+				</ul>
 			</div>
 		</div>
 	);
@@ -87,7 +194,11 @@ DepositnewInfoMoule.propTypes = {
 	setDepositType: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
+	saveInfoChecked: PropTypes.bool.isRequired,
+	setSaveInfoChecked: PropTypes.func.isRequired,
+	setFormInfo: PropTypes.func.isRequired,
 	processingDescriptionActive: PropTypes.bool.isRequired,
+	setLocalBankChecked: PropTypes.func.isRequired,
 	children: PropTypes.node.isRequired
 };
 

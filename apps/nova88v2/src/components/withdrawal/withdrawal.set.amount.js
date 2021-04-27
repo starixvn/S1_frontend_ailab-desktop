@@ -4,7 +4,6 @@ import { defActionType, defPanel } from "./withdrawal.reducer";
 import { popBoxContext, userInfoContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
-import CashBar from "./withdrawal.set.cashBar";
 
 export default ({ dispatch, state, t, _isConvert }) => {
 	const { setPopBox } = useContext(popBoxContext);
@@ -128,12 +127,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 						</div>
 					</div>
 				</div>
-				<CashBar
-					onChangeAmount={EditAmount}
-					amountValue={state.amount ?? 0}
-					availableBalance={state.balanceData?.availableBalance}
-					_isConvert={_isConvert}
-				/>
+
 				<form className="inputModuleRow" onSubmit={clickSubmit}>
 					<Inputbox
 						className="inputBox-white"

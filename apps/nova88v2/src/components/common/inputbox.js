@@ -23,9 +23,19 @@ export default props => {
 		return null;
 	};
 
+	let className = [];
+
+	className.push(props.className ?? "inputBox");
+
+	if (props.checked === false) {
+		className.push("error");
+	}
+
+	className = className.join(" ");
+
 	return (
 		<>
-			<div className={props.className ?? "inputBox"}>
+			<div className={className}>
 				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
 				{props.title ? <i className="txt-blue">{props.title}</i> : null}
 				{props.areaCode ? (
