@@ -402,7 +402,7 @@ const LocalBankForm = ({
 					</button>
 				</div>
 				<i
-					className="icon icon-information"
+					className="icon icon-warning"
 					onClick={() => clickInfo("upload")}
 				/>
 				<div className={`tip${infoActive.upload ? " active" : ""}`}>
