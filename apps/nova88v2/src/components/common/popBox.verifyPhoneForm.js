@@ -212,15 +212,27 @@ export default ({ startUnixTime }) => {
 		<div className="editSuccess active" style={{ display: "flex" }}>
 			<div className="icon icon-icon32px_notification" />
 			<div className="title">{t("lbl_ImportantNote")}</div>
-			<div>{t("msg_OTPSendCode")}</div>
+			<div>
+				{t("msg_We_had_send_the_verification_code")} <br />
+				{t("msg_Please_check_your_mobile_and_enter")}
+			</div>
+
+			<div
+				className={`inputBox-white ${
+					verifyPhoneError ? " error" : ""
+				}`}>
+				<input value={code} onChange={e => onChanheCode(e)} />
+			</div>
+
 			<div className="inputModuleRow">
-				<div className="inputBox-white">
-					<input value={code} onChange={e => onChanheCode(e)} />
+				<div
+					className={`tip ${
+						verifyPhoneError ? "active txt-red" : ""
+					}`}>
+					{verifyPhoneError}
 				</div>
 			</div>
-			<div className={`tip ${verifyPhoneError ? "active" : ""}`}>
-				{verifyPhoneError}
-			</div>
+
 			<div className="btnGroup">
 				{verifyPhoneloading ? (
 					<MobileVerificationLoading />

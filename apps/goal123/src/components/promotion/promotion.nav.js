@@ -28,13 +28,13 @@ const defPromoNavs = [
 		className: "blueBorder"
 	},
 	{
-		displayKey: "lbl_PromotionRebateAndCashback",
-		value: defFilterType.Rebate_and_cashback,
+		displayKey: "lbl_Redeposit_Promo",
+		value: defFilterType.redeposit,
 		className: "blueBorder"
 	},
 	{
-		displayKey: "lbl_Redeposit_Promo",
-		value: defFilterType.redeposit,
+		displayKey: "lbl_PromotionRebateAndCashback",
+		value: defFilterType.Rebate_and_cashback,
 		className: "blueBorder"
 	},
 	{
@@ -88,7 +88,7 @@ export default ({
 									: item.className
 							}
 							onClick={() => onClick(item.value)}>
-							{t(item.displayKey)}
+							{t(item.displayKey).toUpperCase()}
 						</button>
 					))}
 				</div>

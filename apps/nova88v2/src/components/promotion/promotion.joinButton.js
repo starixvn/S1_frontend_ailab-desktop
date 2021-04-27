@@ -143,7 +143,9 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 
 	return (
 		<button className="orange" onClick={onJoinPromotion}>
-			{t("lbl_PromoJoinNow")}
+			{promotionInfo.promotionType === defPromotionType.cashback
+				? t("lbl_ClaimNow")
+				: t("lbl_PromoJoinNow")}
 		</button>
 	);
 };

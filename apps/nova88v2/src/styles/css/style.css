@@ -2820,7 +2820,7 @@ footer .footerList > div > div > div {
   border-color: #cf0404;
 }
 
-.inputBox.error ~ .tip, .error.inputBox-org ~ .tip, .error.inputBox-white ~ .tip, .error.inputBox-blue ~ .tip {
+.inputBox.error + .tip, .error.inputBox-org + .tip, .error.inputBox-white + .tip, .error.inputBox-blue + .tip {
   color: #cf0404;
 }
 
@@ -8249,7 +8249,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -11478,15 +11484,10 @@ canvas {
   font-size: 14px;
   text-align: right;
   height: 120px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-left: 5px;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
   text-align: left;
-  padding-left: 0;
-  padding-right: 5px;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
@@ -11512,11 +11513,6 @@ canvas {
   min-width: -moz-max-content;
   min-width: max-content;
   margin-bottom: 10px;
-  background: #cf0404;
-}
-
-.liveVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button:hover, .liveVideo .latestVideo + div .liveTv .team > div > .btnGroup button:hover, .liveVideo .newsList + div .upcomingmatches .team > div > .btnGroup button:hover, .liveVideo .newsList + div .liveTv .team > div > .btnGroup button:hover, .newsVideo .latestVideo + div .upcomingmatches .team > div > .btnGroup button:hover, .newsVideo .latestVideo + div .liveTv .team > div > .btnGroup button:hover, .newsVideo .newsList + div .upcomingmatches .team > div > .btnGroup button:hover, .newsVideo .newsList + div .liveTv .team > div > .btnGroup button:hover {
-  background: #f77900;
 }
 
 .liveVideo .latestVideo + div .liveTvBox, .liveVideo .newsList + div .liveTvBox, .newsVideo .latestVideo + div .liveTvBox, .newsVideo .newsList + div .liveTvBox {
@@ -12367,6 +12363,60 @@ canvas {
 .historyModule .quickSelect .inputBox-blue {
   background: white;
   border-color: #BFCCE2;
+}
+
+.cashBack {
+  background: #D2E2F9;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.cashBack table {
+  color: #5574A7;
+  font-size: 12px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+}
+
+.cashBack table tr:nth-child(1) {
+  background: #7591C1;
+  color: white;
+  font-weight: bold;
+}
+
+.cashBack table tr:nth-child(1) td {
+  border-right: 1px solid #134DAE;
+}
+
+.cashBack table tr:nth-child(even) {
+  background: #F0F7FF;
+}
+
+.cashBack table tr:nth-last-child(3) {
+  border-top: 1px solid #D2E2F9;
+}
+
+.cashBack table tr:nth-last-child(-n+3) {
+  font-weight: bold;
+  width: 100%;
+}
+
+.cashBack table tr:nth-last-child(-n+3) td span:nth-child(1) {
+  min-width: 90px;
+  display: inline-block;
+}
+
+.cashBack table tr td {
+  border-right: 1px solid #D2E2F9;
+  padding: 5px;
+  width: 25%;
+}
+
+.cashBack table tr td:last-child {
+  border: 0;
 }
 
 .cashBack {

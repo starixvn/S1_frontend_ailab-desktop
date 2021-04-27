@@ -45,7 +45,7 @@ const QuickdownloadLink = () => {
 					</li>
 					<li>
 						<a
-							href="https://appdage.com/76B5E24D6EC46B4B"
+							href="https://www.aso.cool/s/sUpI"
 							target="_blank"
 							rel="noreferrer">
 							<img src={iosIconImg} alt="iosIcon" />
