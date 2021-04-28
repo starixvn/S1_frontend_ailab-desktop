@@ -60,7 +60,8 @@ export default ({
 					/>
 				) : null}
 				<div className="btnGroup">
-					{p.promotionType === defFilterType.other ? (
+					{p.promotionType === defFilterType.other &&
+					!p.promotionAction ? (
 						<a
 							href={p.promotionLink}
 							target="_blank"

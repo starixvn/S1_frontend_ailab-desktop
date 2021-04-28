@@ -64,18 +64,29 @@ export default ({
 				) : null}
 
 				<div className="btnGroup">
-					<Link
-						type="button"
-						className="blueBorder"
-						to={`/${langId}/${path.promotion.root}/${
-							path.promotion.sub.promotionInfo.root
-						}?BonusCode=${p.bonusCode}${
-							filter === defFilterType.specialBonus
-								? `&FilterType=${defFilterType.specialBonus}`
-								: ""
-						}`}>
-						{t("lbl_Details").toUpperCase()}
-					</Link>
+					{p.promotionType === defFilterType.other &&
+					!p.promotionAction ? (
+						<a
+							href={p.promotionLink}
+							target="_blank"
+							rel="noreferrer"
+							className="blueBorder">
+							{t("lbl_Details").toUpperCase()}
+						</a>
+					) : (
+						<Link
+							type="button"
+							className="blueBorder"
+							to={`/${langId}/${path.promotion.root}/${
+								path.promotion.sub.promotionInfo.root
+							}?BonusCode=${p.bonusCode}${
+								filter === defFilterType.specialBonus
+									? `&FilterType=${defFilterType.specialBonus}`
+									: ""
+							}`}>
+							{t("lbl_Details").toUpperCase()}
+						</Link>
+					)}
 
 					<PromotionJoinButton
 						promotionInfo={p}
