@@ -240,7 +240,15 @@ const BankCard = props => {
 						alt=""
 					/>
 
-					<span>{props.bankName}</span>
+					<div>
+						{props.bankName}
+						<div className="txt-blue">
+							<span>{props.accountNo?.slice(0, 4)}</span>
+							<span>{props.accountNo?.slice(4, 8)}</span>
+							<span>{props.accountNo?.slice(8, 12)}</span>
+							<span>{props.accountNo?.slice(12, 16)}</span>
+						</div>
+					</div>
 				</div>
 				<div className="checkbox">
 					<input
@@ -253,21 +261,13 @@ const BankCard = props => {
 						htmlFor={props.checkKey}
 						className="icon icon-checkbox-checked"
 					/>
+					{props.hideDelBtn ? null : (
+						<button
+							className="icon icon-bin"
+							onClick={props.delAccount}
+						/>
+					)}
 				</div>
-			</div>
-			<div className="addBankInfo">
-				<div className="txt-blue">
-					<span>{props.accountNo?.slice(0, 4)}</span>
-					<span>{props.accountNo?.slice(4, 8)}</span>
-					<span>{props.accountNo?.slice(8, 12)}</span>
-					<span>{props.accountNo?.slice(12, 16)}</span>
-				</div>
-				{props.hideDelBtn ? null : (
-					<button
-						className="icon icon-bin"
-						onClick={props.delAccount}
-					/>
-				)}
 			</div>
 		</div>
 	);

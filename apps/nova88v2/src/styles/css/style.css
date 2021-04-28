@@ -5214,10 +5214,6 @@ input[type="file"] {
   color: white;
 }
 
-.walletModule .addBank .addBankName.active .addBankInfo .checkbox {
-  background: white;
-}
-
 .walletModule .addBank .addBankName.active .addBankInfo .checkbox label:before {
   display: block;
 }
@@ -5497,17 +5493,16 @@ input[type="file"] {
 }
 
 .addBank .addBankName .addBankInfo .bankName, .addBank .addBankName .addBankInfo .icon-bin, .addBank .addBankName .cryptoInfo .bankName, .addBank .addBankName .cryptoInfo .icon-bin {
-  margin: 0;
-  margin-right: -4px;
+  margin: 0 -4px 0 0;
 }
 
-.addBank .addBankName .addBankInfo .bankName:before, .addBank .addBankName .addBankInfo .icon-bin:before, .addBank .addBankName .cryptoInfo .bankName:before, .addBank .addBankName .cryptoInfo .icon-bin:before {
-  margin-right: 0;
+.addBank .addBankName .addBankInfo .icon-bin, .addBank .addBankName .cryptoInfo .icon-bin {
+  margin-top: 10px;
 }
 
 .addBank .addBankName .addBankInfo .icon-bin:before, .addBank .addBankName .cryptoInfo .icon-bin:before {
   font-size: 20px;
-  margin-right: 3px;
+  margin: 0 3px 0 0;
 }
 
 .addBank .addBankName .addBankInfo .checkbox, .addBank .addBankName .cryptoInfo .checkbox {
@@ -5523,6 +5518,7 @@ input[type="file"] {
   margin-right: 0;
   border: 1px solid #5574A7;
   color: #5574A7;
+  margin: auto;
 }
 
 .addBank .addBankName .cryptoInfo .icon-BTC {
@@ -8249,13 +8245,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -10203,7 +10193,6 @@ canvas {
 .vip .vipPage {
   width: 100%;
   margin-bottom: 30px;
-  background: #D2E2F9;
   border-radius: 5px;
 }
 
@@ -10216,6 +10205,7 @@ canvas {
   margin: 0;
   font-weight: normal;
   width: 100%;
+  background: #F0F7FF;
 }
 
 .vip .vipPage .eventList .icon-nova88 {
@@ -10229,7 +10219,8 @@ canvas {
 }
 
 .vip .vipPage .eventList tr.title {
-  background: #5574A7;
+  background: -webkit-gradient(linear, left top, left bottom, from(#435F8B), to(#6383B9));
+  background: linear-gradient(to bottom, #435F8B, #6383B9);
   color: white;
 }
 
@@ -10244,12 +10235,13 @@ canvas {
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd) td:first-child {
   border-right: 1px solid #5574A7;
-  background: #BFCCE2;
+  background: #D2E2F9;
   color: #5574A7;
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #7591C1;
+  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
   color: white;
 }
 
@@ -11002,10 +10994,10 @@ canvas {
 
 .subModuleListColumn > .subModule.selectBank > div > button.open:before {
   content: "●";
-  color: #42AC5E;
+  color: #51CB33;
   position: absolute;
-  top: -8px;
-  left: -2px;
+  top: -5px;
+  left: 42px;
   font-size: 24px;
   z-index: 1;
 }
@@ -11014,8 +11006,7 @@ canvas {
   content: "●";
   color: #cf0404;
   position: absolute;
-  top: -8px;
-  left: -2px;
+  top: -5px;
   font-size: 24px;
   z-index: 1;
 }
@@ -12313,7 +12304,7 @@ canvas {
 .important .title {
   margin-bottom: 15px;
   text-align: center;
-  color: #666;
+  color: #cf0404;
 }
 
 .important .icon-information:before {
