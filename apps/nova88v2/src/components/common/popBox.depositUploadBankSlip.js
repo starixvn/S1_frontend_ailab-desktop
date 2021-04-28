@@ -59,7 +59,9 @@ const PopBoxDepositUploadBankSlip = ({
 			currencyId === currencyCode.TH &&
 			(depositImgFiles.checked === null || !depositImgFiles.checked)
 		) {
-			errors.depositImgFiles = t("msg_ApiServerError");
+			errors.depositImgFiles = t(
+				"lbl_File_format_error_please_try_again"
+			);
 		}
 
 		return errors;
@@ -81,7 +83,7 @@ const PopBoxDepositUploadBankSlip = ({
 				name: "",
 				file: null,
 				checked: isValid,
-				tip: t("msg_ApiServerError")
+				tip: t("lbl_File_format_error_please_try_again")
 			});
 		} else {
 			onImgFileReaderHandlar(file);
@@ -140,7 +142,7 @@ const PopBoxDepositUploadBankSlip = ({
 					value: null,
 					name: "",
 					checked: false,
-					tip: t("msg_ApiServerError")
+					tip: errors.depositImgFiles
 				});
 			}
 			return;

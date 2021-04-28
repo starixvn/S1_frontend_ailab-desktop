@@ -263,6 +263,8 @@
 	"lbl_BankDetails": "银行资讯",
 	"lbl_DepositLocalbankButton": "储存我最后一次交易模式",
 	"lbl_DepositLocalbankButtonInfo": "储存最后一笔存款交易银行。若您选择的银行已结业，请再重新选择。",
+	"lbl_Drop_photos_or_receipt_here":"此处放置照片或收据或点击上传",
+	"lbl_File_format_error_please_try_again":"格式不正确，请重试",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "草稿",
@@ -757,7 +759,6 @@
 	"lbl_sign_up_terms_start": "一旦注册即表示我已年满21周岁，且已阅读、接受并同意有关年龄验证和KYC（身份验证过程）的",
 	"lbl_sign_up_terms_center": "条款与规则",
 	"lbl_sign_up_terms_end": "、隐私政策, Cookies政策及其他政策。",
-	"lbl_Drop_photos_or_receipt_here":"此处放置照片或收据或点击上传",
 
 	"end-----": "end-----"
 }

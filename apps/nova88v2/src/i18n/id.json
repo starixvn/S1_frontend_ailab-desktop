@@ -263,6 +263,8 @@
 	"lbl_BankDetails": "Rincian Bank",
 	"lbl_DepositLocalbankButton": "Ingat mode terakhir yang digunakan",
 	"lbl_DepositLocalbankButtonInfo": "Ingat bank yang Anda gunakan untuk deposit terakhir. Jika bank yang Anda pilih sudah tutup, mohon pilih kembali.",
+	"lbl_Drop_photos_or_receipt_here":"Letakkan foto atau resi di sini atau klik untuk melampirkan.",
+	"lbl_File_format_error_please_try_again":"Kesalahan format file, harap coba lagi.",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
@@ -757,7 +759,6 @@
 	"lbl_sign_up_terms_start": "Dengan meng-klik GABUNG SEKARANG, saya menyatakan hahwa saya berumur diatas 21 tahun dan telah membaca dan menyetujui",
 	"lbl_sign_up_terms_center": "syarat & ketentuan",
 	"lbl_sign_up_terms_end": ".",
-	"lbl_Drop_photos_or_receipt_here":"Letakkan foto atau resi di sini atau klik untuk melampirkan.",
 	
 	"end-----": "end-----"
 }

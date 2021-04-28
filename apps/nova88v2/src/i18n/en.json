@@ -263,6 +263,8 @@
 	"lbl_BankDetails": "Bank Details",
 	"lbl_DepositLocalbankButton": "Remember my last used mode",
 	"lbl_DepositLocalbankButtonInfo": "Remember the bank used for your last deposit. If the bank you selected has been closed, please select again.",
+	"lbl_Drop_photos_or_receipt_here":"Drop photos or receipt here or click to attach.",
+	"lbl_File_format_error_please_try_again":"File format error, please try again.",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
@@ -757,7 +759,6 @@
 	"lbl_sign_up_terms_start": "By clicking the JOIN NOW button, I hereby acknowledge that I am above 21 years old and have read and accepted your",
 	"lbl_sign_up_terms_center": "terms & conditions",
 	"lbl_sign_up_terms_end": ".",
-	"lbl_Drop_photos_or_receipt_here":"Drop photos or receipt here or click to attach.",
 
 	"end-----": "end-----"
 }

@@ -263,6 +263,8 @@
 	"lbl_BankDetails": "รายละเอียดธนาคาร",
 	"lbl_DepositLocalbankButton": "จำโหมดที่ใช้ล่าสุดของฉัน",
 	"lbl_DepositLocalbankButtonInfo": "จำธนาคารที่ใช้สำหรับการฝากเงินครั้งสุดท้ายของคุณ หากธนาคารที่คุณเลือกถูกปิดโปรดเลือกอีกครั้ง",
+	"lbl_Drop_photos_or_receipt_here":"วางรูปถ่ายสลิปที่นี่หรือคลิกเพื่อแนปสลิป",
+	"lbl_File_format_error_please_try_again":"รูปแบบไฟล์ผิดพลาด โปรดลองอีกครั้ง",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "ร่าง",
@@ -757,7 +759,6 @@
 	"lbl_sign_up_terms_start": "คลิ๊กที่ปุ่มสมัครสมาชิก , ข้าพเจ้าขอรับรองว่าข้าพเจ้ามีอายุเกิน 21 ปี ได้อ่านและยอมรับข้อกำหนดและเงื่อนไขแล้ว",
 	"lbl_sign_up_terms_center": "บข้อกำหนดและเงื่อนไข",
 	"lbl_sign_up_terms_end": "แล้ว",
-	"lbl_Drop_photos_or_receipt_here":"วางรูปถ่ายสลิปที่นี่หรือคลิกเพื่อแนปสลิป",
 	
 	"end-----": "end-----"
 }
