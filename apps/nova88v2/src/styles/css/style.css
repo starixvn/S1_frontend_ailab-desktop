@@ -1568,6 +1568,13 @@ header input:focus-within {
   margin-top: 10px;
 }
 
+.header > div.function .wallet .submenu div.walletBalance .walletName ~ div {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
 .header > div.function .wallet .submenu div.walletBalance button {
   position: absolute;
   right: 10px;
@@ -3907,6 +3914,8 @@ input[type="file"] {
   padding: 5px 10px;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
+  position: relative;
+  z-index: 1;
 }
 
 .infoModule > button.icon-arrow-left2:before {
@@ -5501,7 +5510,7 @@ input[type="file"] {
 }
 
 .addBank .addBankName .addBankInfo .icon-bin:before, .addBank .addBankName .cryptoInfo .icon-bin:before {
-  font-size: 20px;
+  font-size: 18px;
   margin: 0 3px 0 0;
 }
 
