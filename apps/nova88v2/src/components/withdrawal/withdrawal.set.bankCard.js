@@ -261,14 +261,11 @@ const BankCard = props => {
 						htmlFor={props.checkKey}
 						className="icon icon-checkbox-checked"
 					/>
-					{props.hideDelBtn ? null : (
-						<button
-							className="icon icon-bin"
-							onClick={props.delAccount}
-						/>
-					)}
 				</div>
 			</div>
+			{props.hideDelBtn ? null : (
+				<button className="icon icon-bin" onClick={props.delAccount} />
+			)}
 		</div>
 	);
 };
