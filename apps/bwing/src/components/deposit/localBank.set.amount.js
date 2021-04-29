@@ -101,13 +101,13 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		const result = checkAmount(
-			_amount,
-			bankInfo.minAmount,
-			bankInfo.maxAmount,
-			_isConvert,
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: bankInfo.minAmount,
+			maxAmount: bankInfo.maxAmount,
+			formatRequired: _isConvert,
 			t
-		);
+		});
 		if (result.status !== 0) {
 			setStatus(prev => ({
 				...prev,
