@@ -34,6 +34,9 @@ export default {
 			}
 		}
 	},
+	history: {
+		root: "history"
+	},
 	depositHistory: {
 		root: "depositHistory"
 	},

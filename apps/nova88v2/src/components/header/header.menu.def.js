@@ -179,103 +179,6 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	casino: {
-		displayKey: "lbl_Slots",
-		className: "slotbtn",
-		path: path.casino.root,
-		filterByAuth: true,
-		subMenu: [
-			{
-				icon: "icon icon-PP",
-				displayText: "PP",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotPP.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_PP },
-				...productList.casino_PP
-			},
-			{
-				icon: "icon icon-ICG",
-				displayText: "ICG",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotICG.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_ICG },
-				...productList.casino_ICG
-			},
-			{
-				icon: "icon icon-JOKER",
-				displayText: "JOKER",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotJOKER.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_JOKER },
-				...productList.casino_JOKER
-			},
-			{
-				icon: "icon icon-cq9",
-				displayText: "CQ9",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotCQ9.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_CQ9 },
-				...productList.casino_CQ9
-			},
-			{
-				icon: "icon icon-GPI",
-				displayText: "GPI",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotGPI.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_GPI },
-				...productList.casino_GPI
-			},
-			{
-				icon: "icon icon-YGG",
-				displayText: "YGG",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotYGG.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_YGG },
-				...productList.casino_YGG
-			},
-			{
-				icon: "icon icon-SG",
-				displayText: "SG",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotSG.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_SG },
-				...productList.casino_SG
-			},
-			{
-				icon: "icon icon-PG",
-				displayText: "PG",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotPG.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_PG },
-				...productList.casino_PG
-			},
-			{
-				icon: "icon icon-OW",
-				displayText: "OW",
-				menuType: defMenuType.entPage,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotOW.png",
-				listBgImgUrl: "slotListHover.png",
-				...productList.casino_OW
-			}
-		]
-	},
 	liveCasino: {
 		displayKey: "lbl_LiveCasino",
 		className: "livecasinobtn",
@@ -374,6 +277,103 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-AG.png",
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage
+			}
+		]
+	},
+	casino: {
+		displayKey: "lbl_Slots",
+		className: "slotbtn",
+		path: path.casino.root,
+		filterByAuth: true,
+		subMenu: [
+			{
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotPP.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_PP },
+				...productList.casino_PP
+			},
+			{
+				icon: "icon icon-ICG",
+				displayText: "ICG",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotICG.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_ICG },
+				...productList.casino_ICG
+			},
+			{
+				icon: "icon icon-JOKER",
+				displayText: "JOKER",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotJOKER.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_JOKER },
+				...productList.casino_JOKER
+			},
+			{
+				icon: "icon icon-cq9",
+				displayText: "CQ9",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotCQ9.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_CQ9 },
+				...productList.casino_CQ9
+			},
+			{
+				icon: "icon icon-GPI",
+				displayText: "GPI",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotGPI.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_GPI },
+				...productList.casino_GPI
+			},
+			{
+				icon: "icon icon-YGG",
+				displayText: "YGG",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotYGG.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_YGG },
+				...productList.casino_YGG
+			},
+			{
+				icon: "icon icon-SG",
+				displayText: "SG",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotSG.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_SG },
+				...productList.casino_SG
+			},
+			{
+				icon: "icon icon-PG",
+				displayText: "PG",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotPG.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_PG },
+				...productList.casino_PG
+			},
+			{
+				icon: "icon icon-OW",
+				displayText: "OW",
+				menuType: defMenuType.entPage,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotOW.png",
+				listBgImgUrl: "slotListHover.png",
+				...productList.casino_OW
 			}
 		]
 	},

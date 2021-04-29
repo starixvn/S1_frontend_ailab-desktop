@@ -20,11 +20,7 @@ export default ({
 
 				const success = errorCode === 0;
 				if (success) {
-					const result = data.sort((a, b) => {
-						return a.periodFrom > b.periodFrom ? -1 : 1;
-					});
-
-					setPromoList(result);
+					setPromoList(data);
 				} else errorPopBox(message || "error", errorCode);
 			},
 			() => {

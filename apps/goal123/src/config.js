@@ -19,11 +19,11 @@ export const errorPageUrl = langId =>
 export const siteInfo = ({ langId }) => {
 	return {
 		affiliateLink: getAffiliate({ langId }),
-		langCookie: "goalLangId"
+		langCookie: "goal123LangId"
 	};
 };
 
-export const langCookie = "goalLangId";
+export const langCookie = "goal123LangId";
 
 export default process.env.NODE_ENV === "production"
 	? {

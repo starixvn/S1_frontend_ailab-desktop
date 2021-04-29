@@ -225,7 +225,7 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 					options={bankInfoSysList}
 					onSelectItem={onSelectItem}
 					selectedIdx={userValue.bankId}
-					imgUrl={`${config.imgUrl}/common/images/BankLogo/`}
+					imgUrl={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/`}
 					className="bankLogo"
 					i18n={t}
 				/>

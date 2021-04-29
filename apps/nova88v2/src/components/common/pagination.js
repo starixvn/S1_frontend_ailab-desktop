@@ -36,13 +36,16 @@ export const Pagination = ({ currentPage, totalPages, clickPageNumber }) => {
 		);
 	});
 
-	return (
-		<div className="pagination">
-			<a onClick={_clickPageNumber.bind(this, defPage.prevPage)}>❮</a>
-			{_arr}
-			<a onClick={_clickPageNumber.bind(this, defPage.nextPage)}>❯</a>
-		</div>
-	);
+	if (totalPages !== 0)
+		return (
+			<div className="pagination">
+				<a onClick={_clickPageNumber.bind(this, defPage.prevPage)}>❮</a>
+				{_arr}
+				<a onClick={_clickPageNumber.bind(this, defPage.nextPage)}>❯</a>
+			</div>
+		);
+
+	return null;
 };
 
 const pageNumbers = (currentPage, totalPages) => {

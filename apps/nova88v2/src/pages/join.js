@@ -673,6 +673,31 @@ const Content = () => {
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
+				<div className="features">
+					<div className="title">
+						<span className="icon icon-star-full" />
+						{t("lbl_FEATURES")}
+					</div>
+					<div className="title">{t("lbl_MEMBERS_BENEFITS")}</div>
+					<ul>
+						<li> - {t("lbl_126_SPORTSBOO_WELCOME_BONUS")}</li>
+						<li> - {t("lbl_100_LIVE_CASINO_WELCOME_BONUS")}</li>
+						<li> - {t("lbl_100_SLOTS_WELCOME_BONUS")}</li>
+						<li> - {t("lbl_DAILY_REDEPOSIT_BONUS_UP_TO_20")}</li>
+					</ul>
+					<div className="title">
+						{t("lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES")}
+					</div>
+					<ul>
+						<li>
+							-{" "}
+							{t(
+								"lbl_Multiple_product_platforms_with_better_odds"
+							)}
+						</li>
+						<li> - {t("lbl_Speedy_deposit_and_withdrawal")}</li>
+					</ul>
+				</div>
 				<div className="joinAnimation">
 					<img
 						className="animationlogo"

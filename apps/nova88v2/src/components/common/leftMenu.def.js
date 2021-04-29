@@ -16,37 +16,10 @@ export const defLeftMenu = {
 			withdrawal: {
 				path: path.withdrawal.root,
 				displayKey: "lbl_Withdrawal"
-			}
-		}
-	},
-	History: {
-		displayKey: "lbl_History",
-		subMenu: {
-			depositHistory: {
-				path: path.depositHistory.root,
-				displayKey: "lbl_DepositHistory"
 			},
-			transferHistory: {
-				path: path.transferHistory.root,
-				displayKey: "lbl_TransferHistory"
-			},
-			withdrawalHistory: {
-				path: path.withdrawalHistory.root,
-				displayKey: "lbl_WithdrawalHistory"
-			},
-			referralHistory: {
-				path: path.referralHistory.root,
-				displayKey: "lbl_ReferralHistory",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.referral
-					})
-				]
-			},
-			financial: {
-				path: path.financial.root,
-				displayKey: "lbl_Financial"
+			history: {
+				path: path.history.root,
+				displayKey: "lbl_History"
 			},
 			statement: {
 				path: `${path.statement.root}/${path.statement.sub.quickPick.root}`,
@@ -54,6 +27,7 @@ export const defLeftMenu = {
 			}
 		}
 	},
+
 	MyAccount: {
 		displayKey: "lbl_MyAccount",
 		subMenu: {
