@@ -12,11 +12,11 @@ export const getUrlParameter = name => {
 };
 
 // formatRequired: display with ('000)
-export const number_format = (number, formatRequired = false, isInteger) => {
+export const number_format = (number, formatRequired = false, digits = 2) => {
 	let n = number;
 	if (!isNaN(n)) {
 		n /= 1000;
-		n = isInteger ? Number(n) : Number(n).toFixed(2);
+		n = digits > 0 ? Number(n).toFixed(digits) : Number(n);
 	}
 
 	n += "";
@@ -43,73 +43,46 @@ export const getCountryCode = currencyId => {
 	return countryCode[currencyId];
 };
 
-export const getAmountTip = (minAmount, formatRequired, i18n, isInteger) => {
+export const getAmountTip = (minAmount, formatRequired, i18n, digits) => {
 	return isNaN(minAmount)
 		? i18n("lbl_AmountTooltip")?.replace("{0}", 0)
 		: i18n("lbl_AmountTooltip")?.replace(
 				"{0}",
-				number_format(minAmount, formatRequired, isInteger)
+				number_format(minAmount, formatRequired, digits)
 		  );
 };
 
-export const checkAmount = (
+export const checkAmount = ({
 	amount,
 	minAmount,
 	maxAmount,
 	formatRequired,
-	i18n,
-	isInteger
-) => {
+	t,
+	digits,
+	maxAmountAllowUnlimit = true
+}) => {
 	let status = 0;
 	let msg = "";
 	if (amount !== null && amount !== undefined) {
 		const num_Amount = isNaN(amount) ? 0 : Number(amount) * 1000;
 		if (num_Amount <= 0) {
 			status = 2;
-			msg = getAmountTip(minAmount, formatRequired, i18n, isInteger);
+			msg = getAmountTip(minAmount, formatRequired, t, digits);
 		} else if (
-			minAmount !== 0 &&
-			maxAmount !== 0 &&
-			(num_Amount > maxAmount || num_Amount < minAmount)
+			(minAmount !== 0 &&
+				maxAmount !== 0 &&
+				(num_Amount > maxAmount || num_Amount < minAmount)) ||
+			(!maxAmountAllowUnlimit && num_Amount > maxAmount)
 		) {
 			status = 2;
-			msg = `${number_format(
-				num_Amount,
-				formatRequired,
-				isInteger
-			)} ${i18n("lbl_NotinLimit")}`;
-		}
-	} else {
-		status = 3;
-		msg = getAmountTip(minAmount, formatRequired, i18n, isInteger);
-	}
-	return { status, msg };
-};
-
-export const checkWithdrawalAmount = (
-	amount,
-	maxAmount,
-	formatRequired,
-	i18n
-) => {
-	let status = 0;
-	let msg = "";
-	if (amount !== null && amount !== undefined) {
-		const num_Amount = isNaN(amount) ? 0 : Number(amount) * 1000;
-		if (num_Amount <= 0) {
-			status = 2;
-			msg = getAmountTip(0, formatRequired, i18n);
-		} else if (maxAmount !== 0 && num_Amount > maxAmount) {
-			status = 2;
-			msg = `${number_format(num_Amount, formatRequired)} ${i18n(
+			msg = `${number_format(num_Amount, formatRequired, digits)} ${t(
 				"lbl_NotinLimit"
 			)}`;
 		}
 	} else {
 		status = 3;
-		msg = getAmountTip(0, formatRequired, i18n);
+		msg = getAmountTip(minAmount, formatRequired, t, digits);
 	}
-
 	return { status, msg };
 };
 
