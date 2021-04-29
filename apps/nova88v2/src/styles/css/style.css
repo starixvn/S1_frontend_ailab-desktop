@@ -5458,6 +5458,10 @@ input[type="file"] {
   color: white;
 }
 
+.addBank .addBankName:hover .addBankInfo + .icon-bin, .addBank .addBankName:hover .cryptoInfo + .icon-bin {
+  color: white;
+}
+
 .addBank .addBankName.noBank {
   display: -webkit-box;
   display: -ms-flexbox;
