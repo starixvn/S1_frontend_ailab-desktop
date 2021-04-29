@@ -145,3 +145,6 @@ export const api_payment_GetCustTpBetRecordDetailListbyGameType = ({
 		PageNumber,
 		PageSize
 	});
+
+export const api_payment_GetWithdrawalLimit = () =>
+	paymentRequest.post("/GetWithdrawalLimit");

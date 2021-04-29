@@ -11,6 +11,7 @@ import {
 } from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
+import { defPromotionType } from "./promotion.def";
 
 export default ({
 	t,
@@ -64,7 +65,7 @@ export default ({
 				) : null}
 
 				<div className="btnGroup">
-					{p.promotionType === defFilterType.other &&
+					{p.promotionType === defPromotionType.other &&
 					!p.promotionAction ? (
 						<a
 							href={p.promotionLink}
