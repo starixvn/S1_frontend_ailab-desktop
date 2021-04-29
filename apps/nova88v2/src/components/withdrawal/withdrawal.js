@@ -13,7 +13,8 @@ import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWithdrawalAvailableBalance } from "../../service/api/account";
 import {
 	api_payment_GetWithdrawalInfoRecent,
-	api_payment_KycCheck
+	api_payment_KycCheck,
+	api_payment_GetWithdrawalLimit
 } from "../../service/api/payment";
 import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
@@ -35,6 +36,17 @@ export default () => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		api_payment_GetWithdrawalLimit().then(res => {
+			if (res.data.errorCode === 0 && isMountedRef.current) {
+				dispatch({
+					type: defActionType.SET_WITHDRAWAL_MIN_AMOUNT,
+					withdrawalMin: res.data.data.withdrawalMin
+				});
+			}
+		});
+	}, [userInfo.isLogin]);
 
 	useEffect(() => {
 		if (userInfo.isLogin === true) {

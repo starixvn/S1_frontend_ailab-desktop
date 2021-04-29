@@ -23,13 +23,13 @@ export default ({
 	};
 
 	const validAmount = _amount => {
-		const result = checkAmount(
-			_amount,
-			requiredAmount,
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: requiredAmount,
 			maxAmount,
 			_isConvert,
 			t
-		);
+		});
 		setValidationError(result);
 	};
 
