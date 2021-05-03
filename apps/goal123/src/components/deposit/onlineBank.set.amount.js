@@ -28,13 +28,13 @@ export default ({
 	};
 
 	const VaildAmount = _amount => {
-		const result = checkAmount(
-			_amount,
+		const result = checkAmount({
+			amount: _amount,
 			minAmount,
 			maxAmount,
-			_isConvert,
+			formatRequired: _isConvert,
 			t
-		);
+		});
 		if (result.status !== 0) {
 			setStatus({
 				checked: false,

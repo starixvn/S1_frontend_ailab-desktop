@@ -10,14 +10,13 @@ import BankInfoCard from "./withdrawal.set.bankInfoCard";
 import KycUpload from "./withdrawal.set.kycUpload";
 import KycPending from "./withdrawal.set.kycPending";
 import WithdrawalConfirm from "./withdrawal.set.confirm";
-import { api_payment_WithdrawalReq } from "../../service/api/payment";
+import {
+	api_payment_WithdrawalReq,
+	api_payment_GetWithdrawalLimit
+} from "../../service/api/payment";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-import {
-	isConvert,
-	checkWithdrawalAmount,
-	getAmountTip
-} from "../common/common";
+import { isConvert, checkAmount, getAmountTip } from "../common/common";
 import StepBar from "../common/stepBar";
 import defStep from "./defStep";
 
@@ -37,6 +36,7 @@ export default ({
 	const [accountNoValue, setAccountNoValue] = useState(0);
 	const [bankNameValue, setBankNameValue] = useState("");
 	const [amountValue, setAmountValue] = useState("");
+	const [withdrawalMin, setWithdrawalMin] = useState(0);
 	const [showConfirmPage, setShowConfirmPage] = useState(false);
 	const { userInfo } = useContext(userInfoContext);
 	const [bankInfoList, setBankInfoList] = useState([]);
@@ -53,6 +53,14 @@ export default ({
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		api_payment_GetWithdrawalLimit().then(res => {
+			if (res.data.errorCode === 0 && isMountedRef.current) {
+				setWithdrawalMin(res.data.data.withdrawalMin);
+			}
+		});
+	}, [userInfo.isLogin]);
 
 	useEffect(() => {
 		if (userInfo.isLogin === true) {
@@ -131,12 +139,14 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		const result = checkWithdrawalAmount(
-			_amount,
-			balanceData.availableBalance,
-			_isConvert,
-			t
-		);
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: withdrawalMin,
+			maxAmount: balanceData.availableBalance,
+			formatRequired: _isConvert,
+			t,
+			maxAmountAllowUnlimit: false
+		});
 		if (result.status !== 0) {
 			setStatus({
 				checked: false,
@@ -152,7 +162,8 @@ export default ({
 	};
 
 	const clickInfo = () => {
-		const _msg = status.tip === "" ? getAmountTip(0, _isConvert, t) : "";
+		const _msg =
+			status.tip === "" ? getAmountTip(withdrawalMin, _isConvert, t) : "";
 		setStatus({
 			checked: null,
 			tip: _msg

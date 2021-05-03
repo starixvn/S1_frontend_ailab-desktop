@@ -9,7 +9,8 @@ export const defActionType = {
 	GET_RECENT_HISTORY: "GET_RECENT_HISTORY",
 	SET_KYC_STATUS: "SET_KYC_STATUS",
 	SET_KYC_DATA: "SET_KYC_DATA",
-	SET_LOADING: "SET_LOADING"
+	SET_LOADING: "SET_LOADING",
+	SET_WITHDRAWAL_MIN_AMOUNT: "SET_WITHDRAWAL_MIN_AMOUNT"
 };
 
 export const initState = {
@@ -20,7 +21,8 @@ export const initState = {
 	kycStatus: "normal",
 	loading: true,
 	redirectPath: null,
-	panel: "amount"
+	panel: "amount",
+	withdrawalMin: 0
 };
 
 export const defPanel = {
@@ -99,6 +101,12 @@ export function reducer(state, action) {
 			return {
 				...state,
 				loading: action.loading
+			};
+
+		case defActionType.SET_WITHDRAWAL_MIN_AMOUNT:
+			return {
+				...state,
+				withdrawalMin: action.withdrawalMin
 			};
 
 		default:

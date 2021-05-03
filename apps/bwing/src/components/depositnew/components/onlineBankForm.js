@@ -102,10 +102,8 @@ const OnlineBankForm = ({
 
 	if (onlineBankGroupList.length <= 0) return null;
 
-	const isInteger = true;
-
-	const formatMinAmount = number_format(formInfo.minAmount, false, isInteger);
-	const formatMaxAmount = number_format(formInfo.maxAmount, false, isInteger);
+	const formatMinAmount = number_format(formInfo.minAmount, false, 0);
+	const formatMaxAmount = number_format(formInfo.maxAmount, false, 0);
 
 	return (
 		<>
@@ -142,14 +140,14 @@ const OnlineBankForm = ({
 										{`${t("lbl_Min")}: ${number_format(
 											item.minAmount,
 											_isConvert,
-											isInteger
+											0
 										)}`}
 									</div>
 									<div>
 										{`${t("lbl_Max")}: ${number_format(
 											item.maxAmount,
 											_isConvert,
-											isInteger
+											0
 										)}`}
 									</div>
 								</div>

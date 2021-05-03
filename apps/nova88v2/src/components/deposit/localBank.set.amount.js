@@ -18,13 +18,13 @@ export default ({ bankInfo, _isConvert, amount, dispatch, checked, tip }) => {
 	};
 
 	const ValidAmount = _amount => {
-		const result = checkAmount(
-			_amount,
-			bankInfo.minAmount,
-			bankInfo.maxAmount,
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: bankInfo.minAmount,
+			maxAmount: bankInfo.maxAmount,
 			_isConvert,
 			t
-		);
+		});
 		if (result.status !== 0) {
 			dispatch({
 				type: defActionType.SET_CHECK_STATUS,

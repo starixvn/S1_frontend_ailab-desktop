@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import { promoStatus } from "./promotion.def";
+import { promoStatus, defPromotionType } from "./promotion.def";
 import { number_format } from "../common/common";
 
 export default ({ promotionInfo, t, inListPage }) => {
@@ -9,8 +9,8 @@ export default ({ promotionInfo, t, inListPage }) => {
 		status,
 		custExpiryTime,
 		periodTo,
-		requiredAmount,
-		rollOver
+		rollOver,
+		promotionType
 	} = promotionInfo;
 
 	const _expiryTime = moment.unix(
@@ -31,23 +31,17 @@ export default ({ promotionInfo, t, inListPage }) => {
 	return (
 		<div className="rollover">
 			<div>
-				{/* <div>{t("lbl_Bonus")}</div> */}
-				<div>{t("lbl_MaxBonusAmount")}</div>
-				{/* {requiredAmount > 0 ? (
-					<div className="icon icon-icon32px_money">
-						{t("lbl_MinAmount")}
-					</div>
-				) : null} */}
+				{promotionType !== defPromotionType.other && (
+					<div>{t("lbl_MaxBonusAmount")}</div>
+				)}
 				<div>{t("lbl_RollOver").toUpperCase()}</div>
 				<div>{t("lbl_RemainingTime")}</div>
 			</div>
 
 			<div className={inListPage ? "txt-yellow" : ""}>
-				{/* <div>{number_format(promotionInfo.bonus)}</div> */}
-				<div>{number_format(promotionInfo.maxBonus)}</div>
-				{/* {requiredAmount > 0 ? (
-					<div>{number_format(requiredAmount)}</div>
-				) : null} */}
+				{promotionType !== defPromotionType.other && (
+					<div>{number_format(promotionInfo.maxBonus)}</div>
+				)}
 				<div>{rollOver}X</div>
 				<div>{displayExpiryTime}</div>
 			</div>

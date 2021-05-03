@@ -19,13 +19,14 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 	};
 
 	const ValidAmount = _amount => {
-		const result = checkAmount(
-			_amount,
-			0,
-			state.balanceData?.availableBalance,
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: state.withdrawalMin,
+			maxAmount: state.balanceData?.availableBalance,
 			_isConvert,
-			t
-		);
+			t,
+			maxAmountAllowUnlimit: false
+		});
 		if (result.status !== 0) {
 			dispatch({
 				type: defActionType.CHECK_AMOUNT,
@@ -45,7 +46,7 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 	const clickInfo = () => {
 		const _msg =
 			state.tip === "" || !state.tip
-				? getAmountTip(0, _isConvert, t)
+				? getAmountTip(state.withdrawalMin, _isConvert, t)
 				: "";
 		dispatch({
 			type: defActionType.CHECK_AMOUNT,

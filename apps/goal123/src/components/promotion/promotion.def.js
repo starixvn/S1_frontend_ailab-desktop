@@ -13,5 +13,6 @@ export const defPromotionType = {
 	walletBonus: 5,
 	rebate: 6,
 	cashback: 7,
+	other: 8,
 	specialBonus: 9001
 };

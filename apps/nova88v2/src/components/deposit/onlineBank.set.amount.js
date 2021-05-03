@@ -27,13 +27,13 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		const result = checkAmount(
-			_amount,
+		const result = checkAmount({
+			amount: _amount,
 			minAmount,
 			maxAmount,
 			_isConvert,
 			t
-		);
+		});
 		if (result.status !== 0) {
 			dispatch({
 				type: defActionType.SET_CHECK_STATUS,
