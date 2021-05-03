@@ -77,7 +77,7 @@ const LoginPanel = () => {
 					? t("msg_UsernameReq")
 					: t("msg_PasswordReq");
 			checked = false;
-		} else if (val.length < 6 || val.length > 18) {
+		} else if (col === "username" && (val.length < 6 || val.length > 18)) {
 			checked = false;
 			msg = t("msg_UsernameLength");
 		} else {
