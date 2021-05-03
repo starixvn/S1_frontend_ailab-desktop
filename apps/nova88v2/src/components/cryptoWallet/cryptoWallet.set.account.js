@@ -265,6 +265,7 @@ const AccountPanel = ({
 							: ""
 					}
 				/>
+				<br />
 				<Inputbox
 					key={`crypto-wallet-input-${item.address.label}`}
 					className={`inputBox-white${
