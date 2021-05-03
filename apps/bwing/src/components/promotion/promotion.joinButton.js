@@ -160,8 +160,9 @@ export default ({
 			)}
 			{(promotionInfo.isJoin && isLogin) ||
 			_isExpiry ||
-			promotionInfo.promotionType === defPromotionType.rebate ||
 			_isClaimed ||
+			promotionInfo.promotionType === defPromotionType.rebate ||
+			promotionInfo.promotionType === defPromotionType.other ||
 			(filter === defFilterType.specialBonus &&
 				!promotionInfo.canJoin) ? null : (
 				<button className="orange" onClick={onJoinPromotion}>
