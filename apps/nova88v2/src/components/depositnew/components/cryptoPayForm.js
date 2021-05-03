@@ -91,7 +91,9 @@ const CryptoPayForm = ({
 							}>
 							<div>
 								<img
-									src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${item.payName}.png`}
+									src={`${
+										config.cloudImgUrl
+									}/SiteSkin/img/Payment/${item.payName.toLowerCase()}.png`}
 									alt={item.payName}
 								/>
 								<i className="icon icon-icon32px_check" />
