@@ -298,6 +298,7 @@
 	"lbl_DepositType1": "Online Banking",
 	"lbl_DepositType2": "Mobile Payment",
 	"lbl_DepositType3": "Local Bank",
+	"lbl_DepositType5": "TOP-UP CARD",
 	"lbl_DepositStatus0": "Draft",
 	"lbl_DepositStatus1": "Pending",
 	"lbl_DepositStatus2": "Paid",
@@ -351,6 +352,7 @@
 	"lbl_DepositLocalBankNotes3": "Please choose “Sender bears the transfer fee”.",
 	"lbl_DepositLocalBankNotes4": "Upload your pay slip to speed up processing time.",
 	"lbl_DepositAccountNamePlaceholder": "BANK & ID must be same",
+	"lbl_TopUpCard": "TOP-UP CARD",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",

@@ -1,13 +1,15 @@
 export const defDepositType = {
 	mobile: "Mobile E-Wallet",
 	localBank: "Local Bank",
-	onlineBank: "Online Bank"
+	onlineBank: "Online Bank",
+	loadCard: "TopUp Mobile"
 };
 
 export const defDepositOptions = ({
 	mobilePayGourpList = [],
 	localBankGroupList = [],
-	onlineBankGroupList = []
+	onlineBankGroupList = [],
+	loadCardPayGroupList = []
 }) => [
 	{
 		type: defDepositType.mobile,
@@ -29,5 +31,12 @@ export const defDepositOptions = ({
 		depositDisplaykey: "lbl_OnlineBanking",
 		creditTime: "lbl_Instant",
 		iconClass: "icon icon-connection"
+	},
+	{
+		type: defDepositType.loadCard,
+		isHide: !loadCardPayGroupList.length,
+		depositDisplaykey: "lbl_TopUpCard",
+		creditTime: "lbl_Instant",
+		iconClass: "icon icon-topupCard"
 	}
 ];
