@@ -99,7 +99,7 @@
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Nama pengguna Wajib diisi.",
 	"msg_PasswordReq": "Kata Sandi wajib diisi",
-	"msg_UsernameLength": "Panjang Karakter nama pengguna harus antara 6 dan 18 karakter..",
+	"msg_UsernameLength": "6-18 karakter alfanumerik (A-Z, a-z, 0-9) saja.",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
 	"msg_PasswordLength": "Panjang karakter kata sandi harus antara 6 hingga 15 karakter.",
 	"msg_PasswordVaildate": "Kata sandi harus terdiri 6-15 karakter, kombinasi huruf dan angka dengan karakter khusus (!@#$%^&*).  ",

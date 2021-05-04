@@ -20,6 +20,7 @@ import {
 	passwordCheck
 } from "../components/common/common";
 import defPopBoxType from "../components/common/defPopBoxType";
+import usePopBox from "../components/hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { GET_LANG_ID } from "../service/language";
 import config from "../config";
@@ -56,7 +57,7 @@ const Content = () => {
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
-
+	const { errorPopBox } = usePopBox();
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
@@ -97,20 +98,7 @@ const Content = () => {
 				},
 				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 					}
 				}
 			);
@@ -128,46 +116,19 @@ const Content = () => {
 						});
 						setSiteCurrency(() => currencyArr);
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
 			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={ClosePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
-	};
-
-	const ClosePopBox = () => {
-		setPopBox({ isOpen: false });
 	};
 
 	const showPswHandler = () => {
@@ -275,12 +236,15 @@ const Content = () => {
 		}
 
 		if (checked === true) {
-			const res = await api_site_ExistsUserName({ UserName: val });
+			const res = await api_site_ExistsUserName({
+				UserName: val,
+				langId: userInfo.langId
+			});
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
 					if (res.data.data === true) {
 						checked = false;
-						msg = "msg_UsernameNotAvailable";
+						msg = res.data.message;
 					}
 				}
 			}
@@ -514,44 +478,18 @@ const Content = () => {
 												...res_custInfo.data.data
 											};
 										} else {
-											setPopBox({
-												isOpen: true,
-												popBoxType:
-													defPopBoxType.ErrorMsg,
-												message:
-													res_custInfo.data.message,
-												btnBar: (
-													<div className="btnGroup">
-														<button
-															className="btn-check"
-															onClick={
-																ClosePopBox
-															}>
-															{t("lbl_Close")}
-														</button>
-													</div>
-												)
-											});
+											errorPopBox(
+												res_custInfo.data.message ||
+													"error",
+												res_custInfo.data.errorCode
+											);
 										}
 										setUserInfo(_user);
 									}
 								},
 								() => {
 									if (isMountedRef.current) {
-										setPopBox({
-											isOpen: true,
-											popBoxType: defPopBoxType.ErrorMsg,
-											message: t("msg_ApiServerError"),
-											btnBar: (
-												<div className="btnGroup">
-													<button
-														className="btn-check"
-														onClick={ClosePopBox}>
-														{t("lbl_Close")}
-													</button>
-												</div>
-											)
-										});
+										errorPopBox();
 										setPopBox({ isOpen: false });
 									}
 								}
@@ -591,39 +529,13 @@ const Content = () => {
 								};
 							});
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-check"
-											onClick={ClosePopBox}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox();
 						}
 					}
 				},
 				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 					}
 				}
 			);
