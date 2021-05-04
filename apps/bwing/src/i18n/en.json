@@ -169,7 +169,7 @@
 	"msg_PasswordReq": "Password is required.",
 	"msg_PasswordVaildate": "Password must be 6-15 characters, contain both alphanumeric and a special characters (!@#$%^&*).",
 	"msg_PhoneExisted": "Phone number already exists.",
-	"msg_UsernameLength": "Username must between 6 and 18 characters long.",
+	"msg_UsernameLength": "6-18 alphanumeric (A-Z, a-z, 0-9) characters only.",
 	"msg_UsernameNotAvailable": "Username is no longer available.",
 	"msg_UsernameReq": "Username is required.",
 	"lbl_UpdatePersonalDetail": "Update Personal Details",
@@ -205,6 +205,7 @@
 	"lbl_MaxBonusAmount": "MAX BONUS AMOUNT",
 	"lbl_Sign_up_successful": "Sign up successful !",
 	"lbl_PromotionRebateAndCashback": "Rebate / Cashback",
+	"lbl_Other":"Other",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",

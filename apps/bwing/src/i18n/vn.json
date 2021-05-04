@@ -169,7 +169,7 @@
 	"msg_PasswordReq": "Mật khẩu là bắt buộc",
 	"msg_PasswordVaildate": "Mật khẩu phải có từ 6-15 ký tự, bao gồm cả chữ, số và ký tự đặc biệt (!@#$%^&*).",
 	"msg_PhoneExisted": "Số điện thoại này đã được sử dụng",
-	"msg_UsernameLength": "Tên đăng nhập phải có 6 đến 18 ký tự",
+	"msg_UsernameLength": "6-18 ký tự chữ và số (A-Z, a-z, 0-9)",
 	"msg_UsernameNotAvailable": "Tên đăng nhập này đã được sử dụng.",
 	"msg_UsernameReq": "Tên đăng nhập là bắt buộc.",
 	"lbl_UpdatePersonalDetail": "Cập nhật thông tin cá nhân",
@@ -205,6 +205,7 @@
 	"lbl_MaxBonusAmount": "TIỀN KHUYẾN MÃI TỐI ĐA",
 	"lbl_Sign_up_successful": "Tham gia thành công !",
 	"lbl_PromotionRebateAndCashback": "Hoàn trả / Hoàn lại tiền",
+	"lbl_Other":"Khác",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Không có dữ liệu",
