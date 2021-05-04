@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { navigate } from "@reach/router";
-import moment from "moment";
 import { useTranslation } from "react-i18next";
 import {
 	loadingContext,
@@ -15,15 +14,18 @@ import useDeposit from "./hook/useDeposit";
 import useDepositOnline from "./hook/useDepositOnline";
 import useDepositMobilePay from "./hook/useDepositMobilePay";
 import useDepositLocalBank from "./hook/useDepositLocalBank";
+import useDepositLoadCard from "./hook/useDepositLoadCard";
 
 import path from "../../router";
 import config from "../../config";
 
-import DepositnewInfoMoule from "./depositnew.infoMoule";
-import DepositnewRecentHistory from "./depositnew.recentHistory";
 import MobileForm from "./components/mobileForm";
 import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
+import LoadCardForm from "./components/loadCardForm";
+import DepositnewInfoMoule from "./depositnew.infoMoule";
+import DepositnewRecentHistory from "./depositnew.recentHistory";
+
 import usePopBox from "../hook/usePopBox";
 
 const Depositnew = () => {
@@ -92,6 +94,14 @@ const Depositnew = () => {
 		onlineBankGroupList,
 		onlineBankInfoList
 	} = useDepositOnline({ isMountedRef });
+
+	const {
+		loadCardPayGroupList,
+		getLoadCardPayGroupList,
+		getLoadCardPayInfoList
+	} = useDepositLoadCard({
+		isMountedRef
+	});
 
 	const onChangeDepositType = async type => {
 		setDepositType(type);
@@ -252,6 +262,13 @@ const Depositnew = () => {
 				await delay(1000);
 			}
 
+			if (depositType === defDepositType.loadCard) {
+				window.open(
+					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
+				);
+				await delay(1000);
+			}
+
 			setLoading(false);
 			resetForm();
 		}
@@ -275,7 +292,8 @@ const Depositnew = () => {
 				await Promise.all([
 					getMobilePayGroupList(),
 					getLocalBankGroupList(),
-					getOnlineBankGroupList()
+					getOnlineBankGroupList(),
+					getLoadCardPayGroupList()
 				]);
 
 				setIsInitDataDone(true);
@@ -284,7 +302,6 @@ const Depositnew = () => {
 			}
 
 			setLoading(false);
-			//
 		};
 
 		getData();
@@ -303,7 +320,8 @@ const Depositnew = () => {
 	const depositOptions = defDepositOptions({
 		mobilePayGourpList,
 		onlineBankGroupList,
-		localBankGroupList
+		localBankGroupList,
+		loadCardPayGroupList
 	});
 
 	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
@@ -384,6 +402,21 @@ const Depositnew = () => {
 						onValidAmount={onValidAmount}
 						setFormInfo={setFormInfo}
 						setOnlineBankInfoList={setOnlineBankInfoList}
+						onInputboxKeyDown={onInputboxKeyDown}
+					/>
+				)}
+
+				{depositType === defDepositType.loadCard && (
+					<LoadCardForm
+						t={t}
+						formInfo={formInfo}
+						_isConvert={_isConvert}
+						depositType={depositType}
+						setFormInfo={setFormInfo}
+						loadCardPayGroupList={loadCardPayGroupList}
+						getLoadCardPayInfoList={getLoadCardPayInfoList}
+						onChangeAmount={onChangeAmount}
+						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
 					/>
 				)}

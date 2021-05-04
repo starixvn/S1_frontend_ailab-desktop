@@ -298,6 +298,7 @@
 	"lbl_DepositType1": "Ngân hàng trực tuyến",
 	"lbl_DepositType2": "Thanh toán qua ĐT",
 	"lbl_DepositType3": "Ngân hàng trong nước",
+	"lbl_DepositType5": "THẺ CÀO",
 	"lbl_DepositStatus0": "Bản nháp",
 	"lbl_DepositStatus1": "Chờ xử lý",
 	"lbl_DepositStatus2": "Đã thanh toán",
@@ -350,8 +351,8 @@
 	"lbl_DepositLocalBankNotes3": "Vui lòng chọn “Người chuyển trả phí giao dịch”.",
 	"lbl_DepositLocalBankNotes4": "Vui lòng tải biên lai ngân hàng để giao dịch được xử lý nhanh hơn.",
 	"lbl_MinMaxAmount": "Tối thiểu/Tối đa",
-
 	"lbl_DepositAccountNamePlaceholder": "Tên phải trùng với tên tài khoản và CMND",
+	"lbl_TopUpCard": "THẺ CÀO",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",
