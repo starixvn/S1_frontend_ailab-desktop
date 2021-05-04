@@ -456,7 +456,7 @@
 	"lbl_Event": "Event",
 	"lbl_Records": "Records",
 	"lbl_Game_type": "Game Type",
-	"lbl_Ranking": "Ranking",
+	"lbl_Ranking": "Leaderboard",
 	"lbl_Points": "Points",
 	"lbl_Top": "Top",
 	"lbl_LastUpdTime": "Last Update On {{time}} (Update Every 30 Minutes)",
