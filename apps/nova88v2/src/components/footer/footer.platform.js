@@ -101,6 +101,12 @@ const defPlatfrom = [
 	{
 		...productList.liveCasino_N2,
 		imgName: "n2"
+	},
+	{
+		...productList.casino_PT,
+		path: path.casino.root,
+		parameter: { ...productList.casino_PT },
+		imgName: "pt"
 	}
 ];
 

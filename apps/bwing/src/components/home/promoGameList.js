@@ -120,7 +120,12 @@ export default ({ t, userInfo }) => {
 			if (userInfo.isLogin !== true) {
 				LoginPopBox();
 			} else {
-				SET_CASINO_ENTER_PAGE(tpId, gameId, false, userInfo.langId);
+				SET_CASINO_ENTER_PAGE({
+					tpId,
+					gameId,
+					isFree: false,
+					langId: userInfo.langId
+				});
 			}
 		} else if (linkType === defLinkType.sports) {
 			navigate(`/${userInfo.langId}/${path.sports.root}?game=${name}`);

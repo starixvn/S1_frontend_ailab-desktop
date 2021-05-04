@@ -3,7 +3,10 @@ import { useTranslation } from "react-i18next";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
-import { api_site_GetGamelistV2, defBannerType } from "../../service/api/site";
+import {
+	api_site_GetGameListByDevice,
+	defBannerType
+} from "../../service/api/site";
 import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
@@ -252,7 +255,7 @@ export default () => {
 
 	useEffect(() => {
 		setLoading(true);
-		api_site_GetGamelistV2().then(
+		api_site_GetGameListByDevice().then(
 			res => {
 				const success = res.data.errorCode === 0;
 
