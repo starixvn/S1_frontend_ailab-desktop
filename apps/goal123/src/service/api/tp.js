@@ -2,12 +2,6 @@ import { tpRequest, defDeviceType } from "./base";
 
 export const defGotoGame_AppType = defDeviceType;
 
-export const defGotoGame_AppType = {
-	Desktop: 1,
-	Mobile: 2,
-	NativeAPP: 3
-};
-
 export const api_tp_GetTransferHistory = ({ StartDate, EndDate, PageNumber }) =>
 	tpRequest.post("/GetTransferHistory", {
 		StartDate,
