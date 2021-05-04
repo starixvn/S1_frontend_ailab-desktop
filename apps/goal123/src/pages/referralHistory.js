@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { api_account_GetRefFriendList } from "../service/api/account";
-import { number_format, isConvert } from "../components/common/common";
+import { isConvert } from "../components/common/common";
 import { popBoxContext } from "../components/common/context";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
@@ -156,7 +156,7 @@ const Content = () => {
 						<div className="listBody">{arr}</div>
 					) : (
 						<div className="nodata icon icon-nodata">
-							<div>{t("lbl_NoData")}</div>
+							{t("lbl_NoData")}
 						</div>
 					)}
 				</div>

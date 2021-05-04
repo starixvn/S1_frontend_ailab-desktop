@@ -10,16 +10,15 @@ import BankInfoCard from "./withdrawal.set.bankInfoCard";
 import KycUpload from "./withdrawal.set.kycUpload";
 import KycPending from "./withdrawal.set.kycPending";
 import WithdrawalConfirm from "./withdrawal.set.confirm";
-import { api_payment_WithdrawalReq } from "../../service/api/payment";
+import {
+	api_payment_WithdrawalReq,
+	api_payment_GetWithdrawalLimit
+} from "../../service/api/payment";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import StepBar from "../common/stepBar";
 import defStep from "./defStep";
-import {
-	checkWithdrawalAmount,
-	getAmountTip,
-	isConvert
-} from "../common/common";
+import { getAmountTip, isConvert, checkAmount } from "../common/common";
 
 import path from "../../router";
 
@@ -37,6 +36,7 @@ export default ({
 	const [accountNoValue, setAccountNoValue] = useState(0);
 	const [bankNameValue, setBankNameValue] = useState("");
 	const [amountValue, setAmountValue] = useState("");
+	const [withdrawalMin, setWithdrawalMin] = useState(0);
 	const [showConfirmPage, setShowConfirmPage] = useState(false);
 	const { userInfo } = useContext(userInfoContext);
 	const [bankInfoList, setBankInfoList] = useState([]);
@@ -53,6 +53,14 @@ export default ({
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		api_payment_GetWithdrawalLimit().then(res => {
+			if (res.data.errorCode === 0 && isMountedRef.current) {
+				setWithdrawalMin(res.data.data.withdrawalMin);
+			}
+		});
+	}, [userInfo.isLogin]);
 
 	useEffect(() => {
 		if (userInfo.isLogin === true) {
@@ -131,12 +139,14 @@ export default ({
 	};
 
 	const ValidAmount = _amount => {
-		const result = checkWithdrawalAmount(
-			_amount,
-			balanceData.availableBalance,
-			_isConvert,
-			t
-		);
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: withdrawalMin,
+			maxAmount: balanceData.availableBalance,
+			formatRequired: _isConvert,
+			t,
+			maxAmountAllowUnlimit: false
+		});
 		if (result.status !== 0) {
 			setStatus({
 				checked: false,
@@ -152,7 +162,8 @@ export default ({
 	};
 
 	const clickInfo = () => {
-		const _msg = status.tip === "" ? getAmountTip(0, _isConvert, t) : "";
+		const _msg =
+			status.tip === "" ? getAmountTip(withdrawalMin, _isConvert, t) : "";
 		setStatus({
 			checked: null,
 			tip: _msg
@@ -342,42 +353,45 @@ export default ({
 				<span>{t("lbl_Withdrawal")}</span>
 				<div>{t("lbl_UpdateBankInfo")}</div>
 			</div>
-			<StepBar step={step} t={t} defStep={defStep} />
-			<div className="walletModule">
-				<Available
-					availableBalance={balanceData.availableBalance}
-					refreshAvailableBalance={refreshAvailableBalance}
-					_isConvert={_isConvert}
-					accountName={userInfo.accountName}
-				/>
-			</div>
-			<div className="walletModule">
-				<div className="addBank">
-					<BankInfoCard
-						setCurrentlyBankInfo={setCurrentlyBankInfo}
-						currentBankInfo={{
-							sysIdValue,
-							accountNoValue,
-							bankNameValue
-						}}
-						bankInfoList={bankInfoList}
-						setBankInfoList={setBankInfoList}
-						_isConvert={_isConvert}
-						confirmPanel={showConfirmPage}
-						balanceData={balanceData}
-					/>
-					<AddBankAccount bankInfoList={bankInfoList} />
-				</div>
 
-				<div className="subModuleList">
-					<div className="subModule">
-						{!showConfirmPage ? (
-							<div className="subModuleBody">
-								<Calculation
-									balanceData={balanceData}
-									_isConvert={_isConvert}
-								/>
-								{/* <CashBar
+			<div className="walletWrapper">
+				{/* <StepBar step={step} t={t} defStep={defStep} /> */}
+
+				<div className="walletModule">
+					<Available
+						availableBalance={balanceData.availableBalance}
+						refreshAvailableBalance={refreshAvailableBalance}
+						_isConvert={_isConvert}
+						accountName={userInfo.accountName}
+					/>
+				</div>
+				<div className="walletModule">
+					<div className="addBank">
+						<BankInfoCard
+							setCurrentlyBankInfo={setCurrentlyBankInfo}
+							currentBankInfo={{
+								sysIdValue,
+								accountNoValue,
+								bankNameValue
+							}}
+							bankInfoList={bankInfoList}
+							setBankInfoList={setBankInfoList}
+							_isConvert={_isConvert}
+							confirmPanel={showConfirmPage}
+							balanceData={balanceData}
+						/>
+						<AddBankAccount bankInfoList={bankInfoList} />
+					</div>
+
+					<div className="subModuleList">
+						<div className="subModule">
+							{!showConfirmPage ? (
+								<div className="subModuleBody">
+									<Calculation
+										balanceData={balanceData}
+										_isConvert={_isConvert}
+									/>
+									{/* <CashBar
 											onChangeAmount={onChangeAmount}
 											amountValue={amountValue}
 											availableBalance={
@@ -385,35 +399,39 @@ export default ({
 											}
 											_isConvert={_isConvert}
 										/> */}
-								<InputModuleRow
-									onChangeAmount={onChangeAmount}
-									amountValue={amountValue}
+									<InputModuleRow
+										onChangeAmount={onChangeAmount}
+										amountValue={amountValue}
+										sysIdValue={sysIdValue}
+										accountNoValue={accountNoValue}
+										toConfirmPage={toConfirmPage}
+										_isConvert={_isConvert}
+										status={status}
+										onBlur={ValidAmount.bind(
+											this,
+											amountValue
+										)}
+										clickInfo={clickInfo}
+										checked={status.checked}
+										tip={status.tip}
+									/>
+								</div>
+							) : (
+								<WithdrawalConfirm
+									bankNameValue={bankNameValue}
+									amountValue={
+										_isConvert
+											? amountValue * 1000
+											: amountValue
+									}
 									sysIdValue={sysIdValue}
 									accountNoValue={accountNoValue}
-									toConfirmPage={toConfirmPage}
+									cancelSubmit={cancelSubmit}
+									confirmSubmit={confirmSubmit}
 									_isConvert={_isConvert}
-									status={status}
-									onBlur={ValidAmount.bind(this, amountValue)}
-									clickInfo={clickInfo}
-									checked={status.checked}
-									tip={status.tip}
 								/>
-							</div>
-						) : (
-							<WithdrawalConfirm
-								bankNameValue={bankNameValue}
-								amountValue={
-									_isConvert
-										? amountValue * 1000
-										: amountValue
-								}
-								sysIdValue={sysIdValue}
-								accountNoValue={accountNoValue}
-								cancelSubmit={cancelSubmit}
-								confirmSubmit={confirmSubmit}
-								_isConvert={_isConvert}
-							/>
-						)}
+							)}
+						</div>
 					</div>
 				</div>
 			</div>

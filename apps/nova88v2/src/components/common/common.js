@@ -1,4 +1,3 @@
-import moment from "moment";
 import { currencyCode } from "../../datas/countryCode";
 
 export const getUrlParameter = name => {
@@ -45,7 +44,14 @@ export const getCurrencyCode = langId => {
 	return currencyCode[langId.toUpperCase()];
 };
 
-export const checkAmount = (amount, minAmount, maxAmount, _isConvert, i18n) => {
+export const checkAmount = ({
+	amount,
+	minAmount,
+	maxAmount,
+	_isConvert,
+	t,
+	maxAmountAllowUnlimit = true
+}) => {
 	let status = 0;
 	let msg = "";
 	if (amount !== null && amount !== undefined) {
@@ -55,23 +61,24 @@ export const checkAmount = (amount, minAmount, maxAmount, _isConvert, i18n) => {
 		}
 		if (num_Amount <= 0) {
 			status = 2;
-			msg = i18n("lbl_AmountTooltip")?.replace(
+			msg = t("lbl_AmountTooltip")?.replace(
 				"{0}",
 				number_format(minAmount, _isConvert)
 			);
 		} else if (
-			minAmount !== 0 &&
-			maxAmount !== 0 &&
-			(num_Amount > maxAmount || num_Amount < minAmount)
+			(minAmount !== 0 &&
+				maxAmount !== 0 &&
+				(num_Amount > maxAmount || num_Amount < minAmount)) ||
+			(!maxAmountAllowUnlimit && num_Amount > maxAmount)
 		) {
 			status = 2;
-			msg = `${number_format(num_Amount, _isConvert)} ${i18n(
+			msg = `${number_format(num_Amount, _isConvert)} ${t(
 				"lbl_NotinLimit"
 			)}`;
 		}
 	} else {
 		status = 3;
-		msg = i18n("lbl_NotinLimit");
+		msg = t("lbl_NotinLimit");
 	}
 
 	return { status, msg };

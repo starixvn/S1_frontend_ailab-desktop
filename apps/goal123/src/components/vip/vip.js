@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/popBox";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { AutoPlayWithBtn } from "../common/swipperBanner";
+import CustomSwipper from "../common/customSwipper";
 import { InfoEn, InfoVn } from "./vip.info";
 import VipPage from "./vip.page";
 import { defbanner, defPageClubImg } from "./vip.def";
@@ -40,7 +40,9 @@ const Vip = () => {
 
 	return (
 		<main className="vip">
-			<AutoPlayWithBtn Rows={rows} />
+			<CustomSwipper withBtn={true} withPagination={false}>
+				{rows}
+			</CustomSwipper>
 
 			{vipInfo}
 

@@ -1,11 +1,14 @@
-import { promotionRequest } from "./base";
+import { promotionRequest, defDeviceType } from "./base";
 
 export const api_promotion_GetPromotionListV2 = ({ langId }) =>
-	promotionRequest.post(`/GetPromotionListV2/${langId}`);
+	promotionRequest.post(`/GetPromotionListV3/${langId}`, {
+		DeviceType: defDeviceType.Desktop
+	});
 
 export const api_promotion_GetPromotionDetail = ({ langId, BonusCode }) =>
 	promotionRequest.post(`/GetPromotionDetail/${langId}`, {
-		BonusCode
+		BonusCode,
+		DeviceType: defDeviceType.Desktop
 	});
 
 export const api_promotion_GetCustSpecificBonus = ({
@@ -26,13 +29,17 @@ export const api_promotion_SetClaimPromotion = ({
 }) =>
 	promotionRequest.post(`/SetClaimPromotion/${langId}`, {
 		BonusCode,
-		LockedAmount
+		LockedAmount,
+		DeviceType: defDeviceType.Desktop
 	});
 
 export const api_promotion_GetSpecialPromotionList = ({ langId }) =>
-	promotionRequest.post(`/GetSpecialPromotionList/${langId}`);
+	promotionRequest.post(`/GetSpecialPromotionListV2/${langId}`, {
+		DeviceType: defDeviceType.Desktop
+	});
 
 export const api_promotion_SetSpecialCode = ({ langId, SpecialCode }) =>
 	promotionRequest.post(`/SetSpecialCode/${langId}`, {
-		SpecialCode
+		SpecialCode,
+		DeviceType: defDeviceType.Desktop
 	});

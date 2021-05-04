@@ -38,8 +38,8 @@ function SEO({ description, lang, meta, title }) {
 			((splitPath.length === 2 ||
 				(splitPath.length === 3 && splitPath[2] === "")) &&
 				site.siteMetadata.supportedLanguages.includes(splitPath[1])))
-			? "index"
-			: "";
+			? "index Newtheme"
+			: "Newtheme";
 
 	return (
 		<>

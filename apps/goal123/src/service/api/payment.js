@@ -50,6 +50,12 @@ export const api_payment_GetLocalBankInfo = ({ sysId, amount }) =>
 export const api_payment_GetMobilePayGroupList = () =>
 	paymentRequest.post("/GetMobilePayGroupList");
 
+export const api_payment_GetLoadCardPayGroupList = () =>
+	paymentRequest.post("/GetLoadCardPayGroupList");
+
+export const api_payment_GetLoadCardPayInfoList = GroupId =>
+	paymentRequest.post("/GetLoadCardPayInfoList", { GroupId });
+
 export const api_payment_GetCryptoPayInfoList = () =>
 	paymentRequest.post("/GetCryptoPayInfoList");
 
@@ -145,3 +151,6 @@ export const api_payment_GetCustTpBetRecordDetailListbyGameType = ({
 		PageNumber,
 		PageSize
 	});
+
+export const api_payment_GetWithdrawalLimit = () =>
+	paymentRequest.post("/GetWithdrawalLimit");

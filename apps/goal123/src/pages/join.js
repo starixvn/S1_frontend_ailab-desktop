@@ -263,7 +263,10 @@ const Content = () => {
 		}
 
 		if (checked === true) {
-			api_site_ExistsUserName({ UserName: val }).then(
+			api_site_ExistsUserName({
+				UserName: val,
+				langId: userInfo.langId
+			}).then(
 				res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
@@ -273,7 +276,7 @@ const Content = () => {
 										...prev,
 										username: {
 											checked: false,
-											msg: t("msg_UsernameNotAvailable")
+											msg: res.data.message
 										}
 									};
 								});

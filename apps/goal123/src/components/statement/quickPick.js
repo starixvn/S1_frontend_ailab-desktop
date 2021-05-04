@@ -6,7 +6,6 @@ import path from "../../router";
 import { userInfoContext, loadingContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import {
-	isConvert,
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath

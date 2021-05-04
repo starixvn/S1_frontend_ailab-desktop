@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export default ({ btnBar }) => {
+export default ({ btnBar, description }) => {
 	const { t } = useTranslation();
 
 	return (

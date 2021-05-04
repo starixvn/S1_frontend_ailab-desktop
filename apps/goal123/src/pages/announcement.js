@@ -101,7 +101,7 @@ const Content = () => {
 			? moment(item.startTime).format("hh:mm:ss A")
 			: moment(item.startTime).format("MM/DD/YYYY");
 
-		const textColor = isToday ? "txt-blue2" : "";
+		const textColor = isToday ? "txt-blue3" : "";
 
 		return (
 			<div key={`announcement-${item.id}`}>

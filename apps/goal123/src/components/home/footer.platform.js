@@ -100,6 +100,10 @@ const defPlatform = [
 		...defCasinoProviders.PT,
 		imgName: "playtech"
 	}
+	// {
+	// 	...defCasinoProviders.PT,
+	// 	imgName: "playtech"
+	// }
 ];
 
 export default ({ isLogin, productTpIds }) => {

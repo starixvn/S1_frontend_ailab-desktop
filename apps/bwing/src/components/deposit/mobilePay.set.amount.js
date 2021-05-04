@@ -22,13 +22,13 @@ export default ({ channelInfo, _isConvert, amount, dispatch }) => {
 	};
 
 	const VaildAmount = _amount => {
-		const result = checkAmount(
-			_amount,
-			channelInfo.minAmount,
-			channelInfo.maxAmount,
-			_isConvert,
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: channelInfo.minAmount,
+			maxAmount: channelInfo.maxAmount,
+			formatRequired: _isConvert,
 			t
-		);
+		});
 		if (result.status !== 0) {
 			setStatus({
 				checked: false,

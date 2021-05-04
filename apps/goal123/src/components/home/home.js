@@ -23,8 +23,8 @@ import GameQuickLinks from "./gameQuickLinks";
 import SwipperBanner from "../common/swipperBanner";
 import CountDown from "./countDown";
 import PromoGameList from "./promoGameList";
-import AngpowLink from "./angpowLink";
-import MysteryBoxLink from "./mysteryBoxLink";
+import AngpowLink from "../homeV2/angpowLink";
+import MysteryBoxLink from "../homeV2/mysteryBoxLink";
 import path from "../../router";
 import PlatformSection from "./footer.platform";
 
@@ -80,21 +80,7 @@ const Home = ({ productTpIds }) => {
 				}
 			};
 
-			const clickClose = () => {
-				setPopBox({ isOpen: false });
-				showDepositPopBox();
-			};
-
-			const refeCookieName = `referral_${userInfo.userName}`;
-			if (readCookie(refeCookieName) === "1") {
-				showDepositPopBox();
-			} else {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.JoinReferral,
-					onClickClose: clickClose
-				});
-			}
+			showDepositPopBox();
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 

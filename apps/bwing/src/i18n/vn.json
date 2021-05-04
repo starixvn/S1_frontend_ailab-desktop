@@ -169,7 +169,7 @@
 	"msg_PasswordReq": "Mật khẩu là bắt buộc",
 	"msg_PasswordVaildate": "Mật khẩu phải có từ 6-15 ký tự, bao gồm cả chữ, số và ký tự đặc biệt (!@#$%^&*).",
 	"msg_PhoneExisted": "Số điện thoại này đã được sử dụng",
-	"msg_UsernameLength": "Tên đăng nhập phải có 6 đến 18 ký tự",
+	"msg_UsernameLength": "6-18 ký tự chữ và số (A-Z, a-z, 0-9)",
 	"msg_UsernameNotAvailable": "Tên đăng nhập này đã được sử dụng.",
 	"msg_UsernameReq": "Tên đăng nhập là bắt buộc.",
 	"lbl_UpdatePersonalDetail": "Cập nhật thông tin cá nhân",
@@ -205,6 +205,7 @@
 	"lbl_MaxBonusAmount": "TIỀN KHUYẾN MÃI TỐI ĐA",
 	"lbl_Sign_up_successful": "Tham gia thành công !",
 	"lbl_PromotionRebateAndCashback": "Hoàn trả / Hoàn lại tiền",
+	"lbl_Other":"Khác",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Không có dữ liệu",
@@ -297,6 +298,7 @@
 	"lbl_DepositType1": "Ngân hàng trực tuyến",
 	"lbl_DepositType2": "Thanh toán qua ĐT",
 	"lbl_DepositType3": "Ngân hàng trong nước",
+	"lbl_DepositType5": "THẺ CÀO",
 	"lbl_DepositStatus0": "Bản nháp",
 	"lbl_DepositStatus1": "Chờ xử lý",
 	"lbl_DepositStatus2": "Đã thanh toán",
@@ -349,8 +351,8 @@
 	"lbl_DepositLocalBankNotes3": "Vui lòng chọn “Người chuyển trả phí giao dịch”.",
 	"lbl_DepositLocalBankNotes4": "Vui lòng tải biên lai ngân hàng để giao dịch được xử lý nhanh hơn.",
 	"lbl_MinMaxAmount": "Tối thiểu/Tối đa",
-
 	"lbl_DepositAccountNamePlaceholder": "Tên phải trùng với tên tài khoản và CMND",
+	"lbl_TopUpCard": "THẺ CÀO",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",

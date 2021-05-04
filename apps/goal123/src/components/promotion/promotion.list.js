@@ -11,6 +11,7 @@ import {
 } from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
+import { defPromotionType } from "./promotion.def";
 
 export default ({
 	t,
@@ -60,18 +61,29 @@ export default ({
 				) : null}
 
 				<div className="btnGroup">
-					<Link
-						type="button"
-						className="blue"
-						to={`/${langId}/${path.promotion.root}/${
-							path.promotion.sub.promotionInfo.root
-						}?BonusCode=${p.bonusCode}${
-							filter === defFilterType.specialBonus
-								? `&FilterType=${defFilterType.specialBonus}`
-								: ""
-						}`}>
-						{t("lbl_Details")}
-					</Link>
+					{p.promotionType === defPromotionType.other &&
+					!p.promotionAction ? (
+						<a
+							href={p.promotionLink}
+							target="_blank"
+							rel="noreferrer"
+							className="blue">
+							{t("lbl_Details")}
+						</a>
+					) : (
+						<Link
+							type="button"
+							className="blue"
+							to={`/${langId}/${path.promotion.root}/${
+								path.promotion.sub.promotionInfo.root
+							}?BonusCode=${p.bonusCode}${
+								filter === defFilterType.specialBonus
+									? `&FilterType=${defFilterType.specialBonus}`
+									: ""
+							}`}>
+							{t("lbl_Details")}
+						</Link>
+					)}
 
 					<PromotionJoinButton
 						promotionInfo={p}
@@ -101,5 +113,5 @@ export default ({
 			</div>
 		);
 
-	return <div className="nodata">{t("msg_NoData")}</div>;
+	return <div className="nodata icon icon-nodata">{t("lbl_NoData")}</div>;
 };

@@ -195,7 +195,9 @@ const Content = () => {
 					{getHistory?.length > 0 ? (
 						<div className="listBody">{arr}</div>
 					) : (
-						<div className="nodata">{t("msg_NoData")}</div>
+						<div className="nodata icon icon-nodata">
+							{t("lbl_NoData")}
+						</div>
 					)}
 				</div>
 			) : null}
@@ -223,9 +225,9 @@ const TansactionHistory = props => {
 			</div>
 			<div>{props.refTransId}</div>
 			<div>{props.typeName}</div>
-			<div>{number_format(props.changeAmount, false)}</div>
-			<div>{number_format(props.beforeAmount, false)}</div>
-			<div>{number_format(props.afterAmount, false)}</div>
+			<div>{number_format(props.changeAmount)}</div>
+			<div>{number_format(props.beforeAmount)}</div>
+			<div>{number_format(props.afterAmount)}</div>
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import React from "react";
 import SEO from "../components/seo";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Content from "../components/home/home";
+import Content from "../components/homeV2/homeV2";
 
 const IndexPage = () => {
 	return (

@@ -131,13 +131,13 @@ const Depositnew = () => {
 	};
 
 	const onValidAmount = _amount => {
-		const result = checkAmount(
-			_amount,
-			formInfo.minAmount,
-			formInfo.maxAmount,
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: formInfo.minAmount,
+			maxAmount: formInfo.maxAmount,
 			_isConvert,
 			t
-		);
+		});
 
 		if (result.status !== 0) {
 			setFormInfo(prev => {

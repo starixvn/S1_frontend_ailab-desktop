@@ -76,21 +76,7 @@ export default () => {
 				}
 			};
 
-			const clickClose = () => {
-				setPopBox({ isOpen: false });
-				showDepositPopBox();
-			};
-
-			const refeCookieName = `referral_${userInfo.userName}`;
-			if (readCookie(refeCookieName) === "1") {
-				showDepositPopBox();
-			} else {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.JoinReferral,
-					onClickClose: clickClose
-				});
-			}
+			showDepositPopBox();
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 

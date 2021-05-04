@@ -4076,7 +4076,14 @@ input[type="file"] {
   max-width: 90px;
 }
 
-.platformName + div.subModuleList .subModuleBody > div {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) {
+  background: #BFCCE2;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -4086,7 +4093,7 @@ input[type="file"] {
   display: flex;
 }
 
-.platformName + div.subModuleList .subModuleBody > div .txt-orange {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div .txt-orange {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4095,37 +4102,37 @@ input[type="file"] {
           align-items: flex-end;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.buttonBox {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.buttonBox {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   margin: 10px 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div > .bankName {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div > .bankName {
   margin-right: 30px;
   margin-top: 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.inputBtn {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.inputBtn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin: 20px 0;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.inputBtn .btnGroup {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.inputBtn .btnGroup {
   margin: 10px 0 5px;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList li {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList li {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -4135,7 +4142,7 @@ input[type="file"] {
   margin: auto 10px auto;
 }
 
-.platformName + div.subModuleList .subModuleBody > div.smallList li:first-child {
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup) > div.smallList li:first-child {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
@@ -11599,5 +11606,59 @@ canvas {
 
 .streaming .liveTv > .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
+}
+
+.cashBack {
+  background: #D2E2F9;
+  padding: 20px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.cashBack table {
+  color: #5574A7;
+  font-size: 12px;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+  background: white;
+}
+
+.cashBack table tr:nth-child(1) {
+  background: #7591C1;
+  color: white;
+  font-weight: bold;
+}
+
+.cashBack table tr:nth-child(1) td {
+  border-right: 1px solid #134DAE;
+}
+
+.cashBack table tr:nth-child(even) {
+  background: #F0F7FF;
+}
+
+.cashBack table tr:nth-last-child(3) {
+  border-top: 1px solid #D2E2F9;
+}
+
+.cashBack table tr:nth-last-child(-n+3) {
+  font-weight: bold;
+  width: 100%;
+}
+
+.cashBack table tr:nth-last-child(-n+3) td span:nth-child(1) {
+  min-width: 90px;
+  display: inline-block;
+}
+
+.cashBack table tr td {
+  border-right: 1px solid #D2E2F9;
+  padding: 5px;
+  width: 25%;
+}
+
+.cashBack table tr td:last-child {
+  border: 0;
 }
 /*# sourceMappingURL=style.css.map */

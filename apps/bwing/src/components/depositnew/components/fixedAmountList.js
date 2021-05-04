@@ -1,0 +1,50 @@
+import React from "react";
+import PropTypes from "prop-types";
+import { number_format } from "../../common/common";
+
+const FixedAmountList = ({
+	minAmount,
+	maxAmount,
+	amountList,
+	amount,
+	_isConvert,
+	onChangeAmount
+}) => {
+	if (amountList?.length <= 0) return null;
+
+	return (
+		<div className="btnGroup buttonBox">
+			{amountList
+				?.filter(a => a >= minAmount && a <= maxAmount)
+				.map(a => {
+					const _afterConvertAmount = _isConvert ? a / 1000 : a;
+					const isSelected = Number(amount) === _afterConvertAmount;
+
+					return (
+						<button
+							onClick={() => onChangeAmount(_afterConvertAmount)}
+							className={`blue${isSelected ? " active" : ""}`}
+							key={`deposit-mobile-${a}`}>
+							{number_format(a, _isConvert, 0)}
+							<i className="icon icon-checkmark" />
+						</button>
+					);
+				})}
+		</div>
+	);
+};
+
+FixedAmountList.defaultProps = {
+	amount: ""
+};
+
+FixedAmountList.propTypes = {
+	minAmount: PropTypes.number.isRequired,
+	maxAmount: PropTypes.number.isRequired,
+	amountList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	amount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+	_isConvert: PropTypes.bool.isRequired,
+	onChangeAmount: PropTypes.func.isRequired
+};
+
+export default FixedAmountList;

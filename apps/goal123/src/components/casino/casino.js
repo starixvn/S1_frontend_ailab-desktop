@@ -12,7 +12,7 @@ import {
 import { userInfoContext } from "../common/context";
 import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
 import GameList from "./casino.gamelist";
-import SwipperBanner from "../common/swipperBanner";
+import { BannerSwipper } from "../common/customSwipper";
 import { Pagination } from "../common/pagination";
 import { getUrlParameter } from "../common/common";
 import SearchBox from "./casino.searchBox";
@@ -315,10 +315,12 @@ export default () => {
 		<Loading />
 	) : (
 		<div className="infoModule">
-			<SwipperBanner
+			<BannerSwipper
 				ImgFolder={[defBannerType.Slots]}
-				openInBlank={true}
+				withBtn={true}
+				withPagination={true}
 			/>
+
 			<div className="inside-title icon icon-ow-casino">
 				<span>{t("lbl_Slots")}</span>
 			</div>

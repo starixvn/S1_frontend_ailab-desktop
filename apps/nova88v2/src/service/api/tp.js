@@ -23,7 +23,7 @@ export const api_tp_GotoGame = ({
 	gameId = null,
 	TpId,
 	LangId,
-	AppType = defGotoGame_AppType.Desktop,
+	AppType = defDeviceType.Desktop,
 	fun = null
 }) =>
 	tpRequest.post("/GotoGame", {

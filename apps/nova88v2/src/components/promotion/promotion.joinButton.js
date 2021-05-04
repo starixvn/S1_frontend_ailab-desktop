@@ -116,7 +116,7 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 		if (
 			canJoin &&
 			(promotionType === defPromotionType.redeposit ||
-				(filter === defFilterType.special_bonus &&
+				(filter === defFilterType.specialBonus &&
 					promotionType === defPromotionType.firstDeposit))
 		)
 			return setPopBox({
@@ -143,7 +143,9 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 
 	return (
 		<button className="orange" onClick={onJoinPromotion}>
-			{t("lbl_PromoJoinNow")}
+			{promotionInfo.promotionType === defPromotionType.cashback
+				? t("lbl_ClaimNow")
+				: t("lbl_PromoJoinNow")}
 		</button>
 	);
 };

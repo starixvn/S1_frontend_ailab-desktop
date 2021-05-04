@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
+import FixedAmountList from "./fixedAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
 import config from "../../../config";
 
@@ -78,10 +79,8 @@ const MobileForm = ({
 
 	if (mobilePayGourpList.length <= 0) return null;
 
-	const isInteger = true;
-
-	const formatMinAmount = number_format(formInfo.minAmount, false, isInteger);
-	const formatMaxAmount = number_format(formInfo.maxAmount, false, isInteger);
+	const formatMinAmount = number_format(formInfo.minAmount, false, 0);
+	const formatMaxAmount = number_format(formInfo.maxAmount, false, 0);
 
 	return (
 		<>
@@ -153,14 +152,14 @@ const MobileForm = ({
 											{`${t("lbl_Min")}: ${number_format(
 												item.minAmount,
 												_isConvert,
-												isInteger
+												0
 											)}`}
 										</div>
 										<div>
 											{`${t("lbl_Max")}: ${number_format(
 												item.maxAmount,
 												_isConvert,
-												isInteger
+												0
 											)}`}
 										</div>
 									</div>
@@ -180,16 +179,6 @@ const MobileForm = ({
 						</span>
 					</div>
 					<div className="column">
-						{isSelAmountType ? (
-							<FixedAmountList
-								minAmount={formInfo.minAmount}
-								maxAmount={formInfo.maxAmount}
-								amountList={formInfo.amountList}
-								amount={formInfo.amount}
-								_isConvert={_isConvert}
-								onChangeAmount={onChangeAmount}
-							/>
-						) : null}
 						<Inputbox
 							className="inputBox-white"
 							readOnly={isSelAmountType}
@@ -205,51 +194,21 @@ const MobileForm = ({
 							)} ${formatMinAmount} / ${formatMaxAmount}`}
 							onKeyDown={onInputboxKeyDown}
 						/>
+						{isSelAmountType ? (
+							<FixedAmountList
+								minAmount={formInfo.minAmount}
+								maxAmount={formInfo.maxAmount}
+								amountList={formInfo.amountList}
+								amount={formInfo.amount}
+								_isConvert={_isConvert}
+								onChangeAmount={onChangeAmount}
+							/>
+						) : null}
 					</div>
 				</div>
 			) : null}
 		</>
 	);
-};
-
-const FixedAmountList = ({
-	minAmount,
-	maxAmount,
-	amountList,
-	amount,
-	_isConvert,
-	onChangeAmount
-}) => {
-	const rows = amountList
-		?.filter(a => a >= minAmount && a <= maxAmount)
-		.map(a => {
-			const _afterConvertAmount = _isConvert ? a / 1000 : a;
-			const isSelected = Number(amount) === _afterConvertAmount;
-
-			return (
-				<button
-					onClick={() => onChangeAmount(_afterConvertAmount)}
-					className={`blue${isSelected ? " active" : ""}`}
-					key={`deposit-mobile-${a}`}>
-					{number_format(a, _isConvert)}
-					<i className="icon icon-checkmark" />
-				</button>
-			);
-		});
-	return <div className="btnGroup buttonBox">{rows}</div>;
-};
-
-FixedAmountList.defaultProps = {
-	amount: ""
-};
-
-FixedAmountList.propTypes = {
-	amount: PropTypes.string,
-	amountList: PropTypes.arrayOf(PropTypes.number).isRequired,
-	maxAmount: PropTypes.number.isRequired,
-	minAmount: PropTypes.number.isRequired,
-	onChangeAmount: PropTypes.func.isRequired,
-	_isConvert: PropTypes.bool.isRequired
 };
 
 MobileForm.propTypes = {
