@@ -68,9 +68,7 @@ const LoginPanel = () => {
 		});
 	};
 
-	const checkValue = (col, e) => {
-		const val = e.target.value;
-
+	const checkValue = (col, val) => {
 		let checked = true;
 		let msg = "";
 
@@ -80,6 +78,9 @@ const LoginPanel = () => {
 					? t("msg_UsernameReq")
 					: t("msg_PasswordReq");
 			checked = false;
+		} else if (col === "username" && (val.length < 6 || val.length > 18)) {
+			checked = false;
+			msg = t("msg_UsernameLength");
 		}
 
 		setTip(prev => {
@@ -91,13 +92,17 @@ const LoginPanel = () => {
 				}
 			};
 		});
+		return checked;
 	};
 
 	const handleLogin = async e => {
 		e.preventDefault();
 
-		const checked = userValue.username && userValue.password;
-		if (checked) {
+		const checkUsername = checkValue("username", userValue.username);
+		const checkPassword = checkValue("password", userValue.password);
+		const checkAll = checkUsername && checkPassword;
+
+		if (checkAll) {
 			await LOGIN({
 				userName: userValue.username,
 				password: userValue.password,
@@ -142,22 +147,6 @@ const LoginPanel = () => {
 					}
 				}
 			});
-		} else {
-			const usernameMsg =
-				userValue.username === "" ? "msg_UsernameReq" : "";
-			const passwordMsg =
-				userValue.password === "" ? "msg_PasswordReq" : "";
-
-			setTip({
-				username: {
-					checked: !(userValue.username === ""),
-					msg: t(usernameMsg)
-				},
-				password: {
-					checked: !(userValue.password === ""),
-					msg: t(passwordMsg)
-				}
-			});
 		}
 	};
 
@@ -193,7 +182,11 @@ const LoginPanel = () => {
 							placeholder={t("lbl_Username")}
 							value={userValue.username}
 							onChange={EditField.bind(null, "username")}
-							onBlur={checkValue.bind(null, "username")}
+							onBlur={checkValue.bind(
+								null,
+								"username",
+								userValue.username
+							)}
 							clickInfo={clickInfo.bind(this, "username")}
 							checked={tip.username.checked}
 							tip={tip.username.msg}
@@ -206,7 +199,11 @@ const LoginPanel = () => {
 							placeholder={t("lbl_Password")}
 							value={userValue.password}
 							onChange={EditField.bind(null, "password")}
-							onBlur={checkValue.bind(null, "password")}
+							onBlur={checkValue.bind(
+								null,
+								"password",
+								userValue.password
+							)}
 							showPsw={showPsw}
 							showPswHandler={showPswHandler}
 							checked={tip.password.checked}
