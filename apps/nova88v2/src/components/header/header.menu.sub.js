@@ -8,6 +8,7 @@ import { SET_ENTER_PAGE } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
 import countryCode from "../../datas/countryCode";
+import { getCurrencyCode } from "../common/common";
 
 export default ({ currentMenuKey, productTpIds }) => {
 	const { t } = useTranslation();
@@ -72,17 +73,18 @@ export default ({ currentMenuKey, productTpIds }) => {
 			);
 		}
 
+		const _currencyId = userInfo.currencyId
+			? userInfo.currencyId
+			: getCurrencyCode(userInfo.langId);
 		const _sortSubMenuItem = defMenuLinks[menuKey].customSort;
 
 		if (_sortSubMenuItem) {
-			if (userInfo.currencyId) {
-				const currenyName = countryCode[userInfo.currencyId];
-				subMenu = subMenu.sort(
-					(a, b) =>
-						_sortSubMenuItem[currenyName][a.keyName] -
-						_sortSubMenuItem[currenyName][b.keyName]
-				);
-			}
+			const currenyName = countryCode[_currencyId];
+			subMenu = subMenu.sort(
+				(a, b) =>
+					_sortSubMenuItem[currenyName][a.keyName] -
+					_sortSubMenuItem[currenyName][b.keyName]
+			);
 		}
 
 		return isSubMultipleItems ? (
