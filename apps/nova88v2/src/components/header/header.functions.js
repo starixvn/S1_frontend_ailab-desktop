@@ -76,7 +76,7 @@ const BeforeLogin = ({ t }) => {
 	};
 
 	const checkValue = (col, val) => {
-		let checked = false;
+		let checked = true;
 		let msg = "";
 
 		if (val === "") {
@@ -89,9 +89,6 @@ const BeforeLogin = ({ t }) => {
 			msg = t("msg_UsernameLength");
 			checked = false;
 			errorPopBox(msg);
-		} else {
-			msg = "";
-			checked = true;
 		}
 
 		setTip(prev => {

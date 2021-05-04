@@ -68,7 +68,7 @@ const LoginPanel = () => {
 	};
 
 	const checkValue = (col, val) => {
-		let checked = false;
+		let checked = true;
 		let msg = "";
 
 		if (val === "") {
@@ -80,9 +80,6 @@ const LoginPanel = () => {
 		} else if (col === "username" && (val.length < 6 || val.length > 18)) {
 			checked = false;
 			msg = t("msg_UsernameLength");
-		} else {
-			checked = true;
-			msg = "";
 		}
 
 		setTip(prev => {
