@@ -7,7 +7,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
-import countryCode from "../../datas/countryCode";
+import countryCode, { currencyCode } from "../../datas/countryCode";
 import { getCurrencyCode } from "../common/common";
 
 export default ({ currentMenuKey, productTpIds }) => {
@@ -76,14 +76,17 @@ export default ({ currentMenuKey, productTpIds }) => {
 		const _currencyId = userInfo.currencyId
 			? userInfo.currencyId
 			: getCurrencyCode(userInfo.langId);
+		const _currenyName = countryCode[_currencyId];
 		const _sortSubMenuItem = defMenuLinks[menuKey].customSort;
+		const isCurrenyInSortDef =
+			_sortSubMenuItem &&
+			Object.keys(_sortSubMenuItem).includes(_currenyName);
 
-		if (_sortSubMenuItem) {
-			const currenyName = countryCode[_currencyId];
+		if (isCurrenyInSortDef) {
 			subMenu = subMenu.sort(
 				(a, b) =>
-					_sortSubMenuItem[currenyName][a.keyName] -
-					_sortSubMenuItem[currenyName][b.keyName]
+					_sortSubMenuItem[_currenyName][a.keyName] -
+					_sortSubMenuItem[_currenyName][b.keyName]
 			);
 		}
 
