@@ -7951,7 +7951,7 @@ button.icon-spinner11:before {
   width: calc(100% / 2 - 60px);
   padding: 10px 20px;
   margin: 0;
-  z-index: 2;
+  z-index: 3;
   display: block;
   border: 1px solid #CDAE8E;
   color: #CDAE8E;
