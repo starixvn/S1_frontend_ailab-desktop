@@ -76,17 +76,16 @@ export default ({ currentMenuKey, productTpIds }) => {
 		const _currencyId = userInfo.currencyId
 			? userInfo.currencyId
 			: getCurrencyCode(userInfo.langId);
-		const _currenyName = countryCode[_currencyId];
-		const _sortSubMenuItem = defMenuLinks[menuKey].customSort;
+		const _defSortMenu = defMenuLinks[menuKey].customSort;
 		const isCurrenyInSortDef =
-			_sortSubMenuItem &&
-			Object.keys(_sortSubMenuItem).includes(_currenyName);
+			_defSortMenu &&
+			Object.keys(_defSortMenu).includes(_currencyId.toString());
 
 		if (isCurrenyInSortDef) {
 			subMenu = subMenu.sort(
 				(a, b) =>
-					_sortSubMenuItem[_currenyName][a.keyName] -
-					_sortSubMenuItem[_currenyName][b.keyName]
+					_defSortMenu[_currencyId][a.keyName] -
+					_defSortMenu[_currencyId][b.keyName]
 			);
 		}
 

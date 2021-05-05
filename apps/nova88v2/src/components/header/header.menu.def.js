@@ -5,9 +5,10 @@ import {
 	defEventPeriod,
 	showEventIcon
 } from "../common/eventIcon";
+import { currencyCode } from "../../datas/countryCode";
 
 const defSortCasino = {
-	TH: {
+	[currencyCode.TH]: {
 		casino_DG: 1,
 		casino_AE: 2,
 		casino_SA: 3,
@@ -19,7 +20,7 @@ const defSortCasino = {
 		casino_EBET: 9,
 		casino_N2LIVE: 10
 	},
-	MY: {
+	[currencyCode.MY]: {
 		casino_DG: 1,
 		casino_AE: 2,
 		casino_PP: 3,
@@ -31,7 +32,7 @@ const defSortCasino = {
 		casino_EBET: 9,
 		casino_N2LIVE: 10
 	},
-	ID: {
+	[currencyCode.ID]: {
 		casino_AE: 1,
 		casino_AG: 2,
 		casino_EBET: 3,
@@ -46,7 +47,7 @@ const defSortCasino = {
 };
 
 const defSortSlot = {
-	TH: {
+	[currencyCode.TH]: {
 		slot_PG: 1,
 		slot_PP: 2,
 		slot_JOKER: 3,
@@ -57,7 +58,7 @@ const defSortSlot = {
 		slot_GPI: 9,
 		slot_OW: 10
 	},
-	MY: {
+	[currencyCode.MY]: {
 		slot_PP: 1,
 		slot_SG: 2,
 		slot_YGG: 3,
@@ -69,7 +70,7 @@ const defSortSlot = {
 		slot_OW: 9,
 		slot_PG: 10
 	},
-	ID: {
+	[currencyCode.ID]: {
 		slot_PP: 1,
 		slot_PG: 2,
 		slot_SG: 3,
@@ -84,23 +85,23 @@ const defSortSlot = {
 };
 
 const defSortFishing = {
-	TH: {
-		fishing_SGW: 1,
+	[currencyCode.TH]: {
+		fishing_SGW_WAR: 1,
 		fishing_CQ9_PARADISE: 2,
-		fishing_GGYL: 3,
+		fishing_GGYL_WORLD: 3,
 		fishing_ICG_DRAGONBALL: 4
 	},
-	MY: {
-		fishing_GGYL: 1,
-		fishing_SGW: 2,
+	[currencyCode.MY]: {
+		fishing_GGYL_WORLD: 1,
+		fishing_SGW_WAR: 2,
 		fishing_CQ9_PARADISE: 3,
 		fishing_ICG_DRAGONBALL: 4
 	},
-	ID: {
-		fishing_SGW: 1,
+	[currencyCode.ID]: {
+		fishing_SGW_WAR: 1,
 		fishing_ICG_DRAGONBALL: 2,
 		fishing_CQ9_PARADISE: 3,
-		fishing_GGYL: 4
+		fishing_GGYL_WORLD: 4
 	}
 };
 
@@ -396,7 +397,7 @@ export const defMenuLinks = {
 		customSort: defSortSlot,
 		subMenu: [
 			{
-				keyName: "slot_PP",
+				keyName: "slot_PT",
 				icon: "icon icon-PT",
 				displayText: "PT",
 				menuType: defMenuType.Link,
@@ -412,6 +413,7 @@ export const defMenuLinks = {
 				]
 			},
 			{
+				keyName: "slot_PP",
 				icon: "icon icon-PP",
 				displayText: "PP",
 				menuType: defMenuType.Link,
@@ -543,7 +545,7 @@ export const defMenuLinks = {
 				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
 			},
 			{
-				keyName: "fishing_GGYL",
+				keyName: "fishing_GGYL_WORLD",
 				className: "fgg",
 				displayKey: "lbl_FishingGG",
 				menuType: defMenuType.entPage,
@@ -554,7 +556,7 @@ export const defMenuLinks = {
 				parameter: { ...productList.fishing }
 			},
 			{
-				keyName: "fishing_SGW",
+				keyName: "fishing_SGW_WAR",
 				className: "fsgw",
 				displayKey: "lbl_FishingSG2",
 				menuType: defMenuType.entPage,
