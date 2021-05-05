@@ -128,6 +128,7 @@ export default {
 		tpId: 1,
 		gameId: 208
 	},
+	casino_PT: { tpId: 27, gameId: "0" },
 	kiss918: {
 		tpId: 21,
 		alwaysShow: true,
