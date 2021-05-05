@@ -7,7 +7,6 @@ import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
-import countryCode, { currencyCode } from "../../datas/countryCode";
 import { getCurrencyCode } from "../common/common";
 
 export default ({ currentMenuKey, productTpIds }) => {
