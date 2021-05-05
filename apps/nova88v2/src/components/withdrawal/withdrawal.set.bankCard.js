@@ -86,7 +86,9 @@ export default ({
 						message: t("msg_ApiServerError"),
 						btnBar: (
 							<div className="btnGroup">
-								<button className="btn-check" onClick={ClosePopBox}>
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -227,14 +229,26 @@ export default ({
 };
 
 const BankCard = props => {
+	const bankLogo = String(props.bankLogo).toLowerCase();
+
 	return (
 		<div className="addBankName">
 			<div className="addBankInfo">
 				<div className="bankName">
 					<img
-						src={`${config.imgUrl}/common/images/BankLogo/${props.bankLogo}`}
+						src={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
 						alt=""
 					/>
+
+					<div>
+						{props.bankName}
+						<div className="txt-blue">
+							<span>{props.accountNo?.slice(0, 4)}</span>
+							<span>{props.accountNo?.slice(4, 8)}</span>
+							<span>{props.accountNo?.slice(8, 12)}</span>
+							<span>{props.accountNo?.slice(12, 16)}</span>
+						</div>
+					</div>
 				</div>
 				<div className="checkbox">
 					<input
@@ -249,20 +263,9 @@ const BankCard = props => {
 					/>
 				</div>
 			</div>
-			<div className="addBankInfo">
-				<div className="txt-blue">
-					<span>{props.accountNo?.slice(0, 4)}</span>
-					<span>{props.accountNo?.slice(4, 8)}</span>
-					<span>{props.accountNo?.slice(8, 12)}</span>
-					<span>{props.accountNo?.slice(12, 16)}</span>
-				</div>
-				{props.hideDelBtn ? null : (
-					<button
-						className="icon icon-bin"
-						onClick={props.delAccount}
-					/>
-				)}
-			</div>
+			{props.hideDelBtn ? null : (
+				<button className="icon icon-bin" onClick={props.delAccount} />
+			)}
 		</div>
 	);
 };

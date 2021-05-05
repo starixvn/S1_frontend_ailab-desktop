@@ -6,7 +6,7 @@ export default ({ btnBar, description }) => {
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-library" />
+			<div className="icon icon-cogs" />
 			<div className="title">{t("lbl_Information")}</div>
 			<div>{t("lbl_UpdateSuccessful")}</div>
 			<div className="text-center">

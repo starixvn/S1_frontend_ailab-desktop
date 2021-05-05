@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { navigate } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { getUrlParameter, isConvert, number_format } from "../common/common";
 import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
@@ -12,6 +13,7 @@ import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defFilterType } from "./promotion.nav";
 import CashBackInfo from "./cashBackInfo";
+import path from "../../router";
 
 export default () => {
 	const filterType = Number(getUrlParameter("FilterType"));
@@ -126,8 +128,17 @@ export default () => {
 
 	if (promotionInfo === null) return null;
 
+	const clickBack = () => {
+		navigate(`/${userInfo.langId}/${path.promotion.root}`);
+	};
+
 	return (
 		<div className="infoModule">
+			<button
+				className="btn-check icon icon-arrow-left2"
+				onClick={clickBack}>
+				{t("lbl_Back")}
+			</button>
 			<div
 				className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
 				{_isClaimed ? <div className="claimed" /> : null}
@@ -143,6 +154,9 @@ export default () => {
 						</div>
 
 						<div className="btnGroup">
+							<button className="btn-cancel" onClick={clickBack}>
+								{t("lbl_Back")}
+							</button>
 							<PromotionJoinButton
 								promotionInfo={promotionInfo}
 								userInfo={userInfo}

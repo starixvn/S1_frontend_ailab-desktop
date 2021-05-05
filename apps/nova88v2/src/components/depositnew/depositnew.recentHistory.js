@@ -10,6 +10,7 @@ import { isConvert } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
+import { defHistoryIdList } from "../history/def";
 
 const DepositnewRecentHistory = ({
 	asyncUploadBankPopBox,
@@ -194,7 +195,7 @@ const DepositnewRecentHistory = ({
 				)}
 			</div>
 			<Link
-				to={`/${userInfo.langId}/${path.depositHistory.root}`}
+				to={`/${userInfo.langId}/${path.history.root}?kind=${defHistoryIdList.depositId}`}
 				className="icon icon-books"
 			/>
 		</>
