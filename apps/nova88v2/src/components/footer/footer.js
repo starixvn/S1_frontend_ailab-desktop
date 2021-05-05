@@ -90,7 +90,7 @@ const FollowUsSection = ({ t, handleHoverImg, hoverNamme }) => (
 		<div>
 			<div className="title">{t("lbl_Follow_Us")}</div>
 			<div>
-				<a
+				{/* <a
 					href={SiteInfo.socialMedia.fb.link}
 					target="_blank"
 					rel="noreferrer">
@@ -102,7 +102,7 @@ const FollowUsSection = ({ t, handleHoverImg, hoverNamme }) => (
 						onBlur={() => 0}
 						onFocus={() => 0}
 					/>
-				</a>
+				</a> */}
 				<a
 					href={SiteInfo.socialMedia.ig.link}
 					target="_blank"
@@ -116,7 +116,7 @@ const FollowUsSection = ({ t, handleHoverImg, hoverNamme }) => (
 						onFocus={() => 0}
 					/>
 				</a>
-				<a
+				{/* <a
 					href={SiteInfo.socialMedia.twitter.link}
 					target="_blank"
 					rel="noreferrer">
@@ -128,7 +128,7 @@ const FollowUsSection = ({ t, handleHoverImg, hoverNamme }) => (
 						onBlur={() => 0}
 						onFocus={() => 0}
 					/>
-				</a>
+				</a> */}
 				<a
 					href={SiteInfo.socialMedia.youtube.link}
 					target="_blank"

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext, useReducer } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import MainPanel from "./withdrawal.set";
 import WalletPanel from "./withdrawal.showWallet";
@@ -18,9 +18,8 @@ import {
 } from "../../service/api/payment";
 import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
-import StepBar from "../common/stepBar";
-import defStep from "./withdrawal.defStep";
 import path from "../../router";
+import useTransfer from "./hook/useTransfer";
 
 export default () => {
 	const { t } = useTranslation();
@@ -29,6 +28,8 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
+
+	const { restoreAllBalanceToMainWallet } = useTransfer();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -139,8 +140,8 @@ export default () => {
 		);
 	};
 
-	const GetWithdrawalInfoRecent = () => {
-		api_payment_GetWithdrawalInfoRecent().then(
+	const GetWithdrawalInfoRecent = async () => {
+		await api_payment_GetWithdrawalInfoRecent().then(
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
@@ -227,55 +228,129 @@ export default () => {
 		);
 	};
 
-	const refreshData = () => {
-		GetWithdrawalAvailableBalance();
-		GetWithdrawalInfoRecent();
-		KycCheck();
+	const refreshData = async () => {
+		await GetWithdrawalAvailableBalance();
+		await GetWithdrawalInfoRecent();
+		await KycCheck();
 	};
 
-	return loading ? null : (
-		<div className="rightModule">
-			<div className="infoModule">
-				<div className="inside-title icon icon-icon32px_Withdraw">
-					<span>{t("lbl_Withdrawal")}</span>
-				</div>
+	const restoreAll = async () => {
+		setLoading(true);
 
-				{state.kycStatus !== "normal" ? (
-					<KycPanel
-						t={t}
-						dispatch={dispatch}
-						kycData={state.kycData ?? {}}
-						kycStatus={state.kycStatus}
-						KycCheck={KycCheck}
-					/>
-				) : (
-					<>
-						<StepBar
+		await restoreAllBalanceToMainWallet();
+
+		await refreshData();
+
+		setLoading(false);
+	};
+
+	return (
+		!loading && (
+			<div className="rightModule">
+				<div className="infoModule">
+					<div className="inside-title icon icon-icon32px_Withdraw">
+						<span>{t("lbl_Withdrawal")}</span>
+						<button
+							onClick={restoreAll}
+							className="icon icon-history">
+							<span>{t("lbl_RestoreAll")}</span>
+						</button>
+					</div>
+
+					{state.kycStatus !== "normal" ? (
+						<KycPanel
 							t={t}
-							step={state.step ?? 0}
-							defStep={defStep}
-						/>
-						<WalletPanel
-							balanceData={state.balanceData}
-							GetWithdrawalAvailableBalance={
-								GetWithdrawalAvailableBalance
-							}
-						/>
-						<MainPanel
 							dispatch={dispatch}
-							state={state}
-							refreshData={refreshData}
+							kycData={state.kycData ?? {}}
+							kycStatus={state.kycStatus}
 							KycCheck={KycCheck}
 						/>
-					</>
-				)}
+					) : (
+						<>
+							<div className="infoModuleLeft">
+								<WalletPanel
+									balanceData={state.balanceData}
+									GetWithdrawalAvailableBalance={
+										GetWithdrawalAvailableBalance
+									}
+								/>
+
+								<MainPanel
+									dispatch={dispatch}
+									state={state}
+									refreshData={refreshData}
+									KycCheck={KycCheck}
+								/>
+							</div>
+
+							<div className="important">
+								<div className="title">
+									<span className="icon icon-warning" />
+									{t("lbl_ImportantNotice")}
+								</div>
+								<ul>
+									<li>
+										<Trans
+											i18nKey="lbl_WithdrawalImportantNoticeContent1"
+											components={{
+												Link: (
+													<a
+														onClick={() =>
+															window.LiveChatWidget.call(
+																"maximize"
+															)
+														}
+													/>
+												)
+											}}
+										/>
+									</li>
+									<li>
+										{t(
+											"lbl_WithdrawalImportantNoticeContent2"
+										)}
+									</li>
+									<li>
+										{t(
+											"lbl_WithdrawalImportantNoticeContent3"
+										)}
+									</li>
+									<li>
+										{t(
+											"lbl_WithdrawalImportantNoticeContent4"
+										)}
+									</li>
+
+									<li>
+										<Trans
+											i18nKey="lbl_WithdrawalImportantNoticeContent5"
+											components={{
+												Link: (
+													<a
+														onClick={() =>
+															window.LiveChatWidget.call(
+																"maximize"
+															)
+														}
+													/>
+												)
+											}}
+										/>
+
+										{/* lbl_LiveChat 24/7 */}
+									</li>
+								</ul>
+							</div>
+						</>
+					)}
+				</div>
+				<RecentHistory
+					dispatch={dispatch}
+					refreshData={refreshData}
+					recentHistory={state.recentHistory ?? []}
+					GetWithdrawalInfoRecent={GetWithdrawalInfoRecent}
+				/>
 			</div>
-			<RecentHistory
-				dispatch={dispatch}
-				refreshData={refreshData}
-				recentHistory={state.recentHistory ?? []}
-				GetWithdrawalInfoRecent={GetWithdrawalInfoRecent}
-			/>
-		</div>
+		)
 	);
 };

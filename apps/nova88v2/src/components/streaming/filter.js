@@ -14,21 +14,24 @@ const Panel = ({ handleSelect, selected }) => {
 	const quickSelectArr = Object.values(defStreamingCategory).map(item => {
 		return (
 			<button
-				key={`streaming-quickSelect-${item.displayKey}`}
-				className={`${item.icon}${
+				className={`menuSelect${
 					item.type === selected ? " active" : ""
 				}`}
+				key={`menuSelect-${item.displayKey}`}
 				onClick={clickQuickSelect.bind(this, item.type)}>
-				{t(item.displayKey) ?? item.displayKey}
+				<span className={item.icon}>
+					{t(item.displayKey) ?? item.displayKey}
+				</span>
 			</button>
 		);
 	});
 
-	return <div className="liveTvTag">{quickSelectArr}</div>;
+	return <div className="menuModule">{quickSelectArr}</div>;
 };
 
 Panel.propTypes = {
-	handleSelect: PropTypes.func.isRequired
+	handleSelect: PropTypes.func.isRequired,
+	selected: PropTypes.string.isRequired
 };
 
 export default Panel;

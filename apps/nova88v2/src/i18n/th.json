@@ -177,6 +177,15 @@
 	"lbl_VertifyNow": "ยืนยันหมายเลขโทรศัพท์เพื่อเข้าร่วมรับโปรโมชั่น",
 	"lbl_VertifyContactConfirm": "ยืนยันตอนนี้",
 	"msg_API_SendOTPSMS_5002": "Entered the wrong phone number.",
+	"lbl_FEATURES":"คุณสมบัติ",
+	"lbl_MEMBERS_BENEFITS":"สิทธิประโยชน์ของสมาชิก",
+	"lbl_126_SPORTSBOO_WELCOME_BONUS":"126% สปอร์ตบุ๊ค โบนัสต้อนรับ",
+	"lbl_100_LIVE_CASINO_WELCOME_BONUS":"โบนัสต้อนรับคาสิโนสด 100%",
+	"lbl_100_SLOTS_WELCOME_BONUS":"โบนัสต้อนรับสล็อต 100%",
+	"lbl_DAILY_REDEPOSIT_BONUS_UP_TO_20":"โบนัสเงินฝากทุกวันมากถึง 20%",
+	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES":"เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
+	"lbl_Multiple_product_platforms_with_better_odds":"แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
+	"lbl_Speedy_deposit_and_withdrawal":"ฝากและถอนอย่างรวดเร็วด้วยตัวเลือกการฝากที่หลากหลาย",
 	
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",
@@ -238,6 +247,24 @@
 	"lbl_DepositProvideBankSlip": "โปรดแนบสลิปธนาคารที่นี่เพื่อให้เราดำเนินการตามคำขอของคุณได้อย่างรวดเร็ว",
 	"lbl_SelectChannel": "เลือกช่อง",
 	"lbl_MinMaxAmount": "ขั้นต่ำ / สูงสุด",
+	"lbl_DepositImportantNoticeContent1": "โปรดตรวจสอบรายละเอียดธนาคารเงินฝากล่าสุดก่อนทำการฝากเงิน",
+	"lbl_DepositImportantNoticeContent2": "สำหรับการใช้ตัวเลือกการฝากแบบ <span>'โอนเงินผ่านธนาคารในประเทศ'</span> โปรดทำการโอนเงินก่อนส่งธุรกรรมเพื่อหลีกเลี่ยงความล่าช้าในการทำธุรกรรม ",
+	"lbl_DepositImportantNoticeContent3": "ชื่อบัญชีของผู้ฝากต้องตรงกับ <span>ชื่อ นามสกุล</span> ที่คุณลงทะเบียนไว้ เราไม่สนับสนุนให้ทำธุรกรรมโดยใช้บัญชีบุคคลที่สาม/บริษัท ",
+	"lbl_DepositImportantNoticeContent4": "โปรดอย่ากรอก <span>'NOVA88'</span> หรือคำที่ละเอียดอ่อนใดๆ ที่เกี่ยวข้องกับการพนันเพื่อเป็นข้อมูลอ้างอิง/อ้างถึงในการทำธุรกรรมออนไลน์ของคุณ ",
+	"lbl_DepositImportantNoticeContent5": "โปรดทราบว่าจะต้องมีการโรลโอเวอร์ 1x สำหรับการฝากเงินทั้งหมด ก่อนที่จะสามารถดำเนินการถอนได้ ",
+	"lbl_DepositImportantNoticeContent6": "กรุณาติดต่อเราที่ <Link>แชทสดตลอด 24/7</Link> หากธุรกรรมของคุณยังคงรอดำเนินการนานกว่า 5 นาที ",
+	"lbl_DepositChannelTip": "กรุณาเลือกช่องทางธนาคารที่คุณฝากจากธนาคารในประเทศ",
+	"lbl_LocalBankBankAccountTip": "กรุณาเลือกบัญชีธนาคารที่คุณทำการฝากจากช่องทางธนาคารในประเทศ",
+	"lbl_DepositChannel": "ช่องทางการฝาก",
+	"lbl_DepositChannel_1": "ธนาคารออนไลน์",
+	"lbl_DepositChannel_2": "เครื่องฝากเงินสด",
+	"lbl_DepositChannel_3": "เอทีเอ็ม",
+	"lbl_DepositChannel_4": "ผ่านเคาน์เตอร์ (OTC)",
+	"lbl_BankDetails": "รายละเอียดธนาคาร",
+	"lbl_DepositLocalbankButton": "จำโหมดที่ใช้ล่าสุดของฉัน",
+	"lbl_DepositLocalbankButtonInfo": "จำธนาคารที่ใช้สำหรับการฝากเงินครั้งสุดท้ายของคุณ หากธนาคารที่คุณเลือกถูกปิดโปรดเลือกอีกครั้ง",
+	"lbl_Drop_photos_or_receipt_here":"วางรูปถ่ายสลิปที่นี่หรือคลิกเพื่อแนปสลิป",
+	"lbl_File_format_error_please_try_again":"รูปแบบไฟล์ผิดพลาด โปรดลองอีกครั้ง",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "ร่าง",
@@ -277,6 +304,11 @@
 	"lbl_RolloverOver": "ยอดโรลโอเวอร์ของคุณไม่เพียงพอ",
 	"lbl_UpdatePersonalInfoWithdrawal": "กรุณากรอกข้อมูลส่วนตัวให้เรียบร้อยก่อนทำรายการถอน",
 	"lbl_GoWithdrawalPage": "ไปที่ี่หน้าทำรายการถอน",
+	"lbl_WithdrawalImportantNoticeContent1": "กรุณาติดต่อทาง <Link>แชทสดตลอด 24/7</Link> ชั่วโมง หากธุรกรรมของท่านได้รับการดำเนินการมากกว่า 10 นาที",
+	"lbl_WithdrawalImportantNoticeContent2": "ชื่อบัญชีธนาคารที่ถอนจะต้องตรงกับชื่อนามสกุลที่ลงทะเบียนสมาชิกไม่อนุญาตให้ถอนไปยังบัญชีธนาคารของบุคคลที่สาม",
+	"lbl_WithdrawalImportantNoticeContent3": "ในบางเกมอาจใช้เวลาประมาณ 15 ถึง 30 นาทีในการตรวจสอบรายการเดิมพัน รบกวนรอสำหรับระยะเวลาดังกล่าวในการอัพเดตข้อมูล",
+	"lbl_WithdrawalImportantNoticeContent4": "กรุณาตรวจสอบให้แน่ใจว่าท่านได้ทำยอดเทิร์นสำเร็จตามเงื่อนไข และทำการแจ้งถอนหลังการเดิมพันประมาณ 30 นาทีเพื่อป้องกันการปฎิเสธยอดถอนในระบบอัติโนมัติ",
+	"lbl_WithdrawalImportantNoticeContent5": " หากมีข้อสงสัยหรือข้อมูลสอบถามเพิ่มเติมเกี่ยวกับธุรกรรมการถอน โปรดติดต่อ <Link>แชทสดตลอด 24/7</Link> ชั่วโมง ขอบคุณค่ะ",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "โอนเงินทุน",
@@ -295,6 +327,7 @@
 	"lbl_BonusWallet_3": "Fishing Wallet",
 	"lbl_please_select_from_wallet": "กรุณาเลือกกระเป๋าเงินที่ต้องการโอนออก",
 	"lbl_please_select_to_wallet": "กรุณาเลือกกระเป๋าเงินที่ต้องการโอนเข้า",
+	"lbl_Main_Wallet_Auto_Transfer":"ย้ายเงินกระเป๋าหลักอัตโนมัติ",
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Financial": "บันทึกทางการเงิน",
@@ -429,6 +462,7 @@
 	"lbl_Cash": "เงินสด",
 	"lbl_Min": "ขั้นต่ำ",
 	"lbl_Max": "สูงสุด",
+	"lbl_ImportantNotice": "ข้อมูลสำคัญ",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -636,6 +670,8 @@
 	"lbl_Streaming_NoData1": "ไม่มีการถ่ายทอดสดให้บริการในขณะนี้",
 	"lbl_Streaming_NoData2": "โปรดลองอีกครั้งในภายหลัง",
 	"lbl_More": "ข้อมูลเพิ่มเติม",
+	"lbl_Started":"เริ่มแล้ว",
+	"lbl_Not_Started":"ยังไม่เริ่ม",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "วิดีโอไฮไลต์ล่าสุด",
@@ -644,6 +680,7 @@
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "การแข่งขันที่จะเกิดขึ้น",
 	"lbl_LiveChat": "สนทนาสด",
+	"lbl_DepositLiveChat": "แชทสดตลอด 24/7",
 	"lbl_Payment_Method": "ช่องทางการฝากเงิน",
 	"lbl_Follow_Us": "ติดตามเรา",
 	"lbl_Referral_Program": "โปรแกรมแนะนำ",
@@ -722,6 +759,6 @@
 	"lbl_sign_up_terms_start": "คลิ๊กที่ปุ่มสมัครสมาชิก , ข้าพเจ้าขอรับรองว่าข้าพเจ้ามีอายุเกิน 21 ปี ได้อ่านและยอมรับข้อกำหนดและเงื่อนไขแล้ว",
 	"lbl_sign_up_terms_center": "บข้อกำหนดและเงื่อนไข",
 	"lbl_sign_up_terms_end": "แล้ว",
-
+	
 	"end-----": "end-----"
 }

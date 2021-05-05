@@ -25,8 +25,8 @@ export default () => {
 	const defIconList = [
 		{ id: 1, iconClass: "icon icon-chat" },
 		{ id: 2, iconClass: "icon icon-instagram" },
-		{ id: 3, iconClass: "icon icon-facebook2" },
-		{ id: 4, iconClass: "icon icon-twitter" },
+		// { id: 3, iconClass: "icon icon-facebook2" },
+		// { id: 4, iconClass: "icon icon-twitter" },
 		{
 			id: 5,
 

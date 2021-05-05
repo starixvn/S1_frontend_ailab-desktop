@@ -162,7 +162,7 @@ const Content = () => {
 			<div className="forgetPassWord">
 				<form onSubmit={clickSubmit} className="inputModuleRow">
 					<Inputbox
-						className="inputBox-org"
+						className="inputBox-blue"
 						icon="txt-blue icon-email "
 						title={t("lbl_Email")}
 						value={userEmail}

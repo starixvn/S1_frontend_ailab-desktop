@@ -10,6 +10,7 @@ import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
 import { isConvert } from "../common/common";
 import { defActionType } from "./withdrawal.reducer";
+import { defHistoryIdList } from "../history/def";
 
 // import Loading from "../common/loading";
 
@@ -158,7 +159,7 @@ export default ({
 				)}
 			</div>
 			<Link
-				to={`/${userInfo.langId}/${path.withdrawalHistory.root}`}
+				to={`/${userInfo.langId}/${path.history.root}?kind=${defHistoryIdList.withdrawalId}`}
 				className="icon icon-books"
 			/>{" "}
 		</>

@@ -6,7 +6,7 @@ import defPopBoxType from "../components/common/defPopBoxType";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";
-import Inputbox from "../components/common/inputbox.password";
+import InputboxPSW from "../components/common/inputbox.password";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 import { passwordCheck } from "../components/common/common";
 
@@ -194,7 +194,12 @@ const Content = () => {
 				<div>{t("lbl_ChangePasswordHint")}</div>
 			</div>
 			<form className="changePassWord" onSubmit={clickSubmit}>
-				<Inputbox
+				<InputboxPSW
+					className={`inputBox-blue${
+						!status.oldPsw.checked && status.oldPsw.msg !== ""
+							? " error"
+							: ""
+					}`}
 					inputType={showPsw.oldPsw ? "text" : "password"}
 					title={t("lbl_OldPassword")}
 					value={userPsw.oldPsw}
@@ -205,7 +210,12 @@ const Content = () => {
 					clickInfo={clickInfo.bind(this, "oldPsw")}
 					tip={status.oldPsw.msg}
 				/>
-				<Inputbox
+				<InputboxPSW
+					className={`inputBox-blue${
+						!status.newPsw.checked && status.newPsw.msg !== ""
+							? " error"
+							: ""
+					}`}
 					inputType={showPsw.newPsw ? "text" : "password"}
 					title={t("lbl_NewPassword")}
 					value={userPsw.newPsw}
