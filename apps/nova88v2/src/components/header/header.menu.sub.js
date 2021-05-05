@@ -36,7 +36,6 @@ export default ({ currentMenuKey, productTpIds }) => {
 		});
 	};
 
-	console.log(defMenuLinks);
 	return Object.keys(defMenuLinks).map(menuKey => {
 		const subClassKey = defSubListClassName[menuKey];
 
@@ -71,8 +70,6 @@ export default ({ currentMenuKey, productTpIds }) => {
 					s.allowCurrency.includes(userInfo.currencyId)
 			);
 		}
-
-		console.log(subMenu);
 
 		return isSubMultipleItems ? (
 			<div className={subClassName} key={`main-key-${menuKey}`}>
