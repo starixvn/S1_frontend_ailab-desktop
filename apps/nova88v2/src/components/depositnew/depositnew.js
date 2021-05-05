@@ -322,9 +322,10 @@ const Depositnew = () => {
 	}, [formInfo.amount, formInfo.minAmount, formInfo.maxAmount]);
 
 	useEffect(() => {
-		const validate = datas => {
-			const errors = {};
-			if (depositType === defDepositType.localBank) {
+		if (depositType === defDepositType.localBank) {
+			const validate = datas => {
+				const errors = {};
+
 				if (
 					userInfo.currencyId === currencyCode.TH &&
 					!datas.imgFile?.type.includes("image")
@@ -332,7 +333,7 @@ const Depositnew = () => {
 					errors.imgFile = "error";
 				}
 
-				if (datas.fromChannel !== null && !datas.fromChannel) {
+				if (!datas.fromChannel) {
 					errors.fromChannel = t("lbl_DepositChannelTip");
 				}
 
@@ -340,35 +341,33 @@ const Depositnew = () => {
 					(datas?.fromChannel ===
 						defDepositChannelIdList.OnlineBanking ||
 						datas?.fromChannel === defDepositChannelIdList.ATM) &&
-					datas.fromAccountNum !== null &&
 					!datas.fromAccountNum
 				) {
 					errors.fromAccountNum = t("lbl_LocalBankBankAccountTip");
 				}
-			}
+				return errors;
+			};
 
-			return errors;
-		};
+			const errors = validate({
+				imgFile: formInfo.imgFile,
+				fromChannel: formInfo.fromChannel,
+				fromAccountNum: formInfo.fromAccountNum
+			});
 
-		const errors = validate({
-			imgFile: formInfo.imgFile,
-			fromChannel: formInfo.fromChannel,
-			fromAccountNum: formInfo.fromAccountNum
-		});
+			const isValid = Object.keys(errors).length === 0;
 
-		const isValid = Object.keys(errors).length === 0;
+			setLocalBankChecked(isValid);
 
-		setLocalBankChecked(isValid);
+			// setLocalBankChannelError({
+			// 	checked: !errors.fromChannel,
+			// 	tip: errors.fromChannel
+			// });
 
-		setLocalBankChannelError({
-			checked: !errors.fromChannel,
-			tip: errors.fromChannel
-		});
-
-		setLocalBankBankInfoErrpr({
-			checked: !errors.fromAccountNum,
-			tip: errors.fromAccountNum
-		});
+			// setLocalBankBankInfoErrpr({
+			// 	checked: !errors.fromAccountNum,
+			// 	tip: errors.fromAccountNum
+			// });
+		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [formInfo]);

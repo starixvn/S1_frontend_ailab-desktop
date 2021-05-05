@@ -311,30 +311,28 @@ const LocalBankForm = ({
 						}
 						options={defDepositChannel}
 						onSelectItem={(idx, item) => {
-							if (idx !== fromChannelIdIdx) {
-								setFormInfo(prev => {
-									const newState = {
-										...prev,
-										fromChannel: item.id,
-										fromAccountNum: null,
-										fromSysId: null
-									};
+							setFormInfo(prev => {
+								const newState = {
+									...prev,
+									fromChannel: item.id,
+									fromAccountNum: null,
+									fromSysId: null
+								};
 
-									const isRemoveBankDetailKeys =
-										item.id ===
-											defDepositChannelIdList.CashDepositMachine ||
-										item.id ===
-											defDepositChannelIdList.OverTheCounter;
+								const isRemoveBankDetailKeys =
+									item.id ===
+										defDepositChannelIdList.CashDepositMachine ||
+									item.id ===
+										defDepositChannelIdList.OverTheCounter;
 
-									if (isRemoveBankDetailKeys) {
-										delete newState.fromAccountNum;
-										delete newState.fromSysId;
-									}
+								if (isRemoveBankDetailKeys) {
+									delete newState.fromAccountNum;
+									delete newState.fromSysId;
+								}
 
-									return newState;
-								});
-								setFromChannelIdIdx(idx);
-							}
+								return newState;
+							});
+							setFromChannelIdIdx(idx);
 						}}
 						selectedIdx={fromChannelIdIdx}
 						i18n={t}
@@ -372,17 +370,15 @@ const LocalBankForm = ({
 								}
 								options={custBankInfoList}
 								onSelectItem={(idx, item) => {
-									if (idx !== custBankInfoIdx) {
-										setFormInfo(prev => {
-											return {
-												...prev,
-												fromSysId: item.sysId,
-												fromAccountNum: item.accountNo
-											};
-										});
+									setFormInfo(prev => {
+										return {
+											...prev,
+											fromSysId: item.sysId,
+											fromAccountNum: item.accountNo
+										};
+									});
 
-										setCustBankInfoIdx(idx);
-									}
+									setCustBankInfoIdx(idx);
 								}}
 								selectedIdx={custBankInfoIdx}
 								i18n={t}
