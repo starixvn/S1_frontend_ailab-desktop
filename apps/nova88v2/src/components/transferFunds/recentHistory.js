@@ -7,6 +7,7 @@ import { TransactionHistory } from "./historyResult";
 import path from "../../router";
 import ReloadSpin from "../common/reloadSpin";
 import { isConvert } from "../common/common";
+import { defHistoryIdList } from "../history/def";
 
 const transferDirection = (direction, tpName, t) => {
 	let startWallet = "";
@@ -78,7 +79,7 @@ export default ({ getHistory, getTransferRecent }) => {
 				)}
 			</div>
 			<Link
-				to={`/${userInfo.langId}/${path.transferHistory.root}`}
+				to={`/${userInfo.langId}/${path.history.root}?kind=${defHistoryIdList.transferId}`}
 				className="icon icon-books"
 			/>
 		</>

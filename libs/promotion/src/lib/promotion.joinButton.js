@@ -8,114 +8,115 @@ import { api_promotion_SetClaimPromotion } from "@ailab-desktop/api";
 import path from "@/path";
 
 export default ({ promotionInfo, userInfo, _isExpiry, callBack }) => {
-  const { t } = useTranslation();
-  const { isLogin } = userInfo;
-  const isMountedRef = useRef(null);
+	const { t } = useTranslation();
+	const { isLogin } = userInfo;
+	const isMountedRef = useRef(null);
 
-  const { setPopBox } = useContext(popBoxContext);
+	const { setPopBox } = useContext(popBoxContext);
 
-  useEffect(() => {
-    isMountedRef.current = true;
-    return () => (isMountedRef.current = false);
-  });
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => (isMountedRef.current = false);
+	});
 
-  const clickClose = () => {
-    setPopBox({ isOpen: false });
-  };
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
+	};
 
-  const openErrorMessagePopBox = (
-    message = t("msg_ApiServerError"),
-    errorCode = null
-  ) => {
-    setPopBox({
-      message,
-      errorCode,
-      isOpen: true,
-      popBoxType: defPopBoxType.ErrorMsg,
-      icon: "icon-bell",
-      btnBar: (
-        <div className="btnGroup">
-          <button className="btn-cancel" onClick={clickClose}>
-            {t("lbl_Close")}
-          </button>
-        </div>
-      ),
-    });
-  };
+	const openErrorMessagePopBox = (
+		message = t("msg_ApiServerError"),
+		errorCode = null
+	) => {
+		setPopBox({
+			message,
+			errorCode,
+			isOpen: true,
+			popBoxType: defPopBoxType.ErrorMsg,
+			icon: "icon-bell",
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={clickClose}>
+						{t("lbl_Close")}
+					</button>
+				</div>
+			)
+		});
+	};
 
-  const setClaimPromotion = async (langId, bonusCode) => {
-    return api_promotion_SetClaimPromotion({
-      langId,
-      BonusCode: bonusCode,
-    }).then(
-      ({ data: { message, errorCode } }) => {
-        if (!isMountedRef.current) return;
+	const setClaimPromotion = async (langId, bonusCode) => {
+		return api_promotion_SetClaimPromotion({
+			langId,
+			BonusCode: bonusCode
+		}).then(
+			({ data: { message, errorCode } }) => {
+				if (!isMountedRef.current) return;
 
-        const success = errorCode === 0;
-        const OTPNotVerify = errorCode === -5;
+				const success = errorCode === 0;
+				const OTPNotVerify = errorCode === -5;
 
-        if (OTPNotVerify)
-          return setPopBox({
-            isOpen: true,
-            popBoxType: defPopBoxType.OTPHint,
-            btnBar: (
-              <div className="btnGroup">
-                <Link
-                  className="btn-check"
-                  to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}
-                >
-                  {t("lbl_UpdatePersonalDetail")}
-                </Link>
-              </div>
-            ),
-          });
+				if (OTPNotVerify)
+					return setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.OTPHint,
+						btnBar: (
+							<div className="btnGroup">
+								<Link
+									className="btn-check"
+									to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}>
+									{t("lbl_UpdatePersonalDetail")}
+								</Link>
+							</div>
+						)
+					});
 
-        if (success) {
-          setPopBox({
-            isOpen: true,
-            popBoxType: defPopBoxType.Success,
-            btnBar: (
-              <div className="btnGroup">
-                <button className="btn-cancel" onClick={clickClose}>
-                  OK
-                </button>
-              </div>
-            ),
-          });
-          return true;
-        }
+				if (!success) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.Success,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={clickClose}>
+									OK
+								</button>
+							</div>
+						)
+					});
+					return true;
+				}
 
-        openErrorMessagePopBox(message || "error", errorCode);
-      },
-      (err) => {
-        if (isMountedRef.current) return;
+				openErrorMessagePopBox(message || "error", errorCode);
+			},
+			err => {
+				if (isMountedRef.current) return;
 
-        openErrorMessagePopBox();
-      }
-    );
-  };
+				openErrorMessagePopBox();
+			}
+		);
+	};
 
-  const onJoinPromotion = async () => {
-    const { langId } = userInfo;
-    const { bonusCode } = promotionInfo;
-    const promotionCanJoin = checkPromotion({
-      promotionInfo,
-      userInfo,
-      setPopBox,
-      t,
-    });
+	const onJoinPromotion = async () => {
+		const { langId } = userInfo;
+		const { bonusCode } = promotionInfo;
+		const promotionCanJoin = checkPromotion({
+			promotionInfo,
+			userInfo,
+			setPopBox,
+			t
+		});
 
-    if (!promotionCanJoin) return;
+		if (!promotionCanJoin) return;
 
-    let success = await setClaimPromotion(langId, bonusCode);
-    if (success) return callBack();
-  };
+		let success = await setClaimPromotion(langId, bonusCode);
+		if (success) return callBack();
+	};
 
-  if ((promotionInfo.isJoin && isLogin) || _isExpiry) return null;
+	if ((promotionInfo.isJoin && isLogin) || _isExpiry) return null;
 
-  return (
-    <button className="orange" onClick={onJoinPromotion}>
-      {t("lbl_PromoJoinNow")}
-    </button>
-  );
+	return (
+		<button className="orange" onClick={onJoinPromotion}>
+			{t("lbl_PromoJoinNow")}
+		</button>
+	);
 };

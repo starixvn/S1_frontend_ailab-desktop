@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import DateTime from "react-datetime";
@@ -13,7 +14,7 @@ const quickPickList = [
 	{ id: 5, displayKey: "lbl_LastMonth" }
 ];
 
-export default props => {
+export default function HistoryFilter(props) {
 	const { t } = useTranslation();
 
 	const initQuickPick = props.keepData?.quickPick ?? 0;
@@ -85,6 +86,17 @@ export default props => {
 		}
 	};
 
+	useEffect(() => {
+		const isObjectEmpty = obj =>
+			Object.keys(obj).length === 0 && typeof obj === "object";
+
+		if (props.keepData && isObjectEmpty(props.keepData)) {
+			setSelectedIdx(0);
+			setStartDate(moment().format("YYYY-MM-DD"));
+			setEndtDate(moment().format("YYYY-MM-DD"));
+		}
+	}, [props.keepData]);
+
 	return (
 		<div className="quickSelect">
 			<div>
@@ -141,4 +153,11 @@ export default props => {
 			</div>
 		</div>
 	);
+}
+
+HistoryFilter.defaultProps = {
+	keepData: {}
+};
+HistoryFilter.propTypes = {
+	keepData: PropTypes.objectOf(PropTypes.any)
 };
