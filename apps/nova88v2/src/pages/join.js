@@ -572,25 +572,21 @@ const Content = () => {
 					</div>
 					<div className="title">{t("lbl_MEMBERS_BENEFITS")}</div>
 					<ul>
-						<li> - {t("lbl_JoinNoti_SPORTSBOO_WELCOME_BONUS")}</li>
-						<li>
-							{" "}
-							- {t("lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS")}
-						</li>
-						<li> - {t("lbl_JoinNoti_SLOTS_WELCOME_BONUS")}</li>
-						<li> - {t("lbl_JoinNoti_DAILY_REDEPOSIT_BONUS")}</li>
+						<li>{t("lbl_JoinNoti_SPORTSBOO_WELCOME_BONUS")}</li>
+						<li>{t("lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS")}</li>
+						<li>{t("lbl_JoinNoti_SLOTS_WELCOME_BONUS")}</li>
+						<li>{t("lbl_JoinNoti_DAILY_REDEPOSIT_BONUS")}</li>
 					</ul>
 					<div className="title">
 						{t("lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES")}
 					</div>
 					<ul>
 						<li>
-							-{" "}
 							{t(
 								"lbl_Multiple_product_platforms_with_better_odds"
 							)}
 						</li>
-						<li> - {t("lbl_Speedy_deposit_and_withdrawal")}</li>
+						<li>{t("lbl_Speedy_deposit_and_withdrawal")}</li>
 					</ul>
 				</div>
 				<div className="joinAnimation">
