@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import Swiper from "react-id-swiper";
+import React, { useContext } from "react";
+import ReactMarquee from "react-fast-marquee";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
@@ -175,48 +175,48 @@ export default ({ t, userInfo }) => {
 		// autoplay: false
 	};
 
-	const params = {
-		...defSwipperConfig
-	};
-
-	const Rows = defGameList.map(g => {
-		return (
-			<div
-				className="swiper-slide"
-				key={`hotGame-${g.gameId}-${g.name}`}
-				onClick={ClickGame.bind(this, g.tpId, g.gameId, g.gameTypeKey)}>
-				<img src={g.img} alt={g.name} />
-				{/* <span className={g.isNew ? "icon icon-new" : ""}>
-					{displayText}
-				</span> */}
-				<div>
-					<div className="title">{g.name}</div>
-					<div>{g.provider}</div>
-				</div>
-				<img
-					src={`${config.cloudImgUrl}/SiteSkin/img/logo/${g.providerImg}.png`}
-				/>
-			</div>
-		);
-	});
-
-	const [swiper, setSwiper] = useState(null);
-
-	return Rows && Rows.length > 0 ? (
+	return defGameList && defGameList.length > 0 ? (
 		<>
 			<div className="moduleTitle icon icon-mediafire">
 				{t("lbl_HOT_GAMES")}
 			</div>
-			{/* <div className="hotGame"> */}
+
 			<div className="hotGame">
-				<div className="swiper-container promosSwiper">
-					<Swiper {...params} getSwiper={setSwiper}>
-						{Rows}
-					</Swiper>
-				</div>
+				<ReactMarquee pauseOnHover={true}>
+					<div className="swiper-container">
+						<div
+							className="swiper-wrapper"
+							style={{ display: "flex" }}>
+							{defGameList.map(g => (
+								<div
+									key={`hotGame-${g.gameId}-${g.name}`}
+									style={{
+										width: "300px",
+										margin: "0 15px"
+									}}
+									onClick={() =>
+										ClickGame(
+											g.tpId,
+											g.gameId,
+											g.gameTypeKey
+										)
+									}>
+									<img src={g.img} alt={g.name} />
+
+									<div>
+										<div className="title">{g.name}</div>
+										<div>{g.provider}</div>
+									</div>
+									<img
+										alt="hotgame-marquee"
+										src={`${config.cloudImgUrl}/SiteSkin/img/logo/${g.providerImg}.png`}
+									/>
+								</div>
+							))}
+						</div>
+					</div>
+				</ReactMarquee>
 			</div>
 		</>
-	) : (
-		<></>
-	);
+	) : null;
 };
