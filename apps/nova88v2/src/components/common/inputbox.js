@@ -53,8 +53,6 @@ const InputBox = ({
 		return classNameList.join(" ");
 	};
 
-	console.log(isTipHide);
-
 	return (
 		<>
 			<div className={inputBoxClass()}>
