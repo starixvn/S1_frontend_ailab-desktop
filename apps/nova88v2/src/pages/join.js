@@ -572,10 +572,13 @@ const Content = () => {
 					</div>
 					<div className="title">{t("lbl_MEMBERS_BENEFITS")}</div>
 					<ul>
-						<li> - {t("lbl_126_SPORTSBOO_WELCOME_BONUS")}</li>
-						<li> - {t("lbl_100_LIVE_CASINO_WELCOME_BONUS")}</li>
-						<li> - {t("lbl_100_SLOTS_WELCOME_BONUS")}</li>
-						<li> - {t("lbl_DAILY_REDEPOSIT_BONUS_UP_TO_20")}</li>
+						<li> - {t("lbl_JoinNoti_SPORTSBOO_WELCOME_BONUS")}</li>
+						<li>
+							{" "}
+							- {t("lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS")}
+						</li>
+						<li> - {t("lbl_JoinNoti_SLOTS_WELCOME_BONUS")}</li>
+						<li> - {t("lbl_JoinNoti_DAILY_REDEPOSIT_BONUS")}</li>
 					</ul>
 					<div className="title">
 						{t("lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES")}
