@@ -2823,7 +2823,7 @@ footer .footerList > div > div > div {
       -ms-flex-align: center;
           align-items: center;
   padding: 6px 10px;
-  z-index: 1;
+  z-index: 2;
   border: 1px solid transparent;
 }
 
@@ -2831,7 +2831,7 @@ footer .footerList > div > div > div {
   border-color: #cf0404;
 }
 
-.inputBox.error ~ .tip, .error.inputBox-org ~ .tip, .error.inputBox-white ~ .tip, .error.inputBox-blue ~ .tip {
+.inputBox.error + .tip, .error.inputBox-org + .tip, .error.inputBox-white + .tip, .error.inputBox-blue + .tip {
   color: #cf0404;
 }
 
@@ -5380,6 +5380,7 @@ input[type="file"] {
 .walletTransfer {
   background: #D2E2F9;
   border-radius: 5px;
+  width: 100%;
   padding: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7950,7 +7951,7 @@ button.icon-spinner11:before {
   width: calc(100% / 2 - 60px);
   padding: 10px 20px;
   margin: 0;
-  z-index: 2;
+  z-index: 3;
   display: block;
   border: 1px solid #CDAE8E;
   color: #CDAE8E;
@@ -11211,7 +11212,6 @@ canvas {
           align-items: center;
   z-index: 1;
   position: relative;
-  pointer-events: none;
 }
 
 .moduleTitle > a {
@@ -11352,6 +11352,10 @@ canvas {
   margin-top: -15px;
 }
 
+.liveVideo .latestVideo .moduleTitle, .newsVideo .latestVideo .moduleTitle {
+  pointer-events: none;
+}
+
 .liveVideo .latestVideo, .liveVideo .newsList, .newsVideo .latestVideo, .newsVideo .newsList {
   width: 780px;
   float: left;
@@ -11442,6 +11446,18 @@ canvas {
 
 .liveVideo .latestVideo + div, .liveVideo .newsList + div, .newsVideo .latestVideo + div, .newsVideo .newsList + div {
   width: 605px;
+}
+
+.liveVideo .latestVideo + div .euro .upcomingmatches, .liveVideo .newsList + div .euro .upcomingmatches, .newsVideo .latestVideo + div .euro .upcomingmatches, .newsVideo .newsList + div .euro .upcomingmatches {
+  background: url(../img/upcomingmatcheseurobg.jpg) no-repeat top center/100% auto;
+}
+
+.liveVideo .latestVideo + div .euro .upcomingmatches .team > div:first-child, .liveVideo .newsList + div .euro .upcomingmatches .team > div:first-child, .newsVideo .latestVideo + div .euro .upcomingmatches .team > div:first-child, .newsVideo .newsList + div .euro .upcomingmatches .team > div:first-child {
+  background: url(../img/upcomingmatcheseurotitle.png) no-repeat top center/auto;
+}
+
+.liveVideo .latestVideo + div .euro .upcomingmatches .team > div:last-child, .liveVideo .newsList + div .euro .upcomingmatches .team > div:last-child, .newsVideo .latestVideo + div .euro .upcomingmatches .team > div:last-child, .newsVideo .newsList + div .euro .upcomingmatches .team > div:last-child {
+  background: url(../img/upcomingmatcheseurotitledown.png) no-repeat top center/auto;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches, .liveVideo .latestVideo + div .liveTv, .liveVideo .newsList + div .upcomingmatches, .liveVideo .newsList + div .liveTv, .newsVideo .latestVideo + div .upcomingmatches, .newsVideo .latestVideo + div .liveTv, .newsVideo .newsList + div .upcomingmatches, .newsVideo .newsList + div .liveTv {
@@ -11775,8 +11791,8 @@ canvas {
 }
 
 .liveVideo .matches iframe, .newsVideo .matches iframe {
-  margin-top: -102px;
-  height: calc(100% + 102px);
+  margin-top: -82px;
+  height: calc(100% + 82px);
 }
 
 .quickLinkNew1, .quickLinkNew2 {
@@ -12298,7 +12314,7 @@ canvas {
 }
 
 .features li {
-  list-style: decimal;
+  list-style: disc;
   line-height: 24px;
   margin-left: 25px;
 }
@@ -12435,5 +12451,90 @@ canvas {
 
 .cashBack table tr td:last-child {
   border: 0;
+}
+
+.projpot {
+  width: 1400px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.projpot .promos {
+  width: 780px;
+  float: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin-left: 0;
+}
+
+.projpot .promos .moduleTitle {
+  width: 100%;
+}
+
+.projpot .promos .swiper-container .swiper-wrapper > div {
+  max-width: 280px;
+}
+
+.projpot .promos + div {
+  width: 605px;
+}
+
+.projpot .promos + div .jpot {
+  height: 200px;
+  -webkit-animation: jpot 0.3s infinite;
+          animation: jpot 0.3s infinite;
+  position: relative;
+}
+
+.projpot .promos + div .jpot div {
+  position: absolute;
+  bottom: 80px;
+  right: 65px;
+  font-size: 24px;
+  width: 330px;
+  text-align: right;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.projpot .promos + div .jpot div span {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+@-webkit-keyframes jpot {
+  0% {
+    background: url(../img/jpotbg.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(../img/jpotbga.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(../img/jpotbg.png) no-repeat center/cover;
+  }
+}
+
+@keyframes jpot {
+  0% {
+    background: url(../img/jpotbg.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(../img/jpotbga.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(../img/jpotbg.png) no-repeat center/cover;
+  }
 }
 /*# sourceMappingURL=style.css.map */

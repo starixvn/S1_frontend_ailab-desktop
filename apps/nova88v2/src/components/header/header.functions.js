@@ -15,7 +15,6 @@ import {
 	defEventPeriod,
 	showEventIcon
 } from "../common/eventIcon";
-import defPopBoxType from "../common/defPopBoxType";
 import { LOGIN } from "../../service/auth";
 import { setCookie } from "../common/common";
 import { SiteInfo } from "../../config";
@@ -52,7 +51,6 @@ const initTip = {
 const BeforeLogin = ({ t }) => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const [userValue, setUserValue] = useState(initValue);
-	// const { popBox, setPopBox } = useContext(popBoxContext);
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const isMountedRef = useRef(null);
@@ -82,9 +80,7 @@ const BeforeLogin = ({ t }) => {
 		});
 	};
 
-	const checkValue = (col, e) => {
-		const val = e.target.value;
-
+	const checkValue = (col, val) => {
 		let checked = true;
 		let msg = "";
 
@@ -94,6 +90,10 @@ const BeforeLogin = ({ t }) => {
 					? t("msg_UsernameReq")
 					: t("msg_PasswordReq");
 			checked = false;
+		} else if (col === "username" && (val.length < 6 || val.length > 18)) {
+			msg = t("msg_UsernameLength");
+			checked = false;
+			errorPopBox(msg);
 		}
 
 		setTip(prev => {
@@ -105,13 +105,17 @@ const BeforeLogin = ({ t }) => {
 				}
 			};
 		});
+		return checked;
 	};
 
 	const handleLogin = async e => {
 		e.preventDefault();
 
-		const checked = userValue.username && userValue.password;
-		if (checked) {
+		const checkUsername = checkValue("username", userValue.username);
+		const checkPassword = checkValue("password", userValue.password);
+		const checkAll = checkUsername && checkPassword;
+
+		if (checkAll) {
 			await LOGIN({
 				userName: userValue.username,
 				password: userValue.password,
@@ -153,7 +157,7 @@ const BeforeLogin = ({ t }) => {
 			showPswHandler={showPswHandler}
 			showPsw={showPsw}
 			EditField={EditField}
-			checkValue={checkValue}
+			// checkValue={checkValue}
 			handleLogin={handleLogin}
 			userValue={userValue}
 			langId={userInfo.langId}

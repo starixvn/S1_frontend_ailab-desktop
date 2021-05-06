@@ -32,8 +32,8 @@ export default () => {
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
 	const isUSDT = userInfo.currencyId === currencyCode.USDT;
-
 	const { restoreAllBalanceToMainWallet } = useTransfer();
+
 
 	useEffect(() => {
 		isMountedRef.current = true;

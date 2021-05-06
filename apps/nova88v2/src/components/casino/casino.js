@@ -3,7 +3,10 @@ import { useTranslation } from "react-i18next";
 import Nav from "./casino.nav";
 import SearchBox from "./casino.searchBox";
 import GameList from "./casino.gamelist";
-import { api_site_GetGamelistV2, defBannerType } from "../../service/api/site";
+import {
+	api_site_GetGameListByDevice,
+	defBannerType
+} from "../../service/api/site";
 import {
 	api_account_SetFavoriteGame,
 	api_account_GetFavoriteGame
@@ -96,7 +99,6 @@ export default () => {
 		const _tpList = initTpList ?? tpList;
 		const tpId = _searchInfo.provider.value;
 		const { searchText } = _searchInfo;
-
 		const _categoryId = _category.category.idx;
 		const doNotFilterCategory = _categoryId === 0;
 
@@ -179,17 +181,31 @@ export default () => {
 		}
 	};
 
-	const EditSearchField = (column, value, pressEnter) => {
+	const EditSearchField = (column, value) => {
 		let _searchInfo = searchInfo;
+		let _result = {
+			[defSearchColumn.searchText]: "",
+			[defSearchColumn.provider]: { idx: 0, value: null }
+		};
 		if (column === defSearchColumn.searchText) {
+			_result = {
+				[defSearchColumn.searchText]: value,
+				[defSearchColumn.provider]:
+					_searchInfo[defSearchColumn.provider]
+			};
 			setSearchInfo(prevS => {
 				_searchInfo = { ...prevS, [column]: value };
 				return _searchInfo;
 			});
-			if (pressEnter) {
-				SubmitSearch(_searchInfo);
-			}
 		} else {
+			_result = {
+				[defSearchColumn.searchText]:
+					_searchInfo[defSearchColumn.searchText],
+				[defSearchColumn.provider]: {
+					idx: value,
+					value: tpOptions[value].id
+				}
+			};
 			setSearchInfo(prevS => {
 				_searchInfo = {
 					...prevS,
@@ -197,15 +213,15 @@ export default () => {
 				};
 				return _searchInfo;
 			});
-
-			SetGames({
-				_searchInfo,
-				_category: category,
-				_selNav: selNav,
-				_gameDatas: gameDatas,
-				_tpList: tpList
-			});
 		}
+
+		SetGames({
+			_searchInfo: _result,
+			_category: category,
+			_selNav: selNav,
+			_gameDatas: gameDatas,
+			_tpList: tpList
+		});
 	};
 
 	const onChangeCategory = (column, value) => {
@@ -230,16 +246,6 @@ export default () => {
 		});
 	};
 
-	const SubmitSearch = _searchInfo => {
-		SetGames({
-			_searchInfo: searchInfo,
-			_category: category,
-			_selNav: selNav,
-			_gameDatas: gameDatas,
-			_tpList: tpList
-		});
-	};
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -249,7 +255,7 @@ export default () => {
 
 	useEffect(() => {
 		setLoading(true);
-		api_site_GetGamelistV2().then(
+		api_site_GetGameListByDevice().then(
 			res => {
 				const success = res.data.errorCode === 0;
 
@@ -394,10 +400,6 @@ export default () => {
 							/>
 							<SearchBox
 								t={t}
-								submitSearch={SubmitSearch.bind(
-									this,
-									searchInfo
-								)}
 								tpOptions={tpOptions}
 								onChangeCategory={onChangeCategory}
 								searchInfo={searchInfo}

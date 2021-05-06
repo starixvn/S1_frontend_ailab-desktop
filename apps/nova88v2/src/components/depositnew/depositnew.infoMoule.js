@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
 import { setLocalStorage } from "../common/common";
+import useClickOutside from "../hook/useClickOutSide";
 
 const DepositnewInfoMoule = ({
 	t,
@@ -15,24 +16,13 @@ const DepositnewInfoMoule = ({
 	onSubmit,
 	saveInfoChecked,
 	setSaveInfoChecked,
-	setFormInfo,
 	processingDescriptionActive,
-	setLocalBankChecked,
+	onReset,
 	children
 }) => {
 	const [rememberInfoActive, setRememberInfoActive] = useState(false);
 
-	const onReset = () => {
-		setLocalBankChecked(true);
-		setFormInfo({
-			imgFile: null,
-			// refId: null,
-			// time: moment(),
-			amount: null,
-			checked: null,
-			tip: ""
-		});
-	};
+	const questionIconRef = useClickOutside(() => setRememberInfoActive(false));
 
 	return (
 		<div className="infoModule">
@@ -69,6 +59,7 @@ const DepositnewInfoMoule = ({
 						/>
 						{t("lbl_DepositLocalbankButton")}
 						<button
+							ref={questionIconRef}
 							className="icon icon-question"
 							onClick={() =>
 								setRememberInfoActive(!rememberInfoActive)
@@ -194,11 +185,10 @@ DepositnewInfoMoule.propTypes = {
 	setDepositType: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
+	onReset: PropTypes.func.isRequired,
 	saveInfoChecked: PropTypes.bool.isRequired,
 	setSaveInfoChecked: PropTypes.func.isRequired,
-	setFormInfo: PropTypes.func.isRequired,
 	processingDescriptionActive: PropTypes.bool.isRequired,
-	setLocalBankChecked: PropTypes.func.isRequired,
 	children: PropTypes.node.isRequired
 };
 

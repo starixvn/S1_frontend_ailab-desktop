@@ -99,6 +99,12 @@ const defPlatform = [
 	{
 		...productList.liveCasino_n2live,
 		imgName: "n2live"
+	},
+	{
+		...defCasinoProviders.PT,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.PT.name },
+		imgName: "playtech"
 	}
 ];
 

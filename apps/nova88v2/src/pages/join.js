@@ -20,6 +20,7 @@ import {
 	passwordCheck
 } from "../components/common/common";
 import defPopBoxType from "../components/common/defPopBoxType";
+import usePopBox from "../components/hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { GET_LANG_ID } from "../service/language";
 import config from "../config";
@@ -34,6 +35,11 @@ import {
 	currencyToAreacode
 } from "../components/common/join.data";
 import { currencyCode } from "../datas/countryCode";
+
+import imgJoinNpc01 from "../styles/img/joinNpc01.png";
+import imgJoinNpc02 from "../styles/img/joinNpc02.png";
+import imgBack from "../styles/img/back.png";
+import imgWelcome from "../styles/img/welcome.png";
 
 export default () => {
 	return (
@@ -57,7 +63,7 @@ const Content = () => {
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
-
+	const { errorPopBox } = usePopBox();
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
@@ -98,20 +104,7 @@ const Content = () => {
 				},
 				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 					}
 				}
 			);
@@ -129,46 +122,19 @@ const Content = () => {
 						});
 						setSiteCurrency(() => currencyArr);
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
 			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={ClosePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
-	};
-
-	const ClosePopBox = () => {
-		setPopBox({ isOpen: false });
 	};
 
 	const showPswHandler = () => {
@@ -333,12 +299,15 @@ const Content = () => {
 		}
 
 		if (checked === true) {
-			const res = await api_site_ExistsUserName({ UserName: val });
+			const res = await api_site_ExistsUserName({
+				UserName: val,
+				langId: userInfo.langId
+			});
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
 					if (res.data.data === true) {
 						checked = false;
-						msg = "msg_UsernameNotAvailable";
+						msg = res.data.message;
 					}
 				}
 			}
@@ -539,44 +508,18 @@ const Content = () => {
 												...res_custInfo.data.data
 											};
 										} else {
-											setPopBox({
-												isOpen: true,
-												popBoxType:
-													defPopBoxType.ErrorMsg,
-												message:
-													res_custInfo.data.message,
-												btnBar: (
-													<div className="btnGroup">
-														<button
-															className="btn-check"
-															onClick={
-																ClosePopBox
-															}>
-															{t("lbl_Close")}
-														</button>
-													</div>
-												)
-											});
+											errorPopBox(
+												res_custInfo.data.message ||
+													"error",
+												res_custInfo.data.errorCode
+											);
 										}
 										setUserInfo(_user);
 									}
 								},
 								() => {
 									if (isMountedRef.current) {
-										setPopBox({
-											isOpen: true,
-											popBoxType: defPopBoxType.ErrorMsg,
-											message: t("msg_ApiServerError"),
-											btnBar: (
-												<div className="btnGroup">
-													<button
-														className="btn-check"
-														onClick={ClosePopBox}>
-														{t("lbl_Close")}
-													</button>
-												</div>
-											)
-										});
+										errorPopBox();
 										setPopBox({ isOpen: false });
 									}
 								}
@@ -616,39 +559,13 @@ const Content = () => {
 								};
 							});
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-check"
-											onClick={ClosePopBox}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox();
 						}
 					}
 				},
 				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 					}
 				}
 			);
@@ -680,22 +597,21 @@ const Content = () => {
 					</div>
 					<div className="title">{t("lbl_MEMBERS_BENEFITS")}</div>
 					<ul>
-						<li> - {t("lbl_126_SPORTSBOO_WELCOME_BONUS")}</li>
-						<li> - {t("lbl_100_LIVE_CASINO_WELCOME_BONUS")}</li>
-						<li> - {t("lbl_100_SLOTS_WELCOME_BONUS")}</li>
-						<li> - {t("lbl_DAILY_REDEPOSIT_BONUS_UP_TO_20")}</li>
+						<li>{t("lbl_JoinNoti_SPORTSBOO_WELCOME_BONUS")}</li>
+						<li>{t("lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS")}</li>
+						<li>{t("lbl_JoinNoti_SLOTS_WELCOME_BONUS")}</li>
+						<li>{t("lbl_JoinNoti_DAILY_REDEPOSIT_BONUS")}</li>
 					</ul>
 					<div className="title">
 						{t("lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES")}
 					</div>
 					<ul>
 						<li>
-							-{" "}
 							{t(
 								"lbl_Multiple_product_platforms_with_better_odds"
 							)}
 						</li>
-						<li> - {t("lbl_Speedy_deposit_and_withdrawal")}</li>
+						<li>{t("lbl_Speedy_deposit_and_withdrawal")}</li>
 					</ul>
 				</div>
 				<div className="joinAnimation">
@@ -704,27 +620,12 @@ const Content = () => {
 						alt="animationlogo"
 						src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 					/>
-					<img
-						className="npc1"
-						alt="npc1"
-						src={require("../styles/img/joinNpc01.png")}
-					/>
-					<img
-						className="npc2"
-						alt="npc2"
-						src={require("../styles/img/joinNpc02.png")}
-					/>
-					<img
-						className="welcome"
-						alt="welcome"
-						src={require("../styles/img/welcome.png")}
-					/>
-					<img
-						className="back"
-						alt="back"
-						src={require("../styles/img/back.png")}
-					/>
+					<img className="npc1" alt="npc1" src={imgJoinNpc01} />
+					<img className="npc2" alt="npc2" src={imgJoinNpc02} />
+					<img className="welcome" alt="welcome" src={imgWelcome} />
+					<img className="back" alt="back" src={imgBack} />
 				</div>
+
 				<form className="joinloginFunction" onSubmit={clickSubmit}>
 					<span className="title txt-blue">{t("lbl_JoinNow")}</span>
 					<div>
@@ -738,11 +639,7 @@ const Content = () => {
 					</div>
 					<div className="inputModule">
 						<Inputbox
-							className={`inputBox-blue${
-								!tip.username.checked && tip.username.msg !== ""
-									? " error"
-									: ""
-							}`}
+							className="inputBox-blue"
 							icon="icon-member txt-blue"
 							placeholder={t("lbl_Username")}
 							value={userValue.username}
@@ -771,11 +668,7 @@ const Content = () => {
 							clickInfo={clickInfo.bind(this, "password")}
 						/>
 						<Inputbox
-							className={`inputBox-blue${
-								!tip.email.checked && tip.email.msg !== ""
-									? " error"
-									: ""
-							}`}
+							className="inputBox-blue"
 							icon="icon-email txt-blue"
 							placeholder={t("lbl_Email")}
 							value={userValue.email}
@@ -841,6 +734,7 @@ const Content = () => {
 									value={userValue.phone}
 									tip={tip.phone.msg}
 									checked={tip.phone.checked}
+									isTipHide={true}
 									clickInfo={clickInfo.bind(this, "phone")}
 									onChange={EditField.bind(null, "phone")}
 									onBlur={checkValue.bind(null, "phone")}

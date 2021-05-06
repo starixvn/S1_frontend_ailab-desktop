@@ -88,7 +88,7 @@ export default function HistoryFilter(props) {
 
 	useEffect(() => {
 		const isObjectEmpty = obj =>
-			Object.keys(obj).length === 0 && obj.constructor === Object;
+			Object.keys(obj).length === 0 && typeof obj === "object";
 
 		if (props.keepData && isObjectEmpty(props.keepData)) {
 			setSelectedIdx(0);

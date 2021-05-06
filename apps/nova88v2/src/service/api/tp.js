@@ -17,10 +17,21 @@ export const api_tp_Transfer = ({ TpId, amount, direction }) =>
 		direction
 	});
 
-export const api_tp_GotoGame = ({ GameId = null, TpId, LangId }) =>
+export const defGotoGame_AppType = defDeviceType;
+
+export const api_tp_GotoGame = ({
+	gameId = null,
+	TpId,
+	LangId,
+	AppType = defDeviceType.Desktop,
+	fun = null
+}) =>
 	tpRequest.post("/GotoGame", {
-		GameId,
 		TpId,
 		LangId,
-		AppType: defDeviceType.NativeAPP
+		AppType,
+		inputs: {
+			gameId,
+			fun
+		}
 	});

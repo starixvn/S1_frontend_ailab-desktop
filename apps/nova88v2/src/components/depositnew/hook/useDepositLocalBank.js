@@ -51,8 +51,6 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 
 				if (success) {
 					setLocalBankInfo(data);
-				} else {
-					errorPopBox(message || `[${errorCode}] error`, errorCode);
 				}
 			},
 			() => {

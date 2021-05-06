@@ -23,13 +23,13 @@ const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {
 		<div className="btnGroup shortcut">
 			{amountList?.length > 0 &&
 				amountList.map(shortcutAmount => {
-					const { status } = checkAmount(
-						shortcutAmount,
+					const { status } = checkAmount({
+						amount: shortcutAmount,
 						minAmount,
 						maxAmount,
 						_isConvert,
 						t
-					);
+					});
 
 					return (
 						<button
@@ -43,7 +43,7 @@ const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {
 									: ""
 							}
 							disabled={status !== 0}>
-							{number_format(shortcutAmount)}
+							{shortcutAmount}
 						</button>
 					);
 				})}

@@ -106,13 +106,15 @@ export default props => {
 	};
 
 	const arr = props.custBankList?.map(item => {
+		const bankLogo = String(item.bankLogo).toLowerCase();
+
 		return (
 			<div className="addBankName" key={`bankCard-${item.accountNo}`}>
 				<div className="addBankInfo">
 					<div className="bankName">
 						<img
-							alt="BankLogo"
-							src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+							src={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
+							alt={item.bankName}
 						/>
 					</div>
 				</div>

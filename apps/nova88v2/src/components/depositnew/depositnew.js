@@ -73,6 +73,8 @@ const Depositnew = () => {
 	const [formInfo, setFormInfo] = useState({
 		imgFile: null,
 		amount: null,
+		fromChannel: null,
+		fromAccountNum: null,
 		checked: null,
 		tip: ""
 	});
@@ -84,17 +86,13 @@ const Depositnew = () => {
 	const [localBankChecked, setLocalBankChecked] = useState(true);
 
 	const [localBankChannelError, setLocalBankChannelError] = useState({
-		checked: true,
+		checked: null,
 		tip: ""
 	});
 	const [localBankBankInfoErrpr, setLocalBankBankInfoErrpr] = useState({
-		checked: true,
+		checked: null,
 		tip: ""
 	});
-
-	// const _isConvert = isConvert(userInfo.currencyId);
-
-	// const { errorPopBox } = usePopBox();
 
 	const {
 		asyncUploadBankPopBox,
@@ -180,19 +178,24 @@ const Depositnew = () => {
 		}
 	};
 
-	const onSubmit = async () => {
-		const resetForm = () => {
-			setFormInfo(prev => {
-				return {
-					...prev,
-					imgFile: null,
-					checked: null,
-					amount: null,
-					tip: ""
-				};
-			});
-		};
+	const onReset = () => {
+		setLocalBankChecked(true);
+		setFormInfo(prev => {
+			return {
+				...prev,
+				imgFile: null,
+				// refId: null,
+				// time: moment(),
+				amount: null,
+				fromChannel: null,
+				fromAccountNum: null,
+				checked: null,
+				tip: ""
+			};
+		});
+	};
 
+	const onSubmit = async () => {
 		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 		if (formInfo.checked && typeof window !== "undefined") {
@@ -212,13 +215,7 @@ const Depositnew = () => {
 				);
 				await delay(1000);
 
-				resetForm();
-			} else if (depositType === defDepositType.cryptoPay) {
-				window.open(
-					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqCryptoPay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
-				);
-				await delay(1000);
-				resetForm();
+				onReset();
 			} else if (depositType === defDepositType.localBank) {
 				if (loading || !localBankChecked) return;
 
@@ -252,7 +249,7 @@ const Depositnew = () => {
 
 				setLoading(false);
 
-				resetForm();
+				onReset();
 			} else if (depositType === defDepositType.onlineBank) {
 				window.open(
 					`${config.openURL}/${
@@ -265,7 +262,7 @@ const Depositnew = () => {
 				);
 				await delay(1000);
 
-				resetForm();
+				onReset();
 			}
 		}
 	};
@@ -282,13 +279,13 @@ const Depositnew = () => {
 	};
 
 	const onValidAmount = _amount => {
-		const result = checkAmount(
-			_amount,
-			formInfo.minAmount,
-			formInfo.maxAmount,
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: formInfo.minAmount,
+			maxAmount: formInfo.maxAmount,
 			_isConvert,
 			t
-		);
+		});
 
 		if (result.status !== 0) {
 			setFormInfo(prev => {
@@ -312,7 +309,10 @@ const Depositnew = () => {
 	};
 
 	useEffect(() => {
-		onValidAmount(formInfo.amount);
+		if (formInfo.amount !== null) {
+			onValidAmount(formInfo.amount);
+		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [formInfo.amount, formInfo.minAmount, formInfo.maxAmount]);
 
@@ -328,7 +328,7 @@ const Depositnew = () => {
 					errors.imgFile = "error";
 				}
 
-				if (!datas?.fromChannel) {
+				if (!datas.fromChannel) {
 					errors.fromChannel = t("lbl_DepositChannelTip");
 				}
 
@@ -336,11 +336,10 @@ const Depositnew = () => {
 					(datas?.fromChannel ===
 						defDepositChannelIdList.OnlineBanking ||
 						datas?.fromChannel === defDepositChannelIdList.ATM) &&
-					!datas?.fromAccountNum
+					!datas.fromAccountNum
 				) {
 					errors.fromAccountNum = t("lbl_LocalBankBankAccountTip");
 				}
-
 				return errors;
 			};
 
@@ -354,16 +353,17 @@ const Depositnew = () => {
 
 			setLocalBankChecked(isValid);
 
-			setLocalBankChannelError({
-				checked: !errors.fromChannel,
-				tip: errors.fromChannel
-			});
+			// setLocalBankChannelError({
+			// 	checked: !errors.fromChannel,
+			// 	tip: errors.fromChannel
+			// });
 
-			setLocalBankBankInfoErrpr({
-				checked: !errors.fromAccountNum,
-				tip: errors.fromAccountNum
-			});
+			// setLocalBankBankInfoErrpr({
+			// 	checked: !errors.fromAccountNum,
+			// 	tip: errors.fromAccountNum
+			// });
 		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [formInfo]);
 
@@ -478,8 +478,7 @@ const Depositnew = () => {
 				setSaveInfoChecked={setSaveInfoChecked}
 				processingDescriptionActive={processingDescriptionActive}
 				setDepositType={onChangeDepositType}
-				setLocalBankChecked={setLocalBankChecked}
-				setFormInfo={setFormInfo}>
+				onReset={onReset}>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}

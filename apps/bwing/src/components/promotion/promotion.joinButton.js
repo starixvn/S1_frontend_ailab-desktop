@@ -129,7 +129,7 @@ export default ({
 		if (
 			canJoin &&
 			(promotionType === defPromotionType.redeposit ||
-				(filter === defFilterType.special_bonus &&
+				(filter === defFilterType.specialBonus &&
 					promotionType === defPromotionType.firstDeposit))
 		)
 			return setPopBox({
@@ -160,9 +160,10 @@ export default ({
 			)}
 			{(promotionInfo.isJoin && isLogin) ||
 			_isExpiry ||
-			promotionInfo.promotionType === defPromotionType.rebate ||
 			_isClaimed ||
-			(filter === defFilterType.special_bonus &&
+			promotionInfo.promotionType === defPromotionType.rebate ||
+			promotionInfo.promotionType === defPromotionType.other ||
+			(filter === defFilterType.specialBonus &&
 				!promotionInfo.canJoin) ? null : (
 				<button className="orange" onClick={onJoinPromotion}>
 					{t("lbl_PromoJoinNow").toUpperCase()}

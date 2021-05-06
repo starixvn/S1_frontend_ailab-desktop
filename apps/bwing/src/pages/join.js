@@ -267,7 +267,10 @@ const Content = () => {
 		}
 
 		if (checked === true) {
-			const res = await api_site_ExistsUserName({ UserName: val });
+			const res = await api_site_ExistsUserName({
+				UserName: val,
+				langId: userInfo.langId
+			});
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0) {
 					if (res.data.data === true) {

@@ -157,6 +157,10 @@ const LocalBankForm = ({
 	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
 	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
 
+	const isShowBankDetails =
+		formInfo.fromChannel === defDepositChannelIdList.OnlineBanking ||
+		formInfo.fromChannel === defDepositChannelIdList.ATM;
+
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -298,7 +302,7 @@ const LocalBankForm = ({
 			<div className="subModule">
 				<div
 					className={`inputBox-blue${
-						localBankChannelError.checked ? "" : " error"
+						localBankChannelError.checked === false ? " error" : ""
 					}`}>
 					<Dropdown
 						mainKey="deposit-localbank-channel-provider"
@@ -310,11 +314,21 @@ const LocalBankForm = ({
 							setFormInfo(prev => {
 								const newState = {
 									...prev,
-									fromChannel: item.id
+									fromChannel: item.id,
+									fromAccountNum: null,
+									fromSysId: null
 								};
 
-								delete newState.fromSysId;
-								delete newState.fromAccountNum;
+								const isRemoveBankDetailKeys =
+									item.id ===
+										defDepositChannelIdList.CashDepositMachine ||
+									item.id ===
+										defDepositChannelIdList.OverTheCounter;
+
+								if (isRemoveBankDetailKeys) {
+									delete newState.fromAccountNum;
+									delete newState.fromSysId;
+								}
 
 								return newState;
 							});
@@ -327,14 +341,13 @@ const LocalBankForm = ({
 
 				<div
 					className={`tip${
-						localBankChannelError.checked ? "" : " active"
+						localBankChannelError.tip ? " active" : ""
 					}`}>
 					{localBankChannelError.tip}
 				</div>
 			</div>
 
-			{(formInfo.fromChannel === defDepositChannelIdList.OnlineBanking ||
-				formInfo.fromChannel === defDepositChannelIdList.ATM) && (
+			{isShowBankDetails && (
 				<>
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
@@ -344,7 +357,9 @@ const LocalBankForm = ({
 					<div className="subModule">
 						<div
 							className={`inputBox-blue${
-								localBankBankInfoErrpr.checked ? "" : " error"
+								localBankBankInfoErrpr.checked === false
+									? " error"
+									: ""
 							}`}>
 							<Dropdown
 								mainKey="deposit-localbank-Bank-provider"
@@ -382,7 +397,7 @@ const LocalBankForm = ({
 
 						<div
 							className={`tip${
-								localBankBankInfoErrpr.checked ? "" : " active"
+								localBankBankInfoErrpr.tip ? " active" : ""
 							}`}>
 							{localBankBankInfoErrpr.tip}
 						</div>

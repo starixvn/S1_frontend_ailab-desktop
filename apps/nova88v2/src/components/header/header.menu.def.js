@@ -287,6 +287,22 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		subMenu: [
 			{
+				icon: "icon icon-PT",
+				displayText: "PT",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotpt.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_PT },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_pt
+					})
+				],
+				...productList.casino_PT
+			},
+			{
 				icon: "icon icon-PP",
 				displayText: "PP",
 				menuType: defMenuType.Link,
