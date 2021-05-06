@@ -22,7 +22,7 @@ export default ({
 	const endIdx = currentPage * defRowsPerPage;
 
 	const onClickPlay = (tpId, gameId, isFree) => {
-		if (isLogin) {
+		if (isLogin || isFree) {
 			SET_CASINO_ENTER_PAGE({
 				tpId,
 				gameId,
