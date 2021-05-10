@@ -104,20 +104,20 @@ export const defMenuLinks = {
 		displayKey: "lbl_Slots",
 		className: "casinobtn",
 		subMenu: [
-			{
-				...defCasinoProviders.PT,
-				className: "PT",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_pt
-					})
-				],
-				icon: "icon icon-pt",
-				displayText: "PlayTech",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PT.name }
-			},
+			// {
+			// 	...defCasinoProviders.PT,
+			// 	className: "PT",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.casino_pt
+			// 		})
+			// 	],
+			// 	icon: "icon icon-pt",
+			// 	displayText: "PlayTech",
+			// 	menuType: defMenuType.Link,
+			// 	parameter: { provider: defCasinoProviders.PT.name }
+			// },
 			{
 				...defCasinoProviders.ICG,
 				className: "ICG",

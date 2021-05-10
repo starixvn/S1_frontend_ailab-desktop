@@ -397,23 +397,22 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortSlot,
 		subMenu: [
-			{
-				keyName: "slot_PT",
-				icon: "icon icon-PT",
-				displayText: "PT",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotpt.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_PT },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_pt
-					})
-				],
-				...productList.casino_PT
-			},
+			// {
+			// 	icon: "icon icon-PT",
+			// 	displayText: "PT",
+			// 	menuType: defMenuType.Link,
+			// 	imgSource: defImgSourceType.bannerImgUrl,
+			// 	listNpcImgUrl: "slotpt.png",
+			// 	listBgImgUrl: "slotListHover.png",
+			// 	parameter: { ...productList.casino_PT },
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.casino_pt
+			// 		})
+			// 	],
+			// 	...productList.casino_PT
+			// },
 			{
 				keyName: "slot_PP",
 				icon: "icon icon-PP",
