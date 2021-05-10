@@ -1023,7 +1023,7 @@ header .header > div.function .memberfile .submenu .icon-exit {
 header .header > div.function .cashier .submenu .icon-exit:before,
 header .header > div.function .wallet .submenu .icon-exit:before,
 header .header > div.function .memberfile .submenu .icon-exit:before {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 header .header > div.function .cashier .submenu .icon-exit span,
@@ -1044,7 +1044,7 @@ header .header > div.function .memberfile.active > button,
 header .header > div.function .memberfile.active > a,
 header .header > div.function .memberfile.active:before,
 header .header > div.function .memberfile.active:after {
-  color: #1e85ec;
+  color: #1E85EC;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -1106,7 +1106,7 @@ header .header > div.function .wallet .submenu div.balance {
 header .header > div.function .wallet .submenu div.balance button {
   font-size: 12px;
   margin-left: 5px;
-  background: #1e85ec;
+  background: #1E85EC;
   border-radius: 100%;
   width: 20px;
   height: 20px;
@@ -1188,10 +1188,13 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   height: 20px;
 }
 
+.newyear + main {
+  height: auto;
+}
+
 main {
   position: relative;
   padding-top: 120px;
-  height: calc(100% - 80px);
 }
 
 main section.inside {
@@ -1200,7 +1203,6 @@ main section.inside {
   display: flex;
   max-width: 1600px;
   margin: auto;
-  height: 100%;
 }
 
 main section > div {
@@ -1211,7 +1213,7 @@ main section > div {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #1e85ec;
+  background: #1E85EC;
 }
 
 main section > div .articleModule {
@@ -1469,11 +1471,11 @@ footer > div.copyright {
 }
 
 .txt-org {
-  color: #f85b05;
+  color: #F85B05;
 }
 
 .txt-blue2 {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .txt-blue15 {
@@ -1501,7 +1503,7 @@ footer > div.copyright {
 }
 
 .txt-red {
-  color: #f52805;
+  color: #F52805;
 }
 
 .txt-dark {
@@ -1552,7 +1554,7 @@ footer > div.copyright {
   width: calc(100% - 22px);
   background: #070e22;
   color: white;
-  border: 1px solid #1d3662;
+  border: 1px solid #1D3662;
   outline: none;
   border-radius: 3px;
   position: relative;
@@ -1594,8 +1596,8 @@ footer > div.copyright {
 }
 
 .inputBox.active, .active.inputBox-blue {
-  border: 1px solid #1e85ec;
-  outline: #1e85ec;
+  border: 1px solid #1E85EC;
+  outline: #1E85EC;
 }
 
 .inputBox > .icon, .inputBox-blue > .icon {
@@ -1894,7 +1896,7 @@ input[type="file"] {
 
 .btnGroup button.red,
 .btnGroup a.red {
-  background: #f52805;
+  background: #F52805;
   color: white;
 }
 
@@ -1911,7 +1913,7 @@ input[type="file"] {
 
 .btnGroup button.blueBorder:hover,
 .btnGroup a.blueBorder:hover {
-  background: #1e85ec;
+  background: #1E85EC;
 }
 
 .btnGroup button.icon:before,
@@ -2284,7 +2286,7 @@ main > .swiper-container .swiper-slide {
 
 .list + button,
 .list + a {
-  color: #1e85ec;
+  color: #1E85EC;
   float: right;
   font-size: 30px;
   text-align: right;
@@ -2302,14 +2304,14 @@ main > .swiper-container .swiper-slide {
 .list .listTag .icon-books {
   position: absolute;
   right: 5px;
-  color: #1e85ec;
+  color: #1E85EC;
   font-size: 24px;
 }
 
 .list .listTag button,
 .list .listTag a {
   line-height: 30px;
-  background: #1e85ec;
+  background: #1E85EC;
   color: white;
   padding: 0 10px;
   border-top-left-radius: 10px;
@@ -2318,7 +2320,7 @@ main > .swiper-container .swiper-slide {
 
 .list .listTag button.active,
 .list .listTag a.active {
-  background: #134dae;
+  background: #134DAE;
 }
 
 .list .listHeader div,
@@ -2388,7 +2390,7 @@ main > .swiper-container .swiper-slide {
   font-size: 12px;
   position: absolute;
   right: 12px;
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .list .listHeader div {
@@ -2450,7 +2452,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div div.reject {
-  color: #f52805;
+  color: #F52805;
   font-weight: bold;
 }
 
@@ -2701,7 +2703,7 @@ main > .swiper-container .swiper-slide {
 
 .cashBar .cashLine input {
   height: 10px;
-  background: #1e85ec;
+  background: #1E85EC;
   border-radius: 30px;
   border: 0;
   position: absolute;
@@ -2748,7 +2750,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #1e85ec;
+  background: #1E85EC;
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -3079,7 +3081,7 @@ main > .swiper-container .swiper-slide {
 
 .subModuleList .subModule .subModuleBody ul li a.icon-library,
 .subModuleList .subModule .subModuleBody ul li button.icon-library {
-  color: #1e85ec;
+  color: #1E85EC;
   font-size: 44px;
 }
 
@@ -3300,7 +3302,7 @@ main > .swiper-container .swiper-slide {
   right: -10px;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .mysteryArea {
@@ -3690,7 +3692,7 @@ main > .swiper-container .swiper-slide {
 .upload > .icon.icon-information-solid,
 .update > .icon.icon-information-solid,
 .loackAmount > .icon.icon-information-solid {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .Submit .title,
@@ -3867,7 +3869,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img {
   border-radius: 15px;
-  border: 1px solid #1e85ec;
+  border: 1px solid #1E85EC;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3884,7 +3886,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img .icon {
   font-size: 48px;
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .upload_img img {
@@ -3913,7 +3915,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -4410,12 +4412,12 @@ main > .swiper-container .swiper-slide {
       -ms-flex-align: center;
           align-items: center;
   width: 55px;
-  color: #f85b05;
+  color: #F85B05;
   font-size: 24px;
 }
 
 .walletTransfer .walletModule .walletBalanceModule {
-  background: #1d3662;
+  background: #1D3662;
   font-weight: bold;
   margin-right: 0;
   padding: 30px;
@@ -4603,7 +4605,7 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .addBank .addBankName .icon-plus {
@@ -5377,7 +5379,7 @@ main > .swiper-container .swiper-slide {
 
 .personal .list .listHeader .checkbox label.icon.icon:before,
 .personal .list .functionMenu .checkbox label.icon.icon:before {
-  color: #1e85ec;
+  color: #1E85EC;
   font-size: 18px;
   margin-left: -1px;
 }
@@ -5487,7 +5489,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp {
-  color: #1e85ec;
+  color: #1E85EC;
   font-size: 16px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -5501,7 +5503,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp + span {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .otpBtn {
@@ -5520,7 +5522,7 @@ main > .swiper-container .swiper-slide {
   display: flex;
   top: 13px;
   left: -2px;
-  background: #f52805;
+  background: #F52805;
   border-bottom-right-radius: 10px;
   width: 28px;
   height: 25px;
@@ -5674,8 +5676,8 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div:hover {
-  -webkit-box-shadow: 0 0 0 3px #1e85ec inset;
-          box-shadow: 0 0 0 3px #1e85ec inset;
+  -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
+          box-shadow: 0 0 0 3px #1E85EC inset;
 }
 
 .proList > div .turnover {
@@ -5683,24 +5685,24 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div .turnover span {
-  color: #f52805;
+  color: #F52805;
 }
 
 .proList > div .turnover button,
 .proList > div .turnover a {
-  background: #f52805;
+  background: #F52805;
 }
 
 .proList > div .progressBar .bar {
-  border: 1px solid #f52805;
+  border: 1px solid #F52805;
 }
 
 .proList > div .progressBar .bar .progress {
-  background: #f52805;
+  background: #F52805;
 }
 
 .proList > div .progressBar .percentage {
-  color: #f52805;
+  color: #F52805;
 }
 
 .proList .btnGroup {
@@ -5945,7 +5947,7 @@ article h1,
 article h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #1e85ec;
+  color: #1E85EC;
   font-weight: bold;
 }
 
@@ -5990,7 +5992,7 @@ article pre {
 }
 
 .rdt i.icon.icon-cross:before {
-  color: #f52805;
+  color: #F52805;
 }
 
 .rdt i.icon.icon-checkmark:before {
@@ -6092,7 +6094,7 @@ iframe {
 
 .progressBarModule .bounsName {
   font-weight: bold;
-  color: #f52805;
+  color: #F52805;
 }
 
 .progressBarModule .turnover {
@@ -6105,7 +6107,7 @@ iframe {
 
 .progressBarModule .turnover button,
 .progressBarModule .turnover a {
-  background: #1e85ec;
+  background: #1E85EC;
   color: white;
   border-radius: 100%;
   padding: 4px;
@@ -6200,7 +6202,7 @@ input:-moz-placeholder {
   display: none;
   margin-left: 5px;
   background: white;
-  color: #1e85ec;
+  color: #1E85EC;
   border-radius: 100%;
   padding: 1px;
   -webkit-box-pack: center;
@@ -6213,7 +6215,7 @@ input:-moz-placeholder {
 
 .buttonBox button.active,
 .buttonBox a.active {
-  background: #134dae;
+  background: #134DAE;
   color: white;
 }
 
@@ -6315,7 +6317,7 @@ a.icon-books:hover:after {
 }
 
 input + .iconModule i.icon.icon-cross:before {
-  color: #f52805;
+  color: #F52805;
   font-size: 12px;
 }
 
@@ -6371,7 +6373,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .checkBankSlip.smallList ul li .icon {
-  color: #1e85ec;
+  color: #1E85EC;
   margin-left: 10px;
 }
 
@@ -6618,13 +6620,13 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .minAmount > div > div {
-  border: 1px solid #134dae;
+  border: 1px solid #134DAE;
   padding: 5px 10px;
-  background: #134dae;
+  background: #134DAE;
 }
 
 .minAmount > div > div:last-child {
-  color: #1e85ec;
+  color: #1E85EC;
   background: white;
 }
 
@@ -7868,7 +7870,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   top: 40px;
   left: -1px;
   background: #070e22;
-  border: 1px solid #1e85ec;
+  border: 1px solid #1E85EC;
   margin-left: 0;
   overflow: hidden;
   margin-top: 0;
@@ -7881,11 +7883,11 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover {
-  background: #1e85ec;
+  background: #1E85EC;
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item.active {
-  background: #1e85ec;
+  background: #1E85EC;
 }
 
 .transferModule .inputBox .dropdown span, .transferModule .inputBox-blue .dropdown span {
@@ -8492,7 +8494,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .icon-information-solid {
-  color: #1e85ec;
+  color: #1E85EC;
   cursor: pointer;
   margin: 0 2px;
 }
@@ -8777,7 +8779,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .subModuleListColumn .bankAccount .smallList ul a,
 .subModuleListColumn .bankAccount .smallList ul button {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li {
@@ -8927,7 +8929,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .upload_img.error {
-  border-color: #f52805;
+  border-color: #F52805;
 }
 
 .upload_img .icon {
@@ -8966,7 +8968,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1e85ec;
+  color: #1E85EC;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -8980,6 +8982,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin: auto;
   padding-top: 170px;
   max-width: 1200px;
+  height: auto;
 }
 
 .vip .swiper-container {
@@ -9014,7 +9017,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vip .vipPage .eventList tr.title {
-  background: #134dae;
+  background: #134DAE;
 }
 
 .vip .vipPage .eventList tr:last-child {
@@ -9032,7 +9035,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #1e85ec;
+  background: #1E85EC;
 }
 
 .vip .vipPage .eventList tr td {
@@ -9096,7 +9099,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .vipLv > div {
   margin-top: 15px;
-  background: #1e85ec;
+  background: #1E85EC;
   padding: 5px 10px;
   border-radius: 15px;
 }
@@ -9136,7 +9139,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-size: 18px;
   margin: 20px 0;
   font-weight: bold;
-  color: #1e85ec;
+  color: #1E85EC;
   width: 100%;
 }
 

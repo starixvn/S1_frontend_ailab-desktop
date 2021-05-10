@@ -33,6 +33,10 @@
   font-size: 18px !important;
 }
 
+.casinoList .icon-pt:before {
+  content: "\e9ef";
+}
+
 .livecasinoList .icon-DG:before {
   font-size: 22px !important;
 }
