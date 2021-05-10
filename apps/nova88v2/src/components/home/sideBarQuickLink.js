@@ -31,26 +31,25 @@ export default () => {
 		: getCurrencyCode(userInfo.langId);
 
 	const defIconList = [
+		{ id: 1, iconClass: "icon icon-chat" },
+		{ id: 2, iconClass: "icon icon-instagram" },
+		{ id: 3, iconClass: "icon icon-facebook2" },
+		{ id: 4, iconClass: "icon icon-twitter" },
 		{
-			id: 1,
-			iconClass: "icon icon-chat",
-			currencyList: [currencyCode.MY, currencyCode.TH, currencyCode.ID]
-		},
-		{
-			id: 2,
+			id: 5,
+			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
 			imgInfo: "+63 945 638 8147",
 			imgSrc:
-				"https://www.nova88.net/static/whatsappQR-94d78581cf79618d3510ad46f3a1c520.jpg",
-			currencyList: [currencyCode.MY, currencyCode.ID]
+				"https://www.nova88.net/static/whatsappQR-94d78581cf79618d3510ad46f3a1c520.jpg"
 		},
 		{
-			id: 3,
+			id: 6,
+			displayByCurrency: [currencyCode.TH],
 			iconClass: "icon icon-line",
 			imgInfo: "@Nova88thai",
 			imgSrc:
-				"https://www.nova88.net/static/lineQR-bf41d1997d45a32bcf433f500f0dcfe7.jpg",
-			currencyList: [currencyCode.TH]
+				"https://www.nova88.net/static/lineQR-bf41d1997d45a32bcf433f500f0dcfe7.jpg"
 		}
 	];
 
@@ -76,7 +75,7 @@ export default () => {
 	};
 
 	const iconList = defIconList
-		.filter(_icon => _icon.currencyList.includes(_currencyId))
+		.filter(_icon => _icon.displayByCurrency?.includes(_currencyId))
 		.map(_icon => {
 			return (
 				<a
