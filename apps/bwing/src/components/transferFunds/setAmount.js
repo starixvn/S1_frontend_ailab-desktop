@@ -45,7 +45,7 @@ const SetAmount = ({
 				</div>
 				<form className="inputModuleRow" onSubmit={clickSubmit}>
 					<Inputbox
-						className="inputBox"
+						className="inputBox-blue"
 						title={t("lbl_Amount")}
 						value={amount}
 						onChange={onChange}

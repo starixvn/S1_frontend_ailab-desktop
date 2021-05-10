@@ -231,21 +231,11 @@ export default () => {
 	const checkSelectWallet = () => {
 		let checkPass = true;
 		if (selectedTpId.from === null || selectedTpId.to === null) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message:
-					selectedTpId.from === null
-						? t("lbl_please_select_from_wallet")
-						: t("lbl_please_select_to_wallet"),
-				btnBar: (
-					<div className="btnGroup">
-						<button className="btn-check" onClick={ClickClose}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
+			errorPopBox(
+				selectedTpId.from === null
+					? t("lbl_please_select_from_wallet")
+					: t("lbl_please_select_to_wallet")
+			);
 			checkPass = false;
 		}
 		return checkPass;
