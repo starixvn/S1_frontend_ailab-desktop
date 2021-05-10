@@ -1,9 +1,25 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import Inputbox from "../common/inputbox";
 import Dropdown from "../common/dropdown";
 
-export default props => {
+const SetAmount = ({
+	fomOptions,
+	toOptions,
+	selectedFromIdx,
+	selectedToIdx,
+	onSelectWallet,
+	clickSubmit,
+	amount,
+	onChange,
+	onBlur,
+	clickInfo,
+	checked,
+	tip,
+	_isConvert,
+	i18n
+}) => {
 	const { t } = useTranslation();
 
 	return (
@@ -14,12 +30,9 @@ export default props => {
 						<Dropdown
 							i18n={t}
 							mainKey="from_wallet"
-							options={props.fomOptions}
-							selectedIdx={props.selectedFromIdx}
-							onSelectItem={props.onSelectWallet.bind(
-								this,
-								"from"
-							)}
+							options={fomOptions}
+							selectedIdx={selectedFromIdx}
+							onSelectItem={onSelectWallet.bind(this, "from")}
 							title={t("lbl_From")}
 						/>
 					</div>
@@ -27,24 +40,24 @@ export default props => {
 						<Dropdown
 							i18n={t}
 							mainKey="to_wallet"
-							options={props.toOptions}
-							selectedIdx={props.selectedToIdx}
-							onSelectItem={props.onSelectWallet.bind(this, "to")}
+							options={toOptions}
+							selectedIdx={selectedToIdx}
+							onSelectItem={onSelectWallet.bind(this, "to")}
 							title={t("lbl_To")}
 						/>
 					</div>
 				</div>
-				<form className="inputModuleRow" onSubmit={props.clickSubmit}>
+				<form className="inputModuleRow" onSubmit={clickSubmit}>
 					<Inputbox
 						className="inputBox-white"
-						title={props.i18n("lbl_Amount")}
-						value={props.amount}
-						onChange={props.onChange}
-						onBlur={props.onBlur}
-						clickInfo={props.clickInfo}
-						checked={props.checked}
-						tip={props.tip}
-						_isConvert={props._isConvert}
+						title={i18n("lbl_Amount")}
+						value={amount}
+						onChange={onChange}
+						onBlur={onBlur}
+						clickInfo={clickInfo}
+						checked={checked}
+						tip={tip}
+						_isConvert={_isConvert}
 						isAmount={true}
 					/>
 					<div className="btnGroup">
@@ -52,7 +65,7 @@ export default props => {
 							className="btn-check"
 							type="submit"
 							data-testid="setAmount_submit">
-							{props.i18n("lbl_Submit")}
+							{i18n("lbl_Submit")}
 						</button>
 					</div>
 				</form>
@@ -60,3 +73,26 @@ export default props => {
 		</div>
 	);
 };
+
+SetAmount.defaultProps = {
+	checked: null
+};
+
+SetAmount.propTypes = {
+	fomOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
+	toOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
+	selectedFromIdx: PropTypes.number.isRequired,
+	selectedToIdx: PropTypes.number.isRequired,
+	onSelectWallet: PropTypes.func.isRequired,
+	clickSubmit: PropTypes.func.isRequired,
+	amount: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onBlur: PropTypes.func.isRequired,
+	clickInfo: PropTypes.func.isRequired,
+	checked: PropTypes.bool,
+	tip: PropTypes.string.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
+	i18n: PropTypes.func.isRequired
+};
+
+export default SetAmount;
