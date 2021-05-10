@@ -7,6 +7,7 @@ import Loading from "./loading";
 import { api_site_GetTpIds } from "../../service/api/site";
 import { userInfoContext } from "./context";
 
+
 const Layout = ({ children, showFooter = false }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const [productTpIds, setProductTpIds] = useState(null);
