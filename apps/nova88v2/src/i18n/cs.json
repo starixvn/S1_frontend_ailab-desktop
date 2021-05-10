@@ -258,7 +258,7 @@
 	"lbl_DepositChannel": "存款渠道",
 	"lbl_DepositChannel_1": "网络银行",
 	"lbl_DepositChannel_2": "现金存款机",
-	"lbl_DepositChannel_3": "现金存款机",
+	"lbl_DepositChannel_3": "自动取款机",
 	"lbl_DepositChannel_4": "柜台办理（OTC）",
 	"lbl_BankDetails": "银行资讯",
 	"lbl_DepositLocalbankButton": "储存我最后一次交易模式",
