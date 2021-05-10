@@ -22,7 +22,7 @@ const SetAmount = ({
 		<div className="subModuleList">
 			<div className="walletTransfer">
 				<div className="walletModule transferModule">
-					<div className="inputBox">
+					<div className="inputBox-blue">
 						<Dropdown
 							i18n={t}
 							mainKey="from_wallet"
@@ -32,7 +32,7 @@ const SetAmount = ({
 							title={t("lbl_From")}
 						/>
 					</div>
-					<div className="inputBox">
+					<div className="inputBox-blue">
 						<Dropdown
 							i18n={t}
 							mainKey="to_wallet"
