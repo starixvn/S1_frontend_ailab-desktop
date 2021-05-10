@@ -16,7 +16,6 @@ import {
 import { isConvert } from "../common/common";
 import {
 	api_tp_GetTransferRecent,
-	api_tp_Transfer,
 	api_tp_TransferEx
 } from "../../service/api/tp";
 import defPopBoxType from "../common/defPopBoxType";
@@ -26,11 +25,6 @@ import SetAmount from "./setAmount";
 import RecentHistory from "./recentHistory";
 import { GetAllWallets } from "../common/wrapper.walletInfo";
 import usePopBox from "../hook/usePopBox";
-
-const defDirection = {
-	MainToTp: 1,
-	TpToMain: 2
-};
 
 const initStatus = {
 	checked: null,
@@ -257,60 +251,7 @@ export default () => {
 		return checkPass;
 	};
 
-	const refreshAfterTransfer = () => {
-		getAllWalletData();
-		getTransferRecent();
-		setAmount("");
-		GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
-	};
-
-	const Transfer = async (_tpId, _amount, _direction) => {
-		setLoading(true);
-		await api_tp_Transfer({
-			TpId: _tpId,
-			amount: _amount,
-			direction: _direction
-		}).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						refreshAfterTransfer();
-					} else if (res.data.errorCode === 9) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.TurnoverAccumulated,
-							currencyId: userInfo.currencyId,
-							_isConvert,
-							turnover: res.data.data.turnover,
-							rollover: res.data.data.rollover,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClickClose}>
-										OK
-									</button>
-								</div>
-							)
-						});
-					} else {
-						errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
-					}
-				}
-			},
-			() => {
-				if (isMountedRef.current) {
-					errorPopBox();
-				}
-			}
-		);
-		setLoading(false);
-	};
-
-	const TransferTp = async (_fromTpId, _toTpId, _amount) => {
+	const Transfer = async (_fromTpId, _toTpId, _amount) => {
 		setLoading(true);
 		await api_tp_TransferEx({
 			FromTpId: _fromTpId,
@@ -320,7 +261,10 @@ export default () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						refreshAfterTransfer();
+						getAllWalletData();
+						getTransferRecent();
+						setAmount("");
+						GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
 					} else if (res.data.errorCode === 9) {
 						setPopBox({
 							isOpen: true,
@@ -360,41 +304,27 @@ export default () => {
 		e.preventDefault();
 		const result = checkAmount() && checkSelectWallet();
 		if (result) {
-			const _direction =
-				selectedTpId.from === 0
-					? defDirection.MainToTp
-					: defDirection.TpToMain;
-
 			const real_amount = _isConvert
 				? Number(amount) * 1000
 				: Number(amount);
 
-			const _wallet =
-				_direction === defDirection.MainToTp
-					? selectedTpId.to
-					: selectedTpId.from;
-
-			if (selectedTpId.to === 0 || selectedTpId.from === 0) {
-				Transfer(_wallet, real_amount, _direction);
-			} else {
-				TransferTp(selectedTpId.from, selectedTpId.to, real_amount);
-			}
+			Transfer(selectedTpId.from, selectedTpId.to, real_amount);
 			setStatus(initStatus);
 			setAmount("");
 		}
 	};
 
-	const restoreAll = id => {
-		if (id === 0) {
+	const restoreAll = _toWalletId => {
+		if (_toWalletId === 0) {
 			walletInfo
 				.filter(o => o.id !== 0)
 				.forEach(item => {
 					if (item.balance > 0) {
-						Transfer(item.id, item.balance, defDirection.TpToMain);
+						Transfer(item.id, _toWalletId, item.balance);
 					}
 				});
 		} else {
-			Transfer(id, walletInfo[0].balance, defDirection.MainToTp);
+			Transfer(walletInfo[0].id, _toWalletId, walletInfo[0].balance);
 		}
 		getMainWallet();
 		getTpWalletList();
