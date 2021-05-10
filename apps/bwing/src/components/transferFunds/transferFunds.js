@@ -221,21 +221,11 @@ export default () => {
 	const checkSelectWallet = () => {
 		let checkPass = true;
 		if (selectedTpId.from === null || selectedTpId.to === null) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message:
-					selectedTpId.from === null
-						? t("lbl_please_select_from_wallet")
-						: t("lbl_please_select_to_wallet"),
-				btnBar: (
-					<div className="btnGroup">
-						<button className="btn-cancel" onClick={ClickClose}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
+			errorPopBox(
+				selectedTpId.from === null
+					? t("lbl_please_select_from_wallet")
+					: t("lbl_please_select_to_wallet")
+			);
 			checkPass = false;
 		}
 		return checkPass;
@@ -266,7 +256,7 @@ export default () => {
 							btnBar: (
 								<div className="btnGroup">
 									<button
-										className="btn-check"
+										className="btn-cancel"
 										onClick={ClickClose}>
 										OK
 									</button>
@@ -305,17 +295,13 @@ export default () => {
 	};
 
 	const restoreAll = _toWalletId => {
-		if (_toWalletId === 0) {
-			walletInfo
-				.filter(o => o.id !== 0)
-				.forEach(item => {
-					if (item.balance > 0) {
-						Transfer(item.id, _toWalletId, item.balance);
-					}
-				});
-		} else {
-			Transfer(walletInfo[0].id, _toWalletId, walletInfo[0].balance);
-		}
+		walletInfo
+			.filter(o => o.id !== _toWalletId)
+			.forEach(item => {
+				if (item.balance > 0) {
+					Transfer(item.id, _toWalletId, item.balance);
+				}
+			});
 		getMainWallet();
 		getTpWalletList();
 	};

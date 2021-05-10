@@ -315,17 +315,13 @@ export default () => {
 	};
 
 	const restoreAll = _toWalletId => {
-		if (_toWalletId === 0) {
-			walletInfo
-				.filter(o => o.id !== 0)
-				.forEach(item => {
-					if (item.balance > 0) {
-						Transfer(item.id, _toWalletId, item.balance);
-					}
-				});
-		} else {
-			Transfer(walletInfo[0].id, _toWalletId, walletInfo[0].balance);
-		}
+		walletInfo
+			.filter(o => o.id !== _toWalletId)
+			.forEach(item => {
+				if (item.balance > 0) {
+					Transfer(item.id, _toWalletId, item.balance);
+				}
+			});
 		getMainWallet();
 		getTpWalletList();
 	};
