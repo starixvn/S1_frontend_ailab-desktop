@@ -12289,68 +12289,7 @@ html.Newtheme .indexliveCasinoList {
 }
 
 html.Newtheme .indexliveCasinoList > div {
-  width: 50%;
-}
-
-html.Newtheme .indexJackpot {
-  position: relative;
-}
-
-html.Newtheme .indexJackpot > div {
-  position: absolute;
-  bottom: calc(50% - 36px);
-  right: calc(50% - 140px);
-  width: 330px;
-  text-align: right;
-  font-weight: bold;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 22px;
-  color: white;
-}
-
-@media (max-width: 1200px) {
-  html.Newtheme .indexJackpot > div {
-    bottom: calc(50% - 30px);
-    right: calc(50% - 130px);
-    width: 300px;
-    font-size: 16px;
-  }
-}
-
-html.Newtheme .indexJackpot > div div:first-child {
-  font-size: 24px;
-  margin: auto auto auto 0;
-}
-
-@media (max-width: 1200px) {
-  html.Newtheme .indexJackpot > div div:first-child {
-    font-size: 20px;
-  }
-}
-
-html.Newtheme .indexJackpot > div div:nth-child(n+2) {
-  font-size: 24px;
-  width: 18px;
-  height: 30px;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-}
-
-html.Newtheme .indexJackpot > div div:nth-child(n+2) span {
-  word-break: break-word;
-  position: absolute;
-  left: 0;
-}
-
-html.Newtheme .indexJackpot > div div:nth-child(n+2) span.active {
-  -webkit-animation: jpotxt 2s infinite;
-          animation: jpotxt 2s infinite;
+  width: 100%;
 }
 
 html.Newtheme .indexCasino {
@@ -13499,7 +13438,7 @@ html.Newtheme .otpBtn {
           justify-content: center;
 }
 
-html.Newtheme .proList, html.Newtheme .slotList, html.Newtheme .newsList {
+html.Newtheme .proList, html.Newtheme .slotList, html.Newtheme .newsList, html.Newtheme .casinoList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13512,7 +13451,7 @@ html.Newtheme .proList, html.Newtheme .slotList, html.Newtheme .newsList {
   line-height: 20px;
 }
 
-html.Newtheme .proList > div, html.Newtheme .slotList > div, html.Newtheme .newsList > div {
+html.Newtheme .proList > div, html.Newtheme .slotList > div, html.Newtheme .newsList > div, html.Newtheme .casinoList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
@@ -13524,17 +13463,17 @@ html.Newtheme .proList > div, html.Newtheme .slotList > div, html.Newtheme .news
   position: relative;
 }
 
-html.Newtheme .proList > div.active, html.Newtheme .slotList > div.active, html.Newtheme .newsList > div.active {
+html.Newtheme .proList > div.active, html.Newtheme .slotList > div.active, html.Newtheme .newsList > div.active, html.Newtheme .casinoList > div.active {
   opacity: 0.7;
 }
 
-html.Newtheme .proList > div.active .claimed, html.Newtheme .slotList > div.active .claimed, html.Newtheme .newsList > div.active .claimed {
+html.Newtheme .proList > div.active .claimed, html.Newtheme .slotList > div.active .claimed, html.Newtheme .newsList > div.active .claimed, html.Newtheme .casinoList > div.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html.Newtheme .proList > div .new, html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .new, html.Newtheme .slotList > div .claimed, html.Newtheme .newsList > div .new, html.Newtheme .newsList > div .claimed {
+html.Newtheme .proList > div .new, html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .new, html.Newtheme .slotList > div .claimed, html.Newtheme .newsList > div .new, html.Newtheme .newsList > div .claimed, html.Newtheme .casinoList > div .new, html.Newtheme .casinoList > div .claimed {
   position: absolute;
   top: -10px;
   left: -10px;
@@ -13554,17 +13493,17 @@ html.Newtheme .proList > div .new, html.Newtheme .proList > div .claimed, html.N
   font-weight: bold;
 }
 
-html.Newtheme .proList > div .new:before, html.Newtheme .proList > div .claimed:before, html.Newtheme .slotList > div .new:before, html.Newtheme .slotList > div .claimed:before, html.Newtheme .newsList > div .new:before, html.Newtheme .newsList > div .claimed:before {
+html.Newtheme .proList > div .new:before, html.Newtheme .proList > div .claimed:before, html.Newtheme .slotList > div .new:before, html.Newtheme .slotList > div .claimed:before, html.Newtheme .newsList > div .new:before, html.Newtheme .newsList > div .claimed:before, html.Newtheme .casinoList > div .new:before, html.Newtheme .casinoList > div .claimed:before {
   content: "NEW";
 }
 
-html.Newtheme .proList > div .new.active, html.Newtheme .proList > div .claimed.active, html.Newtheme .slotList > div .new.active, html.Newtheme .slotList > div .claimed.active, html.Newtheme .newsList > div .new.active, html.Newtheme .newsList > div .claimed.active {
+html.Newtheme .proList > div .new.active, html.Newtheme .proList > div .claimed.active, html.Newtheme .slotList > div .new.active, html.Newtheme .slotList > div .claimed.active, html.Newtheme .newsList > div .new.active, html.Newtheme .newsList > div .claimed.active, html.Newtheme .casinoList > div .new.active, html.Newtheme .casinoList > div .claimed.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .claimed, html.Newtheme .newsList > div .claimed {
+html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .claimed, html.Newtheme .newsList > div .claimed, html.Newtheme .casinoList > div .claimed {
   background: rgba(219, 44, 1, 0.8);
   width: 75px;
   height: 75px;
@@ -13572,26 +13511,26 @@ html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .claimed, h
           transform: rotate(-45deg);
 }
 
-html.Newtheme .proList > div .claimed:before, html.Newtheme .slotList > div .claimed:before, html.Newtheme .newsList > div .claimed:before {
+html.Newtheme .proList > div .claimed:before, html.Newtheme .slotList > div .claimed:before, html.Newtheme .newsList > div .claimed:before, html.Newtheme .casinoList > div .claimed:before {
   content: "CLAIMED";
 }
 
-html.Newtheme .proList > div .txt-dark, html.Newtheme .proList > div .txt-darkBlue, html.Newtheme .slotList > div .txt-dark, html.Newtheme .slotList > div .txt-darkBlue, html.Newtheme .newsList > div .txt-dark, html.Newtheme .newsList > div .txt-darkBlue {
+html.Newtheme .proList > div .txt-dark, html.Newtheme .proList > div .txt-darkBlue, html.Newtheme .slotList > div .txt-dark, html.Newtheme .slotList > div .txt-darkBlue, html.Newtheme .newsList > div .txt-dark, html.Newtheme .newsList > div .txt-darkBlue, html.Newtheme .casinoList > div .txt-dark, html.Newtheme .casinoList > div .txt-darkBlue {
   font-weight: bold;
   margin: 15px 0;
 }
 
-html.Newtheme .proList > div .txt-gray li, html.Newtheme .slotList > div .txt-gray li, html.Newtheme .newsList > div .txt-gray li {
+html.Newtheme .proList > div .txt-gray li, html.Newtheme .slotList > div .txt-gray li, html.Newtheme .newsList > div .txt-gray li, html.Newtheme .casinoList > div .txt-gray li {
   font-size: 12px;
   list-style: disc;
   margin-left: 16px;
 }
 
-html.Newtheme .proList > div img, html.Newtheme .slotList > div img, html.Newtheme .newsList > div img {
+html.Newtheme .proList > div img, html.Newtheme .slotList > div img, html.Newtheme .newsList > div img, html.Newtheme .casinoList > div img {
   border-radius: 10px;
 }
 
-html.Newtheme .proList > div .new-icon, html.Newtheme .slotList > div .new-icon, html.Newtheme .newsList > div .new-icon {
+html.Newtheme .proList > div .new-icon, html.Newtheme .slotList > div .new-icon, html.Newtheme .newsList > div .new-icon, html.Newtheme .casinoList > div .new-icon {
   position: absolute;
   top: 244px;
   right: 15px;
@@ -13603,7 +13542,7 @@ html.Newtheme .proList > div .new-icon, html.Newtheme .slotList > div .new-icon,
           animation: flash2 linear infinite alternate .7s;
 }
 
-html.Newtheme .proList .rollover, html.Newtheme .slotList .rollover, html.Newtheme .newsList .rollover {
+html.Newtheme .proList .rollover, html.Newtheme .slotList .rollover, html.Newtheme .newsList .rollover, html.Newtheme .casinoList .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13612,13 +13551,13 @@ html.Newtheme .proList .rollover, html.Newtheme .slotList .rollover, html.Newthe
   margin: 10px 0;
 }
 
-html.Newtheme .proList .rollover > div, html.Newtheme .slotList .rollover > div, html.Newtheme .newsList .rollover > div {
+html.Newtheme .proList .rollover > div, html.Newtheme .slotList .rollover > div, html.Newtheme .newsList .rollover > div, html.Newtheme .casinoList .rollover > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-html.Newtheme .proList .rollover > div .icon:before, html.Newtheme .slotList .rollover > div .icon:before, html.Newtheme .newsList .rollover > div .icon:before {
+html.Newtheme .proList .rollover > div .icon:before, html.Newtheme .slotList .rollover > div .icon:before, html.Newtheme .newsList .rollover > div .icon:before, html.Newtheme .casinoList .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
 }
@@ -13831,50 +13770,6 @@ html.Newtheme .casinoSelect > div {
   margin-right: 5px;
 }
 
-html.Newtheme .quickSelector {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 0 34px;
-  margin-top: 40px;
-  overflow: hidden;
-  overflow-x: scroll;
-}
-
-html.Newtheme .quickSelector a, html.Newtheme .quickSelector button {
-  min-width: 240px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: 5px 10px 15px 10px;
-  margin: 0 5px;
-  border-radius: 5px;
-  white-space: nowrap;
-  background: #e9eaee;
-  color: #1F3258;
-  font-weight: bold;
-  text-align: center;
-}
-
-html.Newtheme .quickSelector a.active, html.Newtheme .quickSelector a:hover, html.Newtheme .quickSelector button.active, html.Newtheme .quickSelector button:hover {
-  background: -webkit-gradient(linear, left bottom, left top, from(#364f87), to(#4261a1));
-  background: linear-gradient(0deg, #364f87 0%, #4261a1 100%);
-  color: white;
-}
-
-html.Newtheme .quickSelector a img, html.Newtheme .quickSelector button img {
-  width: 120px;
-  margin-bottom: 5px;
-}
-
-html.Newtheme .quickSelector::-webkit-scrollbar {
-  width: 2px;
-  height: 2px;
-}
-
 html.Newtheme .slotList > div, html.Newtheme .newsList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 5 - 45px);
@@ -13992,6 +13887,50 @@ html.Newtheme .newsList > div .txt-gray {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
+}
+
+html.Newtheme .casinoList {
+  margin-top: 40px;
+}
+
+html.Newtheme .casinoList > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(100% / 5 - 15px);
+          flex: 0 0 calc(100% / 5 - 15px);
+  padding: 0;
+  margin: 10px 15px 10px 0;
+}
+
+html.Newtheme .casinoList > div .txt-darkBlue {
+  font-size: 12px;
+  margin: 0;
+}
+
+html.Newtheme .casinoList > div .brand {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+html.Newtheme .casinoList > div .brand:before {
+  content: "";
+  border-color: #134DAE transparent transparent #134DAE;
+  border-style: solid;
+  border-width: 25px 45px;
+  border-top-left-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+html.Newtheme .casinoList > div .brand span {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  color: white;
+  font-weight: bold;
 }
 
 html.Newtheme article {
