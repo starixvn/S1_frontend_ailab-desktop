@@ -10,11 +10,6 @@ import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
 import config from "../../../config";
 
-const bankStatus = {
-	open: 1,
-	suspend: 2
-};
-
 const LocalBankForm = ({
 	t,
 	userInfo,
@@ -178,13 +173,6 @@ const LocalBankForm = ({
 							className.push("active");
 						}
 
-						if (item.status === bankStatus.suspend) {
-							className.push("close");
-						}
-
-						if (item.status === bankStatus.open) {
-							className.push("open");
-						}
 						className = className.join(" ");
 
 						return (

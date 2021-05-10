@@ -118,7 +118,7 @@ const MobileForm = ({
 				</div>
 			</div>
 
-			{!!mobilePayInfoList.length && (
+			{mobilePayInfoList.length > 1 && (
 				<div className="subModule">
 					<div className="subModuleTitle">
 						<span>
