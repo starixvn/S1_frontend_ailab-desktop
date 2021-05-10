@@ -19,6 +19,13 @@ export const api_tp_Transfer = ({ TpId, amount, direction }) =>
 		direction
 	});
 
+export const api_tp_TransferEx = ({ FromTpId, ToTpId, Amount }) =>
+	tpRequest.post("/TransferEX", {
+		FromTpId,
+		ToTpId,
+		Amount
+	});
+
 export const api_tp_GotoGame = ({
 	gameId = null,
 	TpId,

@@ -13,6 +13,7 @@ import {
 import { isConvert } from "../common/common";
 import {
 	api_tp_Transfer,
+	api_tp_TransferEx,
 	api_tp_GetTransferRecent
 } from "../../service/api/tp";
 import { defPopBoxType } from "../common/popBox";
@@ -21,6 +22,7 @@ import SetAmount from "./setAmount";
 import RecentHistory from "./recentHistory";
 import { GetAllWallets } from "../common/wrapper.walletInfo";
 import Loading from "../common/loading";
+import usePopBox from "../hook/usePopBox";
 
 const defDirection = {
 	MainToTp: 1,
@@ -48,12 +50,6 @@ const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
 	return [...prev].sort((a, b) => a.id - b.id);
 };
 
-const OptFilter = ({ allWallets, oppositeTpId }) => {
-	return allWallets.filter(w =>
-		oppositeTpId === null || oppositeTpId === 0 ? true : w.id === 0
-	);
-};
-
 export default () => {
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
@@ -67,6 +63,7 @@ export default () => {
 	const [getHistory, setGetHistory] = useState(null);
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [loading, setLoading] = useState(true);
 	const _isConvert = isConvert(userInfo.currencyId);
 	const { dispatch } = useContext(walletInfoContext);
@@ -88,6 +85,21 @@ export default () => {
 		}
 		getInitialData();
 	}, []);
+
+	const clickInfo = () => {
+		const _msg =
+			status.tip === ""
+				? t("lbl_AmountTooltip")?.replace("{0}", "1")
+				: "";
+		setStatus({
+			checked: null,
+			tip: _msg
+		});
+	};
+
+	const ClickClose = () => {
+		setPopBox({ isOpen: false });
+	};
 
 	const getAllWalletData = () => {
 		getMainWallet();
@@ -146,82 +158,6 @@ export default () => {
 		}
 	};
 
-	const ClickClose = () => {
-		setPopBox({ isOpen: false });
-	};
-
-	const Transfer = async (_tpId, _amount, _direction) => {
-		setLoading(true);
-		await api_tp_Transfer({
-			TpId: _tpId,
-			amount: _amount,
-			direction: _direction
-		}).then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						getAllWalletData();
-						getTransferRecent();
-						setAmount("");
-						GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
-					} else if (res.data.errorCode === 9) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.TurnoverAccumulated,
-							currencyId: userInfo.currencyId,
-							_isConvert,
-							turnover: res.data.data.turnover,
-							rollover: res.data.data.rollover,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										OK
-									</button>
-								</div>
-							)
-						});
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-				}
-			},
-			err => {
-				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-				}
-			}
-		);
-		setLoading(false);
-	};
-
 	const getTransferRecent = async () => {
 		await api_tp_GetTransferRecent().then(
 			res => {
@@ -229,76 +165,19 @@ export default () => {
 					if (res.data.errorCode === 0) {
 						setGetHistory(res.data.data);
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
-	};
-
-	const checkSelectWallet = () => {
-		let checkPass = true;
-		if (selectedTpId.from === null || selectedTpId.to === null) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.ErrorMsg,
-				message:
-					selectedTpId.from === null
-						? t("lbl_please_select_from_wallet")
-						: t("lbl_please_select_to_wallet"),
-				btnBar: (
-					<div className="btnGroup">
-						<button className="btn-cancel" onClick={ClickClose}>
-							{t("lbl_Close")}
-						</button>
-					</div>
-				)
-			});
-			checkPass = false;
-		}
-		return checkPass;
-	};
-
-	const clickInfo = () => {
-		const _msg =
-			status.tip === ""
-				? t("lbl_AmountTooltip")?.replace("{0}", "1")
-				: "";
-		setStatus({
-			checked: null,
-			tip: _msg
-		});
 	};
 
 	const EditAmount = e => {
@@ -324,6 +203,149 @@ export default () => {
 		return _checked;
 	};
 
+	const onSelectWallet = (col, i, value) => {
+		setSelectedTpId(prev => {
+			const oppsCol = col === "from" ? "to" : "from";
+			let result;
+			if (col === "from") {
+				result = {
+					[col]: value.id,
+					[oppsCol]:
+						value.id === selectedTpId.to ? null : prev[oppsCol]
+				};
+			} else {
+				result = {
+					[col]: value.id,
+					[oppsCol]:
+						value.id === selectedTpId.from ? null : prev[oppsCol]
+				};
+			}
+			return result;
+		});
+	};
+
+	const checkSelectWallet = () => {
+		let checkPass = true;
+		if (selectedTpId.from === null || selectedTpId.to === null) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message:
+					selectedTpId.from === null
+						? t("lbl_please_select_from_wallet")
+						: t("lbl_please_select_to_wallet"),
+				btnBar: (
+					<div className="btnGroup">
+						<button className="btn-cancel" onClick={ClickClose}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+			checkPass = false;
+		}
+		return checkPass;
+	};
+
+	const refreshAfterTransfer = () => {
+		getAllWalletData();
+		getTransferRecent();
+		setAmount("");
+		GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
+	};
+
+	const Transfer = async (_tpId, _amount, _direction) => {
+		setLoading(true);
+		await api_tp_Transfer({
+			TpId: _tpId,
+			amount: _amount,
+			direction: _direction
+		}).then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						refreshAfterTransfer();
+					} else if (res.data.errorCode === 9) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.TurnoverAccumulated,
+							currencyId: userInfo.currencyId,
+							_isConvert,
+							turnover: res.data.data.turnover,
+							rollover: res.data.data.rollover,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClickClose}>
+										OK
+									</button>
+								</div>
+							)
+						});
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
+			}
+		);
+		setLoading(false);
+	};
+
+	const TransferTp = async (_fromTpId, _toTpId, _amount) => {
+		setLoading(true);
+		await api_tp_TransferEx({
+			FromTpId: _fromTpId,
+			ToTpId: _toTpId,
+			Amount: _amount
+		}).then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						refreshAfterTransfer();
+					} else if (res.data.errorCode === 9) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.TurnoverAccumulated,
+							currencyId: userInfo.currencyId,
+							_isConvert,
+							turnover: res.data.data.turnover,
+							rollover: res.data.data.rollover,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={ClickClose}>
+										OK
+									</button>
+								</div>
+							)
+						});
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
+			}
+		);
+		setLoading(false);
+	};
+
 	const clickSubmit = e => {
 		e.preventDefault();
 		const result = checkAmount() && checkSelectWallet();
@@ -342,7 +364,11 @@ export default () => {
 					? selectedTpId.to
 					: selectedTpId.from;
 
-			Transfer(_wallet, real_amount, _direction);
+			if (selectedTpId.to === 0 || selectedTpId.from === 0) {
+				Transfer(_wallet, real_amount, _direction);
+			} else {
+				TransferTp(selectedTpId.from, selectedTpId.to, real_amount);
+			}
 			setStatus(initStatus);
 			setAmount("");
 		}
@@ -364,27 +390,6 @@ export default () => {
 		getTpWalletList();
 	};
 
-	const onSelectWallet = (col, i, value) => {
-		setSelectedTpId(prev => {
-			const oppsCol = col === "from" ? "to" : "from";
-			return {
-				[col]: value.id,
-				[oppsCol]:
-					value.id === 0 && prev[oppsCol] === 0 ? null : prev[oppsCol]
-			};
-		});
-	};
-
-	const fromOptions = OptFilter({
-		allWallets: walletInfo,
-		oppositeTpId: selectedTpId.to
-	});
-
-	const toOptions = OptFilter({
-		allWallets: walletInfo,
-		oppositeTpId: selectedTpId.from
-	});
-
 	return loading ? (
 		<Loading />
 	) : (
@@ -402,7 +407,7 @@ export default () => {
 						_isConvert={_isConvert}
 					/>
 					<SetAmount
-						i18n={t}
+						t={t}
 						amount={amount}
 						onChange={EditAmount}
 						clickSubmit={clickSubmit}
@@ -411,12 +416,11 @@ export default () => {
 						checked={status.checked}
 						tip={status.tip}
 						_isConvert={_isConvert}
-						fomOptions={fromOptions}
-						toOptions={toOptions}
-						selectedFromIdx={fromOptions.findIndex(
+						walletOptions={walletInfo}
+						selectedFromIdx={walletInfo.findIndex(
 							f => f.id === selectedTpId.from
 						)}
-						selectedToIdx={toOptions.findIndex(
+						selectedToIdx={walletInfo.findIndex(
 							tp => tp.id === selectedTpId.to
 						)}
 						onSelectWallet={onSelectWallet}

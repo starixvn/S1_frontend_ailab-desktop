@@ -1,12 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
 import Inputbox from "../common/inputbox";
 import Dropdown from "../common/dropdown";
 
 const SetAmount = ({
-	fomOptions,
-	toOptions,
+	walletOptions,
 	selectedFromIdx,
 	selectedToIdx,
 	onSelectWallet,
@@ -18,10 +16,8 @@ const SetAmount = ({
 	checked,
 	tip,
 	_isConvert,
-	i18n
+	t
 }) => {
-	const { t } = useTranslation();
-
 	return (
 		<div className="subModuleList">
 			<div className="walletTransfer">
@@ -30,7 +26,7 @@ const SetAmount = ({
 						<Dropdown
 							i18n={t}
 							mainKey="from_wallet"
-							options={fomOptions}
+							options={walletOptions}
 							selectedIdx={selectedFromIdx}
 							onSelectItem={onSelectWallet.bind(this, "from")}
 							title={t("lbl_From")}
@@ -40,7 +36,7 @@ const SetAmount = ({
 						<Dropdown
 							i18n={t}
 							mainKey="to_wallet"
-							options={toOptions}
+							options={walletOptions}
 							selectedIdx={selectedToIdx}
 							onSelectItem={onSelectWallet.bind(this, "to")}
 							title={t("lbl_To")}
@@ -50,7 +46,7 @@ const SetAmount = ({
 				<form className="inputModuleRow" onSubmit={clickSubmit}>
 					<Inputbox
 						className="inputBox-white"
-						title={i18n("lbl_Amount")}
+						title={t("lbl_Amount")}
 						value={amount}
 						onChange={onChange}
 						onBlur={onBlur}
@@ -65,7 +61,7 @@ const SetAmount = ({
 							className="btn-check"
 							type="submit"
 							data-testid="setAmount_submit">
-							{i18n("lbl_Submit")}
+							{t("lbl_Submit")}
 						</button>
 					</div>
 				</form>
@@ -79,8 +75,7 @@ SetAmount.defaultProps = {
 };
 
 SetAmount.propTypes = {
-	fomOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
-	toOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
+	walletOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	selectedFromIdx: PropTypes.number.isRequired,
 	selectedToIdx: PropTypes.number.isRequired,
 	onSelectWallet: PropTypes.func.isRequired,
@@ -92,7 +87,7 @@ SetAmount.propTypes = {
 	checked: PropTypes.bool,
 	tip: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	i18n: PropTypes.func.isRequired
+	t: PropTypes.func.isRequired
 };
 
 export default SetAmount;
