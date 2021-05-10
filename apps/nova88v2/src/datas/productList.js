@@ -98,7 +98,7 @@ export default {
 		gameId: 43
 	},
 
-	/* === casino === */
+	/* === slot === */
 
 	casino_PP: {
 		tpId: 5
@@ -135,7 +135,7 @@ export default {
 		needLogin: true
 	},
 
-	/* === live casino === */
+	/* === casino === */
 
 	liveCasino_WM: {
 		tpId: 20,
