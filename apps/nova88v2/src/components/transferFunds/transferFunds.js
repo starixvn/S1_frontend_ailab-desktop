@@ -110,6 +110,13 @@ export default () => {
 		getTpWalletList();
 	};
 
+	const refreshAfterTransfer = () => {
+		getAllWalletData();
+		GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
+		getTransferRecent();
+		setAmount("");
+	};
+
 	const getMainWallet = async () => {
 		await api_account_GetBalance().then(res => {
 			if (isMountedRef.current && res.data.errorCode === 0) {
@@ -250,12 +257,7 @@ export default () => {
 		}).then(
 			res => {
 				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						getAllWalletData();
-						getTransferRecent();
-						setAmount("");
-						GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
-					} else if (res.data.errorCode === 9) {
+					if (res.data.errorCode === 9) {
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.TurnoverAccumulated,
@@ -273,7 +275,10 @@ export default () => {
 								</div>
 							)
 						});
-					} else {
+					} else if (
+						res.data.errorCode !== 0 &&
+						res.data.errorCode !== 9
+					) {
 						errorPopBox(
 							res.data.message || "error",
 							res.data.errorCode
@@ -290,30 +295,31 @@ export default () => {
 		setLoading(false);
 	};
 
-	const clickSubmit = e => {
+	const clickSubmit = async e => {
 		e.preventDefault();
 		const result = checkAmount() && checkSelectWallet();
 		if (result) {
 			const real_amount = _isConvert
 				? Number(amount) * 1000
 				: Number(amount);
-
-			Transfer(selectedTpId.from, selectedTpId.to, real_amount);
+			await Transfer(selectedTpId.from, selectedTpId.to, real_amount);
+			refreshAfterTransfer();
 			setStatus(initStatus);
-			setAmount("");
 		}
 	};
 
-	const restoreAll = _toWalletId => {
-		walletInfo
-			.filter(o => o.id !== _toWalletId)
-			.forEach(item => {
-				if (item.balance > 0) {
-					Transfer(item.id, _toWalletId, item.balance);
-				}
-			});
-		getMainWallet();
-		getTpWalletList();
+	const restoreAll = async _toWalletId => {
+		const _filterWallets = walletInfo.filter(
+			_wallet => _wallet.id !== _toWalletId && _wallet.balance > 0
+		);
+
+		await Promise.all(
+			_filterWallets.map(async _wallet => {
+				await Transfer(_wallet.id, _toWalletId, _wallet.balance);
+			})
+		);
+
+		refreshAfterTransfer();
 	};
 
 	const getAutoTransferStatus = () => {
