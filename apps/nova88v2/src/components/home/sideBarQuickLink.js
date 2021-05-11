@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { SiteInfo } from "../../config";
+import { userInfoContext } from "../common/context";
+import { getCurrencyCode } from "../common/common";
+import { currencyCode } from "../../datas/countryCode";
 
 export default () => {
 	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
 	const [isIconListOpen, setIsIconListOpen] = useState(false);
 	const [activeIcon, setActiveIcon] = useState(null);
 
@@ -22,14 +26,18 @@ export default () => {
 		}
 	};
 
+	const _currencyId = userInfo.currencyId
+		? userInfo.currencyId
+		: getCurrencyCode(userInfo.langId);
+
 	const defIconList = [
 		{ id: 1, iconClass: "icon icon-chat" },
 		{ id: 2, iconClass: "icon icon-instagram" },
-		// { id: 3, iconClass: "icon icon-facebook2" },
-		// { id: 4, iconClass: "icon icon-twitter" },
+		{ id: 3, iconClass: "icon icon-facebook2" },
+		{ id: 4, iconClass: "icon icon-twitter" },
 		{
 			id: 5,
-
+			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
 			imgInfo: "+63 945 638 8147",
 			imgSrc:
@@ -37,7 +45,7 @@ export default () => {
 		},
 		{
 			id: 6,
-
+			displayByCurrency: [currencyCode.TH],
 			iconClass: "icon icon-line",
 			imgInfo: "@Nova88thai",
 			imgSrc:
@@ -66,29 +74,31 @@ export default () => {
 		}
 	};
 
-	const iconList = defIconList.map(_icon => {
-		return (
-			<a
-				key={`sidebar-link-${_icon.id}`}
-				onClick={getIconAction.bind(this, _icon.id)}
-				target="_blank"
-				rel="noreferrer"
-				className={`icon ${_icon.iconClass}${
-					activeIcon === _icon.id ? " active" : ""
-				}`}
-				onMouseOver={switchIconActive.bind(this, _icon.id)}
-				onFocus={() => 0}
-				onMouseOut={removeIconActive.bind(this)}
-				onBlur={() => 0}>
-				{_icon.imgSrc ? (
-					<div>
-						{_icon.imgInfo}
-						<img src={_icon.imgSrc} />
-					</div>
-				) : null}
-			</a>
-		);
-	});
+	const iconList = defIconList
+		.filter(_icon => _icon.displayByCurrency?.includes(_currencyId))
+		.map(_icon => {
+			return (
+				<a
+					key={`sidebar-link-${_icon.id}`}
+					onClick={getIconAction.bind(this, _icon.id)}
+					target="_blank"
+					rel="noreferrer"
+					className={`icon ${_icon.iconClass}${
+						activeIcon === _icon.id ? " active" : ""
+					}`}
+					onMouseOver={switchIconActive.bind(this, _icon.id)}
+					onFocus={() => 0}
+					onMouseOut={removeIconActive.bind(this)}
+					onBlur={() => 0}>
+					{_icon.imgSrc ? (
+						<div>
+							{_icon.imgInfo}
+							<img src={_icon.imgSrc} />
+						</div>
+					) : null}
+				</a>
+			);
+		});
 
 	return (
 		<>
