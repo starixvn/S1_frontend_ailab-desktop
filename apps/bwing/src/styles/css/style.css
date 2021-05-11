@@ -1023,7 +1023,7 @@ header .header > div.function .memberfile .submenu .icon-exit {
 header .header > div.function .cashier .submenu .icon-exit:before,
 header .header > div.function .wallet .submenu .icon-exit:before,
 header .header > div.function .memberfile .submenu .icon-exit:before {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 header .header > div.function .cashier .submenu .icon-exit span,
@@ -1044,7 +1044,7 @@ header .header > div.function .memberfile.active > button,
 header .header > div.function .memberfile.active > a,
 header .header > div.function .memberfile.active:before,
 header .header > div.function .memberfile.active:after {
-  color: #1E85EC;
+  color: #1e85ec;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -1106,7 +1106,7 @@ header .header > div.function .wallet .submenu div.balance {
 header .header > div.function .wallet .submenu div.balance button {
   font-size: 12px;
   margin-left: 5px;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 100%;
   width: 20px;
   height: 20px;
@@ -1195,6 +1195,7 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
 main {
   position: relative;
   padding-top: 120px;
+  height: calc(100% - 80px);
 }
 
 main section.inside {
@@ -1203,6 +1204,7 @@ main section.inside {
   display: flex;
   max-width: 1600px;
   margin: auto;
+  height: 100%;
 }
 
 main section > div {
@@ -1213,7 +1215,7 @@ main section > div {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 main section > div .articleModule {
@@ -1471,11 +1473,11 @@ footer > div.copyright {
 }
 
 .txt-org {
-  color: #F85B05;
+  color: #f85b05;
 }
 
 .txt-blue2 {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .txt-blue15 {
@@ -1503,7 +1505,7 @@ footer > div.copyright {
 }
 
 .txt-red {
-  color: #F52805;
+  color: #f52805;
 }
 
 .txt-dark {
@@ -1554,7 +1556,7 @@ footer > div.copyright {
   width: calc(100% - 22px);
   background: #070e22;
   color: white;
-  border: 1px solid #1D3662;
+  border: 1px solid #1d3662;
   outline: none;
   border-radius: 3px;
   position: relative;
@@ -1596,8 +1598,8 @@ footer > div.copyright {
 }
 
 .inputBox.active, .active.inputBox-blue {
-  border: 1px solid #1E85EC;
-  outline: #1E85EC;
+  border: 1px solid #1e85ec;
+  outline: #1e85ec;
 }
 
 .inputBox > .icon, .inputBox-blue > .icon {
@@ -1896,7 +1898,7 @@ input[type="file"] {
 
 .btnGroup button.red,
 .btnGroup a.red {
-  background: #F52805;
+  background: #f52805;
   color: white;
 }
 
@@ -1913,7 +1915,7 @@ input[type="file"] {
 
 .btnGroup button.blueBorder:hover,
 .btnGroup a.blueBorder:hover {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .btnGroup button.icon:before,
@@ -2059,7 +2061,7 @@ main > .swiper-container .swiper-slide {
   color: #1e85ec;
   font-weight: bold;
   position: absolute;
-  width: 43px;
+  width: 100%;
   height: 43px;
   left: 0;
   font-size: 18px;
@@ -2286,7 +2288,7 @@ main > .swiper-container .swiper-slide {
 
 .list + button,
 .list + a {
-  color: #1E85EC;
+  color: #1e85ec;
   float: right;
   font-size: 30px;
   text-align: right;
@@ -2304,14 +2306,14 @@ main > .swiper-container .swiper-slide {
 .list .listTag .icon-books {
   position: absolute;
   right: 5px;
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 24px;
 }
 
 .list .listTag button,
 .list .listTag a {
   line-height: 30px;
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   padding: 0 10px;
   border-top-left-radius: 10px;
@@ -2320,7 +2322,7 @@ main > .swiper-container .swiper-slide {
 
 .list .listTag button.active,
 .list .listTag a.active {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .list .listHeader div,
@@ -2390,7 +2392,7 @@ main > .swiper-container .swiper-slide {
   font-size: 12px;
   position: absolute;
   right: 12px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .list .listHeader div {
@@ -2452,7 +2454,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div div.reject {
-  color: #F52805;
+  color: #f52805;
   font-weight: bold;
 }
 
@@ -2703,7 +2705,7 @@ main > .swiper-container .swiper-slide {
 
 .cashBar .cashLine input {
   height: 10px;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 30px;
   border: 0;
   position: absolute;
@@ -2750,7 +2752,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -2829,19 +2831,76 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
-.bannerS > p {
+.bannerS .jpot {
+  width: 400px;
+  height: 200px;
+  -webkit-animation: jpot 0.3s infinite;
+          animation: jpot 0.3s infinite;
+  position: relative;
+  background: url(../img/jackpot.png) no-repeat;
+}
+
+.bannerS .jpot > div {
   position: absolute;
-  bottom: 11%;
-  left: 26.5%;
+  bottom: 32px;
+  right: 50px;
+  width: 290px;
+  text-align: right;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 18px;
 }
 
-.bannerS > p:nth-last-child(1) {
-  left: 38%;
+.bannerS .jpot > div div:first-child {
   font-size: 18px;
-  bottom: 12%;
-  letter-spacing: 2px;
-  font-weight: bold;
+  margin: auto auto auto 0;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) {
+  font-size: 18px;
+  width: 15px;
+  height: 30px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) span {
+  word-break: break-word;
+  position: absolute;
+  left: 0;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) span.active {
+  -webkit-animation: jpotxt 2s infinite;
+          animation: jpotxt 2s infinite;
+}
+
+@-webkit-keyframes jpotxt {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+@keyframes jpotxt {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
 }
 
 .achievement {
@@ -3081,7 +3140,7 @@ main > .swiper-container .swiper-slide {
 
 .subModuleList .subModule .subModuleBody ul li a.icon-library,
 .subModuleList .subModule .subModuleBody ul li button.icon-library {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 44px;
 }
 
@@ -3302,7 +3361,7 @@ main > .swiper-container .swiper-slide {
   right: -10px;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .mysteryArea {
@@ -3692,7 +3751,7 @@ main > .swiper-container .swiper-slide {
 .upload > .icon.icon-information-solid,
 .update > .icon.icon-information-solid,
 .loackAmount > .icon.icon-information-solid {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .Submit .title,
@@ -3869,7 +3928,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img {
   border-radius: 15px;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3886,7 +3945,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img .icon {
   font-size: 48px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img img {
@@ -3915,7 +3974,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -4412,12 +4471,12 @@ main > .swiper-container .swiper-slide {
       -ms-flex-align: center;
           align-items: center;
   width: 55px;
-  color: #F85B05;
+  color: #f85b05;
   font-size: 24px;
 }
 
 .walletTransfer .walletModule .walletBalanceModule {
-  background: #1D3662;
+  background: #1d3662;
   font-weight: bold;
   margin-right: 0;
   padding: 30px;
@@ -4605,7 +4664,7 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .addBank .addBankName .icon-plus {
@@ -5379,7 +5438,7 @@ main > .swiper-container .swiper-slide {
 
 .personal .list .listHeader .checkbox label.icon.icon:before,
 .personal .list .functionMenu .checkbox label.icon.icon:before {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 18px;
   margin-left: -1px;
 }
@@ -5489,7 +5548,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 16px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -5503,7 +5562,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp + span {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .otpBtn {
@@ -5522,7 +5581,7 @@ main > .swiper-container .swiper-slide {
   display: flex;
   top: 13px;
   left: -2px;
-  background: #F52805;
+  background: #f52805;
   border-bottom-right-radius: 10px;
   width: 28px;
   height: 25px;
@@ -5676,8 +5735,8 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div:hover {
-  -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
-          box-shadow: 0 0 0 3px #1E85EC inset;
+  -webkit-box-shadow: 0 0 0 3px #1e85ec inset;
+          box-shadow: 0 0 0 3px #1e85ec inset;
 }
 
 .proList > div .turnover {
@@ -5685,24 +5744,24 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div .turnover span {
-  color: #F52805;
+  color: #f52805;
 }
 
 .proList > div .turnover button,
 .proList > div .turnover a {
-  background: #F52805;
+  background: #f52805;
 }
 
 .proList > div .progressBar .bar {
-  border: 1px solid #F52805;
+  border: 1px solid #f52805;
 }
 
 .proList > div .progressBar .bar .progress {
-  background: #F52805;
+  background: #f52805;
 }
 
 .proList > div .progressBar .percentage {
-  color: #F52805;
+  color: #f52805;
 }
 
 .proList .btnGroup {
@@ -5947,7 +6006,7 @@ article h1,
 article h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #1E85EC;
+  color: #1e85ec;
   font-weight: bold;
 }
 
@@ -5992,7 +6051,7 @@ article pre {
 }
 
 .rdt i.icon.icon-cross:before {
-  color: #F52805;
+  color: #f52805;
 }
 
 .rdt i.icon.icon-checkmark:before {
@@ -6094,7 +6153,7 @@ iframe {
 
 .progressBarModule .bounsName {
   font-weight: bold;
-  color: #F52805;
+  color: #f52805;
 }
 
 .progressBarModule .turnover {
@@ -6107,7 +6166,7 @@ iframe {
 
 .progressBarModule .turnover button,
 .progressBarModule .turnover a {
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   border-radius: 100%;
   padding: 4px;
@@ -6202,7 +6261,7 @@ input:-moz-placeholder {
   display: none;
   margin-left: 5px;
   background: white;
-  color: #1E85EC;
+  color: #1e85ec;
   border-radius: 100%;
   padding: 1px;
   -webkit-box-pack: center;
@@ -6215,7 +6274,7 @@ input:-moz-placeholder {
 
 .buttonBox button.active,
 .buttonBox a.active {
-  background: #134DAE;
+  background: #134dae;
   color: white;
 }
 
@@ -6317,7 +6376,7 @@ a.icon-books:hover:after {
 }
 
 input + .iconModule i.icon.icon-cross:before {
-  color: #F52805;
+  color: #f52805;
   font-size: 12px;
 }
 
@@ -6373,7 +6432,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .checkBankSlip.smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
   margin-left: 10px;
 }
 
@@ -6620,13 +6679,13 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .minAmount > div > div {
-  border: 1px solid #134DAE;
+  border: 1px solid #134dae;
   padding: 5px 10px;
-  background: #134DAE;
+  background: #134dae;
 }
 
 .minAmount > div > div:last-child {
-  color: #1E85EC;
+  color: #1e85ec;
   background: white;
 }
 
@@ -7870,7 +7929,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   top: 40px;
   left: -1px;
   background: #070e22;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   margin-left: 0;
   overflow: hidden;
   margin-top: 0;
@@ -7883,11 +7942,11 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item.active {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .transferModule .inputBox .dropdown span, .transferModule .inputBox-blue .dropdown span {
@@ -8494,7 +8553,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .icon-information-solid {
-  color: #1E85EC;
+  color: #1e85ec;
   cursor: pointer;
   margin: 0 2px;
 }
@@ -8779,7 +8838,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .subModuleListColumn .bankAccount .smallList ul a,
 .subModuleListColumn .bankAccount .smallList ul button {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li {
@@ -8929,7 +8988,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .upload_img.error {
-  border-color: #F52805;
+  border-color: #f52805;
 }
 
 .upload_img .icon {
@@ -8968,7 +9027,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -9017,7 +9076,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vip .vipPage .eventList tr.title {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .vip .vipPage .eventList tr:last-child {
@@ -9035,7 +9094,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .vip .vipPage .eventList tr td {
@@ -9099,7 +9158,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .vipLv > div {
   margin-top: 15px;
-  background: #1E85EC;
+  background: #1e85ec;
   padding: 5px 10px;
   border-radius: 15px;
 }
@@ -9139,7 +9198,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-size: 18px;
   margin: 20px 0;
   font-weight: bold;
-  color: #1E85EC;
+  color: #1e85ec;
   width: 100%;
 }
 
@@ -9156,24 +9215,10 @@ input + .iconModule i.icon.icon-checkmark:before {
           box-sizing: border-box;
 }
 
-.pupDeposit .close {
-  position: fixed;
-  top: 5%;
-  right: 3%;
-  background: rgba(255, 255, 255, 0.3);
-  width: 45px;
-  line-height: 45px;
-  text-align: center;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.pupDeposit .close:hover {
-  background: rgba(255, 255, 255, 0.5);
-}
-
-.pupDeposit > div {
-  display: none;
+.pupDeposit .swiper-container .swiper-wrapper > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -9187,13 +9232,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding-bottom: 50px;
 }
 
-.pupDeposit > div.open {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.pupDeposit > div .title {
+.pupDeposit .swiper-container .swiper-wrapper > div .title {
   color: #56ceff;
   font-size: 24px;
   font-weight: bold;
@@ -9201,14 +9240,20 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-top: 2vw;
 }
 
-.pupDeposit > div p {
-  max-width: 1200px;
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh {
+  height: 30vw;
+  overflow: auto;
+  margin: 20px 0;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh p {
+  max-width: 800px;
   position: relative;
   color: #fff;
   margin: 20px 0 10px 0;
 }
 
-.pupDeposit > div p::before {
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh p::before {
   content: "";
   position: absolute;
   top: 5px;
@@ -9233,23 +9278,30 @@ input + .iconModule i.icon.icon-checkmark:before {
   }
 }
 
-.pupDeposit > div img {
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh img {
   margin: 10px 0;
   -webkit-transition: 0.2s;
   transition: 0.2s;
-  max-width: 1200px;
+  max-width: 800px;
+  width: auto;
 }
 
-.pupDeposit > div img:hover {
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh img:hover {
   -webkit-box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
           box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
 }
 
-.pupDeposit > div .btnGroup {
-  margin: 20px 0;
+.pupDeposit .swiper-container .btnGroup {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.pupDeposit > div .btnGroup button {
-  min-width: 150px;
+.pupDeposit .swiper-container .btnGroup button {
+  max-width: 200px;
+}
+
+.pupDeposit .swiper-container .swiper-pagination {
+  bottom: 60px;
 }
 /*# sourceMappingURL=style.css.map */
