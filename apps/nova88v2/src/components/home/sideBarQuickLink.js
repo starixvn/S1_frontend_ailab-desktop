@@ -74,31 +74,33 @@ export default () => {
 		}
 	};
 
-	const iconList = defIconList
-		.filter(_icon => _icon.displayByCurrency?.includes(_currencyId))
-		.map(_icon => {
-			return (
-				<a
-					key={`sidebar-link-${_icon.id}`}
-					onClick={getIconAction.bind(this, _icon.id)}
-					target="_blank"
-					rel="noreferrer"
-					className={`icon ${_icon.iconClass}${
-						activeIcon === _icon.id ? " active" : ""
-					}`}
-					onMouseOver={switchIconActive.bind(this, _icon.id)}
-					onFocus={() => 0}
-					onMouseOut={removeIconActive.bind(this)}
-					onBlur={() => 0}>
-					{_icon.imgSrc ? (
-						<div>
-							{_icon.imgInfo}
-							<img src={_icon.imgSrc} />
-						</div>
-					) : null}
-				</a>
-			);
-		});
+	const icons = defIconList.filter(_icon =>
+		_icon.displayByCurrency?.includes(_currencyId)
+	);
+
+	const iconList = (icons.length === 0 ? defIconList : icons).map(_icon => {
+		return (
+			<a
+				key={`sidebar-link-${_icon.id}`}
+				onClick={getIconAction.bind(this, _icon.id)}
+				target="_blank"
+				rel="noreferrer"
+				className={`icon ${_icon.iconClass}${
+					activeIcon === _icon.id ? " active" : ""
+				}`}
+				onMouseOver={switchIconActive.bind(this, _icon.id)}
+				onFocus={() => 0}
+				onMouseOut={removeIconActive.bind(this)}
+				onBlur={() => 0}>
+				{_icon.imgSrc ? (
+					<div>
+						{_icon.imgInfo}
+						<img src={_icon.imgSrc} />
+					</div>
+				) : null}
+			</a>
+		);
+	});
 
 	return (
 		<>
