@@ -4794,11 +4794,6 @@ main > .swiper-container .swiper-slide {
   max-width: 330px;
 }
 
-.proList > div.expired {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
 .proList > div:hover {
   background: #E8E8E8;
   -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
@@ -4811,11 +4806,6 @@ main > .swiper-container .swiper-slide {
 
 .proList .btnGroup .blue {
   margin: 0;
-}
-
-.proList.expired {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
 }
 
 .proList.expired > div {
@@ -8524,7 +8514,7 @@ html.Newtheme::before {
 
 html.Newtheme::after {
   position: absolute;
-  bottom: -250px;
+  bottom: 0;
   left: 0;
   content: "";
   display: block;
@@ -8694,13 +8684,13 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper .icon:before {
   margin-bottom: 5px;
 }
 
-html.Newtheme header .header > div.menu .gameList, html.Newtheme header .header > div.menu .casinoList, html.Newtheme header .header > div.menu .livecasinoList, html.Newtheme header .header > div.menu .fishList {
+html.Newtheme header .header > div.menu .sportList, html.Newtheme header .header > div.menu .gameList, html.Newtheme header .header > div.menu .casinoList, html.Newtheme header .header > div.menu .livecasinoList, html.Newtheme header .header > div.menu .fishList {
   max-width: 1600px;
   margin: auto;
   display: none;
 }
 
-html.Newtheme header .header > div.menu .gameList.active, html.Newtheme header .header > div.menu .casinoList.active, html.Newtheme header .header > div.menu .livecasinoList.active, html.Newtheme header .header > div.menu .fishList.active {
+html.Newtheme header .header > div.menu .sportList.active, html.Newtheme header .header > div.menu .gameList.active, html.Newtheme header .header > div.menu .casinoList.active, html.Newtheme header .header > div.menu .livecasinoList.active, html.Newtheme header .header > div.menu .fishList.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8711,13 +8701,13 @@ html.Newtheme header .header > div.menu .gameList.active, html.Newtheme header .
           justify-content: center;
 }
 
-html.Newtheme header .header > div.menu .gameList.active div, html.Newtheme header .header > div.menu .casinoList.active div, html.Newtheme header .header > div.menu .livecasinoList.active div, html.Newtheme header .header > div.menu .fishList.active div {
+html.Newtheme header .header > div.menu .sportList.active div, html.Newtheme header .header > div.menu .gameList.active div, html.Newtheme header .header > div.menu .casinoList.active div, html.Newtheme header .header > div.menu .livecasinoList.active div, html.Newtheme header .header > div.menu .fishList.active div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html.Newtheme header .header > div.menu .gameList a, html.Newtheme header .header > div.menu .gameList button, html.Newtheme header .header > div.menu .casinoList a, html.Newtheme header .header > div.menu .casinoList button, html.Newtheme header .header > div.menu .livecasinoList a, html.Newtheme header .header > div.menu .livecasinoList button, html.Newtheme header .header > div.menu .fishList a, html.Newtheme header .header > div.menu .fishList button {
+html.Newtheme header .header > div.menu .sportList a, html.Newtheme header .header > div.menu .sportList button, html.Newtheme header .header > div.menu .gameList a, html.Newtheme header .header > div.menu .gameList button, html.Newtheme header .header > div.menu .casinoList a, html.Newtheme header .header > div.menu .casinoList button, html.Newtheme header .header > div.menu .livecasinoList a, html.Newtheme header .header > div.menu .livecasinoList button, html.Newtheme header .header > div.menu .fishList a, html.Newtheme header .header > div.menu .fishList button {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 200px;
           flex: 0 0 200px;
@@ -8742,13 +8732,13 @@ html.Newtheme header .header > div.menu .gameList a, html.Newtheme header .heade
   overflow: hidden;
 }
 
-html.Newtheme header .header > div.menu .gameList a img, html.Newtheme header .header > div.menu .gameList button img, html.Newtheme header .header > div.menu .casinoList a img, html.Newtheme header .header > div.menu .casinoList button img, html.Newtheme header .header > div.menu .livecasinoList a img, html.Newtheme header .header > div.menu .livecasinoList button img, html.Newtheme header .header > div.menu .fishList a img, html.Newtheme header .header > div.menu .fishList button img {
+html.Newtheme header .header > div.menu .sportList a img, html.Newtheme header .header > div.menu .sportList button img, html.Newtheme header .header > div.menu .gameList a img, html.Newtheme header .header > div.menu .gameList button img, html.Newtheme header .header > div.menu .casinoList a img, html.Newtheme header .header > div.menu .casinoList button img, html.Newtheme header .header > div.menu .livecasinoList a img, html.Newtheme header .header > div.menu .livecasinoList button img, html.Newtheme header .header > div.menu .fishList a img, html.Newtheme header .header > div.menu .fishList button img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 
-html.Newtheme header .header > div.menu .gameList a span, html.Newtheme header .header > div.menu .gameList button span, html.Newtheme header .header > div.menu .casinoList a span, html.Newtheme header .header > div.menu .casinoList button span, html.Newtheme header .header > div.menu .livecasinoList a span, html.Newtheme header .header > div.menu .livecasinoList button span, html.Newtheme header .header > div.menu .fishList a span, html.Newtheme header .header > div.menu .fishList button span {
+html.Newtheme header .header > div.menu .sportList a span, html.Newtheme header .header > div.menu .sportList button span, html.Newtheme header .header > div.menu .gameList a span, html.Newtheme header .header > div.menu .gameList button span, html.Newtheme header .header > div.menu .casinoList a span, html.Newtheme header .header > div.menu .casinoList button span, html.Newtheme header .header > div.menu .livecasinoList a span, html.Newtheme header .header > div.menu .livecasinoList button span, html.Newtheme header .header > div.menu .fishList a span, html.Newtheme header .header > div.menu .fishList button span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8765,7 +8755,7 @@ html.Newtheme header .header > div.menu .gameList a span, html.Newtheme header .
   z-index: 4;
 }
 
-html.Newtheme header .header > div.menu .gameList a span > p, html.Newtheme header .header > div.menu .gameList button span > p, html.Newtheme header .header > div.menu .casinoList a span > p, html.Newtheme header .header > div.menu .casinoList button span > p, html.Newtheme header .header > div.menu .livecasinoList a span > p, html.Newtheme header .header > div.menu .livecasinoList button span > p, html.Newtheme header .header > div.menu .fishList a span > p, html.Newtheme header .header > div.menu .fishList button span > p {
+html.Newtheme header .header > div.menu .sportList a span > p, html.Newtheme header .header > div.menu .sportList button span > p, html.Newtheme header .header > div.menu .gameList a span > p, html.Newtheme header .header > div.menu .gameList button span > p, html.Newtheme header .header > div.menu .casinoList a span > p, html.Newtheme header .header > div.menu .casinoList button span > p, html.Newtheme header .header > div.menu .livecasinoList a span > p, html.Newtheme header .header > div.menu .livecasinoList button span > p, html.Newtheme header .header > div.menu .fishList a span > p, html.Newtheme header .header > div.menu .fishList button span > p {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -8774,36 +8764,36 @@ html.Newtheme header .header > div.menu .gameList a span > p, html.Newtheme head
   line-height: 1.45;
 }
 
-html.Newtheme header .header > div.menu .gameList a:hover, html.Newtheme header .header > div.menu .gameList button:hover, html.Newtheme header .header > div.menu .casinoList a:hover, html.Newtheme header .header > div.menu .casinoList button:hover, html.Newtheme header .header > div.menu .livecasinoList a:hover, html.Newtheme header .header > div.menu .livecasinoList button:hover, html.Newtheme header .header > div.menu .fishList a:hover, html.Newtheme header .header > div.menu .fishList button:hover {
+html.Newtheme header .header > div.menu .sportList a:hover, html.Newtheme header .header > div.menu .sportList button:hover, html.Newtheme header .header > div.menu .gameList a:hover, html.Newtheme header .header > div.menu .gameList button:hover, html.Newtheme header .header > div.menu .casinoList a:hover, html.Newtheme header .header > div.menu .casinoList button:hover, html.Newtheme header .header > div.menu .livecasinoList a:hover, html.Newtheme header .header > div.menu .livecasinoList button:hover, html.Newtheme header .header > div.menu .fishList a:hover, html.Newtheme header .header > div.menu .fishList button:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   background: url(../img/dropdown/dropbg_a.png) no-repeat center/auto 100%;
 }
 
-html.Newtheme header .header > div.menu .gameList a:hover span, html.Newtheme header .header > div.menu .gameList button:hover span, html.Newtheme header .header > div.menu .casinoList a:hover span, html.Newtheme header .header > div.menu .casinoList button:hover span, html.Newtheme header .header > div.menu .livecasinoList a:hover span, html.Newtheme header .header > div.menu .livecasinoList button:hover span, html.Newtheme header .header > div.menu .fishList a:hover span, html.Newtheme header .header > div.menu .fishList button:hover span {
+html.Newtheme header .header > div.menu .sportList a:hover span, html.Newtheme header .header > div.menu .sportList button:hover span, html.Newtheme header .header > div.menu .gameList a:hover span, html.Newtheme header .header > div.menu .gameList button:hover span, html.Newtheme header .header > div.menu .casinoList a:hover span, html.Newtheme header .header > div.menu .casinoList button:hover span, html.Newtheme header .header > div.menu .livecasinoList a:hover span, html.Newtheme header .header > div.menu .livecasinoList button:hover span, html.Newtheme header .header > div.menu .fishList a:hover span, html.Newtheme header .header > div.menu .fishList button:hover span {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   background: url(../img/dropdown/droptitle_a.png) no-repeat center/auto 100%;
   color: #fff;
 }
 
-html.Newtheme header .header > div.menu .gameList a:hover .item-img, html.Newtheme header .header > div.menu .gameList button:hover .item-img, html.Newtheme header .header > div.menu .casinoList a:hover .item-img, html.Newtheme header .header > div.menu .casinoList button:hover .item-img, html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img, html.Newtheme header .header > div.menu .livecasinoList button:hover .item-img, html.Newtheme header .header > div.menu .fishList a:hover .item-img, html.Newtheme header .header > div.menu .fishList button:hover .item-img {
+html.Newtheme header .header > div.menu .sportList a:hover .item-img, html.Newtheme header .header > div.menu .sportList button:hover .item-img, html.Newtheme header .header > div.menu .gameList a:hover .item-img, html.Newtheme header .header > div.menu .gameList button:hover .item-img, html.Newtheme header .header > div.menu .casinoList a:hover .item-img, html.Newtheme header .header > div.menu .casinoList button:hover .item-img, html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img, html.Newtheme header .header > div.menu .livecasinoList button:hover .item-img, html.Newtheme header .header > div.menu .fishList a:hover .item-img, html.Newtheme header .header > div.menu .fishList button:hover .item-img {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   bottom: 0;
 }
 
-html.Newtheme header .header > div.menu .gameList a:hover .liveitem-img, html.Newtheme header .header > div.menu .gameList button:hover .liveitem-img, html.Newtheme header .header > div.menu .casinoList a:hover .liveitem-img, html.Newtheme header .header > div.menu .casinoList button:hover .liveitem-img, html.Newtheme header .header > div.menu .livecasinoList a:hover .liveitem-img, html.Newtheme header .header > div.menu .livecasinoList button:hover .liveitem-img, html.Newtheme header .header > div.menu .fishList a:hover .liveitem-img, html.Newtheme header .header > div.menu .fishList button:hover .liveitem-img {
+html.Newtheme header .header > div.menu .sportList a:hover .liveitem-img, html.Newtheme header .header > div.menu .sportList button:hover .liveitem-img, html.Newtheme header .header > div.menu .gameList a:hover .liveitem-img, html.Newtheme header .header > div.menu .gameList button:hover .liveitem-img, html.Newtheme header .header > div.menu .casinoList a:hover .liveitem-img, html.Newtheme header .header > div.menu .casinoList button:hover .liveitem-img, html.Newtheme header .header > div.menu .livecasinoList a:hover .liveitem-img, html.Newtheme header .header > div.menu .livecasinoList button:hover .liveitem-img, html.Newtheme header .header > div.menu .fishList a:hover .liveitem-img, html.Newtheme header .header > div.menu .fishList button:hover .liveitem-img {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   bottom: 40px;
 }
 
-html.Newtheme header .header > div.menu .gameList a img, html.Newtheme header .header > div.menu .gameList button img, html.Newtheme header .header > div.menu .casinoList a img, html.Newtheme header .header > div.menu .casinoList button img, html.Newtheme header .header > div.menu .livecasinoList a img, html.Newtheme header .header > div.menu .livecasinoList button img, html.Newtheme header .header > div.menu .fishList a img, html.Newtheme header .header > div.menu .fishList button img {
+html.Newtheme header .header > div.menu .sportList a img, html.Newtheme header .header > div.menu .sportList button img, html.Newtheme header .header > div.menu .gameList a img, html.Newtheme header .header > div.menu .gameList button img, html.Newtheme header .header > div.menu .casinoList a img, html.Newtheme header .header > div.menu .casinoList button img, html.Newtheme header .header > div.menu .livecasinoList a img, html.Newtheme header .header > div.menu .livecasinoList button img, html.Newtheme header .header > div.menu .fishList a img, html.Newtheme header .header > div.menu .fishList button img {
   max-width: 150px;
 }
 
-html.Newtheme header .header > div.menu .gameList .icon-new::before, html.Newtheme header .header > div.menu .casinoList .icon-new::before, html.Newtheme header .header > div.menu .livecasinoList .icon-new::before, html.Newtheme header .header > div.menu .fishList .icon-new::before {
+html.Newtheme header .header > div.menu .sportList .icon-new::before, html.Newtheme header .header > div.menu .gameList .icon-new::before, html.Newtheme header .header > div.menu .casinoList .icon-new::before, html.Newtheme header .header > div.menu .livecasinoList .icon-new::before, html.Newtheme header .header > div.menu .fishList .icon-new::before {
   position: absolute;
   top: 10px;
   left: calc(50% - 70px);
@@ -8823,21 +8813,21 @@ html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img, html.
   bottom: 30px;
 }
 
-html.Newtheme header .header > div.menu .gameList .item-bg, html.Newtheme header .header > div.menu .casinoList .item-bg, html.Newtheme header .header > div.menu .livecasinoList .item-bg, html.Newtheme header .header > div.menu .fishList .item-bg {
+html.Newtheme header .header > div.menu .sportList .item-bg, html.Newtheme header .header > div.menu .gameList .item-bg, html.Newtheme header .header > div.menu .casinoList .item-bg, html.Newtheme header .header > div.menu .livecasinoList .item-bg, html.Newtheme header .header > div.menu .fishList .item-bg {
   position: absolute;
   top: calc(50% - 75px);
   left: calc(50% - 75px);
   z-index: 0;
 }
 
-html.Newtheme header .header > div.menu .gameList .item-img, html.Newtheme header .header > div.menu .casinoList .item-img, html.Newtheme header .header > div.menu .livecasinoList .item-img, html.Newtheme header .header > div.menu .fishList .item-img {
+html.Newtheme header .header > div.menu .sportList .item-img, html.Newtheme header .header > div.menu .gameList .item-img, html.Newtheme header .header > div.menu .casinoList .item-img, html.Newtheme header .header > div.menu .livecasinoList .item-img, html.Newtheme header .header > div.menu .fishList .item-img {
   position: absolute;
   bottom: -10px;
   right: calc(50% - 95px);
   z-index: 1;
 }
 
-html.Newtheme header .header > div.menu .gameList .liveitem-img, html.Newtheme header .header > div.menu .casinoList .liveitem-img, html.Newtheme header .header > div.menu .livecasinoList .liveitem-img, html.Newtheme header .header > div.menu .fishList .liveitem-img {
+html.Newtheme header .header > div.menu .sportList .liveitem-img, html.Newtheme header .header > div.menu .gameList .liveitem-img, html.Newtheme header .header > div.menu .casinoList .liveitem-img, html.Newtheme header .header > div.menu .livecasinoList .liveitem-img, html.Newtheme header .header > div.menu .fishList .liveitem-img {
   position: absolute;
   bottom: 20px;
   left: calc(50% - 75px);
@@ -12124,18 +12114,18 @@ html.Newtheme .offers .swiper-slide .team div, html.Newtheme .offers .swiper-sli
 }
 
 html.Newtheme .offers .swiper-slide .team div img, html.Newtheme .offers .swiper-slide .odds div img {
-  width: 81px;
+  width: 70px;
 }
 
 @media (max-width: 1366px) {
   html.Newtheme .offers .swiper-slide .team div img, html.Newtheme .offers .swiper-slide .odds div img {
-    width: 75px;
+    width: 65px;
   }
 }
 
 @media (max-width: 1024px) {
   html.Newtheme .offers .swiper-slide .team div img, html.Newtheme .offers .swiper-slide .odds div img {
-    width: 65px;
+    width: 60px;
   }
 }
 
@@ -12148,41 +12138,39 @@ html.Newtheme .offers .swiper-slide .team div:nth-child(3), html.Newtheme .offer
 
 html.Newtheme .offers .swiper-slide .teamR img {
   position: absolute;
-  left: calc(50% - 265px);
-  top: 13px;
+  left: calc(50% - 258px);
+  top: 18px;
 }
 
 @media (max-width: 1366px) {
   html.Newtheme .offers .swiper-slide .teamR img {
-    left: calc(50% - 212px);
-    top: 4px;
+    left: calc(50% - 208px);
+    top: 8px;
   }
 }
 
 @media (max-width: 1024px) {
   html.Newtheme .offers .swiper-slide .teamR img {
-    left: calc(50% - 196px);
-    top: 7px;
+    left: calc(50% - 193px);
   }
 }
 
 html.Newtheme .offers .swiper-slide .teamL img {
   position: absolute;
-  right: calc(50% - 265px);
-  top: 13px;
+  right: calc(50% - 258px);
+  top: 18px;
 }
 
 @media (max-width: 1366px) {
   html.Newtheme .offers .swiper-slide .teamL img {
-    right: calc(50% - 212px);
-    top: 4px;
+    right: calc(50% - 208px);
+    top: 8px;
   }
 }
 
 @media (max-width: 1024px) {
   html.Newtheme .offers .swiper-slide .teamL img {
-    right: calc(50% - 196px);
-    top: 7px;
+    right: calc(50% - 193px);
   }
 }
 
@@ -12292,6 +12280,16 @@ html.Newtheme .offers .swiper-slide .odds div:nth-child(odd) {
 html.Newtheme .offers .swiper-slide .odds div:nth-child(2) {
   background: #fab617;
   color: black;
+}
+
+html.Newtheme .indexliveCasinoList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .indexliveCasinoList > div {
+  width: 100%;
 }
 
 html.Newtheme .indexCasino {
@@ -13440,7 +13438,7 @@ html.Newtheme .otpBtn {
           justify-content: center;
 }
 
-html.Newtheme .proList, html.Newtheme .slotList, html.Newtheme .newsList {
+html.Newtheme .proList, html.Newtheme .slotList, html.Newtheme .newsList, html.Newtheme .casinoList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13453,7 +13451,7 @@ html.Newtheme .proList, html.Newtheme .slotList, html.Newtheme .newsList {
   line-height: 20px;
 }
 
-html.Newtheme .proList > div, html.Newtheme .slotList > div, html.Newtheme .newsList > div {
+html.Newtheme .proList > div, html.Newtheme .slotList > div, html.Newtheme .newsList > div, html.Newtheme .casinoList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
@@ -13465,17 +13463,17 @@ html.Newtheme .proList > div, html.Newtheme .slotList > div, html.Newtheme .news
   position: relative;
 }
 
-html.Newtheme .proList > div.active, html.Newtheme .slotList > div.active, html.Newtheme .newsList > div.active {
+html.Newtheme .proList > div.active, html.Newtheme .slotList > div.active, html.Newtheme .newsList > div.active, html.Newtheme .casinoList > div.active {
   opacity: 0.7;
 }
 
-html.Newtheme .proList > div.active .claimed, html.Newtheme .slotList > div.active .claimed, html.Newtheme .newsList > div.active .claimed {
+html.Newtheme .proList > div.active .claimed, html.Newtheme .slotList > div.active .claimed, html.Newtheme .newsList > div.active .claimed, html.Newtheme .casinoList > div.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html.Newtheme .proList > div .new, html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .new, html.Newtheme .slotList > div .claimed, html.Newtheme .newsList > div .new, html.Newtheme .newsList > div .claimed {
+html.Newtheme .proList > div .new, html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .new, html.Newtheme .slotList > div .claimed, html.Newtheme .newsList > div .new, html.Newtheme .newsList > div .claimed, html.Newtheme .casinoList > div .new, html.Newtheme .casinoList > div .claimed {
   position: absolute;
   top: -10px;
   left: -10px;
@@ -13495,17 +13493,17 @@ html.Newtheme .proList > div .new, html.Newtheme .proList > div .claimed, html.N
   font-weight: bold;
 }
 
-html.Newtheme .proList > div .new:before, html.Newtheme .proList > div .claimed:before, html.Newtheme .slotList > div .new:before, html.Newtheme .slotList > div .claimed:before, html.Newtheme .newsList > div .new:before, html.Newtheme .newsList > div .claimed:before {
+html.Newtheme .proList > div .new:before, html.Newtheme .proList > div .claimed:before, html.Newtheme .slotList > div .new:before, html.Newtheme .slotList > div .claimed:before, html.Newtheme .newsList > div .new:before, html.Newtheme .newsList > div .claimed:before, html.Newtheme .casinoList > div .new:before, html.Newtheme .casinoList > div .claimed:before {
   content: "NEW";
 }
 
-html.Newtheme .proList > div .new.active, html.Newtheme .proList > div .claimed.active, html.Newtheme .slotList > div .new.active, html.Newtheme .slotList > div .claimed.active, html.Newtheme .newsList > div .new.active, html.Newtheme .newsList > div .claimed.active {
+html.Newtheme .proList > div .new.active, html.Newtheme .proList > div .claimed.active, html.Newtheme .slotList > div .new.active, html.Newtheme .slotList > div .claimed.active, html.Newtheme .newsList > div .new.active, html.Newtheme .newsList > div .claimed.active, html.Newtheme .casinoList > div .new.active, html.Newtheme .casinoList > div .claimed.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .claimed, html.Newtheme .newsList > div .claimed {
+html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .claimed, html.Newtheme .newsList > div .claimed, html.Newtheme .casinoList > div .claimed {
   background: rgba(219, 44, 1, 0.8);
   width: 75px;
   height: 75px;
@@ -13513,26 +13511,26 @@ html.Newtheme .proList > div .claimed, html.Newtheme .slotList > div .claimed, h
           transform: rotate(-45deg);
 }
 
-html.Newtheme .proList > div .claimed:before, html.Newtheme .slotList > div .claimed:before, html.Newtheme .newsList > div .claimed:before {
+html.Newtheme .proList > div .claimed:before, html.Newtheme .slotList > div .claimed:before, html.Newtheme .newsList > div .claimed:before, html.Newtheme .casinoList > div .claimed:before {
   content: "CLAIMED";
 }
 
-html.Newtheme .proList > div .txt-dark, html.Newtheme .proList > div .txt-darkBlue, html.Newtheme .slotList > div .txt-dark, html.Newtheme .slotList > div .txt-darkBlue, html.Newtheme .newsList > div .txt-dark, html.Newtheme .newsList > div .txt-darkBlue {
+html.Newtheme .proList > div .txt-dark, html.Newtheme .proList > div .txt-darkBlue, html.Newtheme .slotList > div .txt-dark, html.Newtheme .slotList > div .txt-darkBlue, html.Newtheme .newsList > div .txt-dark, html.Newtheme .newsList > div .txt-darkBlue, html.Newtheme .casinoList > div .txt-dark, html.Newtheme .casinoList > div .txt-darkBlue {
   font-weight: bold;
   margin: 15px 0;
 }
 
-html.Newtheme .proList > div .txt-gray li, html.Newtheme .slotList > div .txt-gray li, html.Newtheme .newsList > div .txt-gray li {
+html.Newtheme .proList > div .txt-gray li, html.Newtheme .slotList > div .txt-gray li, html.Newtheme .newsList > div .txt-gray li, html.Newtheme .casinoList > div .txt-gray li {
   font-size: 12px;
   list-style: disc;
   margin-left: 16px;
 }
 
-html.Newtheme .proList > div img, html.Newtheme .slotList > div img, html.Newtheme .newsList > div img {
+html.Newtheme .proList > div img, html.Newtheme .slotList > div img, html.Newtheme .newsList > div img, html.Newtheme .casinoList > div img {
   border-radius: 10px;
 }
 
-html.Newtheme .proList > div .new-icon, html.Newtheme .slotList > div .new-icon, html.Newtheme .newsList > div .new-icon {
+html.Newtheme .proList > div .new-icon, html.Newtheme .slotList > div .new-icon, html.Newtheme .newsList > div .new-icon, html.Newtheme .casinoList > div .new-icon {
   position: absolute;
   top: 244px;
   right: 15px;
@@ -13544,7 +13542,7 @@ html.Newtheme .proList > div .new-icon, html.Newtheme .slotList > div .new-icon,
           animation: flash2 linear infinite alternate .7s;
 }
 
-html.Newtheme .proList .rollover, html.Newtheme .slotList .rollover, html.Newtheme .newsList .rollover {
+html.Newtheme .proList .rollover, html.Newtheme .slotList .rollover, html.Newtheme .newsList .rollover, html.Newtheme .casinoList .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13553,13 +13551,13 @@ html.Newtheme .proList .rollover, html.Newtheme .slotList .rollover, html.Newthe
   margin: 10px 0;
 }
 
-html.Newtheme .proList .rollover > div, html.Newtheme .slotList .rollover > div, html.Newtheme .newsList .rollover > div {
+html.Newtheme .proList .rollover > div, html.Newtheme .slotList .rollover > div, html.Newtheme .newsList .rollover > div, html.Newtheme .casinoList .rollover > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-html.Newtheme .proList .rollover > div .icon:before, html.Newtheme .slotList .rollover > div .icon:before, html.Newtheme .newsList .rollover > div .icon:before {
+html.Newtheme .proList .rollover > div .icon:before, html.Newtheme .slotList .rollover > div .icon:before, html.Newtheme .newsList .rollover > div .icon:before, html.Newtheme .casinoList .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
 }
@@ -13586,11 +13584,6 @@ html.Newtheme .proList > div {
   max-width: 330px;
 }
 
-html.Newtheme .proList > div.expired {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
 html.Newtheme .proList > div:hover {
   background: #E8E8E8;
   -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
@@ -13609,17 +13602,8 @@ html.Newtheme .proList .btnGroup a, html.Newtheme .proList .btnGroup button {
   min-width: 129px;
 }
 
-html.Newtheme .proList.expired {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
 html.Newtheme .proList.expired > div {
   background: #c6c6c6;
-}
-
-html.Newtheme .proList.expired > div:hover {
-  background: white;
 }
 
 html.Newtheme .proList.expired > div .expiredIcon {
@@ -13628,13 +13612,27 @@ html.Newtheme .proList.expired > div .expiredIcon {
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(-20deg);
           transform: translateX(-50%) translateY(-50%) rotate(-20deg);
-  background: #E8E8E8;
-  border-radius: 20px;
+  background: rgba(26, 46, 86, 0);
+  border-radius: 36px;
+  border: 1px solid #fff;
   font-weight: bold;
-  padding: 5px 15px;
-  color: black;
-  font-size: 18px;
+  padding: 25px 40px;
+  color: white;
+  font-size: 36px;
   font-style: italic;
+  z-index: 2;
+}
+
+html.Newtheme .proList.expired > div::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
 }
 
 html.Newtheme .promotionsInfo {
@@ -13762,7 +13760,7 @@ html.Newtheme .casinoSelect {
   display: flex;
   padding: 0 34px;
   height: 49px;
-  margin-top: 40px;
+  margin-top: 5px;
 }
 
 html.Newtheme .casinoSelect > div {
@@ -13889,6 +13887,50 @@ html.Newtheme .newsList > div .txt-gray {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   white-space: normal;
+}
+
+html.Newtheme .casinoList {
+  margin-top: 40px;
+}
+
+html.Newtheme .casinoList > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(100% / 5 - 15px);
+          flex: 0 0 calc(100% / 5 - 15px);
+  padding: 0;
+  margin: 10px 15px 10px 0;
+}
+
+html.Newtheme .casinoList > div .txt-darkBlue {
+  font-size: 12px;
+  margin: 0;
+}
+
+html.Newtheme .casinoList > div .brand {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+html.Newtheme .casinoList > div .brand:before {
+  content: "";
+  border-color: #134DAE transparent transparent #134DAE;
+  border-style: solid;
+  border-width: 25px 45px;
+  border-top-left-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+html.Newtheme .casinoList > div .brand span {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  color: white;
+  font-weight: bold;
 }
 
 html.Newtheme article {
@@ -17301,6 +17343,28 @@ html.Newtheme .column-reverse {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
+}
+
+@-webkit-keyframes jpotxt {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+@keyframes jpotxt {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
 }
 
 html.Newtheme:not(.index) .swiper-container {
