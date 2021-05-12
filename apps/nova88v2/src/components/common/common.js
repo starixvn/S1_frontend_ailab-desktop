@@ -12,13 +12,17 @@ export const getUrlParameter = name => {
 	return null;
 };
 
-export const number_format = (number, IsConvertRequired = false) => {
+export const number_format = (
+	number,
+	IsConvertRequired = false,
+	digits = 2
+) => {
 	let n = number;
 	if (!isNaN(n)) {
 		if (IsConvertRequired) {
 			n /= 1000;
 		}
-		n = Number(n).toFixed(2);
+		n = digits > 0 ? Number(n).toFixed(digits) : Number(n);
 	}
 
 	n += "";
