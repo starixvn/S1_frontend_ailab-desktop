@@ -26,8 +26,6 @@ import RecentHistory from "./recentHistory";
 import { GetAllWallets } from "../common/wrapper.walletInfo";
 import usePopBox from "../hook/usePopBox";
 
-// git reset to remove crypto wallet merge
-
 const initStatus = {
 	checked: null,
 	tip: ""
@@ -110,7 +108,7 @@ export default () => {
 	const getAllWalletData = () => {
 		getMainWallet();
 		getTpWalletList();
-	}; 
+	};
 
 	const refreshAfterTransfer = () => {
 		getAllWalletData();
