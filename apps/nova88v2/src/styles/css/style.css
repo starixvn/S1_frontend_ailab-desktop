@@ -3051,6 +3051,11 @@ input[type="file"] {
   margin: 0 5px;
 }
 
+.btnGroup button.backupClick, .btnGroup a.backupClick {
+  background: #f77900;
+  color: white;
+}
+
 .btnGroup button.orange, .btnGroup button.btn-check, .btnGroup a.orange, .btnGroup a.btn-check {
   background: #5574A7;
   color: white;
@@ -4474,6 +4479,90 @@ input[type="file"] {
   border-radius: 5px;
   max-height: calc(100% - 160px);
   overflow-y: auto;
+}
+
+#popup .pop .backupDomain {
+  overflow: unset;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  color: #b2b2b2;
+}
+
+#popup .pop .backupDomain .icon-close {
+  top: 25px;
+  right: 20px;
+  z-index: 1;
+}
+
+#popup .pop .backupDomain .poptit {
+  width: calc(100% - 40px);
+  text-align: center;
+  color: #5574A7;
+  border-bottom: 1px solid #5574A7;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 0;
+  height: 25px;
+}
+
+#popup .pop .backupDomain .poptit + img {
+  width: 380px;
+  border-radius: 15px;
+  margin-top: 65px;
+}
+
+#popup .pop .backupDomain .text-center {
+  margin-bottom: 10px;
+}
+
+#popup .pop .backupDomain .btnGroup {
+  margin: 20px 0;
+}
+
+#popup .pop .backupDomain .btnGroup button {
+  border-radius: 30px;
+}
+
+#popup .pop .backupDomain .url {
+  padding: 7px 10px;
+  border-radius: 30px;
+  border: 1px solid #b2b2b2;
+  margin: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: calc(100% - 20px);
+}
+
+#popup .pop .backupDomain .url .copyurl {
+  position: absolute;
+  border: 1px solid #5574A7;
+  border-radius: 30px;
+  color: #5574A7;
+  padding: 5px 10px;
+  right: 2px;
+}
+
+#popup .pop .backupDomain .checkbox {
+  margin-bottom: 20px;
+}
+
+#popup .pop .backupDomain .checkbox input[type="checkbox"] + label {
+  border: 1px solid #f77900;
+}
+
+#popup .pop .backupDomain .checkbox input[type="checkbox"]:checked + label {
+  color: #f77900;
 }
 
 #popup .pop .upload, #popup .pop .uploadError, #popup .pop .uploadSuccess, #popup .pop .updateSuccess, #popup .pop .update {
@@ -10396,6 +10485,7 @@ canvas {
 
 .vip .medal tr td:first-child {
   width: 34%;
+  text-align: left;
 }
 
 .vip .medal tr td img {
@@ -10754,6 +10844,7 @@ canvas {
 
 .event2 .eventModule > div > div.moduleCenter .txt-yellow2 {
   margin-top: 40px;
+  color: #F5C346;
 }
 
 .event2 .eventModule > div > div.moduleCenter > div {
@@ -10832,6 +10923,10 @@ canvas {
 
 .subModuleTitle .autotransfer {
   right: 0;
+}
+
+.subModuleTitle .autotransfer .swithModule {
+  position: unset;
 }
 
 .subModuleTitle .autotransfer .icon-question {
