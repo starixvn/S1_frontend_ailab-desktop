@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { api_site_GetSupportDomainList } from "../../service/api/site";
 import { userInfoContext } from "./context";
 import { setCookie, deleteCookie } from "./common";
-import proInfoImg from "../../styles/img/proInfoImg.jpg";
+import config from "../../config";
 
 export default ({ onClickClose }) => {
 	const isMountedRef = useRef(null);
@@ -13,7 +13,7 @@ export default ({ onClickClose }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const [selectDontShow, setSelectDontShow] = useState(false);
 	const [linkList, setLinkList] = useState([]);
-	const refeCookieName = `referral_${userInfo.userName}`;
+	const settingCookie = `backupDomain_${userInfo.userName}`;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -26,23 +26,22 @@ export default ({ onClickClose }) => {
 		setSelectDontShow(prev => {
 			const check = !prev;
 			if (check) {
-				setCookie(refeCookieName, "1", 7);
+				setCookie(settingCookie, "1", 7);
 			} else {
-				deleteCookie(refeCookieName);
+				deleteCookie(settingCookie);
 			}
 			return check;
 		});
 	};
 
-	let src = null;
+	let imgSrc = null;
 	try {
-		src = require(`../../styles/img/friend-${userInfo.langId}.jpg`);
+		imgSrc = `${config.cloudImgUrl}/SiteSkin/img/backupimg_${userInfo.langId}.jpg`;
 	} catch (error) {}
 
 	useEffect(() => {
 		api_site_GetSupportDomainList().then(res => {
 			if (res.data.errorCode === 0 && isMountedRef.current) {
-				console.log(res.data.data);
 				setLinkList(res.data.data);
 			}
 		});
@@ -73,16 +72,11 @@ export default ({ onClickClose }) => {
 	return (
 		<div className="backupDomain active">
 			<button className="icon icon-close" onClick={onClickClose} />
-			{/* <Link className="" to={`/${userInfo.langId}/${path.referral.root}`}>
-				<img src={src} alt="img_referral" />
-			</Link> */}
-			<div className="poptit">本月主打優惠</div>
-			<img src={proInfoImg} alt="proInfo-Img" />
-			<div className="btnGroup">
-				<button className="btn-check">點擊查看</button>
-				<button className="backupClick">進入遊戲</button>
+			<div className="poptit">
+				The latest NOVA88 website, <br />
+				please save it for future use
 			</div>
-			<div className="text-center">最新NOVA88網址，請保存備用</div>
+			<img src={imgSrc} alt="backup-domain-Img" />
 			{linksLayout}
 			<div className="checkbox">
 				<input
