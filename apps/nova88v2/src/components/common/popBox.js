@@ -31,6 +31,7 @@ import defPopBoxType from "./defPopBoxType";
 import RankingWinner from "./popBox.rankingWinner";
 import DepositUploadBankSlip from "./popBox.depositUploadBankSlip";
 import SuccessMySteryBox from "./popBox.successMySteryBox";
+import BackupDomain from "./popBox.backupDomain";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -254,6 +255,10 @@ export default () => {
 					langId={popBox.langId}
 				/>
 			);
+			break;
+
+		case defPopBoxType.BackupDomain:
+			content = <BackupDomain onClickClose={popBox.onClickClose} />;
 			break;
 
 		default:

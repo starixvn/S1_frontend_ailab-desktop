@@ -158,12 +158,12 @@ const IndexPage = ({ location }) => {
 	useEffect(() => {
 		if (
 			userInfo.isLogin === false &&
-			isDateRange(null, "2021/04/18 23:59:59") &&
+			isDateRange(null, "2021/05/18 23:59:59") &&
 			(userInfo.langId === "en" || userInfo.langId === "cs")
 		) {
 			setPopBox({
 				isOpen: true,
-				popBoxType: defPopBoxType.RankingWinner,
+				popBoxType: defPopBoxType.BackupDomain,
 				onClickClose: () => setPopBox({ isOpen: false })
 			});
 		}
