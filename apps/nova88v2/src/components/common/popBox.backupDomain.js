@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
-// import { Link } from "@reach/router";
-// import path from "../../router";
 import { api_site_GetSupportDomainList } from "../../service/api/site";
 import { userInfoContext } from "./context";
 import { setCookie, deleteCookie } from "./common";
@@ -48,8 +46,9 @@ export default ({ onClickClose }) => {
 		});
 	}, []);
 
-	const linksLayout = linkList.map(_link => {
+	const linksLayout = linkList?.map(_link => {
 		const _linkValue = _link.domainName;
+
 		const copyWelComeText = () => {
 			const virtualInput = document.createElement("input");
 			virtualInput.value = _linkValue;
@@ -58,6 +57,7 @@ export default ({ onClickClose }) => {
 			document.execCommand("copy");
 			document.body.removeChild(virtualInput);
 		};
+
 		return (
 			<div className="url">
 				{_linkValue}
@@ -74,8 +74,7 @@ export default ({ onClickClose }) => {
 		<div className="backupDomain active">
 			<button className="icon icon-close" onClick={onClickClose} />
 			<div className="poptit">
-				The latest NOVA88 website, <br />
-				please save it for future use
+				{t("lbl_kindly_visit_alternate_link_for_better_performance")}
 			</div>
 			<img src={imgSrc} alt="backup-domain-Img" />
 			{linksLayout}
