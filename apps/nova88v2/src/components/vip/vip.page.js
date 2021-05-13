@@ -20,7 +20,7 @@ const VipPage = ({
 				<table className="medal">
 					<tbody>
 						<tr>
-							<td />
+							<td>{t("lbl_Vip_LastUpdated")} ： 12/05/2021</td>
 							{pageClubImg.map(item => (
 								<td key={`${item.displayKey}-${item.alt}`}>
 									<img src={item.url} alt={item.alt} />
