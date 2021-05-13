@@ -158,8 +158,8 @@ const IndexPage = ({ location }) => {
 	useEffect(() => {
 		if (
 			userInfo.isLogin === false &&
-			isDateRange(null, "2021/05/18 23:59:59") &&
-			(userInfo.langId === "en" || userInfo.langId === "cs")
+			isDateRange(null, "2021/05/18 23:59:59")
+			// &&(userInfo.langId === "en" || userInfo.langId === "cs")
 		) {
 			setPopBox({
 				isOpen: true,
