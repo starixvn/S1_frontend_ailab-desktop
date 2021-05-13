@@ -36,7 +36,8 @@ export default ({ onClickClose }) => {
 
 	let imgSrc = null;
 	try {
-		imgSrc = `${config.cloudImgUrl}/SiteSkin/img/backupimg_${userInfo.langId}.jpg`;
+		const imgLang = userInfo.langId === "en" ? "en" : "en";
+		imgSrc = `${config.cloudImgUrl}/SiteSkin/img/backupimg_${imgLang}.jpg`;
 	} catch (error) {}
 
 	useEffect(() => {
