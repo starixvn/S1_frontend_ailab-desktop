@@ -5,18 +5,15 @@ const TransferHeader = ({ t, onChangeAutoTransfer, isAutoTransfer }) => {
 	return (
 		<div className="inside-title icon icon-icon32px_Funds-transfer">
 			<span>{t("lbl_TransferFunds")}</span>
-			<div className="checkbox autotransfer">
-				<input
-					id="auto-transfer"
-					type="checkbox"
-					onChange={onChangeAutoTransfer}
-					checked={isAutoTransfer}
-				/>
-				<label
-					htmlFor="auto-transfer"
-					className="icon icon-checkbox-checked"
-				/>
+			<div className="swithModule">
 				{t("lbl_Main_Wallet_Auto_Transfer")}
+				<button
+					className={`switchBtn ${isAutoTransfer ? " active" : ""}`}
+					onClick={onChangeAutoTransfer}>
+					<span>ON</span>
+					<span>OFF</span>
+					<div className={isAutoTransfer ? "active" : ""} />
+				</button>
 			</div>
 		</div>
 	);
