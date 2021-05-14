@@ -45,3 +45,16 @@ export const defCategory = [
 ];
 
 export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
+
+export const defLobbyImgList = [
+	{ keyName: "PP", lobbyImgName: "pp", lobbyDisplayName: "pp" },
+	{ keyName: "GPI", lobbyImgName: "gp", lobbyDisplayName: "GAMEPLAY" },
+	{ keyName: "YGG", lobbyImgName: "yg", lobbyDisplayName: "YGGDRASIL" },
+	{ keyName: "Joker", lobbyImgName: "jk", lobbyDisplayName: "JOKER" },
+	{ keyName: "SG", lobbyImgName: "sg", lobbyDisplayName: "SPADEGAMING" },
+	{ keyName: "PG", lobbyImgName: "pg", lobbyDisplayName: "POCHETGAMES" },
+	{ keyName: "CQ9", lobbyImgName: "cq9", lobbyDisplayName: "CQ9" },
+	{ keyName: "Iconic", lobbyImgName: "icg", lobbyDisplayName: "ICG" },
+	{ keyName: "PT", lobbyImgName: "pt", lobbyDisplayName: "PLAYTECH" },
+	{ keyName: "OW", lobbyImgName: "ow", lobbyDisplayName: "OW" }
+];

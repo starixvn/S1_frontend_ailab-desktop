@@ -22,11 +22,13 @@ import {
 	defRowsPerPage,
 	defSearchColumn,
 	defCategory,
-	defCategoryList
+	defCategoryList,
+	defLobbyImgList
 } from "./casino.def";
 import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
+import config from "../../config";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -45,6 +47,7 @@ export default () => {
 	const [tpList, setTpList] = useState({});
 	const [gameDatas, setGameDatas] = useState([]);
 	const [tpOptions, setTpOptions] = useState([]);
+	const [lobbyImgList, setLobbyImgList] = useState(defLobbyImgList);
 	const [displayGames, setDisplayGames] = useState([]);
 	const [pageInfo, setPageInfo] = useState({ currentPage: 1, totalPages: 1 });
 
@@ -261,7 +264,6 @@ export default () => {
 
 				if (success) {
 					const { imgUrl: _imgUrl, providerList } = res.data.data;
-
 					const _tpList = {};
 					const _tpOptions = [
 						{ displayKey: "lbl_AllProvider", id: null }
@@ -287,6 +289,14 @@ export default () => {
 							});
 						}
 					});
+
+					const providerNameList = providerList?.map(
+						item => item.name
+					);
+					const filterLobbyImgList = defLobbyImgList.filter(_img =>
+						providerNameList.includes(_img.keyName)
+					);
+					setLobbyImgList(filterLobbyImgList);
 
 					if (games.length) {
 						for (let index = 0; index < games.length; index++) {
@@ -377,6 +387,20 @@ export default () => {
 		);
 	}, [userInfo.isLogin, urlTpId]);
 
+	const LobbyListLayout = lobbyImgList?.map(_item => {
+		return (
+			<button
+				// onClick={EditSearchField.bind(this, "provider")}
+				key={`slot_lobby_${_item.keyName}`}>
+				<img
+					src={`${config.cloudImgUrl}/SiteSkin/img/logo/${_item.lobbyImgName}.png`}
+					alt={_item.lobbyImgName}
+				/>
+				<div>{_item.lobbyDisplayName}</div>
+			</button>
+		);
+	});
+
 	return loading ? (
 		<></>
 	) : (
@@ -392,6 +416,7 @@ export default () => {
 						<div className="inside-title icon icon-ow-casino">
 							<span>{t("lbl_Slots")}</span>
 						</div>
+						<div className="partnerSelect">{LobbyListLayout}</div>
 						<div className="casinoSelect">
 							<Nav
 								selNav={selNav}
