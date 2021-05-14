@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { api_site_ForgetPwd } from "../service/api/site";
 import { popBoxContext, userInfoContext } from "../components/common/context";
@@ -133,6 +134,10 @@ const Content = () => {
 		}
 	};
 
+	const clickCancel = () => {
+		navigate(`/${userInfo.langId}`);
+	};
+
 	return (
 		<div className="loginpop">
 			<div className="joinloginModule">
@@ -146,24 +151,28 @@ const Content = () => {
 					<div className="title txt-blue">
 						{t("lbl_ForgetPassword")}
 					</div>
-					<form onSubmit={clickSubmit} className="inputModule">
-						<Inputbox
-							className="inputBox-blue"
-							icon="txt-blue icon-email "
-							title={t("lbl_Email")}
-							value={userEmail}
-							onChange={editField.bind(this)}
-							onBlur={emailCheck.bind(this, userEmail)}
-							checked={status.checked}
-							clickInfo={clickInfo.bind(this)}
-							tip={status.msg}
-						/>
+					<form onSubmit={clickSubmit}>
+						<div className="inputModule">
+							<Inputbox
+								className="inputBox-blue"
+								icon="txt-blue icon-email "
+								title={t("lbl_Email")}
+								value={userEmail}
+								onChange={editField.bind(this)}
+								onBlur={emailCheck.bind(this, userEmail)}
+								checked={status.checked}
+								clickInfo={clickInfo.bind(this)}
+								tip={status.msg}
+							/>
+						</div>
 						<div className="btnGroup">
 							<div className="btnGroup">
-								<button className="gray">
+								<button onClick={clickCancel} className="gray">
 									{t("lbl_Cancel")}
 								</button>
-								<button className="orange">
+								<button
+									onClick={clickSubmit}
+									className="orange">
 									{t("lbl_Submit")}
 								</button>
 							</div>
