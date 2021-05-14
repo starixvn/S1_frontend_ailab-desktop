@@ -73,14 +73,18 @@ const IndexPage = ({ location }) => {
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
-		if (userInfo.isLogin) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.BackupDomain,
-				onClickClose: () => setPopBox({ isOpen: false })
-			});
+		if (userInfo.isLogin && userInfo.userName) {
+			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
+			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
+			if (isShowBackupDomain) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.BackupDomain,
+					onClickClose: () => setPopBox({ isOpen: false })
+				});
+			}
 		}
-	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
+	}, [userInfo.isLogin, userInfo.userName, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
