@@ -8,7 +8,7 @@ import {
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { defBannerType } from "../../service/api/site";
-import { setCookie, readCookie } from "../common/common";
+import { setCookie, readCookie, isDateRange } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
@@ -51,6 +51,18 @@ const HomeV2 = ({ productTpIds }) => {
 			setIsRoot(false);
 		};
 	});
+
+	useEffect(() => {
+		if (
+			userInfo.isLogin === false &&
+			isDateRange(null, "2021/05/18 23:59:59")
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RankingWinner
+			});
+		}
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {

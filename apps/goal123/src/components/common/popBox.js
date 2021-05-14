@@ -27,7 +27,8 @@ export const defPopBoxType = {
 	SuccessAngPow: "SuccessAngPow",
 	SuccessMySteryBox: "SuccessMySteryBox",
 	JoinReferral: "JoinReferral",
-	DepositUploadBankSlip: "DepositUploadBankSlip"
+	DepositUploadBankSlip: "DepositUploadBankSlip",
+	RankingWinner: "RankingWinner"
 };
 
 export default () => {
@@ -278,6 +279,15 @@ export default () => {
 		case defPopBoxType.JoinReferral: {
 			const JoinReferral = lazy(() => import("./popBox.joinReferral"));
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
+			break;
+		}
+
+		case defPopBoxType.RankingWinner: {
+			const PopBoxRankingWinner = lazy(() =>
+				import("./popBox.rankingWinner")
+			);
+
+			content = <PopBoxRankingWinner />;
 			break;
 		}
 
