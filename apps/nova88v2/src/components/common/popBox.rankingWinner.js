@@ -15,9 +15,9 @@ export default ({ onClickClose }) => {
 				to={`/${userInfo.langId}/${path.leaderBoard.root}`}>
 				<img
 					src={`${
-						config.bannerImgUrl
-					}/img/EURO-RACE-MONTHLY-WINNERS-${userInfo.langId?.toUpperCase()}.jpg`}
-					alt="img_referral"
+						config.cloudImgUrl
+					}/SiteSkin/img/euro/EURO-RACE-MONTHLY-WINNERS-${userInfo.langId?.toUpperCase()}.jpg`}
+					alt="img_ranking"
 				/>
 			</Link>
 		</div>
