@@ -4515,18 +4515,7 @@ input[type="file"] {
   width: 380px;
   border-radius: 15px;
   margin-top: 65px;
-}
-
-#popup .pop .backupDomain .text-center {
-  margin-bottom: 10px;
-}
-
-#popup .pop .backupDomain .btnGroup {
-  margin: 20px 0;
-}
-
-#popup .pop .backupDomain .btnGroup button {
-  border-radius: 30px;
+  margin-bottom: 20px;
 }
 
 #popup .pop .backupDomain .url {

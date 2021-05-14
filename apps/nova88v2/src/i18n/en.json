@@ -318,6 +318,7 @@
 	"lbl_TpWallet_21": "918Kiss Wallet",
 	"lbl_TpWallet_22": "Mega Wallet",
 	"lbl_TpWallet_27": "PT Wallet",
+	"lbl_TpWallet_31": "NineW Wallet",
 	"lbl_MainWallet": "Main Wallet",
 	"lbl_Wallet_Saba": "Sportsbook Wallet",
 	"lbl_Transfer": "Transfer",
@@ -472,6 +473,7 @@
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
 	"Currency_96": "USDT",
+	"Currency_61": "INR",
 
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "Today",
@@ -657,6 +659,7 @@
 	"lbl_Diamond_Club": "DIAMOND CLUB",
 	"lbl_Nova_Club": "NOVA CLUB",
 	"lbl_Club": "Club",
+	"lbl_Vip_LastUpdated": "LAST UPDATED",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "SOCCER",

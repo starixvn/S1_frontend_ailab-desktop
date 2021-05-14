@@ -472,6 +472,7 @@
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
 	"Currency_96": "USDT",
+	"Currency_61": "INR",
 
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "Hari Ini",
@@ -657,6 +658,7 @@
 	"lbl_Diamond_Club": "DIAMOND CLUB",
 	"lbl_Nova_Club": "NOVA CLUB",
 	"lbl_Club": "Club",
+	"lbl_Vip_LastUpdated": "UPDATE TERAKHIR",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "SEPAK BOLA",

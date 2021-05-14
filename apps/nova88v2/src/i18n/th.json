@@ -472,6 +472,7 @@
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
 	"Currency_96": "USDT",
+	"Currency_61": "INR",
 
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "วันนี้",
@@ -657,6 +658,7 @@
 	"lbl_Diamond_Club": "ไดมอนด์ คลับ",
 	"lbl_Nova_Club": "โนวา คลับ",
 	"lbl_Club": "Club",
+	"lbl_Vip_LastUpdated": "ล่าสุดเมื่อวันที่",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "ฟุตบอล",
