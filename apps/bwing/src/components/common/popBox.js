@@ -272,6 +272,15 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.RankingWinner: {
+			const PopBoxRankingWinner = lazy(() =>
+				import("./popBox.rankingWinner")
+			);
+
+			content = <PopBoxRankingWinner />;
+			break;
+		}
+
 		case defPopBoxType.JoinReferral: {
 			const JoinReferral = lazy(() => import("./popBox.joinReferral"));
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;

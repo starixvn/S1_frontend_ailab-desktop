@@ -7,7 +7,7 @@ import {
 	isRootContext
 } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { setCookie, readCookie } from "../common/common";
+import { setCookie, readCookie, isDateRange } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
 import { defaultLang } from "../../i18n/config";
@@ -36,6 +36,18 @@ export default () => {
 			setIsRoot(false);
 		};
 	});
+
+	useEffect(() => {
+		if (
+			userInfo.isLogin === false &&
+			isDateRange(null, "2021/05/18 23:59:59")
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RankingWinner
+			});
+		}
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
@@ -78,7 +90,7 @@ export default () => {
 
 			showDepositPopBox();
 		}
-	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
+	}, [userInfo.isLogin, userInfo.langId, userInfo.userName, setPopBox]);
 
 	return (
 		<>
