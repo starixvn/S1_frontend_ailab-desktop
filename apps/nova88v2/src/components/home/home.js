@@ -72,6 +72,28 @@ const IndexPage = ({ location }) => {
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
+		if (
+			userInfo.isLogin === false &&
+			isDateRange(null, "2021/04/18 23:59:59") &&
+			(userInfo.langId === "en" || userInfo.langId === "cs")
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RankingWinner,
+				onClickClose: () => setPopBox({ isOpen: false })
+			});
+		}
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
+
+	useEffect(() => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.BackupDomain,
+			onClickClose: () => setPopBox({ isOpen: false })
+		});
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
+
+	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
 			const showDepositPopBox = () => {
 				const cookieName = `balanceHint${userInfo.userName}`;
@@ -154,20 +176,6 @@ const IndexPage = ({ location }) => {
 			}
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
-
-	useEffect(() => {
-		if (
-			userInfo.isLogin === false &&
-			isDateRange(null, "2021/05/18 23:59:59")
-			// &&(userInfo.langId === "en" || userInfo.langId === "cs")
-		) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.BackupDomain,
-				onClickClose: () => setPopBox({ isOpen: false })
-			});
-		}
-	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	return (
 		<main>
