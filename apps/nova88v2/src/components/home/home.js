@@ -31,10 +31,6 @@ import LatestVideo from "./latestVideo";
 import LiveScore from "./liveScore";
 import { _ACTION_TYPE } from "../../service/enterPage";
 
-const displayRankingWinnerPeriod = {
-	endDate: "2021/02/22 12:00:00"
-};
-
 const IndexPage = ({ location }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -57,15 +53,6 @@ const IndexPage = ({ location }) => {
 				setPopBox({
 					isOpen: true,
 					popBoxType: defPopBoxType.Join
-				});
-			} else if (
-				isDateRange(null, null, displayRankingWinnerPeriod.endDate)
-			) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.RankingWinner,
-					langId: userInfo.langId,
-					clickClose: () => setPopBox({ isOpen: false })
 				});
 			}
 		}
