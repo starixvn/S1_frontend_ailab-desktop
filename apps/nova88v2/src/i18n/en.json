@@ -129,7 +129,6 @@
 	"lbl_NewPassword": "New Password",
 	"lbl_ForgotPwdMailSent": "Reset password link has sent to your registered email address.",
 	"lbl_ForgetPwdHint": "If you have forgotten your password, please provide your email and we will send your new password to your registered email address.",
-	"lbl_Please_enter_your_registered_email_to_reset": "Please enter your registered email to reset your password",
 	"lbl_ResetPassword": "Reset password",
 	"lbl_PasswordTooltip": "6-18 alphanumeric (A-Z, a-z, 0-9) characters or special characters @$*!%#?&",
 	"lbl_ForgetPsw": "Forget Password",
@@ -187,6 +186,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "ENJOY NOVA88 VIP EXCLUSIVE BONUS & REBATES",
 	"lbl_Multiple_product_platforms_with_better_odds": "Multiple product platforms with better odds and full gameplay experience.",
 	"lbl_Speedy_deposit_and_withdrawal": "Speedy deposit and withdrawal with multiple deposit option.",
+	"lbl_Please_enter_your_registered_email_to_reset": "Please enter your registered email to reset your password",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Maximum file size 4 MB each",

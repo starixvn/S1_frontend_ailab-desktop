@@ -129,7 +129,6 @@
 	"lbl_NewPassword": "รหัสผ่านใหม่",
 	"lbl_ForgotPwdMailSent": "ลิ๊งค์รีเซ็ตรหัสผ่านได้ส่งไปยังที่อยู่อีเมล์ที่คุณลงทะเบียนเรียบร้อยแล้ว",
 	"lbl_ForgetPwdHint": "หากคุณลืมชื่อผู้ใช้หรือรหัสผ่านโปรดระบุอีเมลของคุณและเราจะส่งรหัสผ่านใหม่ไปยังอีเมลที่คุณลงทะเบียนไว้",
-	"lbl_Please_enter_your_registered_email_to_reset": "Please enter your registered email to reset your password",
 	"lbl_ResetPassword": "ขอรีเซ็ตรหัสผ่าน",
 	"lbl_PasswordTooltip": "6-18 ตัวอักษรและตัวเลข(A-Z, a-z, 0-9) หรือตัวอักษรพิเศษ @$*!%#?&",
 	"lbl_ForgetPsw": "ลืมรหัสผ่าน",
@@ -187,6 +186,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
 	"lbl_Multiple_product_platforms_with_better_odds": "แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
 	"lbl_Speedy_deposit_and_withdrawal": "ฝากและถอนอย่างรวดเร็วด้วยตัวเลือกการฝากที่หลากหลาย",
+	"lbl_Please_enter_your_registered_email_to_reset": "กรุณากรอกอีเมลที่คุณลงทะเบียนเพื่อรีเซ็ตรหัสผ่านของคุณ",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",

@@ -117,7 +117,10 @@ const Content = () => {
 								ClickClose
 							});
 						} else {
-							errorPopBox(message || "error", errorCode);
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 					}
 				},

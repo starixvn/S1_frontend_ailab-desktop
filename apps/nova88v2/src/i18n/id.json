@@ -129,7 +129,6 @@
 	"lbl_NewPassword": "Kata Sandi Baru",
 	"lbl_ForgotPwdMailSent": "Link reset password telah dikirim ke alamat email Anda yang terdaftar.",
 	"lbl_ForgetPwdHint": "Jika anda lupa username dan password anda, silakan konfirmasi email anda dan kami akan mengirimkan password baru anda ke email terdaftar anda.",
-	"lbl_Please_enter_your_registered_email_to_reset": "Please enter your registered email to reset your password",
 	"lbl_ResetPassword": "Permintaan Atur Ulang Kata Sandi",
 	"lbl_PasswordTooltip": "6-18 karakter alfanumerik (A-Z, a-z, 0-9) atau karakter khusus @ $ *!% #? &",
 	"lbl_ForgetPsw": "Lupa Password",
@@ -187,6 +186,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "NIKMATI BONUS & REBATE EKSKLUSIF NOVA88 VIP",
 	"lbl_Multiple_product_platforms_with_better_odds": "Berbagai produk dengan odds terbaik dan sensasi permainan yang lengkap.",
 	"lbl_Speedy_deposit_and_withdrawal": "Deposit dan penarikan cepat dengan berbagai pilihan.",
+	"lbl_Please_enter_your_registered_email_to_reset": "Mohon simpan domain terbaru NOVA88 untuk keperluan cadangan.",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Ukuran maksimal setiap file adalah 4 MB",
