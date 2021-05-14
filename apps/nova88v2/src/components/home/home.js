@@ -36,8 +36,8 @@ const IndexPage = ({ location }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
-
 	const isMountedRef = useRef(null);
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		setIsRoot(true);
@@ -73,11 +73,13 @@ const IndexPage = ({ location }) => {
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.BackupDomain,
-			onClickClose: () => setPopBox({ isOpen: false })
-		});
+		if (userInfo.isLogin) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.BackupDomain,
+				onClickClose: () => setPopBox({ isOpen: false })
+			});
+		}
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
