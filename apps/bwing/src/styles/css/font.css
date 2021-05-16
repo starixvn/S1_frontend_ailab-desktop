@@ -53,15 +53,6 @@
   font-size: 36px !important;
 }
 
-.livecasinoList .icon-N2LIVE:before {
-  font-size: 14px !important;
-  margin-right: 5px;
-}
-
-.icon-N2LIVE:before {
-  content: "\e9ee";
-}
-
 .icon-topupCard::before {
   content: "\e9e8";
 }
