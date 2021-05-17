@@ -217,6 +217,38 @@ export default () => {
 				return _searchInfo;
 			});
 		}
+		SetGames({
+			_searchInfo: _result,
+			_category: category,
+			_selNav: selNav,
+			_gameDatas: gameDatas,
+			_tpList: tpList
+		});
+	};
+
+	const clickLobbyProvider = _providerId => {
+		let _searchInfo = searchInfo;
+		const _optionsIdx = tpOptions.findIndex(
+			_options => _options.id === _providerId
+		);
+		const _result = {
+			[defSearchColumn.searchText]:
+				_searchInfo[defSearchColumn.searchText],
+			[defSearchColumn.provider]: {
+				idx: _optionsIdx,
+				value: _providerId
+			}
+		};
+		setSearchInfo(prevS => {
+			_searchInfo = {
+				...prevS,
+				[defSearchColumn.provider]: {
+					idx: _optionsIdx,
+					value: _providerId
+				}
+			};
+			return _searchInfo;
+		});
 
 		SetGames({
 			_searchInfo: _result,
@@ -290,12 +322,14 @@ export default () => {
 						}
 					});
 
-					const providerNameList = providerList?.map(
-						item => item.name
+					const providerIdList = providerList?.map(
+						item => item.value
 					);
+
 					const filterLobbyImgList = defLobbyImgList.filter(_img =>
-						providerNameList.includes(_img.keyName)
+						providerIdList.includes(_img.providerId)
 					);
+
 					setLobbyImgList(filterLobbyImgList);
 
 					if (games.length) {
@@ -390,7 +424,7 @@ export default () => {
 	const LobbyListLayout = lobbyImgList?.map(_item => {
 		return (
 			<button
-				// onClick={EditSearchField.bind(this, "provider")}
+				onClick={clickLobbyProvider.bind(this, _item.providerId)}
 				key={`slot_lobby_${_item.keyName}`}>
 				<img
 					src={`${config.cloudImgUrl}/SiteSkin/img/logo/${_item.lobbyImgName}.png`}

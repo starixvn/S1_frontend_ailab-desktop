@@ -1,3 +1,5 @@
+import productList from "../../datas/productList";
+
 export const defRowsPerPage = 20;
 
 export const defNav = {
@@ -47,14 +49,54 @@ export const defCategory = [
 export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
 
 export const defLobbyImgList = [
-	{ keyName: "PP", lobbyImgName: "pp", lobbyDisplayName: "pp" },
-	{ keyName: "GPI", lobbyImgName: "gp", lobbyDisplayName: "GAMEPLAY" },
-	{ keyName: "YGG", lobbyImgName: "yg", lobbyDisplayName: "YGGDRASIL" },
-	{ keyName: "Joker", lobbyImgName: "jk", lobbyDisplayName: "JOKER" },
-	{ keyName: "SG", lobbyImgName: "sg", lobbyDisplayName: "SPADEGAMING" },
-	{ keyName: "PG", lobbyImgName: "pg", lobbyDisplayName: "POCHETGAMES" },
-	{ keyName: "CQ9", lobbyImgName: "cq9", lobbyDisplayName: "CQ9" },
-	{ keyName: "Iconic", lobbyImgName: "icg", lobbyDisplayName: "ICG" },
-	{ keyName: "PT", lobbyImgName: "pt", lobbyDisplayName: "PLAYTECH" },
-	{ keyName: "OW", lobbyImgName: "ow", lobbyDisplayName: "OW" }
+	{
+		lobbyImgName: "pp",
+		lobbyDisplayName: "pp",
+		providerId: productList.casino_PP.tpId
+	},
+	{
+		lobbyImgName: "gp",
+		lobbyDisplayName: "GAMEPLAY",
+		providerId: productList.casino_GPI.tpId
+	},
+	{
+		lobbyImgName: "yg",
+		lobbyDisplayName: "YGGDRASIL",
+		providerId: productList.casino_YGG.tpId
+	},
+	{
+		lobbyImgName: "jk",
+		lobbyDisplayName: "JOKER",
+		providerId: productList.casino_JOKER.tpId
+	},
+	{
+		lobbyImgName: "sg",
+		lobbyDisplayName: "SPADEGAMING",
+		providerId: productList.casino_SG.tpId
+	},
+	{
+		lobbyImgName: "pg",
+		lobbyDisplayName: "POCHETGAMES",
+		providerId: productList.casino_PG.tpId
+	},
+	{
+		lobbyImgName: "cq9",
+		lobbyDisplayName: "CQ9",
+		providerId: productList.casino_CQ9.tpId
+	},
+	{
+		lobbyImgName: "icg",
+		lobbyDisplayName: "ICG",
+		providerId: productList.casino_ICG.tpId
+	},
+	{
+		lobbyImgName: "pt",
+		lobbyDisplayName: "PLAYTECH",
+		providerId: productList.casino_PT.tpId
+	},
+	{
+		lobbyImgName: "ow",
+		lobbyDisplayName: "OW",
+		providerId: productList.casino_OW.tpId
+	}
 ];
