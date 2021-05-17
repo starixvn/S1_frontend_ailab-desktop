@@ -2400,6 +2400,7 @@ footer .footerList > div > div > div {
 .loginpop .joinloginModule .joinloginFunction {
   margin-left: 25px;
   color: #5574A7;
+  min-width: 425px;
 }
 
 .loginpop .joinloginModule .joinloginFunction a, .loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
@@ -4492,23 +4493,32 @@ input[type="file"] {
 }
 
 #popup .pop .backupDomain .icon-close {
-  top: 25px;
-  right: 20px;
+  top: 15px;
+  right: 10px;
   z-index: 1;
 }
 
 #popup .pop .backupDomain .poptit {
-  width: calc(100% - 40px);
+  width: calc(100% - 60px);
   text-align: center;
   color: #5574A7;
   border-bottom: 1px solid #5574A7;
-  padding: 20px;
+  padding: 20px 30px;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 20px;
   position: absolute;
   top: 0;
   height: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #popup .pop .backupDomain .poptit + img {
@@ -12701,45 +12711,43 @@ canvas {
   position: relative;
 }
 
-.projpot .promos + div .jpot > div {
+.projpot .promos + div .jpot .number {
   position: absolute;
   bottom: 80px;
   right: 65px;
   width: 330px;
-  text-align: right;
+  height: 30px;
   font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   font-size: 18px;
+  overflow: hidden;
 }
 
-.projpot .promos + div .jpot > div div:first-child {
+.projpot .promos + div .jpot .number > div:first-child {
   font-size: 20px;
   margin: auto auto auto 0;
 }
 
-.projpot .promos + div .jpot > div div:nth-child(n+2) {
+.projpot .promos + div .jpot .number > div:nth-child(n+2) {
   font-size: 24px;
-  width: 18px;
-  height: 30px;
-  text-align: center;
-  overflow: hidden;
+  margin: 0 1px;
+  width: 15px;
   position: relative;
 }
 
-.projpot .promos + div .jpot > div div:nth-child(n+2) span {
-  word-break: break-word;
+.projpot .promos + div .jpot .number > div:nth-child(n+2) > div {
   position: absolute;
-  left: 0;
+  top: 0;
+  height: 600px;
 }
 
-.projpot .promos + div .jpot > div div:nth-child(n+2) span.active {
-  -webkit-animation: jpotxt 2s infinite;
-          animation: jpotxt 2s infinite;
+.projpot .promos + div .jpot .number > div:nth-child(n+2) > div > div {
+  height: 30px;
 }
 
 @-webkit-keyframes jpot {
@@ -12763,28 +12771,6 @@ canvas {
   }
   100% {
     background: url(../img/jpotbg.png) no-repeat center/cover;
-  }
-}
-
-@-webkit-keyframes jpotxt {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-  }
-}
-
-@keyframes jpotxt {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
   }
 }
 
