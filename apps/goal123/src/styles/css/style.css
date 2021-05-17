@@ -16617,6 +16617,8 @@ html.Newtheme .vip .medal tr td {
 
 html.Newtheme .vip .medal tr td:first-child {
   width: 34%;
+  text-align: left;
+  vertical-align: bottom;
 }
 
 html.Newtheme .vip .medal tr td img {
