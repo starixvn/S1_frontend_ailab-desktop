@@ -1,4 +1,13 @@
 export default {
+	sportSaba: {
+		tpId: 1,
+		gameId: 1,
+		name: "sportSaba"
+	},
+	sportBti: {
+		tpId: 29,
+		name: "sportBti"
+	},
 	soccer: {
 		tpId: 1,
 		gameId: 1,

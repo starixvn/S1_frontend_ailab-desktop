@@ -16,7 +16,23 @@ export const defMenuLinks = {
 	sports: {
 		productInfo: productList.soccer,
 		path: path.sports.root,
-		displayKey: "lbl_Sports"
+		displayKey: "lbl_Sports",
+		subMenu: [
+			{
+				...productList.sportSaba,
+				className: "sport",
+				displayKey: "SABA SPORT",
+				// menuType: defMenuType.entPage,
+				parameter: { ...productList.sportSaba }
+			},
+			{
+				...productList.sportBti,
+				className: "BTI",
+				displayKey: "BTI SPORT",
+				// menuType: defMenuType.entPage,
+				parameter: { ...productList.sportBti }
+			}
+		]
 	},
 	// cockFighting: {
 	// 	productInfo: productList.cockFighting,
@@ -448,6 +464,7 @@ export const defMenuLinks = {
 };
 
 export const defSubListClassName = {
+	sports: "sportsList",
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
 	games: "gameList",
