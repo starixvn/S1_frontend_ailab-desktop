@@ -13620,7 +13620,8 @@ html.Newtheme .proList.expired > div .expiredIcon {
   color: white;
   font-size: 36px;
   font-style: italic;
-  z-index: 2;
+  z-index: 1;
+  pointer-events: none;
 }
 
 html.Newtheme .proList.expired > div::after {
@@ -13633,6 +13634,7 @@ html.Newtheme .proList.expired > div::after {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  pointer-events: none;
 }
 
 html.Newtheme .promotionsInfo {
@@ -13760,7 +13762,7 @@ html.Newtheme .casinoSelect {
   display: flex;
   padding: 0 34px;
   height: 49px;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 html.Newtheme .casinoSelect > div {
