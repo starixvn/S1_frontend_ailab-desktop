@@ -425,7 +425,7 @@ export default () => {
 		return (
 			<button
 				onClick={clickLobbyProvider.bind(this, _item.providerId)}
-				key={`slot_lobby_${_item.keyName}`}>
+				key={`slot_lobby_${_item.providerId}`}>
 				<img
 					src={`${config.cloudImgUrl}/SiteSkin/img/logo/${_item.lobbyImgName}.png`}
 					alt={_item.lobbyImgName}
