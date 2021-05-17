@@ -9177,6 +9177,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .vip .medal tr td:first-child {
   width: 34%;
+  text-align: left;
 }
 
 .vip .medal tr td img {
