@@ -104,6 +104,8 @@
 	"lbl_Oneshot_Fishing": "Oneshot Fishing",
 	"lbl_Water_Margin_Fishing": "Water Margin Fishing",
 	"lbl_Thunder_Fighter": "Thunder Fighter",
+	"lbl_Saba_Sport": "Saba Sport",
+	"lbl_Bti_Sport": "Bti Sport",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "ID đại lý/ Người giới thiệu (nếu có)",
@@ -205,7 +207,7 @@
 	"lbl_MaxBonusAmount": "TIỀN KHUYẾN MÃI TỐI ĐA",
 	"lbl_Sign_up_successful": "Tham gia thành công !",
 	"lbl_PromotionRebateAndCashback": "Hoàn trả / Hoàn lại tiền",
-	"lbl_Other":"Khác",
+	"lbl_Other": "Khác",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Không có dữ liệu",
@@ -258,7 +260,7 @@
 	"lbl_TpWallet_1": "Ví Thể thao",
 	"lbl_TpWallet_21": "918Kiss Wallet",
 	"lbl_TpWallet_22": "Mega Wallet",
-	"lbl_TpWallet_27":"Ví PT",
+	"lbl_TpWallet_27": "Ví PT",
 	"lbl_Wallet_Saba": "Ví Sportsbook",
 	"lbl_MainWallet": "Ví chính",
 	"lbl_RestoreAll": "Phục hồi quỹ",
@@ -441,7 +443,7 @@
 	"lbl_AllProvider": "Tất cả nền tảng",
 	"lbl_SearchGames": "Tìm kiếm trò chơi",
 	"lbl_Feature": "Đặc điểm",
-	"lbl_Jackpot":"NỔ HŨ",
+	"lbl_Jackpot": "NỔ HŨ",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",

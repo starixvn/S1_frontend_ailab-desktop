@@ -125,7 +125,6 @@ export const GET_ENTER_PAGE_URL = (
 	const _errorPageUrl = errorPageUrl(langId);
 
 	if (tpId === productList.sportBti.tpId) {
-		console.log(tpId, isLogin);
 		return `${
 			config.openURL
 		}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&errorUrl=${_errorPageUrl}&gameType=sports${
