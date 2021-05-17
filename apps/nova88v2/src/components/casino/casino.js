@@ -421,7 +421,7 @@ export default () => {
 		);
 	}, [userInfo.isLogin, urlTpId]);
 
-	const LobbyListLayout = lobbyImgList?.map(_item => {
+	const lobbyListLayout = lobbyImgList?.map(_item => {
 		return (
 			<button
 				onClick={clickLobbyProvider.bind(this, _item.providerId)}
@@ -450,7 +450,7 @@ export default () => {
 						<div className="inside-title icon icon-ow-casino">
 							<span>{t("lbl_Slots")}</span>
 						</div>
-						<div className="partnerSelect">{LobbyListLayout}</div>
+						<div className="partnerSelect">{lobbyListLayout}</div>
 						<div className="casinoSelect">
 							<Nav
 								selNav={selNav}
