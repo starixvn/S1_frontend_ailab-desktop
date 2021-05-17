@@ -920,6 +920,7 @@ header .header > div.function .country.active .countryList {
 header .header > div.function .btnGroup a,
 header .header > div.function .btnGroup button {
   max-height: 32px;
+  text-transform: uppercase;
 }
 
 header .header > div.function .cashier,
@@ -2027,15 +2028,16 @@ main > .swiper-container .swiper-slide {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -webkit-transform: translateX(-77%);
-          transform: translateX(-77%);
+  -webkit-transform: translateX(-81%);
+          transform: translateX(-81%);
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  padding-right: 10px;
 }
 
 .quickLink > div:nth-child(1) {
-  background: #00b9ff;
+  background: rgba(0, 185, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2142,7 +2144,7 @@ main > .swiper-container .swiper-slide {
   vertical-align: middle;
 }
 
-.quickLink.active {
+.quickLink:hover {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
   -webkit-transition: 0.7s;
@@ -2151,6 +2153,7 @@ main > .swiper-container .swiper-slide {
 
 .rightModule {
   width: 100%;
+  min-width: 1220px;
 }
 
 .porfileVip {
@@ -3572,7 +3575,8 @@ main > .swiper-container .swiper-slide {
   display: none;
 }
 
-#popup > .Cancel > .icon-icon32px_Profile ~ .btnGroup > .btn-check {
+#popup > .Cancel > .icon-icon32px_Profile ~ .btnGroup > .btn-check,
+#popup > .editSuccess > .icon-icon32px_notification ~ .btnGroup > .btn-check {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
@@ -3806,19 +3810,32 @@ main > .swiper-container .swiper-slide {
 }
 
 .Submit .btnGroup a,
+.Submit .btnGroup button,
 .Success .btnGroup a,
+.Success .btnGroup button,
 .Error .btnGroup a,
+.Error .btnGroup button,
 .Cancel .btnGroup a,
+.Cancel .btnGroup button,
 .uploadSuccess .btnGroup a,
+.uploadSuccess .btnGroup button,
 .updateSuccess .btnGroup a,
+.updateSuccess .btnGroup button,
 .tokyc .btnGroup a,
+.tokyc .btnGroup button,
 .addBankpop .btnGroup a,
+.addBankpop .btnGroup button,
 .changePassWordpop .btnGroup a,
+.changePassWordpop .btnGroup button,
 .editSuccess .btnGroup a,
+.editSuccess .btnGroup button,
 .upload .btnGroup a,
+.upload .btnGroup button,
 .update .btnGroup a,
-.loackAmount .btnGroup a {
-  max-width: 100px;
+.update .btnGroup button,
+.loackAmount .btnGroup a,
+.loackAmount .btnGroup button {
+  max-width: 150px;
 }
 
 .Submit .popList,
@@ -4944,6 +4961,10 @@ main > .swiper-container .swiper-slide {
           flex: 1;
   margin-right: 10px;
   max-width: 520px;
+}
+
+.quickSelect > div.gameBtn {
+  max-width: inherit;
 }
 
 .quickSelect > div.btnGroup:not(.promoType) {
@@ -8525,7 +8546,24 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn {
-  padding: 20px 50px 50px;
+  padding: 20px 20px 50px;
+  float: left;
+  width: 900px;
+}
+
+.subModuleListColumn p {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.subModuleListColumn > .subModuleTitle {
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.subModuleListColumn > .subModuleTitle i {
+  color: #56ceff;
+  margin-right: 3px;
 }
 
 .subModuleListColumn > .subModule {
@@ -8569,16 +8607,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   opacity: 1;
 }
 
-.subModuleListColumn > .subModule > .subModuleTitle {
-  width: 160px;
-  white-space: nowrap;
-}
-
-.subModuleListColumn > .subModule > .subModuleTitle i {
-  color: #56ceff;
-  margin-right: 3px;
-}
-
 .subModuleListColumn > .subModule > .subModuleContent {
   width: calc(100% - 200px);
   margin-left: 35px;
@@ -8594,7 +8622,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: calc(100% - 180px);
 }
 
 .subModuleListColumn > .subModule > div > button,
@@ -8611,7 +8638,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           align-items: center;
   margin-bottom: 15px;
   color: white;
-  width: 215px;
+  width: 210px;
   position: relative;
 }
 
@@ -8724,7 +8751,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .column .inputBox-white input::-webkit-input-placeholder {
-  text-align: right;
+  text-align: left;
 }
 
 .subModuleListColumn > .subModule .column .inputBox-white + .tip {
@@ -8739,7 +8766,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .inputBox-white input::-webkit-input-placeholder {
-  text-align: right;
+  text-align: left;
 }
 
 .subModuleListColumn > .subModule .inputBox-white + .tip {
@@ -8755,7 +8782,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   border: 0;
   color: white;
   outline: none;
-  text-align: right;
 }
 
 .subModuleListColumn > .subModule .inputBox-white .iconModule {
@@ -8848,6 +8874,30 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
   min-width: 100px;
   width: auto;
+}
+
+.important {
+  background: #232e49;
+  color: #c9cfd9;
+  width: 220px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 15px 10px 15px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  font-size: 12px;
+}
+
+.important .title {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ff6734;
+}
+
+.important ol li {
+  list-style: decimal;
+  line-height: 22px;
 }
 
 .text-center {
@@ -9241,7 +9291,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh {
-  height: 30vw;
+  height: 70vh;
   overflow: auto;
   margin: 20px 0;
 }
