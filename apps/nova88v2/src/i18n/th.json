@@ -95,6 +95,7 @@
 	"lbl_Feature": "ลักษณะพิเศษ",
 	"lbl_Table": "เทเบิลเกมส์",
 	"lbl_Slots": "สล็อต",
+	"lbl_Jackpot":"รางวัลใหญ่",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "ต้องใส่ชื่อบัญชีผู้ใช้",
@@ -659,6 +660,7 @@
 	"lbl_Nova_Club": "โนวา คลับ",
 	"lbl_Club": "Club",
 	"lbl_Vip_LastUpdated": "ล่าสุดเมื่อวันที่",
+	"lbl_DAILY_WITHDRAWAL_LIMITATION": "ยอดถอนสูงสุดต่อวัน",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "ฟุตบอล",

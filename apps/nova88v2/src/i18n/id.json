@@ -95,6 +95,7 @@
 	"lbl_Feature": "Fitur",
 	"lbl_Table": "Meja",
 	"lbl_Slots": "Slots",
+	"lbl_Jackpot":"Jackpot",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Nama pengguna Wajib diisi.",
@@ -659,6 +660,7 @@
 	"lbl_Nova_Club": "NOVA CLUB",
 	"lbl_Club": "Club",
 	"lbl_Vip_LastUpdated": "UPDATE TERAKHIR",
+	"lbl_DAILY_WITHDRAWAL_LIMITATION": "LIMIT PENARIKAN HARIAN",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "SEPAK BOLA",
