@@ -9,7 +9,7 @@ export const defNav = {
 	},
 	PROMO: {
 		key: "PROMO",
-		displayKey: "lbl_Promotion",
+		displayKey: "lbl_Jackpot",
 		hot: true
 	},
 	NEW: {

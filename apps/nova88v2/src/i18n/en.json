@@ -95,6 +95,7 @@
 	"lbl_Feature": "Feature",
 	"lbl_Table": "Table",
 	"lbl_Slots": "Slots",
+	"lbl_Jackpot":"Jackpot",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Username is required.",
@@ -659,6 +660,7 @@
 	"lbl_Nova_Club": "NOVA CLUB",
 	"lbl_Club": "Club",
 	"lbl_Vip_LastUpdated": "LAST UPDATED",
+	"lbl_DAILY_WITHDRAWAL_LIMITATION": "DAILY WITHDRAWAL LIMITATION",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "SOCCER",
