@@ -199,7 +199,7 @@
 	"lbl_RequireMinAmountHint_Front": "Tiền gửi tối thiểu là",
 	"lbl_RequireMinAmountHint_Back": "Nạp tiền ngay?",
 	"lbl_PromotionRebateAndCashback": "Hoàn trả / Hoàn lại tiền",
-	"lbl_Other":"Khác",
+	"lbl_Other": "Khác",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Không có dữ liệu",
@@ -252,7 +252,7 @@
 	"lbl_TpWallet_1": "Ví Thể thao",
 	"lbl_TpWallet_21": "918Kiss Wallet",
 	"lbl_TpWallet_22": "Mega Wallet",
-	"lbl_TpWallet_27":"Ví PT",
+	"lbl_TpWallet_27": "Ví PT",
 	"lbl_Wallet_Saba": "Ví Sportsbook",
 	"lbl_MainWallet": "Ví chính",
 	"lbl_RestoreAll": "Phục hồi quỹ",
@@ -573,6 +573,7 @@
 	"lbl_Titanium_Club": "HẠNG BẠCH KIM",
 	"lbl_Diamond_Club": "HẠNG KIM CƯƠNG",
 	"lbl_Goal123_Club": "GOAL123 CLUB",
+	"lbl_Vip_LastUpdated": "CẬP NHẬT GẦN NHẤT",
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "Giới thiệu",
