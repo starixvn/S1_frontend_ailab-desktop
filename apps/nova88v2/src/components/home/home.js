@@ -59,6 +59,40 @@ const IndexPage = ({ location }) => {
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
+		const cookiePerDay = `perDay_cookie`;
+		const isShowPerDayPopBox = readCookie(cookiePerDay) !== "1";
+		const clickPerDay = () => {
+			setPopBox({ isOpen: false });
+			setCookie(cookiePerDay, "1", 1);
+			if (!userInfo.isLogin && isDateRange(null, "2021/05/18 23:59:59")) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.RankingWinner,
+					onClickClose: () => setPopBox({ isOpen: false })
+				});
+			}
+		};
+		if (!userInfo.isLogin && isShowPerDayPopBox) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.PerDay,
+				onClickClose: () => clickPerDay()
+			});
+		}
+		if (
+			!userInfo.isLogin &&
+			isDateRange(null, "2021/05/18 23:59:59") &&
+			!isShowPerDayPopBox
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RankingWinner,
+				onClickClose: () => setPopBox({ isOpen: false })
+			});
+		}
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
+
+	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
 			const showDepositPopBox = () => {
 				const cookieName = `balanceHint${userInfo.userName}`;
@@ -141,19 +175,6 @@ const IndexPage = ({ location }) => {
 			}
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
-
-	useEffect(() => {
-		if (
-			userInfo.isLogin === false &&
-			isDateRange(null, "2021/05/18 23:59:59")
-		) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.RankingWinner,
-				onClickClose: () => setPopBox({ isOpen: false })
-			});
-		}
-	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	return (
 		<main>

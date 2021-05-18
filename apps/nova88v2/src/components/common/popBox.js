@@ -31,6 +31,7 @@ import defPopBoxType from "./defPopBoxType";
 import RankingWinner from "./popBox.rankingWinner";
 import DepositUploadBankSlip from "./popBox.depositUploadBankSlip";
 import SuccessMySteryBox from "./popBox.successMySteryBox";
+import PerDay from "./popBox.perDay";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -256,6 +257,14 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.PerDay:
+			content = (
+				<PerDay
+					onClickClose={popBox.onClickClose}
+					langId={popBox.langId}
+				/>
+			);
+			break;
 		default:
 			break;
 	}
