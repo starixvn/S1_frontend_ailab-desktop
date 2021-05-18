@@ -667,6 +667,14 @@ header .header > div.menu .livecasinoList .liveN2LIVE:hover {
   background: url(../img/liven2live_a.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .livecasinoList .livePT {
+  background: url(../img/livePT.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .livePT:hover {
+  background: url(../img/livePT_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .fishList .fgg {
   background: url(../img/fishingGG.png) no-repeat center 10px/auto 100%;
 }
