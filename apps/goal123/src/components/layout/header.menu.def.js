@@ -113,8 +113,7 @@ export const defMenuLinks = langId => {
 			subMenu: [
 				{
 					...productList.sportSaba,
-					path: path.sports.root,
-					menuType: defMenuType.entPage,
+					subPath: path.sports.root,
 					className: "sport",
 					displayKey: "lbl_Saba_Sport",
 					bgImgUrl: sportSabaBgImg,
@@ -123,7 +122,6 @@ export const defMenuLinks = langId => {
 				},
 				{
 					...productList.sportBti,
-					path: path.sportBti.root,
 					menuType: defMenuType.entPage,
 					className: "BTI",
 					displayKey: "lbl_Bti_Sport",
@@ -147,7 +145,7 @@ export const defMenuLinks = langId => {
 			subMenu: [
 				{
 					...productList.sabaClub,
-					path: path.sports.root,
+					// path: path.sports.root,
 					className: "sabaclub",
 					displayKey: "lbl_SabaClub",
 					menuType: defMenuType.LinkOrBtn,

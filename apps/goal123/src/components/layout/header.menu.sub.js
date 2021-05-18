@@ -13,13 +13,17 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
-	const ClickItem = (tpId, gameId) => {
+	const ClickItem = (tpId, gameId, _subPath) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
+
+		if (_subPath) {
+			navigate(`${_subPath}`);
+		}
 		if (tpId === productList.sportBti.tpId) {
 			navigate(`/${userInfo.langId}/${path.sportBti.root}`);
 		} else {
@@ -57,7 +61,6 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 
 	const rows = subItems?.map(s => {
 		const { bgImgUrl, npcImgUrl, iconImgUrl } = s;
-
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
@@ -94,13 +97,25 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			);
 		}
 
+		let _subPath;
+		if (s.subPath) {
+			if (s.parameter?.name === "sportSaba") {
+				_subPath = `/${s.subPath}?game=${`soccer`}`;
+			}
+		}
+
 		return (
 			<button
 				key={key}
 				className={_iconClassName}
-				onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
+				onClick={ClickItem.bind(
+					this,
+					s.tpId,
+					s.gameId,
+					// userInfo,
+					_subPath
+				)}>
 				{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
-
 				<span>
 					<p>{displayText}</p>
 				</span>
