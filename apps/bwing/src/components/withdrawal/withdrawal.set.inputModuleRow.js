@@ -24,9 +24,7 @@ export default props => {
 					</button>
 				</div>
 			</div>
-			<div className={`tip${props.tip ? " active" : ""}`}>
-				{props.tip}
-			</div>
+			<div className={props.tip ? "tip active" : ""}>{props.tip}</div>
 		</>
 	);
 };
