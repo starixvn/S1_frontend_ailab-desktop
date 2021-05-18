@@ -9,8 +9,6 @@ import {
 } from "../common/swipperBanner";
 import { defBannerType } from "../../service/api/site";
 import path from "../../router";
-import Rebate_VN from "../../styles/img/Daily rebate vn.png";
-import Rebate_EN from "../../styles/img/Daily rebate.png";
 
 const EventSwipper = memo(({ langId }) => {
 	const { banner } = useGetBanner({
@@ -54,25 +52,8 @@ const EventSwipper = memo(({ langId }) => {
 	});
 
 	return (
-		<div className="offers">
-			<div>
-				<AutoPlayWithBtn Rows={rows} />
-			</div>
-			<span className="straightBorder" />
-			<div
-				className="bannerS"
-				onClick={() =>
-					navigate(
-						`/${langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=BwingRebateNov20`
-					)
-				}
-				style={{ cursor: "pointer" }}>
-				{langId === "en" ? (
-					<img src={Rebate_EN} alt="Daily Rebate Unlimited" />
-				) : (
-					<img src={Rebate_VN} alt="Daily Rebate Unlimited" />
-				)}
-			</div>
+		<div>
+			<AutoPlayWithBtn Rows={rows} />
 		</div>
 	);
 });

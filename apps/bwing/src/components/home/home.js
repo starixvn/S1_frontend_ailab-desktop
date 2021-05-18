@@ -13,6 +13,7 @@ import { defBannerType } from "../../service/api/site";
 import { defaultLang } from "../../i18n/config";
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
+import Jackpot from "./jackpot";
 import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
@@ -109,7 +110,11 @@ export default () => {
 				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 				<Marquee />
 				<section>
-					<EventSwipper langId={userInfo.langId} />
+					<div className="offers">
+						<EventSwipper langId={userInfo.langId} />
+						<span className="straightBorder" />
+						<Jackpot t={t} userInfo={userInfo} />
+					</div>
 				</section>
 				<section>
 					<PromoGameList t={t} userInfo={userInfo} />
