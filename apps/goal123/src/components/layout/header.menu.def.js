@@ -7,6 +7,11 @@ import {
 	showEventIcon
 } from "../common/eventIcon";
 
+import sportSabaBgImg from "../../styles/img/dropdown/sports/saba.png";
+import sportSabaItemImg from "../../styles/img/dropdown/sports/saba-item.png";
+import sportBtiBgImg from "../../styles/img/dropdown/sports/bti.png";
+import sportBtiItemImg from "../../styles/img/dropdown/sports/bti-item.png";
+
 import cq9IconImg from "../../styles/img/dropdown/fishing/cq9-icon.png";
 import icgIconImg from "../../styles/img/dropdown/fishing/icg-icon.png";
 import ggIconImg from "../../styles/img/dropdown/fishing/gg-icon.png";
@@ -103,8 +108,30 @@ export const defMenuLinks = langId => {
 	return {
 		sports: {
 			productInfo: productList.soccer,
-			path: path.sports.root,
-			displayKey: "lbl_Sports"
+			// path: path.sports.root,
+			displayKey: "lbl_Sports",
+			subMenu: [
+				{
+					...productList.sportSaba,
+					path: path.sports.root,
+					menuType: defMenuType.entPage,
+					className: "sport",
+					displayKey: "lbl_Saba_Sport",
+					bgImgUrl: sportSabaBgImg,
+					npcImgUrl: sportSabaItemImg,
+					parameter: { ...productList.sportSaba }
+				},
+				{
+					...productList.sportBti,
+					path: path.sportBti.root,
+					menuType: defMenuType.entPage,
+					className: "BTI",
+					displayKey: "lbl_Bti_Sport",
+					bgImgUrl: sportBtiBgImg,
+					npcImgUrl: sportBtiItemImg,
+					parameter: { ...productList.sportBti }
+				}
+			]
 		},
 		// cockFighting: {
 		// 	productInfo: productList.cockFighting,
@@ -152,7 +179,7 @@ export const defMenuLinks = langId => {
 				// },
 				{
 					...productList.keno,
-					path: path.sports.root,
+					// path: path.sports.root,
 					className: "keno",
 					displayKey: "lbl_Keno",
 					menuType: defMenuType.LinkOrBtn,
@@ -162,7 +189,7 @@ export const defMenuLinks = langId => {
 				},
 				{
 					...productList.lottery,
-					path: path.sports.root,
+					// path: path.sports.root,
 					className: "lottery",
 					displayKey: "lbl_Lottery",
 					menuType: defMenuType.LinkOrBtn,
@@ -620,6 +647,7 @@ export const defMenuLinks = langId => {
 	};
 };
 export const defSubListClassName = {
+	sports: "sportList",
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
 	games: "gameList",

@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import { defMenuType } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
+import productList from "../../datas/productList";
+import path from "../../router";
 
 export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 	const { t } = useTranslation();
@@ -18,14 +20,17 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				popBoxType: defPopBoxType.Login
 			});
 		};
-
-		SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback
-		});
+		if (tpId === productList.sportBti.tpId) {
+			navigate(`/${userInfo.langId}/${path.sportBti.root}`);
+		} else {
+			SET_ENTER_PAGE({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				loginCallback
+			});
+		}
 	};
 
 	const imgRender = ({ bgImgUrl, npcImgUrl, iconImgUrl }) => {
