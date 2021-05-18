@@ -17,8 +17,7 @@
 
 .casinoList .icon-JOKER::before {
   font-size: 15px !important;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
+  transform: scale(0.8);
 }
 
 .casinoList .icon-SG::before {
@@ -1077,4 +1076,3 @@
 .icon-live:before {
   content: "\e9b6";
 }
-/*# sourceMappingURL=font.css.map */

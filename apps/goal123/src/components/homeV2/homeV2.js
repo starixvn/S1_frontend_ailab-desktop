@@ -24,6 +24,7 @@ import { BannerSwipper } from "../common/customSwipper";
 import EventSwipper from "./components/eventSwipper";
 import Marquee from "./components/marquee";
 import LiveCasinoSwipper from "./components/liveCasinoSwipper";
+import Jackpot from "./components/jackpot";
 import HotGameList from "./components/hotGameList";
 import News from "./components/news";
 import PlatformSection from "./components/platform";
@@ -145,12 +146,16 @@ const HomeV2 = ({ productTpIds }) => {
 			<Marquee />
 
 			<section>
-				<LiveCasinoSwipper
-					t={t}
-					clickItem={clickItem}
-					langId={userInfo.langId}
-					productTpIds={productTpIds}
-				/>
+				<div className="indexliveCasinoList">
+					<LiveCasinoSwipper
+						t={t}
+						clickItem={clickItem}
+						langId={userInfo.langId}
+						productTpIds={productTpIds}
+					/>
+
+					<Jackpot t={t} userInfo={userInfo} />
+				</div>
 
 				<HotGameList
 					t={t}
@@ -164,38 +169,47 @@ const HomeV2 = ({ productTpIds }) => {
 					<News t={t} langId={userInfo.langId} />
 				</div>
 
-				<div className="special">
+				<div className="information">
 					<div>
-						<img src={specialImg1} alt="specialImg1" />
-						<ul>
-							<li className="title">{t("lbl_ExtensiveGames")}</li>
-							<li>{t("lbl_ExtensiveGamesDesc")}</li>
-						</ul>
-					</div>
-					<div>
-						<img src={specialImg2} alt="specialImg2" />
-						<ul>
-							<li className="title">
-								{t("lbl_ExcellentCustomerCare")}
-							</li>
-							<li>{t("lbl_ExcellentCustomerCareDesc")}</li>
-						</ul>
-					</div>
-					<div>
-						<img src={specialImg3} alt="specialImg3" />
-						<ul>
-							<li className="title">{t("lbl_PaymentMethods")}</li>
-							<li>{t("lbl_PaymentMethodsDesc")}</li>
-						</ul>
-					</div>
-					<div>
-						<img src={specialImg4} alt="specialImg4" />
-						<ul>
-							<li className="title">
-								{t("lbl_TransactionSpeed")}
-							</li>
-							<li>{t("lbl_TransactionSpeedDesc")}</li>
-						</ul>
+						<div>
+							<img src={specialImg1} alt="specialImg1" />
+							<ul>
+								<li className="title">
+									{t("lbl_ExtensiveGames")}
+								</li>
+								<li>{t("lbl_ExtensiveGamesDesc")}</li>
+							</ul>
+						</div>
+
+						<div>
+							<img src={specialImg2} alt="specialImg2" />
+							<ul>
+								<li className="title">
+									{t("lbl_ExcellentCustomerCare")}
+								</li>
+								<li>{t("lbl_ExcellentCustomerCareDesc")}</li>
+							</ul>
+						</div>
+
+						<div>
+							<img src={specialImg3} alt="specialImg3" />
+							<ul>
+								<li className="title">
+									{t("lbl_PaymentMethods")}
+								</li>
+								<li>{t("lbl_PaymentMethodsDesc")}</li>
+							</ul>
+						</div>
+
+						<div>
+							<img src={specialImg4} alt="specialImg4" />
+							<ul>
+								<li className="title">
+									{t("lbl_TransactionSpeed")}
+								</li>
+								<li>{t("lbl_TransactionSpeedDesc")}</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 
