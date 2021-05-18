@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "@reach/router";
-import path from "../../router";
 import { userInfoContext } from "./context";
 import config from "../../config";
 
@@ -11,9 +9,8 @@ export default ({ onClickClose }) => {
 		<div className="friend active">
 			<button className="icon icon-close" onClick={onClickClose} />
 			<img
-				style={{ maxWidth: "900px" }}
-				src={require("../../styles/img/indexCenterBanner.jpg")}
-				alt="per-day-welcome"
+				src={`${config.bannerImgUrl}/img/nonlogin/novapopup-570x150_${userInfo.langId}.jpg`}
+				alt="welcome_nova88"
 			/>
 		</div>
 	);
