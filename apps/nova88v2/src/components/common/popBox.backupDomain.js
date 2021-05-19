@@ -1,16 +1,14 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { api_site_GetSupportDomainList } from "../../service/api/site";
+
 import { userInfoContext } from "./context";
 import { setCookie, deleteCookie } from "./common";
-import config from "../../config";
 
-export default ({ onClickClose }) => {
+export default ({ onClickClose, linkList }) => {
 	const isMountedRef = useRef(null);
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const [selectDontShow, setSelectDontShow] = useState(false);
-	const [linkList, setLinkList] = useState([]);
 	const settingCookie = `backupDomain_${userInfo.userName}`;
 
 	useEffect(() => {
@@ -36,14 +34,6 @@ export default ({ onClickClose }) => {
 	// try {
 	// 	imgSrc = `${config.cloudImgUrl}/SiteSkin/img/backupimg_${userInfo.langId}.jpg`;
 	// } catch (error) {}
-
-	useEffect(() => {
-		api_site_GetSupportDomainList().then(res => {
-			if (res.data.errorCode === 0 && isMountedRef.current) {
-				setLinkList(res.data.data);
-			}
-		});
-	}, []);
 
 	const linksLayout = linkList?.map(_link => {
 		const _linkValue = _link.domainName;

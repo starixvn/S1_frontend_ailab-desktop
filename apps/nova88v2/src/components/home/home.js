@@ -14,7 +14,10 @@ import {
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
-import { defBannerType } from "../../service/api/site";
+import {
+	defBannerType,
+	api_site_GetSupportDomainList
+} from "../../service/api/site";
 import SwipperBanner from "../common/swipperBanner";
 import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
 import Marquee from "./marquee";
@@ -31,11 +34,43 @@ import LatestVideo from "./latestVideo";
 import LiveScore from "./liveScore";
 import { _ACTION_TYPE } from "../../service/enterPage";
 
+const useGetBackupDomainList = ({ setPopBox, userInfo }) => {
+	useEffect(() => {
+		let isMounted = true;
+
+		if (userInfo.isLogin && userInfo.userName) {
+			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
+			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
+			if (isShowBackupDomain) {
+				api_site_GetSupportDomainList().then(res => {
+					if (
+						res.data.errorCode === 0 &&
+						isMounted &&
+						res.data.data.length > 0
+					) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.BackupDomain,
+							onClickClose: () => setPopBox({ isOpen: false }),
+							linkList: res.data.data
+						});
+					}
+				});
+			}
+		}
+
+		return () => {
+			isMounted = false;
+		};
+	}, [userInfo.isLogin, userInfo.userName, setPopBox, userInfo.langId]);
+};
+
 const IndexPage = ({ location }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
+	useGetBackupDomainList({ setPopBox, userInfo });
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -71,20 +106,6 @@ const IndexPage = ({ location }) => {
 			});
 		}
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
-
-	useEffect(() => {
-		if (userInfo.isLogin && userInfo.userName) {
-			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
-			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
-			if (isShowBackupDomain) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.BackupDomain,
-					onClickClose: () => setPopBox({ isOpen: false })
-				});
-			}
-		}
-	}, [userInfo.isLogin, userInfo.userName, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {

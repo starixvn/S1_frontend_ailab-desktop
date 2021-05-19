@@ -258,7 +258,12 @@ export default () => {
 			break;
 
 		case defPopBoxType.BackupDomain:
-			content = <BackupDomain onClickClose={popBox.onClickClose} />;
+			content = (
+				<BackupDomain
+					onClickClose={popBox.onClickClose}
+					linkList={popBox.linkList}
+				/>
+			);
 			break;
 
 		default:
