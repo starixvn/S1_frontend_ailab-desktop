@@ -391,6 +391,20 @@ header input:focus-within {
   top: -10px;
 }
 
+.header > div.menu .subMenu-Wrapper-new .homeList a.active, .header > div.menu .subMenu-Wrapper-new .homeList button.active, .header > div.menu .subMenu-Wrapper-new .sportsList a.active, .header > div.menu .subMenu-Wrapper-new .sportsList button.active, .header > div.menu .subMenu-Wrapper-new .eSportsList a.active, .header > div.menu .subMenu-Wrapper-new .eSportsList button.active, .header > div.menu .subMenu-Wrapper-new .casinoList a.active, .header > div.menu .subMenu-Wrapper-new .casinoList button.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.active, .header > div.menu .subMenu-Wrapper-new .pokerList a.active, .header > div.menu .subMenu-Wrapper-new .pokerList button.active, .header > div.menu .subMenu-Wrapper-new .gameList a.active, .header > div.menu .subMenu-Wrapper-new .gameList button.active, .header > div.menu .subMenu-Wrapper-new .fishList a.active, .header > div.menu .subMenu-Wrapper-new .fishList button.active, .header > div.menu .subMenu-Wrapper-new .promoList a.active, .header > div.menu .subMenu-Wrapper-new .promoList button.active, .header > div.menu .subMenu-Wrapper-new .tvList a.active, .header > div.menu .subMenu-Wrapper-new .tvList button.active, .header > div.menu .subMenu-Wrapper-new .vipList a.active, .header > div.menu .subMenu-Wrapper-new .vipList button.active, .header > div.menu .subMenu-Wrapper-new .rankingList a.active, .header > div.menu .subMenu-Wrapper-new .rankingList button.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+.header > div.menu .subMenu-Wrapper-new .homeList a.active:after, .header > div.menu .subMenu-Wrapper-new .homeList button.active:after, .header > div.menu .subMenu-Wrapper-new .sportsList a.active:after, .header > div.menu .subMenu-Wrapper-new .sportsList button.active:after, .header > div.menu .subMenu-Wrapper-new .eSportsList a.active:after, .header > div.menu .subMenu-Wrapper-new .eSportsList button.active:after, .header > div.menu .subMenu-Wrapper-new .casinoList a.active:after, .header > div.menu .subMenu-Wrapper-new .casinoList button.active:after, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.active:after, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.active:after, .header > div.menu .subMenu-Wrapper-new .pokerList a.active:after, .header > div.menu .subMenu-Wrapper-new .pokerList button.active:after, .header > div.menu .subMenu-Wrapper-new .gameList a.active:after, .header > div.menu .subMenu-Wrapper-new .gameList button.active:after, .header > div.menu .subMenu-Wrapper-new .fishList a.active:after, .header > div.menu .subMenu-Wrapper-new .fishList button.active:after, .header > div.menu .subMenu-Wrapper-new .promoList a.active:after, .header > div.menu .subMenu-Wrapper-new .promoList button.active:after, .header > div.menu .subMenu-Wrapper-new .tvList a.active:after, .header > div.menu .subMenu-Wrapper-new .tvList button.active:after, .header > div.menu .subMenu-Wrapper-new .vipList a.active:after, .header > div.menu .subMenu-Wrapper-new .vipList button.active:after, .header > div.menu .subMenu-Wrapper-new .rankingList a.active:after, .header > div.menu .subMenu-Wrapper-new .rankingList button.active:after {
+  content: 'Under maintenance';
+  position: absolute;
+  z-index: 1;
+  background: #555;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .header > div.menu .subMenu-Wrapper-new .homeList a .live:before, .header > div.menu .subMenu-Wrapper-new .homeList button .live:before, .header > div.menu .subMenu-Wrapper-new .sportsList a .live:before, .header > div.menu .subMenu-Wrapper-new .sportsList button .live:before, .header > div.menu .subMenu-Wrapper-new .eSportsList a .live:before, .header > div.menu .subMenu-Wrapper-new .eSportsList button .live:before, .header > div.menu .subMenu-Wrapper-new .casinoList a .live:before, .header > div.menu .subMenu-Wrapper-new .casinoList button .live:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList a .live:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList button .live:before, .header > div.menu .subMenu-Wrapper-new .pokerList a .live:before, .header > div.menu .subMenu-Wrapper-new .pokerList button .live:before, .header > div.menu .subMenu-Wrapper-new .gameList a .live:before, .header > div.menu .subMenu-Wrapper-new .gameList button .live:before, .header > div.menu .subMenu-Wrapper-new .fishList a .live:before, .header > div.menu .subMenu-Wrapper-new .fishList button .live:before, .header > div.menu .subMenu-Wrapper-new .promoList a .live:before, .header > div.menu .subMenu-Wrapper-new .promoList button .live:before, .header > div.menu .subMenu-Wrapper-new .tvList a .live:before, .header > div.menu .subMenu-Wrapper-new .tvList button .live:before, .header > div.menu .subMenu-Wrapper-new .vipList a .live:before, .header > div.menu .subMenu-Wrapper-new .vipList button .live:before, .header > div.menu .subMenu-Wrapper-new .rankingList a .live:before, .header > div.menu .subMenu-Wrapper-new .rankingList button .live:before {
   bottom: 30px;
   top: auto;
@@ -2400,7 +2414,6 @@ footer .footerList > div > div > div {
 .loginpop .joinloginModule .joinloginFunction {
   margin-left: 25px;
   color: #5574A7;
-  min-width: 425px;
 }
 
 .loginpop .joinloginModule .joinloginFunction a, .loginpop .joinloginModule .joinloginFunction > div button.txt-orange {
@@ -2502,6 +2515,10 @@ footer .footerList > div > div > div {
 
 .loginpop .joinloginModule .loginAnimation:hover img.npc2 {
   right: -130px;
+}
+
+.rightModule .loginpop .joinloginModule .joinloginFunction {
+  min-width: 425px;
 }
 
 @-webkit-keyframes animationlogo {
