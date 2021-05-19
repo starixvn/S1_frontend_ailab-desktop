@@ -150,6 +150,13 @@ export default ({ dispatch, state, t, _isConvert }) => {
 							{t("lbl_Submit")}
 						</button>
 					</div>
+					<div className="tip active">
+						{t("lbl_Daily_Min_Max_Amount")} : {state.withdrawalMin}
+					</div>
+					{/* <div className="tip active">
+						Preferred currency can not be changed after
+						registration.
+					</div> */}
 				</form>
 			</div>
 		</div>

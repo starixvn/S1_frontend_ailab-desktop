@@ -95,7 +95,7 @@
 	"lbl_Feature": "Feature",
 	"lbl_Table": "Table",
 	"lbl_Slots": "Slots",
-	"lbl_Jackpot":"Jackpot",
+	"lbl_Jackpot": "Jackpot",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Username is required.",
@@ -311,6 +311,7 @@
 	"lbl_WithdrawalImportantNoticeContent3": "Some game provider requires 15 till 30 minutes of report sync time, kindly bear with us during the required sync time.",
 	"lbl_WithdrawalImportantNoticeContent4": "Please make sure your required turnover is achieve, and submit the withdrawal transaction after 30 minutes to avoid system auto reject.",
 	"lbl_WithdrawalImportantNoticeContent5": "If there is any discrepancy or you may have any other further withdrawal inquiries, kindly contact our <Link>24/7 LIVE CHAT</Link>. Thank you.",
+	"lbl_Daily_Min_Max_Amount": "Daily Min/Max Limit",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",
