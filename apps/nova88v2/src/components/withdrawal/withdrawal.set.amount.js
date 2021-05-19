@@ -151,7 +151,9 @@ export default ({ dispatch, state, t, _isConvert }) => {
 						</button>
 					</div>
 					<div className="tip active">
-						{t("lbl_Daily_Min_Max_Amount")} : {state.withdrawalMin}
+						{t("lbl_Daily_Min_Max_Amount")} :{" "}
+						{number_format(state.withdrawalMin, _isConvert)} /{" "}
+						{number_format(state.withdrawalMax, _isConvert)}
 					</div>
 					{/* <div className="tip active">
 						Preferred currency can not be changed after

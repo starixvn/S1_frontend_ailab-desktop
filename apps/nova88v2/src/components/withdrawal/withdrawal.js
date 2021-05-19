@@ -43,7 +43,8 @@ export default () => {
 			if (res.data.errorCode === 0 && isMountedRef.current) {
 				dispatch({
 					type: defActionType.SET_WITHDRAWAL_MIN_AMOUNT,
-					withdrawalMin: res.data.data.withdrawalMin
+					withdrawalMin: res.data.data.withdrawalMin,
+					withdrawalMax: res.data.data.withdrawalAvailableAmount
 				});
 			}
 		});
