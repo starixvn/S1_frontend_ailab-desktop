@@ -42,9 +42,10 @@ export default () => {
 		api_payment_GetWithdrawalLimit().then(res => {
 			if (res.data.errorCode === 0 && isMountedRef.current) {
 				dispatch({
-					type: defActionType.SET_WITHDRAWAL_MIN_AMOUNT,
+					type: defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT,
 					withdrawalMin: res.data.data.withdrawalMin,
-					withdrawalMax: res.data.data.withdrawalAvailableAmount
+					withdrawalMax: res.data.data.withdrawalAvailableAmount,
+					isAmountLimited: !res.data.data.unlimited
 				});
 			}
 		});

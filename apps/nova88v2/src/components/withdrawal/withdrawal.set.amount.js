@@ -20,10 +20,17 @@ export default ({ dispatch, state, t, _isConvert }) => {
 	};
 
 	const ValidAmount = _amount => {
+		const _availableBalance = state.balanceData?.availableBalance;
+		const _maxAvailable =
+			_availableBalance < state.withdrawalMax
+				? _availableBalance
+				: state.withdrawalMax;
 		const result = checkAmount({
 			amount: _amount,
 			minAmount: state.withdrawalMin,
-			maxAmount: state.balanceData?.availableBalance,
+			maxAmount: state.isAmountLimited
+				? _maxAvailable
+				: _availableBalance,
 			_isConvert,
 			t,
 			maxAmountAllowUnlimit: false
@@ -44,11 +51,21 @@ export default ({ dispatch, state, t, _isConvert }) => {
 		return result.status === 0;
 	};
 
+	const showMinMaxTip = () => {
+		return (
+			<>
+				{" "}
+				{t("lbl_Daily_Min_Max_Amount")} :{" "}
+				{number_format(state.withdrawalMin, _isConvert)} /{" "}
+				{state.isAmountLimited
+					? number_format(state.withdrawalMax, _isConvert)
+					: "unlimited"}
+			</>
+		);
+	};
+
 	const clickInfo = () => {
-		const _msg =
-			state.tip === "" || !state.tip
-				? getAmountTip(state.withdrawalMin, _isConvert, t)
-				: "";
+		const _msg = state.tip === "" || !state.tip ? showMinMaxTip() : "";
 		dispatch({
 			type: defActionType.CHECK_AMOUNT,
 			checked: null,
@@ -142,6 +159,11 @@ export default ({ dispatch, state, t, _isConvert }) => {
 						onBlur={ValidAmount.bind(this, state.amount)}
 						isAmount={true}
 					/>
+					{/* <div className="tip active">
+						{t("lbl_Daily_Min_Max_Amount")} :{" "}
+						{number_format(state.withdrawalMin, _isConvert)} /{" "}
+						{number_format(state.withdrawalMax, _isConvert)}
+					</div> */}
 					<div className="btnGroup">
 						<button
 							className={state.checked ? "btn-check" : "gray"}
@@ -150,11 +172,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 							{t("lbl_Submit")}
 						</button>
 					</div>
-					<div className="tip active">
-						{t("lbl_Daily_Min_Max_Amount")} :{" "}
-						{number_format(state.withdrawalMin, _isConvert)} /{" "}
-						{number_format(state.withdrawalMax, _isConvert)}
-					</div>
+
 					{/* <div className="tip active">
 						Preferred currency can not be changed after
 						registration.
