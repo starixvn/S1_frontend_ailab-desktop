@@ -4503,7 +4503,7 @@ input[type="file"] {
   overflow: unset;
   background: white;
   border-radius: 20px;
-  padding: 20px;
+  padding: 20px 0;
   position: relative;
   overflow: hidden;
   color: #b2b2b2;
@@ -4524,7 +4524,6 @@ input[type="file"] {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 20px;
-  position: absolute;
   top: 0;
   height: 25px;
   display: -webkit-box;
@@ -4549,7 +4548,7 @@ input[type="file"] {
   padding: 7px 10px;
   border-radius: 30px;
   border: 1px solid #b2b2b2;
-  margin: 5px 0;
+  margin: 5px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4557,7 +4556,7 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
 }
 
 #popup .pop .backupDomain .url .copyurl {
@@ -4570,7 +4569,7 @@ input[type="file"] {
 }
 
 #popup .pop .backupDomain .checkbox {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #popup .pop .backupDomain .checkbox input[type="checkbox"] + label {

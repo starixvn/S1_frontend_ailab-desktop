@@ -73,9 +73,6 @@ export default ({ onClickClose }) => {
 		<div className="backupDomain active">
 			<button className="icon icon-close" onClick={onClickClose} />
 			<div className="poptit">{t("lbl_nova88_backup_website")}</div>
-			{/* <br />
-			<br />
-			<br /> */}
 			{/* <img src={imgSrc} alt="backup-domain-Img" /> */}
 			{t("lbl_kindly_visit_alternate_link_for_better_performance")}
 			{linksLayout}
