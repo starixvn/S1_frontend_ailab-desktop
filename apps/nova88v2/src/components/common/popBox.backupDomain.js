@@ -32,10 +32,10 @@ export default ({ onClickClose }) => {
 		});
 	};
 
-	let imgSrc = null;
-	try {
-		imgSrc = `${config.cloudImgUrl}/SiteSkin/img/backupimg_${userInfo.langId}.jpg`;
-	} catch (error) {}
+	// let imgSrc = null;
+	// try {
+	// 	imgSrc = `${config.cloudImgUrl}/SiteSkin/img/backupimg_${userInfo.langId}.jpg`;
+	// } catch (error) {}
 
 	useEffect(() => {
 		api_site_GetSupportDomainList().then(res => {
@@ -73,7 +73,10 @@ export default ({ onClickClose }) => {
 		<div className="backupDomain active">
 			<button className="icon icon-close" onClick={onClickClose} />
 			<div className="poptit">{t("lbl_nova88_backup_website")}</div>
-			<img src={imgSrc} alt="backup-domain-Img" />
+			{/* <br />
+			<br />
+			<br /> */}
+			{/* <img src={imgSrc} alt="backup-domain-Img" /> */}
 			{t("lbl_kindly_visit_alternate_link_for_better_performance")}
 			{linksLayout}
 			<div className="checkbox">
