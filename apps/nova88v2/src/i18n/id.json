@@ -97,6 +97,7 @@
 	"lbl_Feature": "Fitur",
 	"lbl_Table": "Meja",
 	"lbl_Slots": "Slots",
+	"lbl_Jackpot":"Jackpot",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Nama pengguna Wajib diisi.",
@@ -188,6 +189,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "NIKMATI BONUS & REBATE EKSKLUSIF NOVA88 VIP",
 	"lbl_Multiple_product_platforms_with_better_odds": "Berbagai produk dengan odds terbaik dan sensasi permainan yang lengkap.",
 	"lbl_Speedy_deposit_and_withdrawal": "Deposit dan penarikan cepat dengan berbagai pilihan.",
+	"lbl_Please_enter_your_registered_email_to_reset": "Mohon simpan domain terbaru NOVA88 untuk keperluan cadangan.",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Ukuran maksimal setiap file adalah 4 MB",
@@ -660,6 +662,7 @@
 	"lbl_Nova_Club": "NOVA CLUB",
 	"lbl_Club": "Club",
 	"lbl_Vip_LastUpdated": "UPDATE TERAKHIR",
+	"lbl_DAILY_WITHDRAWAL_LIMITATION": "LIMIT PENARIKAN HARIAN",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "SEPAK BOLA",
@@ -763,6 +766,7 @@
 	"lbl_sign_up_terms_start": "Dengan meng-klik GABUNG SEKARANG, saya menyatakan hahwa saya berumur diatas 21 tahun dan telah membaca dan menyetujui",
 	"lbl_sign_up_terms_center": "syarat & ketentuan",
 	"lbl_sign_up_terms_end": ".",
+	"lbl_homeJackpotTitle": "Jackpot",
 
 	"end-----": "end-----"
 }

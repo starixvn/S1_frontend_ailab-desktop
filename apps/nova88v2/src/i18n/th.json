@@ -97,6 +97,7 @@
 	"lbl_Feature": "ลักษณะพิเศษ",
 	"lbl_Table": "เทเบิลเกมส์",
 	"lbl_Slots": "สล็อต",
+	"lbl_Jackpot":"รางวัลใหญ่",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "ต้องใส่ชื่อบัญชีผู้ใช้",
@@ -188,6 +189,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
 	"lbl_Multiple_product_platforms_with_better_odds": "แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
 	"lbl_Speedy_deposit_and_withdrawal": "ฝากและถอนอย่างรวดเร็วด้วยตัวเลือกการฝากที่หลากหลาย",
+	"lbl_Please_enter_your_registered_email_to_reset": "กรุณากรอกอีเมลที่คุณลงทะเบียนเพื่อรีเซ็ตรหัสผ่านของคุณ",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",
@@ -660,6 +662,7 @@
 	"lbl_Nova_Club": "โนวา คลับ",
 	"lbl_Club": "Club",
 	"lbl_Vip_LastUpdated": "ล่าสุดเมื่อวันที่",
+	"lbl_DAILY_WITHDRAWAL_LIMITATION": "ยอดถอนสูงสุดต่อวัน",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "ฟุตบอล",
@@ -763,6 +766,7 @@
 	"lbl_sign_up_terms_start": "คลิ๊กที่ปุ่มสมัครสมาชิก , ข้าพเจ้าขอรับรองว่าข้าพเจ้ามีอายุเกิน 21 ปี ได้อ่านและยอมรับข้อกำหนดและเงื่อนไขแล้ว",
 	"lbl_sign_up_terms_center": "บข้อกำหนดและเงื่อนไข",
 	"lbl_sign_up_terms_end": "แล้ว",
+	"lbl_homeJackpotTitle": "รางวัลใหญ่",
 
 	"end-----": "end-----"
 }

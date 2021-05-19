@@ -12,7 +12,7 @@ html.dark header .subMenu {
 }
 
 html.dark main {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 html.dark main #Marquee {
@@ -35,7 +35,7 @@ html.dark main .thBar {
 
 html.dark main .thBar a {
   color: #f77900;
-  border-right: 1px solid #1E85EC;
+  border-right: 1px solid #1e85ec;
 }
 
 html.dark main .thBar a.icon:before {
@@ -43,8 +43,7 @@ html.dark main .thBar a.icon:before {
 }
 
 html.dark main .gameList a {
-  -webkit-box-shadow: 1px 2px 4px 0px #191919;
-          box-shadow: 1px 2px 4px 0px #191919;
+  box-shadow: 1px 2px 4px 0px #191919;
 }
 
 html.dark main .gameList a:after {
@@ -52,7 +51,7 @@ html.dark main .gameList a:after {
 }
 
 html.dark footer {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 html.dark footer a {
@@ -75,4 +74,3 @@ html.dark footer a.open .circleAnimation {
 html.dark footer a.open .circleAnimation + span {
   color: white;
 }
-/*# sourceMappingURL=style-dark.css.map */

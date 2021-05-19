@@ -99,7 +99,11 @@ const Platform = ({ isLogin, productTpIds }) => {
 		);
 	});
 
-	return <div className="platform">{rows}</div>;
+	return (
+		<div className="platform">
+			<div>{rows}</div>
+		</div>
+	);
 };
 
 Platform.defaultProps = {

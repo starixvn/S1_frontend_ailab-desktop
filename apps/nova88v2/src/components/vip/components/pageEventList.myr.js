@@ -57,15 +57,15 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 						<i className="icon icon-checkmark" />
 					</td>
 				</tr>
-				{/* <tr>
-					<td>{t("lbl_Vip_Unlimited_Withdrawal_amount")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-				</tr> */}
+				<tr>
+					<td>{t("lbl_DAILY_WITHDRAWAL_LIMITATION")}</td>
+					<td>{number_format(50000, isConvert, 0)}</td>
+					<td>{number_format(60000, isConvert, 0)}</td>
+					<td>{number_format(80000, isConvert, 0)}</td>
+					<td>{number_format(100000, isConvert, 0)}</td>
+					<td>{number_format(300000, isConvert, 0)}</td>
+					<td>{t("lbl_Unlimited")}</td>
+				</tr>
 				<tr className="title">
 					<td className="icon icon-nova88">
 						{t("lbl_Vip_Exclusive_Bonus")}{" "}

@@ -24,6 +24,7 @@ import Marquee from "./marquee";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoList from "./promoList";
+import HomeJackpot from "./jackpot";
 import HotGameList from "./hotGameList";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
@@ -194,8 +195,15 @@ const IndexPage = ({ location }) => {
 	return (
 		<main>
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
+
 			<Marquee />
-			<PromoList t={t} userInfo={userInfo} />
+
+			<div className="projpot">
+				<PromoList t={t} userInfo={userInfo} />
+
+				<HomeJackpot t={t} userInfo={userInfo} />
+			</div>
+
 			<div className="liveVideo">
 				<LatestVideo />
 				<div>
@@ -206,21 +214,28 @@ const IndexPage = ({ location }) => {
 					<LiveScore langId={userInfo.langId} />
 				</div>
 			</div>
+
 			<HotGameList t={t} userInfo={userInfo} />
+
 			<div className="newsVideo">
 				<HomeNews t={t} userInfo={userInfo} />
+
 				<Streaming />
 			</div>
+
 			<img
 				className="indexCenterBanner"
 				src={indexCenterBanner}
 				alt="IndexCenterBanner"
 			/>
+
 			<SideBarQuickLink />
+
 			<AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}
 				langId={userInfo.langId}
 			/>
+
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 			/>

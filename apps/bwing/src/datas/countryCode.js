@@ -7,10 +7,6 @@ export default {
 };
 
 export const currencyCode = {
-	EN: 2,
-	MY: 2,
-	TH: 4,
-	CS: 2,
-	ID: 15,
+	EN: 51,
 	VN: 51
 };

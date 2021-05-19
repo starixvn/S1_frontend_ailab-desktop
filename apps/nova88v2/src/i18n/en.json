@@ -97,6 +97,7 @@
 	"lbl_Feature": "Feature",
 	"lbl_Table": "Table",
 	"lbl_Slots": "Slots",
+	"lbl_Jackpot":"Jackpot",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Username is required.",
@@ -188,6 +189,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "ENJOY NOVA88 VIP EXCLUSIVE BONUS & REBATES",
 	"lbl_Multiple_product_platforms_with_better_odds": "Multiple product platforms with better odds and full gameplay experience.",
 	"lbl_Speedy_deposit_and_withdrawal": "Speedy deposit and withdrawal with multiple deposit option.",
+	"lbl_Please_enter_your_registered_email_to_reset": "Please enter your registered email to reset your password",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Maximum file size 4 MB each",
@@ -661,6 +663,7 @@
 	"lbl_Nova_Club": "NOVA CLUB",
 	"lbl_Club": "Club",
 	"lbl_Vip_LastUpdated": "LAST UPDATED",
+	"lbl_DAILY_WITHDRAWAL_LIMITATION": "DAILY WITHDRAWAL LIMITATION",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "SOCCER",
@@ -764,6 +767,7 @@
 	"lbl_sign_up_terms_start": "By clicking the JOIN NOW button, I hereby acknowledge that I am above 21 years old and have read and accepted your",
 	"lbl_sign_up_terms_center": "terms & conditions",
 	"lbl_sign_up_terms_end": ".",
+	"lbl_homeJackpotTitle": "JACKPOT",
 
 	"end-----": "end-----"
 }
