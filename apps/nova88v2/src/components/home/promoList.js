@@ -57,22 +57,19 @@ const PromoList = ({ t, userInfo }) => {
 	});
 
 	return (
-		Rows &&
-		Rows.length > 0 && (
-			<>
-				<div className="moduleTitle icon icon-gift">
-					{t("lbl_Promotion")}
-					<Link to={`/${userInfo.langId}/${path.promotion.root}`}>
-						{`${t("lbl_More")}...`}
-					</Link>
+		<div className="promos">
+			<div className="moduleTitle icon icon-gift">
+				{t("lbl_Promotion")}
+				<Link to={`/${userInfo.langId}/${path.promotion.root}`}>
+					{`${t("lbl_More")}...`}
+				</Link>
+			</div>
+			{Rows && Rows.length > 0 && (
+				<div className="swiper-container promosSwiper">
+					<Swiper {...defSwipperConfig}>{Rows}</Swiper>
 				</div>
-				<div className="promos">
-					<div className="swiper-container promosSwiper">
-						<Swiper {...defSwipperConfig}>{Rows}</Swiper>
-					</div>
-				</div>
-			</>
-		)
+			)}
+		</div>
 	);
 };
 
