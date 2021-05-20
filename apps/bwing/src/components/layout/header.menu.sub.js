@@ -13,15 +13,15 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
-	const ClickItem = (tpId, gameId) => {
+	const ClickItem = (tpId, gameId, _subPath) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
-		if (tpId === productList.sportBti.tpId) {
-			navigate(`/${userInfo.langId}/${path.sportBti.root}`);
+		if (_subPath) {
+			navigate(`/${userInfo.langId}/${_subPath}`);
 		} else {
 			SET_ENTER_PAGE({
 				isLogin: userInfo.isLogin,
@@ -62,8 +62,19 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				<i className={`icon ${_iconClassName}`} />
 			);
 
-		// const _urlParams = params !== null ? `?${params.join("&")}` : "";
-		// const newIcon = s.isNew ? <i className="icon icon-newicon" /> : null;
+		let _subPath;
+		if (s.subPath) {
+			if (
+				s.gameId === productList.sportSaba.gameId &&
+				s.tpId === productList.sportSaba.tpId
+			) {
+				_subPath = `${s.subPath}?game=${s.parameter?.name}`;
+			}
+			if (s.tpId === productList.sportBti.tpId) {
+				_subPath = `${s.subPath}`;
+			}
+		}
+
 		if (s.menuType === defMenuType.Link) {
 			return (
 				<Link
@@ -79,7 +90,13 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			<button
 				key={key}
 				className={s.className}
-				onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
+				onClick={ClickItem.bind(
+					this,
+					s.tpId,
+					s.gameId,
+					// userInfo,
+					_subPath
+				)}>
 				{showIcon}
 				<span className={s.icon}>{displayText}</span>
 			</button>

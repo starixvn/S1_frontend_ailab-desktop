@@ -20,12 +20,14 @@ export const defMenuLinks = {
 		subMenu: [
 			{
 				...productList.sportSaba,
+				subPath: path.sports.root,
 				className: "sport",
 				displayKey: "lbl_Saba_Sport",
 				parameter: { ...productList.sportSaba }
 			},
 			{
 				...productList.sportBti,
+				subPath: path.sportBti.root,
 				className: "BTI",
 				displayKey: "lbl_Bti_Sport",
 				parameter: { ...productList.sportBti }
