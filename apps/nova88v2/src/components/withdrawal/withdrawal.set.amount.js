@@ -65,7 +65,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 	};
 
 	const clickInfo = () => {
-		const _msg = state.tip === "" || !state.tip ? showMinMaxTip() : "";
+		const _msg = !state.tip ? showMinMaxTip() : "";
 		dispatch({
 			type: defActionType.CHECK_AMOUNT,
 			checked: null,
