@@ -81,23 +81,23 @@ const HotEventContent = ({
 	const time = moment(sportBattleDateTime).format("HH:mm");
 	return (
 		<div className="swiper-slide">
+			<div className="gameName" onClick={OnClickEvent}>
+				{sportLeaguesId}
+			</div>
+
 			<div className="team" onClick={OnClickEvent}>
 				<div className="teamL">
+					<p>{sportTeamsAway}</p>
 					<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
-					<span>{sportTeamsAway}</span>
 				</div>
 				<div className="schedule">
 					{`${date} `}
 					<span>{time}</span>
 				</div>
 				<div className="teamR">
+					<p>{sportTeamsHome}</p>
 					<img src={sportTeamsHomePic} alt={sportTeamsHome} />
-					<span>{sportTeamsHome}</span>
 				</div>
-			</div>
-
-			<div className="gameName" onClick={OnClickEvent}>
-				{sportLeaguesId}
 			</div>
 		</div>
 	);

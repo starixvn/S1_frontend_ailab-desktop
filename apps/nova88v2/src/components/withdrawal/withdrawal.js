@@ -18,6 +18,9 @@ import {
 } from "../../service/api/payment";
 import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
+import StepBar from "../common/stepBar";
+import { defBankStep, defWalletStep } from "./withdrawal.defStep";
+import { currencyCode } from "../../datas/countryCode";
 import path from "../../router";
 import useTransfer from "./hook/useTransfer";
 
@@ -28,8 +31,9 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
-
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const { restoreAllBalanceToMainWallet } = useTransfer();
+
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -42,8 +46,10 @@ export default () => {
 		api_payment_GetWithdrawalLimit().then(res => {
 			if (res.data.errorCode === 0 && isMountedRef.current) {
 				dispatch({
-					type: defActionType.SET_WITHDRAWAL_MIN_AMOUNT,
-					withdrawalMin: res.data.data.withdrawalMin
+					type: defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT,
+					withdrawalMin: res.data.data.withdrawalMin,
+					withdrawalMax: res.data.data.withdrawalAvailableAmount,
+					isAmountLimited: !res.data.data.unlimited
 				});
 			}
 		});
@@ -280,6 +286,7 @@ export default () => {
 									state={state}
 									refreshData={refreshData}
 									KycCheck={KycCheck}
+									isUSDT={isUSDT}
 								/>
 							</div>
 

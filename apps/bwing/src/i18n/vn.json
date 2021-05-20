@@ -224,7 +224,7 @@
 	"lbl_CancelConfirm": "Bạn có chắc muốn hủy? Không thể khôi phục lại sau khi hủy!",
 	"lbl_NO": "Số",
 	"lbl_Confirm": "Xác nhận",
-	"lbl_ImportantNote": "Ghi Chú Quan Trọng",
+	"lbl_ImportantNote": "Lưu ý quan trọng",
 	"lbl_Information": "Thông báo",
 	"lbl_No": "Không",
 	"lbl_Yes": "Đồng Ý",
@@ -639,5 +639,6 @@
 	"lbl_Gold_Club": "HẠNG VÀNG",
 	"lbl_Titanium_Club": "HẠNG BẠCH KIM",
 	"lbl_Diamond_Club": "HẠNG KIM CƯƠNG",
-	"lbl_Bwing_Club": "BWING VVVIP"
+	"lbl_Bwing_Club": "BWING VVVIP",
+	"lbl_Vip_LastUpdated": "CẬP NHẬT GẦN NHẤT"
 }

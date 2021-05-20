@@ -32,6 +32,8 @@
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
 	"lbl_Youtube": "Youtube",
+	"lbl_nova88_backup_website": "กรุณาบันทึก Nova88  ไว้ที่หน้าหลักเพื่อเก็บข้อมูลสำรอง",
+	"lbl_kindly_visit_alternate_link_for_better_performance": "หากคุณประสบปัญหาการโหลดช้า โปรดลองใช้ลิงก์สำรองเพื่อเพื่อประสิทธิภาพที่ดีขึ้น",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "แบดมินตัน",
@@ -95,7 +97,7 @@
 	"lbl_Feature": "ลักษณะพิเศษ",
 	"lbl_Table": "เทเบิลเกมส์",
 	"lbl_Slots": "สล็อต",
-	"lbl_Jackpot":"รางวัลใหญ่",
+	"lbl_Jackpot": "รางวัลใหญ่",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "ต้องใส่ชื่อบัญชีผู้ใช้",
@@ -187,6 +189,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
 	"lbl_Multiple_product_platforms_with_better_odds": "แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
 	"lbl_Speedy_deposit_and_withdrawal": "ฝากและถอนอย่างรวดเร็วด้วยตัวเลือกการฝากที่หลากหลาย",
+	"lbl_Please_enter_your_registered_email_to_reset": "กรุณากรอกอีเมลที่คุณลงทะเบียนเพื่อรีเซ็ตรหัสผ่านของคุณ",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",
@@ -238,7 +241,6 @@
 	"lbl_ExchangeRate": "อัตราแลกเปลี่ยน",
 	"lbl_ExchangeRateReferenceOnly": "อัตรานี้ใช้สำหรับการอ้างอิงเท่านั้น",
 	"lbl_ExchangeAmount": "จำนวนเงินแลกเปลี่ยน",
-	"lbl_CryptoPay": "ชำระเงินแบบ Crypto",
 	"lbl_UploadReceipt": "อัปโหลดสลิปการโอนเงิน",
 	"lbl_BankName": "ชื่อธนาคาร",
 	"lbl_BankAccount": "บัญชีธนาคาร",
@@ -310,6 +312,7 @@
 	"lbl_WithdrawalImportantNoticeContent3": "ในบางเกมอาจใช้เวลาประมาณ 15 ถึง 30 นาทีในการตรวจสอบรายการเดิมพัน รบกวนรอสำหรับระยะเวลาดังกล่าวในการอัพเดตข้อมูล",
 	"lbl_WithdrawalImportantNoticeContent4": "กรุณาตรวจสอบให้แน่ใจว่าท่านได้ทำยอดเทิร์นสำเร็จตามเงื่อนไข และทำการแจ้งถอนหลังการเดิมพันประมาณ 30 นาทีเพื่อป้องกันการปฎิเสธยอดถอนในระบบอัติโนมัติ",
 	"lbl_WithdrawalImportantNoticeContent5": " หากมีข้อสงสัยหรือข้อมูลสอบถามเพิ่มเติมเกี่ยวกับธุรกรรมการถอน โปรดติดต่อ <Link>แชทสดตลอด 24/7</Link> ชั่วโมง ขอบคุณค่ะ",
+	"lbl_Daily_Min_Max_Amount": "จำกัดยอดถอน ต่ำสุด/สูงสุด ต่อวัน",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "โอนเงินทุน",
@@ -681,6 +684,27 @@
 	"lbl_LatestHighlightVideo": "วิดีโอไฮไลต์ล่าสุด",
 	"lbl_LiveScore": "คะแนนสด",
 
+	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_CryptoWallet":"กระเป๋าเงิน คริปโต",
+	"lbl_CryptoWalletNickName": "Wallet Nickname",
+	"lbl_CryptoWalletAddress": "Wallet Address",
+	"lbl_Update_Crypto_Wallet": "กรุณาอัปเดตกระเป๋าเงินคริปโตของคุณก่อนทำการถอน",
+	"lbl_Add_Crypto_Wallet":"เพิ่ม กระเป๋าเงินคริปโต",
+	"lbl_Number_Of_Wallet": "จำนวนกระเป๋าเงิน",
+	"lbl_Wallet_Is_Full": "กระเป๋าเงินเต็ม",
+	"lbl_Enter_Wallet_Address": "กรอกที่อยู่กระเป๋าเงิน",
+	"lbl_Please_Enter_Wallet_Address": "กรุณากรอกที่อยู่ กระเป๋าเงินคริปโตของคุณ",
+	"lbl_Crypto_Wallet_Submit_Note":"โปรดทราบ: เมื่อกดส่งไปยังกระเป๋าเงินคริปโตเรียบร้อยแล้ว จะไม่สามารถแก้ไขหรือลบได้ หากต้องการขอแก้ไขใด ๆ  โปรดติดต่อฝ่ายบริการลูกค้า",
+	"lbl_Modification_Please_Contact_CSD":"สำหรับคำขอแก้ไขใด ๆ กรุณาติดต่อฝ่ายบริการลูกค้า",	
+	"lbl_Wallet_Address_Required": "ต้องระบุที่อยู่กระเป๋าเงิน",
+	"lbl_Wallet_NickName_Tip": "นี่คือชื่อเล่นกระเป๋าเงินที่เป็นตัวเลือกเพื่อช่วยในการระบุตัวตนของคุณ",
+	"lbl_Wallet_Address_Tip": "กรอกเฉพาะตัวอักษร (a-z) และตัวเลข (0-9)",
+	"lbl_Select_Crypto_Wallet":"เลือก กระเป๋าเงินคริปโต",
+	"lbl_Optional":"ทางเลือก",
+	"lbl_CryptoPay":"ชำระโดยเงินคริปโต",
+	"lbl_NotERC20WalletAddr":"ต้องเป็นที่อยู่กระเป๋าเงินที่สอดคล้องกับ ERC-20 ได้",
+	"lbl_already_stored_this_information":"คุณได้ทำการจัดเก็บข้อมูลนี้ไว้เรียบร้อยแล้ว",
+
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "การแข่งขันที่จะเกิดขึ้น",
 	"lbl_LiveChat": "สนทนาสด",
@@ -763,6 +787,7 @@
 	"lbl_sign_up_terms_start": "คลิ๊กที่ปุ่มสมัครสมาชิก , ข้าพเจ้าขอรับรองว่าข้าพเจ้ามีอายุเกิน 21 ปี ได้อ่านและยอมรับข้อกำหนดและเงื่อนไขแล้ว",
 	"lbl_sign_up_terms_center": "บข้อกำหนดและเงื่อนไข",
 	"lbl_sign_up_terms_end": "แล้ว",
+	"lbl_homeJackpotTitle": "รางวัลใหญ่",
 
 	"end-----": "end-----"
 }

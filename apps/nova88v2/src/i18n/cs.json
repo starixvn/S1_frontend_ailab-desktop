@@ -32,6 +32,8 @@
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
 	"lbl_Youtube": "Youtube",
+	"lbl_nova88_backup_website": "请保存NOVA88最新网址以备用。",
+	"lbl_kindly_visit_alternate_link_for_better_performance": "若您遇到加载缓慢情况，请尝试后备链接以获更佳体验。",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "羽毛球",
@@ -95,7 +97,7 @@
 	"lbl_Feature": "特色游戏",
 	"lbl_Table": "牌桌",
 	"lbl_Slots": "老虎机",
-	"lbl_Jackpot":"积宝奖金",
+	"lbl_Jackpot": "积宝奖金",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "请输入用户名。",
@@ -187,6 +189,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "豪享欧亚体育尊贵优惠红利与返水",
 	"lbl_Multiple_product_platforms_with_better_odds": "多样化产品平台配上超划赔率以及完整游戏体验。",
 	"lbl_Speedy_deposit_and_withdrawal": "多项支付方式且火速存/提款交易。",
+	"lbl_Please_enter_your_registered_email_to_reset": "请输入您注册电邮以重置密码。",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "每个档案的最大档案大小为4 MB",
@@ -204,7 +207,7 @@
 	"lbl_DepositStatus4": "已拒绝",
 	"lbl_DepositStatus5": "已取消",
 	"lbl_DepositStatus6": "逾期",
-	"lbl_DepositStatus7": "搁置",
+	"lbl_DepositStatus7": "处理中",
 	"lbl_DepositStatus8": "处理中",
 	"lbl_DepositStatus99": "错误",
 	"lbl_Deposit": "存款",
@@ -238,7 +241,6 @@
 	"lbl_ExchangeRate": "兑换汇率",
 	"lbl_ExchangeRateReferenceOnly": "汇率仅供参考",
 	"lbl_ExchangeAmount": "换算金额",
-	"lbl_CryptoPay": "加密货币",
 	"lbl_UploadReceipt": "上传收据",
 	"lbl_BankName": "银行名称",
 	"lbl_BankAccount": "银行户口",
@@ -310,6 +312,7 @@
 	"lbl_WithdrawalImportantNoticeContent3": "一些游戏平台需要15至30分钟的报告同步时间，不便之处请多多包含。",
 	"lbl_WithdrawalImportantNoticeContent4": "请在达到所需求的流水量的30分钟后，提交提款申请，以避免系统自动拒绝。",
 	"lbl_WithdrawalImportantNoticeContent5": "如果您有任何提款疑问或查询, 请与我们的<Link>24/7在線客服</Link>。谢谢。",
+	"lbl_Daily_Min_Max_Amount": "每日最低/最高额度",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "资金转移",
@@ -681,6 +684,27 @@
 	"lbl_LatestHighlightVideo": "最新精彩回放视频",
 	"lbl_LiveScore": "即时比分",
 
+	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_CryptoWallet":"加密钱包",
+	"lbl_CryptoWalletNickName": "钱包昵称",
+	"lbl_CryptoWalletAddress": "钱包地址",
+	"lbl_Update_Crypto_Wallet": "请提交提款订单前，更新加密钱包资料。",
+	"lbl_Add_Crypto_Wallet":"新增加密钱包",
+	"lbl_Number_Of_Wallet": "钱包数量",
+	"lbl_Wallet_Is_Full": "钱包已满",
+	"lbl_Enter_Wallet_Address": "输入钱包地址",
+	"lbl_Please_Enter_Wallet_Address": "请输入您加密钱包地址",
+	"lbl_Crypto_Wallet_Submit_Note":"注意：加密钱包一旦提交即无法编辑或取消。",
+	"lbl_Modification_Please_Contact_CSD":"任何编辑需求，请联系客服。",	
+	"lbl_Wallet_Address_Required": "需填钱包地址",
+	"lbl_Wallet_NickName_Tip": "钱包昵称可随选以便识别核实您的身份",
+	"lbl_Wallet_Address_Tip": "输入字母（a-z）和数字（0-9）。",
+	"lbl_Select_Crypto_Wallet":"选择加密钱包",
+	"lbl_Optional":"可选",
+	"lbl_CryptoPay":"加密货币渠道",
+	"lbl_NotERC20WalletAddr":"必须符合 ERC-20 的钱包地址",
+	"lbl_already_stored_this_information":"您已经存储此信息。",
+
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "即将的赛事",
 	"lbl_LiveChat": "线上客服",
@@ -763,6 +787,7 @@
 	"lbl_sign_up_terms_start": "一旦注册即表示我已年满21周岁，且已阅读、接受并同意有关年龄验证和KYC（身份验证过程）的",
 	"lbl_sign_up_terms_center": "条款与规则",
 	"lbl_sign_up_terms_end": "、隐私政策, Cookies政策及其他政策。",
+	"lbl_homeJackpotTitle": "积宝奖金",
 
 	"end-----": "end-----"
 }

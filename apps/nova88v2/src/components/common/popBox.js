@@ -8,6 +8,7 @@ import ErrorMsg from "./popBox.errorMsg";
 import Login from "./popBox.login";
 import Join from "./popBox.join";
 import AddBankAccount from "./popBox.addBankAccount";
+import AddCryptoWallet from "./popBox.addCryptoWallet";
 import AddBankSuccess from "./popBox.addBankSuccess";
 import ConfirmDelete from "./popBox.confirmDelete";
 import ProfileConfirmCheck from "./popBox.profileConfirmCheck";
@@ -31,6 +32,7 @@ import defPopBoxType from "./defPopBoxType";
 import RankingWinner from "./popBox.rankingWinner";
 import DepositUploadBankSlip from "./popBox.depositUploadBankSlip";
 import SuccessMySteryBox from "./popBox.successMySteryBox";
+import BackupDomain from "./popBox.backupDomain";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -96,8 +98,15 @@ export default () => {
 			content = (
 				<AddBankAccount
 					bankInfoSysList={popBox.bankInfoSysList}
+					custBankInfo={popBox.custBankInfo}
 					GetCustBankInfo={popBox.GetCustBankInfo}
 				/>
+			);
+			break;
+
+		case defPopBoxType.AddCryptoWallet:
+			content = (
+				<AddCryptoWallet GetCustBankInfo={popBox.GetCustBankInfo} />
 			);
 			break;
 
@@ -252,6 +261,15 @@ export default () => {
 				<RankingWinner
 					onClickClose={popBox.onClickClose}
 					langId={popBox.langId}
+				/>
+			);
+			break;
+
+		case defPopBoxType.BackupDomain:
+			content = (
+				<BackupDomain
+					onClickClose={popBox.onClickClose}
+					linkList={popBox.linkList}
 				/>
 			);
 			break;

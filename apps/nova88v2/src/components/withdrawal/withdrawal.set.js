@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import BankCardPanel from "./withdrawal.set.bankCard";
+import CardPanel from "./withdrawal.set.card";
 import AmountPanel from "./withdrawal.set.amount";
 import ConfirmPanel from "./withdrawal.set.confirm";
 import { isConvert } from "../common/common";
@@ -9,7 +9,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { defActionType } from "./withdrawal.reducer";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
 
-export default ({ dispatch, state, refreshData, KycCheck }) => {
+export default ({ dispatch, state, refreshData, KycCheck, isUSDT }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -36,13 +36,22 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 			const _preAccInfo = _bankInfoDetail.filter(
 				card => card.accountNo === _defAccountNo
 			)[0];
+			const _preUsdtAccInfo = _bankInfoDetail.filter(
+				card => card.usdtAddress === _defAccountNo
+			)[0];
+			const _selectInfo = !isUSDT
+				? {
+						bankName: _preAccInfo.bankName,
+						accountNo: _preAccInfo.accountNo,
+						sysId: _preAccInfo.sysId
+				  }
+				: {
+						usdtAddress: _preUsdtAccInfo.usdtAddress,
+						nickName: _preUsdtAccInfo.nickName
+				  };
 			dispatch({
 				type: defActionType.SELECT_ACCOUNT,
-				selectedAccount: {
-					bankName: _preAccInfo.bankName,
-					accountNo: _preAccInfo.accountNo,
-					sysId: _preAccInfo.sysId
-				},
+				selectedAccount: _selectInfo,
 				step: state.amount ? 3 : 2
 			});
 		};
@@ -52,21 +61,32 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const datas = res.data.data;
+
+						const bankOrWalletData = isUSDT
+							? datas?.uSDTDetail
+							: datas?.bankInfoDetail;
+
 						const _custBankInfo =
-							datas === null ? [] : datas.bankInfoDetail;
+							datas === null ? [] : bankOrWalletData;
 
 						dispatch({
 							type: defActionType.GET_CUST_BANKINFO,
 							custBankInfo: _custBankInfo
 						});
-						if (
-							datas?.bankInfoDetail?.length > 0 &&
-							datas?.defAccountNo
-						) {
-							selectPrevAccount(
-								datas.defAccountNo,
-								datas.bankInfoDetail
-							);
+
+						if (datas?.defAccountNo) {
+							if (datas?.bankInfoDetail?.length > 0) {
+								selectPrevAccount(
+									datas.defAccountNo,
+									datas.bankInfoDetail
+								);
+							}
+							if (datas?.uSDTDetail?.length > 0) {
+								selectPrevAccount(
+									datas.defAccountNo,
+									datas.uSDTDetail
+								);
+							}
 						}
 					} else {
 						setPopBox({
@@ -118,7 +138,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 	return (
 		<>
 			<div className="walletModule">
-				<BankCardPanel
+				<CardPanel
 					dispatch={dispatch}
 					state={state}
 					t={t}
@@ -126,6 +146,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 					GetCustBankInfo={GetCustBankInfo}
 					refreshData={refreshData}
 					custBankInfo={state.custBankInfo ?? []}
+					isUSDT={isUSDT}
 				/>
 			</div>
 			<div className="subModuleList">
@@ -135,6 +156,8 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 						state={state}
 						t={t}
 						_isConvert={_isConvert}
+						userInfo={userInfo}
+						isUSDT={isUSDT}
 					/>
 				) : (
 					<ConfirmPanel
@@ -147,6 +170,7 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 						GetCustBankInfo={GetCustBankInfo}
 						refreshData={refreshData}
 						KycCheck={KycCheck}
+						isUSDT={isUSDT}
 					/>
 				)}
 			</div>

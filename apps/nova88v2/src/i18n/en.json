@@ -32,6 +32,8 @@
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
 	"lbl_Youtube": "Youtube",
+	"lbl_nova88_backup_website": "Please save the latest NOVA88 domain for backup purposes.",
+	"lbl_kindly_visit_alternate_link_for_better_performance": "Should you feel slowness, kindly visit alternate link for better performance.",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
@@ -95,7 +97,7 @@
 	"lbl_Feature": "Feature",
 	"lbl_Table": "Table",
 	"lbl_Slots": "Slots",
-	"lbl_Jackpot":"Jackpot",
+	"lbl_Jackpot": "Jackpot",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "Username is required.",
@@ -187,6 +189,7 @@
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "ENJOY NOVA88 VIP EXCLUSIVE BONUS & REBATES",
 	"lbl_Multiple_product_platforms_with_better_odds": "Multiple product platforms with better odds and full gameplay experience.",
 	"lbl_Speedy_deposit_and_withdrawal": "Speedy deposit and withdrawal with multiple deposit option.",
+	"lbl_Please_enter_your_registered_email_to_reset": "Please enter your registered email to reset your password",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Maximum file size 4 MB each",
@@ -238,7 +241,6 @@
 	"lbl_ExchangeRate": "Exchange rate",
 	"lbl_ExchangeRateReferenceOnly": "This rate is only for refence",
 	"lbl_ExchangeAmount": "Exchange Amount",
-	"lbl_CryptoPay": "Crypto Pay",
 	"lbl_UploadReceipt": "Upload Receipt",
 	"lbl_BankName": "Bank Name",
 	"lbl_BankAccount": "Bank Account",
@@ -310,6 +312,7 @@
 	"lbl_WithdrawalImportantNoticeContent3": "Some game provider requires 15 till 30 minutes of report sync time, kindly bear with us during the required sync time.",
 	"lbl_WithdrawalImportantNoticeContent4": "Please make sure your required turnover is achieve, and submit the withdrawal transaction after 30 minutes to avoid system auto reject.",
 	"lbl_WithdrawalImportantNoticeContent5": "If there is any discrepancy or you may have any other further withdrawal inquiries, kindly contact our <Link>24/7 LIVE CHAT</Link>. Thank you.",
+	"lbl_Daily_Min_Max_Amount": "Daily Min/Max Limit",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",
@@ -682,6 +685,27 @@
 	"lbl_LatestHighlightVideo": "LATEST HIGHLIGHT VIDEO",
 	"lbl_LiveScore": "Live Score",
 
+	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_CryptoWallet":"Crypto Wallet",
+	"lbl_CryptoWalletNickName": "Wallet Nickname",
+	"lbl_CryptoWalletAddress": "Wallet Address",
+	"lbl_Update_Crypto_Wallet": "Please update your crypto wallet details before making withdrawal.",
+	"lbl_Add_Crypto_Wallet":"Add Crypto Wallet",
+	"lbl_Number_Of_Wallet": "Number of wallet",
+	"lbl_Wallet_Is_Full": "Wallet Is Full",
+	"lbl_Enter_Wallet_Address": "Enter Wallet Address",
+	"lbl_Please_Enter_Wallet_Address": "Please Enter Your Crypto Wallet Address",
+	"lbl_Crypto_Wallet_Submit_Note":"Please note: Once the crypto wallet is submitted, it cannot be modified/ deleted.",
+	"lbl_Modification_Please_Contact_CSD":"For any request of modification, please contact CSD.",	
+	"lbl_Wallet_Address_Required": "Wallet Address is required",
+	"lbl_Wallet_NickName_Tip": "This is on optional wallet nickname to facilitate your identification",
+	"lbl_Wallet_Address_Tip": "Enter only letters (a-z) and digits(0-9).",
+	"lbl_Select_Crypto_Wallet":"Select Crypto Wallet",
+	"lbl_Optional":"Optional",
+	"lbl_CryptoPay":"Crypto Pay",
+	"lbl_NotERC20WalletAddr":"Must be ERC-20 compatible wallet address",
+	"lbl_already_stored_this_information":"You have already stored this information.",
+
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "UPCOMING MATCHES",
 	"lbl_LiveChat": "Live Chat",
@@ -764,6 +788,7 @@
 	"lbl_sign_up_terms_start": "By clicking the JOIN NOW button, I hereby acknowledge that I am above 21 years old and have read and accepted your",
 	"lbl_sign_up_terms_center": "terms & conditions",
 	"lbl_sign_up_terms_end": ".",
+	"lbl_homeJackpotTitle": "JACKPOT",
 
 	"end-----": "end-----"
 }
