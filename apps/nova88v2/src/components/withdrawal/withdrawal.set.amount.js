@@ -21,7 +21,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 
 	const ValidAmount = _amount => {
 		const _availableBalance = state.balanceData?.availableBalance;
-		const _maxAvailable =
+		const _lowerBalanceOrWithdrawalMax =
 			_availableBalance < state.withdrawalMax
 				? _availableBalance
 				: state.withdrawalMax;
@@ -29,7 +29,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 			amount: _amount,
 			minAmount: state.withdrawalMin,
 			maxAmount: state.isAmountLimited
-				? _maxAvailable
+				? _lowerBalanceOrWithdrawalMax
 				: _availableBalance,
 			_isConvert,
 			t,
