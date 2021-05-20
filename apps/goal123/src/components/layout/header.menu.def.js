@@ -108,7 +108,6 @@ export const defMenuLinks = langId => {
 	return {
 		sports: {
 			productInfo: productList.soccer,
-			// path: path.sports.root,
 			displayKey: "lbl_Sports",
 			subMenu: [
 				{
@@ -122,6 +121,7 @@ export const defMenuLinks = langId => {
 				},
 				{
 					...productList.sportBti,
+					subPath: path.sportBti.root,
 					menuType: defMenuType.entPage,
 					className: "BTI",
 					displayKey: "lbl_Bti_Sport",

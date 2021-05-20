@@ -2,7 +2,7 @@ export default {
 	sportSaba: {
 		tpId: 1,
 		gameId: 1,
-		name: "sportSaba"
+		name: "soccer"
 	},
 	sportBti: {
 		tpId: 29,
