@@ -32,6 +32,8 @@
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
 	"lbl_Youtube": "Youtube",
+	"lbl_nova88_backup_website": "Please save the latest NOVA88 domain for backup purposes.",
+	"lbl_kindly_visit_alternate_link_for_better_performance": "Should you feel slowness, kindly visit alternate link for better performance.",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
@@ -765,6 +767,7 @@
 	"lbl_sign_up_terms_start": "By clicking the JOIN NOW button, I hereby acknowledge that I am above 21 years old and have read and accepted your",
 	"lbl_sign_up_terms_center": "terms & conditions",
 	"lbl_sign_up_terms_end": ".",
+	"lbl_homeJackpotTitle": "JACKPOT",
 
 	"end-----": "end-----"
 }

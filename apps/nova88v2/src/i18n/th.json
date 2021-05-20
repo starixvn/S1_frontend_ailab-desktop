@@ -32,6 +32,8 @@
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
 	"lbl_Youtube": "Youtube",
+	"lbl_nova88_backup_website": "กรุณาบันทึก Nova88  ไว้ที่หน้าหลักเพื่อเก็บข้อมูลสำรอง",
+	"lbl_kindly_visit_alternate_link_for_better_performance": "หากคุณประสบปัญหาการโหลดช้า โปรดลองใช้ลิงก์สำรองเพื่อเพื่อประสิทธิภาพที่ดีขึ้น",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "แบดมินตัน",
@@ -764,6 +766,7 @@
 	"lbl_sign_up_terms_start": "คลิ๊กที่ปุ่มสมัครสมาชิก , ข้าพเจ้าขอรับรองว่าข้าพเจ้ามีอายุเกิน 21 ปี ได้อ่านและยอมรับข้อกำหนดและเงื่อนไขแล้ว",
 	"lbl_sign_up_terms_center": "บข้อกำหนดและเงื่อนไข",
 	"lbl_sign_up_terms_end": "แล้ว",
+	"lbl_homeJackpotTitle": "รางวัลใหญ่",
 
 	"end-----": "end-----"
 }

@@ -32,6 +32,8 @@
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
 	"lbl_Youtube": "Youtube",
+	"lbl_nova88_backup_website": "请保存NOVA88最新网址以备用。",
+	"lbl_kindly_visit_alternate_link_for_better_performance": "若您遇到加载缓慢情况，请尝试后备链接以获更佳体验。",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "羽毛球",
@@ -764,6 +766,7 @@
 	"lbl_sign_up_terms_start": "一旦注册即表示我已年满21周岁，且已阅读、接受并同意有关年龄验证和KYC（身份验证过程）的",
 	"lbl_sign_up_terms_center": "条款与规则",
 	"lbl_sign_up_terms_end": "、隐私政策, Cookies政策及其他政策。",
+	"lbl_homeJackpotTitle": "积宝奖金",
 
 	"end-----": "end-----"
 }
