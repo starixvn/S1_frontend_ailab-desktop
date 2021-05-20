@@ -18,6 +18,9 @@ import {
 } from "../../service/api/payment";
 import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
+import StepBar from "../common/stepBar";
+import { defBankStep, defWalletStep } from "./withdrawal.defStep";
+import { currencyCode } from "../../datas/countryCode";
 import path from "../../router";
 import useTransfer from "./hook/useTransfer";
 
@@ -28,8 +31,9 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
-
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const { restoreAllBalanceToMainWallet } = useTransfer();
+
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -282,6 +286,7 @@ export default () => {
 									state={state}
 									refreshData={refreshData}
 									KycCheck={KycCheck}
+									isUSDT={isUSDT}
 								/>
 							</div>
 

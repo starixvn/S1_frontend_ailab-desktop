@@ -48,6 +48,7 @@
 		"gulp-css-url-versioner": "^1.1.1",
 		"i18next": "^19.5.1",
 		"moment": "^2.27.0",
+		"multicoin-address-validator": "^0.4.16",
 		"prop-types": "^15.7.2",
 		"qrcode.react": "^1.0.0",
 		"react": "16.13.1",

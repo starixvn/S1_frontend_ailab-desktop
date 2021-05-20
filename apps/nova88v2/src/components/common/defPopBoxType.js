@@ -6,6 +6,7 @@ export default {
 	Login: "Login",
 	Join: "Join",
 	AddBankAccount: "AddBankAccount",
+	AddCryptoWallet: "AddCryptoWallet",
 	AddBankSuccess: "AddBankSuccess",
 	ConfirmDelete: "ConfirmDelete",
 	ProfileConfirmCheck: "ProfileConfirmCheck",

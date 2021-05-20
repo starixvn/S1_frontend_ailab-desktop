@@ -21,13 +21,18 @@ import { SiteInfo } from "../../config";
 import { HeaderLogin } from "./header.login";
 import usePopBox from "../hook/usePopBox";
 
-export default () => {
+export default ({ isUSDT }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { msgCount } = useContext(msgCountContext);
 	const { t } = useTranslation();
 
 	return userInfo.isLogin === true ? (
-		<AfterLogin t={t} userInfo={userInfo} msgCount={msgCount} />
+		<AfterLogin
+			t={t}
+			userInfo={userInfo}
+			msgCount={msgCount}
+			isUSDT={isUSDT}
+		/>
 	) : (
 		<BeforeLogin t={t} />
 	);
@@ -185,32 +190,32 @@ const defCashierLinks = [
 	}
 ];
 
-const defSettingLinks = [
-	{
-		displayKey: "lbl_Profile",
-		href: path.profile.root
-	},
-	{
-		displayKey: "lbl_BankInfo",
-		href: path.bankInfo.root
-	},
-	{
-		displayKey: "lbl_ReferFriends",
-		href: path.referral.root,
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.referral
-			})
-		]
-	},
-	{
-		displayKey: "lbl_ChangePassword",
-		href: path.changePassword.root
-	}
-];
+const AfterLogin = ({ t, userInfo, msgCount, isUSDT }) => {
+	const defSettingLinks = [
+		{
+			displayKey: "lbl_Profile",
+			href: path.profile.root
+		},
+		{
+			displayKey: isUSDT ? "lbl_CryptoWallet" : "lbl_BankInfo",
+			href: isUSDT ? path.cryptoWallet.root : path.bankInfo.root
+		},
+		{
+			displayKey: "lbl_ReferFriends",
+			href: path.referral.root,
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.new,
+					period: defEventPeriod.referral
+				})
+			]
+		},
+		{
+			displayKey: "lbl_ChangePassword",
+			href: path.changePassword.root
+		}
+	];
 
-const AfterLogin = ({ t, userInfo, msgCount }) => {
 	const navMenu = defCashierLinks.map(item => (
 		<Link key={item.displayKey} to={`/${userInfo.langId}/${item.href}`}>
 			<span>{t(item.displayKey)}</span>
