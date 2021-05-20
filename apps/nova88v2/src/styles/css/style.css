@@ -1507,6 +1507,27 @@ header input:focus-within {
   font-size: 18px;
 }
 
+.header > div.function .wallet .icon-plus, .header > div.function .wallet .icon-minus {
+  background: #5574A7;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 18px;
+  height: 17px;
+  margin-left: 3px;
+}
+
+.header > div.function .wallet .icon-plus:before, .header > div.function .wallet .icon-minus:before {
+  color: white;
+}
+
 .header > div.function .wallet .submenu div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11690,15 +11711,15 @@ canvas {
   width: 605px;
 }
 
-.liveVideo .latestVideo + div .euro .upcomingmatches, .liveVideo .newsList + div .euro .upcomingmatches, .newsVideo .latestVideo + div .euro .upcomingmatches, .newsVideo .newsList + div .euro .upcomingmatches {
+.liveVideo .latestVideo + div .upcomingmatches .team.euro, .liveVideo .newsList + div .upcomingmatches .team.euro, .newsVideo .latestVideo + div .upcomingmatches .team.euro, .newsVideo .newsList + div .upcomingmatches .team.euro {
   background: url(../img/upcomingmatcheseurobg.jpg) no-repeat top center/100% auto;
 }
 
-.liveVideo .latestVideo + div .euro .upcomingmatches .team > div:first-child, .liveVideo .newsList + div .euro .upcomingmatches .team > div:first-child, .newsVideo .latestVideo + div .euro .upcomingmatches .team > div:first-child, .newsVideo .newsList + div .euro .upcomingmatches .team > div:first-child {
+.liveVideo .latestVideo + div .upcomingmatches .team.euro > div:first-child, .liveVideo .newsList + div .upcomingmatches .team.euro > div:first-child, .newsVideo .latestVideo + div .upcomingmatches .team.euro > div:first-child, .newsVideo .newsList + div .upcomingmatches .team.euro > div:first-child {
   background: url(../img/upcomingmatcheseurotitle.png) no-repeat top center/auto;
 }
 
-.liveVideo .latestVideo + div .euro .upcomingmatches .team > div:last-child, .liveVideo .newsList + div .euro .upcomingmatches .team > div:last-child, .newsVideo .latestVideo + div .euro .upcomingmatches .team > div:last-child, .newsVideo .newsList + div .euro .upcomingmatches .team > div:last-child {
+.liveVideo .latestVideo + div .upcomingmatches .team.euro > div:last-child, .liveVideo .newsList + div .upcomingmatches .team.euro > div:last-child, .newsVideo .latestVideo + div .upcomingmatches .team.euro > div:last-child, .newsVideo .newsList + div .upcomingmatches .team.euro > div:last-child {
   background: url(../img/upcomingmatcheseurotitledown.png) no-repeat top center/auto;
 }
 
@@ -11755,10 +11776,52 @@ canvas {
   padding-left: 5px;
 }
 
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds {
+  position: absolute;
+  padding: 0;
+  font-size: 12px;
+  font-weight: normal;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin-top: -10px;
+}
+
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds div, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds div, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds div, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds div {
+  margin: 0 0 3px 0;
+  background: #8d5085;
+  border-radius: 30px;
+  padding: 2px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 90px;
+}
+
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div:last-child, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds div:last-child, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div:last-child, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds div:last-child, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div:last-child, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds div:last-child, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div:last-child, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds div:last-child {
+  margin: 0;
+  background: #076475;
+}
+
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
   text-align: left;
   padding-left: 0;
   padding-right: 5px;
+}
+
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR .odds, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR .odds, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR .odds, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR .odds, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR .odds, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR .odds, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR .odds, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR .odds {
+  left: unset;
+  right: 0;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
