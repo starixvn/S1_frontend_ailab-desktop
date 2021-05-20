@@ -54,12 +54,11 @@ export default ({ dispatch, state, t, _isConvert }) => {
 	const showMinMaxTip = () => {
 		return (
 			<>
-				{" "}
 				{t("lbl_Daily_Min_Max_Amount")} :{" "}
 				{number_format(state.withdrawalMin, _isConvert)} /{" "}
 				{state.isAmountLimited
 					? number_format(state.withdrawalMax, _isConvert)
-					: "unlimited"}
+					: t("lbl_Unlimited")}
 			</>
 		);
 	};
