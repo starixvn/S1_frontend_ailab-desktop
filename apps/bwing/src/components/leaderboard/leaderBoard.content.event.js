@@ -9,7 +9,8 @@ const LeaderBoardContentEvent = ({
 	rewardList,
 	userInfo,
 	rewardTab,
-	changeRewardTab
+	changeRewardTab,
+	linkToTnc
 }) => {
 	const rows = rewardList?.map((item, idx) => {
 		return (
@@ -33,12 +34,6 @@ const LeaderBoardContentEvent = ({
 			</li>
 		);
 	});
-
-	const linkToTnc = () => {
-		window.open(
-			`${config.t_and_cURL}/SiteSkin/${config.siteName}/Ranking/UEFAEuro-${userInfo.langId}.html`
-		);
-	};
 
 	return (
 		<div className="rankInBox">
@@ -124,7 +119,8 @@ LeaderBoardContentEvent.propTypes = {
 	rewardList: PropTypes.arrayOf(PropTypes.object).isRequired,
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	rewardTab: PropTypes.number.isRequired,
-	changeRewardTab: PropTypes.func.isRequired
+	changeRewardTab: PropTypes.func.isRequired,
+	linkToTnc: PropTypes.func.isRequired
 };
 
 export default LeaderBoardContentEvent;

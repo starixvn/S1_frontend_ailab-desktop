@@ -1,0 +1,141 @@
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import RankingContent from "../leaderBoard.content";
+
+const fakeData_tab2 = {
+	t: jest.fn(),
+	tab: 2,
+	userInfo: {
+		isLogin: true,
+		langId: "en",
+		userName: "mayo2021"
+	},
+	rankingData: [
+		{ custId: 1001, date: "2021-05-14T00:00:00", userName: "name01" },
+		{ custId: 1002, date: "2021-05-14T00:00:00", userName: "name02" },
+		{ custId: 1003, date: "2021-05-14T00:00:00", userName: "name03" }
+	],
+	periodId: 2,
+	onChangePeriod: jest.fn(),
+	beforeDays: 2,
+	onChangeDays: jest.fn(),
+	defTopNum: 6,
+	showUpdateTime: jest.fn()
+};
+
+const fakeData_tab4 = {
+	t: jest.fn(),
+	tab: 4,
+	userInfo: {
+		isLogin: true,
+		langId: "en",
+		userName: "mayo2021"
+	},
+	rankingData: [
+		{ custId: 1001, date: "2021-05-14T00:00:00", userName: "name01" },
+		{ custId: 1002, date: "2021-05-14T00:00:00", userName: "name02" },
+		{ custId: 1003, date: "2021-05-14T00:00:00", userName: "name03" }
+	],
+	periodId: 2,
+	onChangePeriod: jest.fn(),
+	beforeDays: 3,
+	onChangeDays: jest.fn(),
+	defTopNum: 6,
+	showUpdateTime: jest.fn()
+};
+
+describe("onChangePeriod", () => {
+	// tab = 4
+	test("if click the period button, function-onChangePeriod have been called", () => {
+		const { container } = render(<RankingContent {...fakeData_tab2} />);
+		const button_groups = container.getElementsByClassName("btnGroup")[0];
+		const button_first = button_groups.firstChild;
+		fireEvent.click(button_first);
+		expect(fakeData_tab2.onChangePeriod).toHaveBeenCalled();
+	});
+});
+
+describe("onChangeDays", () => {
+	// tab = 4
+	test("if click the period button, function-onChangeDays have been called", () => {
+		const { container } = render(<RankingContent {...fakeData_tab4} />);
+		const button_groups = container.getElementsByClassName("btnGroup")[0];
+		const button_first = button_groups.firstChild;
+		fireEvent.click(button_first);
+		expect(fakeData_tab4.onChangeDays).toHaveBeenCalled();
+	});
+});
+
+describe("self rank style", () => {
+	const rankingData = [
+		{
+			date: "2021-01-24T00:00:00",
+			lbCategoryId: 0,
+			lbCategoryName: null,
+			custId: 122182,
+			userName: "Us******82",
+			wTurnove: 200
+		},
+		{
+			date: "2021-01-24T00:00:00",
+			lbCategoryId: 0,
+			lbCategoryName: null,
+			custId: 119429,
+			userName: "Us******29",
+			wTurnove: 100
+		},
+		{
+			date: "2021-01-24T00:00:00",
+			lbCategoryId: 0,
+			lbCategoryName: null,
+			custId: 121428,
+			userName: "Us******28",
+			wTurnove: 80
+		},
+		{ userName: "selfUser", wTurnover: 0, custRank: "999+" }
+	];
+	test("if self rank is 999+, show customized style", () => {
+		const { container } = render(
+			<RankingContent {...fakeData} rankingData={rankingData} />
+		);
+		const self_items = container.getElementsByClassName("myRank")[0];
+		expect(self_items).toBeTruthy();
+	});
+});
+
+describe("self rank style", () => {
+	const rankingData = [
+		{
+			date: "2021-01-24T00:00:00",
+			lbCategoryId: 0,
+			lbCategoryName: null,
+			custId: 122182,
+			userName: "Us******82",
+			wTurnove: 150
+		},
+		{
+			date: "2021-01-24T00:00:00",
+			lbCategoryId: 0,
+			lbCategoryName: null,
+			custId: 119429,
+			userName: "Us******29",
+			wTurnove: 100
+		},
+		{
+			date: "2021-01-24T00:00:00",
+			lbCategoryId: 0,
+			lbCategoryName: null,
+			custId: 121428,
+			userName: "Us******28",
+			wTurnove: 50
+		},
+		{ userName: "selfUser", wTurnover: 130, custRank: "2" }
+	];
+	test("if self rank in ranking top, hide customized style", () => {
+		const { container } = render(
+			<RankingContent {...fakeData} rankingData={rankingData} />
+		);
+		const self_items = container.getElementsByClassName("myRank")[0];
+		expect(self_items).toBeUndefined();
+	});
+});
