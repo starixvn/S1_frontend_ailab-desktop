@@ -141,6 +141,7 @@ export default () => {
 					}
 					alreadyHasAccountName={!!userInfo.accountName}
 					reload={getBankInfo}
+					custBankList={state.custBankList}
 				/>
 			);
 			break;

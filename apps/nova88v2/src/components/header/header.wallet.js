@@ -141,16 +141,15 @@ class Dropdown extends Component {
 							: this.props.i18n(
 									`Currency_${this.props.currencyId}`
 							  )
-					} ${isHideBalance ? "*****" : balance}`}
+					} ${isHideBalance ? "" : balance}`}
 				</span>
 				<button
 					aria-label="HandleDisplayBalance"
 					value={!isHideBalance}
 					onClick={_handleIsHideBalance}
-					className={`icon icon-eye${
-						isHideBalance ? "-blocked" : ""
-					}`}
+					className={`icon icon-${isHideBalance ? "plus" : "minus"}`}
 				/>
+
 				<div className="submenu">
 					<div className="balance">
 						<span>
