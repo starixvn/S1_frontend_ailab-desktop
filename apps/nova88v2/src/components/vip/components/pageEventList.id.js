@@ -58,15 +58,15 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 						<i className="icon icon-checkmark" />
 					</td>
 				</tr>
-				{/* <tr>
-					<td>{t("lbl_Vip_Unlimited_Withdrawal_amount")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-					<td>{t("lbl_Vip_Status1")}</td>
-				</tr> */}
+				<tr>
+					<td>{t("lbl_DAILY_WITHDRAWAL_LIMITATION")}</td>
+					<td>{number_format(80000000, isConvert, 0)}</td>
+					<td>{number_format(100000000, isConvert, 0)}</td>
+					<td>{number_format(150000000, isConvert, 0)}</td>
+					<td>{number_format(200000000, isConvert, 0)}</td>
+					<td>{number_format(500000000, isConvert, 0)}</td>
+					<td>{t("lbl_Unlimited")}</td>
+				</tr>
 				<tr className="title">
 					<td className="icon icon-nova88">
 						{t("lbl_Vip_Exclusive_Bonus")}{" "}
@@ -79,10 +79,10 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 				<tr>
 					<td>{t("lbl_Vip_Tier_UpGrade_Bonus")}</td>
 					<td />
-					<td>{number_format(100000, isConvert)}</td>
-					<td>{number_format(300000, isConvert)}</td>
-					<td>{number_format(900000, isConvert)}</td>
-					<td>{number_format(3300000, isConvert)}</td>
+					<td>{number_format(100000, isConvert, 0)}</td>
+					<td>{number_format(300000, isConvert, 0)}</td>
+					<td>{number_format(900000, isConvert, 0)}</td>
+					<td>{number_format(3300000, isConvert, 0)}</td>
 					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 
@@ -95,8 +95,8 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 				<tr>
 					<td>{t("lbl_Vip_Sport_Rebate")}</td>
 					<td>0.55%</td>
+					<td>0.55%</td>
 					<td>0.60%</td>
-					<td>0.70%</td>
 					<td>0.80%</td>
 					<td>0.90%</td>
 					<td>1.00%</td>
@@ -104,7 +104,7 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 				<tr>
 					<td>{t("lbl_Vip_Live_Casino_Rebate")}</td>
 					<td>0.50%</td>
-					<td>0.55%</td>
+					<td>0.50%</td>
 					<td>0.60%</td>
 					<td>0.70%</td>
 					<td>0.80%</td>
@@ -114,19 +114,19 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 					<td>{t("lbl_Vip_Slot_Fishing_Rebate")}</td>
 					<td>0.80%</td>
 					<td>0.90%</td>
+					<td>0.90%</td>
 					<td>1.00%</td>
 					<td>1.10%</td>
-					<td>1.30%</td>
-					<td>1.50%</td>
+					<td>1.20%</td>
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Virtual_Sport_Rebate")}</td>
 					<td>0.80%</td>
 					<td>0.90%</td>
+					<td>0.90%</td>
+					<td>1.00%</td>
 					<td>1.10%</td>
-					<td>1.30%</td>
-					<td>1.50%</td>
-					<td>1.70%</td>
+					<td>1.20%</td>
 				</tr>
 				<tr className="title">
 					<td className="icon icon-nova88">
@@ -167,10 +167,10 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 				<tr>
 					<td>{t("lbl_Vip_Monthly_Minimum_Deposit")}</td>
 					<td />
-					<td>{number_format(30000000, isConvert)}</td>
-					<td>{number_format(100000000, isConvert)}</td>
-					<td>{number_format(250000000, isConvert)}</td>
-					<td>{number_format(500000000, isConvert)}</td>
+					<td>{number_format(30000000, isConvert, 0)}</td>
+					<td>{number_format(100000000, isConvert, 0)}</td>
+					<td>{number_format(250000000, isConvert, 0)}</td>
+					<td>{number_format(500000000, isConvert, 0)}</td>
 					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr className="title">
@@ -188,10 +188,11 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 					</td>
 					<td />
 					<td />
-					<td>{number_format(100000000, isConvert)}</td>
-					<td>{number_format(250000000, isConvert)}</td>
-					<td>{number_format(500000000, isConvert)}</td>
-					<td>{t("lbl_Vip_ByInvitation")}</td>
+					<td>{number_format(100000000, isConvert, 0)}</td>
+					<td>{number_format(300000000, isConvert, 0)}</td>
+					<td>{number_format(600000000, isConvert, 0)}</td>
+					<td>{number_format(1000000000, isConvert, 0)}</td>
+					{/* <td>{t("lbl_Vip_ByInvitation")}</td> */}
 				</tr>
 				<tr>
 					<td>
@@ -199,10 +200,11 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 					</td>
 					<td />
 					<td />
-					<td>{number_format(100000000, isConvert)}</td>
-					<td>{number_format(250000000, isConvert)}</td>
-					<td>{number_format(500000000, isConvert)}</td>
-					<td>{t("lbl_Vip_ByInvitation")}</td>
+					<td>{number_format(1000000000, isConvert, 0)}</td>
+					<td>{number_format(3000000000, isConvert, 0)}</td>
+					<td>{number_format(6000000000, isConvert, 0)}</td>
+					<td>{number_format(10000000000, isConvert, 0)}</td>
+					{/* <td>{t("lbl_Vip_ByInvitation")}</td> */}
 				</tr>
 				<tr className="lastTd">
 					<td>{t("lbl_Vip_Ranking_Validity_Membership_renewal")}</td>

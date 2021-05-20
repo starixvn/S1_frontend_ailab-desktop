@@ -12,13 +12,17 @@ export const getUrlParameter = name => {
 	return null;
 };
 
-export const number_format = (number, IsConvertRequired = false) => {
+export const number_format = (
+	number,
+	IsConvertRequired = false,
+	digits = 2
+) => {
 	let n = number;
 	if (!isNaN(n)) {
 		if (IsConvertRequired) {
 			n /= 1000;
 		}
-		n = Number(n).toFixed(2);
+		n = digits > 0 ? Number(n).toFixed(digits) : Number(n);
 	}
 
 	n += "";
@@ -41,6 +45,8 @@ export const isConvert = currencyId => {
 };
 
 export const getCurrencyCode = langId => {
+	if (!langId) return null;
+
 	return currencyCode[langId.toUpperCase()];
 };
 
@@ -181,4 +187,17 @@ export const getLocalStorage = key => {
 
 export const removeLocalStorage = key => {
 	localStorage.removeItem(key);
+};
+
+export const uuidv4 = () => {
+	// eslint-disable-next-line func-names
+	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (
+		c
+	) {
+		// eslint-disable-next-line no-bitwise
+		const r = (Math.random() * 16) | 0;
+		// eslint-disable-next-line no-bitwise
+		const v = c === "x" ? r : (r & 0x3) | 0x8;
+		return v.toString(16);
+	});
 };

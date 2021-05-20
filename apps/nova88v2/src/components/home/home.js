@@ -14,13 +14,17 @@ import {
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
-import { defBannerType } from "../../service/api/site";
+import {
+	defBannerType,
+	api_site_GetSupportDomainList
+} from "../../service/api/site";
 import SwipperBanner from "../common/swipperBanner";
 import indexCenterBanner from "../../styles/img/indexCenterBanner.jpg";
 import Marquee from "./marquee";
 import path from "../../router";
 import SideBarQuickLink from "./sideBarQuickLink";
 import PromoList from "./promoList";
+import HomeJackpot from "./jackpot";
 import HotGameList from "./hotGameList";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
@@ -31,8 +35,35 @@ import LatestVideo from "./latestVideo";
 import LiveScore from "./liveScore";
 import { _ACTION_TYPE } from "../../service/enterPage";
 
-const displayRankingWinnerPeriod = {
-	endDate: "2021/02/22 12:00:00"
+const useGetBackupDomainList = ({ setPopBox, userInfo }) => {
+	useEffect(() => {
+		let isMounted = true;
+
+		if (userInfo.isLogin && userInfo.userName) {
+			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
+			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
+			if (isShowBackupDomain) {
+				api_site_GetSupportDomainList().then(res => {
+					if (
+						res.data.errorCode === 0 &&
+						isMounted &&
+						res.data.data.length > 0
+					) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.BackupDomain,
+							onClickClose: () => setPopBox({ isOpen: false }),
+							linkList: res.data.data
+						});
+					}
+				});
+			}
+		}
+
+		return () => {
+			isMounted = false;
+		};
+	}, [userInfo.isLogin, userInfo.userName, setPopBox, userInfo.langId]);
 };
 
 const IndexPage = ({ location }) => {
@@ -40,8 +71,9 @@ const IndexPage = ({ location }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
-
+	useGetBackupDomainList({ setPopBox, userInfo });
 	const isMountedRef = useRef(null);
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		setIsRoot(true);
@@ -58,18 +90,23 @@ const IndexPage = ({ location }) => {
 					isOpen: true,
 					popBoxType: defPopBoxType.Join
 				});
-			} else if (
-				isDateRange(null, null, displayRankingWinnerPeriod.endDate)
-			) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.RankingWinner,
-					langId: userInfo.langId,
-					clickClose: () => setPopBox({ isOpen: false })
-				});
 			}
 		}
 	}, [userInfo.isLogin, userInfo.langId]);
+
+	useEffect(() => {
+		if (
+			userInfo.isLogin === false &&
+			isDateRange(null, "2021/05/18 23:59:59") &&
+			(userInfo.langId === "en" || userInfo.langId === "cs")
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RankingWinner,
+				onClickClose: () => setPopBox({ isOpen: false })
+			});
+		}
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
@@ -155,25 +192,18 @@ const IndexPage = ({ location }) => {
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
-	useEffect(() => {
-		if (
-			userInfo.isLogin === false &&
-			isDateRange(null, "2021/04/18 23:59:59") &&
-			(userInfo.langId === "en" || userInfo.langId === "cs")
-		) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.RankingWinner,
-				onClickClose: () => setPopBox({ isOpen: false })
-			});
-		}
-	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
-
 	return (
 		<main>
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
+
 			<Marquee />
-			<PromoList t={t} userInfo={userInfo} />
+
+			<div className="projpot">
+				<PromoList t={t} userInfo={userInfo} />
+
+				<HomeJackpot t={t} userInfo={userInfo} />
+			</div>
+
 			<div className="liveVideo">
 				<LatestVideo />
 				<div>
@@ -184,21 +214,28 @@ const IndexPage = ({ location }) => {
 					<LiveScore langId={userInfo.langId} />
 				</div>
 			</div>
+
 			<HotGameList t={t} userInfo={userInfo} />
+
 			<div className="newsVideo">
 				<HomeNews t={t} userInfo={userInfo} />
+
 				<Streaming />
 			</div>
+
 			<img
 				className="indexCenterBanner"
 				src={indexCenterBanner}
 				alt="IndexCenterBanner"
 			/>
+
 			<SideBarQuickLink />
+
 			<AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}
 				langId={userInfo.langId}
 			/>
+
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 			/>

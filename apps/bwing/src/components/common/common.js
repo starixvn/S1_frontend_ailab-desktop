@@ -1,4 +1,4 @@
-import countryCode from "../../datas/countryCode";
+import countryCode, { currencyCode } from "../../datas/countryCode";
 
 export const getUrlParameter = name => {
 	const _name = name.replace(/[[]/, "\\[").replace(/[\]]/, "\\]");
@@ -41,6 +41,11 @@ export const isConvert = currencyId => {
 
 export const getCountryCode = currencyId => {
 	return countryCode[currencyId];
+};
+export const getCurrencyCode = langId => {
+	if (!langId) return null;
+
+	return currencyCode[langId.toUpperCase()];
 };
 
 export const getAmountTip = (minAmount, formatRequired, i18n, digits) => {

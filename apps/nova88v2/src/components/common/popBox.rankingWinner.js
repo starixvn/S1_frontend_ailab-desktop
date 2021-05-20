@@ -7,18 +7,18 @@ import config from "../../config";
 export default ({ onClickClose }) => {
 	const { userInfo } = useContext(userInfoContext);
 
-	const src =
-		userInfo.langId === "cs"
-			? `${config.bannerImgUrl}/img/EURO-RACE-MONTHLY-WINNERS-CH.jpg`
-			: `${config.bannerImgUrl}/img/EURO-RACE-MONTHLY-WINNERS-EN.jpg`;
-
 	return (
 		<div className="friend active">
 			<button className="icon icon-close" onClick={onClickClose} />
 			<Link
 				className=""
 				to={`/${userInfo.langId}/${path.leaderBoard.root}`}>
-				<img src={src} alt="img_referral" />
+				<img
+					src={`${
+						config.cloudImgUrl
+					}/SiteSkin/img/euro/EURO-RACE-MONTHLY-WINNERS-${userInfo.langId?.toUpperCase()}.jpg`}
+					alt="img_ranking"
+				/>
 			</Link>
 		</div>
 	);

@@ -32,6 +32,8 @@
 	"lbl_WhatsApp": "WhatsApp",
 	"lbl_LINE": "LINE",
 	"lbl_Youtube": "Youtube",
+	"lbl_nova88_backup_website": "กรุณาบันทึก Nova88  ไว้ที่หน้าหลักเพื่อเก็บข้อมูลสำรอง",
+	"lbl_kindly_visit_alternate_link_for_better_performance": "หากคุณประสบปัญหาการโหลดช้า โปรดลองใช้ลิงก์สำรองเพื่อเพื่อประสิทธิภาพที่ดีขึ้น",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "แบดมินตัน",
@@ -95,6 +97,7 @@
 	"lbl_Feature": "ลักษณะพิเศษ",
 	"lbl_Table": "เทเบิลเกมส์",
 	"lbl_Slots": "สล็อต",
+	"lbl_Jackpot":"รางวัลใหญ่",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_UsernameReq": "ต้องใส่ชื่อบัญชีผู้ใช้",
@@ -177,16 +180,17 @@
 	"lbl_VertifyNow": "ยืนยันหมายเลขโทรศัพท์เพื่อเข้าร่วมรับโปรโมชั่น",
 	"lbl_VertifyContactConfirm": "ยืนยันตอนนี้",
 	"msg_API_SendOTPSMS_5002": "Entered the wrong phone number.",
-	"lbl_FEATURES":"คุณสมบัติ",
-	"lbl_MEMBERS_BENEFITS":"สิทธิประโยชน์ของสมาชิก",
-	"lbl_JoinNoti_SPORTSBOO_WELCOME_BONUS":"126% สปอร์ตบุ๊ค โบนัสต้อนรับ",
-	"lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS":"โบนัสต้อนรับคาสิโนสด 100%",
-	"lbl_JoinNoti_SLOTS_WELCOME_BONUS":"โบนัสต้อนรับสล็อต 100%",
-	"lbl_JoinNoti_DAILY_REDEPOSIT_BONUS":"โบนัสเงินฝากทุกวันมากถึง 20%",
-	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES":"เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
-	"lbl_Multiple_product_platforms_with_better_odds":"แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
-	"lbl_Speedy_deposit_and_withdrawal":"ฝากและถอนอย่างรวดเร็วด้วยตัวเลือกการฝากที่หลากหลาย",
-	
+	"lbl_FEATURES": "คุณสมบัติ",
+	"lbl_MEMBERS_BENEFITS": "สิทธิประโยชน์ของสมาชิก",
+	"lbl_JoinNoti_SPORTSBOO_WELCOME_BONUS": "126% สปอร์ตบุ๊ค โบนัสต้อนรับ",
+	"lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS": "โบนัสต้อนรับคาสิโนสด 100%",
+	"lbl_JoinNoti_SLOTS_WELCOME_BONUS": "โบนัสต้อนรับสล็อต 100%",
+	"lbl_JoinNoti_DAILY_REDEPOSIT_BONUS": "โบนัสเงินฝากทุกวันมากถึง 20%",
+	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
+	"lbl_Multiple_product_platforms_with_better_odds": "แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
+	"lbl_Speedy_deposit_and_withdrawal": "ฝากและถอนอย่างรวดเร็วด้วยตัวเลือกการฝากที่หลากหลาย",
+	"lbl_Please_enter_your_registered_email_to_reset": "กรุณากรอกอีเมลที่คุณลงทะเบียนเพื่อรีเซ็ตรหัสผ่านของคุณ",
+
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "ขนาดไฟล์ไม่เกิน 4MB",
 	"BankSlipHint2": "ขนาดไฟล์ไม่เกิน : 1",
@@ -262,8 +266,8 @@
 	"lbl_BankDetails": "รายละเอียดธนาคาร",
 	"lbl_DepositLocalbankButton": "จำโหมดที่ใช้ล่าสุดของฉัน",
 	"lbl_DepositLocalbankButtonInfo": "จำธนาคารที่ใช้สำหรับการฝากเงินครั้งสุดท้ายของคุณ หากธนาคารที่คุณเลือกถูกปิดโปรดเลือกอีกครั้ง",
-	"lbl_Drop_photos_or_receipt_here":"วางรูปถ่ายสลิปที่นี่หรือคลิกเพื่อแนปสลิป",
-	"lbl_File_format_error_please_try_again":"รูปแบบไฟล์ผิดพลาด โปรดลองอีกครั้ง",
+	"lbl_Drop_photos_or_receipt_here": "วางรูปถ่ายสลิปที่นี่หรือคลิกเพื่อแนปสลิป",
+	"lbl_File_format_error_please_try_again": "รูปแบบไฟล์ผิดพลาด โปรดลองอีกครั้ง",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "ร่าง",
@@ -326,7 +330,7 @@
 	"lbl_BonusWallet_3": "Fishing Wallet",
 	"lbl_please_select_from_wallet": "กรุณาเลือกกระเป๋าเงินที่ต้องการโอนออก",
 	"lbl_please_select_to_wallet": "กรุณาเลือกกระเป๋าเงินที่ต้องการโอนเข้า",
-	"lbl_Main_Wallet_Auto_Transfer":"ย้ายเงินกระเป๋าหลักอัตโนมัติ",
+	"lbl_Main_Wallet_Auto_Transfer": "ย้ายเงินกระเป๋าหลักอัตโนมัติ",
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Financial": "บันทึกทางการเงิน",
@@ -407,11 +411,11 @@
 	"lbl_RequireMinAmountHint_Front": "ฝากเงินขั้นต่ำเริ่มต้นที่",
 	"lbl_RequireMinAmountHint_Back": "บาท ฝากเลย?",
 	"lbl_MaxBonusAmount": "จำนวนโบนัสสูงสุด",
-	"lbl_Other":"อื่นๆ",
-	"lbl_LossAmount":"จำนวนเงินที่เสีย",
-	"lbl_Percentage":"เปอร์เซ็นต์",
-	"lbl_TotalAmount":"จำนวนเงินทั้งหมด",
-	"lbl_ClaimNow":"แลกตอนนี้",
+	"lbl_Other": "อื่นๆ",
+	"lbl_LossAmount": "จำนวนเงินที่เสีย",
+	"lbl_Percentage": "เปอร์เซ็นต์",
+	"lbl_TotalAmount": "จำนวนเงินทั้งหมด",
+	"lbl_ClaimNow": "แลกตอนนี้",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "ไม่มีข้อมูล",
@@ -470,6 +474,7 @@
 	"Currency_15": "IDR",
 	"Currency_51": "VND",
 	"Currency_96": "USDT",
+	"Currency_61": "INR",
 
 	"time ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Today": "วันนี้",
@@ -655,6 +660,8 @@
 	"lbl_Diamond_Club": "ไดมอนด์ คลับ",
 	"lbl_Nova_Club": "โนวา คลับ",
 	"lbl_Club": "Club",
+	"lbl_Vip_LastUpdated": "ล่าสุดเมื่อวันที่",
+	"lbl_DAILY_WITHDRAWAL_LIMITATION": "ยอดถอนสูงสุดต่อวัน",
 
 	"streaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Streaming_FOOTBALL": "ฟุตบอล",
@@ -669,8 +676,8 @@
 	"lbl_Streaming_NoData1": "ไม่มีการถ่ายทอดสดให้บริการในขณะนี้",
 	"lbl_Streaming_NoData2": "โปรดลองอีกครั้งในภายหลัง",
 	"lbl_More": "ข้อมูลเพิ่มเติม",
-	"lbl_Started":"เริ่มแล้ว",
-	"lbl_Not_Started":"ยังไม่เริ่ม",
+	"lbl_Started": "เริ่มแล้ว",
+	"lbl_Not_Started": "ยังไม่เริ่ม",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "วิดีโอไฮไลต์ล่าสุด",
@@ -779,6 +786,7 @@
 	"lbl_sign_up_terms_start": "คลิ๊กที่ปุ่มสมัครสมาชิก , ข้าพเจ้าขอรับรองว่าข้าพเจ้ามีอายุเกิน 21 ปี ได้อ่านและยอมรับข้อกำหนดและเงื่อนไขแล้ว",
 	"lbl_sign_up_terms_center": "บข้อกำหนดและเงื่อนไข",
 	"lbl_sign_up_terms_end": "แล้ว",
-	
+	"lbl_homeJackpotTitle": "รางวัลใหญ่",
+
 	"end-----": "end-----"
 }

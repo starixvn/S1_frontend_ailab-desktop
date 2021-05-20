@@ -391,6 +391,20 @@ header input:focus-within {
   top: -10px;
 }
 
+.header > div.menu .subMenu-Wrapper-new .homeList a.active, .header > div.menu .subMenu-Wrapper-new .homeList button.active, .header > div.menu .subMenu-Wrapper-new .sportsList a.active, .header > div.menu .subMenu-Wrapper-new .sportsList button.active, .header > div.menu .subMenu-Wrapper-new .eSportsList a.active, .header > div.menu .subMenu-Wrapper-new .eSportsList button.active, .header > div.menu .subMenu-Wrapper-new .casinoList a.active, .header > div.menu .subMenu-Wrapper-new .casinoList button.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.active, .header > div.menu .subMenu-Wrapper-new .pokerList a.active, .header > div.menu .subMenu-Wrapper-new .pokerList button.active, .header > div.menu .subMenu-Wrapper-new .gameList a.active, .header > div.menu .subMenu-Wrapper-new .gameList button.active, .header > div.menu .subMenu-Wrapper-new .fishList a.active, .header > div.menu .subMenu-Wrapper-new .fishList button.active, .header > div.menu .subMenu-Wrapper-new .promoList a.active, .header > div.menu .subMenu-Wrapper-new .promoList button.active, .header > div.menu .subMenu-Wrapper-new .tvList a.active, .header > div.menu .subMenu-Wrapper-new .tvList button.active, .header > div.menu .subMenu-Wrapper-new .vipList a.active, .header > div.menu .subMenu-Wrapper-new .vipList button.active, .header > div.menu .subMenu-Wrapper-new .rankingList a.active, .header > div.menu .subMenu-Wrapper-new .rankingList button.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+.header > div.menu .subMenu-Wrapper-new .homeList a.active:after, .header > div.menu .subMenu-Wrapper-new .homeList button.active:after, .header > div.menu .subMenu-Wrapper-new .sportsList a.active:after, .header > div.menu .subMenu-Wrapper-new .sportsList button.active:after, .header > div.menu .subMenu-Wrapper-new .eSportsList a.active:after, .header > div.menu .subMenu-Wrapper-new .eSportsList button.active:after, .header > div.menu .subMenu-Wrapper-new .casinoList a.active:after, .header > div.menu .subMenu-Wrapper-new .casinoList button.active:after, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.active:after, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.active:after, .header > div.menu .subMenu-Wrapper-new .pokerList a.active:after, .header > div.menu .subMenu-Wrapper-new .pokerList button.active:after, .header > div.menu .subMenu-Wrapper-new .gameList a.active:after, .header > div.menu .subMenu-Wrapper-new .gameList button.active:after, .header > div.menu .subMenu-Wrapper-new .fishList a.active:after, .header > div.menu .subMenu-Wrapper-new .fishList button.active:after, .header > div.menu .subMenu-Wrapper-new .promoList a.active:after, .header > div.menu .subMenu-Wrapper-new .promoList button.active:after, .header > div.menu .subMenu-Wrapper-new .tvList a.active:after, .header > div.menu .subMenu-Wrapper-new .tvList button.active:after, .header > div.menu .subMenu-Wrapper-new .vipList a.active:after, .header > div.menu .subMenu-Wrapper-new .vipList button.active:after, .header > div.menu .subMenu-Wrapper-new .rankingList a.active:after, .header > div.menu .subMenu-Wrapper-new .rankingList button.active:after {
+  content: 'Under maintenance';
+  position: absolute;
+  z-index: 1;
+  background: #555;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
 .header > div.menu .subMenu-Wrapper-new .homeList a .live:before, .header > div.menu .subMenu-Wrapper-new .homeList button .live:before, .header > div.menu .subMenu-Wrapper-new .sportsList a .live:before, .header > div.menu .subMenu-Wrapper-new .sportsList button .live:before, .header > div.menu .subMenu-Wrapper-new .eSportsList a .live:before, .header > div.menu .subMenu-Wrapper-new .eSportsList button .live:before, .header > div.menu .subMenu-Wrapper-new .casinoList a .live:before, .header > div.menu .subMenu-Wrapper-new .casinoList button .live:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList a .live:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList button .live:before, .header > div.menu .subMenu-Wrapper-new .pokerList a .live:before, .header > div.menu .subMenu-Wrapper-new .pokerList button .live:before, .header > div.menu .subMenu-Wrapper-new .gameList a .live:before, .header > div.menu .subMenu-Wrapper-new .gameList button .live:before, .header > div.menu .subMenu-Wrapper-new .fishList a .live:before, .header > div.menu .subMenu-Wrapper-new .fishList button .live:before, .header > div.menu .subMenu-Wrapper-new .promoList a .live:before, .header > div.menu .subMenu-Wrapper-new .promoList button .live:before, .header > div.menu .subMenu-Wrapper-new .tvList a .live:before, .header > div.menu .subMenu-Wrapper-new .tvList button .live:before, .header > div.menu .subMenu-Wrapper-new .vipList a .live:before, .header > div.menu .subMenu-Wrapper-new .vipList button .live:before, .header > div.menu .subMenu-Wrapper-new .rankingList a .live:before, .header > div.menu .subMenu-Wrapper-new .rankingList button .live:before {
   bottom: 30px;
   top: auto;
@@ -1277,7 +1291,7 @@ header input:focus-within {
   border: 1px solid rgba(30, 133, 236, 0.5);
 }
 
-.header > div.function > div .countryList button, .header > div.function > div .countryList a, .header > div.function > a .countryList button, .header > div.function > a .countryList a, .header > div.function > button .countryList button, .header > div.function > button .countryList a {
+.header > div.function > div .countryList button, .header > div.function > div .countryList a, .header > div.function > div .countryList div, .header > div.function > a .countryList button, .header > div.function > a .countryList a, .header > div.function > a .countryList div, .header > div.function > button .countryList button, .header > div.function > button .countryList a, .header > div.function > button .countryList div {
   margin: 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1286,6 +1300,24 @@ header input:focus-within {
       -ms-flex-align: center;
           align-items: center;
   color: #5574A7;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+.header > div.function > div .countryList button button, .header > div.function > div .countryList a button, .header > div.function > div .countryList div button, .header > div.function > a .countryList button button, .header > div.function > a .countryList a button, .header > div.function > a .countryList div button, .header > div.function > button .countryList button button, .header > div.function > button .countryList a button, .header > div.function > button .countryList div button {
+  border-right: 1px solid #5574A7;
+  padding: 0 5px;
+}
+
+.header > div.function > div .countryList button button:last-child, .header > div.function > div .countryList a button:last-child, .header > div.function > div .countryList div button:last-child, .header > div.function > a .countryList button button:last-child, .header > div.function > a .countryList a button:last-child, .header > div.function > a .countryList div button:last-child, .header > div.function > button .countryList button button:last-child, .header > div.function > button .countryList a button:last-child, .header > div.function > button .countryList div button:last-child {
+  border-right: 0;
+  padding: 0 0 0 5px;
+}
+
+.header > div.function > div .countryList button button:hover, .header > div.function > div .countryList a button:hover, .header > div.function > div .countryList div button:hover, .header > div.function > a .countryList button button:hover, .header > div.function > a .countryList a button:hover, .header > div.function > a .countryList div button:hover, .header > div.function > button .countryList button button:hover, .header > div.function > button .countryList a button:hover, .header > div.function > button .countryList div button:hover {
+  color: #f77900;
 }
 
 .header > div.function > div.active .countryList, .header > div.function > a.active .countryList, .header > div.function > button.active .countryList {
@@ -1307,55 +1339,24 @@ header input:focus-within {
   background: url(../img/flag/ch.jpg) no-repeat top left/cover;
 }
 
-.header > div.function > div .flag.ch:hover:before, .header > div.function > a .flag.ch:hover:before, .header > div.function > button .flag.ch:hover:before {
-  content: "CH";
-}
-
 .header > div.function > div .flag.cs:before, .header > div.function > a .flag.cs:before, .header > div.function > button .flag.cs:before {
   background: url(../img/flag/cs.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.cs:hover:before, .header > div.function > a .flag.cs:hover:before, .header > div.function > button .flag.cs:hover:before {
-  content: "CS";
 }
 
 .header > div.function > div .flag.en:before, .header > div.function > a .flag.en:before, .header > div.function > button .flag.en:before {
   background: url(../img/flag/en.jpg) no-repeat top left/cover;
 }
 
-.header > div.function > div .flag.en:hover:before, .header > div.function > a .flag.en:hover:before, .header > div.function > button .flag.en:hover:before {
-  content: "EN";
-}
-
 .header > div.function > div .flag.th:before, .header > div.function > a .flag.th:before, .header > div.function > button .flag.th:before {
   background: url(../img/flag/th.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.th:hover:before, .header > div.function > a .flag.th:hover:before, .header > div.function > button .flag.th:hover:before {
-  content: "TH";
 }
 
 .header > div.function > div .flag.id:before, .header > div.function > a .flag.id:before, .header > div.function > button .flag.id:before {
   background: url(../img/flag/id.jpg) no-repeat top left/cover;
 }
 
-.header > div.function > div .flag.id:hover:before, .header > div.function > a .flag.id:hover:before, .header > div.function > button .flag.id:hover:before {
-  content: "ID";
-}
-
 .header > div.function > div .flag.vn:before, .header > div.function > a .flag.vn:before, .header > div.function > button .flag.vn:before {
   background: url(../img/flag/vn.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.vn:hover:before, .header > div.function > a .flag.vn:hover:before, .header > div.function > button .flag.vn:hover:before {
-  content: "VN";
-}
-
-.header > div.function > div .flag:hover:before, .header > div.function > a .flag:hover:before, .header > div.function > button .flag:hover:before {
-  background: #1249A5;
-  color: white;
-  text-align: center;
-  line-height: 30px;
 }
 
 .header > div.function .icon-email {
@@ -2516,6 +2517,10 @@ footer .footerList > div > div > div {
   right: -130px;
 }
 
+.rightModule .loginpop .joinloginModule .joinloginFunction {
+  min-width: 425px;
+}
+
 @-webkit-keyframes animationlogo {
   from {
     left: 0;
@@ -2693,6 +2698,45 @@ footer .footerList > div > div > div {
   margin-top: 10px;
 }
 
+.joinpop .joinloginModule .joinloginFunction .inputBox-blue, .joinpop .joinloginModule .joinloginFunction .inputBox-org {
+  z-index: unset;
+}
+
+.joinpop .joinloginModule .joinloginFunction .dropdown span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.joinpop .joinloginModule .joinloginFunction .dropdown span + button {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container {
+  position: absolute;
+  top: 29px;
+  left: -1px;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  border: 1px solid #BFCCE2;
+  border-top: 0;
+  margin-left: 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container .dropdown-item {
+  margin: 0;
+  padding: 5px 0 5px 39px;
+}
+
 .joinpop .joinloginModule .joinAnimation {
   position: absolute;
   left: 10px;
@@ -2838,6 +2882,8 @@ footer .footerList > div > div > div {
 .inputBox:focus-within, .inputBox-org:focus-within, .inputBox-white:focus-within, .inputBox-blue:focus-within {
   border: 1px solid #1E85EC;
   outline: #1E85EC;
+  border: 1px solid #BFCCE2;
+  outline: #BFCCE2;
 }
 
 .inputBox input, .inputBox-org input, .inputBox-white input, .inputBox-blue input {
@@ -2938,6 +2984,8 @@ footer .footerList > div > div > div {
 .inputBox-blue {
   border: 1px solid #5574A7;
   background: #e8edf3;
+  border: 1px solid #BFCCE2;
+  background: white;
 }
 
 .inputBox-blue .dropdown .dropdown-container .txt-white, .inputBox-blue .dropdown .dropdown-container .btn {
@@ -3019,6 +3067,11 @@ input[type="file"] {
           justify-content: center;
   min-width: 123px;
   margin: 0 5px;
+}
+
+.btnGroup button.backupClick, .btnGroup a.backupClick {
+  background: #f77900;
+  color: white;
 }
 
 .btnGroup button.orange, .btnGroup button.btn-check, .btnGroup a.orange, .btnGroup a.btn-check {
@@ -4446,6 +4499,87 @@ input[type="file"] {
   overflow-y: auto;
 }
 
+#popup .pop .backupDomain {
+  overflow: unset;
+  background: white;
+  border-radius: 20px;
+  padding: 20px 0;
+  position: relative;
+  overflow: hidden;
+  color: #b2b2b2;
+}
+
+#popup .pop .backupDomain .icon-close {
+  top: 15px;
+  right: 10px;
+  z-index: 1;
+}
+
+#popup .pop .backupDomain .poptit {
+  width: calc(100% - 60px);
+  text-align: center;
+  color: #5574A7;
+  border-bottom: 1px solid #5574A7;
+  padding: 20px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  top: 0;
+  height: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#popup .pop .backupDomain .poptit + img {
+  width: 380px;
+  border-radius: 15px;
+  margin-top: 65px;
+  margin-bottom: 20px;
+}
+
+#popup .pop .backupDomain .url {
+  padding: 7px 10px;
+  border-radius: 30px;
+  border: 1px solid #b2b2b2;
+  margin: 5px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: calc(100% - 40px);
+}
+
+#popup .pop .backupDomain .url .copyurl {
+  position: absolute;
+  border: 1px solid #5574A7;
+  border-radius: 30px;
+  color: #5574A7;
+  padding: 5px 10px;
+  right: 2px;
+}
+
+#popup .pop .backupDomain .checkbox {
+  margin-bottom: 10px;
+}
+
+#popup .pop .backupDomain .checkbox input[type="checkbox"] + label {
+  border: 1px solid #f77900;
+}
+
+#popup .pop .backupDomain .checkbox input[type="checkbox"]:checked + label {
+  color: #f77900;
+}
+
 #popup .pop .upload, #popup .pop .uploadError, #popup .pop .uploadSuccess, #popup .pop .updateSuccess, #popup .pop .update {
   width: 600px;
 }
@@ -5855,6 +5989,7 @@ input[type="file"] {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
+  color: #5574A7;
 }
 
 .quickSelect .btnGroup {
@@ -5932,6 +6067,30 @@ input[type="file"] {
   margin-top: 10px;
   border-radius: 15px;
   text-align: center;
+}
+
+.quickSelect .dropdown span + button {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+.quickSelect .dropdown .dropdown-container {
+  position: absolute;
+  top: 29px;
+  left: -1px;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  border: 1px solid #BFCCE2;
+  border-top: 0;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.quickSelect .dropdown .dropdown-container .dropdown-item {
+  margin: 0;
+  padding: 5px 0 5px 10px;
 }
 
 .specialBonus {
@@ -6522,9 +6681,9 @@ input[type="file"] {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
-  padding: 20px;
+  padding: 15px;
   background: white;
-  border-radius: 10px;
+  border-radius: 5px;
   color: #1E85EC;
   margin: 15px 0;
   position: relative;
@@ -6636,7 +6795,7 @@ input[type="file"] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   float: left;
-  margin: 15px 5px;
+  margin: 10px;
   max-width: 330px;
 }
 
@@ -6683,12 +6842,13 @@ input[type="file"] {
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(-20deg);
           transform: translateX(-50%) translateY(-50%) rotate(-20deg);
-  background: #e2e2e2;
-  border-radius: 20px;
+  background: #42424261;
+  border-radius: 10px;
+  border: 1px solid #fff;
   font-weight: bold;
-  padding: 5px 15px;
-  color: black;
-  font-size: 18px;
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 24px;
   font-style: italic;
 }
 
@@ -6698,12 +6858,12 @@ input[type="file"] {
 }
 
 .promotionsInfo img {
-  border-radius: 15px;
+  border-radius: 5px;
 }
 
 .promotionsInfo .proData {
   background: white;
-  border-radius: 15px;
+  border-radius: 5px;
   margin-top: 20px;
   padding: 40px;
 }
@@ -6792,8 +6952,8 @@ form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 34px;
-  height: 54px;
+  padding: 0 45px;
+  height: 55px;
 }
 
 .casinoSelect > div {
@@ -6805,10 +6965,51 @@ form {
 
 .casinoSelect > div  .inputBox-white {
   min-height: 22px;
+  min-height: 20px;
+  z-index: 2;
+}
+
+.casinoSelect > div  .inputBox-white:focus-within {
+  border: 1px solid transparent;
+  outline: transparent;
 }
 
 .casinoSelect > div  .inputBox-white button {
   white-space: nowrap;
+}
+
+.casinoSelect .dropdown span {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.casinoSelect .dropdown span + button {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-right: 20px;
+}
+
+.casinoSelect .dropdown .dropdown-container {
+  position: absolute;
+  top: 29px;
+  left: 0;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  border-top: 0;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.casinoSelect .dropdown .dropdown-container .dropdown-item {
+  margin: 0;
+  padding: 5px 0 5px 15px;
+  text-align: left;
 }
 
 .slotList .icon-new {
@@ -8011,7 +8212,7 @@ button.icon-spinner11:before {
 }
 
 .swiper-casino {
-  width: 1560px;
+  width: 1400px;
   margin-top: 30px;
   border-radius: 15px;
 }
@@ -10299,6 +10500,7 @@ canvas {
 
 .vip .medal tr td:first-child {
   width: 34%;
+  text-align: left;
 }
 
 .vip .medal tr td img {
@@ -10657,6 +10859,7 @@ canvas {
 
 .event2 .eventModule > div > div.moduleCenter .txt-yellow2 {
   margin-top: 40px;
+  color: #F5C346;
 }
 
 .event2 .eventModule > div > div.moduleCenter > div {
@@ -10737,6 +10940,10 @@ canvas {
   right: 0;
 }
 
+.subModuleTitle .autotransfer .swithModule {
+  position: unset;
+}
+
 .subModuleTitle .autotransfer .icon-question {
   font-weight: normal;
   font-size: 18px;
@@ -10796,6 +11003,36 @@ canvas {
       flex-wrap: wrap;
 }
 
+.subModuleListColumn > .subModule .dropdown {
+  min-width: 190px;
+}
+
+.subModuleListColumn > .subModule .dropdown button {
+  width: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  margin-right: 20px;
+}
+
+.subModuleListColumn > .subModule .dropdown .dropdown-container {
+  position: absolute;
+  top: 27px;
+  left: -1px;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  border: 1px solid #BFCCE2;
+  border-top: 0;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.subModuleListColumn > .subModule .dropdown .dropdown-container .dropdown-item {
+  margin: 0;
+  padding: 5px 0 5px 15px;
+  text-align: left;
+}
+
 .subModuleListColumn > .subModule .inputBox-white {
   width: 300px;
 }
@@ -10803,6 +11040,11 @@ canvas {
 .subModuleListColumn > .subModule .inputBox-blue {
   width: auto;
   margin-right: 10px;
+}
+
+.subModuleListColumn > .subModule .inputBox-blue:focus-within {
+  border: 1px solid #BFCCE2;
+  outline: #BFCCE2;
 }
 
 .subModuleListColumn > .subModule .inputBox-blue + .btnGroup .btn-check {
@@ -12394,11 +12636,6 @@ canvas {
   border-bottom: 1px solid #BFCCE2;
 }
 
-.historyModule .quickSelect .inputBox-blue {
-  background: white;
-  border-color: #BFCCE2;
-}
-
 .cashBack {
   background: #D2E2F9;
   padding: 20px;
@@ -12490,28 +12727,43 @@ canvas {
   position: relative;
 }
 
-.projpot .promos + div .jpot div {
+.projpot .promos + div .jpot .number {
   position: absolute;
   bottom: 80px;
   right: 65px;
-  font-size: 24px;
   width: 330px;
-  text-align: right;
+  height: 30px;
   font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  font-size: 18px;
+  overflow: hidden;
 }
 
-.projpot .promos + div .jpot div span {
-  font-size: 16px;
-  font-weight: normal;
+.projpot .promos + div .jpot .number > div:first-child {
+  font-size: 20px;
+  margin: auto auto auto 0;
+}
+
+.projpot .promos + div .jpot .number > div:nth-child(n+2) {
+  font-size: 24px;
+  margin: 0 1px;
+  width: 15px;
+  position: relative;
+}
+
+.projpot .promos + div .jpot .number > div:nth-child(n+2) > div {
+  position: absolute;
+  top: 0;
+  height: 600px;
+}
+
+.projpot .promos + div .jpot .number > div:nth-child(n+2) > div > div {
+  height: 30px;
 }
 
 @-webkit-keyframes jpot {
@@ -12536,5 +12788,123 @@ canvas {
   100% {
     background: url(../img/jpotbg.png) no-repeat center/cover;
   }
+}
+
+.swithModule {
+  position: absolute;
+  right: 20px;
+  text-align: center;
+  color: #5574A7 !important;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.swithModule .switchBtn {
+  width: 60px;
+  height: 28px;
+  border: 1px solid #666;
+  background: #666;
+  border-radius: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+}
+
+.swithModule .switchBtn.active {
+  background: #42AC5E;
+  border-color: #42AC5E;
+}
+
+.swithModule .switchBtn.active > span:nth-child(2) {
+  opacity: 0;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.swithModule .switchBtn > span {
+  color: white;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.swithModule .switchBtn > div {
+  position: absolute;
+  background: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 26px;
+  left: 0;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.swithModule .switchBtn > div.active {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  left: calc(100% - 26px);
+}
+
+.partnerSelect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  width: calc(100% - 100px);
+  margin: 10px auto;
+  background: rgba(210, 226, 249, 0.5);
+  border-radius: 5px;
+}
+
+.partnerSelect button {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  color: #7591C1;
+  padding: 15px 0;
+}
+
+.partnerSelect button img {
+  width: auto;
+  -webkit-filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
+          filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+.partnerSelect button:hover {
+  color: white;
+  background: #5574A7;
+}
+
+.partnerSelect button:hover img {
+  -webkit-filter: none;
+          filter: none;
+  opacity: 1;
 }
 /*# sourceMappingURL=style.css.map */

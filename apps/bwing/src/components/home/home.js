@@ -7,12 +7,13 @@ import {
 	isRootContext
 } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { setCookie, readCookie } from "../common/common";
+import { setCookie, readCookie, isDateRange } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
 import { defaultLang } from "../../i18n/config";
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
+import Jackpot from "./jackpot";
 import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
@@ -36,6 +37,18 @@ export default () => {
 			setIsRoot(false);
 		};
 	});
+
+	useEffect(() => {
+		if (
+			userInfo.isLogin === false &&
+			isDateRange(null, "2021/05/18 23:59:59")
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.RankingWinner
+			});
+		}
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
@@ -78,7 +91,7 @@ export default () => {
 
 			showDepositPopBox();
 		}
-	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
+	}, [userInfo.isLogin, userInfo.langId, userInfo.userName, setPopBox]);
 
 	return (
 		<>
@@ -97,7 +110,11 @@ export default () => {
 				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 				<Marquee />
 				<section>
-					<EventSwipper langId={userInfo.langId} />
+					<div className="offers">
+						<EventSwipper langId={userInfo.langId} />
+						<span className="straightBorder" />
+						<Jackpot t={t} userInfo={userInfo} />
+					</div>
 				</section>
 				<section>
 					<PromoGameList t={t} userInfo={userInfo} />

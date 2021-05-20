@@ -295,6 +295,7 @@ header .header > div.menu .subMenu-Wrapper.active {
   padding-bottom: 30px;
 }
 
+header .header > div.menu .sportsList,
 header .header > div.menu .gameList,
 header .header > div.menu .casinoList,
 header .header > div.menu .livecasinoList,
@@ -305,6 +306,8 @@ header .header > div.menu .fishList {
   display: none;
 }
 
+header .header > div.menu .sportsList.active,
+header .header > div.menu .sportsList div,
 header .header > div.menu .gameList.active,
 header .header > div.menu .gameList div,
 header .header > div.menu .casinoList.active,
@@ -320,6 +323,8 @@ header .header > div.menu .fishList div {
       flex-wrap: wrap;
 }
 
+header .header > div.menu .sportsList a,
+header .header > div.menu .sportsList button,
 header .header > div.menu .gameList a,
 header .header > div.menu .gameList button,
 header .header > div.menu .casinoList a,
@@ -349,6 +354,8 @@ header .header > div.menu .fishList button {
   height: 150px;
 }
 
+header .header > div.menu .sportsList a img,
+header .header > div.menu .sportsList button img,
 header .header > div.menu .gameList a img,
 header .header > div.menu .gameList button img,
 header .header > div.menu .casinoList a img,
@@ -362,6 +369,8 @@ header .header > div.menu .fishList button img {
   width: fit-content;
 }
 
+header .header > div.menu .sportsList a span,
+header .header > div.menu .sportsList button span,
 header .header > div.menu .gameList a span,
 header .header > div.menu .gameList button span,
 header .header > div.menu .casinoList a span,
@@ -374,6 +383,8 @@ header .header > div.menu .fishList button span {
   position: relative;
 }
 
+header .header > div.menu .sportsList a:hover,
+header .header > div.menu .sportsList button:hover,
 header .header > div.menu .gameList a:hover,
 header .header > div.menu .gameList button:hover,
 header .header > div.menu .casinoList a:hover,
@@ -386,6 +397,8 @@ header .header > div.menu .fishList button:hover {
   transition: 0.7s;
 }
 
+header .header > div.menu .sportsList a i,
+header .header > div.menu .sportsList button i,
 header .header > div.menu .gameList a i,
 header .header > div.menu .gameList button i,
 header .header > div.menu .casinoList a i,
@@ -401,6 +414,8 @@ header .header > div.menu .fishList button i {
           animation: newicon 0.5s linear infinite alternate;
 }
 
+header .header > div.menu .sportsList a i::before,
+header .header > div.menu .sportsList button i::before,
 header .header > div.menu .gameList a i::before,
 header .header > div.menu .gameList button i::before,
 header .header > div.menu .casinoList a i::before,
@@ -414,6 +429,22 @@ header .header > div.menu .fishList button i::before {
   right: 0px;
   color: #56ceff;
   font-size: 20px;
+}
+
+header .header > div.menu .sportsList .sport {
+  background: url(../img/sport.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .sportsList .sport:hover {
+  background: url(../img/sport-a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .sportsList .BTI {
+  background: url(../img/BTI-sport.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .sportsList .BTI:hover {
+  background: url(../img/BTI-sport-a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .gameList .sabaclub {
@@ -634,6 +665,14 @@ header .header > div.menu .livecasinoList .liveN2LIVE {
 
 header .header > div.menu .livecasinoList .liveN2LIVE:hover {
   background: url(../img/liven2live_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .livePT {
+  background: url(../img/livePT.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .livePT:hover {
+  background: url(../img/livePT_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .fishList .fgg {
@@ -889,6 +928,7 @@ header .header > div.function .country.active .countryList {
 header .header > div.function .btnGroup a,
 header .header > div.function .btnGroup button {
   max-height: 32px;
+  text-transform: uppercase;
 }
 
 header .header > div.function .cashier,
@@ -1157,9 +1197,14 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   height: 20px;
 }
 
+.newyear + main {
+  height: auto;
+}
+
 main {
   position: relative;
   padding-top: 120px;
+  height: calc(100% - 80px);
 }
 
 main section.inside {
@@ -1168,6 +1213,7 @@ main section.inside {
   display: flex;
   max-width: 1600px;
   margin: auto;
+  height: 100%;
 }
 
 main section > div {
@@ -1990,15 +2036,16 @@ main > .swiper-container .swiper-slide {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -webkit-transform: translateX(-77%);
-          transform: translateX(-77%);
+  -webkit-transform: translateX(-81%);
+          transform: translateX(-81%);
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  padding-right: 10px;
 }
 
 .quickLink > div:nth-child(1) {
-  background: #00b9ff;
+  background: rgba(0, 185, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2024,7 +2071,7 @@ main > .swiper-container .swiper-slide {
   color: #1e85ec;
   font-weight: bold;
   position: absolute;
-  width: 43px;
+  width: 100%;
   height: 43px;
   left: 0;
   font-size: 18px;
@@ -2105,7 +2152,7 @@ main > .swiper-container .swiper-slide {
   vertical-align: middle;
 }
 
-.quickLink.active {
+.quickLink:hover {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
   -webkit-transition: 0.7s;
@@ -2114,6 +2161,7 @@ main > .swiper-container .swiper-slide {
 
 .rightModule {
   width: 100%;
+  min-width: 1220px;
 }
 
 .porfileVip {
@@ -2779,6 +2827,91 @@ main > .swiper-container .swiper-slide {
 
 .inside-title .icon-friend span {
   margin: 0;
+}
+
+.bannerS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.bannerS .jpot {
+  width: 400px;
+  height: 200px;
+  -webkit-animation: jpot 0.3s infinite;
+          animation: jpot 0.3s infinite;
+  position: relative;
+  background: url(../img/jackpot.png) no-repeat;
+}
+
+.bannerS .jpot > div {
+  position: absolute;
+  bottom: 32px;
+  right: 50px;
+  width: 290px;
+  text-align: right;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+}
+
+.bannerS .jpot > div div:first-child {
+  font-size: 18px;
+  margin: auto auto auto 0;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) {
+  font-size: 18px;
+  width: 15px;
+  height: 30px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) span {
+  word-break: break-word;
+  position: absolute;
+  left: 0;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) span.active {
+  -webkit-animation: jpotxt 2s infinite;
+          animation: jpotxt 2s infinite;
+}
+
+@-webkit-keyframes jpotxt {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+@keyframes jpotxt {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
 }
 
 .achievement {
@@ -3450,7 +3583,8 @@ main > .swiper-container .swiper-slide {
   display: none;
 }
 
-#popup > .Cancel > .icon-icon32px_Profile ~ .btnGroup > .btn-check {
+#popup > .Cancel > .icon-icon32px_Profile ~ .btnGroup > .btn-check,
+#popup > .editSuccess > .icon-icon32px_notification ~ .btnGroup > .btn-check {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
@@ -3684,19 +3818,32 @@ main > .swiper-container .swiper-slide {
 }
 
 .Submit .btnGroup a,
+.Submit .btnGroup button,
 .Success .btnGroup a,
+.Success .btnGroup button,
 .Error .btnGroup a,
+.Error .btnGroup button,
 .Cancel .btnGroup a,
+.Cancel .btnGroup button,
 .uploadSuccess .btnGroup a,
+.uploadSuccess .btnGroup button,
 .updateSuccess .btnGroup a,
+.updateSuccess .btnGroup button,
 .tokyc .btnGroup a,
+.tokyc .btnGroup button,
 .addBankpop .btnGroup a,
+.addBankpop .btnGroup button,
 .changePassWordpop .btnGroup a,
+.changePassWordpop .btnGroup button,
 .editSuccess .btnGroup a,
+.editSuccess .btnGroup button,
 .upload .btnGroup a,
+.upload .btnGroup button,
 .update .btnGroup a,
-.loackAmount .btnGroup a {
-  max-width: 100px;
+.update .btnGroup button,
+.loackAmount .btnGroup a,
+.loackAmount .btnGroup button {
+  max-width: 150px;
 }
 
 .Submit .popList,
@@ -4824,6 +4971,10 @@ main > .swiper-container .swiper-slide {
   max-width: 520px;
 }
 
+.quickSelect > div.gameBtn {
+  max-width: inherit;
+}
+
 .quickSelect > div.btnGroup:not(.promoType) {
   width: 120px;
   -webkit-box-flex: 0;
@@ -5667,14 +5818,17 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  background: #297da2;
+  -webkit-transform: rotate(-20deg) skewX(-20deg) translateX(-50%) translateY(-100%);
+          transform: rotate(-20deg) skewX(-20deg) translateX(-50%) translateY(-100%);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #fff;
   border-radius: 5px;
   font-weight: bold;
-  padding: 5px 15px;
+  padding: 10px 20px;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
+  -webkit-box-shadow: 0 0 5px #fff inset;
+          box-shadow: 0 0 5px #fff inset;
 }
 
 .promotionsInfo {
@@ -8400,7 +8554,24 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn {
-  padding: 20px 50px 50px;
+  padding: 20px 20px 50px;
+  float: left;
+  width: 900px;
+}
+
+.subModuleListColumn p {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.subModuleListColumn > .subModuleTitle {
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.subModuleListColumn > .subModuleTitle i {
+  color: #56ceff;
+  margin-right: 3px;
 }
 
 .subModuleListColumn > .subModule {
@@ -8444,16 +8615,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   opacity: 1;
 }
 
-.subModuleListColumn > .subModule > .subModuleTitle {
-  width: 160px;
-  white-space: nowrap;
-}
-
-.subModuleListColumn > .subModule > .subModuleTitle i {
-  color: #56ceff;
-  margin-right: 3px;
-}
-
 .subModuleListColumn > .subModule > .subModuleContent {
   width: calc(100% - 200px);
   margin-left: 35px;
@@ -8469,7 +8630,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: calc(100% - 180px);
 }
 
 .subModuleListColumn > .subModule > div > button,
@@ -8486,7 +8646,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           align-items: center;
   margin-bottom: 15px;
   color: white;
-  width: 215px;
+  width: 210px;
   position: relative;
 }
 
@@ -8599,7 +8759,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .column .inputBox-white input::-webkit-input-placeholder {
-  text-align: right;
+  text-align: left;
 }
 
 .subModuleListColumn > .subModule .column .inputBox-white + .tip {
@@ -8614,7 +8774,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .inputBox-white input::-webkit-input-placeholder {
-  text-align: right;
+  text-align: left;
 }
 
 .subModuleListColumn > .subModule .inputBox-white + .tip {
@@ -8630,7 +8790,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   border: 0;
   color: white;
   outline: none;
-  text-align: right;
 }
 
 .subModuleListColumn > .subModule .inputBox-white .iconModule {
@@ -8723,6 +8882,30 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
   min-width: 100px;
   width: auto;
+}
+
+.important {
+  background: #232e49;
+  color: #c9cfd9;
+  width: 220px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 15px 10px 15px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  font-size: 12px;
+}
+
+.important .title {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ff6734;
+}
+
+.important ol li {
+  list-style: decimal;
+  line-height: 22px;
 }
 
 .text-center {
@@ -8916,6 +9099,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin: auto;
   padding-top: 170px;
   max-width: 1200px;
+  height: auto;
 }
 
 .vip .swiper-container {
@@ -9001,6 +9185,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .vip .medal tr td:first-child {
   width: 34%;
+  text-align: left;
 }
 
 .vip .medal tr td img {
@@ -9074,5 +9259,108 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-weight: bold;
   color: #1e85ec;
   width: 100%;
+}
+
+.pupDeposit {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  z-index: 10;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 50px;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .title {
+  color: #56ceff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2vw;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh {
+  height: 70vh;
+  overflow: auto;
+  margin: 20px 0;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh p {
+  max-width: 800px;
+  position: relative;
+  color: #fff;
+  margin: 20px 0 10px 0;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh p::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 10px;
+  border-color: transparent transparent transparent #fff;
+  -webkit-animation: qwe 1s linear infinite;
+          animation: qwe 1s linear infinite;
+}
+
+@keyframes qwe {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh img {
+  margin: 10px 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  max-width: 800px;
+  width: auto;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh img:hover {
+  -webkit-box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
+          box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
+}
+
+.pupDeposit .swiper-container .btnGroup {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pupDeposit .swiper-container .btnGroup button {
+  max-width: 200px;
+}
+
+.pupDeposit .swiper-container .swiper-pagination {
+  bottom: 60px;
 }
 /*# sourceMappingURL=style.css.map */

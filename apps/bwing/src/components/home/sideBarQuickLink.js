@@ -27,20 +27,16 @@ export default () => {
 			</div>
 			<div>
 				<ul>
-					<li>
+					{/* <li>
 						<button onClick={openLiveChat}>
 							<div className="icon icon-live-chat">
 								{t("lbl_LiveChat")}
 							</div>
 						</button>
-					</li>
+					</li> */}
 					<li>
-						<a
-							className="icon icon-skype"
-							href="skype:live:.cid.ae9eac1a78556dc6?chat"
-							rel="noreferrer">
-							{t("lbl_Skype")}
-						</a>
+						<div className="icon icon-zalo">{t("lbl_Zalo")}</div>
+						<img src={zaloImg} alt="zaloImg" />
 					</li>
 					<li>
 						<div className="icon icon-Telegram">
@@ -49,8 +45,12 @@ export default () => {
 						<img src={telegramImg} alt="telegramImg" />
 					</li>
 					<li>
-						<div className="icon icon-zelo">{t("lbl_Zalo")}</div>
-						<img src={zaloImg} alt="zaloImg" />
+						<a
+							className="icon icon-skype"
+							href="skype:live:.cid.ae9eac1a78556dc6?chat"
+							rel="noreferrer">
+							{t("lbl_Skype")}
+						</a>
 					</li>
 				</ul>
 			</div>

@@ -43,6 +43,12 @@ export const getCountryCode = currencyId => {
 	return countryCode[currencyId];
 };
 
+export const getCurrencyCode = langId => {
+	if (!langId) return null;
+
+	return currencyCode[langId.toUpperCase()];
+};
+
 export const getAmountTip = (minAmount, formatRequired, i18n, digits) => {
 	return isNaN(minAmount)
 		? i18n("lbl_AmountTooltip")?.replace("{0}", 0)

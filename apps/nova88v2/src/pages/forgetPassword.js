@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { api_site_ForgetPwd } from "../service/api/site";
 import { popBoxContext, userInfoContext } from "../components/common/context";
@@ -6,7 +7,8 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import Inputbox from "../components/common/inputbox";
 import defPopBoxType from "../components/common/defPopBoxType";
-import SideBarQuickLink from "../components/home/sideBarQuickLink";
+import usePopBox from "../components/hook/usePopBox";
+import forgetPasswordbg from "../styles/img/forgetpasswordbg.png";
 
 export default () => {
 	return (
@@ -18,19 +20,21 @@ export default () => {
 							<Content />
 						</div>
 					</section>
-					{/* <SideBarQuickLink /> */}
 				</main>
 			</Layout>
 		</Wrapper>
 	);
 };
 
-const initStatus = { checked: null, msg: "" };
-
 const Content = () => {
 	const { t } = useTranslation();
+	const initStatus = {
+		checked: null,
+		msg: ""
+	};
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [userEmail, setUserEmail] = useState("");
 	const [status, setStatus] = useState(initStatus);
 	const isMountedRef = useRef(null);
@@ -71,8 +75,10 @@ const Content = () => {
 	};
 
 	const clickInfo = () => {
-		const _msg = status.msg === "" ? t("lbl_EmailRequired") : "";
-
+		const _msg =
+			status.msg === ""
+				? t("lbl_Please_enter_your_registered_email_to_reset")
+				: "";
 		setStatus({
 			checked: null,
 			msg: _msg
@@ -111,73 +117,68 @@ const Content = () => {
 								),
 								ClickClose
 							});
-							// setUserEmail("");
-							// setStatus(initStatus);
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-check"
-											onClick={ClickClose}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 					}
 				}
 			);
 		}
 	};
 
+	const clickCancel = () => {
+		navigate(`/${userInfo.langId}`);
+	};
+
 	return (
-		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_password">
-				<span>{t("lbl_ForgetPassword")}</span>
-				<div>{t("lbl_ForgetPwdHint")}</div>
-			</div>
-			<div className="forgetPassWord">
-				<form onSubmit={clickSubmit} className="inputModuleRow">
-					<Inputbox
-						className="inputBox-blue"
-						icon="txt-blue icon-email "
-						title={t("lbl_Email")}
-						value={userEmail}
-						onChange={editField.bind(this)}
-						onBlur={emailCheck.bind(this, userEmail)}
-						checked={status.checked}
-						clickInfo={clickInfo.bind(this)}
-						tip={status.msg}
+		<div className="loginpop">
+			<div className="joinloginModule">
+				<div className="loginAnimation">
+					<img
+						src={forgetPasswordbg}
+						alt="forget-password-background"
 					/>
-					<div className="btnGroup">
-						<button className="btn-check" type="submit">
-							{t("lbl_Submit")}
-						</button>
+				</div>
+				<div className="joinloginFunction">
+					<div className="title txt-blue">
+						{t("lbl_ForgetPassword")}
 					</div>
-				</form>
+					<form onSubmit={clickSubmit}>
+						<div className="inputModule">
+							<Inputbox
+								className="inputBox-blue"
+								icon="txt-blue icon-email "
+								title={t("lbl_Email")}
+								value={userEmail}
+								onChange={editField.bind(this)}
+								onBlur={emailCheck.bind(this, userEmail)}
+								checked={status.checked}
+								clickInfo={clickInfo.bind(this)}
+								tip={status.msg}
+							/>
+						</div>
+						<div className="btnGroup">
+							<div className="btnGroup">
+								<button onClick={clickCancel} className="gray">
+									{t("lbl_Cancel")}
+								</button>
+								<button
+									onClick={clickSubmit}
+									className="orange">
+									{t("lbl_Submit")}
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	);

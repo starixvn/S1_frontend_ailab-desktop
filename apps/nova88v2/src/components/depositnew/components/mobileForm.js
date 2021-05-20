@@ -123,7 +123,7 @@ const MobileForm = ({
 				</div>
 			</div>
 
-			{mobilePayInfoList.length > 0 && (
+			{mobilePayInfoList.length > 1 && (
 				<>
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
