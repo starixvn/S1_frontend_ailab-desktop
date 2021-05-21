@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "./context";
 import defPopBoxType from "./defPopBoxType";
+import usePopBox from "../hook/usePopBox";
 import config from "../../config";
 import Dropdown from "./dropdown";
 import Inputbox from "./inputbox";
@@ -13,9 +14,10 @@ const initValue = {
 	accountNo: ""
 };
 
-export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
+export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const [userValue, setUserValue] = useState(initValue);
 	const [status, setStatus] = useState({
@@ -78,7 +80,7 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 		}));
 	};
 
-	const ClickCancel = () => {
+	const clickClose = () => {
 		setPopBox({ isOpen: false, refresh: true });
 	};
 
@@ -86,17 +88,30 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 		let checked = true;
 		let message = "";
 
-		if (userInfo.accountName !== null && userInfo.accountName !== "") {
-			if (col === "accountNo" && !val) {
-				message = t("msg_NeedAccountNo");
+		const isRepeatAccount =
+			custBankInfo?.filter(
+				_selectBank =>
+					_selectBank.bankName ===
+						bankInfoSysList[userValue.bankId].displayText &&
+					_selectBank.accountNo === val
+			).length > 0;
+
+		const alreadyHasAccountName =
+			userInfo.accountName !== null && userInfo.accountName !== "";
+
+		if (col === "realName" && !alreadyHasAccountName) {
+			if (!val) {
+				message = t("msg_EnterRealName");
 				checked = false;
 			}
-		} else if (col === "realName" && !val) {
-			message = t("msg_EnterRealName");
-			checked = false;
-		} else if (col === "accountNo" && !val) {
-			message = t("msg_NeedAccountNo");
-			checked = false;
+		} else if (col === "accountNo") {
+			if (!val) {
+				message = t("msg_NeedAccountNo");
+				checked = false;
+			} else if (isRepeatAccount) {
+				message = t("lbl_already_stored_this_information");
+				checked = false;
+			}
 		}
 
 		setStatus(prev => ({
@@ -108,15 +123,10 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 		}));
 
 		if (bankInfoSysList?.length <= 0) {
-			console.log("Bank list is null.");
 			checked = false;
 		}
 
 		return { checked, message };
-	};
-
-	const ClickClose = () => {
-		setPopBox({ isOpen: false });
 	};
 
 	const ClickSubmit = e => {
@@ -147,7 +157,7 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClickCancel}>
+											onClick={clickClose}>
 											OK
 										</button>
 									</div>
@@ -155,39 +165,16 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 							});
 							GetCustBankInfo();
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-check"
-											onClick={ClickClose}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 					}
 				}
 			);
@@ -244,6 +231,11 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 				/>
 			</div>
 			<Inputbox
+				className={`inputBox-blue${
+					!status.accountNo.checked && status.accountNo.tip !== ""
+						? " error"
+						: ""
+				}`}
 				value={userValue.accountNo}
 				onChange={editField.bind(this, "accountNo")}
 				onBlur={checkAll.bind(this, userValue.accountNo, "accountNo")}
@@ -251,10 +243,9 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 				clickInfo={clickInfo.bind(this, "accountNo")}
 				checked={status.accountNo.checked}
 				tip={status.accountNo.tip}
-				className="inputBox-blue"
 			/>
 			<div className="btnGroup">
-				<button className="btn-cancel" onClick={ClickCancel}>
+				<button className="btn-cancel" onClick={clickClose}>
 					{t("lbl_Cancel")}
 				</button>
 				<button className="btn-check" onClick={ClickSubmit}>

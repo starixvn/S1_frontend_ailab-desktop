@@ -65,6 +65,10 @@ export const defLeftMenu = {
 				path: path.bankInfo.root,
 				displayKey: "lbl_BankInfo"
 			},
+			cryptoWallet: {
+				path: path.cryptoWallet.root,
+				displayKey: "lbl_Crypto_Wallet"
+			},
 			referral: {
 				path: path.referral.root,
 				displayKey: "lbl_ReferFriends",

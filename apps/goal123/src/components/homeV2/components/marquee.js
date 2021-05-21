@@ -7,6 +7,8 @@ import { GET_LANG_ID } from "../../../service/language";
 import { defPopBoxType } from "../../common/popBox";
 import path from "../../../router";
 
+import imgSpeaker from "../../../styles/img/speaker.png";
+
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -182,7 +184,7 @@ class Marquee extends Component {
 		return this.state.redirectPath === null ? (
 			<div id="Marquee">
 				<div className="marquee-box" ref={this.marquee}>
-					<img src="../../styles/img/speaker.png" alt="" />
+					<img src={imgSpeaker} alt="img-speaker" />
 
 					<div
 						className="marquee-run"

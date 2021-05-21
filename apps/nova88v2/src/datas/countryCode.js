@@ -12,5 +12,6 @@ export const currencyCode = {
 	TH: 4,
 	CS: 2,
 	ID: 15,
-	VN: 51
+	VN: 51,
+	USDT: 96
 };

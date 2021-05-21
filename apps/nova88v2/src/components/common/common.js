@@ -45,6 +45,8 @@ export const isConvert = currencyId => {
 };
 
 export const getCurrencyCode = langId => {
+	if (!langId) return null;
+
 	return currencyCode[langId.toUpperCase()];
 };
 
@@ -54,7 +56,8 @@ export const checkAmount = ({
 	maxAmount,
 	_isConvert,
 	t,
-	maxAmountAllowUnlimit = true
+	maxAmountAllowUnlimit = true,
+	hintKey
 }) => {
 	let status = 0;
 	let msg = "";
@@ -63,7 +66,7 @@ export const checkAmount = ({
 		if (_isConvert) {
 			num_Amount *= 1000;
 		}
-		if (num_Amount <= 0) {
+		if (num_Amount <= 0 || (minAmount !== 0 && num_Amount < minAmount)) {
 			status = 2;
 			msg = t("lbl_AmountTooltip")?.replace(
 				"{0}",
@@ -77,12 +80,12 @@ export const checkAmount = ({
 		) {
 			status = 2;
 			msg = `${number_format(num_Amount, _isConvert)} ${t(
-				"lbl_NotinLimit"
+				hintKey ?? "lbl_NotinLimit"
 			)}`;
 		}
 	} else {
 		status = 3;
-		msg = t("lbl_NotinLimit");
+		msg = t(hintKey ?? "lbl_NotinLimit");
 	}
 
 	return { status, msg };
@@ -185,4 +188,17 @@ export const getLocalStorage = key => {
 
 export const removeLocalStorage = key => {
 	localStorage.removeItem(key);
+};
+
+export const uuidv4 = () => {
+	// eslint-disable-next-line func-names
+	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (
+		c
+	) {
+		// eslint-disable-next-line no-bitwise
+		const r = (Math.random() * 16) | 0;
+		// eslint-disable-next-line no-bitwise
+		const v = c === "x" ? r : (r & 0x3) | 0x8;
+		return v.toString(16);
+	});
 };

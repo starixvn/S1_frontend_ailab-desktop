@@ -32,6 +32,12 @@ export default function HTML(props) {
 					type="text/css"
 					href={`/styles/css/datePicker.css?v=${vkey}`}
 				/>
+
+				<script
+					type="text/javascript"
+					src="https://tickers.playtech.com/jackpots/new_jackpotjs.js"
+				/>
+
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>

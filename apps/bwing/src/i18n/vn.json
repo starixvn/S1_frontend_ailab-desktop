@@ -222,7 +222,7 @@
 	"lbl_CancelConfirm": "Bạn có chắc muốn hủy? Không thể khôi phục lại sau khi hủy!",
 	"lbl_NO": "Số",
 	"lbl_Confirm": "Xác nhận",
-	"lbl_ImportantNote": "Ghi Chú Quan Trọng",
+	"lbl_ImportantNote": "Lưu ý quan trọng",
 	"lbl_Information": "Thông báo",
 	"lbl_No": "Không",
 	"lbl_Yes": "Đồng Ý",
@@ -441,7 +441,7 @@
 	"lbl_AllProvider": "Tất cả nền tảng",
 	"lbl_SearchGames": "Tìm kiếm trò chơi",
 	"lbl_Feature": "Đặc điểm",
-	"lbl_Jackpot":"NỔ HŨ",
+	"lbl_Jackpot": "NỔ HŨ",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",

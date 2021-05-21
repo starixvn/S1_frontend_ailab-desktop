@@ -26,6 +26,7 @@ import useDeposit from "./hook/useDeposit";
 import useDepositMobilePay from "./hook/useDepositMobilePay";
 import useDepositOnline from "./hook/useDepositOnline";
 import useDepositLocalBank from "./hook/useDepositLocalBank";
+import useDepositCryptoPay from "./hook/useDepositCryptoPay";
 
 import { currencyCode } from "../../datas/countryCode";
 import path from "../../router";
@@ -36,6 +37,7 @@ import DepositnewRecentHistory from "./depositnew.recentHistory";
 import MobileForm from "./components/mobileForm";
 import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
+import CryptoPayForm from "./components/cryptoPayForm";
 
 const Depositnew = () => {
 	const { t } = useTranslation();
@@ -44,10 +46,12 @@ const Depositnew = () => {
 	const location = useLocation();
 
 	const isMountedRef = useRef(null);
-
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
+	const _isConvert = isConvert(userInfo.currencyId);
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 
 	const [
 		processingDescriptionActive,
@@ -68,8 +72,6 @@ const Depositnew = () => {
 
 	const [formInfo, setFormInfo] = useState({
 		imgFile: null,
-		// refId: null,
-		// time: moment(),
 		amount: null,
 		fromChannel: null,
 		fromAccountNum: null,
@@ -91,10 +93,6 @@ const Depositnew = () => {
 		checked: null,
 		tip: ""
 	});
-
-	const _isConvert = isConvert(userInfo.currencyId);
-
-	const { errorPopBox } = usePopBox();
 
 	const {
 		asyncUploadBankPopBox,
@@ -137,6 +135,13 @@ const Depositnew = () => {
 		setUserInfo
 	});
 
+	const {
+		getCryptoPayGroupList,
+		getCryptoPayInfo,
+		cryptoPayGroupList,
+		cryptoPayInfo
+	} = useDepositCryptoPay({ isMountedRef });
+
 	const onChangeDepositType = async type => {
 		setDepositType(type);
 		navigate(`/${userInfo.langId}/${path.deposit.root}?type=${type}`);
@@ -147,6 +152,8 @@ const Depositnew = () => {
 			await getLocalBankGroupList();
 		} else if (type === defDepositType.onlineBank) {
 			await getOnlineBankGroupList();
+		} else if (type === defDepositType.cryptoPay) {
+			await getCryptoPayGroupList();
 		}
 
 		resetDepositForm();
@@ -154,7 +161,6 @@ const Depositnew = () => {
 
 	const onChangeAmount = _amount => {
 		const amount = String(_amount).replace(/^(0+)|[^\d]+/g, "");
-
 		setFormInfo(prev => {
 			return { ...prev, amount };
 		});
@@ -211,12 +217,7 @@ const Depositnew = () => {
 
 				onReset();
 			} else if (depositType === defDepositType.localBank) {
-				if (
-					loading ||
-					!localBankChecked
-					// !formInfo?.imgFile?.type.includes("image")
-				)
-					return;
+				if (loading || !localBankChecked) return;
 
 				setLoading(true);
 
@@ -236,12 +237,6 @@ const Depositnew = () => {
 									transId,
 									imgFile: formInfo.imgFile
 								})
-							// !formInfo.refId ||
-							// 	setLocalBankReceipt({
-							// 		transId,
-							// 		depositTime: formInfo.time || moment(),
-							// 		fefNo: formInfo.refId
-							// 	})
 						]);
 
 						if (result.every(res => res)) {
@@ -404,14 +399,20 @@ const Depositnew = () => {
 				setSaveInfoChecked(savedCheck);
 			}
 		};
+
 		const getData = async () => {
 			setLoading(true);
 			try {
-				await Promise.all([
-					getMobilePayGroupList(),
-					getLocalBankGroupList(),
-					getOnlineBankGroupList()
-				]);
+				if (isUSDT) {
+					await getCryptoPayGroupList();
+				} else {
+					await Promise.all([
+						getMobilePayGroupList(),
+						getLocalBankGroupList(),
+						getOnlineBankGroupList()
+					]);
+				}
+
 				setIsInitDataDone(true);
 			} catch (e) {
 				errorPopBox();
@@ -430,7 +431,7 @@ const Depositnew = () => {
 		};
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [userInfo.currencyId]);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -444,7 +445,8 @@ const Depositnew = () => {
 	const depositOptions = defDepositOptions({
 		mobilePayGourpList,
 		onlineBankGroupList,
-		localBankGroupList
+		localBankGroupList,
+		cryptoPayGroupList
 	});
 
 	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
@@ -530,6 +532,24 @@ const Depositnew = () => {
 						onInputboxKeyDown={onInputboxKeyDown}
 					/>
 				)}
+
+				{depositType === defDepositType.cryptoPay && (
+					<CryptoPayForm
+						t={t}
+						userInfo={userInfo}
+						depositType={depositType}
+						defPopBoxType={defPopBoxType}
+						_isConvert={_isConvert}
+						cryptoPayGroupList={cryptoPayGroupList}
+						formInfo={formInfo}
+						setFormInfo={setFormInfo}
+						onChangeAmount={onChangeAmount}
+						onValidAmount={onValidAmount}
+						onInputboxKeyDown={onInputboxKeyDown}
+						getCryptoPayInfo={getCryptoPayInfo}
+						cryptoPayInfo={cryptoPayInfo}
+					/>
+				)}
 			</DepositnewInfoMoule>
 
 			<DepositnewRecentHistory
@@ -538,7 +558,6 @@ const Depositnew = () => {
 				depositInfoRecentDatas={depositInfoRecentDatas}
 				setDepositInfoRecentDatas={setDepositInfoRecentDatas}
 				uploadLocalBankReceipt={uploadLocalBankReceipt}
-				// setLocalBankReceipt={setLocalBankReceipt}
 			/>
 		</>
 	);

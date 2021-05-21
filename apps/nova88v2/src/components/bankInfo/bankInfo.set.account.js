@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import { defActionType } from "./bankInfo.reducer";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
+import usePopBox from "../hook/usePopBox";
 import config from "../../config";
 import Inputbox from "../common/inputbox";
-import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
 export default ({
@@ -14,10 +14,12 @@ export default ({
 	accountNumber,
 	accountName,
 	alreadyHasAccountName,
-	reload
+	reload,
+	custBankList
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [status, setStatus] = useState({
 		accountName: {
 			checked: null,
@@ -69,6 +71,13 @@ export default ({
 		let checked = true;
 		let message = "";
 
+		const isRepeatAccount =
+			custBankList.filter(
+				_selectBank =>
+					_selectBank.bankName === bankInfo.bankName &&
+					_selectBank.accountNo === val
+			).length > 0;
+
 		if (col === "accountName" && !alreadyHasAccountName) {
 			if (!val) {
 				message = t("msg_EnterRealName");
@@ -80,6 +89,9 @@ export default ({
 				checked = false;
 			} else if (isNaN(val)) {
 				message = t("msg_AccountWrongFormat");
+				checked = false;
+			} else if (isRepeatAccount) {
+				message = t("lbl_already_stored_this_information");
 				checked = false;
 			}
 		}
@@ -129,40 +141,17 @@ export default ({
 						if (res.data.errorCode === 0) {
 							reload(!alreadyHasAccountName);
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-check"
-											onClick={ClickClose}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox(
+								message || `[${errorCode}] error`,
+								errorCode
+							);
 						}
 						setLoading(false);
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 						setLoading(false);
 					}
 				}
@@ -200,7 +189,12 @@ export default ({
 						</div>
 						{!alreadyHasAccountName ? (
 							<Inputbox
-								className="inputBox-white"
+								className={`inputBox-white${
+									!status.accountName.checked &&
+									status.accountName.tip !== ""
+										? " error"
+										: ""
+								}`}
 								value={accountName}
 								onChange={editField.bind(this, "accountName")}
 								onBlur={checkAccount.bind(
@@ -216,7 +210,12 @@ export default ({
 						) : null}
 						<div className="inputModuleRow">
 							<Inputbox
-								className="inputBox-white"
+								className={`inputBox-white${
+									!status.accountNumber.checked &&
+									status.accountNumber.tip !== ""
+										? " error"
+										: ""
+								}`}
 								value={accountNumber}
 								onChange={editField.bind(this, "accountNumber")}
 								onBlur={checkAccount.bind(
