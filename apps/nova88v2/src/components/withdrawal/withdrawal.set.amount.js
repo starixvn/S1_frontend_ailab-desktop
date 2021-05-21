@@ -191,17 +191,6 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 	);
 };
 
-WithdrawalAmount.defaultProps = {
-	_isConvert: false
-};
-
-WithdrawalAmount.propTypes = {
-	state: PropTypes.objectOf(PropTypes.any).isRequired,
-	dispatch: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
-	_isConvert: PropTypes.bool
-};
-
 AmountPanel.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	state: PropTypes.objectOf(PropTypes.any).isRequired,
