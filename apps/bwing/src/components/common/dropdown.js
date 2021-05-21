@@ -105,8 +105,7 @@ class Dropdown extends Component {
 					<div
 						className={`dropdown-container${
 							this.state.isOpen ? " active" : ""
-						}`}
-						data-testid={`dropdown_container_${this.props.mainKey}`}>
+						}`}>
 						{arr}
 					</div>
 				)}
