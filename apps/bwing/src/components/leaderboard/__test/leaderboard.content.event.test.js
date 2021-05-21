@@ -4,6 +4,7 @@ import EventTab from "../leaderBoard.content.event";
 
 const fakeData = {
 	t: jest.fn(),
+	tab: 1,
 	rewardList: [
 		{ displayRank: "1", reward: "1st", winnersNum: 1 },
 		{ displayRank: "2", reward: "2st", winnersNum: 1 },
