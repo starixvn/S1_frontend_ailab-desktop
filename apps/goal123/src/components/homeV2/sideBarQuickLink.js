@@ -13,21 +13,25 @@ export default () => {
 	const { t } = useTranslation();
 	const [active, setActive] = useState(false);
 
-	const activeToggleHandler = () => {
-		setActive(prev => !prev);
-	};
-
 	const openLiveChat = () => {
 		window.LiveChatWidget.call("maximize");
 	};
 
 	return (
-		<div className={`quickLink${active ? " active" : ""}`}>
-			<div>
+		<div
+			onFocus={() => 0}
+			onMouseOver={() => setActive(true)}
+			onMouseLeave={() => setActive(false)}
+			className={`quickLink${active ? " active" : ""}`}>
+			<div onClick={() => setActive(false)}>
 				<button className="icon icon-chat" onClick={openLiveChat} />
+
 				<i
-					className="icon icon-circle-right"
-					onClick={activeToggleHandler}>
+					className={
+						active
+							? "icon icon-cancel-circle"
+							: "icon icon-circle-right"
+					}>
 					{t("lbl_ContactUs").toUpperCase()}
 				</i>
 			</div>

@@ -17,19 +17,12 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 	}, []);
 
 	const rows = slides.map(item => {
-		const {
-			displayText,
-			listNpcImgUrl,
-			tpId,
-			gameId,
-			needLogin,
-			path
-		} = item;
+		const { listNpcImgUrl, tpId, gameId, needLogin, path } = item;
 
 		if (!listNpcImgUrl) return null;
 
 		return (
-			<div className="swiper-slide" key={`livecasino-${displayText}`}>
+			<div className="swiper-slide" key={`livecasino-${listNpcImgUrl}`}>
 				<button
 					onClick={() =>
 						clickItem({
@@ -41,11 +34,9 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 					}>
 					<div className="casino-item">
 						<img
-							src={require(`../../../styles/img/livecasino/${listNpcImgUrl}`)}
+							src={require(`../../../styles/img/liveCasinoNew/${listNpcImgUrl}`)}
 							alt={listNpcImgUrl}
 						/>
-
-						<div className="title">{displayText}</div>
 					</div>
 				</button>
 			</div>
@@ -66,7 +57,7 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 						withPagination={false}
 						config={{
 							autoplay: {
-								delay: 6500,
+								delay: 3500,
 								disableOnInteraction: false
 							},
 							slidesPerView: 3
