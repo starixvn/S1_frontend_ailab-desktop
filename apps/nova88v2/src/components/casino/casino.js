@@ -29,6 +29,7 @@ import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
 import config from "../../config";
+import TopQuickLink from "./casino.topQuickLink";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -450,7 +451,11 @@ export default () => {
 						<div className="inside-title icon icon-ow-casino">
 							<span>{t("lbl_Slots")}</span>
 						</div>
-						<div className="partnerSelect">{lobbyListLayout}</div>
+						<TopQuickLink
+							lobbyImgList={lobbyImgList}
+							clickLobbyProvider={clickLobbyProvider}
+						/>
+
 						<div className="casinoSelect">
 							<Nav
 								selNav={selNav}

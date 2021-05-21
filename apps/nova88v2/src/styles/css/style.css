@@ -12923,9 +12923,6 @@ canvas {
 }
 
 .partnerSelect {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   overflow: hidden;
   width: calc(100% - 100px);
   margin: 10px auto;
@@ -12933,10 +12930,40 @@ canvas {
   border-radius: 5px;
 }
 
-.partnerSelect button {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
+.partnerSelect .swiper-container {
+  padding: 0 40px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next, .partnerSelect .swiper-container .swiper-button-prev {
+  color: white;
+  background: #5574A7;
+  border-radius: 30px;
+  height: 27px;
+  margin-top: -13.5px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next:after, .partnerSelect .swiper-container .swiper-button-prev:after {
+  font-size: 14px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next {
+  right: 7px;
+}
+
+.partnerSelect .swiper-container .swiper-button-prev {
+  left: 7px;
+}
+
+.partnerSelect .swiper-container .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.partnerSelect .swiper-container .swiper-slide button {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12950,24 +12977,35 @@ canvas {
           flex-flow: column;
   color: #7591C1;
   padding: 15px 0;
+  width: 100%;
 }
 
-.partnerSelect button img {
+.partnerSelect .swiper-container .swiper-slide button img {
   width: auto;
   -webkit-filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
           filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
   opacity: 0.7;
-  margin-bottom: 5px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
-.partnerSelect button:hover {
+.partnerSelect .swiper-container .swiper-slide button:hover {
+  background: #284985;
   color: white;
-  background: #5574A7;
 }
 
-.partnerSelect button:hover img {
+.partnerSelect .swiper-container .swiper-slide button:hover img {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
   -webkit-filter: none;
           filter: none;
   opacity: 1;
+}
+
+.partnerSelect .swiper-container .swiper-slide button div {
+  margin-top: 5px;
+  font-size: 12px;
 }
 /*# sourceMappingURL=style.css.map */
