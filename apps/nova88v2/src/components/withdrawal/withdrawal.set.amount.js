@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { number_format, checkAmount, getAmountTip } from "../common/common";
+import PropTypes from "prop-types";
+import { number_format, checkAmount } from "../common/common";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { popBoxContext, userInfoContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
 
-export default ({ dispatch, state, t, _isConvert }) => {
+export default function WithdrawalAmount({ dispatch, state, t, _isConvert }) {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
@@ -51,20 +52,15 @@ export default ({ dispatch, state, t, _isConvert }) => {
 		return result.status === 0;
 	};
 
-	const showMinMaxTip = () => {
-		return (
-			<>
-				{t("lbl_Daily_Min_Max_Amount")} :{" "}
-				{number_format(state.withdrawalMin, _isConvert)} /{" "}
-				{state.isAmountLimited
-					? number_format(state.withdrawalMax, _isConvert)
-					: t("lbl_Unlimited")}
-			</>
-		);
-	};
+	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
+		min: number_format(state.withdrawalMin, _isConvert),
+		max: state.isAmountLimited
+			? number_format(state.withdrawalMax, _isConvert)
+			: t("lbl_Unlimited")
+	})}`;
 
 	const clickInfo = () => {
-		const _msg = !state.tip ? showMinMaxTip() : "";
+		const _msg = !state.tip ? withdrawalMinMaxLimitHint : "";
 		dispatch({
 			type: defActionType.CHECK_AMOUNT,
 			checked: null,
@@ -158,11 +154,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 						onBlur={ValidAmount.bind(this, state.amount)}
 						isAmount={true}
 					/>
-					{/* <div className="tip active">
-						{t("lbl_Daily_Min_Max_Amount")} :{" "}
-						{number_format(state.withdrawalMin, _isConvert)} /{" "}
-						{number_format(state.withdrawalMax, _isConvert)}
-					</div> */}
+					<div className="remainder">{withdrawalMinMaxLimitHint}</div>
 					<div className="btnGroup">
 						<button
 							className={state.checked ? "btn-check" : "gray"}
@@ -180,4 +172,15 @@ export default ({ dispatch, state, t, _isConvert }) => {
 			</div>
 		</div>
 	);
+}
+
+WithdrawalAmount.defaultProps = {
+	_isConvert: false
+};
+
+WithdrawalAmount.propTypes = {
+	state: PropTypes.objectOf(PropTypes.any).isRequired,
+	dispatch: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool
 };
