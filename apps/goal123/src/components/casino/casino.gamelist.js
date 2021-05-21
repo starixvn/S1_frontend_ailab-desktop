@@ -79,7 +79,7 @@ export default ({
 					<div className="txt-darkBlue">{gameDisplayName}</div>
 					<div className="btnGroup">
 						<button
-							className="blue"
+							className="yellow"
 							onClick={onClickPlay.bind(
 								this,
 								g.tpId,
