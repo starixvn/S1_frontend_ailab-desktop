@@ -13,7 +13,6 @@ const fakeData = {
 	t: jest.fn(),
 	onChangeTab: jest.fn(),
 	tab: 1,
-	upperCase: jest.fn(),
 	defTabList: [
 		{
 			id: defTabId.first,

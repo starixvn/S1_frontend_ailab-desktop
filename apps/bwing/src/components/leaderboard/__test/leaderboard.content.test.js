@@ -76,9 +76,14 @@ describe("self rank style", () => {
 		},
 		{ userName: "selfUser", wTurnover: 0, custRank: "999+" }
 	];
+	const _tab = 2;
 	test("if self rank is 999+, show customized style", () => {
 		const { container } = render(
-			<RankingContent {...fakeData} rankingData={rankingData} />
+			<RankingContent
+				{...fakeData}
+				tab={_tab}
+				rankingData={rankingData}
+			/>
 		);
 		const self_items = container.getElementsByClassName("myRank")[0];
 		expect(self_items).toBeTruthy();
@@ -113,9 +118,14 @@ describe("self rank style", () => {
 		},
 		{ userName: "selfUser", wTurnover: 130, custRank: "2" }
 	];
+	const _tab = 2;
 	test("if self rank in ranking top, hide customized style", () => {
 		const { container } = render(
-			<RankingContent {...fakeData} rankingData={rankingData} />
+			<RankingContent
+				{...fakeData}
+				tab={_tab}
+				rankingData={rankingData}
+			/>
 		);
 		const self_items = container.getElementsByClassName("myRank")[0];
 		expect(self_items).toBeUndefined();

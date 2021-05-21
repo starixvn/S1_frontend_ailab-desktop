@@ -441,7 +441,7 @@
 	"lbl_SearchGames": "Search Games",
 	"lbl_AllGames": "All",
 	"lbl_Feature": "Feature",
-	"lbl_Jackpot":"Jackpot",
+	"lbl_Jackpot": "Jackpot",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -468,7 +468,7 @@
 	"lbl_Month": "Month",
 
 	"leaderboard ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Event": "Event",
+	"lbl_Event": "EVENT",
 	"lbl_Records": "Records",
 	"lbl_Ranking": "Ranking",
 	"lbl_Points": "Points",
@@ -483,7 +483,7 @@
 	"lbl_No1_Reward": "NO.1 REWARD",
 	"lbl_Last_Event": "Last Event",
 	"lbl_EURO_2020_Final": "UEFA EURO 2020 FINAL",
-	"lbl_Tournament_Points": "Tournament-Points",
+	"lbl_Tournament_Points": "TOURNAMENT-POINTS",
 	"lbl_Stage": "Stage",
 	"lbl_Prizes": "Prizes",
 	"lbl_Bonus_credit": "Bonus credit",
