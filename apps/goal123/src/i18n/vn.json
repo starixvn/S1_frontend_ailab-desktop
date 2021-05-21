@@ -249,6 +249,7 @@
 	"lbl_Download": "Tải về",
 	"lbl_Min": "Nhỏ nhất",
 	"lbl_Max": "Lớn nhất",
+	"lbl_ImportantNotice": "IMPORTANT NOTICE",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Chuyển quỹ",
@@ -350,6 +351,12 @@
 	"lbl_MinMaxAmount": "Tối thiểu/Tối đa",
 	"lbl_DepositAccountNamePlaceholder": "Tên phải trùng với tên tài khoản và CMND",
 	"lbl_TopUpCard": "THẺ CÀO",
+	"lbl_DepositImportantNoticeContent1": "Kindly please check for the latest active deposit bank details before you making a deposit.",
+	"lbl_DepositImportantNoticeContent2": "For using <span>Local Bank Transfer</span> deposit option, please make the transfer done before submit the transaction to avoid the transaction delay.",
+	"lbl_DepositImportantNoticeContent3": "Depositor's <span>ACCOUNT NAME</span> must match with your registered full name. We do not encourage transaction made using 3rd party/company account.",
+	"lbl_DepositImportantNoticeContent4": "Please <span>DO NOT</span> fill in <span>'GOAL123'</span> or any sensitive words related to gambling as reference/remark in your online transaction.",
+	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
+	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",

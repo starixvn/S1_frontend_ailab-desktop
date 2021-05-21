@@ -2054,7 +2054,6 @@ main > .swiper-container .swiper-slide {
       -ms-flex: 0.5;
           flex: 0.5;
   height: 200px;
-  border-radius: 0 10px 10px 0;
   position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -2077,7 +2076,6 @@ main > .swiper-container .swiper-slide {
   font-size: 18px;
   z-index: 1;
   top: 0;
-  border-radius: 0 10px 0 0;
 }
 
 .quickLink > div:nth-child(1) i {
@@ -2108,7 +2106,6 @@ main > .swiper-container .swiper-slide {
       -ms-flex: 3.5;
           flex: 3.5;
   padding: 5px 10px;
-  border-radius: 0 0 10px 0;
 }
 
 .quickLink > div:nth-child(2) ul {
@@ -5930,6 +5927,213 @@ main > .swiper-container .swiper-slide {
   color: white;
 }
 
+.livelobby {
+  height: auto;
+  background: url(../img/livelobby/livelobbyBG.png) no-repeat bottom;
+  padding-bottom: 10%;
+  background-size: 100%;
+}
+
+.livelobbyList {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.livelobbyList::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  width: 100%;
+  height: 150px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 15, 35, 0)), to(#070f23));
+  background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0%, #070f23 100%);
+  z-index: 1;
+}
+
+.livelobbyList > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(100% / 6 - 20px);
+          flex: 0 0 calc(100% / 6 - 20px);
+  min-width: 230px;
+  height: 280px;
+  margin: 20px 10px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.livelobbyList > div.live-n2 {
+  background: url(../img/livelobby/live-n2.png) no-repeat center;
+}
+
+.livelobbyList > div.live-n2:hover {
+  background: url(../img/livelobby/live-n2-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-789 {
+  background: url(../img/livelobby/live-789.png) no-repeat center;
+}
+
+.livelobbyList > div.live-789:hover {
+  background: url(../img/livelobby/live-789-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-wm {
+  background: url(../img/livelobby/live-wm.png) no-repeat center;
+}
+
+.livelobbyList > div.live-wm:hover {
+  background: url(../img/livelobby/live-wm-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-dg {
+  background: url(../img/livelobby/live-dg.png) no-repeat center;
+}
+
+.livelobbyList > div.live-dg:hover {
+  background: url(../img/livelobby/live-dg-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ab {
+  background: url(../img/livelobby/live-ab.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ab:hover {
+  background: url(../img/livelobby/live-ab-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ag {
+  background: url(../img/livelobby/live-ag.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ag:hover {
+  background: url(../img/livelobby/live-ag-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-pp {
+  background: url(../img/livelobby/live-pp.png) no-repeat center;
+}
+
+.livelobbyList > div.live-pp:hover {
+  background: url(../img/livelobby/live-pp-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-sa {
+  background: url(../img/livelobby/live-sa.png) no-repeat center;
+}
+
+.livelobbyList > div.live-sa:hover {
+  background: url(../img/livelobby/live-sa-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ae {
+  background: url(../img/livelobby/live-ae.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ae:hover {
+  background: url(../img/livelobby/live-ae-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ebet {
+  background: url(../img/livelobby/live-ebet.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ebet:hover {
+  background: url(../img/livelobby/live-ebet-a.png) no-repeat center;
+}
+
+.fishlobby {
+  height: auto;
+  background: url(../img/fishinglobby/fishlobbyBG.png) no-repeat bottom;
+  padding-bottom: 10%;
+  background-size: 100%;
+}
+
+.fishlobbyList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fishlobbyList::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  width: 100%;
+  height: 150px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 15, 35, 0)), to(#070f23));
+  background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0%, #070f23 100%);
+  z-index: 1;
+}
+
+.fishlobbyList > div {
+  min-width: 310px;
+  height: 310px;
+  margin: 20px 5px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.fishlobbyList > div:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.fishlobbyList > div.fish-world {
+  background: url(../img/fishinglobby/fish-world.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-db {
+  background: url(../img/fishinglobby/fish-dragonball.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-god {
+  background: url(../img/fishinglobby/fish-god.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-saviors {
+  background: url(../img/fishinglobby/fish-saviors.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-tos {
+  background: url(../img/fishinglobby/fish-TOS.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-ttsatp {
+  background: url(../img/fishinglobby/fish-ttatp.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-wrd {
+  background: url(../img/fishinglobby/fish-wrd.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-paradise {
+  background: url(../img/fishinglobby/paradise.png) no-repeat center;
+}
+
+.fishlobbyList > div.coming {
+  opacity: 0.5;
+}
+
+.fishlobbyList > div.coming:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 form {
   width: 100%;
 }
@@ -5975,12 +6179,8 @@ form {
 
 .slotList > div .btnGroup button,
 .slotList > div .btnGroup a {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(50% - 5px);
-          flex: 0 0 calc(50% - 5px);
   min-width: auto;
   max-width: none;
-  margin: 0;
   text-transform: uppercase;
 }
 
