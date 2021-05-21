@@ -33,7 +33,8 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 				_isConvert,
 				t,
 				maxAmountAllowUnlimit: false,
-				hintKey: "lbl_Insufficientbalance"
+				hintKey: "lbl_Insufficientbalance",
+				digits: 0
 			});
 		}
 
@@ -54,9 +55,9 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 	};
 
 	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
-		min: number_format(state.withdrawalMin, _isConvert),
+		min: number_format(state.withdrawalMin, _isConvert, 0),
 		max: state.isAmountLimited
-			? number_format(state.withdrawalMax, _isConvert)
+			? number_format(state.withdrawalMax, _isConvert, 0)
 			: t("lbl_Unlimited")
 	})}`;
 
