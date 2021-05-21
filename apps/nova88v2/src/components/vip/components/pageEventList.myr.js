@@ -189,8 +189,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 					<td>{number_format(200000, isConvert, 0)}</td>
 					<td>{number_format(500000, isConvert, 0)}</td>
 					<td>{number_format(800000, isConvert, 0)}</td>
-					<td>{number_format(1000000, isConvert, 0)}</td>
-					{/* <td>{t("lbl_Vip_ByInvitation")}</td> */}
+					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr>
 					<td>
@@ -201,7 +200,7 @@ const PageEventListMyr = ({ currencyId, isConvert }) => {
 					<td>{number_format(2000000, isConvert, 0)}</td>
 					<td>{number_format(5000000, isConvert, 0)}</td>
 					<td>{number_format(8000000, isConvert, 0)}</td>
-					<td>{number_format(10000000, isConvert, 0)}</td>
+					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr className="lastTd">
 					<td>{t("lbl_Vip_Ranking_Validity_Membership_renewal")}</td>
