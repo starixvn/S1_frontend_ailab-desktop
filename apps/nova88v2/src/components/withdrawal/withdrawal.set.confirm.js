@@ -16,7 +16,8 @@ export default ({
 	GetCustBankInfo,
 	refreshData,
 	KycCheck,
-	isUSDT
+	isUSDT,
+	GetDailyWithdrawalLimit
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
@@ -41,7 +42,7 @@ export default ({
 
 		const setInitState = () => {
 			dispatch({ type: defActionType.SET_INIT_STATE });
-
+			GetDailyWithdrawalLimit();
 			GetCustBankInfo();
 			refreshData();
 			KycCheck();

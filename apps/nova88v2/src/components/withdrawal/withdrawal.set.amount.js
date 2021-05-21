@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { number_format, checkAmount, getAmountTip } from "../common/common";
+import { number_format, checkAmount } from "../common/common";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
@@ -19,21 +19,24 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 	};
 
 	const ValidAmount = _amount => {
-		const _availableBalance = state.balanceData?.availableBalance;
-		const _lowerBalanceOrWithdrawalMax =
-			_availableBalance < state.withdrawalMax
-				? _availableBalance
-				: state.withdrawalMax;
-		const result = checkAmount({
-			amount: _amount,
-			minAmount: state.withdrawalMin,
-			maxAmount: state.isAmountLimited
-				? _lowerBalanceOrWithdrawalMax
-				: _availableBalance,
-			_isConvert,
-			t,
-			maxAmountAllowUnlimit: false
-		});
+		let result = {};
+		if (state.isAmountLimited && _amount > state.withdrawalMax) {
+			result = {
+				status: 2,
+				msg: t("lbl_WithdrawalDailyReached")
+			};
+		} else {
+			result = checkAmount({
+				amount: _amount,
+				minAmount: state.withdrawalMin,
+				maxAmount: state.balanceData?.availableBalance,
+				_isConvert,
+				t,
+				maxAmountAllowUnlimit: false,
+				hintKey: "lbl_Insufficientbalance"
+			});
+		}
+
 		if (result.status !== 0) {
 			dispatch({
 				type: defActionType.CHECK_AMOUNT,
@@ -50,20 +53,15 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 		return result.status === 0;
 	};
 
-	const showMinMaxTip = () => {
-		return (
-			<>
-				{t("lbl_Daily_Min_Max_Amount")} :{" "}
-				{number_format(state.withdrawalMin, _isConvert)} /{" "}
-				{state.isAmountLimited
-					? number_format(state.withdrawalMax, _isConvert)
-					: t("lbl_Unlimited")}
-			</>
-		);
-	};
+	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
+		min: number_format(state.withdrawalMin, _isConvert),
+		max: state.isAmountLimited
+			? number_format(state.withdrawalMax, _isConvert)
+			: t("lbl_Unlimited")
+	})}`;
 
 	const clickInfo = () => {
-		const _msg = !state.tip ? showMinMaxTip() : "";
+		const _msg = !state.tip ? withdrawalMinMaxLimitHint : "";
 		dispatch({
 			type: defActionType.CHECK_AMOUNT,
 			checked: null,
@@ -172,11 +170,7 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 						onBlur={ValidAmount.bind(this, state.amount)}
 						isAmount={true}
 					/>
-					{/* <div className="tip active">
-						{t("lbl_Daily_Min_Max_Amount")} :{" "}
-						{number_format(state.withdrawalMin, _isConvert)} /{" "}
-						{number_format(state.withdrawalMax, _isConvert)}
-					</div> */}
+					<div className="remainder">{withdrawalMinMaxLimitHint}</div>
 					<div className="btnGroup">
 						<button
 							className={state.checked ? "btn-check" : "gray"}
@@ -194,6 +188,17 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 			</div>
 		</div>
 	);
+};
+
+WithdrawalAmount.defaultProps = {
+	_isConvert: false
+};
+
+WithdrawalAmount.propTypes = {
+	state: PropTypes.objectOf(PropTypes.any).isRequired,
+	dispatch: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool
 };
 
 AmountPanel.propTypes = {
