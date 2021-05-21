@@ -41,22 +41,25 @@ const DepositnewInfoMoule = ({
 					<i className="txt-blue">*</i>
 					{t("lbl_DepositOptions")}
 					<div className="checkbox autotransfer">
-						<input
-							checked={saveInfoChecked}
-							type="checkbox"
-							id="c1"
-							onChange={() => {
-								setSaveInfoChecked(!saveInfoChecked);
-								setLocalStorage(
-									"nova88depositquerySavedChecked",
-									!saveInfoChecked
-								);
-							}}
-						/>
-						<label
-							htmlFor="c1"
-							className="icon icon-checkbox-checked"
-						/>
+						<div className="swithModule">
+							<button
+								className={`switchBtn ${
+									saveInfoChecked ? " active" : ""
+								}`}
+								onClick={() => {
+									setSaveInfoChecked(!saveInfoChecked);
+									setLocalStorage(
+										"nova88depositquerySavedChecked",
+										!saveInfoChecked
+									);
+								}}>
+								<span>ON</span>
+								<span>OFF</span>
+								<div
+									className={saveInfoChecked ? "active" : ""}
+								/>
+							</button>
+						</div>
 						{t("lbl_DepositLocalbankButton")}
 						<button
 							ref={questionIconRef}
