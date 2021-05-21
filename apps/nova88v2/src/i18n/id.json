@@ -314,6 +314,8 @@
 	"lbl_WithdrawalImportantNoticeContent4": "Pastikan Turnover yang dibutuhkan tercapai, dan ajukan transaksi penarikan setelah 30 menit untuk menghindari pembatalan otomatis oleh sistem.",
 	"lbl_WithdrawalImportantNoticeContent5": "Jika ada perbedaan atau Anda mungkin memiliki pertanyaan penarikan lebih lanjut, silakan hubungi  <Link>Live Chat 24/7</Link> kami. Terima kasih.",
 	"lbl_Daily_Min_Max_Amount": "Min/Maks Limit Harian: {{min}}/{{max}}",
+	"lbl_WithdrawalDailyReached":"Batas Harian Anda Tercapai",
+	"lbl_Insufficientbalance":"Saldo tidak mencukupi",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Dana",

@@ -18,7 +18,8 @@ export default ({
 	dispatch,
 	recentHistory,
 	refreshData,
-	GetWithdrawalInfoRecent
+	GetWithdrawalInfoRecent,
+	GetDailyWithdrawalLimit
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
@@ -61,6 +62,7 @@ export default ({
 								recentHistory: newData
 							});
 							refreshData();
+							GetDailyWithdrawalLimit();
 						} else {
 							setPopBox({
 								isOpen: true,
@@ -163,7 +165,5 @@ export default ({
 				className="icon icon-books"
 			/>{" "}
 		</>
-	) : (
-		<></>
-	);
+	) : null;
 };

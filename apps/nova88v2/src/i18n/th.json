@@ -314,6 +314,8 @@
 	"lbl_WithdrawalImportantNoticeContent4": "กรุณาตรวจสอบให้แน่ใจว่าท่านได้ทำยอดเทิร์นสำเร็จตามเงื่อนไข และทำการแจ้งถอนหลังการเดิมพันประมาณ 30 นาทีเพื่อป้องกันการปฎิเสธยอดถอนในระบบอัติโนมัติ",
 	"lbl_WithdrawalImportantNoticeContent5": " หากมีข้อสงสัยหรือข้อมูลสอบถามเพิ่มเติมเกี่ยวกับธุรกรรมการถอน โปรดติดต่อ <Link>แชทสดตลอด 24/7</Link> ชั่วโมง ขอบคุณค่ะ",
 	"lbl_Daily_Min_Max_Amount": "จำกัดยอดถอน ต่ำสุด/สูงสุด ต่อวัน: {{min}}/{{max}}",
+	"lbl_WithdrawalDailyReached":"จำนวนยอดถอนต่อวันของคุณครบแล้ว",
+	"lbl_Insufficientbalance":"ยอดคงเหลือไม่เพียงพอ",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "โอนเงินทุน",
@@ -367,7 +369,7 @@
 	"lbl_Amount": "จำนวน",
 	"lbl_BankInfo": "ข้อมูลธนาคาร",
 	"lbl_LastTransaction": "รายการเล่นสุดท้าย",
-	"lbl_AmountTooltip": "จำนวนเงินต้องไม่น้อยกว่า 0",
+	"lbl_AmountTooltip": "จำนวนเงินต้องไม่น้อยกว่า {0}",
 	"lbl_NotinLimit": "จำนวนเงินมากกว่าหรือน้อยกว่าที่กำหนดไว้",
 	"lbl_SelectBank": "เลือกธนาคาร",
 	"lbl_SelectedBank": "เลือกธนาคาร",

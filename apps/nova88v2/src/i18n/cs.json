@@ -314,6 +314,8 @@
 	"lbl_WithdrawalImportantNoticeContent4": "请在达到所需求的流水量的30分钟后，提交提款申请，以避免系统自动拒绝。",
 	"lbl_WithdrawalImportantNoticeContent5": "如果您有任何提款疑问或查询, 请与我们的<Link>24/7在線客服</Link>。谢谢。",
 	"lbl_Daily_Min_Max_Amount": "每日最低/最高额度: {{min}}/{{max}}",
+	"lbl_WithdrawalDailyReached":"您已达到每日提款限额",
+	"lbl_Insufficientbalance":"余额不足",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "资金转移",
@@ -367,7 +369,7 @@
 	"lbl_Amount": "金额",
 	"lbl_BankInfo": "银行资讯",
 	"lbl_LastTransaction": "最后交易",
-	"lbl_AmountTooltip": "金额不得小于0",
+	"lbl_AmountTooltip": "金额不得小于{0}",
 	"lbl_NotinLimit": "不在设定范围",
 	"lbl_SelectBank": "选择银行",
 	"lbl_SelectedBank": "所选银行",

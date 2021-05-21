@@ -21,21 +21,24 @@ export default function WithdrawalAmount({ dispatch, state, t, _isConvert }) {
 	};
 
 	const ValidAmount = _amount => {
-		const _availableBalance = state.balanceData?.availableBalance;
-		const _lowerBalanceOrWithdrawalMax =
-			_availableBalance < state.withdrawalMax
-				? _availableBalance
-				: state.withdrawalMax;
-		const result = checkAmount({
-			amount: _amount,
-			minAmount: state.withdrawalMin,
-			maxAmount: state.isAmountLimited
-				? _lowerBalanceOrWithdrawalMax
-				: _availableBalance,
-			_isConvert,
-			t,
-			maxAmountAllowUnlimit: false
-		});
+		let result = {};
+		if (state.isAmountLimited && _amount > state.withdrawalMax) {
+			result = {
+				status: 2,
+				msg: t("lbl_WithdrawalDailyReached")
+			};
+		} else {
+			result = checkAmount({
+				amount: _amount,
+				minAmount: state.withdrawalMin,
+				maxAmount: state.balanceData?.availableBalance,
+				_isConvert,
+				t,
+				maxAmountAllowUnlimit: false,
+				hintKey: "lbl_Insufficientbalance"
+			});
+		}
+
 		if (result.status !== 0) {
 			dispatch({
 				type: defActionType.CHECK_AMOUNT,

@@ -39,6 +39,12 @@ export default () => {
 	});
 
 	useEffect(() => {
+		if (userInfo.isLogin) {
+			GetDailyWithdrawalLimit();
+		}
+	}, [userInfo.isLogin]);
+
+	const GetDailyWithdrawalLimit = () => {
 		api_payment_GetWithdrawalLimit().then(res => {
 			if (res.data.errorCode === 0 && isMountedRef.current) {
 				dispatch({
@@ -49,7 +55,7 @@ export default () => {
 				});
 			}
 		});
-	}, [userInfo.isLogin]);
+	};
 
 	useEffect(() => {
 		if (userInfo.isLogin === true) {
@@ -143,38 +149,18 @@ export default () => {
 	};
 
 	const GetWithdrawalInfoRecent = async () => {
-		await api_payment_GetWithdrawalInfoRecent().then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						dispatch({
-							type: defActionType.GET_RECENT_HISTORY,
-							recentHistory: res.data.data
-						});
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-				}
-			},
-			err => {
-				if (isMountedRef.current) {
+		await api_payment_GetWithdrawalInfoRecent().then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					dispatch({
+						type: defActionType.GET_RECENT_HISTORY,
+						recentHistory: res.data.data
+					});
+				} else {
 					setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
+						message: res.data.message,
 						btnBar: (
 							<div className="btnGroup">
 								<button
@@ -187,7 +173,7 @@ export default () => {
 					});
 				}
 			}
-		);
+		});
 	};
 
 	const KycCheck = async () => {
@@ -282,6 +268,9 @@ export default () => {
 									state={state}
 									refreshData={refreshData}
 									KycCheck={KycCheck}
+									GetDailyWithdrawalLimit={
+										GetDailyWithdrawalLimit
+									}
 								/>
 							</div>
 
@@ -351,6 +340,7 @@ export default () => {
 					refreshData={refreshData}
 					recentHistory={state.recentHistory ?? []}
 					GetWithdrawalInfoRecent={GetWithdrawalInfoRecent}
+					GetDailyWithdrawalLimit={GetDailyWithdrawalLimit}
 				/>
 			</div>
 		)
