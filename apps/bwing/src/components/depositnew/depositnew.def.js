@@ -12,18 +12,18 @@ export const defDepositOptions = ({
 	loadCardPayGroupList = []
 }) => [
 	{
-		type: defDepositType.mobile,
-		isHide: !mobilePayGourpList.length,
-		depositDisplaykey: "lbl_MobileDeposit",
-		creditTime: "lbl_Instant",
-		iconClass: "icon icon-mobile"
-	},
-	{
 		type: defDepositType.localBank,
 		isHide: !localBankGroupList.length,
 		depositDisplaykey: "lbl_WireTransfers",
 		creditTime: "lbl_5mins",
 		iconClass: "icon icon-library"
+	},
+	{
+		type: defDepositType.mobile,
+		isHide: !mobilePayGourpList.length,
+		depositDisplaykey: "lbl_MobileDeposit",
+		creditTime: "lbl_Instant",
+		iconClass: "icon icon-mobile"
 	},
 	{
 		type: defDepositType.onlineBank,

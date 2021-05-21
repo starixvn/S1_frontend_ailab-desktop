@@ -14,23 +14,26 @@ const QuickdownloadLink = () => {
 	const { t } = useTranslation();
 	const [active, setActive] = useState(false);
 
-	const activeToggleHandler = () => {
-		setActive(prev => !prev);
-	};
-
 	return (
 		<div
+			onFocus={() => 0}
+			onMouseOver={() => setActive(true)}
+			onMouseLeave={() => setActive(false)}
 			className={`quickdownload${active ? " active" : ""}`}
 			style={{ zIndex: active ? higherToTheAngpowZIndex : orignZIndex }}>
-			<div>
+			<div onClick={async () => setActive(false)}>
 				<button className="icon icon-mobile" />
 
 				<i
-					className="icon icon-circle-right"
-					onClick={activeToggleHandler}>
+					className={
+						active
+							? "icon icon-cancel-circle"
+							: "icon icon-circle-right"
+					}>
 					{t("lbl_Download").toUpperCase()}
 				</i>
 			</div>
+
 			<div>
 				<ul>
 					<li>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans } from "react-i18next";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
@@ -25,7 +26,10 @@ const DepositnewInfoMoule = ({
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
-			<div className="subModuleListColumn">
+			<div
+				className="subModuleListColumn"
+				style={{ width: "auto" }} // remove after add inportant notice
+			>
 				<div className="subModule">
 					<div className="subModuleTitle">
 						<span>
@@ -66,6 +70,57 @@ const DepositnewInfoMoule = ({
 					</button>
 				</div>
 			</div>
+
+			{/* <div className="importantNo">
+				<div className="title">
+					<span className="icon icon-warning" />
+					{t("lbl_ImportantNotice")}
+				</div>
+				<ul>
+					<li>{t("lbl_DepositImportantNoticeContent1")}</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent2"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent3"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent4"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>{t("lbl_DepositImportantNoticeContent5")}</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent6"
+							components={{
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
+							}}
+						/>
+					</li>
+				</ul>
+			</div> */}
 		</div>
 	);
 };
