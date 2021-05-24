@@ -4,9 +4,22 @@ import PropTypes from "prop-types";
 import config from "../../config";
 
 const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
-	const [swiper, setSwiper] = useState(null);
+	const [setSwiper] = useState(null);
+	const ref = useRef(null);
 
-	const defSwipperConfig = {
+	const goNext = () => {
+		if (ref.current !== null) {
+			ref.current.slideNext();
+		}
+	};
+
+	const goPrev = () => {
+		if (ref.current !== null) {
+			ref.current.slidePrev();
+		}
+	};
+
+	const params = {
 		spaceBetween: 30,
 		slidesPerView: 9,
 		centeredSlides: true,
@@ -31,24 +44,6 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 		)
 	};
 
-	const ref = useRef(null);
-
-	const goNext = () => {
-		if (ref.current !== null) {
-			ref.current.slideNext();
-		}
-	};
-
-	const goPrev = () => {
-		if (ref.current !== null) {
-			ref.current.slidePrev();
-		}
-	};
-
-	const params = {
-		...defSwipperConfig
-	};
-
 	const Rows = lobbyImgList?.map(_item => {
 		return (
 			<div
@@ -69,6 +64,7 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 	return (
 		<div className="partnerSelect">
 			<div className="swiper-wrapper">
+				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 				<Swiper {...params} getSwiper={setSwiper}>
 					{Rows}
 				</Swiper>

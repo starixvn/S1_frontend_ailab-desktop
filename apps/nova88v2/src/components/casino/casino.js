@@ -422,20 +422,6 @@ export default () => {
 		);
 	}, [userInfo.isLogin, urlTpId]);
 
-	const lobbyListLayout = lobbyImgList?.map(_item => {
-		return (
-			<button
-				onClick={clickLobbyProvider.bind(this, _item.providerId)}
-				key={`slot_lobby_${_item.providerId}`}>
-				<img
-					src={`${config.cloudImgUrl}/SiteSkin/img/logo/${_item.lobbyImgName}.png`}
-					alt={_item.lobbyImgName}
-				/>
-				<div>{_item.lobbyDisplayName}</div>
-			</button>
-		);
-	});
-
 	return loading ? (
 		<></>
 	) : (
@@ -455,7 +441,6 @@ export default () => {
 							lobbyImgList={lobbyImgList}
 							clickLobbyProvider={clickLobbyProvider}
 						/>
-
 						<div className="casinoSelect">
 							<Nav
 								selNav={selNav}
