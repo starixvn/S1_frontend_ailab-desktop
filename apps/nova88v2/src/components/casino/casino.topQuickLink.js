@@ -22,9 +22,9 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 
 	const params = {
 		slidesPerView: 9,
-		centeredSlides: true,
+		// centeredSlides: true,
 		loopFillGroupWithBlank: true,
-		loop: true,
+		// loop: true,
 		// autoplay: {
 		// 	delay: 5000,
 		// 	disableOnInteraction: false
