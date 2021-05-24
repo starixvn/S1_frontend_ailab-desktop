@@ -4557,11 +4557,18 @@ input[type="file"] {
 
 #popup .pop .backupDomain .poptit + img {
   width: 380px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+#popup .pop .backupDomain .poptxt {
+  width: 360px;
+  padding: 5px 10px;
+  color: #5574A7;
+  font-size: 12px;
 }
 
 #popup .pop .backupDomain .url {
-  padding: 7px 10px;
+  padding: 3px 10px;
   border-radius: 30px;
   border: 1px solid #b2b2b2;
   margin: 5px auto;
@@ -4577,11 +4584,12 @@ input[type="file"] {
 
 #popup .pop .backupDomain .url .copyurl {
   position: absolute;
-  border: 1px solid #5574A7;
   border-radius: 30px;
-  color: #5574A7;
-  padding: 5px 10px;
+  color: white;
+  padding: 2px 10px;
   right: 2px;
+  background: #5574A7;
+  font-size: 12px;
 }
 
 #popup .pop .backupDomain .checkbox {
@@ -6683,6 +6691,10 @@ input[type="file"] {
           justify-content: center;
 }
 
+.livecasinoinside {
+  background: white;
+}
+
 .proList, .slotList, .livecasino {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7133,10 +7145,91 @@ form {
           flex: 0 0 calc(100% / 3 - 10px);
   margin: 0 10px 10px 0;
   padding: 0;
+  cursor: pointer;
 }
 
 .livecasino > div img {
   border-radius: 5px;
+}
+
+.livecasino > div .name {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(210, 226, 249, 0.8);
+  border-radius: 0 0 5px 5px;
+  color: #112240;
+  height: 47px;
+  font-weight: bold;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.livecasino > div:hover .name {
+  background: -webkit-gradient(linear, left top, left bottom, from(#98b6e9), to(#85a2d3));
+  background: linear-gradient(to bottom, #98b6e9, #85a2d3);
+  color: white;
+}
+
+.livecasino > div .icon-new, .livecasino > div .icon-mediafire {
+  top: 0;
+  bottom: unset;
+  left: 0;
+  right: unset;
+  border-radius: 5px 0 0 0;
+}
+
+.livecasino > div .icon-new:before, .livecasino > div .icon-mediafire:before {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.livecasino > div .icon-new:after, .livecasino > div .icon-mediafire:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 22px 17px;
+  border-color: transparent transparent transparent #f77900;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 58px;
+}
+
+.livecasino > div .icon-mediafire {
+  position: absolute;
+  padding: 0 3px;
+  background: #cf0404;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+
+.livecasino > div .icon-mediafire span {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.livecasino > div .icon-mediafire:after {
+  border-color: transparent transparent transparent #cf0404;
+  border-width: 0 0 20px 17px;
+  left: 59px;
 }
 
 article {
