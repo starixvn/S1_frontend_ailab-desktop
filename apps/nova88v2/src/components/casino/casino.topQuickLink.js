@@ -6,6 +6,7 @@ import config from "../../config";
 const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 	const [setSwiper] = useState(null);
 	const ref = useRef(null);
+	const [hoverImg, setHoverImg] = useState(null);
 
 	const goNext = () => {
 		if (ref.current !== null) {
@@ -20,7 +21,6 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 	};
 
 	const params = {
-		spaceBetween: 30,
 		slidesPerView: 9,
 		centeredSlides: true,
 		loopFillGroupWithBlank: true,
@@ -44,15 +44,28 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 		)
 	};
 
+	const handleOnMouseOverImg = imgName => {
+		setHoverImg(`${imgName}`);
+	};
+
 	const Rows = lobbyImgList?.map(_item => {
 		return (
 			<div
 				className="swiper-slide"
 				onClick={clickLobbyProvider.bind(this, _item.providerId)}
 				key={`slot_lobby_${_item.providerId}`}>
-				<button>
+				<button
+					onMouseOver={handleOnMouseOverImg.bind(
+						this,
+						_item.lobbyImgName
+					)}
+					onMouseOut={handleOnMouseOverImg.bind(this, "")}
+					onBlur={() => 0}
+					onFocus={() => 0}>
 					<img
-						src={`${config.cloudImgUrl}/SiteSkin/img/logo/${_item.lobbyImgName}.png`}
+						src={`${config.cloudImgUrl}/SiteSkin/img/logo/${
+							_item.lobbyImgName
+						}${hoverImg === _item.lobbyImgName ? "a" : ""}.png`}
 						alt={_item.lobbyImgName}
 					/>
 					<div>{_item.lobbyDisplayName}</div>
