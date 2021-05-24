@@ -7172,9 +7172,13 @@ form {
   font-weight: bold;
   font-size: 12px;
   font-style: italic;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 .livecasino > div:hover .name {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   background: -webkit-gradient(linear, left top, left bottom, from(#98b6e9), to(#85a2d3));
   background: linear-gradient(to bottom, #98b6e9, #85a2d3);
   color: white;
@@ -13051,16 +13055,32 @@ canvas {
   margin-top: -13.5px;
 }
 
+.partnerSelect .swiper-container .swiper-button-next:before, .partnerSelect .swiper-container .swiper-button-prev:before {
+  font-family: 'icomoon';
+  font-size: 28px;
+  margin-top: -1px;
+}
+
 .partnerSelect .swiper-container .swiper-button-next:after, .partnerSelect .swiper-container .swiper-button-prev:after {
-  font-size: 14px;
+  display: none;
 }
 
 .partnerSelect .swiper-container .swiper-button-next {
   right: 7px;
 }
 
+.partnerSelect .swiper-container .swiper-button-next:before {
+  content: '\e95c';
+  margin-left: 2px;
+}
+
 .partnerSelect .swiper-container .swiper-button-prev {
   left: 7px;
+}
+
+.partnerSelect .swiper-container .swiper-button-prev:before {
+  content: '\e95d';
+  margin-right: 2px;
 }
 
 .partnerSelect .swiper-container .swiper-slide {

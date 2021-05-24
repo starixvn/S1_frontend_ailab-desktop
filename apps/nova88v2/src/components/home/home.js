@@ -99,7 +99,10 @@ const IndexPage = ({ location }) => {
 		const isShowPerDayPopBox = readCookie(cookiePerDay) !== "1";
 
 		const showRankingPopBox = () => {
-			if (!userInfo.isLogin && isDateRange(null, "2021/05/18 23:59:59")) {
+			if (
+				userInfo.isLogin === false &&
+				isDateRange(null, "2021/05/18 23:59:59")
+			) {
 				setPopBox({
 					isOpen: true,
 					popBoxType: defPopBoxType.RankingWinner,
@@ -113,7 +116,7 @@ const IndexPage = ({ location }) => {
 			showRankingPopBox();
 		};
 
-		if (!userInfo.isLogin && isShowPerDayPopBox) {
+		if (userInfo.isLogin === false && isShowPerDayPopBox) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.PerDay,
