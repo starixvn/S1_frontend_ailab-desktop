@@ -358,7 +358,7 @@ export const defMenuLinks = langId => {
 					tpId: 12,
 					className: "liveALL",
 					icon: "icon icon-AB",
-					listNpcImgUrl: "allbet.png",
+					listNpcImgUrl: "ab.png",
 					displayText: "Allbet",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoAllbetNpcImg,

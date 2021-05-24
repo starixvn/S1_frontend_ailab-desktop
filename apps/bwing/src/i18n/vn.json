@@ -145,7 +145,7 @@
 	"lbl_PreferredCurrencyToolTip": "Không thể thay đổi Tiền tệ ưa thích sau khi đăng ký.",
 	"lbl_Profile": "Hồ sơ",
 	"lbl_ProfileModifyWarning": "Để đảm bảo an toàn tài khoản, bạn không thể thay đổi thông tin cá nhân sau khi xác nhận. Vui lòng điền đúng tên thật như trong CMND để giao dịch được suôn sẻ.",
-	"lbl_RealName": "Tên thật",
+	"lbl_RealName": "Họ Tên thật",
 	"lbl_RegisterTime": "Thời gian đăng ký",
 	"lbl_RemindForName": "*Tên đầy đủ của bạn phải đúng với tên trên tài khoản Ngân hàng để thực hiện việc nạp/ rút tiền nhanh",
 	"lbl_Retransmit": "Gửi lại mã",
