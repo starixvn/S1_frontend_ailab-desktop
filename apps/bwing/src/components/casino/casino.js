@@ -325,7 +325,7 @@ export default () => {
 			/>
 
 			<div className="quickSelect">
-				<div className="btnGroup promoType">
+				<div className="btnGroup promoType gameBtn">
 					<Nav selNav={selNav} onSelectNav={onSelectNav} t={t} />
 				</div>
 				<SearchBox

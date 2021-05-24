@@ -48,6 +48,7 @@
 	"lbl_HowToDepoist": "CÁCH GỬI TIỀN",
 	"lbl_HowToWithdraw": "CÁCH RÚT TIỀN",
 	"lbl_SabaSoccer": "Bóng Đá Saba",
+	"lbl_homeJackpotTitle": "NỔ HŨ",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Goal123News": "Điểm báo Goal123",
@@ -142,7 +143,7 @@
 	"lbl_PreferredCurrencyToolTip": "Không thể thay đổi Tiền tệ ưa thích sau khi đăng ký.",
 	"lbl_Profile": "Hồ sơ",
 	"lbl_ProfileModifyWarning": "Nhằm đảm bảo an toàn tài khoản, Thông tin cá nhân không thể thay đổi sau khi xác nhận",
-	"lbl_RealName": "Tên thật",
+	"lbl_RealName": "Họ Tên thật",
 	"lbl_RegisterTime": "Thời gian đăng ký",
 	"lbl_RemindForName": "*Tên đầy đủ của bạn phải đúng với tên trên tài khoản Ngân hàng để thực hiện việc nạp/ rút tiền nhanh",
 	"lbl_Retransmit": "Gửi lại mã",
@@ -246,6 +247,7 @@
 	"lbl_Download": "Tải về",
 	"lbl_Min": "Nhỏ nhất",
 	"lbl_Max": "Lớn nhất",
+	"lbl_ImportantNotice": "IMPORTANT NOTICE",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Chuyển quỹ",
@@ -347,6 +349,12 @@
 	"lbl_MinMaxAmount": "Tối thiểu/Tối đa",
 	"lbl_DepositAccountNamePlaceholder": "Tên phải trùng với tên tài khoản và CMND",
 	"lbl_TopUpCard": "THẺ CÀO",
+	"lbl_DepositImportantNoticeContent1": "Kindly please check for the latest active deposit bank details before you making a deposit.",
+	"lbl_DepositImportantNoticeContent2": "For using <span>Local Bank Transfer</span> deposit option, please make the transfer done before submit the transaction to avoid the transaction delay.",
+	"lbl_DepositImportantNoticeContent3": "Depositor's <span>ACCOUNT NAME</span> must match with your registered full name. We do not encourage transaction made using 3rd party/company account.",
+	"lbl_DepositImportantNoticeContent4": "Please <span>DO NOT</span> fill in <span>'GOAL123'</span> or any sensitive words related to gambling as reference/remark in your online transaction.",
+	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
+	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",
@@ -431,7 +439,7 @@
 	"lbl_SearchGames": "Tìm kiếm trò chơi",
 	"lbl_AllGames": "Tất cả trò chơi",
 	"lbl_Feature": "Đặc điểm",
-	"lbl_Jackpot":"NỔ HŨ",
+	"lbl_Jackpot": "NỔ HŨ",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",

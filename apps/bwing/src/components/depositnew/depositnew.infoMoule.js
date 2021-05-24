@@ -28,13 +28,16 @@ const DepositnewInfoMoule = ({
 				{t("lbl_DepositOptionHint")}
 			</div>
 
-			<div className="subModuleListColumn">
+			<div
+				className="subModuleListColumn"
+				style={{ width: "auto" }} // remove after add inportant notice
+			>
 				<div className="subModule">
 					<div className="subModuleTitle">
 						<span>
 							<i className="txt-blue">*</i>
 							{t("lbl_DepositOptions")}
-						</span>
+						</span>{" "}
 					</div>
 					<div>
 						{depositOptions.map(item => (

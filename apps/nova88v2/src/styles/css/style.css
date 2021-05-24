@@ -1507,6 +1507,27 @@ header input:focus-within {
   font-size: 18px;
 }
 
+.header > div.function .wallet .icon-plus, .header > div.function .wallet .icon-minus {
+  background: #5574A7;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 18px;
+  height: 17px;
+  margin-left: 3px;
+}
+
+.header > div.function .wallet .icon-plus:before, .header > div.function .wallet .icon-minus:before {
+  color: white;
+}
+
 .header > div.function .wallet .submenu div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4502,29 +4523,27 @@ input[type="file"] {
 #popup .pop .backupDomain {
   overflow: unset;
   background: white;
-  border-radius: 20px;
-  padding: 20px;
+  border-radius: 5px;
+  padding: 0 0 20px;
   position: relative;
   overflow: hidden;
   color: #b2b2b2;
 }
 
 #popup .pop .backupDomain .icon-close {
-  top: 15px;
+  top: 10px;
   right: 10px;
   z-index: 1;
+  color: white;
 }
 
 #popup .pop .backupDomain .poptit {
-  width: calc(100% - 60px);
-  text-align: center;
-  color: #5574A7;
+  width: calc(100% - 20px);
+  color: white;
   border-bottom: 1px solid #5574A7;
-  padding: 20px 30px;
-  font-size: 18px;
+  padding: 5px 10px;
+  font-size: 14px;
   font-weight: bold;
-  margin-bottom: 20px;
-  position: absolute;
   top: 0;
   height: 25px;
   display: -webkit-box;
@@ -4533,23 +4552,26 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  background: #5574A7;
 }
 
 #popup .pop .backupDomain .poptit + img {
   width: 380px;
-  border-radius: 15px;
-  margin-top: 65px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+#popup .pop .backupDomain .poptxt {
+  width: 360px;
+  padding: 5px 10px;
+  color: #5574A7;
+  font-size: 12px;
 }
 
 #popup .pop .backupDomain .url {
-  padding: 7px 10px;
+  padding: 3px 10px;
   border-radius: 30px;
   border: 1px solid #b2b2b2;
-  margin: 5px 0;
+  margin: 5px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4557,20 +4579,21 @@ input[type="file"] {
       -ms-flex-align: center;
           align-items: center;
   position: relative;
-  width: calc(100% - 20px);
+  width: calc(100% - 40px);
 }
 
 #popup .pop .backupDomain .url .copyurl {
   position: absolute;
-  border: 1px solid #5574A7;
   border-radius: 30px;
-  color: #5574A7;
-  padding: 5px 10px;
+  color: white;
+  padding: 2px 10px;
   right: 2px;
+  background: #5574A7;
+  font-size: 12px;
 }
 
 #popup .pop .backupDomain .checkbox {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 #popup .pop .backupDomain .checkbox input[type="checkbox"] + label {
@@ -6668,7 +6691,11 @@ input[type="file"] {
           justify-content: center;
 }
 
-.proList, .slotList {
+.livecasinoinside {
+  background: white;
+}
+
+.proList, .slotList, .livecasino {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6678,7 +6705,7 @@ input[type="file"] {
   line-height: 20px;
 }
 
-.proList > div, .slotList > div {
+.proList > div, .slotList > div, .livecasino > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
@@ -6690,17 +6717,17 @@ input[type="file"] {
   position: relative;
 }
 
-.proList > div.active, .slotList > div.active {
+.proList > div.active, .slotList > div.active, .livecasino > div.active {
   opacity: 0.7;
 }
 
-.proList > div.active .claimed, .slotList > div.active .claimed {
+.proList > div.active .claimed, .slotList > div.active .claimed, .livecasino > div.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed {
+.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed, .livecasino > div .new, .livecasino > div .claimed {
   position: absolute;
   top: -10px;
   left: -10px;
@@ -6720,17 +6747,17 @@ input[type="file"] {
   font-weight: bold;
 }
 
-.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before {
+.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before, .livecasino > div .new:before, .livecasino > div .claimed:before {
   content: "NEW";
 }
 
-.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active {
+.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active, .livecasino > div .new.active, .livecasino > div .claimed.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .claimed, .slotList > div .claimed {
+.proList > div .claimed, .slotList > div .claimed, .livecasino > div .claimed {
   background: rgba(167, 3, 3, 0.8);
   width: 75px;
   height: 75px;
@@ -6738,26 +6765,26 @@ input[type="file"] {
           transform: rotate(-25deg);
 }
 
-.proList > div .claimed:before, .slotList > div .claimed:before {
+.proList > div .claimed:before, .slotList > div .claimed:before, .livecasino > div .claimed:before {
   content: "CLAIMED";
 }
 
-.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue {
+.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue, .livecasino > div .txt-dark, .livecasino > div .txt-darkBlue {
   font-weight: bold;
   margin: 15px 0;
 }
 
-.proList > div .txt-gray li, .slotList > div .txt-gray li {
+.proList > div .txt-gray li, .slotList > div .txt-gray li, .livecasino > div .txt-gray li {
   font-size: 12px;
   list-style: disc;
   margin-left: 16px;
 }
 
-.proList > div img, .slotList > div img {
+.proList > div img, .slotList > div img, .livecasino > div img {
   border-radius: 10px;
 }
 
-.proList .rollover, .slotList .rollover {
+.proList .rollover, .slotList .rollover, .livecasino .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6766,13 +6793,13 @@ input[type="file"] {
   margin: 10px 0;
 }
 
-.proList .rollover > div, .slotList .rollover > div {
+.proList .rollover > div, .slotList .rollover > div, .livecasino .rollover > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before {
+.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before, .livecasino .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
 }
@@ -7013,7 +7040,7 @@ form {
   text-align: left;
 }
 
-.slotList .icon-new {
+.slotList .icon-new, .livecasino .icon-new {
   background: #f77900;
   position: absolute;
   right: 25px;
@@ -7022,12 +7049,12 @@ form {
   border-radius: 5px;
 }
 
-.slotList .icon-new:before {
+.slotList .icon-new:before, .livecasino .icon-new:before {
   position: unset;
   color: white;
 }
 
-.slotList > div {
+.slotList > div, .livecasino > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 5 - 45px);
           flex: 0 0 calc(100% / 5 - 45px);
@@ -7035,19 +7062,19 @@ form {
   margin: 10px 7px;
 }
 
-.slotList > div .txt-darkBlue {
+.slotList > div .txt-darkBlue, .livecasino > div .txt-darkBlue {
   font-size: 12px;
   margin: 0;
 }
 
-.slotList > div .btnGroup {
+.slotList > div .btnGroup, .livecasino > div .btnGroup {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
 }
 
-.slotList > div .btnGroup button {
+.slotList > div .btnGroup button, .livecasino > div .btnGroup button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -7055,18 +7082,18 @@ form {
   margin: 0 1px;
 }
 
-.slotList > div .btnGroup button:first-child {
+.slotList > div .btnGroup button:first-child, .livecasino > div .btnGroup button:first-child {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
 }
 
-.slotList > div .brand {
+.slotList > div .brand, .livecasino > div .brand {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.slotList > div .brand:before {
+.slotList > div .brand:before, .livecasino > div .brand:before {
   content: "";
   border-color: #134DAE transparent transparent #134DAE;
   border-style: solid;
@@ -7079,7 +7106,7 @@ form {
           filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .brand span {
+.slotList > div .brand span, .livecasino > div .brand span {
   z-index: 1;
   position: absolute;
   top: 7px;
@@ -7088,7 +7115,7 @@ form {
   font-weight: bold;
 }
 
-.slotList > div .icon-star-full {
+.slotList > div .icon-star-full, .livecasino > div .icon-star-full {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -7098,8 +7125,111 @@ form {
           filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .icon-star-full.active {
+.slotList > div .icon-star-full.active, .livecasino > div .icon-star-full.active {
   color: #fab617;
+}
+
+.livecasinobanner {
+  width: auto;
+  float: left;
+  border-radius: 5px;
+}
+
+.livecasino {
+  padding: 0 0 0 40px;
+}
+
+.livecasino > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(100% / 3 - 10px);
+          flex: 0 0 calc(100% / 3 - 10px);
+  margin: 0 10px 10px 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.livecasino > div img {
+  border-radius: 5px;
+}
+
+.livecasino > div .name {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(210, 226, 249, 0.8);
+  border-radius: 0 0 5px 5px;
+  color: #112240;
+  height: 47px;
+  font-weight: bold;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.livecasino > div:hover .name {
+  background: -webkit-gradient(linear, left top, left bottom, from(#98b6e9), to(#85a2d3));
+  background: linear-gradient(to bottom, #98b6e9, #85a2d3);
+  color: white;
+}
+
+.livecasino > div .icon-new, .livecasino > div .icon-mediafire {
+  top: 0;
+  bottom: unset;
+  left: 0;
+  right: unset;
+  border-radius: 5px 0 0 0;
+}
+
+.livecasino > div .icon-new:before, .livecasino > div .icon-mediafire:before {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.livecasino > div .icon-new:after, .livecasino > div .icon-mediafire:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 22px 17px;
+  border-color: transparent transparent transparent #f77900;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 58px;
+}
+
+.livecasino > div .icon-mediafire {
+  position: absolute;
+  padding: 0 3px;
+  background: #cf0404;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+}
+
+.livecasino > div .icon-mediafire span {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.livecasino > div .icon-mediafire:after {
+  border-color: transparent transparent transparent #cf0404;
+  border-width: 0 0 20px 17px;
+  left: 59px;
 }
 
 article {
@@ -11691,15 +11821,15 @@ canvas {
   width: 605px;
 }
 
-.liveVideo .latestVideo + div .euro .upcomingmatches, .liveVideo .newsList + div .euro .upcomingmatches, .newsVideo .latestVideo + div .euro .upcomingmatches, .newsVideo .newsList + div .euro .upcomingmatches {
+.liveVideo .latestVideo + div .upcomingmatches .team.euro, .liveVideo .newsList + div .upcomingmatches .team.euro, .newsVideo .latestVideo + div .upcomingmatches .team.euro, .newsVideo .newsList + div .upcomingmatches .team.euro {
   background: url(../img/upcomingmatcheseurobg.jpg) no-repeat top center/100% auto;
 }
 
-.liveVideo .latestVideo + div .euro .upcomingmatches .team > div:first-child, .liveVideo .newsList + div .euro .upcomingmatches .team > div:first-child, .newsVideo .latestVideo + div .euro .upcomingmatches .team > div:first-child, .newsVideo .newsList + div .euro .upcomingmatches .team > div:first-child {
+.liveVideo .latestVideo + div .upcomingmatches .team.euro > div:first-child, .liveVideo .newsList + div .upcomingmatches .team.euro > div:first-child, .newsVideo .latestVideo + div .upcomingmatches .team.euro > div:first-child, .newsVideo .newsList + div .upcomingmatches .team.euro > div:first-child {
   background: url(../img/upcomingmatcheseurotitle.png) no-repeat top center/auto;
 }
 
-.liveVideo .latestVideo + div .euro .upcomingmatches .team > div:last-child, .liveVideo .newsList + div .euro .upcomingmatches .team > div:last-child, .newsVideo .latestVideo + div .euro .upcomingmatches .team > div:last-child, .newsVideo .newsList + div .euro .upcomingmatches .team > div:last-child {
+.liveVideo .latestVideo + div .upcomingmatches .team.euro > div:last-child, .liveVideo .newsList + div .upcomingmatches .team.euro > div:last-child, .newsVideo .latestVideo + div .upcomingmatches .team.euro > div:last-child, .newsVideo .newsList + div .upcomingmatches .team.euro > div:last-child {
   background: url(../img/upcomingmatcheseurotitledown.png) no-repeat top center/auto;
 }
 
@@ -11749,17 +11879,58 @@ canvas {
       -ms-flex: 1;
           flex: 1;
   font-size: 14px;
-  text-align: right;
+  text-align: center;
   height: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
   padding-left: 5px;
 }
 
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds {
+  position: absolute;
+  padding: 0;
+  font-size: 12px;
+  font-weight: normal;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin-top: -10px;
+}
+
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds div, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds div, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds div, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds div {
+  margin: 0 0 3px 0;
+  background: #8d5085;
+  border-radius: 30px;
+  padding: 2px 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  min-width: 90px;
+}
+
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div:last-child, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds div:last-child, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div:last-child, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds div:last-child, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div:last-child, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) .odds div:last-child, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) .odds div:last-child, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) .odds div:last-child {
+  margin: 0;
+  background: #076475;
+}
+
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
-  text-align: left;
   padding-left: 0;
   padding-right: 5px;
+}
+
+.liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR .odds, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR .odds, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR .odds, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR .odds, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR .odds, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR .odds, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR .odds, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR .odds {
+  left: unset;
+  right: 0;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup) img, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup) img {
@@ -12861,9 +13032,6 @@ canvas {
 }
 
 .partnerSelect {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   overflow: hidden;
   width: calc(100% - 100px);
   margin: 10px auto;
@@ -12871,10 +13039,40 @@ canvas {
   border-radius: 5px;
 }
 
-.partnerSelect button {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
+.partnerSelect .swiper-container {
+  padding: 0 40px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next, .partnerSelect .swiper-container .swiper-button-prev {
+  color: white;
+  background: #5574A7;
+  border-radius: 30px;
+  height: 27px;
+  margin-top: -13.5px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next:after, .partnerSelect .swiper-container .swiper-button-prev:after {
+  font-size: 14px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next {
+  right: 7px;
+}
+
+.partnerSelect .swiper-container .swiper-button-prev {
+  left: 7px;
+}
+
+.partnerSelect .swiper-container .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.partnerSelect .swiper-container .swiper-slide button {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12888,24 +13086,35 @@ canvas {
           flex-flow: column;
   color: #7591C1;
   padding: 15px 0;
+  width: 100%;
 }
 
-.partnerSelect button img {
+.partnerSelect .swiper-container .swiper-slide button img {
   width: auto;
   -webkit-filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
           filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
   opacity: 0.7;
-  margin-bottom: 5px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
-.partnerSelect button:hover {
+.partnerSelect .swiper-container .swiper-slide button:hover {
+  background: #284985;
   color: white;
-  background: #5574A7;
 }
 
-.partnerSelect button:hover img {
+.partnerSelect .swiper-container .swiper-slide button:hover img {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
   -webkit-filter: none;
           filter: none;
   opacity: 1;
+}
+
+.partnerSelect .swiper-container .swiper-slide button div {
+  margin-top: 5px;
+  font-size: 12px;
 }
 /*# sourceMappingURL=style.css.map */

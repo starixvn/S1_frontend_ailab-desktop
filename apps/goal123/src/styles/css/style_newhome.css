@@ -84,7 +84,7 @@ a, button {
 
 body, html {
   width: 100%;
-  background: #F3F3F3;
+  background: #f3f3f3;
   font-size: 14px;
   font-family: "Microsoft YaHei", sans-serif;
   color: #f3f3f3;
@@ -97,7 +97,7 @@ body, html {
 
 header {
   position: fixed;
-  background: #1F3258;
+  background: #1f3258;
   width: 100%;
   height: 65px;
   display: -webkit-box;
@@ -314,7 +314,7 @@ header .header > div.menu .gameList a span, header .header > div.menu .gameList 
           justify-content: center;
   width: 100%;
   min-height: 203px;
-  color: #1F3258;
+  color: #1f3258;
   background: url(../img/dropdown/droptitle_b.png) no-repeat center/auto 100%;
   z-index: 4;
 }
@@ -412,7 +412,7 @@ header .header > div.function {
 }
 
 header .header > div.function .join, header .header > div.function .login {
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 5px;
   padding: 8px 2px;
   color: white;
@@ -584,11 +584,11 @@ header .header > div.function .cashier .submenu, header .header > div.function .
 }
 
 header .header > div.function .cashier .submenu a:hover, header .header > div.function .wallet .submenu a:hover, header .header > div.function .memberfile .submenu a:hover {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 header .header > div.function .cashier .submenu a:hover.icon-exit span, header .header > div.function .wallet .submenu a:hover.icon-exit span, header .header > div.function .memberfile .submenu a:hover.icon-exit span {
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   -webkit-transition: 0.7s;
   transition: 0.7s;
@@ -623,7 +623,7 @@ header .header > div.function .cashier .submenu .icon-exit, header .header > div
 }
 
 header .header > div.function .cashier .submenu .icon-exit:before, header .header > div.function .wallet .submenu .icon-exit:before, header .header > div.function .memberfile .submenu .icon-exit:before {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 header .header > div.function .cashier .submenu .icon-exit span, header .header > div.function .wallet .submenu .icon-exit span, header .header > div.function .memberfile .submenu .icon-exit span {
@@ -633,7 +633,7 @@ header .header > div.function .cashier .submenu .icon-exit span, header .header 
 }
 
 header .header > div.function .cashier.active > button, header .header > div.function .cashier.active:before, header .header > div.function .cashier.active:after, header .header > div.function .wallet.active > button, header .header > div.function .wallet.active:before, header .header > div.function .wallet.active:after, header .header > div.function .memberfile.active > button, header .header > div.function .memberfile.active:before, header .header > div.function .memberfile.active:after {
-  color: #1E85EC;
+  color: #1e85ec;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -991,7 +991,7 @@ main section > div > div > .title i {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 main section > div .articleModule {
@@ -1034,7 +1034,7 @@ main section > div .articleModule a:last-child {
 
 main section > div .articleModule a .title {
   background: #fff;
-  color: #5084E4;
+  color: #5084e4;
   padding: 10px;
   min-height: 38px;
   border-radius: 0 0 5px 5px;
@@ -1392,7 +1392,7 @@ footer .copyright {
 }
 
 .txt-blue2 {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .txt-blue12 {
@@ -1416,7 +1416,7 @@ footer .copyright {
 }
 
 .txt-red {
-  color: #D83B35;
+  color: #d83b35;
 }
 
 .txt-dark {
@@ -1459,9 +1459,9 @@ footer .copyright {
 
 .inputBox, .inputBox-org, .inputBox-white, .inputBox-blue, .inputBox-gray, .inputBox-yellow {
   width: calc(100% - 22px);
-  background: #1F3258;
+  background: #1f3258;
   color: white;
-  border: 1px solid #5084E4;
+  border: 1px solid #5084e4;
   outline: none;
   border-radius: 5px;
   position: relative;
@@ -1502,8 +1502,8 @@ footer .copyright {
 }
 
 .inputBox.active, .active.inputBox-org, .active.inputBox-white, .active.inputBox-blue, .active.inputBox-gray, .active.inputBox-yellow {
-  border: 1px solid #1E85EC;
-  outline: #1E85EC;
+  border: 1px solid #1e85ec;
+  outline: #1e85ec;
 }
 
 .inputBox > .icon, .inputBox-org > .icon, .inputBox-white > .icon, .inputBox-blue > .icon, .inputBox-gray > .icon, .inputBox-yellow > .icon {
@@ -1648,7 +1648,7 @@ footer .copyright {
 
 .inputBox-blue {
   background: transparent;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
 }
 
 .inputBox-blue .dropdown .txt-white {
@@ -1660,7 +1660,7 @@ footer .copyright {
 }
 
 .inputBox-blue .icon:before {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .inputBox-gray .dropdown .btn {
@@ -1722,7 +1722,7 @@ input[type="file"] {
 }
 
 .checkbox input[type="checkbox"] + label {
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   border-radius: 100%;
   width: 10px;
   height: 10px;
@@ -1732,7 +1732,7 @@ input[type="file"] {
 }
 
 .checkbox input[type="checkbox"]:checked + label {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .checkbox label.icon:before {
@@ -1786,7 +1786,7 @@ input[type="file"] {
 }
 
 .btnGroup button.orange:hover, .btnGroup a.orange:hover {
-  background: #D83B35;
+  background: #d83b35;
 }
 
 .btnGroup button.gray, .btnGroup button.btn-cancel, .btnGroup a.gray, .btnGroup a.btn-cancel {
@@ -1838,7 +1838,7 @@ input[type="file"] {
 }
 
 .btnGroup button.red, .btnGroup a.red {
-  background: #D83B35;
+  background: #d83b35;
   color: white;
 }
 
@@ -1847,12 +1847,12 @@ input[type="file"] {
 }
 
 .btnGroup button.blueBorder, .btnGroup a.blueBorder {
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   color: white;
 }
 
 .btnGroup button.blueBorder:hover, .btnGroup a.blueBorder:hover {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .btnGroup button.icon:before, .btnGroup a.icon:before {
@@ -1880,7 +1880,7 @@ input[type="file"] {
 }
 
 .Terms a {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 12px;
 }
 
@@ -1935,7 +1935,7 @@ main > .swiper-container .swiper-slide {
 }
 
 #Marquee .marquee-box {
-  background: #E8E8E8;
+  background: #e8e8e8;
   overflow: hidden;
   max-width: 1440px;
   height: 45px;
@@ -1955,14 +1955,14 @@ main > .swiper-container .swiper-slide {
 
 #Marquee .marquee-box img {
   width: 25px;
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   padding: 0 15px;
   z-index: 1;
 }
 
 #Marquee .marquee-box.icon:before {
   width: 20px;
-  color: #1E85EC;
+  color: #1e85ec;
   background: #212121;
   z-index: 1;
   height: 100%;
@@ -2019,7 +2019,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .quickLink > div:nth-child(1) {
-  background: #D83B35;
+  background: #d83b35;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2043,7 +2043,7 @@ main > .swiper-container .swiper-slide {
 
 .quickLink > div:nth-child(1) .icon-chat {
   background: white;
-  color: #D83B35;
+  color: #d83b35;
   font-weight: bold;
   position: absolute;
   width: 43px;
@@ -2167,7 +2167,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .quickdownload > div:nth-child(1) {
-  background: #D83B35;
+  background: #d83b35;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2191,7 +2191,7 @@ main > .swiper-container .swiper-slide {
 
 .quickdownload > div:nth-child(1) .icon-mobile {
   background: white;
-  color: #D83B35;
+  color: #d83b35;
   font-weight: bold;
   position: absolute;
   width: 42px;
@@ -2301,7 +2301,7 @@ main > .swiper-container .swiper-slide {
 }
 
 #leftMenu .menuModule {
-  border: 1px solid #1D3662;
+  border: 1px solid #1d3662;
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 30px;
@@ -2354,8 +2354,8 @@ main > .swiper-container .swiper-slide {
 }
 
 #leftMenu .menuModule a.menuSelect {
-  background: #1F3258;
-  border-bottom: 1px solid #4E6CA8;
+  background: #1f3258;
+  border-bottom: 1px solid #4e6ca8;
   overflow: hidden;
   position: relative;
   display: -webkit-box;
@@ -2453,7 +2453,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list + button, .list + a {
-  color: #1E85EC;
+  color: #1e85ec;
   float: right;
   font-size: 30px;
   text-align: right;
@@ -2471,13 +2471,13 @@ main > .swiper-container .swiper-slide {
 .list .listTag .icon-books {
   position: absolute;
   right: 5px;
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 24px;
 }
 
 .list .listTag button {
   line-height: 30px;
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   padding: 0 10px;
   border-top-left-radius: 10px;
@@ -2485,7 +2485,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listTag button.active {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .list .listHeader div, .list .listBody div {
@@ -2519,7 +2519,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listHeader {
-  background: #4E6CA8;
+  background: #4e6ca8;
   color: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2532,7 +2532,7 @@ main > .swiper-container .swiper-slide {
   font-size: 12px;
   position: absolute;
   right: 12px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .list .listHeader div {
@@ -2571,7 +2571,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div div {
-  color: #1F3258;
+  color: #1f3258;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2598,7 +2598,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div div.reject {
-  color: #D83B35;
+  color: #d83b35;
   font-weight: bold;
 }
 
@@ -2632,7 +2632,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .tip {
-  color: #1F3258;
+  color: #1f3258;
 }
 
 .statementPage .list .listHeader div,
@@ -2674,7 +2674,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .pagination a {
-  color: #1E85EC;
+  color: #1e85ec;
   float: left;
   width: 30px;
   height: 30px;
@@ -2693,12 +2693,12 @@ main > .swiper-container .swiper-slide {
 }
 
 .pagination a.active {
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
 }
 
 .pagination a:hover:not(.active) {
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
 }
 
@@ -2772,7 +2772,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .cashBar .cashLine {
-  background: #1E85EC;
+  background: #1e85ec;
   position: absolute;
   height: 100%;
   border-radius: 30px;
@@ -2789,7 +2789,7 @@ main > .swiper-container .swiper-slide {
 
 .cashBar .cashLine input {
   height: 10px;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 30px;
   border: 0;
   position: absolute;
@@ -2800,7 +2800,7 @@ main > .swiper-container .swiper-slide {
   width: 15px;
   height: 15px;
   border-radius: 20px;
-  background: #1E85EC;
+  background: #1e85ec;
   border: 2px solid #fab617;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2813,7 +2813,7 @@ main > .swiper-container .swiper-slide {
 .cashBar .cashLine .cashPoint span {
   margin-top: -24px;
   font-size: 12px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .infoModule {
@@ -2822,7 +2822,7 @@ main > .swiper-container .swiper-slide {
   margin-bottom: 10px;
   padding-bottom: 10px;
   position: relative;
-  color: #1F3258;
+  color: #1f3258;
 }
 
 .infoModule > button.icon-arrow-left2 {
@@ -2835,7 +2835,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -2944,7 +2944,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .subModuleList .subModule .subModuleTitle div span:last-child {
-  color: #D83B35;
+  color: #d83b35;
   font-size: 12px;
 }
 
@@ -2995,7 +2995,7 @@ main > .swiper-container .swiper-slide {
 
 .subModuleList .subModule .subModuleBody ul li a {
   border-radius: 30px;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   padding: 5px;
   text-align: center;
   height: 54px;
@@ -3014,7 +3014,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .subModuleList .subModule .subModuleBody ul li a.icon-library {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 44px;
 }
 
@@ -3068,7 +3068,7 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .platformName .icon {
@@ -3197,7 +3197,7 @@ main > .swiper-container .swiper-slide {
   right: -10px;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 #popup {
@@ -3350,7 +3350,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .Submit .icon.icon-information-solid, .Cancel .icon.icon-information-solid, .uploadSuccess .icon.icon-information-solid, .updateSuccess .icon.icon-information-solid, .Success .icon.icon-information-solid, .tokyc .icon.icon-information-solid, .addBankpop .icon.icon-information-solid, .changePassWordpop .icon.icon-information-solid, .editSuccess .icon.icon-information-solid, .loackAmount .icon.icon-information-solid {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .Submit .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .loackAmount .title {
@@ -3386,7 +3386,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .Submit .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
-  color: #1E85EC;
+  color: #1e85ec;
   font-weight: bold;
 }
 
@@ -3405,7 +3405,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .Success .progressBarModule .turnover span {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .title {
@@ -3425,7 +3425,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .smallList ul li:nth-child(odd) {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .smallList ul li:first-child {
@@ -3487,7 +3487,7 @@ main > .swiper-container .swiper-slide {
   max-width: 80%;
   min-width: 75%;
   border-radius: 15px;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   height: 250px;
   margin: 40px 0 10px;
   display: -webkit-box;
@@ -3505,7 +3505,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img .icon {
   font-size: 48px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img img {
@@ -3535,7 +3535,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -3554,7 +3554,7 @@ main > .swiper-container .swiper-slide {
 
 .slipInfo button.icon {
   font-size: 24px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .slipInfo .smallList li {
@@ -3751,7 +3751,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .indexCasino .casino-item .title {
-  color: #1F3258;
+  color: #1f3258;
   font-size: 20px;
   font-weight: bold;
 }
@@ -3762,7 +3762,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .indexCasino .swiper-button-next::after, .indexCasino .swiper-button-prev::after {
-  color: #1F3258;
+  color: #1f3258;
 }
 
 .walletModule {
@@ -3869,7 +3869,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
-  color: #1E85EC;
+  color: #1e85ec;
   margin-left: 15px;
 }
 
@@ -3921,7 +3921,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .walletTransfer .walletModule .walletBalanceModule {
-  background: #1D3662;
+  background: #1d3662;
   font-weight: bold;
   margin-right: 0;
   padding: 30px;
@@ -3944,7 +3944,7 @@ main > .swiper-container .swiper-slide {
 
 .walletTransfer .walletModule .from span:nth-child(1), .walletTransfer .walletModule .to span:nth-child(1) {
   display: block;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .walletTransfer .walletModule .dropdown-item.active {
@@ -4095,7 +4095,7 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .addBank .addBankName .icon-plus {
@@ -4221,7 +4221,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .calculation > div:nth-child(odd) {
-  background: #1D3662;
+  background: #1d3662;
 }
 
 .calculation > div:nth-child(even) {
@@ -4234,7 +4234,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .calculation > div div:first-child {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .calculation > div span {
@@ -4354,7 +4354,7 @@ main > .swiper-container .swiper-slide {
 
 .quickSelect > div.inputBox.promoType button.orange:before, .quickSelect > div.promoType.inputBox-org button.orange:before, .quickSelect > div.promoType.inputBox-white button.orange:before, .quickSelect > div.promoType.inputBox-blue button.orange:before, .quickSelect > div.promoType.inputBox-gray button.orange:before, .quickSelect > div.promoType.inputBox-yellow button.orange:before, .quickSelect > div.inputBox.promoType button.red:before, .quickSelect > div.promoType.inputBox-org button.red:before, .quickSelect > div.promoType.inputBox-white button.red:before, .quickSelect > div.promoType.inputBox-blue button.red:before, .quickSelect > div.promoType.inputBox-gray button.red:before, .quickSelect > div.promoType.inputBox-yellow button.red:before, .quickSelect > div:first-child.promoType button.orange:before, .quickSelect > div:first-child.promoType button.red:before {
   content: '｜';
-  color: #1E85EC;
+  color: #1e85ec;
   position: absolute;
   left: -27.5px;
   top: -5px;
@@ -4450,7 +4450,7 @@ main > .swiper-container .swiper-slide {
   padding: 50px 0;
   border-radius: 15px;
   margin: auto;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .nodata:before {
@@ -4484,7 +4484,7 @@ main > .swiper-container .swiper-slide {
 .changePassWord .lastChange, .forgetPassWord .lastChange {
   width: calc(100% - 5px);
   padding-left: 5px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .changePassWord .lastChange span, .forgetPassWord .lastChange span {
@@ -4540,12 +4540,12 @@ main > .swiper-container .swiper-slide {
 }
 
 .profile > div div > span {
-  color: #1E85EC;
+  color: #1e85ec;
   margin-left: 5px;
 }
 
 .profile > div div:first-child {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .profile > div div:last-child {
@@ -4637,7 +4637,7 @@ main > .swiper-container .swiper-slide {
 
 .accountName {
   padding: 20px 70px 0;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .accountName span {
@@ -4646,7 +4646,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .accountName button {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .accountName .tip {
@@ -4786,7 +4786,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .personal .list .listHeader label {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .personal .list .listHeader > div:nth-child(2), .personal .list .listHeader > div:nth-child(3) {
@@ -4794,7 +4794,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .personal .list .functionMenu {
-  background: #1E85EC;
+  background: #1e85ec;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4842,7 +4842,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 16px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -4856,7 +4856,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp + span {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .otpBtn {
@@ -4886,7 +4886,7 @@ main > .swiper-container .swiper-slide {
   padding: 20px;
   background: white;
   border-radius: 10px;
-  color: #1E85EC;
+  color: #1e85ec;
   margin: 15px 0;
   position: relative;
 }
@@ -5018,9 +5018,9 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div:hover {
-  background: #E8E8E8;
-  -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
-          box-shadow: 0 0 0 3px #1E85EC inset;
+  background: #e8e8e8;
+  -webkit-box-shadow: 0 0 0 3px #1e85ec inset;
+          box-shadow: 0 0 0 3px #1e85ec inset;
 }
 
 .proList .btnGroup {
@@ -5050,7 +5050,7 @@ main > .swiper-container .swiper-slide {
   left: 50%;
   -webkit-transform: translateX(-50%) translateY(-50%) rotate(-20deg);
           transform: translateX(-50%) translateY(-50%) rotate(-20deg);
-  background: #E8E8E8;
+  background: #e8e8e8;
   border-radius: 20px;
   font-weight: bold;
   padding: 5px 15px;
@@ -5085,7 +5085,7 @@ main > .swiper-container .swiper-slide {
 
 .promotionsInfo .proData .rollover > div {
   margin-right: 20px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .promotionsInfo .proData .rollover > div:last-child {
@@ -5131,7 +5131,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .promotionsInfo .proData .bounsName {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .icon-icon32px_deposit {
@@ -5156,7 +5156,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .icon-icon32px_deposit .icon-friend:hover {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .icon-icon32px_deposit .icon-friend:before {
@@ -5230,7 +5230,7 @@ form {
 
 .slotList > div .brand:before, .newsList > div .brand:before {
   content: "";
-  border-color: #134DAE transparent transparent #134DAE;
+  border-color: #134dae transparent transparent #134dae;
   border-style: solid;
   border-width: 25px 45px;
   border-top-left-radius: 10px;
@@ -5327,7 +5327,7 @@ article img {
 article h1, article h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #1E85EC;
+  color: #1e85ec;
   font-weight: bold;
 }
 
@@ -5374,7 +5374,7 @@ article pre {
 
 .rdt + .icon-cross {
   margin-right: 0;
-  color: #D83B35;
+  color: #d83b35;
 }
 
 .rdt .inputBox, .rdt .inputBox-org, .rdt .inputBox-white, .rdt .inputBox-blue, .rdt .inputBox-gray, .rdt .inputBox-yellow {
@@ -5475,15 +5475,15 @@ iframe {
 }
 
 .progressBarModule .turnover {
-  color: #134DAE;
+  color: #134dae;
 }
 
 .progressBarModule .turnover span {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .progressBarModule .turnover button {
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   border-radius: 100%;
   padding: 4px;
@@ -5507,7 +5507,7 @@ iframe {
 }
 
 .progressBar .percentage {
-  color: #1E85EC;
+  color: #1e85ec;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
@@ -5515,7 +5515,7 @@ iframe {
 
 .progressBar .bar {
   height: 5px;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   border-radius: 10px;
   margin-right: 10px;
   -webkit-box-flex: 1;
@@ -5524,7 +5524,7 @@ iframe {
 }
 
 .progressBar .bar .progress {
-  background: #1E85EC;
+  background: #1e85ec;
   height: 100%;
 }
 
@@ -5659,7 +5659,7 @@ input:-webkit-autofill:active {
   display: none;
   margin-left: 5px;
   background: white;
-  color: #1E85EC;
+  color: #1e85ec;
   border-radius: 100%;
   padding: 1px;
   -webkit-box-pack: center;
@@ -5671,7 +5671,7 @@ input:-webkit-autofill:active {
 }
 
 .buttonBox button.active {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .buttonBox button.active .icon {
@@ -5768,7 +5768,7 @@ button.icon-books:hover:after {
 }
 
 input + .iconModule i.icon.icon-cross:before {
-  color: #D83B35;
+  color: #d83b35;
   font-size: 12px;
 }
 
@@ -5826,7 +5826,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .checkBankSlip.smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
   margin-left: 10px;
 }
 
@@ -6056,10 +6056,10 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-align: center;
           align-items: center;
   background: #fff;
-  border: 1px solid #5084E4;
+  border: 1px solid #5084e4;
   border-radius: 5px;
   overflow: hidden;
-  color: #5084E4;
+  color: #5084e4;
   font-size: 20px;
   margin: 20px auto 25px auto;
 }
@@ -6132,13 +6132,13 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .minAmount > div > div {
-  border: 1px solid #134DAE;
+  border: 1px solid #134dae;
   padding: 5px 10px;
-  background: #134DAE;
+  background: #134dae;
 }
 
 .minAmount > div > div:last-child {
-  color: #1E85EC;
+  color: #1e85ec;
   background: white;
 }
 
@@ -6198,11 +6198,11 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .colorInfo > div:first-child {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .colorInfo > div:first-child span {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .colorInfo > div:last-child {
@@ -6240,9 +6240,9 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .depositSlip .depositSlipList > div > div {
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   padding: 5px;
-  color: #1E85EC;
+  color: #1e85ec;
   text-align: right;
   border-bottom: 0;
 }
@@ -6277,7 +6277,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .breadcrumb ul .breadcrumb-item a {
-  color: #1E85EC;
+  color: #1e85ec;
   text-transform: capitalize;
 }
 
@@ -6394,7 +6394,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   left: -1px;
   width: calc(100% - 1px);
   background: #030c1b;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   margin-left: 0;
   overflow: hidden;
 }
@@ -6404,7 +6404,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-org .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-white .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-gray .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-yellow .dropdown .dropdown-container .dropdown-item:hover {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .transferModule .inputBox .dropdown span, .transferModule .inputBox-org .dropdown span, .transferModule .inputBox-white .dropdown span, .transferModule .inputBox-blue .dropdown span, .transferModule .inputBox-gray .dropdown span, .transferModule .inputBox-yellow .dropdown span {
@@ -7704,7 +7704,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #1F3258;
+  background: #1f3258;
   padding: 20px;
   border-radius: 15px;
   margin-bottom: 20px;
@@ -7838,13 +7838,13 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .subModuleListColumn > .subModule > div > button > div:first-child:before, .subModuleListColumn > .subModule > div > a > div:first-child:before {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 48px;
   margin: 0;
 }
 
 .subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > button:hover > div, .subModuleListColumn > .subModule > div > a.active > div, .subModuleListColumn > .subModule > div > a:hover > div {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .subModuleListColumn > .subModule > div > button.active > div.bank, .subModuleListColumn > .subModule > div > button:hover > div.bank, .subModuleListColumn > .subModule > div > a.active > div.bank, .subModuleListColumn > .subModule > div > a:hover > div.bank {
@@ -7852,8 +7852,8 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .subModuleListColumn > .subModule > div > button.active > div:first-child, .subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a.active > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
-  -webkit-box-shadow: 0px 0px 0px 6px #1E85EC inset;
-          box-shadow: 0px 0px 0px 6px #1E85EC inset;
+  -webkit-box-shadow: 0px 0px 0px 6px #1e85ec inset;
+          box-shadow: 0px 0px 0px 6px #1e85ec inset;
 }
 
 .subModuleListColumn > .subModule > div > button.active i, .subModuleListColumn > .subModule > div > a.active i {
@@ -7867,14 +7867,14 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .subModuleListColumn > .subModule > div > button:hover > div:first-child, .subModuleListColumn > .subModule > div > a:hover > div:first-child {
-  -webkit-box-shadow: 0px 0px 0px 6px #1E85EC inset;
-          box-shadow: 0px 0px 0px 6px #1E85EC inset;
+  -webkit-box-shadow: 0px 0px 0px 6px #1e85ec inset;
+          box-shadow: 0px 0px 0px 6px #1e85ec inset;
 }
 
 .subModuleListColumn > .subModule > div > button:hover > div:nth-child(n+2), .subModuleListColumn > .subModule > div > a:hover > div:nth-child(n+2) {
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .subModuleListColumn > .subModule input {
@@ -7898,7 +7898,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .subModuleListColumn > .subModule .txt-blue {
-  color: #5084E4;
+  color: #5084e4;
 }
 
 .subModuleListColumn > .subModule .subModuleContent {
@@ -7978,7 +7978,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .subModuleListColumn .bankAccount .smallList ul button, .subModuleListColumn .bankAccount .smallList ul a {
-  color: #1E85EC;
+  color: #1e85ec;
   margin-left: 10px;
 }
 
@@ -8037,7 +8037,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .upload_new .txt-blue {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .rdtPicker {
@@ -8082,7 +8082,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .vip .vipPage .eventList tr.title {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .vip .vipPage .eventList tr:last-child {
@@ -8100,7 +8100,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .vip .vipPage .eventList tr td {
@@ -8171,7 +8171,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   font-size: 18px;
   margin: 20px 0;
   font-weight: bold;
-  color: #1E85EC;
+  color: #1e85ec;
   width: 100%;
 }
 
@@ -8200,7 +8200,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 
 .vipLv > div {
   margin-top: 15px;
-  background: #1E85EC;
+  background: #1e85ec;
   padding: 5px 10px;
   border-radius: 5px;
 }
@@ -8282,15 +8282,15 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   text-transform: uppercase;
   font-size: 14px;
   background-color: #014c57;
-  color: #CAEAEF;
+  color: #caeaef;
   -webkit-transform: skew(-15deg);
           transform: skew(-15deg);
   white-space: nowrap;
 }
 
 .leaderboard .content .topTab > button:hover, .leaderboard .content .topTab > button.active {
-  color: #014C57;
-  background-color: #CAEAEF;
+  color: #014c57;
+  background-color: #caeaef;
   -webkit-transition: .2s;
   transition: .2s;
 }
@@ -8313,7 +8313,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   background-color: rgba(1, 76, 87, 0.75);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
-  border: 1px solid #CAEAEF;
+  border: 1px solid #caeaef;
   display: none;
   padding: 20px 15px;
   -webkit-box-orient: vertical;
@@ -8415,20 +8415,20 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   width: min-content;
   font-size: 10px;
   padding: 10px 20px;
-  background-color: #016F80;
-  color: #76A2A8;
+  background-color: #016f80;
+  color: #76a2a8;
   white-space: nowrap;
 }
 
 .leaderboard .content .rightModule .right .topTab > button:hover, .leaderboard .content .rightModule .right .topTab > button.active {
-  color: #014C57;
-  background-color: #CAEAEF;
+  color: #014c57;
+  background-color: #caeaef;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
 .leaderboard .content .rightModule .right .stitle {
-  color: #014C57;
+  color: #014c57;
   font-size: 20px;
   font-weight: bold;
 }
@@ -8488,7 +8488,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .leaderboard .content .rightModule .rankingList.eventList ul li:first-child {
-  color: #014C57;
+  color: #014c57;
 }
 
 .leaderboard .content .rightModule .rankingList.eventList ul li > div {
@@ -8627,11 +8627,11 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .leaderboard .content .rightModule .rankingList .rankScroll::-webkit-scrollbar-thumb {
-  background-color: #016F80;
+  background-color: #016f80;
 }
 
 .leaderboard .content .rightModule .rankingList .rankScroll::-webkit-scrollbar-button {
-  background-color: #016F80;
+  background-color: #016f80;
 }
 
 .leaderboard .content .rightModule .rankingList .rankScroll li {
@@ -8720,11 +8720,11 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .leaderboard .content .rightModule .rankingList::-webkit-scrollbar-thumb {
-  background-color: #016F80;
+  background-color: #016f80;
 }
 
 .leaderboard .content .rightModule .rankingList::-webkit-scrollbar-button {
-  background-color: #016F80;
+  background-color: #016f80;
 }
 
 .leaderboard .content .rightModule .dateSelector {
@@ -8762,12 +8762,12 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  background: #014C57;
+  background: #014c57;
   width: calc(100% - 20px);
   height: 10px;
   border-radius: 30px;
   margin: 69px 0 35px;
-  color: #014C57;
+  color: #014c57;
 }
 
 .leaderboard .content .rightModule .timeLine > div {
@@ -8783,7 +8783,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   content: "";
   width: 10px;
   height: 10px;
-  background: #76A2A8;
+  background: #76a2a8;
   border-radius: 30px;
   display: block;
 }
@@ -8818,7 +8818,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
   padding: 5px 0 5px 15px;
   background: #003b44;
   font-size: 14px;
-  color: #014C57;
+  color: #014c57;
   font-weight: bold;
   margin-left: -75px;
 }
@@ -8836,7 +8836,7 @@ html:not(.index) .swiper-container + .inside-title.icon-ow-casino:after {
 }
 
 .leaderboard .content .rightModule .timeLine > div > div > div {
-  color: #016F80;
+  color: #016f80;
 }
 
 .leaderboard .content .rightModule .btnGroup {

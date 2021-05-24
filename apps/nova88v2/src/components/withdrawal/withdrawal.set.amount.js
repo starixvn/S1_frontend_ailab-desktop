@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
-import { number_format, checkAmount, getAmountTip } from "../common/common";
+import PropTypes from "prop-types";
+import { number_format, checkAmount } from "../common/common";
 import { defActionType, defPanel } from "./withdrawal.reducer";
-import { popBoxContext, userInfoContext } from "../common/context";
+import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
 
-export default ({ dispatch, state, t, _isConvert }) => {
+const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	const { userInfo } = useContext(userInfoContext);
 
 	const EditAmount = Value => {
 		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
-
 		ValidAmount(value);
 		dispatch({
 			type: defActionType.EDIT_AMOUNT,
@@ -20,14 +19,25 @@ export default ({ dispatch, state, t, _isConvert }) => {
 	};
 
 	const ValidAmount = _amount => {
-		const result = checkAmount({
-			amount: _amount,
-			minAmount: state.withdrawalMin,
-			maxAmount: state.balanceData?.availableBalance,
-			_isConvert,
-			t,
-			maxAmountAllowUnlimit: false
-		});
+		let result = {};
+		if (state.isAmountLimited && _amount > state.withdrawalMax) {
+			result = {
+				status: 2,
+				msg: t("lbl_WithdrawalDailyReached")
+			};
+		} else {
+			result = checkAmount({
+				amount: _amount,
+				minAmount: state.withdrawalMin,
+				maxAmount: state.balanceData?.availableBalance,
+				_isConvert,
+				t,
+				maxAmountAllowUnlimit: false,
+				hintKey: "lbl_Insufficientbalance",
+				digits: 0
+			});
+		}
+
 		if (result.status !== 0) {
 			dispatch({
 				type: defActionType.CHECK_AMOUNT,
@@ -44,11 +54,15 @@ export default ({ dispatch, state, t, _isConvert }) => {
 		return result.status === 0;
 	};
 
+	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
+		min: number_format(state.withdrawalMin, _isConvert, 0),
+		max: state.isAmountLimited
+			? number_format(state.withdrawalMax, _isConvert, 0)
+			: t("lbl_Unlimited")
+	})}`;
+
 	const clickInfo = () => {
-		const _msg =
-			state.tip === "" || !state.tip
-				? getAmountTip(state.withdrawalMin, _isConvert, t)
-				: "";
+		const _msg = !state.tip ? withdrawalMinMaxLimitHint : "";
 		dispatch({
 			type: defActionType.CHECK_AMOUNT,
 			checked: null,
@@ -64,16 +78,25 @@ export default ({ dispatch, state, t, _isConvert }) => {
 		e.preventDefault();
 		const amountChecked = ValidAmount(state.amount);
 
-		if (state.selectedAccount.accountNo && amountChecked) {
+		if (
+			(state.selectedAccount.accountNo ||
+				state.selectedAccount.usdtAddress) &&
+			amountChecked
+		) {
 			dispatch({
 				type: defActionType.TO_OTHER_PANEL,
 				panel: defPanel.confirm
 			});
-		} else if (!state.selectedAccount.accountNo) {
+		} else if (
+			!state.selectedAccount.accountNo ||
+			state.selectedAccount.usdtAddress
+		) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.ErrorMsg,
-				message: t("lbl_SelectBank_Required"),
+				message: isUSDT
+					? t("lbl_Select_Crypto_Wallet")
+					: t("lbl_SelectBank_Required"),
 				btnBar: (
 					<div className="btnGroup">
 						<button className="btn-check" onClick={ClosePopBox}>
@@ -92,7 +115,9 @@ export default ({ dispatch, state, t, _isConvert }) => {
 					<div>
 						<div>{t("lbl_Balance")}</div>
 						<div>
-							{t(`Currency_${userInfo.currencyId}`)}
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
 							<span>
 								{number_format(
 									state.balanceData?.balance,
@@ -105,7 +130,9 @@ export default ({ dispatch, state, t, _isConvert }) => {
 					<div>
 						<div>{t("lbl_Deduction")}</div>
 						<div>
-							{t(`Currency_${userInfo.currencyId}`)}
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
 							<span>
 								{number_format(
 									state.balanceData?.deduction,
@@ -118,7 +145,9 @@ export default ({ dispatch, state, t, _isConvert }) => {
 					<div>
 						<div>{t("lbl_EligibleWithdrawalAmount")}</div>
 						<div>
-							{t(`Currency_${userInfo.currencyId}`)}
+							{userInfo.currencyId
+								? t(`Currency_${userInfo.currencyId}`)
+								: ""}
 							<span>
 								{number_format(
 									state.balanceData?.availableBalance,
@@ -142,6 +171,7 @@ export default ({ dispatch, state, t, _isConvert }) => {
 						onBlur={ValidAmount.bind(this, state.amount)}
 						isAmount={true}
 					/>
+					<div className="remainder">{withdrawalMinMaxLimitHint}</div>
 					<div className="btnGroup">
 						<button
 							className={state.checked ? "btn-check" : "gray"}
@@ -150,8 +180,24 @@ export default ({ dispatch, state, t, _isConvert }) => {
 							{t("lbl_Submit")}
 						</button>
 					</div>
+
+					{/* <div className="tip active">
+						Preferred currency can not be changed after
+						registration.
+					</div> */}
 				</form>
 			</div>
 		</div>
 	);
 };
+
+AmountPanel.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	state: PropTypes.objectOf(PropTypes.any).isRequired,
+	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	isUSDT: PropTypes.bool.isRequired
+};
+
+export default AmountPanel;

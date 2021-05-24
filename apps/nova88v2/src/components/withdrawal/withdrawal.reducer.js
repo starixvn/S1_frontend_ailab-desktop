@@ -10,7 +10,7 @@ export const defActionType = {
 	SET_KYC_STATUS: "SET_KYC_STATUS",
 	SET_KYC_DATA: "SET_KYC_DATA",
 	SET_LOADING: "SET_LOADING",
-	SET_WITHDRAWAL_MIN_AMOUNT: "SET_WITHDRAWAL_MIN_AMOUNT"
+	SET_WITHDRAWAL_AMOUNT_LIMIT: "SET_WITHDRAWAL_AMOUNT_LIMIT"
 };
 
 export const initState = {
@@ -22,7 +22,8 @@ export const initState = {
 	loading: true,
 	redirectPath: null,
 	panel: "amount",
-	withdrawalMin: 0
+	withdrawalMin: 0,
+	withdrawalMax: 0
 };
 
 export const defPanel = {
@@ -54,7 +55,7 @@ export function reducer(state, action) {
 			};
 
 		case defActionType.EDIT_AMOUNT:
-			_step = state.selectedAccount.accountNo ? 3 : 1;
+			_step = state.selectedAccount ? 3 : 1;
 			return {
 				...state,
 				amount: action.amount,
@@ -103,10 +104,12 @@ export function reducer(state, action) {
 				loading: action.loading
 			};
 
-		case defActionType.SET_WITHDRAWAL_MIN_AMOUNT:
+		case defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT:
 			return {
 				...state,
-				withdrawalMin: action.withdrawalMin
+				withdrawalMin: action.withdrawalMin,
+				withdrawalMax: action.withdrawalMax,
+				isAmountLimited: action.isAmountLimited
 			};
 
 		default:

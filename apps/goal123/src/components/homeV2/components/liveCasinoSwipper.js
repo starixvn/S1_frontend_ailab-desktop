@@ -1,31 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { defMenuLinks } from "../../layout/header.menu.def";
 import CustomSwipper from "../../common/customSwipper";
 
 const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
-	let defLiveCasinoSubMenu = defMenuLinks(langId)?.liveCasino?.subMenu;
+	const [startswiper, setStartswiper] = useState(false);
 
-	if (defLiveCasinoSubMenu?.length && productTpIds?.length) {
-		defLiveCasinoSubMenu = defLiveCasinoSubMenu.filter(subItem =>
-			productTpIds.includes(subItem.tpId)
-		);
+	let slides = defMenuLinks(langId)?.liveCasino?.subMenu;
+
+	if (slides?.length && productTpIds?.length) {
+		slides = slides.filter(subItem => productTpIds.includes(subItem.tpId));
 	}
 
-	const rows = defLiveCasinoSubMenu.map(item => {
-		const {
-			displayText,
-			listNpcImgUrl,
-			tpId,
-			gameId,
-			needLogin,
-			path
-		} = item;
+	useEffect(() => {
+		setTimeout(() => setStartswiper(true), 0);
+	}, []);
+
+	const rows = slides.map(item => {
+		const { listNpcImgUrl, tpId, gameId, needLogin, path } = item;
 
 		if (!listNpcImgUrl) return null;
 
 		return (
-			<div className="swiper-slide" key={`livecasino-${displayText}`}>
+			<div className="swiper-slide" key={`livecasino-${listNpcImgUrl}`}>
 				<button
 					onClick={() =>
 						clickItem({
@@ -37,46 +34,40 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 					}>
 					<div className="casino-item">
 						<img
-							src={require(`../../../styles/img/livecasino/${listNpcImgUrl}`)}
+							src={require(`../../../styles/img/liveCasinoNew/${listNpcImgUrl}`)}
 							alt={listNpcImgUrl}
 						/>
-
-						<div className="title">{displayText}</div>
 					</div>
 				</button>
 			</div>
 		);
 	});
 
-	if (defLiveCasinoSubMenu?.length)
-		return (
-			<div className="indexliveCasinoList">
-				<div>
-					<div className="title">
-						<i className="icon icon-gamecasino" />
-						{t("lbl_LiveCasino")}
-					</div>
-					<div className="indexCasino">
-						<CustomSwipper
-							withBtn={true}
-							withPagination={false}
-							config={{
-								autoplay: {
-									delay: 6500,
-									disableOnInteraction: false
-								},
-								slidesPerView: 5,
-								spaceBetween: 10,
-								slidesPerGroup: 1
-							}}>
-							{rows}
-						</CustomSwipper>
-					</div>
-				</div>
+	return (
+		<div>
+			<div className="title">
+				<i className="icon icon-gamecasino" />
+				{t("lbl_LiveCasino")}
 			</div>
-		);
 
-	return null;
+			<div className="indexCasino">
+				{startswiper && (
+					<CustomSwipper
+						withBtn={true}
+						withPagination={false}
+						config={{
+							autoplay: {
+								delay: 3500,
+								disableOnInteraction: false
+							},
+							slidesPerView: 3
+						}}>
+						{rows}
+					</CustomSwipper>
+				)}
+			</div>
+		</div>
+	);
 };
 
 LiveCasinoSwipper.defaultProps = {
