@@ -57,7 +57,13 @@ describe("render wallet dropdown items", () => {
 			],
 			onChange: jest.fn(),
 			clickSubmit: jest.fn(),
-			_isConvert: true
+			_isConvert: true,
+			clickInfo: jest.fn(),
+			onBlur: jest.fn(),
+			tip: "tip",
+			amount: "",
+			selectedToIdx: 1,
+			selectedFromIdx: 2
 		};
 
 		const { container } = render(<SetAmount {...fakeData} />);
@@ -88,7 +94,9 @@ describe("test function: onSelectWallet()", () => {
 			clickSubmit: jest.fn(),
 			_isConvert: true,
 			clickInfo: jest.fn(),
-			onBlur: jest.fn()
+			onBlur: jest.fn(),
+			tip: "tip",
+			amount: ""
 		};
 		const { container } = render(<SetAmount {...fakeData} />);
 		const dopdownItems = container.getElementsByClassName("dropdown-item");
@@ -115,7 +123,12 @@ describe("input value", () => {
 			],
 			EditAmount: jest.fn(),
 			onChange: jest.fn(),
-			amount: "100"
+			amount: "100",
+			selectedToIdx: 1,
+			selectedFromIdx: 2,
+			onBlur: jest.fn(),
+			tip: "tip",
+			_isConvert: true
 		};
 		const { container } = render(<SetAmount {...fakeData} />);
 		const input = container.getElementsByTagName("input")[0];

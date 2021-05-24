@@ -123,7 +123,7 @@ describe("click info icon", () => {
 	test("if click info icon, function-clickInfo() toHaveBeenCalled", () => {
 		const { container } = render(<ProfileEdit {...fakeData_2} />);
 		const allInfoIcons = container.getElementsByClassName(
-			"icon-information-solid"
+			"icon icon-information-solid"
 		);
 		const accName_infoIcon = allInfoIcons[0];
 
@@ -134,7 +134,7 @@ describe("click info icon", () => {
 	test("if click info icon, show tip text", () => {
 		const { container } = render(<ProfileEdit {...fakeData_2} />);
 		const allInfoIcon = container.getElementsByClassName(
-			"icon-information-solid"
+			"icon icon-information-solid"
 		);
 		const accName_infoIcon = allInfoIcon[0];
 
