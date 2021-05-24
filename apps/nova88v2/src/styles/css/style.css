@@ -4523,28 +4523,27 @@ input[type="file"] {
 #popup .pop .backupDomain {
   overflow: unset;
   background: white;
-  border-radius: 20px;
-  padding: 20px 0;
+  border-radius: 5px;
+  padding: 0 0 20px;
   position: relative;
   overflow: hidden;
   color: #b2b2b2;
 }
 
 #popup .pop .backupDomain .icon-close {
-  top: 15px;
+  top: 10px;
   right: 10px;
   z-index: 1;
+  color: white;
 }
 
 #popup .pop .backupDomain .poptit {
-  width: calc(100% - 60px);
-  text-align: center;
-  color: #5574A7;
+  width: calc(100% - 20px);
+  color: white;
   border-bottom: 1px solid #5574A7;
-  padding: 20px 30px;
-  font-size: 18px;
+  padding: 5px 10px;
+  font-size: 14px;
   font-weight: bold;
-  margin-bottom: 20px;
   top: 0;
   height: 25px;
   display: -webkit-box;
@@ -4553,15 +4552,11 @@ input[type="file"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  background: #5574A7;
 }
 
 #popup .pop .backupDomain .poptit + img {
   width: 380px;
-  border-radius: 15px;
-  margin-top: 65px;
   margin-bottom: 20px;
 }
 
@@ -6688,7 +6683,7 @@ input[type="file"] {
           justify-content: center;
 }
 
-.proList, .slotList {
+.proList, .slotList, .livecasino {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6698,7 +6693,7 @@ input[type="file"] {
   line-height: 20px;
 }
 
-.proList > div, .slotList > div {
+.proList > div, .slotList > div, .livecasino > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
@@ -6710,17 +6705,17 @@ input[type="file"] {
   position: relative;
 }
 
-.proList > div.active, .slotList > div.active {
+.proList > div.active, .slotList > div.active, .livecasino > div.active {
   opacity: 0.7;
 }
 
-.proList > div.active .claimed, .slotList > div.active .claimed {
+.proList > div.active .claimed, .slotList > div.active .claimed, .livecasino > div.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed {
+.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed, .livecasino > div .new, .livecasino > div .claimed {
   position: absolute;
   top: -10px;
   left: -10px;
@@ -6740,17 +6735,17 @@ input[type="file"] {
   font-weight: bold;
 }
 
-.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before {
+.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before, .livecasino > div .new:before, .livecasino > div .claimed:before {
   content: "NEW";
 }
 
-.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active {
+.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active, .livecasino > div .new.active, .livecasino > div .claimed.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .claimed, .slotList > div .claimed {
+.proList > div .claimed, .slotList > div .claimed, .livecasino > div .claimed {
   background: rgba(167, 3, 3, 0.8);
   width: 75px;
   height: 75px;
@@ -6758,26 +6753,26 @@ input[type="file"] {
           transform: rotate(-25deg);
 }
 
-.proList > div .claimed:before, .slotList > div .claimed:before {
+.proList > div .claimed:before, .slotList > div .claimed:before, .livecasino > div .claimed:before {
   content: "CLAIMED";
 }
 
-.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue {
+.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue, .livecasino > div .txt-dark, .livecasino > div .txt-darkBlue {
   font-weight: bold;
   margin: 15px 0;
 }
 
-.proList > div .txt-gray li, .slotList > div .txt-gray li {
+.proList > div .txt-gray li, .slotList > div .txt-gray li, .livecasino > div .txt-gray li {
   font-size: 12px;
   list-style: disc;
   margin-left: 16px;
 }
 
-.proList > div img, .slotList > div img {
+.proList > div img, .slotList > div img, .livecasino > div img {
   border-radius: 10px;
 }
 
-.proList .rollover, .slotList .rollover {
+.proList .rollover, .slotList .rollover, .livecasino .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6786,13 +6781,13 @@ input[type="file"] {
   margin: 10px 0;
 }
 
-.proList .rollover > div, .slotList .rollover > div {
+.proList .rollover > div, .slotList .rollover > div, .livecasino .rollover > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before {
+.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before, .livecasino .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
 }
@@ -7033,7 +7028,7 @@ form {
   text-align: left;
 }
 
-.slotList .icon-new {
+.slotList .icon-new, .livecasino .icon-new {
   background: #f77900;
   position: absolute;
   right: 25px;
@@ -7042,12 +7037,12 @@ form {
   border-radius: 5px;
 }
 
-.slotList .icon-new:before {
+.slotList .icon-new:before, .livecasino .icon-new:before {
   position: unset;
   color: white;
 }
 
-.slotList > div {
+.slotList > div, .livecasino > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 5 - 45px);
           flex: 0 0 calc(100% / 5 - 45px);
@@ -7055,19 +7050,19 @@ form {
   margin: 10px 7px;
 }
 
-.slotList > div .txt-darkBlue {
+.slotList > div .txt-darkBlue, .livecasino > div .txt-darkBlue {
   font-size: 12px;
   margin: 0;
 }
 
-.slotList > div .btnGroup {
+.slotList > div .btnGroup, .livecasino > div .btnGroup {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
 }
 
-.slotList > div .btnGroup button {
+.slotList > div .btnGroup button, .livecasino > div .btnGroup button {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -7075,18 +7070,18 @@ form {
   margin: 0 1px;
 }
 
-.slotList > div .btnGroup button:first-child {
+.slotList > div .btnGroup button:first-child, .livecasino > div .btnGroup button:first-child {
   background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
   background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
 }
 
-.slotList > div .brand {
+.slotList > div .brand, .livecasino > div .brand {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.slotList > div .brand:before {
+.slotList > div .brand:before, .livecasino > div .brand:before {
   content: "";
   border-color: #134DAE transparent transparent #134DAE;
   border-style: solid;
@@ -7099,7 +7094,7 @@ form {
           filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .brand span {
+.slotList > div .brand span, .livecasino > div .brand span {
   z-index: 1;
   position: absolute;
   top: 7px;
@@ -7108,7 +7103,7 @@ form {
   font-weight: bold;
 }
 
-.slotList > div .icon-star-full {
+.slotList > div .icon-star-full, .livecasino > div .icon-star-full {
   position: absolute;
   right: 20px;
   top: 20px;
@@ -7118,8 +7113,30 @@ form {
           filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
 }
 
-.slotList > div .icon-star-full.active {
+.slotList > div .icon-star-full.active, .livecasino > div .icon-star-full.active {
   color: #fab617;
+}
+
+.livecasinobanner {
+  width: auto;
+  float: left;
+  border-radius: 5px;
+}
+
+.livecasino {
+  padding: 0 0 0 40px;
+}
+
+.livecasino > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(100% / 3 - 10px);
+          flex: 0 0 calc(100% / 3 - 10px);
+  margin: 0 10px 10px 0;
+  padding: 0;
+}
+
+.livecasino > div img {
+  border-radius: 5px;
 }
 
 article {
@@ -11769,7 +11786,7 @@ canvas {
       -ms-flex: 1;
           flex: 1;
   font-size: 14px;
-  text-align: right;
+  text-align: center;
   height: 120px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -11814,7 +11831,6 @@ canvas {
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .liveVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .latestVideo + div .liveTv .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .upcomingmatches .team > div > div:not(.btnGroup).teamR, .newsVideo .newsList + div .liveTv .team > div > div:not(.btnGroup).teamR {
-  text-align: left;
   padding-left: 0;
   padding-right: 5px;
 }
