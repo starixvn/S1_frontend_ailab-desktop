@@ -29,19 +29,19 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 		// 	delay: 5000,
 		// 	disableOnInteraction: false
 		// },
-		navigation: {
-			nextEl: ".swiper-button-next",
-			prevEl: ".swiper-button-prev"
-		},
+		// navigation: {
+		// 	nextEl: ".swiper-button-next",
+		// 	prevEl: ".swiper-button-prev"
+		// },
 		getSwiper: obj => {
 			ref.current = obj;
-		},
-		renderPrevButton: () => (
-			<div className="swiper-button-prev" onClick={goPrev} />
-		),
-		renderNextButton: () => (
-			<div className="swiper-button-next" onClick={goNext} />
-		)
+		}
+		// renderPrevButton: () => (
+		// 	<div className="swiper-button-prev" onClick={goPrev} />
+		// ),
+		// renderNextButton: () => (
+		// 	<div className="swiper-button-next" onClick={goNext} />
+		// )
 	};
 
 	const handleOnMouseOverImg = imgName => {
