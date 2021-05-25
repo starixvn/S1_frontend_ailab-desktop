@@ -440,6 +440,7 @@ export default () => {
 						<TopQuickLink
 							lobbyImgList={lobbyImgList}
 							clickLobbyProvider={clickLobbyProvider}
+							activeProviderId={searchInfo.provider?.value}
 						/>
 						<div className="casinoSelect">
 							<Nav

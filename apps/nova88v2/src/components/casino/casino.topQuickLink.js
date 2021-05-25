@@ -3,7 +3,11 @@ import Swiper from "react-id-swiper";
 import PropTypes from "prop-types";
 import config from "../../config";
 
-const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
+const TopQuickLink = ({
+	lobbyImgList,
+	clickLobbyProvider,
+	activeProviderId
+}) => {
 	const [setSwiper] = useState(null);
 	const ref = useRef(null);
 	const [hoverImg, setHoverImg] = useState(null);
@@ -23,25 +27,25 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 	const params = {
 		slidesPerView: 9,
 		// centeredSlides: true,
-		loopFillGroupWithBlank: true,
 		// loop: true,
+		// loopFillGroupWithBlank: true,
 		// autoplay: {
 		// 	delay: 5000,
 		// 	disableOnInteraction: false
 		// },
-		// navigation: {
-		// 	nextEl: ".swiper-button-next",
-		// 	prevEl: ".swiper-button-prev"
-		// },
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev"
+		},
 		getSwiper: obj => {
 			ref.current = obj;
-		}
-		// renderPrevButton: () => (
-		// 	<div className="swiper-button-prev" onClick={goPrev} />
-		// ),
-		// renderNextButton: () => (
-		// 	<div className="swiper-button-next" onClick={goNext} />
-		// )
+		},
+		renderPrevButton: () => (
+			<div className="swiper-button-prev" onClick={goPrev} />
+		),
+		renderNextButton: () => (
+			<div className="swiper-button-next" onClick={goNext} />
+		)
 	};
 
 	const handleOnMouseOverImg = imgName => {
@@ -49,12 +53,21 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 	};
 
 	const Rows = lobbyImgList?.map(_item => {
+		const _srcImg =
+			hoverImg === _item.lobbyImgName ||
+			activeProviderId === _item.providerId
+				? `${_item.lobbyImgName}a`
+				: _item.lobbyImgName;
+
 		return (
 			<div
 				className="swiper-slide"
 				onClick={clickLobbyProvider.bind(this, _item.providerId)}
-				key={`slot_lobby_${_item.providerId}`}>
+				key={`slot_swiper_${_item.providerId}`}>
 				<button
+					className={
+						activeProviderId === _item.providerId ? "active" : ""
+					}
 					onMouseOver={handleOnMouseOverImg.bind(
 						this,
 						_item.lobbyImgName
@@ -63,9 +76,7 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 					onBlur={() => 0}
 					onFocus={() => 0}>
 					<img
-						src={`${config.cloudImgUrl}/SiteSkin/img/logo/${
-							_item.lobbyImgName
-						}${hoverImg === _item.lobbyImgName ? "a" : ""}.png`}
+						src={`${config.cloudImgUrl}/SiteSkin/img/logo/${_srcImg}.png`}
 						alt={_item.lobbyImgName}
 					/>
 					<div>{_item.lobbyDisplayName}</div>
@@ -86,9 +97,14 @@ const TopQuickLink = ({ lobbyImgList, clickLobbyProvider }) => {
 	);
 };
 
+TopQuickLink.defaultProps = {
+	activeProviderId: null
+};
+
 TopQuickLink.propTypes = {
 	lobbyImgList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	clickLobbyProvider: PropTypes.func.isRequired
+	clickLobbyProvider: PropTypes.func.isRequired,
+	activeProviderId: PropTypes.number
 };
 
 export default TopQuickLink;
