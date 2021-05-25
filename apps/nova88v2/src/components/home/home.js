@@ -35,43 +35,43 @@ import LatestVideo from "./latestVideo";
 import LiveScore from "./liveScore";
 import { _ACTION_TYPE } from "../../service/enterPage";
 
-const useGetBackupDomainList = ({ setPopBox, userInfo }) => {
-	useEffect(() => {
-		let isMounted = true;
+// const useGetBackupDomainList = ({ setPopBox, userInfo }) => {
+// 	useEffect(() => {
+// 		let isMounted = true;
 
-		if (userInfo.isLogin && userInfo.userName) {
-			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
-			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
-			if (isShowBackupDomain) {
-				api_site_GetSupportDomainList().then(res => {
-					if (
-						res.data.errorCode === 0 &&
-						isMounted &&
-						res.data.data.length > 0
-					) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.BackupDomain,
-							onClickClose: () => setPopBox({ isOpen: false }),
-							linkList: res.data.data
-						});
-					}
-				});
-			}
-		}
+// 		if (userInfo.isLogin && userInfo.userName) {
+// 			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
+// 			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
+// 			if (isShowBackupDomain) {
+// 				api_site_GetSupportDomainList().then(res => {
+// 					if (
+// 						res.data.errorCode === 0 &&
+// 						isMounted &&
+// 						res.data.data.length > 0
+// 					) {
+// 						setPopBox({
+// 							isOpen: true,
+// 							popBoxType: defPopBoxType.BackupDomain,
+// 							onClickClose: () => setPopBox({ isOpen: false }),
+// 							linkList: res.data.data
+// 						});
+// 					}
+// 				});
+// 			}
+// 		}
 
-		return () => {
-			isMounted = false;
-		};
-	}, [userInfo.isLogin, userInfo.userName, setPopBox, userInfo.langId]);
-};
+// 		return () => {
+// 			isMounted = false;
+// 		};
+// 	}, [userInfo.isLogin, userInfo.userName, setPopBox, userInfo.langId]);
+// };
 
 const IndexPage = ({ location }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
-	useGetBackupDomainList({ setPopBox, userInfo });
+	// useGetBackupDomainList({ setPopBox, userInfo });
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
