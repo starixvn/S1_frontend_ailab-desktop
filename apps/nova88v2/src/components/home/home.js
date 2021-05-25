@@ -169,48 +169,50 @@ const IndexPage = ({ location }) => {
 				}
 			};
 
-			const showsJoinSuccess = () => {
-				const closeJoinSuccess = () => {
-					setPopBox({ isOpen: false });
-				};
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.RegisterSuccess,
-					closeBtn: (
-						<button
-							className="icon icon-close"
-							onClick={closeJoinSuccess}
-						/>
-					),
-					btnBar: (
-						<div className="btnGroup">
-							<Link
-								className="blue"
-								to={`/${userInfo.langId}/${path.deposit.root}`}>
-								{t("lbl_DepositNow")}
-							</Link>
-							<Link
-								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}`}>
-								{t("lbl_UpdatePersonalDetail")}
-							</Link>
-						</div>
-					)
-				});
-			};
+			// const showsJoinSuccess = () => {
+			// 	const closeJoinSuccess = () => {
+			// 		setPopBox({ isOpen: false });
+			// 	};
+			// 	setPopBox({
+			// 		isOpen: true,
+			// 		popBoxType: defPopBoxType.RegisterSuccess,
+			// 		closeBtn: (
+			// 			<button
+			// 				className="icon icon-close"
+			// 				onClick={closeJoinSuccess}
+			// 			/>
+			// 		),
+			// 		btnBar: (
+			// 			<div className="btnGroup">
+			// 				<Link
+			// 					className="blue"
+			// 					to={`/${userInfo.langId}/${path.deposit.root}`}>
+			// 					{t("lbl_DepositNow")}
+			// 				</Link>
+			// 				<Link
+			// 					className="btn-check"
+			// 					to={`/${userInfo.langId}/${path.profile.root}`}>
+			// 					{t("lbl_UpdatePersonalDetail")}
+			// 				</Link>
+			// 			</div>
+			// 		)
+			// 	});
+			// };
 
 			const refeCookieName = `referral_${userInfo.userName}`;
-			const isJoinCurrently = location.state?.isJoin;
-			const clearLocationJoinState = () => {
-				navigate(`/${userInfo.langId}`, { state: null });
-			};
+			// const isJoinCurrently = location.state?.isJoin;
+			// const clearLocationJoinState = () => {
+			// 	navigate(`/${userInfo.langId}`, { state: null });
+			// };
 
-			if (isJoinCurrently) {
-				showsJoinSuccess();
-				clearLocationJoinState();
-			} else if (readCookie(refeCookieName) === "1") {
+			// if (isJoinCurrently) {
+			// navigate(`/${userInfo.langId}/${path.deposit.root}`);
+			// showsJoinSuccess();
+			// clearLocationJoinState();
+			if (readCookie(refeCookieName) === "1") {
 				showDepositPopBox();
 			}
+			// }
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
