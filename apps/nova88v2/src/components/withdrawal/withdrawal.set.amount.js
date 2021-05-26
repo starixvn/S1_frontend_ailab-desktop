@@ -163,7 +163,7 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 						className="inputBox-white"
 						value={state.amount}
 						onChange={e => EditAmount(e.target.value)}
-						clickInfo={clickInfo}
+						// clickInfo={clickInfo}
 						title={t("lbl_Amount")}
 						checked={state.checked ?? null}
 						tip={state.tip}
@@ -171,7 +171,9 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 						onBlur={ValidAmount.bind(this, state.amount)}
 						isAmount={true}
 					/>
-					<div className="remainder">{withdrawalMinMaxLimitHint}</div>
+					<div className="tip active">
+						{withdrawalMinMaxLimitHint}
+					</div>
 					<div className="btnGroup">
 						<button
 							className={state.checked ? "btn-check" : "gray"}
