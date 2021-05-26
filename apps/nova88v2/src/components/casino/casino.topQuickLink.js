@@ -27,7 +27,7 @@ const TopQuickLink = ({
 	const params = {
 		slidesPerView: 9,
 		// centeredSlides: true,
-		// loop: true,
+		loop: true,
 		// loopFillGroupWithBlank: true,
 		// autoplay: {
 		// 	delay: 5000,
@@ -52,7 +52,7 @@ const TopQuickLink = ({
 		setHoverImg(`${imgName}`);
 	};
 
-	const Rows = lobbyImgList?.map(_item => {
+	const Rows = [...lobbyImgList, ...lobbyImgList]?.map((_item, idx) => {
 		const _srcImg =
 			hoverImg === _item.lobbyImgName ||
 			activeProviderId === _item.providerId
@@ -63,7 +63,7 @@ const TopQuickLink = ({
 			<div
 				className="swiper-slide"
 				onClick={clickLobbyProvider.bind(this, _item.providerId)}
-				key={`slot_swiper_${_item.providerId}`}>
+				key={`slot-swiper-${_item.providerId}-${idx}`}>
 				<button
 					className={
 						activeProviderId === _item.providerId ? "active" : ""
