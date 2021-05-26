@@ -6,16 +6,14 @@ import Dropdown from "../../common/dropdown";
 import ShortcutAmountList from "./shortcutAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
 import { defDepositChannel, defDepositChannelIdList } from "../depositnew.def";
-import ClipboardJS from "../../../lib/clipboard.min";
+// import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
 import config from "../../../config";
 
 const LocalBankForm = ({
 	t,
 	userInfo,
-	// setPopBox,
 	depositType,
-	// defPopBoxType,
 	_isConvert,
 	localBankGroupList,
 	formInfo,
@@ -102,8 +100,7 @@ const LocalBankForm = ({
 
 	useEffect(() => {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const _clipboard = new ClipboardJS(".copyBtn");
-
+		// const _clipboard = new ClipboardJS(".copyBtn");
 		if (localBankGroupList.some(item => item.sysId === sysIdForRecord)) {
 			const gIdx = localBankGroupList.findIndex(
 				item => item.sysId === sysIdForRecord
@@ -113,36 +110,7 @@ const LocalBankForm = ({
 		} else if (localBankGroupList.length > 0) {
 			onChangeBankInfo(localBankGroupList[0]);
 		}
-
-		// const checkUserName = () => {
-		// 	const { isLogin, accountName, phoneNo, email } = userInfo;
-
-		// 	if (
-		// 		isLogin &&
-		// 		((!accountName && accountName !== undefined) ||
-		// 			(!phoneNo && phoneNo !== undefined) ||
-		// 			(!email && email !== undefined))
-		// 	) {
-		// 		setPopBox({
-		// 			isOpen: true,
-		// 			popBoxType: defPopBoxType.UpdateProfile,
-		// 			title: t("lbl_ImportantNote"),
-		// 			content: t("lbl_UpdatePersonalInfoDeposit"),
-		// 			btnBar: (
-		// 				<div className="btnGroup">
-		// 					<Link
-		// 						className="btn-check"
-		// 						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
-		// 						{t("lbl_UpdatePersonalDetail")}
-		// 					</Link>
-		// 				</div>
-		// 			)
-		// 		});
-		// 	}
-		// };
-
 		getBankInfo();
-		// checkUserName();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -419,9 +387,7 @@ LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string.isRequired,
-	// defPopBoxType: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
-	// setPopBox: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
