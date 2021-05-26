@@ -83,6 +83,10 @@ button {
   transition: 0.7s;
 }
 
+body, html {
+  height: 100%;
+}
+
 html.Newtheme {
   width: 100%;
   background: #f3f3f3;
@@ -1167,7 +1171,7 @@ html.Newtheme main section {
 }
 
 html.Newtheme main section.inside {
-  height: calc(100% - 50px);
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4186,6 +4190,142 @@ html.Newtheme .indexliveCasinoList > div {
 
 html.Newtheme .indexliveCasinoList > div:nth-child(2) {
   width: 40%;
+}
+
+html.Newtheme .indexliveCasinoList.topten > div {
+  width: 385px;
+}
+
+html.Newtheme .indexliveCasinoList.topten > div:nth-child(1) {
+  width: 630px;
+}
+
+html.Newtheme .indexliveCasinoList.topten .indexJackpot {
+  position: relative;
+}
+
+html.Newtheme .indexliveCasinoList.topten .indexJackpot > div {
+  position: absolute;
+  bottom: calc(50% - 70px);
+  right: calc(50% - 132px);
+  width: 260px;
+  text-align: right;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+}
+
+html.Newtheme .indexliveCasinoList.topten .indexJackpot > div div:first-child {
+  font-size: 22px;
+  margin: auto auto auto 0;
+}
+
+html.Newtheme .indexliveCasinoList.topten .indexJackpot > div div:nth-child(n+2) {
+  font-size: 22px;
+  width: 16px;
+  height: 30px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+html.Newtheme .indexliveCasinoList.topten .indexJackpot > div div:nth-child(n+2) span {
+  word-break: break-word;
+  position: absolute;
+  left: 0;
+}
+
+html.Newtheme .indexliveCasinoList.topten .indexJackpot > div div:nth-child(n+2) span.active {
+  -webkit-animation: jpotxt 2s infinite;
+          animation: jpotxt 2s infinite;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner .title {
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffd34f), to(#ffc34d));
+  background: linear-gradient(to bottom, #ffd34f 0%, #ffc34d 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 15px;
+  border-radius: 5px 5px 0 0;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner .title img {
+  margin-right: 10px;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner img {
+  width: 35px;
+  margin: 0 5px;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul {
+  height: 180px;
+  overflow-y: scroll;
+  border-radius: 0 0 5px 5px;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul li:nth-child(even) {
+  background: #284985;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul li:nth-child(odd) {
+  background: #4e6ca8;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul li > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul li .rankOrder {
+  color: white;
+  margin-right: 10px;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul li .rankOrder img {
+  margin-right: 10px;
+  width: auto;
+  height: 50px;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul li .rankMoney {
+  color: #fab617;
+  font-weight: bold;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+html.Newtheme .indexliveCasinoList.topten .topWinner ul li .rankMoney img {
+  margin-right: 10px;
+  width: 20px;
 }
 
 html.Newtheme .indexJackpot {
