@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import Dropdown from "../../common/dropdown";
@@ -13,9 +13,9 @@ import config from "../../../config";
 const LocalBankForm = ({
 	t,
 	userInfo,
-	setPopBox,
+	// setPopBox,
 	depositType,
-	defPopBoxType,
+	// defPopBoxType,
 	_isConvert,
 	localBankGroupList,
 	formInfo,
@@ -114,36 +114,35 @@ const LocalBankForm = ({
 			onChangeBankInfo(localBankGroupList[0]);
 		}
 
-		const checkUserName = () => {
-			const { isLogin, accountName, phoneNo, email } = userInfo;
+		// const checkUserName = () => {
+		// 	const { isLogin, accountName, phoneNo, email } = userInfo;
 
-			if (
-				isLogin &&
-				((!accountName && accountName !== undefined) ||
-					(!phoneNo && phoneNo !== undefined) ||
-					(!email && email !== undefined))
-			) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.UpdateProfile,
-					title: t("lbl_ImportantNote"),
-					content: t("lbl_UpdatePersonalInfoDeposit"),
-					btnBar: (
-						<div className="btnGroup">
-							<Link
-								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
-								{t("lbl_UpdatePersonalDetail")}
-							</Link>
-						</div>
-					)
-				});
-			}
-		};
+		// 	if (
+		// 		isLogin &&
+		// 		((!accountName && accountName !== undefined) ||
+		// 			(!phoneNo && phoneNo !== undefined) ||
+		// 			(!email && email !== undefined))
+		// 	) {
+		// 		setPopBox({
+		// 			isOpen: true,
+		// 			popBoxType: defPopBoxType.UpdateProfile,
+		// 			title: t("lbl_ImportantNote"),
+		// 			content: t("lbl_UpdatePersonalInfoDeposit"),
+		// 			btnBar: (
+		// 				<div className="btnGroup">
+		// 					<Link
+		// 						className="btn-check"
+		// 						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
+		// 						{t("lbl_UpdatePersonalDetail")}
+		// 					</Link>
+		// 				</div>
+		// 			)
+		// 		});
+		// 	}
+		// };
 
 		getBankInfo();
-		checkUserName();
-
+		// checkUserName();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -420,9 +419,9 @@ LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string.isRequired,
-	defPopBoxType: PropTypes.objectOf(PropTypes.any).isRequired,
+	// defPopBoxType: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
-	setPopBox: PropTypes.func.isRequired,
+	// setPopBox: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,

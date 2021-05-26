@@ -55,14 +55,16 @@ export default ({ onClickClose, linkList }) => {
 	});
 
 	const closeAndDontShowAgain = () => {
-		console.log("do");
 		onClickClose();
 		setCookie(settingCookie, "1", 1);
 	};
 
 	return (
 		<div className="backupDomain active">
-			<button className="icon icon-close" onClick={onClickClose} />
+			<button
+				className="icon icon-close"
+				onClick={closeAndDontShowAgain}
+			/>
 			<div className="poptit">{t("lbl_nova88_backup_website")}</div>
 			<img
 				src={`${config.bannerImgUrl}/img/backupDomain/backupDomain_${userInfo.langId}.jpg`}

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { navigate, useLocation } from "@reach/router";
+import { navigate, useLocation, Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import {
 	loadingContext,
@@ -18,8 +18,10 @@ import {
 	getUrlParameter,
 	setLocalStorage,
 	getLocalStorage,
-	removeLocalStorage
+	removeLocalStorage,
+	readCookie
 } from "../common/common";
+import { api_site_GetSupportDomainList } from "../../service/api/site";
 import usePopBox from "../hook/usePopBox";
 
 import useDeposit from "./hook/useDeposit";
@@ -44,7 +46,6 @@ const Depositnew = () => {
 	const depositInfoStorage = getLocalStorage("nova88depositquery");
 	const parameterType = getUrlParameter("type");
 	const location = useLocation();
-
 	const isMountedRef = useRef(null);
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -439,6 +440,67 @@ const Depositnew = () => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		let isMounted = true;
+
+		const checkUserInfo = () => {
+			const { isLogin, accountName, phoneNo, email } = userInfo;
+			if (
+				isLogin &&
+				((!accountName && accountName !== undefined) ||
+					(!phoneNo && phoneNo !== undefined) ||
+					(!email && email !== undefined))
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.UpdateProfile,
+					title: t("lbl_ImportantNote"),
+					content: t("lbl_UpdatePersonalInfoDeposit"),
+					btnBar: (
+						<div className="btnGroup">
+							<Link
+								className="btn-check"
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
+								{t("lbl_UpdatePersonalDetail")}
+							</Link>
+						</div>
+					)
+				});
+			}
+		};
+
+		if (userInfo.isLogin && userInfo.userName) {
+			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
+			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
+			const closeBackupThenCheckInfo = () => {
+				setPopBox({ isOpen: false });
+				checkUserInfo();
+			};
+			if (isShowBackupDomain) {
+				api_site_GetSupportDomainList().then(res => {
+					if (
+						res.data.errorCode === 0 &&
+						isMounted &&
+						res.data.data.length > 0
+					) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.BackupDomain,
+							onClickClose: () => closeBackupThenCheckInfo(),
+							linkList: res.data.data
+						});
+					}
+				});
+			} else {
+				checkUserInfo();
+			}
+		}
+
+		return () => {
+			isMounted = false;
+		};
+	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
 	if (loading || !isInitDataDone) return null;
 
