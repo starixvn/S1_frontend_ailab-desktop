@@ -123,16 +123,12 @@ export const GET_ENTER_PAGE_URL = (
 	const _matchid = matchid || "";
 	const _betType = betType ? `&betType=${betType}` : "";
 	const _errorPageUrl = errorPageUrl(langId);
-
+	let urlSpecialPattern = "";
 	if (tpId === productList.sportBti.tpId) {
-		return `${
-			config.openURL
-		}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&errorUrl=${_errorPageUrl}&gameType=sports${
-			isLogin ? "" : "&fun=1"
-		}`;
+		urlSpecialPattern = `&gameType=sports${isLogin ? "" : "&fun=1"}`;
 	}
 
-	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}`;
+	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}${urlSpecialPattern}`;
 };
 
 const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {
