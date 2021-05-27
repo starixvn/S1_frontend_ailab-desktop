@@ -1,5 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import { navigate } from "@reach/router";
+import path from "../../router";
+import { defNav } from "../casino/casino.def";
 
 import { getCurrencyCode } from "../common/common";
 
@@ -31,7 +34,13 @@ const Jackpot = ({ t, userInfo }) => {
 	}, [currencyId]);
 
 	return (
-		<div className="bannerS">
+		<div
+			className="bannerS"
+			onClick={() =>
+				navigate(
+					`/${userInfo.langId}/${path.casino.root}?tab=${defNav.PROMO.key}`
+				)
+			}>
 			<div className="jpot">
 				<div>
 					<div>{t(`Currency_${currencyId}`)}</div>

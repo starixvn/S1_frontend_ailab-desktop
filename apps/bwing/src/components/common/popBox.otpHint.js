@@ -7,7 +7,7 @@ export default ({ btnBar }) => {
 		<div className="editSuccess active">
 			<div className="icon icon-icon32px_notification" />
 			<div className="title">{t("lbl_ImportantNote")}</div>
-			<div className="title-lightgray">{t("msg_OTPHint")}</div>
+			<div className="txt-lightgray">{t("msg_OTPHint")}</div>
 			{btnBar}
 		</div>
 	);

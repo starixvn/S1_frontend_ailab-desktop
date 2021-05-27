@@ -75,11 +75,15 @@ const defPlatform = [
 	{
 		...productList.liveCasino_n2live,
 		imgName: "n2live"
+	},
+	{
+		...defCasinoProviders.PT,
+		imgName: "playtech"
+	},
+	{
+		...productList.sportBti,
+		imgName: "bti"
 	}
-	// {
-	// 	...defCasinoProviders.PT,
-	// 	imgName: "playtech"
-	// }
 ];
 
 const Platform = ({ isLogin, productTpIds }) => {

@@ -95,16 +95,38 @@ const IndexPage = ({ location }) => {
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
-		if (
-			userInfo.isLogin === false &&
-			isDateRange(null, "2021/05/18 23:59:59") &&
-			(userInfo.langId === "en" || userInfo.langId === "cs")
-		) {
+		const cookiePerDay = `perDay_cookie`;
+		const isShowPerDayPopBox = readCookie(cookiePerDay) !== "1";
+
+		const showRankingPopBox = () => {
+			if (
+				userInfo.isLogin === false &&
+				isDateRange(null, "2021/05/18 23:59:59")
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.RankingWinner,
+					onClickClose: () => setPopBox({ isOpen: false })
+				});
+			}
+		};
+
+		const clickClosePerDay = () => {
+			setPopBox({ isOpen: false });
+			showRankingPopBox();
+		};
+
+		if (userInfo.isLogin === false && isShowPerDayPopBox) {
 			setPopBox({
 				isOpen: true,
-				popBoxType: defPopBoxType.RankingWinner,
-				onClickClose: () => setPopBox({ isOpen: false })
+				popBoxType: defPopBoxType.PerDay,
+				onClickClose: () => clickClosePerDay()
 			});
+			setCookie(cookiePerDay, "1", 1);
+		}
+
+		if (!isShowPerDayPopBox) {
+			showRankingPopBox();
 		}
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 

@@ -32,6 +32,7 @@ import defPopBoxType from "./defPopBoxType";
 import RankingWinner from "./popBox.rankingWinner";
 import DepositUploadBankSlip from "./popBox.depositUploadBankSlip";
 import SuccessMySteryBox from "./popBox.successMySteryBox";
+import PerDay from "./popBox.perDay";
 import BackupDomain from "./popBox.backupDomain";
 
 export default () => {
@@ -265,6 +266,14 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.PerDay:
+			content = (
+				<PerDay
+					onClickClose={popBox.onClickClose}
+					langId={popBox.langId}
+				/>
+			);
+			break;
 		case defPopBoxType.BackupDomain:
 			content = (
 				<BackupDomain

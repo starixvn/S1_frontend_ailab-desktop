@@ -120,6 +120,7 @@ export default ({ t, userInfo }) => {
 			if (userInfo.isLogin !== true) {
 				LoginPopBox();
 			} else {
+				console.log("go casino");
 				SET_CASINO_ENTER_PAGE({
 					tpId,
 					gameId,

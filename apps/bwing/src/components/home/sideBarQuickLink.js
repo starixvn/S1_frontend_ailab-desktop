@@ -5,23 +5,16 @@ import zaloImg from "../../styles/img/zalo.png";
 
 export default () => {
 	const { t } = useTranslation();
-	const [active, setActive] = useState(false);
-
-	const activeToggleHandler = () => {
-		setActive(prev => !prev);
-	};
 
 	const openLiveChat = () => {
 		window.LiveChatWidget.call("maximize");
 	};
 
 	return (
-		<div className={`quickLink${active ? " active" : ""}`}>
+		<div className="quickLink">
 			<div>
 				<button className="icon icon-chat" onClick={openLiveChat} />
-				<i
-					className="icon icon-contactIcon"
-					onClick={activeToggleHandler}>
+				<i className="icon icon-contactIcon">
 					{t("lbl_ContactUs").toUpperCase()}
 				</i>
 			</div>

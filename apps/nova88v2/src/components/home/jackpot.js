@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import { navigate } from "@reach/router";
+import path from "../../router";
+import { defNav } from "../casino/casino.def";
 import useInterval from "../hook/useInterval";
 import { getCurrencyCode, uuidv4 } from "../common/common";
 import countryCode from "../../datas/countryCode";
@@ -68,7 +71,11 @@ export default function HomeJackpot({ t, userInfo }) {
 
 			<span style={{ display: "none" }} id="jpot-id" ref={ref} />
 
-			<Jackpot value={currentText} label={t(`Currency_${currencyId}`)} />
+			<Jackpot
+				value={currentText}
+				label={t(`Currency_${currencyId}`)}
+				langId={userInfo.langId}
+			/>
 		</div>
 	);
 }
@@ -103,7 +110,7 @@ const isNumber = val => {
 	return rex.test(val);
 };
 
-export const Jackpot = ({ label, value }) => {
+export const Jackpot = ({ label, value, langId }) => {
 	const [list, setList] = useState([]);
 
 	const [jackpotItemList, setJackpotItemList] = useState([]);
@@ -161,7 +168,13 @@ export const Jackpot = ({ label, value }) => {
 	if (jackpotItemList?.length <= 0) return null;
 
 	return (
-		<div className="jpot">
+		<div
+			className="jpot"
+			onClick={() =>
+				navigate(
+					`/${langId}/${path.casino.root}?tab=${defNav.PROMO.key}`
+				)
+			}>
 			<div className="number">
 				<div>{label}</div>
 
@@ -179,7 +192,8 @@ export const Jackpot = ({ label, value }) => {
 
 Jackpot.propTypes = {
 	label: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired
+	value: PropTypes.string.isRequired,
+	langId: PropTypes.string.isRequired
 };
 
 const JackpotItem = ({ item }) => {

@@ -9,7 +9,14 @@ import defPopBoxType from "../common/defPopBoxType";
 import { defActionType } from "./withdrawal.reducer";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
 
-export default ({ dispatch, state, refreshData, KycCheck, isUSDT }) => {
+export default ({
+	dispatch,
+	state,
+	refreshData,
+	KycCheck,
+	isUSDT,
+	GetDailyWithdrawalLimit
+}) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -171,6 +178,7 @@ export default ({ dispatch, state, refreshData, KycCheck, isUSDT }) => {
 						refreshData={refreshData}
 						KycCheck={KycCheck}
 						isUSDT={isUSDT}
+						GetDailyWithdrawalLimit={GetDailyWithdrawalLimit}
 					/>
 				)}
 			</div>
