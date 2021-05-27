@@ -6215,7 +6215,7 @@ html.Newtheme .livelobbyList .mask {
 
 html.Newtheme .livelobbyList .mask button {
   background: #fab617;
-  padding: 5px 10px;
+  padding: 10px 40px;
   border-radius: 5px;
   font-size: 16px;
   font-weight: bold;
@@ -6344,6 +6344,9 @@ html.Newtheme .fishinglobbyList .mask {
 }
 
 html.Newtheme .fishinglobbyList .mask button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   background: #284985;
   padding: 10px 20px;
   border-radius: 5px;

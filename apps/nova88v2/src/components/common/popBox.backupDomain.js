@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
-
 import { userInfoContext } from "./context";
 import { setCookie, deleteCookie } from "./common";
+import config from "../../config";
 
 export default ({ onClickClose, linkList }) => {
 	const isMountedRef = useRef(null);
@@ -30,11 +30,6 @@ export default ({ onClickClose, linkList }) => {
 		});
 	};
 
-	// let imgSrc = null;
-	// try {
-	// 	imgSrc = `${config.cloudImgUrl}/SiteSkin/img/backupimg_${userInfo.langId}.jpg`;
-	// } catch (error) {}
-
 	const linksLayout = linkList?.map(_link => {
 		const _linkValue = _link.domainName;
 
@@ -48,7 +43,7 @@ export default ({ onClickClose, linkList }) => {
 		};
 
 		return (
-			<div className="url">
+			<div className="url" key={`domainList-${_link.domainName}`}>
 				{_linkValue}
 				<button
 					className="copyurl"
@@ -63,8 +58,18 @@ export default ({ onClickClose, linkList }) => {
 		<div className="backupDomain active">
 			<button className="icon icon-close" onClick={onClickClose} />
 			<div className="poptit">{t("lbl_nova88_backup_website")}</div>
-			{/* <img src={imgSrc} alt="backup-domain-Img" /> */}
-			{t("lbl_kindly_visit_alternate_link_for_better_performance")}
+			<img
+				src={`${config.bannerImgUrl}/img/backupDomain/backupDomain_${userInfo.langId}.jpg`}
+				alt="backup-domain-Img"
+			/>
+			<div className="poptxt">
+				<div>{t("lbl_DearValuedCustomers")}</div>
+				<div>
+					{t(
+						"lbl_kindly_visit_alternate_link_for_better_performance"
+					)}
+				</div>
+			</div>
 			{linksLayout}
 			<div className="checkbox">
 				<input
