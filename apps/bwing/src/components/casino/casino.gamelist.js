@@ -4,6 +4,7 @@ import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defRowsPerPage } from "./casino.def";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
+import useDelayFunc from "../hook/useDelayFunc";
 
 export default ({
 	displayGames,
@@ -17,27 +18,32 @@ export default ({
 	t
 }) => {
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
+	const { throttle } = useDelayFunc();
 	const { setPopBox } = useContext(popBoxContext);
 	const startIdx = (currentPage - 1) * defRowsPerPage;
 	const endIdx = currentPage * defRowsPerPage;
 
-	const onClickPlay = (tpId, gameId, isFree) => {
+	const onClickPlay = ({ tpId, gameId, isFree, delay }) => {
 		if (isLogin || isFree) {
-			SET_CASINO_ENTER_PAGE({
-				tpId,
-				gameId,
-				isFree,
-				langId,
-				execFunction:
-					tpId === defSpecialSetting.playTech
-						? handleGoToGame.bind(this, {
-								langId,
-								tpId,
-								gameId,
-								isFun: isFree
-						  })
-						: null
-			});
+			throttle(
+				() =>
+					SET_CASINO_ENTER_PAGE({
+						tpId,
+						gameId,
+						isFree,
+						langId,
+						execFunction:
+							tpId === defSpecialSetting.playTech
+								? handleGoToGame.bind(this, {
+										langId,
+										tpId,
+										gameId,
+										isFun: isFree
+								  })
+								: null
+					}),
+				delay
+			);
 		} else {
 			setPopBox({
 				isOpen: true,
@@ -81,23 +87,27 @@ export default ({
 					<div className="btnGroup">
 						<button
 							className="orange"
-							onClick={onClickPlay.bind(
-								this,
-								g.tpId,
-								g.gameId,
-								false
-							)}>
+							onClick={() =>
+								onClickPlay({
+									tpId: g.tpId,
+									gameId: g.gameId,
+									isFree: false,
+									delay: 5000
+								})
+							}>
 							{t("lbl_PlayNow").toUpperCase()}
 						</button>
 						{g.playFree ? (
 							<button
 								className="blueBorder"
-								onClick={onClickPlay.bind(
-									this,
-									g.tpId,
-									g.gameId,
-									true
-								)}>
+								onClick={() =>
+									onClickPlay({
+										tpId: g.tpId,
+										gameId: g.gameId,
+										isFree: true,
+										delay: 0
+									})
+								}>
 								{t("lbl_Free").toUpperCase()}
 							</button>
 						) : null}
