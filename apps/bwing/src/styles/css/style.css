@@ -279,7 +279,9 @@ header .header > div.menu .subMenu-Wrapper {
   width: 100%;
   left: 0;
   top: 40px;
-  background: #000924;
+  background: rgba(0, 9, 36, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -493,6 +495,14 @@ header .header > div.menu .gameList .traditional {
 
 header .header > div.menu .gameList .traditional:hover {
   background: url(../img/lotteryTra_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .jili {
+  background: url(../img/casinoJILI.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .jili:hover {
+  background: url(../img/casinoJILI_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .casinoList .GPI {
@@ -1032,7 +1042,7 @@ header .header > div.function .memberfile .submenu .icon-exit {
 header .header > div.function .cashier .submenu .icon-exit:before,
 header .header > div.function .wallet .submenu .icon-exit:before,
 header .header > div.function .memberfile .submenu .icon-exit:before {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 header .header > div.function .cashier .submenu .icon-exit span,
@@ -1053,7 +1063,7 @@ header .header > div.function .memberfile.active > button,
 header .header > div.function .memberfile.active > a,
 header .header > div.function .memberfile.active:before,
 header .header > div.function .memberfile.active:after {
-  color: #1E85EC;
+  color: #1e85ec;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -1115,7 +1125,7 @@ header .header > div.function .wallet .submenu div.balance {
 header .header > div.function .wallet .submenu div.balance button {
   font-size: 12px;
   margin-left: 5px;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 100%;
   width: 20px;
   height: 20px;
@@ -1204,7 +1214,7 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
 main {
   position: relative;
   padding-top: 120px;
-  height: calc(100% - 120px);
+  height: calc(100% - 80px);
 }
 
 main section.inside {
@@ -1224,7 +1234,7 @@ main section > div {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 main section > div .articleModule {
@@ -1482,11 +1492,11 @@ footer > div.copyright {
 }
 
 .txt-org {
-  color: #F85B05;
+  color: #f85b05;
 }
 
 .txt-blue2 {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .txt-blue15 {
@@ -1514,7 +1524,7 @@ footer > div.copyright {
 }
 
 .txt-red {
-  color: #F52805;
+  color: #f52805;
 }
 
 .txt-dark {
@@ -1565,7 +1575,7 @@ footer > div.copyright {
   width: calc(100% - 22px);
   background: #070e22;
   color: white;
-  border: 1px solid #1D3662;
+  border: 1px solid #1d3662;
   outline: none;
   border-radius: 3px;
   position: relative;
@@ -1607,8 +1617,8 @@ footer > div.copyright {
 }
 
 .inputBox.active, .active.inputBox-blue {
-  border: 1px solid #1E85EC;
-  outline: #1E85EC;
+  border: 1px solid #1e85ec;
+  outline: #1e85ec;
 }
 
 .inputBox > .icon, .inputBox-blue > .icon {
@@ -1907,7 +1917,7 @@ input[type="file"] {
 
 .btnGroup button.red,
 .btnGroup a.red {
-  background: #F52805;
+  background: #f52805;
   color: white;
 }
 
@@ -1924,7 +1934,8 @@ input[type="file"] {
 
 .btnGroup button.blueBorder:hover,
 .btnGroup a.blueBorder:hover {
-  background: #1E85EC;
+  background: #56ceff;
+  color: #fff;
 }
 
 .btnGroup button.icon:before,
@@ -2296,7 +2307,7 @@ main > .swiper-container .swiper-slide {
 
 .list + button,
 .list + a {
-  color: #1E85EC;
+  color: #1e85ec;
   float: right;
   font-size: 30px;
   text-align: right;
@@ -2314,14 +2325,14 @@ main > .swiper-container .swiper-slide {
 .list .listTag .icon-books {
   position: absolute;
   right: 5px;
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 24px;
 }
 
 .list .listTag button,
 .list .listTag a {
   line-height: 30px;
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   padding: 0 10px;
   border-top-left-radius: 10px;
@@ -2330,7 +2341,7 @@ main > .swiper-container .swiper-slide {
 
 .list .listTag button.active,
 .list .listTag a.active {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .list .listHeader div,
@@ -2400,7 +2411,7 @@ main > .swiper-container .swiper-slide {
   font-size: 12px;
   position: absolute;
   right: 12px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .list .listHeader div {
@@ -2462,7 +2473,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div div.reject {
-  color: #F52805;
+  color: #f52805;
   font-weight: bold;
 }
 
@@ -2589,6 +2600,7 @@ main > .swiper-container .swiper-slide {
   display: -ms-flexbox;
   display: flex;
   padding: 0 70px 20px;
+  margin-top: 20px;
 }
 
 .stepBar > div,
@@ -2713,7 +2725,7 @@ main > .swiper-container .swiper-slide {
 
 .cashBar .cashLine input {
   height: 10px;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 30px;
   border: 0;
   position: absolute;
@@ -2760,7 +2772,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -2846,6 +2858,7 @@ main > .swiper-container .swiper-slide {
           animation: jpot 0.3s infinite;
   position: relative;
   background: url(../img/jackpot.png) no-repeat;
+  cursor: pointer;
 }
 
 .bannerS .jpot > div {
@@ -3148,7 +3161,7 @@ main > .swiper-container .swiper-slide {
 
 .subModuleList .subModule .subModuleBody ul li a.icon-library,
 .subModuleList .subModule .subModuleBody ul li button.icon-library {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 44px;
 }
 
@@ -3369,7 +3382,7 @@ main > .swiper-container .swiper-slide {
   right: -10px;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .mysteryArea {
@@ -3760,7 +3773,7 @@ main > .swiper-container .swiper-slide {
 .upload > .icon.icon-information-solid,
 .update > .icon.icon-information-solid,
 .loackAmount > .icon.icon-information-solid {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .Submit .title,
@@ -3950,7 +3963,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img {
   border-radius: 15px;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3967,7 +3980,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img .icon {
   font-size: 48px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img img {
@@ -3996,7 +4009,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -4208,7 +4221,7 @@ main > .swiper-container .swiper-slide {
 
 .offers > img,
 .offers > div {
-  width: calc(50% - 1px);
+  width: 100%;
   position: relative;
 }
 
@@ -4327,6 +4340,149 @@ main > .swiper-container .swiper-slide {
   font-size: 12px;
   color: #021e46;
   font-weight: bold;
+}
+
+.top10Aear {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.top10Aear .topImg {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  height: 55px;
+  pointer-events: none;
+  background: url(../img/top10/topImg.png) no-repeat center;
+  background-size: 100%;
+  z-index: 1;
+}
+
+.top10Aear .title {
+  text-align: center;
+  padding: 10px 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4dc4ff), to(#3097ff));
+  background: linear-gradient(to bottom, #4dc4ff 0%, #3097ff 100%);
+  border-radius: 10px 10px 0 0;
+}
+
+.top10Aear .top10Box {
+  height: 150px;
+  overflow-y: auto;
+  padding-bottom: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.top10Aear .top10Box > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top10Aear .top10Box > div > div:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.top10Aear .top10Box > div > div > div {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+}
+
+.top10Aear .top10Box > div > div > div img {
+  margin-right: 5px;
+}
+
+@-webkit-keyframes top10 {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  30% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  90% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+  100% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+}
+
+@keyframes top10 {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  30% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  90% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+  100% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+}
+
+.walletModuleLeft {
+  float: left;
+  width: 900px;
+  margin-right: 20px;
+}
+
+.walletModuleLeft .walletModule {
+  margin-top: 20px;
+}
+
+.walletModuleLeft .walletModule:nth-last-child(1) {
+  display: block;
+}
+
+.walletModuleLeft .walletModule .addBank {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.walletModuleLeft .walletModule .addBank .addBankName {
+  width: calc(100% / 3 - 30px);
+  position: relative;
+}
+
+.walletModuleLeft .walletModule .subModuleList {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.walletModuleLeft .walletModule .btnGroup {
+  margin: 0 auto;
 }
 
 .walletModule {
@@ -4493,12 +4649,12 @@ main > .swiper-container .swiper-slide {
       -ms-flex-align: center;
           align-items: center;
   width: 55px;
-  color: #F85B05;
+  color: #f85b05;
   font-size: 24px;
 }
 
 .walletTransfer .walletModule .walletBalanceModule {
-  background: #1D3662;
+  background: #1d3662;
   font-weight: bold;
   margin-right: 0;
   padding: 30px;
@@ -4686,7 +4842,7 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .addBank .addBankName .icon-plus {
@@ -5464,7 +5620,7 @@ main > .swiper-container .swiper-slide {
 
 .personal .list .listHeader .checkbox label.icon.icon:before,
 .personal .list .functionMenu .checkbox label.icon.icon:before {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 18px;
   margin-left: -1px;
 }
@@ -5574,7 +5730,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 16px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -5588,7 +5744,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp + span {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .otpBtn {
@@ -5607,7 +5763,7 @@ main > .swiper-container .swiper-slide {
   display: flex;
   top: 13px;
   left: -2px;
-  background: #F52805;
+  background: #f52805;
   border-bottom-right-radius: 10px;
   width: 28px;
   height: 25px;
@@ -5664,8 +5820,8 @@ main > .swiper-container .swiper-slide {
 .proList > div .newTag,
 .slotList > div .newTag {
   position: absolute;
-  right: 16px;
-  bottom: 25%;
+  right: 50px;
+  top: 5%;
   padding: 3px 10px;
   background-color: rgba(244, 43, 7, 0.3);
   border: 1px solid #f42b07;
@@ -5761,8 +5917,8 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div:hover {
-  -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
-          box-shadow: 0 0 0 3px #1E85EC inset;
+  -webkit-box-shadow: 0 0 0 3px #1e85ec inset;
+          box-shadow: 0 0 0 3px #1e85ec inset;
 }
 
 .proList > div .turnover {
@@ -5770,24 +5926,24 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div .turnover span {
-  color: #F52805;
+  color: #f52805;
 }
 
 .proList > div .turnover button,
 .proList > div .turnover a {
-  background: #F52805;
+  background: #f52805;
 }
 
 .proList > div .progressBar .bar {
-  border: 1px solid #F52805;
+  border: 1px solid #f52805;
 }
 
 .proList > div .progressBar .bar .progress {
-  background: #F52805;
+  background: #f52805;
 }
 
 .proList > div .progressBar .percentage {
-  color: #F52805;
+  color: #f52805;
 }
 
 .proList .btnGroup {
@@ -6086,11 +6242,28 @@ main > .swiper-container .swiper-slide {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   cursor: pointer;
+  position: relative;
+}
+
+.fishlobbyList > div .btnGroup {
+  display: none;
+  position: absolute;
+  width: 80%;
+  bottom: 28%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .fishlobbyList > div:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.fishlobbyList > div:hover .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .fishlobbyList > div.fish-world {
@@ -6165,16 +6338,29 @@ form {
   min-width: 190px;
 }
 
+.slotList > div:hover .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .slotList > div .txt-blue15 {
   font-weight: bold;
   margin-top: 10px;
 }
 
 .slotList > div .btnGroup {
+  display: none;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
+  position: absolute;
+  width: 85%;
+  bottom: 17%;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+          transform: translatex(-50%);
 }
 
 .slotList > div .btnGroup button,
@@ -6235,7 +6421,7 @@ article h1,
 article h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #1E85EC;
+  color: #1e85ec;
   font-weight: bold;
 }
 
@@ -6280,7 +6466,7 @@ article pre {
 }
 
 .rdt i.icon.icon-cross:before {
-  color: #F52805;
+  color: #f52805;
 }
 
 .rdt i.icon.icon-checkmark:before {
@@ -6292,10 +6478,6 @@ iframe {
   margin: auto;
   height: 100%;
   min-height: 810px;
-}
-
-iframe[title="sport"] {
-  width: 1300px;
 }
 
 .loading {
@@ -6386,7 +6568,7 @@ iframe[title="sport"] {
 
 .progressBarModule .bounsName {
   font-weight: bold;
-  color: #F52805;
+  color: #f52805;
 }
 
 .progressBarModule .turnover {
@@ -6399,7 +6581,7 @@ iframe[title="sport"] {
 
 .progressBarModule .turnover button,
 .progressBarModule .turnover a {
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   border-radius: 100%;
   padding: 4px;
@@ -6494,7 +6676,7 @@ input:-moz-placeholder {
   display: none;
   margin-left: 5px;
   background: white;
-  color: #1E85EC;
+  color: #1e85ec;
   border-radius: 100%;
   padding: 1px;
   -webkit-box-pack: center;
@@ -6507,7 +6689,7 @@ input:-moz-placeholder {
 
 .buttonBox button.active,
 .buttonBox a.active {
-  background: #134DAE;
+  background: #134dae;
   color: white;
 }
 
@@ -6609,7 +6791,7 @@ a.icon-books:hover:after {
 }
 
 input + .iconModule i.icon.icon-cross:before {
-  color: #F52805;
+  color: #f52805;
   font-size: 12px;
 }
 
@@ -6665,7 +6847,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .checkBankSlip.smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
   margin-left: 10px;
 }
 
@@ -6769,6 +6951,11 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-pack: center;
           justify-content: center;
   font-weight: bold;
+}
+
+.indexGameList a img,
+.indexGameList button img {
+  margin: 0 auto;
 }
 
 .indexGameList a:hover div,
@@ -6912,13 +7099,13 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .minAmount > div > div {
-  border: 1px solid #134DAE;
+  border: 1px solid #134dae;
   padding: 5px 10px;
-  background: #134DAE;
+  background: #134dae;
 }
 
 .minAmount > div > div:last-child {
-  color: #1E85EC;
+  color: #1e85ec;
   background: white;
 }
 
@@ -8162,7 +8349,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   top: 40px;
   left: -1px;
   background: #070e22;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   margin-left: 0;
   overflow: hidden;
   margin-top: 0;
@@ -8175,11 +8362,11 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item.active {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .transferModule .inputBox .dropdown span, .transferModule .inputBox-blue .dropdown span {
@@ -8803,7 +8990,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .icon-information-solid {
-  color: #1E85EC;
+  color: #1e85ec;
   cursor: pointer;
   margin: 0 2px;
 }
@@ -8970,6 +9157,11 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-left: 15px;
 }
 
+.subModuleListColumn > .subModule .column .inputBox-blue {
+  max-width: 300px;
+  margin-left: 15px;
+}
+
 .subModuleListColumn > .subModule .inputBox-white {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
@@ -9076,7 +9268,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .subModuleListColumn .bankAccount .smallList ul a,
 .subModuleListColumn .bankAccount .smallList ul button {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li {
@@ -9110,6 +9302,15 @@ input + .iconModule i.icon.icon-checkmark:before {
 .important ol li {
   list-style: decimal;
   line-height: 22px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.important ol li span {
+  color: #fff;
+}
+
+.important ol li a {
+  color: #1e85ec;
 }
 
 .text-center {
@@ -9250,7 +9451,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .upload_img.error {
-  border-color: #F52805;
+  border-color: #f52805;
 }
 
 .upload_img .icon {
@@ -9289,7 +9490,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -9338,7 +9539,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vip .vipPage .eventList tr.title {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .vip .vipPage .eventList tr:last-child {
@@ -9356,7 +9557,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .vip .vipPage .eventList tr td {
@@ -9421,7 +9622,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .vipLv > div {
   margin-top: 15px;
-  background: #1E85EC;
+  background: #1e85ec;
   padding: 5px 10px;
   border-radius: 15px;
 }
@@ -9461,7 +9662,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-size: 18px;
   margin: 20px 0;
   font-weight: bold;
-  color: #1E85EC;
+  color: #1e85ec;
   width: 100%;
 }
 
