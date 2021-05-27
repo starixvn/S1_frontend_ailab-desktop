@@ -4202,6 +4202,7 @@ html.Newtheme .indexliveCasinoList.topten > div:nth-child(1) {
 
 html.Newtheme .indexliveCasinoList.topten .indexJackpot {
   position: relative;
+  cursor: pointer;
 }
 
 html.Newtheme .indexliveCasinoList.topten .indexJackpot > div {
@@ -4329,6 +4330,7 @@ html.Newtheme .indexliveCasinoList.topten .topWinner ul li .rankMoney img {
 }
 
 html.Newtheme .indexJackpot {
+  cursor: pointer;
   position: relative;
 }
 
