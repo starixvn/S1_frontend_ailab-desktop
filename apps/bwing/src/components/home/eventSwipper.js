@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { navigate } from "@reach/router";
 import {
 	useGetBanner,
@@ -9,6 +10,8 @@ import {
 } from "../common/swipperBanner";
 import { defBannerType } from "../../service/api/site";
 import path from "../../router";
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const EventSwipper = memo(({ langId }) => {
 	const { banner } = useGetBanner({

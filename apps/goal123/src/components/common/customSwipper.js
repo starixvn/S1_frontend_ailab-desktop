@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Link } from "@reach/router";
 import {
 	api_site_GetBannerV3,
@@ -18,6 +19,8 @@ import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import productList, { defCasinoProviders } from "../../datas/productList";
 import { defPopBoxType } from "./popBox";
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const NeedLoginRoute = [];
 
