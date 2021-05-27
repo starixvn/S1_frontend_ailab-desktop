@@ -82,7 +82,7 @@ EventSwipper.propTypes = {
 };
 
 const isEuro = sportLeaguesId =>
-	["EURO2020", "欧冠2020", "2020", "Châu Âu 2020"].some(
+	["EURO2020", "欧冠2020", "2020", "Châu Âu 2020", "ยูโร 2020"].some(
 		item => item === sportLeaguesId
 	);
 
