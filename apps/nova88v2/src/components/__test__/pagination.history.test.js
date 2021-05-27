@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-import { Pagination } from "../../common/pagination";
+import { Pagination } from "../common/pagination";
 
 jest.mock("react-i18next", () => ({
 	useTranslation: () => {
@@ -9,6 +9,7 @@ jest.mock("react-i18next", () => ({
 		};
 	}
 }));
+
 describe("Pagination items num", () => {
 	test("is the number of pagination correct?", () => {
 		const fakeData = {
