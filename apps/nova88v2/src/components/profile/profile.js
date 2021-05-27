@@ -12,7 +12,8 @@ import {
 } from "../../service/api/accountStrict";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-import EditModule from "./profile.edit";
+import ProfileEdit from "./profile.edit";
+import ProfileRead from "./profile.read";
 import { getUrlParameter } from "../common/common";
 import { defPrevPage } from "./profile.dev";
 import Loading from "../common/loading";
@@ -504,9 +505,15 @@ export default () => {
 			) : null}
 
 			{userInfo.accountName && userInfo.birth_d && userInfo.phoneNo ? (
-				<div className="profile">{arr}</div>
+				<ProfileRead
+					t={t}
+					infoList={infoList}
+					mobileVerificationLoading={mobileVerificationLoading}
+					areaCodeVal={_areaCodeVal}
+					sendOTPSMS={sendOTPSMS}
+				/>
 			) : (
-				<EditModule
+				<ProfileEdit
 					t={t}
 					userInfo={userInfo}
 					userValue={userValue}
