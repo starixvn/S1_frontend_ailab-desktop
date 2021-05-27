@@ -12386,6 +12386,7 @@ canvas {
   -webkit-animation: jpot 0.3s infinite;
           animation: jpot 0.3s infinite;
   position: relative;
+  cursor: pointer;
 }
 
 .projpot .promos + div .jpot .number {
