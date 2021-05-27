@@ -139,5 +139,8 @@ export default {
 	},
 	mysteryBox: {
 		root: "mysteryBox"
+	},
+	sportBti: {
+		root: "sportBti"
 	}
 };

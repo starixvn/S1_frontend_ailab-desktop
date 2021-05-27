@@ -25,5 +25,5 @@
     "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",
     "../../node_modules/@nrwl/react/typings/image.d.ts"
   ],
-  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "src/components/common/__test__/transfer_recentHistory.test"]
+  "include": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "src/components/common/__test__/transfer_recentHistory.test", "../bwing/src/pages/sportsBti.js"]
 }
