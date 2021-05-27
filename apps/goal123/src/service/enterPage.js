@@ -1,5 +1,6 @@
 import config, { errorPageUrl } from "../config";
 import path from "../router";
+import productList from "../datas/productList";
 
 export const _ACTION_TYPE = {
 	blank: 1,
@@ -104,7 +105,14 @@ export const GET_OPEN_RULE = (langId, tpId, gameId, matchid, betType) => {
 	};
 };
 
-export const GET_ENTER_PAGE_URL = (langId, tpId, gameId, matchid, betType) => {
+export const GET_ENTER_PAGE_URL = (
+	langId,
+	tpId,
+	gameId,
+	matchid,
+	betType,
+	isLogin
+) => {
 	const appUrl =
 		typeof window !== `undefined` ? window.location.origin : null;
 	const homeUrl = `${appUrl}`;
@@ -115,7 +123,12 @@ export const GET_ENTER_PAGE_URL = (langId, tpId, gameId, matchid, betType) => {
 	const _matchid = matchid || "";
 	const _betType = betType ? `&betType=${betType}` : "";
 	const _errorPageUrl = errorPageUrl(langId);
-	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}`;
+	let urlSpecialPattern = "";
+	if (tpId === productList.sportBti.tpId) {
+		urlSpecialPattern = `&gameType=sports${isLogin ? "" : "&fun=1"}`;
+	}
+
+	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}${urlSpecialPattern}`;
 };
 
 const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {

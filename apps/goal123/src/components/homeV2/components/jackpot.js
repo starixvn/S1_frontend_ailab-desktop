@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { getCurrencyCode } from "../../common/common";
+import { navigate } from "@reach/router";
+import path from "../../../router";
+import { defNav } from "../../casino/casino.def";
 
+import { getCurrencyCode } from "../../common/common";
 import imgJackpotBg from "../../../styles/img/jackpotbgNew.png";
 
 const Jackpot = ({ t, userInfo }) => {
@@ -40,7 +43,13 @@ const Jackpot = ({ t, userInfo }) => {
 				{t("lbl_homeJackpotTitle")}
 			</div>
 
-			<div className="indexJackpot">
+			<div
+				className="indexJackpot"
+				onClick={() =>
+					navigate(
+						`/${userInfo.langId}/${path.casino.root}?tab=${defNav.PROMO.key}`
+					)
+				}>
 				<img src={imgJackpotBg} alt="imgJackpotBg" />
 				<div>
 					<div>{t(`Currency_${currencyId}`)}</div>

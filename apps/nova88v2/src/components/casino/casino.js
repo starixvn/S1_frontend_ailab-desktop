@@ -42,7 +42,15 @@ const matchKeyword = (name, _keyword) => {
 
 export default () => {
 	const { t } = useTranslation();
-	const [selNav, setSelNav] = useState(defNav.ALLGAMES.key);
+	const urlTpId = getUrlParameter("tpId");
+	const urlTab = getUrlParameter("tab");
+
+	const isSomeTab = Object.values(defNav).some(item => item.key === urlTab);
+
+	const [selNav, setSelNav] = useState(
+		isSomeTab ? urlTab : defNav.ALLGAMES.key
+	);
+
 	const [favorite, setFavorite] = useState([]);
 	const [imgUrl, setImgUrl] = useState("");
 	const [tpList, setTpList] = useState({});
@@ -65,7 +73,6 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);
-	const urlTpId = getUrlParameter("tpId");
 
 	const clickClose = () => {
 		setPopBox({ isOpen: false });
@@ -80,6 +87,12 @@ export default () => {
 
 	const onSelectNav = navKey => {
 		if (navKey !== selNav) {
+			window.history.replaceState(
+				{},
+				"",
+				`${window.location.pathname}?tab=${navKey}`
+			);
+
 			setSelNav(navKey);
 			SetGames({
 				_searchInfo: searchInfo,
@@ -421,6 +434,16 @@ export default () => {
 			}
 		);
 	}, [userInfo.isLogin, urlTpId]);
+
+	useEffect(() => {
+		if (!isSomeTab) {
+			window.history.replaceState(
+				{},
+				"",
+				`${window.location.pathname}?tab=${defNav.ALLGAMES.key}`
+			);
+		}
+	}, [isSomeTab]);
 
 	return loading ? (
 		<></>

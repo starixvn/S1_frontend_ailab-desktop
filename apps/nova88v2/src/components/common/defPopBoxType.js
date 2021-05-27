@@ -28,5 +28,7 @@ export default {
 	SuccessMySteryBox: "SuccessMySteryBox",
 	OneGamingLink: "OneGamingLink",
 	RankingWinner: "RankingWinner",
-	DepositUploadBankSlip: "DepositUploadBankSlip"
+	DepositUploadBankSlip: "DepositUploadBankSlip",
+	PerDay: "PerDay",
+	BackupDomain: "BackupDomain"
 };
