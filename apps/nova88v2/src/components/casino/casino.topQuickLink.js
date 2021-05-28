@@ -13,9 +13,13 @@ const TopQuickLink = ({
 		setHoverImg(`${imgName}`);
 	};
 
-	const lobbyImgListCopy = [...lobbyImgList, ...lobbyImgList];
+	const _slidesPerViewNum = 9;
+	const dataRows =
+		lobbyImgList.length > _slidesPerViewNum
+			? lobbyImgList
+			: [...lobbyImgList, ...lobbyImgList];
 
-	const Rows = lobbyImgListCopy.map(_item => {
+	const Rows = dataRows.map((_item, idx) => {
 		const _srcImg =
 			hoverImg === _item.lobbyImgName ||
 			activeProviderId === _item.providerId
@@ -23,7 +27,7 @@ const TopQuickLink = ({
 				: _item.lobbyImgName;
 
 		return (
-			<SwiperSlide key={`slot-swiper-${_item.providerId}`}>
+			<SwiperSlide key={`slot-swiper-${_item.providerId}-${idx}`}>
 				<div
 					className="swiper-slide"
 					onClick={clickLobbyProvider.bind(this, _item.providerId)}>
@@ -53,7 +57,7 @@ const TopQuickLink = ({
 
 	const params = {
 		spaceBetween: 0,
-		slidesPerView: 9,
+		slidesPerView: _slidesPerViewNum,
 		loop: true
 	};
 
