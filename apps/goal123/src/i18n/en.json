@@ -103,6 +103,8 @@
 	"lbl_Water_Margin_Fishing": "Water Margin Fishing",
 	"lbl_Thunder_Fighter": "Thunder Fighter",
 	"lbl_CQ9": "CQ9",
+	"lbl_Saba_Sport": "Saba Sport",
+	"lbl_Bti_Sport": "Bti Sport",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "Affiliate ID/Referral",
@@ -201,6 +203,8 @@
 	"lbl_RequireMinAmountHint_Back": "Deposit now?",
 	"lbl_PromotionRebateAndCashback": "Rebate / Cashback",
 	"lbl_Other": "Other",
+	"lbl_JoinSuccessDescription1": "Successful!",
+	"lbl_JoinSuccessDescription2": "Your Bonus has been claimed.",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
@@ -252,11 +256,11 @@
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",
-	"lbl_TpWallet_1": "Sportsbook Wallet",
+	"lbl_TpWallet_1": "Saba Wallet",
 	"lbl_TpWallet_21": "918Kiss Wallet",
 	"lbl_TpWallet_22": "Mega Wallet",
 	"lbl_TpWallet_27": "PT Wallet",
-	"lbl_Wallet_Saba": "Sportsbook Wallet",
+	"lbl_Wallet_Saba": "Saba Wallet",
 	"lbl_MainWallet": "Main Wallet",
 	"lbl_RestoreAll": "Restore All",
 	"lbl_TransferHistory": "Transfer History",
