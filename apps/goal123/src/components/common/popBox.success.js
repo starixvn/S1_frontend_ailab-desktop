@@ -1,15 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-export default ({ btnBar }) => {
+export default ({ icon = "icon icon-bell", btnBar, description = null }) => {
 	const { t } = useTranslation();
 
 	return (
 		<div className="Cancel active">
-			<div className="icon icon-library" />
+			<div className={icon} />
+
 			<div className="title">{t("lbl_Information")}</div>
-			<div>{t("lbl_UpdateSuccessful")}</div>
-			<div>{t("lbl_UpdateSuccessWillProcess")}</div>
+
+			{description}
+
 			{btnBar}
 		</div>
 	);
