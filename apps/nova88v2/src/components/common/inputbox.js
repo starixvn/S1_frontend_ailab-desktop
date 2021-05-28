@@ -19,7 +19,8 @@ const InputBox = ({
 	placeholder,
 	onChange,
 	_isConvert,
-	readOnly
+	readOnly,
+	isTipHide
 }) => {
 	const showCheckIcon = () => {
 		if (checked === null && clickInfo) {
@@ -83,7 +84,7 @@ const InputBox = ({
 				)}
 			</div>
 
-			{inputType !== "date" && (
+			{inputType !== "date" && !isTipHide && (
 				<div className={`tip${tip ? " active" : ""}`}>{tip}</div>
 			)}
 		</>

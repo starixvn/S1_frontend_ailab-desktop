@@ -1,6 +1,7 @@
 import React from "react";
 
-export default ({ t, step, defStep }) => {
+export default ({ t, step, defStep, stepNum }) => {
+	console.log(defStep);
 	const rows = defStep.map((item, idx) => {
 		return (
 			<div
@@ -12,11 +13,13 @@ export default ({ t, step, defStep }) => {
 		);
 	});
 
+	const _stepNum = stepNum || 3;
+
 	return (
 		<div className="stepBar">
 			<div
 				className="stepLine"
-				style={{ width: `${(100 / 3) * step}%` }}
+				style={{ width: `${(100 / _stepNum) * step}%` }}
 			/>
 			{rows}
 		</div>

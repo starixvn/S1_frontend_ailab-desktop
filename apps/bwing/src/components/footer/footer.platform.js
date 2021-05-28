@@ -105,6 +105,11 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.PT.name },
 		imgName: "playtech"
+	},
+	{
+		...productList.sportBti,
+		path: path.sportBti.root,
+		imgName: "bti"
 	}
 ];
 

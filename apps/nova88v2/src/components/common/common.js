@@ -56,7 +56,9 @@ export const checkAmount = ({
 	maxAmount,
 	_isConvert,
 	t,
-	maxAmountAllowUnlimit = true
+	maxAmountAllowUnlimit = true,
+	hintKey,
+	digits = 2
 }) => {
 	let status = 0;
 	let msg = "";
@@ -65,11 +67,11 @@ export const checkAmount = ({
 		if (_isConvert) {
 			num_Amount *= 1000;
 		}
-		if (num_Amount <= 0) {
+		if (num_Amount <= 0 || (minAmount !== 0 && num_Amount < minAmount)) {
 			status = 2;
 			msg = t("lbl_AmountTooltip")?.replace(
 				"{0}",
-				number_format(minAmount, _isConvert)
+				number_format(minAmount, _isConvert, digits)
 			);
 		} else if (
 			(minAmount !== 0 &&
@@ -78,13 +80,13 @@ export const checkAmount = ({
 			(!maxAmountAllowUnlimit && num_Amount > maxAmount)
 		) {
 			status = 2;
-			msg = `${number_format(num_Amount, _isConvert)} ${t(
-				"lbl_NotinLimit"
+			msg = `${number_format(num_Amount, _isConvert, digits)} ${t(
+				hintKey ?? "lbl_NotinLimit"
 			)}`;
 		}
 	} else {
 		status = 3;
-		msg = t("lbl_NotinLimit");
+		msg = t(hintKey ?? "lbl_NotinLimit");
 	}
 
 	return { status, msg };

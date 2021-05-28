@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 import DateTime from "react-datetime";
 import Inputbox from "../common/inputbox";
-import areaCode from "../../datas/areaCode";
+import Dropdown from "../common/dropdown";
 
 export default ({
 	t,
@@ -14,14 +14,18 @@ export default ({
 	valueCheck,
 	phoneCheck,
 	clickInfo,
-	clickSubmit
+	clickSubmit,
+	isUSDT,
+	areaCodeOptions,
+	onSelectAreaCode,
+	_areaCodeVal,
+	disableSubmit
 }) => {
 	const legalDate = moment().subtract(21, "year");
 	const vaildDate = current => {
 		return current.isBefore(legalDate);
 	};
 
-	const _areaCode = areaCode[userInfo.perCountry]?.AreaCode;
 	return (
 		<div className="profileEdit">
 			<div className="profile">{arr}</div>
@@ -35,9 +39,15 @@ export default ({
 						value={userValue.accountName}
 						checked={status.accountName.checked}
 						clickInfo={clickInfo.bind(this, "accountName")}
-						tip={status.accountName.tip}
+						// tip={status.accountName.tip}
 						tooltip={t("lbl_RemindForName")}
 					/>
+				) : null}
+
+				{status.accountName.tip ? (
+					<div className="tip active txt-red">
+						{status.accountName.tip}
+					</div>
 				) : null}
 
 				{!userInfo?.birth_d ||
@@ -61,34 +71,60 @@ export default ({
 								<i className="icon icon-calendar" />
 							</div>
 						</div>
-						<div
-							className={`tip${
-								status.birth.tip ? " active" : ""
-							}`}>
-							{status.birth.tip}
-						</div>
 					</>
 				) : null}
 
+				{status.birth.tip ? (
+					<div className="tip active txt-red">{status.birth.tip}</div>
+				) : null}
+
 				{!userInfo?.phoneNo ? (
-					<Inputbox
-						className="inputBox-white"
-						title={t("lbl_Phone")}
-						onChange={editField.bind(this, "phoneNo")}
-						onBlur={e => phoneCheck(e.target.value)}
-						value={userValue.phoneNo}
-						checked={status.phoneNo.checked}
-						clickInfo={clickInfo.bind(this, "phoneNo")}
-						tip={status.phoneNo.tip}
-						areaCode={_areaCode}
-					/>
+					<div className="phone">
+						<div
+							className="inputBox-white"
+							onBlur={e => phoneCheck("areaCode")}
+							tabIndex="0"
+							role="button">
+							<Dropdown
+								defaultOption={_areaCodeVal}
+								mainKey="area_code"
+								icon="icon-phone txt-blue"
+								options={areaCodeOptions}
+								selectedIdx={userValue.areaCodeIdx}
+								i18n={t}
+								onSelectItem={onSelectAreaCode}
+								disabled={!isUSDT}
+							/>
+						</div>
+						<Inputbox
+							className="inputBox-white"
+							title={t("lbl_Phone")}
+							onChange={editField.bind(this, "phoneNo")}
+							onBlur={e => phoneCheck("phoneNo", e.target.value)}
+							value={userValue.phoneNo}
+							checked={status.phoneNo.checked}
+							clickInfo={clickInfo.bind(this, "phoneNo")}
+							// tip={status.phoneNo.tip}
+							inputType="phone"
+						/>
+					</div>
+				) : null}
+
+				{status.phoneNo.tip ? (
+					<div className="tip active txt-red">
+						{status.phoneNo.tip}
+					</div>
 				) : null}
 
 				{!userInfo?.accountName ||
 				!userInfo?.birth_d ||
 				!userInfo?.phoneNo ? (
 					<div className="btnGroup">
-						<button className="btn-check" type="submit">
+						<button
+							className={
+								disableSubmit ? "btn-cancel" : "btn-check"
+							}
+							type="submit">
 							{t("lbl_Submit")}
 						</button>
 					</div>

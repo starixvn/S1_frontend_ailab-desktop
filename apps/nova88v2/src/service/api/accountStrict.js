@@ -69,3 +69,9 @@ export const api_accountStrict_VerifyOTP = ({ inputOTPcode }) =>
 			}
 		}
 	);
+
+export const api_account_SetCustUSDTInfoBatch = ({ AccountName, USDTInfo }) =>
+	accountStrictRequest.post("/SetCustUSDTInfoBatch", {
+		AccountName,
+		USDTInfo
+	});

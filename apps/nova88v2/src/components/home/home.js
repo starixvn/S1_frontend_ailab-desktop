@@ -35,43 +35,43 @@ import LatestVideo from "./latestVideo";
 import LiveScore from "./liveScore";
 import { _ACTION_TYPE } from "../../service/enterPage";
 
-const useGetBackupDomainList = ({ setPopBox, userInfo }) => {
-	useEffect(() => {
-		let isMounted = true;
+// const useGetBackupDomainList = ({ setPopBox, userInfo }) => {
+// 	useEffect(() => {
+// 		let isMounted = true;
 
-		if (userInfo.isLogin && userInfo.userName) {
-			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
-			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
-			if (isShowBackupDomain) {
-				api_site_GetSupportDomainList().then(res => {
-					if (
-						res.data.errorCode === 0 &&
-						isMounted &&
-						res.data.data.length > 0
-					) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.BackupDomain,
-							onClickClose: () => setPopBox({ isOpen: false }),
-							linkList: res.data.data
-						});
-					}
-				});
-			}
-		}
+// 		if (userInfo.isLogin && userInfo.userName) {
+// 			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
+// 			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
+// 			if (isShowBackupDomain) {
+// 				api_site_GetSupportDomainList().then(res => {
+// 					if (
+// 						res.data.errorCode === 0 &&
+// 						isMounted &&
+// 						res.data.data.length > 0
+// 					) {
+// 						setPopBox({
+// 							isOpen: true,
+// 							popBoxType: defPopBoxType.BackupDomain,
+// 							onClickClose: () => setPopBox({ isOpen: false }),
+// 							linkList: res.data.data
+// 						});
+// 					}
+// 				});
+// 			}
+// 		}
 
-		return () => {
-			isMounted = false;
-		};
-	}, [userInfo.isLogin, userInfo.userName, setPopBox, userInfo.langId]);
-};
+// 		return () => {
+// 			isMounted = false;
+// 		};
+// 	}, [userInfo.isLogin, userInfo.userName, setPopBox, userInfo.langId]);
+// };
 
 const IndexPage = ({ location }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
-	useGetBackupDomainList({ setPopBox, userInfo });
+	// useGetBackupDomainList({ setPopBox, userInfo });
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -95,16 +95,38 @@ const IndexPage = ({ location }) => {
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
-		if (
-			userInfo.isLogin === false &&
-			isDateRange(null, "2021/05/18 23:59:59") &&
-			(userInfo.langId === "en" || userInfo.langId === "cs")
-		) {
+		const cookiePerDay = `perDay_cookie`;
+		const isShowPerDayPopBox = readCookie(cookiePerDay) !== "1";
+
+		const showRankingPopBox = () => {
+			if (
+				userInfo.isLogin === false &&
+				isDateRange(null, "2021/05/18 23:59:59")
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.RankingWinner,
+					onClickClose: () => setPopBox({ isOpen: false })
+				});
+			}
+		};
+
+		const clickClosePerDay = () => {
+			setPopBox({ isOpen: false });
+			showRankingPopBox();
+		};
+
+		if (userInfo.isLogin === false && isShowPerDayPopBox) {
 			setPopBox({
 				isOpen: true,
-				popBoxType: defPopBoxType.RankingWinner,
-				onClickClose: () => setPopBox({ isOpen: false })
+				popBoxType: defPopBoxType.PerDay,
+				onClickClose: () => clickClosePerDay()
 			});
+			setCookie(cookiePerDay, "1", 1);
+		}
+
+		if (!isShowPerDayPopBox) {
+			showRankingPopBox();
 		}
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
@@ -147,48 +169,50 @@ const IndexPage = ({ location }) => {
 				}
 			};
 
-			const showsJoinSuccess = () => {
-				const closeJoinSuccess = () => {
-					setPopBox({ isOpen: false });
-				};
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.RegisterSuccess,
-					closeBtn: (
-						<button
-							className="icon icon-close"
-							onClick={closeJoinSuccess}
-						/>
-					),
-					btnBar: (
-						<div className="btnGroup">
-							<Link
-								className="blue"
-								to={`/${userInfo.langId}/${path.deposit.root}`}>
-								{t("lbl_DepositNow")}
-							</Link>
-							<Link
-								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}`}>
-								{t("lbl_UpdatePersonalDetail")}
-							</Link>
-						</div>
-					)
-				});
-			};
+			// const showsJoinSuccess = () => {
+			// 	const closeJoinSuccess = () => {
+			// 		setPopBox({ isOpen: false });
+			// 	};
+			// 	setPopBox({
+			// 		isOpen: true,
+			// 		popBoxType: defPopBoxType.RegisterSuccess,
+			// 		closeBtn: (
+			// 			<button
+			// 				className="icon icon-close"
+			// 				onClick={closeJoinSuccess}
+			// 			/>
+			// 		),
+			// 		btnBar: (
+			// 			<div className="btnGroup">
+			// 				<Link
+			// 					className="blue"
+			// 					to={`/${userInfo.langId}/${path.deposit.root}`}>
+			// 					{t("lbl_DepositNow")}
+			// 				</Link>
+			// 				<Link
+			// 					className="btn-check"
+			// 					to={`/${userInfo.langId}/${path.profile.root}`}>
+			// 					{t("lbl_UpdatePersonalDetail")}
+			// 				</Link>
+			// 			</div>
+			// 		)
+			// 	});
+			// };
 
 			const refeCookieName = `referral_${userInfo.userName}`;
-			const isJoinCurrently = location.state?.isJoin;
-			const clearLocationJoinState = () => {
-				navigate(`/${userInfo.langId}`, { state: null });
-			};
+			// const isJoinCurrently = location.state?.isJoin;
+			// const clearLocationJoinState = () => {
+			// 	navigate(`/${userInfo.langId}`, { state: null });
+			// };
 
-			if (isJoinCurrently) {
-				showsJoinSuccess();
-				clearLocationJoinState();
-			} else if (readCookie(refeCookieName) === "1") {
+			// if (isJoinCurrently) {
+			// navigate(`/${userInfo.langId}/${path.deposit.root}`);
+			// showsJoinSuccess();
+			// clearLocationJoinState();
+			if (readCookie(refeCookieName) === "1") {
 				showDepositPopBox();
 			}
+			// }
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 

@@ -5,7 +5,8 @@ import { userInfoContext } from "../common/context";
 export const initValue = {
 	accountName: "",
 	birth: "",
-	phoneNo: ""
+	phoneNo: "",
+	areaCodeIdx: null
 };
 
 export const initStatus = {
@@ -49,13 +50,13 @@ export const InfoList = ({ countryList }) => {
 			content: userInfo.userName,
 			show: Boolean(userInfo.userName)
 		},
-		{
-			displayKey: "lbl_Country",
-			content: userInfo.perCountry,
-			show: Boolean(userInfo.perCountry),
-			format: CountryFormat,
-			bindingData: countryList
-		},
+		// {
+		// 	displayKey: "lbl_Country",
+		// 	content: userInfo.perCountry,
+		// 	show: Boolean(userInfo.perCountry),
+		// 	format: CountryFormat,
+		// 	bindingData: countryList
+		// },
 		{
 			displayKey: "lbl_Phone",
 			content: userInfo?.phoneNo,

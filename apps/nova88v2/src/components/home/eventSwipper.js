@@ -81,6 +81,11 @@ EventSwipper.propTypes = {
 	langId: PropTypes.string.isRequired
 };
 
+const isEuro = sportLeaguesId =>
+	["EURO2020", "欧冠2020", "2020", "Châu Âu 2020", "ยูโร 2020"].some(
+		item => item === sportLeaguesId
+	);
+
 const HotEventContent = ({
 	sportBattleDateTime,
 	sportTeamsHomePic,
@@ -92,10 +97,15 @@ const HotEventContent = ({
 }) => {
 	const date = moment(sportBattleDateTime).format("DD/MM/YYYY");
 	const time = moment(sportBattleDateTime).format("HH:mm");
+
+	const _isEuro = isEuro(sportLeaguesId);
+
 	return (
 		<div className="swiper-slide">
 			<div className="upcomingmatches">
-				<div className="team" onClick={OnClickEvent}>
+				<div
+					className={`team${_isEuro ? " euro" : ""}`}
+					onClick={OnClickEvent}>
 					<div>{sportLeaguesId}</div>
 					<div>
 						<div className="teamL">
