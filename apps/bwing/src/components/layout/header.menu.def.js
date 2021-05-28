@@ -29,6 +29,12 @@ export const defMenuLinks = {
 				...productList.sportBti,
 				subPath: path.sportBti.root,
 				className: "BTI",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sportBti
+					})
+				],
 				displayKey: "lbl_Bti_Sport",
 				parameter: { ...productList.sportBti }
 			}
