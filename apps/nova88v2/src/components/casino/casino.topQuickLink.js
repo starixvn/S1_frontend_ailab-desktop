@@ -13,7 +13,9 @@ const TopQuickLink = ({
 		setHoverImg(`${imgName}`);
 	};
 
-	const Rows = lobbyImgList?.map(_item => {
+	const lobbyImgListCopy = [...lobbyImgList, ...lobbyImgList];
+
+	const Rows = lobbyImgListCopy.map(_item => {
 		const _srcImg =
 			hoverImg === _item.lobbyImgName ||
 			activeProviderId === _item.providerId
