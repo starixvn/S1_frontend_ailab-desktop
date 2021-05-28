@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Redirect, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
+import path from "../../router";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
 import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
@@ -112,6 +113,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 						(isLogin && onlyBeforeLogin && !userInfo.isJoin))
 				) {
 					setRedirectPath(`/${userInfo.langId}`);
+				}
+				if (userInfo.isJoin) {
+					navigate(`/${userInfo.langId}/${path.deposit.root}`);
 				}
 				if (isLogin !== userInfo.isLogin && isMountedRef.current) {
 					setUserInfo(prevState => ({

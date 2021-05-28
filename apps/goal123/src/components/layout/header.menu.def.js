@@ -124,6 +124,12 @@ export const defMenuLinks = langId => {
 					subPath: path.sportBti.root,
 					menuType: defMenuType.entPage,
 					className: "BTI",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.sportBti
+						})
+					],
 					displayKey: "lbl_Bti_Sport",
 					bgImgUrl: sportBtiBgImg,
 					npcImgUrl: sportBtiItemImg,
