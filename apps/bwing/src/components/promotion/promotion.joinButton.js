@@ -83,8 +83,9 @@ export default ({
 						isOpen: true,
 						popBoxType: defPopBoxType.Success,
 						titleText: "lbl_Congratulations",
-						titleIcon: "icon-gift",
-						message1: "lbl_Sign_up_successful",
+						titleIcon: "icon-bell",
+						message1: "lbl_JoinSuccessDescription1",
+						message2: "lbl_JoinSuccessDescription2",
 						onClickClose: clickClose,
 						btnBar: (
 							<div className="btnGroup">

@@ -225,6 +225,15 @@ const Depositnew = () => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.Success,
+								icon: "icon icon-library",
+								description: (
+									<>
+										<div>{t("lbl_UpdateSuccessful")}</div>
+										<div>
+											{t("lbl_UpdateSuccessWillProcess")}
+										</div>
+									</>
+								),
 								btnBar: (
 									<div className="btnGroup">
 										<button

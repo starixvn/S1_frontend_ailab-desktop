@@ -75,6 +75,15 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 					setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.Success,
+						icon: "icon icon-bell",
+						description: (
+							<>
+								<div>{t("lbl_JoinSuccessDescription1")}</div>
+								<div className="text-center">
+									{t("lbl_JoinSuccessDescription2")}
+								</div>
+							</>
+						),
 						btnBar: (
 							<div className="btnGroup">
 								<button
@@ -89,7 +98,7 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 				}
 				openErrorMessagePopBox(message || "error", errorCode);
 			},
-			err => {
+			() => {
 				if (!isMountedRef.current) return;
 				openErrorMessagePopBox();
 			}
