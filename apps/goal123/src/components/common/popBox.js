@@ -70,7 +70,13 @@ export default () => {
 
 		case defPopBoxType.Success: {
 			const Success = lazy(() => import("./popBox.success"));
-			content = <Success btnBar={popBox.btnBar} />;
+			content = (
+				<Success
+					icon={popBox.icon}
+					description={popBox.description}
+					btnBar={popBox.btnBar}
+				/>
+			);
 			break;
 		}
 

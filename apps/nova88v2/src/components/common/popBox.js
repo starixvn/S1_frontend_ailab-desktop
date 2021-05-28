@@ -69,8 +69,9 @@ export default () => {
 		case defPopBoxType.Success:
 			content = (
 				<Success
-					btnBar={popBox.btnBar}
+					icon={popBox.icon}
 					description={popBox.description}
+					btnBar={popBox.btnBar}
 				/>
 			);
 

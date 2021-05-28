@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import PropTypes from "prop-types";
 import config from "../../config";
-
-SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const TopQuickLink = ({
 	lobbyImgList,
