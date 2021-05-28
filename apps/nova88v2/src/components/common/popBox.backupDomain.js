@@ -22,7 +22,7 @@ export default ({ onClickClose, linkList }) => {
 		setSelectDontShow(prev => {
 			const check = !prev;
 			if (check) {
-				setCookie(settingCookie, "1", 7);
+				setCookie(settingCookie, "1", 1);
 			} else {
 				deleteCookie(settingCookie);
 			}
@@ -54,9 +54,17 @@ export default ({ onClickClose, linkList }) => {
 		);
 	});
 
+	const closeAndDontShowAgain = () => {
+		onClickClose();
+		setCookie(settingCookie, "1", 1);
+	};
+
 	return (
 		<div className="backupDomain active">
-			<button className="icon icon-close" onClick={onClickClose} />
+			<button
+				className="icon icon-close"
+				onClick={closeAndDontShowAgain}
+			/>
 			<div className="poptit">{t("lbl_nova88_backup_website")}</div>
 			<img
 				src={`${config.bannerImgUrl}/img/backupDomain/backupDomain_${userInfo.langId}.jpg`}
