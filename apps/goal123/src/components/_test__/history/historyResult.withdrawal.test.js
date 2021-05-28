@@ -1,7 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import { TransactionHistory } from "../../withdrawal/historyResult";
-import "@testing-library/jest-dom";
 
 jest.mock("react-i18next", () => ({
 	useTranslation: () => {

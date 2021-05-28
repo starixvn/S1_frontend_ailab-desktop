@@ -57,10 +57,7 @@ const SetAmount = ({
 						isAmount={true}
 					/>
 					<div className="btnGroup">
-						<button
-							className="btn-check"
-							type="submit"
-							data-testid="setAmount_submit">
+						<button className="btn-check" type="submit">
 							{t("lbl_Submit")}
 						</button>
 					</div>

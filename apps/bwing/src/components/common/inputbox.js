@@ -72,7 +72,7 @@ const InputBox = ({
 				</div>
 			</div>
 			{inputType !== "date" && (
-				<div className={tip ?? "tip active"}>{tip}</div>
+				<div className={tip ? "tip active" : ""}>{tip}</div>
 			)}
 		</>
 	);
