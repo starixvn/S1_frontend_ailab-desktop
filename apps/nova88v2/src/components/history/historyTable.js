@@ -24,7 +24,6 @@ const HistoryTable = ({ t, dataSource, columns, children }) => {
 	});
 
 	const body = dataSource?.map((item, index) => {
-		console.log(dataSource);
 		return (
 			<div key={`history-table-${createUuid()}`}>
 				{columns?.map(colItem => {

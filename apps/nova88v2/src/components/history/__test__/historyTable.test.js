@@ -1,6 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react";
-import { defHistoryIdList, defColumns } from "../def";
+import { render } from "@testing-library/react";
 import HistoryTable from "../historyTable";
 
 const fakeData = {
@@ -20,24 +19,64 @@ const fakeData = {
 			}
 		},
 		{
-			createTime: "2021-05-27T08:09:20+00:00",
-			depositType: 1,
-			transId: "DD173442",
-			amount: 100,
+			amount: 300,
+			bankInfo: { sysId: 35, currencyId: 2 },
+			createTime: "2021-05-27T08:09:33+00:00",
+			depositRep: {
+				ver: 1,
+				sysId: 35,
+				accountName: "Superman",
+				accountNo: "53432424",
+				currencyId: 2
+			},
+			depositTime: null,
+			depositType: 3,
+			picFileName: null,
+			refId: null,
 			status: 1,
-			depositRep: null,
-			bankInfo: null
+			thirdId: null,
+			transId: "DD173443"
 		}
 	],
-	columns,
-	children
+	columns: [
+		{
+			title: "NO.",
+			dataIndex: "no",
+			key: "no"
+		},
+		{
+			title: "Date",
+			dataIndex: "createTime",
+			key: "createTime"
+		},
+		{
+			title: "ID",
+			dataIndex: "transId",
+			key: "transId"
+		},
+		{
+			title: "Method",
+			dataIndex: "depositType",
+			key: "depositType"
+		},
+		{
+			title: "Amount",
+			dataIndex: "amount",
+			key: "amount"
+		},
+		{
+			title: "Status",
+			dataIndex: "status",
+			key: "status"
+		},
+		{ dataIndex: "action", key: "action" }
+	]
 };
 
-describe("click cancel button", () => {
-	test("click cancel button, function-ClickCancel toHaveBeenCalled", () => {
+describe("test deposit table render item", () => {
+	test("test deposit table render item", () => {
 		const { container } = render(<HistoryTable {...fakeData} />);
-		const cancelBtn = container.getElementsByClassName("btn-cancel")[0];
-		fireEvent.click(cancelBtn);
-		expect(fakeData.ClickCancel).toHaveBeenCalled();
+		const listBody = container.getElementsByClassName("list history")[0];
+		expect(listBody.children.length).toBe(fakeData.dataSource.length);
 	});
 });
