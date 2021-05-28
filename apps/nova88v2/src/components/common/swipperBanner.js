@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Link } from "@reach/router";
 import {
 	api_site_GetBannerV3,
@@ -11,6 +12,8 @@ import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import defPopBoxType from "./defPopBoxType";
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const NeedLoginRoute = [];
 
@@ -153,7 +156,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 		);
 	});
 
-	return <Autoplay Rows={rows} className={className} />;
+	return <AutoplaySwiper Rows={rows} className={className} />;
 };
 
 Panel.defaultProps = {
@@ -184,7 +187,7 @@ const defSwipperConfig = {
 	rebuildOnUpdate: true
 };
 
-export const Autoplay = ({ Rows, className }) => {
+export const AutoplaySwiper = ({ Rows, className }) => {
 	const params = defSwipperConfig;
 	return Rows && Rows.length > 0 ? (
 		<div className={`swiper-container ${className}`}>
@@ -196,11 +199,11 @@ export const Autoplay = ({ Rows, className }) => {
 	) : null;
 };
 
-Autoplay.defaultProps = {
+AutoplaySwiper.defaultProps = {
 	className: null
 };
 
-Autoplay.propTypes = {
+AutoplaySwiper.propTypes = {
 	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
 	className: PropTypes.string
 };

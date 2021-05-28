@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Link } from "@reach/router";
 import {
 	api_site_GetBannerV3,
@@ -12,6 +13,8 @@ import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import productList, { defCasinoProviders } from "../../datas/productList";
 import { defPopBoxType } from "./defPopBoxType";
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const NeedLoginRoute = [];
 
@@ -164,7 +167,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 		);
 	});
 
-	return <Autoplay Rows={rows} />;
+	return <AutoplaySwiper Rows={rows} />;
 };
 
 Panel.defaultProps = {
@@ -193,13 +196,13 @@ const defSwipperConfig = {
 	rebuildOnUpdate: true
 };
 
-export const Autoplay = props => {
+export const AutoplaySwiper = props => {
 	const params = defSwipperConfig;
 	// eslint-disable-next-line react/jsx-props-no-spreading
 	return <Swiper {...params}>{props.Rows}</Swiper>;
 };
 
-Autoplay.propTypes = {
+AutoplaySwiper.propTypes = {
 	Rows: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
