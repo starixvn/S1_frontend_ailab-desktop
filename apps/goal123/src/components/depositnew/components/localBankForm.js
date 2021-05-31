@@ -137,13 +137,13 @@ const LocalBankForm = ({
 
 	return (
 		<>
+			<div className="subModuleTitle">
+				<span>
+					<i className="txt-blue">*</i>
+					{t("lbl_SelectBank")}
+				</span>
+			</div>
 			<div className="subModule">
-				<div className="subModuleTitle">
-					<span>
-						<i className="txt-blue">*</i>
-						{t("lbl_SelectBank")}
-					</span>
-				</div>
 				<div>
 					{localBankGroupList.map(item => (
 						<button
@@ -183,13 +183,14 @@ const LocalBankForm = ({
 					))}
 				</div>
 			</div>
+
+			<div className="subModuleTitle">
+				<span>
+					<i className="txt-blue">*</i>
+					{t("lbl_BankAccount")}
+				</span>
+			</div>
 			<div className="subModule">
-				<div className="subModuleTitle">
-					<span>
-						<i className="txt-blue">*</i>
-						{t("lbl_BankAccount")}
-					</span>
-				</div>
 				<div className="bankAccount">
 					{t("lbl_TransactionHint")}
 					<div className="smallList">
@@ -226,30 +227,33 @@ const LocalBankForm = ({
 			</div>
 
 			{!userInfo.accountName ? (
-				<div className="subModule">
+				<>
 					<div className="subModuleTitle">
 						<span>
 							<i className="txt-blue">*</i>
 							{t("lbl_RealName")}
 						</span>
 					</div>
-					<Inputbox
-						value={userAccountName.value}
-						onChange={e => onChangeAccountName(e.target.value)}
-						onBlur={e => onChangeAccountName(e.target.value)}
-						tip={userAccountName?.tip}
-						placeholder={t("lbl_DepositAccountNamePlaceholder")}
-					/>
-				</div>
+
+					<div className="subModule">
+						<Inputbox
+							value={userAccountName.value}
+							onChange={e => onChangeAccountName(e.target.value)}
+							onBlur={e => onChangeAccountName(e.target.value)}
+							tip={userAccountName?.tip}
+							placeholder={t("lbl_DepositAccountNamePlaceholder")}
+						/>
+					</div>
+				</>
 			) : null}
 
+			<div className="subModuleTitle">
+				<span>
+					<i className="txt-blue">*</i>
+					{t("lbl_DepositAmount")}
+				</span>
+			</div>
 			<div className="subModule">
-				<div className="subModuleTitle">
-					<span>
-						<i className="txt-blue">*</i>
-						{t("lbl_DepositAmount")}
-					</span>
-				</div>
 				<Inputbox
 					value={formInfo.amount}
 					onChange={e => onChangeAmount(e.target.value)}
@@ -264,13 +268,14 @@ const LocalBankForm = ({
 					onKeyDown={onInputboxKeyDown}
 				/>
 			</div>
+
+			<div className="subModuleTitle">
+				<span>
+					<i className="txt-blue">*</i>
+					{t("lbl_SubmitProof")}
+				</span>
+			</div>
 			<div className="subModule">
-				<div className="subModuleTitle">
-					<span>
-						<i className="txt-blue">*</i>
-						{t("lbl_SubmitProof")}
-					</span>
-				</div>
 				<div className="btnGroup">
 					<button className="blue" onClick={onOpenUploadBankPopBox}>
 						{t("lbl_UploadReceipt")}
@@ -283,22 +288,6 @@ const LocalBankForm = ({
 
 				<div className={`tip${infoActive.upload ? " active" : ""}`}>
 					{t("lbl_DepositProvideBankSlip")}
-				</div>
-			</div>
-
-			<div className="subModule">
-				<div
-					className="subModuleTitle important"
-					style={{ textTransform: "uppercase" }}>
-					{t("lbl_ImportantNote")}
-				</div>
-				<div className="subModuleContent">
-					<ol>
-						<li>{t("lbl_DepositLocalBankNotes1")}</li>
-						<li>{t("lbl_DepositLocalBankNotes2")}</li>
-						<li>{t("lbl_DepositLocalBankNotes3")}</li>
-						<li>{t("lbl_DepositLocalBankNotes4")}</li>
-					</ol>
 				</div>
 			</div>
 		</>
