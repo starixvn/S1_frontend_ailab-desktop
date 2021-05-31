@@ -449,6 +449,14 @@ header .header > div.menu .sportsList .BTI:hover {
   background: url(../img/BTI-sport-a.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .gameList .kingmaker {
+  background: url(../img/kingmaker.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .kingmaker:hover {
+  background: url(../img/kingmaker_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .gameList .sabaclub {
   background: url(../img/sabaclub.png) no-repeat center/auto 100%;
 }
