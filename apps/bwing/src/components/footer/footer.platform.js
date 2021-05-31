@@ -110,6 +110,10 @@ const defPlatform = [
 		...productList.sportBti,
 		path: path.sportBti.root,
 		imgName: "bti"
+	},
+	{
+		...productList.KingMaker,
+		imgName: "kingmaker"
 	}
 ];
 

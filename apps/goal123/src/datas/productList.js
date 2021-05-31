@@ -180,6 +180,10 @@ export default {
 	CQ9: {
 		tpId: 16,
 		name: "CQ9"
+	},
+	KingMaker: {
+		tpId: 11,
+		name: "King_Maker"
 	}
 };
 

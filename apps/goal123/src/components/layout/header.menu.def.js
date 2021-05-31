@@ -19,6 +19,8 @@ import sgIconImg from "../../styles/img/dropdown/fishing/sg-icon.png";
 
 import gamesSabaclubBgImg from "../../styles/img/dropdown/games/sabaclub.png";
 import gamesSabaclubNpcImg from "../../styles/img/dropdown/games/sabaclub-item.png";
+import gamesKingMakerBgImg from "../../styles/img/dropdown/games/kingmaker.png";
+import gamesKingMakerNpcImg from "../../styles/img/dropdown/games/kingmaker-item.png";
 import gamesV8pokerBgImg from "../../styles/img/dropdown/games/v8poker.png";
 import gamesV8pokerNpcImg from "../../styles/img/dropdown/games/v8poker-item.png";
 import gamesKenoBgImg from "../../styles/img/dropdown/games/keno.png";
@@ -150,6 +152,19 @@ export const defMenuLinks = langId => {
 			className: "game icon",
 			subMenu: [
 				{
+					...productList.KingMaker,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.KingMaker
+						})
+					],
+					displayKey: "lbl_King_Maker",
+					menuType: defMenuType.entPage,
+					bgImgUrl: gamesKingMakerBgImg,
+					npcImgUrl: gamesKingMakerNpcImg
+				},
+				{
 					...productList.sabaClub,
 					// path: path.sports.root,
 					className: "sabaclub",
@@ -159,6 +174,7 @@ export const defMenuLinks = langId => {
 					bgImgUrl: gamesSabaclubBgImg,
 					npcImgUrl: gamesSabaclubNpcImg
 				},
+
 				{
 					...productList.V8_Poker,
 					className: "v8",

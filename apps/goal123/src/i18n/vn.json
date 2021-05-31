@@ -105,6 +105,8 @@
 	"lbl_CQ9": "CQ9",
 	"lbl_Saba_Sport": "Saba Sport",
 	"lbl_Bti_Sport": "Bti Sport",
+	"lbl_V8Poker": "V8 Xì tố",
+	"lbl_King_Maker": "King Maker",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "ID Đại lý/ Người giới thiệu",
@@ -623,6 +625,5 @@
 	"lbl_NoOfAchievements": "Số bạn giới thiệu thành công",
 	"lbl_RewardAmount": "Số tiền thưởng",
 
-	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_V8Poker": "V8 Xì tố"
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": ""
 }

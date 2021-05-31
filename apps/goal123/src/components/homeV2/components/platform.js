@@ -83,6 +83,10 @@ const defPlatform = [
 	{
 		...productList.sportBti,
 		imgName: "bti"
+	},
+	{
+		...productList.KingMaker,
+		imgName: "kingmaker"
 	}
 ];
 

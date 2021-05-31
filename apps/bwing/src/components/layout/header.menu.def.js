@@ -53,6 +53,18 @@ export const defMenuLinks = {
 		className: "game icon",
 		subMenu: [
 			{
+				...productList.KingMaker,
+				className: "kingmaker",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.KingMaker
+					})
+				],
+				displayKey: "lbl_King_Maker",
+				menuType: defMenuType.entPage
+			},
+			{
 				...productList.One789_lottery,
 				path: path.sports.root,
 				className: "traditional",
