@@ -120,6 +120,7 @@ export const defSubListClassName = {
 	slot: "casinoList",
 	casino: "livecasinoList",
 	poker: "pokerList",
+	games: "tableList",
 	lottery: "gameList",
 	fishing: "fishList",
 	promotion: "promoList",
@@ -517,6 +518,45 @@ export const defMenuLinks = {
 	poker: {
 		displayKey: "lbl_Poker",
 		className: "pokerbtn"
+	},
+	games: {
+		displayKey: "lbl_Games",
+		subMenu: [
+			{
+				keyName: "games_poker",
+				className: "fsgw",
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "am.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_AMB_Poker",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.KingMaker
+					})
+				],
+				...productList.games_AMBPoker,
+				parameter: { ...productList.games_AMBPoker }
+			},
+			{
+				keyName: "games_kingMaker",
+				className: "fsgw",
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "km.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_King_Maker",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.KingMaker
+					})
+				],
+				...productList.games_kingMaker,
+				parameter: { ...productList.games_kingMaker }
+			}
+		]
 	},
 	fishing: {
 		displayKey: "lbl_Fishing",
