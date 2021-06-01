@@ -311,7 +311,7 @@ export default ({
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -354,10 +354,7 @@ export default ({
 				<div>{t("lbl_UpdateBankInfo")}</div>
 			</div>
 
-			<div
-				className="infoModuleLeft"
-				style={{ width: "auto" }} // remove after add inportant notice
-			>
+			<div className="infoModuleLeft">
 				<div className="walletWrapper">
 					{/* <StepBar step={step} t={t} defStep={defStep} /> */}
 
@@ -440,41 +437,35 @@ export default ({
 				</div>
 			</div>
 
-			{/* <div className="importantNo">
+			<div className="importantNo">
 				<div className="title">
-					<span className="icon icon-warning" />
+					<span className="icon icon-warning" />{" "}
 					{t("lbl_ImportantNotice")}
 				</div>
 				<ul>
-					<li>{t("lbl_DepositImportantNoticeContent1")}</li>
 					<li>
 						<Trans
-							i18nKey="lbl_DepositImportantNoticeContent2"
+							i18nKey="lbl_WithdrawalImportantNoticeContent1"
 							components={{
-								span: <span />
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
 							}}
 						/>
 					</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent2")}</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent3")}</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent4")}</li>
+
 					<li>
 						<Trans
-							i18nKey="lbl_DepositImportantNoticeContent3"
-							components={{
-								span: <span />
-							}}
-						/>
-					</li>
-					<li>
-						<Trans
-							i18nKey="lbl_DepositImportantNoticeContent4"
-							components={{
-								span: <span />
-							}}
-						/>
-					</li>
-					<li>{t("lbl_DepositImportantNoticeContent5")}</li>
-					<li>
-						<Trans
-							i18nKey="lbl_DepositImportantNoticeContent6"
+							i18nKey="lbl_WithdrawalImportantNoticeContent5"
 							components={{
 								Link: (
 									<a
@@ -489,7 +480,7 @@ export default ({
 						/>
 					</li>
 				</ul>
-			</div> */}
+			</div>
 		</>
 	);
 };

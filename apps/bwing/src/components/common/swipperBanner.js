@@ -2,7 +2,11 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
-import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
+import SwiperCore, {
+	Navigation,
+	Pagination,
+	Autoplay as SwiperCoreAutoPlay
+} from "swiper";
 import { Link } from "@reach/router";
 import {
 	api_site_GetBannerV3,
@@ -14,9 +18,9 @@ import path from "../../router";
 import productList, { defCasinoProviders } from "../../datas/productList";
 import { defPopBoxType } from "./defPopBoxType";
 
-SwiperCore.use([Navigation, Pagination, Autoplay]);
-
 const NeedLoginRoute = [];
+
+SwiperCore.use([Navigation, Pagination, SwiperCoreAutoPlay]);
 
 export const ClickLink = ({
 	tpId,
@@ -167,7 +171,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 		);
 	});
 
-	return <AutoplaySwiper Rows={rows} />;
+	return <Autoplay Rows={rows} />;
 };
 
 Panel.defaultProps = {
@@ -196,13 +200,13 @@ const defSwipperConfig = {
 	rebuildOnUpdate: true
 };
 
-export const AutoplaySwiper = props => {
+export const Autoplay = props => {
 	const params = defSwipperConfig;
 	// eslint-disable-next-line react/jsx-props-no-spreading
 	return <Swiper {...params}>{props.Rows}</Swiper>;
 };
 
-AutoplaySwiper.propTypes = {
+Autoplay.propTypes = {
 	Rows: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 

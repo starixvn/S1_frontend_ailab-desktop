@@ -72,13 +72,13 @@ export default function LoadCardForm({
 
 	return (
 		<>
+			<div className="subModuleTitle">
+				<span>
+					<i className="txt-blue">*</i>
+					{t("lbl_PaymentModes")}
+				</span>
+			</div>
 			<div className="subModule">
-				<div className="subModuleTitle">
-					<span>
-						<i className="txt-blue">*</i>
-						{t("lbl_PaymentModes")}
-					</span>
-				</div>
 				<div>
 					{paymentList.map(item => (
 						<button
@@ -121,43 +121,45 @@ export default function LoadCardForm({
 					))}
 				</div>
 			</div>
-
 			{infoChannelIdForRecord ? (
-				<div className="subModule">
+				<>
 					<div className="subModuleTitle">
 						<span>
 							<i className="txt-blue">*</i>
 							{t("lbl_DepositAmount")}
 						</span>
 					</div>
-					<div className="column">
-						<Inputbox
-							className="inputBox-white"
-							readOnly={isSelAmountType}
-							value={formInfo.amount}
-							onChange={e => onChangeAmount(e.target.value)}
-							onBlur={() => onValidAmount(formInfo.amount)}
-							checked={formInfo?.checked}
-							tip={formInfo?.tip}
-							_isConvert={_isConvert}
-							isAmount={true}
-							placeholder={`${t(
-								"lbl_MinMaxAmount"
-							)} ${formatMinAmount} / ${formatMaxAmount}`}
-							onKeyDown={onInputboxKeyDown}
-						/>
-						{isSelAmountType ? (
-							<FixedAmountList
-								minAmount={formInfo.minAmount}
-								maxAmount={formInfo.maxAmount}
-								amountList={formInfo.amountList}
-								amount={formInfo.amount}
+
+					<div className="subModule">
+						<div className="column">
+							<Inputbox
+								className="inputBox-white"
+								readOnly={isSelAmountType}
+								value={formInfo.amount}
+								onChange={e => onChangeAmount(e.target.value)}
+								onBlur={() => onValidAmount(formInfo.amount)}
+								checked={formInfo?.checked}
+								tip={formInfo?.tip}
 								_isConvert={_isConvert}
-								onChangeAmount={onChangeAmount}
+								isAmount={true}
+								placeholder={`${t(
+									"lbl_MinMaxAmount"
+								)} ${formatMinAmount} / ${formatMaxAmount}`}
+								onKeyDown={onInputboxKeyDown}
 							/>
-						) : null}
+							{isSelAmountType ? (
+								<FixedAmountList
+									minAmount={formInfo.minAmount}
+									maxAmount={formInfo.maxAmount}
+									amountList={formInfo.amountList}
+									amount={formInfo.amount}
+									_isConvert={_isConvert}
+									onChangeAmount={onChangeAmount}
+								/>
+							) : null}
+						</div>
 					</div>
-				</div>
+				</>
 			) : null}
 		</>
 	);
