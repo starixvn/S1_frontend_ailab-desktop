@@ -126,7 +126,7 @@ const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {
 	};
 };
 
-export const Open9WSports = ({ url, userId, key }) => {
+export const Open9WSports = ({ url, userId, key, cert }) => {
 	const windowName = `w_9WSportsForm`;
 	const form = document.createElement("form");
 	form.setAttribute("method", "post");
@@ -150,4 +150,5 @@ export const Open9WSports = ({ url, userId, key }) => {
 		"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
 	);
 	form.submit();
+	form.remove();
 };
