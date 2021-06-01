@@ -132,7 +132,8 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 				tpId: subMenuItem.tpId,
 				gameId: subMenuItem.gameId,
 				path: subMenuItem.path,
-				needLogin: subMenuItem.needLogin
+				needLogin: subMenuItem.needLogin,
+				menuType: subMenuItem.menuType
 			})}>
 			<img
 				className="ListBG-left"

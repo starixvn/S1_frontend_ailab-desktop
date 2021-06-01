@@ -4,37 +4,54 @@ import { navigate } from "@reach/router";
 import { defMenuLinks, defSubListClassName } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
+import { SET_ENTER_PAGE, Open9WSports } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
 import { getCurrencyCode } from "../common/common";
+import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 
 export default ({ currentMenuKey, productTpIds }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
 
-	const clickItem = ({ tpId, gameId, path, needLogin }) => {
-		const showLoginPopBox = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
+	const clickItem = async ({ tpId, gameId, path, needLogin }) => {
+		if (tpId === defSpecialSetting.sports_9w) {
+			const result = await handleGoToGame({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId
 			});
-		};
 
-		if (!tpId && !gameId && path) {
-			return needLogin && !userInfo.isLogin
-				? showLoginPopBox()
-				: navigate(`/${userInfo.langId}/${path}`);
+			const { url, key, userId } = result ?? {};
+			Open9WSports({ url, key, userId });
+		} else {
+			const showLoginPopBox = () => {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login
+				});
+			};
+			if (!tpId && !gameId && path) {
+				return needLogin && !userInfo.isLogin
+					? showLoginPopBox()
+					: navigate(`/${userInfo.langId}/${path}`);
+			}
+
+			return SET_ENTER_PAGE({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				loginCallback: showLoginPopBox
+			});
 		}
-
-		return SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback: showLoginPopBox
-		});
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {

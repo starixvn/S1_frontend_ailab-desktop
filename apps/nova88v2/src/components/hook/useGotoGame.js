@@ -122,19 +122,7 @@ export const useGotoGame = ({
 									launchGameWithFunMode({ ...result });
 								}
 							} else if (_tpId === defSpecialSetting.sports_9w) {
-								const iframeRes = await fetch(result.url, {
-									method: "POST",
-									headers: {
-										"Content-Type":
-											"application/x-www-form-urlencoded;charset=UTF-8"
-									},
-									body: new URLSearchParams({
-										userId: result.userId,
-										key: result.key
-									})
-								});
-
-								returnData = iframeRes;
+								returnData = result;
 							} else {
 								setData(() => result);
 							}

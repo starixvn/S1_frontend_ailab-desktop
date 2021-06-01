@@ -125,3 +125,29 @@ const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {
 		windowKey: tpId === 1 ? `Tp_${tpId}_${gameId}` : `Tp_${tpId}`
 	};
 };
+
+export const Open9WSports = ({ url, userId, key }) => {
+	const windowName = `w_9WSportsForm`;
+	const form = document.createElement("form");
+	form.setAttribute("method", "post");
+	form.setAttribute("action", url);
+	form.setAttribute("target", windowName);
+
+	const addIptField = ({ name, value }) => {
+		const hiddenField = document.createElement("input");
+		hiddenField.setAttribute("type", "hidden");
+		hiddenField.setAttribute("name", name);
+		hiddenField.setAttribute("value", value);
+		form.appendChild(hiddenField);
+	};
+
+	addIptField({ name: "userId", value: userId });
+	addIptField({ name: "key", value: key });
+	document.body.appendChild(form);
+	window.open(
+		"",
+		windowName,
+		"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
+	);
+	form.submit();
+};

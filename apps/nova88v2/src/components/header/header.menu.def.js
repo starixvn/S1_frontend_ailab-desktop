@@ -110,7 +110,8 @@ export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
 	LinkNoImg: "LinkNoImg",
-	DirectUrl: "DirectUrl"
+	DirectUrl: "DirectUrl",
+	GotoGame: "GotoGame"
 };
 
 export const defSubListClassName = {
@@ -186,11 +187,11 @@ export const defMenuLinks = {
 	sports: {
 		displayKey: "lbl_Sports",
 		className: "sportsbtn",
-		path: path.sports.root,
-		productInfo: productList.sports,
+		// productInfo: productList.sports,
 		filterByAuth: true,
 		subMenu: [
 			{
+				path: path.sports.root,
 				displayKey: "lbl_Soccer",
 				listNpcImgUrl: "soccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
@@ -199,6 +200,7 @@ export const defMenuLinks = {
 				...productList.soccer
 			},
 			{
+				path: path.sports.root,
 				displayKey: "lbl_SabaSoccer",
 				listNpcImgUrl: "sabssoccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
@@ -207,6 +209,7 @@ export const defMenuLinks = {
 				...productList.sabaSoccer
 			},
 			{
+				path: path.sports.root,
 				displayKey: "lbl_Basketball",
 				listNpcImgUrl: "basketballNPC.png",
 				listBgImgUrl: "basketballBG.png",
@@ -215,6 +218,7 @@ export const defMenuLinks = {
 				...productList.basketball
 			},
 			{
+				path: path.sports.root,
 				displayKey: "lbl_Tennis",
 				listNpcImgUrl: "tennisNPC.png",
 				listBgImgUrl: "tennisBG.png",
@@ -223,6 +227,7 @@ export const defMenuLinks = {
 				...productList.tennis
 			},
 			{
+				path: path.sports.root,
 				displayKey: "lbl_Cricket",
 				listNpcImgUrl: "cricketNPC.png",
 				listBgImgUrl: "cricketBG.png",
@@ -234,7 +239,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_9W",
 				listNpcImgUrl: "9wnpc.png",
 				listBgImgUrl: "cricketBG.png",
-				menuType: defMenuType.Link,
+				menuType: defMenuType.GotoGame,
 				parameter: { ...productList._9WSports },
 				imgSource: defImgSourceType.bannerImgUrl,
 				canSeeOnlyAfterLogin: true,
