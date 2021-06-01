@@ -4,7 +4,6 @@ import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import { getUrlParameter } from "../components/common/common";
 import { GET_ENTER_PAGE_URL } from "../service/enterPage";
-import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
 export default () => {
 	return (
@@ -35,7 +34,6 @@ const Content = () => {
 					)}
 				/>
 			</section>
-			{/* <SideBarQuickLink /> */}
 		</main>
 	);
 };

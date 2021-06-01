@@ -229,6 +229,23 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { ...productList.cricket },
 				...productList.cricket
+			},
+			{
+				displayKey: "lbl_9W",
+				listNpcImgUrl: "9wnpc.png",
+				listBgImgUrl: "cricketBG.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList._9WSports },
+				imgSource: defImgSourceType.bannerImgUrl,
+				allowCurrency: [61],
+				needLogin: true,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.Sports_9W
+					})
+				],
+				...productList._9WSports
 			}
 		]
 	},
@@ -533,7 +550,7 @@ export const defMenuLinks = {
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.KingMaker
+						period: defEventPeriod.Games_AMBPoker
 					})
 				],
 				...productList.games_AMBPoker,
@@ -550,7 +567,7 @@ export const defMenuLinks = {
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.KingMaker
+						period: defEventPeriod.Games_KingMaker
 					})
 				],
 				...productList.games_kingMaker,

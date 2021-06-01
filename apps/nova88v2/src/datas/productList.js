@@ -53,6 +53,9 @@ export default {
 		tpId: 1,
 		gameId: 200
 	},
+	_9WSports: {
+		tpId: 31
+	},
 
 	/* === eSport === */
 
