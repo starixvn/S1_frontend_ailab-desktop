@@ -115,6 +115,7 @@ export const defMenuType = {
 
 export const defSubListClassName = {
 	home: "homeList",
+	appDownload: "appList",
 	sports: "sportsList",
 	eSports: "eSportsList",
 	slot: "casinoList",
@@ -182,7 +183,7 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	app: {
+	appDownload: {
 		className: "icon icon-mobile",
 		path: path.appDownload.root
 	},

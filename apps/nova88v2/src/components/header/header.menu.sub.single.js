@@ -7,6 +7,7 @@ import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
 import productList from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
+import config from "../../config";
 
 const SubMenuSingle = ({ menuKey, userInfo, t }) => {
 	const { setPopBox } = useContext(popBoxContext);
@@ -81,6 +82,16 @@ const SubMenuSingle = ({ menuKey, userInfo, t }) => {
 				<div>{t("lbl_THE_WORLD_CLASS_LEADERBOARD")}</div>
 				<div>{t("lbl_Bring_you_the_best_experience")}</div>
 			</div>
+		);
+	}
+	if (menuKey === "appDownload") {
+		return (
+			<Link to={`/${userInfo.langId}/${path.appDownload.root}`}>
+				<img
+					alt="app_download"
+					src={`${config.cloudImgUrl}/SiteSkin/img/appdownload.jpg`}
+				/>
+			</Link>
 		);
 	}
 	return <div />;
