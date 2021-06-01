@@ -182,6 +182,10 @@ export const defMenuLinks = {
 			}
 		]
 	},
+	app: {
+		className: "icon icon-mobile",
+		path: path.appDownload.root
+	},
 	sports: {
 		displayKey: "lbl_Sports",
 		className: "sportsbtn",
