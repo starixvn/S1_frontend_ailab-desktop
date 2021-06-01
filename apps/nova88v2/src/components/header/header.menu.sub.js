@@ -66,10 +66,8 @@ export default ({ currentMenuKey, productTpIds }) => {
 
 			subMenu = subMenu?.filter(
 				s =>
-					(userInfo.isLogin && s.needLogin) ||
-					!s.needLogin ||
-					!s.allowCurrency ||
-					s.allowCurrency.includes(userInfo.currencyId)
+					!s.canSeeOnlyAfterLogin ||
+					(s.canSeeOnlyAfterLogin && userInfo.isLogin)
 			);
 		}
 

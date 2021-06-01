@@ -216,8 +216,8 @@ export default {
 
 	indo4D: {
 		gameId: 223,
-		tpId: 1,
-		allowCurrency: [4, 15]
+		tpId: 1
+		// allowCurrency: [4, 15]
 	},
 
 	/* === fishing === */

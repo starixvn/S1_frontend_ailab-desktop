@@ -237,8 +237,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				parameter: { ...productList._9WSports },
 				imgSource: defImgSourceType.bannerImgUrl,
-				allowCurrency: [61],
-				needLogin: true,
+				canSeeOnlyAfterLogin: true,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,

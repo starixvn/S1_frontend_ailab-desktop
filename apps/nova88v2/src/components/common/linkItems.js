@@ -85,7 +85,11 @@ export default ({
 		if (m.subMenu) {
 			m.subMenu
 				.filter(
-					s => productTpIds === null || productTpIds.includes(s.tpId)
+					s =>
+						(productTpIds === null ||
+							productTpIds.includes(s.tpId)) &&
+						(!s.canSeeOnlyAfterLogin ||
+							(s.canSeeOnlyAfterLogin && isLogin))
 				)
 				.forEach(sub => {
 					if (sub.eventIcons) {

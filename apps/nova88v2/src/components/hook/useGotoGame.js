@@ -4,7 +4,8 @@ import { api_tp_GotoGame } from "../../service/api/tp";
 import usePopBox from "./usePopBox";
 
 export const defSpecialSetting = {
-	playTech: productList.casino_PT.tpId
+	playTech: productList.casino_PT.tpId,
+	sports_9w: productList._9WSports.tpId
 };
 
 const launchGame = ({ client, mode, game, lang }) => {
@@ -66,20 +67,23 @@ export const useGotoGame = ({
 	});
 
 	const handleGoToGame = useCallback(
-		({
+		async ({
 			isLogin: _isLogin = true,
 			langId: _langId,
 			tpId: _tpId,
 			gameId: _gameId,
 			isFun: _isFun
 		}) => {
+			let returnData = "???";
 			if (_isLogin) {
-				api_tp_GotoGame({
-					TpId: _tpId,
-					LangId: _langId,
-					gameId: _gameId,
-					fun: _isFun ? "1" : "0"
-				}).then(async res => {
+				try {
+					const res = await api_tp_GotoGame({
+						TpId: _tpId,
+						LangId: _langId,
+						gameId: _gameId,
+						fun: _isFun ? "1" : "0"
+					});
+
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0 && res.data.message) {
 							const result = JSON.parse(res.data.message);
@@ -117,6 +121,20 @@ export const useGotoGame = ({
 								} else {
 									launchGameWithFunMode({ ...result });
 								}
+							} else if (_tpId === defSpecialSetting.sports_9w) {
+								const iframeRes = await fetch(result.url, {
+									method: "POST",
+									headers: {
+										"Content-Type":
+											"application/x-www-form-urlencoded;charset=UTF-8"
+									},
+									body: new URLSearchParams({
+										userId: result.userId,
+										key: result.key
+									})
+								});
+
+								returnData = iframeRes;
 							} else {
 								setData(() => result);
 							}
@@ -127,8 +145,10 @@ export const useGotoGame = ({
 							);
 						}
 					}
-				});
+				} catch (error) {}
 			}
+
+			return returnData;
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[gameId, isFun, isLogin, langId, tpId]
