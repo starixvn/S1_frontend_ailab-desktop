@@ -905,6 +905,12 @@ header .header > div.function .icon-email.active:after {
   top: -2px;
 }
 
+header .header > div.function .downloadBtn {
+  color: #56ceff;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
 header .header > div.function .country {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -5902,6 +5908,10 @@ main > .swiper-container .swiper-slide {
   margin-right: 5px;
 }
 
+.proList.expList > div {
+  min-width: 340px;
+}
+
 .proList > div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6131,6 +6141,16 @@ main > .swiper-container .swiper-slide {
   -webkit-transition: 0.2s;
   transition: 0.2s;
   cursor: pointer;
+  position: relative;
+}
+
+.livelobbyList > div .icon {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
 }
 
 .livelobbyList > div.live-n2 {
@@ -6253,6 +6273,40 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
+.fishlobbyList > div .icon {
+  position: absolute;
+  top: 5%;
+  left: 20px;
+  font-size: 20px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+.fishlobbyList > div p {
+  position: absolute;
+  width: 120px;
+  height: 35px;
+  text-transform: uppercase;
+  bottom: 12%;
+  left: 50%;
+  -webkit-transform: translateX(-49%);
+          transform: translateX(-49%);
+  color: #070e22;
+  font-size: 12px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
 .fishlobbyList > div .btnGroup {
   display: none;
   position: absolute;
@@ -6290,8 +6344,8 @@ main > .swiper-container .swiper-slide {
   background: url(../img/fishinglobby/fish-saviors.png) no-repeat center;
 }
 
-.fishlobbyList > div.fish-tos {
-  background: url(../img/fishinglobby/fish-TOS.png) no-repeat center;
+.fishlobbyList > div.fish-of {
+  background: url(../img/fishinglobby/fish-of.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-ttsatp {
