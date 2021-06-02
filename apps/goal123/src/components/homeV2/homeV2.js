@@ -8,8 +8,14 @@ import {
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { defBannerType } from "../../service/api/site";
-import { setCookie, readCookie, isDateRange } from "../common/common";
+import {
+	setCookie,
+	readCookie,
+	isDateRange,
+	number_format
+} from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import config from "../../config";
@@ -28,7 +34,7 @@ import Jackpot from "./components/jackpot";
 import HotGameList from "./components/hotGameList";
 import News from "./components/news";
 import PlatformSection from "./components/platform";
-
+import WinnerBoard from "./winnerBoard";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import SideBarQuickLink from "./sideBarQuickLink";
@@ -126,6 +132,29 @@ const HomeV2 = ({ productTpIds }) => {
 		});
 	};
 
+	const getLeaderboardData = () => {
+		const payload = {
+			lBCategoryId: 0,
+			TopNum: 10,
+			BeforeDays: 1,
+			EventCode: "202104"
+		};
+
+		api_events_GetLeaderboardListV2(payload).then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					console.log("winner-::", res.data.data);
+				} else {
+					showErrorPopBox(res.data.message);
+				}
+			}
+		});
+	};
+
+	useEffect(() => {
+		getLeaderboardData();
+	}, []);
+
 	return (
 		<main>
 			<BannerSwipper
@@ -146,15 +175,15 @@ const HomeV2 = ({ productTpIds }) => {
 			<Marquee />
 
 			<section>
-				<div className="indexliveCasinoList">
+				<div className="indexliveCasinoList topten">
 					<LiveCasinoSwipper
 						t={t}
 						clickItem={clickItem}
 						langId={userInfo.langId}
 						productTpIds={productTpIds}
 					/>
-
 					<Jackpot t={t} userInfo={userInfo} />
+					<WinnerBoard t={t} number_format={number_format} />
 				</div>
 
 				<HotGameList

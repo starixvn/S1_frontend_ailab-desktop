@@ -7,9 +7,15 @@ import {
 	isRootContext
 } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { setCookie, readCookie, isDateRange } from "../common/common";
+import {
+	setCookie,
+	readCookie,
+	isDateRange,
+	number_format
+} from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
+import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { defaultLang } from "../../i18n/config";
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
@@ -17,7 +23,7 @@ import Jackpot from "./jackpot";
 import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
-
+import WinnerBoard from "./winnerBoard";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import path from "../../router";
@@ -93,6 +99,29 @@ export default () => {
 		}
 	}, [userInfo.isLogin, userInfo.langId, userInfo.userName, setPopBox]);
 
+	const getLeaderboardData = () => {
+		const payload = {
+			lBCategoryId: 0,
+			TopNum: 10,
+			BeforeDays: 1,
+			EventCode: "202104"
+		};
+
+		api_events_GetLeaderboardListV2(payload).then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					console.log("winner-::", res.data.data);
+				} else {
+					showErrorPopBox(res.data.message);
+				}
+			}
+		});
+	};
+
+	useEffect(() => {
+		getLeaderboardData();
+	}, []);
+
 	return (
 		<>
 			<MysteryBoxLink
@@ -112,6 +141,9 @@ export default () => {
 				<section>
 					<div className="offers">
 						<EventSwipper langId={userInfo.langId} />
+					</div>
+					<div className="offers">
+						<WinnerBoard t={t} number_format={number_format} />
 						<span className="straightBorder" />
 						<Jackpot t={t} userInfo={userInfo} />
 					</div>
