@@ -126,7 +126,7 @@ const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {
 	};
 };
 
-export const Open9WSports = ({ url, userId, key, cert }) => {
+export const Open9WSports = ({ url, userId, key }) => {
 	const windowName = `w_9WSportsForm`;
 	const form = document.createElement("form");
 	form.setAttribute("method", "post");
@@ -142,7 +142,7 @@ export const Open9WSports = ({ url, userId, key, cert }) => {
 	};
 
 	addIptField({ name: "userId", value: userId });
-	addIptField({ name: "key", value: key });
+	addIptField({ name: "key", value: decodeURIComponent(key) });
 	document.body.appendChild(form);
 	window.open(
 		"",

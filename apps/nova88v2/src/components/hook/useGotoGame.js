@@ -74,7 +74,7 @@ export const useGotoGame = ({
 			gameId: _gameId,
 			isFun: _isFun
 		}) => {
-			let returnData = "???";
+			let returnData = "";
 			if (_isLogin) {
 				try {
 					const res = await api_tp_GotoGame({
