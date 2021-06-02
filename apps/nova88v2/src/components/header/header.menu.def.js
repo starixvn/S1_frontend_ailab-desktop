@@ -115,6 +115,7 @@ export const defMenuType = {
 
 export const defSubListClassName = {
 	home: "homeList",
+	appDownload: "appList",
 	sports: "sportsList",
 	eSports: "eSportsList",
 	slot: "casinoList",
@@ -181,6 +182,10 @@ export const defMenuLinks = {
 				path: path.referral.root
 			}
 		]
+	},
+	appDownload: {
+		className: "icon icon-mobile",
+		path: path.appDownload.root
 	},
 	sports: {
 		displayKey: "lbl_Sports",
