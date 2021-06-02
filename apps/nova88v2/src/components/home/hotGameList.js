@@ -147,7 +147,7 @@ export default ({ t, userInfo }) => {
 			});
 		};
 
-		if (productType === defLinkType.slots) {
+		if (productType === defProductType.slots) {
 			if (userInfo.isLogin !== true) {
 				LoginPopBox();
 			} else {
