@@ -805,8 +805,8 @@
 
 	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promos": "โปรโมชั่น",
-	"lbl_Promos_wording_title":"",
-	"lbl_Promos_wording_desc":"โปรโมชั่นพิเศษประจำเดือน",
+	"lbl_Promos_wording_title":"โปรโมชั่นพิเศษประจำเดือน",
+	"lbl_Promos_wording_desc":"",
 
 	"end-----": "end-----"
 }

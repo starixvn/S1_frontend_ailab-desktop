@@ -805,8 +805,8 @@
 
 	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promos": "优惠",
-	"lbl_Promos_wording_title":"",
-	"lbl_Promos_wording_desc":"每月专属优惠",
+	"lbl_Promos_wording_title":"每月",
+	"lbl_Promos_wording_desc":"专属优惠",
 
 	"end-----": "end-----"
 }
