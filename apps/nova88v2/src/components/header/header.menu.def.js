@@ -542,6 +542,7 @@ export const defMenuLinks = {
 	},
 	games: {
 		displayKey: "lbl_Games",
+		filterByAuth: true,
 		subMenu: [
 			{
 				keyName: "games_poker",
