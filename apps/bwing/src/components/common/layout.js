@@ -6,7 +6,6 @@ import SEO from "../seo";
 import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext, userInfoContext } from "./context";
-import SideBarQuickLink from "../home/sideBarQuickLink";
 import { api_site_GetTpIds } from "../../service/api/site";
 
 const Layout = ({ children, showFooter = false }) => {
@@ -40,7 +39,6 @@ const Layout = ({ children, showFooter = false }) => {
 			<Header productTpIds={productTpIds} />
 			{children}
 			{showFooter ? <Footer productTpIds={productTpIds} /> : null}
-			<SideBarQuickLink />
 			<PopBox />
 			{loading ? <Loading /> : null}
 		</>

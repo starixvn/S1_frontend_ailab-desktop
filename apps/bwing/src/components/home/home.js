@@ -24,6 +24,8 @@ import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
 import WinnerBoard from "./winnerBoard";
+import SideBarQuickLink from "./sideBarQuickLink";
+
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import path from "../../router";
@@ -225,6 +227,8 @@ const UserGuide = ({ t, langId }) => {
 			<li className="icon icon-FAQS">
 				<a href={TandC(langId).FAQ}>{t("lbl_FAQ")}</a>
 			</li>
+
+			<SideBarQuickLink />
 		</ul>
 	);
 };
