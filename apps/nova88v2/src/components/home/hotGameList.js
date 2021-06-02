@@ -122,7 +122,7 @@ const defGameList = [
 		providerImg: "ygb",
 		gameTypeKey: gameType.slots,
 		img: ImgLuckyNeko,
-		tpId: 5,
+		tpId: 8,
 		gameId: 7382,
 		productType: defProductType.slots
 	},
