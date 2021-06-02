@@ -777,7 +777,7 @@
 	"lbl_Back": "Back",
 	"lbl_LOL": "LOL",
 	"lbl_Ambassador": "Ambassador",
-	"lbl_Promos": "Promos",
+	
 	"lbl_Suggested_Browser": "Suggested Browser",
 	"lbl_Read_more": "Read more",
 	"lbl_VIP_CLUB": "VIP CLUB",
@@ -804,6 +804,12 @@
 	"lbl_iOS_App_Trust_Authentication": "iOS App Trust Authentication",
 	"lbl_Once_Nova88_App_is_installed": "Once Nova88 App is installed, tap Trust or complete the setting as below.",
 	"lbl_Best_Mobile_Experience ": "Best Mobile Experience",
+
+	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Promos": "Promos",
+	"lbl_Promos_wording_title":"MONTHLY",
+	"lbl_Promos_wording_desc":"EXCLUSIVE PROMOTIONS",
+
 
 	"end-----": "end-----"
 }

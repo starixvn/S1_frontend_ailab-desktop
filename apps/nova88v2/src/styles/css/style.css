@@ -569,12 +569,12 @@ header input:focus-within {
   margin-left: -90px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .pokerList, .header > div.menu .subMenu-Wrapper-new .vipList, .header > div.menu .subMenu-Wrapper-new .rankingList, .header > div.menu .subMenu-Wrapper-new .appList {
+.header > div.menu .subMenu-Wrapper-new .pokerList, .header > div.menu .subMenu-Wrapper-new .vipList, .header > div.menu .subMenu-Wrapper-new .rankingList, .header > div.menu .subMenu-Wrapper-new .appList, .header > div.menu .subMenu-Wrapper-new .promoList {
   background: url(../img/poker.jpg) no-repeat center/auto;
   padding: 0 calc((100% - 1400px)/2);
 }
 
-.header > div.menu .subMenu-Wrapper-new .pokerList > div, .header > div.menu .subMenu-Wrapper-new .vipList > div, .header > div.menu .subMenu-Wrapper-new .rankingList > div, .header > div.menu .subMenu-Wrapper-new .appList > div {
+.header > div.menu .subMenu-Wrapper-new .pokerList > div, .header > div.menu .subMenu-Wrapper-new .vipList > div, .header > div.menu .subMenu-Wrapper-new .rankingList > div, .header > div.menu .subMenu-Wrapper-new .appList > div, .header > div.menu .subMenu-Wrapper-new .promoList > div {
   width: 50%;
   height: 150px;
   padding: 32px 0;
@@ -593,24 +593,39 @@ header input:focus-within {
   font-size: 18px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .pokerList > div > div:nth-child(2), .header > div.menu .subMenu-Wrapper-new .vipList > div > div:nth-child(2), .header > div.menu .subMenu-Wrapper-new .rankingList > div > div:nth-child(2), .header > div.menu .subMenu-Wrapper-new .appList > div > div:nth-child(2) {
+.header > div.menu .subMenu-Wrapper-new .pokerList > div > div:nth-child(2), .header > div.menu .subMenu-Wrapper-new .vipList > div > div:nth-child(2), .header > div.menu .subMenu-Wrapper-new .rankingList > div > div:nth-child(2), .header > div.menu .subMenu-Wrapper-new .appList > div > div:nth-child(2), .header > div.menu .subMenu-Wrapper-new .promoList > div > div:nth-child(2) {
   font-weight: bold;
 }
 
-.header > div.menu .subMenu-Wrapper-new .pokerList > div > div:last-child, .header > div.menu .subMenu-Wrapper-new .vipList > div > div:last-child, .header > div.menu .subMenu-Wrapper-new .rankingList > div > div:last-child, .header > div.menu .subMenu-Wrapper-new .appList > div > div:last-child {
+.header > div.menu .subMenu-Wrapper-new .pokerList > div > div:last-child, .header > div.menu .subMenu-Wrapper-new .vipList > div > div:last-child, .header > div.menu .subMenu-Wrapper-new .rankingList > div > div:last-child, .header > div.menu .subMenu-Wrapper-new .appList > div > div:last-child, .header > div.menu .subMenu-Wrapper-new .promoList > div > div:last-child {
   color: #CDAE8E;
   font-size: 12px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .pokerList > div > div.btnGroup, .header > div.menu .subMenu-Wrapper-new .vipList > div > div.btnGroup, .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup, .header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup {
+.header > div.menu .subMenu-Wrapper-new .pokerList > div > div.btnGroup, .header > div.menu .subMenu-Wrapper-new .vipList > div > div.btnGroup, .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup, .header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup, .header > div.menu .subMenu-Wrapper-new .promoList > div > div.btnGroup {
   margin: 15px 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .pokerList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .pokerList > div > div.btnGroup a, .header > div.menu .subMenu-Wrapper-new .vipList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .vipList > div > div.btnGroup a, .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup a, .header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup a {
+.header > div.menu .subMenu-Wrapper-new .pokerList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .pokerList > div > div.btnGroup a, .header > div.menu .subMenu-Wrapper-new .vipList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .vipList > div > div.btnGroup a, .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .rankingList > div > div.btnGroup a, .header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .appList > div > div.btnGroup a, .header > div.menu .subMenu-Wrapper-new .promoList > div > div.btnGroup button, .header > div.menu .subMenu-Wrapper-new .promoList > div > div.btnGroup a {
   height: auto;
   border-radius: 5px;
   padding: 5px;
   font-size: 14px;
+}
+
+.header > div.menu .subMenu-Wrapper-new .promoList {
+  background: url(https://image.n88media.com/SiteSkin/img/pomobanner.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .promoList > div {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header > div.menu .subMenu-Wrapper-new .promoList > div .txt-orange {
+  font-weight: bold;
+  font-size: 24px;
 }
 
 .header > div.menu .subMenu-Wrapper-new .appList a {
@@ -662,48 +677,6 @@ header input:focus-within {
 .header > div.menu .subMenu-Wrapper-new .rankingList > div div:last-child, .header > div.menu .subMenu-Wrapper-new .rankingList > a div:last-child {
   color: #1D3662;
   font-size: 16px;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList > div, .header > div.menu .subMenu-Wrapper-new .promoList > a {
-  width: 200px;
-  padding: 50px 0;
-  color: #7591C1;
-  text-align: center;
-  font-weight: bold;
-  height: auto;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList > div > div:nth-child(1), .header > div.menu .subMenu-Wrapper-new .promoList > a > div:nth-child(1) {
-  color: #CDAE8E;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList > div > div:nth-child(2), .header > div.menu .subMenu-Wrapper-new .promoList > a > div:nth-child(2) {
-  color: #7591C1;
-  font-size: 48px;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList > div > div:nth-child(3), .header > div.menu .subMenu-Wrapper-new .promoList > a > div:nth-child(3) {
-  color: #5574A7;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList > div > div.txt-orange, .header > div.menu .subMenu-Wrapper-new .promoList > a > div.txt-orange {
-  display: none;
-  font-size: 24px;
-  position: absolute;
-  line-height: 24px;
-  padding-top: 30px;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList > div:hover > div, .header > div.menu .subMenu-Wrapper-new .promoList > a:hover > div {
-  opacity: 0.2;
-}
-
-.header > div.menu .subMenu-Wrapper-new .promoList > div:hover > div.txt-orange, .header > div.menu .subMenu-Wrapper-new .promoList > a:hover > div.txt-orange {
-  display: block;
-  opacity: 1;
 }
 
 .header > div.function {
@@ -2298,7 +2271,7 @@ footer .footerList > div > div > div {
 .joinpop .joinloginModule .joinAnimation img {
   width: auto;
   height: auto;
-  position: absolute;
+  margin: auto;
 }
 
 .joinpop .joinloginModule .joinAnimation img.animationlogo {
@@ -2883,24 +2856,28 @@ input[type="file"] {
 }
 
 .eventLink .icon-close {
-  width: 35px;
-  height: 35px;
-  color: #0F2D54;
+  width: 20px;
+  height: 20px;
+  color: white;
   position: absolute;
   left: 10px;
   top: -20px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   z-index: 4;
-  background: #E3CE9B;
+  background: #0987a9;
   border-radius: 100%;
-  line-height: 35px;
+  line-height: 22px;
+}
+
+.eventLink .icon-close:before {
+  margin: 0;
 }
 
 .eventLink img {
   -webkit-animation: eventLink 2s infinite;
           animation: eventLink 2s infinite;
-  width: 80%;
+  width: 60%;
 }
 
 .eventLink.active {
@@ -10090,11 +10067,6 @@ canvas {
   color: white;
 }
 
-.vip .vipPage .eventList tr:first-child td {
-  color: white;
-  text-align: center;
-}
-
 .vip .medal {
   margin-bottom: 20px;
 }
@@ -10216,7 +10188,7 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: #191919 url(../img/event/mysterybox/bg.jpg) no-repeat top center;
+  background: #191919 url(../img/euro/bg.jpg) no-repeat top center;
 }
 
 .event2 .eventList {
@@ -12962,31 +12934,30 @@ canvas {
   width: 350px;
 }
 
-.dragonPayPop > div {
-  width: 100%;
-  margin: 5px 0;
+.dragonPayPop ul {
   color: #5574A7;
 }
 
-.dragonPayPop > div div, .dragonPayPop > div li {
-  margin: 5px 0;
+.dragonPayPop ul li {
+  margin-left: 15px;
   list-style: decimal;
 }
 
-.dragonPayPop > div div span:not(.txt-red), .dragonPayPop > div li span:not(.txt-red) {
+.dragonPayPop .title {
+  margin: 5px 0 !important;
+}
+
+.dragonPayPop > div {
+  width: 100%;
+  color: #5574A7;
+  margin: 2px 0;
+}
+
+.dragonPayPop > div span {
   color: #1E85EC;
 }
 
-.dragonPayPop > div li {
-  margin-left: 15px;
-}
-
-.dragonPayPop > div li a {
-  color: #1E85EC;
-  text-decoration: underline;
-}
-
-.dragonPayPop > div.poptit {
+.dragonPayPop > div.popTit {
   background: #5574A7;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13003,14 +12974,14 @@ canvas {
   color: white;
 }
 
-.dragonPayPop > div.poptit img {
+.dragonPayPop > div.popTit img {
   width: auto;
   height: 20px;
   position: absolute;
   left: 5px;
 }
 
-.dragonPayPop > div.poptit .icon-close {
+.dragonPayPop > div.popTit .icon-close {
   right: 0 !important;
   top: auto !important;
   color: white !important;
@@ -13018,36 +12989,15 @@ canvas {
 
 .dragonPayPop > div.sisa {
   text-align: center;
+  margin: 10px 0;
+  color: #cf0404;
 }
 
 .dragonPayPop > div.sisa div:last-child {
   font-weight: bold;
 }
 
-.dragonPayPop > div button {
-  margin: 0;
-}
-
-.dragonPayPop > div button:hover {
-  background: #1E85EC !important;
-}
-
-.dragonPayPop > div .title {
-  margin-bottom: 10px !important;
-}
-
-.dragonPayPop > div .note {
-  background: rgba(0, 0, 0, 0.1);
-  padding: 5px;
-  color: #949494;
-}
-
-.dragonPayPop .qrCode, .dragonPayPop .bankImg {
-  width: 100px;
-  margin: 5px 0;
-}
-
-.dragonPayPop .guide {
+.dragonPayPop > div.guide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13060,10 +13010,15 @@ canvas {
           align-items: center;
   border-top: 1px dotted #1E85EC;
   border-bottom: 1px dotted #1E85EC;
-  text-align: center;
+  padding: 10px 0;
 }
 
-.dragonPayPop .guide div:last-child {
-  margin-left: 5px;
+.dragonPayPop > div.guide span {
+  color: #cf0404;
+}
+
+.dragonPayPop > div.guide .qrCode {
+  width: 100px;
+  margin: 5px 0;
 }
 /*# sourceMappingURL=style.css.map */

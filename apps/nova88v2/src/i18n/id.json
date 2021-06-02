@@ -776,7 +776,6 @@
 	"lbl_Back": "Kembali",
 	"lbl_LOL": "LOL",
 	"lbl_Ambassador": "Ambassador",
-	"lbl_Promos": "Promosi",
 	"lbl_Suggested_Browser": "Browser yang Disarankan",
 	"lbl_Read_more": "Baca lebih lajut",
 	"lbl_VIP_CLUB": "KLUB VIP",
@@ -803,6 +802,11 @@
 	"lbl_iOS_App_Trust_Authentication": "Autentikasi Kepercayaan Aplikasi iOS",
 	"lbl_Once_Nova88_App_is_installed": "Setelah Aplikasi Nova88 diinstal, tap Percayai atau selesaikan pengaturan seperti di bawah ini.",
 	"lbl_Best_Mobile_Experience ": "Pengalaman Mobile Terbaik",
+
+	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Promos": "Promosi",
+	"lbl_Promos_wording_title":"PROMOSI EKSKLUSIF",
+	"lbl_Promos_wording_desc":"BULANAN",
 
 	"end-----": "end-----"
 }

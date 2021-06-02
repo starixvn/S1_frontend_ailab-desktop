@@ -630,38 +630,7 @@ export const defMenuLinks = {
 	},
 	promotion: {
 		displayKey: "lbl_Promos",
-		className: "promobtn",
-		path: path.promotion.root,
-		subMenu: [
-			{
-				displayKey: "lbl_Promotion_Link_1",
-				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root,
-				displayText2: "100%",
-				displayText3: "WELCOME BONUS"
-			},
-			{
-				displayKey: "lbl_Promotion_Link_2",
-				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root,
-				displayText2: "10%",
-				displayText3: "RELOAD BONUS"
-			},
-			{
-				displayKey: "lbl_Promotion_Link_3",
-				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root,
-				displayText2: "100%",
-				displayText3: "WELCOME BONUS"
-			},
-			{
-				displayKey: "lbl_Promotion_Link_4",
-				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root,
-				displayText2: "100%",
-				displayText3: "WELCOME BONUS"
-			}
-		]
+		path: path.promotion.root
 	},
 	vip: {
 		displayKey: "lbl_Vip",
