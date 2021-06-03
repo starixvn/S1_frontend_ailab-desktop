@@ -45,11 +45,12 @@ const AppDownload = () => {
 									<img src={img_ios} alt="img_ios" />
 									{t("lbl_iOS")}
 								</div>
-								<button
-									onClick={onClickToDownload}
-									value={iosLink}>
-									{t("lbl_DOWNLOAD")}
-								</button>
+								<a
+									href={iosLink}
+									target="_blank"
+									rel="noreferrer">
+									<button>{t("lbl_DOWNLOAD")}</button>
+								</a>
 							</div>
 						</div>
 						<div>
@@ -62,11 +63,12 @@ const AppDownload = () => {
 									<img src={img_android} alt="img_android" />
 									{t("lbl_Android")}
 								</div>
-								<button
-									onClick={onClickToDownload}
-									value={androidLink}>
-									{t("lbl_DOWNLOAD")}
-								</button>
+								<a
+									href={androidLink}
+									target="_blank"
+									rel="noreferrer">
+									<button>{t("lbl_DOWNLOAD")}</button>
+								</a>
 							</div>
 						</div>
 					</div>
