@@ -136,7 +136,7 @@ const HomeV2 = ({ productTpIds }) => {
 		const payload = {
 			lBCategoryId: 0,
 			TopNum: 10,
-			BeforeDays: 1,
+			BeforeDays: 0,
 			EventCode: "202104"
 		};
 
