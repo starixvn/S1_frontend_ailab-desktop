@@ -172,13 +172,25 @@ export default () => {
 };
 
 const UserGuide = ({ t, langId }) => {
+	const { setPopBox } = useContext(popBoxContext);
+	const ClickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+	const openDepositGuide = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.DepositGuide,
+			onClickClose: ClickClose
+		});
+	};
+
 	const { userInfo } = useContext(userInfoContext);
 	return (
 		<ul>
 			<li className="icon icon-deposit1">
-				<Link to={`/${userInfo.langId}/${path.howToDeposit.root}`}>
+				<button onClick={openDepositGuide}>
 					{t("lbl_HowToDepoist")}
-				</Link>
+				</button>
 			</li>
 			<li className="icon icon-withdrawal1">
 				<Link to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
