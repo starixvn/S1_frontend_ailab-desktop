@@ -287,6 +287,17 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.OfficialAnnounce: {
+			const PopBoxOfficialAnnounce = lazy(() =>
+				import("./popBox.officialAnnounce")
+			);
+
+			content = (
+				<PopBoxOfficialAnnounce onClickClose={popBox.onClickClose} />
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 
