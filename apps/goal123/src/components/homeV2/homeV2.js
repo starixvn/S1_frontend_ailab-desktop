@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import {
@@ -7,6 +7,7 @@ import {
 	isRootContext
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
+import usePopBox from "../hook/usePopBox";
 import { defBannerType } from "../../service/api/site";
 import {
 	setCookie,
@@ -42,13 +43,12 @@ import QuickdownloadLink from "./quickdownloadLink";
 
 const HomeV2 = ({ productTpIds }) => {
 	const { t } = useTranslation();
-
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
-
 	const { setIsRoot } = useContext(isRootContext);
+	const [winnerList, setWinnerList] = useState([]);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -58,6 +58,10 @@ const HomeV2 = ({ productTpIds }) => {
 			setIsRoot(false);
 		};
 	});
+
+	useEffect(() => {
+		getTopWinnners();
+	}, [userInfo.langId]);
 
 	useEffect(() => {
 		if (
@@ -132,7 +136,7 @@ const HomeV2 = ({ productTpIds }) => {
 		});
 	};
 
-	const getLeaderboardData = () => {
+	const getTopWinnners = () => {
 		const payload = {
 			lBCategoryId: 0,
 			TopNum: 10,
@@ -140,20 +144,24 @@ const HomeV2 = ({ productTpIds }) => {
 			EventCode: "202104"
 		};
 
-		api_events_GetLeaderboardListV2(payload).then(res => {
-			if (isMountedRef.current) {
+		api_events_GetLeaderboardListV2(payload).then(
+			res => {
+				if (!isMountedRef.current) return;
 				if (res.data.errorCode === 0) {
-					console.log("winner-::", res.data.data);
+					setWinnerList(res.data.data);
 				} else {
-					showErrorPopBox(res.data.message);
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
 				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				errorPopBox();
 			}
-		});
+		);
 	};
-
-	useEffect(() => {
-		getLeaderboardData();
-	}, []);
 
 	return (
 		<main>
@@ -183,7 +191,11 @@ const HomeV2 = ({ productTpIds }) => {
 						productTpIds={productTpIds}
 					/>
 					<Jackpot t={t} userInfo={userInfo} />
-					<WinnerBoard t={t} number_format={number_format} />
+					<WinnerBoard
+						t={t}
+						number_format={number_format}
+						winnerList={winnerList}
+					/>
 				</div>
 
 				<HotGameList

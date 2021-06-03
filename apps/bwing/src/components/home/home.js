@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import {
@@ -7,6 +7,7 @@ import {
 	isRootContext
 } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
+import usePopBox from "../hook/usePopBox";
 import {
 	setCookie,
 	readCookie,
@@ -34,9 +35,11 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const { setIsRoot } = useContext(isRootContext);
-
 	const isMountedRef = useRef(null);
+	const [winnerList, setWinnerList] = useState([]);
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		setIsRoot(true);
@@ -45,6 +48,10 @@ export default () => {
 			setIsRoot(false);
 		};
 	});
+
+	useEffect(() => {
+		getTopWinnners();
+	}, [userInfo.langId]);
 
 	useEffect(() => {
 		if (
@@ -101,7 +108,7 @@ export default () => {
 		}
 	}, [userInfo.isLogin, userInfo.langId, userInfo.userName, setPopBox]);
 
-	const getLeaderboardData = () => {
+	const getTopWinnners = () => {
 		const payload = {
 			lBCategoryId: 0,
 			TopNum: 10,
@@ -109,20 +116,24 @@ export default () => {
 			EventCode: "202104"
 		};
 
-		api_events_GetLeaderboardListV2(payload).then(res => {
-			if (isMountedRef.current) {
+		api_events_GetLeaderboardListV2(payload).then(
+			res => {
+				if (!isMountedRef.current) return;
 				if (res.data.errorCode === 0) {
-					console.log("winner-::", res.data.data);
+					setWinnerList(res.data.data);
 				} else {
-					showErrorPopBox(res.data.message);
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
 				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				errorPopBox();
 			}
-		});
+		);
 	};
-
-	useEffect(() => {
-		getLeaderboardData();
-	}, []);
 
 	return (
 		<>
@@ -145,7 +156,11 @@ export default () => {
 						<EventSwipper langId={userInfo.langId} />
 					</div>
 					<div className="offers">
-						<WinnerBoard t={t} number_format={number_format} />
+						<WinnerBoard
+							t={t}
+							number_format={number_format}
+							winnerList={winnerList}
+						/>
 						<span className="straightBorder" />
 						<Jackpot t={t} userInfo={userInfo} />
 					</div>

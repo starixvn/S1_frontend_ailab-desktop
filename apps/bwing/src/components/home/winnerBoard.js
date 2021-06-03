@@ -1,48 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
+import img_money from "../../styles/img/top10/money.png";
 
-const WinnerBoard = ({ t, number_format }) => {
-	const winnerList = [
-		{
-			date: "2020-12-03T00:00:00",
-			lbCategoryId: 1,
-			lbCategoryName: "Sports",
-			custId: 1,
-			userName: "tot3",
-			wTurnover: 342433.0
-		},
-		{
-			date: "2020-12-03T00:00:00",
-			lbCategoryId: 1,
-			lbCategoryName: "Sports",
-			custId: 613,
-			userName: "0333",
-			wTurnover: 44858.02
-		},
-		{
-			date: "2020-12-03T00:00:00",
-			lbCategoryId: 1,
-			lbCategoryName: "Sports",
-			custId: 221,
-			userName: "ma00",
-			wTurnover: 22457.0
-		},
-		{
-			date: "2020-12-03T00:00:00",
-			lbCategoryId: 1,
-			lbCategoryName: "Sports",
-			custId: 1016,
-			userName: "tost",
-			wTurnover: 21020.0
-		},
-		{
-			date: "2020-12-03T00:00:00",
-			lbCategoryId: 1,
-			lbCategoryName: "Sports",
-			custId: 196,
-			userName: "BY****ER",
-			wTurnover: 10034.2567
-		}
-	];
+const WinnerBoard = ({ t, number_format, winnerList }) => {
 	const winnerRows = winnerList.map((item, idx) => {
 		const _rank = idx + 1;
 		return (
@@ -55,10 +15,7 @@ const WinnerBoard = ({ t, number_format }) => {
 					<p>{item.userName}</p>
 				</div>
 				<div className="money">
-					<img
-						src={require(`../../styles/img/top10/money.png`)}
-						alt="money"
-					/>
+					<img src={img_money} alt="money" />
 					<p>{number_format(item.wTurnover)}</p>
 				</div>
 			</div>
@@ -81,3 +38,9 @@ const WinnerBoard = ({ t, number_format }) => {
 };
 
 export default WinnerBoard;
+
+WinnerBoard.propTypes = {
+	t: PropTypes.func.isRequired,
+	number_format: PropTypes.func.isRequired,
+	winnerList: PropTypes.arrayOf(PropTypes.any).isRequired
+};
