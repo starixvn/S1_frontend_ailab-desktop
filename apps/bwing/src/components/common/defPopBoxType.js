@@ -25,7 +25,8 @@ export const defPopBoxType = {
 	JoinReferral: "JoinReferral",
 	DepositUploadBankSlip: "DepositUploadBankSlip",
 	RankingWinner: "RankingWinner",
-	OfficialAnnounce: "OfficialAnnounce"
+	OfficialAnnounce: "OfficialAnnounce",
+	DepositGuide: "DepositGuide"
 };
 
 export default defPopBoxType;
