@@ -1162,6 +1162,7 @@ html.Newtheme.index .livecasinoList {
 html.Newtheme main {
   padding-top: 115px;
   min-width: 1010px;
+  height: calc(100% - 115px);
   background: url(../img/bgPoint.png) repeat center/1.5%;
 }
 
@@ -3548,7 +3549,7 @@ html.Newtheme #popup.active {
 
 html.Newtheme #popup .pop {
   background: rgba(15, 35, 70, 0.95);
-  padding: 40px;
+  padding: 20px;
   border-radius: 15px;
   max-height: calc(100% - 160px);
   overflow-y: auto;
@@ -3616,11 +3617,11 @@ html.Newtheme #popup .pop .upload_new .title {
   font-size: 32px;
 }
 
-html.Newtheme #popup .pop .icon-close {
+html.Newtheme #popup .pop .upload_new .icon-close {
   color: white;
   position: absolute;
-  right: -20px;
-  top: -20px;
+  right: -10px;
+  top: -10px;
   font-size: 14px;
   cursor: pointer;
 }
@@ -3632,8 +3633,8 @@ html.Newtheme #popup .friend {
 
 html.Newtheme #popup .friend .icon-close {
   position: absolute;
-  top: -25px;
-  right: -25px;
+  top: -12px;
+  right: -12px;
 }
 
 html.Newtheme #popup .friend img {
@@ -5107,8 +5108,9 @@ html.Newtheme .quickSelect > div:first-child.promoType button.red:before {
   font-size: 24px;
 }
 
-html.Newtheme .quickSelect > div.inputBox.promoType button.blueBorder,
-html.Newtheme .quickSelect > div:first-child.promoType button.blueBorder {
+html.Newtheme .quickSelect > div.inputBox.promoType button.blueBorder, html.Newtheme .quickSelect > div.inputBox.promoType button.btn-check,
+html.Newtheme .quickSelect > div:first-child.promoType button.blueBorder,
+html.Newtheme .quickSelect > div:first-child.promoType button.btn-check {
   white-space: nowrap;
 }
 
@@ -7615,6 +7617,10 @@ html.Newtheme .event.goldbox {
   background: #000 url(../img/event/box/bg.jpg) no-repeat top center;
 }
 
+html.Newtheme .event.goldbox.euro {
+  background: #000 url(../img/event/box/bg_euro.jpg) no-repeat top center;
+}
+
 html.Newtheme .event .animation {
   width: 300px;
   height: 270px;
@@ -7865,13 +7871,18 @@ html.Newtheme .eventLink .icon-close {
 }
 
 html.Newtheme .eventLink img {
-  width: 210px;
+  width: 190px;
   -webkit-animation: routate linear infinite alternate 0.8s;
           animation: routate linear infinite alternate 0.8s;
 }
 
 html.Newtheme .eventLink.active {
   display: none;
+}
+
+html.Newtheme .eventLink.euro .icon-close {
+  color: #fff;
+  background: rgba(0, 134, 168, 0.8);
 }
 
 html.Newtheme .angpao__wrapper {
@@ -8941,7 +8952,7 @@ html.Newtheme .subModuleListColumn > .subModule > div {
 }
 
 html.Newtheme .subModuleListColumn > .subModule > div.inputBox {
-  width: 300px;
+  width: 420px;
 }
 
 html.Newtheme .subModuleListColumn > .subModule > div > button,
@@ -9155,7 +9166,7 @@ html.Newtheme .subModuleListColumn .column {
 html.Newtheme .subModuleListColumn .column .inputBox-white,
 html.Newtheme .subModuleListColumn .column .inputBox-blue,
 html.Newtheme .subModuleListColumn .column .inputBox {
-  width: 300px !important;
+  width: 420px !important;
 }
 
 html.Newtheme .subModuleListColumn .column .inputBox-white + .tip,
@@ -9414,7 +9425,6 @@ html.Newtheme .vip .vipPage .eventList tr td:first-child {
 
 html.Newtheme .vip .vipPage .eventList tr:first-child td {
   color: white;
-  text-align: center;
 }
 
 html.Newtheme .vip .medal {
