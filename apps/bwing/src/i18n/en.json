@@ -658,5 +658,14 @@
 	"lbl_Titanium_Club": "TITANIUM CLUB",
 	"lbl_Diamond_Club": "DIAMOND CLUB",
 	"lbl_Bwing_Club": "BWING VVVIP",
-	"lbl_Vip_LastUpdated": "LAST UPDATED"
+	"lbl_Vip_LastUpdated": "LAST UPDATED",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "APP DOWNLOAD",
+	"lbl_Android": "Android",
+	"lbl_Installation_tutorial": "Installation tutorial",
+	"lbl_Once_Nova88_App_is_installed": "Once Nova88 App is installed, tap Trust or complete the setting as below.",
+	"lbl_Scan_to_Download": "Scan to Download",
+
+	"end-----": "end-----"
 }

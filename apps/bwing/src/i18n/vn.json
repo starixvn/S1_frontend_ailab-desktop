@@ -656,5 +656,14 @@
 	"lbl_Titanium_Club": "HẠNG BẠCH KIM",
 	"lbl_Diamond_Club": "HẠNG KIM CƯƠNG",
 	"lbl_Bwing_Club": "BWING VVVIP",
-	"lbl_Vip_LastUpdated": "CẬP NHẬT GẦN NHẤT"
+	"lbl_Vip_LastUpdated": "CẬP NHẬT GẦN NHẤT",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "TẢI ỨNG DỤNG",
+	"lbl_Android": "Android",
+	"lbl_Installation_tutorial": "Hướng dẫn cài đặt",
+	"lbl_Once_Bwing_App_is_installed": "Khi ứng dụng Bwing được cài đặt, chọn Tin cậy hoặc hoàn thành Cài đặt theo hướng dẫn bên dưới",
+	"lbl_Scan_to_Download": "Quét để tải về",
+
+	"end-----": "end-----"
 }
