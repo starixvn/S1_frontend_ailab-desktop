@@ -472,6 +472,8 @@
 	"lbl_Min": "Minimum",
 	"lbl_Max": "Maksimum",
 	"lbl_ImportantNotice": "PEMBERITAHUAN PENTING",
+	"lbl_Play": "MAIN",
+	"lbl_Demo": "DEMO",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -686,7 +688,7 @@
 	"lbl_Not_Started": "Belum dimulai",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "Video Sorotan Terbaru",
+	"lbl_LatestHighlightVideo": "VIDEO TERBARU",
 	"lbl_LiveScore": "Skor Langsung",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -776,7 +778,6 @@
 	"lbl_Back": "Kembali",
 	"lbl_LOL": "LOL",
 	"lbl_Ambassador": "Ambassador",
-	"lbl_Promos": "Promosi",
 	"lbl_Suggested_Browser": "Browser yang Disarankan",
 	"lbl_Read_more": "Baca lebih lajut",
 	"lbl_VIP_CLUB": "KLUB VIP",
@@ -793,6 +794,21 @@
 	"lbl_sign_up_terms_center": "syarat & ketentuan",
 	"lbl_sign_up_terms_end": ".",
 	"lbl_homeJackpotTitle": "Jackpot",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "DOWNLOAD APP",
+	"lbl_SCAN_ME_NOW": "SCAN SEKARANG",
+	"lbl_iOS": "iOS",
+	"lbl_DOWNLOAD": "DOWNLOAD",
+	"lbl_Installation_tutorial": "Tutorial instalasi",
+	"lbl_iOS_App_Trust_Authentication": "Autentikasi Kepercayaan Aplikasi iOS",
+	"lbl_Once_Nova88_App_is_installed": "Setelah Aplikasi Nova88 diinstal, tap Percayai atau selesaikan pengaturan seperti di bawah ini.",
+	"lbl_Best_Mobile_Experience ": "Pengalaman Mobile Terbaik",
+
+	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Promos": "Promosi",
+	"lbl_Promos_wording_title":"PROMOSI EKSKLUSIF",
+	"lbl_Promos_wording_desc":"BULANAN",
 
 	"end-----": "end-----"
 }

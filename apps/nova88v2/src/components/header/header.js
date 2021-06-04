@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, popBoxContext } from "../common/context";
+import {
+	userInfoContext,
+	popBoxContext,
+	productTpIdsContext
+} from "../common/context";
 import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
@@ -12,8 +16,9 @@ import defPopBoxType from "../common/defPopBoxType";
 // import Logo from "../../styles/img/nova88_logo_ny.png";
 import { currencyCode } from "../../datas/countryCode";
 
-export default ({ productTpIds }) => {
+export default () => {
 	const { t } = useTranslation();
+	const { productTpIds } = useContext(productTpIdsContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isUSDT = userInfo.currencyId === currencyCode.USDT;

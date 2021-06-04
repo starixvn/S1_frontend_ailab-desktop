@@ -472,6 +472,8 @@
 	"lbl_Min": "最小",
 	"lbl_Max": "最大",
 	"lbl_ImportantNotice": "重要通知",
+	"lbl_Play": "游戏",
+	"lbl_Demo": "演示",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -686,7 +688,7 @@
 	"lbl_Not_Started": "未开始",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "最新精彩回放视频",
+	"lbl_LatestHighlightVideo": "最新影片",
 	"lbl_LiveScore": "即时比分",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -776,7 +778,6 @@
 	"lbl_Back": "返回",
 	"lbl_LOL": "英雄联盟",
 	"lbl_Ambassador": "品牌大使",
-	"lbl_Promos": "优惠",
 	"lbl_Suggested_Browser": "推荐浏览器",
 	"lbl_Read_more": "阅读更多",
 	"lbl_VIP_CLUB": "VIP俱乐部",
@@ -793,6 +794,21 @@
 	"lbl_sign_up_terms_center": "条款与规则",
 	"lbl_sign_up_terms_end": "、隐私政策, Cookies政策及其他政策。",
 	"lbl_homeJackpotTitle": "积宝奖金",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "下载 APP",
+	"lbl_SCAN_ME_NOW": "扫码安装",
+	"lbl_iOS": "iOS",
+	"lbl_DOWNLOAD": "下载",
+	"lbl_Installation_tutorial": "安装教学",
+	"lbl_iOS_App_Trust_Authentication": "iOS 应用程序验证",
+	"lbl_Once_Nova88_App_is_installed": "待 Nova88 App 完成安装，单点 “Trust” 或完成以下设定",
+	"lbl_Best_Mobile_Experience ": "最棒手机使用体验",
+
+	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Promos": "优惠",
+	"lbl_Promos_wording_title":"每月",
+	"lbl_Promos_wording_desc":"专属优惠",
 
 	"end-----": "end-----"
 }

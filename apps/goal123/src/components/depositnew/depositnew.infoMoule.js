@@ -26,17 +26,14 @@ const DepositnewInfoMoule = ({
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
-			<div
-				className="subModuleListColumn"
-				style={{ width: "auto" }} // remove after add inportant notice
-			>
+			<div className="subModuleListColumn">
+				<div className="subModuleTitle">
+					<span>
+						<i className="txt-blue">*</i>
+					</span>
+					{t("lbl_DepositOptions")}
+				</div>
 				<div className="subModule">
-					<div className="subModuleTitle">
-						<span>
-							<i className="txt-blue">*</i>
-						</span>
-						{t("lbl_DepositOptions")}
-					</div>
 					<div>
 						{depositOptions.map(item => (
 							<button
@@ -71,9 +68,9 @@ const DepositnewInfoMoule = ({
 				</div>
 			</div>
 
-			{/* <div className="importantNo">
+			<div className="importantNo">
 				<div className="title">
-					<span className="icon icon-warning" />
+					<span className="icon icon-warning" />{" "}
 					{t("lbl_ImportantNotice")}
 				</div>
 				<ul>
@@ -120,7 +117,7 @@ const DepositnewInfoMoule = ({
 						/>
 					</li>
 				</ul>
-			</div> */}
+			</div>
 		</div>
 	);
 };

@@ -129,6 +129,10 @@
   content: "\e9a6";
 }
 
+.icon-jili:before {
+  content: "\e9f1";
+}
+
 .icon-line:before {
   content: "\e993";
 }
@@ -1199,5 +1203,9 @@
 
 .icon-live-chat:before {
   content: "\e9ec";
+}
+
+.icon-kingmaker:before {
+  content: "\e9f2";
 }
 /*# sourceMappingURL=font.css.map */

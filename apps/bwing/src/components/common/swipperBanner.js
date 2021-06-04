@@ -2,6 +2,11 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
+import SwiperCore, {
+	Navigation,
+	Pagination,
+	Autoplay as SwiperCoreAutoPlay
+} from "swiper";
 import { Link } from "@reach/router";
 import {
 	api_site_GetBannerV3,
@@ -14,6 +19,8 @@ import productList, { defCasinoProviders } from "../../datas/productList";
 import { defPopBoxType } from "./defPopBoxType";
 
 const NeedLoginRoute = [];
+
+SwiperCore.use([Navigation, Pagination, SwiperCoreAutoPlay]);
 
 export const ClickLink = ({
 	tpId,
