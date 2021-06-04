@@ -17,6 +17,9 @@ export default {
 	casino: {
 		root: "casino"
 	},
+	fishing: {
+		root: "fishing"
+	},
 	liveCasino: {
 		root: "liveCasino"
 	},

@@ -8,3 +8,4 @@ export const bankSlipPopBoxContext = createContext({});
 export const msgCountContext = createContext({});
 export const loadingContext = createContext({});
 export const isRootContext = createContext({});
+export const productTpIdsContext = createContext();

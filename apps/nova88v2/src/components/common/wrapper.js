@@ -5,7 +5,10 @@ import path from "../../router";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
 import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
-import { api_site_CheckSignIn } from "../../service/api/site";
+import {
+	api_site_CheckSignIn,
+	api_site_GetTpIds
+} from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
 	api_account_GetMsgCount,
@@ -60,6 +63,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [redirectPath, setRedirectPath] = useState(null);
 	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
 	const [isRoot, setIsRoot] = useState(false);
+	const [productTpIds, setProductTpIds] = useState(null);
 
 	const isMountedRef = useRef(null);
 
@@ -222,6 +226,18 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		}
 	}, []);
 
+	useEffect(() => {
+		if (userInfo.isLogin && productTpIds === null) {
+			api_site_GetTpIds().then(res => {
+				if (res.data.errorCode === 0 && isMountedRef.current) {
+					setProductTpIds(res.data.data);
+				}
+			});
+		} else if (userInfo.isLogin === false && productTpIds?.length > 0) {
+			setProductTpIds(null);
+		}
+	}, [userInfo.isLogin, productTpIds]);
+
 	useInterval(
 		() => {
 			api_account_onlineCheck().then(res => {
@@ -240,28 +256,30 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	if (redirectPath === null) {
 		const content = correctPath ? (
-			<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
-				<ct.walletInfoContext.Provider
-					value={{
-						...walletInfo.state,
-						dispatch: walletInfo.dispatch
-					}}>
-					<ct.msgCountContext.Provider
-						value={{ msgCount, setMsgCount }}>
-						<ct.popBoxContext.Provider
-							value={{ popBox, setPopBox }}>
-							<ct.loadingContext.Provider
-								value={{ loading, setLoading }}>
-								<ct.isRootContext.Provider
-									value={{ isRoot, setIsRoot }}>
-									<SEO lang={userInfo.langId} />
-									{children}
-								</ct.isRootContext.Provider>
-							</ct.loadingContext.Provider>
-						</ct.popBoxContext.Provider>
-					</ct.msgCountContext.Provider>
-				</ct.walletInfoContext.Provider>
-			</ct.userInfoContext.Provider>
+			<ct.productTpIdsContext.Provider value={{ productTpIds }}>
+				<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
+					<ct.walletInfoContext.Provider
+						value={{
+							...walletInfo.state,
+							dispatch: walletInfo.dispatch
+						}}>
+						<ct.msgCountContext.Provider
+							value={{ msgCount, setMsgCount }}>
+							<ct.popBoxContext.Provider
+								value={{ popBox, setPopBox }}>
+								<ct.loadingContext.Provider
+									value={{ loading, setLoading }}>
+									<ct.isRootContext.Provider
+										value={{ isRoot, setIsRoot }}>
+										<SEO lang={userInfo.langId} />
+										{children}
+									</ct.isRootContext.Provider>
+								</ct.loadingContext.Provider>
+							</ct.popBoxContext.Provider>
+						</ct.msgCountContext.Provider>
+					</ct.walletInfoContext.Provider>
+				</ct.userInfoContext.Provider>
+			</ct.productTpIdsContext.Provider>
 		) : (
 			<SEO lang={userInfo.langId} />
 		);

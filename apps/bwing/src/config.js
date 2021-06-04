@@ -13,6 +13,8 @@ const getAffiliate = ({ langId }) => {
 		: `https://aff.${arr.join(".")}/?lang=${langId}`;
 };
 
+const bannerImgUrl = "https://banner.bw88.io";
+
 export const errorPageUrl = langId =>
 	`https://error.bw88.io/404/index_${langId}.html`;
 
@@ -47,5 +49,6 @@ export default process.env.NODE_ENV === "production"
 			cloudImgUrl: "",
 			bannerImgUrl,
 			t_and_cURL: "http://stag.Bwing.com",
-			openURL: "http://stag.Bwing.com"
+			openURL: "http://stag.Bwing.com",
+			bannerImgUrl
 	  };

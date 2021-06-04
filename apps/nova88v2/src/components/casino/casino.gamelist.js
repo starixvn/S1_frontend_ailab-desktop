@@ -95,7 +95,7 @@ export default ({
 									delay: 5000
 								})
 							}>
-							{t("lbl_PlayNow")}
+							{t("lbl_Play")}
 						</button>
 
 						{g.playFree ? (
@@ -109,7 +109,7 @@ export default ({
 										delay: 0
 									})
 								}>
-								{t("lbl_Free")}
+								{t("lbl_Demo")}
 							</button>
 						) : null}
 					</div>
