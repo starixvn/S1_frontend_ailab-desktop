@@ -24,8 +24,6 @@ export const siteInfo = ({ langId }) => {
 	};
 };
 
-const bannerImgUrl = "https://banner.bw88.io";
-
 export const langCookie = "bwingLangId";
 
 export default process.env.NODE_ENV === "production"
