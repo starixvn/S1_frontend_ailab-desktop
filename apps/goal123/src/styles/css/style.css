@@ -180,7 +180,7 @@ html.Newtheme header .header > div.menu .icon-new::before {
   background: url(../img/dropdown/newbg.png) no-repeat center/contain;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
-  font-size: 8px;
+  font-size: 12px;
 }
 
 html.Newtheme header .header > div.menu .icon-live::before {
@@ -195,7 +195,7 @@ html.Newtheme header .header > div.menu .icon-live::before {
   background: url(../img/dropdown/livebg.png) no-repeat center/contain;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
-  font-size: 8px;
+  font-size: 12px;
 }
 
 html.Newtheme header .header > div.menu > a,
@@ -1162,7 +1162,6 @@ html.Newtheme.index .livecasinoList {
 html.Newtheme main {
   padding-top: 115px;
   min-width: 1010px;
-  height: calc(100% - 115px);
   background: url(../img/bgPoint.png) repeat center/1.5%;
 }
 
@@ -6374,13 +6373,13 @@ html.Newtheme .fishinglobbyList .icon-new::before {
   top: 5px;
   left: 15px;
   display: block;
-  width: 40px;
-  height: 26px;
+  width: 44px;
+  height: 28px;
   color: #fff;
   background: url(../img/dropdown/newbg.png) no-repeat center/contain;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
-  font-size: 8px;
+  font-size: 14px;
 }
 
 html.Newtheme .newsList {

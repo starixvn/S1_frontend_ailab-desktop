@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { userInfoContext } from "../common/context";
+import { userInfoContext, productTpIdsContext } from "../common/context";
 import Bettings from "./footer.bettings";
 import OurPolicies from "./footer.ourPolicies";
 import HelpSupport from "./footer.helpSupport";
@@ -8,9 +8,10 @@ import Promotions from "./footer.promotions";
 import About from "./footer.about";
 import PlatformSection from "./footer.platform";
 
-export default ({ productTpIds }) => {
+export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
+	const { productTpIds } = useContext(productTpIdsContext);
 
 	return (
 		<footer>

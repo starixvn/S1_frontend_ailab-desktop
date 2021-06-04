@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { userInfoContext } from "../common/context";
+import { userInfoContext, productTpIdsContext } from "../common/context";
 // import SocialMedia1 from "../../styles/img/te.png";
 // import SocialMedia2 from "../../styles/img/tw.png";
 // import SocialMedia3 from "../../styles/img/fb.png";
@@ -15,9 +15,10 @@ import imgTelegram from "../../styles/img/te_1.png";
 import imgSkype from "../../styles/img/sk_1.png";
 import imgZalo from "../../styles/img/zalo_1.png";
 
-export default ({ productTpIds }) => {
+export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
+	const { productTpIds } = useContext(productTpIdsContext);
 
 	return (
 		<footer>
