@@ -78,7 +78,9 @@ export const useGotoGame = ({
 					TpId: _tpId,
 					LangId: _langId,
 					gameId: _gameId,
-					fun: _isFun ? "1" : "0"
+					fun: _isFun ? "1" : "0",
+					gameType:
+						_tpId === defSpecialSetting.playTech ? "slots" : ""
 				}).then(async res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0 && res.data.message) {

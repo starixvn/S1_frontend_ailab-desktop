@@ -95,7 +95,7 @@ export default ({
 									delay: 5000
 								})
 							}>
-							{t("lbl_PlayNow").toUpperCase()}
+							{t("lbl_Play").toUpperCase()}
 						</button>
 						{g.playFree ? (
 							<button
@@ -108,7 +108,7 @@ export default ({
 										delay: 0
 									})
 								}>
-								{t("lbl_Free").toUpperCase()}
+								{t("lbl_Demo").toUpperCase()}
 							</button>
 						) : null}
 					</div>

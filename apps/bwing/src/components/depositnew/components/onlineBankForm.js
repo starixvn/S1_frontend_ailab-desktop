@@ -107,13 +107,13 @@ const OnlineBankForm = ({
 
 	return (
 		<>
+			<div className="subModuleTitle">
+				<span>
+					<i className="txt-blue">*</i>
+					{t("lbl_PaymentModes")}
+				</span>
+			</div>
 			<div className="subModule">
-				<div className="subModuleTitle">
-					<span>
-						<i className="txt-blue">*</i>
-						{t("lbl_PaymentModes")}
-					</span>
-				</div>
 				<div>
 					{onlineBankGroupList.map(item => (
 						<button
@@ -158,46 +158,52 @@ const OnlineBankForm = ({
 			</div>
 
 			{!!onlineBankInfoList.length && (
-				<div className="subModule">
+				<>
 					<div className="subModuleTitle">
 						<span>
 							<i className="txt-blue">*</i>
 							{t("lbl_SelectBank")}
 						</span>
 					</div>
-					<div>
-						{onlineBankInfoList.map(item => (
-							<button
-								key={`deposit-onlinePay-info-${item.bankLogo}}`}
-								onClick={() =>
-									onSetSysIdToInfoData(item, payIdForRecord)
-								}
-								className={
-									item.sysId === sysIdForRecord
-										? "active"
-										: ""
-								}>
-								<div>
-									<img
-										alt={item.bankLogo}
-										src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
-									/>
-									<i className="icon icon-checkmark" />
-								</div>
 
-								<div className="bank">
-									<div>{item.bankName}</div>
-									<div className="" />
-								</div>
-							</button>
-						))}
+					<div className="subModule">
+						<div>
+							{onlineBankInfoList.map(item => (
+								<button
+									key={`deposit-onlinePay-info-${item.bankLogo}}`}
+									onClick={() =>
+										onSetSysIdToInfoData(
+											item,
+											payIdForRecord
+										)
+									}
+									className={
+										item.sysId === sysIdForRecord
+											? "active"
+											: ""
+									}>
+									<div>
+										<img
+											alt={item.bankLogo}
+											src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+										/>
+										<i className="icon icon-checkmark" />
+									</div>
+
+									<div className="bank">
+										<div>{item.bankName}</div>
+										<div className="" />
+									</div>
+								</button>
+							))}
+						</div>
 					</div>
-				</div>
+				</>
 			)}
 
 			{!formInfo.selBank ||
 			onlineBankInfoList.some(item => item.sysId === sysIdForRecord) ? (
-				<div className="subModule">
+				<>
 					<div className="subModuleTitle">
 						<span>
 							<i className="txt-blue">*</i>
@@ -205,21 +211,23 @@ const OnlineBankForm = ({
 						</span>
 					</div>
 
-					<Inputbox
-						className="inputBox-white"
-						value={formInfo.amount}
-						onChange={e => onChangeAmount(e.target.value)}
-						onBlur={() => onValidAmount(formInfo.amount)}
-						checked={formInfo?.checked}
-						tip={formInfo?.tip}
-						_isConvert={_isConvert}
-						isAmount={true}
-						placeholder={`${t(
-							"lbl_MinMaxAmount"
-						)} ${formatMinAmount} / ${formatMaxAmount}`}
-						onKeyDown={onInputboxKeyDown}
-					/>
-				</div>
+					<div className="subModule">
+						<Inputbox
+							className="inputBox-white"
+							value={formInfo.amount}
+							onChange={e => onChangeAmount(e.target.value)}
+							onBlur={() => onValidAmount(formInfo.amount)}
+							checked={formInfo?.checked}
+							tip={formInfo?.tip}
+							_isConvert={_isConvert}
+							isAmount={true}
+							placeholder={`${t(
+								"lbl_MinMaxAmount"
+							)} ${formatMinAmount} / ${formatMaxAmount}`}
+							onKeyDown={onInputboxKeyDown}
+						/>
+					</div>
+				</>
 			) : null}
 		</>
 	);

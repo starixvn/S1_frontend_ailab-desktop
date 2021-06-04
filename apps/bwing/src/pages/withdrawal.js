@@ -194,15 +194,20 @@ const Content = () => {
 	if (loading) return <Loading />;
 
 	return (
-		<div className="infoModule">
-			<Withdrawal
-				balanceData={balanceData}
-				kycStatus={kycStatus}
-				setLoading={setLoading}
-				getKycStatus={getKycStatus}
-				getWithdrawalInfoRecent={getWithdrawalInfoRecent}
-				getWithdrawalAvailableBalance={getWithdrawalAvailableBalance}
-			/>
+		<>
+			<div className="infoModule">
+				<Withdrawal
+					balanceData={balanceData}
+					kycStatus={kycStatus}
+					setLoading={setLoading}
+					getKycStatus={getKycStatus}
+					getWithdrawalInfoRecent={getWithdrawalInfoRecent}
+					getWithdrawalAvailableBalance={
+						getWithdrawalAvailableBalance
+					}
+				/>
+			</div>
+
 			<RecentHistory
 				recentData={recentData}
 				setRecentData={setRecentData}
@@ -210,6 +215,6 @@ const Content = () => {
 				getWithdrawalAvailableBalance={getWithdrawalAvailableBalance}
 				getWithdrawalInfoRecent={getWithdrawalInfoRecent}
 			/>
-		</div>
+		</>
 	);
 };

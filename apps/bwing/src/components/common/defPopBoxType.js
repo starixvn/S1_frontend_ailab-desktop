@@ -24,7 +24,9 @@ export const defPopBoxType = {
 	SuccessMySteryBox: "SuccessMySteryBox",
 	JoinReferral: "JoinReferral",
 	DepositUploadBankSlip: "DepositUploadBankSlip",
-	RankingWinner: "RankingWinner"
+	RankingWinner: "RankingWinner",
+	OfficialAnnounce: "OfficialAnnounce",
+	DepositGuide: "DepositGuide"
 };
 
 export default defPopBoxType;
