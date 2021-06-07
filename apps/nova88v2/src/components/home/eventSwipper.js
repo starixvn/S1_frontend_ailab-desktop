@@ -116,12 +116,6 @@ const HotEventContent = ({
 					<div>{sportLeaguesId}</div>
 					<div>
 						<div className="teamL">
-							<OddsAndHandicap
-								odds={homeOdds}
-								hdp={handicap}
-								t={t}
-							/>
-
 							<img src={sportTeamsHomePic} alt={sportTeamsHome} />
 							{sportTeamsHome}
 						</div>
@@ -131,16 +125,15 @@ const HotEventContent = ({
 							</button>
 						</div>
 						<div className="teamR">
-							<OddsAndHandicap
-								odds={awayOdds}
-								hdp={-handicap}
-								t={t}
-							/>
-
 							<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
 							{sportTeamsAway}
 						</div>
 					</div>
+					<OddsAndHandicap
+						homeOdds={homeOdds}
+						awayOdds={awayOdds}
+						hdp={handicap}
+					/>
 					<div>
 						{date} {time}
 					</div>
@@ -150,18 +143,12 @@ const HotEventContent = ({
 	);
 };
 
-const OddsAndHandicap = ({ odds, hdp, t }) => {
-	return null;
-	return odds && hdp ? (
+const OddsAndHandicap = ({ homeOdds, awayOdds, hdp }) => {
+	return homeOdds && awayOdds ? (
 		<div className="odds">
-			<div>
-				<span>{t("lbl_Handicap")}</span>
-				<span>{hdp}</span>
-			</div>
-			<div>
-				<span>{t("lbl_Odds")}</span>
-				<span>{odds}</span>
-			</div>
+			<div id="homeodds">{homeOdds}</div>
+			<div>{Math.abs(hdp)}</div>
+			<div>{awayOdds}</div>
 		</div>
 	) : null;
 };
