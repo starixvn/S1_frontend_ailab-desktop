@@ -4620,7 +4620,7 @@ html.Newtheme .walletModule > .walletType .walletBalanceModule {
 }
 
 html.Newtheme .walletModule > .walletType + .icon {
-  margin-right: -30px;
+  margin-right: -10px;
 }
 
 html.Newtheme .walletModule .walletBalanceModule {
@@ -7653,7 +7653,7 @@ html.Newtheme .transferModule .inputBox .dropdown span {
 }
 
 html.Newtheme .transferModule .inputBox .dropdown button.btn {
-  color: white;
+  color: #1f3258;
   -webkit-box-flex: 7;
       -ms-flex: 7;
           flex: 7;
