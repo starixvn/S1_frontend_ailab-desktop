@@ -41,7 +41,6 @@ import imgJoinNpc02 from "../styles/img/joinNpc02.png";
 import imgBack from "../styles/img/back.png";
 import imgWelcome from "../styles/img/welcome.png";
 
-
 import { eventPeriodEuro } from "../datas/euroDef";
 import imgEuro from "../styles/img/euro/joinAnimation.png";
 
@@ -564,7 +563,7 @@ const Content = () => {
 								};
 							});
 						} else {
-							errorPopBox();
+							errorPopBox(message || "error", errorCode);
 						}
 					}
 				},
