@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ReloadSpin from "../common/reloadSpin";
+import { number_format } from "../common/common";
 
 const walletIcon = [
 	"icon-icon32px_Main-Wallet",
@@ -19,7 +20,7 @@ const ShowWallet = props => {
 						}`}>
 						{props.i18n(item.displayKey)}
 					</span>
-					<span>{item.balance ?? 0}</span>
+					<span>{number_format(item.balance ?? 0, false)}</span>
 					<div className="btnGroup">
 						<button
 							data-testid={`showWallet_restoreAll_${item.id}`}
