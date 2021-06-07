@@ -6,17 +6,24 @@ import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
+import { isDateRange } from "../common/common";
+import { eventPeriodEuro } from "../../datas/euroDef";
+import LogoEuro from "../../styles/img/euro/logo.png";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
+	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	return (
 		<header>
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						<img src={Logo} alt={config.siteName} />
+						<img
+							src={isInPeriodEuro ? LogoEuro : Logo}
+							alt={config.siteName}
+						/>
 					</Link>
 				</div>
 				<Menu productTpIds={productTpIds} />

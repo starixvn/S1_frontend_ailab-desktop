@@ -15,7 +15,8 @@ import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
 import {
 	getUrlParameter,
 	readCookie,
-	passwordCheck
+	passwordCheck,
+	isDateRange
 } from "../components/common/common";
 import { defPopBoxType } from "../components/common/defPopBoxType";
 import { userInfoContext, popBoxContext } from "../components/common/context";
@@ -33,6 +34,9 @@ import {
 	initTip,
 	currencyToAreacode
 } from "../components/join/join.def";
+
+import { eventPeriodEuro } from "../datas/euroDef";
+import joinBannerEuro from "../styles/img/euro/BW400x480register.png";
 
 export default () => {
 	return (
@@ -58,6 +62,8 @@ const Content = () => {
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
+
+	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -589,7 +595,10 @@ const Content = () => {
 		<></>
 	) : (
 		<div className="joinus">
-			<img src={joinBanner} alt="joinBanner" />
+			<img
+				src={isInPeriodEuro ? joinBannerEuro : joinBanner}
+				alt="joinBanner"
+			/>
 			<div className="joinloginModule">
 				<div className="joinModule" onSubmit={clickSubmit}>
 					<div className="title">{t("lbl_JoinNow")}</div>

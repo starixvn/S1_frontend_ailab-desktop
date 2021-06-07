@@ -14,7 +14,8 @@ import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
 import {
 	getUrlParameter,
 	readCookie,
-	passwordCheck
+	passwordCheck,
+	isDateRange
 } from "../components/common/common";
 import { defPopBoxType } from "../components/common/popBox";
 import { userInfoContext, popBoxContext } from "../components/common/context";
@@ -26,6 +27,9 @@ import InputboxPSW from "../components/common/inputbox.password";
 import Dropdown from "../components/common/dropdown";
 import Checkbox from "../components/common/checkbox";
 import joinBanner from "../styles/img/joinBanner.jpg";
+
+import { eventPeriodEuro } from "../datas/euroDef";
+import joinBannerEuro from "../styles/img/joinBanner_euro.png";
 
 export default () => {
 	return (
@@ -68,6 +72,8 @@ const Content = () => {
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
+
+	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -570,7 +576,10 @@ const Content = () => {
 
 	return (
 		<div className="joinloginModule">
-			<img src={joinBanner} alt="joinBanner" />
+			<img
+				src={isInPeriodEuro ? joinBannerEuro : joinBanner}
+				alt="joinBanner"
+			/>
 			<form className="joinloginFunction" onSubmit={clickSubmit}>
 				<span className="title txt-yellow">{t("lbl_JoinNow")}</span>
 				<div>
