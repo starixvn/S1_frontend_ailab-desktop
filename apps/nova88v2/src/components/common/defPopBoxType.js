@@ -30,5 +30,6 @@ export default {
 	RankingWinner: "RankingWinner",
 	DepositUploadBankSlip: "DepositUploadBankSlip",
 	PerDay: "PerDay",
-	BackupDomain: "BackupDomain"
+	BackupDomain: "BackupDomain",
+	PaymentQR: "PaymentQR"
 };
