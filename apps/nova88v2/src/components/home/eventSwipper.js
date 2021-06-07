@@ -151,6 +151,7 @@ const HotEventContent = ({
 };
 
 const OddsAndHandicap = ({ odds, hdp, t }) => {
+	return null;
 	return odds && hdp ? (
 		<div className="odds">
 			<div>
