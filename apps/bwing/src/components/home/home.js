@@ -51,17 +51,41 @@ export default () => {
 
 	useEffect(() => {
 		getTopWinnners();
-	}, [userInfo.langId]);
+	}, []);
 
 	useEffect(() => {
-		if (
-			userInfo.isLogin === false &&
-			isDateRange(null, "2021/05/18 23:59:59")
-		) {
+		const ShowRankingPopup = () => {
+			if (
+				userInfo.isLogin === false &&
+				isDateRange(null, "2021/05/18 23:59:59")
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.RankingWinner
+				});
+			}
+		};
+
+		const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
+		const isShowOfficialAnnouncePopBox =
+			readCookie(cookieOfficialAnnounce) !== "1";
+
+		if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
+			const clickCloseOfficialAnnounce = () => {
+				setPopBox({ isOpen: false });
+				ShowRankingPopup();
+			};
+
 			setPopBox({
 				isOpen: true,
-				popBoxType: defPopBoxType.RankingWinner
+				popBoxType: defPopBoxType.OfficialAnnounce,
+				onClickClose: () => clickCloseOfficialAnnounce()
 			});
+			setCookie(cookieOfficialAnnounce, "1", 1);
+		}
+
+		if (!isShowOfficialAnnouncePopBox) {
+			ShowRankingPopup();
 		}
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
@@ -221,13 +245,25 @@ export default () => {
 };
 
 const UserGuide = ({ t, langId }) => {
+	const { setPopBox } = useContext(popBoxContext);
+	const ClickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+	const openDepositGuide = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.DepositGuide,
+			onClickClose: ClickClose
+		});
+	};
+
 	const { userInfo } = useContext(userInfoContext);
 	return (
 		<ul>
 			<li className="icon icon-deposit1">
-				<Link to={`/${userInfo.langId}/${path.howToDeposit.root}`}>
+				<button onClick={openDepositGuide}>
 					{t("lbl_HowToDepoist")}
-				</Link>
+				</button>
 			</li>
 			<li className="icon icon-withdrawal1">
 				<Link to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>

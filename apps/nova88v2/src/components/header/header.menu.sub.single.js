@@ -94,6 +94,24 @@ const SubMenuSingle = ({ menuKey, userInfo, t }) => {
 			</Link>
 		);
 	}
+
+	if (menuKey === "promotion") {
+		return (
+			<div>
+				<div className="txt-orange">
+					{t("lbl_Promos_wording_title")}
+				</div>
+				<div>{t("lbl_Promos_wording_desc")}</div>
+				<div className="btnGroup">
+					<Link
+						to={`/${userInfo.langId}/${path.promotion.root}`}
+						className="lightblue">
+						{t("lbl_ClaimNow")}
+					</Link>
+				</div>
+			</div>
+		);
+	}
 	return <div />;
 };
 

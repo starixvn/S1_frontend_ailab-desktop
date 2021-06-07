@@ -51,7 +51,7 @@ export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
 export const defLobbyImgList = [
 	{
 		lobbyImgName: "pp",
-		lobbyDisplayName: "pp",
+		lobbyDisplayName: "Pragmatic Play",
 		providerId: productList.casino_PP.tpId
 	},
 	{
@@ -76,7 +76,7 @@ export const defLobbyImgList = [
 	},
 	{
 		lobbyImgName: "pg",
-		lobbyDisplayName: "POCHETGAMES",
+		lobbyDisplayName: "PG Soft",
 		providerId: productList.casino_PG.tpId
 	},
 	{

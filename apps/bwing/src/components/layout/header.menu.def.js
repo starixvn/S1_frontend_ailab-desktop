@@ -214,6 +214,7 @@ export const defMenuLinks = {
 	},
 	liveCasino: {
 		displayKey: "lbl_LiveCasino",
+		path: path.liveCasino.root,
 		className: "livecasinobtn",
 		subMenu: [
 			{
@@ -227,14 +228,20 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.n2Live
 					})
-				]
+				],
+				lobbyPage: {
+					bgClass: "live-n2"
+				}
 			},
 			{
 				...productList.liveCasino_One789,
 				className: "live789",
 				icon: "icon icon-one789",
 				displayKey: "lbl_liveCasino_789SeDie",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-789"
+				}
 			},
 			{
 				gameId: 20,
@@ -242,7 +249,10 @@ export const defMenuLinks = {
 				className: "liveWM",
 				icon: "icon icon-WM",
 				displayText: "WM",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-wm"
+				}
 			},
 			{
 				gameId: 4,
@@ -250,7 +260,10 @@ export const defMenuLinks = {
 				className: "liveDG",
 				icon: "icon icon-DG",
 				displayText: "DG",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-dg"
+				}
 			},
 			{
 				gameId: 12,
@@ -258,7 +271,10 @@ export const defMenuLinks = {
 				className: "liveALL",
 				icon: "icon icon-AB",
 				displayText: "Allbet",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-ab"
+				}
 			},
 			{
 				gameId: 3,
@@ -266,7 +282,10 @@ export const defMenuLinks = {
 				className: "liveAG",
 				icon: "icon icon-AG",
 				displayText: "AG",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-ag"
+				}
 			},
 			{
 				gameId: 101,
@@ -274,7 +293,10 @@ export const defMenuLinks = {
 				className: "livePP",
 				icon: "icon icon-PP",
 				displayText: "PP",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-pp"
+				}
 			},
 			{
 				gameId: 2,
@@ -282,7 +304,10 @@ export const defMenuLinks = {
 				className: "liveSA",
 				icon: "icon icon-SA",
 				displayText: "SA",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-sa"
+				}
 			},
 			{
 				gameId: 15,
@@ -290,7 +315,10 @@ export const defMenuLinks = {
 				className: "liveAE",
 				icon: "icon icon-AE",
 				displayText: "AE",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-ae"
+				}
 			},
 			{
 				gameId: 18,
@@ -298,13 +326,17 @@ export const defMenuLinks = {
 				className: "liveEB",
 				icon: "icon icon-EB",
 				displayText: "eBET",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-ebet"
+				}
 			}
 		]
 	},
 	fishing: {
 		// productInfo: productList.fishing,
 		displayKey: "lbl_Fishing",
+		path: path.fishing.root,
 		subMenu: [
 			{
 				...productList.CQ9_Paradise,
@@ -317,7 +349,10 @@ export const defMenuLinks = {
 				],
 				displayKey: "lbl_Paradise",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.CQ9_Paradise }
+				parameter: { ...productList.CQ9_Paradise },
+				lobbyPage: {
+					bgClass: "fish-paradise"
+				}
 			},
 			// {
 			// 	...productList.CQ9_LuckyFishing,
@@ -343,7 +378,10 @@ export const defMenuLinks = {
 				],
 				displayKey: "lbl_Oneshot_Fishing",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.CQ9_Oneshot_Fishing }
+				parameter: { ...productList.CQ9_Oneshot_Fishing },
+				lobbyPage: {
+					bgClass: "fish-of"
+				}
 			},
 			// {
 			// 	...productList.CQ9_Water_Margin_Fishing,
@@ -382,7 +420,10 @@ export const defMenuLinks = {
 				],
 				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
+				parameter: { ...productList.ICG_DRAGONBALL_FISHING },
+				lobbyPage: {
+					bgClass: "fish-db"
+				}
 			},
 			{
 				...productList.ICG_FISHING_OF_SAVIORS,
@@ -395,7 +436,10 @@ export const defMenuLinks = {
 				],
 				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.ICG_FISHING_OF_SAVIORS }
+				parameter: { ...productList.ICG_FISHING_OF_SAVIORS },
+				lobbyPage: {
+					bgClass: "fish-saviors"
+				}
 			},
 			{
 				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
@@ -408,28 +452,42 @@ export const defMenuLinks = {
 				],
 				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS }
+				parameter: {
+					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS
+				},
+				lobbyPage: {
+					bgClass: "fish-ttsatp"
+				}
 			},
 			{
 				...productList.fishing,
 				className: "fgg",
 				displayKey: "lbl_FishingGG",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing }
+				parameter: { ...productList.fishing },
+				lobbyPage: {
+					bgClass: "fish-world"
+				}
 			},
 			{
 				...productList.fishing_SG,
 				className: "fsg",
 				displayKey: "lbl_FishingSG1",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing_SG }
+				parameter: { ...productList.fishing_SG },
+				lobbyPage: {
+					bgClass: "fish-god"
+				}
 			},
 			{
 				...productList.fishing_SGW,
 				className: "fsgw",
 				displayKey: "lbl_FishingSG2",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.fishing_SGW }
+				parameter: { ...productList.fishing_SGW },
+				lobbyPage: {
+					bgClass: "fish-wrd"
+				}
 			}
 		]
 	},

@@ -472,6 +472,8 @@
 	"lbl_Min": "ขั้นต่ำ",
 	"lbl_Max": "สูงสุด",
 	"lbl_ImportantNotice": "ข้อมูลสำคัญ",
+	"lbl_Play": "เล่น",
+	"lbl_Demo": "ตัวอย่าง",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -686,7 +688,7 @@
 	"lbl_Not_Started": "ยังไม่เริ่ม",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "วิดีโอไฮไลต์ล่าสุด",
+	"lbl_LatestHighlightVideo": "วิดีโอล่าสุด",
 	"lbl_LiveScore": "คะแนนสด",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -776,7 +778,6 @@
 	"lbl_Back": "กลับ",
 	"lbl_LOL": "ฮ่า ๆ",
 	"lbl_Ambassador": "แอมบาสเดอร์",
-	"lbl_Promos": "โปรโมชั่น",
 	"lbl_Suggested_Browser": "เบราว์เซอร์ที่แนะนำ",
 	"lbl_Read_more": "อ่านเพิ่มเติม",
 	"lbl_VIP_CLUB": "VIP คลับ",
@@ -803,6 +804,11 @@
 	"lbl_iOS_App_Trust_Authentication": "อนุญาตสิทธิ์การเข้าถึงแอป ios",
 	"lbl_Once_Nova88_App_is_installed": "เมื่อติดตั้งแอป Nova88 แล้วให้แตะ 〝อนุญาต〞หรือทำการตั้งค่าตามด้านล่าง",
 	"lbl_Best_Mobile_Experience ": "ประสบการณ์ออนไลน์ผ่านมือถือที่ดีที่สุด",
+
+	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Promos": "โปรโมชั่น",
+	"lbl_Promos_wording_title":"โปรโมชั่นพิเศษประจำเดือน",
+	"lbl_Promos_wording_desc":"",
 
 	"end-----": "end-----"
 }

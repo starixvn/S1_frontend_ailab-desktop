@@ -28,7 +28,8 @@ export const defPopBoxType = {
 	SuccessMySteryBox: "SuccessMySteryBox",
 	JoinReferral: "JoinReferral",
 	DepositUploadBankSlip: "DepositUploadBankSlip",
-	RankingWinner: "RankingWinner"
+	RankingWinner: "RankingWinner",
+	OfficialAnnounce: "OfficialAnnounce"
 };
 
 export default () => {
@@ -294,6 +295,17 @@ export default () => {
 			);
 
 			content = <PopBoxRankingWinner />;
+			break;
+		}
+
+		case defPopBoxType.OfficialAnnounce: {
+			const PopBoxOfficialAnnounce = lazy(() =>
+				import("./popBox.officialAnnounce")
+			);
+
+			content = (
+				<PopBoxOfficialAnnounce onClickClose={popBox.onClickClose} />
+			);
 			break;
 		}
 
