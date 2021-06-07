@@ -284,6 +284,16 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.PaymentQR: {
+			const PaymentQR = lazy(() => import("./popBox.paymentQR"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<PaymentQR {...popBox} />
+				</Suspense>
+			);
+			break;
+		}
+
 		default:
 			break;
 	}
@@ -303,16 +313,4 @@ export default () => {
 			<div className="pop">{content}</div>
 		</div>
 	);
-
-	// return popBox.isOpen ? (
-	// 	popBox.loading ? (
-	// 		<Loading />
-	// 	) : (
-	// 		<div id="popup" className="active">
-	// 			<div className="pop">{content}</div>
-	// 		</div>
-	// 	)
-	// ) : (
-	// 	<></>
-	// );
 };
