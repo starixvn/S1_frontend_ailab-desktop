@@ -15,7 +15,6 @@ const SetAmount = ({
 	clickInfo,
 	checked,
 	tip,
-	_isConvert,
 	t
 }) => {
 	return (
@@ -53,7 +52,6 @@ const SetAmount = ({
 						clickInfo={clickInfo}
 						checked={checked}
 						tip={tip}
-						_isConvert={_isConvert}
 						isAmount={true}
 					/>
 					<div className="btnGroup">
@@ -86,7 +84,6 @@ SetAmount.propTypes = {
 	clickInfo: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 	tip: PropTypes.string.isRequired,
-	_isConvert: PropTypes.bool.isRequired,
 	t: PropTypes.func.isRequired
 };
 

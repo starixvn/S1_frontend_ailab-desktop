@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 
 const walletIcon = [
@@ -20,9 +19,7 @@ const ShowWallet = props => {
 						}`}>
 						{props.i18n(item.displayKey)}
 					</span>
-					<span>
-						{number_format(item.balance ?? 0, props._isConvert)}
-					</span>
+					<span>{item.balance ?? 0}</span>
 					<div className="btnGroup">
 						<button
 							data-testid={`showWallet_restoreAll_${item.id}`}
@@ -47,7 +44,6 @@ export default ShowWallet;
 
 ShowWallet.propTypes = {
 	i18n: PropTypes.func.isRequired,
-	_isConvert: PropTypes.bool.isRequired,
 	restoreAll: PropTypes.func.isRequired,
 	getAllWalletData: PropTypes.func.isRequired
 };
