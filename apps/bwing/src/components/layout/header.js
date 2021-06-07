@@ -31,11 +31,13 @@ export default () => {
 				</div>
 				<Menu productTpIds={productTpIds} />
 				<div className="function">
-					<Link
+					<a
+						target="_blank"
+						rel="noopener noreferrer"
 						className="downloadBtn icon icon-mobile"
-						to={`/${userInfo.langId}/${path.appDownload.root}`}>
+						href={`/${userInfo.langId}/${path.appDownload.root}`}>
 						{t("lbl_APP_DOWNLOAD")}
-					</Link>
+					</a>
 					<LanguageDropDown />
 					<Functions />
 				</div>
