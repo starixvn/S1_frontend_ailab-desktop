@@ -59,7 +59,7 @@ const AppDownload = () => {
 					</div> */}
 				</div>
 			</div>
-			<div className="downloadB">
+			{/* <div className="downloadB">
 				<h1>{t("lbl_Installation_tutorial")}</h1>
 				<p>{t("lbl_Once_Bwing_App_is_installed")}</p>
 				<div>
@@ -68,7 +68,7 @@ const AppDownload = () => {
 					<img src={img_in03} alt="img_guide03" />
 					<img src={img_in04} alt="img_guide04" />
 				</div>
-			</div>
+			</div> */}
 		</main>
 	);
 };
