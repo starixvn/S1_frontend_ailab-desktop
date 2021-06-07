@@ -1,13 +1,10 @@
 import React, { memo } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { navigate } from "@reach/router";
 import Swiper from "react-id-swiper";
-import {
-	useGetBanner,
-	Autoplay,
-	SetPathParameter
-} from "../common/swipperBanner";
+import { useGetBanner, SetPathParameter } from "../common/swipperBanner";
 import { defBannerType } from "../../service/api/site";
 import path from "../../router";
 
@@ -35,7 +32,10 @@ const EventSwipper = memo(({ langId }) => {
 			sportTeamsAwayPic,
 			sportLeaguesId,
 			sportTeamsHome,
-			sportTeamsAway
+			sportTeamsAway,
+			homeOdds,
+			awayOdds,
+			handicap
 		} = b;
 		return (
 			<HotEventContent
@@ -47,6 +47,9 @@ const EventSwipper = memo(({ langId }) => {
 				sportLeaguesId={sportLeaguesId}
 				sportTeamsHome={sportTeamsHome}
 				sportTeamsAway={sportTeamsAway}
+				homeOdds={homeOdds}
+				awayOdds={awayOdds}
+				handicap={handicap}
 				OnClickEvent={OnClickEvent.bind(this, { ...b })}
 			/>
 		);
@@ -93,8 +96,12 @@ const HotEventContent = ({
 	sportLeaguesId,
 	sportTeamsHome,
 	sportTeamsAway,
-	OnClickEvent
+	OnClickEvent,
+	homeOdds,
+	awayOdds,
+	handicap
 }) => {
+	const { t } = useTranslation();
 	const date = moment(sportBattleDateTime).format("DD/MM/YYYY");
 	const time = moment(sportBattleDateTime).format("HH:mm");
 
@@ -109,13 +116,27 @@ const HotEventContent = ({
 					<div>{sportLeaguesId}</div>
 					<div>
 						<div className="teamL">
+							<OddsAndHandicap
+								odds={homeOdds}
+								hdp={handicap}
+								t={t}
+							/>
+
 							<img src={sportTeamsHomePic} alt={sportTeamsHome} />
 							{sportTeamsHome}
 						</div>
 						<div className="btnGroup">
-							<button className="orange">BET NOW</button>
+							<button className="orange">
+								{t("lbl_BetNow")?.toUpperCase()}
+							</button>
 						</div>
 						<div className="teamR">
+							<OddsAndHandicap
+								odds={awayOdds}
+								hdp={-handicap}
+								t={t}
+							/>
+
 							<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
 							{sportTeamsAway}
 						</div>
@@ -127,6 +148,21 @@ const HotEventContent = ({
 			</div>
 		</div>
 	);
+};
+
+const OddsAndHandicap = ({ odds, hdp, t }) => {
+	return odds && hdp ? (
+		<div className="odds">
+			<div>
+				<span>{t("lbl_Handicap")}</span>
+				<span>{hdp}</span>
+			</div>
+			<div>
+				<span>{t("lbl_Odds")}</span>
+				<span>{odds}</span>
+			</div>
+		</div>
+	) : null;
 };
 
 HotEventContent.propTypes = {
