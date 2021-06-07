@@ -10020,10 +10020,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding: 40px 0;
 }
 
-.downloadArea .downloadT .downloadFrame > div:nth-child(2) {
-  border-bottom: 1px solid #fff;
-}
-
 @media screen and (max-width: 700px) {
   .downloadArea .downloadT .downloadFrame > div {
     -webkit-box-orient: vertical;
