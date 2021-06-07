@@ -518,6 +518,7 @@
 	"lbl_Rank6": "6th Runner Up",
 	"lbl_Rank7": "7th Runner Up",
 	"lbl_Rank8": "8th Runner Up",
+	"lbl_Ranking_TopNum": "TOP {{topNum}} WINNING",
 
 	"AngPow ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_AngPow_Congratulations": "Congratulations",
