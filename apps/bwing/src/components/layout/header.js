@@ -31,13 +31,15 @@ export default () => {
 				</div>
 				<Menu productTpIds={productTpIds} />
 				<div className="function">
-					<a
-						target="_blank"
-						rel="noopener noreferrer"
-						className="downloadBtn icon icon-mobile"
-						href={`/${userInfo.langId}/${path.appDownload.root}`}>
-						{t("lbl_APP_DOWNLOAD")}
-					</a>
+					{isDateRange("2021/06/08 18:00:00") ? (
+						<a
+							target="_blank"
+							rel="noopener noreferrer"
+							className="downloadBtn icon icon-mobile"
+							href={`/${userInfo.langId}/${path.appDownload.root}`}>
+							{t("lbl_APP_DOWNLOAD")}
+						</a>
+					) : null}
 					<LanguageDropDown />
 					<Functions />
 				</div>
