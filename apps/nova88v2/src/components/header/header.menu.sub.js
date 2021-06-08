@@ -9,7 +9,7 @@ import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
 import { getCurrencyCode } from "../common/common";
 
-export default ({ currentMenuKey, productTpIds }) => {
+export default ({ currentMenuKey, productTpIds, maintainList }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -40,11 +40,13 @@ export default ({ currentMenuKey, productTpIds }) => {
 	return Object.keys(defMenuLinks).map(menuKey => {
 		const subClassKey = defSubListClassName[menuKey];
 
-		const subClassName = `${subClassKey || ""}${
-			subClassKey === defSubListClassName.vip
-				? ` vip${userInfo.langId}`
-				: ""
-		}${menuKey === currentMenuKey ? " active" : ""}`;
+		const subClassName = [
+			subClassKey,
+			subClassKey === defSubListClassName.vip && `vip${userInfo.langId}`,
+			menuKey === currentMenuKey && "active"
+		]
+			.filter(Boolean)
+			.join(" ");
 
 		let subMenu = [];
 
@@ -102,6 +104,7 @@ export default ({ currentMenuKey, productTpIds }) => {
 						displayText={subMenuItem.displayText}
 						displayKey={subMenuItem.displayKey}
 						parameter={subMenuItem.parameter}
+						maintainList={maintainList}
 					/>
 				))}
 			</div>

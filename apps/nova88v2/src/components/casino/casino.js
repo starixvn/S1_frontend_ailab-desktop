@@ -14,6 +14,7 @@ import {
 import {
 	popBoxContext,
 	userInfoContext,
+	maintainListContext,
 	loadingContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
@@ -28,7 +29,6 @@ import {
 import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
-import config from "../../config";
 import TopQuickLink from "./casino.topQuickLink";
 
 const matchKeyword = (name, _keyword) => {
@@ -72,6 +72,7 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { maintainList } = useContext(maintainListContext);
 	const { loading, setLoading } = useContext(loadingContext);
 
 	const clickClose = () => {
@@ -491,6 +492,7 @@ export default () => {
 							currentPage={pageInfo.currentPage}
 							favorite={favorite}
 							onSetFavorite={onSetFavorite}
+							maintainList={maintainList}
 						/>
 						<Pagination
 							totalPages={pageInfo.totalPages}

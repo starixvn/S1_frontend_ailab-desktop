@@ -5,7 +5,7 @@ import config from "../../config";
 
 const COLUMN_CCOUNT = 3;
 
-const LiveCasinoList = ({ subMenu, clickItem, t }) => {
+const LiveCasinoList = ({ subMenu, maintainList, clickItem, t }) => {
 	const filterSubMenu = subMenu.filter(subMenuItem => subMenuItem?.lobbyPage);
 	const subMenuCount = filterSubMenu.length;
 	const comingImgCount = COLUMN_CCOUNT - (subMenuCount % COLUMN_CCOUNT);
@@ -23,6 +23,7 @@ const LiveCasinoList = ({ subMenu, clickItem, t }) => {
 						t={t}
 						clickItem={clickItem}
 						subMenuItem={subMenuItem}
+						maintainList={maintainList}
 					/>
 				);
 			})}
@@ -47,5 +48,6 @@ export default LiveCasinoList;
 LiveCasinoList.propTypes = {
 	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
-	clickItem: PropTypes.func.isRequired
+	clickItem: PropTypes.func.isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
