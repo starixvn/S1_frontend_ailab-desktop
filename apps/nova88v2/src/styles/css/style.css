@@ -12138,8 +12138,7 @@ canvas {
 .streaming .liveTv > .liveTvModule > .title .betbtn {
   position: absolute;
   right: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#FF5E00), to(#FC0404));
-  background: linear-gradient(to top, #FF5E00, #FC0404);
+  background: #112240;
   padding: 3px 10px;
   font-size: 12px;
   top: 5px;

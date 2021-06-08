@@ -180,6 +180,9 @@
 	"lbl_VertifyContactConfirm": "Verify your contact number to enjoy our promotions?",
 	"lbl_VertifyNow": "Vertify Now",
 	"lbl_JoinPromoCode": "Promo Code",
+	"lbl_V8Poker": "V8 Poker",
+	"lbl_King_Maker": "King Maker",
+	"lbl_AMB_Poker": "AMB Poker",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"PromotionCategory1": "First Deposit",
@@ -633,6 +636,5 @@
 	"lbl_NoOfAchievements": "No. of achievements",
 	"lbl_RewardAmount": "Rewards Amounts",
 
-	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_V8Poker": "V8 Poker"
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": ""
 }

@@ -53,6 +53,9 @@ export default {
 		tpId: 1,
 		gameId: 200
 	},
+	_9WSports: {
+		tpId: 31
+	},
 
 	/* === eSport === */
 
@@ -177,6 +180,21 @@ export default {
 		tpId: 28
 	},
 
+	/* === poker === */
+
+	poker: {
+		tpId: 13
+	},
+
+	/* === games === */
+
+	games_AMBPoker: {
+		tpId: 30
+	},
+	games_kingMaker: {
+		tpId: 11
+	},
+
 	/* === lottery === */
 
 	keno: {
@@ -198,8 +216,8 @@ export default {
 
 	indo4D: {
 		gameId: 223,
-		tpId: 1,
-		allowCurrency: [4, 15]
+		tpId: 1
+		// allowCurrency: [4, 15]
 	},
 
 	/* === fishing === */
@@ -216,9 +234,7 @@ export default {
 	// 	tpId: 24,
 	// 	gameId: "cmf0003"
 	// },
-	poker: {
-		tpId: 13
-	},
+
 	fishing: {
 		tpId: 7,
 		gameId: 10

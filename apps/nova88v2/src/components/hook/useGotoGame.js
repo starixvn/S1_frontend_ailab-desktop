@@ -6,7 +6,8 @@ import { popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 
 export const defSpecialSetting = {
-	playTech: productList.casino_PT.tpId
+	playTech: productList.casino_PT.tpId,
+	sports_9w: productList._9WSports.tpId
 };
 
 const launchGame = ({ client, mode, game, lang }) => {
@@ -68,22 +69,25 @@ export const useGotoGame = ({
 	});
 
 	const handleGoToGame = useCallback(
-		({
+		async ({
 			isLogin: _isLogin = true,
 			langId: _langId,
 			tpId: _tpId,
 			gameId: _gameId,
 			isFun: _isFun
 		}) => {
+			let returnData = "";
 			if (_isLogin) {
-				api_tp_GotoGame({
-					TpId: _tpId,
-					LangId: _langId,
-					gameId: _gameId,
-					fun: _isFun ? "1" : "0",
-					gameType:
-						_tpId === defSpecialSetting.playTech ? "slots" : ""
-				}).then(async res => {
+				try {
+					const res = await api_tp_GotoGame({
+						TpId: _tpId,
+						LangId: _langId,
+						gameId: _gameId,
+						fun: _isFun ? "1" : "0",
+						gameType:
+							_tpId === defSpecialSetting.playTech ? "slots" : ""
+					});
+
 					if (res.data.errorCode === 0 && res.data.message) {
 						const result = JSON.parse(res.data.message);
 
@@ -120,8 +124,8 @@ export const useGotoGame = ({
 							} else {
 								launchGameWithFunMode({ ...result });
 							}
-						} else {
-							setData(() => result);
+						} else if (_tpId === defSpecialSetting.sports_9w) {
+							returnData = result;
 						}
 					} else {
 						errorPopBox(
@@ -129,13 +133,15 @@ export const useGotoGame = ({
 							res.data.errorCode
 						);
 					}
-				});
+				} catch (error) {}
 			} else {
 				setPopBox({
 					isOpen: true,
 					popBoxType: defPopBoxType.Login
 				});
 			}
+
+			return returnData;
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[gameId, isFun, isLogin, langId, tpId]

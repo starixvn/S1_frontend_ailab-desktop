@@ -218,7 +218,11 @@ const ImgsBgRender = ({ listImgUrl, className, imgFromBannerImgUrl }) => {
 			<img
 				className={className}
 				alt="listImgUrl"
-				src={require(`../../styles/img/${listImgUrl}`)}
+				src={
+					imgFromBannerImgUrl
+						? `${config.bannerImgUrl}/img/${listImgUrl}`
+						: `../../styles/img/${listImgUrl}`
+				}
 			/>
 		);
 
@@ -259,10 +263,15 @@ ImgsNpcRender.propTypes = {
 	imgFromBannerImgUrl: PropTypes.bool
 };
 
+ImgsBgRender.defaultProps = {
+	imgFromBannerImgUrl: false
+};
+
 ImgsBgRender.propTypes = {
 	listImgUrl: PropTypes.oneOfType([PropTypes.string, PropTypes.array])
 		.isRequired,
-	className: PropTypes.string.isRequired
+	className: PropTypes.string.isRequired,
+	imgFromBannerImgUrl: PropTypes.bool
 };
 
 export default SubMenuMultiple;

@@ -8,48 +8,65 @@ import {
 } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
+import { SET_ENTER_PAGE, Open9WSports } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
 import { getCurrencyCode } from "../common/common";
-import { useGotoGame } from "../hook/useGotoGame";
+import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 
 export default ({ currentMenuKey, productTpIds, maintainList }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
-	const { handleGoToGame } = useGotoGame({ autoGetData: false });
+
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
+
 	const { isLogin, langId } = userInfo;
 
-	const clickItem = ({ tpId, gameId, path, needLogin, menuType }) => {
-		const showLoginPopBox = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		};
-
-		if (!tpId && !gameId && path) {
-			return needLogin && !userInfo.isLogin
-				? showLoginPopBox()
-				: navigate(`/${userInfo.langId}/${path}`);
-		}
-
-		if (menuType === defMenuType.useGoToGame) {
-			handleGoToGame({
-				isLogin,
-				langId,
-				tpId,
-				gameId
-			});
-		} else {
-			return SET_ENTER_PAGE({
+	const clickItem = async ({ tpId, gameId, path, needLogin }) => {
+		if (tpId === defSpecialSetting.sports_9w) {
+			const result = await handleGoToGame({
 				isLogin: userInfo.isLogin,
 				langId: userInfo.langId,
 				tpId,
-				gameId,
-				loginCallback: showLoginPopBox
+				gameId
 			});
+
+			const { url, key, userId } = result ?? {};
+			Open9WSports({ url, key, userId });
+		} else {
+			const showLoginPopBox = () => {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login
+				});
+			};
+			if (!tpId && !gameId && path) {
+				return needLogin && !userInfo.isLogin
+					? showLoginPopBox()
+					: navigate(`/${userInfo.langId}/${path}`);
+			}
+
+			if (menuType === defMenuType.useGoToGame) {
+				handleGoToGame({
+					isLogin,
+					langId,
+					tpId,
+					gameId
+				});
+			} else {
+				return SET_ENTER_PAGE({
+					isLogin: userInfo.isLogin,
+					langId: userInfo.langId,
+					tpId,
+					gameId,
+					loginCallback: showLoginPopBox
+				});
+			}
 		}
 	};
 
@@ -84,9 +101,8 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 
 			subMenu = subMenu?.filter(
 				s =>
-					userInfo.isLogin !== true ||
-					!s.allowCurrency ||
-					s.allowCurrency.includes(userInfo.currencyId)
+					!s.canSeeOnlyAfterLogin ||
+					(s.canSeeOnlyAfterLogin && userInfo.isLogin)
 			);
 		}
 
