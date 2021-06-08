@@ -29,7 +29,8 @@ export const defPopBoxType = {
 	JoinReferral: "JoinReferral",
 	DepositUploadBankSlip: "DepositUploadBankSlip",
 	RankingWinner: "RankingWinner",
-	OfficialAnnounce: "OfficialAnnounce"
+	OfficialAnnounce: "OfficialAnnounce",
+	BackupDomain: "BackupDomain"
 };
 
 export default () => {
@@ -305,6 +306,18 @@ export default () => {
 
 			content = (
 				<PopBoxOfficialAnnounce onClickClose={popBox.onClickClose} />
+			);
+			break;
+		}
+
+		case defPopBoxType.BackupDomain: {
+			const BackupDomain = lazy(() => import("./popBox.backupDomain"));
+
+			content = (
+				<BackupDomain
+					onClickClose={popBox.onClickClose}
+					linkList={popBox.linkList}
+				/>
 			);
 			break;
 		}

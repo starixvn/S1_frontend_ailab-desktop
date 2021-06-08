@@ -26,7 +26,8 @@ export const defPopBoxType = {
 	DepositUploadBankSlip: "DepositUploadBankSlip",
 	RankingWinner: "RankingWinner",
 	OfficialAnnounce: "OfficialAnnounce",
-	DepositGuide: "DepositGuide"
+	DepositGuide: "DepositGuide",
+	BackupDomain: "BackupDomain"
 };
 
 export default defPopBoxType;
