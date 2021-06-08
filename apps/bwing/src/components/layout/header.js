@@ -31,7 +31,7 @@ export default () => {
 				</div>
 				<Menu productTpIds={productTpIds} />
 				<div className="function">
-					{isDateRange("2021/06/08 18:00:00") ? (
+					{isDateRange("2021/06/08 18:30:00") ? (
 						<a
 							target="_blank"
 							rel="noopener noreferrer"
