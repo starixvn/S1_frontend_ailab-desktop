@@ -9,40 +9,43 @@ import { currencyCode } from "../../datas/countryCode";
 
 const defSortCasino = {
 	[currencyCode.TH]: {
-		casino_DG: 1,
+		casino_PT: 1,
+		casino_DG: 2,
+		casino_AE: 3,
+		casino_SA: 4,
+		casino_ALBET: 5,
+		casino_AG: 6,
+		slot_PT: 7,
+		casino_WM: 8,
+		casino_PP: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
+	},
+	[currencyCode.MY]: {
+		casino_PT: 1,
+		casino_DG: 2,
+		casino_AE: 3,
+		casino_PP: 4,
+		casino_SA: 5,
+		slot_PT: 6,
+		casino_ALBET: 7,
+		casino_AG: 8,
+		casino_WM: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
+	},
+	[currencyCode.ID]: {
+		casino_PT: 1,
 		casino_AE: 2,
-		casino_SA: 3,
-		casino_ALBET: 4,
-		casino_AG: 5,
+		casino_AG: 3,
+		casino_EBET: 4,
+		casino_DG: 5,
 		slot_PT: 6,
 		casino_WM: 7,
 		casino_PP: 8,
-		casino_EBET: 9,
-		casino_N2LIVE: 10
-	},
-	[currencyCode.MY]: {
-		casino_DG: 1,
-		casino_AE: 2,
-		casino_PP: 3,
-		casino_SA: 4,
-		slot_PT: 5,
-		casino_ALBET: 6,
-		casino_AG: 7,
-		casino_WM: 8,
-		casino_EBET: 9,
-		casino_N2LIVE: 10
-	},
-	[currencyCode.ID]: {
-		casino_AE: 1,
-		casino_AG: 2,
-		casino_EBET: 3,
-		casino_DG: 4,
-		slot_PT: 5,
-		casino_WM: 6,
-		casino_PP: 7,
-		casino_SA: 8,
-		casino_ALBET: 9,
-		casino_N2LIVE: 10
+		casino_SA: 9,
+		casino_ALBET: 10,
+		casino_N2LIVE: 11
 	}
 };
 
@@ -110,7 +113,8 @@ export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
 	LinkNoImg: "LinkNoImg",
-	DirectUrl: "DirectUrl"
+	DirectUrl: "DirectUrl",
+	useGoToGame: "useGoToGame"
 };
 
 export const defSubListClassName = {
@@ -291,6 +295,23 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortCasino,
 		subMenu: [
+			{
+				keyName: "casino_PT",
+				// icon: "icon icon-PT",
+				displayText: "PT",
+				menuType: defMenuType.useGoToGame,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "casino-pt.png",
+				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
+				parameter: { ...productList.casino_PT },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_pt
+					})
+				],
+				...productList.casino_PT
+			},
 			{
 				keyName: "casino_N2LIVE",
 				displayText: "N2Live",

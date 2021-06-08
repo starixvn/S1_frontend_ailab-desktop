@@ -26,6 +26,8 @@ import gamesKenoNpcImg from "../../styles/img/dropdown/games/keno-item.png";
 import gamesLotteryBgImg from "../../styles/img/dropdown/games/lottery.png";
 import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png";
 
+import livecasinoPtNpcImg from "../../styles/img/livecasino/playtech.png";
+import livecasinoPtIconImg from "../../styles/img/livecasino/playtech-icon.png";
 import livecasinoN2liveNpcImg from "../../styles/img/livecasino/n2live.png";
 import livecasinoN2liveIconImg from "../../styles/img/livecasino/n2live-icon.png";
 import livecasinoWmNpcImg from "../../styles/img/livecasino/wm.png";
@@ -129,7 +131,8 @@ import livecasinoLobbyEbetBgImg from "../../styles/img/livecasinolist/ebet.png";
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
-	LinkOrBtn: "LinkOrBtn"
+	LinkOrBtn: "LinkOrBtn",
+	useGoToGame: "useGoToGame"
 };
 
 export const defMenuLinks = langId => {
@@ -375,6 +378,23 @@ export const defMenuLinks = langId => {
 			displayKey: "lbl_LiveCasino",
 			path: path.liveCasino.root,
 			subMenu: [
+				{
+					...defCasinoProviders.PT,
+					className: "PT",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_pt
+						})
+					],
+					icon: "icon icon-pt",
+					displayText: "Playtech",
+					menuType: defMenuType.useGoToGame,
+					parameter: { provider: defCasinoProviders.PT.name },
+					npcImgUrl: livecasinoPtNpcImg,
+					iconImgUrl: livecasinoPtIconImg,
+					disabledInSlider: true
+				},
 				{
 					tpId: 28,
 					className: "liveN2LIVE",
