@@ -157,7 +157,8 @@ const SubMenuMultiple = ({
 				tpId: subMenuItem.tpId,
 				gameId: subMenuItem.gameId,
 				path: subMenuItem.path,
-				needLogin: subMenuItem.needLogin
+				needLogin: subMenuItem.needLogin,
+				menuType: subMenuItem.menuType
 			})}>
 			<img
 				className="ListBG-left"
@@ -211,7 +212,7 @@ const ImgsNpcRender = ({ listImgUrl, className, imgFromBannerImgUrl }) => {
 	return null;
 };
 
-const ImgsBgRender = ({ listImgUrl, className }) => {
+const ImgsBgRender = ({ listImgUrl, className, imgFromBannerImgUrl }) => {
 	if (typeof listImgUrl === "string" || listImgUrl instanceof String)
 		return (
 			<img
@@ -227,7 +228,11 @@ const ImgsBgRender = ({ listImgUrl, className }) => {
 				key={`imgs-key-${imgUrl}`}
 				alt="listImgUrl"
 				className={className}
-				src={require(`../../styles/img/${imgUrl}`)}
+				src={
+					imgFromBannerImgUrl
+						? `${config.bannerImgUrl}/img/${imgUrl}`
+						: `../../styles/img/${imgUrl}`
+				}
 			/>
 		));
 

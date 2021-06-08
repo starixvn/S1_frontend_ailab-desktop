@@ -1,20 +1,27 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "@reach/router";
-import { defMenuLinks, defSubListClassName } from "./header.menu.def";
+import {
+	defMenuLinks,
+	defSubListClassName,
+	defMenuType
+} from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
 import { getCurrencyCode } from "../common/common";
+import { useGotoGame } from "../hook/useGotoGame";
 
 export default ({ currentMenuKey, productTpIds, maintainList }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { handleGoToGame } = useGotoGame({ autoGetData: false });
+	const { isLogin, langId } = userInfo;
 
-	const clickItem = ({ tpId, gameId, path, needLogin }) => {
+	const clickItem = ({ tpId, gameId, path, needLogin, menuType }) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -28,13 +35,22 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 				: navigate(`/${userInfo.langId}/${path}`);
 		}
 
-		return SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback: showLoginPopBox
-		});
+		if (menuType === defMenuType.useGoToGame) {
+			handleGoToGame({
+				isLogin,
+				langId,
+				tpId,
+				gameId
+			});
+		} else {
+			return SET_ENTER_PAGE({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				loginCallback: showLoginPopBox
+			});
+		}
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {

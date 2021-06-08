@@ -9,7 +9,8 @@ import {
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
-	LinkOrBtn: "LinkOrBtn"
+	LinkOrBtn: "LinkOrBtn",
+	useGoToGame: "useGoToGame"
 };
 
 export const defMenuLinks = {
@@ -217,6 +218,19 @@ export const defMenuLinks = {
 		path: path.liveCasino.root,
 		className: "livecasinobtn",
 		subMenu: [
+			{
+				...defCasinoProviders.PT,
+				className: "livePT",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_pt
+					})
+				],
+				icon: "icon icon-pt",
+				displayText: "PT",
+				menuType: defMenuType.useGoToGame
+			},
 			{
 				...productList.liveCasino_n2live,
 				className: "liveN2LIVE",
