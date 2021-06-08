@@ -288,6 +288,7 @@
 	"lbl_PaymentQRNote1":"Mohon jangan refresh browser Anda",
 	"lbl_PaymentQRNote2":"Harap catat nomor referensi jika suatu saat anda perlu menghubungi Layanan Pelanggan untuk tindakan lebih lanjut.",
 	"lbl_PaymentTimeLeft":"SISA WAKTU PEMBAYARAN",
+	"lbl_Time": "Waktu",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",

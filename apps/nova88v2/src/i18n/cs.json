@@ -289,6 +289,7 @@
 	"lbl_PaymentQRNote1":"请勿刷新您的游览器。",
 	"lbl_PaymentQRNote2":"请备注参照编号以便若后续需要联系我司客服协助可以此为验证。",
 	"lbl_PaymentTimeLeft":"转账剩余时间",
+	"lbl_Time": "时间",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "草稿",

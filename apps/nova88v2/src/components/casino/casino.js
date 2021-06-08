@@ -242,29 +242,22 @@ export default () => {
 	};
 
 	const clickLobbyProvider = _providerId => {
-		let _searchInfo = searchInfo;
 		const _optionsIdx = tpOptions.findIndex(
 			_options => _options.id === _providerId
 		);
-		const _result = {
-			[defSearchColumn.searchText]:
-				_searchInfo[defSearchColumn.searchText],
-			[defSearchColumn.provider]: {
-				idx: _optionsIdx,
-				value: _providerId
-			}
-		};
-		setSearchInfo(prevS => {
-			_searchInfo = {
-				...prevS,
-				[defSearchColumn.provider]: {
-					idx: _optionsIdx,
-					value: _providerId
-				}
-			};
-			return _searchInfo;
-		});
 
+		const _result = {
+			...searchInfo,
+			[defSearchColumn.provider]:
+				searchInfo[defSearchColumn.provider].value === _providerId
+					? { idx: 0, value: null }
+					: {
+							idx: _optionsIdx,
+							value: _providerId
+					  }
+		};
+
+		setSearchInfo(_result);
 		SetGames({
 			_searchInfo: _result,
 			_category: category,

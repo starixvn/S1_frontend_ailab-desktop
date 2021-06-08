@@ -288,6 +288,7 @@
 	"lbl_PaymentQRNote1":"Please do not refresh your browser.",
 	"lbl_PaymentQRNote2":"Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
 	"lbl_PaymentTimeLeft":"PAYMENT TIME LEFT",
+	"lbl_Time": "Time",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
