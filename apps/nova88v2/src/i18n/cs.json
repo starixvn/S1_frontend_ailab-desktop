@@ -275,6 +275,17 @@
 	"lbl_Drop_photos_or_receipt_here": "此处放置照片或收据或点击上传",
 	"lbl_File_format_error_please_try_again": "格式不正确，请重试",
 
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"付款资讯",
+	"lbl_OrderAmount":"订单金额",
+	"lbl_Pay":"支付",
+	"lbl_PaymentQRDesc1":"请转账正确数额。",
+	"lbl_PaymentQRDesc2":"提供更好体验。",
+	"lbl_ImportantNotes":"重要信息",
+	"lbl_PaymentQRNote1":"请勿刷新您的游览器。",
+	"lbl_PaymentQRNote2":"请备注参照编号以便若后续需要联系我司客服协助可以此为验证。",
+	"lbl_PaymentTimeLeft":"转账剩余时间",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "草稿",
 	"lbl_WithdrawalStatus1": "处理中",

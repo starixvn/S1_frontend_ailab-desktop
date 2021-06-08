@@ -274,6 +274,17 @@
 	"lbl_Drop_photos_or_receipt_here": "Letakkan foto atau resi di sini atau klik untuk melampirkan.",
 	"lbl_File_format_error_please_try_again": "Kesalahan format file, harap coba lagi.",
 
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"Rincian Pembayaran",
+	"lbl_OrderAmount":"Jumlah Permintaan",
+	"lbl_Pay":"Bayar",
+	"lbl_PaymentQRDesc1":"Silahkan transfer jumlahnya.",
+	"lbl_PaymentQRDesc2":"Disediakan untuk pengalaman yang lebih baik",
+	"lbl_ImportantNotes":"Catatan Penting",
+	"lbl_PaymentQRNote1":"Mohon jangan refresh browser Anda",
+	"lbl_PaymentQRNote2":"Harap catat nomor referensi jika suatu saat anda perlu menghubungi Layanan Pelanggan untuk tindakan lebih lanjut.",
+	"lbl_PaymentTimeLeft":"SISA WAKTU PEMBAYARAN",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
 	"lbl_WithdrawalStatus1": "Sedang diproses",

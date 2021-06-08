@@ -274,6 +274,17 @@
 	"lbl_Drop_photos_or_receipt_here": "Drop photos or receipt here or click to attach.",
 	"lbl_File_format_error_please_try_again": "File format error, please try again.",
 
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"Payment Details",
+	"lbl_OrderAmount":"Order Amount",
+	"lbl_Pay":"PAY",
+	"lbl_PaymentQRDesc1":"Please transfer the amount.",
+	"lbl_PaymentQRDesc2":"Provided for better experience.",
+	"lbl_ImportantNotes":"Important Notes",
+	"lbl_PaymentQRNote1":"Please do not refresh your browser.",
+	"lbl_PaymentQRNote2":"Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
+	"lbl_PaymentTimeLeft":"PAYMENT TIME LEFT",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
 	"lbl_WithdrawalStatus1": "Processing",
