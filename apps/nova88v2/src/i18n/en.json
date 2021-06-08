@@ -36,6 +36,10 @@
 	"lbl_kindly_visit_alternate_link_for_better_performance": "Should you feel slowness, kindly visit alternate link for better performance.",
 	"lbl_DearValuedCustomers": "Dear Nova88 Valued Customers,",
 
+	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Odds":"Odds",
+	"lbl_Handicap":"Hdp",
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
 	"lbl_Baseball": "Baseball",
@@ -274,6 +278,17 @@
 	"lbl_Drop_photos_or_receipt_here": "Drop photos or receipt here or click to attach.",
 	"lbl_File_format_error_please_try_again": "File format error, please try again.",
 
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"Payment Details",
+	"lbl_OrderAmount":"Order Amount",
+	"lbl_Pay":"PAY",
+	"lbl_PaymentQRDesc1":"Please transfer the amount.",
+	"lbl_PaymentQRDesc2":"Provided for better experience.",
+	"lbl_ImportantNotes":"Important Notes",
+	"lbl_PaymentQRNote1":"Please do not refresh your browser.",
+	"lbl_PaymentQRNote2":"Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
+	"lbl_PaymentTimeLeft":"PAYMENT TIME LEFT",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
 	"lbl_WithdrawalStatus1": "Processing",
@@ -477,6 +492,9 @@
 	"lbl_Min": "Min",
 	"lbl_Max": "Max",
 	"lbl_ImportantNotice": "IMPORTANT NOTICE",
+	"lbl_Play": "PLAY",
+	"lbl_Demo": "DEMO",
+	"lbl_underMaintenance": "Under Maintenance",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -691,7 +709,7 @@
 	"lbl_Not_Started": "Not Started",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "LATEST HIGHLIGHT VIDEO",
+	"lbl_LatestHighlightVideo": "LATEST VIDEO",
 	"lbl_LiveScore": "Live Score",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -781,7 +799,7 @@
 	"lbl_Back": "Back",
 	"lbl_LOL": "LOL",
 	"lbl_Ambassador": "Ambassador",
-	"lbl_Promos": "Promos",
+	
 	"lbl_Suggested_Browser": "Suggested Browser",
 	"lbl_Read_more": "Read more",
 	"lbl_VIP_CLUB": "VIP CLUB",
@@ -798,6 +816,22 @@
 	"lbl_sign_up_terms_center": "terms & conditions",
 	"lbl_sign_up_terms_end": ".",
 	"lbl_homeJackpotTitle": "JACKPOT",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "APP DOWNLOAD",
+	"lbl_SCAN_ME_NOW": "SCAN ME NOW",
+	"lbl_iOS": "iOS",
+	"lbl_DOWNLOAD": "DOWNLOAD",
+	"lbl_Installation_tutorial": "Installation tutorial",
+	"lbl_iOS_App_Trust_Authentication": "iOS App Trust Authentication",
+	"lbl_Once_Nova88_App_is_installed": "Once Nova88 App is installed, tap Trust or complete the setting as below.",
+	"lbl_Best_Mobile_Experience ": "Best Mobile Experience",
+
+	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Promos": "Promos",
+	"lbl_Promos_wording_title":"MONTHLY",
+	"lbl_Promos_wording_desc":"EXCLUSIVE PROMOTIONS",
+
 
 	"end-----": "end-----"
 }

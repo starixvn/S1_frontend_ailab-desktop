@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import {
@@ -7,9 +7,16 @@ import {
 	isRootContext
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
+import usePopBox from "../hook/usePopBox";
 import { defBannerType } from "../../service/api/site";
-import { setCookie, readCookie, isDateRange } from "../common/common";
+import {
+	setCookie,
+	readCookie,
+	isDateRange,
+	number_format
+} from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
+import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import config from "../../config";
@@ -28,7 +35,7 @@ import Jackpot from "./components/jackpot";
 import HotGameList from "./components/hotGameList";
 import News from "./components/news";
 import PlatformSection from "./components/platform";
-
+import WinnerBoard from "./winnerBoard";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import SideBarQuickLink from "./sideBarQuickLink";
@@ -36,13 +43,12 @@ import QuickdownloadLink from "./quickdownloadLink";
 
 const HomeV2 = ({ productTpIds }) => {
 	const { t } = useTranslation();
-
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
-
 	const { setIsRoot } = useContext(isRootContext);
+	const [winnerList, setWinnerList] = useState([]);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -54,14 +60,42 @@ const HomeV2 = ({ productTpIds }) => {
 	});
 
 	useEffect(() => {
-		if (
-			userInfo.isLogin === false &&
-			isDateRange(null, "2021/05/18 23:59:59")
-		) {
+		getTopWinnners();
+	}, []);
+
+	useEffect(() => {
+		const ShowRankingPopup = () => {
+			if (
+				userInfo.isLogin === false &&
+				isDateRange(null, "2021/05/18 23:59:59")
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.RankingWinner
+				});
+			}
+		};
+
+		const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
+		const isShowOfficialAnnouncePopBox =
+			readCookie(cookieOfficialAnnounce) !== "1";
+
+		if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
+			const clickCloseOfficialAnnounce = () => {
+				setPopBox({ isOpen: false });
+				ShowRankingPopup();
+			};
+
 			setPopBox({
 				isOpen: true,
-				popBoxType: defPopBoxType.RankingWinner
+				popBoxType: defPopBoxType.OfficialAnnounce,
+				onClickClose: () => clickCloseOfficialAnnounce()
 			});
+			setCookie(cookieOfficialAnnounce, "1", 1);
+		}
+
+		if (!isShowOfficialAnnouncePopBox) {
+			ShowRankingPopup();
 		}
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
@@ -126,6 +160,33 @@ const HomeV2 = ({ productTpIds }) => {
 		});
 	};
 
+	const getTopWinnners = () => {
+		const payload = {
+			lBCategoryId: 0,
+			TopNum: 10,
+			BeforeDays: 0,
+			EventCode: "202104"
+		};
+
+		api_events_GetLeaderboardListV2(payload).then(
+			res => {
+				if (!isMountedRef.current) return;
+				if (res.data.errorCode === 0) {
+					setWinnerList(res.data.data);
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				errorPopBox();
+			}
+		);
+	};
+
 	return (
 		<main>
 			<BannerSwipper
@@ -146,15 +207,19 @@ const HomeV2 = ({ productTpIds }) => {
 			<Marquee />
 
 			<section>
-				<div className="indexliveCasinoList">
+				<div className="indexliveCasinoList topten">
 					<LiveCasinoSwipper
 						t={t}
 						clickItem={clickItem}
 						langId={userInfo.langId}
 						productTpIds={productTpIds}
 					/>
-
 					<Jackpot t={t} userInfo={userInfo} />
+					<WinnerBoard
+						t={t}
+						number_format={number_format}
+						winnerList={winnerList}
+					/>
 				</div>
 
 				<HotGameList

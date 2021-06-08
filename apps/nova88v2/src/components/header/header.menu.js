@@ -72,6 +72,7 @@ export default class Panel extends Component {
 						ref={this.wrapper}
 						onClick={this.closeSubMenu}>
 						<SubMenu
+							maintainList={this.props.maintainList}
 							currentMenuKey={this.state.menuKey}
 							productTpIds={this.props.productTpIds}
 						/>

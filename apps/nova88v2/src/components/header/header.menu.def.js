@@ -9,40 +9,43 @@ import { currencyCode } from "../../datas/countryCode";
 
 const defSortCasino = {
 	[currencyCode.TH]: {
-		casino_DG: 1,
+		casino_PT: 1,
+		casino_DG: 2,
+		casino_AE: 3,
+		casino_SA: 4,
+		casino_ALBET: 5,
+		casino_AG: 6,
+		slot_PT: 7,
+		casino_WM: 8,
+		casino_PP: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
+	},
+	[currencyCode.MY]: {
+		casino_PT: 1,
+		casino_DG: 2,
+		casino_AE: 3,
+		casino_PP: 4,
+		casino_SA: 5,
+		slot_PT: 6,
+		casino_ALBET: 7,
+		casino_AG: 8,
+		casino_WM: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
+	},
+	[currencyCode.ID]: {
+		casino_PT: 1,
 		casino_AE: 2,
-		casino_SA: 3,
-		casino_ALBET: 4,
-		casino_AG: 5,
+		casino_AG: 3,
+		casino_EBET: 4,
+		casino_DG: 5,
 		slot_PT: 6,
 		casino_WM: 7,
 		casino_PP: 8,
-		casino_EBET: 9,
-		casino_N2LIVE: 10
-	},
-	[currencyCode.MY]: {
-		casino_DG: 1,
-		casino_AE: 2,
-		casino_PP: 3,
-		casino_SA: 4,
-		slot_PT: 5,
-		casino_ALBET: 6,
-		casino_AG: 7,
-		casino_WM: 8,
-		casino_EBET: 9,
-		casino_N2LIVE: 10
-	},
-	[currencyCode.ID]: {
-		casino_AE: 1,
-		casino_AG: 2,
-		casino_EBET: 3,
-		casino_DG: 4,
-		slot_PT: 5,
-		casino_WM: 6,
-		casino_PP: 7,
-		casino_SA: 8,
-		casino_ALBET: 9,
-		casino_N2LIVE: 10
+		casino_SA: 9,
+		casino_ALBET: 10,
+		casino_N2LIVE: 11
 	}
 };
 
@@ -111,11 +114,13 @@ export const defMenuType = {
 	Link: "Link",
 	LinkNoImg: "LinkNoImg",
 	DirectUrl: "DirectUrl",
-	GotoGame: "GotoGame"
+	GotoGame: "GotoGame",
+	useGoToGame: "useGoToGame"
 };
 
 export const defSubListClassName = {
 	home: "homeList",
+	appDownload: "appList",
 	sports: "sportsList",
 	eSports: "eSportsList",
 	slot: "casinoList",
@@ -183,6 +188,10 @@ export const defMenuLinks = {
 				path: path.referral.root
 			}
 		]
+	},
+	appDownload: {
+		className: "icon icon-mobile",
+		path: path.appDownload.root
 	},
 	sports: {
 		displayKey: "lbl_Sports",
@@ -304,9 +313,27 @@ export const defMenuLinks = {
 	casino: {
 		displayKey: "lbl_LiveCasino",
 		className: "livecasinobtn",
+		path: path.liveCasino.root,
 		filterByAuth: true,
 		customSort: defSortCasino,
 		subMenu: [
+			{
+				keyName: "casino_PT",
+				// icon: "icon icon-PT",
+				displayText: "PT",
+				menuType: defMenuType.useGoToGame,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "casino-pt.png",
+				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
+				parameter: { ...productList.casino_PT },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_pt
+					})
+				],
+				...productList.casino_PT
+			},
 			{
 				keyName: "casino_N2LIVE",
 				displayText: "N2Live",
@@ -320,7 +347,11 @@ export const defMenuLinks = {
 						icon: defEventIcon.new,
 						period: defEventPeriod.n2
 					})
-				]
+				],
+				lobbyPage: {
+					bgImg: "livecasino_n2.jpg",
+					hoverBgImg: "livecasino_n2a.jpg"
+				}
 			},
 			{
 				keyName: "casino_WM",
@@ -331,7 +362,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-WM.png",
 				listBgImgUrl: ["wmBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_WM
+				...productList.liveCasino_WM,
+				lobbyPage: {
+					bgImg: "livecasino_wm.jpg",
+					hoverBgImg: "livecasino_wma.jpg"
+				}
 			},
 			{
 				keyName: "casino_ALBET",
@@ -342,7 +377,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-ALL.png",
 				listBgImgUrl: ["allBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_Allbet
+				...productList.liveCasino_Allbet,
+				lobbyPage: {
+					bgImg: "livecasino_ab.jpg",
+					hoverBgImg: "livecasino_aba.jpg"
+				}
 			},
 			{
 				keyName: "casino_EBET",
@@ -353,7 +392,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-EB.png",
 				listBgImgUrl: ["ebBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_eBET
+				...productList.liveCasino_eBET,
+				lobbyPage: {
+					bgImg: "livecasino_eb.jpg",
+					hoverBgImg: "livecasino_eba.jpg"
+				}
 			},
 			{
 				keyName: "casino_SA",
@@ -364,7 +407,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-SA.png",
 				listBgImgUrl: ["saBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_SA
+				...productList.liveCasino_SA,
+				lobbyPage: {
+					bgImg: "livecasino_sa.jpg",
+					hoverBgImg: "livecasino_saa.jpg"
+				}
 			},
 			{
 				keyName: "casino_AE",
@@ -375,7 +422,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-AE.png",
 				listBgImgUrl: ["aeBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_AE
+				...productList.liveCasino_AE,
+				lobbyPage: {
+					bgImg: "livecasino_ae.jpg",
+					hoverBgImg: "livecasino_aea.jpg"
+				}
 			},
 			{
 				keyName: "casino_PP",
@@ -386,7 +437,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-PP.png",
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_PP
+				...productList.liveCasino_PP,
+				lobbyPage: {
+					bgImg: "livecasino_pp.jpg",
+					hoverBgImg: "livecasino_ppa.jpg"
+				}
 			},
 			{
 				keyName: "casino_DG",
@@ -397,7 +452,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-DG.png",
 				listBgImgUrl: ["dgBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_DG
+				...productList.liveCasino_DG,
+				lobbyPage: {
+					bgImg: "livecasino_dg.jpg",
+					hoverBgImg: "livecasino_dga.jpg"
+				}
 			},
 			{
 				keyName: "casino_AG",
@@ -408,7 +467,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "casino-AG.png",
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_AG
+				...productList.liveCasino_AG,
+				lobbyPage: {
+					bgImg: "livecasino_ag.jpg",
+					hoverBgImg: "livecasino_aga.jpg"
+				}
 			}
 		]
 	},
@@ -583,6 +646,7 @@ export const defMenuLinks = {
 	fishing: {
 		displayKey: "lbl_Fishing",
 		className: "fishbtn",
+		path: path.fishing.root,
 		filterByAuth: true,
 		customSort: defSortFishing,
 		subMenu: [
@@ -595,7 +659,11 @@ export const defMenuLinks = {
 				displayKey: "lbl_Paradise",
 				menuType: defMenuType.entPage,
 				...productList.CQ9_Paradise,
-				parameter: { ...productList.CQ9_Paradise }
+				parameter: { ...productList.CQ9_Paradise },
+				lobbyPage: {
+					bgImg: "fishpd.png",
+					hoverBgImg: "fishpda.png"
+				}
 			},
 			{
 				keyName: "fishing_ICG_DRAGONBALL",
@@ -606,7 +674,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "fishICG-DB.png",
 				listBgImgUrl: "fishListHover.png",
 				...productList.ICG_DRAGONBALL_FISHING,
-				parameter: { ...productList.ICG_DRAGONBALL_FISHING }
+				parameter: { ...productList.ICG_DRAGONBALL_FISHING },
+				lobbyPage: {
+					bgImg: "fishdf.png",
+					hoverBgImg: "fishdfa.png"
+				}
 			},
 			{
 				keyName: "fishing_GGYL_WORLD",
@@ -617,7 +689,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "fishGG.png",
 				listBgImgUrl: "fishListHover.png",
 				...productList.fishing,
-				parameter: { ...productList.fishing }
+				parameter: { ...productList.fishing },
+				lobbyPage: {
+					bgImg: "fishgg.png",
+					hoverBgImg: "fishgga.png"
+				}
 			},
 			{
 				keyName: "fishing_SGW_WAR",
@@ -628,7 +704,11 @@ export const defMenuLinks = {
 				listNpcImgUrl: "fishSGwar.png",
 				listBgImgUrl: "fishListHover.png",
 				...productList.fishing_SGW,
-				parameter: { ...productList.fishing_SGW }
+				parameter: { ...productList.fishing_SGW },
+				lobbyPage: {
+					bgImg: "fishfw.png",
+					hoverBgImg: "fishfwa.png"
+				}
 			}
 		]
 	},
@@ -687,38 +767,7 @@ export const defMenuLinks = {
 	},
 	promotion: {
 		displayKey: "lbl_Promos",
-		className: "promobtn",
-		path: path.promotion.root,
-		subMenu: [
-			{
-				displayKey: "lbl_Promotion_Link_1",
-				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root,
-				displayText2: "100%",
-				displayText3: "WELCOME BONUS"
-			},
-			{
-				displayKey: "lbl_Promotion_Link_2",
-				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root,
-				displayText2: "10%",
-				displayText3: "RELOAD BONUS"
-			},
-			{
-				displayKey: "lbl_Promotion_Link_3",
-				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root,
-				displayText2: "100%",
-				displayText3: "WELCOME BONUS"
-			},
-			{
-				displayKey: "lbl_Promotion_Link_4",
-				menuType: defMenuType.LinkNoImg,
-				path: path.promotion.root,
-				displayText2: "100%",
-				displayText3: "WELCOME BONUS"
-			}
-		]
+		path: path.promotion.root
 	},
 	vip: {
 		displayKey: "lbl_Vip",

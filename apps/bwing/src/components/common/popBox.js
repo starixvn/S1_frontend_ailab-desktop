@@ -287,6 +287,38 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.OfficialAnnounce: {
+			const PopBoxOfficialAnnounce = lazy(() =>
+				import("./popBox.officialAnnounce")
+			);
+
+			content = (
+				<PopBoxOfficialAnnounce onClickClose={popBox.onClickClose} />
+			);
+			break;
+		}
+
+		case defPopBoxType.DepositGuide: {
+			const PopBoxDepositGuide = lazy(() =>
+				import("./popBox.depositGuide")
+			);
+
+			content = <PopBoxDepositGuide onClickClose={popBox.onClickClose} />;
+			break;
+		}
+
+		case defPopBoxType.BackupDomain: {
+			const BackupDomain = lazy(() => import("./popBox.backupDomain"));
+
+			content = (
+				<BackupDomain
+					onClickClose={popBox.onClickClose}
+					linkList={popBox.linkList}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 
@@ -298,7 +330,8 @@ export default () => {
 
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
-		popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
+		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
+		popBox.popBoxType === defPopBoxType.DepositGuide;
 
 	if (!popBox.isOpen) return null;
 

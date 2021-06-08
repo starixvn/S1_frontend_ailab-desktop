@@ -34,6 +34,7 @@ import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
 import LiveScore from "./liveScore";
 import { _ACTION_TYPE } from "../../service/enterPage";
+import config from "../../config";
 
 // const useGetBackupDomainList = ({ setPopBox, userInfo }) => {
 // 	useEffect(() => {
@@ -248,8 +249,8 @@ const IndexPage = ({ location }) => {
 			</div>
 
 			<img
+				src={`${config.bannerImgUrl}/img/indexCenterBanner.jpg`}
 				className="indexCenterBanner"
-				src={indexCenterBanner}
 				alt="IndexCenterBanner"
 			/>
 

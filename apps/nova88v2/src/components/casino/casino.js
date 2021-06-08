@@ -14,6 +14,7 @@ import {
 import {
 	popBoxContext,
 	userInfoContext,
+	maintainListContext,
 	loadingContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
@@ -22,11 +23,13 @@ import {
 	defRowsPerPage,
 	defSearchColumn,
 	defCategory,
-	defCategoryList
+	defCategoryList,
+	defLobbyImgList
 } from "./casino.def";
 import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
+import TopQuickLink from "./casino.topQuickLink";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -53,6 +56,7 @@ export default () => {
 	const [tpList, setTpList] = useState({});
 	const [gameDatas, setGameDatas] = useState([]);
 	const [tpOptions, setTpOptions] = useState([]);
+	const [lobbyImgList, setLobbyImgList] = useState(defLobbyImgList);
 	const [displayGames, setDisplayGames] = useState([]);
 	const [pageInfo, setPageInfo] = useState({ currentPage: 1, totalPages: 1 });
 
@@ -68,6 +72,7 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { maintainList } = useContext(maintainListContext);
 	const { loading, setLoading } = useContext(loadingContext);
 
 	const clickClose = () => {
@@ -227,6 +232,38 @@ export default () => {
 				return _searchInfo;
 			});
 		}
+		SetGames({
+			_searchInfo: _result,
+			_category: category,
+			_selNav: selNav,
+			_gameDatas: gameDatas,
+			_tpList: tpList
+		});
+	};
+
+	const clickLobbyProvider = _providerId => {
+		let _searchInfo = searchInfo;
+		const _optionsIdx = tpOptions.findIndex(
+			_options => _options.id === _providerId
+		);
+		const _result = {
+			[defSearchColumn.searchText]:
+				_searchInfo[defSearchColumn.searchText],
+			[defSearchColumn.provider]: {
+				idx: _optionsIdx,
+				value: _providerId
+			}
+		};
+		setSearchInfo(prevS => {
+			_searchInfo = {
+				...prevS,
+				[defSearchColumn.provider]: {
+					idx: _optionsIdx,
+					value: _providerId
+				}
+			};
+			return _searchInfo;
+		});
 
 		SetGames({
 			_searchInfo: _result,
@@ -274,7 +311,6 @@ export default () => {
 
 				if (success) {
 					const { imgUrl: _imgUrl, providerList } = res.data.data;
-
 					const _tpList = {};
 					const _tpOptions = [
 						{ displayKey: "lbl_AllProvider", id: null }
@@ -300,6 +336,16 @@ export default () => {
 							});
 						}
 					});
+
+					const providerIdList = providerList?.map(
+						item => item.value
+					);
+
+					const filterLobbyImgList = defLobbyImgList.filter(_img =>
+						providerIdList.includes(_img.providerId)
+					);
+
+					setLobbyImgList(filterLobbyImgList);
 
 					if (games.length) {
 						for (let index = 0; index < games.length; index++) {
@@ -400,56 +446,62 @@ export default () => {
 		}
 	}, [isSomeTab]);
 
-	return (
-		!loading && (
-			<>
-				<SwipperBanner
-					ImgFolder={[defBannerType.Slots]}
-					openInBlank={true}
-					className="swiper-casino"
-				/>
-				<section className="inside">
-					<div className="rightModule">
-						<div className="infoModule">
-							<div className="inside-title icon icon-ow-casino">
-								<span>{t("lbl_Slots")}</span>
-							</div>
-							<div className="casinoSelect">
-								<Nav
-									selNav={selNav}
-									onSelectNav={onSelectNav}
-									t={t}
-								/>
-								<SearchBox
-									t={t}
-									tpOptions={tpOptions}
-									onChangeCategory={onChangeCategory}
-									searchInfo={searchInfo}
-									categoryOptions={defCategory}
-									category={category}
-									EditSearchField={EditSearchField}
-								/>
-							</div>
-							<GameList
+	return loading ? (
+		<></>
+	) : (
+		<>
+			<SwipperBanner
+				ImgFolder={[defBannerType.Slots]}
+				openInBlank={true}
+				className="swiper-casino"
+			/>
+			<section className="inside">
+				<div className="rightModule">
+					<div className="infoModule">
+						<div className="inside-title icon icon-ow-casino">
+							<span>{t("lbl_Slots")}</span>
+						</div>
+						<TopQuickLink
+							lobbyImgList={lobbyImgList}
+							clickLobbyProvider={clickLobbyProvider}
+							activeProviderId={searchInfo.provider?.value}
+						/>
+						<div className="casinoSelect">
+							<Nav
+								selNav={selNav}
+								onSelectNav={onSelectNav}
 								t={t}
-								imgUrl={imgUrl}
-								displayGames={displayGames}
-								tpList={tpList}
-								langId={userInfo.langId}
-								isLogin={userInfo.isLogin}
-								currentPage={pageInfo.currentPage}
-								favorite={favorite}
-								onSetFavorite={onSetFavorite}
 							/>
-							<Pagination
-								totalPages={pageInfo.totalPages}
-								currentPage={pageInfo.currentPage}
-								clickPageNumber={clickPageNumber}
+							<SearchBox
+								t={t}
+								tpOptions={tpOptions}
+								onChangeCategory={onChangeCategory}
+								searchInfo={searchInfo}
+								categoryOptions={defCategory}
+								category={category}
+								EditSearchField={EditSearchField}
 							/>
 						</div>
+						<GameList
+							t={t}
+							imgUrl={imgUrl}
+							displayGames={displayGames}
+							tpList={tpList}
+							langId={userInfo.langId}
+							isLogin={userInfo.isLogin}
+							currentPage={pageInfo.currentPage}
+							favorite={favorite}
+							onSetFavorite={onSetFavorite}
+							maintainList={maintainList}
+						/>
+						<Pagination
+							totalPages={pageInfo.totalPages}
+							currentPage={pageInfo.currentPage}
+							clickPageNumber={clickPageNumber}
+						/>
 					</div>
-				</section>
-			</>
-		)
+				</div>
+			</section>
+		</>
 	);
 };

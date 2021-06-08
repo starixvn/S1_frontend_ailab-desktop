@@ -36,6 +36,10 @@
 	"lbl_kindly_visit_alternate_link_for_better_performance": "Jika Anda merasa lambat, silakan kunjungi tautan alternatif untuk performa yang lebih baik.",
 	"lbl_DearValuedCustomers": "Pelanggan Nova88 yang Terhormat,",
 
+	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Odds":"Odds",
+	"lbl_Handicap":"Hdp",
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
 	"lbl_Baseball": "Bola Kasti",
@@ -274,6 +278,17 @@
 	"lbl_Drop_photos_or_receipt_here": "Letakkan foto atau resi di sini atau klik untuk melampirkan.",
 	"lbl_File_format_error_please_try_again": "Kesalahan format file, harap coba lagi.",
 
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"Rincian Pembayaran",
+	"lbl_OrderAmount":"Jumlah Permintaan",
+	"lbl_Pay":"Bayar",
+	"lbl_PaymentQRDesc1":"Silahkan transfer jumlahnya.",
+	"lbl_PaymentQRDesc2":"Disediakan untuk pengalaman yang lebih baik",
+	"lbl_ImportantNotes":"Catatan Penting",
+	"lbl_PaymentQRNote1":"Mohon jangan refresh browser Anda",
+	"lbl_PaymentQRNote2":"Harap catat nomor referensi jika suatu saat anda perlu menghubungi Layanan Pelanggan untuk tindakan lebih lanjut.",
+	"lbl_PaymentTimeLeft":"SISA WAKTU PEMBAYARAN",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
 	"lbl_WithdrawalStatus1": "Sedang diproses",
@@ -476,6 +491,9 @@
 	"lbl_Min": "Minimum",
 	"lbl_Max": "Maksimum",
 	"lbl_ImportantNotice": "PEMBERITAHUAN PENTING",
+	"lbl_Play": "MAIN",
+	"lbl_Demo": "DEMO",
+	"lbl_underMaintenance": "Sedang dalam pemeliharaan",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -690,7 +708,7 @@
 	"lbl_Not_Started": "Belum dimulai",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "Video Sorotan Terbaru",
+	"lbl_LatestHighlightVideo": "VIDEO TERBARU",
 	"lbl_LiveScore": "Skor Langsung",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -780,7 +798,6 @@
 	"lbl_Back": "Kembali",
 	"lbl_LOL": "LOL",
 	"lbl_Ambassador": "Ambassador",
-	"lbl_Promos": "Promosi",
 	"lbl_Suggested_Browser": "Browser yang Disarankan",
 	"lbl_Read_more": "Baca lebih lajut",
 	"lbl_VIP_CLUB": "KLUB VIP",
@@ -797,6 +814,21 @@
 	"lbl_sign_up_terms_center": "syarat & ketentuan",
 	"lbl_sign_up_terms_end": ".",
 	"lbl_homeJackpotTitle": "Jackpot",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "DOWNLOAD APP",
+	"lbl_SCAN_ME_NOW": "SCAN SEKARANG",
+	"lbl_iOS": "iOS",
+	"lbl_DOWNLOAD": "DOWNLOAD",
+	"lbl_Installation_tutorial": "Tutorial instalasi",
+	"lbl_iOS_App_Trust_Authentication": "Autentikasi Kepercayaan Aplikasi iOS",
+	"lbl_Once_Nova88_App_is_installed": "Setelah Aplikasi Nova88 diinstal, tap Percayai atau selesaikan pengaturan seperti di bawah ini.",
+	"lbl_Best_Mobile_Experience ": "Pengalaman Mobile Terbaik",
+
+	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Promos": "Promosi",
+	"lbl_Promos_wording_title":"PROMOSI EKSKLUSIF",
+	"lbl_Promos_wording_desc":"BULANAN",
 
 	"end-----": "end-----"
 }

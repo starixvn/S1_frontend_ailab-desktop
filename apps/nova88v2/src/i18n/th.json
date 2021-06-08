@@ -36,6 +36,10 @@
 	"lbl_kindly_visit_alternate_link_for_better_performance": "หากคุณประสบปัญหาการโหลดช้า โปรดลองใช้ลิงก์สำรองเพื่อเพื่อประสิทธิภาพที่ดีขึ้น",
 	"lbl_DearValuedCustomers": "เรียนลูกค้าผู้มีอุปการะคุณของ Nova88,",
 
+	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Odds":"Odds",
+	"lbl_Handicap":"Hdp",
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "แบดมินตัน",
 	"lbl_Baseball": "เบสบอล",
@@ -274,6 +278,17 @@
 	"lbl_Drop_photos_or_receipt_here": "วางรูปถ่ายสลิปที่นี่หรือคลิกเพื่อแนปสลิป",
 	"lbl_File_format_error_please_try_again": "รูปแบบไฟล์ผิดพลาด โปรดลองอีกครั้ง",
 
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"รายละเอียดการฝากเงิน",
+	"lbl_OrderAmount":"ยอดฝาก",
+	"lbl_Pay":"ฝาก",
+	"lbl_PaymentQRDesc1":"กรุณาโอนเงิน",
+	"lbl_PaymentQRDesc2":"พร้อมให้บริการเพื่อประสบการณ์ที่ดียิ่งขึ้น",
+	"lbl_ImportantNotes":"โน๊ตสำคัญ",
+	"lbl_PaymentQRNote1":"กรุณาอย่าทำการรีเฟรชเบราว์เซอร์ของคุณ",
+	"lbl_PaymentQRNote2":"กรุณาบันทึกหมายเลขอ้างอิงของคุณ เพื่อความสะดวกในการติดต่อฝ่ายบริการลูกค้าของเราในการให้ความช่วยเหลือและดำเนินการตรวจสอบรายการของคุณต่อไป",
+	"lbl_PaymentTimeLeft":"เหลือเวลาชำระเงิน",
+
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "ร่าง",
 	"lbl_WithdrawalStatus1": "กำลังดำเนินการ",
@@ -476,6 +491,9 @@
 	"lbl_Min": "ขั้นต่ำ",
 	"lbl_Max": "สูงสุด",
 	"lbl_ImportantNotice": "ข้อมูลสำคัญ",
+	"lbl_Play": "เล่น",
+	"lbl_Demo": "ตัวอย่าง",
+	"lbl_underMaintenance": "อยู่ระหว่างการบำรุงรักษา",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -690,7 +708,7 @@
 	"lbl_Not_Started": "ยังไม่เริ่ม",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "วิดีโอไฮไลต์ล่าสุด",
+	"lbl_LatestHighlightVideo": "วิดีโอล่าสุด",
 	"lbl_LiveScore": "คะแนนสด",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -780,7 +798,6 @@
 	"lbl_Back": "กลับ",
 	"lbl_LOL": "ฮ่า ๆ",
 	"lbl_Ambassador": "แอมบาสเดอร์",
-	"lbl_Promos": "โปรโมชั่น",
 	"lbl_Suggested_Browser": "เบราว์เซอร์ที่แนะนำ",
 	"lbl_Read_more": "อ่านเพิ่มเติม",
 	"lbl_VIP_CLUB": "VIP คลับ",
@@ -797,6 +814,21 @@
 	"lbl_sign_up_terms_center": "บข้อกำหนดและเงื่อนไข",
 	"lbl_sign_up_terms_end": "แล้ว",
 	"lbl_homeJackpotTitle": "รางวัลใหญ่",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "ดาวน์โหลดแอป",
+	"lbl_SCAN_ME_NOW": "สแกนตอนนี้",
+	"lbl_iOS": "iOS",
+	"lbl_DOWNLOAD": "ดาวน์โหลด",
+	"lbl_Installation_tutorial": "ขั้นตอนการติดตั้ง",
+	"lbl_iOS_App_Trust_Authentication": "อนุญาตสิทธิ์การเข้าถึงแอป ios",
+	"lbl_Once_Nova88_App_is_installed": "เมื่อติดตั้งแอป Nova88 แล้วให้แตะ 〝อนุญาต〞หรือทำการตั้งค่าตามด้านล่าง",
+	"lbl_Best_Mobile_Experience ": "ประสบการณ์ออนไลน์ผ่านมือถือที่ดีที่สุด",
+
+	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Promos": "โปรโมชั่น",
+	"lbl_Promos_wording_title":"โปรโมชั่นพิเศษประจำเดือน",
+	"lbl_Promos_wording_desc":"",
 
 	"end-----": "end-----"
 }

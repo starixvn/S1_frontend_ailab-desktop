@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import {
@@ -7,9 +7,16 @@ import {
 	isRootContext
 } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { setCookie, readCookie, isDateRange } from "../common/common";
+import usePopBox from "../hook/usePopBox";
+import {
+	setCookie,
+	readCookie,
+	isDateRange,
+	number_format
+} from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
+import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { defaultLang } from "../../i18n/config";
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
@@ -17,6 +24,8 @@ import Jackpot from "./jackpot";
 import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
+import WinnerBoard from "./winnerBoard";
+import SideBarQuickLink from "./sideBarQuickLink";
 
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
@@ -26,9 +35,11 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const { setIsRoot } = useContext(isRootContext);
-
 	const isMountedRef = useRef(null);
+	const [winnerList, setWinnerList] = useState([]);
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		setIsRoot(true);
@@ -39,14 +50,42 @@ export default () => {
 	});
 
 	useEffect(() => {
-		if (
-			userInfo.isLogin === false &&
-			isDateRange(null, "2021/05/18 23:59:59")
-		) {
+		getTopWinnners();
+	}, []);
+
+	useEffect(() => {
+		const ShowRankingPopup = () => {
+			if (
+				userInfo.isLogin === false &&
+				isDateRange(null, "2021/05/18 23:59:59")
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.RankingWinner
+				});
+			}
+		};
+
+		const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
+		const isShowOfficialAnnouncePopBox =
+			readCookie(cookieOfficialAnnounce) !== "1";
+
+		if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
+			const clickCloseOfficialAnnounce = () => {
+				setPopBox({ isOpen: false });
+				ShowRankingPopup();
+			};
+
 			setPopBox({
 				isOpen: true,
-				popBoxType: defPopBoxType.RankingWinner
+				popBoxType: defPopBoxType.OfficialAnnounce,
+				onClickClose: () => clickCloseOfficialAnnounce()
 			});
+			setCookie(cookieOfficialAnnounce, "1", 1);
+		}
+
+		if (!isShowOfficialAnnouncePopBox) {
+			ShowRankingPopup();
 		}
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
@@ -93,6 +132,33 @@ export default () => {
 		}
 	}, [userInfo.isLogin, userInfo.langId, userInfo.userName, setPopBox]);
 
+	const getTopWinnners = () => {
+		const payload = {
+			lBCategoryId: 0,
+			TopNum: 10,
+			BeforeDays: 0,
+			EventCode: "202104"
+		};
+
+		api_events_GetLeaderboardListV2(payload).then(
+			res => {
+				if (!isMountedRef.current) return;
+				if (res.data.errorCode === 0) {
+					setWinnerList(res.data.data);
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				errorPopBox();
+			}
+		);
+	};
+
 	return (
 		<>
 			<MysteryBoxLink
@@ -112,6 +178,13 @@ export default () => {
 				<section>
 					<div className="offers">
 						<EventSwipper langId={userInfo.langId} />
+					</div>
+					<div className="offers">
+						<WinnerBoard
+							t={t}
+							number_format={number_format}
+							winnerList={winnerList}
+						/>
 						<span className="straightBorder" />
 						<Jackpot t={t} userInfo={userInfo} />
 					</div>
@@ -172,13 +245,25 @@ export default () => {
 };
 
 const UserGuide = ({ t, langId }) => {
+	const { setPopBox } = useContext(popBoxContext);
+	const ClickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+	const openDepositGuide = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.DepositGuide,
+			onClickClose: ClickClose
+		});
+	};
+
 	const { userInfo } = useContext(userInfoContext);
 	return (
 		<ul>
 			<li className="icon icon-deposit1">
-				<Link to={`/${userInfo.langId}/${path.howToDeposit.root}`}>
+				<button onClick={openDepositGuide}>
 					{t("lbl_HowToDepoist")}
-				</Link>
+				</button>
 			</li>
 			<li className="icon icon-withdrawal1">
 				<Link to={`/${userInfo.langId}/${path.howToWithdraw.root}`}>
@@ -193,6 +278,8 @@ const UserGuide = ({ t, langId }) => {
 			<li className="icon icon-FAQS">
 				<a href={TandC(langId).FAQ}>{t("lbl_FAQ")}</a>
 			</li>
+
+			<SideBarQuickLink />
 		</ul>
 	);
 };

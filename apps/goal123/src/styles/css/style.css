@@ -1162,6 +1162,7 @@ html.Newtheme.index .livecasinoList {
 html.Newtheme main {
   padding-top: 115px;
   min-width: 1010px;
+  height: calc(100% - 115px);
   background: url(../img/bgPoint.png) repeat center/1.5%;
 }
 
@@ -3548,7 +3549,7 @@ html.Newtheme #popup.active {
 
 html.Newtheme #popup .pop {
   background: rgba(15, 35, 70, 0.95);
-  padding: 40px;
+  padding: 20px;
   border-radius: 15px;
   max-height: calc(100% - 160px);
   overflow-y: auto;
@@ -3591,6 +3592,91 @@ html.Newtheme #popup .pop > div > .txt-lightgray {
   text-align: center;
 }
 
+html.Newtheme #popup .pop .backupDomain {
+  border-radius: 5px;
+  padding: 0;
+  position: relative;
+  color: #c6c6c6;
+  max-width: 480px;
+  min-width: auto;
+}
+
+html.Newtheme #popup .pop .backupDomain .icon-close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  z-index: 1;
+  color: white;
+}
+
+html.Newtheme #popup .pop .backupDomain .poptit {
+  width: calc(100% - 30px);
+  color: white;
+  padding: 5px 30px 5px 0;
+  font-size: 14px;
+  font-weight: bold;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html.Newtheme #popup .pop .backupDomain .poptit + img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+html.Newtheme #popup .pop .backupDomain .poptxt {
+  padding: 5px 10px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+html.Newtheme #popup .pop .backupDomain .poptxt > div {
+  margin-bottom: 0;
+}
+
+html.Newtheme #popup .pop .backupDomain .url {
+  padding: 2px 10px;
+  border-radius: 30px;
+  border: 1px solid #c6c6c6;
+  margin: 5px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: calc(100% - 40px);
+}
+
+html.Newtheme #popup .pop .backupDomain .url .copyurl {
+  position: absolute;
+  border-radius: 30px;
+  color: white;
+  padding: 2px 10px;
+  right: 2px;
+  background: #5084e4;
+  font-size: 12px;
+}
+
+html.Newtheme #popup .pop .backupDomain .checkbox {
+  margin-bottom: 10px;
+}
+
+html.Newtheme #popup .pop .backupDomain .checkbox input[type="checkbox"] + label {
+  border: 1px solid #f77900;
+}
+
+html.Newtheme #popup .pop .backupDomain .checkbox input[type="checkbox"]:checked + label {
+  color: #f77900;
+}
+
 html.Newtheme #popup .pop .upload,
 html.Newtheme #popup .pop .uploadError,
 html.Newtheme #popup .pop .uploadSuccess,
@@ -3616,11 +3702,11 @@ html.Newtheme #popup .pop .upload_new .title {
   font-size: 32px;
 }
 
-html.Newtheme #popup .pop .icon-close {
+html.Newtheme #popup .pop .upload_new .icon-close {
   color: white;
   position: absolute;
-  right: -20px;
-  top: -20px;
+  right: -10px;
+  top: -10px;
   font-size: 14px;
   cursor: pointer;
 }
@@ -3632,8 +3718,8 @@ html.Newtheme #popup .friend {
 
 html.Newtheme #popup .friend .icon-close {
   position: absolute;
-  top: -25px;
-  right: -25px;
+  top: -12px;
+  right: -12px;
 }
 
 html.Newtheme #popup .friend img {
@@ -4534,7 +4620,7 @@ html.Newtheme .walletModule > .walletType .walletBalanceModule {
 }
 
 html.Newtheme .walletModule > .walletType + .icon {
-  margin-right: -30px;
+  margin-right: -10px;
 }
 
 html.Newtheme .walletModule .walletBalanceModule {
@@ -5107,8 +5193,9 @@ html.Newtheme .quickSelect > div:first-child.promoType button.red:before {
   font-size: 24px;
 }
 
-html.Newtheme .quickSelect > div.inputBox.promoType button.blueBorder,
-html.Newtheme .quickSelect > div:first-child.promoType button.blueBorder {
+html.Newtheme .quickSelect > div.inputBox.promoType button.blueBorder, html.Newtheme .quickSelect > div.inputBox.promoType button.btn-check,
+html.Newtheme .quickSelect > div:first-child.promoType button.blueBorder,
+html.Newtheme .quickSelect > div:first-child.promoType button.btn-check {
   white-space: nowrap;
 }
 
@@ -7566,7 +7653,7 @@ html.Newtheme .transferModule .inputBox .dropdown span {
 }
 
 html.Newtheme .transferModule .inputBox .dropdown button.btn {
-  color: white;
+  color: #1f3258;
   -webkit-box-flex: 7;
       -ms-flex: 7;
           flex: 7;
@@ -7613,6 +7700,10 @@ html.Newtheme .event {
 
 html.Newtheme .event.goldbox {
   background: #000 url(../img/event/box/bg.jpg) no-repeat top center;
+}
+
+html.Newtheme .event.goldbox.euro {
+  background: #000 url(../img/event/box/bg_euro.jpg) no-repeat top center;
 }
 
 html.Newtheme .event .animation {
@@ -7865,13 +7956,18 @@ html.Newtheme .eventLink .icon-close {
 }
 
 html.Newtheme .eventLink img {
-  width: 210px;
+  width: 190px;
   -webkit-animation: routate linear infinite alternate 0.8s;
           animation: routate linear infinite alternate 0.8s;
 }
 
 html.Newtheme .eventLink.active {
   display: none;
+}
+
+html.Newtheme .eventLink.euro .icon-close {
+  color: #fff;
+  background: rgba(0, 134, 168, 0.8);
 }
 
 html.Newtheme .angpao__wrapper {
@@ -8941,7 +9037,7 @@ html.Newtheme .subModuleListColumn > .subModule > div {
 }
 
 html.Newtheme .subModuleListColumn > .subModule > div.inputBox {
-  width: 300px;
+  width: 420px;
 }
 
 html.Newtheme .subModuleListColumn > .subModule > div > button,
@@ -9155,7 +9251,7 @@ html.Newtheme .subModuleListColumn .column {
 html.Newtheme .subModuleListColumn .column .inputBox-white,
 html.Newtheme .subModuleListColumn .column .inputBox-blue,
 html.Newtheme .subModuleListColumn .column .inputBox {
-  width: 300px !important;
+  width: 420px !important;
 }
 
 html.Newtheme .subModuleListColumn .column .inputBox-white + .tip,
@@ -9414,7 +9510,6 @@ html.Newtheme .vip .vipPage .eventList tr td:first-child {
 
 html.Newtheme .vip .vipPage .eventList tr:first-child td {
   color: white;
-  text-align: center;
 }
 
 html.Newtheme .vip .medal {
@@ -10168,6 +10263,7 @@ html.Newtheme .column-reverse {
 }
 
 html.Newtheme main.fishinglobby {
+  height: auto;
   background: url(../img/fishing/lobbybg.jpg) no-repeat center/cover;
 }
 
@@ -10190,6 +10286,10 @@ html.Newtheme main.fishinglobby .swiper-container::after {
   height: 40px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(57, 202, 221, 0)), to(#39cadd));
   background: linear-gradient(180deg, rgba(57, 202, 221, 0) 0%, #39cadd 100%);
+}
+
+html.Newtheme main.livelobby {
+  height: auto;
 }
 
 html.Newtheme main.livelobby .swiper-container {

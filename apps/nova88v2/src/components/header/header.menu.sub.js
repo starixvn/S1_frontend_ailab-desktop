@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "@reach/router";
-import { defMenuLinks, defSubListClassName } from "./header.menu.def";
+import {
+	defMenuLinks,
+	defSubListClassName,
+	defMenuType
+} from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE, Open9WSports } from "../../service/enterPage";
@@ -10,15 +14,18 @@ import SubMenuSingle from "./header.menu.sub.single";
 import { getCurrencyCode } from "../common/common";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 
-export default ({ currentMenuKey, productTpIds }) => {
+export default ({ currentMenuKey, productTpIds, maintainList }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+
 	const { handleGoToGame } = useGotoGame({
 		isLogin: userInfo.isLogin,
 		langId: userInfo.langId,
 		autoGetData: false
 	});
+
+	const { isLogin, langId } = userInfo;
 
 	const clickItem = async ({ tpId, gameId, path, needLogin }) => {
 		if (tpId === defSpecialSetting.sports_9w) {
@@ -44,24 +51,35 @@ export default ({ currentMenuKey, productTpIds }) => {
 					: navigate(`/${userInfo.langId}/${path}`);
 			}
 
-			return SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				loginCallback: showLoginPopBox
-			});
+			if (menuType === defMenuType.useGoToGame) {
+				handleGoToGame({
+					isLogin,
+					langId,
+					tpId,
+					gameId
+				});
+			} else {
+				return SET_ENTER_PAGE({
+					isLogin: userInfo.isLogin,
+					langId: userInfo.langId,
+					tpId,
+					gameId,
+					loginCallback: showLoginPopBox
+				});
+			}
 		}
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {
 		const subClassKey = defSubListClassName[menuKey];
 
-		const subClassName = `${subClassKey || ""}${
-			subClassKey === defSubListClassName.vip
-				? ` vip${userInfo.langId}`
-				: ""
-		}${menuKey === currentMenuKey ? " active" : ""}`;
+		const subClassName = [
+			subClassKey,
+			subClassKey === defSubListClassName.vip && `vip${userInfo.langId}`,
+			menuKey === currentMenuKey && "active"
+		]
+			.filter(Boolean)
+			.join(" ");
 
 		let subMenu = [];
 
@@ -118,6 +136,7 @@ export default ({ currentMenuKey, productTpIds }) => {
 						displayText={subMenuItem.displayText}
 						displayKey={subMenuItem.displayKey}
 						parameter={subMenuItem.parameter}
+						maintainList={maintainList}
 					/>
 				))}
 			</div>

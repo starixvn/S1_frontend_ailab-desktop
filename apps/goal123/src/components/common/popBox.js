@@ -28,7 +28,9 @@ export const defPopBoxType = {
 	SuccessMySteryBox: "SuccessMySteryBox",
 	JoinReferral: "JoinReferral",
 	DepositUploadBankSlip: "DepositUploadBankSlip",
-	RankingWinner: "RankingWinner"
+	RankingWinner: "RankingWinner",
+	OfficialAnnounce: "OfficialAnnounce",
+	BackupDomain: "BackupDomain"
 };
 
 export default () => {
@@ -294,6 +296,29 @@ export default () => {
 			);
 
 			content = <PopBoxRankingWinner />;
+			break;
+		}
+
+		case defPopBoxType.OfficialAnnounce: {
+			const PopBoxOfficialAnnounce = lazy(() =>
+				import("./popBox.officialAnnounce")
+			);
+
+			content = (
+				<PopBoxOfficialAnnounce onClickClose={popBox.onClickClose} />
+			);
+			break;
+		}
+
+		case defPopBoxType.BackupDomain: {
+			const BackupDomain = lazy(() => import("./popBox.backupDomain"));
+
+			content = (
+				<BackupDomain
+					onClickClose={popBox.onClickClose}
+					linkList={popBox.linkList}
+				/>
+			);
 			break;
 		}
 

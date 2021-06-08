@@ -41,6 +41,11 @@ import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
 import CryptoPayForm from "./components/cryptoPayForm";
 
+import {
+	api_cashier_DepositReqMobilePay,
+	api_cashier_DepositReqOnlineBanking
+} from "../../service/api/cashier";
+
 const Depositnew = () => {
 	const { t } = useTranslation();
 	const depositInfoStorage = getLocalStorage("nova88depositquery");
@@ -210,13 +215,42 @@ const Depositnew = () => {
 				removeLocalStorage("nova88depositquery");
 			}
 
-			if (depositType === defDepositType.mobile) {
-				window.open(
-					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
-				);
+			const RefreshPage = async () => {
 				await delay(1000);
-
 				onReset();
+			};
+
+			if (depositType === defDepositType.mobile) {
+				if (formInfo.mode === 3) {
+					api_cashier_DepositReqMobilePay({
+						langId: userInfo.langId,
+						channelId: formInfo.channelId,
+						real_amount: resultAmount
+					}).then(res => {
+						if (res.data.errorCode === 0) {
+							setPopBox({
+								isOpen: true,
+								title: t("lbl_DepositType2"),
+								popBoxType: defPopBoxType.PaymentQR,
+								amount: resultAmount,
+								currencyId: userInfo.currencyId,
+								imgUrl: res.data.data.url,
+								handlePopBox: () => {
+									setPopBox(prevState => ({
+										...prevState,
+										isOpen: false
+									}));
+									RefreshPage();
+								}
+							});
+						}
+					});
+				} else {
+					window.open(
+						`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
+					);
+					RefreshPage();
+				}
 			} else if (depositType === defDepositType.localBank) {
 				if (loading || !localBankChecked) return;
 
@@ -252,18 +286,44 @@ const Depositnew = () => {
 
 				onReset();
 			} else if (depositType === defDepositType.onlineBank) {
-				window.open(
-					`${config.openURL}/${
-						userInfo.langId
-					}/Cashier/DepositReqOnlineBanking?sysId=${
-						formInfo?.sysId || 0
-					}&payId=${formInfo.payId}&ChannelId=${
-						formInfo.channelId
-					}&Amount=${resultAmount}`
-				);
-				await delay(1000);
-
-				onReset();
+				if (formInfo.mode === 3) {
+					api_cashier_DepositReqOnlineBanking({
+						langId: userInfo.langId,
+						sysId: formInfo?.sysId,
+						payId: formInfo.payId,
+						channelId: formInfo.channelId,
+						real_amount: resultAmount
+					}).then(res => {
+						if (res.data.errorCode === 0) {
+							setPopBox({
+								isOpen: true,
+								title: t("lbl_DepositType1"),
+								popBoxType: defPopBoxType.PaymentQR,
+								amount: resultAmount,
+								currencyId: userInfo.currencyId,
+								imgUrl: res.data.data.url,
+								handlePopBox: () => {
+									setPopBox(prevState => ({
+										...prevState,
+										isOpen: false
+									}));
+									RefreshPage();
+								}
+							});
+						}
+					});
+				} else {
+					window.open(
+						`${config.openURL}/${
+							userInfo.langId
+						}/Cashier/DepositReqOnlineBanking?sysId=${
+							formInfo?.sysId || 0
+						}&payId=${formInfo.payId}&ChannelId=${
+							formInfo.channelId
+						}&Amount=${resultAmount}`
+					);
+					RefreshPage();
+				}
 			}
 		}
 	};

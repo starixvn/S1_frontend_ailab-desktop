@@ -228,6 +228,7 @@
 	"lbl_Information": "Information",
 	"lbl_No": "No",
 	"lbl_Yes": "Yes",
+	"lbl_Copy": "Copy",
 
 	"lbl_Success": "Success",
 	"lbl_Fail": "Failed",
@@ -256,6 +257,8 @@
 	"lbl_Min": "Min",
 	"lbl_Max": "Max",
 	"lbl_ImportantNotice": "IMPORTANT NOTICE",
+	"lbl_Play": "PLAY",
+	"lbl_Demo": "DEMO",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",
@@ -363,6 +366,9 @@
 	"lbl_DepositImportantNoticeContent4": "Please <span>DO NOT</span> fill in <span>'GOAL123'</span> or any sensitive words related to gambling as reference/remark in your online transaction.",
 	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
 	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
+	"lbl_BackupDomain_Title": "Please save the latest GOAL123 domain for backup purposes.",
+	"lbl_BackupDomain_description1": "STAY ACCESSIBLE",
+	"lbl_BackupDomain_description2": "Anytime, Anywhere",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",
@@ -519,6 +525,7 @@
 	"lbl_Rank6": "6th Runner Up",
 	"lbl_Rank7": "7th Runner Up",
 	"lbl_Rank8": "8th Runner Up",
+	"lbl_Ranking_TopNum": "TOP {{topNum}} WINNING",
 
 	"AngPow ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_AngPow_Congratulations": "Congratulations",

@@ -17,8 +17,7 @@ import ImgGodOfFortune from "../../styles/img/hotgame09.jpg";
 import ImgLuckyNeko from "../../styles/img/hotgame10.jpg";
 import ImgPoker from "../../styles/img/hotgame11.jpg";
 
-const defLinkType = {
-	default: "default",
+const defProductType = {
 	slots: "slots"
 };
 
@@ -54,7 +53,8 @@ const defGameList = [
 		gameTypeKey: gameType.table,
 		img: Belangkai,
 		tpId: 9,
-		gameId: "3uim5ppkiqwk1"
+		gameId: "3uim5ppkiqwk1",
+		productType: defProductType.slots
 	},
 	{
 		name: "Hulu",
@@ -63,7 +63,8 @@ const defGameList = [
 		gameTypeKey: gameType.table,
 		img: Hulu,
 		tpId: 9,
-		gameId: "yr1zy9u9xt6zr"
+		gameId: "yr1zy9u9xt6zr",
+		productType: defProductType.slots
 	},
 	{
 		name: "Multihand Blackjack",
@@ -72,7 +73,8 @@ const defGameList = [
 		gameTypeKey: gameType.table,
 		img: MultihandBlackjack,
 		tpId: 5,
-		gameId: "bjma"
+		gameId: "bjma",
+		productType: defProductType.slots
 	},
 	{
 		name: "888 Dragon",
@@ -81,7 +83,8 @@ const defGameList = [
 		gameTypeKey: gameType.slots,
 		img: Img88Draon,
 		tpId: 5,
-		gameId: "vs1dragon8"
+		gameId: "vs1dragon8",
+		productType: defProductType.slots
 	},
 	{
 		name: "Three Star Fortune",
@@ -90,7 +93,8 @@ const defGameList = [
 		gameTypeKey: gameType.slots,
 		img: ImgThreeStarFortune,
 		tpId: 5,
-		gameId: "vs10threestar"
+		gameId: "vs10threestar",
+		productType: defProductType.slots
 	},
 	{
 		name: "5 Fortune Dragons",
@@ -99,7 +103,8 @@ const defGameList = [
 		gameTypeKey: gameType.slots,
 		img: Img5FortuneDragons,
 		tpId: 10,
-		gameId: "S-FD01"
+		gameId: "S-FD01",
+		productType: defProductType.slots
 	},
 	{
 		name: "God Of Fortune",
@@ -108,7 +113,8 @@ const defGameList = [
 		gameTypeKey: gameType.slots,
 		img: ImgGodOfFortune,
 		tpId: 6,
-		gameId: "godoffortune"
+		gameId: "godoffortune",
+		productType: defProductType.slots
 	},
 	{
 		name: "Lucky Neko",
@@ -116,8 +122,9 @@ const defGameList = [
 		providerImg: "ygb",
 		gameTypeKey: gameType.slots,
 		img: ImgLuckyNeko,
-		tpId: 5,
-		gameId: 7382
+		tpId: 8,
+		gameId: 7382,
+		productType: defProductType.slots
 	},
 	{
 		name: "Poker",
@@ -132,7 +139,7 @@ const defGameList = [
 export default ({ t, userInfo }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
-	const ClickGame = (tpId, gameId, betType, linkType) => {
+	const ClickGame = ({ tpId, gameId, productType }) => {
 		const LoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -140,7 +147,7 @@ export default ({ t, userInfo }) => {
 			});
 		};
 
-		if (linkType === defLinkType.slots) {
+		if (productType === defProductType.slots) {
 			if (userInfo.isLogin !== true) {
 				LoginPopBox();
 			} else {
@@ -184,7 +191,11 @@ export default ({ t, userInfo }) => {
 			<div
 				className="swiper-slide"
 				key={`hotGame-${g.gameId}-${g.name}`}
-				onClick={ClickGame.bind(this, g.tpId, g.gameId, g.gameTypeKey)}>
+				onClick={ClickGame.bind(this, {
+					tpId: g.tpId,
+					gameId: g.gameId,
+					productType: g.productType
+				})}>
 				<img src={g.img} alt={g.name} />
 				{/* <span className={g.isNew ? "icon icon-new" : ""}>
 					{displayText}

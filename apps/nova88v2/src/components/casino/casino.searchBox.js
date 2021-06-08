@@ -13,7 +13,7 @@ export default ({
 }) => {
 	return (
 		<>
-			<div>
+			{/* <div>
 				<div className="inputBox-white">
 					<Dropdown
 						mainkey="casino-provider"
@@ -23,7 +23,7 @@ export default ({
 						i18n={t}
 					/>
 				</div>
-			</div>
+			</div> */}
 			<div>
 				<div className="inputBox-white">
 					<Dropdown
