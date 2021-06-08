@@ -8,10 +8,10 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 
 	let slides = defMenuLinks(langId)?.liveCasino?.subMenu;
 
+	slides = slides.filter(subItem => !subItem.disabledInSlider);
+
 	if (slides?.length && productTpIds?.length) {
-		slides = slides.filter(
-			subItem => productTpIds.includes(subItem.tpId) && !disabledInSlider
-		);
+		slides = slides.filter(subItem => productTpIds.includes(subItem.tpId));
 	}
 
 	useEffect(() => {

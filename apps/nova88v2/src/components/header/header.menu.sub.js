@@ -27,7 +27,7 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 
 	const { isLogin, langId } = userInfo;
 
-	const clickItem = async ({ tpId, gameId, path, needLogin }) => {
+	const clickItem = async ({ tpId, gameId, path, needLogin, menuType }) => {
 		if (tpId === defSpecialSetting.sports_9w) {
 			const result = await handleGoToGame({
 				isLogin: userInfo.isLogin,

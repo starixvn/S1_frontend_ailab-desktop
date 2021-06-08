@@ -57,7 +57,7 @@ export const StreamingModule = ({
 					<button
 						className="betbtn"
 						onClick={ClickLiveTv.bind(this, true)}>
-						{t("lbl_BetNow")?.toUpperCase()}
+						{t("lbl_Streaming_SPORTSBOOK")?.toUpperCase()}
 					</button>
 				</div>
 			) : (

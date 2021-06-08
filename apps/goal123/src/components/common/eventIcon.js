@@ -16,7 +16,8 @@ export const defEventPeriod = {
 	n2Live: { start: "2021/03/12 11:00:00" },
 	casino_pt: { end: "2021/06/20 11:00:00" },
 	sportBti: { end: "2021/06/28 11:00:00" },
-	KingMaker: { end: "2021/07/05 11:00:00" }
+	KingMaker: { end: "2021/07/08 11:00:00" },
+	liveCasino_pt: { end: "2021/07/08 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

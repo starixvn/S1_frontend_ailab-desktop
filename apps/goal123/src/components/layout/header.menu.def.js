@@ -400,7 +400,7 @@ export const defMenuLinks = langId => {
 					eventIcons: [
 						showEventIcon({
 							icon: defEventIcon.new,
-							period: defEventPeriod.casino_pt
+							period: defEventPeriod.liveCasino_pt
 						})
 					],
 					icon: "icon icon-pt",

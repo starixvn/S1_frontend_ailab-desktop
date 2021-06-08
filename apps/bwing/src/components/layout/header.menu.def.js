@@ -236,7 +236,7 @@ export const defMenuLinks = {
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_pt
+						period: defEventPeriod.liveCasino_pt
 					})
 				],
 				icon: "icon icon-pt",
