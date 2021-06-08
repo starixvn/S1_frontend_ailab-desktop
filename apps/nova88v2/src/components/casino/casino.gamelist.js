@@ -15,7 +15,8 @@ export default ({
 	currentPage,
 	favorite,
 	onSetFavorite,
-	t
+	t,
+	maintainList
 }) => {
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
@@ -69,8 +70,23 @@ export default ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
+			const isInMaintain = maintainList.some(
+				item => item.tpId === g.tpId
+			);
+
+			const _className = [isInMaintain && "active"]
+				.filter(Boolean)
+				.join(" ");
+
+			const _style = {
+				pointerEvents: isInMaintain ? "none" : "auto"
+			};
+
 			return (
-				<div key={`casino-game-${g.tpId}-${g.gameId}`}>
+				<div
+					className={_className}
+					style={_style}
+					key={`casino-game-${g.tpId}-${g.gameId}`}>
 					<div className="brand">
 						<span>{tpInfo.displayText}</span>
 					</div>
@@ -113,6 +129,7 @@ export default ({
 							</button>
 						) : null}
 					</div>
+					<div className="under">{t("lbl_underMaintenance")}</div>
 				</div>
 			);
 		});

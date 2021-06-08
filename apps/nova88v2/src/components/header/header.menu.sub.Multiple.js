@@ -7,13 +7,24 @@ import { defMenuLinks, defMenuType, defImgSourceType } from "./header.menu.def";
 // import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 import config from "../../config";
 
-const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
+const SubMenuMultiple = ({
+	subMenuItem,
+	clickItem,
+	userInfo,
+	t,
+	menuKey,
+	maintainList
+}) => {
 	const displayText = subMenuItem.displayText
 		? subMenuItem.displayText
 		: t(subMenuItem.displayKey);
 
 	const displayText2 = subMenuItem.displayText2 ?? null;
 	const displayText3 = subMenuItem.displayText3 ?? null;
+
+	const isInMaintain = maintainList.some(
+		({ tpId }) => tpId === subMenuItem.tpId
+	);
 
 	let params = null;
 
@@ -29,6 +40,7 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	const _urlParams = params !== null ? `?${params.join("&")}` : "";
 
 	let className = subMenuItem.className || "";
+	let style = {};
 
 	if (subMenuItem.eventIcons) {
 		let iconStrings = "";
@@ -40,12 +52,18 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 		className += ` icon${iconStrings}`;
 	}
 
+	if (isInMaintain) {
+		className += ` active`;
+		style = { pointerEvents: "none" };
+	}
+
 	const pathLink = subMenuItem.path || defMenuLinks[menuKey].path;
 
 	if (subMenuItem.menuType === defMenuType.Link) {
 		return (
 			<Link
 				className={className}
+				style={style}
 				to={`/${userInfo.langId}/${pathLink}${_urlParams}`}>
 				<img
 					className="ListBG-left"
@@ -77,6 +95,7 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 					}
 				/>
 				<span>{displayText}</span>
+				<div className="under">{t("lbl_underMaintenance")}</div>
 			</Link>
 		);
 	}
@@ -108,19 +127,24 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 					listImgUrl={subMenuItem.listBgImgUrl}
 				/>
 				<span>{displayText}</span>
+				<div className="under">{t("lbl_underMaintenance")}</div>
 			</a>
 		);
 	}
 
 	if (subMenuItem.menuType === defMenuType.LinkNoImg) {
 		return (
-			<Link className={className} to={`/${userInfo.langId}/${pathLink}`}>
+			<Link
+				className={className}
+				style={style}
+				to={`/${userInfo.langId}/${pathLink}`}>
 				<div>{displayText}</div>
 				<div>{displayText2}</div>
 				<div>{displayText3}</div>
 				<div className="txt-orange">
 					<div>{t("lbl_JoinNow")}</div>
 				</div>
+				<div className="under">{t("lbl_underMaintenance")}</div>
 			</Link>
 		);
 	}
@@ -128,6 +152,7 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 	return (
 		<button
 			className={className}
+			style={style}
 			onClick={clickItem.bind(this, {
 				tpId: subMenuItem.tpId,
 				gameId: subMenuItem.gameId,
@@ -164,6 +189,7 @@ const SubMenuMultiple = ({ subMenuItem, clickItem, userInfo, t, menuKey }) => {
 				}
 			/>
 			<span>{displayText}</span>
+			<div className="under">{t("lbl_underMaintenance")}</div>
 		</button>
 	);
 };
@@ -213,7 +239,8 @@ SubMenuMultiple.propTypes = {
 	clickItem: PropTypes.func.isRequired,
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
-	menuKey: PropTypes.string.isRequired
+	menuKey: PropTypes.string.isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 ImgsNpcRender.defaultProps = {

@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
+
 import {
 	userInfoContext,
 	popBoxContext,
-	productTpIdsContext
+	productTpIdsContext,
+	maintainListContext
 } from "../common/context";
 import Menu from "./header.menu";
 import config from "../../config";
@@ -21,6 +23,7 @@ export default () => {
 	const { t } = useTranslation();
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
+	const { maintainList } = useContext(maintainListContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
@@ -97,7 +100,7 @@ export default () => {
 					)}
 					<LogoutButton />
 				</div>
-				<Menu productTpIds={productTpIds} />
+				<Menu productTpIds={productTpIds} maintainList={maintainList} />
 			</div>
 		</header>
 	);
