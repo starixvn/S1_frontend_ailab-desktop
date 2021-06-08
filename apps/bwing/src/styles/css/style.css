@@ -1787,7 +1787,7 @@ input[type="file"] {
 .checkbox label.icon:before {
   display: none;
   font-size: 15px;
-  color: #259076;
+  color: #f77900;
 }
 
 .checkbox input[type="checkbox"]:checked + label.icon {
@@ -3629,6 +3629,7 @@ main > .swiper-container .swiper-slide {
   font-size: 18px;
   color: #64789b;
   cursor: pointer;
+  z-index: 1;
 }
 
 #popup > div.loginpop {
@@ -9047,6 +9048,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding: 5px 10px;
   color: #fff;
   font-size: 12px;
+  text-align: center;
 }
 
 .pop .backupDomain .url {

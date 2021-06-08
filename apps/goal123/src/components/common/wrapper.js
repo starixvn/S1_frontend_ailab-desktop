@@ -20,6 +20,7 @@ import {
 } from "../../service/language";
 import useGetWalletInfo from "./wrapper.walletInfo";
 import { langCookie } from "../../config";
+import path from "../../router";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -104,9 +105,14 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				}
 			} else if (
 				isMountedRef.current &&
-				((afterLogin && !isLogin) || (isLogin && onlyBeforeLogin))
+				((afterLogin && !isLogin) ||
+					(isLogin && onlyBeforeLogin && !userInfo.isJoin))
 			) {
 				setRedirectPath(`/${userInfo.langId}`);
+			}
+
+			if (userInfo.isJoin) {
+				navigate(`/${userInfo.langId}/${path.deposit.root}`);
 			}
 			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
 				setUserInfo(prevState => ({
@@ -119,6 +125,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		userInfo.isLogin,
 		userInfo.kickout,
 		userInfo.willLogout,
+		userInfo.isJoin,
 		setUserInfo,
 		setRedirectPath,
 		setPopBox
