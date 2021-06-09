@@ -3359,7 +3359,7 @@ html.Newtheme .platformName {
   width: calc(100% / 3 - 50px);
   background: #1f3258;
   float: left;
-  margin-left: 50px;
+  margin-left: 30px;
   margin-top: 30px;
   border-radius: 5px;
   padding: 20px;
@@ -3405,6 +3405,17 @@ html.Newtheme .platformName .icon.icon-VNPay {
 
 html.Newtheme .platformName .icon + div {
   max-width: 200px;
+}
+
+html.Newtheme .platformName + div.subModuleList {
+  width: calc(60% - 10px);
+  margin-top: 30px;
+}
+
+html.Newtheme .platformName + div.subModuleList .subModuleBody {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 html.Newtheme .platformName + div.subModuleList .subModuleBody > div {

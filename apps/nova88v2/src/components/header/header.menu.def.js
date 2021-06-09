@@ -744,7 +744,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_NumberGame",
 				listNpcImgUrl: "lo-numberGame.png",
 				listBgImgUrl: "gameListHover.png",
-				menuType: defMenuType.entPage,
+				menuType: defMenuType.Link,
 				parameter: { ...productList.numberGame }
 			},
 			{
