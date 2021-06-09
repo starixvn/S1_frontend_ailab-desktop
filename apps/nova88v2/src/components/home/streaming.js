@@ -25,9 +25,10 @@ const Content = () => {
 		isMounted: isMountedRef.current
 	});
 
-	const btns = Object.values(defStreamingCategory).map(category => (
+	const btns = Object.values(defStreamingCategory).map((category, cidx) => (
 		<button
-			key={`home-streaming-${category.type}`}
+			// eslint-disable-next-line react/no-array-index-key
+			key={`home-streaming-${cidx}`}
 			className={`${category.icon}${
 				category.type === selCategory.type ? " active" : ""
 			}`}
@@ -36,13 +37,15 @@ const Content = () => {
 		</button>
 	));
 
-	const rows = selCategory.datas?.map(v => {
+	const rows = selCategory.datas?.map((v, vidx) => {
 		return (
 			<StreamingModule
-				key={`home-streaming-${v.type}-${v.matchID}`}
+				// eslint-disable-next-line react/no-array-index-key
+				key={`home-streaming-${vidx}`}
 				t={t}
 				langId={userInfo.langId}
 				isLogin={userInfo.isLogin}
+				// eslint-disable-next-line react/jsx-props-no-spreading
 				{...v}
 			/>
 		);
