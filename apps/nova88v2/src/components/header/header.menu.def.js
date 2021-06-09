@@ -196,7 +196,8 @@ export const defMenuLinks = {
 	sports: {
 		displayKey: "lbl_Sports",
 		className: "sportsbtn",
-		// productInfo: productList.sports,
+		path: path.sports.root,
+		productInfo: productList.sports,
 		filterByAuth: true,
 		subMenu: [
 			{

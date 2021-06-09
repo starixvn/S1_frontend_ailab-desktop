@@ -224,7 +224,10 @@ export default ({
 						? `${_className} active`
 						: "active"
 					: _className;
-			return (
+
+			return !productTpIds ||
+				productTpIds?.length === 0 ||
+				productTpIds.includes(m.productInfo?.tpId) ? (
 				<Link
 					key={key}
 					to={_url}
@@ -233,6 +236,17 @@ export default ({
 					<div className={iconStrings} />
 					{displayText}
 				</Link>
+			) : (
+				<button
+					key={key}
+					onMouseOver={_showSubMenu.bind(this, key)}
+					className={_className}
+					onFocus={() => 0}>
+					<div className={iconStrings}>
+						{iconStrings === defEventIcon.live ? <i /> : null}
+					</div>
+					{displayText}
+				</button>
 			);
 		}
 
@@ -245,6 +259,7 @@ export default ({
 						? `${_className} active`
 						: "active"
 					: _className;
+
 			return (
 				<Link
 					key={key}
