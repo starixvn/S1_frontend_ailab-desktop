@@ -23,7 +23,7 @@ describe("open dropdown ", () => {
 			],
 			mainKey: `from_wallet`,
 			onChange: jest.fn(),
-			clickSubmit: jest.fn(),
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
 			_isConvert: true,
 			clickInfo: jest.fn(),
 			onBlur: jest.fn(),
@@ -56,7 +56,7 @@ describe("render wallet dropdown items", () => {
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
 			onChange: jest.fn(),
-			clickSubmit: jest.fn(),
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
 			_isConvert: true,
 			clickInfo: jest.fn(),
 			onBlur: jest.fn(),
@@ -91,7 +91,7 @@ describe("test function: onSelectWallet()", () => {
 			selectedFromIdx: -1,
 			selectedToIdx: -1,
 			onChange: jest.fn(),
-			clickSubmit: jest.fn(),
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
 			_isConvert: true,
 			clickInfo: jest.fn(),
 			onBlur: jest.fn(),
@@ -123,12 +123,14 @@ describe("input value", () => {
 			],
 			EditAmount: jest.fn(),
 			onChange: jest.fn(),
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
+			_isConvert: true,
 			amount: "100",
+			clickInfo: jest.fn(),
 			selectedToIdx: 1,
 			selectedFromIdx: 2,
 			onBlur: jest.fn(),
-			tip: "tip",
-			_isConvert: true
+			tip: "tip"
 		};
 		const { container } = render(<SetAmount {...fakeData} />);
 		const input = container.getElementsByTagName("input")[0];
@@ -153,7 +155,7 @@ describe("test function: clickSubmit", () => {
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
 			onChange: jest.fn(),
-			clickSubmit: jest.fn(),
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
 			_isConvert: true,
 			clickInfo: jest.fn(),
 			onBlur: jest.fn(),

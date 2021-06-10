@@ -33,7 +33,7 @@ const fakeData = {
 	onChangeBirth: jest.fn(),
 	onChangePhone: jest.fn(),
 	onChangeEmail: jest.fn(),
-	clickSubmit: jest.fn()
+	clickSubmit: jest.fn().mockImplementation(e => e.preventDefault())
 };
 
 const userInfo = {
@@ -67,7 +67,8 @@ const fakeData_2 = {
 		email: { checked: null, tip: "test-tip" }
 	},
 	editField: jest.fn(),
-	clickInfo: jest.fn()
+	clickInfo: jest.fn(),
+	clickSubmit: jest.fn().mockImplementation(e => e.preventDefault())
 };
 
 describe("input element render", () => {
@@ -188,7 +189,8 @@ describe("show icon-cross", () => {
 		},
 		userValue: { accountName: "testValue" },
 		editField: jest.fn(),
-		clickInfo: jest.fn()
+		clickInfo: jest.fn(),
+		clickSubmit: jest.fn().mockImplementation(e => e.preventDefault())
 	};
 	test("if click submit and status checked is false, show icon-cross", () => {
 		const { container } = render(<ProfileEdit {...fakeData_checkFalse} />);
