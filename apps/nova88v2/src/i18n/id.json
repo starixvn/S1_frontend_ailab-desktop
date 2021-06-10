@@ -36,6 +36,10 @@
 	"lbl_kindly_visit_alternate_link_for_better_performance": "Jika Anda merasa lambat, silakan kunjungi tautan alternatif untuk performa yang lebih baik.",
 	"lbl_DearValuedCustomers": "Pelanggan Nova88 yang Terhormat,",
 
+	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Odds":"Odds",
+	"lbl_Handicap":"Hdp",
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
 	"lbl_Baseball": "Bola Kasti",
@@ -86,6 +90,10 @@
 	"lbl_Oneshot_Fishing": "Oneshot Fishing",
 	"lbl_Water_Margin_Fishing": "Water Margin Fishing",
 	"lbl_Thunder_Fighter": "Thunder Fighter",
+	"lbl_Games": "Permainan",
+	"lbl_King_Maker": "King Maker",
+	"lbl_AMB_Poker": "AMB Poker",
+	"lbl_9W":"9W",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Slots",
@@ -269,6 +277,18 @@
 	"lbl_DepositLocalbankButtonInfo": "Ingat bank yang Anda gunakan untuk deposit terakhir. Jika bank yang Anda pilih sudah tutup, mohon pilih kembali.",
 	"lbl_Drop_photos_or_receipt_here": "Letakkan foto atau resi di sini atau klik untuk melampirkan.",
 	"lbl_File_format_error_please_try_again": "Kesalahan format file, harap coba lagi.",
+
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"Rincian Pembayaran",
+	"lbl_OrderAmount":"Jumlah Permintaan",
+	"lbl_Pay":"Bayar",
+	"lbl_PaymentQRDesc1":"Silahkan transfer jumlahnya.",
+	"lbl_PaymentQRDesc2":"Disediakan untuk pengalaman yang lebih baik",
+	"lbl_ImportantNotes":"Catatan Penting",
+	"lbl_PaymentQRNote1":"Mohon jangan refresh browser Anda",
+	"lbl_PaymentQRNote2":"Harap catat nomor referensi jika suatu saat anda perlu menghubungi Layanan Pelanggan untuk tindakan lebih lanjut.",
+	"lbl_PaymentTimeLeft":"SISA WAKTU PEMBAYARAN",
+	"lbl_Time": "Waktu",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
@@ -474,6 +494,7 @@
 	"lbl_ImportantNotice": "PEMBERITAHUAN PENTING",
 	"lbl_Play": "MAIN",
 	"lbl_Demo": "DEMO",
+	"lbl_underMaintenance": "Sedang dalam pemeliharaan",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -686,6 +707,7 @@
 	"lbl_More": "Lebih",
 	"lbl_Started": "Dimulai",
 	"lbl_Not_Started": "Belum dimulai",
+	"lbl_Streaming_SPORTSBOOK":"OLAHRAGA",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "VIDEO TERBARU",

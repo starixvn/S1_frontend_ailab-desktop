@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import {
@@ -7,9 +7,16 @@ import {
 	isRootContext
 } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { setCookie, readCookie, isDateRange } from "../common/common";
+import usePopBox from "../hook/usePopBox";
+import {
+	setCookie,
+	readCookie,
+	isDateRange,
+	number_format
+} from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
+import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { defaultLang } from "../../i18n/config";
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
@@ -17,6 +24,7 @@ import Jackpot from "./jackpot";
 import SwipperBanner from "../common/swipperBanner";
 import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
+import WinnerBoard from "./winnerBoard";
 import SideBarQuickLink from "./sideBarQuickLink";
 
 import AngpowLink from "./angpowLink";
@@ -27,9 +35,11 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const { setIsRoot } = useContext(isRootContext);
-
 	const isMountedRef = useRef(null);
+	const [winnerList, setWinnerList] = useState([]);
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		setIsRoot(true);
@@ -38,6 +48,10 @@ export default () => {
 			setIsRoot(false);
 		};
 	});
+
+	useEffect(() => {
+		getTopWinnners();
+	}, []);
 
 	useEffect(() => {
 		const ShowRankingPopup = () => {
@@ -118,6 +132,33 @@ export default () => {
 		}
 	}, [userInfo.isLogin, userInfo.langId, userInfo.userName, setPopBox]);
 
+	const getTopWinnners = () => {
+		const payload = {
+			lBCategoryId: 0,
+			TopNum: 10,
+			BeforeDays: 0,
+			EventCode: "202104"
+		};
+
+		api_events_GetLeaderboardListV2(payload).then(
+			res => {
+				if (!isMountedRef.current) return;
+				if (res.data.errorCode === 0) {
+					setWinnerList(res.data.data);
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				errorPopBox();
+			}
+		);
+	};
+
 	return (
 		<>
 			<MysteryBoxLink
@@ -137,6 +178,13 @@ export default () => {
 				<section>
 					<div className="offers">
 						<EventSwipper langId={userInfo.langId} />
+					</div>
+					<div className="offers">
+						<WinnerBoard
+							t={t}
+							number_format={number_format}
+							winnerList={winnerList}
+						/>
 						<span className="straightBorder" />
 						<Jackpot t={t} userInfo={userInfo} />
 					</div>

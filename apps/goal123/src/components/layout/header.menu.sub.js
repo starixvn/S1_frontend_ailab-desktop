@@ -5,13 +5,43 @@ import { defMenuType } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
+import { useGotoGame } from "../hook/useGotoGame";
 import productList from "../../datas/productList";
-import path from "../../router";
+// import path from "../../router";
 
 export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { handleGoToGame } = useGotoGame({ autoGetData: false });
+	const { isLogin, langId } = userInfo;
+
+	const ClickItem = (tpId, gameId, menuType, _subPath) => {
+		const loginCallback = () => {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		};
+		if (menuType === defMenuType.useGoToGame) {
+			handleGoToGame({
+				isLogin,
+				langId,
+				tpId,
+				gameId
+			});
+		} else if (_subPath) {
+			navigate(`/${userInfo.langId}/${_subPath}`);
+		} else {
+			SET_ENTER_PAGE({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				loginCallback
+			});
+		}
+	};
 
 	const imgRender = ({ bgImgUrl, npcImgUrl, iconImgUrl }) => {
 		return (
@@ -33,26 +63,6 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				)}
 			</>
 		);
-	};
-
-	const ClickItem = (tpId, gameId, _subPath) => {
-		const loginCallback = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		};
-		if (_subPath) {
-			navigate(`/${userInfo.langId}/${_subPath}`);
-		} else {
-			SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				loginCallback
-			});
-		}
 	};
 
 	const rows = subItems?.map(s => {
@@ -115,6 +125,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 					s.tpId,
 					s.gameId,
 					// userInfo,
+					s.menuType,
 					_subPath
 				)}>
 				{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}

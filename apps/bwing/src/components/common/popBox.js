@@ -307,6 +307,18 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.BackupDomain: {
+			const BackupDomain = lazy(() => import("./popBox.backupDomain"));
+
+			content = (
+				<BackupDomain
+					onClickClose={popBox.onClickClose}
+					linkList={popBox.linkList}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 

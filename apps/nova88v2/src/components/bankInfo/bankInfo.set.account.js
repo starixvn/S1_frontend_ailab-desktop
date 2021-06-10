@@ -72,7 +72,7 @@ export default ({
 		let message = "";
 
 		const isRepeatAccount =
-			custBankList.filter(
+			custBankList?.filter(
 				_selectBank =>
 					_selectBank.bankName === bankInfo.bankName &&
 					_selectBank.accountNo === val
@@ -138,6 +138,7 @@ export default ({
 			}).then(
 				res => {
 					if (isMountedRef.current) {
+						const { errorCode, message } = res.data;
 						if (res.data.errorCode === 0) {
 							reload(!alreadyHasAccountName);
 						} else {
@@ -188,25 +189,33 @@ export default ({
 							</div>
 						</div>
 						{!alreadyHasAccountName ? (
-							<Inputbox
-								className={`inputBox-white${
-									!status.accountName.checked &&
-									status.accountName.tip !== ""
-										? " error"
-										: ""
-								}`}
-								value={accountName}
-								onChange={editField.bind(this, "accountName")}
-								onBlur={checkAccount.bind(
-									this,
-									accountName,
-									"accountName"
-								)}
-								title={t("lbl_RealName")}
-								clickInfo={clickInfo.bind(this, "accountName")}
-								checked={status.accountName.checked}
-								tip={status.accountName.tip}
-							/>
+							<div className="inputModuleRow">
+								<Inputbox
+									className={`inputBox-white${
+										!status.accountName.checked &&
+										status.accountName.tip !== ""
+											? " error"
+											: ""
+									}`}
+									value={accountName}
+									onChange={editField.bind(
+										this,
+										"accountName"
+									)}
+									onBlur={checkAccount.bind(
+										this,
+										accountName,
+										"accountName"
+									)}
+									title={t("lbl_RealName")}
+									clickInfo={clickInfo.bind(
+										this,
+										"accountName"
+									)}
+									checked={status.accountName.checked}
+									tip={status.accountName.tip}
+								/>
+							</div>
 						) : null}
 						<div className="inputModuleRow">
 							<Inputbox

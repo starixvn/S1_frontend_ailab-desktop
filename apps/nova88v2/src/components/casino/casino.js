@@ -14,6 +14,7 @@ import {
 import {
 	popBoxContext,
 	userInfoContext,
+	maintainListContext,
 	loadingContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
@@ -28,7 +29,6 @@ import {
 import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
-import config from "../../config";
 import TopQuickLink from "./casino.topQuickLink";
 
 const matchKeyword = (name, _keyword) => {
@@ -72,6 +72,7 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { maintainList } = useContext(maintainListContext);
 	const { loading, setLoading } = useContext(loadingContext);
 
 	const clickClose = () => {
@@ -241,29 +242,22 @@ export default () => {
 	};
 
 	const clickLobbyProvider = _providerId => {
-		let _searchInfo = searchInfo;
 		const _optionsIdx = tpOptions.findIndex(
 			_options => _options.id === _providerId
 		);
-		const _result = {
-			[defSearchColumn.searchText]:
-				_searchInfo[defSearchColumn.searchText],
-			[defSearchColumn.provider]: {
-				idx: _optionsIdx,
-				value: _providerId
-			}
-		};
-		setSearchInfo(prevS => {
-			_searchInfo = {
-				...prevS,
-				[defSearchColumn.provider]: {
-					idx: _optionsIdx,
-					value: _providerId
-				}
-			};
-			return _searchInfo;
-		});
 
+		const _result = {
+			...searchInfo,
+			[defSearchColumn.provider]:
+				searchInfo[defSearchColumn.provider].value === _providerId
+					? { idx: 0, value: null }
+					: {
+							idx: _optionsIdx,
+							value: _providerId
+					  }
+		};
+
+		setSearchInfo(_result);
 		SetGames({
 			_searchInfo: _result,
 			_category: category,
@@ -491,6 +485,7 @@ export default () => {
 							currentPage={pageInfo.currentPage}
 							favorite={favorite}
 							onSetFavorite={onSetFavorite}
+							maintainList={maintainList}
 						/>
 						<Pagination
 							totalPages={pageInfo.totalPages}

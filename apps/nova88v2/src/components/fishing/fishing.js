@@ -6,7 +6,8 @@ import { defMenuLinks } from "../header/header.menu.def";
 import {
 	userInfoContext,
 	popBoxContext,
-	productTpIdsContext
+	productTpIdsContext,
+	maintainListContext
 } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
@@ -20,6 +21,7 @@ const Fishing = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
+	const { maintainList } = useContext(maintainListContext);
 
 	const clickItem = ({ tpId, gameId, needLogin, path }) => {
 		const showLoginPopBox = () => {
@@ -88,6 +90,7 @@ const Fishing = () => {
 				<div className="rightModule">
 					<FishingList
 						subMenu={subMenu}
+						maintainList={maintainList}
 						clickItem={clickItem}
 						t={t}
 					/>

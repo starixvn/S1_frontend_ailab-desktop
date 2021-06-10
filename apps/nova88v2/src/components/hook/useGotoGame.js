@@ -1,10 +1,13 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, useContext } from "react";
 import productList from "../../datas/productList";
 import { api_tp_GotoGame } from "../../service/api/tp";
 import usePopBox from "./usePopBox";
+import { popBoxContext } from "../common/context";
+import defPopBoxType from "../common/defPopBoxType";
 
 export const defSpecialSetting = {
-	playTech: productList.casino_PT.tpId
+	playTech: productList.casino_PT.tpId,
+	sports_9w: productList._9WSports.tpId
 };
 
 const launchGame = ({ client, mode, game, lang }) => {
@@ -51,7 +54,7 @@ export const useGotoGame = ({
 }) => {
 	const { errorPopBox } = usePopBox();
 	const [data, setData] = useState({ account: "", password: "" });
-
+	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -66,71 +69,79 @@ export const useGotoGame = ({
 	});
 
 	const handleGoToGame = useCallback(
-		({
+		async ({
 			isLogin: _isLogin = true,
 			langId: _langId,
 			tpId: _tpId,
 			gameId: _gameId,
 			isFun: _isFun
 		}) => {
+			let returnData = "";
 			if (_isLogin) {
-				api_tp_GotoGame({
-					TpId: _tpId,
-					LangId: _langId,
-					gameId: _gameId,
-					fun: _isFun ? "1" : "0",
-					gameType:
-						_tpId === defSpecialSetting.playTech ? "slots" : ""
-				}).then(async res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0 && res.data.message) {
-							const result = JSON.parse(res.data.message);
+				try {
+					const res = await api_tp_GotoGame({
+						TpId: _tpId,
+						LangId: _langId,
+						gameId: _gameId,
+						fun: _isFun ? "1" : "0",
+						gameType:
+							_tpId === defSpecialSetting.playTech ? "slots" : ""
+					});
 
-							if (_tpId === defSpecialSetting.playTech) {
-								const {
-									account: username,
-									password,
-									lang,
-									mode
-								} = result;
+					if (res.data.errorCode === 0 && res.data.message) {
+						const result = JSON.parse(res.data.message);
 
-								await iapiSetCallout("Login", response => {
-									if (response.errorCode) {
-										if (response.errorCode == 48) {
-											errorPopBox(
-												`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
-												response.errorCode
-											);
-										} else {
-											errorPopBox(
-												`Login failed, error: ${response.errorCode} ,playerMessage: ${response.playerMessage}`,
-												response.errorCode
-											);
-										}
+						if (_tpId === defSpecialSetting.playTech) {
+							const {
+								account: username,
+								password,
+								lang,
+								mode
+							} = result;
+
+							await iapiSetCallout("Login", response => {
+								if (response.errorCode) {
+									if (response.errorCode == 48) {
+										errorPopBox(
+											`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
+											response.errorCode
+										);
 									} else {
-										launchGame({ ...result });
+										errorPopBox(
+											`Login failed, error: ${response.errorCode} ,playerMessage: ${response.playerMessage}`,
+											response.errorCode
+										);
 									}
-								});
-
-								if (mode === "real") {
-									iapiSetClientType("casino");
-									iapiSetClientPlatform("web");
-									iapiLogin(username, password, 1, lang);
 								} else {
-									launchGameWithFunMode({ ...result });
+									launchGame({ ...result });
 								}
+							});
+
+							if (mode === "real") {
+								iapiSetClientType("casino");
+								iapiSetClientPlatform("web");
+								iapiLogin(username, password, 1, lang);
 							} else {
-								setData(() => result);
+								launchGameWithFunMode({ ...result });
 							}
-						} else {
-							errorPopBox(
-								`[${res.data.errorCode}] ${res.data.message}`,
-								res.data.errorCode
-							);
+						} else if (_tpId === defSpecialSetting.sports_9w) {
+							returnData = result;
 						}
+					} else {
+						errorPopBox(
+							`[${res.data.errorCode}] ${res.data.message}`,
+							res.data.errorCode
+						);
 					}
+				} catch (error) {}
+			} else {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login
 				});
 			}
+
+			return returnData;
 		},
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 		[gameId, isFun, isLogin, langId, tpId]

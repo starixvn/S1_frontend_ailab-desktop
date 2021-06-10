@@ -51,6 +51,7 @@
 	"lbl_Play": "THAM GIA",
 	"lbl_Demo": "CHƠI THỬ",
 	"lbl_ImportantNotice": "THÔNG BÁO QUAN TRỌNG",
+	"lbl_Copy": "Sao chép",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_SiteNews": "Điểm báo Bwing",
@@ -109,6 +110,9 @@
 	"lbl_Thunder_Fighter": "Thunder Fighter",
 	"lbl_Saba_Sport": "Saba Sport",
 	"lbl_Bti_Sport": "Bti Sport",
+	"lbl_V8Poker": "V8 Xì tố",
+	"lbl_King_Maker": "King Maker",
+	"lbl_AMB_Poker": "AMB Poker",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "ID đại lý/ Người giới thiệu (nếu có)",
@@ -367,6 +371,9 @@
 	"lbl_DepositImportantNoticeContent4": "Vui lòng <span>KHÔNG</span> điền <span>“BWING”</span> hoặc bất cứ từ nhạy cảm nào liên quan đến cá cược trong phần nội dung giao dịch.",
 	"lbl_DepositImportantNoticeContent5": "Vui lòng lưu ý rằng mọi khoản tiền nạp đều cần hoàn thành doanh thu cược 1 lần trước khi được rút.",
 	"lbl_DepositImportantNoticeContent6": "Vui lòng liên hệ bộ phận <Link>LIVECHAT 24/7</Link> nếu lệnh gửi chậm trễ quá 5 phút.",
+	"lbl_BackupDomain_Title": "Vui lòng lưu tên miền BWING mới nhất cho mục đích dự phòng của bạn: ",
+	"lbl_BackupDomain_description1": "CÓ THỂ TRUY CẬP",
+	"lbl_BackupDomain_description2": "Bất cứ lúc nào, bất cứ nơi đâu",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",
@@ -584,7 +591,6 @@
 
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TraditionalLottery": "Xổ Số Truyền thống",
-	"lbl_V8Poker": "V8 Xì tố",
 	"lbl_AngPow_Congratulations": "Xin chúc mừng!",
 	"lbl_AngPow_CreditedAccount1": "Xin chúc mừng, tiền lì xì",
 	"lbl_AngPow_CreditedAccount2": "đã được ghi có vào ví của bạn!",
@@ -656,5 +662,14 @@
 	"lbl_Titanium_Club": "HẠNG BẠCH KIM",
 	"lbl_Diamond_Club": "HẠNG KIM CƯƠNG",
 	"lbl_Bwing_Club": "BWING VVVIP",
-	"lbl_Vip_LastUpdated": "CẬP NHẬT GẦN NHẤT"
+	"lbl_Vip_LastUpdated": "CẬP NHẬT GẦN NHẤT",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "TẢI ỨNG DỤNG",
+	"lbl_Android": "Android",
+	"lbl_Installation_tutorial": "Hướng dẫn cài đặt",
+	"lbl_Once_Bwing_App_is_installed": "Khi ứng dụng Bwing được cài đặt, chọn Tin cậy hoặc hoàn thành Cài đặt theo hướng dẫn bên dưới",
+	"lbl_Scan_to_Download": "Quét để tải về",
+
+	"end-----": "end-----"
 }

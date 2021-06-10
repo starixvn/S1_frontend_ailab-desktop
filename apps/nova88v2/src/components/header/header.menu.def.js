@@ -9,40 +9,43 @@ import { currencyCode } from "../../datas/countryCode";
 
 const defSortCasino = {
 	[currencyCode.TH]: {
-		casino_DG: 1,
+		casino_PT: 1,
+		casino_DG: 2,
+		casino_AE: 3,
+		casino_SA: 4,
+		casino_ALBET: 5,
+		casino_AG: 6,
+		slot_PT: 7,
+		casino_WM: 8,
+		casino_PP: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
+	},
+	[currencyCode.MY]: {
+		casino_PT: 1,
+		casino_DG: 2,
+		casino_AE: 3,
+		casino_PP: 4,
+		casino_SA: 5,
+		slot_PT: 6,
+		casino_ALBET: 7,
+		casino_AG: 8,
+		casino_WM: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
+	},
+	[currencyCode.ID]: {
+		casino_PT: 1,
 		casino_AE: 2,
-		casino_SA: 3,
-		casino_ALBET: 4,
-		casino_AG: 5,
+		casino_AG: 3,
+		casino_EBET: 4,
+		casino_DG: 5,
 		slot_PT: 6,
 		casino_WM: 7,
 		casino_PP: 8,
-		casino_EBET: 9,
-		casino_N2LIVE: 10
-	},
-	[currencyCode.MY]: {
-		casino_DG: 1,
-		casino_AE: 2,
-		casino_PP: 3,
-		casino_SA: 4,
-		slot_PT: 5,
-		casino_ALBET: 6,
-		casino_AG: 7,
-		casino_WM: 8,
-		casino_EBET: 9,
-		casino_N2LIVE: 10
-	},
-	[currencyCode.ID]: {
-		casino_AE: 1,
-		casino_AG: 2,
-		casino_EBET: 3,
-		casino_DG: 4,
-		slot_PT: 5,
-		casino_WM: 6,
-		casino_PP: 7,
-		casino_SA: 8,
-		casino_ALBET: 9,
-		casino_N2LIVE: 10
+		casino_SA: 9,
+		casino_ALBET: 10,
+		casino_N2LIVE: 11
 	}
 };
 
@@ -110,7 +113,9 @@ export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
 	LinkNoImg: "LinkNoImg",
-	DirectUrl: "DirectUrl"
+	DirectUrl: "DirectUrl",
+	GotoGame: "GotoGame",
+	useGoToGame: "useGoToGame"
 };
 
 export const defSubListClassName = {
@@ -121,6 +126,7 @@ export const defSubListClassName = {
 	slot: "casinoList",
 	casino: "livecasinoList",
 	poker: "pokerList",
+	games: "tableList",
 	lottery: "gameList",
 	fishing: "fishList",
 	promotion: "promoList",
@@ -195,6 +201,7 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		subMenu: [
 			{
+				path: path.sports.root,
 				displayKey: "lbl_Soccer",
 				listNpcImgUrl: "soccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
@@ -203,6 +210,7 @@ export const defMenuLinks = {
 				...productList.soccer
 			},
 			{
+				path: path.sports.root,
 				displayKey: "lbl_SabaSoccer",
 				listNpcImgUrl: "sabssoccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
@@ -211,6 +219,7 @@ export const defMenuLinks = {
 				...productList.sabaSoccer
 			},
 			{
+				path: path.sports.root,
 				displayKey: "lbl_Basketball",
 				listNpcImgUrl: "basketballNPC.png",
 				listBgImgUrl: "basketballBG.png",
@@ -219,6 +228,7 @@ export const defMenuLinks = {
 				...productList.basketball
 			},
 			{
+				path: path.sports.root,
 				displayKey: "lbl_Tennis",
 				listNpcImgUrl: "tennisNPC.png",
 				listBgImgUrl: "tennisBG.png",
@@ -227,12 +237,29 @@ export const defMenuLinks = {
 				...productList.tennis
 			},
 			{
+				path: path.sports.root,
 				displayKey: "lbl_Cricket",
 				listNpcImgUrl: "cricketNPC.png",
 				listBgImgUrl: "cricketBG.png",
 				menuType: defMenuType.Link,
 				parameter: { ...productList.cricket },
 				...productList.cricket
+			},
+			{
+				displayKey: "lbl_9W",
+				listNpcImgUrl: "9wnpc.png",
+				listBgImgUrl: "cricketBG.png",
+				menuType: defMenuType.GotoGame,
+				parameter: { ...productList._9WSports },
+				imgSource: defImgSourceType.bannerImgUrl,
+				canSeeOnlyAfterLogin: true,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.Sports_9W
+					})
+				],
+				...productList._9WSports
 			}
 		]
 	},
@@ -291,6 +318,23 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortCasino,
 		subMenu: [
+			{
+				keyName: "casino_PT",
+				// icon: "icon icon-PT",
+				displayText: "PT",
+				menuType: defMenuType.useGoToGame,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "casino-pt.png",
+				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
+				parameter: { ...productList.casino_PT },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_pt
+					})
+				],
+				...productList.casino_PT
+			},
 			{
 				keyName: "casino_N2LIVE",
 				displayText: "N2Live",
@@ -560,6 +604,46 @@ export const defMenuLinks = {
 		displayKey: "lbl_Poker",
 		className: "pokerbtn"
 	},
+	games: {
+		displayKey: "lbl_Games",
+		filterByAuth: true,
+		subMenu: [
+			{
+				keyName: "games_poker",
+				className: "fsgw",
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "am.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_AMB_Poker",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.Games_AMBPoker
+					})
+				],
+				...productList.games_AMBPoker,
+				parameter: { ...productList.games_AMBPoker }
+			},
+			{
+				keyName: "games_kingMaker",
+				className: "fsgw",
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "km.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_King_Maker",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.Games_KingMaker
+					})
+				],
+				...productList.games_kingMaker,
+				parameter: { ...productList.games_kingMaker }
+			}
+		]
+	},
 	fishing: {
 		displayKey: "lbl_Fishing",
 		className: "fishbtn",
@@ -660,7 +744,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_NumberGame",
 				listNpcImgUrl: "lo-numberGame.png",
 				listBgImgUrl: "gameListHover.png",
-				menuType: defMenuType.entPage,
+				menuType: defMenuType.Link,
 				parameter: { ...productList.numberGame }
 			},
 			{

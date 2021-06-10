@@ -35,6 +35,11 @@
 	"lbl_nova88_backup_website": "请保存NOVA88最新网址以备用。",
 	"lbl_kindly_visit_alternate_link_for_better_performance": "若您遇到加载缓慢情况，请尝试后备链接以获更佳体验。",
 	"lbl_DearValuedCustomers": "亲爱的 Nova88 客户,",
+	
+	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Odds":"Odds",
+	"lbl_Handicap":"Hdp",
+
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "羽毛球",
@@ -86,6 +91,10 @@
 	"lbl_Oneshot_Fishing": "一炮捕鱼",
 	"lbl_Water_Margin_Fishing": "水浒劈鱼",
 	"lbl_Thunder_Fighter": "雷电战机",
+	"lbl_Games": "游戏",
+	"lbl_King_Maker": "King Maker",
+	"lbl_AMB_Poker": "AMB Poker",
+	"lbl_9W":"9W",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "电子游戏",
@@ -269,6 +278,18 @@
 	"lbl_DepositLocalbankButtonInfo": "储存最后一笔存款交易银行。若您选择的银行已结业，请再重新选择。",
 	"lbl_Drop_photos_or_receipt_here": "此处放置照片或收据或点击上传",
 	"lbl_File_format_error_please_try_again": "格式不正确，请重试",
+
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"付款资讯",
+	"lbl_OrderAmount":"订单金额",
+	"lbl_Pay":"支付",
+	"lbl_PaymentQRDesc1":"请转账正确数额。",
+	"lbl_PaymentQRDesc2":"提供更好体验。",
+	"lbl_ImportantNotes":"重要信息",
+	"lbl_PaymentQRNote1":"请勿刷新您的游览器。",
+	"lbl_PaymentQRNote2":"请备注参照编号以便若后续需要联系我司客服协助可以此为验证。",
+	"lbl_PaymentTimeLeft":"转账剩余时间",
+	"lbl_Time": "时间",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "草稿",
@@ -474,6 +495,7 @@
 	"lbl_ImportantNotice": "重要通知",
 	"lbl_Play": "游戏",
 	"lbl_Demo": "演示",
+	"lbl_underMaintenance": "维护中",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -686,6 +708,7 @@
 	"lbl_More": "更多",
 	"lbl_Started": "已开始",
 	"lbl_Not_Started": "未开始",
+	"lbl_Streaming_SPORTSBOOK":"体育博彩",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "最新影片",

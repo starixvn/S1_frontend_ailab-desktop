@@ -19,6 +19,8 @@ import sgIconImg from "../../styles/img/dropdown/fishing/sg-icon.png";
 
 import gamesSabaclubBgImg from "../../styles/img/dropdown/games/sabaclub.png";
 import gamesSabaclubNpcImg from "../../styles/img/dropdown/games/sabaclub-item.png";
+import gamesKingMakerBgImg from "../../styles/img/dropdown/games/kingmaker.png";
+import gamesKingMakerNpcImg from "../../styles/img/dropdown/games/kingmaker-item.png";
 import gamesV8pokerBgImg from "../../styles/img/dropdown/games/v8poker.png";
 import gamesV8pokerNpcImg from "../../styles/img/dropdown/games/v8poker-item.png";
 import gamesKenoBgImg from "../../styles/img/dropdown/games/keno.png";
@@ -26,6 +28,8 @@ import gamesKenoNpcImg from "../../styles/img/dropdown/games/keno-item.png";
 import gamesLotteryBgImg from "../../styles/img/dropdown/games/lottery.png";
 import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png";
 
+import livecasinoPtNpcImg from "../../styles/img/livecasino/playtech.png";
+import livecasinoPtIconImg from "../../styles/img/livecasino/playtech-icon.png";
 import livecasinoN2liveNpcImg from "../../styles/img/livecasino/n2live.png";
 import livecasinoN2liveIconImg from "../../styles/img/livecasino/n2live-icon.png";
 import livecasinoWmNpcImg from "../../styles/img/livecasino/wm.png";
@@ -129,7 +133,8 @@ import livecasinoLobbyEbetBgImg from "../../styles/img/livecasinolist/ebet.png";
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
-	LinkOrBtn: "LinkOrBtn"
+	LinkOrBtn: "LinkOrBtn",
+	useGoToGame: "useGoToGame"
 };
 
 export const defMenuLinks = langId => {
@@ -178,6 +183,19 @@ export const defMenuLinks = langId => {
 			className: "game icon",
 			subMenu: [
 				{
+					...productList.KingMaker,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.KingMaker
+						})
+					],
+					displayKey: "lbl_King_Maker",
+					menuType: defMenuType.entPage,
+					bgImgUrl: gamesKingMakerBgImg,
+					npcImgUrl: gamesKingMakerNpcImg
+				},
+				{
 					...productList.sabaClub,
 					// path: path.sports.root,
 					className: "sabaclub",
@@ -187,6 +205,7 @@ export const defMenuLinks = langId => {
 					bgImgUrl: gamesSabaclubBgImg,
 					npcImgUrl: gamesSabaclubNpcImg
 				},
+
 				{
 					...productList.V8_Poker,
 					className: "v8",
@@ -375,6 +394,23 @@ export const defMenuLinks = langId => {
 			displayKey: "lbl_LiveCasino",
 			path: path.liveCasino.root,
 			subMenu: [
+				{
+					...defCasinoProviders.PT,
+					className: "PT",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.liveCasino_pt
+						})
+					],
+					icon: "icon icon-pt",
+					displayText: "Playtech",
+					menuType: defMenuType.useGoToGame,
+					parameter: { provider: defCasinoProviders.PT.name },
+					npcImgUrl: livecasinoPtNpcImg,
+					iconImgUrl: livecasinoPtIconImg,
+					disabledInSlider: true
+				},
 				{
 					tpId: 28,
 					className: "liveN2LIVE",

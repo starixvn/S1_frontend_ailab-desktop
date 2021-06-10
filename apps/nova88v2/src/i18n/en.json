@@ -36,6 +36,10 @@
 	"lbl_kindly_visit_alternate_link_for_better_performance": "Should you feel slowness, kindly visit alternate link for better performance.",
 	"lbl_DearValuedCustomers": "Dear Nova88 Valued Customers,",
 
+	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Odds":"Odds",
+	"lbl_Handicap":"Hdp",
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
 	"lbl_Baseball": "Baseball",
@@ -86,6 +90,10 @@
 	"lbl_Oneshot_Fishing": "Oneshot Fishing",
 	"lbl_Water_Margin_Fishing": "Water Margin Fishing",
 	"lbl_Thunder_Fighter": "Thunder Fighter",
+	"lbl_Games": "Games",
+	"lbl_King_Maker": "King Maker",
+	"lbl_AMB_Poker": "AMB Poker",
+	"lbl_9W":"9W",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Casino",
@@ -269,6 +277,18 @@
 	"lbl_DepositLocalbankButtonInfo": "Remember the bank used for your last deposit. If the bank you selected has been closed, please select again.",
 	"lbl_Drop_photos_or_receipt_here": "Drop photos or receipt here or click to attach.",
 	"lbl_File_format_error_please_try_again": "File format error, please try again.",
+
+	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails":"Payment Details",
+	"lbl_OrderAmount":"Order Amount",
+	"lbl_Pay":"PAY",
+	"lbl_PaymentQRDesc1":"Please transfer the amount.",
+	"lbl_PaymentQRDesc2":"Provided for better experience.",
+	"lbl_ImportantNotes":"Important Notes",
+	"lbl_PaymentQRNote1":"Please do not refresh your browser.",
+	"lbl_PaymentQRNote2":"Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
+	"lbl_PaymentTimeLeft":"PAYMENT TIME LEFT",
+	"lbl_Time": "Time",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_WithdrawalStatus0": "Draft",
@@ -475,6 +495,7 @@
 	"lbl_ImportantNotice": "IMPORTANT NOTICE",
 	"lbl_Play": "PLAY",
 	"lbl_Demo": "DEMO",
+	"lbl_underMaintenance": "Under Maintenance",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -687,6 +708,7 @@
 	"lbl_More": "More",
 	"lbl_Started": "Started",
 	"lbl_Not_Started": "Not Started",
+	"lbl_Streaming_SPORTSBOOK":"SPORTSBOOK",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "LATEST VIDEO",

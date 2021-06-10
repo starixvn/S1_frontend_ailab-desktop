@@ -4,6 +4,8 @@ import { SiteInfo } from "../../config";
 import { userInfoContext } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import { currencyCode } from "../../datas/countryCode";
+import whatsappQR from "../../styles/img/whatsappQR.jpg";
+import lineQR from "../../styles/img/lineQR.jpg";
 
 export default () => {
 	const { t } = useTranslation();
@@ -40,16 +42,14 @@ export default () => {
 			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
 			imgInfo: "+63 945 638 8147",
-			imgSrc:
-				"https://www.nova88.net/static/whatsappQR-94d78581cf79618d3510ad46f3a1c520.jpg"
+			imgSrc: whatsappQR
 		},
 		{
 			id: 6,
 			displayByCurrency: [currencyCode.TH],
 			iconClass: "icon icon-line",
 			imgInfo: "@Nova88thai",
-			imgSrc:
-				"https://www.nova88.net/static/lineQR-bf41d1997d45a32bcf433f500f0dcfe7.jpg"
+			imgSrc: lineQR
 		}
 	];
 

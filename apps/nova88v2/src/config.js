@@ -67,5 +67,5 @@ export default process.env.NODE_ENV === "production"
 			apiURL: "https://www.n88dev.com",
 			imgUrl: "http://www.n88dev.com",
 			t_and_cURL: "http://www.n88dev.com",
-			openURL: "http://www.n88dev.com"
+			openURL: "https://www.n88dev.com"
 	  };

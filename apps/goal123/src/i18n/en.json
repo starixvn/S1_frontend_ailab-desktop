@@ -180,6 +180,9 @@
 	"lbl_VertifyContactConfirm": "Verify your contact number to enjoy our promotions?",
 	"lbl_VertifyNow": "Vertify Now",
 	"lbl_JoinPromoCode": "Promo Code",
+	"lbl_V8Poker": "V8 Poker",
+	"lbl_King_Maker": "King Maker",
+	"lbl_AMB_Poker": "AMB Poker",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"PromotionCategory1": "First Deposit",
@@ -225,6 +228,7 @@
 	"lbl_Information": "Information",
 	"lbl_No": "No",
 	"lbl_Yes": "Yes",
+	"lbl_Copy": "Copy",
 
 	"lbl_Success": "Success",
 	"lbl_Fail": "Failed",
@@ -362,6 +366,9 @@
 	"lbl_DepositImportantNoticeContent4": "Please <span>DO NOT</span> fill in <span>'GOAL123'</span> or any sensitive words related to gambling as reference/remark in your online transaction.",
 	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
 	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
+	"lbl_BackupDomain_Title": "Please save the latest GOAL123 domain for backup purposes.",
+	"lbl_BackupDomain_description1": "STAY ACCESSIBLE",
+	"lbl_BackupDomain_description2": "Anytime, Anywhere",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",
@@ -518,6 +525,7 @@
 	"lbl_Rank6": "6th Runner Up",
 	"lbl_Rank7": "7th Runner Up",
 	"lbl_Rank8": "8th Runner Up",
+	"lbl_Ranking_TopNum": "TOP {{topNum}} WINNING",
 
 	"AngPow ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_AngPow_Congratulations": "Congratulations",
@@ -628,6 +636,5 @@
 	"lbl_NoOfAchievements": "No. of achievements",
 	"lbl_RewardAmount": "Rewards Amounts",
 
-	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_V8Poker": "V8 Poker"
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": ""
 }

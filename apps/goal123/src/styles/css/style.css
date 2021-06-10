@@ -3359,7 +3359,7 @@ html.Newtheme .platformName {
   width: calc(100% / 3 - 50px);
   background: #1f3258;
   float: left;
-  margin-left: 50px;
+  margin-left: 30px;
   margin-top: 30px;
   border-radius: 5px;
   padding: 20px;
@@ -3405,6 +3405,17 @@ html.Newtheme .platformName .icon.icon-VNPay {
 
 html.Newtheme .platformName .icon + div {
   max-width: 200px;
+}
+
+html.Newtheme .platformName + div.subModuleList {
+  width: calc(60% - 10px);
+  margin-top: 30px;
+}
+
+html.Newtheme .platformName + div.subModuleList .subModuleBody {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 html.Newtheme .platformName + div.subModuleList .subModuleBody > div {
@@ -3590,6 +3601,91 @@ html.Newtheme #popup .pop > div.active {
 
 html.Newtheme #popup .pop > div > .txt-lightgray {
   text-align: center;
+}
+
+html.Newtheme #popup .pop .backupDomain {
+  border-radius: 5px;
+  padding: 0;
+  position: relative;
+  color: #c6c6c6;
+  max-width: 480px;
+  min-width: auto;
+}
+
+html.Newtheme #popup .pop .backupDomain .icon-close {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  z-index: 1;
+  color: white;
+}
+
+html.Newtheme #popup .pop .backupDomain .poptit {
+  width: calc(100% - 30px);
+  color: white;
+  padding: 5px 30px 5px 0;
+  font-size: 14px;
+  font-weight: bold;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html.Newtheme #popup .pop .backupDomain .poptit + img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+html.Newtheme #popup .pop .backupDomain .poptxt {
+  padding: 5px 10px;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+html.Newtheme #popup .pop .backupDomain .poptxt > div {
+  margin-bottom: 0;
+}
+
+html.Newtheme #popup .pop .backupDomain .url {
+  padding: 2px 10px;
+  border-radius: 30px;
+  border: 1px solid #c6c6c6;
+  margin: 5px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: calc(100% - 40px);
+}
+
+html.Newtheme #popup .pop .backupDomain .url .copyurl {
+  position: absolute;
+  border-radius: 30px;
+  color: white;
+  padding: 2px 10px;
+  right: 2px;
+  background: #5084e4;
+  font-size: 12px;
+}
+
+html.Newtheme #popup .pop .backupDomain .checkbox {
+  margin-bottom: 10px;
+}
+
+html.Newtheme #popup .pop .backupDomain .checkbox input[type="checkbox"] + label {
+  border: 1px solid #f77900;
+}
+
+html.Newtheme #popup .pop .backupDomain .checkbox input[type="checkbox"]:checked + label {
+  color: #f77900;
 }
 
 html.Newtheme #popup .pop .upload,
@@ -4535,7 +4631,7 @@ html.Newtheme .walletModule > .walletType .walletBalanceModule {
 }
 
 html.Newtheme .walletModule > .walletType + .icon {
-  margin-right: -30px;
+  margin-right: -10px;
 }
 
 html.Newtheme .walletModule .walletBalanceModule {
@@ -7568,7 +7664,7 @@ html.Newtheme .transferModule .inputBox .dropdown span {
 }
 
 html.Newtheme .transferModule .inputBox .dropdown button.btn {
-  color: white;
+  color: #1f3258;
   -webkit-box-flex: 7;
       -ms-flex: 7;
           flex: 7;
@@ -10178,6 +10274,7 @@ html.Newtheme .column-reverse {
 }
 
 html.Newtheme main.fishinglobby {
+  height: auto;
   background: url(../img/fishing/lobbybg.jpg) no-repeat center/cover;
 }
 
@@ -10200,6 +10297,10 @@ html.Newtheme main.fishinglobby .swiper-container::after {
   height: 40px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(57, 202, 221, 0)), to(#39cadd));
   background: linear-gradient(180deg, rgba(57, 202, 221, 0) 0%, #39cadd 100%);
+}
+
+html.Newtheme main.livelobby {
+  height: auto;
 }
 
 html.Newtheme main.livelobby .swiper-container {

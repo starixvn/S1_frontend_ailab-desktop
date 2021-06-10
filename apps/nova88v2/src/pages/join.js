@@ -17,7 +17,8 @@ import {
 	getUrlParameter,
 	readCookie,
 	setCookie,
-	passwordCheck
+	passwordCheck,
+	isDateRange
 } from "../components/common/common";
 import defPopBoxType from "../components/common/defPopBoxType";
 import usePopBox from "../components/hook/usePopBox";
@@ -35,11 +36,13 @@ import {
 	currencyToAreacode
 } from "../components/common/join.data";
 import { currencyCode } from "../datas/countryCode";
-
 import imgJoinNpc01 from "../styles/img/joinNpc01.png";
 import imgJoinNpc02 from "../styles/img/joinNpc02.png";
 import imgBack from "../styles/img/back.png";
 import imgWelcome from "../styles/img/welcome.png";
+
+import { eventPeriodEuro } from "../datas/euroDef";
+import imgEuro from "../styles/img/euro/joinAnimation.png";
 
 export default () => {
 	return (
@@ -67,6 +70,7 @@ const Content = () => {
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
+	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -559,7 +563,7 @@ const Content = () => {
 								};
 							});
 						} else {
-							errorPopBox();
+							errorPopBox(message || "error", errorCode);
 						}
 					}
 				},
@@ -615,15 +619,33 @@ const Content = () => {
 					</ul>
 				</div>
 				<div className="joinAnimation">
-					<img
-						className="animationlogo"
-						alt="animationlogo"
-						src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
-					/>
-					<img className="npc1" alt="npc1" src={imgJoinNpc01} />
-					<img className="npc2" alt="npc2" src={imgJoinNpc02} />
-					<img className="welcome" alt="welcome" src={imgWelcome} />
-					<img className="back" alt="back" src={imgBack} />
+					{isInPeriodEuro ? (
+						<img alt="animationlogo_euro" src={imgEuro} />
+					) : (
+						<>
+							<img
+								className="animationlogo"
+								alt="animationlogo"
+								src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
+							/>
+							<img
+								className="npc1"
+								alt="npc1"
+								src={imgJoinNpc01}
+							/>
+							<img
+								className="npc2"
+								alt="npc2"
+								src={imgJoinNpc02}
+							/>
+							<img
+								className="welcome"
+								alt="welcome"
+								src={imgWelcome}
+							/>
+							<img className="back" alt="back" src={imgBack} />
+						</>
+					)}
 				</div>
 
 				<form className="joinloginFunction" onSubmit={clickSubmit}>
