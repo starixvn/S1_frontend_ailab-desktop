@@ -1128,6 +1128,7 @@ html.Newtheme.index header .header > div.menu {
 html.Newtheme.index main {
   height: auto;
   background: url(../img/bgPoint.png);
+  min-width: 1400px;
 }
 
 html.Newtheme.index main section {
@@ -1142,7 +1143,7 @@ html.Newtheme.index footer .copyright {
 
 html.Newtheme.index footer {
   width: 100%;
-  min-width: 1010px;
+  min-width: 1400px;
 }
 
 html.Newtheme.index footer .webmap {
@@ -7218,7 +7219,8 @@ html.Newtheme .indexGameList > div .indexGamelist-wrapper .bottomGame > a > div 
   width: 100%;
   bottom: 0;
   left: 0;
-  padding: 1vw 0;
+  height: 50px;
+  line-height: 3.5;
   border-radius: 0 0 3px 3px;
   font-size: 14px;
   text-transform: uppercase;
