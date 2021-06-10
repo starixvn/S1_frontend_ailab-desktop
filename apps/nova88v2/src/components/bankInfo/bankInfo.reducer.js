@@ -50,7 +50,7 @@ export function reducer(state, action) {
 			let _custBankList = [];
 			if (action.datas) {
 				_accountName = action.datas.accountName;
-				_custBankList = action.datas.bankInfoDetail;
+				_custBankList = action.datas.bankInfoDetail ?? [];
 			}
 
 			return {
