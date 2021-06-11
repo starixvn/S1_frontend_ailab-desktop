@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 import ReferralLinks from "../referral.links";
-import "@testing-library/jest-dom";
+// import "@testing-library/jest-dom";
 
 describe("referral link", () => {
 	const fakeData = {
@@ -12,6 +12,7 @@ describe("referral link", () => {
 	test("referral link contains referralCode", () => {
 		const { container } = render(<ReferralLinks {...fakeData} />);
 		const span_referralLink = container.getElementsByTagName("span")[0];
-		expect(span_referralLink).toHaveTextContent(fakeData.referralCode);
+		// expect(span_referralLink).toHaveTextContent(fakeData.referralCode);
+		expect(span_referralLink.textContent).toContain(fakeData.referralCode);
 	});
 });
