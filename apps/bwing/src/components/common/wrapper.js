@@ -73,7 +73,6 @@ export default ({ children, afterLogin = false }) => {
 
 	useEffect(() => {
 		IS_LOGGED_IN().then(isLogin => {
-			console.log(userInfo);
 			if (userInfo.kickout) {
 				if (userInfo.willLogout) {
 					setUserInfo(prevS => ({

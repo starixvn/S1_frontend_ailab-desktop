@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import { useTranslation } from "react-i18next";
 import { defActionType } from "./bankInfo.reducer";
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 import { popBoxContext } from "../common/context";
@@ -7,10 +6,9 @@ import config from "../../config";
 import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
-export default ({ dispatch, bankList }) => {
-	const { t } = useTranslation();
+export default ({ t, dispatch, bankList, toLastStep, selectBank }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -24,6 +22,7 @@ export default ({ dispatch, bankList }) => {
 		api_payment_GetBankInfoSysList().then(
 			res => {
 				if (isMountedRef.current) {
+					setLoading(true);
 					if (res.data.errorCode === 0) {
 						dispatch({
 							type: defActionType.SET_BANKLIST,
@@ -48,7 +47,7 @@ export default ({ dispatch, bankList }) => {
 					setLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -74,15 +73,7 @@ export default ({ dispatch, bankList }) => {
 		setPopBox({ isOpen: false });
 	};
 
-	const toLastStep = () => {
-		dispatch({ type: defActionType.TO_LAST_STEP });
-	};
-
-	const selectBank = bankIdx => {
-		dispatch({ type: defActionType.SELECT_BANK, bankIdx });
-	};
-
-	const bankOptions = bankList?.map((item, i) => {
+	const arr = bankList?.map((item, i) => {
 		return (
 			<li key={`addBankAccount-${item.sysId}`}>
 				<a onClick={selectBank.bind(this, i)}>
@@ -112,7 +103,7 @@ export default ({ dispatch, bankList }) => {
 			<div className="subModuleList">
 				<div className="subModule">
 					<div className="subModuleBody">
-						<ul>{bankOptions}</ul>
+						<ul>{arr}</ul>
 					</div>
 				</div>
 			</div>

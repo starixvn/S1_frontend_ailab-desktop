@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
 import { defActionType } from "./bankInfo.reducer";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
@@ -9,14 +8,15 @@ import Loading from "../common/loading";
 import { defPopBoxType } from "../common/popBox";
 
 export default ({
+	t,
 	dispatch,
 	bankInfo,
 	accountNumber,
 	accountName,
 	alreadyHasAccountName,
-	reload
+	reload,
+	toLastStep
 }) => {
-	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const [status, setStatus] = useState({
 		accountName: {
@@ -40,10 +40,6 @@ export default ({
 
 	const ClickClose = () => {
 		setPopBox({ isOpen: false });
-	};
-
-	const toLastStep = () => {
-		dispatch({ type: defActionType.TO_LAST_STEP });
 	};
 
 	const clickInfo = col => {
@@ -147,7 +143,7 @@ export default ({
 						setLoading(false);
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
