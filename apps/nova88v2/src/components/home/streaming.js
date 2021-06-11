@@ -28,7 +28,7 @@ const Content = () => {
 	const btns = Object.values(defStreamingCategory).map((category, cidx) => (
 		<button
 			// eslint-disable-next-line react/no-array-index-key
-			key={`home-streaming-${cidx}`}
+			key={`home-streaming-btns-${cidx}`}
 			className={`${category.icon}${
 				category.type === selCategory.type ? " active" : ""
 			}`}
@@ -41,7 +41,7 @@ const Content = () => {
 		return (
 			<StreamingModule
 				// eslint-disable-next-line react/no-array-index-key
-				key={`home-streaming-${vidx}`}
+				key={`home-streaming-selCategory-${vidx}`}
 				t={t}
 				langId={userInfo.langId}
 				isLogin={userInfo.isLogin}
