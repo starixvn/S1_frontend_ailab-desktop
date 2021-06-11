@@ -1,8 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
-// import TransferFunds from "../../transferFunds/transferFunds";
 import SetAmount from "../setAmount";
-import { isConvert } from "../../common/common";
 
 jest.mock("react-i18next", () => ({
 	useTranslation: () => {
@@ -15,61 +13,62 @@ jest.mock("react-i18next", () => ({
 describe("open dropdown ", () => {
 	test("The dropdown menu can be opened/closed correctly", () => {
 		const fakeData = {
-			i18n: jest.fn(),
+			t: jest.fn(),
 			onSelectWallet: jest.fn(),
-			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
-			toOptions: [
+			fomOptions: [],
+			walletOptions: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
 			mainKey: `from_wallet`,
 			onChange: jest.fn(),
-			clickSubmit: jest.fn()
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
+			_isConvert: true,
+			clickInfo: jest.fn(),
+			onBlur: jest.fn(),
+			tip: "tip",
+			amount: "",
+			selectedToIdx: 1,
+			selectedFromIdx: 2
 		};
-
-		const { getByTestId } = render(<SetAmount {...fakeData} />);
-
+		const { container } = render(<SetAmount {...fakeData} />);
+		const dopdown_from = container.getElementsByClassName(
+			"dropdown-container"
+		)[0];
 		// click to open ↓
-		fireEvent.click(getByTestId(`dropdown_${fakeData.mainKey}`));
-		expect(
-			getByTestId(
-				`dropdown_container_${fakeData.mainKey}`
-			).className.includes("active")
-		).toBe(true);
-
+		fireEvent.click(dopdown_from);
+		expect(dopdown_from.className.includes("active")).toBe(true);
 		// click to close ↓
-		fireEvent.click(getByTestId(`dropdown_${fakeData.mainKey}`));
-		expect(
-			getByTestId(
-				`dropdown_container_${fakeData.mainKey}`
-			).className.includes("active")
-		).toBe(false);
+		fireEvent.click(dopdown_from);
+		expect(dopdown_from.className.includes("active")).toBe(false);
 	});
 });
 
 describe("render wallet dropdown items", () => {
 	test("render dropdown items num correct", () => {
 		const fakeData = {
-			i18n: jest.fn(),
+			t: jest.fn(),
 			onSelectWallet: jest.fn(),
-			fomOptions: [
-				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
-				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
-				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
-			],
-			toOptions: [
+			walletOptions: [
 				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
 			onChange: jest.fn(),
-			clickSubmit: jest.fn()
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
+			_isConvert: true,
+			clickInfo: jest.fn(),
+			onBlur: jest.fn(),
+			tip: "tip",
+			amount: "",
+			selectedToIdx: 1,
+			selectedFromIdx: 2
 		};
 
 		const { container } = render(<SetAmount {...fakeData} />);
-
 		expect(container.getElementsByClassName("dropdown-item").length).toBe(
-			fakeData.fomOptions.length + fakeData.toOptions.length
+			fakeData.walletOptions.length * 2
 		);
 	});
 });
@@ -77,94 +76,64 @@ describe("render wallet dropdown items", () => {
 describe("test function: onSelectWallet()", () => {
 	test("onchange function have been called", () => {
 		const fakeData = {
-			i18n: jest.fn(),
+			t: jest.fn(),
 			useTranslation: () => {
 				return {
 					t: jest.fn()
 				};
 			},
 			onSelectWallet: jest.fn(),
-			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
-			toOptions: [
+			walletOptions: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
 			selectedFromIdx: -1,
 			selectedToIdx: -1,
 			onChange: jest.fn(),
-			clickSubmit: jest.fn()
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
+			_isConvert: true,
+			clickInfo: jest.fn(),
+			onBlur: jest.fn(),
+			tip: "tip",
+			amount: ""
 		};
-		const { getByTestId } = render(<SetAmount {...fakeData} />);
-		fireEvent.click(getByTestId(`dropdown-item-lbl_TpWallet_1`));
-
+		const { container } = render(<SetAmount {...fakeData} />);
+		const dopdownItems = container.getElementsByClassName("dropdown-item");
+		const dopdownItem_first = dopdownItems[0];
+		fireEvent.click(dopdownItem_first);
 		expect(fakeData.onSelectWallet).toHaveBeenCalled();
-	});
-
-	// not render test:
-	test("selected the dropdown item parameter correctly", () => {
-		const col = "from";
-		const value = { id: 0 };
-		const oppsCol = col === "from" ? "to" : "from";
-
-		const result = {
-			[col]: value.id,
-			[oppsCol]: value.id === 0 && oppsCol === 0 ? null : oppsCol
-		};
-
-		expect(result[col]).toBe(0);
-		expect(result[oppsCol]).toBe("to");
-	});
-});
-
-// not render test:
-describe("test function: checkSelectWallet()", () => {
-	const selectedTpId = {
-		from: null,
-		to: null
-	};
-	const i18n = {
-		lbl_please_select_from_wallet: "Please select from wallet",
-		lbl_please_select_to_wallet: "Please select to wallet"
-	};
-	test("if select wallet is null, show error tip", () => {
-		const message =
-			selectedTpId.from === null
-				? i18n.lbl_please_select_from_wallet
-				: i18n.lbl_please_select_to_wallet;
-
-		expect(message).toBe(i18n.lbl_please_select_from_wallet);
-	});
-	test("if select wallet is null, return false", () => {
-		let checkPass = true;
-		if (selectedTpId.from === null || selectedTpId.to === null) {
-			checkPass = false;
-		}
-		expect(checkPass).toBe(false);
 	});
 });
 
 describe("input value", () => {
 	test("input value passing corectly", () => {
 		const fakeData = {
-			i18n: jest.fn(),
+			t: jest.fn(),
 			useTranslation: () => {
 				return {
 					t: jest.fn()
 				};
 			},
 			onSelectWallet: jest.fn(),
-			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
-			toOptions: [
+			walletOptions: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
 			EditAmount: jest.fn(),
 			onChange: jest.fn(),
-			amount: "100"
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
+			_isConvert: true,
+			amount: "100",
+			clickInfo: jest.fn(),
+			selectedToIdx: 1,
+			selectedFromIdx: 2,
+			onBlur: jest.fn(),
+			tip: "tip"
 		};
-		const { getByTestId } = render(<SetAmount {...fakeData} />);
-		const input = getByTestId("input");
-
+		const { container } = render(<SetAmount {...fakeData} />);
+		const input = container.getElementsByTagName("input")[0];
 		fireEvent.change(input, { target: { value: fakeData.amount } });
 		expect(input.value).toBe(fakeData.amount);
 	});
@@ -173,51 +142,31 @@ describe("input value", () => {
 describe("test function: clickSubmit", () => {
 	test("clickSubmit() has been called ", () => {
 		const fakeData = {
-			i18n: jest.fn(),
+			t: jest.fn(),
 			useTranslation: () => {
 				return {
 					t: jest.fn()
 				};
 			},
 			onSelectWallet: jest.fn(),
-			fomOptions: [{ id: 0, displayKey: "lbl_MainWallet", balance: 200 }],
-			toOptions: [
+			walletOptions: [
+				{ id: 0, displayKey: "lbl_MainWallet", balance: 200 },
 				{ id: 1, displayKey: "lbl_TpWallet_1", balance: 50 },
 				{ id: 21, displayKey: "lbl_TpWallet_21", balance: 320 }
 			],
 			onChange: jest.fn(),
-			clickSubmit: jest.fn()
+			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
+			_isConvert: true,
+			clickInfo: jest.fn(),
+			onBlur: jest.fn(),
+			tip: "tip",
+			amount: "1",
+			selectedToIdx: 1,
+			selectedFromIdx: 2
 		};
-		const { getByTestId } = render(<SetAmount {...fakeData} />);
-		fireEvent.submit(getByTestId(`setAmount_submit`));
+		const { container } = render(<SetAmount {...fakeData} />);
+		const submitButton = container.getElementsByClassName("btn-check")[0];
+		fireEvent.submit(submitButton);
 		expect(fakeData.clickSubmit).toHaveBeenCalled();
-	});
-
-	// not render test:
-	test("transfer post parameter correctly", () => {
-		const selectedTpId = {
-			from: 0
-		};
-		const amount = 100;
-		const defDirection = {
-			MainToTp: 1,
-			TpToMain: 2
-		};
-
-		const _direction =
-			selectedTpId.from === 0
-				? defDirection.MainToTp
-				: defDirection.TpToMain;
-
-		const real_amount = isConvert ? Number(amount) * 1000 : Number(amount);
-
-		const _wallet =
-			_direction === defDirection.MainToTp
-				? selectedTpId.to
-				: selectedTpId.from;
-
-		expect(_direction).toBe(defDirection.MainToTp);
-		expect(real_amount).toBe(amount * 1000);
-		expect(_wallet).toBe(selectedTpId.to);
 	});
 });
