@@ -234,6 +234,12 @@ export default () => {
 		getLeaderboardData(periodId, _days, tab);
 	};
 
+	const linkToTnc = () => {
+		window.open(
+			`${config.t_and_cURL}/SiteSkin/${config.siteName}/Ranking/${userInfo.langId}4.html`
+		);
+	};
+
 	return (
 		<main className="leaderboard">
 			<section className="content">
@@ -248,6 +254,7 @@ export default () => {
 							userInfo={userInfo}
 							changeRewardTab={changeRewardTab}
 							rewardTab={rewardTab}
+							linkToTnc={linkToTnc}
 						/>
 					) : (
 						<Content

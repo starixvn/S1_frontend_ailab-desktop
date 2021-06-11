@@ -234,6 +234,17 @@ export default () => {
 		});
 	};
 
+	const linkToTnc = () => {
+		window.open(
+			`${config.t_and_cURL}/SiteSkin/${config.siteName}/Ranking/UEFAEuro-${userInfo.langId}.html`
+		);
+	};
+
+	const useUpperCase = _text => {
+		console.log(_text);
+		return _text.toUpperCase();
+	};
+
 	return (
 		<section className="rankingNew baskballBg">
 			<img
@@ -242,7 +253,12 @@ export default () => {
 				src={bottomImgResult}
 			/>
 			<div className="rankContent">
-				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
+				<LeaderBoardTab
+					t={t}
+					onChangeTab={onChangeTab}
+					tab={tab}
+					useUpperCase={useUpperCase}
+				/>
 				<div className="rankBox">
 					{tab === defTabId.first ? (
 						<ContentEvent
@@ -252,6 +268,7 @@ export default () => {
 							userInfo={userInfo}
 							rewardTab={rewardTab}
 							changeRewardTab={changeRewardTab}
+							linkToTnc={linkToTnc}
 						/>
 					) : (
 						<Content

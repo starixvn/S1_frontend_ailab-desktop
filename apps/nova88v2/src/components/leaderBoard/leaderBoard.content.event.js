@@ -10,7 +10,8 @@ const leaderBoardEventContent = ({
 	tab,
 	rewardList,
 	changeRewardTab,
-	rewardTab
+	rewardTab,
+	linkToTnc
 }) => {
 	const rows = rewardList.map((item, idx) => {
 		return (
@@ -38,12 +39,6 @@ const leaderBoardEventContent = ({
 			</li>
 		);
 	});
-
-	const linkToTnc = () => {
-		window.open(
-			`${config.cloudImgUrl}/NovaPromotion/UEFAEuro/${userInfo.langId}.html`
-		);
-	};
 
 	return (
 		<div className={`eventRule ${tab === defTabId.first ? "active" : ""}`}>
@@ -143,6 +138,7 @@ leaderBoardEventContent.propTypes = {
 	tab: PropTypes.number.isRequired,
 	rewardList: PropTypes.arrayOf(PropTypes.object).isRequired,
 	changeRewardTab: PropTypes.func.isRequired,
-	rewardTab: PropTypes.number.isRequired
+	rewardTab: PropTypes.number.isRequired,
+	linkToTnc: PropTypes.func.isRequired
 };
 export default leaderBoardEventContent;
