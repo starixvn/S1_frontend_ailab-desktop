@@ -28,7 +28,9 @@ export default function HomeJackpot({ t, userInfo }) {
 	useEffect(() => {
 		if (currencyId) {
 			const jackpotCurrency =
-				currencyId === 13 ? "cny" : t(`Currency_${currencyId}`);
+				currencyId === 13
+					? "cny"
+					: t(`Currency_${currencyId}`)?.toLowerCase();
 
 			try {
 				const ticker = new Ticker({
