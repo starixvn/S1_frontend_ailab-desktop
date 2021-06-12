@@ -3,6 +3,10 @@ import { render, fireEvent } from "@testing-library/react";
 import ReferralLinks from "../referral.links";
 // import "@testing-library/jest-dom";
 
+HTMLCanvasElement.prototype.getContext = () => {
+	// return whatever getContext has to return
+};
+
 describe("referral link", () => {
 	const fakeData = {
 		referralCode: "testReferralCode",
