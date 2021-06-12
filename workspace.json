@@ -82,7 +82,8 @@
 					"builder": "@nrwl/gatsby:server",
 					"options": {
 						"buildTarget": "nova88:build",
-						"port": 4201
+						"port": 4201,
+						"open": true
 					},
 					"configurations": {
 						"production": {
@@ -177,7 +178,8 @@
 					"builder": "@nrwl/gatsby:server",
 					"options": {
 						"buildTarget": "goal123:build",
-						"port": 4202
+						"port": 4202,
+						"open": true
 					},
 					"configurations": {
 						"production": {
@@ -272,7 +274,8 @@
 					"builder": "@nrwl/gatsby:server",
 					"options": {
 						"buildTarget": "bwing:build",
-						"port": 4203
+						"port": 4203,
+						"open": true
 					},
 					"configurations": {
 						"production": {
@@ -388,7 +391,8 @@
 					"builder": "@nrwl/gatsby:server",
 					"options": {
 						"buildTarget": "nova88v2:build",
-						"port": 42012
+						"port": 42012,
+						"open": true
 					},
 					"configurations": {
 						"production": {

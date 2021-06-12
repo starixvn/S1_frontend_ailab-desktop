@@ -42,11 +42,10 @@ export default process.env.NODE_ENV === "production"
 			// imgUrl: "http://localhost:60930",
 			// t_and_cURL: "http://localhost:60930",
 
-			apiURL: "https://stag.Bwing.com",
+			apiURL: "",
 			imgUrl: "http://stag.Bwing.com",
 			cloudImgUrl: "",
 			bannerImgUrl,
 			t_and_cURL: "http://stag.Bwing.com",
-			openURL: "http://stag.Bwing.com",
-			bannerImgUrl
+			openURL: "http://stag.Bwing.com"
 	  };
