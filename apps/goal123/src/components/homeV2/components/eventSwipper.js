@@ -87,16 +87,16 @@ const HotEventContent = ({
 
 			<div className="team" onClick={OnClickEvent}>
 				<div className="teamL">
-					<p>{sportTeamsAway}</p>
-					<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
+					<p>{sportTeamsHome}</p>
+					<img src={sportTeamsHomePic} alt={sportTeamsHome} />
 				</div>
 				<div className="schedule">
 					{`${date} `}
 					<span>{time}</span>
 				</div>
 				<div className="teamR">
-					<p>{sportTeamsHome}</p>
-					<img src={sportTeamsHomePic} alt={sportTeamsHome} />
+					<p>{sportTeamsAway}</p>
+					<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
 				</div>
 			</div>
 		</div>
