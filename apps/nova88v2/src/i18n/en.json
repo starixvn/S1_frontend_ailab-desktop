@@ -277,6 +277,10 @@
 	"lbl_DepositLocalbankButtonInfo": "Remember the bank used for your last deposit. If the bank you selected has been closed, please select again.",
 	"lbl_Drop_photos_or_receipt_here": "Drop photos or receipt here or click to attach.",
 	"lbl_File_format_error_please_try_again": "File format error, please try again.",
+	"lbl_Deposit_DragonPayPop_OrderNumber": "Order Number",
+	"lbl_Deposit_DragonPayPop_BankName": "Bank Name",
+	"lbl_Deposit_DragonPayPop_AccountName": "Account Name",
+	"lbl_Deposit_DragonPayPop_AccountNumber": "Account Number",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails":"Payment Details",
