@@ -93,7 +93,7 @@
 	"lbl_Games": "Permainan",
 	"lbl_King_Maker": "King Maker",
 	"lbl_AMB_Poker": "AMB Poker",
-	"lbl_9W":"9W",
+	"lbl_9W": "9W",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Slots",
@@ -277,6 +277,10 @@
 	"lbl_DepositLocalbankButtonInfo": "Ingat bank yang Anda gunakan untuk deposit terakhir. Jika bank yang Anda pilih sudah tutup, mohon pilih kembali.",
 	"lbl_Drop_photos_or_receipt_here": "Letakkan foto atau resi di sini atau klik untuk melampirkan.",
 	"lbl_File_format_error_please_try_again": "Kesalahan format file, harap coba lagi.",
+	"lbl_Deposit_DragonPayPop_OrderNumber": "Nomor pesanan",
+	"lbl_Deposit_DragonPayPop_BankName": "Nama Bank",
+	"lbl_Deposit_DragonPayPop_AccountName": "Nama akun",
+	"lbl_Deposit_DragonPayPop_AccountNumber": "Nomor akun",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails":"Rincian Pembayaran",

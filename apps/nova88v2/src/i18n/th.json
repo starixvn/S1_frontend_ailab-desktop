@@ -277,6 +277,10 @@
 	"lbl_DepositLocalbankButtonInfo": "จำธนาคารที่ใช้สำหรับการฝากเงินครั้งสุดท้ายของคุณ หากธนาคารที่คุณเลือกถูกปิดโปรดเลือกอีกครั้ง",
 	"lbl_Drop_photos_or_receipt_here": "วางรูปถ่ายสลิปที่นี่หรือคลิกเพื่อแนปสลิป",
 	"lbl_File_format_error_please_try_again": "รูปแบบไฟล์ผิดพลาด โปรดลองอีกครั้ง",
+	"lbl_Deposit_DragonPayPop_OrderNumber": "เลขที่ใบสั่งซื้อ",
+	"lbl_Deposit_DragonPayPop_BankName": "ชื่อธนาคาร",
+	"lbl_Deposit_DragonPayPop_AccountName": "ชื่อบัญชี",
+	"lbl_Deposit_DragonPayPop_AccountNumber": "หมายเลขบัญชี",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails":"รายละเอียดการฝากเงิน",

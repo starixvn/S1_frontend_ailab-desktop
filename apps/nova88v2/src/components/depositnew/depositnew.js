@@ -294,14 +294,33 @@ const Depositnew = () => {
 						channelId: formInfo.channelId,
 						real_amount: resultAmount
 					}).then(res => {
-						if (res.data.errorCode === 0) {
+						const {
+							data: {
+								errorCode,
+								data: {
+									url,
+									formData: {
+										BankName: bankName,
+										AccountNumber: accountNumber,
+										AccountName: accountName
+									},
+									thirdId
+								}
+							}
+						} = res;
+
+						if (errorCode === 0) {
 							setPopBox({
 								isOpen: true,
 								title: t("lbl_DepositType1"),
 								popBoxType: defPopBoxType.PaymentQR,
 								amount: resultAmount,
 								currencyId: userInfo.currencyId,
-								imgUrl: res.data.data.url,
+								imgUrl: url,
+								bankName,
+								accountNumber,
+								accountName,
+								thirdId,
 								handlePopBox: () => {
 									setPopBox(prevState => ({
 										...prevState,

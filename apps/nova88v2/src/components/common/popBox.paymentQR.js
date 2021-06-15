@@ -2,8 +2,19 @@ import React, { useState, useRef, useEffect } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { number_format, isConvert } from "./common";
+import ClipboardJS from "../../lib/clipboard.min";
 
-const Panel = ({ title, amount, currencyId, imgUrl, handlePopBox }) => {
+const Panel = ({
+	title,
+	amount,
+	currencyId,
+	imgUrl,
+	bankName,
+	accountNumber,
+	accountName,
+	thirdId,
+	handlePopBox
+}) => {
 	const { t } = useTranslation();
 
 	const isMountedRef = useRef(null);
@@ -14,6 +25,10 @@ const Panel = ({ title, amount, currencyId, imgUrl, handlePopBox }) => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		const _clipboard = new ClipboardJS(".copyBtn");
+	}, []);
 
 	const amountText = `${t(`Currency_${currencyId}`)} ${number_format(
 		amount,
@@ -31,6 +46,14 @@ const Panel = ({ title, amount, currencyId, imgUrl, handlePopBox }) => {
 				<div className="icon icon-close" onClick={handlePopBox} />
 			</div>
 			<div className="title">{`${t("lbl_PaymentDetails")}：`}</div>
+
+			{thirdId && (
+				<div>
+					{t("lbl_Deposit_DragonPayPop_OrderNumber")}：
+					<span>{thirdId}</span>
+				</div>
+			)}
+
 			<div>
 				{`${t("lbl_Time")}：`}
 				<span>{timeText}</span>
@@ -45,6 +68,33 @@ const Panel = ({ title, amount, currencyId, imgUrl, handlePopBox }) => {
 					{`${t("lbl_Pay")} `}
 					<span>{amountText}</span>
 				</div>
+
+				{accountNumber && (
+					<div className="accountInfo">
+						<div>
+							{t("lbl_Deposit_DragonPayPop_BankName")}:{bankName}
+						</div>
+						<div>
+							{t("lbl_Deposit_DragonPayPop_AccountName")}:
+							{accountName}
+							<button
+								className="copyBtn"
+								data-clipboard-text={accountName}>
+								{t("lbl_Copy")}
+							</button>
+						</div>
+						<div>
+							{t("lbl_Deposit_DragonPayPop_AccountNumber")}:
+							{accountNumber}
+							<button
+								className="copyBtn"
+								data-clipboard-text={accountNumber}>
+								{t("lbl_Copy")}
+							</button>
+						</div>
+					</div>
+				)}
+
 				<ul>
 					<li>{t("lbl_PaymentQRDesc1")}</li>
 					<li>{t("lbl_PaymentQRDesc2")}</li>

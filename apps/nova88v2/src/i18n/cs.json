@@ -35,12 +35,10 @@
 	"lbl_nova88_backup_website": "请保存NOVA88最新网址以备用。",
 	"lbl_kindly_visit_alternate_link_for_better_performance": "若您遇到加载缓慢情况，请尝试后备链接以获更佳体验。",
 	"lbl_DearValuedCustomers": "亲爱的 Nova88 客户,",
-	
+
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds":"Odds",
 	"lbl_Handicap":"Hdp",
-
-
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "羽毛球",
 	"lbl_Baseball": "棒球",
@@ -278,6 +276,10 @@
 	"lbl_DepositLocalbankButtonInfo": "储存最后一笔存款交易银行。若您选择的银行已结业，请再重新选择。",
 	"lbl_Drop_photos_or_receipt_here": "此处放置照片或收据或点击上传",
 	"lbl_File_format_error_please_try_again": "格式不正确，请重试",
+	"lbl_Deposit_DragonPayPop_OrderNumber": "订单编号",
+	"lbl_Deposit_DragonPayPop_BankName": "银行",
+	"lbl_Deposit_DragonPayPop_AccountName": "户口名字",
+	"lbl_Deposit_DragonPayPop_AccountNumber": "户口号码",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails":"付款资讯",
