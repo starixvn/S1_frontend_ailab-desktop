@@ -39,7 +39,7 @@ const OnlineBankForm = ({
 			`${window.location.pathname}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
 		);
 
-		setFormInfo(prev => ({ ...prev, ...item }));
+		setFormInfo({ ...item, amount: formInfo.amount });
 		setSysIdForRecord(null);
 		setPayIdForRecord(item.payId);
 		setPayNameForRecordSelectBank(item.payName);

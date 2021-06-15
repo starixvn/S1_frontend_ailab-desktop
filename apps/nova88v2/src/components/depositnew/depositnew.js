@@ -332,15 +332,22 @@ const Depositnew = () => {
 						}
 					});
 				} else {
+					const searchParams = new URLSearchParams({
+						payId: formInfo.payId,
+						ChannelId: formInfo.channelId,
+						Amount: resultAmount
+					});
+
+					if (formInfo?.sysId) {
+						searchParams.set("sysId", formInfo?.sysId);
+					}
+
 					window.open(
 						`${config.openURL}/${
 							userInfo.langId
-						}/Cashier/DepositReqOnlineBanking?sysId=${
-							formInfo?.sysId || 0
-						}&payId=${formInfo.payId}&ChannelId=${
-							formInfo.channelId
-						}&Amount=${resultAmount}`
+						}/Cashier/DepositReqOnlineBanking?${searchParams.toString()}`
 					);
+
 					RefreshPage();
 				}
 			}
@@ -611,27 +618,27 @@ const Depositnew = () => {
 			<DepositnewInfoMoule
 				t={t}
 				langId={userInfo.langId}
-				depositOptions={filterDepositOptions}
 				depositType={depositType}
-				checked={!!formInfo.checked && localBankChecked}
-				onSubmit={onSubmit}
+				depositOptions={filterDepositOptions}
 				saveInfoChecked={saveInfoChecked}
-				setSaveInfoChecked={setSaveInfoChecked}
+				checked={!!formInfo.checked && localBankChecked}
 				processingDescriptionActive={processingDescriptionActive}
+				onReset={onReset}
+				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
-				onReset={onReset}>
+				setSaveInfoChecked={setSaveInfoChecked}>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}
 						_isConvert={_isConvert}
 						depositType={depositType}
 						mobilePayGourpList={mobilePayGourpList}
-						getMobilePayInfoList={getMobilePayInfoList}
 						mobilePayInfoList={mobilePayInfoList}
 						formInfo={formInfo}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
+						getMobilePayInfoList={getMobilePayInfoList}
 					/>
 				)}
 
@@ -645,16 +652,16 @@ const Depositnew = () => {
 						_isConvert={_isConvert}
 						localBankGroupList={localBankGroupList}
 						formInfo={formInfo}
-						setFormInfo={setFormInfo}
-						onChangeAmount={onChangeAmount}
-						onInputboxKeyDown={onInputboxKeyDown}
-						getLocalBankInfo={getLocalBankInfo}
 						localBankInfo={localBankInfo}
-						asyncUploadBankPopBox={asyncUploadBankPopBox}
-						getBankInfo={getBankInfo}
 						custBankInfoList={custBankInfoList}
 						localBankChannelError={localBankChannelError}
 						localBankBankInfoErrpr={localBankBankInfoErrpr}
+						setFormInfo={setFormInfo}
+						getBankInfo={getBankInfo}
+						onChangeAmount={onChangeAmount}
+						getLocalBankInfo={getLocalBankInfo}
+						onInputboxKeyDown={onInputboxKeyDown}
+						asyncUploadBankPopBox={asyncUploadBankPopBox}
 					/>
 				)}
 
@@ -664,13 +671,13 @@ const Depositnew = () => {
 						_isConvert={_isConvert}
 						depositType={depositType}
 						onlineBankGroupList={onlineBankGroupList}
-						getOnlineBankInfoList={getOnlineBankInfoList}
 						onlineBankInfoList={onlineBankInfoList}
 						formInfo={formInfo}
-						onChangeAmount={onChangeAmount}
 						setFormInfo={setFormInfo}
-						setOnlineBankInfoList={setOnlineBankInfoList}
+						onChangeAmount={onChangeAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
+						setOnlineBankInfoList={setOnlineBankInfoList}
+						getOnlineBankInfoList={getOnlineBankInfoList}
 					/>
 				)}
 
@@ -683,12 +690,12 @@ const Depositnew = () => {
 						_isConvert={_isConvert}
 						cryptoPayGroupList={cryptoPayGroupList}
 						formInfo={formInfo}
+						cryptoPayInfo={cryptoPayInfo}
+						getCryptoPayInfo={getCryptoPayInfo}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
 						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
-						getCryptoPayInfo={getCryptoPayInfo}
-						cryptoPayInfo={cryptoPayInfo}
 					/>
 				)}
 			</DepositnewInfoMoule>
