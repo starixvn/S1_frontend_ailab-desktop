@@ -232,6 +232,8 @@ const Depositnew = () => {
 								isOpen: true,
 								title: t("lbl_DepositType2"),
 								popBoxType: defPopBoxType.PaymentQR,
+								depositAmount:
+									res.data.data.formData?.DepositAmount,
 								amount: resultAmount,
 								currencyId: userInfo.currencyId,
 								imgUrl: res.data.data.url,
@@ -300,6 +302,7 @@ const Depositnew = () => {
 								data: {
 									url,
 									formData: {
+										DepositAmount: depositAmount,
 										BankName: bankName,
 										AccountNumber: accountNumber,
 										AccountName: accountName
@@ -314,6 +317,7 @@ const Depositnew = () => {
 								isOpen: true,
 								title: t("lbl_DepositType1"),
 								popBoxType: defPopBoxType.PaymentQR,
+								depositAmount,
 								amount: resultAmount,
 								currencyId: userInfo.currencyId,
 								imgUrl: url,

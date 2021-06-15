@@ -7,6 +7,7 @@ import ClipboardJS from "../../lib/clipboard.min";
 const Panel = ({
 	title,
 	amount,
+	depositAmount,
 	currencyId,
 	imgUrl,
 	bankName,
@@ -29,6 +30,13 @@ const Panel = ({
 	useEffect(() => {
 		const _clipboard = new ClipboardJS(".copyBtn");
 	}, []);
+
+	const depositAmountText = `${t(`Currency_${currencyId}`)} ${number_format(
+		depositAmount,
+		false,
+		0,
+		isConvert(currencyId)
+	)}`;
 
 	const amountText = `${t(`Currency_${currencyId}`)} ${number_format(
 		amount,
@@ -66,16 +74,16 @@ const Panel = ({
 				<img src={imgUrl} className="qrCode" alt="qrcode" />
 				<div>
 					{`${t("lbl_Pay")} `}
-					<span>{amountText}</span>
+					<span>{depositAmountText}</span>
 				</div>
 
 				{accountNumber && (
 					<div className="accountInfo">
 						<div>
-							{t("lbl_Deposit_DragonPayPop_BankName")}:{bankName}
+							{t("lbl_Deposit_DragonPayPop_BankName")}：{bankName}
 						</div>
 						<div>
-							{t("lbl_Deposit_DragonPayPop_AccountName")}:
+							{t("lbl_Deposit_DragonPayPop_AccountName")}：
 							{accountName}
 							<button
 								className="copyBtn"
@@ -84,7 +92,7 @@ const Panel = ({
 							</button>
 						</div>
 						<div>
-							{t("lbl_Deposit_DragonPayPop_AccountNumber")}:
+							{t("lbl_Deposit_DragonPayPop_AccountNumber")}：
 							{accountNumber}
 							<button
 								className="copyBtn"
