@@ -81,6 +81,5 @@ FishingListItem.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
 	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
 	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };

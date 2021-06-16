@@ -1,16 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import LiveCasinoListItem from "./livecasino.list.item";
-import config from "../../config";
 
-const COLUMN_CCOUNT = 3;
+// const COLUMN_CCOUNT = 3;
 
 const LiveCasinoList = ({ subMenu, maintainList, clickItem, t }) => {
 	const filterSubMenu = subMenu.filter(subMenuItem => subMenuItem?.lobbyPage);
-	const subMenuCount = filterSubMenu.length;
-	const comingImgCount = COLUMN_CCOUNT - (subMenuCount % COLUMN_CCOUNT);
+	// const subMenuCount = filterSubMenu.length;
+	// const comingImgCount = COLUMN_CCOUNT - (subMenuCount % COLUMN_CCOUNT);
 
-	const countToArray = num => Array.apply("", { length: num });
+	// const countToArray = num => Array.apply("", { length: num });
 
 	return (
 		<div className="livecasino">
@@ -28,7 +27,7 @@ const LiveCasinoList = ({ subMenu, maintainList, clickItem, t }) => {
 				);
 			})}
 
-			{comingImgCount < COLUMN_CCOUNT
+			{/* {comingImgCount < COLUMN_CCOUNT
 				? countToArray(comingImgCount).map((_, idx) => (
 						// eslint-disable-next-line react/no-array-index-key
 						<div key={idx}>
@@ -38,7 +37,7 @@ const LiveCasinoList = ({ subMenu, maintainList, clickItem, t }) => {
 							/>
 						</div>
 				  ))
-				: null}
+				: null} */}
 		</div>
 	);
 };
