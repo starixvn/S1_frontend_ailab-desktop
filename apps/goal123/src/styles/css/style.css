@@ -462,6 +462,61 @@ html.Newtheme header .header > div.menu .fishList button img {
   max-width: 150px;
 }
 
+html.Newtheme header .header > div.menu .sportList a.active,
+html.Newtheme header .header > div.menu .sportList button.active,
+html.Newtheme header .header > div.menu .gameList a.active,
+html.Newtheme header .header > div.menu .gameList button.active,
+html.Newtheme header .header > div.menu .casinoList a.active,
+html.Newtheme header .header > div.menu .casinoList button.active,
+html.Newtheme header .header > div.menu .livecasinoList a.active,
+html.Newtheme header .header > div.menu .livecasinoList button.active,
+html.Newtheme header .header > div.menu .fishList a.active,
+html.Newtheme header .header > div.menu .fishList button.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html.Newtheme header .header > div.menu .sportList a.active .maintenance,
+html.Newtheme header .header > div.menu .sportList button.active .maintenance,
+html.Newtheme header .header > div.menu .gameList a.active .maintenance,
+html.Newtheme header .header > div.menu .gameList button.active .maintenance,
+html.Newtheme header .header > div.menu .casinoList a.active .maintenance,
+html.Newtheme header .header > div.menu .casinoList button.active .maintenance,
+html.Newtheme header .header > div.menu .livecasinoList a.active .maintenance,
+html.Newtheme header .header > div.menu .livecasinoList button.active .maintenance,
+html.Newtheme header .header > div.menu .fishList a.active .maintenance,
+html.Newtheme header .header > div.menu .fishList button.active .maintenance {
+  position: absolute;
+  z-index: 1;
+  background: #1f2e4d;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 3px;
+  display: block;
+}
+
+html.Newtheme header .header > div.menu .sportList a .maintenance,
+html.Newtheme header .header > div.menu .sportList button .maintenance,
+html.Newtheme header .header > div.menu .gameList a .maintenance,
+html.Newtheme header .header > div.menu .gameList button .maintenance,
+html.Newtheme header .header > div.menu .casinoList a .maintenance,
+html.Newtheme header .header > div.menu .casinoList button .maintenance,
+html.Newtheme header .header > div.menu .livecasinoList a .maintenance,
+html.Newtheme header .header > div.menu .livecasinoList button .maintenance,
+html.Newtheme header .header > div.menu .fishList a .maintenance,
+html.Newtheme header .header > div.menu .fishList button .maintenance {
+  display: none;
+}
+
 html.Newtheme header .header > div.menu .sportList .icon-new::before,
 html.Newtheme header .header > div.menu .gameList .icon-new::before,
 html.Newtheme header .header > div.menu .casinoList .icon-new::before,
@@ -529,7 +584,7 @@ html.Newtheme header .header > div.menu .livecasinoList .item-bg {
 html.Newtheme header .header > div.menu .livecasinoList .item-img {
   position: absolute;
   bottom: 20px;
-  right: calc(50% - 95px);
+  right: calc(50% - 75px);
   z-index: 1;
 }
 
@@ -5147,6 +5202,7 @@ html.Newtheme .txt > div:first-child {
 
 html.Newtheme .kycHeight {
   height: calc(100% - 190px);
+  width: calc(100% - 60px);
 }
 
 html.Newtheme .kycHeight .subModuleBody {
@@ -6479,6 +6535,173 @@ html.Newtheme .fishinglobbyList .icon-new::before {
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
   font-size: 14px;
+}
+
+html.Newtheme .lotterylobbyList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 50px;
+  margin-top: 40px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  line-height: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+html.Newtheme .lotterylobbyList > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(100% / 4 - 50px);
+          flex: 0 0 calc(100% / 4 - 50px);
+  padding: 0;
+  margin: 10px 0;
+  position: relative;
+  cursor: pointer;
+}
+
+html.Newtheme .lotterylobbyList > div .txt-darkBlue {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  font-size: 12px;
+  margin: 0;
+  padding: 0 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+html.Newtheme .lotterylobbyList > div .icon-star-full {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+  color: white;
+  -webkit-filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
+}
+
+html.Newtheme .lotterylobbyList > div .icon-star-full.active {
+  color: #fab617;
+}
+
+html.Newtheme .lotterylobbyList > div img {
+  display: block;
+}
+
+html.Newtheme .lotterylobbyList > div:hover .mask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .lotterylobbyList .mask {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  display: none;
+  z-index: 1;
+}
+
+html.Newtheme .lotterylobbyList .mask button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: #284985;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 5px;
+  border: 1px solid #e8e8e8;
+  -webkit-box-shadow: 5px 5px 5px rgba(58, 58, 58, 0.5);
+          box-shadow: 5px 5px 5px rgba(58, 58, 58, 0.5);
+}
+
+html.Newtheme .lotterylobbyList .mask button:first-child {
+  background: #fab617;
+  color: black;
+}
+
+html.Newtheme .lotterylobbyList .mask button:hover {
+  background: #5084e4;
+}
+
+html.Newtheme .lotterylobbyList .icon-new::before {
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  display: block;
+  width: 44px;
+  height: 28px;
+  color: #fff;
+  background: url(../img/dropdown/newbg.png) no-repeat center/contain;
+  -webkit-animation: MoveTopDown linear infinite alternate 1s;
+          animation: MoveTopDown linear infinite alternate 1s;
+  font-size: 14px;
+}
+
+html.Newtheme .livelobbyList > div, html.Newtheme .fishinglobbyList > div, html.Newtheme .lotterylobbyList > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html.Newtheme .livelobbyList > div.active, html.Newtheme .fishinglobbyList > div.active, html.Newtheme .lotterylobbyList > div.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+html.Newtheme .livelobbyList > div.active .maintenance, html.Newtheme .fishinglobbyList > div.active .maintenance, html.Newtheme .lotterylobbyList > div.active .maintenance {
+  position: absolute;
+  display: block;
+  background: #505050;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+html.Newtheme .livelobbyList > div.active .mask, html.Newtheme .fishinglobbyList > div.active .mask, html.Newtheme .lotterylobbyList > div.active .mask {
+  display: none;
+}
+
+html.Newtheme .livelobbyList > div .maintenance, html.Newtheme .fishinglobbyList > div .maintenance, html.Newtheme .lotterylobbyList > div .maintenance {
+  display: none;
 }
 
 html.Newtheme .newsList {
@@ -10277,7 +10500,16 @@ html.Newtheme .column-reverse {
 
 html.Newtheme main.fishinglobby {
   height: auto;
-  background: url(../img/fishing/lobbybg.jpg) no-repeat center/cover;
+}
+
+html.Newtheme main.fishinglobby .inside {
+  background: url(../img/fishing/lobbybg.jpg) no-repeat bottom/cover;
+  min-width: 1400px;
+  width: 100%;
+}
+
+html.Newtheme main.fishinglobby .inside > div {
+  margin: auto;
 }
 
 html.Newtheme main.fishinglobby .infoModule {
@@ -10286,6 +10518,7 @@ html.Newtheme main.fishinglobby .infoModule {
 
 html.Newtheme main.fishinglobby .swiper-container {
   top: 0;
+  min-width: 1400px;
   width: 100%;
 }
 
@@ -10307,7 +10540,44 @@ html.Newtheme main.livelobby {
 
 html.Newtheme main.livelobby .swiper-container {
   top: 0;
+  min-width: 1400px;
   width: 100%;
+}
+
+html.Newtheme main.lotterylobby {
+  height: auto;
+}
+
+html.Newtheme main.lotterylobby .inside {
+  background: url(../img/lottery/lobbybg.jpg) no-repeat bottom/cover;
+  min-width: 1400px;
+  width: 100%;
+}
+
+html.Newtheme main.lotterylobby .inside > div {
+  margin: auto;
+}
+
+html.Newtheme main.lotterylobby .infoModule {
+  background: transparent;
+}
+
+html.Newtheme main.lotterylobby .swiper-container {
+  top: 0;
+  min-width: 1400px;
+  width: 100%;
+}
+
+html.Newtheme main.lotterylobby .swiper-container::after {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 40px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(1, 0, 64, 0)), to(#010040));
+  background: linear-gradient(180deg, rgba(1, 0, 64, 0) 0%, #010040 100%);
 }
 
 @-webkit-keyframes jpotxt {
