@@ -35,6 +35,7 @@ const PromoList = ({ t, userInfo }) => {
 			disableOnInteraction: false
 		}
 	};
+
 	return (
 		promoList &&
 		promoList.length > 0 && (
@@ -46,7 +47,7 @@ const PromoList = ({ t, userInfo }) => {
 					</Link>
 				</div>
 				<div className="promos">
-					<ReactMarquee pauseOnHover={true}>
+					<ReactMarquee pauseOnHover={true} gradientColor={false}>
 						<div className="swiper-container">
 							<div
 								className="swiper-wrapper"

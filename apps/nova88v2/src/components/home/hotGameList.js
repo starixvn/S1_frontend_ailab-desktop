@@ -182,7 +182,7 @@ export default ({ t, userInfo }) => {
 			</div>
 
 			<div className="hotGame">
-				<ReactMarquee pauseOnHover={true}>
+				<ReactMarquee pauseOnHover={true} gradientColor={false}>
 					<div className="swiper-container">
 						<div
 							className="swiper-wrapper"
