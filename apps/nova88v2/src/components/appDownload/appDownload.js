@@ -19,7 +19,7 @@ const AppDownload = () => {
 		return typeof window !== undefined ? window.open(e.target.value) : null;
 	};
 
-	const iosLink = "https://nova.mqcfirm.com/";
+	const iosLink = "https://nova.ytfsmm.com/";
 	const androidLink = "https://dl.4ppstore.com/dlapp/Nova88.apk";
 
 	return (
@@ -63,10 +63,7 @@ const AppDownload = () => {
 									<img src={img_android} alt="img_android" />
 									{t("lbl_Android")}
 								</div>
-								<a
-									href={androidLink}
-									target="_blank"
-									rel="noreferrer">
+								<a href={androidLink} download rel="noreferrer">
 									<button>{t("lbl_DOWNLOAD")}</button>
 								</a>
 							</div>

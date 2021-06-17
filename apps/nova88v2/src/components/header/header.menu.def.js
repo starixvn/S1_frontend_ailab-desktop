@@ -333,6 +333,10 @@ export const defMenuLinks = {
 						period: defEventPeriod.liveCasino_pt
 					})
 				],
+				lobbyPage: {
+					bgImg: "livecasino_pt.jpg",
+					hoverBgImg: "livecasino_pta.jpg"
+				},
 				...productList.casino_PT
 			},
 			{
