@@ -141,9 +141,14 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 				))}
 			</div>
 		) : (
-			<div className={subClassName} key={`main-key-${menuKey}`}>
-				<SubMenuSingle menuKey={menuKey} userInfo={userInfo} t={t} />
-			</div>
+			<SubMenuSingle
+				key={`main-key-${menuKey}`}
+				subClassName={subClassName}
+				menuKey={menuKey}
+				userInfo={userInfo}
+				t={t}
+				maintainList={maintainList}
+			/>
 		);
 	});
 };
