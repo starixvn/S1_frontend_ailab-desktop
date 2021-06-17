@@ -9,7 +9,13 @@ import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
 import config from "../../config";
 
-const SubMenuSingle = ({ menuKey, userInfo, t }) => {
+const SubMenuSingle = ({
+	subClassName,
+	menuKey,
+	userInfo,
+	t,
+	maintainList
+}) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const pathLink = defMenuLinks[menuKey].path;
 
@@ -38,76 +44,93 @@ const SubMenuSingle = ({ menuKey, userInfo, t }) => {
 				: showLoginPopBox();
 		};
 
+		const isPokerMaintain = maintainList.some(
+			({ tpId }) => tpId === productList.poker.tpId
+		);
+
 		return (
-			<div>
-				<div>{t("lbl_BLUFF_RAISE_OR_CALL")}</div>
-				<div>{t("lbl_KEEP_CALM_GO_ALL_IN")}</div>
-				<div className="btnGroup">
-					<button className="lightblue" onClick={linkToPokerWeb}>
-						{t("lbl_POKER_NOW")}
-					</button>
-					<button className="lightblue" onClick={linkToPokerRoot}>
-						{t("lbl_DOWNLOAD_APP_NOW")}
-					</button>
+			<div className={`${subClassName}${isPokerMaintain ? " um" : ""}`}>
+				<div>
+					<div>{t("lbl_BLUFF_RAISE_OR_CALL")}</div>
+					<div>{t("lbl_KEEP_CALM_GO_ALL_IN")}</div>
+					{isPokerMaintain ? (
+						<div className="under">{t("lbl_underMaintenance")}</div>
+					) : null}
+					<div className="btnGroup">
+						<button className="lightblue" onClick={linkToPokerWeb}>
+							{t("lbl_POKER_NOW")}
+						</button>
+						<button className="lightblue" onClick={linkToPokerRoot}>
+							{t("lbl_DOWNLOAD_APP_NOW")}
+						</button>
+					</div>
 				</div>
 			</div>
 		);
 	}
 	if (menuKey === "vip") {
 		return (
-			<div>
-				<div>{t("lbl_VIP_CLUB")}</div>
+			<div className={subClassName}>
 				<div>
-					<span className="txt-orange">
-						{t("lbl_EARN_EXCLUSIVE_VIP_BENEFIT")}
-					</span>
-				</div>
-				<div className="btnGroup">
-					<Link
-						className="lightblue"
-						to={
-							userInfo.isLogin
-								? `/${userInfo.langId}/${pathLink}`
-								: `/${userInfo.langId}/${path.join.root}`
-						}>
-						{t("lbl_JOIN_US_NOW")}
-					</Link>
+					<div>{t("lbl_VIP_CLUB")}</div>
+					<div>
+						<span className="txt-orange">
+							{t("lbl_EARN_EXCLUSIVE_VIP_BENEFIT")}
+						</span>
+					</div>
+					<div className="btnGroup">
+						<Link
+							className="lightblue"
+							to={
+								userInfo.isLogin
+									? `/${userInfo.langId}/${pathLink}`
+									: `/${userInfo.langId}/${path.join.root}`
+							}>
+							{t("lbl_JOIN_US_NOW")}
+						</Link>
+					</div>
 				</div>
 			</div>
 		);
 	}
 	if (menuKey === "ranking") {
 		return (
-			<div>
-				<div>{t("lbl_THE_WORLD_CLASS_LEADERBOARD")}</div>
-				<div>{t("lbl_Bring_you_the_best_experience")}</div>
+			<div className={subClassName}>
+				<div>
+					<div>{t("lbl_THE_WORLD_CLASS_LEADERBOARD")}</div>
+					<div>{t("lbl_Bring_you_the_best_experience")}</div>
+				</div>
 			</div>
 		);
 	}
 	if (menuKey === "appDownload") {
 		return (
-			<Link to={`/${userInfo.langId}/${path.appDownload.root}`}>
-				<img
-					alt="app_download"
-					src={`${config.cloudImgUrl}/SiteSkin/img/appdownload.jpg`}
-				/>
-			</Link>
+			<div className={subClassName}>
+				<Link to={`/${userInfo.langId}/${path.appDownload.root}`}>
+					<img
+						alt="app_download"
+						src={`${config.cloudImgUrl}/SiteSkin/img/appdownload.jpg`}
+					/>
+				</Link>
+			</div>
 		);
 	}
 
 	if (menuKey === "promotion") {
 		return (
-			<div>
-				<div className="txt-orange">
-					{t("lbl_Promos_wording_title")}
-				</div>
-				<div>{t("lbl_Promos_wording_desc")}</div>
-				<div className="btnGroup">
-					<Link
-						to={`/${userInfo.langId}/${path.promotion.root}`}
-						className="lightblue">
-						{t("lbl_ClaimNow")}
-					</Link>
+			<div className={subClassName}>
+				<div>
+					<div className="txt-orange">
+						{t("lbl_Promos_wording_title")}
+					</div>
+					<div>{t("lbl_Promos_wording_desc")}</div>
+					<div className="btnGroup">
+						<Link
+							to={`/${userInfo.langId}/${path.promotion.root}`}
+							className="lightblue">
+							{t("lbl_ClaimNow")}
+						</Link>
+					</div>
 				</div>
 			</div>
 		);

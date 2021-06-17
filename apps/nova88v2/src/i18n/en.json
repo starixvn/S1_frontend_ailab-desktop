@@ -37,8 +37,8 @@
 	"lbl_DearValuedCustomers": "Dear Nova88 Valued Customers,",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Odds":"Odds",
-	"lbl_Handicap":"Hdp",
+	"lbl_Odds": "Odds",
+	"lbl_Handicap": "Hdp",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
@@ -93,7 +93,7 @@
 	"lbl_Games": "Games",
 	"lbl_King_Maker": "King Maker",
 	"lbl_AMB_Poker": "AMB Poker",
-	"lbl_9W":"9W",
+	"lbl_9W": "9W",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Casino",
@@ -283,15 +283,15 @@
 	"lbl_Deposit_DragonPayPop_AccountNumber": "Account Number",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_PaymentDetails":"Payment Details",
-	"lbl_OrderAmount":"Order Amount",
-	"lbl_Pay":"PAY",
-	"lbl_PaymentQRDesc1":"Please transfer the amount.",
-	"lbl_PaymentQRDesc2":"Provided for better experience.",
-	"lbl_ImportantNotes":"Important Notes",
-	"lbl_PaymentQRNote1":"Please do not refresh your browser.",
-	"lbl_PaymentQRNote2":"Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
-	"lbl_PaymentTimeLeft":"PAYMENT TIME LEFT",
+	"lbl_PaymentDetails": "Payment Details",
+	"lbl_OrderAmount": "Order Amount",
+	"lbl_Pay": "PAY",
+	"lbl_PaymentQRDesc1": "Please transfer the amount.",
+	"lbl_PaymentQRDesc2": "Provided for better experience.",
+	"lbl_ImportantNotes": "Important Notes",
+	"lbl_PaymentQRNote1": "Please do not refresh your browser.",
+	"lbl_PaymentQRNote2": "Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
+	"lbl_PaymentTimeLeft": "PAYMENT TIME LEFT",
 	"lbl_Time": "Time",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
@@ -712,7 +712,7 @@
 	"lbl_More": "More",
 	"lbl_Started": "Started",
 	"lbl_Not_Started": "Not Started",
-	"lbl_Streaming_SPORTSBOOK":"SPORTSBOOK",
+	"lbl_Streaming_SPORTSBOOK": "SPORTSBOOK",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "LATEST VIDEO",
@@ -805,7 +805,7 @@
 	"lbl_Back": "Back",
 	"lbl_LOL": "LOL",
 	"lbl_Ambassador": "Ambassador",
-	
+
 	"lbl_Suggested_Browser": "Suggested Browser",
 	"lbl_Read_more": "Read more",
 	"lbl_VIP_CLUB": "VIP CLUB",
@@ -835,9 +835,8 @@
 
 	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promos": "Promos",
-	"lbl_Promos_wording_title":"MONTHLY",
-	"lbl_Promos_wording_desc":"EXCLUSIVE PROMOTIONS",
-
+	"lbl_Promos_wording_title": "MONTHLY",
+	"lbl_Promos_wording_desc": "EXCLUSIVE PROMOTIONS",
 
 	"end-----": "end-----"
 }
