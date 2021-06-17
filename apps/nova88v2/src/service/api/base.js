@@ -1,7 +1,6 @@
 import axios from "axios";
-import config from "../../config";
 
-const rootURL = config.apiURL;
+const rootURL = "";
 
 export const defDeviceType = {
 	Desktop: 1,
@@ -67,4 +66,9 @@ export const newsRequest = axios.create({
 export const videoRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/video`
+});
+
+export const cashierRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}`
 });

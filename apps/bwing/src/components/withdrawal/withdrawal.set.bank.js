@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import { Link } from "@reach/router";
 import AddBankAccount from "./addBankAccount";
 import Available from "./withdrawal.set.available";
@@ -355,41 +355,43 @@ export default ({
 			</div>
 			<div className="txt-white">{t("lbl_UpdateBankInfo")}</div>
 			<StepBar step={step} t={t} defStep={defStep} />
-			<div className="walletModule">
-				<Available
-					availableBalance={balanceData.availableBalance}
-					refreshAvailableBalance={refreshAvailableBalance}
-					_isConvert={_isConvert}
-					accountName={userInfo.accountName}
-				/>
-			</div>
-			<div className="walletModule">
-				<div className="addBank">
-					<BankInfoCard
-						setCurrentlyBankInfo={setCurrentlyBankInfo}
-						currentBankInfo={{
-							sysIdValue,
-							accountNoValue,
-							bankNameValue
-						}}
-						bankInfoList={bankInfoList}
-						setBankInfoList={setBankInfoList}
-						_isConvert={_isConvert}
-						isShowConfirmPage={showConfirmPage}
-						balanceData={balanceData}
-					/>
-					<AddBankAccount bankInfoList={bankInfoList} />
-				</div>
 
-				<div className="subModuleList">
-					<div className="subModule">
-						{!showConfirmPage ? (
-							<div className="subModuleBody">
-								<Calculation
-									balanceData={balanceData}
-									_isConvert={_isConvert}
-								/>
-								{/* <CashBar
+			<div className="walletModuleLeft">
+				<div className="walletModule">
+					<Available
+						availableBalance={balanceData.availableBalance}
+						refreshAvailableBalance={refreshAvailableBalance}
+						_isConvert={_isConvert}
+						accountName={userInfo.accountName}
+					/>
+				</div>
+				<div className="walletModule">
+					<div className="addBank">
+						<BankInfoCard
+							setCurrentlyBankInfo={setCurrentlyBankInfo}
+							currentBankInfo={{
+								sysIdValue,
+								accountNoValue,
+								bankNameValue
+							}}
+							bankInfoList={bankInfoList}
+							setBankInfoList={setBankInfoList}
+							_isConvert={_isConvert}
+							isShowConfirmPage={showConfirmPage}
+							balanceData={balanceData}
+						/>
+						<AddBankAccount bankInfoList={bankInfoList} />
+					</div>
+
+					<div className="subModuleList">
+						<div className="subModule">
+							{!showConfirmPage ? (
+								<div className="subModuleBody">
+									<Calculation
+										balanceData={balanceData}
+										_isConvert={_isConvert}
+									/>
+									{/* <CashBar
 											onChangeAmount={onChangeAmount}
 											amountValue={amountValue}
 											availableBalance={
@@ -397,37 +399,86 @@ export default ({
 											}
 											_isConvert={_isConvert}
 										/> */}
-								<InputModuleRow
-									onChangeAmount={onChangeAmount}
-									amountValue={amountValue}
+									<InputModuleRow
+										onChangeAmount={onChangeAmount}
+										amountValue={amountValue}
+										sysIdValue={sysIdValue}
+										accountNoValue={accountNoValue}
+										toConfirmPage={toConfirmPage}
+										_isConvert={_isConvert}
+										status={status}
+										onBlur={ValidAmount.bind(
+											this,
+											amountValue
+										)}
+										clickInfo={clickInfo}
+										checked={status.checked}
+										tip={status.tip}
+									/>
+								</div>
+							) : (
+								<WithdrawalConfirm
+									bankNameValue={bankNameValue}
+									amountValue={
+										_isConvert
+											? amountValue * 1000
+											: amountValue
+									}
 									sysIdValue={sysIdValue}
 									accountNoValue={accountNoValue}
-									toConfirmPage={toConfirmPage}
+									cancelSubmit={cancelSubmit}
+									confirmSubmit={confirmSubmit}
 									_isConvert={_isConvert}
-									status={status}
-									onBlur={ValidAmount.bind(this, amountValue)}
-									clickInfo={clickInfo}
-									checked={status.checked}
-									tip={status.tip}
 								/>
-							</div>
-						) : (
-							<WithdrawalConfirm
-								bankNameValue={bankNameValue}
-								amountValue={
-									_isConvert
-										? amountValue * 1000
-										: amountValue
-								}
-								sysIdValue={sysIdValue}
-								accountNoValue={accountNoValue}
-								cancelSubmit={cancelSubmit}
-								confirmSubmit={confirmSubmit}
-								_isConvert={_isConvert}
-							/>
-						)}
+							)}
+						</div>
 					</div>
 				</div>
+			</div>
+
+			<div className="important">
+				<div className="title">
+					<span className="icon icon-warning" />{" "}
+					{t("lbl_ImportantNotice")}
+				</div>
+				<ol>
+					<li>
+						<Trans
+							i18nKey="lbl_WithdrawalImportantNoticeContent1"
+							components={{
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
+							}}
+						/>
+					</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent2")}</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent3")}</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent4")}</li>
+
+					<li>
+						<Trans
+							i18nKey="lbl_WithdrawalImportantNoticeContent5"
+							components={{
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
+							}}
+						/>
+					</li>
+				</ol>
 			</div>
 		</>
 	);

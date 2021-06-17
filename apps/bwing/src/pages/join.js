@@ -15,9 +15,11 @@ import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";
 import {
 	getUrlParameter,
 	readCookie,
-	passwordCheck
+	passwordCheck,
+	isDateRange
 } from "../components/common/common";
 import { defPopBoxType } from "../components/common/defPopBoxType";
+import usePopBox from "../components/hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { GET_LANG_ID } from "../service/language";
 import config from "../config";
@@ -33,6 +35,9 @@ import {
 	initTip,
 	currencyToAreacode
 } from "../components/join/join.def";
+
+import { eventPeriodEuro } from "../datas/euroDef";
+import joinBannerEuro from "../styles/img/euro/BW400x480register.png";
 
 export default () => {
 	return (
@@ -52,12 +57,15 @@ const Content = () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [userValue, setUserValue] = useState(initValue);
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
+
+	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -101,20 +109,7 @@ const Content = () => {
 				},
 				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 					}
 				}
 			);
@@ -132,46 +127,19 @@ const Content = () => {
 						});
 						setSiteCurrency(() => currencyArr);
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
 			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
-	};
-
-	const ClickClose = () => {
-		setPopBox({ isOpen: false });
 	};
 
 	const showPswHandler = () => {
@@ -456,29 +424,17 @@ const Content = () => {
 										};
 										if (res_custInfo.data.errorCode === 0) {
 											_user = {
+												isJoin: true,
 												..._user,
 												...res_custInfo.data.data
 											};
 											navigate(`/${userInfo.langId}`);
 										} else {
-											setPopBox({
-												isOpen: true,
-												popBoxType:
-													defPopBoxType.ErrorMsg,
-												message:
-													res_custInfo.data.message,
-												btnBar: (
-													<div className="btnGroup">
-														<button
-															className="btn-cancel"
-															onClick={
-																ClickClose
-															}>
-															{t("lbl_Close")}
-														</button>
-													</div>
-												)
-											});
+											errorPopBox(
+												res_custInfo.data.message ||
+													"error",
+												res_custInfo.data.errorCode
+											);
 										}
 										setUserInfo(_user);
 										setPopBox({ isOpen: false });
@@ -486,20 +442,7 @@ const Content = () => {
 								},
 								() => {
 									if (isMountedRef.current) {
-										setPopBox({
-											isOpen: true,
-											popBoxType: defPopBoxType.ErrorMsg,
-											message: t("msg_ApiServerError"),
-											btnBar: (
-												<div className="btnGroup">
-													<button
-														className="btn-cancel"
-														onClick={ClickClose}>
-														{t("lbl_Close")}
-													</button>
-												</div>
-											)
-										});
+										errorPopBox();
 										setPopBox({ isOpen: false });
 									}
 								}
@@ -539,39 +482,13 @@ const Content = () => {
 								};
 							});
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-cancel"
-											onClick={ClickClose}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox(message || "error", errorCode);
 						}
 					}
 				},
 				() => {
 					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickClose}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox();
 					}
 				}
 			);
@@ -589,7 +506,10 @@ const Content = () => {
 		<></>
 	) : (
 		<div className="joinus">
-			<img src={joinBanner} alt="joinBanner" />
+			<img
+				src={isInPeriodEuro ? joinBannerEuro : joinBanner}
+				alt="joinBanner"
+			/>
 			<div className="joinloginModule">
 				<div className="joinModule" onSubmit={clickSubmit}>
 					<div className="title">{t("lbl_JoinNow")}</div>

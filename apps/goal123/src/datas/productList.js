@@ -1,4 +1,13 @@
 export default {
+	sportSaba: {
+		tpId: 1,
+		gameId: 1,
+		name: "soccer"
+	},
+	sportBti: {
+		tpId: 29,
+		name: "sportBti"
+	},
 	soccer: {
 		tpId: 1,
 		gameId: 1,
@@ -171,6 +180,10 @@ export default {
 	CQ9: {
 		tpId: 16,
 		name: "CQ9"
+	},
+	KingMaker: {
+		tpId: 11,
+		name: "King_Maker"
 	}
 };
 

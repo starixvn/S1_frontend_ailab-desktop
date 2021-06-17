@@ -5,42 +5,31 @@ import zaloImg from "../../styles/img/zalo.png";
 
 export default () => {
 	const { t } = useTranslation();
-	const [active, setActive] = useState(false);
-
-	const activeToggleHandler = () => {
-		setActive(prev => !prev);
-	};
 
 	const openLiveChat = () => {
 		window.LiveChatWidget.call("maximize");
 	};
 
 	return (
-		<div className={`quickLink${active ? " active" : ""}`}>
+		<div className="quickLink">
 			<div>
 				<button className="icon icon-chat" onClick={openLiveChat} />
-				<i
-					className="icon icon-contactIcon"
-					onClick={activeToggleHandler}>
+				<i className="icon icon-contactIcon">
 					{t("lbl_ContactUs").toUpperCase()}
 				</i>
 			</div>
 			<div>
 				<ul>
-					<li>
+					{/* <li>
 						<button onClick={openLiveChat}>
 							<div className="icon icon-live-chat">
 								{t("lbl_LiveChat")}
 							</div>
 						</button>
-					</li>
+					</li> */}
 					<li>
-						<a
-							className="icon icon-skype"
-							href="skype:live:.cid.ae9eac1a78556dc6?chat"
-							rel="noreferrer">
-							{t("lbl_Skype")}
-						</a>
+						<div className="icon icon-zalo">{t("lbl_Zalo")}</div>
+						<img src={zaloImg} alt="zaloImg" />
 					</li>
 					<li>
 						<div className="icon icon-Telegram">
@@ -49,8 +38,12 @@ export default () => {
 						<img src={telegramImg} alt="telegramImg" />
 					</li>
 					<li>
-						<div className="icon icon-zelo">{t("lbl_Zalo")}</div>
-						<img src={zaloImg} alt="zaloImg" />
+						<a
+							className="icon icon-skype"
+							href="skype:live:.cid.ae9eac1a78556dc6?chat"
+							rel="noreferrer">
+							{t("lbl_Skype")}
+						</a>
 					</li>
 				</ul>
 			</div>

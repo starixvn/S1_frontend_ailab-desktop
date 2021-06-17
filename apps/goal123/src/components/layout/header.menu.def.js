@@ -7,6 +7,11 @@ import {
 	showEventIcon
 } from "../common/eventIcon";
 
+import sportSabaBgImg from "../../styles/img/dropdown/sports/saba.png";
+import sportSabaItemImg from "../../styles/img/dropdown/sports/saba-item.png";
+import sportBtiBgImg from "../../styles/img/dropdown/sports/bti.png";
+import sportBtiItemImg from "../../styles/img/dropdown/sports/bti-item.png";
+
 import cq9IconImg from "../../styles/img/dropdown/fishing/cq9-icon.png";
 import icgIconImg from "../../styles/img/dropdown/fishing/icg-icon.png";
 import ggIconImg from "../../styles/img/dropdown/fishing/gg-icon.png";
@@ -14,6 +19,8 @@ import sgIconImg from "../../styles/img/dropdown/fishing/sg-icon.png";
 
 import gamesSabaclubBgImg from "../../styles/img/dropdown/games/sabaclub.png";
 import gamesSabaclubNpcImg from "../../styles/img/dropdown/games/sabaclub-item.png";
+import gamesKingMakerBgImg from "../../styles/img/dropdown/games/kingmaker.png";
+import gamesKingMakerNpcImg from "../../styles/img/dropdown/games/kingmaker-item.png";
 import gamesV8pokerBgImg from "../../styles/img/dropdown/games/v8poker.png";
 import gamesV8pokerNpcImg from "../../styles/img/dropdown/games/v8poker-item.png";
 import gamesKenoBgImg from "../../styles/img/dropdown/games/keno.png";
@@ -21,6 +28,8 @@ import gamesKenoNpcImg from "../../styles/img/dropdown/games/keno-item.png";
 import gamesLotteryBgImg from "../../styles/img/dropdown/games/lottery.png";
 import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png";
 
+import livecasinoPtNpcImg from "../../styles/img/livecasino/playtech.png";
+import livecasinoPtIconImg from "../../styles/img/livecasino/playtech-icon.png";
 import livecasinoN2liveNpcImg from "../../styles/img/livecasino/n2live.png";
 import livecasinoN2liveIconImg from "../../styles/img/livecasino/n2live-icon.png";
 import livecasinoWmNpcImg from "../../styles/img/livecasino/wm.png";
@@ -93,18 +102,73 @@ import fishingFishinggodNpcImg from "../../styles/img/dropdown/fishing/fishinggo
 import fishingFishingwarBgImg from "../../styles/img/dropdown/fishing/fishingwar.png";
 import fishingFishingwarNpcImg from "../../styles/img/dropdown/fishing/fishingwar-item.png";
 
+import fishingLobbyParadiseBgImg from "../../styles/img/fishing/paradise.png";
+import fishingLobbyOneshotBgImg from "../../styles/img/fishing/oneshot.png";
+import fishingLobbyDragonballBgImg from "../../styles/img/fishing/dragonball.png";
+import fishingLobbySaviorsBgImg from "../../styles/img/fishing/saviors.png";
+import fishingLobbyTyrantBgImg from "../../styles/img/fishing/tyrant.png";
+import fishingLobbyFishingworldBgImg from "../../styles/img/fishing/fishingworld.png";
+import fishingLobbyFishinggodBgImg from "../../styles/img/fishing/fishinggod.png";
+import fishingLobbyFishingwarBgImg from "../../styles/img/fishing/fishingwar.png";
+
+import livecasinoLobbyN2liveIconImg from "../../styles/img/livecasinolist/icon/n2live.png";
+import livecasinoLobbyN2liveBgImg from "../../styles/img/livecasinolist/n2live.png";
+import livecasinoLobbyWmIconImg from "../../styles/img/livecasinolist/icon/wm.png";
+import livecasinoLobbyWmBgImg from "../../styles/img/livecasinolist/wm.png";
+import livecasinoLobbyDgIconImg from "../../styles/img/livecasinolist/icon/dg.png";
+import livecasinoLobbyDgBgImg from "../../styles/img/livecasinolist/dg.png";
+import livecasinoLobbyAgIconImg from "../../styles/img/livecasinolist/icon/ag.png";
+import livecasinoLobbyAgBgImg from "../../styles/img/livecasinolist/ag.png";
+import livecasinoLobbyPpIconImg from "../../styles/img/livecasinolist/icon/pp.png";
+import livecasinoLobbyPpBgImg from "../../styles/img/livecasinolist/pp.png";
+import livecasinoLobbyAllbetIconImg from "../../styles/img/livecasinolist/icon/allbet.png";
+import livecasinoLobbyAllbetBgImg from "../../styles/img/livecasinolist/allbet.png";
+import livecasinoLobbySaIconImg from "../../styles/img/livecasinolist/icon/sa.png";
+import livecasinoLobbySaBgImg from "../../styles/img/livecasinolist/sa.png";
+import livecasinoLobbyAeIconImg from "../../styles/img/livecasinolist/icon/ae.png";
+import livecasinoLobbyAeBgImg from "../../styles/img/livecasinolist/ae.png";
+import livecasinoLobbyEbetIconImg from "../../styles/img/livecasinolist/icon/ebet.png";
+import livecasinoLobbyEbetBgImg from "../../styles/img/livecasinolist/ebet.png";
+
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
-	LinkOrBtn: "LinkOrBtn"
+	LinkOrBtn: "LinkOrBtn",
+	useGoToGame: "useGoToGame"
 };
 
 export const defMenuLinks = langId => {
 	return {
 		sports: {
 			productInfo: productList.soccer,
-			path: path.sports.root,
-			displayKey: "lbl_Sports"
+			displayKey: "lbl_Sports",
+			subMenu: [
+				{
+					...productList.sportSaba,
+					subPath: path.sports.root,
+					className: "sport",
+					displayKey: "lbl_Saba_Sport",
+					bgImgUrl: sportSabaBgImg,
+					npcImgUrl: sportSabaItemImg,
+					parameter: { ...productList.sportSaba }
+				},
+				{
+					...productList.sportBti,
+					subPath: path.sportBti.root,
+					menuType: defMenuType.entPage,
+					className: "BTI",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.sportBti
+						})
+					],
+					displayKey: "lbl_Bti_Sport",
+					bgImgUrl: sportBtiBgImg,
+					npcImgUrl: sportBtiItemImg,
+					parameter: { ...productList.sportBti }
+				}
+			]
 		},
 		// cockFighting: {
 		// 	productInfo: productList.cockFighting,
@@ -119,8 +183,21 @@ export const defMenuLinks = langId => {
 			className: "game icon",
 			subMenu: [
 				{
+					...productList.KingMaker,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.KingMaker
+						})
+					],
+					displayKey: "lbl_King_Maker",
+					menuType: defMenuType.entPage,
+					bgImgUrl: gamesKingMakerBgImg,
+					npcImgUrl: gamesKingMakerNpcImg
+				},
+				{
 					...productList.sabaClub,
-					path: path.sports.root,
+					// path: path.sports.root,
 					className: "sabaclub",
 					displayKey: "lbl_SabaClub",
 					menuType: defMenuType.LinkOrBtn,
@@ -128,6 +205,7 @@ export const defMenuLinks = langId => {
 					bgImgUrl: gamesSabaclubBgImg,
 					npcImgUrl: gamesSabaclubNpcImg
 				},
+
 				{
 					...productList.V8_Poker,
 					className: "v8",
@@ -152,7 +230,7 @@ export const defMenuLinks = langId => {
 				// },
 				{
 					...productList.keno,
-					path: path.sports.root,
+					// path: path.sports.root,
 					className: "keno",
 					displayKey: "lbl_Keno",
 					menuType: defMenuType.LinkOrBtn,
@@ -162,7 +240,7 @@ export const defMenuLinks = langId => {
 				},
 				{
 					...productList.lottery,
-					path: path.sports.root,
+					// path: path.sports.root,
 					className: "lottery",
 					displayKey: "lbl_Lottery",
 					menuType: defMenuType.LinkOrBtn,
@@ -314,7 +392,25 @@ export const defMenuLinks = langId => {
 		},
 		liveCasino: {
 			displayKey: "lbl_LiveCasino",
+			path: path.liveCasino.root,
 			subMenu: [
+				{
+					...defCasinoProviders.PT,
+					className: "PT",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.liveCasino_pt
+						})
+					],
+					icon: "icon icon-pt",
+					displayText: "Playtech",
+					menuType: defMenuType.useGoToGame,
+					parameter: { provider: defCasinoProviders.PT.name },
+					npcImgUrl: livecasinoPtNpcImg,
+					iconImgUrl: livecasinoPtIconImg,
+					disabledInSlider: true
+				},
 				{
 					tpId: 28,
 					className: "liveN2LIVE",
@@ -329,7 +425,11 @@ export const defMenuLinks = langId => {
 						})
 					],
 					npcImgUrl: livecasinoN2liveNpcImg,
-					iconImgUrl: livecasinoN2liveIconImg
+					iconImgUrl: livecasinoN2liveIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyN2liveBgImg,
+						iconImg: livecasinoLobbyN2liveIconImg
+					}
 				},
 				{
 					gameId: 20,
@@ -340,7 +440,11 @@ export const defMenuLinks = langId => {
 					displayText: "WM",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoWmNpcImg,
-					iconImgUrl: livecasinoWmIconImg
+					iconImgUrl: livecasinoWmIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyWmBgImg,
+						iconImg: livecasinoLobbyWmIconImg
+					}
 				},
 				{
 					gameId: 4,
@@ -351,18 +455,26 @@ export const defMenuLinks = langId => {
 					displayText: "DG",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoDgNpcImg,
-					iconImgUrl: livecasinoDgIconImg
+					iconImgUrl: livecasinoDgIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyDgBgImg,
+						iconImg: livecasinoLobbyDgIconImg
+					}
 				},
 				{
 					gameId: 12,
 					tpId: 12,
 					className: "liveALL",
 					icon: "icon icon-AB",
-					listNpcImgUrl: "allbet.png",
+					listNpcImgUrl: "ab.png",
 					displayText: "Allbet",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoAllbetNpcImg,
-					iconImgUrl: livecasinoAllbetIconImg
+					iconImgUrl: livecasinoAllbetIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyAllbetBgImg,
+						iconImg: livecasinoLobbyAllbetIconImg
+					}
 				},
 				{
 					gameId: 3,
@@ -373,7 +485,11 @@ export const defMenuLinks = langId => {
 					displayText: "AG",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoAgNpcImg,
-					iconImgUrl: livecasinoAgIconImg
+					iconImgUrl: livecasinoAgIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyAgBgImg,
+						iconImg: livecasinoLobbyAgIconImg
+					}
 				},
 				{
 					gameId: 101,
@@ -384,7 +500,11 @@ export const defMenuLinks = langId => {
 					displayText: "PP",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoPpNpcImg,
-					iconImgUrl: livecasinoPpIconImg
+					iconImgUrl: livecasinoPpIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyPpBgImg,
+						iconImg: livecasinoLobbyPpIconImg
+					}
 				},
 				{
 					gameId: 2,
@@ -395,7 +515,11 @@ export const defMenuLinks = langId => {
 					displayText: "SA",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoSaNpcImg,
-					iconImgUrl: livecasinoSaIconImg
+					iconImgUrl: livecasinoSaIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbySaBgImg,
+						iconImg: livecasinoLobbySaIconImg
+					}
 				},
 				{
 					gameId: 15,
@@ -406,7 +530,11 @@ export const defMenuLinks = langId => {
 					displayText: "AE",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoAeNpcImg,
-					iconImgUrl: livecasinoAeIconImg
+					iconImgUrl: livecasinoAeIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyAeBgImg,
+						iconImg: livecasinoLobbyAeIconImg
+					}
 				},
 				{
 					gameId: 18,
@@ -417,13 +545,18 @@ export const defMenuLinks = langId => {
 					displayText: "eBET",
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoEbetNpcImg,
-					iconImgUrl: livecasinoEbetIconImg
+					iconImgUrl: livecasinoEbetIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyEbetBgImg,
+						iconImg: livecasinoLobbyEbetIconImg
+					}
 				}
 			]
 		},
 		fishing: {
 			// productInfo: productList.fishing,
 			displayKey: "lbl_Fishing",
+			path: path.fishing.root,
 			subMenu: [
 				{
 					...productList.CQ9_Paradise,
@@ -439,7 +572,10 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.CQ9_Paradise },
 					bgImgUrl: fishingParadiseBgImg,
 					npcImgUrl: fishingParadiseNpcImg,
-					iconImgUrl: cq9IconImg
+					iconImgUrl: cq9IconImg,
+					lobbyPage: {
+						bgImg: fishingLobbyParadiseBgImg
+					}
 				},
 				// {
 				// 	...productList.CQ9_LuckyFishing,
@@ -468,7 +604,10 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.CQ9_Oneshot_Fishing },
 					bgImgUrl: fishingOneshotBgImg,
 					npcImgUrl: fishingOneshotNpcImg,
-					iconImgUrl: cq9IconImg
+					iconImgUrl: cq9IconImg,
+					lobbyPage: {
+						bgImg: fishingLobbyOneshotBgImg
+					}
 				},
 				// {
 				// 	...productList.CQ9_Water_Margin_Fishing,
@@ -511,7 +650,10 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.ICG_DRAGONBALL_FISHING },
 					bgImgUrl: fishingDragonballBgImg,
 					npcImgUrl: fishingDragonballNpcImg,
-					iconImgUrl: icgIconImg
+					iconImgUrl: icgIconImg,
+					lobbyPage: {
+						bgImg: fishingLobbyDragonballBgImg
+					}
 				},
 				{
 					...productList.ICG_FISHING_OF_SAVIORS,
@@ -529,7 +671,10 @@ export const defMenuLinks = langId => {
 					},
 					bgImgUrl: fishingSaviorsBgImg,
 					npcImgUrl: fishingSaviorsNpcImg,
-					iconImgUrl: icgIconImg
+					iconImgUrl: icgIconImg,
+					lobbyPage: {
+						bgImg: fishingLobbySaviorsBgImg
+					}
 				},
 				{
 					...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
@@ -547,7 +692,10 @@ export const defMenuLinks = langId => {
 					},
 					bgImgUrl: fishingThetyrantBgImg,
 					npcImgUrl: fishingThetyrantNpcImg,
-					iconImgUrl: icgIconImg
+					iconImgUrl: icgIconImg,
+					lobbyPage: {
+						bgImg: fishingLobbyTyrantBgImg
+					}
 				},
 				{
 					...productList.fishing,
@@ -557,7 +705,10 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.fishing },
 					bgImgUrl: fishingFishingworldBgImg,
 					npcImgUrl: fishingFishingworldNpcImg,
-					iconImgUrl: ggIconImg
+					iconImgUrl: ggIconImg,
+					lobbyPage: {
+						bgImg: fishingLobbyFishingworldBgImg
+					}
 				},
 				{
 					...productList.fishing_SG,
@@ -567,7 +718,10 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.fishing_SG },
 					bgImgUrl: fishingFishinggodBgImg,
 					npcImgUrl: fishingFishinggodNpcImg,
-					iconImgUrl: sgIconImg
+					iconImgUrl: sgIconImg,
+					lobbyPage: {
+						bgImg: fishingLobbyFishinggodBgImg
+					}
 				},
 				{
 					...productList.fishing_SGW,
@@ -577,7 +731,10 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.fishing_SGW },
 					bgImgUrl: fishingFishingwarBgImg,
 					npcImgUrl: fishingFishingwarNpcImg,
-					iconImgUrl: sgIconImg
+					iconImgUrl: sgIconImg,
+					lobbyPage: {
+						bgImg: fishingLobbyFishingwarBgImg
+					}
 				}
 			]
 		},
@@ -620,6 +777,7 @@ export const defMenuLinks = langId => {
 	};
 };
 export const defSubListClassName = {
+	sports: "sportList",
 	casino: "casinoList",
 	liveCasino: "livecasinoList",
 	games: "gameList",

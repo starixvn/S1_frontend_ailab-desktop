@@ -2,18 +2,19 @@ import React, { useContext, useRef, useEffect } from "react";
 import { Redirect } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { userInfoContext, loadingContext } from "../common/context";
-
 import MysteryBoxAnimation from "./mysteryBox.animation";
 import MysteryBoxEventModule from "./mysteryBox.eventModule";
 import useDrawPrize from "./hook/useDrawPrize";
 import { eventPeriod } from "./mysteryBox.def";
-import { isDateRange } from "../common/common";
-
 import imgTitleEn from "../../styles/img/event/box/title_en.png";
 import imgTitleVn from "../../styles/img/event/box/title_vn.png";
 
+import { isDateRange } from "../common/common";
+import { eventPeriodEuro } from "../../datas/euroDef";
+
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
+const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 const MysteryBox = () => {
 	const { t } = useTranslation();
@@ -55,7 +56,7 @@ const MysteryBox = () => {
 	if (!isInPeriod) return <Redirect to={`/${userInfo.langId}`} noThrow />;
 
 	return (
-		<div className="event goldbox">
+		<div className={`event goldbox ${isInPeriodEuro ? " euro" : ""}`}>
 			<img className="title" src={imgTitle} alt="title-img" />
 
 			<MysteryBoxAnimation

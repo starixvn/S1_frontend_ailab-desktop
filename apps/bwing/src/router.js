@@ -2,6 +2,9 @@ export default {
 	home: {
 		root: "/"
 	},
+	appDownload: {
+		root: "appDownload"
+	},
 	login: {
 		root: "login"
 	},
@@ -13,6 +16,9 @@ export default {
 	},
 	casino: {
 		root: "casino"
+	},
+	fishing: {
+		root: "fishing"
 	},
 	liveCasino: {
 		root: "liveCasino"
@@ -139,5 +145,8 @@ export default {
 	},
 	mysteryBox: {
 		root: "mysteryBox"
+	},
+	sportBti: {
+		root: "sportBti"
 	}
 };

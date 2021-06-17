@@ -14,6 +14,7 @@ import {
 import {
 	popBoxContext,
 	userInfoContext,
+	maintainListContext,
 	loadingContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
@@ -22,11 +23,13 @@ import {
 	defRowsPerPage,
 	defSearchColumn,
 	defCategory,
-	defCategoryList
+	defCategoryList,
+	defLobbyImgList
 } from "./casino.def";
 import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
+import TopQuickLink from "./casino.topQuickLink";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -39,12 +42,21 @@ const matchKeyword = (name, _keyword) => {
 
 export default () => {
 	const { t } = useTranslation();
-	const [selNav, setSelNav] = useState(defNav.ALLGAMES.key);
+	const urlTpId = getUrlParameter("tpId");
+	const urlTab = getUrlParameter("tab");
+
+	const isSomeTab = Object.values(defNav).some(item => item.key === urlTab);
+
+	const [selNav, setSelNav] = useState(
+		isSomeTab ? urlTab : defNav.ALLGAMES.key
+	);
+
 	const [favorite, setFavorite] = useState([]);
 	const [imgUrl, setImgUrl] = useState("");
 	const [tpList, setTpList] = useState({});
 	const [gameDatas, setGameDatas] = useState([]);
 	const [tpOptions, setTpOptions] = useState([]);
+	const [lobbyImgList, setLobbyImgList] = useState(defLobbyImgList);
 	const [displayGames, setDisplayGames] = useState([]);
 	const [pageInfo, setPageInfo] = useState({ currentPage: 1, totalPages: 1 });
 
@@ -60,8 +72,8 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { maintainList } = useContext(maintainListContext);
 	const { loading, setLoading } = useContext(loadingContext);
-	const urlTpId = getUrlParameter("tpId");
 
 	const clickClose = () => {
 		setPopBox({ isOpen: false });
@@ -76,6 +88,12 @@ export default () => {
 
 	const onSelectNav = navKey => {
 		if (navKey !== selNav) {
+			window.history.replaceState(
+				{},
+				"",
+				`${window.location.pathname}?tab=${navKey}`
+			);
+
 			setSelNav(navKey);
 			SetGames({
 				_searchInfo: searchInfo,
@@ -214,7 +232,32 @@ export default () => {
 				return _searchInfo;
 			});
 		}
+		SetGames({
+			_searchInfo: _result,
+			_category: category,
+			_selNav: selNav,
+			_gameDatas: gameDatas,
+			_tpList: tpList
+		});
+	};
 
+	const clickLobbyProvider = _providerId => {
+		const _optionsIdx = tpOptions.findIndex(
+			_options => _options.id === _providerId
+		);
+
+		const _result = {
+			...searchInfo,
+			[defSearchColumn.provider]:
+				searchInfo[defSearchColumn.provider].value === _providerId
+					? { idx: 0, value: null }
+					: {
+							idx: _optionsIdx,
+							value: _providerId
+					  }
+		};
+
+		setSearchInfo(_result);
 		SetGames({
 			_searchInfo: _result,
 			_category: category,
@@ -261,7 +304,6 @@ export default () => {
 
 				if (success) {
 					const { imgUrl: _imgUrl, providerList } = res.data.data;
-
 					const _tpList = {};
 					const _tpOptions = [
 						{ displayKey: "lbl_AllProvider", id: null }
@@ -287,6 +329,16 @@ export default () => {
 							});
 						}
 					});
+
+					const providerIdList = providerList?.map(
+						item => item.value
+					);
+
+					const filterLobbyImgList = defLobbyImgList.filter(_img =>
+						providerIdList.includes(_img.providerId)
+					);
+
+					setLobbyImgList(filterLobbyImgList);
 
 					if (games.length) {
 						for (let index = 0; index < games.length; index++) {
@@ -377,6 +429,16 @@ export default () => {
 		);
 	}, [userInfo.isLogin, urlTpId]);
 
+	useEffect(() => {
+		if (!isSomeTab) {
+			window.history.replaceState(
+				{},
+				"",
+				`${window.location.pathname}?tab=${defNav.ALLGAMES.key}`
+			);
+		}
+	}, [isSomeTab]);
+
 	return loading ? (
 		<></>
 	) : (
@@ -392,6 +454,11 @@ export default () => {
 						<div className="inside-title icon icon-ow-casino">
 							<span>{t("lbl_Slots")}</span>
 						</div>
+						<TopQuickLink
+							lobbyImgList={lobbyImgList}
+							clickLobbyProvider={clickLobbyProvider}
+							activeProviderId={searchInfo.provider?.value}
+						/>
 						<div className="casinoSelect">
 							<Nav
 								selNav={selNav}
@@ -418,6 +485,7 @@ export default () => {
 							currentPage={pageInfo.currentPage}
 							favorite={favorite}
 							onSetFavorite={onSetFavorite}
+							maintainList={maintainList}
 						/>
 						<Pagination
 							totalPages={pageInfo.totalPages}

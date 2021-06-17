@@ -78,6 +78,13 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 					setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.Success,
+						icon: "icon icon-bell",
+						description: (
+							<>
+								<div>{t("lbl_JoinSuccessDescription1")}</div>
+								<div>{t("lbl_JoinSuccessDescription2")}</div>
+							</>
+						),
 						btnBar: (
 							<div className="btnGroup">
 								<button

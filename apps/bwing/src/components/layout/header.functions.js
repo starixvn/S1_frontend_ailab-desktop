@@ -45,10 +45,10 @@ const BeforeLogin = ({ langId }) => {
 	return (
 		<div className="btnGroup">
 			<button className="blue login" onClick={clickLogin}>
-				{t("lbl_Login")}
+				{t("lbl_Login")?.toUpperCase()}
 			</button>
 			<button className="orange join" onClick={clickJoin}>
-				{t("lbl_JoinNow")}
+				{t("lbl_JoinNow")?.toUpperCase()}
 			</button>
 		</div>
 	);

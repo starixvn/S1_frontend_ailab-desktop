@@ -1,15 +1,9 @@
-import React, { useEffect, useRef, useContext, useState } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import config from "../../config";
-import { popBoxContext } from "../common/context";
-import { defPopBoxType } from "../common/defPopBoxType";
-import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
 import Loading from "../common/loading";
 
-export default ({ accountName, custBankList, reload }) => {
-	const { t } = useTranslation();
-	const { setPopBox } = useContext(popBoxContext);
-	const [loading, setLoading] = useState(false);
+const BankInfoCard = ({ t, custBankList, delBankAccount, loading }) => {
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -18,93 +12,6 @@ export default ({ accountName, custBankList, reload }) => {
 			isMountedRef.current = false;
 		};
 	});
-
-	const delBankAccount = (sysId, accountNo) => {
-		const ClickCancel = () => {
-			setPopBox({
-				isOpen: false
-			});
-		};
-
-		const deleteCard = (SysId, AccountNo) => {
-			setPopBox({
-				isOpen: false
-			});
-			setLoading(true);
-
-			api_accountStrict_DelCustBankInfo({
-				AccountName: accountName,
-				AccountNo,
-				SysId
-			}).then(
-				res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0) {
-							reload();
-							setPopBox({
-								isOpen: false
-							});
-						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-cancel"
-											onClick={ClickCancel}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
-						}
-						setLoading(false);
-					}
-				},
-				err => {
-					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickCancel}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-						setLoading(false);
-					}
-				}
-			);
-		};
-
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.ConfirmDelete,
-			message: t("lbl_AreYouSureDelete"),
-			message2: t("lbl_CantBeRestore"),
-			onClickClose: ClickCancel,
-			btnBar: (
-				<div className="btnGroup">
-					<button
-						className="btn-cancel"
-						onClick={deleteCard.bind(this, sysId, accountNo)}>
-						{t("lbl_Yes")}
-					</button>
-					<button className="btn-check" onClick={ClickCancel}>
-						{t("lbl_No")}
-					</button>
-				</div>
-			)
-		});
-	};
 
 	const arr = custBankList?.map(item => {
 		return (
@@ -141,7 +48,7 @@ export default ({ accountName, custBankList, reload }) => {
 			<div className="walletModule">
 				<div className="addBank haveBank">
 					<div className="txt-blue15">
-						{t("lbl_BankAccount").toUpperCase()}
+						{t("lbl_BANK_ACCOUNT")}
 						<div className="remainder">
 							{t("lbl_NumberOfBankAccounts")}:{" "}
 							{custBankList ? custBankList?.length : 0}/3
@@ -153,3 +60,16 @@ export default ({ accountName, custBankList, reload }) => {
 		</div>
 	);
 };
+
+BankInfoCard.defaultProps = {
+	custBankList: null
+};
+
+BankInfoCard.propTypes = {
+	t: PropTypes.func.isRequired,
+	custBankList: PropTypes.arrayOf(PropTypes.any),
+	delBankAccount: PropTypes.func.isRequired,
+	loading: PropTypes.bool.isRequired
+};
+
+export default BankInfoCard;

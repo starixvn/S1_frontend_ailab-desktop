@@ -17,7 +17,8 @@ import {
 	getUrlParameter,
 	readCookie,
 	setCookie,
-	passwordCheck
+	passwordCheck,
+	isDateRange
 } from "../components/common/common";
 import defPopBoxType from "../components/common/defPopBoxType";
 import usePopBox from "../components/hook/usePopBox";
@@ -34,11 +35,14 @@ import {
 	initTip,
 	currencyToAreacode
 } from "../components/common/join.data";
-
+import { currencyCode } from "../datas/countryCode";
 import imgJoinNpc01 from "../styles/img/joinNpc01.png";
 import imgJoinNpc02 from "../styles/img/joinNpc02.png";
 import imgBack from "../styles/img/back.png";
 import imgWelcome from "../styles/img/welcome.png";
+
+import { eventPeriodEuro } from "../datas/euroDef";
+import imgEuro from "../styles/img/euro/joinAnimation.png";
 
 export default () => {
 	return (
@@ -66,6 +70,7 @@ const Content = () => {
 	const [defaultOption, setDefaultOption] = useState(
 		t("lbl_PrefferedCurrency")
 	);
+	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -185,6 +190,63 @@ const Content = () => {
 		}));
 	};
 
+	const _currencyId = siteCurrency[userValue.currencyIdx]?.id;
+
+	const isUSDT = _currencyId === currencyCode.USDT;
+
+	const allAreaCodeArr = Object.values(areaCode)
+		.map(a => a.AreaCode)
+		.sort();
+	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => {
+		return {
+			// id: parseInt(_a.replace(/[^0-9]/gi, ""), 10),
+			id: idx + 1,
+			displayText: _a
+		};
+	});
+
+	const usdtAreaCode = userValue.areaCodeIdx
+		? areaCodeOptions[userValue.areaCodeIdx - 1].displayText
+		: "";
+
+	const currencyToCountryCode = _currencyId
+		? currencyToAreacode[_currencyId]
+		: null;
+
+	const _areaCode = isUSDT
+		? usdtAreaCode
+		: currencyToCountryCode !== null
+		? areaCode[currencyToCountryCode]?.AreaCode
+		: null;
+
+	const setCurrencyTip = (col, _defaultOption) => {
+		const result = currencyCheck(_defaultOption);
+		const { checked, msg } = result.checked;
+		setTip(prev => {
+			return {
+				...prev,
+				[col]: {
+					checked,
+					msg: t(msg)
+				}
+			};
+		});
+	};
+
+	const onSelectItem = i => {
+		setDefaultOption(null);
+		setUserValue(prev => {
+			return { ...prev, currencyIdx: i };
+		});
+		setCurrencyTip("currency", null);
+	};
+
+	const onSelectAreaCode = i => {
+		setUserValue(prev => {
+			return { ...prev, areaCodeIdx: i + 1 };
+		});
+	};
+
 	const checkValue = async (col, e) => {
 		const val = e.target.value;
 		let checked = true;
@@ -289,16 +351,26 @@ const Content = () => {
 		return { checked, msg };
 	};
 
+	const currencyCheck = _defaultOption => {
+		let checked = true;
+		let msg = "";
+		if (_defaultOption !== null) {
+			checked = false;
+			msg = "lbl_RemindPrefferedCurrency";
+		}
+		return { checked, msg };
+	};
+
 	const phoneCheck = async val => {
 		let checked = false;
 		let msg = "";
 
-		if (val === "") {
+		if (val === "" || (isUSDT && _areaCode === "")) {
 			checked = false;
 			msg = "lbl_PhoneRequired";
 		} else {
 			checked = true;
-			msg = "lbl_CantChangePhone";
+			// msg = "lbl_CantChangePhone";
 		}
 
 		if (checked) {
@@ -317,49 +389,6 @@ const Content = () => {
 		}
 
 		return { checked, msg };
-	};
-
-	const _currencyId = siteCurrency[userValue.currencyIdx]?.id;
-
-	const currencyToCountryCode = _currencyId
-		? currencyToAreacode[_currencyId]
-		: null;
-
-	const _areaCode =
-		currencyToCountryCode !== null
-			? areaCode[currencyToCountryCode]?.AreaCode
-			: null;
-
-	const currencyCheck = _defaultOption => {
-		let checked = true;
-		let msg = "";
-		if (_defaultOption !== null) {
-			checked = false;
-			msg = "lbl_RemindPrefferedCurrency";
-		}
-		return { checked, msg };
-	};
-
-	const setCurrencyTip = (col, _defaultOption) => {
-		const result = currencyCheck(_defaultOption);
-		const { checked, msg } = result.checked;
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked,
-					msg: t(msg)
-				}
-			};
-		});
-	};
-
-	const onSelectItem = i => {
-		setDefaultOption(null);
-		setUserValue(prev => {
-			return { ...prev, currencyIdx: i };
-		});
-		setCurrencyTip("currency", null);
 	};
 
 	const clickCancel = () => {
@@ -534,7 +563,7 @@ const Content = () => {
 								};
 							});
 						} else {
-							errorPopBox();
+							errorPopBox(message || "error", errorCode);
 						}
 					}
 				},
@@ -590,15 +619,33 @@ const Content = () => {
 					</ul>
 				</div>
 				<div className="joinAnimation">
-					<img
-						className="animationlogo"
-						alt="animationlogo"
-						src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
-					/>
-					<img className="npc1" alt="npc1" src={imgJoinNpc01} />
-					<img className="npc2" alt="npc2" src={imgJoinNpc02} />
-					<img className="welcome" alt="welcome" src={imgWelcome} />
-					<img className="back" alt="back" src={imgBack} />
+					{isInPeriodEuro ? (
+						<img alt="animationlogo_euro" src={imgEuro} />
+					) : (
+						<>
+							<img
+								className="animationlogo"
+								alt="animationlogo"
+								src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
+							/>
+							<img
+								className="npc1"
+								alt="npc1"
+								src={imgJoinNpc01}
+							/>
+							<img
+								className="npc2"
+								alt="npc2"
+								src={imgJoinNpc02}
+							/>
+							<img
+								className="welcome"
+								alt="welcome"
+								src={imgWelcome}
+							/>
+							<img className="back" alt="back" src={imgBack} />
+						</>
+					)}
 				</div>
 
 				<form className="joinloginFunction" onSubmit={clickSubmit}>
@@ -624,7 +671,6 @@ const Content = () => {
 							onChange={EditField.bind(null, "username")}
 							onBlur={checkValue.bind(null, "username")}
 						/>
-
 						<InputboxPSW
 							className={`inputBox-blue${
 								!tip.password.checked && tip.password.msg !== ""
@@ -643,7 +689,6 @@ const Content = () => {
 							checked={tip.password.checked}
 							clickInfo={clickInfo.bind(this, "password")}
 						/>
-
 						<Inputbox
 							className="inputBox-blue"
 							icon="icon-email txt-blue"
@@ -655,7 +700,6 @@ const Content = () => {
 							onChange={EditField.bind(null, "email")}
 							onBlur={checkValue.bind(null, "email")}
 						/>
-
 						<div
 							className={`inputBox-blue${
 								tip.currency.msg !== "" ? " error" : ""
@@ -668,33 +712,75 @@ const Content = () => {
 								selectedIdx={userValue.currencyIdx}
 								i18n={t}
 								onSelectItem={onSelectItem}
+								onBlur={checkValue.bind(null, "currency")}
 							/>
 						</div>
 						{tip.currency.msg ? (
 							<div className="tip active">{tip.currency.msg}</div>
-						) : null}
-
-						<div className="active">
-							{t("lbl_CantChangePreferredCurrency")}
-						</div>
+						) : (
+							<div className="tip active">
+								{t("lbl_CantChangePreferredCurrency")}
+							</div>
+						)}
 
 						{userValue.currencyIdx !== null ? (
-							<Inputbox
-								className="inputBox-blue"
-								icon="icon-phone txt-blue"
-								areaCode={_areaCode}
-								placeholder={t("lbl_Phone")}
-								value={userValue.phone}
-								tip={tip.phone.msg}
-								checked={tip.phone.checked}
-								clickInfo={clickInfo.bind(this, "phone")}
-								onChange={EditField.bind(null, "phone")}
-								onBlur={checkValue.bind(null, "phone")}
-							/>
+							<div className="phone">
+								<div
+									className={`inputBox-blue${
+										!tip.phone.checked &&
+										tip.phone.msg !== ""
+											? " error"
+											: ""
+									}`}>
+									<Dropdown
+										defaultOption={_areaCode}
+										mainKey="area_code"
+										icon="icon-phone txt-blue"
+										options={areaCodeOptions}
+										selectedIdx={userValue.areaCodeIdx}
+										i18n={t}
+										onSelectItem={onSelectAreaCode}
+										disabled={!isUSDT}
+									/>
+								</div>
+
+								<Inputbox
+									className={`inputBox-blue${
+										!tip.phone.checked &&
+										tip.phone.msg !== ""
+											? " error"
+											: ""
+									}`}
+									// areaCode={_areaCode}
+									placeholder={t("lbl_Phone")}
+									value={userValue.phone}
+									tip={tip.phone.msg}
+									checked={tip.phone.checked}
+									isTipHide={true}
+									clickInfo={clickInfo.bind(this, "phone")}
+									onChange={EditField.bind(null, "phone")}
+									onBlur={checkValue.bind(null, "phone")}
+									inputType="phone"
+								/>
+							</div>
+						) : null}
+
+						{userValue.currencyIdx !== null ? (
+							tip.phone.msg ? (
+								<div className="tip active txt-red">
+									{tip.phone.msg}
+								</div>
+							) : (
+								<div className="tip active">
+									{t("lbl_CantChangePhone")}
+								</div>
+							)
 						) : null}
 
 						<Inputbox
-							className="inputBox-blue"
+							className={`inputBox-blue${
+								tip.specialBonusCode.msg !== "" ? " error" : ""
+							}`}
 							icon="icon-promotion txt-blue"
 							placeholder={t("lbl_JoinPromoCode")}
 							value={userValue.specialBonusCode}
@@ -703,7 +789,6 @@ const Content = () => {
 							tip={tip.specialBonusCode.msg}
 							checked={tip.specialBonusCode.checked}
 						/>
-
 						<Inputbox
 							className="inputBox-blue"
 							icon="icon-affiliate txt-blue"

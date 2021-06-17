@@ -1,4 +1,5 @@
 import React from "react";
+import { Trans } from "react-i18next";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
@@ -15,7 +16,7 @@ const DepositnewInfoMoule = ({
 }) => {
 	return (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_deposit">
+			<div className="inside-title icon">
 				<span>{t("lbl_Deposit")}</span>
 				<Link
 					className="icon icon-friend"
@@ -24,18 +25,16 @@ const DepositnewInfoMoule = ({
 				</Link>
 			</div>
 
-			<div className="txt-white txt-center">
-				{t("lbl_DepositOptionHint")}
-			</div>
-
 			<div className="subModuleListColumn">
+				<p className="txt-white">{t("lbl_DepositOptionHint")}</p>
+
+				<div className="subModuleTitle">
+					<span>
+						<i className="txt-blue">*</i>
+						{t("lbl_DepositOptions")}
+					</span>{" "}
+				</div>
 				<div className="subModule">
-					<div className="subModuleTitle">
-						<span>
-							<i className="txt-blue">*</i>
-							{t("lbl_DepositOptions")}
-						</span>
-					</div>
 					<div>
 						{depositOptions.map(item => (
 							<button
@@ -68,6 +67,56 @@ const DepositnewInfoMoule = ({
 						{t("lbl_Submit")}
 					</button>
 				</div>
+			</div>
+			<div className="important">
+				<div className="title">
+					<span className="icon icon-warning" />{" "}
+					{t("lbl_ImportantNotice")}
+				</div>
+				<ol>
+					<li>{t("lbl_DepositImportantNoticeContent1")}</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent2"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent3"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent4"
+							components={{
+								span: <span />
+							}}
+						/>
+					</li>
+					<li>{t("lbl_DepositImportantNoticeContent5")}</li>
+					<li>
+						<Trans
+							i18nKey="lbl_DepositImportantNoticeContent6"
+							components={{
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
+							}}
+						/>
+					</li>
+				</ol>
 			</div>
 		</div>
 	);

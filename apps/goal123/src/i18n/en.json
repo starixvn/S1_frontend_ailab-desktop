@@ -48,6 +48,7 @@
 	"lbl_HowToDepoist": "HOW TO DEPOSIT",
 	"lbl_HowToWithdraw": "HOW TO WITHDRAW",
 	"lbl_SabaSoccer": "Saba Soccer",
+	"lbl_homeJackpotTitle": "JACKPOT",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Goal123News": "Goal123 News",
@@ -102,6 +103,8 @@
 	"lbl_Water_Margin_Fishing": "Water Margin Fishing",
 	"lbl_Thunder_Fighter": "Thunder Fighter",
 	"lbl_CQ9": "CQ9",
+	"lbl_Saba_Sport": "Saba Sport",
+	"lbl_Bti_Sport": "Bti Sport",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "Affiliate ID/Referral",
@@ -177,6 +180,9 @@
 	"lbl_VertifyContactConfirm": "Verify your contact number to enjoy our promotions?",
 	"lbl_VertifyNow": "Vertify Now",
 	"lbl_JoinPromoCode": "Promo Code",
+	"lbl_V8Poker": "V8 Poker",
+	"lbl_King_Maker": "King Maker",
+	"lbl_AMB_Poker": "AMB Poker",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"PromotionCategory1": "First Deposit",
@@ -199,7 +205,9 @@
 	"lbl_RequireMinAmountHint_Front": "The minimum amount of deposit are required to be at least",
 	"lbl_RequireMinAmountHint_Back": "Deposit now?",
 	"lbl_PromotionRebateAndCashback": "Rebate / Cashback",
-	"lbl_Other":"Other",
+	"lbl_Other": "Other",
+	"lbl_JoinSuccessDescription1": "Successful!",
+	"lbl_JoinSuccessDescription2": "Your Bonus has been claimed.",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
@@ -220,6 +228,7 @@
 	"lbl_Information": "Information",
 	"lbl_No": "No",
 	"lbl_Yes": "Yes",
+	"lbl_Copy": "Copy",
 
 	"lbl_Success": "Success",
 	"lbl_Fail": "Failed",
@@ -247,14 +256,17 @@
 	"lbl_Download": "Download",
 	"lbl_Min": "Min",
 	"lbl_Max": "Max",
+	"lbl_ImportantNotice": "IMPORTANT NOTICE",
+	"lbl_Play": "PLAY",
+	"lbl_Demo": "DEMO",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",
-	"lbl_TpWallet_1": "Sportsbook Wallet",
+	"lbl_TpWallet_1": "Saba Wallet",
 	"lbl_TpWallet_21": "918Kiss Wallet",
 	"lbl_TpWallet_22": "Mega Wallet",
-	"lbl_TpWallet_27":"PT Wallet",
-	"lbl_Wallet_Saba": "Sportsbook Wallet",
+	"lbl_TpWallet_27": "PT Wallet",
+	"lbl_Wallet_Saba": "Saba Wallet",
 	"lbl_MainWallet": "Main Wallet",
 	"lbl_RestoreAll": "Restore All",
 	"lbl_TransferHistory": "Transfer History",
@@ -348,6 +360,15 @@
 	"lbl_MinMaxAmount": "Min/Max Limit",
 	"lbl_DepositAccountNamePlaceholder": "BANK & ID must be same",
 	"lbl_TopUpCard": "TOP-UP CARD",
+	"lbl_DepositImportantNoticeContent1": "Kindly please check for the latest active deposit bank details before you making a deposit.",
+	"lbl_DepositImportantNoticeContent2": "For using <span>Local Bank Transfer</span> deposit option, please make the transfer done before submit the transaction to avoid the transaction delay.",
+	"lbl_DepositImportantNoticeContent3": "Depositor's ACCOUNT NAME must match with your registered full name. We do not encourage transaction made using 3rd party/company account.",
+	"lbl_DepositImportantNoticeContent4": "Please <span>DO NOT</span> fill in <span>'GOAL123'</span> or any sensitive words related to gambling as reference/remark in your online transaction.",
+	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
+	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
+	"lbl_BackupDomain_Title": "Please save the latest GOAL123 domain for backup purposes.",
+	"lbl_BackupDomain_description1": "STAY ACCESSIBLE",
+	"lbl_BackupDomain_description2": "Anytime, Anywhere",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",
@@ -388,6 +409,11 @@
 	"lbl_UpdatePersonalInfoWithdrawal": "Please update your personal information before making withdrawal.",
 	"lbl_WithdrawalNow": "Withdrawal Now",
 	"lbl_GoWithdrawalPage": "Go to withdrawal page?",
+	"lbl_WithdrawalImportantNoticeContent1": "Kindly check with our <Link>24/7 LIVE CHAT</Link> if your transaction is pending for more than 10 minutes.",
+	"lbl_WithdrawalImportantNoticeContent2": "Withdrawal bank account name must match with registered full name, member is not allow withdrawal to 3rd party bank account.",
+	"lbl_WithdrawalImportantNoticeContent3": "Some game provider requires 15 till 30 minutes of report sync time, kindly bear with us during the required sync time.",
+	"lbl_WithdrawalImportantNoticeContent4": "Please make sure your required turnover is achieve, and submit the withdrawal transaction after 30 minutes to avoid system auto reject.",
+	"lbl_WithdrawalImportantNoticeContent5": "If there is any discrepancy or you may have any other further withdrawal inquiries, kindly contact our <Link>24/7 LIVECHAT</Link>. Thank you.",
 
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Need Account Number",
@@ -432,6 +458,7 @@
 	"lbl_SearchGames": "Search Games",
 	"lbl_AllGames": "All",
 	"lbl_Feature": "Feature",
+	"lbl_Jackpot": "Jackpot",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -498,6 +525,7 @@
 	"lbl_Rank6": "6th Runner Up",
 	"lbl_Rank7": "7th Runner Up",
 	"lbl_Rank8": "8th Runner Up",
+	"lbl_Ranking_TopNum": "TOP {{topNum}} WINNING",
 
 	"AngPow ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_AngPow_Congratulations": "Congratulations",
@@ -575,6 +603,7 @@
 	"lbl_Titanium_Club": "TITANIUM CLUB",
 	"lbl_Diamond_Club": "DIAMOND CLUB",
 	"lbl_Goal123_Club": "GOAL123 CLUB",
+	"lbl_Vip_LastUpdated": "LAST UPDATED",
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "Referral",
@@ -607,6 +636,5 @@
 	"lbl_NoOfAchievements": "No. of achievements",
 	"lbl_RewardAmount": "Rewards Amounts",
 
-	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_V8Poker": "V8 Poker"
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": ""
 }

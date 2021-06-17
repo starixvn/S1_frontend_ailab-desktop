@@ -75,11 +75,19 @@ const defPlatform = [
 	{
 		...productList.liveCasino_n2live,
 		imgName: "n2live"
+	},
+	{
+		...defCasinoProviders.PT,
+		imgName: "playtech"
+	},
+	{
+		...productList.sportBti,
+		imgName: "bti"
+	},
+	{
+		...productList.KingMaker,
+		imgName: "kingmaker"
 	}
-	// {
-	// 	...defCasinoProviders.PT,
-	// 	imgName: "playtech"
-	// }
 ];
 
 const Platform = ({ isLogin, productTpIds }) => {
@@ -99,7 +107,11 @@ const Platform = ({ isLogin, productTpIds }) => {
 		);
 	});
 
-	return <div className="platform">{rows}</div>;
+	return (
+		<div className="platform">
+			<div>{rows}</div>
+		</div>
+	);
 };
 
 Platform.defaultProps = {

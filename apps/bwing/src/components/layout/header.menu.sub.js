@@ -1,31 +1,46 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import { defMenuType } from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
+import { useGotoGame } from "../hook/useGotoGame";
+import productList from "../../datas/productList";
+// import path from "../../router";
 
 export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { handleGoToGame } = useGotoGame({ autoGetData: false });
+	const { isLogin, langId } = userInfo;
 
-	const ClickItem = (tpId, gameId) => {
+	const ClickItem = (tpId, gameId, menuType, _subPath) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
-
-		SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback
-		});
+		if (menuType === defMenuType.useGoToGame) {
+			handleGoToGame({
+				isLogin,
+				langId,
+				tpId,
+				gameId
+			});
+		} else if (_subPath) {
+			navigate(`/${userInfo.langId}/${_subPath}`);
+		} else {
+			SET_ENTER_PAGE({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				loginCallback
+			});
+		}
 	};
 
 	const rows = subItems?.map(s => {
@@ -57,8 +72,19 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 				<i className={`icon ${_iconClassName}`} />
 			);
 
-		// const _urlParams = params !== null ? `?${params.join("&")}` : "";
-		// const newIcon = s.isNew ? <i className="icon icon-newicon" /> : null;
+		let _subPath;
+		if (s.subPath) {
+			if (
+				s.gameId === productList.sportSaba.gameId &&
+				s.tpId === productList.sportSaba.tpId
+			) {
+				_subPath = `${s.subPath}?game=${s.parameter?.name}`;
+			}
+			if (s.tpId === productList.sportBti.tpId) {
+				_subPath = `${s.subPath}`;
+			}
+		}
+
 		if (s.menuType === defMenuType.Link) {
 			return (
 				<Link
@@ -74,7 +100,14 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			<button
 				key={key}
 				className={s.className}
-				onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
+				onClick={ClickItem.bind(
+					this,
+					s.tpId,
+					s.gameId,
+					// userInfo,
+					s.menuType,
+					_subPath
+				)}>
 				{showIcon}
 				<span className={s.icon}>{displayText}</span>
 			</button>

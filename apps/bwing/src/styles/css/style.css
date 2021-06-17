@@ -279,7 +279,9 @@ header .header > div.menu .subMenu-Wrapper {
   width: 100%;
   left: 0;
   top: 40px;
-  background: #000924;
+  background: rgba(0, 9, 36, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -295,6 +297,7 @@ header .header > div.menu .subMenu-Wrapper.active {
   padding-bottom: 30px;
 }
 
+header .header > div.menu .sportsList,
 header .header > div.menu .gameList,
 header .header > div.menu .casinoList,
 header .header > div.menu .livecasinoList,
@@ -305,6 +308,8 @@ header .header > div.menu .fishList {
   display: none;
 }
 
+header .header > div.menu .sportsList.active,
+header .header > div.menu .sportsList div,
 header .header > div.menu .gameList.active,
 header .header > div.menu .gameList div,
 header .header > div.menu .casinoList.active,
@@ -320,6 +325,8 @@ header .header > div.menu .fishList div {
       flex-wrap: wrap;
 }
 
+header .header > div.menu .sportsList a,
+header .header > div.menu .sportsList button,
 header .header > div.menu .gameList a,
 header .header > div.menu .gameList button,
 header .header > div.menu .casinoList a,
@@ -349,6 +356,8 @@ header .header > div.menu .fishList button {
   height: 150px;
 }
 
+header .header > div.menu .sportsList a img,
+header .header > div.menu .sportsList button img,
 header .header > div.menu .gameList a img,
 header .header > div.menu .gameList button img,
 header .header > div.menu .casinoList a img,
@@ -362,6 +371,8 @@ header .header > div.menu .fishList button img {
   width: fit-content;
 }
 
+header .header > div.menu .sportsList a span,
+header .header > div.menu .sportsList button span,
 header .header > div.menu .gameList a span,
 header .header > div.menu .gameList button span,
 header .header > div.menu .casinoList a span,
@@ -374,6 +385,8 @@ header .header > div.menu .fishList button span {
   position: relative;
 }
 
+header .header > div.menu .sportsList a:hover,
+header .header > div.menu .sportsList button:hover,
 header .header > div.menu .gameList a:hover,
 header .header > div.menu .gameList button:hover,
 header .header > div.menu .casinoList a:hover,
@@ -386,6 +399,8 @@ header .header > div.menu .fishList button:hover {
   transition: 0.7s;
 }
 
+header .header > div.menu .sportsList a i,
+header .header > div.menu .sportsList button i,
 header .header > div.menu .gameList a i,
 header .header > div.menu .gameList button i,
 header .header > div.menu .casinoList a i,
@@ -401,6 +416,8 @@ header .header > div.menu .fishList button i {
           animation: newicon 0.5s linear infinite alternate;
 }
 
+header .header > div.menu .sportsList a i::before,
+header .header > div.menu .sportsList button i::before,
 header .header > div.menu .gameList a i::before,
 header .header > div.menu .gameList button i::before,
 header .header > div.menu .casinoList a i::before,
@@ -414,6 +431,30 @@ header .header > div.menu .fishList button i::before {
   right: 0px;
   color: #56ceff;
   font-size: 20px;
+}
+
+header .header > div.menu .sportsList .sport {
+  background: url(../img/sport.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .sportsList .sport:hover {
+  background: url(../img/sport-a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .sportsList .BTI {
+  background: url(../img/BTI-sport.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .sportsList .BTI:hover {
+  background: url(../img/BTI-sport-a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .kingmaker {
+  background: url(../img/kingmaker.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .kingmaker:hover {
+  background: url(../img/kingmaker_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .gameList .sabaclub {
@@ -462,6 +503,14 @@ header .header > div.menu .gameList .traditional {
 
 header .header > div.menu .gameList .traditional:hover {
   background: url(../img/lotteryTra_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .jili {
+  background: url(../img/casinoJILI.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .jili:hover {
+  background: url(../img/casinoJILI_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .casinoList .GPI {
@@ -634,6 +683,14 @@ header .header > div.menu .livecasinoList .liveN2LIVE {
 
 header .header > div.menu .livecasinoList .liveN2LIVE:hover {
   background: url(../img/liven2live_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .livePT {
+  background: url(../img/livePT.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .livePT:hover {
+  background: url(../img/livePT_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .fishList .fgg {
@@ -848,6 +905,12 @@ header .header > div.function .icon-email.active:after {
   top: -2px;
 }
 
+header .header > div.function .downloadBtn {
+  color: #56ceff;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
 header .header > div.function .country {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -889,6 +952,7 @@ header .header > div.function .country.active .countryList {
 header .header > div.function .btnGroup a,
 header .header > div.function .btnGroup button {
   max-height: 32px;
+  text-transform: uppercase;
 }
 
 header .header > div.function .cashier,
@@ -1157,9 +1221,14 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
   height: 20px;
 }
 
+.newyear + main {
+  height: auto;
+}
+
 main {
   position: relative;
   padding-top: 120px;
+  height: calc(100% - 80px);
 }
 
 main section.inside {
@@ -1168,6 +1237,7 @@ main section.inside {
   display: flex;
   max-width: 1600px;
   margin: auto;
+  height: 100%;
 }
 
 main section > div {
@@ -1717,7 +1787,7 @@ input[type="file"] {
 .checkbox label.icon:before {
   display: none;
   font-size: 15px;
-  color: #259076;
+  color: #f77900;
 }
 
 .checkbox input[type="checkbox"]:checked + label.icon {
@@ -1878,7 +1948,8 @@ input[type="file"] {
 
 .btnGroup button.blueBorder:hover,
 .btnGroup a.blueBorder:hover {
-  background: #1e85ec;
+  background: #56ceff;
+  color: #fff;
 }
 
 .btnGroup button.icon:before,
@@ -1990,15 +2061,16 @@ main > .swiper-container .swiper-slide {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  -webkit-transform: translateX(-77%);
-          transform: translateX(-77%);
+  -webkit-transform: translateX(-81%);
+          transform: translateX(-81%);
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  padding-right: 10px;
 }
 
 .quickLink > div:nth-child(1) {
-  background: #00b9ff;
+  background: rgba(0, 185, 255, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2007,7 +2079,6 @@ main > .swiper-container .swiper-slide {
       -ms-flex: 0.5;
           flex: 0.5;
   height: 200px;
-  border-radius: 0 10px 10px 0;
   position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -2024,13 +2095,12 @@ main > .swiper-container .swiper-slide {
   color: #1e85ec;
   font-weight: bold;
   position: absolute;
-  width: 43px;
+  width: 100%;
   height: 43px;
   left: 0;
   font-size: 18px;
   z-index: 1;
   top: 0;
-  border-radius: 0 10px 0 0;
 }
 
 .quickLink > div:nth-child(1) i {
@@ -2061,7 +2131,6 @@ main > .swiper-container .swiper-slide {
       -ms-flex: 3.5;
           flex: 3.5;
   padding: 5px 10px;
-  border-radius: 0 0 10px 0;
 }
 
 .quickLink > div:nth-child(2) ul {
@@ -2105,7 +2174,7 @@ main > .swiper-container .swiper-slide {
   vertical-align: middle;
 }
 
-.quickLink.active {
+.quickLink:hover {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
   -webkit-transition: 0.7s;
@@ -2114,6 +2183,7 @@ main > .swiper-container .swiper-slide {
 
 .rightModule {
   width: 100%;
+  min-width: 1220px;
 }
 
 .porfileVip {
@@ -2544,6 +2614,7 @@ main > .swiper-container .swiper-slide {
   display: -ms-flexbox;
   display: flex;
   padding: 0 70px 20px;
+  margin-top: 20px;
 }
 
 .stepBar > div,
@@ -2779,6 +2850,92 @@ main > .swiper-container .swiper-slide {
 
 .inside-title .icon-friend span {
   margin: 0;
+}
+
+.bannerS {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.bannerS .jpot {
+  width: 400px;
+  height: 200px;
+  -webkit-animation: jpot 0.3s infinite;
+          animation: jpot 0.3s infinite;
+  position: relative;
+  background: url(../img/jackpot.png) no-repeat;
+  cursor: pointer;
+}
+
+.bannerS .jpot > div {
+  position: absolute;
+  bottom: 32px;
+  right: 50px;
+  width: 290px;
+  text-align: right;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+}
+
+.bannerS .jpot > div div:first-child {
+  font-size: 18px;
+  margin: auto auto auto 0;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) {
+  font-size: 18px;
+  width: 15px;
+  height: 30px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) span {
+  word-break: break-word;
+  position: absolute;
+  left: 0;
+}
+
+.bannerS .jpot > div div:nth-child(n + 2) span.active {
+  -webkit-animation: jpotxt 2s infinite;
+          animation: jpotxt 2s infinite;
+}
+
+@-webkit-keyframes jpotxt {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+
+@keyframes jpotxt {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
 }
 
 .achievement {
@@ -3450,7 +3607,8 @@ main > .swiper-container .swiper-slide {
   display: none;
 }
 
-#popup > .Cancel > .icon-icon32px_Profile ~ .btnGroup > .btn-check {
+#popup > .Cancel > .icon-icon32px_Profile ~ .btnGroup > .btn-check,
+#popup > .editSuccess > .icon-icon32px_notification ~ .btnGroup > .btn-check {
   max-width: -webkit-max-content;
   max-width: -moz-max-content;
   max-width: max-content;
@@ -3471,6 +3629,7 @@ main > .swiper-container .swiper-slide {
   font-size: 18px;
   color: #64789b;
   cursor: pointer;
+  z-index: 1;
 }
 
 #popup > div.loginpop {
@@ -3684,19 +3843,32 @@ main > .swiper-container .swiper-slide {
 }
 
 .Submit .btnGroup a,
+.Submit .btnGroup button,
 .Success .btnGroup a,
+.Success .btnGroup button,
 .Error .btnGroup a,
+.Error .btnGroup button,
 .Cancel .btnGroup a,
+.Cancel .btnGroup button,
 .uploadSuccess .btnGroup a,
+.uploadSuccess .btnGroup button,
 .updateSuccess .btnGroup a,
+.updateSuccess .btnGroup button,
 .tokyc .btnGroup a,
+.tokyc .btnGroup button,
 .addBankpop .btnGroup a,
+.addBankpop .btnGroup button,
 .changePassWordpop .btnGroup a,
+.changePassWordpop .btnGroup button,
 .editSuccess .btnGroup a,
+.editSuccess .btnGroup button,
 .upload .btnGroup a,
+.upload .btnGroup button,
 .update .btnGroup a,
-.loackAmount .btnGroup a {
-  max-width: 100px;
+.update .btnGroup button,
+.loackAmount .btnGroup a,
+.loackAmount .btnGroup button {
+  max-width: 150px;
 }
 
 .Submit .popList,
@@ -4064,7 +4236,7 @@ main > .swiper-container .swiper-slide {
 
 .offers > img,
 .offers > div {
-  width: calc(50% - 1px);
+  width: 100%;
   position: relative;
 }
 
@@ -4183,6 +4355,149 @@ main > .swiper-container .swiper-slide {
   font-size: 12px;
   color: #021e46;
   font-weight: bold;
+}
+
+.top10Aear {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.top10Aear .topImg {
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  height: 55px;
+  pointer-events: none;
+  background: url(../img/top10/topImg.png) no-repeat center;
+  background-size: 100%;
+  z-index: 1;
+}
+
+.top10Aear .title {
+  text-align: center;
+  padding: 10px 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4dc4ff), to(#3097ff));
+  background: linear-gradient(to bottom, #4dc4ff 0%, #3097ff 100%);
+  border-radius: 10px 10px 0 0;
+}
+
+.top10Aear .top10Box {
+  height: 150px;
+  overflow-y: auto;
+  padding-bottom: 50px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.top10Aear .top10Box > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top10Aear .top10Box > div > div:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.top10Aear .top10Box > div > div > div {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+}
+
+.top10Aear .top10Box > div > div > div img {
+  margin-right: 5px;
+}
+
+@-webkit-keyframes top10 {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  30% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  90% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+  100% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+}
+
+@keyframes top10 {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  30% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  90% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+  100% {
+    -webkit-transform: translateY(-75%);
+            transform: translateY(-75%);
+  }
+}
+
+.walletModuleLeft {
+  float: left;
+  width: 900px;
+  margin-right: 20px;
+}
+
+.walletModuleLeft .walletModule {
+  margin-top: 20px;
+}
+
+.walletModuleLeft .walletModule:nth-last-child(1) {
+  display: block;
+}
+
+.walletModuleLeft .walletModule .addBank {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.walletModuleLeft .walletModule .addBank .addBankName {
+  width: calc(100% / 3 - 30px);
+  position: relative;
+}
+
+.walletModuleLeft .walletModule .subModuleList {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.walletModuleLeft .walletModule .btnGroup {
+  margin: 0 auto;
 }
 
 .walletModule {
@@ -4822,6 +5137,10 @@ main > .swiper-container .swiper-slide {
           flex: 1;
   margin-right: 10px;
   max-width: 520px;
+}
+
+.quickSelect > div.gameBtn {
+  max-width: inherit;
 }
 
 .quickSelect > div.btnGroup:not(.promoType) {
@@ -5516,8 +5835,8 @@ main > .swiper-container .swiper-slide {
 .proList > div .newTag,
 .slotList > div .newTag {
   position: absolute;
-  right: 16px;
-  bottom: 25%;
+  right: 50px;
+  top: 5%;
   padding: 3px 10px;
   background-color: rgba(244, 43, 7, 0.3);
   border: 1px solid #f42b07;
@@ -5588,6 +5907,10 @@ main > .swiper-container .swiper-slide {
 .slotList .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
+}
+
+.proList.expList > div {
+  min-width: 340px;
 }
 
 .proList > div {
@@ -5667,14 +5990,17 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
-  background: #297da2;
+  -webkit-transform: rotate(-20deg) skewX(-20deg) translateX(-50%) translateY(-100%);
+          transform: rotate(-20deg) skewX(-20deg) translateX(-50%) translateY(-100%);
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #fff;
   border-radius: 5px;
   font-weight: bold;
-  padding: 5px 15px;
+  padding: 10px 20px;
   color: white;
-  font-size: 18px;
+  font-size: 20px;
+  -webkit-box-shadow: 0 0 5px #fff inset;
+          box-shadow: 0 0 5px #fff inset;
 }
 
 .promotionsInfo {
@@ -5776,6 +6102,274 @@ main > .swiper-container .swiper-slide {
   color: white;
 }
 
+.livelobby {
+  height: auto;
+  background: url(../img/livelobby/livelobbyBG.png) no-repeat bottom;
+  padding-bottom: 10%;
+  background-size: 100%;
+}
+
+.livelobbyList {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.livelobbyList::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  width: 100%;
+  height: 150px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 15, 35, 0)), to(#070f23));
+  background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0%, #070f23 100%);
+  z-index: 1;
+}
+
+.livelobbyList > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(100% / 6 - 20px);
+          flex: 0 0 calc(100% / 6 - 20px);
+  min-width: 230px;
+  height: 280px;
+  margin: 20px 10px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.livelobbyList > div .icon {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+.livelobbyList > div.live-n2 {
+  background: url(../img/livelobby/live-n2.png) no-repeat center;
+}
+
+.livelobbyList > div.live-n2:hover {
+  background: url(../img/livelobby/live-n2-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-789 {
+  background: url(../img/livelobby/live-789.png) no-repeat center;
+}
+
+.livelobbyList > div.live-789:hover {
+  background: url(../img/livelobby/live-789-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-wm {
+  background: url(../img/livelobby/live-wm.png) no-repeat center;
+}
+
+.livelobbyList > div.live-wm:hover {
+  background: url(../img/livelobby/live-wm-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-dg {
+  background: url(../img/livelobby/live-dg.png) no-repeat center;
+}
+
+.livelobbyList > div.live-dg:hover {
+  background: url(../img/livelobby/live-dg-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ab {
+  background: url(../img/livelobby/live-ab.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ab:hover {
+  background: url(../img/livelobby/live-ab-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ag {
+  background: url(../img/livelobby/live-ag.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ag:hover {
+  background: url(../img/livelobby/live-ag-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-pp {
+  background: url(../img/livelobby/live-pp.png) no-repeat center;
+}
+
+.livelobbyList > div.live-pp:hover {
+  background: url(../img/livelobby/live-pp-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-sa {
+  background: url(../img/livelobby/live-sa.png) no-repeat center;
+}
+
+.livelobbyList > div.live-sa:hover {
+  background: url(../img/livelobby/live-sa-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ae {
+  background: url(../img/livelobby/live-ae.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ae:hover {
+  background: url(../img/livelobby/live-ae-a.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ebet {
+  background: url(../img/livelobby/live-ebet.png) no-repeat center;
+}
+
+.livelobbyList > div.live-ebet:hover {
+  background: url(../img/livelobby/live-ebet-a.png) no-repeat center;
+}
+
+.fishlobby {
+  height: auto;
+  background: url(../img/fishinglobby/fishlobbyBG.png) no-repeat bottom;
+  padding-bottom: 10%;
+  background-size: 100%;
+}
+
+.fishlobbyList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.fishlobbyList::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  width: 100%;
+  height: 150px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 15, 35, 0)), to(#070f23));
+  background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0%, #070f23 100%);
+  z-index: 1;
+}
+
+.fishlobbyList > div {
+  min-width: 310px;
+  height: 310px;
+  margin: 20px 5px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.fishlobbyList > div .icon {
+  position: absolute;
+  top: 5%;
+  left: 20px;
+  font-size: 20px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+.fishlobbyList > div p {
+  position: absolute;
+  width: 120px;
+  height: 35px;
+  text-transform: uppercase;
+  bottom: 12%;
+  left: 50%;
+  -webkit-transform: translateX(-49%);
+          transform: translateX(-49%);
+  color: #070e22;
+  font-size: 12px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.fishlobbyList > div .btnGroup {
+  display: none;
+  position: absolute;
+  width: 80%;
+  bottom: 28%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.fishlobbyList > div:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.fishlobbyList > div:hover .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.fishlobbyList > div.fish-world {
+  background: url(../img/fishinglobby/fish-world.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-db {
+  background: url(../img/fishinglobby/fish-dragonball.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-god {
+  background: url(../img/fishinglobby/fish-god.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-saviors {
+  background: url(../img/fishinglobby/fish-saviors.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-of {
+  background: url(../img/fishinglobby/fish-of.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-ttsatp {
+  background: url(../img/fishinglobby/fish-ttatp.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-wrd {
+  background: url(../img/fishinglobby/fish-wrd.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-paradise {
+  background: url(../img/fishinglobby/paradise.png) no-repeat center;
+}
+
+.fishlobbyList > div.coming {
+  opacity: 0.5;
+}
+
+.fishlobbyList > div.coming:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 form {
   width: 100%;
 }
@@ -5807,26 +6401,35 @@ form {
   min-width: 190px;
 }
 
+.slotList > div:hover .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .slotList > div .txt-blue15 {
   font-weight: bold;
   margin-top: 10px;
 }
 
 .slotList > div .btnGroup {
+  display: none;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
+  position: absolute;
+  width: 85%;
+  bottom: 17%;
+  left: 50%;
+  -webkit-transform: translatex(-50%);
+          transform: translatex(-50%);
 }
 
 .slotList > div .btnGroup button,
 .slotList > div .btnGroup a {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(50% - 5px);
-          flex: 0 0 calc(50% - 5px);
   min-width: auto;
   max-width: none;
-  margin: 0;
   text-transform: uppercase;
 }
 
@@ -6411,6 +7014,11 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-pack: center;
           justify-content: center;
   font-weight: bold;
+}
+
+.indexGameList a img,
+.indexGameList button img {
+  margin: 0 auto;
 }
 
 .indexGameList a:hover div,
@@ -8399,8 +9007,115 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: flex;
 }
 
+.pop .backupDomain {
+  overflow: unset;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  color: #aeb2bc;
+  max-width: 480px;
+}
+
+.pop .backupDomain .icon-close {
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  color: white;
+}
+
+.pop .backupDomain .poptit {
+  width: calc(100% - 40px);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px 30px 10px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pop .backupDomain .poptit + img {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.pop .backupDomain .poptxt {
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+
+.pop .backupDomain .url {
+  padding: 5px 10px;
+  border-radius: 30px;
+  border: 1px solid #aeb2bc;
+  margin: 10px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  width: calc(100% - 40px);
+}
+
+.pop .backupDomain .url .copyurl {
+  position: absolute;
+  border-radius: 30px;
+  color: white;
+  padding: 2px 10px;
+  right: 2px;
+  background: #2888ff;
+  font-size: 12px;
+}
+
+.pop .backupDomain .checkbox {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pop .backupDomain .checkbox input[type="checkbox"] + label {
+  border: 1px solid #f77900;
+}
+
+.pop .backupDomain .checkbox input[type="checkbox"]:checked + label {
+  color: #f77900;
+}
+
 .subModuleListColumn {
-  padding: 20px 50px 50px;
+  padding: 20px 20px 50px;
+  float: left;
+  width: 900px;
+}
+
+.subModuleListColumn p {
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.subModuleListColumn > .subModuleTitle {
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.subModuleListColumn > .subModuleTitle i {
+  color: #56ceff;
+  margin-right: 3px;
 }
 
 .subModuleListColumn > .subModule {
@@ -8444,16 +9159,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   opacity: 1;
 }
 
-.subModuleListColumn > .subModule > .subModuleTitle {
-  width: 160px;
-  white-space: nowrap;
-}
-
-.subModuleListColumn > .subModule > .subModuleTitle i {
-  color: #56ceff;
-  margin-right: 3px;
-}
-
 .subModuleListColumn > .subModule > .subModuleContent {
   width: calc(100% - 200px);
   margin-left: 35px;
@@ -8469,7 +9174,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: calc(100% - 180px);
 }
 
 .subModuleListColumn > .subModule > div > button,
@@ -8486,7 +9190,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           align-items: center;
   margin-bottom: 15px;
   color: white;
-  width: 215px;
+  width: 210px;
   position: relative;
 }
 
@@ -8599,10 +9303,15 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .column .inputBox-white input::-webkit-input-placeholder {
-  text-align: right;
+  text-align: left;
 }
 
 .subModuleListColumn > .subModule .column .inputBox-white + .tip {
+  margin-left: 15px;
+}
+
+.subModuleListColumn > .subModule .column .inputBox-blue {
+  max-width: 300px;
   margin-left: 15px;
 }
 
@@ -8614,7 +9323,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .inputBox-white input::-webkit-input-placeholder {
-  text-align: right;
+  text-align: left;
 }
 
 .subModuleListColumn > .subModule .inputBox-white + .tip {
@@ -8630,7 +9339,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   border: 0;
   color: white;
   outline: none;
-  text-align: right;
 }
 
 .subModuleListColumn > .subModule .inputBox-white .iconModule {
@@ -8723,6 +9431,39 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn .bankAccount .smallList ul li:nth-child(2) {
   min-width: 100px;
   width: auto;
+}
+
+.important {
+  background: #232e49;
+  color: #c9cfd9;
+  width: 220px;
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 15px 10px 15px 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  float: left;
+  font-size: 12px;
+}
+
+.important .title {
+  margin-bottom: 15px;
+  text-align: center;
+  color: #ff6734;
+}
+
+.important ol li {
+  list-style: decimal;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.important ol li span {
+  color: #fff;
+}
+
+.important ol li a {
+  color: #1e85ec;
 }
 
 .text-center {
@@ -8916,6 +9657,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin: auto;
   padding-top: 170px;
   max-width: 1200px;
+  height: auto;
 }
 
 .vip .swiper-container {
@@ -9001,6 +9743,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .vip .medal tr td:first-child {
   width: 34%;
+  text-align: left;
 }
 
 .vip .medal tr td img {
@@ -9074,5 +9817,332 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-weight: bold;
   color: #1e85ec;
   width: 100%;
+}
+
+.pupDeposit {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  z-index: 10;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-bottom: 50px;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .title {
+  color: #56ceff;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2vw;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh {
+  height: 70vh;
+  overflow: auto;
+  margin: 20px 0;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh p {
+  max-width: 800px;
+  position: relative;
+  color: #fff;
+  margin: 20px 0 10px 0;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh p::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 0 5px 10px;
+  border-color: transparent transparent transparent #fff;
+  -webkit-animation: qwe 1s linear infinite;
+          animation: qwe 1s linear infinite;
+}
+
+@keyframes qwe {
+  0% {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+  100% {
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+  }
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh img {
+  margin: 10px 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  max-width: 800px;
+  width: auto;
+}
+
+.pupDeposit .swiper-container .swiper-wrapper > div .swiper-heigh img:hover {
+  -webkit-box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
+          box-shadow: 0px 2px 10px rgba(86, 206, 255, 0.3);
+}
+
+.pupDeposit .swiper-container .btnGroup {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pupDeposit .swiper-container .btnGroup button {
+  max-width: 200px;
+}
+
+.pupDeposit .swiper-container .swiper-pagination {
+  bottom: 60px;
+}
+
+.downloadArea {
+  padding: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea {
+    width: 100%;
+  }
+}
+
+.downloadArea .downloadT {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background: url(../img/download/downloanBG.png) no-repeat bottom center;
+  background-size: cover;
+}
+
+.downloadArea .downloadT .logo {
+  margin-top: 20vh;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadT .logo {
+    margin-top: 15vh;
+    width: 180px;
+  }
+}
+
+.downloadArea .downloadT h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0 50px 0;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadT h1 {
+    font-size: 6vw;
+  }
+}
+
+.downloadArea .downloadT .downloadFrame {
+  width: 650px;
+  border-radius: 10px;
+  background: #000;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(65, 197, 255, 0.5)), to(rgba(145, 51, 155, 0.5)));
+  background: linear-gradient(to bottom, rgba(65, 197, 255, 0.5) 0%, rgba(145, 51, 155, 0.5) 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-bottom: 210px;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadT .downloadFrame {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 200px;
+  }
+}
+
+.downloadArea .downloadT .downloadFrame p {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadT .downloadFrame p {
+    font-size: 4vw;
+  }
+}
+
+.downloadArea .downloadT .downloadFrame > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px 0;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadT .downloadFrame > div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+}
+
+.downloadArea .downloadT .downloadFrame > div div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadT .downloadFrame > div div {
+    margin-right: 0;
+    margin-top: 10px;
+  }
+}
+
+.downloadArea .downloadT .downloadFrame > div div img {
+  margin-bottom: 10px;
+}
+
+.downloadArea .downloadT .downloadFrame > div div button {
+  width: 200px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #3ca3ff), to(#175de6));
+  background: linear-gradient(to bottom, #3ca3ff 1%, #175de6 100%);
+}
+
+.downloadArea .downloadB {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background: url(../img/download/downloanBG2.png) no-repeat bottom center;
+  background-size: cover;
+}
+
+.downloadArea .downloadB h1 {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px 0 50px 0;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadB h1 {
+    font-size: 6vw;
+    margin: 10px 0 30px 0;
+  }
+}
+
+.downloadArea .downloadB h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadB h2 {
+    font-size: 4vw;
+  }
+}
+
+.downloadArea .downloadB p {
+  font-size: 14px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadB p {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3vw;
+  }
+}
+
+.downloadArea .downloadB div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 710px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 700px) {
+  .downloadArea .downloadB div {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */

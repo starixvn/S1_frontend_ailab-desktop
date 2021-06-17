@@ -10,6 +10,7 @@ import {
 	api_account_onlineCheck
 } from "../../service/api/account";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
+import { api_site_GetTpIds } from "../../service/api/site";
 import { defPopBoxType } from "./defPopBoxType";
 import useInterval from "../hook/useInterval";
 import {
@@ -19,6 +20,7 @@ import {
 } from "../../service/language";
 import useGetWalletInfo from "./wrapper.walletInfo";
 import { langCookie } from "../../config";
+import path from "../../router";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -57,6 +59,7 @@ export default ({ children, afterLogin = false }) => {
 	const [correctPath, setCorrectPath] = useState(false);
 	const [redirectPath, setRedirectPath] = useState(null);
 	const [isRoot, setIsRoot] = useState(false);
+	const [productTpIds, setProductTpIds] = useState(null);
 
 	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
 
@@ -100,8 +103,12 @@ export default ({ children, afterLogin = false }) => {
 						)
 					});
 				}
-			} else if (afterLogin && !isLogin && isMountedRef.current) {
+			} else if (isMountedRef.current && afterLogin && !isLogin) {
 				setRedirectPath(`/${userInfo.langId}`);
+			}
+
+			if (userInfo.isJoin) {
+				navigate(`/${userInfo.langId}/${path.deposit.root}`);
 			}
 			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
 				setUserInfo(prevState => ({
@@ -114,6 +121,7 @@ export default ({ children, afterLogin = false }) => {
 		userInfo.isLogin,
 		userInfo.kickout,
 		userInfo.willLogout,
+		userInfo.isJoin,
 		setUserInfo,
 		setRedirectPath,
 		setPopBox
@@ -208,6 +216,18 @@ export default ({ children, afterLogin = false }) => {
 		}
 	}, []);
 
+	useEffect(() => {
+		if (userInfo.isLogin && productTpIds === null) {
+			api_site_GetTpIds().then(res => {
+				if (res.data.errorCode === 0 && isMountedRef.current) {
+					setProductTpIds(res.data.data);
+				}
+			});
+		} else if (userInfo.isLogin === false && productTpIds?.length > 0) {
+			setProductTpIds(null);
+		}
+	}, [userInfo.isLogin, productTpIds]);
+
 	useInterval(
 		() => {
 			api_account_onlineCheck().then(res => {
@@ -231,27 +251,30 @@ export default ({ children, afterLogin = false }) => {
 			(afterLogin && userInfo.isLogin === false && userInfo.kickout)
 		) {
 			return (
-				<ct.userInfoContext.Provider value={{ userInfo, setUserInfo }}>
-					<ct.walletInfoContext.Provider
-						value={{
-							...walletInfo.state,
-							dispatch: walletInfo.dispatch
-						}}>
-						<ct.msgCountContext.Provider
-							value={{ msgCount, setMsgCount }}>
-							<ct.popBoxContext.Provider
-								value={{ popBox, setPopBox }}>
-								<ct.loadingContext.Provider
-									value={{ loading, setLoading }}>
-									<ct.isRootContext.Provider
-										value={{ isRoot, setIsRoot }}>
-										{children}
-									</ct.isRootContext.Provider>
-								</ct.loadingContext.Provider>
-							</ct.popBoxContext.Provider>
-						</ct.msgCountContext.Provider>
-					</ct.walletInfoContext.Provider>
-				</ct.userInfoContext.Provider>
+				<ct.productTpIdsContext.Provider value={{ productTpIds }}>
+					<ct.userInfoContext.Provider
+						value={{ userInfo, setUserInfo }}>
+						<ct.walletInfoContext.Provider
+							value={{
+								...walletInfo.state,
+								dispatch: walletInfo.dispatch
+							}}>
+							<ct.msgCountContext.Provider
+								value={{ msgCount, setMsgCount }}>
+								<ct.popBoxContext.Provider
+									value={{ popBox, setPopBox }}>
+									<ct.loadingContext.Provider
+										value={{ loading, setLoading }}>
+										<ct.isRootContext.Provider
+											value={{ isRoot, setIsRoot }}>
+											{children}
+										</ct.isRootContext.Provider>
+									</ct.loadingContext.Provider>
+								</ct.popBoxContext.Provider>
+							</ct.msgCountContext.Provider>
+						</ct.walletInfoContext.Provider>
+					</ct.userInfoContext.Provider>
+				</ct.productTpIdsContext.Provider>
 			);
 		}
 		return null;

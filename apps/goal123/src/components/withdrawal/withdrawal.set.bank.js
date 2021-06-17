@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import { Link } from "@reach/router";
 import AddBankAccount from "./addBankAccount";
 import Available from "./withdrawal.set.available";
@@ -311,7 +311,7 @@ export default ({
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -349,40 +349,41 @@ export default ({
 
 	return (
 		<>
-			<div className="inside-title icon icon-transfer">
+			<div className="inside-title icon icon-icon32px_Withdraw">
 				<span>{t("lbl_Withdrawal")}</span>
 				<div>{t("lbl_UpdateBankInfo")}</div>
 			</div>
 
-			<div className="walletWrapper">
-				{/* <StepBar step={step} t={t} defStep={defStep} /> */}
+			<div className="infoModuleLeft">
+				<div className="walletWrapper">
+					{/* <StepBar step={step} t={t} defStep={defStep} /> */}
 
-				<div className="walletModule">
-					<Available
-						availableBalance={balanceData.availableBalance}
-						refreshAvailableBalance={refreshAvailableBalance}
-						_isConvert={_isConvert}
-						accountName={userInfo.accountName}
-					/>
-				</div>
-				<div className="walletModule">
-					<div className="addBank">
-						<BankInfoCard
-							setCurrentlyBankInfo={setCurrentlyBankInfo}
-							currentBankInfo={{
-								sysIdValue,
-								accountNoValue,
-								bankNameValue
-							}}
-							bankInfoList={bankInfoList}
-							setBankInfoList={setBankInfoList}
+					<div className="walletModule">
+						<Available
+							availableBalance={balanceData.availableBalance}
+							refreshAvailableBalance={refreshAvailableBalance}
 							_isConvert={_isConvert}
-							confirmPanel={showConfirmPage}
-							balanceData={balanceData}
+							accountName={userInfo.accountName}
 						/>
-						<AddBankAccount bankInfoList={bankInfoList} />
 					</div>
-
+					<div className="walletModule">
+						<div className="addBank">
+							<BankInfoCard
+								setCurrentlyBankInfo={setCurrentlyBankInfo}
+								currentBankInfo={{
+									sysIdValue,
+									accountNoValue,
+									bankNameValue
+								}}
+								bankInfoList={bankInfoList}
+								setBankInfoList={setBankInfoList}
+								_isConvert={_isConvert}
+								confirmPanel={showConfirmPage}
+								balanceData={balanceData}
+							/>
+							<AddBankAccount bankInfoList={bankInfoList} />
+						</div>
+					</div>
 					<div className="subModuleList">
 						<div className="subModule">
 							{!showConfirmPage ? (
@@ -434,6 +435,51 @@ export default ({
 						</div>
 					</div>
 				</div>
+			</div>
+
+			<div className="importantNo">
+				<div className="title">
+					<span className="icon icon-warning" />{" "}
+					{t("lbl_ImportantNotice")}
+				</div>
+				<ul>
+					<li>
+						<Trans
+							i18nKey="lbl_WithdrawalImportantNoticeContent1"
+							components={{
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
+							}}
+						/>
+					</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent2")}</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent3")}</li>
+					<li>{t("lbl_WithdrawalImportantNoticeContent4")}</li>
+
+					<li>
+						<Trans
+							i18nKey="lbl_WithdrawalImportantNoticeContent5"
+							components={{
+								Link: (
+									<a
+										onClick={() =>
+											window.LiveChatWidget.call(
+												"maximize"
+											)
+										}
+									/>
+								)
+							}}
+						/>
+					</li>
+				</ul>
 			</div>
 		</>
 	);

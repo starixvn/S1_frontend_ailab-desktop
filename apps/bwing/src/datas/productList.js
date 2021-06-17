@@ -1,4 +1,13 @@
 export default {
+	sportSaba: {
+		tpId: 1,
+		gameId: 1,
+		name: "soccer"
+	},
+	sportBti: {
+		tpId: 29,
+		name: "sportBti"
+	},
 	soccer: {
 		tpId: 1,
 		gameId: 1,
@@ -169,6 +178,9 @@ export default {
 	V8_Poker: {
 		tpId: 25,
 		gameId: 0
+	},
+	KingMaker: {
+		tpId: 11
 	}
 };
 

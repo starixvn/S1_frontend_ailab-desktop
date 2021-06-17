@@ -17,6 +17,13 @@ export const api_tp_Transfer = ({ TpId, amount, direction }) =>
 		direction
 	});
 
+export const api_tp_TransferEx = ({ FromTpId, ToTpId, Amount }) =>
+	tpRequest.post("/TransferEX", {
+		FromTpId,
+		ToTpId,
+		Amount
+	});
+
 export const defGotoGame_AppType = defDeviceType;
 
 export const api_tp_GotoGame = ({
@@ -24,7 +31,8 @@ export const api_tp_GotoGame = ({
 	TpId,
 	LangId,
 	AppType = defDeviceType.Desktop,
-	fun = null
+	fun = null,
+	gameType = ""
 }) =>
 	tpRequest.post("/GotoGame", {
 		TpId,
@@ -32,6 +40,7 @@ export const api_tp_GotoGame = ({
 		AppType,
 		inputs: {
 			gameId,
-			fun
+			fun,
+			gameType
 		}
 	});

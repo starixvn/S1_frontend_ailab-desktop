@@ -13,21 +13,25 @@ export default () => {
 	const { t } = useTranslation();
 	const [active, setActive] = useState(false);
 
-	const activeToggleHandler = () => {
-		setActive(prev => !prev);
-	};
-
 	const openLiveChat = () => {
 		window.LiveChatWidget.call("maximize");
 	};
 
 	return (
-		<div className={`quickLink${active ? " active" : ""}`}>
-			<div>
+		<div
+			onFocus={() => 0}
+			onMouseOver={() => setActive(true)}
+			onMouseLeave={() => setActive(false)}
+			className={`quickLink${active ? " active" : ""}`}>
+			<div onClick={() => setActive(false)}>
 				<button className="icon icon-chat" onClick={openLiveChat} />
+
 				<i
-					className="icon icon-circle-right"
-					onClick={activeToggleHandler}>
+					className={
+						active
+							? "icon icon-cancel-circle"
+							: "icon icon-circle-right"
+					}>
 					{t("lbl_ContactUs").toUpperCase()}
 				</i>
 			</div>
@@ -35,12 +39,13 @@ export default () => {
 				<ul>
 					<li>
 						<a
-							href="skype:live:.cid.d357533c71e50fb5?chat"
+							href="https://zalo.me/Goal123csd"
 							target="_blank"
 							rel="noreferrer">
-							<img src={skypeIconImg} alt="skypeImg" />
-							{t("lbl_Skype")}
+							<img src={zaloIconImg} alt="zalo-icon" />
+							{t("lbl_Zalo")}
 						</a>
+						<img src={zaloQRcodeImg} alt="zalo-qrcode" />
 					</li>
 					<li>
 						<a
@@ -54,13 +59,12 @@ export default () => {
 					</li>
 					<li>
 						<a
-							href="https://zalo.me/Goal123csd"
+							href="skype:live:.cid.d357533c71e50fb5?chat"
 							target="_blank"
 							rel="noreferrer">
-							<img src={zaloIconImg} alt="zalo-icon" />
-							{t("lbl_Zalo")}
+							<img src={skypeIconImg} alt="skypeImg" />
+							{t("lbl_Skype")}
 						</a>
-						<img src={zaloQRcodeImg} alt="zalo-qrcode" />
 					</li>
 				</ul>
 			</div>

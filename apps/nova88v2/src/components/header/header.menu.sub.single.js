@@ -7,6 +7,7 @@ import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
 import productList from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
+import config from "../../config";
 
 const SubMenuSingle = ({ menuKey, userInfo, t }) => {
 	const { setPopBox } = useContext(popBoxContext);
@@ -80,6 +81,34 @@ const SubMenuSingle = ({ menuKey, userInfo, t }) => {
 			<div>
 				<div>{t("lbl_THE_WORLD_CLASS_LEADERBOARD")}</div>
 				<div>{t("lbl_Bring_you_the_best_experience")}</div>
+			</div>
+		);
+	}
+	if (menuKey === "appDownload") {
+		return (
+			<Link to={`/${userInfo.langId}/${path.appDownload.root}`}>
+				<img
+					alt="app_download"
+					src={`${config.cloudImgUrl}/SiteSkin/img/appdownload.jpg`}
+				/>
+			</Link>
+		);
+	}
+
+	if (menuKey === "promotion") {
+		return (
+			<div>
+				<div className="txt-orange">
+					{t("lbl_Promos_wording_title")}
+				</div>
+				<div>{t("lbl_Promos_wording_desc")}</div>
+				<div className="btnGroup">
+					<Link
+						to={`/${userInfo.langId}/${path.promotion.root}`}
+						className="lightblue">
+						{t("lbl_ClaimNow")}
+					</Link>
+				</div>
 			</div>
 		);
 	}

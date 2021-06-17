@@ -10,7 +10,8 @@ const LeaderBoardEventContent = ({
 	rewardList,
 	userInfo,
 	changeRewardTab,
-	rewardTab
+	rewardTab,
+	linkToTnc
 }) => {
 	const rows = rewardList?.map((item, idx) => {
 		return (
@@ -28,12 +29,6 @@ const LeaderBoardEventContent = ({
 			</li>
 		);
 	});
-
-	const linkToTnc = () => {
-		window.open(
-			`${config.t_and_cURL}/SiteSkin/${config.siteName}/Ranking/${userInfo.langId}4.html`
-		);
-	};
 
 	return (
 		<div
@@ -125,7 +120,8 @@ LeaderBoardEventContent.propTypes = {
 	tab: PropTypes.number.isRequired,
 	rewardList: PropTypes.arrayOf(PropTypes.object).isRequired,
 	changeRewardTab: PropTypes.func.isRequired,
-	rewardTab: PropTypes.number.isRequired
+	rewardTab: PropTypes.number.isRequired,
+	linkToTnc: PropTypes.func.isRequired
 };
 
 export default LeaderBoardEventContent;

@@ -4,6 +4,7 @@ import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defRowsPerPage } from "./casino.def";
 import defPopBoxType from "../common/defPopBoxType";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
+import useDelayFunc from "../hook/useDelayFunc";
 
 export default ({
 	displayGames,
@@ -14,36 +15,41 @@ export default ({
 	currentPage,
 	favorite,
 	onSetFavorite,
-	t
+	t,
+	maintainList
 }) => {
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
+	const { throttle } = useDelayFunc();
 	const { setPopBox } = useContext(popBoxContext);
 	const startIdx = (currentPage - 1) * defRowsPerPage;
 	const endIdx = currentPage * defRowsPerPage;
 
-	const onClickPlay = (tpId, gameId, isFree) => {
-		if (isLogin) {
-			SET_CASINO_ENTER_PAGE({
-				tpId,
-				gameId,
-				isFree,
-				langId,
-				execFunction:
-					tpId === defSpecialSetting.playTech
-						? handleGoToGame.bind(this, {
-								langId,
-								tpId,
-								gameId,
-								isFun: isFree
-						  })
-						: null
-			});
-		} else {
+	const onClickPlay = ({ tpId, gameId, isFree, delay }) => {
+		if (isLogin || isFree) {
+			throttle(
+				() =>
+					SET_CASINO_ENTER_PAGE({
+						tpId,
+						gameId,
+						isFree,
+						langId,
+						execFunction:
+							tpId === defSpecialSetting.playTech
+								? handleGoToGame.bind(this, {
+										langId,
+										tpId,
+										gameId,
+										isFun: isFree
+								  })
+								: null
+					}),
+				delay
+			);
+		} else
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
-		}
 	};
 
 	let _imgUrl = "";
@@ -64,8 +70,23 @@ export default ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
+			const isInMaintain = maintainList.some(
+				item => item.tpId === g.tpId
+			);
+
+			const _className = [isInMaintain && "active"]
+				.filter(Boolean)
+				.join(" ");
+
+			const _style = {
+				pointerEvents: isInMaintain ? "none" : "auto"
+			};
+
 			return (
-				<div key={`casino-game-${g.tpId}-${g.gameId}`}>
+				<div
+					className={_className}
+					style={_style}
+					key={`casino-game-${g.tpId}-${g.gameId}`}>
 					<div className="brand">
 						<span>{tpInfo.displayText}</span>
 					</div>
@@ -82,27 +103,33 @@ export default ({
 					<div className="btnGroup">
 						<button
 							className="blue"
-							onClick={onClickPlay.bind(
-								this,
-								g.tpId,
-								g.gameId,
-								false
-							)}>
-							{t("lbl_PlayNow")}
+							onClick={() =>
+								onClickPlay({
+									tpId: g.tpId,
+									gameId: g.gameId,
+									isFree: false,
+									delay: 5000
+								})
+							}>
+							{t("lbl_Play")}
 						</button>
+
 						{g.playFree ? (
 							<button
 								className="blue"
-								onClick={onClickPlay.bind(
-									this,
-									g.tpId,
-									g.gameId,
-									true
-								)}>
-								{t("lbl_Free")}
+								onClick={() =>
+									onClickPlay({
+										tpId: g.tpId,
+										gameId: g.gameId,
+										isFree: true,
+										delay: 0
+									})
+								}>
+								{t("lbl_Demo")}
 							</button>
 						) : null}
 					</div>
+					<div className="under">{t("lbl_underMaintenance")}</div>
 				</div>
 			);
 		});

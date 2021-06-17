@@ -13,6 +13,8 @@ const getAffiliate = ({ langId }) => {
 		: `https://aff.${arr.join(".")}/?lang=${langId}`;
 };
 
+const bannerImgUrl = "https://banner.bw88.io";
+
 export const errorPageUrl = langId =>
 	`https://error.bw88.io/404/index_${langId}.html`;
 
@@ -30,7 +32,8 @@ export default process.env.NODE_ENV === "production"
 			apiURL: "",
 			openURL: "",
 			imgUrl: "",
-			t_and_cURL: ""
+			t_and_cURL: "",
+			bannerImgUrl
 	  }
 	: {
 			siteName,
@@ -39,9 +42,10 @@ export default process.env.NODE_ENV === "production"
 			// imgUrl: "http://localhost:60930",
 			// t_and_cURL: "http://localhost:60930",
 
-			apiURL: "http://stag.Bwing.com",
+			apiURL: "",
 			imgUrl: "http://stag.Bwing.com",
 			cloudImgUrl: "",
+			bannerImgUrl,
 			t_and_cURL: "http://stag.Bwing.com",
 			openURL: "http://stag.Bwing.com"
 	  };

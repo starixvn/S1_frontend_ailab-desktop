@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { SiteInfo } from "../../config";
+import { userInfoContext } from "../common/context";
+import { getCurrencyCode } from "../common/common";
+import { currencyCode } from "../../datas/countryCode";
+import whatsappQR from "../../styles/img/whatsappQR.jpg";
+import lineQR from "../../styles/img/lineQR.jpg";
 
 export default () => {
 	const { t } = useTranslation();
+	const { userInfo } = useContext(userInfoContext);
 	const [isIconListOpen, setIsIconListOpen] = useState(false);
 	const [activeIcon, setActiveIcon] = useState(null);
 
@@ -22,26 +28,28 @@ export default () => {
 		}
 	};
 
+	const _currencyId = userInfo.currencyId
+		? userInfo.currencyId
+		: getCurrencyCode(userInfo.langId);
+
 	const defIconList = [
 		{ id: 1, iconClass: "icon icon-chat" },
 		{ id: 2, iconClass: "icon icon-instagram" },
-		// { id: 3, iconClass: "icon icon-facebook2" },
-		// { id: 4, iconClass: "icon icon-twitter" },
+		{ id: 3, iconClass: "icon icon-facebook2" },
+		{ id: 4, iconClass: "icon icon-twitter" },
 		{
 			id: 5,
-
+			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
 			imgInfo: "+63 945 638 8147",
-			imgSrc:
-				"https://www.nova88.net/static/whatsappQR-94d78581cf79618d3510ad46f3a1c520.jpg"
+			imgSrc: whatsappQR
 		},
 		{
 			id: 6,
-
+			displayByCurrency: [currencyCode.TH],
 			iconClass: "icon icon-line",
 			imgInfo: "@Nova88thai",
-			imgSrc:
-				"https://www.nova88.net/static/lineQR-bf41d1997d45a32bcf433f500f0dcfe7.jpg"
+			imgSrc: lineQR
 		}
 	];
 
@@ -66,7 +74,11 @@ export default () => {
 		}
 	};
 
-	const iconList = defIconList.map(_icon => {
+	const icons = defIconList.filter(_icon =>
+		_icon.displayByCurrency?.includes(_currencyId)
+	);
+
+	const iconList = (icons.length === 0 ? defIconList : icons).map(_icon => {
 		return (
 			<a
 				key={`sidebar-link-${_icon.id}`}

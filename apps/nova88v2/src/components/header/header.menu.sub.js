@@ -1,49 +1,85 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "@reach/router";
-import { defMenuLinks, defSubListClassName } from "./header.menu.def";
+import {
+	defMenuLinks,
+	defSubListClassName,
+	defMenuType
+} from "./header.menu.def";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
-import { SET_ENTER_PAGE } from "../../service/enterPage";
+import { SET_ENTER_PAGE, Open9WSports } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
+import { getCurrencyCode } from "../common/common";
+import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 
-export default ({ currentMenuKey, productTpIds }) => {
+export default ({ currentMenuKey, productTpIds, maintainList }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 
-	const clickItem = ({ tpId, gameId, path, needLogin }) => {
-		const showLoginPopBox = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
+
+	const { isLogin, langId } = userInfo;
+
+	const clickItem = async ({ tpId, gameId, path, needLogin, menuType }) => {
+		if (tpId === defSpecialSetting.sports_9w) {
+			const result = await handleGoToGame({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId
 			});
-		};
 
-		if (!tpId && !gameId && path) {
-			return needLogin && !userInfo.isLogin
-				? showLoginPopBox()
-				: navigate(`/${userInfo.langId}/${path}`);
+			const { url, key, userId } = result ?? {};
+			Open9WSports({ url, key, userId });
+		} else {
+			const showLoginPopBox = () => {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login
+				});
+			};
+			if (!tpId && !gameId && path) {
+				return needLogin && !userInfo.isLogin
+					? showLoginPopBox()
+					: navigate(`/${userInfo.langId}/${path}`);
+			}
+
+			if (menuType === defMenuType.useGoToGame) {
+				handleGoToGame({
+					isLogin,
+					langId,
+					tpId,
+					gameId
+				});
+			} else {
+				return SET_ENTER_PAGE({
+					isLogin: userInfo.isLogin,
+					langId: userInfo.langId,
+					tpId,
+					gameId,
+					loginCallback: showLoginPopBox
+				});
+			}
 		}
-
-		return SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback: showLoginPopBox
-		});
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {
 		const subClassKey = defSubListClassName[menuKey];
 
-		const subClassName = `${subClassKey || ""}${
-			subClassKey === defSubListClassName.vip
-				? ` vip${userInfo.langId}`
-				: ""
-		}${menuKey === currentMenuKey ? " active" : ""}`;
+		const subClassName = [
+			subClassKey,
+			subClassKey === defSubListClassName.vip && `vip${userInfo.langId}`,
+			menuKey === currentMenuKey && "active"
+		]
+			.filter(Boolean)
+			.join(" ");
 
 		let subMenu = [];
 
@@ -65,9 +101,24 @@ export default ({ currentMenuKey, productTpIds }) => {
 
 			subMenu = subMenu?.filter(
 				s =>
-					userInfo.isLogin !== true ||
-					!s.allowCurrency ||
-					s.allowCurrency.includes(userInfo.currencyId)
+					!s.canSeeOnlyAfterLogin ||
+					(s.canSeeOnlyAfterLogin && userInfo.isLogin)
+			);
+		}
+
+		const _currencyId = userInfo.currencyId
+			? userInfo.currencyId
+			: getCurrencyCode(userInfo.langId);
+		const _defSortMenu = defMenuLinks[menuKey].customSort;
+		const isCurrenyInSortDef =
+			_defSortMenu &&
+			Object.keys(_defSortMenu).includes(_currencyId.toString());
+
+		if (isCurrenyInSortDef) {
+			subMenu = subMenu.sort(
+				(a, b) =>
+					_defSortMenu[_currencyId][a.keyName] -
+					_defSortMenu[_currencyId][b.keyName]
 			);
 		}
 
@@ -85,6 +136,7 @@ export default ({ currentMenuKey, productTpIds }) => {
 						displayText={subMenuItem.displayText}
 						displayKey={subMenuItem.displayKey}
 						parameter={subMenuItem.parameter}
+						maintainList={maintainList}
 					/>
 				))}
 			</div>

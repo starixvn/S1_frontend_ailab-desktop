@@ -6,6 +6,7 @@ export default {
 	Login: "Login",
 	Join: "Join",
 	AddBankAccount: "AddBankAccount",
+	AddCryptoWallet: "AddCryptoWallet",
 	AddBankSuccess: "AddBankSuccess",
 	ConfirmDelete: "ConfirmDelete",
 	ProfileConfirmCheck: "ProfileConfirmCheck",
@@ -27,5 +28,8 @@ export default {
 	SuccessMySteryBox: "SuccessMySteryBox",
 	OneGamingLink: "OneGamingLink",
 	RankingWinner: "RankingWinner",
-	DepositUploadBankSlip: "DepositUploadBankSlip"
+	DepositUploadBankSlip: "DepositUploadBankSlip",
+	PerDay: "PerDay",
+	BackupDomain: "BackupDomain",
+	PaymentQR: "PaymentQR"
 };

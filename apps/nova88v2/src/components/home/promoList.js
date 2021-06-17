@@ -24,29 +24,17 @@ const PromoList = ({ t, userInfo }) => {
 		};
 	});
 
-	const defSwipperConfig = {
-		slidesPerView: 5,
-		spaceBetween: 15,
-		centeredSlides: true,
-		loopFillGroupWithBlank: false,
-		loop: true,
-		autoplay: {
-			delay: 2500,
-			disableOnInteraction: false
-		}
-	};
-
 	return (
-		promoList &&
-		promoList.length > 0 && (
-			<>
-				<div className="moduleTitle icon icon-gift">
-					{t("lbl_Promotion")}
-					<Link to={`/${userInfo.langId}/${path.promotion.root}`}>
-						{`${t("lbl_More")}...`}
-					</Link>
-				</div>
-				<div className="promos">
+		<div className="promos">
+			<div className="moduleTitle icon icon-gift">
+				{t("lbl_Promotion")}
+				<Link to={`/${userInfo.langId}/${path.promotion.root}`}>
+					{`${t("lbl_More")}...`}
+				</Link>
+			</div>
+			{promoList && promoList.length > 0 && (
+				<div className="swiper-container promosSwiper">
+					{/* <Swiper {...defSwipperConfig}>{Rows}</Swiper> */}
 					<ReactMarquee pauseOnHover={true} gradientColor={false}>
 						<div className="swiper-container">
 							<div
@@ -76,8 +64,8 @@ const PromoList = ({ t, userInfo }) => {
 						</div>
 					</ReactMarquee>
 				</div>
-			</>
-		)
+			)}
+		</div>
 	);
 };
 

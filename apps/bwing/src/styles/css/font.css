@@ -33,6 +33,10 @@
   font-size: 18px !important;
 }
 
+.casinoList .icon-pt:before {
+  content: "\e9ef";
+}
+
 .livecasinoList .icon-DG:before {
   font-size: 22px !important;
 }
@@ -123,6 +127,10 @@
 
 .icon-BTC:before {
   content: "\e9a6";
+}
+
+.icon-jili:before {
+  content: "\e9f1";
 }
 
 .icon-line:before {
@@ -1195,5 +1203,9 @@
 
 .icon-live-chat:before {
   content: "\e9ec";
+}
+
+.icon-kingmaker:before {
+  content: "\e9f2";
 }
 /*# sourceMappingURL=font.css.map */

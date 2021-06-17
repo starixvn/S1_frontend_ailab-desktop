@@ -27,7 +27,10 @@ export const defPopBoxType = {
 	SuccessAngPow: "SuccessAngPow",
 	SuccessMySteryBox: "SuccessMySteryBox",
 	JoinReferral: "JoinReferral",
-	DepositUploadBankSlip: "DepositUploadBankSlip"
+	DepositUploadBankSlip: "DepositUploadBankSlip",
+	RankingWinner: "RankingWinner",
+	OfficialAnnounce: "OfficialAnnounce",
+	BackupDomain: "BackupDomain"
 };
 
 export default () => {
@@ -69,7 +72,13 @@ export default () => {
 
 		case defPopBoxType.Success: {
 			const Success = lazy(() => import("./popBox.success"));
-			content = <Success btnBar={popBox.btnBar} />;
+			content = (
+				<Success
+					icon={popBox.icon}
+					description={popBox.description}
+					btnBar={popBox.btnBar}
+				/>
+			);
 			break;
 		}
 
@@ -278,6 +287,38 @@ export default () => {
 		case defPopBoxType.JoinReferral: {
 			const JoinReferral = lazy(() => import("./popBox.joinReferral"));
 			content = <JoinReferral onClickClose={popBox.onClickClose} />;
+			break;
+		}
+
+		case defPopBoxType.RankingWinner: {
+			const PopBoxRankingWinner = lazy(() =>
+				import("./popBox.rankingWinner")
+			);
+
+			content = <PopBoxRankingWinner />;
+			break;
+		}
+
+		case defPopBoxType.OfficialAnnounce: {
+			const PopBoxOfficialAnnounce = lazy(() =>
+				import("./popBox.officialAnnounce")
+			);
+
+			content = (
+				<PopBoxOfficialAnnounce onClickClose={popBox.onClickClose} />
+			);
+			break;
+		}
+
+		case defPopBoxType.BackupDomain: {
+			const BackupDomain = lazy(() => import("./popBox.backupDomain"));
+
+			content = (
+				<BackupDomain
+					onClickClose={popBox.onClickClose}
+					linkList={popBox.linkList}
+				/>
+			);
 			break;
 		}
 

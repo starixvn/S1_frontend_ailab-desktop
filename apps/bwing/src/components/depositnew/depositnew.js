@@ -7,9 +7,15 @@ import {
 	userInfoContext,
 	popBoxContext
 } from "../common/context";
+import { api_site_GetSupportDomainList } from "../../service/api/site";
 import { defDepositType, defDepositOptions } from "./depositnew.def";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { checkAmount, isConvert, getUrlParameter } from "../common/common";
+import {
+	checkAmount,
+	isConvert,
+	getUrlParameter,
+	readCookie
+} from "../common/common";
 
 import useDeposit from "./hook/useDeposit";
 import useDepositMobilePay from "./hook/useDepositMobilePay";
@@ -318,6 +324,28 @@ const Depositnew = () => {
 		getData();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	useEffect(() => {
+		if (userInfo.isLogin && userInfo.userName) {
+			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
+			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
+
+			if (isShowBackupDomain) {
+				api_site_GetSupportDomainList().then(res => {
+					if (!isMountedRef.current) return;
+
+					if (res.data.errorCode === 0 && res.data.data.length > 0) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.BackupDomain,
+							onClickClose: () => setPopBox({ isOpen: false }),
+							linkList: res.data.data
+						});
+					}
+				});
+			}
+		}
+	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
 	useEffect(() => {
 		isMountedRef.current = true;

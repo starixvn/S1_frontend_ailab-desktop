@@ -18,6 +18,9 @@ import {
 } from "../../service/api/payment";
 import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
+import StepBar from "../common/stepBar";
+import { defBankStep, defWalletStep } from "./withdrawal.defStep";
+import { currencyCode } from "../../datas/countryCode";
 import path from "../../router";
 import useTransfer from "./hook/useTransfer";
 
@@ -28,7 +31,7 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
-
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const { restoreAllBalanceToMainWallet } = useTransfer();
 
 	useEffect(() => {
@@ -39,15 +42,23 @@ export default () => {
 	});
 
 	useEffect(() => {
+		if (userInfo.isLogin) {
+			GetDailyWithdrawalLimit();
+		}
+	}, [userInfo.isLogin]);
+
+	const GetDailyWithdrawalLimit = () => {
 		api_payment_GetWithdrawalLimit().then(res => {
 			if (res.data.errorCode === 0 && isMountedRef.current) {
 				dispatch({
-					type: defActionType.SET_WITHDRAWAL_MIN_AMOUNT,
-					withdrawalMin: res.data.data.withdrawalMin
+					type: defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT,
+					withdrawalMin: res.data.data.withdrawalMin,
+					withdrawalMax: res.data.data.withdrawalAvailableAmount,
+					isAmountLimited: !res.data.data.unlimited
 				});
 			}
 		});
-	}, [userInfo.isLogin]);
+	};
 
 	useEffect(() => {
 		if (userInfo.isLogin === true) {
@@ -141,38 +152,18 @@ export default () => {
 	};
 
 	const GetWithdrawalInfoRecent = async () => {
-		await api_payment_GetWithdrawalInfoRecent().then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						dispatch({
-							type: defActionType.GET_RECENT_HISTORY,
-							recentHistory: res.data.data
-						});
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-				}
-			},
-			err => {
-				if (isMountedRef.current) {
+		await api_payment_GetWithdrawalInfoRecent().then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					dispatch({
+						type: defActionType.GET_RECENT_HISTORY,
+						recentHistory: res.data.data
+					});
+				} else {
 					setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
+						message: res.data.message,
 						btnBar: (
 							<div className="btnGroup">
 								<button
@@ -185,7 +176,7 @@ export default () => {
 					});
 				}
 			}
-		);
+		});
 	};
 
 	const KycCheck = async () => {
@@ -280,6 +271,10 @@ export default () => {
 									state={state}
 									refreshData={refreshData}
 									KycCheck={KycCheck}
+									isUSDT={isUSDT}
+									GetDailyWithdrawalLimit={
+										GetDailyWithdrawalLimit
+									}
 								/>
 							</div>
 
@@ -349,6 +344,7 @@ export default () => {
 					refreshData={refreshData}
 					recentHistory={state.recentHistory ?? []}
 					GetWithdrawalInfoRecent={GetWithdrawalInfoRecent}
+					GetDailyWithdrawalLimit={GetDailyWithdrawalLimit}
 				/>
 			</div>
 		)

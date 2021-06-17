@@ -1,13 +1,10 @@
 import React, { memo } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
 import { navigate } from "@reach/router";
 import Swiper from "react-id-swiper";
-import {
-	useGetBanner,
-	Autoplay,
-	SetPathParameter
-} from "../common/swipperBanner";
+import { useGetBanner, SetPathParameter } from "../common/swipperBanner";
 import { defBannerType } from "../../service/api/site";
 import path from "../../router";
 
@@ -35,7 +32,10 @@ const EventSwipper = memo(({ langId }) => {
 			sportTeamsAwayPic,
 			sportLeaguesId,
 			sportTeamsHome,
-			sportTeamsAway
+			sportTeamsAway,
+			homeOdds,
+			awayOdds,
+			handicap
 		} = b;
 		return (
 			<HotEventContent
@@ -47,6 +47,9 @@ const EventSwipper = memo(({ langId }) => {
 				sportLeaguesId={sportLeaguesId}
 				sportTeamsHome={sportTeamsHome}
 				sportTeamsAway={sportTeamsAway}
+				homeOdds={homeOdds}
+				awayOdds={awayOdds}
+				handicap={handicap}
 				OnClickEvent={OnClickEvent.bind(this, { ...b })}
 			/>
 		);
@@ -81,6 +84,11 @@ EventSwipper.propTypes = {
 	langId: PropTypes.string.isRequired
 };
 
+const isEuro = sportLeaguesId =>
+	["EURO2020", "欧冠2020", "2020", "Châu Âu 2020", "ยูโร 2020"].some(
+		item => item === sportLeaguesId
+	);
+
 const HotEventContent = ({
 	sportBattleDateTime,
 	sportTeamsHomePic,
@@ -88,14 +96,23 @@ const HotEventContent = ({
 	sportLeaguesId,
 	sportTeamsHome,
 	sportTeamsAway,
-	OnClickEvent
+	OnClickEvent,
+	homeOdds,
+	awayOdds,
+	handicap
 }) => {
+	const { t } = useTranslation();
 	const date = moment(sportBattleDateTime).format("DD/MM/YYYY");
 	const time = moment(sportBattleDateTime).format("HH:mm");
+
+	const _isEuro = isEuro(sportLeaguesId);
+
 	return (
 		<div className="swiper-slide">
 			<div className="upcomingmatches">
-				<div className="team" onClick={OnClickEvent}>
+				<div
+					className={`team${_isEuro ? " euro" : ""}`}
+					onClick={OnClickEvent}>
 					<div>{sportLeaguesId}</div>
 					<div>
 						<div className="teamL">
@@ -103,13 +120,20 @@ const HotEventContent = ({
 							{sportTeamsHome}
 						</div>
 						<div className="btnGroup">
-							<button className="orange">BET NOW</button>
+							<button className="orange">
+								{t("lbl_BetNow")?.toUpperCase()}
+							</button>
 						</div>
 						<div className="teamR">
 							<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
 							{sportTeamsAway}
 						</div>
 					</div>
+					{/* <OddsAndHandicap
+						homeOdds={homeOdds}
+						awayOdds={awayOdds}
+						hdp={handicap}
+					/> */}
 					<div>
 						{date} {time}
 					</div>
@@ -118,6 +142,16 @@ const HotEventContent = ({
 		</div>
 	);
 };
+
+// const OddsAndHandicap = ({ homeOdds, awayOdds, hdp }) => {
+// 	return homeOdds && awayOdds ? (
+// 		<div className="odds">
+// 			<div id="homeodds">{homeOdds}</div>
+// 			<div>{Math.abs(hdp)}</div>
+// 			<div>{awayOdds}</div>
+// 		</div>
+// 	) : null;
+// };
 
 HotEventContent.propTypes = {
 	sportBattleDateTime: PropTypes.string.isRequired,

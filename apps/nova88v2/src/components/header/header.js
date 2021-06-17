@@ -1,7 +1,13 @@
 import React, { useContext } from "react";
 import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, popBoxContext } from "../common/context";
+
+import {
+	userInfoContext,
+	popBoxContext,
+	productTpIdsContext,
+	maintainListContext
+} from "../common/context";
 import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
@@ -9,12 +15,18 @@ import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-// import Logo from "../../styles/img/nova88_logo_ny.png";
+import { currencyCode } from "../../datas/countryCode";
+import { isDateRange } from "../common/common";
+import { eventPeriodEuro } from "../../datas/euroDef";
 
-export default ({ productTpIds }) => {
+export default () => {
 	const { t } = useTranslation();
+	const { productTpIds } = useContext(productTpIdsContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
+	const { maintainList } = useContext(maintainListContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const isUSDT = userInfo.currencyId === currencyCode.USDT;
+	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -66,11 +78,18 @@ export default ({ productTpIds }) => {
 			<div className="header">
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
-						<img src={Logo} alt={config.siteName} />
+						{isInPeriodEuro ? (
+							<img
+								src={`${config.cloudImgUrl}/SiteSkin/img/logo_evt.png`}
+								alt="Logo_Euro"
+							/>
+						) : (
+							<img src={Logo} alt={config.siteName} />
+						)}
 					</Link>
 				</div>
 				<div className="function">
-					<Functions />
+					<Functions isUSDT={isUSDT} />
 					<LanguageDropDown />
 					{userInfo.isLogin ? null : (
 						<Link
@@ -81,7 +100,7 @@ export default ({ productTpIds }) => {
 					)}
 					<LogoutButton />
 				</div>
-				<Menu productTpIds={productTpIds} />
+				<Menu productTpIds={productTpIds} maintainList={maintainList} />
 			</div>
 		</header>
 	);

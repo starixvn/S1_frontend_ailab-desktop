@@ -48,6 +48,7 @@
 	"lbl_HowToDepoist": "CÁCH GỬI TIỀN",
 	"lbl_HowToWithdraw": "CÁCH RÚT TIỀN",
 	"lbl_SabaSoccer": "Bóng Đá Saba",
+	"lbl_homeJackpotTitle": "NỔ HŨ",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Goal123News": "Điểm báo Goal123",
@@ -102,6 +103,11 @@
 	"lbl_Water_Margin_Fishing": "Water Margin Fishing",
 	"lbl_Thunder_Fighter": "Thunder Fighter",
 	"lbl_CQ9": "CQ9",
+	"lbl_Saba_Sport": "Saba Sport",
+	"lbl_Bti_Sport": "Bti Sport",
+	"lbl_V8Poker": "V8 Xì tố",
+	"lbl_King_Maker": "King Maker",
+	"lbl_AMB_Poker": "AMB Poker",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "ID Đại lý/ Người giới thiệu",
@@ -142,7 +148,7 @@
 	"lbl_PreferredCurrencyToolTip": "Không thể thay đổi Tiền tệ ưa thích sau khi đăng ký.",
 	"lbl_Profile": "Hồ sơ",
 	"lbl_ProfileModifyWarning": "Nhằm đảm bảo an toàn tài khoản, Thông tin cá nhân không thể thay đổi sau khi xác nhận",
-	"lbl_RealName": "Tên thật",
+	"lbl_RealName": "Họ Tên thật",
 	"lbl_RegisterTime": "Thời gian đăng ký",
 	"lbl_RemindForName": "*Tên đầy đủ của bạn phải đúng với tên trên tài khoản Ngân hàng để thực hiện việc nạp/ rút tiền nhanh",
 	"lbl_Retransmit": "Gửi lại mã",
@@ -199,7 +205,9 @@
 	"lbl_RequireMinAmountHint_Front": "Tiền gửi tối thiểu là",
 	"lbl_RequireMinAmountHint_Back": "Nạp tiền ngay?",
 	"lbl_PromotionRebateAndCashback": "Hoàn trả / Hoàn lại tiền",
-	"lbl_Other":"Khác",
+	"lbl_Other": "Khác",
+	"lbl_JoinSuccessDescription1": "",
+	"lbl_JoinSuccessDescription2": "Bạn đã nhận khuyến mãi thành công.",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Không có dữ liệu",
@@ -246,14 +254,18 @@
 	"lbl_Download": "Tải về",
 	"lbl_Min": "Nhỏ nhất",
 	"lbl_Max": "Lớn nhất",
+	"lbl_Play": "THAM GIA",
+	"lbl_Demo": "CHƠI THỬ",
+	"lbl_ImportantNotice": "THÔNG BÁO QUAN TRỌNG",
+	"lbl_Copy": "Sao chép",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Chuyển quỹ",
-	"lbl_TpWallet_1": "Ví Thể thao",
+	"lbl_TpWallet_1": "Ví Saba",
 	"lbl_TpWallet_21": "918Kiss Wallet",
 	"lbl_TpWallet_22": "Mega Wallet",
-	"lbl_TpWallet_27":"Ví PT",
-	"lbl_Wallet_Saba": "Ví Sportsbook",
+	"lbl_TpWallet_27": "Ví PT",
+	"lbl_Wallet_Saba": "Ví Saba",
 	"lbl_MainWallet": "Ví chính",
 	"lbl_RestoreAll": "Phục hồi quỹ",
 	"lbl_TransferHistory": "Lịch sử giao dịch",
@@ -347,6 +359,15 @@
 	"lbl_MinMaxAmount": "Tối thiểu/Tối đa",
 	"lbl_DepositAccountNamePlaceholder": "Tên phải trùng với tên tài khoản và CMND",
 	"lbl_TopUpCard": "THẺ CÀO",
+	"lbl_DepositImportantNoticeContent1": "Vui lòng luôn cập nhật thông tin tài khoản ngân hàng đang hoạt động trước khi gửi tiền.",
+	"lbl_DepositImportantNoticeContent2": "Nếu chọn <span>“Chuyển khoản Ngân hàng”</span>, vui lòng thực hiện chuyển khoản trước khi thực hiện lệnh gửi để tránh giao dịch bị chậm.",
+	"lbl_DepositImportantNoticeContent3": "TÊN TÀI KHOẢN người gửi phải trùng với họ tên đăng ký. Chúng tôi không khuyến khích thực hiện giao dịch bằng bên/công ty thứ ba.",
+	"lbl_DepositImportantNoticeContent4": "Vui lòng <span>KHÔNG</span> điền <span>“GOAL123”</span> hoặc bất cứ từ nhạy cảm nào liên quan đến cá cược trong phần nội dung giao dịch.",
+	"lbl_DepositImportantNoticeContent5": "Vui lòng lưu ý rằng mọi khoản tiền nạp đều cần hoàn thành doanh thu cược 1 lần trước khi được rút.",
+	"lbl_DepositImportantNoticeContent6": "Vui lòng liên hệ bộ phận <Link>LIVECHAT 24/7</Link> nếu lệnh gửi chậm trễ quá 5 phút.",
+	"lbl_BackupDomain_Title": "Vui lòng lưu tên miền GOAL123 mới nhất cho mục đích dự phòng của bạn: ",
+	"lbl_BackupDomain_description1": "CÓ THỂ TRUY CẬP",
+	"lbl_BackupDomain_description2": "Bất cứ lúc nào, bất cứ nơi đâu",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",
@@ -387,6 +408,11 @@
 	"lbl_UpdatePersonalInfoWithdrawal": "Xin vui lòng cập nhật thông tin cá nhân đầy đủ trước khi thực hiện rút tiền.",
 	"lbl_WithdrawalNow": "Rút tiền",
 	"lbl_GoWithdrawalPage": "Chuyển đến trang Rút tiền?",
+	"lbl_WithdrawalImportantNoticeContent1": "Vui lòng liên hệ bộ phận <Link>LIVECHAT 24/7</Link> nếu lệnh rút bị chậm trễ quá 10 phút.",
+	"lbl_WithdrawalImportantNoticeContent2": "Tên tài khoản rút tiền phải trùng với họ tên đăng ký, thành viên không được phép rút tiền vào tài khoản bên thứ ba.",
+	"lbl_WithdrawalImportantNoticeContent3": "Một số nhà phát hành game yêu cầu thời gian đồng bộ 15 - 30 phút, vui lòng chờ trong thời gian trên.",
+	"lbl_WithdrawalImportantNoticeContent4": "Vui lòng hoàn thành yêu cầu doanh thu cược 30 phút trước khi thực hiện lệnh rút để tránh bị hệ thống tự động từ chối.",
+	"lbl_WithdrawalImportantNoticeContent5": "Nếu có vấn đề phát sinh hoặc cần được hỗ trợ thêm về vấn đề rút tiền, vui lòng liên hệ bộ phận <Link>LIVECHAT 24/7</Link>. Xin cám ơn.",
 
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Cần nhập số tài khoản",
@@ -431,6 +457,7 @@
 	"lbl_SearchGames": "Tìm kiếm trò chơi",
 	"lbl_AllGames": "Tất cả trò chơi",
 	"lbl_Feature": "Đặc điểm",
+	"lbl_Jackpot": "NỔ HŨ",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -497,6 +524,7 @@
 	"lbl_Rank6": "Giải Sáu",
 	"lbl_Rank7": "Giải Bảy",
 	"lbl_Rank8": "Giải Tám",
+	"lbl_Ranking_TopNum": "TOP {{topNum}} NGƯỜI THẮNG",
 
 	"AngPow ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_AngPow_Congratulations": "Xin chúc mừng! ",
@@ -572,6 +600,7 @@
 	"lbl_Titanium_Club": "HẠNG BẠCH KIM",
 	"lbl_Diamond_Club": "HẠNG KIM CƯƠNG",
 	"lbl_Goal123_Club": "GOAL123 CLUB",
+	"lbl_Vip_LastUpdated": "CẬP NHẬT GẦN NHẤT",
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "Giới thiệu",
@@ -604,6 +633,5 @@
 	"lbl_NoOfAchievements": "Số bạn giới thiệu thành công",
 	"lbl_RewardAmount": "Số tiền thưởng",
 
-	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_V8Poker": "V8 Xì tố"
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": ""
 }

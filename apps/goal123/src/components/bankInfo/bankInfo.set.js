@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import { useTranslation } from "react-i18next";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
+import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
 import {
 	defModule,
 	reducer,
@@ -14,9 +15,8 @@ import {
 	defActionType
 } from "./bankInfo.reducer";
 import { userInfoContext, popBoxContext } from "../common/context";
-import InitPanel from "./bankInfo.set.init";
-import BankPanel from "./bankInfo.set.bank";
-import AccountPanel from "./bankInfo.set.account";
+import PanelControl from "./bankInfo.panelControl";
+import AccountNamePanel from "./bankInfo.accountName";
 import ShowCard from "./bankInfo.showCard";
 import Loading from "../common/loading";
 import { defPopBoxType } from "../common/popBox";
@@ -108,45 +108,143 @@ export default () => {
 		setShowTip(_showTip);
 	};
 
-	let displayModule = null;
-	switch (state.displayModule) {
-		case defModule.InitPanel:
-			displayModule = (
-				<InitPanel
-					dispatch={dispatch}
-					numberOfAccount={
-						state.custBankList ? state.custBankList?.length : 0
+	const toNextStep = () => {
+		dispatch({ type: defActionType.TO_NEXT_STEP });
+	};
+
+	const toLastStep = () => {
+		dispatch({ type: defActionType.TO_LAST_STEP });
+	};
+
+	const selectBank = bankIdx => {
+		dispatch({ type: defActionType.SELECT_BANK, bankIdx });
+	};
+
+	const delBankAccount = (sysId, accountNo) => {
+		const ClickCancel = () => {
+			setPopBox({
+				isOpen: false
+			});
+		};
+
+		const deleteCard = (_sysId, _accountNo) => {
+			setPopBox({
+				isOpen: false
+			});
+			setLoading(true);
+
+			api_accountStrict_DelCustBankInfo({
+				AccountName: state.accountName,
+				AccountNo: _accountNo,
+				SysId: _sysId
+			}).then(
+				res => {
+					if (isMountedRef.current) {
+						if (res.data.errorCode === 0) {
+							GetCustBankInfo();
+							setPopBox({
+								isOpen: false
+							});
+						} else {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: res.data.message,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={ClickCancel}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						}
+						setLoading(false);
 					}
-				/>
-			);
-			break;
-
-		case defModule.BankPanel:
-			displayModule = (
-				<BankPanel dispatch={dispatch} bankList={state.bankList} />
-			);
-			break;
-
-		case defModule.AccountPanel:
-			displayModule = (
-				<AccountPanel
-					dispatch={dispatch}
-					bankInfo={state.bankList[state.bankIdx]}
-					accountNumber={state.accountNumber}
-					accountName={
-						userInfo.accountName
-							? userInfo.accountName
-							: state.accountName
+				},
+				() => {
+					if (isMountedRef.current) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={ClickCancel}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+						setLoading(false);
 					}
-					alreadyHasAccountName={!!userInfo.accountName}
-					reload={GetCustBankInfo}
-				/>
+				}
 			);
-			break;
+		};
 
-		default:
-			break;
-	}
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.ConfirmDelete,
+			message: t("lbl_AreYouSureDelete"),
+			message2: t("lbl_CantBeRestore"),
+			btnBar: (
+				<div className="btnGroup">
+					<button
+						className="btn-cancel"
+						onClick={deleteCard.bind(this, sysId, accountNo)}>
+						{t("lbl_Yes")}
+					</button>
+					<button className="btn-check" onClick={ClickCancel}>
+						{t("lbl_No")}
+					</button>
+				</div>
+			)
+		});
+	};
+
+	// let displayModule = null;
+	// switch (state.displayModule) {
+	// 	case defModule.InitPanel:
+	// 		displayModule = (
+	// 			<InitPanel
+	// 				dispatch={dispatch}
+	// 				numberOfAccount={
+	// 					state.custBankList ? state.custBankList?.length : 0
+	// 				}
+	// 			/>
+	// 		);
+	// 		break;
+
+	// 	case defModule.BankPanel:
+	// 		displayModule = (
+	// 			<BankPanel dispatch={dispatch} bankList={state.bankList} />
+	// 		);
+	// 		break;
+
+	// 	case defModule.AccountPanel:
+	// 		displayModule = (
+	// 			<AccountPanel
+	// 				dispatch={dispatch}
+	// 				bankInfo={state.bankList[state.bankIdx]}
+	// 				accountNumber={state.accountNumber}
+	// 				accountName={
+	// 					userInfo.accountName
+	// 						? userInfo.accountName
+	// 						: state.accountName
+	// 				}
+	// 				alreadyHasAccountName={!!userInfo.accountName}
+	// 				reload={GetCustBankInfo}
+	// 			/>
+	// 		);
+	// 		break;
+
+	// 	default:
+	// 		break;
+	// }
 
 	return loading ? (
 		<Loading />
@@ -159,26 +257,41 @@ export default () => {
 				</div>
 
 				{userInfo.accountName ? (
-					<div className="accountName">
-						{t("lbl_BankAccountName")}
-						<span>{userInfo.accountName}</span>
-						<button
-							className="icon icon-error"
-							onClick={clickTip}
-						/>
-						{showTip ? (
-							<div className="tip active">
-								{t("lbl_ContactCSD")}
-							</div>
-						) : null}
-					</div>
+					<AccountNamePanel
+						t={t}
+						accountName={userInfo.accountName}
+						clickTip={clickTip}
+						showTip={showTip}
+					/>
 				) : null}
-				{displayModule}
+
+				<PanelControl
+					t={t}
+					defModule={defModule}
+					currentModule={state.displayModule}
+					dispatch={dispatch}
+					numberOfAccount={
+						state.custBankList ? state.custBankList.length : 0
+					}
+					toNextStep={toNextStep}
+					toLastStep={toLastStep}
+					bankList={state.bankList ?? null}
+					selectBank={selectBank}
+					bankIdx={state.bankIdx ?? null}
+					accountNumber={state.accountNumber ?? null}
+					accountName={
+						userInfo.accountName
+							? userInfo.accountName
+							: state.accountName
+					}
+					alreadyHasAccountName={!!userInfo.accountName}
+					reload={GetCustBankInfo}
+				/>
 			</div>
 			<ShowCard
-				accountName={state.accountName}
 				custBankList={state.custBankList}
-				reload={GetCustBankInfo.bind(this, false)}
+				delBankAccount={delBankAccount}
+				loading={loading}
 			/>
 		</>
 	);

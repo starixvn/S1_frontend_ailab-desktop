@@ -1,7 +1,9 @@
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, useRef, useContext } from "react";
 import { defCasinoProviders } from "../../datas/productList";
 import { api_tp_GotoGame } from "../../service/api/tp";
 import usePopBox from "./usePopBox";
+import { popBoxContext } from "../common/context";
+import { defPopBoxType } from "../common/popBox";
 
 export const defSpecialSetting = {
 	playTech: defCasinoProviders.PT.tpId
@@ -21,7 +23,7 @@ const launchGame = ({ client, mode, game, lang }) => {
 			client,
 			`language=${lang}&real=${real}&lobby=${lobbyUrl}&logout=${logoutUrl}&deposit=${depositUrl}&support=${supportUrl}&backurl=${lobbyUrl}`
 		);
-		iapiLaunchClient(client, game, mode, "_self");
+		iapiLaunchClient(client, game, mode, "_blank");
 	}
 
 	// Live Games
@@ -30,14 +32,14 @@ const launchGame = ({ client, mode, game, lang }) => {
 			client,
 			`&launch_alias=${game}&language=${lang}&real=${real}&lobby=${lobbyUrl}&logout=${logoutUrl}&deposit=${depositUrl}&support=${supportUrl}`
 		);
-		iapiLaunchClient(client, null, mode, "_self");
+		iapiLaunchClient(client, null, mode, "_blank");
 	}
 };
 
 const launchGameWithFunMode = ({ client, game, lang, mode }) => {
 	if (client === "ngm_desktop" || client === "ngm_mobile") {
 		iapiSetClientParams(client, `language=${lang}&real=0`);
-		iapiLaunchClient(client, game, mode, "_self");
+		iapiLaunchClient(client, game, mode, "_blank");
 	}
 };
 
@@ -51,7 +53,7 @@ export const useGotoGame = ({
 }) => {
 	const { errorPopBox } = usePopBox();
 	const [data, setData] = useState({ account: "", password: "" });
-
+	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -78,55 +80,60 @@ export const useGotoGame = ({
 					TpId: _tpId,
 					LangId: _langId,
 					gameId: _gameId,
-					fun: _isFun ? "1" : "0"
+					fun: _isFun ? "1" : "0",
+					gameType:
+						_tpId === defSpecialSetting.playTech ? "slots" : ""
 				}).then(async res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0 && res.data.message) {
-							const result = JSON.parse(res.data.message);
+					if (res.data.errorCode === 0 && res.data.message) {
+						const result = JSON.parse(res.data.message);
 
-							if (_tpId === defSpecialSetting.playTech) {
-								const {
-									account: username,
-									password,
-									lang,
-									mode
-								} = result;
+						if (_tpId === defSpecialSetting.playTech) {
+							const {
+								account: username,
+								password,
+								lang,
+								mode
+							} = result;
 
-								await iapiSetCallout("Login", response => {
-									if (response.errorCode) {
-										if (response.errorCode == 48) {
-											errorPopBox(
-												`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
-												response.errorCode
-											);
-										} else {
-											errorPopBox(
-												`Login failed, error: ${response.errorCode} ,playerMessage: ${response.playerMessage}`,
-												response.errorCode
-											);
-										}
+							await iapiSetCallout("Login", response => {
+								if (response.errorCode) {
+									if (response.errorCode == 48) {
+										errorPopBox(
+											`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
+											response.errorCode
+										);
 									} else {
-										launchGame({ ...result });
+										errorPopBox(
+											`Login failed, error: ${response.errorCode} ,playerMessage: ${response.playerMessage}`,
+											response.errorCode
+										);
 									}
-								});
-
-								if (mode === "real") {
-									iapiSetClientType("casino");
-									iapiSetClientPlatform("web");
-									iapiLogin(username, password, 1, lang);
 								} else {
-									launchGameWithFunMode({ ...result });
+									launchGame({ ...result });
 								}
+							});
+
+							if (mode === "real") {
+								iapiSetClientType("casino");
+								iapiSetClientPlatform("web");
+								iapiLogin(username, password, 1, lang);
 							} else {
-								setData(() => result);
+								launchGameWithFunMode({ ...result });
 							}
 						} else {
-							errorPopBox(
-								`[${res.data.errorCode}] ${res.data.message}`,
-								res.data.errorCode
-							);
+							setData(() => result);
 						}
+					} else {
+						errorPopBox(
+							`[${res.data.errorCode}] ${res.data.message}`,
+							res.data.errorCode
+						);
 					}
+				});
+			} else {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login
 				});
 			}
 		},

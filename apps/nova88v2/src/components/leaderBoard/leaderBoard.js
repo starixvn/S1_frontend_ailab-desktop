@@ -241,6 +241,12 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
+	const linkToTnc = () => {
+		window.open(
+			`${config.cloudImgUrl}/NovaPromotion/UEFAEuro/${userInfo.langId}.html`
+		);
+	};
+
 	return (
 		<section className="ranking">
 			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
@@ -253,6 +259,7 @@ export default () => {
 					rewardList={rewardList}
 					changeRewardTab={changeRewardTab}
 					rewardTab={rewardTab}
+					linkToTnc={linkToTnc}
 				/>
 			) : (
 				<Content

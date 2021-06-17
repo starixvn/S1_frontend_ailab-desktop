@@ -4,15 +4,15 @@ export const defEventIcon = {
 };
 
 export const defEventPeriod = {
-	// oneGaming: { end: "2021/03/03 11:00:00" },
-	// cq9: { end: "2021/03/06 00:00:00" },
-	// referral: { end: "2021/02/05 11:00:00" },
-	// icg: { end: "2021/02/05 11:00:00" },
 	vip: { start: "2021/02/05 12:00:00" },
 	n2: { start: "2021/03/02 12:00:00" },
 	ranking: { start: "2021/03/01 12:00:00" },
 	tv: { start: "2021/03/30 00:00:00" },
-	casino_pt: { end: "2021/06/05 11:00:00" }
+	casino_pt: { end: "2021/06/20 11:00:00" },
+	Games_KingMaker: { end: "2021/07/08 11:00:00" },
+	Games_AMBPoker: { end: "2021/07/08 11:00:00" },
+	liveCasino_pt: { end: "2021/07/08 11:00:00" },
+	Sports_9W: { end: "2021/07/30 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {
