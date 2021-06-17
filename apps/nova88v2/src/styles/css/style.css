@@ -617,6 +617,39 @@ header input:focus-within {
   font-size: 14px;
 }
 
+.header > div.menu .subMenu-Wrapper-new .pokerList .under {
+  display: none;
+  width: auto;
+  height: auto;
+  position: absolute;
+  z-index: 1;
+  background: #555;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  top: 120px;
+  text-transform: capitalize;
+}
+
+.header > div.menu .subMenu-Wrapper-new .pokerList.um {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header > div.menu .subMenu-Wrapper-new .pokerList.um .under {
+  display: block;
+}
+
+.header > div.menu .subMenu-Wrapper-new .pokerList.um .btnGroup {
+  display: none;
+}
+
 .header > div.menu .subMenu-Wrapper-new .promoList {
   background: url(https://image.n88media.com/SiteSkin/img/pomobanner.jpg) no-repeat center/auto;
 }
@@ -12733,6 +12766,120 @@ canvas {
   100% {
     margin-top: 15px;
   }
+}
+
+.lotteryinside {
+  position: relative;
+}
+
+.lotteryinside .inside {
+  background: url(https://banner.n88media.com/img/lottery/lotterybg.jpg) no-repeat top center/100% auto;
+  padding: 35px calc((100% - 1400px) / 2) 100px;
+}
+
+.lotteryinside .inside .lotterySwiper {
+  margin-top: 50px;
+  height: 400px;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide {
+  opacity: 0.7;
+  text-align: center;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide.swiper-slide-active {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  opacity: 1;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .name {
+  color: #70ddfc;
+  font-weight: bold;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide img {
+  width: 200px;
+  margin: auto;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .under {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background: #555;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .under + div {
+  font-size: 12px;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide.active .under {
+  display: block;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire {
+  background: #cf0404;
+  position: absolute;
+  bottom: 85px;
+  left: 40px;
+  padding: 0 3px;
+  border-radius: 5px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire:before {
+  position: unset;
+  color: white;
+  font-weight: normal;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 16px 10px;
+  border-color: transparent transparent transparent #cf0404;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 55px;
 }
 
 #article {
