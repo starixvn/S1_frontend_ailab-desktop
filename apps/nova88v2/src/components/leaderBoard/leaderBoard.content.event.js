@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
 import { defTabId, defRewardTabId } from "./leaderBoard.def";
 
 const leaderBoardEventContent = ({

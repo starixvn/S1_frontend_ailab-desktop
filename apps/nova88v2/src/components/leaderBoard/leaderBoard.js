@@ -16,7 +16,7 @@ import {
 	defPeriodId,
 	defRewardTabId
 } from "./leaderBoard.def";
-
+import config from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
 
