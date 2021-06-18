@@ -35,7 +35,10 @@ const PromoList = ({ t, userInfo }) => {
 			{promoList && promoList.length > 0 && (
 				<div className="swiper-container promosSwiper">
 					{/* <Swiper {...defSwipperConfig}>{Rows}</Swiper> */}
-					<ReactMarquee pauseOnHover={true} gradientColor={false}>
+					<ReactMarquee
+						speed={60}
+						pauseOnHover={true}
+						gradientColor={false}>
 						<div className="swiper-container">
 							<div
 								className="swiper-wrapper"
