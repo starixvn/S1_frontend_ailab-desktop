@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
-
-import { getUrlParameter, number_format } from "../../common/common";
+import { getUrlParameter } from "../../common/common";
 import config from "../../../config";
 
 const OnlineBankForm = ({
 	t,
-	_isConvert,
+	formatAmount,
 	depositType,
 	onlineBankGroupList,
 	getOnlineBankInfoList,
@@ -100,10 +99,6 @@ const OnlineBankForm = ({
 	}, []);
 
 	if (onlineBankGroupList.length <= 0) return null;
-
-	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
-	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
-
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -138,15 +133,13 @@ const OnlineBankForm = ({
 
 									<div>
 										<div>
-											{`${t("lbl_Min")}: ${number_format(
-												item.minAmount,
-												_isConvert
+											{`${t("lbl_Min")}: ${formatAmount(
+												item.minAmount
 											)}`}
 										</div>
 										<div>
-											{`${t("lbl_Max")}: ${number_format(
-												item.maxAmount,
-												_isConvert
+											{`${t("lbl_Max")}: ${formatAmount(
+												item.maxAmount
 											)}`}
 										</div>
 									</div>
@@ -215,11 +208,11 @@ const OnlineBankForm = ({
 						onChange={e => onChangeAmount(e.target.value)}
 						checked={formInfo?.checked}
 						tip={formInfo?.tip}
-						_isConvert={_isConvert}
+						_isConvert={false}
 						isAmount={true}
-						placeholder={`${t(
-							"lbl_MinMaxAmount"
-						)} ${formatMinAmount} ~ ${formatMaxAmount}`}
+						placeholder={`${t("lbl_MinMaxAmount")} ${formatAmount(
+							formInfo.minAmount
+						)} ~ ${formatAmount(formInfo.maxAmount)}`}
 						onKeyDown={onInputboxKeyDown}
 					/>
 
@@ -237,7 +230,7 @@ const OnlineBankForm = ({
 
 OnlineBankForm.propTypes = {
 	t: PropTypes.func.isRequired,
-	_isConvert: PropTypes.bool.isRequired,
+	formatAmount: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	onlineBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getOnlineBankInfoList: PropTypes.func.isRequired,
@@ -246,7 +239,6 @@ OnlineBankForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
-
 	onInputboxKeyDown: PropTypes.func.isRequired
 };
 

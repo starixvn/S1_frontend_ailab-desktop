@@ -8,6 +8,7 @@ import config from "../../../config";
 const MobileForm = ({
 	t,
 	_isConvert,
+	formatAmount,
 	depositType,
 	mobilePayGourpList,
 	getMobilePayInfoList,
@@ -80,9 +81,6 @@ const MobileForm = ({
 	const isSelAmountType = formInfo.amountRule === 3;
 
 	if (mobilePayGourpList.length <= 0) return null;
-
-	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
-	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
 
 	return (
 		<>
@@ -162,17 +160,15 @@ const MobileForm = ({
 												<div>
 													{`${t(
 														"lbl_Min"
-													)}: ${number_format(
-														item.minAmount,
-														_isConvert
+													)}: ${formatAmount(
+														item.minAmount
 													)}`}
 												</div>
 												<div>
 													{`${t(
 														"lbl_Max"
-													)}: ${number_format(
-														item.maxAmount,
-														_isConvert
+													)}: ${formatAmount(
+														item.maxAmount
 													)}`}
 												</div>
 											</div>
@@ -213,11 +209,13 @@ const MobileForm = ({
 							onChange={e => onChangeAmount(e.target.value)}
 							checked={formInfo?.checked}
 							tip={formInfo?.tip}
-							_isConvert={_isConvert}
+							_isConvert={false}
 							isAmount={true}
 							placeholder={`${t(
 								"lbl_MinMaxAmount"
-							)} ${formatMinAmount} ~ ${formatMaxAmount}`}
+							)} ${formatAmount(
+								formInfo.minAmount
+							)} ~ ${formatAmount(formInfo.maxAmount)}`}
 							onKeyDown={onInputboxKeyDown}
 						/>
 
@@ -279,6 +277,7 @@ FixedAmountList.propTypes = {
 MobileForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
+	formatAmount: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	mobilePayGourpList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getMobilePayInfoList: PropTypes.func.isRequired,
