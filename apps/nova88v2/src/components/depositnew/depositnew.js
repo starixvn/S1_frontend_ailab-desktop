@@ -376,7 +376,8 @@ const Depositnew = () => {
 			minAmount: formInfo.minAmount,
 			maxAmount: formInfo.maxAmount,
 			_isConvert,
-			t
+			t,
+			digits: 0
 		});
 
 		if (result.status !== 0) {
@@ -513,8 +514,11 @@ const Depositnew = () => {
 			window.addEventListener("beforeunload", checkRemoveStorage);
 			setLoading(false);
 		};
-		getData();
-		checkLocalStorageUpdateForm();
+
+		if (userInfo.isLogin) {
+			getData();
+			checkLocalStorageUpdateForm();
+		}
 
 		return () => {
 			checkRemoveStorage();
@@ -523,7 +527,7 @@ const Depositnew = () => {
 		};
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [userInfo.currencyId]);
+	}, [userInfo.currencyId, userInfo.isLogin]);
 
 	useEffect(() => {
 		isMountedRef.current = true;

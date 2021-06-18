@@ -14,7 +14,6 @@ const OnlineBankForm = ({
 	onlineBankInfoList,
 	formInfo,
 	onChangeAmount,
-
 	setFormInfo,
 	setOnlineBankInfoList,
 	onInputboxKeyDown
