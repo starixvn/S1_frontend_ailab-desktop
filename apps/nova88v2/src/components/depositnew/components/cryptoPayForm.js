@@ -7,7 +7,7 @@ import config from "../../../config";
 const CryptoPayForm = ({
 	t,
 	depositType,
-	_isConvert,
+	formatAmount,
 	cryptoPayGroupList,
 	formInfo,
 	setFormInfo,
@@ -69,8 +69,6 @@ const CryptoPayForm = ({
 	}, []);
 
 	if (cryptoPayGroupList.length <= 0) return null;
-	const formatMinAmount = number_format(formInfo.minAmount, _isConvert);
-	const formatMaxAmount = number_format(formInfo.maxAmount, _isConvert);
 
 	return (
 		<>
@@ -104,15 +102,13 @@ const CryptoPayForm = ({
 
 								<div>
 									<div>
-										{`${t("lbl_Min")}: ${number_format(
-											item.minAmount,
-											_isConvert
+										{`${t("lbl_Min")}: ${formatAmount(
+											item.minAmount
 										)}`}
 									</div>
 									<div>
-										{`${t("lbl_Max")}: ${number_format(
-											item.maxAmount,
-											_isConvert
+										{`${t("lbl_Max")}: ${formatAmount(
+											item.maxAmount
 										)}`}
 									</div>
 								</div>
@@ -136,11 +132,11 @@ const CryptoPayForm = ({
 					onBlur={() => onValidAmount(formInfo.amount)}
 					checked={formInfo?.checked}
 					tip={formInfo?.tip}
-					_isConvert={_isConvert}
+					_isConvert={false}
 					isAmount={true}
-					placeholder={`${t(
-						"lbl_MinMaxAmount"
-					)} ${formatMinAmount} ~ ${formatMaxAmount}`}
+					placeholder={`${t("lbl_MinMaxAmount")} ${formatAmount(
+						formInfo.minAmount
+					)} ~ ${formatAmount(formInfo.maxAmount)}`}
 					onKeyDown={onInputboxKeyDown}
 				/>
 			</div>
@@ -152,7 +148,7 @@ CryptoPayForm.propTypes = {
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
-	_isConvert: PropTypes.bool.isRequired,
+	formatAmount: PropTypes.func.isRequired,
 	cryptoPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
