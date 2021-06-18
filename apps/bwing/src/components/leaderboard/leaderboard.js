@@ -241,7 +241,6 @@ export default () => {
 	};
 
 	const useUpperCase = _text => {
-		console.log(_text);
 		return _text.toUpperCase();
 	};
 
