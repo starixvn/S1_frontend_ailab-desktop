@@ -19,7 +19,8 @@ import {
 	setLocalStorage,
 	getLocalStorage,
 	removeLocalStorage,
-	readCookie
+	readCookie,
+	number_format
 } from "../common/common";
 import { api_site_GetSupportDomainList } from "../../service/api/site";
 import usePopBox from "../hook/usePopBox";
@@ -617,6 +618,10 @@ const Depositnew = () => {
 		onChangeDepositType(filterDepositOptions[0].type);
 	}
 
+	const formatAmount = _val => {
+		return number_format(_val, _isConvert, 0);
+	};
+
 	return (
 		<>
 			<DepositnewInfoMoule
@@ -635,6 +640,7 @@ const Depositnew = () => {
 					<MobileForm
 						t={t}
 						_isConvert={_isConvert}
+						formatAmount={formatAmount}
 						depositType={depositType}
 						mobilePayGourpList={mobilePayGourpList}
 						mobilePayInfoList={mobilePayInfoList}
@@ -654,6 +660,7 @@ const Depositnew = () => {
 						depositType={depositType}
 						defPopBoxType={defPopBoxType}
 						_isConvert={_isConvert}
+						formatAmount={formatAmount}
 						localBankGroupList={localBankGroupList}
 						formInfo={formInfo}
 						localBankInfo={localBankInfo}
@@ -673,6 +680,7 @@ const Depositnew = () => {
 					<OnlineBankForm
 						t={t}
 						_isConvert={_isConvert}
+						formatAmount={formatAmount}
 						depositType={depositType}
 						onlineBankGroupList={onlineBankGroupList}
 						onlineBankInfoList={onlineBankInfoList}
@@ -692,6 +700,7 @@ const Depositnew = () => {
 						depositType={depositType}
 						defPopBoxType={defPopBoxType}
 						_isConvert={_isConvert}
+						formatAmount={formatAmount}
 						cryptoPayGroupList={cryptoPayGroupList}
 						formInfo={formInfo}
 						cryptoPayInfo={cryptoPayInfo}
