@@ -433,6 +433,54 @@ header .header > div.menu .fishList button i::before {
   font-size: 20px;
 }
 
+header .header > div.menu .sportsList a .underBtn,
+header .header > div.menu .sportsList button .underBtn,
+header .header > div.menu .gameList a .underBtn,
+header .header > div.menu .gameList button .underBtn,
+header .header > div.menu .casinoList a .underBtn,
+header .header > div.menu .casinoList button .underBtn,
+header .header > div.menu .livecasinoList a .underBtn,
+header .header > div.menu .livecasinoList button .underBtn,
+header .header > div.menu .fishList a .underBtn,
+header .header > div.menu .fishList button .underBtn {
+  display: none;
+  background-color: #a59f9f;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+header .header > div.menu .sportsList a.under,
+header .header > div.menu .sportsList button.under,
+header .header > div.menu .gameList a.under,
+header .header > div.menu .gameList button.under,
+header .header > div.menu .casinoList a.under,
+header .header > div.menu .casinoList button.under,
+header .header > div.menu .livecasinoList a.under,
+header .header > div.menu .livecasinoList button.under,
+header .header > div.menu .fishList a.under,
+header .header > div.menu .fishList button.under {
+  -webkit-filter: grayscale(1);
+}
+
+header .header > div.menu .sportsList a.under .underBtn,
+header .header > div.menu .sportsList button.under .underBtn,
+header .header > div.menu .gameList a.under .underBtn,
+header .header > div.menu .gameList button.under .underBtn,
+header .header > div.menu .casinoList a.under .underBtn,
+header .header > div.menu .casinoList button.under .underBtn,
+header .header > div.menu .livecasinoList a.under .underBtn,
+header .header > div.menu .livecasinoList button.under .underBtn,
+header .header > div.menu .fishList a.under .underBtn,
+header .header > div.menu .fishList button.under .underBtn {
+  display: block;
+}
+
 header .header > div.menu .sportsList .sport {
   background: url(../img/sport.png) no-repeat center/auto 100%;
 }
@@ -4357,6 +4405,36 @@ main > .swiper-container .swiper-slide {
   font-weight: bold;
 }
 
+.offers .swiper-container .eventImg .odds {
+  width: 75%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 28px;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.offers .swiper-container .eventImg .odds > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.offers .swiper-container .eventImg .odds > div p {
+  margin: 0 10px;
+}
+
+.offers .swiper-container .eventImg .odds > div p:nth-last-child(1) {
+  color: #ff5032;
+}
+
 .top10Aear {
   width: 80%;
   margin: 0 auto;
@@ -6145,6 +6223,29 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
+.livelobbyList > div .underBtn {
+  display: none;
+  background-color: #a59f9f;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 3px;
+  width: 70%;
+  text-align: center;
+}
+
+.livelobbyList > div.under {
+  -webkit-filter: grayscale(1);
+}
+
+.livelobbyList > div.under .underBtn {
+  display: block;
+}
+
 .livelobbyList > div .icon {
   position: absolute;
   right: 15px;
@@ -6152,6 +6253,14 @@ main > .swiper-container .swiper-slide {
   font-size: 20px;
   -webkit-animation: newicon 0.5s linear infinite alternate;
           animation: newicon 0.5s linear infinite alternate;
+}
+
+.livelobbyList > div.live-pt {
+  background: url(../img/livelobby/live-pt.png) no-repeat center;
+}
+
+.livelobbyList > div.live-pt:hover {
+  background: url(../img/livelobby/live-pt-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-n2 {
@@ -6274,6 +6383,36 @@ main > .swiper-container .swiper-slide {
   position: relative;
 }
 
+.fishlobbyList > div .underBtn {
+  display: none;
+  background-color: #a59f9f;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.fishlobbyList > div.under {
+  -webkit-filter: grayscale(1);
+}
+
+.fishlobbyList > div.under .underBtn {
+  display: block;
+}
+
+.fishlobbyList > div.under:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.fishlobbyList > div.under:hover .btnGroup {
+  display: none;
+}
+
 .fishlobbyList > div .icon {
   position: absolute;
   top: 5%;
@@ -6368,6 +6507,162 @@ main > .swiper-container .swiper-slide {
 .fishlobbyList > div.coming:hover {
   -webkit-transform: scale(1);
           transform: scale(1);
+}
+
+.gamelobby {
+  height: auto;
+  padding-bottom: 10%;
+  background-size: 100%;
+  background: url(../img/gameslobby/gamesBg.png) no-repeat bottom;
+}
+
+.gamelobby .inside {
+  max-width: auto;
+}
+
+.gameslobbyList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gameslobbyList::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  width: 100%;
+  height: 150px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 15, 35, 0)), to(#070f23));
+  background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0%, #070f23 100%);
+  z-index: 1;
+}
+
+.gameslobbyList > div {
+  min-width: 310px;
+  height: 310px;
+  margin: 20px 5px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+  position: relative;
+}
+
+.gameslobbyList > div .underBtn {
+  display: none;
+  background-color: #a59f9f;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 3px;
+  width: 70%;
+  text-align: center;
+}
+
+.gameslobbyList > div.under {
+  -webkit-filter: grayscale(1);
+}
+
+.gameslobbyList > div.under .underBtn {
+  display: block;
+}
+
+.gameslobbyList > div.under:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.gameslobbyList > div.under:hover .btnGroup {
+  display: none;
+}
+
+.gameslobbyList > div .icon {
+  position: absolute;
+  top: 5%;
+  left: 20px;
+  font-size: 20px;
+  color: #56ceff;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+.gameslobbyList > div p {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  text-transform: uppercase;
+  bottom: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  background: url(../img/gameslobby/textBg.png) no-repeat center;
+  padding: 0px 30px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.gameslobbyList > div .btnGroup {
+  display: none;
+  position: absolute;
+  width: 80%;
+  bottom: 28%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.gameslobbyList > div:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.gameslobbyList > div:hover .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.gameslobbyList > div.lottery789 {
+  background: url(../img/gameslobby/Lottery789.png) no-repeat center;
+}
+
+.gameslobbyList > div.keno {
+  background: url(../img/gameslobby/keno.png) no-repeat center;
+}
+
+.gameslobbyList > div.lottery {
+  background: url(../img/gameslobby/lottery.png) no-repeat center;
+}
+
+.gameslobbyList > div.sabaClub {
+  background: url(../img/gameslobby/SabaClub.png) no-repeat center;
+}
+
+.gameslobbyList > div.traditional {
+  background: url(../img/gameslobby/traditional.png) no-repeat center;
+}
+
+.gameslobbyList > div.v8pork {
+  background: url(../img/gameslobby/V8Poker.png) no-repeat center;
 }
 
 form {
@@ -9944,7 +10239,8 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  background: url(../img/download/downloanBG.png) no-repeat bottom center;
+  height: 1210px;
+  background: url(../img/download/downloanBG.png) no-repeat center;
   background-size: cover;
 }
 
@@ -10004,6 +10300,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .downloadArea .downloadT .downloadFrame p {
   font-size: 24px;
   text-transform: uppercase;
+  color: #fff;
 }
 
 @media screen and (max-width: 700px) {
@@ -10069,6 +10366,8 @@ input + .iconModule i.icon.icon-checkmark:before {
   border-radius: 20px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #3ca3ff), to(#175de6));
   background: linear-gradient(to bottom, #3ca3ff 1%, #175de6 100%);
+  color: #fff;
+  font-size: 18px;
 }
 
 .downloadArea .downloadB {
@@ -10090,7 +10389,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .downloadArea .downloadB h1 {
   font-size: 40px;
   font-weight: bold;
-  margin: 10px 0 50px 0;
+  margin: 50px 0 50px 0;
   text-transform: uppercase;
 }
 

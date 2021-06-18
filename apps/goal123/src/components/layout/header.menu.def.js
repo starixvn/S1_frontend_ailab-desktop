@@ -111,6 +111,8 @@ import fishingLobbyFishingworldBgImg from "../../styles/img/fishing/fishingworld
 import fishingLobbyFishinggodBgImg from "../../styles/img/fishing/fishinggod.png";
 import fishingLobbyFishingwarBgImg from "../../styles/img/fishing/fishingwar.png";
 
+import livecasinoLobbyPTIconImg from "../../styles/img/livecasinolist/icon/pt.png";
+import livecasinoLobbyPTBgImg from "../../styles/img/livecasinolist/pt.png";
 import livecasinoLobbyN2liveIconImg from "../../styles/img/livecasinolist/icon/n2live.png";
 import livecasinoLobbyN2liveBgImg from "../../styles/img/livecasinolist/n2live.png";
 import livecasinoLobbyWmIconImg from "../../styles/img/livecasinolist/icon/wm.png";
@@ -409,7 +411,11 @@ export const defMenuLinks = langId => {
 					parameter: { provider: defCasinoProviders.PT.name },
 					npcImgUrl: livecasinoPtNpcImg,
 					iconImgUrl: livecasinoPtIconImg,
-					disabledInSlider: true
+					disabledInSlider: true,
+					lobbyPage: {
+						bgImg: livecasinoLobbyPTBgImg,
+						iconImg: livecasinoLobbyPTIconImg
+					}
 				},
 				{
 					tpId: 28,

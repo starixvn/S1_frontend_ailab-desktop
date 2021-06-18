@@ -14,6 +14,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		gameId,
 		path,
 		needLogin,
+		menuType,
 		lobbyPage: { bgImg, hoverBgImg }
 	} = subMenuItem;
 
@@ -42,7 +43,8 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					tpId,
 					gameId,
 					path,
-					needLogin
+					needLogin,
+					menuType
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

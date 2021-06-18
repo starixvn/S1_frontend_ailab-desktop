@@ -5,6 +5,7 @@ const LiveCasinoListItem = ({ clickItem, subMenuItem }) => {
 	const {
 		tpId,
 		gameId,
+		menuType,
 		lobbyPage: { bgClass }
 	} = subMenuItem;
 
@@ -14,7 +15,8 @@ const LiveCasinoListItem = ({ clickItem, subMenuItem }) => {
 			onClick={() =>
 				clickItem({
 					tpId,
-					gameId
+					gameId,
+					menuType
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

@@ -7,6 +7,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem }) => {
 		displayKey,
 		tpId,
 		gameId,
+		menuType,
 		lobbyPage: { bgImg, iconImg }
 	} = subMenuItem;
 
@@ -28,7 +29,8 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem }) => {
 					onClick={() =>
 						clickItem({
 							tpId,
-							gameId
+							gameId,
+							menuType
 						})
 					}>
 					{t("lbl_Play")}

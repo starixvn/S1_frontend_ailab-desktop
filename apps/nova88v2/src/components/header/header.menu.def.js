@@ -114,7 +114,6 @@ export const defMenuType = {
 	Link: "Link",
 	LinkNoImg: "LinkNoImg",
 	DirectUrl: "DirectUrl",
-	GotoGame: "GotoGame",
 	useGoToGame: "useGoToGame"
 };
 
@@ -249,7 +248,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_9W",
 				listNpcImgUrl: "9wnpc.png",
 				listBgImgUrl: "cricketBG.png",
-				menuType: defMenuType.GotoGame,
+				menuType: defMenuType.useGoToGame,
 				parameter: { ...productList._9WSports },
 				imgSource: defImgSourceType.bannerImgUrl,
 				canSeeOnlyAfterLogin: true,

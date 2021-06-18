@@ -241,7 +241,10 @@ export const defMenuLinks = {
 				],
 				icon: "icon icon-pt",
 				displayText: "PT",
-				menuType: defMenuType.useGoToGame
+				menuType: defMenuType.useGoToGame,
+				lobbyPage: {
+					bgClass: "live-pt"
+				}
 			},
 			{
 				...productList.liveCasino_n2live,

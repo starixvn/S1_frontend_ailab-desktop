@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "@reach/router";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
-import { defMenuLinks } from "../header/header.menu.def";
+import { defMenuLinks, defMenuType } from "../header/header.menu.def";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -14,6 +14,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import LivecasinoBanner from "./livecasino.banner";
 import LivecasinoList from "./livecasino.list";
 import config from "../../config";
+import { useGotoGame } from "../hook/useGotoGame";
 
 const Livecasino = () => {
 	const { t } = useTranslation();
@@ -22,7 +23,13 @@ const Livecasino = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { maintainList } = useContext(maintainListContext);
 
-	const clickItem = ({ tpId, gameId, needLogin, path }) => {
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
+
+	const clickItem = ({ tpId, gameId, needLogin, path, menuType }) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -34,6 +41,15 @@ const Livecasino = () => {
 			return needLogin && !userInfo.isLogin
 				? showLoginPopBox()
 				: navigate(`/${userInfo.langId}/${path}`);
+		}
+
+		if (menuType === defMenuType.useGoToGame) {
+			return handleGoToGame({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId
+			});
 		}
 
 		return SET_ENTER_PAGE({

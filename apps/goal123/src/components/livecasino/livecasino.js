@@ -1,8 +1,7 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
-import { defMenuLinks } from "../layout/header.menu.def";
-
+import { defMenuLinks, defMenuType } from "../layout/header.menu.def";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -11,14 +10,16 @@ import {
 import { defPopBoxType } from "../common/popBox";
 import LivecasinoBanner from "./livecasino.banner";
 import LivecasinoList from "./livecasino.list";
+import { useGotoGame } from "../hook/useGotoGame";
 
 const Livecasino = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
+	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 
-	const clickItem = ({ tpId, gameId }) => {
+	const clickItem = ({ tpId, gameId, menuType }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -26,13 +27,22 @@ const Livecasino = () => {
 			});
 		};
 
-		SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback
-		});
+		if (menuType === defMenuType.useGoToGame) {
+			handleGoToGame({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId
+			});
+		} else {
+			SET_ENTER_PAGE({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				loginCallback
+			});
+		}
 	};
 
 	const getSubMenu = () => {
