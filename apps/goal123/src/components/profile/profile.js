@@ -551,6 +551,14 @@ export default () => {
 									</div>
 								)
 							});
+					} else {
+						openErrorMessagePopBox(
+							res.data.message ||
+								`[${res.data.errorCode}] ${t(
+									"msg_ApiServerError"
+								)}`,
+							res.data.errorCode
+						);
 					}
 				}
 			},
