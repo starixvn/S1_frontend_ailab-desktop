@@ -562,7 +562,7 @@ export default () => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setLoading(false);
 					openErrorMessagePopBox();

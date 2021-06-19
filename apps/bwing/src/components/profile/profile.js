@@ -601,7 +601,7 @@ export default () => {
 					setMobileVerificationLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					openErrorMessagePopBox();
 					setMobileVerificationLoading(false);

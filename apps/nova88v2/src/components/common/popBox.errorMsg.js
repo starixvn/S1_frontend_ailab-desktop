@@ -6,6 +6,7 @@ export default ({ btnBar, message, errorCode, icon = "icon-library" }) => {
 	const [countDownSecond, setCountDownSecond] = useState(300);
 	const timerRef = useRef(null);
 	const hasTooManyRequestError = errorCode === 1004;
+	const errMsg = `${errorCode ? `[${errorCode}] ` : ""}${message}`;
 
 	const startTimer = () => {
 		timerRef.current = setInterval(() => {
@@ -56,7 +57,7 @@ export default ({ btnBar, message, errorCode, icon = "icon-library" }) => {
 						})}
 					</span>
 				) : (
-					<span>{message}</span>
+					<span>{errMsg}</span>
 				)}
 			</div>
 			{btnBar}
