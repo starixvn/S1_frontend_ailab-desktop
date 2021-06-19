@@ -347,43 +347,29 @@ export default () => {
 
 	const checkEmail = async () => {
 		let checkResult = false;
-
-		let checkTip = "";
 		const emailRegex = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 		if (userInfo.email) {
 			checkResult = true;
-		}
-
-		if (!userInfo.email && emailValue === "") {
+		} else if (!emailValue) {
 			checkResult = false;
-			checkTip = t("lbl_EmailRequired");
 			setStatus(prev => ({
 				...prev,
 				email: {
-					tip: checkTip,
+					tip: t("lbl_EmailRequired"),
 					checked: checkResult
 				}
 			}));
-		} else if (
-			!userInfo.email &&
-			emailValue.length > 0 &&
-			!emailRegex.test(emailValue)
-		) {
+		} else if (!emailRegex.test(emailValue)) {
 			checkResult = false;
-			checkTip = t("lbl_EmailFormatError");
 			setStatus(prev => ({
 				...prev,
 				email: {
-					tip: checkTip,
+					tip: t("lbl_EmailFormatError"),
 					checked: checkResult
 				}
 			}));
-		} else if (
-			!userInfo.email &&
-			emailValue.length > 0 &&
-			emailRegex.test(emailValue)
-		) {
+		} else {
 			setStatus(prev => ({
 				...prev,
 				email: {
