@@ -8,7 +8,6 @@ export const defPopBoxType = {
 	Success: "Success",
 	ErrorMsg: "ErrorMsg",
 	Login: "Login",
-	Join: "Join",
 	AddBankAccount: "AddBankAccount",
 	AddBankSuccess: "AddBankSuccess",
 	ConfirmDelete: "ConfirmDelete",
@@ -98,12 +97,6 @@ export default () => {
 		case defPopBoxType.Login: {
 			const Login = lazy(() => import("./popBox.login"));
 			content = <Login />;
-			break;
-		}
-
-		case defPopBoxType.Join: {
-			const Join = lazy(() => import("./popBox.join"));
-			content = <Join />;
 			break;
 		}
 

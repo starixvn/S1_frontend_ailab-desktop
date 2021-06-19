@@ -8,7 +8,6 @@ import {
 	api_site_GetSiteCurrencyList,
 	api_site_Signup,
 	api_site_ExistsPhoneNo,
-	// api_site_Register,
 	api_site_GetAffiliateAgent
 } from "../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../service/api/accountStrict";

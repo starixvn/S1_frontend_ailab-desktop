@@ -4,7 +4,6 @@ export const defPopBoxType = {
 	Success: "Success",
 	ErrorMsg: "ErrorMsg",
 	Login: "Login",
-	Join: "Join",
 	AddBankAccount: "AddBankAccount",
 	AddBankSuccess: "AddBankSuccess",
 	ConfirmDelete: "ConfirmDelete",

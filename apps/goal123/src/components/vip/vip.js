@@ -1,26 +1,23 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { defPopBoxType } from "../common/popBox";
-import { userInfoContext, popBoxContext } from "../common/context";
+import { navigate } from "@reach/router";
+import { userInfoContext } from "../common/context";
 import CustomSwipper from "../common/customSwipper";
 import { InfoEn, InfoVn } from "./vip.info";
 import VipPage from "./vip.page";
 import { defbanner, defPageClubImg } from "./vip.def";
 import { currencyCode } from "../../datas/countryCode";
+import path from "../../router";
 
 const Vip = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
 
 	const _currencyId = currencyCode.VN;
 
 	const showJoinPopBox = () => {
 		if (!userInfo.isLogin)
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Join
-			});
+			navigate(`/${userInfo.langId}/${path.join.root}`);
 	};
 
 	const rows = defbanner[userInfo.langId].map(item => (

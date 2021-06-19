@@ -83,12 +83,6 @@ export default () => {
 			break;
 		}
 
-		case defPopBoxType.Join: {
-			const Join = lazy(() => import("./popBox.join"));
-			content = <Join />;
-			break;
-		}
-
 		case defPopBoxType.AddBankAccount: {
 			const AddBankAccount = lazy(() =>
 				import("./popBox.addBankAccount")

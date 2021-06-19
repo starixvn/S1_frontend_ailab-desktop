@@ -6,7 +6,6 @@ import Layout from "../components/common/layout";
 import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
-	// api_site_Register,
 	api_site_GetAffiliateAgent,
 	api_site_Signup
 } from "../service/api/site";
