@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { number_format } from "../common/common";
-import config from "../../config";
 import { defTabId, defImgRankId, defRewardTabId } from "./leaderboard.def";
 
 const LeaderBoardEventContent = ({

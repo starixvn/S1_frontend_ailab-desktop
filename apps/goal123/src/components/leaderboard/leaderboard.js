@@ -7,7 +7,6 @@ import {
 	api_events_GetLeaderboardListV2,
 	api_events_GetCustRankV2
 } from "../../service/api/events";
-
 import {
 	defTabId,
 	defDayNum,
@@ -16,10 +15,10 @@ import {
 	defPeriodId,
 	defRewardTabId
 } from "./leaderboard.def";
-
 import LeaderBoardTabs from "./leaderboard.tabs";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
+import config from "../../config";
 
 const langMapping = {
 	vn: "VND",

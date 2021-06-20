@@ -10,9 +10,7 @@ import {
 } from "../../service/api/events";
 import bottomImgResult from "../../styles/img/ranking/bottomImg.png";
 import moneyImgResult from "../../styles/img/ranking/money.png";
-
 import LeaderBoardTab from "./leaderboard.tabs";
-
 import {
 	defTabId,
 	defDayNum,
@@ -21,11 +19,10 @@ import {
 	defPeriodId,
 	defRewardTabId
 } from "./leaderboard.def";
-
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
-
 import tropyBgImg from "../../styles/img/ranking/tropyBg.png";
+import config from "../../config";
 
 const langMapping = {
 	vn: "VND",

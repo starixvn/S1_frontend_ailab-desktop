@@ -62,7 +62,7 @@ import slotsCq9NpcImg from "../../styles/img/dropdown/slots/cq9-item.png";
 import slotsCq9IconImg from "../../styles/img/dropdown/slots/cq9-icon.png";
 
 import slotsGpiBgImg from "../../styles/img/dropdown/slots/gpi.png";
-import slotsGpiNpcImg from "../../styles/img/dropdown/slots/gpi-item.png";
+import slotsGpiNpcImg from "../../styles/img/dropdown/slots/GPI-item.png";
 import slotsGpiIconImg from "../../styles/img/dropdown/slots/gpi-icon.png";
 
 import slotsYggBgImg from "../../styles/img/dropdown/slots/ygg.png";

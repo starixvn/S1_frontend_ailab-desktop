@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { defRewardTabId } from "./leaderboard.def";
 
-import config from "../../config";
-
 const LeaderBoardContentEvent = ({
 	t,
 	rewardList,
