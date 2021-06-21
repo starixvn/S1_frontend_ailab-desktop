@@ -36,7 +36,7 @@ const PromoList = ({ t, userInfo }) => {
 				<div className="swiper-container promosSwiper">
 					{/* <Swiper {...defSwipperConfig}>{Rows}</Swiper> */}
 					<ReactMarquee
-						speed={60}
+						speed={145}
 						pauseOnHover={true}
 						gradientColor={false}>
 						<div className="swiper-container">

@@ -177,7 +177,7 @@ export default ({ t, userInfo }) => {
 
 			<div className="hotGame">
 				<ReactMarquee
-					speed={60}
+					speed={145}
 					pauseOnHover={true}
 					gradientColor={false}>
 					<div className="swiper-container">
