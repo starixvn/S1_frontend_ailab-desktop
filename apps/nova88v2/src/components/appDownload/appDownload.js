@@ -19,7 +19,7 @@ const AppDownload = () => {
 		return typeof window !== undefined ? window.open(e.target.value) : null;
 	};
 
-	const iosLink = "https://nova.ytfsmm.com/";
+	const iosLink = "https://nova.appdlweb.com";
 	const androidLink = "https://dl.4ppstore.com/dlapp/Nova88.apk";
 
 	return (
