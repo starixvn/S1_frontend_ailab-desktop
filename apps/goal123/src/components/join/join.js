@@ -25,6 +25,7 @@ import JoinForm from "./join.form";
 import usePopBox from "../hook/usePopBox";
 import { eventPeriodEuro } from "../../datas/euroDef";
 import joinBannerEuro from "../../styles/img/joinBanner_euro.png";
+import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -177,22 +178,18 @@ export default () => {
 	};
 
 	const usernameCheck = val => {
-		let checked = false;
+		let checked = true;
 		let msg = "";
 
-		if (val === "") {
+		if (!val) {
 			checked = false;
 			msg = "msg_UsernameReq";
-		} else if (val !== "") {
-			if (val.length < 6 || val.length > 18) {
-				checked = false;
-				msg = "msg_UsernameLength";
-			} else {
-				checked = true;
-			}
+		} else if (val.length < 6 || val.length > 18) {
+			checked = false;
+			msg = "msg_UsernameLength";
 		}
 
-		if (checked === true) {
+		if (checked) {
 			api_site_ExistsUserName({
 				UserName: val,
 				langId: userInfo.langId
@@ -357,7 +354,9 @@ export default () => {
 												..._user,
 												...res_custInfo.data.data
 											};
-											navigate(`/${userInfo.langId}`);
+											navigate(
+												`/${userInfo.langId}/${path.deposit.root}`
+											);
 										} else {
 											errorPopBox(
 												res_custInfo.data.message ||
@@ -366,13 +365,11 @@ export default () => {
 											);
 										}
 										setUserInfo(_user);
-										setPopBox({ isOpen: false });
 									}
 								},
 								() => {
 									if (isMountedRef.current) {
 										errorPopBox();
-										setPopBox({ isOpen: false });
 									}
 								}
 							);
@@ -431,7 +428,7 @@ export default () => {
 		});
 	};
 
-	return userInfo.isLogin === true ? null : (
+	return (
 		<div className="joinloginModule">
 			<img
 				src={isInPeriodEuro ? joinBannerEuro : joinBanner}

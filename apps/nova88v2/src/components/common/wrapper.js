@@ -90,7 +90,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		api_site_CheckSignIn()
 			.then(
 				res => res.data.errorCode === 0,
-				err => setCorrectPath(true)
+				() => setCorrectPath(true)
 			)
 			.then(isLogin => {
 				if (userInfo.kickout) {
@@ -125,13 +125,9 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 					}
 				} else if (
 					isMountedRef.current &&
-					((afterLogin && !isLogin) ||
-						(isLogin && onlyBeforeLogin && !userInfo.isJoin))
+					((afterLogin && !isLogin) || (isLogin && onlyBeforeLogin))
 				) {
 					setRedirectPath(`/${userInfo.langId}`);
-				}
-				if (userInfo.isJoin) {
-					navigate(`/${userInfo.langId}/${path.deposit.root}`);
 				}
 				if (isLogin !== userInfo.isLogin && isMountedRef.current) {
 					setUserInfo(prevState => ({
@@ -144,7 +140,6 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		userInfo.isLogin,
 		userInfo.kickout,
 		userInfo.willLogout,
-		userInfo.isJoin,
 		setUserInfo,
 		setRedirectPath,
 		setPopBox
