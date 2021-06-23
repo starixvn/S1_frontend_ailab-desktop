@@ -69,6 +69,10 @@ module.exports = {
 		{
 			prefix: "*/Cashier",
 			url: "https://stag.bwing.com"
+		},
+		{
+			prefix: "/SiteSkin",
+			url: "https://stag.bwing.com"
 		}
 	]
 };

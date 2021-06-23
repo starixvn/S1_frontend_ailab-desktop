@@ -68,6 +68,10 @@ module.exports = {
 		{
 			prefix: "*/Cashier",
 			url: "https://stag.goal123.com"
+		},
+		{
+			prefix: "/SiteSkin",
+			url: "https://stag.goal123.com"
 		}
 	]
 };
