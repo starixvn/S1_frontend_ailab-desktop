@@ -39,7 +39,7 @@ const defaultPathLang = () => {
 	return result;
 };
 
-export default ({ children, afterLogin = false }) => {
+export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -103,13 +103,13 @@ export default ({ children, afterLogin = false }) => {
 						)
 					});
 				}
-			} else if (isMountedRef.current && afterLogin && !isLogin) {
+			} else if (
+				isMountedRef.current &&
+				((afterLogin && !isLogin) || (isLogin && onlyBeforeLogin))
+			) {
 				setRedirectPath(`/${userInfo.langId}`);
 			}
 
-			if (userInfo.isJoin) {
-				navigate(`/${userInfo.langId}/${path.deposit.root}`);
-			}
 			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
 				setUserInfo(prevState => ({
 					...prevState,
@@ -121,7 +121,6 @@ export default ({ children, afterLogin = false }) => {
 		userInfo.isLogin,
 		userInfo.kickout,
 		userInfo.willLogout,
-		userInfo.isJoin,
 		setUserInfo,
 		setRedirectPath,
 		setPopBox

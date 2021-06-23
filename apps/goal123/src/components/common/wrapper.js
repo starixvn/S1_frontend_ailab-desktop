@@ -105,15 +105,11 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				}
 			} else if (
 				isMountedRef.current &&
-				((afterLogin && !isLogin) ||
-					(isLogin && onlyBeforeLogin && !userInfo.isJoin))
+				((afterLogin && !isLogin) || (isLogin && onlyBeforeLogin))
 			) {
 				setRedirectPath(`/${userInfo.langId}`);
 			}
 
-			if (userInfo.isJoin) {
-				navigate(`/${userInfo.langId}/${path.deposit.root}`);
-			}
 			if (isLogin !== userInfo.isLogin && isMountedRef.current) {
 				setUserInfo(prevState => ({
 					...prevState,
@@ -125,7 +121,6 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		userInfo.isLogin,
 		userInfo.kickout,
 		userInfo.willLogout,
-		userInfo.isJoin,
 		setUserInfo,
 		setRedirectPath,
 		setPopBox

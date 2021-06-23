@@ -34,6 +34,7 @@ import imgBack from "../../styles/img/back.png";
 import imgWelcome from "../../styles/img/welcome.png";
 import { eventPeriodEuro } from "../../datas/euroDef";
 import imgEuro from "../../styles/img/euro/joinAnimation.png";
+import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -342,15 +343,12 @@ export default () => {
 	};
 
 	const phoneCheck = async val => {
-		let checked = false;
+		let checked = true;
 		let msg = "";
 
 		if (val === "" || (isUSDT && _areaCode === "")) {
 			checked = false;
 			msg = "lbl_PhoneRequired";
-		} else {
-			checked = true;
-			// msg = "lbl_CantChangePhone";
 		}
 
 		if (checked) {
@@ -491,6 +489,9 @@ export default () => {
 												..._user,
 												...res_custInfo.data.data
 											};
+											navigate(
+												`/${userInfo.langId}/${path.deposit.root}`
+											);
 										} else {
 											errorPopBox(
 												res_custInfo.data.message ||
@@ -562,14 +563,6 @@ export default () => {
 			popBoxType: defPopBoxType.Login
 		});
 	};
-
-	if (userInfo.isLogin) {
-		if (userInfo.isJoin) {
-			navigate(`/${userInfo.langId}`, {
-				state: { isJoin: true }
-			});
-		}
-	}
 
 	return (
 		<div className="joinpop">

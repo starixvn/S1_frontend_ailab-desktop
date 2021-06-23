@@ -205,7 +205,8 @@ const JoinForm = ({
 
 JoinForm.defaultProps = {
 	hasRefOrAffCode: null,
-	_areaCode: null
+	_areaCode: null,
+	defaultOption: null
 };
 
 JoinForm.propTypes = {
@@ -225,7 +226,7 @@ JoinForm.propTypes = {
 	tandCTerms: PropTypes.string.isRequired,
 	clickCancel: PropTypes.func.isRequired,
 	clickSubmit: PropTypes.func.isRequired,
-	defaultOption: PropTypes.string.isRequired,
+	defaultOption: PropTypes.string,
 	areaCodeOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	onSelectAreaCode: PropTypes.func.isRequired,
 	isUSDT: PropTypes.bool.isRequired
