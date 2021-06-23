@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
 import Inputbox from "./inputbox";
@@ -71,7 +72,7 @@ const LoginPanel = () => {
 	const checkValue = (col, val) => {
 		let checked = false;
 		let msg = "";
-		
+
 		if (val === "") {
 			msg =
 				col === "username"
@@ -193,75 +194,124 @@ const LoginPanel = () => {
 						src={require("../../styles/img/back.png")}
 					/>
 				</div>
-				<form className="joinloginFunction" onSubmit={handleLogin}>
-					<div className="title txt-orange">{t("lbl_Login")}</div>
-					<div className="noAccount">
-						{t("lbl_DontHaveAccount")}{" "}
-						<button
-							className="txt-orange"
-							type="button"
-							onClick={clickJoin}>
-							{t("lbl_JoinNow")}
-						</button>
-					</div>
-					<div className="inputModule">
-						<Inputbox
-							icon="icon-member txt-orange"
-							placeholder={t("lbl_Username")}
-							value={userValue.username}
-							onChange={EditField.bind(null, "username")}
-							onBlur={checkValue.bind(
-								null,
-								"username",
-								userValue.username
-							)}
-							clickInfo={clickInfo.bind(this, "username")}
-							checked={tip.username.checked}
-							tip={tip.username.msg}
-							warningIcon="icon-warning"
-							className="inputBox-org"
-						/>
-
-						<InputboxPSW
-							icon="icon-key txt-orange"
-							inputType={`${!showPsw ? "password" : "text"}`}
-							placeholder={t("lbl_Password")}
-							value={userValue.password}
-							onChange={EditField.bind(null, "password")}
-							onBlur={checkValue.bind(
-								null,
-								"password",
-								userValue.password
-							)}
-							showPsw={showPsw}
-							showPswHandler={showPswHandler}
-							checked={tip.password.checked}
-							clickInfo={clickInfo.bind(this, "password")}
-							tip={tip.password.msg}
-							className="inputBox-org"
-						/>
-
-						<Link
-							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="txt-blue2">
-							{t("lbl_ForgetPassword")}
-						</Link>
-					</div>
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							type="button"
-							onClick={clickCancel}>
-							{t("lbl_Cancel")}
-						</button>
-						<button className="btn-check" type="submit">
-							{t("lbl_Login")}
-						</button>
-					</div>
-				</form>
+				<LoginForm
+					t={t}
+					clickCancel={clickCancel}
+					userInfo={userInfo}
+					path={path}
+					clickJoin={clickJoin}
+					handleLogin={handleLogin}
+					userValue={userValue}
+					EditField={EditField}
+					checkValue={checkValue}
+					clickInfo={clickInfo}
+					tip={tip}
+					showPsw={showPsw}
+					showPswHandler={showPswHandler}
+					path={path}
+				/>
 			</div>
 		</div>
 	);
 };
 
 export default LoginPanel;
+
+export const LoginForm = ({
+	t,
+	clickCancel,
+	clickJoin,
+	userInfo,
+	handleLogin,
+	userValue,
+	EditField,
+	checkValue,
+	clickInfo,
+	tip,
+	showPsw,
+	showPswHandler
+}) => {
+	return (
+		<form className="joinloginFunction" onSubmit={handleLogin}>
+			<div className="title txt-orange">{t("lbl_Login")}</div>
+			<div className="noAccount">
+				{t("lbl_DontHaveAccount")}{" "}
+				<button
+					className="txt-orange"
+					type="button"
+					onClick={clickJoin}>
+					{t("lbl_JoinNow")}
+				</button>
+			</div>
+			<div className="inputModule">
+				<Inputbox
+					icon="icon-member txt-orange"
+					placeholder={t("lbl_Username")}
+					value={userValue.username}
+					onChange={EditField.bind(null, "username")}
+					onBlur={checkValue.bind(
+						null,
+						"username",
+						userValue.username
+					)}
+					clickInfo={clickInfo.bind(this, "username")}
+					checked={tip.username.checked}
+					tip={tip.username.msg}
+					warningIcon="icon-warning"
+					className="inputBox-org"
+				/>
+
+				<InputboxPSW
+					icon="icon-key txt-orange"
+					inputType={`${!showPsw ? "password" : "text"}`}
+					placeholder={t("lbl_Password")}
+					value={userValue.password}
+					onChange={EditField.bind(null, "password")}
+					onBlur={checkValue.bind(
+						null,
+						"password",
+						userValue.password
+					)}
+					showPsw={showPsw}
+					showPswHandler={showPswHandler}
+					checked={tip.password.checked}
+					clickInfo={clickInfo.bind(this, "password")}
+					tip={tip.password.msg}
+					className="inputBox-org"
+				/>
+
+				<Link
+					to={`/${userInfo.langId}/${path.forgetPassword.root}`}
+					className="txt-blue2">
+					{t("lbl_ForgetPassword")}
+				</Link>
+			</div>
+			<div className="btnGroup">
+				<button
+					className="btn-cancel"
+					type="button"
+					onClick={clickCancel}>
+					{t("lbl_Cancel")}
+				</button>
+				<button className="btn-check" type="submit">
+					{t("lbl_Login")}
+				</button>
+			</div>
+		</form>
+	);
+};
+
+LoginForm.propTypes = {
+	t: PropTypes.func.isRequired,
+	clickCancel: PropTypes.func.isRequired,
+	clickJoin: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	handleLogin: PropTypes.func.isRequired,
+	userValue: PropTypes.objectOf(PropTypes.any).isRequired,
+	EditField: PropTypes.func.isRequired,
+	checkValue: PropTypes.func.isRequired,
+	clickInfo: PropTypes.func.isRequired,
+	tip: PropTypes.objectOf(PropTypes.any).isRequired,
+	showPsw: PropTypes.bool.isRequired,
+	showPswHandler: PropTypes.func.isRequired
+};

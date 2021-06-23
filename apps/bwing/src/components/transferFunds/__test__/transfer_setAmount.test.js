@@ -124,11 +124,11 @@ describe("input value", () => {
 			EditAmount: jest.fn(),
 			onChange: jest.fn(),
 			clickSubmit: jest.fn().mockImplementation(e => e.preventDefault()),
-			_isConvert: true,
 			amount: "100",
 			clickInfo: jest.fn(),
 			selectedToIdx: 1,
 			selectedFromIdx: 2,
+			clickInfo: jest.fn(),
 			onBlur: jest.fn(),
 			tip: "tip"
 		};

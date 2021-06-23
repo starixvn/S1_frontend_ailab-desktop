@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
 import loginBanner from "../../styles/img/loginBanner.jpg";
@@ -159,6 +160,44 @@ const LoginPanel = () => {
 
 	return (
 		<div className="loginpop">
+			<LoginForm
+				t={t}
+				clickCancel={clickCancel}
+				loginBanner={loginBanner}
+				userInfo={userInfo}
+				path={path}
+				openJoin={openJoin}
+				handleLogin={handleLogin}
+				userValue={userValue}
+				EditField={EditField}
+				checkValue={checkValue}
+				clickInfo={clickInfo}
+				tip={tip}
+				showPsw={showPsw}
+				showPswHandler={showPswHandler}
+			/>
+		</div>
+	);
+};
+
+export default LoginPanel;
+
+export const LoginForm = ({
+	t,
+	clickCancel,
+	userInfo,
+	openJoin,
+	handleLogin,
+	userValue,
+	EditField,
+	checkValue,
+	clickInfo,
+	tip,
+	showPsw,
+	showPswHandler
+}) => {
+	return (
+		<>
 			<div className="icon icon-close" onClick={clickCancel} />
 			<div className="loginModule">
 				<img src={loginBanner} alt="loginBanner" />
@@ -233,8 +272,21 @@ const LoginPanel = () => {
 					</form>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 
-export default LoginPanel;
+LoginForm.propTypes = {
+	t: PropTypes.func.isRequired,
+	clickCancel: PropTypes.func.isRequired,
+	openJoin: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	handleLogin: PropTypes.func.isRequired,
+	userValue: PropTypes.objectOf(PropTypes.any).isRequired,
+	EditField: PropTypes.func.isRequired,
+	checkValue: PropTypes.func.isRequired,
+	clickInfo: PropTypes.func.isRequired,
+	tip: PropTypes.objectOf(PropTypes.any).isRequired,
+	showPsw: PropTypes.bool.isRequired,
+	showPswHandler: PropTypes.func.isRequired
+};
