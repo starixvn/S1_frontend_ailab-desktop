@@ -109,7 +109,7 @@ class Dropdown extends Component {
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`} />
 				) : null}
-				<button className="btn" disabled={this.props.disabled}>
+				<button className="btn">
 					{this.props.defaultOption ?? selected}
 				</button>
 				{arr.length < 1 ? null : (
