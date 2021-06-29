@@ -104,8 +104,8 @@ export default ({
 							value={userValue.phoneNo}
 							checked={status.phoneNo.checked}
 							clickInfo={clickInfo.bind(this, "phoneNo")}
-							// tip={status.phoneNo.tip}
 							inputType="phone"
+							isTipHide={true}
 						/>
 					</div>
 				) : null}
