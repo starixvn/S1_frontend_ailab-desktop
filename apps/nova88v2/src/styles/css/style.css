@@ -221,6 +221,13 @@ header input:focus-within {
   position: relative;
 }
 
+.header > div.menu > div > a.tvbtn, .header > div.menu > div > button.tvbtn {
+  padding: 0 60px 0 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .header > div.menu > div > a:after, .header > div.menu > div > button:after {
   content: '';
   display: block;
@@ -8193,7 +8200,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -13243,5 +13256,10 @@ canvas {
           align-items: center;
   margin-left: 10px;
   border-radius: 3px;
+}
+
+img[alt="sg"] {
+  width: 90% !important;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=style.css.map */
