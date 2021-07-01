@@ -7,7 +7,7 @@ export default () => {
 	return (
 		<Wrapper>
 			<Layout>
-				<main>
+				<main className="app">
 					<Content />
 				</main>
 			</Layout>
