@@ -19,6 +19,7 @@ import {
 import config from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
+import { isOldLang } from "../../datas/languageData";
 
 const langMapping = {
 	cs: "MYR",
@@ -243,7 +244,9 @@ export default () => {
 
 	const linkToTnc = () => {
 		window.open(
-			`${config.cloudImgUrl}/NovaPromotion/UEFAEuro/${userInfo.langId}.html`
+			`${config.cloudImgUrl}/NovaPromotion/UEFAEuro/${
+				isOldLang(userInfo.langId) ? userInfo.langId : "en"
+			}.html`
 		);
 	};
 

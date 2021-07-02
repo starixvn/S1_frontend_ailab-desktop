@@ -12,10 +12,9 @@ import { useLocation } from "@reach/router";
 import config from "../../config";
 import Favicon from "../../styles/img/favicon.ico";
 import { defMetaData } from "./def";
+import { defLangList } from "../../datas/languageData";
 
 function SEO({ description, lang, meta, title }) {
-	const supportedLanguages = ["en", "cs", "th", "id"];
-
 	const location = useLocation()
 		?.pathname?.split("/")
 		.filter(p => p !== "");
@@ -27,7 +26,7 @@ function SEO({ description, lang, meta, title }) {
 	let links = metaData?.[lang]?.links ?? [];
 	if (
 		location.length >= 2 &&
-		supportedLanguages.includes(location[0]) &&
+		defLangList.includes(location[0]) &&
 		defMetaData[location[1]]
 	) {
 		metaData = defMetaData[location[1]] ?? metaData;

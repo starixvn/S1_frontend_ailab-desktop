@@ -1,6 +1,7 @@
 import { readCookie } from "../components/common/common";
+import { defLangList } from "../datas/languageData";
 
-const siteLangList = ["en", "cs", "th", "id"];
+const siteLangList = defLangList;
 
 const SetReplaceChar = (initPath, idx, langId) => {
 	const _path = initPath
@@ -67,6 +68,12 @@ export const GET_LANG_ID = userLangId => {
 			langId = "hi";
 		} else if (browserDefLang.startsWith("en")) {
 			langId = "en";
+		} else if (browserDefLang.startsWith("th_en")) {
+			langId = "th_en";
+		} else if (browserDefLang.startsWith("id_en")) {
+			langId = "id_en";
+		} else if (browserDefLang.startsWith("hi_en")) {
+			langId = "hi_en";
 		} else {
 			langId = siteDefLangId;
 		}

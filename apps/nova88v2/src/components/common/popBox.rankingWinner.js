@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import path from "../../router";
 import { userInfoContext } from "./context";
 import config from "../../config";
+import { isOldLang } from "../../datas/languageData";
 
 export default ({ onClickClose }) => {
 	const { userInfo } = useContext(userInfoContext);
@@ -16,7 +17,11 @@ export default ({ onClickClose }) => {
 				<img
 					src={`${
 						config.cloudImgUrl
-					}/SiteSkin/img/euro/EURO-RACE-MONTHLY-WINNERS-${userInfo.langId?.toUpperCase()}.jpg`}
+					}/SiteSkin/img/euro/EURO-RACE-MONTHLY-WINNERS-${
+						isOldLang(userInfo.langId)
+							? userInfo.langId.toUpperCase()
+							: "EN"
+					}.jpg`}
 					alt="img_ranking"
 				/>
 			</Link>

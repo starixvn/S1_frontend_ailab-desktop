@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { userInfoContext } from "./context";
 import { setCookie, deleteCookie } from "./common";
 import config from "../../config";
+import { isOldLang } from "../../datas/languageData";
 
 export default ({ onClickClose, linkList }) => {
 	const isMountedRef = useRef(null);
@@ -59,6 +60,10 @@ export default ({ onClickClose, linkList }) => {
 		setCookie(settingCookie, "1", 1);
 	};
 
+	const imgSrc = `${config.bannerImgUrl}/img/backupDomain/backupDomain_${
+		isOldLang(userInfo.langId) ? userInfo.langId : "en"
+	}.jpg`;
+
 	return (
 		<div className="backupDomain active">
 			<button
@@ -66,10 +71,7 @@ export default ({ onClickClose, linkList }) => {
 				onClick={closeAndDontShowAgain}
 			/>
 			<div className="poptit">{t("lbl_nova88_backup_website")}</div>
-			<img
-				src={`${config.bannerImgUrl}/img/backupDomain/backupDomain_${userInfo.langId}.jpg`}
-				alt="backup-domain-Img"
-			/>
+			<img src={imgSrc} alt="backup-domain-Img" />
 			<div className="poptxt">
 				<div>{t("lbl_DearValuedCustomers")}</div>
 				<div>
