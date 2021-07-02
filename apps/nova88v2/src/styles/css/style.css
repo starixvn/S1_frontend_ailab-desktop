@@ -919,6 +919,10 @@ header input:focus-within {
   background: url(../img/flag/vn.jpg) no-repeat top left/cover;
 }
 
+.header > div.function > div .flag.in:before, .header > div.function > a .flag.in:before, .header > div.function > button .flag.in:before {
+  background: url(../img/flag/in.jpg) no-repeat top left/cover;
+}
+
 .header > div.function .icon-email {
   font-size: 24px;
   position: relative;
@@ -3857,6 +3861,18 @@ input[type="file"] {
   display: flex;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.inputBox-white + .inputBox-white {
+  margin: 10px 0;
+}
+
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.inputBox-white + .inputBox-white + .btnGroup {
+  margin: auto 0 auto auto;
+}
+
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.inputBox-white + .inputBox-white + .btnGroup button {
+  margin-right: 0;
 }
 
 .platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div .txt-orange {
@@ -8147,6 +8163,10 @@ button.icon-spinner11:before {
   padding-top: 0;
 }
 
+.icon-BTC ~ .platformName + div.subModuleList .subModuleBody > div > div.inputBox-white {
+  margin: 10px 0;
+}
+
 .icon-new::before {
   position: absolute;
   top: -5px;
@@ -11356,6 +11376,158 @@ canvas {
   width: 605px;
 }
 
+.liveVideo .latestVideo + div .hotevent, .liveVideo .newsList + div .hotevent, .newsVideo .latestVideo + div .hotevent, .newsVideo .newsList + div .hotevent {
+  background: url(../img/hoteventbg.jpg) no-repeat top center/100% auto;
+  height: 183px;
+}
+
+.liveVideo .latestVideo + div .hotevent .team, .liveVideo .newsList + div .hotevent .team, .newsVideo .latestVideo + div .hotevent .team, .newsVideo .newsList + div .hotevent .team {
+  height: 100%;
+  text-align: center;
+  font-size: 12px;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > img, .liveVideo .newsList + div .hotevent .team > img, .newsVideo .latestVideo + div .hotevent .team > img, .newsVideo .newsList + div .hotevent .team > img {
+  width: auto;
+  margin: auto;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div, .liveVideo .newsList + div .hotevent .team > div, .newsVideo .latestVideo + div .hotevent .team > div, .newsVideo .newsList + div .hotevent .team > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-weight: bold;
+  margin-top: -15px;
+  padding: 0 15px;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div, .liveVideo .newsList + div .hotevent .team > div > div, .newsVideo .latestVideo + div .hotevent .team > div > div, .newsVideo .newsList + div .hotevent .team > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.teamL > div, .liveVideo .latestVideo + div .hotevent .team > div > div.teamR > div, .liveVideo .newsList + div .hotevent .team > div > div.teamL > div, .liveVideo .newsList + div .hotevent .team > div > div.teamR > div, .newsVideo .latestVideo + div .hotevent .team > div > div.teamL > div, .newsVideo .latestVideo + div .hotevent .team > div > div.teamR > div, .newsVideo .newsList + div .hotevent .team > div > div.teamL > div, .newsVideo .newsList + div .hotevent .team > div > div.teamR > div {
+  line-height: 14px;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1), .liveVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1), .liveVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1), .liveVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1), .newsVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1), .newsVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1), .newsVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1), .newsVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1) {
+  position: relative;
+  width: 66px;
+  height: 66px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1) > img, .liveVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1) > img, .liveVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1) > img, .liveVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1) > img, .newsVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1) > img, .newsVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1) > img, .newsVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1) > img, .newsVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1) > img {
+  width: 46px;
+  z-index: 1;
+  position: relative;
+  margin: auto;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1):before, .liveVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1):after, .liveVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1):before, .liveVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1):after, .liveVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1):before, .liveVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1):after, .liveVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1):before, .liveVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1):after, .newsVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1):before, .newsVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1):after, .newsVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1):before, .newsVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1):after, .newsVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1):before, .newsVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1):after, .newsVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1):before, .newsVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1):after {
+  content: '';
+  background: rgba(255, 255, 255, 0.3);
+  width: 66px;
+  height: 66px;
+  border-radius: 66px;
+  display: block;
+  position: absolute;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1):after, .liveVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1):after, .liveVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1):after, .liveVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1):after, .newsVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(1):after, .newsVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(1):after, .newsVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(1):after, .newsVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(1):after {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(2), .liveVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(2), .liveVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(2), .liveVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(2), .newsVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(2), .newsVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(2), .newsVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(2), .newsVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(2) {
+  width: 90px;
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(3), .liveVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(3), .liveVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(3), .liveVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(3), .newsVideo .latestVideo + div .hotevent .team > div > div.teamL > div:nth-child(3), .newsVideo .latestVideo + div .hotevent .team > div > div.teamR > div:nth-child(3), .newsVideo .newsList + div .hotevent .team > div > div.teamL > div:nth-child(3), .newsVideo .newsList + div .hotevent .team > div > div.teamR > div:nth-child(3) {
+  color: #f77900;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.btnGroup, .liveVideo .newsList + div .hotevent .team > div > div.btnGroup, .newsVideo .latestVideo + div .hotevent .team > div > div.btnGroup, .newsVideo .newsList + div .hotevent .team > div > div.btnGroup {
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin: auto auto 22px;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.btnGroup button, .liveVideo .newsList + div .hotevent .team > div > div.btnGroup button, .newsVideo .latestVideo + div .hotevent .team > div > div.btnGroup button, .newsVideo .newsList + div .hotevent .team > div > div.btnGroup button {
+  border-radius: 3px;
+  padding: 2px;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  background: #f77900;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div > div.btnGroup button:hover, .liveVideo .newsList + div .hotevent .team > div > div.btnGroup button:hover, .newsVideo .latestVideo + div .hotevent .team > div > div.btnGroup button:hover, .newsVideo .newsList + div .hotevent .team > div > div.btnGroup button:hover {
+  background: #cf0404;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div.odds, .liveVideo .newsList + div .hotevent .team > div.odds, .newsVideo .latestVideo + div .hotevent .team > div.odds, .newsVideo .newsList + div .hotevent .team > div.odds {
+  margin-top: 5px;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div.odds > div, .liveVideo .newsList + div .hotevent .team > div.odds > div, .newsVideo .latestVideo + div .hotevent .team > div.odds > div, .newsVideo .newsList + div .hotevent .team > div.odds > div {
+  height: 30px;
+  background: rgba(29, 54, 98, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: normal;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div.odds > div > div, .liveVideo .newsList + div .hotevent .team > div.odds > div > div, .newsVideo .latestVideo + div .hotevent .team > div.odds > div > div, .newsVideo .newsList + div .hotevent .team > div.odds > div > div {
+  line-height: 14px;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div.odds > div > div:nth-child(2), .liveVideo .newsList + div .hotevent .team > div.odds > div > div:nth-child(2), .newsVideo .latestVideo + div .hotevent .team > div.odds > div > div:nth-child(2), .newsVideo .newsList + div .hotevent .team > div.odds > div > div:nth-child(2) {
+  color: #9ac2f3;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > div.odds > div:nth-child(2), .liveVideo .newsList + div .hotevent .team > div.odds > div:nth-child(2), .newsVideo .latestVideo + div .hotevent .team > div.odds > div:nth-child(2), .newsVideo .newsList + div .hotevent .team > div.odds > div:nth-child(2) {
+  background: rgba(7, 58, 139, 0.6);
+}
+
+.liveVideo .latestVideo + div .hotevent .team.euro, .liveVideo .newsList + div .hotevent .team.euro, .newsVideo .latestVideo + div .hotevent .team.euro, .newsVideo .newsList + div .hotevent .team.euro {
+  background: url(../img/upcomingmatcheseurobg.jpg) no-repeat top center/100% auto;
+}
+
+.liveVideo .latestVideo + div .hotevent .team.euro > div:first-child, .liveVideo .newsList + div .hotevent .team.euro > div:first-child, .newsVideo .latestVideo + div .hotevent .team.euro > div:first-child, .newsVideo .newsList + div .hotevent .team.euro > div:first-child {
+  background: url(../img/upcomingmatcheseurotitle.png) no-repeat top center/auto;
+}
+
+.liveVideo .latestVideo + div .hotevent .team.euro > div:last-child, .liveVideo .newsList + div .hotevent .team.euro > div:last-child, .newsVideo .latestVideo + div .hotevent .team.euro > div:last-child, .newsVideo .newsList + div .hotevent .team.euro > div:last-child {
+  background: url(../img/upcomingmatcheseurotitledown.png) no-repeat top center/auto;
+}
+
 .liveVideo .latestVideo + div .upcomingmatches .team.euro, .liveVideo .newsList + div .upcomingmatches .team.euro, .newsVideo .latestVideo + div .upcomingmatches .team.euro, .newsVideo .newsList + div .upcomingmatches .team.euro {
   background: url(../img/upcomingmatcheseurobg.jpg) no-repeat top center/100% auto;
 }
@@ -11752,7 +11924,7 @@ canvas {
   height: calc(100% + 82px);
 }
 
-.quickLinkNew1, .quickLinkNew2 {
+.quickLinkNew1, .quickLinkNew2, .quickLinkNew3, .quickLinkNew4 {
   position: fixed;
   right: 0;
   top: 145px;
@@ -11761,9 +11933,9 @@ canvas {
   transition: 0.6s;
   padding: 10px;
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, left bottom, from(#d9ebfb), to(white));
-  background: linear-gradient(to bottom, #d9ebfb, white);
-  color: #7591C1;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, rgba(255, 255, 255, 0.8)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0) 100%);
+  color: #0f2346;
   font-weight: bold;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11782,16 +11954,16 @@ canvas {
   width: 20px;
 }
 
-.quickLinkNew1 i, .quickLinkNew2 i {
+.quickLinkNew1 i, .quickLinkNew2 i, .quickLinkNew3 i, .quickLinkNew4 i {
   position: absolute;
   top: 10px;
 }
 
-.quickLinkNew1 i::before, .quickLinkNew2 i::before {
+.quickLinkNew1 i::before, .quickLinkNew2 i::before, .quickLinkNew3 i::before, .quickLinkNew4 i::before {
   margin: 0;
 }
 
-.quickLinkNew1 > div, .quickLinkNew2 > div {
+.quickLinkNew1 > div, .quickLinkNew2 > div, .quickLinkNew3 > div, .quickLinkNew4 > div {
   letter-spacing: 1px;
   height: 24px;
   width: 100px;
@@ -11803,27 +11975,32 @@ canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
-.quickLinkNew1.active, .quickLinkNew2.active {
+.quickLinkNew1.active, .quickLinkNew2.active, .quickLinkNew3.active, .quickLinkNew4.active {
   -webkit-transform: translateX(40px);
           transform: translateX(40px);
   -webkit-transition: 0.6s;
   transition: 0.6s;
 }
 
-.quickLinkNew2 {
+.quickLinkNew2, .quickLinkNew4 {
   background: white;
-  height: calc(100% - 175px);
-  padding: 30px 0 10px;
+  height: calc(100% - 180px);
+  padding: 35px 0 0;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
   width: auto;
 }
 
-.quickLinkNew2 a, .quickLinkNew2 button {
-  border-bottom: 1px dotted #b2b2b2;
+.quickLinkNew2 i::before, .quickLinkNew4 i::before {
+  color: #7591C1;
+}
+
+.quickLinkNew2 a, .quickLinkNew2 button, .quickLinkNew4 a, .quickLinkNew4 button {
+  border-top: 1px dotted #b2b2b2;
   color: #b2b2b2;
   padding: 10px 0;
   width: 100%;
@@ -11832,20 +12009,20 @@ canvas {
   font-size: 20px;
 }
 
-.quickLinkNew2 a:not(.icon-chat), .quickLinkNew2 button:not(.icon-chat) {
+.quickLinkNew2 a:not(.icon-chat), .quickLinkNew2 button:not(.icon-chat), .quickLinkNew4 a:not(.icon-chat), .quickLinkNew4 button:not(.icon-chat) {
   font-weight: normal;
   font-size: 22px;
 }
 
-.quickLinkNew2 a.active, .quickLinkNew2 button.active {
+.quickLinkNew2 a.active, .quickLinkNew2 button.active, .quickLinkNew4 a.active, .quickLinkNew4 button.active {
   color: #7591C1;
 }
 
-.quickLinkNew2 a.active > div, .quickLinkNew2 button.active > div {
+.quickLinkNew2 a.active > div, .quickLinkNew2 button.active > div, .quickLinkNew4 a.active > div, .quickLinkNew4 button.active > div {
   display: block;
 }
 
-.quickLinkNew2 a > div, .quickLinkNew2 button > div {
+.quickLinkNew2 a > div, .quickLinkNew2 button > div, .quickLinkNew4 a > div, .quickLinkNew4 button > div {
   display: none;
   position: absolute;
   -webkit-transform: translateX(-100%);
@@ -11858,9 +12035,28 @@ canvas {
   text-align: left;
 }
 
-.quickLinkNew2 a > div img, .quickLinkNew2 button > div img {
+.quickLinkNew2 a > div img, .quickLinkNew2 button > div img, .quickLinkNew4 a > div img, .quickLinkNew4 button > div img {
   width: 120px;
   height: 120px;
+}
+
+.quickLinkNew3, .quickLinkNew4 {
+  right: auto;
+  left: 0;
+}
+
+.quickLinkNew3.active, .quickLinkNew4.active {
+  -webkit-transform: translateX(-40px);
+          transform: translateX(-40px);
+}
+
+.quickLinkNew4 a, .quickLinkNew4 button {
+  width: 36px;
+}
+
+.quickLinkNew4 a > div, .quickLinkNew4 button > div {
+  -webkit-transform: translateX(37px);
+          transform: translateX(37px);
 }
 
 .indexCenterBanner {
@@ -12695,10 +12891,6 @@ canvas {
   font-size: 12px;
 }
 
-.fishinginside {
-  position: relative;
-}
-
 .fishinginside .inside {
   background: url(https://banner.n88media.com/img/fishing/fishbg.jpg) no-repeat top center/100% auto;
   padding: 35px calc((100% - 1400px) / 2) 100px;
@@ -12759,25 +12951,31 @@ canvas {
 
 @-webkit-keyframes fishing {
   0% {
-    margin-top: 15px;
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
   50% {
-    margin-top: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   100% {
-    margin-top: 15px;
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
 }
 
 @keyframes fishing {
   0% {
-    margin-top: 15px;
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
   50% {
-    margin-top: 0;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
   100% {
-    margin-top: 15px;
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
 }
 
@@ -12893,6 +13091,111 @@ canvas {
   background: transparent;
   top: 0;
   left: 55px;
+}
+
+.gameinside {
+  position: relative;
+}
+
+.gameinside .inside {
+  background: url(https://banner.n88media.com/img/game/gamebg.jpg) no-repeat top center/100% auto;
+  padding: 35px calc((100% - 1400px) / 2) 90px;
+}
+
+.gameinside .inside .rightModule {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gameinside .inside .rightModule .gameItem {
+  text-align: center;
+  margin: 0 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.gameinside .inside .rightModule .gameItem .name {
+  color: #70ddfc;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: -35px;
+}
+
+.gameinside .inside .rightModule .gameItem .under {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background: #555;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.gameinside .inside .rightModule .gameItem .under + button {
+  font-size: 14px;
+  background: #f77900;
+  padding: 7px 14px;
+  border-radius: 5px;
+  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.gameinside .inside .rightModule .gameItem .icon-new {
+  top: 0;
+  bottom: unset;
+  left: 0;
+  right: unset;
+  border-radius: 5px 0 0 0;
+  margin: 0 auto 0 0;
+  padding: 1px 5px;
+  background: #f77900;
+  position: relative;
+}
+
+.gameinside .inside .rightModule .gameItem .icon-new:before {
+  color: white;
+  -webkit-animation: none;
+          animation: none;
+  position: unset;
+}
+
+.gameinside .inside .rightModule .gameItem .icon-new:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 22px 17px;
+  border-color: transparent transparent transparent #f77900;
+  position: absolute;
+  background: transparent;
+  top: 0;
+  left: 58px;
+}
+
+.gameinside .inside .rightModule .gameItem.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+.gameinside .inside .rightModule .gameItem.active .under {
+  display: block;
 }
 
 #article {

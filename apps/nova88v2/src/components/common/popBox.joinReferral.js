@@ -23,16 +23,22 @@ export default ({ onClickClose }) => {
 		});
 	};
 
-	let src = null;
-	try {
-		src = require(`../../styles/img/friend-${userInfo.langId}.jpg`);
-	} catch (error) {}
+	const getImg = () => {
+		let src = null;
+		try {
+			src = require(`../../styles/img/friend-${userInfo.langId}.jpg`);
+		} catch (error) {}
+		if (src === null) {
+			src = require(`../../styles/img/friend-en.jpg`);
+		}
+		return src;
+	};
 
 	return (
 		<div className="friend active">
 			<button className="icon icon-close" onClick={onClickClose} />
 			<Link className="" to={`/${userInfo.langId}/${path.referral.root}`}>
-				<img src={src} alt="img_referral" />
+				<img src={getImg()} alt="img_referral" />
 			</Link>
 			<div className="checkbox">
 				<input

@@ -37,8 +37,9 @@
 	"lbl_DearValuedCustomers": "亲爱的 Nova88 客户,",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Odds":"Odds",
-	"lbl_Handicap":"Hdp",
+	"lbl_Odds": "Odds",
+	"lbl_Handicap": "Hdp",
+
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "羽毛球",
 	"lbl_Baseball": "棒球",
@@ -92,7 +93,7 @@
 	"lbl_Games": "游戏",
 	"lbl_King_Maker": "King Maker",
 	"lbl_AMB_Poker": "AMB Poker",
-	"lbl_9W":"9W",
+	"lbl_9W": "9W",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "电子游戏",
@@ -282,15 +283,15 @@
 	"lbl_Deposit_DragonPayPop_AccountNumber": "户口号码",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_PaymentDetails":"付款资讯",
-	"lbl_OrderAmount":"订单金额",
-	"lbl_Pay":"支付",
-	"lbl_PaymentQRDesc1":"请转账正确数额。",
-	"lbl_PaymentQRDesc2":"提供更好体验。",
-	"lbl_ImportantNotes":"重要信息",
-	"lbl_PaymentQRNote1":"请勿刷新您的游览器。",
-	"lbl_PaymentQRNote2":"请备注参照编号以便若后续需要联系我司客服协助可以此为验证。",
-	"lbl_PaymentTimeLeft":"转账剩余时间",
+	"lbl_PaymentDetails": "付款资讯",
+	"lbl_OrderAmount": "订单金额",
+	"lbl_Pay": "支付",
+	"lbl_PaymentQRDesc1": "请转账正确数额。",
+	"lbl_PaymentQRDesc2": "提供更好体验。",
+	"lbl_ImportantNotes": "重要信息",
+	"lbl_PaymentQRNote1": "请勿刷新您的游览器。",
+	"lbl_PaymentQRNote2": "请备注参照编号以便若后续需要联系我司客服协助可以此为验证。",
+	"lbl_PaymentTimeLeft": "转账剩余时间",
 	"lbl_Time": "时间",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
@@ -711,7 +712,7 @@
 	"lbl_More": "更多",
 	"lbl_Started": "已开始",
 	"lbl_Not_Started": "未开始",
-	"lbl_Streaming_SPORTSBOOK":"体育博彩",
+	"lbl_Streaming_SPORTSBOOK": "体育博彩",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "最新影片",
@@ -833,8 +834,8 @@
 
 	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promos": "优惠",
-	"lbl_Promos_wording_title":"每月",
-	"lbl_Promos_wording_desc":"专属优惠",
+	"lbl_Promos_wording_title": "每月",
+	"lbl_Promos_wording_desc": "专属优惠",
 
 	"end-----": "end-----"
 }

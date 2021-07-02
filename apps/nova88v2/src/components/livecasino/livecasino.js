@@ -15,6 +15,7 @@ import LivecasinoBanner from "./livecasino.banner";
 import LivecasinoList from "./livecasino.list";
 import config from "../../config";
 import { useGotoGame } from "../hook/useGotoGame";
+import { isOldLang } from "../../datas/languageData";
 
 const Livecasino = () => {
 	const { t } = useTranslation();
@@ -98,9 +99,15 @@ const Livecasino = () => {
 
 	const subMenu = getSubMenu();
 
-	const slideImgList = [`livecasino_mainbanner_${userInfo.langId}.jpg`];
+	const slideImgList = [
+		`livecasino_mainbanner_${
+			isOldLang(userInfo.langId) ? userInfo.langId : "en"
+		}.jpg`
+	];
 
-	const npcImg = `${config.bannerImgUrl}/img/livecasino/livecasinobanner_${userInfo.langId}.jpg`;
+	const imgSrc = `${config.bannerImgUrl}/img/livecasino/livecasinobanner_${
+		isOldLang(userInfo.langId) ? userInfo.langId : "en"
+	}.jpg`;
 
 	return (
 		<>
@@ -109,7 +116,7 @@ const Livecasino = () => {
 			<section className="inside">
 				<div className="rightModule">
 					<img
-						src={npcImg}
+						src={imgSrc}
 						alt="livecasinobanner"
 						className="livecasinobanner"
 					/>

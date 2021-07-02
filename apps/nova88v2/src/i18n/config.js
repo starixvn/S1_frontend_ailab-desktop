@@ -1,11 +1,11 @@
 import i18n from "i18next";
+import { defLangList } from "../datas/languageData";
 
-export const langList = ["cs", "en", "th", "id"];
 export const defaultLang = "en";
 
 const setResources = () => {
 	const result = {};
-	langList.forEach(l => {
+	defLangList.forEach(l => {
 		result[l] = {
 			translations: require(`./${l}.json`)
 		};
@@ -28,6 +28,6 @@ i18n.init({
 	}
 });
 
-i18n.languages = langList;
+i18n.languages = defLangList;
 
 export default i18n;

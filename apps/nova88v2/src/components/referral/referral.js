@@ -28,7 +28,18 @@ export default () => {
 	);
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo } = useContext(userInfoContext);
-	const refStepBanner = require(`../../styles/img/refbanner-${userInfo.langId}.png`);
+
+	const getBanner = () => {
+		let src = null;
+		try {
+			src = require(`../../styles/img/refbanner-${userInfo.langId}.png`);
+		} catch (error) {}
+		if (src === null) {
+			src = require(`../../styles/img/refbanner-en.png`);
+		}
+		return src;
+	};
+
 	const [referralSum, setReferralSum] = useState({
 		conditionCount: 0,
 		amountCount: 0,
@@ -147,7 +158,7 @@ export default () => {
 					</div>
 				</div>
 
-				<img src={refStepBanner} className="referral_banner" />
+				<img src={getBanner()} className="referral_banner" />
 				<div className="referralModule">
 					<ReferralShare
 						t={t}

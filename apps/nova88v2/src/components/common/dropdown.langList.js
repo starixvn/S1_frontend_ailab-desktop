@@ -6,18 +6,6 @@ import { setCookie } from "./common";
 import { SiteInfo } from "../../config";
 import { getNewLanguagePath } from "../../service/language";
 
-const defLangDisplayText = {
-	en: "English",
-	cs: "简体中文",
-	id: "Indonesian",
-	th: "ภาษาไทย"
-};
-
-const defLangList = () =>
-	Object.keys(defLangDisplayText).map(k => {
-		return { icon: `flag ${k}`, value: k };
-	});
-
 export class Dropdown extends Component {
 	constructor(props) {
 		super(props);
@@ -65,26 +53,30 @@ export class Dropdown extends Component {
 	};
 
 	render() {
-		const arr = defLangList().map((item, idx) => {
-			const key = `${this.props.mainKey}_${idx}`;
-
+		const rows = Object.keys(this.props.defLangGroup).map(_group => {
 			return (
-				<button
-					key={key}
-					// to={newPathArr}
-					className={item.icon}
-					onClick={this.selectItem.bind(
-						this,
-						item.value,
-						getNewLanguagePath(item.value)
-					)}>
-					{defLangDisplayText[item.value]}
-				</button>
+				<div
+					key={`${this.props.mainKey}_${_group}`}
+					className={`flag ${_group}`}>
+					{this.props.defLangGroup[_group].map(item => {
+						return (
+							<button
+								key={`${this.props.mainKey}_${item.value}`}
+								onClick={this.selectItem.bind(
+									this,
+									item.value,
+									getNewLanguagePath(item.value)
+								)}>
+								{item.displayText}
+							</button>
+						);
+					})}
+				</div>
 			);
 		});
 
 		const selected = (
-			<button className={`flag ${this.props.selectedValue}`}>
+			<button className={`flag ${this.props.mainLangClass}`}>
 				{/* {defLangDisplayText[this.props.selectedValue]} */}
 			</button>
 		);
@@ -97,7 +89,7 @@ export class Dropdown extends Component {
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
 				{selected}
-				<div className={this.props.subClassName}>{arr}</div>
+				<div className={this.props.subClassName}>{rows}</div>
 			</div>
 		);
 	}
@@ -107,7 +99,8 @@ Dropdown.propTypes = {
 	className: PropTypes.string.isRequired,
 	subClassName: PropTypes.string.isRequired,
 	mainKey: PropTypes.string.isRequired,
-	selectedValue: PropTypes.string.isRequired
+	selectedValue: PropTypes.string.isRequired,
+	isLogin: PropTypes.bool.isRequired
 };
 
 export default Dropdown;
