@@ -73,6 +73,14 @@ module.exports = {
 		{
 			prefix: "/SiteSkin",
 			url: "https://stag.bwing.com"
+		},
+		{
+			prefix: "*/entPage",
+			url: "https://stag.bwing.com"
+		},
+		{
+			prefix: "*/liveStreamingEntPage",
+			url: "https://stag.bwing.com"
 		}
 	]
 };

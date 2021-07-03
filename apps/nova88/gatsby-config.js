@@ -63,6 +63,14 @@ module.exports = {
 		{
 			prefix: "/SiteSkin",
 			url: "https://www.n88dev.com"
+		},
+		{
+			prefix: "*/entPage",
+			url: "https://www.n88dev.com"
+		},
+		{
+			prefix: "*/liveStreamingEntPage",
+			url: "https://www.n88dev.com"
 		}
 	]
 };

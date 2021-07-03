@@ -72,6 +72,14 @@ module.exports = {
 		{
 			prefix: "/SiteSkin",
 			url: "https://stag.goal123.com"
+		},
+		{
+			prefix: "*/entPage",
+			url: "https://stag.goal123.com"
+		},
+		{
+			prefix: "*/liveStreamingEntPage",
+			url: "https://stag.goal123.com"
 		}
 	]
 };
