@@ -86,7 +86,7 @@ export default () => {
 
 		if (Today < new Date(defPeriodList[2].startDate)) {
 			result = defPeriodList[2].id;
-		} else if (Today > new Date(defPeriodList[3].endDate)) {
+		} else if (Today < new Date(defPeriodList[3].endDate)) {
 			result = defPeriodList[3].id;
 		} else {
 			Object.values(defPeriodList)
