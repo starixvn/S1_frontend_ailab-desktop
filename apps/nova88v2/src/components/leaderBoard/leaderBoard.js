@@ -50,7 +50,7 @@ export default () => {
 	const currencyName = userInfo.currencyId
 		? currMapping[userInfo.currencyId] ??
 		  t(`Currency_${userInfo.currencyId}`)
-		: langMapping[userInfo.langId];
+		: langMapping[userInfo.langId] ?? langMapping.en;
 
 	const rewardList = defRewardList({ t })[currencyName]
 		? defRewardList({ t })[currencyName][rewardTab]
