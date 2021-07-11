@@ -101,7 +101,7 @@ const Livecasino = () => {
 
 	const slideImgList = [
 		`livecasino_mainbanner_${
-			isOldLang(userInfo.langId) ? userInfo.langId : "en"
+			userInfo.langId.includes("_en") ? "en" : userInfo.langId
 		}.jpg`
 	];
 
