@@ -15,11 +15,11 @@ const defLangGroup = {
 	id: [
 		{ displayText: "English", value: "id_en" },
 		{ displayText: "Bhs Indonesia", value: "id" }
-	],
-	in: [
-		{ displayText: "English", value: "hi_en" },
-		{ displayText: "Hindi", value: "hi" }
 	]
+	// in: [
+	// 	{ displayText: "English", value: "hi_en" },
+	// 	{ displayText: "Hindi", value: "hi" }
+	// ]
 };
 
 export default () => {
