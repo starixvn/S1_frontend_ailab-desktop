@@ -7,7 +7,7 @@ import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
 import productList from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
-import config from "../../config";
+import AppDownloadBanner from "../appDownload/appDownloadBanner";
 
 const SubMenuSingle = ({
 	subClassName,
@@ -107,10 +107,7 @@ const SubMenuSingle = ({
 		return (
 			<div className={subClassName}>
 				<Link to={`/${userInfo.langId}/${path.appDownload.root}`}>
-					<img
-						alt="app_download"
-						src={`${config.cloudImgUrl}/SiteSkin/img/appdownload.jpg`}
-					/>
+					<AppDownloadBanner langId={userInfo.langId} />
 				</Link>
 			</div>
 		);
