@@ -9,20 +9,29 @@ import { useGotoGame } from "../hook/useGotoGame";
 import productList from "../../datas/productList";
 // import path from "../../router";
 
-export default ({ listClassName, subItems, menuKey, mainUrl }) => {
+export default ({
+	listClassName,
+	subItems,
+	menuKey,
+	mainUrl,
+	maintainList
+}) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { isLogin, langId } = userInfo;
 
-	const ClickItem = (tpId, gameId, menuType, _subPath) => {
+	const ClickItem = (tpId, gameId, menuType, _subPath, isInMaintain) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
+		if (isInMaintain) {
+			return;
+		}
 		if (menuType === defMenuType.useGoToGame) {
 			handleGoToGame({
 				isLogin,
@@ -69,6 +78,7 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		const { bgImgUrl, npcImgUrl, iconImgUrl } = s;
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
+		const isInMaintain = maintainList.some(item => item.tpId === s.tpId);
 
 		let params = null;
 		if (s.parameter) {
@@ -87,6 +97,10 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			_iconClassName += ` icon${iconStrings}`;
 		}
 
+		if (isInMaintain) {
+			_iconClassName += ` active`;
+		}
+
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
 		if (s.menuType === defMenuType.Link) {
 			return (
@@ -99,6 +113,12 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 					<span>
 						<p>{displayText}</p>
 					</span>
+
+					{isInMaintain ? (
+						<div className="maintenance">
+							{t("lbl_underMaintenance")}
+						</div>
+					) : null}
 				</Link>
 			);
 		}
@@ -126,12 +146,18 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 					s.gameId,
 					// userInfo,
 					s.menuType,
-					_subPath
+					_subPath,
+					isInMaintain
 				)}>
 				{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
 				<span>
 					<p>{displayText}</p>
 				</span>
+				{isInMaintain ? (
+					<div className="maintenance">
+						{t("lbl_underMaintenance")}
+					</div>
+				) : null}
 			</button>
 		);
 	});

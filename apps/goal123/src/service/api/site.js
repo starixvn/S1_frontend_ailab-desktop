@@ -64,3 +64,6 @@ export const api_site_Signup = (data, langId) =>
 
 export const api_site_GetSupportDomainList = () =>
 	siteRequest.post(`/GetSupportDomainList/`);
+
+export const api_site_GetTpMaintainList = () =>
+	siteRequest.post(`/GetTpMaintainList`);

@@ -5,7 +5,8 @@ import { defMenuLinks, defMenuType } from "../layout/header.menu.def";
 import {
 	userInfoContext,
 	popBoxContext,
-	productTpIdsContext
+	productTpIdsContext,
+	maintainListContext
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import LivecasinoBanner from "./livecasino.banner";
@@ -18,6 +19,7 @@ const Livecasino = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
+	const { maintainList } = useContext(maintainListContext);
 
 	const clickItem = ({ tpId, gameId, menuType }) => {
 		const loginCallback = () => {
@@ -70,6 +72,7 @@ const Livecasino = () => {
 							subMenu={subMenu}
 							clickItem={clickItem}
 							t={t}
+							maintainList={maintainList}
 						/>
 					</div>
 				</div>

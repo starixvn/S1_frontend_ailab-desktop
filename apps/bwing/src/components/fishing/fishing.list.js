@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import FishingListItem from "./fishing.list.item";
 
-const FishingList = ({ subMenu, clickItem, t }) => {
+const FishingList = ({ subMenu, clickItem, t, maintainList }) => {
 	return (
 		<div className="fishlobbyList">
 			{subMenu.map(subMenuItem => {
@@ -14,6 +14,7 @@ const FishingList = ({ subMenu, clickItem, t }) => {
 						t={t}
 						clickItem={clickItem}
 						subMenuItem={subMenuItem}
+						maintainList={maintainList}
 					/>
 				);
 			})}
@@ -26,5 +27,6 @@ export default FishingList;
 FishingList.propTypes = {
 	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
-	clickItem: PropTypes.func.isRequired
+	clickItem: PropTypes.func.isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };

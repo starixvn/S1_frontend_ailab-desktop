@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const LiveCasinoListItem = ({ clickItem, subMenuItem }) => {
+const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const {
 		tpId,
 		gameId,
@@ -9,19 +9,25 @@ const LiveCasinoListItem = ({ clickItem, subMenuItem }) => {
 		lobbyPage: { bgClass }
 	} = subMenuItem;
 
+	const isInMaintain = maintainList.some(item => item.tpId === tpId);
+
 	return (
 		<div
-			className={bgClass}
+			className={`${bgClass} ${isInMaintain ? " under" : ""}`}
 			onClick={() =>
 				clickItem({
 					tpId,
 					gameId,
-					menuType
+					menuType,
+					isInMaintain
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<i className={`icon  ${subMenuItem.eventIcons[0]}`} />
 			)}
+			{isInMaintain ? (
+				<div className="underBtn">{t("lbl_underMaintenance")}</div>
+			) : null}
 		</div>
 	);
 };
@@ -29,6 +35,8 @@ const LiveCasinoListItem = ({ clickItem, subMenuItem }) => {
 export default LiveCasinoListItem;
 
 LiveCasinoListItem.propTypes = {
+	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };

@@ -229,7 +229,6 @@
 	"lbl_No": "No",
 	"lbl_Yes": "Yes",
 	"lbl_Copy": "Copy",
-
 	"lbl_Success": "Success",
 	"lbl_Fail": "Failed",
 	"lbl_Close": "Close",
@@ -259,6 +258,7 @@
 	"lbl_ImportantNotice": "IMPORTANT NOTICE",
 	"lbl_Play": "PLAY",
 	"lbl_Demo": "DEMO",
+	"lbl_underMaintenance": "Under Maintenance",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",

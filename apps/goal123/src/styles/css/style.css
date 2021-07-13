@@ -4202,14 +4202,12 @@ html.Newtheme .offers .swiper-slide {
   position: relative;
 }
 
-html.Newtheme .offers .swiper-slide .team,
-html.Newtheme .offers .swiper-slide .odds {
+html.Newtheme .offers .swiper-slide .team {
   margin: 0 auto;
   position: relative;
 }
 
-html.Newtheme .offers .swiper-slide .team div img,
-html.Newtheme .offers .swiper-slide .odds div img {
+html.Newtheme .offers .swiper-slide .team div img {
   width: 50px;
 }
 
@@ -4299,34 +4297,6 @@ html.Newtheme .offers .swiper-slide .team .schedule span {
   margin-top: 0;
   margin-left: 5px;
   text-shadow: none;
-}
-
-html.Newtheme .offers .swiper-slide .odds {
-  padding: 10px;
-}
-
-html.Newtheme .offers .swiper-slide .odds div {
-  height: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transform: skewX(-10deg);
-          transform: skewX(-10deg);
-}
-
-html.Newtheme .offers .swiper-slide .odds div:nth-child(odd) {
-  background: rgba(0, 0, 0, 0.8);
-}
-
-html.Newtheme .offers .swiper-slide .odds div:nth-child(2) {
-  background: #fab617;
-  color: black;
 }
 
 html.Newtheme .indexliveCasinoList {
@@ -6701,6 +6671,31 @@ html.Newtheme .livelobbyList > div.active .mask, html.Newtheme .fishinglobbyList
 }
 
 html.Newtheme .livelobbyList > div .maintenance, html.Newtheme .fishinglobbyList > div .maintenance, html.Newtheme .lotterylobbyList > div .maintenance {
+  display: none;
+}
+
+html.Newtheme .slotList div {
+  position: relative;
+}
+
+html.Newtheme .slotList div.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+html.Newtheme .slotList div.active .maintenance {
+  position: absolute;
+  display: block;
+  background: #191919;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 1;
+  top: calc(50% - 15px);
+  left: calc(50% - 75px);
+}
+
+html.Newtheme .slotList div .maintenance {
   display: none;
 }
 
@@ -10578,6 +10573,15 @@ html.Newtheme main.lotterylobby .swiper-container::after {
   height: 40px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(1, 0, 64, 0)), to(#010040));
   background: linear-gradient(180deg, rgba(1, 0, 64, 0) 0%, #010040 100%);
+}
+
+html.Newtheme main.fullSize {
+  height: auto;
+}
+
+html.Newtheme main.fullSize .swiper-container {
+  width: 100%;
+  top: 0;
 }
 
 @-webkit-keyframes jpotxt {
