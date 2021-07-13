@@ -5,11 +5,11 @@ module.exports = {
 			"en",
 			"cs",
 			"th",
-			"th_en",
-			"id",
-			"id_en",
-			"hi",
-			"hi_en"
+			// "th_en",
+			"id"
+			// "id_en",
+			// "hi",
+			// "hi_en"
 		]
 	},
 	plugins: [

@@ -9,11 +9,11 @@ const defLangGroup = {
 		{ displayText: "简体中文", value: "cs" }
 	],
 	th: [
-		{ displayText: "English", value: "th_en" },
+		// { displayText: "English", value: "th_en" },
 		{ displayText: "ไทย", value: "th" }
 	],
 	id: [
-		{ displayText: "English", value: "id_en" },
+		// { displayText: "English", value: "id_en" },
 		{ displayText: "Bhs Indonesia", value: "id" }
 	]
 	// in: [
