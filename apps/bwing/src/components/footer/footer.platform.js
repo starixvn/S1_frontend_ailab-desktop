@@ -117,17 +117,25 @@ const defPlatform = [
 	}
 ];
 
-export default ({ langId, isLogin, productTpIds }) => {
+export default ({ langId, isLogin, productTpIds, maintainList }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
-	const ClickItem = ({ path: _path, urlParams, tpId, gameId }) => {
+	const ClickItem = ({
+		path: _path,
+		urlParams,
+		tpId,
+		gameId,
+		isInMaintain
+	}) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
-
+		if (isInMaintain) {
+			return;
+		}
 		if (_path) {
 			navigate(`/${langId}/${_path}${urlParams}`);
 		} else if (tpId || gameId) {
@@ -149,6 +157,7 @@ export default ({ langId, isLogin, productTpIds }) => {
 
 	const rows = showRows.map(p => {
 		const key = `footer-platform-${p.imgName}`;
+
 		let params = null;
 		if (p.parameter) {
 			params = Object.keys(p.parameter).map(_key => {
@@ -158,10 +167,16 @@ export default ({ langId, isLogin, productTpIds }) => {
 
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
 
+		const isInMaintain = maintainList.some(item => item.tpId === p.tpId);
+
 		return (
 			<button
 				key={key}
-				onClick={ClickItem.bind(this, { ...p, urlParams: _urlParams })}>
+				onClick={ClickItem.bind(this, {
+					...p,
+					urlParams: _urlParams,
+					isInMaintain
+				})}>
 				<img
 					alt="logo"
 					src={`${config.imgUrl}/common/images/logo/${p.imgName}.png`}

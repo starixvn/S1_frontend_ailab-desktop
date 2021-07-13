@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { popBoxContext } from "../common/context";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defRowsPerPage } from "./casino.def";
@@ -6,7 +7,7 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 
-export default ({
+const GameList = ({
 	displayGames,
 	imgUrl,
 	langId,
@@ -15,7 +16,8 @@ export default ({
 	currentPage,
 	favorite,
 	onSetFavorite,
-	t
+	t,
+	maintainList
 }) => {
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
@@ -70,8 +72,19 @@ export default ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
+			const isInMaintain = maintainList.some(
+				item => item.tpId === g.tpId
+			);
+
 			return (
-				<div key={`casino-game-${g.tpId}-${g.gameId}`}>
+				<div
+					className={isInMaintain ? "under" : ""}
+					key={`casino-game-${g.tpId}-${g.gameId}`}>
+					{isInMaintain ? (
+						<div className="underBtn">
+							{t("lbl_underMaintenance")}
+						</div>
+					) : null}
 					<div className="brand">
 						<span>{tpInfo.displayText}</span>
 					</div>
@@ -122,3 +135,18 @@ export default ({
 		<div className="nodata">{t("msg_NoData")}</div>
 	);
 };
+
+GameList.propTypes = {
+	displayGames: PropTypes.arrayOf(PropTypes.any).isRequired,
+	imgUrl: PropTypes.string.isRequired,
+	langId: PropTypes.string.isRequired,
+	isLogin: PropTypes.bool.isRequired,
+	tpList: PropTypes.objectOf(PropTypes.any).isRequired,
+	currentPage: PropTypes.number.isRequired,
+	favorite: PropTypes.arrayOf(PropTypes.any).isRequired,
+	onSetFavorite: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+};
+
+export default GameList;

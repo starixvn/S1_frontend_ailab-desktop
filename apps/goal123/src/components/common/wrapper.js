@@ -4,7 +4,10 @@ import { useTranslation } from "react-i18next";
 import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
 import { defaultLang } from "../../i18n/config";
 import { IS_LOGGED_IN } from "../../service/auth";
-import { api_site_GetTpIds } from "../../service/api/site";
+import {
+	api_site_GetTpMaintainList,
+	api_site_GetTpIds
+} from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
 	api_account_GetMsgCount,
@@ -60,7 +63,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [redirectPath, setRedirectPath] = useState(null);
 	const [isRoot, setIsRoot] = useState(false);
 	const [productTpIds, setProductTpIds] = useState(null);
-
+	const [maintainList, setMaintainList] = useState([]);
 	const isMountedRef = useRef(null);
 	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
 
@@ -70,6 +73,16 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		api_site_GetTpMaintainList().then(res => {
+			if (!isMountedRef.current) return;
+
+			if (res.data.errorCode === 0) {
+				setMaintainList(res.data.data);
+			}
+		});
+	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
 		IS_LOGGED_IN().then(isLogin => {
@@ -250,45 +263,47 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			(afterLogin && userInfo.isLogin === false && userInfo.kickout)
 		) {
 			return (
-				<ct.productTpIdsContext.Provider value={{ productTpIds }}>
-					<ct.userInfoContext.Provider
-						value={{
-							userInfo,
-							setUserInfo
-						}}>
-						<ct.walletInfoContext.Provider
+				<ct.maintainListContext.Provider value={{ maintainList }}>
+					<ct.productTpIdsContext.Provider value={{ productTpIds }}>
+						<ct.userInfoContext.Provider
 							value={{
-								...walletInfo.state,
-								dispatch: walletInfo.dispatch
+								userInfo,
+								setUserInfo
 							}}>
-							<ct.msgCountContext.Provider
+							<ct.walletInfoContext.Provider
 								value={{
-									msgCount,
-									setMsgCount
+									...walletInfo.state,
+									dispatch: walletInfo.dispatch
 								}}>
-								<ct.popBoxContext.Provider
+								<ct.msgCountContext.Provider
 									value={{
-										popBox,
-										setPopBox
+										msgCount,
+										setMsgCount
 									}}>
-									<ct.loadingContext.Provider
+									<ct.popBoxContext.Provider
 										value={{
-											loading,
-											setLoading
+											popBox,
+											setPopBox
 										}}>
-										<ct.isRootContext.Provider
+										<ct.loadingContext.Provider
 											value={{
-												isRoot,
-												setIsRoot
+												loading,
+												setLoading
 											}}>
-											{children}
-										</ct.isRootContext.Provider>
-									</ct.loadingContext.Provider>
-								</ct.popBoxContext.Provider>
-							</ct.msgCountContext.Provider>
-						</ct.walletInfoContext.Provider>
-					</ct.userInfoContext.Provider>
-				</ct.productTpIdsContext.Provider>
+											<ct.isRootContext.Provider
+												value={{
+													isRoot,
+													setIsRoot
+												}}>
+												{children}
+											</ct.isRootContext.Provider>
+										</ct.loadingContext.Provider>
+									</ct.popBoxContext.Provider>
+								</ct.msgCountContext.Provider>
+							</ct.walletInfoContext.Provider>
+						</ct.userInfoContext.Provider>
+					</ct.productTpIdsContext.Provider>
+				</ct.maintainListContext.Provider>
 			);
 		}
 		return null;

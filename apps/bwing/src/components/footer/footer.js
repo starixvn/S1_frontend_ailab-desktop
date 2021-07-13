@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, productTpIdsContext } from "../common/context";
+import {
+	userInfoContext,
+	productTpIdsContext,
+	maintainListContext
+} from "../common/context";
 import Bettings from "./footer.bettings";
 import OurPolicies from "./footer.ourPolicies";
 import HelpSupport from "./footer.helpSupport";
@@ -12,6 +16,7 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
+	const { maintainList } = useContext(maintainListContext);
 
 	return (
 		<footer>
@@ -65,6 +70,7 @@ export default () => {
 					langId={userInfo.langId}
 					isLogin={userInfo.isLogin}
 					productTpIds={productTpIds}
+					maintainList={maintainList}
 				/>
 				<div className="powered">
 					<div>{t("lbl_PoweredBy")}</div>

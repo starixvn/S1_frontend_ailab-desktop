@@ -5,12 +5,12 @@ import { defMenuLinks } from "../layout/header.menu.def";
 import {
 	userInfoContext,
 	popBoxContext,
-	productTpIdsContext
+	productTpIdsContext,
+	maintainListContext
 } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import FishingBanner from "./fishing.banner";
 import FishingList from "./fishing.list";
-
 import imgFishingbanner from "../../styles/img/fishing/fishingbanner.jpg";
 
 const SLIDE_IMG_LIST = [imgFishingbanner];
@@ -20,6 +20,7 @@ const Fishing = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
+	const { maintainList } = useContext(maintainListContext);
 
 	const clickItem = ({ tpId, gameId }) => {
 		const loginCallback = () => {
@@ -60,6 +61,7 @@ const Fishing = () => {
 							subMenu={subMenu}
 							clickItem={clickItem}
 							t={t}
+							maintainList={maintainList}
 						/>
 					</div>
 				</div>

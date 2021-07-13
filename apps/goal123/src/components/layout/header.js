@@ -1,7 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, productTpIdsContext } from "../common/context";
+import {
+	userInfoContext,
+	productTpIdsContext,
+	maintainListContext
+} from "../common/context";
 import Logo from "../../styles/img/logo.png";
 import Menu from "./header.menu";
 import config from "../../config";
@@ -16,6 +20,7 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
+	const { maintainList } = useContext(maintainListContext);
 
 	return (
 		<header>
@@ -28,7 +33,7 @@ export default () => {
 						/>
 					</Link>
 				</div>
-				<Menu productTpIds={productTpIds} />
+				<Menu productTpIds={productTpIds} maintainList={maintainList} />
 				<div className="function">
 					<a
 						className="appDownload"

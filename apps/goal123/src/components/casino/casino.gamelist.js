@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { popBoxContext } from "../common/context";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defRowsPerPage } from "./casino.def";
@@ -6,7 +7,7 @@ import { defPopBoxType } from "../common/popBox";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 
-export default ({
+const GameList = ({
 	displayGames,
 	imgUrl,
 	langId,
@@ -15,7 +16,8 @@ export default ({
 	currentPage,
 	favorite,
 	onSetFavorite,
-	t
+	t,
+	maintainList
 }) => {
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
@@ -23,7 +25,10 @@ export default ({
 	const startIdx = (currentPage - 1) * defRowsPerPage;
 	const endIdx = currentPage * defRowsPerPage;
 
-	const onClickPlay = ({ tpId, gameId, isFree, delay }) => {
+	const onClickPlay = ({ tpId, gameId, isFree, delay, isInMaintain }) => {
+		if (isInMaintain) {
+			return;
+		}
 		if (isLogin || isFree) {
 			throttle(
 				() =>
@@ -69,8 +74,14 @@ export default ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
+			const isInMaintain = maintainList.some(
+				item => item.tpId === g.tpId
+			);
+
 			return (
-				<div key={`casino-game-${g.tpId}-${g.gameId}`}>
+				<div
+					className={isInMaintain ? "active" : ""}
+					key={`casino-game-${g.tpId}-${g.gameId}`}>
 					<div className="brand">
 						<span>{tpInfo.displayText}</span>
 					</div>
@@ -91,7 +102,8 @@ export default ({
 									tpId: g.tpId,
 									gameId: g.gameId,
 									isFree: false,
-									delay: 5000
+									delay: 5000,
+									isInMaintain
 								})
 							}>
 							{t("lbl_Play")}
@@ -104,7 +116,8 @@ export default ({
 										tpId: g.tpId,
 										gameId: g.gameId,
 										isFree: true,
-										delay: 0
+										delay: 0,
+										isInMaintain
 									})
 								}>
 								{t("lbl_Demo")}
@@ -112,6 +125,11 @@ export default ({
 						) : null}
 					</div>
 					{g.new ? <div className="new-icon">NEW</div> : null}
+					{isInMaintain ? (
+						<div className="maintenance">
+							{t("lbl_underMaintenance")}
+						</div>
+					) : null}
 				</div>
 			);
 		});
@@ -122,3 +140,18 @@ export default ({
 		<div className="nodata icon icon-nodata">{t("lbl_NoData")}</div>
 	);
 };
+
+GameList.propTypes = {
+	displayGames: PropTypes.arrayOf(PropTypes.any).isRequired,
+	imgUrl: PropTypes.string.isRequired,
+	langId: PropTypes.string.isRequired,
+	isLogin: PropTypes.bool.isRequired,
+	tpList: PropTypes.objectOf(PropTypes.any).isRequired,
+	currentPage: PropTypes.number.isRequired,
+	favorite: PropTypes.arrayOf(PropTypes.any).isRequired,
+	onSetFavorite: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+};
+
+export default GameList;
