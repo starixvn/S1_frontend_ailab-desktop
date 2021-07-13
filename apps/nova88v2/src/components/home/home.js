@@ -24,12 +24,12 @@ import HotGameList from "./hotGameList";
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
+import IndexCenterBanner from "./indexCenterBanner";
 import { HomeNews } from "./homeNews";
 import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
 import LiveScore from "./liveScore";
 import { _ACTION_TYPE } from "../../service/enterPage";
-import config from "../../config";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -171,11 +171,7 @@ const IndexPage = () => {
 				<Streaming />
 			</div>
 
-			<img
-				src={`${config.bannerImgUrl}/img/indexCenterBanner.jpg`}
-				className="indexCenterBanner"
-				alt="IndexCenterBanner"
-			/>
+			<IndexCenterBanner langId={userInfo.langId} />
 
 			<SideBarQuickLink />
 

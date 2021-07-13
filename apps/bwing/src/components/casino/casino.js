@@ -9,7 +9,7 @@ import {
 	api_site_GetGameListByDevice,
 	defBannerType
 } from "../../service/api/site";
-import { userInfoContext } from "../common/context";
+import { userInfoContext, maintainListContext } from "../common/context";
 import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
 import GameList from "./casino.gamelist";
 import SwipperBanner from "../common/swipperBanner";
@@ -53,6 +53,7 @@ export default () => {
 	const provider = getUrlParameter("provider");
 	const tpId = defCasinoProviders[provider]?.tpId;
 	const [loading, setLoading] = useState(true);
+	const { maintainList } = useContext(maintainListContext);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -368,6 +369,7 @@ export default () => {
 				currentPage={pageInfo.currentPage}
 				favorite={favorite}
 				onSetFavorite={onSetFavorite}
+				maintainList={maintainList}
 			/>
 
 			<Pagination

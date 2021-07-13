@@ -9,20 +9,29 @@ import { useGotoGame } from "../hook/useGotoGame";
 import productList from "../../datas/productList";
 // import path from "../../router";
 
-export default ({ listClassName, subItems, menuKey, mainUrl }) => {
+export default ({
+	listClassName,
+	subItems,
+	menuKey,
+	mainUrl,
+	maintainList
+}) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { isLogin, langId } = userInfo;
 
-	const ClickItem = (tpId, gameId, menuType, _subPath) => {
+	const ClickItem = (tpId, gameId, menuType, _subPath, isInMaintain) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
+		if (isInMaintain) {
+			return;
+		}
 		if (menuType === defMenuType.useGoToGame) {
 			handleGoToGame({
 				isLogin,
@@ -46,6 +55,13 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 	const rows = subItems?.map(s => {
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
+		const isInMaintain = maintainList.some(item => item.tpId === s.tpId);
+
+		let _className = s.className ? s.className : "";
+
+		if (isInMaintain) {
+			_className += ` under`;
+		}
 
 		let params = null;
 		if (s.parameter) {
@@ -89,8 +105,13 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 			return (
 				<Link
 					key={key}
-					className={s.className}
+					className={_className}
 					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
+					{isInMaintain ? (
+						<div className="underBtn">
+							{t("lbl_underMaintenance")}
+						</div>
+					) : null}
 					{showIcon}
 					<span className={s.icon}>{displayText}</span>
 				</Link>
@@ -99,15 +120,19 @@ export default ({ listClassName, subItems, menuKey, mainUrl }) => {
 		return (
 			<button
 				key={key}
-				className={s.className}
+				className={_className}
 				onClick={ClickItem.bind(
 					this,
 					s.tpId,
 					s.gameId,
 					// userInfo,
 					s.menuType,
-					_subPath
+					_subPath,
+					isInMaintain
 				)}>
+				{isInMaintain ? (
+					<div className="underBtn">{t("lbl_underMaintenance")}</div>
+				) : null}
 				{showIcon}
 				<span className={s.icon}>{displayText}</span>
 			</button>

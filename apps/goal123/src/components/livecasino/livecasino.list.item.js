@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const LiveCasinoListItem = ({ t, clickItem, subMenuItem }) => {
+const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const {
 		displayText,
 		displayKey,
@@ -12,9 +12,10 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem }) => {
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
+	const isInMaintain = maintainList.some(item => item.tpId === tpId);
 
 	return (
-		<div>
+		<div className={isInMaintain ? "active" : ""}>
 			<div className="brand">
 				<img src={iconImg} alt={`${_displayText}-icon`} />
 			</div>
@@ -36,7 +37,9 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem }) => {
 					{t("lbl_Play")}
 				</button>
 			</div>
-
+			{isInMaintain ? (
+				<div className="maintenance">{t("lbl_underMaintenance")}</div>
+			) : null}
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={`icon ${subMenuItem.eventIcons[0]}`} />
 			)}
@@ -49,5 +52,6 @@ export default LiveCasinoListItem;
 LiveCasinoListItem.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
