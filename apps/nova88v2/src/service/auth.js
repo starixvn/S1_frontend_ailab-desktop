@@ -18,7 +18,7 @@ export const LOGIN = async ({ userName, password }) => {
 			platform = navigator.platform;
 			userAgent = navigator.userAgent;
 			screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`;
-			di = document.getElementById("__di").value;
+			di = document.getElementById("__di")?.value;
 		}
 
 		const res = await api_account_UserLogin({
