@@ -87,23 +87,23 @@ export const defRewardList = ({ t }) => {
 		MYR: {
 			[defRewardTabId.final]: [
 				{
-					displayRank: t("lbl_RankChampion"),
+					displayRank: "xi*******23",
 					reward: "HUBLOT Big Bang Gold Ceramic"
 				},
 				{
-					displayRank: t("lbl_Rank1"),
+					displayRank: "an***ew",
 					reward: `HUBLOT	Classic Fusion Aerofusion Chronograph Titanium`
 				},
 				{
-					displayRank: t("lbl_Rank2"),
+					displayRank: "Ch****un",
 					reward: `HUBLOT Classic Fusion Chronograph Titanium Blue`
 				},
-				{ displayRank: t("lbl_Rank3"), reward: `${unitMYR} 18,000` },
-				{ displayRank: t("lbl_Rank4"), reward: `${unitMYR} 15,000` },
-				{ displayRank: t("lbl_Rank5"), reward: `${unitMYR} 13,000` },
-				{ displayRank: t("lbl_Rank6"), reward: `${unitMYR} 10,000` },
-				{ displayRank: t("lbl_Rank7"), reward: `${unitMYR} 8,000` },
-				{ displayRank: t("lbl_Rank8"), reward: `${unitMYR} 5,000` }
+				{ displayRank: "en*****12", reward: `${unitMYR} 18,000` },
+				{ displayRank: "in******ah", reward: `${unitMYR} 15,000` },
+				{ displayRank: "ed***00", reward: `${unitMYR} 13,000` },
+				{ displayRank: "ch**ai", reward: `${unitMYR} 10,000` },
+				{ displayRank: "qq******99", reward: `${unitMYR} 8,000` },
+				{ displayRank: "Ho***ig", reward: `${unitMYR} 5,000` }
 			],
 			[defRewardTabId.monthly]: [
 				{
@@ -150,14 +150,14 @@ export const defRewardList = ({ t }) => {
 					displayRank: t("lbl_RankChampion"),
 					reward: `${unitTHB} 80,000`
 				},
-				{ displayRank: t("lbl_Rank1"), reward: `${unitTHB} 50,000` },
-				{ displayRank: t("lbl_Rank2"), reward: `${unitTHB} 35,000` },
+				{ displayRank: "pt****60", reward: `${unitTHB} 50,000` },
+				{ displayRank: "Pa**rn", reward: `${unitTHB} 35,000` },
 				{ displayRank: t("lbl_Rank3"), reward: `${unitTHB} 30,000` },
-				{ displayRank: t("lbl_Rank4"), reward: `${unitTHB} 25,000` },
-				{ displayRank: t("lbl_Rank5"), reward: `${unitTHB} 20,000` },
-				{ displayRank: t("lbl_Rank6"), reward: `${unitTHB} 15,000` },
-				{ displayRank: t("lbl_Rank7"), reward: `${unitTHB} 10,000` },
-				{ displayRank: t("lbl_Rank8"), reward: `${unitTHB} 5,000` }
+				{ displayRank: "Th********75", reward: `${unitTHB} 25,000` },
+				{ displayRank: "ro*******in", reward: `${unitTHB} 20,000` },
+				{ displayRank: "oa*****99", reward: `${unitTHB} 15,000` },
+				{ displayRank: "Th****st", reward: `${unitTHB} 10,000` },
+				{ displayRank: "Hi**gu", reward: `${unitTHB} 5,000` }
 			],
 			[defRewardTabId.monthly]: [
 				{
@@ -185,7 +185,7 @@ export const defRewardList = ({ t }) => {
 					reward: `${unitIDR} 30.000.000`
 				},
 				{
-					displayRank: t("lbl_Rank5"),
+					displayRank: "He******ah",
 					reward: `${unitIDR} 25.000.000`
 				},
 				{

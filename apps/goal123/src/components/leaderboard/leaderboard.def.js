@@ -83,15 +83,15 @@ export const defRewardList = ({ t }) => {
 	return {
 		VND: {
 			[defRewardTabId.final]: [
-				{ displayRank: t("lbl_RankChampion"), reward: "123,123,000" },
+				{ displayRank: "dt*******an", reward: "123,123,000" },
 				{ displayRank: t("lbl_Rank1"), reward: "88,123,000" },
-				{ displayRank: t("lbl_Rank2"), reward: "55,123,000" },
-				{ displayRank: t("lbl_Rank3"), reward: "36,123,000" },
-				{ displayRank: t("lbl_Rank4"), reward: "28,123,000" },
-				{ displayRank: t("lbl_Rank5"), reward: "22,123,000" },
-				{ displayRank: t("lbl_Rank6"), reward: "17,123,000" },
-				{ displayRank: t("lbl_Rank7"), reward: "13,123,000" },
-				{ displayRank: t("lbl_Rank8"), reward: "11,123,000" }
+				{ displayRank: "Ng**tb", reward: "55,123,000" },
+				{ displayRank: "An********89", reward: "36,123,000" },
+				{ displayRank: "ba********ss", reward: "28,123,000" },
+				{ displayRank: "Du*****68", reward: "22,123,000" },
+				{ displayRank: "th********97", reward: "17,123,000" },
+				{ displayRank: "Ph***********20", reward: "13,123,000" },
+				{ displayRank: "SB********ng", reward: "11,123,000" }
 			],
 			[defRewardTabId.monthly]: [
 				{
