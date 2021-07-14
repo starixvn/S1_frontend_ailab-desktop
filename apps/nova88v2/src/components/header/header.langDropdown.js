@@ -26,10 +26,6 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const [redirectPath] = useState(null);
 	const isMountedRef = useRef(null);
-	const mainLangClass =
-		userInfo.langId.split("_")[0] === "hi"
-			? "in"
-			: userInfo.langId.split("_")[0];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -45,7 +41,6 @@ export default () => {
 			subClassName="countryList"
 			defLangGroup={defLangGroup}
 			selectedValue={userInfo.langId}
-			mainLangClass={mainLangClass}
 			isLogin={userInfo.isLogin}
 		/>
 	) : (
