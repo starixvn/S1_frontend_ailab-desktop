@@ -53,12 +53,16 @@ export class Dropdown extends Component {
 	};
 
 	render() {
+		let icon = null;
 		const rows = Object.keys(this.props.defLangGroup).map(_group => {
 			return (
 				<div
 					key={`${this.props.mainKey}_${_group}`}
 					className={`flag ${_group}`}>
 					{this.props.defLangGroup[_group].map(item => {
+						if (item.value === this.props.selectedValue) {
+							icon = _group;
+						}
 						return (
 							<button
 								key={`${this.props.mainKey}_${item.value}`}
@@ -76,7 +80,7 @@ export class Dropdown extends Component {
 		});
 
 		const selected = (
-			<button className={`flag ${this.props.mainLangClass}`}>
+			<button className={`flag ${icon}`}>
 				{/* {defLangDisplayText[this.props.selectedValue]} */}
 			</button>
 		);
