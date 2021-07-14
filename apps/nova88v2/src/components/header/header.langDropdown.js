@@ -4,8 +4,9 @@ import DropdownHeader from "../common/dropdown.langList";
 import { userInfoContext } from "../common/context";
 
 const defLangGroup = {
+	en: [{ displayText: "English", value: "en" }],
 	ch: [
-		{ displayText: "English", value: "en" },
+		// { displayText: "English", value: "en" },
 		{ displayText: "简体中文", value: "cs" }
 	],
 	th: [
