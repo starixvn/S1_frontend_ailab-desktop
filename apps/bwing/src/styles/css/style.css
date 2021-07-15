@@ -112,7 +112,7 @@ html {
 }
 
 .index .header {
-  width: 1170px;
+  width: 1400px;
 }
 
 .index main section {
@@ -10849,6 +10849,10 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
 
 .olympicsTime > div {
