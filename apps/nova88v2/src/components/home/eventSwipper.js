@@ -35,8 +35,11 @@ const EventSwipper = memo(({ langId }) => {
 			sportTeamsAway,
 			homeOdds,
 			awayOdds,
-			handicap
+			handicap,
+			logo,
+			backgroundPic
 		} = b;
+
 		return (
 			<HotEventContent
 				// eslint-disable-next-line react/no-array-index-key
@@ -50,6 +53,8 @@ const EventSwipper = memo(({ langId }) => {
 				homeOdds={homeOdds}
 				awayOdds={awayOdds}
 				handicap={handicap}
+				logo={logo}
+				backgroundPic={backgroundPic}
 				OnClickEvent={OnClickEvent.bind(this, { ...b })}
 			/>
 		);
@@ -99,6 +104,8 @@ const HotEventContent = ({
 	OnClickEvent,
 	homeOdds,
 	awayOdds,
+	logo,
+	backgroundPic,
 	handicap
 }) => {
 	const { t } = useTranslation();
@@ -107,38 +114,107 @@ const HotEventContent = ({
 
 	const _isEuro = isEuro(sportLeaguesId);
 
+	const formatHdp = hdp => {
+		if (hdp === 0) return hdp;
+
+		return `${hdp > 0 ? "+" : ""}${hdp}`;
+	};
+
+	const homeTeamHandicap = formatHdp(handicap);
+	const awayTeamHandicap = formatHdp(handicap * -1);
+
 	return (
 		<div className="swiper-slide">
-			<div className="upcomingmatches">
-				<div
-					className={`team${_isEuro ? " euro" : ""}`}
-					onClick={OnClickEvent}>
-					<div>{sportLeaguesId}</div>
-					<div>
-						<div className="teamL">
-							<img src={sportTeamsHomePic} alt={sportTeamsHome} />
-							{sportTeamsHome}
+			{_isEuro ? (
+				<div className="upcomingmatches">
+					<img src={backgroundPic} alt="upcomingmatches-bg-img" />
+
+					<div
+						className={`team${_isEuro ? " euro" : ""}`}
+						onClick={OnClickEvent}>
+						<div>{sportLeaguesId}</div>
+						<div>
+							<div className="teamL">
+								<img
+									src={sportTeamsHomePic}
+									alt="sportTeamsHome-img"
+								/>
+								{sportTeamsHome}
+							</div>
+							<div className="btnGroup">
+								<button className="orange">
+									{t("lbl_BetNow")?.toUpperCase()}
+								</button>
+							</div>
+							<div className="teamR">
+								<img
+									src={sportTeamsAwayPic}
+									alt="sportTeamsAway-img"
+								/>
+								{sportTeamsAway}
+							</div>
 						</div>
-						<div className="btnGroup">
-							<button className="orange">
-								{t("lbl_BetNow")?.toUpperCase()}
-							</button>
+
+						<div>
+							{date} {time}
 						</div>
-						<div className="teamR">
-							<img src={sportTeamsAwayPic} alt={sportTeamsAway} />
-							{sportTeamsAway}
-						</div>
-					</div>
-					{/* <OddsAndHandicap
-						homeOdds={homeOdds}
-						awayOdds={awayOdds}
-						hdp={handicap}
-					/> */}
-					<div>
-						{date} {time}
 					</div>
 				</div>
-			</div>
+			) : (
+				<div className="hotevent">
+					<img src={backgroundPic} alt="hotevent-bg-img" />
+
+					<div className="team" onClick={OnClickEvent}>
+						<img src={logo} alt="hotevent-logo-img" />
+
+						<div>
+							<div className="teamL">
+								<div>
+									<img
+										src={sportTeamsHomePic}
+										alt="sportTeamsHome-img"
+									/>
+								</div>
+								<div>{sportTeamsHome}</div>
+
+								<div>{homeTeamHandicap}</div>
+							</div>
+							<div className="btnGroup">
+								<button className="orange">
+									{t("lbl_BetNow")?.toUpperCase()}
+								</button>
+							</div>
+							<div className="teamR">
+								<div>
+									<img
+										src={sportTeamsAwayPic}
+										alt="sportTeamsAway-img"
+									/>
+								</div>
+								<div> {sportTeamsAway}</div>
+								<div>{awayTeamHandicap}</div>
+							</div>
+						</div>
+
+						{homeOdds && awayOdds ? (
+							<div className="odds">
+								<div>
+									<div>{homeOdds}</div>
+									<div>{t("lbl_Home_HomeTeam")}</div>
+								</div>
+								<div>
+									<div>{date}</div>
+									<div>{time}</div>
+								</div>
+								<div>
+									<div>{awayOdds}</div>
+									<div>{t("lbl_Home_AwayTeam")}</div>
+								</div>
+							</div>
+						) : null}
+					</div>
+				</div>
+			)}
 		</div>
 	);
 };
@@ -153,6 +229,12 @@ const HotEventContent = ({
 // 	) : null;
 // };
 
+HotEventContent.defaultProps = {
+	homeOdds: 0,
+	awayOdds: 0,
+	handicap: 0
+};
+
 HotEventContent.propTypes = {
 	sportBattleDateTime: PropTypes.string.isRequired,
 	sportTeamsHomePic: PropTypes.string.isRequired,
@@ -160,6 +242,11 @@ HotEventContent.propTypes = {
 	sportLeaguesId: PropTypes.string.isRequired,
 	sportTeamsHome: PropTypes.string.isRequired,
 	sportTeamsAway: PropTypes.string.isRequired,
+	homeOdds: PropTypes.number,
+	awayOdds: PropTypes.number,
+	handicap: PropTypes.number,
+	logo: PropTypes.string.isRequired,
+	backgroundPic: PropTypes.string.isRequired,
 	OnClickEvent: PropTypes.func.isRequired
 };
 
