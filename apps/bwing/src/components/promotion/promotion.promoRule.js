@@ -60,14 +60,14 @@ export default ({ promotionInfo, t, inListPage }) => {
 			<div className={inListPage ? "txt-yellow" : ""}>
 				{isPercentage && (
 					<>
-						<div>{number_format(requiredAmount)}</div>
+						<div>{number_format(requiredAmount, false, 0)}</div>
 
 						<div>{bonus}%</div>
 					</>
 				)}
 
 				{!isAmount && promotionType !== defPromotionType.other && (
-					<div>{number_format(maxBonus)}</div>
+					<div>{number_format(maxBonus, false, 0)}</div>
 				)}
 
 				<div>{rollOver}X</div>

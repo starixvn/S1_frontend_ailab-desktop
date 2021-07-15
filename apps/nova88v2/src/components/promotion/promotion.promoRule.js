@@ -75,7 +75,8 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 							<div>
 								{number_format(
 									requiredAmount,
-									isConvert(currencyId)
+									isConvert(currencyId),
+									0
 								)}
 							</div>
 
@@ -85,7 +86,7 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 
 					{!isAmount && promotionType !== defPromotionType.other && (
 						<div>
-							{number_format(maxBonus, isConvert(currencyId))}
+							{number_format(maxBonus, isConvert(currencyId), 0)}
 						</div>
 					)}
 
@@ -106,7 +107,8 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 							<div>
 								{number_format(
 									requiredAmount,
-									isConvert(currencyId)
+									isConvert(currencyId),
+									0
 								)}
 							</div>
 						</div>
@@ -121,7 +123,7 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 					<div>
 						<div>{t("lbl_MaxBonusAmount")}</div>
 						<div>
-							{number_format(maxBonus, isConvert(currencyId))}
+							{number_format(maxBonus, isConvert(currencyId), 0)}
 						</div>
 					</div>
 				)}
