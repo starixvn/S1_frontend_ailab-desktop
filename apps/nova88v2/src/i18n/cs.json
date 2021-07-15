@@ -836,6 +836,10 @@
 	"lbl_Promos": "优惠",
 	"lbl_Promos_wording_title": "每月",
 	"lbl_Promos_wording_desc": "专属优惠",
-
+	"lbl_Header_olympic_countdown_days": "天",
+	"lbl_Header_olympic_countdown_hour": "小时",
+	"lbl_Header_olympic_countdown_mins": "分",
+	"lbl_Header_olympic_countdown_secs": "秒",
+	
 	"end-----": "end-----"
 }

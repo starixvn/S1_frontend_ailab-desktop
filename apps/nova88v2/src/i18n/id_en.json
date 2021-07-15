@@ -837,6 +837,10 @@
 	"lbl_Promos": "Promos",
 	"lbl_Promos_wording_title": "MONTHLY",
 	"lbl_Promos_wording_desc": "EXCLUSIVE PROMOTIONS",
-
+	"lbl_Header_olympic_countdown_days": "DAYS",
+	"lbl_Header_olympic_countdown_hour": "HRS",
+	"lbl_Header_olympic_countdown_mins": "MIN",
+	"lbl_Header_olympic_countdown_secs": "SEC",
+	
 	"end-----": "end-----"
 }

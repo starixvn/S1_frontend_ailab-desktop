@@ -836,6 +836,10 @@
 	"lbl_Promos": "प्रोमो",
 	"lbl_Promos_wording_title": "मासिक",
 	"lbl_Promos_wording_desc": "अनन्य प्रचार",
-
+	"lbl_Header_olympic_countdown_days": "दिन",
+	"lbl_Header_olympic_countdown_hour": "घंटे",
+	"lbl_Header_olympic_countdown_mins": "मिनट",
+	"lbl_Header_olympic_countdown_secs": "सेकंड",
+	
 	"end-----": "end-----"
 }

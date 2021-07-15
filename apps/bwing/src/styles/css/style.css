@@ -143,12 +143,18 @@ header {
 }
 
 header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   max-width: 100px;
   position: relative;
   z-index: 1;
 }
 
-header .logo img:nth-child(1) {
+header .logo img {
   width: auto;
   height: 70px;
 }
@@ -497,6 +503,14 @@ header .header > div.menu .sportsList .BTI:hover {
   background: url(../img/BTI-sport-a.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .gameList .TCG {
+  background: url(../img/lotteryTCG.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .gameList .TCG:hover {
+  background: url(../img/lotteryTCG_a.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .gameList .kingmaker {
   background: url(../img/kingmaker.png) no-repeat center/auto 100%;
 }
@@ -551,6 +565,14 @@ header .header > div.menu .gameList .traditional {
 
 header .header > div.menu .gameList .traditional:hover {
   background: url(../img/lotteryTra_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .mg {
+  background: url(../img/casinoMG.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .casinoList .mg:hover {
+  background: url(../img/casinoMG_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .casinoList .jili {
@@ -739,6 +761,14 @@ header .header > div.menu .livecasinoList .livePT {
 
 header .header > div.menu .livecasinoList .livePT:hover {
   background: url(../img/livePT_a.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .liveMG {
+  background: url(../img/liveMG.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .livecasinoList .liveMG:hover {
+  background: url(../img/liveMG_a.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .fishList .fgg {
@@ -1997,7 +2027,7 @@ input[type="file"] {
 .btnGroup button.blueBorder:hover,
 .btnGroup a.blueBorder:hover {
   background: #56ceff;
-  color: #fff;
+  color: black;
 }
 
 .btnGroup button.icon:before,
@@ -4343,7 +4373,7 @@ main > .swiper-container .swiper-slide {
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  top: 13px;
+  top: 5px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -4361,10 +4391,21 @@ main > .swiper-container .swiper-slide {
   margin-left: 10px;
 }
 
-.offers .swiper-container .eventImg .team p {
+.offers .swiper-container .eventImg .team .gameName {
   width: 202px;
   text-align: center;
   font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .offers .swiper-container .eventImg .teamName {
@@ -5193,23 +5234,24 @@ main > .swiper-container .swiper-slide {
   height: calc(100% - 40px);
 }
 
-.swiper-container + .quickSelect {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.quickSelect {
+  width: 100%;
+  background-color: #152449;
+  margin-bottom: 20px;
 }
 
-.quickSelect {
+.quickSelect .quickSelectIn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 15px;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
-.quickSelect > div {
+.quickSelect .quickSelectIn > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -5217,11 +5259,11 @@ main > .swiper-container .swiper-slide {
   max-width: 520px;
 }
 
-.quickSelect > div.gameBtn {
+.quickSelect .quickSelectIn > div.gameBtn {
   max-width: inherit;
 }
 
-.quickSelect > div.btnGroup:not(.promoType) {
+.quickSelect .quickSelectIn > div.btnGroup:not(.promoType) {
   width: 120px;
   -webkit-box-flex: 0;
       -ms-flex: none;
@@ -5232,66 +5274,68 @@ main > .swiper-container .swiper-slide {
   margin-bottom: 0px;
 }
 
-.quickSelect > div.btnGroup.promoType {
+.quickSelect .quickSelectIn > div.btnGroup.promoType {
   margin: 10px 10px 10px 0px;
 }
 
-.quickSelect > div.btnGroup.promoType ~ .btnGroup {
+.quickSelect .quickSelectIn > div.btnGroup.promoType ~ .btnGroup {
   height: auto;
   margin-top: 0;
 }
 
-.quickSelect > div.btnGroup.promoType > button,
-.quickSelect > div.btnGroup.promoType a {
+.quickSelect .quickSelectIn > div.btnGroup.promoType > button,
+.quickSelect .quickSelectIn > div.btnGroup.promoType a {
   -webkit-box-flex: 1 !important;
       -ms-flex: auto !important;
           flex: auto !important;
+  margin: 0;
+  border: 0;
 }
 
-.quickSelect > div.inputBox-blue {
+.quickSelect .quickSelectIn > div.inputBox-blue {
   margin: 10px 10px 10px 0px;
   min-height: auto;
   max-width: 220px;
 }
 
-.quickSelect > div > .inputBox-blue {
+.quickSelect .quickSelectIn > div > .inputBox-blue {
   margin: 10px 0 0;
 }
 
-.quickSelect > div.inputBox.promoType > button, .quickSelect > div.promoType.inputBox-blue > button,
-.quickSelect > div.inputBox.promoType > a,
-.quickSelect > div.promoType.inputBox-blue > a,
-.quickSelect > div:first-child.promoType > button,
-.quickSelect > div:first-child.promoType > a {
+.quickSelect .quickSelectIn > div.inputBox.promoType > button, .quickSelect .quickSelectIn > div.promoType.inputBox-blue > button,
+.quickSelect .quickSelectIn > div.inputBox.promoType > a,
+.quickSelect .quickSelectIn > div.promoType.inputBox-blue > a,
+.quickSelect .quickSelectIn > div:first-child.promoType > button,
+.quickSelect .quickSelectIn > div:first-child.promoType > a {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   white-space: nowrap;
 }
 
-.quickSelect > div.inputBox.promoType > button.orange, .quickSelect > div.promoType.inputBox-blue > button.orange, .quickSelect > div.inputBox.promoType > button.red, .quickSelect > div.promoType.inputBox-blue > button.red,
-.quickSelect > div.inputBox.promoType > a.orange,
-.quickSelect > div.promoType.inputBox-blue > a.orange,
-.quickSelect > div.inputBox.promoType > a.red,
-.quickSelect > div.promoType.inputBox-blue > a.red,
-.quickSelect > div:first-child.promoType > button.orange,
-.quickSelect > div:first-child.promoType > button.red,
-.quickSelect > div:first-child.promoType > a.orange,
-.quickSelect > div:first-child.promoType > a.red {
+.quickSelect .quickSelectIn > div.inputBox.promoType > button.orange, .quickSelect .quickSelectIn > div.promoType.inputBox-blue > button.orange, .quickSelect .quickSelectIn > div.inputBox.promoType > button.red, .quickSelect .quickSelectIn > div.promoType.inputBox-blue > button.red,
+.quickSelect .quickSelectIn > div.inputBox.promoType > a.orange,
+.quickSelect .quickSelectIn > div.promoType.inputBox-blue > a.orange,
+.quickSelect .quickSelectIn > div.inputBox.promoType > a.red,
+.quickSelect .quickSelectIn > div.promoType.inputBox-blue > a.red,
+.quickSelect .quickSelectIn > div:first-child.promoType > button.orange,
+.quickSelect .quickSelectIn > div:first-child.promoType > button.red,
+.quickSelect .quickSelectIn > div:first-child.promoType > a.orange,
+.quickSelect .quickSelectIn > div:first-child.promoType > a.red {
   position: relative;
   margin-left: 25px;
 }
 
-.quickSelect > div.inputBox.promoType > button:last-child, .quickSelect > div.promoType.inputBox-blue > button:last-child,
-.quickSelect > div.inputBox.promoType > a:last-child,
-.quickSelect > div.promoType.inputBox-blue > a:last-child,
-.quickSelect > div:first-child.promoType > button:last-child,
-.quickSelect > div:first-child.promoType > a:last-child {
+.quickSelect .quickSelectIn > div.inputBox.promoType > button:last-child, .quickSelect .quickSelectIn > div.promoType.inputBox-blue > button:last-child,
+.quickSelect .quickSelectIn > div.inputBox.promoType > a:last-child,
+.quickSelect .quickSelectIn > div.promoType.inputBox-blue > a:last-child,
+.quickSelect .quickSelectIn > div:first-child.promoType > button:last-child,
+.quickSelect .quickSelectIn > div:first-child.promoType > a:last-child {
   float: right;
 }
 
-.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
-.quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue {
+.quickSelect .quickSelectIn > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect .quickSelectIn > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
+.quickSelect .quickSelectIn > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue {
   margin: 20px 0 0 10px;
   min-height: auto;
   width: 200px;
@@ -5299,18 +5343,18 @@ main > .swiper-container .swiper-slide {
   margin-top: 20px;
 }
 
-.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7), .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue:nth-child(7),
-.quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7) {
+.quickSelect .quickSelectIn > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7), .quickSelect .quickSelectIn > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue:nth-child(7),
+.quickSelect .quickSelectIn > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7) {
   width: 397px;
 }
 
-.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue .dropdown button,
-.quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button {
+.quickSelect .quickSelectIn > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button, .quickSelect .quickSelectIn > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue .dropdown button,
+.quickSelect .quickSelectIn > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button {
   padding: 0;
 }
 
-.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue + button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue + button,
-.quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue + button {
+.quickSelect .quickSelectIn > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue + button, .quickSelect .quickSelectIn > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue + button,
+.quickSelect .quickSelectIn > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue + button {
   float: left;
 }
 
@@ -6187,6 +6231,40 @@ main > .swiper-container .swiper-slide {
   background-size: 100%;
 }
 
+.livelobby section .rightModule {
+  margin-top: 0;
+}
+
+.livelobby .lobbybanner {
+  position: relative;
+  overflow: hidden;
+}
+
+.livelobby .lobbybanner .ball1 {
+  position: absolute;
+  top: 27%;
+  left: 45%;
+  -webkit-animation: ball1 1s ease-in-out;
+          animation: ball1 1s ease-in-out;
+}
+
+.livelobby .lobbybanner .ball1.ball2 {
+  top: 55%;
+  left: 70%;
+  -webkit-animation: ball2 1s ease-in-out;
+          animation: ball2 1s ease-in-out;
+}
+
+.livelobby .lobbybanner .ball1.ball2 .ballImg {
+  -webkit-animation: lobbyball 3s 2s linear infinite alternate;
+          animation: lobbyball 3s 2s linear infinite alternate;
+}
+
+.livelobby .lobbybanner .ball1 .ballImg {
+  -webkit-animation: lobbyball 3s 1s linear infinite alternate;
+          animation: lobbyball 3s 1s linear infinite alternate;
+}
+
 .livelobbyList {
   position: relative;
   display: -webkit-box;
@@ -6197,14 +6275,16 @@ main > .swiper-container .swiper-slide {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .livelobbyList::before {
   content: "";
   position: absolute;
-  top: -150px;
-  width: 100%;
-  height: 150px;
+  top: -100px;
+  width: 100vw;
+  height: 100px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 15, 35, 0)), to(#070f23));
   background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0%, #070f23 100%);
   z-index: 1;
@@ -6253,6 +6333,14 @@ main > .swiper-container .swiper-slide {
   font-size: 20px;
   -webkit-animation: newicon 0.5s linear infinite alternate;
           animation: newicon 0.5s linear infinite alternate;
+}
+
+.livelobbyList > div.live-mg {
+  background: url(../img/livelobby/live-mg.png) no-repeat center;
+}
+
+.livelobbyList > div.live-mg:hover {
+  background: url(../img/livelobby/live-mg-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-pt {
@@ -6350,6 +6438,40 @@ main > .swiper-container .swiper-slide {
   background-size: 100%;
 }
 
+.fishlobby section .rightModule {
+  margin-top: 0;
+}
+
+.fishlobby .lobbybanner {
+  position: relative;
+  overflow: hidden;
+}
+
+.fishlobby .lobbybanner .ball1 {
+  position: absolute;
+  top: 27%;
+  left: 45%;
+  -webkit-animation: ball1 1s ease-in-out;
+          animation: ball1 1s ease-in-out;
+}
+
+.fishlobby .lobbybanner .ball1.ball2 {
+  top: 55%;
+  left: 70%;
+  -webkit-animation: ball2 1s ease-in-out;
+          animation: ball2 1s ease-in-out;
+}
+
+.fishlobby .lobbybanner .ball1.ball2 .ballImg {
+  -webkit-animation: lobbyball 3s 2s linear infinite alternate;
+          animation: lobbyball 3s 2s linear infinite alternate;
+}
+
+.fishlobby .lobbybanner .ball1 .ballImg {
+  -webkit-animation: lobbyball 3s 1s linear infinite alternate;
+          animation: lobbyball 3s 1s linear infinite alternate;
+}
+
 .fishlobbyList {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6360,13 +6482,15 @@ main > .swiper-container .swiper-slide {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  max-width: 1600px;
+  margin: auto;
 }
 
 .fishlobbyList::before {
   content: "";
   position: absolute;
   top: -150px;
-  width: 100%;
+  width: 100vw;
   height: 150px;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 15, 35, 0)), to(#070f23));
   background: linear-gradient(to bottom, rgba(7, 15, 35, 0) 0%, #070f23 100%);
@@ -6516,8 +6640,108 @@ main > .swiper-container .swiper-slide {
   background: url(../img/gameslobby/gamesBg.png) no-repeat bottom;
 }
 
-.gamelobby .inside {
+.gamelobby section {
   max-width: auto;
+}
+
+.gamelobby section .rightModule {
+  margin-top: 0;
+}
+
+.gamelobby section .rightModule .lobbybanner {
+  position: relative;
+  overflow: hidden;
+}
+
+.gamelobby section .rightModule .lobbybanner .ball1 {
+  position: absolute;
+  top: 14%;
+  left: 45%;
+  -webkit-animation: ball1 1s ease-in-out;
+          animation: ball1 1s ease-in-out;
+}
+
+.gamelobby section .rightModule .lobbybanner .ball1.ball2 {
+  top: 40%;
+  left: 70%;
+  -webkit-animation: ball2 1s ease-in-out;
+          animation: ball2 1s ease-in-out;
+}
+
+.gamelobby section .rightModule .lobbybanner .ball1.ball2 .ballImg {
+  -webkit-animation: lobbyball 3s 2s linear infinite alternate;
+          animation: lobbyball 3s 2s linear infinite alternate;
+}
+
+.gamelobby section .rightModule .lobbybanner .ball1 .ballImg {
+  -webkit-animation: lobbyball 3s 1s linear infinite alternate;
+          animation: lobbyball 3s 1s linear infinite alternate;
+}
+
+@-webkit-keyframes ball1 {
+  0% {
+    -webkit-transform: translate(50%, 120%);
+            transform: translate(50%, 120%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes ball1 {
+  0% {
+    -webkit-transform: translate(50%, 120%);
+            transform: translate(50%, 120%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@-webkit-keyframes ball2 {
+  0% {
+    -webkit-transform: translate(-60%, 120%);
+            transform: translate(-60%, 120%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    -webkit-transform: translate(-60%, 120%);
+            transform: translate(-60%, 120%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@-webkit-keyframes lobbyball {
+  0% {
+    -webkit-transform: translateY(0%) scale(1);
+            transform: translateY(0%) scale(1);
+  }
+  100% {
+    -webkit-transform: translateY(20%) scale(1.1);
+            transform: translateY(20%) scale(1.1);
+  }
+}
+
+@keyframes lobbyball {
+  0% {
+    -webkit-transform: translateY(0%) scale(1);
+            transform: translateY(0%) scale(1);
+  }
+  100% {
+    -webkit-transform: translateY(20%) scale(1.1);
+            transform: translateY(20%) scale(1.1);
+  }
 }
 
 .gameslobbyList {
@@ -6530,6 +6754,9 @@ main > .swiper-container .swiper-slide {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  max-width: 1600px;
+  margin: auto;
+  padding-top: 20px;
 }
 
 .gameslobbyList::before {
@@ -6546,7 +6773,6 @@ main > .swiper-container .swiper-slide {
 .gameslobbyList > div {
   min-width: 310px;
   height: 310px;
-  margin: 20px 5px;
   -webkit-transition: 0.2s;
   transition: 0.2s;
   cursor: pointer;
@@ -6641,6 +6867,10 @@ main > .swiper-container .swiper-slide {
   display: flex;
 }
 
+.gameslobbyList > div.tcg {
+  background: url(../img/gameslobby/lotterytcg.png) no-repeat center;
+}
+
 .gameslobbyList > div.lottery789 {
   background: url(../img/gameslobby/Lottery789.png) no-repeat center;
 }
@@ -6665,6 +6895,10 @@ main > .swiper-container .swiper-slide {
   background: url(../img/gameslobby/V8Poker.png) no-repeat center;
 }
 
+.gameslobbyList > div.kingmaker {
+  background: url(../img/gameslobby/kingmaker.png) no-repeat center;
+}
+
 form {
   width: 100%;
 }
@@ -6685,6 +6919,11 @@ form {
   margin-right: 5px;
 }
 
+.slotList {
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
 .slotList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 4 - 122px);
@@ -6694,12 +6933,69 @@ form {
   background: #0a1533;
   border: 1px solid #1e3267;
   min-width: 190px;
+  overflow: hidden;
 }
 
-.slotList > div:hover .btnGroup {
+.slotList > div:hover .btnGroupBg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-animation: btnGroupBg 0.5s ease-in-out;
+          animation: btnGroupBg 0.5s ease-in-out;
+}
+
+@-webkit-keyframes btnGroupBg {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes btnGroupBg {
+  0% {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+.slotList > div .underBtn {
+  display: none;
+  background-color: #a59f9f;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 3px;
+  width: 60%;
+  text-align: center;
+}
+
+.slotList > div.under {
+  -webkit-filter: grayscale(1);
+}
+
+.slotList > div.under .underBtn {
+  display: block;
+}
+
+.slotList > div.under:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.slotList > div.under:hover .btnGroup {
+  display: none;
 }
 
 .slotList > div .underBtn {
@@ -6739,15 +7035,24 @@ form {
   margin-top: 10px;
 }
 
-.slotList > div .btnGroup {
+.slotList > div .btnGroupBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
   display: none;
+}
+
+.slotList > div .btnGroup {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 0 0;
   position: absolute;
   width: 85%;
-  bottom: 17%;
+  top: 50%;
   left: 50%;
   -webkit-transform: translatex(-50%);
           transform: translatex(-50%);
@@ -9428,6 +9733,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding: 20px 20px 50px;
   float: left;
   width: 900px;
+  position: relative;
 }
 
 .subModuleListColumn p {
@@ -10475,5 +10781,137 @@ input + .iconModule i.icon.icon-checkmark:before {
     width: 90%;
     margin: 0 auto;
   }
+}
+
+.swithModule {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  text-align: center;
+  color: #56ceff !important;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.swithModule .switchBtn {
+  width: 60px;
+  height: 28px;
+  border: 1px solid #666;
+  background: #666;
+  border-radius: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+}
+
+.swithModule .switchBtn.active {
+  background: #259076;
+  border-color: #259076;
+}
+
+.swithModule .switchBtn.active > span:nth-child(2) {
+  opacity: 0;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.swithModule .switchBtn > span {
+  color: white;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.swithModule .switchBtn > div {
+  position: absolute;
+  background: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 26px;
+  left: 0;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.swithModule .switchBtn > div.active {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  left: calc(100% - 26px);
+}
+
+.olympicsTime {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.olympicsTime > div {
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#abb6c3));
+  background: linear-gradient(to bottom, white 0%, #abb6c3 100%);
+  text-align: center;
+  color: #000;
+  border-radius: 3px;
+  margin: 0 2px;
+}
+
+.olympicsTime > div.title {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.olympicsTime > div.title p {
+  line-height: 16px;
+}
+
+.olympicsTime > div.time {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  line-height: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 22px;
+}
+
+.olympicsTime > div.time p {
+  font-size: 12px;
+}
+
+.olympicsTime > div.time p:nth-child(1) {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.olympicsTime > div img {
+  height: auto;
 }
 /*# sourceMappingURL=style.css.map */
