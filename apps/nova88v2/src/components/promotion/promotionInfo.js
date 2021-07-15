@@ -7,7 +7,7 @@ import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
 import defPopBoxType from "../common/defPopBoxType";
 import { defPromotionType } from "./promotion.def";
-import { isExpiry, isClaimed } from "./promotion.common";
+import { isExpiry, isClaimed, RULE_TYPE } from "./promotion.common";
 import ProcessBar from "./promotion.processBar";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
@@ -206,6 +206,7 @@ export default () => {
 						promotionInfo={promotionInfo}
 						t={t}
 						currencyId={userInfo.currencyId}
+						ruleType={RULE_TYPE.list}
 					/>
 
 					<CashBackInfo

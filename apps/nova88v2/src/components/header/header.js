@@ -12,6 +12,7 @@ import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
+import OlympicCountdown from "./header.olympic.countdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
@@ -87,6 +88,8 @@ export default () => {
 							<img src={Logo} alt={config.siteName} />
 						)}
 					</Link>
+
+					<OlympicCountdown />
 				</div>
 				<div className="function">
 					<Functions isUSDT={isUSDT} />

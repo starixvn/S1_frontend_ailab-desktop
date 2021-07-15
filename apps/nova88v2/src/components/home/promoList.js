@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import Swiper from "react-id-swiper";
+import ReactMarquee from "react-fast-marquee";
 import { Link } from "@reach/router";
 import path from "../../router";
 import usePrmotion from "../promotion/hook/usePromotion";
@@ -24,38 +24,6 @@ const PromoList = ({ t, userInfo }) => {
 		};
 	});
 
-	const defSwipperConfig = {
-		slidesPerView: 5,
-		spaceBetween: 15,
-		centeredSlides: true,
-		loopFillGroupWithBlank: false,
-		loop: true,
-		autoplay: {
-			delay: 2500,
-			disableOnInteraction: false
-		}
-	};
-
-	const Rows = promoList.map(p => {
-		return (
-			<div
-				className="swiper-slide"
-				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
-				<div>
-					<img src={p.banner} alt={p.title} />
-				</div>
-				<div className="title">{p.title}</div>
-				<div className="btnGroup">
-					<Link
-						className="lightblue"
-						to={`/${userInfo.langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${p.bonusCode}`}>
-						{t("lbl_Details")}
-					</Link>
-				</div>
-			</div>
-		);
-	});
-
 	return (
 		<div className="promos">
 			<div className="moduleTitle icon icon-gift">
@@ -64,9 +32,40 @@ const PromoList = ({ t, userInfo }) => {
 					{`${t("lbl_More")}...`}
 				</Link>
 			</div>
-			{Rows && Rows.length > 0 && (
+			{promoList && promoList.length > 0 && (
 				<div className="swiper-container promosSwiper">
-					<Swiper {...defSwipperConfig}>{Rows}</Swiper>
+					{/* <Swiper {...defSwipperConfig}>{Rows}</Swiper> */}
+					<ReactMarquee
+						speed={145}
+						pauseOnHover={true}
+						gradientColor={false}>
+						<div className="swiper-container">
+							<div
+								className="swiper-wrapper"
+								style={{ display: "flex" }}>
+								{promoList.map(p => (
+									<div
+										key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+										style={{
+											width: "300px",
+											margin: "0 15px"
+										}}>
+										<div>
+											<img src={p.banner} alt={p.title} />
+										</div>
+										<div className="title">{p.title}</div>
+										<div className="btnGroup">
+											<Link
+												className="lightblue"
+												to={`/${userInfo.langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${p.bonusCode}`}>
+												{t("lbl_Details")}
+											</Link>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+					</ReactMarquee>
 				</div>
 			)}
 		</div>

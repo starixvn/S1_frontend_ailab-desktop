@@ -93,6 +93,10 @@
   font-size: 24px !important;
 }
 
+.icon-question:before {
+  content: "\e9d0";
+}
+
 .icon-playtech:before {
   content: "\e9cf";
 }

@@ -159,6 +159,9 @@ header input:focus-within {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .logo a {
@@ -769,10 +772,12 @@ header input:focus-within {
 
 .header > div.function > a:nth-child(5) span {
   background: #5574A7;
-  padding: 5px 10px;
+  padding: 5px;
   border-radius: 5px;
   text-transform: uppercase;
   color: white;
+  min-width: 70px;
+  text-align: center;
 }
 
 .header > div.function > div, .header > div.function > a, .header > div.function > button {
@@ -849,6 +854,10 @@ header input:focus-within {
   right: 0;
   top: 0;
   border: 1px solid rgba(30, 133, 236, 0.5);
+}
+
+.header > div.function > div .countryList .countryName, .header > div.function > a .countryList .countryName, .header > div.function > button .countryList .countryName {
+  color: #f77900;
 }
 
 .header > div.function > div .countryList button, .header > div.function > div .countryList a, .header > div.function > div .countryList div, .header > div.function > a .countryList button, .header > div.function > a .countryList a, .header > div.function > a .countryList div, .header > div.function > button .countryList button, .header > div.function > button .countryList a, .header > div.function > button .countryList div {
@@ -5860,15 +5869,23 @@ input[type="file"] {
   width: 220px;
 }
 
+.profile > div > div.phone {
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .profile > div > div.phone .inputBox-white {
-  width: 85px;
+  max-width: 83px;
   float: left;
-  margin-right: 5px;
 }
 
 .profile > div > div.phone .inputBox-white + .inputBox-white {
-  width: calc(100% - 94px);
+  width: calc(100% - 85px);
   margin: 0;
+  max-width: 128px;
 }
 
 .profile > div > div.phone .inputBox-white + .inputBox-white input {
@@ -6258,6 +6275,12 @@ input[type="file"] {
   background: white;
 }
 
+.livecasinoinside.newDesign .inside {
+  background: url(https://banner.n88media.com/img/livecasino/casinobg.jpg) no-repeat top center/cover;
+  padding: 35px calc((100% - 1400px) / 2);
+  height: calc(100% - 70px);
+}
+
 .proList, .slotList, .livecasino, .fishingList {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6387,7 +6410,6 @@ input[type="file"] {
           justify-content: space-between;
   float: left;
   margin: 10px;
-  max-width: 330px;
 }
 
 .proList > div.expired {
@@ -6543,8 +6565,10 @@ form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 45px;
+  margin: auto;
+  width: calc(100% - 100px);
   height: 55px;
+  background: rgba(210, 226, 249, 0.5);
 }
 
 .casinoSelect > div {
@@ -6552,10 +6576,24 @@ form {
       -ms-flex: 1;
           flex: 1;
   margin-right: 5px;
+  border-radius: 0;
+}
+
+.casinoSelect > div.btnGroup {
+  margin: 0;
+}
+
+.casinoSelect > div.btnGroup button, .casinoSelect > div.btnGroup a {
+  border-radius: 0;
+  margin: 0;
+}
+
+.casinoSelect > div.btnGroup button.blueBorder, .casinoSelect > div.btnGroup a.blueBorder {
+  border: 0;
+  margin: 0;
 }
 
 .casinoSelect > div  .inputBox-white {
-  min-height: 22px;
   min-height: 20px;
   z-index: 2;
 }
@@ -6693,54 +6731,95 @@ form {
 
 .slotList > div .brand, .livecasino > div .brand, .fishingList > div .brand {
   position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.slotList > div .brand:before, .livecasino > div .brand:before, .fishingList > div .brand:before {
-  content: "";
-  border-color: #134DAE transparent transparent #134DAE;
-  border-style: solid;
-  border-width: 25px 45px;
-  border-top-left-radius: 10px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+  top: 20px;
+  left: 25px;
 }
 
 .slotList > div .brand span, .livecasino > div .brand span, .fishingList > div .brand span {
-  z-index: 1;
-  position: absolute;
-  top: 7px;
-  left: 7px;
-  color: white;
   font-weight: bold;
+  color: #F77A00;
+  text-shadow: 1px 0px 0px white, -1px 0px 0px white, 0px 1px 0px white, 0px -1px 0px white, 1px -1px 0px white, 1px 1px 0px white, -1px 1px 0px white, -1px -1px 0px white;
 }
 
 .slotList > div .icon-star-full, .livecasino > div .icon-star-full, .fishingList > div .icon-star-full {
-  position: absolute;
-  right: 20px;
-  top: 20px;
   font-size: 24px;
   color: white;
-  -webkit-filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
+  -webkit-filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
 }
 
 .slotList > div .icon-star-full.active, .livecasino > div .icon-star-full.active, .fishingList > div .icon-star-full.active {
   color: #fab617;
 }
 
+.slotList > div {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  margin-top: 15px;
+}
+
+.slotList > div:hover {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
 .slotList > div .btnGroup {
   width: calc(100% - 30px);
-  top: 200px;
-  bottom: auto;
+  background: rgba(0, 0, 0, 0.6);
+  height: 219px;
+  top: 15px;
+  border-radius: 15px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .slotList > div .btnGroup button {
-  height: 25px;
+  max-height: 25px;
+  width: 220px;
+  margin: 5px 0;
+}
+
+.slotList > div .txt-darkBlue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.slotList > div .txt-darkBlue > div:nth-child(1) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.slotList > div.active {
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+}
+
+.slotList > div .under {
+  top: 110px;
+}
+
+.slotList .icon-new {
+  top: 20px;
+  right: 20px;
 }
 
 .livecasinobanner {
@@ -6848,6 +6927,49 @@ form {
   border-color: transparent transparent transparent #cf0404;
   border-width: 0 0 20px 17px;
   left: 59px;
+}
+
+.livecasino.newDesign {
+  padding: 0;
+}
+
+.livecasino.newDesign > div {
+  background: transparent;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  max-width: 260px;
+  margin: 10px calc((100% / 4 - 260px)/2);
+}
+
+.livecasino.newDesign > div .animationImg {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  position: absolute;
+  opacity: 0;
+  top: 50px;
+  left: 0;
+}
+
+.livecasino.newDesign > div > img {
+  position: relative;
+}
+
+.livecasino.newDesign > div .name {
+  background: transparent;
+  color: white;
+}
+
+.livecasino.newDesign > div:hover .animationImg {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  opacity: 1;
+  top: 0;
+}
+
+.livecasino.newDesign > div:hover .name {
+  background: transparent;
+  color: white;
 }
 
 article {
@@ -7850,6 +7972,10 @@ button.icon-spinner11:before {
   width: 100%;
 }
 
+.phone .tip {
+  width: 100%;
+}
+
 .phone .txt-orange {
   font-size: 12px;
 }
@@ -7958,16 +8084,6 @@ button.icon-spinner11:before {
 
 .transferModule + .inputModuleRow .btn-check {
   margin-right: 0;
-}
-
-.swiper-casino {
-  width: 1400px;
-  margin-top: 30px;
-  border-radius: 15px;
-}
-
-.swiper-casino .swiper-slide img {
-  max-width: 1560px;
 }
 
 .depositSlip {
@@ -8216,13 +8332,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -9477,6 +9587,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 50%;
   float: left;
   line-height: 30px;
+}
+
+.referral_banner {
+  width: calc(100% - 150px);
+  margin: auto;
 }
 
 .icon-friend + .title {
@@ -11373,8 +11488,12 @@ canvas {
 }
 
 .liveVideo .latestVideo + div .hotevent, .liveVideo .newsList + div .hotevent, .newsVideo .latestVideo + div .hotevent, .newsVideo .newsList + div .hotevent {
-  background: url(../img/hoteventbg.jpg) no-repeat top center/100% auto;
   height: 183px;
+}
+
+.liveVideo .latestVideo + div .hotevent > img, .liveVideo .newsList + div .hotevent > img, .newsVideo .latestVideo + div .hotevent > img, .newsVideo .newsList + div .hotevent > img {
+  z-index: -1;
+  position: absolute;
 }
 
 .liveVideo .latestVideo + div .hotevent .team, .liveVideo .newsList + div .hotevent .team, .newsVideo .latestVideo + div .hotevent .team, .newsVideo .newsList + div .hotevent .team {
@@ -11386,6 +11505,10 @@ canvas {
 .liveVideo .latestVideo + div .hotevent .team > img, .liveVideo .newsList + div .hotevent .team > img, .newsVideo .latestVideo + div .hotevent .team > img, .newsVideo .newsList + div .hotevent .team > img {
   width: auto;
   margin: auto;
+}
+
+.liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after {
+  background: rgba(255, 0, 0, 0.3);
 }
 
 .liveVideo .latestVideo + div .hotevent .team > div, .liveVideo .newsList + div .hotevent .team > div, .newsVideo .latestVideo + div .hotevent .team > div, .newsVideo .newsList + div .hotevent .team > div {
@@ -11464,16 +11587,15 @@ canvas {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin: auto auto 22px;
+  margin: auto auto 15px;
 }
 
 .liveVideo .latestVideo + div .hotevent .team > div > div.btnGroup button, .liveVideo .newsList + div .hotevent .team > div > div.btnGroup button, .newsVideo .latestVideo + div .hotevent .team > div > div.btnGroup button, .newsVideo .newsList + div .hotevent .team > div > div.btnGroup button {
   border-radius: 3px;
   padding: 2px;
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
+  min-width: unset;
   background: #f77900;
+  word-wrap: break-word;
 }
 
 .liveVideo .latestVideo + div .hotevent .team > div > div.btnGroup button:hover, .liveVideo .newsList + div .hotevent .team > div > div.btnGroup button:hover, .newsVideo .latestVideo + div .hotevent .team > div > div.btnGroup button:hover, .newsVideo .newsList + div .hotevent .team > div > div.btnGroup button:hover {
@@ -11524,8 +11646,8 @@ canvas {
   background: url(../img/upcomingmatcheseurotitledown.png) no-repeat top center/auto;
 }
 
-.liveVideo .latestVideo + div .upcomingmatches .team.euro, .liveVideo .newsList + div .upcomingmatches .team.euro, .newsVideo .latestVideo + div .upcomingmatches .team.euro, .newsVideo .newsList + div .upcomingmatches .team.euro {
-  background: url(../img/upcomingmatcheseurobg.jpg) no-repeat top center/100% auto;
+.liveVideo .latestVideo + div .upcomingmatches > img, .liveVideo .newsList + div .upcomingmatches > img, .newsVideo .latestVideo + div .upcomingmatches > img, .newsVideo .newsList + div .upcomingmatches > img {
+  position: absolute;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team.euro > div:first-child, .liveVideo .newsList + div .upcomingmatches .team.euro > div:first-child, .newsVideo .latestVideo + div .upcomingmatches .team.euro > div:first-child, .newsVideo .newsList + div .upcomingmatches .team.euro > div:first-child {
@@ -11537,7 +11659,6 @@ canvas {
 }
 
 .liveVideo .latestVideo + div .upcomingmatches, .liveVideo .latestVideo + div .liveTv, .liveVideo .newsList + div .upcomingmatches, .liveVideo .newsList + div .liveTv, .newsVideo .latestVideo + div .upcomingmatches, .newsVideo .latestVideo + div .liveTv, .newsVideo .newsList + div .upcomingmatches, .newsVideo .newsList + div .liveTv {
-  background: url(../img/upcomingmatchesbg.jpg) no-repeat top center/100% auto;
   height: 180px;
 }
 
@@ -11553,6 +11674,8 @@ canvas {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div, .liveVideo .latestVideo + div .liveTv .team > div, .liveVideo .newsList + div .upcomingmatches .team > div, .liveVideo .newsList + div .liveTv .team > div, .newsVideo .latestVideo + div .upcomingmatches .team > div, .newsVideo .latestVideo + div .liveTv .team > div, .newsVideo .newsList + div .upcomingmatches .team > div, .newsVideo .newsList + div .liveTv .team > div {
@@ -12036,23 +12159,65 @@ canvas {
   height: 120px;
 }
 
-.quickLinkNew3, .quickLinkNew4 {
+.quickLinkNew3 {
   right: auto;
   left: 0;
 }
 
-.quickLinkNew3.active, .quickLinkNew4.active {
+.quickLinkNew3.active {
   -webkit-transform: translateX(-40px);
           transform: translateX(-40px);
 }
 
+.quickLinkNew4 {
+  width: 123px;
+  right: auto;
+  left: 0;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.quickLinkNew4 i {
+  left: 10px;
+}
+
 .quickLinkNew4 a, .quickLinkNew4 button {
-  width: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  padding: 10px 0 10px 5px;
+}
+
+.quickLinkNew4 a.icon-android:before, .quickLinkNew4 button.icon-android:before {
+  color: #4bad30;
 }
 
 .quickLinkNew4 a > div, .quickLinkNew4 button > div {
-  -webkit-transform: translateX(37px);
-          transform: translateX(37px);
+  position: unset;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  display: block;
+  float: right;
+  padding: 0;
+}
+
+.quickLinkNew4 a > div img, .quickLinkNew4 button > div img {
+  margin-left: -3px;
+}
+
+.quickLinkNew4 a:not(.icon-chat), .quickLinkNew4 button:not(.icon-chat) {
+  font-size: 14px;
+}
+
+.quickLinkNew4 a::before, .quickLinkNew4 button::before {
+  display: block;
+}
+
+.quickLinkNew4.active {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 
 .indexCenterBanner {
@@ -12887,9 +13052,14 @@ canvas {
   font-size: 12px;
 }
 
+.fishinginside {
+  min-height: calc(100% - 400px);
+}
+
 .fishinginside .inside {
   background: url(https://banner.n88media.com/img/fishing/fishbg.jpg) no-repeat top center/100% auto;
   padding: 35px calc((100% - 1400px) / 2) 100px;
+  height: calc(100% - 145px);
 }
 
 .fishinginside .inside .fishingList {
@@ -13052,7 +13222,7 @@ canvas {
   display: block;
 }
 
-.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire {
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire, .lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-new {
   background: #cf0404;
   position: absolute;
   bottom: 85px;
@@ -13069,13 +13239,13 @@ canvas {
   font-weight: bold;
 }
 
-.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire:before {
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire:before, .lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-new:before {
   position: unset;
   color: white;
   font-weight: normal;
 }
 
-.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire::after {
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-mediafire::after, .lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-new::after {
   content: '';
   display: block;
   width: 0;
@@ -13087,6 +13257,17 @@ canvas {
   background: transparent;
   top: 0;
   left: 55px;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-new {
+  background: #f77900;
+  top: 40px;
+  bottom: unset;
+}
+
+.lotteryinside .inside .lotterySwiper .swiper-wrapper .swiper-slide .icon-new::after {
+  border-color: transparent transparent transparent #f77900;
+  left: 54px;
 }
 
 .gameinside {
@@ -13557,8 +13738,683 @@ canvas {
   border-radius: 3px;
 }
 
+.rolloverTitle {
+  font-weight: bold;
+  color: #284985;
+  margin: 10px 0;
+}
+
+.rolloverList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.rolloverList > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.rolloverList > div > div {
+  background: #5E7FB5;
+  border: 1px solid #ccc;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.rolloverList > div > div:nth-child(1) {
+  background: #112240;
+}
+
 img[alt="sg"] {
   width: 90% !important;
   margin-bottom: 10px;
+}
+
+.countdown {
+  background: #112240;
+  border-radius: 44px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10px;
+  padding: 1px 10px 0 1px;
+}
+
+.countdown > img {
+  width: auto;
+  height: auto;
+}
+
+.countdown > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background: #0e1b33;
+  margin: 1px;
+}
+
+.countdown > div > div {
+  font-size: xx-small;
+}
+
+.countdown > div > div:nth-child(3) {
+  width: 100%;
+  background: #050a13;
+}
+
+/*checkspeed*/
+.checkspeed {
+  background: black url(../img/check_speed/bg.jpg) no-repeat center 87px/cover;
+  width: 100%;
+  height: 100%;
+}
+
+.checkspeed img {
+  width: auto;
+  display: block;
+}
+
+.checkspeed button {
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.checkspeed button img {
+  margin: auto;
+}
+
+.checkspeed nav {
+  width: 1200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #03122c;
+  padding: 10px calc((100% - 1200px) / 2);
+  border-bottom: 1px solid #2653ae;
+}
+
+.checkspeed nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkspeed nav ul li:nth-child(1) {
+  margin: 0 auto 0 0;
+}
+
+.checkspeed nav ul li:nth-child(2) {
+  border-right: 1px solid white;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+.checkspeed nav button {
+  background: #2653ae;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.checkspeed .wallpaper {
+  width: 1200px;
+  position: absolute;
+  left: 50%;
+  margin-left: -600px;
+}
+
+.checkspeed .wallpaper .logo {
+  display: block;
+  width: 150px;
+  height: 66px;
+}
+
+.checkspeed .wallpaper .module {
+  margin-top: 420px;
+  border-radius: 5px;
+  position: relative;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 1;
+}
+
+.checkspeed .wallpaper .module .moduleBg {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(5, 24, 57, 0.8);
+  z-index: -1;
+}
+
+.checkspeed .wallpaper .module > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.checkspeed .wallpaper .module > div.top button > div {
+  margin-top: -30px;
+  text-shadow: 0.1em 0.1em 0em black;
+  font-size: 14px;
+}
+
+.checkspeed .wallpaper .module > div.top > div {
+  text-align: center;
+  margin: 15px 15px 0 0;
+}
+
+.checkspeed .wallpaper .module > div.top > div > div {
+  font-size: 20px;
+}
+
+.checkspeed .wallpaper .module > div.top > div > div:nth-child(2) {
+  font-size: 46px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-shadow: 0 0 0.2em #2b7bdd;
+}
+
+.checkspeed .wallpaper .module > .bottom {
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+}
+
+.checkspeed .wallpaper .module > .bottom > div {
+  margin: 15px 0 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  font-size: 16px;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.left {
+  margin-right: 10px;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.left > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 15px;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.left > div > div:last-child {
+  margin: 0;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.left > div > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  background: white;
+  color: black;
+  padding: 10px;
+  margin: 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 360px;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.left > div > div > button, .checkspeed .wallpaper .module > .bottom > div.left > div > div > a {
+  background-color: #f77900;
+  border-radius: 5px;
+  padding: 8px 10px;
+  color: white;
+  font-family: 'Microsoft YaHei',sans-serif;
+  font-size: xx-small;
+  text-align: center;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.left > div:nth-child(2) {
+  background: rgba(62, 99, 181, 0.6);
+  border-radius: 5px;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.right {
+  border-left: 1px solid #2653ae;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.right > div:nth-child(2) {
+  padding-top: 0;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.right ul {
+  margin-left: 20px;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.right ul li {
+  margin-bottom: 10px;
+  list-style: upper-alpha;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.right ul li div {
+  line-height: 24px;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.right button {
+  background: -webkit-gradient(linear, left top, left bottom, from(#0639b4), to(#062178));
+  background: linear-gradient(#0639b4, #062178);
+  border-radius: 5px;
+  padding: 8px 10px;
+  float: right;
+}
+
+.checkspeed .wallpaper .module > .bottom > div > div {
+  padding: 15px;
+}
+
+.checkspeed .wallpaper .module > .bottom > div > div > div {
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 768px), (orientation: portrait) {
+  .checkspeed {
+    background: #0339a2 url(../img/check_speed/bg.jpg) no-repeat top center/cover;
+    height: auto;
+  }
+  .checkspeed .wallpaper {
+    width: 100%;
+    position: unset;
+    margin-left: unset;
+  }
+  .checkspeed .wallpaper nav {
+    width: calc(100% - 6vw);
+    padding: 3vw;
+    position: unset;
+  }
+  .checkspeed .wallpaper nav .logo {
+    margin: 0 auto;
+  }
+  .checkspeed .wallpaper nav .logo img {
+    width: 35vw;
+  }
+  .checkspeed .wallpaper nav button {
+    font-size: 3vw;
+  }
+  .checkspeed .wallpaper .module {
+    width: 95vw;
+    margin: 7vw auto 0;
+  }
+  .checkspeed .wallpaper .module > div {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .checkspeed .wallpaper .module > div.top > div {
+    margin-right: 0;
+  }
+  .checkspeed .wallpaper .module > div.top > div > div {
+    font-size: 5vw;
+  }
+  .checkspeed .wallpaper .module > div.top > div > div:nth-child(2) {
+    font-size: 9vw;
+  }
+  .checkspeed .wallpaper .module > div.top > button > div {
+    font-size: 4vw;
+  }
+  .checkspeed .wallpaper .module > div.bottom > div.left {
+    margin-right: 0;
+  }
+  .checkspeed .wallpaper .module > div.bottom > div.left > div > div > div {
+    max-width: 40vw;
+  }
+  .checkspeed .wallpaper .module > div.bottom > div.left > div > div > button, .checkspeed .wallpaper .module > div.bottom > div.left > div > div > a {
+    padding: 1vw 10px;
+  }
+  .checkspeed .wallpaper .module > div.bottom > div.right {
+    border: 0;
+  }
+  .checkspeed .wallpaper .module > div.bottom > div.right button {
+    float: unset;
+    font-size: 4vw;
+    width: 100%;
+  }
+  .checkspeed .wallpaper .module > div.bottom > div > div {
+    font-size: 3vw;
+  }
+}
+
+.swiper-casino + .inside {
+  padding-top: 15px;
+}
+
+.swiper-casino + .inside .infoModule {
+  padding-top: 15px;
+}
+
+.slotJpot {
+  width: 1400px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.slotJpot .jpot {
+  width: 100%;
+  height: 140px;
+  -webkit-animation: lobbyjpot 0.3s infinite;
+          animation: lobbyjpot 0.3s infinite;
+  position: relative;
+  cursor: pointer;
+}
+
+.slotJpot .jpot .number {
+  position: absolute;
+  top: 50%;
+  right: 140px;
+  width: 330px;
+  height: 30px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  font-size: 18px;
+  overflow: hidden;
+  -webkit-transform: translateY(-45%);
+          transform: translateY(-45%);
+}
+
+.slotJpot .jpot .number > div:first-child {
+  font-size: 20px;
+  margin: auto auto auto 0;
+}
+
+.slotJpot .jpot .number > div:nth-child(n+2) {
+  font-size: 24px;
+  margin: 0 1px;
+  width: 15px;
+  position: relative;
+}
+
+.slotJpot .jpot .number > div:nth-child(n+2) > div {
+  position: absolute;
+  top: 0;
+  height: 600px;
+}
+
+.slotJpot .jpot .number > div:nth-child(n+2) > div > div {
+  height: 30px;
+}
+
+@-webkit-keyframes lobbyjpot {
+  0% {
+    background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(../img/lobbyjpotbga.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+  }
+}
+
+@keyframes lobbyjpot {
+  0% {
+    background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+  }
+  50% {
+    background: url(../img/lobbyjpotbga.png) no-repeat center/cover;
+  }
+  100% {
+    background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+  }
+}
+
+.mainBanner {
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainBanner > img {
+  width: auto;
+}
+
+.mainBanner .bannerInfo {
+  width: 1400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.mainBanner .bannerInfo .text {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.mainBanner .bannerInfo .text > div:nth-child(1) {
+  color: #f77900;
+  font-size: 30px;
+}
+
+.mainBanner .bannerInfo .bannerLogo {
+  width: auto;
+  margin-top: 20px;
+}
+
+.mainBanner .bannerInfo .signature {
+  position: absolute;
+  top: 270px;
+  right: 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.mainBanner .bannerInfo .signature div:nth-child(1) {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mainBanner .bannerInfo .chip1 {
+  position: absolute;
+  width: 159px;
+  height: 155px;
+  left: 50%;
+  top: 80px;
+  z-index: 3;
+  -webkit-animation: overturn 3s ease-in-out normal infinite;
+          animation: overturn 3s ease-in-out normal infinite;
+}
+
+@-webkit-keyframes overturn {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  40% {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+  80% {
+    -webkit-transform: rotateY(0deg) rotateX(180deg);
+            transform: rotateY(0deg) rotateX(180deg);
+  }
+  90% {
+    -webkit-transform: rotateY(0deg) rotateX(-180deg) translateZ(5px);
+            transform: rotateY(0deg) rotateX(-180deg) translateZ(5px);
+  }
+  100% {
+    -webkit-transform: rotateY(0) rotateX(0) translateZ(0) rotate(-15deg);
+            transform: rotateY(0) rotateX(0) translateZ(0) rotate(-15deg);
+  }
+}
+
+@keyframes overturn {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  40% {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+  80% {
+    -webkit-transform: rotateY(0deg) rotateX(180deg);
+            transform: rotateY(0deg) rotateX(180deg);
+  }
+  90% {
+    -webkit-transform: rotateY(0deg) rotateX(-180deg) translateZ(5px);
+            transform: rotateY(0deg) rotateX(-180deg) translateZ(5px);
+  }
+  100% {
+    -webkit-transform: rotateY(0) rotateX(0) translateZ(0) rotate(-15deg);
+            transform: rotateY(0) rotateX(0) translateZ(0) rotate(-15deg);
+  }
+}
+
+.mainBanner .bannerInfo .chip {
+  -webkit-animation: chip 1s ease-in;
+          animation: chip 1s ease-in;
+}
+
+.mainBanner .bannerInfo .chip2 {
+  position: absolute;
+  width: 107px;
+  height: 118px;
+  left: 325px;
+  top: 240px;
+  z-index: 3;
+  -webkit-animation: chipflow 2s infinite,chip 1s ease-in;
+          animation: chipflow 2s infinite,chip 1s ease-in;
+}
+
+.mainBanner .bannerInfo .chip3 {
+  position: absolute;
+  width: 106px;
+  height: 88px;
+  right: 20px;
+  top: 20px;
+  z-index: 3;
+  -webkit-animation: chipflow 2s infinite,chip 1s ease-in;
+          animation: chipflow 2s infinite,chip 1s ease-in;
+}
+
+@-webkit-keyframes chip {
+  0% {
+    opacity: 5%;
+    -webkit-transform: scale(0.5) translate(0, 40%) rotateY(0deg) rotateX(180deg);
+            transform: scale(0.5) translate(0, 40%) rotateY(0deg) rotateX(180deg);
+    margin-top: 40px;
+  }
+  50% {
+    opacity: 50%;
+    -webkit-transform: scale(0.75) translate(0, 20%) rotateY(0deg) rotateX(-180deg) translateZ(5px);
+            transform: scale(0.75) translate(0, 20%) rotateY(0deg) rotateX(-180deg) translateZ(5px);
+    margin-top: 20px;
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(1) translate(0, 0%) rotateY(0) rotateX(0) translateZ(0);
+            transform: scale(1) translate(0, 0%) rotateY(0) rotateX(0) translateZ(0);
+    margin-top: 0;
+  }
+}
+
+@keyframes chip {
+  0% {
+    opacity: 5%;
+    -webkit-transform: scale(0.5) translate(0, 40%) rotateY(0deg) rotateX(180deg);
+            transform: scale(0.5) translate(0, 40%) rotateY(0deg) rotateX(180deg);
+    margin-top: 40px;
+  }
+  50% {
+    opacity: 50%;
+    -webkit-transform: scale(0.75) translate(0, 20%) rotateY(0deg) rotateX(-180deg) translateZ(5px);
+            transform: scale(0.75) translate(0, 20%) rotateY(0deg) rotateX(-180deg) translateZ(5px);
+    margin-top: 20px;
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(1) translate(0, 0%) rotateY(0) rotateX(0) translateZ(0);
+            transform: scale(1) translate(0, 0%) rotateY(0) rotateX(0) translateZ(0);
+    margin-top: 0;
+  }
+}
+
+@-webkit-keyframes chipflow {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes chipflow {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
 }
 /*# sourceMappingURL=style.css.map */

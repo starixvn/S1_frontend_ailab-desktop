@@ -408,7 +408,7 @@
 	"lbl_BankAccountNameHint": "Silahkan isi nama asli untuk nama akun anda, Bagian ini tidak bisa dirubah jika sudah menekan enter",
 	"lbl_EnterAccountNumber": "Masukan nomor akun",
 	"lbl_BankCardsFull": "Kartu bank telah mencapai batas.",
-	"lbl_RollOver": "MINIMAL PERPUTARAN",
+	"lbl_RollOver": "ROLLOVER",
 	"lbl_TurnoverAccumulated": "Akumulasi turnover",
 	"lbl_AddBankAccount": "Tambahkan Rekening Bank",
 	"lbl_TurnoverAccmulateHint": "YDana Anda terkunci untuk ditransfer karena persyaratan Rollover belum terpenuhi.",
@@ -439,7 +439,6 @@
 	"lbl_RemainingTime": "SISA WAKTU",
 	"lbl_RequireMinAmountHint_Front": "Jumlah minimal setoran yang diwajibkan adalah minimal Rp",
 	"lbl_RequireMinAmountHint_Back": "Deposit sekarang?",
-	"lbl_MaxBonusAmount": "Jumlah Maksimal Bonus",
 	"lbl_Other": "Lainnya",
 	"lbl_LossAmount": "Nilai Kekalahan",
 	"lbl_Percentage": "Persentase",
@@ -447,6 +446,9 @@
 	"lbl_ClaimNow": "Klaim Sekarang",
 	"lbl_JoinSuccessDescription1": "Sukses!",
 	"lbl_JoinSuccessDescription2": "Bonus Anda telah diklaim.",
+	"lbl_Promotion_Min_Deposit": "DEPOSIT MIN",
+	"lbl_Promotion_Bonus": "BONUS",
+	"lbl_MaxBonusAmount": "BONUS MAKS",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Tidak Ada Informasi Yang Tersedia",
@@ -836,6 +838,10 @@
 	"lbl_Promos": "Promosi",
 	"lbl_Promos_wording_title":"PROMOSI EKSKLUSIF",
 	"lbl_Promos_wording_desc":"BULANAN",
-
+	"lbl_Header_olympic_countdown_days": "HARI",
+	"lbl_Header_olympic_countdown_hour": "JAM",
+	"lbl_Header_olympic_countdown_mins": "MENIT",
+	"lbl_Header_olympic_countdown_secs": "DETIK",
+	
 	"end-----": "end-----"
 }

@@ -439,7 +439,6 @@
 	"lbl_RemainingTime": "REMAINING TIME",
 	"lbl_RequireMinAmountHint_Front": "The minimum amount of deposit are required to be at least",
 	"lbl_RequireMinAmountHint_Back": "Deposit now?",
-	"lbl_MaxBonusAmount": "Max Bonus Amount",
 	"lbl_Other": "Other",
 	"lbl_LossAmount": "Loss Amount",
 	"lbl_Percentage": "Percentage",
@@ -447,6 +446,9 @@
 	"lbl_ClaimNow": "Claim Now",
 	"lbl_JoinSuccessDescription1": "Successful!",
 	"lbl_JoinSuccessDescription2": "Your Bonus has been claimed.",
+	"lbl_Promotion_Min_Deposit": "MIN DEPOSIT",
+	"lbl_Promotion_Bonus": "BONUS",
+	"lbl_MaxBonusAmount": "MAX BONUS",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
@@ -837,6 +839,10 @@
 	"lbl_Promos": "Promos",
 	"lbl_Promos_wording_title": "MONTHLY",
 	"lbl_Promos_wording_desc": "EXCLUSIVE PROMOTIONS",
-
+	"lbl_Header_olympic_countdown_days": "DAYS",
+	"lbl_Header_olympic_countdown_hour": "HRS",
+	"lbl_Header_olympic_countdown_mins": "MIN",
+	"lbl_Header_olympic_countdown_secs": "SEC",
+	
 	"end-----": "end-----"
 }

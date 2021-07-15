@@ -115,3 +115,8 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 
 	return true;
 };
+
+export const RULE_TYPE = {
+	info: "info",
+	list: "list"
+};
