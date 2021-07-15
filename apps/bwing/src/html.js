@@ -35,7 +35,7 @@ export default function HTML(props) {
 
 				<script
 					type="text/javascript"
-					src="https://tickers.playtech.com/jackpots/new_jackpotjs.js"
+					src="https://tickers2.playtech.com/jackpots/new_jackpotjs.js"
 				/>
 
 				{props.headComponents}
