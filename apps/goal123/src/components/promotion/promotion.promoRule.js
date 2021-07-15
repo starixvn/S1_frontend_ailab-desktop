@@ -65,13 +65,13 @@ export default ({ promotionInfo, t, ruleType }) => {
 				</div>
 				<div>
 					{isPercentage && requiredAmount > 0 && (
-						<div>{number_format(requiredAmount, false, 0)}</div>
+						<div>{number_format(requiredAmount, true, 0)}</div>
 					)}
 
 					{isPercentage && <div>{bonus}%</div>}
 
 					{!isAmount && (
-						<div> {number_format(maxBonus, false, 0)}</div>
+						<div> {number_format(maxBonus, true, 0)}</div>
 					)}
 
 					<div>{rollOver}X</div>
@@ -113,13 +113,13 @@ export default ({ promotionInfo, t, ruleType }) => {
 
 				<div className="txt-orange">
 					{isPercentage && requiredAmount > 0 && (
-						<div>{number_format(requiredAmount, false, 0)}</div>
+						<div>{number_format(requiredAmount, true, 0)}</div>
 					)}
 
 					{isPercentage && <div>{bonus}%</div>}
 
 					{!isAmount && (
-						<div> {number_format(maxBonus, false, 0)}</div>
+						<div> {number_format(maxBonus, true, 0)}</div>
 					)}
 
 					<div>{rollOver}X</div>
