@@ -836,6 +836,10 @@
 	"lbl_Promos": "โปรโมชั่น",
 	"lbl_Promos_wording_title":"โปรโมชั่นพิเศษประจำเดือน",
 	"lbl_Promos_wording_desc":"",
-
+	"lbl_Header_olympic_countdown_days": "วัน",
+	"lbl_Header_olympic_countdown_hour": "ชั่วโมง",
+	"lbl_Header_olympic_countdown_mins": "นาที",
+	"lbl_Header_olympic_countdown_secs": "วินาที",
+	
 	"end-----": "end-----"
 }

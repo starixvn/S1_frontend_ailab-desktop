@@ -51,6 +51,10 @@
 	"lbl_Play": "PLAY",
 	"lbl_Demo": "DEMO",
 	"lbl_ImportantNotice": "IMPORTANT NOTICE",
+	"lbl_Header_olympic_countdown_days": "DAYS",
+	"lbl_Header_olympic_countdown_hour": "HRS",
+	"lbl_Header_olympic_countdown_mins": "MIN",
+	"lbl_Header_olympic_countdown_secs": "SEC",
 
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_SiteNews": "Bwing News",

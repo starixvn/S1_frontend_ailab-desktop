@@ -836,6 +836,10 @@
 	"lbl_Promos": "Promosi",
 	"lbl_Promos_wording_title":"PROMOSI EKSKLUSIF",
 	"lbl_Promos_wording_desc":"BULANAN",
-
+	"lbl_Header_olympic_countdown_days": "HARI",
+	"lbl_Header_olympic_countdown_hour": "JAM",
+	"lbl_Header_olympic_countdown_mins": "MENIT",
+	"lbl_Header_olympic_countdown_secs": "DETIK",
+	
 	"end-----": "end-----"
 }

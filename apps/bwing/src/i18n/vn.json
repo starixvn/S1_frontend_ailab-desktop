@@ -52,7 +52,11 @@
 	"lbl_Demo": "CHƠI THỬ",
 	"lbl_ImportantNotice": "THÔNG BÁO QUAN TRỌNG",
 	"lbl_Copy": "Sao chép",
-
+	"lbl_Header_olympic_countdown_days": "ngày",
+	"lbl_Header_olympic_countdown_hour": "giờ",
+	"lbl_Header_olympic_countdown_mins": "Phút",
+	"lbl_Header_olympic_countdown_secs": "Giây",
+	
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_SiteNews": "Điểm báo Bwing",
 	"lbl_News": "Tin Tức",

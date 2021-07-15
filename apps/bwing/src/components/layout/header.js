@@ -11,6 +11,7 @@ import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
+import OlympicCountdown from "./header.olympic.countdown";
 import path from "../../router";
 import { isDateRange } from "../common/common";
 import { eventPeriodEuro } from "../../datas/euroDef";
@@ -27,12 +28,14 @@ export default () => {
 		<header>
 			<div className="header">
 				<div className="logo">
-					<Link className="logo" to={`/${userInfo.langId}`}>
+					<Link to={`/${userInfo.langId}`}>
 						<img
 							src={isInPeriodEuro ? LogoEuro : Logo}
 							alt={config.siteName}
 						/>
 					</Link>
+
+					<OlympicCountdown />
 				</div>
 				<Menu productTpIds={productTpIds} maintainList={maintainList} />
 				<div className="function">
