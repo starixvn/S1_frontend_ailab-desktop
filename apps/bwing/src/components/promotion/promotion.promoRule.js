@@ -10,8 +10,16 @@ export default ({ promotionInfo, t, inListPage }) => {
 		custExpiryTime,
 		periodTo,
 		rollOver,
-		promotionType
+		promotionType,
+		bonus,
+		bonusType,
+		maxBonus,
+		requiredAmount
 	} = promotionInfo;
+
+	const isPercentage = bonusType === 1;
+
+	const isAmount = bonusType === 2;
 
 	const _expiryTime = moment.unix(
 		isJoin && status === promoStatus.running && custExpiryTime
@@ -28,21 +36,42 @@ export default ({ promotionInfo, t, inListPage }) => {
 	const displayExpiryTime = `${diffDays} ${t(
 		"lbl_Days"
 	)} ${expiryTime.hours()} ${t("lbl_Hours")}`;
+
 	return (
 		<div className="rollover">
 			<div>
-				{promotionType !== defPromotionType.other && (
+				{isPercentage && (
+					<>
+						<div>{t("lbl_Promotion_Min_Deposit")}</div>
+
+						<div>{t("lbl_Promotion_Bonus")}</div>
+					</>
+				)}
+
+				{!isAmount && promotionType !== defPromotionType.other && (
 					<div>{t("lbl_MaxBonusAmount")}</div>
 				)}
+
 				<div>{t("lbl_RollOver").toUpperCase()}</div>
+
 				<div>{t("lbl_RemainingTime")}</div>
 			</div>
 
 			<div className={inListPage ? "txt-yellow" : ""}>
-				{promotionType !== defPromotionType.other && (
-					<div>{number_format(promotionInfo.maxBonus)}</div>
+				{isPercentage && (
+					<>
+						<div>{number_format(requiredAmount)}</div>
+
+						<div>{bonus}%</div>
+					</>
 				)}
+
+				{!isAmount && promotionType !== defPromotionType.other && (
+					<div>{number_format(maxBonus)}</div>
+				)}
+
 				<div>{rollOver}X</div>
+
 				<div>{displayExpiryTime}</div>
 			</div>
 		</div>

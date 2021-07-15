@@ -7,7 +7,8 @@ import {
 	isNew,
 	isClaimed,
 	isExpiry,
-	isArrayNotEmpty
+	isArrayNotEmpty,
+	RULE_TYPE
 } from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
@@ -48,7 +49,7 @@ export default ({
 				<div className="txt-darkBlue">{p.title}</div>
 				<div className="txt-dark">{t("lbl_PromotionsDesc")}</div>
 				<div className="txt-gray">{p.description}</div>
-				<PromoRule t={t} promotionInfo={p} />
+				<PromoRule t={t} promotionInfo={p} ruleType={RULE_TYPE.info} />
 
 				{filter === defFilterType.specialBonus && p.isJoin ? (
 					<ProcessBar

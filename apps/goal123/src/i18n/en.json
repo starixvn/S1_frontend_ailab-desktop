@@ -204,7 +204,6 @@
 	"lbl_PleaseEnterClaimAmount": "Please enter your prefer amount to claim promotion",
 	"lbl_SpecialBonus": "Special Bonus",
 	"lbl_SpecialBonusCode": "Special Bonus Code",
-	"lbl_MinAmount": "Min Amount",
 	"lbl_RemainingTime": "REMAINING TIME",
 	"lbl_RequireMinAmountHint_Front": "The minimum amount of deposit are required to be at least",
 	"lbl_RequireMinAmountHint_Back": "Deposit now?",
@@ -212,6 +211,9 @@
 	"lbl_Other": "Other",
 	"lbl_JoinSuccessDescription1": "Successful!",
 	"lbl_JoinSuccessDescription2": "Your Bonus has been claimed.",
+	"lbl_Promotion_Min_Deposit": "MIN DEPOSIT",
+	"lbl_Promotion_Bonus": "BONUS",
+	"lbl_MaxBonusAmount": "MAX BONUS",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",

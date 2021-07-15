@@ -439,7 +439,6 @@
 	"lbl_RemainingTime": "剩余时间",
 	"lbl_RequireMinAmountHint_Front": "最低存款金额为",
 	"lbl_RequireMinAmountHint_Back": "立即存款？",
-	"lbl_MaxBonusAmount": "最高奖金",
 	"lbl_Other": "其它",
 	"lbl_LossAmount": "亏损金额",
 	"lbl_Percentage": "百分比",
@@ -447,6 +446,9 @@
 	"lbl_ClaimNow": "立即领取",
 	"lbl_JoinSuccessDescription1": "恭喜！",
 	"lbl_JoinSuccessDescription2": "您已成功领取奖金。",
+	"lbl_Promotion_Min_Deposit": "最低存款",
+	"lbl_Promotion_Bonus": "奖金",
+	"lbl_MaxBonusAmount": "最高奖金",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "目前没有可用的信息。",
