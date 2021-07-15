@@ -1320,7 +1320,6 @@ main section.inside {
 
 main section > div {
   margin: auto;
-  margin-top: 25px;
 }
 
 main section > div > div > span {
@@ -1981,6 +1980,7 @@ input[type="file"] {
   color: black;
   white-space: nowrap;
   max-width: none;
+  border-radius: 0;
 }
 
 .btnGroup button.blueGradient:hover, .btnGroup button.btn-check:hover,
@@ -2021,13 +2021,16 @@ input[type="file"] {
 .btnGroup button.blueBorder,
 .btnGroup a.blueBorder {
   border: 1px solid #56ceff;
-  color: #56ceff;
+  background-color: #1a2034;
+  color: #fff;
+  border-radius: 0;
 }
 
 .btnGroup button.blueBorder:hover,
 .btnGroup a.blueBorder:hover {
   background: #56ceff;
   color: black;
+  border-radius: 0;
 }
 
 .btnGroup button.icon:before,
@@ -5236,7 +5239,6 @@ main > .swiper-container .swiper-slide {
 
 .quickSelect {
   width: 100%;
-  background-color: #152449;
   margin-bottom: 20px;
 }
 
@@ -5248,6 +5250,7 @@ main > .swiper-container .swiper-slide {
       -ms-flex-align: center;
           align-items: center;
   max-width: 1600px;
+  width: calc(100% - 100px);
   margin: 0 auto;
 }
 
@@ -5290,12 +5293,15 @@ main > .swiper-container .swiper-slide {
           flex: auto !important;
   margin: 0;
   border: 0;
+  height: 40px;
 }
 
 .quickSelect .quickSelectIn > div.inputBox-blue {
   margin: 10px 10px 10px 0px;
   min-height: auto;
   max-width: 220px;
+  height: 28px;
+  border-radius: 0;
 }
 
 .quickSelect .quickSelectIn > div > .inputBox-blue {
@@ -6872,7 +6878,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .gameslobbyList > div.lottery789 {
-  background: url(../img/gameslobby/Lottery789.png) no-repeat center;
+  background: url(../img/gameslobby/lottery789.png) no-repeat center;
 }
 
 .gameslobbyList > div.keno {
@@ -6884,7 +6890,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .gameslobbyList > div.sabaClub {
-  background: url(../img/gameslobby/SabaClub.png) no-repeat center;
+  background: url(../img/gameslobby/sabaclub.png) no-repeat center;
 }
 
 .gameslobbyList > div.traditional {
@@ -6892,7 +6898,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .gameslobbyList > div.v8pork {
-  background: url(../img/gameslobby/V8Poker.png) no-repeat center;
+  background: url(../img/gameslobby/v8poker.png) no-repeat center;
 }
 
 .gameslobbyList > div.kingmaker {
@@ -6934,68 +6940,44 @@ form {
   border: 1px solid #1e3267;
   min-width: 190px;
   overflow: hidden;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.slotList > div:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .slotList > div:hover .btnGroupBg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-animation: btnGroupBg 0.5s ease-in-out;
-          animation: btnGroupBg 0.5s ease-in-out;
+  -webkit-animation: btnGroupBg 0.3s ease-in-out;
+          animation: btnGroupBg 0.3s ease-in-out;
 }
 
 @-webkit-keyframes btnGroupBg {
   0% {
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   100% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @keyframes btnGroupBg {
   0% {
-    -webkit-transform: translateY(100%);
-            transform: translateY(100%);
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   100% {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
-}
-
-.slotList > div .underBtn {
-  display: none;
-  background-color: #a59f9f;
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  padding: 10px;
-  border-radius: 3px;
-  width: 60%;
-  text-align: center;
-}
-
-.slotList > div.under {
-  -webkit-filter: grayscale(1);
-}
-
-.slotList > div.under .underBtn {
-  display: block;
-}
-
-.slotList > div.under:hover {
-  -webkit-transform: scale(1);
-          transform: scale(1);
-}
-
-.slotList > div.under:hover .btnGroup {
-  display: none;
 }
 
 .slotList > div .underBtn {
@@ -7052,17 +7034,26 @@ form {
   margin: 10px 0 0;
   position: absolute;
   width: 85%;
-  top: 50%;
+  top: 35%;
   left: 50%;
   -webkit-transform: translatex(-50%);
           transform: translatex(-50%);
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .slotList > div .btnGroup button,
 .slotList > div .btnGroup a {
   min-width: auto;
   max-width: none;
+  margin: 10px 0;
   text-transform: uppercase;
+  width: 200px;
 }
 
 .slotList > div .brand {
@@ -7088,6 +7079,7 @@ form {
   color: white;
   -webkit-filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
           filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
+  z-index: 1;
 }
 
 .slotList > div .icon-star-full.active {
@@ -10913,5 +10905,142 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .olympicsTime > div img {
   height: auto;
+}
+
+.partnerSelect {
+  overflow: hidden;
+  width: calc(100% - 100px);
+  max-width: 1600px;
+  margin: 10px auto 0;
+  background: #1a2034;
+  border-radius: 0;
+}
+
+.partnerSelect .swiper-container {
+  width: auto !important;
+  padding: 0 40px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next,
+.partnerSelect .swiper-container .swiper-button-prev {
+  color: #56ceff;
+  background: #1a2034;
+  border-radius: 30px;
+  width: 27px;
+  height: 27px !important;
+  margin-top: -13.5px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next:before,
+.partnerSelect .swiper-container .swiper-button-prev:before {
+  font-family: "icomoon";
+  font-size: 28px;
+  margin-top: -1px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next:after,
+.partnerSelect .swiper-container .swiper-button-prev:after {
+  display: none;
+}
+
+.partnerSelect .swiper-container .swiper-button-next {
+  right: 7px;
+}
+
+.partnerSelect .swiper-container .swiper-button-next:before {
+  content: "\e95c";
+  margin-left: 2px;
+}
+
+.partnerSelect .swiper-container .swiper-button-prev {
+  left: 7px;
+}
+
+.partnerSelect .swiper-container .swiper-button-prev:before {
+  content: "\e95d";
+  margin-right: 2px;
+}
+
+.partnerSelect .swiper-container .swiper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.partnerSelect .swiper-container .swiper-slide button {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  color: #333;
+  padding: 15px 0;
+  width: 100%;
+}
+
+.partnerSelect .swiper-container .swiper-slide button img {
+  width: auto;
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+  opacity: 0.7;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.partnerSelect .swiper-container .swiper-slide button:hover, .partnerSelect .swiper-container .swiper-slide button.active {
+  background: -webkit-gradient(linear, left bottom, left top, from(#41b2e1), to(#6fd1fa));
+  background: linear-gradient(to top, #41b2e1, #6fd1fa);
+  color: black;
+}
+
+.partnerSelect .swiper-container .swiper-slide button:hover img, .partnerSelect .swiper-container .swiper-slide button.active img {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  -webkit-filter: none;
+          filter: none;
+  opacity: 1;
+}
+
+.partnerSelect .swiper-container .swiper-slide button div {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.slotjpot {
+  background: url(../img/slotjackpot.jpg) no-repeat center;
+  max-width: 1600px;
+  height: 260px;
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+}
+
+.slotjpot > div {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 67%;
+  width: 450px;
+  font-size: 28px;
+}
+
+.slotjpot > div > div:nth-child(1) {
+  margin-right: 40px;
+  margin-left: 10px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -772,10 +772,12 @@ header input:focus-within {
 
 .header > div.function > a:nth-child(5) span {
   background: #5574A7;
-  padding: 5px 10px;
+  padding: 5px;
   border-radius: 5px;
   text-transform: uppercase;
   color: white;
+  min-width: 70px;
+  text-align: center;
 }
 
 .header > div.function > div, .header > div.function > a, .header > div.function > button {
@@ -6273,6 +6275,12 @@ input[type="file"] {
   background: white;
 }
 
+.livecasinoinside.newDesign .inside {
+  background: url(https://banner.n88media.com/img/livecasino/casinobg.jpg) no-repeat top center/cover;
+  padding: 35px calc((100% - 1400px) / 2);
+  height: calc(100% - 70px);
+}
+
 .proList, .slotList, .livecasino, .fishingList {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6919,6 +6927,49 @@ form {
   border-color: transparent transparent transparent #cf0404;
   border-width: 0 0 20px 17px;
   left: 59px;
+}
+
+.livecasino.newDesign {
+  padding: 0;
+}
+
+.livecasino.newDesign > div {
+  background: transparent;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+  max-width: 260px;
+  margin: 10px calc((100% / 4 - 260px)/2);
+}
+
+.livecasino.newDesign > div .animationImg {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  position: absolute;
+  opacity: 0;
+  top: 50px;
+  left: 0;
+}
+
+.livecasino.newDesign > div > img {
+  position: relative;
+}
+
+.livecasino.newDesign > div .name {
+  background: transparent;
+  color: white;
+}
+
+.livecasino.newDesign > div:hover .animationImg {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  opacity: 1;
+  top: 0;
+}
+
+.livecasino.newDesign > div:hover .name {
+  background: transparent;
+  color: white;
 }
 
 article {
@@ -13788,6 +13839,10 @@ img[alt="sg"] {
   font-size: 16px;
 }
 
+.checkspeed button img {
+  margin: auto;
+}
+
 .checkspeed nav {
   width: 1200px;
   position: fixed;
@@ -14144,6 +14199,222 @@ img[alt="sg"] {
   }
   100% {
     background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+  }
+}
+
+.mainBanner {
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainBanner > img {
+  width: auto;
+}
+
+.mainBanner .bannerInfo {
+  width: 1400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.mainBanner .bannerInfo .text {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.mainBanner .bannerInfo .text > div:nth-child(1) {
+  color: #f77900;
+  font-size: 30px;
+}
+
+.mainBanner .bannerInfo .bannerLogo {
+  width: auto;
+  margin-top: 20px;
+}
+
+.mainBanner .bannerInfo .signature {
+  position: absolute;
+  top: 270px;
+  right: 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.mainBanner .bannerInfo .signature div:nth-child(1) {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mainBanner .bannerInfo .chip1 {
+  position: absolute;
+  width: 159px;
+  height: 155px;
+  left: 50%;
+  top: 80px;
+  z-index: 3;
+  -webkit-animation: overturn 3s ease-in-out normal infinite;
+          animation: overturn 3s ease-in-out normal infinite;
+}
+
+@-webkit-keyframes overturn {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  40% {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+  80% {
+    -webkit-transform: rotateY(0deg) rotateX(180deg);
+            transform: rotateY(0deg) rotateX(180deg);
+  }
+  90% {
+    -webkit-transform: rotateY(0deg) rotateX(-180deg) translateZ(5px);
+            transform: rotateY(0deg) rotateX(-180deg) translateZ(5px);
+  }
+  100% {
+    -webkit-transform: rotateY(0) rotateX(0) translateZ(0) rotate(-15deg);
+            transform: rotateY(0) rotateX(0) translateZ(0) rotate(-15deg);
+  }
+}
+
+@keyframes overturn {
+  0% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+  40% {
+    -webkit-transform: rotate(25deg);
+            transform: rotate(25deg);
+  }
+  80% {
+    -webkit-transform: rotateY(0deg) rotateX(180deg);
+            transform: rotateY(0deg) rotateX(180deg);
+  }
+  90% {
+    -webkit-transform: rotateY(0deg) rotateX(-180deg) translateZ(5px);
+            transform: rotateY(0deg) rotateX(-180deg) translateZ(5px);
+  }
+  100% {
+    -webkit-transform: rotateY(0) rotateX(0) translateZ(0) rotate(-15deg);
+            transform: rotateY(0) rotateX(0) translateZ(0) rotate(-15deg);
+  }
+}
+
+.mainBanner .bannerInfo .chip {
+  -webkit-animation: chip 1s ease-in;
+          animation: chip 1s ease-in;
+}
+
+.mainBanner .bannerInfo .chip2 {
+  position: absolute;
+  width: 107px;
+  height: 118px;
+  left: 325px;
+  top: 240px;
+  z-index: 3;
+  -webkit-animation: chipflow 2s infinite,chip 1s ease-in;
+          animation: chipflow 2s infinite,chip 1s ease-in;
+}
+
+.mainBanner .bannerInfo .chip3 {
+  position: absolute;
+  width: 106px;
+  height: 88px;
+  right: 20px;
+  top: 20px;
+  z-index: 3;
+  -webkit-animation: chipflow 2s infinite,chip 1s ease-in;
+          animation: chipflow 2s infinite,chip 1s ease-in;
+}
+
+@-webkit-keyframes chip {
+  0% {
+    opacity: 5%;
+    -webkit-transform: scale(0.5) translate(0, 40%) rotateY(0deg) rotateX(180deg);
+            transform: scale(0.5) translate(0, 40%) rotateY(0deg) rotateX(180deg);
+    margin-top: 40px;
+  }
+  50% {
+    opacity: 50%;
+    -webkit-transform: scale(0.75) translate(0, 20%) rotateY(0deg) rotateX(-180deg) translateZ(5px);
+            transform: scale(0.75) translate(0, 20%) rotateY(0deg) rotateX(-180deg) translateZ(5px);
+    margin-top: 20px;
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(1) translate(0, 0%) rotateY(0) rotateX(0) translateZ(0);
+            transform: scale(1) translate(0, 0%) rotateY(0) rotateX(0) translateZ(0);
+    margin-top: 0;
+  }
+}
+
+@keyframes chip {
+  0% {
+    opacity: 5%;
+    -webkit-transform: scale(0.5) translate(0, 40%) rotateY(0deg) rotateX(180deg);
+            transform: scale(0.5) translate(0, 40%) rotateY(0deg) rotateX(180deg);
+    margin-top: 40px;
+  }
+  50% {
+    opacity: 50%;
+    -webkit-transform: scale(0.75) translate(0, 20%) rotateY(0deg) rotateX(-180deg) translateZ(5px);
+            transform: scale(0.75) translate(0, 20%) rotateY(0deg) rotateX(-180deg) translateZ(5px);
+    margin-top: 20px;
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(1) translate(0, 0%) rotateY(0) rotateX(0) translateZ(0);
+            transform: scale(1) translate(0, 0%) rotateY(0) rotateX(0) translateZ(0);
+    margin-top: 0;
+  }
+}
+
+@-webkit-keyframes chipflow {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes chipflow {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
   }
 }
 /*# sourceMappingURL=style.css.map */
