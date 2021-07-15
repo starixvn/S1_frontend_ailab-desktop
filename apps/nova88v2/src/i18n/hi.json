@@ -439,7 +439,6 @@
 	"lbl_RemainingTime": "शेष समय",
 	"lbl_RequireMinAmountHint_Front": "जमा की न्यूनतम राशि कम से कम xxx होनी आवश्यक है अब जमा करें?",
 	"lbl_RequireMinAmountHint_Back": "डिपाजिट नाउ ?",
-	"lbl_MaxBonusAmount": "अधिकतम बोनस राशि",
 	"lbl_Other": "अन्य",
 	"lbl_LossAmount": "हानि राशि",
 	"lbl_Percentage": "हानि राशि",
@@ -447,6 +446,9 @@
 	"lbl_ClaimNow": "प्रतिशत",
 	"lbl_JoinSuccessDescription1": " सफल। ",
 	"lbl_JoinSuccessDescription2": "Your Bonus has been claimed.",
+	"lbl_Promotion_Min_Deposit": "न्यूनतम जमा",
+	"lbl_Promotion_Bonus": "बोनस",
+	"lbl_MaxBonusAmount": "अधिकतम बोनस",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "अभी कोई जानकारी उपलब्ध नहीं है।",

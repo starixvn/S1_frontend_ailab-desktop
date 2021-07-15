@@ -7,7 +7,7 @@ import { api_account_GetCustSpecificBonus } from "../../service/api/account";
 import { defPopBoxType } from "../common/popBox";
 import { defPromotionType } from "./promotion.def";
 import ProcessBar from "./promotion.processBar";
-import { isExpiry, isClaimed } from "./promotion.common";
+import { isExpiry, isClaimed, RULE_TYPE } from "./promotion.common";
 import Loading from "../common/loading";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
@@ -126,87 +126,85 @@ export default () => {
 	const specialBonusWrapperClass =
 		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
 
-	return loading ? (
-		<Loading />
-	) : (
-		<>
-			{promotionInfo === null ? (
-				<></>
-			) : (
-				<div className="infoModule">
-					<div
-						className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
-						{_isClaimed ? <div className="claimed" /> : null}
-						<img
-							src={promotionInfo.banner}
-							alt={promotionInfo.description}
-						/>
-						<div className="proData">
-							<div className="proDataTitle">
-								<div className="txt-blue2">
-									{promotionInfo.title}
-									<div className="txt-blue2">
-										{promotionInfo.description}
-									</div>
-								</div>
+	if (loading) return <Loading />;
 
-								<div className="btnGroup">
-									<PromotionJoinButton
-										promotionInfo={promotionInfo}
-										userInfo={userInfo}
-										_isExpiry={_isExpiry}
-										filter={filterType}
-										callBack={() =>
-											getPromotionDetail(
-												userInfo.langId,
-												promotionInfo.bonusCode
-											)
-										}
-									/>
-								</div>
+	if (promotionInfo === null) return null;
+
+	return (
+		<div className="infoModule">
+			<div
+				className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
+				{_isClaimed ? <div className="claimed" /> : null}
+				<img
+					src={promotionInfo.banner}
+					alt={promotionInfo.description}
+				/>
+				<div className="proData">
+					<div className="proDataTitle">
+						<div className="txt-blue2">
+							{promotionInfo.title}
+							<div className="txt-blue2">
+								{promotionInfo.description}
 							</div>
+						</div>
 
-							<DepositSlip
+						<div className="btnGroup">
+							<PromotionJoinButton
 								promotionInfo={promotionInfo}
-								isSpecialType={isSpecialType}
-								t={t}
-							/>
-
-							<DepositMenu
-								cash={number_format(
-									promotionInfo.depositAmount
-								)}
-								_currency={_currency}
-								promotionInfo={promotionInfo}
-								t={t}
-							/>
-
-							<ProcessBar
-								t={t}
-								_isConvert={_isConvert}
-								currencyId={userInfo.currencyId}
-								{...promotionInfo}
-								RefreshProcessBar={RefreshProcessBar.bind(
-									this,
-									promotionInfo
-								)}
-								hideReloadBtn={isExpiry({
-									...promotionInfo,
-									isLogin: userInfo.isLogin
-								})}
-							/>
-							<PromoRule promotionInfo={promotionInfo} t={t} />
-							<div
-								className="proDataBody"
-								dangerouslySetInnerHTML={{
-									__html: `${promotionInfo.details}`
-								}}
+								userInfo={userInfo}
+								_isExpiry={_isExpiry}
+								filter={filterType}
+								callBack={() =>
+									getPromotionDetail(
+										userInfo.langId,
+										promotionInfo.bonusCode
+									)
+								}
 							/>
 						</div>
 					</div>
+
+					<DepositSlip
+						promotionInfo={promotionInfo}
+						isSpecialType={isSpecialType}
+						t={t}
+					/>
+
+					<DepositMenu
+						cash={number_format(promotionInfo.depositAmount)}
+						_currency={_currency}
+						promotionInfo={promotionInfo}
+						t={t}
+					/>
+
+					<ProcessBar
+						t={t}
+						_isConvert={_isConvert}
+						currencyId={userInfo.currencyId}
+						{...promotionInfo}
+						RefreshProcessBar={RefreshProcessBar.bind(
+							this,
+							promotionInfo
+						)}
+						hideReloadBtn={isExpiry({
+							...promotionInfo,
+							isLogin: userInfo.isLogin
+						})}
+					/>
+					<PromoRule
+						promotionInfo={promotionInfo}
+						t={t}
+						ruleType={RULE_TYPE.list}
+					/>
+					<div
+						className="proDataBody"
+						dangerouslySetInnerHTML={{
+							__html: `${promotionInfo.details}`
+						}}
+					/>
 				</div>
-			)}
-		</>
+			</div>
+		</div>
 	);
 };
 
