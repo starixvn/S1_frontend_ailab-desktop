@@ -10406,7 +10406,7 @@ canvas {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: #191919 url(../img/euro/bg.jpg) no-repeat top center;
+  background: #191919 url(../img/event/mysterybox/bg.jpg) no-repeat top center;
 }
 
 .event2 .eventList {
@@ -13825,7 +13825,6 @@ img[alt="sg"] {
 .checkspeed {
   background: black url(../img/check_speed/bg.jpg) no-repeat center 87px/cover;
   width: 100%;
-  height: 100%;
 }
 
 .checkspeed img {
@@ -13880,9 +13879,8 @@ img[alt="sg"] {
 
 .checkspeed .wallpaper {
   width: 1200px;
-  position: absolute;
-  left: 50%;
-  margin-left: -600px;
+  padding: 393px 0 20px;
+  margin: auto;
 }
 
 .checkspeed .wallpaper .logo {
@@ -13892,7 +13890,6 @@ img[alt="sg"] {
 }
 
 .checkspeed .wallpaper .module {
-  margin-top: 420px;
   border-radius: 5px;
   position: relative;
   padding: 20px;
@@ -14040,7 +14037,7 @@ img[alt="sg"] {
   margin-bottom: 15px;
 }
 
-@media screen and (max-width: 768px), (orientation: portrait) {
+@media screen and (max-width: 767px), (orientation: portrait) {
   .checkspeed {
     background: #0339a2 url(../img/check_speed/bg.jpg) no-repeat top center/cover;
     height: auto;
@@ -14057,9 +14054,6 @@ img[alt="sg"] {
   }
   .checkspeed .wallpaper nav .logo {
     margin: 0 auto;
-  }
-  .checkspeed .wallpaper nav .logo img {
-    width: 35vw;
   }
   .checkspeed .wallpaper nav button {
     font-size: 3vw;
