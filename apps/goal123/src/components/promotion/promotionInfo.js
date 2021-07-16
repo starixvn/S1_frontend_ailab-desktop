@@ -198,6 +198,7 @@ export default () => {
 						t={t}
 						ruleType={RULE_TYPE.list}
 						currencyId={userInfo.currencyId}
+						langId={userInfo.langId}
 					/>
 					<div
 						className="proDataBody"

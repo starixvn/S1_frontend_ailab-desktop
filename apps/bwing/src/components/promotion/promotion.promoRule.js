@@ -1,13 +1,21 @@
 import React from "react";
 import moment from "moment";
 import { promoStatus, defPromotionType, defBonusType } from "./promotion.def";
-import { number_format } from "../common/common";
+import { number_format, langAndCurrMapping } from "../common/common";
+import { siteDefLangId } from "../../service/language";
 
 const numberWithCurrency = (value, currencyName) => {
 	return `${currencyName} ${number_format(value, true, 0)}`;
 };
 
-export default ({ promotionInfo, t, inListPage, currencyId }) => {
+const getCurrencyName = ({ langId, currencyId, t }) => {
+	const _langMappingCurr = langId ?? siteDefLangId;
+	return currencyId
+		? t(`Currency_${currencyId}`)
+		: t(`Currency_${langAndCurrMapping[_langMappingCurr]}`);
+};
+
+export default ({ promotionInfo, t, inListPage, currencyId, langId }) => {
 	const {
 		isJoin,
 		status,
@@ -22,7 +30,8 @@ export default ({ promotionInfo, t, inListPage, currencyId }) => {
 	} = promotionInfo;
 
 	const isPercentage = bonusType === defBonusType.percentage;
-	const currencyName = t(`Currency_${currencyId}`);
+
+	const currencyName = getCurrencyName({ langId, currencyId, t });
 
 	const _expiryTime = moment.unix(
 		isJoin && status === promoStatus.running && custExpiryTime

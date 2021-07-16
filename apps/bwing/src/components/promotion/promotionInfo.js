@@ -151,6 +151,7 @@ export default () => {
 						t={t}
 						inListPage={false}
 						currencyId={userInfo.currencyId}
+						langId={userInfo.langId}
 					/>
 
 					<div className="proDataTitle">

@@ -174,3 +174,8 @@ export const isDateRange = (startDate, endDate) => {
 
 	return result;
 };
+
+export const langAndCurrMapping = {
+	en: 51,
+	vn: 51
+};

@@ -57,6 +57,7 @@ export default ({
 					promotionInfo={p}
 					inListPage={true}
 					currencyId={currencyId}
+					langId={langId}
 				/>
 
 				{filter === defFilterType.specialBonus && p.isJoin ? (
