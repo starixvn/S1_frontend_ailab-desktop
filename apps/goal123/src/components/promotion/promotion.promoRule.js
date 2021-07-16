@@ -68,15 +68,21 @@ export default ({ promotionInfo, t, ruleType, currencyId, langId }) => {
 		promotionType === defPromotionType.other ||
 		promotionType === defPromotionType.rebate;
 
+	const displayMinAmount = requiredAmount > 0;
+
 	if (ruleType === RULE_TYPE.list)
 		return (
 			<div className="rolloverNew">
 				<div>
 					{!isStaticOrRebate && (
 						<>
-							<div>
-								{t("lbl_Promotion_Min_Deposit")?.toUpperCase()}
-							</div>
+							{displayMinAmount && (
+								<div>
+									{t(
+										"lbl_Promotion_Min_Deposit"
+									)?.toUpperCase()}
+								</div>
+							)}
 							<div>{t("lbl_Promotion_Bonus")?.toUpperCase()}</div>
 						</>
 					)}
@@ -89,12 +95,14 @@ export default ({ promotionInfo, t, ruleType, currencyId, langId }) => {
 				<div>
 					{!isStaticOrRebate && (
 						<>
-							<div>
-								{numberWithCurrency(
-									requiredAmount,
-									currencyName
-								)}
-							</div>
+							{displayMinAmount && (
+								<div>
+									{numberWithCurrency(
+										requiredAmount,
+										currencyName
+									)}
+								</div>
+							)}
 							<div>
 								{isPercentage
 									? `${bonus}%`
@@ -116,9 +124,13 @@ export default ({ promotionInfo, t, ruleType, currencyId, langId }) => {
 				<div>
 					{!isStaticOrRebate && (
 						<>
-							<div className="icon icon-icon32px_money">
-								{t("lbl_Promotion_Min_Deposit")?.toUpperCase()}
-							</div>
+							{displayMinAmount && (
+								<div className="icon icon-icon32px_money">
+									{t(
+										"lbl_Promotion_Min_Deposit"
+									)?.toUpperCase()}
+								</div>
+							)}
 							<div className="icon icon-icon32px_">
 								{t("lbl_Promotion_Bonus")?.toUpperCase()}
 							</div>
@@ -139,12 +151,14 @@ export default ({ promotionInfo, t, ruleType, currencyId, langId }) => {
 				<div className="txt-orange">
 					{!isStaticOrRebate && (
 						<>
-							<div>
-								{numberWithCurrency(
-									requiredAmount,
-									currencyName
-								)}
-							</div>
+							{displayMinAmount && (
+								<div>
+									{numberWithCurrency(
+										requiredAmount,
+										currencyName
+									)}
+								</div>
+							)}
 							<div>
 								{isPercentage
 									? `${bonus}%`
