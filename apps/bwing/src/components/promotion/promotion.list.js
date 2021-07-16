@@ -52,7 +52,12 @@ export default ({
 						<li>{p.description}</li>
 					</ul>
 				</div>
-				<PromoRule t={t} promotionInfo={p} inListPage={true} />
+				<PromoRule
+					t={t}
+					promotionInfo={p}
+					inListPage={true}
+					currencyId={currencyId}
+				/>
 
 				{filter === defFilterType.specialBonus && p.isJoin ? (
 					<ProcessBar
