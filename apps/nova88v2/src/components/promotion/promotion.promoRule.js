@@ -52,16 +52,19 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 		promotionType === defPromotionType.other ||
 		promotionType === defPromotionType.rebate;
 
+	const displayMinAmount = requiredAmount > 0;
+
 	if (ruleType === RULE_TYPE.info)
 		return (
 			<div className="rollover">
 				<div>
 					{!isStaticOrRebate && (
 						<>
-							<div className="icon icon-icon32px_time">
-								{t("lbl_Promotion_Min_Deposit")}
-							</div>
-
+							{displayMinAmount && (
+								<div className="icon icon-icon32px_time">
+									{t("lbl_Promotion_Min_Deposit")}
+								</div>
+							)}
 							<div className="icon icon-icon32px_time">
 								{t("lbl_Promotion_Bonus")}
 							</div>
@@ -83,13 +86,15 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 				<div className="txt-orange">
 					{!isStaticOrRebate && (
 						<>
-							<div>
-								{numberWithCurrency(
-									requiredAmount,
-									currencyName,
-									_isConvert
-								)}
-							</div>
+							{displayMinAmount && (
+								<div>
+									{numberWithCurrency(
+										requiredAmount,
+										currencyName,
+										_isConvert
+									)}
+								</div>
+							)}
 							<div>
 								{isPercentage
 									? `${bonus}%`
@@ -122,16 +127,18 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 			<div className="rolloverList">
 				{!isStaticOrRebate && (
 					<>
-						<div>
-							<div>{t("lbl_Promotion_Min_Deposit")}</div>
+						{displayMinAmount && (
 							<div>
-								{numberWithCurrency(
-									requiredAmount,
-									currencyName,
-									_isConvert
-								)}
+								<div>{t("lbl_Promotion_Min_Deposit")}</div>
+								<div>
+									{numberWithCurrency(
+										requiredAmount,
+										currencyName,
+										_isConvert
+									)}
+								</div>
 							</div>
-						</div>
+						)}
 						<div>
 							<div>{t("lbl_Promotion_Bonus")}</div>
 							<div>

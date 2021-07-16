@@ -53,12 +53,16 @@ export default ({ promotionInfo, t, inListPage, currencyId, langId }) => {
 		promotionType === defPromotionType.other ||
 		promotionType === defPromotionType.rebate;
 
+	const displayMinAmount = requiredAmount > 0;
+
 	return (
 		<div className="rollover">
 			<div>
 				{!isStaticOrRebate && (
 					<>
-						<div>{t("lbl_Promotion_Min_Deposit")}</div>
+						{displayMinAmount && (
+							<div>{t("lbl_Promotion_Min_Deposit")}</div>
+						)}
 						<div>{t("lbl_Promotion_Bonus")}</div>
 					</>
 				)}
@@ -71,9 +75,14 @@ export default ({ promotionInfo, t, inListPage, currencyId, langId }) => {
 			<div className={inListPage ? "txt-yellow" : ""}>
 				{!isStaticOrRebate && (
 					<>
-						<div>
-							{numberWithCurrency(requiredAmount, currencyName)}
-						</div>
+						{displayMinAmount && (
+							<div>
+								{numberWithCurrency(
+									requiredAmount,
+									currencyName
+								)}
+							</div>
+						)}
 						<div>
 							{isPercentage
 								? `${bonus}%`
