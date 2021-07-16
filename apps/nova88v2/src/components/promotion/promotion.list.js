@@ -55,6 +55,7 @@ export default ({
 					t={t}
 					currencyId={currencyId}
 					ruleType={RULE_TYPE.info}
+					langId={langId}
 				/>
 
 				{filter === defFilterType.specialBonus && p.isJoin ? (

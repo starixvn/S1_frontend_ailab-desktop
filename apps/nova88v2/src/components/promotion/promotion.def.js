@@ -16,3 +16,8 @@ export const defPromotionType = {
 	other: 8,
 	specialBonus: 9001
 };
+
+export const defBonusType = {
+	percentage: 1,
+	amount: 2
+};
