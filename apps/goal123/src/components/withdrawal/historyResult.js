@@ -32,7 +32,7 @@ export const TransactionHistory = props => {
 				</span>
 			</div>
 			<div>{props.transId}</div>
-			<div>{number_format(props.amount)}</div>
+			<div>{number_format({ number: props.amount })}</div>
 			<div className={statusClassName[props.status]}>
 				{props.status === 8
 					? ""

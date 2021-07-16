@@ -49,7 +49,12 @@ export default ({
 				<div className="txt-darkBlue">{p.title}</div>
 				<div className="txt-dark">{t("lbl_PromotionsDesc")}</div>
 				<div className="txt-gray">{p.description}</div>
-				<PromoRule t={t} promotionInfo={p} ruleType={RULE_TYPE.info} />
+				<PromoRule
+					t={t}
+					promotionInfo={p}
+					ruleType={RULE_TYPE.info}
+					currencyId={currencyId}
+				/>
 
 				{filter === defFilterType.specialBonus && p.isJoin ? (
 					<ProcessBar

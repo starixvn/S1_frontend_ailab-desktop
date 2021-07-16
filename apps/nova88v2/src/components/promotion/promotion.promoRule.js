@@ -100,7 +100,7 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 	if (ruleType === RULE_TYPE.list)
 		return (
 			<div className="rolloverList">
-				{isPercentage && (
+				{isPercentage && promotionType !== defPromotionType.other && (
 					<>
 						<div>
 							<div>{t("lbl_Promotion_Min_Deposit")}</div>

@@ -40,20 +40,20 @@ describe("referral share - bonus, vaildbet, deposit value", () => {
 		currencyId: "51"
 	};
 
-	const bonus_numberFormat = number_format(
-		fakeData.referralSettingData.bonusAmount,
-		true
-	);
+	const bonus_numberFormat = number_format({
+		number: fakeData.referralSettingData.bonusAmount,
+		formatRequired: true
+	});
 
-	const vaildBet_numberFormat = number_format(
-		fakeData.referralSettingData.vaildBet,
-		true
-	);
+	const vaildBet_numberFormat = number_format({
+		number: fakeData.referralSettingData.vaildBet,
+		formatRequired: true
+	});
 
-	const deposit_numberFormat = number_format(
-		fakeData.referralSettingData.deposit,
-		true
-	);
+	const deposit_numberFormat = number_format({
+		number: fakeData.referralSettingData.deposit,
+		formatRequired: true
+	});
 
 	test("is bonusAmount vlaue corectly", () => {
 		const { container } = render(<ReferralShare {...fakeData} />);

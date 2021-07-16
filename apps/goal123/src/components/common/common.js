@@ -11,23 +11,30 @@ export const getUrlParameter = name => {
 	}
 };
 
-// formatRequired: display with ('000)
-export const number_format = (number, formatRequired = false, digits = 2) => {
-	let n = number;
-	if (!isNaN(n)) {
-		n /= 1000;
-		n = digits > 0 ? Number(n).toFixed(digits) : Number(n);
+export const number_format = ({
+	number,
+	formatRequired = false,
+	isConvertRequired = true,
+	digits = 2
+}) => {
+	let _number = number;
+	if (!isNaN(number)) {
+		if (isConvertRequired || formatRequired) {
+			_number /= 1000;
+		}
+
+		if (digits > 0) {
+			_number = Number(_number).toFixed(digits);
+		}
 	}
 
-	n += "";
-	const arr = n.split(".");
+	_number += "";
+	const arr = _number.split(".");
 	const re = /(\d{1,3})(?=(\d{3})+$)/g;
 
-	return (
-		arr[0].replace(re, "$1,") +
-		(arr.length === 2 ? `.${arr[1]}` : "") +
-		(formatRequired ? " ('000)" : "")
-	);
+	return `${arr[0].replace(re, "$1,")}${
+		digits > 0 && arr.length === 2 ? `.${arr[1]}` : ""
+	}${formatRequired ? " ('000)" : ""}`;
 };
 
 const _isConvertList = {
@@ -54,7 +61,7 @@ export const getAmountTip = (minAmount, formatRequired, i18n, digits) => {
 		? i18n("lbl_AmountTooltip")?.replace("{0}", 0)
 		: i18n("lbl_AmountTooltip")?.replace(
 				"{0}",
-				number_format(minAmount, formatRequired, digits)
+				number_format({ number: minAmount, formatRequired, digits })
 		  );
 };
 
@@ -81,9 +88,11 @@ export const checkAmount = ({
 			(!maxAmountAllowUnlimit && num_Amount > maxAmount)
 		) {
 			status = 2;
-			msg = `${number_format(num_Amount, formatRequired, digits)} ${t(
-				"lbl_NotinLimit"
-			)}`;
+			msg = `${number_format({
+				number: num_Amount,
+				formatRequired,
+				digits
+			})} ${t("lbl_NotinLimit")}`;
 		}
 	} else {
 		status = 3;

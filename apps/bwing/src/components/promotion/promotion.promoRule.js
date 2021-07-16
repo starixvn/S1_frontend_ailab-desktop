@@ -40,7 +40,7 @@ export default ({ promotionInfo, t, inListPage }) => {
 	return (
 		<div className="rollover">
 			<div>
-				{isPercentage && (
+				{isPercentage && promotionType !== defPromotionType.other && (
 					<>
 						<div>{t("lbl_Promotion_Min_Deposit")}</div>
 
@@ -58,7 +58,7 @@ export default ({ promotionInfo, t, inListPage }) => {
 			</div>
 
 			<div className={inListPage ? "txt-yellow" : ""}>
-				{isPercentage && (
+				{isPercentage && promotionType !== defPromotionType.other && (
 					<>
 						<div>{number_format(requiredAmount, true, 0)}</div>
 
