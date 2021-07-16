@@ -276,10 +276,10 @@ export class Module extends Component {
 					<ul>
 						<li>{this.props.i18n("lbl_DepositAmount")}</li>
 						<li>
-							{number_format(
-								this.props.amount,
-								this.props._isConvert
-							)}
+							{number_format({
+								number: this.props.amount,
+								formatRequired: this.props._isConvert
+							})}
 						</li>
 						<li>
 							<button

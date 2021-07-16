@@ -207,6 +207,7 @@ export default () => {
 						t={t}
 						currencyId={userInfo.currencyId}
 						ruleType={RULE_TYPE.list}
+						langId={userInfo.langId}
 					/>
 
 					<CashBackInfo

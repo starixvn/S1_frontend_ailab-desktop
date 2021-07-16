@@ -1,10 +1,15 @@
 import React from "react";
 import moment from "moment";
-import { promoStatus, defPromotionType } from "./promotion.def";
-import { number_format, isConvert } from "../common/common";
+import { promoStatus, defPromotionType, defBonusType } from "./promotion.def";
+import { number_format, isConvert, langAndCurrMapping } from "../common/common";
 import { RULE_TYPE } from "./promotion.common";
+import { siteDefLangId } from "../../service/language";
 
-export default ({ promotionInfo, t, currencyId, ruleType }) => {
+const numberWithCurrency = (value, currencyName, _isConvert) => {
+	return `${currencyName} ${number_format(value, _isConvert, 0)}`;
+};
+
+export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 	const {
 		isJoin,
 		status,
@@ -18,9 +23,14 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 		requiredAmount
 	} = promotionInfo;
 
-	const isPercentage = bonusType === 1;
+	const isPercentage = bonusType === defBonusType.percentage;
 
-	const isAmount = bonusType === 2;
+	const _langMappingCurr = langId ?? siteDefLangId;
+	const currencyName = currencyId
+		? t(`Currency_${currencyId}`)
+		: t(`Currency_${langAndCurrMapping[_langMappingCurr]}`);
+
+	const _isConvert = isConvert(currencyId);
 
 	const _expiryTime = moment.unix(
 		isJoin && status === promoStatus.running && custExpiryTime
@@ -38,11 +48,15 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 		"lbl_Days"
 	)} ${expiryTime.hours()} ${t("lbl_Hours")}`;
 
+	const isStaticOrRebate =
+		promotionType === defPromotionType.other ||
+		promotionType === defPromotionType.rebate;
+
 	if (ruleType === RULE_TYPE.info)
 		return (
 			<div className="rollover">
 				<div>
-					{isPercentage && (
+					{!isStaticOrRebate && (
 						<>
 							<div className="icon icon-icon32px_time">
 								{t("lbl_Promotion_Min_Deposit")}
@@ -53,46 +67,52 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 							</div>
 						</>
 					)}
-
-					{!isAmount && promotionType !== defPromotionType.other && (
+					{isPercentage && !isStaticOrRebate && (
 						<div className="icon icon-icon32px_money">
 							{t("lbl_MaxBonusAmount")}
 						</div>
 					)}
-
-					<div className="icon icon-icon32px_time">
-						{t("lbl_RemainingTime")}
-					</div>
-
 					<div className="icon icon-icon32px_">
 						{t("lbl_RollOver")}
+					</div>
+					<div className="icon icon-icon32px_time">
+						{t("lbl_RemainingTime")}
 					</div>
 				</div>
 
 				<div className="txt-orange">
-					{isPercentage && (
+					{!isStaticOrRebate && (
 						<>
 							<div>
-								{number_format(
+								{numberWithCurrency(
 									requiredAmount,
-									isConvert(currencyId),
-									0
+									currencyName,
+									_isConvert
 								)}
 							</div>
-
-							<div>{bonus}%</div>
+							<div>
+								{isPercentage
+									? `${bonus}%`
+									: numberWithCurrency(
+											bonus,
+											currencyName,
+											_isConvert
+									  )}
+							</div>
 						</>
 					)}
 
-					{!isAmount && promotionType !== defPromotionType.other && (
+					{isPercentage && !isStaticOrRebate && (
 						<div>
-							{number_format(maxBonus, isConvert(currencyId), 0)}
+							{numberWithCurrency(
+								maxBonus,
+								currencyName,
+								_isConvert
+							)}
 						</div>
 					)}
-
-					<div>{displayExpiryTime}</div>
-
 					<div>{rollOver}X</div>
+					<div>{displayExpiryTime}</div>
 				</div>
 			</div>
 		);
@@ -100,30 +120,42 @@ export default ({ promotionInfo, t, currencyId, ruleType }) => {
 	if (ruleType === RULE_TYPE.list)
 		return (
 			<div className="rolloverList">
-				{isPercentage && (
+				{!isStaticOrRebate && (
 					<>
 						<div>
 							<div>{t("lbl_Promotion_Min_Deposit")}</div>
 							<div>
-								{number_format(
+								{numberWithCurrency(
 									requiredAmount,
-									isConvert(currencyId),
-									0
+									currencyName,
+									_isConvert
 								)}
 							</div>
 						</div>
 						<div>
 							<div>{t("lbl_Promotion_Bonus")}</div>
-							<div>{bonus}%</div>
+							<div>
+								{isPercentage
+									? `${bonus}%`
+									: numberWithCurrency(
+											bonus,
+											currencyName,
+											_isConvert
+									  )}
+							</div>
 						</div>
 					</>
 				)}
 
-				{!isAmount && promotionType !== defPromotionType.other && (
+				{isPercentage && !isStaticOrRebate && (
 					<div>
 						<div>{t("lbl_MaxBonusAmount")}</div>
 						<div>
-							{number_format(maxBonus, isConvert(currencyId), 0)}
+							{numberWithCurrency(
+								maxBonus,
+								currencyName,
+								_isConvert
+							)}
 						</div>
 					</div>
 				)}

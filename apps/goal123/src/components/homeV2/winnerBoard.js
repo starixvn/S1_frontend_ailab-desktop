@@ -30,7 +30,7 @@ const WinnerBoard = ({ t, number_format, winnerList }) => {
 				</div>
 				<div className="rankMoney">
 					<img src={img_money} alt="money" />
-					<div>{number_format(item.wTurnover)}</div>
+					<div>{number_format({ number: item.wTurnover })}</div>
 				</div>
 			</li>
 		);

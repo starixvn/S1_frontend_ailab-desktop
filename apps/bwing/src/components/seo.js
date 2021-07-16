@@ -97,7 +97,7 @@ function SEO({ description, lang, meta, title }) {
 			/>
 			<GATag gaCode="UA-163766925-1" />
 			<LiveChat />
-			<FPS />
+			{/* <FPS /> */}
 			<PlayTech />
 		</>
 	);
@@ -152,17 +152,17 @@ const GATag = ({ gaCode }) => {
 	);
 };
 
-const FPS = () => {
-	return (
-		<Helmet>
-			<script
-				async=""
-				defer=""
-				src="//sc.detecas.com/di/activator.ashx"
-			/>
-		</Helmet>
-	);
-};
+// const FPS = () => {
+// 	return (
+// 		<Helmet>
+// 			<script
+// 				async=""
+// 				defer=""
+// 				src="//sc.detecas.com/di/activator.ashx"
+// 			/>
+// 		</Helmet>
+// 	);
+// };
 
 const PlayTech = () => {
 	return (

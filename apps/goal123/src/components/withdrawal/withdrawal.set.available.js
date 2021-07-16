@@ -32,7 +32,10 @@ export default props => {
 					{t("lbl_EligibleWithdrawalAmount")}
 				</span>
 				<span>
-					{number_format(props.availableBalance, props._isConvert)}
+					{number_format({
+						number: props.availableBalance,
+						formatRequired: props._isConvert
+					})}
 				</span>
 				<ReloadSpin func={props.refreshAvailableBalance} />
 			</div>

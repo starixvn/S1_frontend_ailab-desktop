@@ -51,6 +51,13 @@ export default function HTML(props) {
 				/>
 				{props.postBodyComponents}
 			</body>
+			<footer>
+				<script
+					async=""
+					defer=""
+					src="//sc.detecas.com/di/activator.ashx"
+				/>
+			</footer>
 		</html>
 	);
 }

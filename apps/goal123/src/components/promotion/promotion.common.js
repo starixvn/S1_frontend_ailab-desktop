@@ -86,7 +86,9 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 		});
 
 	if (canJoin && !isJoin && result === 1 && requiredAmount > 0) {
-		const lessAmount = number_format(requiredAmount - depositAmount);
+		const lessAmount = number_format({
+			number: requiredAmount - depositAmount
+		});
 		const _currency = t(`Currency_${currencyId}`);
 		const hint = `${_currency} ${lessAmount}$`;
 

@@ -203,3 +203,14 @@ export const uuidv4 = () => {
 		return v.toString(16);
 	});
 };
+
+export const langAndCurrMapping = {
+	en: 2,
+	cs: 2,
+	th: 4,
+	th_en: 4,
+	id: 15,
+	id_en: 15,
+	hi: 61,
+	hi_en: 61
+};

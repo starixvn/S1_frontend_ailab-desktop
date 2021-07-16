@@ -225,9 +225,9 @@ const TansactionHistory = props => {
 			</div>
 			<div>{props.refTransId}</div>
 			<div>{props.typeName}</div>
-			<div>{number_format(props.changeAmount)}</div>
-			<div>{number_format(props.beforeAmount)}</div>
-			<div>{number_format(props.afterAmount)}</div>
+			<div>{number_format({ number: props.changeAmount })}</div>
+			<div>{number_format({ number: props.beforeAmount })}</div>
+			<div>{number_format({ number: props.afterAmount })}</div>
 		</div>
 	);
 };

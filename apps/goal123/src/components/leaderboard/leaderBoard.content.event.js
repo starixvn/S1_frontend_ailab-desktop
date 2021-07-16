@@ -24,7 +24,7 @@ const LeaderBoardEventContent = ({
 					/>
 					{rewardList[idx].displayRank}
 				</div>
-				<div>{`VND ${number_format(item.reward)}`}</div>
+				<div>{`VND ${number_format({ number: item.reward })}`}</div>
 			</li>
 		);
 	});

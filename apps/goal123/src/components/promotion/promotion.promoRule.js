@@ -1,10 +1,26 @@
 import React from "react";
 import moment from "moment";
-import { promoStatus } from "./promotion.def";
-import { number_format } from "../common/common";
+import { promoStatus, defBonusType, defPromotionType } from "./promotion.def";
+import { number_format, langAndCurrMapping } from "../common/common";
 import { RULE_TYPE } from "./promotion.common";
+import { siteDefLangId } from "../../service/language";
 
-export default ({ promotionInfo, t, ruleType }) => {
+const numberWithCurrency = (value, currencyName) => {
+	return `${currencyName} ${number_format({
+		number: value,
+		isConvertRequired: false,
+		digits: 0
+	})}`;
+};
+
+const getCurrencyName = ({ langId, currencyId, t }) => {
+	const _langMappingCurr = langId ?? siteDefLangId;
+	return currencyId
+		? t(`Currency_${currencyId}`)
+		: t(`Currency_${langAndCurrMapping[_langMappingCurr]}`);
+};
+
+export default ({ promotionInfo, t, ruleType, currencyId, langId }) => {
 	const {
 		isJoin,
 		status,
@@ -14,12 +30,13 @@ export default ({ promotionInfo, t, ruleType }) => {
 		custExpiryTime,
 		periodTo,
 		requiredAmount,
-		rollOver
+		rollOver,
+		promotionType
 	} = promotionInfo;
 
-	const isPercentage = bonusType === 1;
+	const isPercentage = bonusType === defBonusType.percentage;
 
-	const isAmount = bonusType === 2;
+	const currencyName = getCurrencyName({ langId, currencyId, t });
 
 	const _expiryTime = moment.unix(
 		isJoin && status === promoStatus.running && custExpiryTime
@@ -47,35 +64,48 @@ export default ({ promotionInfo, t, ruleType }) => {
 		"lbl_Days"
 	)} ${expiryTime.hours()} ${t("lbl_Hours")}`;
 
+	const isStaticOrRebate =
+		promotionType === defPromotionType.other ||
+		promotionType === defPromotionType.rebate;
+
 	if (ruleType === RULE_TYPE.list)
 		return (
 			<div className="rolloverNew">
 				<div>
-					{isPercentage && requiredAmount > 0 && (
-						<div>{t("lbl_Promotion_Min_Deposit")}</div>
+					{!isStaticOrRebate && (
+						<>
+							<div>
+								{t("lbl_Promotion_Min_Deposit")?.toUpperCase()}
+							</div>
+							<div>{t("lbl_Promotion_Bonus")?.toUpperCase()}</div>
+						</>
 					)}
-
-					{isPercentage && <div>{t("lbl_Promotion_Bonus")}</div>}
-
-					{!isAmount && <div>{t("lbl_MaxBonusAmount")}</div>}
-
-					<div>{t("lbl_RemainingTime")}</div>
-
-					<div>{t("lbl_RollOver")}</div>
+					{isPercentage && !isStaticOrRebate && (
+						<div>{t("lbl_MaxBonusAmount")?.toUpperCase()}</div>
+					)}
+					<div>{t("lbl_RollOver")?.toUpperCase()}</div>
+					<div>{t("lbl_RemainingTime")?.toUpperCase()}</div>
 				</div>
 				<div>
-					{isPercentage && requiredAmount > 0 && (
-						<div>{number_format(requiredAmount, true, 0)}</div>
+					{!isStaticOrRebate && (
+						<>
+							<div>
+								{numberWithCurrency(
+									requiredAmount,
+									currencyName
+								)}
+							</div>
+							<div>
+								{isPercentage
+									? `${bonus}%`
+									: numberWithCurrency(bonus, currencyName)}
+							</div>
+						</>
 					)}
-
-					{isPercentage && <div>{bonus}%</div>}
-
-					{!isAmount && (
-						<div> {number_format(maxBonus, true, 0)}</div>
+					{isPercentage && !isStaticOrRebate && (
+						<div>{numberWithCurrency(maxBonus, currencyName)}</div>
 					)}
-
 					<div>{rollOver}X</div>
-
 					<div>{displayExpiryTime}</div>
 				</div>
 			</div>
@@ -84,46 +114,48 @@ export default ({ promotionInfo, t, ruleType }) => {
 		return (
 			<div className="rollover">
 				<div>
-					{isPercentage && requiredAmount > 0 && (
-						<div className="icon icon-icon32px_money">
-							{t("lbl_Promotion_Min_Deposit")}
-						</div>
+					{!isStaticOrRebate && (
+						<>
+							<div className="icon icon-icon32px_money">
+								{t("lbl_Promotion_Min_Deposit")?.toUpperCase()}
+							</div>
+							<div className="icon icon-icon32px_">
+								{t("lbl_Promotion_Bonus")?.toUpperCase()}
+							</div>
+						</>
 					)}
-
-					{isPercentage && (
+					{isPercentage && !isStaticOrRebate && (
 						<div className="icon icon-icon32px_">
-							{t("lbl_Promotion_Bonus")}
+							{t("lbl_MaxBonusAmount")?.toUpperCase()}
 						</div>
 					)}
-
-					{!isAmount && (
-						<div className="icon icon-icon32px_">
-							{t("lbl_MaxBonusAmount")}
-						</div>
-					)}
-
-					<div className="icon icon-icon32px_time">
-						{t("lbl_RemainingTime")}
-					</div>
-
 					<div className="icon icon-icon32px_">
-						{t("lbl_RollOver")}
+						{t("lbl_RollOver")?.toUpperCase()}
+					</div>
+					<div className="icon icon-icon32px_time">
+						{t("lbl_RemainingTime")?.toUpperCase()}
 					</div>
 				</div>
-
 				<div className="txt-orange">
-					{isPercentage && requiredAmount > 0 && (
-						<div>{number_format(requiredAmount, true, 0)}</div>
+					{!isStaticOrRebate && (
+						<>
+							<div>
+								{numberWithCurrency(
+									requiredAmount,
+									currencyName
+								)}
+							</div>
+							<div>
+								{isPercentage
+									? `${bonus}%`
+									: numberWithCurrency(bonus, currencyName)}
+							</div>
+						</>
 					)}
-
-					{isPercentage && <div>{bonus}%</div>}
-
-					{!isAmount && (
-						<div> {number_format(maxBonus, true, 0)}</div>
+					{isPercentage && !isStaticOrRebate && (
+						<div>{numberWithCurrency(maxBonus, currencyName)}</div>
 					)}
-
 					<div>{rollOver}X</div>
-
 					<div>{displayExpiryTime}</div>
 				</div>
 			</div>

@@ -151,10 +151,10 @@ export default ({ bankInfo, amount, _isConvert, dispatch }) => {
 						<ul>
 							<li>{t("lbl_Amount")}</li>
 							<li>
-								{number_format(
-									_isConvert ? amount * 1000 : amount,
-									_isConvert
-								)}
+								{number_format({
+									number: _isConvert ? amount * 1000 : amount,
+									formatRequired: _isConvert
+								})}
 							</li>
 						</ul>
 					</div>

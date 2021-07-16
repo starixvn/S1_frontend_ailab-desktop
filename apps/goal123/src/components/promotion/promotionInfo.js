@@ -171,7 +171,9 @@ export default () => {
 					/>
 
 					<DepositMenu
-						cash={number_format(promotionInfo.depositAmount)}
+						cash={number_format({
+							number: promotionInfo.depositAmount
+						})}
 						_currency={_currency}
 						promotionInfo={promotionInfo}
 						t={t}
@@ -195,6 +197,8 @@ export default () => {
 						promotionInfo={promotionInfo}
 						t={t}
 						ruleType={RULE_TYPE.list}
+						currencyId={userInfo.currencyId}
+						langId={userInfo.langId}
 					/>
 					<div
 						className="proDataBody"
@@ -236,12 +240,12 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType }) => {
 						<div
 							key={`promo-deposit-record-${bonusCode}-${item.depositId}`}>
 							<div>{item.depositId}</div>
-							<div>{number_format(item.amount)}</div>
+							<div>{number_format({ number: item.amount })}</div>
 						</div>
 					))}
 				</div>
 				<div className="txt-yellow">
-					{t("lbl_total")}: {number_format(depositAmount)}
+					{t("lbl_total")}: {number_format({ number: depositAmount })}
 				</div>
 			</div>
 		</>

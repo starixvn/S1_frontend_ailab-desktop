@@ -176,7 +176,7 @@ const RankItem = ({ item, idx, tab }) => {
 				{item?.rank || idx + 1}
 			</div>
 			<div>{item.userName}</div>
-			<div>{number_format(item.wTurnover)}</div>
+			<div>{number_format({ number: item.wTurnover })}</div>
 		</li>
 	);
 };

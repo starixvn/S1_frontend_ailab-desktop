@@ -15,10 +15,13 @@ export default ({
 	) : (
 		<span>
 			{displayTextLimit}{" "}
-			{`${number_format(minAmount, _isConvert)} ~ ${number_format(
-				maxAmount,
-				_isConvert
-			)}`}
+			{`${number_format({
+				number: minAmount,
+				formatRequired: _isConvert
+			})} ~ ${number_format({
+				number: maxAmount,
+				formatRequired: _isConvert
+			})}`}
 		</span>
 	);
 };

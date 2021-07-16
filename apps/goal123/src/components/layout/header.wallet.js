@@ -100,7 +100,7 @@ class Dropdown extends Component {
 		}, 0);
 
 		const balance = !isNaN(mainWallet.balance)
-			? number_format(mainWallet.balance + tpWalletsBonusSum)
+			? number_format({ number: mainWallet.balance + tpWalletsBonusSum })
 			: 0;
 
 		const tpWalletRows = tpWallets
@@ -114,7 +114,7 @@ class Dropdown extends Component {
 							<span>
 								{this.props.i18n(`lbl_TpWallet_${t.tpId}`)}
 							</span>
-							<span>{number_format(t.balance)}</span>
+							<span>{number_format({ number: t.balance })}</span>
 						</div>
 					</div>
 				);
@@ -198,7 +198,7 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 		<div className="walletBalance mainWallet">
 			<div>
 				<span>{i18n("lbl_MainWallet")}</span>
-				<span>{number_format(mainWallet.balance)}</span>
+				<span>{number_format({ number: mainWallet.balance })}</span>
 			</div>
 			{bonusWallets.map(item => {
 				return (
@@ -211,7 +211,7 @@ const BonusWalletRows = ({ bonusWallets, i18n, mainWallet }) => {
 									`lbl_BonusWallet_${item.promoCategoryId}`
 								)}
 							</span>
-							<span>{number_format(item.bonus)}</span>
+							<span>{number_format({ number: item.bonus })}</span>
 						</div>
 						<HeaderProcessBar
 							turnover={item.turnover}

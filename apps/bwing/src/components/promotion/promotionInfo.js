@@ -12,7 +12,6 @@ import Loading from "../common/loading";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defFilterType } from "./promotion.nav";
-import promotion from "./promotion";
 
 export default () => {
 	const filterType = Number(getUrlParameter("FilterType"));
@@ -151,6 +150,8 @@ export default () => {
 						promotionInfo={promotionInfo}
 						t={t}
 						inListPage={false}
+						currencyId={userInfo.currencyId}
+						langId={userInfo.langId}
 					/>
 
 					<div className="proDataTitle">

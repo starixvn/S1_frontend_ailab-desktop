@@ -36,7 +36,6 @@ export default function HTML(props) {
 					type="text/javascript"
 					src="https://tickers2.playtech.com/jackpots/new_jackpotjs.js"
 				/>
-
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
@@ -48,6 +47,13 @@ export default function HTML(props) {
 				/>
 				{props.postBodyComponents}
 			</body>
+			<footer>
+				<script
+					async=""
+					defer=""
+					src="//sc.detecas.com/di/activator.ashx"
+				/>
+			</footer>
 		</html>
 	);
 }
