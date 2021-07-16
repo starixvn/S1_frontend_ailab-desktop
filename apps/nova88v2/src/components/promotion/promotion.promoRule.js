@@ -6,7 +6,7 @@ import { RULE_TYPE } from "./promotion.common";
 import { siteDefLangId } from "../../service/language";
 
 const numberWithCurrency = (value, currencyName, _isConvert) => {
-	return `${currencyName} ${number_format(value, _isConvert, 0)}`;
+	return `${currencyName} ${number_format(value, false, 0)}`;
 };
 
 export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
