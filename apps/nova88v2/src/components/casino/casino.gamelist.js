@@ -92,14 +92,16 @@ export default ({
 					</div>
 					<div className={`icon ${g.new ? "icon-new" : ""}`} />
 
-					<div
-						onClick={onSetFavorite.bind(this, g.tpId, g.gameId)}
-						className={`icon icon-star-full${
-							isFavorite ? " active" : ""
-						}`}
-					/>
 					<img alt="Casino_tpInfo" src={_imgUrl} />
-					<div className="txt-darkBlue">{gameDisplayName}</div>
+					<div className="txt-darkBlue">
+						<div>{gameDisplayName}</div>
+						<div
+							onClick={onSetFavorite.bind(this, g.tpId, g.gameId)}
+							className={`icon icon-star-full${
+								isFavorite ? " active" : ""
+							}`}
+						/>
+					</div>
 					<div className="btnGroup">
 						<button
 							className="blue"
