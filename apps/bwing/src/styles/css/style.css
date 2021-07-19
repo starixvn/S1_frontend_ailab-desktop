@@ -2130,7 +2130,7 @@ main > .swiper-container .swiper-slide {
 
 .quickLink {
   position: fixed;
-  left: 0px;
+  right: 0px;
   top: 15%;
   z-index: 3;
   width: 215px;
@@ -2139,11 +2139,11 @@ main > .swiper-container .swiper-slide {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
-  -webkit-transform: translateX(-81%);
-          transform: translateX(-81%);
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-transform: translateX(81%);
+          transform: translateX(81%);
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -5240,9 +5240,6 @@ main > .swiper-container .swiper-slide {
 .quickSelect {
   width: 100%;
   margin-bottom: 20px;
-}
-
-.quickSelect .quickSelectIn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5254,7 +5251,7 @@ main > .swiper-container .swiper-slide {
   margin: 0 auto;
 }
 
-.quickSelect .quickSelectIn > div {
+.quickSelect > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -5262,11 +5259,11 @@ main > .swiper-container .swiper-slide {
   max-width: 520px;
 }
 
-.quickSelect .quickSelectIn > div.gameBtn {
+.quickSelect > div.gameBtn {
   max-width: inherit;
 }
 
-.quickSelect .quickSelectIn > div.btnGroup:not(.promoType) {
+.quickSelect > div.btnGroup:not(.promoType) {
   width: 120px;
   -webkit-box-flex: 0;
       -ms-flex: none;
@@ -5277,17 +5274,17 @@ main > .swiper-container .swiper-slide {
   margin-bottom: 0px;
 }
 
-.quickSelect .quickSelectIn > div.btnGroup.promoType {
+.quickSelect > div.btnGroup.promoType {
   margin: 10px 10px 10px 0px;
 }
 
-.quickSelect .quickSelectIn > div.btnGroup.promoType ~ .btnGroup {
+.quickSelect > div.btnGroup.promoType ~ .btnGroup {
   height: auto;
   margin-top: 0;
 }
 
-.quickSelect .quickSelectIn > div.btnGroup.promoType > button,
-.quickSelect .quickSelectIn > div.btnGroup.promoType a {
+.quickSelect > div.btnGroup.promoType > button,
+.quickSelect > div.btnGroup.promoType a {
   -webkit-box-flex: 1 !important;
       -ms-flex: auto !important;
           flex: auto !important;
@@ -5296,7 +5293,7 @@ main > .swiper-container .swiper-slide {
   height: 40px;
 }
 
-.quickSelect .quickSelectIn > div.inputBox-blue {
+.quickSelect > div.inputBox-blue {
   margin: 10px 10px 10px 0px;
   min-height: auto;
   max-width: 220px;
@@ -5304,44 +5301,44 @@ main > .swiper-container .swiper-slide {
   border-radius: 0;
 }
 
-.quickSelect .quickSelectIn > div > .inputBox-blue {
+.quickSelect > div > .inputBox-blue {
   margin: 10px 0 0;
 }
 
-.quickSelect .quickSelectIn > div.inputBox.promoType > button, .quickSelect .quickSelectIn > div.promoType.inputBox-blue > button,
-.quickSelect .quickSelectIn > div.inputBox.promoType > a,
-.quickSelect .quickSelectIn > div.promoType.inputBox-blue > a,
-.quickSelect .quickSelectIn > div:first-child.promoType > button,
-.quickSelect .quickSelectIn > div:first-child.promoType > a {
+.quickSelect > div.inputBox.promoType > button, .quickSelect > div.promoType.inputBox-blue > button,
+.quickSelect > div.inputBox.promoType > a,
+.quickSelect > div.promoType.inputBox-blue > a,
+.quickSelect > div:first-child.promoType > button,
+.quickSelect > div:first-child.promoType > a {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
   white-space: nowrap;
 }
 
-.quickSelect .quickSelectIn > div.inputBox.promoType > button.orange, .quickSelect .quickSelectIn > div.promoType.inputBox-blue > button.orange, .quickSelect .quickSelectIn > div.inputBox.promoType > button.red, .quickSelect .quickSelectIn > div.promoType.inputBox-blue > button.red,
-.quickSelect .quickSelectIn > div.inputBox.promoType > a.orange,
-.quickSelect .quickSelectIn > div.promoType.inputBox-blue > a.orange,
-.quickSelect .quickSelectIn > div.inputBox.promoType > a.red,
-.quickSelect .quickSelectIn > div.promoType.inputBox-blue > a.red,
-.quickSelect .quickSelectIn > div:first-child.promoType > button.orange,
-.quickSelect .quickSelectIn > div:first-child.promoType > button.red,
-.quickSelect .quickSelectIn > div:first-child.promoType > a.orange,
-.quickSelect .quickSelectIn > div:first-child.promoType > a.red {
+.quickSelect > div.inputBox.promoType > button.orange, .quickSelect > div.promoType.inputBox-blue > button.orange, .quickSelect > div.inputBox.promoType > button.red, .quickSelect > div.promoType.inputBox-blue > button.red,
+.quickSelect > div.inputBox.promoType > a.orange,
+.quickSelect > div.promoType.inputBox-blue > a.orange,
+.quickSelect > div.inputBox.promoType > a.red,
+.quickSelect > div.promoType.inputBox-blue > a.red,
+.quickSelect > div:first-child.promoType > button.orange,
+.quickSelect > div:first-child.promoType > button.red,
+.quickSelect > div:first-child.promoType > a.orange,
+.quickSelect > div:first-child.promoType > a.red {
   position: relative;
   margin-left: 25px;
 }
 
-.quickSelect .quickSelectIn > div.inputBox.promoType > button:last-child, .quickSelect .quickSelectIn > div.promoType.inputBox-blue > button:last-child,
-.quickSelect .quickSelectIn > div.inputBox.promoType > a:last-child,
-.quickSelect .quickSelectIn > div.promoType.inputBox-blue > a:last-child,
-.quickSelect .quickSelectIn > div:first-child.promoType > button:last-child,
-.quickSelect .quickSelectIn > div:first-child.promoType > a:last-child {
+.quickSelect > div.inputBox.promoType > button:last-child, .quickSelect > div.promoType.inputBox-blue > button:last-child,
+.quickSelect > div.inputBox.promoType > a:last-child,
+.quickSelect > div.promoType.inputBox-blue > a:last-child,
+.quickSelect > div:first-child.promoType > button:last-child,
+.quickSelect > div:first-child.promoType > a:last-child {
   float: right;
 }
 
-.quickSelect .quickSelectIn > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect .quickSelectIn > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
-.quickSelect .quickSelectIn > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue {
+.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue,
+.quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue {
   margin: 20px 0 0 10px;
   min-height: auto;
   width: 200px;
@@ -5349,18 +5346,18 @@ main > .swiper-container .swiper-slide {
   margin-top: 20px;
 }
 
-.quickSelect .quickSelectIn > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7), .quickSelect .quickSelectIn > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue:nth-child(7),
-.quickSelect .quickSelectIn > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7) {
+.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7), .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue:nth-child(7),
+.quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue:nth-child(7) {
   width: 397px;
 }
 
-.quickSelect .quickSelectIn > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button, .quickSelect .quickSelectIn > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue .dropdown button,
-.quickSelect .quickSelectIn > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button {
+.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue .dropdown button,
+.quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue .dropdown button {
   padding: 0;
 }
 
-.quickSelect .quickSelectIn > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue + button, .quickSelect .quickSelectIn > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue + button,
-.quickSelect .quickSelectIn > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue + button {
+.quickSelect > div.inputBox.promoType.btnGroup .blueBorder ~ .inputBox-blue + button, .quickSelect > div.promoType.btnGroup.inputBox-blue .blueBorder ~ .inputBox-blue + button,
+.quickSelect > div:first-child.promoType.btnGroup .blueBorder ~ .inputBox-blue + button {
   float: left;
 }
 
@@ -6455,14 +6452,14 @@ main > .swiper-container .swiper-slide {
 
 .fishlobby .lobbybanner .ball1 {
   position: absolute;
-  top: 27%;
+  top: 60%;
   left: 45%;
   -webkit-animation: ball1 1s ease-in-out;
           animation: ball1 1s ease-in-out;
 }
 
 .fishlobby .lobbybanner .ball1.ball2 {
-  top: 55%;
+  top: 35%;
   left: 70%;
   -webkit-animation: ball2 1s ease-in-out;
           animation: ball2 1s ease-in-out;
@@ -6993,6 +6990,7 @@ form {
   border-radius: 3px;
   width: 60%;
   text-align: center;
+  z-index: 2;
 }
 
 .slotList > div.under {
