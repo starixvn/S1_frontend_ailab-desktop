@@ -7,8 +7,8 @@ import useInterval from "../hook/useInterval";
 import olympicCountdownImg from "../../styles/img/olympics/logo.png";
 
 const OLYMPIC_DURATION_TIME = {
-	startDate: "2021/07/23 19:00:00",
-	endDate: "2021/08/08 21:59:59"
+	startDate: "Fri, 23 Jul 2021 19:00:00 GMT+0700",
+	endDate: "Sun, 08 Aug 2021 21:59:59 GMT+0700"
 };
 
 export default () => {
