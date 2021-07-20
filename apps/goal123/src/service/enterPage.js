@@ -70,6 +70,7 @@ export const OPEN_IN_BLANK = (url, windowKey) => {
 export const GET_OPEN_RULE = (langId, tpId, gameId, matchid, betType) => {
 	const _tpId = isNaN(tpId) ? tpId : Number(tpId);
 	const _gameId = isNaN(gameId) ? gameId : Number(gameId);
+	const _matchid = isNaN(matchid) ? matchid : Number(matchid);
 	let result = setResult("", true, _ACTION_TYPE.blank);
 	if (_tpId === 1) {
 		if (_gameId === 43 || _gameId === 220 || _gameId === 202) {
@@ -101,7 +102,13 @@ export const GET_OPEN_RULE = (langId, tpId, gameId, matchid, betType) => {
 
 	return {
 		...result,
-		entPageUrl: GET_ENTER_PAGE_URL(langId, _tpId, _gameId, matchid, betType)
+		entPageUrl: GET_ENTER_PAGE_URL(
+			langId,
+			_tpId,
+			_gameId,
+			_matchid,
+			betType
+		)
 	};
 };
 
