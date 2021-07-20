@@ -5521,13 +5521,17 @@ input[type="file"] {
 }
 
 .addBankpop .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
-  padding-top: 15px;
+  padding-top: 10px;
 }
 
 .addBankpop .inputBox-blue img {
   max-width: 44px;
   border-radius: 5px;
-  margin-right: 10px;
+  margin: 0 10px;
+}
+
+.addBankpop .txt div .txt-blue + span {
+  color: #5574a7;
 }
 
 .txt {
@@ -12788,7 +12792,6 @@ canvas {
 }
 
 .projpot .promos {
-  width: 780px;
   float: left;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -12805,11 +12808,11 @@ canvas {
   max-width: 280px;
 }
 
-.projpot .promos + div {
+.jpotModule {
   width: 605px;
 }
 
-.projpot .promos + div .jpot {
+.jpotModule .jpot {
   height: 200px;
   -webkit-animation: jpot 0.3s infinite;
           animation: jpot 0.3s infinite;
@@ -12817,7 +12820,7 @@ canvas {
   cursor: pointer;
 }
 
-.projpot .promos + div .jpot .number {
+.jpotModule .jpot .number {
   position: absolute;
   bottom: 80px;
   right: 65px;
@@ -12834,25 +12837,25 @@ canvas {
   overflow: hidden;
 }
 
-.projpot .promos + div .jpot .number > div:first-child {
+.jpotModule .jpot .number > div:first-child {
   font-size: 20px;
   margin: auto auto auto 0;
 }
 
-.projpot .promos + div .jpot .number > div:nth-child(n+2) {
+.jpotModule .jpot .number > div:nth-child(n+2) {
   font-size: 24px;
   margin: 0 1px;
   width: 15px;
   position: relative;
 }
 
-.projpot .promos + div .jpot .number > div:nth-child(n+2) > div {
+.jpotModule .jpot .number > div:nth-child(n+2) > div {
   position: absolute;
   top: 0;
   height: 600px;
 }
 
-.projpot .promos + div .jpot .number > div:nth-child(n+2) > div > div {
+.jpotModule .jpot .number > div:nth-child(n+2) > div > div {
   height: 30px;
 }
 
