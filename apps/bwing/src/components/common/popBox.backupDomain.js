@@ -23,7 +23,7 @@ export default ({ onClickClose, linkList }) => {
 		setSelectDontShow(prev => {
 			const check = !prev;
 			if (check) {
-				setCookie(settingCookie, "1", 1);
+				setCookie(settingCookie, "1", 7);
 			} else {
 				deleteCookie(settingCookie);
 			}
