@@ -143,13 +143,10 @@ const IndexPage = () => {
 	return (
 		<main>
 			<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
-
 			<Marquee />
 
 			<div className="projpot">
 				<PromoList t={t} userInfo={userInfo} />
-
-				<HomeJackpot t={t} userInfo={userInfo} />
 			</div>
 
 			<div className="liveVideo">
@@ -159,7 +156,7 @@ const IndexPage = () => {
 						{t("lbl_UPCOMING_MATCHES")}
 					</div>
 					<EventSwipper langId={userInfo.langId} />
-					<LiveScore langId={userInfo.langId} />
+					<HomeJackpot t={t} userInfo={userInfo} />
 				</div>
 			</div>
 

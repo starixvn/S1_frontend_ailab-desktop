@@ -56,7 +56,7 @@ export default function HomeJackpot({ t, userInfo }) {
 	}, ANIMATION_LOOP_MILLISECOND + DELAY_MILLISECOND);
 
 	return (
-		<div>
+		<div className="jpotModule">
 			<div className="moduleTitle icon icon-ow-casino">
 				{t("lbl_homeJackpotTitle")}
 			</div>
