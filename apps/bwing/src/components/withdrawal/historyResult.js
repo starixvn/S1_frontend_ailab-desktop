@@ -34,7 +34,7 @@ export const TransactionHistory = props => {
 				</span>
 			</div>
 			<div>{props.transId}</div>
-			<div>{number_format(props.amount, false)}</div>
+			<div>{number_format({ number: props.amount })}</div>
 			<div className={statusClassName[props.status]}>
 				{t(`lbl_WithdrawalStatus${props.status}`)}
 			</div>

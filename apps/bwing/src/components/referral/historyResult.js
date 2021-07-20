@@ -17,14 +17,14 @@ export default props => {
 			</div>
 			<div>{t(`Currency_${props.currencyId}`)}</div>
 			<div>
-				{number_format(props.totalDeposit, false)} /{" "}
-				{number_format(props.depositC, false)}
+				{number_format({ number: props.totalDeposit })} /{" "}
+				{number_format({ number: props.depositC })}
 			</div>
 			<div>
-				{number_format(props.totalBet, false)} /{" "}
-				{number_format(props.vaildBetC, false)}
+				{number_format({ number: props.totalBet })} /{" "}
+				{number_format({ number: props.vaildBetC })}
 			</div>
-			<div>{number_format(props.bonusAmount, false)}</div>
+			<div>{number_format({ number: props.bonusAmount })}</div>
 			<div>{t(`lbl_ReferralStatus${props.status}`)}</div>
 		</div>
 	);

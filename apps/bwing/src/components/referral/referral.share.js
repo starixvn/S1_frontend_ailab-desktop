@@ -19,19 +19,31 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 					<div>
 						{t("lbl_Bonus")}{" "}
 						<span>
-							{currency} {number_format(bonusAmount, _isConvert)}
+							{currency}{" "}
+							{number_format({
+								number: bonusAmount,
+								formatRequired: _isConvert
+							})}
 						</span>
 					</div>
 					<div>
 						{t("lbl_ValidBet")}{" "}
 						<span>
-							{currency} {number_format(vaildBet, _isConvert)}
+							{currency}{" "}
+							{number_format({
+								number: vaildBet,
+								formatRequired: _isConvert
+							})}
 						</span>
 					</div>
 					<div>
 						{t("lbl_Deposit")}{" "}
 						<span>
-							{currency} {number_format(deposit, _isConvert)}
+							{currency}{" "}
+							{number_format({
+								number: deposit,
+								formatRequired: _isConvert
+							})}
 						</span>
 					</div>
 					<a

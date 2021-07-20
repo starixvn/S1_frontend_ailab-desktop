@@ -152,7 +152,7 @@ const FixedAmountList = ({
 					onClick={onSelectAmount.bind(this, _afterConvertAmount)}
 					className={`blue${isSelected ? " active" : ""}`}
 					key={`deposit-mobile-${a}`}>
-					{number_format(a, _isConvert)}
+					{number_format({ number: a, formatRequired: _isConvert })}
 					<i className="icon icon-checkmark" />
 				</button>
 			);

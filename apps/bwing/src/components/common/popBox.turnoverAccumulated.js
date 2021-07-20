@@ -19,14 +19,14 @@ export default ({ btnBar, turnover, rollover, currencyId }) => {
 				<div className="bounsName">{t("lbl_TurnoverAccumulated")}</div>
 				<div className="turnover">
 					<span>
-						{`${t(`Currency_${currencyId}`)} ${number_format(
-							turnover
-						)}`}
+						{`${t(`Currency_${currencyId}`)} ${number_format({
+							number: turnover
+						})}`}
 					</span>{" "}
 					/ (
 					{`${t("lbl_Req")} ${t(
 						`Currency_${currencyId}`
-					)} ${number_format(rollover)}`}
+					)} ${number_format({ number: rollover })}`}
 					)
 				</div>
 				<div className="progressBar">

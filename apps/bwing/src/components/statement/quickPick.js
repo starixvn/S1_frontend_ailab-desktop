@@ -212,19 +212,19 @@ export default () => {
 			title: t("lbl_TurnOver"),
 			dataIndex: "turnOver",
 			key: "turnOver",
-			render: value => number_format(value.turnOver)
+			render: value => number_format({ number: value.turnOver })
 		},
 		{
 			title: t("lbl_ValidBet"),
 			dataIndex: "validBet",
 			key: "validBet",
-			render: value => number_format(value.validBet)
+			render: value => number_format({ number: value.validBet })
 		},
 		{
 			title: t("lbl_WinlostAmount"),
 			dataIndex: "winlostAmount",
 			key: "winlostAmount",
-			render: value => number_format(value.winlostAmount)
+			render: value => number_format({ number: value.winlostAmount })
 		},
 		{
 			title: t("lbl_Action"),

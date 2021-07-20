@@ -11,17 +11,32 @@ export default ({ balanceData, _isConvert }) => {
 		<div className="calculation">
 			<div>
 				<div>{t("lbl_Balance")}</div>
-				<div>{number_format(balance, _isConvert)}</div>
+				<div>
+					{number_format({
+						number: balance,
+						formatRequired: _isConvert
+					})}
+				</div>
 			</div>
 			<div>-</div>
 			<div>
 				<div>{t("lbl_Deduction")}</div>
-				<div>{number_format(deduction, _isConvert)}</div>
+				<div>
+					{number_format({
+						number: deduction,
+						formatRequired: _isConvert
+					})}
+				</div>
 			</div>
 			<div>=</div>
 			<div>
 				<div>{t("lbl_EligibleWithdrawalAmount")}</div>
-				<div>{number_format(availableBalance, _isConvert)}</div>
+				<div>
+					{number_format({
+						number: availableBalance,
+						formatRequired: _isConvert
+					})}
+				</div>
 			</div>
 		</div>
 	);
