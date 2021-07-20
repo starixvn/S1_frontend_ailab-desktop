@@ -20,7 +20,7 @@ const ShowWallet = props => {
 						}`}>
 						{props.i18n(item.displayKey)}
 					</span>
-					<span>{number_format(item.balance ?? 0, false)}</span>
+					<span>{number_format({ number: item.balance ?? 0 })}</span>
 					<div className="btnGroup">
 						<button
 							data-testid={`showWallet_restoreAll_${item.id}`}

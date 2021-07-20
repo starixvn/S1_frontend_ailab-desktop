@@ -143,7 +143,10 @@ export default () => {
 					<span>
 						{referralSum.referralCount} /{" "}
 						{t(`Currency_${userInfo.currencyId}`)}{" "}
-						{number_format(referralSum.amountSum, _isConvert)}
+						{number_format({
+							number: referralSum.amountSum,
+							formatRequired: _isConvert
+						})}
 					</span>
 					<div className="txt-blue">
 						{t("lbl_Referral_description")}

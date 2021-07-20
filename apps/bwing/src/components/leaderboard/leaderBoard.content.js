@@ -143,7 +143,9 @@ const RankItem = ({ item, idx, userName, defTopNum }) => {
 				{item?.custRank || idx + 1}
 			</div>
 			<div>{item.userName}</div>
-			<div className="point">{number_format(item.wTurnover)}</div>
+			<div className="point">
+				{number_format({ number: item.wTurnover })}
+			</div>
 		</li>
 	);
 };

@@ -261,10 +261,10 @@ const PopBoxDepositUploadBankSlip = ({
 						<ul>
 							<li>{t("lbl_DepositAmount")}</li>
 							<li>
-								{number_format(
-									localBankInfo.amount,
-									_isConvert
-								)}
+								{number_format({
+									number: localBankInfo.amount,
+									formatRequired: _isConvert
+								})}
 							</li>
 							<li>
 								<button

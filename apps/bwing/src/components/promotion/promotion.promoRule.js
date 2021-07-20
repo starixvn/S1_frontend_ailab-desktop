@@ -5,7 +5,11 @@ import { number_format, langAndCurrMapping } from "../common/common";
 import { siteDefLangId } from "../../service/language";
 
 const numberWithCurrency = (value, currencyName) => {
-	return `${currencyName} ${number_format(value, true, 0)}`;
+	return `${currencyName} ${number_format({
+		number: value,
+		isConvertRequired: false,
+		digits: 0
+	})}`;
 };
 
 const getCurrencyName = ({ langId, currencyId, t }) => {

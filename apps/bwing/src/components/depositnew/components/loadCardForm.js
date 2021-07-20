@@ -67,8 +67,14 @@ export default function LoadCardForm({
 
 	const isSelAmountType = formInfo.amountRule === 3;
 
-	const formatMinAmount = number_format(formInfo.minAmount, false, 0);
-	const formatMaxAmount = number_format(formInfo.maxAmount, false, 0);
+	const formatMinAmount = number_format({
+		number: formInfo.minAmount,
+		digits: 0
+	});
+	const formatMaxAmount = number_format({
+		number: formInfo.maxAmount,
+		digits: 0
+	});
 
 	return (
 		<>
@@ -102,18 +108,18 @@ export default function LoadCardForm({
 
 								<div>
 									<div>
-										{`${t("lbl_Min")}: ${number_format(
-											item.minAmount,
-											_isConvert,
-											0
-										)}`}
+										{`${t("lbl_Min")}: ${number_format({
+											number: item.minAmount,
+											formatRequired: _isConvert,
+											digits: 0
+										})}`}
 									</div>
 									<div>
-										{`${t("lbl_Max")}: ${number_format(
-											item.maxAmount,
-											_isConvert,
-											0
-										)}`}
+										{`${t("lbl_Max")}: ${number_format({
+											number: item.maxAmount,
+											formatRequired: _isConvert,
+											digits: 0
+										})}`}
 									</div>
 								</div>
 							</div>

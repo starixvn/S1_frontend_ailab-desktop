@@ -32,7 +32,10 @@ export default props => {
 				<ul>
 					<li>{t("lbl_WithdrawalAmount")}</li>
 					<li>
-						{number_format(props.amountValue, props._isConvert)}
+						{number_format({
+							number: props.amountValue,
+							formatRequired: props._isConvert
+						})}
 					</li>
 				</ul>
 			</div>

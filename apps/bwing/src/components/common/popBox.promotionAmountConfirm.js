@@ -62,8 +62,8 @@ export default ({
 
 			<div className="txt-orange">
 				{`${t("lbl_ClaimAmountRange")}: 
-				 ${number_format(requiredAmount)} ~ 
-				 ${number_format(maxAmount)}`}
+				 ${number_format({ number: requiredAmount })} ~ 
+				 ${number_format({ number: maxAmount })}`}
 			</div>
 
 			<div className="btnGroup">
