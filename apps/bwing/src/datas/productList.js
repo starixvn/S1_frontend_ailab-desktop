@@ -185,6 +185,10 @@ export default {
 };
 
 export const defCasinoProviders = {
+	JILI: {
+		tpId: 32,
+		name: "JILI"
+	},
 	GPI: {
 		tpId: 6,
 		name: "GPI"

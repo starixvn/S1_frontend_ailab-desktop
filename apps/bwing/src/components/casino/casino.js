@@ -326,11 +326,15 @@ export default () => {
 	};
 
 	useEffect(() => {
+		const searchParams = new URLSearchParams(window.location.search);
+
 		if (!isSomeTab) {
+			searchParams.set("tab", defNav.ALLGAMES.key);
+
 			window.history.replaceState(
 				{},
 				"",
-				`${window.location.pathname}?tab=${defNav.ALLGAMES.key}`
+				`${window.location.pathname}?${searchParams.toString()}`
 			);
 		}
 	}, [isSomeTab]);

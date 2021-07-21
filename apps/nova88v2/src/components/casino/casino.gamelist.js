@@ -24,7 +24,17 @@ export default ({
 	const startIdx = (currentPage - 1) * defRowsPerPage;
 	const endIdx = currentPage * defRowsPerPage;
 
-	const onClickPlay = ({ tpId, gameId, isFree, delay }) => {
+	const onClickPlay = ({ tpId, gameId, isFree, delay, isInMaintain }) => {
+		if (isInMaintain) {
+			return;
+		}
+
+		const loginCallback = () =>
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+
 		if (isLogin || isFree) {
 			throttle(
 				() =>
@@ -45,11 +55,7 @@ export default ({
 					}),
 				delay
 			);
-		} else
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
+		} else loginCallback();
 	};
 
 	let _imgUrl = "";
@@ -110,7 +116,8 @@ export default ({
 									tpId: g.tpId,
 									gameId: g.gameId,
 									isFree: false,
-									delay: 5000
+									delay: 5000,
+									isInMaintain
 								})
 							}>
 							{t("lbl_Play")}
@@ -124,7 +131,8 @@ export default ({
 										tpId: g.tpId,
 										gameId: g.gameId,
 										isFree: true,
-										delay: 0
+										delay: 0,
+										isInMaintain
 									})
 								}>
 								{t("lbl_Demo")}

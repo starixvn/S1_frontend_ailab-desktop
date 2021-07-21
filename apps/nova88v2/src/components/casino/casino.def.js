@@ -50,6 +50,11 @@ export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
 
 export const defLobbyImgList = [
 	{
+		lobbyImgName: "ji",
+		lobbyDisplayName: "JILI",
+		providerId: productList.casino_JILI.tpId
+	},
+	{
 		lobbyImgName: "pp",
 		lobbyDisplayName: "Pragmatic Play",
 		providerId: productList.casino_PP.tpId

@@ -49,6 +49,10 @@ import livecasinoAeIconImg from "../../styles/img/livecasino/ae-icon.png";
 import livecasinoEbetNpcImg from "../../styles/img/livecasino/ebet.png";
 import livecasinoEbetIconImg from "../../styles/img/livecasino/ebet-icon.png";
 
+import slotsJiliBgImg from "../../styles/img/dropdown/slots/jili.png";
+import slotsJiliNpcImg from "../../styles/img/dropdown/slots/jili-item.png";
+import slotsJiliIconImg from "../../styles/img/dropdown/slots/jili-icon.png";
+
 import slotsPlaytechBgImg from "../../styles/img/dropdown/slots/playtech.png";
 import slotsPlaytechNpcImg from "../../styles/img/dropdown/slots/playtech-item.png";
 import slotsPlaytechIconImg from "../../styles/img/dropdown/slots/playtech-icon.png";
@@ -272,6 +276,22 @@ export const defMenuLinks = langId => {
 			displayKey: "lbl_Slots",
 			className: "casinobtn",
 			subMenu: [
+				{
+					...defCasinoProviders.JILI,
+					className: "JI",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_ji
+						})
+					],
+					displayText: "JILI",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.JILI.name },
+					bgImgUrl: slotsJiliBgImg,
+					npcImgUrl: slotsJiliNpcImg,
+					iconImgUrl: slotsJiliIconImg
+				},
 				{
 					...defCasinoProviders.PT,
 					className: "PT",
