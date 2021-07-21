@@ -9,6 +9,7 @@ export const defEventPeriod = {
 	ranking: { start: "2021/03/01 12:00:00" },
 	tv: { start: "2021/03/30 00:00:00" },
 	casino_pt: { end: "2021/06/20 11:00:00" },
+	casino_ji: { end: "2021/07/18 11:00:00" },
 	Games_KingMaker: { end: "2021/07/08 11:00:00" },
 	Games_AMBPoker: { end: "2021/07/08 11:00:00" },
 	liveCasino_pt: { end: "2021/07/08 11:00:00" },

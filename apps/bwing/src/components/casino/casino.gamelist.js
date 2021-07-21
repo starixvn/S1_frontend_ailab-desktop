@@ -26,6 +26,13 @@ const GameList = ({
 	const endIdx = currentPage * defRowsPerPage;
 
 	const onClickPlay = ({ tpId, gameId, isFree, delay }) => {
+		const loginCallback = () => {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		};
+
 		if (isLogin || isFree) {
 			throttle(
 				() =>
@@ -46,12 +53,7 @@ const GameList = ({
 					}),
 				delay
 			);
-		} else {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		}
+		} else loginCallback();
 	};
 
 	let _imgUrl = "";

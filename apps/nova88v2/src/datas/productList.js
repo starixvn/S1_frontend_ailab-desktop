@@ -102,7 +102,10 @@ export default {
 	},
 
 	/* === slot === */
-
+	casino_JILI: {
+		tpId: 32,
+		name: "JILI"
+	},
 	casino_PP: {
 		tpId: 5
 	},

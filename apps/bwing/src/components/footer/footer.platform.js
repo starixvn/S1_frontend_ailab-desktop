@@ -112,6 +112,12 @@ const defPlatform = [
 		imgName: "bti"
 	},
 	{
+		...defCasinoProviders.JILI,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.JILI.name },
+		imgName: "jili"
+	},
+	{
 		...productList.KingMaker,
 		imgName: "kingmaker"
 	}
