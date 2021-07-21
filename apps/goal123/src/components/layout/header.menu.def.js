@@ -417,7 +417,7 @@ export const defMenuLinks = langId => {
 			path: path.liveCasino.root,
 			subMenu: [
 				{
-					...defCasinoProviders.PT,
+					...productList.liveCasino_PT,
 					className: "PT",
 					eventIcons: [
 						showEventIcon({
@@ -428,7 +428,6 @@ export const defMenuLinks = langId => {
 					icon: "icon icon-pt",
 					displayText: "Playtech",
 					menuType: defMenuType.useGoToGame,
-					parameter: { provider: defCasinoProviders.PT.name },
 					npcImgUrl: livecasinoPtNpcImg,
 					iconImgUrl: livecasinoPtIconImg,
 					disabledInSlider: true,

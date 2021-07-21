@@ -30,6 +30,7 @@ import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
 import TopQuickLink from "./casino.topQuickLink";
+import { defTpCategoryId } from "../../datas/productList";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -72,7 +73,13 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
-	const { maintainList } = useContext(maintainListContext);
+	const { allMaintainList } = useContext(maintainListContext);
+	const maintainList = allMaintainList?.filter(
+		item =>
+			item.tpCategoryId === defTpCategoryId.slot ||
+			item.tpCategoryId === defTpCategoryId.all
+	);
+
 	const { loading, setLoading } = useContext(loadingContext);
 
 	const clickClose = () => {

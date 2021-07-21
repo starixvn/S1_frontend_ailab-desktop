@@ -26,7 +26,8 @@ export const defPopBoxType = {
 	RankingWinner: "RankingWinner",
 	OfficialAnnounce: "OfficialAnnounce",
 	DepositGuide: "DepositGuide",
-	BackupDomain: "BackupDomain"
+	BackupDomain: "BackupDomain",
+	UnderMaintain: "UnderMaintain"
 };
 
 export default defPopBoxType;

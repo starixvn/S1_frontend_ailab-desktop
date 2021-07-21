@@ -6,8 +6,7 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { useGotoGame } from "../hook/useGotoGame";
-import productList from "../../datas/productList";
-// import path from "../../router";
+import productList, { defTpCategoryId } from "../../datas/productList";
 
 export default ({
 	listClassName,
@@ -55,7 +54,13 @@ export default ({
 	const rows = subItems?.map(s => {
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
-		const isInMaintain = maintainList.some(item => item.tpId === s.tpId);
+
+		const isInMaintain = maintainList?.some(
+			item =>
+				item.tpId === s.tpId &&
+				(item.tpCategoryId === s.tpCategory ||
+					item.tpCategoryId === defTpCategoryId.all)
+		);
 
 		let _className = s.className ? s.className : "";
 

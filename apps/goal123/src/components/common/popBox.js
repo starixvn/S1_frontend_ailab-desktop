@@ -29,7 +29,8 @@ export const defPopBoxType = {
 	DepositUploadBankSlip: "DepositUploadBankSlip",
 	RankingWinner: "RankingWinner",
 	OfficialAnnounce: "OfficialAnnounce",
-	BackupDomain: "BackupDomain"
+	BackupDomain: "BackupDomain",
+	UnderMaintain: "UnderMaintain"
 };
 
 export default () => {
@@ -312,6 +313,12 @@ export default () => {
 					linkList={popBox.linkList}
 				/>
 			);
+			break;
+		}
+
+		case defPopBoxType.UnderMaintain: {
+			const UnderMaintain = lazy(() => import("./popBox.underMaintain"));
+			content = <UnderMaintain clickClose={popBox.clickClose} />;
 			break;
 		}
 

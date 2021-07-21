@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
 	popBoxContext,
-	isRootContext
+	isRootContext,
+	maintainListContext
 } from "../common/context";
 import {
 	readCookie,
@@ -36,6 +37,7 @@ const IndexPage = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
 	const isMountedRef = useRef(null);
+	const { allMaintainList } = useContext(maintainListContext);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -159,7 +161,11 @@ const IndexPage = () => {
 				</div>
 			</div>
 
-			<HotGameList t={t} userInfo={userInfo} />
+			<HotGameList
+				t={t}
+				userInfo={userInfo}
+				maintainList={allMaintainList}
+			/>
 
 			<div className="newsVideo">
 				<HomeNews t={t} userInfo={userInfo} />
