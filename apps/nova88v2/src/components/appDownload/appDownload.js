@@ -12,15 +12,15 @@ import img_in02 from "../../styles/img/app/in02.png";
 import img_in03 from "../../styles/img/app/in03.png";
 import img_in04 from "../../styles/img/app/in04.png";
 
+export const iosLink = "https://nova.appdlweb.com";
+export const androidLink = "https://dl.4ppstore.com/dlapp/Nova88.apk";
+
 const AppDownload = () => {
 	const { t } = useTranslation();
 
-	const onClickToDownload = e => {
-		return typeof window !== undefined ? window.open(e.target.value) : null;
-	};
-
-	const iosLink = "https://nova.appdlweb.com";
-	const androidLink = "https://dl.4ppstore.com/dlapp/Nova88.apk";
+	// const onClickToDownload = e => {
+	// 	return typeof window !== undefined ? window.open(e.target.value) : null;
+	// };
 
 	return (
 		<>

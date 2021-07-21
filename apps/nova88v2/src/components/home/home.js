@@ -28,8 +28,7 @@ import IndexCenterBanner from "./indexCenterBanner";
 import { HomeNews } from "./homeNews";
 import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
-import LiveScore from "./liveScore";
-import { _ACTION_TYPE } from "../../service/enterPage";
+import QuickdownloadLink from "./quickdownloadLink";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -171,6 +170,8 @@ const IndexPage = () => {
 			<IndexCenterBanner langId={userInfo.langId} />
 
 			<SideBarQuickLink />
+
+			<QuickdownloadLink t={t} />
 
 			<AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}
