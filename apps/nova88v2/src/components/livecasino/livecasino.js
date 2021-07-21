@@ -16,13 +16,19 @@ import LivecasinoList from "./livecasino.list";
 import config from "../../config";
 import { useGotoGame } from "../hook/useGotoGame";
 import { isOldLang } from "../../datas/languageData";
+import { defTpCategoryId } from "../../datas/productList";
 
 const Livecasino = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
-	const { maintainList } = useContext(maintainListContext);
+	const { allMaintainList } = useContext(maintainListContext);
+	const maintainList = allMaintainList?.filter(
+		item =>
+			item.tpCategoryId === defTpCategoryId.liveCasino ||
+			item.tpCategoryId === defTpCategoryId.all
+	);
 
 	const { handleGoToGame } = useGotoGame({
 		isLogin: userInfo.isLogin,

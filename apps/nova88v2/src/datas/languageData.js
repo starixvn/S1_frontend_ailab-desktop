@@ -21,7 +21,18 @@ export const defLang = {
 	th: "th",
 	th_en: "th_en",
 	id: "id",
-	ld_en: "id_en",
+	id_en: "id_en",
 	hi: "hi",
 	hi_en: "hi_en"
+};
+
+export const defLangToCurrency = {
+	en: "MYR",
+	cs: "MYR",
+	th: "THB",
+	th_en: "THB",
+	id: "IDR",
+	id_en: "IDR",
+	hi: "INR",
+	hi_en: "INR"
 };

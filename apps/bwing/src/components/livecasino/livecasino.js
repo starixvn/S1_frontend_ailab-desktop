@@ -12,6 +12,7 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import LivecasinoBanner from "./livecasino.banner";
 import LivecasinoList from "./livecasino.list";
 import { useGotoGame } from "../hook/useGotoGame";
+import { defTpCategoryId } from "../../datas/productList";
 
 const Livecasino = () => {
 	const { t } = useTranslation();
@@ -19,7 +20,12 @@ const Livecasino = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
-	const { maintainList } = useContext(maintainListContext);
+	const { allMaintainList } = useContext(maintainListContext);
+	const maintainList = allMaintainList?.filter(
+		item =>
+			item.tpCategoryId === defTpCategoryId.liveCasino ||
+			item.tpCategoryId === defTpCategoryId.all
+	);
 
 	const clickItem = ({ tpId, gameId, menuType, isInMaintain }) => {
 		const loginCallback = () => {

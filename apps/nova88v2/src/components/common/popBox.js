@@ -34,6 +34,7 @@ import DepositUploadBankSlip from "./popBox.depositUploadBankSlip";
 import SuccessMySteryBox from "./popBox.successMySteryBox";
 import PerDay from "./popBox.perDay";
 import BackupDomain from "./popBox.backupDomain";
+import UnderMaintain from "./popBox.underMaintain";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -294,6 +295,10 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.UnderMaintain: {
+			content = <UnderMaintain clickClose={popBox.clickClose} />;
+			break;
+		}
 		default:
 			break;
 	}

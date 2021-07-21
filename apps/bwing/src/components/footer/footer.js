@@ -16,7 +16,7 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
-	const { maintainList } = useContext(maintainListContext);
+	const { allMaintainList } = useContext(maintainListContext);
 
 	return (
 		<footer>
@@ -70,7 +70,7 @@ export default () => {
 					langId={userInfo.langId}
 					isLogin={userInfo.isLogin}
 					productTpIds={productTpIds}
-					maintainList={maintainList}
+					maintainList={allMaintainList}
 				/>
 				<div className="powered">
 					<div>{t("lbl_PoweredBy")}</div>

@@ -313,6 +313,12 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.UnderMaintain: {
+			const UnderMaintain = lazy(() => import("./popBox.underMaintain"));
+			content = <UnderMaintain clickClose={popBox.clickClose} />;
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 

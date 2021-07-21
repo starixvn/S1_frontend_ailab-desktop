@@ -4,7 +4,7 @@ import { Link, navigate } from "@reach/router";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
-import productList from "../../datas/productList";
+import productList, { defTpCategoryId } from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
 import AppDownloadBanner from "../appDownload/appDownloadBanner";
@@ -44,8 +44,11 @@ const SubMenuSingle = ({
 				: showLoginPopBox();
 		};
 
-		const isPokerMaintain = maintainList.some(
-			({ tpId }) => tpId === productList.poker.tpId
+		const isPokerMaintain = maintainList?.some(
+			({ tpId }) =>
+				tpId === productList.poker.tpId &&
+				(item.tpCategoryId === defTpCategoryId.poker ||
+					item.tpCategoryId === defTpCategoryId.all)
 		);
 
 		return (
@@ -138,7 +141,9 @@ const SubMenuSingle = ({
 SubMenuSingle.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
-	menuKey: PropTypes.string.isRequired
+	menuKey: PropTypes.string.isRequired,
+	subClassName: PropTypes.string.isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default SubMenuSingle;

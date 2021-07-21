@@ -4,7 +4,8 @@ import { Link } from "gatsby";
 import {
 	userInfoContext,
 	popBoxContext,
-	isRootContext
+	isRootContext,
+	maintainListContext
 } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
@@ -18,6 +19,7 @@ import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
 import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { defaultLang } from "../../i18n/config";
+import { defTpCategoryId } from "../../datas/productList";
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
 import Jackpot from "./jackpot";
@@ -39,6 +41,7 @@ export default () => {
 	const { setIsRoot } = useContext(isRootContext);
 	const isMountedRef = useRef(null);
 	const [winnerList, setWinnerList] = useState([]);
+	const { allMaintainList } = useContext(maintainListContext);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -190,7 +193,12 @@ export default () => {
 					</div>
 				</section>
 				<section>
-					<PromoGameList t={t} userInfo={userInfo} />
+					<PromoGameList
+						t={t}
+						userInfo={userInfo}
+						maintainList={allMaintainList}
+						defTpCategoryId={defTpCategoryId}
+					/>
 				</section>
 				<section>
 					<div className="guide">

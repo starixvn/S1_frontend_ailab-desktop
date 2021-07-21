@@ -319,13 +319,12 @@ export const defMenuLinks = {
 		subMenu: [
 			{
 				keyName: "casino_PT",
-				// icon: "icon icon-PT",
 				displayText: "PT",
-				menuType: defMenuType.useGoToGame,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-pt.png",
 				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
-				parameter: { ...productList.casino_PT },
+				menuType: defMenuType.useGoToGame,
+				...productList.liveCasino_PT,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -335,8 +334,7 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "livecasino_pt.jpg",
 					hoverBgImg: "livecasino_pta.jpg"
-				},
-				...productList.casino_PT
+				}
 			},
 			{
 				keyName: "casino_N2LIVE",

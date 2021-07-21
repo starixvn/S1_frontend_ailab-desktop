@@ -23,7 +23,6 @@ import {
 } from "../../service/language";
 import useGetWalletInfo from "./wrapper.walletInfo";
 import { langCookie } from "../../config";
-import path from "../../router";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -63,7 +62,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [redirectPath, setRedirectPath] = useState(null);
 	const [isRoot, setIsRoot] = useState(false);
 	const [productTpIds, setProductTpIds] = useState(null);
-	const [maintainList, setMaintainList] = useState([]);
+	const [allMaintainList, setAllMaintainList] = useState([]);
 	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
 	const isMountedRef = useRef(null);
 
@@ -77,9 +76,23 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	useEffect(() => {
 		api_site_GetTpMaintainList().then(res => {
 			if (!isMountedRef.current) return;
-
 			if (res.data.errorCode === 0) {
-				setMaintainList(res.data.data);
+				setAllMaintainList(
+					res.data.data
+						?.filter(
+							(elem, idx, self) =>
+								self.findIndex(
+									tpItem =>
+										tpItem.tpId === elem.tpId &&
+										tpItem.tpCategoryId ===
+											elem.tpCategoryId
+								) === idx
+						)
+						?.map(elem => ({
+							tpId: elem.tpId,
+							tpCategoryId: elem.tpCategoryId
+						})) ?? []
+				);
 			}
 		});
 	}, [userInfo.isLogin, userInfo.langId]);
@@ -263,7 +276,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			(afterLogin && userInfo.isLogin === false && userInfo.kickout)
 		) {
 			return (
-				<ct.maintainListContext.Provider value={{ maintainList }}>
+				<ct.maintainListContext.Provider value={{ allMaintainList }}>
 					<ct.productTpIdsContext.Provider value={{ productTpIds }}>
 						<ct.userInfoContext.Provider
 							value={{ userInfo, setUserInfo }}>

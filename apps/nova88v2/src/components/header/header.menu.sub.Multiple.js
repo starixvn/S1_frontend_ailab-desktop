@@ -6,25 +6,31 @@ import { defMenuLinks, defMenuType, defImgSourceType } from "./header.menu.def";
 // import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 // import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 import config from "../../config";
+import { defTpCategoryId } from "../../datas/productList";
 
 const SubMenuMultiple = ({
+	menuKey,
 	subMenuItem,
 	clickItem,
 	userInfo,
 	t,
-	menuKey,
 	maintainList
 }) => {
 	const displayText = subMenuItem.displayText
 		? subMenuItem.displayText
 		: t(subMenuItem.displayKey);
-
 	const displayText2 = subMenuItem.displayText2 ?? null;
 	const displayText3 = subMenuItem.displayText3 ?? null;
 
-	const isInMaintain = maintainList.some(
-		({ tpId }) => tpId === subMenuItem.tpId
-	);
+	let isInMaintain = false;
+	if (subMenuItem.tpCategory) {
+		isInMaintain = maintainList?.some(
+			({ tpId }) =>
+				tpId === subMenuItem.tpId &&
+				(item.tpCategoryId === subMenuItem.tpCategory ||
+					item.tpCategoryId === defTpCategoryId.all)
+		);
+	}
 
 	let params = null;
 

@@ -245,7 +245,7 @@ export const defMenuLinks = {
 		className: "livecasinobtn",
 		subMenu: [
 			{
-				...defCasinoProviders.PT,
+				...productList.liveCasino_PT,
 				className: "livePT",
 				eventIcons: [
 					showEventIcon({

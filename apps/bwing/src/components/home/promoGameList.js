@@ -35,31 +35,27 @@ const defGameList = [
 		displayKey: "lbl_liveCasino_789SeDie"
 	},
 	{
+		...productList.sabaClub,
 		img: require("../../styles/img/GameList2.png"),
 		displayKey: "lbl_Saba1Club1",
-		tpId: 1,
-		gameId: 200,
 		betType: 1613
 	},
 	{
+		...productList.sabaClub,
 		img: require("../../styles/img/GameList3.png"),
 		displayKey: "lbl_Saba1Club2",
-		tpId: 1,
-		gameId: 200,
 		betType: 1620
 	},
 	{
+		...productList.sabaClub,
 		img: require("../../styles/img/GameList4.png"),
 		displayKey: "lbl_Saba1Club3",
-		tpId: 1,
-		gameId: 200,
 		betType: 1612
 	},
 	{
+		...productList.sabaClub,
 		img: require("../../styles/img/GameList5.png"),
 		displayKey: "lbl_Saba1Club5",
-		tpId: 1,
-		gameId: 200,
 		betType: 1614
 	},
 	{
@@ -74,16 +70,14 @@ const defGameList = [
 		tpId: 4
 	},
 	{
+		...productList.eSport,
 		img: require("../../styles/img/GameList8.png"),
-		displayKey: "lbl_eSports",
-		tpId: 1,
-		gameId: 43
+		displayKey: "lbl_eSports"
 	},
 	{
+		...productList.fishing,
 		img: require("../../styles/img/GameList9.png"),
-		displayKey: "lbl_FishingGG",
-		tpId: 7,
-		gameId: 10
+		displayKey: "lbl_FishingGG"
 	},
 	{
 		...productList.virtualSports,
@@ -92,29 +86,39 @@ const defGameList = [
 		linkType: defLinkType.sports
 	},
 	{
+		...productList.keno,
 		img: require("../../styles/img/GameList11.png"),
-		displayKey: "lbl_Keno",
-		tpId: 1,
-		gameId: 202
+		displayKey: "lbl_Keno"
 	},
 	{
+		...productList.keno,
 		img: require("../../styles/img/GameList12.png"),
-		displayKey: "lbl_Lottery",
-		tpId: 1,
-		gameId: 220
+		displayKey: "lbl_Lottery"
 	}
 ];
 
-export default ({ t, userInfo }) => {
+export default ({ t, userInfo, maintainList, defTpCategoryId }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
-	const ClickGame = (tpId, gameId, betType, linkType, name) => {
+	const ClickGame = (tpId, gameId, betType, linkType, name, isInMaintain) => {
 		const LoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
+		const clickClose = () => {
+			setPopBox({ isOpen: false });
+		};
+
+		if (isInMaintain) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UnderMaintain,
+				clickClose
+			});
+			return;
+		}
 
 		if (linkType === defLinkType.casino) {
 			if (userInfo.isLogin !== true) {
@@ -143,6 +147,14 @@ export default ({ t, userInfo }) => {
 
 	const rows = defGameList.map(g => {
 		const displayText = t(g.displayKey) ?? g.displayKey;
+
+		const isInMaintain = maintainList?.some(
+			item =>
+				item.tpId === g.tpId &&
+				(item.tpCategoryId === g.tpCategory ||
+					item.tpCategoryId === defTpCategoryId.all)
+		);
+
 		return (
 			<button
 				key={`promoGameList-${g.displayKey}`}
@@ -152,7 +164,8 @@ export default ({ t, userInfo }) => {
 					g.gameId,
 					g.betType,
 					g.linkType,
-					g.name
+					g.name,
+					isInMaintain
 				)}>
 				<img src={g.img} alt={displayText} />
 				<div>{displayText}</div>

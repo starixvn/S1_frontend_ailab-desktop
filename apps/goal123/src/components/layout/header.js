@@ -12,7 +12,6 @@ import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import OlympicCountdown from "./header.olympic.countdown";
-
 import { isDateRange } from "../common/common";
 import { eventPeriodEuro } from "../../datas/euroDef";
 import LogoEuro from "../../styles/img/logo_euro.png";
@@ -22,7 +21,7 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
-	const { maintainList } = useContext(maintainListContext);
+	const { allMaintainList } = useContext(maintainListContext);
 
 	return (
 		<header>
@@ -37,7 +36,10 @@ export default () => {
 
 					<OlympicCountdown />
 				</div>
-				<Menu productTpIds={productTpIds} maintainList={maintainList} />
+				<Menu
+					productTpIds={productTpIds}
+					maintainList={allMaintainList}
+				/>
 				<div className="function">
 					<a
 						className="appDownload"
