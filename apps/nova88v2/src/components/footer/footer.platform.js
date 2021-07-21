@@ -120,7 +120,7 @@ const defPlatfrom = [
 		...productList.casino_JILI,
 		imgName: "ji",
 		path: path.casino.root,
-		parameter: { ...productList.casino_PT }
+		parameter: { ...productList.casino_JILI }
 	}
 ];
 
