@@ -24,7 +24,17 @@ $(function(){
         $(this).addClass('active')
     })
     //新
-    $('.sportsbtn').mouseover(function() {
+    $('.homebtn').hover(function() {
+        $('.subMenu-Wrapper-new > div').removeClass('active')
+        $('.homeList').addClass('active')
+        $('.homeList').mouseover(function() {
+            $('.homebtn').addClass('active')
+        })
+        $('.homeList').mouseleave(function() {
+            $('.homebtn').removeClass('active')
+        })
+    })
+    $('.sportsbtn').hover(function() {
         $('.subMenu-Wrapper-new > div').removeClass('active')
         $('.sportsList').addClass('active')
         $('.sportsList').mouseover(function() {
@@ -64,6 +74,36 @@ $(function(){
             $('.livecasinobtn').removeClass('active')
         })
     })
+    $('.menu .icon-mobile').mouseover(function() {
+        $('.subMenu-Wrapper-new > div').removeClass('active')
+        $('.appList').addClass('active')
+        $('.appList').mouseover(function() {
+            $('.pokerbtn').addClass('active')
+        })
+        $('.appList').mouseleave(function() {
+            $('.pokerbtn').removeClass('active')
+        })
+    })
+    $('.pokerbtn').mouseover(function() {
+        $('.subMenu-Wrapper-new > div').removeClass('active')
+        $('.pokerList').addClass('active')
+        $('.pokerList').mouseover(function() {
+            $('.pokerbtn').addClass('active')
+        })
+        $('.pokerList').mouseleave(function() {
+            $('.pokerbtn').removeClass('active')
+        })
+    })
+    $('.gamebtn').mouseover(function() {
+        $('.subMenu-Wrapper-new > div').removeClass('active')
+        $('.tableList').addClass('active')
+        $('.tableList').mouseover(function() {
+            $('.gamebtn').addClass('active')
+        })
+        $('.tableList').mouseleave(function() {
+            $('.gamebtn').removeClass('active')
+        })
+    })
     $('.game').mouseover(function() {
         $('.subMenu-Wrapper-new > div').removeClass('active')
         $('.gameList').addClass('active')
@@ -84,9 +124,56 @@ $(function(){
             $('.fishbtn').removeClass('active')
         })
     })
+    $('.promobtn').mouseover(function() {
+        $('.subMenu-Wrapper-new > div').removeClass('active')
+        $('.promoList').addClass('active')
+        $('.promoList').mouseover(function() {
+            $('.promobtn').addClass('active')
+        })
+        $('.promoList').mouseleave(function() {
+            $('.promobtn').removeClass('active')
+        })
+    })
+    $('.tvbtn').mouseover(function() {
+        $('.subMenu-Wrapper-new > div').removeClass('active')
+        $('.tvList').addClass('active')
+        $('.tvList').mouseover(function() {
+            $('.tvbtn').addClass('active')
+        })
+        $('.tvList').mouseleave(function() {
+            $('.tvbtn').removeClass('active')
+        })
+    })
+    $('.VIP').mouseover(function() {
+        $('.subMenu-Wrapper-new > div').removeClass('active')
+        $('.vipList').addClass('active')
+        $('.vipList').mouseover(function() {
+            $('.VIP').addClass('active')
+        })
+        $('.vipList').mouseleave(function() {
+            $('.VIP').removeClass('active')
+        })
+    })
+    $('.rankingbtn').mouseover(function() {
+        $('.subMenu-Wrapper-new > div').removeClass('active')
+        $('.rankingList').addClass('active')
+        $('.rankingList').mouseover(function() {
+            $('.rankingbtn').addClass('active')
+        })
+        $('.rankingList').mouseleave(function() {
+            $('.rankingbtn').removeClass('active')
+        })
+    })
+    $('.subMenu-Wrapper-new').mouseleave(function() {
+        $(this).children('div').removeClass('active')
+    })
     $('.subModuleListColumn .subModule > div:not(.column) button').click(function() {
-        $(this).siblings('button').removeClass()
+        $(this).siblings('button').removeClass('active')
         $(this).addClass('active')
+    })
+    $('.switchBtn').click(function() {
+        $(this).toggleClass('active')
+        $('.switchBtn > div').toggleClass('active')
     })
     //舊
     $('.casinobtn').mouseover(function() {
@@ -138,6 +225,19 @@ $(function(){
         $(this).mouseleave(function() {
             $(this).removeClass('active')
         })
+    })
+    $('.quickLinkNew3').mouseover(function() {
+        $('.quickLinkNew3').addClass('active')
+        $('.quickLinkNew4').removeClass('active')
+        $('.quickLinkNew4').mouseleave(function() {
+            $('.quickLinkNew4').addClass('active')
+            $('.quickLinkNew3').removeClass('active')
+            $('.quickLinkNew4 > button').removeClass('active')
+        })
+    })
+    $('.quickLinkNew4 > button').click(function() {
+        $('.quickLinkNew4 > button').removeClass('active')
+        $(this).addClass('active')
     })
     $('#popup').click(function(n) {
         if($(n.target).parents("#popup").length==0) {
@@ -222,9 +322,24 @@ $(function(){
         $('.ranking > .btnGroup ~ div').removeClass('active')
         $('.ranking > .btnGroup ~ div').eq($(this).index()).addClass('active')
     })
-    if ($('html').hasClass('newIndex')) {
-        $('.logo > a > img').attr("src","https://image.n88media.com/SiteSkin/img/logo_en_w.png")
-    }
+    $('#streamingMenu .menuModule button').click(function() {
+        $(".subModuleListColumn .liveTv").removeClass("active")
+        $("#streamingMenu .menuModule button").removeClass("active")
+        $(this).addClass('active')
+        $(".subModuleListColumn .liveTv").eq($(this).index()).addClass('active')
+    })
+    $('.walletModule .addBank .addBankName label').click(function() {
+        $(this).parent('.checkbox').parent('.addBankInfo').parent('.addBankName').toggleClass('active')
+    })
+    $('.historyTag button').click(function() {
+        $('.historyTag button').removeClass('active')
+        $(this).addClass('active')
+        $('.historyModule').removeClass('active')
+        $('.historyModule').eq($(this).index()).addClass('active')
+    })
+    $('.subModuleTitle button.icon-question').click(function() {
+        $(this).siblings('.inputInfo').toggleClass('active')
+    })
     //紅包    
     $('.angpao').click(function() {
         $(this).addClass('active')
@@ -237,163 +352,186 @@ $(function(){
         $('#popup,.angpao').removeClass('active')
         $('.eventLink').addClass('active')
     })
-    //煙火
-    // window.requestAnimFrame = ( function() {
-    //     return window.requestAnimationFrame ||
-    //                 window.webkitRequestAnimationFrame ||
-    //                 window.mozRequestAnimationFrame ||
-    //                 function( callback ) {
-    //                     window.setTimeout( callback, 1000 / 60 );
-    //                 };
-    // })();
-    // var canvas = document.getElementById( 'canvas' ),
-    //         ctx = canvas.getContext( '2d' ),
-    //         cw = window.innerWidth,
-    //         ch = window.innerHeight,
-    //         fireworks = [],
-    //         particles = [],
-    //         hue = 120,
-    //         limiterTotal = 5,
-    //         limiterTick = 0,
-    //         timerTotal = 50,
-    //         timerTick = 50,
-    //         mousedown = false,
-    //         mx,
-    //         my;
-    // canvas.width = cw;
-    // canvas.height = ch;
-    // function random( min, max ) {
-    //     return Math.random() * ( max - min ) + min;
-    // }
-    // function calculateDistance( p1x, p1y, p2x, p2y ) {
-    //     var xDistance = p1x - p2x,
-    //             yDistance = p1y - p2y;
-    //     return Math.sqrt( Math.pow( xDistance, 2 ) + Math.pow( yDistance, 2 ) );
-    // }
-    // function Firework( sx, sy, tx, ty ) {
-    //     this.x = sx;
-    //     this.y = sy;
-    //     this.sx = sx;
-    //     this.sy = sy;
-    //     this.tx = tx;
-    //     this.ty = ty;
-    //     this.distanceToTarget = calculateDistance( sx, sy, tx, ty );
-    //     this.distanceTraveled = 0;
-    //     this.coordinates = [];
-    //     this.coordinateCount = 3;
-    //     while( this.coordinateCount-- ) {
-    //         this.coordinates.push( [ this.x, this.y ] );
-    //     }
-    //     this.angle = Math.atan2( ty - sy, tx - sx );
-    //     this.speed = 2;
-    //     this.acceleration = 1.05;
-    //     this.brightness = random( 50, 70 );
-    //     this.targetRadius = 1;
-    // }
-    // Firework.prototype.update = function( index ) {
-    //     this.coordinates.pop();
-    //     this.coordinates.unshift( [ this.x, this.y ] );
-    //     if( this.targetRadius < 8 ) {
-    //         this.targetRadius += 0;
-    //     } else {
-    //         this.targetRadius = 1;
-    //     }
-    //     this.speed *= this.acceleration;
-    //     var vx = Math.cos( this.angle ) * this.speed,
-    //             vy = Math.sin( this.angle ) * this.speed;
-    //     this.distanceTraveled = calculateDistance( this.sx, this.sy, this.x + vx, this.y + vy );
-    //     if( this.distanceTraveled >= this.distanceToTarget ) {
-    //         createParticles( this.tx, this.ty );
-    //         fireworks.splice( index, 1 );
-    //     } else {
-    //         this.x += vx;
-    //         this.y += vy;
-    //     }
-    // }
-    // Firework.prototype.draw = function() {
-    //     ctx.beginPath();
-    //     ctx.moveTo( this.coordinates[ this.coordinates.length - 1][ 0 ], this.coordinates[ this.coordinates.length - 1][ 1 ] );
-    //     ctx.lineTo( this.x, this.y );
-    //     ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
-    //     ctx.stroke();
-    //     ctx.beginPath();
-    //     ctx.arc( this.tx, this.ty, this.targetRadius, 0, Math.PI * 2 );
-    //     ctx.stroke();
-    // }
-    // function Particle( x, y ) {
-    //     this.x = x;
-    //     this.y = y;
-    //     this.coordinates = [];
-    //     this.coordinateCount = 5;
-    //     while( this.coordinateCount-- ) {
-    //         this.coordinates.push( [ this.x, this.y ] );
-    //     }
-    //     this.angle = random( 0, Math.PI * 2 );
-    //     this.speed = random( 1, 10 );
-    //     this.friction = 0.95;
-    //     this.gravity = 1;
-    //     this.hue = random( hue - 20, hue + 20 );
-    //     this.brightness = random( 50, 80 );
-    //     this.alpha = 1;
-    //     this.decay = random( 0.015, 0.03 );
-    // }
-    // Particle.prototype.update = function( index ) {
-    //     this.coordinates.pop();
-    //     this.coordinates.unshift( [ this.x, this.y ] );
-    //     this.speed *= this.friction;
-    //     this.x += Math.cos( this.angle ) * this.speed;
-    //     this.y += Math.sin( this.angle ) * this.speed + this.gravity;
-    //     this.alpha -= this.decay;
-    //     if( this.alpha <= this.decay ) {
-    //         particles.splice( index, 1 );
-    //     }
-    // }
-    // Particle.prototype.draw = function() {
-    //     ctx. beginPath();
-    //     ctx.moveTo( this.coordinates[ this.coordinates.length - 1 ][ 0 ], this.coordinates[ this.coordinates.length - 1 ][ 1 ] );
-    //     ctx.lineTo( this.x, this.y );
-    //     ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
-    //     ctx.stroke();
-    // }
-    // function createParticles( x, y ) {
-    //     var particleCount = 300;
-    //     while( particleCount-- ) {
-    //         particles.push( new Particle( x, y ) );
-    //     }
-    // }
-    // function loop() {
-    //     requestAnimFrame( loop );
-    //     hue += 0.5;
-    //     ctx.globalCompositeOperation = 'destination-out';
-    //     ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-    //     ctx.fillRect( 0, 0, cw, ch );
-    //     ctx.globalCompositeOperation = 'lighter';
-    //     var i = fireworks.length;
-    //     while( i-- ) {
-    //         fireworks[ i ].draw();
-    //         fireworks[ i ].update( i );
-    //     }
-    //     var i = particles.length;
-    //     while( i-- ) {
-    //         particles[ i ].draw();
-    //         particles[ i ].update( i );
-    //     }
-    //     if( timerTick >= timerTotal ) {
-    //         if( !mousedown ) {
-    //             fireworks.push( new Firework( cw / 2, ch, random( 0, cw ), random( 0, ch / 2 ) ) );
-    //             timerTick = 0;
-    //         }
-    //     } else {
-    //         timerTick++;
-    //     }
-    //     if( limiterTick >= limiterTotal ) {
-    //         if( mousedown ) {
-    //             fireworks.push( new Firework( cw / 2, ch, mx, my ) );
-    //             limiterTick = 0;
-    //         }
-    //     } else {
-    //         limiterTick++;
-    //     }
-    // }
-    // window.onload = loop;
+    //jpot
+    //預設top:0
+    $('.jpot .number .numberRow > div.active').animate({top:"0"},function(){
+        $(this).animate({top:"-540px"},2000)
+        //抓到9的時候
+        // .animate({top:"-570px"},2000)
+        //抓到8的時候
+        // .animate({top:"-540px"},2000)
+        //抓到7的時候
+        // .animate({top:"-510px"},2000)
+        // 以此類推.....固定跑30px
+    })
+    $(".partnerSelect button").hover(function() {
+        $(this).children('img').attr("src",$(this).children('img').attr('src').substr(0,47) + "a" + ".png")
+    },
+        function(){
+        $(this).children('img').attr("src",$(this).children('img').attr('src').substr(0,47) + ".png")
+    })
+    $(".partnerSelect button >img[src='https://image.n88media.com/SiteSkin/img/logo/cq9.png'").parent('button').hover(function() {
+        $(this).children('img').attr("src","https://image.n88media.com/SiteSkin/img/logo/cq9a.png")
+    },
+        function(){
+        $(this).children('img').attr("src","https://image.n88media.com/SiteSkin/img/logo/cq9.png")
+    })
+    $(".partnerSelect button >img[src='https://image.n88media.com/SiteSkin/img/logo/icg.png'").parent('button').hover(function() {
+        $(this).children('img').attr("src","https://image.n88media.com/SiteSkin/img/logo/icg.png")
+    })
+    $(".livecasino > div > img").hover(function() {
+        $(this).attr("src",$(this).attr('src').substr(0,56) + "a" + ".jpg")
+    },
+        function(){
+        $(this).attr("src",$(this).attr('src').substr(0,56) + ".jpg")
+    })
+    $(".livecasino > div > img[src='https://banner.n88media.com/img/livecasino/comingsoon.jpg'").hover(function() {
+        $(this).attr("src","https://banner.n88media.com/img/livecasino/comingsoon.jpg")
+    })
+    $(".fishingList > div").hover(function() {
+        $(this).children('img').attr("src",$(this).children('img').attr('src').substr(0,46) + "a" + ".png")
+    },
+        function(){
+        $(this).children('img').attr("src",$(this).children('img').attr('src').substr(0,46) + ".png")
+    })
+    //泡泡
+    function __ShowSnow(settings){
+
+	var snowsrc = settings.SnowImage;
+	var no = settings.Quantity;
+
+	var dx, xp, yp;    // coordinate and position variables
+	var am, stx, sty;  // amplitude and step variables
+	var i;
+	var flakes;
+
+	// var stageW = $(window).width() - 10;
+	// var stageH = $(window).height();
+
+	var stageW = $('.' + settings.stage).width() - 10;
+	var stageH = $('.' + settings.stage).height() + 800;
+
+	dx = [];
+	xp = [];
+	yp = [];
+	am = [];
+	stx = [];
+	sty = [];
+	flakes = [];
+	for (i = 0; i < no; ++i){
+		dx[i] = 0;                        // set coordinate variables
+		xp[i] = Math.random()*(stageW-50);  // set position variables
+		yp[i] = Math.random()*stageH;
+		am[i] = Math.random()*20;         // set amplitude variables
+		stx[i] = 0.02 + Math.random()/1000; // set step variables
+		sty[i] = 0.05 + Math.random();     // set step variables
+
+		var flake = $("<div />");
+
+		var cls = ("dot" + i);
+		flake.attr("class", cls);
+		flake.css({
+					position: "absolute",
+					zIndex: i,
+					bottom: "15px",
+					left: "15px"
+				});
+
+		var idx = Math.floor(Math.random() * (snowsrc.length));
+		flake.append("<img src='" + snowsrc[idx] + "'>");
+		// flake.appendTo('.' + 'stage1');
+		// flake.appendTo('.' + 'stage2');
+		$('.' + settings.stage).append(flake);
+		// $('.elin').append(flake);
+		// var clone = flake.clone();
+		// $('.' + 'r').append(clone);
+
+		flakes[i] = $("." + cls);
+	}
+
+	var animateSnow;
+	animateSnow = function(){
+		for (i = 0; i < no; ++ i){
+			yp[i] += sty[i];
+			if (yp[i] > stageH - 50){
+				xp[i] = Math.random() * (stageW - am[i] - 30);
+				yp[i] = 0;
+				stx[i] = 0.02 + Math.random() / 10;
+				sty[i] = 0.05 + Math.random();
+			}
+			dx[i] += stx[i];
+			flakes[i].css("bottom", yp[i] + "px");
+			flakes[i].css("left", (xp[i] + am[i] * Math.sin(dx[i])) + "px");
+		}
+		snowtimer = setTimeout(animateSnow, 30);
+	};
+
+	jQuery.fn.hidesnow = function(){
+		if(window.snowtimer) clearTimeout(snowtimer);
+		for (i = 0; i < no; i++) flakes[i].remove();
+	};
+	animateSnow();
+	// if (settings.HideSnowTime > 0) setTimeout(hidesnow, settings.HideSnowTime * 1000);
+}
+
+(function($) {
+	$.fn.snow = function(options){
+		var settings = $.extend({
+			SnowImage:      undefined,
+			Quantity:       20,
+			HideSnowTime:   0,
+			stage: null
+		}, options);
+		__ShowSnow(settings);
+		return this;
+	};
+
+})(jQuery);
+
+(function($,$doc){
+	$doc.ready(function(){
+		var article;		
+		article = $('#article');
+		container = $('#container');
+		function actionLight(_obj_, _speed_){
+			_obj_.animate({'opacity' : '1'}, _speed_, function(){
+				_obj_.animate({'opacity' : '0.3'}, _speed_, function(){
+					actionLight(_obj_, _speed_);
+				});
+			});
+		}
+		var isIE8 = false;
+		var isLowIE7 = false;
+		var isLowIE8 = false;
+		var deviceAgent = {
+		    version : navigator.userAgent.toLowerCase()
+		};
+		deviceAgent.ie = deviceAgent.version.indexOf('msie') != -1;
+		if( deviceAgent.ie ) {
+		    if(window.navigator.userAgent.search(/trident/i) != -1) {
+		        if( parseInt(deviceAgent.version.match(/trident\/(\d.\d)/i)[1], 10) < 5 ) isIE8 = true; // ie8 
+		    }else{
+		        isLowIE7 = true; // ie7 
+		    }
+		    if( isIE8 || isLowIE7 || deviceAgent.version.indexOf('msie 8.0') > -1 ) isLowIE8 = true; // ie8 
+		}
+		if(!isLowIE8){
+			actionLight($('#intro .inner .title .light0'), 2000);
+			actionLight($('#intro .inner .title .light1'), 1500);
+		}
+		actionSnow = function(){
+			if(typeof $(document).hidesnow === 'function') $(document).hidesnow();
+			$(document).snow({
+				SnowImage: [
+					'https://banner.n88media.com/img/fishing/bon/bg_light0.png',
+					'https://banner.n88media.com/img/fishing/bon/bg_light1.png',
+					'https://banner.n88media.com/img/fishing/bon/bg_light2.png',
+					'https://banner.n88media.com/img/fishing/bon/bg_light3.png'
+				],
+				stage : 'elin'
+			});
+		};
+		actionSnow();		
+	});
+})(jQuery, jQuery(window), jQuery(document));
 });
