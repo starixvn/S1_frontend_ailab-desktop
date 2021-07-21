@@ -45,8 +45,8 @@ const SubMenuSingle = ({
 		};
 
 		const isPokerMaintain = maintainList?.some(
-			({ tpId }) =>
-				tpId === productList.poker.tpId &&
+			item =>
+				item.tpId === productList.poker.tpId &&
 				(item.tpCategoryId === defTpCategoryId.poker ||
 					item.tpCategoryId === defTpCategoryId.all)
 		);

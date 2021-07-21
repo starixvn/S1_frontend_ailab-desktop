@@ -25,8 +25,8 @@ const SubMenuMultiple = ({
 	let isInMaintain = false;
 	if (subMenuItem.tpCategory) {
 		isInMaintain = maintainList?.some(
-			({ tpId }) =>
-				tpId === subMenuItem.tpId &&
+			item =>
+				item.tpId === subMenuItem.tpId &&
 				(item.tpCategoryId === subMenuItem.tpCategory ||
 					item.tpCategoryId === defTpCategoryId.all)
 		);
