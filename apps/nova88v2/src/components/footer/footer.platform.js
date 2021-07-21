@@ -115,6 +115,12 @@ const defPlatfrom = [
 	{
 		...productList.games_kingMaker,
 		imgName: "km"
+	},
+	{
+		...productList.casino_JILI,
+		imgName: "ji",
+		path: path.casino.root,
+		parameter: { ...productList.casino_PT }
 	}
 ];
 
@@ -189,5 +195,6 @@ export default ({ langId, isLogin, productTpIds }) => {
 			</button>
 		);
 	});
+
 	return <div className="platform">{rows}</div>;
 };

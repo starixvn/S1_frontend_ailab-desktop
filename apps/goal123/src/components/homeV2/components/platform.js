@@ -87,6 +87,10 @@ const defPlatform = [
 	{
 		...productList.KingMaker,
 		imgName: "kingmaker"
+	},
+	{
+		...defCasinoProviders.JILI,
+		imgName: "jili"
 	}
 ];
 

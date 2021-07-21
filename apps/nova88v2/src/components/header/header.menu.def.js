@@ -487,6 +487,23 @@ export const defMenuLinks = {
 		customSort: defSortSlot,
 		subMenu: [
 			{
+				keyName: "slot_JI",
+				icon: "icon icon-PT",
+				displayText: "Jili",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotji.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_JILI },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_ji
+					})
+				],
+				...productList.casino_JILI
+			},
+			{
 				keyName: "slot_PT",
 				icon: "icon icon-PT",
 				displayText: "PT",

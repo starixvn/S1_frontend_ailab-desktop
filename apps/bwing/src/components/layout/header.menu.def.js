@@ -140,6 +140,20 @@ export const defMenuLinks = {
 		className: "casinobtn",
 		subMenu: [
 			{
+				...defCasinoProviders.JILI,
+				className: "jili",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_ji
+					})
+				],
+				icon: "icon icon-jili",
+				displayText: "JILI",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.JILI.name }
+			},
+			{
 				...defCasinoProviders.PT,
 				className: "PT",
 				eventIcons: [
