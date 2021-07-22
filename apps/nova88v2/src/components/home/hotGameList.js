@@ -199,7 +199,7 @@ const defGame = {
 	Baccarat: {
 		name: "Baccarat",
 		provider: "Saba Casino",
-		providerImg: "sabaa",
+		providerImg: "sabacasino",
 		gameType: defGameType.table,
 		img: "baccarat",
 		tpId: 1,
@@ -208,7 +208,7 @@ const defGame = {
 	Virtual_Games: {
 		name: "Virtual Games",
 		provider: "OW",
-		providerImg: "sabaa",
+		providerImg: "sabacasino",
 		img: "virtual_games",
 		gameType: defGameType.slots,
 		tpId: 1,
