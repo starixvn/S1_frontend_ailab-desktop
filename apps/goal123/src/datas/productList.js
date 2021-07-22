@@ -311,7 +311,7 @@ export const defCasinoProviders = {
 	MGPSW: {
 		tpId: 34,
 		gameId: "",
-		name: "Microgaming",
+		name: "MGPSW",
 		tpCategory: defTpCategoryId.slot
 	},
 	PT: {
