@@ -120,7 +120,8 @@ export default {
 
 	casino_JILI: {
 		tpId: 32,
-		name: "JILI"
+		name: "JILI",
+		tpCategory: defTpCategoryId.slot
 	},
 	casino_PP: {
 		tpId: 5,
@@ -164,6 +165,7 @@ export default {
 		gameId: "0",
 		tpCategory: defTpCategoryId.slot
 	},
+	casino_MGPSW: { tpId: 34, gameId: "", tpCategory: defTpCategoryId.slot },
 	kiss918: {
 		tpId: 21,
 		tpCategory: defTpCategoryId.slot,

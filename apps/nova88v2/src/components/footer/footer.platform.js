@@ -117,6 +117,12 @@ const defPlatfrom = [
 		imgName: "km"
 	},
 	{
+		...productList.casino_MGPSW,
+		path: path.casino.root,
+		parameter: { ...productList.casino_MGPSW },
+		imgName: "mg"
+	},
+	{
 		...productList.casino_JILI,
 		imgName: "ji",
 		path: path.casino.root,

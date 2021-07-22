@@ -28,6 +28,8 @@ import gamesKenoNpcImg from "../../styles/img/dropdown/games/keno-item.png";
 import gamesLotteryBgImg from "../../styles/img/dropdown/games/lottery.png";
 import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png";
 
+import livecasinoMgNpcImg from "../../styles/img/livecasino/mg.png";
+import livecasinoMgIconImg from "../../styles/img/livecasino/mg-icon.png";
 import livecasinoPtNpcImg from "../../styles/img/livecasino/playtech.png";
 import livecasinoPtIconImg from "../../styles/img/livecasino/playtech-icon.png";
 import livecasinoN2liveNpcImg from "../../styles/img/livecasino/n2live.png";
@@ -49,6 +51,9 @@ import livecasinoAeIconImg from "../../styles/img/livecasino/ae-icon.png";
 import livecasinoEbetNpcImg from "../../styles/img/livecasino/ebet.png";
 import livecasinoEbetIconImg from "../../styles/img/livecasino/ebet-icon.png";
 
+import slotsMgBgImg from "../../styles/img/dropdown/slots/mg.png";
+import slotsMgNpcImg from "../../styles/img/dropdown/slots/mg-item.png";
+import slotsMgIconImg from "../../styles/img/dropdown/slots/mg-icon.png";
 import slotsJiliBgImg from "../../styles/img/dropdown/slots/jili.png";
 import slotsJiliNpcImg from "../../styles/img/dropdown/slots/jili-item.png";
 import slotsJiliIconImg from "../../styles/img/dropdown/slots/jili-icon.png";
@@ -115,6 +120,8 @@ import fishingLobbyFishingworldBgImg from "../../styles/img/fishing/fishingworld
 import fishingLobbyFishinggodBgImg from "../../styles/img/fishing/fishinggod.png";
 import fishingLobbyFishingwarBgImg from "../../styles/img/fishing/fishingwar.png";
 
+import livecasinoLobbyMgIconImg from "../../styles/img/livecasinolist/icon/mg.png";
+import livecasinoLobbyMgBgImg from "../../styles/img/livecasinolist/mg.png";
 import livecasinoLobbyPTIconImg from "../../styles/img/livecasinolist/icon/pt.png";
 import livecasinoLobbyPTBgImg from "../../styles/img/livecasinolist/pt.png";
 import livecasinoLobbyN2liveIconImg from "../../styles/img/livecasinolist/icon/n2live.png";
@@ -277,6 +284,21 @@ export const defMenuLinks = langId => {
 			className: "casinobtn",
 			subMenu: [
 				{
+					...defCasinoProviders.MGPSW,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.mgpsw
+						})
+					],
+					displayText: "Microgaming",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.MGPSW.name },
+					bgImgUrl: slotsMgBgImg,
+					npcImgUrl: slotsMgNpcImg,
+					iconImgUrl: slotsMgIconImg
+				},
+				{
 					...defCasinoProviders.JILI,
 					className: "JI",
 					eventIcons: [
@@ -416,6 +438,25 @@ export const defMenuLinks = langId => {
 			displayKey: "lbl_LiveCasino",
 			path: path.liveCasino.root,
 			subMenu: [
+				// {
+				// 	...defCasinoProviders.MGPSW,
+				// 	eventIcons: [
+				// 		showEventIcon({
+				// 			icon: defEventIcon.new,
+				// 			period: defEventPeriod.mgpsw
+				// 		})
+				// 	],
+				// 	displayText: "MG",
+				// 	menuType: defMenuType.entPage,
+				// 	parameter: { provider: defCasinoProviders.MGPSW.name },
+				// 	npcImgUrl: livecasinoMgNpcImg,
+				// 	iconImgUrl: livecasinoMgIconImg,
+				// 	disabledInSlider: true,
+				// 	lobbyPage: {
+				// 		bgImg: livecasinoLobbyMgBgImg,
+				// 		iconImg: livecasinoLobbyMgIconImg
+				// 	}
+				// },
 				{
 					...productList.liveCasino_PT,
 					className: "PT",

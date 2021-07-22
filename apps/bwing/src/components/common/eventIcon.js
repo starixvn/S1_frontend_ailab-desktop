@@ -18,7 +18,8 @@ export const defEventPeriod = {
 	casino_ji: { end: "2021/08/21 11:00:00" },
 	sportBti: { end: "2021/06/28 11:00:00" },
 	KingMaker: { end: "2021/07/08 11:00:00" },
-	liveCasino_pt: { end: "2021/07/08 11:00:00" }
+	liveCasino_pt: { end: "2021/07/08 11:00:00" },
+	mgpsw: { end: "2021/08/22 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

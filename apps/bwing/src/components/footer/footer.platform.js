@@ -123,6 +123,12 @@ const defPlatform = [
 	{
 		...productList.KingMaker,
 		imgName: "kingmaker"
+	},
+	{
+		...defCasinoProviders.MGPSW,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.MGPSW.name },
+		imgName: "mg"
 	}
 ];
 
