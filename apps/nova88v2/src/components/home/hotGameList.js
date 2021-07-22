@@ -36,7 +36,7 @@ const defGame = {
 	Five_Fortune_Dragons: {
 		name: "5 Fortune Dragons",
 		provider: "Spade Gaming",
-		providerImg: "sabaa",
+		providerImg: "sga",
 		img: "5_fortune_dragons",
 		gameType: defGameType.slots,
 		tpId: 10,
