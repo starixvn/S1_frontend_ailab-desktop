@@ -8336,13 +8336,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -11316,13 +11310,12 @@ canvas {
   color: #5574A7;
   margin: 5px 0;
   padding: 0 10px;
+  white-space: normal;
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  white-space: normal;
+  max-width: 170px;
 }
 
 .hotGame .swiper-container .swiper-wrapper > div > div, .promos .swiper-container .swiper-wrapper > div > div {
@@ -11380,6 +11373,7 @@ canvas {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+  max-height: 55px;
   margin: auto 10px auto 0;
 }
 
@@ -14239,6 +14233,16 @@ img[alt="sg"] {
   font-size: 30px;
 }
 
+.mainBanner .bannerInfo > button {
+  background: #f77900;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
 .mainBanner .bannerInfo .bannerLogo {
   width: auto;
   margin-top: 20px;
@@ -14263,6 +14267,334 @@ img[alt="sg"] {
 .mainBanner .bannerInfo .signature div:nth-child(1) {
   font-size: 16px;
   font-weight: bold;
+}
+
+.mainBanner .bannerInfo .ball {
+  position: absolute;
+  width: 292px;
+  height: 336px;
+  left: 60%;
+  top: 0;
+  z-index: 3;
+  -webkit-animation: nova 1.5s ease-in-out alternate infinite;
+          animation: nova 1.5s ease-in-out alternate infinite;
+}
+
+@-webkit-keyframes nova {
+  0% {
+    -webkit-transform: translate(0, 5%);
+            transform: translate(0, 5%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes nova {
+  0% {
+    -webkit-transform: translate(0, 5%);
+            transform: translate(0, 5%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+.mainBanner .bannerInfo .ball1 {
+  position: absolute;
+  width: 230px;
+  height: 232px;
+  left: 70%;
+  top: 0;
+  z-index: 2;
+  -webkit-animation: ball1 1s ease-in,img_g 3s 1s ease-in-out alternate infinite;
+          animation: ball1 1s ease-in,img_g 3s 1s ease-in-out alternate infinite;
+}
+
+.mainBanner .bannerInfo .ball2 {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 50%;
+  top: 60px;
+  z-index: 2;
+  -webkit-animation: ball2 1s ease-in,img_i 3s 1s ease-in-out alternate infinite;
+          animation: ball2 1s ease-in,img_i 3s 1s ease-in-out alternate infinite;
+}
+
+@-webkit-keyframes ball1 {
+  0% {
+    opacity: 5%;
+    -webkit-transform: scale(0.5) translate(200px, 50%);
+            transform: scale(0.5) translate(200px, 50%);
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(1) translate(0, 0%);
+            transform: scale(1) translate(0, 0%);
+  }
+}
+
+@keyframes ball1 {
+  0% {
+    opacity: 5%;
+    -webkit-transform: scale(0.5) translate(200px, 50%);
+            transform: scale(0.5) translate(200px, 50%);
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(1) translate(0, 0%);
+            transform: scale(1) translate(0, 0%);
+  }
+}
+
+@-webkit-keyframes ball2 {
+  0% {
+    opacity: 5%;
+    -webkit-transform: scale(0.5) translate(-200px, -100%);
+            transform: scale(0.5) translate(-200px, -100%);
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(1) translate(0, 0%);
+            transform: scale(1) translate(0, 0%);
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    opacity: 5%;
+    -webkit-transform: scale(0.5) translate(-200px, -100%);
+            transform: scale(0.5) translate(-200px, -100%);
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(1) translate(0, 0%);
+            transform: scale(1) translate(0, 0%);
+  }
+}
+
+@-webkit-keyframes img_g {
+  0% {
+    -webkit-transform: translate(0%, 10%);
+            transform: translate(0%, 10%);
+  }
+  20% {
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+  40% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  80% {
+    -webkit-transform: translate(0%, 15%);
+            transform: translate(0%, 15%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes img_g {
+  0% {
+    -webkit-transform: translate(0%, 10%);
+            transform: translate(0%, 10%);
+  }
+  20% {
+    -webkit-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+  }
+  40% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  80% {
+    -webkit-transform: translate(0%, 15%);
+            transform: translate(0%, 15%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@-webkit-keyframes img_i {
+  0% {
+    -webkit-transform: translate(0%, 1%);
+            transform: translate(0%, 1%);
+  }
+  20% {
+    -webkit-transform: translate(0%, 12%);
+            transform: translate(0%, 12%);
+  }
+  50% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  80% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 10%);
+            transform: translate(0%, 10%);
+  }
+}
+
+@keyframes img_i {
+  0% {
+    -webkit-transform: translate(0%, 1%);
+            transform: translate(0%, 1%);
+  }
+  20% {
+    -webkit-transform: translate(0%, 12%);
+            transform: translate(0%, 12%);
+  }
+  50% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  80% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 10%);
+            transform: translate(0%, 10%);
+  }
+}
+
+.mainBanner .bannerInfo .card {
+  position: absolute;
+  width: 317px;
+  height: 345px;
+  left: 550px;
+  top: 0;
+  z-index: -1;
+  -webkit-animation: card 1s,img_dice 3s 1s infinite;
+          animation: card 1s,img_dice 3s 1s infinite;
+}
+
+.mainBanner .bannerInfo .dice2 {
+  position: absolute;
+  width: 214px;
+  height: 217px;
+  left: 78%;
+  top: 180px;
+  z-index: 3;
+  -webkit-animation: dice 1s,img_dice 3s 2s infinite;
+          animation: dice 1s,img_dice 3s 2s infinite;
+}
+
+.mainBanner .bannerInfo .dice1 {
+  position: absolute;
+  width: 126px;
+  height: 133px;
+  left: 85%;
+  top: 0;
+  z-index: 3;
+  -webkit-animation: dicerotate 0.8s,img_dice 3s 1.5s infinite;
+          animation: dicerotate 0.8s,img_dice 3s 1.5s infinite;
+}
+
+@-webkit-keyframes card {
+  0% {
+    -webkit-transform: scale(0.5) translate(75%, -25%);
+            transform: scale(0.5) translate(75%, -25%);
+  }
+  100% {
+    -webkit-transform: scale(1) translate(0%, 0%);
+            transform: scale(1) translate(0%, 0%);
+  }
+}
+
+@keyframes card {
+  0% {
+    -webkit-transform: scale(0.5) translate(75%, -25%);
+            transform: scale(0.5) translate(75%, -25%);
+  }
+  100% {
+    -webkit-transform: scale(1) translate(0%, 0%);
+            transform: scale(1) translate(0%, 0%);
+  }
+}
+
+@-webkit-keyframes dice {
+  0% {
+    -webkit-transform: scale(0.5) translateX(-50%);
+            transform: scale(0.5) translateX(-50%);
+  }
+  100% {
+    -webkit-transform: scale(1) translateX(0%);
+            transform: scale(1) translateX(0%);
+  }
+}
+
+@keyframes dice {
+  0% {
+    -webkit-transform: scale(0.5) translateX(-50%);
+            transform: scale(0.5) translateX(-50%);
+  }
+  100% {
+    -webkit-transform: scale(1) translateX(0%);
+            transform: scale(1) translateX(0%);
+  }
+}
+
+@-webkit-keyframes dicerotate {
+  0% {
+    -webkit-transform: scale(0.1) translateX(-75%) rotate(-180deg);
+            transform: scale(0.1) translateX(-75%) rotate(-180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) translateX(0%) rotate(0deg);
+            transform: scale(1) translateX(0%) rotate(0deg);
+  }
+}
+
+@keyframes dicerotate {
+  0% {
+    -webkit-transform: scale(0.1) translateX(-75%) rotate(-180deg);
+            transform: scale(0.1) translateX(-75%) rotate(-180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) translateX(0%) rotate(0deg);
+            transform: scale(1) translateX(0%) rotate(0deg);
+  }
+}
+
+@-webkit-keyframes img_dice {
+  0% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(0%, 12%);
+            transform: translate(0%, 12%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes img_dice {
+  0% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(0%, 12%);
+            transform: translate(0%, 12%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
 }
 
 .mainBanner .bannerInfo .chip1 {
