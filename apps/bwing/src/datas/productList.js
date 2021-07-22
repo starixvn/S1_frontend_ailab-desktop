@@ -259,7 +259,8 @@ export const defCasinoProviders = {
 	/* === 2.  slot === */
 	JILI: {
 		tpId: 32,
-		name: "JILI"
+		name: "JILI",
+		tpCategory: defTpCategoryId.slot
 	},
 	GPI: {
 		tpId: 6,
@@ -300,6 +301,12 @@ export const defCasinoProviders = {
 	ICG: {
 		tpId: 24,
 		name: "ICG",
+		tpCategory: defTpCategoryId.slot
+	},
+	MGPSW: {
+		tpId: 34,
+		gameId: "",
+		name: "MGPSW",
 		tpCategory: defTpCategoryId.slot
 	},
 	PT: {

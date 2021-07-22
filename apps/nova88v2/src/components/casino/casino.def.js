@@ -103,5 +103,10 @@ export const defLobbyImgList = [
 		lobbyImgName: "ow",
 		lobbyDisplayName: "OW",
 		providerId: productList.casino_OW.tpId
+	},
+	{
+		lobbyImgName: "mg",
+		lobbyDisplayName: "Microgaming",
+		providerId: productList.casino_MGPSW.tpId
 	}
 ];
