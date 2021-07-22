@@ -109,7 +109,7 @@ const defGame = {
 	Archer: {
 		name: "Archer",
 		provider: "Playtech",
-		providerImg: "pta",
+		providerImg: "ptb",
 		img: "archer",
 		gameType: defGameType.slots,
 		tpId: 27,
@@ -118,7 +118,7 @@ const defGame = {
 	Zhao_Cai_Jin_Bao_Jackpot: {
 		name: "Zhao Cai Jin Bao Jackpot",
 		provider: "Playtech",
-		providerImg: "pta",
+		providerImg: "ptb",
 		img: "zhao_cai_jin_bao_jackpot",
 		gameType: defGameType.slots,
 		tpId: 27,
@@ -127,7 +127,7 @@ const defGame = {
 	Gem_Queen: {
 		name: "Gem Queen",
 		provider: "Playtech",
-		providerImg: "pta",
+		providerImg: "ptb",
 		img: "gem_queen",
 		gameType: defGameType.slots,
 		tpId: 27,
@@ -136,7 +136,7 @@ const defGame = {
 	Arowanas_Luck: {
 		name: "Arowanas Luck",
 		provider: "Playtech",
-		providerImg: "pta",
+		providerImg: "ptb",
 		img: "arowanas_luck",
 		gameType: defGameType.slots,
 		tpId: 27,
