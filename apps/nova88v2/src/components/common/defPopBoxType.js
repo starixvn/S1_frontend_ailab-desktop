@@ -31,5 +31,6 @@ export default {
 	DepositUploadBankSlip: "DepositUploadBankSlip",
 	PerDay: "PerDay",
 	BackupDomain: "BackupDomain",
-	PaymentQR: "PaymentQR"
+	PaymentQR: "PaymentQR",
+	UnderMaintain: "UnderMaintain"
 };

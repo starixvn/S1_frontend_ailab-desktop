@@ -17,7 +17,7 @@ import { Pagination } from "../common/pagination";
 import { getUrlParameter } from "../common/common";
 import SearchBox from "./casino.searchBox";
 import Loading from "../common/loading";
-import { defCasinoProviders } from "../../datas/productList";
+import { defCasinoProviders, defTpCategoryId } from "../../datas/productList";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -54,7 +54,12 @@ export default () => {
 	const provider = getUrlParameter("provider");
 	const tpId = defCasinoProviders[provider]?.tpId;
 	const [loading, setLoading] = useState(true);
-	const { maintainList } = useContext(maintainListContext);
+	const { allMaintainList } = useContext(maintainListContext);
+	const maintainList = allMaintainList?.filter(
+		item =>
+			item.tpCategoryId === defTpCategoryId.slot ||
+			item.tpCategoryId === defTpCategoryId.all
+	);
 
 	useEffect(() => {
 		isMountedRef.current = true;

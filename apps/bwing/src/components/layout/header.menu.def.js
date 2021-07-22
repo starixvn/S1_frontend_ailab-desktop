@@ -140,6 +140,20 @@ export const defMenuLinks = {
 		className: "casinobtn",
 		subMenu: [
 			{
+				...defCasinoProviders.MGPSW,
+				className: "mg",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.mgpsw
+					})
+				],
+				icon: "icon icon-mg",
+				displayText: "Microgaming",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.MGPSW.name }
+			},
+			{
 				...defCasinoProviders.JILI,
 				className: "jili",
 				eventIcons: [
@@ -244,8 +258,24 @@ export const defMenuLinks = {
 		path: path.liveCasino.root,
 		className: "livecasinobtn",
 		subMenu: [
+			// {
+			// 	...defCasinoProviders.MGPSW,
+			// 	className: "liveMG",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.mgpsw
+			// 		})
+			// 	],
+			// 	icon: "icon icon-mg",
+			// 	displayText: "MG",
+			// 	menuType: defMenuType.entPage,
+			// 	lobbyPage: {
+			// 		bgClass: "live-mg"
+			// 	}
+			// },
 			{
-				...defCasinoProviders.PT,
+				...productList.liveCasino_PT,
 				className: "livePT",
 				eventIcons: [
 					showEventIcon({

@@ -9,82 +9,88 @@ import { currencyCode } from "../../datas/countryCode";
 
 const defSortCasino = {
 	[currencyCode.TH]: {
-		casino_PT: 1,
-		casino_DG: 2,
+		casino_MGPSW: 1,
+		casino_PT: 2,
+		casino_DG: 3,
+		casino_AE: 4,
+		casino_SA: 5,
+		casino_ALBET: 6,
+		casino_AG: 7,
+		slot_PT: 8,
+		casino_WM: 9,
+		casino_PP: 10,
+		casino_EBET: 11,
+		casino_N2LIVE: 12
+	},
+	[currencyCode.MY]: {
+		casino_MGPSW: 1,
+		casino_PT: 2,
+		casino_DG: 3,
+		casino_AE: 4,
+		casino_PP: 5,
+		casino_SA: 6,
+		slot_PT: 7,
+		casino_ALBET: 8,
+		casino_AG: 9,
+		casino_WM: 10,
+		casino_EBET: 11,
+		casino_N2LIVE: 12
+	},
+	[currencyCode.ID]: {
+		casino_MGPSW: 1,
+		casino_PT: 2,
 		casino_AE: 3,
-		casino_SA: 4,
-		casino_ALBET: 5,
-		casino_AG: 6,
+		casino_AG: 4,
+		casino_EBET: 5,
+		casino_DG: 6,
 		slot_PT: 7,
 		casino_WM: 8,
 		casino_PP: 9,
-		casino_EBET: 10,
-		casino_N2LIVE: 11
-	},
-	[currencyCode.MY]: {
-		casino_PT: 1,
-		casino_DG: 2,
-		casino_AE: 3,
-		casino_PP: 4,
-		casino_SA: 5,
-		slot_PT: 6,
-		casino_ALBET: 7,
-		casino_AG: 8,
-		casino_WM: 9,
-		casino_EBET: 10,
-		casino_N2LIVE: 11
-	},
-	[currencyCode.ID]: {
-		casino_PT: 1,
-		casino_AE: 2,
-		casino_AG: 3,
-		casino_EBET: 4,
-		casino_DG: 5,
-		slot_PT: 6,
-		casino_WM: 7,
-		casino_PP: 8,
-		casino_SA: 9,
-		casino_ALBET: 10,
-		casino_N2LIVE: 11
+		casino_SA: 10,
+		casino_ALBET: 11,
+		casino_N2LIVE: 12
 	}
 };
 
 const defSortSlot = {
 	[currencyCode.TH]: {
-		slot_PG: 1,
-		slot_PP: 2,
-		slot_JOKER: 3,
-		slot_SG: 4,
-		slot_ICG: 5,
-		slot_PT: 6,
-		slot_YGG: 7,
-		slot_CQ9: 8,
-		slot_GPI: 9,
-		slot_OW: 10
+		casino_MGPSW: 1,
+		slot_PG: 2,
+		slot_PP: 3,
+		slot_JOKER: 4,
+		slot_SG: 5,
+		slot_ICG: 6,
+		slot_PT: 7,
+		slot_YGG: 8,
+		slot_CQ9: 9,
+		slot_GPI: 10,
+		slot_OW: 11
 	},
 	[currencyCode.MY]: {
-		slot_PP: 1,
-		slot_SG: 2,
-		slot_YGG: 3,
-		slot_JOKER: 4,
-		slot_PT: 5,
-		slot_GPI: 6,
-		slot_CQ9: 7,
-		slot_ICG: 8,
-		slot_OW: 9,
-		slot_PG: 10
+		casino_MGPSW: 1,
+		slot_PP: 2,
+		slot_SG: 3,
+		slot_YGG: 4,
+		slot_JOKER: 5,
+		slot_PT: 6,
+		slot_GPI: 7,
+		slot_CQ9: 8,
+		slot_ICG: 9,
+		slot_OW: 10,
+		slot_PG: 11
 	},
 	[currencyCode.ID]: {
-		slot_PP: 1,
-		slot_PG: 2,
-		slot_SG: 3,
-		slot_PT: 4,
-		slot_JOKER: 5,
-		slot_CQ9: 6,
-		slot_ICG: 7,
-		slot_GPI: 8,
-		slot_YGG: 9,
-		slot_OW: 10
+		casino_MGPSW: 1,
+		slot_PP: 2,
+		slot_PG: 3,
+		slot_SG: 4,
+		slot_PT: 5,
+		slot_JOKER: 6,
+		slot_CQ9: 7,
+		slot_ICG: 8,
+		slot_GPI: 9,
+		slot_YGG: 10,
+		slot_OW: 11
 	}
 };
 
@@ -317,15 +323,34 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortCasino,
 		subMenu: [
+			// {
+			// 	keyName: "casino_MGPSW",
+			// 	displayText: "MGPSW",
+			// 	menuType: defMenuType.entPage,
+			// 	imgSource: defImgSourceType.bannerImgUrl,
+			// 	listNpcImgUrl: "casino-mg.png",
+			// 	listBgImgUrl: ["mgbg.png", "livecasinListHover.png"],
+			// 	parameter: { ...productList.casino_MGPSW },
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.casino_MGPSW
+			// 		})
+			// 	],
+			// 	lobbyPage: {
+			// 		bgImg: "livecasino_mg.jpg",
+			// 		hoverBgImg: "livecasino_mga.jpg"
+			// 	},
+			// 	...productList.casino_MGPSW
+			// },
 			{
 				keyName: "casino_PT",
-				// icon: "icon icon-PT",
 				displayText: "PT",
-				menuType: defMenuType.useGoToGame,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-pt.png",
 				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
-				parameter: { ...productList.casino_PT },
+				menuType: defMenuType.useGoToGame,
+				...productList.liveCasino_PT,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -335,8 +360,7 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "livecasino_pt.jpg",
 					hoverBgImg: "livecasino_pta.jpg"
-				},
-				...productList.casino_PT
+				}
 			},
 			{
 				keyName: "casino_N2LIVE",
@@ -486,6 +510,22 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortSlot,
 		subMenu: [
+			{
+				keyName: "slot_MGPSW",
+				displayText: "Microgaming",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotmg.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_MGPSW },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_MGPSW
+					})
+				],
+				...productList.casino_MGPSW
+			},
 			{
 				keyName: "slot_JI",
 				icon: "icon icon-PT",

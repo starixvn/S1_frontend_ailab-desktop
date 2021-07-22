@@ -13,7 +13,8 @@ export const defEventPeriod = {
 	Games_KingMaker: { end: "2021/07/08 11:00:00" },
 	Games_AMBPoker: { end: "2021/07/08 11:00:00" },
 	liveCasino_pt: { end: "2021/07/08 11:00:00" },
-	Sports_9W: { end: "2021/07/30 11:00:00" }
+	Sports_9W: { end: "2021/07/30 11:00:00" },
+	casino_MGPSW: { end: "2021/08/22 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

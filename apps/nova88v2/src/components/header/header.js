@@ -24,7 +24,7 @@ export default () => {
 	const { t } = useTranslation();
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
-	const { maintainList } = useContext(maintainListContext);
+	const { allMaintainList } = useContext(maintainListContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
@@ -103,7 +103,10 @@ export default () => {
 					)}
 					<LogoutButton />
 				</div>
-				<Menu productTpIds={productTpIds} maintainList={maintainList} />
+				<Menu
+					productTpIds={productTpIds}
+					maintainList={allMaintainList}
+				/>
 			</div>
 		</header>
 	);

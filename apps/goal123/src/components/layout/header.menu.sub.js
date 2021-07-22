@@ -6,8 +6,7 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { useGotoGame } from "../hook/useGotoGame";
-import productList from "../../datas/productList";
-// import path from "../../router";
+import productList, { defTpCategoryId } from "../../datas/productList";
 
 export default ({
 	listClassName,
@@ -78,7 +77,13 @@ export default ({
 		const { bgImgUrl, npcImgUrl, iconImgUrl } = s;
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
-		const isInMaintain = maintainList.some(item => item.tpId === s.tpId);
+
+		const isInMaintain = maintainList?.some(
+			item =>
+				item.tpId === s.tpId &&
+				(item.tpCategoryId === s.tpCategory ||
+					item.tpCategoryId === defTpCategoryId.all)
+		);
 
 		let params = null;
 		if (s.parameter) {
@@ -144,7 +149,6 @@ export default ({
 					this,
 					s.tpId,
 					s.gameId,
-					// userInfo,
 					s.menuType,
 					_subPath,
 					isInMaintain

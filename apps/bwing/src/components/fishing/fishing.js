@@ -12,6 +12,7 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import FishingBanner from "./fishing.banner";
 import FishingList from "./fishing.list";
 import imgFishingbanner from "../../styles/img/fishinglobby/fishing-banner.jpg";
+import { defTpCategoryId } from "../../datas/productList";
 
 const SLIDE_IMG_LIST = [imgFishingbanner];
 
@@ -20,7 +21,12 @@ const Fishing = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
-	const { maintainList } = useContext(maintainListContext);
+	const { allMaintainList } = useContext(maintainListContext);
+	const maintainList = allMaintainList?.filter(
+		item =>
+			item.tpCategoryId === defTpCategoryId.fishing ||
+			item.tpCategoryId === defTpCategoryId.all
+	);
 
 	const clickItem = ({ tpId, gameId, isInMaintain }) => {
 		const loginCallback = () => {

@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { navigate, Link } from "@reach/router";
+import { popBoxContext } from "../../common/context";
+import { defPopBoxType } from "../../common/popBox";
 import productList from "../../../datas/productList";
 import path from "../../../router";
 import config from "../../../config";
 
-const HotGameList = ({ t, langId, clickItem }) => {
+const HotGameList = ({
+	t,
+	langId,
+	clickItem,
+	navigate,
+	maintainList,
+	defTpCategoryId
+}) => {
+	const { setPopBox } = useContext(popBoxContext);
+
 	const defTopGameList = [
 		{
 			title: t("lbl_Sports"),
@@ -15,7 +25,8 @@ const HotGameList = ({ t, langId, clickItem }) => {
 		{
 			title: t("lbl_SabaSoccer"),
 			img: "sabasports",
-			path: `/${langId}/${path.sports.root}?game=${productList.sabaSoccer.name}`
+			path: `/${langId}/${path.sports.root}?game=${productList.sabaSoccer.name}`,
+			...productList.sabaSoccer
 		},
 		{
 			title: t("lbl_Slots"),
@@ -25,7 +36,8 @@ const HotGameList = ({ t, langId, clickItem }) => {
 		{
 			title: t("lbl_VirtualSports"),
 			img: "virtual",
-			path: `/${langId}/${path.sports.root}?game=${productList.virtualSports.name}`
+			path: `/${langId}/${path.sports.root}?game=${productList.virtualSports.name}`,
+			...productList.virtualSports
 		}
 	];
 
@@ -67,51 +79,25 @@ const HotGameList = ({ t, langId, clickItem }) => {
 				</div>
 				<div className="indexGamelist-wrapper">
 					<div className="topGame">
-						{defTopGameList.map(item => (
-							<button
-								key={`hot-game-key-${item.title}`}
-								onClick={() =>
-									item.path
-										? navigate(item.path)
-										: clickItem({
-												tpId: item.tpId,
-												gameId: item.gameId
-										  })
-								}>
-								<div className="game-item">
-									<img
-										className="gameImg"
-										alt={`${item.title}-alt`}
-										src={`${config.bannerImgUrl}/hotgame/desktop/${item.img}.jpg`}
-									/>
-									<div className="title">{item.title}</div>
-								</div>
-							</button>
-						))}
+						<Games
+							gameList={defTopGameList}
+							clickItem={clickItem}
+							navigate={navigate}
+							maintainList={maintainList}
+							defTpCategoryId={defTpCategoryId}
+							setPopBox={setPopBox}
+						/>
 					</div>
 
 					<div className="bottomGame">
-						{defBottomGameList.map(item => (
-							<button
-								key={`hot-game-key-${item.title}`}
-								onClick={() =>
-									item.path
-										? navigate(item.path)
-										: clickItem({
-												tpId: item.tpId,
-												gameId: item.gameId
-										  })
-								}>
-								<div className="game-item">
-									<img
-										className="gameImg"
-										alt={`${item.title}-alt`}
-										src={`${config.bannerImgUrl}/hotgame/desktop/${item.img}.jpg`}
-									/>
-									<div className="title">{item.title}</div>
-								</div>
-							</button>
-						))}
+						<Games
+							gameList={defBottomGameList}
+							clickItem={clickItem}
+							navigate={navigate}
+							maintainList={maintainList}
+							defTpCategoryId={defTpCategoryId}
+							setPopBox={setPopBox}
+						/>
 					</div>
 				</div>
 			</div>
@@ -119,10 +105,68 @@ const HotGameList = ({ t, langId, clickItem }) => {
 	);
 };
 
+export const Games = ({
+	gameList,
+	clickItem,
+	navigate,
+	maintainList,
+	defTpCategoryId,
+	setPopBox
+}) => {
+	const rows = gameList.map(item => {
+		const isInMaintain = maintainList?.some(
+			mt =>
+				mt.tpId === item.tpId &&
+				(mt.tpCategoryId === item.tpCategory ||
+					mt.tpCategoryId === defTpCategoryId.all)
+		);
+
+		const clickOrLink = (_item, _isInMaintain) => {
+			const clickClose = () => {
+				setPopBox({ isOpen: false });
+			};
+			if (_isInMaintain) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.UnderMaintain,
+					clickClose
+				});
+				return;
+			}
+			_item.path
+				? navigate(_item.path)
+				: clickItem({
+						tpId: _item.tpId,
+						gameId: _item.gameId
+				  });
+		};
+
+		return (
+			<button
+				key={`hot-game-key-${item.title}`}
+				onClick={clickOrLink.bind(this, item, isInMaintain)}>
+				<div className="game-item">
+					<img
+						className="gameImg"
+						alt={`${item.title}-alt`}
+						src={`${config.bannerImgUrl}/hotgame/desktop/${item.img}.jpg`}
+					/>
+					<div className="title">{item.title}</div>
+				</div>
+			</button>
+		);
+	});
+
+	return rows;
+};
+
 HotGameList.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
-	clickItem: PropTypes.func.isRequired
+	clickItem: PropTypes.func.isRequired,
+	navigate: PropTypes.func.isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	defTpCategoryId: PropTypes.PropTypes.objectOf(PropTypes.any).isRequired
 };
 
 export default HotGameList;

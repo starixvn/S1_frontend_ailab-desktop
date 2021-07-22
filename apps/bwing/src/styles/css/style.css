@@ -7010,6 +7010,38 @@ form {
   display: none;
 }
 
+.slotList > div .underBtn {
+  display: none;
+  background-color: #a59f9f;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 3px;
+  width: 60%;
+  text-align: center;
+}
+
+.slotList > div.under {
+  -webkit-filter: grayscale(1);
+}
+
+.slotList > div.under .underBtn {
+  display: block;
+}
+
+.slotList > div.under:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.slotList > div.under:hover .btnGroup {
+  display: none;
+}
+
 .slotList > div .txt-blue15 {
   font-weight: bold;
   margin-top: 10px;

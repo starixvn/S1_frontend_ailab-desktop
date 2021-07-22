@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import PropTypes from "prop-types";
+import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
 	popBoxContext,
-	isRootContext
+	isRootContext,
+	maintainListContext
 } from "../common/context";
+
 import { defPopBoxType } from "../common/popBox";
 import usePopBox from "../hook/usePopBox";
 import { defBannerType } from "../../service/api/site";
@@ -20,7 +23,7 @@ import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import config from "../../config";
-
+import { defTpCategoryId } from "../../datas/productList";
 import specialImg1 from "../../styles/img/slots777.png";
 import specialImg2 from "../../styles/img/service.png";
 import specialImg3 from "../../styles/img/bank.png";
@@ -49,6 +52,7 @@ const HomeV2 = ({ productTpIds }) => {
 	const isMountedRef = useRef(null);
 	const { setIsRoot } = useContext(isRootContext);
 	const [winnerList, setWinnerList] = useState([]);
+	const { allMaintainList } = useContext(maintainListContext);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -149,7 +153,6 @@ const HomeV2 = ({ productTpIds }) => {
 				popBoxType: defPopBoxType.Login
 			});
 		};
-
 		SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
 			langId: userInfo.langId,
@@ -226,6 +229,9 @@ const HomeV2 = ({ productTpIds }) => {
 					t={t}
 					langId={userInfo.langId}
 					clickItem={clickItem}
+					navigate={navigate}
+					maintainList={allMaintainList}
+					defTpCategoryId={defTpCategoryId}
 				/>
 
 				<div className="indexInfo">

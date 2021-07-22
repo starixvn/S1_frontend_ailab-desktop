@@ -11121,6 +11121,205 @@ html.Newtheme .partnerSelect .swiper-container .swiper-slide button div {
   }
 }
 
+html.Newtheme main.fullSize {
+  height: auto;
+}
+
+html.Newtheme main.fullSize .swiper-container {
+  width: 100%;
+  top: 0;
+}
+
+html.Newtheme .offers.oddsHotEvent {
+  height: 155px;
+}
+
+html.Newtheme .offers.oddsHotEvent .swiper-slide {
+  background: url(../img/hoteventodds.png) no-repeat top/contain;
+}
+
+html.Newtheme .offers.oddsHotEvent .odds {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .offers.oddsHotEvent .odds > div {
+  position: absolute;
+  bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .offers.oddsHotEvent .odds > div.oddL {
+  left: 30%;
+}
+
+html.Newtheme .offers.oddsHotEvent .odds > div.oddR {
+  right: 30%;
+}
+
+html.Newtheme .offers.oddsHotEvent .odds > div span {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f77900;
+  margin: 0 15px;
+}
+
+html.Newtheme .offers.oddsHotEvent .odds > div span:first-child {
+  color: #1f3258;
+}
+
+html.Newtheme .offers.oddsHotEvent .btn {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+}
+
+html.Newtheme .offers.oddsHotEvent .btn a, html.Newtheme .offers.oddsHotEvent .btn button {
+  color: #1f3258;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+html.Newtheme .offers.oddsHotEvent .btn a:hover, html.Newtheme .offers.oddsHotEvent .btn button:hover {
+  color: #d83b35;
+}
+
+html.Newtheme .subModuleTitle {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+html.Newtheme .subModuleTitle .autotransfer {
+  position: absolute;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+html.Newtheme .subModuleTitle .autotransfer .swithModule {
+  position: unset;
+}
+
+html.Newtheme .subModuleTitle .autotransfer .icon-question {
+  font-weight: normal;
+  font-size: 18px;
+  color: #5084e4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 5px;
+}
+
+html.Newtheme .subModuleTitle .autotransfer .icon-question + .inputInfo {
+  display: none;
+  color: white;
+  background: rgba(31, 50, 88, 0.9);
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 30px;
+  right: -5px;
+  min-width: 500px;
+  font-weight: normal;
+}
+
+html.Newtheme .subModuleTitle .autotransfer .icon-question + .inputInfo:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 0 10px;
+  border-style: solid dashed dashed;
+  border-color: rgba(31, 50, 88, 0.9) transparent transparent;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  z-index: 1;
+}
+
+html.Newtheme .subModuleTitle .autotransfer .icon-question + .inputInfo.active {
+  display: block;
+}
+
+html.Newtheme .swithModule {
+  position: absolute;
+  right: 20px;
+  text-align: center;
+  color: #5084e4 !important;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+}
+
+html.Newtheme .swithModule .switchBtn {
+  width: 60px;
+  height: 28px;
+  border: 1px solid #666;
+  background: #666;
+  border-radius: 28px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  padding: 5px;
+  margin: 5px;
+}
+
+html.Newtheme .swithModule .switchBtn.active {
+  background: #259076;
+  border-color: #259076;
+}
+
+html.Newtheme .swithModule .switchBtn.active > span:nth-child(2) {
+  opacity: 0;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+html.Newtheme .swithModule .switchBtn > span {
+  color: white;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+}
+
+html.Newtheme .swithModule .switchBtn > div {
+  position: absolute;
+  background: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 26px;
+  left: 0;
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+html.Newtheme .swithModule .switchBtn > div.active {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+  left: calc(100% - 26px);
+}
+
 @-webkit-keyframes jpotxt {
   0% {
     -webkit-transform: translateY(0);
