@@ -14,7 +14,13 @@ import checkSpeedStartImg from "../styles/img/check_speed/start.png";
 
 const RESPOND_ERROR = 9999;
 
-export default () => {
+export default () => (
+	<Wrapper>
+		<SpeedPage />
+	</Wrapper>
+);
+
+const SpeedPage = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const isMountedRef = useRef(null);
@@ -100,23 +106,21 @@ export default () => {
 	}, []);
 
 	return (
-		<Wrapper>
-			<SpeedPage
-				t={t}
-				setDomainList={setDomainList}
-				domainList={domainList}
-				ipaddress={ipaddress}
-				reloadPage={reloadPage}
-				getSupportDomainList={getSupportDomainList}
-				hardReloadPage={hardReloadPage}
-				setHomeAlert={setHomeAlert}
-				addFavoriteAlert={addFavoriteAlert}
-			/>
-		</Wrapper>
+		<SpeedContent
+			t={t}
+			setDomainList={setDomainList}
+			domainList={domainList}
+			ipaddress={ipaddress}
+			reloadPage={reloadPage}
+			getSupportDomainList={getSupportDomainList}
+			hardReloadPage={hardReloadPage}
+			setHomeAlert={setHomeAlert}
+			addFavoriteAlert={addFavoriteAlert}
+		/>
 	);
 };
 
-const SpeedPage = ({
+const SpeedContent = ({
 	t,
 	setDomainList,
 	domainList,
@@ -230,7 +234,7 @@ const SpeedPage = ({
 	);
 };
 
-SpeedPage.propTypes = {
+SpeedContent.propTypes = {
 	t: PropTypes.func.isRequired,
 	setDomainList: PropTypes.func.isRequired,
 	domainList: PropTypes.arrayOf(PropTypes.any).isRequired,
