@@ -118,9 +118,9 @@ export default () => {
 	}
 
 	let wrapperClass = "";
-	if (_isExpiry || promotionInfo?.beenUsed) {
+	if (_isExpiry) {
 		wrapperClass = " expiredClaimedInfo";
-	} else if (_isClaimed) {
+	} else if (_isClaimed || promotionInfo?.beenUsed) {
 		wrapperClass = " claimedInfo";
 	}
 
@@ -155,9 +155,9 @@ export default () => {
 						</div>
 
 						<div className="btnGroup">
-							<button className="btn-cancel" onClick={clickBack}>
+							{/* <button className="btn-cancel" onClick={clickBack}>
 								{t("lbl_Back")}
-							</button>
+							</button> */}
 							<PromotionJoinButton
 								promotionInfo={promotionInfo}
 								userInfo={userInfo}
