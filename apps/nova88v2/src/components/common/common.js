@@ -214,3 +214,8 @@ export const langAndCurrMapping = {
 	hi: 61,
 	hi_en: 61
 };
+
+export const stringLinkify = text => {
+	const pattern = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+	return text.replace(pattern, '<a href="$1" target="_blank">$1</a>');
+};

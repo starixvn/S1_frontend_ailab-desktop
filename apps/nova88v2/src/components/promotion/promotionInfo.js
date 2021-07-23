@@ -117,11 +117,12 @@ export default () => {
 		});
 	}
 
-	const wrapperClass = _isExpiry
-		? " expiredClaimedInfo"
-		: _isClaimed
-		? " claimedInfo"
-		: "";
+	let wrapperClass = "";
+	if (_isExpiry) {
+		wrapperClass = " expiredClaimedInfo";
+	} else if (_isClaimed || promotionInfo?.beenUsed) {
+		wrapperClass = " claimedInfo";
+	}
 
 	const specialBonusWrapperClass =
 		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";
@@ -154,9 +155,9 @@ export default () => {
 						</div>
 
 						<div className="btnGroup">
-							<button className="btn-cancel" onClick={clickBack}>
+							{/* <button className="btn-cancel" onClick={clickBack}>
 								{t("lbl_Back")}
-							</button>
+							</button> */}
 							<PromotionJoinButton
 								promotionInfo={promotionInfo}
 								userInfo={userInfo}

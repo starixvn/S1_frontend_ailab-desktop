@@ -164,8 +164,8 @@ export default ({
 			_isClaimed ||
 			promotionInfo.promotionType === defPromotionType.rebate ||
 			promotionInfo.promotionType === defPromotionType.other ||
-			(filter === defFilterType.specialBonus &&
-				!promotionInfo.canJoin) ? null : (
+			(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
+			promotionInfo.beenUsed ? null : (
 				<button className="orange" onClick={onJoinPromotion}>
 					{t("lbl_PromoJoinNow").toUpperCase()}
 				</button>

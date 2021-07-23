@@ -1592,6 +1592,27 @@ html.Newtheme .powered img {
   width: auto;
 }
 
+html.Newtheme .payment {
+  max-width: inherit !important;
+  background-color: #141f33;
+}
+
+html.Newtheme .payment > div {
+  max-width: 1400px;
+  margin: 0 auto 10px;
+}
+
+html.Newtheme .payment > div .title {
+  color: #fff;
+  font-size: 14px;
+  text-transform: none;
+}
+
+html.Newtheme .payment > div img {
+  width: auto;
+  height: 70px;
+}
+
 html.Newtheme footer {
   width: 100%;
   min-width: 1010px;
@@ -4230,7 +4251,7 @@ html.Newtheme .offers {
   cursor: pointer;
   border-radius: 0;
   color: #fff;
-  height: 140px;
+  height: 155px;
   width: 1400px;
   margin: auto;
 }
@@ -4269,7 +4290,7 @@ html.Newtheme .offers .swiper-container.swiper-container-initialized::after {
 
 html.Newtheme .offers .swiper-slide {
   margin: 0 auto;
-  background: url(../img/hoteventimg.png) no-repeat top/contain;
+  background: url(../img/hoteventodds.png) no-repeat top/contain;
   text-align: center;
   font-size: 12px;
   position: relative;
@@ -4377,6 +4398,56 @@ html.Newtheme .offers .swiper-slide .olympic {
   top: 10px;
   left: 48%;
   width: 60px;
+}
+
+html.Newtheme .offers .odds {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .offers .odds > div {
+  position: absolute;
+  bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .offers .odds > div.oddL {
+  left: 30%;
+}
+
+html.Newtheme .offers .odds > div.oddR {
+  right: 30%;
+}
+
+html.Newtheme .offers .odds > div span {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f77900;
+  margin: 0 15px;
+}
+
+html.Newtheme .offers .odds > div span:first-child {
+  color: #1f3258;
+}
+
+html.Newtheme .offers .btn {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+}
+
+html.Newtheme .offers .btn a, html.Newtheme .offers .btn button {
+  color: #1f3258;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+html.Newtheme .offers .btn a:hover, html.Newtheme .offers .btn button:hover {
+  color: #d83b35;
 }
 
 html.Newtheme .indexliveCasinoList {
@@ -5770,6 +5841,10 @@ html.Newtheme .personal .list .listBody.active {
   padding: 10px 20px;
 }
 
+html.Newtheme .personal .list .listBody a {
+  color: #5084e4;
+}
+
 html.Newtheme .personal .list .listHeader label {
   color: #1f3258;
 }
@@ -6050,6 +6125,10 @@ html.Newtheme .proList > div:hover {
           box-shadow: 0 0 0 3px #1e85ec inset;
 }
 
+html.Newtheme .proList > div.expired {
+  background: rgba(31, 33, 37, 0.3);
+}
+
 html.Newtheme .proList .btnGroup {
   width: 100%;
 }
@@ -6268,16 +6347,33 @@ html.Newtheme .casinoSelect {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 50px;
+  padding: 0;
   height: 49px;
-  margin-top: 20px;
+  margin: 20px auto 0;
+  width: calc(100% - 100px);
+  background: #c6c6c6;
 }
 
 html.Newtheme .casinoSelect > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin-right: 5px;
+  margin-right: 10px;
+}
+
+html.Newtheme .casinoSelect .btnGroup {
+  margin: 0 auto;
+}
+
+html.Newtheme .casinoSelect .btnGroup button, html.Newtheme .casinoSelect .btnGroup a {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  height: 100%;
+}
+
+html.Newtheme .casinoSelect .btnGroup button:hover, html.Newtheme .casinoSelect .btnGroup button .active, html.Newtheme .casinoSelect .btnGroup a:hover, html.Newtheme .casinoSelect .btnGroup a .active {
+  background: #284985;
 }
 
 html.Newtheme .slotList,
@@ -6323,22 +6419,8 @@ html.Newtheme .newsList > div .btnGroup button {
 html.Newtheme .slotList > div .brand,
 html.Newtheme .newsList > div .brand {
   position: absolute;
-  top: 0px;
-  left: 0px;
-}
-
-html.Newtheme .slotList > div .brand:before,
-html.Newtheme .newsList > div .brand:before {
-  content: "";
-  border-color: #134dae transparent transparent #134dae;
-  border-style: solid;
-  border-width: 25px 45px;
-  border-top-left-radius: 10px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  -webkit-filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5));
+  top: 15px;
+  left: 15px;
 }
 
 html.Newtheme .slotList > div .brand span,
@@ -6346,24 +6428,104 @@ html.Newtheme .newsList > div .brand span {
   position: absolute;
   top: 7px;
   left: 7px;
-  color: white;
+  color: #e92429;
+  text-shadow: 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px -1px 0 #fff, 1px 1px 0 #fff, -1px 1px 0 #fff, -1px -1px 0 #fff;
   font-weight: bold;
 }
 
 html.Newtheme .slotList > div .icon-star-full,
 html.Newtheme .newsList > div .icon-star-full {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   font-size: 24px;
   color: white;
-  -webkit-filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
-          filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.5));
+  -webkit-filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
 }
 
 html.Newtheme .slotList > div .icon-star-full.active,
 html.Newtheme .newsList > div .icon-star-full.active {
   color: #fab617;
+}
+
+html.Newtheme .slotList div {
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+html.Newtheme .slotList div.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+html.Newtheme .slotList div.active .maintenance {
+  position: absolute;
+  display: block;
+  background: #191919;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 1;
+  top: calc(50% - 15px);
+  left: calc(50% - 75px);
+}
+
+html.Newtheme .slotList div.active:hover .btnGroup {
+  display: none;
+}
+
+html.Newtheme .slotList div .maintenance {
+  display: none;
+}
+
+html.Newtheme .slotList div .txt-darkBlue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  margin: 10px auto 0;
+}
+
+html.Newtheme .slotList div .btnGroup {
+  width: calc(100% - 50px);
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  height: 200px;
+  top: 25px;
+  left: 25px;
+  border-radius: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+  margin: 0 auto;
+}
+
+html.Newtheme .slotList div .btnGroup button {
+  max-height: 25px;
+  width: 120px;
+  margin-bottom: 10px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+}
+
+html.Newtheme .slotList div:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+html.Newtheme .slotList div:hover .btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 html.Newtheme .newsList {
@@ -6731,6 +6893,17 @@ html.Newtheme .expiredClaimedInfo {
 html.Newtheme .expiredClaimedInfo .proData {
   background-color: #b2b2b2;
   background-image: url(../img/expired.png);
+  background-repeat: repeat;
+  background-size: 50px;
+}
+
+html.Newtheme .grayInfo {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+html.Newtheme .grayInfo .proData {
+  background-color: #b2b2b2;
   background-repeat: repeat;
   background-size: 50px;
 }
@@ -7861,11 +8034,6 @@ html.Newtheme .eventLink img {
 
 html.Newtheme .eventLink.active {
   display: none;
-}
-
-html.Newtheme .eventLink.euro .icon-close {
-  color: #fff;
-  background: rgba(0, 134, 168, 0.8);
 }
 
 html.Newtheme .angpao__wrapper {
@@ -10336,11 +10504,11 @@ html.Newtheme .fishinglobbyList > div .txt-darkBlue {
 html.Newtheme .fishinglobbyList > div .brand {
   position: absolute;
   top: 25px;
-  right: 15px;
+  right: 5px;
 }
 
 html.Newtheme .fishinglobbyList > div .brand img {
-  width: 60px;
+  width: 70px;
 }
 
 html.Newtheme .fishinglobbyList > div .icon-star-full {
@@ -10686,6 +10854,14 @@ html.Newtheme main.livelobby .aniBanner .items img:first-child {
           animation: moveB 1s forwards, floatingB ease-in-out 5s 1s infinite;
 }
 
+html.Newtheme main.livelobby .aniBanner .items img:nth-child(3) {
+  top: 75%;
+  right: 50%;
+  width: 180px;
+  -webkit-animation: moveA 1s forwards, floatingB ease-in-out 7s 1s infinite;
+          animation: moveA 1s forwards, floatingB ease-in-out 7s 1s infinite;
+}
+
 html.Newtheme main.gameslobby {
   height: auto;
 }
@@ -10769,64 +10945,6 @@ html.Newtheme .aniBanner {
 
 html.Newtheme .aniBanner img {
   display: block;
-}
-
-html.Newtheme .offers.oddsHotEvent {
-  height: 155px;
-}
-
-html.Newtheme .offers.oddsHotEvent .swiper-slide {
-  background: url(../img/hoteventodds.png) no-repeat top/contain;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div {
-  position: absolute;
-  bottom: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div.oddL {
-  left: 30%;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div.oddR {
-  right: 30%;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div span {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  color: #f77900;
-  margin: 0 15px;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div span:first-child {
-  color: #1f3258;
-}
-
-html.Newtheme .offers.oddsHotEvent .btn {
-  width: 100%;
-  position: absolute;
-  bottom: 10px;
-}
-
-html.Newtheme .offers.oddsHotEvent .btn a, html.Newtheme .offers.oddsHotEvent .btn button {
-  color: #1f3258;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-html.Newtheme .offers.oddsHotEvent .btn a:hover, html.Newtheme .offers.oddsHotEvent .btn button:hover {
-  color: #d83b35;
 }
 
 html.Newtheme .subModuleTitle {
@@ -11012,12 +11130,13 @@ html.Newtheme .partnerSelect .swiper-container .swiper-button-next, html.Newthem
   width: 27px;
   height: 27px !important;
   margin-top: -13.5px;
+  font-size: initial;
 }
 
 html.Newtheme .partnerSelect .swiper-container .swiper-button-next:before, html.Newtheme .partnerSelect .swiper-container .swiper-button-prev:before {
   font-family: 'icomoon';
   font-size: 28px;
-  margin-top: -1px;
+  margin-top: -1px !important;
 }
 
 html.Newtheme .partnerSelect .swiper-container .swiper-button-next:after, html.Newtheme .partnerSelect .swiper-container .swiper-button-prev:after {
@@ -11119,205 +11238,6 @@ html.Newtheme .partnerSelect .swiper-container .swiper-slide button div {
   100% {
     background: url(../img/jpotbga.jpg) no-repeat center/cover;
   }
-}
-
-html.Newtheme main.fullSize {
-  height: auto;
-}
-
-html.Newtheme main.fullSize .swiper-container {
-  width: 100%;
-  top: 0;
-}
-
-html.Newtheme .offers.oddsHotEvent {
-  height: 155px;
-}
-
-html.Newtheme .offers.oddsHotEvent .swiper-slide {
-  background: url(../img/hoteventodds.png) no-repeat top/contain;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div {
-  position: absolute;
-  bottom: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div.oddL {
-  left: 30%;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div.oddR {
-  right: 30%;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div span {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  color: #f77900;
-  margin: 0 15px;
-}
-
-html.Newtheme .offers.oddsHotEvent .odds > div span:first-child {
-  color: #1f3258;
-}
-
-html.Newtheme .offers.oddsHotEvent .btn {
-  width: 100%;
-  position: absolute;
-  bottom: 10px;
-}
-
-html.Newtheme .offers.oddsHotEvent .btn a, html.Newtheme .offers.oddsHotEvent .btn button {
-  color: #1f3258;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-html.Newtheme .offers.oddsHotEvent .btn a:hover, html.Newtheme .offers.oddsHotEvent .btn button:hover {
-  color: #d83b35;
-}
-
-html.Newtheme .subModuleTitle {
-  margin-bottom: 10px;
-  position: relative;
-}
-
-html.Newtheme .subModuleTitle .autotransfer {
-  position: absolute;
-  right: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-}
-
-html.Newtheme .subModuleTitle .autotransfer .swithModule {
-  position: unset;
-}
-
-html.Newtheme .subModuleTitle .autotransfer .icon-question {
-  font-weight: normal;
-  font-size: 18px;
-  color: #5084e4;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 5px;
-}
-
-html.Newtheme .subModuleTitle .autotransfer .icon-question + .inputInfo {
-  display: none;
-  color: white;
-  background: rgba(31, 50, 88, 0.9);
-  border-radius: 5px;
-  padding: 5px 10px;
-  position: absolute;
-  bottom: 30px;
-  right: -5px;
-  min-width: 500px;
-  font-weight: normal;
-}
-
-html.Newtheme .subModuleTitle .autotransfer .icon-question + .inputInfo:before {
-  content: '';
-  width: 0;
-  height: 0;
-  border-width: 10px 10px 0 10px;
-  border-style: solid dashed dashed;
-  border-color: rgba(31, 50, 88, 0.9) transparent transparent;
-  position: absolute;
-  bottom: -10px;
-  right: 10px;
-  z-index: 1;
-}
-
-html.Newtheme .subModuleTitle .autotransfer .icon-question + .inputInfo.active {
-  display: block;
-}
-
-html.Newtheme .swithModule {
-  position: absolute;
-  right: 20px;
-  text-align: center;
-  color: #5084e4 !important;
-  font-size: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-weight: bold;
-}
-
-html.Newtheme .swithModule .switchBtn {
-  width: 60px;
-  height: 28px;
-  border: 1px solid #666;
-  background: #666;
-  border-radius: 28px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  position: relative;
-  padding: 5px;
-  margin: 5px;
-}
-
-html.Newtheme .swithModule .switchBtn.active {
-  background: #259076;
-  border-color: #259076;
-}
-
-html.Newtheme .swithModule .switchBtn.active > span:nth-child(2) {
-  opacity: 0;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-
-html.Newtheme .swithModule .switchBtn > span {
-  color: white;
-  font-size: 12px;
-  font-weight: normal;
-  margin: 0;
-}
-
-html.Newtheme .swithModule .switchBtn > div {
-  position: absolute;
-  background: white;
-  width: 26px;
-  height: 26px;
-  border-radius: 26px;
-  left: 0;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-
-html.Newtheme .swithModule .switchBtn > div.active {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-  left: calc(100% - 26px);
 }
 
 @-webkit-keyframes jpotxt {

@@ -181,10 +181,6 @@ const defCashierLinks = [
 		href: path.transferHistory.root
 	},
 	{
-		displayKey: "lbl_Financial",
-		href: path.financial.root
-	},
-	{
 		displayKey: "lbl_Deposit",
 		href: path.deposit.root
 	}

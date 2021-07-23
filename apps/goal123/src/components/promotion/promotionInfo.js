@@ -115,11 +115,14 @@ export default () => {
 		_isExpiry = isExpiry({ ...promotionInfo, isLogin: userInfo.isLogin });
 	}
 
-	const wrapperClass = _isExpiry
-		? " expiredClaimedInfo"
-		: _isClaimed
-		? " claimedInfo"
-		: "";
+	let wrapperClass = "";
+	if (_isExpiry) {
+		wrapperClass = " expiredClaimedInfo";
+	} else if (promotionInfo?.beenUsed) {
+		wrapperClass = " grayInfo";
+	} else if (_isClaimed) {
+		wrapperClass = " claimedInfo";
+	}
 
 	const _isConvert = isConvert(userInfo.currencyId);
 
