@@ -35,7 +35,8 @@ export default ({
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={`${_isClaimed ? "active" : ""}${
 					filter === defFilterType.expiry ||
-					(filter === defFilterType.specialBonus && !p.canJoin)
+					(filter === defFilterType.specialBonus && !p.canJoin) ||
+					p.beenUsed
 						? " expired"
 						: ""
 				}`}>

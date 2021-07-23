@@ -117,11 +117,12 @@ export default () => {
 		});
 	}
 
-	const wrapperClass = _isExpiry
-		? " expiredClaimedInfo"
-		: _isClaimed
-		? " claimedInfo"
-		: "";
+	let wrapperClass = "";
+	if (_isExpiry || promotionInfo?.beenUsed) {
+		wrapperClass = " expiredClaimedInfo";
+	} else if (_isClaimed) {
+		wrapperClass = " claimedInfo";
+	}
 
 	const specialBonusWrapperClass =
 		isSpecialType && !promotionInfo?.canJoin ? " expiredClaimedInfo" : "";

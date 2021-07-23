@@ -6125,6 +6125,10 @@ html.Newtheme .proList > div:hover {
           box-shadow: 0 0 0 3px #1e85ec inset;
 }
 
+html.Newtheme .proList > div.expired {
+  background: rgba(31, 33, 37, 0.3);
+}
+
 html.Newtheme .proList .btnGroup {
   width: 100%;
 }
@@ -6889,6 +6893,17 @@ html.Newtheme .expiredClaimedInfo {
 html.Newtheme .expiredClaimedInfo .proData {
   background-color: #b2b2b2;
   background-image: url(../img/expired.png);
+  background-repeat: repeat;
+  background-size: 50px;
+}
+
+html.Newtheme .grayInfo {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+html.Newtheme .grayInfo .proData {
+  background-color: #b2b2b2;
   background-repeat: repeat;
   background-size: 50px;
 }
