@@ -1,0 +1,239 @@
+import React, { useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
+import { useTranslation } from "react-i18next";
+import { Link } from "@reach/router";
+import Wrapper from "../components/common/wrapper";
+import { api_site_GetSupportDomainList } from "../service/api/site";
+import path from "../router";
+
+import crossIcon from "../styles/img/check_speed/n.png";
+import checkIcon from "../styles/img/check_speed/y.png";
+import checkSpeedStartImg from "../styles/img/check_speed/start.png";
+
+const RESPOND_ERROR = 9999;
+
+export default () => {
+	const { t } = useTranslation();
+
+	const isMountedRef = useRef(null);
+
+	const [domainList, setDomainList] = useState([]);
+	const [ipaddress, setIpaddress] = useState("");
+
+	const reloadPage = () => window.location.reload(false);
+
+	const hardReloadPage = () => {
+		window.location.href = window.location.href;
+	};
+
+	const getRespondingTime = async domainName => {
+		let respondingTime = null;
+		const startTime = new Date().getTime();
+
+		try {
+			await axios.get(domainName);
+
+			const millis = Date.now() - startTime;
+
+			respondingTime = millis / 1000;
+		} catch (e) {
+			respondingTime = RESPOND_ERROR;
+		}
+
+		return respondingTime;
+	};
+
+	const getSupportDomainList = async () => {
+		await api_site_GetSupportDomainList().then(async res => {
+			if (!isMountedRef.current) return;
+
+			const { data, errorCode } = res.data;
+			const success = errorCode === 0;
+
+			if (success) {
+				const newData = data;
+
+				await Promise.all(
+					data.map(async (item, index) => {
+						const respondingTime = await getRespondingTime(
+							item.domainName
+						);
+
+						newData[index].respondingTime = respondingTime;
+					})
+				);
+
+				newData.sort((a, b) => a.respondingTime - b.respondingTime);
+				setDomainList(newData);
+			}
+		});
+	};
+
+	const setHomeAlert = url =>
+		// eslint-disable-next-line no-alert
+		alert(t("speed.lbl_AddFavoriteTip", { url }), t("speed.lbl_ClickOk"));
+
+	// eslint-disable-next-line no-alert
+	const addFavoriteAlert = () => alert(t("speed.lbl_AddFavoriteFail"));
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		const getIp = async () => {
+			const { data } = await axios.get(
+				"https://api.ipify.org?format=json"
+			);
+			setIpaddress(data.ip);
+		};
+
+		getSupportDomainList();
+		getIp();
+	}, []);
+
+	return (
+		<Wrapper>
+			<SpeedPage
+				t={t}
+				setDomainList={setDomainList}
+				domainList={domainList}
+				ipaddress={ipaddress}
+				reloadPage={reloadPage}
+				getSupportDomainList={getSupportDomainList}
+				hardReloadPage={hardReloadPage}
+				setHomeAlert={setHomeAlert}
+				addFavoriteAlert={addFavoriteAlert}
+			/>
+		</Wrapper>
+	);
+};
+
+const SpeedPage = ({
+	t,
+	setDomainList,
+	domainList,
+	ipaddress,
+	getSupportDomainList,
+	hardReloadPage,
+	setHomeAlert,
+	addFavoriteAlert
+}) => {
+	return (
+		<div className="checkspeed ">
+			<div className="wallpaper">
+				<nav>
+					<ul>
+						<li>
+							<Link to={path.home.root} className="logo">
+								<img
+									src="https://image.n88media.com/SiteSkin/img/logo_en.png"
+									alt="logo"
+								/>
+							</Link>
+						</li>
+						<li>
+							<button onClick={() => addFavoriteAlert()}>
+								{t("speed.lbl_AddToFavorite")}
+							</button>
+						</li>
+						<li>
+							<button
+								onClick={() =>
+									setHomeAlert(window.location.href)
+								}>
+								{t("speed.lbl_SetHomePage")}
+							</button>
+						</li>
+					</ul>
+				</nav>
+
+				<div className="module">
+					<div className="moduleBg " />
+					<div className="top">
+						<div>
+							<div>{t("speed.lbl_CurrentIp")}</div>
+							<div>{ipaddress}</div>
+						</div>
+
+						<button
+							onClick={() => {
+								setDomainList([]);
+								getSupportDomainList();
+							}}>
+							<img
+								src={checkSpeedStartImg}
+								alt="check-speed-startImg"
+							/>
+							<div>{t("speed.lbl_Refresh")}</div>
+						</button>
+					</div>
+					<div className="bottom">
+						<div className="left">
+							<div>{t("speed.lbl_DomainListTip")}</div>
+							<div>
+								{domainList.map(item => (
+									<div key={item.domainName}>
+										<img
+											src={
+												item.respondingTime ===
+												RESPOND_ERROR
+													? crossIcon
+													: checkIcon
+											}
+											alt="icon-img"
+										/>
+										<div>{item.domainName}</div>
+
+										<a href={item.domainName}>
+											{t("speed.lbl_EnterWebsite")}
+										</a>
+									</div>
+								))}
+							</div>
+						</div>
+						<div className="right">
+							<div>{t("speed.lbl_TipTitle")}</div>
+							<div>
+								<div>{t("speed.lbl_StepTitle")}</div>
+								<ul>
+									<li>
+										<div>{t("speed.lbl_OpenIE")}：</div>
+										<div>{t("speed.lbl_OpenIESteps")}</div>
+									</li>
+									<li>
+										<div>{t("speed.lbl_Tip1")}</div>
+										<div>{t("speed.lbl_Tip2")}</div>
+									</li>
+									<li>
+										<div>{t("speed.lbl_Tip3")}</div>
+										<div>{t("speed.lbl_Tip4")}</div>
+									</li>
+								</ul>
+
+								<button onClick={() => hardReloadPage()}>
+									{t("speed.lbl_ClearCache")}
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+};
+
+SpeedPage.propTypes = {
+	t: PropTypes.func.isRequired,
+	setDomainList: PropTypes.func.isRequired,
+	domainList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	ipaddress: PropTypes.string.isRequired,
+	getSupportDomainList: PropTypes.func.isRequired,
+	hardReloadPage: PropTypes.func.isRequired,
+	setHomeAlert: PropTypes.func.isRequired,
+	addFavoriteAlert: PropTypes.func.isRequired
+};

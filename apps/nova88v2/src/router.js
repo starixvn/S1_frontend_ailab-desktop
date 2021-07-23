@@ -2,6 +2,9 @@ export default {
 	home: {
 		root: "/"
 	},
+	speed: {
+		root: "speed"
+	},
 	appDownload: {
 		root: "appDownload"
 	},
