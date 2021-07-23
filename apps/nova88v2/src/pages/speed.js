@@ -1,9 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import Wrapper from "../components/common/wrapper";
+import { userInfoContext } from "../components/common/context";
 import { api_site_GetSupportDomainList } from "../service/api/site";
 import path from "../router";
 
@@ -15,7 +16,7 @@ const RESPOND_ERROR = 9999;
 
 export default () => {
 	const { t } = useTranslation();
-
+	const { userInfo } = useContext(userInfoContext);
 	const isMountedRef = useRef(null);
 
 	const [domainList, setDomainList] = useState([]);
@@ -45,29 +46,31 @@ export default () => {
 	};
 
 	const getSupportDomainList = async () => {
-		await api_site_GetSupportDomainList().then(async res => {
-			if (!isMountedRef.current) return;
+		await api_site_GetSupportDomainList({ langId: userInfo.langId }).then(
+			async res => {
+				if (!isMountedRef.current) return;
 
-			const { data, errorCode } = res.data;
-			const success = errorCode === 0;
+				const { data, errorCode } = res.data;
+				const success = errorCode === 0;
 
-			if (success) {
-				const newData = data;
+				if (success) {
+					const newData = data;
 
-				await Promise.all(
-					data.map(async (item, index) => {
-						const respondingTime = await getRespondingTime(
-							item.domainName
-						);
+					await Promise.all(
+						data.map(async (item, index) => {
+							const respondingTime = await getRespondingTime(
+								item.domainName
+							);
 
-						newData[index].respondingTime = respondingTime;
-					})
-				);
+							newData[index].respondingTime = respondingTime;
+						})
+					);
 
-				newData.sort((a, b) => a.respondingTime - b.respondingTime);
-				setDomainList(newData);
+					newData.sort((a, b) => a.respondingTime - b.respondingTime);
+					setDomainList(newData);
+				}
 			}
-		});
+		);
 	};
 
 	const setHomeAlert = url =>

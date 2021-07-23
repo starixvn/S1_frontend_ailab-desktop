@@ -770,7 +770,7 @@ header input:focus-within {
           transform: rotate(90deg);
 }
 
-.header > div.function > a:nth-child(5) span {
+.header > div.function > a:nth-child(4) span {
   background: #5574A7;
   padding: 5px;
   border-radius: 5px;
@@ -1684,6 +1684,17 @@ footer .sfp > div > div {
 footer .sfp > div > div img {
   width: auto;
   margin-right: 10px;
+}
+
+footer .sfp > div > div.paymentLogo a {
+  background: #51678e;
+  padding: 3px;
+  margin-right: 3px;
+  border-radius: 5px;
+}
+
+footer .sfp > div > div.paymentLogo a img {
+  margin: 0;
 }
 
 footer .footerList {
@@ -3865,7 +3876,10 @@ input[type="file"] {
   display: -ms-flexbox;
   display: flex;
   margin-top: 0;
-  margin-bottom: 0;
+}
+
+.platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.tip {
+  margin-bottom: 10px;
 }
 
 .platformName + div.subModuleList .subModuleBody > div:not(.btnGroup):not(.tip) > div.inputBox-white + .inputBox-white {
@@ -6276,13 +6290,8 @@ input[type="file"] {
 }
 
 .livecasinoinside {
-  background: white;
-}
-
-.livecasinoinside.newDesign .inside {
-  background: url(https://banner.n88media.com/img/livecasino/casinobg.jpg) no-repeat top center/cover;
-  padding: 35px calc((100% - 1400px) / 2);
-  height: calc(100% - 70px);
+  background: #020612 url(https://banner.n88media.com/img/livecasino/casinobg.jpg) no-repeat bottom center/100%;
+  padding-bottom: 130px;
 }
 
 .proList, .slotList, .livecasino, .fishingList {
@@ -13056,11 +13065,11 @@ canvas {
 }
 
 .fishinginside {
-  min-height: calc(100% - 400px);
+  background: #84eff9 url(https://banner.n88media.com/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
+  padding-bottom: 130px;
 }
 
 .fishinginside .inside {
-  background: url(https://banner.n88media.com/img/fishing/fishbg.jpg) no-repeat top center/100% auto;
   padding: 35px calc((100% - 1400px) / 2) 100px;
   height: calc(100% - 145px);
 }
@@ -13150,10 +13159,10 @@ canvas {
 
 .lotteryinside {
   position: relative;
+  background: #030a5b url(https://banner.n88media.com/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
 }
 
 .lotteryinside .inside {
-  background: url(https://banner.n88media.com/img/lottery/lotterybg.jpg) no-repeat top center/100% auto;
   padding: 35px calc((100% - 1400px) / 2) 100px;
 }
 
@@ -13275,11 +13284,7 @@ canvas {
 
 .gameinside {
   position: relative;
-}
-
-.gameinside .inside {
-  background: url(https://banner.n88media.com/img/game/gamebg.jpg) no-repeat top center/100% auto;
-  padding: 35px calc((100% - 1400px) / 2) 90px;
+  background: #3e132e url(https://banner.n88media.com/img/game/gamebg.jpg) no-repeat bottom center/100%;
 }
 
 .gameinside .inside .rightModule {

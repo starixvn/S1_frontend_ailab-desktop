@@ -573,20 +573,22 @@ const Depositnew = () => {
 				checkUserInfo();
 			};
 			if (isShowBackupDomain) {
-				api_site_GetSupportDomainList().then(res => {
-					if (
-						res.data.errorCode === 0 &&
-						isMounted &&
-						res.data.data.length > 0
-					) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.BackupDomain,
-							onClickClose: () => closeBackupThenCheckInfo(),
-							linkList: res.data.data
-						});
+				api_site_GetSupportDomainList({ langId: userInfo.langId }).then(
+					res => {
+						if (
+							res.data.errorCode === 0 &&
+							isMounted &&
+							res.data.data.length > 0
+						) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.BackupDomain,
+								onClickClose: () => closeBackupThenCheckInfo(),
+								linkList: res.data.data
+							});
+						}
 					}
-				});
+				);
 			} else {
 				checkUserInfo();
 			}

@@ -68,8 +68,8 @@ export const api_site_ExistsPhoneNo = ({ AreaCode, Phone }) =>
 export const api_site_GetAffiliateAgent = ({ AffId }) =>
 	siteRequest.post("/GetAffiliateAgent", { AffId });
 
-export const api_site_GetSupportDomainList = () =>
-	siteRequest.post(`/GetSupportDomainList/`);
+export const api_site_GetSupportDomainList = langId =>
+	siteRequest.post(`/GetSupportDomainList/${langId}`);
 
 export const api_site_GetTpMaintainList = () =>
 	siteRequest.post(`/GetTpMaintainList`);
