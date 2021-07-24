@@ -225,8 +225,8 @@ export default {
 		tpCategory: defTpCategoryId.liveCasino
 	},
 	liveCasino_PT: {
-		gameId: 27,
-		tpId: "0",
+		gameId: "0",
+		tpId: 27,
 		tpCategory: defTpCategoryId.liveCasino
 	},
 
