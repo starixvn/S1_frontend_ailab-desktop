@@ -9,7 +9,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		lobbyPage: { bgClass }
 	} = subMenuItem;
 
-	const isInMaintain = maintainList.some(item => item.tpId === tpId);
+	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
 
 	return (
 		<div

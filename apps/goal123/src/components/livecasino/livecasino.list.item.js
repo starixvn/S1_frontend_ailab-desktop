@@ -12,7 +12,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
-	const isInMaintain = maintainList.some(item => item.tpId === tpId);
+	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
 
 	return (
 		<div className={isInMaintain ? "active" : ""}>
