@@ -25,12 +25,14 @@ export const api_accountStrict_SetProfile = ({
 export const api_accountStrict_SetCustBankInfo = ({
 	AccountName,
 	AccountNo,
-	SysId
+	SysId,
+	IFSCCode
 }) =>
 	accountStrictRequest.post("/SetCustBankInfo", {
 		AccountName,
 		AccountNo,
-		SysId
+		SysId,
+		IFSCCode
 	});
 
 export const api_accountStrict_DelCustBankInfo = ({

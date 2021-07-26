@@ -36,7 +36,7 @@
 	"lbl_kindly_visit_alternate_link_for_better_performance": "Should you feel slowness, kindly visit alternate link for better performance.",
 	"lbl_DearValuedCustomers": "Dear Nova88 Valued Customers,",
 	"lbl_Home_HomeTeam": "HOME",
-	"lbl_Home_AwayTeam" :"AWAY",
+	"lbl_Home_AwayTeam": "AWAY",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -418,6 +418,8 @@
 	"lbl_Direction": "Direction",
 	"lbl_Action": "Action",
 	"lbl_QuickPick": "Quick Pick",
+	"lbl_IFSCCode": "IFSC Code",
+	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promotion",
@@ -848,7 +850,7 @@
 
 	"end-----": "end-----",
 
-	"speed":{
+	"speed": {
 		"lbl_CurrentIp": "Your current IP location",
 		"lbl_SetHomePage": "Set as Home page",
 		"lbl_AddToFavorite": "Add to Favorite",

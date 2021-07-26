@@ -250,8 +250,10 @@ export default () => {
 							? userInfo.accountName
 							: state.accountName
 					}
+					IFSCCode={state.IFSCCode ?? ""}
 					alreadyHasAccountName={!!userInfo.accountName}
 					reload={GetCustBankInfo}
+					currencyId={userInfo.currencyId ?? null}
 				/>
 			</div>
 			<ShowCard

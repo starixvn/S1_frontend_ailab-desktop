@@ -36,11 +36,11 @@
 	"lbl_kindly_visit_alternate_link_for_better_performance": "Jika Anda merasa lambat, silakan kunjungi tautan alternatif untuk performa yang lebih baik.",
 	"lbl_DearValuedCustomers": "Pelanggan Nova88 yang Terhormat,",
 	"lbl_Home_HomeTeam": "Tuan Rumah",
-	"lbl_Home_AwayTeam" :"Tamu",
+	"lbl_Home_AwayTeam": "Tamu",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Odds":"Odds",
-	"lbl_Handicap":"Hdp",
+	"lbl_Odds": "Odds",
+	"lbl_Handicap": "Hdp",
 
 	"product ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_badminton": "Badminton",
@@ -285,15 +285,15 @@
 	"lbl_Deposit_DragonPayPop_AccountNumber": "Nomor akun",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_PaymentDetails":"Rincian Pembayaran",
-	"lbl_OrderAmount":"Jumlah Permintaan",
-	"lbl_Pay":"Bayar",
-	"lbl_PaymentQRDesc1":"Silahkan transfer jumlahnya.",
-	"lbl_PaymentQRDesc2":"Disediakan untuk pengalaman yang lebih baik",
-	"lbl_ImportantNotes":"Catatan Penting",
-	"lbl_PaymentQRNote1":"Mohon jangan refresh browser Anda",
-	"lbl_PaymentQRNote2":"Harap catat nomor referensi jika suatu saat anda perlu menghubungi Layanan Pelanggan untuk tindakan lebih lanjut.",
-	"lbl_PaymentTimeLeft":"SISA WAKTU PEMBAYARAN",
+	"lbl_PaymentDetails": "Rincian Pembayaran",
+	"lbl_OrderAmount": "Jumlah Permintaan",
+	"lbl_Pay": "Bayar",
+	"lbl_PaymentQRDesc1": "Silahkan transfer jumlahnya.",
+	"lbl_PaymentQRDesc2": "Disediakan untuk pengalaman yang lebih baik",
+	"lbl_ImportantNotes": "Catatan Penting",
+	"lbl_PaymentQRNote1": "Mohon jangan refresh browser Anda",
+	"lbl_PaymentQRNote2": "Harap catat nomor referensi jika suatu saat anda perlu menghubungi Layanan Pelanggan untuk tindakan lebih lanjut.",
+	"lbl_PaymentTimeLeft": "SISA WAKTU PEMBAYARAN",
 	"lbl_Time": "Waktu",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
@@ -418,6 +418,8 @@
 	"lbl_Direction": "arah",
 	"lbl_Action": "Tindakan",
 	"lbl_QuickPick": "Pilihan Cepat",
+	"lbl_IFSCCode": "IFSC Code",
+	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promosi",
@@ -716,7 +718,7 @@
 	"lbl_More": "Lebih",
 	"lbl_Started": "Dimulai",
 	"lbl_Not_Started": "Belum dimulai",
-	"lbl_Streaming_SPORTSBOOK":"OLAHRAGA",
+	"lbl_Streaming_SPORTSBOOK": "OLAHRAGA",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_LatestHighlightVideo": "VIDEO TERBARU",
@@ -838,14 +840,14 @@
 
 	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promos": "Promosi",
-	"lbl_Promos_wording_title":"PROMOSI EKSKLUSIF",
-	"lbl_Promos_wording_desc":"BULANAN",
+	"lbl_Promos_wording_title": "PROMOSI EKSKLUSIF",
+	"lbl_Promos_wording_desc": "BULANAN",
 	"lbl_Header_olympic_countdown_days": "HARI",
 	"lbl_Header_olympic_countdown_hour": "JAM",
 	"lbl_Header_olympic_countdown_mins": "MENIT",
 	"lbl_Header_olympic_countdown_secs": "DETIK",
-	
-	"speed":{
+
+	"speed": {
 		"lbl_CurrentIp": "Lokasi IP Anda saat ini",
 		"lbl_SetHomePage": "Atur sebagai homepage",
 		"lbl_AddToFavorite": "Tambahkan ke Favorit",

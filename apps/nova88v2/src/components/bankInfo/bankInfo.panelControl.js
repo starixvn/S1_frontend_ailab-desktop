@@ -18,8 +18,10 @@ const PanelControl = ({
 	numberOfAccount,
 	accountNumber,
 	accountName,
+	IFSCCode,
 	alreadyHasAccountName,
-	reload
+	reload,
+	currencyId
 }) => {
 	let displayModule;
 
@@ -54,10 +56,12 @@ const PanelControl = ({
 					bankInfo={bankList[bankIdx]}
 					accountNumber={accountNumber}
 					accountName={accountName}
+					IFSCCode={IFSCCode}
 					alreadyHasAccountName={alreadyHasAccountName}
 					reload={reload}
 					toLastStep={toLastStep}
 					custBankList={custBankList}
+					currencyId={currencyId}
 				/>
 			);
 			break;
@@ -66,7 +70,7 @@ const PanelControl = ({
 			break;
 	}
 
-	return <>{displayModule}</>;
+	return displayModule;
 };
 
 export default PanelControl;
@@ -80,8 +84,10 @@ PanelControl.defaultProps = {
 	numberOfAccount: undefined,
 	accountNumber: null,
 	accountName: null,
+	IFSCCode: null,
 	alreadyHasAccountName: undefined,
-	reload: undefined
+	reload: undefined,
+	currencyId: null
 };
 
 PanelControl.propTypes = {
@@ -98,6 +104,8 @@ PanelControl.propTypes = {
 	numberOfAccount: PropTypes.number,
 	accountNumber: PropTypes.string,
 	accountName: PropTypes.string,
+	IFSCCode: PropTypes.string,
 	alreadyHasAccountName: PropTypes.bool,
-	reload: PropTypes.func
+	reload: PropTypes.func,
+	currencyId: PropTypes.number
 };
