@@ -36,7 +36,7 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 					}>
 					<div className="casino-item">
 						<img
-							src={require(`../../../styles/img/liveCasinoNew/${listNpcImgUrl}`)}
+							src={require(`../../../styles/img/liveCasino-new/${listNpcImgUrl}`)}
 							alt={listNpcImgUrl}
 						/>
 					</div>

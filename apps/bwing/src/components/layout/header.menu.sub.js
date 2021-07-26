@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
 import { defMenuType } from "./header.menu.def";
@@ -8,8 +9,10 @@ import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { useGotoGame } from "../hook/useGotoGame";
 import productList, { defTpCategoryId } from "../../datas/productList";
 
-export default ({
+const SubMenu = ({
 	listClassName,
+	subDivClass1,
+	subDivClass2,
 	subItems,
 	menuKey,
 	mainUrl,
@@ -88,10 +91,14 @@ export default ({
 			_iconClassName = `${iconStrings}`;
 		}
 
-		const showIcon =
-			_iconClassName === "" ? null : (
-				<i className={`icon ${_iconClassName}`} />
-			);
+		let showIcon = null;
+		if (_iconClassName.length > 0) {
+			if (_iconClassName === "icon-newicon") {
+				showIcon = <div className="newimg" />;
+			} else {
+				showIcon = <i className={`${_iconClassName}`} />;
+			}
+		}
 
 		let _subPath;
 		if (s.subPath) {
@@ -112,13 +119,17 @@ export default ({
 					key={key}
 					className={_className}
 					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
+					{showIcon}
+					<div className="img">
+						{subDivClass1 ? <div className="subDivClass1" /> : null}
+						{subDivClass2 ? <div className="subDivClass1" /> : null}
+					</div>
+					<span>{displayText}</span>
 					{isInMaintain ? (
 						<div className="underBtn">
 							{t("lbl_underMaintenance")}
 						</div>
 					) : null}
-					{showIcon}
-					<span className={s.icon}>{displayText}</span>
 				</Link>
 			);
 		}
@@ -130,29 +141,38 @@ export default ({
 					this,
 					s.tpId,
 					s.gameId,
-					// userInfo,
 					s.menuType,
 					_subPath,
 					isInMaintain
 				)}>
+				{showIcon}
+				<div className="img">
+					{subDivClass1 ? <div className="subDivClass1" /> : null}
+					{subDivClass2 ? <div className="subDivClass1" /> : null}
+				</div>
+				<span>{displayText}</span>
 				{isInMaintain ? (
 					<div className="underBtn">{t("lbl_underMaintenance")}</div>
 				) : null}
-				{showIcon}
-				<span className={s.icon}>{displayText}</span>
 			</button>
 		);
-
-		// return (
-		// 	<button
-		// 		key={key}
-		// 		className={s.className}
-		// 		onClick={ClickItem.bind(this, s.tpId, s.gameId, userInfo)}>
-		// 		{newIcon}
-		// 		<span className={s.icon}>{displayText}</span>
-		// 	</button>
-		// );
 	});
 
 	return <div className={`${listClassName ?? ""} active`}>{rows}</div>;
+};
+
+export default SubMenu;
+
+SubMenu.defaultProps = {
+	mainUrl: undefined
+};
+
+SubMenu.propTypes = {
+	listClassName: PropTypes.string.isRequired,
+	subDivClass1: PropTypes.string.isRequired,
+	subDivClass2: PropTypes.string.isRequired,
+	subItems: PropTypes.arrayOf(PropTypes.any).isRequired,
+	menuKey: PropTypes.string.isRequired,
+	mainUrl: PropTypes.string,
+	maintainList: PropTypes.PropTypes.arrayOf(PropTypes.any).isRequired
 };
