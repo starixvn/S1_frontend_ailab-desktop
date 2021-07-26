@@ -177,8 +177,8 @@ const defCashierLinks = [
 		href: path.withdrawal.root
 	},
 	{
-		displayKey: "lbl_TransferHistory",
-		href: path.transferHistory.root
+		displayKey: "lbl_History",
+		href: path.history.root
 	},
 	{
 		displayKey: "lbl_Deposit",
