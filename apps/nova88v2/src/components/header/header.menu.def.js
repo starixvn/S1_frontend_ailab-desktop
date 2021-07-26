@@ -9,25 +9,25 @@ import { currencyCode } from "../../datas/countryCode";
 
 const defSortCasino = {
 	[currencyCode.TH]: {
-		casino_MGPSW: 1,
-		casino_PT: 2,
-		casino_DG: 3,
-		casino_AE: 4,
-		casino_SA: 5,
-		casino_ALBET: 6,
-		casino_AG: 7,
-		slot_PT: 8,
-		casino_WM: 9,
-		casino_PP: 10,
+		casino_PP: 1,
+		casino_MGPSW: 2,
+		casino_PT: 3,
+		casino_DG: 4,
+		casino_AE: 5,
+		casino_SA: 6,
+		casino_ALBET: 7,
+		casino_AG: 8,
+		slot_PT: 9,
+		casino_WM: 10,
 		casino_EBET: 11,
 		casino_N2LIVE: 12
 	},
 	[currencyCode.MY]: {
-		casino_MGPSW: 1,
-		casino_PT: 2,
-		casino_DG: 3,
-		casino_AE: 4,
-		casino_PP: 5,
+		casino_PP: 1,
+		casino_MGPSW: 2,
+		casino_PT: 3,
+		casino_DG: 4,
+		casino_AE: 5,
 		casino_SA: 6,
 		slot_PT: 7,
 		casino_ALBET: 8,
@@ -37,15 +37,15 @@ const defSortCasino = {
 		casino_N2LIVE: 12
 	},
 	[currencyCode.ID]: {
-		casino_MGPSW: 1,
-		casino_PT: 2,
-		casino_AE: 3,
-		casino_AG: 4,
-		casino_EBET: 5,
-		casino_DG: 6,
-		slot_PT: 7,
-		casino_WM: 8,
-		casino_PP: 9,
+		casino_PP: 1,
+		casino_MGPSW: 2,
+		casino_PT: 3,
+		casino_AE: 4,
+		casino_AG: 5,
+		casino_EBET: 6,
+		casino_DG: 7,
+		slot_PT: 8,
+		casino_WM: 9,
 		casino_SA: 10,
 		casino_ALBET: 11,
 		casino_N2LIVE: 12
@@ -54,9 +54,9 @@ const defSortCasino = {
 
 const defSortSlot = {
 	[currencyCode.TH]: {
-		casino_MGPSW: 1,
-		slot_PG: 2,
-		slot_PP: 3,
+		slot_PP: 1,
+		casino_MGPSW: 2,
+		slot_PG: 3,
 		slot_JOKER: 4,
 		slot_SG: 5,
 		slot_ICG: 6,
@@ -67,8 +67,8 @@ const defSortSlot = {
 		slot_OW: 11
 	},
 	[currencyCode.MY]: {
-		casino_MGPSW: 1,
-		slot_PP: 2,
+		slot_PP: 1,
+		casino_MGPSW: 2,
 		slot_SG: 3,
 		slot_YGG: 4,
 		slot_JOKER: 5,
@@ -80,8 +80,8 @@ const defSortSlot = {
 		slot_PG: 11
 	},
 	[currencyCode.ID]: {
-		casino_MGPSW: 1,
-		slot_PP: 2,
+		slot_PP: 1,
+		casino_MGPSW: 2,
 		slot_PG: 3,
 		slot_SG: 4,
 		slot_PT: 5,
@@ -344,6 +344,21 @@ export const defMenuLinks = {
 			// 	...productList.casino_MGPSW
 			// },
 			{
+				keyName: "casino_PP",
+				className: "livePP",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "casino-PP.png",
+				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
+				menuType: defMenuType.entPage,
+				...productList.liveCasino_PP,
+				lobbyPage: {
+					bgImg: "livecasino_pp.jpg",
+					hoverBgImg: "livecasino_ppa.jpg"
+				}
+			},
+			{
 				keyName: "casino_PT",
 				displayText: "PT",
 				imgSource: defImgSourceType.bannerImgUrl,
@@ -456,21 +471,7 @@ export const defMenuLinks = {
 					hoverBgImg: "livecasino_aea.jpg"
 				}
 			},
-			{
-				keyName: "casino_PP",
-				className: "livePP",
-				icon: "icon icon-PP",
-				displayText: "PP",
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "casino-PP.png",
-				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
-				menuType: defMenuType.entPage,
-				...productList.liveCasino_PP,
-				lobbyPage: {
-					bgImg: "livecasino_pp.jpg",
-					hoverBgImg: "livecasino_ppa.jpg"
-				}
-			},
+
 			{
 				keyName: "casino_DG",
 				className: "liveDG",
@@ -510,6 +511,17 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortSlot,
 		subMenu: [
+			{
+				keyName: "slot_PP",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+				listNpcImgUrl: "slotPP.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_PP },
+				...productList.casino_PP
+			},
 			{
 				keyName: "slot_MGPSW",
 				displayText: "Microgaming",
@@ -559,17 +571,6 @@ export const defMenuLinks = {
 					})
 				],
 				...productList.casino_PT
-			},
-			{
-				keyName: "slot_PP",
-				icon: "icon icon-PP",
-				displayText: "PP",
-				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-				listNpcImgUrl: "slotPP.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_PP },
-				...productList.casino_PP
 			},
 			{
 				keyName: "slot_ICG",
