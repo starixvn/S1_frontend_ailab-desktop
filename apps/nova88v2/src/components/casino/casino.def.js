@@ -61,22 +61,22 @@ export const defLobbyImgList = [
 	},
 	{
 		lobbyImgName: "gp",
-		lobbyDisplayName: "GAMEPLAY",
+		lobbyDisplayName: "Game Play",
 		providerId: productList.casino_GPI.tpId
 	},
 	{
 		lobbyImgName: "yg",
-		lobbyDisplayName: "YGGDRASIL",
+		lobbyDisplayName: "YGGDrassil",
 		providerId: productList.casino_YGG.tpId
 	},
 	{
 		lobbyImgName: "jk",
-		lobbyDisplayName: "JOKER",
+		lobbyDisplayName: "Joker",
 		providerId: productList.casino_JOKER.tpId
 	},
 	{
 		lobbyImgName: "sg",
-		lobbyDisplayName: "SPADEGAMING",
+		lobbyDisplayName: "Spadegaming",
 		providerId: productList.casino_SG.tpId
 	},
 	{
@@ -91,17 +91,17 @@ export const defLobbyImgList = [
 	},
 	{
 		lobbyImgName: "icg",
-		lobbyDisplayName: "ICG",
+		lobbyDisplayName: "Iconic Gaming",
 		providerId: productList.casino_ICG.tpId
 	},
 	{
 		lobbyImgName: "pt",
-		lobbyDisplayName: "PLAYTECH",
+		lobbyDisplayName: "Playtech",
 		providerId: productList.casino_PT.tpId
 	},
 	{
 		lobbyImgName: "ow",
-		lobbyDisplayName: "OW",
+		lobbyDisplayName: "Saba Casino",
 		providerId: productList.casino_OW.tpId
 	},
 	{

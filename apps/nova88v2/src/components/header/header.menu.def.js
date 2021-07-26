@@ -347,7 +347,7 @@ export const defMenuLinks = {
 				keyName: "casino_PP",
 				className: "livePP",
 				icon: "icon icon-PP",
-				displayText: "PP",
+				displayText: "Pragmatic Play",
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-PP.png",
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
@@ -360,11 +360,12 @@ export const defMenuLinks = {
 			},
 			{
 				keyName: "casino_PT",
-				displayText: "PT",
+				// icon: "icon icon-PT",
+				displayText: "Playtech",
+				menuType: defMenuType.useGoToGame,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-pt.png",
 				listBgImgUrl: ["ptbg.png", "livecasinListHover.png"],
-				menuType: defMenuType.useGoToGame,
 				...productList.liveCasino_PT,
 				eventIcons: [
 					showEventIcon({
@@ -379,7 +380,7 @@ export const defMenuLinks = {
 			},
 			{
 				keyName: "casino_N2LIVE",
-				displayText: "N2Live",
+				displayText: "n2-LIVE",
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-n2.png",
 				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
@@ -400,7 +401,7 @@ export const defMenuLinks = {
 				keyName: "casino_WM",
 				className: "liveWM",
 				icon: "icon icon-WM",
-				displayText: "WM",
+				displayText: "WM Casino",
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-WM.png",
 				listBgImgUrl: ["wmBG.png", "livecasinListHover.png"],
@@ -445,7 +446,7 @@ export const defMenuLinks = {
 				keyName: "casino_SA",
 				className: "liveSA",
 				icon: "icon icon-SA",
-				displayText: "SA",
+				displayText: "SA Gaming",
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-SA.png",
 				listBgImgUrl: ["saBG.png", "livecasinListHover.png"],
@@ -460,7 +461,7 @@ export const defMenuLinks = {
 				keyName: "casino_AE",
 				className: "liveAE",
 				icon: "icon icon-AE",
-				displayText: "AE",
+				displayText: "AE Casino",
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-AE.png",
 				listBgImgUrl: ["aeBG.png", "livecasinListHover.png"],
@@ -471,12 +472,11 @@ export const defMenuLinks = {
 					hoverBgImg: "livecasino_aea.jpg"
 				}
 			},
-
 			{
 				keyName: "casino_DG",
 				className: "liveDG",
 				icon: "icon icon-DG",
-				displayText: "DG",
+				displayText: "Dream Gaming",
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-DG.png",
 				listBgImgUrl: ["dgBG.png", "livecasinListHover.png"],
@@ -491,7 +491,7 @@ export const defMenuLinks = {
 				keyName: "casino_AG",
 				className: "liveAG",
 				icon: "icon icon-AG",
-				displayText: "AG",
+				displayText: "Asia Gaming",
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "casino-AG.png",
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
@@ -514,7 +514,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_PP",
 				icon: "icon icon-PP",
-				displayText: "PP",
+				displayText: "Pragmatic Play",
 				menuType: defMenuType.Link,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotPP.png",
@@ -558,7 +558,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_PT",
 				icon: "icon icon-PT",
-				displayText: "PT",
+				displayText: "Playtech",
 				menuType: defMenuType.Link,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotpt.png",
@@ -575,7 +575,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_ICG",
 				icon: "icon icon-ICG",
-				displayText: "ICG",
+				displayText: "Iconic Gaming",
 				menuType: defMenuType.Link,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotICG.png",
@@ -586,7 +586,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_JOKER",
 				icon: "icon icon-JOKER",
-				displayText: "JOKER",
+				displayText: "Joker",
 				menuType: defMenuType.Link,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotJOKER.png",
@@ -608,7 +608,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_GPI",
 				icon: "icon icon-GPI",
-				displayText: "GPI",
+				displayText: "Game Play",
 				menuType: defMenuType.Link,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotGPI.png",
@@ -619,7 +619,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_YGG",
 				icon: "icon icon-YGG",
-				displayText: "YGG",
+				displayText: "YGGDrassil",
 				menuType: defMenuType.Link,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotYGG.png",
@@ -630,7 +630,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_SG",
 				icon: "icon icon-SG",
-				displayText: "SG",
+				displayText: "Spadegaming",
 				menuType: defMenuType.Link,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotSG.png",
@@ -641,7 +641,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_PG",
 				icon: "icon icon-PG",
-				displayText: "PG",
+				displayText: "PG Soft",
 				menuType: defMenuType.Link,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotPG.png",
@@ -652,7 +652,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_OW",
 				icon: "icon icon-OW",
-				displayText: "OW",
+				displayText: "Saba Casino",
 				menuType: defMenuType.entPage,
 				imgSource: defImgSourceType.bannerImgUrl,
 				listNpcImgUrl: "slotOW.png",
