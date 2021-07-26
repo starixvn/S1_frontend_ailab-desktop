@@ -39,7 +39,11 @@ const SpeedPage = () => {
 		const startTime = new Date().getTime();
 
 		try {
-			await axios.get(domainName);
+			await axios.head(
+				`${domainName}${
+					domainName.slice(-1) === "/" ? "" : "/"
+				}api/speed`
+			);
 
 			const millis = Date.now() - startTime;
 

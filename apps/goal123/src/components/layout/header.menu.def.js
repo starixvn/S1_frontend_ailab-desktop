@@ -284,6 +284,17 @@ export const defMenuLinks = langId => {
 			className: "casinobtn",
 			subMenu: [
 				{
+					...defCasinoProviders.PP,
+					className: "PP",
+					icon: "icon icon-PP",
+					displayText: "PP",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.PP.name },
+					bgImgUrl: slotsPpBgImg,
+					npcImgUrl: slotsPpNpcImg,
+					iconImgUrl: slotsPpIconImg
+				},
+				{
 					...defCasinoProviders.MGPSW,
 					eventIcons: [
 						showEventIcon({
@@ -401,17 +412,6 @@ export const defMenuLinks = langId => {
 					iconImgUrl: slotsSgIconImg
 				},
 				{
-					...defCasinoProviders.PP,
-					className: "PP",
-					icon: "icon icon-PP",
-					displayText: "PP",
-					menuType: defMenuType.Link,
-					parameter: { provider: defCasinoProviders.PP.name },
-					bgImgUrl: slotsPpBgImg,
-					npcImgUrl: slotsPpNpcImg,
-					iconImgUrl: slotsPpIconImg
-				},
-				{
 					...defCasinoProviders.PG,
 					className: "PG",
 					icon: "icon icon-PG",
@@ -457,6 +457,21 @@ export const defMenuLinks = langId => {
 				// 		iconImg: livecasinoLobbyMgIconImg
 				// 	}
 				// },
+				{
+					gameId: 101,
+					tpId: 5,
+					className: "livePP",
+					icon: "icon icon-PP",
+					listNpcImgUrl: "pp.png",
+					displayText: "PP",
+					menuType: defMenuType.entPage,
+					npcImgUrl: livecasinoPpNpcImg,
+					iconImgUrl: livecasinoPpIconImg,
+					lobbyPage: {
+						bgImg: livecasinoLobbyPpBgImg,
+						iconImg: livecasinoLobbyPpIconImg
+					}
+				},
 				{
 					...productList.liveCasino_PT,
 					className: "PT",
@@ -555,21 +570,6 @@ export const defMenuLinks = langId => {
 					lobbyPage: {
 						bgImg: livecasinoLobbyAgBgImg,
 						iconImg: livecasinoLobbyAgIconImg
-					}
-				},
-				{
-					gameId: 101,
-					tpId: 5,
-					className: "livePP",
-					icon: "icon icon-PP",
-					listNpcImgUrl: "pp.png",
-					displayText: "PP",
-					menuType: defMenuType.entPage,
-					npcImgUrl: livecasinoPpNpcImg,
-					iconImgUrl: livecasinoPpIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyPpBgImg,
-						iconImg: livecasinoLobbyPpIconImg
 					}
 				},
 				{

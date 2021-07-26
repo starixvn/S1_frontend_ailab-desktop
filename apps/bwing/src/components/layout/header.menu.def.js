@@ -140,6 +140,14 @@ export const defMenuLinks = {
 		className: "casinobtn",
 		subMenu: [
 			{
+				...defCasinoProviders.PP,
+				className: "PP",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.PP.name }
+			},
+			{
 				...defCasinoProviders.MGPSW,
 				className: "mg",
 				eventIcons: [
@@ -229,14 +237,6 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.SG.name }
 			},
 			{
-				...defCasinoProviders.PP,
-				className: "PP",
-				icon: "icon icon-PP",
-				displayText: "PP",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.PP.name }
-			},
-			{
 				...defCasinoProviders.PG,
 				className: "PG",
 				icon: "icon icon-PG",
@@ -274,6 +274,17 @@ export const defMenuLinks = {
 			// 		bgClass: "live-mg"
 			// 	}
 			// },
+			{
+				gameId: 101,
+				tpId: 5,
+				className: "livePP",
+				icon: "icon icon-PP",
+				displayText: "PP",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-pp"
+				}
+			},
 			{
 				...productList.liveCasino_PT,
 				className: "livePT",
@@ -358,17 +369,6 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ag"
-				}
-			},
-			{
-				gameId: 101,
-				tpId: 5,
-				className: "livePP",
-				icon: "icon icon-PP",
-				displayText: "PP",
-				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "live-pp"
 				}
 			},
 			{
