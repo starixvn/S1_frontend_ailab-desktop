@@ -74,6 +74,7 @@ export function reducer(state, action) {
 				...state,
 				accountNumber: "",
 				accountName: "",
+				IFSCCode: "",
 				bankIdx: action.bankIdx,
 				step: newStep,
 				displayModule: defStepModule[newStep]

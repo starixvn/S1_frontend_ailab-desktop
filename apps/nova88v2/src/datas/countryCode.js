@@ -17,5 +17,6 @@ export const currencyCode = {
 	VN: 51,
 	HI: 2,
 	HI_EN: 2,
-	USDT: 96
+	USDT: 96,
+	INR: 61
 };
