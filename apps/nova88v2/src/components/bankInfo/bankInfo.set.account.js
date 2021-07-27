@@ -1,22 +1,37 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { defActionType } from "./bankInfo.reducer";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
-import { popBoxContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import config from "../../config";
 import Inputbox from "../common/inputbox";
 import Loading from "../common/loading";
+import { currencyCode } from "../../datas/countryCode";
 
-export default ({
+const defColumn = {
+	accountName: "accountName",
+	accountNumber: "accountNumber",
+	IFSCCode: "IFSCCode"
+};
+
+const defColumnTipKey = {
+	[defColumn.accountName]: "lbl_BankAccountNameHint",
+	[defColumn.accountNumber]: "lbl_BankNumber",
+	[defColumn.IFSCCode]: "msg_PleaseEnterIFSCCode"
+};
+
+const AccountPanel = ({
 	t,
 	dispatch,
 	bankInfo,
 	accountNumber,
 	accountName,
+	IFSCCode,
 	alreadyHasAccountName,
 	reload,
 	custBankList,
-	toLastStep
+	toLastStep,
+	currencyId
 }) => {
 	const { errorPopBox } = usePopBox();
 	const [status, setStatus] = useState({
@@ -27,10 +42,15 @@ export default ({
 		accountNumber: {
 			checked: null,
 			tip: ""
+		},
+		IFSCCode: {
+			checked: null,
+			tip: ""
 		}
 	});
 	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
+	const isCurrencyINR = currencyId === currencyCode.INR;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -40,10 +60,7 @@ export default ({
 	});
 
 	const clickInfo = col => {
-		let _msg =
-			col === "accountName"
-				? t("lbl_BankAccountNameHint")
-				: t("lbl_BankNumber");
+		let _msg = t(defColumnTipKey[col]) ?? "";
 
 		if (status[col].tip === _msg) {
 			_msg = "";
@@ -69,12 +86,12 @@ export default ({
 					_selectBank.accountNo === val
 			).length > 0;
 
-		if (col === "accountName" && !alreadyHasAccountName) {
+		if (col === defColumn.accountName && !alreadyHasAccountName) {
 			if (!val) {
 				message = t("msg_EnterRealName");
 				checked = false;
 			}
-		} else if (col === "accountNumber") {
+		} else if (col === defColumn.accountNumber) {
 			if (!val) {
 				message = t("msg_NeedAccountNo");
 				checked = false;
@@ -83,6 +100,11 @@ export default ({
 				checked = false;
 			} else if (isRepeatAccount) {
 				message = t("lbl_already_stored_this_information");
+				checked = false;
+			}
+		} else if (col === defColumn.IFSCCode && isCurrencyINR) {
+			if (!val) {
+				message = t("msg_PleaseEnterIFSCCode");
 				checked = false;
 			}
 		}
@@ -102,7 +124,7 @@ export default ({
 		const val = e.target.value;
 
 		let regex = null;
-		if (_col === "accountNumber") {
+		if (_col === defColumn.accountNumber) {
 			regex = /^[0-9]+$/;
 		}
 
@@ -117,15 +139,26 @@ export default ({
 
 	const clickSubmit = e => {
 		e.preventDefault();
-		const _accountName = checkAccount(accountName, "accountName");
-		const _accountNumber = checkAccount(accountNumber, "accountNumber");
+		const _accountName = checkAccount(accountName, defColumn.accountName);
+		const _accountNumber = checkAccount(
+			accountNumber,
+			defColumn.accountNumber
+		);
+		const _IFSCCode = isCurrencyINR
+			? checkAccount(IFSCCode, defColumn.IFSCCode)
+			: { checked: true };
 
-		if (_accountNumber.checked && _accountName.checked) {
+		if (
+			_accountNumber.checked &&
+			_accountName.checked &&
+			_IFSCCode.checked
+		) {
 			setLoading(true);
 			api_accountStrict_SetCustBankInfo({
 				AccountName: accountName,
 				AccountNo: accountNumber,
-				SysId: bankInfo.sysId
+				SysId: bankInfo.sysId,
+				IFSCCode: isCurrencyINR ? IFSCCode : null
 			}).then(
 				res => {
 					if (isMountedRef.current) {
@@ -179,8 +212,8 @@ export default ({
 								/>
 							</div>
 						</div>
-						{!alreadyHasAccountName ? (
-							<div className="inputModuleRow">
+						<div className="inputModule">
+							{!alreadyHasAccountName ? (
 								<Inputbox
 									className={`inputBox-white${
 										!status.accountName.checked &&
@@ -191,24 +224,23 @@ export default ({
 									value={accountName}
 									onChange={editField.bind(
 										this,
-										"accountName"
+										defColumn.accountName
 									)}
 									onBlur={checkAccount.bind(
 										this,
 										accountName,
-										"accountName"
+										defColumn.accountName
 									)}
 									title={t("lbl_RealName")}
 									clickInfo={clickInfo.bind(
 										this,
-										"accountName"
+										defColumn.accountName
 									)}
 									checked={status.accountName.checked}
 									tip={status.accountName.tip}
 								/>
-							</div>
-						) : null}
-						<div className="inputModuleRow">
+							) : null}
+
 							<Inputbox
 								className={`inputBox-white${
 									!status.accountNumber.checked &&
@@ -217,20 +249,50 @@ export default ({
 										: ""
 								}`}
 								value={accountNumber}
-								onChange={editField.bind(this, "accountNumber")}
+								onChange={editField.bind(
+									this,
+									defColumn.accountNumber
+								)}
 								onBlur={checkAccount.bind(
 									this,
 									accountNumber,
-									"accountNumber"
+									defColumn.accountNumber
 								)}
 								clickInfo={clickInfo.bind(
 									this,
-									"accountNumber"
+									defColumn.accountNumber
 								)}
 								title={t("lbl_BankNumber")}
 								checked={status.accountNumber.checked}
 								tip={status.accountNumber.tip}
 							/>
+							{isCurrencyINR && (
+								<Inputbox
+									className={`inputBox-white${
+										!status.IFSCCode.checked &&
+										status.IFSCCode.tip !== ""
+											? " error"
+											: ""
+									}`}
+									value={IFSCCode}
+									onChange={editField.bind(
+										this,
+										defColumn.IFSCCode
+									)}
+									onBlur={checkAccount.bind(
+										this,
+										IFSCCode,
+										defColumn.IFSCCode
+									)}
+									clickInfo={clickInfo.bind(
+										this,
+										defColumn.IFSCCode
+									)}
+									title={t("lbl_IFSCCode")}
+									checked={status.IFSCCode.checked}
+									tip={status.IFSCCode.tip}
+								/>
+							)}
 							<div className="btnGroup">
 								<button className="btn-check" type="submit">
 									{t("lbl_Submit")}
@@ -243,3 +305,23 @@ export default ({
 		</>
 	);
 };
+
+AccountPanel.defaultProps = {
+	currencyId: null
+};
+
+AccountPanel.propTypes = {
+	t: PropTypes.func.isRequired,
+	dispatch: PropTypes.func.isRequired,
+	toLastStep: PropTypes.func.isRequired,
+	bankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	accountNumber: PropTypes.string.isRequired,
+	accountName: PropTypes.string.isRequired,
+	IFSCCode: PropTypes.string.isRequired,
+	alreadyHasAccountName: PropTypes.bool.isRequired,
+	reload: PropTypes.func.isRequired,
+	custBankList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	currencyId: PropTypes.number
+};
+
+export default AccountPanel;

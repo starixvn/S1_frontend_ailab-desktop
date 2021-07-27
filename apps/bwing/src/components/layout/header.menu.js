@@ -47,6 +47,8 @@ export default class Panel extends Component {
 	render() {
 		let subItems = null;
 		let mainUrl = "";
+		let subDivClass1 = "";
+		let subDivClass2 = "";
 		if (typeof defMenuLinks[this.state.menuKey]?.subMenu !== undefined) {
 			subItems = defMenuLinks[this.state.menuKey]?.subMenu;
 			mainUrl = defMenuLinks[this.state.menuKey]?.path;
@@ -59,6 +61,13 @@ export default class Panel extends Component {
 					this.props.productTpIds.includes(s.tpId)
 				);
 			}
+
+			if (defMenuLinks[this.state.menuKey]?.subDivClass1) {
+				subDivClass1 = defMenuLinks[this.state.menuKey]?.subDivClass1;
+			}
+			if (defMenuLinks[this.state.menuKey]?.subDivClass2) {
+				subDivClass2 = defMenuLinks[this.state.menuKey]?.subDivClass2;
+			}
 		}
 
 		return (
@@ -68,7 +77,7 @@ export default class Panel extends Component {
 					productTpIds={this.props.productTpIds}
 				/>
 				<div
-					className={`subMenu-Wrapper${subItems ? " active" : ""}`}
+					className={`nweSubMenu-Wrapper${subItems ? " active" : ""}`}
 					ref={this.wrapper}
 					onClick={this.closeSubMenu}>
 					{subItems ? (
@@ -77,6 +86,8 @@ export default class Panel extends Component {
 							listClassName={
 								defSubListClassName[this.state.menuKey]
 							}
+							subDivClass1={subDivClass1}
+							subDivClass2={subDivClass2}
 							mainUrl={mainUrl}
 							subItems={subItems}
 							productTpIds={this.props.productTpIds}

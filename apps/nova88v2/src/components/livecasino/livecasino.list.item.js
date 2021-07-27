@@ -20,7 +20,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 	const _displayText = displayText || t(displayKey);
 
-	const isInMaintain = maintainList.some(
+	const isInMaintain = maintainList?.some(
 		item => item.tpId === subMenuItem.tpId
 	);
 

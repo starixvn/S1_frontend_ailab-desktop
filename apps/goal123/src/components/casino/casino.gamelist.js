@@ -76,7 +76,7 @@ const GameList = ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
-			const isInMaintain = maintainList.some(
+			const isInMaintain = maintainList?.some(
 				item => item.tpId === g.tpId
 			);
 

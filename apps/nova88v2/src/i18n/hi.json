@@ -416,6 +416,8 @@
 	"lbl_Direction": "दिशा",
 	"lbl_Action": "कार्य",
 	"lbl_QuickPick": "त्वरित चुनाव",
+	"lbl_IFSCCode": "IFSC Code",
+	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "प्रचार / प्रचार",
@@ -842,8 +844,8 @@
 	"lbl_Header_olympic_countdown_hour": "इस घंटे",
 	"lbl_Header_olympic_countdown_mins": "मिनट",
 	"lbl_Header_olympic_countdown_secs": "सेकेंड",
-	
-	"speed":{
+
+	"speed": {
 		"lbl_CurrentIp": "आपका वर्तमान आईपी स्थान",
 		"lbl_SetHomePage": "मुखपृष्ठ के रूप में स्थित करे",
 		"lbl_AddToFavorite": "पसंदीदा लिस्ट मे जोड़े",

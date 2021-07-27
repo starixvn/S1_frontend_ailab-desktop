@@ -416,6 +416,8 @@
 	"lbl_Direction": "Direction",
 	"lbl_Action": "Action",
 	"lbl_QuickPick": "Quick Pick",
+	"lbl_IFSCCode": "IFSC Code",
+	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promotion",
@@ -844,7 +846,7 @@
 	"lbl_Header_olympic_countdown_mins": "MIN",
 	"lbl_Header_olympic_countdown_secs": "SEC",
 
-	"speed":{
+	"speed": {
 		"lbl_CurrentIp": "Your current IP location",
 		"lbl_SetHomePage": "Set as Home page",
 		"lbl_AddToFavorite": "Add to Favorite",
