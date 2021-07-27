@@ -824,12 +824,12 @@ export const defMenuLinks = langId => {
 			displayKey: "lbl_Affiliates",
 			target: "_blank",
 			isFullPath: true
-		},
-		leaderBoard: {
-			path: path.leaderBoard.root,
-			displayKey: "lbl_Ranking",
-			className: "icon icon-live"
 		}
+		// leaderBoard: {
+		// 	path: path.leaderBoard.root,
+		// 	displayKey: "lbl_Ranking",
+		// 	className: "icon icon-live"
+		// }
 		// lottery: {
 		// 	productInfo: productList.lottery,
 		// 	path: path.sports.root,
