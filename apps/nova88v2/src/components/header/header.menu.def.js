@@ -175,7 +175,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "home-movie.png",
 				listBgImgUrl: "moviebg.png",
 				menuType: defMenuType.DirectUrl,
-				path: "https://nova88tv.com/"
+				path: "http://nova88vip.com/"
 			},
 			{
 				displayKey: "lbl_Ranking",
@@ -858,7 +858,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "home-movie.png",
 				listBgImgUrl: "moviebg.png",
 				menuType: defMenuType.DirectUrl,
-				path: "https://nova88tv.com/"
+				path: "http://nova88vip.com/"
 			}
 		]
 	},
