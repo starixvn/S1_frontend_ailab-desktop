@@ -825,7 +825,7 @@ export const defMenuLinks = {
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.indo4D },
-				allowCurrencies: [defCurrencyList.THB, defCurrencyList.IDR]
+				allowCurrencies: [defCurrencyList.IDR]
 			}
 		]
 	},
