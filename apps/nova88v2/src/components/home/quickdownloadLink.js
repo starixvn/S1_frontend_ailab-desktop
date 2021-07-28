@@ -31,6 +31,7 @@ const QuickdownloadLink = ({ t }) => {
 				setIsShowIcon={setIsShowIcon}
 			/>
 			<IconBar
+				t={t}
 				isShowIcon={isShowIcon}
 				qrCodeName={qrCodeName}
 				showQRcode={showQRcode}
@@ -56,7 +57,8 @@ export const IconBar = ({
 	isShowIcon,
 	qrCodeName,
 	showQRcode,
-	onMouseLeaveIconBar
+	onMouseLeaveIconBar,
+	t
 }) => {
 	return (
 		<div
@@ -68,7 +70,7 @@ export const IconBar = ({
 					qrCodeName === defQRCodeName.ios ? "active" : ""
 				}`}
 				onClick={showQRcode.bind(this, defQRCodeName.ios, iosLink)}>
-				IOS
+				{t("lbl_iOS")?.toUpperCase()}
 				<div>
 					<img src={iosQRcodeImg} alt="ios_qr" />
 				</div>
@@ -82,7 +84,7 @@ export const IconBar = ({
 					defQRCodeName.android,
 					androidLink
 				)}>
-				ANDROID
+				{t("lbl_Android")?.toUpperCase()}
 				<div>
 					<img src={androidQRcodeImg} alt="android_qr" />
 				</div>
@@ -109,7 +111,8 @@ IconBar.propTypes = {
 	isShowIcon: PropTypes.bool.isRequired,
 	qrCodeName: PropTypes.string,
 	showQRcode: PropTypes.func.isRequired,
-	onMouseLeaveIconBar: PropTypes.func.isRequired
+	onMouseLeaveIconBar: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired
 };
 
 export default QuickdownloadLink;

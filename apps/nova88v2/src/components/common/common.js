@@ -221,3 +221,11 @@ export const stringLinkify = text => {
 		.replace(pattern, '<a href="$1" target="_blank">$1</a>')
 		.replaceAll("\n", "<br>");
 };
+
+export const defCurrencyList = {
+	MYR: 2,
+	THB: 4,
+	RMB: 13,
+	IDR: 15,
+	INR: 61
+};

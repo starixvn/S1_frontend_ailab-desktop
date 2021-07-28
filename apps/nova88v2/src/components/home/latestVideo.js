@@ -1,26 +1,29 @@
-import React, { useState, useEffect, useContext } from "react";
-import moment from "moment";
+import React, { useState, useEffect, useContext, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 import { api_video_GetLatestHighlightData } from "../../service/api/video";
 
-const LatestVideo = () => {
+const LatestVideo = memo(() => {
 	const [video, setVideo] = useState({});
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
 
 	useEffect(() => {
 		let mounted = true;
-		api_video_GetLatestHighlightData(userInfo.langId).then(res => {
-			if (res.data.errorCode === 0 && mounted) {
-				setVideo(res.data.data);
-			}
-		});
+		if (userInfo.langId) {
+			api_video_GetLatestHighlightData(userInfo.langId).then(res => {
+				if (res.data.errorCode === 0 && mounted) {
+					setVideo(res.data.data);
+				}
+			});
+		}
 
 		return () => {
 			mounted = false;
 		};
 	}, [userInfo.langId]);
+
+	console.log(video?.link);
 
 	return video?.link ? (
 		<div className="latestVideo">
@@ -41,6 +44,6 @@ const LatestVideo = () => {
 	) : (
 		<div className="latestVideo" />
 	);
-};
+});
 
 export default LatestVideo;
