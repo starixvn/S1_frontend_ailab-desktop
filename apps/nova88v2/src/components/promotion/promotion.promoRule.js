@@ -61,17 +61,17 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 					{!isStaticOrRebate && (
 						<>
 							{displayMinAmount && (
-								<div className="icon icon-icon32px_time">
+								<div className="icon icon-icon32px_money">
 									{t("lbl_Promotion_Min_Deposit")}
 								</div>
 							)}
-							<div className="icon icon-icon32px_time">
+							<div className="icon icon-icon32px_">
 								{t("lbl_Promotion_Bonus")}
 							</div>
 						</>
 					)}
 					{isPercentage && !isStaticOrRebate && (
-						<div className="icon icon-icon32px_money">
+						<div className="icon icon-icon32px_">
 							{t("lbl_MaxBonusAmount")}
 						</div>
 					)}
