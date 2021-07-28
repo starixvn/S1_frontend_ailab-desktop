@@ -81,66 +81,67 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 			.filter(Boolean)
 			.join(" ");
 
-		let subMenu = [];
+		if (defMenuLinks[menuKey]?.subMenu) {
+			let { subMenu } = defMenuLinks[menuKey];
 
-		const isSubMultipleItems = !(
-			typeof defMenuLinks[menuKey]?.subMenu == "undefined"
-		);
+			const _currencyId = userInfo.currencyId
+				? userInfo.currencyId
+				: getCurrencyCode(userInfo.langId);
 
-		if (isSubMultipleItems) {
-			subMenu = defMenuLinks[menuKey]?.subMenu;
+			const haveToCheckTpId =
+				productTpIds?.length > 0 && defMenuLinks[menuKey].filterByAuth;
+
+			subMenu = subMenu.filter(s => {
+				let result =
+					!s.canSeeOnlyAfterLogin ||
+					(s.canSeeOnlyAfterLogin && userInfo.isLogin);
+
+				if (result && s?.allowCurrencies) {
+					result = s?.allowCurrencies.includes(_currencyId);
+				}
+
+				if (result && haveToCheckTpId) {
+					result = s.alwaysShow || productTpIds.includes(s.tpId);
+				}
+
+				return result;
+			});
+
+			const _defSortMenu = defMenuLinks[menuKey].customSort;
+
 			if (
-				subMenu &&
-				productTpIds?.length > 0 &&
-				defMenuLinks[menuKey].filterByAuth
+				_defSortMenu &&
+				Object.keys(_defSortMenu).includes(_currencyId.toString())
 			) {
-				subMenu = subMenu.filter(
-					s => s.alwaysShow || productTpIds.includes(s.tpId)
+				subMenu = subMenu.sort(
+					(a, b) =>
+						_defSortMenu[_currencyId][a.keyName] -
+						_defSortMenu[_currencyId][b.keyName]
 				);
 			}
 
-			subMenu = subMenu?.filter(
-				s =>
-					!s.canSeeOnlyAfterLogin ||
-					(s.canSeeOnlyAfterLogin && userInfo.isLogin)
+			return (
+				<div className={subClassName} key={`main-key-${menuKey}`}>
+					{subMenu?.map(subMenuItem => (
+						<SubMenuMultiple
+							key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
+							subMenuItem={subMenuItem}
+							clickItem={clickItem}
+							userInfo={userInfo}
+							t={t}
+							menuKey={menuKey}
+							className={subMenuItem.className}
+							displayText={subMenuItem.displayText}
+							displayKey={subMenuItem.displayKey}
+							parameter={subMenuItem.parameter}
+							maintainList={maintainList}
+						/>
+					))}
+				</div>
 			);
 		}
 
-		const _currencyId = userInfo.currencyId
-			? userInfo.currencyId
-			: getCurrencyCode(userInfo.langId);
-		const _defSortMenu = defMenuLinks[menuKey].customSort;
-		const isCurrenyInSortDef =
-			_defSortMenu &&
-			Object.keys(_defSortMenu).includes(_currencyId.toString());
-
-		if (isCurrenyInSortDef) {
-			subMenu = subMenu.sort(
-				(a, b) =>
-					_defSortMenu[_currencyId][a.keyName] -
-					_defSortMenu[_currencyId][b.keyName]
-			);
-		}
-
-		return isSubMultipleItems ? (
-			<div className={subClassName} key={`main-key-${menuKey}`}>
-				{subMenu?.map(subMenuItem => (
-					<SubMenuMultiple
-						key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
-						subMenuItem={subMenuItem}
-						clickItem={clickItem}
-						userInfo={userInfo}
-						t={t}
-						menuKey={menuKey}
-						className={subMenuItem.className}
-						displayText={subMenuItem.displayText}
-						displayKey={subMenuItem.displayKey}
-						parameter={subMenuItem.parameter}
-						maintainList={maintainList}
-					/>
-				))}
-			</div>
-		) : (
+		return (
 			<SubMenuSingle
 				key={`main-key-${menuKey}`}
 				subClassName={subClassName}

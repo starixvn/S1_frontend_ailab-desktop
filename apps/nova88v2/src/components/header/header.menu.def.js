@@ -6,6 +6,7 @@ import {
 	showEventIcon
 } from "../common/eventIcon";
 import { currencyCode } from "../../datas/countryCode";
+import { defCurrencyList } from "../common/common";
 
 const defSortCasino = {
 	[currencyCode.TH]: {
@@ -823,7 +824,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-indo.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.indo4D }
+				parameter: { ...productList.indo4D },
+				allowCurrencies: [defCurrencyList.THB, defCurrencyList.IDR]
 			}
 		]
 	},
