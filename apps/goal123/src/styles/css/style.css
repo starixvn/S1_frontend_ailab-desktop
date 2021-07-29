@@ -333,7 +333,7 @@ html.Newtheme header .header > div.menu .gameList,
 html.Newtheme header .header > div.menu .casinoList,
 html.Newtheme header .header > div.menu .livecasinoList,
 html.Newtheme header .header > div.menu .fishList {
-  max-width: 1600px;
+  max-width: 100%;
   margin: auto;
   display: none;
 }
@@ -1291,8 +1291,12 @@ html.Newtheme.index .livecasinoList {
 html.Newtheme main {
   padding-top: 115px;
   min-width: 1010px;
-  height: calc(100% - 115px);
+  min-height: 100%;
   background: url(../img/bgPoint.png) repeat center/1.5%;
+}
+
+html.Newtheme main.joinlogin {
+  min-height: calc(100% - 145px);
 }
 
 html.Newtheme main section {
@@ -1595,6 +1599,7 @@ html.Newtheme .powered img {
 html.Newtheme .payment {
   max-width: inherit !important;
   background-color: #141f33;
+  margin-top: 20px;
 }
 
 html.Newtheme .payment > div {
@@ -4736,8 +4741,8 @@ html.Newtheme .indexCasino .casino-item {
           justify-content: center;
   text-align: center;
   text-transform: uppercase;
-  -webkit-transform: scale(0.8);
-          transform: scale(0.8);
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
 }
 
 html.Newtheme .indexCasino .casino-item .title {

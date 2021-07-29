@@ -418,8 +418,8 @@
 	"lbl_Direction": "ทิศทาง",
 	"lbl_Action": "ผลดำเนินการ",
 	"lbl_QuickPick": "เลือก",
-	"lbl_IFSCCode": "IFSC Code",
-	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
+	"lbl_IFSCCode": "รหัส IFSC",
+	"msg_PleaseEnterIFSCCode": "กรุณากรอกรหัส IFSC",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "โปรโมชั่น",

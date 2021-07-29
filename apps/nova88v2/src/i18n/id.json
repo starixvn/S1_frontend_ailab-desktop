@@ -418,8 +418,8 @@
 	"lbl_Direction": "arah",
 	"lbl_Action": "Tindakan",
 	"lbl_QuickPick": "Pilihan Cepat",
-	"lbl_IFSCCode": "IFSC Code",
-	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
+	"lbl_IFSCCode": "Kode IFSC",
+	"msg_PleaseEnterIFSCCode": "Silakan masukkan kode IFSC",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promosi",

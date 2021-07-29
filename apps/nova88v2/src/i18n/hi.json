@@ -416,8 +416,8 @@
 	"lbl_Direction": "दिशा",
 	"lbl_Action": "कार्य",
 	"lbl_QuickPick": "त्वरित चुनाव",
-	"lbl_IFSCCode": "IFSC Code",
-	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
+	"lbl_IFSCCode": "IFSC कोड",
+	"msg_PleaseEnterIFSCCode": "कृपया IFSC कोड दर्ज करें",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "प्रचार / प्रचार",

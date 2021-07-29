@@ -418,6 +418,8 @@
 	"lbl_Direction": "方向",
 	"lbl_Action": "动作",
 	"lbl_QuickPick": "时间快选",
+	"lbl_IFSCCode": "IFSC代码",
+	"msg_PleaseEnterIFSCCode": "请输入 IFSC 代码",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "优惠活动",
