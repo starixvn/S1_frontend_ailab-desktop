@@ -126,13 +126,13 @@ const HotEventContent = ({
 					<span>{time}</span>
 				</div>
 
-				{leaguesId === LEAGUESID_LIST.Olympic && (
+				{/* {leaguesId === LEAGUESID_LIST.Olympic && (
 					<img
 						className="olympic"
 						src={olympicsLogo}
 						alt="olympicsLogo"
 					/>
-				)}
+				)} */}
 
 				<div className="teamR">
 					<p>{sportTeamsAway}</p>
