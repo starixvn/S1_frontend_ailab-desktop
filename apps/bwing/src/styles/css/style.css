@@ -907,7 +907,7 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList,
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList,
 header .header > div.menu .nweSubMenu-Wrapper .fishList {
   width: 100%;
-  max-width: 1170px;
+  max-width: inherit;
   display: none;
   -webkit-animation: gameAn 0.3s ease-in;
           animation: gameAn 0.3s ease-in;
@@ -1002,8 +1002,8 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img,
 header .header > div.menu .nweSubMenu-Wrapper .fishList button .img {
   position: relative;
-  width: 140px;
-  height: 160px;
+  width: 160px;
+  height: 170px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -1521,39 +1521,39 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liven2live .img {
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-Oneshot .img {
-  background: url(../img/fishing/OneshotFishing.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-of.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-world .img {
-  background: url(../img/fishing/fishingworld.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-fworld.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-god .img {
-  background: url(../img/fishing/FishingGod.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-god.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-war .img {
-  background: url(../img/fishing/Fishingwrd.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-fwar.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-ttatp .img {
-  background: url(../img/fishing/TheTyrantAndThePrincess.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-ttatp.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-db .img {
-  background: url(../img/fishing/Dragonballfishing.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-db.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-fos .img {
-  background: url(../img/fishing/FishingOfSaviors.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-fos.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-paradise .img {
-  background: url(../img/fishing/Paradise.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-paradise.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-tos .img {
-  background: url(../img/fishing/TowerOfSaviors.png) no-repeat center 10px/auto 100%;
+  background: url(../img/fishing/fish-tos.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.function {
@@ -1995,7 +1995,6 @@ header .header > div.function .wallet .submenu div.loginLog span, header .header
 main {
   position: relative;
   padding-top: 120px;
-  height: calc(100% - 80px);
 }
 
 main section.inside {
@@ -2903,6 +2902,11 @@ input[type="file"] {
 
 main > .swiper-container .swiper-slide {
   line-height: 0;
+}
+
+.swiper-container .swiper-slide img {
+  margin: 0 auto;
+  max-width: inherit;
 }
 
 .swiper-pagination {
@@ -7115,6 +7119,10 @@ main > .swiper-container .swiper-slide {
   overflow: hidden;
 }
 
+.livelobby .lobbybanner img {
+  max-width: inherit;
+}
+
 .livelobby .lobbybanner .ball1 {
   position: absolute;
   top: 27%;
@@ -7322,6 +7330,10 @@ main > .swiper-container .swiper-slide {
   overflow: hidden;
 }
 
+.fishlobby .lobbybanner img {
+  max-width: inherit;
+}
+
 .fishlobby .lobbybanner .ball1 {
   position: absolute;
   top: 60%;
@@ -7526,6 +7538,10 @@ main > .swiper-container .swiper-slide {
 .gamelobby section .rightModule .lobbybanner {
   position: relative;
   overflow: hidden;
+}
+
+.gamelobby section .rightModule .lobbybanner img {
+  max-width: inherit;
 }
 
 .gamelobby section .rightModule .lobbybanner .ball1 {

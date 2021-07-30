@@ -857,7 +857,7 @@ header input:focus-within {
 }
 
 .header > div.function > div .countryList .countryName, .header > div.function > a .countryList .countryName, .header > div.function > button .countryList .countryName {
-  color: #f77900;
+  font-weight: bold;
 }
 
 .header > div.function > div .countryList button, .header > div.function > div .countryList a, .header > div.function > div .countryList div, .header > div.function > a .countryList button, .header > div.function > a .countryList a, .header > div.function > a .countryList div, .header > div.function > button .countryList button, .header > div.function > button .countryList a, .header > div.function > button .countryList div {
@@ -2324,6 +2324,7 @@ footer .footerList > div > div > div {
 .joinpop .joinloginModule .joinAnimation img {
   width: auto;
   height: auto;
+  position: absolute;
   margin: auto;
 }
 
@@ -6281,6 +6282,7 @@ input[type="file"] {
 .livecasinoinside {
   background: #020612 url(https://banner.n88media.com/img/livecasino/casinobg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
+  min-height: 100%;
 }
 
 .proList, .slotList, .livecasino, .fishingList {
@@ -6758,6 +6760,7 @@ form {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   margin-top: 15px;
+  overflow: hidden;
 }
 
 .slotList > div:hover {
@@ -6767,11 +6770,20 @@ form {
           transform: scale(1.1);
 }
 
+.slotList > div:hover .btnGroup {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  opacity: 1;
+  top: 15px;
+}
+
 .slotList > div .btnGroup {
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
   width: calc(100% - 30px);
   background: rgba(0, 0, 0, 0.6);
   height: 219px;
-  top: 15px;
+  top: -220px;
   border-radius: 15px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -6780,6 +6792,10 @@ form {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  opacity: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .slotList > div .btnGroup button {
@@ -13056,6 +13072,7 @@ canvas {
 .fishinginside {
   background: #84eff9 url(https://banner.n88media.com/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
+  min-height: 100%;
 }
 
 .fishinginside .inside {
@@ -13149,6 +13166,7 @@ canvas {
 .lotteryinside {
   position: relative;
   background: #030a5b url(https://banner.n88media.com/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
+  min-height: 100%;
 }
 
 .lotteryinside .inside {
@@ -13274,6 +13292,7 @@ canvas {
 .gameinside {
   position: relative;
   background: #3e132e url(https://banner.n88media.com/img/game/gamebg.jpg) no-repeat bottom center/100%;
+  min-height: 100%;
 }
 
 .gameinside .inside .rightModule {
@@ -14217,10 +14236,6 @@ img[alt="sg"] {
           justify-content: center;
 }
 
-.mainBanner > img {
-  width: auto;
-}
-
 .mainBanner .bannerInfo {
   width: 1400px;
   position: absolute;
@@ -14758,5 +14773,361 @@ img[alt="sg"] {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+
+.rankingNew section {
+  max-width: calc(1600px - 60px);
+  padding: 30px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  background-color: #191919;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  margin: 20px auto;
+  background-image: url(../img/ranking_page_bg.jpg);
+}
+
+.rankingNew section a {
+  color: #f77900;
+  text-decoration: underline;
+}
+
+.rankingNew section button {
+  text-transform: uppercase;
+}
+
+.rankingNew section > .btnGroup {
+  min-width: 768px;
+  margin: 0;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.rankingNew section > .btnGroup ~ div {
+  display: none;
+}
+
+.rankingNew section > .btnGroup ~ div.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.rankingNew section > .btnGroup button {
+  border-radius: 15px 15px 0 0;
+  color: #666;
+  white-space: nowrap;
+  background: #00616f;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: 0 4px 0 0;
+  color: #19a4bb;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+.rankingNew section > .btnGroup button.active, .rankingNew section > .btnGroup button:hover {
+  background: #19a4bb;
+  color: white;
+}
+
+.rankingNew section .mwt_border {
+  position: relative;
+  border: 3px solid #19a4bb;
+  margin-top: 20px;
+  padding: 10px;
+  line-height: normal;
+  font-weight: bold;
+}
+
+.rankingNew section .mwt_border .arrow_t_int {
+  width: 0px;
+  height: 0px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent #19a4bb transparent;
+  position: absolute;
+  top: -33px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.rankingNew section .mwt_border .arrow_t_out {
+  width: 0px;
+  height: 0px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent transparent transparent;
+  position: absolute;
+  top: -29px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.rankingNew section .champion, .rankingNew section .eventRule, .rankingNew section .lastevent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 30px;
+  min-width: 768px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  border: 2px solid #19a4bb;
+  border-radius: 0 0 10px 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 30px 0;
+  min-height: 725px;
+  position: relative;
+  background: url(https://image.n88media.com/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
+}
+
+.rankingNew section .champion .title, .rankingNew section .eventRule .title, .rankingNew section .lastevent .title {
+  font-size: 28px;
+  clear: both;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.rankingNew section .champion .highest, .rankingNew section .eventRule .highest, .rankingNew section .lastevent .highest {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0 20px;
+  text-align: center;
+  max-width: 230px;
+}
+
+.rankingNew section .champion .highest .txt-yellow, .rankingNew section .eventRule .highest .txt-yellow, .rankingNew section .lastevent .highest .txt-yellow {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.rankingNew section .champion .rankModule, .rankingNew section .eventRule .rankModule, .rankingNew section .lastevent .rankModule {
+  -webkit-box-flex: 1.4;
+      -ms-flex: 1.4;
+          flex: 1.4;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 485px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.rankingNew section .champion .rankModule .icon-nodata, .rankingNew section .eventRule .rankModule .icon-nodata, .rankingNew section .lastevent .rankModule .icon-nodata {
+  color: #fab617;
+}
+
+.rankingNew section .champion .rankModule .btnGroup button, .rankingNew section .eventRule .rankModule .btnGroup button, .rankingNew section .lastevent .rankModule .btnGroup button {
+  border-radius: 0;
+  min-width: auto;
+  padding: 5px 10px;
+}
+
+.rankingNew section .champion .rankTag, .rankingNew section .lastevent .rankTag {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 1;
+}
+
+.rankingNew section .champion .rankTag .btnGroup button, .rankingNew section .lastevent .rankTag .btnGroup button {
+  border-radius: 5px;
+}
+
+.rankingNew section .champion .finalTour, .rankingNew section .lastevent .finalTour {
+  text-transform: uppercase;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+  min-width: auto;
+  white-space: nowrap;
+  margin-left: 0;
+  font-weight: bold;
+  font-size: 15px;
+  background: #003b44;
+  color: #00616f;
+  border-radius: 5px;
+  position: absolute;
+  right: 10px;
+  -webkit-animation: finaltour 1s infinite;
+          animation: finaltour 1s infinite;
+  cursor: pointer;
+  z-index: 1;
+}
+
+@keyframes finaltour {
+  0% {
+    background: #003b44;
+    color: #00616f;
+  }
+  50% {
+    background: #00616f;
+    color: #a9d9e7;
+  }
+  100% {
+    background: #003b44;
+    color: #00616f;
+  }
+}
+
+.rankingNew section .champion .highest, .rankingNew section .lastevent .highest {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.rankingNew section .champion .highest .title, .rankingNew section .lastevent .highest .title {
+  text-align: center;
+  margin-bottom: 0px;
+  white-space: nowrap;
+  font-size: 14px;
+  color: #fab617;
+}
+
+.rankingNew section .champion .highest .title div, .rankingNew section .lastevent .highest .title div {
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+.rankingNew section .champion li, .rankingNew section .lastevent li {
+  min-height: auto;
+}
+
+.rankingNew section .champion li.userRank, .rankingNew section .lastevent li.userRank {
+  background: #1E85EC;
+  color: white;
+}
+
+.rankingNew section .rankTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.rankingNew section .rankTag .btnGroup {
+  margin: 0;
+}
+
+.rankingNew section .rankTag .btnGroup button {
+  text-transform: uppercase;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+  min-width: auto;
+  white-space: nowrap;
+  margin-left: 0;
+  font-weight: bold;
+  font-size: 15px;
+  background: #003b44;
+  color: #00616f;
+}
+
+.rankingNew section .rankTag .btnGroup button.active {
+  background: #00616f;
+  color: #a9d9e7;
+}
+
+.rankingNew section .eventRule {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.rankingNew section .eventRule .stitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.rankingNew section .eventRule .title {
+  word-wrap: break-word;
+  color: white;
+}
+
+.rankingNew section .eventRule .rankTag {
+  margin-bottom: 0;
+}
+
+.rankingNew section .eventRule .rankList {
+  width: 66.6%;
+  text-align: center;
+}
+
+.rankingNew section .eventRule .rankList > div {
+  display: none;
+}
+
+.rankingNew section .eventRule .rankList > div.active {
+  display: block;
+}
+
+.rankingNew section .eventRule .rankList button {
+  color: white;
+  background: #19a4bb;
+  border-radius: 30px;
+  padding: 5px 10px;
+}
+
+.rankingNew section .eventRule .rankList button:hover {
+  background: #00616f;
+}
+
+.rankingNew section .eventRule .rankList li div {
+  min-width: 110px;
+}
+
+.rankingNew section .eventRule .rankList li div:first-child {
+  min-width: auto;
+}
+
+.rankingNew section .eventRule .rankList li div:first-child img {
+  float: right;
+}
+
+.rankingNew section .eventRule .rankList li div:last-child {
+  min-width: 250px;
+}
+
+.rankingNew + footer .footerList > div a ~ div {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */
