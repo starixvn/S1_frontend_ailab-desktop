@@ -587,12 +587,12 @@ export const defMenuLinks = {
 	affiliate: {
 		affiliate: true,
 		displayKey: "lbl_Affiliates"
-	},
-	ranking: {
-		path: path.leaderBoard.root,
-		displayKey: "lbl_Ranking",
-		className: "liveIcon"
 	}
+	// ranking: {
+	// 	path: path.leaderBoard.root,
+	// 	displayKey: "lbl_Ranking",
+	// 	className: "liveIcon"
+	// }
 	// lottery: {
 	// 	productInfo: productList.lottery,
 	// 	path: path.sports.root,
