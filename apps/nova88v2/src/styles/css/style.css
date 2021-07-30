@@ -1686,17 +1686,6 @@ footer .sfp > div > div img {
   margin-right: 10px;
 }
 
-footer .sfp > div > div.paymentLogo a {
-  background: #51678e;
-  padding: 3px;
-  margin-right: 3px;
-  border-radius: 5px;
-}
-
-footer .sfp > div > div.paymentLogo a img {
-  margin: 0;
-}
-
 footer .footerList {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13975,7 +13964,20 @@ img[alt="sg"] {
   margin: 0 0 15px;
 }
 
-.checkspeed .wallpaper .module > .bottom > div.left > div > div:last-child {
+.checkspeed .wallpaper .module > .bottom > div.left > div > div.time {
+  margin-left: 50px;
+  margin-top: -10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.left > div > div.time span {
+  margin-left: 5px;
+  color: #fab617;
+}
+
+.checkspeed .wallpaper .module > .bottom > div.left > div > div:last-child:not(.time) {
   margin: 0;
 }
 

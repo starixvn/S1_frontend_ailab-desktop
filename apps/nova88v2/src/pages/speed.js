@@ -188,22 +188,12 @@ const SpeedContent = ({
 							<div>{t("speed.lbl_DomainListTip")}</div>
 							<div>
 								{domainList.map(item => (
-									<div key={item.domainName}>
-										<img
-											src={
-												item.respondingTime ===
-												RESPOND_ERROR
-													? crossIcon
-													: checkIcon
-											}
-											alt="icon-img"
-										/>
-										<div>{item.domainName}</div>
-
-										<a href={item.domainName}>
-											{t("speed.lbl_EnterWebsite")}
-										</a>
-									</div>
+									<SpeedItem
+										t={t}
+										key={item.domainName}
+										domainName={item.domainName}
+										respondingTime={item.respondingTime}
+									/>
 								))}
 							</div>
 						</div>
@@ -247,4 +237,35 @@ SpeedContent.propTypes = {
 	hardReloadPage: PropTypes.func.isRequired,
 	setHomeAlert: PropTypes.func.isRequired,
 	addFavoriteAlert: PropTypes.func.isRequired
+};
+
+const SpeedItem = ({ t, domainName, respondingTime }) => {
+	return (
+		<>
+			<div key={`${domainName}-content`}>
+				<img
+					src={
+						respondingTime === RESPOND_ERROR ? crossIcon : checkIcon
+					}
+					alt="icon-img"
+				/>
+				<div>{domainName}</div>
+
+				<a href={domainName}>{t("speed.lbl_EnterWebsite")}</a>
+			</div>
+
+			{respondingTime !== RESPOND_ERROR && (
+				<div key={`${domainName}-time`} className="time">
+					{t("speed.lbl_ResponseTime")}
+					<span>{respondingTime}</span>
+				</div>
+			)}
+		</>
+	);
+};
+
+SpeedItem.propTypes = {
+	t: PropTypes.func.isRequired,
+	domainName: PropTypes.string.isRequired,
+	respondingTime: PropTypes.number.isRequired
 };

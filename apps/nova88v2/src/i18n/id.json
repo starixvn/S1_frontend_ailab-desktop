@@ -865,7 +865,8 @@
 		"lbl_AddFavoriteTip": "Browser anda tidak mendukung. Silahkan ikuti langkah dibawah untuk menyelesaikan pengaturan: 1. Buka browser. 2. Klik pada pengaturan Webpage. 3. Masukkan: {{url}}",
 		"lbl_ClickOk": "Klik untuk konfirmasi.",
 		"lbl_AddFavoriteFail": "Favorit gagal. Silahkan gunakan Ctrl+D untuk menambahkan.",
-		"lbl_Refresh": "Refresh untuk cek"
+		"lbl_Refresh": "Refresh untuk cek",
+		"lbl_ResponseTime": "Waktu Respon:"
 	},
 
 	"end-----": "end-----"
