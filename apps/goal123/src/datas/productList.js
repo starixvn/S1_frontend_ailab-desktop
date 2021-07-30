@@ -23,7 +23,7 @@ export default {
 		tpId: 1,
 		gameId: 200,
 		name: "sabaClub",
-		tpCategory: defTpCategoryId.sports
+		tpCategory: defTpCategoryId.slot
 	},
 	sportBti: {
 		tpId: 29,
