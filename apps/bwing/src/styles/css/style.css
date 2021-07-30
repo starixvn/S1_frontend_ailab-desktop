@@ -5252,10 +5252,8 @@ main > .swiper-container .swiper-slide {
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  top: 5px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  top: 12px;
+  left: -20%;
 }
 
 .offers .swiper-container .eventImg .team .teamL {
@@ -5284,7 +5282,6 @@ main > .swiper-container .swiper-slide {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 15px;
 }
 
 .offers .swiper-container .eventImg .teamName {
