@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { Link } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { InfoList, initValue, initStatus, DisplayRow } from "./profile.data";
+import { InfoList, initValue, initStatus } from "./profile.data";
 import areaCode from "../../datas/areaCode";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
@@ -12,8 +12,7 @@ import {
 } from "../../service/api/accountStrict";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-import ProfileEdit from "./profile.edit";
-import ProfileRead from "./profile.read";
+import ProfileForm from "./profile.form";
 import { getUrlParameter } from "../common/common";
 import { defPrevPage } from "./profile.dev";
 import Loading from "../common/loading";
@@ -411,13 +410,9 @@ export default () => {
 		api_accountStrict_SendOTPSMS().then(
 			res => {
 				if (isMountedRef.current) {
-					const {
-						data: {
-							data: { startUnixTime },
-							errorCode,
-							message
-						}
-					} = res;
+					const { errorCode, message } = res.data;
+					const startUnixTime = res.data.data?.startUnixTime;
+
 					const success = errorCode === 0;
 					const alreadyVerifiedPhone = errorCode === 5001;
 
@@ -440,14 +435,13 @@ export default () => {
 								: errorCode === 1000
 								? t("msg_OTP_Invalid")
 								: message ||
-								  `[${errorCode}] ${t("msg_ApiServerError")}`,
-							errorCode
+								  `[${errorCode}] ${t("msg_ApiServerError")}`
 						);
 					}
 					setMobileVerificationLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					openErrorMessagePopBox();
 					setMobileVerificationLoading(false);
@@ -455,26 +449,6 @@ export default () => {
 			}
 		);
 	};
-
-	const arr = infoList?.map(item => {
-		let displayValue = item.content;
-
-		if (item.format) {
-			displayValue = item.format(item.content, item.bindingData);
-		}
-
-		return item.show ? (
-			<DisplayRow
-				key={`profile-${item.displayKey}`}
-				t={t}
-				displayKey={item.displayKey}
-				content={displayValue}
-				mobileVerificationLoading={mobileVerificationLoading}
-				areaCode={_areaCodeVal}
-				sendOTPSMS={sendOTPSMS}
-			/>
-		) : null;
-	});
 
 	const vipClubImg = userInfo.userLevel
 		? defPageClubImg[userInfo.userLevel - 1]
@@ -504,33 +478,25 @@ export default () => {
 				</div>
 			) : null}
 
-			{userInfo.accountName && userInfo.birth_d && userInfo.phoneNo ? (
-				<ProfileRead
-					t={t}
-					infoList={infoList}
-					mobileVerificationLoading={mobileVerificationLoading}
-					areaCodeVal={_areaCodeVal}
-					sendOTPSMS={sendOTPSMS}
-				/>
-			) : (
-				<ProfileEdit
-					t={t}
-					userInfo={userInfo}
-					userValue={userValue}
-					status={status}
-					arr={arr}
-					editField={editField}
-					valueCheck={valueCheck}
-					phoneCheck={phoneCheck}
-					clickInfo={clickInfo}
-					clickSubmit={clickSubmit}
-					isUSDT={isUSDT}
-					areaCodeOptions={areaCodeOptions}
-					onSelectAreaCode={onSelectAreaCode}
-					_areaCodeVal={_areaCodeVal}
-					disableSubmit={disableSubmit}
-				/>
-			)}
+			<ProfileForm
+				t={t}
+				infoList={infoList}
+				mobileVerificationLoading={mobileVerificationLoading}
+				areaCodeVal={_areaCodeVal}
+				sendOTPSMS={sendOTPSMS}
+				userInfo={userInfo}
+				userValue={userValue}
+				status={status}
+				editField={editField}
+				valueCheck={valueCheck}
+				phoneCheck={phoneCheck}
+				clickInfo={clickInfo}
+				clickSubmit={clickSubmit}
+				isUSDT={isUSDT}
+				areaCodeOptions={areaCodeOptions}
+				onSelectAreaCode={onSelectAreaCode}
+				disableSubmit={disableSubmit}
+			/>
 		</div>
 	);
 };
