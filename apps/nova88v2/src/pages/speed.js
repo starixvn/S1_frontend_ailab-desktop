@@ -257,7 +257,7 @@ const SpeedItem = ({ t, domainName, respondingTime }) => {
 			{respondingTime !== RESPOND_ERROR && (
 				<div key={`${domainName}-time`} className="time">
 					{t("speed.lbl_ResponseTime")}
-					<span>{respondingTime}</span>
+					<span>{respondingTime * 1000}</span>
 				</div>
 			)}
 		</>
