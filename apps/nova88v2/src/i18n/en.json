@@ -868,6 +868,7 @@
 		"lbl_AddFavoriteTip": "Your browser is not support. Kindly follow step as below to complete the setting: 1. Open browser. 2. Click on Webpage Setting. 3. Key: {{url}}",
 		"lbl_ClickOk": "Click to confirm.",
 		"lbl_AddFavoriteFail": "Favorite failed. Kindly use Ctrl+D to add accordingly.",
-		"lbl_Refresh": "Refresh to check"
+		"lbl_Refresh": "Refresh to check",
+		"lbl_ResponseTime": "Response Time:"
 	}
 }
