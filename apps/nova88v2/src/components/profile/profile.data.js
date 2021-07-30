@@ -24,9 +24,9 @@ export const initStatus = {
 	}
 };
 
-const CountryFormat = (value, dataList) => {
-	return dataList.find(x => x.code === value)?.countryName || value;
-};
+// const CountryFormat = (value, dataList) => {
+// 	return dataList.find(x => x.code === value)?.countryName || value;
+// };
 
 export const InfoList = ({ countryList }) => {
 	const { userInfo } = useContext(userInfoContext);
@@ -80,42 +80,4 @@ export const InfoList = ({ countryList }) => {
 	];
 
 	return infoList;
-};
-
-export const DisplayRow = ({
-	t,
-	displayKey,
-	content,
-	areaCode,
-	mobileVerificationLoading,
-	sendOTPSMS
-}) => {
-	const {
-		userInfo: { phoneVerified }
-	} = useContext(userInfoContext);
-	return (
-		<div>
-			<div>{t(displayKey)}</div>
-			<div>
-				{displayKey === "lbl_Phone"
-					? `(${areaCode})${content}`
-					: content}
-
-				{displayKey === "lbl_Phone" ? (
-					mobileVerificationLoading ? (
-						<div className="otpLoading">
-							<i className="icon icon-spinner11" />
-						</div>
-					) : phoneVerified ? (
-						<span className="icon icon-checkmark" />
-					) : (
-						<button onClick={sendOTPSMS}>
-							<span className="icon icon-error otp" />
-							<span>{t("lbl_MobileVerify")}</span>
-						</button>
-					)
-				) : null}
-			</div>
-		</div>
-	);
 };
