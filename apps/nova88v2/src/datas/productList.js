@@ -157,8 +157,8 @@ export default {
 	},
 	casino_OW: {
 		tpId: 1,
-		gameId: 208,
-		tpCategory: defTpCategoryId.slot
+		gameId: 208
+		// tpCategory: defTpCategoryId.slot
 	},
 	casino_PT: {
 		tpId: 27,

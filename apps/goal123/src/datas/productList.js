@@ -295,8 +295,8 @@ export const defCasinoProviders = {
 	OW: {
 		tpId: 1,
 		gameId: 208,
-		name: "OW",
-		tpCategory: defTpCategoryId.slot
+		name: "OW"
+		// tpCategory: defTpCategoryId.slot
 	},
 	CQ9: {
 		tpId: 16,
