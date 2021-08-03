@@ -1299,6 +1299,11 @@ html.Newtheme main.joinlogin {
   min-height: calc(100% - 145px);
 }
 
+html.Newtheme main.sports {
+  height: calc(100% - 115px);
+  min-height: calc(100% - 115px);
+}
+
 html.Newtheme main section {
   padding-top: 0;
 }

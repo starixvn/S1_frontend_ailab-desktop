@@ -23,7 +23,7 @@ const Content = () => {
 	const gameId = productList[game]?.gameId;
 	const matchid = getUrlParameter("matchid");
 	return (
-		<main>
+		<main className="sports">
 			<section className="inside">
 				<iframe
 					title="sport"
