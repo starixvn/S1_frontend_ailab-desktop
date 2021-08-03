@@ -3786,7 +3786,7 @@ input[type="file"] {
 }
 
 .subModuleList .subModule .subModuleBody .txt-lightgray {
-  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .platformName {
@@ -14775,20 +14775,16 @@ img[alt="sg"] {
   }
 }
 
+.rankingNew {
+  background: url(../img/ranking_page_bg.jpg) no-repeat top center/cover;
+}
+
 .rankingNew section {
-  max-width: calc(1600px - 60px);
-  padding: 30px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background-color: #191919;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 15px;
-  margin: 20px auto;
-  background-image: url(../img/ranking_page_bg.jpg);
+  padding: 35px 0;
 }
 
 .rankingNew section a {
@@ -14814,6 +14810,7 @@ img[alt="sg"] {
 
 .rankingNew section > .btnGroup ~ div {
   display: none;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .rankingNew section > .btnGroup ~ div.active {
@@ -14823,28 +14820,28 @@ img[alt="sg"] {
 }
 
 .rankingNew section > .btnGroup button {
-  border-radius: 15px 15px 0 0;
+  border-radius: 5px 5px 0 0;
   color: #666;
   white-space: nowrap;
-  background: #00616f;
+  background: #202d40;
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
   margin: 0 4px 0 0;
-  color: #19a4bb;
+  color: #c6d2e8;
   -webkit-box-flex: 1;
       -ms-flex: auto;
           flex: auto;
 }
 
 .rankingNew section > .btnGroup button.active, .rankingNew section > .btnGroup button:hover {
-  background: #19a4bb;
+  background: #6483b9;
   color: white;
 }
 
 .rankingNew section .mwt_border {
   position: relative;
-  border: 3px solid #19a4bb;
+  border: 3px solid #6483b9;
   margin-top: 20px;
   padding: 10px;
   line-height: normal;
@@ -14856,7 +14853,7 @@ img[alt="sg"] {
   height: 0px;
   border-width: 15px;
   border-style: solid;
-  border-color: transparent transparent #19a4bb transparent;
+  border-color: transparent transparent #6483b9 transparent;
   position: absolute;
   top: -33px;
   left: 50%;
@@ -14877,19 +14874,52 @@ img[alt="sg"] {
           transform: translateX(-50%);
 }
 
+.rankingNew section .rankList {
+  background: #6483b9;
+}
+
+.rankingNew section .rankList::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, right top, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to right, #F1D5B6, #CDAE8E);
+}
+
+.rankingNew section .rankList li {
+  background: #28344a;
+}
+
+.rankingNew section .rankList li:first-child {
+  background: transparent;
+}
+
+.rankingNew section .rankList li .icon {
+  font-size: 24px;
+}
+
+.rankingNew section .rankList li .icon-arrow_drop_up {
+  color: red;
+}
+
+.rankingNew section .rankList li .icon-arrow_drop_down {
+  color: green;
+}
+
 .rankingNew section .champion, .rankingNew section .eventRule, .rankingNew section .lastevent {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
   line-height: 30px;
-  min-width: 768px;
+  width: 768px;
   -ms-flex-item-align: end;
       align-self: flex-end;
-  border: 2px solid #19a4bb;
+  border: 2px solid #6483b9;
   border-radius: 0 0 10px 10px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 30px 0;
+  padding: 30px;
   min-height: 725px;
   position: relative;
   background: url(https://image.n88media.com/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
@@ -14918,9 +14948,6 @@ img[alt="sg"] {
 }
 
 .rankingNew section .champion .rankModule, .rankingNew section .eventRule .rankModule, .rankingNew section .lastevent .rankModule {
-  -webkit-box-flex: 1.4;
-      -ms-flex: 1.4;
-          flex: 1.4;
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14931,7 +14958,6 @@ img[alt="sg"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 485px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -14948,11 +14974,10 @@ img[alt="sg"] {
   padding: 5px 10px;
 }
 
-.rankingNew section .champion .rankTag, .rankingNew section .lastevent .rankTag {
-  position: absolute;
-  top: 0;
-  left: 20px;
-  z-index: 1;
+.rankingNew section .champion .rankModule .rankList, .rankingNew section .eventRule .rankModule .rankList, .rankingNew section .lastevent .rankModule .rankList {
+  width: calc(100% - 50px);
+  padding: 10px 25px;
+  max-height: 718px;
 }
 
 .rankingNew section .champion .rankTag .btnGroup button, .rankingNew section .lastevent .rankTag .btnGroup button {
@@ -15029,6 +15054,32 @@ img[alt="sg"] {
   color: white;
 }
 
+.rankingNew section .champion .rankTag {
+  margin: 25px 0 45px;
+}
+
+.rankingNew section .champion .rankTag .btnGroup {
+  display: block;
+}
+
+.rankingNew section .champion .rankTag .btnGroup button {
+  background: transparent;
+  border-right: 1px solid white;
+  border-radius: 0;
+  float: left;
+  padding: 0 10px;
+  text-decoration: underline;
+}
+
+.rankingNew section .champion .rankTag .btnGroup button.active {
+  background: transparent;
+  text-decoration: none;
+}
+
+.rankingNew section .champion .rankTag .btnGroup button:last-child {
+  border: 0;
+}
+
 .rankingNew section .rankTag {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15054,20 +15105,39 @@ img[alt="sg"] {
   margin-left: 0;
   font-weight: bold;
   font-size: 15px;
-  background: #003b44;
-  color: #00616f;
+  background: #202d40;
+  color: #c5d2e5;
 }
 
 .rankingNew section .rankTag .btnGroup button.active {
-  background: #00616f;
-  color: #a9d9e7;
+  background: #6483b9;
+  color: white;
+}
+
+.rankingNew section .rankTag .inputBox-blue {
+  width: 300px;
+  margin: 0 0 6px;
+}
+
+.rankingNew section .rankTag .inputBox-blue .dropdown .dropdown-container {
+  position: absolute;
+  top: 27px;
+  left: -1px;
+  border-radius: 0 0 5px 5px;
+  background: white;
+  border: 1px solid #BFCCE2;
+  border-top: 0;
+  margin-left: 0;
+  overflow: hidden;
+  padding: 0 10px;
+  width: calc(100% - 20px);
+}
+
+.rankingNew section .rankTag .inputBox-blue .dropdown .dropdown-container .dropdown-item {
+  padding: 0 0 5px 5px;
 }
 
 .rankingNew section .eventRule {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -15088,8 +15158,17 @@ img[alt="sg"] {
 }
 
 .rankingNew section .eventRule .rankList {
-  width: 66.6%;
+  width: 600px;
   text-align: center;
+  background: #dbe7f6;
+  padding: 10px 20px;
+  max-height: unset;
+}
+
+.rankingNew section .eventRule .rankList::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left top, right top, from(#F1D5B6), to(#CDAE8E));
+  background: linear-gradient(to right, #F1D5B6, #CDAE8E);
+  border-radius: 10px;
 }
 
 .rankingNew section .eventRule .rankList > div {
@@ -15102,13 +15181,13 @@ img[alt="sg"] {
 
 .rankingNew section .eventRule .rankList button {
   color: white;
-  background: #19a4bb;
+  background: #6483b9;
   border-radius: 30px;
   padding: 5px 10px;
 }
 
 .rankingNew section .eventRule .rankList button:hover {
-  background: #00616f;
+  background: #202d40;
 }
 
 .rankingNew section .eventRule .rankList li div {
@@ -15125,6 +15204,38 @@ img[alt="sg"] {
 
 .rankingNew section .eventRule .rankList li div:last-child {
   min-width: 250px;
+}
+
+.rankingNew section .eventRule .rankList > table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fafafa;
+  margin-bottom: 10px;
+}
+
+.rankingNew section .eventRule .rankList > table tr:nth-child(1) {
+  font-size: 18px;
+}
+
+.rankingNew section .eventRule .rankList > table tr > th {
+  width: 25%;
+  border: 1px solid #cfcfcf;
+  text-align: left;
+  background-color: #5574a7;
+  color: white;
+  text-align: center;
+}
+
+.rankingNew section .eventRule .rankList > table tr > td {
+  border: 1px solid #cfcfcf;
+  padding: 8px;
+  text-align: center;
+  color: #000000;
+}
+
+.rankingNew section .eventRule .rankList > table tr > td:nth-child(1) {
+  background: #f4e1d0;
+  font-weight: 900;
 }
 
 .rankingNew + footer .footerList > div a ~ div {
