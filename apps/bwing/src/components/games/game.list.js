@@ -74,8 +74,6 @@ const GameListItem = ({
 					}>
 					{t("lbl_Play")}
 				</button>
-
-				<button className="blue">DEMO</button>
 			</div>
 		</div>
 	);
