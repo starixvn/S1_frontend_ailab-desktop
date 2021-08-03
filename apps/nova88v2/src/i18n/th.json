@@ -868,6 +868,14 @@
 		"lbl_Refresh": "รีเฟรชเพื่อตรวจสอบ",
 		"lbl_ResponseTime": "เวลาตอบสนอง:"
 	},
+	
+	"livecasino":{
+		"lbl_welcome_to" :"ยินดีต้อนรับเข้าสู่โ",
+		"lbl_world_class": "ลกแห่งคาสิโนออน",
+		"lbl_casino_world": "ไลน์ระดับเวิลด์คลาส",
+		"lbl_amber_na": "AMBER NA",
+		"lbl_spokesperson_2122": "แบรนด์แอมบาสเดอร์  2021/22"
+	},
 
 	"end-----": "end-----"
 }

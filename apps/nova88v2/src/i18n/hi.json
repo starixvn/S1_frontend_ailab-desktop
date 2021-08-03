@@ -844,8 +844,16 @@
 	"lbl_Header_olympic_countdown_hour": "इस घंटे",
 	"lbl_Header_olympic_countdown_mins": "मिनट",
 	"lbl_Header_olympic_countdown_secs": "सेकेंड",
+	
+	"livecasino":{
+		"lbl_welcome_to" :"आपका स्वागत",
+		"lbl_world_class": "है विश्व स्तरीय",
+		"lbl_casino_world": "कैसीनो विश्व",
+		"lbl_amber_na": "AMBER NA",
+		"lbl_spokesperson_2122": "प्रवक्ता 2021/22"
+	},
 
-	"speed": {
+	"speed":{
 		"lbl_CurrentIp": "आपका वर्तमान आईपी स्थान",
 		"lbl_SetHomePage": "मुखपृष्ठ के रूप में स्थित करे",
 		"lbl_AddToFavorite": "पसंदीदा लिस्ट मे जोड़े",

@@ -845,6 +845,14 @@
 	"lbl_Header_olympic_countdown_hour": "HRS",
 	"lbl_Header_olympic_countdown_mins": "MIN",
 	"lbl_Header_olympic_countdown_secs": "SEC",
+	
+	"livecasino":{
+		"lbl_welcome_to" :"WELCOME TO",
+		"lbl_world_class": "WORLD CLASS",
+		"lbl_casino_world": "LIVE CASINO",
+		"lbl_amber_na": "AMBER NA",
+		"lbl_spokesperson_2122": "Spokesperson 2021/22"
+	},
 
 	"speed": {
 		"lbl_CurrentIp": "Your current IP location",

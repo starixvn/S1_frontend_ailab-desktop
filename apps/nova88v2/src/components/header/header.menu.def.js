@@ -360,10 +360,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_PP,
-				lobbyPage: {
-					bgImg: "livecasino_pp.jpg",
-					hoverBgImg: "livecasino_ppa.jpg"
-				}
+				lobbyPage: { npcImg: "casino_pp" }
 			},
 			{
 				keyName: "casino_PT",
@@ -380,10 +377,7 @@ export const defMenuLinks = {
 						period: defEventPeriod.liveCasino_pt
 					})
 				],
-				lobbyPage: {
-					bgImg: "livecasino_pt.jpg",
-					hoverBgImg: "livecasino_pta.jpg"
-				}
+				lobbyPage: { npcImg: "casino_pt" }
 			},
 			{
 				keyName: "casino_N2LIVE",
@@ -399,10 +393,7 @@ export const defMenuLinks = {
 						period: defEventPeriod.n2
 					})
 				],
-				lobbyPage: {
-					bgImg: "livecasino_n2.jpg",
-					hoverBgImg: "livecasino_n2a.jpg"
-				}
+				lobbyPage: { npcImg: "casino_n2" }
 			},
 			{
 				keyName: "casino_WM",
@@ -414,10 +405,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["wmBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_WM,
-				lobbyPage: {
-					bgImg: "livecasino_wm.jpg",
-					hoverBgImg: "livecasino_wma.jpg"
-				}
+				lobbyPage: { npcImg: "casino_wm" }
 			},
 			{
 				keyName: "casino_ALBET",
@@ -429,10 +417,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["allBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_Allbet,
-				lobbyPage: {
-					bgImg: "livecasino_ab.jpg",
-					hoverBgImg: "livecasino_aba.jpg"
-				}
+				lobbyPage: { npcImg: "casino_ab" }
 			},
 			{
 				keyName: "casino_EBET",
@@ -444,10 +429,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["ebBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_eBET,
-				lobbyPage: {
-					bgImg: "livecasino_eb.jpg",
-					hoverBgImg: "livecasino_eba.jpg"
-				}
+				lobbyPage: { npcImg: "casino_eb" }
 			},
 			{
 				keyName: "casino_SA",
@@ -459,10 +441,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["saBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_SA,
-				lobbyPage: {
-					bgImg: "livecasino_sa.jpg",
-					hoverBgImg: "livecasino_saa.jpg"
-				}
+				lobbyPage: { npcImg: "casino_sa" }
 			},
 			{
 				keyName: "casino_AE",
@@ -474,10 +453,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["aeBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_AE,
-				lobbyPage: {
-					bgImg: "livecasino_ae.jpg",
-					hoverBgImg: "livecasino_aea.jpg"
-				}
+				lobbyPage: { npcImg: "casino_ae" }
 			},
 			{
 				keyName: "casino_DG",
@@ -489,10 +465,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["dgBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_DG,
-				lobbyPage: {
-					bgImg: "livecasino_dg.jpg",
-					hoverBgImg: "livecasino_dga.jpg"
-				}
+				lobbyPage: { npcImg: "casino_dg" }
 			},
 			{
 				keyName: "casino_AG",
@@ -504,10 +477,7 @@ export const defMenuLinks = {
 				listBgImgUrl: ["agBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_AG,
-				lobbyPage: {
-					bgImg: "livecasino_ag.jpg",
-					hoverBgImg: "livecasino_aga.jpg"
-				}
+				lobbyPage: { npcImg: "casino_ag" }
 			}
 		]
 	},

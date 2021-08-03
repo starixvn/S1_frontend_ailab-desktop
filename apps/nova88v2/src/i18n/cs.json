@@ -869,5 +869,13 @@
 		"lbl_ResponseTime": "响应时间:"
 	},
 	
+	"livecasino":{
+		"lbl_welcome_to" :"欢迎莅临",
+		"lbl_world_class": "世界级别",
+		"lbl_casino_world": "真人娱乐城",
+		"lbl_amber_na": "AMBER NA",
+		"lbl_spokesperson_2122": "代言人 2021/22"
+	},
+
 	"end-----": "end-----"
 }
