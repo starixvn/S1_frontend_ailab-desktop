@@ -644,6 +644,7 @@ export const defMenuLinks = {
 	},
 	games: {
 		displayKey: "lbl_Games",
+		path: path.game.root,
 		filterByAuth: true,
 		subMenu: [
 			{
@@ -661,7 +662,11 @@ export const defMenuLinks = {
 					})
 				],
 				...productList.games_AMBPoker,
-				parameter: { ...productList.games_AMBPoker }
+				parameter: { ...productList.games_AMBPoker },
+				lobbyPage: {
+					bgImg: "gameamb.png",
+					hoverBgImg: "gameamba.png"
+				}
 			},
 			{
 				keyName: "games_kingMaker",
@@ -678,7 +683,11 @@ export const defMenuLinks = {
 					})
 				],
 				...productList.games_kingMaker,
-				parameter: { ...productList.games_kingMaker }
+				parameter: { ...productList.games_kingMaker },
+				lobbyPage: {
+					bgImg: "gamekim.png",
+					hoverBgImg: "gamekima.png"
+				}
 			}
 		]
 	},
@@ -753,8 +762,7 @@ export const defMenuLinks = {
 	},
 	lottery: {
 		displayKey: "lbl_Lottery",
-		className: "game",
-		productInfo: productList.lottery,
+		path: path.lottery.root,
 		filterByAuth: true,
 		subMenu: [
 			{
@@ -764,7 +772,12 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-keno.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.keno }
+				imgSource: defImgSourceType.bannerImgUrl,
+				parameter: { ...productList.keno },
+				lobbyPage: {
+					bgImg: "lotteryke.png",
+					hoverBgImg: "lotterykea.png"
+				}
 			},
 			{
 				...productList.lottery,
@@ -773,7 +786,12 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-lottery.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.lottery }
+				imgSource: defImgSourceType.bannerImgUrl,
+				parameter: { ...productList.lottery },
+				lobbyPage: {
+					bgImg: "lotterylo.png",
+					hoverBgImg: "lotteryloa.png"
+				}
 			},
 			{
 				...productList.numberGame,
@@ -783,7 +801,12 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-numberGame.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.Link,
-				parameter: { ...productList.numberGame }
+				imgSource: defImgSourceType.bannerImgUrl,
+				parameter: { ...productList.numberGame },
+				lobbyPage: {
+					bgImg: "lotterynu.png",
+					hoverBgImg: "lotterynua.png"
+				}
 			},
 			{
 				...productList.tablegame,
@@ -791,7 +814,12 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-tableGame.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
-				parameter: { ...productList.tablegame }
+				imgSource: defImgSourceType.bannerImgUrl,
+				parameter: { ...productList.tablegame },
+				lobbyPage: {
+					bgImg: "lotteryta.png",
+					hoverBgImg: "lotterytaa.png"
+				}
 			},
 			{
 				...productList.indo4D,
@@ -800,7 +828,12 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-indo.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
+				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.indo4D },
+				lobbyPage: {
+					bgImg: "lottery4d.png",
+					hoverBgImg: "lottery4da.png"
+				},
 				allowCurrencies: [defCurrencyList.IDR]
 			}
 		]

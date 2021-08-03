@@ -323,7 +323,6 @@ export default {
 		gameId: 161,
 		tpCategory: defTpCategoryId.lottery
 	},
-
 	indo4D: {
 		gameId: 223,
 		tpId: 1,

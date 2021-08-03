@@ -868,6 +868,18 @@
 		"lbl_Refresh": "刷新检测",
 		"lbl_ResponseTime": "响应时间:"
 	},
+
+	"games":{
+		"lbl_bannerSubTitle":"焕新生活全新视觉！",
+		"lbl_bannerTitle1":"用游戏增添",
+		"lbl_bannerTitle2":"生活色彩!"
+	},
+
+	"lottery":{
+		"lbl_bannerSubTitle":"致富方式",
+		"lbl_bannerTitle1":"24/7 全天候",
+		"lbl_bannerTitle2":"彩票天堂"
+	},
 	
 	"livecasino":{
 		"lbl_welcome_to" :"欢迎莅临",

@@ -875,5 +875,17 @@
 		"lbl_ResponseTime": "Response Time:"
 	},
 
+	"games":{
+		"lbl_bannerSubTitle":"जीवन का एक नया दृष्टिकोण",
+		"lbl_bannerTitle1":"अपने जीवन को",
+		"lbl_bannerTitle2":"खेल से सजाएं"
+	},
+
+	"lottery":{
+		"lbl_bannerSubTitle":"रीच टू बी रिच",
+		"lbl_bannerTitle1":"लॉटरी स्वर्ग",
+		"lbl_bannerTitle2":"24/7"
+	},
+	
 	"end-----": "end-----"
 }
