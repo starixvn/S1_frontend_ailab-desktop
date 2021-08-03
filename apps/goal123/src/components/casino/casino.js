@@ -310,23 +310,24 @@ export default () => {
 	};
 
 	const EditSearchField = (column, value, providerId) => {
-		let _searchInfo = searchInfo;
-
 		if (column === defSearchColumn.searchText) {
 			setSearchInfo(prevS => {
-				_searchInfo = { ...prevS, [column]: value };
+				const _searchInfo = { ...prevS, [column]: value };
+				SetGames({
+					_searchInfo,
+					_selNav: selNav,
+					_gameDatas: gameDatas,
+					_tpList: tpList
+				});
+
 				return _searchInfo;
 			});
-
-			if (providerId) {
-				SubmitSearch(_searchInfo);
-			}
 		} else {
 			setSearchInfo(prevS => {
 				const _providerId =
 					prevS.provider !== providerId ? providerId : null;
 
-				_searchInfo = {
+				const _searchInfo = {
 					...prevS,
 					[column]: _providerId
 				};
@@ -340,15 +341,6 @@ export default () => {
 				return _searchInfo;
 			});
 		}
-	};
-
-	const SubmitSearch = _searchInfo => {
-		SetGames({
-			_searchInfo: searchInfo,
-			_selNav: selNav,
-			_gameDatas: gameDatas,
-			_tpList: tpList
-		});
 	};
 
 	useEffect(() => {
@@ -397,10 +389,7 @@ export default () => {
 								tpOptions={tpOptions}
 								EditSearchField={EditSearchField}
 								searchInfo={searchInfo}
-								submitSearch={SubmitSearch.bind(
-									this,
-									searchInfo
-								)}
+								activeProviderId={searchInfo.provider}
 							/>
 						</div>
 
