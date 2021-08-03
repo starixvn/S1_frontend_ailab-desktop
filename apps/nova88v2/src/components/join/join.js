@@ -35,6 +35,7 @@ import imgWelcome from "../../styles/img/welcome.png";
 import { eventPeriodEuro } from "../../datas/euroDef";
 import imgEuro from "../../styles/img/euro/joinAnimation.png";
 import path from "../../router";
+import JoinPromoInfo from "./join.promoInfo";
 
 export default () => {
 	const { t } = useTranslation();
@@ -567,30 +568,7 @@ export default () => {
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
-				<div className="features">
-					<div className="title">
-						<span className="icon icon-star-full" />
-						{t("lbl_FEATURES")}
-					</div>
-					<div className="title">{t("lbl_MEMBERS_BENEFITS")}</div>
-					<ul>
-						<li>{t("lbl_JoinNoti_SPORTSBOO_WELCOME_BONUS")}</li>
-						<li>{t("lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS")}</li>
-						<li>{t("lbl_JoinNoti_SLOTS_WELCOME_BONUS")}</li>
-						<li>{t("lbl_JoinNoti_DAILY_REDEPOSIT_BONUS")}</li>
-					</ul>
-					<div className="title">
-						{t("lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES")}
-					</div>
-					<ul>
-						<li>
-							{t(
-								"lbl_Multiple_product_platforms_with_better_odds"
-							)}
-						</li>
-						<li>{t("lbl_Speedy_deposit_and_withdrawal")}</li>
-					</ul>
-				</div>
+				<JoinPromoInfo langId={defaultLangId} />
 				<div className="joinAnimation">
 					{isInPeriodEuro ? (
 						<img alt="animationlogo_euro" src={imgEuro} />
