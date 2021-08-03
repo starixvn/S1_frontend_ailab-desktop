@@ -1,32 +1,33 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import PropTypes from "prop-types";
-import { Swiper, SwiperSlide } from "swiper/react";
-import config from "../../config";
 
-const LiveCasinoBanner = ({ slideImgList }) => {
-	const params = {
-		spaceBetween: 30,
-		centeredSlides: true,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false
-		}
-	};
+import bannerEnImg from "../../styles/img/livecasinolist/banner_en.jpg";
+import bannerVnImg from "../../styles/img/livecasinolist/banner_vn.jpg";
+import chip1Img from "../../styles/img/livecasinolist/chip1.png";
+import chip2Img from "../../styles/img/livecasinolist/chip2.png";
+import diceImg from "../../styles/img/livecasinolist/dice.png";
+
+const LiveCasinoBanner = ({ langId }) => {
+	const imgUrl =
+		{
+			en: bannerEnImg,
+			vn: bannerVnImg
+		}[langId] || bannerEnImg;
 
 	return (
-		<Swiper {...params}>
-			{slideImgList.map(img => (
-				<SwiperSlide key={`livacasino-slide-key-${img}`}>
-					<img src={`${config.bannerImgUrl}/img/${img}`} alt={img} />
-				</SwiperSlide>
-			))}
-		</Swiper>
+		<div className="aniBanner">
+			<img src={imgUrl} alt="livecasino" />
+			<div className="items">
+				<img src={chip1Img} alt="chip1Img" />
+				<img src={chip2Img} alt="chip2Img" />
+				<img src={diceImg} alt="diceImg" />
+			</div>
+		</div>
 	);
 };
 
 export default LiveCasinoBanner;
 
 LiveCasinoBanner.propTypes = {
-	slideImgList: PropTypes.arrayOf(PropTypes.string).isRequired
+	langId: PropTypes.string.isRequired
 };

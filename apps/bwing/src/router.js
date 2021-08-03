@@ -8,6 +8,9 @@ export default {
 	login: {
 		root: "login"
 	},
+	games: {
+		root: "games"
+	},
 	join: {
 		root: "join"
 	},

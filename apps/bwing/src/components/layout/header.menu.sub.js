@@ -57,6 +57,7 @@ const SubMenu = ({
 	const rows = subItems?.map(s => {
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
+		let _className = s.className ? s.className : "";
 
 		const isInMaintain = maintainList?.some(
 			item =>
@@ -64,8 +65,6 @@ const SubMenu = ({
 				(item.tpCategoryId === s.tpCategory ||
 					item.tpCategoryId === defTpCategoryId.all)
 		);
-
-		let _className = s.className ? s.className : "";
 
 		if (isInMaintain) {
 			_className += ` under`;

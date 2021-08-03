@@ -1,34 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
-import Swiper from "react-id-swiper";
 
-const FishingBanner = ({ slideImgList }) => {
-	const params = {
-		spaceBetween: 30,
-		centeredSlides: true,
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false
-		},
-		pagination: {
-			el: ".swiper-pagination",
-			clickable: true
-		}
-	};
+import bannerImg from "../../styles/img/fishinglobby/fishing-banner.jpg";
+import money1Img from "../../styles/img/fishinglobby/money1.png";
+import money2Img from "../../styles/img/fishinglobby/money2.png";
 
+const FishingBanner = () => {
 	return (
-		<Swiper {...params}>
-			{slideImgList.map(img => (
-				<div className="swiper-slide" key={`slide-key-${img}`}>
-					<img src={img} alt="fishmainbanner" />
-				</div>
-			))}
-		</Swiper>
+		<div className="lobbybanner">
+			<img src={bannerImg} alt="bannerImg" />
+			<div className="ball1">
+				<img className="ballImg" src={money1Img} alt="money2Img" />
+			</div>
+			<div className="ball1 ball2">
+				<img className="ballImg" src={money2Img} alt="money2Img" />
+			</div>
+		</div>
 	);
 };
 
 export default FishingBanner;
-
-FishingBanner.propTypes = {
-	slideImgList: PropTypes.arrayOf(PropTypes.string).isRequired
-};

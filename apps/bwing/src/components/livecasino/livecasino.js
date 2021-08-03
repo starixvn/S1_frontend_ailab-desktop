@@ -69,13 +69,11 @@ const Livecasino = () => {
 
 	const subMenu = getSubMenu();
 
-	const slideImgList = [`bw-livelobby-banner-${userInfo.langId}.jpg`];
-
 	return (
-		<section className="inside">
+		<section>
 			<div className="rightModule">
 				<div className="infoModule">
-					<LivecasinoBanner slideImgList={slideImgList} />
+					<LivecasinoBanner langId={userInfo.langId} />
 
 					<LivecasinoList
 						t={t}

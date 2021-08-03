@@ -25,10 +25,10 @@ const SubMenuMultiple = ({
 	let isInMaintain = false;
 	if (subMenuItem.tpCategory) {
 		isInMaintain = maintainList?.some(
-			item =>
-				item.tpId === subMenuItem.tpId &&
-				(item.tpCategoryId === subMenuItem.tpCategory ||
-					item.tpCategoryId === defTpCategoryId.all)
+			mt =>
+				mt.tpId === subMenuItem.tpId &&
+				(mt.tpCategoryId === subMenuItem.tpCategory ||
+					mt.tpCategoryId === defTpCategoryId.all)
 		);
 	}
 

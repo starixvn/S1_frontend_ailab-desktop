@@ -51,6 +51,7 @@ export const defMenuLinks = {
 	// },
 	games: {
 		displayKey: "lbl_Games",
+		path: path.games.root,
 		className: "game icon",
 		subDivClass1: "ballR1",
 		subDivClass2: "ballR1 ballG1",
@@ -65,7 +66,10 @@ export const defMenuLinks = {
 					})
 				],
 				displayKey: "lbl_King_Maker",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "kingmaker"
+				}
 			},
 			{
 				...productList.One789_lottery,
@@ -73,7 +77,10 @@ export const defMenuLinks = {
 				className: "traditional",
 				displayKey: "lbl_TraditionalLottery",
 				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.One789_lottery }
+				parameter: { ...productList.One789_lottery },
+				lobbyPage: {
+					bgClass: "traditional"
+				}
 			},
 			{
 				...productList.One789_lottery_789,
@@ -81,7 +88,10 @@ export const defMenuLinks = {
 				className: "one789",
 				displayKey: "lbl_789Lottery",
 				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.One789_lottery_789 }
+				parameter: { ...productList.One789_lottery_789 },
+				lobbyPage: {
+					bgClass: "lottery789"
+				}
 			},
 			{
 				...productList.sabaClub,
@@ -89,7 +99,10 @@ export const defMenuLinks = {
 				className: "sabaclub",
 				displayKey: "lbl_SabaClub",
 				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.sabaClub }
+				parameter: { ...productList.sabaClub },
+				lobbyPage: {
+					bgClass: "sabaClub"
+				}
 			},
 			{
 				...productList.V8_Poker,
@@ -101,7 +114,10 @@ export const defMenuLinks = {
 					})
 				],
 				displayKey: "lbl_V8Poker",
-				menuType: defMenuType.entPage
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "v8pork"
+				}
 			},
 			{
 				...productList.keno,
@@ -109,7 +125,10 @@ export const defMenuLinks = {
 				className: "keno",
 				displayKey: "lbl_Keno",
 				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.keno }
+				parameter: { ...productList.keno },
+				lobbyPage: {
+					bgClass: "keno"
+				}
 			},
 			{
 				...productList.lottery,
@@ -117,7 +136,10 @@ export const defMenuLinks = {
 				className: "lottery",
 				displayKey: "lbl_Lottery",
 				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.lottery }
+				parameter: { ...productList.lottery },
+				lobbyPage: {
+					bgClass: "lottery"
+				}
 			}
 		]
 	},
