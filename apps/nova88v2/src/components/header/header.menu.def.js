@@ -208,7 +208,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "soccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.soccer },
 				...productList.soccer
 			},
@@ -218,7 +217,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "sabssoccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.sabaSoccer },
 				...productList.sabaSoccer
 			},
@@ -228,7 +226,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "basketballNPC.png",
 				listBgImgUrl: "basketballBG.png",
 				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.basketball },
 				...productList.basketball
 			},
@@ -238,8 +235,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "tennisNPC.png",
 				listBgImgUrl: "tennisBG.png",
 				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
-
 				parameter: { ...productList.tennis },
 				...productList.tennis
 			},
@@ -249,7 +244,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "cricketNPC.png",
 				listBgImgUrl: "cricketBG.png",
 				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.cricket },
 				...productList.cricket
 			},
@@ -738,7 +732,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-keno.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.keno },
 				lobbyPage: {
 					bgImg: "lotteryke.png",
@@ -752,7 +745,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-lottery.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.lottery },
 				lobbyPage: {
 					bgImg: "lotterylo.png",
@@ -767,7 +759,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-numberGame.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.Link,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.numberGame },
 				lobbyPage: {
 					bgImg: "lotterynu.png",
@@ -780,7 +771,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-tableGame.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.tablegame },
 				lobbyPage: {
 					bgImg: "lotteryta.png",
@@ -794,7 +784,6 @@ export const defMenuLinks = {
 				listNpcImgUrl: "lo-indo.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.entPage,
-				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.indo4D },
 				lobbyPage: {
 					bgImg: "lottery4d.png",
