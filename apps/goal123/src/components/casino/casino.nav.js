@@ -9,7 +9,7 @@ export default ({ t, onSelectNav, selNav }) => {
 				key={`casino-nav-${k}`}
 				className={selNav === k ? "btn-check" : "blueBorder"}
 				onClick={onSelectNav.bind(this, k)}>
-				{t(_nav.displayKey)}
+				{t(_nav.displayKey)?.toUpperCase()}
 			</button>
 		);
 	});
