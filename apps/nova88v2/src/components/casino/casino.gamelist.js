@@ -96,9 +96,11 @@ export default ({
 					<div className="brand">
 						<span>{tpInfo.displayText}</span>
 					</div>
+
 					<div className={`icon ${g.new ? "icon-new" : ""}`} />
 
 					<img alt="Casino_tpInfo" src={_imgUrl} />
+
 					<div className="txt-darkBlue">
 						<div>{gameDisplayName}</div>
 						<div
@@ -108,6 +110,7 @@ export default ({
 							}`}
 						/>
 					</div>
+
 					<div className="btnGroup">
 						<button
 							className="blue"

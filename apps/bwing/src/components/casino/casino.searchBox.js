@@ -21,17 +21,6 @@ export default ({
 	return (
 		<>
 			<div className="inputBox-blue">
-				<Dropdown
-					mainkey="casino-provider"
-					options={tpOptions}
-					onSelectItem={EditSearchField.bind(this, "provider")}
-					selectedIdx={searchInfo.provider.idx}
-					showDropDownIcon={true}
-					i18n={t}
-				/>
-			</div>
-
-			<div className="inputBox-blue">
 				<i className="txt-blue12 icon icon-search" />
 				<input
 					type="text"

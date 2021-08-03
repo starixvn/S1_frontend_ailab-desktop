@@ -10,7 +10,12 @@ import {
 	defBannerType
 } from "../../service/api/site";
 import { userInfoContext, maintainListContext } from "../common/context";
-import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
+import {
+	defNav,
+	defRowsPerPage,
+	defSearchColumn,
+	defLobbyImgList
+} from "./casino.def";
 import GameList from "./casino.gamelist";
 import { BannerSwipper } from "../common/customSwipper";
 import { Pagination } from "../common/pagination";
@@ -18,6 +23,9 @@ import { getUrlParameter } from "../common/common";
 import SearchBox from "./casino.searchBox";
 import Loading from "../common/loading";
 import { defCasinoProviders, defTpCategoryId } from "../../datas/productList";
+
+import CasinoJackpot from "./casino.jackpot";
+import CasinoTopQuickLink from "./casino.topQuickLink";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -43,12 +51,13 @@ export default () => {
 	const [imgUrl, setImgUrl] = useState("");
 	const [tpList, setTpList] = useState({});
 	const [tpOptions, setTpOptions] = useState([]);
+	const [lobbyImgList, setLobbyImgList] = useState(defLobbyImgList);
 	const [gameDatas, setGameDatas] = useState(null);
 	const [pageInfo, setPageInfo] = useState({ currentPage: 1, totalPages: 1 });
 	const [displayGames, setDisplayGames] = useState([]);
 	const [searchInfo, setSearchInfo] = useState({
 		[defSearchColumn.searchText]: "",
-		[defSearchColumn.provider]: { idx: 0, value: null }
+		[defSearchColumn.provider]: null
 	});
 	const isMountedRef = useRef(null);
 	const provider = getUrlParameter("provider");
@@ -85,6 +94,7 @@ export default () => {
 
 					let hasPromo = false;
 					let hasFeature = false;
+
 					providerList?.forEach(tp => {
 						_tpList[tp.value] = { ...tp };
 						_tpOptions.push({
@@ -111,6 +121,16 @@ export default () => {
 							});
 						}
 					});
+
+					const providerIdList = providerList?.map(
+						item => item.value
+					);
+
+					const filterLobbyImgList = defLobbyImgList.filter(item =>
+						providerIdList.includes(item.providerId)
+					);
+
+					setLobbyImgList(filterLobbyImgList);
 
 					if (games.length) {
 						for (let i = 0; i < games.length; i++) {
@@ -141,10 +161,7 @@ export default () => {
 								setSearchInfo(prevS => {
 									_searchInfo = {
 										...prevS,
-										provider: {
-											idx,
-											value: _tpOptions[idx].id
-										}
+										provider: _tpOptions[idx].id
 									};
 									return _searchInfo;
 								});
@@ -189,7 +206,7 @@ export default () => {
 	) => {
 		const _gameDatas = initGameDatas ?? gameDatas;
 		const _tpList = initTpList ?? tpList;
-		const _tpId = _searchInfo.provider.value;
+		const _tpId = _searchInfo.provider;
 		const { searchText } = _searchInfo;
 
 		const matchFilter = (tpIdVal, g) => {
@@ -292,7 +309,7 @@ export default () => {
 		}
 	};
 
-	const EditSearchField = (column, value, pressEnter) => {
+	const EditSearchField = (column, value, providerId) => {
 		let _searchInfo = searchInfo;
 
 		if (column === defSearchColumn.searchText) {
@@ -300,23 +317,27 @@ export default () => {
 				_searchInfo = { ...prevS, [column]: value };
 				return _searchInfo;
 			});
-			if (pressEnter) {
+
+			if (providerId) {
 				SubmitSearch(_searchInfo);
 			}
 		} else {
 			setSearchInfo(prevS => {
+				const _providerId =
+					prevS.provider !== providerId ? providerId : null;
+
 				_searchInfo = {
 					...prevS,
-					[column]: { idx: value, value: tpOptions[value].id }
+					[column]: _providerId
 				};
-				return _searchInfo;
-			});
 
-			SetGames({
-				_searchInfo,
-				_selNav: selNav,
-				_gameDatas: gameDatas,
-				_tpList: tpList
+				SetGames({
+					_searchInfo,
+					_selNav: selNav,
+					_gameDatas: gameDatas,
+					_tpList: tpList
+				});
+				return _searchInfo;
 			});
 		}
 	};
@@ -347,43 +368,62 @@ export default () => {
 	return loading ? (
 		<Loading />
 	) : (
-		<div className="infoModule">
+		<>
 			<BannerSwipper
 				ImgFolder={[defBannerType.Slots]}
 				withBtn={true}
 				withPagination={true}
 			/>
 
-			<div className="inside-title icon icon-ow-casino">
-				<span>{t("lbl_Slots")}</span>
-			</div>
-			<div className="casinoSelect">
-				<Nav selNav={selNav} onSelectNav={onSelectNav} t={t} />
-				<SearchBox
-					t={t}
-					tpOptions={tpOptions}
-					EditSearchField={EditSearchField}
-					searchInfo={searchInfo}
-					submitSearch={SubmitSearch.bind(this, searchInfo)}
-				/>
-			</div>
-			<GameList
-				t={t}
-				imgUrl={imgUrl}
-				displayGames={displayGames}
-				tpList={tpList}
-				langId={userInfo.langId}
-				isLogin={userInfo.isLogin}
-				currentPage={pageInfo.currentPage}
-				favorite={favorite}
-				onSetFavorite={onSetFavorite}
-				maintainList={maintainList}
-			/>
-			<Pagination
-				totalPages={pageInfo.totalPages}
-				currentPage={pageInfo.currentPage}
-				clickPageNumber={clickPageNumber}
-			/>
-		</div>
+			<CasinoJackpot t={t} userInfo={userInfo} />
+
+			<section className="inside">
+				<div className="rightModule">
+					<div className="infoModule">
+						<CasinoTopQuickLink
+							lobbyImgList={lobbyImgList}
+							editSearchField={EditSearchField}
+							activeProviderId={searchInfo.provider}
+						/>
+
+						<div className="casinoSelect">
+							<Nav
+								selNav={selNav}
+								onSelectNav={onSelectNav}
+								t={t}
+							/>
+							<SearchBox
+								t={t}
+								tpOptions={tpOptions}
+								EditSearchField={EditSearchField}
+								searchInfo={searchInfo}
+								submitSearch={SubmitSearch.bind(
+									this,
+									searchInfo
+								)}
+							/>
+						</div>
+
+						<GameList
+							t={t}
+							imgUrl={imgUrl}
+							displayGames={displayGames}
+							tpList={tpList}
+							langId={userInfo.langId}
+							isLogin={userInfo.isLogin}
+							currentPage={pageInfo.currentPage}
+							favorite={favorite}
+							onSetFavorite={onSetFavorite}
+							maintainList={maintainList}
+						/>
+						<Pagination
+							totalPages={pageInfo.totalPages}
+							currentPage={pageInfo.currentPage}
+							clickPageNumber={clickPageNumber}
+						/>
+					</div>
+				</div>
+			</section>
+		</>
 	);
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
 import path from "../../router";
@@ -7,8 +7,6 @@ import { defNav } from "../casino/casino.def";
 import { getCurrencyCode } from "../common/common";
 
 const Jackpot = ({ t, userInfo }) => {
-	const ref = useRef();
-
 	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
 
 	useEffect(() => {
@@ -45,7 +43,7 @@ const Jackpot = ({ t, userInfo }) => {
 				<div>
 					<div>{t(`Currency_${currencyId}`)}</div>
 
-					<span id="jpot-id" ref={ref} />
+					<span id="jpot-id" />
 				</div>
 			</div>
 		</div>

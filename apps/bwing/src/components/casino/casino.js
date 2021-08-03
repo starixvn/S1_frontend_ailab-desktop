@@ -10,7 +10,12 @@ import {
 	defBannerType
 } from "../../service/api/site";
 import { userInfoContext, maintainListContext } from "../common/context";
-import { defNav, defRowsPerPage, defSearchColumn } from "./casino.def";
+import {
+	defNav,
+	defRowsPerPage,
+	defSearchColumn,
+	defLobbyImgList
+} from "./casino.def";
 import GameList from "./casino.gamelist";
 import SwipperBanner from "../common/swipperBanner";
 import { Pagination } from "../common/pagination";
@@ -18,6 +23,9 @@ import { getUrlParameter } from "../common/common";
 import SearchBox from "./casino.searchBox";
 import Loading from "../common/loading";
 import { defCasinoProviders, defTpCategoryId } from "../../datas/productList";
+
+import CasinoJackpot from "./casino.jackpot";
+import CasinoTopQuickLink from "./casino.topQuickLink";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -42,12 +50,13 @@ export default () => {
 	const [imgUrl, setImgUrl] = useState("");
 	const [tpList, setTpList] = useState({});
 	const [tpOptions, setTpOptions] = useState([]);
+	const [lobbyImgList, setLobbyImgList] = useState(defLobbyImgList);
 	const [gameDatas, setGameDatas] = useState(null);
 	const [pageInfo, setPageInfo] = useState({ currentPage: 1, totalPages: 1 });
 	const [displayGames, setDisplayGames] = useState([]);
 	const [searchInfo, setSearchInfo] = useState({
 		[defSearchColumn.searchText]: "",
-		[defSearchColumn.provider]: { idx: 0, value: null }
+		[defSearchColumn.provider]: null
 	});
 	const isMountedRef = useRef(null);
 	const provider = getUrlParameter("provider");
@@ -112,6 +121,16 @@ export default () => {
 						}
 					});
 
+					const providerIdList = providerList?.map(
+						item => item.value
+					);
+
+					const filterLobbyImgList = defLobbyImgList.filter(item =>
+						providerIdList.includes(item.providerId)
+					);
+
+					setLobbyImgList(filterLobbyImgList);
+
 					if (games.length) {
 						for (let i = 0; i < games.length; i++) {
 							const idx = Math.floor(
@@ -141,10 +160,7 @@ export default () => {
 								setSearchInfo(prevS => {
 									_searchInfo = {
 										...prevS,
-										provider: {
-											idx,
-											value: _tpOptions[idx].id
-										}
+										provider: _tpOptions[idx].id
 									};
 									return _searchInfo;
 								});
@@ -189,7 +205,7 @@ export default () => {
 	) => {
 		const _gameDatas = initGameDatas ?? gameDatas;
 		const _tpList = initTpList ?? tpList;
-		const _tpId = _searchInfo.provider.value;
+		const _tpId = _searchInfo.provider;
 		const { searchText } = _searchInfo;
 
 		const matchFilter = (TpId, g) => {
@@ -292,7 +308,7 @@ export default () => {
 		}
 	};
 
-	const EditSearchField = (column, value, pressEnter) => {
+	const EditSearchField = (column, value, providerId) => {
 		let _searchInfo = searchInfo;
 
 		if (column === defSearchColumn.searchText) {
@@ -300,23 +316,27 @@ export default () => {
 				_searchInfo = { ...prevS, [column]: value };
 				return _searchInfo;
 			});
-			if (pressEnter) {
+			if (providerId) {
 				SubmitSearch(_searchInfo);
 			}
 		} else {
 			setSearchInfo(prevS => {
+				const _providerId =
+					prevS.provider !== providerId ? providerId : null;
+
 				_searchInfo = {
 					...prevS,
-					[column]: { idx: value, value: tpOptions[value].id }
+					[column]: _providerId
 				};
-				return _searchInfo;
-			});
 
-			SetGames({
-				_searchInfo,
-				_selNav: selNav,
-				_gameDatas: gameDatas,
-				_tpList: tpList
+				SetGames({
+					_searchInfo,
+					_selNav: selNav,
+					_gameDatas: gameDatas,
+					_tpList: tpList
+				});
+
+				return _searchInfo;
 			});
 		}
 	};
@@ -348,14 +368,20 @@ export default () => {
 		<Loading />
 	) : (
 		<div className="infoModule">
-			<div className="inside-title ">{t("lbl_Slots")}</div>
-
 			<SwipperBanner
 				ImgFolder={[defBannerType.Slots]}
 				openInBlank={true}
 			/>
 
-			<div className="quickSelect">
+			<CasinoJackpot t={t} userInfo={userInfo} />
+
+			<CasinoTopQuickLink
+				lobbyImgList={lobbyImgList}
+				editSearchField={EditSearchField}
+				activeProviderId={searchInfo.provider}
+			/>
+
+			<div className="quickSelect CasinoSelect">
 				<div className="btnGroup promoType gameBtn">
 					<Nav selNav={selNav} onSelectNav={onSelectNav} t={t} />
 				</div>

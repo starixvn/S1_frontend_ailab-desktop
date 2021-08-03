@@ -4,13 +4,13 @@ import { navigate } from "@reach/router";
 import path from "../../router";
 import { defNav } from "../casino/casino.def";
 import useInterval from "../hook/useInterval";
-import { getCurrencyCode, uuidv4 } from "../common/common";
+import { getCurrencyCode } from "../common/common";
+
+import Jackpot from "../Jackpot/Jackpot";
 
 const ANIMATION_LOOP_MILLISECOND = 2000;
 
 const DELAY_MILLISECOND = 800;
-
-const TEXT_TOP = 30;
 
 export default function HomeJackpot({ t, userInfo }) {
 	const ref = useRef();
@@ -67,6 +67,12 @@ export default function HomeJackpot({ t, userInfo }) {
 				value={currentText}
 				label={t(`Currency_${currencyId}`)}
 				langId={userInfo.langId}
+				animationLoopMillisecond={ANIMATION_LOOP_MILLISECOND}
+				onClick={() =>
+					navigate(
+						`/${userInfo.langId}/${path.casino.root}?tab=${defNav.PROMO.key}`
+					)
+				}
 			/>
 		</div>
 	);
@@ -75,151 +81,4 @@ export default function HomeJackpot({ t, userInfo }) {
 HomeJackpot.propTypes = {
 	t: PropTypes.func.isRequired,
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired
-};
-
-const takeJackItemList = ({ startPoint = 0, endPoint }) => {
-	const NUMBER_LIST = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-	const MAX_NUMBER = NUMBER_LIST.length;
-
-	const _start = Number(startPoint);
-	const _end = Number(endPoint);
-
-	if (_start < _end) return NUMBER_LIST.slice(_start, _end + 1);
-
-	if (_start > _end)
-		return [
-			...NUMBER_LIST.slice(_start, MAX_NUMBER),
-			...NUMBER_LIST.slice(0, _end + 1)
-		];
-
-	if (_start === _end) return [_end];
-
-	return [];
-};
-
-const isNumber = val => {
-	const rex = /[0-9]/;
-	return rex.test(val);
-};
-
-export const Jackpot = ({ label, value, langId }) => {
-	const [list, setList] = useState([]);
-
-	const [jackpotItemList, setJackpotItemList] = useState([]);
-
-	const formatTextList = String(value).split("");
-
-	useEffect(() => {
-		const startList = [...list].reverse();
-		const endList = [...formatTextList].reverse();
-
-		const _jackpotList = endList.map((endPoint, index) => {
-			if (endPoint === "," || endPoint === ".") return endPoint;
-
-			if (isNumber(endPoint)) {
-				const startPoint = startList[index];
-
-				return takeJackItemList({ startPoint, endPoint });
-			}
-
-			return null;
-		});
-
-		setJackpotItemList(_jackpotList.reverse());
-		setList(formatTextList);
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [value]);
-
-	useEffect(() => {
-		const nodeList = [
-			...document.querySelectorAll(
-				".jpot .number .numberRow > div.active"
-			)
-		];
-
-		nodeList.forEach(node => {
-			const itemNodeCount = node.querySelectorAll("div").length;
-
-			const top = TEXT_TOP * Number(itemNodeCount) - TEXT_TOP;
-
-			if (node.animate) {
-				node.animate(
-					{ top: `-${top}px`, easing: "ease" },
-					ANIMATION_LOOP_MILLISECOND
-				);
-			}
-
-			Promise.all(
-				node.getAnimations().map(animation => animation.finished)
-			).then(() => {
-				node.style.top = `-${top}px`;
-			});
-		});
-	}, [jackpotItemList]);
-
-	if (jackpotItemList?.length <= 0) return null;
-
-	return (
-		<div
-			className="jpot"
-			onClick={() =>
-				navigate(
-					`/${langId}/${path.casino.root}?tab=${defNav.PROMO.key}`
-				)
-			}>
-			<div className="number">
-				<div>{label}</div>
-
-				{jackpotItemList.map((item, idx) => (
-					<JackpotItem
-						// eslint-disable-next-line react/no-array-index-key
-						key={`pt-jackpot-${value}-${idx}`}
-						item={item}
-					/>
-				))}
-			</div>
-		</div>
-	);
-};
-
-Jackpot.propTypes = {
-	label: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired,
-	langId: PropTypes.string.isRequired
-};
-
-const JackpotItem = ({ item }) => {
-	const key = `jackpot-text-item-${uuidv4()}`;
-
-	if (item === "," || item === ".")
-		return (
-			<div key={key}>
-				<div>{item}</div>
-			</div>
-		);
-
-	if (isNumber(item))
-		return (
-			<div className="numberRow" key={key}>
-				<div className="active">
-					{item.map((num, idx) => (
-						// eslint-disable-next-line react/no-array-index-key
-						<div key={`${key}-${idx}`}>{num}</div>
-					))}
-				</div>
-			</div>
-		);
-
-	return "";
-};
-
-JackpotItem.defaultProps = {
-	item: null
-};
-
-JackpotItem.propTypes = {
-	item: PropTypes.oneOfType([
-		PropTypes.string,
-		PropTypes.arrayOf(PropTypes.number)
-	])
 };

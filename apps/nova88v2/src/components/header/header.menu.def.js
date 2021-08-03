@@ -212,6 +212,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "soccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.soccer },
 				...productList.soccer
 			},
@@ -221,6 +222,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "sabssoccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.sabaSoccer },
 				...productList.sabaSoccer
 			},
@@ -230,6 +232,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "basketballNPC.png",
 				listBgImgUrl: "basketballBG.png",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.basketball },
 				...productList.basketball
 			},
@@ -239,6 +242,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "tennisNPC.png",
 				listBgImgUrl: "tennisBG.png",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
+
 				parameter: { ...productList.tennis },
 				...productList.tennis
 			},
@@ -248,6 +253,7 @@ export const defMenuLinks = {
 				listNpcImgUrl: "cricketNPC.png",
 				listBgImgUrl: "cricketBG.png",
 				menuType: defMenuType.Link,
+				imgSource: defImgSourceType.bannerImgUrl,
 				parameter: { ...productList.cricket },
 				...productList.cricket
 			},

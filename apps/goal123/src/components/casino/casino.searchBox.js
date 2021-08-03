@@ -1,13 +1,6 @@
 import React from "react";
-import Dropdown from "../common/dropdown";
 
-export default ({
-	tpOptions,
-	EditSearchField,
-	searchInfo,
-	submitSearch,
-	t
-}) => {
+export default ({ EditSearchField, searchInfo, submitSearch, t }) => {
 	const EditField = e => {
 		EditSearchField("searchText", e.target.value, e.key === "Enter");
 	};
@@ -20,17 +13,6 @@ export default ({
 
 	return (
 		<>
-			<div>
-				<div className="inputBox">
-					<Dropdown
-						mainkey="casino-provider"
-						options={tpOptions}
-						onSelectItem={EditSearchField.bind(this, "provider")}
-						selectedIdx={searchInfo.provider.idx}
-						i18n={t}
-					/>
-				</div>
-			</div>
 			<div className="inputBox">
 				<i className="txt-blue12 icon icon-search" />
 				<input
