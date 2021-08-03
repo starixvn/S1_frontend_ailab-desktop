@@ -30,6 +30,7 @@ import { getUrlParameter } from "../common/common";
 import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
 import TopQuickLink from "./casino.topQuickLink";
+import CasinoJackpot from "./casino.jackpot";
 import { defTpCategoryId } from "../../datas/productList";
 
 const matchKeyword = (name, _keyword) => {
@@ -461,10 +462,9 @@ export default () => {
 			/>
 			<section className="inside">
 				<div className="rightModule">
+					<CasinoJackpot t={t} userInfo={userInfo} />
+
 					<div className="infoModule">
-						<div className="inside-title icon icon-ow-casino">
-							<span>{t("lbl_Slots")}</span>
-						</div>
 						<TopQuickLink
 							lobbyImgList={lobbyImgList}
 							clickLobbyProvider={clickLobbyProvider}

@@ -8,7 +8,7 @@ export default () => {
 		<Wrapper>
 			<Layout>
 				<main>
-					<section className="inside">
+					<section>
 						<div className="rightModule">
 							<Casino />
 						</div>

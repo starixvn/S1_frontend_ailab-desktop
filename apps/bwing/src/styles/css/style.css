@@ -11943,4 +11943,8 @@ input + .iconModule i.icon.icon-checkmark:before {
 .bankarea img {
   margin-right: 10px;
 }
+
+.sportpage {
+  height: calc(100% - 80px);
+}
 /*# sourceMappingURL=style.css.map */

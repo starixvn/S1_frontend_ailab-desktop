@@ -100,33 +100,35 @@ const GameList = ({
 					<img alt="Casino_tpInfo" src={_imgUrl} />
 					<div className="txt-blue15">{gameDisplayName}</div>
 					{!isInMaintain && (
-						<div className="btnGroup">
-							<button
-								className="orange"
-								onClick={() =>
-									onClickPlay({
-										tpId: g.tpId,
-										gameId: g.gameId,
-										isFree: false,
-										delay: 5000
-									})
-								}>
-								{t("lbl_Play").toUpperCase()}
-							</button>
-							{g.playFree ? (
+						<div className="btnGroupBg">
+							<div className="btnGroup">
 								<button
-									className="blueBorder"
+									className="orange"
 									onClick={() =>
 										onClickPlay({
 											tpId: g.tpId,
 											gameId: g.gameId,
-											isFree: true,
-											delay: 0
+											isFree: false,
+											delay: 5000
 										})
 									}>
-									{t("lbl_Demo").toUpperCase()}
+									{t("lbl_Play").toUpperCase()}
 								</button>
-							) : null}
+								{g.playFree ? (
+									<button
+										className="blueBorder"
+										onClick={() =>
+											onClickPlay({
+												tpId: g.tpId,
+												gameId: g.gameId,
+												isFree: true,
+												delay: 0
+											})
+										}>
+										{t("lbl_Demo").toUpperCase()}
+									</button>
+								) : null}
+							</div>
 						</div>
 					)}
 				</div>

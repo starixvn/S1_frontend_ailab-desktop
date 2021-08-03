@@ -89,8 +89,10 @@ const GameList = ({
 					</div>
 
 					<img alt="Casino_tpInfo" src={_imgUrl} />
+
 					<div className="txt-darkBlue">
 						<div>{gameDisplayName}</div>
+
 						<div
 							onClick={onSetFavorite.bind(this, g.tpId, g.gameId)}
 							className={`icon icon-star-full${
@@ -128,7 +130,9 @@ const GameList = ({
 							</button>
 						) : null}
 					</div>
+
 					{g.new ? <div className="new-icon">NEW</div> : null}
+
 					{isInMaintain ? (
 						<div className="maintenance">
 							{t("lbl_underMaintenance")}

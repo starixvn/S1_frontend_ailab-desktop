@@ -7,12 +7,8 @@ export default () => {
 	return (
 		<Wrapper>
 			<Layout>
-				<main>
-					<section className="inside">
-						<div className="rightModule">
-							<Casino />
-						</div>
-					</section>
+				<main className="fullSize">
+					<Casino />
 				</main>
 			</Layout>
 		</Wrapper>
