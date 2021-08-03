@@ -20,8 +20,14 @@ export default {
 	casino: {
 		root: "casino"
 	},
+	game: {
+		root: "game"
+	},
 	fishing: {
 		root: "fishing"
+	},
+	lottery: {
+		root: "lottery"
 	},
 	liveCasino: {
 		root: "liveCasino"

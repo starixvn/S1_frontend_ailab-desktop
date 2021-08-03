@@ -876,5 +876,17 @@
 		"lbl_ResponseTime": "Response Time:"
 	},
 
+	"games":{
+		"lbl_bannerSubTitle":"A New Perspective of Life",
+		"lbl_bannerTitle1":"Adorn yourLife",
+		"lbl_bannerTitle2":"with Game"
+	},
+
+	"lottery":{
+		"lbl_bannerSubTitle":"Reach to Be Rich",
+		"lbl_bannerTitle1":"LOTTERY",
+		"lbl_bannerTitle2":"HEAVEN 24/7"
+	},
+
 	"end-----": "end-----"
 }

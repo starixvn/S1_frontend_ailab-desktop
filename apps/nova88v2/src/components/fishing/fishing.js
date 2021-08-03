@@ -56,22 +56,27 @@ const Fishing = () => {
 		const { filterByAuth, customSort } = defMenuLinks.fishing;
 		let { subMenu } = defMenuLinks.fishing;
 
-		if (subMenu && productTpIds?.length > 0 && filterByAuth) {
-			subMenu = subMenu.filter(
-				s => s.alwaysShow || productTpIds.includes(s.tpId)
-			);
-		}
-
-		subMenu = subMenu?.filter(
-			s =>
-				userInfo.isLogin !== true ||
-				!s.allowCurrency ||
-				s.allowCurrency.includes(userInfo.currencyId)
-		);
-
 		const _currencyId = userInfo.currencyId
 			? userInfo.currencyId
 			: getCurrencyCode(userInfo.langId);
+
+		const haveToCheckTpId = productTpIds?.length > 0 && filterByAuth;
+
+		subMenu = subMenu.filter(s => {
+			let result =
+				!s.canSeeOnlyAfterLogin ||
+				(s.canSeeOnlyAfterLogin && userInfo.isLogin);
+
+			if (result && s?.allowCurrencies && userInfo.isLogin) {
+				result = s?.allowCurrencies.includes(_currencyId);
+			}
+
+			if (result && haveToCheckTpId) {
+				result = s.alwaysShow || productTpIds.includes(s.tpId);
+			}
+
+			return result;
+		});
 
 		const isCurrenyInSortDef =
 			customSort &&

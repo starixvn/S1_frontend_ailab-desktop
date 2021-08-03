@@ -877,5 +877,17 @@
 		"lbl_ResponseTime": "Waktu Respon:"
 	},
 
+	"games":{
+		"lbl_bannerSubTitle":"Sebuah Sudut Pandang Kehidupan Baru",
+		"lbl_bannerTitle1":"Hiasi Hidup Anda",
+		"lbl_bannerTitle2":"Dengan Game"
+	},
+
+	"lottery":{
+		"lbl_bannerSubTitle":"Raih Kekayaan Anda",
+		"lbl_bannerTitle1":"Surga Togel",
+		"lbl_bannerTitle2":"24/7"
+	},
+
 	"end-----": "end-----"
 }
