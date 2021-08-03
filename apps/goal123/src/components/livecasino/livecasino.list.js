@@ -6,7 +6,7 @@ import LiveCasinoListItem from "./livecasino.list.item";
 // const COLUMN_CCOUNT = 4;
 
 const LiveCasinoList = ({ subMenu, clickItem, t, maintainList }) => {
-	const filterSubMenu = subMenu.filter(subMenuItem => subMenuItem?.lobbyPage);
+	const filterSubMenu = subMenu.filter(subMenuItem => subMenuItem?.lobbyImg);
 	// const subMenuCount = filterSubMenu.length;
 	// const comingImgCount = COLUMN_CCOUNT - (subMenuCount % COLUMN_CCOUNT);
 

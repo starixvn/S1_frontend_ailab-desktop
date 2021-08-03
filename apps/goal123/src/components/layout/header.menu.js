@@ -68,7 +68,9 @@ export default class Panel extends Component {
 					productTpIds={this.props.productTpIds}
 				/>
 				<div
-					className={`subMenu-Wrapper${subItems ? " active" : ""}`}
+					className={`subMenu-Wrapper newVender ${
+						subItems ? " active" : ""
+					}`}
 					ref={this.wrapper}
 					onClick={this.closeSubMenu}>
 					{subItems ? (

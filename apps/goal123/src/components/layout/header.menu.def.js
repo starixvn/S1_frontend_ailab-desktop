@@ -9,24 +9,30 @@ import {
 
 import sportSabaBgImg from "../../styles/img/dropdown/sports/saba.png";
 import sportSabaItemImg from "../../styles/img/dropdown/sports/saba-item.png";
+import sportSabaIconImg from "../../styles/img/dropdown/sports/sabas-icon.png";
 import sportBtiBgImg from "../../styles/img/dropdown/sports/bti.png";
 import sportBtiItemImg from "../../styles/img/dropdown/sports/bti-item.png";
-
-import cq9IconImg from "../../styles/img/dropdown/fishing/cq9-icon.png";
-import icgIconImg from "../../styles/img/dropdown/fishing/icg-icon.png";
-import ggIconImg from "../../styles/img/dropdown/fishing/gg-icon.png";
-import sgIconImg from "../../styles/img/dropdown/fishing/sg-icon.png";
+import sportBtiIconImg from "../../styles/img/dropdown/sports/bti-icon.png";
 
 import gamesSabaclubBgImg from "../../styles/img/dropdown/games/sabaclub.png";
 import gamesSabaclubNpcImg from "../../styles/img/dropdown/games/sabaclub-item.png";
+import gamesSabaclubIconImg from "../../styles/img/dropdown/games/newicon/sabaclub-icon.png";
+
 import gamesKingMakerBgImg from "../../styles/img/dropdown/games/kingmaker.png";
 import gamesKingMakerNpcImg from "../../styles/img/dropdown/games/kingmaker-item.png";
+import gamesKingMakerIconImg from "../../styles/img/dropdown/games/newicon/kingmaker-icon.png";
+
 import gamesV8pokerBgImg from "../../styles/img/dropdown/games/v8poker.png";
 import gamesV8pokerNpcImg from "../../styles/img/dropdown/games/v8poker-item.png";
+import gamesV8pokerIconImg from "../../styles/img/dropdown/games/newicon/v8poker-icon.png";
+
 import gamesKenoBgImg from "../../styles/img/dropdown/games/keno.png";
 import gamesKenoNpcImg from "../../styles/img/dropdown/games/keno-item.png";
+import gameKenoIconImg from "../../styles/img/dropdown/games/newicon/keno-icon.png";
+
 import gamesLotteryBgImg from "../../styles/img/dropdown/games/lottery.png";
 import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png";
+import gameLotteryIconImg from "../../styles/img/dropdown/games/newicon/lottery-icon.png";
 
 import gamesLobbySabaclubImg from "../../styles/img/games/sabaclub.png";
 import gamesLobbyTcgImg from "../../styles/img/games/tcg.png";
@@ -36,87 +42,100 @@ import gamesLobbyLotteryImg from "../../styles/img/games/lottery.png";
 import gamesLobbyKingmakerImg from "../../styles/img/games/kingmaker.png";
 
 import livecasinoMgNpcImg from "../../styles/img/livecasino/mg.png";
-import livecasinoMgIconImg from "../../styles/img/livecasino/mg-icon.png";
+import livecasinoMgIconImg from "../../styles/img/livecasino/newicon/mg-icon.png";
 import livecasinoPtNpcImg from "../../styles/img/livecasino/playtech.png";
-import livecasinoPtIconImg from "../../styles/img/livecasino/playtech-icon.png";
+import livecasinoPtIconImg from "../../styles/img/livecasino/newicon/playtech-icon.png";
 import livecasinoN2liveNpcImg from "../../styles/img/livecasino/n2live.png";
-import livecasinoN2liveIconImg from "../../styles/img/livecasino/n2live-icon.png";
+import livecasinoN2liveIconImg from "../../styles/img/livecasino/newicon/n2live-icon.png";
 import livecasinoWmNpcImg from "../../styles/img/livecasino/wm.png";
-import livecasinoWmIconImg from "../../styles/img/livecasino/wm-icon.png";
+import livecasinoWmIconImg from "../../styles/img/livecasino/newicon/wm-icon.png";
 import livecasinoDgNpcImg from "../../styles/img/livecasino/dg.png";
-import livecasinoDgIconImg from "../../styles/img/livecasino/dg-icon.png";
+import livecasinoDgIconImg from "../../styles/img/livecasino/newicon/dg-icon.png";
 import livecasinoAllbetNpcImg from "../../styles/img/livecasino/allbet.png";
-import livecasinoAllbetIconImg from "../../styles/img/livecasino/allbet-icon.png";
+import livecasinoAllbetIconImg from "../../styles/img/livecasino/newicon/allbet-icon.png";
 import livecasinoAgNpcImg from "../../styles/img/livecasino/ag.png";
-import livecasinoAgIconImg from "../../styles/img/livecasino/ag-icon.png";
+import livecasinoAgIconImg from "../../styles/img/livecasino/newicon/ag-icon.png";
 import livecasinoPpNpcImg from "../../styles/img/livecasino/pp.png";
-import livecasinoPpIconImg from "../../styles/img/livecasino/pp-icon.png";
+import livecasinoPpIconImg from "../../styles/img/livecasino/newicon/pp-icon.png";
 import livecasinoSaNpcImg from "../../styles/img/livecasino/sa.png";
-import livecasinoSaIconImg from "../../styles/img/livecasino/sa-icon.png";
+import livecasinoSaIconImg from "../../styles/img/livecasino/newicon/sa-icon.png";
 import livecasinoAeNpcImg from "../../styles/img/livecasino/ae.png";
-import livecasinoAeIconImg from "../../styles/img/livecasino/ae-icon.png";
+import livecasinoAeIconImg from "../../styles/img/livecasino/newicon/ae-icon.png";
 import livecasinoEbetNpcImg from "../../styles/img/livecasino/ebet.png";
-import livecasinoEbetIconImg from "../../styles/img/livecasino/ebet-icon.png";
+import livecasinoEbetIconImg from "../../styles/img/livecasino/newicon/ebet-icon.png";
 
 import slotsMgBgImg from "../../styles/img/dropdown/slots/mg.png";
 import slotsMgNpcImg from "../../styles/img/dropdown/slots/mg-item.png";
-import slotsMgIconImg from "../../styles/img/dropdown/slots/mg-icon.png";
+import slotsMgIconImg from "../../styles/img/dropdown/slots/newicon/mg-icon.png";
+
 import slotsJiliBgImg from "../../styles/img/dropdown/slots/jili.png";
 import slotsJiliNpcImg from "../../styles/img/dropdown/slots/jili-item.png";
-import slotsJiliIconImg from "../../styles/img/dropdown/slots/jili-icon.png";
+import slotsJiliIconImg from "../../styles/img/dropdown/slots/newicon/jili-icon.png";
 
 import slotsPlaytechBgImg from "../../styles/img/dropdown/slots/playtech.png";
 import slotsPlaytechNpcImg from "../../styles/img/dropdown/slots/playtech-item.png";
-import slotsPlaytechIconImg from "../../styles/img/dropdown/slots/playtech-icon.png";
+import slotsPlaytechIconImg from "../../styles/img/dropdown/slots/newicon/playtech-icon.png";
 
 import slotsIcgBgImg from "../../styles/img/dropdown/slots/icg.png";
 import slotsIcgNpcImg from "../../styles/img/dropdown/slots/icg-item.png";
-import slotsIcgIconImg from "../../styles/img/dropdown/slots/icg-icon.png";
+import slotsIcgIconImg from "../../styles/img/dropdown/slots/newicon/icg-icon.png";
 
 import slotsCq9BgImg from "../../styles/img/dropdown/slots/cq9.png";
 import slotsCq9NpcImg from "../../styles/img/dropdown/slots/cq9-item.png";
-import slotsCq9IconImg from "../../styles/img/dropdown/slots/cq9-icon.png";
+import slotsCq9IconImg from "../../styles/img/dropdown/slots/newicon/cq9-icon.png";
 
 import slotsGpiBgImg from "../../styles/img/dropdown/slots/gpi.png";
 import slotsGpiNpcImg from "../../styles/img/dropdown/slots/GPI-item.png";
-import slotsGpiIconImg from "../../styles/img/dropdown/slots/gpi-icon.png";
+import slotsGpiIconImg from "../../styles/img/dropdown/slots/newicon/gpi-icon.png";
 
 import slotsYggBgImg from "../../styles/img/dropdown/slots/ygg.png";
 import slotsYggNpcImg from "../../styles/img/dropdown/slots/ygg-item.png";
-import slotsYggIconImg from "../../styles/img/dropdown/slots/ygg-icon.png";
+import slotsYggIconImg from "../../styles/img/dropdown/slots/newicon/ygg-icon.png";
 
 import slotsSgBgImg from "../../styles/img/dropdown/slots/sg.png";
 import slotsSgNpcImg from "../../styles/img/dropdown/slots/sg-item.png";
-import slotsSgIconImg from "../../styles/img/dropdown/slots/sg-icon.png";
+import slotsSgIconImg from "../../styles/img/dropdown/slots/newicon/sg-icon.png";
 
 import slotsPpBgImg from "../../styles/img/dropdown/slots/pp.png";
 import slotsPpNpcImg from "../../styles/img/dropdown/slots/pp-item.png";
-import slotsPpIconImg from "../../styles/img/dropdown/slots/pp-icon.png";
+import slotsPpIconImg from "../../styles/img/dropdown/slots/newicon/pp-icon.png";
 
 import slotsPgBgImg from "../../styles/img/dropdown/slots/pg.png";
 import slotsPgNpcImg from "../../styles/img/dropdown/slots/pg-item.png";
-import slotsPgIconImg from "../../styles/img/dropdown/slots/pg-icon.png";
+import slotsPgIconImg from "../../styles/img/dropdown/slots/newicon/pg-icon.png";
 
 import slotsOwBgImg from "../../styles/img/dropdown/slots/ow.png";
 import slotsOwNpcImg from "../../styles/img/dropdown/slots/ow-item.png";
-import slotsOwIconImg from "../../styles/img/dropdown/slots/ow-icon.png";
+import slotsOwIconImg from "../../styles/img/dropdown/slots/newicon/sabaslot-icon.png";
 
 import fishingParadiseBgImg from "../../styles/img/dropdown/fishing/paradise.png";
 import fishingParadiseNpcImg from "../../styles/img/dropdown/fishing/paradise-item.png";
+
 import fishingOneshotBgImg from "../../styles/img/dropdown/fishing/oneshot.png";
 import fishingOneshotNpcImg from "../../styles/img/dropdown/fishing/oneshot-item.png";
+
 import fishingDragonballBgImg from "../../styles/img/dropdown/fishing/dragonball.png";
 import fishingDragonballNpcImg from "../../styles/img/dropdown/fishing/dragonball-item.png";
+
 import fishingSaviorsBgImg from "../../styles/img/dropdown/fishing/saviors.png";
 import fishingSaviorsNpcImg from "../../styles/img/dropdown/fishing/saviors-item.png";
+
 import fishingThetyrantBgImg from "../../styles/img/dropdown/fishing/thetyrant.png";
 import fishingThetyrantNpcImg from "../../styles/img/dropdown/fishing/thetyrant-item.png";
+
 import fishingFishingworldBgImg from "../../styles/img/dropdown/fishing/fishingworld.png";
 import fishingFishingworldNpcImg from "../../styles/img/dropdown/fishing/fishingworld-item.png";
+
 import fishingFishinggodBgImg from "../../styles/img/dropdown/fishing/fishinggod.png";
 import fishingFishinggodNpcImg from "../../styles/img/dropdown/fishing/fishinggod-item.png";
+
 import fishingFishingwarBgImg from "../../styles/img/dropdown/fishing/fishingwar.png";
 import fishingFishingwarNpcImg from "../../styles/img/dropdown/fishing/fishingwar-item.png";
+
+import cq9IconImg from "../../styles/img/dropdown/fishing/newicon/cq9-icon.png";
+import icgIconImg from "../../styles/img/dropdown/fishing/newicon/icg-icon.png";
+import ggIconImg from "../../styles/img/dropdown/fishing/newicon/gg-icon.png";
+import sgIconImg from "../../styles/img/dropdown/fishing/newicon/sg-icon.png";
 
 import fishingLobbyParadiseBgImg from "../../styles/img/fishing/paradise.png";
 import fishingLobbyOneshotBgImg from "../../styles/img/fishing/oneshot.png";
@@ -126,29 +145,6 @@ import fishingLobbyTyrantBgImg from "../../styles/img/fishing/tyrant.png";
 import fishingLobbyFishingworldBgImg from "../../styles/img/fishing/fishingworld.png";
 import fishingLobbyFishinggodBgImg from "../../styles/img/fishing/fishinggod.png";
 import fishingLobbyFishingwarBgImg from "../../styles/img/fishing/fishingwar.png";
-
-import livecasinoLobbyMgIconImg from "../../styles/img/livecasinolist/icon/mg.png";
-import livecasinoLobbyMgBgImg from "../../styles/img/livecasinolist/mg.png";
-import livecasinoLobbyPTIconImg from "../../styles/img/livecasinolist/icon/pt.png";
-import livecasinoLobbyPTBgImg from "../../styles/img/livecasinolist/pt.png";
-import livecasinoLobbyN2liveIconImg from "../../styles/img/livecasinolist/icon/n2live.png";
-import livecasinoLobbyN2liveBgImg from "../../styles/img/livecasinolist/n2live.png";
-import livecasinoLobbyWmIconImg from "../../styles/img/livecasinolist/icon/wm.png";
-import livecasinoLobbyWmBgImg from "../../styles/img/livecasinolist/wm.png";
-import livecasinoLobbyDgIconImg from "../../styles/img/livecasinolist/icon/dg.png";
-import livecasinoLobbyDgBgImg from "../../styles/img/livecasinolist/dg.png";
-import livecasinoLobbyAgIconImg from "../../styles/img/livecasinolist/icon/ag.png";
-import livecasinoLobbyAgBgImg from "../../styles/img/livecasinolist/ag.png";
-import livecasinoLobbyPpIconImg from "../../styles/img/livecasinolist/icon/pp.png";
-import livecasinoLobbyPpBgImg from "../../styles/img/livecasinolist/pp.png";
-import livecasinoLobbyAllbetIconImg from "../../styles/img/livecasinolist/icon/allbet.png";
-import livecasinoLobbyAllbetBgImg from "../../styles/img/livecasinolist/allbet.png";
-import livecasinoLobbySaIconImg from "../../styles/img/livecasinolist/icon/sa.png";
-import livecasinoLobbySaBgImg from "../../styles/img/livecasinolist/sa.png";
-import livecasinoLobbyAeIconImg from "../../styles/img/livecasinolist/icon/ae.png";
-import livecasinoLobbyAeBgImg from "../../styles/img/livecasinolist/ae.png";
-import livecasinoLobbyEbetIconImg from "../../styles/img/livecasinolist/icon/ebet.png";
-import livecasinoLobbyEbetBgImg from "../../styles/img/livecasinolist/ebet.png";
 
 export const defMenuType = {
 	entPage: "entPage",
@@ -170,6 +166,7 @@ export const defMenuLinks = langId => {
 					displayKey: "lbl_Saba_Sport",
 					bgImgUrl: sportSabaBgImg,
 					npcImgUrl: sportSabaItemImg,
+					iconImgUrl: sportSabaIconImg,
 					parameter: { ...productList.sportSaba }
 				},
 				{
@@ -186,6 +183,7 @@ export const defMenuLinks = langId => {
 					displayKey: "lbl_Bti_Sport",
 					bgImgUrl: sportBtiBgImg,
 					npcImgUrl: sportBtiItemImg,
+					iconImgUrl: sportBtiIconImg,
 					parameter: { ...productList.sportBti }
 				}
 			]
@@ -215,6 +213,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					bgImgUrl: gamesKingMakerBgImg,
 					npcImgUrl: gamesKingMakerNpcImg,
+					iconImgUrl: gamesKingMakerIconImg,
 					lobbyPage: {
 						bgImg: gamesLobbyKingmakerImg
 					}
@@ -228,6 +227,7 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.sabaClub },
 					bgImgUrl: gamesSabaclubBgImg,
 					npcImgUrl: gamesSabaclubNpcImg,
+					iconImgUrl: gamesSabaclubIconImg,
 					lobbyPage: {
 						bgImg: gamesLobbySabaclubImg
 					}
@@ -245,6 +245,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					bgImgUrl: gamesV8pokerBgImg,
 					npcImgUrl: gamesV8pokerNpcImg,
+					iconImgUrl: gamesV8pokerIconImg,
 					lobbyPage: {
 						bgImg: gamesLobbyV8Img
 					}
@@ -266,6 +267,7 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.keno },
 					bgImgUrl: gamesKenoBgImg,
 					npcImgUrl: gamesKenoNpcImg,
+					iconImgUrl: gameKenoIconImg,
 					lobbyPage: {
 						bgImg: gamesLobbyKenoImg
 					}
@@ -279,6 +281,7 @@ export const defMenuLinks = langId => {
 					parameter: { ...productList.lottery },
 					bgImgUrl: gamesLotteryBgImg,
 					npcImgUrl: gamesLotteryNpcImg,
+					iconImgUrl: gameLotteryIconImg,
 					lobbyPage: {
 						bgImg: gamesLobbyLotteryImg
 					}
@@ -480,6 +483,7 @@ export const defMenuLinks = langId => {
 				// 	}
 				// },
 				{
+					...productList.liveCasino_PP,
 					gameId: 101,
 					tpId: 5,
 					className: "livePP",
@@ -489,10 +493,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoPpNpcImg,
 					iconImgUrl: livecasinoPpIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyPpBgImg,
-						iconImg: livecasinoLobbyPpIconImg
-					}
+					lobbyImg: "pp"
 				},
 				{
 					...productList.liveCasino_PT,
@@ -509,10 +510,7 @@ export const defMenuLinks = langId => {
 					npcImgUrl: livecasinoPtNpcImg,
 					iconImgUrl: livecasinoPtIconImg,
 					disabledInSlider: true,
-					lobbyPage: {
-						bgImg: livecasinoLobbyPTBgImg,
-						iconImg: livecasinoLobbyPTIconImg
-					}
+					lobbyImg: "pt"
 				},
 				{
 					...productList.liveCasino_n2live,
@@ -530,10 +528,7 @@ export const defMenuLinks = langId => {
 					],
 					npcImgUrl: livecasinoN2liveNpcImg,
 					iconImgUrl: livecasinoN2liveIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyN2liveBgImg,
-						iconImg: livecasinoLobbyN2liveIconImg
-					}
+					lobbyImg: "n2live"
 				},
 				{
 					...productList.liveCasino_WM,
@@ -546,10 +541,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoWmNpcImg,
 					iconImgUrl: livecasinoWmIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyWmBgImg,
-						iconImg: livecasinoLobbyWmIconImg
-					}
+					lobbyImg: "wm"
 				},
 				{
 					...productList.liveCasino_DG,
@@ -562,10 +554,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoDgNpcImg,
 					iconImgUrl: livecasinoDgIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyDgBgImg,
-						iconImg: livecasinoLobbyDgIconImg
-					}
+					lobbyImg: "dg"
 				},
 				{
 					...productList.liveCasino_Allbet,
@@ -578,10 +567,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoAllbetNpcImg,
 					iconImgUrl: livecasinoAllbetIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyAllbetBgImg,
-						iconImg: livecasinoLobbyAllbetIconImg
-					}
+					lobbyImg: "allbet"
 				},
 				{
 					...productList.liveCasino_AG,
@@ -594,12 +580,10 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoAgNpcImg,
 					iconImgUrl: livecasinoAgIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyAgBgImg,
-						iconImg: livecasinoLobbyAgIconImg
-					}
+					lobbyImg: "ag"
 				},
 				{
+					...productList.liveCasino_SA,
 					gameId: 2,
 					tpId: 2,
 					className: "liveSA",
@@ -609,10 +593,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoSaNpcImg,
 					iconImgUrl: livecasinoSaIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbySaBgImg,
-						iconImg: livecasinoLobbySaIconImg
-					}
+					lobbyImg: "sa"
 				},
 				{
 					...productList.liveCasino_AE,
@@ -625,10 +606,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoAeNpcImg,
 					iconImgUrl: livecasinoAeIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyAeBgImg,
-						iconImg: livecasinoLobbyAeIconImg
-					}
+					lobbyImg: "ae"
 				},
 				{
 					...productList.liveCasino_eBET,
@@ -641,10 +619,7 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					npcImgUrl: livecasinoEbetNpcImg,
 					iconImgUrl: livecasinoEbetIconImg,
-					lobbyPage: {
-						bgImg: livecasinoLobbyEbetBgImg,
-						iconImg: livecasinoLobbyEbetIconImg
-					}
+					lobbyImg: "ebet"
 				}
 			]
 		},
@@ -669,7 +644,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: fishingParadiseNpcImg,
 					iconImgUrl: cq9IconImg,
 					lobbyPage: {
-						bgImg: fishingLobbyParadiseBgImg
+						bgImg: fishingLobbyParadiseBgImg,
+						providerImg: "cq9"
 					}
 				},
 				// {
@@ -701,7 +677,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: fishingOneshotNpcImg,
 					iconImgUrl: cq9IconImg,
 					lobbyPage: {
-						bgImg: fishingLobbyOneshotBgImg
+						bgImg: fishingLobbyOneshotBgImg,
+						providerImg: "cq9"
 					}
 				},
 				// {
@@ -747,7 +724,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: fishingDragonballNpcImg,
 					iconImgUrl: icgIconImg,
 					lobbyPage: {
-						bgImg: fishingLobbyDragonballBgImg
+						bgImg: fishingLobbyDragonballBgImg,
+						providerImg: "icg"
 					}
 				},
 				{
@@ -768,7 +746,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: fishingSaviorsNpcImg,
 					iconImgUrl: icgIconImg,
 					lobbyPage: {
-						bgImg: fishingLobbySaviorsBgImg
+						bgImg: fishingLobbySaviorsBgImg,
+						providerImg: "icg"
 					}
 				},
 				{
@@ -789,7 +768,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: fishingThetyrantNpcImg,
 					iconImgUrl: icgIconImg,
 					lobbyPage: {
-						bgImg: fishingLobbyTyrantBgImg
+						bgImg: fishingLobbyTyrantBgImg,
+						providerImg: "icg"
 					}
 				},
 				{
@@ -802,7 +782,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: fishingFishingworldNpcImg,
 					iconImgUrl: ggIconImg,
 					lobbyPage: {
-						bgImg: fishingLobbyFishingworldBgImg
+						bgImg: fishingLobbyFishingworldBgImg,
+						providerImg: "gg"
 					}
 				},
 				{
@@ -815,7 +796,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: fishingFishinggodNpcImg,
 					iconImgUrl: sgIconImg,
 					lobbyPage: {
-						bgImg: fishingLobbyFishinggodBgImg
+						bgImg: fishingLobbyFishinggodBgImg,
+						providerImg: "sp"
 					}
 				},
 				{
@@ -828,7 +810,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: fishingFishingwarNpcImg,
 					iconImgUrl: sgIconImg,
 					lobbyPage: {
-						bgImg: fishingLobbyFishingwarBgImg
+						bgImg: fishingLobbyFishingwarBgImg,
+						providerImg: "sp"
 					}
 				}
 			]
