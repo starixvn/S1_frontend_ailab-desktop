@@ -45,10 +45,10 @@ const SubMenuSingle = ({
 		};
 
 		const isPokerMaintain = maintainList?.some(
-			item =>
-				item.tpId === productList.poker.tpId &&
-				(item.tpCategoryId === defTpCategoryId.poker ||
-					item.tpCategoryId === defTpCategoryId.all)
+			mt =>
+				mt.tpId === productList.poker.tpId &&
+				(mt.tpCategoryId === defTpCategoryId.poker ||
+					mt.tpCategoryId === defTpCategoryId.all)
 		);
 
 		return (

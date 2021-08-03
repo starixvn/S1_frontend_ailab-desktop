@@ -28,6 +28,13 @@ import gamesKenoNpcImg from "../../styles/img/dropdown/games/keno-item.png";
 import gamesLotteryBgImg from "../../styles/img/dropdown/games/lottery.png";
 import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png";
 
+import gamesLobbySabaclubImg from "../../styles/img/games/sabaclub.png";
+import gamesLobbyTcgImg from "../../styles/img/games/tcg.png";
+import gamesLobbyV8Img from "../../styles/img/games/v8.png";
+import gamesLobbyKenoImg from "../../styles/img/games/keno.png";
+import gamesLobbyLotteryImg from "../../styles/img/games/lottery.png";
+import gamesLobbyKingmakerImg from "../../styles/img/games/kingmaker.png";
+
 import livecasinoMgNpcImg from "../../styles/img/livecasino/mg.png";
 import livecasinoMgIconImg from "../../styles/img/livecasino/mg-icon.png";
 import livecasinoPtNpcImg from "../../styles/img/livecasino/playtech.png";
@@ -193,6 +200,7 @@ export const defMenuLinks = langId => {
 		// },
 		games: {
 			displayKey: "lbl_Games",
+			path: path.games.root,
 			className: "game icon",
 			subMenu: [
 				{
@@ -206,7 +214,10 @@ export const defMenuLinks = langId => {
 					displayKey: "lbl_King_Maker",
 					menuType: defMenuType.entPage,
 					bgImgUrl: gamesKingMakerBgImg,
-					npcImgUrl: gamesKingMakerNpcImg
+					npcImgUrl: gamesKingMakerNpcImg,
+					lobbyPage: {
+						bgImg: gamesLobbyKingmakerImg
+					}
 				},
 				{
 					...productList.sabaClub,
@@ -216,9 +227,11 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.LinkOrBtn,
 					parameter: { ...productList.sabaClub },
 					bgImgUrl: gamesSabaclubBgImg,
-					npcImgUrl: gamesSabaclubNpcImg
+					npcImgUrl: gamesSabaclubNpcImg,
+					lobbyPage: {
+						bgImg: gamesLobbySabaclubImg
+					}
 				},
-
 				{
 					...productList.V8_Poker,
 					className: "v8",
@@ -231,7 +244,10 @@ export const defMenuLinks = langId => {
 					displayKey: "lbl_V8Poker",
 					menuType: defMenuType.entPage,
 					bgImgUrl: gamesV8pokerBgImg,
-					npcImgUrl: gamesV8pokerNpcImg
+					npcImgUrl: gamesV8pokerNpcImg,
+					lobbyPage: {
+						bgImg: gamesLobbyV8Img
+					}
 				},
 				// {
 				// 	...productList.fishing,
@@ -249,7 +265,10 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.LinkOrBtn,
 					parameter: { ...productList.keno },
 					bgImgUrl: gamesKenoBgImg,
-					npcImgUrl: gamesKenoNpcImg
+					npcImgUrl: gamesKenoNpcImg,
+					lobbyPage: {
+						bgImg: gamesLobbyKenoImg
+					}
 				},
 				{
 					...productList.lottery,
@@ -259,7 +278,10 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.LinkOrBtn,
 					parameter: { ...productList.lottery },
 					bgImgUrl: gamesLotteryBgImg,
-					npcImgUrl: gamesLotteryNpcImg
+					npcImgUrl: gamesLotteryNpcImg,
+					lobbyPage: {
+						bgImg: gamesLobbyLotteryImg
+					}
 				}
 			]
 		},
@@ -493,6 +515,7 @@ export const defMenuLinks = langId => {
 					}
 				},
 				{
+					...productList.liveCasino_n2live,
 					tpId: 28,
 					className: "liveN2LIVE",
 					icon: "icon icon-N2LIVE",
@@ -513,6 +536,7 @@ export const defMenuLinks = langId => {
 					}
 				},
 				{
+					...productList.liveCasino_WM,
 					gameId: 20,
 					tpId: 20,
 					className: "liveWM",
@@ -528,6 +552,7 @@ export const defMenuLinks = langId => {
 					}
 				},
 				{
+					...productList.liveCasino_DG,
 					gameId: 4,
 					tpId: 4,
 					className: "liveDG",
@@ -543,6 +568,7 @@ export const defMenuLinks = langId => {
 					}
 				},
 				{
+					...productList.liveCasino_Allbet,
 					gameId: 12,
 					tpId: 12,
 					className: "liveALL",
@@ -558,6 +584,7 @@ export const defMenuLinks = langId => {
 					}
 				},
 				{
+					...productList.liveCasino_AG,
 					gameId: 3,
 					tpId: 3,
 					className: "liveAG",
@@ -588,6 +615,7 @@ export const defMenuLinks = langId => {
 					}
 				},
 				{
+					...productList.liveCasino_AE,
 					gameId: 15,
 					tpId: 15,
 					className: "liveAE",
@@ -603,6 +631,7 @@ export const defMenuLinks = langId => {
 					}
 				},
 				{
+					...productList.liveCasino_eBET,
 					gameId: 18,
 					tpId: 18,
 					className: "liveEB",

@@ -79,10 +79,10 @@ export default ({
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
 		const isInMaintain = maintainList?.some(
-			item =>
-				item.tpId === s.tpId &&
-				(item.tpCategoryId === s.tpCategory ||
-					item.tpCategoryId === defTpCategoryId.all)
+			mt =>
+				mt.tpId === s.tpId &&
+				(mt.tpCategoryId === s.tpCategory ||
+					mt.tpCategoryId === defTpCategoryId.all)
 		);
 
 		let params = null;

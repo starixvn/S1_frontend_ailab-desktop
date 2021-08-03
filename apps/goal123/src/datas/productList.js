@@ -131,6 +131,12 @@ export default {
 		name: "PT",
 		tpCategory: defTpCategoryId.liveCasino
 	},
+	liveCasino_PP: {
+		tpId: 101,
+		gameId: 5,
+		name: "PP",
+		tpCategory: defTpCategoryId.liveCasino
+	},
 
 	/* === 4. fishing === */
 

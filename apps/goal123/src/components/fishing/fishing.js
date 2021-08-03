@@ -14,8 +14,6 @@ import FishingList from "./fishing.list";
 import imgFishingbanner from "../../styles/img/fishing/fishingbanner.jpg";
 import { defTpCategoryId } from "../../datas/productList";
 
-const SLIDE_IMG_LIST = [imgFishingbanner];
-
 const Fishing = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -59,7 +57,7 @@ const Fishing = () => {
 
 	return (
 		<>
-			<FishingBanner slideImgList={SLIDE_IMG_LIST} />
+			<FishingBanner langId={userInfo.langId} />
 			<section className="inside">
 				<div className="rightModule">
 					<div className="infoModule">
