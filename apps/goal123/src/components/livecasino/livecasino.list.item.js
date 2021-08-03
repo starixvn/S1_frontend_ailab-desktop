@@ -8,7 +8,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		tpId,
 		gameId,
 		menuType,
-		lobbyPage: { bgImg, iconImg }
+		lobbyImg
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -16,14 +16,11 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 	return (
 		<div className={isInMaintain ? "active" : ""}>
-			<div className="brand">
-				<img src={iconImg} alt={`${_displayText}-icon`} />
-			</div>
-
-			<img src={bgImg} alt={`${_displayText}-bgimg`} />
-
-			<div className="txt-darkBlue">{_displayText}</div>
-
+			<img
+				lobbyImg
+				src={require(`../../styles/img/livecasinolist-new/${lobbyImg}.jpg`)}
+				alt={`${_displayText}-bgimg`}
+			/>
 			<div className="mask">
 				<button
 					className="blue"

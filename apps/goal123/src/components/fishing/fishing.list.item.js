@@ -7,8 +7,7 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		displayKey,
 		tpId,
 		gameId,
-		iconImgUrl,
-		lobbyPage: { bgImg }
+		lobbyPage: { bgImg, providerImg }
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -17,7 +16,10 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	return (
 		<div className={isInMaintain ? "active" : ""}>
 			<div className="brand">
-				<img src={iconImgUrl} alt={`${_displayText}-icon`} />
+				<img
+					src={require(`../../styles/img/fishing/icon/${providerImg}.png`)}
+					alt={`${_displayText}-icon`}
+				/>
 			</div>
 
 			<img src={bgImg} alt={`${_displayText}-bgimg`} />
@@ -34,8 +36,6 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					}>
 					{t("lbl_Play")}
 				</button>
-
-				{/* <button>{t("lbl_Demo")}</button> */}
 			</div>
 			{isInMaintain ? (
 				<div className="maintenance">{t("lbl_underMaintenance")}</div>
