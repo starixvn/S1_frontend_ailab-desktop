@@ -78,7 +78,16 @@ const GameListItem = ({
 			onMouseOver={hoverHandler}
 			onMouseOut={hoverHandler}
 			onFocus={() => 0}
-			onBlur={() => 0}>
+			onBlur={() => 0}
+			onClick={() =>
+				clickItem({
+					tpId,
+					gameId,
+					path,
+					needLogin,
+					isInMaintain
+				})
+			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}
@@ -98,19 +107,6 @@ const GameListItem = ({
 			<div className="name">{_displayText}</div>
 
 			<div className="under">{t("lbl_underMaintenance")}</div>
-
-			<button
-				onClick={() =>
-					clickItem({
-						tpId,
-						gameId,
-						path,
-						needLogin,
-						isInMaintain
-					})
-				}>
-				{t("lbl_Play")}
-			</button>
 		</div>
 	);
 };

@@ -53,7 +53,15 @@ const GameListItem = ({
 	);
 
 	return (
-		<div className={`${bgClass} ${isInMaintain ? "under" : ""}`}>
+		<div
+			className={`${bgClass} ${isInMaintain ? "under" : ""}`}
+			onClick={() =>
+				clickItem({
+					tpId,
+					gameId,
+					isInMaintain
+				})
+			}>
 			{isInMaintain ? (
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
 			) : null}
@@ -61,20 +69,6 @@ const GameListItem = ({
 			<p>
 				{_displayText} {isInMaintain ? "xxxxxxx" : ""}
 			</p>
-
-			<div className="btnGroup">
-				<button
-					className="orange"
-					onClick={() =>
-						clickItem({
-							tpId,
-							gameId,
-							isInMaintain
-						})
-					}>
-					{t("lbl_Play")}
-				</button>
-			</div>
 		</div>
 	);
 };

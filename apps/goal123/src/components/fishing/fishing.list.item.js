@@ -14,7 +14,14 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
 
 	return (
-		<div className={isInMaintain ? "active" : ""}>
+		<div
+			className={isInMaintain ? "active" : ""}
+			onClick={() =>
+				clickItem({
+					tpId,
+					gameId
+				})
+			}>
 			<div className="brand">
 				<img
 					src={require(`../../styles/img/fishing/icon/${providerImg}.png`)}
@@ -26,17 +33,6 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 			<div className="txt-darkBlue">{_displayText}</div>
 
-			<div className="mask">
-				<button
-					onClick={() =>
-						clickItem({
-							tpId,
-							gameId
-						})
-					}>
-					{t("lbl_Play")}
-				</button>
-			</div>
 			{isInMaintain ? (
 				<div className="maintenance">{t("lbl_underMaintenance")}</div>
 			) : null}

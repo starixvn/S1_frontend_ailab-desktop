@@ -14,7 +14,15 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
 
 	return (
-		<div className={`${bgClass} ${isInMaintain ? " under" : ""}`}>
+		<div
+			className={`${bgClass} ${isInMaintain ? " under" : ""}`}
+			onClick={() =>
+				clickItem({
+					tpId,
+					gameId,
+					isInMaintain
+				})
+			}>
 			{isInMaintain ? (
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
 			) : null}
@@ -23,22 +31,6 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 			)}
 
 			<p>{_displayText}</p>
-
-			<div className="btnGroup">
-				<button
-					className="orange"
-					onClick={() =>
-						clickItem({
-							tpId,
-							gameId,
-							isInMaintain
-						})
-					}>
-					{t("lbl_Play")}
-				</button>
-
-				{/* <button className="blue">{t("lbl_Demo")}</button> */}
-			</div>
 		</div>
 	);
 };

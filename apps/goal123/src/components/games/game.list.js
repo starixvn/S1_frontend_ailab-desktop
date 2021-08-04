@@ -53,25 +53,18 @@ const GameListItem = ({
 	);
 
 	return (
-		<div className={isInMaintain ? "active" : ""}>
+		<div
+			className={isInMaintain ? "active" : ""}
+			onClick={() =>
+				clickItem({
+					tpId,
+					gameId,
+					isInMaintain
+				})
+			}>
 			<img src={bgImg} alt="game-item-img" />
 
 			<div className="txt-darkBlue">{_displayText}</div>
-
-			<div className="mask">
-				<button
-					className="blue"
-					onClick={() =>
-						clickItem({
-							tpId,
-							gameId,
-							isInMaintain
-						})
-					}>
-					{t("lbl_Play")}
-				</button>
-				{/* <button className="blue">{t("lbl_Demo")}</button> */}
-			</div>
 
 			{isInMaintain && (
 				<div className="maintenance">{t("lbl_underMaintenance")}</div>

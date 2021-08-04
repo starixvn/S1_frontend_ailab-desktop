@@ -36,7 +36,15 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 			onMouseOver={hoverHandler}
 			onMouseOut={hoverHandler}
 			onFocus={() => 0}
-			onBlur={() => 0}>
+			onBlur={() => 0}
+			onClick={() =>
+				clickItem({
+					tpId,
+					gameId,
+					path,
+					needLogin
+				})
+			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}
@@ -54,23 +62,6 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 			)}
 
 			<div className="name">{_displayText}</div>
-
-			<div className="btnGroup">
-				<button
-					onClick={() =>
-						clickItem({
-							tpId,
-							gameId,
-							path,
-							needLogin
-						})
-					}>
-					{t("lbl_Play")}
-				</button>
-
-				{/* <button>{t("lbl_Demo")}</button> */}
-			</div>
-
 			<div className="under">{t("lbl_underMaintenance")}</div>
 		</div>
 	);

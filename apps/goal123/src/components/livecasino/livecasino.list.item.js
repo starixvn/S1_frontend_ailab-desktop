@@ -15,25 +15,20 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
 
 	return (
-		<div className={isInMaintain ? "active" : ""}>
+		<div
+			className={isInMaintain ? "active" : ""}
+			onClick={() =>
+				clickItem({
+					tpId,
+					gameId,
+					menuType
+				})
+			}>
 			<img
 				lobbyImg
 				src={require(`../../styles/img/livecasinolist-new/${lobbyImg}.jpg`)}
 				alt={`${_displayText}-bgimg`}
 			/>
-			<div className="mask">
-				<button
-					className="blue"
-					onClick={() =>
-						clickItem({
-							tpId,
-							gameId,
-							menuType
-						})
-					}>
-					{t("lbl_Play")}
-				</button>
-			</div>
 			{isInMaintain ? (
 				<div className="maintenance">{t("lbl_underMaintenance")}</div>
 			) : null}
