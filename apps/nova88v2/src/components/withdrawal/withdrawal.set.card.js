@@ -16,7 +16,8 @@ const CardPanel = ({
 	accountName,
 	GetCustBankInfo,
 	custBankInfo,
-	isUSDT
+	isUSDT,
+	isIfscRequired
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
@@ -34,7 +35,8 @@ const CardPanel = ({
 			? {
 					bankName: accountData.bankName,
 					accountNo: accountData.accountNo,
-					sysId: accountData.sysId
+					sysId: accountData.sysId,
+					ifscCode: accountData.ifscCode
 			  }
 			: {
 					usdtAddress: accountData.usdtAddress,
@@ -166,6 +168,7 @@ const CardPanel = ({
 			addBankAccount={addBankAccount}
 			selectAccount={selectAccount}
 			delAccount={delAccount}
+			isIfscRequired={isIfscRequired}
 		/>
 	) : (
 		<CryptoCard
@@ -190,7 +193,8 @@ CardPanel.propTypes = {
 	accountName: PropTypes.string,
 	GetCustBankInfo: PropTypes.func.isRequired,
 	custBankInfo: PropTypes.arrayOf(PropTypes.any).isRequired,
-	isUSDT: PropTypes.bool.isRequired
+	isUSDT: PropTypes.bool.isRequired,
+	isIfscRequired: PropTypes.bool.isRequired
 };
 
 export default CardPanel;

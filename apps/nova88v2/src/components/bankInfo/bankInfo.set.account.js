@@ -6,18 +6,17 @@ import usePopBox from "../hook/usePopBox";
 import config from "../../config";
 import Inputbox from "../common/inputbox";
 import Loading from "../common/loading";
-import { currencyCode } from "../../datas/countryCode";
 
 const defColumn = {
 	accountName: "accountName",
 	accountNumber: "accountNumber",
-	IFSCCode: "IFSCCode"
+	ifscCode: "ifscCode"
 };
 
 const defColumnTipKey = {
 	[defColumn.accountName]: "lbl_BankAccountNameHint",
 	[defColumn.accountNumber]: "lbl_BankNumber",
-	[defColumn.IFSCCode]: "msg_PleaseEnterIFSCCode"
+	[defColumn.ifscCode]: "msg_PleaseEnterIFSCCode"
 };
 
 const AccountPanel = ({
@@ -26,12 +25,12 @@ const AccountPanel = ({
 	bankInfo,
 	accountNumber,
 	accountName,
-	IFSCCode,
+	ifscCode,
 	alreadyHasAccountName,
 	reload,
 	custBankList,
 	toLastStep,
-	currencyId
+	isIfscRequired
 }) => {
 	const { errorPopBox } = usePopBox();
 	const [status, setStatus] = useState({
@@ -43,14 +42,13 @@ const AccountPanel = ({
 			checked: null,
 			tip: ""
 		},
-		IFSCCode: {
+		ifscCode: {
 			checked: null,
 			tip: ""
 		}
 	});
 	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
-	const isCurrencyINR = currencyId === currencyCode.INR;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -75,7 +73,21 @@ const AccountPanel = ({
 		}));
 	};
 
-	const checkAccount = (val, col) => {
+	const editField = (_col, e) => {
+		let val = e.target.value;
+		if (_col === defColumn.accountNumber) {
+			val = val.replace(/[^0-9]+/g, "");
+		} else {
+			val = val.replace(/[\W]/g, "");
+		}
+		dispatch({
+			type: defActionType.EDIT_FIELD,
+			col: _col,
+			value: val
+		});
+	};
+
+	const checkAll = (val, col) => {
 		let checked = true;
 		let message = "";
 
@@ -102,9 +114,12 @@ const AccountPanel = ({
 				message = t("lbl_already_stored_this_information");
 				checked = false;
 			}
-		} else if (col === defColumn.IFSCCode && isCurrencyINR) {
+		} else if (col === defColumn.ifscCode && isIfscRequired) {
 			if (!val) {
 				message = t("msg_PleaseEnterIFSCCode");
+				checked = false;
+			} else if (val?.length !== 11) {
+				message = t("msg_IFSCCodeLength");
 				checked = false;
 			}
 		}
@@ -120,45 +135,25 @@ const AccountPanel = ({
 		return { checked, message };
 	};
 
-	const editField = (_col, e) => {
-		const val = e.target.value;
-
-		let regex = null;
-		if (_col === defColumn.accountNumber) {
-			regex = /^[0-9]+$/;
-		}
-
-		if (val === "" || regex === null || (regex && regex.test(val))) {
-			dispatch({
-				type: defActionType.EDIT_FIELD,
-				col: _col,
-				value: val
-			});
-		}
-	};
-
 	const clickSubmit = e => {
 		e.preventDefault();
-		const _accountName = checkAccount(accountName, defColumn.accountName);
-		const _accountNumber = checkAccount(
-			accountNumber,
-			defColumn.accountNumber
-		);
-		const _IFSCCode = isCurrencyINR
-			? checkAccount(IFSCCode, defColumn.IFSCCode)
+		const _accountName = checkAll(accountName, defColumn.accountName);
+		const _accountNumber = checkAll(accountNumber, defColumn.accountNumber);
+		const _ifscCode = isIfscRequired
+			? checkAll(ifscCode, defColumn.ifscCode)
 			: { checked: true };
 
 		if (
 			_accountNumber.checked &&
 			_accountName.checked &&
-			_IFSCCode.checked
+			_ifscCode.checked
 		) {
 			setLoading(true);
 			api_accountStrict_SetCustBankInfo({
 				AccountName: accountName,
 				AccountNo: accountNumber,
 				SysId: bankInfo.sysId,
-				IFSCCode: isCurrencyINR ? IFSCCode : null
+				IFSCCode: isIfscRequired ? ifscCode : null
 			}).then(
 				res => {
 					if (isMountedRef.current) {
@@ -208,7 +203,9 @@ const AccountPanel = ({
 							<div className="bankName">
 								<img
 									alt="BankLogo"
-									src={`${config.imgUrl}/common/images/BankLogo/${bankInfo.bankLogo}`}
+									src={`${
+										config.cloudImgUrl
+									}/SiteSkin/img/BankLogo/${bankInfo.bankLogo.toLowerCase()}`}
 								/>
 							</div>
 						</div>
@@ -226,7 +223,7 @@ const AccountPanel = ({
 										this,
 										defColumn.accountName
 									)}
-									onBlur={checkAccount.bind(
+									onBlur={checkAll.bind(
 										this,
 										accountName,
 										defColumn.accountName
@@ -253,7 +250,7 @@ const AccountPanel = ({
 									this,
 									defColumn.accountNumber
 								)}
-								onBlur={checkAccount.bind(
+								onBlur={checkAll.bind(
 									this,
 									accountNumber,
 									defColumn.accountNumber
@@ -266,31 +263,31 @@ const AccountPanel = ({
 								checked={status.accountNumber.checked}
 								tip={status.accountNumber.tip}
 							/>
-							{isCurrencyINR && (
+							{isIfscRequired && (
 								<Inputbox
 									className={`inputBox-white${
-										!status.IFSCCode.checked &&
-										status.IFSCCode.tip !== ""
+										!status.ifscCode.checked &&
+										status.ifscCode.tip !== ""
 											? " error"
 											: ""
 									}`}
-									value={IFSCCode}
+									value={ifscCode}
 									onChange={editField.bind(
 										this,
-										defColumn.IFSCCode
+										defColumn.ifscCode
 									)}
-									onBlur={checkAccount.bind(
+									onBlur={checkAll.bind(
 										this,
-										IFSCCode,
-										defColumn.IFSCCode
+										ifscCode,
+										defColumn.ifscCode
 									)}
 									clickInfo={clickInfo.bind(
 										this,
-										defColumn.IFSCCode
+										defColumn.ifscCode
 									)}
 									title={t("lbl_IFSCCode")}
-									checked={status.IFSCCode.checked}
-									tip={status.IFSCCode.tip}
+									checked={status.ifscCode.checked}
+									tip={status.ifscCode.tip}
 								/>
 							)}
 							<div className="btnGroup">
@@ -306,10 +303,6 @@ const AccountPanel = ({
 	);
 };
 
-AccountPanel.defaultProps = {
-	currencyId: null
-};
-
 AccountPanel.propTypes = {
 	t: PropTypes.func.isRequired,
 	dispatch: PropTypes.func.isRequired,
@@ -317,11 +310,11 @@ AccountPanel.propTypes = {
 	bankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	accountNumber: PropTypes.string.isRequired,
 	accountName: PropTypes.string.isRequired,
-	IFSCCode: PropTypes.string.isRequired,
+	ifscCode: PropTypes.string.isRequired,
 	alreadyHasAccountName: PropTypes.bool.isRequired,
 	reload: PropTypes.func.isRequired,
 	custBankList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	currencyId: PropTypes.number
+	isIfscRequired: PropTypes.bool.isRequired
 };
 
 export default AccountPanel;

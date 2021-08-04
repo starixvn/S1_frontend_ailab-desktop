@@ -36,7 +36,7 @@
 	"lbl_kindly_visit_alternate_link_for_better_performance": "若您遇到加载缓慢情况，请尝试后备链接以获更佳体验。",
 	"lbl_DearValuedCustomers": "亲爱的 Nova88 客户,",
 	"lbl_Home_HomeTeam": "主队",
-	"lbl_Home_AwayTeam" :"客队",
+	"lbl_Home_AwayTeam": "客队",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -420,6 +420,7 @@
 	"lbl_QuickPick": "时间快选",
 	"lbl_IFSCCode": "IFSC代码",
 	"msg_PleaseEnterIFSCCode": "请输入 IFSC 代码",
+	"msg_IFSCCodeLength": "IFSC 代码需有 11字元",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "优惠活动",
@@ -847,7 +848,7 @@
 	"lbl_Header_olympic_countdown_mins": "分",
 	"lbl_Header_olympic_countdown_secs": "秒",
 
-	"speed":{
+	"speed": {
 		"lbl_CurrentIp": "您当前的IP位置",
 		"lbl_SetHomePage": "设为首页",
 		"lbl_AddToFavorite": "加入收藏",
@@ -869,20 +870,20 @@
 		"lbl_ResponseTime": "响应时间:"
 	},
 
-	"games":{
-		"lbl_bannerSubTitle":"焕新生活全新视觉！",
-		"lbl_bannerTitle1":"用游戏增添",
-		"lbl_bannerTitle2":"生活色彩!"
+	"games": {
+		"lbl_bannerSubTitle": "焕新生活全新视觉！",
+		"lbl_bannerTitle1": "用游戏增添",
+		"lbl_bannerTitle2": "生活色彩!"
 	},
 
-	"lottery":{
-		"lbl_bannerSubTitle":"致富方式",
-		"lbl_bannerTitle1":"24/7 全天候",
-		"lbl_bannerTitle2":"彩票天堂"
+	"lottery": {
+		"lbl_bannerSubTitle": "致富方式",
+		"lbl_bannerTitle1": "24/7 全天候",
+		"lbl_bannerTitle2": "彩票天堂"
 	},
-	
-	"livecasino":{
-		"lbl_welcome_to" :"欢迎莅临",
+
+	"livecasino": {
+		"lbl_welcome_to": "欢迎莅临",
 		"lbl_world_class": "世界级别",
 		"lbl_casino_world": "真人娱乐城",
 		"lbl_amber_na": "AMBER NA",

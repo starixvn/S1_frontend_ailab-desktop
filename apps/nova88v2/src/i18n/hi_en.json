@@ -418,6 +418,7 @@
 	"lbl_QuickPick": "Quick Pick",
 	"lbl_IFSCCode": "IFSC Code",
 	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
+	"msg_IFSCCodeLength": "IFSC code must be 11 characters",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promotion",
@@ -845,9 +846,9 @@
 	"lbl_Header_olympic_countdown_hour": "HRS",
 	"lbl_Header_olympic_countdown_mins": "MIN",
 	"lbl_Header_olympic_countdown_secs": "SEC",
-	
-	"livecasino":{
-		"lbl_welcome_to" :"WELCOME TO",
+
+	"livecasino": {
+		"lbl_welcome_to": "WELCOME TO",
 		"lbl_world_class": "WORLD CLASS",
 		"lbl_casino_world": "LIVE CASINO",
 		"lbl_amber_na": "AMBER NA",
@@ -876,16 +877,16 @@
 		"lbl_ResponseTime": "Response Time:"
 	},
 
-	"games":{
-		"lbl_bannerSubTitle":"A New Perspective of Life",
-		"lbl_bannerTitle1":"Adorn yourLife",
-		"lbl_bannerTitle2":"with Game"
+	"games": {
+		"lbl_bannerSubTitle": "A New Perspective of Life",
+		"lbl_bannerTitle1": "Adorn yourLife",
+		"lbl_bannerTitle2": "with Game"
 	},
 
-	"lottery":{
-		"lbl_bannerSubTitle":"Reach to Be Rich",
-		"lbl_bannerTitle1":"LOTTERY",
-		"lbl_bannerTitle2":"HEAVEN 24/7"
+	"lottery": {
+		"lbl_bannerSubTitle": "Reach to Be Rich",
+		"lbl_bannerTitle1": "LOTTERY",
+		"lbl_bannerTitle2": "HEAVEN 24/7"
 	},
 
 	"end-----": "end-----"

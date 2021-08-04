@@ -420,6 +420,7 @@
 	"lbl_QuickPick": "เลือก",
 	"lbl_IFSCCode": "รหัส IFSC",
 	"msg_PleaseEnterIFSCCode": "กรุณากรอกรหัส IFSC",
+	"msg_IFSCCodeLength": "รหัส IFSC ต้องมีอักขระ 11 ตัว",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "โปรโมชั่น",
@@ -868,25 +869,25 @@
 		"lbl_Refresh": "รีเฟรชเพื่อตรวจสอบ",
 		"lbl_ResponseTime": "เวลาตอบสนอง:"
 	},
-	
-	"livecasino":{
-		"lbl_welcome_to" :"ยินดีต้อนรับเข้าสู่โ",
+
+	"livecasino": {
+		"lbl_welcome_to": "ยินดีต้อนรับเข้าสู่โ",
 		"lbl_world_class": "ลกแห่งคาสิโนออน",
 		"lbl_casino_world": "ไลน์ระดับเวิลด์คลาส",
 		"lbl_amber_na": "AMBER NA",
 		"lbl_spokesperson_2122": "แบรนด์แอมบาสเดอร์  2021/22"
 	},
 
-	"games":{
-		"lbl_bannerSubTitle":"เปิดมุมมองใหม่ๆของชีวิต",
-		"lbl_bannerTitle1":"แต่งแต้มสีสันชีวิ",
-		"lbl_bannerTitle2":"ตของคุณด้วยเกม"
+	"games": {
+		"lbl_bannerSubTitle": "เปิดมุมมองใหม่ๆของชีวิต",
+		"lbl_bannerTitle1": "แต่งแต้มสีสันชีวิ",
+		"lbl_bannerTitle2": "ตของคุณด้วยเกม"
 	},
-	
-	"lottery":{
-		"lbl_bannerSubTitle":"ถึงเวลาแห่งความรวย!!!",
-		"lbl_bannerTitle1":"สวรรค์ของคนเล่นหวย",
-		"lbl_bannerTitle2":"ออนไลน์ตลอด 24 ชม"
+
+	"lottery": {
+		"lbl_bannerSubTitle": "ถึงเวลาแห่งความรวย!!!",
+		"lbl_bannerTitle1": "สวรรค์ของคนเล่นหวย",
+		"lbl_bannerTitle2": "ออนไลน์ตลอด 24 ชม"
 	},
 
 	"end-----": "end-----"

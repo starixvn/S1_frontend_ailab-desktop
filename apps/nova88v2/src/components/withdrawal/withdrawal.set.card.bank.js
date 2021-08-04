@@ -9,7 +9,8 @@ const BankCard = ({
 	custBankInfo,
 	addBankAccount,
 	selectAccount,
-	delAccount
+	delAccount,
+	isIfscRequired
 }) => {
 	const isMountedRef = useRef(null);
 
@@ -27,12 +28,14 @@ const BankCard = ({
 		return (
 			<BankCardLayout
 				key={_key}
+				t={t}
 				checkKey={item.accountNo}
-				{...item}
+				bankInfo={item}
 				selectAccount={selectAccount.bind(this, item)}
 				checked={_checked}
 				delAccount={delAccount.bind(this, item.accountNo, item.sysId)}
 				hideDelBtn={state.panel === defPanel.confirm}
+				isIfscRequired={isIfscRequired}
 			/>
 		);
 	});
@@ -53,8 +56,17 @@ const BankCard = ({
 	);
 };
 
-const BankCardLayout = props => {
-	const bankLogo = String(props.bankLogo).toLowerCase();
+const BankCardLayout = ({
+	t,
+	checkKey,
+	bankInfo,
+	selectAccount,
+	checked,
+	delAccount,
+	hideDelBtn,
+	isIfscRequired
+}) => {
+	const bankLogo = String(bankInfo.bankLogo).toLowerCase();
 	return (
 		<div className="addBankName">
 			<div className="addBankInfo">
@@ -65,30 +77,38 @@ const BankCardLayout = props => {
 					/>
 
 					<div>
-						{props.bankName}
+						{bankInfo.bankName}
 						<div className="txt-blue">
-							<span>{props.accountNo?.slice(0, 4)}</span>
-							<span>{props.accountNo?.slice(4, 8)}</span>
-							<span>{props.accountNo?.slice(8, 12)}</span>
-							<span>{props.accountNo?.slice(12, 16)}</span>
+							<span>{bankInfo.accountNo?.slice(0, 4)}</span>
+							<span>{bankInfo.accountNo?.slice(4, 8)}</span>
+							<span>{bankInfo.accountNo?.slice(8, 12)}</span>
+							<span>{bankInfo.accountNo?.slice(12, 16)}</span>
 						</div>
+						{isIfscRequired && (
+							<div className="txt-gray">
+								<span>
+									{t("lbl_IFSCCode")}:
+									{bankInfo.ifscCode ?? ""}
+								</span>
+							</div>
+						)}
 					</div>
 				</div>
 				<div className="checkbox">
 					<input
 						type="checkbox"
-						id={props.checkKey}
-						onChange={props.selectAccount}
-						checked={props.checked}
+						id={checkKey}
+						onChange={selectAccount}
+						checked={checked}
 					/>
 					<label
-						htmlFor={props.checkKey}
+						htmlFor={checkKey}
 						className="icon icon-checkbox-checked"
 					/>
 				</div>
 			</div>
-			{props.hideDelBtn ? null : (
-				<button className="icon icon-bin" onClick={props.delAccount} />
+			{hideDelBtn ? null : (
+				<button className="icon icon-bin" onClick={delAccount} />
 			)}
 		</div>
 	);
@@ -101,23 +121,23 @@ BankCard.propTypes = {
 	custBankInfo: PropTypes.arrayOf(PropTypes.any).isRequired,
 	addBankAccount: PropTypes.func.isRequired,
 	selectAccount: PropTypes.func.isRequired,
-	delAccount: PropTypes.func.isRequired
+	delAccount: PropTypes.func.isRequired,
+	isIfscRequired: PropTypes.bool.isRequired
 };
 
 BankCardLayout.defaultProps = {
-	bankLogo: "",
-	accountNo: "",
 	checkKey: null
 };
 
 BankCardLayout.propTypes = {
-	bankLogo: PropTypes.string,
-	accountNo: PropTypes.string,
+	t: PropTypes.func.isRequired,
 	checkKey: PropTypes.string,
+	bankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	selectAccount: PropTypes.func.isRequired,
 	checked: PropTypes.bool.isRequired,
 	hideDelBtn: PropTypes.bool.isRequired,
-	delAccount: PropTypes.func.isRequired
+	delAccount: PropTypes.func.isRequired,
+	isIfscRequired: PropTypes.bool.isRequired
 };
 
 export default BankCard;

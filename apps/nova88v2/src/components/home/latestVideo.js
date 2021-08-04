@@ -23,8 +23,6 @@ const LatestVideo = memo(() => {
 		};
 	}, [userInfo.langId]);
 
-	console.log(video?.link);
-
 	return video?.link ? (
 		<div className="latestVideo">
 			<div className="moduleTitle icon icon-film">

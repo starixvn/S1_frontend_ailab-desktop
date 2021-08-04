@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import CardPanel from "./withdrawal.set.card";
 import AmountPanel from "./withdrawal.set.amount";
@@ -8,8 +9,9 @@ import { userInfoContext, popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { defActionType } from "./withdrawal.reducer";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
+import { currencyCode } from "../../datas/countryCode";
 
-export default ({
+const MainPanel = ({
 	dispatch,
 	state,
 	refreshData,
@@ -22,6 +24,7 @@ export default ({
 	const { setPopBox } = useContext(popBoxContext);
 	const _isConvert = isConvert(userInfo.currencyId);
 	const isMountedRef = useRef(null);
+	const isIfscRequired = userInfo.currencyId === currencyCode.INR;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -50,7 +53,8 @@ export default ({
 				? {
 						bankName: _preAccInfo.bankName,
 						accountNo: _preAccInfo.accountNo,
-						sysId: _preAccInfo.sysId
+						sysId: _preAccInfo.sysId,
+						ifscCode:_preAccInfo.ifscCode
 				  }
 				: {
 						usdtAddress: _preUsdtAccInfo.usdtAddress,
@@ -154,6 +158,7 @@ export default ({
 					refreshData={refreshData}
 					custBankInfo={state.custBankInfo ?? []}
 					isUSDT={isUSDT}
+					isIfscRequired={isIfscRequired}
 				/>
 			</div>
 			<div className="subModuleList">
@@ -179,9 +184,21 @@ export default ({
 						KycCheck={KycCheck}
 						isUSDT={isUSDT}
 						GetDailyWithdrawalLimit={GetDailyWithdrawalLimit}
+						isIfscRequired={isIfscRequired}
 					/>
 				)}
 			</div>
 		</>
 	);
 };
+
+MainPanel.propTypes = {
+	state: PropTypes.objectOf(PropTypes.any).isRequired,
+	dispatch: PropTypes.func.isRequired,
+	refreshData: PropTypes.func.isRequired,
+	KycCheck: PropTypes.func.isRequired,
+	isUSDT: PropTypes.bool.isRequired,
+	GetDailyWithdrawalLimit: PropTypes.func.isRequired
+};
+
+export default MainPanel;

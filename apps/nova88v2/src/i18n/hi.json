@@ -418,6 +418,7 @@
 	"lbl_QuickPick": "त्वरित चुनाव",
 	"lbl_IFSCCode": "IFSC कोड",
 	"msg_PleaseEnterIFSCCode": "कृपया IFSC कोड दर्ज करें",
+	"msg_IFSCCodeLength": "IFSC code must be 11 characters",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "प्रचार / प्रचार",
@@ -844,16 +845,16 @@
 	"lbl_Header_olympic_countdown_hour": "इस घंटे",
 	"lbl_Header_olympic_countdown_mins": "मिनट",
 	"lbl_Header_olympic_countdown_secs": "सेकेंड",
-	
-	"livecasino":{
-		"lbl_welcome_to" :"आपका स्वागत",
+
+	"livecasino": {
+		"lbl_welcome_to": "आपका स्वागत",
 		"lbl_world_class": "है विश्व स्तरीय",
 		"lbl_casino_world": "कैसीनो विश्व",
 		"lbl_amber_na": "AMBER NA",
 		"lbl_spokesperson_2122": "प्रवक्ता 2021/22"
 	},
 
-	"speed":{
+	"speed": {
 		"lbl_CurrentIp": "आपका वर्तमान आईपी स्थान",
 		"lbl_SetHomePage": "मुखपृष्ठ के रूप में स्थित करे",
 		"lbl_AddToFavorite": "पसंदीदा लिस्ट मे जोड़े",
@@ -875,17 +876,17 @@
 		"lbl_ResponseTime": "Response Time:"
 	},
 
-	"games":{
-		"lbl_bannerSubTitle":"जीवन का एक नया दृष्टिकोण",
-		"lbl_bannerTitle1":"अपने जीवन को",
-		"lbl_bannerTitle2":"खेल से सजाएं"
+	"games": {
+		"lbl_bannerSubTitle": "जीवन का एक नया दृष्टिकोण",
+		"lbl_bannerTitle1": "अपने जीवन को",
+		"lbl_bannerTitle2": "खेल से सजाएं"
 	},
 
-	"lottery":{
-		"lbl_bannerSubTitle":"रीच टू बी रिच",
-		"lbl_bannerTitle1":"लॉटरी स्वर्ग",
-		"lbl_bannerTitle2":"24/7"
+	"lottery": {
+		"lbl_bannerSubTitle": "रीच टू बी रिच",
+		"lbl_bannerTitle1": "लॉटरी स्वर्ग",
+		"lbl_bannerTitle2": "24/7"
 	},
-	
+
 	"end-----": "end-----"
 }

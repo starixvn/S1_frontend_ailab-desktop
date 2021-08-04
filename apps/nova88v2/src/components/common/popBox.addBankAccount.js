@@ -7,11 +7,13 @@ import usePopBox from "../hook/usePopBox";
 import config from "../../config";
 import Dropdown from "./dropdown";
 import Inputbox from "./inputbox";
+import { currencyCode } from "../../datas/countryCode";
 
 const initValue = {
 	realName: "",
 	bankId: 0,
-	accountNo: ""
+	accountNo: "",
+	ifscCode: ""
 };
 
 export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
@@ -31,9 +33,14 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 		},
 		realName_after: {
 			tip: ""
+		},
+		ifscCode: {
+			checked: null,
+			tip: ""
 		}
 	});
 	const isMountedRef = useRef(null);
+	const isIfscRequired = userInfo.currencyId === currencyCode.INR;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -46,14 +53,8 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 		setUserValue(prev => ({ ...prev, bankId: i }));
 	};
 
-	const editField = (col, e) => {
-		let val = e.target.value;
-
-		val =
-			col === "realName"
-				? val.replace(/[\W]/g, "")
-				: val.replace(/[^\d]+/g, "");
-		setUserValue(prev => ({ ...prev, [col]: val }));
+	const clickClose = () => {
+		setPopBox({ isOpen: false, refresh: true });
 	};
 
 	const clickInfo = col => {
@@ -61,6 +62,8 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 
 		if (col === "realName") {
 			_tip = t("lbl_BankAccountNameHint");
+		} else if (col === "ifscCode") {
+			_tip = t("msg_PleaseEnterIFSCCode");
 		} else if (col === "realName_after") {
 			_tip = t("lbl_ContactCSD");
 		} else {
@@ -80,8 +83,13 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 		}));
 	};
 
-	const clickClose = () => {
-		setPopBox({ isOpen: false, refresh: true });
+	const editField = (col, e) => {
+		let val = e.target.value;
+		val =
+			col === "accountNo"
+				? val.replace(/[^\d]+/g, "")
+				: val.replace(/[\W]/g, "");
+		setUserValue(prev => ({ ...prev, [col]: val }));
 	};
 
 	const checkAll = (val, col) => {
@@ -112,6 +120,14 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 				message = t("lbl_already_stored_this_information");
 				checked = false;
 			}
+		} else if (col === "ifscCode" && isIfscRequired) {
+			if (!val) {
+				message = t("msg_PleaseEnterIFSCCode");
+				checked = false;
+			} else if (val?.length !== 11) {
+				message = t("msg_IFSCCodeLength");
+				checked = false;
+			}
 		}
 
 		setStatus(prev => ({
@@ -133,12 +149,16 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 		e.preventDefault();
 		const _realName = checkAll(userValue.realName, "realName");
 		const _accountNo = checkAll(userValue.accountNo, "accountNo");
+		const _ifscCode = isIfscRequired
+			? checkAll(userValue.ifscCode, "ifscCode")
+			: { checked: true, message: "" };
 
-		if (_realName.checked && _accountNo.checked) {
+		if (_realName.checked && _accountNo.checked && _ifscCode.checked) {
 			api_accountStrict_SetCustBankInfo({
 				AccountName: userValue.realName,
 				AccountNo: userValue.accountNo,
-				SysId: bankInfoSysList[userValue.bankId].sysId
+				SysId: bankInfoSysList[userValue.bankId].sysId,
+				IFSCCode: isIfscRequired ? userValue.ifscCode : null
 			}).then(
 				res => {
 					if (isMountedRef.current) {
@@ -244,6 +264,22 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 				checked={status.accountNo.checked}
 				tip={status.accountNo.tip}
 			/>
+			{isIfscRequired && (
+				<Inputbox
+					className={`inputBox-white${
+						!status.ifscCode.checked && status.ifscCode.tip !== ""
+							? " error"
+							: ""
+					}`}
+					value={userValue.ifscCode}
+					onChange={editField.bind(this, "ifscCode")}
+					onBlur={checkAll.bind(this, userValue.ifscCode, "ifscCode")}
+					title={t("lbl_IFSCCode")}
+					clickInfo={clickInfo.bind(this, "ifscCode")}
+					checked={status.ifscCode.checked}
+					tip={status.ifscCode.tip}
+				/>
+			)}
 			<div className="btnGroup">
 				<button className="btn-cancel" onClick={clickClose}>
 					{t("lbl_Cancel")}
