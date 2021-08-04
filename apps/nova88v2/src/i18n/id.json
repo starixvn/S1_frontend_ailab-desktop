@@ -420,6 +420,7 @@
 	"lbl_QuickPick": "Pilihan Cepat",
 	"lbl_IFSCCode": "Kode IFSC",
 	"msg_PleaseEnterIFSCCode": "Silakan masukkan kode IFSC",
+	"msg_IFSCCodeLength": "Kode IFSC harus 11 karakter",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promosi",
@@ -846,16 +847,16 @@
 	"lbl_Header_olympic_countdown_hour": "JAM",
 	"lbl_Header_olympic_countdown_mins": "MENIT",
 	"lbl_Header_olympic_countdown_secs": "DETIK",
-	
-	"livecasino":{
-		"lbl_welcome_to" :"SELAMAT DATANG",
+
+	"livecasino": {
+		"lbl_welcome_to": "SELAMAT DATANG",
 		"lbl_world_class": "DI CASINO",
 		"lbl_casino_world": "KELAS DUNIA",
 		"lbl_amber_na": "AMBER NA",
 		"lbl_spokesperson_2122": "Duta Asia 2021/22"
 	},
 
-	"speed":{
+	"speed": {
 		"lbl_CurrentIp": "Lokasi IP Anda saat ini",
 		"lbl_SetHomePage": "Atur sebagai homepage",
 		"lbl_AddToFavorite": "Tambahkan ke Favorit",
@@ -877,16 +878,16 @@
 		"lbl_ResponseTime": "Waktu Respon:"
 	},
 
-	"games":{
-		"lbl_bannerSubTitle":"Sebuah Sudut Pandang Kehidupan Baru",
-		"lbl_bannerTitle1":"Hiasi Hidup Anda",
-		"lbl_bannerTitle2":"Dengan Game"
+	"games": {
+		"lbl_bannerSubTitle": "Sebuah Sudut Pandang Kehidupan Baru",
+		"lbl_bannerTitle1": "Hiasi Hidup Anda",
+		"lbl_bannerTitle2": "Dengan Game"
 	},
 
-	"lottery":{
-		"lbl_bannerSubTitle":"Raih Kekayaan Anda",
-		"lbl_bannerTitle1":"Surga Togel",
-		"lbl_bannerTitle2":"24/7"
+	"lottery": {
+		"lbl_bannerSubTitle": "Raih Kekayaan Anda",
+		"lbl_bannerTitle1": "Surga Togel",
+		"lbl_bannerTitle2": "24/7"
 	},
 
 	"end-----": "end-----"

@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import config from "../../config";
 import Loading from "../common/loading";
 
-const BankInfoCard = ({ custBankList, delBankAccount, loading }) => {
+const BankInfoCard = ({
+	t,
+	custBankList,
+	delBankAccount,
+	loading,
+	isIfscRequired
+}) => {
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -15,7 +21,6 @@ const BankInfoCard = ({ custBankList, delBankAccount, loading }) => {
 
 	const arr = custBankList?.map(item => {
 		const bankLogo = String(item.bankLogo).toLowerCase();
-
 		return (
 			<div className="addBankName" key={`bankCard-${item.accountNo}`}>
 				<div className="addBankInfo">
@@ -38,6 +43,13 @@ const BankInfoCard = ({ custBankList, delBankAccount, loading }) => {
 						)}
 					/>
 				</div>
+				{isIfscRequired && (
+					<div className="txt-gray">
+						<span>
+							{t("lbl_IFSCCode")}:{item.ifscCode}
+						</span>
+					</div>
+				)}
 			</div>
 		);
 	});
@@ -61,9 +73,11 @@ BankInfoCard.defaultProps = {
 };
 
 BankInfoCard.propTypes = {
+	t: PropTypes.func.isRequired,
 	custBankList: PropTypes.arrayOf(PropTypes.any),
 	delBankAccount: PropTypes.func.isRequired,
-	loading: PropTypes.bool.isRequired
+	loading: PropTypes.bool.isRequired,
+	isIfscRequired: PropTypes.bool.isRequired
 };
 
 export default BankInfoCard;

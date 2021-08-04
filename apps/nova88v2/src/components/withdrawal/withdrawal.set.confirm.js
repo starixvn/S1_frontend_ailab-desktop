@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import { popBoxContext } from "../common/context";
 import { number_format } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
@@ -6,18 +7,18 @@ import { defActionType, defPanel } from "./withdrawal.reducer";
 import { api_payment_WithdrawalReq } from "../../service/api/payment";
 import { Iov_GetBlackBox } from "../common/iovation";
 
-export default ({
+const ConfirmPanel = ({
 	dispatch,
 	t,
 	_isConvert,
 	selectedAccount,
-	accountName,
 	amount,
 	GetCustBankInfo,
 	refreshData,
 	KycCheck,
 	isUSDT,
-	GetDailyWithdrawalLimit
+	GetDailyWithdrawalLimit,
+	isIfscRequired
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
@@ -59,13 +60,15 @@ export default ({
 					AccountNo: selectedAccount.accountNo,
 					amount: real_amount,
 					sysId: selectedAccount.sysId,
-					blackbox
+					blackbox,
+					IFSCCode: isIfscRequired ? selectedAccount.ifscCode : null
 			  }
 			: {
 					AccountNo: selectedAccount.usdtAddress,
 					amount: real_amount,
 					sysId: 0,
-					blackbox
+					blackbox,
+					IFSCCode: null
 			  };
 
 		api_payment_WithdrawalReq(payload).then(
@@ -216,7 +219,6 @@ export default ({
 							</ul>
 						</>
 					)}
-
 					<ul>
 						<li>{t("lbl_WithdrawalAmount")}</li>
 						<li>
@@ -226,6 +228,12 @@ export default ({
 							)}
 						</li>
 					</ul>
+					{isIfscRequired && (
+						<ul>
+							<li>{t("lbl_IFSCCode")}</li>
+							<li>{selectedAccount.ifscCode ?? ""}</li>
+						</ul>
+					)}
 				</div>
 				<div className="btnGroup">
 					<button className="btn-cancel" onClick={toAmountPanel}>
@@ -239,3 +247,19 @@ export default ({
 		</div>
 	);
 };
+
+ConfirmPanel.propTypes = {
+	dispatch: PropTypes.func.isRequired,
+	t: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
+	selectedAccount: PropTypes.objectOf(PropTypes.any).isRequired,
+	amount: PropTypes.string.isRequired,
+	GetCustBankInfo: PropTypes.func.isRequired,
+	refreshData: PropTypes.func.isRequired,
+	KycCheck: PropTypes.func.isRequired,
+	isUSDT: PropTypes.bool.isRequired,
+	GetDailyWithdrawalLimit: PropTypes.func.isRequired,
+	isIfscRequired: PropTypes.bool.isRequired
+};
+
+export default ConfirmPanel;

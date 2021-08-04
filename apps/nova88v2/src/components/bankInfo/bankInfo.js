@@ -22,6 +22,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 import StepBar from "../common/stepBar";
 import bankInfoStep from "./bankInfo.set.defStep";
+import { currencyCode } from "../../datas/countryCode";
 
 export default () => {
 	const { t } = useTranslation();
@@ -31,6 +32,7 @@ export default () => {
 	const [showTip, setShowTip] = useState(false);
 	const isMountedRef = useRef(null);
 	const [loading, setLoading] = useState(true);
+	const isIfscRequired = userInfo.currencyId === currencyCode.INR;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -250,16 +252,18 @@ export default () => {
 							? userInfo.accountName
 							: state.accountName
 					}
-					IFSCCode={state.IFSCCode ?? ""}
 					alreadyHasAccountName={!!userInfo.accountName}
 					reload={GetCustBankInfo}
-					currencyId={userInfo.currencyId ?? null}
+					ifscCode={state.ifscCode ?? ""}
+					isIfscRequired={isIfscRequired}
 				/>
 			</div>
 			<ShowCard
+				t={t}
 				custBankList={state.custBankList}
 				delBankAccount={delBankAccount}
 				loading={loading}
+				isIfscRequired={isIfscRequired}
 			/>
 		</>
 	);
