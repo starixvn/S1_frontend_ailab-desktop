@@ -13322,6 +13322,10 @@ canvas {
           flex-flow: column;
 }
 
+.gameinside .inside .rightModule .gameItem:hover {
+  cursor: pointer;
+}
+
 .gameinside .inside .rightModule .gameItem .name {
   color: #70ddfc;
   font-size: 18px;
@@ -14776,7 +14780,7 @@ img[alt="sg"] {
 }
 
 .rankingNew {
-  background: url(../img/ranking_page_bg.jpg) no-repeat top center/cover;
+  background: url(../img/ranking_page_bg_sports.jpg) no-repeat top center/cover;
 }
 
 .rankingNew section {
@@ -14839,41 +14843,6 @@ img[alt="sg"] {
   color: white;
 }
 
-.rankingNew section .mwt_border {
-  position: relative;
-  border: 3px solid #6483b9;
-  margin-top: 20px;
-  padding: 10px;
-  line-height: normal;
-  font-weight: bold;
-}
-
-.rankingNew section .mwt_border .arrow_t_int {
-  width: 0px;
-  height: 0px;
-  border-width: 15px;
-  border-style: solid;
-  border-color: transparent transparent #6483b9 transparent;
-  position: absolute;
-  top: -33px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.rankingNew section .mwt_border .arrow_t_out {
-  width: 0px;
-  height: 0px;
-  border-width: 15px;
-  border-style: solid;
-  border-color: transparent transparent transparent transparent;
-  position: absolute;
-  top: -29px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
 .rankingNew section .rankList {
   background: #6483b9;
 }
@@ -14885,6 +14854,10 @@ img[alt="sg"] {
 
 .rankingNew section .rankList li {
   background: #28344a;
+  height: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .rankingNew section .rankList li:first-child {
@@ -14900,7 +14873,7 @@ img[alt="sg"] {
 }
 
 .rankingNew section .rankList li .icon-arrow_drop_down {
-  color: green;
+  color: #05BC0B;
 }
 
 .rankingNew section .champion, .rankingNew section .eventRule, .rankingNew section .lastevent {
@@ -14931,20 +14904,6 @@ img[alt="sg"] {
   margin-top: 10px;
   margin-bottom: 25px;
   text-align: center;
-}
-
-.rankingNew section .champion .highest, .rankingNew section .eventRule .highest, .rankingNew section .lastevent .highest {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  margin: 0 20px;
-  text-align: center;
-  max-width: 230px;
-}
-
-.rankingNew section .champion .highest .txt-yellow, .rankingNew section .eventRule .highest .txt-yellow, .rankingNew section .lastevent .highest .txt-yellow {
-  font-size: 24px;
-  font-weight: bold;
 }
 
 .rankingNew section .champion .rankModule, .rankingNew section .eventRule .rankModule, .rankingNew section .lastevent .rankModule {
@@ -14982,67 +14941,6 @@ img[alt="sg"] {
 
 .rankingNew section .champion .rankTag .btnGroup button, .rankingNew section .lastevent .rankTag .btnGroup button {
   border-radius: 5px;
-}
-
-.rankingNew section .champion .finalTour, .rankingNew section .lastevent .finalTour {
-  text-transform: uppercase;
-  border-radius: 5px 5px 0 0;
-  padding: 10px;
-  min-width: auto;
-  white-space: nowrap;
-  margin-left: 0;
-  font-weight: bold;
-  font-size: 15px;
-  background: #003b44;
-  color: #00616f;
-  border-radius: 5px;
-  position: absolute;
-  right: 10px;
-  -webkit-animation: finaltour 1s infinite;
-          animation: finaltour 1s infinite;
-  cursor: pointer;
-  z-index: 1;
-}
-
-@keyframes finaltour {
-  0% {
-    background: #003b44;
-    color: #00616f;
-  }
-  50% {
-    background: #00616f;
-    color: #a9d9e7;
-  }
-  100% {
-    background: #003b44;
-    color: #00616f;
-  }
-}
-
-.rankingNew section .champion .highest, .rankingNew section .lastevent .highest {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.rankingNew section .champion .highest .title, .rankingNew section .lastevent .highest .title {
-  text-align: center;
-  margin-bottom: 0px;
-  white-space: nowrap;
-  font-size: 14px;
-  color: #fab617;
-}
-
-.rankingNew section .champion .highest .title div, .rankingNew section .lastevent .highest .title div {
-  margin-bottom: 10px;
-  font-size: 32px;
 }
 
 .rankingNew section .champion li, .rankingNew section .lastevent li {
@@ -15151,6 +15049,11 @@ img[alt="sg"] {
 .rankingNew section .eventRule .title {
   word-wrap: break-word;
   color: white;
+  margin: 0 auto 15px;
+}
+
+.rankingNew section .eventRule .title div {
+  font-weight: normal;
 }
 
 .rankingNew section .eventRule .rankTag {
@@ -15158,11 +15061,16 @@ img[alt="sg"] {
 }
 
 .rankingNew section .eventRule .rankList {
-  width: 600px;
+  width: calc(100% - 30px);
   text-align: center;
-  background: #dbe7f6;
-  padding: 10px 20px;
+  padding: 0px 15px 15px;
   max-height: unset;
+  margin: auto;
+}
+
+.rankingNew section .eventRule .rankList .title {
+  margin: 20px auto 5px;
+  font-size: 18px;
 }
 
 .rankingNew section .eventRule .rankList::-webkit-scrollbar-thumb {
@@ -15171,23 +15079,27 @@ img[alt="sg"] {
   border-radius: 10px;
 }
 
-.rankingNew section .eventRule .rankList > div {
-  display: none;
-}
-
-.rankingNew section .eventRule .rankList > div.active {
-  display: block;
-}
-
 .rankingNew section .eventRule .rankList button {
   color: white;
-  background: #6483b9;
+  background: #202d40;
   border-radius: 30px;
   padding: 5px 10px;
+  margin-top: 12px;
 }
 
 .rankingNew section .eventRule .rankList button:hover {
   background: #202d40;
+  color: #6483b9;
+}
+
+.rankingNew section .eventRule .rankList li {
+  line-height: initial;
+  min-height: unset;
+  margin-bottom: 3px;
+}
+
+.rankingNew section .eventRule .rankList li:nth-child(1) {
+  color: #202d40;
 }
 
 .rankingNew section .eventRule .rankList li div {
@@ -15195,47 +15107,11 @@ img[alt="sg"] {
 }
 
 .rankingNew section .eventRule .rankList li div:first-child {
-  min-width: auto;
+  min-width: 170px;
 }
 
 .rankingNew section .eventRule .rankList li div:first-child img {
   float: right;
-}
-
-.rankingNew section .eventRule .rankList li div:last-child {
-  min-width: 250px;
-}
-
-.rankingNew section .eventRule .rankList > table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fafafa;
-  margin-bottom: 10px;
-}
-
-.rankingNew section .eventRule .rankList > table tr:nth-child(1) {
-  font-size: 18px;
-}
-
-.rankingNew section .eventRule .rankList > table tr > th {
-  width: 25%;
-  border: 1px solid #cfcfcf;
-  text-align: left;
-  background-color: #5574a7;
-  color: white;
-  text-align: center;
-}
-
-.rankingNew section .eventRule .rankList > table tr > td {
-  border: 1px solid #cfcfcf;
-  padding: 8px;
-  text-align: center;
-  color: #000000;
-}
-
-.rankingNew section .eventRule .rankList > table tr > td:nth-child(1) {
-  background: #f4e1d0;
-  font-weight: 900;
 }
 
 .rankingNew + footer .footerList > div a ~ div {
