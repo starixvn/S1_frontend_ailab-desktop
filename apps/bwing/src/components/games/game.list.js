@@ -66,9 +66,7 @@ const GameListItem = ({
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
 			) : null}
 
-			<p>
-				{_displayText} {isInMaintain ? "xxxxxxx" : ""}
-			</p>
+			<p>{_displayText}</p>
 		</div>
 	);
 };
