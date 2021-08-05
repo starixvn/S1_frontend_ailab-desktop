@@ -10412,7 +10412,8 @@ html.Newtheme .livelobbyList > div img {
 }
 
 html.Newtheme .livelobbyList > div:hover {
-  margin-top: -6px;
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
   -webkit-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
 }
@@ -10516,7 +10517,8 @@ html.Newtheme .fishinglobbyList > div img {
 }
 
 html.Newtheme .fishinglobbyList > div:hover {
-  margin-top: -6px;
+  -webkit-transform: translateY(-6px);
+          transform: translateY(-6px);
   -webkit-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
 }
@@ -10527,7 +10529,8 @@ html.Newtheme .fishinglobbyList > div:hover img {
 }
 
 html.Newtheme .fishinglobbyList > div:hover .txt-darkBlue {
-  bottom: 22px;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
   -webkit-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
 }
@@ -10615,7 +10618,8 @@ html.Newtheme .lotterylobbyList > div img {
 }
 
 html.Newtheme .lotterylobbyList > div:hover {
-  margin-top: -10px;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
   -webkit-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
 }
@@ -10626,7 +10630,8 @@ html.Newtheme .lotterylobbyList > div:hover img {
 }
 
 html.Newtheme .lotterylobbyList > div:hover .txt-darkBlue {
-  bottom: 14px;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
   -webkit-transition: ease-in-out .3s;
   transition: ease-in-out .3s;
 }
