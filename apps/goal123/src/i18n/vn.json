@@ -281,6 +281,7 @@
 	"msg_InsufficientFund": "Không đủ tiền!",
 	"lbl_please_select_from_wallet": "Vui lòng chọn ví tiền phù hợp",
 	"lbl_please_select_to_wallet": "Vui lòng chọn quỹ phù hợp",
+	"lbl_Main_Wallet_Auto_Transfer": "Chuyển tự động Ví chính",
 
 	"financial  ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_FinancialLog": "Chi tiết Giao dịch",
