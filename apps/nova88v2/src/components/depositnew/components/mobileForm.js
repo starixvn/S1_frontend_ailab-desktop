@@ -113,7 +113,20 @@ const MobileForm = ({
 									<i className="icon icon-icon32px_check" />
 								</div>
 								<div className="bank">
-									<div>{item.groupName}</div>
+									<div>{item.channelName}</div>
+
+									<div>
+										<div>
+											{`${t("lbl_Min")}: ${formatAmount(
+												item.minAmount
+											)}`}
+										</div>
+										<div>
+											{`${t("lbl_Max")}: ${formatAmount(
+												item.maxAmount
+											)}`}
+										</div>
+									</div>
 								</div>
 							</button>
 						);
