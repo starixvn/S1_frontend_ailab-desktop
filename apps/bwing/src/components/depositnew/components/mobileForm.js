@@ -116,8 +116,24 @@ const MobileForm = ({
 							</div>
 
 							<div className="bank">
-								<div>{item.groupName}</div>
-								<div className="" />
+								<div>{item.channelName}</div>
+
+								<div>
+									<div>
+										{`${t("lbl_Min")}: ${number_format({
+											number: item.minAmount,
+											formatRequired: _isConvert,
+											digits: 0
+										})}`}
+									</div>
+									<div>
+										{`${t("lbl_Max")}: ${number_format({
+											number: item.maxAmount,
+											formatRequired: _isConvert,
+											digits: 0
+										})}`}
+									</div>
+								</div>
 							</div>
 						</button>
 					))}
