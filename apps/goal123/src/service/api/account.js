@@ -100,3 +100,9 @@ export const api_account_GetRefFriendList = ({
 		PageNumber,
 		PageSize
 	});
+
+export const api_account_GetWalletTransferStatus = () =>
+	accountRequest.post("/GetWalletTransferStatus");
+
+export const api_account_SetWalletTransferStatus = ({ AutoTransfer }) =>
+	accountRequest.post("/SetWalletTransferStatus", { AutoTransfer });
