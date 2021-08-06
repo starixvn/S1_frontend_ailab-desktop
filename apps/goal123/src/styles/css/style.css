@@ -1295,8 +1295,8 @@ html.Newtheme main {
   background: url(../img/bgPoint.png) repeat center/1.5%;
 }
 
-html.Newtheme main.joinlogin {
-  min-height: calc(100% - 145px);
+html.Newtheme main.joinlogin, html.Newtheme main .small {
+  min-height: calc(100% - 335px);
 }
 
 html.Newtheme main.sports {
