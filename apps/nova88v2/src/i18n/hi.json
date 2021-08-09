@@ -418,7 +418,7 @@
 	"lbl_QuickPick": "त्वरित चुनाव",
 	"lbl_IFSCCode": "IFSC कोड",
 	"msg_PleaseEnterIFSCCode": "कृपया IFSC कोड दर्ज करें",
-	"msg_IFSCCodeLength": "IFSC code must be 11 characters",
+	"msg_IFSCCodeLength": "IFSC कोड 11 अक्षर का होना चाहिए",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "प्रचार / प्रचार",
