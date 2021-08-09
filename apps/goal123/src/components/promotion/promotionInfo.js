@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { navigate } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { getUrlParameter, isConvert, number_format } from "../common/common";
 import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
@@ -12,6 +13,7 @@ import Loading from "../common/loading";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defFilterType } from "./promotion.nav";
+import path from "../../router";
 
 export default () => {
 	const filterType = getUrlParameter("FilterType");
@@ -107,6 +109,10 @@ export default () => {
 		});
 	};
 
+	const clickBack = () => {
+		navigate(`/${userInfo.langId}/${path.promotion.root}`);
+	};
+
 	let _isClaimed = false;
 	let _isExpiry = false;
 
@@ -152,6 +158,9 @@ export default () => {
 						</div>
 
 						<div className="btnGroup">
+							<button className="btn-cancel" onClick={clickBack}>
+								{t("lbl_Back")}
+							</button>
 							<PromotionJoinButton
 								promotionInfo={promotionInfo}
 								userInfo={userInfo}
