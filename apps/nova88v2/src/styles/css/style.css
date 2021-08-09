@@ -6285,6 +6285,11 @@ input[type="file"] {
   min-height: 100%;
 }
 
+.livecasinoinside .mainBanner > img {
+  width: 1920px;
+  height: 500px;
+}
+
 .proList, .slotList, .livecasino, .fishingList {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14276,7 +14281,7 @@ img[alt="sg"] {
 
 .mainBanner .bannerInfo .signature {
   position: absolute;
-  top: 270px;
+  top: 235px;
   right: 110px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14780,7 +14785,7 @@ img[alt="sg"] {
 }
 
 .rankingNew {
-  background: url(../img/ranking_page_bg_sports.jpg) no-repeat top center/cover;
+  background: url(../img/ranking_page_bg.jpg) no-repeat top center/cover;
 }
 
 .rankingNew section {
