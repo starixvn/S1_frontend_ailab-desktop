@@ -15122,4 +15122,8 @@ img[alt="sg"] {
 .rankingNew + footer .footerList > div a ~ div {
   display: none;
 }
+
+.promos .swiper-container .swiper-wrapper > div .title {
+  max-width: none;
+}
 /*# sourceMappingURL=style.css.map */
