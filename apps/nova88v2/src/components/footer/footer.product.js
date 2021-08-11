@@ -1,15 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { GetCurrencyName } from "../common/common";
 
-export const FooterProduct = ({
+const FooterProduct = ({
 	t,
+	langId,
+	currencyId,
 	defFooterProductList,
 	path,
 	SiteInfo,
-	langId,
 	linkToReferral,
-	openLiveChat
+	openLiveChat,
+	isFullFooter
 }) => {
+	const currencyName = GetCurrencyName({ langId, currencyId, t });
+
 	return (
 		<div className="footerList">
 			<div>
@@ -21,14 +26,24 @@ export const FooterProduct = ({
 					{t("lbl_JoinNow")}
 					{" >"}
 				</a>
-				{defFooterProductList[1].map(item => {
-					return (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
+				{isFullFooter && (
+					<div>
+						<div className="title">
+							{t(`lbl_Sports_Betting_Online_${currencyName}`)}
 						</div>
-					);
-				})}
+						<div>
+							{t("lbl_Sports_Betting_Online_Malaysia_desc")}
+						</div>
+					</div>
+				)}
+				{isFullFooter && (
+					<div>
+						<div className="title">
+							{t("lbl_Soccer_Betting_Live_Betting")}
+						</div>
+						<div>{t("lbl_Soccer_Betting_Live_Betting_desc")}</div>
+					</div>
+				)}
 			</div>
 			<div>
 				<div className="title icon icon-affiliate">
@@ -39,14 +54,15 @@ export const FooterProduct = ({
 					{t("lbl_Apply_Now")}
 					{" >"}
 				</a>
-				{defFooterProductList[2].map(item => {
-					return (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					);
-				})}
+				{isFullFooter &&
+					defFooterProductList[2].map(item => {
+						return (
+							<div key={`footer-profuct-${item.title}`}>
+								<div className="title">{t(item.title)}</div>
+								<div>{t(item.content)}</div>
+							</div>
+						);
+					})}
 			</div>
 			<div>
 				<div className="title icon icon-vip">
@@ -57,14 +73,15 @@ export const FooterProduct = ({
 					{t("lbl_More_Info")}
 					{" >"}
 				</a>
-				{defFooterProductList[3].map(item => {
-					return (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					);
-				})}
+				{isFullFooter &&
+					defFooterProductList[3].map(item => {
+						return (
+							<div key={`footer-profuct-${item.title}`}>
+								<div className="title">{t(item.title)}</div>
+								<div>{t(item.content)}</div>
+							</div>
+						);
+					})}
 			</div>
 			<div>
 				<div className="title icon icon-live_tv">
@@ -75,14 +92,15 @@ export const FooterProduct = ({
 					{t("lbl_Watch_Now")}
 					{" >"}
 				</a>
-				{defFooterProductList[4].map(item => {
-					return (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					);
-				})}
+				{isFullFooter &&
+					defFooterProductList[4].map(item => {
+						return (
+							<div key={`footer-profuct-${item.title}`}>
+								<div className="title">{t(item.title)}</div>
+								<div>{t(item.content)}</div>
+							</div>
+						);
+					})}
 			</div>
 			<div>
 				<div className="title icon icon-livechat1">
@@ -93,26 +111,34 @@ export const FooterProduct = ({
 					{t("lbl_Chat_Now")}
 					{" >"}
 				</a>
-				{defFooterProductList[5].map(item => {
-					return (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					);
-				})}
+				{isFullFooter &&
+					defFooterProductList[5].map(item => {
+						return (
+							<div key={`footer-profuct-${item.title}`}>
+								<div className="title">{t(item.title)}</div>
+								<div>{t(item.content)}</div>
+							</div>
+						);
+					})}
 			</div>
 		</div>
 	);
 };
+
+FooterProduct.defaultProps = {
+	currencyId: null
+};
+
 FooterProduct.propTypes = {
 	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired,
+	currencyId: PropTypes.number,
 	defFooterProductList: PropTypes.objectOf(PropTypes.any).isRequired,
 	path: PropTypes.objectOf(PropTypes.any).isRequired,
 	SiteInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	langId: PropTypes.string.isRequired,
 	linkToReferral: PropTypes.func.isRequired,
-	openLiveChat: PropTypes.func.isRequired
+	openLiveChat: PropTypes.func.isRequired,
+	isFullFooter: PropTypes.bool.isRequired
 };
 
 export default FooterProduct;

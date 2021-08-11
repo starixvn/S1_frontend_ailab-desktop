@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import Wrapper from "../../components/common/wrapper";
 import Layout from "../../components/common/layout";
+import Footer from "../../components/footer/footer";
 import {
 	userInfoContext,
 	popBoxContext
@@ -21,6 +22,7 @@ export default () => {
 						</div>
 					</section>
 				</main>
+				<Footer />
 			</Layout>
 		</Wrapper>
 	);

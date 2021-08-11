@@ -241,6 +241,10 @@ export default {
 		name: "numberGame",
 		tpCategory: defTpCategoryId.lottery
 	},
+	tcg: {
+		tpId: 33,
+		tpCategory: defTpCategoryId.lottery
+	},
 
 	/* === 7. virtual Sports === */
 
@@ -258,7 +262,6 @@ export default {
 		name: "King_Maker",
 		tpCategory: defTpCategoryId.poker
 	},
-
 	V8_Poker: {
 		tpId: 25,
 		gameId: 0,

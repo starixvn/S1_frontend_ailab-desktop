@@ -21,7 +21,7 @@ export const SiteInfo = {
 	langCookie: "nova88LangId",
 	socialMedia: {
 		fb: {
-			link: "https://www.facebook.com/nova88official/",
+			link: "https://www.facebook.com/nova88official",
 			displayKey: "lbl_Facebook"
 		},
 		twitter: {

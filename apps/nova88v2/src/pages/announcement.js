@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import moment from "moment";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
+import Footer from "../components/footer/footer";
 import { api_message_GetAnnouncement } from "../service/api/message";
 import {
 	userInfoContext,
@@ -11,7 +12,6 @@ import {
 } from "../components/common/context";
 import defPopBoxType from "../components/common/defPopBoxType";
 import LeftMenu from "../components/common/leftMenu";
-import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
 export default () => {
 	return (
@@ -24,8 +24,8 @@ export default () => {
 							<Content />
 						</div>
 					</section>
-					{/* <SideBarQuickLink /> */}
 				</main>
+				<Footer />
 			</Layout>
 		</Wrapper>
 	);

@@ -6,7 +6,7 @@ import Content from "../components/password/forgetPassword";
 export default () => {
 	return (
 		<Wrapper afterLogin={false}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<div className="rightModule">

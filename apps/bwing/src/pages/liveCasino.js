@@ -6,7 +6,7 @@ import Livecasino from "../components/livecasino/livecasino";
 export default () => {
 	return (
 		<Wrapper>
-			<Layout>
+			<Layout showFooter={true}>
 				<main className="livelobby">
 					<Livecasino />
 				</main>
