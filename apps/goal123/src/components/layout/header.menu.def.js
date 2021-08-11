@@ -35,6 +35,7 @@ import gameKenoIconImg from "../../styles/img/dropdown/games/newicon/keno-icon.p
 import gamesLotteryBgImg from "../../styles/img/dropdown/games/lottery.png";
 import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png";
 import gamesLobbyTCGImg from "../../styles/img/games/tcg.png";
+import gamesTCGIconImg from "../../styles/img/dropdown/games/newicon/tcg-icon.png";
 import gameLotteryIconImg from "../../styles/img/dropdown/games/newicon/lottery-icon.png";
 import gamesLobbySabaclubImg from "../../styles/img/games/sabaclub.png";
 import gamesLobbyV8Img from "../../styles/img/games/v8.png";
@@ -216,7 +217,8 @@ export const defMenuLinks = langId => {
 					npcImgUrl: gamesKingMakerNpcImg,
 					lobbyPage: {
 						bgImg: gamesLobbyKingmakerImg
-					}
+					},
+					iconImgUrl: gamesKingMakerIconImg
 				},
 				{
 					...productList.tcg,
@@ -233,10 +235,7 @@ export const defMenuLinks = langId => {
 					lobbyPage: {
 						bgImg: gamesLobbyTCGImg
 					},
-					iconImgUrl: gamesKingMakerIconImg,
-					lobbyPage: {
-						bgImg: gamesLobbyKingmakerImg
-					}
+					iconImgUrl: gamesTCGIconImg
 				},
 				{
 					...productList.sabaClub,
