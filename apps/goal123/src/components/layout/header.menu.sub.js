@@ -13,7 +13,7 @@ export default ({
 	subItems,
 	menuKey,
 	mainUrl,
-	maintainList
+	allMaintainList
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
@@ -78,11 +78,11 @@ export default ({
 		const displayText = s.displayText ? s.displayText : t(s.displayKey);
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
-		const isInMaintain = maintainList?.some(
-			mt =>
-				mt.tpId === s.tpId &&
-				(mt.tpCategoryId === s.tpCategory ||
-					mt.tpCategoryId === defTpCategoryId.all)
+		const isInMaintain = allMaintainList?.some(
+			item =>
+				item.tpId === s.tpId &&
+				(item.tpCategoryId === s.tpCategory ||
+					item.tpCategoryId === defTpCategoryId.all)
 		);
 
 		let params = null;

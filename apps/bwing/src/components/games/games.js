@@ -12,7 +12,6 @@ import {
 import { defPopBoxType } from "../common/defPopBoxType";
 import GamesBanner from "./games.banner";
 import GameList from "./game.list";
-import { defTpCategoryId } from "../../datas/productList";
 
 const Games = () => {
 	const { t } = useTranslation();
@@ -21,17 +20,13 @@ const Games = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 
-	const clickItem = ({ tpId, gameId, isInMaintain }) => {
+	const clickItem = ({ tpId, gameId }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
-
-		if (isInMaintain) {
-			return;
-		}
 
 		SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
@@ -64,8 +59,7 @@ const Games = () => {
 						<GameList
 							t={t}
 							subMenu={subMenu}
-							maintainList={allMaintainList}
-							defTpCategoryId={defTpCategoryId}
+							allMaintainList={allMaintainList}
 							clickItem={clickItem}
 						/>
 					</div>

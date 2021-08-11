@@ -20,6 +20,8 @@ import gamesSabaclubIconImg from "../../styles/img/dropdown/games/newicon/sabacl
 
 import gamesKingMakerBgImg from "../../styles/img/dropdown/games/kingmaker.png";
 import gamesKingMakerNpcImg from "../../styles/img/dropdown/games/kingmaker-item.png";
+import gamesTCGBgImg from "../../styles/img/dropdown/games/tcg.png";
+import gamesTCGNpcImg from "../../styles/img/dropdown/games/tcg-item.png";
 import gamesKingMakerIconImg from "../../styles/img/dropdown/games/newicon/kingmaker-icon.png";
 
 import gamesV8pokerBgImg from "../../styles/img/dropdown/games/v8poker.png";
@@ -32,10 +34,9 @@ import gameKenoIconImg from "../../styles/img/dropdown/games/newicon/keno-icon.p
 
 import gamesLotteryBgImg from "../../styles/img/dropdown/games/lottery.png";
 import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png";
+import gamesLobbyTCGImg from "../../styles/img/games/tcg.png";
 import gameLotteryIconImg from "../../styles/img/dropdown/games/newicon/lottery-icon.png";
-
 import gamesLobbySabaclubImg from "../../styles/img/games/sabaclub.png";
-import gamesLobbyTcgImg from "../../styles/img/games/tcg.png";
 import gamesLobbyV8Img from "../../styles/img/games/v8.png";
 import gamesLobbyKenoImg from "../../styles/img/games/keno.png";
 import gamesLobbyLotteryImg from "../../styles/img/games/lottery.png";
@@ -213,6 +214,25 @@ export const defMenuLinks = langId => {
 					menuType: defMenuType.entPage,
 					bgImgUrl: gamesKingMakerBgImg,
 					npcImgUrl: gamesKingMakerNpcImg,
+					lobbyPage: {
+						bgImg: gamesLobbyKingmakerImg
+					}
+				},
+				{
+					...productList.tcg,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.lottery_tcg
+						})
+					],
+					displayKey: "lbl_TcGame",
+					menuType: defMenuType.entPage,
+					bgImgUrl: gamesTCGBgImg,
+					npcImgUrl: gamesTCGNpcImg,
+					lobbyPage: {
+						bgImg: gamesLobbyTCGImg
+					},
 					iconImgUrl: gamesKingMakerIconImg,
 					lobbyPage: {
 						bgImg: gamesLobbyKingmakerImg

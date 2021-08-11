@@ -140,6 +140,21 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgClass: "lottery"
 				}
+			},
+			{
+				...productList.tcg,
+				className: "tcg",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.lottery_tcg
+					})
+				],
+				displayKey: "lbl_TcGame",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "tcg"
+				}
 			}
 		]
 	},
