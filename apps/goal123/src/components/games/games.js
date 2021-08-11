@@ -11,7 +11,6 @@ import {
 import { defPopBoxType } from "../common/popBox";
 import GamesBanner from "./games.banner";
 import GameList from "./game.list";
-import { defTpCategoryId } from "../../datas/productList";
 
 const Games = () => {
 	const { t } = useTranslation();
@@ -61,8 +60,7 @@ const Games = () => {
 							<GameList
 								t={t}
 								subMenu={subMenu}
-								maintainList={allMaintainList}
-								defTpCategoryId={defTpCategoryId}
+								allMaintainList={allMaintainList}
 								clickItem={clickItem}
 							/>
 						</div>

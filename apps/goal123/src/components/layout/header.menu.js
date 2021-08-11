@@ -82,7 +82,7 @@ export default class Panel extends Component {
 							mainUrl={mainUrl}
 							subItems={subItems}
 							productTpIds={this.props.productTpIds}
-							maintainList={this.props.maintainList}
+							allMaintainList={this.props.allMaintainList}
 						/>
 					) : null}
 				</div>

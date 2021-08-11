@@ -1,16 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { defTpCategoryId } from "../../datas/productList";
 
-const GameList = ({ t, subMenu, maintainList, defTpCategoryId, clickItem }) => {
+const GameList = ({ t, subMenu, allMaintainList, clickItem }) => {
 	if (subMenu.length <= 0) return null;
 
 	return subMenu.map(subMenuItem => {
+		const isInMaintain = allMaintainList?.some(
+			item =>
+				item.tpId === subMenuItem.tpId &&
+				(item.tpCategoryId === subMenuItem.tpCategory ||
+					item.tpCategoryId === defTpCategoryId.all)
+		);
+
 		return (
 			<GameListItem
 				key={subMenuItem.displayKey}
 				t={t}
-				maintainList={maintainList}
-				defTpCategoryId={defTpCategoryId}
+				isInMaintain={isInMaintain}
 				clickItem={clickItem}
 				subMenuItem={subMenuItem}
 			/>
@@ -20,61 +27,61 @@ const GameList = ({ t, subMenu, maintainList, defTpCategoryId, clickItem }) => {
 
 GameList.propTypes = {
 	t: PropTypes.func.isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	allMaintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
 	clickItem: PropTypes.func.isRequired
 };
 
 export default GameList;
 
-const GameListItem = ({
-	t,
-	subMenuItem,
-	clickItem,
-	maintainList,
-	defTpCategoryId
-}) => {
+const GameListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 	const {
 		displayText,
 		displayKey,
 		tpId,
-		tpCategory,
 		gameId,
 		lobbyPage: { bgClass }
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
 
-	const isInMaintain = maintainList?.some(
-		mt =>
-			mt.tpId === tpId &&
-			(mt.tpCategoryId === tpCategory ||
-				mt.tpCategoryId === defTpCategoryId.all)
-	);
+	const _className = [bgClass, isInMaintain && "under"]
+		.filter(Boolean)
+		.join(" ");
 
 	return (
-		<div
-			className={`${bgClass} ${isInMaintain ? "under" : ""}`}
-			onClick={() =>
-				clickItem({
-					tpId,
-					gameId,
-					isInMaintain
-				})
-			}>
-			{isInMaintain ? (
+		<div className={_className}>
+			{isInMaintain && (
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
-			) : null}
+			)}
+
+			{subMenuItem?.eventIcons?.length > 0 && (
+				<div className={`icon ${subMenuItem.eventIcons[0]}`} />
+			)}
 
 			<p>{_displayText}</p>
+
+			<div className="btnGroup">
+				<button
+					className="orange"
+					onClick={() =>
+						clickItem({
+							tpId,
+							gameId
+						})
+					}>
+					{t("lbl_Play")}
+				</button>
+
+				{/* <button className="blue">DEMO</button> */}
+			</div>
 		</div>
 	);
 };
 
 GameListItem.propTypes = {
 	t: PropTypes.func.isRequired,
+	isInMaintain: PropTypes.bool.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	defTpCategoryId: PropTypes.objectOf(PropTypes.any).isRequired
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
 };
