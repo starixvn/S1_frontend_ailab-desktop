@@ -6,7 +6,7 @@ import Games from "../components/games/games";
 export default () => {
 	return (
 		<Wrapper>
-			<Layout>
+			<Layout showFooter={true}>
 				<main className="gamelobby">
 					<Games />
 				</main>

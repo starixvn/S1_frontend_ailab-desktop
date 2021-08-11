@@ -6,7 +6,7 @@ import Content from "../components/join/join";
 export default () => {
 	return (
 		<Wrapper onlyBeforeLogin={true}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section>
 						<Content />

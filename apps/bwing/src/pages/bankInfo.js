@@ -7,7 +7,7 @@ import BankInfo from "../components/bankInfo/bankInfo.set";
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<LeftMenu />

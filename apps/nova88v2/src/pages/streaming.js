@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Layout from "../components/common/layout";
+import Footer from "../components/footer/footer";
 import Filter from "../components/streaming/filter";
 import Wrapper from "../components/common/wrapper";
 import { userInfoContext } from "../components/common/context";
@@ -12,12 +13,13 @@ import joeColeImg from "../styles/img/b_joe.jpg";
 const IndexPage = () => {
 	return (
 		<Wrapper>
-			<Layout showFooter={true}>
+			<Layout>
 				<main>
 					<section className="inside streaming">
 						<Content />
 					</section>
 				</main>
+				<Footer />
 			</Layout>
 		</Wrapper>
 	);

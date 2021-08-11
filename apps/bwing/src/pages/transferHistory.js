@@ -16,7 +16,7 @@ import ReloadSpin from "../components/common/reloadSpin";
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<LeftMenu />

@@ -6,7 +6,7 @@ import Content from "../../components/promotion/promotionInfo";
 export default () => {
 	return (
 		<Wrapper>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<div className="rightModule">

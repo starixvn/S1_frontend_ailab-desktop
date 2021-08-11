@@ -23,7 +23,7 @@ import useDepositLocalBank from "../components/depositnew/hook/useDepositLocalBa
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<LeftMenu />

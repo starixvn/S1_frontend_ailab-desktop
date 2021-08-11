@@ -6,7 +6,7 @@ import Casino from "../components/casino/casino";
 export default () => {
 	return (
 		<Wrapper>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section>
 						<div className="rightModule">

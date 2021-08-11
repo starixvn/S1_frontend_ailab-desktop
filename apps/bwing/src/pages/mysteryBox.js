@@ -6,7 +6,7 @@ import MysteryBox from "../components/mysteryBox/mysteryBox";
 export default () => {
 	return (
 		<Wrapper afterLogin={false}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<MysteryBox />
 				</main>

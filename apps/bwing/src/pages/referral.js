@@ -7,7 +7,7 @@ import Referral from "../components/referral/referral";
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<LeftMenu />

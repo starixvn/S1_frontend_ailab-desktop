@@ -7,7 +7,7 @@ import Content from "../components/password/changePassword";
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<LeftMenu />

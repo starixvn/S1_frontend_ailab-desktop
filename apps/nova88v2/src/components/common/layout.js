@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import Header from "../header/header";
-import { Footer } from "../footer/footer";
+import Footer from "../footer/footer";
 import PopBox from "./popBox";
 import Loading from "./loading";
 
-const Layout = ({ children, showFooter = false }) => {
+const Layout = ({ children, showFooter = false, isFullFooter }) => {
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -19,7 +19,7 @@ const Layout = ({ children, showFooter = false }) => {
 		<>
 			<Header />
 			{children}
-			{showFooter ? <Footer /> : null}
+			{showFooter ? <Footer isFullFooter={isFullFooter} /> : null}
 			<PopBox />
 			<Loading />
 		</>

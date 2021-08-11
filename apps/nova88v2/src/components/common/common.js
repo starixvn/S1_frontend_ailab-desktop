@@ -204,17 +204,6 @@ export const uuidv4 = () => {
 	});
 };
 
-export const langAndCurrMapping = {
-	en: 2,
-	cs: 2,
-	th: 4,
-	th_en: 4,
-	id: 15,
-	id_en: 15,
-	hi: 61,
-	hi_en: 61
-};
-
 export const stringLinkify = text => {
 	const pattern = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
 	return text
@@ -229,3 +218,22 @@ export const defCurrencyList = {
 	IDR: 15,
 	INR: 61
 };
+
+export const langAndCurrMapping = {
+	en: 2,
+	cs: 2,
+	th: 4,
+	th_en: 4,
+	id: 15,
+	id_en: 15,
+	hi: 61,
+	hi_en: 61
+};
+
+export const GetCurrencyName = ({ langId, currencyId, t }) =>
+	t(
+		currencyId
+			? `Currency_${currencyId}`
+			: `Currency_${langAndCurrMapping[langId]}`,
+		t(`Currency_${defCurrencyList.MYR}`)
+	);

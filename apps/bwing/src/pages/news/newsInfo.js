@@ -13,7 +13,7 @@ import { defPopBoxType } from "../../components/common/defPopBoxType";
 export default () => {
 	return (
 		<Wrapper>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<div className="rightModule">

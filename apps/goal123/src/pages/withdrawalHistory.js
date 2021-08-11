@@ -11,7 +11,7 @@ import { defPopBoxType } from "../components/common/popBox";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-
+import Footer from "../components/footer/footer";
 import Filter from "../components/common/historyFilter";
 import LeftMenu from "../components/common/leftMenu";
 import Loading from "../components/common/loading";
@@ -29,6 +29,7 @@ export default () => {
 						</div>
 					</section>
 				</main>
+				<Footer />
 			</Layout>
 		</Wrapper>
 	);

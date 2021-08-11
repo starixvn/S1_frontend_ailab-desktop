@@ -1984,6 +1984,10 @@ html.Newtheme .inputBox .iconModule .icon.icon-checkmark {
   margin-right: 0;
 }
 
+html.Newtheme .inputBox .iconModule .icon.icon-information-solid {
+  cursor: pointer;
+}
+
 html.Newtheme .inputBox .dropdown {
   width: 100%;
   display: -webkit-box;
@@ -9064,6 +9068,7 @@ html.Newtheme .subModuleListColumn > .subModule {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   color: #fff;
+  position: relative;
 }
 
 html.Newtheme .subModuleListColumn > .subModule > .btnGroup {
@@ -9074,19 +9079,19 @@ html.Newtheme .subModuleListColumn > .subModule > .btnGroup button {
   margin: 0;
 }
 
-html.Newtheme .subModuleListColumn > .subModule .icon-information-solid {
+html.Newtheme .subModuleListColumn > .subModule > .icon-information-solid {
   color: #fff;
   cursor: pointer;
   margin: 0 5px 0 10px;
 }
 
-html.Newtheme .subModuleListColumn > .subModule .icon-information-solid + .tip {
+html.Newtheme .subModuleListColumn > .subModule > .icon-information-solid + .tip {
   padding: 0;
   margin-top: -3px;
   width: auto;
 }
 
-html.Newtheme .subModuleListColumn > .subModule .icon-information-solid.active + .tip {
+html.Newtheme .subModuleListColumn > .subModule > .icon-information-solid.active + .tip {
   visibility: visible;
   opacity: 1;
 }
@@ -9333,7 +9338,19 @@ html.Newtheme .subModuleListColumn .column .inputBox {
 html.Newtheme .subModuleListColumn .column .inputBox-white + .tip,
 html.Newtheme .subModuleListColumn .column .inputBox-blue + .tip,
 html.Newtheme .subModuleListColumn .column .inputBox + .tip {
-  margin: 0 5px 10px 136px;
+  margin: 0 5px 10px 0px;
+}
+
+html.Newtheme .subModuleListColumn .column .tipImg {
+  width: 32%;
+  position: absolute;
+  right: 3vh;
+  top: 3vh;
+  display: none;
+}
+
+html.Newtheme .subModuleListColumn .column .tipImg.active {
+  display: block;
 }
 
 html.Newtheme .subModuleListColumn .inputBox-white,
@@ -9345,7 +9362,7 @@ html.Newtheme .subModuleListColumn .inputBox {
 html.Newtheme .subModuleListColumn .inputBox-white + .tip,
 html.Newtheme .subModuleListColumn .inputBox-blue + .tip,
 html.Newtheme .subModuleListColumn .inputBox + .tip {
-  margin-left: 130px;
+  margin-left: 0px;
 }
 
 html.Newtheme .subModuleListColumn .btnGroup.buttonBox {
@@ -9412,6 +9429,26 @@ html.Newtheme .subModuleListColumn .bankAccount .smallList ul a {
 html.Newtheme .subModuleListColumn .bankAccount .smallList ul li {
   min-width: 130px;
   width: auto;
+}
+
+html.Newtheme .subModuleListColumn .note {
+  background: #dadada;
+  border-radius: 5px;
+  color: #797979;
+  padding: 20px;
+}
+
+html.Newtheme .subModuleListColumn .note ol {
+  padding-left: 15px;
+}
+
+html.Newtheme .subModuleListColumn .note ol li {
+  list-style-type: "* " !important;
+  margin: 8px;
+}
+
+html.Newtheme .subModuleListColumn .iconModule .icon-information-solid {
+  color: rgba(31, 50, 88, 0.7);
 }
 
 html.Newtheme .importantNo {

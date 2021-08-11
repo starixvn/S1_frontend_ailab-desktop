@@ -8,7 +8,6 @@ import productList, {
 import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
-import config from "../../config";
 
 const defPlatform = [
 	{
@@ -18,36 +17,21 @@ const defPlatform = [
 		imgName: "saba"
 	},
 	{
-		...productList.liveCasino_Allbet,
-		imgName: "ab"
-	},
-	{
-		...productList.fishing,
-		imgName: "yl"
+		...productList.sportBti,
+		path: path.sportBti.root,
+		imgName: "bti"
 	},
 	{
 		...productList.liveCasino_AG,
 		imgName: "ag"
 	},
 	{
-		...defCasinoProviders.GPI,
-		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.GPI.name },
-		imgName: "gp"
+		...productList.liveCasino_AE,
+		imgName: "ae"
 	},
 	{
-		...productList.liveCasino_DG,
-		imgName: "dg"
-	},
-	{
-		...productList.liveCasino_SA,
-		imgName: "sa"
-	},
-	{
-		...defCasinoProviders.YGG,
-		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.YGG.name },
-		imgName: "yg"
+		...productList.liveCasino_n2live,
+		imgName: "n2"
 	},
 	{
 		...defCasinoProviders.PP,
@@ -56,10 +40,16 @@ const defPlatform = [
 		imgName: "pp"
 	},
 	{
-		...defCasinoProviders.SG,
+		...defCasinoProviders.MGPSW,
 		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.SG.name },
-		imgName: "sg"
+		parameter: { provider: defCasinoProviders.MGPSW.name },
+		imgName: "mg"
+	},
+	{
+		...defCasinoProviders.PT,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.PT.name },
+		imgName: "pt"
 	},
 	{
 		...defCasinoProviders.PG,
@@ -68,16 +58,16 @@ const defPlatform = [
 		imgName: "pg"
 	},
 	{
-		...productList.liveCasino_AE,
-		imgName: "ae"
+		...defCasinoProviders.SG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.SG.name },
+		imgName: "sg"
 	},
 	{
-		...productList.liveCasino_eBET,
-		imgName: "eb"
-	},
-	{
-		...productList.liveCasino_WM,
-		imgName: "wm"
+		...defCasinoProviders.YGG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.YGG.name },
+		imgName: "ygg"
 	},
 	{
 		...defCasinoProviders.CQ9,
@@ -86,50 +76,64 @@ const defPlatform = [
 		imgName: "cq9"
 	},
 	{
-		...productList.liveCasino_One789,
-		imgName: "one789"
-	},
-	{
-		...defCasinoProviders.ICG,
-		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.ICG.name },
-		imgName: "icg"
-	},
-	{
-		...productList.V8_Poker,
-		imgName: "v8"
-	},
-	{
-		...productList.liveCasino_n2live,
-		imgName: "n2live"
-	},
-	{
-		...defCasinoProviders.PT,
-		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.PT.name },
-		imgName: "playtech"
-	},
-	{
-		...productList.sportBti,
-		path: path.sportBti.root,
-		imgName: "bti"
-	},
-	{
 		...defCasinoProviders.JILI,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.JILI.name },
 		imgName: "jili"
 	},
 	{
-		...productList.KingMaker,
-		imgName: "kingmaker"
+		...productList.fishing,
+		imgName: "yl"
 	},
 	{
-		...defCasinoProviders.MGPSW,
-		path: path.casino.root,
-		parameter: { provider: defCasinoProviders.MGPSW.name },
-		imgName: "mg"
+		...productList.V8_Poker,
+		imgName: "v8"
+	},
+	{
+		...productList.KingMaker,
+		imgName: "king"
+	},
+	{
+		...productList.tcg,
+		imgName: "tc"
 	}
+	// {
+	// 	...productList.liveCasino_Allbet,
+	// 	imgName: "ab"
+	// },
+	// {
+	// 	...defCasinoProviders.GPI,
+	// 	path: path.casino.root,
+	// 	parameter: { provider: defCasinoProviders.GPI.name },
+	// 	imgName: "gp"
+	// },
+	// {
+	// 	...productList.liveCasino_DG,
+	// 	imgName: "dg"
+	// },
+	// {
+	// 	...productList.liveCasino_SA,
+	// 	imgName: "sa"
+	// },
+	// {
+	// 	...productList.liveCasino_eBET,
+	// 	imgName: "eb"
+	// },
+	// {
+	// 	...productList.liveCasino_WM,
+	// 	imgName: "wm"
+	// },
+
+	// {
+	// 	...productList.liveCasino_One789,
+	// 	imgName: "one789"
+	// },
+	// {
+	// 	...defCasinoProviders.ICG,
+	// 	path: path.casino.root,
+	// 	parameter: { provider: defCasinoProviders.ICG.name },
+	// 	imgName: "icg"
+	// }
 ];
 
 export default ({ langId, isLogin, productTpIds, maintainList }) => {
@@ -190,18 +194,15 @@ export default ({ langId, isLogin, productTpIds, maintainList }) => {
 		);
 
 		return (
-			<button
+			<a
 				key={key}
+				className={p.imgName}
 				onClick={ClickItem.bind(this, {
 					...p,
 					urlParams: _urlParams,
 					isInMaintain
-				})}>
-				<img
-					alt="logo"
-					src={`${config.imgUrl}/common/images/logo/${p.imgName}.png`}
-				/>
-			</button>
+				})}
+			/>
 		);
 	});
 
