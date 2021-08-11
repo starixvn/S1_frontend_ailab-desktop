@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
+import Footer from "../components/footer/footer";
 import path from "../router";
 import { userInfoContext, popBoxContext } from "../components/common/context";
 import { api_news_GetNews } from "../service/api/news";
@@ -21,6 +22,7 @@ export default () => {
 						</div>
 					</section>
 				</main>
+				<Footer />
 			</Layout>
 		</Wrapper>
 	);

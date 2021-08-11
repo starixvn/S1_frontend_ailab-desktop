@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
+import Footer from "../components/footer/footer";
 import LeftMenu from "../components/common/leftMenu";
 import Withdrawal from "../components/withdrawal/withdrawal.set.bank";
 import RecentHistory from "../components/withdrawal/recentHistory";
@@ -26,6 +27,7 @@ export default () => {
 						</div>
 					</section>
 				</main>
+				<Footer />
 			</Layout>
 		</Wrapper>
 	);

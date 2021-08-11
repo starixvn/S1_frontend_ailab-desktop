@@ -12,7 +12,7 @@ import { defPopBoxType } from "../components/common/defPopBoxType";
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<LeftMenu />

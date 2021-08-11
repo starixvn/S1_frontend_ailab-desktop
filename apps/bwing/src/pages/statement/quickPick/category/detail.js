@@ -7,7 +7,7 @@ import LeftMenu from "../../../../components/common/leftMenu";
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
-			<Layout>
+			<Layout showFooter={true}>
 				<main>
 					<section className="inside">
 						<LeftMenu />

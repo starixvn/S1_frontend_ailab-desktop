@@ -329,6 +329,10 @@ export default {
 		tpCategory: defTpCategoryId.lottery
 		// allowCurrency: [4, 15]
 	},
+	tcg: {
+		tpId: 33,
+		tpCategory: defTpCategoryId.lottery
+	},
 
 	/* === 7. virtual sports === */
 

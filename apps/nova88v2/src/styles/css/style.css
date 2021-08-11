@@ -13629,7 +13629,6 @@ canvas {
 .app + footer {
   width: 100%;
   min-width: auto;
-  text-align: center;
   font-size: xx-small;
 }
 

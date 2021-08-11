@@ -12,6 +12,19 @@ import Promotions from "./footer.promotions";
 import About from "./footer.about";
 import PlatformSection from "./footer.platform";
 
+import acbbankImgImg from "../../styles/img/bank/acbbank.png";
+import agribankImg from "../../styles/img/bank/agribank.png";
+import mbbankImg from "../../styles/img/bank/mbbank.png";
+import sacombankImg from "../../styles/img/bank/sacombank.png";
+import vibbankImg from "../../styles/img/bank/vibbank.png";
+import vietcombankImg from "../../styles/img/bank/vietcombank.png";
+import vietinbankImg from "../../styles/img/bank/vietinbank.png";
+import vpbankImg from "../../styles/img/bank/vpbank.png";
+import momoImg from "../../styles/img/bank/momo.png";
+import circlebankImg from "../../styles/img/bank/circlebank.png";
+import hpbankImg from "../../styles/img/bank/hpbank.png";
+import oneclickpayImg from "../../styles/img/bank/oneclickpay.png";
+
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -20,6 +33,21 @@ export default () => {
 
 	return (
 		<footer>
+			<div className="bankarea">
+				<img src={acbbankImgImg} alt="acbbankImgImg" />
+				<img src={agribankImg} alt="agribankImg" />
+				<img src={mbbankImg} alt="mbbankImg" />
+				<img src={sacombankImg} alt="sacombankImg" />
+				<img src={vibbankImg} alt="vibbankImg" />
+				<img src={vietcombankImg} alt="vietcombankImg" />
+				<img src={vietinbankImg} alt="vietinbankImg" />
+				<img src={vpbankImg} alt="vpbankImg" />
+				<img src={momoImg} alt="momoImg" />
+				<img src={circlebankImg} alt="circlebankImg" />
+				<img src={hpbankImg} alt="hpbankImg" />
+				<img src={oneclickpayImg} alt="oneclickpayImg" />
+			</div>
+
 			<div className="webmap">
 				<Bettings
 					t={t}

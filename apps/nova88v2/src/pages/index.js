@@ -6,7 +6,7 @@ import Content from "../components/home/home";
 const IndexPage = ({ location }) => {
 	return (
 		<Wrapper>
-			<Layout showFooter={true}>
+			<Layout showFooter={true} isFullFooter={true}>
 				<Content location={location} />
 			</Layout>
 		</Wrapper>

@@ -1,9 +1,9 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
+import Footer from "../components/footer/footer";
 import LeftMenu from "../components/common/leftMenu";
 import Withdrawal from "../components/withdrawal/withdrawal";
-import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
 export default () => {
 	return (
@@ -14,8 +14,8 @@ export default () => {
 						<LeftMenu />
 						<Withdrawal />
 					</section>
-					{/* <SideBarQuickLink /> */}
 				</main>
+				<Footer />
 			</Layout>
 		</Wrapper>
 	);

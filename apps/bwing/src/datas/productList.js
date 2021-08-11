@@ -232,6 +232,10 @@ export default {
 		gameId: 1,
 		tpCategory: defTpCategoryId.lottery
 	},
+	tcg: {
+		tpId: 33,
+		tpCategory: defTpCategoryId.lottery
+	},
 
 	/* === 7. virtual Sports === */
 
