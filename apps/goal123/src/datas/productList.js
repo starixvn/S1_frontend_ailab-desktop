@@ -228,6 +228,10 @@ export default {
 		name: "lottery",
 		tpCategory: defTpCategoryId.lottery
 	},
+	tcg: {
+		tpId: 33,
+		tpCategory: defTpCategoryId.lottery
+	},
 	keno: {
 		tpId: 1,
 		gameId: 202,

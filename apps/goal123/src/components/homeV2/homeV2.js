@@ -223,7 +223,7 @@ const HomeV2 = ({ productTpIds }) => {
 					langId={userInfo.langId}
 					clickItem={clickItem}
 					navigate={navigate}
-					maintainList={allMaintainList}
+					allMaintainList={allMaintainList}
 					defTpCategoryId={defTpCategoryId}
 				/>
 

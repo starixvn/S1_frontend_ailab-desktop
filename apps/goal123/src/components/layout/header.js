@@ -38,7 +38,7 @@ export default () => {
 				</div>
 				<Menu
 					productTpIds={productTpIds}
-					maintainList={allMaintainList}
+					allMaintainList={allMaintainList}
 				/>
 				<div className="function">
 					<a

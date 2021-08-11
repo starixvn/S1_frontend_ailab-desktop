@@ -11,7 +11,7 @@ const HotGameList = ({
 	langId,
 	clickItem,
 	navigate,
-	maintainList,
+	allMaintainList,
 	defTpCategoryId
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
@@ -83,7 +83,7 @@ const HotGameList = ({
 							gameList={defTopGameList}
 							clickItem={clickItem}
 							navigate={navigate}
-							maintainList={maintainList}
+							allMaintainList={allMaintainList}
 							defTpCategoryId={defTpCategoryId}
 							setPopBox={setPopBox}
 						/>
@@ -94,7 +94,7 @@ const HotGameList = ({
 							gameList={defBottomGameList}
 							clickItem={clickItem}
 							navigate={navigate}
-							maintainList={maintainList}
+							allMaintainList={allMaintainList}
 							defTpCategoryId={defTpCategoryId}
 							setPopBox={setPopBox}
 						/>
@@ -109,12 +109,12 @@ export const Games = ({
 	gameList,
 	clickItem,
 	navigate,
-	maintainList,
+	allMaintainList,
 	defTpCategoryId,
 	setPopBox
 }) => {
 	const rows = gameList.map(item => {
-		const isInMaintain = maintainList?.some(
+		const isInMaintain = allMaintainList?.some(
 			mt =>
 				mt.tpId === item.tpId &&
 				(mt.tpCategoryId === item.tpCategory ||
@@ -165,7 +165,7 @@ HotGameList.propTypes = {
 	langId: PropTypes.string.isRequired,
 	clickItem: PropTypes.func.isRequired,
 	navigate: PropTypes.func.isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	allMaintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	defTpCategoryId: PropTypes.PropTypes.objectOf(PropTypes.any).isRequired
 };
 
