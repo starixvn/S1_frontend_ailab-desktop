@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import iosQRcodeImg from "../../styles/img/app/ios_en.png";
-import androidQRcodeImg from "../../styles/img/app/android_en.png";
 import { iosLink, androidLink } from "../appDownload/appDownload";
 
 const defQRCodeName = {
@@ -72,7 +70,10 @@ export const IconBar = ({
 				onClick={showQRcode.bind(this, defQRCodeName.ios, iosLink)}>
 				{t("lbl_iOS")?.toUpperCase()}
 				<div>
-					<img src={iosQRcodeImg} alt="ios_qr" />
+					<img
+						src="https://image.n88media.com/SiteSkin/img/ios_qr.png"
+						alt="ios_qr"
+					/>
 				</div>
 			</button>
 			<button
@@ -86,7 +87,10 @@ export const IconBar = ({
 				)}>
 				{t("lbl_Android")?.toUpperCase()}
 				<div>
-					<img src={androidQRcodeImg} alt="android_qr" />
+					<img
+						src="https://image.n88media.com/SiteSkin/img/android_qr.png"
+						alt="android_qr"
+					/>
 				</div>
 			</button>
 		</div>
