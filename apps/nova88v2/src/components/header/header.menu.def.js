@@ -726,6 +726,25 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		subMenu: [
 			{
+				...productList.tcg,
+				className: "indo",
+				displayKey: "lbl_TcGame",
+				listNpcImgUrl: "lo-tcg.png",
+				listBgImgUrl: "gameListHover.png",
+				menuType: defMenuType.entPage,
+				parameter: { ...productList.tcg },
+				lobbyPage: {
+					bgImg: "lotterytc.png",
+					hoverBgImg: "lotterytca.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.lottery_tcg
+					})
+				]
+			},
+			{
 				...productList.keno,
 				className: "keno",
 				displayKey: "lbl_Keno",
@@ -790,25 +809,6 @@ export const defMenuLinks = {
 					hoverBgImg: "lottery4da.png"
 				},
 				allowCurrencies: [defCurrencyList.IDR]
-			},
-			{
-				...productList.tcg,
-				className: "indo",
-				displayKey: "lbl_TcGame",
-				listNpcImgUrl: "lo-tcg.png",
-				listBgImgUrl: "gameListHover.png",
-				menuType: defMenuType.entPage,
-				parameter: { ...productList.tcg },
-				lobbyPage: {
-					bgImg: "lotterytc.png",
-					hoverBgImg: "lotterytca.png"
-				},
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.lottery_tcg
-					})
-				]
 			}
 		]
 	},

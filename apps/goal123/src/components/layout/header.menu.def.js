@@ -204,23 +204,6 @@ export const defMenuLinks = langId => {
 			className: "game icon",
 			subMenu: [
 				{
-					...productList.KingMaker,
-					eventIcons: [
-						showEventIcon({
-							icon: defEventIcon.new,
-							period: defEventPeriod.KingMaker
-						})
-					],
-					displayKey: "lbl_King_Maker",
-					menuType: defMenuType.entPage,
-					bgImgUrl: gamesKingMakerBgImg,
-					npcImgUrl: gamesKingMakerNpcImg,
-					lobbyPage: {
-						bgImg: gamesLobbyKingmakerImg
-					},
-					iconImgUrl: gamesKingMakerIconImg
-				},
-				{
 					...productList.tcg,
 					eventIcons: [
 						showEventIcon({
@@ -236,6 +219,23 @@ export const defMenuLinks = langId => {
 						bgImg: gamesLobbyTCGImg
 					},
 					iconImgUrl: gamesTCGIconImg
+				},
+				{
+					...productList.KingMaker,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.KingMaker
+						})
+					],
+					displayKey: "lbl_King_Maker",
+					menuType: defMenuType.entPage,
+					bgImgUrl: gamesKingMakerBgImg,
+					npcImgUrl: gamesKingMakerNpcImg,
+					lobbyPage: {
+						bgImg: gamesLobbyKingmakerImg
+					},
+					iconImgUrl: gamesKingMakerIconImg
 				},
 				{
 					...productList.sabaClub,

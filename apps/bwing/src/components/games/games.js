@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../layout/header.menu.def";

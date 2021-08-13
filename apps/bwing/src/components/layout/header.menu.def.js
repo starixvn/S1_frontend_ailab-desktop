@@ -57,6 +57,21 @@ export const defMenuLinks = {
 		subDivClass2: "ballR1 ballG1",
 		subMenu: [
 			{
+				...productList.tcg,
+				className: "tcg",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.lottery_tcg
+					})
+				],
+				displayKey: "lbl_TcGame",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "tcg"
+				}
+			},
+			{
 				...productList.KingMaker,
 				className: "kingmaker",
 				eventIcons: [
@@ -139,21 +154,6 @@ export const defMenuLinks = {
 				parameter: { ...productList.lottery },
 				lobbyPage: {
 					bgClass: "lottery"
-				}
-			},
-			{
-				...productList.tcg,
-				className: "tcg",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.lottery_tcg
-					})
-				],
-				displayKey: "lbl_TcGame",
-				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "tcg"
 				}
 			}
 		]
