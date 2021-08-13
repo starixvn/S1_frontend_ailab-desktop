@@ -118,7 +118,7 @@ const leaderBoardContent = ({
 					</>
 				) : null}
 				<img
-					src="https://image.n88media.com/SiteSkin/img/champion.png"
+					src="https://image.0814media.net/SiteSkin/img/champion.png"
 					alt="champion"
 				/>
 				<div className="mwt_border">

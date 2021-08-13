@@ -12,11 +12,11 @@ const getAffiliate = () => {
 };
 
 export const errorPageUrl = langId =>
-	`https://error.n88media.com/404/index_${langId}.html`;
+	`https://error.0814media.net/404/index_${langId}.html`;
 
 export const SiteInfo = {
 	siteName,
-	logo: "https://image.n88media.com/SiteSkin/img/logo_evt.png",
+	logo: "https://image.0814media.net/SiteSkin/img/logo_evt.png",
 	affiliateLink: getAffiliate(),
 	langCookie: "nova88LangId",
 	socialMedia: {
@@ -38,11 +38,11 @@ export const SiteInfo = {
 		}
 	},
 	staticPromotions:
-		"https://image.n88media.com/NovaPromotion/promotionList.json"
+		"https://image.0814media.net/NovaPromotion/promotionList.json"
 };
 
-const cloudImgUrl = "https://image.n88media.com";
-const bannerImgUrl = "https://banner.n88media.com";
+export const cloudImgUrl = "https://image.0814media.net";
+export const bannerImgUrl = "https://banner.0814media.net";
 
 export default process.env.NODE_ENV === "production"
 	? {
@@ -51,7 +51,7 @@ export default process.env.NODE_ENV === "production"
 			openURL: "",
 			imgUrl: "",
 			t_and_cURL: "",
-			cloudImgUrl: "https://image.n88media.com",
+			cloudImgUrl,
 			bannerImgUrl
 	  }
 	: {

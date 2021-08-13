@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { iosLink, androidLink } from "../appDownload/appDownload";
+import { cloudImgUrl } from "../../config";
 
 const defQRCodeName = {
 	ios: "ios",
@@ -71,7 +72,7 @@ export const IconBar = ({
 				{t("lbl_iOS")?.toUpperCase()}
 				<div>
 					<img
-						src="https://image.n88media.com/SiteSkin/img/ios_qr.png"
+						src={`${cloudImgUrl}/SiteSkin/img/ios_qr.png`}
 						alt="ios_qr"
 					/>
 				</div>
@@ -88,7 +89,7 @@ export const IconBar = ({
 				{t("lbl_Android")?.toUpperCase()}
 				<div>
 					<img
-						src="https://image.n88media.com/SiteSkin/img/android_qr.png"
+						src={`${cloudImgUrl}/SiteSkin/img/android_qr.png`}
 						alt="android_qr"
 					/>
 				</div>

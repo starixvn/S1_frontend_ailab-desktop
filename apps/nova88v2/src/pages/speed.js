@@ -142,7 +142,7 @@ const SpeedContent = ({
 						<li>
 							<Link to={path.home.root} className="logo">
 								<img
-									src="https://image.n88media.com/SiteSkin/img/logo_en.png"
+									src="https://image.0814media.net/SiteSkin/img/logo_en.png"
 									alt="logo"
 								/>
 							</Link>

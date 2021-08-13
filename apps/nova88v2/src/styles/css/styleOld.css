@@ -7391,7 +7391,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -7778,7 +7784,7 @@ button.icon-spinner11:before {
   background-repeat: no-repeat;
   border-radius: 15px;
   margin: 20px auto;
-  background-image: url(https://image.n88media.com/SiteSkin/img/eventRuleBg.jpg);
+  background-image: url(https://image.0814media.net/SiteSkin/img/eventRuleBg.jpg);
 }
 
 .ranking a {
@@ -7882,7 +7888,7 @@ button.icon-spinner11:before {
   padding: 30px 0;
   min-height: 725px;
   position: relative;
-  background: url(https://image.n88media.com/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
+  background: url(https://image.0814media.net/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
 }
 
 .ranking .champion .title, .ranking .eventRule .title, .ranking .lastevent .title {
@@ -9449,7 +9455,7 @@ canvas {
 }
 
 .vipLv > div.vipbg {
-  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
+  background: url(https://image.0814media.net/VIP/img/vipbg.png) no-repeat center/auto 100%;
   padding: 20px;
   margin-top: 0;
 }
@@ -10302,7 +10308,7 @@ canvas {
 
 .newIndex #header .menu > div .subMenu-Wrapper-new > div > a > span, .newIndex #header .menu > div .subMenu-Wrapper-new > div > button > span {
   color: #7591C1;
-  background: url(https://banner.n88media.com/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
 }
 
 .newIndex #header .menu > div > a, .newIndex #header .menu > div > button {

@@ -9,6 +9,7 @@ import img_in01 from "../../styles/img/app/in01.png";
 import img_in02 from "../../styles/img/app/in02.png";
 import img_in03 from "../../styles/img/app/in03.png";
 import img_in04 from "../../styles/img/app/in04.png";
+import { cloudImgUrl } from "../../config";
 
 export const iosLink = "https://nova.jsybyny.com";
 export const androidLink = "https://dl.4ppstore.com/dlapp/Nova88.apk";
@@ -38,7 +39,7 @@ const AppDownload = () => {
 					<div>
 						<div>
 							<img
-								src="https://image.n88media.com/SiteSkin/img/ios_qr.png"
+								src={`${cloudImgUrl}/SiteSkin/img/ios_qr.png`}
 								alt="img_ios_QRCode"
 							/>
 							<div>
@@ -56,7 +57,7 @@ const AppDownload = () => {
 						</div>
 						<div>
 							<img
-								src="https://image.n88media.com/SiteSkin/img/android_qr.png"
+								src={`${cloudImgUrl}/SiteSkin/img/android_qr.png`}
 								alt="img_android_QRCode"
 							/>
 							<div>

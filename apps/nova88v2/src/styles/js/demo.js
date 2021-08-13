@@ -370,14 +370,14 @@ $(function(){
         function(){
         $(this).children('img').attr("src",$(this).children('img').attr('src').substr(0,47) + ".png")
     })
-    $(".partnerSelect button >img[src='https://image.n88media.com/SiteSkin/img/logo/cq9.png'").parent('button').hover(function() {
-        $(this).children('img').attr("src","https://image.n88media.com/SiteSkin/img/logo/cq9a.png")
+    $(".partnerSelect button >img[src='https://image.0814media.net/SiteSkin/img/logo/cq9.png'").parent('button').hover(function() {
+        $(this).children('img').attr("src","https://image.0814media.net/SiteSkin/img/logo/cq9a.png")
     },
         function(){
-        $(this).children('img').attr("src","https://image.n88media.com/SiteSkin/img/logo/cq9.png")
+        $(this).children('img').attr("src","https://image.0814media.net/SiteSkin/img/logo/cq9.png")
     })
-    $(".partnerSelect button >img[src='https://image.n88media.com/SiteSkin/img/logo/icg.png'").parent('button').hover(function() {
-        $(this).children('img').attr("src","https://image.n88media.com/SiteSkin/img/logo/icg.png")
+    $(".partnerSelect button >img[src='https://image.0814media.net/SiteSkin/img/logo/icg.png'").parent('button').hover(function() {
+        $(this).children('img').attr("src","https://image.0814media.net/SiteSkin/img/logo/icg.png")
     })
     $(".livecasino > div > img").hover(function() {
         $(this).attr("src",$(this).attr('src').substr(0,56) + "a" + ".jpg")
@@ -385,8 +385,8 @@ $(function(){
         function(){
         $(this).attr("src",$(this).attr('src').substr(0,56) + ".jpg")
     })
-    $(".livecasino > div > img[src='https://banner.n88media.com/img/livecasino/comingsoon.jpg'").hover(function() {
-        $(this).attr("src","https://banner.n88media.com/img/livecasino/comingsoon.jpg")
+    $(".livecasino > div > img[src='https://banner.0814media.net/img/livecasino/comingsoon.jpg'").hover(function() {
+        $(this).attr("src","https://banner.0814media.net/img/livecasino/comingsoon.jpg")
     })
     $(".fishingList > div").hover(function() {
         $(this).children('img').attr("src",$(this).children('img').attr('src').substr(0,46) + "a" + ".png")
@@ -523,10 +523,10 @@ $(function(){
 			if(typeof $(document).hidesnow === 'function') $(document).hidesnow();
 			$(document).snow({
 				SnowImage: [
-					'https://banner.n88media.com/img/fishing/bon/bg_light0.png',
-					'https://banner.n88media.com/img/fishing/bon/bg_light1.png',
-					'https://banner.n88media.com/img/fishing/bon/bg_light2.png',
-					'https://banner.n88media.com/img/fishing/bon/bg_light3.png'
+					'https://banner.0814media.net/img/fishing/bon/bg_light0.png',
+					'https://banner.0814media.net/img/fishing/bon/bg_light1.png',
+					'https://banner.0814media.net/img/fishing/bon/bg_light2.png',
+					'https://banner.0814media.net/img/fishing/bon/bg_light3.png'
 				],
 				stage : 'elin'
 			});

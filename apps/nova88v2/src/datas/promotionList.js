@@ -3,23 +3,23 @@ export default [
 	// 	bonusCode: "ExclusiveWeekly",
 	// 	bannerLink: {
 	// 		en:
-	// 			"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/EN.html",
+	// 			"https://image.0814media.net/NovaPromotion/ExclusiveWeekly/EN.html",
 	// 		cs:
-	// 			"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/CS.html",
+	// 			"https://image.0814media.net/NovaPromotion/ExclusiveWeekly/CS.html",
 	// 		id:
-	// 			"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/ID.html",
+	// 			"https://image.0814media.net/NovaPromotion/ExclusiveWeekly/ID.html",
 	// 		th:
-	// 			"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/TH.html"
+	// 			"https://image.0814media.net/NovaPromotion/ExclusiveWeekly/TH.html"
 	// 	},
 	// 	imgUrl: {
 	// 		en:
-	// 			"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/en/EN.jpg",
+	// 			"https://image.0814media.net/NovaPromotion/ExclusiveWeekly/en/EN.jpg",
 	// 		cs:
-	// 			"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/cs/CS.jpg",
+	// 			"https://image.0814media.net/NovaPromotion/ExclusiveWeekly/cs/CS.jpg",
 	// 		id:
-	// 			"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/id/ID.jpg",
+	// 			"https://image.0814media.net/NovaPromotion/ExclusiveWeekly/id/ID.jpg",
 	// 		th:
-	// 			"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/th/TH.jpg"
+	// 			"https://image.0814media.net/NovaPromotion/ExclusiveWeekly/th/TH.jpg"
 	// 	},
 	// 	title: {
 	// 		en: "EXCLUSIVE WEEKLY DEPOSIT BONUS UP TO MYR 3,000",
