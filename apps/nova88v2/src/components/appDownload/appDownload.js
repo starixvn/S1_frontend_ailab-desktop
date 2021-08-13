@@ -2,9 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import img_applogo from "../../styles/img/app/applogo.png";
 import img_appbanner from "../../styles/img/app/appbanner.png";
-import img_ios_QRCode from "../../styles/img/app/ios_en.png";
 import img_ios from "../../styles/img/app/ios.png";
-import img_android_QRCode from "../../styles/img/app/android_en.png";
 import img_android from "../../styles/img/app/and.png";
 import img_iosicon from "../../styles/img/app/iosicon.png";
 import img_in01 from "../../styles/img/app/in01.png";
@@ -12,7 +10,7 @@ import img_in02 from "../../styles/img/app/in02.png";
 import img_in03 from "../../styles/img/app/in03.png";
 import img_in04 from "../../styles/img/app/in04.png";
 
-export const iosLink = "https://nova.appdlweb.com";
+export const iosLink = "https://nova.jsybyny.com";
 export const androidLink = "https://dl.4ppstore.com/dlapp/Nova88.apk";
 
 const AppDownload = () => {
@@ -39,7 +37,10 @@ const AppDownload = () => {
 					</div>
 					<div>
 						<div>
-							<img src={img_ios_QRCode} alt="img_ios_QRCode" />
+							<img
+								src="https://image.n88media.com/SiteSkin/img/ios_qr.png"
+								alt="img_ios_QRCode"
+							/>
 							<div>
 								<div>
 									<img src={img_ios} alt="img_ios" />
@@ -55,7 +56,7 @@ const AppDownload = () => {
 						</div>
 						<div>
 							<img
-								src={img_android_QRCode}
+								src="https://image.n88media.com/SiteSkin/img/android_qr.png"
 								alt="img_android_QRCode"
 							/>
 							<div>
