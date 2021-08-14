@@ -184,7 +184,8 @@ const PlayTech = () => {
 	return (
 		<Helmet>
 			<script
-				src="https://login-am.hotspin88.com/jswrapper/hotspin88am/integration.js"
+				async
+				src="https://login-am.cat87666.com/jswrapper/hotspin88am/integration.js"
 				type="text/javascript"
 			/>
 		</Helmet>
