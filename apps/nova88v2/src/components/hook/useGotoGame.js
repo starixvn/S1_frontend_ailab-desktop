@@ -10,6 +10,21 @@ export const defSpecialSetting = {
 	sports_9w: productList._9WSports.tpId
 };
 
+const playTechLaunchGame = (client, game, mode, openType) => {
+	try {
+		iapiConf.clientUrl_ngm_desktop =
+			"https://cachedownload-am.cat87666.com/ngmdesktop/casinoclient.html";
+		iapiConf.clientUrl_ngm_mobile =
+			"https://games-am.cat87666.com/casinomobile/casinoclient.html";
+		iapiConf.clientUrl_live_desk =
+			"https://cachedownload-am.cat87666.com/live/html5/desktop/";
+		iapiConf.clientUrl_live_mob =
+			"https://cachedownload-am.cat87666.com/live/html5/mobile/";
+	} catch (error) {}
+
+	iapiLaunchClient(client, game, mode, openType);
+};
+
 const launchGame = ({ client, mode, game, lang }) => {
 	const real = mode == "real" ? 1 : 0;
 	// Optional Variables
@@ -24,7 +39,8 @@ const launchGame = ({ client, mode, game, lang }) => {
 			client,
 			`language=${lang}&real=${real}&lobby=${lobbyUrl}&logout=${logoutUrl}&deposit=${depositUrl}&support=${supportUrl}&backurl=${lobbyUrl}`
 		);
-		iapiLaunchClient(client, game, mode, "_blank");
+
+		playTechLaunchGame(client, game, mode, "_blank");
 	}
 
 	// Live Games
@@ -33,14 +49,14 @@ const launchGame = ({ client, mode, game, lang }) => {
 			client,
 			`&launch_alias=${game}&language=${lang}&real=${real}&lobby=${lobbyUrl}&logout=${logoutUrl}&deposit=${depositUrl}&support=${supportUrl}`
 		);
-		iapiLaunchClient(client, null, mode, "_blank");
+		playTechLaunchGame(client, null, mode, "_blank");
 	}
 };
 
 const launchGameWithFunMode = ({ client, game, lang, mode }) => {
 	if (client === "ngm_desktop" || client === "ngm_mobile") {
 		iapiSetClientParams(client, `language=${lang}&real=0`);
-		iapiLaunchClient(client, game, mode, "_blank");
+		playTechLaunchGame(client, game, mode, "_blank");
 	}
 };
 
