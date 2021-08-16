@@ -1,7 +1,7 @@
 import React, { useState, memo } from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const LotterySwiper = ({
 	t,
@@ -104,14 +104,11 @@ const SlideItem = ({ t, subMenuItem, clickItem, maintainList }) => {
 
 			{isHover ? (
 				<img
-					src={`${config.bannerImgUrl}/img/lottery/${hoverBgImg}`}
+					src={`${bannerImgUrl}/img/lottery/${hoverBgImg}`}
 					alt={hoverBgImg}
 				/>
 			) : (
-				<img
-					src={`${config.bannerImgUrl}/img/lottery/${bgImg}`}
-					alt={bgImg}
-				/>
+				<img src={`${bannerImgUrl}/img/lottery/${bgImg}`} alt={bgImg} />
 			)}
 
 			<div className="under">{t("lbl_underMaintenance")}</div>

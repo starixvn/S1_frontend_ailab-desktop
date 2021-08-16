@@ -7,7 +7,7 @@ import { AutoPlayWithBtn } from "../common/swipperBanner";
 import { InfoEn, InfoTh, InfoId, InfoCs } from "./vip.info";
 import VipPage from "./vip.page";
 import { defbanner, defPageClubImg } from "./vip.def";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 import { isOldLang } from "../../datas/languageData";
 
 const Vip = () => {
@@ -44,7 +44,7 @@ const Vip = () => {
 		cs: <InfoCs />
 	}[userInfo.langId];
 
-	const bottomImg = `${config.cloudImgUrl}/VIP/img/${
+	const bottomImg = `${cloudImgUrl}/VIP/img/${
 		isOldLang(userInfo.langId) ? userInfo.langId : "en"
 	}/vip_program_${isOldLang(userInfo.langId) ? userInfo.langId : "en"}.jpg`;
 

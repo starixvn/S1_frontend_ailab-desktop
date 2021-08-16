@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 import Loading from "../common/loading";
 
 const BankInfoCard = ({
@@ -26,7 +26,7 @@ const BankInfoCard = ({
 				<div className="addBankInfo">
 					<div className="bankName">
 						<img
-							src={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
+							src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
 							alt={item.bankName}
 						/>
 					</div>

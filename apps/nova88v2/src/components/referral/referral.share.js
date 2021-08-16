@@ -1,6 +1,6 @@
 import React from "react";
 import { number_format, isConvert } from "../common/common";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 export default ({ t, langId, currencyId, referralSettingData }) => {
 	const { periodDays, bonusAmount, vaildBet, deposit } = referralSettingData;
@@ -35,9 +35,7 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 						</span>
 					</div>
 					<a
-						href={`${
-							config.cloudImgUrl
-						}/NovaPromotion/referral/${langId.toUpperCase()}.html`}
+						href={`${cloudImgUrl}/NovaPromotion/referral/${langId.toUpperCase()}.html`}
 						target="_blank">
 						{t("lbl_MoreDetails")}
 					</a>
