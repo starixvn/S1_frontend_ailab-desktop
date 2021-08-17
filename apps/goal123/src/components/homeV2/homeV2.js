@@ -252,7 +252,7 @@ const HomeV2 = ({ productTpIds }) => {
 
 			<SideBarQuickLink />
 
-			<QuickdownloadLink />
+			<QuickdownloadLink langId={userInfo.langId} />
 		</main>
 	);
 };

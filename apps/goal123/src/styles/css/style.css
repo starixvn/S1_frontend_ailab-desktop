@@ -1796,6 +1796,10 @@ html.Newtheme .loginpop .joinloginModule .joinloginFunction .inputBox.active {
           align-items: flex-start;
 }
 
+html.Newtheme .loginpop .joinloginModule {
+  padding-top: 0;
+}
+
 html.Newtheme .joinloginModule {
   padding-top: 55px;
   width: 900px;
@@ -11182,6 +11186,27 @@ html.Newtheme .partnerSelect .swiper-container .swiper-slide button:hover img, h
 html.Newtheme .partnerSelect .swiper-container .swiper-slide button div {
   margin-top: 5px;
   font-size: 12px;
+}
+
+html.Newtheme .calculation ~ .inputModuleRow {
+  margin-top: 15px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: auto;
+}
+
+html.Newtheme .calculation ~ .inputModuleRow .tip {
+  position: unset;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+html.Newtheme .error {
+  border: 1px solid #d83b35;
+}
+
+html.Newtheme .error + .tip {
+  color: #d83b35;
 }
 
 @-webkit-keyframes jpot {

@@ -5,12 +5,24 @@ import androidIconImg from "../../styles/img/android.svg";
 import androidQRcodeImg from "../../styles/img/android_qr.png";
 
 import iosIconImg from "../../styles/img/ios.svg";
-import iosQRcodeImg from "../../styles/img/ios_qr.png";
+import iosQRcodeImg from "../../styles/img/ios_qr_en.png";
+import iosQRcodeImgVN from "../../styles/img/ios_qr_vn.png";
 
 const higherToTheAngpowZIndex = 3;
 const orignZIndex = 2;
 
-const QuickdownloadLink = () => {
+const defIosQRAndLink = {
+	en: {
+		qrcode: iosQRcodeImg,
+		link: "https://www.aso008.com/aeFHM7"
+	},
+	vn: {
+		qrcode: iosQRcodeImgVN,
+		link: "https://www.aso.cool/PFwm"
+	}
+};
+
+const QuickdownloadLink = ({ langId }) => {
 	const { t } = useTranslation();
 	const [active, setActive] = useState(false);
 
@@ -48,14 +60,17 @@ const QuickdownloadLink = () => {
 					</li>
 					<li>
 						<a
-							href="https://www.aso008.com/aeFHM7"
+							href={defIosQRAndLink[langId]?.link ?? ""}
 							target="_blank"
 							rel="noreferrer">
 							<img src={iosIconImg} alt="iosIcon" />
 							iOS
 						</a>
 
-						<img src={iosQRcodeImg} alt="ios_qr" />
+						<img
+							src={defIosQRAndLink[langId ?? ""]?.qrcode}
+							alt="ios_qr"
+						/>
 					</li>
 				</ul>
 			</div>
