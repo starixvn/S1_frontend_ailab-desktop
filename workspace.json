@@ -166,7 +166,7 @@
 					"options": {
 						"commands": [
 							"gulp minify --gulpfile=apps/goal123/gulpfile.js",
-							"git rev-parse HEAD > apps/goal123/static/rnt.txt",
+							"(git rev-parse HEAD & git rev-parse --abbrev-ref HEAD & git config user.name) > apps/goal123/static/rnt.txt",
 							"nx autoBuild goal123 --skip-nx-cache"
 						],
 						"parallel": false
@@ -263,7 +263,7 @@
 					"options": {
 						"commands": [
 							"gulp minify --gulpfile=apps/bwing/gulpfile.js",
-							"git rev-parse HEAD > apps/bwing/static/rnt.txt",
+							"(git rev-parse HEAD & git rev-parse --abbrev-ref HEAD & git config user.name) > apps/bwing/static/rnt.txt",
 							"nx autoBuild bwing --skip-nx-cache"
 						],
 						"parallel": false
@@ -381,7 +381,7 @@
 					"options": {
 						"commands": [
 							"gulp minify --gulpfile=apps/nova88v2/gulpfile.js",
-							"git rev-parse HEAD > apps/nova88v2/static/rnt.txt",
+							"(git rev-parse HEAD & git rev-parse --abbrev-ref HEAD & git config user.name) > apps/nova88v2/static/rnt.txt",
 							"nx autoBuild nova88v2 --skip-nx-cache"
 						],
 						"parallel": false
