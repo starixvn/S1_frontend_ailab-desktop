@@ -5,7 +5,7 @@ import LimitTip from "./limitTip";
 import { isConvert } from "../common/common";
 import { userInfoContext } from "../common/context";
 import path from "../../router";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 const _path = path.deposit.sub.onlineBank.root;
 
@@ -22,7 +22,7 @@ export default ({ onlineBankingList }) => {
 					to={`${_path}?name=${p.payName}&pId=${p.payId}&cId=${p.channelId}&max=${p.maxAmount}&min=${p.minAmount}`}
 					state={{ selBank: p.selBank }}>
 					<img
-						src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${p.payName}.png`}
+						src={`${cloudImgUrl}/SiteSkin/img/Payment/${p.payName}.png`}
 						alt={p.payName}
 					/>
 				</Link>

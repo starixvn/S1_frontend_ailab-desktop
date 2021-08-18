@@ -1,6 +1,6 @@
 import React, { memo, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const DEFAULT_LANGID = "en";
 
@@ -28,8 +28,8 @@ const IndexCenterBanner = ({ langId }) => {
 	useEffect(() => {
 		const checkImage = async () => {
 			let success = false;
-			const bannerImg = `${config.bannerImgUrl}/img/${BANNER_IMAGE_LIST[langId]}`;
-			const defaultBannerImg = `${config.bannerImgUrl}/img/${BANNER_IMAGE_LIST[DEFAULT_LANGID]}`;
+			const bannerImg = `${bannerImgUrl}/img/${BANNER_IMAGE_LIST[langId]}`;
+			const defaultBannerImg = `${bannerImgUrl}/img/${BANNER_IMAGE_LIST[DEFAULT_LANGID]}`;
 
 			success = await testImg(bannerImg);
 

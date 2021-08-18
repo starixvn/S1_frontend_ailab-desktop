@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { defActionType } from "./bankInfo.reducer";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import usePopBox from "../hook/usePopBox";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 import Inputbox from "../common/inputbox";
 import Loading from "../common/loading";
 
@@ -203,9 +203,7 @@ const AccountPanel = ({
 							<div className="bankName">
 								<img
 									alt="BankLogo"
-									src={`${
-										config.cloudImgUrl
-									}/SiteSkin/img/BankLogo/${bankInfo.bankLogo.toLowerCase()}`}
+									src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankInfo.bankLogo.toLowerCase()}`}
 								/>
 							</div>
 						</div>

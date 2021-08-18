@@ -9,7 +9,7 @@ import {
 	maintainListContext
 } from "../common/context";
 import Menu from "./header.menu";
-import config from "../../config";
+import config, { cloudImgUrl } from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import OlympicCountdown from "./header.olympic.countdown";
@@ -70,7 +70,7 @@ export default () => {
 		return <button className="icon icon-exit" onClick={handleLogout} />;
 	};
 
-	const Logo = `${config.cloudImgUrl}/SiteSkin/img/logo${
+	const Logo = `${cloudImgUrl}/SiteSkin/img/logo${
 		userInfo.langId === "cs" ? "_cs_w" : "_en_w"
 	}.png`;
 
@@ -81,7 +81,7 @@ export default () => {
 					<Link className="logo" to={`/${userInfo.langId}`}>
 						{isInPeriodEuro ? (
 							<img
-								src={`${config.cloudImgUrl}/SiteSkin/img/logo_evt.png`}
+								src={`${cloudImgUrl}/SiteSkin/img/logo_evt.png`}
 								alt="Logo_Euro"
 							/>
 						) : (

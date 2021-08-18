@@ -24,7 +24,7 @@ import {
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../common/context";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 import { Iov_GetBlackBox } from "../common/iovation";
 import { initValue, initTip, currencyToAreacode } from "../common/join.data";
 import JoinForm from "./join.form";
@@ -577,7 +577,7 @@ export default () => {
 							<img
 								className="animationlogo"
 								alt="animationlogo"
-								src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
+								src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 							/>
 							<img
 								className="npc1"

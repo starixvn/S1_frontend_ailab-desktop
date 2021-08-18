@@ -16,7 +16,7 @@ import {
 	defPeriodId,
 	defRewardTabId
 } from "./leaderBoard.def";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
 import { isOldLang } from "../../datas/languageData";
@@ -244,7 +244,7 @@ export default () => {
 
 	const linkToTnc = () => {
 		window.open(
-			`${config.cloudImgUrl}/NovaPromotion/UEFAEuro/${
+			`${cloudImgUrl}/NovaPromotion/UEFAEuro/${
 				isOldLang(userInfo.langId) ? userInfo.langId : "en"
 			}.html`
 		);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 const TopQuickLink = ({
 	lobbyImgList,
@@ -45,7 +45,7 @@ const TopQuickLink = ({
 						onBlur={() => 0}
 						onFocus={() => 0}>
 						<img
-							src={`${config.cloudImgUrl}/SiteSkin/img/logo/${_srcImg}.png`}
+							src={`${cloudImgUrl}/SiteSkin/img/logo/${_srcImg}.png`}
 							alt={_item.lobbyImgName}
 						/>
 						<div>{_item.lobbyDisplayName}</div>

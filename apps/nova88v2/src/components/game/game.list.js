@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const GameList = ({
 	t,
@@ -94,12 +94,12 @@ const GameListItem = ({
 
 			{isHover ? (
 				<img
-					src={`${config.bannerImgUrl}/img/game/${hoverBgImg}`}
+					src={`${bannerImgUrl}/img/game/${hoverBgImg}`}
 					alt={hoverBgImg}
 				/>
 			) : (
 				<img
-					src={`${config.bannerImgUrl}/img/game/${bgImg}`}
+					src={`${bannerImgUrl}/img/game/${bgImg}`}
 					alt={hoverBgImg}
 				/>
 			)}

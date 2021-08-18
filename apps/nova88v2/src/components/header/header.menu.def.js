@@ -138,7 +138,8 @@ export const defSubListClassName = {
 	promotion: "promoList",
 	tv: "tvList",
 	vip: "vipList",
-	ranking: "rankingList"
+	ranking: "rankingList",
+	sponsor: "homeList"
 };
 
 export const defMenuLinks = {
@@ -146,13 +147,6 @@ export const defMenuLinks = {
 		className: "icon icon-home",
 		path: path.home.root,
 		subMenu: [
-			{
-				displayKey: "lbl_Ambassador",
-				listNpcImgUrl: "home-ambassador.png",
-				listBgImgUrl: "ambassadorbg.png",
-				menuType: defMenuType.DirectUrl,
-				path: "https://www.joecole.club"
-			},
 			{
 				displayKey: "lbl_Vip",
 				listNpcImgUrl: "home-vip.png",
@@ -819,6 +813,26 @@ export const defMenuLinks = {
 	vip: {
 		displayKey: "lbl_Vip",
 		path: path.vip.root
+	},
+	sponsor: {
+		displayKey: "lbl_Sponsor",
+		path: path.sponsor.root,
+		subMenu: [
+			{
+				displayKey: "lbl_JOE_COLE",
+				listNpcImgUrl: "sponsors-joe.png",
+				listBgImgUrl: "ambassadorbg.png",
+				menuType: defMenuType.DirectUrl,
+				path: "https://www.joecole.club"
+			},
+			{
+				displayKey: "lbl_Sponsor",
+				listNpcImgUrl: "sponsors-amber.png",
+				listBgImgUrl: "ambassadorbg.png",
+				menuType: defMenuType.Link,
+				path: path.sponsor.root
+			}
+		]
 	},
 	tv: {
 		displayKey: "lbl_TV",

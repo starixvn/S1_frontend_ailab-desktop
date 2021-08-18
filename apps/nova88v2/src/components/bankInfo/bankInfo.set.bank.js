@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import { defActionType } from "./bankInfo.reducer";
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 import { popBoxContext } from "../common/context";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 import defPopBoxType from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
@@ -78,9 +78,7 @@ export default ({ t, dispatch, bankList, toLastStep, selectBank }) => {
 			<li key={`addBankAccount-${item.sysId}`}>
 				<a onClick={selectBank.bind(this, i)}>
 					<img
-						src={`${
-							config.cloudImgUrl
-						}/SiteSkin/img/BankLogo/${item.bankLogo?.toLowerCase()}`}
+						src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${item.bankLogo?.toLowerCase()}`}
 						alt={item.bankName}
 					/>
 				</a>

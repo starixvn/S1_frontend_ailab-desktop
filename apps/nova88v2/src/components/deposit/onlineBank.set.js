@@ -24,7 +24,7 @@ import {
 	defModule,
 	defActionType
 } from "./onlineBank.reducer";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 const _path = path.deposit.sub.onlineBank.root;
 
@@ -180,7 +180,7 @@ export default () => {
 			<div className="platformName">
 				<div className="icon">
 					<img
-						src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${pName}.png`}
+						src={`${cloudImgUrl}/SiteSkin/img/Payment/${pName}.png`}
 					/>
 				</div>
 				<div>

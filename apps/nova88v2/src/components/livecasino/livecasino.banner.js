@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const LiveCasinoBanner = ({ slideImgList }) => {
 	const params = {
@@ -20,7 +20,7 @@ const LiveCasinoBanner = ({ slideImgList }) => {
 			{slideImgList.map(img => (
 				<SwiperSlide key={`livacasino-slide-key-${img}`}>
 					<img
-						src={`${config.bannerImgUrl}/img/livecasino/${img}`}
+						src={`${bannerImgUrl}/img/livecasino/${img}`}
 						alt={img}
 					/>
 				</SwiperSlide>

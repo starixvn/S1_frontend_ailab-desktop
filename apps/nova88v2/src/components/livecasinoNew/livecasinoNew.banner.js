@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const LivecasinoNewBanner = ({ t }) => {
 	return (
 		<div className="mainBanner">
 			<img
-				src={`${config.bannerImgUrl}/img/livecasino/livecasino_mainbanner_bg.jpg`}
+				src={`${bannerImgUrl}/img/livecasino/livecasino_mainbanner_bg.jpg`}
 				alt="main-banner-img"
 			/>
 			<div className="bannerInfo">
@@ -23,17 +23,17 @@ const LivecasinoNewBanner = ({ t }) => {
 				<div className="animation">
 					<img
 						className="chip1"
-						src={`${config.bannerImgUrl}/img/livecasino/animation_img/chip1.png`}
+						src={`${bannerImgUrl}/img/livecasino/animation_img/chip1.png`}
 						alt="animation-img-chip1"
 					/>
 					<img
 						className="chip2"
-						src={`${config.bannerImgUrl}/img/livecasino/animation_img/chip2.png`}
+						src={`${bannerImgUrl}/img/livecasino/animation_img/chip2.png`}
 						alt="animation-img-chip2"
 					/>
 					<img
 						className="chip3"
-						src={`${config.bannerImgUrl}/img/livecasino/animation_img/chip3.png`}
+						src={`${bannerImgUrl}/img/livecasino/animation_img/chip3.png`}
 						alt="animation-img-chip3"
 					/>
 				</div>

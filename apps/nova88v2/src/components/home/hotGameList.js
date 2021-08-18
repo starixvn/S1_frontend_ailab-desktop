@@ -4,7 +4,7 @@ import ReactMarquee from "react-fast-marquee";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
-import config from "../../config";
+import { cloudImgUrl, bannerImgUrl } from "../../config";
 import { defLangToCurrency } from "../../datas/languageData";
 import { defTpCategoryId } from "../../datas/productList";
 
@@ -338,7 +338,7 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 					ClickGame(g.tpId, g.gameId, g.gameType, isInMaintain)
 				}>
 				<img
-					src={`${config.bannerImgUrl}/img/hotgame/${g.img}.jpg`}
+					src={`${bannerImgUrl}/img/hotgame/${g.img}.jpg`}
 					alt={g.name}
 				/>
 				<div>
@@ -347,7 +347,7 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 				</div>
 				<img
 					alt="hotgame-marquee"
-					src={`${config.cloudImgUrl}/SiteSkin/img/logo/${g.providerImg}.png`}
+					src={`${cloudImgUrl}/SiteSkin/img/logo/${g.providerImg}.png`}
 				/>
 			</div>
 		);

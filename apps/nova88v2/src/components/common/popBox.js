@@ -35,6 +35,7 @@ import SuccessMySteryBox from "./popBox.successMySteryBox";
 import PerDay from "./popBox.perDay";
 import BackupDomain from "./popBox.backupDomain";
 import UnderMaintain from "./popBox.underMaintain";
+import Photo from "./popBox.photo";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -299,18 +300,29 @@ export default () => {
 			content = <UnderMaintain clickClose={popBox.clickClose} />;
 			break;
 		}
+
+		case defPopBoxType.Photo:
+			content = <Photo photo={popBox.photo} />;
+			break;
+
 		default:
 			break;
 	}
 
+	const closeHandler = () => {
+		if (popBox.popBoxType !== defPopBoxType.Photo) return;
+		popBox.clickClose();
+	};
+
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
-		popBox.popBoxType === defPopBoxType.SuccessMySteryBox;
+		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
+		popBox.popBoxType === defPopBoxType.Photo;
 
 	if (!popBox.isOpen) return null;
 
 	return customLayout ? (
-		<div id="popup" className="active">
+		<div id="popup" className="active" onClick={closeHandler}>
 			{content}
 		</div>
 	) : (

@@ -20,7 +20,7 @@ import {
 	defModule,
 	defActionType
 } from "./cryptoPay.reducer";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 export default () => {
 	const { t } = useTranslation();
@@ -102,7 +102,7 @@ export default () => {
 			<div className="platformName">
 				<div className="icon">
 					<img
-						src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${gName}.png`}
+						src={`${cloudImgUrl}/SiteSkin/img/Payment/${gName}.png`}
 					/>
 				</div>
 

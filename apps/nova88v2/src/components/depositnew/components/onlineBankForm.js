@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
 import { getUrlParameter } from "../../common/common";
-import config from "../../../config";
+import { cloudImgUrl } from "../../../config";
 
 const OnlineBankForm = ({
 	t,
@@ -122,7 +122,7 @@ const OnlineBankForm = ({
 								<div>
 									<img
 										alt={item.payName}
-										src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${payName}.png`}
+										src={`${cloudImgUrl}/SiteSkin/img/Payment/${payName}.png`}
 									/>
 									<i className="icon icon-icon32px_check" />
 								</div>
@@ -176,7 +176,7 @@ const OnlineBankForm = ({
 									}>
 									<div>
 										<img
-											src={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
+											src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
 											alt={item.bankName}
 										/>
 										<i className="icon icon-icon32px_check" />

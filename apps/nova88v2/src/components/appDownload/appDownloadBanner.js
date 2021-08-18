@@ -1,6 +1,6 @@
 import React, { useState, useEffect, memo } from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 const DEFAULT_LANGID = "en";
 
@@ -28,8 +28,8 @@ const AppDonloadBannerImage = ({ langId }) => {
 	useEffect(() => {
 		const checkBannerImage = async () => {
 			let success = false;
-			const bannerImg = `${config.cloudImgUrl}/SiteSkin/img/${BANNER_IMAGE_LIST[langId]}`;
-			const defaultBannerImg = `${config.cloudImgUrl}/SiteSkin/img/${BANNER_IMAGE_LIST[DEFAULT_LANGID]}`;
+			const bannerImg = `${cloudImgUrl}/SiteSkin/img/${BANNER_IMAGE_LIST[langId]}`;
+			const defaultBannerImg = `${cloudImgUrl}/SiteSkin/img/${BANNER_IMAGE_LIST[DEFAULT_LANGID]}`;
 
 			success = await testImg(bannerImg);
 
