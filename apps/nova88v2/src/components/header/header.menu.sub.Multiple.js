@@ -5,7 +5,7 @@ import { defMenuLinks, defMenuType } from "./header.menu.def";
 // import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.png";
 // import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 // import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 import { defTpCategoryId } from "../../datas/productList";
 
 const SubMenuMultiple = ({
@@ -34,9 +34,9 @@ const SubMenuMultiple = ({
 
 	let params = null;
 
-	const SubMenuListBGLeftImg = `${config.bannerImgUrl}/img/subMenu-Wrapper-ListBG-left.png`;
-	const SubMenuListBGRightImg = `${config.bannerImgUrl}/img/subMenu-Wrapper-ListBG-right.png`;
-	const SubMenuListBGCenterImg = `${config.bannerImgUrl}/img/subMenu-Wrapper-ListBG-center.png`;
+	const SubMenuListBGLeftImg = `${bannerImgUrl}/img/subMenu-Wrapper-ListBG-left.png`;
+	const SubMenuListBGRightImg = `${bannerImgUrl}/img/subMenu-Wrapper-ListBG-right.png`;
+	const SubMenuListBGCenterImg = `${bannerImgUrl}/img/subMenu-Wrapper-ListBG-center.png`;
 
 	if (subMenuItem.parameter) {
 		params = Object.keys(subMenuItem.parameter).map(keys => {
@@ -195,7 +195,7 @@ const ImgsNpcRender = ({ listImgUrl, className }) => {
 			<img
 				className={className}
 				alt="listImgUrl"
-				src={`${config.bannerImgUrl}/img/${listImgUrl}`}
+				src={`${bannerImgUrl}/img/${listImgUrl}`}
 			/>
 		);
 
@@ -208,7 +208,7 @@ const ImgsBgRender = ({ listImgUrl, className }) => {
 			<img
 				className={className}
 				alt="listImgUrl"
-				src={`${config.bannerImgUrl}/img/${listImgUrl}`}
+				src={`${bannerImgUrl}/img/${listImgUrl}`}
 			/>
 		);
 
@@ -218,7 +218,7 @@ const ImgsBgRender = ({ listImgUrl, className }) => {
 				key={`imgs-key-${imgUrl}`}
 				alt="listImgUrl"
 				className={className}
-				src={`${config.bannerImgUrl}/img/${imgUrl}`}
+				src={`${bannerImgUrl}/img/${imgUrl}`}
 			/>
 		));
 

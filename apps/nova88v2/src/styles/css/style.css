@@ -358,7 +358,7 @@ header input:focus-within {
   font-size: 30px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList, .header > div.menu .subMenu-Wrapper-new .appList, .header > div.menu .subMenu-Wrapper-new .sportsList, .header > div.menu .subMenu-Wrapper-new .eSportsList, .header > div.menu .subMenu-Wrapper-new .casinoList, .header > div.menu .subMenu-Wrapper-new .livecasinoList, .header > div.menu .subMenu-Wrapper-new .pokerList, .header > div.menu .subMenu-Wrapper-new .tableList, .header > div.menu .subMenu-Wrapper-new .gameList, .header > div.menu .subMenu-Wrapper-new .fishList, .header > div.menu .subMenu-Wrapper-new .promoList, .header > div.menu .subMenu-Wrapper-new .tvList, .header > div.menu .subMenu-Wrapper-new .vipList, .header > div.menu .subMenu-Wrapper-new .rankingList {
+.header > div.menu .subMenu-Wrapper-new .homeList, .header > div.menu .subMenu-Wrapper-new .appList, .header > div.menu .subMenu-Wrapper-new .sportsList, .header > div.menu .subMenu-Wrapper-new .exchangeList, .header > div.menu .subMenu-Wrapper-new .eSportsList, .header > div.menu .subMenu-Wrapper-new .casinoList, .header > div.menu .subMenu-Wrapper-new .livecasinoList, .header > div.menu .subMenu-Wrapper-new .pokerList, .header > div.menu .subMenu-Wrapper-new .tableList, .header > div.menu .subMenu-Wrapper-new .gameList, .header > div.menu .subMenu-Wrapper-new .fishList, .header > div.menu .subMenu-Wrapper-new .promoList, .header > div.menu .subMenu-Wrapper-new .tvList, .header > div.menu .subMenu-Wrapper-new .vipList, .header > div.menu .subMenu-Wrapper-new .sponsorList, .header > div.menu .subMenu-Wrapper-new .rankingList {
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -372,7 +372,7 @@ header input:focus-within {
   height: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a, .header > div.menu .subMenu-Wrapper-new .homeList button, .header > div.menu .subMenu-Wrapper-new .appList a, .header > div.menu .subMenu-Wrapper-new .appList button, .header > div.menu .subMenu-Wrapper-new .sportsList a, .header > div.menu .subMenu-Wrapper-new .sportsList button, .header > div.menu .subMenu-Wrapper-new .eSportsList a, .header > div.menu .subMenu-Wrapper-new .eSportsList button, .header > div.menu .subMenu-Wrapper-new .casinoList a, .header > div.menu .subMenu-Wrapper-new .casinoList button, .header > div.menu .subMenu-Wrapper-new .livecasinoList a, .header > div.menu .subMenu-Wrapper-new .livecasinoList button, .header > div.menu .subMenu-Wrapper-new .pokerList a, .header > div.menu .subMenu-Wrapper-new .pokerList button, .header > div.menu .subMenu-Wrapper-new .tableList a, .header > div.menu .subMenu-Wrapper-new .tableList button, .header > div.menu .subMenu-Wrapper-new .gameList a, .header > div.menu .subMenu-Wrapper-new .gameList button, .header > div.menu .subMenu-Wrapper-new .fishList a, .header > div.menu .subMenu-Wrapper-new .fishList button, .header > div.menu .subMenu-Wrapper-new .promoList a, .header > div.menu .subMenu-Wrapper-new .promoList button, .header > div.menu .subMenu-Wrapper-new .tvList a, .header > div.menu .subMenu-Wrapper-new .tvList button, .header > div.menu .subMenu-Wrapper-new .vipList a, .header > div.menu .subMenu-Wrapper-new .vipList button, .header > div.menu .subMenu-Wrapper-new .rankingList a, .header > div.menu .subMenu-Wrapper-new .rankingList button {
+.header > div.menu .subMenu-Wrapper-new .homeList a, .header > div.menu .subMenu-Wrapper-new .homeList button, .header > div.menu .subMenu-Wrapper-new .appList a, .header > div.menu .subMenu-Wrapper-new .appList button, .header > div.menu .subMenu-Wrapper-new .sportsList a, .header > div.menu .subMenu-Wrapper-new .sportsList button, .header > div.menu .subMenu-Wrapper-new .exchangeList a, .header > div.menu .subMenu-Wrapper-new .exchangeList button, .header > div.menu .subMenu-Wrapper-new .eSportsList a, .header > div.menu .subMenu-Wrapper-new .eSportsList button, .header > div.menu .subMenu-Wrapper-new .casinoList a, .header > div.menu .subMenu-Wrapper-new .casinoList button, .header > div.menu .subMenu-Wrapper-new .livecasinoList a, .header > div.menu .subMenu-Wrapper-new .livecasinoList button, .header > div.menu .subMenu-Wrapper-new .pokerList a, .header > div.menu .subMenu-Wrapper-new .pokerList button, .header > div.menu .subMenu-Wrapper-new .tableList a, .header > div.menu .subMenu-Wrapper-new .tableList button, .header > div.menu .subMenu-Wrapper-new .gameList a, .header > div.menu .subMenu-Wrapper-new .gameList button, .header > div.menu .subMenu-Wrapper-new .fishList a, .header > div.menu .subMenu-Wrapper-new .fishList button, .header > div.menu .subMenu-Wrapper-new .promoList a, .header > div.menu .subMenu-Wrapper-new .promoList button, .header > div.menu .subMenu-Wrapper-new .tvList a, .header > div.menu .subMenu-Wrapper-new .tvList button, .header > div.menu .subMenu-Wrapper-new .vipList a, .header > div.menu .subMenu-Wrapper-new .vipList button, .header > div.menu .subMenu-Wrapper-new .sponsorList a, .header > div.menu .subMenu-Wrapper-new .sponsorList button, .header > div.menu .subMenu-Wrapper-new .rankingList a, .header > div.menu .subMenu-Wrapper-new .rankingList button {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 210px;
           flex: 1 1 210px;
@@ -401,7 +401,7 @@ header input:focus-within {
   top: -10px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a .under, .header > div.menu .subMenu-Wrapper-new .homeList button .under, .header > div.menu .subMenu-Wrapper-new .appList a .under, .header > div.menu .subMenu-Wrapper-new .appList button .under, .header > div.menu .subMenu-Wrapper-new .sportsList a .under, .header > div.menu .subMenu-Wrapper-new .sportsList button .under, .header > div.menu .subMenu-Wrapper-new .eSportsList a .under, .header > div.menu .subMenu-Wrapper-new .eSportsList button .under, .header > div.menu .subMenu-Wrapper-new .casinoList a .under, .header > div.menu .subMenu-Wrapper-new .casinoList button .under, .header > div.menu .subMenu-Wrapper-new .livecasinoList a .under, .header > div.menu .subMenu-Wrapper-new .livecasinoList button .under, .header > div.menu .subMenu-Wrapper-new .pokerList a .under, .header > div.menu .subMenu-Wrapper-new .pokerList button .under, .header > div.menu .subMenu-Wrapper-new .tableList a .under, .header > div.menu .subMenu-Wrapper-new .tableList button .under, .header > div.menu .subMenu-Wrapper-new .gameList a .under, .header > div.menu .subMenu-Wrapper-new .gameList button .under, .header > div.menu .subMenu-Wrapper-new .fishList a .under, .header > div.menu .subMenu-Wrapper-new .fishList button .under, .header > div.menu .subMenu-Wrapper-new .promoList a .under, .header > div.menu .subMenu-Wrapper-new .promoList button .under, .header > div.menu .subMenu-Wrapper-new .tvList a .under, .header > div.menu .subMenu-Wrapper-new .tvList button .under, .header > div.menu .subMenu-Wrapper-new .vipList a .under, .header > div.menu .subMenu-Wrapper-new .vipList button .under, .header > div.menu .subMenu-Wrapper-new .rankingList a .under, .header > div.menu .subMenu-Wrapper-new .rankingList button .under {
+.header > div.menu .subMenu-Wrapper-new .homeList a .under, .header > div.menu .subMenu-Wrapper-new .homeList button .under, .header > div.menu .subMenu-Wrapper-new .appList a .under, .header > div.menu .subMenu-Wrapper-new .appList button .under, .header > div.menu .subMenu-Wrapper-new .sportsList a .under, .header > div.menu .subMenu-Wrapper-new .sportsList button .under, .header > div.menu .subMenu-Wrapper-new .exchangeList a .under, .header > div.menu .subMenu-Wrapper-new .exchangeList button .under, .header > div.menu .subMenu-Wrapper-new .eSportsList a .under, .header > div.menu .subMenu-Wrapper-new .eSportsList button .under, .header > div.menu .subMenu-Wrapper-new .casinoList a .under, .header > div.menu .subMenu-Wrapper-new .casinoList button .under, .header > div.menu .subMenu-Wrapper-new .livecasinoList a .under, .header > div.menu .subMenu-Wrapper-new .livecasinoList button .under, .header > div.menu .subMenu-Wrapper-new .pokerList a .under, .header > div.menu .subMenu-Wrapper-new .pokerList button .under, .header > div.menu .subMenu-Wrapper-new .tableList a .under, .header > div.menu .subMenu-Wrapper-new .tableList button .under, .header > div.menu .subMenu-Wrapper-new .gameList a .under, .header > div.menu .subMenu-Wrapper-new .gameList button .under, .header > div.menu .subMenu-Wrapper-new .fishList a .under, .header > div.menu .subMenu-Wrapper-new .fishList button .under, .header > div.menu .subMenu-Wrapper-new .promoList a .under, .header > div.menu .subMenu-Wrapper-new .promoList button .under, .header > div.menu .subMenu-Wrapper-new .tvList a .under, .header > div.menu .subMenu-Wrapper-new .tvList button .under, .header > div.menu .subMenu-Wrapper-new .vipList a .under, .header > div.menu .subMenu-Wrapper-new .vipList button .under, .header > div.menu .subMenu-Wrapper-new .sponsorList a .under, .header > div.menu .subMenu-Wrapper-new .sponsorList button .under, .header > div.menu .subMenu-Wrapper-new .rankingList a .under, .header > div.menu .subMenu-Wrapper-new .rankingList button .under {
   display: none;
   position: absolute;
   z-index: 1;
@@ -410,84 +410,84 @@ header input:focus-within {
   border-radius: 5px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a.active, .header > div.menu .subMenu-Wrapper-new .homeList button.active, .header > div.menu .subMenu-Wrapper-new .appList a.active, .header > div.menu .subMenu-Wrapper-new .appList button.active, .header > div.menu .subMenu-Wrapper-new .sportsList a.active, .header > div.menu .subMenu-Wrapper-new .sportsList button.active, .header > div.menu .subMenu-Wrapper-new .eSportsList a.active, .header > div.menu .subMenu-Wrapper-new .eSportsList button.active, .header > div.menu .subMenu-Wrapper-new .casinoList a.active, .header > div.menu .subMenu-Wrapper-new .casinoList button.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.active, .header > div.menu .subMenu-Wrapper-new .pokerList a.active, .header > div.menu .subMenu-Wrapper-new .pokerList button.active, .header > div.menu .subMenu-Wrapper-new .tableList a.active, .header > div.menu .subMenu-Wrapper-new .tableList button.active, .header > div.menu .subMenu-Wrapper-new .gameList a.active, .header > div.menu .subMenu-Wrapper-new .gameList button.active, .header > div.menu .subMenu-Wrapper-new .fishList a.active, .header > div.menu .subMenu-Wrapper-new .fishList button.active, .header > div.menu .subMenu-Wrapper-new .promoList a.active, .header > div.menu .subMenu-Wrapper-new .promoList button.active, .header > div.menu .subMenu-Wrapper-new .tvList a.active, .header > div.menu .subMenu-Wrapper-new .tvList button.active, .header > div.menu .subMenu-Wrapper-new .vipList a.active, .header > div.menu .subMenu-Wrapper-new .vipList button.active, .header > div.menu .subMenu-Wrapper-new .rankingList a.active, .header > div.menu .subMenu-Wrapper-new .rankingList button.active {
+.header > div.menu .subMenu-Wrapper-new .homeList a.active, .header > div.menu .subMenu-Wrapper-new .homeList button.active, .header > div.menu .subMenu-Wrapper-new .appList a.active, .header > div.menu .subMenu-Wrapper-new .appList button.active, .header > div.menu .subMenu-Wrapper-new .sportsList a.active, .header > div.menu .subMenu-Wrapper-new .sportsList button.active, .header > div.menu .subMenu-Wrapper-new .exchangeList a.active, .header > div.menu .subMenu-Wrapper-new .exchangeList button.active, .header > div.menu .subMenu-Wrapper-new .eSportsList a.active, .header > div.menu .subMenu-Wrapper-new .eSportsList button.active, .header > div.menu .subMenu-Wrapper-new .casinoList a.active, .header > div.menu .subMenu-Wrapper-new .casinoList button.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.active, .header > div.menu .subMenu-Wrapper-new .pokerList a.active, .header > div.menu .subMenu-Wrapper-new .pokerList button.active, .header > div.menu .subMenu-Wrapper-new .tableList a.active, .header > div.menu .subMenu-Wrapper-new .tableList button.active, .header > div.menu .subMenu-Wrapper-new .gameList a.active, .header > div.menu .subMenu-Wrapper-new .gameList button.active, .header > div.menu .subMenu-Wrapper-new .fishList a.active, .header > div.menu .subMenu-Wrapper-new .fishList button.active, .header > div.menu .subMenu-Wrapper-new .promoList a.active, .header > div.menu .subMenu-Wrapper-new .promoList button.active, .header > div.menu .subMenu-Wrapper-new .tvList a.active, .header > div.menu .subMenu-Wrapper-new .tvList button.active, .header > div.menu .subMenu-Wrapper-new .vipList a.active, .header > div.menu .subMenu-Wrapper-new .vipList button.active, .header > div.menu .subMenu-Wrapper-new .sponsorList a.active, .header > div.menu .subMenu-Wrapper-new .sponsorList button.active, .header > div.menu .subMenu-Wrapper-new .rankingList a.active, .header > div.menu .subMenu-Wrapper-new .rankingList button.active {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a.active .under, .header > div.menu .subMenu-Wrapper-new .homeList button.active .under, .header > div.menu .subMenu-Wrapper-new .appList a.active .under, .header > div.menu .subMenu-Wrapper-new .appList button.active .under, .header > div.menu .subMenu-Wrapper-new .sportsList a.active .under, .header > div.menu .subMenu-Wrapper-new .sportsList button.active .under, .header > div.menu .subMenu-Wrapper-new .eSportsList a.active .under, .header > div.menu .subMenu-Wrapper-new .eSportsList button.active .under, .header > div.menu .subMenu-Wrapper-new .casinoList a.active .under, .header > div.menu .subMenu-Wrapper-new .casinoList button.active .under, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.active .under, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.active .under, .header > div.menu .subMenu-Wrapper-new .pokerList a.active .under, .header > div.menu .subMenu-Wrapper-new .pokerList button.active .under, .header > div.menu .subMenu-Wrapper-new .tableList a.active .under, .header > div.menu .subMenu-Wrapper-new .tableList button.active .under, .header > div.menu .subMenu-Wrapper-new .gameList a.active .under, .header > div.menu .subMenu-Wrapper-new .gameList button.active .under, .header > div.menu .subMenu-Wrapper-new .fishList a.active .under, .header > div.menu .subMenu-Wrapper-new .fishList button.active .under, .header > div.menu .subMenu-Wrapper-new .promoList a.active .under, .header > div.menu .subMenu-Wrapper-new .promoList button.active .under, .header > div.menu .subMenu-Wrapper-new .tvList a.active .under, .header > div.menu .subMenu-Wrapper-new .tvList button.active .under, .header > div.menu .subMenu-Wrapper-new .vipList a.active .under, .header > div.menu .subMenu-Wrapper-new .vipList button.active .under, .header > div.menu .subMenu-Wrapper-new .rankingList a.active .under, .header > div.menu .subMenu-Wrapper-new .rankingList button.active .under {
+.header > div.menu .subMenu-Wrapper-new .homeList a.active .under, .header > div.menu .subMenu-Wrapper-new .homeList button.active .under, .header > div.menu .subMenu-Wrapper-new .appList a.active .under, .header > div.menu .subMenu-Wrapper-new .appList button.active .under, .header > div.menu .subMenu-Wrapper-new .sportsList a.active .under, .header > div.menu .subMenu-Wrapper-new .sportsList button.active .under, .header > div.menu .subMenu-Wrapper-new .exchangeList a.active .under, .header > div.menu .subMenu-Wrapper-new .exchangeList button.active .under, .header > div.menu .subMenu-Wrapper-new .eSportsList a.active .under, .header > div.menu .subMenu-Wrapper-new .eSportsList button.active .under, .header > div.menu .subMenu-Wrapper-new .casinoList a.active .under, .header > div.menu .subMenu-Wrapper-new .casinoList button.active .under, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.active .under, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.active .under, .header > div.menu .subMenu-Wrapper-new .pokerList a.active .under, .header > div.menu .subMenu-Wrapper-new .pokerList button.active .under, .header > div.menu .subMenu-Wrapper-new .tableList a.active .under, .header > div.menu .subMenu-Wrapper-new .tableList button.active .under, .header > div.menu .subMenu-Wrapper-new .gameList a.active .under, .header > div.menu .subMenu-Wrapper-new .gameList button.active .under, .header > div.menu .subMenu-Wrapper-new .fishList a.active .under, .header > div.menu .subMenu-Wrapper-new .fishList button.active .under, .header > div.menu .subMenu-Wrapper-new .promoList a.active .under, .header > div.menu .subMenu-Wrapper-new .promoList button.active .under, .header > div.menu .subMenu-Wrapper-new .tvList a.active .under, .header > div.menu .subMenu-Wrapper-new .tvList button.active .under, .header > div.menu .subMenu-Wrapper-new .vipList a.active .under, .header > div.menu .subMenu-Wrapper-new .vipList button.active .under, .header > div.menu .subMenu-Wrapper-new .sponsorList a.active .under, .header > div.menu .subMenu-Wrapper-new .sponsorList button.active .under, .header > div.menu .subMenu-Wrapper-new .rankingList a.active .under, .header > div.menu .subMenu-Wrapper-new .rankingList button.active .under {
   display: block;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a .live:before, .header > div.menu .subMenu-Wrapper-new .homeList button .live:before, .header > div.menu .subMenu-Wrapper-new .appList a .live:before, .header > div.menu .subMenu-Wrapper-new .appList button .live:before, .header > div.menu .subMenu-Wrapper-new .sportsList a .live:before, .header > div.menu .subMenu-Wrapper-new .sportsList button .live:before, .header > div.menu .subMenu-Wrapper-new .eSportsList a .live:before, .header > div.menu .subMenu-Wrapper-new .eSportsList button .live:before, .header > div.menu .subMenu-Wrapper-new .casinoList a .live:before, .header > div.menu .subMenu-Wrapper-new .casinoList button .live:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList a .live:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList button .live:before, .header > div.menu .subMenu-Wrapper-new .pokerList a .live:before, .header > div.menu .subMenu-Wrapper-new .pokerList button .live:before, .header > div.menu .subMenu-Wrapper-new .tableList a .live:before, .header > div.menu .subMenu-Wrapper-new .tableList button .live:before, .header > div.menu .subMenu-Wrapper-new .gameList a .live:before, .header > div.menu .subMenu-Wrapper-new .gameList button .live:before, .header > div.menu .subMenu-Wrapper-new .fishList a .live:before, .header > div.menu .subMenu-Wrapper-new .fishList button .live:before, .header > div.menu .subMenu-Wrapper-new .promoList a .live:before, .header > div.menu .subMenu-Wrapper-new .promoList button .live:before, .header > div.menu .subMenu-Wrapper-new .tvList a .live:before, .header > div.menu .subMenu-Wrapper-new .tvList button .live:before, .header > div.menu .subMenu-Wrapper-new .vipList a .live:before, .header > div.menu .subMenu-Wrapper-new .vipList button .live:before, .header > div.menu .subMenu-Wrapper-new .rankingList a .live:before, .header > div.menu .subMenu-Wrapper-new .rankingList button .live:before {
+.header > div.menu .subMenu-Wrapper-new .homeList a .live:before, .header > div.menu .subMenu-Wrapper-new .homeList button .live:before, .header > div.menu .subMenu-Wrapper-new .appList a .live:before, .header > div.menu .subMenu-Wrapper-new .appList button .live:before, .header > div.menu .subMenu-Wrapper-new .sportsList a .live:before, .header > div.menu .subMenu-Wrapper-new .sportsList button .live:before, .header > div.menu .subMenu-Wrapper-new .exchangeList a .live:before, .header > div.menu .subMenu-Wrapper-new .exchangeList button .live:before, .header > div.menu .subMenu-Wrapper-new .eSportsList a .live:before, .header > div.menu .subMenu-Wrapper-new .eSportsList button .live:before, .header > div.menu .subMenu-Wrapper-new .casinoList a .live:before, .header > div.menu .subMenu-Wrapper-new .casinoList button .live:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList a .live:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList button .live:before, .header > div.menu .subMenu-Wrapper-new .pokerList a .live:before, .header > div.menu .subMenu-Wrapper-new .pokerList button .live:before, .header > div.menu .subMenu-Wrapper-new .tableList a .live:before, .header > div.menu .subMenu-Wrapper-new .tableList button .live:before, .header > div.menu .subMenu-Wrapper-new .gameList a .live:before, .header > div.menu .subMenu-Wrapper-new .gameList button .live:before, .header > div.menu .subMenu-Wrapper-new .fishList a .live:before, .header > div.menu .subMenu-Wrapper-new .fishList button .live:before, .header > div.menu .subMenu-Wrapper-new .promoList a .live:before, .header > div.menu .subMenu-Wrapper-new .promoList button .live:before, .header > div.menu .subMenu-Wrapper-new .tvList a .live:before, .header > div.menu .subMenu-Wrapper-new .tvList button .live:before, .header > div.menu .subMenu-Wrapper-new .vipList a .live:before, .header > div.menu .subMenu-Wrapper-new .vipList button .live:before, .header > div.menu .subMenu-Wrapper-new .sponsorList a .live:before, .header > div.menu .subMenu-Wrapper-new .sponsorList button .live:before, .header > div.menu .subMenu-Wrapper-new .rankingList a .live:before, .header > div.menu .subMenu-Wrapper-new .rankingList button .live:before {
   bottom: 30px;
   top: auto;
   right: 15px;
   z-index: 1;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a img, .header > div.menu .subMenu-Wrapper-new .homeList button img, .header > div.menu .subMenu-Wrapper-new .appList a img, .header > div.menu .subMenu-Wrapper-new .appList button img, .header > div.menu .subMenu-Wrapper-new .sportsList a img, .header > div.menu .subMenu-Wrapper-new .sportsList button img, .header > div.menu .subMenu-Wrapper-new .eSportsList a img, .header > div.menu .subMenu-Wrapper-new .eSportsList button img, .header > div.menu .subMenu-Wrapper-new .casinoList a img, .header > div.menu .subMenu-Wrapper-new .casinoList button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img, .header > div.menu .subMenu-Wrapper-new .pokerList a img, .header > div.menu .subMenu-Wrapper-new .pokerList button img, .header > div.menu .subMenu-Wrapper-new .tableList a img, .header > div.menu .subMenu-Wrapper-new .tableList button img, .header > div.menu .subMenu-Wrapper-new .gameList a img, .header > div.menu .subMenu-Wrapper-new .gameList button img, .header > div.menu .subMenu-Wrapper-new .fishList a img, .header > div.menu .subMenu-Wrapper-new .fishList button img, .header > div.menu .subMenu-Wrapper-new .promoList a img, .header > div.menu .subMenu-Wrapper-new .promoList button img, .header > div.menu .subMenu-Wrapper-new .tvList a img, .header > div.menu .subMenu-Wrapper-new .tvList button img, .header > div.menu .subMenu-Wrapper-new .vipList a img, .header > div.menu .subMenu-Wrapper-new .vipList button img, .header > div.menu .subMenu-Wrapper-new .rankingList a img, .header > div.menu .subMenu-Wrapper-new .rankingList button img {
+.header > div.menu .subMenu-Wrapper-new .homeList a img, .header > div.menu .subMenu-Wrapper-new .homeList button img, .header > div.menu .subMenu-Wrapper-new .appList a img, .header > div.menu .subMenu-Wrapper-new .appList button img, .header > div.menu .subMenu-Wrapper-new .sportsList a img, .header > div.menu .subMenu-Wrapper-new .sportsList button img, .header > div.menu .subMenu-Wrapper-new .exchangeList a img, .header > div.menu .subMenu-Wrapper-new .exchangeList button img, .header > div.menu .subMenu-Wrapper-new .eSportsList a img, .header > div.menu .subMenu-Wrapper-new .eSportsList button img, .header > div.menu .subMenu-Wrapper-new .casinoList a img, .header > div.menu .subMenu-Wrapper-new .casinoList button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img, .header > div.menu .subMenu-Wrapper-new .pokerList a img, .header > div.menu .subMenu-Wrapper-new .pokerList button img, .header > div.menu .subMenu-Wrapper-new .tableList a img, .header > div.menu .subMenu-Wrapper-new .tableList button img, .header > div.menu .subMenu-Wrapper-new .gameList a img, .header > div.menu .subMenu-Wrapper-new .gameList button img, .header > div.menu .subMenu-Wrapper-new .fishList a img, .header > div.menu .subMenu-Wrapper-new .fishList button img, .header > div.menu .subMenu-Wrapper-new .promoList a img, .header > div.menu .subMenu-Wrapper-new .promoList button img, .header > div.menu .subMenu-Wrapper-new .tvList a img, .header > div.menu .subMenu-Wrapper-new .tvList button img, .header > div.menu .subMenu-Wrapper-new .vipList a img, .header > div.menu .subMenu-Wrapper-new .vipList button img, .header > div.menu .subMenu-Wrapper-new .sponsorList a img, .header > div.menu .subMenu-Wrapper-new .sponsorList button img, .header > div.menu .subMenu-Wrapper-new .rankingList a img, .header > div.menu .subMenu-Wrapper-new .rankingList button img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   position: absolute;
   width: 150px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .homeList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList button img.List-npc {
+.header > div.menu .subMenu-Wrapper-new .homeList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .homeList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .exchangeList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .exchangeList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .sponsorList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .sponsorList button img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList a img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList button img.List-npc {
   z-index: 1;
   margin: 0 0 -30px -30px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-left {
+.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .exchangeList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .exchangeList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .sponsorList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .sponsorList button img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-left, .header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-left {
   width: 77px;
   left: 10px;
   top: -30px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-right {
+.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .exchangeList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .exchangeList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .sponsorList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .sponsorList button img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-right, .header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-right {
   width: 92px;
   right: 5px;
   bottom: -30px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-center {
+.header > div.menu .subMenu-Wrapper-new .homeList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .homeList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .appList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .appList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .sportsList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .sportsList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .exchangeList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .exchangeList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .casinoList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .casinoList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .pokerList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .pokerList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .tableList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .tableList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .gameList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .gameList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .fishList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .fishList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .promoList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .promoList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .tvList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .tvList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .vipList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .vipList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .sponsorList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .sponsorList button img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .rankingList a img.ListBG-center, .header > div.menu .subMenu-Wrapper-new .rankingList button img.ListBG-center {
   opacity: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .homeList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .appList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .appList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .tableList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .tableList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .gameList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .gameList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .fishList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .fishList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .promoList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .promoList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .tvList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .tvList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .vipList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .vipList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList button img.List-bg {
+.header > div.menu .subMenu-Wrapper-new .homeList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .homeList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .appList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .appList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .exchangeList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .exchangeList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .tableList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .tableList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .gameList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .gameList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .fishList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .fishList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .promoList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .promoList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .tvList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .tvList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .vipList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .vipList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .sponsorList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .sponsorList button img.List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList a img.List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList button img.List-bg {
   z-index: 0;
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .homeList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .appList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .appList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .tableList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .tableList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .gameList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .gameList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .fishList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .fishList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .promoList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .promoList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .tvList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .tvList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .vipList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .vipList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList button img.List-bg + .List-bg {
+.header > div.menu .subMenu-Wrapper-new .homeList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .homeList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .appList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .appList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .exchangeList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .exchangeList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .tableList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .tableList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .gameList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .gameList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .fishList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .fishList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .promoList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .promoList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .tvList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .tvList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .vipList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .vipList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .sponsorList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .sponsorList button img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList a img.List-bg + .List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList button img.List-bg + .List-bg {
   z-index: 1;
   left: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a:hover img, .header > div.menu .subMenu-Wrapper-new .homeList button:hover img, .header > div.menu .subMenu-Wrapper-new .appList a:hover img, .header > div.menu .subMenu-Wrapper-new .appList button:hover img, .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .pokerList a:hover img, .header > div.menu .subMenu-Wrapper-new .pokerList button:hover img, .header > div.menu .subMenu-Wrapper-new .tableList a:hover img, .header > div.menu .subMenu-Wrapper-new .tableList button:hover img, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img, .header > div.menu .subMenu-Wrapper-new .promoList a:hover img, .header > div.menu .subMenu-Wrapper-new .promoList button:hover img, .header > div.menu .subMenu-Wrapper-new .tvList a:hover img, .header > div.menu .subMenu-Wrapper-new .tvList button:hover img, .header > div.menu .subMenu-Wrapper-new .vipList a:hover img, .header > div.menu .subMenu-Wrapper-new .vipList button:hover img, .header > div.menu .subMenu-Wrapper-new .rankingList a:hover img, .header > div.menu .subMenu-Wrapper-new .rankingList button:hover img {
+.header > div.menu .subMenu-Wrapper-new .homeList a:hover img, .header > div.menu .subMenu-Wrapper-new .homeList button:hover img, .header > div.menu .subMenu-Wrapper-new .appList a:hover img, .header > div.menu .subMenu-Wrapper-new .appList button:hover img, .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .exchangeList a:hover img, .header > div.menu .subMenu-Wrapper-new .exchangeList button:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img, .header > div.menu .subMenu-Wrapper-new .pokerList a:hover img, .header > div.menu .subMenu-Wrapper-new .pokerList button:hover img, .header > div.menu .subMenu-Wrapper-new .tableList a:hover img, .header > div.menu .subMenu-Wrapper-new .tableList button:hover img, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img, .header > div.menu .subMenu-Wrapper-new .promoList a:hover img, .header > div.menu .subMenu-Wrapper-new .promoList button:hover img, .header > div.menu .subMenu-Wrapper-new .tvList a:hover img, .header > div.menu .subMenu-Wrapper-new .tvList button:hover img, .header > div.menu .subMenu-Wrapper-new .vipList a:hover img, .header > div.menu .subMenu-Wrapper-new .vipList button:hover img, .header > div.menu .subMenu-Wrapper-new .sponsorList a:hover img, .header > div.menu .subMenu-Wrapper-new .sponsorList button:hover img, .header > div.menu .subMenu-Wrapper-new .rankingList a:hover img, .header > div.menu .subMenu-Wrapper-new .rankingList button:hover img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   opacity: 1;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .homeList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList button:hover img.List-npc {
+.header > div.menu .subMenu-Wrapper-new .homeList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .homeList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .exchangeList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .exchangeList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .sponsorList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .sponsorList button:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList a:hover img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList button:hover img.List-npc {
   margin: 0 0 0 10px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .homeList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .appList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .appList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .tableList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .tableList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .promoList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .promoList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .tvList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .tvList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .vipList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .vipList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList button:hover img.List-bg {
+.header > div.menu .subMenu-Wrapper-new .homeList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .homeList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .appList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .appList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .sportsList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .exchangeList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .exchangeList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .eSportsList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .casinoList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .livecasinoList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .pokerList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .tableList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .tableList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .gameList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .gameList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .fishList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .fishList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .promoList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .promoList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .tvList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .tvList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .vipList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .vipList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .sponsorList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .sponsorList button:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList a:hover img.List-bg, .header > div.menu .subMenu-Wrapper-new .rankingList button:hover img.List-bg {
   -webkit-filter: grayscale(0);
           filter: grayscale(0);
   margin: 0 0 10px 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a > span, .header > div.menu .subMenu-Wrapper-new .homeList button > span, .header > div.menu .subMenu-Wrapper-new .appList a > span, .header > div.menu .subMenu-Wrapper-new .appList button > span, .header > div.menu .subMenu-Wrapper-new .sportsList a > span, .header > div.menu .subMenu-Wrapper-new .sportsList button > span, .header > div.menu .subMenu-Wrapper-new .eSportsList a > span, .header > div.menu .subMenu-Wrapper-new .eSportsList button > span, .header > div.menu .subMenu-Wrapper-new .casinoList a > span, .header > div.menu .subMenu-Wrapper-new .casinoList button > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList a > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList button > span, .header > div.menu .subMenu-Wrapper-new .pokerList a > span, .header > div.menu .subMenu-Wrapper-new .pokerList button > span, .header > div.menu .subMenu-Wrapper-new .tableList a > span, .header > div.menu .subMenu-Wrapper-new .tableList button > span, .header > div.menu .subMenu-Wrapper-new .gameList a > span, .header > div.menu .subMenu-Wrapper-new .gameList button > span, .header > div.menu .subMenu-Wrapper-new .fishList a > span, .header > div.menu .subMenu-Wrapper-new .fishList button > span, .header > div.menu .subMenu-Wrapper-new .promoList a > span, .header > div.menu .subMenu-Wrapper-new .promoList button > span, .header > div.menu .subMenu-Wrapper-new .tvList a > span, .header > div.menu .subMenu-Wrapper-new .tvList button > span, .header > div.menu .subMenu-Wrapper-new .vipList a > span, .header > div.menu .subMenu-Wrapper-new .vipList button > span, .header > div.menu .subMenu-Wrapper-new .rankingList a > span, .header > div.menu .subMenu-Wrapper-new .rankingList button > span {
+.header > div.menu .subMenu-Wrapper-new .homeList a > span, .header > div.menu .subMenu-Wrapper-new .homeList button > span, .header > div.menu .subMenu-Wrapper-new .appList a > span, .header > div.menu .subMenu-Wrapper-new .appList button > span, .header > div.menu .subMenu-Wrapper-new .sportsList a > span, .header > div.menu .subMenu-Wrapper-new .sportsList button > span, .header > div.menu .subMenu-Wrapper-new .exchangeList a > span, .header > div.menu .subMenu-Wrapper-new .exchangeList button > span, .header > div.menu .subMenu-Wrapper-new .eSportsList a > span, .header > div.menu .subMenu-Wrapper-new .eSportsList button > span, .header > div.menu .subMenu-Wrapper-new .casinoList a > span, .header > div.menu .subMenu-Wrapper-new .casinoList button > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList a > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList button > span, .header > div.menu .subMenu-Wrapper-new .pokerList a > span, .header > div.menu .subMenu-Wrapper-new .pokerList button > span, .header > div.menu .subMenu-Wrapper-new .tableList a > span, .header > div.menu .subMenu-Wrapper-new .tableList button > span, .header > div.menu .subMenu-Wrapper-new .gameList a > span, .header > div.menu .subMenu-Wrapper-new .gameList button > span, .header > div.menu .subMenu-Wrapper-new .fishList a > span, .header > div.menu .subMenu-Wrapper-new .fishList button > span, .header > div.menu .subMenu-Wrapper-new .promoList a > span, .header > div.menu .subMenu-Wrapper-new .promoList button > span, .header > div.menu .subMenu-Wrapper-new .tvList a > span, .header > div.menu .subMenu-Wrapper-new .tvList button > span, .header > div.menu .subMenu-Wrapper-new .vipList a > span, .header > div.menu .subMenu-Wrapper-new .vipList button > span, .header > div.menu .subMenu-Wrapper-new .sponsorList a > span, .header > div.menu .subMenu-Wrapper-new .sponsorList button > span, .header > div.menu .subMenu-Wrapper-new .rankingList a > span, .header > div.menu .subMenu-Wrapper-new .rankingList button > span {
   position: absolute;
   font-size: 16px;
   width: 150px;
   height: 25px;
   font-style: italic;
-  background: url(https://banner.0814media.net/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
+  background: url(https://banner.n88media.com/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   left: 10px;
@@ -502,7 +502,7 @@ header input:focus-within {
   color: #7591C1;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .homeList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .appList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .appList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .sportsList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .sportsList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .eSportsList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .eSportsList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .casinoList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .casinoList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .pokerList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .pokerList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .tableList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .tableList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .gameList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .gameList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .fishList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .fishList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .promoList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .promoList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .tvList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .tvList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .vipList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .vipList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .rankingList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .rankingList button.icon-new:before {
+.header > div.menu .subMenu-Wrapper-new .homeList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .homeList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .appList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .appList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .sportsList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .sportsList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .exchangeList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .exchangeList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .eSportsList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .eSportsList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .casinoList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .casinoList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .livecasinoList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .pokerList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .pokerList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .tableList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .tableList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .gameList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .gameList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .fishList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .fishList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .promoList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .promoList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .tvList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .tvList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .vipList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .vipList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .sponsorList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .sponsorList button.icon-new:before, .header > div.menu .subMenu-Wrapper-new .rankingList a.icon-new:before, .header > div.menu .subMenu-Wrapper-new .rankingList button.icon-new:before {
   font-size: 12px;
   top: auto;
   bottom: 30px;
@@ -524,13 +524,13 @@ header input:focus-within {
           animation: none;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList.active, .header > div.menu .subMenu-Wrapper-new .appList.active, .header > div.menu .subMenu-Wrapper-new .sportsList.active, .header > div.menu .subMenu-Wrapper-new .eSportsList.active, .header > div.menu .subMenu-Wrapper-new .casinoList.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active, .header > div.menu .subMenu-Wrapper-new .pokerList.active, .header > div.menu .subMenu-Wrapper-new .tableList.active, .header > div.menu .subMenu-Wrapper-new .gameList.active, .header > div.menu .subMenu-Wrapper-new .fishList.active, .header > div.menu .subMenu-Wrapper-new .promoList.active, .header > div.menu .subMenu-Wrapper-new .tvList.active, .header > div.menu .subMenu-Wrapper-new .vipList.active, .header > div.menu .subMenu-Wrapper-new .rankingList.active {
+.header > div.menu .subMenu-Wrapper-new .homeList.active, .header > div.menu .subMenu-Wrapper-new .appList.active, .header > div.menu .subMenu-Wrapper-new .sportsList.active, .header > div.menu .subMenu-Wrapper-new .exchangeList.active, .header > div.menu .subMenu-Wrapper-new .eSportsList.active, .header > div.menu .subMenu-Wrapper-new .casinoList.active, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active, .header > div.menu .subMenu-Wrapper-new .pokerList.active, .header > div.menu .subMenu-Wrapper-new .tableList.active, .header > div.menu .subMenu-Wrapper-new .gameList.active, .header > div.menu .subMenu-Wrapper-new .fishList.active, .header > div.menu .subMenu-Wrapper-new .promoList.active, .header > div.menu .subMenu-Wrapper-new .tvList.active, .header > div.menu .subMenu-Wrapper-new .vipList.active, .header > div.menu .subMenu-Wrapper-new .sponsorList.active, .header > div.menu .subMenu-Wrapper-new .rankingList.active {
   opacity: 1;
   visibility: visible;
   height: auto;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList.active a, .header > div.menu .subMenu-Wrapper-new .homeList.active button, .header > div.menu .subMenu-Wrapper-new .appList.active a, .header > div.menu .subMenu-Wrapper-new .appList.active button, .header > div.menu .subMenu-Wrapper-new .sportsList.active a, .header > div.menu .subMenu-Wrapper-new .sportsList.active button, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button, .header > div.menu .subMenu-Wrapper-new .casinoList.active a, .header > div.menu .subMenu-Wrapper-new .casinoList.active button, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button, .header > div.menu .subMenu-Wrapper-new .pokerList.active a, .header > div.menu .subMenu-Wrapper-new .pokerList.active button, .header > div.menu .subMenu-Wrapper-new .tableList.active a, .header > div.menu .subMenu-Wrapper-new .tableList.active button, .header > div.menu .subMenu-Wrapper-new .gameList.active a, .header > div.menu .subMenu-Wrapper-new .gameList.active button, .header > div.menu .subMenu-Wrapper-new .fishList.active a, .header > div.menu .subMenu-Wrapper-new .fishList.active button, .header > div.menu .subMenu-Wrapper-new .promoList.active a, .header > div.menu .subMenu-Wrapper-new .promoList.active button, .header > div.menu .subMenu-Wrapper-new .tvList.active a, .header > div.menu .subMenu-Wrapper-new .tvList.active button, .header > div.menu .subMenu-Wrapper-new .vipList.active a, .header > div.menu .subMenu-Wrapper-new .vipList.active button, .header > div.menu .subMenu-Wrapper-new .rankingList.active a, .header > div.menu .subMenu-Wrapper-new .rankingList.active button {
+.header > div.menu .subMenu-Wrapper-new .homeList.active a, .header > div.menu .subMenu-Wrapper-new .homeList.active button, .header > div.menu .subMenu-Wrapper-new .appList.active a, .header > div.menu .subMenu-Wrapper-new .appList.active button, .header > div.menu .subMenu-Wrapper-new .sportsList.active a, .header > div.menu .subMenu-Wrapper-new .sportsList.active button, .header > div.menu .subMenu-Wrapper-new .exchangeList.active a, .header > div.menu .subMenu-Wrapper-new .exchangeList.active button, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button, .header > div.menu .subMenu-Wrapper-new .casinoList.active a, .header > div.menu .subMenu-Wrapper-new .casinoList.active button, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button, .header > div.menu .subMenu-Wrapper-new .pokerList.active a, .header > div.menu .subMenu-Wrapper-new .pokerList.active button, .header > div.menu .subMenu-Wrapper-new .tableList.active a, .header > div.menu .subMenu-Wrapper-new .tableList.active button, .header > div.menu .subMenu-Wrapper-new .gameList.active a, .header > div.menu .subMenu-Wrapper-new .gameList.active button, .header > div.menu .subMenu-Wrapper-new .fishList.active a, .header > div.menu .subMenu-Wrapper-new .fishList.active button, .header > div.menu .subMenu-Wrapper-new .promoList.active a, .header > div.menu .subMenu-Wrapper-new .promoList.active button, .header > div.menu .subMenu-Wrapper-new .tvList.active a, .header > div.menu .subMenu-Wrapper-new .tvList.active button, .header > div.menu .subMenu-Wrapper-new .vipList.active a, .header > div.menu .subMenu-Wrapper-new .vipList.active button, .header > div.menu .subMenu-Wrapper-new .sponsorList.active a, .header > div.menu .subMenu-Wrapper-new .sponsorList.active button, .header > div.menu .subMenu-Wrapper-new .rankingList.active a, .header > div.menu .subMenu-Wrapper-new .rankingList.active button {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   opacity: 1;
@@ -543,38 +543,38 @@ header input:focus-within {
           justify-content: center;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList.active a img, .header > div.menu .subMenu-Wrapper-new .homeList.active button img, .header > div.menu .subMenu-Wrapper-new .appList.active a img, .header > div.menu .subMenu-Wrapper-new .appList.active button img, .header > div.menu .subMenu-Wrapper-new .sportsList.active a img, .header > div.menu .subMenu-Wrapper-new .sportsList.active button img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button img, .header > div.menu .subMenu-Wrapper-new .casinoList.active a img, .header > div.menu .subMenu-Wrapper-new .casinoList.active button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button img, .header > div.menu .subMenu-Wrapper-new .pokerList.active a img, .header > div.menu .subMenu-Wrapper-new .pokerList.active button img, .header > div.menu .subMenu-Wrapper-new .tableList.active a img, .header > div.menu .subMenu-Wrapper-new .tableList.active button img, .header > div.menu .subMenu-Wrapper-new .gameList.active a img, .header > div.menu .subMenu-Wrapper-new .gameList.active button img, .header > div.menu .subMenu-Wrapper-new .fishList.active a img, .header > div.menu .subMenu-Wrapper-new .fishList.active button img, .header > div.menu .subMenu-Wrapper-new .promoList.active a img, .header > div.menu .subMenu-Wrapper-new .promoList.active button img, .header > div.menu .subMenu-Wrapper-new .tvList.active a img, .header > div.menu .subMenu-Wrapper-new .tvList.active button img, .header > div.menu .subMenu-Wrapper-new .vipList.active a img, .header > div.menu .subMenu-Wrapper-new .vipList.active button img, .header > div.menu .subMenu-Wrapper-new .rankingList.active a img, .header > div.menu .subMenu-Wrapper-new .rankingList.active button img {
+.header > div.menu .subMenu-Wrapper-new .homeList.active a img, .header > div.menu .subMenu-Wrapper-new .homeList.active button img, .header > div.menu .subMenu-Wrapper-new .appList.active a img, .header > div.menu .subMenu-Wrapper-new .appList.active button img, .header > div.menu .subMenu-Wrapper-new .sportsList.active a img, .header > div.menu .subMenu-Wrapper-new .sportsList.active button img, .header > div.menu .subMenu-Wrapper-new .exchangeList.active a img, .header > div.menu .subMenu-Wrapper-new .exchangeList.active button img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a img, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button img, .header > div.menu .subMenu-Wrapper-new .casinoList.active a img, .header > div.menu .subMenu-Wrapper-new .casinoList.active button img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a img, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button img, .header > div.menu .subMenu-Wrapper-new .pokerList.active a img, .header > div.menu .subMenu-Wrapper-new .pokerList.active button img, .header > div.menu .subMenu-Wrapper-new .tableList.active a img, .header > div.menu .subMenu-Wrapper-new .tableList.active button img, .header > div.menu .subMenu-Wrapper-new .gameList.active a img, .header > div.menu .subMenu-Wrapper-new .gameList.active button img, .header > div.menu .subMenu-Wrapper-new .fishList.active a img, .header > div.menu .subMenu-Wrapper-new .fishList.active button img, .header > div.menu .subMenu-Wrapper-new .promoList.active a img, .header > div.menu .subMenu-Wrapper-new .promoList.active button img, .header > div.menu .subMenu-Wrapper-new .tvList.active a img, .header > div.menu .subMenu-Wrapper-new .tvList.active button img, .header > div.menu .subMenu-Wrapper-new .vipList.active a img, .header > div.menu .subMenu-Wrapper-new .vipList.active button img, .header > div.menu .subMenu-Wrapper-new .sponsorList.active a img, .header > div.menu .subMenu-Wrapper-new .sponsorList.active button img, .header > div.menu .subMenu-Wrapper-new .rankingList.active a img, .header > div.menu .subMenu-Wrapper-new .rankingList.active button img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   margin-left: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .homeList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList.active button img.List-npc {
+.header > div.menu .subMenu-Wrapper-new .homeList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .homeList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .appList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .sportsList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .exchangeList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .exchangeList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .casinoList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .pokerList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .tableList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .gameList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .fishList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .promoList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .tvList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .vipList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .sponsorList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .sponsorList.active button img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList.active a img.List-npc, .header > div.menu .subMenu-Wrapper-new .rankingList.active button img.List-npc {
   margin-bottom: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .homeList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .appList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .appList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .pokerList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .pokerList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .tableList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .tableList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .promoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .promoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .tvList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .tvList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .vipList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .vipList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .rankingList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .rankingList.active button .ListBG-left {
+.header > div.menu .subMenu-Wrapper-new .homeList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .homeList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .appList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .appList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .exchangeList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .exchangeList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .pokerList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .pokerList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .tableList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .tableList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .promoList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .promoList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .tvList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .tvList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .vipList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .vipList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .sponsorList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .sponsorList.active button .ListBG-left, .header > div.menu .subMenu-Wrapper-new .rankingList.active a .ListBG-left, .header > div.menu .subMenu-Wrapper-new .rankingList.active button .ListBG-left {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   left: 0;
   top: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .homeList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .appList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .appList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .pokerList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .pokerList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .tableList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .tableList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .promoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .promoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .tvList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .tvList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .vipList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .vipList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .rankingList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .rankingList.active button .ListBG-right {
+.header > div.menu .subMenu-Wrapper-new .homeList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .homeList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .appList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .appList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .sportsList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .exchangeList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .exchangeList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .casinoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .pokerList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .pokerList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .tableList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .tableList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .gameList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .fishList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .promoList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .promoList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .tvList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .tvList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .vipList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .vipList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .sponsorList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .sponsorList.active button .ListBG-right, .header > div.menu .subMenu-Wrapper-new .rankingList.active a .ListBG-right, .header > div.menu .subMenu-Wrapper-new .rankingList.active button .ListBG-right {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   right: 0;
   bottom: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new .homeList.active a > span, .header > div.menu .subMenu-Wrapper-new .homeList.active button > span, .header > div.menu .subMenu-Wrapper-new .appList.active a > span, .header > div.menu .subMenu-Wrapper-new .appList.active button > span, .header > div.menu .subMenu-Wrapper-new .sportsList.active a > span, .header > div.menu .subMenu-Wrapper-new .sportsList.active button > span, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a > span, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button > span, .header > div.menu .subMenu-Wrapper-new .casinoList.active a > span, .header > div.menu .subMenu-Wrapper-new .casinoList.active button > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button > span, .header > div.menu .subMenu-Wrapper-new .pokerList.active a > span, .header > div.menu .subMenu-Wrapper-new .pokerList.active button > span, .header > div.menu .subMenu-Wrapper-new .tableList.active a > span, .header > div.menu .subMenu-Wrapper-new .tableList.active button > span, .header > div.menu .subMenu-Wrapper-new .gameList.active a > span, .header > div.menu .subMenu-Wrapper-new .gameList.active button > span, .header > div.menu .subMenu-Wrapper-new .fishList.active a > span, .header > div.menu .subMenu-Wrapper-new .fishList.active button > span, .header > div.menu .subMenu-Wrapper-new .promoList.active a > span, .header > div.menu .subMenu-Wrapper-new .promoList.active button > span, .header > div.menu .subMenu-Wrapper-new .tvList.active a > span, .header > div.menu .subMenu-Wrapper-new .tvList.active button > span, .header > div.menu .subMenu-Wrapper-new .vipList.active a > span, .header > div.menu .subMenu-Wrapper-new .vipList.active button > span, .header > div.menu .subMenu-Wrapper-new .rankingList.active a > span, .header > div.menu .subMenu-Wrapper-new .rankingList.active button > span {
+.header > div.menu .subMenu-Wrapper-new .homeList.active a > span, .header > div.menu .subMenu-Wrapper-new .homeList.active button > span, .header > div.menu .subMenu-Wrapper-new .appList.active a > span, .header > div.menu .subMenu-Wrapper-new .appList.active button > span, .header > div.menu .subMenu-Wrapper-new .sportsList.active a > span, .header > div.menu .subMenu-Wrapper-new .sportsList.active button > span, .header > div.menu .subMenu-Wrapper-new .exchangeList.active a > span, .header > div.menu .subMenu-Wrapper-new .exchangeList.active button > span, .header > div.menu .subMenu-Wrapper-new .eSportsList.active a > span, .header > div.menu .subMenu-Wrapper-new .eSportsList.active button > span, .header > div.menu .subMenu-Wrapper-new .casinoList.active a > span, .header > div.menu .subMenu-Wrapper-new .casinoList.active button > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active a > span, .header > div.menu .subMenu-Wrapper-new .livecasinoList.active button > span, .header > div.menu .subMenu-Wrapper-new .pokerList.active a > span, .header > div.menu .subMenu-Wrapper-new .pokerList.active button > span, .header > div.menu .subMenu-Wrapper-new .tableList.active a > span, .header > div.menu .subMenu-Wrapper-new .tableList.active button > span, .header > div.menu .subMenu-Wrapper-new .gameList.active a > span, .header > div.menu .subMenu-Wrapper-new .gameList.active button > span, .header > div.menu .subMenu-Wrapper-new .fishList.active a > span, .header > div.menu .subMenu-Wrapper-new .fishList.active button > span, .header > div.menu .subMenu-Wrapper-new .promoList.active a > span, .header > div.menu .subMenu-Wrapper-new .promoList.active button > span, .header > div.menu .subMenu-Wrapper-new .tvList.active a > span, .header > div.menu .subMenu-Wrapper-new .tvList.active button > span, .header > div.menu .subMenu-Wrapper-new .vipList.active a > span, .header > div.menu .subMenu-Wrapper-new .vipList.active button > span, .header > div.menu .subMenu-Wrapper-new .sponsorList.active a > span, .header > div.menu .subMenu-Wrapper-new .sponsorList.active button > span, .header > div.menu .subMenu-Wrapper-new .rankingList.active a > span, .header > div.menu .subMenu-Wrapper-new .rankingList.active button > span {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   left: 0;
   bottom: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new > div:not(.homeList):not(.sportsList):not(.livecasinoList):not(.gameList):not(.tvList):not(.tableList) img.List-bg {
+.header > div.menu .subMenu-Wrapper-new > div:not(.homeList):not(.sportsList):not(.exchangeList):not(.gameList):not(.tvList):not(.tableList):not(.sponsorList) img.List-bg {
   z-index: 1;
   margin-left: -70px;
 }
@@ -661,7 +661,7 @@ header input:focus-within {
 }
 
 .header > div.menu .subMenu-Wrapper-new .promoList {
-  background: url(https://image.0814media.net/SiteSkin/img/pomobanner.jpg) no-repeat center/auto;
+  background: url(https://image.n88media.com/SiteSkin/img/pomobanner.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
@@ -955,7 +955,7 @@ header input:focus-within {
 }
 
 .header > div.function .memberfile {
-  background: url(https://image.0814media.net/VIP/img/vipbg.png) no-repeat left center/auto 100%;
+  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat left center/auto 100%;
 }
 
 .header > div.function .wallet, .header > div.function .memberfile {
@@ -3701,6 +3701,13 @@ input[type="file"] {
       flex-flow: wrap;
 }
 
+.subModuleList .subModule .subModuleBody.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
 .subModuleList .subModule .subModuleBody ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4004,7 +4011,7 @@ input[type="file"] {
 }
 
 .align-items-center .txt-lightgray + .smallList {
-  width: 50%;
+  min-width: 50%;
 }
 
 .align-items-center .txt-lightgray + .smallList li:nth-child(2) {
@@ -4091,6 +4098,11 @@ input[type="file"] {
   border-radius: 5px;
   max-height: calc(100% - 160px);
   overflow-y: auto;
+}
+
+#popup .pop.photo img {
+  max-width: 800px;
+  max-height: 750px;
 }
 
 #popup .pop .backupDomain {
@@ -4922,6 +4934,10 @@ input[type="file"] {
           align-items: center;
 }
 
+.walletModule + .walletModule {
+  padding-bottom: 0;
+}
+
 .walletModule .addBank {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5167,7 +5183,7 @@ input[type="file"] {
   background: white;
 }
 
-.addBank .addBankName:nth-child(3) {
+.addBank .addBankName:nth-child(3n-3) {
   margin-right: 0;
 }
 
@@ -5261,8 +5277,32 @@ input[type="file"] {
   margin: auto;
 }
 
+.addBank .addBankName .cryptoInfo {
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.addBank .addBankName .cryptoInfo > .title {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-left: 0;
+}
+
 .addBank .addBankName .cryptoInfo .icon-BTC {
   font-size: 24px;
+}
+
+.addBank .addBankName .cryptoInfo .icon-BTC::before {
+  margin-left: 0;
+}
+
+.addBank .addBankName .cryptoInfo .icon-BTC + div {
+  font-size: 12px;
+  max-width: 170px;
+  margin: 0;
 }
 
 .addBank .addBankName .cryptoInfo div {
@@ -6280,7 +6320,7 @@ input[type="file"] {
 }
 
 .livecasinoinside {
-  background: #020612 url(https://banner.0814media.net/img/livecasino/casinobg.jpg) no-repeat bottom center/100%;
+  background: #020612 url(https://banner.n88media.com/img/livecasino/casinobg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
 }
@@ -8355,13 +8395,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -8748,7 +8782,7 @@ button.icon-spinner11:before {
   background-repeat: no-repeat;
   border-radius: 15px;
   margin: 20px auto;
-  background-image: url(https://image.0814media.net/SiteSkin/img/eventRuleBg.jpg);
+  background-image: url(https://image.n88media.com/SiteSkin/img/eventRuleBg.jpg);
 }
 
 .ranking section a {
@@ -8852,7 +8886,7 @@ button.icon-spinner11:before {
   padding: 30px 0;
   min-height: 725px;
   position: relative;
-  background: url(https://image.0814media.net/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
 }
 
 .ranking section .champion .title, .ranking section .eventRule .title, .ranking section .lastevent .title {
@@ -10368,7 +10402,7 @@ canvas {
 }
 
 .vipLv > div.vipbg {
-  background: url(https://image.0814media.net/VIP/img/vipbg.png) no-repeat center/auto 100%;
+  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
   padding: 20px;
   margin-top: 0;
 }
@@ -11536,7 +11570,7 @@ canvas {
   margin: auto;
 }
 
-.liveVideo .latestVideo + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .liveVideo .newsList + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .liveVideo .newsList + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .liveVideo .newsList + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .liveVideo .newsList + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .newsVideo .newsList + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .newsVideo .newsList + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .newsVideo .newsList + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .newsVideo .newsList + div .hotevent .team > img[src="https://img.0814media.net/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after {
+.liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after {
   background: rgba(255, 0, 0, 0.3);
 }
 
@@ -13081,7 +13115,7 @@ canvas {
 }
 
 .fishinginside {
-  background: #84eff9 url(https://banner.0814media.net/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
+  background: #84eff9 url(https://banner.n88media.com/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
 }
@@ -13176,7 +13210,7 @@ canvas {
 
 .lotteryinside {
   position: relative;
-  background: #030a5b url(https://banner.0814media.net/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
+  background: #030a5b url(https://banner.n88media.com/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 
@@ -13302,7 +13336,7 @@ canvas {
 
 .gameinside {
   position: relative;
-  background: #3e132e url(https://banner.0814media.net/img/game/gamebg.jpg) no-repeat bottom center/100%;
+  background: #3e132e url(https://banner.n88media.com/img/game/gamebg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 
@@ -13752,6 +13786,9 @@ canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .accountInfo > div button {
@@ -14905,7 +14942,7 @@ img[alt="sg"] {
   padding: 30px;
   min-height: 725px;
   position: relative;
-  background: url(https://image.0814media.net/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
+  background: url(https://image.n88media.com/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
 }
 
 .rankingNew section .champion .title, .rankingNew section .eventRule .title, .rankingNew section .lastevent .title {
@@ -15025,6 +15062,11 @@ img[alt="sg"] {
 .rankingNew section .rankTag .inputBox-blue {
   width: 300px;
   margin: 0 0 6px;
+  padding: 0;
+}
+
+.rankingNew section .rankTag .inputBox-blue .btn {
+  padding: 6px 10px;
 }
 
 .rankingNew section .rankTag .inputBox-blue .dropdown .dropdown-container {
@@ -15037,12 +15079,12 @@ img[alt="sg"] {
   border-top: 0;
   margin-left: 0;
   overflow: hidden;
-  padding: 0 10px;
-  width: calc(100% - 20px);
+  padding: 0;
+  width: 100%;
 }
 
 .rankingNew section .rankTag .inputBox-blue .dropdown .dropdown-container .dropdown-item {
-  padding: 0 0 5px 5px;
+  padding: 0 10px 5px 10px;
 }
 
 .rankingNew section .eventRule {
@@ -15089,7 +15131,7 @@ img[alt="sg"] {
   border-radius: 10px;
 }
 
-.rankingNew section .eventRule .rankList button {
+.rankingNew section .eventRule .rankList button, .rankingNew section .eventRule .rankList a {
   color: white;
   background: #202d40;
   border-radius: 30px;
@@ -15097,7 +15139,7 @@ img[alt="sg"] {
   margin-top: 12px;
 }
 
-.rankingNew section .eventRule .rankList button:hover {
+.rankingNew section .eventRule .rankList button:hover, .rankingNew section .eventRule .rankList a:hover {
   background: #202d40;
   color: #6483b9;
 }
@@ -15130,5 +15172,139 @@ img[alt="sg"] {
 
 .promos .swiper-container .swiper-wrapper > div .title {
   max-width: none;
+}
+
+.sponsor .inside {
+  display: block;
+}
+
+.sponsor .inside .typeTag {
+  background: #dde7f6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.sponsor .inside .typeTag button {
+  color: #7591c1;
+  padding: 10px;
+}
+
+.sponsor .inside .typeTag button.active {
+  color: white;
+  background: #112240;
+}
+
+.sponsor .inside .sponsorModule {
+  margin: 10px 0;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage {
+  display: none;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorVideo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorVideo iframe {
+  margin-right: 25px;
+  margin-bottom: 15px;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorVideo iframe:nth-child(3n-3) {
+  margin-right: 0;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage.active {
+  display: block;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo {
+  background: #112240;
+  margin: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo > img {
+  min-width: 680px;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo img {
+  width: auto;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  font-weight: bold;
+  padding: 35px;
+  font-size: 36px;
+  text-align: center;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo > div h1 {
+  color: #f77900;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo > div h3 {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo > div .photoList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo > div .photoList button {
+  width: 196px;
+  height: 120px;
+  margin: 10px;
+  overflow: hidden;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo > div .photoList button img {
+  width: 100%;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo > div .photoList button:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+  border-bottom: 3px solid #f77900;
+}
+
+.sponsor .inside .sponsorModule .sponsorPage .sponsorInfo:nth-child(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse;
+          flex-flow: row-reverse;
 }
 /*# sourceMappingURL=style.css.map */

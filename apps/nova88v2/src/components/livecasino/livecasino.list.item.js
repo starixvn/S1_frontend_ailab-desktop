@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const [isHover, setIsHover] = useState(false);
@@ -53,12 +53,12 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 			{isHover ? (
 				<img
-					src={`${config.bannerImgUrl}/img/livecasino/${hoverBgImg}`}
+					src={`${bannerImgUrl}/img/livecasino/${hoverBgImg}`}
 					alt={hoverBgImg}
 				/>
 			) : (
 				<img
-					src={`${config.bannerImgUrl}/img/livecasino/${bgImg}`}
+					src={`${bannerImgUrl}/img/livecasino/${bgImg}`}
 					alt={hoverBgImg}
 				/>
 			)}

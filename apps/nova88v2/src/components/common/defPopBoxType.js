@@ -32,5 +32,6 @@ export default {
 	PerDay: "PerDay",
 	BackupDomain: "BackupDomain",
 	PaymentQR: "PaymentQR",
-	UnderMaintain: "UnderMaintain"
+	UnderMaintain: "UnderMaintain",
+	Photo: "Photo"
 };

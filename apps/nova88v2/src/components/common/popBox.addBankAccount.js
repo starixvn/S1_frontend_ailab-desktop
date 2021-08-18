@@ -4,7 +4,7 @@ import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStri
 import { popBoxContext, userInfoContext } from "./context";
 import defPopBoxType from "./defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 import Dropdown from "./dropdown";
 import Inputbox from "./inputbox";
 import { currencyCode } from "../../datas/countryCode";
@@ -245,7 +245,7 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 					options={bankInfoSysList}
 					onSelectItem={onSelectItem}
 					selectedIdx={userValue.bankId}
-					imgUrl={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/`}
+					imgUrl={`${cloudImgUrl}/SiteSkin/img/BankLogo/`}
 					className="bankLogo"
 					i18n={t}
 				/>

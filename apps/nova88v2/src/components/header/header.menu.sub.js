@@ -124,7 +124,7 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 				<div className={subClassName} key={`main-key-${menuKey}`}>
 					{subMenu?.map(subMenuItem => (
 						<SubMenuMultiple
-							key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}`}
+							key={`${subMenuItem.displayKey}-${subMenuItem.tpId}-${subMenuItem.gameId}-${subMenuItem.path}`}
 							subMenuItem={subMenuItem}
 							clickItem={clickItem}
 							userInfo={userInfo}

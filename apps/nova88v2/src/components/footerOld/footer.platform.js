@@ -5,7 +5,7 @@ import productList from "../../datas/productList";
 import { popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 const defPlatfrom = [
 	{
@@ -102,7 +102,6 @@ const defPlatfrom = [
 		...productList.poker,
 		imgName: "1g"
 	},
-	,
 	{
 		...productList.liveCasino_N2,
 		imgName: "n2"
@@ -174,7 +173,7 @@ export default ({ langId, isLogin, productTpIds }) => {
 				key={key}
 				onClick={ClickItem.bind(this, { ...p, urlParams: _urlParams })}>
 				<img
-					src={`${config.cloudImgUrl}/SiteSkin/img/logo/${imgName}.png`}
+					src={`${cloudImgUrl}/SiteSkin/img/logo/${imgName}.png`}
 					name={imgName}
 					alt={`logo ${imgName}`}
 					onMouseOver={handleOnMouseOverImg.bind(this, p.imgName)}

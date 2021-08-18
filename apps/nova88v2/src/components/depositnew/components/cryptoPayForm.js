@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
-import config from "../../../config";
+import { cloudImgUrl } from "../../../config";
 
 const CryptoPayForm = ({
 	t,
@@ -89,9 +89,7 @@ const CryptoPayForm = ({
 							}>
 							<div>
 								<img
-									src={`${
-										config.cloudImgUrl
-									}/SiteSkin/img/Payment/${item.payName.toLowerCase()}.png`}
+									src={`${cloudImgUrl}/SiteSkin/img/Payment/${item.payName.toLowerCase()}.png`}
 									alt={item.payName}
 								/>
 								<i className="icon icon-icon32px_check" />

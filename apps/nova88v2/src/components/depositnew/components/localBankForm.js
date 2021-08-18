@@ -8,7 +8,7 @@ import { getUrlParameter } from "../../common/common";
 import { defDepositChannel, defDepositChannelIdList } from "../depositnew.def";
 // import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
-import config from "../../../config";
+import { cloudImgUrl } from "../../../config";
 
 const LocalBankForm = ({
 	t,
@@ -147,7 +147,7 @@ const LocalBankForm = ({
 								onClick={() => onChangeBankInfo(item)}>
 								<div>
 									<img
-										src={`${config.cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
+										src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
 										alt={item.bankName}
 									/>
 									<i className="icon icon-icon32px_check" />

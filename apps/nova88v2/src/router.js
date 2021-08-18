@@ -154,5 +154,8 @@ export default {
 	},
 	streaming: {
 		root: "streaming"
+	},
+	sponsor: {
+		root: "sponsor"
 	}
 };

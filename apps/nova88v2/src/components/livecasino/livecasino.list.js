@@ -32,7 +32,7 @@ const LiveCasinoList = ({ subMenu, maintainList, clickItem, t }) => {
 						// eslint-disable-next-line react/no-array-index-key
 						<div key={idx}>
 							<img
-								src={`${config.bannerImgUrl}/img/livecasino/comingsoon.jpg`}
+								src={`${bannerImgUrl}/img/livecasino/comingsoon.jpg`}
 								alt="comingsoon.jpg"
 							/>
 						</div>

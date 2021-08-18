@@ -13,7 +13,7 @@ import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import LivecasinoBanner from "./livecasino.banner";
 import LivecasinoList from "./livecasino.list";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 import { useGotoGame } from "../hook/useGotoGame";
 import { isOldLang } from "../../datas/languageData";
 import { defTpCategoryId } from "../../datas/productList";
@@ -111,7 +111,7 @@ const Livecasino = () => {
 		}.jpg`
 	];
 
-	const imgSrc = `${config.bannerImgUrl}/img/livecasino/livecasinobanner_${
+	const imgSrc = `${bannerImgUrl}/img/livecasino/livecasinobanner_${
 		isOldLang(userInfo.langId) ? userInfo.langId : "en"
 	}.jpg`;
 

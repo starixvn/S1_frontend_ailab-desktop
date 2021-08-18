@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
-import config from "../../../config";
+import { cloudImgUrl } from "../../../config";
 
 const MobileForm = ({
 	t,
@@ -107,7 +107,7 @@ const MobileForm = ({
 								<div>
 									<img
 										alt={item.groupName}
-										src={`${config.cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
+										src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
 									/>
 
 									<i className="icon icon-icon32px_check" />
@@ -161,7 +161,7 @@ const MobileForm = ({
 										<div>
 											<img
 												alt={item.groupName}
-												src={`${config.cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
+												src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
 											/>
 											<i className="icon icon-icon32px_check" />
 										</div>

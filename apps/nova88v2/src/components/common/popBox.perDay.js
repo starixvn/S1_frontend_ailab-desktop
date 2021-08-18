@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { userInfoContext } from "./context";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 import { isOldLang } from "../../datas/languageData";
 
 export default ({ onClickClose }) => {
 	const { userInfo } = useContext(userInfoContext);
 
-	const imgSrc = `${config.bannerImgUrl}/img/nonlogin/novapopup-570x150_${
+	const imgSrc = `${bannerImgUrl}/img/nonlogin/novapopup-570x150_${
 		isOldLang(userInfo.langId) ? userInfo.langId : "en"
 	}.jpg`;
 

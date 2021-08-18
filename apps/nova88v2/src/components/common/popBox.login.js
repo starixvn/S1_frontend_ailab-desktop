@@ -8,7 +8,7 @@ import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
 import path from "../../router";
 import { setCookie } from "./common";
-import config, { SiteInfo } from "../../config";
+import { SiteInfo, cloudImgUrl } from "../../config";
 
 const initValue = {
 	username: "",
@@ -171,7 +171,7 @@ const LoginPanel = () => {
 					<img
 						className="animationlogo"
 						alt="animationlogo"
-						src={`${config.cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
+						src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 					/>
 					<img
 						className="npc1"

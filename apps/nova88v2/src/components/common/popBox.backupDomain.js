@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "./context";
 import { setCookie, deleteCookie } from "./common";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 import { isOldLang } from "../../datas/languageData";
 
 export default ({ onClickClose, linkList }) => {
@@ -60,7 +60,7 @@ export default ({ onClickClose, linkList }) => {
 		setCookie(settingCookie, "1", 1);
 	};
 
-	const imgSrc = `${config.bannerImgUrl}/img/backupDomain/backupDomain_${
+	const imgSrc = `${bannerImgUrl}/img/backupDomain/backupDomain_${
 		isOldLang(userInfo.langId) ? userInfo.langId : "en"
 	}.jpg`;
 

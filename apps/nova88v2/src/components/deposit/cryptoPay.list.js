@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import path from "../../router";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 const _path = path.deposit.sub.crypto.root;
 
@@ -14,7 +14,7 @@ export default ({ cryptoList }) => {
 			<li key={`deposit-crypto-${p.channelName}}`}>
 				<Link to={`${_path}?name=${p.channelName}&gId=${p.groupId}`}>
 					<img
-						src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${p.channelName}.png`}
+						src={`${cloudImgUrl}/SiteSkin/img/Payment/${p.channelName}.png`}
 						alt={p.channelName}
 					/>
 				</Link>

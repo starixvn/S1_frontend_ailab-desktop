@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import path from "../../router";
-import config from "../../config";
+import { cloudImgUrl } from "../../config";
 
 const _path = path.deposit.sub.mobilePay.root;
 
@@ -14,7 +14,7 @@ export default ({ mobileBankList }) => {
 			<li key={`deposit-mobilePay-${p.groupName}}`}>
 				<Link to={`${_path}?name=${p.groupName}&gId=${p.groupId}`}>
 					<img
-						src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${p.groupName}.png`}
+						src={`${cloudImgUrl}/SiteSkin/img/Payment/${p.groupName}.png`}
 						alt={p.groupName}
 					/>
 				</Link>

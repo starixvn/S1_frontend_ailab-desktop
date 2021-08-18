@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const [isHover, setIsHover] = useState(false);
@@ -51,12 +51,12 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 			{isHover ? (
 				<img
-					src={`${config.bannerImgUrl}/img/fishing/${hoverBgImg}`}
+					src={`${bannerImgUrl}/img/fishing/${hoverBgImg}`}
 					alt={hoverBgImg}
 				/>
 			) : (
 				<img
-					src={`${config.bannerImgUrl}/img/fishing/${bgImg}`}
+					src={`${bannerImgUrl}/img/fishing/${bgImg}`}
 					alt={hoverBgImg}
 				/>
 			)}

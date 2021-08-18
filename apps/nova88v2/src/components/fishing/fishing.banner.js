@@ -1,5 +1,5 @@
 import React from "react";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 import FishingSnow from "./fishing.snow";
 
@@ -7,7 +7,7 @@ const FishingBanner = () => {
 	return (
 		<div className="mainBanner">
 			<img
-				src={`${config.bannerImgUrl}/img/fishing/fishmainbanner.jpg`}
+				src={`${bannerImgUrl}/img/fishing/fishmainbanner.jpg`}
 				alt="fishmainbanner"
 			/>
 

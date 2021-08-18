@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 
 export default ({ listData, maintainList, clickItem, t }) => {
 	return listData.map(subMenuItem => {
@@ -61,12 +61,12 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 
 			<div className="animationImg">
 				<img
-					src={`${config.bannerImgUrl}/img/livecasino/animation_img.png`}
+					src={`${bannerImgUrl}/img/livecasino/animation_img.png`}
 					alt="animation-img"
 				/>
 			</div>
 			<img
-				src={`${config.bannerImgUrl}/img/livecasino/${npcImg}.png`}
+				src={`${bannerImgUrl}/img/livecasino/${npcImg}.png`}
 				alt="casino-img"
 			/>
 
