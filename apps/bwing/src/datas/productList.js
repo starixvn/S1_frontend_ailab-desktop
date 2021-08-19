@@ -21,7 +21,7 @@ export default {
 	},
 	sabaClub: {
 		tpId: 1,
-		gameId: 200,
+		gameId: 171,
 		name: "sabaClub",
 		tpCategory: defTpCategoryId.slot
 	},

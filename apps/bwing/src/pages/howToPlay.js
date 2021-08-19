@@ -66,7 +66,7 @@ const Content = () => {
 				FISH WORLD
 				<br />
 				Sportsbook wallet: to use in products in SPORTS, VIRTUAL SPORTS,
-				ESPORTS, SABA CLUB, OW CASINO, and LOTTERY.
+				ESPORTS, Vgaming, OW CASINO, and LOTTERY.
 				<br />
 				Choose "Transfer Funds" at the top of the page or in the Cashier
 				section.
@@ -123,7 +123,7 @@ const Content = () => {
 				src={require(`../styles/img/HowPlay/${getImage(2)}.png`)}
 				alt={getImage(2)}
 			/>
-				<img
+			<img
 				src={require(`../styles/img/HowPlay/${getImage(3)}.png`)}
 				alt={getImage(3)}
 			/>
@@ -136,7 +136,7 @@ const Content = () => {
 				CÁ
 				<br />
 				Ví Sportsbook/Ví thể thao: tham gia các sản phẩm trong sảnh THỂ
-				THAO, THỂ THAO ẢO, THỂ THAO ĐIỆN TỬ, SABA CLUB, OW CASINO, và XỔ
+				THAO, THỂ THAO ẢO, THỂ THAO ĐIỆN TỬ, Vgaming, OW CASINO, và XỔ
 				SỐ.
 				<br />
 				Chọn nút “Chuyển quỹ” ở đầu trang, hoặc bấm vào mũi tên cạnh số
@@ -146,11 +146,11 @@ const Content = () => {
 				src={require(`../styles/img/HowPlay/${getImage(4)}.png`)}
 				alt={getImage(4)}
 			/>
-					<img
+			<img
 				src={require(`../styles/img/HowPlay/${getImage(5)}.png`)}
 				alt={getImage(5)}
 			/>
-				<img
+			<img
 				src={require(`../styles/img/HowPlay/${getImage(6)}.png`)}
 				alt={getImage(6)}
 			/>

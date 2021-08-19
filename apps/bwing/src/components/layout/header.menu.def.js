@@ -47,7 +47,7 @@ export const defMenuLinks = {
 	// },
 	// sabaClub: {
 	// 	productInfo: productList.sabaClub,
-	// 	displayKey: "lbl_SabaClub"
+	// 	displayKey: "lbl_Vgaming"
 	// },
 	games: {
 		displayKey: "lbl_Games",
@@ -112,7 +112,7 @@ export const defMenuLinks = {
 				...productList.sabaClub,
 				path: path.sports.root,
 				className: "sabaclub",
-				displayKey: "lbl_SabaClub",
+				displayKey: "lbl_Vgaming",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.sabaClub },
 				lobbyPage: {
