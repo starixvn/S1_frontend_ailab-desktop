@@ -87,7 +87,7 @@ const ResetPassWord = () => {
 	};
 
 	const clickInfo = () => {
-		const _msg = status.msg === "" ? t("msg_PasswordVaildate") : "";
+		const _msg = status.msg === "" ? t("lbl_PasswordTooltip") : "";
 
 		setStatus({
 			checked: null,
