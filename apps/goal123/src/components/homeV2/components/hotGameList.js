@@ -43,7 +43,7 @@ const HotGameList = ({
 
 	const defBottomGameList = [
 		{
-			title: t("lbl_SabaClub"),
+			title: t("lbl_Vgaming"),
 			img: "sabaclub",
 			...productList.sabaClub
 		},

@@ -14,9 +14,9 @@ import sportBtiBgImg from "../../styles/img/dropdown/sports/bti.png";
 import sportBtiItemImg from "../../styles/img/dropdown/sports/bti-item.png";
 import sportBtiIconImg from "../../styles/img/dropdown/sports/bti-icon.png";
 
-import gamesSabaclubBgImg from "../../styles/img/dropdown/games/sabaclub.png";
-import gamesSabaclubNpcImg from "../../styles/img/dropdown/games/sabaclub-item.png";
-import gamesSabaclubIconImg from "../../styles/img/dropdown/games/newicon/sabaclub-icon.png";
+import gamesSabaclubBgImg from "../../styles/img/dropdown/games/vg.png";
+import gamesSabaclubNpcImg from "../../styles/img/dropdown/games/vg-item.png";
+import gamesSabaclubIconImg from "../../styles/img/dropdown/games/newicon/vg-icon.png";
 
 import gamesKingMakerBgImg from "../../styles/img/dropdown/games/kingmaker.png";
 import gamesKingMakerNpcImg from "../../styles/img/dropdown/games/kingmaker-item.png";
@@ -37,7 +37,7 @@ import gamesLotteryNpcImg from "../../styles/img/dropdown/games/lottery-item.png
 import gamesLobbyTCGImg from "../../styles/img/games/tcg.png";
 import gamesTCGIconImg from "../../styles/img/dropdown/games/newicon/tcg-icon.png";
 import gameLotteryIconImg from "../../styles/img/dropdown/games/newicon/lottery-icon.png";
-import gamesLobbySabaclubImg from "../../styles/img/games/sabaclub.png";
+import gamesLobbySabaclubImg from "../../styles/img/games/vg.png";
 import gamesLobbyV8Img from "../../styles/img/games/v8.png";
 import gamesLobbyKenoImg from "../../styles/img/games/keno.png";
 import gamesLobbyLotteryImg from "../../styles/img/games/lottery.png";
@@ -196,7 +196,7 @@ export const defMenuLinks = langId => {
 		// },
 		// sabaClub: {
 		// 	productInfo: productList.sabaClub,
-		// 	displayKey: "lbl_SabaClub"
+		// 	displayKey: "lbl_Vgaming"
 		// },
 		games: {
 			displayKey: "lbl_Games",
@@ -241,7 +241,7 @@ export const defMenuLinks = langId => {
 					...productList.sabaClub,
 					// path: path.sports.root,
 					className: "sabaclub",
-					displayKey: "lbl_SabaClub",
+					displayKey: "lbl_Vgaming",
 					menuType: defMenuType.LinkOrBtn,
 					parameter: { ...productList.sabaClub },
 					bgImgUrl: gamesSabaclubBgImg,

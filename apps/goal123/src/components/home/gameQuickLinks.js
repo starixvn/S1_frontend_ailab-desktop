@@ -15,7 +15,7 @@ export const defSportsQuickLinks = {
 	sabaClub: {
 		productInfo: productList.sabaClub,
 		className: "icon icon-saba",
-		displayKey: "lbl_SabaClub",
+		displayKey: "lbl_Vgaming",
 		isHot: true
 	},
 	// cockFighting: {

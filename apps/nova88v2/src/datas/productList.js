@@ -15,7 +15,7 @@ export default {
 
 	sabaClub: {
 		tpId: 1,
-		gameId: 200,
+		gameId: 171,
 		tpCategory: defTpCategoryId.slot
 	},
 	_9WSports: {
