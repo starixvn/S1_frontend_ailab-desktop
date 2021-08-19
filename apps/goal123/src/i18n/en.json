@@ -142,7 +142,7 @@
 	"lbl_NewPassword": "New Password",
 	"lbl_OldPassword": "Old Password",
 	"lbl_Password": "Password",
-	"lbl_PasswordTooltip": "6-18 alphanumeric (A-Z, a-z, 0-9) characters or special characters @$*!%#?&",
+	"lbl_PasswordTooltip": "Password must be 6-15 characters only.",
 	"lbl_Phone": "Phone Number",
 	"lbl_PhoneRequired": "Please fill in the phone field",
 	"lbl_PhoneTooltip": "Please enter your phone number, it can not change once enter!",

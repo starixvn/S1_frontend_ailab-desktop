@@ -150,7 +150,7 @@ export const eventPeriod = () => {
 };
 
 export const passwordCheck = val => {
-	const passwordRegx = /^(?=.{6,15}$)(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*]).*$/;
+	const passwordRegx = /^(?=.{6,15}$)[a-zA-Z0-9!@#$%^&*]*$/;
 
 	if (val === "")
 		return {
@@ -161,7 +161,7 @@ export const passwordCheck = val => {
 	if (val !== null && !passwordRegx.test(val))
 		return {
 			checked: false,
-			message: "msg_PasswordVaildate"
+			message: "lbl_PasswordTooltip"
 		};
 
 	return { checked: true, message: "" };

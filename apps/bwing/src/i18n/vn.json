@@ -151,7 +151,7 @@
 	"lbl_NewPassword": "Mật khẩu mới",
 	"lbl_OldPassword": "Mật khẩu hiện tại",
 	"lbl_Password": "Mật khẩu",
-	"lbl_PasswordTooltip": "6-18 ký tự chữ và số (A-Z, a-z, 0-9) hoặc ký tự đặc biệt @$*!%#?&",
+	"lbl_PasswordTooltip": "Mật khẩu phải có 6-15 ký tự.",
 	"lbl_Phone": "Số ĐT",
 	"lbl_PhoneRequired": "Vui lòng nhập số điện thoại",
 	"lbl_PhoneTooltip": "Vui lòng điền số điện thoại đúng. Bạn không thể sửa sau khi lưu.",

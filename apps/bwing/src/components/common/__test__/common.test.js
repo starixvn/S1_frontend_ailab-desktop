@@ -18,7 +18,7 @@ describe("passwordCheck test", () => {
 	test("callback `checked` should be false", () => {
 		result = {
 			checked: false,
-			message: "msg_PasswordVaildate"
+			message: "lbl_PasswordTooltip"
 		};
 
 		// check Length must be 6-15 characters.
