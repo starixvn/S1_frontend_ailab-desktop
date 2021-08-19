@@ -20,7 +20,10 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 
 	const ValidAmount = _amount => {
 		let result = {};
-		if (state.isAmountLimited && _amount > state.withdrawalMax) {
+		const real_amount = _isConvert
+			? Number(_amount) * 1000
+			: Number(_amount);
+		if (state.isAmountLimited && real_amount > state.withdrawalMax) {
 			result = {
 				status: 2,
 				msg: t("lbl_WithdrawalDailyReached")
