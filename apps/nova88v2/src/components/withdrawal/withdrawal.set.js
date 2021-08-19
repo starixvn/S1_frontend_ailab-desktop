@@ -51,10 +51,10 @@ const MainPanel = ({
 			)[0];
 			const _selectInfo = !isUSDT
 				? {
-						bankName: _preAccInfo.bankName,
-						accountNo: _preAccInfo.accountNo,
-						sysId: _preAccInfo.sysId,
-						ifscCode:_preAccInfo.ifscCode
+						bankName: _preAccInfo?.bankName,
+						accountNo: _preAccInfo?.accountNo,
+						sysId: _preAccInfo?.sysId,
+						ifscCode: _preAccInfo?.ifscCode
 				  }
 				: {
 						usdtAddress: _preUsdtAccInfo.usdtAddress,
