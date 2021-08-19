@@ -574,7 +574,7 @@ header input:focus-within {
   bottom: 0;
 }
 
-.header > div.menu .subMenu-Wrapper-new > div:not(.homeList):not(.sportsList):not(.exchangeList):not(.gameList):not(.tvList):not(.tableList):not(.sponsorList) img.List-bg {
+.header > div.menu .subMenu-Wrapper-new > div:not(.homeList):not(.sportsList):not(.livecasinoList):not(.exchangeList):not(.gameList):not(.tvList):not(.tableList):not(.sponsorList) img.List-bg {
   z-index: 1;
   margin-left: -70px;
 }
@@ -14828,6 +14828,9 @@ img[alt="sg"] {
 
 .rankingNew {
   background: url(../img/ranking_page_bg.jpg) no-repeat top center/cover;
+  background-position: top center;
+  background-size: cover;
+  max-height: 1025px;
 }
 
 .rankingNew section {
@@ -14862,6 +14865,7 @@ img[alt="sg"] {
 .rankingNew section > .btnGroup ~ div {
   display: none;
   background: rgba(0, 0, 0, 0.7);
+  min-height: 725px;
 }
 
 .rankingNew section > .btnGroup ~ div.active {
