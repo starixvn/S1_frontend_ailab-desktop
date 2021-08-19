@@ -8,6 +8,9 @@ import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
 import path from "../../router";
+import { isDateRange } from "./common";
+import { eventPeriodIdpd } from "../../datas/eventDef";
+import loginBannerEvent from "../../styles/img/loginBanner-new.jpg";
 
 const initValue = {
 	username: "",
@@ -27,6 +30,10 @@ const LoginPanel = () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const isMountedRef = useRef(null);
+	const isInPeriodEvent = isDateRange(
+		eventPeriodIdpd.startDate,
+		eventPeriodIdpd.endDate
+	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -175,6 +182,7 @@ const LoginPanel = () => {
 				tip={tip}
 				showPsw={showPsw}
 				showPswHandler={showPswHandler}
+				isInPeriodEvent={isInPeriodEvent}
 			/>
 		</div>
 	);
@@ -194,14 +202,17 @@ export const LoginForm = ({
 	clickInfo,
 	tip,
 	showPsw,
-	showPswHandler
+	showPswHandler,
+	isInPeriodEvent
 }) => {
 	return (
 		<>
 			<div className="icon icon-close" onClick={clickCancel} />
 			<div className="loginModule">
-				<img src={loginBanner} alt="loginBanner" />
-
+				<img
+					src={isInPeriodEvent ? loginBannerEvent : loginBanner}
+					alt="loginBanner"
+				/>
 				<div className="loginFunction">
 					<span className="title">{t("lbl_Login")}</span>
 					<div className="noAccount">

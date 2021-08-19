@@ -25,9 +25,9 @@ import areaCode from "../../datas/areaCode";
 import { initValue, initTip, currencyToAreacode } from "./join.def";
 import JoinForm from "./join.form";
 import usePopBox from "../hook/usePopBox";
-import { eventPeriodEuro } from "../../datas/euroDef";
-import joinBannerEuro from "../../styles/img/euro/BW400x480register.png";
 import path from "../../router";
+import { eventPeriodIdpd } from "../../datas/eventDef";
+import joinBannerEvent from "../../styles/img/joinBanner-new.jpg";
 
 export default () => {
 	const { t } = useTranslation();
@@ -43,7 +43,10 @@ export default () => {
 	const configSiteName = config.siteName;
 	const tandCTerms = TandC(defaultLangId).terms;
 	const tandCRule = TandC(defaultLangId).rule;
-	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
+	const isInPeriodEvent = isDateRange(
+		eventPeriodIdpd.startDate,
+		eventPeriodIdpd.endDate
+	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -475,7 +478,7 @@ export default () => {
 	return (
 		<div className="joinus">
 			<img
-				src={isInPeriodEuro ? joinBannerEuro : joinBanner}
+				src={isInPeriodEvent ? joinBannerEvent : joinBanner}
 				alt="joinBanner"
 			/>
 			<div className="joinloginModule">
