@@ -8,6 +8,9 @@ import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
 import path from "../../router";
+import { eventPeriodIdpd } from "../../datas/eventDef";
+import { isDateRange } from "./common";
+import loginBannerEvent from "../../styles/img/loginBanner_event.jpg";
 
 const initValue = {
 	username: "",
@@ -27,6 +30,10 @@ const LoginPanel = () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const isMountedRef = useRef(null);
+	const isInPeriodEvent = isDateRange(
+		eventPeriodIdpd.startDate,
+		eventPeriodIdpd.endDate
+	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -164,7 +171,10 @@ const LoginPanel = () => {
 	return (
 		<div className="loginpop active">
 			<div className="joinloginModule">
-				<img src={loginBanner} alt="loginBanner" />
+				<img
+					src={isInPeriodEvent ? loginBannerEvent : loginBanner}
+					alt="loginBanner"
+				/>
 				<LoginForm
 					t={t}
 					clickCancel={clickCancel}

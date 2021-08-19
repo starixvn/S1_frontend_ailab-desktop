@@ -6,12 +6,8 @@ import { eventPeriod } from "../mysteryBox/mysteryBox.def";
 import imgMysteryLinkEn from "../../styles/img/mystery/homeImg.png";
 import imgMysteryLinkVn from "../../styles/img/mystery/homeImg_vn.png";
 
-import { eventPeriodEuro } from "../../datas/euroDef";
-import imgMysteryLinkEuro from "../../styles/img/euro/BW215x231popup.png";
-
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
-const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 const MysteryBoxLink = ({ to, langId }) => {
 	const [display, setDisplay] = useState(true);
@@ -31,7 +27,7 @@ const MysteryBoxLink = ({ to, langId }) => {
 			<Link to={to} alt="money" className="money">
 				<img
 					className="mysteryImg"
-					src={isInPeriodEuro ? imgMysteryLinkEuro : imgEventlink}
+					src={imgEventlink}
 					alt="angpowlink"
 				/>
 				<div className="l" />

@@ -11,17 +11,19 @@ import Menu from "./header.menu";
 import config from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
-import OlympicCountdown from "./header.olympic.countdown";
 import path from "../../router";
 import { isDateRange } from "../common/common";
-import { eventPeriodEuro } from "../../datas/euroDef";
-import LogoEuro from "../../styles/img/euro/logo.png";
+import { eventPeriodIdpd } from "../../datas/eventDef";
+import LogoEvent from "../../styles/img/logo-new.png";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
-	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
+	const isInPeriodEvent = isDateRange(
+		eventPeriodIdpd.startDate,
+		eventPeriodIdpd.endDate
+	);
 	const { allMaintainList } = useContext(maintainListContext);
 
 	return (
@@ -30,12 +32,10 @@ export default () => {
 				<div className="logo">
 					<Link to={`/${userInfo.langId}`}>
 						<img
-							src={isInPeriodEuro ? LogoEuro : Logo}
+							src={isInPeriodEvent ? LogoEvent : Logo}
 							alt={config.siteName}
 						/>
 					</Link>
-
-					<OlympicCountdown />
 				</div>
 				<Menu
 					productTpIds={productTpIds}
