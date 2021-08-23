@@ -50,7 +50,10 @@ const FooterProduct = ({
 					{t("lbl_Affiliate_Program")}
 				</div>
 				<div>{t("lbl_Affiliate_Program_desc")}</div>
-				<a href={`${SiteInfo.affiliateLink}/?lang=${langId}`}>
+				<a
+					href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
+					target="_blank"
+					rel="noreferrer">
 					{t("lbl_Apply_Now")}
 					{" >"}
 				</a>
