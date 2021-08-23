@@ -141,7 +141,17 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 					isMountedRef.current &&
 					((afterLogin && !isLogin) || (isLogin && onlyBeforeLogin))
 				) {
-					setRedirectPath(`/${userInfo.langId}`);
+					if (
+						localStorage.getItem(
+							`${userInfo.userName}-doNotRedirect`
+						) === "1"
+					) {
+						localStorage.removeItem(
+							`${userInfo.userName}-doNotRedirect`
+						);
+					} else {
+						setRedirectPath(`/${userInfo.langId}`);
+					}
 				}
 				if (isLogin !== userInfo.isLogin && isMountedRef.current) {
 					setUserInfo(prevState => ({

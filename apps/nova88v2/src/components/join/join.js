@@ -475,7 +475,7 @@ export default () => {
 						const { message } = res.data;
 						if (errorCode === 0) {
 							api_accountStrict_GetCustProfile().then(
-								res_custInfo => {
+								async res_custInfo => {
 									if (isMountedRef.current) {
 										let _user = {
 											isLogin: true,
@@ -490,8 +490,12 @@ export default () => {
 												..._user,
 												...res_custInfo.data.data
 											};
-											navigate(
-												`/${userInfo.langId}/${path.deposit.root}`
+											localStorage.setItem(
+												`${_user.userName}-doNotRedirect`,
+												"1"
+											);
+											await navigate(
+												`/${_user.langId}/${path.deposit.root}`
 											);
 										} else {
 											errorPopBox(
