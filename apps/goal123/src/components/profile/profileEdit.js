@@ -7,7 +7,7 @@ import Inputbox from "../common/inputbox";
 export default props => {
 	const { t } = useTranslation();
 
-	const legalDate = moment().subtract(21, "year");
+	const legalDate = moment().subtract(18, "year");
 
 	const valid = current => {
 		return current.isBefore(legalDate);
