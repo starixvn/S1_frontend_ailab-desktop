@@ -350,19 +350,15 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const linkToTnc = async () => {
-		try {
-			const _URL = `${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${
-				userInfo.langId === "en" ? "cs_en" : userInfo.langId
-			}.html`;
-
-			await axios.get(_URL);
-			window.open(_URL);
-		} catch (error) {
-			window.open(
-				`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/cs_en.html`
-			);
-		}
+	const linkToTnc = () => {
+		const gotoDefaultUrl = ["en", "hi", "hi_en"];
+		window.open(
+			`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${
+				gotoDefaultUrl.includes(userInfo.langId)
+					? "cs_en"
+					: userInfo.langId
+			}.html`
+		);
 	};
 
 	const showBackground = () => {
