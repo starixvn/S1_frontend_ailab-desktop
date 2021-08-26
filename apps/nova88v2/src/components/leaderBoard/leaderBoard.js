@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
+import axios from "axios";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import {
@@ -22,7 +23,6 @@ import {
 import { cloudImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
-import { isOldLang } from "../../datas/languageData";
 import { langAndCurrMapping, defCurrencyList } from "../common/common";
 import { siteDefLangId } from "../../service/language";
 import defaultBg from "../../styles/img/ranking_page_bg.jpg";
@@ -350,12 +350,19 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const linkToTnc = () => {
-		window.open(
-			`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${
-				isOldLang(userInfo.langId) ? userInfo.langId : "en"
-			}.html`
-		);
+	const linkToTnc = async () => {
+		try {
+			const _URL = `${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${
+				userInfo.langId === "en" ? "cs_en" : userInfo.langId
+			}.html`;
+
+			await axios.get(_URL);
+			window.open(_URL);
+		} catch (error) {
+			window.open(
+				`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/cs_en.html`
+			);
+		}
 	};
 
 	const showBackground = () => {
