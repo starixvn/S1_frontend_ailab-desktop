@@ -2,7 +2,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { bannerImgUrl } from "../../config";
 
 const LiveCasinoBanner = ({ slideImgList }) => {

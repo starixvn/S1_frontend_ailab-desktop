@@ -59,6 +59,7 @@ class Dropdown extends Component {
 						}
 						className={this.props.className}
 						active={this.props.selectedIdx === i}
+						year={item.year}
 					/>
 				);
 			})
@@ -93,7 +94,7 @@ class Dropdown extends Component {
 			} else if (_s.displayText) {
 				selected = _s.displayText;
 			} else {
-				selected = this.props.i18n(_s.displayKey);
+				selected = `${this.props.i18n(_s.displayKey)} ${_s.year ?? ""}`;
 			}
 		} else {
 			selected = this.props.placeholder;
@@ -142,7 +143,7 @@ const Item = props => {
 			) : props.displayText ? (
 				props.displayText
 			) : (
-				props.i18n(props.displayKey)
+				`${props.i18n(props.displayKey)} ${props.year ?? ""}`
 			)}
 		</div>
 	);

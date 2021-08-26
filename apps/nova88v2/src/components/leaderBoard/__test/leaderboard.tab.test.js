@@ -3,10 +3,10 @@ import { render, fireEvent } from "@testing-library/react";
 import LeaderboardTabs from "../leaderBoard.tabs";
 
 const defTabId = {
-	event: 1,
-	ranking: 2,
-	records: 3,
-	lastEvent: 4
+	first: 1,
+	second: 2,
+	third: 3,
+	fourth: 4
 };
 
 const fakeData = {

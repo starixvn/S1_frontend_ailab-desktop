@@ -1,20 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { defTabId, defRewardTabId } from "./leaderBoard.def";
+import { defTabId } from "./leaderBoard.def";
+import ballImg from "../../styles/img/ranking/ball.png";
+import slotImg from "../../styles/img/ranking/slot.png";
+import casinoImg from "../../styles/img/ranking/casino.png";
 
-const leaderBoardEventContent = ({
-	t,
-	currencyName,
-	userInfo,
-	tab,
-	rewardList,
-	changeRewardTab,
-	rewardTab,
-	linkToTnc
-}) => {
-	const rows = rewardList.map((item, idx) => {
+const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
+	const rows2 = rewardList.section2.map((item, idx) => {
 		return (
-			<li key={`leaderBoard-event-${item.displayRank}`}>
+			<li key={`leaderBoard-event-${item.rank}`}>
 				<div>
 					{idx + 1 < 4 ? (
 						<img
@@ -27,14 +21,11 @@ const leaderBoardEventContent = ({
 							alt="top_ranking"
 						/>
 					)}
+					{item.rank}
 				</div>
-				<div>{item.displayRank}</div>
-				<div>
-					{item.reward}
-					{item.reward.slice(-3) === currencyName ? (
-						<> {t("lbl_Cash")}</>
-					) : null}
-				</div>
+				<div>{item.deposit}</div>
+				<div>{item.point}</div>
+				<div>{item.bonus}</div>
 			</li>
 		);
 	});
@@ -43,88 +34,52 @@ const leaderBoardEventContent = ({
 		<div className={`eventRule ${tab === defTabId.first ? "active" : ""}`}>
 			<div className="title">
 				{t("lbl_leaderboardTitle_1")}
-				<br />
-				{t("lbl_leaderboardTitle_2")}
-			</div>
-			<div className="rankTag">
-				<div className="btnGroup">
-					<button
-						className={
-							rewardTab === defRewardTabId.final ? "active" : ""
-						}
-						onClick={changeRewardTab.bind(
-							this,
-							defRewardTabId.final
-						)}>
-						{t("lbl_EURO_2020_Final")}
-					</button>
-					<button
-						className={
-							rewardTab === defRewardTabId.monthly ? "active" : ""
-						}
-						onClick={changeRewardTab.bind(
-							this,
-							defRewardTabId.monthly
-						)}>
-						{t("lbl_Monthly_Tournament")}
-					</button>
-				</div>
+				<div>{t("lbl_leaderboardTitle_2")}</div>
 			</div>
 			<div className="rankList">
-				<div
-					className={
-						rewardTab === defRewardTabId.final ? "active" : ""
-					}>
-					<ul>
-						<li>
-							<div />
-							<div>{t("lbl_Ranking")}</div>
-							<div>{t("lbl_Prizes")}</div>
-						</li>
-						{rows}
-					</ul>
-				</div>
-				<div
-					className={
-						rewardTab === defRewardTabId.monthly ? "active" : ""
-					}>
-					<div className="stitle">
-						{t("lbl_Monthly_Deposit_Turnover_Race_Tournament")}
-					</div>
-					<div className="timeLine">
-						<div>{t("lbl_Mar")}</div>
+				<div className="title">{t("lbl_POINT_CALCULATION")}</div>
+				<ul>
+					<li>
+						<div>{t("lbl_PRODUCT")}</div>
+						<div>{t("lbl_VALID_TURNOVER")}</div>
+						<div>{t("lbl_POINT")}</div>
+					</li>
+					<li>
 						<div>
-							{t("lbl_Apr")}
-							<div>
-								{t("lbl_Stage1")}
-								<div>2021 3/13 - 4/12</div>
-							</div>
+							<img src={ballImg} alt="sports" />
+							{String(t("lbl_Sports")).toUpperCase()}
 						</div>
+						<div>{rewardList.section1[0].turnover}</div>
+						<div>{rewardList.section1[0].point}</div>
+					</li>
+					<li>
 						<div>
-							{t("lbl_May")}
-							<div>
-								{t("lbl_Stage2")}
-								<div>2021 4/13 - 5/12</div>
-							</div>
+							<img src={slotImg} alt="slots" />
+							{String(t("lbl_Slots")).toUpperCase()}
 						</div>
+						<div>{rewardList.section1[1].turnover}</div>
+						<div>{rewardList.section1[1].point}</div>
+					</li>
+					<li>
 						<div>
-							{t("lbl_Jun")}
-							<div>
-								{t("lbl_Stage3")}
-								<div>2021 5/13 - 6/12</div>
-							</div>
+							<img src={casinoImg} alt="live_casino" />
+							{String(t("lbl_LiveCasino")).toUpperCase()}
 						</div>
-					</div>
-					<ul>
-						<li>
-							<div />
-							<div>{t("lbl_Ranking")}</div>
-							<div>{t("lbl_Bonus_credit")}</div>
-						</li>
-						{rows}
-					</ul>
-				</div>
-				<button onClick={linkToTnc}>{t("lbl_MoreDetails")}</button>
+						<div>{rewardList.section1[2].turnover}</div>
+						<div>{rewardList.section1[2].point}</div>
+					</li>
+				</ul>
+				<div className="title">{t("lbl_Monthly_Tournament")}</div>
+				<ul>
+					<li>
+						<div>{t("lbl_Ranking")}</div>
+						<div>{t("lbl_MIN_DEPOSIT")}</div>
+						<div>{t("lbl_MIN_POINT")}</div>
+						<div>{t("lbl_Bonus_credit")}</div>
+					</li>
+					{rows2}
+				</ul>
+				<button onClick={linkToTnc}>{t("lbl_Terms&Conditions")}</button>
 			</div>
 		</div>
 	);
@@ -132,12 +87,9 @@ const leaderBoardEventContent = ({
 
 leaderBoardEventContent.propTypes = {
 	t: PropTypes.func.isRequired,
-	currencyName: PropTypes.string.isRequired,
-	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	tab: PropTypes.number.isRequired,
-	rewardList: PropTypes.arrayOf(PropTypes.object).isRequired,
-	changeRewardTab: PropTypes.func.isRequired,
-	rewardTab: PropTypes.number.isRequired,
+	rewardList: PropTypes.objectOf(PropTypes.any).isRequired,
 	linkToTnc: PropTypes.func.isRequired
 };
+
 export default leaderBoardEventContent;

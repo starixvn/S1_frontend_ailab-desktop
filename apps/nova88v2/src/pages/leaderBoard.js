@@ -8,9 +8,7 @@ export default () => {
 	return (
 		<Wrapper afterLogin={false}>
 			<Layout>
-				<main className="ranking">
-					<Leaderboard />
-				</main>
+				<Leaderboard />
 				<Footer />
 			</Layout>
 		</Wrapper>

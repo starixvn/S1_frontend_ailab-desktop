@@ -17,13 +17,13 @@ export const api_events_GetCustRank = ({ LBCategoryId, BeforeDays }) =>
 		BeforeDays
 	});
 
-export const api_events_GetLeaderboardListV2 = ({
+export const GetLeaderboardListV3 = ({
 	lBCategoryId,
 	TopNum,
 	BeforeDays,
 	EventCode
 }) =>
-	eventsRequest.post("/GetLeaderboardListV2", {
+	eventsRequest.post("/GetLeaderboardListV3", {
 		lBCategoryId,
 		TopNum,
 		BeforeDays,
@@ -38,6 +38,26 @@ export const api_events_GetCustRankV2 = ({
 	eventsRequest.post("/GetCustRankV2", {
 		LBCategoryId,
 		BeforeDays,
+		EventCode
+	});
+
+export const GetLeaderboardListMonth = ({
+	lBCategoryId,
+	TopNum,
+	SelectDays,
+	EventCode
+}) =>
+	eventsRequest.post("/GetLeaderboardListMonth", {
+		lBCategoryId,
+		TopNum,
+		SelectDays,
+		EventCode
+	});
+
+export const GetCustRankMonth = ({ LBCategoryId, SelectDays, EventCode }) =>
+	eventsRequest.post("/GetCustRankMonth", {
+		LBCategoryId,
+		SelectDays,
 		EventCode
 	});
 

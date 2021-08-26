@@ -1,77 +1,43 @@
 import React from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
-import ButtonGroups from "./leaderBoard.btnGroups";
-import { defTabId, defPeriodId, defPeriodList } from "./leaderBoard.def";
+import { defTabId } from "./leaderBoard.def";
 import { number_format } from "../common/common";
+import ContentTopNav from "./leaderBoard.content.topNav";
 
 const leaderBoardContent = ({
 	t,
 	showUpdateTime,
 	tab,
-	rewardList,
 	rankingData,
-	onChangePeriod,
 	onChangeDays,
 	beforeDays,
-	periodId
+	onChangeGameType,
+	gameType,
+	onChangePeriod,
+	periodId,
+	periodList
 }) => {
-	const ContentTopLayout = () => {
-		if (tab === defTabId.second) {
-			return (
-				<>
-					<div className="rankTag">
-						<div>{t("lbl_Tournament")}</div>
-						<ButtonGroups
-							t={t}
-							onChangePeriod={onChangePeriod}
-							periodId={periodId}
-							onChangeDays={onChangeDays}
-							beforeDays={beforeDays}
-							tab={tab}
-						/>
-					</div>
-					<button
-						className={`finalTour ${
-							periodId === defPeriodId.period4 ? "active" : ""
-						}`}
-						onClick={onChangePeriod.bind(
-							this,
-							defPeriodId.period4,
-							tab
-						)}>
-						{t("lbl_EURO_2020_Final")}
-					</button>
-				</>
-			);
-		}
-		if (tab === defTabId.third) {
-			return null;
-		}
-		if (tab === defTabId.fourth) {
-			return (
-				<div className="rankTag">
-					<div>{t("lbl_Date")}</div>
-					<ButtonGroups
-						t={t}
-						onChangeButton={onChangePeriod}
-						periodId={periodId}
-						onChangeDays={onChangeDays}
-						beforeDays={beforeDays}
-						tab={tab}
-					/>
-				</div>
-			);
-		}
-		return null;
-	};
-
 	const Ranking = () =>
 		rankingData?.map((item, idx) => {
 			const { rank } = item;
+
+			const displayStatus = _status => {
+				if (tab === defTabId.fourth) {
+					return null;
+				}
+
+				let result = <div className="icon icon-minus" />;
+				if (_status > 0) {
+					result = <div className="icon icon-arrow_drop_up" />;
+				} else if (_status < 0) {
+					result = <div className="icon icon-arrow_drop_down" />;
+				}
+				return result;
+			};
+
 			return (
 				<li
-					key={`leaderboard_item_${item.userName}`}
+					key={`leaderboard_item_${item.custId}_${item.Turnover}`}
 					className={rank ? "userRank" : null}>
 					<div>
 						{idx < 3 ? (
@@ -87,47 +53,31 @@ const leaderBoardContent = ({
 								alt="ranking_gold"
 							/>
 						)}
-						{rank || idx + 1}
+						{`TOP ${rank || idx + 1}`}
 					</div>
 					<div>{item.userName}</div>
+					{displayStatus(item.status)}
 					<div>{number_format(item.wTurnover)}</div>
 				</li>
 			);
 		});
 
-	const currentStartMonth = defPeriodList[periodId].StartMonth;
-	const currentEndMonth = defPeriodList[periodId].EndMonth;
-
 	return (
 		<div
 			className={
-				tab === defTabId.second ? "lastevent active" : "champion active"
+				tab === defTabId.third ? "champion active" : "lastevent active"
 			}>
-			<ContentTopLayout />
-			<div className="highest">
-				{tab === defTabId.third ? (
-					<>
-						<div className="title">
-							{t("lbl_Sport_LiveCasino_Slots")}
-						</div>
-						<div>
-							* {t("lbl_Current_tournament_schedule")} : 13{" "}
-							{t(`${currentStartMonth}`)} 2021 ~ 12{" "}
-							{t(`${currentEndMonth}`)} 2021
-						</div>
-					</>
-				) : null}
-				<img
-					src="https://image.0814media.net/SiteSkin/img/champion.png"
-					alt="champion"
-				/>
-				<div className="mwt_border">
-					<span className="arrow_t_int" />
-					<span className="arrow_t_out" />
-					{/* <div>{t("lbl_HighestWinningRecord")}</div> */}
-					<div className="txt-yellow">{rewardList[0].reward}</div>
-				</div>
-			</div>
+			<ContentTopNav
+				t={t}
+				tab={tab}
+				onChangeDays={onChangeDays}
+				beforeDays={beforeDays}
+				onChangeGameType={onChangeGameType}
+				gameType={gameType}
+				onChangePeriod={onChangePeriod}
+				periodId={periodId}
+				periodList={periodList}
+			/>
 			<div className="rankModule">
 				{rankingData?.length > 0 ? (
 					<div className="rankList">
@@ -135,6 +85,9 @@ const leaderBoardContent = ({
 							<li>
 								<div>{t("lbl_Ranking")}</div>
 								<div>{t("lbl_Username")}</div>
+								{tab === defTabId.fourth ? null : (
+									<div>{t("lbl_Status")}</div>
+								)}
 								<div>{t("lbl_Points")}</div>
 							</li>
 							<Ranking />
@@ -143,7 +96,7 @@ const leaderBoardContent = ({
 				) : (
 					<div className="icon icon-nodata">{t("lbl_NoData")}</div>
 				)}
-				{tab === defTabId.second ? null : (
+				{tab === defTabId.fourth ? null : (
 					<div className="lastUpdate">
 						{t(`lbl_LastUpdTime`, {
 							time: showUpdateTime()
@@ -155,15 +108,22 @@ const leaderBoardContent = ({
 	);
 };
 
+leaderBoardContent.defaultProps = {
+	periodId: null
+};
+
 leaderBoardContent.propTypes = {
 	t: PropTypes.func.isRequired,
 	tab: PropTypes.number.isRequired,
-	rewardList: PropTypes.arrayOf(PropTypes.object).isRequired,
-	rankingData: PropTypes.arrayOf(PropTypes.object).isRequired,
-	onChangePeriod: PropTypes.func.isRequired,
+	rankingData: PropTypes.arrayOf(PropTypes.any).isRequired,
 	showUpdateTime: PropTypes.func.isRequired,
 	onChangeDays: PropTypes.func.isRequired,
 	beforeDays: PropTypes.number.isRequired,
-	periodId: PropTypes.number.isRequired
+	onChangeGameType: PropTypes.func.isRequired,
+	gameType: PropTypes.number.isRequired,
+	onChangePeriod: PropTypes.func.isRequired,
+	periodId: PropTypes.number,
+	periodList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
+
 export default leaderBoardContent;

@@ -4,37 +4,31 @@ import moment from "moment";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import {
-	api_events_GetLeaderboardListV2,
-	api_events_GetCustRankV2
+	GetLeaderboardListV3,
+	api_events_GetCustRankV2,
+	GetLeaderboardListMonth,
+	GetCustRankMonth
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
 import {
 	defTabId,
 	defDayNum,
 	defRewardList,
-	defPeriodList,
-	defPeriodId,
-	defRewardTabId
+	defEventCode,
+	defRankNum,
+	defGameType,
+	defMonthKey
 } from "./leaderBoard.def";
 import { cloudImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
 import { isOldLang } from "../../datas/languageData";
-
-const langMapping = {
-	cs: "MYR",
-	en: "MYR",
-	id: "IDR",
-	th: "THB"
-};
-
-const currMapping = {
-	13: "MYR"
-};
-
-const Today = new Date();
-const defLBCategoryId = 0;
-const defTopNum = 10;
+import { langAndCurrMapping, defCurrencyList } from "../common/common";
+import { siteDefLangId } from "../../service/language";
+import defaultBg from "../../styles/img/ranking_page_bg.jpg";
+import sportsBg from "../../styles/img/ranking_page_bg_sports.jpg";
+import casinoBg from "../../styles/img/ranking_page_bg_casino.jpg";
+import slotBg from "../../styles/img/ranking_page_bg_slot.jpg";
 
 export default () => {
 	const { t } = useTranslation();
@@ -43,18 +37,20 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState([]);
 	const [tab, setTab] = useState(defTabId.first);
-	const [rewardTab, setRewardTab] = useState(defRewardTabId.final);
-	const [periodId, setPeriodId] = useState(defPeriodId.period4);
+	const [periodId, setPeriodId] = useState(null);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
+	const [gameType, setGameType] = useState(defGameType.all);
+	const rankTopNum =
+		tab === defTabId.fourth ? defRankNum.monthly : defRankNum.current;
+	const _langMappingCurr = userInfo.langId ?? siteDefLangId;
+	const currencyId = userInfo.currencyId
+		? userInfo.currencyId
+		: langAndCurrMapping[_langMappingCurr];
 
-	const currencyName = userInfo.currencyId
-		? currMapping[userInfo.currencyId] ??
-		  t(`Currency_${userInfo.currencyId}`)
-		: langMapping[userInfo.langId] ?? langMapping.en;
-
-	const rewardList = defRewardList({ t })[currencyName]
-		? defRewardList({ t })[currencyName][rewardTab]
-		: defRewardList({ t }).MYR[rewardTab];
+	const rewardList =
+		currencyId === defCurrencyList.INR
+			? defRewardList({ t }).MYR
+			: defRewardList({ t })[t(`Currency_${currencyId}`)];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -64,9 +60,9 @@ export default () => {
 	});
 
 	useEffect(() => {
-		getRealTiimePeriod();
-		getLeaderboardData();
 		showUpdateTime();
+		getPeriodList();
+		getRealTimePeriodId();
 	}, [userInfo.userName]);
 
 	useEffect(() => {
@@ -84,75 +80,201 @@ export default () => {
 		return displayTime;
 	};
 
-	const getRealTiimePeriod = () => {
-		let result = defPeriodId.period4;
-		if (Today < new Date(defPeriodList[1].startDate)) {
-			result = defPeriodList[1].id;
-		} else if (Today < new Date(defPeriodList[3].endDate)) {
-			result = defPeriodList[3].id;
-		} else {
-			Object.values(defPeriodList)
-				.filter(pd => pd.id !== defPeriodId.period4)
-				.forEach(pd => {
-					if (
-						Today > new Date(pd.startDate) &&
-						Today < new Date(pd.endDate)
-					) {
-						result = pd.id;
-					}
-				});
+	const getPeriodList = () => {
+		const dataStartDate = new Date("2021-08-01");
+		const currentDate = new Date();
+		const betweenMonthNum =
+			(currentDate.getFullYear() - dataStartDate.getFullYear()) * 12 +
+			(currentDate.getMonth() - dataStartDate.getMonth());
+		const allMonths = Array.from(Array(12), (_, i) => i + 1);
+		const monthDataList = [];
+		for (let i = -1; i < betweenMonthNum; i++) {
+			const pass = new Date(
+				currentDate.getFullYear(),
+				currentDate.getMonth() - i - 1,
+				1
+			);
+			const month = allMonths[pass.getMonth()];
+			const monthString = month < 10 ? `0${month}` : month;
+			const year = pass.getFullYear();
+			monthDataList.push({
+				displayKey: `${defMonthKey[month]}`,
+				year: `${year}`,
+				startDate: `${year}-${monthString}-01`,
+				endDate: `${year}-${monthString}-${new Date(
+					year,
+					month + 1,
+					0
+				).getDate()}`
+			});
 		}
+		monthDataList.sort(function (a, b) {
+			return new Date(a.startDate) > new Date(b.startDate) ? 1 : -1;
+		});
+		const resultList = [];
+		monthDataList.forEach((item, idx) => {
+			resultList.push({ id: idx + 1, ...item });
+		});
+		return resultList;
+	};
 
-		setPeriodId(result);
+	const periodList = getPeriodList();
+
+	const getRealTimePeriodId = () => {
+		const Today = new Date();
+		let result;
+		periodList.forEach(pd => {
+			if (
+				Today > new Date(pd.startDate) &&
+				Today < new Date(pd.endDate)
+			) {
+				result = pd.id;
+			}
+		});
 		return result;
 	};
 
-	const onChangeTab = tabId => {
-		const realTimePeriod = getRealTiimePeriod();
-		if (tabId !== defTabId.first && !userInfo.isLogin) {
+	const onChangeTab = _tabId => {
+		const _gameType =
+			_tabId === defTabId.third ? defGameType.sports : defGameType.all;
+		if (_tabId !== defTabId.first && !userInfo.isLogin) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
+		} else if (_tabId === defTabId.fourth) {
+			setTab(_tabId);
+			setGameType(_gameType);
+			getPeriodList();
+			const hasSettledPeriodId =
+				getRealTimePeriodId() - 1 < 1 ? 1 : getRealTimePeriodId() - 1;
+			setPeriodId(hasSettledPeriodId);
+			if (periodList.length > 0) {
+				getMonthlyData(
+					periodList.filter(_pd => _pd.id === hasSettledPeriodId)[0]
+				);
+			} else {
+				setRankingData([]);
+			}
 		} else {
-			setTab(tabId);
-			setPeriodId(realTimePeriod);
-			setRewardTab(defRewardTabId.final);
-			if (tabId === defTabId.first) {
-				setBeforeDays(defDayNum.today);
-			}
-			if (tabId === defTabId.second || tabId === defTabId.third) {
-				setBeforeDays(defDayNum.today);
-				getLeaderboardData(realTimePeriod, defDayNum.today, tabId);
-			}
-			if (tabId === defTabId.fourth) {
-				setBeforeDays(defDayNum.yesterDay);
-				getLeaderboardData(realTimePeriod, defDayNum.yesterDay, tabId);
-			}
+			setTab(_tabId);
+			setGameType(_gameType);
+			setBeforeDays(defDayNum.today);
+			getLeaderboardData(defDayNum.today, _gameType, _tabId);
 		}
 	};
 
-	const getLeaderboardData = (_periodId, _days, _tabId) => {
+	const onChangeDays = _days => {
+		setBeforeDays(_days);
+		getLeaderboardData(_days, gameType, tab);
+	};
+
+	const onChangeGameType = _type => {
+		setGameType(_type);
+		getLeaderboardData(beforeDays, _type, tab);
+	};
+
+	const getLeaderboardData = (_days, _gameType, _tabId) => {
 		if (!userInfo.isLogin) return;
 		if (!_tabId || _tabId === defTabId.first) return;
-		const currentperiodId = _periodId ?? periodId;
 
 		const payload = {
-			lBCategoryId: defLBCategoryId,
-			TopNum: defTopNum,
+			lBCategoryId: _gameType ?? gameType,
+			TopNum: defRankNum.current,
 			BeforeDays: _days ?? beforeDays,
-			EventCode: defPeriodList[currentperiodId].eventCode
+			EventCode: defEventCode.current
 		};
 
 		const GetRankDatas = async () => {
-			await api_events_GetLeaderboardListV2(payload).then(res => {
+			await GetLeaderboardListV3(payload).then(res => {
 				if (res.data.errorCode === 0) {
 					const rankDatas = res.data.data;
-
 					if (rankDatas?.length > 0) {
 						api_events_GetCustRankV2({
 							LBCategoryId: payload.lBCategoryId,
 							BeforeDays: payload.BeforeDays,
+							EventCode: payload.EventCode
+						}).then(resRank => {
+							if (resRank.data.errorCode === 0) {
+								const {
+									custRank,
+									point,
+									status
+								} = resRank.data.data;
+								setRankingData(() => {
+									const rank =
+										custRank > 999 || custRank === 0
+											? "999+"
+											: custRank;
+
+									let result = [];
+									if (
+										custRank <= rankTopNum &&
+										custRank !== 0
+									) {
+										rankDatas[custRank - 1] = {
+											...rankDatas[custRank - 1],
+											userName: userInfo.userName,
+											rank
+										};
+										result = rankDatas;
+									} else {
+										result = [
+											...rankDatas,
+											{
+												userName: userInfo.userName,
+												wTurnover: point,
+												status,
+												rank
+											}
+										];
+									}
+									return result;
+								});
+							} else {
+								openErrorMessagePopBox(
+									resRank.data.message,
+									resRank.data.errorCode
+								);
+							}
+						});
+					} else {
+						setRankingData([]);
+					}
+				} else {
+					openErrorMessagePopBox(
+						res.data.message,
+						res.data.errorCode
+					);
+				}
+			});
+		};
+		GetRankDatas();
+	};
+
+	const onChangePeriod = _periodData => {
+		setPeriodId(_periodData.id);
+		getMonthlyData(_periodData);
+	};
+
+	const getMonthlyData = _periodData => {
+		if (!userInfo.isLogin) return;
+
+		const payload = {
+			lBCategoryId: defGameType.all,
+			TopNum: defRankNum.monthly,
+			SelectDays: _periodData.startDate,
+			EventCode: defEventCode.monthly
+		};
+
+		const GetMonthlyRankDatas = async () => {
+			await GetLeaderboardListMonth(payload).then(res => {
+				if (res.data.errorCode === 0) {
+					const rankDatas = res.data.data;
+					if (rankDatas?.length > 0) {
+						GetCustRankMonth({
+							LBCategoryId: payload.lBCategoryId,
+							SelectDays: payload.SelectDays,
 							EventCode: payload.EventCode
 						}).then(resRank => {
 							if (resRank.data.errorCode === 0) {
@@ -165,7 +287,7 @@ export default () => {
 
 									let result = [];
 									if (
-										custRank <= defTopNum &&
+										custRank <= rankTopNum &&
 										custRank !== 0
 									) {
 										rankDatas[custRank - 1] = {
@@ -204,7 +326,7 @@ export default () => {
 				}
 			});
 		};
-		GetRankDatas();
+		GetMonthlyRankDatas();
 	};
 
 	const openErrorMessagePopBox = (message, errorCode) => {
@@ -224,59 +346,64 @@ export default () => {
 		});
 	};
 
-	const changeRewardTab = _tab => {
-		setRewardTab(_tab);
-	};
-
-	const onChangePeriod = (_periodId, _tabId) => {
-		setPeriodId(_periodId);
-		getLeaderboardData(_periodId, beforeDays, _tabId);
-	};
-
-	const onChangeDays = _days => {
-		setBeforeDays(_days);
-		getLeaderboardData(periodId, _days, tab);
-	};
-
 	const clickClose = () => {
 		setPopBox({ isOpen: false });
 	};
 
 	const linkToTnc = () => {
 		window.open(
-			`${cloudImgUrl}/NovaPromotion/UEFAEuro/${
+			`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${
 				isOldLang(userInfo.langId) ? userInfo.langId : "en"
 			}.html`
 		);
 	};
 
+	const showBackground = () => {
+		let result = defaultBg;
+		if (gameType === defGameType.sports) {
+			result = sportsBg;
+		}
+		if (gameType === defGameType.casino) {
+			result = casinoBg;
+		}
+		if (gameType === defGameType.slots) {
+			result = slotBg;
+		}
+		return result;
+	};
+
 	return (
-		<section className="ranking">
-			<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
-			{tab === defTabId.first ? (
-				<ContentEvent
-					t={t}
-					currencyName={currencyName}
-					userInfo={userInfo}
-					tab={tab}
-					rewardList={rewardList}
-					changeRewardTab={changeRewardTab}
-					rewardTab={rewardTab}
-					linkToTnc={linkToTnc}
-				/>
-			) : (
-				<Content
-					t={t}
-					showUpdateTime={showUpdateTime}
-					tab={tab}
-					periodId={periodId}
-					rewardList={rewardList}
-					rankingData={rankingData}
-					onChangePeriod={onChangePeriod}
-					onChangeDays={onChangeDays}
-					beforeDays={beforeDays}
-				/>
-			)}
-		</section>
+		<main
+			className="rankingNew"
+			style={{
+				backgroundImage: `url(${showBackground()})`
+			}}>
+			<section>
+				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
+				{tab === defTabId.first ? (
+					<ContentEvent
+						t={t}
+						tab={tab}
+						rewardList={rewardList}
+						linkToTnc={linkToTnc}
+					/>
+				) : (
+					<Content
+						t={t}
+						showUpdateTime={showUpdateTime}
+						tab={tab}
+						periodId={periodId}
+						rewardList={rewardList}
+						periodList={periodList}
+						rankingData={rankingData}
+						onChangePeriod={onChangePeriod}
+						onChangeDays={onChangeDays}
+						beforeDays={beforeDays}
+						onChangeGameType={onChangeGameType}
+						gameType={gameType}
+					/>
+				)}
+			</section>
+		</main>
 	);
 };
