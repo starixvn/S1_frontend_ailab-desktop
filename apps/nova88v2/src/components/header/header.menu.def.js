@@ -169,7 +169,7 @@ export const defMenuLinks = {
 				path: "http://nova88vip.com/"
 			},
 			{
-				displayKey: "lbl_Ranking",
+				displayKey: "lbl_Leaderboard",
 				listNpcImgUrl: "home-ranking.png",
 				listBgImgUrl: "rankingbg.png",
 				menuType: defMenuType.Link,
@@ -862,7 +862,7 @@ export const defMenuLinks = {
 		]
 	},
 	ranking: {
-		displayKey: "lbl_Ranking",
+		displayKey: "lbl_Leaderboard",
 		path: path.leaderBoard.root
 	}
 };

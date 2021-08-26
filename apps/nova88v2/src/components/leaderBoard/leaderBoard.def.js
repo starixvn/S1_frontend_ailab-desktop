@@ -7,52 +7,10 @@ export const defTabId = {
 
 export const defTabList = [
 	{ id: defTabId.first, displayKey: "lbl_Event" },
-	{ id: defTabId.second, displayKey: "lbl_EURO_2020_Final" },
-	{ id: defTabId.third, displayKey: "lbl_Tournament_Points" },
-	{ id: defTabId.fourth, displayKey: "lbl_Records" }
+	{ id: defTabId.second, displayKey: "lbl_Ranking" },
+	{ id: defTabId.third, displayKey: "lbl_GAMES_POINT" },
+	{ id: defTabId.fourth, displayKey: "lbl_RESULT" }
 ];
-
-export const defPeriodId = {
-	period1: 1,
-	period2: 2,
-	period3: 3,
-	period4: 4
-};
-
-export const defPeriodList = {
-	1: {
-		id: defPeriodId.period1,
-		eventCode: "2021021",
-		startDate: "2021/03/13",
-		endDate: "2021/04/12",
-		StartMonth: "lbl_Mar",
-		EndMonth: "lbl_Apr"
-	},
-	2: {
-		id: defPeriodId.period2,
-		eventCode: "2021022",
-		startDate: "2021/04/13",
-		endDate: "2021/05/12",
-		StartMonth: "lbl_Apr",
-		EndMonth: "lbl_May"
-	},
-	3: {
-		id: defPeriodId.period3,
-		eventCode: "2021023",
-		startDate: "2021/05/13",
-		endDate: "2021/06/12",
-		StartMonth: "lbl_May",
-		EndMonth: "lbl_Jun"
-	},
-	4: {
-		id: defPeriodId.period4,
-		eventCode: "2021024",
-		startDate: "2021/03/13",
-		endDate: "2021/07/12",
-		StartMonth: "lbl_Mar",
-		EndMonth: "lbl_Jul"
-	}
-};
 
 export const defDayNum = {
 	today: 0,
@@ -61,150 +19,234 @@ export const defDayNum = {
 	lastThreeDay: 3
 };
 
-export const defPeriodOptions = [
-	{ id: defPeriodId.period1, displayKey: "lbl_period1" },
-	{ id: defPeriodId.period2, displayKey: "lbl_period2" },
-	{ id: defPeriodId.period3, displayKey: "lbl_period3" }
-];
-
 export const defDayOptions = [
+	{ id: defDayNum.today, displayKey: "lbl_Today" },
 	{ id: defDayNum.yesterDay, displayKey: "lbl_YesterDay" },
-	{ id: defDayNum.lastTwoDay, displayKey: "lbl_last_2_day" },
-	{ id: defDayNum.lastThreeDay, displayKey: "lbl_last_3_day" }
+	{ id: defDayNum.lastTwoDay, displayKey: "lbl_2_DAYS_AGO" },
+	{ id: defDayNum.lastThreeDay, displayKey: "lbl_3_DAYS_AGO" }
 ];
 
-export const defRewardTabId = {
-	final: 1,
-	monthly: 2
+export const defGameType = {
+	all: 0,
+	sports: 1,
+	slots: 2,
+	casino: 3
+};
+
+export const defGameTypeOptions = [
+	{ id: defGameType.sports, displayKey: "lbl_Sports" },
+	{ id: defGameType.casino, displayKey: "lbl_LiveCasino" },
+	{ id: defGameType.slots, displayKey: "lbl_Slots" }
+];
+
+export const defRankNum = { current: 50, monthly: 30 };
+
+export const defEventCode = { current: "2021051", monthly: "2021052" };
+
+export const defMonthKey = {
+	1: "lbl_Jan",
+	2: "lbl_Feb",
+	3: "lbl_Mar",
+	4: "lbl_Apr",
+	5: "lbl_May",
+	6: "lbl_Jun",
+	7: "lbl_Jul",
+	8: "lbl_Aug",
+	9: "lbl_Sep",
+	10: "lbl_Otc",
+	11: "lbl_Nov",
+	12: "lbl_Dec"
 };
 
 export const defRewardList = ({ t }) => {
-	const unitMYR = "MYR";
-	const unitIDR = "IDR";
-	const unitTHB = "THB";
-
 	return {
 		MYR: {
-			[defRewardTabId.final]: [
-				{
-					displayRank: "xi*******23",
-					reward: "HUBLOT Big Bang Gold Ceramic"
-				},
-				{
-					displayRank: "an***ew",
-					reward: `HUBLOT	Classic Fusion Aerofusion Chronograph Titanium`
-				},
-				{
-					displayRank: "Ch****un",
-					reward: `HUBLOT Classic Fusion Chronograph Titanium Blue`
-				},
-				{ displayRank: "en*****12", reward: `${unitMYR} 18,000` },
-				{ displayRank: "in******ah", reward: `${unitMYR} 15,000` },
-				{ displayRank: "ed***00", reward: `${unitMYR} 13,000` },
-				{ displayRank: "ch**ai", reward: `${unitMYR} 10,000` },
-				{ displayRank: "qq******99", reward: `${unitMYR} 8,000` },
-				{ displayRank: "Ho***ig", reward: `${unitMYR} 5,000` }
+			section1: [
+				{ turnover: "100", point: "1" },
+				{ turnover: "500", point: "1" },
+				{ turnover: "1000", point: "1" }
 			],
-			[defRewardTabId.monthly]: [
+			section2: [
 				{
-					displayRank: t("lbl_RankChampion"),
-					reward: `${unitMYR} 8,000`
-				},
-				{ displayRank: t("lbl_Rank1"), reward: `${unitMYR} 5,000` },
-				{ displayRank: t("lbl_Rank2"), reward: `${unitMYR} 3,000` }
-			]
-		},
-		RMB: {
-			[defRewardTabId.final]: [
-				{
-					displayRank: t("lbl_RankChampion"),
-					reward: "HUBLOT Big Bang Gold Ceramic"
+					rank: t("lbl_RankChampion"),
+					deposit: "300,000",
+					point: "30,000",
+					bonus: "10,000"
 				},
 				{
-					displayRank: t("lbl_Rank1"),
-					reward: `HUBLOT	Classic Fusion Aerofusion Chronograph Titanium`
+					rank: t("lbl_Rank1"),
+					deposit: "250,000",
+					point: "25,000",
+					bonus: "8,000"
 				},
 				{
-					displayRank: t("lbl_Rank2"),
-					reward: `HUBLOT Classic Fusion Chronograph Titanium Blue`
+					rank: t("lbl_Rank2"),
+					deposit: "180,000",
+					point: "18,000",
+					bonus: "6,000"
 				},
-				{ displayRank: t("lbl_Rank3"), reward: `${unitMYR} 18,000` },
-				{ displayRank: t("lbl_Rank4"), reward: `${unitMYR} 15,000` },
-				{ displayRank: t("lbl_Rank5"), reward: `${unitMYR} 13,000` },
-				{ displayRank: t("lbl_Rank6"), reward: `${unitMYR} 10,000` },
-				{ displayRank: t("lbl_Rank7"), reward: `${unitMYR} 8,000` },
-				{ displayRank: t("lbl_Rank8"), reward: `${unitMYR} 5,000` }
-			],
-			[defRewardTabId.monthly]: [
 				{
-					displayRank: t("lbl_RankChampion"),
-					reward: `${unitMYR} 8,000`
+					rank: t("lbl_Rank3"),
+					deposit: "150,000",
+					point: "15,000",
+					bonus: "5,000"
 				},
-				{ displayRank: t("lbl_Rank1"), reward: `${unitMYR} 5,000` },
-				{ displayRank: t("lbl_Rank2"), reward: `${unitMYR} 3,000` }
+				{
+					rank: t("lbl_Rank4"),
+					deposit: "120,000",
+					point: "12,000",
+					bonus: "4,000"
+				},
+				{
+					rank: t("lbl_Rank5"),
+					deposit: "100,000",
+					point: "10,000",
+					bonus: "3,000"
+				},
+				{
+					rank: t("lbl_Rank6"),
+					deposit: "90,000",
+					point: "9,000",
+					bonus: "2,000"
+				},
+				{
+					rank: t("lbl_Rank7"),
+					deposit: "80,000",
+					point: "8,000",
+					bonus: "1,000"
+				},
+				{
+					rank: t("lbl_Rank9_30"),
+					deposit: "50,000",
+					point: "5,000",
+					bonus: "500"
+				}
 			]
 		},
 		THB: {
-			[defRewardTabId.final]: [
-				{
-					displayRank: t("lbl_RankChampion"),
-					reward: `${unitTHB} 80,000`
-				},
-				{ displayRank: "pt****60", reward: `${unitTHB} 50,000` },
-				{ displayRank: "Pa**rn", reward: `${unitTHB} 35,000` },
-				{ displayRank: t("lbl_Rank3"), reward: `${unitTHB} 30,000` },
-				{ displayRank: "Th********75", reward: `${unitTHB} 25,000` },
-				{ displayRank: "ro*******in", reward: `${unitTHB} 20,000` },
-				{ displayRank: "oa*****99", reward: `${unitTHB} 15,000` },
-				{ displayRank: "Th****st", reward: `${unitTHB} 10,000` },
-				{ displayRank: "Hi**gu", reward: `${unitTHB} 5,000` }
+			section1: [
+				{ turnover: "500", point: "1" },
+				{ turnover: "3,000", point: "1" },
+				{ turnover: "6,000", point: "1" }
 			],
-			[defRewardTabId.monthly]: [
+			section2: [
 				{
-					displayRank: t("lbl_RankChampion"),
-					reward: `${unitTHB} 15,000`
+					rank: t("lbl_RankChampion"),
+					deposit: "1,200,000",
+					point: "24,000",
+					bonus: "50,000"
 				},
-				{ displayRank: t("lbl_Rank1"), reward: `${unitTHB} 12,000` },
-				{ displayRank: t("lbl_Rank2"), reward: `${unitTHB} 8,000` }
+				{
+					rank: t("lbl_Rank1"),
+					deposit: "1,100,000",
+					point: "22,000",
+					bonus: "40,000"
+				},
+				{
+					rank: t("lbl_Rank2"),
+					deposit: "950,000",
+					point: "19,000",
+					bonus: "35,000"
+				},
+				{
+					rank: t("lbl_Rank3"),
+					deposit: "800,000",
+					point: "16,000",
+					bonus: "25,000"
+				},
+				{
+					rank: t("lbl_Rank4"),
+					deposit: "700,000",
+					point: "14,000",
+					bonus: "20,000"
+				},
+				{
+					rank: t("lbl_Rank5"),
+					deposit: "600,000",
+					point: "12,000",
+					bonus: "15,000"
+				},
+				{
+					rank: t("lbl_Rank6"),
+					deposit: "500,000",
+					point: "10,000",
+					bonus: "10,000"
+				},
+				{
+					rank: t("lbl_Rank7"),
+					deposit: "400,000",
+					point: "8,000",
+					bonus: "5,000"
+				},
+				{
+					rank: t("lbl_Rank9_30"),
+					deposit: "300,000",
+					point: "6,000",
+					bonus: "3,000"
+				}
 			]
 		},
 		IDR: {
-			[defRewardTabId.final]: [
-				{
-					displayRank: t("lbl_RankChampion"),
-					reward: "LOGAM MULIA 100g"
-				},
-				{ displayRank: t("lbl_Rank1"), reward: "LOGAM MULIA 75g" },
-				{ displayRank: t("lbl_Rank2"), reward: "LOGAM MULIA 50g" },
-				{
-					displayRank: t("lbl_Rank3"),
-					reward: `${unitIDR} 35.000.000`
-				},
-				{
-					displayRank: t("lbl_Rank4"),
-					reward: `${unitIDR} 30.000.000`
-				},
-				{
-					displayRank: "He******ah",
-					reward: `${unitIDR} 25.000.000`
-				},
-				{
-					displayRank: t("lbl_Rank6"),
-					reward: `${unitIDR} 15.000.000`
-				},
-				{ displayRank: t("lbl_Rank7"), reward: `${unitIDR} 8.000.000` },
-				{ displayRank: t("lbl_Rank8"), reward: `${unitIDR} 5.000.000` }
+			section1: [
+				{ turnover: "300,000", point: "1" },
+				{ turnover: "1,000,000", point: "1" },
+				{ turnover: "2,500,000", point: "1" }
 			],
-			[defRewardTabId.monthly]: [
+			section2: [
 				{
-					displayRank: t("lbl_RankChampion"),
-					reward: `${unitIDR} 15.000.000`
+					rank: t("lbl_RankChampion"),
+					deposit: "400,000,000",
+					point: "13,500",
+					bonus: "15,000,000"
 				},
 				{
-					displayRank: t("lbl_Rank1"),
-					reward: `${unitIDR} 12.000.000`
+					rank: t("lbl_Rank1"),
+					deposit: "300,000,000",
+					point: "10,000",
+					bonus: "12,000,000"
 				},
-				{ displayRank: t("lbl_Rank2"), reward: `${unitIDR} 8.000.000` }
+				{
+					rank: t("lbl_Rank2"),
+					deposit: "220,000,000",
+					point: "7,300",
+					bonus: "8,500,000"
+				},
+				{
+					rank: t("lbl_Rank3"),
+					deposit: "180,000,000",
+					point: "6,000",
+					bonus: "6,500,000"
+				},
+				{
+					rank: t("lbl_Rank4"),
+					deposit: "150,000,000",
+					point: "5,000",
+					bonus: "5,000,000"
+				},
+				{
+					rank: t("lbl_Rank5"),
+					deposit: "130,000,000",
+					point: "4,300",
+					bonus: "3,500,000"
+				},
+				{
+					rank: t("lbl_Rank6"),
+					deposit: "100,000,000",
+					point: "3,300",
+					bonus: "2,000,000"
+				},
+				{
+					rank: t("lbl_Rank7"),
+					deposit: "65,000,000",
+					point: "2,000",
+					bonus: "1,000,000"
+				},
+				{
+					rank: t("lbl_Rank9_30"),
+					deposit: "35,000,000",
+					point: "1,200",
+					bonus: "500,000"
+				}
 			]
 		}
 	};
