@@ -6,7 +6,7 @@ import slotImg from "../../styles/img/ranking/slot.png";
 import casinoImg from "../../styles/img/ranking/casino.png";
 
 const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
-	const rows2 = rewardList.section2.map((item, idx) => {
+	const rows2 = rewardList?.section2?.map((item, idx) => {
 		return (
 			<li key={`leaderBoard-event-${item.rank}`}>
 				<div>
@@ -49,24 +49,24 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 							<img src={ballImg} alt="sports" />
 							{String(t("lbl_Sports")).toUpperCase()}
 						</div>
-						<div>{rewardList.section1[0].turnover}</div>
-						<div>{rewardList.section1[0].point}</div>
+						<div>{rewardList?.section1[0]?.turnover}</div>
+						<div>{rewardList?.section1[0]?.point}</div>
 					</li>
 					<li>
 						<div>
 							<img src={slotImg} alt="slots" />
 							{String(t("lbl_Slots")).toUpperCase()}
 						</div>
-						<div>{rewardList.section1[1].turnover}</div>
-						<div>{rewardList.section1[1].point}</div>
+						<div>{rewardList?.section1[1]?.turnover}</div>
+						<div>{rewardList?.section1[1]?.point}</div>
 					</li>
 					<li>
 						<div>
 							<img src={casinoImg} alt="live_casino" />
 							{String(t("lbl_LiveCasino")).toUpperCase()}
 						</div>
-						<div>{rewardList.section1[2].turnover}</div>
-						<div>{rewardList.section1[2].point}</div>
+						<div>{rewardList?.section1[2]?.turnover}</div>
+						<div>{rewardList?.section1[2]?.point}</div>
 					</li>
 				</ul>
 				<div className="title">{t("lbl_Monthly_Tournament")}</div>
