@@ -4,18 +4,22 @@ import DropdownHeader from "../common/dropdown.langList";
 import { userInfoContext } from "../common/context";
 
 const defLangGroup = {
-	ch: [
-		{ displayText: "English", value: "en" },
-		{ displayText: "简体中文", value: "cs" }
-	],
-	th: [
-		{ displayText: "English", value: "th_en" },
-		{ displayText: "ไทย", value: "th" }
-	],
-	id: [
-		{ displayText: "English", value: "id_en" },
-		{ displayText: "Bhs Indonesia", value: "id" }
-	]
+	ch: [{ displayText: "English", value: "en" }],
+	cs: [{ displayText: "简体中文", value: "cs" }],
+	th: [{ displayText: "ไทย", value: "th" }],
+	id: [{ displayText: "Bhs Indonesia", value: "id" }]
+	// ch: [
+	// 	{ displayText: "English", value: "en" },
+	// 	{ displayText: "简体中文", value: "cs" }
+	// ],
+	// th: [
+	// 	{ displayText: "English", value: "th_en" },
+	// 	{ displayText: "ไทย", value: "th" }
+	// ],
+	// id: [
+	// 	{ displayText: "English", value: "id_en" },
+	// 	{ displayText: "Bhs Indonesia", value: "id" }
+	// ]
 	// in: [
 	// 	{ displayText: "English", value: "hi_en" },
 	// 	{ displayText: "Hindi", value: "hi" }
