@@ -32,7 +32,6 @@ import defPopBoxType from "./defPopBoxType";
 import RankingWinner from "./popBox.rankingWinner";
 import DepositUploadBankSlip from "./popBox.depositUploadBankSlip";
 import SuccessMySteryBox from "./popBox.successMySteryBox";
-import PerDay from "./popBox.perDay";
 import BackupDomain from "./popBox.backupDomain";
 import UnderMaintain from "./popBox.underMaintain";
 import Photo from "./popBox.photo";
