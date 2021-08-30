@@ -269,14 +269,6 @@ export default () => {
 			);
 			break;
 
-		case defPopBoxType.PerDay:
-			content = (
-				<PerDay
-					onClickClose={popBox.onClickClose}
-					langId={popBox.langId}
-				/>
-			);
-			break;
 		case defPopBoxType.BackupDomain:
 			content = (
 				<BackupDomain

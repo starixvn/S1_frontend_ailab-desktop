@@ -60,9 +60,6 @@ const IndexPage = () => {
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
-		const cookiePerDay = `perDay_cookie`;
-		const isShowPerDayPopBox = readCookie(cookiePerDay) !== "1";
-
 		const showRankingPopBox = () => {
 			if (
 				userInfo.isLogin === false &&
@@ -75,24 +72,7 @@ const IndexPage = () => {
 				});
 			}
 		};
-
-		const clickClosePerDay = () => {
-			setPopBox({ isOpen: false });
-			showRankingPopBox();
-		};
-
-		if (userInfo.isLogin === false && isShowPerDayPopBox) {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.PerDay,
-				onClickClose: () => clickClosePerDay()
-			});
-			setCookie(cookiePerDay, "1", 1);
-		}
-
-		if (!isShowPerDayPopBox) {
-			showRankingPopBox();
-		}
+		showRankingPopBox();
 	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
