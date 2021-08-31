@@ -161,7 +161,7 @@ const Iovation = () => {
 				`}
 			</script>
 			<script
-				src={`${config.t_and_cURL}/common/js/loader_only.js?v=201027`}
+				src={`${config.openURL}/common/js/loader_only.js?v=201027`}
 				type="text/javascript"
 			/>
 		</Helmet>
