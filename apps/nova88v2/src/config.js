@@ -50,7 +50,7 @@ export default process.env.NODE_ENV === "production"
 			apiURL: "",
 			openURL: "",
 			imgUrl: "",
-			t_and_cURL: "",
+			t_and_cURL: "https://image.0814media.net",
 			cloudImgUrl,
 			bannerImgUrl
 	  }
