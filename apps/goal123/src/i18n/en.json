@@ -216,7 +216,7 @@
 	"lbl_Promotion_Min_Deposit": "MIN DEPOSIT",
 	"lbl_Promotion_Bonus": "BONUS",
 	"lbl_MaxBonusAmount": "MAX BONUS",
-	"lbl_Back":"Back",
+	"lbl_Back": "Back",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
@@ -425,6 +425,9 @@
 	"lbl_WithdrawalImportantNoticeContent3": "Some game provider requires 15 till 30 minutes of report sync time, kindly bear with us during the required sync time.",
 	"lbl_WithdrawalImportantNoticeContent4": "Please make sure your required turnover is achieve, and submit the withdrawal transaction after 30 minutes to avoid system auto reject.",
 	"lbl_WithdrawalImportantNoticeContent5": "If there is any discrepancy or you may have any other further withdrawal inquiries, kindly contact our <Link>24/7 LIVECHAT</Link>. Thank you.",
+	"lbl_Daily_Min_Max_Amount": "Daily Min/Max Limit: {{min}}/{{max}}",
+	"lbl_WithdrawalDailyReached": "Your Daily Limit Reached.",
+	"lbl_Insufficientbalance": "Insufficient balance",
 
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Need Account Number",
@@ -580,6 +583,7 @@
 	"lbl_Vip": "VIP",
 	"lbl_Vip_Service_Support": "SERVICE SUPPORT",
 	"lbl_Vip_Deposit_Priority": "DEPOSIT PRIORITY",
+	"lbl_Vip_Daily_Limit": "DAILY WITHDRAWAL LIMITATION",
 	"lbl_Vip_WithDrawal_Priority": "WITHDRAWAL PRIORITY",
 	"lbl_Vip_Service_Support_At_Date": "24/7 SERVICE SUPPORT",
 	"lbl_Vip_Designated_Account_Manager": "DESIGNATED ACCOUNT MANAGER",

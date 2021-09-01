@@ -15,6 +15,7 @@ export default ({
 	setRecentData,
 	getKycStatus,
 	getWithdrawalInfoRecent,
+	getWithdrawalLimit,
 	getWithdrawalAvailableBalance
 }) => {
 	const { t } = useTranslation();
@@ -55,7 +56,7 @@ export default ({
 								newData[idx].status = 5;
 								return newData;
 							});
-
+							getWithdrawalLimit();
 							getWithdrawalAvailableBalance();
 							getKycStatus();
 						} else {

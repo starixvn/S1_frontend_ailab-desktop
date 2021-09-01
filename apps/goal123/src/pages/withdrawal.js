@@ -12,7 +12,8 @@ import { defPopBoxType } from "../components/common/popBox";
 import { api_account_GetWithdrawalAvailableBalance } from "../service/api/account";
 import {
 	api_payment_KycCheck,
-	api_payment_GetWithdrawalInfoRecent
+	api_payment_GetWithdrawalInfoRecent,
+	api_payment_GetWithdrawalLimit
 } from "../service/api/payment";
 
 export default () => {
@@ -40,6 +41,11 @@ const Content = () => {
 	const [balanceData, setBalanceData] = useState({});
 	const [kycStatus, setKycStatus] = useState("");
 	const [recentData, setRecentData] = useState([]);
+	const [withdrawalLimit, setWithdrawalLimit] = useState({
+		withdrawalMin: 0,
+		withdrawalMax: 0,
+		isAmountLimited: false
+	});
 
 	const { setPopBox } = useContext(popBoxContext);
 
@@ -58,7 +64,8 @@ const Content = () => {
 			await Promise.all([
 				getKycStatus(),
 				getWithdrawalAvailableBalance(),
-				getWithdrawalInfoRecent()
+				getWithdrawalInfoRecent(),
+				getWithdrawalLimit()
 			]);
 			setLoading(false);
 		}
@@ -193,6 +200,18 @@ const Content = () => {
 		);
 	};
 
+	const getWithdrawalLimit = async () => {
+		await api_payment_GetWithdrawalLimit().then(res => {
+			if (res.data.errorCode === 0 && isMountedRef.current) {
+				setWithdrawalLimit({
+					withdrawalMin: res.data.data.withdrawalMin,
+					withdrawalMax: res.data.data.withdrawalAvailableAmount,
+					isAmountLimited: !res.data.data.unlimited
+				});
+			}
+		});
+	};
+
 	if (loading) return <Loading />;
 
 	return (
@@ -201,9 +220,13 @@ const Content = () => {
 				<Withdrawal
 					balanceData={balanceData}
 					kycStatus={kycStatus}
+					withdrawalMin={withdrawalLimit.withdrawalMin}
+					withdrawalMax={withdrawalLimit.withdrawalMax}
+					isAmountLimited={withdrawalLimit.isAmountLimited}
 					setLoading={setLoading}
 					getKycStatus={getKycStatus}
 					getWithdrawalInfoRecent={getWithdrawalInfoRecent}
+					getWithdrawalLimit={getWithdrawalLimit}
 					getWithdrawalAvailableBalance={
 						getWithdrawalAvailableBalance
 					}
@@ -213,6 +236,7 @@ const Content = () => {
 				recentData={recentData}
 				setRecentData={setRecentData}
 				getKycStatus={getKycStatus}
+				getWithdrawalLimit={getWithdrawalLimit}
 				getWithdrawalAvailableBalance={getWithdrawalAvailableBalance}
 				getWithdrawalInfoRecent={getWithdrawalInfoRecent}
 			/>

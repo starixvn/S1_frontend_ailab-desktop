@@ -59,6 +59,15 @@ const PageEventListVn = ({ currencyId }) => {
 						<i className="icon icon-checkmark" />
 					</td>
 				</tr>
+				<tr>
+					<td>{t("lbl_Vip_Daily_Limit")}</td>
+					<td>{currencyFormat(200000000)}</td>
+					<td>{currencyFormat(300000000)}</td>
+					<td>{currencyFormat(500000000)}</td>
+					<td>{currencyFormat(1000000000)}</td>
+					<td>{currencyFormat(2000000000)}</td>
+					<td>{t("lbl_Vip_ByInvitation")}</td>
+				</tr>
 				{/* <tr>
 					<td>{t("lbl_Vip_Unlimited_Withdrawal_amount")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
@@ -167,10 +176,10 @@ const PageEventListVn = ({ currencyId }) => {
 				<tr>
 					<td>{t("lbl_Vip_Monthly_Minimum_Deposit")}</td>
 					<td />
-					<td>{currencyFormat(88000000)}</td>
-					<td>{currencyFormat(168000000)}</td>
-					<td>{currencyFormat(388000000)}</td>
-					<td>{currencyFormat(888000000)}</td>
+					<td>{currencyFormat(200000000)}</td>
+					<td>{currencyFormat(600000000)}</td>
+					<td>{currencyFormat(1500000000)}</td>
+					<td>{currencyFormat(3000000000)}</td>
 					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr className="title">
@@ -188,9 +197,9 @@ const PageEventListVn = ({ currencyId }) => {
 					</td>
 					<td />
 					<td />
-					<td>{currencyFormat(468000000)}</td>
-					<td>{currencyFormat(788000000)}</td>
-					<td>{currencyFormat(1388000000)}</td>
+					<td>{currencyFormat(300000000)}</td>
+					<td>{currencyFormat(750000000)}</td>
+					<td>{currencyFormat(3000000000)}</td>
 					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr>
@@ -199,9 +208,9 @@ const PageEventListVn = ({ currencyId }) => {
 					</td>
 					<td />
 					<td />
-					<td>{currencyFormat(10888000000)}</td>
-					<td>{currencyFormat(20888000000)}</td>
-					<td>{currencyFormat(50888000000)}</td>
+					<td>{currencyFormat(3000000000)}</td>
+					<td>{currencyFormat(7500000000)}</td>
+					<td>{currencyFormat(30000000000)}</td>
 					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
 				<tr className="lastTd">
