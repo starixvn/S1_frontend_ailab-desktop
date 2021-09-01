@@ -14,7 +14,8 @@ export default ({ balanceData, _isConvert }) => {
 				<div>
 					{number_format({
 						number: balance,
-						formatRequired: _isConvert
+						formatRequired: _isConvert,
+						digits: 0
 					})}
 				</div>
 			</div>
@@ -24,7 +25,8 @@ export default ({ balanceData, _isConvert }) => {
 				<div>
 					{number_format({
 						number: deduction,
-						formatRequired: _isConvert
+						formatRequired: _isConvert,
+						digits: 0
 					})}
 				</div>
 			</div>
@@ -34,7 +36,8 @@ export default ({ balanceData, _isConvert }) => {
 				<div>
 					{number_format({
 						number: availableBalance,
-						formatRequired: _isConvert
+						formatRequired: _isConvert,
+						digits: 0
 					})}
 				</div>
 			</div>

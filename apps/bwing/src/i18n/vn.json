@@ -56,7 +56,7 @@
 	"lbl_Header_olympic_countdown_hour": "giờ",
 	"lbl_Header_olympic_countdown_mins": "Phút",
 	"lbl_Header_olympic_countdown_secs": "Giây",
-	
+
 	"news ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_SiteNews": "Điểm báo Bwing",
 	"lbl_News": "Tin Tức",
@@ -432,6 +432,9 @@
 	"lbl_WithdrawalImportantNoticeContent3": "Một số nhà phát hành game yêu cầu thời gian đồng bộ 15 - 30 phút, vui lòng chờ trong thời gian trên.",
 	"lbl_WithdrawalImportantNoticeContent4": "Vui lòng hoàn thành yêu cầu doanh thu cược 30 phút trước khi thực hiện lệnh rút để tránh bị hệ thống tự động từ chối.",
 	"lbl_WithdrawalImportantNoticeContent5": "Nếu có vấn đề phát sinh hoặc cần được hỗ trợ thêm về vấn đề rút tiền, vui lòng liên hệ bộ phận <Link>LIVECHAT 24/7</Link>. Xin cám ơn.",
+	"lbl_Daily_Min_Max_Amount": "Hạn Mức Tối Thiểu/Tối Đa Hàng Ngày: {{min}}/{{max}}",
+	"lbl_WithdrawalDailyReached": "Bạn Đã Sử Dụng Hết Hạn Mức Trong Ngày.",
+	"lbl_Insufficientbalance": "Số Dư Không Đủ",
 
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Cần nhập số tài khoản",
@@ -643,6 +646,7 @@
 	"lbl_Vip": "VIP",
 	"lbl_Vip_Service_Support": "HỖ TRỢ KHÁCH HÀNG",
 	"lbl_Vip_Deposit_Priority": "ƯU TIÊN NẠP TIỀN",
+	"lbl_Vip_Daily_Limit": "HẠN MỨC RÚT TIỀN HÀNG NGÀY",
 	"lbl_Vip_WithDrawal_Priority": "ƯU TIÊN RÚT TIỀN",
 	"lbl_Vip_Service_Support_At_Date": "HỖ TRỢ 24/7",
 	"lbl_Vip_Designated_Account_Manager": "NHÂN VIÊN CHĂM SÓC RIÊNG",

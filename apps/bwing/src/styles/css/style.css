@@ -121,7 +121,7 @@ html {
 }
 
 .index main section > div {
-  max-width: 1170px;
+  max-width: 1200px;
 }
 
 header {
@@ -1823,7 +1823,7 @@ header .header > div.function .memberfile .submenu .icon-exit {
 header .header > div.function .cashier .submenu .icon-exit:before,
 header .header > div.function .wallet .submenu .icon-exit:before,
 header .header > div.function .memberfile .submenu .icon-exit:before {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 header .header > div.function .cashier .submenu .icon-exit span,
@@ -1844,7 +1844,7 @@ header .header > div.function .memberfile.active > button,
 header .header > div.function .memberfile.active > a,
 header .header > div.function .memberfile.active:before,
 header .header > div.function .memberfile.active:after {
-  color: #1E85EC;
+  color: #1e85ec;
   -webkit-transition: 0.7s;
   transition: 0.7s;
 }
@@ -1906,7 +1906,7 @@ header .header > div.function .wallet .submenu div.balance {
 header .header > div.function .wallet .submenu div.balance button {
   font-size: 12px;
   margin-left: 5px;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 100%;
   width: 20px;
   height: 20px;
@@ -2013,7 +2013,7 @@ main section > div {
 main section > div > div > span {
   width: 100%;
   height: 1px;
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 main section > div .articleModule {
@@ -2439,11 +2439,11 @@ footer > div.copyright {
 }
 
 .txt-org {
-  color: #F85B05;
+  color: #f85b05;
 }
 
 .txt-blue2 {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .txt-blue15 {
@@ -2471,7 +2471,7 @@ footer > div.copyright {
 }
 
 .txt-red {
-  color: #F52805;
+  color: #f52805;
 }
 
 .txt-dark {
@@ -2522,7 +2522,7 @@ footer > div.copyright {
   width: calc(100% - 22px);
   background: #070e22;
   color: white;
-  border: 1px solid #1D3662;
+  border: 1px solid #1d3662;
   outline: none;
   border-radius: 3px;
   position: relative;
@@ -2564,8 +2564,8 @@ footer > div.copyright {
 }
 
 .inputBox.active, .active.inputBox-blue {
-  border: 1px solid #1E85EC;
-  outline: #1E85EC;
+  border: 1px solid #1e85ec;
+  outline: #1e85ec;
 }
 
 .inputBox > .icon, .inputBox-blue > .icon {
@@ -2865,7 +2865,7 @@ input[type="file"] {
 
 .btnGroup button.red,
 .btnGroup a.red {
-  background: #F52805;
+  background: #f52805;
   color: white;
 }
 
@@ -3264,7 +3264,7 @@ main > .swiper-container .swiper-slide {
 
 .list + button,
 .list + a {
-  color: #1E85EC;
+  color: #1e85ec;
   float: right;
   font-size: 30px;
   text-align: right;
@@ -3282,14 +3282,14 @@ main > .swiper-container .swiper-slide {
 .list .listTag .icon-books {
   position: absolute;
   right: 5px;
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 24px;
 }
 
 .list .listTag button,
 .list .listTag a {
   line-height: 30px;
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   padding: 0 10px;
   border-top-left-radius: 10px;
@@ -3298,7 +3298,7 @@ main > .swiper-container .swiper-slide {
 
 .list .listTag button.active,
 .list .listTag a.active {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .list .listHeader div,
@@ -3368,7 +3368,7 @@ main > .swiper-container .swiper-slide {
   font-size: 12px;
   position: absolute;
   right: 12px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .list .listHeader div {
@@ -3430,7 +3430,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .list .listBody > div div.reject {
-  color: #F52805;
+  color: #f52805;
   font-weight: bold;
 }
 
@@ -3682,7 +3682,7 @@ main > .swiper-container .swiper-slide {
 
 .cashBar .cashLine input {
   height: 10px;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 30px;
   border: 0;
   position: absolute;
@@ -3729,7 +3729,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #1E85EC;
+  background: #1e85ec;
   border-radius: 10px;
   padding: 5px 10px;
 }
@@ -4118,7 +4118,7 @@ main > .swiper-container .swiper-slide {
 
 .subModuleList .subModule .subModuleBody ul li a.icon-library,
 .subModuleList .subModule .subModuleBody ul li button.icon-library {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 44px;
 }
 
@@ -4339,7 +4339,7 @@ main > .swiper-container .swiper-slide {
   right: -10px;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .mysteryArea {
@@ -4747,7 +4747,7 @@ main > .swiper-container .swiper-slide {
 .upload > .icon.icon-information-solid,
 .update > .icon.icon-information-solid,
 .loackAmount > .icon.icon-information-solid {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .Submit .title,
@@ -4937,7 +4937,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img {
   border-radius: 15px;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   height: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4954,7 +4954,7 @@ main > .swiper-container .swiper-slide {
 
 .upload_img .icon {
   font-size: 48px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img img {
@@ -4983,7 +4983,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -5661,12 +5661,12 @@ main > .swiper-container .swiper-slide {
       -ms-flex-align: center;
           align-items: center;
   width: 55px;
-  color: #F85B05;
+  color: #f85b05;
   font-size: 24px;
 }
 
 .walletTransfer .walletModule .walletBalanceModule {
-  background: #1D3662;
+  background: #1d3662;
   font-weight: bold;
   margin-right: 0;
   padding: 30px;
@@ -5854,7 +5854,7 @@ main > .swiper-container .swiper-slide {
   position: absolute;
   right: 0;
   bottom: -40px;
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .addBank .addBankName .icon-plus {
@@ -6635,7 +6635,7 @@ main > .swiper-container .swiper-slide {
 
 .personal .list .listHeader .checkbox label.icon.icon:before,
 .personal .list .functionMenu .checkbox label.icon.icon:before {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 18px;
   margin-left: -1px;
 }
@@ -6745,7 +6745,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp {
-  color: #1E85EC;
+  color: #1e85ec;
   font-size: 16px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -6759,7 +6759,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .otp + span {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .otpBtn {
@@ -6778,7 +6778,7 @@ main > .swiper-container .swiper-slide {
   display: flex;
   top: 13px;
   left: -2px;
-  background: #F52805;
+  background: #f52805;
   border-bottom-right-radius: 10px;
   width: 28px;
   height: 25px;
@@ -6936,8 +6936,8 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div:hover {
-  -webkit-box-shadow: 0 0 0 3px #1E85EC inset;
-          box-shadow: 0 0 0 3px #1E85EC inset;
+  -webkit-box-shadow: 0 0 0 3px #1e85ec inset;
+          box-shadow: 0 0 0 3px #1e85ec inset;
 }
 
 .proList > div .turnover {
@@ -6945,24 +6945,24 @@ main > .swiper-container .swiper-slide {
 }
 
 .proList > div .turnover span {
-  color: #F52805;
+  color: #f52805;
 }
 
 .proList > div .turnover button,
 .proList > div .turnover a {
-  background: #F52805;
+  background: #f52805;
 }
 
 .proList > div .progressBar .bar {
-  border: 1px solid #F52805;
+  border: 1px solid #f52805;
 }
 
 .proList > div .progressBar .bar .progress {
-  background: #F52805;
+  background: #f52805;
 }
 
 .proList > div .progressBar .percentage {
-  color: #F52805;
+  color: #f52805;
 }
 
 .proList .btnGroup {
@@ -7993,7 +7993,7 @@ article h1,
 article h2 {
   font-size: 24px;
   margin-bottom: 15px;
-  color: #1E85EC;
+  color: #1e85ec;
   font-weight: bold;
 }
 
@@ -8038,7 +8038,7 @@ article pre {
 }
 
 .rdt i.icon.icon-cross:before {
-  color: #F52805;
+  color: #f52805;
 }
 
 .rdt i.icon.icon-checkmark:before {
@@ -8140,7 +8140,7 @@ iframe {
 
 .progressBarModule .bounsName {
   font-weight: bold;
-  color: #F52805;
+  color: #f52805;
 }
 
 .progressBarModule .turnover {
@@ -8153,7 +8153,7 @@ iframe {
 
 .progressBarModule .turnover button,
 .progressBarModule .turnover a {
-  background: #1E85EC;
+  background: #1e85ec;
   color: white;
   border-radius: 100%;
   padding: 4px;
@@ -8248,7 +8248,7 @@ input:-moz-placeholder {
   display: none;
   margin-left: 5px;
   background: white;
-  color: #1E85EC;
+  color: #1e85ec;
   border-radius: 100%;
   padding: 1px;
   -webkit-box-pack: center;
@@ -8261,7 +8261,7 @@ input:-moz-placeholder {
 
 .buttonBox button.active,
 .buttonBox a.active {
-  background: #134DAE;
+  background: #134dae;
   color: white;
 }
 
@@ -8363,7 +8363,7 @@ a.icon-books:hover:after {
 }
 
 input + .iconModule i.icon.icon-cross:before {
-  color: #F52805;
+  color: #f52805;
   font-size: 12px;
 }
 
@@ -8419,7 +8419,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .checkBankSlip.smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
   margin-left: 10px;
 }
 
@@ -8543,9 +8543,6 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .guide > div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8554,12 +8551,6 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 20px;
-}
-
-.guide > div.guidelist {
-  -webkit-box-flex: 0.75;
-      -ms-flex: 0.75;
-          flex: 0.75;
 }
 
 .guide > div.guidelist .title {
@@ -8611,9 +8602,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-left: 1px solid #1d2f62;
-  border-right: 1px solid #1d2f62;
-  padding: 20px;
   margin: 0;
 }
 
@@ -8671,13 +8659,13 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .minAmount > div > div {
-  border: 1px solid #134DAE;
+  border: 1px solid #134dae;
   padding: 5px 10px;
-  background: #134DAE;
+  background: #134dae;
 }
 
 .minAmount > div > div:last-child {
-  color: #1E85EC;
+  color: #1e85ec;
   background: white;
 }
 
@@ -9921,7 +9909,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   top: 40px;
   left: -1px;
   background: #070e22;
-  border: 1px solid #1E85EC;
+  border: 1px solid #1e85ec;
   margin-left: 0;
   overflow: hidden;
   margin-top: 0;
@@ -9934,11 +9922,11 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .transferModule .inputBox .dropdown .dropdown-container .dropdown-item.active, .transferModule .inputBox-blue .dropdown .dropdown-container .dropdown-item.active {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .transferModule .inputBox .dropdown span, .transferModule .inputBox-blue .dropdown span {
@@ -10653,7 +10641,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule .icon-information-solid {
-  color: #1E85EC;
+  color: #1e85ec;
   cursor: pointer;
   margin: 0 2px;
 }
@@ -10941,7 +10929,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .subModuleListColumn .bankAccount .smallList ul a,
 .subModuleListColumn .bankAccount .smallList ul button {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .subModuleListColumn .bankAccount .smallList ul li {
@@ -10983,7 +10971,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .important ol li a {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .text-center {
@@ -11124,7 +11112,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .upload_img.error {
-  border-color: #F52805;
+  border-color: #f52805;
 }
 
 .upload_img .icon {
@@ -11163,7 +11151,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .upload_img + .smallList ul li .icon {
-  color: #1E85EC;
+  color: #1e85ec;
 }
 
 .upload_img + .smallList ul li:nth-child(1) {
@@ -11212,7 +11200,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vip .vipPage .eventList tr.title {
-  background: #134DAE;
+  background: #134dae;
 }
 
 .vip .vipPage .eventList tr:last-child {
@@ -11230,7 +11218,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vip .vipPage .eventList tr:not(.title):not(.lastTd):hover td {
-  background: #1E85EC;
+  background: #1e85ec;
 }
 
 .vip .vipPage .eventList tr td {
@@ -11295,7 +11283,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .vipLv > div {
   margin-top: 15px;
-  background: #1E85EC;
+  background: #1e85ec;
   padding: 5px 10px;
   border-radius: 15px;
 }
@@ -11335,7 +11323,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-size: 18px;
   margin: 20px 0;
   font-weight: bold;
-  color: #1E85EC;
+  color: #1e85ec;
   width: 100%;
 }
 
@@ -11965,5 +11953,1010 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding: 1vw 2vw;
   margin-bottom: 40px;
   border-radius: 5px;
+}
+
+.indexNew main.home {
+  background: url(../img/homebg.png) no-repeat center bottom;
+  background-size: 100%;
+}
+
+.indexNew main #Marquee {
+  margin: 0 auto;
+  margin-top: 20px;
+  background-color: #1a2844;
+  max-width: 1200px;
+  border-radius: 20px;
+}
+
+.indexNew main #Marquee .marquee-box {
+  max-width: 1100px;
+}
+
+.indexNew main #Marquee .icon::before {
+  background: transparent;
+}
+
+.indexNew main section {
+  border: 0;
+}
+
+.indexNew .offers .swiper-container {
+  width: 1200px;
+}
+
+.indexNew .offers .swiper-container .eventImg {
+  display: inline-block;
+  width: 1200px;
+  height: 160px;
+  background: url(../img/hoteventBg.png) no-repeat;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+
+.indexNew .offers .swiper-container .eventImg .team {
+  width: 40%;
+  display: inherit;
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.indexNew .offers .swiper-container .eventImg .team .teamL {
+  position: absolute;
+  left: 12.5%;
+  width: 80px;
+  height: 80px;
+  background-size: 100%;
+}
+
+.indexNew .offers .swiper-container .eventImg .team .teamL.teamR {
+  right: 12.5%;
+  left: auto;
+}
+
+.indexNew .offers .swiper-container .eventImg .gameName {
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 202px;
+  text-align: center;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.indexNew .offers .swiper-container .eventImg .teamName {
+  width: 80%;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 15px;
+}
+
+.indexNew .offers .swiper-container .eventImg .teamName p {
+  width: 230px;
+  font-size: 18px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.indexNew .offers .swiper-container .eventImg .time {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 18px;
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: inherit;
+}
+
+.indexNew .offers .swiper-container .eventImg .odds {
+  width: 69%;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 83px;
+  font-size: 14px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.indexNew .offers .swiper-container .eventImg .odds > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.indexNew .offers .swiper-container .eventImg .odds > div p {
+  margin: 0 10px;
+  font-weight: bold;
+  color: #262c35;
+}
+
+.indexNew .offers .swiper-container .eventImg .odds > div p:nth-last-child(1) {
+  color: #ff5032;
+}
+
+.indexNew .area2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.indexNew .area2 > div {
+  width: 33%;
+}
+
+.indexNew .area2 .top10Aear {
+  width: 97%;
+}
+
+.indexNew .area2 .top10Aear .topImg {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(38, 98, 118, 0)), to(#15518c));
+  background: linear-gradient(to bottom, rgba(38, 98, 118, 0) 0%, #15518c 100%);
+  border-radius: 0 0 5px 5px;
+}
+
+.indexNew .area2 .top10Aear .title {
+  border-radius: 5px 5px 0 0;
+  position: relative;
+}
+
+.indexNew .area2 .top10Aear .title a {
+  position: absolute;
+  right: 10px;
+  font-weight: lighter;
+}
+
+.indexNew .area2 .top10Aear .title a:hover {
+  color: #000924;
+}
+
+.indexNew .area2 .top10Aear .top10Box {
+  height: 240px;
+  padding-bottom: 20px;
+  border-radius: 0 0 5px 5px;
+}
+
+.indexNew .area2 .top10Aear .top10Box > div > div {
+  height: 50px;
+}
+
+.indexNew .area2 .top10Aear .top10Box > div > div.liveBox {
+  height: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div {
+  position: relative;
+  width: 100%;
+}
+
+.indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div:nth-child(2) {
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 70px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div:nth-child(2) > div:nth-child(2) {
+  text-align: center;
+}
+
+.indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div:nth-child(2) > div:nth-child(3) {
+  text-align: right;
+}
+
+.indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div .gametitle {
+  height: 30px;
+  line-height: 30px;
+  text-transform: uppercase;
+  width: 280px;
+  text-align: center;
+  color: #000;
+  margin: 0 auto;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #eeeeee), to(#a4a9af));
+  background: linear-gradient(to bottom, #eeeeee 1%, #a4a9af 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+          clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+
+.indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div .youtube {
+  position: absolute;
+  left: 25px;
+  top: 10px;
+  width: 25px;
+  height: 17px;
+  background-image: url(../img/youtubeIcon.png);
+}
+
+.indexNew .area2 .bannerS .jpot {
+  width: 390px;
+  height: 300px;
+  background: url(../img/jackpot_new.png);
+}
+
+.indexNew .area2 .bannerS .jpot > div {
+  bottom: 52px;
+}
+
+.indexNew .gameBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 40px;
+}
+
+.indexNew .gameBtn > a {
+  width: calc(100% / 6 - 10px);
+  text-align: center;
+  cursor: pointer;
+}
+
+.indexNew .gameBtn > a > div {
+  width: 100%;
+  height: 70px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(96, 168, 240, 0)), to(rgba(30, 67, 103, 0.7)));
+  background: linear-gradient(to bottom, rgba(96, 168, 240, 0) 0%, rgba(30, 67, 103, 0.7) 100%);
+  border: 1px solid #4577bc;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.indexNew .gameBtn > a > div .icon {
+  width: 40px;
+  height: 40px;
+  background: url(../img/gameicon/sport.png);
+}
+
+.indexNew .gameBtn > a > div .icon.games {
+  background: url(../img/gameicon/games.png);
+}
+
+.indexNew .gameBtn > a > div .icon.slot {
+  background: url(../img/gameicon/slot.png);
+}
+
+.indexNew .gameBtn > a > div .icon.live {
+  background: url(../img/gameicon/live.png);
+}
+
+.indexNew .gameBtn > a > div .icon.fish {
+  background: url(../img/gameicon/fish.png);
+}
+
+.indexNew .gameBtn > a > div .icon.esport {
+  background: url(../img/gameicon/esport.png);
+}
+
+.indexNew .gameBtn > a p {
+  margin-top: 10px;
+}
+
+.indexNew .gameBtn > a.active > div {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #51a3ff), to(#015e8e));
+  background: linear-gradient(to bottom, #51a3ff 1%, #015e8e 100%);
+}
+
+.indexNew .gameBtn > a.active > div .icon {
+  width: 40px;
+  height: 40px;
+  background: url(../img/gameicon/sport-a.png);
+}
+
+.indexNew .gameBtn > a.active > div .icon.games {
+  background: url(../img/gameicon/games-a.png);
+}
+
+.indexNew .gameBtn > a.active > div .icon.slot {
+  background: url(../img/gameicon/slot-a.png);
+}
+
+.indexNew .gameBtn > a.active > div .icon.live {
+  background: url(../img/gameicon/live-a.png);
+}
+
+.indexNew .gameBtn > a.active > div .icon.fish {
+  background: url(../img/gameicon/fish-a.png);
+}
+
+.indexNew .gameBtn > a.active > div .icon.esport {
+  background: url(../img/gameicon/esport-a.png);
+}
+
+.indexNew .gameBtn > a:hover > div {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #51a3ff), to(#015e8e));
+  background: linear-gradient(to bottom, #51a3ff 1%, #015e8e 100%);
+}
+
+.indexNew .gameBtn > a:hover > div .icon {
+  width: 40px;
+  height: 40px;
+  background: url(../img/gameicon/sport-a.png);
+}
+
+.indexNew .gameBtn > a:hover > div .icon.games {
+  background: url(../img/gameicon/games-a.png);
+}
+
+.indexNew .gameBtn > a:hover > div .icon.slot {
+  background: url(../img/gameicon/slot-a.png);
+}
+
+.indexNew .gameBtn > a:hover > div .icon.live {
+  background: url(../img/gameicon/live-a.png);
+}
+
+.indexNew .gameBtn > a:hover > div .icon.fish {
+  background: url(../img/gameicon/fish-a.png);
+}
+
+.indexNew .gameBtn > a:hover > div .icon.esport {
+  background: url(../img/gameicon/esport-a.png);
+}
+
+.indexNew .maingame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 40px;
+}
+
+.indexNew .maingame > a {
+  width: calc(100% / 5 - 10px);
+  height: 180px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(96, 168, 240, 0)), to(rgba(30, 67, 103, 0.7)));
+  background: linear-gradient(to bottom, rgba(96, 168, 240, 0) 0%, rgba(30, 67, 103, 0.7) 100%);
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.indexNew .maingame > a:hover {
+  background: radial-gradient(ellipse at center, #467fb8 0%, #091826 99%);
+  border: 1px solid #6be6ff;
+  -webkit-box-shadow: 0px 0px 20px #247398;
+          box-shadow: 0px 0px 20px #247398;
+}
+
+.indexNew .maingame > a .title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4dc4ff), to(#3097ff));
+  background: linear-gradient(to bottom, #4dc4ff 0%, #3097ff 100%);
+}
+
+.indexNew .hotgame {
+  margin-top: 40px;
+}
+
+.indexNew .hotgame .titleBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.indexNew .hotgame .titleBox .title {
+  width: 230px;
+  line-height: 40px;
+  height: 40px;
+  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4dc4ff), to(#3097ff));
+  background: linear-gradient(to bottom, #4dc4ff 0%, #3097ff 100%);
+  border-radius: 5px 0 0 0;
+  -webkit-clip-path: polygon(0 0, 95% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 95% 0%, 100% 100%, 0% 100%);
+}
+
+.indexNew .hotgame .titleBox a:hover {
+  color: #4dc3ff;
+}
+
+.indexNew .hotgame .gameBox {
+  padding: 20px;
+  background: rgba(8, 16, 36, 0.4);
+  border: 1px solid #414f6b;
+  border-radius: 0 5px 5px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: auto;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+.indexNew .hotgame .gameBox > a {
+  width: 250px;
+  margin-right: 20px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.indexNew .hotgame .gameBox > a:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.indexNew .hotgame .gameBox > a:hover .gameimg {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-box-shadow: 0px 0px 20px #247398;
+          box-shadow: 0px 0px 20px #247398;
+}
+
+.indexNew .hotgame .gameBox > a img {
+  border-radius: 5px;
+}
+
+.indexNew .hotgame .gameBox > a .title {
+  width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px 5px 0px 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.indexNew .guide {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.indexNew .guide > div:nth-last-child(1) {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.indexNew .guide .guidelist {
+  margin: 0;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+}
+
+.indexNew .guide .guidelist .title {
+  padding: 20px;
+  background: rgba(41, 67, 102, 0.7);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  border-radius: 5px 5px 0px 0px;
+}
+
+.indexNew .guide .guidelist ul {
+  background: rgba(41, 67, 102, 0.7);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  width: 400px;
+  margin: 0;
+  border-radius: 0 5px 5px 5px;
+}
+
+.indexNew .guide .guidelist ul li {
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin-right: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.indexNew .guide .guidelist ul li:hover {
+  color: #4dc3ff;
+}
+
+.indexNew .guide .guidelist ul li:hover::before {
+  display: block;
+}
+
+.indexNew .guide .guidelist ul li:hover::after {
+  display: block;
+}
+
+.indexNew .guide .guidelist ul li:hover .icon {
+  background: url(../img/userguide1-a.png) no-repeat center;
+  background-size: 100%;
+}
+
+.indexNew .guide .guidelist ul li:hover .icon.withdrawal {
+  background: url(../img/userguide2-a.png) no-repeat center;
+  background-size: 100%;
+}
+
+.indexNew .guide .guidelist ul li:hover .icon.play {
+  background: url(../img/userguide3-a.png) no-repeat center;
+  background-size: 100%;
+}
+
+.indexNew .guide .guidelist ul li:hover .icon.faq {
+  background: url(../img/userguide4-a.png) no-repeat center;
+  background-size: 100%;
+}
+
+.indexNew .guide .guidelist ul li::before {
+  display: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 7px;
+  height: 40px;
+  -webkit-clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+          clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+  background-color: #4dc3ff;
+}
+
+.indexNew .guide .guidelist ul li::after {
+  display: none;
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 7px;
+  height: 40px;
+  -webkit-clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 90%);
+          clip-path: polygon(0 10%, 100% 0, 100% 100%, 0% 90%);
+  background-color: #4dc3ff;
+}
+
+.indexNew .guide .guidelist ul li:nth-last-child(1) {
+  border: 0;
+}
+
+.indexNew .guide .guidelist ul li .icon {
+  width: 30px;
+  height: 30px;
+  background: url(../img/userguide1.png) no-repeat center;
+  background-size: 100%;
+  margin: 0 20px 0 10px;
+}
+
+.indexNew .guide .guidelist ul li .icon.withdrawal {
+  background: url(../img/userguide2.png) no-repeat center;
+  background-size: 100%;
+}
+
+.indexNew .guide .guidelist ul li .icon.play {
+  background: url(../img/userguide3.png) no-repeat center;
+  background-size: 100%;
+}
+
+.indexNew .guide .guidelist ul li .icon.faq {
+  background: url(../img/userguide4.png) no-repeat center;
+  background-size: 100%;
+}
+
+.indexNew .exGroup {
+  border: 0;
+}
+
+.indexNew .exGroup .title {
+  width: 100px;
+  padding: 20px;
+  background: rgba(41, 67, 102, 0.7);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  border-radius: 5px 5px 0px 0px;
+}
+
+.indexNew .exGroup .exGroupBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: rgba(41, 67, 102, 0.7);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  padding: 20px;
+  border-radius: 0 5px 5px 5px;
+}
+
+.indexNew .exGroup .exGroupBox .left .ex {
+  background: rgba(10, 20, 46, 0.5);
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px;
+}
+
+.indexNew .exGroup .exGroupBox .left ul li:nth-child(1) {
+  color: #4dc3ff;
+}
+
+.indexNew .exGroup .exGroupBox .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.indexNew .exGroup .exGroupBox .right .ex {
+  background: rgba(10, 20, 46, 0.5);
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px;
+  width: 175px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.indexNew .exGroup .exGroupBox .right .ex h1 {
+  font-size: 18px;
+  color: #4dc3ff;
+  font-weight: bold;
+}
+
+.indexNew .exGroup .exGroupBox .right .ex p {
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.indexfooter {
+  margin: 0;
+}
+
+.liveleftMenu {
+  width: 20%;
+  min-width: 195px;
+  margin-right: 3%;
+  background: #0a1533;
+  margin: 25px 3% 0 0;
+  padding: 5px 0;
+  height: 400px;
+}
+
+.liveleftMenu .menuModule {
+  background: #0a1533;
+}
+
+.liveleftMenu .menuModule button,
+.liveleftMenu .menuModule a {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 15px 15px 30px;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.liveleftMenu .menuModule button.active,
+.liveleftMenu .menuModule a.active {
+  color: #56ceff;
+  border-left: 3px solid #56ceff;
+  padding-left: 28px;
+  font-weight: bold;
+}
+
+.liveleftMenu .menuModule button .icon-newicon::before,
+.liveleftMenu .menuModule a .icon-newicon::before {
+  position: absolute;
+  color: #00b9ff;
+  right: 15px;
+  top: 15px;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+.liveleftMenu .menuModule .menuHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: bold;
+  color: #56ceff;
+  font-size: 18px;
+  padding: 15px;
+  width: 100%;
+}
+
+.liveleftMenu .menuModule .menuHeader:after {
+  font-family: "icomoon";
+  content: "\e954";
+  font-size: 24px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+.liverightModule {
+  background: transparent;
+  width: 60%;
+  margin: 25px 40px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.liverightModule .liveArea {
+  position: relative;
+}
+
+.liverightModule .liveArea .topImg {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+  height: 70px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(38, 98, 118, 0)), to(#15518c));
+  background: linear-gradient(to bottom, rgba(38, 98, 118, 0) 0%, #15518c 100%);
+  border-radius: 0 0 5px 5px;
+  pointer-events: none;
+}
+
+.liverightModule .liveArea .title {
+  width: 230px;
+  line-height: 40px;
+  height: 40px;
+  text-align: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4dc4ff), to(#3097ff));
+  background: linear-gradient(to bottom, #4dc4ff 0%, #3097ff 100%);
+  border-radius: 5px 0 0 0;
+  -webkit-clip-path: polygon(0 0, 95% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 95% 0%, 100% 100%, 0% 100%);
+}
+
+.liverightModule .liveArea .livelist {
+  height: 650px;
+  background: rgba(8, 16, 36, 0.4);
+  border: 1px solid #414f6b;
+  border-radius: 0 5px 5px 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: auto;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+.liverightModule .liveArea .livelist .liveBox {
+  height: 120px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.liverightModule .liveArea .livelist .liveBox:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.liverightModule .liveArea .livelist .liveBox > div {
+  position: relative;
+  width: 100%;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div h1 {
+  font-size: 18px;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div p {
+  font-size: 16px;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div:nth-child(2) {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div:nth-child(2) .point {
+  display: none;
+  padding: 8px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 3px;
+  margin: 0 10px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#4dc4ff), to(#3097ff));
+  background: linear-gradient(to bottom, #4dc4ff 0%, #3097ff 100%);
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div:nth-child(2) p {
+  margin-top: 5px;
+  color: #7f7f7f;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div:nth-child(2).active .point {
+  display: block;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div:nth-child(2).active p {
+  color: #fff;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div:nth-child(3) {
+  text-align: right;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div .gametitle {
+  height: 35px;
+  line-height: 35px;
+  min-width: 400px;
+  width: 30vw;
+  text-transform: uppercase;
+  width: 280px;
+  text-align: center;
+  color: #000;
+  margin: 0 auto;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #eeeeee), to(#a4a9af));
+  background: linear-gradient(to bottom, #eeeeee 1%, #a4a9af 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+          clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+
+.liverightModule .liveArea .livelist .liveBox > div > button {
+  position: absolute;
+  top: 10px;
+  height: 25px;
+  padding: 0 10px;
+  border-radius: 3px;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div .youtube {
+  left: 0px;
+  width: 35px;
+  height: 25px;
+  background-size: 100%;
+  background-image: url(../img/youtubeIcon.png);
+}
+
+.liverightModule .liveArea .livelist .liveBox > div .started {
+  left: 45px;
+  background: #1cb90d;
+}
+
+.liverightModule .liveArea .livelist .liveBox > div .sportsbook {
+  background: #2d77c8;
+  right: 0px;
+}
+
+.liveImg {
+  width: 20%;
+  margin-top: 25px;
+}
+
+.errorTip {
+  width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  margin-bottom: 10px;
+  font-size: 12px;
+  display: none;
+  color: #ff4c4c;
+}
+
+.errorTip.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=style.css.map */

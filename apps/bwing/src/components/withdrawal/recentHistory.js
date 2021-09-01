@@ -14,6 +14,7 @@ export default ({
 	recentData,
 	setRecentData,
 	getKycStatus,
+	getWithdrawalLimit,
 	getWithdrawalInfoRecent,
 	getWithdrawalAvailableBalance
 }) => {
@@ -58,6 +59,7 @@ export default ({
 
 							getWithdrawalAvailableBalance();
 							getKycStatus();
+							getWithdrawalLimit();
 						} else {
 							setPopBox({
 								isOpen: true,

@@ -34,7 +34,8 @@ export default props => {
 				<span>
 					{number_format({
 						number: props.availableBalance,
-						formatRequired: props._isConvert
+						formatRequired: props._isConvert,
+						digits: 0
 					})}
 				</span>
 				<ReloadSpin func={props.refreshAvailableBalance} />
