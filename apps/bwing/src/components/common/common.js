@@ -71,13 +71,14 @@ export const checkAmount = ({
 	formatRequired,
 	t,
 	digits,
+	hintKey,
 	maxAmountAllowUnlimit = true
 }) => {
 	let status = 0;
 	let msg = "";
 	if (amount !== null && amount !== undefined) {
 		const num_Amount = isNaN(amount) ? 0 : Number(amount) * 1000;
-		if (num_Amount <= 0) {
+		if (num_Amount <= 0 || (minAmount !== 0 && num_Amount < minAmount)) {
 			status = 2;
 			msg = getAmountTip(minAmount, formatRequired, t, digits);
 		} else if (
@@ -91,11 +92,13 @@ export const checkAmount = ({
 				number: num_Amount,
 				formatRequired,
 				digits
-			})} ${t("lbl_NotinLimit")}`;
+			})} ${t(hintKey ?? "lbl_NotinLimit")}`;
 		}
 	} else {
 		status = 3;
-		msg = getAmountTip(minAmount, formatRequired, t, digits);
+		msg = hintKey
+			? t(hintKey)
+			: getAmountTip(minAmount, formatRequired, t, digits);
 	}
 	return { status, msg };
 };

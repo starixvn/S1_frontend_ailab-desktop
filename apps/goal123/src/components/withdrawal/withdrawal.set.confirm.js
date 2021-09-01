@@ -34,7 +34,8 @@ export default props => {
 					<li>
 						{number_format({
 							number: props.amountValue,
-							formatRequired: props._isConvert
+							formatRequired: props._isConvert,
+							digits: 0
 						})}
 					</li>
 				</ul>

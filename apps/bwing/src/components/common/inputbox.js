@@ -44,9 +44,23 @@ const InputBox = ({
 		return null;
 	};
 
+	const inputBoxClass = () => {
+		const classNameList = ["inputBox-blue"];
+
+		if (className) {
+			classNameList.push(className);
+		}
+
+		if (checked === false) {
+			classNameList.push("error");
+		}
+
+		return classNameList.join(" ");
+	};
+
 	return (
 		<>
-			<div className={className ?? "inputBox-blue"}>
+			<div className={inputBoxClass()}>
 				{!!icon && <i className={`icon ${icon}`} />}
 
 				{!!title && <i className="txt-blue12">{title}</i>}
@@ -87,7 +101,7 @@ InputBox.defaultProps = {
 	checked: "",
 	areaCode: "",
 	inputType: "text",
-	className: "inputBox-blue",
+	className: "",
 	max: null,
 	onBlur: null,
 	clickInfo: null,

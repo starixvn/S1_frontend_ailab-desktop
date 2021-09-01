@@ -21,9 +21,23 @@ export default props => {
 		}
 	};
 
+	const inputBoxClass = () => {
+		const classNameList = ["inputBox"];
+
+		if (props.className) {
+			classNameList.push(props.className);
+		}
+
+		if (props.checked === false) {
+			classNameList.push("error");
+		}
+
+		return classNameList.join(" ");
+	};
+
 	return (
 		<>
-			<div className={props.className ?? "inputBox"}>
+			<div className={inputBoxClass()}>
 				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
 				{props.title ? (
 					<i className="txt-blue12">{props.title}</i>
