@@ -12,7 +12,6 @@ import { defFilterType } from "./promotion.nav";
 export default ({
 	promotionInfo,
 	userInfo,
-	_isExpiry,
 	_isClaimed,
 	inListPage,
 	filter,
@@ -160,7 +159,6 @@ export default ({
 				</button>
 			)}
 			{(promotionInfo.isJoin && isLogin) ||
-			_isExpiry ||
 			_isClaimed ||
 			promotionInfo.promotionType === defPromotionType.rebate ||
 			promotionInfo.promotionType === defPromotionType.other ||

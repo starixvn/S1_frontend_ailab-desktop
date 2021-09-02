@@ -158,9 +158,6 @@ export default () => {
 		if (type === defFilterType.all)
 			return p => !isExpiry({ ...p, isLogin: userInfo.isLogin });
 
-		if (type === defFilterType.expiry)
-			return p => isExpiry({ ...p, isLogin: userInfo.isLogin });
-
 		if (type === defFilterType.firstDeposit)
 			return p =>
 				(p.promotionType === type ||

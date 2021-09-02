@@ -7,7 +7,7 @@ import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
 import defPopBoxType from "../common/defPopBoxType";
 import { defPromotionType } from "./promotion.def";
-import { isExpiry, isClaimed, RULE_TYPE } from "./promotion.common";
+import { isClaimed, RULE_TYPE } from "./promotion.common";
 import ProcessBar from "./promotion.processBar";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
@@ -107,20 +107,13 @@ export default () => {
 	});
 
 	let _isClaimed = false;
-	let _isExpiry = false;
 
 	if (promotionInfo !== null) {
 		_isClaimed = isClaimed(promotionInfo);
-		_isExpiry = isExpiry({
-			...promotionInfo,
-			isLogin: userInfo.isLogin
-		});
 	}
 
 	let wrapperClass = "";
-	if (_isExpiry) {
-		wrapperClass = " expiredClaimedInfo";
-	} else if (_isClaimed || promotionInfo?.beenUsed) {
+	if (_isClaimed || promotionInfo?.beenUsed) {
 		wrapperClass = " claimedInfo";
 	}
 
@@ -161,7 +154,6 @@ export default () => {
 							<PromotionJoinButton
 								promotionInfo={promotionInfo}
 								userInfo={userInfo}
-								_isExpiry={_isExpiry}
 								filter={filterType}
 								callBack={() =>
 									getPromotionDetail(
@@ -196,10 +188,6 @@ export default () => {
 						refreshProcessBar={() =>
 							refreshProcessBar(promotionInfo)
 						}
-						hideReloadBtn={isExpiry({
-							...promotionInfo,
-							isLogin: userInfo.isLogin
-						})}
 						currencyId={userInfo.currencyId}
 					/>
 
