@@ -4502,7 +4502,7 @@ input[type="file"] {
   border: 1px solid #f77900;
 }
 
-.Submit, .poker, .friend, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
+.Submit, .poker, .friend, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .addAddresspop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -4517,18 +4517,18 @@ input[type="file"] {
   text-align: center;
 }
 
-.Submit.active, .poker.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
+.Submit.active, .poker.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .addAddresspop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Submit .icon, .poker .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
+.Submit .icon, .poker .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .addAddresspop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
   font-size: 36px;
   color: #CDAE8E;
 }
 
-.Submit .icon.icon-bell, .poker .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
+.Submit .icon.icon-bell, .poker .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .addAddresspop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
   color: #CDAE8E;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -4536,20 +4536,20 @@ input[type="file"] {
           transform: rotate(20deg);
 }
 
-.Submit .title, .poker .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
+.Submit .title, .poker .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .addAddresspop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
   margin: 10px 0 20px;
 }
 
-.Submit .txt-lightgray, .poker .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
+.Submit .txt-lightgray, .poker .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .addAddresspop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
   text-align: center;
 }
 
-.Submit .popList, .poker .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
+.Submit .popList, .poker .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .addAddresspop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .poker .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
+.Submit .popList ul, .poker .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .addAddresspop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4562,13 +4562,13 @@ input[type="file"] {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .poker .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
+.Submit .popList ul li, .poker .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .addAddresspop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .poker .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
+.Submit .popList ul li:first-child, .poker .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .addAddresspop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
@@ -4936,6 +4936,13 @@ input[type="file"] {
 
 .walletModule + .walletModule {
   padding-bottom: 0;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+.walletModule + .walletModule .title {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .walletModule .addBank {
@@ -4951,8 +4958,11 @@ input[type="file"] {
 }
 
 .walletModule .addBank .addBankName {
-  width: calc(100% / 3 - 30px);
+  max-width: calc(100% / 3 - 32px);
   position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .walletModule .addBank .addBankName.active {
@@ -5183,7 +5193,7 @@ input[type="file"] {
   background: white;
 }
 
-.addBank .addBankName:nth-child(3n-3) {
+.addBank .addBankName:nth-child(4n-4) {
   margin-right: 0;
 }
 
@@ -5280,9 +5290,9 @@ input[type="file"] {
 .addBank .addBankName .cryptoInfo {
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .addBank .addBankName .cryptoInfo > .title {
@@ -5301,8 +5311,18 @@ input[type="file"] {
 
 .addBank .addBankName .cryptoInfo .icon-BTC + div {
   font-size: 12px;
-  max-width: 170px;
   margin: 0;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.addBank .addBankName .cryptoInfo .icon-BTC ~ .icon-bin {
+  position: relative;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  bottom: auto;
+  right: auto;
 }
 
 .addBank .addBankName .cryptoInfo div {
@@ -5576,6 +5596,82 @@ input[type="file"] {
 
 .addBankpop .txt div .txt-blue + span {
   color: #5574a7;
+}
+
+.addAddresspop .icon-close {
+  top: 15px !important;
+  right: 15px !important;
+}
+
+.addAddresspop .inputBox-blue {
+  z-index: auto;
+}
+
+.addAddresspop .inputBox-blue .dropdown > .btn {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 13px;
+}
+
+.addAddresspop .inputBox-blue .dropdown > .dropdown-container {
+  overflow-y: auto;
+  position: absolute;
+  background: white;
+  top: 28px;
+  left: -1px;
+  max-height: 200px;
+  border: 1px solid #BFCCE2;
+  border-top: 0;
+  z-index: 1;
+  margin: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.addAddresspop .inputBox-blue .dropdown > .dropdown-container .dropdown-item {
+  padding: 6px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addAddresspop .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
+  padding-top: 10px;
+}
+
+.addAddresspop .inputBox-blue .iconModule .icon {
+  font-size: initial;
+}
+
+.addAddresspop > div {
+  width: 100%;
+  border-bottom: 1px solid #BFCCE2;
+  padding-bottom: 20px;
+}
+
+.addAddresspop > div .inputModuleRow > .btnGroup {
+  margin: 10px 0;
+}
+
+.addAddresspop > div .inputModuleRow > .btnGroup button {
+  margin-right: 0;
+  min-width: 100px;
+}
+
+.addAddresspop > div.btnGroup {
+  border: 0;
+  margin: 20px 0 0;
+}
+
+.addAddresspop > div .tip {
+  text-align: left;
+}
+
+.addAddresspop > div .txt-blue {
+  padding-left: 5px;
 }
 
 .txt {
@@ -6309,11 +6405,6 @@ input[type="file"] {
   background: #020612 url(https://banner.n88media.com/img/livecasino/casinobg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
-}
-
-.livecasinoinside .mainBanner > img {
-  width: 1920px;
-  height: 500px;
 }
 
 .proList, .slotList, .livecasino, .fishingList {
@@ -8320,10 +8411,6 @@ button.icon-spinner11:before {
   border: 0;
 }
 
-.icon-BTC ~ .accountName {
-  padding-top: 0;
-}
-
 .icon-BTC ~ .platformName + div.subModuleList .subModuleBody > div > div.inputBox-white {
   margin: 10px 0;
 }
@@ -8753,377 +8840,6 @@ button.icon-spinner11:before {
 .installGuide img {
   max-width: calc(100% / 6);
   margin: 20px 0;
-}
-
-.ranking section {
-  max-width: calc(1600px - 60px);
-  padding: 30px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  background-color: #191919;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 15px;
-  margin: 20px auto;
-  background-image: url(https://image.n88media.com/SiteSkin/img/eventRuleBg.jpg);
-}
-
-.ranking section a {
-  color: #f77900;
-  text-decoration: underline;
-}
-
-.ranking section button {
-  text-transform: uppercase;
-}
-
-.ranking section > .btnGroup {
-  min-width: 768px;
-  margin: 0;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.ranking section > .btnGroup ~ div {
-  display: none;
-}
-
-.ranking section > .btnGroup ~ div.active {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.ranking section > .btnGroup button {
-  border-radius: 15px 15px 0 0;
-  color: #666;
-  white-space: nowrap;
-  background: #00616f;
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  margin: 0 4px 0 0;
-  color: #19a4bb;
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-}
-
-.ranking section > .btnGroup button.active, .ranking section > .btnGroup button:hover {
-  background: #19a4bb;
-  color: white;
-}
-
-.ranking section .mwt_border {
-  position: relative;
-  border: 3px solid #19a4bb;
-  margin-top: 20px;
-  padding: 10px;
-  line-height: normal;
-  font-weight: bold;
-}
-
-.ranking section .mwt_border .arrow_t_int {
-  width: 0px;
-  height: 0px;
-  border-width: 15px;
-  border-style: solid;
-  border-color: transparent transparent #19a4bb transparent;
-  position: absolute;
-  top: -33px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.ranking section .mwt_border .arrow_t_out {
-  width: 0px;
-  height: 0px;
-  border-width: 15px;
-  border-style: solid;
-  border-color: transparent transparent transparent transparent;
-  position: absolute;
-  top: -29px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-}
-
-.ranking section .champion, .ranking section .eventRule, .ranking section .lastevent {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  line-height: 30px;
-  min-width: 768px;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
-  border: 2px solid #19a4bb;
-  border-radius: 0 0 10px 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 30px 0;
-  min-height: 725px;
-  position: relative;
-  background: url(https://image.n88media.com/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
-}
-
-.ranking section .champion .title, .ranking section .eventRule .title, .ranking section .lastevent .title {
-  font-size: 28px;
-  clear: both;
-  margin-top: 10px;
-  margin-bottom: 25px;
-  text-align: center;
-}
-
-.ranking section .champion .highest, .ranking section .eventRule .highest, .ranking section .lastevent .highest {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  margin: 0 20px;
-  text-align: center;
-  max-width: 230px;
-}
-
-.ranking section .champion .highest .txt-yellow, .ranking section .eventRule .highest .txt-yellow, .ranking section .lastevent .highest .txt-yellow {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.ranking section .champion .rankModule, .ranking section .eventRule .rankModule, .ranking section .lastevent .rankModule {
-  -webkit-box-flex: 1.4;
-      -ms-flex: 1.4;
-          flex: 1.4;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  max-width: 485px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-}
-
-.ranking section .champion .rankModule .icon-nodata, .ranking section .eventRule .rankModule .icon-nodata, .ranking section .lastevent .rankModule .icon-nodata {
-  color: #fab617;
-}
-
-.ranking section .champion .rankModule .btnGroup button, .ranking section .eventRule .rankModule .btnGroup button, .ranking section .lastevent .rankModule .btnGroup button {
-  border-radius: 0;
-  min-width: auto;
-  padding: 5px 10px;
-}
-
-.ranking section .champion .rankTag, .ranking section .lastevent .rankTag {
-  position: absolute;
-  top: 0;
-  left: 20px;
-  z-index: 1;
-}
-
-.ranking section .champion .rankTag .btnGroup button, .ranking section .lastevent .rankTag .btnGroup button {
-  border-radius: 5px;
-}
-
-.ranking section .champion .finalTour, .ranking section .lastevent .finalTour {
-  text-transform: uppercase;
-  border-radius: 5px 5px 0 0;
-  padding: 10px;
-  min-width: auto;
-  white-space: nowrap;
-  margin-left: 0;
-  font-weight: bold;
-  font-size: 15px;
-  background: #003b44;
-  color: #00616f;
-  border-radius: 5px;
-  position: absolute;
-  right: 10px;
-  -webkit-animation: finaltour 1s infinite;
-          animation: finaltour 1s infinite;
-  cursor: pointer;
-  z-index: 1;
-}
-
-@-webkit-keyframes finaltour {
-  0% {
-    background: #003b44;
-    color: #00616f;
-  }
-  50% {
-    background: #00616f;
-    color: #a9d9e7;
-  }
-  100% {
-    background: #003b44;
-    color: #00616f;
-  }
-}
-
-@keyframes finaltour {
-  0% {
-    background: #003b44;
-    color: #00616f;
-  }
-  50% {
-    background: #00616f;
-    color: #a9d9e7;
-  }
-  100% {
-    background: #003b44;
-    color: #00616f;
-  }
-}
-
-.ranking section .champion .highest, .ranking section .lastevent .highest {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.ranking section .champion .highest .title, .ranking section .lastevent .highest .title {
-  text-align: center;
-  margin-bottom: 0px;
-  white-space: nowrap;
-  font-size: 14px;
-  color: #fab617;
-}
-
-.ranking section .champion .highest .title div, .ranking section .lastevent .highest .title div {
-  margin-bottom: 10px;
-  font-size: 32px;
-}
-
-.ranking section .champion li, .ranking section .lastevent li {
-  min-height: auto;
-}
-
-.ranking section .champion li.userRank, .ranking section .lastevent li.userRank {
-  background: #1E85EC;
-  color: white;
-}
-
-.ranking section .rankTag {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.ranking section .rankTag .btnGroup {
-  margin: 0;
-}
-
-.ranking section .rankTag .btnGroup button {
-  text-transform: uppercase;
-  border-radius: 5px 5px 0 0;
-  padding: 10px;
-  min-width: auto;
-  white-space: nowrap;
-  margin-left: 0;
-  font-weight: bold;
-  font-size: 15px;
-  background: #003b44;
-  color: #00616f;
-}
-
-.ranking section .rankTag .btnGroup button.active {
-  background: #00616f;
-  color: #a9d9e7;
-}
-
-.ranking section .eventRule {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.ranking section .eventRule .stitle {
-  font-weight: bold;
-  font-size: 20px;
-}
-
-.ranking section .eventRule .title {
-  word-wrap: break-word;
-  color: white;
-}
-
-.ranking section .eventRule .rankTag {
-  margin-bottom: 0;
-}
-
-.ranking section .eventRule .rankList {
-  width: 66.6%;
-  text-align: center;
-}
-
-.ranking section .eventRule .rankList > div {
-  display: none;
-}
-
-.ranking section .eventRule .rankList > div.active {
-  display: block;
-}
-
-.ranking section .eventRule .rankList button {
-  color: white;
-  background: #19a4bb;
-  border-radius: 30px;
-  padding: 5px 10px;
-}
-
-.ranking section .eventRule .rankList button:hover {
-  background: #00616f;
-}
-
-.ranking section .eventRule .rankList li div {
-  min-width: 110px;
-}
-
-.ranking section .eventRule .rankList li div:first-child {
-  min-width: auto;
-}
-
-.ranking section .eventRule .rankList li div:first-child img {
-  float: right;
-}
-
-.ranking section .eventRule .rankList li div:last-child {
-  min-width: 250px;
-}
-
-.ranking + footer .footerList > div a ~ div {
-  display: none;
 }
 
 .timeLine {
@@ -11683,28 +11399,8 @@ canvas {
   background: rgba(7, 58, 139, 0.6);
 }
 
-.liveVideo .latestVideo + div .hotevent .team.euro, .liveVideo .newsList + div .hotevent .team.euro, .newsVideo .latestVideo + div .hotevent .team.euro, .newsVideo .newsList + div .hotevent .team.euro {
-  background: url(../img/upcomingmatcheseurobg.jpg) no-repeat top center/100% auto;
-}
-
-.liveVideo .latestVideo + div .hotevent .team.euro > div:first-child, .liveVideo .newsList + div .hotevent .team.euro > div:first-child, .newsVideo .latestVideo + div .hotevent .team.euro > div:first-child, .newsVideo .newsList + div .hotevent .team.euro > div:first-child {
-  background: url(../img/upcomingmatcheseurotitle.png) no-repeat top center/auto;
-}
-
-.liveVideo .latestVideo + div .hotevent .team.euro > div:last-child, .liveVideo .newsList + div .hotevent .team.euro > div:last-child, .newsVideo .latestVideo + div .hotevent .team.euro > div:last-child, .newsVideo .newsList + div .hotevent .team.euro > div:last-child {
-  background: url(../img/upcomingmatcheseurotitledown.png) no-repeat top center/auto;
-}
-
 .liveVideo .latestVideo + div .upcomingmatches > img, .liveVideo .newsList + div .upcomingmatches > img, .newsVideo .latestVideo + div .upcomingmatches > img, .newsVideo .newsList + div .upcomingmatches > img {
   position: absolute;
-}
-
-.liveVideo .latestVideo + div .upcomingmatches .team.euro > div:first-child, .liveVideo .newsList + div .upcomingmatches .team.euro > div:first-child, .newsVideo .latestVideo + div .upcomingmatches .team.euro > div:first-child, .newsVideo .newsList + div .upcomingmatches .team.euro > div:first-child {
-  background: url(../img/upcomingmatcheseurotitle.png) no-repeat top center/auto;
-}
-
-.liveVideo .latestVideo + div .upcomingmatches .team.euro > div:last-child, .liveVideo .newsList + div .upcomingmatches .team.euro > div:last-child, .newsVideo .latestVideo + div .upcomingmatches .team.euro > div:last-child, .newsVideo .newsList + div .upcomingmatches .team.euro > div:last-child {
-  background: url(../img/upcomingmatcheseurotitledown.png) no-repeat top center/auto;
 }
 
 .liveVideo .latestVideo + div .upcomingmatches, .liveVideo .latestVideo + div .liveTv, .liveVideo .newsList + div .upcomingmatches, .liveVideo .newsList + div .liveTv, .newsVideo .latestVideo + div .upcomingmatches, .newsVideo .latestVideo + div .liveTv, .newsVideo .newsList + div .upcomingmatches, .newsVideo .newsList + div .liveTv {
@@ -13611,6 +13307,10 @@ canvas {
   cursor: pointer;
 }
 
+.gameinside .inside .rightModule .gameItem > img {
+  max-width: 300px;
+}
+
 .gameinside .inside .rightModule .gameItem .name {
   color: #70ddfc;
   font-size: 18px;
@@ -15067,9 +14767,9 @@ img[alt="sg"] {
 }
 
 .rankingNew {
-  background: url(../img/ranking_page_bg.jpg) no-repeat top center/cover;
+  background: url(../img/ranking_page_bg.jpg) no-repeat top center;
   background-position: top center;
-  background-size: cover;
+  background-size: auto 100%;
   min-height: 1025px;
 }
 
