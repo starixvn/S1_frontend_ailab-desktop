@@ -164,9 +164,6 @@ export default () => {
 					isLogin: userInfo.isLogin
 				});
 
-		if (type === defFilterType.expiry)
-			return p => isExpiry({ ...p, isLogin: userInfo.isLogin });
-
 		if (type === defFilterType.firstDeposit)
 			return p =>
 				(p.promotionType === type ||
@@ -193,13 +190,23 @@ export default () => {
 					isLogin: userInfo.isLogin
 				});
 
+		if (type === defFilterType.specialBonus)
+			return p =>
+				p.promotionType === defPromotionType.specialBonus &&
+				!isExpiry({
+					...p,
+					isLogin: userInfo.isLogin
+				});
+
 		return p =>
 			p.promotionType === type &&
 			!isExpiry({ ...p, isLogin: userInfo.isLogin });
 	};
 
-	const afterFilterPromotionList = promoList.filter(typeFilter(filter));
-
+	const afterFilterPromotionList =
+		filter === defFilterType.specialBonus
+			? specialPromotionList.filter(typeFilter(filter))
+			: promoList.filter(typeFilter(filter));
 	return (
 		!loading && (
 			<div className="infoModule">
@@ -222,7 +229,7 @@ export default () => {
 						t={t}
 						filter={filter}
 						userInfo={userInfo}
-						promoList={specialPromotionList}
+						promoList={afterFilterPromotionList}
 						refreshProcessBar={refreshProcessBar}
 						afterJoinCallBack={getSpecialPromotionList}
 					/>

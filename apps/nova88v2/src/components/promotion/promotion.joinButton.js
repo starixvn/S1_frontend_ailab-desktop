@@ -9,7 +9,7 @@ import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
 import path from "../../router";
 import { defFilterType } from "./promotion.nav";
 
-export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
+export default ({ promotionInfo, userInfo, filter, callBack }) => {
 	const { t } = useTranslation();
 	const { isLogin } = userInfo;
 	const isMountedRef = useRef(null);
@@ -143,7 +143,6 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 	};
 	if (
 		(promotionInfo.isJoin && isLogin) ||
-		_isExpiry ||
 		promotionInfo.promotionType === defPromotionType.rebate ||
 		promotionInfo.promotionType === defPromotionType.other ||
 		(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||

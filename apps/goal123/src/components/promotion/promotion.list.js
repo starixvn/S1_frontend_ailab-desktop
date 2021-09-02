@@ -6,7 +6,6 @@ import { defFilterType } from "./promotion.nav";
 import {
 	isNew,
 	isClaimed,
-	isExpiry,
 	isArrayNotEmpty,
 	RULE_TYPE
 } from "./promotion.common";
@@ -28,7 +27,6 @@ export default ({
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
 		const _isNew = _isClaimed ? false : isNew(p);
-		const _isExpiry = isExpiry({ ...p, isLogin });
 
 		return (
 			<div
@@ -64,7 +62,6 @@ export default ({
 						t={t}
 						currencyId={currencyId}
 						RefreshProcessBar={refreshProcessBar.bind(this, p)}
-						hideReloadBtn={_isExpiry}
 					/>
 				) : null}
 
@@ -96,7 +93,6 @@ export default ({
 					<PromotionJoinButton
 						promotionInfo={p}
 						userInfo={userInfo}
-						_isExpiry={_isExpiry}
 						filter={filter}
 						callBack={afterJoinCallBack}
 					/>

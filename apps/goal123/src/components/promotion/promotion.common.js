@@ -17,11 +17,11 @@ export const isExpiry = ({
 	isJoin,
 	promotionType
 }) => {
-	return isLogin &&
-		isJoin &&
+	return isJoin &&
+		isLogin &&
 		promotionType !== defPromotionType.rebate &&
 		promotionType !== defPromotionType.cashback
-		? moment(moment.unix(custExpiryTime)).isBefore(new moment())
+		? moment(custExpiryTime).isBefore(new moment())
 		: moment(moment.unix(periodTo)).isBefore(new moment());
 };
 
