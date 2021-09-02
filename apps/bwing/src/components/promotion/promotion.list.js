@@ -3,12 +3,7 @@ import { Link } from "@reach/router";
 import path from "../../router";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
-import {
-	isNew,
-	isClaimed,
-	isExpiry,
-	isArrayNotEmpty
-} from "./promotion.common";
+import { isNew, isClaimed, isArrayNotEmpty } from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defPromotionType } from "./promotion.def";
@@ -27,13 +22,11 @@ export default ({
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
 		const _isNew = _isClaimed ? false : isNew(p);
-		const _isExpiry = isExpiry({ ...p, isLogin });
 
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={`${_isClaimed ? "active" : ""}${
-					filter === defFilterType.expiry ||
 					(filter === defFilterType.specialBonus && !p.canJoin) ||
 					p.beenUsed
 						? " expired"
@@ -67,7 +60,6 @@ export default ({
 						t={t}
 						currencyId={currencyId}
 						RefreshProcessBar={refreshProcessBar.bind(this, p)}
-						hideReloadBtn={_isExpiry}
 					/>
 				) : null}
 
@@ -99,7 +91,6 @@ export default ({
 					<PromotionJoinButton
 						promotionInfo={p}
 						userInfo={userInfo}
-						_isExpiry={_isExpiry}
 						inListPage={true}
 						filter={filter}
 						callBack={afterJoinCallBack}

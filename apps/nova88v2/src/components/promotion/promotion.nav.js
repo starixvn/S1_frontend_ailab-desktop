@@ -55,12 +55,6 @@ const defPromoNavs = [
 		value: defFilterType.specialBonus,
 		className: "blueBorder",
 		selectedClassName: "blue"
-	},
-	{
-		displayKey: "lbl_Expired_Promo",
-		value: defFilterType.expiry,
-		className: "red",
-		selectedClassName: "red"
 	}
 ];
 

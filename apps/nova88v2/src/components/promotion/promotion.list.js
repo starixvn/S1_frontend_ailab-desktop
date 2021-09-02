@@ -6,7 +6,6 @@ import { defFilterType } from "./promotion.nav";
 import {
 	isNew,
 	isClaimed,
-	isExpiry,
 	isArrayNotEmpty,
 	RULE_TYPE
 } from "./promotion.common";
@@ -28,24 +27,20 @@ export default ({
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
 		const _isNew = _isClaimed ? false : isNew(p);
-		const _isExpiry = isExpiry({ ...p, isLogin });
 
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
 				className={`${_isClaimed ? "active" : ""}${
-					filter === defFilterType.expiry ||
 					(filter === defFilterType.specialBonus && !p.canJoin) ||
 					p.beenUsed
 						? " expired"
 						: ""
 				}`}>
 				{_isClaimed ? <div className="claimed" /> : null}
-				{filter === defFilterType.expiry ? (
-					<div className="expiredIcon">EXPIRED</div>
-				) : (
-					<div className={_isNew && p.canJoin ? "new" : ""} />
-				)}
+
+				<div className={_isNew && p.canJoin ? "new" : ""} />
+
 				<img src={p.banner} alt={p.title} />
 				<div className="txt-darkBlue">{p.title}</div>
 				<div className="txt-dark">{t("lbl_PromotionsDesc")}</div>
@@ -65,7 +60,6 @@ export default ({
 						t={t}
 						currencyId={currencyId}
 						refreshProcessBar={() => refreshProcessBar(p)}
-						hideReloadBtn={_isExpiry}
 					/>
 				) : null}
 				<div className="btnGroup">
@@ -96,7 +90,6 @@ export default ({
 					<PromotionJoinButton
 						promotionInfo={p}
 						userInfo={userInfo}
-						_isExpiry={_isExpiry}
 						filter={filter}
 						callBack={afterJoinCallBack}
 					/>
@@ -112,10 +105,7 @@ export default ({
 		(isArrayNotEmpty(staticPromotions) && filter === defFilterType.all)
 	)
 		return (
-			<div
-				className={`proList${
-					filter === defFilterType.expiry ? " expired" : ""
-				}`}>
+			<div className="proList">
 				{rows}
 				{filter === defFilterType.all ? staticPromotions : null}
 			</div>
