@@ -192,7 +192,6 @@ export default () => {
 
 		if (type === defFilterType.specialBonus)
 			return p =>
-				p.promotionType === defPromotionType.specialBonus &&
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin
