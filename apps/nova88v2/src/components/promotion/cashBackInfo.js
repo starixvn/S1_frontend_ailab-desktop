@@ -18,7 +18,7 @@ const CashbackInfo = ({ bonusCode, cashBackDetails, t, currencyId }) => {
 		</tr>
 	));
 
-	return rows?.length > 0 ? (
+	return (
 		<div className="cashBack">
 			<table>
 				<tbody>
@@ -67,7 +67,7 @@ const CashbackInfo = ({ bonusCode, cashBackDetails, t, currencyId }) => {
 				</tbody>
 			</table>
 		</div>
-	) : null;
+	);
 };
 
 CashbackInfo.defaultProps = {
