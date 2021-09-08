@@ -62,3 +62,8 @@ export const eventsRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/Events`
 });
+
+export const cashierRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}`
+});

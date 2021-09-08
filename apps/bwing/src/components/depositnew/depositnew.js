@@ -56,11 +56,24 @@ const Depositnew = () => {
 		imgFile: null,
 		refId: null,
 		time: moment(),
-		amount: null,
-		checked: null,
-		tip: ""
+		amount: {
+			val: "",
+			checked: null,
+			tip: ""
+		},
+		cardCode: {
+			val: "",
+			checked: null,
+			tip: ""
+		},
+		cardSerial: {
+			val: "",
+			checked: null,
+			tip: ""
+		}
 	});
 
+	const [cardCodeInfoIconActive, setCardCodeInfoIconActive] = useState(false);
 	const [isInitDataDone, setIsInitDataDone] = useState(false);
 
 	const _isConvert = isConvert(userInfo.currencyId);
@@ -97,7 +110,8 @@ const Depositnew = () => {
 	const {
 		loadCardPayGroupList,
 		getLoadCardPayGroupList,
-		getLoadCardPayInfoList
+		getLoadCardPayInfoList,
+		getReqLoadCardPay
 	} = useDepositLoadCard({
 		isMountedRef
 	});
@@ -128,12 +142,39 @@ const Depositnew = () => {
 		resetDepositForm();
 	};
 
-	const onChangeAmount = _amount => {
-		const amount = String(_amount).replace(/^(0+)|[^\d]+/g, "");
+	const onChangeForm = (val, col) => {
+		let checked = true;
+		let tip = "";
+		let _val = val;
 
-		onValidAmount(amount);
+		if (col === "amount") {
+			_val = String(_val).replace(/^(0+)|[^\d]+/g, "");
+
+			const amountResult = onValidAmount(_val);
+
+			checked = amountResult.checked;
+			tip = amountResult.tip;
+		}
+
+		if (col === "cardCode") {
+			if (_val === "") {
+				checked = false;
+				tip = t("msg_PleaseEnterCardCode");
+			}
+		}
+
+		if (col === "cardSerial") {
+			if (_val === "") {
+				checked = false;
+				tip = t("msg_PleaseEnterCardSerial");
+			}
+		}
+
 		setFormInfo(prev => {
-			return { ...prev, amount };
+			return {
+				...prev,
+				[col]: { val: _val, checked, tip }
+			};
 		});
 	};
 
@@ -147,16 +188,10 @@ const Depositnew = () => {
 			digits: 0
 		});
 
-		if (result.status !== 0) {
-			setFormInfo(prev => {
-				return { ...prev, checked: false, tip: result.msg };
-			});
-		} else {
-			setFormInfo(prev => {
-				return { ...prev, checked: true, tip: "" };
-			});
-		}
-		return result.status === 0;
+		return {
+			checked: result.status === 0,
+			tip: result.msg
+		};
 	};
 
 	const onSubmit = async () => {
@@ -167,18 +202,26 @@ const Depositnew = () => {
 					imgFile: null,
 					refId: null,
 					time: moment(),
-					checked: null,
-					amount: null,
-					tip: ""
+					amount: { val: "", checked: null, tip: "" },
+					cardCode: {
+						val: "",
+						checked: null,
+						tip: ""
+					},
+					cardSerial: {
+						val: "",
+						checked: null,
+						tip: ""
+					}
 				};
 			});
 		};
 
 		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-		if (formInfo.checked && typeof window !== "undefined") {
-			const { amount } = formInfo;
-			const resultAmount = _isConvert ? amount * 1000 : amount;
+		if (typeof window !== "undefined") {
+			const { amount, cardCode, cardSerial } = formInfo;
+			const resultAmount = _isConvert ? amount.val * 1000 : amount.val;
 			setLoading(true);
 
 			if (depositType === defDepositType.localBank) {
@@ -259,16 +302,12 @@ const Depositnew = () => {
 						errorPopBox();
 					}
 				}
-			}
-
-			if (depositType === defDepositType.mobile) {
+			} else if (depositType === defDepositType.mobile) {
 				window.open(
 					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
 				);
 				await delay(1000);
-			}
-
-			if (depositType === defDepositType.onlineBank) {
+			} else if (depositType === defDepositType.onlineBank) {
 				window.open(
 					`${config.openURL}/${
 						userInfo.langId
@@ -279,12 +318,21 @@ const Depositnew = () => {
 					}&Amount=${resultAmount}`
 				);
 				await delay(1000);
-			}
-			if (depositType === defDepositType.loadCard) {
-				window.open(
-					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
-				);
-				await delay(1000);
+			} else if (depositType === defDepositType.loadCard) {
+				if (formInfo.mode === 3) {
+					getReqLoadCardPay({
+						langId: userInfo.langId,
+						channelId: formInfo.channelId,
+						cardCode: cardCode.val,
+						cardSerial: cardSerial.val,
+						amount: resultAmount
+					});
+				} else {
+					window.open(
+						`${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay?ChannelId=${formInfo.channelId}&Code=${cardCode.val}&Serial=${cardSerial.val}&Amount=${resultAmount}`
+					);
+					await delay(1000);
+				}
 			}
 
 			setLoading(false);
@@ -375,15 +423,17 @@ const Depositnew = () => {
 		onChangeDepositType(filterDepositOptions[0].type);
 	}
 
-	let checked = false;
+	let checked = formInfo?.amount?.checked;
 
-	if (depositType === defDepositType.localBank) {
+	if (depositType === defDepositType.loadCard) {
 		checked =
-			formInfo.checked && (userInfo.accountName || formInfo.accountName);
+			checked &&
+			formInfo?.cardCode?.checked &&
+			formInfo?.cardSerial?.checked;
+	} else if (depositType === defDepositType.localBank) {
+		checked = checked && (userInfo.accountName || formInfo.accountName);
 		// formInfo?.refId &&
 		// formInfo?.imgFile?.type.includes("image");
-	} else {
-		checked = formInfo.checked;
 	}
 
 	return (
@@ -406,8 +456,7 @@ const Depositnew = () => {
 						mobilePayInfoList={mobilePayInfoList}
 						formInfo={formInfo}
 						setFormInfo={setFormInfo}
-						onChangeAmount={onChangeAmount}
-						onValidAmount={onValidAmount}
+						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
 					/>
 				)}
@@ -421,8 +470,7 @@ const Depositnew = () => {
 						localBankGroupList={localBankGroupList}
 						formInfo={formInfo}
 						setFormInfo={setFormInfo}
-						onChangeAmount={onChangeAmount}
-						onValidAmount={onValidAmount}
+						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
 						getLocalBankInfo={getLocalBankInfo}
 						localBankInfo={localBankInfo}
@@ -439,8 +487,7 @@ const Depositnew = () => {
 						getOnlineBankInfoList={getOnlineBankInfoList}
 						onlineBankInfoList={onlineBankInfoList}
 						formInfo={formInfo}
-						onChangeAmount={onChangeAmount}
-						onValidAmount={onValidAmount}
+						onChangeForm={onChangeForm}
 						setFormInfo={setFormInfo}
 						setOnlineBankInfoList={setOnlineBankInfoList}
 						onInputboxKeyDown={onInputboxKeyDown}
@@ -453,12 +500,13 @@ const Depositnew = () => {
 						formInfo={formInfo}
 						_isConvert={_isConvert}
 						depositType={depositType}
+						cardCodeInfoIconActive={cardCodeInfoIconActive}
 						setFormInfo={setFormInfo}
 						loadCardPayGroupList={loadCardPayGroupList}
 						getLoadCardPayInfoList={getLoadCardPayInfoList}
-						onChangeAmount={onChangeAmount}
-						onValidAmount={onValidAmount}
+						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
+						setCardCodeInfoIconActive={setCardCodeInfoIconActive}
 					/>
 				)}
 			</DepositnewInfoMoule>

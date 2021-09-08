@@ -12,8 +12,8 @@ const OnlineBankForm = ({
 	getOnlineBankInfoList,
 	onlineBankInfoList,
 	formInfo,
-	onChangeAmount,
-	onValidAmount,
+	onChangeForm,
+
 	setFormInfo,
 	setOnlineBankInfoList,
 	onInputboxKeyDown
@@ -218,11 +218,13 @@ const OnlineBankForm = ({
 					<div className="subModule">
 						<Inputbox
 							// title={t("lbl_Amount")}
-							value={formInfo.amount}
-							onChange={e => onChangeAmount(e.target.value)}
-							onBlur={() => onValidAmount(formInfo.amount)}
-							checked={formInfo?.checked}
-							tip={formInfo?.tip}
+							value={formInfo.amount?.val}
+							onChange={e =>
+								onChangeForm(e.target.value, "amount")
+							}
+							onBlur={e => onChangeForm(e.target.value, "amount")}
+							checked={formInfo.amount?.checked}
+							tip={formInfo.amount?.tip}
 							_isConvert={_isConvert}
 							isAmount={true}
 							placeholder={`${t(
@@ -247,8 +249,7 @@ OnlineBankForm.propTypes = {
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
-	onChangeAmount: PropTypes.func.isRequired,
-	onValidAmount: PropTypes.func.isRequired,
+	onChangeForm: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired
 };
 

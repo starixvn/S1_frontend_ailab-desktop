@@ -62,7 +62,9 @@ const DepositnewInfoMoule = ({
 
 				<div className="btnGroup">
 					<button
-						onClick={onSubmit}
+						onClick={() => {
+							if (checked) onSubmit();
+						}}
 						className={checked ? "btn-check" : "darkGray"}>
 						{t("lbl_Submit")}
 					</button>
