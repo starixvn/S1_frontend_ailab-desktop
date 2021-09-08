@@ -4,18 +4,19 @@ import Inputbox from "../../common/inputbox";
 import FixedAmountList from "./fixedAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
 import config from "../../../config";
+import cardinfoImg from "../../../styles/img/cardinfo.png";
 
 export default function LoadCardForm({
 	t,
 	_isConvert,
 	formInfo,
 	depositType,
+	cardCodeInfoIconActive,
 	setFormInfo,
 	loadCardPayGroupList,
 	getLoadCardPayInfoList,
-	onChangeAmount,
-	onValidAmount,
-	onInputboxKeyDown
+	onChangeForm,
+	setCardCodeInfoIconActive
 }) {
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 
@@ -67,16 +68,9 @@ export default function LoadCardForm({
 
 	const isSelAmountType = formInfo.amountRule === 3;
 
-	const formatMinAmount = number_format({
-		number: formInfo.minAmount,
-		formatRequired: false,
-		digits: 0
-	});
-	const formatMaxAmount = number_format({
-		number: formInfo.maxAmount,
-		formatRequired: false,
-		digits: 0
-	});
+	const tipImgClass = ["tipImg", cardCodeInfoIconActive && "active"]
+		.filter(Boolean)
+		.join(" ");
 
 	return (
 		<>
@@ -99,14 +93,14 @@ export default function LoadCardForm({
 							}>
 							<div>
 								<img
-									alt={item.payName}
-									src={`${config.imgUrl}/common/images/LoadCardPay/${item.payName}.png`}
+									alt={item.groupName}
+									src={`${config.imgUrl}/common/images/LoadCardPay/${item.groupName}.png`}
 								/>
 								<i className="icon icon-checkmark" />
 							</div>
 
 							<div className="bank">
-								<div>{item.payName}</div>
+								<div>{item.channelName}</div>
 
 								<div>
 									<div>
@@ -146,29 +140,71 @@ export default function LoadCardForm({
 									minAmount={formInfo.minAmount}
 									maxAmount={formInfo.maxAmount}
 									amountList={formInfo.amountList}
-									amount={formInfo.amount}
+									amount={formInfo.amount?.val}
 									_isConvert={_isConvert}
-									onChangeAmount={onChangeAmount}
+									onChangeForm={onChangeForm}
 								/>
 							) : null}
+
+							<Inputbox
+								value={formInfo.cardCode?.val}
+								onChange={e =>
+									onChangeForm(e.target.value, "cardCode")
+								}
+								onBlur={e =>
+									onChangeForm(e.target.value, "cardCode")
+								}
+								checked={formInfo.cardCode?.checked ?? null}
+								tip={formInfo.cardCode?.tip}
+								clickInfo={() =>
+									setCardCodeInfoIconActive(prev => !prev)
+								}
+								placeholder={t("lbl_DepositCardCode")}
+							/>
+
+							<Inputbox
+								value={formInfo.cardSerial?.val}
+								onChange={e =>
+									onChangeForm(e.target.value, "cardSerial")
+								}
+								onBlur={e =>
+									onChangeForm(e.target.value, "cardSerial")
+								}
+								checked={formInfo.cardSerial?.checked}
+								tip={formInfo.cardSerial?.tip}
+								placeholder={t("lbl_DepositCardSerial")}
+							/>
+
 							<Inputbox
 								readOnly={isSelAmountType}
-								value={formInfo.amount}
-								onChange={e => onChangeAmount(e.target.value)}
-								onBlur={() => onValidAmount(formInfo.amount)}
-								checked={formInfo?.checked}
-								tip={formInfo?.tip}
+								value={formInfo.amount?.val}
+								onChange={e =>
+									onChangeForm(e.target.value, "amount")
+								}
+								onBlur={e =>
+									onChangeForm(e.target.value, "amount")
+								}
+								checked={formInfo.amount?.checked}
+								tip={formInfo.amount?.tip}
 								_isConvert={_isConvert}
 								isAmount={true}
-								placeholder={`${t(
-									"lbl_MinMaxAmount"
-								)} ${formatMinAmount} / ${formatMaxAmount}`}
-								onKeyDown={onInputboxKeyDown}
+								placeholder={t("lbl_DepositCardValue")}
 							/>
+
+							<div className={tipImgClass}>
+								<img src={cardinfoImg} alt="cardinfoImg" />
+							</div>
 						</div>
 					</div>
 				</>
 			) : null}
+
+			<div className="note">
+				<ol>
+					<li>{t("lbl_DepositLoadCardNoticeContent1")}</li>
+					<li>{t("lbl_DepositLoadCardNoticeContent2")}</li>
+				</ol>
+			</div>
 		</>
 	);
 }
@@ -181,7 +217,7 @@ LoadCardForm.propTypes = {
 	getLoadCardPayInfoList: PropTypes.func.isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
-	onChangeAmount: PropTypes.func.isRequired,
-	onValidAmount: PropTypes.func.isRequired,
-	onInputboxKeyDown: PropTypes.func.isRequired
+	onChangeForm: PropTypes.func.isRequired,
+	cardCodeInfoIconActive: PropTypes.bool.isRequired,
+	setCardCodeInfoIconActive: PropTypes.func.isRequired
 };
