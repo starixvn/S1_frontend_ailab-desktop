@@ -8,7 +8,7 @@ const FixedAmountList = ({
 	amountList,
 	amount,
 	_isConvert,
-	onChangeAmount
+	onChangeForm
 }) => {
 	if (amountList?.length <= 0) return null;
 
@@ -22,7 +22,9 @@ const FixedAmountList = ({
 
 					return (
 						<button
-							onClick={() => onChangeAmount(_afterConvertAmount)}
+							onClick={() =>
+								onChangeForm(_afterConvertAmount, "amount")
+							}
 							className={`blue${isSelected ? " active" : ""}`}
 							key={`deposit-mobile-${a}`}>
 							{number_format({
@@ -48,7 +50,7 @@ FixedAmountList.propTypes = {
 	amountList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	amount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	_isConvert: PropTypes.bool.isRequired,
-	onChangeAmount: PropTypes.func.isRequired
+	onChangeForm: PropTypes.func.isRequired
 };
 
 export default FixedAmountList;

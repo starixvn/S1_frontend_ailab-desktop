@@ -386,6 +386,13 @@
 	"lbl_BackupDomain_Title": "Please save the latest BWING domain for backup purposes.",
 	"lbl_BackupDomain_description1": "STAY ACCESSIBLE",
 	"lbl_BackupDomain_description2": "Anytime, Anywhere",
+	"lbl_DepositCardCode": "Card Code",
+	"lbl_DepositCardSerial": "Card Serial",
+	"lbl_DepositCardValue": "Card Value",
+	"msg_PleaseEnterCardCode": "Please enter card code.",
+	"msg_PleaseEnterCardSerial": "Please enter card serial.",
+	"lbl_DepositLoadCardNoticeContent1": "Please ensure you choose the correct telcom provider  and card value. Otherwise, Bwing will not bear any responsibility.",
+	"lbl_DepositLoadCardNoticeContent2": "Our card fee is cheapest in the market, only 25% apply for all telcoms.",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",

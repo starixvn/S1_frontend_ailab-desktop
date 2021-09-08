@@ -1,16 +1,18 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import usePopBox from "../../hook/usePopBox";
+import { defPopBoxType } from "../../common/defPopBoxType";
 
 import {
 	api_payment_GetLoadCardPayGroupList,
 	api_payment_GetLoadCardPayInfoList
 } from "../../../service/api/payment";
+import { api_cashier_DepositReqLoadCardPay } from "../../../service/api/cashier";
 
 const useDepositLoadCardForm = ({ isMountedRef }) => {
 	const [loadCardPayGroupList, setLoadCardPayGroupList] = useState([]);
 	const [loadCardPayInfoList, setLoadCardPayInfoList] = useState([]);
 
-	const { errorPopBox } = usePopBox();
+	const { errorPopBox, setPopBox, closePopBox } = usePopBox();
 
 	const getLoadCardPayGroupList = async () => {
 		await api_payment_GetLoadCardPayGroupList().then(res => {
@@ -42,12 +44,53 @@ const useDepositLoadCardForm = ({ isMountedRef }) => {
 			errorPopBox(message || `[${errorCode}] error`, errorCode);
 		});
 
+	const getReqLoadCardPay = ({
+		langId,
+		cardSerial,
+		cardCode,
+		channelId,
+		amount
+	}) =>
+		api_cashier_DepositReqLoadCardPay({
+			langId,
+			cardSerial,
+			cardCode,
+			channelId,
+			amount
+		}).then(res => {
+			if (!isMountedRef.current) return;
+
+			const { data, message, errorCode } = res.data;
+			const success = errorCode === 0;
+
+			if (success) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Success,
+					message1: data.formData.Message,
+					onClickClose: closePopBox,
+					btnBar: (
+						<div className="btnGroup">
+							<button
+								className="btn-cancel"
+								onClick={closePopBox}>
+								OK
+							</button>
+						</div>
+					)
+				});
+			} else {
+				errorPopBox(message || `[${errorCode}] error`, errorCode);
+			}
+		});
+
 	return {
 		loadCardPayGroupList,
 		loadCardPayInfoList,
 		getLoadCardPayGroupList,
 		getLoadCardPayInfoList,
-		setLoadCardPayInfoList
+		setLoadCardPayInfoList,
+		getReqLoadCardPay
 	};
 };
 

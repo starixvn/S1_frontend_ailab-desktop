@@ -14,8 +14,7 @@ const MobileForm = ({
 	mobilePayInfoList,
 	formInfo,
 	setFormInfo,
-	onChangeAmount,
-	onValidAmount,
+	onChangeForm,
 	onInputboxKeyDown
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
@@ -214,11 +213,15 @@ const MobileForm = ({
 							<Inputbox
 								className="inputBox-white"
 								readOnly={isSelAmountType}
-								value={formInfo.amount}
-								onChange={e => onChangeAmount(e.target.value)}
-								onBlur={() => onValidAmount(formInfo.amount)}
-								checked={formInfo?.checked}
-								tip={formInfo?.tip}
+								value={formInfo.amount?.val}
+								onChange={e =>
+									onChangeForm(e.target.value, "amount")
+								}
+								onBlur={e =>
+									onChangeForm(e.target.value, "amount")
+								}
+								checked={formInfo.amount?.checked}
+								tip={formInfo.amount?.tip}
 								_isConvert={_isConvert}
 								isAmount={true}
 								placeholder={`${t(
@@ -231,9 +234,9 @@ const MobileForm = ({
 									minAmount={formInfo.minAmount}
 									maxAmount={formInfo.maxAmount}
 									amountList={formInfo.amountList}
-									amount={formInfo.amount}
+									amount={formInfo.amount?.val}
 									_isConvert={_isConvert}
-									onChangeAmount={onChangeAmount}
+									onChangeForm={onChangeForm}
 								/>
 							) : null}
 						</div>
@@ -253,8 +256,7 @@ MobileForm.propTypes = {
 	mobilePayInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
-	onChangeAmount: PropTypes.func.isRequired,
-	onValidAmount: PropTypes.func.isRequired,
+	onChangeForm: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired
 };
 
