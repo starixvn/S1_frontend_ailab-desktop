@@ -29,16 +29,16 @@ const ResetPassWord = () => {
 	});
 
 	useEffect(() => {
-		if (userInfo.isLogin === false) {
-			const _key = getUrlParameter("key");
+		const _key = getUrlParameter("key");
+
+		if (_key) {
 			api_site_CheckResetPwdTokens({ key: _key }).then(
 				res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
 							setUserInfo(prev => ({
 								...prev,
-								isLogin: true,
-								loginFromResetPwd: true
+								isLogin: true
 							}));
 						} else {
 							navigate(`/${userInfo.langId}`);
@@ -64,10 +64,10 @@ const ResetPassWord = () => {
 					}
 				}
 			);
-		} else if (userInfo.isLogin && !userInfo.loginFromResetPwd) {
+		} else {
 			navigate(`/${userInfo.langId}`);
 		}
-	}, [userInfo.isLogin]);
+	}, []);
 
 	const ClickClose = () => {
 		setPopBox({ isOpen: false });
