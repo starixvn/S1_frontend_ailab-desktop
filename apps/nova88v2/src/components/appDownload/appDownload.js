@@ -11,7 +11,7 @@ import img_in03 from "../../styles/img/app/in03.png";
 import img_in04 from "../../styles/img/app/in04.png";
 import { cloudImgUrl } from "../../config";
 
-export const iosLink = "https://nova.jsybyny.com";
+export const iosLink = "https://nova.appdlweb.com";
 export const androidLink = "https://dl.4ppstore.com/dlapp/Nova88.apk";
 
 const AppDownload = () => {
