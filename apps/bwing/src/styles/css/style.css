@@ -2989,7 +2989,7 @@ main > .swiper-container .swiper-slide {
   font: inherit;
 }
 
-.quickLink {
+.quickLink, .appdownload {
   position: fixed;
   right: 0px;
   top: 15%;
@@ -3009,7 +3009,7 @@ main > .swiper-container .swiper-slide {
   transition: 0.7s;
 }
 
-.quickLink > div:nth-child(1) {
+.quickLink > div:nth-child(1), .appdownload > div:nth-child(1) {
   background: rgba(0, 185, 255, 0.5);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
@@ -3032,7 +3032,7 @@ main > .swiper-container .swiper-slide {
   pointer-events: all;
 }
 
-.quickLink > div:nth-child(1) .icon-chat {
+.quickLink > div:nth-child(1) .icon-chat, .quickLink > div:nth-child(1) .icon-mobile, .appdownload > div:nth-child(1) .icon-chat, .appdownload > div:nth-child(1) .icon-mobile {
   background: white;
   color: #1e85ec;
   font-weight: bold;
@@ -3045,7 +3045,7 @@ main > .swiper-container .swiper-slide {
   top: 0;
 }
 
-.quickLink > div:nth-child(1) i {
+.quickLink > div:nth-child(1) i, .appdownload > div:nth-child(1) i {
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
   position: absolute;
@@ -3060,14 +3060,14 @@ main > .swiper-container .swiper-slide {
   letter-spacing: 1px;
 }
 
-.quickLink > div:nth-child(1) i::before {
+.quickLink > div:nth-child(1) i::before, .appdownload > div:nth-child(1) i::before {
   margin-right: 5px;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
   font-size: 18px;
 }
 
-.quickLink > div:nth-child(2) {
+.quickLink > div:nth-child(2), .appdownload > div:nth-child(2) {
   background: #fff;
   -webkit-box-flex: 3.5;
       -ms-flex: 3.5;
@@ -3075,7 +3075,7 @@ main > .swiper-container .swiper-slide {
   padding: 5px 10px;
 }
 
-.quickLink > div:nth-child(2) ul {
+.quickLink > div:nth-child(2) ul, .appdownload > div:nth-child(2) ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3086,7 +3086,7 @@ main > .swiper-container .swiper-slide {
   height: 100%;
 }
 
-.quickLink > div:nth-child(2) ul li {
+.quickLink > div:nth-child(2) ul li, .appdownload > div:nth-child(2) ul li {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -3104,19 +3104,37 @@ main > .swiper-container .swiper-slide {
   margin: 5px 0;
 }
 
-.quickLink > div:nth-child(2) ul li .icon {
+.quickLink > div:nth-child(2) ul li .icon, .appdownload > div:nth-child(2) ul li .icon {
   color: #333;
   vertical-align: middle;
 }
 
-.quickLink > div:nth-child(2) ul li .icon::before {
+.quickLink > div:nth-child(2) ul li .icon::before, .appdownload > div:nth-child(2) ul li .icon::before {
   font-size: 18px;
   color: #00b9ff;
   margin-right: 5px;
   vertical-align: middle;
 }
 
-.quickLink:hover {
+.quickLink > div:nth-child(2) ul li a, .appdownload > div:nth-child(2) ul li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #666;
+  font-size: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.quickLink > div:nth-child(2) ul li a img, .appdownload > div:nth-child(2) ul li a img {
+  width: 25px;
+  height: 25px;
+  display: block;
+  margin-right: 2px;
+}
+
+.quickLink:hover, .appdownload:hover {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
   -webkit-transition: 0.7s;
@@ -11981,5 +11999,21 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.appdownload {
+  left: 0;
+  right: unset;
+  -webkit-transform: translateX(-81%);
+          transform: translateX(-81%);
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse;
+          flex-flow: row-reverse;
+}
+
+.appdownload:hover {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
 }
 /*# sourceMappingURL=style.css.map */
