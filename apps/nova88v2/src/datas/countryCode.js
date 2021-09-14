@@ -15,8 +15,8 @@ export const currencyCode = {
 	ID: 15,
 	ID_EN: 15,
 	VN: 51,
-	HI: 2,
-	HI_EN: 2,
+	HI: 61,
+	HI_EN: 61,
 	USDT: 96,
 	INR: 61
 };
