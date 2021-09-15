@@ -210,9 +210,10 @@ Autoplay.propTypes = {
 	Rows: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
-export const AutoPlayWithBtn = ({ Rows }) => {
+export const AutoPlayWithBtn = ({ Rows, config }) => {
 	const params = {
 		...defSwipperConfig,
+		...config,
 		navigation: {
 			nextEl: ".swiper-button-next",
 			prevEl: ".swiper-button-prev"
@@ -251,8 +252,13 @@ export const AutoPlayWithBtn = ({ Rows }) => {
 	) : null;
 };
 
+AutoPlayWithBtn.defaultProps = {
+	config: {}
+};
+
 AutoPlayWithBtn.propTypes = {
-	Rows: PropTypes.arrayOf(PropTypes.node).isRequired
+	Rows: PropTypes.arrayOf(PropTypes.node).isRequired,
+	config: PropTypes.objectOf(PropTypes.any)
 };
 
 export default Panel;

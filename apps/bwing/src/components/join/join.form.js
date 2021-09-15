@@ -138,7 +138,7 @@ const JoinForm = ({
 					{t("lbl_CANCEL")}
 				</button>
 				<button className="orange" type="submit" onClick={clickSubmit}>
-					{t("lbl_JOINNOW")}
+					{String(t("lbl_JoinNow")).toUpperCase()}
 				</button>
 			</div>
 		</div>
