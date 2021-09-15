@@ -1,6 +1,7 @@
 import { readCookie } from "../components/common/common";
 
 const siteLangList = ["en", "vn"];
+export const siteDefLangId = "vn";
 
 const SetReplaceChar = (initPath, idx, langId) => {
 	const _path = initPath
@@ -35,8 +36,6 @@ export const isVaildLang = lang => {
 };
 
 export const GET_LANG_ID = userLangId => {
-	const siteDefLangId = "vn";
-
 	let langId = userLangId || readCookie("LangId");
 	const browserDefLang =
 		typeof window !== `undefined` ? navigator.language.toLowerCase() : null;
