@@ -3,7 +3,7 @@ import config from "../../config";
 import useClickOutside from "../hook/useClickOutSide";
 
 export default ({ onClickClose }) => {
-	const videoSourceConfig = `${config.t_and_cURL}/SiteSkin/${config.siteName}/Static/Images/How_To_Deposit.mp4`;
+	const videoSourceConfig = `${config.t_and_cURL}/SiteSkin/${config.siteName}/Static/images/How_To_Deposit.mp4`;
 
 	const videoRef = useClickOutside(() => {
 		onClickClose();
