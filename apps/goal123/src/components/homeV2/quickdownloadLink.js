@@ -6,20 +6,13 @@ import androidQRcodeImg from "../../styles/img/android_qr.png";
 
 import iosIconImg from "../../styles/img/ios.svg";
 import iosQRcodeImg from "../../styles/img/ios_qr_en.png";
-import iosQRcodeImgVN from "../../styles/img/ios_qr_vn.png";
 
 const higherToTheAngpowZIndex = 3;
 const orignZIndex = 2;
 
 const defIosQRAndLink = {
-	en: {
-		qrcode: iosQRcodeImg,
-		link: "https://www.aso008.com/aeFHM7"
-	},
-	vn: {
-		qrcode: iosQRcodeImgVN,
-		link: "https://www.aso.cool/PFwm"
-	}
+	qrcode: iosQRcodeImg,
+	link: "https://helloios.net/emRS39"
 };
 
 const QuickdownloadLink = ({ langId }) => {
