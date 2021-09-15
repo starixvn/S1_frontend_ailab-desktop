@@ -53,17 +53,14 @@ const QuickdownloadLink = ({ langId }) => {
 					</li>
 					<li>
 						<a
-							href={defIosQRAndLink[langId]?.link ?? ""}
+							href={defIosQRAndLink?.link ?? ""}
 							target="_blank"
 							rel="noreferrer">
 							<img src={iosIconImg} alt="iosIcon" />
 							iOS
 						</a>
 
-						<img
-							src={defIosQRAndLink[langId ?? ""]?.qrcode}
-							alt="ios_qr"
-						/>
+						<img src={defIosQRAndLink?.qrcode} alt="ios_qr" />
 					</li>
 				</ul>
 			</div>
