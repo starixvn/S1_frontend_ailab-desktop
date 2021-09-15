@@ -117,7 +117,7 @@ export const LicensesSection = ({ t }) => (
 			<iframe
 				width="256"
 				height="140"
-				src="https://www.youtube.com/embed/GusRXvpwaJw"
+				src="https://www.youtube.com/embed/OpXnKKW1y20"
 				title="YouTube video player"
 				frameBorder="0"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
