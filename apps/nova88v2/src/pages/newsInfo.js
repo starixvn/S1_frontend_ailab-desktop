@@ -10,7 +10,7 @@ import { getUrlParameter } from "../components/common/common";
 import { api_news_GetNewsById } from "../service/api/news";
 // import path from "../router";
 import Loading from "../components/common/loading";
-import { defPopBoxType } from "../components/common/popBox";
+import defPopBoxType from "../components/common/popBox";
 
 export default () => {
 	return (
