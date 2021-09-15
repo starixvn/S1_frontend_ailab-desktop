@@ -16,6 +16,10 @@ const LEAGUESID_LIST = {
 	Olympic: 8
 };
 
+const swiperConfig = {
+	pagination: false
+};
+
 const EventSwipper = memo(({ langId }) => {
 	const { banner } = useGetBanner({
 		langId,
@@ -68,7 +72,7 @@ const EventSwipper = memo(({ langId }) => {
 
 	return (
 		<div>
-			<AutoPlayWithBtn Rows={rows} />
+			<AutoPlayWithBtn Rows={rows} config={swiperConfig} />
 		</div>
 	);
 });
@@ -90,7 +94,7 @@ const HotEventContent = ({
 	leaguesId,
 	OnClickEvent
 }) => {
-	const datetime = moment(sportBattleDateTime).format("DD/MM HH:mm:ss");
+	const datetime = moment(sportBattleDateTime).format("DD/MM HH:mm");
 
 	const formatHdp = hdp => {
 		if (hdp === 0) return hdp;
@@ -109,17 +113,6 @@ const HotEventContent = ({
 					src={sportTeamsHomePic}
 					alt={sportTeamsHome}
 				/>
-				<p className="gameName">
-					{leaguesId === LEAGUESID_LIST.Olympic && (
-						<img
-							className="olympicsLogo"
-							src={olympicsLogo}
-							alt="olympicsLogo"
-						/>
-					)}
-
-					{sportLeaguesId}
-				</p>
 
 				<img
 					className="teamL teamR"
@@ -127,6 +120,19 @@ const HotEventContent = ({
 					alt={sportTeamsAway}
 				/>
 			</div>
+
+			<p className="gameName">
+				{leaguesId === LEAGUESID_LIST.Olympic && (
+					<img
+						className="olympicsLogo"
+						src={olympicsLogo}
+						alt="olympicsLogo"
+					/>
+				)}
+
+				{sportLeaguesId}
+			</p>
+
 			<div className="teamName">
 				<p>{sportTeamsHome}</p>
 				<p>{sportTeamsAway}</p>

@@ -151,5 +151,8 @@ export default {
 	},
 	sportBti: {
 		root: "sportBti"
+	},
+	streaming: {
+		root: "streaming"
 	}
 };
