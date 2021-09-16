@@ -71,7 +71,32 @@ export default {
 		tpId: 1,
 		name: "baseball"
 	},
+	// esport
 
+	eSport_Csgo: {
+		tpId: 1,
+		// gameId: 4319,
+		gameId: 43,
+		tpCategory: defTpCategoryId.sports
+	},
+	eSport_Dota2: {
+		tpId: 1,
+		// gameId: 4320,
+		gameId: 43,
+		tpCategory: defTpCategoryId.sports
+	},
+	eSport_KingOfGlory: {
+		tpId: 1,
+		// gameId: 4324,
+		gameId: 43,
+		tpCategory: defTpCategoryId.sports
+	},
+	eSport_LeagueOfLegends: {
+		tpId: 1,
+		// gameId: 4325,
+		gameId: 43,
+		tpCategory: defTpCategoryId.sports
+	},
 	/* === 3. live casino === */
 
 	liveCasino_Allbet: {

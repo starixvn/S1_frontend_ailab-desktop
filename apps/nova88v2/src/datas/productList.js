@@ -19,75 +19,67 @@ export default {
 		tpCategory: defTpCategoryId.slot
 	},
 	_9WSports: {
-		tpId: 31
+		tpId: 31,
+		tpCategory: defTpCategoryId.sports
 	},
 	sports: {
 		tpId: 1,
-		gameId: 1
+		gameId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	soccer: {
 		gameId: 1,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	sabaSoccer: {
 		gameId: 997,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	basketball: {
 		gameId: 2,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	badminton: {
 		gameId: 9,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	football: {
 		gameId: 3,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	tennis: {
 		gameId: 5,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	hockey: {
 		gameId: 4,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	baseball: {
 		gameId: 8,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	volleyball: {
 		gameId: 6,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	cricket: {
 		gameId: 50,
-		tpId: 1
+		tpId: 1,
+		tpCategory: defTpCategoryId.sports
 	},
 	eSport: {
 		tpId: 1,
 		gameId: 43,
-		tpCategory: defTpCategoryId.sports
-	},
-	eSport_Csgo: {
-		tpId: 1,
-		gameId: 4319,
-		tpCategory: defTpCategoryId.sports
-	},
-	eSport_Dota2: {
-		tpId: 1,
-		gameId: 4320,
-		tpCategory: defTpCategoryId.sports
-	},
-	eSport_KingOfGlory: {
-		tpId: 1,
-		gameId: 4324,
-		tpCategory: defTpCategoryId.sports
-	},
-	eSport_LeagueOfLegends: {
-		tpId: 1,
-		gameId: 4325,
 		tpCategory: defTpCategoryId.sports
 	},
 	eSportAll: {
@@ -97,21 +89,25 @@ export default {
 	},
 	eSport_DOTA2: {
 		tpId: 1,
+		// gameId: 4320,
 		gameId: 43,
 		tpCategory: defTpCategoryId.sports
 	},
 	eSport_LOL: {
 		tpId: 1,
+		// gameId: 4325,
 		gameId: 43,
 		tpCategory: defTpCategoryId.sports
 	},
 	eSport_CSGO: {
 		tpId: 1,
+		// gameId: 4319,
 		gameId: 43,
 		tpCategory: defTpCategoryId.sports
 	},
 	eSport_KOG: {
 		tpId: 1,
+		// gameId: 4324,
 		gameId: 43,
 		tpCategory: defTpCategoryId.sports
 	},

@@ -169,9 +169,40 @@ export const defMenuLinks = {
 	// 	displayKey: "lbl_VirtualSport"
 	// },
 	eSport: {
-		productInfo: productList.eSport,
-		path: path.sports.root,
-		displayKey: "lbl_eSports"
+		path: path.eSport.root,
+		displayKey: "lbl_eSports",
+		entryList: [
+			{
+				...productList.eSport_Dota2,
+				_class: "dota",
+				displayKey: "Dota2",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.eSport_Csgo,
+				_class: "cso",
+				displayKey: "CSGO",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.eSport,
+				_class: "all",
+				displayKey: "All",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.eSport_LeagueOfLegends,
+				_class: "lol",
+				displayKey: "LOL",
+				menuType: defMenuType.entPage
+			},
+			{
+				...productList.eSport_KingOfGlory,
+				_class: "king",
+				displayKey: "Kog",
+				menuType: defMenuType.entPage
+			}
+		]
 	},
 	casino: {
 		path: path.casino.root,
