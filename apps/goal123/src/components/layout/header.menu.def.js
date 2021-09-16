@@ -148,6 +148,12 @@ import fishingLobbyFishingworldBgImg from "../../styles/img/fishing/fishingworld
 import fishingLobbyFishinggodBgImg from "../../styles/img/fishing/fishinggod.png";
 import fishingLobbyFishingwarBgImg from "../../styles/img/fishing/fishingwar.png";
 
+import dota2 from "../../styles/img/esports/dota2.png";
+import lol from "../../styles/img/esports/lol.png";
+import cs from "../../styles/img/esports/cs.png";
+import all from "../../styles/img/esports/all.png";
+import king from "../../styles/img/esports/king.png";
+
 export const defMenuType = {
 	entPage: "entPage",
 	Link: "Link",
@@ -318,9 +324,40 @@ export const defMenuLinks = langId => {
 		// 	displayKey: "lbl_VirtualSport"
 		// },
 		eSport: {
-			productInfo: productList.eSport,
-			path: path.sports.root,
-			displayKey: "lbl_eSports"
+			path: path.eSport.root,
+			displayKey: "lbl_eSports",
+			entryList: [
+				{
+					...productList.eSport_Dota2,
+					imgSrc: dota2,
+					displayKey: "Dota2",
+					menuType: defMenuType.entPage
+				},
+				{
+					...productList.eSport_Csgo,
+					imgSrc: cs,
+					displayKey: "CSGO",
+					menuType: defMenuType.entPage
+				},
+				{
+					...productList.eSport,
+					imgSrc: all,
+					displayKey: "All",
+					menuType: defMenuType.entPage
+				},
+				{
+					...productList.eSport_LeagueOfLegends,
+					imgSrc: lol,
+					displayKey: "LOL",
+					menuType: defMenuType.entPage
+				},
+				{
+					...productList.eSport_KingOfGlory,
+					imgSrc: king,
+					displayKey: "Kog",
+					menuType: defMenuType.entPage
+				}
+			]
 		},
 		casino: {
 			path: path.casino.root,
