@@ -30,12 +30,6 @@ export default {
 		name: "sportBti",
 		tpCategory: defTpCategoryId.sports
 	},
-	eSport: {
-		tpId: 1,
-		gameId: 43,
-		name: "eSport",
-		tpCategory: defTpCategoryId.sports
-	},
 	sabaSoccer: {
 		tpId: 1,
 		gameId: 997,
@@ -76,6 +70,39 @@ export default {
 		gameId: 8,
 		tpId: 1,
 		name: "baseball"
+	},
+
+	// esport
+
+	eSport_Csgo: {
+		tpId: 1,
+		// gameId: 4319,
+		gameId: 43,
+		tpCategory: defTpCategoryId.sports
+	},
+	eSport_Dota2: {
+		tpId: 1,
+		// gameId: 4320,
+		gameId: 43,
+		tpCategory: defTpCategoryId.sports
+	},
+	eSport_KingOfGlory: {
+		tpId: 1,
+		// gameId: 4324,
+		gameId: 43,
+		tpCategory: defTpCategoryId.sports
+	},
+	eSport_LeagueOfLegends: {
+		tpId: 1,
+		// gameId: 4325,
+		gameId: 43,
+		tpCategory: defTpCategoryId.sports
+	},
+	eSport: {
+		tpId: 1,
+		gameId: 43,
+		name: "eSport",
+		tpCategory: defTpCategoryId.sports
 	},
 
 	/* === 3. live casino === */

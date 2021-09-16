@@ -75,7 +75,6 @@ export default ({
 
 	const rows = showRows.map(key => {
 		const m = defMenuLinks[key];
-
 		let _className = m.className ? m.className : "";
 		if (m.isHot) {
 			_className = `${_className} hot`;

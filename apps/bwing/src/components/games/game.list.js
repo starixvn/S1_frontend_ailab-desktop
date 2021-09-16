@@ -50,7 +50,15 @@ const GameListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 		.join(" ");
 
 	return (
-		<div className={_className}>
+		<div
+			className={_className}
+			onClick={() =>
+				clickItem({
+					tpId,
+					gameId,
+					tpGameType
+				})
+			}>
 			{isInMaintain && (
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
 			)}
@@ -60,21 +68,6 @@ const GameListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 			)}
 
 			<p>{_displayText}</p>
-
-			<div className="btnGroup">
-				<button
-					className="orange"
-					onClick={() =>
-						clickItem({
-							tpId,
-							gameId
-						})
-					}>
-					{t("lbl_Play")}
-				</button>
-
-				{/* <button className="blue">DEMO</button> */}
-			</div>
 		</div>
 	);
 };

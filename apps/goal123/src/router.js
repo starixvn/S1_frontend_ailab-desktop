@@ -141,5 +141,8 @@ export default {
 	},
 	sportBti: {
 		root: "sportBti"
+	},
+	eSport: {
+		root: "eSport"
 	}
 };

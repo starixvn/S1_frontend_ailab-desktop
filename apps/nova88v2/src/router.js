@@ -157,5 +157,8 @@ export default {
 	},
 	sponsor: {
 		root: "sponsor"
+	},
+	eSport: {
+		root: "eSport"
 	}
 };

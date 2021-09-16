@@ -261,8 +261,7 @@ export const defMenuLinks = {
 	eSports: {
 		displayKey: "lbl_eSports",
 		className: "eSportsbtn",
-		path: path.sports.root,
-		productInfo: productList.eSport,
+		path: path.eSport.root,
 		subMenu: [
 			{
 				displayKey: "lbl_All",
@@ -270,7 +269,11 @@ export const defMenuLinks = {
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSportAll },
-				...productList.eSportAll
+				...productList.eSportAll,
+				lobbyPage: {
+					bgImg: "esposts-all.png",
+					hoverBgImg: "esposts-alla.png"
+				}
 			},
 			{
 				displayKey: "lbl_Dota2",
@@ -278,7 +281,11 @@ export const defMenuLinks = {
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSport_DOTA2 },
-				...productList.eSport_DOTA2
+				...productList.eSport_DOTA2,
+				lobbyPage: {
+					bgImg: "esposts-dota.png",
+					hoverBgImg: "esposts-dotaa.png"
+				}
 			},
 			{
 				displayKey: "lbl_LOL",
@@ -286,7 +293,11 @@ export const defMenuLinks = {
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSport_LOL },
-				...productList.eSport_LOL
+				...productList.eSport_LOL,
+				lobbyPage: {
+					bgImg: "esposts-lol.png",
+					hoverBgImg: "esposts-lola.png"
+				}
 			},
 			{
 				displayKey: "lbl_CSGO",
@@ -294,7 +305,11 @@ export const defMenuLinks = {
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSport_CSGO },
-				...productList.eSport_CSGO
+				...productList.eSport_CSGO,
+				lobbyPage: {
+					bgImg: "esposts-cs.png",
+					hoverBgImg: "esposts-csa.png"
+				}
 			},
 			{
 				displayKey: "lbl_Kog",
@@ -302,7 +317,11 @@ export const defMenuLinks = {
 				listBgImgUrl: "eSportsListHover.png",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.eSport_KOG },
-				...productList.eSport_KOG
+				...productList.eSport_KOG,
+				lobbyPage: {
+					bgImg: "esposts-kog.png",
+					hoverBgImg: "esposts-koga.png"
+				}
 			}
 		]
 	},
