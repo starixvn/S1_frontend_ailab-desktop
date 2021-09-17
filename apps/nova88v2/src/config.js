@@ -29,7 +29,7 @@ export const SiteInfo = {
 			displayKey: "lbl_Twitter"
 		},
 		ig: {
-			link: "https://www.instagram.com/nova88.net_official",
+			link: "https://www.instagram.com/nova88_official",
 			displayKey: "lbl_Instagram"
 		},
 		youtube: {
