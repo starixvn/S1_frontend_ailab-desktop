@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import FixedAmountList from "./fixedAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
+import Dropdown from "../../common/dropdown";
 import config from "../../../config";
 import cardinfoImg from "../../../styles/img/cardinfo.png";
 
@@ -13,11 +14,13 @@ export default function LoadCardForm({
 	depositType,
 	cardCodeInfoIconActive,
 	setFormInfo,
+	depositPromoList,
 	loadCardPayGroupList,
 	getLoadCardPayInfoList,
 	onChangeForm,
 	onInputboxKeyDown,
-	setCardCodeInfoIconActive
+	setCardCodeInfoIconActive,
+	changeDeposotPromoHandlar
 }) {
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 
@@ -33,7 +36,13 @@ export default function LoadCardForm({
 			`${window.location.pathname}?type=${depositType}&channelId=${item.channelId}`
 		);
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo(item);
+
+		setFormInfo(prev => {
+			return {
+				...item,
+				depositPromo: prev.depositPromo
+			};
+		});
 	};
 
 	useEffect(() => {
@@ -56,6 +65,13 @@ export default function LoadCardForm({
 			const result = await Promise.all(promiseArray).then(res =>
 				res.flat()
 			);
+
+			if (depositPromoList?.length > 0) {
+				changeDeposotPromoHandlar({
+					idx: 0,
+					bonusCode: depositPromoList[0].bonusCode
+				});
+			}
 
 			defaultDataCheck(result);
 			setPaymentList(result);
@@ -208,15 +224,43 @@ export default function LoadCardForm({
 							<img src={cardinfoImg} alt="cardinfoImg" />
 						</div>
 					</div>
-
-					<div className="note">
-						<ol>
-							<li>* {t("lbl_DepositLoadCardNoticeContent1")}</li>
-							<li>* {t("lbl_DepositLoadCardNoticeContent2")}</li>
-						</ol>
-					</div>
 				</>
 			) : null}
+
+			{depositPromoList?.length > 0 && (
+				<>
+					<div className="subModuleTitle">
+						<span>
+							<i className="txt-blue" />
+							{t("lbl_Select_Bonus")}
+						</span>
+					</div>
+					<div className="subModule">
+						<div className="inputBox-blue">
+							<Dropdown
+								showDropDownIcon={true}
+								mainkey="bonus-provider"
+								options={depositPromoList}
+								onSelectItem={(idx, data) =>
+									changeDeposotPromoHandlar({
+										idx,
+										bonusCode: data.bonusCode
+									})
+								}
+								selectedIdx={formInfo?.depositPromo?.idx}
+								i18n={t}
+							/>
+						</div>
+					</div>
+				</>
+			)}
+
+			<div className="note">
+				<ol>
+					<li>* {t("lbl_DepositLoadCardNoticeContent1")}</li>
+					<li>* {t("lbl_DepositLoadCardNoticeContent2")}</li>
+				</ol>
+			</div>
 		</>
 	);
 }
@@ -232,5 +276,7 @@ LoadCardForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
-	setCardCodeInfoIconActive: PropTypes.func.isRequired
+	setCardCodeInfoIconActive: PropTypes.func.isRequired,
+	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	changeDeposotPromoHandlar: PropTypes.func.isRequired
 };

@@ -86,9 +86,13 @@ const Depositnew = () => {
 		asyncUploadBankPopBox,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
-		setDepositInfoRecentDatas
+		setDepositInfoRecentDatas,
+		depositPromoList,
+		getDepositPromotionList,
+		setDepositPromotionQueue
 	} = useDeposit({
-		isMountedRef
+		isMountedRef,
+		userInfo
 	});
 
 	const {
@@ -220,7 +224,16 @@ const Depositnew = () => {
 		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 		if (typeof window !== "undefined") {
-			const { amount, cardCode, cardSerial } = formInfo;
+			const {
+				payId,
+				sysId,
+				channelId,
+				amount,
+				mode,
+				cardCode,
+				cardSerial,
+				depositPromo
+			} = formInfo;
 			const resultAmount = _isConvert ? amount.val * 1000 : amount.val;
 			setLoading(true);
 
@@ -264,7 +277,7 @@ const Depositnew = () => {
 				}
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
-					sysId: formInfo.sysId
+					sysId
 				});
 				if (transId) {
 					try {
@@ -279,8 +292,14 @@ const Depositnew = () => {
 									transId,
 									depositTime: formInfo.time,
 									fefNo: formInfo.refId
+								}),
+							!formInfo?.depositPromo?.bonusCode ||
+								setDepositPromotionQueue({
+									transId,
+									bonusCode: formInfo.depositPromo.bonusCode
 								})
 						]);
+
 						if (result.every(res => res)) {
 							setPopBox({
 								isOpen: true,
@@ -303,34 +322,65 @@ const Depositnew = () => {
 					}
 				}
 			} else if (depositType === defDepositType.mobile) {
-				window.open(
-					`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
-				);
+				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay`;
+
+				const params = [
+					`ChannelId=${channelId}`,
+					`Amount=${resultAmount}`,
+					depositPromo?.bonusCode
+						? `BonusCode=${depositPromo.bonusCode}`
+						: ""
+				]
+					.filter(Boolean)
+					.join("&");
+
+				window.open(`${baseUrl}?${params}`);
+
 				await delay(1000);
 			} else if (depositType === defDepositType.onlineBank) {
-				window.open(
-					`${config.openURL}/${
-						userInfo.langId
-					}/Cashier/DepositReqOnlineBanking?sysId=${
-						formInfo?.sysId || 0
-					}&payId=${formInfo.payId}&ChannelId=${
-						formInfo.channelId
-					}&Amount=${resultAmount}`
-				);
+				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking`;
+				const params = [
+					`sysId=${sysId || 0}`,
+					`payId=${payId}`,
+					`ChannelId=${channelId}`,
+					`Amount=${resultAmount}`,
+					depositPromo?.bonusCode
+						? `BonusCode=${depositPromo.bonusCode}`
+						: ""
+				]
+					.filter(Boolean)
+					.join("&");
+
+				window.open(`${baseUrl}?${params}`);
+
 				await delay(1000);
 			} else if (depositType === defDepositType.loadCard) {
-				if (formInfo.mode === 3) {
+				if (mode === 2) {
 					getReqLoadCardPay({
 						langId: userInfo.langId,
-						channelId: formInfo.channelId,
+						channelId,
 						cardCode: cardCode.val,
 						cardSerial: cardSerial.val,
-						amount: resultAmount
+						amount: resultAmount,
+						bonusCode: depositPromo?.bonusCode
 					});
 				} else {
-					window.open(
-						`${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay?ChannelId=${formInfo.channelId}&Code=${cardCode.val}&Serial=${cardSerial.val}&Amount=${resultAmount}`
-					);
+					const openUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay`;
+
+					const params = [
+						`ChannelId=${channelId}`,
+						`Code=${cardCode.val}`,
+						`Serial=${cardSerial.val}`,
+						`Amount=${resultAmount}`,
+						depositPromo?.bonusCode
+							? `BonusCode=${depositPromo.bonusCode}`
+							: ""
+					]
+						.filter(Boolean)
+						.join("&");
+
+					window.open(`${openUrl}?${params}`);
+
 					await delay(1000);
 				}
 			}
@@ -351,6 +401,17 @@ const Depositnew = () => {
 		}
 	};
 
+	const changeDeposotPromoHandlar = ({ idx, bonusCode }) =>
+		setFormInfo(prev => {
+			return {
+				...prev,
+				depositPromo: {
+					idx,
+					bonusCode
+				}
+			};
+		});
+
 	useEffect(() => {
 		const getData = async () => {
 			setLoading(true);
@@ -359,7 +420,8 @@ const Depositnew = () => {
 					getMobilePayGroupList(),
 					getLocalBankGroupList(),
 					getOnlineBankGroupList(),
-					getLoadCardPayGroupList()
+					getLoadCardPayGroupList(),
+					getDepositPromotionList()
 				]);
 
 				setIsInitDataDone(true);
@@ -458,6 +520,8 @@ const Depositnew = () => {
 						setFormInfo={setFormInfo}
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
+						depositPromoList={depositPromoList}
+						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
 
@@ -475,6 +539,8 @@ const Depositnew = () => {
 						getLocalBankInfo={getLocalBankInfo}
 						localBankInfo={localBankInfo}
 						asyncUploadBankPopBox={asyncUploadBankPopBox}
+						depositPromoList={depositPromoList}
+						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
 
@@ -491,6 +557,8 @@ const Depositnew = () => {
 						setFormInfo={setFormInfo}
 						setOnlineBankInfoList={setOnlineBankInfoList}
 						onInputboxKeyDown={onInputboxKeyDown}
+						depositPromoList={depositPromoList}
+						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
 
@@ -507,6 +575,8 @@ const Depositnew = () => {
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
 						setCardCodeInfoIconActive={setCardCodeInfoIconActive}
+						depositPromoList={depositPromoList}
+						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
 			</DepositnewInfoMoule>
