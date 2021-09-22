@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import FixedAmountList from "./fixedAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
+import Dropdown from "../../common/dropdown";
 import config from "../../../config";
 
 const MobileForm = ({
@@ -13,10 +14,11 @@ const MobileForm = ({
 	getMobilePayInfoList,
 	mobilePayInfoList,
 	formInfo,
+	depositPromoList,
 	setFormInfo,
-	onChangeForm,
-
-	onInputboxKeyDown
+	onInputboxKeyDown,
+	changeDeposotPromoHandlar,
+	onChangeForm
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
@@ -57,7 +59,12 @@ const MobileForm = ({
 		);
 
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo(item);
+		setFormInfo(prev => {
+			return {
+				...item,
+				depositPromo: prev.depositPromo
+			};
+		});
 	};
 
 	useEffect(() => {
@@ -68,6 +75,13 @@ const MobileForm = ({
 				await onGetMobileInfoList(defaultGroupId);
 			} else if (mobilePayGourpList.length > 0) {
 				await onGetMobileInfoList(mobilePayGourpList[0].groupId);
+			}
+
+			if (depositPromoList?.length) {
+				changeDeposotPromoHandlar({
+					idx: 0,
+					bonusCode: depositPromoList[0].bonusCode
+				});
 			}
 		};
 
@@ -244,6 +258,33 @@ const MobileForm = ({
 					</div>
 				</>
 			) : null}
+
+			{depositPromoList?.length > 0 && (
+				<>
+					<div className="subModuleTitle">
+						<span>
+							<i className="txt-blue" />
+							{t("lbl_Select_Bonus")}
+						</span>
+					</div>
+					<div className="subModule">
+						<div className="inputBox">
+							<Dropdown
+								mainkey="bonus-provider"
+								options={depositPromoList}
+								onSelectItem={(idx, data) =>
+									changeDeposotPromoHandlar({
+										idx,
+										bonusCode: data.bonusCode
+									})
+								}
+								selectedIdx={formInfo?.depositPromo?.idx}
+								i18n={t}
+							/>
+						</div>
+					</div>
+				</>
+			)}
 		</>
 	);
 };
@@ -257,8 +298,10 @@ MobileForm.propTypes = {
 	mobilePayInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
-	onChangeForm: PropTypes.func.isRequired,
-	onInputboxKeyDown: PropTypes.func.isRequired
+	onInputboxKeyDown: PropTypes.func.isRequired,
+	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	changeDeposotPromoHandlar: PropTypes.func.isRequired,
+	onChangeForm: PropTypes.func.isRequired
 };
 
 export default MobileForm;

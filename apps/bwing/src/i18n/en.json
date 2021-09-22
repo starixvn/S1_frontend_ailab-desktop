@@ -275,6 +275,7 @@
 	"lbl_Processing": "Processing",
 	"lbl_Congratulations": "Congratulations",
 	"lbl_Download": "Download",
+	"lbl_None": "None",
 	"lbl_underMaintenance": "Under Maintenance",
 	"lbl_More": "More",
 
@@ -388,6 +389,7 @@
 	"lbl_DepositImportantNoticeContent4": "Please <span>DO NOT</span> fill in <span>'BWING'</span> or any sensitive words related to gambling as reference/remark in your online transaction.",
 	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
 	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
+	"lbl_Select_Bonus": "Select Bonus",
 	"lbl_BackupDomain_Title": "Please save the latest BWING domain for backup purposes.",
 	"lbl_BackupDomain_description1": "STAY ACCESSIBLE",
 	"lbl_BackupDomain_description2": "Anytime, Anywhere",

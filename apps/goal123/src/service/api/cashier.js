@@ -5,8 +5,19 @@ export const api_cashier_DepositReqLoadCardPay = ({
 	cardSerial,
 	cardCode,
 	channelId,
-	amount
-}) =>
-	cashierRequest.post(
-		`/${langId}/Cashier/DepositReqLoadCardPay?ChannelId=${channelId}&Code=${cardCode}&Serial=${cardSerial}&Amount=${amount}`
-	);
+	amount,
+	bonusCode
+}) => {
+	const baseApi = `/${langId}/Cashier/DepositReqLoadCardPay`;
+	const params = [
+		`ChannelId=${channelId}`,
+		`Code=${cardCode}`,
+		`Serial=${cardSerial}`,
+		`Amount=${amount}`,
+		bonusCode ? `&BonusCode=${bonusCode}` : ""
+	]
+		.filter(Boolean)
+		.join("&");
+
+	return cashierRequest.post(`${baseApi}?${params}`);
+};

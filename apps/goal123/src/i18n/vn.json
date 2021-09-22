@@ -268,6 +268,7 @@
 	"lbl_ImportantNotice": "THÔNG BÁO QUAN TRỌNG",
 	"lbl_Play": "THAM GIA",
 	"lbl_Demo": "CHƠI THỬ",
+	"lbl_None": "Không áp dụng",
 	"lbl_underMaintenance": "Đang bảo trì",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
@@ -378,6 +379,7 @@
 	"lbl_DepositImportantNoticeContent4": "Vui lòng <span>KHÔNG</span> điền <span>“GOAL123”</span> hoặc bất cứ từ nhạy cảm nào liên quan đến cá cược trong phần nội dung giao dịch.",
 	"lbl_DepositImportantNoticeContent5": "Vui lòng lưu ý rằng mọi khoản tiền nạp đều cần hoàn thành doanh thu cược 1 lần trước khi được rút.",
 	"lbl_DepositImportantNoticeContent6": "Vui lòng liên hệ bộ phận <Link>LIVECHAT 24/7</Link> nếu lệnh gửi chậm trễ quá 5 phút.",
+	"lbl_Select_Bonus": "Chọn khuyến mãi",
 	"lbl_BackupDomain_Title": "Vui lòng lưu tên miền GOAL123 mới nhất cho mục đích dự phòng của bạn: ",
 	"lbl_BackupDomain_description1": "CÓ THỂ TRUY CẬP",
 	"lbl_BackupDomain_description2": "Bất cứ lúc nào, bất cứ nơi đâu",

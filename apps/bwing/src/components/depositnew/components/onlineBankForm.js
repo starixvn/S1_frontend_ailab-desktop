@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
+import Dropdown from "../../common/dropdown";
 import config from "../../../config";
 
 const OnlineBankForm = ({
@@ -15,7 +16,9 @@ const OnlineBankForm = ({
 	onChangeForm,
 	setFormInfo,
 	setOnlineBankInfoList,
-	onInputboxKeyDown
+	onInputboxKeyDown,
+	depositPromoList,
+	changeDeposotPromoHandlar
 }) => {
 	const parameterPayName = getUrlParameter("pName");
 	const parameterPayId = Number(getUrlParameter("pId"));
@@ -36,7 +39,13 @@ const OnlineBankForm = ({
 			`${window.location.pathname}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
 		);
 
-		setFormInfo(item);
+		setFormInfo(prev => {
+			return {
+				...item,
+				depositPromo: prev.depositPromo
+			};
+		});
+
 		setSysIdForRecord(null);
 		setPayIdForRecord(item.payId);
 		setPayNameForRecordSelectBank(item.payName);
@@ -94,6 +103,13 @@ const OnlineBankForm = ({
 				onChangeBankGroup(onlineBankGroupList[defaultGroupListIdx]);
 			} else if (onlineBankGroupList.length > 0) {
 				onChangeBankGroup(onlineBankGroupList[0]);
+			}
+
+			if (depositPromoList?.length > 0) {
+				changeDeposotPromoHandlar({
+					idx: 0,
+					bonusCode: depositPromoList[0].bonusCode
+				});
 			}
 		};
 
@@ -238,6 +254,34 @@ const OnlineBankForm = ({
 					</div>
 				</>
 			) : null}
+
+			{depositPromoList?.length > 0 && (
+				<>
+					<div className="subModuleTitle">
+						<span>
+							<i className="txt-blue" />
+							{t("lbl_Select_Bonus")}
+						</span>
+					</div>
+					<div className="subModule">
+						<div className="inputBox-blue">
+							<Dropdown
+								showDropDownIcon={true}
+								mainkey="bonus-provider"
+								options={depositPromoList}
+								onSelectItem={(idx, data) =>
+									changeDeposotPromoHandlar({
+										idx,
+										bonusCode: data.bonusCode
+									})
+								}
+								selectedIdx={formInfo?.depositPromo?.idx}
+								i18n={t}
+							/>
+						</div>
+					</div>
+				</>
+			)}
 		</>
 	);
 };
@@ -252,8 +296,10 @@ OnlineBankForm.propTypes = {
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
-	onChangeForm: PropTypes.func.isRequired,
-	onInputboxKeyDown: PropTypes.func.isRequired
+	onInputboxKeyDown: PropTypes.func.isRequired,
+	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	changeDeposotPromoHandlar: PropTypes.func.isRequired,
+	onChangeForm: PropTypes.func.isRequired
 };
 
 export default OnlineBankForm;
