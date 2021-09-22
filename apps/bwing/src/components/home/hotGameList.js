@@ -35,7 +35,8 @@ const defGameList = [
 		img: imgMahjongWaysTwo,
 		tpId: 14,
 		gameId: "mahjong-ways2",
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 17
 	},
 	{
 		name: "Treasures of Aztec",
@@ -44,7 +45,8 @@ const defGameList = [
 		img: imgAztec,
 		tpId: 14,
 		gameId: "treasures-aztec",
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 17
 	},
 	{
 		name: "5 God beasts",
@@ -53,7 +55,8 @@ const defGameList = [
 		img: imgFiveGodbeasts,
 		tpId: 16,
 		gameId: 117,
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 29
 	},
 	{
 		name: "Hercules",
@@ -62,7 +65,8 @@ const defGameList = [
 		img: imgHercules,
 		tpId: 16,
 		gameId: 161,
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 29
 	},
 	{
 		name: "Three Star Fortune",
@@ -71,7 +75,8 @@ const defGameList = [
 		img: imgThreeStarFortune,
 		tpId: 5,
 		gameId: "vs10threestar",
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 7
 	},
 	{
 		name: "5 Lions Gold",
@@ -80,7 +85,8 @@ const defGameList = [
 		img: imgFiveLionsGold,
 		tpId: 5,
 		gameId: "vs243lionsgold",
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 7
 	},
 	{
 		name: "Dancing Fever",
@@ -89,7 +95,8 @@ const defGameList = [
 		img: imgDancingFever,
 		tpId: 10,
 		gameId: "S-DF02",
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 15
 	},
 	{
 		name: "5 Fortune Dragons",
@@ -98,7 +105,8 @@ const defGameList = [
 		img: imgFiveFortuneDragons,
 		tpId: 10,
 		gameId: "S-FD01",
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 15
 	},
 	{
 		name: "Thor Infinity Reels",
@@ -107,7 +115,8 @@ const defGameList = [
 		img: imgThorInfinityReels,
 		tpId: 8,
 		gameId: "1035",
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 14
 	},
 	{
 		name: "Lucky Neko",
@@ -116,7 +125,8 @@ const defGameList = [
 		img: imgLuckyNeko,
 		tpId: 8,
 		gameId: "7382",
-		gameType: defGameType.casino
+		gameType: defGameType.casino,
+		tpGameType: 14
 	}
 ];
 
@@ -133,7 +143,9 @@ export default ({ setPopBox, t, userInfo, allMaintainList }) => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.UnderMaintain,
-				clickClose
+				clickClose: () => {
+					setPopBox({ isOpen: false });
+				}
 			});
 
 			return;
@@ -173,10 +185,7 @@ export default ({ setPopBox, t, userInfo, allMaintainList }) => {
 const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 	const rows = gameList.map(g => {
 		const isInMaintain = allMaintainList?.some(
-			mt =>
-				mt.tpId === g.tpId &&
-				(mt.tpCategoryId === g.tpCategory ||
-					mt.tpCategoryId === defTpCategoryId.all)
+			mt => mt.tpId === g.tpId && mt.tpGameType === g.tpGameType
 		);
 
 		return (

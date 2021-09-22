@@ -97,10 +97,18 @@ const defGameList = [
 	}
 ];
 
-export default ({ t, userInfo, maintainList, defTpCategoryId }) => {
+export default ({ t, userInfo, maintainList }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
-	const ClickGame = (tpId, gameId, betType, linkType, name, isInMaintain) => {
+	const ClickGame = (
+		tpId,
+		gameId,
+		betType,
+		linkType,
+		name,
+		isInMaintain,
+		tpGameType
+	) => {
 		const LoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -128,7 +136,8 @@ export default ({ t, userInfo, maintainList, defTpCategoryId }) => {
 					tpId,
 					gameId,
 					isFree: false,
-					langId: userInfo.langId
+					langId: userInfo.langId,
+					tpGameType
 				});
 			}
 		} else if (linkType === defLinkType.sports) {
@@ -140,7 +149,8 @@ export default ({ t, userInfo, maintainList, defTpCategoryId }) => {
 				gameId,
 				isLogin: userInfo.isLogin,
 				betType,
-				loginCallback: LoginPopBox
+				loginCallback: LoginPopBox,
+				tpGameType
 			});
 		}
 	};
@@ -149,10 +159,7 @@ export default ({ t, userInfo, maintainList, defTpCategoryId }) => {
 		const displayText = t(g.displayKey) ?? g.displayKey;
 
 		const isInMaintain = maintainList?.some(
-			item =>
-				item.tpId === g.tpId &&
-				(item.tpCategoryId === g.tpCategory ||
-					item.tpCategoryId === defTpCategoryId.all)
+			item => item.tpId === g.tpId && item.tpGameType === g.tpGameType
 		);
 
 		return (
@@ -165,7 +172,8 @@ export default ({ t, userInfo, maintainList, defTpCategoryId }) => {
 					g.betType,
 					g.linkType,
 					g.name,
-					isInMaintain
+					isInMaintain,
+					g.tpGameType
 				)}>
 				<img src={g.img} alt={displayText} />
 				<div>{displayText}</div>

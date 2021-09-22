@@ -12,7 +12,8 @@ export const SET_CASINO_ENTER_PAGE = ({
 	gameId,
 	isFree,
 	langId,
-	execFunction
+	execFunction,
+	tpGameType
 }) => {
 	if (typeof window !== `undefined`) {
 		if (execFunction) {
@@ -23,7 +24,9 @@ export const SET_CASINO_ENTER_PAGE = ({
 			const signupUrl = `${appUrl}/${path.join.root}`;
 			const LoginUrl = `${appUrl}/${path.login.root}`;
 			const _errorPageUrl = errorPageUrl(langId);
-			const entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&errorUrl=${_errorPageUrl}`;
+			const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
+			const entPageUrl = `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&errorUrl=${_errorPageUrl}${_tpGameType}`;
+
 			window
 				.open(
 					`${entPageUrl}&fun=${isFree ? 1 : 0}&gameType=slots`,
@@ -43,9 +46,17 @@ export const SET_ENTER_PAGE = ({
 	isLogin,
 	loginCallback,
 	betType,
-	openInBlank = false
+	openInBlank = false,
+	tpGameType
 }) => {
-	const result = GET_OPEN_RULE(langId, tpId, gameId, matchid, betType);
+	const result = GET_OPEN_RULE(
+		langId,
+		tpId,
+		gameId,
+		matchid,
+		betType,
+		tpGameType
+	);
 	if (!isLogin && result.needLogin) {
 		loginCallback();
 	} else if (result.actionType === _ACTION_TYPE.blank || openInBlank) {
@@ -67,7 +78,14 @@ export const OPEN_IN_BLANK = (url, windowKey) => {
 	}
 };
 
-export const GET_OPEN_RULE = (langId, tpId, gameId, matchid, betType) => {
+export const GET_OPEN_RULE = (
+	langId,
+	tpId,
+	gameId,
+	matchid,
+	betType,
+	tpGameType
+) => {
 	const _tpId = isNaN(tpId) ? tpId : Number(tpId);
 	const _gameId = isNaN(gameId) ? gameId : Number(gameId);
 	const _matchid = isNaN(matchid) ? matchid : Number(matchid);
@@ -102,24 +120,26 @@ export const GET_OPEN_RULE = (langId, tpId, gameId, matchid, betType) => {
 
 	return {
 		...result,
-		entPageUrl: GET_ENTER_PAGE_URL(
+		entPageUrl: GET_ENTER_PAGE_URL({
 			langId,
-			_tpId,
-			_gameId,
-			_matchid,
-			betType
-		)
+			tpId: _tpId,
+			gameId: _gameId,
+			matchid: _matchid,
+			betType,
+			tpGameType
+		})
 	};
 };
 
-export const GET_ENTER_PAGE_URL = (
+export const GET_ENTER_PAGE_URL = ({
 	langId,
 	tpId,
 	gameId,
 	matchid,
 	betType,
-	isLogin
-) => {
+	isLogin,
+	tpGameType
+}) => {
 	const appUrl =
 		typeof window !== `undefined` ? window.location.origin : null;
 	const homeUrl = `${appUrl}`;
@@ -130,12 +150,13 @@ export const GET_ENTER_PAGE_URL = (
 	const _matchid = matchid || "";
 	const _betType = betType ? `&betType=${betType}` : "";
 	const _errorPageUrl = errorPageUrl(langId);
+	const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
 	let urlSpecialPattern = "";
 	if (tpId === productList.sportBti.tpId) {
 		urlSpecialPattern = `&gameType=sports${isLogin ? "" : "&fun=1"}`;
 	}
 
-	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}${urlSpecialPattern}`;
+	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}${urlSpecialPattern}${_tpGameType}`;
 };
 
 const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {

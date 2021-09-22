@@ -6,7 +6,6 @@ import { defMenuLinks, defMenuType } from "./header.menu.def";
 // import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 // import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 import { bannerImgUrl } from "../../config";
-import { defTpCategoryId } from "../../datas/productList";
 
 const SubMenuMultiple = ({
 	menuKey,
@@ -23,12 +22,11 @@ const SubMenuMultiple = ({
 	const displayText3 = subMenuItem.displayText3 ?? null;
 
 	let isInMaintain = false;
-	if (subMenuItem.tpCategory) {
+	if (subMenuItem.tpGameType) {
 		isInMaintain = maintainList?.some(
 			mt =>
 				mt.tpId === subMenuItem.tpId &&
-				(mt.tpCategoryId === subMenuItem.tpCategory ||
-					mt.tpCategoryId === defTpCategoryId.all)
+				mt.tpGameType === subMenuItem.tpGameType
 		);
 	}
 
@@ -158,7 +156,8 @@ const SubMenuMultiple = ({
 				gameId: subMenuItem.gameId,
 				path: subMenuItem.path,
 				needLogin: subMenuItem.needLogin,
-				menuType: subMenuItem.menuType
+				menuType: subMenuItem.menuType,
+				tpGameType: subMenuItem.tpGameType
 			})}>
 			<img
 				className="ListBG-left"

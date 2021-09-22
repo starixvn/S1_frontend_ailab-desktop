@@ -11,7 +11,6 @@ import {
 } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
-import { defTpCategoryId } from "../../datas/productList";
 import { useGotoGame } from "../hook/useGotoGame";
 
 import LivecasinoNewBanner from "./livecasinoNew.banner";
@@ -24,12 +23,6 @@ export default () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 
-	const maintainList = allMaintainList?.filter(
-		item =>
-			item.tpCategoryId === defTpCategoryId.liveCasino ||
-			item.tpCategoryId === defTpCategoryId.all
-	);
-
 	const { handleGoToGame } = useGotoGame({
 		isLogin: userInfo.isLogin,
 		langId: userInfo.langId,
@@ -38,7 +31,14 @@ export default () => {
 
 	const [listData, setListData] = useState([]);
 
-	const clickItem = ({ tpId, gameId, needLogin, path, menuType }) => {
+	const clickItem = ({
+		tpId,
+		gameId,
+		needLogin,
+		path,
+		menuType,
+		tpGameType
+	}) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -57,7 +57,8 @@ export default () => {
 				isLogin: userInfo.isLogin,
 				langId: userInfo.langId,
 				tpId,
-				gameId
+				gameId,
+				tpGameType
 			});
 		}
 
@@ -66,7 +67,8 @@ export default () => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback: showLoginPopBox
+			loginCallback: showLoginPopBox,
+			tpGameType
 		});
 	};
 
@@ -127,7 +129,7 @@ export default () => {
 					<div className="livecasino newDesign">
 						<LivecasinoNewList
 							listData={listData}
-							maintainList={maintainList}
+							maintainList={allMaintainList}
 							clickItem={clickItem}
 							t={t}
 						/>

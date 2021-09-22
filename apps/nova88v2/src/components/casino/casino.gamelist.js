@@ -5,6 +5,7 @@ import { defRowsPerPage } from "./casino.def";
 import defPopBoxType from "../common/defPopBoxType";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
+import { defSlotTpGameType } from "../../datas/productList";
 
 export default ({
 	displayGames,
@@ -24,7 +25,14 @@ export default ({
 	const startIdx = (currentPage - 1) * defRowsPerPage;
 	const endIdx = currentPage * defRowsPerPage;
 
-	const onClickPlay = ({ tpId, gameId, isFree, delay, isInMaintain }) => {
+	const onClickPlay = ({
+		tpId,
+		gameId,
+		isFree,
+		delay,
+		isInMaintain,
+		tpGameType
+	}) => {
 		if (isInMaintain) {
 			return;
 		}
@@ -49,9 +57,11 @@ export default ({
 										langId,
 										tpId,
 										gameId,
-										isFun: isFree
+										isFun: isFree,
+										tpGameType
 								  })
-								: null
+								: null,
+						tpGameType
 					}),
 				delay
 			);
@@ -76,8 +86,12 @@ export default ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
+			const { tpGameType } = Object.values(defSlotTpGameType).find(
+				obj => obj.tpId === g.tpId
+			);
+
 			const isInMaintain = maintainList?.some(
-				item => item.tpId === g.tpId
+				item => item.tpId === g.tpId && item.tpGameType === tpGameType
 			);
 
 			const _className = [isInMaintain && "active"]
@@ -120,7 +134,8 @@ export default ({
 									gameId: g.gameId,
 									isFree: false,
 									delay: 5000,
-									isInMaintain
+									isInMaintain,
+									tpGameType
 								})
 							}>
 							{t("lbl_Play")}
@@ -135,7 +150,8 @@ export default ({
 										gameId: g.gameId,
 										isFree: true,
 										delay: 0,
-										isInMaintain
+										isInMaintain,
+										tpGameType
 									})
 								}>
 								{t("lbl_Demo")}

@@ -11,7 +11,6 @@ import {
 } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
-import { defTpCategoryId } from "../../datas/productList";
 import GameBanner from "./game.banner";
 import GameList from "./game.list";
 
@@ -24,7 +23,14 @@ const Game = () => {
 
 	const [gameSubMenu, setGameSubMenu] = useState([]);
 
-	const clickItem = ({ tpId, gameId, needLogin, path, isInMaintain }) => {
+	const clickItem = ({
+		tpId,
+		gameId,
+		needLogin,
+		path,
+		isInMaintain,
+		tpGameType
+	}) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -46,7 +52,8 @@ const Game = () => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback: showLoginPopBox
+			loginCallback: showLoginPopBox,
+			tpGameType
 		});
 	};
 
@@ -91,7 +98,6 @@ const Game = () => {
 						t={t}
 						gameSubMenu={gameSubMenu}
 						maintainList={allMaintainList}
-						defTpCategoryId={defTpCategoryId}
 						clickItem={clickItem}
 					/>
 				</div>

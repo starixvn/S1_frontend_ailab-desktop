@@ -13,7 +13,6 @@ import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import FishingBanner from "./fishing.banner";
 import FishingList from "./fishing.list";
-import { defTpCategoryId } from "../../datas/productList";
 
 const SLIDE_IMG_LIST = ["fishmainbanner.jpg"];
 
@@ -23,13 +22,8 @@ const Fishing = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
-	const maintainList = allMaintainList?.filter(
-		item =>
-			item.tpCategoryId === defTpCategoryId.fishing ||
-			item.tpCategoryId === defTpCategoryId.all
-	);
 
-	const clickItem = ({ tpId, gameId, needLogin, path }) => {
+	const clickItem = ({ tpId, gameId, needLogin, path, tpGameType }) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -48,7 +42,8 @@ const Fishing = () => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback: showLoginPopBox
+			loginCallback: showLoginPopBox,
+			tpGameType
 		});
 	};
 
@@ -101,7 +96,7 @@ const Fishing = () => {
 				<div className="rightModule">
 					<FishingList
 						subMenu={subMenu}
-						maintainList={maintainList}
+						maintainList={allMaintainList}
 						clickItem={clickItem}
 						t={t}
 					/>

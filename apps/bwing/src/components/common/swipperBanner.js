@@ -31,7 +31,8 @@ export const ClickLink = ({
 	lang,
 	isLogin,
 	setPopBox,
-	openInBlank
+	openInBlank,
+	tpGameType
 }) => {
 	const HandleLogin = () => {
 		setPopBox({
@@ -54,7 +55,8 @@ export const ClickLink = ({
 			matchid: matchId,
 			isLogin: isLogin === true,
 			loginCallback: HandleLogin,
-			openInBlank
+			openInBlank,
+			tpGameType
 		});
 	}
 };

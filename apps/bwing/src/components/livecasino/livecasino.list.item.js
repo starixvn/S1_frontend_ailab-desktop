@@ -6,7 +6,8 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		tpId,
 		gameId,
 		menuType,
-		lobbyPage: { bgClass }
+		lobbyPage: { bgClass },
+		tpGameType
 	} = subMenuItem;
 
 	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
@@ -19,7 +20,8 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					tpId,
 					gameId,
 					menuType,
-					isInMaintain
+					isInMaintain,
+					tpGameType
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

@@ -356,7 +356,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-pp"
-				}
+				},
+				tpGameType: 16
 			},
 			{
 				...productList.liveCasino_PT,
@@ -409,7 +410,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-wm"
-				}
+				},
+				tpGameType: 32
 			},
 			{
 				gameId: 4,
@@ -420,7 +422,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-dg"
-				}
+				},
+				tpGameType: 10
 			},
 			{
 				gameId: 12,
@@ -431,7 +434,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ab"
-				}
+				},
+				tpGameType: 6
 			},
 			{
 				gameId: 3,
@@ -442,7 +446,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ag"
-				}
+				},
+				tpGameType: 8
 			},
 			{
 				gameId: 2,
@@ -453,7 +458,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-sa"
-				}
+				},
+				tpGameType: 9
 			},
 			{
 				gameId: 15,
@@ -464,7 +470,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ae"
-				}
+				},
+				tpGameType: 18
 			},
 			{
 				gameId: 18,
@@ -475,7 +482,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ebet"
-				}
+				},
+				tpGameType: 28
 			}
 		]
 	},

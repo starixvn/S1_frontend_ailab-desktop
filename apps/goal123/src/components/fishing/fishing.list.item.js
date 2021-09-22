@@ -7,11 +7,14 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		displayKey,
 		tpId,
 		gameId,
-		lobbyPage: { bgImg, providerImg }
+		lobbyPage: { bgImg, providerImg },
+		tpGameType
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
-	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
+	const isInMaintain = maintainList?.some(
+		item => item.tpId === tpId && item.tpGameType === tpGameType
+	);
 
 	return (
 		<div
@@ -19,7 +22,9 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 			onClick={() =>
 				clickItem({
 					tpId,
-					gameId
+					gameId,
+					tpGameType,
+					isInMaintain
 				})
 			}>
 			<div className="brand">
@@ -47,5 +52,6 @@ export default FishingListItem;
 FishingListItem.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
+	maintainList: PropTypes.arrayOf(PropTypes.object).isRequired
 };

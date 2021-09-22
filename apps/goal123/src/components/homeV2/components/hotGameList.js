@@ -6,14 +6,7 @@ import productList from "../../../datas/productList";
 import path from "../../../router";
 import config from "../../../config";
 
-const HotGameList = ({
-	t,
-	langId,
-	clickItem,
-	navigate,
-	allMaintainList,
-	defTpCategoryId
-}) => {
+const HotGameList = ({ t, langId, clickItem, navigate, allMaintainList }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
 	const defTopGameList = [
@@ -84,7 +77,6 @@ const HotGameList = ({
 							clickItem={clickItem}
 							navigate={navigate}
 							allMaintainList={allMaintainList}
-							defTpCategoryId={defTpCategoryId}
 							setPopBox={setPopBox}
 						/>
 					</div>
@@ -95,7 +87,6 @@ const HotGameList = ({
 							clickItem={clickItem}
 							navigate={navigate}
 							allMaintainList={allMaintainList}
-							defTpCategoryId={defTpCategoryId}
 							setPopBox={setPopBox}
 						/>
 					</div>
@@ -110,15 +101,11 @@ export const Games = ({
 	clickItem,
 	navigate,
 	allMaintainList,
-	defTpCategoryId,
 	setPopBox
 }) => {
 	const rows = gameList.map(item => {
 		const isInMaintain = allMaintainList?.some(
-			mt =>
-				mt.tpId === item.tpId &&
-				(mt.tpCategoryId === item.tpCategory ||
-					mt.tpCategoryId === defTpCategoryId.all)
+			mt => mt.tpId === item.tpId && mt.tpGameType === item.tpGameType
 		);
 
 		const clickOrLink = (_item, _isInMaintain) => {
@@ -137,7 +124,8 @@ export const Games = ({
 				? navigate(_item.path)
 				: clickItem({
 						tpId: _item.tpId,
-						gameId: _item.gameId
+						gameId: _item.gameId,
+						tpGameType: _item.tpGameType
 				  });
 		};
 
@@ -165,8 +153,7 @@ HotGameList.propTypes = {
 	langId: PropTypes.string.isRequired,
 	clickItem: PropTypes.func.isRequired,
 	navigate: PropTypes.func.isRequired,
-	allMaintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	defTpCategoryId: PropTypes.PropTypes.objectOf(PropTypes.any).isRequired
+	allMaintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default HotGameList;

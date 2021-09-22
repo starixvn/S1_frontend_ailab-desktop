@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
 
-const GameList = ({
-	t,
-	gameSubMenu,
-	maintainList,
-	defTpCategoryId,
-	clickItem
-}) => {
+const GameList = ({ t, gameSubMenu, maintainList, clickItem }) => {
 	if (gameSubMenu.length <= 0) return null;
 
 	return gameSubMenu.map(subMenuItem => (
@@ -17,7 +11,6 @@ const GameList = ({
 			t={t}
 			subMenuItem={subMenuItem}
 			maintainList={maintainList}
-			defTpCategoryId={defTpCategoryId}
 			clickItem={clickItem}
 		/>
 	));
@@ -32,13 +25,7 @@ GameList.propTypes = {
 
 export default GameList;
 
-const GameListItem = ({
-	t,
-	clickItem,
-	subMenuItem,
-	maintainList,
-	defTpCategoryId
-}) => {
+const GameListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const [isHover, setIsHover] = useState(false);
 
 	const hoverHandler = () => setIsHover(prev => !prev);
@@ -47,20 +34,17 @@ const GameListItem = ({
 		displayText,
 		displayKey,
 		tpId,
-		tpCategory,
 		gameId,
 		path,
 		needLogin,
-		lobbyPage: { bgImg, hoverBgImg }
+		lobbyPage: { bgImg, hoverBgImg },
+		tpGameType
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
 
 	const isInMaintain = maintainList?.some(
-		mt =>
-			mt.tpId === tpId &&
-			(mt.tpCategoryId === tpCategory ||
-				mt.tpCategoryId === defTpCategoryId.all)
+		mt => mt.tpId === tpId && mt.tpGameType === tpGameType
 	);
 
 	const _className = ["gameItem", isInMaintain && "active"]
@@ -85,7 +69,8 @@ const GameListItem = ({
 					gameId,
 					path,
 					needLogin,
-					isInMaintain
+					isInMaintain,
+					tpGameType
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
@@ -115,6 +100,5 @@ GameListItem.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
 	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	defTpCategoryId: PropTypes.objectOf(PropTypes.any).isRequired
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
 };
