@@ -52,7 +52,9 @@ class Dropdown extends Component {
 				return (
 					<Item
 						key={`${this.props.mainKey}_${item.id}`}
-						displayKey={item.displayKey}
+						displayKey={
+							item.displayKey ? item.displayKey : item.tpName
+						}
 						i18n={this.props.i18n}
 						onClick={this.selectItem.bind(this, { idx: i, item })}
 						displayText={item.displayText}

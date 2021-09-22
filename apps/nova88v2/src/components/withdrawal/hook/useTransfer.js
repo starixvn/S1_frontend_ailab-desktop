@@ -45,7 +45,11 @@ const useTransfer = () => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
+						GetAllWallets({
+							langId: userInfo.langId,
+							isLogin: userInfo.isLogin,
+							dispatch
+						});
 					} else if (res.data.errorCode === 9) {
 						setPopBox({
 							isOpen: true,
@@ -84,11 +88,13 @@ const useTransfer = () => {
 		const allWallet = 0;
 		let tpWalletList = [];
 
-		await api_account_GetTpWalletList(allWallet).then(async res => {
-			if (isMountedRef.current && res.data.errorCode === 0) {
-				tpWalletList = res.data.data;
+		await api_account_GetTpWalletList(allWallet, userInfo?.langId).then(
+			async res => {
+				if (isMountedRef.current && res.data.errorCode === 0) {
+					tpWalletList = res.data.data;
+				}
 			}
-		});
+		);
 
 		return tpWalletList;
 	};

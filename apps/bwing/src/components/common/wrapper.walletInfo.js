@@ -31,7 +31,11 @@ function reducer(state, action) {
 	switch (action.type) {
 		case defAction.GET_TP_WALLETS: {
 			let allDatas = state.tpWallets;
-			const newValue = { tpId: action.tpId, balance: action.balance };
+			const newValue = {
+				tpName: action.tpName,
+				tpId: action.tpId,
+				balance: action.balance
+			};
 			const idx = allDatas.findIndex(tp => tp.tpId === newValue.tpId);
 			if (idx === -1) {
 				allDatas = [...allDatas, newValue];
@@ -66,28 +70,34 @@ function reducer(state, action) {
 }
 
 const GetTpWallets = ({
+	langId,
 	isLogin,
 	ListType = defListType.transferred,
 	dispatch
 }) => {
 	if (!isLogin) return;
-	api_account_GetTpWalletList(ListType).then(res => {
+	api_account_GetTpWalletList(ListType, langId).then(res => {
 		if (res.data.errorCode === 0 && res.data.data) {
 			res.data.data.forEach(tpInfo => {
-				GetTpWalletBalance({ tpId: tpInfo.tpId, dispatch });
+				GetTpWalletBalance({
+					tpName: tpInfo.tpName,
+					tpId: tpInfo.tpId,
+					dispatch
+				});
 			});
 		}
 	});
 };
 
-const GetTpWalletBalance = ({ tpId, dispatch }) => {
+const GetTpWalletBalance = ({ tpId, tpName, dispatch }) => {
 	api_account_GetTpWalletBalance(tpId).then(res => {
 		if (res.data.errorCode === 0 && res.data.data) {
 			const { tpId: _tpId, balance } = res.data.data;
 			dispatch({
 				type: defAction.GET_TP_WALLETS,
 				tpId: _tpId,
-				balance
+				balance,
+				tpName
 			});
 		}
 	});
@@ -125,6 +135,7 @@ const GetBonusWallets = ({ isLogin, dispatch }) => {
 };
 
 export const GetAllWallets = ({
+	langId,
 	isLogin,
 	dispatch,
 	ListType = defListType.transferred
@@ -132,15 +143,15 @@ export const GetAllWallets = ({
 	if (!isLogin) return;
 	GetMainWalet({ isLogin, dispatch });
 	GetBonusWallets({ isLogin, dispatch });
-	GetTpWallets({ isLogin, ListType, dispatch });
+	GetTpWallets({ langId, isLogin, ListType, dispatch });
 };
 
-const useGetWalletInfo = ({ isLogin }) => {
+const useGetWalletInfo = ({ langId, isLogin }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
 
 	useEffect(() => {
-		GetAllWallets({ isLogin, dispatch });
-	}, [isLogin]);
+		GetAllWallets({ langId, isLogin, dispatch });
+	}, [langId, isLogin]);
 
 	return { state, dispatch };
 };
