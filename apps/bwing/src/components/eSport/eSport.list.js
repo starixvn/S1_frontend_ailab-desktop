@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { defTpCategoryId } from "../../datas/productList";
 
 const EsportList = ({ t, subMenu, allMaintainList, clickItem }) => {
 	if (subMenu.length <= 0) return null;
@@ -9,8 +8,7 @@ const EsportList = ({ t, subMenu, allMaintainList, clickItem }) => {
 		const isInMaintain = allMaintainList?.some(
 			item =>
 				item.tpId === subMenuItem.tpId &&
-				(item.tpCategoryId === subMenuItem.tpCategory ||
-					item.tpCategoryId === defTpCategoryId.all)
+				item.tpGameType === subMenuItem.tpGameType
 		);
 
 		return (

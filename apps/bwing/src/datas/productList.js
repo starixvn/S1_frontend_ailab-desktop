@@ -1,15 +1,3 @@
-export const defTpCategoryId = {
-	all: 0,
-	sports: 1,
-	slot: 2,
-	liveCasino: 3,
-	fishing: 4,
-	cockfighting: 5,
-	lottery: 6,
-	virtualSports: 7,
-	poker: 8
-};
-
 export default {
 	/* === 1. sports === */
 
@@ -17,59 +5,66 @@ export default {
 		tpId: 1,
 		gameId: 1,
 		name: "soccer",
-		tpCategory: defTpCategoryId.sports
+		tpGameType: 1
 	},
 	sabaClub: {
 		tpId: 1,
 		gameId: 171,
 		name: "sabaClub",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 59
 	},
 	sportBti: {
 		tpId: 29,
 		name: "sportBti",
-		tpCategory: defTpCategoryId.sports
+		tpGameType: 49
 	},
 	eSport: {
 		tpId: 1,
 		gameId: 43,
 		name: "eSport",
-		tpCategory: defTpCategoryId.sports
+		tpGameType: 1
 	},
 	soccer: {
 		tpId: 1,
 		gameId: 1,
-		name: "soccer"
+		name: "soccer",
+		tpGameType: 1
 	},
 	basketball: {
 		gameId: 2,
 		tpId: 1,
-		name: "basketball"
+		name: "basketball",
+		tpGameType: 1
 	},
 	badminton: {
 		gameId: 9,
 		tpId: 1,
-		name: "badminton"
+		name: "badminton",
+		tpGameType: 1
 	},
 	football: {
 		gameId: 3,
 		tpId: 1,
-		name: "football"
+		name: "football",
+		tpGameType: 1
 	},
 	tennis: {
 		gameId: 5,
 		tpId: 1,
-		name: "tennis"
+		name: "tennis",
+		tpGameType: 1
 	},
 	hockey: {
 		gameId: 4,
 		tpId: 1,
-		name: "hockey"
+		name: "hockey",
+		tpGameType: 1
 	},
 	baseball: {
 		gameId: 8,
 		tpId: 1,
-		name: "baseball"
+		name: "baseball",
+		tpGameType: 1
 	},
 	// esport
 
@@ -77,77 +72,77 @@ export default {
 		tpId: 1,
 		// gameId: 4319,
 		gameId: 43,
-		tpCategory: defTpCategoryId.sports
+		tpGameType: 1
 	},
 	eSport_Dota2: {
 		tpId: 1,
 		// gameId: 4320,
 		gameId: 43,
-		tpCategory: defTpCategoryId.sports
+		tpGameType: 1
 	},
 	eSport_KingOfGlory: {
 		tpId: 1,
 		// gameId: 4324,
 		gameId: 43,
-		tpCategory: defTpCategoryId.sports
+		tpGameType: 1
 	},
 	eSport_LeagueOfLegends: {
 		tpId: 1,
 		// gameId: 4325,
 		gameId: 43,
-		tpCategory: defTpCategoryId.sports
+		tpGameType: 1
 	},
 	/* === 3. live casino === */
 
 	liveCasino_Allbet: {
 		gameId: 12,
 		tpId: 12,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 6
 	},
 	liveCasino_AG: {
 		gameId: 3,
 		tpId: 3,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 8
 	},
 	liveCasino_DG: {
 		gameId: 4,
 		tpId: 4,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 10
 	},
 	liveCasino_SA: {
 		gameId: 2,
 		tpId: 2,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 9
 	},
 	liveCasino_AE: {
 		gameId: 15,
 		tpId: 15,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 18
 	},
 	liveCasino_eBET: {
 		gameId: 18,
 		tpId: 18,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 28
 	},
 	liveCasino_WM: {
 		gameId: 20,
 		tpId: 20,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 32
 	},
 	liveCasino_One789: {
 		tpId: 23,
 		gameId: 2,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 37
 	},
 	liveCasino_n2live: {
 		tpId: 28,
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 45
 	},
 	liveCasino_PT: {
 		tpId: 27,
 		gameId: "0",
 		name: "PT",
-		tpCategory: defTpCategoryId.liveCasino
+		tpGameType: 48
 	},
 
 	/* === 4. fishing === */
@@ -156,67 +151,67 @@ export default {
 		tpId: 7,
 		gameId: 10,
 		name: "fishing",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 12
 	},
 	fishing_SG: {
 		gameId: "F-SF01",
 		tpId: 10,
 		name: "fishing_SG",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 31
 	},
 	fishing_SGW: {
 		gameId: "F-SF02",
 		tpId: 10,
 		name: "fishing_SGW",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 31
 	},
 	ICG_DRAGONBALL_FISHING: {
 		gameId: "cmf0001",
 		tpId: 24,
 		name: "ICG_DRAGONBALL_FISHING",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 40
 	},
 	ICG_FISHING_OF_SAVIORS: {
 		gameId: "cmf0002",
 		tpId: 24,
 		name: "ICG_FISHING_OF_SAVIORS",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 40
 	},
 	ICG_THE_TYRANT_AND_THE_PRINCESS: {
 		gameId: "cmf0003",
 		tpId: 24,
 		name: "ICG_THE_TYRANT_AND_THE_PRINCESS",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 40
 	},
 	CQ9_Water_Margin_Fishing: {
 		gameId: "AT06",
 		tpId: 16,
 		name: "CQ9_Water_Margin_Fishing",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 44
 	},
 	CQ9_Oneshot_Fishing: {
 		gameId: "AT01",
 		tpId: 16,
 		name: "CQ9_Oneshot_Fishing",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 44
 	},
 	CQ9_LuckyFishing: {
 		gameId: "AT05",
 		tpId: 16,
 		name: "CQ9_Lucky_Fishing",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 44
 	},
 	CQ9_Paradise: {
 		gameId: "AB3",
 		tpId: 16,
 		name: "CQ9_Paradise",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 44
 	},
 	CQ9_Thunder_Fighter: {
 		gameId: "AT04",
 		tpId: 16,
 		name: "CQ9_Thunder_Fighter:",
-		tpCategory: defTpCategoryId.fishing
+		tpGameType: 44
 	},
 
 	/* === 5. cook fighting === */
@@ -224,7 +219,7 @@ export default {
 	cockFighting: {
 		tpId: 17,
 		name: "cockFighting",
-		tpCategory: defTpCategoryId.cockfighting
+		tpGameType: 27
 	},
 
 	/* === 6. lottery === */
@@ -233,33 +228,33 @@ export default {
 		tpId: 1,
 		gameId: 161,
 		name: "numberGame",
-		tpCategory: defTpCategoryId.lottery
+		tpGameType: 2
 	},
 	lottery: {
 		tpId: 1,
 		gameId: 220,
 		name: "lottery",
-		tpCategory: defTpCategoryId.lottery
+		tpGameType: 19
 	},
 	keno: {
 		tpId: 1,
 		gameId: 202,
 		name: "keno",
-		tpCategory: defTpCategoryId.lottery
+		tpGameType: 5
 	},
 	One789_lottery: {
 		tpId: 23,
 		gameId: 0,
-		tpCategory: defTpCategoryId.lottery
+		tpGameType: 35
 	},
 	One789_lottery_789: {
 		tpId: 23,
 		gameId: 1,
-		tpCategory: defTpCategoryId.lottery
+		tpGameType: 36
 	},
 	tcg: {
 		tpId: 33,
-		tpCategory: defTpCategoryId.lottery
+		tpGameType: 55
 	},
 
 	/* === 7. virtual Sports === */
@@ -268,7 +263,7 @@ export default {
 		tpId: 1,
 		gameId: 180,
 		name: "virtualSports",
-		tpCategory: defTpCategoryId.virtualSports
+		tpGameType: 3
 	},
 
 	/* === 8.poker === */
@@ -276,11 +271,11 @@ export default {
 	V8_Poker: {
 		tpId: 25,
 		gameId: 0,
-		tpCategory: defTpCategoryId.poker
+		tpGameType: 42
 	},
 	KingMaker: {
 		tpId: 11,
-		tpCategory: defTpCategoryId.poker
+		tpGameType: 52
 	}
 };
 
@@ -289,59 +284,59 @@ export const defCasinoProviders = {
 	JILI: {
 		tpId: 32,
 		name: "JILI",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 53
 	},
 	GPI: {
 		tpId: 6,
 		name: "GPI",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 11
 	},
 	YGG: {
 		tpId: 8,
 		name: "YGG",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 14
 	},
 	SG: {
 		tpId: 10,
 		name: "SG",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 15
 	},
 	PP: {
 		tpId: 5,
 		name: "PP",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 7
 	},
 	PG: {
 		tpId: 14,
 		name: "PG",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 17
 	},
 	OW: {
 		tpId: 1,
 		gameId: 208,
-		name: "OW"
-		// tpCategory: defTpCategoryId.slot
+		name: "OW",
+		tpGameType: 4
 	},
 	CQ9: {
 		tpId: 16,
 		name: "CQ9",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 29
 	},
 	ICG: {
 		tpId: 24,
 		name: "ICG",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 39
 	},
 	MGPSW: {
 		tpId: 34,
 		gameId: "",
 		name: "MGPSW",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 57
 	},
 	PT: {
 		tpId: 27,
 		gameId: "0",
 		name: "PT",
-		tpCategory: defTpCategoryId.slot
+		tpGameType: 46
 	}
 };

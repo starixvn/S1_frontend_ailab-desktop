@@ -19,7 +19,14 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 	}, []);
 
 	const rows = slides.map(item => {
-		const { listNpcImgUrl, tpId, gameId, needLogin, path } = item;
+		const {
+			listNpcImgUrl,
+			tpId,
+			gameId,
+			needLogin,
+			path,
+			tpGameType
+		} = item;
 
 		if (!listNpcImgUrl) return null;
 
@@ -31,7 +38,8 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 							tpId,
 							gameId,
 							needLogin,
-							path
+							path,
+							tpGameType
 						})
 					}>
 					<div className="casino-item">

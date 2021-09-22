@@ -3,13 +3,7 @@ import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import { bannerImgUrl } from "../../config";
 
-const LotterySwiper = ({
-	t,
-	lotterySubMenu,
-	clickItem,
-	maintainList,
-	defTpCategoryId
-}) => {
+const LotterySwiper = ({ t, lotterySubMenu, clickItem }) => {
 	const params = {
 		slidesPerView: 5,
 		spaceBetween: 5,
@@ -29,12 +23,10 @@ const LotterySwiper = ({
 			<Swiper {...params}>
 				{lotterySubMenu.map(subMenuItem => (
 					<SlideItem
-						key={subMenuItem.displayKey}
+						key={`${subMenuItem.displayKey}-${subMenuItem.isInMaintain}`}
 						t={t}
 						subMenuItem={subMenuItem}
 						clickItem={clickItem}
-						maintainList={maintainList}
-						defTpCategoryId={defTpCategoryId}
 					/>
 				))}
 			</Swiper>
@@ -45,14 +37,12 @@ const LotterySwiper = ({
 LotterySwiper.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	lotterySubMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	defTpCategoryId: PropTypes.objectOf(PropTypes.any).isRequired
+	lotterySubMenu: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default memo(LotterySwiper);
 
-const SlideItem = ({ t, subMenuItem, clickItem, maintainList }) => {
+const SlideItem = ({ t, subMenuItem, clickItem }) => {
 	const [isHover, setIsHover] = useState(false);
 
 	const hoverHandler = () => setIsHover(prev => !prev);
@@ -64,12 +54,12 @@ const SlideItem = ({ t, subMenuItem, clickItem, maintainList }) => {
 		gameId,
 		path,
 		needLogin,
-		lobbyPage: { bgImg, hoverBgImg }
+		lobbyPage: { bgImg, hoverBgImg },
+		tpGameType,
+		isInMaintain
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
-
-	const isInMaintain = maintainList.some(item => item.tpId === tpId);
 
 	const _className = ["swiper-slide", isInMaintain && "active"]
 		.filter(Boolean)
@@ -93,7 +83,8 @@ const SlideItem = ({ t, subMenuItem, clickItem, maintainList }) => {
 					gameId,
 					path,
 					needLogin,
-					isInMaintain
+					isInMaintain,
+					tpGameType
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
@@ -121,6 +112,5 @@ const SlideItem = ({ t, subMenuItem, clickItem, maintainList }) => {
 SlideItem.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
 };

@@ -31,7 +31,6 @@ import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
 import TopQuickLink from "./casino.topQuickLink";
 import CasinoJackpot from "./casino.jackpot";
-import { defTpCategoryId } from "../../datas/productList";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -75,11 +74,6 @@ export default () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
 	const { allMaintainList } = useContext(maintainListContext);
-	const maintainList = allMaintainList?.filter(
-		item =>
-			item.tpCategoryId === defTpCategoryId.slot ||
-			item.tpCategoryId === defTpCategoryId.all
-	);
 
 	const { loading, setLoading } = useContext(loadingContext);
 
@@ -496,7 +490,7 @@ export default () => {
 							currentPage={pageInfo.currentPage}
 							favorite={favorite}
 							onSetFavorite={onSetFavorite}
-							maintainList={maintainList}
+							maintainList={allMaintainList}
 						/>
 						<Pagination
 							totalPages={pageInfo.totalPages}

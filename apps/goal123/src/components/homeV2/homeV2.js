@@ -23,7 +23,6 @@ import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import config from "../../config";
-import { defTpCategoryId } from "../../datas/productList";
 import { BannerSwipper } from "../common/customSwipper";
 import EventSwipper from "./components/eventSwipper";
 import Marquee from "./components/marquee";
@@ -139,21 +138,38 @@ const HomeV2 = ({ productTpIds }) => {
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
 
-	const clickItem = ({ tpId, gameId }) => {
+	const clickItem = ({ tpId, gameId, tpGameType }) => {
+		const isInMaintain = allMaintainList?.some(
+			mt => mt.tpId === tpId && mt.tpGameType === tpGameType
+		);
+
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
-		SET_ENTER_PAGE({
-			isLogin: userInfo.isLogin,
-			langId: userInfo.langId,
-			tpId,
-			gameId,
-			loginCallback,
-			openInBlank: true
-		});
+
+		if (isInMaintain) {
+			const closePopBox = () => {
+				setPopBox({ isOpen: false });
+			};
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UnderMaintain,
+				clickClose: closePopBox
+			});
+		} else {
+			SET_ENTER_PAGE({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				loginCallback,
+				openInBlank: true,
+				tpGameType
+			});
+		}
 	};
 
 	const getTopWinnners = () => {
@@ -224,7 +240,6 @@ const HomeV2 = ({ productTpIds }) => {
 					clickItem={clickItem}
 					navigate={navigate}
 					allMaintainList={allMaintainList}
-					defTpCategoryId={defTpCategoryId}
 				/>
 
 				<div className="indexInfo">

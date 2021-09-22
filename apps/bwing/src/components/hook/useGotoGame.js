@@ -88,7 +88,8 @@ export const useGotoGame = ({
 			langId: _langId,
 			tpId: _tpId,
 			gameId: _gameId,
-			isFun: _isFun
+			isFun: _isFun,
+			tpGameType
 		}) => {
 			if (_isLogin) {
 				api_tp_GotoGame({
@@ -97,7 +98,8 @@ export const useGotoGame = ({
 					gameId: _gameId,
 					fun: _isFun ? "1" : "0",
 					gameType:
-						_tpId === defSpecialSetting.playTech ? "slots" : ""
+						_tpId === defSpecialSetting.playTech ? "slots" : "",
+					tpGameType: String(tpGameType)
 				}).then(async res => {
 					if (res.data.errorCode === 0 && res.data.message) {
 						const result = JSON.parse(res.data.message);
@@ -137,6 +139,15 @@ export const useGotoGame = ({
 						} else {
 							setData(() => result);
 						}
+					} else if (
+						res.data.errorCode === 3000 &&
+						res.data.message
+					) {
+						window.open(
+							res.data.message,
+							"Under Maintenance",
+							"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
+						);
 					} else {
 						errorPopBox(
 							`[${res.data.errorCode}] ${res.data.message}`,

@@ -90,13 +90,12 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								self.findIndex(
 									tpItem =>
 										tpItem.tpId === elem.tpId &&
-										tpItem.tpCategoryId ===
-											elem.tpCategoryId
+										tpItem.tpGameType === elem.tpGameType
 								) === idx
 						)
 						?.map(elem => ({
 							tpId: elem.tpId,
-							tpCategoryId: elem.tpCategoryId
+							tpGameType: elem.tpGameType
 						})) ?? []
 				);
 			}

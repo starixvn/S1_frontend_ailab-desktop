@@ -8,11 +8,14 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		tpId,
 		gameId,
 		menuType,
-		lobbyImg
+		lobbyImg,
+		tpGameType
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
-	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
+	const isInMaintain = maintainList?.some(
+		item => item.tpId === tpId && item.tpGameType === tpGameType
+	);
 
 	return (
 		<div
@@ -21,7 +24,9 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 				clickItem({
 					tpId,
 					gameId,
-					menuType
+					menuType,
+					tpGameType,
+					isInMaintain
 				})
 			}>
 			<img

@@ -16,7 +16,6 @@ import LivecasinoList from "./livecasino.list";
 import { bannerImgUrl } from "../../config";
 import { useGotoGame } from "../hook/useGotoGame";
 import { isOldLang } from "../../datas/languageData";
-import { defTpCategoryId } from "../../datas/productList";
 
 const Livecasino = () => {
 	const { t } = useTranslation();
@@ -24,11 +23,6 @@ const Livecasino = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
-	const maintainList = allMaintainList?.filter(
-		item =>
-			item.tpCategoryId === defTpCategoryId.liveCasino ||
-			item.tpCategoryId === defTpCategoryId.all
-	);
 
 	const { handleGoToGame } = useGotoGame({
 		isLogin: userInfo.isLogin,
@@ -36,7 +30,14 @@ const Livecasino = () => {
 		autoGetData: false
 	});
 
-	const clickItem = ({ tpId, gameId, needLogin, path, menuType }) => {
+	const clickItem = ({
+		tpId,
+		gameId,
+		needLogin,
+		path,
+		menuType,
+		tpGameType
+	}) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -55,7 +56,8 @@ const Livecasino = () => {
 				isLogin: userInfo.isLogin,
 				langId: userInfo.langId,
 				tpId,
-				gameId
+				gameId,
+				tpGameType
 			});
 		}
 
@@ -64,7 +66,8 @@ const Livecasino = () => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback: showLoginPopBox
+			loginCallback: showLoginPopBox,
+			tpGameType
 		});
 	};
 
@@ -129,7 +132,7 @@ const Livecasino = () => {
 
 					<LivecasinoList
 						subMenu={subMenu}
-						maintainList={maintainList}
+						maintainList={allMaintainList}
 						clickItem={clickItem}
 						t={t}
 					/>

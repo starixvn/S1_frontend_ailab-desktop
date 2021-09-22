@@ -19,7 +19,6 @@ import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defBannerType } from "../../service/api/site";
 import { api_events_GetLeaderboardListV2 } from "../../service/api/events";
 import { defaultLang } from "../../i18n/config";
-import { defTpCategoryId } from "../../datas/productList";
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
 import Jackpot from "./jackpot";
@@ -197,7 +196,6 @@ export default () => {
 						t={t}
 						userInfo={userInfo}
 						maintainList={allMaintainList}
-						defTpCategoryId={defTpCategoryId}
 					/>
 				</section>
 				<section>

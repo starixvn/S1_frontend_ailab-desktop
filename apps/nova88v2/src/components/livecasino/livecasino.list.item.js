@@ -15,13 +15,14 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		path,
 		needLogin,
 		menuType,
-		lobbyPage: { bgImg, hoverBgImg }
+		lobbyPage: { bgImg, hoverBgImg },
+		tpGameType
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
 
 	const isInMaintain = maintainList?.some(
-		item => item.tpId === subMenuItem.tpId
+		item => item.tpId === tpId && item.tpGameType === tpGameType
 	);
 
 	const _className = [isInMaintain && "active"].filter(Boolean).join(" ");
@@ -44,7 +45,8 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					gameId,
 					path,
 					needLogin,
-					menuType
+					menuType,
+					tpGameType
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

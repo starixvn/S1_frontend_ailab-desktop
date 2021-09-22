@@ -7,7 +7,8 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		displayKey,
 		tpId,
 		gameId,
-		lobbyPage: { bgClass }
+		lobbyPage: { bgClass },
+		tpGameType
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -20,7 +21,8 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 				clickItem({
 					tpId,
 					gameId,
-					isInMaintain
+					isInMaintain,
+					tpGameType
 				})
 			}>
 			{isInMaintain ? (

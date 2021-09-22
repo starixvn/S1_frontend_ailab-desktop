@@ -6,7 +6,7 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { useGotoGame } from "../hook/useGotoGame";
-import productList, { defTpCategoryId } from "../../datas/productList";
+import productList from "../../datas/productList";
 
 export default ({
 	listClassName,
@@ -21,7 +21,14 @@ export default ({
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { isLogin, langId } = userInfo;
 
-	const ClickItem = (tpId, gameId, menuType, _subPath, isInMaintain) => {
+	const ClickItem = (
+		tpId,
+		gameId,
+		menuType,
+		_subPath,
+		isInMaintain,
+		tpGameType
+	) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -36,7 +43,8 @@ export default ({
 				isLogin,
 				langId,
 				tpId,
-				gameId
+				gameId,
+				tpGameType
 			});
 		} else if (_subPath) {
 			navigate(`/${userInfo.langId}/${_subPath}`);
@@ -46,7 +54,8 @@ export default ({
 				langId: userInfo.langId,
 				tpId,
 				gameId,
-				loginCallback
+				loginCallback,
+				tpGameType
 			});
 		}
 	};
@@ -79,10 +88,7 @@ export default ({
 		const key = `${menuKey}-${userInfo.isLogin}-${displayText}`;
 
 		const isInMaintain = allMaintainList?.some(
-			item =>
-				item.tpId === s.tpId &&
-				(item.tpCategoryId === s.tpCategory ||
-					item.tpCategoryId === defTpCategoryId.all)
+			item => item.tpId === s.tpId && item.tpGameType === s.tpGameType
 		);
 
 		let params = null;
@@ -151,7 +157,8 @@ export default ({
 					s.gameId,
 					s.menuType,
 					_subPath,
-					isInMaintain
+					isInMaintain,
+					s.tpGameType
 				)}>
 				{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
 				<span>
