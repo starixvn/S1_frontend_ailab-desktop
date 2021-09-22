@@ -11994,6 +11994,10 @@ input + .iconModule i.icon.icon-checkmark:before {
   border-radius: 5px;
 }
 
+.indexNew main {
+  min-width: 1200px;
+}
+
 .indexNew main.home {
   background: url(../img/homebg.png) no-repeat center bottom;
   background-size: 100%;
@@ -12231,7 +12235,8 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div:nth-child(2) > div h1 {
-  font-size: 18px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div:nth-child(2) > div p {
@@ -12380,27 +12385,27 @@ input + .iconModule i.icon.icon-checkmark:before {
 .indexNew .gameBtn > a > div .icon {
   width: 40px;
   height: 40px;
-  background: url(../img/gameicon/sport.png);
+  background: url(../img/gameicon/sport.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.games {
-  background: url(../img/gameicon/games.png);
+  background: url(../img/gameicon/games.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.slot {
-  background: url(../img/gameicon/slot.png);
+  background: url(../img/gameicon/slot.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.live {
-  background: url(../img/gameicon/live.png);
+  background: url(../img/gameicon/live.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.fish {
-  background: url(../img/gameicon/fish.png);
+  background: url(../img/gameicon/fish.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.esport {
-  background: url(../img/gameicon/esport.png);
+  background: url(../img/gameicon/esport.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a p {
@@ -12567,7 +12572,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .indexNew .hotgame .gameBox {
-  padding: 20px;
+  padding-bottom: 20px;
   background: rgba(8, 16, 36, 0.4);
   border: 1px solid #414f6b;
   border-radius: 0 5px 5px 5px;
@@ -12579,19 +12584,19 @@ input + .iconModule i.icon.icon-checkmark:before {
           backdrop-filter: blur(4px);
 }
 
-.indexNew .hotgame .gameBox .swiper-wrapper > div {
+.indexNew .hotgame .gameBox .swiper-wrapper > a {
   width: 250px;
   margin-right: 20px;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.indexNew .hotgame .gameBox .swiper-wrapper > div:hover {
+.indexNew .hotgame .gameBox .swiper-wrapper > a:hover {
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
-.indexNew .hotgame .gameBox .swiper-wrapper > div:hover .gameimg {
+.indexNew .hotgame .gameBox .swiper-wrapper > a:hover .gameimg {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   -webkit-transform: scale(1.03);
@@ -12600,11 +12605,12 @@ input + .iconModule i.icon.icon-checkmark:before {
           box-shadow: 0px 0px 20px #247398;
 }
 
-.indexNew .hotgame .gameBox .swiper-wrapper > div img {
+.indexNew .hotgame .gameBox .swiper-wrapper > a .gameimg {
   border-radius: 5px;
+  margin-top: 20px;
 }
 
-.indexNew .hotgame .gameBox .swiper-wrapper > div .title {
+.indexNew .hotgame .gameBox .swiper-wrapper .title {
   width: 250px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12620,7 +12626,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           box-sizing: border-box;
 }
 
-.indexNew .hotgame .gameBox .swiper-wrapper > div .title img {
+.indexNew .hotgame .gameBox .swiper-wrapper .title img {
   width: 50px;
   margin: 0;
 }
@@ -12759,7 +12765,9 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .indexNew .exGroup .title {
-  width: 100px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   padding: 20px;
   background: rgba(41, 67, 102, 0.7);
   -webkit-backdrop-filter: blur(2px);
@@ -12818,6 +12826,10 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-size: 18px;
   color: #4dc3ff;
   font-weight: bold;
+}
+
+.indexNew .exGroup .exGroupBox .right .ex h1:nth-child(1) {
+  min-height: 48px;
 }
 
 .indexNew .exGroup .exGroupBox .right .ex p {
@@ -12940,6 +12952,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   border-radius: 5px 0 0 0;
   -webkit-clip-path: polygon(0 0, 95% 0%, 100% 100%, 0% 100%);
           clip-path: polygon(0 0, 95% 0%, 100% 100%, 0% 100%);
+  font-size: 14px;
 }
 
 .liverightModule .liveArea .livelist {
@@ -13023,11 +13036,12 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div h1 {
-  font-size: 18px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div p {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .liverightModule .liveArea .livelist .liveBox > div:nth-child(2) > div:nth-child(1) {
@@ -13361,5 +13375,21 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .home .swiper-container {
   overflow: hidden;
+}
+
+.appdownload {
+  left: 0;
+  right: unset;
+  -webkit-transform: translateX(-81%);
+          transform: translateX(-81%);
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse;
+          flex-flow: row-reverse;
+}
+
+.appdownload:hover {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
 }
 /*# sourceMappingURL=style.css.map */

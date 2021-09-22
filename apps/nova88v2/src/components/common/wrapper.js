@@ -62,7 +62,10 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	);
 	const [correctPath, setCorrectPath] = useState(false);
 	const [redirectPath, setRedirectPath] = useState(null);
-	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
+	const walletInfo = useGetWalletInfo({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId
+	});
 	const [isRoot, setIsRoot] = useState(false);
 	const [productTpIds, setProductTpIds] = useState(null);
 	const [allMaintainList, setAllMaintainList] = useState([]);
