@@ -1,3 +1,7 @@
+export const defTpGameType = {
+	All: 0
+};
+
 export const defSlotTpGameType = {
 	Saba: { tpId: 1, tpGameType: 4 },
 	PP: { tpId: 5, tpGameType: 7 },

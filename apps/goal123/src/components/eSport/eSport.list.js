@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import light from "../../styles/img/esports/light.png";
+import { defTpGameType } from "../../datas/productList";
 
 const EsportList = ({ t, subMenu, allMaintainList, clickItem }) => {
 	if (subMenu.length <= 0) return null;
@@ -9,7 +10,8 @@ const EsportList = ({ t, subMenu, allMaintainList, clickItem }) => {
 		const isInMaintain = allMaintainList?.some(
 			item =>
 				item.tpId === subMenuItem.tpId &&
-				item.tpGameType === subMenuItem.tpGameType
+				(item.tpGameType === subMenuItem.tpGameType ||
+					item.tpGameType === defTpGameType.All)
 		);
 
 		return (
@@ -34,7 +36,14 @@ EsportList.propTypes = {
 export default EsportList;
 
 const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
-	const { displayText, displayKey, tpId, gameId, imgSrc } = subMenuItem;
+	const {
+		displayText,
+		displayKey,
+		tpId,
+		gameId,
+		imgSrc,
+		tpGameType
+	} = subMenuItem;
 	const _displayText = displayText || t(displayKey);
 
 	return (
@@ -43,7 +52,9 @@ const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 			onClick={() =>
 				clickItem({
 					tpId,
-					gameId
+					gameId,
+					isInMaintain,
+					tpGameType
 				})
 			}>
 			<img src={imgSrc} alt="esport" />

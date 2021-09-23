@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { popBoxContext } from "../../common/context";
 import { defPopBoxType } from "../../common/popBox";
-import productList from "../../../datas/productList";
+import productList, { defTpGameType } from "../../../datas/productList";
 import path from "../../../router";
 import config from "../../../config";
 
@@ -105,7 +105,10 @@ export const Games = ({
 }) => {
 	const rows = gameList.map(item => {
 		const isInMaintain = allMaintainList?.some(
-			mt => mt.tpId === item.tpId && mt.tpGameType === item.tpGameType
+			mt =>
+				mt.tpId === item.tpId &&
+				(mt.tpGameType === item.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
 		);
 
 		const clickOrLink = (_item, _isInMaintain) => {

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
 import path from "../../router";
-import productList from "../../datas/productList";
+import productList, { defTpGameType } from "../../datas/productList";
 import { defPopBoxType } from "../common/defPopBoxType";
 
 import img789lottery from "../../styles/img/maingame/789lottery.png";
@@ -221,7 +221,8 @@ const MainGame = ({
 						const isInMaintain = allMaintainList?.some(
 							item =>
 								item.tpId === tpId &&
-								item.tpGameType === tpGameType
+								(item.tpGameType === tpGameType ||
+									item.tpGameType === defTpGameType.All)
 						);
 						let _subPath;
 

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { defTpGameType } from "../../datas/productList";
 
 const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const {
@@ -10,7 +11,12 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		tpGameType
 	} = subMenuItem;
 
-	const isInMaintain = maintainList?.some(item => item.tpId === tpId);
+	const isInMaintain = maintainList?.some(
+		item =>
+			item.tpId === tpId &&
+			(item.tpGameType === s.tpGameType ||
+				item.tpGameType === defTpGameType.All)
+	);
 
 	return (
 		<div

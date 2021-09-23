@@ -11,9 +11,9 @@ import {
 } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
-
 import LotteryBanner from "./lottery.banner";
 import LotterySwiper from "./lottery.swiper";
+import { defTpGameType } from "../../datas/productList";
 
 const Lottery = () => {
 	const { t } = useTranslation();
@@ -87,7 +87,9 @@ const Lottery = () => {
 			subMenu = subMenu.map(s => {
 				const isInMaintain = allMaintainList.some(
 					item =>
-						item.tpId === s.tpId && item.tpGameType === s.tpGameType
+						item.tpId === s.tpId &&
+						(item.tpGameType === s.tpGameType ||
+							item.tpGameType === defTpGameType.All)
 				);
 				return { ...s, isInMaintain };
 			});

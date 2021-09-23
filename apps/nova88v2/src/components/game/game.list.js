@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
+import { defTpGameType } from "../../datas/productList";
 
 const GameList = ({ t, gameSubMenu, maintainList, clickItem }) => {
 	if (gameSubMenu.length <= 0) return null;
@@ -44,7 +45,10 @@ const GameListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const _displayText = displayText || t(displayKey);
 
 	const isInMaintain = maintainList?.some(
-		mt => mt.tpId === tpId && mt.tpGameType === tpGameType
+		mt =>
+			mt.tpId === tpId &&
+			(mt.tpGameType === tpGameType ||
+				mt.tpGameType === defTpGameType.All)
 	);
 
 	const _className = ["gameItem", isInMaintain && "active"]

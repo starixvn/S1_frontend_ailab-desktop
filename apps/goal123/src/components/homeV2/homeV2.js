@@ -8,7 +8,6 @@ import {
 	isRootContext,
 	maintainListContext
 } from "../common/context";
-
 import { defPopBoxType } from "../common/popBox";
 import usePopBox from "../hook/usePopBox";
 import { defBannerType } from "../../service/api/site";
@@ -35,6 +34,7 @@ import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import SideBarQuickLink from "./sideBarQuickLink";
 import QuickdownloadLink from "./quickdownloadLink";
+import { defTpGameType } from "../../datas/productList";
 
 const HomeV2 = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -140,7 +140,10 @@ const HomeV2 = ({ productTpIds }) => {
 
 	const clickItem = ({ tpId, gameId, tpGameType }) => {
 		const isInMaintain = allMaintainList?.some(
-			mt => mt.tpId === tpId && mt.tpGameType === tpGameType
+			mt =>
+				mt.tpId === tpId &&
+				(mt.tpGameType === tpGameType ||
+					mt.tpGameType === defTpGameType.All)
 		);
 
 		const loginCallback = () => {

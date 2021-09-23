@@ -6,6 +6,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import { cloudImgUrl, bannerImgUrl } from "../../config";
 import { defLangToCurrency } from "../../datas/languageData";
+import { defTpGameType } from "../../datas/productList";
 
 const defGameType = {
 	table: "table",
@@ -344,7 +345,10 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 
 	const rows = gameList.map(g => {
 		const isInMaintain = maintainList?.some(
-			mt => mt.tpId === g.tpId && mt.tpGameType === g.tpGameType
+			mt =>
+				mt.tpId === g.tpId &&
+				(mt.tpGameType === g.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
 		);
 		return (
 			<div

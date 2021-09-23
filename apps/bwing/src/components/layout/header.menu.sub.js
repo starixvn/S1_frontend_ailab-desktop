@@ -7,7 +7,7 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { useGotoGame } from "../hook/useGotoGame";
-import productList from "../../datas/productList";
+import productList, { defTpGameType } from "../../datas/productList";
 
 const SubMenu = ({
 	listClassName,
@@ -69,7 +69,10 @@ const SubMenu = ({
 		let _className = s.className ? s.className : "";
 
 		const isInMaintain = maintainList?.some(
-			item => item.tpId === s.tpId && item.tpGameType === s.tpGameType
+			item =>
+				item.tpId === s.tpId &&
+				(item.tpGameType === s.tpGameType ||
+					item.tpGameType === defTpGameType.All)
 		);
 
 		if (isInMaintain) {
