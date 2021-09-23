@@ -6,6 +6,7 @@ import { defRowsPerPage } from "./casino.def";
 import { defPopBoxType } from "../common/popBox";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
+import { defCasinoProviders } from "../../datas/productList";
 
 const GameList = ({
 	displayGames,
@@ -25,7 +26,14 @@ const GameList = ({
 	const startIdx = (currentPage - 1) * defRowsPerPage;
 	const endIdx = currentPage * defRowsPerPage;
 
-	const onClickPlay = ({ tpId, gameId, isFree, delay, isInMaintain }) => {
+	const onClickPlay = ({
+		tpId,
+		gameId,
+		isFree,
+		delay,
+		isInMaintain,
+		tpGameType
+	}) => {
 		if (isInMaintain) {
 			return;
 		}
@@ -49,9 +57,11 @@ const GameList = ({
 										langId,
 										tpId,
 										gameId,
-										isFun: isFree
+										isFun: isFree,
+										tpGameType
 								  })
-								: null
+								: null,
+						tpGameType
 					}),
 				delay
 			);
@@ -76,8 +86,12 @@ const GameList = ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
+			const { tpGameType } = Object.values(defCasinoProviders).find(
+				obj => obj.tpId === g.tpId
+			);
+
 			const isInMaintain = maintainList?.some(
-				item => item.tpId === g.tpId
+				item => item.tpId === g.tpId && item.tpGameType === tpGameType
 			);
 
 			return (
@@ -109,7 +123,8 @@ const GameList = ({
 									gameId: g.gameId,
 									isFree: false,
 									delay: 5000,
-									isInMaintain
+									isInMaintain,
+									tpGameType
 								})
 							}>
 							{t("lbl_Play")}
@@ -123,7 +138,8 @@ const GameList = ({
 										gameId: g.gameId,
 										isFree: true,
 										delay: 0,
-										isInMaintain
+										isInMaintain,
+										tpGameType
 									})
 								}>
 								{t("lbl_Demo")}

@@ -43,7 +43,11 @@ export default props => {
 	};
 
 	const RefreshAllWallets = () => {
-		GetAllWallets({ isLogin: userInfo.isLogin, dispatch });
+		GetAllWallets({
+			langId: userInfo.langId,
+			isLogin: userInfo.isLogin,
+			dispatch
+		});
 	};
 
 	return userInfo.isLogin && userInfo.currencyId !== undefined ? (
@@ -111,9 +115,7 @@ class Dropdown extends Component {
 						className="walletBalance"
 						key={`header-tpwallet-${t.tpId}`}>
 						<div className="walletName">
-							<span>
-								{this.props.i18n(`lbl_TpWallet_${t.tpId}`)}
-							</span>
+							<span>{t.tpName}</span>
 							<span>{number_format({ number: t.balance })}</span>
 						</div>
 					</div>

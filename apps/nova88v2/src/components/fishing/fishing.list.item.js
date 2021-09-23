@@ -14,13 +14,14 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 		gameId,
 		path,
 		needLogin,
-		lobbyPage: { bgImg, hoverBgImg }
+		lobbyPage: { bgImg, hoverBgImg },
+		tpGameType
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
 
 	const isInMaintain = maintainList?.some(
-		item => item.tpId === subMenuItem.tpId
+		item => item.tpId === tpId && item.tpGameType === tpGameType
 	);
 
 	const _className = [isInMaintain && "active"].filter(Boolean).join(" ");
@@ -42,7 +43,8 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 					tpId,
 					gameId,
 					path,
-					needLogin
+					needLogin,
+					tpGameType
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (

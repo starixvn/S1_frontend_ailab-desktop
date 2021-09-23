@@ -22,7 +22,7 @@ import { Pagination } from "../common/pagination";
 import { getUrlParameter } from "../common/common";
 import SearchBox from "./casino.searchBox";
 import Loading from "../common/loading";
-import { defCasinoProviders, defTpCategoryId } from "../../datas/productList";
+import { defCasinoProviders } from "../../datas/productList";
 
 import CasinoJackpot from "./casino.jackpot";
 import CasinoTopQuickLink from "./casino.topQuickLink";
@@ -64,11 +64,6 @@ export default () => {
 	const tpId = defCasinoProviders[provider]?.tpId;
 	const [loading, setLoading] = useState(true);
 	const { allMaintainList } = useContext(maintainListContext);
-	const maintainList = allMaintainList?.filter(
-		item =>
-			item.tpCategoryId === defTpCategoryId.slot ||
-			item.tpCategoryId === defTpCategoryId.all
-	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -403,7 +398,7 @@ export default () => {
 							currentPage={pageInfo.currentPage}
 							favorite={favorite}
 							onSetFavorite={onSetFavorite}
-							maintainList={maintainList}
+							maintainList={allMaintainList}
 						/>
 						<Pagination
 							totalPages={pageInfo.totalPages}

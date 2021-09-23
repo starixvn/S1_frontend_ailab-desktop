@@ -12,7 +12,6 @@ import { defPopBoxType } from "../common/popBox";
 import LivecasinoBanner from "./livecasino.banner";
 import LivecasinoList from "./livecasino.list";
 import { useGotoGame } from "../hook/useGotoGame";
-import { defTpCategoryId } from "../../datas/productList";
 
 const Livecasino = () => {
 	const { t } = useTranslation();
@@ -21,13 +20,14 @@ const Livecasino = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { allMaintainList } = useContext(maintainListContext);
-	const maintainList = allMaintainList?.filter(
-		item =>
-			item.tpCategoryId === defTpCategoryId.liveCasino ||
-			item.tpCategoryId === defTpCategoryId.all
-	);
 
-	const clickItem = ({ tpId, gameId, menuType }) => {
+	const clickItem = ({
+		tpId,
+		gameId,
+		menuType,
+		tpGameType,
+		isInMaintain
+	}) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -35,21 +35,25 @@ const Livecasino = () => {
 			});
 		};
 
-		if (menuType === defMenuType.useGoToGame) {
-			handleGoToGame({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId
-			});
-		} else {
-			SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				loginCallback
-			});
+		if (!isInMaintain) {
+			if (menuType === defMenuType.useGoToGame) {
+				handleGoToGame({
+					isLogin: userInfo.isLogin,
+					langId: userInfo.langId,
+					tpId,
+					gameId,
+					tpGameType
+				});
+			} else {
+				SET_ENTER_PAGE({
+					isLogin: userInfo.isLogin,
+					langId: userInfo.langId,
+					tpId,
+					gameId,
+					loginCallback,
+					tpGameType
+				});
+			}
 		}
 	};
 
@@ -76,7 +80,7 @@ const Livecasino = () => {
 							subMenu={subMenu}
 							clickItem={clickItem}
 							t={t}
-							maintainList={maintainList}
+							maintainList={allMaintainList}
 						/>
 					</div>
 				</div>

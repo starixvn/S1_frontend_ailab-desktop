@@ -32,7 +32,8 @@ export const api_tp_GotoGame = ({
 	LangId,
 	AppType = defDeviceType.Desktop,
 	fun = null,
-	gameType = ""
+	gameType = "",
+	tpGameType
 }) =>
 	tpRequest.post("/GotoGame", {
 		TpId,
@@ -41,6 +42,7 @@ export const api_tp_GotoGame = ({
 		inputs: {
 			gameId,
 			fun,
-			gameType
+			gameType,
+			tpGameType
 		}
 	});

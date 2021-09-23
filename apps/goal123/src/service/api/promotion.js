@@ -43,3 +43,19 @@ export const api_promotion_SetSpecialCode = ({ langId, SpecialCode }) =>
 		SpecialCode,
 		DeviceType: defDeviceType.Desktop
 	});
+
+export const api_promotion_GetDepositPromotionList = ({ langId }) =>
+	promotionRequest.post(`/GetDepositPromotionList/${langId}`, {
+		DeviceType: defDeviceType.Desktop
+	});
+
+export const api_promotion_SetDepositPromotionQueue = ({
+	langId,
+	transId,
+	bonusCode
+}) =>
+	promotionRequest.post(`/SetDepositPromotionQueue/${langId}`, {
+		TransId: transId,
+		BonusCode: bonusCode,
+		DeviceType: defDeviceType.Desktop
+	});

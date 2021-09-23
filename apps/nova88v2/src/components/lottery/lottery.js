@@ -10,7 +10,6 @@ import {
 	maintainListContext
 } from "../common/context";
 import { getCurrencyCode } from "../common/common";
-import { defTpCategoryId } from "../../datas/productList";
 import defPopBoxType from "../common/defPopBoxType";
 
 import LotteryBanner from "./lottery.banner";
@@ -22,16 +21,16 @@ const Lottery = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
-
-	const maintainList = allMaintainList?.filter(
-		mt =>
-			mt.tpCategoryId === defTpCategoryId.lottery ||
-			mt.tpCategoryId === defTpCategoryId.all
-	);
-
 	const [lotterySubMenu, setLotterySubMenu] = useState([]);
 
-	const clickItem = ({ tpId, gameId, needLogin, path, isInMaintain }) => {
+	const clickItem = ({
+		tpId,
+		gameId,
+		needLogin,
+		path,
+		isInMaintain,
+		tpGameType
+	}) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -53,7 +52,8 @@ const Lottery = () => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback: showLoginPopBox
+			loginCallback: showLoginPopBox,
+			tpGameType
 		});
 	};
 
@@ -84,6 +84,14 @@ const Lottery = () => {
 				return result;
 			});
 
+			subMenu = subMenu.map(s => {
+				const isInMaintain = allMaintainList.some(
+					item =>
+						item.tpId === s.tpId && item.tpGameType === s.tpGameType
+				);
+				return { ...s, isInMaintain };
+			});
+
 			setLotterySubMenu(subMenu);
 		};
 
@@ -100,7 +108,6 @@ const Lottery = () => {
 						t={t}
 						lotterySubMenu={lotterySubMenu}
 						clickItem={clickItem}
-						maintainList={maintainList}
 					/>
 				</div>
 			</section>

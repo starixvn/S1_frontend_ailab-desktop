@@ -12,7 +12,6 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import FishingBanner from "./fishing.banner";
 import FishingList from "./fishing.list";
 import imgFishingbanner from "../../styles/img/fishinglobby/fishing-banner.jpg";
-import { defTpCategoryId } from "../../datas/productList";
 
 const Fishing = () => {
 	const { t } = useTranslation();
@@ -20,13 +19,8 @@ const Fishing = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
-	const maintainList = allMaintainList?.filter(
-		item =>
-			item.tpCategoryId === defTpCategoryId.fishing ||
-			item.tpCategoryId === defTpCategoryId.all
-	);
 
-	const clickItem = ({ tpId, gameId, isInMaintain }) => {
+	const clickItem = ({ tpId, gameId, isInMaintain, tpGameType }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -43,7 +37,8 @@ const Fishing = () => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback
+			loginCallback,
+			tpGameType
 		});
 	};
 
@@ -69,7 +64,7 @@ const Fishing = () => {
 							subMenu={subMenu}
 							clickItem={clickItem}
 							t={t}
-							maintainList={maintainList}
+							maintainList={allMaintainList}
 						/>
 					</div>
 				</div>

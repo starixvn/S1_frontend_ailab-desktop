@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import { bannerImgUrl } from "../../config";
 
-const EsportSwiper = ({ t, subMenu, clickItem, maintainList }) => {
+const EsportSwiper = ({ t, subMenu, clickItem }) => {
 	const params = {
 		slidesPerView: 5,
 		spaceBetween: 5,
@@ -33,8 +33,8 @@ const EsportSwiper = ({ t, subMenu, clickItem, maintainList }) => {
 					gameId,
 					path,
 					needLogin,
-					tpGameType,
-					lobbyPage: { bgImg, hoverBgImg }
+					lobbyPage: { bgImg, hoverBgImg },
+					isInMaintain
 				} = subMenu[index];
 
 				el.addEventListener("mouseover", e => {
@@ -44,10 +44,6 @@ const EsportSwiper = ({ t, subMenu, clickItem, maintainList }) => {
 				el.addEventListener("mouseout", e => {
 					e.target.src = `${bannerImgUrl}/img/esport/${bgImg}`;
 				});
-
-				const isInMaintain = maintainList.some(
-					item => item.tpId === tpId && item.tpGameType === tpGameType
-				);
 
 				el.addEventListener("click", () =>
 					clickItem({
@@ -68,11 +64,10 @@ const EsportSwiper = ({ t, subMenu, clickItem, maintainList }) => {
 			<Swiper {...params}>
 				{subMenu.map(subMenuItem => (
 					<SlideItem
-						key={subMenuItem.displayKey}
+						key={`${subMenuItem.displayKey}-${subMenuItem.isInMaintain}`}
 						t={t}
 						subMenuItem={subMenuItem}
 						clickItem={clickItem}
-						maintainList={maintainList}
 					/>
 				))}
 			</Swiper>
@@ -83,13 +78,12 @@ const EsportSwiper = ({ t, subMenu, clickItem, maintainList }) => {
 EsportSwiper.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+	subMenu: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 export default memo(EsportSwiper);
 
-const SlideItem = ({ t, subMenuItem, clickItem, maintainList }) => {
+const SlideItem = ({ t, subMenuItem, clickItem }) => {
 	const [isHover, setIsHover] = useState(false);
 
 	const hoverHandler = () => setIsHover(prev => !prev);
@@ -101,15 +95,11 @@ const SlideItem = ({ t, subMenuItem, clickItem, maintainList }) => {
 		gameId,
 		path,
 		needLogin,
-		tpGameType,
-		lobbyPage: { bgImg, hoverBgImg }
+		lobbyPage: { bgImg, hoverBgImg },
+		isInMaintain
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
-
-	const isInMaintain = maintainList?.some(
-		mt => mt.tpId === tpId && mt.tpGameType === tpGameType
-	);
 
 	const _className = ["swiper-slide", isInMaintain && "active"]
 		.filter(Boolean)
@@ -159,6 +149,5 @@ const SlideItem = ({ t, subMenuItem, clickItem, maintainList }) => {
 SlideItem.propTypes = {
 	t: PropTypes.func.isRequired,
 	clickItem: PropTypes.func.isRequired,
-	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+	subMenuItem: PropTypes.objectOf(PropTypes.any).isRequired
 };

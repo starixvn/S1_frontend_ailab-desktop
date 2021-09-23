@@ -17,7 +17,7 @@ export default () => {
 
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
-	const { tpId } = productList.sportBti;
+	const { tpId, tpGameType } = productList.sportBti;
 
 	return (
 		<main>
@@ -25,14 +25,15 @@ const Content = () => {
 				<iframe
 					title="sport"
 					target="sport_iframe"
-					src={GET_ENTER_PAGE_URL(
-						userInfo.langId,
+					src={GET_ENTER_PAGE_URL({
+						langId: userInfo.langId,
 						tpId,
-						null,
-						null,
-						null,
-						userInfo.isLogin
-					)}
+						gameId: null,
+						matchid: null,
+						betType: null,
+						isLogin: userInfo.isLogin,
+						tpGameType
+					})}
 				/>
 			</section>
 		</main>

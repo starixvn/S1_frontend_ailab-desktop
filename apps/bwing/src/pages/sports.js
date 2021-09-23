@@ -22,18 +22,20 @@ const Content = () => {
 	const tpId = productList[game]?.tpId;
 	const gameId = productList[game]?.gameId;
 	const matchid = getUrlParameter("matchid");
+	const tpGameType = productList[game]?.tpGameType;
+
 	return (
 		<main className="sportpage">
 			<section className="inside">
 				<iframe
 					title="sport"
 					target="sport_iframe"
-					src={GET_ENTER_PAGE_URL(
-						userInfo.langId,
+					src={GET_ENTER_PAGE_URL({
+						langId: userInfo.langId,
 						tpId,
 						gameId,
 						matchid
-					)}
+					})}
 				/>
 			</section>
 		</main>

@@ -30,8 +30,8 @@ export const api_account_DelMsg = MsgIds =>
 export const api_account_GetWalletInfo = () =>
 	accountRequest.post("/GetWalletInfo");
 
-export const api_account_GetTpWalletList = ListType =>
-	accountRequest.post("/GetTpWalletList", { ListType });
+export const api_account_GetTpWalletList = (ListType, langId) =>
+	accountRequest.post(`/GetTpWalletList/${langId}`, { ListType });
 
 export const api_account_GetTpWalletBalance = TpId =>
 	accountRequest.post("/GetTpWalletBalance", { TpId });

@@ -27,13 +27,21 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 
 	const { isLogin, langId } = userInfo;
 
-	const clickItem = async ({ tpId, gameId, path, needLogin, menuType }) => {
+	const clickItem = async ({
+		tpId,
+		gameId,
+		path,
+		needLogin,
+		menuType,
+		tpGameType
+	}) => {
 		if (tpId === defSpecialSetting.sports_9w) {
 			const result = await handleGoToGame({
 				isLogin: userInfo.isLogin,
 				langId: userInfo.langId,
 				tpId,
-				gameId
+				gameId,
+				tpGameType
 			});
 
 			const { url, key, userId } = result ?? {};
@@ -56,7 +64,8 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 					isLogin,
 					langId,
 					tpId,
-					gameId
+					gameId,
+					tpGameType
 				});
 			} else {
 				return SET_ENTER_PAGE({
@@ -64,7 +73,8 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 					langId: userInfo.langId,
 					tpId,
 					gameId,
-					loginCallback: showLoginPopBox
+					loginCallback: showLoginPopBox,
+					tpGameType
 				});
 			}
 		}

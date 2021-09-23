@@ -36,7 +36,7 @@ const defAutoStatus = {
 	notAuto: 2
 };
 
-const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
+const AfterUpdWalletList = ({ prev, tpId, balance, displayKey, tpName }) => {
 	const idx = prev.findIndex(p => p.id === tpId);
 	if (idx !== -1) {
 		if (balance !== null) {
@@ -46,7 +46,8 @@ const AfterUpdWalletList = ({ prev, tpId, balance, displayKey }) => {
 		prev.push({
 			id: tpId,
 			displayKey,
-			balance
+			balance,
+			tpName
 		});
 	}
 	return [...prev].sort((a, b) => a.id - b.id);
@@ -134,7 +135,7 @@ export default () => {
 
 	const getTpWalletList = () => {
 		const allWallet = 0;
-		api_account_GetTpWalletList(allWallet).then(res => {
+		api_account_GetTpWalletList(allWallet, userInfo.langId).then(res => {
 			if (isMountedRef.current && res.data.errorCode === 0) {
 				getTpWalletBalance(res.data.data);
 			}
@@ -149,7 +150,7 @@ export default () => {
 						prev,
 						tpId: item.tpId,
 						balance: null,
-						displayKey: `lbl_TpWallet_${item.tpId}`
+						tpName: item.tpName
 					})
 				);
 				api_account_GetTpWalletBalance(item.tpId).then(res => {
@@ -160,7 +161,7 @@ export default () => {
 								prev,
 								tpId,
 								balance,
-								displayKey: `lbl_TpWallet_${tpId}`
+								tpName: item.tpName
 							})
 						);
 					}

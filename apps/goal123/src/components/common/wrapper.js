@@ -64,7 +64,10 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [productTpIds, setProductTpIds] = useState(null);
 	const [allMaintainList, setAllMaintainList] = useState([]);
 	const isMountedRef = useRef(null);
-	const walletInfo = useGetWalletInfo({ isLogin: userInfo.isLogin });
+	const walletInfo = useGetWalletInfo({
+		langId: userInfo.langId,
+		isLogin: userInfo.isLogin
+	});
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -84,13 +87,12 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								self.findIndex(
 									tpItem =>
 										tpItem.tpId === elem.tpId &&
-										tpItem.tpCategoryId ===
-											elem.tpCategoryId
+										tpItem.tpGameType === elem.tpGameType
 								) === idx
 						)
 						?.map(elem => ({
 							tpId: elem.tpId,
-							tpCategoryId: elem.tpCategoryId
+							tpGameType: elem.tpGameType
 						})) ?? []
 				);
 			}

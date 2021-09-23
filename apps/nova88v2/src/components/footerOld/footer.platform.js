@@ -127,7 +127,14 @@ export default ({ langId, isLogin, productTpIds }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { onMouseOverImg, handleOnMouseOverImg } = useHandleLogoList();
 
-	const ClickItem = ({ path: _path, urlParams, tpId, gameId, needLogin }) => {
+	const ClickItem = ({
+		path: _path,
+		urlParams,
+		tpId,
+		gameId,
+		needLogin,
+		tpGameType
+	}) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -145,7 +152,8 @@ export default ({ langId, isLogin, productTpIds }) => {
 			langId,
 			tpId,
 			gameId,
-			loginCallback
+			loginCallback,
+			tpGameType
 		});
 	};
 

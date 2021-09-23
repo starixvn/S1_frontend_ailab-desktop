@@ -72,6 +72,13 @@ const Esport = () => {
 			return result;
 		});
 
+		subMenu = subMenu.map(s => {
+			const isInMaintain = allMaintainList.some(
+				item => item.tpId === s.tpId && item.tpGameType === s.tpGameType
+			);
+			return { ...s, isInMaintain };
+		});
+
 		const isCurrenyInSortDef =
 			customSort &&
 			Object.keys(customSort).includes(_currencyId.toString());
@@ -97,7 +104,6 @@ const Esport = () => {
 						t={t}
 						subMenu={subMenu}
 						clickItem={clickItem}
-						maintainList={allMaintainList}
 					/>
 				</div>
 			</section>

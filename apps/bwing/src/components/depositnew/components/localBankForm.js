@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { getUrlParameter, isConvert, number_format } from "../../common/common";
+import Dropdown from "../../common/dropdown";
+import { getUrlParameter, number_format } from "../../common/common";
 import ClipboardJS from "../../../lib/clipboard.min";
 import config from "../../../config";
 
@@ -17,7 +18,9 @@ const LocalBankForm = ({
 	onInputboxKeyDown,
 	getLocalBankInfo,
 	localBankInfo,
-	asyncUploadBankPopBox
+	asyncUploadBankPopBox,
+	depositPromoList,
+	changeDeposotPromoHandlar
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
@@ -128,6 +131,13 @@ const LocalBankForm = ({
 			onChangeBankInfo(localBankGroupList[gIdx]);
 		} else if (localBankGroupList.length > 0) {
 			onChangeBankInfo(localBankGroupList[0]);
+		}
+
+		if (depositPromoList?.length > 0) {
+			changeDeposotPromoHandlar({
+				idx: 0,
+				bonusCode: depositPromoList[0].bonusCode
+			});
 		}
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -304,6 +314,34 @@ const LocalBankForm = ({
 					{t("lbl_DepositProvideBankSlip")}
 				</div>
 			</div>
+
+			{depositPromoList?.length > 0 && (
+				<>
+					<div className="subModuleTitle">
+						<span>
+							<i className="txt-blue" />
+							{t("lbl_Select_Bonus")}
+						</span>
+					</div>
+					<div className="subModule">
+						<div className="inputBox-blue">
+							<Dropdown
+								showDropDownIcon={true}
+								mainkey="bonus-provider"
+								options={depositPromoList}
+								onSelectItem={(idx, data) =>
+									changeDeposotPromoHandlar({
+										idx,
+										bonusCode: data.bonusCode
+									})
+								}
+								selectedIdx={formInfo?.depositPromo?.idx}
+								i18n={t}
+							/>
+						</div>
+					</div>
+				</>
+			)}
 		</>
 	);
 };
@@ -320,6 +358,8 @@ LocalBankForm.propTypes = {
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	getLocalBankInfo: PropTypes.func.isRequired,
 	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	asyncUploadBankPopBox: PropTypes.func.isRequired
+	asyncUploadBankPopBox: PropTypes.func.isRequired,
+	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	changeDeposotPromoHandlar: PropTypes.func.isRequired
 };
 export default LocalBankForm;

@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import { navigate } from "@reach/router";
 import path from "../../router";
-import productList, {
-	defCasinoProviders,
-	defTpCategoryId
-} from "../../datas/productList";
+import productList, { defCasinoProviders } from "../../datas/productList";
 import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
@@ -144,7 +141,8 @@ export default ({ langId, isLogin, productTpIds, maintainList }) => {
 		urlParams,
 		tpId,
 		gameId,
-		isInMaintain
+		isInMaintain,
+		tpGameType
 	}) => {
 		const loginCallback = () => {
 			setPopBox({
@@ -163,7 +161,8 @@ export default ({ langId, isLogin, productTpIds, maintainList }) => {
 				langId,
 				tpId,
 				gameId,
-				loginCallback
+				loginCallback,
+				tpGameType
 			});
 		}
 	};
@@ -187,10 +186,7 @@ export default ({ langId, isLogin, productTpIds, maintainList }) => {
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
 
 		const isInMaintain = maintainList?.some(
-			item =>
-				item.tpId === p.tpId &&
-				(item.tpCategoryId === p.tpCategory ||
-					item.tpCategoryId === defTpCategoryId.all)
+			item => item.tpId === p.tpId && item.tpGameType === p.tpGameType
 		);
 
 		return (

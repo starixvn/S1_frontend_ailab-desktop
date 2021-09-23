@@ -49,14 +49,16 @@ const useDepositLoadCardForm = ({ isMountedRef }) => {
 		cardSerial,
 		cardCode,
 		channelId,
-		amount
+		amount,
+		bonusCode
 	}) =>
 		api_cashier_DepositReqLoadCardPay({
 			langId,
 			cardSerial,
 			cardCode,
 			channelId,
-			amount
+			amount,
+			bonusCode
 		}).then(res => {
 			if (!isMountedRef.current) return;
 

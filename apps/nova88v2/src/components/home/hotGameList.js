@@ -6,7 +6,6 @@ import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import { cloudImgUrl, bannerImgUrl } from "../../config";
 import { defLangToCurrency } from "../../datas/languageData";
-import { defTpCategoryId } from "../../datas/productList";
 
 const defGameType = {
 	table: "table",
@@ -22,7 +21,8 @@ const defGame = {
 		img: "andar_bahar",
 		gameType: defGameType.poker,
 		tpId: 11,
-		gameId: ""
+		gameId: "",
+		tpGameType: 52
 	},
 	Jhandi_Munda: {
 		name: "Jhandi Munda",
@@ -31,7 +31,8 @@ const defGame = {
 		img: "jhandi_munda",
 		gameType: defGameType.poker,
 		tpId: 11,
-		gameId: ""
+		gameId: "",
+		tpGameType: 52
 	},
 	Five_Fortune_Dragons: {
 		name: "5 Fortune Dragons",
@@ -40,7 +41,8 @@ const defGame = {
 		img: "5_fortune_dragons",
 		gameType: defGameType.slots,
 		tpId: 10,
-		gameId: "S-FD01"
+		gameId: "S-FD01",
+		tpGameType: 15
 	},
 	Brothers_Kingdom: {
 		name: "Brothers Kingdom",
@@ -49,7 +51,8 @@ const defGame = {
 		img: "brothers_kingdom",
 		gameType: defGameType.slots,
 		tpId: 10,
-		gameId: "S-GK01"
+		gameId: "S-GK01",
+		tpGameType: 15
 	},
 	Dragon_Empire: {
 		name: "Dragon Empire",
@@ -58,9 +61,9 @@ const defGame = {
 		img: "dragon_empire",
 		gameType: defGameType.slots,
 		tpId: 10,
-		gameId: "S-DE01"
+		gameId: "S-DE01",
+		tpGameType: 15
 	},
-
 	Sky_Lantern: {
 		name: "Sky Lantern",
 		provider: "CQ9",
@@ -68,7 +71,8 @@ const defGame = {
 		img: "sky_lantern",
 		gameType: defGameType.slots,
 		tpId: 16,
-		gameId: 146
+		gameId: 146,
+		tpGameType: 29
 	},
 	Fire_Queen_2: {
 		name: "Fire Queen 2",
@@ -77,7 +81,8 @@ const defGame = {
 		img: "fire_queen_2",
 		gameType: defGameType.slots,
 		tpId: 16,
-		gameId: 186
+		gameId: 186,
+		tpGameType: 29
 	},
 	Jumping_Mobile: {
 		name: "Jumping Mobile",
@@ -86,7 +91,8 @@ const defGame = {
 		img: "jumping_mobile",
 		gameType: defGameType.slots,
 		tpId: 16,
-		gameId: 105
+		gameId: 105,
+		tpGameType: 29
 	},
 	Gates_of_Olympus: {
 		name: "Gates of Olympus",
@@ -95,7 +101,8 @@ const defGame = {
 		img: "gates_of_olympus",
 		gameType: defGameType.slots,
 		tpId: 5,
-		gameId: "vs20olympgate"
+		gameId: "vs20olympgate",
+		tpGameType: 7
 	},
 	God_Of_Fortune: {
 		name: "God Of Fortune",
@@ -104,7 +111,8 @@ const defGame = {
 		img: "god_of_fortune",
 		gameType: defGameType.slots,
 		tpId: 6,
-		gameId: "godoffortune"
+		gameId: "godoffortune",
+		tpGameType: 11
 	},
 	Archer: {
 		name: "Archer",
@@ -113,7 +121,8 @@ const defGame = {
 		img: "archer",
 		gameType: defGameType.slots,
 		tpId: 27,
-		gameId: "arc"
+		gameId: "arc",
+		tpGameType: 46
 	},
 	Zhao_Cai_Jin_Bao_Jackpot: {
 		name: "Zhao Cai Jin Bao Jackpot",
@@ -122,7 +131,8 @@ const defGame = {
 		img: "zhao_cai_jin_bao_jackpot",
 		gameType: defGameType.slots,
 		tpId: 27,
-		gameId: "Zhao Cai Jin Bao Jackpot"
+		gameId: "Zhao Cai Jin Bao Jackpot",
+		tpGameType: 46
 	},
 	Gem_Queen: {
 		name: "Gem Queen",
@@ -131,7 +141,8 @@ const defGame = {
 		img: "gem_queen",
 		gameType: defGameType.slots,
 		tpId: 27,
-		gameId: "gemq"
+		gameId: "gemq",
+		tpGameType: 46
 	},
 	Arowanas_Luck: {
 		name: "Arowanas Luck",
@@ -140,7 +151,8 @@ const defGame = {
 		img: "arowanas_luck",
 		gameType: defGameType.slots,
 		tpId: 27,
-		gameId: "gpas_aluck_pop"
+		gameId: "gpas_aluck_pop",
+		tpGameType: 46
 	},
 	LUCKY_GOD: {
 		name: "LUCKY GOD",
@@ -149,7 +161,8 @@ const defGame = {
 		img: "lucky_god",
 		gameType: defGameType.slots,
 		tpId: 9,
-		gameId: "dhdirsn3m3xia"
+		gameId: "dhdirsn3m3xia",
+		tpGameType: 13
 	},
 	SUPREME_CAISHEN: {
 		name: "SUPREME CAISHEN",
@@ -158,7 +171,8 @@ const defGame = {
 		img: "supreme_caishen",
 		gameType: defGameType.slots,
 		tpId: 9,
-		gameId: "byz81hmsq748k"
+		gameId: "byz81hmsq748k",
+		tpGameType: 13
 	},
 	Houyis_Legend: {
 		name: "Houyi's Legend",
@@ -167,7 +181,8 @@ const defGame = {
 		img: "houyi's_legend",
 		gameType: defGameType.slots,
 		tpId: 24,
-		gameId: "cm00034"
+		gameId: "cm00034",
+		tpGameType: 39
 	},
 	Sonya_Blackjack: {
 		name: "Sonya Blackjack",
@@ -176,7 +191,8 @@ const defGame = {
 		img: "sonya_blackjack",
 		gameType: defGameType.table,
 		tpId: 8,
-		gameId: 21001
+		gameId: 21001,
+		tpGameType: 14
 	},
 	Thor_Infinity_Reels: {
 		name: "Thor Infinity Reels",
@@ -185,7 +201,8 @@ const defGame = {
 		img: "thor_infinity_reels",
 		gameType: defGameType.slots,
 		tpId: 8,
-		gameId: 1035
+		gameId: 1035,
+		tpGameType: 14
 	},
 	Mahjong_Ways_Two: {
 		name: "Mahjong Ways Two",
@@ -194,7 +211,8 @@ const defGame = {
 		img: "mahjong_ways_two",
 		gameType: defGameType.slots,
 		tpId: 14,
-		gameId: 74
+		gameId: 74,
+		tpGameType: 17
 	},
 	Baccarat: {
 		name: "Baccarat",
@@ -203,7 +221,8 @@ const defGame = {
 		gameType: defGameType.table,
 		img: "baccarat",
 		tpId: 1,
-		gameId: 208
+		gameId: 208,
+		tpGameType: 4
 	},
 	Virtual_Games: {
 		name: "Virtual Games",
@@ -212,7 +231,8 @@ const defGame = {
 		img: "virtual_games",
 		gameType: defGameType.slots,
 		tpId: 1,
-		gameId: 245
+		gameId: 245,
+		tpGameType: 22
 	}
 };
 
@@ -274,7 +294,7 @@ const defGameList = {
 const HotGameList = ({ t, userInfo, maintainList }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
-	const ClickGame = (tpId, gameId, gameType, _isInMaintain) => {
+	const ClickGame = (tpId, gameId, gameType, _isInMaintain, tpGameType) => {
 		const clickClose = () => {
 			setPopBox({ isOpen: false });
 		};
@@ -300,7 +320,8 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 					tpId,
 					gameId,
 					isFree: false,
-					langId: userInfo.langId
+					langId: userInfo.langId,
+					tpGameType
 				});
 			}
 		} else {
@@ -309,7 +330,8 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 				tpId,
 				gameId,
 				isLogin: userInfo.isLogin,
-				loginCallback: LoginPopBox
+				loginCallback: LoginPopBox,
+				tpGameType
 			});
 		}
 	};
@@ -322,10 +344,7 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 
 	const rows = gameList.map(g => {
 		const isInMaintain = maintainList?.some(
-			mt =>
-				mt.tpId === g.tpId &&
-				(mt.tpCategoryId === g.tpCategory ||
-					mt.tpCategoryId === defTpCategoryId.all)
+			mt => mt.tpId === g.tpId && mt.tpGameType === g.tpGameType
 		);
 		return (
 			<div
@@ -335,7 +354,13 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 					margin: "0 15px"
 				}}
 				onClick={() =>
-					ClickGame(g.tpId, g.gameId, g.gameType, isInMaintain)
+					ClickGame(
+						g.tpId,
+						g.gameId,
+						g.gameType,
+						isInMaintain,
+						g.tpGameType
+					)
 				}>
 				<img
 					src={`${bannerImgUrl}/img/hotgame/${g.img}.jpg`}

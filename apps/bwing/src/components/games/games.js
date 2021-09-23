@@ -19,7 +19,7 @@ const Games = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 
-	const clickItem = ({ tpId, gameId }) => {
+	const clickItem = ({ tpId, gameId, tpGameType }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -32,7 +32,8 @@ const Games = () => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback
+			loginCallback,
+			tpGameType
 		});
 	};
 
