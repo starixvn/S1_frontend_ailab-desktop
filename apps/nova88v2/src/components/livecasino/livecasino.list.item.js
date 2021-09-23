@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
+import { defTpGameType } from "../../datas/productList";
 
 const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const [isHover, setIsHover] = useState(false);
@@ -22,7 +23,10 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const _displayText = displayText || t(displayKey);
 
 	const isInMaintain = maintainList?.some(
-		item => item.tpId === tpId && item.tpGameType === tpGameType
+		item =>
+			item.tpId === tpId &&
+			(item.tpGameType === tpGameType ||
+				item.tpGameType === defTpGameType.All)
 	);
 
 	const _className = [isInMaintain && "active"].filter(Boolean).join(" ");

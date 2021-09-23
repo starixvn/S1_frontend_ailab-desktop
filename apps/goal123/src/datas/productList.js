@@ -1,3 +1,7 @@
+export const defTpGameType = {
+	All: 0
+};
+
 export default {
 	/* === 1. sports === */
 

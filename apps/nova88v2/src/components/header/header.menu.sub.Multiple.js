@@ -6,6 +6,7 @@ import { defMenuLinks, defMenuType } from "./header.menu.def";
 // import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
 // import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 import { bannerImgUrl } from "../../config";
+import { defTpGameType } from "../../datas/productList";
 
 const SubMenuMultiple = ({
 	menuKey,
@@ -26,7 +27,8 @@ const SubMenuMultiple = ({
 		isInMaintain = maintainList?.some(
 			mt =>
 				mt.tpId === subMenuItem.tpId &&
-				mt.tpGameType === subMenuItem.tpGameType
+				(mt.tpGameType === subMenuItem.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
 		);
 	}
 

@@ -19,14 +19,16 @@ const Games = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 
-	const clickItem = ({ tpId, gameId, tpGameType }) => {
+	const clickItem = ({ tpId, gameId, tpGameType, isInMaintain }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.Login
 			});
 		};
-
+		if (isInMaintain) {
+			return;
+		}
 		SET_ENTER_PAGE({
 			isLogin: userInfo.isLogin,
 			langId: userInfo.langId,

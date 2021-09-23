@@ -4,6 +4,7 @@ import ReactMarquee from "react-fast-marquee";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
+import { defTpGameType } from "../../datas/productList";
 
 import imgIconPG from "../../styles/img/hotgame/pg.png";
 import imgIconCQ9 from "../../styles/img/hotgame/cq9.png";
@@ -185,7 +186,10 @@ export default ({ setPopBox, t, userInfo, allMaintainList }) => {
 const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 	const rows = gameList.map(g => {
 		const isInMaintain = allMaintainList?.some(
-			mt => mt.tpId === g.tpId && mt.tpGameType === g.tpGameType
+			mt =>
+				mt.tpId === g.tpId &&
+				(mt.tpGameType === g.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
 		);
 
 		return (

@@ -4,7 +4,7 @@ import { Link, navigate } from "@reach/router";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
-import productList from "../../datas/productList";
+import productList, { defTpGameType } from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
 import AppDownloadBanner from "../appDownload/appDownloadBanner";
@@ -47,7 +47,8 @@ const SubMenuSingle = ({
 		const isPokerMaintain = maintainList?.some(
 			mt =>
 				mt.tpId === productList.poker.tpId &&
-				mt.tpGameType === productList.poker.tpGameType
+				(mt.tpGameType === productList.poker.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
 		);
 
 		return (

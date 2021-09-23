@@ -13,6 +13,7 @@ import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import EsportBanner from "./eSport.banner";
 import ESportSwiper from "./eSport.swiper";
+import { defTpGameType } from "../../datas/productList";
 
 const SLIDE_IMG_LIST = ["esport_mainbanner_bg.jpg"];
 
@@ -74,7 +75,10 @@ const Esport = () => {
 
 		subMenu = subMenu.map(s => {
 			const isInMaintain = allMaintainList.some(
-				item => item.tpId === s.tpId && item.tpGameType === s.tpGameType
+				item =>
+					item.tpId === s.tpId &&
+					(item.tpGameType === s.tpGameType ||
+						item.tpGameType === defTpGameType.All)
 			);
 			return { ...s, isInMaintain };
 		});
