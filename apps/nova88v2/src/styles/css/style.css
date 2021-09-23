@@ -4016,6 +4016,10 @@ input[type="file"] {
 
 .align-items-center .txt-lightgray + .smallList li:nth-child(2) {
   text-align: right;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 
 .align-items-center .txt-lightgray + .smallList .accountNumber {
@@ -5301,28 +5305,31 @@ input[type="file"] {
   margin-left: 0;
 }
 
-.addBank .addBankName .cryptoInfo .icon-BTC {
+.addBank .addBankName .cryptoInfo > .icon {
   font-size: 24px;
 }
 
-.addBank .addBankName .cryptoInfo .icon-BTC::before {
+.addBank .addBankName .cryptoInfo > .icon::before {
   margin-left: 0;
 }
 
-.addBank .addBankName .cryptoInfo .icon-BTC + div {
+.addBank .addBankName .cryptoInfo > .icon + div {
   font-size: 12px;
+  width: 168px;
   margin: 0;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
 }
 
-.addBank .addBankName .cryptoInfo .icon-BTC ~ .icon-bin {
+.addBank .addBankName .cryptoInfo ~ button.icon.icon-bin {
   position: relative;
   -webkit-transform: translateY(0);
           transform: translateY(0);
   bottom: auto;
   right: auto;
+  margin: auto 0 auto auto;
+}
+
+.addBank .addBankName .cryptoInfo ~ button.icon.icon-bin:before {
+  margin: auto 0 auto auto;
 }
 
 .addBank .addBankName .cryptoInfo div {
@@ -10907,6 +10914,7 @@ canvas {
 
 .subModuleListColumn .bankAccount .smallList {
   margin-top: 10px;
+  width: 100%;
 }
 
 .subModuleListColumn .bankAccount .smallList ul {
