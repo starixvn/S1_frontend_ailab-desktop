@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
-import productList from "../../datas/productList";
+import productList, { defTpGameType } from "../../datas/productList";
 import path from "../../router";
 
 const defLinkType = {
@@ -159,7 +159,10 @@ export default ({ t, userInfo, maintainList }) => {
 		const displayText = t(g.displayKey) ?? g.displayKey;
 
 		const isInMaintain = maintainList?.some(
-			item => item.tpId === g.tpId && item.tpGameType === g.tpGameType
+			item =>
+				item.tpId === g.tpId &&
+				(item.tpGameType === g.tpGameType ||
+					item.tpGameType === defTpGameType.All)
 		);
 
 		return (

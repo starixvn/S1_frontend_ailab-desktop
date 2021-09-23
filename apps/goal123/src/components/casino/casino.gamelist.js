@@ -6,7 +6,7 @@ import { defRowsPerPage } from "./casino.def";
 import { defPopBoxType } from "../common/popBox";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
-import { defCasinoProviders } from "../../datas/productList";
+import { defCasinoProviders, defTpGameType } from "../../datas/productList";
 
 const GameList = ({
 	displayGames,
@@ -91,7 +91,10 @@ const GameList = ({
 			);
 
 			const isInMaintain = maintainList?.some(
-				item => item.tpId === g.tpId && item.tpGameType === tpGameType
+				item =>
+					item.tpId === g.tpId &&
+					(item.tpGameType === tpGameType ||
+						item.tpGameType === defTpGameType.All)
 			);
 
 			return (

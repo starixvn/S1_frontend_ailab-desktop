@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { defTpGameType } from "../../datas/productList";
 
 const GameList = ({ t, subMenu, allMaintainList, clickItem }) => {
 	if (subMenu.length <= 0) return null;
@@ -8,7 +9,8 @@ const GameList = ({ t, subMenu, allMaintainList, clickItem }) => {
 		const isInMaintain = allMaintainList?.some(
 			item =>
 				item.tpId === subMenuItem.tpId &&
-				item.tpGameType === subMenuItem.tpGameType
+				(item.tpGameType === subMenuItem.tpGameType ||
+					item.tpGameType === defTpGameType.All)
 		);
 
 		return (
@@ -55,7 +57,8 @@ const GameListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 				clickItem({
 					tpId,
 					gameId,
-					tpGameType
+					tpGameType,
+					isInMaintain
 				})
 			}>
 			{isInMaintain && (
