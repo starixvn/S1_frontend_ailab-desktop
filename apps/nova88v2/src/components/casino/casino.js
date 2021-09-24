@@ -49,7 +49,7 @@ export default () => {
 	const isSomeTab = Object.values(defNav).some(item => item.key === urlTab);
 
 	const [selNav, setSelNav] = useState(
-		isSomeTab ? urlTab : defNav.ALLGAMES.key
+		isSomeTab ? urlTab : defNav.FEATURED.key
 	);
 
 	const [favorite, setFavorite] = useState([]);
@@ -435,7 +435,7 @@ export default () => {
 		const searchParams = new URLSearchParams(window.location.search);
 
 		if (!isSomeTab) {
-			searchParams.set("tab", defNav.ALLGAMES.key);
+			searchParams.set("tab", defNav.FEATURED.key);
 
 			window.history.replaceState(
 				{},
