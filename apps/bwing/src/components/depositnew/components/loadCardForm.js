@@ -67,13 +67,6 @@ export default function LoadCardForm({
 				res.flat()
 			);
 
-			if (depositPromoList?.length > 0) {
-				changeDeposotPromoHandlar({
-					idx: 0,
-					bonusCode: depositPromoList[0].bonusCode
-				});
-			}
-
 			defaultDataCheck(result);
 			setPaymentList(result);
 		};
