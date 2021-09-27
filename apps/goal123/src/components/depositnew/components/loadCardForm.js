@@ -11,6 +11,7 @@ export default function LoadCardForm({
 	t,
 	_isConvert,
 	formInfo,
+	depositPromoMsg,
 	depositType,
 	cardCodeInfoIconActive,
 	setFormInfo,
@@ -84,6 +85,10 @@ export default function LoadCardForm({
 	const isSelAmountType = formInfo.amountRule === 3;
 
 	const tipImgClass = ["tipImg", cardCodeInfoIconActive && "active"]
+		.filter(Boolean)
+		.join(" ");
+
+	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
 		.filter(Boolean)
 		.join(" ");
 
@@ -237,6 +242,9 @@ export default function LoadCardForm({
 								i18n={t}
 							/>
 						</div>
+						<div className={depositPromoMsgClass}>
+							{depositPromoMsg}
+						</div>
 					</div>
 				</>
 			)}
@@ -254,6 +262,7 @@ export default function LoadCardForm({
 LoadCardForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
+	depositPromoMsg: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	loadCardPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getLoadCardPayInfoList: PropTypes.func.isRequired,

@@ -13,6 +13,7 @@ const LocalBankForm = ({
 	_isConvert,
 	localBankGroupList,
 	formInfo,
+	depositPromoMsg,
 	setFormInfo,
 	onChangeForm,
 	onInputboxKeyDown,
@@ -151,6 +152,10 @@ const LocalBankForm = ({
 		number: formInfo.maxAmount,
 		digits: 0
 	});
+
+	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
+		.filter(Boolean)
+		.join(" ");
 
 	return (
 		<>
@@ -331,6 +336,9 @@ const LocalBankForm = ({
 								i18n={t}
 							/>
 						</div>
+						<div className={depositPromoMsgClass}>
+							{depositPromoMsg}
+						</div>
 					</div>
 				</>
 			)}
@@ -341,6 +349,7 @@ const LocalBankForm = ({
 LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositPromoMsg: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,

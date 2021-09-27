@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import usePopBox from "../../hook/usePopBox";
 import { defPopBoxType } from "../../common/defPopBoxType";
@@ -15,6 +15,46 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 	const [depositPromoList, setDepositPromoList] = useState([]);
 
 	const { errorPopBox, setPopBox } = usePopBox();
+
+	useEffect(() => {
+		const getDepositPromotionList = async () => {
+			await api_promotion_GetDepositPromotionList({
+				langId: userInfo.langId
+			}).then(
+				({ data: { data, message, errorCode } }) => {
+					if (!isMountedRef.current) return;
+
+					const success = errorCode === 0;
+					if (success) {
+						const noneOption = {
+							id: null,
+							displayKey: "lbl_None"
+						};
+
+						const newDtata = data.reduce(
+							(arr, cur) => [
+								...arr,
+								{
+									...cur,
+									id: cur.bonusCode,
+									displayText: cur.title
+								}
+							],
+							[]
+						);
+
+						setDepositPromoList([noneOption, ...newDtata]);
+					} else errorPopBox(message || "error", errorCode);
+				},
+				() => {
+					if (!isMountedRef.current) return;
+
+					errorPopBox();
+				}
+			);
+		};
+		getDepositPromotionList();
+	}, [userInfo.langId]);
 
 	const getDepositInfoRecent = async () => {
 		const result = await api_payment_GetDepositInfoRecent().then(
@@ -60,43 +100,6 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 			});
 		});
 
-	const getDepositPromotionList = async () => {
-		await api_promotion_GetDepositPromotionList({
-			langId: userInfo.langId
-		}).then(
-			({ data: { data, message, errorCode } }) => {
-				if (!isMountedRef.current) return;
-
-				const success = errorCode === 0;
-				if (success) {
-					const noneOption = {
-						id: null,
-						displayKey: "lbl_None"
-					};
-
-					const newDtata = data.reduce(
-						(arr, cur) => [
-							...arr,
-							{
-								...cur,
-								id: cur.bonusCode,
-								displayText: cur.title
-							}
-						],
-						[]
-					);
-
-					setDepositPromoList([noneOption, ...newDtata]);
-				} else errorPopBox(message || "error", errorCode);
-			},
-			() => {
-				if (!isMountedRef.current) return;
-
-				errorPopBox();
-			}
-		);
-	};
-
 	const setDepositPromotionQueue = async ({ transId, bonusCode }) => {
 		let success = false;
 
@@ -130,7 +133,6 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 		depositInfoRecentDatas,
 		setDepositInfoRecentDatas,
 		depositPromoList,
-		getDepositPromotionList,
 		setDepositPromotionQueue
 	};
 };
