@@ -70,6 +70,10 @@ const Depositnew = () => {
 			val: "",
 			checked: null,
 			tip: ""
+		},
+		depositPromo: {
+			idx: 0,
+			bonusCode: null
 		}
 	});
 

@@ -77,13 +77,6 @@ const MobileForm = ({
 			} else if (mobilePayGourpList.length > 0) {
 				await onGetMobileInfoList(mobilePayGourpList[0].groupId);
 			}
-
-			if (depositPromoList?.length) {
-				changeDeposotPromoHandlar({
-					idx: 0,
-					bonusCode: depositPromoList[0].bonusCode
-				});
-			}
 		};
 
 		getData();

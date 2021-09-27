@@ -103,13 +103,6 @@ const OnlineBankForm = ({
 			} else if (onlineBankGroupList.length > 0) {
 				onChangeBankGroup(onlineBankGroupList[0]);
 			}
-
-			if (depositPromoList?.length) {
-				changeDeposotPromoHandlar({
-					idx: 0,
-					bonusCode: depositPromoList[0].bonusCode
-				});
-			}
 		};
 
 		getData();

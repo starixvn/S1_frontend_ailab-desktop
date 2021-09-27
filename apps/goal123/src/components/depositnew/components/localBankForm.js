@@ -132,13 +132,6 @@ const LocalBankForm = ({
 			onChangeBankInfo(localBankGroupList[0]);
 		}
 
-		if (depositPromoList?.length > 0) {
-			changeDeposotPromoHandlar({
-				idx: 0,
-				bonusCode: depositPromoList[0].bonusCode
-			});
-		}
-
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
