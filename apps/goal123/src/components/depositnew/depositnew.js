@@ -77,6 +77,10 @@ const Depositnew = () => {
 
 	const _isConvert = isConvert(userInfo.currencyId);
 
+	const depositPromoMsg = userInfo?.phoneVerified
+		? ""
+		: t("lbl_DepositPromoMsg1");
+
 	const { errorPopBox } = usePopBox();
 	const closePopBox = () => {
 		setPopBox({ isOpen: false });
@@ -87,7 +91,6 @@ const Depositnew = () => {
 		depositInfoRecentDatas,
 		setDepositInfoRecentDatas,
 		depositPromoList,
-		getDepositPromotionList,
 		setDepositPromotionQueue
 	} = useDeposit({
 		isMountedRef,
@@ -419,8 +422,7 @@ const Depositnew = () => {
 					getMobilePayGroupList(),
 					getLocalBankGroupList(),
 					getOnlineBankGroupList(),
-					getLoadCardPayGroupList(),
-					getDepositPromotionList()
+					getLoadCardPayGroupList()
 				]);
 
 				setIsInitDataDone(true);
@@ -515,6 +517,7 @@ const Depositnew = () => {
 						getMobilePayInfoList={getMobilePayInfoList}
 						mobilePayInfoList={mobilePayInfoList}
 						formInfo={formInfo}
+						depositPromoMsg={depositPromoMsg}
 						depositPromoList={depositPromoList}
 						setFormInfo={setFormInfo}
 						onChangeForm={onChangeForm}
@@ -531,6 +534,7 @@ const Depositnew = () => {
 						_isConvert={_isConvert}
 						localBankGroupList={localBankGroupList}
 						formInfo={formInfo}
+						depositPromoMsg={depositPromoMsg}
 						setFormInfo={setFormInfo}
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
@@ -551,6 +555,7 @@ const Depositnew = () => {
 						getOnlineBankInfoList={getOnlineBankInfoList}
 						onlineBankInfoList={onlineBankInfoList}
 						formInfo={formInfo}
+						depositPromoMsg={depositPromoMsg}
 						depositPromoList={depositPromoList}
 						onChangeForm={onChangeForm}
 						setFormInfo={setFormInfo}
@@ -564,6 +569,7 @@ const Depositnew = () => {
 					<LoadCardForm
 						t={t}
 						formInfo={formInfo}
+						depositPromoMsg={depositPromoMsg}
 						_isConvert={_isConvert}
 						depositType={depositType}
 						cardCodeInfoIconActive={cardCodeInfoIconActive}

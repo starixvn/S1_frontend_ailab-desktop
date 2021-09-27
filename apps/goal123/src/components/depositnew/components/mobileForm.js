@@ -14,6 +14,7 @@ const MobileForm = ({
 	getMobilePayInfoList,
 	mobilePayInfoList,
 	formInfo,
+	depositPromoMsg,
 	depositPromoList,
 	setFormInfo,
 	onInputboxKeyDown,
@@ -101,6 +102,10 @@ const MobileForm = ({
 		number: formInfo.maxAmount,
 		digits: 0
 	});
+
+	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
+		.filter(Boolean)
+		.join(" ");
 
 	return (
 		<>
@@ -282,6 +287,9 @@ const MobileForm = ({
 								i18n={t}
 							/>
 						</div>
+						<div className={depositPromoMsgClass}>
+							{depositPromoMsg}
+						</div>
 					</div>
 				</>
 			)}
@@ -297,6 +305,7 @@ MobileForm.propTypes = {
 	getMobilePayInfoList: PropTypes.func.isRequired,
 	mobilePayInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositPromoMsg: PropTypes.string.isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,

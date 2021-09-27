@@ -13,6 +13,7 @@ const OnlineBankForm = ({
 	getOnlineBankInfoList,
 	onlineBankInfoList,
 	formInfo,
+	depositPromoMsg,
 	onChangeForm,
 	setFormInfo,
 	setOnlineBankInfoList,
@@ -127,6 +128,10 @@ const OnlineBankForm = ({
 		number: formInfo.maxAmount,
 		digits: 0
 	});
+
+	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
+		.filter(Boolean)
+		.join(" ");
 
 	return (
 		<>
@@ -279,6 +284,9 @@ const OnlineBankForm = ({
 								i18n={t}
 							/>
 						</div>
+						<div className={depositPromoMsgClass}>
+							{depositPromoMsg}
+						</div>
 					</div>
 				</>
 			)}
@@ -294,6 +302,7 @@ OnlineBankForm.propTypes = {
 	getOnlineBankInfoList: PropTypes.func.isRequired,
 	onlineBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositPromoMsg: PropTypes.string.isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
