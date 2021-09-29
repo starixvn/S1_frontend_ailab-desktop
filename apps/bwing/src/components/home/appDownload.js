@@ -22,7 +22,7 @@ export default ({ langId }) => {
 				<button
 					className="icon icon-mobile"
 					onClick={() =>
-						navigate(`${langId}/${path.appDownload.root}`)
+						navigate(`/${langId}/${path.appDownload.root}`)
 					}
 				/>
 				<i className="icon icon-circle-right">{t("lbl_Download")}</i>

@@ -65,7 +65,7 @@ const News = ({ t, langId }) => {
 			</div>
 			<div className="articleModule">{row}</div>
 			<div className="btnall">
-				<Link to={`${langId}/${path.news.root}`}>
+				<Link to={`/${langId}/${path.news.root}`}>
 					{t("lbl_ViewAll")}
 				</Link>
 			</div>
