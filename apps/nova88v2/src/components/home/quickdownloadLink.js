@@ -1,50 +1,41 @@
 import React, { useState } from "react";
+import QRCode from "qrcode.react";
 import PropTypes from "prop-types";
-import { iosLink, androidLink } from "../appDownload/appDownload";
-import { cloudImgUrl } from "../../config";
-
-const defQRCodeName = {
-	ios: "ios",
-	android: "android"
-};
+import useAppDownLoad from "../appDownload/useAppDownLoad";
 
 const QuickdownloadLink = ({ t }) => {
-	const [isShowIcon, setIsShowIcon] = useState(false);
-	const [qrCodeName, setQrCodeName] = useState(null);
+	const [active, setActive] = useState(false);
+	const { appLinkDatas } = useAppDownLoad();
 
-	const showQRcode = (_qrCodeName, url) => {
-		setQrCodeName(_qrCodeName);
+	const showQRcode = url => {
 		if (typeof window !== undefined) window.open(url);
 	};
 
-	const onMouseLeaveIconBar = () => {
-		setIsShowIcon(false);
-		setQrCodeName(null);
-	};
+	if (Object.keys(appLinkDatas).length === 0) return null;
 
 	return (
 		<>
 			<DownloadBar
 				t={t}
-				isShowIcon={isShowIcon}
-				setIsShowIcon={setIsShowIcon}
+				className={active ? "active" : ""}
+				onMouseOver={() => setActive(true)}
 			/>
 			<IconBar
 				t={t}
-				isShowIcon={isShowIcon}
-				qrCodeName={qrCodeName}
+				className={active ? "" : "active"}
+				appLinkDatas={appLinkDatas}
 				showQRcode={showQRcode}
-				onMouseLeaveIconBar={onMouseLeaveIconBar}
+				onMouseLeave={() => setActive(false)}
 			/>
 		</>
 	);
 };
 
-export const DownloadBar = ({ t, isShowIcon, setIsShowIcon }) => {
+export const DownloadBar = ({ t, className, onMouseOver }) => {
 	return (
 		<div
-			className={`quickLinkNew3 ${isShowIcon ? "active" : ""} `}
-			onMouseOver={() => setIsShowIcon(true)}
+			className={`quickLinkNew3 ${className}`}
+			onMouseOver={onMouseOver}
 			onFocus={() => 0}>
 			<i className="icon icon-arrow-right2" />
 			<div>{t("lbl_Download")}</div>
@@ -53,47 +44,51 @@ export const DownloadBar = ({ t, isShowIcon, setIsShowIcon }) => {
 };
 
 export const IconBar = ({
-	isShowIcon,
-	qrCodeName,
+	t,
 	showQRcode,
-	onMouseLeaveIconBar,
-	t
+	className,
+	appLinkDatas,
+	onMouseLeave
 }) => {
+	const andriodDownLoadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
+	const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
+
 	return (
 		<div
-			className={`quickLinkNew4 ${isShowIcon ? "" : "active"} `}
-			onMouseLeave={onMouseLeaveIconBar}>
+			className={`quickLinkNew4 ${className}`}
+			onMouseLeave={onMouseLeave}>
 			<i className="icon icon-arrow-left2" />
-			<button
-				className={`icon icon-appleinc ${
-					qrCodeName === defQRCodeName.ios ? "active" : ""
-				}`}
-				onClick={showQRcode.bind(this, defQRCodeName.ios, iosLink)}>
-				{t("lbl_iOS")?.toUpperCase()}
-				<div>
-					<img
-						src={`${cloudImgUrl}/SiteSkin/img/ios_qr.png`}
-						alt="ios_qr"
-					/>
-				</div>
-			</button>
-			<button
-				className={`icon icon-android ${
-					qrCodeName === defQRCodeName.android ? "active" : ""
-				}`}
-				onClick={showQRcode.bind(
-					this,
-					defQRCodeName.android,
-					androidLink
-				)}>
-				{t("lbl_Android")?.toUpperCase()}
-				<div>
-					<img
-						src={`${cloudImgUrl}/SiteSkin/img/android_qr.png`}
-						alt="android_qr"
-					/>
-				</div>
-			</button>
+			{IOSDownloadUrl && (
+				<button
+					className="icon icon-appleinc"
+					onClick={() => showQRcode(IOSDownloadUrl)}>
+					{t("lbl_iOS")?.toUpperCase()}
+					<div>
+						<QRCode
+							value={IOSDownloadUrl}
+							renderAs="svg"
+							size={112}
+							includeMargin={true}
+						/>
+					</div>
+				</button>
+			)}
+
+			{andriodDownLoadUrl && (
+				<button
+					className="icon icon-android"
+					onClick={() => showQRcode(andriodDownLoadUrl)}>
+					{t("lbl_Android")?.toUpperCase()}
+					<div>
+						<QRCode
+							value={andriodDownLoadUrl}
+							renderAs="svg"
+							size={112}
+							includeMargin={true}
+						/>
+					</div>
+				</button>
+			)}
 		</div>
 	);
 };
@@ -104,20 +99,16 @@ QuickdownloadLink.propTypes = {
 
 DownloadBar.propTypes = {
 	t: PropTypes.func.isRequired,
-	isShowIcon: PropTypes.bool.isRequired,
-	setIsShowIcon: PropTypes.func.isRequired
-};
-
-IconBar.defaultProps = {
-	qrCodeName: null
+	className: PropTypes.string.isRequired,
+	onMouseOver: PropTypes.func.isRequired
 };
 
 IconBar.propTypes = {
-	isShowIcon: PropTypes.bool.isRequired,
-	qrCodeName: PropTypes.string,
+	t: PropTypes.func.isRequired,
 	showQRcode: PropTypes.func.isRequired,
-	onMouseLeaveIconBar: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired
+	className: PropTypes.string.isRequired,
+	appLinkDatas: PropTypes.objectOf(PropTypes.any).isRequired,
+	onMouseLeave: PropTypes.func.isRequired
 };
 
 export default QuickdownloadLink;

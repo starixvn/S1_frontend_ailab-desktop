@@ -27,6 +27,7 @@ import PromoGameList from "./promoGameList";
 import TandC from "../../service/t_and_c";
 import WinnerBoard from "./winnerBoard";
 import SideBarQuickLink from "./sideBarQuickLink";
+import AppDownload from "./appDownload";
 
 import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
@@ -262,7 +263,6 @@ const UserGuide = ({ t, langId }) => {
 			onClickClose: ClickClose
 		});
 	};
-
 	const { userInfo } = useContext(userInfoContext);
 	return (
 		<ul>
@@ -286,6 +286,7 @@ const UserGuide = ({ t, langId }) => {
 			</li>
 
 			<SideBarQuickLink />
+			<AppDownload />
 		</ul>
 	);
 };

@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
+import QRCode from "qrcode.react";
+import { userInfoContext } from "../common/context";
+import { useAppDownLoad } from "../appDownload/useAppDownLoad";
+
+import path from "../../router";
 
 import androidIconImg from "../../styles/img/android.svg";
-import androidQRcodeImg from "../../styles/img/android_qr.png";
-
 import iosIconImg from "../../styles/img/ios.svg";
-import iosQRcodeImg from "../../styles/img/ios_qr_en.png";
 
 const higherToTheAngpowZIndex = 3;
 const orignZIndex = 2;
 
-const defIosQRAndLink = {
-	qrcode: iosQRcodeImg,
-	link: "https://helloios.net/emRS39"
-};
-
-const QuickdownloadLink = ({ langId }) => {
+const QuickdownloadLink = () => {
 	const { t } = useTranslation();
 	const [active, setActive] = useState(false);
+	const { userInfo } = useContext(userInfoContext);
+	const { appLinkDatas } = useAppDownLoad();
+
+	const andriodDownLoadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
+	const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
+
+	if (Object.keys(appLinkDatas).length === 0) return null;
 
 	return (
 		<div
@@ -27,7 +32,12 @@ const QuickdownloadLink = ({ langId }) => {
 			className={`quickdownload${active ? " active" : ""}`}
 			style={{ zIndex: active ? higherToTheAngpowZIndex : orignZIndex }}>
 			<div onClick={async () => setActive(false)}>
-				<button className="icon icon-mobile" />
+				<button
+					className="icon icon-mobile"
+					onClick={() =>
+						navigate(`/${userInfo.langId}/${path.appDownload.root}`)
+					}
+				/>
 
 				<i
 					className={
@@ -39,29 +49,43 @@ const QuickdownloadLink = ({ langId }) => {
 				</i>
 			</div>
 
-			<div>
+			<div
+				onFocus={() => 0}
+				onMouseOver={() => setActive(true)}
+				onMouseLeave={() => setActive(false)}>
 				<ul>
-					<li>
-						<a
-							href="https://mars.fadatsai88.com/v1/App?path=goal123entry_sports_android.apk"
-							target="_blank"
-							rel="noreferrer">
-							<img src={androidIconImg} alt="" />
-							Android
-						</a>
-						<img src={androidQRcodeImg} alt="android_qr" />
-					</li>
-					<li>
-						<a
-							href={defIosQRAndLink?.link ?? ""}
-							target="_blank"
-							rel="noreferrer">
-							<img src={iosIconImg} alt="iosIcon" />
-							iOS
-						</a>
+					{andriodDownLoadUrl && (
+						<li>
+							<a
+								href={andriodDownLoadUrl}
+								target="_blank"
+								rel="noreferrer">
+								<img src={androidIconImg} alt="" />
+								Android
+							</a>
 
-						<img src={defIosQRAndLink?.qrcode} alt="ios_qr" />
-					</li>
+							<QRCode
+								value={andriodDownLoadUrl}
+								includeMargin={true}
+							/>
+						</li>
+					)}
+
+					{IOSDownloadUrl && (
+						<li>
+							<a
+								href={IOSDownloadUrl}
+								target="_blank"
+								rel="noreferrer">
+								<img src={iosIconImg} alt="iosIcon" />
+								iOS
+							</a>
+							<QRCode
+								value={IOSDownloadUrl}
+								includeMargin={true}
+							/>
+						</li>
+					)}
 				</ul>
 			</div>
 		</div>

@@ -14,6 +14,7 @@ import LanguageDropDown from "./header.langDropdown";
 import { isDateRange } from "../common/common";
 import { eventPeriodIdpd } from "../../datas/eventDef";
 import LogoEvent from "../../styles/img/logo_event.png";
+import path from "../../router";
 
 export default () => {
 	const { t } = useTranslation();
@@ -41,13 +42,12 @@ export default () => {
 					allMaintainList={allMaintainList}
 				/>
 				<div className="function">
-					<a
+					<Link
 						className="appDownload"
-						href={`SiteSkin/Goal123/appDownload/${userInfo.langId}.html`}
-						target="_blank">
+						to={`/${userInfo.langId}/${path.appDownload.root}`}>
 						<i className="icon icon-mobile" />
 						{t("lbl_APPDownload")}
-					</a>
+					</Link>
 					<LanguageDropDown />
 					<Functions />
 				</div>
