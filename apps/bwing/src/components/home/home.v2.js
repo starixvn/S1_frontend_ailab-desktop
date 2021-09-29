@@ -23,6 +23,8 @@ import MainGame from "./maingame";
 import Streaming from "./streaming";
 import HotGameList from "./hotGameList";
 import TandC from "../../service/t_and_c";
+import SideBarQuickLink from "./sideBarQuickLink";
+import AppDownload from "./appDownload";
 
 import { defBannerType } from "../../service/api/site";
 import useGetVideo from "../streaming/hook";
@@ -240,6 +242,10 @@ function Home() {
 					</div>
 				</section>
 			</main>
+
+			<SideBarQuickLink />
+
+			<AppDownload langId={userInfo.langId} />
 		</>
 	);
 }

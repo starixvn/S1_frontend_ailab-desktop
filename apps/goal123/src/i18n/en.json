@@ -661,5 +661,12 @@
 	"lbl_NoOfAchievements": "No. of achievements",
 	"lbl_RewardAmount": "Rewards Amounts",
 
-	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": ""
+	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
+
+	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_APP_DOWNLOAD": "APP DOWNLOAD",
+	"lbl_Installation_tutorial": "Installation tutorial",
+	"lbl_Appdownload_Subtitle": "Once {{site}} App is installed, tap Trust or complete the setting as below.",
+	"lbl_Scan_to_Download": "Scan to Download",
+	"lbl_iOS_App_Trust_Authentication": "iOS App Trust Authentication"
 }
