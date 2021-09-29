@@ -2,6 +2,9 @@ export default {
 	home: {
 		root: "/"
 	},
+	appDownload: {
+		root: "appDownload"
+	},
 	login: {
 		root: "login"
 	},
