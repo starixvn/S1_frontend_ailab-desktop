@@ -21,7 +21,9 @@ const BankCard = ({
 		};
 	});
 
-	const bankArr = custBankInfo?.map(item => {
+	const _custBankInfo = custBankInfo?.bankInfoDetail;
+
+	const bankArr = _custBankInfo?.map(item => {
 		const _key = `withdrawal-bankCard-${item.accountNo}`;
 		const _checked = item.accountNo === state.selectedAccount?.accountNo;
 
@@ -41,17 +43,21 @@ const BankCard = ({
 	});
 
 	return (
-		<div className="addBank">
-			{custBankInfo.length > 0 ? bankArr : null}
-			{custBankInfo.length < 3 ? (
-				<div className="addBankName noBank" onClick={addBankAccount}>
-					<div className="icon icon-plus" />
-					<div>{t("lbl_AddBankAccount")}</div>
-				</div>
-			) : null}
-			{/* <div className="remainder">
+		<div className="walletModule">
+			<div className="addBank">
+				{bankArr}
+				{(!bankArr || bankArr.length < 3) && (
+					<div
+						className="addBankName noBank"
+						onClick={addBankAccount}>
+						<div className="icon icon-plus" />
+						<div>{t("lbl_AddBankAccount")}</div>
+					</div>
+				)}
+				{/* <div className="remainder">
 				{t("lbl_NumberOfBankAccounts")}:{custBankInfo?.length ?? 0}/3
-			</div> */}
+				</div> */}
+			</div>
 		</div>
 	);
 };
@@ -118,7 +124,7 @@ BankCard.propTypes = {
 	t: PropTypes.func.isRequired,
 	state: PropTypes.objectOf(PropTypes.any).isRequired,
 	defPanel: PropTypes.objectOf(PropTypes.any).isRequired,
-	custBankInfo: PropTypes.arrayOf(PropTypes.any).isRequired,
+	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	addBankAccount: PropTypes.func.isRequired,
 	selectAccount: PropTypes.func.isRequired,
 	delAccount: PropTypes.func.isRequired,

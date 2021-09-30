@@ -13,27 +13,25 @@ export const defActionType = {
 	SET_WITHDRAWAL_AMOUNT_LIMIT: "SET_WITHDRAWAL_AMOUNT_LIMIT"
 };
 
-export const initState = {
-	balanceData: {},
-	step: 1,
-	custBankInfo: [],
-	selectedAccount: {},
-	kycStatus: "normal",
-	loading: true,
-	redirectPath: null,
-	panel: "amount",
-	withdrawalMin: 0,
-	withdrawalMax: 0
-};
-
 export const defPanel = {
 	amount: "amount",
 	confirm: "confirm"
 };
 
-export function reducer(state, action) {
-	let _step = 0;
+export const initState = {
+	balanceData: {},
+	custBankInfo: {},
+	selectedAccount: {},
+	kycStatus: "normal",
+	loading: true,
+	redirectPath: null,
+	panel: defPanel.amount,
+	withdrawalMin: 0,
+	withdrawalMax: 0,
+	receiveUSDT: null
+};
 
+export function reducer(state, action) {
 	switch (action.type) {
 		case defActionType.GET_BALANCE:
 			return {
@@ -50,16 +48,13 @@ export function reducer(state, action) {
 		case defActionType.SELECT_ACCOUNT:
 			return {
 				...state,
-				selectedAccount: action.selectedAccount,
-				step: action.step
+				selectedAccount: action.selectedAccount
 			};
 
 		case defActionType.EDIT_AMOUNT:
-			_step = state.selectedAccount ? 3 : 1;
 			return {
 				...state,
-				amount: action.amount,
-				step: _step
+				amount: action.amount
 			};
 
 		case defActionType.CHECK_AMOUNT:
@@ -72,7 +67,8 @@ export function reducer(state, action) {
 		case defActionType.TO_OTHER_PANEL:
 			return {
 				...state,
-				panel: action.panel
+				panel: action.panel,
+				receiveUSDT: action.receiveUSDT ?? state.receiveUSDT
 			};
 
 		case defActionType.SET_INIT_STATE:

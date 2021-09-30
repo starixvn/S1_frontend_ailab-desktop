@@ -5,8 +5,9 @@ import { defActionType, defPanel } from "./withdrawal.reducer";
 import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
+import { api_payment_GetExchangeInfo } from "../../service/api/payment";
 
-const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
+const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
 	const EditAmount = Value => {
@@ -64,20 +65,20 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 			: t("lbl_Unlimited")
 	})}`;
 
-	const clickInfo = () => {
-		const _msg = !state.tip ? withdrawalMinMaxLimitHint : "";
-		dispatch({
-			type: defActionType.CHECK_AMOUNT,
-			checked: null,
-			tip: _msg
-		});
-	};
+	// const clickInfo = () => {
+	// 	const _msg = !state.tip ? withdrawalMinMaxLimitHint : "";
+	// 	dispatch({
+	// 		type: defActionType.CHECK_AMOUNT,
+	// 		checked: null,
+	// 		tip: _msg
+	// 	});
+	// };
 
 	const ClosePopBox = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const clickSubmit = e => {
+	const clickSubmit = async e => {
 		e.preventDefault();
 		const amountChecked = ValidAmount(state.amount);
 
@@ -86,9 +87,29 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 				state.selectedAccount.usdtAddress) &&
 			amountChecked
 		) {
+			let receiveUSDT = null;
+			if (state.selectedAccount.usdtAddress) {
+				try {
+					const real_amount = _isConvert
+						? Number(state.amount) * 1000
+						: Number(state.amount);
+					const res = await api_payment_GetExchangeInfo({
+						Amount: real_amount
+					});
+					if (res.data.errorCode === 0) {
+						receiveUSDT = Number(
+							res.data.data.to_Amount
+						).toString();
+					}
+				} catch (error) {
+					console.log(error);
+				}
+			}
+
 			dispatch({
 				type: defActionType.TO_OTHER_PANEL,
-				panel: defPanel.confirm
+				panel: defPanel.confirm,
+				receiveUSDT
 			});
 		} else if (
 			!state.selectedAccount.accountNo ||
@@ -97,7 +118,7 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo, isUSDT }) => {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.ErrorMsg,
-				message: isUSDT
+				message: state.selectedAccount.usdtAddress
 					? t("lbl_Select_Crypto_Wallet")
 					: t("lbl_SelectBank_Required"),
 				btnBar: (
@@ -201,8 +222,7 @@ AmountPanel.propTypes = {
 	state: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	isUSDT: PropTypes.bool.isRequired
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
 export default AmountPanel;

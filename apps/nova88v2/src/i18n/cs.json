@@ -285,6 +285,8 @@
 	"lbl_Deposit_DragonPayPop_BankName": "银行",
 	"lbl_Deposit_DragonPayPop_AccountName": "户口名字",
 	"lbl_Deposit_DragonPayPop_AccountNumber": "户口号码",
+	"lbl_Rate": "汇率",
+	"lbl_USDT_Amount": "泰达币金额",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "付款资讯",
@@ -344,6 +346,8 @@
 	"lbl_Daily_Min_Max_Amount": "每日最低/最高额度: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "您已达到每日提款限额",
 	"lbl_Insufficientbalance": "余额不足",
+	"lbl_ReceiveUSDT":"USDT款项到账",
+	"lbl_WithdrawalCryptoNote":"汇率仅供参考, 详细到帐金额将由当时汇率决定",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "资金转移",
@@ -765,8 +769,10 @@
 	"lbl_Select_Crypto_Wallet": "选择加密钱包",
 	"lbl_Optional": "可选",
 	"lbl_CryptoPay": "加密货币渠道",
-	"lbl_NotERC20WalletAddr": "必须符合 ERC-20 的钱包地址",
+	"lbl_NotERC20WalletAddr": "必须符合 ERC-20 / TRC-20 的钱包地址",
 	"lbl_already_stored_this_information": "您已经存储此信息。",
+	"lbl_Crypto_OTP":"使用虚拟货币存款服务前，请先完成手机 OTP 验证。",
+
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "即将的赛事",

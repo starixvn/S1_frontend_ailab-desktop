@@ -283,6 +283,8 @@
 	"lbl_Deposit_DragonPayPop_BankName": "बैंक का नाम",
 	"lbl_Deposit_DragonPayPop_AccountName": "खाते का नाम",
 	"lbl_Deposit_DragonPayPop_AccountNumber": "खाता संख्या",
+	"lbl_Rate": "Rate",
+	"lbl_USDT_Amount": "USDT Amount",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",
@@ -342,7 +344,9 @@
 	"lbl_Daily_Min_Max_Amount": "Daily Min/Max Limit: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "Your Daily Limit Reached.",
 	"lbl_Insufficientbalance": "Insufficient balance",
-
+	"lbl_ReceiveUSDT":"Receive USDT Amount",
+	"lbl_WithdrawalCryptoNote":"Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
+	
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "धनराशि का ट्रांसफर",
 	"msg_InsufficientFund": "अपर्याप्त निधि",
@@ -751,8 +755,10 @@
 	"lbl_Select_Crypto_Wallet": "क्रिप्टो वॉलेट चुनें",
 	"lbl_Optional": "ऐच्छिक",
 	"lbl_CryptoPay": "क्रिप्टो भुगतान",
-	"lbl_NotERC20WalletAddr": "ERC-20 संगत वॉलेट पता होना चाहिए",
+	"lbl_NotERC20WalletAddr": "ERC-20 / TRC-20 संगत वॉलेट पता होना चाहिए",
 	"lbl_already_stored_this_information": "आप पहले ही यह जानकारी संग्रहीत कर चुके हैं।",
+	"lbl_Crypto_OTP":"Phone number (OTP) verification are require before deposit for Crypto service.",
+
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "अभी शर्त लगाएं",
