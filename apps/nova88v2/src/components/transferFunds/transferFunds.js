@@ -36,7 +36,14 @@ const defAutoStatus = {
 	notAuto: 2
 };
 
-const AfterUpdWalletList = ({ prev, tpId, balance, displayKey, tpName }) => {
+const AfterUpdWalletList = ({
+	prev,
+	tpId,
+	balance,
+	displayKey,
+	tpName,
+	displayText
+}) => {
 	const idx = prev.findIndex(p => p.id === tpId);
 	if (idx !== -1) {
 		if (balance !== null) {
@@ -47,7 +54,8 @@ const AfterUpdWalletList = ({ prev, tpId, balance, displayKey, tpName }) => {
 			id: tpId,
 			displayKey,
 			balance,
-			tpName
+			tpName,
+			displayText
 		});
 	}
 	return [...prev].sort((a, b) => a.id - b.id);
@@ -154,7 +162,8 @@ export default () => {
 						prev,
 						tpId: item.tpId,
 						balance: null,
-						tpName: item.tpName
+						tpName: item.tpName,
+						displayText: item.tpName
 					})
 				);
 				api_account_GetTpWalletBalance(item.tpId).then(res => {
