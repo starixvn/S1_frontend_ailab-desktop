@@ -18,9 +18,7 @@ const ShowWallet = props => {
 						className={`icon ${
 							item.id === 0 ? walletIcon[0] : walletIcon[1]
 						}`}>
-						{props.i18n(item.displayKey)
-							? props.i18n(item.displayKey)
-							: item.tpName}
+						{item.displayText ?? props.i18n(item.displayKey)}
 					</span>
 					<span>{number_format({ number: item.balance })}</span>
 					<div className="btnGroup">
