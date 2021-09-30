@@ -9,7 +9,6 @@ import {
 import path from "../../router";
 import DropdownHeader from "../common/dropdown.headerLink";
 import Wallet from "./header.wallet";
-// import { defPopBoxType } from "../common/popBox";
 import {
 	defEventIcon,
 	defEventPeriod,
@@ -21,18 +20,13 @@ import { SiteInfo } from "../../config";
 import { HeaderLogin } from "./header.login";
 import usePopBox from "../hook/usePopBox";
 
-export default ({ isUSDT }) => {
+export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { msgCount } = useContext(msgCountContext);
 	const { t } = useTranslation();
 
 	return userInfo.isLogin === true ? (
-		<AfterLogin
-			t={t}
-			userInfo={userInfo}
-			msgCount={msgCount}
-			isUSDT={isUSDT}
-		/>
+		<AfterLogin t={t} userInfo={userInfo} msgCount={msgCount} />
 	) : (
 		<BeforeLogin t={t} />
 	);
@@ -43,19 +37,13 @@ const initValue = {
 	password: ""
 };
 
-const initTip = {
-	username: { checked: null, msg: "" },
-	password: { checked: null, msg: "" }
-};
-
 const BeforeLogin = ({ t }) => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const [userValue, setUserValue] = useState(initValue);
-	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
-	const { errorPopBox, closePopBox } = usePopBox();
+	const { errorPopBox } = usePopBox();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -91,29 +79,23 @@ const BeforeLogin = ({ t }) => {
 					: t("msg_PasswordReq");
 			checked = false;
 		} else if (col === "username" && (val.length < 6 || val.length > 18)) {
-			msg = t("msg_UsernameLength");
+			msg = `${t("lbl_Username")} ${t("msg_UsernameLength")}`;
 			checked = false;
+		}
+
+		if (!checked) {
 			errorPopBox(msg);
 		}
 
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked,
-					msg
-				}
-			};
-		});
 		return checked;
 	};
 
 	const handleLogin = async e => {
 		e.preventDefault();
 
-		const checkUsername = checkValue("username", userValue.username);
-		const checkPassword = checkValue("password", userValue.password);
-		const checkAll = checkUsername && checkPassword;
+		const checkAll =
+			checkValue("username", userValue.username) &&
+			checkValue("password", userValue.password);
 
 		if (checkAll) {
 			await LOGIN({
@@ -141,14 +123,6 @@ const BeforeLogin = ({ t }) => {
 					errorPopBox(res.message, res.errorCode);
 				}
 			});
-		} else {
-			const usernameMsg =
-				userValue.username === "" ? "msg_UsernameReq" : null;
-			const passwordMsg =
-				userValue.password === "" ? "msg_PasswordReq" : null;
-			if (usernameMsg !== null || passwordMsg !== null) {
-				errorPopBox(t(usernameMsg ?? passwordMsg));
-			}
 		}
 	};
 
@@ -157,7 +131,6 @@ const BeforeLogin = ({ t }) => {
 			showPswHandler={showPswHandler}
 			showPsw={showPsw}
 			EditField={EditField}
-			// checkValue={checkValue}
 			handleLogin={handleLogin}
 			userValue={userValue}
 			langId={userInfo.langId}
@@ -186,15 +159,19 @@ const defCashierLinks = [
 	}
 ];
 
-const AfterLogin = ({ t, userInfo, msgCount, isUSDT }) => {
+const AfterLogin = ({ t, userInfo, msgCount }) => {
 	const defSettingLinks = [
 		{
 			displayKey: "lbl_Profile",
 			href: path.profile.root
 		},
 		{
-			displayKey: isUSDT ? "lbl_CryptoWallet" : "lbl_BankInfo",
-			href: isUSDT ? path.cryptoWallet.root : path.bankInfo.root
+			displayKey: "lbl_BankInfo",
+			href: path.bankInfo.root
+		},
+		{
+			displayKey: "lbl_CryptoWallet",
+			href: path.cryptoWallet.root
 		},
 		{
 			displayKey: "lbl_ReferFriends",

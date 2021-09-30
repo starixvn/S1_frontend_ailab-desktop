@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { getUrlParameter, number_format } from "../../common/common";
-import { cloudImgUrl } from "../../../config";
+import { getUrlParameter } from "../../common/common";
+import config from "../../../config";
 
 const CryptoPayForm = ({
 	t,
@@ -17,7 +17,6 @@ const CryptoPayForm = ({
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
-
 	const [groupIdForRecord, setGroupIdForRecord] = useState(defaultGroupId);
 	const [infoChannelIdForRecord, setInfoChannelIdForRecord] = useState(
 		defaultChannelId
@@ -52,7 +51,7 @@ const CryptoPayForm = ({
 			`${window.location.pathname}?type=${depositType}&gId=${groupIdForRecord}&channelId=${item.channelId}`
 		);
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo(item);
+		setFormInfo({ ...item, amount: null });
 	};
 
 	useEffect(() => {
@@ -70,6 +69,29 @@ const CryptoPayForm = ({
 
 	if (cryptoPayGroupList.length <= 0) return null;
 
+	const groupList = [
+		...new Map(cryptoPayGroupList.map(_ch => [_ch.groupId, _ch])).values()
+	];
+
+	const channelList = cryptoPayGroupList.filter(
+		_ch => _ch.groupId === groupIdForRecord
+	);
+
+	const displayMinMax = (_gId, _minOrMax) => {
+		const arr = cryptoPayGroupList.filter(_ch => _ch.groupId === _gId);
+		const result =
+			_minOrMax === "min"
+				? Math.min.apply(
+						null,
+						arr.map(item => item.minAmount)
+				  )
+				: Math.max.apply(
+						null,
+						arr.map(item => item.maxAmount)
+				  );
+		return result;
+	};
+
 	return (
 		<>
 			<div className="subModule">
@@ -78,9 +100,9 @@ const CryptoPayForm = ({
 					{t("lbl_Payment_Method")}
 				</div>
 				<div>
-					{cryptoPayGroupList.map(item => (
+					{groupList.map(item => (
 						<button
-							key={`deposit-crypto-channel-${item.sysId}}`}
+							key={`deposit-crypto-channel-${item.groupId}}`}
 							onClick={() => onGetCryptoPayList(item.groupId)}
 							className={
 								item.groupId === groupIdForRecord
@@ -89,15 +111,59 @@ const CryptoPayForm = ({
 							}>
 							<div>
 								<img
-									src={`${cloudImgUrl}/SiteSkin/img/Payment/${item.payName.toLowerCase()}.png`}
-									alt={item.payName}
+									src={`${
+										config.cloudImgUrl
+									}/SiteSkin/img/Payment/${item.groupName.toLowerCase()}.png`}
+									alt={item.groupName}
 								/>
 								<i className="icon icon-icon32px_check" />
 							</div>
-
 							<div className="bank">
-								<div>{item.payName}</div>
+								<div>{item.groupName}</div>
+								<div>
+									<div>
+										{`${t("lbl_Min")}: ${formatAmount(
+											displayMinMax(item.groupId, "min")
+										)}`}
+									</div>
+									<div>
+										{`${t("lbl_Max")}: ${formatAmount(
+											displayMinMax(item.groupId, "max")
+										)}`}
+									</div>
+								</div>
+							</div>
+						</button>
+					))}
+				</div>
+			</div>
 
+			<div className="subModule">
+				<div className="subModuleTitle">
+					<i className="txt-blue">*</i>
+					{t("lbl_SelectChannel")}
+				</div>
+				<div>
+					{channelList.map(item => (
+						<button
+							key={`deposit-crypto-channel-${item.channelName}}`}
+							onClick={() => onSetInfoData(item)}
+							className={
+								item.channelId === infoChannelIdForRecord
+									? "active"
+									: ""
+							}>
+							<div>
+								<img
+									src={`${
+										config.cloudImgUrl
+									}/SiteSkin/img/CryptoPay/${item.channelName.toLowerCase()}.png`}
+									alt={item.channelName}
+								/>
+								<i className="icon icon-icon32px_check" />
+							</div>
+							<div className="bank">
+								<div>{item.channelName}</div>
 								<div>
 									<div>
 										{`${t("lbl_Min")}: ${formatAmount(
@@ -124,7 +190,6 @@ const CryptoPayForm = ({
 
 				<Inputbox
 					className="inputBox-white"
-					// title={t("lbl_Amount")}
 					value={formInfo.amount}
 					onChange={e => onChangeAmount(e.target.value)}
 					onBlur={() => onValidAmount(formInfo.amount)}

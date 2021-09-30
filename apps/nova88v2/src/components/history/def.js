@@ -200,12 +200,13 @@ export const defColumns = ({
 				dataIndex: "action",
 				key: "action",
 				render: item => {
+					let result = null;
 					if (
 						item.depositType === 3 &&
 						(item.status === 1 || item.status === 7)
 					)
-						return (
-							<div className="btnGroup">
+						result = (
+							<>
 								<button
 									className="orange icon icon-pencil"
 									onClick={() =>
@@ -226,10 +227,14 @@ export const defColumns = ({
 									}>
 									{t("lbl_Cancel")}
 								</button>
-							</div>
+							</>
 						);
-
-					return null;
+					return (
+						<div className="btnGroup">
+							{result}
+							{item.thirdId}
+						</div>
+					);
 				}
 			}
 		],

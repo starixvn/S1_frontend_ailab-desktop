@@ -1,13 +1,15 @@
 import React, { useEffect, useRef, useContext } from "react";
+import { Link } from "@reach/router";
 import PropTypes from "prop-types";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
-import { popBoxContext } from "../common/context";
+import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import BankCard from "./withdrawal.set.card.bank";
 import CryptoCard from "./withdrawal.set.card.crypto";
+import path from "../../router";
 
 const CardPanel = ({
 	dispatch,
@@ -16,9 +18,9 @@ const CardPanel = ({
 	accountName,
 	GetCustBankInfo,
 	custBankInfo,
-	isUSDT,
 	isIfscRequired
 }) => {
+	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
@@ -31,7 +33,7 @@ const CardPanel = ({
 	});
 
 	const selectAccount = accountData => {
-		const _selectInfo = !isUSDT
+		const _selectInfo = !accountData.usdtAddress
 			? {
 					bankName: accountData.bankName,
 					accountNo: accountData.accountNo,
@@ -44,8 +46,7 @@ const CardPanel = ({
 			  };
 		dispatch({
 			type: defActionType.SELECT_ACCOUNT,
-			selectedAccount: _selectInfo,
-			step: state.amount ? 3 : 2
+			selectedAccount: _selectInfo
 		});
 	};
 
@@ -91,11 +92,28 @@ const CardPanel = ({
 	};
 
 	const addCryptoWallet = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.AddCryptoWallet,
-			GetCustBankInfo
-		});
+		if (!userInfo.phoneVerified) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UpdateProfile,
+				content: t("lbl_Crypto_OTP"),
+				btnBar: (
+					<div className="btnGroup">
+						<Link
+							className="btn-check"
+							to={`/${userInfo.langId}/${path.profile.root}`}>
+							{t("lbl_UpdatePersonalDetail")}
+						</Link>
+					</div>
+				)
+			});
+		} else {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.AddCryptoWallet,
+				GetCustBankInfo
+			});
+		}
 	};
 
 	const delAccount = (accountNo, sysId) => {
@@ -158,27 +176,28 @@ const CardPanel = ({
 			)
 		});
 	};
-
-	return !isUSDT ? (
-		<BankCard
-			t={t}
-			state={state}
-			defPanel={defPanel}
-			custBankInfo={custBankInfo}
-			addBankAccount={addBankAccount}
-			selectAccount={selectAccount}
-			delAccount={delAccount}
-			isIfscRequired={isIfscRequired}
-		/>
-	) : (
-		<CryptoCard
-			t={t}
-			state={state}
-			isUSDT={isUSDT}
-			custBankInfo={custBankInfo}
-			selectAccount={selectAccount}
-			addCryptoWallet={addCryptoWallet}
-		/>
+	return (
+		<>
+			<BankCard
+				t={t}
+				state={state}
+				defPanel={defPanel}
+				custBankInfo={custBankInfo}
+				addBankAccount={addBankAccount}
+				selectAccount={selectAccount}
+				delAccount={delAccount}
+				isIfscRequired={isIfscRequired}
+			/>
+			<CryptoCard
+				userInfo={userInfo}
+				t={t}
+				state={state}
+				custBankInfo={custBankInfo}
+				selectAccount={selectAccount}
+				addCryptoWallet={addCryptoWallet}
+				GetCustBankInfo={GetCustBankInfo}
+			/>
+		</>
 	);
 };
 
@@ -192,8 +211,7 @@ CardPanel.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	accountName: PropTypes.string,
 	GetCustBankInfo: PropTypes.func.isRequired,
-	custBankInfo: PropTypes.arrayOf(PropTypes.any).isRequired,
-	isUSDT: PropTypes.bool.isRequired,
+	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	isIfscRequired: PropTypes.bool.isRequired
 };
 

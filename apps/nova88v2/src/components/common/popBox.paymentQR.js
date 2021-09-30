@@ -1,24 +1,31 @@
 import React, { useState, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
+import QRCode from "qrcode.react";
 import { number_format, isConvert } from "./common";
 import ClipboardJS from "../../lib/clipboard.min";
+import { defDepositType } from "../depositnew/depositnew.def";
 
 const Panel = ({
 	title,
 	amount,
 	depositAmount,
+	rate,
+	requestAmount,
+	token,
 	currencyId,
 	imgUrl,
 	bankName,
 	accountNumber,
 	accountName,
 	thirdId,
+	depositType,
 	handlePopBox
 }) => {
 	const { t } = useTranslation();
-
 	const isMountedRef = useRef(null);
+	const isCrypto = depositType === defDepositType.cryptoPay;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -70,12 +77,50 @@ const Panel = ({
 				{`${t("lbl_OrderAmount")}：`}
 				<span>{amountText}</span>
 			</div>
+
 			<div className="guide">
-				<img src={imgUrl} className="qrCode" alt="qrcode" />
-				<div>
-					{`${t("lbl_Pay")} `}
-					<span>{depositAmountText}</span>
-				</div>
+				{isCrypto ? (
+					<QRCode
+						id={imgUrl}
+						value={imgUrl}
+						renderAs="svg"
+						includeMargin={true}
+					/>
+				) : (
+					<img src={imgUrl} className="qrCode" alt="qrcode" />
+				)}
+
+				{isCrypto ? (
+					<div className="accountInfo">
+						<div>{imgUrl}</div>
+						<div>
+							<button
+								className="copyBtn"
+								data-clipboard-text={imgUrl}>
+								{t("lbl_Copy")}
+							</button>
+						</div>
+						<div>
+							{t("lbl_Method")}: {token}
+						</div>
+						<div>
+							{t("lbl_Rate")}: {rate}
+						</div>
+						<div>
+							{t("lbl_USDT_Amount")}: {requestAmount}{" "}
+							<button
+								className="copyBtn"
+								data-clipboard-text={requestAmount}>
+								{t("lbl_Copy")}
+							</button>
+						</div>
+					</div>
+				) : (
+					<div>
+						{`${t("lbl_Pay")} `}
+						<span>{depositAmountText}</span>
+					</div>
+				)}
 
 				{accountNumber && (
 					<div className="accountInfo">
@@ -108,6 +153,7 @@ const Panel = ({
 					<li>{t("lbl_PaymentQRDesc2")}</li>
 				</ul>
 			</div>
+
 			<div className="title">{`${t("lbl_ImportantNotes")}：`}</div>
 			<ul>
 				<li>{t("lbl_PaymentQRNote1")}</li>
@@ -161,3 +207,30 @@ export const Counter = ({ startUnixTime = null, timeStop }) => {
 };
 
 export default Panel;
+
+Panel.defaultProps = {
+	bankName: null,
+	accountNumber: null,
+	accountName: null,
+	rate: null,
+	requestAmount: null,
+	token: null,
+	thirdId: null
+};
+
+Panel.propTypes = {
+	title: PropTypes.string.isRequired,
+	amount: PropTypes.number.isRequired,
+	depositAmount: PropTypes.string.isRequired,
+	rate: PropTypes.number,
+	requestAmount: PropTypes.number,
+	token: PropTypes.string,
+	currencyId: PropTypes.number.isRequired,
+	imgUrl: PropTypes.string.isRequired,
+	bankName: PropTypes.string,
+	accountNumber: PropTypes.string,
+	accountName: PropTypes.string,
+	thirdId: PropTypes.string,
+	depositType: PropTypes.string.isRequired,
+	handlePopBox: PropTypes.func.isRequired
+};

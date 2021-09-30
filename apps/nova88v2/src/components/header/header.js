@@ -15,7 +15,6 @@ import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-import { currencyCode } from "../../datas/countryCode";
 import { isDateRange } from "../common/common";
 import { eventPeriodEuro } from "../../datas/euroDef";
 
@@ -25,7 +24,6 @@ export default () => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { allMaintainList } = useContext(maintainListContext);
 	const { setPopBox } = useContext(popBoxContext);
-	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	const handleLogout = () => {
@@ -89,7 +87,7 @@ export default () => {
 					</Link>
 				</div>
 				<div className="function">
-					<Functions isUSDT={isUSDT} />
+					<Functions />
 					<LanguageDropDown />
 					{userInfo.isLogin ? null : (
 						<Link

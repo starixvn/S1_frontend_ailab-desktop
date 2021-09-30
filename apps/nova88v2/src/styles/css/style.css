@@ -8475,7 +8475,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
@@ -14775,9 +14781,9 @@ img[alt="sg"] {
 }
 
 .rankingNew {
-  background: url(../img/ranking_page_bg.jpg) no-repeat top center;
+  background: url(../img/ranking_page_bg.jpg) no-repeat top center/cover;
   background-position: top center;
-  background-size: auto 100%;
+  background-size: cover;
   min-height: 1025px;
 }
 

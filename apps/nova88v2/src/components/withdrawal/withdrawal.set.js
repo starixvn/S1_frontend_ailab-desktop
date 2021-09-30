@@ -16,7 +16,6 @@ const MainPanel = ({
 	state,
 	refreshData,
 	KycCheck,
-	isUSDT,
 	GetDailyWithdrawalLimit
 }) => {
 	const { t } = useTranslation();
@@ -49,22 +48,23 @@ const MainPanel = ({
 			const _preUsdtAccInfo = _bankInfoDetail.filter(
 				card => card.usdtAddress === _defAccountNo
 			)[0];
-			const _selectInfo = !isUSDT
-				? {
-						bankName: _preAccInfo?.bankName,
-						accountNo: _preAccInfo?.accountNo,
-						sysId: _preAccInfo?.sysId,
-						ifscCode: _preAccInfo?.ifscCode
-				  }
-				: {
-						usdtAddress: _preUsdtAccInfo.usdtAddress,
-						nickName: _preUsdtAccInfo.nickName
-				  };
-			dispatch({
-				type: defActionType.SELECT_ACCOUNT,
-				selectedAccount: _selectInfo,
-				step: state.amount ? 3 : 2
-			});
+			if (_preAccInfo || _preUsdtAccInfo) {
+				const _selectInfo = !_preUsdtAccInfo?.usdtAddress
+					? {
+							bankName: _preAccInfo.bankName,
+							accountNo: _preAccInfo.accountNo,
+							sysId: _preAccInfo.sysId,
+							ifscCode: _preAccInfo.ifscCode
+					  }
+					: {
+							usdtAddress: _preUsdtAccInfo.usdtAddress,
+							nickName: _preUsdtAccInfo.nickName
+					  };
+				dispatch({
+					type: defActionType.SELECT_ACCOUNT,
+					selectedAccount: _selectInfo
+				});
+			}
 		};
 
 		api_account_GetCustBankInfo().then(
@@ -73,12 +73,10 @@ const MainPanel = ({
 					if (res.data.errorCode === 0) {
 						const datas = res.data.data;
 
-						const bankOrWalletData = isUSDT
-							? datas?.uSDTDetail
-							: datas?.bankInfoDetail;
-
-						const _custBankInfo =
-							datas === null ? [] : bankOrWalletData;
+						const _custBankInfo = {
+							uSDTDetail: datas?.uSDTDetail || [],
+							bankInfoDetail: datas?.bankInfoDetail
+						};
 
 						dispatch({
 							type: defActionType.GET_CUST_BANKINFO,
@@ -148,19 +146,16 @@ const MainPanel = ({
 
 	return (
 		<>
-			<div className="walletModule">
-				<CardPanel
-					dispatch={dispatch}
-					state={state}
-					t={t}
-					accountName={userInfo.accountName}
-					GetCustBankInfo={GetCustBankInfo}
-					refreshData={refreshData}
-					custBankInfo={state.custBankInfo ?? []}
-					isUSDT={isUSDT}
-					isIfscRequired={isIfscRequired}
-				/>
-			</div>
+			<CardPanel
+				dispatch={dispatch}
+				state={state}
+				t={t}
+				accountName={userInfo.accountName}
+				GetCustBankInfo={GetCustBankInfo}
+				refreshData={refreshData}
+				custBankInfo={state.custBankInfo}
+				isIfscRequired={isIfscRequired}
+			/>
 			<div className="subModuleList">
 				{state.panel === "amount" ? (
 					<AmountPanel
@@ -169,7 +164,6 @@ const MainPanel = ({
 						t={t}
 						_isConvert={_isConvert}
 						userInfo={userInfo}
-						isUSDT={isUSDT}
 					/>
 				) : (
 					<ConfirmPanel
@@ -182,9 +176,9 @@ const MainPanel = ({
 						GetCustBankInfo={GetCustBankInfo}
 						refreshData={refreshData}
 						KycCheck={KycCheck}
-						isUSDT={isUSDT}
 						GetDailyWithdrawalLimit={GetDailyWithdrawalLimit}
 						isIfscRequired={isIfscRequired}
+						receiveUSDT={state.receiveUSDT}
 					/>
 				)}
 			</div>
@@ -197,7 +191,6 @@ MainPanel.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	refreshData: PropTypes.func.isRequired,
 	KycCheck: PropTypes.func.isRequired,
-	isUSDT: PropTypes.bool.isRequired,
 	GetDailyWithdrawalLimit: PropTypes.func.isRequired
 };
 

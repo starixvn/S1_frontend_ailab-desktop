@@ -113,6 +113,17 @@ export const api_payment_WithdrawalReq = ({
 		IFSCCode
 	});
 
+export const api_payment_WithdrawalUSDTReq = ({
+	AccountNo,
+	amount,
+	blackbox
+}) =>
+	paymentRequest.post("/WithdrawalUSDTReq", {
+		AccountNo,
+		amount,
+		blackbox
+	});
+
 export const api_payment_GetWithdrawalInfoRecent = () =>
 	paymentRequest.post("/GetWithdrawalInfoRecent");
 
@@ -173,3 +184,9 @@ export const api_payment_GetCustTpBetRecordDetailListbyGameType = ({
 
 export const api_payment_GetWithdrawalLimit = () =>
 	paymentRequest.post("/GetWithdrawalLimit");
+
+export const api_payment_GetExchangeInfo = ({ Amount }) =>
+	paymentRequest.post("/GetExchangeInfo", { Amount });
+
+export const api_payment_getSupportNetwork = () =>
+	paymentRequest.post("/GetSupportNetwork", { CurrencyId: 96 });
