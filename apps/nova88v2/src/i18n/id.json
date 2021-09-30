@@ -285,6 +285,8 @@
 	"lbl_Deposit_DragonPayPop_BankName": "Nama Bank",
 	"lbl_Deposit_DragonPayPop_AccountName": "Nama akun",
 	"lbl_Deposit_DragonPayPop_AccountNumber": "Nomor akun",
+	"lbl_Rate": "Kurs",
+	"lbl_USDT_Amount": "Jumlah USDT",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Rincian Pembayaran",
@@ -344,6 +346,8 @@
 	"lbl_Daily_Min_Max_Amount": "Min/Maks Limit Harian: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "Batas Harian Anda Tercapai",
 	"lbl_Insufficientbalance": "Saldo tidak mencukupi",
+	"lbl_ReceiveUSDT":"Terima jumlah USDT",
+	"lbl_WithdrawalCryptoNote":"Nilai konversi berfungsi sebagai tujuan referensi saja, jumlah yang tepat akan mengacu pada nilai terbaru.",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Dana",
@@ -765,8 +769,10 @@
 	"lbl_Select_Crypto_Wallet": "Pilih Dompet Crypto",
 	"lbl_Optional": "Pilihan",
 	"lbl_CryptoPay": "Pembayaran Crypto",
-	"lbl_NotERC20WalletAddr": "Harus alamat dompet yang sesuai dengan ERC-20",
+	"lbl_NotERC20WalletAddr": "Harus alamat dompet yang sesuai dengan ERC-20 / TRC-20",
 	"lbl_already_stored_this_information": "Anda telah menyimpan informasi ini.",
+	"lbl_Crypto_OTP":"Verifikasi nomor telepon (OTP) diperlukan sebelum deposit untuk layanan Crypto.",
+
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "Pertandingan Mendatang",

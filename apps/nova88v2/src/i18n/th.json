@@ -167,7 +167,7 @@
 	"lbl_CantChangePhone": "หมายเลขโทรศัพท์ไม่สามารถเปลี่ยนแปลงได้หลังจากลงทะเบียนแล้ว กรุณาป้อนข้อมูลที่ถูกต้องเพื่อการถอนที่ดียิ่งขึ้น",
 	"lbl_RemindPrefferedCurrency": "ต้องระบุสกุลเงินที่ต้องการ",
 	"lbl_Check18TCTooltip": "โปรดคลิก เครื่องหมายด้านบนเพื่อยืนยันคำขอลงทะเบียนบัญชี",
-	"lbl_RealName": "ชื่อจริง",
+	"lbl_RealName": "ชื่อ-นามสกุลจริง",
 	"lbl_LoginMsg": "โปรดทราบว่าเราไม่อนุญาตให้มีบัญชีเกินกว่า  (1)  บัญชี",
 	"lbl_LoginHere": "เข้าสู่ระบบที่นี่",
 	"lbl_Country": "ประเทศ",
@@ -285,6 +285,8 @@
 	"lbl_Deposit_DragonPayPop_BankName": "ชื่อธนาคาร",
 	"lbl_Deposit_DragonPayPop_AccountName": "ชื่อบัญชี",
 	"lbl_Deposit_DragonPayPop_AccountNumber": "หมายเลขบัญชี",
+	"lbl_Rate": "อัตราแลกเปลี่ยน",
+	"lbl_USDT_Amount": "จำนวนสกุลเงิน USDT",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "รายละเอียดการฝากเงิน",
@@ -344,6 +346,8 @@
 	"lbl_Daily_Min_Max_Amount": "จำกัดยอดถอน ต่ำสุด/สูงสุด ต่อวัน: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "จำนวนยอดถอนต่อวันของคุณครบแล้ว",
 	"lbl_Insufficientbalance": "ยอดคงเหลือไม่เพียงพอ",
+	"lbl_ReceiveUSDT":"รับจำนวนเงิน USDT",
+	"lbl_WithdrawalCryptoNote":"อัตราการแลกเปลี่ยนใช้เพื่อการอ้างอิงเท่านั้น จำนวนเงินที่แน่นอนจะอ้างอิงจากอัตราการแลกเปลี่ยนล่าสุด",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "โอนเงินทุน",
@@ -765,8 +769,10 @@
 	"lbl_Select_Crypto_Wallet": "เลือก กระเป๋าเงินคริปโต",
 	"lbl_Optional": "ทางเลือก",
 	"lbl_CryptoPay": "ชำระโดยเงินคริปโต",
-	"lbl_NotERC20WalletAddr": "ต้องเป็นที่อยู่กระเป๋าเงินที่สอดคล้องกับ ERC-20 ได้",
+	"lbl_NotERC20WalletAddr": "ต้องเป็นที่อยู่กระเป๋าเงินที่สอดคล้องกับ ERC-20 / TRC-20 ได้",
 	"lbl_already_stored_this_information": "คุณได้ทำการจัดเก็บข้อมูลนี้ไว้เรียบร้อยแล้ว",
+	"lbl_Crypto_OTP":"สมาชิกต้องมีการยืนยันหมายเลขโทรศัพท์ (OTP) ก่อนทำการฝากเงินผ่านช่องทาง คริปโต",
+
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "การแข่งขันที่จะเกิดขึ้น",

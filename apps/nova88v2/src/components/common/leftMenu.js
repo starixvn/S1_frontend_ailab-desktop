@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import { userInfoContext } from "./context";
 import { defLeftMenu } from "./leftMenu.def";
-import path from "../../router";
-import { currencyCode } from "../../datas/countryCode";
 
 export default () => {
 	const { t } = useTranslation();
@@ -32,12 +30,8 @@ export default () => {
 				}
 				_iconClassName = `icon ${iconStrings}`;
 			}
-			const isUSDT = userInfo.currencyId === currencyCode.USDT;
-			const menuIsBankInfo = s.path === path.bankInfo.root;
-			const menuIsCryptoWallet = s.path === path.cryptoWallet.root;
 
-			return (isUSDT && menuIsBankInfo) ||
-				(!isUSDT && menuIsCryptoWallet) ? null : (
+			return (
 				<Link
 					key={`leftMenu-subMenu-${_key}`}
 					to={`/${userInfo.langId}/${s.path}`}

@@ -21,3 +21,12 @@ export const api_cashier_DepositReqMobilePay = ({
 	cashierRequest.get(
 		`/${langId}/Cashier/DepositReqMobilePay?ChannelId=${channelId}&Amount=${real_amount}`
 	);
+
+export const api_cashier_DepositReqCryptoPay = ({
+	langId,
+	channelId,
+	real_amount
+}) =>
+	cashierRequest.get(
+		`/${langId}/Cashier/DepositReqCryptoPay?ChannelId=${channelId}&Amount=${real_amount}`
+	);

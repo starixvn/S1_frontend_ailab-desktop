@@ -44,7 +44,8 @@ import CryptoPayForm from "./components/cryptoPayForm";
 
 import {
 	api_cashier_DepositReqMobilePay,
-	api_cashier_DepositReqOnlineBanking
+	api_cashier_DepositReqOnlineBanking,
+	api_cashier_DepositReqCryptoPay
 } from "../../service/api/cashier";
 
 const Depositnew = () => {
@@ -58,7 +59,6 @@ const Depositnew = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
 	const _isConvert = isConvert(userInfo.currencyId);
-	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 
 	const [
 		processingDescriptionActive,
@@ -322,9 +322,9 @@ const Depositnew = () => {
 								amount: resultAmount,
 								currencyId: userInfo.currencyId,
 								imgUrl: url,
-								bankName,
-								accountNumber,
-								accountName,
+								bankName: bankName ?? null,
+								accountNumber: accountName ?? null,
+								accountName: accountName ?? null,
 								thirdId,
 								handlePopBox: () => {
 									setPopBox(prevState => ({
@@ -353,6 +353,49 @@ const Depositnew = () => {
 						}/Cashier/DepositReqOnlineBanking?${searchParams.toString()}`
 					);
 
+					RefreshPage();
+				}
+			} else if (depositType === defDepositType.cryptoPay) {
+				if (formInfo.mode === 3) {
+					api_cashier_DepositReqCryptoPay({
+						langId: userInfo.langId,
+						channelId: formInfo.channelId,
+						real_amount: resultAmount
+					}).then(res => {
+						if (res.data.errorCode === 0) {
+							setPopBox({
+								isOpen: true,
+								title: t("lbl_DepositType4"),
+								popBoxType: defPopBoxType.PaymentQR,
+								depositAmount:
+									res.data.data.formData?.DepositAmount,
+								rate:
+									parseFloat(res.data.data.formData?.Rate) ??
+									null,
+								requestAmount:
+									parseFloat(
+										res.data.data.formData?.RequestAmount
+									) ?? null,
+								token: res.data.data.formData?.Token ?? null,
+								amount: resultAmount,
+								currencyId: userInfo.currencyId,
+								imgUrl: res.data.data.url,
+								thirdId: res.data.data.thirdId ?? null,
+								depositType: defDepositType.cryptoPay,
+								handlePopBox: () => {
+									setPopBox(prevState => ({
+										...prevState,
+										isOpen: false
+									}));
+									RefreshPage();
+								}
+							});
+						}
+					});
+				} else {
+					window.open(
+						`${config.openURL}/${userInfo.langId}/Cashier/DepositReqCryptoPay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
+					);
 					RefreshPage();
 				}
 			}
@@ -496,16 +539,12 @@ const Depositnew = () => {
 		const getData = async () => {
 			setLoading(true);
 			try {
-				if (isUSDT) {
-					await getCryptoPayGroupList();
-				} else {
-					await Promise.all([
-						getMobilePayGroupList(),
-						getLocalBankGroupList(),
-						getOnlineBankGroupList()
-					]);
-				}
-
+				await Promise.all([
+					getMobilePayGroupList(),
+					getLocalBankGroupList(),
+					getOnlineBankGroupList(),
+					getCryptoPayGroupList()
+				]);
 				setIsInitDataDone(true);
 			} catch (e) {
 				errorPopBox();
