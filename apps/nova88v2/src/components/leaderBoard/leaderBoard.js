@@ -259,74 +259,75 @@ export default () => {
 
 	const getMonthlyData = _periodData => {
 		if (!userInfo.isLogin) return;
+		setRankingData([]);
 
-		const payload = {
-			lBCategoryId: defGameType.all,
-			TopNum: defRankNum.monthly,
-			SelectDays: _periodData.startDate,
-			EventCode: defEventCode.monthly
-		};
+		// const payload = {
+		// 	lBCategoryId: defGameType.all,
+		// 	TopNum: defRankNum.monthly,
+		// 	SelectDays: _periodData.startDate,
+		// 	EventCode: defEventCode.monthly
+		// };
 
-		const GetMonthlyRankDatas = async () => {
-			await GetLeaderboardListMonth(payload).then(res => {
-				if (res.data.errorCode === 0) {
-					const rankDatas = res.data.data;
-					if (rankDatas?.length > 0) {
-						GetCustRankMonth({
-							LBCategoryId: payload.lBCategoryId,
-							SelectDays: payload.SelectDays,
-							EventCode: payload.EventCode
-						}).then(resRank => {
-							if (resRank.data.errorCode === 0) {
-								const { custRank, point } = resRank.data.data;
-								setRankingData(() => {
-									const rank =
-										custRank > 999 || custRank === 0
-											? "999+"
-											: custRank;
+		// const GetMonthlyRankDatas = async () => {
+		// 	await GetLeaderboardListMonth(payload).then(res => {
+		// 		if (res.data.errorCode === 0) {
+		// 			const rankDatas = res.data.data;
+		// 			if (rankDatas?.length > 0) {
+		// 				GetCustRankMonth({
+		// 					LBCategoryId: payload.lBCategoryId,
+		// 					SelectDays: payload.SelectDays,
+		// 					EventCode: payload.EventCode
+		// 				}).then(resRank => {
+		// 					if (resRank.data.errorCode === 0) {
+		// 						const { custRank, point } = resRank.data.data;
+		// 						setRankingData(() => {
+		// 							const rank =
+		// 								custRank > 999 || custRank === 0
+		// 									? "999+"
+		// 									: custRank;
 
-									let result = [];
-									if (
-										custRank <= rankTopNum &&
-										custRank !== 0
-									) {
-										rankDatas[custRank - 1] = {
-											...rankDatas[custRank - 1],
-											userName: userInfo.userName,
-											rank
-										};
-										result = rankDatas;
-									} else {
-										result = [
-											...rankDatas,
-											{
-												userName: userInfo.userName,
-												wTurnover: point,
-												rank
-											}
-										];
-									}
-									return result;
-								});
-							} else {
-								openErrorMessagePopBox(
-									resRank.data.message,
-									resRank.data.errorCode
-								);
-							}
-						});
-					} else {
-						setRankingData([]);
-					}
-				} else {
-					openErrorMessagePopBox(
-						res.data.message,
-						res.data.errorCode
-					);
-				}
-			});
-		};
-		GetMonthlyRankDatas();
+		// 							let result = [];
+		// 							if (
+		// 								custRank <= rankTopNum &&
+		// 								custRank !== 0
+		// 							) {
+		// 								rankDatas[custRank - 1] = {
+		// 									...rankDatas[custRank - 1],
+		// 									userName: userInfo.userName,
+		// 									rank
+		// 								};
+		// 								result = rankDatas;
+		// 							} else {
+		// 								result = [
+		// 									...rankDatas,
+		// 									{
+		// 										userName: userInfo.userName,
+		// 										wTurnover: point,
+		// 										rank
+		// 									}
+		// 								];
+		// 							}
+		// 							return result;
+		// 						});
+		// 					} else {
+		// 						openErrorMessagePopBox(
+		// 							resRank.data.message,
+		// 							resRank.data.errorCode
+		// 						);
+		// 					}
+		// 				});
+		// 			} else {
+		// 				setRankingData([]);
+		// 			}
+		// 		} else {
+		// 			openErrorMessagePopBox(
+		// 				res.data.message,
+		// 				res.data.errorCode
+		// 			);
+		// 		}
+		// 	});
+		// };
+		// GetMonthlyRankDatas();
 	};
 
 	const openErrorMessagePopBox = (message, errorCode) => {
