@@ -6,6 +6,7 @@ pipeline {
         auto_deploy = fileExists 'deploy.yml'
         site = 'goal123'
         project_name = 'goal123'
+        env = 'dev'
     }
     stages {
         stage('Install dependencies') {
@@ -34,7 +35,7 @@ pipeline {
                         env.commitHash = sh (script: 'git rev-parse --short=7 HEAD', returnStdout: true).trim()
                     }
                     sh 'zip -r desktop-${site}-${commitHash} *'
-                    sh 'curl -v -u admin:123456 --upload-file desktop-${site}-${commitHash}.zip http://172.31.28.233:8081/repository/artifacts/Frontend/desktop/${site}/desktop-${site}-${commitHash}.zip'
+                    sh 'curl -v -u admin:123456 --upload-file desktop-${site}-${commitHash}.zip http://172.31.28.233:8081/repository/artifacts/Frontend/desktop/${site}/${env}/desktop-${site}-${commitHash}.zip'
                     sh 'echo desktop-${site}-${commitHash}'
                 }
             }
@@ -44,7 +45,7 @@ pipeline {
                 expression { auto_deploy == 'true' }
             }
             steps {
-                sh 'ansible-playbook -i Dev.yml deploy.yml --extra-vars "commitId=${commitHash} site=${site} platform=desktop host=desktop-${site}"'
+                sh 'ansible-playbook -i Dev.yml deploy.yml --extra-vars "commitId=${commitHash} site=${site} platform=desktop host=desktop-${site} env=${env}"'
             }
         }
     }
