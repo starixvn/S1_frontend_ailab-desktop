@@ -29,7 +29,7 @@ export default props => {
 		const _transferDirection = transferDirection(
 			item.direction,
 			t("lbl_MainWallet"),
-			t("lbl_Wallet_Saba")
+			item.tpName
 		);
 		const _status = item.status === 0 ? t("lbl_Success") : t("lbl_Fail");
 		const _statusColor = item.status === 0 ? "approved" : "cancel";

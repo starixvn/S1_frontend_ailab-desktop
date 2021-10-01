@@ -34,7 +34,7 @@ function reducer(state, action) {
 			const newValue = {
 				tpId: action.tpId,
 				balance: action.balance,
-				tpName: action.tpName
+				displayText: action.displayText
 			};
 			const idx = allDatas.findIndex(tp => tp.tpId === newValue.tpId);
 			if (idx === -1) {
@@ -80,7 +80,7 @@ const GetTpWallets = ({
 		if (res.data.errorCode === 0 && res.data.data) {
 			res.data.data.forEach(tpInfo => {
 				GetTpWalletBalance({
-					tpName: tpInfo.tpName,
+					displayText: tpInfo.tpName,
 					tpId: tpInfo.tpId,
 					dispatch
 				});
@@ -89,14 +89,14 @@ const GetTpWallets = ({
 	});
 };
 
-const GetTpWalletBalance = ({ tpId, dispatch, tpName }) => {
+const GetTpWalletBalance = ({ tpId, dispatch, displayText }) => {
 	api_account_GetTpWalletBalance(tpId).then(res => {
 		if (res.data.errorCode === 0 && res.data.data) {
 			const { tpId: _tpId, balance } = res.data.data;
 			dispatch({
 				type: defAction.GET_TP_WALLETS,
 				tpId: _tpId,
-				tpName,
+				displayText,
 				balance
 			});
 		}

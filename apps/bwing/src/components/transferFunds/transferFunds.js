@@ -41,7 +41,6 @@ const AfterUpdWalletList = ({
 	tpId,
 	balance,
 	displayKey,
-	tpName,
 	displayText
 }) => {
 	const idx = prev.findIndex(p => p.id === tpId);
@@ -54,7 +53,6 @@ const AfterUpdWalletList = ({
 			id: tpId,
 			displayKey,
 			balance,
-			tpName,
 			displayText
 		});
 	}
@@ -158,7 +156,6 @@ export default () => {
 						prev,
 						tpId: item.tpId,
 						balance: null,
-						tpName: item.tpName,
 						displayText: item.tpName
 					})
 				);
@@ -169,8 +166,7 @@ export default () => {
 							AfterUpdWalletList({
 								prev,
 								tpId,
-								balance,
-								tpName: item.tpName
+								balance
 							})
 						);
 					}

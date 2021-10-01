@@ -32,7 +32,7 @@ function reducer(state, action) {
 		case defAction.GET_TP_WALLETS: {
 			let allDatas = state.tpWallets;
 			const newValue = {
-				tpName: action.tpName,
+				displayText: action.displayText,
 				tpId: action.tpId,
 				balance: action.balance
 			};
@@ -80,7 +80,7 @@ const GetTpWallets = ({
 		if (res.data.errorCode === 0 && res.data.data) {
 			res.data.data.forEach(tpInfo => {
 				GetTpWalletBalance({
-					tpName: tpInfo.tpName,
+					displayText: tpInfo.tpName,
 					tpId: tpInfo.tpId,
 					dispatch
 				});
@@ -89,7 +89,7 @@ const GetTpWallets = ({
 	});
 };
 
-const GetTpWalletBalance = ({ tpId, tpName, dispatch }) => {
+const GetTpWalletBalance = ({ tpId, displayText, dispatch }) => {
 	api_account_GetTpWalletBalance(tpId).then(res => {
 		if (res.data.errorCode === 0 && res.data.data) {
 			const { tpId: _tpId, balance } = res.data.data;
@@ -97,7 +97,7 @@ const GetTpWalletBalance = ({ tpId, tpName, dispatch }) => {
 				type: defAction.GET_TP_WALLETS,
 				tpId: _tpId,
 				balance,
-				tpName
+				displayText
 			});
 		}
 	});
