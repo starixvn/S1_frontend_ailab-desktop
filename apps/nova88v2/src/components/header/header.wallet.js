@@ -117,7 +117,7 @@ class Dropdown extends Component {
 						className="walletBalance"
 						key={`header-tpwallet-${t.tpId}`}>
 						<div className="walletName">
-							<span>{t.tpName}</span>
+							<span>{t.displayText}</span>
 							<span>
 								{number_format(
 									t.balance,
