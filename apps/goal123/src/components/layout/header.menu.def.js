@@ -176,24 +176,24 @@ export const defMenuLinks = langId => {
 					npcImgUrl: sportSabaItemImg,
 					iconImgUrl: sportSabaIconImg,
 					parameter: { ...productList.sportSaba }
-				},
-				{
-					...productList.sportBti,
-					subPath: path.sportBti.root,
-					menuType: defMenuType.entPage,
-					className: "BTI",
-					eventIcons: [
-						showEventIcon({
-							icon: defEventIcon.new,
-							period: defEventPeriod.sportBti
-						})
-					],
-					displayKey: "lbl_Bti_Sport",
-					bgImgUrl: sportBtiBgImg,
-					npcImgUrl: sportBtiItemImg,
-					iconImgUrl: sportBtiIconImg,
-					parameter: { ...productList.sportBti }
 				}
+				// {
+				// 	...productList.sportBti,
+				// 	subPath: path.sportBti.root,
+				// 	menuType: defMenuType.entPage,
+				// 	className: "BTI",
+				// 	eventIcons: [
+				// 		showEventIcon({
+				// 			icon: defEventIcon.new,
+				// 			period: defEventPeriod.sportBti
+				// 		})
+				// 	],
+				// 	displayKey: "lbl_Bti_Sport",
+				// 	bgImgUrl: sportBtiBgImg,
+				// 	npcImgUrl: sportBtiItemImg,
+				// 	iconImgUrl: sportBtiIconImg,
+				// 	parameter: { ...productList.sportBti }
+				// }
 			]
 		},
 		// cockFighting: {

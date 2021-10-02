@@ -8,10 +8,10 @@ const defPlatform = [
 		...productList.sabaClub,
 		imgName: "saba"
 	},
-	{
-		...productList.sportBti,
-		imgName: "bti"
-	},
+	// {
+	// 	...productList.sportBti,
+	// 	imgName: "bti"
+	// },
 	{
 		...productList.liveCasino_AG,
 		imgName: "ag"
@@ -73,7 +73,6 @@ const defPlatform = [
 		...productList.tcg,
 		imgName: "tcg"
 	}
-
 ];
 
 const Platform = ({ isLogin, productTpIds }) => {

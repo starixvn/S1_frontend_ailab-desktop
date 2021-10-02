@@ -16,11 +16,11 @@ const defPlatform = [
 		parameter: { game: "soccer" },
 		imgName: "saba"
 	},
-	{
-		...productList.sportBti,
-		path: path.sportBti.root,
-		imgName: "bti"
-	},
+	// {
+	// 	...productList.sportBti,
+	// 	path: path.sportBti.root,
+	// 	imgName: "bti"
+	// },
 	{
 		...productList.liveCasino_AG,
 		imgName: "ag"

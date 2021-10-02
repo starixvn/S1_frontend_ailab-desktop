@@ -25,20 +25,20 @@ export const defMenuLinks = {
 				className: "sabaSport",
 				displayKey: "lbl_Saba_Sport",
 				parameter: { ...productList.sportSaba }
-			},
-			{
-				...productList.sportBti,
-				subPath: path.sportBti.root,
-				className: "btiSport",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.sportBti
-					})
-				],
-				displayKey: "lbl_Bti_Sport",
-				parameter: { ...productList.sportBti }
 			}
+			// {
+			// 	...productList.sportBti,
+			// 	subPath: path.sportBti.root,
+			// 	className: "btiSport",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.sportBti
+			// 		})
+			// 	],
+			// 	displayKey: "lbl_Bti_Sport",
+			// 	parameter: { ...productList.sportBti }
+			// }
 		]
 	},
 	// cockFighting: {
