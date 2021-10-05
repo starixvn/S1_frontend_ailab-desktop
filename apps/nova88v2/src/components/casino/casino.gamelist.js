@@ -86,9 +86,10 @@ export default ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
-			const { tpGameType } = Object.values(defSlotTpGameType).find(
-				obj => obj.tpId === g.tpId
-			);
+			const { tpGameType = null } =
+				Object.values(defSlotTpGameType).find(
+					obj => obj.tpId === g.tpId
+				) ?? {};
 
 			const isInMaintain = maintainList?.some(
 				item =>

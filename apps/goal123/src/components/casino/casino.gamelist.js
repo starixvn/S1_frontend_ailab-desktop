@@ -86,9 +86,10 @@ const GameList = ({
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
 
-			const { tpGameType } = Object.values(defCasinoProviders).find(
-				obj => obj.tpId === g.tpId
-			);
+			const { tpGameType = null } =
+				Object.values(defCasinoProviders).find(
+					obj => obj.tpId === g.tpId
+				) ?? {};
 
 			const isInMaintain = maintainList?.some(
 				item =>
