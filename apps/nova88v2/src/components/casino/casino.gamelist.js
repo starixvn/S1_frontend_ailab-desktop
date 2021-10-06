@@ -6,6 +6,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 import { defSlotTpGameType, defTpGameType } from "../../datas/productList";
+import { useInView } from "../hook/useInView";
 
 export default ({
 	displayGames,
@@ -17,13 +18,15 @@ export default ({
 	favorite,
 	onSetFavorite,
 	t,
-	maintainList
+	maintainList,
+	onLoadMore
 }) => {
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
 	const { setPopBox } = useContext(popBoxContext);
-	const startIdx = (currentPage - 1) * defRowsPerPage;
+	const startIdx = 0;
 	const endIdx = currentPage * defRowsPerPage;
+	const inViewRef = useInView(() => onLoadMore());
 
 	const onClickPlay = ({
 		tpId,
@@ -168,7 +171,10 @@ export default ({
 		});
 
 	return rows && rows.length > 0 ? (
-		<div className="slotList">{rows}</div>
+		<div className="slotList">
+			{rows}
+			<span ref={inViewRef} />
+		</div>
 	) : (
 		<div className="nodata icon icon-nodata">
 			<div>{t("lbl_NoData")}</div>
