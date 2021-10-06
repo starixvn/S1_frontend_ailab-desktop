@@ -215,8 +215,11 @@
 	"lbl_JoinSuccessDescription2": "Your Bonus has been claimed.",
 	"lbl_Promotion_Min_Deposit": "MIN DEPOSIT",
 	"lbl_Promotion_Bonus": "BONUS",
-	"lbl_MaxBonusAmount": "MAX BONUS",
+	"lbl_MaxBonusAmount": "MAX BONUS AMOUNT",
 	"lbl_Back": "Back",
+	"lbl_LossAmount": "Loss Amount",
+	"lbl_Percentage": "Percentage",
+	"lbl_TotalAmount": "Total Amount",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",

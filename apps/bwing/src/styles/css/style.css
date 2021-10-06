@@ -450,6 +450,7 @@ header .header > div.menu .subMenu-Wrapper .livecasinoList button.under,
 header .header > div.menu .subMenu-Wrapper .fishList a.under,
 header .header > div.menu .subMenu-Wrapper .fishList button.under {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 header .header > div.menu .subMenu-Wrapper .sportsList a.under .underBtn,
@@ -1306,6 +1307,7 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button.under,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a.under,
 header .header > div.menu .nweSubMenu-Wrapper .fishList button.under {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList a.under .underBtn,
@@ -1416,6 +1418,14 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
   background: url(../img/lottery/lottery-TCG.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .NE .img {
+  background: url(../img/slot/ne.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .RED .img {
+  background: url(../img/slot/red.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .MG .img {
   background: url(../img/slot/mg.png) no-repeat center/auto 100%;
 }
@@ -1466,6 +1476,10 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .CQ9 .icon-cq9:before 
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .ICG .img {
   background: url(../img/slot/icg.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveEvo .img {
+  background: url(../img/live/live-evo.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveJili .img {
@@ -2156,6 +2170,36 @@ footer > div .platformGroup button {
   max-width: 100px;
   width: 100px;
   height: 40px;
+}
+
+footer > div .platformGroup a.ev,
+footer > div .platformGroup button.ev {
+  background: url(../img/partherNew/evo.png) no-repeat center;
+}
+
+footer > div .platformGroup a.ev:hover,
+footer > div .platformGroup button.ev:hover {
+  background: url(../img/partherNew/evo-a.png) no-repeat center;
+}
+
+footer > div .platformGroup a.ne,
+footer > div .platformGroup button.ne {
+  background: url(../img/partherNew/ne.png) no-repeat center;
+}
+
+footer > div .platformGroup a.ne:hover,
+footer > div .platformGroup button.ne:hover {
+  background: url(../img/partherNew/ne-a.png) no-repeat center;
+}
+
+footer > div .platformGroup a.red,
+footer > div .platformGroup button.red {
+  background: url(../img/partherNew/red.png) no-repeat center;
+}
+
+footer > div .platformGroup a.red:hover,
+footer > div .platformGroup button.red:hover {
+  background: url(../img/partherNew/red-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.saba,
@@ -7088,6 +7132,58 @@ main > .swiper-container .swiper-slide {
   border: 0;
 }
 
+.promotionsInfo .proData .cashBack {
+  padding: 20px 0;
+  margin: 10px 0;
+}
+
+.promotionsInfo .proData .cashBack table {
+  color: #fff;
+  font-size: 12px;
+  width: 100%;
+  overflow: hidden;
+  background: #233157;
+}
+
+.promotionsInfo .proData .cashBack table tr:nth-child(1) {
+  background: #324578;
+  color: white;
+  font-weight: bold;
+}
+
+.promotionsInfo .proData .cashBack table tr:nth-child(1) td {
+  border-right: 1px solid #697eb5;
+}
+
+.promotionsInfo .proData .cashBack table tr:nth-child(even) {
+  background: #0c1a3f;
+}
+
+.promotionsInfo .proData .cashBack table tr:nth-last-child(3) {
+  border-top: 1px solid #697eb5;
+}
+
+.promotionsInfo .proData .cashBack table tr:nth-last-child(-n+3) {
+  font-weight: bold;
+  width: 100%;
+}
+
+.promotionsInfo .proData .cashBack table tr:nth-last-child(-n+3) td span:nth-child(1) {
+  color: #56ceff;
+  min-width: 90px;
+  display: inline-block;
+}
+
+.promotionsInfo .proData .cashBack table tr td {
+  border-right: 1px solid #697eb5;
+  padding: 5px;
+  width: 25%;
+}
+
+.promotionsInfo .proData .cashBack table tr td:last-child {
+  border: 0;
+}
+
 .promotionsInfo .proData .proDataTitle {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7236,6 +7332,7 @@ main > .swiper-container .swiper-slide {
 
 .livelobbyList > div.under {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .livelobbyList > div.under .underBtn {
@@ -7249,6 +7346,14 @@ main > .swiper-container .swiper-slide {
   font-size: 20px;
   -webkit-animation: newicon 0.5s linear infinite alternate;
           animation: newicon 0.5s linear infinite alternate;
+}
+
+.livelobbyList > div.live-evo {
+  background: url(../img/livelobby/live-evo.png) no-repeat center;
+}
+
+.livelobbyList > div.live-evo:hover {
+  background: url(../img/livelobby/live-evo-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-mg {
@@ -7442,6 +7547,7 @@ main > .swiper-container .swiper-slide {
 
 .fishlobbyList > div.under {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .fishlobbyList > div.under .underBtn {
@@ -7720,6 +7826,7 @@ main > .swiper-container .swiper-slide {
 
 .gameslobbyList > div.under {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .gameslobbyList > div.under .underBtn {
@@ -7916,6 +8023,7 @@ form {
 
 .slotList > div.under {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .slotList > div.under .underBtn {
@@ -12335,6 +12443,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div .youtube.close {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
   opacity: 0.7;
 }
 
@@ -12522,6 +12631,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .indexNew .maingame > a.under {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .indexNew .maingame > a.under .underBtn {
@@ -13141,6 +13251,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .liverightModule .liveArea .livelist .liveBox > div .youtube.close {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
   opacity: 0.7;
 }
 
@@ -13274,6 +13385,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .esportlobbyList > div.under {
   -webkit-filter: grayscale(1);
+  filter: grayscale(1);
 }
 
 .esportlobbyList > div.under .underBtn {
@@ -13391,5 +13503,130 @@ input + .iconModule i.icon.icon-checkmark:before {
 .appdownload:hover {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
+}
+
+.Straight-lock {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 5vw;
+  background: #001942;
+  z-index: 9;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.Straight-lock.in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Straight-lock.right .img-rotate {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -webkit-filter: FlipH;
+  filter: FlipH;
+}
+
+.Straight-lock .icon-mobile {
+  position: relative;
+}
+
+.Straight-lock .icon-mobile:before {
+  font-size: 10vw;
+}
+
+.Straight-lock i.icon-spinner11 {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+}
+
+.Straight-lock i.icon-spinner11:before {
+  font-size: 3vw;
+  color: #f77900;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+  -webkit-animation-name: reload1;
+          animation-name: reload1;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.Straight-lock .text {
+  margin: 2vw 0 0;
+  text-align: center;
+  line-height: 4vw;
+}
+
+@-webkit-keyframes reload1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes reload1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+.backstage ol, .backstage ul, .backstage li {
+  list-style: revert;
+  margin: revert;
+  padding: revert;
+  border: revert;
+  font-size: revert;
+  font: revert;
+  vertical-align: revert;
+}
+
+.backstage h1, .backstage h2, .backstage h3, .backstage h4, .backstage h5, .backstage h6, .backstage strong {
+  font-size: revert;
+  margin: revert;
+  padding: revert;
+  border: revert;
+  font-size: revert;
+  font: revert;
+  vertical-align: revert;
+}
+
+.backstage img {
+  width: 100% !important;
 }
 /*# sourceMappingURL=style.css.map */
