@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { userInfoContext, productTpIdsContext } from "../common/context";
+import {
+	userInfoContext,
+	productTpIdsContext,
+	maintainListContext
+} from "../common/context";
 import PlatformSection from "./footer.platform";
 import Bettings from "./footer.bettings";
 import OurPolicies from "./footer.ourPolicies";
@@ -29,6 +33,7 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
+	const { allMaintainList } = useContext(maintainListContext);
 
 	return (
 		<footer>
@@ -97,6 +102,7 @@ export default () => {
 				langId={userInfo.langId}
 				isLogin={userInfo.isLogin}
 				productTpIds={productTpIds}
+				maintainList={allMaintainList}
 			/>
 			<div className="webmap">
 				<Bettings
