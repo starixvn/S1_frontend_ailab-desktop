@@ -77,15 +77,17 @@ export default () => {
 
 	const { loading, setLoading } = useContext(loadingContext);
 
-	const clickClose = () => {
-		setPopBox({ isOpen: false });
+	const loadMore = () => {
+		if (gameDatas && pageInfo.totalPages > pageInfo.currentPage) {
+			setPageInfo(prev => ({
+				...prev,
+				currentPage: prev.currentPage + 1
+			}));
+		}
 	};
 
-	const clickPageNumber = page => {
-		setPageInfo(prevS => ({
-			...prevS,
-			currentPage: page
-		}));
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
 	};
 
 	const onSelectNav = navKey => {
@@ -490,12 +492,8 @@ export default () => {
 							currentPage={pageInfo.currentPage}
 							favorite={favorite}
 							onSetFavorite={onSetFavorite}
+							onLoadMore={loadMore}
 							maintainList={allMaintainList}
-						/>
-						<Pagination
-							totalPages={pageInfo.totalPages}
-							currentPage={pageInfo.currentPage}
-							clickPageNumber={clickPageNumber}
 						/>
 					</div>
 				</div>
