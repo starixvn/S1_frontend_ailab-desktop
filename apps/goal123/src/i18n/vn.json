@@ -218,6 +218,9 @@
 	"lbl_Promotion_Bonus": "TIỀN THƯỞNG",
 	"lbl_MaxBonusAmount": "TIỀN THƯỞNG TỐI ĐA",
 	"lbl_Back": "Quay Lại",
+	"lbl_LossAmount": "Tiền cược thua",
+	"lbl_Percentage": "Tỷ lệ",
+	"lbl_TotalAmount": "Tổng số tiền",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Không có dữ liệu",
