@@ -1,11 +1,20 @@
 import React, { useState } from "react";
+import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
-import productList, { defCasinoProviders } from "../../datas/productList";
+import productList, {
+	defCasinoProviders,
+	defTpGameType
+} from "../../datas/productList";
+import { SET_ENTER_PAGE } from "../../service/enterPage";
 import config from "../../config";
+import usePopBox from "../hook/usePopBox";
+import { defPopBoxType } from "../common/popBox";
+import path from "../../router";
 
 const defPlatform = [
 	{
-		...productList.sabaClub,
+		path: path.sports.root,
+		parameter: { game: "soccer" },
 		imgName: "saba"
 	},
 	// {
@@ -26,35 +35,51 @@ const defPlatform = [
 	},
 	{
 		...defCasinoProviders.PP,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.PP.name },
 		imgName: "pp"
 	},
 	{
 		...defCasinoProviders.MGPSW,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.MGPSW.name },
 		imgName: "mg"
 	},
 	{
 		...defCasinoProviders.PT,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.PT.name },
 		imgName: "playtech"
 	},
 	{
 		...defCasinoProviders.PG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.PG.name },
 		imgName: "pg"
 	},
 	{
 		...defCasinoProviders.SG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.SG.name },
 		imgName: "sg"
 	},
 	{
 		...defCasinoProviders.YGG,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.YGG.name },
 		imgName: "yg"
 	},
 	{
 		...defCasinoProviders.CQ9,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.CQ9.name },
 		imgName: "cq9"
 	},
 
 	{
 		...defCasinoProviders.JILI,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.JILI.name },
 		imgName: "jili"
 	},
 	{
@@ -75,10 +100,46 @@ const defPlatform = [
 	}
 ];
 
-const Platform = ({ isLogin, productTpIds }) => {
+const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 	const [hoverNamme, setHoverNamme] = useState(null);
+
+	const { setPopBox } = usePopBox();
+
 	const handleHoverImg = _hoverName => {
 		setHoverNamme(_hoverName);
+	};
+
+	const ClickItem = ({
+		path: _path,
+		urlParams,
+		tpId,
+		gameId,
+		isInMaintain,
+		tpGameType
+	}) => {
+		const loginCallback = () => {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		};
+
+		if (isInMaintain) {
+			return;
+		}
+
+		if (_path) {
+			navigate(`/${langId}/${_path}${urlParams}`);
+		} else if (tpId || gameId) {
+			SET_ENTER_PAGE({
+				isLogin,
+				langId,
+				tpId,
+				gameId,
+				loginCallback,
+				tpGameType
+			});
+		}
 	};
 
 	const filterPlatform = defPlatform.filter(
@@ -86,15 +147,36 @@ const Platform = ({ isLogin, productTpIds }) => {
 	);
 	const showRows = isLogin ? filterPlatform : defPlatform;
 
-	const rows = showRows.map(item => {
+	const rows = showRows.map(p => {
+		const key = `footer-platform-${p.imgName}`;
+
+		let params = null;
+		if (p.parameter) {
+			params = Object.keys(p.parameter).map(_key => {
+				return `${_key}=${p.parameter[_key]}`;
+			});
+		}
+
+		const _urlParams = params !== null ? `?${params.join("&")}` : "";
+
+		const isInMaintain = maintainList?.some(
+			mt =>
+				mt.tpId === p.tpId &&
+				(mt.tpGameType === p.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
+		);
+
 		return (
-			<button key={`platform-${item.imgName}`}>
+			<button key={key}>
 				<img
 					alt="logo"
-					src={`${config.imgUrl}/common/images/logo/${item.imgName}${
-						hoverNamme === item.imgName ? "a" : ""
+					src={`${config.imgUrl}/common/images/logo/${p.imgName}${
+						hoverNamme === p.imgName ? "a" : ""
 					}.png`}
-					onMouseOver={handleHoverImg.bind(this, item.imgName)}
+					onClick={() =>
+						ClickItem({ ...p, urlParams: _urlParams, isInMaintain })
+					}
+					onMouseOver={handleHoverImg.bind(this, p.imgName)}
 					onMouseOut={handleHoverImg.bind(this, null)}
 					onBlur={() => 0}
 					onFocus={() => 0}
