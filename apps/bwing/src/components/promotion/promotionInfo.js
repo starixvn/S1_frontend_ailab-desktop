@@ -12,6 +12,7 @@ import Loading from "../common/loading";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defFilterType } from "./promotion.nav";
+import CashBackInfo from "./cashBackInfo";
 
 export default () => {
 	const filterType = Number(getUrlParameter("FilterType"));
@@ -196,6 +197,11 @@ export default () => {
 							this,
 							promotionInfo
 						)}
+					/>
+
+					<CashBackInfo
+						cashBackDetails={promotionInfo.cashBackDetails}
+						t={t}
 					/>
 
 					<div

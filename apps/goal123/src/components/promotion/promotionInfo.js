@@ -14,6 +14,7 @@ import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
 import { defFilterType } from "./promotion.nav";
 import path from "../../router";
+import CashBackInfo from "./cashBackInfo";
 
 export default () => {
 	const filterType = getUrlParameter("FilterType");
@@ -203,6 +204,12 @@ export default () => {
 						currencyId={userInfo.currencyId}
 						langId={userInfo.langId}
 					/>
+
+					<CashBackInfo
+						cashBackDetails={promotionInfo.cashBackDetails}
+						t={t}
+					/>
+
 					<div
 						className="proDataBody"
 						dangerouslySetInnerHTML={{

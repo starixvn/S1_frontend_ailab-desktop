@@ -18,7 +18,6 @@ import {
 } from "./casino.def";
 import GameList from "./casino.gamelist";
 import { BannerSwipper } from "../common/customSwipper";
-import { Pagination } from "../common/pagination";
 import { getUrlParameter } from "../common/common";
 import SearchBox from "./casino.searchBox";
 import Loading from "../common/loading";
@@ -192,6 +191,15 @@ export default () => {
 		}
 	}, [userInfo.isLogin, tpId]);
 
+	const loadMore = () => {
+		if (gameDatas && pageInfo.totalPages > pageInfo.currentPage) {
+			setPageInfo(prev => ({
+				...prev,
+				currentPage: prev.currentPage + 1
+			}));
+		}
+	};
+
 	const FilterGames = (
 		_searchInfo,
 		_nav,
@@ -275,13 +283,6 @@ export default () => {
 				_tpList: tpList
 			});
 		}
-	};
-
-	const clickPageNumber = page => {
-		setPageInfo(prevS => ({
-			...prevS,
-			currentPage: page
-		}));
 	};
 
 	const onSetFavorite = (_tpId, gameId) => {
@@ -398,12 +399,8 @@ export default () => {
 							currentPage={pageInfo.currentPage}
 							favorite={favorite}
 							onSetFavorite={onSetFavorite}
+							onLoadMore={loadMore}
 							maintainList={allMaintainList}
-						/>
-						<Pagination
-							totalPages={pageInfo.totalPages}
-							currentPage={pageInfo.currentPage}
-							clickPageNumber={clickPageNumber}
 						/>
 					</div>
 				</div>
