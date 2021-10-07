@@ -34,7 +34,8 @@ const Content = () => {
 						langId: userInfo.langId,
 						tpId,
 						gameId,
-						matchid
+						matchid,
+						tpGameType
 					})}
 				/>
 			</section>
