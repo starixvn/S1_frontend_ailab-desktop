@@ -103,7 +103,7 @@ export const CopyrightSection = ({ t, langId }) => (
 		<a href={TandC(langId).Terms} target="_blank" rel="noreferrer">
 			{t("lbl_TermsConditions")}
 		</a>
-		<span>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved. 21+`}</span>
+		<span>{`© Copyright ${new Date().getFullYear()}. Nova88. All Rights Reserved. 18+`}</span>
 	</div>
 );
 
