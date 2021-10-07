@@ -95,9 +95,8 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 	const checkAll = (val, col) => {
 		let checked = true;
 		let message = "";
-
 		const isRepeatAccount =
-			custBankInfo?.filter(
+			custBankInfo.bankInfoDetail?.filter(
 				_selectBank =>
 					_selectBank.bankName ===
 						bankInfoSysList[userValue.bankId].displayText &&
