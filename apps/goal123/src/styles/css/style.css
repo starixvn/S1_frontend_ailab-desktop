@@ -11797,7 +11797,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   color: #cfcfcf !important;
 }
 
-.backstage ol, .backstage ul, .backstage li {
+.backstage ol, .backstage ul, .backstage li, .backstage ins, .backstage p, .backstage pre, .backstage del, .backstage em, .backstage span {
   list-style: revert;
   margin: revert;
   padding: revert;
