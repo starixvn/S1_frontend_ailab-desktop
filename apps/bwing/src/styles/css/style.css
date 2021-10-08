@@ -13606,7 +13606,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   }
 }
 
-.backstage ol, .backstage ul, .backstage li {
+.backstage ol, .backstage ul, .backstage li, .backstage ins, .backstage p, .backstage pre, .backstage del, .backstage em, .backstage span {
   list-style: revert;
   margin: revert;
   padding: revert;

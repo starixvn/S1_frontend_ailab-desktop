@@ -7,7 +7,6 @@ import {
 } from "../../service/api/account";
 import { popBoxContext, msgCountContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { stringLinkify } from "../common/common";
 
 export default props => {
 	const { t } = useTranslation();
@@ -35,14 +34,7 @@ export default props => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
 							setShowContent(true);
-							setMsgContentData(() => {
-								let msg = "";
-								if (res.data.data.content) {
-									msg = stringLinkify(res.data.data.content);
-								}
-
-								return msg;
-							});
+							setMsgContentData(res.data?.data?.content);
 							props.getMsgList();
 
 							api_account_GetMsgCount().then(resMsg => {
@@ -140,7 +132,7 @@ export default props => {
 				</div>
 			</div>
 			<div
-				className={`listBody ${showContent ? "active" : ""}`}
+				className={`listBody backstage ${showContent ? "active" : ""}`}
 				dangerouslySetInnerHTML={{ __html: msgContentData }}
 			/>
 		</div>
