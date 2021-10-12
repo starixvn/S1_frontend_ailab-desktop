@@ -9,7 +9,6 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 		<table className="eventList">
 			<tbody>
 				<tr className="title">
-					{/* <!--icon設計中,只要是class="icon icon-nova88"都會在過完年更改class名稱--> */}
 					<td className="icon icon-nova88">
 						{t("lbl_Vip_Service_Support")}
 					</td>
@@ -96,7 +95,7 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 					<td>{t("lbl_Vip_Sport_Rebate")}</td>
 					<td>0.50%</td>
 					<td>0.55%</td>
-					<td>0.60%</td>
+					<td>0.65%</td>
 					<td>0.75%</td>
 					<td>0.85%</td>
 					<td>1.00%</td>
