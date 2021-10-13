@@ -5,7 +5,7 @@ import Inputbox from "../../common/inputbox";
 import Dropdown from "../../common/dropdown";
 import ShortcutAmountList from "./shortcutAmountList";
 import { getUrlParameter } from "../../common/common";
-import { defDepositChannel, defDepositChannelIdList } from "../depositnew.def";
+import { defDepositChannel, defDepositChannelIdList } from "../deposit.def";
 // import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
 import { cloudImgUrl } from "../../../config";

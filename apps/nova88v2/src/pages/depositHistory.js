@@ -16,8 +16,8 @@ import LeftMenu from "../components/common/leftMenu";
 import { isConvert } from "../components/common/common";
 import SideBarQuickLink from "../components/home/sideBarQuickLink";
 
-import useDeposit from "../components/depositnew/hook/useDeposit";
-import useDepositLocalBank from "../components/depositnew/hook/useDepositLocalBank";
+import useDeposit from "../components/deposit/hook/useDeposit";
+import useDepositLocalBank from "../components/deposit/hook/useDepositLocalBank";
 
 export default () => {
 	return (

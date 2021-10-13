@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { number_format, isConvert } from "../common/common";
+import { number_format } from "../common/common";
 
 const statusClassName = {
 	1: "pending",
@@ -14,9 +15,9 @@ const statusClassName = {
 export const TransactionHistory = props => {
 	const { t } = useTranslation();
 
-	let btnGroup = null;
+	let actionContent = null;
 	if (props.depositType === 3 && (props.status === 1 || props.status === 7)) {
-		btnGroup = (
+		actionContent = (
 			<>
 				<button
 					className="orange icon icon-pencil"
@@ -45,7 +46,27 @@ export const TransactionHistory = props => {
 			<div className={statusClassName[props.status]}>
 				{t(`lbl_DepositStatus${props.status}`)}
 			</div>
-			<div className="btnGroup">{btnGroup}</div>
+			<div className="btnGroup">
+				{actionContent}
+				{props.thirdId}
+			</div>
 		</div>
 	);
+};
+
+TransactionHistory.defaultProps = {
+	thirdId: null
+};
+
+TransactionHistory.propTypes = {
+	depositType: PropTypes.number.isRequired,
+	SubmitProof: PropTypes.func.isRequired,
+	ClickCancel: PropTypes.func.isRequired,
+	thirdId: PropTypes.string,
+	idx: PropTypes.number.isRequired,
+	createTime: PropTypes.string.isRequired,
+	transId: PropTypes.string.isRequired,
+	amount: PropTypes.number.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
+	status: PropTypes.number.isRequired
 };

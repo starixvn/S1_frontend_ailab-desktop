@@ -1,24 +1,25 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
-import { TransactionHistory } from "./deposit.historyResult";
-import {
-	api_payment_GetDepositInfoRecent,
-	api_payment_SetDepositCancel
-} from "../../service/api/payment";
-import { defPopBoxType } from "../common/popBox";
-import path from "../../router";
 import { userInfoContext, popBoxContext } from "../common/context";
-import Loading from "../common/loading";
+import { TransactionHistory } from "./deposit.historyResult";
+import { api_payment_SetDepositCancel } from "../../service/api/payment";
+import { defPopBoxType } from "../common/popBox";
 import ReloadSpin from "../common/reloadSpin";
+import path from "../../router";
 
-export default () => {
+const DepositRecentHistory = ({
+	asyncUploadBankPopBox,
+	getDepositInfoRecent,
+	depositInfoRecentDatas,
+	setDepositInfoRecentDatas,
+	uploadLocalBankReceipt
+}) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-	const [getHistory, setGetHistory] = useState(null);
-	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -29,124 +30,66 @@ export default () => {
 	});
 
 	useEffect(() => {
-		GetRecentDatas();
+		getDepositInfoRecent();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	const GetRecentDatas = () => {
-		api_payment_GetDepositInfoRecent().then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setGetHistory(res.data.data);
-					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
-					}
-				}
-			},
-			err => {
-				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClosePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
-				}
-			}
-		);
-	};
 
 	const ClosePopBox = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const SubmitProof = (
-		bankInfo,
-		depositRep,
-		amount,
-		transId,
-		picFileName,
-		refId
-	) => {
-		const { currencyId, ...restBankInfo } = bankInfo;
+	const SubmitProof = async (bankInfo, depositRep, transId, picFileName) => {
+		const { bankName } = bankInfo;
 		const { accountName, accountNo } = depositRep;
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.UploadBankSlip,
-			depositTime: `${moment().format()}`,
-			...restBankInfo,
-			transId,
-			accountNo,
-			accountName,
-			amount,
-			picFileName,
-			refId,
-			refreshDatas: GetRecentDatas
+
+		const uploadPopBoxResult = await asyncUploadBankPopBox({
+			formInfo: {
+				imgFile: {
+					name: picFileName
+				}
+			},
+			localBankInfo: {
+				bankName,
+				accountNo,
+				accountName,
+				transId
+			},
+			langId: userInfo.langId
 		});
+
+		if (uploadPopBoxResult.success) {
+			const {
+				datas: { depositImgFiles }
+			} = uploadPopBoxResult;
+
+			if (!depositImgFiles.file) return;
+
+			await uploadLocalBankReceipt({
+				imgFile: depositImgFiles.file,
+				transId
+			});
+
+			getDepositInfoRecent();
+		}
 	};
 
 	const ClickCancel = transId => {
 		const ClickConfirm = () => {
-			setLoading(true);
-
 			setPopBox({ isOpen: false });
-			api_payment_SetDepositCancel(transId).then(
-				res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0) {
-							setGetHistory(prevState => {
-								const newD = [...prevState];
-								const idx = newD.findIndex(
-									x => x.transId === transId
-								);
-								newD[idx].status = 5;
-								return newD;
-							});
-						}
-						setLoading(false);
-					}
-				},
-				err => {
-					if (isMountedRef.current) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
+			api_payment_SetDepositCancel(transId).then(res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setDepositInfoRecentDatas(prevState => {
+							const newD = [...prevState];
+							const idx = newD.findIndex(
+								x => x.transId === transId
+							);
+							newD[idx].status = 5;
+							return newD;
 						});
-						setLoading(false);
 					}
 				}
-			);
+			});
 		};
 
 		setPopBox({
@@ -154,10 +97,10 @@ export default () => {
 			popBoxType: defPopBoxType.Cancel,
 			btnBar: (
 				<div className="btnGroup">
-					<button className="btn-cancel" onClick={ClickConfirm}>
+					<button className="gray" onClick={ClickConfirm}>
 						{t("lbl_Yes")}
 					</button>
-					<button className="btn-check" onClick={ClosePopBox}>
+					<button className="orange" onClick={ClosePopBox}>
 						{t("lbl_No")}
 					</button>
 				</div>
@@ -165,7 +108,7 @@ export default () => {
 		});
 	};
 
-	const arr = getHistory?.map((item, i) => {
+	const arr = depositInfoRecentDatas?.map((item, i) => {
 		return (
 			<TransactionHistory
 				key={`deposit-recent-${item.transId}`}
@@ -176,18 +119,14 @@ export default () => {
 					this,
 					item.bankInfo,
 					item.depositRep,
-					item.amount,
 					item.transId,
-					item.picFileName,
-					item.refId
+					item.picFileName
 				)}
 			/>
 		);
 	});
 
-	return loading ? (
-		<Loading />
-	) : getHistory ? (
+	return (
 		<>
 			<div className="list">
 				<div className="tip active">{t("msg_AmountFormatTip")}</div>
@@ -202,14 +141,14 @@ export default () => {
 					<div>{t("lbl_Status")}</div>
 					<div>
 						{t("lbl_Action")}
-						<ReloadSpin func={GetRecentDatas} />
+						<ReloadSpin func={getDepositInfoRecent} />
 					</div>
 				</div>
-				{getHistory?.length > 0 ? (
+				{depositInfoRecentDatas?.length > 0 ? (
 					<div className="listBody">{arr}</div>
 				) : (
 					<div className="nodata icon icon-nodata">
-						{t("lbl_NoData")}
+						<div>{t("lbl_NoData")}</div>
 					</div>
 				)}
 			</div>
@@ -218,5 +157,14 @@ export default () => {
 				className="icon icon-books"
 			/>
 		</>
-	) : null;
+	);
 };
+
+DepositRecentHistory.propTypes = {
+	asyncUploadBankPopBox: PropTypes.func.isRequired,
+	getDepositInfoRecent: PropTypes.func.isRequired,
+	depositInfoRecentDatas: PropTypes.arrayOf(PropTypes.any).isRequired,
+	setDepositInfoRecentDatas: PropTypes.func.isRequired,
+	uploadLocalBankReceipt: PropTypes.func.isRequired
+};
+export default DepositRecentHistory;

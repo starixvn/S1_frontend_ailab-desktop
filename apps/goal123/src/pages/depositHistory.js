@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { popBoxContext, userInfoContext } from "../components/common/context";
-import { TransactionHistory } from "../components/depositnew/deposit.historyResult";
+import { TransactionHistory } from "../components/deposit/deposit.historyResult";
 import { defPopBoxType } from "../components/common/popBox";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
@@ -17,8 +17,8 @@ import {
 	api_payment_SetDepositCancel
 } from "../service/api/payment";
 
-import useDeposit from "../components/depositnew/hook/useDeposit";
-import useDepositLocalBank from "../components/depositnew/hook/useDepositLocalBank";
+import useDeposit from "../components/deposit/hook/useDeposit";
+import useDepositLocalBank from "../components/deposit/hook/useDepositLocalBank";
 
 export default () => {
 	return (
