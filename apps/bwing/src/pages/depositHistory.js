@@ -17,8 +17,8 @@ import { isConvert } from "../components/common/common";
 import Loading from "../components/common/loading";
 import ReloadSpin from "../components/common/reloadSpin";
 
-import useDeposit from "../components/depositnew/hook/useDeposit";
-import useDepositLocalBank from "../components/depositnew/hook/useDepositLocalBank";
+import useDeposit from "../components/deposit/hook/useDeposit";
+import useDepositLocalBank from "../components/deposit/hook/useDepositLocalBank";
 
 export default () => {
 	return (

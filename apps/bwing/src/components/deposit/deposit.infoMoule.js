@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import path from "../../router";
 
-const DepositnewInfoMoule = ({
+const DepositInfoMoule = ({
 	t,
 	langId,
 	depositOptions,
@@ -16,22 +16,23 @@ const DepositnewInfoMoule = ({
 }) => {
 	return (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_deposit">
+			<div className="inside-title icon">
 				<span>{t("lbl_Deposit")}</span>
-				<div>{t("lbl_DepositOptionHint")}</div>
-
 				<Link
 					className="icon icon-friend"
 					to={`/${langId}/${path.referral.root}`}>
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
+
 			<div className="subModuleListColumn">
+				<p className="txt-white">{t("lbl_DepositOptionHint")}</p>
+
 				<div className="subModuleTitle">
 					<span>
 						<i className="txt-blue">*</i>
-					</span>
-					{t("lbl_DepositOptions")}
+						{t("lbl_DepositOptions")}
+					</span>{" "}
 				</div>
 				<div className="subModule">
 					<div>
@@ -69,13 +70,12 @@ const DepositnewInfoMoule = ({
 					</button>
 				</div>
 			</div>
-
-			<div className="importantNo">
+			<div className="important">
 				<div className="title">
 					<span className="icon icon-warning" />{" "}
 					{t("lbl_ImportantNotice")}
 				</div>
-				<ul>
+				<ol>
 					<li>{t("lbl_DepositImportantNoticeContent1")}</li>
 					<li>
 						<Trans
@@ -118,17 +118,17 @@ const DepositnewInfoMoule = ({
 							}}
 						/>
 					</li>
-				</ul>
+				</ol>
 			</div>
 		</div>
 	);
 };
 
-DepositnewInfoMoule.defaultProps = {
+DepositInfoMoule.defaultProps = {
 	checked: true
 };
 
-DepositnewInfoMoule.propTypes = {
+DepositInfoMoule.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
 	depositOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
@@ -139,4 +139,4 @@ DepositnewInfoMoule.propTypes = {
 	children: PropTypes.node.isRequired
 };
 
-export default DepositnewInfoMoule;
+export default DepositInfoMoule;

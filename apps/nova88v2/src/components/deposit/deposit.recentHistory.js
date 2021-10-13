@@ -1,25 +1,29 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { TransactionHistory } from "./deposit.historyResult";
-import {
-	api_payment_GetDepositInfoRecent,
-	api_payment_SetDepositCancel
-} from "../../service/api/payment";
+import { api_payment_SetDepositCancel } from "../../service/api/payment";
 import { isConvert } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
 import { defHistoryIdList } from "../history/def";
 
-export default () => {
+const DepositRecentHistory = ({
+	asyncUploadBankPopBox,
+	getDepositInfoRecent,
+	depositInfoRecentDatas,
+	setDepositInfoRecentDatas,
+	uploadLocalBankReceipt
+	// setLocalBankReceipt
+}) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const _isConvert = isConvert(userInfo.currencyId);
-	const [getHistory, setGetHistory] = useState(null);
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -30,52 +34,82 @@ export default () => {
 	});
 
 	useEffect(() => {
-		GetRecentDatas();
+		getDepositInfoRecent();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-
-	const GetRecentDatas = () => {
-		api_payment_GetDepositInfoRecent().then(res => {
-			if (isMountedRef.current) {
-				if (res.data.errorCode === 0) {
-					setGetHistory(res.data.data);
-				} else {
-					alert(res.data.message);
-				}
-			}
-		});
-	};
 
 	const ClosePopBox = () => {
 		setPopBox({ isOpen: false });
 	};
 
-	const SubmitProof = (
+	const SubmitProof = async (
 		bankInfo,
 		depositRep,
 		amount,
 		transId,
 		picFileName,
-		refId
+		historyRefId,
+		historyDepositTime
 	) => {
-		const { currencyId, ...restBankInfo } = bankInfo;
+		const { bankName, bankSite } = bankInfo;
 		const { accountName, accountNo } = depositRep;
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.UploadBankSlip,
-			depositTime: `${moment().format("yyyy-MM-DD ")}${moment().format(
-				"hh:mm A"
-			)}`,
-			...restBankInfo,
-			transId,
-			accountNo,
-			accountName,
-			isOpen: true,
-			amount,
-			picFileName,
-			refId,
-			refreshDatas: GetRecentDatas,
-			_isConvert
+
+		const uploadPopBoxResult = await asyncUploadBankPopBox({
+			formInfo: {
+				imgFile: {
+					name: picFileName
+				}
+				// refId: historyRefId,
+				// time: historyDepositTime
+			},
+			localBankInfo: {
+				bankName,
+				bankSite,
+				accountNo,
+				accountName,
+				transId,
+				amount
+			},
+			_isConvert,
+			currencyId: userInfo.currencyId,
+			langId: userInfo.langId
 		});
+
+		if (uploadPopBoxResult.success) {
+			const {
+				datas: {
+					// depositTime, depositRefNo,
+					depositImgFiles
+				}
+			} = uploadPopBoxResult;
+
+			// const isSameRefId = historyRefId === depositRefNo.value;
+
+			// const isSameDepositTime = moment(depositTime.value).isSame(
+			// 	moment(historyDepositTime)
+			// );
+
+			if (depositImgFiles.file) {
+				await uploadLocalBankReceipt({
+					imgFile: depositImgFiles.file,
+					transId
+				});
+			}
+
+			// if (!isSameDepositTime || !isSameRefId) {
+			// 	await setLocalBankReceipt({
+			// 		transId,
+			// 		depositTime: depositTime.value,
+			// 		fefNo: depositRefNo.value
+			// 	});
+			// }
+
+			if (
+				depositImgFiles.file
+				// || !isSameDepositTime || !isSameRefId
+			)
+				getDepositInfoRecent();
+		}
 	};
 
 	const ClickCancel = transId => {
@@ -84,7 +118,7 @@ export default () => {
 			api_payment_SetDepositCancel(transId).then(res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						setGetHistory(prevState => {
+						setDepositInfoRecentDatas(prevState => {
 							const newD = [...prevState];
 							const idx = newD.findIndex(
 								x => x.transId === transId
@@ -113,7 +147,7 @@ export default () => {
 		});
 	};
 
-	const arr = getHistory?.map((item, i) => {
+	const arr = depositInfoRecentDatas?.map((item, i) => {
 		return (
 			<TransactionHistory
 				key={`deposit-recent-${item.transId}`}
@@ -128,7 +162,8 @@ export default () => {
 					item.amount,
 					item.transId,
 					item.picFileName,
-					item.refId
+					item.refId,
+					item.depositTime
 				)}
 			/>
 		);
@@ -138,7 +173,7 @@ export default () => {
 		<>
 			<div className="list">
 				<div className="listHeader">
-					<div>{t("NO")}</div>
+					<div>{t("lbl_NO")}</div>
 					<div>
 						{t("lbl_Date")} ({moment().format("Z")})
 					</div>
@@ -148,10 +183,10 @@ export default () => {
 					<div>{t("lbl_Status")}</div>
 					<div>
 						{t("lbl_Action")}
-						<ReloadSpin func={GetRecentDatas} />
+						<ReloadSpin func={getDepositInfoRecent} />
 					</div>
 				</div>
-				{getHistory?.length > 0 ? (
+				{depositInfoRecentDatas?.length > 0 ? (
 					<div className="listBody">{arr}</div>
 				) : (
 					<div className="nodata icon icon-nodata">
@@ -166,3 +201,13 @@ export default () => {
 		</>
 	);
 };
+
+DepositRecentHistory.propTypes = {
+	asyncUploadBankPopBox: PropTypes.func.isRequired,
+	getDepositInfoRecent: PropTypes.func.isRequired,
+	depositInfoRecentDatas: PropTypes.arrayOf(PropTypes.any).isRequired,
+	setDepositInfoRecentDatas: PropTypes.func.isRequired,
+	uploadLocalBankReceipt: PropTypes.func.isRequired
+	// setLocalBankReceipt: PropTypes.func.isRequired
+};
+export default DepositRecentHistory;

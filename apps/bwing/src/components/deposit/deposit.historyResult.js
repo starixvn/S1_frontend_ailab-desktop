@@ -19,11 +19,11 @@ export const TransactionHistory = props => {
 		btnGroup = (
 			<>
 				<button
-					className="btn-check icon icon-pencil"
+					className="orange icon icon-pencil"
 					onClick={props.SubmitProof}>
 					{t("lbl_SubmitProof")}
 				</button>
-				<button className="btn-cancel" onClick={props.ClickCancel}>
+				<button className="gray" onClick={props.ClickCancel}>
 					{t("lbl_Cancel")}
 				</button>
 			</>
@@ -34,14 +34,19 @@ export const TransactionHistory = props => {
 		<div>
 			<div>{props.idx}</div>
 			<div>
-				{moment(props.createTime).format("DD/MM/YYYY")}
-				<span className="txt-blue2">
-					{moment(props.createTime).format("HH:mm:ss")}
+				{moment(props.createTime).format("MM/DD/YYYY")}
+				<span className="txt-blue">
+					{moment(props.createTime).format("hh:mm:ss A")}
 				</span>
 			</div>
 			<div>{props.transId}</div>
 			<div>{t(`lbl_DepositType${props.depositType}`)}</div>
-			<div>{number_format({ number: props.amount })}</div>
+			<div>
+				{number_format({
+					number: props.amount,
+					formatRequired: props._isConvert
+				})}
+			</div>
 			<div className={statusClassName[props.status]}>
 				{t(`lbl_DepositStatus${props.status}`)}
 			</div>

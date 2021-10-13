@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
 import { number_format, isConvert } from "./common";
 import ClipboardJS from "../../lib/clipboard.min";
-import { defDepositType } from "../depositnew/depositnew.def";
+import { defDepositType } from "../deposit/deposit.def";
 
 const Panel = ({
 	title,
