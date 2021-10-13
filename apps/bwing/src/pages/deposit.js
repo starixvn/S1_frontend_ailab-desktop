@@ -1,7 +1,7 @@
 import React from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
-import Deposit from "../components/depositnew/depositnew";
+import Deposit from "../components/deposit/deposit";
 import LeftMenu from "../components/common/leftMenu";
 
 export default () => {
