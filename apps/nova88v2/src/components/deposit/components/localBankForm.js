@@ -27,12 +27,13 @@ const LocalBankForm = ({
 	getBankInfo,
 	custBankInfoList,
 	localBankChannelError,
-	localBankBankInfoErrpr
+	localBankBankInfoErrpr,
+	depositInfoStorage
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
 	const [fromChannelIdIdx, setFromChannelIdIdx] = useState(0);
-	const [custBankInfoIdx, setCustBankInfoIdx] = useState(0);
+	const [custBankInfoIdx, setCustBankInfoIdx] = useState(null);
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
 	const [infoActive, setInfoActive] = useState({
 		upload: false
@@ -99,6 +100,39 @@ const LocalBankForm = ({
 		}
 	};
 
+	const onSelectChannel = (idx, item) => {
+		setFormInfo(prev => {
+			const newState = {
+				...prev,
+				fromChannel: item.id
+			};
+
+			const isRemoveBankDetailKeys =
+				item.id === defDepositChannelIdList.CashDepositMachine ||
+				item.id === defDepositChannelIdList.OverTheCounter;
+
+			if (isRemoveBankDetailKeys) {
+				delete newState.fromAccountNum;
+				delete newState.fromSysId;
+			}
+
+			return newState;
+		});
+		setFromChannelIdIdx(idx);
+	};
+
+	const onSelectBankDetail = (idx, item) => {
+		setFormInfo(prev => {
+			return {
+				...prev,
+				fromSysId: item.sysId,
+				fromAccountNum: item.accountNo
+			};
+		});
+
+		setCustBankInfoIdx(idx);
+	};
+
 	useEffect(() => {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		// const _clipboard = new ClipboardJS(".copyBtn");
@@ -114,6 +148,35 @@ const LocalBankForm = ({
 		getBankInfo();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	useEffect(() => {
+		if (depositInfoStorage.localBankChannel) {
+			const { localBankChannel } = depositInfoStorage;
+			const fromChannelId = Object.values(
+				defDepositChannelIdList
+			).findIndex(i => i === localBankChannel.fromChannel);
+
+			onSelectChannel(fromChannelId, {
+				id: localBankChannel.fromChannel
+			});
+
+			if (localBankChannel?.fromAccountNum) {
+				const bankDetailIdx = custBankInfoList.findIndex(
+					obj =>
+						obj.sysId === localBankChannel.fromSysId &&
+						obj.accountNo === localBankChannel.fromAccountNum
+				);
+
+				if (bankDetailIdx !== -1) {
+					onSelectBankDetail(bankDetailIdx, {
+						sysId: localBankChannel.fromSysId,
+						accountNo: localBankChannel.fromAccountNum
+					});
+				}
+			}
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [custBankInfoList]);
 
 	if (localBankGroupList.length <= 0) return null;
 
@@ -261,30 +324,7 @@ const LocalBankForm = ({
 							formInfo.fromChannel ? null : t("lbl_SelectChannel")
 						}
 						options={defDepositChannel}
-						onSelectItem={(idx, item) => {
-							setFormInfo(prev => {
-								const newState = {
-									...prev,
-									fromChannel: item.id,
-									fromAccountNum: null,
-									fromSysId: null
-								};
-
-								const isRemoveBankDetailKeys =
-									item.id ===
-										defDepositChannelIdList.CashDepositMachine ||
-									item.id ===
-										defDepositChannelIdList.OverTheCounter;
-
-								if (isRemoveBankDetailKeys) {
-									delete newState.fromAccountNum;
-									delete newState.fromSysId;
-								}
-
-								return newState;
-							});
-							setFromChannelIdIdx(idx);
-						}}
+						onSelectItem={(idx, item) => onSelectChannel(idx, item)}
 						selectedIdx={fromChannelIdIdx}
 						i18n={t}
 					/>
@@ -320,17 +360,9 @@ const LocalBankForm = ({
 										: t("lbl_SelectBank")
 								}
 								options={custBankInfoList}
-								onSelectItem={(idx, item) => {
-									setFormInfo(prev => {
-										return {
-											...prev,
-											fromSysId: item.sysId,
-											fromAccountNum: item.accountNo
-										};
-									});
-
-									setCustBankInfoIdx(idx);
-								}}
+								onSelectItem={(idx, item) =>
+									onSelectBankDetail(idx, item)
+								}
 								selectedIdx={custBankInfoIdx}
 								i18n={t}
 							/>
@@ -379,6 +411,10 @@ const LocalBankForm = ({
 	);
 };
 
+LocalBankForm.defaultProps = {
+	depositInfoStorage: {}
+};
+
 LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
@@ -396,6 +432,7 @@ LocalBankForm.propTypes = {
 	getBankInfo: PropTypes.func.isRequired,
 	custBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	localBankChannelError: PropTypes.objectOf(PropTypes.any).isRequired,
-	localBankBankInfoErrpr: PropTypes.objectOf(PropTypes.any).isRequired
+	localBankBankInfoErrpr: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositInfoStorage: PropTypes.objectOf(PropTypes.any)
 };
 export default LocalBankForm;
