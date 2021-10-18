@@ -18,7 +18,8 @@ const DepositInfoMoule = ({
 	setSaveInfoChecked,
 	processingDescriptionActive,
 	onReset,
-	children
+	children,
+	userName
 }) => {
 	const [rememberInfoActive, setRememberInfoActive] = useState(false);
 
@@ -49,7 +50,7 @@ const DepositInfoMoule = ({
 								onClick={() => {
 									setSaveInfoChecked(!saveInfoChecked);
 									setLocalStorage(
-										"nova88depositquerySavedChecked",
+										`${userName}-nova88depositquerySavedChecked`,
 										!saveInfoChecked
 									);
 								}}>
@@ -177,7 +178,8 @@ const DepositInfoMoule = ({
 };
 
 DepositInfoMoule.defaultProps = {
-	checked: true
+	checked: true,
+	userName: null
 };
 
 DepositInfoMoule.propTypes = {
@@ -192,7 +194,8 @@ DepositInfoMoule.propTypes = {
 	saveInfoChecked: PropTypes.bool.isRequired,
 	setSaveInfoChecked: PropTypes.func.isRequired,
 	processingDescriptionActive: PropTypes.bool.isRequired,
-	children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
+	userName: PropTypes.string
 };
 
 export default DepositInfoMoule;
