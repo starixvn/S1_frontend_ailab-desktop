@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Redirect, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import path from "../../router";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
 import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
@@ -25,6 +24,7 @@ import {
 import { SiteInfo } from "../../config";
 import useGetWalletInfo from "./wrapper.walletInfo";
 import SEO from "../seo/seo";
+import ThirdPartyJS from "./thirdPartyJS";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -43,7 +43,12 @@ const defaultPathLang = () => {
 	return result;
 };
 
-export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
+export default ({
+	children,
+	afterLogin = false,
+	onlyBeforeLogin = false,
+	getSEOInfoFromAPI = false
+}) => {
 	const { t, i18n } = useTranslation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -306,7 +311,14 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										value={{ loading, setLoading }}>
 										<ct.isRootContext.Provider
 											value={{ isRoot, setIsRoot }}>
-											<SEO lang={userInfo.langId} />
+											<ThirdPartyJS />
+											<SEO
+												lang={userInfo.langId}
+												getFromAPI={
+													getSEOInfoFromAPI &&
+													userInfo.isLogin === false
+												}
+											/>
 											{children}
 										</ct.isRootContext.Provider>
 									</ct.loadingContext.Provider>
@@ -317,7 +329,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				</ct.productTpIdsContext.Provider>
 			</ct.maintainListContext.Provider>
 		) : (
-			<SEO lang={userInfo.langId} />
+			<ThirdPartyJS />
 		);
 
 		return content;

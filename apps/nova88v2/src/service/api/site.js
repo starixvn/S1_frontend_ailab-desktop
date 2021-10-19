@@ -73,3 +73,5 @@ export const api_site_GetSupportDomainList = ({ langId }) =>
 
 export const api_site_GetTpMaintainList = () =>
 	siteRequest.post(`/GetTpMaintainList`);
+
+export const api_site_seo = () => siteRequest.post(`/seo`);
