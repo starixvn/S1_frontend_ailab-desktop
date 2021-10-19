@@ -61,7 +61,7 @@ export const ClickLink = ({
 	}
 };
 
-export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
+export const SetPathParameter = ({ urlRouter, tpId, gameId = 1, matchId }) => {
 	let result = "";
 	if (urlRouter === path.casino.root) {
 		const providerName = Object.values(defCasinoProviders).find(
@@ -78,7 +78,7 @@ export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
 
 		result = gameName
 			? `?game=${gameName}${matchId ? `&matchId=${matchId}` : ""}`
-			: "";
+			: productList.soccer.name;
 	}
 	return result;
 };
