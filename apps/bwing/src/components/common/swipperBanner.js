@@ -71,14 +71,15 @@ export const SetPathParameter = ({ urlRouter, tpId, gameId = 1, matchId }) => {
 
 		result = providerName ? `?provider=${providerName}` : "";
 	} else if (urlRouter === path.sports.root) {
-		const gameName = Object.values(productList).find(
-			// eslint-disable-next-line eqeqeq
-			x => x.tpId == tpId && x.gameId == gameId
-		)?.name;
+		const gameName =
+			Object.values(productList).find(
+				// eslint-disable-next-line eqeqeq
+				x => x.tpId == tpId && x.gameId == gameId
+			)?.name ?? productList.soccer.name;
 
 		result = gameName
 			? `?game=${gameName}${matchId ? `&matchId=${matchId}` : ""}`
-			: productList.soccer.name;
+			: "";
 	}
 	return result;
 };
