@@ -85,7 +85,7 @@ export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
 
 		result = gameName
 			? `?game=${gameName}${matchId ? `&matchId=${matchId}` : ""}`
-			: productList.soccer.name;
+			: "";
 	}
 	return result;
 };
