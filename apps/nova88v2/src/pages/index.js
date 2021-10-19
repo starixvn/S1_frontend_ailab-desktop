@@ -5,7 +5,7 @@ import Content from "../components/home/home";
 
 const IndexPage = ({ location }) => {
 	return (
-		<Wrapper>
+		<Wrapper getSEOInfoFromAPI={true}>
 			<Layout showFooter={true} isFullFooter={true}>
 				<Content location={location} />
 			</Layout>

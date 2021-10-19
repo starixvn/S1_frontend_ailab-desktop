@@ -1,7 +1,7 @@
 import path from "../../router";
 
 export const defMetaData = {
-	"/": {
+	[path.home.root]: {
 		en: {
 			title: `Nova88 - The Best Online Sportsbook, Casino and Online Gambling in Asia`,
 			description: `Nova88 is Asia's best and most trusted online betting and gambling site. Join and play sportsbook, live casino, casino slot, lottery, keno, and fishing.`,
