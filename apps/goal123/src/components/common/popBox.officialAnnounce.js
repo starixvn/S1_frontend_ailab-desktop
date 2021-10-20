@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import { navigate } from "@reach/router";
 import { userInfoContext } from "./context";
 import config from "../../config";
+import path from "../../router";
 
 export default ({ onClickClose }) => {
 	const { userInfo } = useContext(userInfoContext);
@@ -11,6 +13,9 @@ export default ({ onClickClose }) => {
 			<img
 				src={`${config.bannerImgUrl}/img/nonlogin/768x280_goal_${userInfo.langId}.jpg`}
 				alt="Official Announce"
+				onClick={() =>
+					navigate(`/${userInfo.langId}/${path.appDownload.root}`)
+				}
 			/>
 		</div>
 	);

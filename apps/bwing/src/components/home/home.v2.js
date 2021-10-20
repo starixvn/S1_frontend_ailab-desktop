@@ -8,7 +8,7 @@ import {
 	isRootContext,
 	maintainListContext
 } from "../common/context";
-import { number_format } from "../common/common";
+import { number_format, readCookie, setCookie } from "../common/common";
 import { defPopBoxType } from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 
@@ -61,6 +61,25 @@ function Home() {
 	useEffect(() => {
 		getTopWinnners();
 	}, []);
+
+	useEffect(() => {
+		const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
+		const isShowOfficialAnnouncePopBox =
+			readCookie(cookieOfficialAnnounce) !== "1";
+
+		if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
+			const clickCloseOfficialAnnounce = () => {
+				setPopBox({ isOpen: false });
+			};
+
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.OfficialAnnounce,
+				onClickClose: () => clickCloseOfficialAnnounce()
+			});
+			setCookie(cookieOfficialAnnounce, "1", 1);
+		}
+	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	const getTopWinnners = () => {
 		const payload = {
