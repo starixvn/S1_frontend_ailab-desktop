@@ -13,7 +13,8 @@ const CryptoPayForm = ({
 	setFormInfo,
 	onChangeAmount,
 	onValidAmount,
-	onInputboxKeyDown
+	onInputboxKeyDown,
+	isGroupListFetchDone
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
@@ -64,8 +65,11 @@ const CryptoPayForm = ({
 				await onGetCryptoPayList(cryptoPayGroupList[0].groupId);
 			}
 		};
-		getData();
-	}, []);
+		if (isGroupListFetchDone) {
+			getData();
+		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [isGroupListFetchDone]);
 
 	if (cryptoPayGroupList.length <= 0) return null;
 
@@ -216,6 +220,7 @@ CryptoPayForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onValidAmount: PropTypes.func.isRequired,
-	onInputboxKeyDown: PropTypes.func.isRequired
+	onInputboxKeyDown: PropTypes.func.isRequired,
+	isGroupListFetchDone: PropTypes.bool.isRequired
 };
 export default CryptoPayForm;

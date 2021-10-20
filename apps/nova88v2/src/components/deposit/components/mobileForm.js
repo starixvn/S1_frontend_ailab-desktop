@@ -13,6 +13,7 @@ const MobileForm = ({
 	mobilePayGourpList,
 	getMobilePayInfoList,
 	mobilePayInfoList,
+	isGroupListFetchDone,
 	formInfo,
 	setFormInfo,
 	onChangeAmount,
@@ -73,10 +74,11 @@ const MobileForm = ({
 			}
 		};
 
-		getData();
-
+		if (isGroupListFetchDone) {
+			getData();
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isGroupListFetchDone]);
 
 	const isSelAmountType = formInfo.amountRule === 3;
 
@@ -298,7 +300,8 @@ MobileForm.propTypes = {
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
-	onInputboxKeyDown: PropTypes.func.isRequired
+	onInputboxKeyDown: PropTypes.func.isRequired,
+	isGroupListFetchDone: PropTypes.bool.isRequired
 };
 
 export default MobileForm;
