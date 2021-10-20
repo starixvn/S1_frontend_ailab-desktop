@@ -28,7 +28,8 @@ const LocalBankForm = ({
 	custBankInfoList,
 	localBankChannelError,
 	localBankBankInfoErrpr,
-	depositInfoStorage
+	depositInfoStorage,
+	isGroupListFetchDone
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
@@ -134,20 +135,26 @@ const LocalBankForm = ({
 	};
 
 	useEffect(() => {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		// const _clipboard = new ClipboardJS(".copyBtn");
-		if (localBankGroupList.some(item => item.sysId === sysIdForRecord)) {
-			const gIdx = localBankGroupList.findIndex(
-				item => item.sysId === sysIdForRecord
-			);
+		if (isGroupListFetchDone) {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			// const _clipboard = new ClipboardJS(".copyBtn");
+			if (
+				localBankGroupList.some(item => item.sysId === sysIdForRecord)
+			) {
+				const gIdx = localBankGroupList.findIndex(
+					item => item.sysId === sysIdForRecord
+				);
 
-			onChangeBankInfo(localBankGroupList[gIdx]);
-		} else if (localBankGroupList.length > 0) {
-			onChangeBankInfo(localBankGroupList[0]);
+				onChangeBankInfo(localBankGroupList[gIdx]);
+			} else if (localBankGroupList.length > 0) {
+				onChangeBankInfo(localBankGroupList[0]);
+			}
+
+			getBankInfo();
 		}
-		getBankInfo();
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isGroupListFetchDone]);
 
 	useEffect(() => {
 		if (depositInfoStorage.localBankChannel) {
@@ -433,6 +440,7 @@ LocalBankForm.propTypes = {
 	custBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	localBankChannelError: PropTypes.objectOf(PropTypes.any).isRequired,
 	localBankBankInfoErrpr: PropTypes.objectOf(PropTypes.any).isRequired,
-	depositInfoStorage: PropTypes.objectOf(PropTypes.any)
+	depositInfoStorage: PropTypes.objectOf(PropTypes.any),
+	isGroupListFetchDone: PropTypes.bool.isRequired
 };
 export default LocalBankForm;

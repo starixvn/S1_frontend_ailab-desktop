@@ -69,6 +69,8 @@ const Deposit = () => {
 
 	const [depositType, setDepositType] = useState(null);
 
+	const [isGroupListFetchDone, setIsGroupListFetchDone] = useState(true);
+
 	const [formInfo, setFormInfo] = useState({
 		imgFile: null,
 		amount: null,
@@ -105,7 +107,6 @@ const Deposit = () => {
 	const {
 		getMobilePayGroupList,
 		getMobilePayInfoList,
-		setMobilePayInfoList,
 		mobilePayGourpList,
 		mobilePayInfoList
 	} = useDepositMobilePay({ isMountedRef });
@@ -143,6 +144,9 @@ const Deposit = () => {
 
 	const onChangeDepositType = async type => {
 		setDepositType(type);
+
+		setIsGroupListFetchDone(false);
+
 		navigate(`/${userInfo.langId}/${path.deposit.root}?type=${type}`);
 
 		if (type === defDepositType.mobile) {
@@ -155,7 +159,7 @@ const Deposit = () => {
 			await getCryptoPayGroupList();
 		}
 
-		resetDepositForm();
+		setIsGroupListFetchDone(true);
 	};
 
 	const onChangeAmount = _amount => {
@@ -412,11 +416,6 @@ const Deposit = () => {
 				}
 			}
 		}
-	};
-
-	const resetDepositForm = () => {
-		setMobilePayInfoList([]);
-		setOnlineBankInfoList([]);
 	};
 
 	const onInputboxKeyDown = event => {
@@ -725,6 +724,7 @@ const Deposit = () => {
 						mobilePayGourpList={mobilePayGourpList}
 						mobilePayInfoList={mobilePayInfoList}
 						formInfo={formInfo}
+						isGroupListFetchDone={isGroupListFetchDone}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
@@ -742,6 +742,7 @@ const Deposit = () => {
 						_isConvert={_isConvert}
 						formatAmount={formatAmount}
 						localBankGroupList={localBankGroupList}
+						isGroupListFetchDone={isGroupListFetchDone}
 						formInfo={formInfo}
 						localBankInfo={localBankInfo}
 						custBankInfoList={custBankInfoList}
@@ -766,6 +767,7 @@ const Deposit = () => {
 						onlineBankGroupList={onlineBankGroupList}
 						onlineBankInfoList={onlineBankInfoList}
 						formInfo={formInfo}
+						isGroupListFetchDone={isGroupListFetchDone}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
@@ -785,6 +787,7 @@ const Deposit = () => {
 						cryptoPayGroupList={cryptoPayGroupList}
 						formInfo={formInfo}
 						cryptoPayInfo={cryptoPayInfo}
+						isGroupListFetchDone={isGroupListFetchDone}
 						getCryptoPayInfo={getCryptoPayInfo}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}

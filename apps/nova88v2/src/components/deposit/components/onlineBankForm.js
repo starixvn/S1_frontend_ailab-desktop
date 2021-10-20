@@ -16,7 +16,8 @@ const OnlineBankForm = ({
 	onChangeAmount,
 	setFormInfo,
 	setOnlineBankInfoList,
-	onInputboxKeyDown
+	onInputboxKeyDown,
+	isGroupListFetchDone
 }) => {
 	const parameterPayName = getUrlParameter("pName");
 	const parameterPayId = Number(getUrlParameter("pId"));
@@ -93,9 +94,12 @@ const OnlineBankForm = ({
 			}
 		};
 
-		getData();
+		if (isGroupListFetchDone) {
+			getData();
+		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isGroupListFetchDone]);
 
 	if (onlineBankGroupList.length <= 0) return null;
 	return (
@@ -238,7 +242,8 @@ OnlineBankForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
-	onInputboxKeyDown: PropTypes.func.isRequired
+	onInputboxKeyDown: PropTypes.func.isRequired,
+	isGroupListFetchDone: PropTypes.bool.isRequired
 };
 
 export default OnlineBankForm;
