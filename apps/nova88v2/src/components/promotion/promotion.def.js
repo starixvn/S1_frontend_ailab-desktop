@@ -21,3 +21,19 @@ export const defBonusType = {
 	percentage: 1,
 	amount: 2
 };
+
+export const defWalletType = {
+	Transfer: 0,
+	Seamless: 1
+};
+
+export const defCategoryId = {
+	Slots: 1,
+	LiveCasino: 2,
+	Fish: 3,
+	SabaSports: 4,
+	Lottery: 5,
+	Sports: 6,
+	PtSlots: 7,
+	PtLiveCasino: 8
+};

@@ -460,6 +460,9 @@
 	"lbl_Promotion_Min_Deposit": "最低存款",
 	"lbl_Promotion_Bonus": "奖金",
 	"lbl_MaxBonusAmount": "最高奖金",
+	"lbl_NewMember": "新会员",
+	"lbl_Special": "特别优惠",
+	"lbl_Promotion_Slot": "老虎机",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "目前没有可用的信息。",
@@ -650,7 +653,7 @@
 	"lbl_Game_ICG_DRAGONBALL_FISHING": "龙珠捕鱼",
 	"lbl_Game_ICG_FISHING_OF_SAVIORS": "中国神魔捕鱼",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS": "霸王虞姬",
-	"lbl_JoinPromoCode": "优惠代码",
+	"lbl_PromoCode": "优惠代码",
 	"lbl_AngPow_Congratulations": "恭喜发财!",
 	"lbl_AngPow_YouWon": "您获得奖金",
 	"lbl_AngPow_CreditToYourWallet": "奖金将发至您的钱包",
