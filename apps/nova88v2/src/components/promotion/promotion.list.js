@@ -80,7 +80,7 @@ export default ({
 								path.promotion.sub.promotionInfo.root
 							}?BonusCode=${p.bonusCode}${
 								filter === defFilterType.specialBonus
-									? `&FilterType=${defFilterType.specialBonus}`
+									? `&FilterType=${defPromotionType.specialBonus}`
 									: ""
 							}`}>
 							{t("lbl_Details")}

@@ -125,7 +125,7 @@ export default () => {
 		} else if (col === "affCode") {
 			msg = t("lbl_Please_enter_Affiliate_ID");
 		} else if (col === "specialBonusCode") {
-			msg = t("lbl_JoinPromoCode");
+			msg = t("lbl_PromoCode");
 		} else if (tip[col].msg === msg) {
 			msg = "";
 		}

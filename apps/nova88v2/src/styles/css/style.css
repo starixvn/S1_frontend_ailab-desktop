@@ -5830,13 +5830,13 @@ input[type="file"] {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin: 30px 0 10px;
-  padding: 0 34px;
+  margin: 10px 0 10px;
+  padding: 0 30px;
 }
 
 .specialBonus .inputBox-white {
   position: unset;
-  margin: 0 5px;
+  margin: 0;
   border: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6599,7 +6599,7 @@ input[type="file"] {
 }
 
 .promotionsInfo {
-  padding: 40px;
+  padding: 40px 20px 20px;
   position: relative;
 }
 
@@ -6660,6 +6660,7 @@ input[type="file"] {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  margin: 0;
 }
 
 .promotionsInfo .proData .proDataTitle .btnGroup button {
@@ -7176,7 +7177,6 @@ article p {
 
 .progressBarModule {
   font-weight: bold;
-  padding: 0 2px;
 }
 
 .progressBarModule .bounsName {
@@ -10867,6 +10867,18 @@ canvas {
   height: 20px;
 }
 
+.subModuleListColumn > .subModule .tip.active {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.subModuleListColumn > .subModule .tip.active .txt-red {
+  font-weight: bold;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
 .subModuleListColumn .column {
   width: calc(100% - 135px);
 }
@@ -13781,6 +13793,7 @@ canvas {
   border: 1px solid #ccc;
   text-align: center;
   padding: 5px 0;
+  height: calc(50% - 12px);
 }
 
 .rolloverList > div > div:nth-child(1) {
@@ -15383,5 +15396,315 @@ img[alt="sg"] {
 
 .backstage img {
   width: 100% !important;
+}
+
+.promosSelect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px auto 10px;
+  width: calc(100% - 60px);
+  height: 40px;
+  background: rgba(210, 226, 249, 0.5);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.promosSelect > div {
+  margin-right: 10px;
+  border-radius: 0;
+}
+
+.promosSelect > div.btnGroup {
+  margin: 0;
+  width: 100%;
+}
+
+.promosSelect > div.btnGroup button, .promosSelect > div.btnGroup a {
+  border-radius: 0;
+  margin: 0;
+  border: 0;
+  font-size: 14px;
+  padding: 10px 20px;
+  white-space: nowrap;
+}
+
+.promosSelect > div.inputBox-white {
+  max-width: 200px;
+}
+
+.proListNew {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0 20px;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  line-height: 20px;
+}
+
+.proListNew > div {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  color: #1E85EC;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+}
+
+.proListNew > div.active {
+  opacity: 0.7;
+}
+
+.proListNew > div.active .claimed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.proListNew > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+.proListNew > div:hover {
+  background: #e2e2e2;
+  -webkit-box-shadow: 0 0 0 3px #f77900 inset;
+          box-shadow: 0 0 0 3px #f77900 inset;
+}
+
+.proListNew > div .new, .proListNew > div .claimed {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: transparent;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 70px 90px 0 0;
+  border-color: #f77900 transparent transparent transparent;
+  width: 0;
+  height: 0;
+  padding: 0;
+  color: white;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+.proListNew > div .new:before, .proListNew > div .claimed:before {
+  position: absolute;
+  top: -55px;
+  left: 13px;
+  content: "NEW";
+  -webkit-transform: rotate(-38deg);
+          transform: rotate(-38deg);
+  font-size: 12px;
+}
+
+.proListNew > div .new.active, .proListNew > div .claimed.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.proListNew > div .claimed {
+  border-color: #1E85EC transparent transparent transparent;
+}
+
+.proListNew > div .claimed:before {
+  top: -54px;
+  left: 2px;
+  content: "CLAIMED";
+}
+
+.proListNew > div .txt-darkBlue {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.proListNew > div .txt-darkBlue div {
+  font-weight: normal;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.proListNew > div > .promoImg {
+  width: 450px;
+  min-width: 450px;
+  height: 170px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.proListNew > div > .promoImg img {
+  width: auto;
+  height: 100%;
+}
+
+.proListNew > div > .promoInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  padding: 10px 0;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 40px;
+  width: 590px;
+}
+
+.proListNew > div > .promoInfo .rollover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+.proListNew > div > .promoInfo .rollover > div {
+  margin: 0 10px 0 0;
+}
+
+.proListNew > div > .promoInfo .rollover > div::before {
+  margin-left: 0;
+  font-weight: normal;
+}
+
+.proListNew > div > .promoInfo .rollover > div span {
+  margin-left: 5px;
+  color: #f77900;
+}
+
+.proListNew > div > .promoInfo .progressBarModule {
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  font-size: 12px;
+}
+
+.proListNew > div > .promoInfo .progressBarModule .bounsName {
+  font-weight: bold;
+  color: #152849;
+  margin-right: 10px;
+}
+
+.proListNew > div > .promoInfo .progressBarModule .progressBar {
+  width: 100%;
+}
+
+.proListNew .remain {
+  min-width: 190px;
+  padding: 10px 0;
+  text-align: center;
+  margin: 0 0 0 auto;
+}
+
+.proListNew .remain > div {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.proListNew .remain > div div {
+  color: #f77900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.proListNew .remain > div div.icon {
+  color: #1E85EC;
+}
+
+.proListNew .remain > div div.icon:before {
+  margin-left: 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.proListNew .remain > div.btnGroup {
+  width: 100%;
+  margin: auto 0 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.proListNew .remain > div.btnGroup button {
+  margin: 0 0 10px;
+}
+
+.proListNew .remain > div.btnGroup button.orange {
+  background: #f77900;
+}
+
+.proListNew.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+.proListNew.expired > div {
+  background: #b2b2b2;
+}
+
+.proListNew.expired > div:hover {
+  background: white;
+}
+
+.proListNew.expired > div .expiredIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-20deg);
+          transform: translateX(-50%) translateY(-50%) rotate(-20deg);
+  background: #42424261;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  font-weight: bold;
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 24px;
+  font-style: italic;
+}
+
+.promoInfoPop {
+  width: 80%;
 }
 /*# sourceMappingURL=style.css.map */

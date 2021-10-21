@@ -5426,6 +5426,25 @@ html.Newtheme .quickSelect .btnGroup {
   margin: 10px 0;
 }
 
+html.Newtheme .quickSelect.promo {
+  height: 75px;
+  margin: 10px 0 0;
+}
+
+html.Newtheme .quickSelect.promo .btnGroup {
+  background: #c6c6c6;
+}
+
+html.Newtheme .quickSelect.promo .btnGroup button, html.Newtheme .quickSelect.promo .btnGroup a {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+html.Newtheme .quickSelect.promo .btnGroup button:hover, html.Newtheme .quickSelect.promo .btnGroup a:hover {
+  background: #284985;
+}
+
 html.Newtheme .specialBonus {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
