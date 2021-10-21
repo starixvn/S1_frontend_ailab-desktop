@@ -200,7 +200,7 @@
 	"lbl_Verified": "Verified",
 	"lbl_Unverified": "Unverified",
 	"lbl_PrefferedCurrency": "Preferred Currency",
-	"lbl_JoinPromoCode": "Promo Code",
+	"lbl_PromoCode": "Promo Code",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"PromotionCategory1": "First Deposit",
@@ -232,7 +232,12 @@
 	"lbl_Percentage": "Percentage",
 	"lbl_TotalAmount": "Total Amount",
 	"lbl_ClaimAmount": "Claim Amount",
-
+	"lbl_NewMember": "NEW MEMBER",
+	"lbl_Special": "SPECIAL",
+	"lbl_Sportsbook": "Sportsbook",
+	"lbl_Promotion_All": "All",
+	"lbl_Promotion_Slot": "Slot",
+	
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
 	"msg_ApiServerError": "Oops! Something wrong, please try again.",

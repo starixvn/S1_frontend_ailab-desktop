@@ -202,7 +202,7 @@
 	"lbl_Verified": "Đã xác minh",
 	"lbl_Unverified": "Chưa được xác minh",
 	"lbl_PrefferedCurrency": "Tiền tệ ưa thích",
-	"lbl_JoinPromoCode": "Mã khuyến mãi",
+	"lbl_PromoCode": "Mã khuyến mãi",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"PromotionCategory1": "Nạp Lần Đầu",
@@ -234,6 +234,11 @@
 	"lbl_Percentage": "Tỷ lệ",
 	"lbl_TotalAmount": "Tổng số tiền",
 	"lbl_ClaimAmount": "Số tiền đạt",
+	"lbl_NewMember": "THƯỞNG CHÀO MỪNG",
+	"lbl_Special": "ĐẶC BIỆT",
+	"lbl_Sportsbook": "THỂ THAO",
+	"lbl_Promotion_All": "HIỂN THỊ TẤT CẢ",
+	"lbl_Promotion_Slot": "QUAY HŨ",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Không có dữ liệu",
@@ -494,7 +499,7 @@
 	"lbl_Please_input_your_real_name_as_in_your_ID": "Lưu ý rằng bạn nên điền đúng tên thật như trong CMND để giao dịch được suôn sẻ. Tên tài khoản phải giống với tên trong hồ sơ của bạn.",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Casino": "QUAY HŨ",
+	"lbl_Casino": "SÒNG BÀI",
 	"lbl_New": "Mới",
 	"lbl_Favourite": "Ưa chuộng",
 	"lbl_AllGames": "Tất cả trò chơi",

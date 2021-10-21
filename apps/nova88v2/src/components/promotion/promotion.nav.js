@@ -1,15 +1,14 @@
 import React from "react";
-import { defPromotionType } from "./promotion.def";
 
 export const defFilterType = {
-	all: 0,
-	expiry: 999,
-	firstDeposit: defPromotionType.firstDeposit,
-	redeposit: defPromotionType.redeposit,
-	freeBet: defPromotionType.freeBet,
-	Rebate_and_cashback: [defPromotionType.rebate, defPromotionType.cashback],
-	other: defPromotionType.other,
-	specialBonus: defPromotionType.specialBonus
+	all: "all",
+	expiry: "expiry",
+	firstDeposit: "firstDeposit",
+	other: "other",
+	sportsbook: "sportsbook",
+	liveCasino: "liveCasino",
+	slots: "slots",
+	specialBonus: "specialBonus"
 };
 
 const defPromoNavs = [
@@ -20,38 +19,37 @@ const defPromoNavs = [
 		selectedClassName: "blue icon icon-icon32px_ALL"
 	},
 	{
-		displayKey: "lbl_PromotionCategory1",
+		displayKey: "lbl_NewMember",
 		value: defFilterType.firstDeposit,
 		className: "blueBorder",
 		selectedClassName: "blue"
 	},
 	{
-		displayKey: "lbl_FreeBet",
-		value: defFilterType.freeBet,
-		className: "blueBorder",
-		selectedClassName: "blue"
-	},
-	{
-		displayKey: "lbl_Redeposit_Promo",
-		value: defFilterType.redeposit,
-		className: "blueBorder",
-		selectedClassName: "blue"
-	},
-	{
-		displayKey: "lbl_PromotionRebateAndCashback",
-		value: defFilterType.Rebate_and_cashback,
-		className: "blueBorder",
-		selectedClassName: "blue"
-	},
-
-	{
-		displayKey: "lbl_Other",
+		displayKey: "lbl_Special",
 		value: defFilterType.other,
 		className: "blueBorder",
 		selectedClassName: "blue"
 	},
 	{
-		displayKey: "lbl_SpecialBonus",
+		displayKey: "lbl_Sportsbook",
+		value: defFilterType.sportsbook,
+		className: "blueBorder",
+		selectedClassName: "blue"
+	},
+	{
+		displayKey: "lbl_LiveCasino",
+		value: defFilterType.liveCasino,
+		className: "blueBorder",
+		selectedClassName: "blue"
+	},
+	{
+		displayKey: "lbl_Promotion_Slot",
+		value: defFilterType.slots,
+		className: "blueBorder",
+		selectedClassName: "blue"
+	},
+	{
+		displayKey: "lbl_PromoCode",
 		value: defFilterType.specialBonus,
 		className: "blueBorder",
 		selectedClassName: "blue"
@@ -83,7 +81,7 @@ export default ({
 
 	return (
 		<>
-			<div className="quickSelect">
+			<div className="promosSelect">
 				<div className="btnGroup promoType">
 					{defPromoNavsFormat.map(item => (
 						<button
@@ -105,7 +103,7 @@ export default ({
 						<input
 							value={specialCode}
 							onKeyPress={onKeyPress}
-							placeholder={t("lbl_SpecialBonusCode")}
+							placeholder={t("lbl_PromoCode")}
 							onChange={onChangeSpecialCode}
 						/>
 					</div>

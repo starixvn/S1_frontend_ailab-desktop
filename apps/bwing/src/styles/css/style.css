@@ -6192,7 +6192,7 @@ main > .swiper-container .swiper-slide {
 }
 
 .quickSelect {
-  width: 100%;
+  width: calc(100% - 20px);
   margin-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6200,8 +6200,6 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 1600px;
-  width: calc(100% - 100px);
   margin: 0 auto;
 }
 
@@ -6228,7 +6226,8 @@ main > .swiper-container .swiper-slide {
 }
 
 .quickSelect > div.btnGroup.promoType {
-  margin: 10px 10px 10px 0px;
+  margin: 10px 0;
+  max-width: revert;
 }
 
 .quickSelect > div.btnGroup.promoType ~ .btnGroup {
@@ -6318,6 +6317,7 @@ main > .swiper-container .swiper-slide {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  margin-left: 10px;
 }
 
 .specialBonus .inputBox-blue {
@@ -6891,6 +6891,7 @@ main > .swiper-container .swiper-slide {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   line-height: 20px;
+  width: 1600px;
 }
 
 .proList > div,

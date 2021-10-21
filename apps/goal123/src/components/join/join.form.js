@@ -72,7 +72,7 @@ const JoinForm = ({
 				</div>
 				{/* <Inputbox
 						icon="icon-promotion txt-blue12"
-						placeholder={t("lbl_JoinPromoCode")}
+						placeholder={t("lbl_PromoCode")}
 						value={userValue.specialBonusCode}
 						onChange={EditField.bind(null, "specialBonusCode")}
 						onBlur={checkValue.bind(null, "specialBonusCode")}

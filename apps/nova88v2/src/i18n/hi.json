@@ -458,6 +458,9 @@
 	"lbl_Promotion_Min_Deposit": "न्यूनतम जमा",
 	"lbl_Promotion_Bonus": "बोनस",
 	"lbl_MaxBonusAmount": "अधिकतम बोनस",
+	"lbl_NewMember": "नया सदस्य",
+	"lbl_Special": "विशेष",
+	"lbl_Promotion_Slot": "स्लॉट खेल",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "अभी कोई जानकारी उपलब्ध नहीं है।",
@@ -636,7 +639,7 @@
 	"lbl_Game_ICG_DRAGONBALL_FISHING": "ड्रैगनबॉल मत्स्य पालन",
 	"lbl_Game_ICG_FISHING_OF_SAVIORS": "उद्धारकर्ताओं की मछली पकड़ना",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS": "तानाशाह और राजकुमारी",
-	"lbl_JoinPromoCode": "प्रचार कोड",
+	"lbl_PromoCode": "प्रचार कोड",
 	"lbl_AngPow_Congratulations": "बधाई हो",
 	"lbl_AngPow_YouWon": "You Won",
 	"lbl_AngPow_CreditToYourWallet": "The amount will credit to your wallet",

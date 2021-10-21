@@ -460,6 +460,9 @@
 	"lbl_Promotion_Min_Deposit": "เงินฝากขั้นต่ำ",
 	"lbl_Promotion_Bonus": "โบนัส",
 	"lbl_MaxBonusAmount": "โบนัสสูงสุด",
+	"lbl_NewMember": "สมาชิกใหม่",
+	"lbl_Special": "พิเศษ",
+	"lbl_Promotion_Slot": "สล็อต",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "ไม่มีข้อมูล",
@@ -650,7 +653,7 @@
 	"lbl_Game_ICG_DRAGONBALL_FISHING": "ดราก้อนบอล ฟิชชิ่ง",
 	"lbl_Game_ICG_FISHING_OF_SAVIORS": "ฟิชชิ่ง ออฟ เซเวียร์ส",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS": "ปาอ๋องหยูจี",
-	"lbl_JoinPromoCode": "โค้ดโปรโมชั่น",
+	"lbl_PromoCode": "โค้ดโปรโมชั่น",
 	"lbl_AngPow_Congratulations": "ขอแสดงความยินดีด้วย",
 	"lbl_AngPow_YouWon": "คุณชนะรางวัล",
 	"lbl_AngPow_CreditToYourWallet": "เงินรางวัลที่ได้จะโอนเครดิตเข้าที่กระเป๋าเงินของคุณ",

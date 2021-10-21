@@ -460,6 +460,9 @@
 	"lbl_Promotion_Min_Deposit": "MIN DEPOSIT",
 	"lbl_Promotion_Bonus": "BONUS",
 	"lbl_MaxBonusAmount": "MAX BONUS",
+	"lbl_NewMember": "NEW MEMBER",
+	"lbl_Special": "SPECIAL",
+	"lbl_Promotion_Slot": "Slot",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
@@ -650,7 +653,7 @@
 	"lbl_Game_ICG_DRAGONBALL_FISHING": "Dragonball Fishing",
 	"lbl_Game_ICG_FISHING_OF_SAVIORS": "Fishing Of Saviors",
 	"lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS": "The Tyrant And The Princess",
-	"lbl_JoinPromoCode": "Promo Code",
+	"lbl_PromoCode": "Promo Code",
 	"lbl_AngPow_Congratulations": "Congratulations",
 	"lbl_AngPow_YouWon": "You Won",
 	"lbl_AngPow_CreditToYourWallet": "The amount will credit to your wallet",

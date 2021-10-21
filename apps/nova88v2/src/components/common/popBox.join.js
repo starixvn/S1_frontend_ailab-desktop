@@ -769,7 +769,7 @@ export default () => {
 								tip.specialBonusCode.msg !== "" ? " error" : ""
 							}`}
 							icon="icon-promotion txt-orange"
-							placeholder={t("lbl_JoinPromoCode")}
+							placeholder={t("lbl_PromoCode")}
 							value={userValue.specialBonusCode}
 							onChange={EditField.bind(null, "specialBonusCode")}
 							onBlur={checkValue.bind(null, "specialBonusCode")}

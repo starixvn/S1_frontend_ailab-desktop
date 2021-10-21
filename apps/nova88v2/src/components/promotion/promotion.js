@@ -9,7 +9,11 @@ import useSpecialPromotion from "./hook/useSpecialPrmotion";
 import usePrmotion from "./hook/usePromotion";
 import staticList from "../../datas/promotionList";
 import { isExpiry } from "./promotion.common";
-import { defPromotionType } from "./promotion.def";
+import {
+	defPromotionType,
+	defWalletType,
+	defCategoryId
+} from "./promotion.def";
 
 export default () => {
 	const { t } = useTranslation();
@@ -166,17 +170,34 @@ export default () => {
 
 		if (type === defFilterType.firstDeposit)
 			return p =>
-				(p.promotionType === type ||
+				(p.promotionType === defPromotionType.firstDeposit ||
 					p.promotionType === defPromotionType.walletBonus) &&
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin
 				});
 
-		if (type === defFilterType.Rebate_and_cashback)
+		if (type === defFilterType.sportsbook)
 			return p =>
-				(p.promotionType === defPromotionType.rebate ||
-					p.promotionType === defPromotionType.cashback) &&
+				p.categoryId === defCategoryId.SabaSports &&
+				!isExpiry({
+					...p,
+					isLogin: userInfo.isLogin
+				});
+
+		if (type === defFilterType.liveCasino)
+			return p =>
+				p.walletType === defWalletType.Seamless &&
+				p.categoryId === defCategoryId.LiveCasino &&
+				!isExpiry({
+					...p,
+					isLogin: userInfo.isLogin
+				});
+
+		if (type === defFilterType.slots)
+			return p =>
+				p.walletType === defWalletType.Seamless &&
+				p.categoryId === defCategoryId.Slots &&
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin
