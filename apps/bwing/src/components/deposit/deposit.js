@@ -52,6 +52,8 @@ const Deposit = () => {
 		isDepositTypeIncludes ? parameterDefaultType : defDepositType.mobile
 	);
 
+	const [isGroupListFetchDone, setIsGroupListFetchDone] = useState(true);
+
 	const [formInfo, setFormInfo] = useState({
 		imgFile: null,
 		refId: null,
@@ -140,6 +142,9 @@ const Deposit = () => {
 
 	const onChangeDepositType = async type => {
 		setDepositType(type);
+
+		setIsGroupListFetchDone(false);
+
 		navigate(`/${userInfo.langId}/${path.deposit.root}?type=${type}`);
 
 		if (type === defDepositType.mobile) {
@@ -150,7 +155,7 @@ const Deposit = () => {
 			await getOnlineBankGroupList();
 		}
 
-		resetDepositForm();
+		setIsGroupListFetchDone(true);
 	};
 
 	const onChangeForm = (val, col) => {
@@ -397,11 +402,6 @@ const Deposit = () => {
 		}
 	};
 
-	const resetDepositForm = () => {
-		setMobilePayInfoList([]);
-		setOnlineBankInfoList([]);
-	};
-
 	const onInputboxKeyDown = event => {
 		if (event.key === "Enter") {
 			onSubmit();
@@ -528,6 +528,7 @@ const Deposit = () => {
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
 						depositPromoList={depositPromoList}
+						isGroupListFetchDone={isGroupListFetchDone}
 						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
@@ -548,6 +549,7 @@ const Deposit = () => {
 						localBankInfo={localBankInfo}
 						asyncUploadBankPopBox={asyncUploadBankPopBox}
 						depositPromoList={depositPromoList}
+						isGroupListFetchDone={isGroupListFetchDone}
 						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
@@ -567,6 +569,7 @@ const Deposit = () => {
 						setOnlineBankInfoList={setOnlineBankInfoList}
 						onInputboxKeyDown={onInputboxKeyDown}
 						depositPromoList={depositPromoList}
+						isGroupListFetchDone={isGroupListFetchDone}
 						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
@@ -586,6 +589,7 @@ const Deposit = () => {
 						onInputboxKeyDown={onInputboxKeyDown}
 						setCardCodeInfoIconActive={setCardCodeInfoIconActive}
 						depositPromoList={depositPromoList}
+						isGroupListFetchDone={isGroupListFetchDone}
 						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
