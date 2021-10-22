@@ -187,8 +187,9 @@ export default () => {
 
 		if (type === defFilterType.liveCasino)
 			return p =>
-				p.walletType === defWalletType.Seamless &&
-				p.categoryId === defCategoryId.LiveCasino &&
+				(p.categoryId === defCategoryId.PtLiveCasino ||
+					(p.walletType === defWalletType.Seamless &&
+						p.categoryId === defCategoryId.LiveCasino)) &&
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin
@@ -196,8 +197,9 @@ export default () => {
 
 		if (type === defFilterType.slots)
 			return p =>
-				p.walletType === defWalletType.Seamless &&
-				p.categoryId === defCategoryId.Slots &&
+				(p.categoryId === defCategoryId.PtSlots ||
+					(p.walletType === defWalletType.Seamless &&
+						p.categoryId === defCategoryId.Slots)) &&
 				!isExpiry({
 					...p,
 					isLogin: userInfo.isLogin
