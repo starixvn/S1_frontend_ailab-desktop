@@ -15,6 +15,7 @@ const OnlineBankForm = ({
 	formInfo,
 	depositPromoMsg,
 	depositPromoList,
+	isGroupListFetchDone,
 	onChangeForm,
 	setFormInfo,
 	setOnlineBankInfoList,
@@ -105,9 +106,12 @@ const OnlineBankForm = ({
 			}
 		};
 
-		getData();
+		if (isGroupListFetchDone) {
+			getData();
+		}
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isGroupListFetchDone]);
 
 	if (onlineBankGroupList.length <= 0) return null;
 
@@ -295,6 +299,7 @@ OnlineBankForm.propTypes = {
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	isGroupListFetchDone: PropTypes.bool.isRequired,
 	changeDeposotPromoHandlar: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired
 };

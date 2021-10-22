@@ -16,6 +16,7 @@ export default function LoadCardForm({
 	cardCodeInfoIconActive,
 	setFormInfo,
 	depositPromoList,
+	isGroupListFetchDone,
 	loadCardPayGroupList,
 	getLoadCardPayInfoList,
 	onChangeForm,
@@ -69,9 +70,11 @@ export default function LoadCardForm({
 			setPaymentList(result);
 		};
 
-		getData();
+		if (isGroupListFetchDone) {
+			getData();
+		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [isGroupListFetchDone]);
 
 	if (paymentList.length <= 0) return null;
 
@@ -263,6 +266,7 @@ LoadCardForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	isGroupListFetchDone: PropTypes.bool.isRequired,
 	changeDeposotPromoHandlar: PropTypes.func.isRequired,
 	cardCodeInfoIconActive: PropTypes.bool.isRequired,
 	setCardCodeInfoIconActive: PropTypes.func.isRequired
