@@ -367,7 +367,7 @@ const Deposit = () => {
 
 				await delay(1000);
 			} else if (depositType === defDepositType.loadCard) {
-				if (mode === 2) {
+				if (mode === 3) {
 					getReqLoadCardPay({
 						langId: userInfo.langId,
 						channelId,
