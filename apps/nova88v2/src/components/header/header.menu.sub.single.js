@@ -1,13 +1,15 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, navigate } from "@reach/router";
+import QRCode from "qrcode.react";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
 import productList, { defTpGameType } from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
-import AppDownloadBanner from "../appDownload/appDownloadBanner";
+import { cloudImgUrl } from "../../config";
+import useAppDownLoad from "../appDownload/useAppDownLoad";
 
 const SubMenuSingle = ({
 	subClassName,
@@ -17,6 +19,7 @@ const SubMenuSingle = ({
 	maintainList
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
+	const { appLinkDatas } = useAppDownLoad();
 	const pathLink = defMenuLinks[menuKey].path;
 
 	const showLoginPopBox = () => {
@@ -107,12 +110,48 @@ const SubMenuSingle = ({
 		);
 	}
 	if (menuKey === "appDownload") {
+		const andriodDownloadUrl = appLinkDatas?.Andriod?.downloadLink ?? "";
+		const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink ?? "";
+
 		return (
-			<div className={subClassName}>
-				<Link to={`/${userInfo.langId}/${path.appDownload.root}`}>
-					<AppDownloadBanner langId={userInfo.langId} />
-				</Link>
-			</div>
+			<Link
+				className={subClassName}
+				to={`/${userInfo.langId}/${path.appDownload.root}`}>
+				<div>
+					<div className="txt-orange">NOVA88</div>
+					<div>{t("lbl_AppBannerText")}</div>
+					<div className="appListQrcode">
+						{IOSDownloadUrl && (
+							<div>
+								<QRCode
+									value={IOSDownloadUrl}
+									renderAs="svg"
+									size={112}
+									includeMargin={true}
+								/>
+								<img
+									src={`${cloudImgUrl}/SiteSkin/img/appdownload_ios.jpg`}
+									alt="IOS Download"
+								/>
+							</div>
+						)}
+						{andriodDownloadUrl && (
+							<div>
+								<QRCode
+									value={andriodDownloadUrl}
+									renderAs="svg"
+									size={112}
+									includeMargin={true}
+								/>
+								<img
+									src={`${cloudImgUrl}/SiteSkin/img/appdownload_and.jpg`}
+									alt="Andriod Download"
+								/>
+							</div>
+						)}
+					</div>
+				</div>
+			</Link>
 		);
 	}
 
