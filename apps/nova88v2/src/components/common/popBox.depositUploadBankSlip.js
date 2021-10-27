@@ -422,7 +422,7 @@ PopBoxDepositUploadBankSlip.propTypes = {
 
 	formInfo: PropTypes.shape({
 		imgFile: PropTypes.objectOf(PropTypes.any),
-		time: PropTypes.any,
+		time: PropTypes.objectOf(PropTypes.any),
 		refId: PropTypes.string
 	}).isRequired,
 
