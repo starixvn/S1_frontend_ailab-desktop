@@ -11,6 +11,10 @@ const Panel = ({
 	title,
 	amount,
 	depositAmount,
+	cashbackAmount,
+	promoContent,
+	receivedAmount,
+	PromotionRate,
 	rate,
 	requestAmount,
 	token,
@@ -40,16 +44,14 @@ const Panel = ({
 
 	const depositAmountText = `${t(`Currency_${currencyId}`)} ${number_format(
 		depositAmount,
-		false,
-		0,
-		isConvert(currencyId)
+		isConvert(currencyId),
+		0
 	)}`;
 
 	const amountText = `${t(`Currency_${currencyId}`)} ${number_format(
 		amount,
-		false,
-		0,
-		isConvert(currencyId)
+		isConvert(currencyId),
+		0
 	)}`;
 
 	const timeText = moment().format("YYYY-MM-DD H:mm:ss");
@@ -77,6 +79,28 @@ const Panel = ({
 				{`${t("lbl_OrderAmount")}：`}
 				<span>{amountText}</span>
 			</div>
+			{promoContent === "1" && (
+				<>
+					<div>
+						{`${t("lbl_CashbackAmount")}：`}
+						<span>
+							{`${number_format(
+								cashbackAmount,
+								isConvert(currencyId)
+							)}(${PromotionRate})`}
+						</span>
+					</div>
+					<div>
+						{`${t("lbl_ReceivedAmount")}：`}
+						<span>
+							{number_format(
+								receivedAmount,
+								isConvert(currencyId)
+							)}
+						</span>
+					</div>
+				</>
+			)}
 
 			<div className="guide">
 				{isCrypto ? (
@@ -215,7 +239,11 @@ Panel.defaultProps = {
 	rate: null,
 	requestAmount: null,
 	token: null,
-	thirdId: null
+	thirdId: null,
+	cashbackAmount: null,
+	receivedAmount: null,
+	PromotionRate: null,
+	promoContent: null
 };
 
 Panel.propTypes = {
@@ -232,5 +260,9 @@ Panel.propTypes = {
 	accountName: PropTypes.string,
 	thirdId: PropTypes.string,
 	depositType: PropTypes.string.isRequired,
-	handlePopBox: PropTypes.func.isRequired
+	handlePopBox: PropTypes.func.isRequired,
+	cashbackAmount: PropTypes.string,
+	receivedAmount: PropTypes.string,
+	PromotionRate: PropTypes.string,
+	promoContent: PropTypes.string
 };
