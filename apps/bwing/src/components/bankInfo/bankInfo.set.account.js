@@ -198,7 +198,9 @@ export default ({
 				<div>
 					<img
 						alt="BankLogo"
-						src={`${config.imgUrl}/common/images/BankLogo/${bankInfo.bankLogo}`}
+						src={`${
+							config.imgUrl
+						}/common/images/BankLogo/${bankInfo.bankLogo?.toLowerCase()}`}
 					/>
 				</div>
 				<button

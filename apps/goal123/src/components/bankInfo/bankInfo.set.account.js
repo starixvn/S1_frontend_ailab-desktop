@@ -192,7 +192,9 @@ export default ({
 							<div className="bankName">
 								<img
 									alt="BankLogo"
-									src={`${config.imgUrl}/common/images/BankLogo/${bankInfo.bankLogo}`}
+									src={`${
+										config.imgUrl
+									}/common/images/BankLogo/${bankInfo.bankLogo?.toLowerCase()}`}
 								/>
 							</div>
 						</div>

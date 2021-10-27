@@ -150,7 +150,9 @@ const OnlineBankForm = ({
 							<div>
 								<img
 									alt={item.payName}
-									src={`${config.imgUrl}/common/images/Payment/${item.payName}.png`}
+									src={`${
+										config.imgUrl
+									}/common/images/Payment/${item.payName?.toLowerCase()}.png`}
 								/>
 								<i className="icon icon-checkmark" />
 							</div>
@@ -207,7 +209,9 @@ const OnlineBankForm = ({
 									<div>
 										<img
 											alt={item.bankLogo}
-											src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+											src={`${
+												config.imgUrl
+											}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
 										/>
 										<i className="icon icon-checkmark" />
 									</div>

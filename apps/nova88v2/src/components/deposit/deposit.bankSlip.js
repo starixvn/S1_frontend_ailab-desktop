@@ -244,7 +244,9 @@ export class Module extends Component {
 						<li>
 							<div className="bankName">
 								<img
-									src={`${config.imgUrl}/common/images/BankLogo/${this.props.bankLogo}`}
+									src={`${
+										config.imgUrl
+									}/common/images/BankLogo/${this.props.bankLogo?.toLowerCase()}`}
 									alt={this.props.bankName}
 								/>
 							</div>

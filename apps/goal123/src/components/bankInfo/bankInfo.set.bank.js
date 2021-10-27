@@ -78,7 +78,9 @@ export default ({ t, dispatch, bankList, toLastStep, selectBank }) => {
 			<li key={`addBankAccount-${item.sysId}`}>
 				<a onClick={selectBank.bind(this, i)}>
 					<img
-						src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+						src={`${
+							config.imgUrl
+						}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
 						alt={item.bankName}
 					/>
 				</a>

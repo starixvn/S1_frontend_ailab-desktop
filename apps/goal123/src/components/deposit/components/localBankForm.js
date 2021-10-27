@@ -174,7 +174,9 @@ const LocalBankForm = ({
 							onClick={() => onChangeBankInfo(item)}>
 							<div>
 								<img
-									src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+									src={`${
+										config.imgUrl
+									}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
 									alt={item.bankName}
 								/>
 								<i className="icon icon-checkmark" />
