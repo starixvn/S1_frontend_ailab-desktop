@@ -287,6 +287,8 @@
 	"lbl_Deposit_DragonPayPop_AccountNumber": "Account Number",
 	"lbl_Rate": "Rate",
 	"lbl_USDT_Amount": "USDT Amount",
+	"lbl_CashbackAmount": "Cashback amount",
+	"lbl_ReceivedAmount": "Received amount",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",

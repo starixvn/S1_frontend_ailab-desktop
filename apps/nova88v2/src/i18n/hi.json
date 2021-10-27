@@ -285,6 +285,8 @@
 	"lbl_Deposit_DragonPayPop_AccountNumber": "खाता संख्या",
 	"lbl_Rate": "Rate",
 	"lbl_USDT_Amount": "USDT Amount",
+	"lbl_CashbackAmount": "कैशबैक राशि",
+	"lbl_ReceivedAmount": "प्राप्त राशि",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",

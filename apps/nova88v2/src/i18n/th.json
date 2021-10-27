@@ -287,6 +287,8 @@
 	"lbl_Deposit_DragonPayPop_AccountNumber": "หมายเลขบัญชี",
 	"lbl_Rate": "อัตราแลกเปลี่ยน",
 	"lbl_USDT_Amount": "จำนวนสกุลเงิน USDT",
+	"lbl_CashbackAmount": "จำนวนเงินคืน",
+	"lbl_ReceivedAmount": "จำนวนเงินที่ได้รับ",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "รายละเอียดการฝากเงิน",
