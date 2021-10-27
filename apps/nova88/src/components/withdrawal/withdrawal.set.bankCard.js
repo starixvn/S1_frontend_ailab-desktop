@@ -51,7 +51,7 @@ export default ({
 								id: i,
 								sysId: item.sysId,
 								displayText: item.bankName,
-								image: item.bankLogo
+								image: item.bankLogo?.toLowerCase()
 							};
 						});
 						setPopBox({

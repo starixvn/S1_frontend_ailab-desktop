@@ -110,7 +110,9 @@ export default function LoadCardForm({
 							<div>
 								<img
 									alt={item.groupName}
-									src={`${config.imgUrl}/common/images/LoadCardPay/${item.groupName}.png`}
+									src={`${
+										config.imgUrl
+									}/common/images/LoadCardPay/${item.groupName?.toLowerCase()}.png`}
 								/>
 								<i className="icon icon-checkmark" />
 							</div>

@@ -20,7 +20,9 @@ const BankInfoCard = ({ custBankList, delBankAccount, loading }) => {
 					<div className="bankName">
 						<img
 							alt="BankLogo"
-							src={`${config.imgUrl}/common/images/BankLogo/${item.bankLogo}`}
+							src={`${
+								config.imgUrl
+							}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
 						/>
 					</div>
 				</div>
