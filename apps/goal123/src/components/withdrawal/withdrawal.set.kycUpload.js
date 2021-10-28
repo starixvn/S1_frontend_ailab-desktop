@@ -110,7 +110,7 @@ export default props => {
 	return loading ? (
 		<Loading />
 	) : (
-		<div className="subModuleList">
+		<div className="subModuleList kycHeight">
 			<div className="subModule">
 				<div className="subModuleBody column align-items-center">
 					<span className="title txt-yellow">
