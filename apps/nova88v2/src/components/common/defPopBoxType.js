@@ -33,5 +33,6 @@ export default {
 	BackupDomain: "BackupDomain",
 	PaymentQR: "PaymentQR",
 	UnderMaintain: "UnderMaintain",
-	Photo: "Photo"
+	Photo: "Photo",
+	Modal: "Modal"
 };

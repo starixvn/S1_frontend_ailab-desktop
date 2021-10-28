@@ -56,7 +56,7 @@ const Deposit = () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-	const { errorPopBox } = usePopBox();
+	const { errorPopBox, closePopBox } = usePopBox();
 	const _isConvert = isConvert(userInfo.currencyId);
 	const depositInfoStorage = getLocalStorage(
 		`${userInfo.userName}-nova88depositquery`
@@ -77,7 +77,12 @@ const Deposit = () => {
 		fromChannel: null,
 		fromAccountNum: null,
 		checked: null,
-		tip: ""
+		tip: "",
+		depositPromo: {
+			idx: 0,
+			bonusCode: null,
+			requiredAmount: null
+		}
 	});
 
 	const [isInitDataDone, setIsInitDataDone] = useState(false);
@@ -99,9 +104,12 @@ const Deposit = () => {
 		asyncUploadBankPopBox,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
-		setDepositInfoRecentDatas
+		setDepositInfoRecentDatas,
+		depositPromoList,
+		setDepositPromotionQueue
 	} = useDeposit({
-		isMountedRef
+		isMountedRef,
+		userInfo
 	});
 
 	const {
@@ -210,14 +218,70 @@ const Deposit = () => {
 	};
 
 	const onSubmit = async () => {
-		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 		const savedCheck = getLocalStorage(
 			`${userInfo.userName}-nova88depositquerySavedChecked`
 		);
 
+		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+		const asyncModalPopBox = () =>
+			new Promise(resolve =>
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Modal,
+					icon: "icon-bell",
+					title: t("lbl_Information"),
+					closePopBox: () => {
+						closePopBox();
+						resolve(false);
+					},
+					content: (
+						<>
+							<div>{t("lbl_Deposit_Promotion_Pop_Msg1")}</div>
+
+							<div className="btnGroup">
+								<button
+									className="btn-red"
+									onClick={() => {
+										closePopBox();
+										resolve(true);
+									}}>
+									{t("lbl_Deposit_Promotion_Button_Proceed")}
+								</button>
+								<button
+									className="btn-org"
+									onClick={() => {
+										closePopBox();
+										resolve(false);
+									}}>
+									{t("lbl_Deposit_Promotion_Button_Back")}
+								</button>
+							</div>
+						</>
+					)
+				})
+			);
+
+		const RefreshPage = async () => {
+			await delay(1000);
+			if (!savedCheck) {
+				onReset();
+			}
+		};
+
 		if (formInfo.checked && typeof window !== "undefined") {
-			const { amount } = formInfo;
+			const { sysId, payId, channelId, amount, depositPromo } = formInfo;
 			const resultAmount = _isConvert ? amount * 1000 : Number(amount);
+
+			if (
+				userInfo.phoneVerified &&
+				depositPromo.requiredAmount &&
+				resultAmount < depositPromo.requiredAmount
+			) {
+				const success = await asyncModalPopBox();
+
+				if (!success) return;
+			}
 
 			if (saveInfoChecked) {
 				saveInfoToLocalStorage();
@@ -228,19 +292,20 @@ const Deposit = () => {
 				removeLocalStorage(`${userInfo.userName}-nova88depositquery`);
 			}
 
-			const RefreshPage = async () => {
-				await delay(1000);
-				if (!savedCheck) {
-					onReset();
-				}
-			};
-
 			if (depositType === defDepositType.mobile) {
+				const params = [
+					`ChannelId=${channelId}`,
+					`Amount=${resultAmount}`,
+					depositPromo?.bonusCode &&
+						`BonusCode=${depositPromo.bonusCode}`
+				]
+					.filter(Boolean)
+					.join("&");
+
 				if (formInfo.mode === 3) {
 					api_cashier_DepositReqMobilePay({
 						langId: userInfo.langId,
-						channelId: formInfo.channelId,
-						real_amount: resultAmount
+						paramsUrl: params
 					}).then(res => {
 						if (res.data.errorCode === 0) {
 							setPopBox({
@@ -263,9 +328,10 @@ const Deposit = () => {
 						}
 					});
 				} else {
-					window.open(
-						`${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
-					);
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay`;
+
+					window.open(`${baseUrl}?${params}`);
+
 					RefreshPage();
 				}
 			} else if (depositType === defDepositType.localBank) {
@@ -288,6 +354,12 @@ const Deposit = () => {
 								uploadLocalBankReceipt({
 									transId,
 									imgFile: formInfo.imgFile
+								}),
+
+							!formInfo?.depositPromo?.bonusCode ||
+								setDepositPromotionQueue({
+									transId,
+									bonusCode: formInfo.depositPromo.bonusCode
 								})
 						]);
 
@@ -305,13 +377,22 @@ const Deposit = () => {
 					onReset();
 				}
 			} else if (depositType === defDepositType.onlineBank) {
+				const params = [
+					`sysId=${sysId || 0}`,
+					`payId=${payId}`,
+					`ChannelId=${channelId}`,
+					`Amount=${resultAmount}`,
+					depositPromo?.bonusCode
+						? `BonusCode=${depositPromo.bonusCode}`
+						: ""
+				]
+					.filter(Boolean)
+					.join("&");
+
 				if (formInfo.mode === 3) {
 					api_cashier_DepositReqOnlineBanking({
 						langId: userInfo.langId,
-						sysId: formInfo?.sysId,
-						payId: formInfo.payId,
-						channelId: formInfo.channelId,
-						real_amount: resultAmount
+						paramsUrl: params
 					}).then(res => {
 						const {
 							data: {
@@ -353,32 +434,28 @@ const Deposit = () => {
 						}
 					});
 				} else {
-					const searchParams = new URLSearchParams({
-						payId: formInfo.payId,
-						ChannelId: formInfo.channelId,
-						Amount: resultAmount
-					});
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking`;
 
-					if (formInfo?.sysId) {
-						searchParams.set("sysId", formInfo?.sysId);
-					}
-
-					window.open(
-						`${config.openURL}/${
-							userInfo.langId
-						}/Cashier/DepositReqOnlineBanking?${searchParams.toString()}`
-					);
+					window.open(`${baseUrl}?${params}`);
 
 					RefreshPage();
 				}
 			} else if (depositType === defDepositType.cryptoPay) {
 				setLoading(true);
 
+				const params = [
+					`ChannelId=${channelId}`,
+					`Amount=${resultAmount}`,
+					depositPromo?.bonusCode &&
+						`BonusCode=${depositPromo.bonusCode}`
+				]
+					.filter(Boolean)
+					.join("&");
+
 				if (formInfo.mode === 3) {
 					api_cashier_DepositReqCryptoPay({
 						langId: userInfo.langId,
-						channelId: formInfo.channelId,
-						real_amount: resultAmount
+						paramsUrl: params
 					}).then(res => {
 						if (res.data.errorCode === 0) {
 							const promoContent = {
@@ -439,9 +516,10 @@ const Deposit = () => {
 						}
 					});
 				} else {
-					window.open(
-						`${config.openURL}/${userInfo.langId}/Cashier/DepositReqCryptoPay?ChannelId=${formInfo.channelId}&Amount=${resultAmount}`
-					);
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqCryptoPay`;
+
+					window.open(`${baseUrl}?${params}`);
+
 					RefreshPage();
 				}
 			}
@@ -748,12 +826,14 @@ const Deposit = () => {
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}
+						userInfo={userInfo}
 						_isConvert={_isConvert}
 						formatAmount={formatAmount}
 						depositType={depositType}
 						mobilePayGourpList={mobilePayGourpList}
 						mobilePayInfoList={mobilePayInfoList}
 						formInfo={formInfo}
+						depositPromoList={depositPromoList}
 						isGroupListFetchDone={isGroupListFetchDone}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
@@ -774,6 +854,7 @@ const Deposit = () => {
 						localBankGroupList={localBankGroupList}
 						isGroupListFetchDone={isGroupListFetchDone}
 						formInfo={formInfo}
+						depositPromoList={depositPromoList}
 						localBankInfo={localBankInfo}
 						custBankInfoList={custBankInfoList}
 						localBankChannelError={localBankChannelError}
@@ -791,12 +872,14 @@ const Deposit = () => {
 				{depositType === defDepositType.onlineBank && (
 					<OnlineBankForm
 						t={t}
+						userInfo={userInfo}
 						_isConvert={_isConvert}
 						formatAmount={formatAmount}
 						depositType={depositType}
 						onlineBankGroupList={onlineBankGroupList}
 						onlineBankInfoList={onlineBankInfoList}
 						formInfo={formInfo}
+						depositPromoList={depositPromoList}
 						isGroupListFetchDone={isGroupListFetchDone}
 						setFormInfo={setFormInfo}
 						onChangeAmount={onChangeAmount}
@@ -816,6 +899,7 @@ const Deposit = () => {
 						formatAmount={formatAmount}
 						cryptoPayGroupList={cryptoPayGroupList}
 						formInfo={formInfo}
+						depositPromoList={depositPromoList}
 						cryptoPayInfo={cryptoPayInfo}
 						isGroupListFetchDone={isGroupListFetchDone}
 						getCryptoPayInfo={getCryptoPayInfo}

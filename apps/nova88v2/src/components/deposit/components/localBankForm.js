@@ -6,6 +6,9 @@ import Dropdown from "../../common/dropdown";
 import ShortcutAmountList from "./shortcutAmountList";
 import { getUrlParameter } from "../../common/common";
 import { defDepositChannel, defDepositChannelIdList } from "../deposit.def";
+
+import PromotionSelect from "./promotionSelect";
+
 // import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
 import { cloudImgUrl } from "../../../config";
@@ -18,6 +21,7 @@ const LocalBankForm = ({
 	formatAmount,
 	localBankGroupList,
 	formInfo,
+	depositPromoList,
 	setFormInfo,
 	onChangeAmount,
 	onInputboxKeyDown,
@@ -414,6 +418,24 @@ const LocalBankForm = ({
 					{t("lbl_DepositProvideBankSlip")}
 				</div>
 			</div>
+
+			<PromotionSelect
+				value={formInfo?.depositPromo ?? {}}
+				amount={Number(formInfo.amount)}
+				depositPromoList={depositPromoList}
+				onSelectItem={(idx, data) =>
+					setFormInfo(prev => {
+						return {
+							...prev,
+							depositPromo: {
+								idx,
+								bonusCode: data.bonusCode,
+								requiredAmount: data.requiredAmount
+							}
+						};
+					})
+				}
+			/>
 		</>
 	);
 };
@@ -425,6 +447,7 @@ LocalBankForm.defaultProps = {
 LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,

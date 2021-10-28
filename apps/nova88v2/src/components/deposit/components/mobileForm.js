@@ -5,6 +5,8 @@ import { getUrlParameter, number_format } from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
 import { cloudImgUrl } from "../../../config";
 
+import PromotionSelect from "./promotionSelect";
+
 const MobileForm = ({
 	t,
 	_isConvert,
@@ -15,6 +17,7 @@ const MobileForm = ({
 	mobilePayInfoList,
 	isGroupListFetchDone,
 	formInfo,
+	depositPromoList,
 	setFormInfo,
 	onChangeAmount,
 	onInputboxKeyDown
@@ -245,6 +248,24 @@ const MobileForm = ({
 					</div>
 				</>
 			) : null}
+
+			<PromotionSelect
+				value={formInfo?.depositPromo ?? {}}
+				amount={Number(formInfo.amount)}
+				depositPromoList={depositPromoList}
+				onSelectItem={(idx, data) =>
+					setFormInfo(prev => {
+						return {
+							...prev,
+							depositPromo: {
+								idx,
+								bonusCode: data.bonusCode,
+								requiredAmount: data.requiredAmount
+							}
+						};
+					})
+				}
+			/>
 		</>
 	);
 };
@@ -298,6 +319,7 @@ MobileForm.propTypes = {
 	getMobilePayInfoList: PropTypes.func.isRequired,
 	mobilePayInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,

@@ -52,7 +52,7 @@ const Content = () => {
 	const isMountedRef = useRef(null);
 	const _isConvert = isConvert(userInfo.currencyId);
 
-	const { asyncUploadBankPopBox } = useDeposit({ isMountedRef });
+	const { asyncUploadBankPopBox } = useDeposit({ isMountedRef, userInfo });
 
 	const {
 		setLocalBankReceipt,

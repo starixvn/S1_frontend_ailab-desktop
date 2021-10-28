@@ -4,12 +4,15 @@ import Inputbox from "../../common/inputbox";
 import { getUrlParameter } from "../../common/common";
 import config from "../../../config";
 
+import PromotionSelect from "./promotionSelect";
+
 const CryptoPayForm = ({
 	t,
 	depositType,
 	formatAmount,
 	cryptoPayGroupList,
 	formInfo,
+	depositPromoList,
 	setFormInfo,
 	onChangeAmount,
 	onValidAmount,
@@ -52,7 +55,14 @@ const CryptoPayForm = ({
 			`${window.location.pathname}?type=${depositType}&gId=${groupIdForRecord}&channelId=${item.channelId}`
 		);
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo({ ...item, amount: null });
+
+		setFormInfo(prev => {
+			return {
+				...item,
+				amount: null,
+				depositPromo: prev.depositPromo
+			};
+		});
 	};
 
 	useEffect(() => {
@@ -207,12 +217,31 @@ const CryptoPayForm = ({
 					onKeyDown={onInputboxKeyDown}
 				/>
 			</div>
+
+			<PromotionSelect
+				value={formInfo?.depositPromo ?? {}}
+				amount={Number(formInfo.amount)}
+				depositPromoList={depositPromoList}
+				onSelectItem={(idx, data) =>
+					setFormInfo(prev => {
+						return {
+							...prev,
+							depositPromo: {
+								idx,
+								bonusCode: data.bonusCode,
+								requiredAmount: data.requiredAmount
+							}
+						};
+					})
+				}
+			/>
 		</>
 	);
 };
 
 CryptoPayForm.propTypes = {
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	formatAmount: PropTypes.func.isRequired,
