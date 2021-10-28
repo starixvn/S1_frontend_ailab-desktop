@@ -283,8 +283,14 @@
 	"lbl_Deposit_DragonPayPop_BankName": "बैंक का नाम",
 	"lbl_Deposit_DragonPayPop_AccountName": "खाते का नाम",
 	"lbl_Deposit_DragonPayPop_AccountNumber": "खाता संख्या",
+	"lbl_Nova_Select_Bonus": "प्रचार चुनें",
+	"lbl_Nova_DepositPromoMsg1": "उपलब्ध विशिष्ट प्रचारों को प्राप्त करने के लिए कृपया अपना खाता सत्यापित करने के लिए आगे बढ़ें",
+	"lbl_Nova_DepositPromoMsg2": "* न्यूनतम। आवश्यक जमा राशि है {{ currency }} <span>{{amount}}</span>",
 	"lbl_Rate": "Rate",
 	"lbl_USDT_Amount": "USDT Amount",
+	"lbl_Deposit_Promotion_Pop_Msg1": "आपकी जमा राशि इस पदोन्नति के लिए योग्य नहीं है क्या आप बिना किसी पदोन्नति चयन के आगे बढ़ना चाहते हैं?",
+	"lbl_Deposit_Promotion_Button_Proceed": "आगे बढ़ना",
+	"lbl_Deposit_Promotion_Button_Back": "वापस",
 	"lbl_CashbackAmount": "कैशबैक राशि",
 	"lbl_ReceivedAmount": "प्राप्त राशि",
 
@@ -346,9 +352,9 @@
 	"lbl_Daily_Min_Max_Amount": "Daily Min/Max Limit: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "Your Daily Limit Reached.",
 	"lbl_Insufficientbalance": "Insufficient balance",
-	"lbl_ReceiveUSDT":"Receive USDT Amount",
-	"lbl_WithdrawalCryptoNote":"Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
-	
+	"lbl_ReceiveUSDT": "Receive USDT Amount",
+	"lbl_WithdrawalCryptoNote": "Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
+
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "धनराशि का ट्रांसफर",
 	"msg_InsufficientFund": "अपर्याप्त निधि",
@@ -516,6 +522,7 @@
 	"lbl_Play": "अब खेलते हैं",
 	"lbl_Demo": "डेमो",
 	"lbl_underMaintenance": "संरक्षण जारी है I",
+	"lbl_None": "कोई नहीं",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -762,8 +769,7 @@
 	"lbl_CryptoPay": "क्रिप्टो भुगतान",
 	"lbl_NotERC20WalletAddr": "ERC-20 / TRC-20 संगत वॉलेट पता होना चाहिए",
 	"lbl_already_stored_this_information": "आप पहले ही यह जानकारी संग्रहीत कर चुके हैं।",
-	"lbl_Crypto_OTP":"Phone number (OTP) verification are require before deposit for Crypto service.",
-
+	"lbl_Crypto_OTP": "Phone number (OTP) verification are require before deposit for Crypto service.",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "अभी शर्त लगाएं",
@@ -852,10 +858,10 @@
 	"lbl_homeJackpotTitle": "खजाना",
 
 	"■■■■■■■■■■■■■■■■■■■■ sponsor ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Sponsor" : "प्रायोजकों",
-	"lbl_Sponsorship" : "प्रायोजन",
-	"lbl_Videos" : "वीडियो",
-	"lbl_Nova88" : "Nova88",
+	"lbl_Sponsor": "प्रायोजकों",
+	"lbl_Sponsorship": "प्रायोजन",
+	"lbl_Videos": "वीडियो",
+	"lbl_Nova88": "Nova88",
 
 	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_APP_DOWNLOAD": "ऐप डाउनलोड करें",

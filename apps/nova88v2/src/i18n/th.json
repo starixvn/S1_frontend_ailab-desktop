@@ -285,8 +285,14 @@
 	"lbl_Deposit_DragonPayPop_BankName": "ชื่อธนาคาร",
 	"lbl_Deposit_DragonPayPop_AccountName": "ชื่อบัญชี",
 	"lbl_Deposit_DragonPayPop_AccountNumber": "หมายเลขบัญชี",
+	"lbl_Nova_Select_Bonus": "เลือกโปรโมชั่นที่มีอยู่",
+	"lbl_Nova_DepositPromoMsg1": "กรุณาทำการยืนยันบัญชีผู้ใช้ของคุณเพื่อรับสิทธิ์โปรโมชันเฉพาะที่มีอยู่",
+	"lbl_Nova_DepositPromoMsg2": "* จำนวนเงินฝากขั้นต่ำที่ต้องการคือ {{ currency }} <span>{{amount}}</span>",
 	"lbl_Rate": "อัตราแลกเปลี่ยน",
 	"lbl_USDT_Amount": "จำนวนสกุลเงิน USDT",
+	"lbl_Deposit_Promotion_Pop_Msg1": "จำนวนเงินฝากของคุณไม่มีสิทธิ์สำหรับโปรโมชั่นนี้. จำนวนเงินฝากของคุณไม่มีสิทธิ์สำหรับโปรโมชั่นนี้",
+	"lbl_Deposit_Promotion_Button_Proceed": "ดำเนินการ",
+	"lbl_Deposit_Promotion_Button_Back": "ย้อนกลับ",
 	"lbl_CashbackAmount": "จำนวนเงินคืน",
 	"lbl_ReceivedAmount": "จำนวนเงินที่ได้รับ",
 
@@ -348,8 +354,8 @@
 	"lbl_Daily_Min_Max_Amount": "จำกัดยอดถอน ต่ำสุด/สูงสุด ต่อวัน: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "จำนวนยอดถอนต่อวันของคุณครบแล้ว",
 	"lbl_Insufficientbalance": "ยอดคงเหลือไม่เพียงพอ",
-	"lbl_ReceiveUSDT":"รับจำนวนเงิน USDT",
-	"lbl_WithdrawalCryptoNote":"อัตราการแลกเปลี่ยนใช้เพื่อการอ้างอิงเท่านั้น จำนวนเงินที่แน่นอนจะอ้างอิงจากอัตราการแลกเปลี่ยนล่าสุด",
+	"lbl_ReceiveUSDT": "รับจำนวนเงิน USDT",
+	"lbl_WithdrawalCryptoNote": "อัตราการแลกเปลี่ยนใช้เพื่อการอ้างอิงเท่านั้น จำนวนเงินที่แน่นอนจะอ้างอิงจากอัตราการแลกเปลี่ยนล่าสุด",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "โอนเงินทุน",
@@ -518,6 +524,7 @@
 	"lbl_Play": "เล่น",
 	"lbl_Demo": "ตัวอย่าง",
 	"lbl_underMaintenance": "อยู่ระหว่างการบำรุงรักษา",
+	"lbl_None": "ไม่มี",
 
 	"currency ■■■■■■■■■■■■■■■■■■■■": "",
 	"Currency_2": "MYR",
@@ -776,8 +783,7 @@
 	"lbl_CryptoPay": "ชำระโดยเงินคริปโต",
 	"lbl_NotERC20WalletAddr": "ต้องเป็นที่อยู่กระเป๋าเงินที่สอดคล้องกับ ERC-20 / TRC-20 ได้",
 	"lbl_already_stored_this_information": "คุณได้ทำการจัดเก็บข้อมูลนี้ไว้เรียบร้อยแล้ว",
-	"lbl_Crypto_OTP":"สมาชิกต้องมีการยืนยันหมายเลขโทรศัพท์ (OTP) ก่อนทำการฝากเงินผ่านช่องทาง คริปโต",
-
+	"lbl_Crypto_OTP": "สมาชิกต้องมีการยืนยันหมายเลขโทรศัพท์ (OTP) ก่อนทำการฝากเงินผ่านช่องทาง คริปโต",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "การแข่งขันที่จะเกิดขึ้น",
@@ -866,10 +872,10 @@
 	"lbl_homeJackpotTitle": "รางวัลใหญ่",
 
 	"■■■■■■■■■■■■■■■■■■■■ sponsor ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_Sponsor" : "ผู้สนับสนุน",
-	"lbl_Sponsorship" : "ให้การสนับสนุน",
-	"lbl_Videos" : "วีดีโอ",
-	"lbl_Nova88" : "Nova88",
+	"lbl_Sponsor": "ผู้สนับสนุน",
+	"lbl_Sponsorship": "ให้การสนับสนุน",
+	"lbl_Videos": "วีดีโอ",
+	"lbl_Nova88": "Nova88",
 
 	"■■■■■■■■■■■■■■■■■■■■ app download ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_APP_DOWNLOAD": "ดาวน์โหลดแอป",
