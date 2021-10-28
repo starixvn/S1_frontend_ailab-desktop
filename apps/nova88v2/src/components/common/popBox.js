@@ -35,12 +35,24 @@ import SuccessMySteryBox from "./popBox.successMySteryBox";
 import BackupDomain from "./popBox.backupDomain";
 import UnderMaintain from "./popBox.underMaintain";
 import Photo from "./popBox.photo";
+import Modal from "./popBox.modal";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
 
 	let content = null;
 	switch (popBox.popBoxType) {
+		case defPopBoxType.Modal:
+			content = (
+				<Modal
+					icon={popBox.icon}
+					title={popBox.title}
+					closePopBox={popBox.closePopBox}
+					content={popBox.content}
+				/>
+			);
+			break;
+
 		case defPopBoxType.Cancel:
 			content = <Cancel btnBar={popBox.btnBar} />;
 			break;

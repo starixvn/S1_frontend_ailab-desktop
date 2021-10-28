@@ -5,6 +5,8 @@ import ShortcutAmountList from "./shortcutAmountList";
 import { getUrlParameter } from "../../common/common";
 import { cloudImgUrl } from "../../../config";
 
+import PromotionSelect from "./promotionSelect";
+
 const OnlineBankForm = ({
 	t,
 	formatAmount,
@@ -13,6 +15,7 @@ const OnlineBankForm = ({
 	getOnlineBankInfoList,
 	onlineBankInfoList,
 	formInfo,
+	depositPromoList,
 	onChangeAmount,
 	setFormInfo,
 	setOnlineBankInfoList,
@@ -38,7 +41,14 @@ const OnlineBankForm = ({
 			`${window.location.pathname}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
 		);
 
-		setFormInfo({ ...item, amount: formInfo.amount });
+		setFormInfo(prev => {
+			return {
+				...item,
+				amount: formInfo.amount,
+				depositPromo: prev.depositPromo
+			};
+		});
+
 		setSysIdForRecord(null);
 		setPayIdForRecord(item.payId);
 		setPayNameForRecordSelectBank(item.payName);
@@ -102,6 +112,7 @@ const OnlineBankForm = ({
 	}, [isGroupListFetchDone]);
 
 	if (onlineBankGroupList.length <= 0) return null;
+
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -198,35 +209,56 @@ const OnlineBankForm = ({
 
 			{!formInfo.selBank ||
 			onlineBankInfoList.some(item => item.sysId === sysIdForRecord) ? (
-				<div className="subModule">
+				<>
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_DepositAmount")}
 					</div>
+					<div className="subModule">
+						<Inputbox
+							className="inputBox-white"
+							// title={t("lbl_Amount")}
+							value={formInfo.amount}
+							onChange={e => onChangeAmount(e.target.value)}
+							checked={formInfo?.checked}
+							tip={formInfo?.tip}
+							_isConvert={false}
+							isAmount={true}
+							placeholder={`${t(
+								"lbl_MinMaxAmount"
+							)} ${formatAmount(
+								formInfo.minAmount
+							)} ~ ${formatAmount(formInfo.maxAmount)}`}
+							onKeyDown={onInputboxKeyDown}
+						/>
 
-					<Inputbox
-						className="inputBox-white"
-						// title={t("lbl_Amount")}
-						value={formInfo.amount}
-						onChange={e => onChangeAmount(e.target.value)}
-						checked={formInfo?.checked}
-						tip={formInfo?.tip}
-						_isConvert={false}
-						isAmount={true}
-						placeholder={`${t("lbl_MinMaxAmount")} ${formatAmount(
-							formInfo.minAmount
-						)} ~ ${formatAmount(formInfo.maxAmount)}`}
-						onKeyDown={onInputboxKeyDown}
-					/>
-
-					<ShortcutAmountList
-						amount={formInfo.amount}
-						minAmount={formInfo.minAmount}
-						maxAmount={formInfo.maxAmount}
-						onClick={amount => onChangeAmount(amount)}
-					/>
-				</div>
+						<ShortcutAmountList
+							amount={formInfo.amount}
+							minAmount={formInfo.minAmount}
+							maxAmount={formInfo.maxAmount}
+							onClick={amount => onChangeAmount(amount)}
+						/>
+					</div>
+				</>
 			) : null}
+
+			<PromotionSelect
+				value={formInfo?.depositPromo ?? {}}
+				amount={Number(formInfo.amount)}
+				depositPromoList={depositPromoList}
+				onSelectItem={(idx, data) =>
+					setFormInfo(prev => {
+						return {
+							...prev,
+							depositPromo: {
+								idx,
+								bonusCode: data.bonusCode,
+								requiredAmount: data.requiredAmount
+							}
+						};
+					})
+				}
+			/>
 		</>
 	);
 };
@@ -239,6 +271,7 @@ OnlineBankForm.propTypes = {
 	getOnlineBankInfoList: PropTypes.func.isRequired,
 	onlineBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,

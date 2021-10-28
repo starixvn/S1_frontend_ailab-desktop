@@ -22,7 +22,8 @@ export default function useDepositHistory({
 }) {
 	const { errorPopBox, closePopBox, setPopBox } = usePopBox();
 	const { asyncUploadBankPopBox } = useDeposit({
-		isMountedRef
+		isMountedRef,
+		userInfo
 	});
 	const { uploadLocalBankReceipt } = useDepositLocalBank({
 		isMountedRef
