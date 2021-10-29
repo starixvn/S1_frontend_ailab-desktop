@@ -381,12 +381,6 @@ export const defMenuLinks = {
 				icon: "icon icon-N2LIVE",
 				displayText: "n2-LIVE",
 				menuType: defMenuType.entPage,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.n2Live
-					})
-				],
 				lobbyPage: {
 					bgClass: "live-n2"
 				}
