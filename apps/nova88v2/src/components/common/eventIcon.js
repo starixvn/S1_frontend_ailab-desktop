@@ -5,7 +5,6 @@ export const defEventIcon = {
 
 export const defEventPeriod = {
 	vip: { start: "2021/02/05 12:00:00" },
-	n2: { start: "2021/03/02 12:00:00" },
 	ranking: { start: "2021/03/01 12:00:00" },
 	tv: { start: "2021/03/30 00:00:00" },
 	casino_pt: { end: "2021/06/20 11:00:00" },

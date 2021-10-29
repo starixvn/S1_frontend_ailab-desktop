@@ -576,12 +576,6 @@ export const defMenuLinks = langId => {
 					listNpcImgUrl: "n2live.png",
 					displayText: "n2-LIVE",
 					menuType: defMenuType.entPage,
-					eventIcons: [
-						showEventIcon({
-							icon: defEventIcon.new,
-							period: defEventPeriod.n2Live
-						})
-					],
 					npcImgUrl: livecasinoN2liveNpcImg,
 					iconImgUrl: livecasinoN2liveIconImg,
 					lobbyImg: "n2live"

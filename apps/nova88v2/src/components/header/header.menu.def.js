@@ -385,12 +385,6 @@ export const defMenuLinks = {
 				listBgImgUrl: ["n2bg.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				...productList.liveCasino_N2,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.n2
-					})
-				],
 				lobbyPage: { npcImg: "casino_n2" }
 			},
 			{
