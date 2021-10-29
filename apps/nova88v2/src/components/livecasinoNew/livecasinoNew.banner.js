@@ -9,16 +9,15 @@ const LivecasinoNewBanner = ({ t }) => {
 				src={`${bannerImgUrl}/img/livecasino/livecasino_mainbanner_bg.jpg`}
 				alt="main-banner-img"
 			/>
+			<div className="signature">
+				<div>{t("livecasino.lbl_amber_na")}</div>
+				<div>{t("livecasino.lbl_spokesperson_2122")}</div>
+			</div>
 			<div className="bannerInfo">
 				<div className="text">
 					<div>{t("livecasino.lbl_welcome_to")}</div>
 					<div>{t("livecasino.lbl_world_class")}</div>
 					<div>{t("livecasino.lbl_casino_world")}</div>
-				</div>
-
-				<div className="signature">
-					<div>{t("livecasino.lbl_amber_na")}</div>
-					<div>{t("livecasino.lbl_spokesperson_2122")}</div>
 				</div>
 				<div className="animation">
 					<img
