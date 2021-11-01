@@ -93,10 +93,10 @@ export default props => {
 
 	const dateTimeFormat = () => {
 		if (showContent) {
-			return moment(props.createTime).format("YYYY-MM-DD HH:MM:ss");
+			return moment(props.createTime).format("YYYY-MM-DD HH:mm:ss");
 		}
 		return compareDay < 1
-			? moment(props.createTime).format("HH:MM:ss")
+			? moment(props.createTime).format("HH:mm:ss")
 			: moment(props.createTime).format("YYYY-MM-DD");
 	};
 

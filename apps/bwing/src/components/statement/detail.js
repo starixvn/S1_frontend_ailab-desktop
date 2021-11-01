@@ -138,7 +138,7 @@ export default () => {
 			dataIndex: "settledTime",
 			key: "settledTime",
 			render: value =>
-				moment(value.settledTime).format("YYYY-MM-DD HH:MM:ss")
+				moment(value.settledTime).format("YYYY-MM-DD HH:mm:ss")
 		}
 	];
 
