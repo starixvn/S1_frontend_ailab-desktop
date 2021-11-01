@@ -30,7 +30,6 @@ const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {
 						_isConvert,
 						t
 					});
-
 					return (
 						<button
 							onClick={() => {
@@ -43,7 +42,7 @@ const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {
 									: ""
 							}
 							disabled={status !== 0}>
-							{shortcutAmount}
+							{number_format(shortcutAmount, false, 0)}
 						</button>
 					);
 				})}

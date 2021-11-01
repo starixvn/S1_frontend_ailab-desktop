@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter } from "../../common/common";
+import ShortcutAmountList from "./shortcutAmountList";
 import config from "../../../config";
 
 import PromotionSelect from "./promotionSelect";
@@ -80,6 +81,8 @@ const CryptoPayForm = ({
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isGroupListFetchDone]);
+
+	const isSelAmountType = formInfo.amountRule === 3;
 
 	if (cryptoPayGroupList.length <= 0) return null;
 
@@ -216,6 +219,14 @@ const CryptoPayForm = ({
 					)} ~ ${formatAmount(formInfo.maxAmount)}`}
 					onKeyDown={onInputboxKeyDown}
 				/>
+				{!isSelAmountType && (
+					<ShortcutAmountList
+						amount={formInfo.amount}
+						minAmount={formInfo.minAmount}
+						maxAmount={formInfo.maxAmount}
+						onClick={amount => onChangeAmount(amount)}
+					/>
+				)}
 			</div>
 
 			<PromotionSelect
