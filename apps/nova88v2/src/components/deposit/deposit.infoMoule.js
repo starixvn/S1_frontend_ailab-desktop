@@ -179,14 +179,15 @@ const DepositInfoMoule = ({
 
 DepositInfoMoule.defaultProps = {
 	checked: true,
-	userName: null
+	userName: null,
+	depositType: null
 };
 
 DepositInfoMoule.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
 	depositOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
-	depositType: PropTypes.string.isRequired,
+	depositType: PropTypes.string,
 	setDepositType: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,

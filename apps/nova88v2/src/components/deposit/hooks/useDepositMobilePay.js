@@ -55,4 +55,4 @@ const useDepositMobilePay = ({ isMountedRef }) => {
 	};
 };
 
-export default useDepositMobilePay;
+export { useDepositMobilePay };

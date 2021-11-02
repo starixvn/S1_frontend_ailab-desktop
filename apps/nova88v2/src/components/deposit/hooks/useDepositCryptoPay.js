@@ -33,4 +33,4 @@ const useDepositCryptoPay = ({ isMountedRef }) => {
 	};
 };
 
-export default useDepositCryptoPay;
+export { useDepositCryptoPay };

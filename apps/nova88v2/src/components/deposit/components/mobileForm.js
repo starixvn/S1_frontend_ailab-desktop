@@ -4,6 +4,7 @@ import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
 import { cloudImgUrl } from "../../../config";
+import { useSyncRouteQuery } from "../hooks";
 
 import PromotionSelect from "./promotionSelect";
 
@@ -31,12 +32,6 @@ const MobileForm = ({
 	);
 
 	const onGetMobileInfoList = async gId => {
-		window.history.replaceState(
-			{},
-			"",
-			`${window.location.pathname}?type=${depositType}&gId=${gId}`
-		);
-
 		setGroupIdForRecord(gId);
 		setInfoChannelIdForRecord(null);
 
@@ -54,17 +49,17 @@ const MobileForm = ({
 	};
 
 	const onSetInfoData = item => {
-		window.history.replaceState(
-			{},
-			"",
-			`${window.location.pathname}?type=${depositType}&gId=${groupIdForRecord}&channelId=${item.channelId}`
-		);
-
 		setInfoChannelIdForRecord(item.channelId);
 		setFormInfo(prev => {
 			return { ...prev, ...item };
 		});
 	};
+
+	useSyncRouteQuery({
+		type: depositType,
+		gId: groupIdForRecord,
+		channelId: infoChannelIdForRecord
+	});
 
 	useEffect(() => {
 		const getData = async () => {

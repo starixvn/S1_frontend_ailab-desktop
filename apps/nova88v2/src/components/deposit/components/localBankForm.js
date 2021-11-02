@@ -12,6 +12,8 @@ import PromotionSelect from "./promotionSelect";
 // import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
 import { cloudImgUrl } from "../../../config";
+import { currencyCode } from "../../../datas/countryCode";
+import { useSyncRouteQuery } from "../hooks";
 
 const LocalBankForm = ({
 	t,
@@ -29,6 +31,7 @@ const LocalBankForm = ({
 	localBankInfo,
 	asyncUploadBankPopBox,
 	getBankInfo,
+	setLocalBankChecked,
 	custBankInfoList,
 	localBankChannelError,
 	localBankBankInfoErrpr,
@@ -51,12 +54,6 @@ const LocalBankForm = ({
 		}));
 
 	const onChangeBankInfo = item => {
-		window.history.replaceState(
-			{},
-			"",
-			`${window.location.pathname}?type=${depositType}&sysId=${item.sysId}`
-		);
-
 		setSysIdForRecord(item.sysId);
 		getLocalBankInfo({ sysId: item.sysId });
 		setFormInfo(prev => ({ ...prev, ...item }));
@@ -137,6 +134,59 @@ const LocalBankForm = ({
 
 		setCustBankInfoIdx(idx);
 	};
+
+	useSyncRouteQuery({
+		type: depositType,
+		sysId: sysIdForRecord
+	});
+
+	useEffect(() => {
+		const validate = datas => {
+			const errors = {};
+
+			if (
+				userInfo.currencyId === currencyCode.TH &&
+				!datas.imgFile?.type.includes("image")
+			) {
+				errors.imgFile = "error";
+			}
+
+			if (!datas.fromChannel) {
+				errors.fromChannel = t("lbl_DepositChannelTip");
+			}
+
+			if (
+				(datas?.fromChannel === defDepositChannelIdList.OnlineBanking ||
+					datas?.fromChannel === defDepositChannelIdList.ATM) &&
+				!datas.fromAccountNum
+			) {
+				errors.fromAccountNum = t("lbl_LocalBankBankAccountTip");
+			}
+			return errors;
+		};
+
+		const errors = validate({
+			imgFile: formInfo.imgFile,
+			fromChannel: formInfo.fromChannel,
+			fromAccountNum: formInfo.fromAccountNum
+		});
+
+		const isValid = Object.keys(errors).length === 0;
+
+		setLocalBankChecked(isValid);
+
+		// setLocalBankChannelError({
+		// 	checked: !errors.fromChannel,
+		// 	tip: errors.fromChannel
+		// });
+
+		// setLocalBankBankInfoErrpr({
+		// 	checked: !errors.fromAccountNum,
+		// 	tip: errors.fromAccountNum
+		// });
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [formInfo]);
 
 	useEffect(() => {
 		if (isGroupListFetchDone) {
@@ -457,6 +507,7 @@ LocalBankForm.propTypes = {
 	onChangeAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	getLocalBankInfo: PropTypes.func.isRequired,
+	setLocalBankChecked: PropTypes.func.isRequired,
 	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	asyncUploadBankPopBox: PropTypes.func.isRequired,
 	getBankInfo: PropTypes.func.isRequired,
