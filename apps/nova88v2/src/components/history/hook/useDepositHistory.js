@@ -5,8 +5,7 @@ import {
 } from "../../../service/api/payment";
 import defPopBoxType from "../../common/defPopBoxType";
 
-import useDeposit from "../../deposit/hook/useDeposit";
-import useDepositLocalBank from "../../deposit/hook/useDepositLocalBank";
+import { useDeposit, useDepositLocalBank } from "../../deposit/hooks";
 
 import usePopBox from "../../hook/usePopBox";
 

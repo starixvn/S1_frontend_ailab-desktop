@@ -197,4 +197,4 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 	};
 };
 
-export default useDepositLocalBank;
+export { useDepositLocalBank };

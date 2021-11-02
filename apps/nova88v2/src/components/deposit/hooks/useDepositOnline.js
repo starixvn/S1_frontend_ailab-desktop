@@ -72,4 +72,4 @@ const useDepositOnline = ({ isMountedRef }) => {
 	};
 };
 
-export default useDepositOnline;
+export { useDepositOnline };

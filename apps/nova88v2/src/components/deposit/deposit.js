@@ -1,38 +1,31 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { navigate, useLocation, Link } from "@reach/router";
+import React, { useContext, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
 	loadingContext,
 	userInfoContext,
 	popBoxContext
 } from "../common/context";
-import {
-	defDepositType,
-	defDepositOptions,
-	defDepositChannelIdList
-} from "./deposit.def";
+import { defDepositType } from "./deposit.def";
 import defPopBoxType from "../common/defPopBoxType";
 import {
 	checkAmount,
 	isConvert,
-	getUrlParameter,
 	setLocalStorage,
 	getLocalStorage,
 	removeLocalStorage,
-	readCookie,
 	number_format
 } from "../common/common";
-import { api_site_GetSupportDomainList } from "../../service/api/site";
 import usePopBox from "../hook/usePopBox";
 
-import useDeposit from "./hook/useDeposit";
-import useDepositMobilePay from "./hook/useDepositMobilePay";
-import useDepositOnline from "./hook/useDepositOnline";
-import useDepositLocalBank from "./hook/useDepositLocalBank";
-import useDepositCryptoPay from "./hook/useDepositCryptoPay";
+import {
+	useDeposit,
+	useDepositCryptoPay,
+	useDepositLocalBank,
+	useDepositMobilePay,
+	useDepositOnline,
+	useDepositEffect
+} from "./hooks";
 
-import { currencyCode } from "../../datas/countryCode";
-import path from "../../router";
 import config from "../../config";
 
 import DepositInfoMoule from "./deposit.infoMoule";
@@ -50,8 +43,6 @@ import {
 
 const Deposit = () => {
 	const { t } = useTranslation();
-	const parameterType = getUrlParameter("type");
-	const location = useLocation();
 	const isMountedRef = useRef(null);
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -66,6 +57,8 @@ const Deposit = () => {
 		processingDescriptionActive,
 		setProcessingDescriptionActive
 	] = useState(false);
+
+	const [depositOptions, setDepositOptions] = useState([]);
 
 	const [depositType, setDepositType] = useState(null);
 
@@ -115,6 +108,7 @@ const Deposit = () => {
 	const {
 		getMobilePayGroupList,
 		getMobilePayInfoList,
+		setMobilePayInfoList,
 		mobilePayGourpList,
 		mobilePayInfoList
 	} = useDepositMobilePay({ isMountedRef });
@@ -151,11 +145,16 @@ const Deposit = () => {
 	} = useDepositCryptoPay({ isMountedRef });
 
 	const onChangeDepositType = async type => {
+		const resetInfoList = () => {
+			setMobilePayInfoList([]);
+			setOnlineBankInfoList([]);
+		};
+
 		setDepositType(type);
 
-		setIsGroupListFetchDone(false);
+		resetInfoList();
 
-		navigate(`/${userInfo.langId}/${path.deposit.root}?type=${type}`);
+		setIsGroupListFetchDone(false);
 
 		if (type === defDepositType.mobile) {
 			await getMobilePayGroupList();
@@ -177,31 +176,9 @@ const Deposit = () => {
 		});
 	};
 
-	const saveInfoToLocalStorage = () => {
-		const localStoragePath = {
-			amount: formInfo.amount,
-			search: window.location.search,
-			type: depositType
-		};
-
-		if (formInfo.fromChannel) {
-			localStoragePath.localBankChannel = {
-				fromChannel: formInfo.fromChannel,
-				fromSysId: formInfo?.fromSysId,
-				fromAccountNum: formInfo?.fromAccountNum
-			};
-		}
-
-		if (saveInfoChecked) {
-			setLocalStorage(
-				`${userInfo.userName}-nova88depositquery`,
-				localStoragePath
-			);
-		}
-	};
-
 	const onReset = () => {
 		setLocalBankChecked(true);
+
 		setFormInfo(prev => {
 			return {
 				...prev,
@@ -218,11 +195,26 @@ const Deposit = () => {
 	};
 
 	const onSubmit = async () => {
-		const savedCheck = getLocalStorage(
-			`${userInfo.userName}-nova88depositquerySavedChecked`
-		);
+		const saveInfoToLocalStorage = () => {
+			const localStoragePath = {
+				amount: formInfo.amount,
+				search: window.location.search,
+				type: depositType
+			};
 
-		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+			if (formInfo.fromChannel) {
+				localStoragePath.localBankChannel = {
+					fromChannel: formInfo.fromChannel,
+					fromSysId: formInfo?.fromSysId,
+					fromAccountNum: formInfo?.fromAccountNum
+				};
+			}
+
+			setLocalStorage(
+				`${userInfo.userName}-nova88depositquery`,
+				localStoragePath
+			);
+		};
 
 		const asyncModalPopBox = () =>
 			new Promise(resolve =>
@@ -262,13 +254,6 @@ const Deposit = () => {
 				})
 			);
 
-		const RefreshPage = async () => {
-			await delay(1000);
-			if (!savedCheck) {
-				onReset();
-			}
-		};
-
 		if (formInfo.checked && typeof window !== "undefined") {
 			const { sysId, payId, channelId, amount, depositPromo } = formInfo;
 			const resultAmount = _isConvert ? amount * 1000 : Number(amount);
@@ -292,6 +277,8 @@ const Deposit = () => {
 				removeLocalStorage(`${userInfo.userName}-nova88depositquery`);
 			}
 
+			setLoading(true);
+
 			if (depositType === defDepositType.mobile) {
 				const params = [
 					`ChannelId=${channelId}`,
@@ -303,7 +290,7 @@ const Deposit = () => {
 					.join("&");
 
 				if (formInfo.mode === 3) {
-					api_cashier_DepositReqMobilePay({
+					await api_cashier_DepositReqMobilePay({
 						langId: userInfo.langId,
 						paramsUrl: params
 					}).then(res => {
@@ -322,7 +309,6 @@ const Deposit = () => {
 										...prevState,
 										isOpen: false
 									}));
-									RefreshPage();
 								}
 							});
 						}
@@ -331,13 +317,9 @@ const Deposit = () => {
 					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqMobilePay`;
 
 					window.open(`${baseUrl}?${params}`);
-
-					RefreshPage();
 				}
 			} else if (depositType === defDepositType.localBank) {
-				if (loading || !localBankChecked) return;
-
-				setLoading(true);
+				if (!localBankChecked) return;
 
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
@@ -370,12 +352,6 @@ const Deposit = () => {
 						errorPopBox();
 					}
 				}
-
-				setLoading(false);
-
-				if (!savedCheck) {
-					onReset();
-				}
 			} else if (depositType === defDepositType.onlineBank) {
 				const params = [
 					`sysId=${sysId || 0}`,
@@ -390,7 +366,7 @@ const Deposit = () => {
 					.join("&");
 
 				if (formInfo.mode === 3) {
-					api_cashier_DepositReqOnlineBanking({
+					await api_cashier_DepositReqOnlineBanking({
 						langId: userInfo.langId,
 						paramsUrl: params
 					}).then(res => {
@@ -420,7 +396,7 @@ const Deposit = () => {
 								currencyId: userInfo.currencyId,
 								imgUrl: url,
 								bankName: bankName ?? null,
-								accountNumber: accountName ?? null,
+								accountNumber: accountNumber ?? null,
 								accountName: accountName ?? null,
 								thirdId,
 								handlePopBox: () => {
@@ -428,7 +404,6 @@ const Deposit = () => {
 										...prevState,
 										isOpen: false
 									}));
-									RefreshPage();
 								}
 							});
 						}
@@ -437,12 +412,8 @@ const Deposit = () => {
 					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking`;
 
 					window.open(`${baseUrl}?${params}`);
-
-					RefreshPage();
 				}
 			} else if (depositType === defDepositType.cryptoPay) {
-				setLoading(true);
-
 				const params = [
 					`ChannelId=${channelId}`,
 					`Amount=${resultAmount}`,
@@ -453,7 +424,7 @@ const Deposit = () => {
 					.join("&");
 
 				if (formInfo.mode === 3) {
-					api_cashier_DepositReqCryptoPay({
+					await api_cashier_DepositReqCryptoPay({
 						langId: userInfo.langId,
 						paramsUrl: params
 					}).then(res => {
@@ -481,7 +452,7 @@ const Deposit = () => {
 								promoContent.Promotion =
 									res.data.data.formData?.Promotion;
 							}
-							setLoading(false);
+
 							setPopBox({
 								isOpen: true,
 								title: t("lbl_DepositType4"),
@@ -510,7 +481,6 @@ const Deposit = () => {
 										...prevState,
 										isOpen: false
 									}));
-									RefreshPage();
 								}
 							});
 						}
@@ -519,9 +489,15 @@ const Deposit = () => {
 					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqCryptoPay`;
 
 					window.open(`${baseUrl}?${params}`);
-
-					RefreshPage();
 				}
+			}
+
+			await getDepositInfoRecent();
+
+			setLoading(false);
+
+			if (!saveInfoChecked) {
+				onReset();
 			}
 		}
 	};
@@ -563,250 +539,35 @@ const Deposit = () => {
 		return result.status === 0;
 	};
 
-	useEffect(() => {
-		const handleDepositType = () => {
-			const isDepositTypeIncludes = type =>
-				Object.values(defDepositType).includes(type);
-
-			if (isDepositTypeIncludes(depositInfoStorage?.type))
-				return depositInfoStorage?.type;
-
-			if (isDepositTypeIncludes(parameterType)) return parameterType;
-
-			return defDepositType.mobile;
-		};
-
-		if (userInfo.userName) {
-			setDepositType(handleDepositType());
-		}
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [userInfo.userName]);
-
-	useEffect(() => {
-		if (formInfo.amount !== null) {
-			onValidAmount(formInfo.amount);
-		}
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [formInfo.amount, formInfo.minAmount, formInfo.maxAmount]);
-
-	useEffect(() => {
-		if (depositType === defDepositType.localBank) {
-			const validate = datas => {
-				const errors = {};
-
-				if (
-					userInfo.currencyId === currencyCode.TH &&
-					!datas.imgFile?.type.includes("image")
-				) {
-					errors.imgFile = "error";
-				}
-
-				if (!datas.fromChannel) {
-					errors.fromChannel = t("lbl_DepositChannelTip");
-				}
-
-				if (
-					(datas?.fromChannel ===
-						defDepositChannelIdList.OnlineBanking ||
-						datas?.fromChannel === defDepositChannelIdList.ATM) &&
-					!datas.fromAccountNum
-				) {
-					errors.fromAccountNum = t("lbl_LocalBankBankAccountTip");
-				}
-				return errors;
-			};
-
-			const errors = validate({
-				imgFile: formInfo.imgFile,
-				fromChannel: formInfo.fromChannel,
-				fromAccountNum: formInfo.fromAccountNum
-			});
-
-			const isValid = Object.keys(errors).length === 0;
-
-			setLocalBankChecked(isValid);
-
-			// setLocalBankChannelError({
-			// 	checked: !errors.fromChannel,
-			// 	tip: errors.fromChannel
-			// });
-
-			// setLocalBankBankInfoErrpr({
-			// 	checked: !errors.fromAccountNum,
-			// 	tip: errors.fromAccountNum
-			// });
-		}
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [formInfo]);
-
-	useEffect(() => {
-		const checkRemoveStorage = () => {
-			const savedCheck = getLocalStorage(
-				`${userInfo.userName}-nova88depositquerySavedChecked`
-			);
-
-			if (!savedCheck) {
-				removeLocalStorage(`${userInfo.userName}-nova88depositquery`);
-				removeLocalStorage(
-					`${userInfo.userName}-nova88depositquerySavedChecked`
-				);
-			}
-		};
-
-		const checkLocalStorageUpdateForm = () => {
-			const savedCheck = getLocalStorage(
-				`${userInfo.userName}-nova88depositquerySavedChecked`
-			);
-			if (depositInfoStorage?.amount) {
-				onChangeAmount(depositInfoStorage.amount);
-			}
-
-			if (
-				depositInfoStorage?.search &&
-				depositInfoStorage.search !== location.search
-			) {
-				const { pathname } = location;
-
-				navigate(`${pathname}${depositInfoStorage.search}`);
-			}
-			if (savedCheck) {
-				setSaveInfoChecked(savedCheck);
-			}
-		};
-
-		const getData = async () => {
-			setLoading(true);
-			try {
-				await Promise.all([
-					getMobilePayGroupList(),
-					getLocalBankGroupList(),
-					getOnlineBankGroupList(),
-					getCryptoPayGroupList()
-				]);
-				setIsInitDataDone(true);
-			} catch (e) {
-				errorPopBox();
-			}
-
-			window.addEventListener("beforeunload", checkRemoveStorage);
-			setLoading(false);
-		};
-
-		if (userInfo.isLogin) {
-			getData();
-			checkLocalStorageUpdateForm();
-		}
-
-		return () => {
-			checkRemoveStorage();
-
-			window.removeEventListener("beforeunload", checkRemoveStorage);
-		};
-
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [userInfo.currencyId, userInfo.isLogin]);
-
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
-
-	useEffect(() => {
-		let isMounted = true;
-
-		const checkUserInfo = () => {
-			const { isLogin, accountName, phoneNo, email } = userInfo;
-			if (
-				isLogin &&
-				((!accountName && accountName !== undefined) ||
-					(!phoneNo && phoneNo !== undefined) ||
-					(!email && email !== undefined))
-			) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.UpdateProfile,
-					title: t("lbl_ImportantNote"),
-					content: t("lbl_UpdatePersonalInfoDeposit"),
-					btnBar: (
-						<div className="btnGroup">
-							<Link
-								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
-								{t("lbl_UpdatePersonalDetail")}
-							</Link>
-						</div>
-					)
-				});
-			}
-		};
-
-		if (userInfo.isLogin && userInfo.userName) {
-			const cookieBackupDomain = `backupDomain_${userInfo.userName}`;
-			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
-			const closeBackupThenCheckInfo = () => {
-				setPopBox({ isOpen: false });
-				checkUserInfo();
-			};
-			if (isShowBackupDomain) {
-				api_site_GetSupportDomainList({ langId: userInfo.langId }).then(
-					res => {
-						if (
-							res.data.errorCode === 0 &&
-							isMounted &&
-							res.data.data.length > 0
-						) {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.BackupDomain,
-								onClickClose: () => closeBackupThenCheckInfo(),
-								linkList: res.data.data
-							});
-						}
-					}
-				);
-			} else {
-				checkUserInfo();
-			}
-		}
-
-		return () => {
-			isMounted = false;
-		};
-	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
-
-	if (loading || !isInitDataDone) return null;
-
-	const depositOptions = defDepositOptions({
-		mobilePayGourpList,
-		onlineBankGroupList,
-		localBankGroupList,
-		cryptoPayGroupList
-	});
-
-	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
-
-	if (!filterDepositOptions.length) return null;
-
-	const defaultDepositOption = depositOptions.find(
-		option => option.type === parameterType
-	);
-
-	if (
-		location.pathname === `/${userInfo.langId}/${path.deposit.root}` &&
-		depositOptions?.length > 0 &&
-		(defaultDepositOption?.isHide || !defaultDepositOption)
-	) {
-		onChangeDepositType(filterDepositOptions[0].type);
-	}
-
 	const formatAmount = _val => {
 		return number_format(_val, _isConvert, 0);
 	};
+
+	useDepositEffect({
+		userInfo,
+		formInfo,
+		isMountedRef,
+		depositOptions,
+		depositInfoStorage,
+		isInitDataDone,
+		mobilePayGourpList,
+		onlineBankGroupList,
+		localBankGroupList,
+		cryptoPayGroupList,
+		setLoading,
+		onValidAmount,
+		setDepositType,
+		setIsInitDataDone,
+		setDepositOptions,
+		setSaveInfoChecked,
+		onChangeAmount,
+		getMobilePayGroupList,
+		getLocalBankGroupList,
+		getOnlineBankGroupList,
+		getCryptoPayGroupList
+	});
+
+	if (loading || !isInitDataDone) return null;
 
 	return (
 		<>
@@ -814,7 +575,7 @@ const Deposit = () => {
 				t={t}
 				langId={userInfo.langId}
 				depositType={depositType}
-				depositOptions={filterDepositOptions}
+				depositOptions={depositOptions}
 				saveInfoChecked={saveInfoChecked}
 				checked={!!formInfo.checked && localBankChecked}
 				processingDescriptionActive={processingDescriptionActive}
@@ -861,6 +622,7 @@ const Deposit = () => {
 						localBankBankInfoErrpr={localBankBankInfoErrpr}
 						setFormInfo={setFormInfo}
 						getBankInfo={getBankInfo}
+						setLocalBankChecked={setLocalBankChecked}
 						onChangeAmount={onChangeAmount}
 						getLocalBankInfo={getLocalBankInfo}
 						onInputboxKeyDown={onInputboxKeyDown}
