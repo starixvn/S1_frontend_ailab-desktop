@@ -4,6 +4,7 @@ import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
 import { getUrlParameter } from "../../common/common";
 import { cloudImgUrl } from "../../../config";
+import { useSyncRouteQuery } from "../hooks";
 
 import PromotionSelect from "./promotionSelect";
 
@@ -26,20 +27,14 @@ const OnlineBankForm = ({
 	const parameterPayId = Number(getUrlParameter("pId"));
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
-	const [
-		payNameForRecordSelectBank,
-		setPayNameForRecordSelectBank
-	] = useState(parameterPayName);
-
+	const [payNameForRecord, setPayNameForRecord] = useState(parameterPayName);
 	const [payIdForRecord, setPayIdForRecord] = useState(parameterPayId);
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
 
 	const onChangeBankGroup = async item => {
-		window.history.replaceState(
-			{},
-			"",
-			`${window.location.pathname}?type=${depositType}&pName=${item.payName}&pId=${item.payId}`
-		);
+		setSysIdForRecord(null);
+		setPayIdForRecord(item.payId);
+		setPayNameForRecord(item.payName);
 
 		setFormInfo(prev => {
 			return {
@@ -48,10 +43,6 @@ const OnlineBankForm = ({
 				depositPromo: prev.depositPromo
 			};
 		});
-
-		setSysIdForRecord(null);
-		setPayIdForRecord(item.payId);
-		setPayNameForRecordSelectBank(item.payName);
 
 		let infoList = [];
 
@@ -63,22 +54,16 @@ const OnlineBankForm = ({
 					infoItem => infoItem.sysId === parameterSysId
 				);
 
-				onSetSysIdToInfoData(infoList[defaultInfoListIdx], item.payId);
+				onSetSysIdToInfoData(infoList[defaultInfoListIdx]);
 			} else if (infoList?.length > 0) {
-				onSetSysIdToInfoData(infoList[0], item.payId);
+				onSetSysIdToInfoData(infoList[0]);
 			}
 		} else {
 			await setOnlineBankInfoList([]);
 		}
 	};
 
-	const onSetSysIdToInfoData = async (item, pId) => {
-		window.history.replaceState(
-			{},
-			"",
-			`${window.location.pathname}?type=${depositType}&pName=${parameterPayName}&pId=${pId}&sysId=${item.sysId}`
-		);
-
+	const onSetSysIdToInfoData = async item => {
 		setSysIdForRecord(item.sysId);
 
 		await setFormInfo(prev => {
@@ -88,6 +73,13 @@ const OnlineBankForm = ({
 			};
 		});
 	};
+
+	useSyncRouteQuery({
+		type: depositType,
+		pName: payNameForRecord,
+		pId: payIdForRecord,
+		sysId: sysIdForRecord
+	});
 
 	useEffect(() => {
 		const getData = async () => {
@@ -130,7 +122,7 @@ const OnlineBankForm = ({
 								key={`deposit-onlinePay-group-${item.payName}}`}
 								onClick={() => onChangeBankGroup(item)}
 								className={
-									item.payName === payNameForRecordSelectBank
+									item.payName === payNameForRecord
 										? "active"
 										: ""
 								}>
@@ -178,12 +170,7 @@ const OnlineBankForm = ({
 							return (
 								<button
 									key={`deposit-onlinePay-info-${item.bankLogo}}`}
-									onClick={() =>
-										onSetSysIdToInfoData(
-											item,
-											payIdForRecord
-										)
-									}
+									onClick={() => onSetSysIdToInfoData(item)}
 									className={
 										item.sysId === sysIdForRecord
 											? "active"

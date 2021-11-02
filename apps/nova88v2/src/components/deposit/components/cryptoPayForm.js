@@ -4,6 +4,7 @@ import Inputbox from "../../common/inputbox";
 import { getUrlParameter } from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
 import config from "../../../config";
+import { useSyncRouteQuery } from "../hooks";
 
 import PromotionSelect from "./promotionSelect";
 
@@ -28,12 +29,6 @@ const CryptoPayForm = ({
 	);
 
 	const onGetCryptoPayList = async gId => {
-		window.history.replaceState(
-			{},
-			"",
-			`${window.location.pathname}?type=${depositType}&gId=${gId}`
-		);
-
 		setGroupIdForRecord(gId);
 		setInfoChannelIdForRecord(null);
 
@@ -50,11 +45,6 @@ const CryptoPayForm = ({
 	};
 
 	const onSetInfoData = item => {
-		window.history.replaceState(
-			{},
-			"",
-			`${window.location.pathname}?type=${depositType}&gId=${groupIdForRecord}&channelId=${item.channelId}`
-		);
 		setInfoChannelIdForRecord(item.channelId);
 
 		setFormInfo(prev => {
@@ -65,6 +55,12 @@ const CryptoPayForm = ({
 			};
 		});
 	};
+
+	useSyncRouteQuery({
+		type: depositType,
+		gId: groupIdForRecord,
+		channelId: defaultChannelId
+	});
 
 	useEffect(() => {
 		const getData = async () => {

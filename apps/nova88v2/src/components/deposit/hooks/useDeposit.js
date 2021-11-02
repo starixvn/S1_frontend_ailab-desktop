@@ -139,4 +139,4 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 	};
 };
 
-export default useDeposit;
+export { useDeposit };
