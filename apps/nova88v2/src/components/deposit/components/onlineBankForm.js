@@ -83,20 +83,19 @@ const OnlineBankForm = ({
 
 	useEffect(() => {
 		const getData = async () => {
-			if (
-				onlineBankGroupList.some(item => item.payId === payIdForRecord)
-			) {
-				const defaultGroupListIdx = onlineBankGroupList.findIndex(
-					item => item.payId === payIdForRecord
-				);
+			const defaultGroupListIdx = onlineBankGroupList.findIndex(
+				item => item.payId === parameterPayId
+			);
 
-				onChangeBankGroup(onlineBankGroupList[defaultGroupListIdx]);
-			} else if (onlineBankGroupList.length > 0) {
-				onChangeBankGroup(onlineBankGroupList[0]);
-			}
+			const bankGroupItem =
+				onlineBankGroupList[
+					defaultGroupListIdx !== -1 ? defaultGroupListIdx : 0
+				];
+
+			onChangeBankGroup(bankGroupItem);
 		};
 
-		if (isGroupListFetchDone) {
+		if (isGroupListFetchDone && onlineBankGroupList.length > 0) {
 			getData();
 		}
 
