@@ -19,7 +19,7 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 	useEffect(() => {
 		const getDepositPromotionList = async () => {
 			await api_promotion_GetDepositPromotionList({
-				langId: userInfo.langId
+				langId: userInfo?.langId
 			}).then(
 				({ data: { data, message, errorCode } }) => {
 					if (!isMountedRef.current) return;
@@ -54,7 +54,7 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 			);
 		};
 		getDepositPromotionList();
-	}, [userInfo.langId]);
+	}, [userInfo?.langId]);
 
 	const getDepositInfoRecent = async () => {
 		const result = await api_payment_GetDepositInfoRecent().then(
