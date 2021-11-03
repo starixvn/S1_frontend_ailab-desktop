@@ -223,6 +223,9 @@ header input:focus-within {
   color: #fff;
   height: 100%;
   position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .header > div.menu > div > a.tvbtn, .header > div.menu > div > button.tvbtn {
@@ -257,32 +260,144 @@ header input:focus-within {
   font-size: 24px;
 }
 
-.header > div.menu > div > a div.icon-new:before, .header > div.menu > div > button div.icon-new:before {
+.header > div.menu > div > a div.icon, .header > div.menu > div > button div.icon {
+  position: absolute;
+  top: -4px;
   background: #f77900;
-  border-radius: 0;
-  left: 0;
-  top: 0;
-  right: unset;
-  -webkit-animation: none;
-          animation: none;
-  width: 45px;
-  padding: 2px 0 3px 5px;
+  font-size: 12px;
+  padding: 0 8px 2px 6px;
+  font-weight: bold;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: white;
-  font-size: 13px;
+  border-radius: 3px;
 }
 
-.header > div.menu > div > a div.icon-new:after, .header > div.menu > div > button div.icon-new:after {
+.header > div.menu > div > a div.icon:before, .header > div.menu > div > button div.icon:before {
+  margin: 0 2px 0 0;
+  font-weight: normal;
+  color: white;
+  -webkit-animation: star 1s 1s infinite linear;
+          animation: star 1s 1s infinite linear;
+}
+
+@-webkit-keyframes star {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    color: white;
+  }
+  75% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    color: #cf0404;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    color: #cf0404;
+  }
+}
+
+@keyframes star {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    color: white;
+  }
+  75% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    color: #cf0404;
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    color: #cf0404;
+  }
+}
+
+.header > div.menu > div > a div.icon:after, .header > div.menu > div > button div.icon:after {
   content: '';
   display: block;
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 0 18px 10px;
-  border-color: transparent transparent transparent #f77900;
+  border-width: 0 10px 10px 0;
+  border-color: transparent #af5600 transparent transparent;
   position: absolute;
   background: transparent;
-  top: 0;
-  left: 50px;
+  bottom: 0;
+  left: 2px;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.header > div.menu > div > a div.icon-mediafire, .header > div.menu > div > button div.icon-mediafire {
+  background: #cf0404;
+  padding: 0 6px 2px 3px;
+}
+
+.header > div.menu > div > a div.icon-mediafire:before, .header > div.menu > div > button div.icon-mediafire:before {
+  font-size: 18px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  margin: -7px 1px 0;
+  -webkit-animation: fire 1s 1s infinite linear;
+          animation: fire 1s 1s infinite linear;
+  z-index: 1;
+}
+
+@-webkit-keyframes fire {
+  0% {
+    -webkit-transform: rotate(90deg) scale(1, 1);
+            transform: rotate(90deg) scale(1, 1);
+    color: white;
+  }
+  50% {
+    -webkit-transform: rotate(90deg) scale(1.2);
+            transform: rotate(90deg) scale(1.2);
+    color: #f77900;
+  }
+  100% {
+    -webkit-transform: rotate(90deg) scale(1, 1);
+            transform: rotate(90deg) scale(1, 1);
+    color: white;
+  }
+}
+
+@keyframes fire {
+  0% {
+    -webkit-transform: rotate(90deg) scale(1, 1);
+            transform: rotate(90deg) scale(1, 1);
+    color: white;
+  }
+  50% {
+    -webkit-transform: rotate(90deg) scale(1.2);
+            transform: rotate(90deg) scale(1.2);
+    color: #f77900;
+  }
+  100% {
+    -webkit-transform: rotate(90deg) scale(1, 1);
+            transform: rotate(90deg) scale(1, 1);
+    color: white;
+  }
+}
+
+.header > div.menu > div > a div.icon-mediafire:after, .header > div.menu > div > button div.icon-mediafire:after {
+  border-color: transparent #750202 transparent transparent;
+}
+
+.header > div.menu > div > a div.live, .header > div.menu > div > button div.live {
+  position: absolute;
+  top: -4px;
+  left: 0;
 }
 
 .header > div.menu > div > a div.live:before, .header > div.menu > div > button div.live:before {
@@ -329,6 +444,7 @@ header input:focus-within {
   width: 36px;
   padding-left: 16px;
   padding-right: 0;
+  border-radius: 3px;
 }
 
 .header > div.menu > div > a div.live:after, .header > div.menu > div > button div.live:after {
@@ -337,12 +453,14 @@ header input:focus-within {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 0 16px 10px;
-  border-color: transparent transparent transparent #05BC0B;
+  border-width: 0 10px 10px 0;
+  border-color: transparent #049809 transparent transparent;
   position: absolute;
   background: transparent;
-  top: 0;
-  left: 52px;
+  top: 6px;
+  left: 2px;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 
 .header > div.menu .subMenu-Wrapper-new {
@@ -2976,7 +3094,7 @@ input[type="file"] {
   margin: 0;
 }
 
-.eventLink img {
+.eventLink a img {
   -webkit-animation: eventLink 2s infinite;
           animation: eventLink 2s infinite;
   width: 60%;
@@ -2984,6 +3102,97 @@ input[type="file"] {
 
 .eventLink.active {
   display: none;
+}
+
+.eventLink .wheelModule {
+  width: 190px;
+  height: 190px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.eventLink .wheelModule > img {
+  position: absolute;
+  z-index: 1;
+}
+
+.eventLink .wheelModule > img.eventlinkimg {
+  z-index: 0;
+  margin: 5px 10px 0 0;
+  width: 140px;
+  -webkit-animation: eventlinkimg 2s infinite;
+          animation: eventlinkimg 2s infinite;
+}
+
+@-webkit-keyframes eventlinkimg {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+  100% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+}
+
+@keyframes eventlinkimg {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+  100% {
+    -webkit-transform: rotate(720deg);
+            transform: rotate(720deg);
+  }
+}
+
+.eventLink .wheelModule > img.eventlinkwin {
+  margin-left: 30px;
+  opacity: 0;
+  -webkit-animation: eventlinkwin 2s infinite;
+          animation: eventlinkwin 2s infinite;
+}
+
+@-webkit-keyframes eventlinkwin {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes eventlinkwin {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes eventLink {
@@ -6819,6 +7028,25 @@ input[type="file"] {
 
 .icon-icon32px_deposit + .stepBar + .subModuleList .subModule:last-child {
   margin-right: 0;
+}
+
+.icon-icon32px_deposit + .subModuleListColumn .subModule .inputBox-blue.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+.icon-icon32px_deposit + .subModuleListColumn .subModule .inputBox-blue.active button {
+  cursor: auto;
+}
+
+.icon-icon32px_deposit + .subModuleListColumn .subModule .inputBox-blue ~ .inputBox-white {
+  margin: 0 0 0 auto;
+  width: auto;
+}
+
+.icon-icon32px_deposit + .subModuleListColumn .subModule .inputBox-blue ~ .inputBox-white.active {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
 }
 
 form {
@@ -13185,7 +13413,7 @@ canvas {
 
 .esportinside {
   position: relative;
-  background: #030a5b url(https://banner.n88media.com/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
+  background: #131419 url(https://banner.n88media.com/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 
@@ -15631,16 +15859,13 @@ img[alt="sg"] {
 
 .proListNew > div .new, .proListNew > div .claimed {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  background: transparent;
-  border-radius: 0;
-  border-style: solid;
-  border-width: 70px 90px 0 0;
-  border-color: #f77900 transparent transparent transparent;
-  width: 0;
-  height: 0;
-  padding: 0;
+  top: 10px;
+  left: -3px;
+  background: #f77900;
+  border-radius: 0 0 10px 0;
+  width: 30px;
+  height: 25px;
+  padding: 0 20px;
   color: white;
   display: none;
   -webkit-box-pack: center;
@@ -15650,17 +15875,12 @@ img[alt="sg"] {
       -ms-flex-align: center;
           align-items: center;
   font-weight: bold;
-  -webkit-transform: rotate(0);
-          transform: rotate(0);
+  -webkit-transform: rotate(-15deg) skewX(-15deg);
+          transform: rotate(-15deg) skewX(-15deg);
 }
 
 .proListNew > div .new:before, .proListNew > div .claimed:before {
-  position: absolute;
-  top: -55px;
-  left: 13px;
   content: "NEW";
-  -webkit-transform: rotate(-38deg);
-          transform: rotate(-38deg);
   font-size: 12px;
 }
 
@@ -15671,12 +15891,10 @@ img[alt="sg"] {
 }
 
 .proListNew > div .claimed {
-  border-color: #cf0404 transparent transparent transparent;
+  background: #cf0404;
 }
 
 .proListNew > div .claimed:before {
-  top: -54px;
-  left: 2px;
   content: "CLAIMED";
 }
 
@@ -16130,8 +16348,8 @@ img[alt="sg"] {
 }
 
 .wheelEvent .eventPage .wheelModule .wheel.active {
-  -webkit-animation: wheel 1s 5 linear;
-          animation: wheel 1s 5 linear;
+  -webkit-animation: wheel 1s 3 linear;
+          animation: wheel 1s 3 linear;
 }
 
 @-webkit-keyframes wheel {
@@ -16240,7 +16458,7 @@ img[alt="sg"] {
   border-radius: 15px;
   border: 3px solid #409ed0;
   padding: 5px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .wheelEvent .eventPage .info .eventList .listBoxShadow {
