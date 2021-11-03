@@ -59,7 +59,7 @@ const CryptoPayForm = ({
 	useSyncRouteQuery({
 		type: depositType,
 		gId: groupIdForRecord,
-		channelId: defaultChannelId
+		channelId: infoChannelIdForRecord
 	});
 
 	useEffect(() => {
