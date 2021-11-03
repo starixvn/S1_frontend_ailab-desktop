@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { useNavigate } from "@reach/router";
 import config from "../../config";
 import path from "../../router";
+import defPopBoxType from "../common/defPopBoxType";
+import { popBoxContext } from "../common/context";
 
 export const StreamingModule = ({
 	t,
@@ -19,8 +21,10 @@ export const StreamingModule = ({
 	matchID,
 	channel,
 	tpId,
-	gameId
+	gameId,
+	isLogin
 }) => {
+	const { setPopBox } = useContext(popBoxContext);
 	const navigate = useNavigate();
 
 	const ClickLiveTv = (clickBtn, e) => {
@@ -32,12 +36,17 @@ export const StreamingModule = ({
 						gameId || 1
 					}&matchId=${matchID}`
 				);
-			} else {
+			} else if (isLogin) {
 				window.open(
 					`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
 					`streaming`,
 					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
 				);
+			} else {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.Login
+				});
 			}
 		} else {
 			navigate(`/${langId}/${path.streaming.root}`);
@@ -102,12 +111,16 @@ StreamingModule.defaultProps = {
 	isStreamingPage: false,
 	homeScore: null,
 	awayScore: null,
-	matchID: null
+	matchID: null,
+	isLogin: null,
+	tpId: null,
+	gameId: null
 };
 
 StreamingModule.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
+	isLogin: PropTypes.bool,
 	isStreamingPage: PropTypes.bool,
 	league: PropTypes.string.isRequired,
 	home: PropTypes.string.isRequired,
@@ -117,5 +130,7 @@ StreamingModule.propTypes = {
 	awayScore: PropTypes.number,
 	timeStart: PropTypes.string.isRequired,
 	matchID: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	channel: PropTypes.number.isRequired
+	channel: PropTypes.number.isRequired,
+	tpId: PropTypes.number,
+	gameId: PropTypes.number
 };
