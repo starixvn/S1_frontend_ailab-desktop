@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { useNavigate } from "@reach/router";
 import config from "../../config";
 import path from "../../router";
-import defPopBoxType from "../common/defPopBoxType";
-import { popBoxContext } from "../common/context";
 
 export const StreamingModule = ({
 	t,
@@ -24,7 +22,6 @@ export const StreamingModule = ({
 	gameId,
 	isLogin
 }) => {
-	const { setPopBox } = useContext(popBoxContext);
 	const navigate = useNavigate();
 
 	const ClickLiveTv = (clickBtn, e) => {
@@ -43,10 +40,7 @@ export const StreamingModule = ({
 					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
 				);
 			} else {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.Login
-				});
+				navigate(`/${langId}/${path.join.root}`);
 			}
 		} else {
 			navigate(`/${langId}/${path.streaming.root}`);
