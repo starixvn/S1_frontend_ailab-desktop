@@ -45,7 +45,7 @@ pipeline {
                 expression { auto_deploy == 'true' }
             }
             steps {
-                sh 'ansible-playbook -i Dev.yml deploy.yml --extra-vars "commitId=${commitHash} site=${site} platform=desktop host=desktop-${site} env=${env}"'
+                sh 'ansible-playbook -i host.yml deploy.yml --extra-vars "commitId=${commitHash} site=${site} platform=desktop host=desktop-${site} env=${env}"'
             }
         }
     }
