@@ -348,16 +348,20 @@ export const defMenuLinks = {
 			// 	}
 			// },
 			{
-				gameId: 101,
-				tpId: 5,
+				...productList.liveCasino_PP,
 				className: "livePP",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_pp
+					})
+				],
 				icon: "icon icon-PP",
 				displayText: "Pragmatic Play",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-pp"
-				},
-				tpGameType: 16
+				}
 			},
 			{
 				...productList.liveCasino_PT,

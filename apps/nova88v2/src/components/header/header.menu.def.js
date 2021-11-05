@@ -352,14 +352,20 @@ export const defMenuLinks = {
 			// 	...productList.casino_MGPSW
 			// },
 			{
+				...productList.liveCasino_PP,
 				keyName: "casino_PP",
 				className: "livePP",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_pp
+					})
+				],
 				icon: "icon icon-PP",
 				displayText: "Pragmatic Play",
 				listNpcImgUrl: "casino-PP.png",
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
-				...productList.liveCasino_PP,
 				lobbyPage: { npcImg: "casino_pp" }
 			},
 			{

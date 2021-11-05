@@ -279,6 +279,41 @@ header input:focus-within {
   border-radius: 3px;
 }
 
+.header > div.menu > div > a div.icon.icon-new, .header > div.menu > div > button div.icon.icon-new {
+  left: 0;
+  top: 0;
+}
+
+.header > div.menu > div > a div.icon.icon-new:before, .header > div.menu > div > button div.icon.icon-new:before {
+  -webkit-animation: none;
+          animation: none;
+  background: #f77900;
+  border-radius: 0;
+  left: 0;
+  top: 0;
+  right: unset;
+  width: 45px;
+  padding: 2px 0 3px 5px;
+  color: #fff;
+  font-size: 13px;
+}
+
+.header > div.menu > div > a div.icon.icon-new:after, .header > div.menu > div > button div.icon.icon-new:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 18px 10px;
+  border-color: transparent transparent transparent #f77900;
+  position: absolute;
+  background: 0 0;
+  top: 0;
+  left: 50px;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
 .header > div.menu > div > a div.icon:before, .header > div.menu > div > button div.icon:before {
   margin: 0 2px 0 0;
   font-weight: normal;
@@ -4777,9 +4812,10 @@ input[type="file"] {
   padding: 5px;
   overflow: unset;
   min-width: 300px;
+  position: relative;
 }
 
-#popup .pop.wheelPop > div {
+#popup .pop.wheelPop > div:not(.animation) {
   background: #4b126d;
   -webkit-box-shadow: rgba(227, 0, 188, 0.6) 0px 0px 1px 6px, white 0px 0px 2px 2px, rgba(255, 255, 255, 0.3) 0 0 5px 5px inset, rgba(234, 14, 181, 0.8) 0 0 10px 10px inset;
           box-shadow: rgba(227, 0, 188, 0.6) 0px 0px 1px 6px, white 0px 0px 2px 2px, rgba(255, 255, 255, 0.3) 0 0 5px 5px inset, rgba(234, 14, 181, 0.8) 0 0 10px 10px inset;
@@ -4788,7 +4824,7 @@ input[type="file"] {
   padding: 20px;
 }
 
-#popup .pop.wheelPop > div .icon-close {
+#popup .pop.wheelPop > div:not(.animation) .icon-close {
   top: -30px;
   right: -30px;
   color: white;
@@ -4808,11 +4844,11 @@ input[type="file"] {
           align-items: center;
 }
 
-#popup .pop.wheelPop > div .icon-close:before {
+#popup .pop.wheelPop > div:not(.animation) .icon-close:before {
   margin: 0 0 0 1px;
 }
 
-#popup .pop.wheelPop > div .title {
+#popup .pop.wheelPop > div:not(.animation) .title {
   color: white;
   font: bold 28px 'Noto Sans Display', sans-serif;
   background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(60%, white), color-stop(70%, #90efff), to(#90efff));
@@ -4829,11 +4865,11 @@ input[type="file"] {
   margin-bottom: 10px;
 }
 
-#popup .pop.wheelPop > div .title + div {
+#popup .pop.wheelPop > div:not(.animation) .title + div {
   color: #88ffff;
 }
 
-#popup .pop.wheelPop > div .am {
+#popup .pop.wheelPop > div:not(.animation) .am {
   font-weight: bold;
   color: #88ffff;
   background: #21042f;
@@ -4842,6 +4878,127 @@ input[type="file"] {
   -webkit-box-shadow: #621778 0 1px 0 1px, #0e0213 0 1px 0 1px inset;
           box-shadow: #621778 0 1px 0 1px, #0e0213 0 1px 0 1px inset;
   padding: 5px 20px;
+}
+
+#popup .pop.wheelPop .animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  top: 0;
+  left: 0;
+  background: transparent;
+}
+
+#popup .pop.wheelPop .animation.active .coin {
+  -webkit-animation: coin1 1s ease-in-out infinite;
+          animation: coin1 1s ease-in-out infinite;
+  -webkit-transform: rotate(5deg);
+          transform: rotate(5deg);
+}
+
+#popup .pop.wheelPop .animation .coin {
+  position: absolute;
+  top: 130px;
+  right: 50px;
+  width: 60px;
+  height: 46px;
+  background: url(../img/event/wheel/coin.png) no-repeat center/cover;
+}
+
+#popup .pop.wheelPop .animation .coin:nth-child(2) {
+  top: 100px;
+  left: 150px;
+  width: 90px;
+  height: 68px;
+  -webkit-transform: rotate(190deg);
+          transform: rotate(190deg);
+  -webkit-animation-delay: .2s;
+          animation-delay: .2s;
+}
+
+#popup .pop.wheelPop .animation .coin:nth-child(3) {
+  left: 70px;
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+  -webkit-transform: rotate(240deg);
+          transform: rotate(240deg);
+}
+
+#popup .pop.wheelPop .animation .coin:nth-child(4) {
+  top: 110px;
+  left: 40px;
+  -webkit-animation-delay: .3s;
+          animation-delay: .3s;
+  -webkit-transform: rotate(150deg);
+          transform: rotate(150deg);
+}
+
+#popup .pop.wheelPop .animation .coin:nth-child(5) {
+  top: 110px;
+  width: 80px;
+  height: 61px;
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+  -webkit-transform: rotate(300deg);
+          transform: rotate(300deg);
+}
+
+@-webkit-keyframes coin1 {
+  0% {
+    margin-top: 0px;
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  50% {
+    -webkit-transform: rotate(150deg);
+            transform: rotate(150deg);
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    margin-top: -300px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    -webkit-transform: rotate(300deg);
+            transform: rotate(300deg);
+    opacity: 0;
+  }
+}
+
+@keyframes coin1 {
+  0% {
+    margin-top: 0px;
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  50% {
+    -webkit-transform: rotate(150deg);
+            transform: rotate(150deg);
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  100% {
+    margin-top: -300px;
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+    -webkit-transform: rotate(300deg);
+            transform: rotate(300deg);
+    opacity: 0;
+  }
 }
 
 .Submit, .poker, .friend, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .addAddresspop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
@@ -15982,6 +16139,7 @@ img[alt="sg"] {
 
 .proListNew > div > .promoInfo > div.btnGroup button {
   margin: 0 10px 0 0;
+  font-weight: bold;
 }
 
 .proListNew > div > .promoInfo > div.btnGroup button.orange {

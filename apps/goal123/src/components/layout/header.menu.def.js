@@ -540,8 +540,12 @@ export const defMenuLinks = langId => {
 				// },
 				{
 					...productList.liveCasino_PP,
-					gameId: 101,
-					tpId: 5,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.liveCasino_pp
+						})
+					],
 					className: "livePP",
 					icon: "icon icon-PP",
 					listNpcImgUrl: "pp.png",
