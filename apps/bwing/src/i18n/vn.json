@@ -727,5 +727,9 @@
 	"lbl_Once_Bwing_App_is_installed": "Khi ứng dụng Bwing được cài đặt, chọn Tin cậy hoặc hoàn thành Cài đặt theo hướng dẫn bên dưới",
 	"lbl_Scan_to_Download": "Quét để tải về",
 
+	"streaming":{
+		"lbl_please_make_deposit":"Vui lòng nạp 1 khoản tiền tối thiểu để có thể trải nghiệm trò chơi trực tuyến."
+	},
+
 	"end-----": "end-----"
 }

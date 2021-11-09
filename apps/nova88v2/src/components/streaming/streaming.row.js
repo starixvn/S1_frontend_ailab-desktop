@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { useNavigate } from "@reach/router";
 import config from "../../config";
 import path from "../../router";
+import usePopBox from "../hook/usePopBox";
 
 export const StreamingModule = ({
 	t,
@@ -20,8 +21,10 @@ export const StreamingModule = ({
 	channel,
 	tpId,
 	gameId,
-	isLogin
+	isLogin,
+	actStatus
 }) => {
+	const { errorPopBox } = usePopBox();
 	const navigate = useNavigate();
 
 	const ClickLiveTv = (clickBtn, e) => {
@@ -34,11 +37,15 @@ export const StreamingModule = ({
 					}&matchId=${matchID}`
 				);
 			} else if (isLogin) {
-				window.open(
-					`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
-					`streaming`,
-					"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
-				);
+				if (actStatus === 1) {
+					errorPopBox(t("streaming.lbl_please_make_deposit"));
+				} else {
+					window.open(
+						`${config.openURL}/${langId}/liveStreamingEntPage?ch=${channel}`,
+						`streaming`,
+						"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no,top=0,left=0,width=640,height=640"
+					);
+				}
 			} else {
 				navigate(`/${langId}/${path.join.root}`);
 			}
@@ -108,7 +115,8 @@ StreamingModule.defaultProps = {
 	matchID: null,
 	isLogin: null,
 	tpId: null,
-	gameId: null
+	gameId: null,
+	actStatus: 1
 };
 
 StreamingModule.propTypes = {
@@ -126,5 +134,6 @@ StreamingModule.propTypes = {
 	matchID: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	channel: PropTypes.number.isRequired,
 	tpId: PropTypes.number,
-	gameId: PropTypes.number
+	gameId: PropTypes.number,
+	actStatus: PropTypes.number
 };

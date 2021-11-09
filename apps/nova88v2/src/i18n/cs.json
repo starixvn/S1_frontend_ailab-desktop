@@ -939,5 +939,9 @@
 		"lbl_spokesperson_2122": "代言人 2021/22"
 	},
 
+	"streaming":{
+		"lbl_please_make_deposit":"请完成最低存款以享受现场直播。"
+	},
+
 	"end-----": "end-----"
 }

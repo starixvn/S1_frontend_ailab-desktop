@@ -939,5 +939,9 @@
 		"lbl_bannerTitle2": "24/7"
 	},
 
+	"streaming":{
+		"lbl_please_make_deposit":"Silakan melakukan Deposit untuk menikmati Live Streaming kami."
+	},
+
 	"end-----": "end-----"
 }
