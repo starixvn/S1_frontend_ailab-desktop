@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Component, createRef } from "react";
 
 class Dropdown extends Component {
@@ -28,6 +29,9 @@ class Dropdown extends Component {
 
 	clickDropdown = e => {
 		e.preventDefault();
+
+		if (this.props.disabled) return;
+
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
 		if (this.props.clickDropdown) {
 			this.props.clickDropdown();
@@ -104,7 +108,7 @@ class Dropdown extends Component {
 			<div
 				className="dropdown"
 				ref={this.wrapper}
-				onClick={this.props.disabled ? null : this.clickDropdown}
+				onClick={this.clickDropdown}
 				data-testid={`dropdown_${this.props.mainKey}`}>
 				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
