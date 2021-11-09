@@ -45,6 +45,7 @@ const Content = () => {
 				t={t}
 				langId={userInfo.langId}
 				isLogin={userInfo.isLogin}
+				actStatus={userInfo.actStatus}
 				// eslint-disable-next-line react/jsx-props-no-spreading
 				{...v}
 			/>

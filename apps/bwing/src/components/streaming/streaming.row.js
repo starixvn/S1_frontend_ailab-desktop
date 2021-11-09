@@ -5,8 +5,8 @@ import { useNavigate } from "@reach/router";
 import config from "../../config";
 import path from "../../router";
 import productList from "../../datas/productList";
-
 import imgVsIcon from "../../styles/img/vsIcon.png";
+import usePopBox from "../hook/usePopBox";
 
 export const StreamingModule = ({
 	t,
@@ -23,14 +23,19 @@ export const StreamingModule = ({
 	tpId,
 	gameId,
 	isLogin,
-	isStreamingPage
+	isStreamingPage,
+	actStatus
 }) => {
+	const { errorPopBox } = usePopBox();
 	const navigate = useNavigate();
 
 	const clickLiveTv = (clickBtn, e) => {
 		e.stopPropagation();
 		if (isStreamingPage) {
 			if (!isLogin) return navigate(`/${langId}/${path.join.root}`);
+
+			if (actStatus === 1)
+				return errorPopBox(t("streaming.lbl_please_make_deposit"));
 
 			if (clickBtn) {
 				const gameName = Object.values(productList).find(item => {
@@ -115,7 +120,8 @@ StreamingModule.defaultProps = {
 	matchID: null,
 	tpId: null,
 	gameId: null,
-	isLogin: false
+	isLogin: false,
+	actStatus: 1
 };
 
 StreamingModule.propTypes = {
@@ -133,5 +139,6 @@ StreamingModule.propTypes = {
 	channel: PropTypes.number.isRequired,
 	tpId: PropTypes.number,
 	gameId: PropTypes.number,
-	isLogin: PropTypes.bool
+	isLogin: PropTypes.bool,
+	actStatus: PropTypes.number
 };

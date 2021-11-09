@@ -940,5 +940,9 @@
 		"lbl_bannerTitle2": "HEAVEN 24/7"
 	},
 
+	"streaming":{
+		"lbl_please_make_deposit":"Please make a Min Deposit to enjoy our LIVE STREAMING."
+	},
+
 	"end-----": "end-----"
 }

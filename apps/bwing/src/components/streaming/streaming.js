@@ -60,6 +60,7 @@ const Streaming = () => {
 										tpId={selCategory.tpId}
 										gameId={selCategory.gameId}
 										isLogin={userInfo.isLogin}
+										actStatus={userInfo.actStatus}
 										{...v}
 									/>
 								))}
