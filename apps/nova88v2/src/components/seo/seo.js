@@ -14,7 +14,7 @@ import { defMetaData } from "./def";
 import { defLangList } from "../../datas/languageData";
 import { api_site_seo } from "../../service/api/site";
 
-const useGetSEODatas = ({ getFromAPI = false }) => {
+export const useGetSEODatas = ({ getFromAPI = false }) => {
 	const [SEODatas, setSEODatas] = useState(null);
 	useEffect(() => {
 		const GetDatas = async () => {

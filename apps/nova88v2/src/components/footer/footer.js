@@ -12,10 +12,11 @@ import { defFooterProductList } from "./footer.def";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_site_GetTpIds } from "../../service/api/site";
-import ImgLicense from "../../styles/img/licenses.png";
+// import ImgLicense from "../../styles/img/licenses.png";
 import ImgJoeColeSignature from "../../styles/img/joecole_w.png";
 import ImgJoeColePhoto from "../../styles/img/jc.png";
 import { currencyCode } from "../../datas/countryCode";
+import { useGetSEODatas } from "../seo/seo";
 
 const Footer = ({ isFullFooter = false }) => {
 	const { t } = useTranslation();
@@ -107,33 +108,61 @@ export const CopyrightSection = ({ t, langId }) => (
 	</div>
 );
 
-export const LicensesSection = ({ t }) => (
-	<div className="license">
-		<div>
-			<div className="title">{t("lbl_Gaming_License")}</div>
-			<img src={ImgLicense} alt="footer-license" />
-		</div>
-		<div>
-			<iframe
-				width="256"
-				height="140"
-				src="https://www.youtube.com/embed/OpXnKKW1y20"
-				title="YouTube video player"
-				frameBorder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowFullScreen
-			/>
+export const LicensesSection = ({ t }) => {
+	const { SEODatas } = useGetSEODatas({ getFromAPI: true });
+	const showLicenseLogo = SEODatas?.activeDomain ?? false;
+
+	useEffect(() => {
+		try {
+			if (showLicenseLogo) {
+				apg_a7019fa5_9f9a_468b_92da_4890f6a6e4a7.init();
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}, [showLicenseLogo]);
+
+	return (
+		<div className="license">
 			<div>
-				<div>{t("lbl_JOE_COLE")}</div>
-				<div>{t("lbl_Brand_Ambassador")}</div>
-				<img src={ImgJoeColeSignature} alt="joecole_signature" />
-				<div>{t("lbl_Former_Chelsea_Liverpool")}</div>
-				<div>{t("lbl_England_International")}</div>
+				{showLicenseLogo ? (
+					<>
+						<div className="title">{t("lbl_Gaming_License")}</div>
+						<div
+							id="apg-a7019fa5-9f9a-468b-92da-4890f6a6e4a7"
+							data-apg-seal-id="a7019fa5-9f9a-468b-92da-4890f6a6e4a7"
+							data-apg-image-size="128"
+							data-apg-image-type="basic-small"
+						/>
+					</>
+				) : null}
 			</div>
-			<img className="star" src={ImgJoeColePhoto} alt="joecole_photo" />
+			<div>
+				<iframe
+					width="256"
+					height="140"
+					src="https://www.youtube.com/embed/OpXnKKW1y20"
+					title="YouTube video player"
+					frameBorder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowFullScreen
+				/>
+				<div>
+					<div>{t("lbl_JOE_COLE")}</div>
+					<div>{t("lbl_Brand_Ambassador")}</div>
+					<img src={ImgJoeColeSignature} alt="joecole_signature" />
+					<div>{t("lbl_Former_Chelsea_Liverpool")}</div>
+					<div>{t("lbl_England_International")}</div>
+				</div>
+				<img
+					className="star"
+					src={ImgJoeColePhoto}
+					alt="joecole_photo"
+				/>
+			</div>
 		</div>
-	</div>
-);
+	);
+};
 
 Footer.defaultProps = {
 	isFullFooter: undefined
