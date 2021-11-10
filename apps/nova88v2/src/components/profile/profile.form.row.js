@@ -28,7 +28,7 @@ const DisplayRow = ({
 		userInfo: { phoneVerified }
 	} = useContext(userInfoContext);
 
-	const legalDate = moment().subtract(21, "year");
+	const legalDate = moment().subtract(18, "year");
 	const vaildDate = current => {
 		return current.isBefore(legalDate);
 	};
