@@ -14,7 +14,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const isInMaintain = maintainList?.some(
 		item =>
 			item.tpId === tpId &&
-			(item.tpGameType === s.tpGameType ||
+			(item.tpGameType === tpGameType ||
 				item.tpGameType === defTpGameType.All)
 	);
 
