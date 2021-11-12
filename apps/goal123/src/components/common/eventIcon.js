@@ -1,6 +1,7 @@
 export const defEventIcon = {
-	new: "icon-new",
-	live: "icon-live"
+	new: "newicon",
+	live: "liveicon",
+	hot: "hoticon"
 };
 
 export const defEventPeriod = {
@@ -23,7 +24,8 @@ export const defEventPeriod = {
 	liveCasino_pp: {
 		start: "2021/11/10 10:00:00",
 		end: "2021/12/31 22:59:59"
-	}
+	},
+	promo: { start: "2021/11/11 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

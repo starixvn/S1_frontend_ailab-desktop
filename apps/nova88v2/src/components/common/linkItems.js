@@ -104,6 +104,22 @@ export default ({
 		let iconStrings = "";
 		if (iconList.length > 0) {
 			iconStrings = `${[...new Set(iconList)].join(" ")}`;
+			if (iconStrings === defEventIcon.new) {
+				iconStrings = defEventIcon.new_header;
+			}
+		}
+
+		let iconContent = null;
+		switch (iconStrings) {
+			case defEventIcon.new_header:
+				iconContent = <>NEW</>;
+				break;
+			case defEventIcon.live:
+				iconContent = <i />;
+				break;
+			case defEventIcon.hot:
+				iconContent = <>HOT</>;
+				break;
 		}
 
 		_className = `${_className}${currentMenuKey === key ? " active" : ""}`;
@@ -135,7 +151,7 @@ export default ({
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
-						<div className={iconStrings} />
+						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</button>
 				);
@@ -153,7 +169,7 @@ export default ({
 							rule.windowKey
 						)}
 						onFocus={() => 0}>
-						<div className={iconStrings} />
+						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</a>
 				);
@@ -166,7 +182,7 @@ export default ({
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
-						<div className={iconStrings} />
+						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</button>
 				);
@@ -232,7 +248,7 @@ export default ({
 					to={_url}
 					className={_className}
 					onMouseOver={_showSubMenu.bind(this, key)}>
-					<div className={iconStrings} />
+					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</Link>
 			) : (
@@ -241,9 +257,7 @@ export default ({
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}
 					onFocus={() => 0}>
-					<div className={iconStrings}>
-						{iconStrings === defEventIcon.live ? <i /> : null}
-					</div>
+					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</button>
 			);
@@ -265,9 +279,7 @@ export default ({
 					to={`${langId}/${_path}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
-					<div className={iconStrings}>
-						{iconStrings === defEventIcon.live ? <i /> : null}
-					</div>
+					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</Link>
 			);
@@ -279,7 +291,7 @@ export default ({
 				onMouseOver={_showSubMenu.bind(this, key)}
 				className={_className}
 				onFocus={() => 0}>
-				<div className={iconStrings} />
+				<div className={iconStrings}>{iconContent}</div>
 				{displayText}
 			</button>
 		);

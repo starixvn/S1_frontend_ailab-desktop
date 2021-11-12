@@ -1,6 +1,8 @@
 export const defEventIcon = {
 	new: "icon icon-new",
-	live: "live"
+	live: "live",
+	new_header: "icon icon-star-full",
+	hot: "icon icon-mediafire"
 };
 
 export const defEventPeriod = {
@@ -18,7 +20,8 @@ export const defEventPeriod = {
 	liveCasino_pp: {
 		start: "2021/11/10 11:00:00",
 		end: "2021/12/31 23:59:59"
-	}
+	},
+	promo: { start: "2021/11/11 00:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {
