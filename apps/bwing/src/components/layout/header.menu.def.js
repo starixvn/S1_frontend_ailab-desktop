@@ -645,18 +645,18 @@ export const defMenuLinks = {
 	},
 	vip: {
 		path: path.vip.root,
-		displayKey: "lbl_Vip",
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.new,
-				period: defEventPeriod.vip
-			})
-		]
+		displayKey: "lbl_Vip"
 	},
 
 	promotion: {
 		path: path.promotion.root,
-		displayKey: "lbl_Promotions"
+		displayKey: "lbl_Promotions",
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.hot,
+				period: defEventPeriod.promo
+			})
+		]
 	},
 	affiliate: {
 		affiliate: true,

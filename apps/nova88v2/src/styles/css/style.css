@@ -437,6 +437,8 @@ header input:focus-within {
 
 .header > div.menu > div > a div.live:before, .header > div.menu > div > button div.live:before {
   content: 'Live';
+  font-family: "Microsoft YaHei", sans-serif;
+  font-weight: bold;
 }
 
 .header > div.menu > div > a div.live i, .header > div.menu > div > button div.live i {
@@ -14302,7 +14304,7 @@ canvas {
   margin: 10px 0;
 }
 
-.rolloverList {
+.rolloverList, .minAmount {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14311,7 +14313,7 @@ canvas {
   border-width: 1px 0 0 1px;
 }
 
-.rolloverList > div {
+.rolloverList > div, .minAmount > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -14321,7 +14323,7 @@ canvas {
           flex-flow: column;
 }
 
-.rolloverList > div > div {
+.rolloverList > div > div, .minAmount > div > div {
   background: #5E7FB5;
   border: 1px solid #ccc;
   border-width: 0 1px 1px 0;
@@ -14330,7 +14332,7 @@ canvas {
   height: calc(50% - 11px);
 }
 
-.rolloverList > div > div:nth-child(1) {
+.rolloverList > div > div:nth-child(1), .minAmount > div > div:nth-child(1) {
   background: #112240;
 }
 
@@ -16137,12 +16139,14 @@ img[alt="sg"] {
   margin: auto auto 0 0;
 }
 
-.proListNew > div > .promoInfo > div.btnGroup button {
+.proListNew > div > .promoInfo > div.btnGroup button, .proListNew > div > .promoInfo > div.btnGroup a {
   margin: 0 10px 0 0;
-  font-weight: bold;
+  font: bold 13px "Microsoft YaHei", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-.proListNew > div > .promoInfo > div.btnGroup button.orange {
+.proListNew > div > .promoInfo > div.btnGroup button.orange, .proListNew > div > .promoInfo > div.btnGroup a.orange {
   background: #f77900;
 }
 
@@ -16171,7 +16175,7 @@ img[alt="sg"] {
   min-width: 230px;
   padding: 10px 0;
   text-align: center;
-  margin: 0;
+  margin: 0 0 0 auto;
   font-weight: bold;
 }
 
@@ -16350,8 +16354,8 @@ img[alt="sg"] {
 }
 
 .wheelEvent .eventPage .eventTitleBg .eventTitle {
-  margin-top: 25px;
-  font-size: 40px;
+  margin-top: 27px;
+  font-size: 36px;
   width: 100%;
   text-align: center;
 }

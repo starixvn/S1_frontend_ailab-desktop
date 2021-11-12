@@ -827,7 +827,13 @@ export const defMenuLinks = {
 	},
 	promotion: {
 		displayKey: "lbl_Promos",
-		path: path.promotion.root
+		path: path.promotion.root,
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.hot,
+				period: defEventPeriod.promo
+			})
+		]
 	},
 	vip: {
 		displayKey: "lbl_Vip",
