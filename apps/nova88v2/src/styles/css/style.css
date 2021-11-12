@@ -12445,7 +12445,7 @@ canvas {
   color: #07b802;
 }
 
-.quickLinkNew2 a.icon-twitter, .quickLinkNew2 button.icon-twitter {
+.quickLinkNew2 a.icon-twitter, .quickLinkNew2 a.icon-telegram, .quickLinkNew2 button.icon-twitter, .quickLinkNew2 button.icon-telegram {
   color: #1c99e6;
 }
 
