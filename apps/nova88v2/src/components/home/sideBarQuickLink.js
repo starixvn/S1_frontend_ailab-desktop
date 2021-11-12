@@ -13,6 +13,8 @@ export default () => {
 	const [isIconListOpen, setIsIconListOpen] = useState(false);
 	const [activeIcon, setActiveIcon] = useState(null);
 
+	const allCurrencyCode = Object.values(currencyCode);
+
 	const switchIconActive = _mouseOverIcon => {
 		setActiveIcon(_mouseOverIcon);
 	};
@@ -50,6 +52,12 @@ export default () => {
 			iconClass: "icon icon-line",
 			imgInfo: "@Nova88thai",
 			imgSrc: lineQR
+		},
+		{
+			id: 7,
+			displayByCurrency: allCurrencyCode,
+			iconClass: "icon icon-telegram",
+			imgInfo: "@Nova88Support1"
 		}
 	];
 
@@ -71,6 +79,9 @@ export default () => {
 		}
 		if (_iconId === 6) {
 			window.open("https://lin.ee/SAPymLI");
+		}
+		if (_iconId === 7) {
+			window.open("https://t.me/Nova88Support1");
 		}
 	};
 
