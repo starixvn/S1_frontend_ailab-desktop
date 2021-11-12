@@ -95,6 +95,10 @@ button {
   color: #84eeff;
 }
 
+.txt-blue4 {
+  color: #5084e4;
+}
+
 .txt-blue12 {
   color: #64789b;
 }
@@ -201,7 +205,7 @@ html.Newtheme header .header > div.menu {
       -ms-flex: 1;
           flex: 1;
   letter-spacing: 1px;
-  width: calc(100% - (100% - 1400px));
+  width: calc(100% - (100% - 1010px));
   -webkit-box-flex: 0;
       -ms-flex: none;
           flex: none;
@@ -209,7 +213,7 @@ html.Newtheme header .header > div.menu {
   position: fixed;
   left: 0;
   top: 65px;
-  padding: 0 calc((100% - 1400px) / 2);
+  padding: 0 calc((100% - 1010px) / 2);
   height: 50px;
 }
 
@@ -240,6 +244,30 @@ html.Newtheme header .header > div.menu .icon-live::before {
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
   font-size: 12px;
+}
+
+html.Newtheme header .header > div.menu .newicon:before, html.Newtheme header .header > div.menu .liveicon:before, html.Newtheme header .header > div.menu .hoticon:before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: 0;
+  display: block;
+  width: 48px;
+  height: 35px;
+  -webkit-animation: flash3 linear infinite alternate .3s;
+          animation: flash3 linear infinite alternate .3s;
+}
+
+html.Newtheme header .header > div.menu .newicon::before {
+  background: url(../img/dropdown/new.svg) no-repeat center/contain;
+}
+
+html.Newtheme header .header > div.menu .liveicon::before {
+  background: url(../img/dropdown/live.svg) no-repeat center/contain;
+}
+
+html.Newtheme header .header > div.menu .hoticon::before {
+  background: url(../img/dropdown/hot.svg) no-repeat center/contain;
 }
 
 html.Newtheme header .header > div.menu > a,
@@ -604,6 +632,54 @@ html.Newtheme header .header > div.menu .fishList .icon-new::before {
           animation: MoveTopDown linear infinite alternate 1s;
   font-size: 8px;
   z-index: 1;
+}
+
+html.Newtheme header .header > div.menu .sportList .newicon:before, html.Newtheme header .header > div.menu .sportList .liveicon:before, html.Newtheme header .header > div.menu .sportList .hoticon:before,
+html.Newtheme header .header > div.menu .gameList .newicon:before,
+html.Newtheme header .header > div.menu .gameList .liveicon:before,
+html.Newtheme header .header > div.menu .gameList .hoticon:before,
+html.Newtheme header .header > div.menu .casinoList .newicon:before,
+html.Newtheme header .header > div.menu .casinoList .liveicon:before,
+html.Newtheme header .header > div.menu .casinoList .hoticon:before,
+html.Newtheme header .header > div.menu .livecasinoList .newicon:before,
+html.Newtheme header .header > div.menu .livecasinoList .liveicon:before,
+html.Newtheme header .header > div.menu .livecasinoList .hoticon:before,
+html.Newtheme header .header > div.menu .fishList .newicon:before,
+html.Newtheme header .header > div.menu .fishList .liveicon:before,
+html.Newtheme header .header > div.menu .fishList .hoticon:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  display: block;
+  width: 48px;
+  height: 35px;
+  -webkit-animation: flash3 linear infinite alternate .3s;
+          animation: flash3 linear infinite alternate .3s;
+}
+
+html.Newtheme header .header > div.menu .sportList .newicon::before,
+html.Newtheme header .header > div.menu .gameList .newicon::before,
+html.Newtheme header .header > div.menu .casinoList .newicon::before,
+html.Newtheme header .header > div.menu .livecasinoList .newicon::before,
+html.Newtheme header .header > div.menu .fishList .newicon::before {
+  background: url(../img/dropdown/new.svg) no-repeat center/contain;
+}
+
+html.Newtheme header .header > div.menu .sportList .liveicon::before,
+html.Newtheme header .header > div.menu .gameList .liveicon::before,
+html.Newtheme header .header > div.menu .casinoList .liveicon::before,
+html.Newtheme header .header > div.menu .livecasinoList .liveicon::before,
+html.Newtheme header .header > div.menu .fishList .liveicon::before {
+  background: url(../img/dropdown/live.svg) no-repeat center/contain;
+}
+
+html.Newtheme header .header > div.menu .sportList .hoticon::before,
+html.Newtheme header .header > div.menu .gameList .hoticon::before,
+html.Newtheme header .header > div.menu .casinoList .hoticon::before,
+html.Newtheme header .header > div.menu .livecasinoList .hoticon::before,
+html.Newtheme header .header > div.menu .fishList .hoticon::before {
+  background: url(../img/dropdown/hot.svg) no-repeat center/contain;
 }
 
 html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img,
@@ -1160,6 +1236,28 @@ html.Newtheme header .header .appDownload .icon-mobile::before {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes flash3 {
+  0% {
+    -webkit-filter: brightness(0.9);
+            filter: brightness(0.9);
+  }
+  100% {
+    -webkit-filter: brightness(1.2);
+            filter: brightness(1.2);
+  }
+}
+
+@keyframes flash3 {
+  0% {
+    -webkit-filter: brightness(0.9);
+            filter: brightness(0.9);
+  }
+  100% {
+    -webkit-filter: brightness(1.2);
+            filter: brightness(1.2);
   }
 }
 
@@ -5182,6 +5280,7 @@ html.Newtheme .quickSelect > div:first-child {
 html.Newtheme .quickSelect > div.inputBox.promoType,
 html.Newtheme .quickSelect > div:first-child.promoType {
   max-width: none;
+  margin-right: 0;
 }
 
 html.Newtheme .quickSelect > div.inputBox.promoType button.orange,
@@ -5234,6 +5333,7 @@ html.Newtheme .quickSelect .btnGroup {
 html.Newtheme .quickSelect.promo {
   height: 75px;
   margin: 10px 0 0;
+  padding: 0 30px;
 }
 
 html.Newtheme .quickSelect.promo .btnGroup {
@@ -5254,12 +5354,12 @@ html.Newtheme .specialBonus {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  padding: 0 0 0 50px;
+  padding: 0 0 0 30px;
 }
 
 html.Newtheme .specialBonus .inputBox-white {
   position: unset;
-  margin: 0 5px;
+  margin: 0;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5270,7 +5370,6 @@ html.Newtheme .specialBonus .inputBox-white {
   padding: 10px;
   background: white;
   color: #1f3258;
-  border: 1px solid #5084e4;
 }
 
 html.Newtheme .specialBonus .btnGroup {
@@ -5384,7 +5483,7 @@ html.Newtheme .profile {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 700px;
+  max-width: 750px;
   margin: 60px auto 60px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -6038,30 +6137,7 @@ html.Newtheme .promotionsInfo .proData {
   padding: 40px;
 }
 
-html.Newtheme .promotionsInfo .proData .rollover {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 0;
-}
-
-html.Newtheme .promotionsInfo .proData .rollover > div {
-  margin-right: 20px;
-  color: #1e85ec;
-}
-
-html.Newtheme .promotionsInfo .proData .rollover > div:last-child {
-  color: #f77900;
-}
-
-html.Newtheme .promotionsInfo .proData .rollover > div .icon:before {
-  font-weight: normal;
-  margin-right: 5px;
-}
-
-html.Newtheme .promotionsInfo .proData .rolloverNew {
+html.Newtheme .promotionsInfo .proData .rolloverNew, html.Newtheme .promotionsInfo .proData .minAmount {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6074,7 +6150,7 @@ html.Newtheme .promotionsInfo .proData .rolloverNew {
           flex-direction: column;
 }
 
-html.Newtheme .promotionsInfo .proData .rolloverNew > div {
+html.Newtheme .promotionsInfo .proData .rolloverNew > div, html.Newtheme .promotionsInfo .proData .minAmount > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6083,15 +6159,16 @@ html.Newtheme .promotionsInfo .proData .rolloverNew > div {
   color: white;
 }
 
-html.Newtheme .promotionsInfo .proData .rolloverNew > div:first-child {
-  background: #E42329;
-}
-
-html.Newtheme .promotionsInfo .proData .rolloverNew > div:nth-child(2) {
+html.Newtheme .promotionsInfo .proData .rolloverNew > div:first-child, html.Newtheme .promotionsInfo .proData .minAmount > div:first-child {
   background: #F5AC23;
 }
 
-html.Newtheme .promotionsInfo .proData .rolloverNew > div > div {
+html.Newtheme .promotionsInfo .proData .rolloverNew > div:nth-child(2), html.Newtheme .promotionsInfo .proData .minAmount > div:nth-child(2) {
+  background: white;
+  color: black;
+}
+
+html.Newtheme .promotionsInfo .proData .rolloverNew > div > div, html.Newtheme .promotionsInfo .proData .minAmount > div > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -6099,7 +6176,7 @@ html.Newtheme .promotionsInfo .proData .rolloverNew > div > div {
   border-left: 1px solid #fff;
 }
 
-html.Newtheme .promotionsInfo .proData .rolloverNew > div > div:first-child {
+html.Newtheme .promotionsInfo .proData .rolloverNew > div > div:first-child, html.Newtheme .promotionsInfo .proData .minAmount > div > div:first-child {
   border-left: 0px;
 }
 
@@ -6570,6 +6647,70 @@ html.Newtheme .loading img:nth-child(4) {
     opacity: 0;
     margin-top: 30px;
   }
+}
+
+html.Newtheme .progressBarModule {
+  font-weight: bold;
+  padding: 0 2px;
+}
+
+html.Newtheme .progressBarModule .bounsName {
+  font-weight: bold;
+  color: #152849;
+}
+
+html.Newtheme .progressBarModule .turnover {
+  color: #134dae;
+}
+
+html.Newtheme .progressBarModule .turnover span {
+  color: #1e85ec;
+}
+
+html.Newtheme .progressBarModule .turnover button {
+  background: #1e85ec;
+  color: white;
+  border-radius: 100%;
+  padding: 4px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+}
+
+html.Newtheme .progressBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html.Newtheme .progressBar .percentage {
+  color: #1e85ec;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+html.Newtheme .progressBar .bar {
+  height: 5px;
+  border: 1px solid #1e85ec;
+  border-radius: 10px;
+  margin-right: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+html.Newtheme .progressBar .bar .progress {
+  background: #1e85ec;
+  height: 100%;
 }
 
 html.Newtheme .claimedInfo,
@@ -7144,37 +7285,6 @@ html.Newtheme html:not(.index) .swiper-container + .inside-title.icon-ow-casino:
   z-index: -1;
 }
 
-html.Newtheme .minAmount {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  min-width: 300px;
-  font-size: 12px;
-  border-radius: 3px;
-  overflow: hidden;
-  font-weight: bold;
-}
-
-html.Newtheme .minAmount > div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-html.Newtheme .minAmount > div > div {
-  border: 1px solid #134dae;
-  padding: 5px 10px;
-  background: #134dae;
-}
-
-html.Newtheme .minAmount > div > div:last-child {
-  color: #1e85ec;
-  background: white;
-}
-
 html.Newtheme .Sitemap {
   padding: 40px;
   display: -webkit-box;
@@ -7498,18 +7608,18 @@ html.Newtheme .eventLink {
 }
 
 html.Newtheme .eventLink .icon-close {
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   color: #fbd68d;
   position: absolute;
   left: 10px;
   top: -20px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   z-index: 4;
   background: rgba(144, 0, 0, 0.8);
   border-radius: 100%;
-  line-height: 35px;
+  line-height: 32px;
 }
 
 html.Newtheme .eventLink img {
@@ -7524,6 +7634,37 @@ html.Newtheme .eventLink.active {
 
 html.Newtheme .eventLink.goldbox {
   background: revert;
+}
+
+html.Newtheme .eventLink.wheel {
+  bottom: 190px;
+}
+
+html.Newtheme .eventLink.wheel a {
+  position: relative;
+}
+
+html.Newtheme .eventLink.wheel a img {
+  width: 170px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+html.Newtheme .eventLink.wheel a img.spin {
+  z-index: 2;
+}
+
+html.Newtheme .eventLink.wheel a img.inner {
+  -webkit-animation: wheel 1.5s linear infinite;
+          animation: wheel 1.5s linear infinite;
+  z-index: 1;
+}
+
+html.Newtheme .eventLink.wheel a img.note {
+  width: 240px;
+  z-index: 3;
+  left: -20px;
 }
 
 html.Newtheme .time {
@@ -7599,6 +7740,7 @@ html.Newtheme #popup .goldbox_pop .title {
           justify-content: center;
   border-bottom: 1px solid #fbd68d;
   margin-bottom: 25px;
+  pointer-events: none;
 }
 
 html.Newtheme #popup .goldbox_pop .am {
@@ -7612,6 +7754,22 @@ html.Newtheme #popup .goldbox_pop .am {
   text-align: center;
   line-height: 110px;
   margin: 25px auto;
+}
+
+html.Newtheme #popup .wheel_pop {
+  border: 1px solid #F364F3;
+  border-radius: 5px;
+}
+
+html.Newtheme #popup .wheel_pop .title {
+  border-bottom: 1px solid #F364F3;
+}
+
+html.Newtheme #popup .wheel_pop .am {
+  background: #1b021d;
+  color: #ffffff;
+  line-height: 55px;
+  width: 60%;
 }
 
 html.Newtheme .goldbox {
@@ -9898,6 +10056,363 @@ html.Newtheme .infoModuleLeft {
 
 html.Newtheme .infoModuleLeft > .walletWrapper {
   padding: 10px 20px;
+}
+
+html.Newtheme .proListNew {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0 20px;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+}
+
+html.Newtheme .proListNew > div {
+  width: 100%;
+  padding: 15px;
+  background: white;
+  border-radius: 5px;
+  color: #1e85ec;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 10px;
+}
+
+html.Newtheme .proListNew > div.active {
+  opacity: 0.7;
+}
+
+html.Newtheme .proListNew > div.active .claimed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .proListNew > div.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+html.Newtheme .proListNew > div:hover {
+  background: #e8e8e8;
+  -webkit-box-shadow: 0 0 0 3px #5084e4 inset;
+          box-shadow: 0 0 0 3px #5084e4 inset;
+}
+
+html.Newtheme .proListNew > div .new, html.Newtheme .proListNew > div .claimed {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: transparent;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 70px 90px 0 0;
+  border-color: #fab617 transparent transparent transparent;
+  width: 0;
+  height: 0;
+  padding: 0;
+  color: white;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: bold;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+html.Newtheme .proListNew > div .new:before, html.Newtheme .proListNew > div .claimed:before {
+  position: absolute;
+  top: -55px;
+  left: 13px;
+  content: "NEW";
+  -webkit-transform: rotate(-38deg);
+          transform: rotate(-38deg);
+  font-size: 12px;
+}
+
+html.Newtheme .proListNew > div .new.active, html.Newtheme .proListNew > div .claimed.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .proListNew > div .claimed {
+  border-color: #d83b35 transparent transparent transparent;
+}
+
+html.Newtheme .proListNew > div .claimed:before {
+  top: -54px;
+  left: 2px;
+  content: "CLAIMED";
+}
+
+html.Newtheme .proListNew > div > .promoImg {
+  width: 450px;
+  height: 170px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html.Newtheme .proListNew > div > .promoImg img {
+  width: auto;
+  height: 100%;
+  margin-left: 30px;
+}
+
+html.Newtheme .proListNew > div > .promoInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  margin: 0 40px;
+  max-width: 550px;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div[class*=txt-] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-box-orient: vertical;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.txt-darkBlue {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.txt-gray {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  white-space: unset;
+  font-weight: normal;
+  margin: 0 0 10px;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.rollover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  margin: auto 0 10px;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.rollover > div {
+  margin: 0 10px 0 0;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.rollover > div::before {
+  margin-left: 0;
+  font-weight: normal;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.rollover > div span {
+  margin-left: 5px;
+  color: #f77900;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.btnGroup {
+  margin: auto auto 0 0;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.btnGroup a {
+  padding: 6px 0;
+  margin: 0 10px 0 0;
+  font-size: 13px;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.btnGroup button {
+  margin: 0 10px 0 0;
+  font-family: inherit;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.btnGroup button.orange {
+  background: #f77900;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.progressBarModule {
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.progressBarModule .bounsName {
+  font-weight: bold;
+  color: #152849;
+  margin-right: 10px;
+}
+
+html.Newtheme .proListNew > div > .promoInfo > div.progressBarModule .progressBar {
+  width: 100%;
+}
+
+html.Newtheme .proListNew .remain {
+  min-width: 230px;
+  padding: 10px 0;
+  text-align: center;
+  margin: 0 0 0 auto;
+  font-weight: bold;
+}
+
+html.Newtheme .proListNew .remain > div div {
+  color: #fa9f17;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html.Newtheme .proListNew .remain > div div.icon {
+  color: #1E85EC;
+}
+
+html.Newtheme .proListNew .remain > div div.icon:before {
+  margin-left: 0;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+html.Newtheme .proListNew.expired {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+}
+
+html.Newtheme .proListNew.expired > div {
+  background: #c6c6c6;
+}
+
+html.Newtheme .proListNew.expired > div:hover {
+  background: white;
+}
+
+html.Newtheme .proListNew.expired > div .expiredIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-20deg);
+          transform: translateX(-50%) translateY(-50%) rotate(-20deg);
+  background: #42424261;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  font-weight: bold;
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 24px;
+  font-style: italic;
+}
+
+html.Newtheme .promoInfoPopMask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+html.Newtheme .promoInfoPopMask.active {
+  display: block;
+}
+
+html.Newtheme .promoInfoPop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 4;
+  top: 0;
+  overflow-y: auto;
+  display: none;
+}
+
+html.Newtheme .promoInfoPop.active {
+  display: block;
+}
+
+html.Newtheme .promoInfoPop::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+html.Newtheme .promoInfoPop::-webkit-scrollbar-thumb {
+  background: rgba(125, 125, 125, 0.7);
+}
+
+html.Newtheme .promoInfoPop .promotionsInfo {
+  width: 820px;
+  margin: 30px auto;
+  border-radius: 5px;
+  padding: 20px 40px;
+  position: relative;
+  background: #1f3258;
+}
+
+html.Newtheme .promoInfoPop .promotionsInfo .icon-close {
+  position: absolute;
+  color: #5084e4;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+html.Newtheme .promoInfoPop .promotionsInfo img {
+  margin-top: 15px;
+}
+
+html.Newtheme .promoInfoPop .promotionsInfo .proData {
+  margin-top: 0;
+  border-radius: 0 0 5px 5px;
+  padding: 20px 0 0;
+}
+
+html.Newtheme .promoInfoPop .promotionsInfo .proData button, html.Newtheme .promoInfoPop .promotionsInfo .proData a {
+  margin: 0 0 0 5px;
+  padding: 6px;
+}
+
+html.Newtheme .promoInfoPop .promotionsInfo .proData button.orange, html.Newtheme .promoInfoPop .promotionsInfo .proData a.orange {
+  background: #f77900;
+}
+
+html.Newtheme .promoInfoPop .promotionsInfo .proData .proDataTitle .txt-blue2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+html.Newtheme .promoInfoPop .promotionsInfo .proData .proDataTitle .txt-blue2 .txt-blue4 {
+  font-weight: normal;
+  font-size: 16px;
 }
 
 @-webkit-keyframes jpot {

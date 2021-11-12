@@ -207,7 +207,7 @@ export const defMenuLinks = langId => {
 		games: {
 			displayKey: "lbl_Games",
 			path: path.games.root,
-			className: "game icon",
+			className: "game",
 			subMenu: [
 				{
 					...productList.tcg,
@@ -517,6 +517,7 @@ export const defMenuLinks = langId => {
 		},
 		liveCasino: {
 			displayKey: "lbl_LiveCasino",
+			className: "livecasinobtn",
 			path: path.liveCasino.root,
 			subMenu: [
 				// {
@@ -872,17 +873,17 @@ export const defMenuLinks = langId => {
 		},
 		vip: {
 			path: path.vip.root,
-			displayKey: "lbl_Vip",
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.vip
-				})
-			]
+			displayKey: "lbl_Vip"
 		},
 		promotion: {
 			path: path.promotion.root,
-			displayKey: "lbl_Promotions"
+			displayKey: "lbl_Promotions",
+			eventIcons: [
+				showEventIcon({
+					icon: defEventIcon.hot,
+					period: defEventPeriod.promo
+				})
+			]
 		},
 
 		affiliate: {
