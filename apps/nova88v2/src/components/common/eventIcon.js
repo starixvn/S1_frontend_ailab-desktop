@@ -17,8 +17,9 @@ export const defEventPeriod = {
 	Sports_9W: { end: "2021/07/30 11:00:00" },
 	casino_MGPSW: { end: "2021/08/22 11:00:00" },
 	lottery_tcg: { end: "2021/09/11 11:00:00" },
-	casino_NetEnt: { end: "2021/12/13 11:00:00" },
-	liveCasino_EVO: { end: "2021/12/13 11:00:00" },
+	casino_RedTiger: { end: "2021/12/15 11:00:00" },
+	casino_NetEnt: { end: "2021/12/15 11:00:00" },
+	liveCasino_EVO: { end: "2021/12/15 11:00:00" },
 	liveCasino_pp: {
 		start: "2021/11/10 11:00:00",
 		end: "2021/12/31 23:59:59"

@@ -358,6 +358,11 @@ export const defCasinoProviders = {
 		name: "PT",
 		tpGameType: 46
 	},
+	RedTiger: {
+		tpId: 38,
+		name: "RedTiger",
+		tpGameType: 65
+	},
 	NetEnt: {
 		tpId: 37,
 		name: "NetEnt",
