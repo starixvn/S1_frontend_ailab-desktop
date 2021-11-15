@@ -112,6 +112,11 @@ const PlatformSection = ({
 			parameter: { ...productList.tcg },
 			imgName: "tc",
 			hoverImgName: "tcb"
+		},
+		{
+			...productList.liveCasino_EVO,
+			imgName: "ev",
+			hoverImgName: "eva"
 		}
 	];
 

@@ -21,6 +21,7 @@ export const defEventPeriod = {
 	liveCasino_pt: { end: "2021/07/08 11:00:00" },
 	mgpsw: { end: "2021/08/22 11:00:00" },
 	lottery_tcg: { end: "2021/09/11 11:00:00" },
+	liveCasino_evo: { end: "2021/12/13 11:00:00" },
 	liveCasino_pp: {
 		start: "2021/11/10 10:00:00",
 		end: "2021/12/31 22:59:59"

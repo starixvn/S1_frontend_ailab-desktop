@@ -148,6 +148,11 @@ export default {
 		name: "PT",
 		tpGameType: 48
 	},
+	liveCasino_EVO: {
+		tpId: 36,
+		gameId: 0,
+		tpGameType: 63
+	},
 	liveCasino_PP: {
 		tpId: 5,
 		gameId: 101,

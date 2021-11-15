@@ -97,6 +97,10 @@ const defPlatform = [
 	{
 		...productList.tcg,
 		imgName: "tcg"
+	},
+	{
+		...productList.liveCasino_EVO,
+		imgName: "evolution"
 	}
 ];
 

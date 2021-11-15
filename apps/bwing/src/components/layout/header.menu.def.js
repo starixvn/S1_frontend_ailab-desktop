@@ -364,6 +364,21 @@ export const defMenuLinks = {
 				}
 			},
 			{
+				...productList.liveCasino_EVO,
+				className: "liveEvo",
+				displayText: "Evolution Gaming",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_evo
+					})
+				],
+				lobbyPage: {
+					bgClass: "live-evo"
+				}
+			},
+			{
 				...productList.liveCasino_PT,
 				className: "livePT",
 				eventIcons: [
