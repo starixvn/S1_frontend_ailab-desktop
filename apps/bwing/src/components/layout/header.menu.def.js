@@ -219,6 +219,19 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PP.name }
 			},
 			{
+				...defCasinoProviders.NetEnt,
+				className: "NE",
+				displayText: "NetEnt",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NetEnt.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_NetEnt
+					})
+				]
+			},
+			{
 				...defCasinoProviders.MGPSW,
 				className: "MG",
 				eventIcons: [

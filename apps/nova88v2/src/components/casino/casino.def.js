@@ -60,6 +60,11 @@ export const defLobbyImgList = [
 		providerId: productList.casino_PP.tpId
 	},
 	{
+		lobbyImgName: "nt",
+		lobbyDisplayName: "NetEnt",
+		providerId: productList.casino_NetEnt.tpId
+	},
+	{
 		lobbyImgName: "gp",
 		lobbyDisplayName: "Game Play",
 		providerId: productList.casino_GPI.tpId

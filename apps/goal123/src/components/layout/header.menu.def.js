@@ -112,6 +112,10 @@ import slotsOwBgImg from "../../styles/img/dropdown/slots/ow.png";
 import slotsOwNpcImg from "../../styles/img/dropdown/slots/ow-item.png";
 import slotsOwIconImg from "../../styles/img/dropdown/slots/newicon/sabaslot-icon.png";
 
+import slotsNetEntBgImg from "../../styles/img/dropdown/slots/ne.png";
+import slotsNetEntNpcImg from "../../styles/img/dropdown/slots/ne-item.png";
+import slotsNetEntIconImg from "../../styles/img/dropdown/slots/newicon/ne-icon.png";
+
 import fishingParadiseBgImg from "../../styles/img/dropdown/fishing/paradise.png";
 import fishingParadiseNpcImg from "../../styles/img/dropdown/fishing/paradise-item.png";
 
@@ -376,6 +380,21 @@ export const defMenuLinks = langId => {
 					bgImgUrl: slotsPpBgImg,
 					npcImgUrl: slotsPpNpcImg,
 					iconImgUrl: slotsPpIconImg
+				},
+				{
+					...defCasinoProviders.NetEnt,
+					displayText: "NetEnt",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.NetEnt.name },
+					bgImgUrl: slotsNetEntBgImg,
+					npcImgUrl: slotsNetEntNpcImg,
+					iconImgUrl: slotsNetEntIconImg,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_NetEnt
+						})
+					]
 				},
 				{
 					...defCasinoProviders.MGPSW,

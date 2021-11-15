@@ -352,5 +352,10 @@ export const defCasinoProviders = {
 		gameId: "0",
 		name: "PT",
 		tpGameType: 46
+	},
+	NetEnt: {
+		tpId: 37,
+		name: "NetEnt",
+		tpGameType: 64
 	}
 };

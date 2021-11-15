@@ -10721,4 +10721,8 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .backstage img {
   width: 100% !important;
 }
+
+.Straight-lock .text {
+  color: #cfcfcf !important;
+}
 /*# sourceMappingURL=style.css.map */
