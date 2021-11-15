@@ -235,6 +235,11 @@ export default {
 		tpId: 27,
 		tpGameType: 48
 	},
+	liveCasino_EVO: {
+		gameId: 0,
+		tpId: 36,
+		tpGameType: 63
+	},
 
 	/* === 4. fishing === */
 

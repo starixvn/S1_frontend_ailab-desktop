@@ -163,7 +163,11 @@ export default {
 		name: "PP",
 		tpGameType: 16
 	},
-
+	liveCasino_EVO: {
+		tpId: 36,
+		gameId: 0,
+		tpGameType: 63
+	},
 	/* === 4. fishing === */
 
 	fishing_SG: {

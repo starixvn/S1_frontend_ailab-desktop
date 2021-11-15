@@ -65,6 +65,8 @@ import livecasinoAeNpcImg from "../../styles/img/livecasino/ae.png";
 import livecasinoAeIconImg from "../../styles/img/livecasino/newicon/ae-icon.png";
 import livecasinoEbetNpcImg from "../../styles/img/livecasino/ebet.png";
 import livecasinoEbetIconImg from "../../styles/img/livecasino/newicon/ebet-icon.png";
+import livecasinoEVONpcImg from "../../styles/img/livecasino/evolution.png";
+import livecasinoEVOIconImg from "../../styles/img/livecasino/newicon/evolution-icon.png";
 
 import slotsMgBgImg from "../../styles/img/dropdown/slots/mg.png";
 import slotsMgNpcImg from "../../styles/img/dropdown/slots/mg-item.png";
@@ -555,6 +557,22 @@ export const defMenuLinks = langId => {
 					npcImgUrl: livecasinoPpNpcImg,
 					iconImgUrl: livecasinoPpIconImg,
 					lobbyImg: "pp"
+				},
+				{
+					...productList.liveCasino_EVO,
+					className: "evolution",
+					listNpcImgUrl: "evolution.png",
+					displayText: "Evolution Gaming",
+					menuType: defMenuType.entPage,
+					npcImgUrl: livecasinoEVONpcImg,
+					iconImgUrl: livecasinoEVOIconImg,
+					lobbyImg: "evolution",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.liveCasino_evo
+						})
+					]
 				},
 				{
 					...productList.liveCasino_PT,

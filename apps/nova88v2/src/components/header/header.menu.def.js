@@ -369,6 +369,21 @@ export const defMenuLinks = {
 				lobbyPage: { npcImg: "casino_pp" }
 			},
 			{
+				keyName: "casino_EVO",
+				displayText: "Evolution Gaming",
+				listNpcImgUrl: "casino-ev.png",
+				listBgImgUrl: ["evbg.png", "livecasinListHover.png"],
+				menuType: defMenuType.entPage,
+				...productList.liveCasino_EVO,
+				lobbyPage: { npcImg: "casino_ev" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_EVO
+					})
+				]
+			},
+			{
 				keyName: "casino_PT",
 				// icon: "icon icon-PT",
 				displayText: "Playtech",
