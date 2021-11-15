@@ -62,12 +62,13 @@ const defSortSlot = {
 		slot_PG: 5,
 		slot_JOKER: 6,
 		slot_SG: 7,
-		slot_ICG: 8,
-		slot_PT: 9,
-		slot_YGG: 10,
-		slot_CQ9: 11,
-		slot_GPI: 12,
-		slot_OW: 13
+		slot_RedTiger: 8,
+		slot_ICG: 9,
+		slot_PT: 10,
+		slot_YGG: 11,
+		slot_CQ9: 12,
+		slot_GPI: 13,
+		slot_OW: 14
 	},
 	[currencyCode.MY]: {
 		slot_PP: 1,
@@ -75,14 +76,15 @@ const defSortSlot = {
 		slot_MGPSW: 3,
 		slot_JI: 4,
 		slot_SG: 5,
-		slot_YGG: 6,
-		slot_JOKER: 7,
-		slot_PT: 8,
-		slot_GPI: 9,
-		slot_CQ9: 10,
-		slot_ICG: 11,
-		slot_OW: 12,
-		slot_PG: 13
+		slot_RedTiger: 6,
+		slot_YGG: 7,
+		slot_JOKER: 8,
+		slot_PT: 9,
+		slot_GPI: 10,
+		slot_CQ9: 11,
+		slot_ICG: 12,
+		slot_OW: 13,
+		slot_PG: 14
 	},
 	[currencyCode.ID]: {
 		slot_PP: 1,
@@ -91,13 +93,14 @@ const defSortSlot = {
 		slot_JI: 4,
 		slot_PG: 5,
 		slot_SG: 6,
-		slot_PT: 7,
-		slot_JOKER: 8,
-		slot_CQ9: 9,
-		slot_ICG: 10,
-		slot_GPI: 11,
-		slot_YGG: 12,
-		slot_OW: 13
+		slot_RedTiger: 7,
+		slot_PT: 8,
+		slot_JOKER: 9,
+		slot_CQ9: 10,
+		slot_ICG: 11,
+		slot_GPI: 12,
+		slot_YGG: 13,
+		slot_OW: 14
 	}
 };
 
@@ -635,6 +638,22 @@ export const defMenuLinks = {
 				listNpcImgUrl: "slotOW.png",
 				listBgImgUrl: "slotListHover.png",
 				...productList.casino_OW
+			},
+			{
+				keyName: "slot_RedTiger",
+				// icon: "icon icon-PG",
+				displayText: "Red Tiger",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotrt.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_RedTiger },
+				...productList.casino_RedTiger,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_RedTiger
+					})
+				]
 			},
 			{
 				keyName: "slot_NetEnt",

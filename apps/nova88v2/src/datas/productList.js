@@ -15,6 +15,7 @@ export const defSlotTpGameType = {
 	PT: { tpId: 27, tpGameType: 46 },
 	JILI: { tpId: 32, tpGameType: 53 },
 	MG: { tpId: 34, tpGameType: 57 },
+	RedTiger: { tpId: 38, tpGameType: 65 },
 	NetEnt: { tpId: 37, tpGameType: 64 }
 };
 
@@ -174,9 +175,12 @@ export default {
 		gameId: "",
 		tpGameType: 57
 	},
+	casino_RedTiger: {
+		tpId: 38,
+		tpGameType: 65
+	},
 	casino_NetEnt: {
 		tpId: 37,
-		name: "NetEnt",
 		tpGameType: 64
 	},
 	kiss918: {

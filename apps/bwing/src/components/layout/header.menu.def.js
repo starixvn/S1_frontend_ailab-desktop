@@ -219,6 +219,19 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PP.name }
 			},
 			{
+				...defCasinoProviders.RedTiger,
+				className: "RED",
+				displayText: "Red Tiger",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.RedTiger.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_RedTiger
+					})
+				]
+			},
+			{
 				...defCasinoProviders.NetEnt,
 				className: "NE",
 				displayText: "NetEnt",

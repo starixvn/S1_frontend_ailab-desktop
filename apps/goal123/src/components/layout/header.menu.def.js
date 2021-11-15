@@ -112,6 +112,9 @@ import slotsOwBgImg from "../../styles/img/dropdown/slots/ow.png";
 import slotsOwNpcImg from "../../styles/img/dropdown/slots/ow-item.png";
 import slotsOwIconImg from "../../styles/img/dropdown/slots/newicon/sabaslot-icon.png";
 
+import slotsRtBgImg from "../../styles/img/dropdown/slots/rt.png";
+import slotsRtNpcImg from "../../styles/img/dropdown/slots/rt-item.png";
+import slotsRtIconImg from "../../styles/img/dropdown/slots/newicon/rt-icon.png";
 import slotsNetEntBgImg from "../../styles/img/dropdown/slots/ne.png";
 import slotsNetEntNpcImg from "../../styles/img/dropdown/slots/ne-item.png";
 import slotsNetEntIconImg from "../../styles/img/dropdown/slots/newicon/ne-icon.png";
@@ -380,6 +383,22 @@ export const defMenuLinks = langId => {
 					bgImgUrl: slotsPpBgImg,
 					npcImgUrl: slotsPpNpcImg,
 					iconImgUrl: slotsPpIconImg
+				},
+				{
+					...defCasinoProviders.RedTiger,
+					className: "RedTiger",
+					displayText: "Red Tiger",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.RedTiger.name },
+					bgImgUrl: slotsRtBgImg,
+					npcImgUrl: slotsRtNpcImg,
+					iconImgUrl: slotsRtIconImg,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_RedTiger
+						})
+					]
 				},
 				{
 					...defCasinoProviders.NetEnt,

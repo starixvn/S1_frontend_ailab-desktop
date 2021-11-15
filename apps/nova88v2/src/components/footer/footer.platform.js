@@ -114,6 +114,13 @@ const PlatformSection = ({
 			hoverImgName: "tcb"
 		},
 		{
+			...productList.casino_RedTiger,
+			path: path.casino.root,
+			parameter: { ...productList.casino_RedTiger },
+			imgName: "rt",
+			hoverImgName: "rta"
+		},
+		{
 			...productList.casino_NetEnt,
 			path: path.casino.root,
 			parameter: { ...productList.casino_NetEnt },

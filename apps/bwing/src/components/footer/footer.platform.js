@@ -98,6 +98,12 @@ const defPlatform = [
 		imgName: "tc"
 	},
 	{
+		...defCasinoProviders.RedTiger,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.RedTiger.name },
+		imgName: "red"
+	},
+	{
 		...defCasinoProviders.NetEnt,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.NetEnt.name },
