@@ -385,6 +385,21 @@ export const defMenuLinks = langId => {
 					iconImgUrl: slotsPpIconImg
 				},
 				{
+					...defCasinoProviders.NetEnt,
+					displayText: "NetEnt",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.NetEnt.name },
+					bgImgUrl: slotsNetEntBgImg,
+					npcImgUrl: slotsNetEntNpcImg,
+					iconImgUrl: slotsNetEntIconImg,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_NetEnt
+						})
+					]
+				},
+				{
 					...defCasinoProviders.RedTiger,
 					className: "RedTiger",
 					displayText: "Red Tiger",
@@ -397,21 +412,6 @@ export const defMenuLinks = langId => {
 						showEventIcon({
 							icon: defEventIcon.new,
 							period: defEventPeriod.casino_RedTiger
-						})
-					]
-				},
-				{
-					...defCasinoProviders.NetEnt,
-					displayText: "NetEnt",
-					menuType: defMenuType.Link,
-					parameter: { provider: defCasinoProviders.NetEnt.name },
-					bgImgUrl: slotsNetEntBgImg,
-					npcImgUrl: slotsNetEntNpcImg,
-					iconImgUrl: slotsNetEntIconImg,
-					eventIcons: [
-						showEventIcon({
-							icon: defEventIcon.new,
-							period: defEventPeriod.casino_NetEnt
 						})
 					]
 				},
