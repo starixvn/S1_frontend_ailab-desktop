@@ -10,6 +10,7 @@ import ptImg from "../../styles/img/partnerlogo/pt.png";
 import mgImg from "../../styles/img/partnerlogo/mg.png";
 import sgImg from "../../styles/img/partnerlogo/sg.png";
 import yggImg from "../../styles/img/partnerlogo/ygg.png";
+import neImg from "../../styles/img/partnerlogo/ne.png";
 
 import cq9ActiveImg from "../../styles/img/partnerlogo/cq9a.png";
 import gpiActiveImg from "../../styles/img/partnerlogo/gpia.png";
@@ -21,6 +22,7 @@ import ptActiveImg from "../../styles/img/partnerlogo/pta.png";
 import mgActiveImg from "../../styles/img/partnerlogo/mga.png";
 import sgActiveImg from "../../styles/img/partnerlogo/sga.png";
 import yggActiveImg from "../../styles/img/partnerlogo/ygga.png";
+import neActiveImg from "../../styles/img/partnerlogo/nea.png";
 
 export const defRowsPerPage = 20;
 
@@ -54,6 +56,12 @@ export const defSearchColumn = {
 };
 
 export const defLobbyImgList = [
+	{
+		img: neImg,
+		activeImg: neActiveImg,
+		lobbyDisplayName: "NetEnt",
+		providerId: defCasinoProviders.NetEnt.tpId
+	},
 	{
 		img: jiliImg,
 		activeImg: jiliaActiveImg,

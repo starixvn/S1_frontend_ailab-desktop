@@ -56,42 +56,48 @@ const defSortCasino = {
 const defSortSlot = {
 	[currencyCode.TH]: {
 		slot_PP: 1,
-		casino_MGPSW: 2,
-		slot_PG: 3,
-		slot_JOKER: 4,
-		slot_SG: 5,
-		slot_ICG: 6,
-		slot_PT: 7,
-		slot_YGG: 8,
-		slot_CQ9: 9,
-		slot_GPI: 10,
-		slot_OW: 11
+		slot_NetEnt: 2,
+		slot_MGPSW: 3,
+		slot_JI: 4,
+		slot_PG: 5,
+		slot_JOKER: 6,
+		slot_SG: 7,
+		slot_ICG: 8,
+		slot_PT: 9,
+		slot_YGG: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_OW: 13
 	},
 	[currencyCode.MY]: {
 		slot_PP: 1,
-		casino_MGPSW: 2,
-		slot_SG: 3,
-		slot_YGG: 4,
-		slot_JOKER: 5,
-		slot_PT: 6,
-		slot_GPI: 7,
-		slot_CQ9: 8,
-		slot_ICG: 9,
-		slot_OW: 10,
-		slot_PG: 11
+		slot_NetEnt: 2,
+		slot_MGPSW: 3,
+		slot_JI: 4,
+		slot_SG: 5,
+		slot_YGG: 6,
+		slot_JOKER: 7,
+		slot_PT: 8,
+		slot_GPI: 9,
+		slot_CQ9: 10,
+		slot_ICG: 11,
+		slot_OW: 12,
+		slot_PG: 13
 	},
 	[currencyCode.ID]: {
 		slot_PP: 1,
-		casino_MGPSW: 2,
-		slot_PG: 3,
-		slot_SG: 4,
-		slot_PT: 5,
-		slot_JOKER: 6,
-		slot_CQ9: 7,
-		slot_ICG: 8,
-		slot_GPI: 9,
-		slot_YGG: 10,
-		slot_OW: 11
+		slot_NetEnt: 2,
+		slot_MGPSW: 3,
+		slot_JI: 4,
+		slot_PG: 5,
+		slot_SG: 6,
+		slot_PT: 7,
+		slot_JOKER: 8,
+		slot_CQ9: 9,
+		slot_ICG: 10,
+		slot_GPI: 11,
+		slot_YGG: 12,
+		slot_OW: 13
 	}
 };
 
@@ -629,6 +635,21 @@ export const defMenuLinks = {
 				listNpcImgUrl: "slotOW.png",
 				listBgImgUrl: "slotListHover.png",
 				...productList.casino_OW
+			},
+			{
+				keyName: "slot_NetEnt",
+				displayText: "NetEnt",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotnt.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_NetEnt },
+				...productList.casino_NetEnt,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_NetEnt
+					})
+				]
 			}
 		]
 	},

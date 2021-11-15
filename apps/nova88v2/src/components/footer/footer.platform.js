@@ -114,6 +114,13 @@ const PlatformSection = ({
 			hoverImgName: "tcb"
 		},
 		{
+			...productList.casino_NetEnt,
+			path: path.casino.root,
+			parameter: { ...productList.casino_NetEnt },
+			imgName: "nt",
+			hoverImgName: "nta"
+		},
+		{
 			...productList.liveCasino_EVO,
 			imgName: "ev",
 			hoverImgName: "eva"

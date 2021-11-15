@@ -99,6 +99,12 @@ const defPlatform = [
 		imgName: "tcg"
 	},
 	{
+		...defCasinoProviders.NetEnt,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.NetEnt.name },
+		imgName: "ne"
+	},
+	{
 		...productList.liveCasino_EVO,
 		imgName: "evolution"
 	}
