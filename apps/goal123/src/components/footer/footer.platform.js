@@ -75,7 +75,6 @@ const defPlatform = [
 		parameter: { provider: defCasinoProviders.CQ9.name },
 		imgName: "cq9"
 	},
-
 	{
 		...defCasinoProviders.JILI,
 		path: path.casino.root,
@@ -97,6 +96,22 @@ const defPlatform = [
 	{
 		...productList.tcg,
 		imgName: "tcg"
+	},
+	{
+		...defCasinoProviders.RedTiger,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.RedTiger.name },
+		imgName: "rt"
+	},
+	{
+		...defCasinoProviders.NetEnt,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.NetEnt.name },
+		imgName: "ne"
+	},
+	{
+		...productList.liveCasino_EVO,
+		imgName: "evolution"
 	}
 ];
 

@@ -14,7 +14,9 @@ export const defSlotTpGameType = {
 	Iconic: { tpId: 24, tpGameType: 39 },
 	PT: { tpId: 27, tpGameType: 46 },
 	JILI: { tpId: 32, tpGameType: 53 },
-	MG: { tpId: 34, tpGameType: 57 }
+	MG: { tpId: 34, tpGameType: 57 },
+	RedTiger: { tpId: 38, tpGameType: 65 },
+	NetEnt: { tpId: 37, tpGameType: 64 }
 };
 
 export default {
@@ -173,6 +175,14 @@ export default {
 		gameId: "",
 		tpGameType: 57
 	},
+	casino_RedTiger: {
+		tpId: 38,
+		tpGameType: 65
+	},
+	casino_NetEnt: {
+		tpId: 37,
+		tpGameType: 64
+	},
 	kiss918: {
 		tpId: 21,
 		tpGameType: 33,
@@ -234,6 +244,11 @@ export default {
 		gameId: "0",
 		tpId: 27,
 		tpGameType: 48
+	},
+	liveCasino_EVO: {
+		gameId: 0,
+		tpId: 36,
+		tpGameType: 63
 	},
 
 	/* === 4. fishing === */

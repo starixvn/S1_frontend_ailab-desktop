@@ -65,6 +65,8 @@ import livecasinoAeNpcImg from "../../styles/img/livecasino/ae.png";
 import livecasinoAeIconImg from "../../styles/img/livecasino/newicon/ae-icon.png";
 import livecasinoEbetNpcImg from "../../styles/img/livecasino/ebet.png";
 import livecasinoEbetIconImg from "../../styles/img/livecasino/newicon/ebet-icon.png";
+import livecasinoEVONpcImg from "../../styles/img/livecasino/evolution.png";
+import livecasinoEVOIconImg from "../../styles/img/livecasino/newicon/evolution-icon.png";
 
 import slotsMgBgImg from "../../styles/img/dropdown/slots/mg.png";
 import slotsMgNpcImg from "../../styles/img/dropdown/slots/mg-item.png";
@@ -109,6 +111,13 @@ import slotsPgIconImg from "../../styles/img/dropdown/slots/newicon/pg-icon.png"
 import slotsOwBgImg from "../../styles/img/dropdown/slots/ow.png";
 import slotsOwNpcImg from "../../styles/img/dropdown/slots/ow-item.png";
 import slotsOwIconImg from "../../styles/img/dropdown/slots/newicon/sabaslot-icon.png";
+
+import slotsRtBgImg from "../../styles/img/dropdown/slots/rt.png";
+import slotsRtNpcImg from "../../styles/img/dropdown/slots/rt-item.png";
+import slotsRtIconImg from "../../styles/img/dropdown/slots/newicon/rt-icon.png";
+import slotsNetEntBgImg from "../../styles/img/dropdown/slots/ne.png";
+import slotsNetEntNpcImg from "../../styles/img/dropdown/slots/ne-item.png";
+import slotsNetEntIconImg from "../../styles/img/dropdown/slots/newicon/ne-icon.png";
 
 import fishingParadiseBgImg from "../../styles/img/dropdown/fishing/paradise.png";
 import fishingParadiseNpcImg from "../../styles/img/dropdown/fishing/paradise-item.png";
@@ -376,6 +385,37 @@ export const defMenuLinks = langId => {
 					iconImgUrl: slotsPpIconImg
 				},
 				{
+					...defCasinoProviders.RedTiger,
+					className: "RedTiger",
+					displayText: "Red Tiger",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.RedTiger.name },
+					bgImgUrl: slotsRtBgImg,
+					npcImgUrl: slotsRtNpcImg,
+					iconImgUrl: slotsRtIconImg,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_RedTiger
+						})
+					]
+				},
+				{
+					...defCasinoProviders.NetEnt,
+					displayText: "NetEnt",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.NetEnt.name },
+					bgImgUrl: slotsNetEntBgImg,
+					npcImgUrl: slotsNetEntNpcImg,
+					iconImgUrl: slotsNetEntIconImg,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_NetEnt
+						})
+					]
+				},
+				{
 					...defCasinoProviders.MGPSW,
 					eventIcons: [
 						showEventIcon({
@@ -555,6 +595,22 @@ export const defMenuLinks = langId => {
 					npcImgUrl: livecasinoPpNpcImg,
 					iconImgUrl: livecasinoPpIconImg,
 					lobbyImg: "pp"
+				},
+				{
+					...productList.liveCasino_EVO,
+					className: "evolution",
+					listNpcImgUrl: "evolution.png",
+					displayText: "Evolution Gaming",
+					menuType: defMenuType.entPage,
+					npcImgUrl: livecasinoEVONpcImg,
+					iconImgUrl: livecasinoEVOIconImg,
+					lobbyImg: "evolution",
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.liveCasino_evo
+						})
+					]
 				},
 				{
 					...productList.liveCasino_PT,

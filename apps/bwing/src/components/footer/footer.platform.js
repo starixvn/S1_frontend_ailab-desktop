@@ -96,6 +96,22 @@ const defPlatform = [
 	{
 		...productList.tcg,
 		imgName: "tc"
+	},
+	{
+		...defCasinoProviders.RedTiger,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.RedTiger.name },
+		imgName: "red"
+	},
+	{
+		...defCasinoProviders.NetEnt,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.NetEnt.name },
+		imgName: "ne"
+	},
+	{
+		...productList.liveCasino_EVO,
+		imgName: "ev"
 	}
 	// {
 	// 	...productList.liveCasino_Allbet,

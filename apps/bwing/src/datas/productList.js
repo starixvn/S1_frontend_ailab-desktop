@@ -148,6 +148,11 @@ export default {
 		name: "PT",
 		tpGameType: 48
 	},
+	liveCasino_EVO: {
+		tpId: 36,
+		gameId: 0,
+		tpGameType: 63
+	},
 	liveCasino_PP: {
 		tpId: 5,
 		gameId: 101,
@@ -347,5 +352,15 @@ export const defCasinoProviders = {
 		gameId: "0",
 		name: "PT",
 		tpGameType: 46
+	},
+	RedTiger: {
+		tpId: 38,
+		name: "RedTiger",
+		tpGameType: 65
+	},
+	NetEnt: {
+		tpId: 37,
+		name: "NetEnt",
+		tpGameType: 64
 	}
 };

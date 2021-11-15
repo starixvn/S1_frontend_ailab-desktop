@@ -219,6 +219,32 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PP.name }
 			},
 			{
+				...defCasinoProviders.RedTiger,
+				className: "RED",
+				displayText: "Red Tiger",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.RedTiger.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_RedTiger
+					})
+				]
+			},
+			{
+				...defCasinoProviders.NetEnt,
+				className: "NE",
+				displayText: "NetEnt",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NetEnt.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_NetEnt
+					})
+				]
+			},
+			{
 				...defCasinoProviders.MGPSW,
 				className: "MG",
 				eventIcons: [
@@ -361,6 +387,21 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-pp"
+				}
+			},
+			{
+				...productList.liveCasino_EVO,
+				className: "liveEvo",
+				displayText: "Evolution Gaming",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_evo
+					})
+				],
+				lobbyPage: {
+					bgClass: "live-evo"
 				}
 			},
 			{
