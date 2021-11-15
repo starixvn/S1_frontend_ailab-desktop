@@ -17,11 +17,13 @@ export default ({
 	if (
 		isJoin &&
 		promotionType !== defPromotionType.cashback &&
-		promotionType !== defPromotionType.rebate
+		promotionType !== defPromotionType.rebate &&
+		status !== promoStatus.Fulfill &&
+		status !== promoStatus.Canceled
 	) {
 		const _isConvert = isConvert(currencyId);
 		const percentage =
-			status === promoStatus.Fulfill || custTurnOver >= custRollOver
+			custTurnOver >= custRollOver
 				? 100
 				: ((custTurnOver / custRollOver) * 100).toFixed(2);
 
