@@ -157,7 +157,7 @@ export default ({ promotionInfo, userInfo, filter, callBack }) => {
 		return null;
 
 	return (
-		<button className="orange" onClick={onJoinPromotion}>
+		<button className="yellow" onClick={onJoinPromotion}>
 			{t("lbl_PromoJoinNow")}
 		</button>
 	);
