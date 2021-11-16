@@ -783,7 +783,7 @@
 	"lbl_CryptoPay": "Crypto Pay",
 	"lbl_NotERC20WalletAddr": "Must be ERC-20 / TRC-20 compatible wallet address",
 	"lbl_already_stored_this_information": "You have already stored this information.",
-	"lbl_Crypto_OTP": "Phone number (OTP) verification are require before deposit for Crypto service.",
+	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "UPCOMING MATCHES",
