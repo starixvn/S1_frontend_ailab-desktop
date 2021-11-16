@@ -783,7 +783,7 @@
 	"lbl_CryptoPay": "Pembayaran Crypto",
 	"lbl_NotERC20WalletAddr": "Harus alamat dompet yang sesuai dengan ERC-20 / TRC-20",
 	"lbl_already_stored_this_information": "Anda telah menyimpan informasi ini.",
-	"lbl_Crypto_OTP": "Verifikasi nomor telepon (OTP) diperlukan sebelum deposit untuk layanan Crypto.",
+	"lbl_Crypto_OTP": "Verifikasi nomor telepon (OTP) diperlukan sebelum menggunakan layanan Crypto.",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_UPCOMING_MATCHES": "Pertandingan Mendatang",
