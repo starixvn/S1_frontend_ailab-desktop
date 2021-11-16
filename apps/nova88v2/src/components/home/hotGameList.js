@@ -95,14 +95,18 @@ const defGame = {
 		gameId: 105,
 		tpGameType: 29
 	},
-	Gates_of_Olympus: {
-		name: "Gates of Olympus",
+	Nova88_Olympus: {
+		displayKey: "HotGames.lbl_Nova88_Olympus",
+		name: "Nova88 Olympus",
 		provider: "PP",
 		providerImg: "ppb",
-		img: "gates_of_olympus",
+		img: {
+			default: "88_of_olympus_en",
+			cs: "88_of_olympus_cs"
+		},
 		gameType: defGameType.slots,
 		tpId: 5,
-		gameId: "vs20olympgate",
+		gameId: "vs20olympnova88",
 		tpGameType: 7
 	},
 	God_Of_Fortune: {
@@ -242,7 +246,7 @@ const defGameList = {
 		defGame.Five_Fortune_Dragons,
 		defGame.Thor_Infinity_Reels,
 		defGame.Sky_Lantern,
-		defGame.Gates_of_Olympus,
+		defGame.Nova88_Olympus,
 		defGame.God_Of_Fortune,
 		defGame.Archer,
 		defGame.LUCKY_GOD,
@@ -256,7 +260,7 @@ const defGameList = {
 		defGame.Thor_Infinity_Reels,
 		defGame.Mahjong_Ways_Two,
 		defGame.Fire_Queen_2,
-		defGame.Gates_of_Olympus,
+		defGame.Nova88_Olympus,
 		defGame.God_Of_Fortune,
 		defGame.Zhao_Cai_Jin_Bao_Jackpot,
 		defGame.SUPREME_CAISHEN,
@@ -269,7 +273,7 @@ const defGameList = {
 		defGame.Thor_Infinity_Reels,
 		defGame.Mahjong_Ways_Two,
 		defGame.Jumping_Mobile,
-		defGame.Gates_of_Olympus,
+		defGame.Nova88_Olympus,
 		defGame.God_Of_Fortune,
 		defGame.Gem_Queen,
 		defGame.SUPREME_CAISHEN,
@@ -283,7 +287,7 @@ const defGameList = {
 		defGame.Archer,
 		defGame.God_Of_Fortune,
 		defGame.Thor_Infinity_Reels,
-		defGame.Gates_of_Olympus,
+		defGame.Nova88_Olympus,
 		defGame.Houyis_Legend,
 		defGame.Sky_Lantern,
 		defGame.Sonya_Blackjack,
@@ -350,9 +354,12 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 				(mt.tpGameType === g.tpGameType ||
 					mt.tpGameType === defTpGameType.All)
 		);
+
+		const displayName = t(g.displayKey, g.name);
+		const gameImgName = g.img?.[userInfo.langId] ?? g.img?.default ?? g.img;
 		return (
 			<div
-				key={`hotGame-${g.gameId}-${g.name}`}
+				key={`hotGame-${g.gameId}-${g.tpId}`}
 				style={{
 					width: "300px",
 					margin: "0 15px"
@@ -367,11 +374,11 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 					)
 				}>
 				<img
-					src={`${bannerImgUrl}/img/hotgame/${g.img}.jpg`}
-					alt={g.name}
+					src={`${bannerImgUrl}/img/hotgame/${gameImgName}.jpg`}
+					alt={displayName}
 				/>
 				<div>
-					<div className="title">{g.name}</div>
+					<div className="title">{displayName}</div>
 					<div>{g.provider}</div>
 				</div>
 				<img
