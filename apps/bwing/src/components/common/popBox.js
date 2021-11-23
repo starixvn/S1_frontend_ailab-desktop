@@ -319,6 +319,16 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.PaymentQR: {
+			const PaymentQR = lazy(() => import("./popBox.paymentQR"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<PaymentQR {...popBox} />
+				</Suspense>
+			);
+			break;
+		}
+
 		case defPopBoxType.default:
 			break;
 
