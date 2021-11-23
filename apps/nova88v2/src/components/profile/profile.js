@@ -85,7 +85,15 @@ export default () => {
 					res => {
 						if (res.data.errorCode === 0) {
 							setCountryList(res.data.data);
+						} else {
+							openErrorMessagePopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
+					},
+					() => {
+						openErrorMessagePopBox();
 					}
 				);
 			}
@@ -207,6 +215,11 @@ export default () => {
 									}
 								}));
 							}
+						} else {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 					}
 				},
@@ -348,7 +361,7 @@ export default () => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
+								message: `[${res.data.errorCode}] ${res.data.message}`,
 								btnBar: (
 									<div className="btnGroup">
 										<button
@@ -363,7 +376,7 @@ export default () => {
 					}
 					setLoading(false);
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,

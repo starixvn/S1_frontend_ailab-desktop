@@ -16,12 +16,14 @@ import { api_site_GetTpIds } from "../../service/api/site";
 import ImgJoeColeSignature from "../../styles/img/joecole_w.png";
 import ImgJoeColePhoto from "../../styles/img/jc.png";
 import { currencyCode } from "../../datas/countryCode";
+import usePopBox from "../hook/usePopBox";
 import { useGetSEODatas } from "../seo/seo";
 
 const Footer = ({ isFullFooter = false }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [productTpIds, setProductTpIds] = useState(null);
 	const isMountedRef = useRef(null);
 
@@ -34,11 +36,23 @@ const Footer = ({ isFullFooter = false }) => {
 
 	useEffect(() => {
 		if (userInfo.isLogin && productTpIds === null) {
-			api_site_GetTpIds().then(res => {
-				if (res.data.errorCode === 0 && isMountedRef.current) {
-					setProductTpIds(res.data.data);
+			api_site_GetTpIds().then(
+				res => {
+					if (res.data.errorCode === 0 && isMountedRef.current) {
+						setProductTpIds(res.data.data);
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						errorPopBox();
+					}
 				}
-			});
+			);
 		} else if (userInfo.isLogin === false && productTpIds?.length > 0) {
 			setProductTpIds(null);
 		}

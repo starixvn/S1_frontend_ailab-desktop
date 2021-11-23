@@ -20,12 +20,14 @@ import { initState, reducer, defActionType } from "./withdrawal.reducer";
 import RecentHistory from "./withdrawal.recentHistory";
 import path from "../../router";
 import useTransfer from "./hook/useTransfer";
+import usePopBox from "../hook/usePopBox";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { loading, setLoading } = useContext(loadingContext);
+	const { errorPopBox } = usePopBox();
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
 	const { restoreAllBalanceToMainWallet } = useTransfer();
@@ -44,16 +46,28 @@ export default () => {
 	}, [userInfo.isLogin]);
 
 	const GetDailyWithdrawalLimit = () => {
-		api_payment_GetWithdrawalLimit().then(res => {
-			if (res.data.errorCode === 0 && isMountedRef.current) {
-				dispatch({
-					type: defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT,
-					withdrawalMin: res.data.data.withdrawalMin,
-					withdrawalMax: res.data.data.withdrawalAvailableAmount,
-					isAmountLimited: !res.data.data.unlimited
-				});
+		api_payment_GetWithdrawalLimit().then(
+			res => {
+				if (res.data.errorCode === 0 && isMountedRef.current) {
+					dispatch({
+						type: defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT,
+						withdrawalMin: res.data.data.withdrawalMin,
+						withdrawalMax: res.data.data.withdrawalAvailableAmount,
+						isAmountLimited: !res.data.data.unlimited
+					});
+				} else if (res.data.errorCode !== 0) {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
-		});
+		);
 	};
 
 	useEffect(() => {
@@ -105,20 +119,10 @@ export default () => {
 							balanceData: res.data.data
 						});
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-check"
-										onClick={ClosePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 					dispatch({
 						type: defActionType.SET_LOADING,
@@ -128,51 +132,35 @@ export default () => {
 			},
 			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={ClosePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
 	};
 
 	const GetWithdrawalInfoRecent = async () => {
-		await api_payment_GetWithdrawalInfoRecent().then(res => {
-			if (isMountedRef.current) {
-				if (res.data.errorCode === 0) {
-					dispatch({
-						type: defActionType.GET_RECENT_HISTORY,
-						recentHistory: res.data.data
-					});
-				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={ClosePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+		await api_payment_GetWithdrawalInfoRecent().then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						dispatch({
+							type: defActionType.GET_RECENT_HISTORY,
+							recentHistory: res.data.data
+						});
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
 				}
 			}
-		});
+		);
 	};
 
 	const KycCheck = async () => {
@@ -187,6 +175,11 @@ export default () => {
 						kycStatus = "kycUpload";
 					} else if (errorCode === 2) {
 						kycStatus = "kycPending";
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 					dispatch({
 						type: defActionType.SET_KYC_STATUS,
@@ -194,22 +187,9 @@ export default () => {
 					});
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={ClosePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);

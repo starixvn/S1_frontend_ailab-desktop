@@ -199,7 +199,47 @@ export default () => {
 			_favorite: newFav
 		});
 		if (userInfo.isLogin) {
-			api_account_SetFavoriteGame(tpId, gameId, isRemove);
+			api_account_SetFavoriteGame(tpId, gameId, isRemove).then(
+				res => {
+					if (isMountedRef.current) {
+						const { errorCode, message } = res.data;
+						if (errorCode !== 0) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `[${errorCode}] ${message}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={clickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						}
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={clickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
+			);
 		}
 	};
 
@@ -405,10 +445,40 @@ export default () => {
 								if (isMountedRef.current) {
 									setFavorite(fav);
 								}
+							} else if (resFav.data.errorCode !== 0) {
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.ErrorMsg,
+									message: `[${resFav.data.errorCode}] ${resFav.data.message}`,
+									btnBar: (
+										<div className="btnGroup">
+											<button
+												className="btn-check"
+												onClick={clickClose}>
+												{t("lbl_Close")}
+											</button>
+										</div>
+									)
+								});
 							}
 						});
 					}
 					setLoading(false);
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: `[${res.data.errorCode}] ${res.data.message}`,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={clickClose}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
 				}
 			},
 			() => {

@@ -30,12 +30,14 @@ import { HomeNews } from "./homeNews";
 import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
 import QuickdownloadLink from "./quickdownloadLink";
+import usePopBox from "../hook/usePopBox";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setIsRoot } = useContext(isRootContext);
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const { allMaintainList } = useContext(maintainListContext);
 
@@ -86,31 +88,46 @@ const IndexPage = () => {
 				}
 
 				if (showDepositHint) {
-					api_account_GetWalletInfo().then(res => {
-						if (res.data.errorCode === 0 && isMountedRef.current) {
-							const tpWallets = res.data.data.tpWallets?.map(
-								tp => {
-									return {
-										tpId: tp.tpId,
-										balance: tp.balance
-									};
+					api_account_GetWalletInfo().then(
+						res => {
+							if (
+								res.data.errorCode === 0 &&
+								isMountedRef.current
+							) {
+								const tpWallets = res.data.data.tpWallets?.map(
+									tp => {
+										return {
+											tpId: tp.tpId,
+											balance: tp.balance
+										};
+									}
+								);
+
+								const hasBalance =
+									res.data.data?.balance ||
+									tpWallets?.filter(tp => {
+										return tp.balance > 0;
+									}).length >= 1;
+
+								if (!hasBalance && showDepositHint) {
+									setPopBox({
+										isOpen: true,
+										popBoxType: defPopBoxType.DepositHint
+									});
 								}
-							);
-
-							const hasBalance =
-								res.data.data?.balance ||
-								tpWallets?.filter(tp => {
-									return tp.balance > 0;
-								}).length >= 1;
-
-							if (!hasBalance && showDepositHint) {
-								setPopBox({
-									isOpen: true,
-									popBoxType: defPopBoxType.DepositHint
-								});
+							} else if (res.data.errorCode !== 0) {
+								errorPopBox(
+									res.data.message || "error",
+									res.data.errorCode
+								);
+							}
+						},
+						() => {
+							if (isMountedRef.current) {
+								errorPopBox();
 							}
 						}
-					});
+					);
 				}
 			};
 

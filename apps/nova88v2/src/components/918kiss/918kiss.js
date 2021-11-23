@@ -33,11 +33,11 @@ const useGotoGame = ({ isLogin, langId, tpId }) => {
 			}).then(res => {
 				if (res.data.errorCode === 0 && mounted && res.data.message) {
 					setData(() => JSON.parse(res.data.message));
-				} else {
+				} else if (res.data.errorCode !== 0) {
 					setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
+						message: `[${res.data.errorCode}] ${res.data.message}`,
 						btnBar: (
 							<div className="btnGroup">
 								<button

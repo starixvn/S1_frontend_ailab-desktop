@@ -13,8 +13,9 @@ import Favicon from "../../styles/img/favicon.ico";
 import { defMetaData } from "./def";
 import { defLangList } from "../../datas/languageData";
 import { api_site_seo } from "../../service/api/site";
+import usePopBox from "../hook/usePopBox";
 
-export const useGetSEODatas = ({ getFromAPI = false }) => {
+export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 	const [SEODatas, setSEODatas] = useState(null);
 	useEffect(() => {
 		const GetDatas = async () => {
@@ -23,8 +24,15 @@ export const useGetSEODatas = ({ getFromAPI = false }) => {
 					const res = await api_site_seo();
 					if (res.data.errorCode === 0) {
 						setSEODatas(res.data.data ?? {});
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
-				} catch (error) {}
+				} catch (error) {
+					errorPopBox();
+				}
 			}
 		};
 		GetDatas();
@@ -34,7 +42,8 @@ export const useGetSEODatas = ({ getFromAPI = false }) => {
 };
 
 function SEO({ description, lang, meta, title, getFromAPI }) {
-	const { SEODatas } = useGetSEODatas({ getFromAPI });
+	const { errorPopBox } = usePopBox();
+	const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
 
 	const location = useLocation()
 		?.pathname?.split("/")

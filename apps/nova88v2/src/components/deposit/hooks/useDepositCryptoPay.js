@@ -17,7 +17,7 @@ const useDepositCryptoPay = ({ isMountedRef }) => {
 				if (success && data.length > 0) {
 					setCryptoPayGroupList(data);
 				} else if (!success) {
-					errorPopBox(message || `[${errorCode}] error`, errorCode);
+					errorPopBox(message || `error`, errorCode);
 				}
 			},
 			() => {

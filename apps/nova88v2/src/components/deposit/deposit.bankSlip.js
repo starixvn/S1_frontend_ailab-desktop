@@ -74,13 +74,16 @@ export class Module extends Component {
 								this.props.refreshDatas();
 							}
 						} else {
-							alert(res.data.message);
+							this.props.errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 					}
 				},
-				err => {
+				() => {
 					if (this.isMountedRef) {
-						alert(this.props.i18n("msg_ApiServerError"));
+						this.props.errorPopBox();
 					}
 				}
 			);
@@ -140,13 +143,16 @@ export class Module extends Component {
 									)
 								}));
 							} else {
-								alert(res.data.message);
+								this.props.errorPopBox(
+									res.data.message || "error",
+									res.data.errorCode
+								);
 							}
 						}
 					},
-					err => {
+					() => {
 						if (this.isMountedRef) {
-							alert(this.props.i18n("msg_ApiServerError"));
+							this.props.errorPopBox();
 							this.setState({ processing: false });
 						}
 					}
