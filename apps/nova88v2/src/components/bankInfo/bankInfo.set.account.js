@@ -161,10 +161,7 @@ const AccountPanel = ({
 						if (res.data.errorCode === 0) {
 							reload(!alreadyHasAccountName);
 						} else {
-							errorPopBox(
-								message || `[${errorCode}] error`,
-								errorCode
-							);
+							errorPopBox(message || `error`, errorCode);
 						}
 						setLoading(false);
 					}

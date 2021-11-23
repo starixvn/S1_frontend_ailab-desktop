@@ -5,6 +5,7 @@ import { api_account_SetLanguage } from "../../service/api/account";
 import { setCookie } from "./common";
 import { SiteInfo } from "../../config";
 import { getNewLanguagePath } from "../../service/language";
+import defPopBoxType from "./defPopBoxType";
 
 export class Dropdown extends Component {
 	constructor(props) {
@@ -43,8 +44,45 @@ export class Dropdown extends Component {
 		if (value !== this.props.selectedValue) {
 			if (this.props.isLogin) {
 				try {
-					api_account_SetLanguage(value);
-				} catch (error) {}
+					api_account_SetLanguage(value).then(res => {
+						if (
+							this.props.isMountedRef.current &&
+							res.data.errorCode !== 0
+						) {
+							this.props.setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `[${res.data.errorCode}] ${res.data.message}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={this.props.clickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						}
+					});
+				} catch (error) {
+					if (thris.props.isMountedRef.current) {
+						this.props.setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={this.props.clickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
 			}
 
 			navigate(newPath);
@@ -99,12 +137,22 @@ export class Dropdown extends Component {
 	}
 }
 
+Dropdown.defaultProps = {
+	isMountedRef: null,
+	setPopBox: () => null,
+	clickClose: () => null
+};
+
 Dropdown.propTypes = {
 	className: PropTypes.string.isRequired,
 	subClassName: PropTypes.string.isRequired,
 	mainKey: PropTypes.string.isRequired,
 	selectedValue: PropTypes.string.isRequired,
-	isLogin: PropTypes.bool.isRequired
+	isLogin: PropTypes.bool.isRequired,
+	defLangGroup: PropTypes.objectOf(PropTypes.array).isRequired,
+	isMountedRef: PropTypes.objectOf(PropTypes.any),
+	setPopBox: PropTypes.func,
+	clickClose: PropTypes.func
 };
 
 export default Dropdown;

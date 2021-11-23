@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { Redirect } from "@reach/router";
 import DropdownHeader from "../common/dropdown.langList";
-import { userInfoContext } from "../common/context";
+import { userInfoContext, popBoxContext } from "../common/context";
 
 const defLangGroup = {
 	ch: [
@@ -24,6 +24,7 @@ const defLangGroup = {
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
+	const { setPopBox } = useContext(popBoxContext);
 	const [redirectPath] = useState(null);
 	const isMountedRef = useRef(null);
 
@@ -34,6 +35,10 @@ export default () => {
 		};
 	});
 
+	const clickClose = () => {
+		setPopBox({ isOpen: false });
+	};
+
 	return redirectPath === null ? (
 		<DropdownHeader
 			mainKey="header-langList"
@@ -42,6 +47,9 @@ export default () => {
 			defLangGroup={defLangGroup}
 			selectedValue={userInfo.langId}
 			isLogin={userInfo.isLogin}
+			isMountedRef={isMountedRef}
+			setPopBox={setPopBox}
+			clickClose={clickClose}
 		/>
 	) : (
 		<Redirect to={redirectPath} noThrow />

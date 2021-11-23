@@ -85,26 +85,67 @@ export default ({
 	});
 
 	useEffect(() => {
-		api_site_GetTpMaintainList().then(res => {
-			if (!isMountedRef.current) return;
-			if (res.data.errorCode === 0) {
-				setAllMaintainList(
-					res.data.data
-						?.filter(
-							(elem, idx, self) =>
-								self.findIndex(
-									tpItem =>
-										tpItem.tpId === elem.tpId &&
-										tpItem.tpGameType === elem.tpGameType
-								) === idx
+		api_site_GetTpMaintainList().then(
+			res => {
+				if (!isMountedRef.current) return;
+				if (res.data.errorCode === 0) {
+					setAllMaintainList(
+						res.data.data
+							?.filter(
+								(elem, idx, self) =>
+									self.findIndex(
+										tpItem =>
+											tpItem.tpId === elem.tpId &&
+											tpItem.tpGameType ===
+												elem.tpGameType
+									) === idx
+							)
+							?.map(elem => ({
+								tpId: elem.tpId,
+								tpGameType: elem.tpGameType
+							})) ?? []
+					);
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: `[${res.data.errorCode}] ${res.data.message}`,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={() => {
+										setPopBox({ isOpen: false });
+									}}>
+									{t("lbl_Close")}
+								</button>
+							</div>
 						)
-						?.map(elem => ({
-							tpId: elem.tpId,
-							tpGameType: elem.tpGameType
-						})) ?? []
-				);
+					});
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={() => {
+										setPopBox({ isOpen: false });
+									}}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+					setLoading(false);
+				}
 			}
-		});
+		);
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
@@ -179,26 +220,105 @@ export default ({
 	useEffect(() => {
 		if (userInfo.isLogin) {
 			if (!userInfo.regTime) {
-				api_accountStrict_GetCustProfile().then(res_custInfo => {
-					if (
-						res_custInfo.data.errorCode === 0 &&
-						isMountedRef.current
-					) {
-						const { data } = res_custInfo.data;
-						setCookie(SiteInfo.langCookie, data.langId);
-						setUserInfo(prevState => ({
-							...prevState,
-							...data
-						}));
+				api_accountStrict_GetCustProfile().then(
+					res_custInfo => {
+						if (
+							res_custInfo.data.errorCode === 0 &&
+							isMountedRef.current
+						) {
+							const { data } = res_custInfo.data;
+							setCookie(SiteInfo.langCookie, data.langId);
+							setUserInfo(prevState => ({
+								...prevState,
+								...data
+							}));
+						} else if (res_custInfo.data.errorCode !== 0) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `[${res_custInfo.data.errorCode}] ${res_custInfo.data.message}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={() => {
+												setPopBox({ isOpen: false });
+											}}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						}
+					},
+					() => {
+						if (isMountedRef.current) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: t("msg_ApiServerError"),
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={() => {
+												setPopBox({ isOpen: false });
+											}}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						}
 					}
-				});
+				);
 			}
 
-			api_account_GetMsgCount().then(res => {
-				if (res.data.errorCode === 0 && isMountedRef.current) {
-					setMsgCount(res.data.data);
+			api_account_GetMsgCount().then(
+				res => {
+					if (res.data.errorCode === 0 && isMountedRef.current) {
+						setMsgCount(res.data.data);
+					} else if (res.data.errorCode !== 0) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={() => {
+											setPopBox({ isOpen: false });
+										}}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={() => {
+											setPopBox({ isOpen: false });
+										}}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+						setLoading(false);
+					}
 				}
-			});
+			);
 		} else if (isMountedRef.current) {
 			if (userInfo.isLogin === false) {
 				setUserInfo(prevState => ({
@@ -266,11 +386,50 @@ export default ({
 
 	useEffect(() => {
 		if (userInfo.isLogin && productTpIds === null) {
-			api_site_GetTpIds().then(res => {
-				if (res.data.errorCode === 0 && isMountedRef.current) {
-					setProductTpIds(res.data.data);
+			api_site_GetTpIds().then(
+				res => {
+					if (res.data.errorCode === 0 && isMountedRef.current) {
+						setProductTpIds(res.data.data);
+					} else if (res.data.errorCode !== 0) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={() => {
+											setPopBox({ isOpen: false });
+										}}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={() => {
+											setPopBox({ isOpen: false });
+										}}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
 				}
-			});
+			);
 		} else if (userInfo.isLogin === false && productTpIds?.length > 0) {
 			setProductTpIds(null);
 		}

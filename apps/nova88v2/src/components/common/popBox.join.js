@@ -75,10 +75,24 @@ export default () => {
 							onSelectItem(0);
 						} else {
 							getCurrencyList();
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `[${res.data.errorCode}] ${res.data.message}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={ClosePopBox}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
 						}
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
@@ -114,7 +128,7 @@ export default () => {
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -266,6 +280,21 @@ export default () => {
 						checked = false;
 						msg = "msg_UsernameNotAvailable";
 					}
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: `[${res.data.errorCode}] ${res.data.message}`,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
 				}
 			}
 		}
@@ -297,6 +326,21 @@ export default () => {
 						checked = false;
 						msg = "msg_MailExisted";
 					}
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: `[${res.data.errorCode}] ${res.data.message}`,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
 				}
 			}
 		}
@@ -327,6 +371,21 @@ export default () => {
 						checked = false;
 						msg = "msg_PhoneExisted";
 					}
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: `[${res.data.errorCode}] ${res.data.message}`,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
 				}
 			}
 		}
@@ -491,8 +550,7 @@ export default () => {
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
 					if (isMountedRef.current) {
-						const { errorCode } = res.data;
-						const { message } = res.data;
+						const { errorCode, message } = res.data;
 						if (errorCode === 0) {
 							api_accountStrict_GetCustProfile().then(
 								res_custInfo => {
@@ -515,8 +573,7 @@ export default () => {
 												isOpen: true,
 												popBoxType:
 													defPopBoxType.ErrorMsg,
-												message:
-													res_custInfo.data.message,
+												message: `[${res_custInfo.data.errorCode}] ${res_custInfo.data.message}`,
 												btnBar: (
 													<div className="btnGroup">
 														<button
@@ -534,7 +591,7 @@ export default () => {
 										setPopBox({ isOpen: false });
 									}
 								},
-								err => {
+								() => {
 									if (isMountedRef.current) {
 										setPopBox({
 											isOpen: true,
@@ -592,7 +649,7 @@ export default () => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message,
+								message: `[${errorCode}] ${message}`,
 								btnBar: (
 									<div className="btnGroup">
 										<button

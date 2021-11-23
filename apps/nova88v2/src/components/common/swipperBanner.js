@@ -89,11 +89,46 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 
 					if (res.data.errorCode === 0 && mounted) {
 						setBanner(prev => [...prev, ...res.data.data]);
+					} else if (res.data.errorCode !== 0) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={() => {
+											setPopBox({ isOpen: false });
+										}}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
 					}
 				});
 
 				return true;
 			} catch (error) {
+				if (mounted) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={() => {
+										setPopBox({ isOpen: false });
+									}}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
 				return false;
 			}
 		};

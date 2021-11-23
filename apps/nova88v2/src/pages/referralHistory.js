@@ -93,19 +93,40 @@ const Content = () => {
 			...transactionData,
 			PageNumber: pageNumber,
 			PageSize: _pageSize
-		}).then(res => {
-			if (isMountedRef.current) {
-				if (res.data.errorCode === 0) {
-					setGetHistory(res.data.data);
-					setPagination(prev => ({
-						...prev,
-						totalPages: res.data.totalPages
-					}));
-				} else {
+		}).then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setGetHistory(res.data.data);
+						setPagination(prev => ({
+							...prev,
+							totalPages: res.data.totalPages
+						}));
+					} else {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={clickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+					setProcessing(false);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.ErrorMsg,
-						message: `[${res.data.errorCode}] ${res.data.message}`,
+						message: t("msg_ApiServerError"),
 						btnBar: (
 							<div className="btnGroup">
 								<button
@@ -116,10 +137,10 @@ const Content = () => {
 							</div>
 						)
 					});
+					setProcessing(false);
 				}
-				setProcessing(false);
 			}
-		});
+		);
 	};
 
 	const arr = getHistory?.map((item, idx) => {
