@@ -10,7 +10,7 @@ import { getUrlParameter } from "../components/common/common";
 import { api_news_GetNewsById } from "../service/api/news";
 // import path from "../router";
 import Loading from "../components/common/loading";
-import defPopBoxType from "../components/common/popBox";
+import defPopBoxType from "../components/common/defPopBoxType";
 
 export default () => {
 	return (
@@ -78,7 +78,7 @@ const Content = () => {
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button

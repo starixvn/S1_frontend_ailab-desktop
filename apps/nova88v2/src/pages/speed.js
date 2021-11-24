@@ -7,10 +7,10 @@ import Wrapper from "../components/common/wrapper";
 import { userInfoContext } from "../components/common/context";
 import { api_site_GetSupportDomainList } from "../service/api/site";
 import path from "../router";
-
 import crossIcon from "../styles/img/check_speed/n.png";
 import checkIcon from "../styles/img/check_speed/y.png";
 import checkSpeedStartImg from "../styles/img/check_speed/start.png";
+import usePopBox from "../components/hook/usePopBox";
 
 const RESPOND_ERROR = 9999;
 
@@ -23,8 +23,8 @@ export default () => (
 const SpeedPage = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
-
 	const [domainList, setDomainList] = useState([]);
 	const [ipaddress, setIpaddress] = useState("");
 
@@ -60,7 +60,7 @@ const SpeedPage = () => {
 			async res => {
 				if (!isMountedRef.current) return;
 
-				const { data, errorCode } = res.data;
+				const { data, errorCode, message } = res.data;
 				const success = errorCode === 0;
 
 				if (success) {
@@ -78,6 +78,13 @@ const SpeedPage = () => {
 
 					newData.sort((a, b) => a.respondingTime - b.respondingTime);
 					setDomainList(newData);
+				} else {
+					errorPopBox(message || "error", errorCode);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
 				}
 			}
 		);

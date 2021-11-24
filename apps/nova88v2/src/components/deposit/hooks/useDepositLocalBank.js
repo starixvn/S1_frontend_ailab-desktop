@@ -30,7 +30,7 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				if (success && data.length > 0) {
 					setLocalBankGroupList(data);
 				} else if (!success) {
-					errorPopBox(message || `[${errorCode}] error`, errorCode);
+					errorPopBox(message || `error`, errorCode);
 				}
 			},
 			() => {
@@ -51,6 +51,8 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 
 				if (success) {
 					setLocalBankInfo(data);
+				} else {
+					errorPopBox(message || "error", errorCode);
 				}
 			},
 			() => {
@@ -85,7 +87,7 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 					return data.transId;
 				}
 
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				errorPopBox(message || `error`, errorCode);
 			},
 			() => {
 				if (!isMountedRef.current) return;
@@ -111,8 +113,7 @@ const useDepositLocalBank = ({ isMountedRef }) => {
 				const { message, errorCode } = res.data;
 				success = errorCode === 0;
 
-				if (!success)
-					errorPopBox(message || `[${errorCode}] error`, errorCode);
+				if (!success) errorPopBox(message || `error`, errorCode);
 			},
 			() => {
 				if (!isMountedRef.current) return;

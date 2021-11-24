@@ -44,12 +44,11 @@ const useDrawPrize = ({ isMountedRef }) => {
 				) {
 					setDrawPrize({ data, errorCode, message });
 				} else {
-					errorPopBox(message || `[${errorCode}] error`, errorCode);
+					errorPopBox(message || `error`, errorCode);
 				}
 			},
 			() => {
 				if (!isMountedRef.current) return;
-
 				errorPopBox();
 			}
 		);
@@ -83,17 +82,11 @@ const useDrawPrize = ({ isMountedRef }) => {
 							errorCode: defDrawPrizeStatus.isJoin
 						});
 					} else if (errorCode === defDrawPrizeStatus.drawOut) {
-						errorPopBox(t("lbl_AngPow_NotWinning"), errorCode);
+						errorPopBox(t("lbl_AngPow_NotWinning"));
 					} else if (errorCode === defDrawPrizeStatus.notEligible) {
-						errorPopBox(
-							message || `[${errorCode}] error`,
-							errorCode
-						);
+						errorPopBox(message || `error`, errorCode);
 					} else {
-						errorPopBox(
-							message || `[${errorCode}] error`,
-							errorCode
-						);
+						errorPopBox(message || `error`, errorCode);
 					}
 				},
 				() => {
@@ -121,7 +114,10 @@ const useDrawPrize = ({ isMountedRef }) => {
 				if (res.data.errorCode === 0) {
 					setDrawPrizeList(res.data.data);
 				} else {
-					errorPopBox(res.data.message || "error", errorCode);
+					errorPopBox(
+						res.data.message || `error`,
+						res.data.errorCode
+					);
 				}
 			},
 			() => {

@@ -22,7 +22,7 @@ const useDepositMobilePay = ({ isMountedRef }) => {
 			if (success) {
 				setMobilePayGourpList(data);
 			} else {
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				errorPopBox(message || `error`, errorCode);
 			}
 		});
 	};
@@ -40,7 +40,7 @@ const useDepositMobilePay = ({ isMountedRef }) => {
 					return data;
 				}
 
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				errorPopBox(message || `error`, errorCode);
 			}
 		);
 		return datas || [];

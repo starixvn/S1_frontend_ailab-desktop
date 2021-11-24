@@ -115,7 +115,7 @@ export default ({ GetCustBankInfo }) => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					errorPopBox();
 				}
@@ -178,6 +178,11 @@ export default ({ GetCustBankInfo }) => {
 					}));
 					set_network_opt(options);
 					onSelNetWork(0, options[0]);
+				} else if (res.data.errorCode !== 0) {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
 				}
 			})
 			.catch(() => {
@@ -189,10 +194,15 @@ export default ({ GetCustBankInfo }) => {
 					if (response.data?.data?.startUnixTime) {
 						setStartUnixTime(response.data.data.startUnixTime);
 						setTimer(true);
+					} else if (response.data.errorCode !== 0) {
+						errorPopBox(
+							response.data.message || "error",
+							response.data.errorCode
+						);
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					errorPopBox();
 				}

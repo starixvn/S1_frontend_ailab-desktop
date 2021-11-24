@@ -70,7 +70,7 @@ const useTransfer = () => {
 						});
 					} else {
 						errorPopBox(
-							res.data.message || `[${res.data.errorCode}] error`,
+							res.data.message || `error`,
 							res.data.errorCode
 						);
 					}
@@ -92,6 +92,16 @@ const useTransfer = () => {
 			async res => {
 				if (isMountedRef.current && res.data.errorCode === 0) {
 					tpWalletList = res.data.data;
+				} else if (res.data.errorCode !== 0) {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
 				}
 			}
 		);
@@ -125,6 +135,16 @@ const useTransfer = () => {
 									balance,
 									displayKey: `lbl_TpWallet_${tpId}`
 								});
+							} else if (res.data.errorCode !== 0) {
+								errorPopBox(
+									res.data.message || "error",
+									res.data.errorCode
+								);
+							}
+						},
+						() => {
+							if (isMountedRef.current) {
+								errorPopBox();
 							}
 						}
 					);

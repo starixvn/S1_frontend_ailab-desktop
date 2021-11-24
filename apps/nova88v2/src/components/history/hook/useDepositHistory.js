@@ -111,6 +111,11 @@ export default function useDepositHistory({
 								filterData,
 								pagination.currentPage
 							);
+						} else {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 					}
 				},
