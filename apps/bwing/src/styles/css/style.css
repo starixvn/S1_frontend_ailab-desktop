@@ -4218,6 +4218,26 @@ main > .swiper-container .swiper-slide {
   margin-left: 29px;
 }
 
+.subModuleList.subModuleCrypto .subModule .subModuleBody .txt-lightgray {
+  margin: 20px 0;
+}
+
+.subModuleList.subModuleCrypto .subModule .subModuleBody .smallList ul li {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: auto 10px auto;
+}
+
+.subModuleList.subModuleCrypto .subModule .subModuleBody .smallList ul li:first-child {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
 .platformName {
   width: calc(100% / 4);
   float: left;
@@ -4753,6 +4773,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess,
 .tokyc,
 .addBankpop,
+.addCryptopop,
 .changePassWordpop,
 .editSuccess,
 .upload,
@@ -4774,6 +4795,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess > .icon,
 .tokyc > .icon,
 .addBankpop > .icon,
+.addCryptopop > .icon,
 .changePassWordpop > .icon,
 .editSuccess > .icon,
 .upload > .icon,
@@ -4791,6 +4813,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess > .icon.icon-icon32px_notification,
 .tokyc > .icon.icon-icon32px_notification,
 .addBankpop > .icon.icon-icon32px_notification,
+.addCryptopop > .icon.icon-icon32px_notification,
 .changePassWordpop > .icon.icon-icon32px_notification,
 .editSuccess > .icon.icon-icon32px_notification,
 .upload > .icon.icon-icon32px_notification,
@@ -4810,6 +4833,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess > .icon.icon-information-solid,
 .tokyc > .icon.icon-information-solid,
 .addBankpop > .icon.icon-information-solid,
+.addCryptopop > .icon.icon-information-solid,
 .changePassWordpop > .icon.icon-information-solid,
 .editSuccess > .icon.icon-information-solid,
 .upload > .icon.icon-information-solid,
@@ -4826,6 +4850,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess .title,
 .tokyc .title,
 .addBankpop .title,
+.addCryptopop .title,
 .changePassWordpop .title,
 .editSuccess .title,
 .upload .title,
@@ -4842,6 +4867,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess .txt-lightgray,
 .tokyc .txt-lightgray,
 .addBankpop .txt-lightgray,
+.addCryptopop .txt-lightgray,
 .changePassWordpop .txt-lightgray,
 .editSuccess .txt-lightgray,
 .upload .txt-lightgray,
@@ -4859,6 +4885,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess .btnGroup,
 .tokyc .btnGroup,
 .addBankpop .btnGroup,
+.addCryptopop .btnGroup,
 .changePassWordpop .btnGroup,
 .editSuccess .btnGroup,
 .upload .btnGroup,
@@ -4885,6 +4912,8 @@ main > .swiper-container .swiper-slide {
 .tokyc .btnGroup button,
 .addBankpop .btnGroup a,
 .addBankpop .btnGroup button,
+.addCryptopop .btnGroup a,
+.addCryptopop .btnGroup button,
 .changePassWordpop .btnGroup a,
 .changePassWordpop .btnGroup button,
 .editSuccess .btnGroup a,
@@ -4906,6 +4935,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess .popList,
 .tokyc .popList,
 .addBankpop .popList,
+.addCryptopop .popList,
 .changePassWordpop .popList,
 .editSuccess .popList,
 .upload .popList,
@@ -4923,6 +4953,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess .popList ul,
 .tokyc .popList ul,
 .addBankpop .popList ul,
+.addCryptopop .popList ul,
 .changePassWordpop .popList ul,
 .editSuccess .popList ul,
 .upload .popList ul,
@@ -4948,6 +4979,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess .popList ul li,
 .tokyc .popList ul li,
 .addBankpop .popList ul li,
+.addCryptopop .popList ul li,
 .changePassWordpop .popList ul li,
 .editSuccess .popList ul li,
 .upload .popList ul li,
@@ -4966,6 +4998,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess .popList ul li:first-child,
 .tokyc .popList ul li:first-child,
 .addBankpop .popList ul li:first-child,
+.addCryptopop .popList ul li:first-child,
 .changePassWordpop .popList ul li:first-child,
 .editSuccess .popList ul li:first-child,
 .upload .popList ul li:first-child,
@@ -4983,6 +5016,7 @@ main > .swiper-container .swiper-slide {
 .updateSuccess .tip,
 .tokyc .tip,
 .addBankpop .tip,
+.addCryptopop .tip,
 .changePassWordpop .tip,
 .editSuccess .tip,
 .upload .tip,
@@ -5554,7 +5588,8 @@ main > .swiper-container .swiper-slide {
   display: block;
 }
 
-.walletModuleLeft .walletModule .addBank {
+.walletModuleLeft .walletModule .addBank,
+.walletModuleLeft .walletModule .addCrypto {
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5568,7 +5603,8 @@ main > .swiper-container .swiper-slide {
           justify-content: space-between;
 }
 
-.walletModuleLeft .walletModule .addBank .addBankName {
+.walletModuleLeft .walletModule .addBank .addBankName,
+.walletModuleLeft .walletModule .addCrypto .addBankName {
   width: calc(100% / 3 - 30px);
   position: relative;
 }
@@ -5923,7 +5959,6 @@ main > .swiper-container .swiper-slide {
 }
 
 .addBank .addBankName .addBankInfo .icon-bin {
-  font-size: 24px;
   color: #56607b;
   position: static;
   display: -webkit-box;
@@ -6034,6 +6069,270 @@ main > .swiper-container .swiper-slide {
 
 .addBank + div.subModuleList .subModuleBody ul li a,
 .addBank + div.subModuleList .subModuleBody ul li button {
+  padding: 5px 10px;
+  width: calc(100% - 20px);
+}
+
+.addCrypto {
+  margin-top: 20px;
+  width: calc(100% / 3 - 40px);
+  background: #0c1a3f;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #1a2b58;
+}
+
+.addCrypto.bankselect {
+  width: 100%;
+}
+
+.addCrypto.bankselect .icon-arrow-left2 {
+  color: #56ceff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.addCrypto.bankselect .icon-arrow-left2:before {
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+.addCrypto.bankselect .btnGroup {
+  width: calc(100% / 6 - 10px);
+  margin-left: 0;
+}
+
+.addCrypto.bankselect .subModuleList {
+  margin: 0;
+}
+
+.addCrypto.bankselect .subModuleList .subModule {
+  border: 0;
+}
+
+.addCrypto.bankselect .subModuleList .subModule .subModuleBody {
+  padding: 0;
+}
+
+.addCrypto.bankselect .subModuleList .subModule .subModuleBody li {
+  width: calc(100% / 6 - 10px);
+  margin: 10px 10px 10px 0;
+}
+
+.addCrypto .addCryptoName {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 10px;
+  max-width: calc(100% / 3 - 25px);
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  min-height: 90px;
+}
+
+.addCrypto .addCryptoName:last-child {
+  margin-right: 0;
+}
+
+.addCrypto .addCryptoName.noBank {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  cursor: pointer;
+  min-height: auto;
+  background: #3a4d80;
+  border: 1px solid #4d5e8e;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo:last-child {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo:last-child span {
+  margin-right: 5px;
+  word-break: break-all;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .cryptoName {
+  margin: 0;
+  padding: 0;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .cryptoName + div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .cryptoName span {
+  font-weight: bold;
+  color: #000;
+  font-size: 16px;
+  margin-left: 20px;
+  line-height: 30px;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .txt-dark {
+  padding-top: 10px;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .checkbox {
+  margin: 0;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .checkbox label {
+  width: 15px;
+  height: 15px;
+  margin-right: 0;
+  border: 1px solid #0c1a3f;
+  border-radius: 3px;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .checkbox label:before {
+  margin-left: -0.5px;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .icon-BTC {
+  color: #56ceff;
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.addCrypto .addCryptoName .addCryptoInfo .icon-bin {
+  color: #56607b;
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 17px;
+  margin-right: 15px;
+}
+
+.addCrypto .addCryptoName button.icon,
+.addCrypto .addCryptoName a.icon {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  color: #1e85ec;
+}
+
+.addCrypto .addCryptoName .icon-plus {
+  font-size: 18px;
+}
+
+.addCrypto + div.subModuleList {
+  width: calc(100% / 3 * 2);
+  margin: 0;
+}
+
+.addCrypto + div.subModuleList .subModuleBody {
+  height: calc(100% - 30px);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.txt-lightgray {
+  margin: 20px 0;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div > .bankName {
+  margin-right: 10px;
+  margin-top: 0;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.calculation {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.inputBtn {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.inputBtn .btnGroup {
+  margin: 10px 0 5px;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.smallList {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.smallList li {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: auto 10px auto;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.smallList li:first-child {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.smallList li.accountNumber {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.addCrypto + div.subModuleList .subModuleBody > div.smallList li.accountNumber span {
+  margin-right: 5px;
+  background: none;
+  color: white;
+}
+
+.addCrypto + div.subModuleList .subModuleBody ul li {
+  width: calc(25% - 20px);
+}
+
+.addCrypto + div.subModuleList .subModuleBody ul li a,
+.addCrypto + div.subModuleList .subModuleBody ul li button {
   padding: 5px 10px;
   width: calc(100% - 20px);
 }
@@ -6163,6 +6462,84 @@ main > .swiper-container .swiper-slide {
 }
 
 .addBankpop .inputBox img, .addBankpop .inputBox-blue img {
+  max-width: 44px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.addCryptopop > .txt-lightgray {
+  margin-bottom: 20px;
+}
+
+.addCryptopop .icon {
+  font-size: 14px;
+}
+
+.addCryptopop .cryptoOtp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.addCryptopop .cryptoOtp .btn-retransmit {
+  width: 240px;
+  height: 34px;
+  margin-left: 10px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f20c05), to(#f85f05));
+  background: linear-gradient(to top, #f20c05, #f85f05);
+  color: #fff;
+  white-space: nowrap;
+  max-width: none;
+  border-radius: 3px;
+}
+
+.addCryptopop .cryptoOtp .btn-retransmit:hover {
+  background: #f20c05;
+}
+
+.addCryptopop .inputBox, .addCryptopop .inputBox-blue {
+  padding: 2px 10px;
+}
+
+.addCryptopop .inputBox .dropdown > .btn, .addCryptopop .inputBox-blue .dropdown > .btn {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 13px;
+}
+
+.addCryptopop .inputBox .dropdown > .btn span, .addCryptopop .inputBox-blue .dropdown > .btn span {
+  color: #f52805;
+  margin-right: 5px;
+}
+
+.addCryptopop .inputBox .dropdown > .dropdown-container, .addCryptopop .inputBox-blue .dropdown > .dropdown-container {
+  overflow-y: scroll;
+  max-height: 200px;
+}
+
+.addCryptopop .inputBox .dropdown > .dropdown-container .dropdown-item, .addCryptopop .inputBox-blue .dropdown > .dropdown-container .dropdown-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 7.5px 0;
+}
+
+.addCryptopop .inputBox .dropdown > .dropdown-container .dropdown-item:nth-child(1), .addCryptopop .inputBox-blue .dropdown > .dropdown-container .dropdown-item:nth-child(1) {
+  padding-top: 15px;
+}
+
+.addCryptopop .inputBox img, .addCryptopop .inputBox-blue img {
   max-width: 44px;
   border-radius: 5px;
   margin-right: 10px;
@@ -7241,6 +7618,7 @@ main > .swiper-container .swiper-slide {
   top: 0;
   display: none;
   background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
 .promoInfoPopMask.active {
@@ -7281,6 +7659,7 @@ main > .swiper-container .swiper-slide {
   border-radius: 5px;
   border: 1px solid #64789b;
   padding: 20px 40px;
+  position: relative;
 }
 
 .promoInfoPop .promotionsInfo .icon-close {
@@ -10463,8 +10842,8 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-top: 20px;
   font-size: 40px;
   font-weight: bold;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #f0b52d), color-stop(65%, #fffccf), color-stop(55%, #e2a625), to(#ff6c00));
-  background: linear-gradient(top, #f0b52d 30%, #fffccf 65%, #e2a625 55%, #ff6c00 100%);
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(30%, #f0b52d), color-stop(65%, #fffccf), color-stop(55%, #e2a625), to(#ff6c00));
+  background: linear-gradient(to top, #f0b52d 30%, #fffccf 65%, #e2a625 55%, #ff6c00 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -10646,8 +11025,8 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .luckybox .luckyout .wheel.active {
-  -webkit-animation: wheel 1s 3 linear;
-          animation: wheel 1s 3 linear;
+  -webkit-animation: wheel 1s linear infinite;
+          animation: wheel 1s linear infinite;
 }
 
 .luckybox .luckyout .wheel li {
@@ -10673,14 +11052,14 @@ input + .iconModule i.icon.icon-checkmark:before {
   position: absolute;
   font-size: 18px;
   font-weight: bold;
-  top: 102px;
+  top: 96px;
   left: 196px;
   -webkit-transform: skew(-67.5deg) rotate(-67.5deg);
           transform: skew(-67.5deg) rotate(-67.5deg);
   -webkit-writing-mode: vertical-lr;
       -ms-writing-mode: tb-lr;
           writing-mode: vertical-lr;
-  height: 100px;
+  height: 120px;
   text-align: right;
 }
 
@@ -11595,6 +11974,108 @@ input + .iconModule i.icon.icon-checkmark:before {
 .pop .upload_new .title {
   margin: 0;
   font-size: 32px;
+}
+
+.pop .cryptoPop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+.pop .cryptoPop .poptit {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #56ceff;
+  padding: 5px 0;
+}
+
+.pop .cryptoPop .cryptolist {
+  border-bottom: 1px solid #666;
+  padding: 15px 0;
+  margin: 0 10px;
+}
+
+.pop .cryptoPop .cryptolist ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pop .cryptoPop .cryptolist ul li:nth-child(odd) {
+  font-weight: bold;
+  color: #56ceff;
+  margin-right: 10px;
+}
+
+.pop .cryptoPop .icon-files-empty {
+  width: 40px;
+  height: 24px;
+  border-radius: 15px;
+  background: #0c1a3f;
+  border: 1px solid #1a2b58;
+  color: #56ceff;
+  margin-left: 10px;
+}
+
+.pop .cryptoPop .cryptoGuide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #666;
+  padding-bottom: 15px;
+  line-height: 24px;
+}
+
+.pop .cryptoPop .cryptoGuide ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.pop .cryptoPop .cryptoGuide ul li:nth-child(odd) {
+  font-weight: bold;
+  color: #56ceff;
+  margin-right: 10px;
+}
+
+.pop .cryptoPop .lineqr_img {
+  width: 180px;
+  margin: 10px auto;
+  padding: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.pop .cryptoPop .txt-crypto {
+  width: 360px;
+  color: #aeb2bc;
+  margin: 0 10px;
+  padding: 15px 0;
+}
+
+.pop .cryptoPop .txt-crypto ul li {
+  margin-left: 15px;
+  list-style: decimal;
+  white-space: pre-wrap;
+  color: #aeb2bc;
+  line-height: 16px;
 }
 
 .pop .download {
@@ -14640,5 +15121,75 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 ::-webkit-scrollbar-button {
   display: none;
+}
+
+.mywheel {
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+  width: 200px;
+  height: 200px;
+  z-index: 2;
+}
+
+.mywheel .mywheelClose {
+  background-color: rgba(86, 206, 255, 0.9);
+  color: #fff;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.mywheel .mywheelClose ~ a {
+  z-index: 0;
+  position: relative;
+}
+
+.mywheel img {
+  position: absolute;
+  -webkit-animation: mysteryImg 2s ease-in-out infinite alternate;
+          animation: mysteryImg 2s ease-in-out infinite alternate;
+}
+
+@keyframes mysteryImg {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-filter: brightness(90%);
+            filter: brightness(90%);
+  }
+  100% {
+    -webkit-transform: scale(0.92);
+            transform: scale(0.92);
+    -webkit-filter: brightness(150%);
+            filter: brightness(150%);
+  }
+}
+
+.mywheel .mywheelImg {
+  width: 220px;
+  z-index: 1;
+}
+
+.mywheel .mywheelImgw {
+  width: 165px;
+  top: 25px;
+  left: 26px;
+  -webkit-animation: wheel 1s infinite;
+          animation: wheel 1s infinite;
+}
+
+.sisa {
+  text-align: center;
+  margin: 10px 0;
+  color: #56ceff;
+}
+
+.sisa div:last-child {
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */
