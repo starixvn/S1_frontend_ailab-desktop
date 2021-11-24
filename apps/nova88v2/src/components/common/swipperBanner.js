@@ -16,6 +16,8 @@ import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import defPopBoxType from "./defPopBoxType";
+import { useGotoGame } from "../hook/useGotoGame";
+import productList from "../../datas/productList";
 
 const NeedLoginRoute = [];
 
@@ -149,6 +151,43 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
 	const { setPopBox } = useContext(popBoxContext);
 
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
+
+	const handleClick = ({
+		tpId,
+		gameId,
+		matchId,
+		actionMode,
+		bannerLink,
+		tpGameType
+	}) => {
+		if (Number(tpId) === productList.casino_PT.tpId)
+			return handleGoToGame({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId: Number(tpId),
+				gameId,
+				tpGameType
+			});
+
+		return ClickLink({
+			tpId,
+			gameId,
+			matchId,
+			actionMode,
+			bannerLink,
+			tpGameType,
+			lang: userInfo.langId,
+			isLogin: userInfo.isLogin,
+			setPopBox,
+			openInBlank
+		});
+	};
+
 	const rows = banner?.map((b, bIdx) => {
 		let redirectLink = null;
 
@@ -181,13 +220,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={ClickLink.bind(this, {
-					...b,
-					isLogin: userInfo.isLogin,
-					lang: userInfo.langId,
-					setPopBox,
-					openInBlank
-				})}>
+				onClick={() => handleClick(b)}>
 				<img
 					src={b.bannerMobileUrl}
 					className="banner"
