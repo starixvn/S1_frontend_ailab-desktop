@@ -57,142 +57,147 @@ const Panel = ({
 	const timeText = moment().format("YYYY-MM-DD H:mm:ss");
 
 	return (
-		<div className="cryptoPop active">
-			<div className="popTit">
-				{title}
-				<div className="icon icon-close" onClick={handlePopBox} />
-			</div>
-			<div className="cryptolist">
-				<span className="txt-lightgray">
-					{`${t("lbl_PaymentDetails")}：`}
-				</span>
+		<div className="pop">
+			<div className="cryptoPop active">
+				<div className="popTit">
+					{title}
+					<div className="icon icon-close" onClick={handlePopBox} />
+				</div>
+				<div className="cryptolist">
+					<span className="txt-lightgray">
+						{`${t("lbl_PaymentDetails")}：`}
+					</span>
 
-				{thirdId && (
+					{thirdId && (
+						<ul>
+							<li>
+								{t("lbl_Deposit_DragonPayPop_OrderNumber")}：
+							</li>
+							<li>{thirdId}</li>
+						</ul>
+					)}
+
 					<ul>
-						<li>{t("lbl_Deposit_DragonPayPop_OrderNumber")}：</li>
-						<li>{thirdId}</li>
+						<li>{`${t("lbl_Time")}：`}</li>
+						<li>{timeText}</li>
 					</ul>
+					<ul>
+						<li>{`${t("lbl_OrderAmount")}：`}</li>
+						<li>{amountText}</li>
+					</ul>
+				</div>
+				{promoContent === "1" && (
+					<>
+						<ul>
+							<li>{`${t("lbl_CashbackAmount")}：`}</li>
+							<li>
+								{`${number_format(
+									cashbackAmount,
+									isConvert(currencyId)
+								)}(${PromotionRate})`}
+							</li>
+						</ul>
+						<ul>
+							<li>{`${t("lbl_ReceivedAmount")}：`}</li>
+							<li>
+								{number_format(
+									receivedAmount,
+									isConvert(currencyId)
+								)}
+							</li>
+						</ul>
+					</>
 				)}
 
-				<ul>
-					<li>{`${t("lbl_Time")}：`}</li>
-					<li>{timeText}</li>
-				</ul>
-				<ul>
-					<li>{`${t("lbl_OrderAmount")}：`}</li>
-					<li>{amountText}</li>
-				</ul>
-			</div>
-			{promoContent === "1" && (
-				<>
-					<ul>
-						<li>{`${t("lbl_CashbackAmount")}：`}</li>
-						<li>
-							{`${number_format(
-								cashbackAmount,
-								isConvert(currencyId)
-							)}(${PromotionRate})`}
-						</li>
-					</ul>
-					<ul>
-						<li>{`${t("lbl_ReceivedAmount")}：`}</li>
-						<li>
-							{number_format(
-								receivedAmount,
-								isConvert(currencyId)
-							)}
-						</li>
-					</ul>
-				</>
-			)}
+				<div className="cryptoGuide">
+					{isCrypto ? (
+						<QRCode
+							id={imgUrl}
+							value={imgUrl}
+							renderAs="svg"
+							includeMargin={true}
+						/>
+					) : (
+						<img src={imgUrl} className="qrCode" alt="qrcode" />
+					)}
 
-			<div className="cryptoGuide">
-				{isCrypto ? (
-					<QRCode
-						id={imgUrl}
-						value={imgUrl}
-						renderAs="svg"
-						includeMargin={true}
-					/>
-				) : (
-					<img src={imgUrl} className="qrCode" alt="qrcode" />
-				)}
+					{isCrypto ? (
+						<div className="accountInfo">
+							<div>{imgUrl}</div>
+							<div>
+								<button
+									className="copyBtn"
+									data-clipboard-text={imgUrl}>
+									{t("lbl_Copy")}
+								</button>
+							</div>
+							<div>
+								{t("lbl_Method")}: {token}
+							</div>
+							<div>
+								{t("lbl_Rate")}: {rate}
+							</div>
+							<div>
+								{t("lbl_USDT_Amount")}: {requestAmount}{" "}
+								<button
+									className="copyBtn"
+									data-clipboard-text={requestAmount}>
+									{t("lbl_Copy")}
+								</button>
+							</div>
+						</div>
+					) : (
+						<div>
+							{`${t("lbl_Pay")} `}
+							<span>{depositAmountText}</span>
+						</div>
+					)}
 
-				{isCrypto ? (
-					<div className="accountInfo">
-						<div>{imgUrl}</div>
-						<div>
-							<button
-								className="copyBtn"
-								data-clipboard-text={imgUrl}>
-								{t("lbl_Copy")}
-							</button>
+					{accountNumber && (
+						<div className="accountInfo">
+							<div>
+								{t("lbl_Deposit_DragonPayPop_BankName")}：
+								{bankName}
+							</div>
+							<div>
+								{t("lbl_Deposit_DragonPayPop_AccountName")}：
+								{accountName}
+								<button
+									className="copyBtn"
+									data-clipboard-text={accountName}>
+									{t("lbl_Copy")}
+								</button>
+							</div>
+							<div>
+								{t("lbl_Deposit_DragonPayPop_AccountNumber")}：
+								{accountNumber}
+								<button
+									className="copyBtn"
+									data-clipboard-text={accountNumber}>
+									{t("lbl_Copy")}
+								</button>
+							</div>
 						</div>
-						<div>
-							{t("lbl_Method")}: {token}
-						</div>
-						<div>
-							{t("lbl_Rate")}: {rate}
-						</div>
-						<div>
-							{t("lbl_USDT_Amount")}: {requestAmount}{" "}
-							<button
-								className="copyBtn"
-								data-clipboard-text={requestAmount}>
-								{t("lbl_Copy")}
-							</button>
-						</div>
-					</div>
-				) : (
+					)}
+
+					<ul>
+						<li>{t("lbl_PaymentQRDesc1")}</li>
+						<li>{t("lbl_PaymentQRDesc2")}</li>
+					</ul>
+				</div>
+
+				<div className="txt-crypto">
+					{`${t("lbl_ImportantNotes")}：`}
+					<ul>
+						<li>{t("lbl_PaymentQRNote1")}</li>
+						<li>{t("lbl_PaymentQRNote2")}</li>
+					</ul>
+				</div>
+				<div className="sisa">
+					<div>{t("lbl_PaymentTimeLeft")}</div>
 					<div>
-						{`${t("lbl_Pay")} `}
-						<span>{depositAmountText}</span>
+						<Counter timeStop={handlePopBox} />
 					</div>
-				)}
-
-				{accountNumber && (
-					<div className="accountInfo">
-						<div>
-							{t("lbl_Deposit_DragonPayPop_BankName")}：{bankName}
-						</div>
-						<div>
-							{t("lbl_Deposit_DragonPayPop_AccountName")}：
-							{accountName}
-							<button
-								className="copyBtn"
-								data-clipboard-text={accountName}>
-								{t("lbl_Copy")}
-							</button>
-						</div>
-						<div>
-							{t("lbl_Deposit_DragonPayPop_AccountNumber")}：
-							{accountNumber}
-							<button
-								className="copyBtn"
-								data-clipboard-text={accountNumber}>
-								{t("lbl_Copy")}
-							</button>
-						</div>
-					</div>
-				)}
-
-				<ul>
-					<li>{t("lbl_PaymentQRDesc1")}</li>
-					<li>{t("lbl_PaymentQRDesc2")}</li>
-				</ul>
-			</div>
-
-			<div className="txt-crypto">
-				{`${t("lbl_ImportantNotes")}：`}
-				<ul>
-					<li>{t("lbl_PaymentQRNote1")}</li>
-					<li>{t("lbl_PaymentQRNote2")}</li>
-				</ul>
-			</div>
-			<div className="sisa">
-				<div>{t("lbl_PaymentTimeLeft")}</div>
-				<div>
-					<Counter timeStop={handlePopBox} />
 				</div>
 			</div>
 		</div>

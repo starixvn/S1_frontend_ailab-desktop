@@ -422,7 +422,7 @@ const Deposit = () => {
 				]
 					.filter(Boolean)
 					.join("&");
-
+				console.log(formInfo);
 				if (formInfo.mode === 3) {
 					await api_cashier_DepositReqCryptoPay({
 						langId: userInfo.langId,

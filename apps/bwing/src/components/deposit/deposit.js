@@ -430,7 +430,6 @@ const Deposit = () => {
 				]
 					.filter(Boolean)
 					.join("&");
-
 				if (formInfo.mode === 3) {
 					await api_cashier_DepositReqCryptoPay({
 						langId: userInfo.langId,
@@ -717,6 +716,7 @@ const Deposit = () => {
 						setFormInfo={setFormInfo}
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
+						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}
 			</DepositInfoMoule>

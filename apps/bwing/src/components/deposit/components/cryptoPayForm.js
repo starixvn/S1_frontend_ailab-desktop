@@ -18,7 +18,8 @@ const CryptoPayForm = ({
 	onChangeForm,
 	onInputboxKeyDown,
 	isGroupListFetchDone,
-	depositPromoMsg
+	depositPromoMsg,
+	changeDeposotPromoHandlar
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));

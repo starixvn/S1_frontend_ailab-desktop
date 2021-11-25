@@ -337,6 +337,7 @@
 	"lbl_DepositType1": "Ngân hàng trực tuyến",
 	"lbl_DepositType2": "Thanh toán qua ĐT",
 	"lbl_DepositType3": "Ngân hàng trong nước",
+	"lbl_DepositType4": "Crypto Pay",
 	"lbl_DepositType5": "THẺ CÀO",
 	"lbl_DepositStatus0": "Bản nháp",
 	"lbl_DepositStatus1": "Chờ xử lý",
@@ -731,8 +732,40 @@
 		"lbl_please_make_deposit":"Vui lòng nạp 1 khoản tiền tối thiểu để có thể trải nghiệm trò chơi trực tuyến."
 	},
 
+	"■■■■■■■■■■■■■■■■■■■■ payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails": "Payment Details",
+	"lbl_OrderAmount": "Order Amount",
+	"lbl_Pay": "PAY",
+	"lbl_PaymentQRDesc1": "Please transfer the amount.",
+	"lbl_PaymentQRDesc2": "Provided for better experience.",
+	"lbl_ImportantNotes": "Important Notes",
+	"lbl_PaymentQRNote1": "Please do not refresh your browser.",
+	"lbl_PaymentQRNote2": "Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
+	"lbl_PaymentTimeLeft": "PAYMENT TIME LEFT",
+	"lbl_Time": "Time",
+
 	"■■■■■■■■■■■■■■■■■■■■ crypto pay ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_CryptoWallet": "Crypto Wallet",
+	"lbl_CryptoWalletNickName": "Wallet Nickname",
+	"lbl_CryptoWalletAddress": "Wallet Address",
+	"lbl_Update_Crypto_Wallet": "Please update your crypto wallet details before making withdrawal.",
+	"lbl_Add_Crypto_Wallet": "Add Crypto Wallet",
+	"lbl_Number_Of_Wallet": "Number of wallet",
+	"lbl_Wallet_Is_Full": "Wallet Is Full",
+	"lbl_Enter_Wallet_Address": "Enter Wallet Address",
+	"lbl_Please_Enter_Wallet_Address": "Please Enter Your Crypto Wallet Address",
+	"lbl_Crypto_Wallet_Submit_Note": "Please note: Once the crypto wallet is submitted, it cannot be modified/ deleted.",
+	"lbl_Modification_Please_Contact_CSD": "For any request of modification, please contact CSD.",
+	"lbl_Wallet_Address_Required": "Wallet Address is required",
+	"lbl_Wallet_NickName_Tip": "This is on optional wallet nickname to facilitate your identification",
+	"lbl_Wallet_Address_Tip": "Enter only letters (a-z) and digits(0-9).",
+	"lbl_Select_Crypto_Wallet": "Select Crypto Wallet",
+	"lbl_Optional": "Optional",
 	"lbl_CryptoPay": "Crypto Pay",
+	"lbl_NotERC20WalletAddr": "Must be ERC-20 / TRC-20 compatible wallet address",
+	"lbl_already_stored_this_information": "You have already stored this information.",
+	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
+
 
 	"end-----": "end-----"
 }
