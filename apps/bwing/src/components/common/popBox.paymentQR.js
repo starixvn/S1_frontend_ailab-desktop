@@ -11,18 +11,11 @@ const Panel = ({
 	title,
 	amount,
 	depositAmount,
-	cashbackAmount,
-	promoContent,
-	receivedAmount,
-	PromotionRate,
 	rate,
 	requestAmount,
 	token,
 	currencyId,
 	imgUrl,
-	bankName,
-	accountNumber,
-	accountName,
 	thirdId,
 	depositType,
 	handlePopBox
@@ -30,6 +23,7 @@ const Panel = ({
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
 	const isCrypto = depositType === defDepositType.cryptoPay;
+	const _isConvert = isConvert(currencyId);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -42,27 +36,23 @@ const Panel = ({
 		const _clipboard = new ClipboardJS(".copyBtn");
 	}, []);
 
-	const depositAmountText = `${t(`Currency_${currencyId}`)} ${number_format(
-		depositAmount,
-		isConvert(currencyId),
-		0
-	)}`;
-
-	const amountText = `${t(`Currency_${currencyId}`)} ${number_format(
-		amount,
-		isConvert(currencyId),
-		0
-	)}`;
+	const amountText = `${t(`Currency_${currencyId}`)} ${number_format({
+		number: amount,
+		formatRequired: true,
+		isConvertRequired: _isConvert,
+		digits: 0
+	})}`;
 
 	const timeText = moment().format("YYYY-MM-DD H:mm:ss");
 
 	return (
 		<div className="pop">
 			<div className="cryptoPop active">
-				<div className="popTit">
+				<div className="poptit">
 					{title}
 					<div className="icon icon-close" onClick={handlePopBox} />
 				</div>
+
 				<div className="cryptolist">
 					<span className="txt-lightgray">
 						{`${t("lbl_PaymentDetails")}：`}
@@ -86,103 +76,44 @@ const Panel = ({
 						<li>{amountText}</li>
 					</ul>
 				</div>
-				{promoContent === "1" && (
-					<>
-						<ul>
-							<li>{`${t("lbl_CashbackAmount")}：`}</li>
-							<li>
-								{`${number_format(
-									cashbackAmount,
-									isConvert(currencyId)
-								)}(${PromotionRate})`}
-							</li>
-						</ul>
-						<ul>
-							<li>{`${t("lbl_ReceivedAmount")}：`}</li>
-							<li>
-								{number_format(
-									receivedAmount,
-									isConvert(currencyId)
-								)}
-							</li>
-						</ul>
-					</>
-				)}
 
 				<div className="cryptoGuide">
 					{isCrypto ? (
 						<QRCode
+							className="lineqr_img"
 							id={imgUrl}
 							value={imgUrl}
 							renderAs="svg"
 							includeMargin={true}
 						/>
 					) : (
-						<img src={imgUrl} className="qrCode" alt="qrcode" />
+						<img src={imgUrl} className="lineqr_img" alt="qrcode" />
 					)}
 
-					{isCrypto ? (
-						<div className="accountInfo">
-							<div>{imgUrl}</div>
-							<div>
-								<button
-									className="copyBtn"
-									data-clipboard-text={imgUrl}>
-									{t("lbl_Copy")}
-								</button>
-							</div>
-							<div>
-								{t("lbl_Method")}: {token}
-							</div>
-							<div>
-								{t("lbl_Rate")}: {rate}
-							</div>
-							<div>
-								{t("lbl_USDT_Amount")}: {requestAmount}{" "}
-								<button
-									className="copyBtn"
-									data-clipboard-text={requestAmount}>
-									{t("lbl_Copy")}
-								</button>
-							</div>
-						</div>
-					) : (
-						<div>
-							{`${t("lbl_Pay")} `}
-							<span>{depositAmountText}</span>
-						</div>
-					)}
-
-					{accountNumber && (
-						<div className="accountInfo">
-							<div>
-								{t("lbl_Deposit_DragonPayPop_BankName")}：
-								{bankName}
-							</div>
-							<div>
-								{t("lbl_Deposit_DragonPayPop_AccountName")}：
-								{accountName}
-								<button
-									className="copyBtn"
-									data-clipboard-text={accountName}>
-									{t("lbl_Copy")}
-								</button>
-							</div>
-							<div>
-								{t("lbl_Deposit_DragonPayPop_AccountNumber")}：
-								{accountNumber}
-								<button
-									className="copyBtn"
-									data-clipboard-text={accountNumber}>
-									{t("lbl_Copy")}
-								</button>
-							</div>
-						</div>
-					)}
-
+					<span className="txt-lightgray">
+						{imgUrl}
+						<button
+							className="copyBtn icon icon-files-empty"
+							data-clipboard-text={imgUrl}
+						/>
+					</span>
 					<ul>
-						<li>{t("lbl_PaymentQRDesc1")}</li>
-						<li>{t("lbl_PaymentQRDesc2")}</li>
+						<li>{t("lbl_Method")}:</li>
+						<li>{token}</li>
+					</ul>
+					<ul>
+						<li>{t("lbl_Rate")}:</li>
+						<li>{rate}</li>
+					</ul>
+					<ul>
+						<li>{t("lbl_USDT_Amount")}:</li>
+						<li>
+							{requestAmount}
+							<button
+								className="copyBtn icon icon-files-empty"
+								data-clipboard-text={requestAmount}
+							/>
+						</li>
 					</ul>
 				</div>
 
@@ -244,17 +175,10 @@ export const Counter = ({ startUnixTime = null, timeStop }) => {
 export default Panel;
 
 Panel.defaultProps = {
-	bankName: null,
-	accountNumber: null,
-	accountName: null,
 	rate: null,
 	requestAmount: null,
 	token: null,
-	thirdId: null,
-	cashbackAmount: null,
-	receivedAmount: null,
-	PromotionRate: null,
-	promoContent: null
+	thirdId: null
 };
 
 Panel.propTypes = {
@@ -266,14 +190,7 @@ Panel.propTypes = {
 	token: PropTypes.string,
 	currencyId: PropTypes.number.isRequired,
 	imgUrl: PropTypes.string.isRequired,
-	bankName: PropTypes.string,
-	accountNumber: PropTypes.string,
-	accountName: PropTypes.string,
 	thirdId: PropTypes.string,
 	depositType: PropTypes.string.isRequired,
-	handlePopBox: PropTypes.func.isRequired,
-	cashbackAmount: PropTypes.string,
-	receivedAmount: PropTypes.string,
-	PromotionRate: PropTypes.string,
-	promoContent: PropTypes.string
+	handlePopBox: PropTypes.func.isRequired
 };

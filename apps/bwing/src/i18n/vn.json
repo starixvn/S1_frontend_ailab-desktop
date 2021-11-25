@@ -411,6 +411,11 @@
 	"lbl_DepositLoadCardNoticeContent1": "Vui lòng chọn đúng mệnh giá và nhà mạng, nếu quý khách nhập sai, Bwing không chịu trách nhiệm.",
 	"lbl_DepositLoadCardNoticeContent2": "Phí gạch thẻ rẻ nhất thị trường, 25% cho tất cả các nhà mạng.",
 	"lbl_DepositPromoMsg1": "Vui lòng xác minh tài khoản của bạn để được hưởng các chương trình khuyến mãi có sẵn.",
+	"lbl_Deposit_DragonPayPop_OrderNumber": "Mã đặt thanh toán",
+	"lbl_CashbackAmount": "Số tiền hoàn",
+	"lbl_ReceivedAmount": "Số tiền nhận được",
+	"lbl_Rate": "Tỷ giá",
+	"lbl_USDT_Amount": "Số tiền bằng USDT",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",
@@ -728,8 +733,8 @@
 	"lbl_Once_Bwing_App_is_installed": "Khi ứng dụng Bwing được cài đặt, chọn Tin cậy hoặc hoàn thành Cài đặt theo hướng dẫn bên dưới",
 	"lbl_Scan_to_Download": "Quét để tải về",
 
-	"streaming":{
-		"lbl_please_make_deposit":"Vui lòng nạp 1 khoản tiền tối thiểu để có thể trải nghiệm trò chơi trực tuyến."
+	"streaming": {
+		"lbl_please_make_deposit": "Vui lòng nạp 1 khoản tiền tối thiểu để có thể trải nghiệm trò chơi trực tuyến."
 	},
 
 	"■■■■■■■■■■■■■■■■■■■■ payment qr ■■■■■■■■■■■■■■■■■■■■": "",
@@ -765,7 +770,6 @@
 	"lbl_NotERC20WalletAddr": "Must be ERC-20 / TRC-20 compatible wallet address",
 	"lbl_already_stored_this_information": "You have already stored this information.",
 	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
-
 
 	"end-----": "end-----"
 }

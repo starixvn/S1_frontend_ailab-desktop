@@ -22,7 +22,9 @@ const FixedAmountList = ({
 
 					return (
 						<button
-							onClick={() => onChangeForm(_afterConvertAmount)}
+							onClick={() =>
+								onChangeForm(_afterConvertAmount, "amount")
+							}
 							className={`blue${isSelected ? " active" : ""}`}
 							key={`deposit-mobile-${a}`}>
 							{number_format({

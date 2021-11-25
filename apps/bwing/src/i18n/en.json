@@ -237,7 +237,7 @@
 	"lbl_Sportsbook": "Sportsbook",
 	"lbl_Promotion_All": "All",
 	"lbl_Promotion_Slot": "Slot",
-	
+
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
 	"msg_ApiServerError": "Oops! Something wrong, please try again.",
@@ -411,6 +411,11 @@
 	"lbl_DepositLoadCardNoticeContent1": "Please ensure you choose the correct telcom provider  and card value. Otherwise, Bwing will not bear any responsibility.",
 	"lbl_DepositLoadCardNoticeContent2": "Our card fee is cheapest in the market, only 25% apply for all telcoms.",
 	"lbl_DepositPromoMsg1": "Please proceed to verify your account to entitle available promotions.",
+	"lbl_Deposit_DragonPayPop_OrderNumber": "Order Number",
+	"lbl_CashbackAmount": "Cashback Amount",
+	"lbl_ReceivedAmount": "Received Amount",
+	"lbl_Rate": "Rate",
+	"lbl_USDT_Amount": "USDT Amount",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",
@@ -730,8 +735,8 @@
 	"lbl_Once_Bwing_App_is_installed": "Once Bwing App is installed, tap Trust or complete the setting as below.",
 	"lbl_Scan_to_Download": "Scan to Download",
 
-	"streaming":{
-		"lbl_please_make_deposit":"Please make a Min Deposit to enjoy our LIVE STREAMING."
+	"streaming": {
+		"lbl_please_make_deposit": "Please make a Min Deposit to enjoy our LIVE STREAMING."
 	},
 
 	"■■■■■■■■■■■■■■■■■■■■ payment qr ■■■■■■■■■■■■■■■■■■■■": "",
@@ -767,7 +772,6 @@
 	"lbl_NotERC20WalletAddr": "Must be ERC-20 / TRC-20 compatible wallet address",
 	"lbl_already_stored_this_information": "You have already stored this information.",
 	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
-
 
 	"end-----": "end-----"
 }

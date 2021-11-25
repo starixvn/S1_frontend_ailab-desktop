@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import Dropdown from "../../common/dropdown";
-import { getUrlParameter } from "../../common/common";
-// import ShortcutAmountList from "./shortcutAmountList";
+import { getUrlParameter, number_format } from "../../common/common";
+import FixedAmountList from "./fixedAmountList";
 import config from "../../../config";
-// import { useSyncRouteQuery } from "../hooks";
+import { useSyncRouteQuery } from "../hook/useSyncRouteQuery";
 
 const CryptoPayForm = ({
 	t,
 	depositType,
 	formatAmount,
+	_isConvert,
 	cryptoPayGroupList,
 	formInfo,
 	depositPromoList,
@@ -56,11 +57,11 @@ const CryptoPayForm = ({
 		});
 	};
 
-	// useSyncRouteQuery({
-	// 	type: depositType,
-	// 	gId: groupIdForRecord,
-	// 	channelId: infoChannelIdForRecord
-	// });
+	useSyncRouteQuery({
+		type: depositType,
+		gId: groupIdForRecord,
+		channelId: infoChannelIdForRecord
+	});
 
 	useEffect(() => {
 		const getData = async () => {
@@ -106,13 +107,23 @@ const CryptoPayForm = ({
 		return result;
 	};
 
+	const formatMinAmount = number_format({
+		number: formInfo.minAmount,
+		digits: 0
+	});
+	const formatMaxAmount = number_format({
+		number: formInfo.maxAmount,
+		digits: 0
+	});
+
 	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
 		.filter(Boolean)
 		.join(" ");
+
 	return (
 		<>
 			<div className="subModuleTitle">
-				<span>{t("lbl_Payment_Method")}</span>
+				<span>{t("lbl_PaymentModes")}</span>
 			</div>
 			<div className="subModule">
 				<div>
@@ -129,7 +140,7 @@ const CryptoPayForm = ({
 								<img
 									src={`${
 										config.imgUrl
-									}/SiteSkin/img/Payment/${item.groupName.toLowerCase()}.png`}
+									}/common/images/Payment/${item.groupName.toLowerCase()}.png`}
 									alt={item.groupName}
 								/>
 								<i className="icon icon-checkmark" />
@@ -171,9 +182,10 @@ const CryptoPayForm = ({
 								<img
 									src={`${
 										config.imgUrl
-									}/SiteSkin/img/CryptoPay/${item.channelName.toLowerCase()}.png`}
+									}/common/images/Payment/${item.channelName.toLowerCase()}.png`}
 									alt={item.channelName}
 								/>
+
 								<i className="icon icon-checkmark" />
 							</div>
 							<div className="bank">
@@ -201,27 +213,30 @@ const CryptoPayForm = ({
 			</div>
 			<div className="subModule">
 				<Inputbox
-					className="inputBox-white"
+					readOnly={isSelAmountType}
 					value={formInfo.amount?.val}
 					onChange={e => onChangeForm(e.target.value, "amount")}
 					onBlur={() => onChangeForm(formInfo.amount?.val, "amount")}
 					checked={formInfo?.amount?.checked}
 					tip={formInfo?.amount?.tip}
-					_isConvert={false}
+					_isConvert={_isConvert}
 					isAmount={true}
-					placeholder={`${t("lbl_MinMaxAmount")} ${formatAmount(
-						formInfo.minAmount
-					)} ~ ${formatAmount(formInfo.maxAmount)}`}
+					placeholder={`${t(
+						"lbl_MinMaxAmount"
+					)} ${formatMinAmount} / ${formatMaxAmount}`}
 					onKeyDown={onInputboxKeyDown}
 				/>
-				{/* {!isSelAmountType && (
-					<ShortcutAmountList
-						amount={formInfo.amount}
+
+				{isSelAmountType ? (
+					<FixedAmountList
 						minAmount={formInfo.minAmount}
 						maxAmount={formInfo.maxAmount}
-						onClick={amount => onChangeAmount(amount)}
+						amountList={formInfo.amountList}
+						amount={formInfo.amount?.val}
+						_isConvert={_isConvert}
+						onChangeForm={onChangeForm}
 					/>
-				)} */}
+				) : null}
 			</div>
 
 			{depositPromoList?.length > 0 && (
@@ -262,12 +277,15 @@ CryptoPayForm.propTypes = {
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string.isRequired,
+	_isConvert: PropTypes.bool.isRequired,
 	t: PropTypes.func.isRequired,
 	formatAmount: PropTypes.func.isRequired,
 	cryptoPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
+	depositPromoMsg: PropTypes.string.isRequired,
+	changeDeposotPromoHandlar: PropTypes.func.isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired
 };
 export default CryptoPayForm;
