@@ -758,20 +758,14 @@
 	"lbl_Update_Crypto_Wallet": "Please update your crypto wallet details before making withdrawal.",
 	"lbl_Add_Crypto_Wallet": "Add Crypto Wallet",
 	"lbl_Number_Of_Wallet": "Number of wallet",
-	"lbl_Wallet_Is_Full": "Wallet Is Full",
-	"lbl_Enter_Wallet_Address": "Enter Wallet Address",
-	"lbl_Please_Enter_Wallet_Address": "Please Enter Your Crypto Wallet Address",
 	"lbl_Crypto_Wallet_Submit_Note": "Please note: Once the crypto wallet is submitted, it cannot be modified/ deleted.",
 	"lbl_Modification_Please_Contact_CSD": "For any request of modification, please contact CSD.",
-	"lbl_Wallet_Address_Required": "Wallet Address is required",
-	"lbl_Wallet_NickName_Tip": "This is on optional wallet nickname to facilitate your identification",
-	"lbl_Wallet_Address_Tip": "Enter only letters (a-z) and digits(0-9).",
-	"lbl_Select_Crypto_Wallet": "Select Crypto Wallet",
 	"lbl_Optional": "Optional",
 	"lbl_CryptoPay": "Crypto Pay",
 	"lbl_NotERC20WalletAddr": "Must be ERC-20 / TRC-20 compatible wallet address",
 	"lbl_already_stored_this_information": "You have already stored this information.",
 	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
+	"lbl_Crypto_Title_Describe": "Please upload your Crypto account details before making withdrawal.",
 
 	"end-----": "end-----"
 }
