@@ -154,3 +154,6 @@ export const api_payment_GetWithdrawalLimit = () =>
 
 export const api_payment_GetCryptoPayInfoList = () =>
 	paymentRequest.post("/GetCryptoPayInfoList");
+
+export const api_payment_getSupportNetwork = () =>
+	paymentRequest.post("/GetSupportNetwork", { CurrencyId: 96 });

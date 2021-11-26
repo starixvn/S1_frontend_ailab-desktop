@@ -7,7 +7,13 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
 import Loading from "../common/loading";
 
-const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
+const WalletCard = ({
+	walletList,
+	loading,
+	userInfo,
+	numberOfAccount,
+	GetCustBankInfo
+}) => {
 	const isMountedRef = useRef(null);
 	const { t } = useTranslation();
 	const { errorPopBox } = usePopBox();
@@ -85,44 +91,64 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 	const arr = walletList?.map(item => {
 		return (
 			<div
-				className="addCrypto haveBank"
+				className="addCryptoName"
 				key={`walletCard-${item.usdtAddress}`}>
-				<div className="cryptoInfo">
-					<i className="icon icon-USDT" />
-					<div>{item.usdtAddress}</div>
+				<div className="addCryptoInfo">
+					<div className="cryptoName">
+						<div className="icon icon-BTC">
+							<span>{item.nickName}</span>
+						</div>
+					</div>
+					<div>
+						<button
+							onClick={() =>
+								delUSDTwallet({
+									USDTAddress: item.usdtAddress,
+									NickName: item.nickName,
+									AccountName: userInfo.accountName
+								})
+							}
+							className="icon icon-bin"
+						/>
+					</div>
 				</div>
-				<button
-					className="icon icon-bin"
-					onClick={() =>
-						delUSDTwallet({
-							USDTAddress: item.usdtAddress,
-							NickName: item.nickName,
-							AccountName: userInfo.accountName
-						})
-					}
-				/>
-				<div className="walletNickname">{item.nickName}</div>
+				<div className="addCryptoInfo">
+					<div className="txt-dark">
+						<span>{item.usdtAddress}</span>
+					</div>
+				</div>
 			</div>
 		);
 	});
-	return loading ? (
-		<Loading />
-	) : (
-		<>
-			{walletList?.length > 0 ? (
-				<div className="infoModule">
-					<div className="walletModule">
-						<div className="addBank haveBank">{arr}</div>
+
+	if (loading) return <Loading />;
+
+	if (walletList?.length > 0)
+		return (
+			<div className="infoModule">
+				<div className="walletModule">
+					<div className="addCrypto haveBank">
+						<div className="txt-blue15">
+							<div className="remainder">
+								{t("lbl_Number_Of_Wallet")}: {numberOfAccount}/3
+							</div>
+						</div>
+
+						{arr}
 					</div>
 				</div>
-			) : null}
-		</>
-	);
+			</div>
+		);
+
+	return null;
 };
 
 WalletCard.propTypes = {
 	walletList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	loading: PropTypes.bool.isRequired
+	loading: PropTypes.bool.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	numberOfAccount: PropTypes.number.isRequired,
+	GetCustBankInfo: PropTypes.func.isRequired
 };
 
 export default WalletCard;

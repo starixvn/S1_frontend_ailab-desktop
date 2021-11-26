@@ -93,6 +93,17 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.AddCryptoWallet: {
+			const AddCryptoWallet = lazy(() =>
+				import("./popBox.addCryptoWallet")
+			);
+			content = (
+				<AddCryptoWallet GetCustBankInfo={popBox.GetCustBankInfo} />
+			);
+
+			break;
+		}
+
 		case defPopBoxType.AddBankSuccess: {
 			const AddBankSuccess = lazy(() =>
 				import("./popBox.addBankSuccess")

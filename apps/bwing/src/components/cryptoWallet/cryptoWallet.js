@@ -10,12 +10,13 @@ import usePopBox from "../hook/usePopBox";
 import Loading from "../common/loading";
 import path from "../../router";
 
+import AccountName from "./cryptoWallet.accountName";
+
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
-	const [showTip, setShowTip] = useState(false);
 	const isMountedRef = useRef(null);
 	const [loading, setLoading] = useState(true);
 	const [accountName, setAccountName] = useState(null);
@@ -31,10 +32,6 @@ export default () => {
 	useEffect(() => {
 		GetCustBankInfo();
 	}, []);
-
-	const clickTip = () => {
-		setShowTip(!showTip);
-	};
 
 	const GetCustBankInfo = () => {
 		api_account_GetCustBankInfo().then(
@@ -102,25 +99,9 @@ export default () => {
 				<div className="txt-lightgray">
 					{t("lbl_Update_Crypto_Wallet")}
 				</div>
-				<div className="accountName icon icon-icon32px_Profile">
-					{userInfo.accountName ? (
-						<>
-							<span>{t("lbl_BankAccountName")}</span>
-							<div>
-								<span>{userInfo.accountName}</span>
-								<button
-									className="icon icon-error"
-									onClick={clickTip}
-								/>
-								{showTip ? (
-									<div className="tip active">
-										{t("lbl_ContactCSD")}
-									</div>
-								) : null}
-							</div>
-						</>
-					) : null}
-				</div>
+
+				<AccountName t={t} accountName={userInfo.accountName} />
+
 				<InitPanel
 					t={t}
 					addCryptoWallet={addCryptoWallet}
@@ -131,6 +112,7 @@ export default () => {
 				walletList={walletInfo}
 				loading={loading}
 				userInfo={userInfo}
+				numberOfAccount={walletInfo ? walletInfo?.length : 0}
 				GetCustBankInfo={GetCustBankInfo}
 			/>
 		</>
