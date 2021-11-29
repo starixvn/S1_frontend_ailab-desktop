@@ -65,6 +65,10 @@
   font-size: 12px;
 }
 
+.icon-Shield:before {
+  content: "\e9e2";
+}
+
 .icon-medal:before {
   content: "\e9dd";
 }
@@ -627,6 +631,14 @@
 
 .icon-withdrawal:before {
   content: "\e910";
+}
+
+.icon-plus-square:before {
+  content: "\e9e0";
+}
+
+.icon-book-open:before {
+  content: "\e9e1";
 }
 
 .icon-person:before {
