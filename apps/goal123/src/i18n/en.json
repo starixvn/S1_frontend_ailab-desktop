@@ -676,5 +676,12 @@
 	"lbl_Installation_tutorial": "Installation tutorial",
 	"lbl_Appdownload_Subtitle": "Once {{site}} App is installed, tap Trust or complete the setting as below.",
 	"lbl_Scan_to_Download": "Scan to Download",
-	"lbl_iOS_App_Trust_Authentication": "iOS App Trust Authentication"
+	"lbl_iOS_App_Trust_Authentication": "iOS App Trust Authentication",
+
+	"promotion":{
+		"lbl_promo_claim_now":"CLAIM NOW",
+		"lbl_promo_apply_now": "APPLY NOW",
+		"lbl_promo_more_info": "MORE INFO",
+		"lbl_promo_all_promos": "ALL PROMOS"
+	}
 }

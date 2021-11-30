@@ -37,3 +37,14 @@ export const defCategoryId = {
 	PtSlots: 7,
 	PtLiveCasino: 8
 };
+
+export const defFilterType = {
+	all: "all",
+	expiry: "expiry",
+	firstDeposit: "firstDeposit",
+	other: "other",
+	sportsbook: "sportsbook",
+	liveCasino: "liveCasino",
+	slots: "slots",
+	specialBonus: "specialBonus"
+};

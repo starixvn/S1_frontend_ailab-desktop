@@ -1,20 +1,25 @@
 import React from "react";
-import Wrapper from "../../components/common/wrapper";
-import Layout from "../../components/common/layout";
-import Content from "../../components/promotion/promotionInfo";
+import Promotion from "../promotion";
 
-export default () => {
-	return (
-		<Wrapper>
-			<Layout showFooter={true}>
-				<main>
-					<section className="inside">
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => <Promotion />;
+
+// import React from "react";
+// import Wrapper from "../../components/common/wrapper";
+// import Layout from "../../components/common/layout";
+// import Content from "../../components/promotion/promotionInfo";
+
+// export default () => {
+// 	return (
+// 		<Wrapper>
+// 			<Layout showFooter={true}>
+// 				<main>
+// 					<section className="inside">
+// 						<div className="rightModule">
+// 							<Content />
+// 						</div>
+// 					</section>
+// 				</main>
+// 			</Layout>
+// 		</Wrapper>
+// 	);
+// };
