@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { SiteInfo } from "../../config";
+import { SiteInfo, bannerImgUrl } from "../../config";
 import { userInfoContext } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import { currencyCode } from "../../datas/countryCode";
-import whatsappQR from "../../styles/img/whatsappQR.jpg";
 import lineQR from "../../styles/img/lineQR.jpg";
 
 export default () => {
@@ -44,7 +43,7 @@ export default () => {
 			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
 			imgInfo: "+63 927 316 5888",
-			imgSrc: whatsappQR
+			imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`
 		},
 		{
 			id: 6,
