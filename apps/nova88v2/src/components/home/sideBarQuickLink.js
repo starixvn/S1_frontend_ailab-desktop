@@ -43,7 +43,7 @@ export default () => {
 			id: 5,
 			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
-			imgInfo: "+63 945 638 8147",
+			imgInfo: "+63 927 316 5888",
 			imgSrc: whatsappQR
 		},
 		{
