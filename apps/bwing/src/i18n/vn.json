@@ -731,5 +731,12 @@
 		"lbl_please_make_deposit":"Vui lòng nạp 1 khoản tiền tối thiểu để có thể trải nghiệm trò chơi trực tuyến."
 	},
 
+	"promotion":{
+		"lbl_promo_claim_now":"NHẬN NGAY",
+		"lbl_promo_apply_now": "THAM GIA NGAY",
+		"lbl_promo_more_info": "THÊM THÔNG TIN",
+		"lbl_promo_all_promos": "TẤT CẢ KHUYẾN MÃI"
+	},
+
 	"end-----": "end-----"
 }

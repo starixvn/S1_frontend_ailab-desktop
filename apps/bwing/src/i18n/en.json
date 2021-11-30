@@ -733,5 +733,12 @@
 		"lbl_please_make_deposit":"Please make a Min Deposit to enjoy our LIVE STREAMING."
 	},
 
+	"promotion":{
+		"lbl_promo_claim_now":"CLAIM NOW",
+		"lbl_promo_apply_now": "APPLY NOW",
+		"lbl_promo_more_info": "MORE INFO",
+		"lbl_promo_all_promos": "ALL PROMOS"
+	},
+
 	"end-----": "end-----"
 }

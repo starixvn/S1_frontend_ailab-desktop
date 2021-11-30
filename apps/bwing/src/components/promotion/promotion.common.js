@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import { Link } from "@reach/router";
-import { promoStatus, defPromotionType } from "./promotion.def";
+import { promoStatus, defPromotionType, defFilterType } from "./promotion.def";
 import { defPopBoxType } from "../common/defPopBoxType";
 import path from "../../router";
 import { number_format } from "../common/common";
@@ -113,4 +113,31 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 	}
 
 	return true;
+};
+
+const defPromoDisplayStyle = {
+	default: "",
+	new: "new",
+	expired: "expired",
+	claimed: "claimed active"
+};
+
+export const getStampStyle = (filter, promotionInfo) => {
+	const _isClaimed = isClaimed(promotionInfo);
+	const _isNew = _isClaimed ? false : isNew(promotionInfo);
+
+	let promoDisplayStyle = defPromoDisplayStyle.default;
+
+	if (_isClaimed) {
+		promoDisplayStyle = defPromoDisplayStyle.claimed;
+	} else if (
+		(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
+		promotionInfo.beenUsed
+	) {
+		promoDisplayStyle = defPromoDisplayStyle.expired;
+	} else if (_isNew && promotionInfo.canJoin) {
+		promoDisplayStyle = defPromoDisplayStyle.new;
+	}
+
+	return promoDisplayStyle;
 };

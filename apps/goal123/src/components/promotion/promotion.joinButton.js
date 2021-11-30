@@ -110,13 +110,7 @@ export default ({ promotionInfo, userInfo, filter, callBack }) => {
 
 	const onJoinPromotion = async () => {
 		const { langId, currencyId } = userInfo;
-		const {
-			bonusCode,
-			bonusType,
-			canJoin,
-			promotionType,
-			maxAmount
-		} = promotionInfo;
+		const { bonusCode, canJoin, promotionType, maxAmount } = promotionInfo;
 
 		const promotionCanJoin = checkPromotion({
 			promotionInfo,
@@ -158,7 +152,9 @@ export default ({ promotionInfo, userInfo, filter, callBack }) => {
 
 	return (
 		<button className="yellow" onClick={onJoinPromotion}>
-			{t("lbl_PromoJoinNow")}
+			{promotionInfo.promotionType === defPromotionType.cashback
+				? t("promotion.lbl_promo_claim_now")?.toUpperCase()
+				: t("lbl_PromoJoinNow")?.toUpperCase()}
 		</button>
 	);
 };
