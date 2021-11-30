@@ -94,26 +94,29 @@ export class Dropdown extends Component {
 		let icon = null;
 		const rows = Object.keys(this.props.defLangGroup).map(_group => {
 			return (
-				<div
-					key={`${this.props.mainKey}_${_group}`}
-					className={`flag ${_group}`}>
-					{this.props.defLangGroup[_group].map(item => {
-						if (item.value === this.props.selectedValue) {
-							icon = _group;
-						}
-						return (
-							<button
-								key={`${this.props.mainKey}_${item.value}`}
-								onClick={this.selectItem.bind(
-									this,
-									item.value,
-									getNewLanguagePath(item.value)
-								)}>
-								{item.displayText}
-							</button>
-						);
-					})}
-				</div>
+				<span key={`${this.props.mainKey}_${_group}`}>
+					<div className="countryName">
+						{this.props.defLangGroupCountry[_group]}
+					</div>
+					<div className={`flag ${_group}`}>
+						{this.props.defLangGroup[_group].map(item => {
+							if (item.value === this.props.selectedValue) {
+								icon = _group;
+							}
+							return (
+								<button
+									key={`${this.props.mainKey}_${item.value}`}
+									onClick={this.selectItem.bind(
+										this,
+										item.value,
+										getNewLanguagePath(item.value)
+									)}>
+									{item.displayText}
+								</button>
+							);
+						})}
+					</div>
+				</span>
 			);
 		});
 
@@ -149,6 +152,7 @@ Dropdown.propTypes = {
 	mainKey: PropTypes.string.isRequired,
 	selectedValue: PropTypes.string.isRequired,
 	isLogin: PropTypes.bool.isRequired,
+	defLangGroupCountry: PropTypes.objectOf(PropTypes.any).isRequired,
 	defLangGroup: PropTypes.objectOf(PropTypes.array).isRequired,
 	isMountedRef: PropTypes.objectOf(PropTypes.any),
 	setPopBox: PropTypes.func,

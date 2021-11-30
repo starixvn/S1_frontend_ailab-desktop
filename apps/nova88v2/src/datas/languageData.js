@@ -9,10 +9,16 @@ export const defLangList = [
 	"hi_en"
 ];
 
-export const defLangListOld = ["en", "cs", "th", "id"];
+export const defOldLangList = ["en", "cs", "th", "id"];
 
 export const isOldLang = _lang => {
-	return defLangListOld.includes(_lang);
+	return defOldLangList.includes(_lang);
+};
+
+export const defCountryLangList = ["en", "cs", "th", "id", "hi"];
+
+export const isCountryLang = _lang => {
+	return defCountryLangList.includes(_lang);
 };
 
 export const defLang = {

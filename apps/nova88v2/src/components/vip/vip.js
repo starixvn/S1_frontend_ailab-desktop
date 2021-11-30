@@ -6,9 +6,10 @@ import { getCurrencyCode } from "../common/common";
 import { AutoPlayWithBtn } from "../common/swipperBanner";
 import { InfoEn, InfoTh, InfoId, InfoCs } from "./vip.info";
 import VipPage from "./vip.page";
-import { defbanner, defPageClubImg } from "./vip.def";
+import { defbanner, defPageClubImg, allowCurrencies } from "./vip.def";
 import { cloudImgUrl } from "../../config";
 import { isOldLang } from "../../datas/languageData";
+import { useHandleAllowCurrencies } from "../hook/useHandleAllowCurrencies";
 
 const Vip = () => {
 	const { t } = useTranslation();
@@ -26,6 +27,15 @@ const Vip = () => {
 				popBoxType: defPopBoxType.Join
 			});
 	};
+
+	useHandleAllowCurrencies({
+		allowCurrencies,
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		currencyId: userInfo.currencyId,
+		redirectPath: `/${userInfo.langId}`,
+		t
+	});
 
 	const rows = defbanner(userInfo.langId).map(item => (
 		<div className="swiper-slide" key={item.alt}>

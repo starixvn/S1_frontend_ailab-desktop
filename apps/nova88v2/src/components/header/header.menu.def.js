@@ -5,11 +5,21 @@ import {
 	defEventPeriod,
 	showEventIcon
 } from "../common/eventIcon";
-import { currencyCode } from "../../datas/countryCode";
 import { defCurrencyList } from "../common/common";
+import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def";
+
+const defSortSports = {
+	[defCurrencyList.INR]: {
+		cricket: 1,
+		soccer: 2,
+		sabaSoccer: 3,
+		basketball: 4,
+		tennis: 5
+	}
+};
 
 const defSortCasino = {
-	[currencyCode.TH]: {
+	[defCurrencyList.THB]: {
 		casino_PP: 1,
 		casino_MGPSW: 2,
 		casino_PT: 3,
@@ -23,7 +33,7 @@ const defSortCasino = {
 		casino_EBET: 11,
 		casino_N2LIVE: 12
 	},
-	[currencyCode.MY]: {
+	[defCurrencyList.MYR]: {
 		casino_PP: 1,
 		casino_MGPSW: 2,
 		casino_PT: 3,
@@ -37,7 +47,7 @@ const defSortCasino = {
 		casino_EBET: 11,
 		casino_N2LIVE: 12
 	},
-	[currencyCode.ID]: {
+	[defCurrencyList.IDR]: {
 		casino_PP: 1,
 		casino_MGPSW: 2,
 		casino_PT: 3,
@@ -50,11 +60,22 @@ const defSortCasino = {
 		casino_SA: 10,
 		casino_ALBET: 11,
 		casino_N2LIVE: 12
+	},
+	[defCurrencyList.INR]: {
+		casino_PP: 1,
+		casino_SA: 2,
+		casino_AG: 3,
+		casino_DG: 4,
+		casino_PT: 5,
+		casino_ALBET: 6,
+		casino_EBET: 7,
+		casino_WM: 8,
+		casino_N2LIVE: 9
 	}
 };
 
 const defSortSlot = {
-	[currencyCode.TH]: {
+	[defCurrencyList.THB]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
 		slot_MGPSW: 3,
@@ -70,7 +91,7 @@ const defSortSlot = {
 		slot_GPI: 13,
 		slot_OW: 14
 	},
-	[currencyCode.MY]: {
+	[defCurrencyList.MYR]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
 		slot_MGPSW: 3,
@@ -86,7 +107,7 @@ const defSortSlot = {
 		slot_OW: 13,
 		slot_PG: 14
 	},
-	[currencyCode.ID]: {
+	[defCurrencyList.IDR]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
 		slot_MGPSW: 3,
@@ -105,23 +126,33 @@ const defSortSlot = {
 };
 
 const defSortFishing = {
-	[currencyCode.TH]: {
+	[defCurrencyList.THB]: {
 		fishing_SGW_WAR: 1,
 		fishing_CQ9_PARADISE: 2,
 		fishing_GGYL_WORLD: 3,
 		fishing_ICG_DRAGONBALL: 4
 	},
-	[currencyCode.MY]: {
+	[defCurrencyList.MYR]: {
 		fishing_GGYL_WORLD: 1,
 		fishing_SGW_WAR: 2,
 		fishing_CQ9_PARADISE: 3,
 		fishing_ICG_DRAGONBALL: 4
 	},
-	[currencyCode.ID]: {
+	[defCurrencyList.IDR]: {
 		fishing_SGW_WAR: 1,
 		fishing_ICG_DRAGONBALL: 2,
 		fishing_CQ9_PARADISE: 3,
 		fishing_GGYL_WORLD: 4
+	},
+	[defCurrencyList.INR]: {
+		fishing_SGW_WAR: 1,
+		fishing_SG: 2,
+		fishing_GGYL_WORLD: 3,
+		fishing_CQ9_ONESHOT: 4,
+		fishing_CQ9_PARADISE: 5,
+		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 6,
+		fishing_ICG_DRAGONBALL: 7,
+		ICG_FISHING_OF_SAVIORS: 8
 	}
 };
 
@@ -137,6 +168,7 @@ export const defSubListClassName = {
 	home: "homeList",
 	appDownload: "appList",
 	sports: "sportsList",
+	exchange: "exchangeList",
 	eSports: "eSportsList",
 	slot: "casinoList",
 	casino: "livecasinoList",
@@ -182,7 +214,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "home-ranking.png",
 				listBgImgUrl: "rankingbg.png",
 				menuType: defMenuType.Link,
-				path: path.leaderBoard.root
+				path: path.leaderBoard.root,
+				allowCurrencies: [...getLeaderBoardSupportCurrencyId()]
 			},
 			{
 				displayKey: "lbl_Referral",
@@ -204,6 +237,7 @@ export const defMenuLinks = {
 		path: path.sports.root,
 		productInfo: productList.sports,
 		filterByAuth: true,
+		customSort: defSortSports,
 		subMenu: [
 			{
 				path: path.sports.root,
@@ -212,7 +246,8 @@ export const defMenuLinks = {
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
 				parameter: { ...productList.soccer },
-				...productList.soccer
+				...productList.soccer,
+				keyName: "soccer"
 			},
 			{
 				path: path.sports.root,
@@ -221,7 +256,8 @@ export const defMenuLinks = {
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
 				parameter: { ...productList.sabaSoccer },
-				...productList.sabaSoccer
+				...productList.sabaSoccer,
+				keyName: "sabaSoccer"
 			},
 			{
 				path: path.sports.root,
@@ -230,7 +266,8 @@ export const defMenuLinks = {
 				listBgImgUrl: "basketballBG.png",
 				menuType: defMenuType.Link,
 				parameter: { ...productList.basketball },
-				...productList.basketball
+				...productList.basketball,
+				keyName: "basketball"
 			},
 			{
 				path: path.sports.root,
@@ -239,7 +276,8 @@ export const defMenuLinks = {
 				listBgImgUrl: "tennisBG.png",
 				menuType: defMenuType.Link,
 				parameter: { ...productList.tennis },
-				...productList.tennis
+				...productList.tennis,
+				keyName: "tennis"
 			},
 			{
 				path: path.sports.root,
@@ -248,9 +286,18 @@ export const defMenuLinks = {
 				listBgImgUrl: "cricketBG.png",
 				menuType: defMenuType.Link,
 				parameter: { ...productList.cricket },
-				...productList.cricket
-			},
+				...productList.cricket,
+				keyName: "cricket"
+			}
+		]
+	},
+	exchange: {
+		displayKey: "lbl_Exchange",
+		className: "exchange",
+		allowCurrencies: [defCurrencyList.INR],
+		subMenu: [
 			{
+				...productList._9WSports,
 				displayKey: "lbl_9W",
 				listNpcImgUrl: "9wnpc.png",
 				listBgImgUrl: "cricketBG.png",
@@ -263,7 +310,8 @@ export const defMenuLinks = {
 						period: defEventPeriod.Sports_9W
 					})
 				],
-				...productList._9WSports
+				keyName: "_9WSports",
+				needLogin: true
 			}
 		]
 	},
@@ -637,7 +685,12 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "slotOW.png",
 				listBgImgUrl: "slotListHover.png",
-				...productList.casino_OW
+				...productList.casino_OW,
+				allowCurrencies: [
+					defCurrencyList.IDR,
+					defCurrencyList.MYR,
+					defCurrencyList.THB
+				]
 			},
 			{
 				keyName: "slot_RedTiger",
@@ -785,6 +838,66 @@ export const defMenuLinks = {
 					bgImg: "fishfw.png",
 					hoverBgImg: "fishfwa.png"
 				}
+			},
+			{
+				keyName: "fishing_SG",
+				className: "fsg",
+				displayKey: "lbl_FishingSG1",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishSG.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.fishing_SG,
+				parameter: { ...productList.fishing_SG },
+				lobbyPage: {
+					bgImg: "fishfg.png",
+					hoverBgImg: "fishfga.png"
+				},
+				allowCurrencies: [defCurrencyList.INR]
+			},
+			{
+				keyName: "fishing_CQ9_ONESHOT",
+				className: "fsg",
+				displayKey: "lbl_Oneshot_Fishing",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "oneshotfishing.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.CQ9_Oneshot_Fishing,
+				parameter: { ...productList.CQ9_Oneshot_Fishing },
+				lobbyPage: {
+					bgImg: "fishof.png",
+					hoverBgImg: "fishofa.png"
+				},
+				allowCurrencies: [defCurrencyList.INR]
+			},
+			{
+				keyName: "fishing_ICG_THE_TYRANT_AND_THE_PRINCESS",
+				className: "fsg",
+				displayKey: "lbl_Game_ICG_THE_TYRANT_AND_THE_PRINCESS",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishICG-TTATP.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.ICG_THE_TYRANT_AND_THE_PRINCESS,
+				parameter: { ...productList.ICG_THE_TYRANT_AND_THE_PRINCESS },
+				lobbyPage: {
+					bgImg: "fishtp.png",
+					hoverBgImg: "fishtpa.png"
+				},
+				allowCurrencies: [defCurrencyList.INR]
+			},
+			{
+				keyName: "ICG_FISHING_OF_SAVIORS",
+				className: "fsg",
+				displayKey: "lbl_Game_ICG_FISHING_OF_SAVIORS",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "fishICG-FOS.png",
+				listBgImgUrl: "fishListHover.png",
+				...productList.ICG_FISHING_OF_SAVIORS,
+				parameter: { ...productList.ICG_FISHING_OF_SAVIORS },
+				lobbyPage: {
+					bgImg: "fishfs.png",
+					hoverBgImg: "fishfsa.png"
+				},
+				allowCurrencies: [defCurrencyList.INR]
 			}
 		]
 	},
@@ -892,7 +1005,12 @@ export const defMenuLinks = {
 	},
 	vip: {
 		displayKey: "lbl_Vip",
-		path: path.vip.root
+		path: path.vip.root,
+		allowCurrencies: [
+			defCurrencyList.MYR,
+			defCurrencyList.THB,
+			defCurrencyList.IDR
+		]
 	},
 	sponsor: {
 		displayKey: "lbl_Sponsor",
@@ -943,6 +1061,7 @@ export const defMenuLinks = {
 	},
 	ranking: {
 		displayKey: "lbl_Leaderboard",
-		path: path.leaderBoard.root
+		path: path.leaderBoard.root,
+		allowCurrencies: [...getLeaderBoardSupportCurrencyId()]
 	}
 };

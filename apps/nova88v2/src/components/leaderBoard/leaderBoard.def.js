@@ -1,3 +1,5 @@
+import { defCurrencyList } from "../common/common";
+
 export const defTabId = {
 	first: 1,
 	second: 2,
@@ -57,6 +59,11 @@ export const defMonthKey = {
 	11: "lbl_Nov",
 	12: "lbl_Dec"
 };
+
+export const getLeaderBoardSupportCurrencyId = () =>
+	Object.keys(defRewardList({ t: () => "_" })).map(
+		key => defCurrencyList[key]
+	);
 
 export const defRewardList = ({ t }) => {
 	return {
