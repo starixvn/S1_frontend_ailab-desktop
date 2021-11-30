@@ -5,6 +5,7 @@ import { Link } from "@reach/router";
 import path from "../../router";
 import usePrmotion from "../promotion/hook/usePromotion";
 import usePopBox from "../hook/usePopBox";
+import { useHandlePromotionInfo } from "../promotion/promotionInfo.popbox";
 
 const PromoList = ({ t, userInfo }) => {
 	const isMountedRef = useRef(null);
@@ -17,12 +18,20 @@ const PromoList = ({ t, userInfo }) => {
 		autoGetData: true
 	});
 
+	const { getPromotionDetail } = useHandlePromotionInfo({
+		showAllPromosBtn: true
+	});
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
 			isMountedRef.current = false;
 		};
 	});
+
+	const clickPromotion = (langId, bonusCode) => {
+		getPromotionDetail(langId, bonusCode);
+	};
 
 	return (
 		<div className="promos">
@@ -55,11 +64,17 @@ const PromoList = ({ t, userInfo }) => {
 										</div>
 										<div className="title">{p.title}</div>
 										<div className="btnGroup">
-											<Link
+											<button
 												className="lightblue"
-												to={`/${userInfo.langId}/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${p.bonusCode}`}>
-												{t("lbl_Details")}
-											</Link>
+												onClick={clickPromotion.bind(
+													this,
+													userInfo.langId,
+													p.bonusCode
+												)}>
+												{t(
+													"promotion.lbl_promo_more_info"
+												)}
+											</button>
 										</div>
 									</div>
 								))}

@@ -9,14 +9,31 @@ const numberWithCurrency = (value, currencyName, _isConvert) => {
 	return `${currencyName} ${number_format(value, false, 0)}`;
 };
 
+export const getExpiryTime = (
+	t,
+	{ isJoin, status, custExpiryTime, periodTo }
+) => {
+	const _expiryTime = moment.unix(
+		isJoin && status === promoStatus.running && custExpiryTime
+			? moment(custExpiryTime).unix()
+			: periodTo
+	);
+
+	const diffDays = Math.ceil(
+		moment.duration(_expiryTime.diff(moment())).asDays() - 1
+	);
+
+	const expiryTime = moment.duration(_expiryTime.diff(new Date()));
+
+	return `${diffDays} ${t("lbl_Days")} ${expiryTime.hours()} ${t(
+		"lbl_Hours"
+	)}`;
+};
+
 export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 	const {
-		isJoin,
-		status,
 		bonus,
 		bonusType,
-		custExpiryTime,
-		periodTo,
 		maxBonus,
 		rollOver,
 		promotionType,
@@ -32,21 +49,7 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 
 	const _isConvert = isConvert(currencyId);
 
-	const _expiryTime = moment.unix(
-		isJoin && status === promoStatus.running && custExpiryTime
-			? moment(custExpiryTime).unix()
-			: periodTo
-	);
-
-	const diffDays = Math.ceil(
-		moment.duration(_expiryTime.diff(moment())).asDays() - 1
-	);
-
-	const expiryTime = moment.duration(_expiryTime.diff(new Date()));
-
-	const displayExpiryTime = `${diffDays} ${t(
-		"lbl_Days"
-	)} ${expiryTime.hours()} ${t("lbl_Hours")}`;
+	const displayExpiryTime = getExpiryTime(t, promotionInfo);
 
 	const isStaticOrRebate =
 		promotionType === defPromotionType.other ||
@@ -57,67 +60,50 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 	if (ruleType === RULE_TYPE.info)
 		return (
 			<div className="rollover">
-				<div>
-					{!isStaticOrRebate && (
-						<>
-							{displayMinAmount && (
-								<div className="icon icon-icon32px_money">
-									{t("lbl_Promotion_Min_Deposit")}
-								</div>
+				{!isStaticOrRebate && displayMinAmount && (
+					<div className="icon icon-coin-dollar">
+						{t("lbl_Promotion_Min_Deposit")}
+						<span>
+							{numberWithCurrency(
+								requiredAmount,
+								currencyName,
+								_isConvert
 							)}
-							<div className="icon icon-icon32px_">
-								{t("lbl_Promotion_Bonus")}
-							</div>
-						</>
-					)}
-					{isPercentage && !isStaticOrRebate && (
-						<div className="icon icon-icon32px_">
-							{t("lbl_MaxBonusAmount")}
-						</div>
-					)}
-					<div className="icon icon-icon32px_">
-						{t("lbl_RollOver")}
+						</span>
 					</div>
-					<div className="icon icon-icon32px_time">
-						{t("lbl_RemainingTime")}
-					</div>
-				</div>
+				)}
 
-				<div className="txt-orange">
-					{!isStaticOrRebate && (
-						<>
-							{displayMinAmount && (
-								<div>
-									{numberWithCurrency(
-										requiredAmount,
+				{!isStaticOrRebate && (
+					<div className="icon icon-coin-dollar">
+						{t("lbl_Promotion_Bonus")}
+						<span>
+							{isPercentage
+								? `${bonus}%`
+								: numberWithCurrency(
+										bonus,
 										currencyName,
 										_isConvert
-									)}
-								</div>
-							)}
-							<div>
-								{isPercentage
-									? `${bonus}%`
-									: numberWithCurrency(
-											bonus,
-											currencyName,
-											_isConvert
-									  )}
-							</div>
-						</>
-					)}
+								  )}
+						</span>
+					</div>
+				)}
 
-					{isPercentage && !isStaticOrRebate && (
-						<div>
+				{isPercentage && !isStaticOrRebate && (
+					<div className="icon icon-coin-dollar">
+						{t("lbl_MaxBonusAmount")}
+						<span>
 							{numberWithCurrency(
 								maxBonus,
 								currencyName,
 								_isConvert
 							)}
-						</div>
-					)}
-					<div>{rollOver}X</div>
-					<div>{displayExpiryTime}</div>
+						</span>
+					</div>
+				)}
+
+				<div className="icon icon-icon32px_">
+					{t("lbl_RollOver")}
+					<span>{rollOver}X</span>
 				</div>
 			</div>
 		);

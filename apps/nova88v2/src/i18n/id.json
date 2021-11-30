@@ -441,7 +441,7 @@
 	"lbl_Promotion": "Promosi",
 	"lbl_Promotions": "Promosi",
 	"lbl_PromotionsDesc": "Deskripsi penawaran",
-	"lbl_PromoJoinNow": "Bergabung sekarang",
+	"lbl_PromoJoinNow": "GABUNG",
 	"lbl_Redeposit_Promo": "Deposit ulang",
 	"lbl_ClaimAmountRange": "Jarak Jumlah Klaim",
 	"lbl_ClaimAmount": "Jumlah Klaim",
@@ -463,7 +463,7 @@
 	"lbl_LossAmount": "Nilai Kekalahan",
 	"lbl_Percentage": "Persentase",
 	"lbl_TotalAmount": "Jumlah Dana",
-	"lbl_ClaimNow": "Klaim Sekarang",
+	"lbl_ClaimNow": "KLAIM",
 	"lbl_JoinSuccessDescription1": "Sukses!",
 	"lbl_JoinSuccessDescription2": "Bonus Anda telah diklaim.",
 	"lbl_Promotion_Min_Deposit": "DEPOSIT MIN",
@@ -940,6 +940,12 @@
 		"lbl_bannerTitle2": "24/7"
 	},
 
+	"promotion":{
+		"lbl_promo_apply_now": "MELAMAR",
+		"lbl_promo_more_info": "RINCIAN",
+		"lbl_promo_all_promos": "SEMUA PROMO"
+	},
+	
 	"streaming":{
 		"lbl_please_make_deposit":"Silakan melakukan Deposit untuk menikmati Live Streaming kami."
 	},
