@@ -263,6 +263,11 @@ export default {
 		gameId: 10,
 		tpGameType: 12
 	},
+	fishing_SG: {
+		tpId: 10,
+		gameId: "F-SF01",
+		tpGameType: 31
+	},
 	fishing_SGW: {
 		gameId: "F-SF02",
 		tpId: 10,

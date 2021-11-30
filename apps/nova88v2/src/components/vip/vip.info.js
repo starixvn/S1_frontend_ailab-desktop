@@ -1,6 +1,6 @@
 import React from "react";
 
-export const InfoEn = () => {
+export const InfoEN = () => {
 	return (
 		<div className="vipInfo">
 			<div className="vipTitle">VIP Program</div>
@@ -21,7 +21,7 @@ export const InfoEn = () => {
 	);
 };
 
-export const InfoTh = () => {
+export const InfoTH = () => {
 	return (
 		<div className="vipInfo">
 			<div className="vipTitle">โปรแกรมวีไอพี</div>
@@ -40,7 +40,7 @@ export const InfoTh = () => {
 	);
 };
 
-export const InfoId = () => {
+export const InfoID = () => {
 	return (
 		<div className="vipInfo">
 			<div className="vipTitle">Program VIP</div>
@@ -60,7 +60,7 @@ export const InfoId = () => {
 	);
 };
 
-export const InfoCs = () => {
+export const InfoCS = () => {
 	return (
 		<div className="vipInfo">
 			<div className="vipTitle">VIP计划</div>
@@ -68,6 +68,26 @@ export const InfoCs = () => {
 			<div className="vipTitle">概观</div>
 			贵族等级分为古铜俱乐部，白银俱乐部，黄金俱乐部，钛金俱乐部，钻石俱乐部和欧亚俱乐部。解锁贵族等级以享有更多尊贵福利与独享服务。
 			<div className="vipTitle">不同等级享有各种豪爽福利</div>
+		</div>
+	);
+};
+
+export const InfoHI = () => {
+	return (
+		<div className="vipInfo">
+			<div className="vipTitle">वीआईपी कार्यक्रम</div>
+			Nova88 ने अपना वीआईपी पुरस्कार कार्यक्रम शुरू किया है ताकि सदस्य
+			अच्छी सेवाओं, अधिक पुरस्कारों और बेहतर अनुभव प्राप्त कर सकें। जब
+			आपका टियर अपग्रेड हो जाए तो अधिक से अधिक अनुलाभों और पात्रताओं की
+			खोज करें। हम आपका इंतज़ार कर रहे हैं!
+			<div className="vipTitle">अवलोकन</div>
+			हमने सदस्यता स्तरों को विंटेज क्लब, सिल्वर क्लब, गोल्ड क्लब,
+			टाइटेनियम क्लब, डायमंड क्लब और नोवा क्लब में वर्गीकृत किया है। जब आप
+			उच्च स्तर प्राप्त करते हैं तो हमारे सभी विशेषाधिकार उत्पादों और
+			सेवाओं का आनंद लें।
+			<div className="vipTitle">
+				भिन्न सदस्यता स्तर के साथ लाभों और विशेषाधिकारों का आनंद लें
+			</div>
 		</div>
 	);
 };

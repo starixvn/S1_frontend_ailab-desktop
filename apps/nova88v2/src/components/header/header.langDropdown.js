@@ -15,11 +15,25 @@ const defLangGroup = {
 	id: [
 		{ displayText: "English", value: "id_en" },
 		{ displayText: "Bhs Indonesia", value: "id" }
+	],
+	in: [
+		{ displayText: "English", value: "hi_en" },
+		{ displayText: "Hindi", value: "hi" }
 	]
-	// in: [
-	// 	{ displayText: "English", value: "hi_en" },
-	// 	{ displayText: "Hindi", value: "hi" }
-	// ]
+};
+
+const currencyToLangKey = {
+	2: "ch",
+	4: "th",
+	15: "id",
+	61: "in"
+};
+
+const defLangGroupCountry = {
+	ch: "Malaysia",
+	th: "Thailand",
+	id: "Indonesia",
+	in: "India"
 };
 
 export default () => {
@@ -35,6 +49,12 @@ export default () => {
 		};
 	});
 
+	const langKey = currencyToLangKey[userInfo.currencyId];
+	const _defLangGroup =
+		userInfo.currencyId && langKey
+			? { [langKey]: defLangGroup[langKey] }
+			: defLangGroup;
+
 	const clickClose = () => {
 		setPopBox({ isOpen: false });
 	};
@@ -44,7 +64,8 @@ export default () => {
 			mainKey="header-langList"
 			className="country"
 			subClassName="countryList"
-			defLangGroup={defLangGroup}
+			defLangGroup={_defLangGroup}
+			defLangGroupCountry={defLangGroupCountry}
 			selectedValue={userInfo.langId}
 			isLogin={userInfo.isLogin}
 			isMountedRef={isMountedRef}

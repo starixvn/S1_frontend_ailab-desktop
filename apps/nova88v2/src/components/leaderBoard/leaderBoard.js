@@ -1,14 +1,12 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import axios from "axios";
+import { Redirect } from "@reach/router";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import {
 	GetLeaderboardListV3,
-	api_events_GetCustRankV2,
-	GetLeaderboardListMonth,
-	GetCustRankMonth
+	api_events_GetCustRankV2
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
 import {
@@ -18,7 +16,8 @@ import {
 	defEventCode,
 	defRankNum,
 	defGameType,
-	defMonthKey
+	defMonthKey,
+	getLeaderBoardSupportCurrencyId
 } from "./leaderBoard.def";
 import { cloudImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
@@ -30,6 +29,12 @@ import sportsBg from "../../styles/img/ranking_page_bg_sports.jpg";
 import casinoBg from "../../styles/img/ranking_page_bg_casino.jpg";
 import slotBg from "../../styles/img/ranking_page_bg_slot.jpg";
 
+const CanSeeLeaderBoard = ({ currencyId }) => {
+	const supportCurrencyList = getLeaderBoardSupportCurrencyId();
+
+	return supportCurrencyList.includes(currencyId);
+};
+
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -40,12 +45,15 @@ export default () => {
 	const [periodId, setPeriodId] = useState(null);
 	const [beforeDays, setBeforeDays] = useState(defDayNum.today);
 	const [gameType, setGameType] = useState(defGameType.all);
+
 	const rankTopNum =
 		tab === defTabId.fourth ? defRankNum.monthly : defRankNum.current;
 	const _langMappingCurr = userInfo.langId ?? siteDefLangId;
 	const currencyId = userInfo.currencyId
 		? userInfo.currencyId
 		: langAndCurrMapping[_langMappingCurr];
+
+	const _canSeeLeaderBoard = CanSeeLeaderBoard({ currencyId });
 
 	const rewardList =
 		currencyId === defCurrencyList.INR
@@ -60,16 +68,18 @@ export default () => {
 	});
 
 	useEffect(() => {
-		showUpdateTime();
-		getPeriodList();
-		getRealTimePeriodId();
-	}, [userInfo.userName]);
+		if (_canSeeLeaderBoard) {
+			showUpdateTime();
+			getPeriodList();
+			getRealTimePeriodId();
+		}
+	}, [userInfo.userName, _canSeeLeaderBoard]);
 
 	useEffect(() => {
-		if (!userInfo.isLogin) {
+		if (!userInfo.isLogin && _canSeeLeaderBoard) {
 			setTab(defTabId.first);
 		}
-	}, [userInfo.isLogin]);
+	}, [userInfo.isLogin, _canSeeLeaderBoard]);
 
 	const showUpdateTime = () => {
 		const _time = new Date();
@@ -375,6 +385,10 @@ export default () => {
 		}
 		return result;
 	};
+
+	if (!_canSeeLeaderBoard) {
+		return <Redirect to={`/${userInfo.langId}`} noThrow />;
+	}
 
 	return (
 		<main

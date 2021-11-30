@@ -18,5 +18,6 @@ export const currencyCode = {
 	HI: 61,
 	HI_EN: 61,
 	USDT: 96,
+	IN: 61,
 	INR: 61
 };
