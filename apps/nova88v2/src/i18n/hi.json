@@ -128,7 +128,7 @@
 	"msg_changePswUpdateSuccess": "अद्यतन सफल है!",
 	"msg_changePswSuccessHint": "जब आप अगली बार लॉगिन करेंगे तो आप नए पासवर्ड का उपयोग कर सकते हैं।",
 	"lbl_Profile": "प्रोफ़ाइल",
-	"lbl_JoinNow": "अब जुडे/ अब शामिल हों",
+	"lbl_JoinNow": "अब जुडे",
 	"lbl_Login": "लॉग इन करें",
 	"lbl_Logout": "लॉग आउट",
 	"lbl_LastLogin": "अंतिम लॉगइन",

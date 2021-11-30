@@ -4,7 +4,7 @@ import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import TandC from "../../service/t_and_c";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { SiteInfo } from "../../config";
+import { SiteInfo, bannerImgUrl } from "../../config";
 import PlatformSection from "./footer.platform";
 import ProductSection from "./footer.product";
 import FollowUsSection from "./footer.followUs";
@@ -139,9 +139,15 @@ export const LicensesSection = ({ t }) => {
 	return (
 		<div className="license">
 			<div>
-				{showLicenseLogo ? (
+				{showLicenseLogo && (
 					<>
-						<div className="title">{t("lbl_Gaming_License")}</div>
+						<div className="title">
+							{t("lbl_Gaming_License")}
+							<img
+								src={`${bannerImgUrl}/img/license_tick.png`}
+								alt="vaild gaming license"
+							/>
+						</div>
 						<div
 							id="apg-a7019fa5-9f9a-468b-92da-4890f6a6e4a7"
 							data-apg-seal-id="a7019fa5-9f9a-468b-92da-4890f6a6e4a7"
@@ -149,7 +155,7 @@ export const LicensesSection = ({ t }) => {
 							data-apg-image-type="basic-small"
 						/>
 					</>
-				) : null}
+				)}
 			</div>
 			<div>
 				<iframe

@@ -473,7 +473,7 @@ export const defMenuLinks = langId => {
 						})
 					],
 					icon: "icon icon-icg",
-					displayText: "Iconic Gaming",
+					displayText: "Astro Tech",
 					menuType: defMenuType.Link,
 					parameter: { provider: defCasinoProviders.ICG.name },
 					bgImgUrl: slotsIcgBgImg,

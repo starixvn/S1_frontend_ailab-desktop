@@ -563,7 +563,7 @@ export const defMenuLinks = {
 			{
 				keyName: "slot_ICG",
 				icon: "icon icon-ICG",
-				displayText: "Iconic Gaming",
+				displayText: "Astro Tech",
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotICG.png",
 				listBgImgUrl: "slotListHover.png",
