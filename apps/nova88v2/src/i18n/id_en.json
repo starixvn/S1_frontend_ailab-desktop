@@ -941,6 +941,12 @@
 		"lbl_bannerTitle2": "HEAVEN 24/7"
 	},
 
+	"promotion":{
+		"lbl_promo_apply_now": "APPLY NOW",
+		"lbl_promo_more_info": "MORE INFO",
+		"lbl_promo_all_promos": "ALL PROMOS"
+	},
+
 	"streaming":{
 		"lbl_please_make_deposit":"Please make a Min Deposit to enjoy our LIVE STREAMING."
 	},

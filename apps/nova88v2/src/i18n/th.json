@@ -463,7 +463,7 @@
 	"lbl_LossAmount": "จำนวนเงินที่เสีย",
 	"lbl_Percentage": "เปอร์เซ็นต์",
 	"lbl_TotalAmount": "จำนวนเงินทั้งหมด",
-	"lbl_ClaimNow": "แลกตอนนี้",
+	"lbl_ClaimNow": "รับตอนนี้",
 	"lbl_JoinSuccessDescription1": "สำเร็จ!",
 	"lbl_JoinSuccessDescription2": "คุณได้รับโบนัสเรียบร้อยแล้ว.",
 	"lbl_Promotion_Min_Deposit": "เงินฝากขั้นต่ำ",
@@ -940,6 +940,13 @@
 		"lbl_bannerTitle2": "ออนไลน์ตลอด 24 ชม"
 	},
 
+	
+	"promotion":{
+		"lbl_promo_apply_now": "ข้อมูลเพิ่มเติม",
+		"lbl_promo_more_info": "ข้อมูลเพิ่มเติม",
+		"lbl_promo_all_promos": "โปรโมชั่นทั้งหมด"
+	},
+	
 	"streaming":{
 		"lbl_please_make_deposit":"กรุณาทำรายการฝากเงินขั้นต่ำเพื่อรับชมถ่ายทอดสดของเร"
 	},

@@ -77,8 +77,10 @@ export default () => {
 						);
 						if (idx !== -1) {
 							newPromoList = [...specialPromotionList];
-							newPromoList[idx].custRollOver = data.rollover;
-							newPromoList[idx].custTurnOver = data.turnover;
+							if (data) {
+								newPromoList[idx].custRollOver = data.rollover;
+								newPromoList[idx].custTurnOver = data.turnover;
+							}
 						}
 
 						setSpecialPromotionList(newPromoList);
@@ -91,8 +93,10 @@ export default () => {
 						);
 						if (idx !== -1) {
 							newPromoList = [...promoList];
-							newPromoList[idx].custRollOver = data.rollover;
-							newPromoList[idx].custTurnOver = data.turnover;
+							if (data) {
+								newPromoList[idx].custRollOver = data.rollover;
+								newPromoList[idx].custTurnOver = data.turnover;
+							}
 						}
 
 						setPromoList(newPromoList);

@@ -940,6 +940,12 @@
 		"lbl_spokesperson_2122": "代言人 2021/22"
 	},
 
+	"promotion":{
+		"lbl_promo_apply_now": "立即申请",
+		"lbl_promo_more_info": "了解详情",
+		"lbl_promo_all_promos": "全部优惠"
+	},
+	
 	"streaming":{
 		"lbl_please_make_deposit":"请完成最低存款以享受现场直播。"
 	},

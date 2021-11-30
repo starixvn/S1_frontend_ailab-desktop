@@ -439,8 +439,8 @@
 	"lbl_Promotion": "प्रचार / प्रचार",
 	"lbl_Promotions": "प्रचार / प्रचार",
 	"lbl_PromotionsDesc": "प्रचार विवरण",
-	"lbl_PromoJoinNow": "अब जुडे/ अब शामिल हों",
-	"lbl_Redeposit_Promo": "पुनः जमा करे",
+	"lbl_PromoJoinNow": "अब जुडे",
+	"lbl_Redeposit_Promo": "फिर से जमा",
 	"lbl_ClaimAmountRange": "दावा राशि सीमा",
 	"lbl_ClaimAmount": "दावा राशि",
 	"lbl_PleaseEnterClaimAmount": "प्रचार का दावा करने के लिए कृपया अपनी पसंद की राशि दर्ज करें",
@@ -461,7 +461,7 @@
 	"lbl_LossAmount": "हानि राशि",
 	"lbl_Percentage": "हानि राशि",
 	"lbl_TotalAmount": "प्रतिशत",
-	"lbl_ClaimNow": "प्रतिशत",
+	"lbl_ClaimNow": "अभी दावा करें",
 	"lbl_JoinSuccessDescription1": " सफल। ",
 	"lbl_JoinSuccessDescription2": "आपके बोनस का दावा किया गया है।",
 	"lbl_Promotion_Min_Deposit": "न्यूनतम जमा",
@@ -926,6 +926,12 @@
 		"lbl_bannerTitle2": "24/7"
 	},
 
+	"promotion":{
+		"lbl_promo_apply_now": "अभी अप्लाई करें",
+		"lbl_promo_more_info": "और जानकारी",
+		"lbl_promo_all_promos": "सभी प्रचार"
+	},
+	
 	"streaming":{
 		"lbl_please_make_deposit":"हमारी लाइव स्ट्रीमिंग का आनंद लेने के लिए कृपया एक न्यूनतम जमा करें"
 	},
