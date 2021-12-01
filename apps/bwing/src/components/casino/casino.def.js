@@ -115,8 +115,8 @@ export const defLobbyImgList = [
 	{
 		img: icgImg,
 		activeImg: icgActiveImg,
-		lobbyDisplayName: "ICG",
-		providerId: defCasinoProviders.ICG.tpId
+		lobbyDisplayName: "Astro Tech",
+		providerId: defCasinoProviders.AstroTech.tpId
 	},
 	{
 		img: ptImg,
