@@ -74,7 +74,7 @@ export default () => {
 			window.open(SiteInfo.socialMedia.twitter.link);
 		}
 		if (_iconId === 5) {
-			window.open("https://wa.me/639456388147");
+			window.open("https://wa.me/639273165888");
 		}
 		if (_iconId === 6) {
 			window.open("https://lin.ee/SAPymLI");
