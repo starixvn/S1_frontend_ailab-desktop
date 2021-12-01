@@ -741,13 +741,13 @@
 	"lbl_PaymentDetails": "Payment Details",
 	"lbl_OrderAmount": "Order Amount",
 	"lbl_Pay": "PAY",
-	"lbl_PaymentQRDesc1": "Please transfer the amount.",
-	"lbl_PaymentQRDesc2": "Provided for better experience.",
-	"lbl_ImportantNotes": "Important Notes",
-	"lbl_PaymentQRNote1": "Please do not refresh your browser.",
-	"lbl_PaymentQRNote2": "Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
-	"lbl_PaymentTimeLeft": "PAYMENT TIME LEFT",
-	"lbl_Time": "Time",
+	"lbl_PaymentQRDesc1": "Vui lòng chuyển khoản số tiền này.",
+	"lbl_PaymentQRDesc2": "Vui lòng cung cấp thông tin để trải nghiệm tốt hơn.",
+	"lbl_ImportantNotes": "lbl_ImportantNotes",
+	"lbl_PaymentQRNote1": "Vui lòng không làm mới trình duyệt. ",
+	"lbl_PaymentQRNote2": "Giữ lại số tham chiếu khi cần liên hệ với bộ phận Chăm sóc Khách hàng để được hỗ trợ.",
+	"lbl_PaymentTimeLeft": "THỜI GIAN THANH TOÁN CÒN LẠI",
+	"lbl_Time": "Thời gian",
 
 	"■■■■■■■■■■■■■■■■■■■■ crypto pay ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_CryptoWallet": "Crypto Wallet",
@@ -759,10 +759,11 @@
 	"lbl_Crypto_Wallet_Submit_Note": "Please note: Once the crypto wallet is submitted, it cannot be modified/ deleted.",
 	"lbl_Modification_Please_Contact_CSD": "For any request of modification, please contact CSD.",
 	"lbl_Optional": "Optional",
-	"lbl_CryptoPay": "Crypto Pay",
+	"lbl_CryptoPay": "Thanh toán bằng tiền ảo",
 	"lbl_NotERC20WalletAddr": "Must be ERC-20 / TRC-20 compatible wallet address",
 	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
 	"lbl_Crypto_Title_Describe": "Please upload your Crypto account details before making withdrawal.",
+	"lbl_Deposit_USDT_CONFIRM_DESCRIPTION": "Conversion rate severs as reference purposes only.",
 
 	"end-----": "end-----"
 }
