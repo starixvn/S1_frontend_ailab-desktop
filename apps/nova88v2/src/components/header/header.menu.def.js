@@ -303,7 +303,6 @@ export const defMenuLinks = {
 				listBgImgUrl: "cricketBG.png",
 				menuType: defMenuType.useGoToGame,
 				parameter: { ...productList._9WSports },
-				canSeeOnlyAfterLogin: true,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
