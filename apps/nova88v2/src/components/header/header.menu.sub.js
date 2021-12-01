@@ -44,8 +44,10 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 				tpGameType
 			});
 
-			const { url, key, userId } = result ?? {};
-			Open9WSports({ url, key, userId });
+			if (userInfo.isLogin) {
+				const { url, key, userId } = result ?? {};
+				Open9WSports({ url, key, userId });
+			}
 		} else {
 			const showLoginPopBox = () => {
 				setPopBox({
