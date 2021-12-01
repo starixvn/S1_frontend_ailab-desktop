@@ -93,7 +93,7 @@ export default props => {
 		);
 	};
 
-	if (props.bankInfoList.length >= 3) return null;
+	if (props.bankInfoDetail.length >= 3) return null;
 
 	return (
 		<div
