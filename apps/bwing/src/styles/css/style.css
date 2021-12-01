@@ -6178,7 +6178,7 @@ main > .swiper-container .swiper-slide {
   margin-bottom: 15px;
 }
 
-.addCrypto .addCryptoName:nth-last-child(2) {
+.addCrypto .addCryptoName:last-child {
   margin-right: 0;
 }
 
@@ -6196,6 +6196,10 @@ main > .swiper-container .swiper-slide {
   min-height: 85px;
   background: #3a4d80;
   border: 1px solid #4d5e8e;
+}
+
+.addCrypto .addCryptoName.noBank:nth-last-child(2) {
+  margin-right: 0;
 }
 
 .addCrypto .addCryptoName .addCryptoInfo {
@@ -6534,16 +6538,16 @@ main > .swiper-container .swiper-slide {
 }
 
 .addCryptopop .cryptoOtp .btn-retransmit {
-  width: 240px;
   height: 34px;
   margin-left: 10px;
+  padding: 0 25px;
   background: -webkit-gradient(linear, left bottom, left top, from(#f20c05), to(#f85f05));
   background: linear-gradient(to top, #f20c05, #f85f05);
   color: #fff;
   white-space: nowrap;
   max-width: none;
   border-radius: 3px;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .addCryptopop .cryptoOtp .btn-retransmit:hover {
@@ -6634,6 +6638,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -6685,6 +6690,10 @@ main > .swiper-container .swiper-slide {
   max-width: 220px;
   height: 28px;
   border-radius: 0;
+}
+
+.quickSelect > div.inputBox-blue:last-child {
+  margin-right: 0;
 }
 
 .quickSelect > div > .inputBox-blue {
