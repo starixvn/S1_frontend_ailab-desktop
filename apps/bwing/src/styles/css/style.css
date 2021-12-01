@@ -6610,6 +6610,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -6665,6 +6666,10 @@ main > .swiper-container .swiper-slide {
 
 .quickSelect > div > .inputBox-blue {
   margin: 10px 0 0;
+}
+
+.quickSelect > div:last-child {
+  margin-right: 0;
 }
 
 .quickSelect > div.inputBox.promoType > button, .quickSelect > div.promoType.inputBox-blue > button,
