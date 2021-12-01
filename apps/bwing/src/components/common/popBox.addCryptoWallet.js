@@ -356,7 +356,7 @@ export default ({ GetCustBankInfo }) => {
 				{common}
 				<div className="btnGroup">
 					{timer ? (
-						<button className="btn-retransmit">
+						<button className="btn-retransmit gray">
 							<Counter
 								startUnixTime={startUnixTime}
 								timeStop={timeStop}
