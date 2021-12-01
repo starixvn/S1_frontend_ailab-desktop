@@ -16837,18 +16837,27 @@ img[alt="sg"] {
 }
 
 .profileModule > div.profile > div > div:last-child {
-  width: 300px;
+  width: 310px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   position: relative;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .profileModule > div.profile > div > div:last-child .inputBox-blue {
   padding: 1px 0;
   border-radius: 3px;
+}
+
+.profileModule > div.profile > div > div:last-child .inputBox-blue + .inputBox-blue {
+  margin-left: 5px;
+  width: auto;
+  max-width: revert;
 }
 
 .profileModule > div.profile > div > div:last-child .tip {

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GetCurrencyName } from "../common/common";
+import { GetCurrencyName, defCurrencyList } from "../common/common";
 
 const FooterProduct = ({
 	t,
@@ -53,7 +53,12 @@ const FooterProduct = ({
 				<a
 					href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
 					target="_blank"
-					rel="noreferrer">
+					rel="noreferrer"
+					style={
+						currencyId === defCurrencyList.INR
+							? { pointerEvents: "none" }
+							: {}
+					}>
 					{t("lbl_Apply_Now")}
 					{" >"}
 				</a>
@@ -72,7 +77,13 @@ const FooterProduct = ({
 					{t("lbl_VIP_Program")}
 				</div>
 				<div>{t("lbl_VIP_Program_desc")}</div>
-				<a href={`/${langId}/${path.vip.root}`}>
+				<a
+					href={`/${langId}/${path.vip.root}`}
+					style={
+						currencyId === defCurrencyList.INR
+							? { pointerEvents: "none" }
+							: {}
+					}>
 					{t("lbl_More_Info")}
 					{" >"}
 				</a>

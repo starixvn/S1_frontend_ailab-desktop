@@ -1,3 +1,11 @@
+import { defCurrencyList } from "../common/common";
+
+export const allowCurrencies = [
+	defCurrencyList.MYR,
+	defCurrencyList.THB,
+	defCurrencyList.IDR
+];
+
 export const defbanner = langId => [
 	{
 		url: `https://image.0814media.net/VIP/img/${langId}/vip_1.png`,

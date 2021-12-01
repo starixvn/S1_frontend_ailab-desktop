@@ -1,22 +1,14 @@
 import React, { useRef, useEffect, useContext } from "react";
-import { Link, navigate } from "@reach/router";
+import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { defPromotionType } from "./promotion.def";
+import { defPromotionType, defFilterType } from "./promotion.def";
 import { popBoxContext } from "../common/context";
 import { checkPromotion } from "./promotion.common";
 import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
 import path from "../../router";
-import { defFilterType } from "./promotion.nav";
 
-export default ({
-	promotionInfo,
-	userInfo,
-	_isClaimed,
-	inListPage,
-	filter,
-	callBack
-}) => {
+export default ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 	const { t } = useTranslation();
 	const { isLogin } = userInfo;
 	const isMountedRef = useRef(null);
@@ -147,27 +139,16 @@ export default ({
 		if (success) return callBack();
 	};
 
-	const clickBack = () => {
-		navigate(`/${userInfo.langId}/${path.promotion.root}`);
-	};
-
-	return (
-		<>
-			{inListPage ? null : (
-				<button className="lightgray" onClick={clickBack}>
-					{t("lbl_back").toUpperCase()}
-				</button>
-			)}
-			{(promotionInfo.isJoin && isLogin) ||
-			_isClaimed ||
-			promotionInfo.promotionType === defPromotionType.rebate ||
-			promotionInfo.promotionType === defPromotionType.other ||
-			(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
-			promotionInfo.beenUsed ? null : (
-				<button className="orange" onClick={onJoinPromotion}>
-					{t("lbl_PromoJoinNow").toUpperCase()}
-				</button>
-			)}
-		</>
+	return (promotionInfo.isJoin && isLogin) ||
+		_isClaimed ||
+		promotionInfo.promotionType === defPromotionType.rebate ||
+		promotionInfo.promotionType === defPromotionType.other ||
+		(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
+		promotionInfo.beenUsed ? null : (
+		<button className="orange" onClick={onJoinPromotion}>
+			{promotionInfo.promotionType === defPromotionType.cashback
+				? t("promotion.lbl_promo_claim_now")?.toUpperCase()
+				: t("lbl_PromoJoinNow")?.toUpperCase()}
+		</button>
 	);
 };

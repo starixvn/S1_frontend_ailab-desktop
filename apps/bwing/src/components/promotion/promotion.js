@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
-import PromotionNavBar, { defFilterType } from "./promotion.nav";
+import PromotionNavBar from "./promotion.nav";
 import PromotionList from "./promotion.list";
 import { userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
@@ -12,7 +12,8 @@ import { isExpiry } from "./promotion.common";
 import {
 	defPromotionType,
 	defWalletType,
-	defCategoryId
+	defCategoryId,
+	defFilterType
 } from "./promotion.def";
 
 import Loading from "../common/loading";
@@ -76,8 +77,10 @@ export default () => {
 					);
 					if (idx !== -1) {
 						newPromoList = [...specialPromotionList];
-						newPromoList[idx].custRollOver = data.rollover;
-						newPromoList[idx].custTurnOver = data.turnover;
+						if (data) {
+							newPromoList[idx].custRollOver = data.rollover;
+							newPromoList[idx].custTurnOver = data.turnover;
+						}
 					}
 
 					setSpecialPromotionList(newPromoList);
@@ -90,8 +93,10 @@ export default () => {
 					);
 					if (idx !== -1) {
 						newPromoList = [...promoList];
-						newPromoList[idx].custRollOver = data.rollover;
-						newPromoList[idx].custTurnOver = data.turnover;
+						if (data) {
+							newPromoList[idx].custRollOver = data.rollover;
+							newPromoList[idx].custTurnOver = data.turnover;
+						}
 					}
 
 					setPromoList(newPromoList);

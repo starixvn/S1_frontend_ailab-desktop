@@ -675,5 +675,12 @@
 	"lbl_Installation_tutorial": "Hướng dẫn cài đặt",
 	"lbl_Appdownload_Subtitle": "Khi ứng dụng {{site}} được cài đặt, chọn Tin cậy hoặc hoàn thành Cài đặt theo hướng dẫn bên dưới",
 	"lbl_Scan_to_Download": "Quét để tải về",
-	"lbl_iOS_App_Trust_Authentication": "Cách xác nhận tin cậy ứng dụng trên iOS"
+	"lbl_iOS_App_Trust_Authentication": "Cách xác nhận tin cậy ứng dụng trên iOS",
+
+	"promotion":{
+		"lbl_promo_claim_now":"NHẬN NGAY",
+		"lbl_promo_apply_now": "THAM GIA NGAY",
+		"lbl_promo_more_info": "THÊM THÔNG TIN",
+		"lbl_promo_all_promos": "TẤT CẢ KHUYẾN MÃI"
+	}
 }

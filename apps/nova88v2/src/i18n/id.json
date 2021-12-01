@@ -97,7 +97,8 @@
 	"lbl_Games": "Permainan",
 	"lbl_King_Maker": "King Maker",
 	"lbl_AMB_Poker": "AMB Poker",
-	"lbl_9W": "9W",
+	"lbl_9W": "Nova88 Exchange",
+	"lbl_Exchange": "Bertukar",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Slots",
@@ -195,10 +196,10 @@
 	"msg_API_SendOTPSMS_5002": "Entered the wrong phone number.",
 	"lbl_FEATURES": "FITUR",
 	"lbl_MEMBERS_BENEFITS": "MANFAAT MEMBER",
-	"lbl_JoinNoti_SPORTSBOO_WELCOME_BONUS": "55% NOVA88 STARTER PACK",
-	"lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS": "WELCOME BONUS 100% LIVE CASINO",
+	"lbl_JoinNoti_LIVE_CASINO_WELCOME_BONUS": "WELCOME BONUS 150% LIVE CASINO",
 	"lbl_JoinNoti_SLOTS_WELCOME_BONUS": "WELCOME BONUS 100% SLOT MESIN",
 	"lbl_JoinNoti_DAILY_REDEPOSIT_BONUS": "BONUS REDEPOSIT HARIAN HINGGA 20%",
+	"lbl_JoinNoti_DAILY_CASH_REBATE": "REBATE CASH HARIAN HINGGA 1.2%",
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "NIKMATI BONUS & REBATE EKSKLUSIF NOVA88 VIP",
 	"lbl_Multiple_product_platforms_with_better_odds": "Berbagai produk dengan odds terbaik dan sensasi permainan yang lengkap.",
 	"lbl_Speedy_deposit_and_withdrawal": "Deposit dan penarikan cepat dengan berbagai pilihan.",
@@ -440,7 +441,7 @@
 	"lbl_Promotion": "Promosi",
 	"lbl_Promotions": "Promosi",
 	"lbl_PromotionsDesc": "Deskripsi penawaran",
-	"lbl_PromoJoinNow": "Bergabung sekarang",
+	"lbl_PromoJoinNow": "GABUNG",
 	"lbl_Redeposit_Promo": "Deposit ulang",
 	"lbl_ClaimAmountRange": "Jarak Jumlah Klaim",
 	"lbl_ClaimAmount": "Jumlah Klaim",
@@ -462,7 +463,7 @@
 	"lbl_LossAmount": "Nilai Kekalahan",
 	"lbl_Percentage": "Persentase",
 	"lbl_TotalAmount": "Jumlah Dana",
-	"lbl_ClaimNow": "Klaim Sekarang",
+	"lbl_ClaimNow": "KLAIM",
 	"lbl_JoinSuccessDescription1": "Sukses!",
 	"lbl_JoinSuccessDescription2": "Bonus Anda telah diklaim.",
 	"lbl_Promotion_Min_Deposit": "DEPOSIT MIN",
@@ -939,6 +940,12 @@
 		"lbl_bannerTitle2": "24/7"
 	},
 
+	"promotion":{
+		"lbl_promo_apply_now": "MELAMAR",
+		"lbl_promo_more_info": "RINCIAN",
+		"lbl_promo_all_promos": "SEMUA PROMO"
+	},
+	
 	"streaming":{
 		"lbl_please_make_deposit":"Silakan melakukan Deposit untuk menikmati Live Streaming kami."
 	},

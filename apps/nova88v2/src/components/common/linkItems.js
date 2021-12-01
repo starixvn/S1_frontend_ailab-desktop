@@ -30,7 +30,8 @@ export default ({
 	isLogin,
 	checkMatchPage,
 	toUpperCase = false,
-	productTpIds
+	productTpIds,
+	currencyId
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const showLogin = () => {
@@ -81,6 +82,11 @@ export default ({
 		}
 
 		const iconList = m.eventIcons?.length > 0 ? [...m.eventIcons] : [];
+		const isAllowCurrencies = obj =>
+			obj?.allowCurrencies
+				? obj.allowCurrencies.includes(currencyId)
+				: true;
+
 		if (m.subMenu) {
 			m.subMenu
 				.filter(
@@ -91,7 +97,7 @@ export default ({
 							(s.canSeeOnlyAfterLogin && isLogin))
 				)
 				.forEach(sub => {
-					if (sub.eventIcons) {
+					if (sub.eventIcons && isAllowCurrencies(sub)) {
 						for (let i = 0; i < sub.eventIcons.length; i++) {
 							if (sub.eventIcons[i] !== "") {
 								iconList.push(sub.eventIcons[i]);
@@ -130,7 +136,7 @@ export default ({
 
 		let _path = m.path;
 
-		if (m.productInfo) {
+		if (m.productInfo && isAllowCurrencies(m)) {
 			const rule = GET_OPEN_RULE(
 				langId,
 				m.productInfo.tpId,
@@ -265,7 +271,7 @@ export default ({
 
 		const _menuType = m.menuType ?? "";
 
-		if (_path || _menuType === defMenuType.Link) {
+		if ((_path || _menuType === defMenuType.Link) && isAllowCurrencies(m)) {
 			_className =
 				checkMatchPage && `${langId}/${_path}` === currentPage
 					? _className
@@ -285,7 +291,7 @@ export default ({
 			);
 		}
 
-		return (
+		return isAllowCurrencies(m) ? (
 			<button
 				key={key}
 				onMouseOver={_showSubMenu.bind(this, key)}
@@ -294,7 +300,7 @@ export default ({
 				<div className={iconStrings}>{iconContent}</div>
 				{displayText}
 			</button>
-		);
+		) : null;
 	});
 
 	return rows;
