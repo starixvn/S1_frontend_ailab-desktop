@@ -4,7 +4,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import { AutoPlayWithBtn } from "../common/swipperBanner";
-import { InfoEn, InfoTh, InfoId, InfoCs } from "./vip.info";
+import { InfoEN, InfoTH, InfoID, InfoCS } from "./vip.info";
 import VipPage from "./vip.page";
 import { defbanner, defPageClubImg, allowCurrencies } from "./vip.def";
 import { cloudImgUrl } from "../../config";
@@ -48,10 +48,10 @@ const Vip = () => {
 	));
 
 	const vipInfo = {
-		en: <InfoEn />,
-		th: <InfoTh />,
-		id: <InfoId />,
-		cs: <InfoCs />
+		en: <InfoEN />,
+		th: <InfoTH />,
+		id: <InfoID />,
+		cs: <InfoCS />
 	}[userInfo.langId];
 
 	const bottomImg = `${cloudImgUrl}/VIP/img/${
