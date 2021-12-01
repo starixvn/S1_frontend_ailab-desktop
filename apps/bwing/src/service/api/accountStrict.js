@@ -99,3 +99,14 @@ export const api_accountStrict_delCustUSDTInfo = ({
 		NickName,
 		AccountName
 	});
+
+export const api_accountStrict_DelCustUSDTInfo = ({
+	accountName,
+	nickName,
+	uSDTAddress
+}) =>
+	accountStrictRequest.post("/DelCustUSDTInfo", {
+		AccountName: accountName,
+		NickName: nickName,
+		USDTAddress: uSDTAddress
+	});
