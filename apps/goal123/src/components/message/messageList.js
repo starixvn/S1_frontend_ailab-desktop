@@ -37,18 +37,56 @@ export default props => {
 							setMsgContentData(res.data?.data?.content);
 							props.getMsgList();
 
-							api_account_GetMsgCount().then(resMsgCount => {
-								if (isMountedRef.current) {
-									if (resMsgCount.data.errorCode === 0) {
-										setMsgCount(resMsgCount.data.data);
+							api_account_GetMsgCount().then(
+								resMsgCount => {
+									if (isMountedRef.current) {
+										if (resMsgCount.data.errorCode === 0) {
+											setMsgCount(resMsgCount.data.data);
+										} else {
+											setPopBox({
+												isOpen: true,
+												popBoxType:
+													defPopBoxType.ErrorMsg,
+												message: `[${resMsgCount.data.errorCode}] ${resMsgCount.data.message}`,
+												btnBar: (
+													<div className="btnGroup">
+														<button
+															className="btn-cancel"
+															onClick={
+																ClickClose
+															}>
+															{t("lbl_Close")}
+														</button>
+													</div>
+												)
+											});
+										}
+									}
+								},
+								() => {
+									if (isMountedRef.current) {
+										setPopBox({
+											isOpen: true,
+											popBoxType: defPopBoxType.ErrorMsg,
+											message: t("msg_ApiServerError"),
+											btnBar: (
+												<div className="btnGroup">
+													<button
+														className="btn-cancel"
+														onClick={ClickClose}>
+														{t("lbl_Close")}
+													</button>
+												</div>
+											)
+										});
 									}
 								}
-							});
+							);
 						} else {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
+								message: `[${res.data.errorCode}] ${res.data.message}`,
 								btnBar: (
 									<div className="btnGroup">
 										<button

@@ -44,7 +44,7 @@ const useDrawPrize = ({ isMountedRef }) => {
 				) {
 					setDrawPrize({ data, errorCode });
 				} else {
-					errorPopBox(message || `[${errorCode}] error`, errorCode);
+					errorPopBox(message || `error`, errorCode);
 				}
 			},
 			() => {
@@ -87,16 +87,8 @@ const useDrawPrize = ({ isMountedRef }) => {
 						errorPopBox(hint, errorCode);
 
 						getCustDrawPrizeList();
-					} else if (errorCode === defDrawPrizeStatus.notEligible) {
-						errorPopBox(
-							message || `[${errorCode}] error`,
-							errorCode
-						);
 					} else {
-						errorPopBox(
-							message || `[${errorCode}] error`,
-							errorCode
-						);
+						errorPopBox(message || `error`, errorCode);
 					}
 				},
 				() => {

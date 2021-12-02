@@ -221,6 +221,11 @@ export default () => {
 									};
 								});
 							}
+						} else {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 					}
 				},
@@ -320,7 +325,9 @@ export default () => {
 				affIdCheckPass =
 					(await api_site_GetAffiliateAgent({ AffId: _AffId })).data
 						.errorCode === 0;
-			} catch (error) {}
+			} catch (error) {
+				errorPopBox();
+			}
 		}
 
 		if (checked && !userInfo.isLogin) {
@@ -340,8 +347,7 @@ export default () => {
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
 					if (isMountedRef.current) {
-						const { errorCode } = res.data;
-						const { message } = res.data;
+						const { errorCode, message } = res.data;
 						if (errorCode === 0) {
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {

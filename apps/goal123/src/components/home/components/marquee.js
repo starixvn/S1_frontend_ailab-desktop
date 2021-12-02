@@ -88,45 +88,68 @@ class Marquee extends Component {
 	};
 
 	GetAnnouncement = langId => {
-		api_message_GetAnnouncement(langId).then(res => {
-			if (this.isMountedRef) {
-				if (res.data.errorCode === 0) {
-					const resData = res.data.data;
-					const stateData = this.state.datas;
-					let update = false;
+		api_message_GetAnnouncement(langId).then(
+			res => {
+				if (this.isMountedRef) {
+					if (res.data.errorCode === 0) {
+						const resData = res.data.data;
+						const stateData = this.state.datas;
+						let update = false;
 
-					if (resData.length !== 0 && stateData.length !== 0) {
-						for (const d in resData) {
-							if (
-								stateData.find(
-									x =>
-										x.id === resData[d].id &&
-										x.subject === resData[d].subject &&
-										x.content === resData[d].content
-								)
-							) {
-								update = true;
-								break;
+						if (resData.length !== 0 && stateData.length !== 0) {
+							for (const d in resData) {
+								if (
+									stateData.find(
+										x =>
+											x.id === resData[d].id &&
+											x.subject === resData[d].subject &&
+											x.content === resData[d].content
+									)
+								) {
+									update = true;
+									break;
+								}
+							}
+						} else {
+							update = true;
+						}
+
+						if (update) {
+							if (this.intervalId_Pos === undefined) {
+								this.intervalId_Pos = setInterval(
+									this.SetPos,
+									25
+								);
 							}
 						}
+
+						this.setState({
+							datas: res.data.data
+						});
 					} else {
-						update = true;
+						this.props.setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={this.props.ClickClose}>
+										{this.props.i18n("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
 					}
-
-					if (update) {
-						if (this.intervalId_Pos === undefined) {
-							this.intervalId_Pos = setInterval(this.SetPos, 25);
-						}
-					}
-
-					this.setState({
-						datas: res.data.data
-					});
-				} else {
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
 					this.props.setPopBox({
 						isOpen: true,
 						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
+						message: this.props.i18n("msg_ApiServerError"),
 						btnBar: (
 							<div className="btnGroup">
 								<button
@@ -139,7 +162,7 @@ class Marquee extends Component {
 					});
 				}
 			}
-		});
+		);
 	};
 
 	MarqueeOnMouseOver = () => {

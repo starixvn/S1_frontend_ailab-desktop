@@ -9,6 +9,7 @@ import CustomSwipper, {
 } from "../../common/customSwipper";
 import { defBannerType } from "../../../service/api/site";
 import path from "../../../router";
+import usePopBox from "../../hook/usePopBox";
 
 import olympicsLogo from "../../../styles/img/oly_logo.png";
 
@@ -17,9 +18,11 @@ const LEAGUESID_LIST = {
 };
 
 const EventSwipper = memo(({ langId }) => {
+	const { errorPopBox } = usePopBox();
 	const { banner } = useGetBanner({
 		langId,
-		ImgFolder: [defBannerType.HotEvent]
+		ImgFolder: [defBannerType.HotEvent],
+		errorPopBox
 	});
 
 	const OnClickEvent = ({ tpId, gameId, matchId }) => {

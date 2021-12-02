@@ -22,9 +22,9 @@ import { getUrlParameter } from "../common/common";
 import SearchBox from "./casino.searchBox";
 import Loading from "../common/loading";
 import { defCasinoProviders } from "../../datas/productList";
-
 import CasinoJackpot from "./casino.jackpot";
 import CasinoTopQuickLink from "./casino.topQuickLink";
+import usePopBox from "../hook/usePopBox";
 
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
@@ -39,6 +39,7 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const urlTab = getUrlParameter("tab");
+	const { errorPopBox } = usePopBox();
 
 	const isSomeTab = Object.values(defNav).some(item => item.key === urlTab);
 
@@ -169,25 +170,43 @@ export default () => {
 							_tpList
 						});
 					}
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
 				}
 				setLoading(false);
 			},
 			() => {
 				setLoading(false);
+				errorPopBox();
 			}
 		);
 
 		if (userInfo.isLogin) {
-			api_account_GetFavoriteGame().then(res => {
-				if (res.data.errorCode === 0 && res.data.data) {
-					const fav = res.data.data.map(f => {
-						return `${f.providerId}_${f.gameId}`;
-					});
+			api_account_GetFavoriteGame().then(
+				res => {
+					if (res.data.errorCode === 0 && res.data.data) {
+						const fav = res.data.data.map(f => {
+							return `${f.providerId}_${f.gameId}`;
+						});
+						if (isMountedRef.current) {
+							setFavorite(fav);
+						}
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				},
+				() => {
 					if (isMountedRef.current) {
-						setFavorite(fav);
+						errorPopBox();
 					}
 				}
-			});
+			);
 		}
 	}, [userInfo.isLogin, tpId]);
 
@@ -301,7 +320,21 @@ export default () => {
 			_favorite: newFav
 		});
 		if (userInfo.isLogin) {
-			api_account_SetFavoriteGame(_tpId, gameId, isRemove);
+			api_account_SetFavoriteGame(_tpId, gameId, isRemove).then(
+				res => {
+					if (isMountedRef.current) {
+						const { errorCode, message } = res.data;
+						if (errorCode !== 0) {
+							errorPopBox(message || "error", errorCode);
+						}
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						errorPopBox();
+					}
+				}
+			);
 		}
 	};
 

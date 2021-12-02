@@ -3,11 +3,13 @@ import { useTranslation } from "react-i18next";
 import { isConvert } from "./common";
 import { popBoxContext, userInfoContext } from "./context";
 import { Module } from "../deposit/deposit.bankSlip";
+import usePopBox from "../hook/usePopBox";
 
 export default props => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -37,6 +39,7 @@ export default props => {
 				setPopBox={setPopBox}
 				langId={userInfo.langId}
 				_isConvert={_isConvert}
+				errorPopBox={errorPopBox}
 			/>
 		</div>
 	);

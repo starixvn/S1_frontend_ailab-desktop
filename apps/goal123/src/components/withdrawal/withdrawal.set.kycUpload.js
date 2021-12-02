@@ -69,7 +69,7 @@ export default props => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: message || `[${errorCode}] error`,
+								message: `[${errorCode}] ${message}`,
 								btnBar: (
 									<div className="btnGroup">
 										<button
@@ -84,7 +84,7 @@ export default props => {
 						setLoading(false);
 					}
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) {
 						setPopBox({
 							isOpen: true,
