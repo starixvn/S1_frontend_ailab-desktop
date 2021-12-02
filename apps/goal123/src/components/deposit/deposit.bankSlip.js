@@ -70,16 +70,18 @@ export class Module extends Component {
 				res => {
 					if (this.isMountedRef) {
 						this.setState({ loading: false });
-						if (res.data.errorCode === 0) {
-							//
-						} else {
-							alert(res.data.message);
+						const { errorCode, message } = res.data;
+						if (errorCode !== 0) {
+							this.props.errorPopBox(
+								message || "error",
+								errorCode
+							);
 						}
 					}
 				},
-				err => {
+				() => {
 					if (this.isMountedRef) {
-						alert(this.datas.i18n("msg_ApiServerError"));
+						this.props.errorPopBox();
 						this.setState({ loading: false });
 					}
 				}
@@ -162,13 +164,16 @@ export class Module extends Component {
 									)
 								}));
 							} else {
-								alert(res.data.message);
+								this.props.errorPopBox(
+									res.data.message || "error",
+									res.data.errorCode
+								);
 							}
 						}
 					},
-					err => {
+					() => {
 						if (this.isMountedRef) {
-							alert(this.props.i18n("msg_ApiServerError"));
+							this.props.errorPopBox();
 							this.setState({ processing: false });
 							this.setState({ loading: false });
 						}

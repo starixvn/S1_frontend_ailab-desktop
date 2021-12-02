@@ -31,7 +31,7 @@ const News = ({ t, langId }) => {
 				if (errorCode === 0) {
 					setNewsDatas(data);
 				} else {
-					errorPopBox(message || `[${errorCode}] error`, message);
+					errorPopBox(message || `error`, message);
 				}
 			},
 			() => {

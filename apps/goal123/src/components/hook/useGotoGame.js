@@ -100,62 +100,67 @@ export const useGotoGame = ({
 					gameType:
 						_tpId === defSpecialSetting.playTech ? "slots" : "",
 					tpGameType: String(tpGameType)
-				}).then(async res => {
-					if (res.data.errorCode === 0 && res.data.message) {
-						const result = JSON.parse(res.data.message);
+				}).then(
+					async res => {
+						if (res.data.errorCode === 0 && res.data.message) {
+							const result = JSON.parse(res.data.message);
 
-						if (_tpId === defSpecialSetting.playTech) {
-							const {
-								account: username,
-								password,
-								lang,
-								mode
-							} = result;
+							if (_tpId === defSpecialSetting.playTech) {
+								const {
+									account: username,
+									password,
+									lang,
+									mode
+								} = result;
 
-							await iapiSetCallout("Login", response => {
-								if (response.errorCode) {
-									if (response.errorCode == 48) {
-										errorPopBox(
-											`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
-											response.errorCode
-										);
+								await iapiSetCallout("Login", response => {
+									if (response.errorCode) {
+										if (response.errorCode == 48) {
+											errorPopBox(
+												`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
+												response.errorCode
+											);
+										} else {
+											errorPopBox(
+												`Login failed, error: ${response.errorCode} ,playerMessage: ${response.playerMessage}`,
+												response.errorCode
+											);
+										}
 									} else {
-										errorPopBox(
-											`Login failed, error: ${response.errorCode} ,playerMessage: ${response.playerMessage}`,
-											response.errorCode
-										);
+										launchGame({ ...result });
 									}
-								} else {
-									launchGame({ ...result });
-								}
-							});
+								});
 
-							if (mode === "real") {
-								iapiSetClientType("casino");
-								iapiSetClientPlatform("web");
-								iapiLogin(username, password, 1, lang);
+								if (mode === "real") {
+									iapiSetClientType("casino");
+									iapiSetClientPlatform("web");
+									iapiLogin(username, password, 1, lang);
+								} else {
+									launchGameWithFunMode({ ...result });
+								}
 							} else {
-								launchGameWithFunMode({ ...result });
+								setData(() => result);
 							}
+						} else if (
+							res.data.errorCode === 3000 &&
+							res.data.message
+						) {
+							window.open(
+								res.data.message,
+								"Under Maintenance",
+								"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
+							);
 						} else {
-							setData(() => result);
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
-					} else if (
-						res.data.errorCode === 3000 &&
-						res.data.message
-					) {
-						window.open(
-							res.data.message,
-							"Under Maintenance",
-							"toolbar=no, menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no, top=0, left=0"
-						);
-					} else {
-						errorPopBox(
-							`[${res.data.errorCode}] ${res.data.message}`,
-							res.data.errorCode
-						);
+					},
+					() => {
+						errorPopBox();
 					}
-				});
+				);
 			} else {
 				setPopBox({
 					isOpen: true,
