@@ -10,10 +10,10 @@ import { defDepositOptions } from "../deposit.def";
 import defPopBoxType from "../../common/defPopBoxType";
 import usePopBox from "../../hook/usePopBox";
 import path from "../../../router";
-
 import { api_site_GetSupportDomainList } from "../../../service/api/site";
 
 const useDepositEffect = ({
+	t,
 	userInfo,
 	formInfo,
 	isMountedRef,

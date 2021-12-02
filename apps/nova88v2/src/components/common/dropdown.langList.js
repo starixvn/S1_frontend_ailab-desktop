@@ -91,7 +91,11 @@ export class Dropdown extends Component {
 	};
 
 	render() {
-		let icon = null;
+		let icon =
+			Object.keys(this.props.defLangGroup).length === 1
+				? Object.keys(this.props.defLangGroup)[0]
+				: null;
+
 		const rows = Object.keys(this.props.defLangGroup).map(_group => {
 			return (
 				<span key={`${this.props.mainKey}_${_group}`}>
