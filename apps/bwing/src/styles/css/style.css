@@ -1427,6 +1427,10 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
   background: url(../img/lottery/lottery-TCG.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .AP .img {
+  background: url(../img/slot/ap.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .NE .img {
   background: url(../img/slot/ne.png) no-repeat center/auto 100%;
 }
@@ -1912,10 +1916,6 @@ header .header > div.function .memberfile::before {
           filter: brightness(110%);
   -webkit-animation: overturn 1s ease-in-out normal infinite;
           animation: overturn 1s ease-in-out normal infinite;
-}
-
-header .header > div.function .memberfile:hover::before {
-  display: block;
 }
 
 header .header > div.function .memberfile img {
@@ -2406,6 +2406,16 @@ footer > div .platformGroup button.tc {
 footer > div .platformGroup a.tc:hover,
 footer > div .platformGroup button.tc:hover {
   background: url(../img/partherNew/tc-a.png) no-repeat center;
+}
+
+footer > div .platformGroup a.ap,
+footer > div .platformGroup button.ap {
+  background: url(../img/partherNew/ap.png) no-repeat center;
+}
+
+footer > div .platformGroup a.ap:hover,
+footer > div .platformGroup button.ap:hover {
+  background: url(../img/partherNew/ap-a.png) no-repeat center;
 }
 
 footer > div .powered {
@@ -5625,9 +5635,9 @@ main > .swiper-container .swiper-slide {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .walletModuleLeft .walletModule .addBank .addBankName,
@@ -5920,7 +5930,11 @@ main > .swiper-container .swiper-slide {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 15px;
-  min-height: 90px;
+  margin-right: 12px;
+}
+
+.addBank .addBankName:nth-last-child(1) {
+  margin-right: 0;
 }
 
 .addBank .addBankName.noBank {
@@ -5934,7 +5948,7 @@ main > .swiper-container .swiper-slide {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   cursor: pointer;
-  min-height: auto;
+  min-height: 85px;
   background: #3a4d80;
   border: 1px solid #4d5e8e;
 }
@@ -6152,15 +6166,15 @@ main > .swiper-container .swiper-slide {
       -ms-flex: 1;
           flex: 1;
   margin-right: 10px;
-  max-width: calc(100% / 3 - 25px);
+  max-width: calc(100% / 3 - 30px);
   background: white;
   border-radius: 5px;
   padding: 10px;
+  margin-right: 12px;
   margin-bottom: 15px;
-  min-height: 90px;
 }
 
-.addCrypto .addCryptoName:last-child {
+.addCrypto .addCryptoName:nth-last-child(2) {
   margin-right: 0;
 }
 
@@ -6175,7 +6189,7 @@ main > .swiper-container .swiper-slide {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   cursor: pointer;
-  min-height: auto;
+  min-height: 85px;
   background: #3a4d80;
   border: 1px solid #4d5e8e;
 }
@@ -6525,10 +6539,16 @@ main > .swiper-container .swiper-slide {
   white-space: nowrap;
   max-width: none;
   border-radius: 3px;
+  font-weight: 500;
 }
 
 .addCryptopop .cryptoOtp .btn-retransmit:hover {
   background: #f20c05;
+}
+
+.addCryptopop .cryptoOtp .btn-retransmit.gray {
+  background: #afafaf;
+  color: #000;
 }
 
 .addCryptopop .inputBox, .addCryptopop .inputBox-blue {
