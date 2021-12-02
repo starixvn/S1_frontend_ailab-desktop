@@ -17,6 +17,7 @@ import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import productList, { defCasinoProviders } from "../../datas/productList";
 import { defPopBoxType } from "./defPopBoxType";
+import usePopBox from "../hook/usePopBox";
 import { useGotoGame } from "../hook/useGotoGame";
 
 const NeedLoginRoute = [];
@@ -86,6 +87,7 @@ export const SetPathParameter = ({ urlRouter, tpId, gameId = 1, matchId }) => {
 };
 
 export const useGetBanner = ({ langId, ImgFolder }) => {
+	const { errorPopBox } = usePopBox();
 	const [banner, setBanner] = useState([]);
 
 	useEffect(() => {
@@ -102,6 +104,11 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 
 					if (res.data.errorCode === 0 && mounted) {
 						setBanner(prev => [...prev, ...res.data.data]);
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				});
 

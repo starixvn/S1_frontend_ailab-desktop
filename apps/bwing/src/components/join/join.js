@@ -218,6 +218,11 @@ export default () => {
 						checked = false;
 						msg = "msg_UsernameNotAvailable";
 					}
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
 				}
 			}
 		}
@@ -271,6 +276,11 @@ export default () => {
 						checked = false;
 						msg = "msg_PhoneExisted";
 					}
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
 				}
 			}
 		}

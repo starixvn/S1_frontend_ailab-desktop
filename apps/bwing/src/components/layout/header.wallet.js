@@ -13,11 +13,11 @@ import { walletInfoContext, userInfoContext } from "../common/context";
 import { isConvert, number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 import HeaderProcessBar from "./header.processBar";
-
 import {
 	GetAllWallets,
 	handleIsHideBalance
 } from "../common/wrapper.walletInfo";
+import usePopBox from "../hook/usePopBox";
 
 export default props => {
 	const {
@@ -28,6 +28,7 @@ export default props => {
 		dispatch
 	} = useContext(walletInfoContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -40,14 +41,15 @@ export default props => {
 	const HandleIsHideBalance = e => {
 		e.stopPropagation();
 		const value = e.target.value === "true";
-		handleIsHideBalance({ dispatch, value });
+		handleIsHideBalance({ dispatch, value, errorPopBox });
 	};
 
 	const RefreshAllWallets = () => {
 		GetAllWallets({
 			langId: userInfo.langId,
 			isLogin: userInfo.isLogin,
-			dispatch
+			dispatch,
+			errorPopBox
 		});
 	};
 

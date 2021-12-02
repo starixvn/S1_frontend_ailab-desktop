@@ -103,31 +103,44 @@ export default () => {
 				}
 
 				if (showDepositHint) {
-					api_account_GetWalletInfo().then(res => {
-						if (res.data.errorCode === 0 && isMountedRef.current) {
-							const tpWallets = res.data.data.tpWallets?.map(
-								tp => {
-									return {
-										tpId: tp.tpId,
-										balance: tp.balance
-									};
+					api_account_GetWalletInfo().then(
+						res => {
+							if (
+								res.data.errorCode === 0 &&
+								isMountedRef.current
+							) {
+								const tpWallets = res.data.data.tpWallets?.map(
+									tp => {
+										return {
+											tpId: tp.tpId,
+											balance: tp.balance
+										};
+									}
+								);
+
+								const hasBalance =
+									res.data.data?.balance ||
+									tpWallets?.filter(tp => {
+										return tp.balance > 0;
+									}).length >= 1;
+
+								if (!hasBalance && showDepositHint) {
+									setPopBox({
+										isOpen: true,
+										popBoxType: defPopBoxType.DepositHint
+									});
 								}
-							);
-
-							const hasBalance =
-								res.data.data?.balance ||
-								tpWallets?.filter(tp => {
-									return tp.balance > 0;
-								}).length >= 1;
-
-							if (!hasBalance && showDepositHint) {
-								setPopBox({
-									isOpen: true,
-									popBoxType: defPopBoxType.DepositHint
-								});
+							} else if (res.data.errorCode !== 0) {
+								errorPopBox(
+									res.data.message || "error",
+									res.data.errorCode
+								);
 							}
+						},
+						() => {
+							errorPopBox();
 						}
-					});
+					);
 				}
 			};
 
