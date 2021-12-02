@@ -7,6 +7,7 @@ import {
 } from "../../service/api/account";
 import { popBoxContext, msgCountContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
+import usePopBox from "../hook/usePopBox";
 
 export default props => {
 	const { t } = useTranslation();
@@ -15,6 +16,7 @@ export default props => {
 	const isMountedRef = useRef(null);
 	const [msgContentData, setMsgContentData] = useState("");
 	const [showContent, setShowContent] = useState(false);
+	const { errorPopBox } = usePopBox();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -37,28 +39,28 @@ export default props => {
 							setMsgContentData(res.data?.data?.content);
 							props.getMsgList();
 
-							api_account_GetMsgCount().then(resMsg => {
-								if (isMountedRef.current) {
-									if (resMsg.data.errorCode === 0) {
-										setMsgCount(resMsg.data.data);
+							api_account_GetMsgCount().then(
+								resMsg => {
+									if (isMountedRef.current) {
+										if (resMsg.data.errorCode === 0) {
+											setMsgCount(resMsg.data.data);
+										} else {
+											errorPopBox(
+												resMsg.data.message || "error",
+												resMsg.data.errorCode
+											);
+										}
 									}
+								},
+								() => {
+									errorPopBox();
 								}
-							});
+							);
 						} else {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
-								btnBar: (
-									<div className="btnGroup">
-										<button
-											className="btn-cancel"
-											onClick={ClickClose}>
-											{t("lbl_Close")}
-										</button>
-									</div>
-								)
-							});
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
 						}
 					}
 				},

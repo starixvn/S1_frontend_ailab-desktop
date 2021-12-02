@@ -1,19 +1,17 @@
-import React, { useState, useContext, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useState, useEffect, useRef } from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";
 import Withdrawal from "../components/withdrawal/withdrawal.set.bank";
 import RecentHistory from "../components/withdrawal/recentHistory";
 import Loading from "../components/common/loading";
-import { popBoxContext } from "../components/common/context";
-import { defPopBoxType } from "../components/common/defPopBoxType";
 import { api_account_GetWithdrawalAvailableBalance } from "../service/api/account";
 import {
 	api_payment_KycCheck,
 	api_payment_GetWithdrawalInfoRecent,
 	api_payment_GetWithdrawalLimit
 } from "../service/api/payment";
+import usePopBox from "../components/hook/usePopBox";
 
 export default () => {
 	return (
@@ -33,8 +31,7 @@ export default () => {
 };
 
 const Content = () => {
-	const { t } = useTranslation();
-
+	const { errorPopBox } = usePopBox();
 	const [loading, setLoading] = useState(true);
 	const [balanceData, setBalanceData] = useState({});
 	const [kycStatus, setKycStatus] = useState("");
@@ -44,9 +41,6 @@ const Content = () => {
 		withdrawalMax: 0,
 		isAmountLimited: false
 	});
-
-	const { setPopBox } = useContext(popBoxContext);
-
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -70,10 +64,6 @@ const Content = () => {
 		getData();
 	}, []);
 
-	const closePopBox = () => {
-		setPopBox({ isOpen: false });
-	};
-
 	const getKycStatus = async () => {
 		await api_payment_KycCheck().then(
 			res => {
@@ -84,25 +74,17 @@ const Content = () => {
 						setKycStatus("kycUpload");
 					} else if (res.data.errorCode === 2) {
 						setKycStatus("kycPending");
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
 			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={closePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
@@ -115,39 +97,16 @@ const Content = () => {
 					if (res.data.errorCode === 0) {
 						setBalanceData(res.data.data);
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={closePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
 			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={closePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
@@ -160,54 +119,41 @@ const Content = () => {
 					if (res.data.errorCode === 0) {
 						setRecentData(res.data.data);
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={closePopBox}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={closePopBox}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 				}
 			}
 		);
 	};
 
 	const getWithdrawalLimit = async () => {
-		await api_payment_GetWithdrawalLimit().then(res => {
-			if (res.data.errorCode === 0 && isMountedRef.current) {
-				setWithdrawalLimit({
-					withdrawalMin: res.data.data.withdrawalMin,
-					withdrawalMax: res.data.data.withdrawalAvailableAmount,
-					isAmountLimited: !res.data.data.unlimited
-				});
+		await api_payment_GetWithdrawalLimit().then(
+			res => {
+				if (res.data.errorCode === 0 && isMountedRef.current) {
+					setWithdrawalLimit({
+						withdrawalMin: res.data.data.withdrawalMin,
+						withdrawalMax: res.data.data.withdrawalAvailableAmount,
+						isAmountLimited: !res.data.data.unlimited
+					});
+				} else if (res.data.errorCode !== 0) {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				errorPopBox();
 			}
-		});
+		);
 	};
 
 	if (loading) return <Loading />;

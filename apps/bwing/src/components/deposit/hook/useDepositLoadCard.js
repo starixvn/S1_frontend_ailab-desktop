@@ -24,7 +24,7 @@ const useDepositLoadCardForm = ({ isMountedRef }) => {
 			if (success) {
 				setLoadCardPayGroupList(data);
 			} else {
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				errorPopBox(message || `error`, errorCode);
 			}
 		});
 	};
@@ -41,7 +41,7 @@ const useDepositLoadCardForm = ({ isMountedRef }) => {
 				return data;
 			}
 
-			errorPopBox(message || `[${errorCode}] error`, errorCode);
+			errorPopBox(message || `error`, errorCode);
 		});
 
 	const getReqLoadCardPay = ({
@@ -82,7 +82,7 @@ const useDepositLoadCardForm = ({ isMountedRef }) => {
 					)
 				});
 			} else {
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				errorPopBox(message || `error`, errorCode);
 			}
 		});
 

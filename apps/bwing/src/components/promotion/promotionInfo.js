@@ -92,19 +92,29 @@ export default () => {
 			BonusCode: bonusCode,
 			TpId: tpId,
 			PromoCategoryId: categoryId
-		}).then(res => {
-			if (
-				isMountedRef.current &&
-				res.data.errorCode === 0 &&
-				res.data.data
-			) {
-				setPromotionInfo(prevS => ({
-					...prevS,
-					custRollOver: res.data.data.rollover,
-					custTurnOver: res.data.data.turnover
-				}));
+		}).then(
+			res => {
+				if (
+					isMountedRef.current &&
+					res.data.errorCode === 0 &&
+					res.data.data
+				) {
+					setPromotionInfo(prevS => ({
+						...prevS,
+						custRollOver: res.data.data.rollover,
+						custTurnOver: res.data.data.turnover
+					}));
+				} else if (res.data.errorCode !== 0) {
+					openErrorMessagePopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				openErrorMessagePopBox();
 			}
-		});
+		);
 	};
 
 	let _isClaimed = false;

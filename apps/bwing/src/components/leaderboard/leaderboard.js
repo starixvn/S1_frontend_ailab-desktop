@@ -152,7 +152,7 @@ export default () => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.ErrorMsg,
-			message: errMessage,
+			message: errMessage ?? t("msg_ApiServerError"),
 			btnBar: (
 				<div className="btnGroup">
 					<button className="btn-cancel" onClick={ClickClose}>
@@ -216,7 +216,9 @@ export default () => {
 											: resRank.data.data.custRank
 								};
 							}
-							return showErrorPopBox(resRank.data.message);
+							return showErrorPopBox(
+								`[${resRank.data.errorCode}] ${resRank.data.message}`
+							);
 						});
 						const filterRepeatArr = topArr.filter(
 							r => r.username !== userInfo.userName
@@ -225,7 +227,9 @@ export default () => {
 						setRankingData(concatArr);
 					}
 				} else {
-					showErrorPopBox(res.data.message);
+					showErrorPopBox(
+						`[${res.data.errorCode}] ${res.data.message}`
+					);
 				}
 			}
 		});

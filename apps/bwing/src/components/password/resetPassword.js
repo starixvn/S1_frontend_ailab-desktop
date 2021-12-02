@@ -170,7 +170,7 @@ const ResetPassWord = () => {
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.ErrorMsg,
-								message: res.data.message,
+								message: `[${res.data.errorCode}] ${res.data.message}`,
 								btnBar: (
 									<div className="btnGroup">
 										<button
