@@ -78,7 +78,8 @@ const AccountPanel = ({
 		if (_col === defColumn.accountNumber) {
 			val = val.replace(/[^0-9]+/g, "");
 		} else {
-			val = val.replace(/[\W]/g, "");
+			const pattern = new RegExp(/["'`_^+-@#!<>%;)(&$.]/);
+			val = val.replace(pattern, "");
 		}
 		dispatch({
 			type: defActionType.EDIT_FIELD,

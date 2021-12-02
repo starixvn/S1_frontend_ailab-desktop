@@ -341,9 +341,9 @@ export const defCasinoProviders = {
 		name: "CQ9",
 		tpGameType: 29
 	},
-	ICG: {
+	AstroTech: {
 		tpId: 24,
-		name: "ICG",
+		name: "AstroTech",
 		tpGameType: 39
 	},
 	MGPSW: {

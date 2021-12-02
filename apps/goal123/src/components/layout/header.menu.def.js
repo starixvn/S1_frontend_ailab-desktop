@@ -475,7 +475,7 @@ export const defMenuLinks = langId => {
 					icon: "icon icon-icg",
 					displayText: "Astro Tech",
 					menuType: defMenuType.Link,
-					parameter: { provider: defCasinoProviders.ICG.name },
+					parameter: { provider: defCasinoProviders.AstroTech.name },
 					bgImgUrl: slotsIcgBgImg,
 					npcImgUrl: slotsIcgNpcImg,
 					iconImgUrl: slotsIcgIconImg

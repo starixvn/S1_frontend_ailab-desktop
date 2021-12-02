@@ -577,6 +577,7 @@ const Deposit = () => {
 	};
 
 	useDepositEffect({
+		t,
 		userInfo,
 		formInfo,
 		isMountedRef,
