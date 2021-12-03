@@ -12571,13 +12571,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .streaming .inside-title:before, .streaming .inside-title span {
-  position: absolute;
   z-index: 1;
-  left: 10px;
 }
 
 .streaming .inside-title:before {
   font-size: 24px;
+  margin-left: 15px;
 }
 
 .streaming #streamingMenu {
