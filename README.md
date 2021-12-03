@@ -2,6 +2,32 @@
 
 This project was generated using [Nx](https://nx.dev).
 
+---
+
+## Development server
+
+Run `nx serve {my-app}` for a dev server. The app will automatically reload if you change any of the source files.
+
+**Nova88** 
+Run `nx serve nova88v2`
+Will auto navigate to http://localhost:42012
+
+**Goal123** 
+Run `nx serve goal123`
+Will auto navigate to http://localhost:4202
+
+**Bwing** 
+Run `nx serve bwing`
+Will auto navigate to http://localhost:4203
+
+---
+
+## Git commit format
+
+Please refer to the file ./.gitmessage.txt
+
+---
+
 ## Install the Nx Plugin for Gatsby in your Nx workspace.
 
 - `yarn add @nrwl/gatsby --dev`
@@ -65,10 +91,6 @@ Libraries are sharable across libraries and applications. They can be imported f
 ![tsconfig.spec.png](README/tsconfig.spec.png)
 
 ---
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
