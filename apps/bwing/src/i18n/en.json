@@ -412,8 +412,6 @@
 	"lbl_DepositLoadCardNoticeContent2": "Our card fee is cheapest in the market, only 25% apply for all telcoms.",
 	"lbl_DepositPromoMsg1": "Please proceed to verify your account to entitle available promotions.",
 	"lbl_Deposit_DragonPayPop_OrderNumber": "Order Number",
-	"lbl_CashbackAmount": "Cashback Amount",
-	"lbl_ReceivedAmount": "Received Amount",
 	"lbl_Rate": "Rate",
 	"lbl_USDT_Amount": "USDT Amount",
 
@@ -742,9 +740,6 @@
 	"■■■■■■■■■■■■■■■■■■■■ payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",
 	"lbl_OrderAmount": "Order Amount",
-	"lbl_Pay": "PAY",
-	"lbl_PaymentQRDesc1": "Please transfer the amount.",
-	"lbl_PaymentQRDesc2": "Provided for better experience.",
 	"lbl_ImportantNotes": "Important Notes",
 	"lbl_PaymentQRNote1": "Please do not refresh your browser.",
 	"lbl_PaymentQRNote2": "Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
@@ -752,6 +747,7 @@
 	"lbl_Time": "Time",
 
 	"■■■■■■■■■■■■■■■■■■■■ crypto pay ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Wallet_Is_Full": "Wallet Is Full",
 	"lbl_CryptoWallet": "Crypto Wallet",
 	"lbl_CryptoWalletNickName": "Wallet Nickname",
 	"lbl_CryptoWalletAddress": "Wallet Address",

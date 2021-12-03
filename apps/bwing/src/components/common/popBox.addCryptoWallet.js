@@ -379,9 +379,7 @@ export default ({ GetCustBankInfo }) => {
 		<div className="addCryptopop active">
 			<button className="icon icon-close" onClick={clickCancel} />
 			<span className="title">{t("lbl_Add_Crypto_Wallet")}</span>
-			<div className="txt-lightgray">
-				{t("lbl_Crypto_Title_Describe")}
-			</div>
+
 			<div>
 				{cols}
 
