@@ -32,10 +32,7 @@ export const useAppDownLoad = () => {
 
 						setAppLinkData(newData);
 					} else {
-						errorPopBox(
-							message || `[${errorCode}] error`,
-							errorCode
-						);
+						errorPopBox(message || `error`, errorCode);
 					}
 				})
 				.catch(() => {

@@ -32,15 +32,11 @@ const useAppDownLoad = () => {
 
 						setAppLinkData(newData);
 					} else {
-						errorPopBox(
-							message || `[${errorCode}] error`,
-							errorCode
-						);
+						errorPopBox(message || `error`, errorCode);
 					}
 				})
 				.catch(() => {
 					if (!isMountedRef.current) return;
-
 					errorPopBox();
 				});
 		};

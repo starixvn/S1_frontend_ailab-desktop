@@ -764,5 +764,12 @@
 	"lbl_Crypto_Title_Describe": "Please upload your Crypto account details before making withdrawal.",
 	"lbl_Deposit_USDT_CONFIRM_DESCRIPTION": "Conversion rate severs as reference purposes only.",
 
+	"promotion": {
+		"lbl_promo_claim_now": "CLAIM NOW",
+		"lbl_promo_apply_now": "APPLY NOW",
+		"lbl_promo_more_info": "MORE INFO",
+		"lbl_promo_all_promos": "ALL PROMOS"
+	},
+
 	"end-----": "end-----"
 }

@@ -5,6 +5,7 @@ import { api_account_SetLanguage } from "../../service/api/account";
 import { setCookie } from "./common";
 import { SiteInfo } from "../../config";
 import { getNewLanguagePath } from "../../service/language";
+import defPopBoxType from "./defPopBoxType";
 
 export class Dropdown extends Component {
 	constructor(props) {
@@ -43,8 +44,45 @@ export class Dropdown extends Component {
 		if (value !== this.props.selectedValue) {
 			if (this.props.isLogin) {
 				try {
-					api_account_SetLanguage(value);
-				} catch (error) {}
+					api_account_SetLanguage(value).then(res => {
+						if (
+							this.props.isMountedRef.current &&
+							res.data.errorCode !== 0
+						) {
+							this.props.setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ErrorMsg,
+								message: `[${res.data.errorCode}] ${res.data.message}`,
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-check"
+											onClick={this.props.clickClose}>
+											{t("lbl_Close")}
+										</button>
+									</div>
+								)
+							});
+						}
+					});
+				} catch (error) {
+					if (thris.props.isMountedRef.current) {
+						this.props.setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: t("msg_ApiServerError"),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={this.props.clickClose}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+				}
 			}
 
 			navigate(newPath);
@@ -53,29 +91,36 @@ export class Dropdown extends Component {
 	};
 
 	render() {
-		let icon = null;
+		let icon =
+			Object.keys(this.props.defLangGroup).length === 1
+				? Object.keys(this.props.defLangGroup)[0]
+				: null;
+
 		const rows = Object.keys(this.props.defLangGroup).map(_group => {
 			return (
-				<div
-					key={`${this.props.mainKey}_${_group}`}
-					className={`flag ${_group}`}>
-					{this.props.defLangGroup[_group].map(item => {
-						if (item.value === this.props.selectedValue) {
-							icon = _group;
-						}
-						return (
-							<button
-								key={`${this.props.mainKey}_${item.value}`}
-								onClick={this.selectItem.bind(
-									this,
-									item.value,
-									getNewLanguagePath(item.value)
-								)}>
-								{item.displayText}
-							</button>
-						);
-					})}
-				</div>
+				<span key={`${this.props.mainKey}_${_group}`}>
+					<div className="countryName">
+						{this.props.defLangGroupCountry[_group]}
+					</div>
+					<div className={`flag ${_group}`}>
+						{this.props.defLangGroup[_group].map(item => {
+							if (item.value === this.props.selectedValue) {
+								icon = _group;
+							}
+							return (
+								<button
+									key={`${this.props.mainKey}_${item.value}`}
+									onClick={this.selectItem.bind(
+										this,
+										item.value,
+										getNewLanguagePath(item.value)
+									)}>
+									{item.displayText}
+								</button>
+							);
+						})}
+					</div>
+				</span>
 			);
 		});
 
@@ -99,12 +144,23 @@ export class Dropdown extends Component {
 	}
 }
 
+Dropdown.defaultProps = {
+	isMountedRef: null,
+	setPopBox: () => null,
+	clickClose: () => null
+};
+
 Dropdown.propTypes = {
 	className: PropTypes.string.isRequired,
 	subClassName: PropTypes.string.isRequired,
 	mainKey: PropTypes.string.isRequired,
 	selectedValue: PropTypes.string.isRequired,
-	isLogin: PropTypes.bool.isRequired
+	isLogin: PropTypes.bool.isRequired,
+	defLangGroupCountry: PropTypes.objectOf(PropTypes.any).isRequired,
+	defLangGroup: PropTypes.objectOf(PropTypes.array).isRequired,
+	isMountedRef: PropTypes.objectOf(PropTypes.any),
+	setPopBox: PropTypes.func,
+	clickClose: PropTypes.func
 };
 
 export default Dropdown;

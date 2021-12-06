@@ -101,7 +101,7 @@ export const defLobbyImgList = [
 	},
 	{
 		lobbyImgName: "icg",
-		lobbyDisplayName: "Iconic Gaming",
+		lobbyDisplayName: "Astro Tech",
 		providerId: productList.casino_ICG.tpId
 	},
 	{

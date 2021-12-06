@@ -23,6 +23,8 @@ import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import productList, { defCasinoProviders } from "../../datas/productList";
 import { defPopBoxType } from "./popBox";
+import usePopBox from "../hook/usePopBox";
+import { useGotoGame } from "../hook/useGotoGame";
 
 const NeedLoginRoute = [];
 
@@ -90,7 +92,7 @@ export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
 	return result;
 };
 
-export const useGetBanner = ({ langId, ImgFolder }) => {
+export const useGetBanner = ({ langId, ImgFolder, errorPopBox }) => {
 	const [banner, setBanner] = useState([]);
 
 	useEffect(() => {
@@ -107,11 +109,17 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 
 					if (res.data.errorCode === 0 && mounted) {
 						setBanner(prev => [...prev, ...res.data.data]);
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				});
 
 				return true;
 			} catch (error) {
+				errorPopBox();
 				return false;
 			}
 		};
@@ -225,11 +233,50 @@ export const BannerSwipper = ({
 	config
 }) => {
 	const { userInfo } = useContext(userInfoContext);
+	const { errorPopBox } = usePopBox();
 	const { banner } = useGetBanner({
 		langId: userInfo.langId,
-		ImgFolder
+		ImgFolder,
+		errorPopBox
 	});
 	const { setPopBox } = useContext(popBoxContext);
+
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
+
+	const handleClick = ({
+		tpId,
+		gameId,
+		matchId,
+		actionMode,
+		bannerLink,
+		tpGameType
+	}) => {
+		if (Number(tpId) === productList.liveCasino_PT.tpId)
+			return handleGoToGame({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId: Number(tpId),
+				gameId,
+				tpGameType
+			});
+
+		return ClickLink({
+			tpId,
+			gameId,
+			matchId,
+			actionMode,
+			bannerLink,
+			tpGameType,
+			lang: userInfo.langId,
+			isLogin: userInfo.isLogin,
+			setPopBox,
+			openInBlank
+		});
+	};
 
 	const rows = banner?.map((b, bIdx) => {
 		let redirectLink = null;
@@ -263,13 +310,7 @@ export const BannerSwipper = ({
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={ClickLink.bind(this, {
-					...b,
-					isLogin: userInfo.isLogin,
-					lang: userInfo.langId,
-					setPopBox,
-					openInBlank
-				})}>
+				onClick={() => handleClick(b)}>
 				<img
 					src={b.bannerMobileUrl}
 					className="banner"

@@ -759,5 +759,12 @@
 	"lbl_Crypto_OTP": "Vui lòng hoàn tất xác thực bằng số điện thoại (OTP) trước khi sử dụng dịch vụ tiền ảo.",
 	"lbl_Deposit_USDT_CONFIRM_DESCRIPTION": "Tỷ giá chỉ mang tính chất tham khảo.",
 
+	"promotion": {
+		"lbl_promo_claim_now": "NHẬN NGAY",
+		"lbl_promo_apply_now": "THAM GIA NGAY",
+		"lbl_promo_more_info": "THÊM THÔNG TIN",
+		"lbl_promo_all_promos": "TẤT CẢ KHUYẾN MÃI"
+	},
+
 	"end-----": "end-----"
 }

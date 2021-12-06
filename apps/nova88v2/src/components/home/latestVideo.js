@@ -2,20 +2,34 @@ import React, { useState, useEffect, useContext, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 import { api_video_GetLatestHighlightData } from "../../service/api/video";
+import usePopBox from "../hook/usePopBox";
 
 const LatestVideo = memo(() => {
 	const [video, setVideo] = useState({});
 	const { userInfo } = useContext(userInfoContext);
 	const { t } = useTranslation();
+	const { errorPopBox } = usePopBox();
 
 	useEffect(() => {
 		let mounted = true;
 		if (userInfo.langId) {
-			api_video_GetLatestHighlightData(userInfo.langId).then(res => {
-				if (res.data.errorCode === 0 && mounted) {
-					setVideo(res.data.data);
+			api_video_GetLatestHighlightData(userInfo.langId).then(
+				res => {
+					if (res.data.errorCode === 0 && mounted) {
+						setVideo(res.data.data);
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				},
+				() => {
+					if (mounted) {
+						errorPopBox();
+					}
 				}
-			});
+			);
 		}
 
 		return () => {

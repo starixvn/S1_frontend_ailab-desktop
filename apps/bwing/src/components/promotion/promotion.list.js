@@ -1,12 +1,10 @@
 import React from "react";
-import { Link } from "@reach/router";
-import path from "../../router";
 import ProcessBar from "./promotion.processBar";
-import { defFilterType } from "./promotion.nav";
-import { isNew, isClaimed, isArrayNotEmpty } from "./promotion.common";
+import { isArrayNotEmpty, getStampStyle } from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
-import PromoRule from "./promotion.promoRule";
-import { defPromotionType } from "./promotion.def";
+import { defPromotionType, defFilterType } from "./promotion.def";
+import { useHandlePromotionInfo } from "./promotionInfo.popbox";
+import { getExpiryTime } from "./promotion.promoRule";
 
 export default ({
 	t,
@@ -17,84 +15,86 @@ export default ({
 	staticPromotions = [],
 	afterJoinCallBack
 }) => {
-	const { langId, isLogin, currencyId } = userInfo;
+	const { getPromotionDetail } = useHandlePromotionInfo({});
+
+	const clickMoreInfo = (langId, bonusCode) => {
+		getPromotionDetail(langId, bonusCode);
+	};
+
+	const { isLogin, currencyId } = userInfo;
 
 	const rows = promoList?.map(p => {
-		const _isClaimed = isClaimed(p);
-		const _isNew = _isClaimed ? false : isNew(p);
+		const promoDisplayStyle = getStampStyle(filter, p);
 
 		return (
 			<div
 				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={`${_isClaimed ? "active" : ""}${
-					(filter === defFilterType.specialBonus && !p.canJoin) ||
-					p.beenUsed
-						? " expired"
-						: ""
-				}`}>
-				{_isClaimed ? <div className="claimed" /> : null}
-				{filter === defFilterType.expiry ? (
-					<div className="expiredIcon">{t("lbl_Expired")}</div>
-				) : (
-					_isNew && p.canJoin && <div className="new" />
-				)}
-				<img src={p.banner} alt={p.title} />
-				<div className="txt-blue15">{p.title}</div>
-				<div className="txt-lightgray">{t("lbl_PromotionsDesc")}</div>
-				<div className="txt-txt-lightgray">
-					<ul>
-						<li>{p.description}</li>
-					</ul>
+				className={promoDisplayStyle}>
+				<div className="promoImg">
+					<img src={p.banner} alt={p.title} />
 				</div>
-				<PromoRule
-					t={t}
-					promotionInfo={p}
-					inListPage={true}
-					currencyId={currencyId}
-					langId={langId}
-				/>
 
-				{filter === defFilterType.specialBonus && p.isJoin ? (
+				<div className="promoInfo">
+					<div className="txt-blue15">{p.title}</div>
+					<div>{p.description}</div>
+
+					{/* <PromoRule
+						t={t}
+						promotionInfo={p}
+						currencyId={currencyId}
+						langId={userInfo.langId}
+					/> */}
+
 					<ProcessBar
 						{...p}
 						t={t}
 						currencyId={currencyId}
 						RefreshProcessBar={refreshProcessBar.bind(this, p)}
 					/>
-				) : null}
 
-				<div className="btnGroup">
-					{p.promotionType === defPromotionType.other &&
-					!p.promotionAction ? (
-						<a
-							href={p.promotionLink}
-							target="_blank"
-							rel="noreferrer"
-							className="blueBorder">
-							{t("lbl_Details").toUpperCase()}
-						</a>
-					) : (
-						<Link
-							type="button"
-							className="blueBorder"
-							to={`/${langId}/${path.promotion.root}/${
-								path.promotion.sub.promotionInfo.root
-							}?BonusCode=${p.bonusCode}${
-								filter === defFilterType.specialBonus
-									? `&FilterType=${defFilterType.specialBonus}`
-									: ""
-							}`}>
-							{t("lbl_Details").toUpperCase()}
-						</Link>
-					)}
-
-					<PromotionJoinButton
+					<div className="btnGroup">
+						<PromotionJoinButton
+							promotionInfo={p}
+							userInfo={userInfo}
+							inListPage={true}
+							filter={filter}
+							callBack={afterJoinCallBack}
+						/>
+						{p.promotionType === defPromotionType.other &&
+						!p.promotionAction ? (
+							<a
+								href={p.promotionLink}
+								target="_blank"
+								rel="noreferrer"
+								className="btn-check">
+								{t(
+									"promotion.lbl_promo_more_info"
+								).toUpperCase()}
+							</a>
+						) : (
+							<button
+								className="btn-check"
+								onClick={clickMoreInfo.bind(
+									this,
+									userInfo.langId,
+									p.bonusCode
+								)}>
+								{t("promotion.lbl_promo_more_info")}
+							</button>
+						)}
+					</div>
+				</div>
+				<div className="remain">
+					<div className="icon icon-icon32px_time">
+						{t("lbl_RemainingTime")}
+						<div>{getExpiryTime(t, p)}</div>
+					</div>
+					{/* <PromoRule
 						promotionInfo={p}
-						userInfo={userInfo}
-						inListPage={true}
-						filter={filter}
-						callBack={afterJoinCallBack}
-					/>
+						t={t}
+						currencyId={currencyId}
+						langId={userInfo.langId}
+					/> */}
 				</div>
 			</div>
 		);
@@ -107,10 +107,7 @@ export default ({
 		(isArrayNotEmpty(staticPromotions) && filter === defFilterType.all)
 	)
 		return (
-			<div
-				className={`proList${
-					filter === defFilterType.expiry ? " expired" : ""
-				}`}>
+			<div className="proListnew">
 				{rows}
 				{filter === defFilterType.all ? staticPromotions : null}
 			</div>

@@ -181,7 +181,7 @@ const defGame = {
 	},
 	Houyis_Legend: {
 		name: "Houyi's Legend",
-		provider: "ICG",
+		provider: "Astro Tech",
 		providerImg: "icga",
 		img: "houyi's_legend",
 		gameType: defGameType.slots,

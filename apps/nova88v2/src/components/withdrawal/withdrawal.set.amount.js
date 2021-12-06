@@ -6,9 +6,11 @@ import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_payment_GetExchangeInfo } from "../../service/api/payment";
+import usePopBox from "../hook/usePopBox";
 
 const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 
 	const EditAmount = Value => {
 		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
@@ -100,9 +102,14 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 						receiveUSDT = Number(
 							res.data.data.to_Amount
 						).toString();
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				} catch (error) {
-					console.log(error);
+					errorPopBox();
 				}
 			}
 

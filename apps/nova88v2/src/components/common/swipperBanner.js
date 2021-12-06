@@ -16,6 +16,8 @@ import { userInfoContext, popBoxContext } from "./context";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import defPopBoxType from "./defPopBoxType";
+import { useGotoGame } from "../hook/useGotoGame";
+import productList from "../../datas/productList";
 
 const NeedLoginRoute = [];
 
@@ -89,11 +91,46 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 
 					if (res.data.errorCode === 0 && mounted) {
 						setBanner(prev => [...prev, ...res.data.data]);
+					} else if (res.data.errorCode !== 0) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={() => {
+											setPopBox({ isOpen: false });
+										}}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
 					}
 				});
 
 				return true;
 			} catch (error) {
+				if (mounted) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={() => {
+										setPopBox({ isOpen: false });
+									}}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
 				return false;
 			}
 		};
@@ -113,6 +150,43 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
 	const { setPopBox } = useContext(popBoxContext);
+
+	const { handleGoToGame } = useGotoGame({
+		isLogin: userInfo.isLogin,
+		langId: userInfo.langId,
+		autoGetData: false
+	});
+
+	const handleClick = ({
+		tpId,
+		gameId,
+		matchId,
+		actionMode,
+		bannerLink,
+		tpGameType
+	}) => {
+		if (Number(tpId) === productList.casino_PT.tpId)
+			return handleGoToGame({
+				isLogin: userInfo.isLogin,
+				langId: userInfo.langId,
+				tpId: Number(tpId),
+				gameId,
+				tpGameType
+			});
+
+		return ClickLink({
+			tpId,
+			gameId,
+			matchId,
+			actionMode,
+			bannerLink,
+			tpGameType,
+			lang: userInfo.langId,
+			isLogin: userInfo.isLogin,
+			setPopBox,
+			openInBlank
+		});
+	};
 
 	const rows = banner?.map((b, bIdx) => {
 		let redirectLink = null;
@@ -146,13 +220,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={ClickLink.bind(this, {
-					...b,
-					isLogin: userInfo.isLogin,
-					lang: userInfo.langId,
-					setPopBox,
-					openInBlank
-				})}>
+				onClick={() => handleClick(b)}>
 				<img
 					src={b.bannerMobileUrl}
 					className="banner"

@@ -63,7 +63,10 @@ export default () => {
 					if (res.data.errorCode === 0) {
 						setReferralCode(res.data.data);
 					} else {
-						errorPopBox(res.data.message, res.data.errorCode);
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
@@ -85,7 +88,10 @@ export default () => {
 							setReferralSettingData(res.data.data[0]);
 						}
 					} else {
-						errorPopBox(res.data.message, res.data.errorCode);
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},
@@ -113,7 +119,10 @@ export default () => {
 							amountSum: res.data.data.amountSum
 						}));
 					} else {
-						errorPopBox(res.data.message, res.data.errorCode);
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 				}
 			},

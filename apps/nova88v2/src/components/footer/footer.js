@@ -4,7 +4,7 @@ import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import TandC from "../../service/t_and_c";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { SiteInfo } from "../../config";
+import { SiteInfo, bannerImgUrl } from "../../config";
 import PlatformSection from "./footer.platform";
 import ProductSection from "./footer.product";
 import FollowUsSection from "./footer.followUs";
@@ -16,14 +16,24 @@ import { api_site_GetTpIds } from "../../service/api/site";
 import ImgJoeColeSignature from "../../styles/img/joecole_w.png";
 import ImgJoeColePhoto from "../../styles/img/jc.png";
 import { currencyCode } from "../../datas/countryCode";
+import usePopBox from "../hook/usePopBox";
 import { useGetSEODatas } from "../seo/seo";
+import { getCurrencyCode } from "../common/common";
 
 const Footer = ({ isFullFooter = false }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const [productTpIds, setProductTpIds] = useState(null);
 	const isMountedRef = useRef(null);
+
+	let currencyId = null;
+	if (userInfo.isLogin) {
+		currencyId = userInfo.currencyId;
+	} else if (userInfo.isLogin === false) {
+		currencyId = getCurrencyCode(userInfo.langId);
+	}
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -34,11 +44,23 @@ const Footer = ({ isFullFooter = false }) => {
 
 	useEffect(() => {
 		if (userInfo.isLogin && productTpIds === null) {
-			api_site_GetTpIds().then(res => {
-				if (res.data.errorCode === 0 && isMountedRef.current) {
-					setProductTpIds(res.data.data);
+			api_site_GetTpIds().then(
+				res => {
+					if (res.data.errorCode === 0 && isMountedRef.current) {
+						setProductTpIds(res.data.data);
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						errorPopBox();
+					}
 				}
-			});
+			);
 		} else if (userInfo.isLogin === false && productTpIds?.length > 0) {
 			setProductTpIds(null);
 		}
@@ -73,7 +95,7 @@ const Footer = ({ isFullFooter = false }) => {
 			<ProductSection
 				t={t}
 				langId={userInfo.langId}
-				currencyId={userInfo.currencyId ?? null}
+				currencyId={currencyId}
 				currencyCode={currencyCode}
 				defFooterProductList={defFooterProductList}
 				path={path}
@@ -125,9 +147,15 @@ export const LicensesSection = ({ t }) => {
 	return (
 		<div className="license">
 			<div>
-				{showLicenseLogo ? (
+				{showLicenseLogo && (
 					<>
-						<div className="title">{t("lbl_Gaming_License")}</div>
+						<div className="title">
+							{t("lbl_Gaming_License")}
+							<img
+								src={`${bannerImgUrl}/img/license_tick.png`}
+								alt="vaild gaming license"
+							/>
+						</div>
 						<div
 							id="apg-a7019fa5-9f9a-468b-92da-4890f6a6e4a7"
 							data-apg-seal-id="a7019fa5-9f9a-468b-92da-4890f6a6e4a7"
@@ -135,7 +163,7 @@ export const LicensesSection = ({ t }) => {
 							data-apg-image-type="basic-small"
 						/>
 					</>
-				) : null}
+				)}
 			</div>
 			<div>
 				<iframe

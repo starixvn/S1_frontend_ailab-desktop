@@ -60,46 +60,57 @@ export default () => {
 			BonusCode: bonusCode,
 			TpId: tpId,
 			PromoCategoryId: categoryId
-		}).then(({ data: { data, message, errorCode } }) => {
-			if (!isMountedRef.current) return;
+		}).then(
+			({ data: { data, message, errorCode } }) => {
+				if (!isMountedRef.current) return;
 
-			const success = errorCode === 0;
-			if (success) {
-				let idx = null;
-				let newPromoList = [];
-				if (filter === defFilterType.specialBonus) {
-					idx = specialPromotionList.findIndex(
-						x =>
-							x.bonusCode === bonusCode &&
-							x.tpId === tpId &&
-							x.categoryId === categoryId
-					);
-					if (idx !== -1) {
-						newPromoList = [...specialPromotionList];
-						newPromoList[idx].custRollOver = data.rollover;
-						newPromoList[idx].custTurnOver = data.turnover;
+				const success = errorCode === 0;
+				if (success) {
+					let idx = null;
+					let newPromoList = [];
+					if (filter === defFilterType.specialBonus) {
+						idx = specialPromotionList.findIndex(
+							x =>
+								x.bonusCode === bonusCode &&
+								x.tpId === tpId &&
+								x.categoryId === categoryId
+						);
+						if (idx !== -1) {
+							newPromoList = [...specialPromotionList];
+							if (data) {
+								newPromoList[idx].custRollOver = data.rollover;
+								newPromoList[idx].custTurnOver = data.turnover;
+							}
+						}
+
+						setSpecialPromotionList(newPromoList);
+					} else {
+						idx = promoList.findIndex(
+							x =>
+								x.bonusCode === bonusCode &&
+								x.tpId === tpId &&
+								x.categoryId === categoryId
+						);
+						if (idx !== -1) {
+							newPromoList = [...promoList];
+							if (data) {
+								newPromoList[idx].custRollOver = data.rollover;
+								newPromoList[idx].custTurnOver = data.turnover;
+							}
+						}
+
+						setPromoList(newPromoList);
 					}
-
-					setSpecialPromotionList(newPromoList);
 				} else {
-					idx = promoList.findIndex(
-						x =>
-							x.bonusCode === bonusCode &&
-							x.tpId === tpId &&
-							x.categoryId === categoryId
-					);
-					if (idx !== -1) {
-						newPromoList = [...promoList];
-						newPromoList[idx].custRollOver = data.rollover;
-						newPromoList[idx].custTurnOver = data.turnover;
-					}
-
-					setPromoList(newPromoList);
+					errorPopBox(message || "error", errorCode);
 				}
-			} else {
-				errorPopBox(message || "error", errorCode);
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
-		});
+		);
 	};
 
 	useEffect(() => {

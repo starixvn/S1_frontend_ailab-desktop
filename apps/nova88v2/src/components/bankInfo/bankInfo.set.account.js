@@ -78,7 +78,8 @@ const AccountPanel = ({
 		if (_col === defColumn.accountNumber) {
 			val = val.replace(/[^0-9]+/g, "");
 		} else {
-			val = val.replace(/[\W]/g, "");
+			const pattern = new RegExp(/["'`_^+-@#!<>%;)(&$.]/);
+			val = val.replace(pattern, "");
 		}
 		dispatch({
 			type: defActionType.EDIT_FIELD,
@@ -161,10 +162,7 @@ const AccountPanel = ({
 						if (res.data.errorCode === 0) {
 							reload(!alreadyHasAccountName);
 						} else {
-							errorPopBox(
-								message || `[${errorCode}] error`,
-								errorCode
-							);
+							errorPopBox(message || `error`, errorCode);
 						}
 						setLoading(false);
 					}

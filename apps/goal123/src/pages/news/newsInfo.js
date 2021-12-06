@@ -74,7 +74,7 @@ const Content = () => {
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -88,7 +88,7 @@ const Content = () => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,

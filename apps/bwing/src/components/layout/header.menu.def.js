@@ -296,9 +296,9 @@ export const defMenuLinks = {
 					})
 				],
 				icon: "icon icon-ICG",
-				displayText: "Iconic Gaming",
+				displayText: "Astro Tech",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.ICG.name }
+				parameter: { provider: defCasinoProviders.AstroTech.name }
 			},
 			{
 				...defCasinoProviders.CQ9,

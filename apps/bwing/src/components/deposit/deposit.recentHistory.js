@@ -10,6 +10,7 @@ import { isConvert } from "../common/common";
 import { defPopBoxType } from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
+import usePopBox from "../hook/usePopBox";
 
 const DepositRecentHistory = ({
 	asyncUploadBankPopBox,
@@ -22,6 +23,7 @@ const DepositRecentHistory = ({
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const _isConvert = isConvert(userInfo.currencyId);
 	const isMountedRef = useRef(null);
 
@@ -107,20 +109,30 @@ const DepositRecentHistory = ({
 	const ClickCancel = transId => {
 		const ClickConfirm = () => {
 			setPopBox({ isOpen: false });
-			api_payment_SetDepositCancel(transId).then(res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						setDepositInfoRecentDatas(prevState => {
-							const newD = [...prevState];
-							const idx = newD.findIndex(
-								x => x.transId === transId
+			api_payment_SetDepositCancel(transId).then(
+				res => {
+					if (isMountedRef.current) {
+						if (res.data.errorCode === 0) {
+							setDepositInfoRecentDatas(prevState => {
+								const newD = [...prevState];
+								const idx = newD.findIndex(
+									x => x.transId === transId
+								);
+								newD[idx].status = 5;
+								return newD;
+							});
+						} else {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
 							);
-							newD[idx].status = 5;
-							return newD;
-						});
+						}
 					}
+				},
+				() => {
+					errorPopBox();
 				}
-			});
+			);
 		};
 
 		setPopBox({

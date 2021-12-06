@@ -5,13 +5,12 @@ import { getUrlParameter, isConvert, number_format } from "../common/common";
 import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
 import { defPopBoxType } from "../common/defPopBoxType";
-import { defPromotionType } from "./promotion.def";
+import { defPromotionType, defFilterType } from "./promotion.def";
 import ProcessBar from "./promotion.processBar";
 import { isClaimed } from "./promotion.common";
 import Loading from "../common/loading";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
-import { defFilterType } from "./promotion.nav";
 import CashBackInfo from "./cashBackInfo";
 
 export default () => {
@@ -93,19 +92,29 @@ export default () => {
 			BonusCode: bonusCode,
 			TpId: tpId,
 			PromoCategoryId: categoryId
-		}).then(res => {
-			if (
-				isMountedRef.current &&
-				res.data.errorCode === 0 &&
-				res.data.data
-			) {
-				setPromotionInfo(prevS => ({
-					...prevS,
-					custRollOver: res.data.data.rollover,
-					custTurnOver: res.data.data.turnover
-				}));
+		}).then(
+			res => {
+				if (
+					isMountedRef.current &&
+					res.data.errorCode === 0 &&
+					res.data.data
+				) {
+					setPromotionInfo(prevS => ({
+						...prevS,
+						custRollOver: res.data.data.rollover,
+						custTurnOver: res.data.data.turnover
+					}));
+				} else if (res.data.errorCode !== 0) {
+					openErrorMessagePopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				openErrorMessagePopBox();
 			}
-		});
+		);
 	};
 
 	let _isClaimed = false;

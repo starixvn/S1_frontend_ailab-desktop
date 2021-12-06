@@ -86,6 +86,21 @@ const Content = () => {
 						setKycStatus("kycUpload");
 					} else if (res.data.errorCode === 2) {
 						setKycStatus("kycPending");
+					} else {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={closePopBox}>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
 					}
 				}
 			},
@@ -120,7 +135,7 @@ const Content = () => {
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -165,7 +180,7 @@ const Content = () => {
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -179,7 +194,7 @@ const Content = () => {
 					}
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					setPopBox({
 						isOpen: true,
@@ -201,15 +216,48 @@ const Content = () => {
 	};
 
 	const getWithdrawalLimit = async () => {
-		await api_payment_GetWithdrawalLimit().then(res => {
-			if (res.data.errorCode === 0 && isMountedRef.current) {
-				setWithdrawalLimit({
-					withdrawalMin: res.data.data.withdrawalMin,
-					withdrawalMax: res.data.data.withdrawalAvailableAmount,
-					isAmountLimited: !res.data.data.unlimited
+		await api_payment_GetWithdrawalLimit().then(
+			res => {
+				if (res.data.errorCode === 0 && isMountedRef.current) {
+					setWithdrawalLimit({
+						withdrawalMin: res.data.data.withdrawalMin,
+						withdrawalMax: res.data.data.withdrawalAvailableAmount,
+						isAmountLimited: !res.data.data.unlimited
+					});
+				} else if (res.data.errorCode !== 0) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: `[${res.data.errorCode}] ${res.data.message}`,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={closePopBox}>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			},
+			() => {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.ErrorMsg,
+					message: t("msg_ApiServerError"),
+					btnBar: (
+						<div className="btnGroup">
+							<button
+								className="btn-cancel"
+								onClick={closePopBox}>
+								{t("lbl_Close")}
+							</button>
+						</div>
+					)
 				});
 			}
-		});
+		);
 	};
 
 	if (loading) return <Loading />;

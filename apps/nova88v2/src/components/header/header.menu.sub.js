@@ -44,8 +44,10 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 				tpGameType
 			});
 
-			const { url, key, userId } = result ?? {};
-			Open9WSports({ url, key, userId });
+			if (userInfo.isLogin) {
+				const { url, key, userId } = result ?? {};
+				Open9WSports({ url, key, userId });
+			}
 		} else {
 			const showLoginPopBox = () => {
 				setPopBox({
@@ -106,7 +108,7 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 					!s.canSeeOnlyAfterLogin ||
 					(s.canSeeOnlyAfterLogin && userInfo.isLogin);
 
-				if (result && s?.allowCurrencies && userInfo.isLogin) {
+				if (result && s?.allowCurrencies) {
 					result = s?.allowCurrencies.includes(_currencyId);
 				}
 

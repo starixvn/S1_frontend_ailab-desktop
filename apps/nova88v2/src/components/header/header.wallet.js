@@ -17,6 +17,7 @@ import {
 	GetAllWallets,
 	handleIsHideBalance
 } from "../common/wrapper.walletInfo";
+import usePopBox from "../hook/usePopBox";
 
 export default ({ i18n }) => {
 	const {
@@ -27,7 +28,7 @@ export default ({ i18n }) => {
 		dispatch
 	} = useContext(walletInfoContext);
 	const { userInfo } = useContext(userInfoContext);
-
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -40,14 +41,15 @@ export default ({ i18n }) => {
 	const HandleIsHideBalance = e => {
 		e.stopPropagation();
 		const value = e.target.value === "true";
-		handleIsHideBalance({ dispatch, value });
+		handleIsHideBalance({ dispatch, value, errorPopBox });
 	};
 
 	const RefreshAllWallets = () => {
 		GetAllWallets({
 			langId: userInfo.langId,
 			isLogin: userInfo.isLogin,
-			dispatch
+			dispatch,
+			errorPopBox
 		});
 	};
 

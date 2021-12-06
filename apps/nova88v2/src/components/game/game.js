@@ -73,7 +73,7 @@ const Game = () => {
 					!s.canSeeOnlyAfterLogin ||
 					(s.canSeeOnlyAfterLogin && userInfo.isLogin);
 
-				if (result && s?.allowCurrencies && userInfo.isLogin) {
+				if (result && s?.allowCurrencies) {
 					result = s?.allowCurrencies.includes(_currencyId);
 				}
 

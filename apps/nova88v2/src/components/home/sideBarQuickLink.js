@@ -1,10 +1,9 @@
 import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { SiteInfo } from "../../config";
+import { SiteInfo, bannerImgUrl } from "../../config";
 import { userInfoContext } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import { currencyCode } from "../../datas/countryCode";
-import whatsappQR from "../../styles/img/whatsappQR.jpg";
 import lineQR from "../../styles/img/lineQR.jpg";
 
 export default () => {
@@ -43,8 +42,8 @@ export default () => {
 			id: 5,
 			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
-			imgInfo: "+63 945 638 8147",
-			imgSrc: whatsappQR
+			imgInfo: "+63 927 316 5888",
+			imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`
 		},
 		{
 			id: 6,
@@ -75,7 +74,7 @@ export default () => {
 			window.open(SiteInfo.socialMedia.twitter.link);
 		}
 		if (_iconId === 5) {
-			window.open("https://wa.me/639456388147");
+			window.open("https://wa.me/639273165888");
 		}
 		if (_iconId === 6) {
 			window.open("https://lin.ee/SAPymLI");

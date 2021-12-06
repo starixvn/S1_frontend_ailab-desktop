@@ -70,7 +70,7 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 					return data;
 				}
 
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				errorPopBox(message || `error`, errorCode);
 			},
 			() => {
 				if (!isMountedRef.current) return;

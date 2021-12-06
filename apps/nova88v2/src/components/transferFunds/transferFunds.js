@@ -122,34 +122,59 @@ export default () => {
 		GetAllWallets({
 			langId: userInfo.langId,
 			isLogin: userInfo.isLogin,
-			dispatch
+			dispatch,
+			errorPopBox
 		});
 		getTransferRecent();
 		setAmount("");
 	};
 
 	const getMainWallet = async () => {
-		await api_account_GetBalance().then(res => {
-			if (isMountedRef.current && res.data.errorCode === 0) {
-				setWalletInfo(prev =>
-					AfterUpdWalletList({
-						prev,
-						tpId: 0,
-						balance: res.data.data,
-						displayKey: "lbl_MainWallet"
-					})
-				);
+		await api_account_GetBalance().then(
+			res => {
+				if (isMountedRef.current && res.data.errorCode === 0) {
+					setWalletInfo(prev =>
+						AfterUpdWalletList({
+							prev,
+							tpId: 0,
+							balance: res.data.data,
+							displayKey: "lbl_MainWallet"
+						})
+					);
+				} else if (res.data.errorCode !== 0) {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
-		});
+		);
 	};
 
 	const getTpWalletList = () => {
 		const allWallet = 0;
-		api_account_GetTpWalletList(allWallet, userInfo?.langId).then(res => {
-			if (isMountedRef.current && res.data.errorCode === 0) {
-				getTpWalletBalance(res.data.data);
+		api_account_GetTpWalletList(allWallet, userInfo?.langId).then(
+			res => {
+				if (isMountedRef.current && res.data.errorCode === 0) {
+					getTpWalletBalance(res.data.data);
+				} else if (res.data.errorCode !== 0) {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
-		});
+		);
 	};
 
 	const getTpWalletBalance = tpArr => {
@@ -163,18 +188,30 @@ export default () => {
 						displayText: item.tpName
 					})
 				);
-				api_account_GetTpWalletBalance(item.tpId).then(res => {
-					if (res.data.errorCode === 0 && isMountedRef.current) {
-						const { tpId, balance } = res.data.data;
-						setWalletInfo(prev =>
-							AfterUpdWalletList({
-								prev,
-								tpId,
-								balance
-							})
-						);
+				api_account_GetTpWalletBalance(item.tpId).then(
+					res => {
+						if (res.data.errorCode === 0 && isMountedRef.current) {
+							const { tpId, balance } = res.data.data;
+							setWalletInfo(prev =>
+								AfterUpdWalletList({
+									prev,
+									tpId,
+									balance
+								})
+							);
+						} else if (res.data.errorCode !== 0) {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
+						}
+					},
+					() => {
+						if (isMountedRef.current) {
+							errorPopBox();
+						}
 					}
-				});
+				);
 			});
 		}
 	};

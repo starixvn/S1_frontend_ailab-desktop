@@ -13,18 +13,25 @@ const useDepositMobilePay = ({ isMountedRef }) => {
 	const { errorPopBox } = usePopBox();
 
 	const getMobilePayGroupList = async () => {
-		await api_payment_GetMobilePayGroupList().then(res => {
-			if (!isMountedRef.current) return;
+		await api_payment_GetMobilePayGroupList().then(
+			res => {
+				if (!isMountedRef.current) return;
 
-			const { data, message, errorCode } = res.data;
-			const success = errorCode === 0;
+				const { data, message, errorCode } = res.data;
+				const success = errorCode === 0;
 
-			if (success) {
-				setMobilePayGourpList(data);
-			} else {
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				if (success) {
+					setMobilePayGourpList(data);
+				} else {
+					errorPopBox(message || `error`, errorCode);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
-		});
+		);
 	};
 
 	const getMobilePayInfoList = async gId => {
@@ -40,7 +47,12 @@ const useDepositMobilePay = ({ isMountedRef }) => {
 					return data;
 				}
 
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				errorPopBox(message || `error`, errorCode);
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
 		);
 		return datas || [];

@@ -84,7 +84,7 @@ export default () => {
 					setPagination(prev => ({ ...prev, totalPages }));
 				} else openErrorMessagePopBox(message || "error", errorCode);
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) openErrorMessagePopBox();
 			}
 		);
@@ -111,13 +111,18 @@ export default () => {
 							if (isMountedRef.current) {
 								if (res.data.errorCode === 0) {
 									setMsgCount(res.data.data);
+								} else {
+									openErrorMessagePopBox(
+										res.data.message || "error",
+										res.data.errorCode
+									);
 								}
 							}
 						});
 					} else
 						openErrorMessagePopBox(message || "error", errorCode);
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) openErrorMessagePopBox();
 				}
 			);

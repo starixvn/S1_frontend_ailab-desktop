@@ -454,18 +454,34 @@ const Deposit = () => {
 			const isShowBackupDomain = readCookie(cookieBackupDomain) !== "1";
 
 			if (isShowBackupDomain) {
-				api_site_GetSupportDomainList().then(res => {
-					if (!isMountedRef.current) return;
+				api_site_GetSupportDomainList().then(
+					res => {
+						if (!isMountedRef.current) return;
 
-					if (res.data.errorCode === 0 && res.data.data.length > 0) {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.BackupDomain,
-							onClickClose: () => setPopBox({ isOpen: false }),
-							linkList: res.data.data
-						});
+						if (
+							res.data.errorCode === 0 &&
+							res.data.data.length > 0
+						) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.BackupDomain,
+								onClickClose: () =>
+									setPopBox({ isOpen: false }),
+								linkList: res.data.data
+							});
+						} else if (res.data.errorCode !== 0) {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
+						}
+					},
+					() => {
+						if (isMountedRef.current) {
+							errorPopBox();
+						}
 					}
-				});
+				);
 			}
 		}
 	}, [userInfo.isLogin, userInfo.userName, setPopBox]);

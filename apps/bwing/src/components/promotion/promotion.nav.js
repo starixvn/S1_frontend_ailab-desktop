@@ -1,15 +1,5 @@
 import React from "react";
-
-export const defFilterType = {
-	all: "all",
-	expiry: "expiry",
-	firstDeposit: "firstDeposit",
-	other: "other",
-	sportsbook: "sportsbook",
-	liveCasino: "liveCasino",
-	slots: "slots",
-	specialBonus: "specialBonus"
-};
+import { defFilterType } from "./promotion.def";
 
 const defPromoNavs = [
 	{

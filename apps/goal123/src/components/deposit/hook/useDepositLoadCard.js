@@ -15,34 +15,48 @@ const useDepositLoadCardForm = ({ isMountedRef }) => {
 	const { errorPopBox, setPopBox, closePopBox } = usePopBox();
 
 	const getLoadCardPayGroupList = async () => {
-		await api_payment_GetLoadCardPayGroupList().then(res => {
-			if (!isMountedRef.current) return;
+		await api_payment_GetLoadCardPayGroupList().then(
+			res => {
+				if (!isMountedRef.current) return;
 
-			const { data, message, errorCode } = res.data;
-			const success = errorCode === 0;
+				const { data, message, errorCode } = res.data;
+				const success = errorCode === 0;
 
-			if (success) {
-				setLoadCardPayGroupList(data);
-			} else {
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				if (success) {
+					setLoadCardPayGroupList(data);
+				} else {
+					errorPopBox(message || `error`, errorCode);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
-		});
+		);
 	};
 
 	const getLoadCardPayInfoList = gId =>
-		api_payment_GetLoadCardPayInfoList(Number(gId)).then(res => {
-			if (!isMountedRef.current) return;
+		api_payment_GetLoadCardPayInfoList(Number(gId)).then(
+			res => {
+				if (!isMountedRef.current) return;
 
-			const { data, message, errorCode } = res.data;
-			const success = errorCode === 0;
+				const { data, message, errorCode } = res.data;
+				const success = errorCode === 0;
 
-			if (success) {
-				setLoadCardPayInfoList(data);
-				return data;
+				if (success) {
+					setLoadCardPayInfoList(data);
+					return data;
+				}
+
+				errorPopBox(message || `error`, errorCode);
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
-
-			errorPopBox(message || `[${errorCode}] error`, errorCode);
-		});
+		);
 
 	const getReqLoadCardPay = ({
 		langId,
@@ -59,32 +73,39 @@ const useDepositLoadCardForm = ({ isMountedRef }) => {
 			channelId,
 			amount,
 			bonusCode
-		}).then(res => {
-			if (!isMountedRef.current) return;
+		}).then(
+			res => {
+				if (!isMountedRef.current) return;
 
-			const { data, message, errorCode } = res.data;
-			const success = errorCode === 0;
+				const { data, message, errorCode } = res.data;
+				const success = errorCode === 0;
 
-			if (success) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.Success,
-					icon: "icon icon-bell",
-					description: <div>{data.formData.Message}</div>,
-					btnBar: (
-						<div className="btnGroup">
-							<button
-								className="btn-cancel"
-								onClick={closePopBox}>
-								OK
-							</button>
-						</div>
-					)
-				});
-			} else {
-				errorPopBox(message || `[${errorCode}] error`, errorCode);
+				if (success) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.Success,
+						icon: "icon icon-bell",
+						description: <div>{data.formData.Message}</div>,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-cancel"
+									onClick={closePopBox}>
+									OK
+								</button>
+							</div>
+						)
+					});
+				} else {
+					errorPopBox(message || `error`, errorCode);
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
 			}
-		});
+		);
 
 	return {
 		loadCardPayGroupList,

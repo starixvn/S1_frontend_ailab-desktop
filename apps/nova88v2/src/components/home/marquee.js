@@ -1,17 +1,19 @@
 import React, { Component, useContext, createRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Redirect, useNavigate } from "@reach/router";
+import { useNavigate } from "@reach/router";
 import { api_message_GetAnnouncement } from "../../service/api/message";
 import { userInfoContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
 import path from "../../router";
 import useHandleLogin from "../hook/useHandleLogin";
+import usePopBox from "../hook/usePopBox";
 
 export default () => {
 	const navigate = useNavigate();
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { handleLogin } = useHandleLogin();
+	const { errorPopBox } = usePopBox();
 	const langId = GET_LANG_ID(userInfo.langId);
 
 	return (
@@ -21,6 +23,7 @@ export default () => {
 			isLogin={userInfo.isLogin}
 			handleLogin={handleLogin}
 			navigate={navigate}
+			errorPopBox={errorPopBox}
 		/>
 	);
 };
@@ -83,45 +86,58 @@ class Marquee extends Component {
 	};
 
 	GetAnnouncement = langId => {
-		api_message_GetAnnouncement(langId).then(res => {
-			if (this.isMountedRef) {
-				if (res.data.errorCode === 0) {
-					const resData = res.data.data;
-					const stateData = this.state.datas;
-					let update = false;
+		api_message_GetAnnouncement(langId).then(
+			res => {
+				if (this.isMountedRef) {
+					if (res.data.errorCode === 0) {
+						const resData = res.data.data;
+						const stateData = this.state.datas;
+						let update = false;
 
-					if (resData.length !== 0 && stateData.length !== 0) {
-						for (const d in resData) {
-							if (
-								stateData.find(
-									x =>
-										x.id === resData[d].id &&
-										x.subject === resData[d].subject &&
-										x.content === resData[d].content
-								)
-							) {
-								update = true;
-								break;
+						if (resData.length !== 0 && stateData.length !== 0) {
+							for (const d in resData) {
+								if (
+									stateData.find(
+										x =>
+											x.id === resData[d].id &&
+											x.subject === resData[d].subject &&
+											x.content === resData[d].content
+									)
+								) {
+									update = true;
+									break;
+								}
+							}
+						} else {
+							update = true;
+						}
+
+						if (update) {
+							if (this.intervalId_Pos === undefined) {
+								this.intervalId_Pos = setInterval(
+									this.SetPos,
+									20
+								);
 							}
 						}
+
+						this.setState({
+							datas: res.data.data
+						});
 					} else {
-						update = true;
+						this.props.errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
-
-					if (update) {
-						if (this.intervalId_Pos === undefined) {
-							this.intervalId_Pos = setInterval(this.SetPos, 20);
-						}
-					}
-
-					this.setState({
-						datas: res.data.data
-					});
-				} else {
-					alert(res.data.message);
+				}
+			},
+			() => {
+				if (this.isMountedRef) {
+					this.props.errorPopBox();
 				}
 			}
-		});
+		);
 	};
 
 	MarqueeOnMouseOver = () => {

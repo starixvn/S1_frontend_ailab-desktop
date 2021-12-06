@@ -150,7 +150,7 @@ export const useGotoGame = ({
 						);
 					} else {
 						errorPopBox(
-							`[${res.data.errorCode}] ${res.data.message}`,
+							res.data.message || "error",
 							res.data.errorCode
 						);
 					}

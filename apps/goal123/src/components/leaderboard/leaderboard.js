@@ -19,6 +19,7 @@ import LeaderBoardTabs from "./leaderboard.tabs";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
 import config from "../../config";
+import usePopBox from "../hook/usePopBox";
 
 const langMapping = {
 	vn: "VND",
@@ -37,6 +38,7 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 	const [rankingData, setRankingData] = useState([]);
 	const [tab, setTab] = useState(defTabId.first);
@@ -134,10 +136,6 @@ export default () => {
 		}
 	};
 
-	const ClickClose = () => {
-		setPopBox({ isOpen: false });
-	};
-
 	const getLeaderboardData = async (_periodId, _days, _tabId) => {
 		if (!userInfo.isLogin) return;
 		if (!_tabId || _tabId === defTabId.first) return;
@@ -151,72 +149,85 @@ export default () => {
 			EventCode: defPeriodList[currentperiodId].eventCode
 		};
 
-		await api_events_GetLeaderboardListV2(payload).then(res => {
-			if (isMountedRef.current) {
-				if (res.data.errorCode === 0) {
-					const rankDatas = res.data.data;
+		await api_events_GetLeaderboardListV2(payload).then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						const rankDatas = res.data.data;
 
-					if (rankDatas?.length > 0) {
-						api_events_GetCustRankV2({
-							LBCategoryId: payload.lBCategoryId,
-							BeforeDays: payload.BeforeDays,
-							EventCode: payload.EventCode
-						}).then(resRank => {
-							if (resRank.data.errorCode === 0) {
-								const { custRank, point } = resRank.data.data;
+						if (rankDatas?.length > 0) {
+							api_events_GetCustRankV2({
+								LBCategoryId: payload.lBCategoryId,
+								BeforeDays: payload.BeforeDays,
+								EventCode: payload.EventCode
+							}).then(
+								resRank => {
+									if (resRank.data.errorCode === 0) {
+										const {
+											custRank,
+											point
+										} = resRank.data.data;
 
-								setRankingData(() => {
-									const rank =
-										custRank > 999 || custRank === 0
-											? "999+"
-											: custRank;
+										setRankingData(() => {
+											const rank =
+												custRank > 999 || custRank === 0
+													? "999+"
+													: custRank;
 
-									let result = [];
-									if (
-										custRank <= defTopNum &&
-										custRank !== 0
-									) {
-										rankDatas[custRank - 1] = {
-											...rankDatas[custRank - 1],
-											userName: userInfo.userName,
-											rank
-										};
-										result = rankDatas;
-									} else {
-										result = [
-											...rankDatas,
-											{
-												userName: userInfo.userName,
-												wTurnover: point,
-												rank
+											let result = [];
+											if (
+												custRank <= defTopNum &&
+												custRank !== 0
+											) {
+												rankDatas[custRank - 1] = {
+													...rankDatas[custRank - 1],
+													userName: userInfo.userName,
+													rank
+												};
+												result = rankDatas;
+											} else {
+												result = [
+													...rankDatas,
+													{
+														userName:
+															userInfo.userName,
+														wTurnover: point,
+														rank
+													}
+												];
 											}
-										];
+											return result;
+										});
+									} else {
+										errorPopBox(
+											resRank.data.message || "error",
+											resRank.data.errorCode
+										);
 									}
-									return result;
-								});
-							}
-						});
+								},
+								() => {
+									if (isMountedRef.current) {
+										errorPopBox();
+									}
+								}
+							);
+						} else {
+							setRankingData([]);
+						}
 					} else {
-						setRankingData([]);
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
-				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickClose}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
 				}
 			}
-		});
+		);
 	};
 
 	const changeRewardTab = _tab => {

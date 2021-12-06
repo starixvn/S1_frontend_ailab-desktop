@@ -59,22 +59,10 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 					setPopBox({ isOpen: false });
 					GetCustBankInfo();
 				} else {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: res.data.message,
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-check"
-									onClick={() =>
-										setPopBox({ isOpen: false })
-									}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
 				}
 			})
 			.catch(() => {

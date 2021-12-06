@@ -257,6 +257,10 @@ export default () => {
 						}));
 						return true;
 					}
+					openErrorMessagePopBox(
+						data.message || "error",
+						data.errorCode
+					);
 				}
 			}
 		} catch (err) {
@@ -336,6 +340,11 @@ export default () => {
 							}));
 							return true;
 						}
+					} else {
+						openErrorMessagePopBox(
+							data.message || "error",
+							data.errorCode
+						);
 					}
 				}
 			}
@@ -553,10 +562,7 @@ export default () => {
 							});
 					} else {
 						openErrorMessagePopBox(
-							res.data.message ||
-								`[${res.data.errorCode}] ${t(
-									"msg_ApiServerError"
-								)}`,
+							res.data.message || `error`,
 							res.data.errorCode
 						);
 					}
@@ -602,15 +608,14 @@ export default () => {
 								? t(`msg_API_SendOTPSMS_${errorCode}`)
 								: errorCode === 1000
 								? t("msg_OTP_Invalid")
-								: message ||
-								  `[${errorCode}] ${t("msg_ApiServerError")}`,
+								: message || `error`,
 							errorCode
 						);
 					}
 					setMobileVerificationLoading(false);
 				}
 			},
-			err => {
+			() => {
 				if (isMountedRef.current) {
 					openErrorMessagePopBox();
 					setMobileVerificationLoading(false);

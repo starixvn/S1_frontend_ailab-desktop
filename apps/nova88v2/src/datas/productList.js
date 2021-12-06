@@ -263,6 +263,11 @@ export default {
 		gameId: 10,
 		tpGameType: 12
 	},
+	fishing_SG: {
+		tpId: 10,
+		gameId: "F-SF01",
+		tpGameType: 31
+	},
 	fishing_SGW: {
 		gameId: "F-SF02",
 		tpId: 10,
@@ -292,27 +297,22 @@ export default {
 		name: "CQ9_Thunder_Fighter:",
 		tpGameType: 44
 	},
-	// ICG_FISHING_OF_SAVIORS: {
-	// 	tpId: 24,
-	// 	gameId: "cmf0002",
-	// tpGameType: 40
-	// },
-	// ICG_THE_TYRANT_AND_THE_PRINCESS: {
-	// 	tpId: 24,
-	// 	gameId: "cmf0003",
-	// tpGameType: 40
-	// },
-	// fishing_SG: {
-	// 	gameId: "F-SF01",
-	// 	tpId: 10,
-	// tpGameType: 31
-	// },
-	// CQ9_Oneshot_Fishing: {
-	// 	gameId: "AT01",
-	// 	tpId: 16,
-	// 	name: "CQ9_Oneshot_Fishing",
-	// tpGameType: 44
-	// },
+	ICG_FISHING_OF_SAVIORS: {
+		tpId: 24,
+		gameId: "cmf0002",
+		tpGameType: 40
+	},
+	ICG_THE_TYRANT_AND_THE_PRINCESS: {
+		tpId: 24,
+		gameId: "cmf0003",
+		tpGameType: 40
+	},
+	CQ9_Oneshot_Fishing: {
+		gameId: "AT01",
+		tpId: 16,
+		name: "CQ9_Oneshot_Fishing",
+		tpGameType: 44
+	},
 
 	/* === 5. cook fighting === */
 
