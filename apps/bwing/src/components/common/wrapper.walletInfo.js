@@ -6,6 +6,7 @@ import {
 	api_account_GetWalletBalance,
 	api_account_SetHideBalance
 } from "../../service/api/account";
+import usePopBox from "../hook/usePopBox";
 
 export const defListType = {
 	all: 0,
@@ -73,84 +74,126 @@ const GetTpWallets = ({
 	langId,
 	isLogin,
 	ListType = defListType.transferred,
-	dispatch
+	dispatch,
+	errorPopBox
 }) => {
 	if (!isLogin) return;
-	api_account_GetTpWalletList(ListType, langId).then(res => {
-		if (res.data.errorCode === 0 && res.data.data) {
-			res.data.data.forEach(tpInfo => {
-				GetTpWalletBalance({
-					displayText: tpInfo.tpName,
-					tpId: tpInfo.tpId,
-					dispatch
+	api_account_GetTpWalletList(ListType, langId).then(
+		res => {
+			if (res.data.errorCode === 0 && res.data.data) {
+				res.data.data.forEach(tpInfo => {
+					GetTpWalletBalance({
+						displayText: tpInfo.tpName,
+						tpId: tpInfo.tpId,
+						dispatch,
+						errorPopBox
+					});
 				});
-			});
+			} else if (res.data.errorCode !== 0) {
+				errorPopBox(res.data.message || "error", res.data.errorCode);
+			}
+		},
+		() => {
+			errorPopBox();
 		}
-	});
+	);
 };
 
-const GetTpWalletBalance = ({ tpId, displayText, dispatch }) => {
-	api_account_GetTpWalletBalance(tpId).then(res => {
-		if (res.data.errorCode === 0 && res.data.data) {
-			const { tpId: _tpId, balance } = res.data.data;
-			dispatch({
-				type: defAction.GET_TP_WALLETS,
-				tpId: _tpId,
-				balance,
-				displayText
-			});
+const GetTpWalletBalance = ({ tpId, displayText, dispatch, errorPopBox }) => {
+	api_account_GetTpWalletBalance(tpId).then(
+		res => {
+			if (res.data.errorCode === 0 && res.data.data) {
+				const { tpId: _tpId, balance } = res.data.data;
+				dispatch({
+					type: defAction.GET_TP_WALLETS,
+					tpId: _tpId,
+					balance,
+					displayText
+				});
+			} else if (res.data.errorCode !== 0) {
+				errorPopBox(res.data.message || "error", res.data.errorCode);
+			}
+		},
+		() => {
+			errorPopBox();
 		}
-	});
+	);
 };
 
-const GetMainWalet = ({ isLogin, dispatch }) => {
+const GetMainWalet = ({ isLogin, dispatch, errorPopBox }) => {
 	if (!isLogin) return;
-	api_account_GetWalletBalance().then(res => {
-		if (res.data.errorCode === 0) {
-			dispatch({
-				type: defAction.GET_MAIN_WALLETS,
-				balance: res.data.data.balance,
-				isHideBalance: res.data.data.isHideBalance,
-				lastTransaction: res.data.data.lastTransaction
-			});
+	api_account_GetWalletBalance().then(
+		res => {
+			if (res.data.errorCode === 0) {
+				dispatch({
+					type: defAction.GET_MAIN_WALLETS,
+					balance: res.data.data.balance,
+					isHideBalance: res.data.data.isHideBalance,
+					lastTransaction: res.data.data.lastTransaction
+				});
+			} else {
+				errorPopBox(res.data.message || "error", res.data.errorCode);
+			}
+		},
+		() => {
+			errorPopBox();
 		}
-	});
+	);
 };
 
-export const handleIsHideBalance = ({ value, dispatch }) => {
+export const handleIsHideBalance = ({ value, dispatch, errorPopBox }) => {
 	dispatch({ type: defAction.HANDLE_HIDE_BALANCE, value });
-	api_account_SetHideBalance({ value });
+	api_account_SetHideBalance({ value }).then(
+		res => {
+			const { errorCode, message } = res.data;
+			if (errorCode !== 0) {
+				errorPopBox(message || "error", errorCode);
+			}
+		},
+		() => {
+			errorPopBox();
+		}
+	);
 };
 
-const GetBonusWallets = ({ isLogin, dispatch }) => {
+const GetBonusWallets = ({ isLogin, dispatch, errorPopBox }) => {
 	if (!isLogin) return;
-	api_account_GetCustBonusWallet().then(res => {
-		if (res.data.errorCode === 0) {
-			dispatch({
-				type: defAction.GET_BONUS_WALLETS,
-				value: res.data.data
-			});
+	api_account_GetCustBonusWallet().then(
+		res => {
+			if (res.data.errorCode === 0) {
+				dispatch({
+					type: defAction.GET_BONUS_WALLETS,
+					value: res.data.data
+				});
+			} else {
+				errorPopBox(res.data.message || "error", res.data.errorCode);
+			}
+		},
+		() => {
+			errorPopBox();
 		}
-	});
+	);
 };
 
 export const GetAllWallets = ({
 	langId,
 	isLogin,
 	dispatch,
-	ListType = defListType.transferred
+	ListType = defListType.transferredm,
+	errorPopBox
 }) => {
 	if (!isLogin) return;
-	GetMainWalet({ isLogin, dispatch });
-	GetBonusWallets({ isLogin, dispatch });
-	GetTpWallets({ langId, isLogin, ListType, dispatch });
+	GetMainWalet({ isLogin, dispatch, errorPopBox });
+	GetBonusWallets({ isLogin, dispatch, errorPopBox });
+	GetTpWallets({ langId, isLogin, ListType, dispatch, errorPopBox });
 };
 
 const useGetWalletInfo = ({ langId, isLogin }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
+	const { errorPopBox } = usePopBox();
 
 	useEffect(() => {
-		GetAllWallets({ langId, isLogin, dispatch });
+		GetAllWallets({ langId, isLogin, dispatch, errorPopBox });
 	}, [langId, isLogin]);
 
 	return { state, dispatch };

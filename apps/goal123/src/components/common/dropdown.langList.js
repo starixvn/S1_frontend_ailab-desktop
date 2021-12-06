@@ -53,8 +53,18 @@ export class Dropdown extends Component {
 		if (value !== this.props.selectedValue) {
 			if (this.props.isLogin) {
 				try {
-					api_account_SetLanguage(value);
-				} catch (error) {}
+					api_account_SetLanguage(value).then(res => {
+						const { errorCode, message } = res.data;
+						if (errorCode !== 0) {
+							this.props.errorPopBox(
+								message || "error",
+								errorCode
+							);
+						}
+					});
+				} catch (error) {
+					this.props.errorPopBox();
+				}
 			}
 
 			navigate(newPath);

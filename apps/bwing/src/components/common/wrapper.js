@@ -23,6 +23,7 @@ import {
 } from "../../service/language";
 import useGetWalletInfo from "./wrapper.walletInfo";
 import { langCookie } from "../../config";
+import usePopBox from "../hook/usePopBox";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -67,6 +68,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		langId: userInfo.langId,
 		isLogin: userInfo.isLogin
 	});
+	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {
@@ -77,26 +79,37 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	});
 
 	useEffect(() => {
-		api_site_GetTpMaintainList().then(res => {
-			if (!isMountedRef.current) return;
-			if (res.data.errorCode === 0) {
-				setAllMaintainList(
-					res.data.data
-						?.filter(
-							(elem, idx, self) =>
-								self.findIndex(
-									tpItem =>
-										tpItem.tpId === elem.tpId &&
-										tpItem.tpGameType === elem.tpGameType
-								) === idx
-						)
-						?.map(elem => ({
-							tpId: elem.tpId,
-							tpGameType: elem.tpGameType
-						})) ?? []
-				);
+		api_site_GetTpMaintainList().then(
+			res => {
+				if (!isMountedRef.current) return;
+				if (res.data.errorCode === 0) {
+					setAllMaintainList(
+						res.data.data
+							?.filter(
+								(elem, idx, self) =>
+									self.findIndex(
+										tpItem =>
+											tpItem.tpId === elem.tpId &&
+											tpItem.tpGameType ===
+												elem.tpGameType
+									) === idx
+							)
+							?.map(elem => ({
+								tpId: elem.tpId,
+								tpGameType: elem.tpGameType
+							})) ?? []
+					);
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			},
+			() => {
+				errorPopBox();
 			}
-		});
+		);
 	}, [userInfo.isLogin, userInfo.langId]);
 
 	useEffect(() => {
@@ -167,27 +180,47 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	useEffect(() => {
 		if (userInfo.isLogin) {
 			if (!userInfo.regTime) {
-				api_accountStrict_GetCustProfile().then(res_custInfo => {
-					if (
-						res_custInfo.data.errorCode === 0 &&
-						isMountedRef.current
-					) {
-						const { data } = res_custInfo.data;
-						// data.langId = GET_LANG_ID(data.langId);
-						setCookie(langCookie, data.langId);
-						setUserInfo(prevState => ({
-							...prevState,
-							...data
-						}));
+				api_accountStrict_GetCustProfile().then(
+					res_custInfo => {
+						if (
+							res_custInfo.data.errorCode === 0 &&
+							isMountedRef.current
+						) {
+							const { data } = res_custInfo.data;
+							// data.langId = GET_LANG_ID(data.langId);
+							setCookie(langCookie, data.langId);
+							setUserInfo(prevState => ({
+								...prevState,
+								...data
+							}));
+						} else if (res_custInfo.data.errorCode !== 0) {
+							errorPopBox(
+								res_custInfo.data.message || "error",
+								res_custInfo.data.errorCode
+							);
+						}
+					},
+					() => {
+						errorPopBox();
 					}
-				});
+				);
 			}
 
-			api_account_GetMsgCount().then(res => {
-				if (res.data.errorCode === 0 && isMountedRef.current) {
-					setMsgCount(res.data.data);
+			api_account_GetMsgCount().then(
+				res => {
+					if (res.data.errorCode === 0 && isMountedRef.current) {
+						setMsgCount(res.data.data);
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				},
+				() => {
+					errorPopBox();
 				}
-			});
+			);
 		} else if (isMountedRef.current) {
 			if (userInfo.isLogin === false) {
 				setUserInfo(prevState => ({
@@ -255,11 +288,21 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 
 	useEffect(() => {
 		if (userInfo.isLogin && productTpIds === null) {
-			api_site_GetTpIds().then(res => {
-				if (res.data.errorCode === 0 && isMountedRef.current) {
-					setProductTpIds(res.data.data);
+			api_site_GetTpIds().then(
+				res => {
+					if (res.data.errorCode === 0 && isMountedRef.current) {
+						setProductTpIds(res.data.data);
+					} else if (res.data.errorCode !== 0) {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				},
+				() => {
+					errorPopBox();
 				}
-			});
+			);
 		} else if (userInfo.isLogin === false && productTpIds?.length > 0) {
 			setProductTpIds(null);
 		}

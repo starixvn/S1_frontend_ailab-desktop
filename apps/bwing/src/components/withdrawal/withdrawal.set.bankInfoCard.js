@@ -7,6 +7,7 @@ import config from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import Loading from "../common/loading";
+import usePopBox from "../hook/usePopBox";
 
 const BankInfoCard = props => {
 	const { userInfo } = useContext(userInfoContext);
@@ -15,6 +16,7 @@ const BankInfoCard = props => {
 	const isMountedRef = useRef(null);
 	const { t } = useTranslation();
 	const popBoxData = useContext(popBoxContext).popBox;
+	const { errorPopBox } = usePopBox();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -60,12 +62,18 @@ const BankInfoCard = props => {
 								);
 							}
 						}
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 					setLoading(false);
 				}
 			},
 			() => {
 				if (isMountedRef.current) {
+					errorPopBox();
 					setLoading(false);
 				}
 			}
@@ -133,40 +141,17 @@ const BankInfoCard = props => {
 							)
 						);
 					} else {
-						setPopBox({
-							isOpen: true,
-							popBoxType: defPopBoxType.ErrorMsg,
-							message: res.data.message,
-							btnBar: (
-								<div className="btnGroup">
-									<button
-										className="btn-cancel"
-										onClick={ClickCancel}>
-										{t("lbl_Close")}
-									</button>
-								</div>
-							)
-						});
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
 					}
 					setLoading(false);
 				}
 			},
 			() => {
 				if (isMountedRef.current) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.ErrorMsg,
-						message: t("msg_ApiServerError"),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={ClickCancel}>
-									{t("lbl_Close")}
-								</button>
-							</div>
-						)
-					});
+					errorPopBox();
 					setLoading(false);
 				}
 			}
