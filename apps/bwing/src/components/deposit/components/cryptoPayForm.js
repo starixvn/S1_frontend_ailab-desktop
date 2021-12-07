@@ -181,8 +181,8 @@ const CryptoPayForm = ({
 							<div>
 								<img
 									src={`${
-										config.imgUrl
-									}/common/images/Payment/${item.channelName.toLowerCase()}.png`}
+										config.cloudImgUrl
+									}/${item.channelName.toLowerCase()}.png`}
 									alt={item.channelName}
 								/>
 

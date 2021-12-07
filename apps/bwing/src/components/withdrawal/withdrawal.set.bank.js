@@ -38,6 +38,13 @@ const INIT_USED_DETAIL = {
 	currencyId: null
 };
 
+const INIT_BANK_CUST_BANK_INFO = {
+	accountName: "",
+	defAccountNo: "",
+	uSDTDetail: [],
+	bankInfoDetail: []
+};
+
 export default ({
 	balanceData,
 	kycStatus,
@@ -79,12 +86,7 @@ export default ({
 
 	const popBoxData = useContext(popBoxContext).popBox;
 
-	const [custBankInfo, setCustBankInfo] = useState({
-		accountName: "",
-		defAccountNo: "",
-		uSDTDetail: [],
-		bankInfoDetail: []
-	});
+	const [custBankInfo, setCustBankInfo] = useState(INIT_BANK_CUST_BANK_INFO);
 
 	const [currentBankInfoDetail, setCurrentBankInfoDetail] = useState(
 		INIT_BANK_INFO_DETAIL
@@ -146,9 +148,8 @@ export default ({
 					const { data, errorCode, message } = res.data;
 
 					if (errorCode === 0) {
-						setCustBankInfo(data);
-
 						if (data) {
+							setCustBankInfo(data);
 							selectPrevAccount(data);
 						}
 					} else {
