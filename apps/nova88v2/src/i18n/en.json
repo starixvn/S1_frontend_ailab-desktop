@@ -701,6 +701,23 @@
 	"lbl_MysteryBox_MysteryBoxRewards": "My Mystery Box Rewards",
 	"lbl_MysteryBox_Awards": "Latest Awards",
 
+	"luckyWheel": {
+		"lbl_title": "LUCKY WHEEL",
+		"lbl_conditions": "REWARDS CONDITION",
+		"lbl_eventTitle": "NOVA88 LUCKY WHEEL",
+		"lbl_memberEligibility": "Deposit Today Get Your Rewards Tomorrow.",
+		"lbl_otherConditions": "OTHER CONDITION",
+		"lbl_otherConditions1": "1. Each member can participant once per day only.",
+		"lbl_otherConditions2": "2. Member able to participate daily until the promotion end.",
+		"lbl_otherConditions3": "3. Nova88 reserves the right to amend or withdraw the Promotion at any time.",
+		"lbl_otherConditions4": "4. Nova88 is the sole arbiter of the Promotion and its decision is final.",
+		"lbl_otherConditions5": "5. Nova88 Standard Terms and Conditions apply.",
+		"lbl_eventSubTitle": "MY LUCKY WHEEL REWARDS",
+		"lbl_popboxTitle": "My Lucky Spin Rewards",
+		"lbl_popboxDescription1": "Congratulation! Your Nova88 Lucky Wheel bonus of {{prizeName}} has been credited to your account.",
+		"lbl_popboxDescription2": "You are rewarded {{prizeName}} today, please come back again tomorrow!"
+	},
+
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Vip": "VIP",
 	"lbl_Vip_Service_Support": "SERVICE SUPPORT",
@@ -941,18 +958,18 @@
 		"lbl_bannerTitle2": "HEAVEN 24/7"
 	},
 
-	"promotion":{
+	"promotion": {
 		"lbl_promo_apply_now": "APPLY NOW",
 		"lbl_promo_more_info": "MORE INFO",
 		"lbl_promo_all_promos": "ALL PROMOS"
 	},
-	
-	"streaming":{
-		"lbl_please_make_deposit":"Please make a Min Deposit to enjoy our LIVE STREAMING."
+
+	"streaming": {
+		"lbl_please_make_deposit": "Please make a Min Deposit to enjoy our LIVE STREAMING."
 	},
 
-	"hotgames":{
-		"lbl_Nova88_Olympus":"Nova88 Olympus"
+	"hotgames": {
+		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
 	"end-----": "end-----"
