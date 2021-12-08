@@ -5,6 +5,7 @@ import AddBankAccount from "./addBankAccount";
 import Available from "./withdrawal.set.available";
 import Calculation from "./withdrawal.set.calculation";
 // import CashBar from "./withdrawal.set.cashBar";
+
 import InputModuleRow from "./withdrawal.set.inputModuleRow";
 import BankInfoCard from "./withdrawal.set.bankInfoCard";
 import { Crypto, useUSDTFetcher } from "./withdrawal.set.crypto";
@@ -24,11 +25,6 @@ import usePopBox from "../hook/usePopBox";
 
 import path from "../../router";
 
-export const WITHDRAWAL_TYPE = {
-	BANK: "bank",
-	USDT: "usdt"
-};
-
 const INIT_BANK_INFO_DETAIL = { accountNo: "", bankName: "", sysId: null };
 
 const INIT_USED_DETAIL = {
@@ -45,16 +41,20 @@ const INIT_BANK_CUST_BANK_INFO = {
 	bankInfoDetail: []
 };
 
+const WITHDRAWAL_TYPE = {
+	BANK: "bank",
+	USDT: "usdt"
+};
+
 export default ({
 	balanceData,
 	kycStatus,
-	withdrawalMin,
-	withdrawalMax,
-	isAmountLimited,
+	uSDTWithdrawalLimit,
+	withdrawalLimit,
+	getWithdrawalLimit,
 	getWithdrawalInfoRecent,
 	getWithdrawalAvailableBalance,
-	getKycStatus,
-	getWithdrawalLimit
+	getKycStatus
 }) => {
 	const { t } = useTranslation();
 	const { setPopBox, errorPopBox } = usePopBox();
@@ -96,6 +96,24 @@ export default ({
 		INIT_USED_DETAIL
 	);
 
+	const getWithdrawalMinMaxLimit = () => {
+		if (withdrawalType === WITHDRAWAL_TYPE.BANK) {
+			return withdrawalLimit;
+		}
+
+		if (withdrawalType === WITHDRAWAL_TYPE.USDT) {
+			return uSDTWithdrawalLimit[currentUSDTDetail.network];
+		}
+
+		return {};
+	};
+
+	const {
+		withdrawalMin,
+		withdrawalMax,
+		isAmountLimited
+	} = getWithdrawalMinMaxLimit();
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -115,6 +133,7 @@ export default ({
 				usdtAddress
 			});
 
+			resetWithdrawalType();
 			getCustBankInfo();
 		}
 	};
@@ -464,6 +483,10 @@ export default ({
 		);
 	};
 
+	const resetWithdrawalType = () => {
+		setWithdrawalType(null);
+	};
+
 	if (kycStatus !== "normal")
 		return (
 			<>
@@ -532,6 +555,7 @@ export default ({
 							_isConvert={_isConvert}
 							isShowConfirmPage={showConfirmPage}
 							balanceData={balanceData}
+							resetWithdrawalType={resetWithdrawalType}
 						/>
 						<AddBankAccount
 							bankInfoDetail={custBankInfo?.bankInfoDetail}
@@ -576,6 +600,7 @@ export default ({
 										clickInfo={clickInfo}
 										checked={status.checked}
 										tip={status.tip}
+										withdrawalType={withdrawalType}
 										withdrawalMin={withdrawalMin}
 										withdrawalMax={withdrawalMax}
 										isAmountLimited={isAmountLimited}

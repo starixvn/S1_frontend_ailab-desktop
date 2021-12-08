@@ -8,7 +8,12 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
 const BankInfoCard = props => {
-	const { currentBankInfoDetail, getCustBankInfo, datas } = props;
+	const {
+		currentBankInfoDetail,
+		getCustBankInfo,
+		datas,
+		resetWithdrawalType
+	} = props;
 
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -37,7 +42,10 @@ const BankInfoCard = props => {
 				<div className="btnGroup">
 					<button
 						className="btn-cancel"
-						onClick={deleteCard.bind(this, sysId, accountNo)}>
+						onClick={() => {
+							deleteCard(sysId, accountNo);
+							resetWithdrawalType();
+						}}>
 						{t("lbl_Yes")}
 					</button>
 					<button className="btn-check" onClick={ClickCancel}>
@@ -56,10 +64,6 @@ const BankInfoCard = props => {
 		setPopBox({ isOpen: false });
 		setLoading(true);
 
-		const selected =
-			currentBankInfoDetail.sysId === sysId &&
-			currentBankInfoDetail.accountNo === accountNo;
-
 		api_accountStrict_DelCustBankInfo({
 			AccountName: userInfo.accountName,
 			AccountNo: accountNo,
@@ -68,10 +72,6 @@ const BankInfoCard = props => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						if (selected) {
-							props.onChangeBankInfo({});
-						}
-
 						getCustBankInfo();
 					} else {
 						errorPopBox(
@@ -165,7 +165,8 @@ BankInfoCard.propTypes = {
 	currentBankInfoDetail: PropTypes.objectOf(PropTypes.any).isRequired,
 	isShowConfirmPage: PropTypes.bool.isRequired,
 	onChangeBankInfo: PropTypes.func.isRequired,
-	getCustBankInfo: PropTypes.func.isRequired
+	getCustBankInfo: PropTypes.func.isRequired,
+	resetWithdrawalType: PropTypes.func.isRequired
 };
 
 export default BankInfoCard;
