@@ -45,8 +45,6 @@ export default () => {
 		case defPopBoxType.Modal:
 			content = (
 				<Modal
-					icon={popBox.icon}
-					title={popBox.title}
 					closePopBox={popBox.closePopBox}
 					content={popBox.content}
 				/>
@@ -318,6 +316,7 @@ export default () => {
 	};
 
 	const customLayout =
+		popBox.popBoxType === defPopBoxType.Modal ||
 		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
 		popBox.popBoxType === defPopBoxType.Photo;

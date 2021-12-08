@@ -701,6 +701,23 @@
 	"lbl_MysteryBox_MysteryBoxRewards": "รางวัลกล่องปริศนาของฉัน",
 	"lbl_MysteryBox_Awards": "รางวัลล่าสุด",
 
+	"luckyWheel": {
+		"lbl_title": "วงล้อนำโชค",
+		"lbl_conditions": "เงื่อนไขของรางวัล",
+		"lbl_eventTitle": "NOVA88 วงล้อนำโชค",
+		"lbl_memberEligibility": "ฝากเงินวันนี้รับรางวัลพรุ่งนี้",
+		"lbl_otherConditions": "เงื่อนไขอื่น ๆ",
+		"lbl_otherConditions1": "1. สมาชิกแต่ละคนสามารถเข้าร่วมได้วันละครั้งเท่านั้น",
+		"lbl_otherConditions2": "2. สมาชิกสามารถเข้าร่วมได้ทุกวันจนกว่าโปรโมชั่นจะสิ้นสุด",
+		"lbl_otherConditions3": "3. Nova88 มีสิทธิ์ในการยกเลิก หรือ เปลี่ยนแปลงเงื่อนไขของโปรโมชั่นนี้ได้ตลอดเวลา โดยที่ไม่ต้องมีการแจ้งให้ทราบล่วงหน้า",
+		"lbl_otherConditions4": "4. Nova88 ขอสงวนสิทธิ์ในการพิจารณาการเข้าร่วมโปรโมชั่นของสมาชิกแต่เพียงผู้เดียว",
+		"lbl_otherConditions5": "5. ข้อกำหนดและเงื่อนไขมาตรฐานของ Nova88 มีผลบังคับใช้",
+		"lbl_eventSubTitle": "รางวัลวงล้อนำโชคของฉัน",
+		"lbl_popboxTitle": "รางวัล Lucky Spin ของฉัน",
+		"lbl_popboxDescription1": "ขอแสดงความยินดี! โบนัส Nova88 Lucky Wheel มูลค่า {{prizeName}} ของคุณถูกปรับเข้าบัญชีของคุณแล้ว",
+		"lbl_popboxDescription2": "วันนี้คุณได้รับรางวัล {{prizeName}} โปรดกลับมาพรุ่งนี้!"
+	},
+
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Vip": "VIP",
 	"lbl_Vip_Service_Support": "ฝ่ายบริการ",
@@ -940,19 +957,18 @@
 		"lbl_bannerTitle2": "ออนไลน์ตลอด 24 ชม"
 	},
 
-	
-	"promotion":{
+	"promotion": {
 		"lbl_promo_apply_now": "สมัครตอนนี้",
 		"lbl_promo_more_info": "ข้อมูลเพิ่มเติม",
 		"lbl_promo_all_promos": "โปรโมชั่นทั้งหมด"
 	},
-	
-	"streaming":{
-		"lbl_please_make_deposit":"กรุณาทำรายการฝากขั้นต่ำเพื่อรับชมถ่ายทอดสดของเรา"
+
+	"streaming": {
+		"lbl_please_make_deposit": "กรุณาทำรายการฝากขั้นต่ำเพื่อรับชมถ่ายทอดสดของเรา"
 	},
 
-	"hotgames":{
-		"lbl_Nova88_Olympus":"Nova88 Olympus"
+	"hotgames": {
+		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
 	"end-----": "end-----"

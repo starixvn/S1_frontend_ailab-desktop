@@ -221,14 +221,16 @@ const Deposit = () => {
 				setPopBox({
 					isOpen: true,
 					popBoxType: defPopBoxType.Modal,
-					icon: "icon-bell",
-					title: t("lbl_Information"),
 					closePopBox: () => {
 						closePopBox();
 						resolve(false);
 					},
 					content: (
 						<>
+							<div className="icon icon-bell" />
+
+							<div className="title">{t("lbl_Information")}</div>
+
 							<div>{t("lbl_Deposit_Promotion_Pop_Msg1")}</div>
 
 							<div className="btnGroup">

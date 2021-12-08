@@ -30,6 +30,7 @@ import { HomeNews } from "./homeNews";
 import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
 import QuickdownloadLink from "./quickdownloadLink";
+import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import usePopBox from "../hook/usePopBox";
 
 const IndexPage = () => {
@@ -175,6 +176,11 @@ const IndexPage = () => {
 			<SideBarQuickLink />
 
 			<QuickdownloadLink t={t} />
+
+			<LuckyWheelLink
+				langId={userInfo.langId}
+				currencyId={userInfo.currencyId}
+			/>
 
 			<AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}

@@ -701,6 +701,23 @@
 	"lbl_MysteryBox_MysteryBoxRewards": "Hadiah Mystery Box Saya",
 	"lbl_MysteryBox_Awards": "Penghargaan",
 
+	"luckyWheel": {
+		"lbl_title": "RODA KEBERUNTUNGAN",
+		"lbl_conditions": "Kondisi Hadiah",
+		"lbl_eventTitle": "RODA KEBERUNTUNGAN NOVA88",
+		"lbl_memberEligibility": "Deposit Hari Ini, Dapatkan Hadiah Anda Besok.",
+		"lbl_otherConditions": "Kondisi lain",
+		"lbl_otherConditions1": "1. Setiap member hanya dapat menjadi peserta sekali sehari.",
+		"lbl_otherConditions2": "2. Member dapat berpartisipasi setiap hari hingga promosi berakhir.",
+		"lbl_otherConditions3": "3. Nova88 berhak untuk mengubah atau menarik Promosi ini kapan saja.",
+		"lbl_otherConditions4": "4. Nova88 adalah penyelenggara tunggal Promosi ini dan keputusannya adalah final.",
+		"lbl_otherConditions5": "5. Syarat dan ketentuan Umum Nova88 berlaku.",
+		"lbl_eventSubTitle": "HADIAH RODA KEBERUNTUNGAN SAYA",
+		"lbl_popboxTitle": "Hadiah Lucky Spin Saya",
+		"lbl_popboxDescription1": "Selamat! Bonus Nova88 Lucky Wheel Anda sebesar {{prizeName}} telah dikreditkan ke akun Anda.",
+		"lbl_popboxDescription2": "Anda dapat hadiah {{prizeName}} hari ini, silakan kembali besok!"
+	},
+
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Vip": "VIP",
 	"lbl_Vip_Service_Support": "DUKUNGAN LAYANAN",
@@ -940,18 +957,18 @@
 		"lbl_bannerTitle2": "24/7"
 	},
 
-	"promotion":{
+	"promotion": {
 		"lbl_promo_apply_now": "AJUKAN",
 		"lbl_promo_more_info": "RINCIAN",
 		"lbl_promo_all_promos": "SEMUA PROMO"
 	},
-	
-	"streaming":{
-		"lbl_please_make_deposit":"Silakan melakukan Deposit untuk menikmati Live Streaming kami."
+
+	"streaming": {
+		"lbl_please_make_deposit": "Silakan melakukan Deposit untuk menikmati Live Streaming kami."
 	},
 
-	"hotgames":{
-		"lbl_Nova88_Olympus":"Nova88 Olympus"
+	"hotgames": {
+		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
 	"end-----": "end-----"
