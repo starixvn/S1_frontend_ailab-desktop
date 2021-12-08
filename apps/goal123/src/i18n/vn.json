@@ -598,6 +598,24 @@
 	"lbl_MysteryBox_Awards": "Phần thưởng gần đây",
 	"lbl_MysteryBox_AlreadyDrawn": "Bạn đã nhận lì xì cho ngày hôm nay, vui lòng thử lại vào ngày mai!",
 
+	"luckyWheel": {
+		"lbl_title": "VÒNG QUAY MAY MẮN ",
+		"lbl_conditions": "Điều kiện nhận thưởng",
+		"lbl_eventTitle": "VÒNG QUAY MAY MẮN GOAL123",
+		"lbl_memberEligibility": "Nạp tiền hôm nay, lộc phát trao tay.",
+		"lbl_otherConditions": "ĐIỀU KIỆN KHÁC",
+		"lbl_otherConditions1": "1. Mỗi thành viên chỉ được tham gia chơi một lần trong ngày.",
+		"lbl_otherConditions2": "2. Thành viên được tham gia mỗi ngày cho đến khi chương trình kết thúc.",
+		"lbl_otherConditions3": "3. Goal123 có toàn quyền sửa đổi hoặc huỷ bỏ khuyến mãi bất kỳ lúc nào.",
+		"lbl_otherConditions4": "4. Quyền quyết định cuối cùng thuộc về Goal123.",
+		"lbl_otherConditions5": "5. Áp dụng Điều khoản và Điều kiện chung của Goal123.",
+		"lbl_eventSubTitle": "PHẦN THƯỞNG CỦA TÔI",
+		"lbl_popboxTitle1": "Phần thưởng",
+		"lbl_congratulations": "Xin chúc mừng!",
+		"lbl_popboxDescription1": "Bạn đã được thưởng {{prizeName}} vào tài khoản.",
+		"lbl_popboxDescription2": "Bạn đã nhận thưởng {{prizeName}} hôm nay. Vui lòng thử lại vào ngày mai!"
+	},
+
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Vip": "VIP",
 	"lbl_Vip_Service_Support": "HỖ TRỢ KHÁCH HÀNG",

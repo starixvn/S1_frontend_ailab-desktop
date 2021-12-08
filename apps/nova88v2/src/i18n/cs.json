@@ -701,6 +701,23 @@
 	"lbl_MysteryBox_MysteryBoxRewards": "我的神秘宝盒",
 	"lbl_MysteryBox_Awards": "最新奖励",
 
+	"luckyWheel": {
+		"lbl_title": "幸运轮盘",
+		"lbl_conditions": "获奖条件",
+		"lbl_eventTitle": "NOVA88 幸运轮盘",
+		"lbl_memberEligibility": "立即存款，明天即可获得奖励。",
+		"lbl_otherConditions": "其它条款",
+		"lbl_otherConditions1": "1. 每位会员每日仅限参与一次。",
+		"lbl_otherConditions2": "2. 会员可每日参与直至优惠结束为止。",
+		"lbl_otherConditions3": "3. Nova88 有权随时中止或取消本优惠。",
+		"lbl_otherConditions4": "4. Nova88 保留对本优惠的最终解释权。",
+		"lbl_otherConditions5": "5. Nova88 标准规则和条款适用。",
+		"lbl_eventSubTitle": "我的幸运轮盘奖励",
+		"lbl_popboxTitle": "我的幸运旋转奖励",
+		"lbl_popboxDescription1": "恭喜你！ 您的Nova88幸运轮盘奖金 {{prizeName}} 已汇入您的帐户。",
+		"lbl_popboxDescription2": "今天您获得 {{prizeName}} 奖励，请明日再来领取！"
+	},
+
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Vip": "VIP",
 	"lbl_Vip_Service_Support": "VIP尊荣服务",
@@ -940,18 +957,18 @@
 		"lbl_spokesperson_2122": "代言人 2021/22"
 	},
 
-	"promotion":{
+	"streaming": {
+		"lbl_please_make_deposit": "请完成最低存款以享受现场直播。"
+	},
+
+	"promotion": {
 		"lbl_promo_apply_now": "立即申请",
 		"lbl_promo_more_info": "了解详情",
 		"lbl_promo_all_promos": "全部优惠"
 	},
-	
-	"streaming":{
-		"lbl_please_make_deposit":"请完成最低存款以享受现场直播。"
-	},
 
-	"hotgames":{
-		"lbl_Nova88_Olympus":"Nova88 奥林匹斯"
+	"hotgames": {
+		"lbl_Nova88_Olympus": "Nova88 奥林匹斯"
 	},
 
 	"end-----": "end-----"

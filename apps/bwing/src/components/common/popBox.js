@@ -8,6 +8,19 @@ export default () => {
 
 	let content = null;
 	switch (popBox.popBoxType) {
+		case defPopBoxType.Modal: {
+			const Modal = lazy(() => import("./popBox.modal"));
+			content = (
+				<Modal
+					icon={popBox.icon}
+					title={popBox.title}
+					closePopBox={popBox.closePopBox}
+					content={popBox.content}
+				/>
+			);
+			break;
+		}
+
 		case defPopBoxType.Cancel: {
 			const Cancel = lazy(() => import("./popBox.cancel"));
 			content = (
@@ -331,7 +344,8 @@ export default () => {
 	const customLayout =
 		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
-		popBox.popBoxType === defPopBoxType.DepositGuide;
+		popBox.popBoxType === defPopBoxType.DepositGuide ||
+		popBox.popBoxType === defPopBoxType.Modal;
 
 	if (!popBox.isOpen) return null;
 
