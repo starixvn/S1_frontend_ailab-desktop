@@ -147,5 +147,8 @@ export default {
 	},
 	eSport: {
 		root: "eSport"
+	},
+	luckyWheel: {
+		root: "luckyWheel"
 	}
 };
