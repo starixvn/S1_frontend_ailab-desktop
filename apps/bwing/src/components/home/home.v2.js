@@ -14,6 +14,7 @@ import usePopBox from "../hook/usePopBox";
 
 import MysteryBoxLink from "./mysteryBoxLink";
 import AngpowLink from "./angpowLink";
+import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import SwipperBanner from "../common/swipperBanner";
 import Marquee from "./marquee";
 import EventSwipper from "./eventSwipper";
@@ -120,6 +121,9 @@ function Home() {
 					langId={userInfo.langId}
 				/>
 			</div>
+
+			<LuckyWheelLink langId={userInfo.langId} />
+
 			<main className="home">
 				<SwipperBanner ImgFolder={[defBannerType.Promotions]} />
 

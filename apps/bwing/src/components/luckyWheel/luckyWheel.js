@@ -1,0 +1,162 @@
+import React, { useRef, useEffect, useContext, useMemo } from "react";
+import { Redirect } from "@reach/router";
+import { useTranslation } from "react-i18next";
+import {
+	useDrawPrizeFetcher,
+	defDrawPrizeStatus
+} from "../hook/useDrawPrizeFetcher";
+import { useDataApi } from "../hook/useDataApi";
+import { isDateRange } from "../common/common";
+import usePopBox from "../hook/usePopBox";
+import { userInfoContext } from "../common/context";
+import { defPopBoxType } from "../common/defPopBoxType";
+import { defEventId, eventPeriod } from "./luckyWheel.def";
+
+import LuckyWheelTitle from "./luckyWheel.title";
+import LuckyWheelAnimation from "./luckyWheel.Animation";
+import LuckWheelEventModule from "./luckWheel.eventModule";
+
+import { api_events_GetDisplayDrawPrizeList } from "../../service/api/events";
+
+const { startDate, endDate } = eventPeriod;
+const isInPeriod = isDateRange(startDate, endDate);
+
+const LuckyWheel = () => {
+	const { t } = useTranslation();
+	const isMountedRef = useRef(null);
+	const { userInfo } = useContext(userInfoContext);
+	const { errorPopBox, setPopBox, closePopBox } = usePopBox();
+
+	const {
+		drawPrize,
+		custDrawPrizeList,
+		postDrawPrize,
+		checkDrawPrize
+	} = useDrawPrizeFetcher({ defEventId, isMountedRef });
+
+	const [
+		{ data: displayDrawPrizeList },
+		getDisplayDrawPrizeList
+	] = useDataApi([], api_events_GetDisplayDrawPrizeList);
+
+	const openPrizePopBox = (prizeName, type) => {
+		const contents = {
+			[defDrawPrizeStatus.canJoin]: (
+				<div id="popup" className="luckyboxPup active">
+					<div className="pop eventpop active">
+						<button
+							className="icon icon-close"
+							onClick={closePopBox}
+						/>
+
+						<div className="title">
+							{t("luckyWheel.lbl_popboxTitle1")}
+						</div>
+
+						<div>{t("luckyWheel.lbl_congratulations")}!</div>
+
+						{`${t("luckyWheel.lbl_popboxDescription1", {
+							prizeName
+						})}`}
+
+						<div className="am">{prizeName}</div>
+					</div>
+				</div>
+			),
+			[defDrawPrizeStatus.isJoin]: (
+				<div id="popup" className="luckyboxPup active">
+					<div className="pop eventpop active">
+						<button
+							className="icon icon-close"
+							onClick={closePopBox}
+						/>
+						<div className="title">
+							{t("luckyWheel.lbl_popboxTitle1")}
+						</div>
+
+						{`${t("luckyWheel.lbl_popboxDescription2", {
+							prizeName
+						})}`}
+
+						<div className="am">{prizeName}</div>
+					</div>
+				</div>
+			)
+		};
+
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Modal,
+			closePopBox,
+			content: contents[type]
+		});
+	};
+
+	const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+	const onPostDrawPrize = async () => {
+		const postDrawPrizePromise = postDrawPrize();
+
+		const [drawPrizeResponse] = await Promise.all([
+			postDrawPrizePromise,
+			delay(5000)
+		]);
+
+		const {
+			errorCode,
+			message,
+			data: { prizeName }
+		} = drawPrizeResponse;
+
+		if (errorCode === defDrawPrizeStatus.canJoin)
+			return openPrizePopBox(prizeName, defDrawPrizeStatus.canJoin);
+
+		if (errorCode === defDrawPrizeStatus.isJoin)
+			return openPrizePopBox(prizeName, defDrawPrizeStatus.isJoin);
+
+		return errorPopBox(message || `[${errorCode}] error`, errorCode);
+	};
+
+	useEffect(() => {
+		getDisplayDrawPrizeList({ eventId: defEventId });
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	if (!isInPeriod) return <Redirect to={`/${userInfo.langId}`} noThrow />;
+
+	return (
+		<>
+			<LuckyWheelTitle t={t} />
+
+			<LuckyWheelAnimation
+				displayDrawPrizeList={displayDrawPrizeList}
+				isLogin={userInfo.isLogin}
+				drawPrize={drawPrize}
+				onPostDrawPrize={onPostDrawPrize}
+				openPrizePopBox={openPrizePopBox}
+				checkDrawPrize={checkDrawPrize}
+				errorPopBox={errorPopBox}
+				setPopBox={setPopBox}
+			/>
+
+			<div className="poker" />
+
+			<LuckWheelEventModule
+				t={t}
+				custDrawPrizeList={custDrawPrizeList}
+				currencyId={userInfo.currencyId}
+				isLogin={userInfo.isLogin}
+				langId={userInfo.langId}
+			/>
+		</>
+	);
+};
+
+export default LuckyWheel;
