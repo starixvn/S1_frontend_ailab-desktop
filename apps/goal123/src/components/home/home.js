@@ -35,6 +35,7 @@ import MysteryBoxLink from "./mysteryBoxLink";
 import SideBarQuickLink from "./sideBarQuickLink";
 import QuickdownloadLink from "./quickdownloadLink";
 import { defTpGameType } from "../../datas/productList";
+import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -272,6 +273,8 @@ const Home = ({ productTpIds }) => {
 					productTpIds={productTpIds}
 				/> */}
 			</section>
+
+			<LuckyWheelLink langId={userInfo.langId} />
 
 			<AngpowLink
 				to={`/${userInfo.langId}/${path.angpow.root}`}
