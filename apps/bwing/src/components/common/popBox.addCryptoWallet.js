@@ -143,21 +143,24 @@ export default ({ GetCustBankInfo }) => {
 			colType: colType.nickName,
 			value: walletDatas.nickName,
 			checked: status.nickName.checked,
-			tip: status.nickName.tip
+			tip: status.nickName.tip,
+			prefix: <span className="txt-red">*</span>
 		},
 		{
 			title: t("lbl_CryptoWalletAddress"),
 			colType: colType.usdtAddress,
 			value: walletDatas.usdtAddress,
 			checked: status.usdtAddress.checked,
-			tip: status.usdtAddress.tip
+			tip: status.usdtAddress.tip,
+			prefix: <span className="txt-red">*</span>
 		},
 		{
 			title: "OTP",
 			colType: colType.OTP,
 			value: walletDatas.OTP,
 			checked: status.OTP.checked,
-			tip: status.OTP.tip
+			tip: status.OTP.tip,
+			prefix: <span className="txt-red">*</span>
 		}
 	];
 
@@ -332,12 +335,13 @@ export default ({ GetCustBankInfo }) => {
 			/>
 		</div>
 	];
+
 	cryptoInputDataList.forEach((item, idx) => {
 		const common = (
 			<Inputbox
 				// eslint-disable-next-line react/no-array-index-key
 				key={`crypto-wallet-input-${item.title}-${idx}`}
-				className={`inputBox-blue${
+				className={`${
 					item.checked === false && item.tip !== "" ? " error" : ""
 				}`}
 				value={item.value}
@@ -349,6 +353,7 @@ export default ({ GetCustBankInfo }) => {
 				placeholder={
 					item.colType === colType.nickName ? t("lbl_Optional") : ""
 				}
+				prefix={item.prefix}
 			/>
 		);
 		const ipt2 = (

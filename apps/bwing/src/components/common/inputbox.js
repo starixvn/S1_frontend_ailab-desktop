@@ -19,7 +19,8 @@ const InputBox = ({
 	onChange,
 	_isConvert,
 	textRight,
-	readOnly
+	readOnly,
+	prefix
 }) => {
 	const showCheckIcon = () => {
 		if (checked === null && clickInfo) {
@@ -61,6 +62,8 @@ const InputBox = ({
 	return (
 		<>
 			<div className={inputBoxClass()}>
+				{prefix}
+
 				{!!icon && <i className={`icon ${icon}`} />}
 
 				{!!title && <i className="txt-blue12">{title}</i>}
@@ -110,7 +113,8 @@ InputBox.defaultProps = {
 	onChange: null,
 	_isConvert: null,
 	readOnly: false,
-	textRight: ""
+	textRight: "",
+	prefix: null
 };
 
 InputBox.propTypes = {
@@ -132,7 +136,8 @@ InputBox.propTypes = {
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func,
 	_isConvert: PropTypes.bool,
-	textRight: PropTypes.string
+	textRight: PropTypes.string,
+	prefix: PropTypes.node
 };
 
 export default InputBox;
