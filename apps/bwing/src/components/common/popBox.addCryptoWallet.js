@@ -144,7 +144,7 @@ export default ({ GetCustBankInfo }) => {
 			value: walletDatas.nickName,
 			checked: status.nickName.checked,
 			tip: status.nickName.tip,
-			prefix: <span className="txt-red">*</span>
+			prefix: null
 		},
 		{
 			title: t("lbl_CryptoWalletAddress"),
