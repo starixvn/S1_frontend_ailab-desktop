@@ -18,7 +18,11 @@ const Panel = ({
 	imgUrl,
 	thirdId,
 	depositType,
-	handlePopBox
+	handlePopBox,
+	cashbackAmount,
+	receivedAmount,
+	PromotionRate,
+	promoContent
 }) => {
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
@@ -75,6 +79,30 @@ const Panel = ({
 						<li>{`${t("lbl_OrderAmount")}：`}</li>
 						<li>{amountText}</li>
 					</ul>
+
+					{promoContent === "1" && (
+						<>
+							<ul>
+								<li>{`${t("lbl_CashbackAmount")}：`}</li>
+								<li>
+									{`${number_format({
+										number: cashbackAmount,
+										formatRequired: isConvert(currencyId)
+									})}(${PromotionRate})`}
+								</li>
+							</ul>
+
+							<ul>
+								<li>{`${t("lbl_ReceivedAmount")}：`}</li>
+								<li>
+									{number_format({
+										number: receivedAmount,
+										formatRequired: isConvert(currencyId)
+									})}
+								</li>
+							</ul>
+						</>
+					)}
 				</div>
 
 				<div className="cryptoGuide">
@@ -178,7 +206,11 @@ Panel.defaultProps = {
 	rate: null,
 	requestAmount: null,
 	token: null,
-	thirdId: null
+	thirdId: null,
+	cashbackAmount: null,
+	receivedAmount: null,
+	PromotionRate: "",
+	promoContent: null
 };
 
 Panel.propTypes = {
@@ -192,5 +224,9 @@ Panel.propTypes = {
 	imgUrl: PropTypes.string.isRequired,
 	thirdId: PropTypes.string,
 	depositType: PropTypes.string.isRequired,
-	handlePopBox: PropTypes.func.isRequired
+	handlePopBox: PropTypes.func.isRequired,
+	cashbackAmount: PropTypes.string,
+	receivedAmount: PropTypes.string,
+	PromotionRate: PropTypes.string,
+	promoContent: PropTypes.string
 };

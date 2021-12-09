@@ -414,6 +414,8 @@
 	"lbl_Deposit_DragonPayPop_OrderNumber": "Mã đặt thanh toán",
 	"lbl_Rate": "Tỷ giá",
 	"lbl_USDT_Amount": "Số tiền bằng USDT",
+	"lbl_CashbackAmount": "Cashback",
+	"lbl_ReceivedAmount": "Số tiền nhận được",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Rút tiền",

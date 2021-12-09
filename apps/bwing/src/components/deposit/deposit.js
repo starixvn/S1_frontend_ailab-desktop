@@ -429,12 +429,40 @@ const Deposit = () => {
 						paramsUrl: params
 					}).then(res => {
 						if (res.data.errorCode === 0) {
+							const promoContent = {
+								cashbackAmount: null,
+								receivedAmount: null,
+								PromotionRate: null,
+								Promotion: null
+							};
+							if (res.data.data.formData?.Promotion === "1") {
+								promoContent.cashbackAmount =
+									res.data.data.formData?.PromotionAmount;
+								promoContent.receivedAmount =
+									Number(
+										res.data.data.formData?.PromotionAmount
+									) +
+									Number(
+										res.data.data.formData?.DepositAmount
+									);
+								promoContent.PromotionRate = `${Number(
+									res.data.data.formData?.PromotionRate
+								).toFixed(2)}%`;
+
+								promoContent.Promotion =
+									res.data.data.formData?.Promotion;
+							}
+
 							setPopBox({
 								isOpen: true,
 								title: t("lbl_DepositType4"),
 								popBoxType: defPopBoxType.PaymentQR,
 								depositAmount:
 									res.data.data.formData?.DepositAmount,
+								cashbackAmount: promoContent.cashbackAmount,
+								receivedAmount: promoContent.receivedAmount,
+								PromotionRate: promoContent.PromotionRate,
+								promoContent: promoContent.Promotion,
 								rate:
 									parseFloat(res.data.data.formData?.Rate) ??
 									null,
