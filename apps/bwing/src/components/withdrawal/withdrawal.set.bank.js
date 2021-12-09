@@ -524,6 +524,13 @@ export default ({
 			)
 		}[withdrawalType] || null;
 
+	const confirmClassList = [
+		"subModuleList",
+		withdrawalType === WITHDRAWAL_TYPE.USDT && "subModuleCrypto"
+	]
+		.filter(Boolean)
+		.join(" ");
+
 	return (
 		<>
 			<div className="inside-title icon-icon32px_deposit">
@@ -569,7 +576,7 @@ export default ({
 						deleteCryptoHandler={deleteCryptoHandler}
 					/>
 
-					<div className="subModuleList">
+					<div className={confirmClassList}>
 						<div className="subModule">
 							{!showConfirmPage && (
 								<div className="subModuleBody">

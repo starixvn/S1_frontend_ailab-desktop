@@ -85,56 +85,50 @@ export const WithdrawalUSDTConFirm = ({
 	}, [amountValue]);
 
 	return (
-		<div className="subModuleList subModuleCrypto">
-			<div className="subModule">
-				<div className="subModuleBody column align-items-center">
-					<span className="title">{t("lbl_ImportantNote")}</span>
-					<div className="txt-lightgray">
-						{t("lbl_ConfirmWithdrawal")}
-					</div>
-					<div className="smallList">
-						<ul>
-							<li>{t("lbl_CryptoWalletAddress")}</li>
-							<li>{usdtAddress}</li>
-						</ul>
-						<ul>
-							<li>{t("lbl_CryptoWalletNickName")}</li>
-							<li className="accountNumber">{nickName}</li>
-						</ul>
+		<div className="subModuleBody column align-items-center">
+			<span className="title">{t("lbl_ImportantNote")}</span>
+			<div className="txt-lightgray">{t("lbl_ConfirmWithdrawal")}</div>
+			<div className="smallList">
+				<ul>
+					<li>{t("lbl_CryptoWalletAddress")}</li>
+					<li>{usdtAddress}</li>
+				</ul>
+				<ul>
+					<li>{t("lbl_CryptoWalletNickName")}</li>
+					<li className="accountNumber">{nickName}</li>
+				</ul>
 
-						<ul>
-							<li>{t("lbl_WithdrawalAmount")}</li>
+				<ul>
+					<li>{t("lbl_WithdrawalAmount")}</li>
 
-							<li>
-								{number_format({
-									number: amountValue,
-									formatRequired: _isConvert,
-									digits: 0
-								})}
-							</li>
-						</ul>
+					<li>
+						{number_format({
+							number: amountValue,
+							formatRequired: _isConvert,
+							digits: 0
+						})}
+					</li>
+				</ul>
 
-						<ul>
-							<li>{t("lbl_USDT_Amount")}</li>
-							<li>
-								<IconSpinner active={loading} />
+				<ul>
+					<li>{t("lbl_USDT_Amount")}</li>
+					<li>
+						<IconSpinner active={loading} />
 
-								{!loading && uSDTAmount}
-							</li>
-						</ul>
-					</div>
-					<div className="txt-lightgray">
-						{t("lbl_Deposit_USDT_CONFIRM_DESCRIPTION")}
-					</div>
-					<div className="btnGroup">
-						<button className="btn-cancel" onClick={cancelSubmit}>
-							{t("lbl_Cancel")}
-						</button>
-						<button className="btn-check" onClick={confirmSubmit}>
-							{t("lbl_Confirm")}
-						</button>
-					</div>
-				</div>
+						{!loading && uSDTAmount}
+					</li>
+				</ul>
+			</div>
+			<div className="txt-lightgray">
+				{t("lbl_Deposit_USDT_CONFIRM_DESCRIPTION")}
+			</div>
+			<div className="btnGroup">
+				<button className="btn-cancel" onClick={cancelSubmit}>
+					{t("lbl_Cancel")}
+				</button>
+				<button className="btn-check" onClick={confirmSubmit}>
+					{t("lbl_Confirm")}
+				</button>
 			</div>
 		</div>
 	);
