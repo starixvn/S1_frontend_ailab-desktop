@@ -10,7 +10,7 @@ import Loading from "../common/loading";
 const BankInfoCard = props => {
 	const {
 		currentBankInfoDetail,
-		getCustBankInfo,
+		updateCustBankInfo,
 		datas,
 		resetWithdrawalType
 	} = props;
@@ -72,7 +72,7 @@ const BankInfoCard = props => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						getCustBankInfo();
+						updateCustBankInfo();
 					} else {
 						errorPopBox(
 							res.data.message || "error",
@@ -165,7 +165,7 @@ BankInfoCard.propTypes = {
 	currentBankInfoDetail: PropTypes.objectOf(PropTypes.any).isRequired,
 	isShowConfirmPage: PropTypes.bool.isRequired,
 	onChangeBankInfo: PropTypes.func.isRequired,
-	getCustBankInfo: PropTypes.func.isRequired,
+	updateCustBankInfo: PropTypes.func.isRequired,
 	resetWithdrawalType: PropTypes.func.isRequired
 };
 

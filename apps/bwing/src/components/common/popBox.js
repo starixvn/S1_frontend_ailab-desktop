@@ -88,7 +88,10 @@ export default () => {
 				import("./popBox.addBankAccount")
 			);
 			content = (
-				<AddBankAccount bankInfoSysList={popBox.bankInfoSysList} />
+				<AddBankAccount
+					bankInfoSysList={popBox.bankInfoSysList}
+					updateCustBankInfo={popBox.updateCustBankInfo}
+				/>
 			);
 			break;
 		}

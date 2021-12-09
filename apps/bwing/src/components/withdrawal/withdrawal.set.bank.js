@@ -16,7 +16,7 @@ import WithdrawalConfirm, {
 } from "./withdrawal.set.confirm";
 import { api_payment_WithdrawalReq } from "../../service/api/payment";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
-import { popBoxContext, userInfoContext } from "../common/context";
+import { userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { isConvert, checkAmount, getAmountTip } from "../common/common";
 import StepBar from "../common/stepBar";
@@ -84,8 +84,6 @@ export default ({
 		isMountedRef
 	});
 
-	const popBoxData = useContext(popBoxContext).popBox;
-
 	const [custBankInfo, setCustBankInfo] = useState(INIT_BANK_CUST_BANK_INFO);
 
 	const [currentBankInfoDetail, setCurrentBankInfoDetail] = useState(
@@ -97,15 +95,16 @@ export default ({
 	);
 
 	const getWithdrawalMinMaxLimit = () => {
+		let limit = {};
 		if (withdrawalType === WITHDRAWAL_TYPE.BANK) {
-			return withdrawalLimit;
+			limit = withdrawalLimit;
 		}
 
 		if (withdrawalType === WITHDRAWAL_TYPE.USDT) {
-			return uSDTWithdrawalLimit[currentUSDTDetail.network];
+			limit = uSDTWithdrawalLimit[currentUSDTDetail.network] || {};
 		}
 
-		return {};
+		return limit;
 	};
 
 	const {
@@ -153,11 +152,11 @@ export default ({
 			);
 
 			if (_currentBankInfoDetail) {
-				onChangeBankInfo(_currentBankInfoDetail);
+				onChangeBankInfo(_currentBankInfoDetail || {});
 			}
 
 			if (_currentUSDTDetail) {
-				onChangeUSDTInfo(_currentUSDTDetail);
+				onChangeUSDTInfo(_currentUSDTDetail || {});
 			}
 		};
 
@@ -190,12 +189,6 @@ export default ({
 	}, [balanceData]);
 
 	useEffect(() => {
-		if (popBoxData.refresh === true) {
-			getCustBankInfo();
-		}
-	}, [popBoxData.refresh]);
-
-	useEffect(() => {
 		if (userInfo.isLogin === true) {
 			if (
 				(!userInfo.phoneNo && userInfo.phoneNo !== undefined) ||
@@ -225,14 +218,18 @@ export default ({
 	};
 
 	const onChangeUSDTInfo = item => {
-		setCurrentBankInfoDetail({});
 		setCurrentUSDTDetail(item);
+
+		setCurrentBankInfoDetail(INIT_BANK_INFO_DETAIL);
+
 		setWithdrawalType(WITHDRAWAL_TYPE.USDT);
 	};
 
 	const onChangeBankInfo = item => {
 		setCurrentBankInfoDetail(item);
-		setCurrentUSDTDetail({});
+
+		setCurrentUSDTDetail(INIT_USED_DETAIL);
+
 		setWithdrawalType(WITHDRAWAL_TYPE.BANK);
 	};
 
@@ -549,7 +546,7 @@ export default ({
 					<div className="addBank">
 						<BankInfoCard
 							datas={custBankInfo.bankInfoDetail}
-							getCustBankInfo={getCustBankInfo}
+							updateCustBankInfo={getCustBankInfo}
 							onChangeBankInfo={onChangeBankInfo}
 							currentBankInfoDetail={currentBankInfoDetail}
 							_isConvert={_isConvert}
@@ -559,6 +556,7 @@ export default ({
 						/>
 						<AddBankAccount
 							bankInfoDetail={custBankInfo?.bankInfoDetail}
+							updateCustBankInfo={getCustBankInfo}
 						/>
 					</div>
 
