@@ -104,7 +104,7 @@ const Footer = ({ isFullFooter = false }) => {
 				openLiveChat={openLiveChat}
 				isFullFooter={isFullFooter}
 			/>
-			<LicensesSection t={t} />
+			<LicensesSection t={t} errorPopBox={errorPopBox} />
 			<FollowUsSection
 				t={t}
 				langId={userInfo.langId}
@@ -130,8 +130,8 @@ export const CopyrightSection = ({ t, langId }) => (
 	</div>
 );
 
-export const LicensesSection = ({ t }) => {
-	const { SEODatas } = useGetSEODatas({ getFromAPI: true });
+export const LicensesSection = ({ t, errorPopBox }) => {
+	const { SEODatas } = useGetSEODatas({ getFromAPI: true, errorPopBox });
 	const showLicenseLogo = SEODatas?.activeDomain ?? false;
 
 	useEffect(() => {
