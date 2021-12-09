@@ -110,11 +110,11 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 			});
 		});
 
-	const delCustUSDTInfo = ({ accountName, nickName, uSDTAddress }) =>
+	const delCustUSDTInfo = ({ accountName, nickName, usdtAddress }) =>
 		api_accountStrict_DelCustUSDTInfo({
 			accountName,
 			nickName,
-			uSDTAddress
+			usdtAddress
 		}).then(
 			res => {
 				if (isMountedRef.current) {

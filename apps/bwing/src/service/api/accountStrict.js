@@ -89,24 +89,13 @@ export const api_accountStrict_SetCustUSDTInfoBatch = ({
 export const api_accountStrict_getOTPVerifyInfo = () =>
 	accountStrictRequest.post("/GetOTPVerifyInfo");
 
-export const api_accountStrict_delCustUSDTInfo = ({
-	USDTAddress,
-	NickName,
-	AccountName
-}) =>
-	accountStrictRequest.post("/DelCustUSDTInfo", {
-		USDTAddress,
-		NickName,
-		AccountName
-	});
-
 export const api_accountStrict_DelCustUSDTInfo = ({
 	accountName,
 	nickName,
-	uSDTAddress
+	usdtAddress
 }) =>
 	accountStrictRequest.post("/DelCustUSDTInfo", {
 		AccountName: accountName,
 		NickName: nickName,
-		USDTAddress: uSDTAddress
+		USDTAddress: usdtAddress
 	});

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
-import { api_accountStrict_delCustUSDTInfo } from "../../service/api/accountStrict";
+import { api_accountStrict_DelCustUSDTInfo } from "../../service/api/accountStrict";
 import usePopBox from "../hook/usePopBox";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
@@ -25,7 +25,7 @@ const WalletCard = ({
 		};
 	});
 
-	const delUSDTwallet = ({ USDTAddress, NickName, AccountName }) => {
+	const delUSDTwallet = ({ accountName, nickName, usdtAddress }) => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.ConfirmDelete,
@@ -37,9 +37,9 @@ const WalletCard = ({
 						className="btn-check"
 						onClick={() =>
 							removeUSDT({
-								USDTAddress,
-								NickName,
-								AccountName
+								accountName,
+								nickName,
+								usdtAddress
 							})
 						}>
 						{t("lbl_Yes")}
@@ -54,11 +54,11 @@ const WalletCard = ({
 		});
 	};
 
-	const removeUSDT = ({ USDTAddress, NickName, AccountName }) => {
-		api_accountStrict_delCustUSDTInfo({
-			USDTAddress,
-			NickName,
-			AccountName
+	const removeUSDT = ({ accountName, nickName, usdtAddress }) => {
+		api_accountStrict_DelCustUSDTInfo({
+			accountName,
+			nickName,
+			usdtAddress
 		})
 			.then(res => {
 				if (res.data.errorCode === 0) {
@@ -88,24 +88,22 @@ const WalletCard = ({
 			});
 	};
 
-	const arr = walletList?.map(item => {
+	const arr = walletList?.map(({ usdtAddress, nickName }) => {
 		return (
-			<div
-				className="addCryptoName"
-				key={`walletCard-${item.usdtAddress}`}>
+			<div className="addCryptoName" key={`walletCard-${usdtAddress}`}>
 				<div className="addCryptoInfo">
 					<div className="cryptoName">
 						<div className="icon icon-BTC">
-							<span>{item.nickName}</span>
+							<span>{nickName}</span>
 						</div>
 					</div>
 					<div>
 						<button
 							onClick={() =>
 								delUSDTwallet({
-									USDTAddress: item.usdtAddress,
-									NickName: item.nickName,
-									AccountName: userInfo.accountName
+									usdtAddress,
+									nickName,
+									accountName: userInfo.accountName
 								})
 							}
 							className="icon icon-bin"
@@ -114,7 +112,7 @@ const WalletCard = ({
 				</div>
 				<div className="addCryptoInfo">
 					<div className="txt-dark">
-						<span>{item.usdtAddress}</span>
+						<span>{usdtAddress}</span>
 					</div>
 				</div>
 			</div>
