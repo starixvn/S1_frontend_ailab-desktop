@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { SiteInfo, bannerImgUrl } from "../../config";
@@ -5,6 +6,10 @@ import { userInfoContext } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import { currencyCode } from "../../datas/countryCode";
 import lineQR from "../../styles/img/lineQR.jpg";
+
+const defElemType = {
+	button: "button"
+};
 
 export default () => {
 	const { t } = useTranslation();
@@ -34,83 +39,99 @@ export default () => {
 		: getCurrencyCode(userInfo.langId);
 
 	const defIconList = [
-		{ id: 1, iconClass: "icon icon-chat" },
-		{ id: 2, iconClass: "icon icon-instagram" },
-		{ id: 3, iconClass: "icon icon-facebook2" },
-		{ id: 4, iconClass: "icon icon-twitter" },
 		{
-			id: 5,
+			iconClass: "icon icon-chat",
+			elemType: defElemType.button,
+			onClick: () => window.LiveChatWidget.call("maximize")
+		},
+		{
+			iconClass: "icon icon-instagram",
+			onClick: () => window.open(SiteInfo.socialMedia.ig.link),
+			link: SiteInfo.socialMedia.ig.link
+		},
+		{
+			iconClass: "icon icon-facebook2",
+			link: SiteInfo.socialMedia.fb.link
+		},
+		{
+			iconClass: "icon icon-twitter",
+			link: SiteInfo.socialMedia.twitter.link
+		},
+		{
 			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
 			imgInfo: "+63 927 316 5888",
-			imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`
+			imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`,
+			link: "https://wa.me/639273165888"
 		},
 		{
-			id: 6,
 			displayByCurrency: [currencyCode.TH],
 			iconClass: "icon icon-line",
 			imgInfo: "@Nova88thai",
-			imgSrc: lineQR
+			imgSrc: lineQR,
+			link: "https://lin.ee/SAPymLI"
 		},
 		{
-			id: 7,
 			displayByCurrency: allCurrencyCode,
 			iconClass: "icon icon-telegram",
-			imgInfo: "@Nova88Support1"
+			imgInfo: "@Nova88Support1",
+			link: "https://t.me/Nova88Support1"
+		},
+		{
+			displayByCurrency: allCurrencyCode,
+			iconClass: "icon icon-envelope",
+			link: "mailto:support@nova88.com"
 		}
 	];
-
-	const getIconAction = _iconId => {
-		if (_iconId === 1) {
-			window.LiveChatWidget.call("maximize");
-		}
-		if (_iconId === 2) {
-			window.open(SiteInfo.socialMedia.ig.link);
-		}
-		if (_iconId === 3) {
-			window.open(SiteInfo.socialMedia.fb.link);
-		}
-		if (_iconId === 4) {
-			window.open(SiteInfo.socialMedia.twitter.link);
-		}
-		if (_iconId === 5) {
-			window.open("https://wa.me/639273165888");
-		}
-		if (_iconId === 6) {
-			window.open("https://lin.ee/SAPymLI");
-		}
-		if (_iconId === 7) {
-			window.open("https://t.me/Nova88Support1");
-		}
-	};
 
 	const icons = defIconList.filter(_icon =>
 		_icon.displayByCurrency?.includes(_currencyId)
 	);
 
-	const iconList = (icons.length === 0 ? defIconList : icons).map(_icon => {
-		return (
-			<a
-				key={`sidebar-link-${_icon.id}`}
-				onClick={getIconAction.bind(this, _icon.id)}
-				target="_blank"
-				rel="noreferrer"
-				className={`icon ${_icon.iconClass}${
-					activeIcon === _icon.id ? " active" : ""
-				}`}
-				onMouseOver={switchIconActive.bind(this, _icon.id)}
-				onFocus={() => 0}
-				onMouseOut={removeIconActive.bind(this)}
-				onBlur={() => 0}>
-				{_icon.imgSrc ? (
-					<div>
-						{_icon.imgInfo}
-						<img src={_icon.imgSrc} />
-					</div>
-				) : null}
-			</a>
-		);
-	});
+	const iconList = (icons.length === 0 ? defIconList : icons).map(
+		(_icon, idx) => {
+			const img = _icon.imgSrc && (
+				<div>
+					{_icon.imgInfo}
+					<img src={_icon.imgSrc} alt={`${_icon.iconClass}`} />
+				</div>
+			);
+
+			if (_icon.elemType === defElemType.button) {
+				return (
+					<button
+						key={`sidebar-link-${idx}`}
+						onClick={() => _icon.onClick() ?? null}
+						className={`icon ${_icon.iconClass}${
+							activeIcon === idx ? " active" : ""
+						}`}
+						onMouseOver={switchIconActive.bind(this, idx)}
+						onFocus={() => 0}
+						onMouseOut={removeIconActive.bind(this)}
+						onBlur={() => 0}>
+						{img}
+					</button>
+				);
+			}
+
+			return (
+				<a
+					key={`sidebar-link-${idx}`}
+					href={_icon.link}
+					target="_blank"
+					rel="noreferrer"
+					className={`icon ${_icon.iconClass}${
+						activeIcon === idx ? " active" : ""
+					}`}
+					onMouseOver={switchIconActive.bind(this, idx)}
+					onFocus={() => 0}
+					onMouseOut={removeIconActive.bind(this)}
+					onBlur={() => 0}>
+					{img}
+				</a>
+			);
+		}
+	);
 
 	return (
 		<>
