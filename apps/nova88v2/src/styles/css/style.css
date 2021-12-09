@@ -1132,6 +1132,7 @@ header input:focus-within {
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   color: #5574A7;
+  position: relative;
 }
 
 .header > div.function .icon-email.active:after {
@@ -1141,6 +1142,70 @@ header input:focus-within {
   color: #f77900;
   right: 5px;
   top: 0;
+}
+
+.header > div.function .icon-email .msgPop {
+  position: absolute;
+  font-size: 12px;
+  bottom: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  right: 0;
+  background: #f77900;
+  padding: 10px 10px 10px 15px;
+  text-align: center;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  font-weight: bold;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.header > div.function .icon-email .msgPop button {
+  background: white;
+  color: #f77900;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  margin: 0 0 0 10px;
+}
+
+.header > div.function .icon-email .msgPop button::before {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+}
+
+.header > div.function .icon-email .msgPop:after {
+  border-color: transparent transparent #f77900;
+  border-style: solid solid solid solid;
+  border-width: 8px;
+  top: 1px;
+  content: "";
+  height: 0;
+  right: 10px;
+  position: absolute;
+  width: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
 .header > div.function .icon-exit {
@@ -12335,6 +12400,41 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   height: calc(100% + 82px);
 }
 
+.newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon-youtube {
+  position: relative;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  height: 70px;
+}
+
+.newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon-youtube.active:before {
+  color: red;
+}
+
+.newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon-youtube:before {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #aec3e1;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon-youtube > .title {
+  width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background-size: 100%;
+  padding: 0 15px;
+  display: block;
+}
+
+.newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.icon-youtube > .title + .liveTvInfo {
+  width: calc(100% - 10px);
+}
+
 .quickLinkNew1, .quickLinkNew2, .quickLinkNew3, .quickLinkNew4 {
   position: fixed;
   right: 0;
@@ -12465,6 +12565,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .quickLinkNew2 a.icon-instagram, .quickLinkNew2 button.icon-instagram {
   color: #cf0404;
+}
+
+.quickLinkNew2 a.icon-envelope, .quickLinkNew2 button.icon-envelope {
+  color: #f77900;
 }
 
 .quickLinkNew3 {
@@ -17086,5 +17190,34 @@ img[alt="sg"] {
 
 .userVerification > div:last-child > div.active:after {
   display: none;
+}
+
+#goTop {
+  position: fixed;
+  bottom: 150px;
+  right: 80px;
+  width: 40px;
+  height: 40px;
+  background: #5574A7;
+  border-radius: 100%;
+  z-index: 1;
+  color: white;
+}
+
+#goTop i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#goTop i:before {
+  font-size: 14px;
+  font-weight: bold;
 }
 /*# sourceMappingURL=style.css.map */
