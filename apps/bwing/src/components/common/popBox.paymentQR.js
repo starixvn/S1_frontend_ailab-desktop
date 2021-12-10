@@ -126,7 +126,7 @@ const Panel = ({
 						/>
 					</span>
 					<ul>
-						<li>{t("lbl_Method")}:</li>
+						<li>{t("lbl_Usdt_Method")}:</li>
 						<li>{token}</li>
 					</ul>
 					<ul>
