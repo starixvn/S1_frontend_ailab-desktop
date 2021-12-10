@@ -6,7 +6,6 @@ import {
 	api_account_GetWalletBalance,
 	api_account_SetHideBalance
 } from "../../service/api/account";
-import usePopBox from "../hook/usePopBox";
 
 export const defListType = {
 	all: 0,
@@ -186,9 +185,8 @@ export const GetAllWallets = ({
 	GetTpWallets({ langId, isLogin, ListType, dispatch, errorPopBox });
 };
 
-const useGetWalletInfo = ({ langId, isLogin }) => {
+const useGetWalletInfo = ({ langId, isLogin, errorPopBox }) => {
 	const [state, dispatch] = useReducer(reducer, initialState);
-	const { errorPopBox } = usePopBox();
 
 	useEffect(() => {
 		GetAllWallets({ isLogin, langId, dispatch, errorPopBox });
