@@ -25,6 +25,7 @@ import { SiteInfo } from "../../config";
 import useGetWalletInfo from "./wrapper.walletInfo";
 import SEO from "../seo/seo";
 import ThirdPartyJS from "./thirdPartyJS";
+import usePopBox from "../hook/usePopBox";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -67,10 +68,14 @@ export default ({
 	);
 	const [correctPath, setCorrectPath] = useState(false);
 	const [redirectPath, setRedirectPath] = useState(null);
+
+	const { errorPopBox } = usePopBox(setPopBox);
 	const walletInfo = useGetWalletInfo({
 		isLogin: userInfo.isLogin,
-		langId: userInfo.langId
+		langId: userInfo.langId,
+		errorPopBox
 	});
+
 	const [isRoot, setIsRoot] = useState(false);
 	const [productTpIds, setProductTpIds] = useState(null);
 	const [allMaintainList, setAllMaintainList] = useState([]);
