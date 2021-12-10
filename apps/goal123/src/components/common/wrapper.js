@@ -44,7 +44,6 @@ const defaultPathLang = () => {
 
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
-	const { errorPopBox } = usePopBox();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
 		popBoxType: null
@@ -66,9 +65,12 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [productTpIds, setProductTpIds] = useState(null);
 	const [allMaintainList, setAllMaintainList] = useState([]);
 	const isMountedRef = useRef(null);
+
+	const { errorPopBox } = usePopBox(setPopBox);
 	const walletInfo = useGetWalletInfo({
 		langId: userInfo.langId,
-		isLogin: userInfo.isLogin
+		isLogin: userInfo.isLogin,
+		errorPopBox
 	});
 
 	useEffect(() => {

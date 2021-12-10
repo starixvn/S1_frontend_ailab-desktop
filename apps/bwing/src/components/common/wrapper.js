@@ -64,11 +64,14 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [isRoot, setIsRoot] = useState(false);
 	const [productTpIds, setProductTpIds] = useState(null);
 	const [allMaintainList, setAllMaintainList] = useState([]);
+
+	const { errorPopBox } = usePopBox(setPopBox);
 	const walletInfo = useGetWalletInfo({
 		langId: userInfo.langId,
-		isLogin: userInfo.isLogin
+		isLogin: userInfo.isLogin,
+		errorPopBox
 	});
-	const { errorPopBox } = usePopBox();
+
 	const isMountedRef = useRef(null);
 
 	useEffect(() => {

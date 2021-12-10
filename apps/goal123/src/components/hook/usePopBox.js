@@ -3,19 +3,21 @@ import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/popBox";
 import { popBoxContext } from "../common/context";
 
-const usePopBox = () => {
+const usePopBox = handlePopBox => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 
 	const closePopBox = () => {
-		setPopBox({ isOpen: false });
+		const value = { isOpen: false };
+		if (handlePopBox) handlePopBox(value);
+		else setPopBox(value);
 	};
 
 	const errorPopBox = (
 		message = t("msg_ApiServerError"),
 		errorCode = null
 	) => {
-		setPopBox({
+		const value = {
 			message,
 			errorCode,
 			isOpen: true,
@@ -28,7 +30,10 @@ const usePopBox = () => {
 					</button>
 				</div>
 			)
-		});
+		};
+
+		if (handlePopBox) handlePopBox(value);
+		else setPopBox(value);
 	};
 
 	return { closePopBox, errorPopBox, setPopBox };
