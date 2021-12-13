@@ -57,13 +57,13 @@ export default () => {
 			iconClass: "icon icon-twitter",
 			link: SiteInfo.socialMedia.twitter.link
 		},
-		{
-			displayByCurrency: [currencyCode.MY, currencyCode.ID],
-			iconClass: "icon icon-whatsapp",
-			imgInfo: "+66 95 567 9728",
-			imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`,
-			link: "https://wa.me/message/FHJZ7JIPN3P5F1"
-		},
+		// {
+		// 	displayByCurrency: [currencyCode.MY, currencyCode.ID],
+		// 	iconClass: "icon icon-whatsapp",
+		// 	imgInfo: "+66 95 567 9728",
+		// 	imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`,
+		// 	link: "https://wa.me/message/FHJZ7JIPN3P5F1"
+		// },
 		{
 			displayByCurrency: [currencyCode.TH],
 			iconClass: "icon icon-line",
