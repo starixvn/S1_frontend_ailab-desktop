@@ -36,7 +36,7 @@ export default process.env.NODE_ENV === "production"
 			imgUrl: "",
 			t_and_cURL: "",
 			bannerImgUrl,
-			icloudImgUrl
+			cloudImgUrl
 	  }
 	: {
 			siteName,
