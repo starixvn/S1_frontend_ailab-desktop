@@ -74,7 +74,7 @@ button {
   outline: none;
 }
 
-.transition, header .header > div.menu .subMenu-Wrapper, header .header > div.menu .nweSubMenu-Wrapper, .inputBox .dropdown > .dropdown-container, .inputBox-blue .dropdown > .dropdown-container, .tip, .personal .list .listBody {
+.transition, header .header > div.menu .nweSubMenu-Wrapper, .inputBox .dropdown > .dropdown-container, .inputBox-blue .dropdown > .dropdown-container, .tip, .personal .list .listBody {
   visibility: hidden;
   opacity: 0;
   height: 0;
@@ -82,7 +82,7 @@ button {
   transition: 0.7s;
 }
 
-.transition-open, header .header > div.menu .subMenu-Wrapper.active, header .header > div.menu .nweSubMenu-Wrapper.active, .inputBox .dropdown > .dropdown-container.active, .inputBox-blue .dropdown > .dropdown-container.active, .tip.active, .personal .list .listBody.active {
+.transition-open, header .header > div.menu .nweSubMenu-Wrapper.active, .inputBox .dropdown > .dropdown-container.active, .inputBox-blue .dropdown > .dropdown-container.active, .tip.active, .personal .list .listBody.active {
   visibility: visible;
   opacity: 1;
   height: auto;
@@ -290,594 +290,6 @@ header .header > div.menu > button.liveIcon::before {
   100% {
     opacity: 0.5;
   }
-}
-
-header .header > div.menu .subMenu-Wrapper {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 40px;
-  background: rgba(0, 9, 36, 0.7);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-header .header > div.menu .subMenu-Wrapper.active {
-  padding-bottom: 30px;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList,
-header .header > div.menu .subMenu-Wrapper .gameList,
-header .header > div.menu .subMenu-Wrapper .casinoList,
-header .header > div.menu .subMenu-Wrapper .livecasinoList,
-header .header > div.menu .subMenu-Wrapper .fishList {
-  width: 100%;
-  max-width: 1170px;
-  margin: auto;
-  display: none;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList.active,
-header .header > div.menu .subMenu-Wrapper .sportsList div,
-header .header > div.menu .subMenu-Wrapper .gameList.active,
-header .header > div.menu .subMenu-Wrapper .gameList div,
-header .header > div.menu .subMenu-Wrapper .casinoList.active,
-header .header > div.menu .subMenu-Wrapper .casinoList div,
-header .header > div.menu .subMenu-Wrapper .livecasinoList.active,
-header .header > div.menu .subMenu-Wrapper .livecasinoList div,
-header .header > div.menu .subMenu-Wrapper .fishList.active,
-header .header > div.menu .subMenu-Wrapper .fishList div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a,
-header .header > div.menu .subMenu-Wrapper .sportsList button,
-header .header > div.menu .subMenu-Wrapper .gameList a,
-header .header > div.menu .subMenu-Wrapper .gameList button,
-header .header > div.menu .subMenu-Wrapper .casinoList a,
-header .header > div.menu .subMenu-Wrapper .casinoList button,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button,
-header .header > div.menu .subMenu-Wrapper .fishList a,
-header .header > div.menu .subMenu-Wrapper .fishList button {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-  margin: 20px;
-  width: calc(100% / 8);
-  height: 150px;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a img,
-header .header > div.menu .subMenu-Wrapper .sportsList button img,
-header .header > div.menu .subMenu-Wrapper .gameList a img,
-header .header > div.menu .subMenu-Wrapper .gameList button img,
-header .header > div.menu .subMenu-Wrapper .casinoList a img,
-header .header > div.menu .subMenu-Wrapper .casinoList button img,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a img,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button img,
-header .header > div.menu .subMenu-Wrapper .fishList a img,
-header .header > div.menu .subMenu-Wrapper .fishList button img {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a span,
-header .header > div.menu .subMenu-Wrapper .sportsList button span,
-header .header > div.menu .subMenu-Wrapper .gameList a span,
-header .header > div.menu .subMenu-Wrapper .gameList button span,
-header .header > div.menu .subMenu-Wrapper .casinoList a span,
-header .header > div.menu .subMenu-Wrapper .casinoList button span,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a span,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button span,
-header .header > div.menu .subMenu-Wrapper .fishList a span,
-header .header > div.menu .subMenu-Wrapper .fishList button span {
-  top: 20px;
-  position: relative;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a:hover,
-header .header > div.menu .subMenu-Wrapper .sportsList button:hover,
-header .header > div.menu .subMenu-Wrapper .gameList a:hover,
-header .header > div.menu .subMenu-Wrapper .gameList button:hover,
-header .header > div.menu .subMenu-Wrapper .casinoList a:hover,
-header .header > div.menu .subMenu-Wrapper .casinoList button:hover,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a:hover,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button:hover,
-header .header > div.menu .subMenu-Wrapper .fishList a:hover,
-header .header > div.menu .subMenu-Wrapper .fishList button:hover {
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a i,
-header .header > div.menu .subMenu-Wrapper .sportsList button i,
-header .header > div.menu .subMenu-Wrapper .gameList a i,
-header .header > div.menu .subMenu-Wrapper .gameList button i,
-header .header > div.menu .subMenu-Wrapper .casinoList a i,
-header .header > div.menu .subMenu-Wrapper .casinoList button i,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a i,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button i,
-header .header > div.menu .subMenu-Wrapper .fishList a i,
-header .header > div.menu .subMenu-Wrapper .fishList button i {
-  position: absolute;
-  top: 10px;
-  right: 0px;
-  -webkit-animation: newicon 0.5s linear infinite alternate;
-          animation: newicon 0.5s linear infinite alternate;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a i::before,
-header .header > div.menu .subMenu-Wrapper .sportsList button i::before,
-header .header > div.menu .subMenu-Wrapper .gameList a i::before,
-header .header > div.menu .subMenu-Wrapper .gameList button i::before,
-header .header > div.menu .subMenu-Wrapper .casinoList a i::before,
-header .header > div.menu .subMenu-Wrapper .casinoList button i::before,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a i::before,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button i::before,
-header .header > div.menu .subMenu-Wrapper .fishList a i::before,
-header .header > div.menu .subMenu-Wrapper .fishList button i::before {
-  content: "\e9e5";
-  top: 10px;
-  right: 0px;
-  color: #56ceff;
-  font-size: 20px;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a.under,
-header .header > div.menu .subMenu-Wrapper .sportsList button.under,
-header .header > div.menu .subMenu-Wrapper .gameList a.under,
-header .header > div.menu .subMenu-Wrapper .gameList button.under,
-header .header > div.menu .subMenu-Wrapper .casinoList a.under,
-header .header > div.menu .subMenu-Wrapper .casinoList button.under,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a.under,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button.under,
-header .header > div.menu .subMenu-Wrapper .fishList a.under,
-header .header > div.menu .subMenu-Wrapper .fishList button.under {
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1);
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .sportsList button.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .gameList a.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .gameList button.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .casinoList a.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .casinoList button.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .fishList a.under .underBtn,
-header .header > div.menu .subMenu-Wrapper .fishList button.under .underBtn {
-  display: block;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList a .underBtn,
-header .header > div.menu .subMenu-Wrapper .sportsList button .underBtn,
-header .header > div.menu .subMenu-Wrapper .gameList a .underBtn,
-header .header > div.menu .subMenu-Wrapper .gameList button .underBtn,
-header .header > div.menu .subMenu-Wrapper .casinoList a .underBtn,
-header .header > div.menu .subMenu-Wrapper .casinoList button .underBtn,
-header .header > div.menu .subMenu-Wrapper .livecasinoList a .underBtn,
-header .header > div.menu .subMenu-Wrapper .livecasinoList button .underBtn,
-header .header > div.menu .subMenu-Wrapper .fishList a .underBtn,
-header .header > div.menu .subMenu-Wrapper .fishList button .underBtn {
-  display: none;
-  background-color: #a59f9f;
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  padding: 10px;
-  border-radius: 3px;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList .sport {
-  background: url(../img/sport.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList .sport:hover {
-  background: url(../img/sport-a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList .BTI {
-  background: url(../img/BTI-sport.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .sportsList .BTI:hover {
-  background: url(../img/BTI-sport-a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .TCG {
-  background: url(../img/lotteryTCG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .TCG:hover {
-  background: url(../img/lotteryTCG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .kingmaker {
-  background: url(../img/kingmaker.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .kingmaker:hover {
-  background: url(../img/kingmaker_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .sabaclub {
-  background: url(../img/sabaclub.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .sabaclub:hover {
-  background: url(../img/sabaclub_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .keno {
-  background: url(../img/keno.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .keno:hover {
-  background: url(../img/keno_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .v8 {
-  background: url(../img/lotteryV8.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .v8:hover {
-  background: url(../img/lotteryV8_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .lottery {
-  background: url(../img/lottery.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .lottery:hover {
-  background: url(../img/lottery_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .one789 {
-  background: url(../img/one789.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .one789:hover {
-  background: url(../img/lottery789_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .traditional {
-  background: url(../img/lotteryTra.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .gameList .traditional:hover {
-  background: url(../img/lotteryTra_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .mg {
-  background: url(../img/casinoMG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .mg:hover {
-  background: url(../img/casinoMG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .jili {
-  background: url(../img/casinoJILI.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .jili:hover {
-  background: url(../img/casinoJILI_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .GPI {
-  background: url(../img/casinoGPI.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .GPI:hover {
-  background: url(../img/casinoGPI_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .YGG {
-  background: url(../img/casinoYGG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .YGG:hover {
-  background: url(../img/casinoYGG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .JOKER {
-  background: url(../img/casinoJOKER.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .JOKER:hover {
-  background: url(../img/casinoJOKER_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .SG {
-  background: url(../img/casinoSG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .SG:hover {
-  background: url(../img/casinoSG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .PP {
-  background: url(../img/casinoPP.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .PP:hover {
-  background: url(../img/casinoPP_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .PG {
-  background: url(../img/casinoPG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .PG:hover {
-  background: url(../img/casinoPG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .OW {
-  background: url(../img/casinoOW.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .OW:hover {
-  background: url(../img/casinoOW_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .CQ9 {
-  background: url(../img/casinoCQ9.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .CQ9:hover {
-  background: url(../img/casinoCQ9_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .CQ9 .icon-cq9:before {
-  font-size: 16px;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .ICG {
-  background: url(../img/casinoICG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .ICG:hover {
-  background: url(../img/casinoICG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .PT {
-  background: url(../img/casinoPT.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .casinoList .PT:hover {
-  background: url(../img/casinoPT_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveWM {
-  background: url(../img/liveWM.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveWM:hover {
-  background: url(../img/liveWM_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveDG {
-  background: url(../img/liveDG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveDG:hover {
-  background: url(../img/liveDG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveALL {
-  background: url(../img/liveALL.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveALL:hover {
-  background: url(../img/liveALL_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveAG {
-  background: url(../img/liveAG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveAG:hover {
-  background: url(../img/liveAG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .livePP {
-  background: url(../img/livePP.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .livePP:hover {
-  background: url(../img/livePP_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveSA {
-  background: url(../img/liveSA.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveSA:hover {
-  background: url(../img/liveSA_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveAE {
-  background: url(../img/liveAE.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveAE:hover {
-  background: url(../img/liveAE_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveEB {
-  background: url(../img/liveEB.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveEB:hover {
-  background: url(../img/liveEB_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveEB .icon-EB:before {
-  font-size: 16px;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .live789 {
-  background: url(../img/live789.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .live789:hover {
-  background: url(../img/live789_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .live789 .icon-one789:before {
-  font-size: 14px;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveN2LIVE {
-  background: url(../img/liven2live.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveN2LIVE:hover {
-  background: url(../img/liven2live_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .livePT {
-  background: url(../img/livePT.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .livePT:hover {
-  background: url(../img/livePT_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveMG {
-  background: url(../img/liveMG.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .livecasinoList .liveMG:hover {
-  background: url(../img/liveMG_a.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fgg {
-  background: url(../img/fishingGG.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fgg:hover {
-  background: url(../img/fishingGGa.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsg {
-  background: url(../img/fishingSG.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsg:hover {
-  background: url(../img/fishingSGa.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsgw {
-  background: url(../img/fishingSGwar.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsgw:hover {
-  background: url(../img/fishingSGwara.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsdf {
-  background: url(../img/fishingICG-DB.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsdf:hover {
-  background: url(../img/fishingICG-DB_a.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsgfos {
-  background: url(../img/fishingICG-FOS.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsgfos:hover {
-  background: url(../img/fishingICG-FOS_a.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsttatp {
-  background: url(../img/fishingICG-TTATP.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsttatp:hover {
-  background: url(../img/fishingICG-TTATP_a.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fstos {
-  background: url(../img/fishingICG-TOS.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fstos:hover {
-  background: url(../img/fishingICG-TOS_a.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsluckey {
-  background: url(../img/luckyfishing.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsluckey:hover {
-  background: url(../img/luckyfishing_a.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsoneshot {
-  background: url(../img/oneshot-fishing.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsoneshot:hover {
-  background: url(../img/oneshot-fishing_a.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fstparadise {
-  background: url(../img/paradise.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fstparadise:hover {
-  background: url(../img/paradise_a.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsthunderfighter {
-  background: url(../img/thunderfighter.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fsthunderfighter:hover {
-  background: url(../img/thunderfighter_a.png) no-repeat center 0px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fswatermargin {
-  background: url(../img/watermarginfishing.png) no-repeat center 10px/auto 100%;
-}
-
-header .header > div.menu .subMenu-Wrapper .fishList .fswatermargin:hover {
-  background: url(../img/watermarginfishing_a.png) no-repeat center 0px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper {
@@ -1583,6 +995,18 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-tos .img {
   background: url(../img/fishing/fish-tos.png) no-repeat center 10px/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-haiba .img {
+  background: url(../img/fishing/fish-haiba.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-hf5 .img {
+  background: url(../img/fishing/fish-hf5.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-ma .img {
+  background: url(../img/fishing/fish-ma.png) no-repeat center 10px/auto 100%;
+}
+
 header .header > div.function {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1699,8 +1123,137 @@ header .header > div.function .icon-email.active:after {
   top: -2px;
 }
 
+header .header > div.function .mailtipPop {
+  width: 220px;
+  top: 30px;
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  background: -webkit-gradient(linear, left bottom, left top, from(#f20c05), to(#f85f05));
+  background: linear-gradient(to top, #f20c05, #f85f05);
+  border: 1px solid #070e22;
+  border-radius: 5px;
+  text-align: left;
+  padding: 5px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse;
+          flex-flow: row-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 1;
+  right: -10px;
+  -webkit-animation: open 1s .5s ease-in-out 1;
+          animation: open 1s .5s ease-in-out 1;
+}
+
+@-webkit-keyframes open {
+  0% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.2, 0.2) translateX(80%);
+            transform: scale(0.2, 0.2) translateX(80%);
+  }
+  30% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  50% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+  60% {
+    -webkit-filter: brightness(80%);
+            filter: brightness(80%);
+  }
+  75% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+  90% {
+    -webkit-filter: brightness(80%);
+            filter: brightness(80%);
+  }
+  100% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+}
+
+@keyframes open {
+  0% {
+    opacity: 0.2;
+    -webkit-transform: scale(0.2, 0.2) translateX(80%);
+            transform: scale(0.2, 0.2) translateX(80%);
+  }
+  30% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  50% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+  60% {
+    -webkit-filter: brightness(80%);
+            filter: brightness(80%);
+  }
+  75% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+  90% {
+    -webkit-filter: brightness(80%);
+            filter: brightness(80%);
+  }
+  100% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+}
+
+header .header > div.function .mailtipPop:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #070e22 transparent;
+  position: absolute;
+  top: -11px;
+}
+
+header .header > div.function .mailtipPop:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 10px 10px;
+  border-color: transparent transparent #f85f05 transparent;
+  position: absolute;
+  top: -10px;
+}
+
+header .header > div.function .mailtipPop .icon-close {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+header .header > div.function .mailtipPop span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 header .header > div.function .downloadBtn {
-  color: #56ceff;
   white-space: nowrap;
   margin-right: 10px;
 }
@@ -1900,25 +1453,24 @@ header .header > div.function .memberfile:before {
   font-size: 18px;
 }
 
-header .header > div.function .memberfile::before {
-  content: "";
+header .header > div.function .memberfile .icon-coinicon {
+  position: absolute;
   width: 15px;
   height: 15px;
-  border-radius: 10px;
-  position: absolute;
-  display: none;
-  z-index: 2;
   background: no-repeat url(../img/coinimg.png), #070e22;
+  border-radius: 5px;
   background-size: 100%;
   top: 10px;
   left: calc(36% - 15px);
   -webkit-filter: brightness(110%);
           filter: brightness(110%);
+  z-index: 2;
   -webkit-animation: overturn 1s ease-in-out normal infinite;
           animation: overturn 1s ease-in-out normal infinite;
+  display: none;
 }
 
-header .header > div.function .memberfile:hover::before {
+header .header > div.function .memberfile:hover .icon-coinicon {
   display: block;
 }
 
@@ -2128,7 +1680,6 @@ main > .swiper-container .swiper-slide img {
 
 footer {
   background: #0a132e;
-  margin-top: 50px;
 }
 
 footer > div {
@@ -3284,6 +2835,10 @@ main > .swiper-container .swiper-slide {
 
 #leftMenu + div .infoModule {
   padding: 0 25px 25px;
+}
+
+#leftMenu + div .infoModule .btnGroup button {
+  max-width: 160px;
 }
 
 #leftMenu .menuModule {
@@ -6261,7 +5816,7 @@ main > .swiper-container .swiper-slide {
   margin-left: -0.5px;
 }
 
-.addCrypto .addCryptoName .addCryptoInfo .icon-BTC {
+.addCrypto .addCryptoName .addCryptoInfo .icon {
   color: #56ceff;
   position: static;
   display: -webkit-box;
@@ -6538,16 +6093,16 @@ main > .swiper-container .swiper-slide {
 }
 
 .addCryptopop .cryptoOtp .btn-retransmit {
+  width: 240px;
   height: 34px;
   margin-left: 10px;
-  padding: 0 25px;
   background: -webkit-gradient(linear, left bottom, left top, from(#f20c05), to(#f85f05));
   background: linear-gradient(to top, #f20c05, #f85f05);
   color: #fff;
   white-space: nowrap;
   max-width: none;
   border-radius: 3px;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .addCryptopop .cryptoOtp .btn-retransmit:hover {
@@ -6690,10 +6245,6 @@ main > .swiper-container .swiper-slide {
   max-width: 220px;
   height: 28px;
   border-radius: 0;
-}
-
-.quickSelect > div.inputBox-blue:last-child {
-  margin-right: 0;
 }
 
 .quickSelect > div > .inputBox-blue {
@@ -8391,6 +7942,18 @@ main > .swiper-container .swiper-slide {
 
 .fishlobbyList > div.fish-paradise {
   background: url(../img/fishinglobby/paradise.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-haiba {
+  background: url(../img/fishinglobby/fish-haiba.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-hf5 {
+  background: url(../img/fishinglobby/fish-hf5.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-ma {
+  background: url(../img/fishinglobby/fish-ma.png) no-repeat center;
 }
 
 .fishlobbyList > div.coming {
@@ -10893,14 +10456,10 @@ input + .iconModule i.icon.icon-checkmark:before {
   background: url(../img/luckybox/bg.jpg) no-repeat center 120px;
 }
 
-.luckybox ~ footer {
-  margin-top: 0;
-}
-
 .luckybox .title {
   color: #ffff67;
-  margin-top: 20px;
-  font-size: 40px;
+  margin-top: 30px;
+  font-size: 30px;
   font-weight: bold;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(30%, #f0b52d), color-stop(65%, #fffccf), color-stop(55%, #e2a625), to(#ff6c00));
   background: linear-gradient(to top, #f0b52d 30%, #fffccf 65%, #e2a625 55%, #ff6c00 100%);
@@ -10912,6 +10471,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           filter: drop-shadow(2px 3px 2px #182155);
   letter-spacing: 1px;
   text-align: center;
+  font-family: "Microsoft YaHei", sans-serif;
 }
 
 .luckybox .button {
@@ -11101,7 +10661,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-top: -205px;
   color: #fcd874;
   font-size: 4.5vw;
-  font-weight: 700;
+  font-weight: bold;
 }
 
 .luckybox .luckyout .wheel li:nth-of-type(odd) {
@@ -12364,6 +11924,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .subModuleListColumn > .subModule > div.tipImg {
   width: 30%;
   display: none;
+  margin-left: 15px;
 }
 
 .subModuleListColumn > .subModule > div.tipImg.active {
@@ -12490,17 +12051,33 @@ input + .iconModule i.icon.icon-checkmark:before {
   transition: 0.7s;
 }
 
-.subModuleListColumn > .subModule .column .inputBox-white {
+.subModuleListColumn > .subModule > div.column {
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.subModuleListColumn > .subModule > div.column .inputBox-white {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   width: 300px;
 }
 
-.subModuleListColumn > .subModule .column .inputBox-white input::-webkit-input-placeholder {
+.subModuleListColumn > .subModule > div.column .inputBox-white input::-webkit-input-placeholder {
   text-align: left;
 }
 
-.subModuleListColumn > .subModule .column .inputBox-white + .tip {
+.subModuleListColumn > .subModule > div.column .inputBox-white + .tip {
+  margin-left: 15px;
+}
+
+.subModuleListColumn > .subModule > div.column.row .inputBox-white, .subModuleListColumn > .subModule > div.column.row .inputBox-blue {
+  position: relative;
+}
+
+.subModuleListColumn > .subModule > div.column.row .tip {
+  text-align: left;
   margin-left: 15px;
 }
 
@@ -12508,6 +12085,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   max-width: 300px;
   padding: 0 10px;
   margin-left: 15px;
+  z-index: 2;
+}
+
+.subModuleListColumn > .subModule .inputBox-blue.gray {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  background: #435068;
 }
 
 .subModuleListColumn > .subModule .inputBox-white {
@@ -14484,10 +14068,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-weight: bold;
 }
 
-.indexfooter {
-  margin: 0;
-}
-
 .liveleftMenu {
   width: 20%;
   min-width: 195px;
@@ -14563,7 +14143,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .liverightModule {
   background: transparent;
   width: 60%;
-  margin: 25px 40px 0 0;
+  margin: 25px 40px 50px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15194,7 +14774,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .mywheel .mywheelClose {
   background-color: rgba(86, 206, 255, 0.9);
-  color: #fff;
+  color: #070e22;
   position: absolute;
   width: 30px;
   height: 30px;
@@ -15202,6 +14782,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   text-align: center;
   border-radius: 100%;
   z-index: 1;
+  font-weight: bold;
 }
 
 .mywheel .mywheelClose ~ a {
@@ -15530,7 +15111,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .profileGrade .profile > div .title {
-  width: 100px;
+  width: 130px;
   color: #56ceff;
   line-height: 40px;
 }
@@ -15538,6 +15119,12 @@ input + .iconModule i.icon.icon-checkmark:before {
 .profileGrade .profile > div .title + div {
   margin-right: 15px;
   min-width: auto;
+}
+
+.profileGrade .profile > div .title + div.inputModule {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .profileGrade .profile > div .inputBox-blue {
@@ -15565,5 +15152,20 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .profileGrade .profile button:hover .hint {
   display: block;
+}
+
+#goTop {
+  position: fixed;
+  bottom: 90px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: rgba(86, 206, 255, 0.8);
+  border-radius: 100%;
+  z-index: 1;
+  color: #070e22;
+  font-weight: bold;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
 /*# sourceMappingURL=style.css.map */

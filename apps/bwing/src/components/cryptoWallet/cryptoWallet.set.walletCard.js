@@ -93,7 +93,7 @@ const WalletCard = ({
 			<div className="addCryptoName" key={`walletCard-${usdtAddress}`}>
 				<div className="addCryptoInfo">
 					<div className="cryptoName">
-						<div className="icon icon-BTC">
+						<div className="icon icon-USDT">
 							<span>{nickName}</span>
 						</div>
 					</div>
