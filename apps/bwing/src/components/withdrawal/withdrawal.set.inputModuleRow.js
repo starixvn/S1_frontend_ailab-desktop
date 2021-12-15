@@ -12,26 +12,26 @@ export default ({
 	_isConvert,
 	toConfirmPage,
 	tip,
+	withdrawalType,
 	withdrawalMin,
 	withdrawalMax,
 	isAmountLimited
 }) => {
 	const { t } = useTranslation();
 
-	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
-		min: number_format({
-			number: withdrawalMin,
-			formatRequired: _isConvert,
-			digits: 0
-		}),
-		max: isAmountLimited
-			? number_format({
-					number: withdrawalMax,
-					formatRequired: _isConvert,
-					digits: 0
-			  })
-			: t("lbl_Unlimited")
-	})}`;
+	const min = number_format({
+		number: withdrawalMin,
+		formatRequired: _isConvert,
+		digits: 0
+	});
+
+	const max = isAmountLimited
+		? number_format({
+				number: withdrawalMax,
+				formatRequired: _isConvert,
+				digits: 0
+		  })
+		: t("lbl_Unlimited");
 
 	return (
 		<>
@@ -55,7 +55,9 @@ export default ({
 
 			<div className={tip ? "errorTip active" : ""}>{tip}</div>
 
-			<div className="tip active">{withdrawalMinMaxLimitHint}</div>
+			<div className={`tip ${withdrawalType ? "active" : ""}`}>
+				{t("lbl_Daily_Min_Max_Amount", { min, max })}
+			</div>
 		</>
 	);
 };

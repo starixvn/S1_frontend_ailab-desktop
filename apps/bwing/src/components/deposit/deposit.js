@@ -14,7 +14,8 @@ import {
 	checkAmount,
 	isConvert,
 	getUrlParameter,
-	readCookie
+	readCookie,
+	number_format
 } from "../common/common";
 
 import useDeposit from "./hook/useDeposit";
@@ -22,6 +23,7 @@ import useDepositMobilePay from "./hook/useDepositMobilePay";
 import useDepositOnline from "./hook/useDepositOnline";
 import useDepositLocalBank from "./hook/useDepositLocalBank";
 import useDepositLoadCard from "./hook/useDepositLoadCard";
+import useDepositCryptoPay from "./hook/useDepositCryptoPay";
 
 import path from "../../router";
 import config from "../../config";
@@ -29,10 +31,12 @@ import config from "../../config";
 import MobileForm from "./components/mobileForm";
 import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
+import CryptoPayForm from "./components/cryptoPayForm";
 import LoadCardForm from "./components/loadCardForm";
 import DepositInfoMoule from "./deposit.infoMoule";
 import DepositRecentHistory from "./deposit.recentHistory";
 import usePopBox from "../hook/usePopBox";
+import { api_cashier_DepositReqCryptoPay } from "../../service/api/cashier";
 
 const Deposit = () => {
 	const parameterDefaultType = getUrlParameter("type");
@@ -51,6 +55,15 @@ const Deposit = () => {
 	const [depositType, setDepositType] = useState(
 		isDepositTypeIncludes ? parameterDefaultType : defDepositType.mobile
 	);
+
+	const formatAmount = _val => {
+		return number_format({
+			number: _val,
+			formatRequired: true,
+			isConvertRequired: _isConvert,
+			digits: 0
+		});
+	};
 
 	const [isGroupListFetchDone, setIsGroupListFetchDone] = useState(true);
 
@@ -140,6 +153,13 @@ const Deposit = () => {
 		setAccountName
 	} = useDepositLocalBank({ isMountedRef });
 
+	const {
+		getCryptoPayGroupList,
+		getCryptoPayInfo,
+		cryptoPayGroupList,
+		cryptoPayInfo
+	} = useDepositCryptoPay({ isMountedRef });
+
 	const onChangeDepositType = async type => {
 		setDepositType(type);
 
@@ -162,7 +182,6 @@ const Deposit = () => {
 		let checked = true;
 		let tip = "";
 		let _val = val;
-
 		if (col === "amount") {
 			_val = String(_val).replace(/^(0+)|[^\d]+/g, "");
 
@@ -395,6 +414,82 @@ const Deposit = () => {
 
 					await delay(1000);
 				}
+			} else if (depositType === defDepositType.cryptoPay) {
+				const params = [
+					`ChannelId=${channelId}`,
+					`Amount=${resultAmount}`,
+					depositPromo?.bonusCode &&
+						`BonusCode=${depositPromo.bonusCode}`
+				]
+					.filter(Boolean)
+					.join("&");
+				if (formInfo.mode === 3) {
+					await api_cashier_DepositReqCryptoPay({
+						langId: userInfo.langId,
+						paramsUrl: params
+					}).then(res => {
+						if (res.data.errorCode === 0) {
+							const promoContent = {
+								cashbackAmount: null,
+								receivedAmount: null,
+								PromotionRate: null,
+								Promotion: null
+							};
+							if (res.data.data.formData?.Promotion === "1") {
+								promoContent.cashbackAmount =
+									res.data.data.formData?.PromotionAmount;
+								promoContent.receivedAmount =
+									Number(
+										res.data.data.formData?.PromotionAmount
+									) +
+									Number(
+										res.data.data.formData?.DepositAmount
+									);
+								promoContent.PromotionRate = `${Number(
+									res.data.data.formData?.PromotionRate
+								).toFixed(2)}%`;
+
+								promoContent.Promotion =
+									res.data.data.formData?.Promotion;
+							}
+
+							setPopBox({
+								isOpen: true,
+								title: t("lbl_DepositType4"),
+								popBoxType: defPopBoxType.PaymentQR,
+								depositAmount:
+									res.data.data.formData?.DepositAmount,
+								cashbackAmount: promoContent.cashbackAmount,
+								receivedAmount: promoContent.receivedAmount,
+								PromotionRate: promoContent.PromotionRate,
+								promoContent: promoContent.Promotion,
+								rate:
+									parseFloat(res.data.data.formData?.Rate) ??
+									null,
+								requestAmount:
+									parseFloat(
+										res.data.data.formData?.RequestAmount
+									) ?? null,
+								token: res.data.data.formData?.Token ?? null,
+								amount: resultAmount,
+								currencyId: userInfo.currencyId,
+								imgUrl: res.data.data.url,
+								thirdId: res.data.data.thirdId ?? null,
+								depositType: defDepositType.cryptoPay,
+								handlePopBox: () => {
+									setPopBox(prevState => ({
+										...prevState,
+										isOpen: false
+									}));
+								}
+							});
+						}
+					});
+				} else {
+					const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqCryptoPay`;
+
+					window.open(`${baseUrl}?${params}`);
+				}
 			}
 
 			setLoading(false);
@@ -427,7 +522,8 @@ const Deposit = () => {
 					getMobilePayGroupList(),
 					getLocalBankGroupList(),
 					getOnlineBankGroupList(),
-					getLoadCardPayGroupList()
+					getLoadCardPayGroupList(),
+					getCryptoPayGroupList()
 				]);
 
 				setIsInitDataDone(true);
@@ -490,7 +586,8 @@ const Deposit = () => {
 		mobilePayGourpList,
 		onlineBankGroupList,
 		localBankGroupList,
-		loadCardPayGroupList
+		loadCardPayGroupList,
+		cryptoPayGroupList
 	});
 
 	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
@@ -604,6 +701,28 @@ const Deposit = () => {
 						setCardCodeInfoIconActive={setCardCodeInfoIconActive}
 						depositPromoList={depositPromoList}
 						isGroupListFetchDone={isGroupListFetchDone}
+						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
+					/>
+				)}
+
+				{depositType === defDepositType.cryptoPay && (
+					<CryptoPayForm
+						t={t}
+						userInfo={userInfo}
+						depositType={depositType}
+						defPopBoxType={defPopBoxType}
+						depositPromoMsg={depositPromoMsg}
+						_isConvert={_isConvert}
+						formatAmount={formatAmount}
+						cryptoPayGroupList={cryptoPayGroupList}
+						formInfo={formInfo}
+						depositPromoList={depositPromoList}
+						cryptoPayInfo={cryptoPayInfo}
+						isGroupListFetchDone={isGroupListFetchDone}
+						getCryptoPayInfo={getCryptoPayInfo}
+						setFormInfo={setFormInfo}
+						onChangeForm={onChangeForm}
+						onInputboxKeyDown={onInputboxKeyDown}
 						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
 					/>
 				)}

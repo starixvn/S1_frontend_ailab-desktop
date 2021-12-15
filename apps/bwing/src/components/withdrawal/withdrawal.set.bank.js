@@ -1,51 +1,117 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
+import React, { useEffect, useRef, useState, useContext, useMemo } from "react";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "@reach/router";
 import AddBankAccount from "./addBankAccount";
 import Available from "./withdrawal.set.available";
 import Calculation from "./withdrawal.set.calculation";
 // import CashBar from "./withdrawal.set.cashBar";
+
 import InputModuleRow from "./withdrawal.set.inputModuleRow";
 import BankInfoCard from "./withdrawal.set.bankInfoCard";
+import { Crypto, useUSDTFetcher } from "./withdrawal.set.crypto";
 import KycUpload from "./withdrawal.set.kycUpload";
 import KycPending from "./withdrawal.set.kycPending";
-import WithdrawalConfirm from "./withdrawal.set.confirm";
+import WithdrawalConfirm, {
+	WithdrawalUSDTConFirm
+} from "./withdrawal.set.confirm";
 import { api_payment_WithdrawalReq } from "../../service/api/payment";
-import { popBoxContext, userInfoContext } from "../common/context";
+import { api_account_GetCustBankInfo } from "../../service/api/account";
+import { userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { isConvert, checkAmount, getAmountTip } from "../common/common";
 import StepBar from "../common/stepBar";
 import defStep from "./defStep";
+import usePopBox from "../hook/usePopBox";
 
 import path from "../../router";
+
+const INIT_BANK_INFO_DETAIL = { accountNo: "", bankName: "", sysId: null };
+
+const INIT_USED_DETAIL = {
+	nickName: "",
+	usdtAddress: "",
+	network: "",
+	currencyId: null
+};
+
+const INIT_BANK_CUST_BANK_INFO = {
+	accountName: "",
+	defAccountNo: "",
+	uSDTDetail: [],
+	bankInfoDetail: []
+};
+
+const WITHDRAWAL_TYPE = {
+	BANK: "bank",
+	USDT: "usdt"
+};
 
 export default ({
 	balanceData,
 	kycStatus,
-	withdrawalMin,
-	withdrawalMax,
-	isAmountLimited,
+	uSDTWithdrawalLimit,
+	withdrawalLimit,
+	getWithdrawalLimit,
 	getWithdrawalInfoRecent,
 	getWithdrawalAvailableBalance,
-	getKycStatus,
-	getWithdrawalLimit
+	getKycStatus
 }) => {
 	const { t } = useTranslation();
-	const { setPopBox } = useContext(popBoxContext);
+	const { setPopBox, errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);
-	const [sysIdValue, setSysIdValue] = useState(0);
-	const [accountNoValue, setAccountNoValue] = useState(0);
-	const [bankNameValue, setBankNameValue] = useState("");
+
 	const [amountValue, setAmountValue] = useState("");
 	const [showConfirmPage, setShowConfirmPage] = useState(false);
 	const { userInfo } = useContext(userInfoContext);
-	const [bankInfoList, setBankInfoList] = useState([]);
+
 	const _isConvert = isConvert(userInfo.currencyId);
+
 	const [status, setStatus] = useState({
 		checked: null,
 		tip: ""
 	});
-	const [step, setStep] = useState(1);
+
+	const step = showConfirmPage ? 3 : 1;
+
+	const [withdrawalType, setWithdrawalType] = useState(null);
+
+	const {
+		confirmDeleteCryptoWallet,
+		delCustUSDTInfo,
+		getExchangeInfo,
+		withdrawalUSDTReq
+	} = useUSDTFetcher({
+		isMountedRef
+	});
+
+	const [custBankInfo, setCustBankInfo] = useState(INIT_BANK_CUST_BANK_INFO);
+
+	const [currentBankInfoDetail, setCurrentBankInfoDetail] = useState(
+		INIT_BANK_INFO_DETAIL
+	);
+
+	const [currentUSDTDetail, setCurrentUSDTDetail] = useState(
+		INIT_USED_DETAIL
+	);
+
+	const getWithdrawalMinMaxLimit = () => {
+		let limit = {};
+		if (withdrawalType === WITHDRAWAL_TYPE.BANK) {
+			limit = withdrawalLimit;
+		}
+
+		if (withdrawalType === WITHDRAWAL_TYPE.USDT) {
+			limit = uSDTWithdrawalLimit[currentUSDTDetail.network] || {};
+		}
+
+		return limit;
+	};
+
+	const {
+		withdrawalMin,
+		withdrawalMax,
+		isAmountLimited
+	} = getWithdrawalMinMaxLimit();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -53,6 +119,74 @@ export default ({
 			isMountedRef.current = false;
 		};
 	});
+
+	const deleteCryptoHandler = async item => {
+		const confirm = await confirmDeleteCryptoWallet();
+
+		if (confirm) {
+			const { nickName, usdtAddress } = item;
+
+			await delCustUSDTInfo({
+				accountName: custBankInfo.accountName,
+				nickName,
+				usdtAddress
+			});
+
+			resetWithdrawalType();
+			getCustBankInfo();
+		}
+	};
+
+	const getCustBankInfo = async () => {
+		const selectPrevAccount = ({
+			defAccountNo = "",
+			bankInfoDetail = [],
+			uSDTDetail = []
+		}) => {
+			const _currentBankInfoDetail = bankInfoDetail.find(
+				item => item.accountNo === defAccountNo
+			);
+
+			const _currentUSDTDetail = uSDTDetail.find(
+				item => item.usdtAddress === defAccountNo
+			);
+
+			if (_currentBankInfoDetail) {
+				onChangeBankInfo(_currentBankInfoDetail || {});
+			}
+
+			if (_currentUSDTDetail) {
+				onChangeUSDTInfo(_currentUSDTDetail || {});
+			}
+		};
+
+		await api_account_GetCustBankInfo().then(
+			res => {
+				if (isMountedRef.current) {
+					const { data, errorCode, message } = res.data;
+
+					if (errorCode === 0) {
+						if (data) {
+							setCustBankInfo(data);
+							selectPrevAccount(data);
+						}
+					} else {
+						errorPopBox(message || "error", errorCode);
+					}
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
+			}
+		);
+	};
+
+	useEffect(() => {
+		getCustBankInfo();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [balanceData]);
 
 	useEffect(() => {
 		if (userInfo.isLogin === true) {
@@ -79,48 +213,24 @@ export default ({
 		}
 	}, [userInfo]);
 
-	useEffect(() => {
-		updateStep();
-	}, [sysIdValue, amountValue, showConfirmPage]);
-
-	useEffect(() => {
-		setStep(1);
-		// setAmountValue("");
-	}, [bankInfoList.length]);
-
-	const updateStep = () => {
-		if (sysIdValue === 0 || !sysIdValue) {
-			setStep(1);
-		} else if (
-			sysIdValue > 0 &&
-			(amountValue === 0 ||
-				amountValue === "" ||
-				status.checked === false)
-		) {
-			setStep(1);
-		} else if (
-			sysIdValue > 0 &&
-			status.checked === true &&
-			showConfirmPage === false
-		) {
-			setStep(2);
-		} else if (
-			sysIdValue > 0 &&
-			status.checked === true &&
-			showConfirmPage === true
-		) {
-			setStep(3);
-		}
-	};
-
 	const refreshAvailableBalance = () => {
 		getWithdrawalAvailableBalance();
 	};
 
-	const setCurrentlyBankInfo = (childSysId, childAccountNo, bankName) => {
-		setSysIdValue(childSysId);
-		setAccountNoValue(childAccountNo);
-		setBankNameValue(bankName);
+	const onChangeUSDTInfo = item => {
+		setCurrentUSDTDetail(item);
+
+		setCurrentBankInfoDetail(INIT_BANK_INFO_DETAIL);
+
+		setWithdrawalType(WITHDRAWAL_TYPE.USDT);
+	};
+
+	const onChangeBankInfo = item => {
+		setCurrentBankInfoDetail(item);
+
+		setCurrentUSDTDetail(INIT_USED_DETAIL);
+
+		setWithdrawalType(WITHDRAWAL_TYPE.BANK);
 	};
 
 	const onChangeAmount = e => {
@@ -179,24 +289,14 @@ export default ({
 	};
 
 	const toConfirmPage = () => {
-		ValidAmount(amountValue);
-		if (status.checked === true) {
-			if (accountNoValue === "" || sysIdValue === 0) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.ErrorMsg,
-					message: t("lbl_SelectBank_Required"),
-					btnBar: (
-						<div className="btnGroup">
-							<button className="btn-cancel" onClick={ClickClose}>
-								{t("lbl_Close")}
-							</button>
-						</div>
-					)
-				});
+		if (status.checked) {
+			if (
+				!currentBankInfoDetail.accountNo &&
+				!currentUSDTDetail.usdtAddress
+			) {
+				errorPopBox(t("lbl_SelectBank_Required"));
 			} else {
 				setShowConfirmPage(true);
-				setStep(3);
 			}
 		}
 	};
@@ -209,10 +309,48 @@ export default ({
 		setPopBox({ isOpen: false });
 	};
 
+	const refreshData = () => {
+		getWithdrawalInfoRecent();
+		getKycStatus();
+		getWithdrawalLimit();
+		refreshAvailableBalance();
+		getCustBankInfo();
+	};
+
+	const initForm = () => {
+		setAmountValue("");
+
+		setShowConfirmPage(false);
+
+		setPopBox({
+			isOpen: false
+		});
+		setStatus({
+			checked: null,
+			tip: ""
+		});
+	};
+
+	const withdrawalUSDTSubmit = async () => {
+		const amount = _isConvert
+			? amountValue * 1000
+			: parseInt(amountValue, 10);
+
+		const success = await withdrawalUSDTReq({
+			accountNo: currentUSDTDetail.usdtAddress,
+			amount
+		});
+
+		if (success) {
+			refreshData();
+			initForm();
+		}
+	};
+
 	const confirmSubmit = () => {
 		const ClickDone = () => {
 			setAmountValue("");
-			setCurrentlyBankInfo(0, 0, "");
+			onChangeBankInfo({});
 			refreshAvailableBalance();
 			setPopBox({
 				isOpen: false
@@ -225,11 +363,11 @@ export default ({
 			getKycStatus();
 		};
 
-		const AccountNo = accountNoValue;
+		const AccountNo = currentBankInfoDetail.accountNo;
 		const amount = _isConvert
 			? amountValue * 1000
 			: parseInt(amountValue, 10);
-		const sysId = sysIdValue;
+		const { sysId } = currentBankInfoDetail;
 		api_payment_WithdrawalReq(AccountNo, amount, sysId).then(
 			res => {
 				if (isMountedRef.current) {
@@ -342,6 +480,10 @@ export default ({
 		);
 	};
 
+	const resetWithdrawalType = () => {
+		setWithdrawalType(null);
+	};
+
 	if (kycStatus !== "normal")
 		return (
 			<>
@@ -356,6 +498,38 @@ export default ({
 				)}
 			</>
 		);
+
+	const confirmPage =
+		{
+			[WITHDRAWAL_TYPE.BANK]: (
+				<WithdrawalConfirm
+					bankNameValue={currentBankInfoDetail.bankName}
+					amountValue={_isConvert ? amountValue * 1000 : amountValue}
+					accountNoValue={currentBankInfoDetail.accountNo}
+					cancelSubmit={cancelSubmit}
+					confirmSubmit={confirmSubmit}
+					_isConvert={_isConvert}
+				/>
+			),
+			[WITHDRAWAL_TYPE.USDT]: (
+				<WithdrawalUSDTConFirm
+					t={t}
+					currentUSDTDetail={currentUSDTDetail}
+					amountValue={_isConvert ? amountValue * 1000 : amountValue}
+					cancelSubmit={cancelSubmit}
+					confirmSubmit={withdrawalUSDTSubmit}
+					getExchangeInfo={getExchangeInfo}
+					_isConvert={_isConvert}
+				/>
+			)
+		}[withdrawalType] || null;
+
+	const confirmClassList = [
+		"subModuleList",
+		withdrawalType === WITHDRAWAL_TYPE.USDT && "subModuleCrypto"
+	]
+		.filter(Boolean)
+		.join(" ");
 
 	return (
 		<>
@@ -374,27 +548,37 @@ export default ({
 						accountName={userInfo.accountName}
 					/>
 				</div>
+
 				<div className="walletModule">
 					<div className="addBank">
 						<BankInfoCard
-							setCurrentlyBankInfo={setCurrentlyBankInfo}
-							currentBankInfo={{
-								sysIdValue,
-								accountNoValue,
-								bankNameValue
-							}}
-							bankInfoList={bankInfoList}
-							setBankInfoList={setBankInfoList}
+							datas={custBankInfo.bankInfoDetail}
+							updateCustBankInfo={getCustBankInfo}
+							onChangeBankInfo={onChangeBankInfo}
+							currentBankInfoDetail={currentBankInfoDetail}
 							_isConvert={_isConvert}
 							isShowConfirmPage={showConfirmPage}
 							balanceData={balanceData}
+							resetWithdrawalType={resetWithdrawalType}
 						/>
-						<AddBankAccount bankInfoList={bankInfoList} />
+						<AddBankAccount
+							bankInfoDetail={custBankInfo?.bankInfoDetail}
+							updateCustBankInfo={getCustBankInfo}
+						/>
 					</div>
 
-					<div className="subModuleList">
+					<Crypto
+						datas={custBankInfo.uSDTDetail}
+						currentUSDTDetail={currentUSDTDetail}
+						hideDeleteIcon={showConfirmPage}
+						onChangeUSDTInfo={onChangeUSDTInfo}
+						updateCustBankInfo={getCustBankInfo}
+						deleteCryptoHandler={deleteCryptoHandler}
+					/>
+
+					<div className={confirmClassList}>
 						<div className="subModule">
-							{!showConfirmPage ? (
+							{!showConfirmPage && (
 								<div className="subModuleBody">
 									<Calculation
 										balanceData={balanceData}
@@ -411,8 +595,6 @@ export default ({
 									<InputModuleRow
 										onChangeAmount={onChangeAmount}
 										amountValue={amountValue}
-										sysIdValue={sysIdValue}
-										accountNoValue={accountNoValue}
 										toConfirmPage={toConfirmPage}
 										_isConvert={_isConvert}
 										status={status}
@@ -423,26 +605,15 @@ export default ({
 										clickInfo={clickInfo}
 										checked={status.checked}
 										tip={status.tip}
+										withdrawalType={withdrawalType}
 										withdrawalMin={withdrawalMin}
 										withdrawalMax={withdrawalMax}
 										isAmountLimited={isAmountLimited}
 									/>
 								</div>
-							) : (
-								<WithdrawalConfirm
-									bankNameValue={bankNameValue}
-									amountValue={
-										_isConvert
-											? amountValue * 1000
-											: amountValue
-									}
-									sysIdValue={sysIdValue}
-									accountNoValue={accountNoValue}
-									cancelSubmit={cancelSubmit}
-									confirmSubmit={confirmSubmit}
-									_isConvert={_isConvert}
-								/>
 							)}
+
+							{showConfirmPage && confirmPage}
 						</div>
 					</div>
 				</div>

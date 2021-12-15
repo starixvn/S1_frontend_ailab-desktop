@@ -4,7 +4,7 @@ import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 
-export default props => {
+export default ({ updateCustBankInfo, bankInfoDetail }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
@@ -24,7 +24,8 @@ export default props => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.AddBankAccount,
-			loading: true
+			loading: true,
+			updateCustBankInfo
 		});
 
 		api_payment_GetBankInfoSysList().then(
@@ -93,7 +94,7 @@ export default props => {
 		);
 	};
 
-	if (props.bankInfoList.length >= 3) return null;
+	if (bankInfoDetail.length >= 3) return null;
 
 	return (
 		<div
