@@ -13,7 +13,7 @@ const initValue = {
 	accountNo: ""
 };
 
-export default ({ bankInfoSysList = [] }) => {
+export default ({ bankInfoSysList = [], updateCustBankInfo }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -132,6 +132,8 @@ export default ({ bankInfoSysList = [] }) => {
 				res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
+							updateCustBankInfo();
+
 							if (!userInfo.accountName) {
 								setUserInfo(prev => ({
 									...prev,

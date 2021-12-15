@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default props => {
+const InputBox = props => {
 	const showCheckIcon = () => {
 		if (props.checked === null && props.clickInfo) {
 			return (
@@ -38,6 +39,8 @@ export default props => {
 	return (
 		<>
 			<div className={inputBoxClass()}>
+				{props.prefix}
+
 				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
 				{props.title ? (
 					<i className="txt-blue12">{props.title}</i>
@@ -72,3 +75,12 @@ export default props => {
 		</>
 	);
 };
+
+InputBox.defaultProps = {
+	prefix: null
+};
+InputBox.propTypes = {
+	prefix: PropTypes.node
+};
+
+export default InputBox;

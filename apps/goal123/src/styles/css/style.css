@@ -217,35 +217,6 @@ html.Newtheme header .header > div.menu {
   height: 50px;
 }
 
-html.Newtheme header .header > div.menu .icon-new::before {
-  position: absolute;
-  top: -4px;
-  left: calc(50% - 35px);
-  display: block;
-  width: 40px;
-  height: 18px;
-  color: #fff;
-  background: url(../img/dropdown/newbg.png) no-repeat center/contain;
-  -webkit-animation: MoveTopDown linear infinite alternate 1s;
-          animation: MoveTopDown linear infinite alternate 1s;
-  font-size: 12px;
-}
-
-html.Newtheme header .header > div.menu .icon-live::before {
-  position: absolute;
-  top: -4px;
-  right: calc(50% - 35px);
-  padding-left: 2.5px;
-  display: block;
-  width: 40px;
-  height: 18px;
-  color: #fff;
-  background: url(../img/dropdown/livebg.png) no-repeat center/contain;
-  -webkit-animation: MoveTopDown linear infinite alternate 1s;
-          animation: MoveTopDown linear infinite alternate 1s;
-  font-size: 12px;
-}
-
 html.Newtheme header .header > div.menu .newicon:before, html.Newtheme header .header > div.menu .liveicon:before, html.Newtheme header .header > div.menu .hoticon:before {
   content: "";
   position: absolute;
@@ -613,25 +584,6 @@ html.Newtheme header .header > div.menu .livecasinoList button .maintenance,
 html.Newtheme header .header > div.menu .fishList a .maintenance,
 html.Newtheme header .header > div.menu .fishList button .maintenance {
   display: none;
-}
-
-html.Newtheme header .header > div.menu .sportList .icon-new::before,
-html.Newtheme header .header > div.menu .gameList .icon-new::before,
-html.Newtheme header .header > div.menu .casinoList .icon-new::before,
-html.Newtheme header .header > div.menu .livecasinoList .icon-new::before,
-html.Newtheme header .header > div.menu .fishList .icon-new::before {
-  position: absolute;
-  top: 10px;
-  left: calc(50% - 70px);
-  width: 40px;
-  height: 18px;
-  display: block;
-  color: #fff;
-  background: url(../img/dropdown/newbg.png) no-repeat center/contain;
-  -webkit-animation: MoveTopDown linear infinite alternate 1s;
-          animation: MoveTopDown linear infinite alternate 1s;
-  font-size: 8px;
-  z-index: 1;
 }
 
 html.Newtheme header .header > div.menu .sportList .newicon:before, html.Newtheme header .header > div.menu .sportList .liveicon:before, html.Newtheme header .header > div.menu .sportList .hoticon:before,
@@ -1968,7 +1920,6 @@ html.Newtheme .inputBox {
       -ms-flex-align: center;
           align-items: center;
   padding: 4px 10px;
-  z-index: 1;
 }
 
 html.Newtheme .inputBox input[type="date"]::-webkit-inner-spin-button,
@@ -2072,9 +2023,19 @@ html.Newtheme .inputBox .dropdown {
 }
 
 html.Newtheme .inputBox .dropdown > .dropdown-container {
-  margin-left: 5px;
-  width: 100%;
+  position: absolute;
+  top: 20px;
+  left: -1px;
+  padding: 10px;
+  width: calc(100% - 20px);
+  background: #fff;
+  z-index: 1;
   color: #666;
+  max-height: 100px;
+  overflow-y: auto;
+  border: 1px solid #5084e4;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
 }
 
 html.Newtheme .inputBox .dropdown > .dropdown-container .dropdown-item {
@@ -2113,6 +2074,10 @@ html.Newtheme .inputBox .dropdown > .btn:after {
   position: absolute;
   right: 10px;
   border-color: #c6c6c6 transparent transparent transparent;
+}
+
+html.Newtheme .inputBox ::-webkit-scrollbar {
+  width: 5px;
 }
 
 html.Newtheme .inputBox-org {
@@ -4998,6 +4963,7 @@ html.Newtheme .addBank .addBankName {
   padding: 20px;
   margin-bottom: 15px;
   margin-right: 10px;
+  position: relative;
 }
 
 html.Newtheme .addBank .addBankName.noBank {
@@ -5011,6 +4977,7 @@ html.Newtheme .addBank .addBankName.noBank {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   cursor: pointer;
+  min-height: 75px;
 }
 
 html.Newtheme .addBank .addBankName .addBankInfo, html.Newtheme .addBank .addBankName .cryptoInfo {
@@ -5071,7 +5038,6 @@ html.Newtheme .addBank .addBankName .cryptoInfo {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  position: relative;
 }
 
 html.Newtheme .addBank .addBankName .cryptoInfo > .title {
@@ -5081,6 +5047,8 @@ html.Newtheme .addBank .addBankName .cryptoInfo > .title {
 }
 
 html.Newtheme .addBank .addBankName .cryptoInfo > .checkbox {
+  -webkit-transform: translateY(-35%);
+          transform: translateY(-35%);
   margin-bottom: 10px;
 }
 
@@ -5105,8 +5073,8 @@ html.Newtheme .addBank .addBankName .cryptoInfo > .icon + div.name {
 
 html.Newtheme .addBank .addBankName .cryptoInfo > .icon + div.name ~ button.icon.icon-bin {
   position: absolute;
-  right: -2px;
-  bottom: 0;
+  right: 18px;
+  bottom: 25px;
 }
 
 html.Newtheme .addBank .addBankName .cryptoInfo > .icon + div.name ~ .checkbox label {
@@ -5153,6 +5121,15 @@ html.Newtheme .addBank .addBankName .walletNickname {
   text-align: center;
   margin-top: 10px;
   padding: 10px 10px 0;
+}
+
+html.Newtheme .addBank .remainder .icon-error {
+  cursor: pointer;
+}
+
+html.Newtheme .addBank .tip.blue {
+  color: #5084e4;
+  padding: 0;
 }
 
 html.Newtheme .subModuleList {
@@ -5338,7 +5315,7 @@ html.Newtheme .addBankpop .inputBox .dropdown > .btn {
 
 html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container {
   overflow-y: scroll;
-  max-height: 200px;
+  max-height: 120px;
 }
 
 html.Newtheme .addBankpop .inputBox .dropdown > .dropdown-container .dropdown-item {
@@ -7701,21 +7678,22 @@ html.Newtheme .transferModule .inputBox {
 
 html.Newtheme .transferModule .inputBox .dropdown .dropdown-container {
   position: absolute;
-  top: 45px;
-  left: -1px;
-  width: calc(100% - 1px);
-  background: #030c1b;
+  top: 25px;
+  width: calc(100% - 20px);
+  background: #fff;
   border: 1px solid #1e85ec;
+  border-top: 0;
   margin-left: 0;
-  overflow: hidden;
 }
 
 html.Newtheme .transferModule .inputBox .dropdown .dropdown-container .dropdown-item {
   padding: 5px 33px 5px 0;
+  color: #1f3258;
 }
 
 html.Newtheme .transferModule .inputBox .dropdown .dropdown-container .dropdown-item:hover {
   background: #1e85ec;
+  color: #fff;
 }
 
 html.Newtheme .transferModule .inputBox .dropdown span {
@@ -9404,6 +9382,20 @@ html.Newtheme .livelobbyList .icon-new::before, html.Newtheme .fishinglobbyList 
   z-index: 2;
 }
 
+html.Newtheme .livelobbyList .newicon::before, html.Newtheme .fishinglobbyList .newicon::before, html.Newtheme .lotterylobbyList .newicon::before, html.Newtheme .esportslobbyList .newicon::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  display: block;
+  width: 50px;
+  height: 36px;
+  background: url(../img/dropdown/new.svg) no-repeat center/contain;
+  -webkit-animation: flash3 linear infinite alternate .3s;
+          animation: flash3 linear infinite alternate .3s;
+  z-index: 2;
+}
+
 html.Newtheme .livelobbyList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 4 - 20px);
@@ -10579,7 +10571,7 @@ html.Newtheme .profileNew {
           justify-content: center;
   max-width: 850px;
   margin: 0 auto;
-  padding: 60px 0;
+  padding: 60px 0 20px 0;
 }
 
 html.Newtheme .profileNew > div {
@@ -10714,6 +10706,9 @@ html.Newtheme .profileNew .profile > div > div:nth-child(2) {
 
 html.Newtheme .profileNew .profile > div > div img {
   width: 12px;
+  margin-left: 5px;
+  margin-bottom: 2px;
+  vertical-align: middle;
 }
 
 html.Newtheme .profileNew .profile > div > div > button {
@@ -10931,6 +10926,15 @@ html.Newtheme .profileNew .verification .items > div:hover .info {
 html.Newtheme .profileNew .verification .items > div:hover .icon-money {
   -webkit-animation: flipHeads 1.5s ease-out forwards;
           animation: flipHeads 1.5s ease-out forwards;
+}
+
+html.Newtheme .profileNew + .btnGroup {
+  width: 270px;
+}
+
+html.Newtheme .profileNew .otpLoading {
+  width: 10px;
+  min-width: unset;
 }
 
 @-webkit-keyframes jpot {
@@ -11267,7 +11271,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 
 .wheelEvent .eventPage {
-  min-width: 100%;
+  min-width: 1400px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;

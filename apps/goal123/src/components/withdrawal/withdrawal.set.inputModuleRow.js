@@ -12,26 +12,26 @@ export default ({
 	clickInfo,
 	checked,
 	tip,
+	withdrawalType,
 	withdrawalMin,
 	withdrawalMax,
 	isAmountLimited
 }) => {
 	const { t } = useTranslation();
 
-	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
-		min: number_format({
-			number: withdrawalMin,
-			formatRequired: _isConvert,
-			digits: 0
-		}),
-		max: isAmountLimited
-			? number_format({
-					number: withdrawalMax,
-					formatRequired: _isConvert,
-					digits: 0
-			  })
-			: t("lbl_Unlimited")
-	})}`;
+	const min = number_format({
+		number: withdrawalMin,
+		formatRequired: _isConvert,
+		digits: 0
+	});
+
+	const max = isAmountLimited
+		? number_format({
+				number: withdrawalMax,
+				formatRequired: _isConvert,
+				digits: 0
+		  })
+		: t("lbl_Unlimited");
 
 	return (
 		<div className="inputModuleRow">
@@ -46,7 +46,9 @@ export default ({
 				_isConvert={_isConvert}
 			/>
 
-			<div className="tip active">{withdrawalMinMaxLimitHint}</div>
+			<div className={`tip ${withdrawalType ? "active" : ""}`}>
+				{t("lbl_Daily_Min_Max_Amount", { min, max })}
+			</div>
 
 			<div className="btnGroup">
 				<button className="btn-check" onClick={toConfirmPage}>

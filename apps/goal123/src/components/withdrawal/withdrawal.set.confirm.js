@@ -1,7 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
+
 import { userInfoContext } from "../common/context";
 import { number_format } from "../common/common";
+
+import { IconSpinner } from "../common/loading";
 
 export default props => {
 	const { t } = useTranslation();
@@ -50,4 +54,93 @@ export default props => {
 			</div>
 		</div>
 	);
+};
+
+export const WithdrawalUSDTConFirm = ({
+	t,
+	currentUSDTDetail,
+	amountValue,
+	cancelSubmit,
+	confirmSubmit,
+	getExchangeInfo,
+	_isConvert
+}) => {
+	const { nickName, usdtAddress } = currentUSDTDetail;
+
+	const [uSDTAmount, setUSDTAmount] = useState(0);
+	const [loading, setLoading] = useState(false);
+
+	useEffect(() => {
+		const getUSDTAmount = async () => {
+			setLoading(true);
+
+			const _uSDTAmount = await getExchangeInfo(amountValue);
+
+			setUSDTAmount(_uSDTAmount || 0);
+
+			setLoading(false);
+		};
+
+		getUSDTAmount();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [amountValue]);
+
+	return (
+		<div className="subModuleBody column align-items-center">
+			<span className="title">{t("lbl_ImportantNote")}</span>
+			<div className="txt-lightgray">{t("lbl_ConfirmWithdrawal")}</div>
+			<div className="smallList">
+				<ul>
+					<li>{t("lbl_CryptoWalletAddress")}</li>
+					<li>{usdtAddress}</li>
+				</ul>
+				<ul>
+					<li>{t("lbl_CryptoWalletNickName")}</li>
+					<li className="accountNumber">{nickName}</li>
+				</ul>
+
+				<ul>
+					<li>{t("lbl_WithdrawalAmount")}</li>
+
+					<li>
+						{number_format({
+							number: amountValue,
+							formatRequired: _isConvert,
+							digits: 0
+						})}
+					</li>
+				</ul>
+
+				<ul>
+					<li>{t("lbl_USDT_Amount")}</li>
+					<li>
+						<IconSpinner active={loading} />
+
+						{!loading && uSDTAmount}
+					</li>
+				</ul>
+			</div>
+			<div className="txt-lightgray">
+				{t("lbl_Deposit_USDT_CONFIRM_DESCRIPTION")}
+			</div>
+			<div className="btnGroup">
+				<button className="btn-cancel" onClick={cancelSubmit}>
+					{t("lbl_Cancel")}
+				</button>
+				<button className="btn-check" onClick={confirmSubmit}>
+					{t("lbl_Confirm")}
+				</button>
+			</div>
+		</div>
+	);
+};
+
+WithdrawalUSDTConFirm.propTypes = {
+	t: PropTypes.func.isRequired,
+	currentUSDTDetail: PropTypes.objectOf(PropTypes.any).isRequired,
+	amountValue: PropTypes.number.isRequired,
+	cancelSubmit: PropTypes.func.isRequired,
+	confirmSubmit: PropTypes.func.isRequired,
+	getExchangeInfo: PropTypes.func.isRequired,
+	_isConvert: PropTypes.bool.isRequired
 };
