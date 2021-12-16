@@ -5,6 +5,7 @@ export const defPopBoxType = {
 	ErrorMsg: "ErrorMsg",
 	Login: "Login",
 	AddBankAccount: "AddBankAccount",
+	AddCryptoWallet: "AddCryptoWallet",
 	AddBankSuccess: "AddBankSuccess",
 	ConfirmDelete: "ConfirmDelete",
 	ProfileConfirmCheck: "ProfileConfirmCheck",
@@ -27,7 +28,8 @@ export const defPopBoxType = {
 	OfficialAnnounce: "OfficialAnnounce",
 	DepositGuide: "DepositGuide",
 	BackupDomain: "BackupDomain",
-	UnderMaintain: "UnderMaintain"
+	UnderMaintain: "UnderMaintain",
+	PaymentQR: "PaymentQR"
 };
 
 export default defPopBoxType;

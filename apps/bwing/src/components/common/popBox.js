@@ -101,8 +101,22 @@ export default () => {
 				import("./popBox.addBankAccount")
 			);
 			content = (
-				<AddBankAccount bankInfoSysList={popBox.bankInfoSysList} />
+				<AddBankAccount
+					bankInfoSysList={popBox.bankInfoSysList}
+					updateCustBankInfo={popBox.updateCustBankInfo}
+				/>
 			);
+			break;
+		}
+
+		case defPopBoxType.AddCryptoWallet: {
+			const AddCryptoWallet = lazy(() =>
+				import("./popBox.addCryptoWallet")
+			);
+			content = (
+				<AddCryptoWallet GetCustBankInfo={popBox.GetCustBankInfo} />
+			);
+
 			break;
 		}
 
@@ -329,6 +343,16 @@ export default () => {
 		case defPopBoxType.UnderMaintain: {
 			const UnderMaintain = lazy(() => import("./popBox.underMaintain"));
 			content = <UnderMaintain clickClose={popBox.clickClose} />;
+			break;
+		}
+
+		case defPopBoxType.PaymentQR: {
+			const PaymentQR = lazy(() => import("./popBox.paymentQR"));
+			content = (
+				<Suspense fallback={<>Loading...</>}>
+					<PaymentQR {...popBox} />
+				</Suspense>
+			);
 			break;
 		}
 

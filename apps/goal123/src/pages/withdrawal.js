@@ -16,6 +16,11 @@ import {
 	api_payment_GetWithdrawalLimit
 } from "../service/api/payment";
 
+const USDT_TYPE = {
+	ERC20: "ERC20",
+	TRC20: "TRC20"
+};
+
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
@@ -41,11 +46,12 @@ const Content = () => {
 	const [balanceData, setBalanceData] = useState({});
 	const [kycStatus, setKycStatus] = useState("");
 	const [recentData, setRecentData] = useState([]);
-	const [withdrawalLimit, setWithdrawalLimit] = useState({
-		withdrawalMin: 0,
-		withdrawalMax: 0,
-		isAmountLimited: false
+	const [uSDTWithdrawalLimit, setUSDTWithdrawalLimit] = useState({
+		[USDT_TYPE.TRC20]: {},
+		[USDT_TYPE.ERC20]: {}
 	});
+
+	const [withdrawalLimit, setWithdrawalLimit] = useState({});
 
 	const { setPopBox } = useContext(popBoxContext);
 
@@ -215,10 +221,32 @@ const Content = () => {
 		);
 	};
 
-	const getWithdrawalLimit = async () => {
-		await api_payment_GetWithdrawalLimit().then(
+	const getWithdrawalLimit = async () =>
+		api_payment_GetWithdrawalLimit().then(
 			res => {
 				if (res.data.errorCode === 0 && isMountedRef.current) {
+					const { usdtList } = res.data.data;
+
+					const TRC20Info = usdtList.find(
+						item => item.network === USDT_TYPE.TRC20
+					);
+					const ERC20Info = usdtList.find(
+						item => item.network === USDT_TYPE.ERC20
+					);
+
+					setUSDTWithdrawalLimit({
+						[USDT_TYPE.TRC20]: {
+							withdrawalMin: TRC20Info.withdrawalMin,
+							withdrawalMax: TRC20Info.withdrawalAvailableAmount,
+							isAmountLimited: !TRC20Info.unlimited
+						},
+						[USDT_TYPE.ERC20]: {
+							withdrawalMin: ERC20Info.withdrawalMin,
+							withdrawalMax: ERC20Info.withdrawalAvailableAmount,
+							isAmountLimited: !ERC20Info.unlimited
+						}
+					});
+
 					setWithdrawalLimit({
 						withdrawalMin: res.data.data.withdrawalMin,
 						withdrawalMax: res.data.data.withdrawalAvailableAmount,
@@ -258,7 +286,6 @@ const Content = () => {
 				});
 			}
 		);
-	};
 
 	if (loading) return <Loading />;
 
@@ -271,6 +298,8 @@ const Content = () => {
 					withdrawalMin={withdrawalLimit.withdrawalMin}
 					withdrawalMax={withdrawalLimit.withdrawalMax}
 					isAmountLimited={withdrawalLimit.isAmountLimited}
+					uSDTWithdrawalLimit={uSDTWithdrawalLimit}
+					withdrawalLimit={withdrawalLimit}
 					setLoading={setLoading}
 					getKycStatus={getKycStatus}
 					getWithdrawalInfoRecent={getWithdrawalInfoRecent}

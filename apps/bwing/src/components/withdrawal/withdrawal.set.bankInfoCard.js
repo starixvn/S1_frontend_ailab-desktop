@@ -1,22 +1,25 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { api_account_GetCustBankInfo } from "../../service/api/account";
 import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
 import config from "../../config";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import Loading from "../common/loading";
-import usePopBox from "../hook/usePopBox";
 
 const BankInfoCard = props => {
+	const {
+		currentBankInfoDetail,
+		updateCustBankInfo,
+		datas,
+		resetWithdrawalType
+	} = props;
+
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
 	const { t } = useTranslation();
-	const popBoxData = useContext(popBoxContext).popBox;
-	const { errorPopBox } = usePopBox();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -25,67 +28,8 @@ const BankInfoCard = props => {
 		};
 	});
 
-	useEffect(() => {
-		getApiBankCard();
-	}, [props.balanceData]);
-
-	useEffect(() => {
-		if (popBoxData.refresh === true) {
-			getApiBankCard();
-		}
-	}, [popBoxData.refresh]);
-
-	const getApiBankCard = () => {
-		const selectPrevAccount = (_defAccountNo, _bankInfoDetail) => {
-			const _preAccInfo = _bankInfoDetail.filter(
-				card => card.accountNo === _defAccountNo
-			)[0];
-			props.setCurrentlyBankInfo(
-				_preAccInfo.sysId,
-				_preAccInfo.accountNo,
-				_preAccInfo.bankName
-			);
-		};
-		api_account_GetCustBankInfo().then(
-			res => {
-				if (isMountedRef.current) {
-					if (res.data.errorCode === 0) {
-						if (
-							res.data.data &&
-							res.data.data.bankInfoDetail?.length > 0
-						) {
-							props.setBankInfoList(res.data.data.bankInfoDetail);
-							if (res.data.data.defAccountNo) {
-								selectPrevAccount(
-									res.data.data.defAccountNo,
-									res.data.data.bankInfoDetail
-								);
-							}
-						}
-					} else {
-						errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
-					}
-					setLoading(false);
-				}
-			},
-			() => {
-				if (isMountedRef.current) {
-					errorPopBox();
-					setLoading(false);
-				}
-			}
-		);
-	};
-
 	const checkInput = (sysId, accountNo, bankName) => {
-		if (accountNo) {
-			props.setCurrentlyBankInfo(sysId, accountNo, bankName);
-		} else {
-			props.setCurrentlyBankInfo(0, 0, "");
-		}
+		props.onChangeBankInfo({ sysId, accountNo, bankName });
 	};
 
 	const popDelete = (sysId, accountNo) => {
@@ -98,7 +42,10 @@ const BankInfoCard = props => {
 				<div className="btnGroup">
 					<button
 						className="btn-cancel"
-						onClick={deleteCard.bind(this, sysId, accountNo)}>
+						onClick={() => {
+							deleteCard(sysId, accountNo);
+							resetWithdrawalType();
+						}}>
 						{t("lbl_Yes")}
 					</button>
 					<button className="btn-check" onClick={ClickCancel}>
@@ -117,10 +64,6 @@ const BankInfoCard = props => {
 		setPopBox({ isOpen: false });
 		setLoading(true);
 
-		const selected =
-			props.currentBankInfo.sysIdValue === sysId &&
-			props.currentBankInfo.accountNoValue === accountNo;
-
 		api_accountStrict_DelCustBankInfo({
 			AccountName: userInfo.accountName,
 			AccountNo: accountNo,
@@ -129,17 +72,7 @@ const BankInfoCard = props => {
 			res => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
-						if (selected) {
-							props.setCurrentlyBankInfo(0, 0, "");
-						}
-
-						props.setBankInfoList(
-							props.bankInfoList.filter(
-								item =>
-									item.sysId !== sysId ||
-									item.accountNo !== accountNo
-							)
-						);
+						updateCustBankInfo();
 					} else {
 						errorPopBox(
 							res.data.message || "error",
@@ -158,7 +91,7 @@ const BankInfoCard = props => {
 		);
 	};
 
-	const bankCardArr = props.bankInfoList.map(item => {
+	const bankCardArr = datas.map(item => {
 		const key = `withdrawal-banklist-${item.sysId}-${item.accountNo}`;
 		const checkKey = `${key}-check`;
 		return (
@@ -188,9 +121,9 @@ const BankInfoCard = props => {
 							<input
 								type="checkbox"
 								checked={
-									props.currentBankInfo.sysIdValue ===
+									currentBankInfoDetail.sysId ===
 										item.sysId &&
-									props.currentBankInfo.accountNoValue ===
+									currentBankInfoDetail.accountNo ===
 										item.accountNo
 								}
 								onChange={checkInput.bind(
@@ -223,13 +156,17 @@ const BankInfoCard = props => {
 	return loading ? <Loading /> : bankCardArr;
 };
 
+BankInfoCard.defaultProps = {
+	datas: []
+};
+
 BankInfoCard.propTypes = {
-	currentBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	datas: PropTypes.arrayOf(PropTypes.any),
+	currentBankInfoDetail: PropTypes.objectOf(PropTypes.any).isRequired,
 	isShowConfirmPage: PropTypes.bool.isRequired,
-	setCurrentlyBankInfo: PropTypes.func.isRequired,
-	bankInfoList: PropTypes.arrayOf(PropTypes.object).isRequired,
-	setBankInfoList: PropTypes.func.isRequired,
-	balanceData: PropTypes.objectOf(PropTypes.any).isRequired
+	onChangeBankInfo: PropTypes.func.isRequired,
+	updateCustBankInfo: PropTypes.func.isRequired,
+	resetWithdrawalType: PropTypes.func.isRequired
 };
 
 export default BankInfoCard;

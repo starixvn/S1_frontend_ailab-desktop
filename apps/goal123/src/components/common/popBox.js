@@ -11,6 +11,7 @@ export const defPopBoxType = {
 	Login: "Login",
 	AddBankAccount: "AddBankAccount",
 	AddBankSuccess: "AddBankSuccess",
+	AddCryptoWallet: "AddCryptoWallet",
 	ConfirmDelete: "ConfirmDelete",
 	ProfileConfirmCheck: "ProfileConfirmCheck",
 	ProfileCompelete: "ProfileCompelete",
@@ -31,7 +32,8 @@ export const defPopBoxType = {
 	RankingWinner: "RankingWinner",
 	OfficialAnnounce: "OfficialAnnounce",
 	BackupDomain: "BackupDomain",
-	UnderMaintain: "UnderMaintain"
+	UnderMaintain: "UnderMaintain",
+	PaymentQR: "PaymentQR"
 };
 
 export default () => {
@@ -120,7 +122,10 @@ export default () => {
 				import("./popBox.addBankAccount")
 			);
 			content = (
-				<AddBankAccount bankInfoSysList={popBox.bankInfoSysList} />
+				<AddBankAccount
+					bankInfoSysList={popBox.bankInfoSysList}
+					updateCustBankInfo={popBox.updateCustBankInfo}
+				/>
 			);
 			break;
 		}
@@ -130,6 +135,17 @@ export default () => {
 				import("./popBox.addBankSuccess")
 			);
 			content = <AddBankSuccess btnBar={popBox.btnBar} />;
+			break;
+		}
+
+		case defPopBoxType.AddCryptoWallet: {
+			const AddCryptoWallet = lazy(() =>
+				import("./popBox.addCryptoWallet")
+			);
+			content = (
+				<AddCryptoWallet GetCustBankInfo={popBox.GetCustBankInfo} />
+			);
+
 			break;
 		}
 
@@ -333,6 +349,12 @@ export default () => {
 		case defPopBoxType.UnderMaintain: {
 			const UnderMaintain = lazy(() => import("./popBox.underMaintain"));
 			content = <UnderMaintain clickClose={popBox.clickClose} />;
+			break;
+		}
+
+		case defPopBoxType.PaymentQR: {
+			const PaymentQR = lazy(() => import("./popBox.paymentQR"));
+			content = <PaymentQR {...popBox} />;
 			break;
 		}
 

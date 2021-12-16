@@ -14,3 +14,13 @@ export default () => {
 		</div>
 	);
 };
+
+export const IconSpinner = ({ active }) => {
+	if (!active) return null;
+
+	return (
+		<div className="otpLoading">
+			<i className="icon icon-spinner11" />
+		</div>
+	);
+};

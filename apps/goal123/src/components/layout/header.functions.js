@@ -82,7 +82,10 @@ const defSettingLinks = ({ logoutFunc }) => {
 			displayKey: "lbl_BankInfo",
 			href: path.bankInfo.root
 		},
-		,
+		{
+			displayKey: "lbl_CryptoWallet",
+			href: path.cryptoWallet.root
+		},
 		{
 			displayKey: "lbl_ReferFriends",
 			href: path.referral.root,

@@ -151,3 +151,18 @@ export const api_payment_GetCustTpBetRecordDetailListbyGameType = ({
 
 export const api_payment_GetWithdrawalLimit = () =>
 	paymentRequest.post("/GetWithdrawalLimit");
+
+export const api_payment_GetCryptoPayInfoList = () =>
+	paymentRequest.post("/GetCryptoPayInfoList");
+
+export const api_payment_getSupportNetwork = () =>
+	paymentRequest.post("/GetSupportNetwork", { CurrencyId: 96 });
+
+export const api_payment_GetExchangeInfo = amount =>
+	paymentRequest.post("/GetExchangeInfo", { Amount: amount });
+
+export const api_payment_WithdrawalUSDTReq = ({ accountNo, amount }) =>
+	paymentRequest.post("/WithdrawalUSDTReq", {
+		AccountNo: accountNo,
+		amount
+	});

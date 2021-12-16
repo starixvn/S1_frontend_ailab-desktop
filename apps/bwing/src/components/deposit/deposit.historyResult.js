@@ -50,7 +50,11 @@ export const TransactionHistory = props => {
 			<div className={statusClassName[props.status]}>
 				{t(`lbl_DepositStatus${props.status}`)}
 			</div>
-			<div className="btnGroup">{btnGroup}</div>
+			<div className="btnGroup">
+				{btnGroup}
+
+				{props.thirdId}
+			</div>
 		</div>
 	);
 };

@@ -337,6 +337,7 @@
 	"lbl_DepositType1": "Online Banking",
 	"lbl_DepositType2": "Mobile Payment",
 	"lbl_DepositType3": "Local Bank",
+	"lbl_DepositType4": "Crypto Pay",
 	"lbl_DepositType5": "TOP-UP CARD",
 	"lbl_DepositStatus0": "Draft",
 	"lbl_DepositStatus1": "Pending",
@@ -410,6 +411,12 @@
 	"lbl_DepositLoadCardNoticeContent1": "Please ensure you choose the correct telcom provider  and card value. Otherwise, Bwing will not bear any responsibility.",
 	"lbl_DepositLoadCardNoticeContent2": "Our card fee is cheapest in the market, only 25% apply for all telcoms.",
 	"lbl_DepositPromoMsg1": "Please proceed to verify your account to entitle available promotions.",
+	"lbl_Deposit_DragonPayPop_OrderNumber": "Order Number",
+	"lbl_Rate": "Rate",
+	"lbl_USDT_Amount": "USDT Amount",
+	"lbl_CashbackAmount": "Cashback Amount",
+	"lbl_ReceivedAmount": "Received Amount",
+	"lbl_Usdt_Method": "Method",
 
 	"withdrawal ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Withdrawal": "Withdrawal",
@@ -751,8 +758,35 @@
 		"lbl_please_make_deposit": "Please make a Min Deposit to enjoy our LIVE STREAMING."
 	},
 
-	"promotion":{
-		"lbl_promo_claim_now":"CLAIM NOW",
+	"■■■■■■■■■■■■■■■■■■■■ payment qr ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_PaymentDetails": "Payment Details",
+	"lbl_OrderAmount": "Order Amount",
+	"lbl_ImportantNotes": "Important Notes",
+	"lbl_PaymentQRNote1": "Please do not refresh your browser.",
+	"lbl_PaymentQRNote2": "Please take note of the reference number if any event you need to contact our Customer Serivce for further action.",
+	"lbl_PaymentTimeLeft": "PAYMENT TIME LEFT",
+	"lbl_Time": "Time",
+
+	"■■■■■■■■■■■■■■■■■■■■ crypto pay ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_Wallet_Is_Full": "Wallet Is Full",
+	"lbl_CryptoWallet": "Crypto Wallet",
+	"lbl_CryptoWalletNickName": "Wallet Nickname",
+	"lbl_CryptoWalletAddress": "Wallet Address",
+	"lbl_Update_Crypto_Wallet": "Please update your crypto wallet details before making withdrawal.",
+	"lbl_Add_Crypto_Wallet": "Add Crypto Wallet",
+	"lbl_Number_Of_Wallet": "Number of wallet",
+	"lbl_Crypto_Wallet_Submit_Note": "Please note: Once the crypto wallet is submitted, it cannot be modified/ deleted.",
+	"lbl_Modification_Please_Contact_CSD": "For any request of modification, please contact CSD.",
+	"lbl_Optional": "Optional",
+	"lbl_CryptoPay": "Crypto Pay",
+	"lbl_NotERC20WalletAddr": "Must be ERC-20 / TRC-20 compatible wallet address",
+	"lbl_already_stored_this_information": "You have already stored this information.",
+	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
+	"lbl_Crypto_Title_Describe": "Please upload your Crypto account details before making withdrawal.",
+	"lbl_Deposit_USDT_CONFIRM_DESCRIPTION": "Conversion rate severs as reference purposes only.",
+
+	"promotion": {
+		"lbl_promo_claim_now": "CLAIM NOW",
 		"lbl_promo_apply_now": "APPLY NOW",
 		"lbl_promo_more_info": "MORE INFO",
 		"lbl_promo_all_promos": "ALL PROMOS"
