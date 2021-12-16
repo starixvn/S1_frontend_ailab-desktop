@@ -1151,7 +1151,8 @@ header input:focus-within {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   right: 0;
-  background: #f77900;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f77900), to(#f55c00));
+  background: linear-gradient(to bottom, #f77900, #f55c00);
   padding: 10px 10px 10px 15px;
   text-align: center;
   border-radius: 3px;
@@ -1168,6 +1169,13 @@ header input:focus-within {
   font-weight: bold;
   -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.header > div.function .icon-email .msgPop > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 150px;
 }
 
 .header > div.function .icon-email .msgPop button {
@@ -1210,6 +1218,10 @@ header input:focus-within {
 
 .header > div.function .icon-exit {
   color: #5574A7;
+}
+
+.header > div.function .memberfile {
+  background: url(https://image.n88media.com/VIP/img/vipbg.png?v=20211214) no-repeat center left/auto 100%;
 }
 
 .header > div.function .memberfile > .vipAnimation {
@@ -2036,103 +2048,6 @@ footer .footerList > div > div > div {
   text-align: left;
 }
 
-.webmap {
-  padding: 0 calc((100% - 1600px) / 2);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding-top: 40px;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-}
-
-.webmap img {
-  width: auto;
-  float: left;
-  margin-right: 10px;
-}
-
-.webmap > div {
-  margin-right: 15px;
-  font-size: 16px;
-  border-left: 1px solid rgba(247, 121, 0, 0.1);
-  margin-bottom: 40px;
-}
-
-.webmap > div span.title {
-  border-left: 1px solid #f77900;
-  padding-left: 20px;
-  line-height: 16px;
-  float: left;
-}
-
-.webmap > div div {
-  float: left;
-  margin-top: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  padding-left: 20px;
-}
-
-.webmap > div div:nth-child(2) {
-  clear: both;
-}
-
-.webmap > div div a, .webmap > div div button {
-  font-size: 14px;
-  line-height: 30px;
-}
-
-.webmap > div:last-child {
-  margin-right: 0;
-}
-
-.webmap > div:last-child a {
-  border-radius: 30px;
-  background: #191919;
-  font-size: 12px;
-  margin-bottom: 10px;
-  padding: 0 20px;
-  cursor: pointer;
-}
-
-.webmap > div:last-child a:hover {
-  background: #f77900;
-}
-
-.webmap > div:nth-child(-n+4) a, .webmap > div:nth-child(-n+4) button {
-  color: #666;
-  text-align: left;
-}
-
-.webmap > div:nth-child(-n+4) a:hover, .webmap > div:nth-child(-n+4) button:hover {
-  color: #f77900;
-}
-
-.webmap > div:nth-child(n+5) a, .webmap > div:nth-child(n+5) button {
-  cursor: auto;
-}
-
-.webmap > div:last-child a, .webmap > div:last-child button {
-  cursor: pointer;
-}
-
-.webmap > div:nth-last-child(2) div, .webmap > div:nth-last-child(5) div {
-  display: block;
-}
-
-.webmap > div:nth-last-child(2) div {
-  margin-top: 0;
-}
-
 .platform {
   padding: 0 calc((100% - 1600px) / 2);
   background: #191919;
@@ -2433,28 +2348,6 @@ footer .footerList > div > div > div {
   }
   to {
     right: -100px;
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes joinnpc2 {
-  from {
-    right: -200px;
-    opacity: 0;
-  }
-  to {
-    right: -10px;
-    opacity: 1;
-  }
-}
-
-@keyframes joinnpc2 {
-  from {
-    right: -200px;
-    opacity: 0;
-  }
-  to {
-    right: -10px;
     opacity: 1;
   }
 }
@@ -3826,83 +3719,6 @@ input[type="file"] {
   background: #5574A7;
 }
 
-.cashBar {
-  background: rgba(102, 102, 102, 0.5);
-  height: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-radius: 30px;
-  position: relative;
-  margin: 50px 50px 30px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-}
-
-.cashBar .min, .cashBar .max {
-  color: #5574A7;
-}
-
-.cashBar .min {
-  -webkit-transform: translateX(-200%);
-          transform: translateX(-200%);
-}
-
-.cashBar .max {
-  -webkit-transform: translateX(200%);
-          transform: translateX(200%);
-}
-
-.cashBar .cashLine {
-  background: #f77900;
-  position: absolute;
-  height: 100%;
-  border-radius: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.cashBar .cashLine input {
-  height: 10px;
-  background: #1E85EC;
-  border-radius: 30px;
-  border: 0;
-  position: absolute;
-  padding: 0;
-}
-
-.cashBar .cashLine .cashPoint {
-  width: 15px;
-  height: 15px;
-  border-radius: 20px;
-  background: #1E85EC;
-  border: 2px solid #f77900;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.cashBar .cashLine .cashPoint span {
-  margin-top: -24px;
-  font-size: 12px;
-  color: #f77900;
-}
-
 .infoModule {
   border-radius: 5px;
   background: #F0F7FF;
@@ -4578,10 +4394,6 @@ input[type="file"] {
   width: 600px;
 }
 
-#popup .pop .loackAmount {
-  padding: 20px 20px 0;
-}
-
 #popup .pop .Success {
   padding: 20px;
 }
@@ -4691,38 +4503,6 @@ input[type="file"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-#popup .pop > div.tnc {
-  width: 100%;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  position: relative;
-}
-
-#popup .pop > div.tnc .proDataTitle {
-  font-weight: bold;
-}
-
-#popup .pop > div.tnc .rollover {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#popup .pop > div.tnc .rollover > div .icon {
-  font-size: 16px;
-  line-height: 31px;
-  margin-right: 10px;
-}
-
-#popup .pop > div.tnc .rollover > div .icon:before {
-  margin-left: 0;
-}
-
-#popup .pop > div.tnc .rollover > div.txt-orange div {
-  line-height: 32px;
 }
 
 #popup .pop .joinSuccess {
@@ -5083,7 +4863,7 @@ input[type="file"] {
   }
 }
 
-.Submit, .poker, .friend, .Cancel, .uploadSuccess, .updateSuccess, .tnc, .Success, .tokyc, .addBankpop, .addAddresspop, .changePassWordpop, .editSuccess, .joinSuccess, .loackAmount {
+.Submit, .poker, .friend, .Cancel, .uploadSuccess, .updateSuccess, .Success, .tokyc, .addBankpop, .addAddresspop, .changePassWordpop, .editSuccess, .joinSuccess {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -5098,18 +4878,18 @@ input[type="file"] {
   text-align: center;
 }
 
-.Submit.active, .poker.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .tnc.active, .Success.active, .tokyc.active, .addBankpop.active, .addAddresspop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .loackAmount.active {
+.Submit.active, .poker.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .Success.active, .tokyc.active, .addBankpop.active, .addAddresspop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Submit .icon, .poker .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .tnc .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .addAddresspop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .loackAmount .icon {
+.Submit .icon, .poker .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .addAddresspop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon {
   font-size: 36px;
   color: #CDAE8E;
 }
 
-.Submit .icon.icon-bell, .poker .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .tnc .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .addAddresspop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .loackAmount .icon.icon-bell {
+.Submit .icon.icon-bell, .poker .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .addAddresspop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell {
   color: #CDAE8E;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -5117,20 +4897,20 @@ input[type="file"] {
           transform: rotate(20deg);
 }
 
-.Submit .title, .poker .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .tnc .title, .Success .title, .tokyc .title, .addBankpop .title, .addAddresspop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .loackAmount .title {
+.Submit .title, .poker .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .Success .title, .tokyc .title, .addBankpop .title, .addAddresspop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title {
   margin: 10px 0 20px;
 }
 
-.Submit .txt-lightgray, .poker .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .tnc .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .addAddresspop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .loackAmount .txt-lightgray {
+.Submit .txt-lightgray, .poker .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .addAddresspop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray {
   text-align: center;
 }
 
-.Submit .popList, .poker .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .tnc .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .addAddresspop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .loackAmount .popList {
+.Submit .popList, .poker .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .addAddresspop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .poker .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .tnc .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .addAddresspop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .loackAmount .popList ul {
+.Submit .popList ul, .poker .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .addAddresspop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5143,13 +4923,13 @@ input[type="file"] {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .poker .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .tnc .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .addAddresspop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .loackAmount .popList ul li {
+.Submit .popList ul li, .poker .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .addAddresspop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .poker .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .tnc .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .addAddresspop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .loackAmount .popList ul li:first-child {
+.Submit .popList ul li:first-child, .poker .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .addAddresspop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
@@ -5753,10 +5533,6 @@ input[type="file"] {
 
 .walletTransfer .icon.icon-information-solid:before {
   font-weight: normal;
-}
-
-.bonusTip {
-  background: rgba(30, 133, 236, 0.5);
 }
 
 .addBank {
@@ -6682,78 +6458,6 @@ input[type="file"] {
           transform: translateY(-40px);
 }
 
-.profileEdit {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 855px;
-  margin: 60px auto 60px;
-}
-
-.profileEdit .profile {
-  margin: 0 70px 0 0;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.profileEdit .profile > div {
-  margin: 0;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
-}
-
-.profileEdit .editModule {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-flex: 1.5;
-      -ms-flex: 1.5;
-          flex: 1.5;
-}
-
-.profileEdit .editModule .inputBox-white {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-  z-index: auto;
-}
-
-.profileEdit .editModule .inputBox-white .description {
-  display: none;
-  top: -5px;
-  position: absolute;
-  right: 0;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  background: rgba(19, 77, 174, 0.9);
-  border-radius: 5px;
-  padding: 0 5px;
-  margin-right: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  z-index: 1;
-}
-
-.profileEdit .editModule .inputBox-white:hover .description {
-  display: block;
-}
-
-.profileEdit .editModule .btnGroup {
-  margin: 10px 0;
-  -webkit-box-pack: unset;
-      -ms-flex-pack: unset;
-          justify-content: unset;
-}
-
 .haveBank {
   width: 100%;
   display: -webkit-box;
@@ -6993,24 +6697,6 @@ input[type="file"] {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-}
-
-.otp {
-  color: #1E85EC;
-  font-size: 16px;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.otp + span {
-  color: #1E85EC;
 }
 
 .otpBtn {
@@ -7602,12 +7288,6 @@ form {
   right: 20px;
 }
 
-.livecasinobanner {
-  width: auto;
-  float: left;
-  border-radius: 5px;
-}
-
 .livecasino, .fishingList {
   padding: 0 0 0 40px;
 }
@@ -7975,55 +7655,6 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0px 1000px #e8edf3 inset;
           box-shadow: 0 0 0px 1000px #e8edf3 inset;
   -webkit-text-fill-color: #5574A7;
-}
-
-.buttonBox {
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  margin: 10px 0;
-}
-
-.buttonBox button {
-  margin: 5px;
-  max-width: calc(100% / 5 - 20px);
-}
-
-.buttonBox button .icon {
-  display: none;
-  margin-left: 5px;
-  background: white;
-  color: #1E85EC;
-  border-radius: 100%;
-  padding: 1px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.buttonBox button .icon:before {
-  margin-right: 0;
-}
-
-.buttonBox button.active {
-  background: #134DAE;
-}
-
-.buttonBox button.active .icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.mobileAmount {
-  margin-top: 15px;
-  padding: 5px;
-}
-
-.mobileAmount span {
-  margin-right: 5px;
 }
 
 .otpLoading {
@@ -8909,104 +8540,6 @@ button.icon-spinner11:before {
   color: #5574A7;
 }
 
-.gameMenu {
-  height: 240px;
-  background: #191919;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-
-.gameMenu .icon-new:before {
-  background: #f77900;
-  padding: 5px;
-  left: 0;
-  top: 0;
-  color: white;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  line-height: 14px;
-  border-radius: 23px 15px 15px 0;
-  -webkit-animation: none;
-          animation: none;
-}
-
-.gameMenu .gameSwiper {
-  max-width: 1560px;
-}
-
-.gameMenu .gameSwiper .swiper-slide {
-  text-align: center;
-  height: 150px;
-  background: #212121;
-  border: 1px solid #333;
-  padding: 10px 0;
-  border-radius: 20px;
-}
-
-.gameMenu .gameSwiper .swiper-slide img {
-  max-width: 140px !important;
-  height: 125px;
-  margin: auto;
-  margin-bottom: 15px;
-  border-radius: 10px;
-}
-
-.gameMenu .swiper-button-next, .gameMenu .swiper-button-prev {
-  background: #1E85EC;
-  height: 25px;
-  padding: 0px 10px;
-  opacity: 1;
-  z-index: 1;
-  outline: none;
-}
-
-.gameMenu .swiper-button-next.icon, .gameMenu .swiper-button-prev.icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.gameMenu .swiper-button-next.icon.icon-keyboard_arrow:before, .gameMenu .swiper-button-prev.icon.icon-keyboard_arrow:before {
-  font-size: 24px;
-}
-
-.gameMenu .swiper-button-next.icon:before, .gameMenu .swiper-button-prev.icon:before {
-  color: black;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.gameMenu .swiper-button-next:after, .gameMenu .swiper-button-prev:after {
-  color: black;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.gameMenu .swiper-button-next {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  right: 0;
-}
-
-.gameMenu .swiper-button-prev {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  left: 0;
-}
-
-.loackAmount {
-  width: 260px;
-}
-
 .colorInfo {
   margin-bottom: 5px;
 }
@@ -9481,89 +9014,6 @@ button.icon-spinner11:before {
   margin: 20px 0;
 }
 
-.timeLine {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background: #003b44;
-  width: calc(100% - 20px);
-  height: 10px;
-  border-radius: 30px;
-  margin: 69px 0 35px;
-}
-
-.timeLine > div {
-  width: 10px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  position: relative;
-  text-align: left;
-}
-
-.timeLine > div:before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  background: #19a4bb;
-  border-radius: 30px;
-  display: block;
-}
-
-.timeLine > div:nth-child(2) > div {
-  background: #19a4bb;
-  z-index: 2;
-}
-
-.timeLine > div:nth-child(2) > div:before {
-  border-color: transparent transparent transparent #19a4bb;
-}
-
-.timeLine > div:nth-child(3) > div {
-  background: #288894;
-  z-index: 1;
-  margin-left: -63px;
-}
-
-.timeLine > div:nth-child(3) > div:before {
-  border-color: transparent transparent transparent #288894;
-}
-
-.timeLine > div:nth-child(4) > div {
-  margin-left: -51px;
-}
-
-.timeLine > div > div {
-  position: absolute;
-  bottom: 15px;
-  line-height: normal;
-  padding: 5px 0 5px 15px;
-  background: #003b44;
-  font-size: 14px;
-  color: white;
-  font-weight: bold;
-  margin-left: -75px;
-}
-
-.timeLine > div > div:before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 24px 0 24px 15px;
-  border-color: transparent transparent transparent #003b44;
-  position: absolute;
-  top: 0;
-  right: -15px;
-}
-
-.timeLine > div > div > div {
-  color: #fab617;
-}
-
 .rankList {
   background: #00616f;
   overflow-y: auto;
@@ -9993,11 +9443,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   line-height: 30px;
 }
 
-.referral_banner {
-  width: calc(100% - 150px);
-  margin: auto;
-}
-
 .icon-friend + .title {
   width: calc(100% - 150px);
   margin: 15px 0 0;
@@ -10036,214 +9481,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .qrcode img {
   max-width: 200px;
-}
-
-.event {
-  max-width: 1600px;
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  background: #191919 url(../img/event/bg.jpg) no-repeat top center;
-}
-
-.event .animation {
-  width: 380px;
-  height: 400px;
-}
-
-.event > img {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
-  max-width: 395px;
-  margin: 100px 0 35px;
-}
-
-.event .eventModule {
-  width: 100%;
-  margin: 80px 0 30px;
-  background: #191919 url(../img/event/eventInfo_bg.jpg) no-repeat top center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-top: 30px;
-}
-
-.event .eventModule > div {
-  background: rgba(135, 0, 7, 0.7);
-  border: 2px solid #851724;
-  border-radius: 5px;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  width: 768px;
-}
-
-.event .eventModule > div > div.arrow-top, .event .eventModule > div > div.arrow-bottom {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.event .eventModule > div > div.arrow-top .border, .event .eventModule > div > div.arrow-bottom .border {
-  width: calc(100% - 120px);
-  background: url(../img/event/bordertop.png);
-}
-
-.event .eventModule > div > div.arrow-top:before, .event .eventModule > div > div.arrow-top:after, .event .eventModule > div > div.arrow-bottom:before, .event .eventModule > div > div.arrow-bottom:after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 60px;
-}
-
-.event .eventModule > div > div.arrow-top:before {
-  background: url(../img/event/border_arrow.png);
-}
-
-.event .eventModule > div > div.arrow-top:after {
-  background: url(../img/event/border_arrow.png);
-  -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
-}
-
-.event .eventModule > div > div.arrow-bottom .border {
-  -webkit-transform: scaleY(-1);
-          transform: scaleY(-1);
-}
-
-.event .eventModule > div > div.arrow-bottom:before {
-  background: url(../img/event/border_arrow.png);
-  -webkit-transform: scaleY(-1);
-          transform: scaleY(-1);
-}
-
-.event .eventModule > div > div.arrow-bottom:after {
-  background: url(../img/event/border_arrow.png);
-  -webkit-transform: scale(-1);
-          transform: scale(-1);
-}
-
-.event .eventModule > div > div.moduleCenter {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.event .eventModule > div > div.moduleCenter > div {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  line-height: 30px;
-  margin-top: -60px;
-}
-
-.event .eventModule > div > div.moduleCenter > div .tag {
-  background: url(../img/event/title_bg.png) no-repeat center/cover;
-  width: 240px;
-  height: 50px;
-  padding-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-weight: bold;
-}
-
-.event .eventModule > div > div.moduleCenter > div .tag + .title {
-  background: transparent;
-  font-size: 28px;
-  color: #F5C346;
-  width: auto;
-  margin: 20px 0;
-}
-
-.event .eventModule > div > div.moduleCenter > div .txt-orange, .event .eventModule > div > div.moduleCenter > div .tag:nth-child(8) {
-  margin-top: 30px;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  font-weight: bold;
-  color: black;
-  margin-top: 30px;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr {
-  background: white;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr td {
-  border: 1px solid #5e0004;
-  padding: 5px;
-  text-align: center;
-  width: 50%;
-  vertical-align: middle;
-  border-radius: 3px;
-  color: white;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr td div {
-  width: 70px;
-  margin: auto;
-  text-align: right;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr:first-child {
-  background: #980B0B;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(even) {
-  background: #333333;
-}
-
-.event .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(odd):not(:nth-child(1)) {
-  background: #212121;
-}
-
-.event .eventModule > div > div.moduleCenter:before, .event .eventModule > div > div.moduleCenter:after {
-  content: "";
-  display: block;
-  min-width: 60px;
-}
-
-.event .eventModule > div > div.moduleCenter:before {
-  background: url(../img/event/border.png);
-}
-
-.event .eventModule > div > div.moduleCenter:after {
-  background: url(../img/event/border.png);
-  -webkit-transform: scale(-1);
-          transform: scale(-1);
 }
 
 .angpao {
@@ -14447,11 +13684,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .rolloverList > div > div:nth-child(1), .minAmount > div > div:nth-child(1) {
   background: #112240;
-}
-
-img[alt="sg"] {
-  width: 90% !important;
-  margin-bottom: 10px;
 }
 
 .countdown {
