@@ -13,8 +13,9 @@ import SEO from "../seo";
 import PopBox from "./popBox";
 import Loading from "./loading";
 import { loadingContext, productTpIdsContext } from "./context";
+import GoTopBtn from "./goTopBtn";
 
-const Layout = ({ children, showFooter = false }) => {
+const Layout = ({ children, showFooter = false, goTopBtn }) => {
 	const { loading } = useContext(loadingContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const isMountedRef = useRef(null);
@@ -39,12 +40,20 @@ const Layout = ({ children, showFooter = false }) => {
 			{showFooter ? <Footer /> : null}
 			<PopBox />
 			{loading ? <Loading /> : null}
+			{goTopBtn ? <GoTopBtn /> : null}
 		</>
 	);
 };
 
+Layout.defaultProps = {
+	showFooter: false,
+	goTopBtn: true
+};
+
 Layout.propTypes = {
-	children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
+	showFooter: PropTypes.bool,
+	goTopBtn: PropTypes.bool
 };
 
 export default Layout;
