@@ -824,6 +824,72 @@ html.Newtheme header .header > div.function .icon-email.active:after {
   top: -2px;
 }
 
+html.Newtheme header .header > div.function .icon-email .info {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  width: 160px;
+  height: auto;
+  background: #fab617;
+  -webkit-box-shadow: rgba(250, 182, 23, 0.6) 4px 4px;
+          box-shadow: rgba(250, 182, 23, 0.6) 4px 4px;
+  color: #1f3258;
+  padding: 10px 30px 10px 15px;
+  border-radius: 3px 0 3px 3px;
+  font-weight: bold;
+  font-size: 12px;
+  z-index: 1;
+}
+
+html.Newtheme header .header > div.function .icon-email .info > div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+html.Newtheme header .header > div.function .icon-email .info::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  right: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid #fab617;
+}
+
+html.Newtheme header .header > div.function .icon-email .info::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -8px;
+  width: 24px;
+  height: 24px;
+  background: url(../img/bell.png) center/cover;
+  -webkit-animation: routate2 linear infinite alternate 0.8s;
+          animation: routate2 linear infinite alternate 0.8s;
+}
+
+html.Newtheme header .header > div.function .icon-email .info .icon-close {
+  position: absolute;
+  top: 10px;
+  right: 8px;
+  font-size: 10px;
+  background: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fab617;
+}
+
 html.Newtheme header .header > div.function .country {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
@@ -1039,7 +1105,7 @@ html.Newtheme header .header > div.function .memberfile > img {
 html.Newtheme header .header > div.function .memberfile .icon-money {
   position: absolute;
   bottom: -5px;
-  left: 50px;
+  left: 30px;
   width: 14px;
   height: 14px;
   display: none;
@@ -2078,6 +2144,32 @@ html.Newtheme .inputBox .dropdown > .btn:after {
 
 html.Newtheme .inputBox ::-webkit-scrollbar {
   width: 5px;
+}
+
+html.Newtheme .inputBox.disable {
+  -webkit-filter: grayscale(2);
+          filter: grayscale(2);
+  background: #b2b2b2;
+}
+
+html.Newtheme .inputBox.disable .dropdown .btn::after {
+  border-color: #8d8d8d transparent transparent transparent;
+}
+
+html.Newtheme .inputBox.disable input::-webkit-input-placeholder {
+  color: #1f3258 !important;
+}
+
+html.Newtheme .inputBox.disable input:-ms-input-placeholder {
+  color: #1f3258 !important;
+}
+
+html.Newtheme .inputBox.disable input::-ms-input-placeholder {
+  color: #1f3258 !important;
+}
+
+html.Newtheme .inputBox.disable input::placeholder {
+  color: #1f3258 !important;
 }
 
 html.Newtheme .inputBox-org {
@@ -8379,6 +8471,36 @@ html.Newtheme .goldbox .eventModule .nodata > div {
   }
 }
 
+@-webkit-keyframes routate2 {
+  0% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes routate2 {
+  0% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+    transform: rotate(10deg);
+  }
+}
+
 html.Newtheme .refbanner {
   display: block;
   width: calc(100% - 280px);
@@ -8665,6 +8787,11 @@ html.Newtheme .subModuleListColumn > .subModule > div {
 
 html.Newtheme .subModuleListColumn > .subModule > div.inputBox {
   width: 420px;
+}
+
+html.Newtheme .subModuleListColumn > .subModule > div.inputBox.promocode {
+  width: 200px;
+  margin: 0 0 0 auto;
 }
 
 html.Newtheme .subModuleListColumn > .subModule > div > button,
@@ -11991,5 +12118,29 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .cryptoPayPop ul li {
   margin-left: 15px;
   list-style: decimal;
+}
+
+#goTop {
+  position: fixed;
+  bottom: 150px;
+  right: 80px;
+  width: 40px;
+  height: 40px;
+  background: rgba(250, 182, 23, 0.85);
+  border-radius: 100%;
+  z-index: 1;
+}
+
+#goTop i {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */
