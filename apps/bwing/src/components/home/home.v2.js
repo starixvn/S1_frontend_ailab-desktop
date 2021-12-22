@@ -60,7 +60,6 @@ function Home() {
 		try {
 			const isInPeriod = isDateRange(null, defEventPeriod.xmas.end);
 			if (isInPeriod) {
-				alert("?");
 				// eslint-disable-next-line global-require
 				require("./snow");
 			}
