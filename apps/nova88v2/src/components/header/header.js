@@ -67,10 +67,6 @@ export default () => {
 		return <button className="icon icon-exit" onClick={handleLogout} />;
 	};
 
-	const Logo = `${cloudImgUrl}/SiteSkin/img/logo${
-		userInfo.langId === "cs" ? "_cs_w" : "_en_w"
-	}.png`;
-
 	return (
 		<header id="header">
 			<div className="header">
@@ -82,7 +78,10 @@ export default () => {
 								alt="Logo_Euro"
 							/>
 						) : (
-							<img src={Logo} alt={config.siteName} />
+							<img
+								src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
+								alt={config.siteName}
+							/>
 						)}
 					</Link>
 				</div>
