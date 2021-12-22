@@ -5,7 +5,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 (function () {
 	var el = document.getElementById("snow");
-	console.log(el);
 	var ctx = el.getContext("2d");
 	var width = 0;
 	var height = 0;
