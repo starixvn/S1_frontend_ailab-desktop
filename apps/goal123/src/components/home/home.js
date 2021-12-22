@@ -36,6 +36,7 @@ import SideBarQuickLink from "./sideBarQuickLink";
 import QuickdownloadLink from "./quickdownloadLink";
 import { defTpGameType } from "../../datas/productList";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
+import { defEventPeriod } from "../common/eventIcon";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -46,6 +47,18 @@ const Home = ({ productTpIds }) => {
 	const { setIsRoot } = useContext(isRootContext);
 	const [winnerList, setWinnerList] = useState([]);
 	const { allMaintainList } = useContext(maintainListContext);
+
+	useEffect(() => {
+		try {
+			const isInPeriod = isDateRange(null, defEventPeriod.xmas.end);
+			if (isInPeriod) {
+				// eslint-disable-next-line global-require
+				require("./snow");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}, []);
 
 	useEffect(() => {
 		isMountedRef.current = true;
