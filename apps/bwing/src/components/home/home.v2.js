@@ -8,7 +8,12 @@ import {
 	isRootContext,
 	maintainListContext
 } from "../common/context";
-import { number_format, readCookie, setCookie } from "../common/common";
+import {
+	number_format,
+	readCookie,
+	setCookie,
+	isDateRange
+} from "../common/common";
 import { defPopBoxType } from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 
@@ -32,6 +37,7 @@ import useGetVideo from "../streaming/hook";
 
 import imgGameIcon from "../../styles/img/gameIcon.png";
 import imgTimeIcon from "../../styles/img/timeIcon.png";
+import { defEventPeriod } from "../common/eventIcon";
 
 function Home() {
 	const { t } = useTranslation();
@@ -49,6 +55,19 @@ function Home() {
 	});
 
 	const [winnerList, setWinnerList] = useState([]);
+
+	useEffect(() => {
+		try {
+			const isInPeriod = isDateRange(null, defEventPeriod.xmas.end);
+			if (isInPeriod) {
+				alert("?");
+				// eslint-disable-next-line global-require
+				require("./snow");
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	}, []);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -111,6 +130,7 @@ function Home() {
 
 	return (
 		<>
+			<canvas id="snow" className="snow" />
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 				langId={userInfo.langId}
