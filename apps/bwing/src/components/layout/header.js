@@ -13,17 +13,14 @@ import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import path from "../../router";
 import { isDateRange } from "../common/common";
-import { eventPeriodIdpd } from "../../datas/eventDef";
+import { defEventPeriod } from "../common/eventIcon";
 import LogoEvent from "../../styles/img/logo-new.png";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
-	const isInPeriodEvent = isDateRange(
-		eventPeriodIdpd.startDate,
-		eventPeriodIdpd.endDate
-	);
+	const isInPeriodEvent = isDateRange(null, defEventPeriod.xmas.end);
 	const { allMaintainList } = useContext(maintainListContext);
 
 	return (

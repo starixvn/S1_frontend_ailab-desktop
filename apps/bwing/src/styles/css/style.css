@@ -2006,6 +2006,7 @@ footer > div.copyright {
   display: -ms-flexbox;
   display: flex;
   width: 800px;
+  padding: 20px 0;
 }
 
 .joinus .joinModule {
@@ -2030,6 +2031,7 @@ footer > div.copyright {
 .joinus .joinModule .Terms {
   font-size: 12px;
   line-height: 25px;
+  margin-bottom: 20px;
 }
 
 .joinus .joinModule .Terms .agree {
@@ -2063,6 +2065,7 @@ footer > div.copyright {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+  margin: auto;
 }
 
 .icon-arrow_drop_down {
@@ -15167,5 +15170,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-weight: bold;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+}
+
+.snow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 2;
 }
 /*# sourceMappingURL=style.css.map */

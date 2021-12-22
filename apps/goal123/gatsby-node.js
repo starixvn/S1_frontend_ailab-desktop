@@ -12,57 +12,60 @@ const config = require("./gatsby-config");
  * it will be accessible from https:// .../en/404/ and https:// .../el/404/
  */
 exports.onCreatePage = async ({
-  page,
-  actions: { createPage, deletePage, createRedirect },
+	page,
+	actions: { createPage, deletePage, createRedirect }
 }) => {
-  const isEnvDevelopment = process.env.NODE_ENV === "development";
-  const originalPath = page.path;
+	const isEnvDevelopment = process.env.NODE_ENV === "development";
+	const originalPath = page.path;
 
-  // if (!page.path.match(/^\/404\/$/)) {
-  // 	await deletePage(page);
-  // }
+	// if (!page.path.match(/^\/404\/$/)) {
+	// 	await deletePage(page);
+	// }
 
-  await Promise.all(
-    config.siteMetadata.supportedLanguages.map(async (lang) => {
-      const localizedPath = `/${lang}${page.path}`;
-      // createRedirect({
-      // 	fromPath: originalPath,
-      // 	toPath: localizedPath,
-      // 	Language: lang,
-      // 	isPermanent: false,
-      // 	redirectInBrowser: isEnvDevelopment,
-      // 	statusCode: 301
-      // });
+	await Promise.all(
+		config.siteMetadata.supportedLanguages.map(async lang => {
+			const localizedPath = `/${lang}${page.path}`;
+			// createRedirect({
+			// 	fromPath: originalPath,
+			// 	toPath: localizedPath,
+			// 	Language: lang,
+			// 	isPermanent: false,
+			// 	redirectInBrowser: isEnvDevelopment,
+			// 	statusCode: 301
+			// });
 
-      await createPage({
-        ...page,
-        path: localizedPath,
-        context: {
-          ...page.context,
-          originalPath,
-          lang,
-        },
-      });
-    })
-  );
+			await createPage({
+				...page,
+				path: localizedPath,
+				context: {
+					...page.context,
+					originalPath,
+					lang
+				}
+			});
+		})
+	);
 
-  // createRedirect({
-  // 	fromPath: originalPath,
-  // 	toPath: `/${config.siteMetadata.defaultLanguage}${page.path}`,
-  // 	isPermanent: false,
-  // 	redirectInBrowser: isEnvDevelopment,
-  // 	statusCode: 301
-  // });
+	// createRedirect({
+	// 	fromPath: originalPath,
+	// 	toPath: `/${config.siteMetadata.defaultLanguage}${page.path}`,
+	// 	isPermanent: false,
+	// 	redirectInBrowser: isEnvDevelopment,
+	// 	statusCode: 301
+	// });
 };
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require("path");
 exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "src"),
-      },
-    },
-  });
+	actions.setWebpackConfig({
+		resolve: {
+			alias: {
+				"@": path.resolve(__dirname, "src")
+			}
+		},
+		externals: {
+			jquery: "jQuery" // important: 'Q' capitalized
+		}
+	});
 };
