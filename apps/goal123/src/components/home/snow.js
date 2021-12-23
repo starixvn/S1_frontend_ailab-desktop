@@ -17,8 +17,6 @@
 	var absMax = 200;
 	var flakeCount = 0;
 
-	$(init);
-
 	function init() {
 		var detectSize = function () {
 			ww = $(window).width();
@@ -139,7 +137,7 @@
 		$nowflake.data("v", v);
 		$nowflake.data("half_v", Math.round(v * 0.5));
 
-		$("body").append($nowflake);
+		$("#main").append($nowflake);
 	}
 
 	function move() {
@@ -202,4 +200,6 @@
 			}
 		});
 	}
+
+	module.exports.init = init;
 })(jQuery);

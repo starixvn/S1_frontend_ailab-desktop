@@ -53,7 +53,7 @@ const Home = ({ productTpIds }) => {
 			const isInPeriod = isDateRange(null, defEventPeriod.xmas.end);
 			if (isInPeriod) {
 				// eslint-disable-next-line global-require
-				require("./snow");
+				require("./snow").init();
 			}
 		} catch (error) {
 			console.log(error);
@@ -232,7 +232,7 @@ const Home = ({ productTpIds }) => {
 	};
 
 	return (
-		<main>
+		<main id="main">
 			<BannerSwipper
 				ImgFolder={[defBannerType.Promotions]}
 				withBtn={false}
