@@ -688,7 +688,8 @@
 		"lbl_popboxTitle1": "Lastest Rewards",
 		"lbl_congratulations": "Congratulations",
 		"lbl_popboxDescription1": "Your BWING Lucky Wheel bonus of {{prizeName}} has been credited to your account.",
-		"lbl_popboxDescription2": "You are rewarded {{prizeName}} today, please come back again tomorrow!"
+		"lbl_popboxDescription2": "You are rewarded {{prizeName}} today, please come back again tomorrow!",
+		"lbl_MinDeposit":"Min Deposit VND {{amount}}"
 	},
 
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",

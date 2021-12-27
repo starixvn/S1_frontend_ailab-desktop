@@ -1,7 +1,8 @@
 import React, { memo } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
-import { eventPeriod } from "./luckyWheel.def";
+import { eventPeriod, eventPeriod_minDeposit } from "./luckyWheel.def";
+import { isDateRange } from "../common/common";
 
 const LuckWheelEventModule = ({
 	t,
@@ -28,6 +29,18 @@ const LuckWheelEventModule = ({
 							} GMT+07:00`}
 						</div>
 						<div>{t("luckyWheel.lbl_memberEligibility")}</div>
+
+						{isDateRange(
+							eventPeriod_minDeposit.startDate,
+							null
+						) && (
+							<div>
+								{t("luckyWheel.lbl_MinDeposit", {
+									amount: "50,000"
+								})}
+							</div>
+						)}
+
 						<div className="txt-yellow2">
 							{t("luckyWheel.lbl_otherConditions")}
 						</div>
