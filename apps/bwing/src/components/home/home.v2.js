@@ -39,6 +39,8 @@ import imgGameIcon from "../../styles/img/gameIcon.png";
 import imgTimeIcon from "../../styles/img/timeIcon.png";
 import { defEventPeriod } from "../common/eventIcon";
 
+import Snowfall from "./snow";
+
 function Home() {
 	const { t } = useTranslation();
 	const { setPopBox, errorPopBox } = usePopBox();
@@ -55,18 +57,6 @@ function Home() {
 	});
 
 	const [winnerList, setWinnerList] = useState([]);
-
-	useEffect(() => {
-		try {
-			const isInPeriod = isDateRange(null, defEventPeriod.xmas.end);
-			if (isInPeriod) {
-				// eslint-disable-next-line global-require
-				require("./snow");
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	}, []);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -129,7 +119,7 @@ function Home() {
 
 	return (
 		<>
-			<canvas id="snow" className="snow" />
+			{isDateRange(null, defEventPeriod.xmas.end) && <Snowfall />}
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 				langId={userInfo.langId}
