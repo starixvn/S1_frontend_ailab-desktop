@@ -85,7 +85,7 @@ button[disabled] {
   transition: 0.6s;
 }
 
-.transition-open, main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG1.jpg"], .tip.active, .dropdown > .dropdown-container.active, .personal .list .listBody.active {
+.transition-open, .tip.active, .dropdown > .dropdown-container.active, .personal .list .listBody.active {
   visibility: visible;
   opacity: 1;
   height: auto;
@@ -740,7 +740,7 @@ header input:focus-within {
 }
 
 .header > div.menu .subMenu-Wrapper-new .pokerList, .header > div.menu .subMenu-Wrapper-new .vipList, .header > div.menu .subMenu-Wrapper-new .rankingList, .header > div.menu .subMenu-Wrapper-new .appList, .header > div.menu .subMenu-Wrapper-new .promoList {
-  background: url(../img/poker.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/poker.jpg) no-repeat center/auto;
   padding: 0 calc((100% - 1400px)/2);
 }
 
@@ -878,19 +878,19 @@ header input:focus-within {
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList.vipen {
-  background: url(../img/vipbg_en.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/vipbg_en.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList.vipcs {
-  background: url(../img/vipbg_cs.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/vipbg_cs.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList.vipid {
-  background: url(../img/vipbg_id.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/vipbg_id.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList.vipth {
-  background: url(../img/vipbg_th.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/vipbg_th.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList > div {
@@ -1098,31 +1098,31 @@ header input:focus-within {
 }
 
 .header > div.function > div .flag.ch:before, .header > div.function > a .flag.ch:before, .header > div.function > button .flag.ch:before {
-  background: url(../img/flag/ch.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
 }
 
 .header > div.function > div .flag.cs:before, .header > div.function > a .flag.cs:before, .header > div.function > button .flag.cs:before {
-  background: url(../img/flag/cs.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
 }
 
 .header > div.function > div .flag.en:before, .header > div.function > a .flag.en:before, .header > div.function > button .flag.en:before {
-  background: url(../img/flag/en.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
 }
 
 .header > div.function > div .flag.th:before, .header > div.function > a .flag.th:before, .header > div.function > button .flag.th:before {
-  background: url(../img/flag/th.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
 }
 
 .header > div.function > div .flag.id:before, .header > div.function > a .flag.id:before, .header > div.function > button .flag.id:before {
-  background: url(../img/flag/id.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
 }
 
 .header > div.function > div .flag.vn:before, .header > div.function > a .flag.vn:before, .header > div.function > button .flag.vn:before {
-  background: url(../img/flag/vn.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
 }
 
 .header > div.function > div .flag.in:before, .header > div.function > a .flag.in:before, .header > div.function > button .flag.in:before {
-  background: url(../img/flag/in.jpg) no-repeat top left/cover;
+  background: url(https://banner.0814media.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
 }
 
 .header > div.function .icon-email {
@@ -1521,300 +1521,6 @@ main section .btnGroup:not(.historyTag) {
           justify-content: center;
 }
 
-main .gamelistsport {
-  -webkit-box-flex: 12;
-      -ms-flex: 12;
-          flex: 12;
-  margin-right: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-}
-
-main .gamelistsport a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 calc(100% / 3 - 20px);
-          flex: 0 0 calc(100% / 3 - 20px);
-  margin-bottom: 60px;
-  margin-right: 19px;
-  position: relative;
-}
-
-main .gamelistsport a div {
-  width: 100%;
-  height: 100%;
-}
-
-main .gamelistsport a span {
-  position: absolute;
-  bottom: 5%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: calc(100% - 15%);
-  z-index: 2;
-  left: -30px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistsport a span:before {
-  margin-right: 8px;
-  font-size: 1.5vw;
-  opacity: 0;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistsport a .npc {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  top: 10px;
-  left: 20px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  z-index: 1;
-}
-
-main .gamelistsport a .npc img {
-  width: 130%;
-}
-
-main .gamelistsport a .npc img[src="img/npc-tennis.png"], main .gamelistsport a .npc img[src="img/npc-esport.png"] {
-  width: 110%;
-}
-
-main .gamelistsport a img {
-  position: absolute;
-}
-
-main .gamelistsport a .container {
-  position: relative;
-  -webkit-perspective: 900px;
-          perspective: 900px;
-}
-
-main .gamelistsport a .container .card_right, main .gamelistsport a .container .card_left {
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  overflow: hidden;
-  border-radius: 15px;
-}
-
-main .gamelistsport a .container .card_right img, main .gamelistsport a .container .card_left img {
-  width: auto;
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistsport a .container .card_right img.baseball, main .gamelistsport a .container .card_left img.baseball {
-  margin-left: 50px;
-  -webkit-transform: rotate(10deg);
-          transform: rotate(10deg);
-  margin-top: 10px;
-}
-
-main .gamelistsport a .container .card_right img.badminton, main .gamelistsport a .container .card_left img.badminton {
-  margin-left: 50px;
-  -webkit-transform: rotate(10deg);
-          transform: rotate(10deg);
-  margin-top: 10px;
-}
-
-main .gamelistsport a .container .card_right:before, main .gamelistsport a .container .card_left:before {
-  content: "";
-  position: absolute;
-  border: 10px solid white;
-  width: 60%;
-  height: 50%;
-  z-index: 1;
-}
-
-main .gamelistsport a .container .card_right {
-  -webkit-transform-origin: right;
-          transform-origin: right;
-  -webkit-transform: rotateY(20deg);
-          transform: rotateY(20deg);
-}
-
-main .gamelistsport a .container .card_left {
-  -webkit-transform-origin: left;
-          transform-origin: left;
-  -webkit-transform: rotateY(-20deg);
-          transform: rotateY(-20deg);
-}
-
-main .gamelistsport a:hover span, main .gamelistsport a:active span {
-  left: 15%;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistsport a:hover span:before, main .gamelistsport a:active span:before {
-  opacity: 1;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistsport a:hover .npc, main .gamelistsport a:active .npc {
-  top: 0px;
-  left: 0px;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistsport a:hover .card_right, main .gamelistsport a:hover .card_left, main .gamelistsport a:active .card_right, main .gamelistsport a:active .card_left {
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistsport a:hover .card_right img, main .gamelistsport a:hover .card_left img, main .gamelistsport a:active .card_right img, main .gamelistsport a:active .card_left img {
-  -webkit-filter: grayscale(0);
-          filter: grayscale(0);
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistsport a:hover .card_right img.soccer, main .gamelistsport a:hover .card_left img.soccer, main .gamelistsport a:active .card_right img.soccer, main .gamelistsport a:active .card_left img.soccer {
-  margin-left: 50px;
-}
-
-main .gamelistsport a:hover .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:hover .card_left img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_right img.basketball[src="img/basketballBG1.jpg"], main .gamelistsport a:active .card_left img.basketball[src="img/basketballBG1.jpg"] {
-  margin-left: 100px;
-  margin-top: -20px;
-}
-
-main .gamelistsport a:hover .card_right img.baseball, main .gamelistsport a:hover .card_left img.baseball, main .gamelistsport a:active .card_right img.baseball, main .gamelistsport a:active .card_left img.baseball {
-  margin-left: 50px;
-  -webkit-transform: rotate(-10deg);
-          transform: rotate(-10deg);
-  margin-top: -10px;
-}
-
-main .gamelistsport a:hover .card_right img.badminton, main .gamelistsport a:hover .card_left img.badminton, main .gamelistsport a:active .card_right img.badminton, main .gamelistsport a:active .card_left img.badminton {
-  margin-left: 120px;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
-  margin-top: 0px;
-}
-
-main .gamelistsport a:hover .card_right img.tennis, main .gamelistsport a:hover .card_left img.tennis, main .gamelistsport a:active .card_right img.tennis, main .gamelistsport a:active .card_left img.tennis {
-  margin-left: -95px;
-  -webkit-transform: rotate(6deg);
-          transform: rotate(6deg);
-}
-
-main .gamelistsport a:hover .card_right img.esport, main .gamelistsport a:hover .card_left img.esport, main .gamelistsport a:active .card_right img.esport, main .gamelistsport a:active .card_left img.esport {
-  margin-left: -95px;
-  -webkit-transform: rotate(6deg);
-          transform: rotate(6deg);
-}
-
-main .gamelistsport a:hover .card_right:before, main .gamelistsport a:hover .card_left:before, main .gamelistsport a:active .card_right:before, main .gamelistsport a:active .card_left:before {
-  border: 10px solid #f77900;
-}
-
-main .gamelistother {
-  -webkit-box-flex: 5;
-      -ms-flex: 5;
-          flex: 5;
-  max-width: 448px;
-}
-
-main .gamelistother > a {
-  background: #212121;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  border-radius: 20px;
-  text-align: right;
-  padding: 15px 0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  position: relative;
-  margin: 30px 0;
-}
-
-main .gamelistother > a > img {
-  max-width: 70%;
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
-main .gamelistother > a div {
-  position: absolute;
-  left: 30px;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: left;
-}
-
-main .gamelistother > a div > i, main .gamelistother > a div > span {
-  width: 100%;
-  margin-bottom: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-main .gamelistother > a div > i:before, main .gamelistother > a div > span:before {
-  font-size: 60px;
-}
-
-main .gamelistother > a div > :nth-child(3) {
-  margin-top: 12px;
-  font-size: 12px;
-  opacity: 0.8;
-  width: 35%;
-}
-
-main .gamelistother > a:hover {
-  background: #134DAE;
-}
-
-main .gamelistother > a:hover > img {
-  -webkit-transform: translateY(-10px);
-          transform: translateY(-10px);
-  -webkit-transition: 0.6s;
-  transition: 0.6s;
-}
-
 footer {
   background: #112240;
   min-width: 1400px;
@@ -1881,7 +1587,7 @@ footer .license {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: url(../img/licensebg.png) no-repeat bottom right;
+  background: url(https://banner.0814media.net/desktop/img/licensebg.png) no-repeat bottom right;
   margin-top: 20px;
 }
 
@@ -2992,7 +2698,7 @@ input[type="file"] {
 }
 
 #Marquee {
-  background: #5574A7 url(../img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
+  background: #5574A7 url(https://banner.0814media.net/desktop/img/marqueebg.png) no-repeat top left/calc((100% - 1400px) / 2 + 70px) 100%;
   position: relative;
   overflow: hidden;
 }
@@ -3014,7 +2720,7 @@ input[type="file"] {
 #Marquee .marquee-box.icon:before {
   width: 90px;
   color: white;
-  background: url(../img/marqueeboxbg.png) no-repeat left center/auto 100%;
+  background: url(https://banner.0814media.net/desktop/img/marqueeboxbg.png) no-repeat left center/auto 100%;
   z-index: 1;
   height: 100%;
   display: -webkit-box;
@@ -4516,7 +4222,7 @@ input[type="file"] {
   font-size: 48px;
   width: 120px;
   height: 120px;
-  background: url(../img/joinSuccessBg.png) no-repeat top center/cover;
+  background: url(https://banner.0814media.net/desktop/img/joinSuccessBg.png) no-repeat top center/cover;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4774,7 +4480,7 @@ input[type="file"] {
   right: 50px;
   width: 60px;
   height: 46px;
-  background: url(../img/event/wheel/coin.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/wheel/coin.png) no-repeat center/cover;
 }
 
 #popup .pop.wheelPop .animation .coin:nth-child(2) {
@@ -5164,121 +4870,6 @@ input[type="file"] {
 
 .swiper-container {
   position: relative !important;
-}
-
-.offers {
-  border-radius: 15px;
-  position: relative;
-  cursor: pointer;
-}
-
-.offers .swiper-container {
-  height: 260px;
-}
-
-.offers .swiper-slide {
-  text-align: center;
-  background: url(../img/offersbg.png);
-}
-
-.offers .swiper-slide .team {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  position: relative;
-  font-weight: bold;
-  line-height: normal;
-  padding: 0 20px;
-}
-
-.offers .swiper-slide .team div {
-  width: 134.5px;
-}
-
-.offers .swiper-slide .team div.teamL, .offers .swiper-slide .team div.teamR {
-  font-size: 16px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  height: 165px;
-}
-
-.offers .swiper-slide .team div img {
-  width: 70px;
-  height: 70px;
-  margin-top: 35px;
-  margin-bottom: 35px;
-}
-
-.offers .swiper-slide .team div.schedule {
-  margin-top: 35px;
-  width: 139px;
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  color: #333333;
-  font-size: 24px;
-  line-height: 0;
-}
-
-.offers .swiper-slide .team div.schedule span {
-  margin-top: 40px;
-  color: white;
-  font-size: 36px;
-  background: -webkit-linear-gradient(bottom, #fff 0%, #fff 100%);
-  -webkit-text-stroke: 1.5px #c8aa8c;
-}
-
-.offers .swiper-slide .team div.gameName {
-  position: absolute;
-  width: calc(100% - 40px);
-  bottom: 20px;
-  text-align: center;
-}
-
-.offers .swiper-slide .team div.gameName span {
-  background: -webkit-linear-gradient(bottom, #df9b5c 10%, #faf0d5 25%, #fdf0d6 90%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 18px;
-}
-
-.offers .swiper-button-next, .offers .swiper-button-prev {
-  width: 50px;
-  height: 50px;
-  outline: none;
-  z-index: 1;
-  bottom: 7px;
-  top: auto;
-}
-
-.offers .swiper-button-next:after, .offers .swiper-button-prev:after {
-  content: "\e954";
-  font-size: 48px;
-  font-family: 'icomoon';
-  color: white;
-}
-
-.offers .swiper-button-prev {
-  -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
 }
 
 .walletModule {
@@ -6712,7 +6303,7 @@ input[type="file"] {
   min-height: 100%;
 }
 
-.proList, .slotList, .livecasino, .fishingList {
+.slotList, .livecasino, .fishingList {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6722,7 +6313,7 @@ input[type="file"] {
   line-height: 20px;
 }
 
-.proList > div, .slotList > div, .livecasino > div, .fishingList > div {
+.slotList > div, .livecasino > div, .fishingList > div {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(100% / 3 - 50px);
           flex: 0 0 calc(100% / 3 - 50px);
@@ -6734,17 +6325,17 @@ input[type="file"] {
   position: relative;
 }
 
-.proList > div.active, .slotList > div.active, .livecasino > div.active, .fishingList > div.active {
+.slotList > div.active, .livecasino > div.active, .fishingList > div.active {
   opacity: 0.7;
 }
 
-.proList > div.active .claimed, .slotList > div.active .claimed, .livecasino > div.active .claimed, .fishingList > div.active .claimed {
+.slotList > div.active .claimed, .livecasino > div.active .claimed, .fishingList > div.active .claimed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .new, .proList > div .claimed, .slotList > div .new, .slotList > div .claimed, .livecasino > div .new, .livecasino > div .claimed, .fishingList > div .new, .fishingList > div .claimed {
+.slotList > div .new, .slotList > div .claimed, .livecasino > div .new, .livecasino > div .claimed, .fishingList > div .new, .fishingList > div .claimed {
   position: absolute;
   top: -10px;
   left: -10px;
@@ -6764,17 +6355,17 @@ input[type="file"] {
   font-weight: bold;
 }
 
-.proList > div .new:before, .proList > div .claimed:before, .slotList > div .new:before, .slotList > div .claimed:before, .livecasino > div .new:before, .livecasino > div .claimed:before, .fishingList > div .new:before, .fishingList > div .claimed:before {
+.slotList > div .new:before, .slotList > div .claimed:before, .livecasino > div .new:before, .livecasino > div .claimed:before, .fishingList > div .new:before, .fishingList > div .claimed:before {
   content: "NEW";
 }
 
-.proList > div .new.active, .proList > div .claimed.active, .slotList > div .new.active, .slotList > div .claimed.active, .livecasino > div .new.active, .livecasino > div .claimed.active, .fishingList > div .new.active, .fishingList > div .claimed.active {
+.slotList > div .new.active, .slotList > div .claimed.active, .livecasino > div .new.active, .livecasino > div .claimed.active, .fishingList > div .new.active, .fishingList > div .claimed.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.proList > div .claimed, .slotList > div .claimed, .livecasino > div .claimed, .fishingList > div .claimed {
+.slotList > div .claimed, .livecasino > div .claimed, .fishingList > div .claimed {
   background: rgba(167, 3, 3, 0.8);
   width: 75px;
   height: 75px;
@@ -6782,26 +6373,26 @@ input[type="file"] {
           transform: rotate(-25deg);
 }
 
-.proList > div .claimed:before, .slotList > div .claimed:before, .livecasino > div .claimed:before, .fishingList > div .claimed:before {
+.slotList > div .claimed:before, .livecasino > div .claimed:before, .fishingList > div .claimed:before {
   content: "CLAIMED";
 }
 
-.proList > div .txt-dark, .proList > div .txt-darkBlue, .slotList > div .txt-dark, .slotList > div .txt-darkBlue, .livecasino > div .txt-dark, .livecasino > div .txt-darkBlue, .fishingList > div .txt-dark, .fishingList > div .txt-darkBlue {
+.slotList > div .txt-dark, .slotList > div .txt-darkBlue, .livecasino > div .txt-dark, .livecasino > div .txt-darkBlue, .fishingList > div .txt-dark, .fishingList > div .txt-darkBlue {
   font-weight: bold;
   margin: 15px 0;
 }
 
-.proList > div .txt-gray li, .slotList > div .txt-gray li, .livecasino > div .txt-gray li, .fishingList > div .txt-gray li {
+.slotList > div .txt-gray li, .livecasino > div .txt-gray li, .fishingList > div .txt-gray li {
   font-size: 12px;
   list-style: disc;
   margin-left: 16px;
 }
 
-.proList > div img, .slotList > div img, .livecasino > div img, .fishingList > div img {
+.slotList > div img, .livecasino > div img, .fishingList > div img {
   border-radius: 10px;
 }
 
-.proList .rollover, .slotList .rollover, .livecasino .rollover, .fishingList .rollover {
+.slotList .rollover, .livecasino .rollover, .fishingList .rollover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6810,90 +6401,15 @@ input[type="file"] {
   margin: 10px 0;
 }
 
-.proList .rollover > div, .slotList .rollover > div, .livecasino .rollover > div, .fishingList .rollover > div {
+.slotList .rollover > div, .livecasino .rollover > div, .fishingList .rollover > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.proList .rollover > div .icon:before, .slotList .rollover > div .icon:before, .livecasino .rollover > div .icon:before, .fishingList .rollover > div .icon:before {
+.slotList .rollover > div .icon:before, .livecasino .rollover > div .icon:before, .fishingList .rollover > div .icon:before {
   font-weight: normal;
   margin-right: 5px;
-}
-
-.proList {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding: 0 20px;
-}
-
-.proList > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  float: left;
-  margin: 10px;
-}
-
-.proList > div.expired {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
-.proList > div:hover {
-  background: #e2e2e2;
-  -webkit-box-shadow: 0 0 0 3px #f77900 inset;
-          box-shadow: 0 0 0 3px #f77900 inset;
-}
-
-.proList .btnGroup {
-  width: 100%;
-}
-
-.proList .btnGroup .blue {
-  margin: 0;
-}
-
-.proList .btnGroup .orange {
-  background: -webkit-gradient(linear, left top, left bottom, from(#F1D5B6), to(#CDAE8E));
-  background: linear-gradient(to bottom, #F1D5B6, #CDAE8E);
-}
-
-.proList.expired {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
-.proList.expired > div {
-  background: #b2b2b2;
-}
-
-.proList.expired > div:hover {
-  background: white;
-}
-
-.proList.expired > div .expiredIcon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-20deg);
-          transform: translateX(-50%) translateY(-50%) rotate(-20deg);
-  background: #42424261;
-  border-radius: 10px;
-  border: 1px solid #fff;
-  font-weight: bold;
-  padding: 15px 20px;
-  color: #fff;
-  font-size: 24px;
-  font-style: italic;
 }
 
 .promotionsInfo {
@@ -7552,21 +7068,6 @@ article p {
   font-weight: bold;
 }
 
-.claimedInfo, .expiredClaimedInfo {
-  position: relative;
-}
-
-.claimedInfo .claimed, .expiredClaimedInfo .claimed {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
-
-.claimedInfo > img, .expiredClaimedInfo > img {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
 .new {
   position: absolute;
   top: -10px;
@@ -7626,18 +7127,6 @@ article p {
 
 .claimed:before {
   content: "CLAIMED";
-}
-
-.expiredClaimedInfo {
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-}
-
-.expiredClaimedInfo .proData {
-  background-color: #e2e2e2;
-  background-image: url(../img/expired.png);
-  background-repeat: repeat;
-  background-size: 50px;
 }
 
 pre {
@@ -8686,7 +8175,7 @@ button.icon-spinner11:before {
 
 .onegameModule .promotionsInfo {
   position: relative;
-  background: url(../img/onegame/bg.jpg) no-repeat center;
+  background: url(https://banner.0814media.net/desktop/img/onegame/bg.jpg) no-repeat center;
   height: 500px;
   padding: 0;
 }
@@ -8728,11 +8217,11 @@ button.icon-spinner11:before {
 
 .onegameModule .onegame .left {
   height: 252px;
-  background: url(../img/onegame/btnleftbg.png) no-repeat center right/cover;
+  background: url(https://banner.0814media.net/desktop/img/onegame/btnleftbg.png) no-repeat center right/cover;
 }
 
 .onegameModule .onegame .left.right {
-  background: url(../img/onegame/btnrightbg.png) no-repeat center left/cover;
+  background: url(https://banner.0814media.net/desktop/img/onegame/btnrightbg.png) no-repeat center left/cover;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
@@ -8824,7 +8313,7 @@ button.icon-spinner11:before {
 }
 
 .installGuide.mega {
-  background: url(../img/megabg.jpg) no-repeat bottom/cover;
+  background: url(https://banner.0814media.net/desktop/img/megabg.jpg) no-repeat bottom/cover;
   padding: 20px;
 }
 
@@ -9307,7 +8796,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .ErrorPage > div {
   width: calc(50% - 20%);
   height: 50%;
-  background: url(../img/errorBG.jpg) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/errorBG.jpg) no-repeat center/cover;
   position: relative;
   margin: auto;
   padding: 0 5%;
@@ -9498,7 +8987,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(../img/event/angpao_back.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/angpao_back.png) no-repeat center/cover;
   cursor: pointer;
 }
 
@@ -9549,12 +9038,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: absolute;
   width: 100%;
   height: 400px;
-  background: url(../img/event/angpao_inf.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/angpao_inf.png) no-repeat center/cover;
   z-index: 2;
 }
 
 .angpao .box.active {
-  background: url(../img/event/angpao_inf_d.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/angpao_inf_d.png) no-repeat center/cover;
 }
 
 .angpao .coin {
@@ -9563,7 +9052,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   right: 50px;
   width: 60px;
   height: 60px;
-  background: url(../img/event/coin.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/coin.png) no-repeat center/cover;
 }
 
 .angpao .coin:nth-child(4) {
@@ -10006,7 +9495,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: #191919 url(../img/event/mysterybox/bg.jpg) no-repeat top center;
+  background: #191919 url(https://banner.0814media.net/desktop/img/event/mysterybox/bg.jpg) no-repeat top center;
 }
 
 .event2 .eventList {
@@ -10076,14 +9565,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(../img/event/mysterybox/angpao_back.png) no-repeat bottom center/auto;
+  background: url(https://banner.0814media.net/desktop/img/event/mysterybox/angpao_back.png) no-repeat bottom center/auto;
   cursor: pointer;
 }
 
 .event2 .angpao.active {
   -webkit-animation: rotate2 0.3s infinite alternate;
           animation: rotate2 0.3s infinite alternate;
-  background: url(../img/event/mysterybox/angpao_backa.png) no-repeat bottom center/auto;
+  background: url(https://banner.0814media.net/desktop/img/event/mysterybox/angpao_backa.png) no-repeat bottom center/auto;
   cursor: auto;
 }
 
@@ -10173,12 +9662,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: absolute;
   width: 100%;
   height: 400px;
-  background: url(../img/event/angpao_inf.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/angpao_inf.png) no-repeat center/cover;
   z-index: 2;
 }
 
 .event2 .angpao .box.active {
-  background: url(../img/event/angpao_inf_d.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/angpao_inf_d.png) no-repeat center/cover;
 }
 
 .event2 .angpao .coin {
@@ -10187,7 +9676,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   right: 50px;
   width: 60px;
   height: 60px;
-  background: url(../img/event/mysterybox/coin.png) no-repeat center/100% auto;
+  background: url(https://banner.0814media.net/desktop/img/event/mysterybox/coin.png) no-repeat center/100% auto;
   opacity: 0;
 }
 
@@ -10236,7 +9725,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .event2 .eventModule {
   width: 100%;
   margin: 55px 0 30px;
-  background: #191919 url(../img/event/mysterybox/eventInfo_bg.jpg) no-repeat top center;
+  background: #191919 url(https://banner.0814media.net/desktop/img/event/mysterybox/eventInfo_bg.jpg) no-repeat top center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10280,7 +9769,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .event2 .eventModule > div > div.moduleCenter > div .tag {
-  background: url(../img/event/mysterybox/title_bg.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/event/mysterybox/title_bg.png) no-repeat center/cover;
   width: 400px;
   height: 80px;
   display: -webkit-box;
@@ -10851,7 +10340,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .moduleTitle {
-  background: url(../img/indextitle.png) no-repeat;
+  background: url(https://banner.0814media.net/desktop/img/indextitle.png) no-repeat;
   margin: 30px auto 0;
   font-weight: bold;
   display: -webkit-box;
@@ -10901,7 +10390,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: relative;
   border: 1px solid #BFCCE2;
   line-height: normal;
-  background: url(../img/promosbg.jpg) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/promosbg.jpg) no-repeat center/cover;
   min-width: 280px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11016,7 +10505,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .liveVideo .latestVideo .title, .liveVideo .newsList .title, .newsVideo .latestVideo .title, .newsVideo .newsList .title {
-  background: url(../img/latestvideotitlebg.png) no-repeat;
+  background: url(https://banner.0814media.net/desktop/img/latestvideotitlebg.png) no-repeat;
   line-height: 65px;
   padding-left: 20px;
   color: white;
@@ -11283,7 +10772,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div:first-child, .liveVideo .latestVideo + div .liveTv .team > div:first-child, .liveVideo .newsList + div .upcomingmatches .team > div:first-child, .liveVideo .newsList + div .liveTv .team > div:first-child, .newsVideo .latestVideo + div .upcomingmatches .team > div:first-child, .newsVideo .latestVideo + div .liveTv .team > div:first-child, .newsVideo .newsList + div .upcomingmatches .team > div:first-child, .newsVideo .newsList + div .liveTv .team > div:first-child {
-  background: url(../img/upcomingmatchestitle.png) no-repeat top center/auto;
+  background: url(https://banner.0814media.net/desktop/img/upcomingmatchestitle.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
   overflow: hidden;
@@ -11297,7 +10786,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .liveVideo .latestVideo + div .upcomingmatches .team > div:last-child, .liveVideo .latestVideo + div .liveTv .team > div:last-child, .liveVideo .newsList + div .upcomingmatches .team > div:last-child, .liveVideo .newsList + div .liveTv .team > div:last-child, .newsVideo .latestVideo + div .upcomingmatches .team > div:last-child, .newsVideo .latestVideo + div .liveTv .team > div:last-child, .newsVideo .newsList + div .upcomingmatches .team > div:last-child, .newsVideo .newsList + div .liveTv .team > div:last-child {
-  background: url(../img/upcomingmatchestitledown.png) no-repeat top center/auto;
+  background: url(https://banner.0814media.net/desktop/img/upcomingmatchestitledown.png) no-repeat top center/auto;
   line-height: 27px;
   font-size: 12px;
 }
@@ -11524,7 +11013,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title {
-  background: url(../img/livetvtitlebggold.png) no-repeat center/75% 100%;
+  background: url(https://banner.0814media.net/desktop/img/livetvtitlebggold.png) no-repeat center/75% 100%;
 }
 
 .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before, .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule.active > .title:before {
@@ -11551,7 +11040,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: url(../img/livetvtitlebg.png) no-repeat center/75% 100%;
+  background: url(https://banner.0814media.net/desktop/img/livetvtitlebg.png) no-repeat center/75% 100%;
   color: white;
   position: relative;
   font-size: 12px;
@@ -12505,25 +11994,25 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 @-webkit-keyframes jpot {
   0% {
-    background: url(../img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/jpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(../img/jpotbga.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/jpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(../img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/jpotbg.png) no-repeat center/cover;
   }
 }
 
 @keyframes jpot {
   0% {
-    background: url(../img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/jpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(../img/jpotbga.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/jpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(../img/jpotbg.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/jpotbg.png) no-repeat center/cover;
   }
 }
 
@@ -13295,7 +12784,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .app {
   min-width: auto;
   padding: 0 0 10vw 0;
-  background: url(../img/app/appbg.jpg) no-repeat top center/cover;
+  background: url(https://banner.0814media.net/desktop/img/app/appbg.jpg) no-repeat top center/cover;
 }
 
 .appHeader {
@@ -13686,53 +13175,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: #112240;
 }
 
-.countdown {
-  background: #112240;
-  border-radius: 44px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 10px;
-  padding: 1px 10px 0 1px;
-}
-
-.countdown > img {
-  width: auto;
-  height: auto;
-}
-
-.countdown > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: wrap;
-      flex-flow: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  background: #0e1b33;
-  margin: 1px;
-}
-
-.countdown > div > div {
-  font-size: xx-small;
-}
-
-.countdown > div > div:nth-child(3) {
-  width: 100%;
-  background: #050a13;
-}
-
 /*checkspeed*/
 .checkspeed {
-  background: black url(../img/check_speed/bg.jpg) no-repeat center 87px/cover;
+  background: black url(https://banner.0814media.net/desktop/img/check_speed/bg.jpg) no-repeat center 87px/cover;
   width: 100%;
 }
 
@@ -13961,7 +13406,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 @media screen and (max-width: 767px), (orientation: portrait) {
   .checkspeed {
-    background: #0339a2 url(../img/check_speed/bg.jpg) no-repeat top center/cover;
+    background: #0339a2 url(https://banner.0814media.net/desktop/img/check_speed/bg.jpg) no-repeat top center/cover;
     height: auto;
   }
   .checkspeed .wallpaper {
@@ -14100,25 +13545,25 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 @-webkit-keyframes lobbyjpot {
   0% {
-    background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(../img/lobbyjpotbga.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
 }
 
 @keyframes lobbyjpot {
   0% {
-    background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
   50% {
-    background: url(../img/lobbyjpotbga.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/lobbyjpotbga.png) no-repeat center/cover;
   }
   100% {
-    background: url(../img/lobbyjpotbg.png) no-repeat center/cover;
+    background: url(https://banner.0814media.net/desktop/img/lobbyjpotbg.png) no-repeat center/cover;
   }
 }
 
@@ -14673,7 +14118,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .rankingNew {
-  background: url(../img/ranking_page_bg.jpg) no-repeat top center;
+  background: url(https://banner.0814media.net/desktop/img/ranking_page_bg.jpg) no-repeat top center;
   background-position: top center;
   background-size: auto 100%;
   min-height: 1025px;
@@ -15690,14 +15135,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(../img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
-  background: url(../img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
+  background: url(https://banner.0814media.net/desktop/img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#100d41), to(#250333));
+  background: url(https://banner.0814media.net/desktop/img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(to right, #100d41, #250333);
 }
 
 .wheelEvent .eventPage .eventTitleBg {
   width: 372px;
   height: 86px;
-  background: url(../img/event/wheel/event_title_bg.png) no-repeat center -8px;
+  background: url(https://banner.0814media.net/desktop/img/event/wheel/event_title_bg.png) no-repeat center -8px;
   margin-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -15753,7 +15198,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 410px;
   height: 410px;
   position: relative;
-  background: url(../img/event/wheel/wheelbg.png) no-repeat center;
+  background: url(https://banner.0814media.net/desktop/img/event/wheel/wheelbg.png) no-repeat center;
   overflow: hidden;
 }
 
@@ -16432,7 +15877,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   height: 40px;
   background: #5574A7;
   border-radius: 100%;
-  z-index: 1;
+  z-index: 2;
   color: white;
 }
 
