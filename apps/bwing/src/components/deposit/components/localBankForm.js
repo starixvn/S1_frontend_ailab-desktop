@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import Dropdown from "../../common/dropdown";
 import { getUrlParameter, number_format } from "../../common/common";
 import ClipboardJS from "../../../lib/clipboard.min";
 import config from "../../../config";
+
+import PromotionSelect from "./PromotionSelect";
 
 const LocalBankForm = ({
 	t,
@@ -13,7 +14,6 @@ const LocalBankForm = ({
 	_isConvert,
 	localBankGroupList,
 	formInfo,
-	depositPromoMsg,
 	setFormInfo,
 	onChangeForm,
 	onInputboxKeyDown,
@@ -22,7 +22,7 @@ const LocalBankForm = ({
 	asyncUploadBankPopBox,
 	depositPromoList,
 	isGroupListFetchDone,
-	changeDeposotPromoHandlar
+	onChangePromotion
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
@@ -153,10 +153,6 @@ const LocalBankForm = ({
 		digits: 0
 	});
 
-	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
-		.filter(Boolean)
-		.join(" ");
-
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -283,20 +279,22 @@ const LocalBankForm = ({
 			</div>
 
 			<div className="subModule">
-				<Inputbox
-					className="inputBox-white"
-					value={formInfo.amount?.val}
-					onChange={e => onChangeForm(e.target.value, "amount")}
-					onBlur={e => onChangeForm(e.target.value, "amount")}
-					checked={formInfo.amount?.checked}
-					tip={formInfo.amount?.tip}
-					_isConvert={_isConvert}
-					isAmount={true}
-					placeholder={`${t(
-						"lbl_MinMaxAmount"
-					)} ${formatMinAmount} / ${formatMaxAmount}`}
-					onKeyDown={onInputboxKeyDown}
-				/>
+				<div className="column">
+					<Inputbox
+						className="inputBox-white"
+						value={formInfo.amount?.val}
+						onChange={e => onChangeForm(e.target.value, "amount")}
+						onBlur={e => onChangeForm(e.target.value, "amount")}
+						checked={formInfo.amount?.checked}
+						tip={formInfo.amount?.tip}
+						_isConvert={_isConvert}
+						isAmount={true}
+						placeholder={`${t(
+							"lbl_MinMaxAmount"
+						)} ${formatMinAmount} / ${formatMaxAmount}`}
+						onKeyDown={onInputboxKeyDown}
+					/>
+				</div>
 			</div>
 
 			<div className="subModuleTitle">
@@ -328,26 +326,13 @@ const LocalBankForm = ({
 							{t("lbl_Select_Bonus")}
 						</span>
 					</div>
-					<div className="subModule">
-						<div className="inputBox-blue">
-							<Dropdown
-								showDropDownIcon={true}
-								mainkey="bonus-provider"
-								options={depositPromoList}
-								onSelectItem={(idx, data) =>
-									changeDeposotPromoHandlar({
-										idx,
-										bonusCode: data.bonusCode
-									})
-								}
-								selectedIdx={formInfo?.depositPromo?.idx}
-								i18n={t}
-							/>
-						</div>
-						<div className={depositPromoMsgClass}>
-							{depositPromoMsg}
-						</div>
-					</div>
+
+					<PromotionSelect
+						value={formInfo?.depositPromo ?? {}}
+						amount={Number(formInfo.amount)}
+						depositPromoList={depositPromoList}
+						onSelectItem={onChangePromotion}
+					/>
 				</>
 			)}
 		</>
@@ -357,7 +342,6 @@ const LocalBankForm = ({
 LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	depositPromoMsg: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
@@ -370,6 +354,6 @@ LocalBankForm.propTypes = {
 	asyncUploadBankPopBox: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
-	changeDeposotPromoHandlar: PropTypes.func.isRequired
+	onChangePromotion: PropTypes.func.isRequired
 };
 export default LocalBankForm;

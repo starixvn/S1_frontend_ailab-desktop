@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import Dropdown from "../../common/dropdown";
 import { getUrlParameter, number_format } from "../../common/common";
 import FixedAmountList from "./fixedAmountList";
 import config from "../../../config";
 import { useSyncRouteQuery } from "../hook/useSyncRouteQuery";
+
+import PromotionSelect from "./PromotionSelect";
 
 const CryptoPayForm = ({
 	t,
@@ -20,7 +21,7 @@ const CryptoPayForm = ({
 	onInputboxKeyDown,
 	isGroupListFetchDone,
 	depositPromoMsg,
-	changeDeposotPromoHandlar
+	onChangePromotion
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
@@ -247,26 +248,13 @@ const CryptoPayForm = ({
 							{t("lbl_Select_Bonus")}
 						</span>
 					</div>
-					<div className="subModule">
-						<div className="inputBox-blue">
-							<Dropdown
-								showDropDownIcon={true}
-								mainkey="bonus-provider"
-								options={depositPromoList}
-								onSelectItem={(idx, data) =>
-									changeDeposotPromoHandlar({
-										idx,
-										bonusCode: data.bonusCode
-									})
-								}
-								selectedIdx={formInfo?.depositPromo?.idx}
-								i18n={t}
-							/>
-						</div>
-						<div className={depositPromoMsgClass}>
-							{depositPromoMsg}
-						</div>
-					</div>
+
+					<PromotionSelect
+						value={formInfo?.depositPromo ?? {}}
+						amount={Number(formInfo.amount)}
+						depositPromoList={depositPromoList}
+						onSelectItem={onChangePromotion}
+					/>
 				</>
 			)}
 		</>
@@ -285,7 +273,7 @@ CryptoPayForm.propTypes = {
 	onChangeForm: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	depositPromoMsg: PropTypes.string.isRequired,
-	changeDeposotPromoHandlar: PropTypes.func.isRequired,
+	onChangePromotion: PropTypes.func.isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired
 };
 export default CryptoPayForm;
