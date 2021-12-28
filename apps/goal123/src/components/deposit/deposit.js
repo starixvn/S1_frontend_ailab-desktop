@@ -257,6 +257,7 @@ const Deposit = () => {
 		});
 
 	const onChangePromotion = (idx, data) => {
+		console.log(data);
 		const isSelectType = Boolean(data.bonusCode);
 
 		if (isSelectType && !isOTPVerified(userInfo)) {
@@ -750,7 +751,6 @@ const Deposit = () => {
 						userInfo={userInfo}
 						depositType={depositType}
 						defPopBoxType={defPopBoxType}
-						depositPromoMsg={depositPromoMsg}
 						_isConvert={_isConvert}
 						formatAmount={formatAmount}
 						cryptoPayGroupList={cryptoPayGroupList}
@@ -762,7 +762,7 @@ const Deposit = () => {
 						setFormInfo={setFormInfo}
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
-						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
+						onChangePromotion={onChangePromotion}
 					/>
 				)}
 			</DepositInfoMoule>

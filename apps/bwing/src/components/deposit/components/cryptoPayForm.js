@@ -20,7 +20,6 @@ const CryptoPayForm = ({
 	onChangeForm,
 	onInputboxKeyDown,
 	isGroupListFetchDone,
-	depositPromoMsg,
 	onChangePromotion
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
@@ -116,10 +115,6 @@ const CryptoPayForm = ({
 		number: formInfo.maxAmount,
 		digits: 0
 	});
-
-	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
-		.filter(Boolean)
-		.join(" ");
 
 	return (
 		<>
@@ -272,7 +267,6 @@ CryptoPayForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
-	depositPromoMsg: PropTypes.string.isRequired,
 	onChangePromotion: PropTypes.func.isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired
 };
