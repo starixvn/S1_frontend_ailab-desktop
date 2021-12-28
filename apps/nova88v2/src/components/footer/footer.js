@@ -87,8 +87,7 @@ const Footer = ({ isFullFooter = false }) => {
 					t={t}
 					isLogin={userInfo.isLogin}
 					langId={userInfo.langId}
-					currencyId={userInfo.currencyId ?? null}
-					currencyCode={currencyCode}
+					currencyId={currencyId}
 					productTpIds={productTpIds}
 				/>
 			)}

@@ -7,6 +7,7 @@ import { popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { cloudImgUrl } from "../../config";
+import { defCurrencyList } from "../common/common";
 
 const useHandleLogoList = () => {
 	const [onMouseOverImg, setOnMouseOverImg] = useState({});
@@ -18,13 +19,7 @@ const useHandleLogoList = () => {
 	return { onMouseOverImg, handleOnMouseOverImg };
 };
 
-const PlatformSection = ({
-	langId,
-	isLogin,
-	productTpIds,
-	currencyId,
-	currencyCode
-}) => {
+const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 	const defPlatfrom = [
 		{
 			...productList.sports,
@@ -114,6 +109,12 @@ const PlatformSection = ({
 			hoverImgName: "tcb"
 		},
 		{
+			...productList.games_MPoker,
+			imgName: "mp",
+			hoverImgName: "mpa",
+			allowCurrencies: [defCurrencyList.THB]
+		},
+		{
 			...productList.casino_RedTiger,
 			path: path.casino.root,
 			parameter: { ...productList.casino_RedTiger },
@@ -173,36 +174,43 @@ const PlatformSection = ({
 
 	const showRows = isLogin ? filterPlatform : defPlatfrom;
 
-	const rows = showRows?.map(p => {
-		const key = `footer-platform-${p.tpId}-${p.gameId}`;
-		let params = null;
-		if (p.parameter) {
-			params = Object.keys(p.parameter).map(_key => {
-				return `${_key}=${p.parameter[_key]}`;
-			});
-		}
+	const rows = showRows
+		?.filter(p =>
+			p?.allowCurrencies ? p.allowCurrencies.includes(currencyId) : true
+		)
+		?.map(p => {
+			const key = `footer-platform-${p.tpId}-${p.gameId}`;
+			let params = null;
+			if (p.parameter) {
+				params = Object.keys(p.parameter).map(_key => {
+					return `${_key}=${p.parameter[_key]}`;
+				});
+			}
 
-		const _urlParams = params !== null ? `?${params.join("&")}` : "";
-		const imgName =
-			onMouseOverImg === p.imgName ? p.hoverImgName : p.imgName;
+			const _urlParams = params !== null ? `?${params.join("&")}` : "";
+			const imgName =
+				onMouseOverImg === p.imgName ? p.hoverImgName : p.imgName;
 
-		return (
-			<button
-				className={imgName}
-				key={key}
-				onClick={ClickItem.bind(this, { ...p, urlParams: _urlParams })}>
-				<img
-					src={`${cloudImgUrl}/SiteSkin/img/logo/${imgName}.png`}
-					name={imgName}
-					alt={`logo ${imgName}`}
-					onMouseOver={handleOnMouseOverImg.bind(this, p.imgName)}
-					onMouseOut={handleOnMouseOverImg.bind(this, "")}
-					onBlur={() => 0}
-					onFocus={() => 0}
-				/>
-			</button>
-		);
-	});
+			return (
+				<button
+					className={imgName}
+					key={key}
+					onClick={ClickItem.bind(this, {
+						...p,
+						urlParams: _urlParams
+					})}>
+					<img
+						src={`${cloudImgUrl}/SiteSkin/img/logo/${imgName}.png`}
+						name={imgName}
+						alt={`logo ${imgName}`}
+						onMouseOver={handleOnMouseOverImg.bind(this, p.imgName)}
+						onMouseOut={handleOnMouseOverImg.bind(this, "")}
+						onBlur={() => 0}
+						onFocus={() => 0}
+					/>
+				</button>
+			);
+		});
 
 	return <div className="platform">{rows}</div>;
 };
@@ -216,8 +224,7 @@ PlatformSection.propTypes = {
 	langId: PropTypes.string.isRequired,
 	isLogin: PropTypes.bool.isRequired,
 	productTpIds: PropTypes.arrayOf(PropTypes.any),
-	currencyId: PropTypes.number,
-	currencyCode: PropTypes.objectOf(PropTypes.any).isRequired
+	currencyId: PropTypes.number
 };
 
 export default PlatformSection;
