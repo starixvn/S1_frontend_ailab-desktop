@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
-import Dropdown from "../../common/dropdown";
 import ClipboardJS from "../../../lib/clipboard.min";
 import config from "../../../config";
+
+import PromotionSelect from "./PromotionSelect";
 
 const LocalBankForm = ({
 	t,
@@ -13,16 +14,15 @@ const LocalBankForm = ({
 	_isConvert,
 	localBankGroupList,
 	formInfo,
-	depositPromoMsg,
 	setFormInfo,
 	onChangeForm,
+	onChangePromotion,
 	onInputboxKeyDown,
 	getLocalBankInfo,
 	localBankInfo,
 	asyncUploadBankPopBox,
 	depositPromoList,
-	isGroupListFetchDone,
-	changeDeposotPromoHandlar
+	isGroupListFetchDone
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
@@ -150,10 +150,6 @@ const LocalBankForm = ({
 		number: formInfo.maxAmount,
 		digits: 0
 	});
-
-	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
-		.filter(Boolean)
-		.join(" ");
 
 	return (
 		<>
@@ -321,25 +317,13 @@ const LocalBankForm = ({
 							{t("lbl_Select_Bonus")}
 						</span>
 					</div>
-					<div className="subModule">
-						<div className="inputBox">
-							<Dropdown
-								mainkey="bonus-provider"
-								options={depositPromoList}
-								onSelectItem={(idx, data) =>
-									changeDeposotPromoHandlar({
-										idx,
-										bonusCode: data.bonusCode
-									})
-								}
-								selectedIdx={formInfo?.depositPromo?.idx}
-								i18n={t}
-							/>
-						</div>
-						<div className={depositPromoMsgClass}>
-							{depositPromoMsg}
-						</div>
-					</div>
+
+					<PromotionSelect
+						value={formInfo?.depositPromo ?? {}}
+						amount={Number(formInfo.amount)}
+						depositPromoList={depositPromoList}
+						onSelectItem={onChangePromotion}
+					/>
 				</>
 			)}
 		</>
@@ -349,19 +333,18 @@ const LocalBankForm = ({
 LocalBankForm.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	depositPromoMsg: PropTypes.string.isRequired,
 	t: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired,
+	onChangePromotion: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	getLocalBankInfo: PropTypes.func.isRequired,
 	localBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	asyncUploadBankPopBox: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	isGroupListFetchDone: PropTypes.bool.isRequired,
-	changeDeposotPromoHandlar: PropTypes.func.isRequired
+	isGroupListFetchDone: PropTypes.bool.isRequired
 };
 export default LocalBankForm;
