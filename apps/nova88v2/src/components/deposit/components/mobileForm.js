@@ -20,6 +20,7 @@ const MobileForm = ({
 	formInfo,
 	depositPromoList,
 	setFormInfo,
+	onChangePromotion,
 	onChangeAmount,
 	onInputboxKeyDown
 }) => {
@@ -248,18 +249,7 @@ const MobileForm = ({
 				value={formInfo?.depositPromo ?? {}}
 				amount={Number(formInfo.amount)}
 				depositPromoList={depositPromoList}
-				onSelectItem={(idx, data) =>
-					setFormInfo(prev => {
-						return {
-							...prev,
-							depositPromo: {
-								idx,
-								bonusCode: data.bonusCode,
-								requiredAmount: data.requiredAmount
-							}
-						};
-					})
-				}
+				onSelectItem={onChangePromotion}
 			/>
 		</>
 	);

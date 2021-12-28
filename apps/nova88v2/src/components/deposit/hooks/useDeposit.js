@@ -6,7 +6,10 @@ import {
 	api_promotion_GetDepositPromotionList,
 	api_promotion_SetDepositPromotionQueue
 } from "../../../service/api/promotion";
-import { api_payment_GetDepositInfoRecent } from "../../../service/api/payment";
+import {
+	api_payment_GetDepositInfoRecent,
+	api_payment_CheckDepositSpecialCode
+} from "../../../service/api/payment";
 
 const useDeposit = ({ isMountedRef, userInfo }) => {
 	const { t } = useTranslation();
@@ -129,13 +132,34 @@ const useDeposit = ({ isMountedRef, userInfo }) => {
 		return success;
 	};
 
+	const checkDepositSpecialCode = async specialCode => {
+		return api_payment_CheckDepositSpecialCode(specialCode).then(
+			res => {
+				if (!isMountedRef.current) return;
+
+				const { message, errorCode, data } = res.data;
+
+				// eslint-disable-next-line consistent-return
+				if (errorCode === 0) return data.bonusCode;
+
+				errorPopBox(message || "error", errorCode);
+			},
+			() => {
+				if (!isMountedRef.current) return;
+
+				errorPopBox();
+			}
+		);
+	};
+
 	return {
 		asyncUploadBankPopBox,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
 		setDepositInfoRecentDatas,
 		depositPromoList,
-		setDepositPromotionQueue
+		setDepositPromotionQueue,
+		checkDepositSpecialCode
 	};
 };
 
