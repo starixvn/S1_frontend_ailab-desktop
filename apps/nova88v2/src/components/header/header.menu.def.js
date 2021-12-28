@@ -734,6 +734,27 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		subMenu: [
 			{
+				keyName: "games_MPoker",
+				className: "mp",
+				listNpcImgUrl: "mp.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "MPoker",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.Games_MPoker
+					})
+				],
+				...productList.games_MPoker,
+				parameter: { ...productList.games_MPoker },
+				lobbyPage: {
+					bgImg: "gamemp.png",
+					hoverBgImg: "gamempa.png"
+				},
+				allowCurrencies: [defCurrencyList.THB]
+			},
+			{
 				keyName: "games_poker",
 				className: "fsgw",
 				listNpcImgUrl: "am.png",
