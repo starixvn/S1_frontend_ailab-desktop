@@ -772,7 +772,8 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "gameamb.png",
 					hoverBgImg: "gameamba.png"
-				}
+				},
+				allowCurrencies: [defCurrencyList.THB]
 			},
 			{
 				keyName: "games_kingMaker",
