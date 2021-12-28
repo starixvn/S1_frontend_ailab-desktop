@@ -230,15 +230,15 @@ html.Newtheme header .header > div.menu .newicon:before, html.Newtheme header .h
 }
 
 html.Newtheme header .header > div.menu .newicon::before {
-  background: url(../img/dropdown/new.svg) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/new.svg) no-repeat center/contain;
 }
 
 html.Newtheme header .header > div.menu .liveicon::before {
-  background: url(../img/dropdown/live.svg) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/live.svg) no-repeat center/contain;
 }
 
 html.Newtheme header .header > div.menu .hoticon::before {
-  background: url(../img/dropdown/hot.svg) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/hot.svg) no-repeat center/contain;
 }
 
 html.Newtheme header .header > div.menu > a,
@@ -290,7 +290,7 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper {
   width: 100%;
   left: 0;
   top: 115px;
-  background: url(../img/dropdown/dropbg.jpg) no-repeat center/cover;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg.jpg) no-repeat center/cover;
 }
 
 html.Newtheme header .header > div.menu .subMenu-Wrapper.active {
@@ -312,7 +312,7 @@ html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoLi
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .livecasinoList button,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList a,
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .fishList button {
-  background: url(../img/dropdown/dropbg_b2.png) no-repeat center/auto 100%;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg_b2.png) no-repeat center/auto 100%;
 }
 
 html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList a .item-icon, html.Newtheme header .header > div.menu .subMenu-Wrapper.newVender .sportList button .item-icon,
@@ -393,7 +393,7 @@ html.Newtheme header .header > div.menu .fishList button {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   position: relative;
-  background: url(../img/dropdown/dropbg_b.png) no-repeat center/auto 100%;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg_b.png) no-repeat center/auto 100%;
   position: relative;
   overflow: hidden;
 }
@@ -435,7 +435,7 @@ html.Newtheme header .header > div.menu .fishList button span {
   width: 100%;
   min-height: 203px;
   color: #1f3258;
-  background: url(../img/dropdown/droptitle_b.png) no-repeat center/auto 100%;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/droptitle_b.png) no-repeat center/auto 100%;
   z-index: 4;
 }
 
@@ -469,7 +469,7 @@ html.Newtheme header .header > div.menu .fishList a:hover,
 html.Newtheme header .header > div.menu .fishList button:hover {
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  background: url(../img/dropdown/dropbg_a.png) no-repeat center/auto 100%;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/dropbg_a.png) no-repeat center/auto 100%;
 }
 
 html.Newtheme header .header > div.menu .sportList a:hover span,
@@ -484,7 +484,7 @@ html.Newtheme header .header > div.menu .fishList a:hover span,
 html.Newtheme header .header > div.menu .fishList button:hover span {
   -webkit-transition: 0.7s;
   transition: 0.7s;
-  background: url(../img/dropdown/droptitle_a.png) no-repeat center/auto 100%;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/droptitle_a.png) no-repeat center/auto 100%;
   color: #fff;
 }
 
@@ -615,7 +615,7 @@ html.Newtheme header .header > div.menu .gameList .newicon::before,
 html.Newtheme header .header > div.menu .casinoList .newicon::before,
 html.Newtheme header .header > div.menu .livecasinoList .newicon::before,
 html.Newtheme header .header > div.menu .fishList .newicon::before {
-  background: url(../img/dropdown/new.svg) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/new.svg) no-repeat center/contain;
 }
 
 html.Newtheme header .header > div.menu .sportList .liveicon::before,
@@ -623,7 +623,7 @@ html.Newtheme header .header > div.menu .gameList .liveicon::before,
 html.Newtheme header .header > div.menu .casinoList .liveicon::before,
 html.Newtheme header .header > div.menu .livecasinoList .liveicon::before,
 html.Newtheme header .header > div.menu .fishList .liveicon::before {
-  background: url(../img/dropdown/live.svg) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/live.svg) no-repeat center/contain;
 }
 
 html.Newtheme header .header > div.menu .sportList .hoticon::before,
@@ -631,7 +631,7 @@ html.Newtheme header .header > div.menu .gameList .hoticon::before,
 html.Newtheme header .header > div.menu .casinoList .hoticon::before,
 html.Newtheme header .header > div.menu .livecasinoList .hoticon::before,
 html.Newtheme header .header > div.menu .fishList .hoticon::before {
-  background: url(../img/dropdown/hot.svg) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/hot.svg) no-repeat center/contain;
 }
 
 html.Newtheme header .header > div.menu .livecasinoList a:hover .item-img,
@@ -782,32 +782,32 @@ html.Newtheme header .header > div.function > button .flag:before {
 
 html.Newtheme header .header > div.function > div .flag.ch:before,
 html.Newtheme header .header > div.function > button .flag.ch:before {
-  background: url(../img/flag/ch.png) no-repeat top left/cover;
+  background: url(https://banner.goal123.org/desktop/img/flag/ch.png) no-repeat top left/cover;
 }
 
 html.Newtheme header .header > div.function > div .flag.cs:before,
 html.Newtheme header .header > div.function > button .flag.cs:before {
-  background: url(../img/flag/cs.png) no-repeat top left/cover;
+  background: url(https://banner.goal123.org/desktop/img/flag/cs.png) no-repeat top left/cover;
 }
 
 html.Newtheme header .header > div.function > div .flag.en:before,
 html.Newtheme header .header > div.function > button .flag.en:before {
-  background: url(../img/flag/en.png) no-repeat top center/cover;
+  background: url(https://banner.goal123.org/desktop/img/flag/en.png) no-repeat top center/cover;
 }
 
 html.Newtheme header .header > div.function > div .flag.th:before,
 html.Newtheme header .header > div.function > button .flag.th:before {
-  background: url(../img/flag/th.png) no-repeat top left/cover;
+  background: url(https://banner.goal123.org/desktop/img/flag/th.png) no-repeat top left/cover;
 }
 
 html.Newtheme header .header > div.function > div .flag.id:before,
 html.Newtheme header .header > div.function > button .flag.id:before {
-  background: url(../img/flag/id.png) no-repeat top left/cover;
+  background: url(https://banner.goal123.org/desktop/img/flag/id.png) no-repeat top left/cover;
 }
 
 html.Newtheme header .header > div.function > div .flag.vn:before,
 html.Newtheme header .header > div.function > button .flag.vn:before {
-  background: url(../img/flag/vn.png) no-repeat top center/cover;
+  background: url(https://banner.goal123.org/desktop/img/flag/vn.png) no-repeat top center/cover;
 }
 
 html.Newtheme header .header > div.function .icon-email {
@@ -864,7 +864,7 @@ html.Newtheme header .header > div.function .icon-email .info::after {
   left: -8px;
   width: 24px;
   height: 24px;
-  background: url(../img/bell.png) center/cover;
+  background: url(https://banner.goal123.org/desktop/img/bell.png) center/cover;
   -webkit-animation: routate2 linear infinite alternate 0.8s;
           animation: routate2 linear infinite alternate 0.8s;
 }
@@ -1335,7 +1335,7 @@ html.Newtheme.index header .header > div.menu {
 
 html.Newtheme.index main {
   height: auto;
-  background: url(../img/bgPoint.png);
+  background: url(https://banner.goal123.org/desktop/img/bgPoint.png);
   min-width: 1400px;
 }
 
@@ -1372,7 +1372,7 @@ html.Newtheme main {
   padding-top: 115px;
   min-width: 1010px;
   min-height: 100%;
-  background: url(../img/bgPoint.png) repeat center/1.5%;
+  background: url(https://banner.goal123.org/desktop/img/bgPoint.png) repeat center/1.5%;
 }
 
 html.Newtheme main.joinlogin, html.Newtheme main .small {
@@ -2980,7 +2980,7 @@ html.Newtheme #leftMenu .menuModule a.menuSelect span.icon-new::before {
   color: #fff;
   width: 45px;
   height: 14px;
-  background: url(../img/dropdown/newbg2.png) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/newbg2.png) no-repeat center/contain;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
   padding-left: 10px;
@@ -4319,7 +4319,7 @@ html.Newtheme .offers .swiper-container.swiper-container-initialized::after {
 
 html.Newtheme .offers .swiper-slide {
   margin: 0 auto;
-  background: url(../img/hoteventodds.png) no-repeat top/contain;
+  background: url(https://banner.goal123.org/desktop/img/hoteventodds.png) no-repeat top/contain;
   text-align: center;
   font-size: 12px;
   position: relative;
@@ -6671,6 +6671,13 @@ html.Newtheme .slotList div:hover .btnGroup {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+html.Newtheme .slotList div:hover .txt-darkBlue {
+  -webkit-transform: initial;
+          transform: initial;
 }
 
 html.Newtheme .newsList {
@@ -7026,7 +7033,7 @@ html.Newtheme .expiredClaimedInfo {
 
 html.Newtheme .expiredClaimedInfo .proData {
   background-color: #b2b2b2;
-  background-image: url(../img/expired.png);
+  background-image: url(https://banner.goal123.org/desktop/img/expired.png);
   background-repeat: repeat;
   background-size: 50px;
 }
@@ -7452,7 +7459,7 @@ html.Newtheme .indexInfo > div > div .infoGroup button i {
   height: 73px;
   font-size: 35px;
   color: #fff;
-  background: url(../img/infobg.png) no-repeat top right/cover;
+  background: url(https://banner.goal123.org/desktop/img/infobg.png) no-repeat top right/cover;
   padding-right: 25px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -7461,7 +7468,7 @@ html.Newtheme .indexInfo > div > div .infoGroup button i {
 html.Newtheme .indexInfo > div > div .infoGroup a i:before,
 html.Newtheme .indexInfo > div > div .infoGroup button i:before {
   content: "";
-  background: url(../img/infoicon1.png) no-repeat center;
+  background: url(https://banner.goal123.org/desktop/img/infoicon1.png) no-repeat center;
   width: 40px;
   height: 40px;
   background-size: 100%;
@@ -7469,13 +7476,13 @@ html.Newtheme .indexInfo > div > div .infoGroup button i:before {
 
 html.Newtheme .indexInfo > div > div .infoGroup a:nth-child(2) i::before,
 html.Newtheme .indexInfo > div > div .infoGroup button:nth-child(2) i::before {
-  background: url(../img/infoicon2.png) no-repeat center;
+  background: url(https://banner.goal123.org/desktop/img/infoicon2.png) no-repeat center;
   background-size: 100%;
 }
 
 html.Newtheme .indexInfo > div > div .infoGroup a:nth-child(3) i::before,
 html.Newtheme .indexInfo > div > div .infoGroup button:nth-child(3) i::before {
-  background: url(../img/infoicon3.png) no-repeat center;
+  background: url(https://banner.goal123.org/desktop/img/infoicon3.png) no-repeat center;
   background-size: 100%;
 }
 
@@ -7703,7 +7710,7 @@ html.Newtheme .errorPage {
 }
 
 html.Newtheme .errorPage .container {
-  background: url(../img/error_bg.jpg) no-repeat center/cover;
+  background: url(https://banner.goal123.org/desktop/img/error_bg.jpg) no-repeat center/cover;
   position: relative;
   width: 40%;
   height: 50%;
@@ -7860,10 +7867,6 @@ html.Newtheme .eventLink.active {
   display: none;
 }
 
-html.Newtheme .eventLink.goldbox {
-  background: revert;
-}
-
 html.Newtheme .eventLink.wheel {
   bottom: 190px;
 }
@@ -7971,7 +7974,6 @@ html.Newtheme #popup .goldbox_pop .title {
 
 html.Newtheme #popup .goldbox_pop .am {
   width: 83%;
-  background: url(../img/event/box/myframe.png) no-repeat center center/cover;
   border: 0 solid #fbd68d;
   border-radius: 0;
   font-size: 24px;
@@ -7996,339 +7998,6 @@ html.Newtheme #popup .wheel_pop .am {
   color: #ffffff;
   line-height: 55px;
   width: 60%;
-}
-
-html.Newtheme .goldbox {
-  margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  background: #690000 url(../img/event/box/bg.jpg) no-repeat top center;
-}
-
-html.Newtheme .goldbox .animation {
-  width: 300px;
-  height: 270px;
-}
-
-html.Newtheme .goldbox > img {
-  width: -webkit-min-content;
-  width: -moz-min-content;
-  width: min-content;
-  height: -webkit-min-content;
-  height: -moz-min-content;
-  height: min-content;
-  max-width: 395px;
-  margin: 20px 0 135px;
-}
-
-html.Newtheme .goldbox > img.title {
-  margin: 95px 0 97px;
-}
-
-html.Newtheme .goldbox__wrapper {
-  width: 300px;
-}
-
-html.Newtheme .goldbox__item {
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-  cursor: pointer;
-}
-
-html.Newtheme .goldbox__item__open {
-  bottom: 0;
-  max-width: 298px;
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-  display: none;
-  -webkit-filter: drop-shadow(0px 0px 65px rgba(255, 201, 25, 0.7));
-          filter: drop-shadow(0px 0px 65px rgba(255, 201, 25, 0.7));
-}
-
-html.Newtheme .goldbox__item__open.active {
-  display: block;
-}
-
-html.Newtheme .goldbox__item__close {
-  margin-top: 90px;
-  max-width: 300px;
-  -webkit-transform: scale(1, 1);
-          transform: scale(1, 1);
-  z-index: 2;
-  -webkit-filter: drop-shadow(0px 0px 25px rgba(255, 201, 25, 0.5));
-          filter: drop-shadow(0px 0px 25px rgba(255, 201, 25, 0.5));
-  -webkit-animation: shakebox 0.9s ease-in-out infinite;
-          animation: shakebox 0.9s ease-in-out infinite;
-}
-
-html.Newtheme .goldbox__item__close.active {
-  display: none;
-}
-
-html.Newtheme .goldbox__item.active {
-  -webkit-animation: bounce3 0.9s ease-in-out;
-          animation: bounce3 0.9s ease-in-out;
-}
-
-html.Newtheme .goldbox__item .element {
-  position: relative;
-  height: 50px;
-}
-
-html.Newtheme .goldbox__item .time {
-  width: 260px;
-  position: absolute;
-  top: 50%;
-  left: calc(50% - 130px);
-  font-size: 30px;
-  color: #fff;
-  font-weight: bold;
-  z-index: 3;
-  display: none;
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid #ffdd80;
-  text-align: center;
-}
-
-html.Newtheme .goldbox__item .time.active {
-  display: block;
-}
-
-html.Newtheme .goldbox .eventModule {
-  width: 100%;
-  margin: 123px 0 0;
-  background: #191919 url(../img/event/box/eventInfo_bg.jpg) no-repeat top center/cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 30px 0;
-}
-
-html.Newtheme .goldbox .eventModule > div {
-  background: transparent;
-  border-radius: 15px;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  width: 768px;
-  padding: 10px;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.arrow-top, html.Newtheme .goldbox .eventModule > div > div.arrow-bottom {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.arrow-top .border, html.Newtheme .goldbox .eventModule > div > div.arrow-bottom .border {
-  width: calc(100% - 5px);
-  background: url(../img/event/box/border_top.png);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.arrow-top:before, html.Newtheme .goldbox .eventModule > div > div.arrow-top:after, html.Newtheme .goldbox .eventModule > div > div.arrow-bottom:before, html.Newtheme .goldbox .eventModule > div > div.arrow-bottom:after {
-  content: "";
-  display: block;
-  width: 64px;
-  height: 60px;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.arrow-top:before {
-  background: url(../img/event/box/border_arrow.png);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.arrow-top:after {
-  background: url(../img/event/box/border_arrow.png);
-  -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.arrow-bottom .border {
-  -webkit-transform: scaleY(-1);
-          transform: scaleY(-1);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.arrow-bottom:before {
-  background: url(../img/event/box/border_arrow.png);
-  -webkit-transform: scaleY(-1);
-          transform: scaleY(-1);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.arrow-bottom:after {
-  background: url(../img/event/box/border_arrow.png);
-  -webkit-transform: scale(-1);
-          transform: scale(-1);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  color: white;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter a.more,
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter button.more {
-  background: url(../img/event/box/btn_bg.png) no-repeat center center/cover;
-  border: 0;
-  padding: 5px 25px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter a.more:hover,
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter button.more:hover {
-  background: url(../img/event/box/btn_bg.png) no-repeat center center/cover;
-  color: #fab617;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  line-height: 30px;
-  margin-top: 10px;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .tag {
-  background: transparent;
-  width: 500px;
-  height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .tag::before {
-  content: "";
-  display: block;
-  background: url(../img/event/box/title_bg.png) no-repeat;
-  width: 48px;
-  height: 5px;
-  margin-right: 10px;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .tag::after {
-  content: "";
-  display: block;
-  background: url(../img/event/box/title_bg.png) no-repeat;
-  width: 48px;
-  height: 5px;
-  margin-left: 10px;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .tag + .title {
-  background: transparent;
-  font-size: 28px;
-  color: #ffffff;
-  width: auto;
-  margin: 20px 0;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventInfo {
-  width: 100%;
-  text-align: center;
-  margin: 30px 0;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventInfo .title {
-  color: #f77900;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventList {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  font-weight: bold;
-  color: black;
-  margin-top: 30px;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventList tr {
-  background: white;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventList tr td {
-  border: 1px solid #000000;
-  padding: 5px;
-  text-align: center;
-  width: 50%;
-  vertical-align: middle;
-  color: white;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventList tr td div {
-  width: 70px;
-  margin: auto;
-  text-align: right;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventList tr:first-child {
-  background: rgba(251, 214, 141, 0.8);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(even) {
-  background: rgba(5, 5, 5, 0.8);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter > div .eventList tr:nth-child(odd):not(:nth-child(1)) {
-  background: rgba(57, 57, 57, 0.5);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter:before, html.Newtheme .goldbox .eventModule > div > div.moduleCenter:after {
-  content: "";
-  display: block;
-  min-width: 60px;
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter:before {
-  background: url(../img/event/box/border.png);
-}
-
-html.Newtheme .goldbox .eventModule > div > div.moduleCenter:after {
-  background: url(../img/event/box/border.png);
-  -webkit-transform: scale(-1);
-          transform: scale(-1);
-}
-
-html.Newtheme .goldbox .eventModule .nodata {
-  color: #fab617;
-}
-
-html.Newtheme .goldbox .eventModule .nodata > div {
-  background: transparent;
 }
 
 @-webkit-keyframes shakebox {
@@ -9389,7 +9058,7 @@ html.Newtheme .vipLv > div {
 }
 
 html.Newtheme .vipLv > div.vipbg {
-  background: url(../img/vip/vipbg.png) no-repeat center/auto 100%;
+  background: url(https://banner.goal123.org/desktop/img/vip/vipbg.png) no-repeat center/auto 100%;
   padding: 25px;
   margin-top: 0;
 }
@@ -9502,7 +9171,7 @@ html.Newtheme .livelobbyList .icon-new::before, html.Newtheme .fishinglobbyList 
   width: 44px;
   height: 28px;
   color: #fff;
-  background: url(../img/dropdown/newbg.png) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/newbg.png) no-repeat center/contain;
   -webkit-animation: MoveTopDown linear infinite alternate 1s;
           animation: MoveTopDown linear infinite alternate 1s;
   font-size: 14px;
@@ -9517,7 +9186,7 @@ html.Newtheme .livelobbyList .newicon::before, html.Newtheme .fishinglobbyList .
   display: block;
   width: 50px;
   height: 36px;
-  background: url(../img/dropdown/new.svg) no-repeat center/contain;
+  background: url(https://banner.goal123.org/desktop/img/dropdown/new.svg) no-repeat center/contain;
   -webkit-animation: flash3 linear infinite alternate .3s;
           animation: flash3 linear infinite alternate .3s;
   z-index: 2;
@@ -9635,7 +9304,7 @@ html.Newtheme main.fishinglobby .aniBanner::after, html.Newtheme main.gameslobby
 }
 
 html.Newtheme main.fishinglobby .inside {
-  background: url(../img/fishing/lobbybg.jpg) no-repeat bottom/cover;
+  background: url(https://banner.goal123.org/desktop/img/fishing/lobbybg.jpg) no-repeat bottom/cover;
   min-width: 1400px;
   width: 100%;
 }
@@ -9675,7 +9344,7 @@ html.Newtheme main.fishinglobby .aniBanner .items img:nth-child(3) {
 }
 
 html.Newtheme main.gameslobby .inside {
-  background: url(../img/games/lobbybg.jpg) no-repeat bottom/cover;
+  background: url(https://banner.goal123.org/desktop/img/games/lobbybg.jpg) no-repeat bottom/cover;
   min-width: 1400px;
   width: 100%;
 }
@@ -9745,7 +9414,7 @@ html.Newtheme main.livelobby .aniBanner .items img:nth-child(3) {
 }
 
 html.Newtheme main.esportslobby .inside {
-  background: url(../img/esports/lobbybg.jpg) no-repeat bottom/cover;
+  background: url(https://banner.goal123.org/desktop/img/esports/lobbybg.jpg) no-repeat bottom/cover;
   min-width: 1400px;
   width: 100%;
 }
@@ -10084,7 +9753,7 @@ html.Newtheme .app_page {
 }
 
 html.Newtheme .app_page section.inside {
-  background: url(../img/appdownload/bg.jpg) no-repeat bottom/cover;
+  background: url(https://banner.goal123.org/desktop/img/appdownload/bg.jpg) no-repeat bottom/cover;
   min-width: 1400px;
   width: 100%;
   min-height: 1800px;
@@ -10749,7 +10418,7 @@ html.Newtheme .profileNew .profileInfo .vipbg .circle {
   left: calc(50% - 60px);
   top: calc(50% - 60px);
   border-radius: 50%;
-  background: url(../img/vip/vipbg.png) center/contain;
+  background: url(https://banner.goal123.org/desktop/img/vip/vipbg.png) center/contain;
   -webkit-animation: breathing alternate 6s infinite;
           animation: breathing alternate 6s infinite;
   z-index: 0;
@@ -11066,25 +10735,25 @@ html.Newtheme .profileNew .otpLoading {
 
 @-webkit-keyframes jpot {
   0% {
-    background: url(../img/jpotbga.jpg) no-repeat center/cover;
+    background: url(https://banner.goal123.org/desktop/img/jpotbga.jpg) no-repeat center/cover;
   }
   50% {
-    background: url(../img/jpotbgb.jpg) no-repeat center/cover;
+    background: url(https://banner.goal123.org/desktop/img/jpotbgb.jpg) no-repeat center/cover;
   }
   100% {
-    background: url(../img/jpotbga.jpg) no-repeat center/cover;
+    background: url(https://banner.goal123.org/desktop/img/jpotbga.jpg) no-repeat center/cover;
   }
 }
 
 @keyframes jpot {
   0% {
-    background: url(../img/jpotbga.jpg) no-repeat center/cover;
+    background: url(https://banner.goal123.org/desktop/img/jpotbga.jpg) no-repeat center/cover;
   }
   50% {
-    background: url(../img/jpotbgb.jpg) no-repeat center/cover;
+    background: url(https://banner.goal123.org/desktop/img/jpotbgb.jpg) no-repeat center/cover;
   }
   100% {
-    background: url(../img/jpotbga.jpg) no-repeat center/cover;
+    background: url(https://banner.goal123.org/desktop/img/jpotbga.jpg) no-repeat center/cover;
   }
 }
 
@@ -11410,14 +11079,14 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(../img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#2f1b3e), color-stop(50%, #381e43), to(#311c3d));
-  background: url(../img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(90deg, #2f1b3e 0%, #381e43 50%, #311c3d 100%);
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/bg.jpg) no-repeat top center, -webkit-gradient(linear, left top, right top, from(#2f1b3e), color-stop(50%, #381e43), to(#311c3d));
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/bg.jpg) no-repeat top center, linear-gradient(90deg, #2f1b3e 0%, #381e43 50%, #311c3d 100%);
 }
 
 .wheelEvent .eventPage .eventTitleBg {
   width: 374px;
   height: 108px;
-  background: url(../img/event/wheel/title.png) no-repeat top center;
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/title.png) no-repeat top center;
   margin-top: -30px;
 }
 
@@ -11633,7 +11302,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   width: 410px;
   height: 410px;
   position: relative;
-  background: url(../img/event/wheel/wheel_inner.png) no-repeat center;
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/wheel_inner.png) no-repeat center;
   overflow: hidden;
 }
 
@@ -11807,7 +11476,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 
 .wheelEvent .eventPage .eventModule > div > div.arrow-top .border, .wheelEvent .eventPage .eventModule > div > div.arrow-bottom .border {
   width: calc(100% - 5px);
-  background: url(../img/event/box/border_top.png);
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/border_top.png);
   -webkit-filter: hue-rotate(220deg) saturate(8);
           filter: hue-rotate(220deg) saturate(8);
 }
@@ -11822,13 +11491,13 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .wheelEvent .eventPage .eventModule > div > div.arrow-top:before {
   -webkit-filter: hue-rotate(220deg) saturate(8);
           filter: hue-rotate(220deg) saturate(8);
-  background: url(../img/event/box/border_arrow.png);
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/border_arrow.png);
 }
 
 .wheelEvent .eventPage .eventModule > div > div.arrow-top:after {
   -webkit-filter: hue-rotate(220deg) saturate(8);
           filter: hue-rotate(220deg) saturate(8);
-  background: url(../img/event/box/border_arrow.png);
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/border_arrow.png);
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
 }
@@ -11839,7 +11508,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 
 .wheelEvent .eventPage .eventModule > div > div.arrow-bottom:before {
-  background: url(../img/event/box/border_arrow.png);
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/border_arrow.png);
   -webkit-transform: scaleY(-1);
           transform: scaleY(-1);
   -webkit-filter: hue-rotate(220deg) saturate(8);
@@ -11847,7 +11516,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 
 .wheelEvent .eventPage .eventModule > div > div.arrow-bottom:after {
-  background: url(../img/event/box/border_arrow.png);
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/border_arrow.png);
   -webkit-transform: scale(-1);
           transform: scale(-1);
   -webkit-filter: hue-rotate(220deg) saturate(8);
@@ -11899,7 +11568,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .wheelEvent .eventPage .eventModule > div > div.moduleCenter > div .tag::before {
   content: "";
   display: block;
-  background: url(../img/event/box/title_bg.png) no-repeat;
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/title_bg.png) no-repeat;
   -webkit-filter: hue-rotate(220deg) saturate(8);
           filter: hue-rotate(220deg) saturate(8);
   width: 48px;
@@ -11910,7 +11579,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .wheelEvent .eventPage .eventModule > div > div.moduleCenter > div .tag::after {
   content: "";
   display: block;
-  background: url(../img/event/box/title_bg.png) no-repeat;
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/title_bg.png) no-repeat;
   -webkit-filter: hue-rotate(220deg) saturate(8);
           filter: hue-rotate(220deg) saturate(8);
   width: 48px;
@@ -11985,13 +11654,13 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 
 .wheelEvent .eventPage .eventModule > div > div.moduleCenter:before {
-  background: url(../img/event/box/border.png);
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/border.png);
   -webkit-filter: hue-rotate(220deg) saturate(8);
           filter: hue-rotate(220deg) saturate(8);
 }
 
 .wheelEvent .eventPage .eventModule > div > div.moduleCenter:after {
-  background: url(../img/event/box/border.png);
+  background: url(https://banner.goal123.org/desktop/img/event/wheel/border.png);
   -webkit-filter: hue-rotate(220deg) saturate(8);
           filter: hue-rotate(220deg) saturate(8);
   -webkit-transform: scale(-1);
