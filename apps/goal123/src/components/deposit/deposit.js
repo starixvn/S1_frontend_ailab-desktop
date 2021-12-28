@@ -257,7 +257,6 @@ const Deposit = () => {
 		});
 
 	const onChangePromotion = (idx, data) => {
-		console.log(data);
 		const isSelectType = Boolean(data.bonusCode);
 
 		if (isSelectType && !isOTPVerified(userInfo)) {
