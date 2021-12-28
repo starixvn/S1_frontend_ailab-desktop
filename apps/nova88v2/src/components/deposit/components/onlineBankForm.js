@@ -18,6 +18,7 @@ const OnlineBankForm = ({
 	formInfo,
 	depositPromoList,
 	onChangeAmount,
+	onChangePromotion,
 	setFormInfo,
 	setOnlineBankInfoList,
 	onInputboxKeyDown,
@@ -232,18 +233,7 @@ const OnlineBankForm = ({
 				value={formInfo?.depositPromo ?? {}}
 				amount={Number(formInfo.amount)}
 				depositPromoList={depositPromoList}
-				onSelectItem={(idx, data) =>
-					setFormInfo(prev => {
-						return {
-							...prev,
-							depositPromo: {
-								idx,
-								bonusCode: data.bonusCode,
-								requiredAmount: data.requiredAmount
-							}
-						};
-					})
-				}
+				onSelectItem={onChangePromotion}
 			/>
 		</>
 	);

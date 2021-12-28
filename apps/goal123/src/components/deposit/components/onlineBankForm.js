@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter, number_format } from "../../common/common";
-import Dropdown from "../../common/dropdown";
 import config from "../../../config";
+
+import PromotionSelect from "./PromotionSelect";
 
 const OnlineBankForm = ({
 	t,
@@ -13,14 +14,13 @@ const OnlineBankForm = ({
 	getOnlineBankInfoList,
 	onlineBankInfoList,
 	formInfo,
-	depositPromoMsg,
 	depositPromoList,
 	isGroupListFetchDone,
 	onChangeForm,
+	onChangePromotion,
 	setFormInfo,
 	setOnlineBankInfoList,
-	onInputboxKeyDown,
-	changeDeposotPromoHandlar
+	onInputboxKeyDown
 }) => {
 	const parameterPayName = getUrlParameter("pName");
 	const parameterPayId = Number(getUrlParameter("pId"));
@@ -123,10 +123,6 @@ const OnlineBankForm = ({
 		number: formInfo.maxAmount,
 		digits: 0
 	});
-
-	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
-		.filter(Boolean)
-		.join(" ");
 
 	return (
 		<>
@@ -265,25 +261,13 @@ const OnlineBankForm = ({
 							{t("lbl_Select_Bonus")}
 						</span>
 					</div>
-					<div className="subModule">
-						<div className="inputBox">
-							<Dropdown
-								mainkey="bonus-provider"
-								options={depositPromoList}
-								onSelectItem={(idx, data) =>
-									changeDeposotPromoHandlar({
-										idx,
-										bonusCode: data.bonusCode
-									})
-								}
-								selectedIdx={formInfo?.depositPromo?.idx}
-								i18n={t}
-							/>
-						</div>
-						<div className={depositPromoMsgClass}>
-							{depositPromoMsg}
-						</div>
-					</div>
+
+					<PromotionSelect
+						value={formInfo?.depositPromo ?? {}}
+						amount={Number(formInfo.amount)}
+						depositPromoList={depositPromoList}
+						onSelectItem={onChangePromotion}
+					/>
 				</>
 			)}
 		</>
@@ -298,14 +282,13 @@ OnlineBankForm.propTypes = {
 	getOnlineBankInfoList: PropTypes.func.isRequired,
 	onlineBankInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	depositPromoMsg: PropTypes.string.isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	setOnlineBankInfoList: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
-	changeDeposotPromoHandlar: PropTypes.func.isRequired,
-	onChangeForm: PropTypes.func.isRequired
+	onChangeForm: PropTypes.func.isRequired,
+	onChangePromotion: PropTypes.func.isRequired
 };
 
 export default OnlineBankForm;

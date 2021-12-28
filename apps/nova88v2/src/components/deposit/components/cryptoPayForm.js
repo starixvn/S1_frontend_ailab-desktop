@@ -15,6 +15,7 @@ const CryptoPayForm = ({
 	cryptoPayGroupList,
 	formInfo,
 	depositPromoList,
+	onChangePromotion,
 	setFormInfo,
 	onChangeAmount,
 	onValidAmount,
@@ -229,18 +230,7 @@ const CryptoPayForm = ({
 				value={formInfo?.depositPromo ?? {}}
 				amount={Number(formInfo.amount)}
 				depositPromoList={depositPromoList}
-				onSelectItem={(idx, data) =>
-					setFormInfo(prev => {
-						return {
-							...prev,
-							depositPromo: {
-								idx,
-								bonusCode: data.bonusCode,
-								requiredAmount: data.requiredAmount
-							}
-						};
-					})
-				}
+				onSelectItem={onChangePromotion}
 			/>
 		</>
 	);

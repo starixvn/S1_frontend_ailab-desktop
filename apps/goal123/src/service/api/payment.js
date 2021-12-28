@@ -1,4 +1,4 @@
-import { paymentRequest } from "./base";
+import { paymentRequest, defDeviceType } from "./base";
 
 export const api_payment_GetBankInfoSysList = () =>
 	paymentRequest.post("/GetBankInfoSysList");
@@ -59,8 +59,16 @@ export const api_payment_GetLoadCardPayInfoList = GroupId =>
 export const api_payment_GetCryptoPayInfoList = () =>
 	paymentRequest.post("/GetCryptoPayInfoList");
 
-export const api_payment_DepositReqWireTransfer = ({ amount, sysId }) =>
-	paymentRequest.post("/DepositReqWireTransfer", { amount, sysId });
+export const api_payment_DepositReqWireTransfer = ({
+	amount,
+	sysId,
+	hasPromotion
+}) =>
+	paymentRequest.post("/DepositReqWireTransfer", {
+		amount,
+		sysId,
+		hasPromotion
+	});
 
 export const api_payment_GetDepositInfoRecent = () =>
 	paymentRequest.post("/GetDepositInfoRecent");
@@ -154,6 +162,12 @@ export const api_payment_GetCustTpBetRecordDetailListbyGameType = ({
 
 export const api_payment_GetWithdrawalLimit = () =>
 	paymentRequest.post("/GetWithdrawalLimit");
+
+export const api_payment_CheckDepositSpecialCode = SpecialCode =>
+	paymentRequest.post(`/CheckDepositSpecialCode`, {
+		SpecialCode,
+		DeviceType: defDeviceType.Desktop
+	});
 
 export const api_payment_getSupportNetwork = () =>
 	paymentRequest.post("/GetSupportNetwork", { CurrencyId: 96 });

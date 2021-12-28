@@ -380,5 +380,9 @@ export default {
 	games_kingMaker: {
 		tpId: 11,
 		tpGameType: 52
+	},
+	games_MPoker: {
+		tpId: 35,
+		tpGameType: 60
 	}
 };

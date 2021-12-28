@@ -38,6 +38,14 @@ import DepositRecentHistory from "./deposit.recentHistory";
 import usePopBox from "../hook/usePopBox";
 import { api_cashier_DepositReqCryptoPay } from "../../service/api/cashier";
 
+const isOTPVerified = ({
+	phoneVerified,
+	accountName,
+	birth_d,
+	birth_m,
+	birth_y
+}) => Boolean(phoneVerified && accountName && birth_d && birth_m && birth_y);
+
 const Deposit = () => {
 	const parameterDefaultType = getUrlParameter("type");
 	const isDepositTypeIncludes = Object.values(defDepositType).includes(
@@ -88,7 +96,9 @@ const Deposit = () => {
 		},
 		depositPromo: {
 			idx: 0,
-			bonusCode: null
+			bonusCode: null,
+			requiredAmount: null,
+			specialCode: null
 		}
 	});
 
@@ -97,21 +107,16 @@ const Deposit = () => {
 
 	const _isConvert = isConvert(userInfo.currencyId);
 
-	const depositPromoMsg = userInfo?.phoneVerified
-		? ""
-		: t("lbl_DepositPromoMsg1");
+	const { errorPopBox, closePopBox } = usePopBox();
 
-	const { errorPopBox } = usePopBox();
-	const closePopBox = () => {
-		setPopBox({ isOpen: false });
-	};
 	const {
 		asyncUploadBankPopBox,
 		getDepositInfoRecent,
 		depositInfoRecentDatas,
 		setDepositInfoRecentDatas,
 		depositPromoList,
-		setDepositPromotionQueue
+		setDepositPromotionQueue,
+		checkDepositSpecialCode
 	} = useDeposit({
 		isMountedRef,
 		userInfo
@@ -229,6 +234,49 @@ const Deposit = () => {
 		};
 	};
 
+	const openVerificationPopBox = bonusCode =>
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.OTPHint,
+			btnBar: (
+				<div className="btnGroup">
+					<button className="btn-cancel" onClick={closePopBox}>
+						{t("lbl_Later")}
+					</button>
+
+					<button
+						className="btn-check"
+						onClick={() =>
+							navigate(
+								`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`
+							)
+						}>
+						{t("lbl_UpdatePersonalDetail")}
+					</button>
+				</div>
+			)
+		});
+
+	const onChangePromotion = (idx, data) => {
+		const isSelectType = Boolean(data.bonusCode);
+
+		if (isSelectType && !isOTPVerified(userInfo)) {
+			openVerificationPopBox(data.bonusCode);
+		}
+
+		setFormInfo(prev => {
+			return {
+				...prev,
+				depositPromo: {
+					idx,
+					bonusCode: data.bonusCode,
+					requiredAmount: data.requiredAmount,
+					specialCode: data.specialCode
+				}
+			};
+		});
+	};
+
 	const onSubmit = async () => {
 		const resetForm = () => {
 			setFormInfo(prev => {
@@ -265,7 +313,19 @@ const Deposit = () => {
 				cardSerial,
 				depositPromo
 			} = formInfo;
+
+			let { bonusCode } = formInfo?.depositPromo;
+
 			const resultAmount = _isConvert ? amount.val * 1000 : amount.val;
+
+			if (depositPromo.specialCode) {
+				bonusCode = await checkDepositSpecialCode(
+					depositPromo.specialCode
+				);
+
+				if (!bonusCode) return;
+			}
+
 			setLoading(true);
 
 			if (depositType === defDepositType.localBank) {
@@ -308,7 +368,8 @@ const Deposit = () => {
 				}
 				const transId = await postLocalBankReqWireTransfer({
 					amount: resultAmount,
-					sysId
+					sysId,
+					hasPromotion: Boolean(bonusCode)
 				});
 				if (transId) {
 					try {
@@ -324,10 +385,10 @@ const Deposit = () => {
 									depositTime: formInfo.time,
 									fefNo: formInfo.refId
 								}),
-							!formInfo?.depositPromo?.bonusCode ||
+							!bonusCode ||
 								setDepositPromotionQueue({
 									transId,
-									bonusCode: formInfo.depositPromo.bonusCode
+									bonusCode
 								})
 						]);
 
@@ -358,9 +419,7 @@ const Deposit = () => {
 				const params = [
 					`ChannelId=${channelId}`,
 					`Amount=${resultAmount}`,
-					depositPromo?.bonusCode
-						? `BonusCode=${depositPromo.bonusCode}`
-						: ""
+					bonusCode ? `BonusCode=${bonusCode}` : ""
 				]
 					.filter(Boolean)
 					.join("&");
@@ -375,9 +434,7 @@ const Deposit = () => {
 					`payId=${payId}`,
 					`ChannelId=${channelId}`,
 					`Amount=${resultAmount}`,
-					depositPromo?.bonusCode
-						? `BonusCode=${depositPromo.bonusCode}`
-						: ""
+					bonusCode ? `BonusCode=${bonusCode}` : ""
 				]
 					.filter(Boolean)
 					.join("&");
@@ -393,7 +450,7 @@ const Deposit = () => {
 						cardCode: cardCode.val,
 						cardSerial: cardSerial.val,
 						amount: resultAmount,
-						bonusCode: depositPromo?.bonusCode
+						bonusCode
 					});
 				} else {
 					const openUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqLoadCardPay`;
@@ -403,9 +460,7 @@ const Deposit = () => {
 						`Code=${cardCode.val}`,
 						`Serial=${cardSerial.val}`,
 						`Amount=${resultAmount}`,
-						depositPromo?.bonusCode
-							? `BonusCode=${depositPromo.bonusCode}`
-							: ""
+						bonusCode ? `BonusCode=${bonusCode}` : ""
 					]
 						.filter(Boolean)
 						.join("&");
@@ -418,8 +473,7 @@ const Deposit = () => {
 				const params = [
 					`ChannelId=${channelId}`,
 					`Amount=${resultAmount}`,
-					depositPromo?.bonusCode &&
-						`BonusCode=${depositPromo.bonusCode}`
+					bonusCode && `BonusCode=${bonusCode}`
 				]
 					.filter(Boolean)
 					.join("&");
@@ -502,17 +556,6 @@ const Deposit = () => {
 			onSubmit();
 		}
 	};
-
-	const changeDeposotPromoHandlar = ({ idx, bonusCode }) =>
-		setFormInfo(prev => {
-			return {
-				...prev,
-				depositPromo: {
-					idx,
-					bonusCode
-				}
-			};
-		});
 
 	useEffect(() => {
 		const getData = async () => {
@@ -634,13 +677,12 @@ const Deposit = () => {
 						getMobilePayInfoList={getMobilePayInfoList}
 						mobilePayInfoList={mobilePayInfoList}
 						formInfo={formInfo}
-						depositPromoMsg={depositPromoMsg}
 						setFormInfo={setFormInfo}
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
 						depositPromoList={depositPromoList}
 						isGroupListFetchDone={isGroupListFetchDone}
-						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
+						onChangePromotion={onChangePromotion}
 					/>
 				)}
 
@@ -652,7 +694,6 @@ const Deposit = () => {
 						_isConvert={_isConvert}
 						localBankGroupList={localBankGroupList}
 						formInfo={formInfo}
-						depositPromoMsg={depositPromoMsg}
 						setFormInfo={setFormInfo}
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
@@ -661,7 +702,7 @@ const Deposit = () => {
 						asyncUploadBankPopBox={asyncUploadBankPopBox}
 						depositPromoList={depositPromoList}
 						isGroupListFetchDone={isGroupListFetchDone}
-						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
+						onChangePromotion={onChangePromotion}
 					/>
 				)}
 
@@ -674,14 +715,13 @@ const Deposit = () => {
 						getOnlineBankInfoList={getOnlineBankInfoList}
 						onlineBankInfoList={onlineBankInfoList}
 						formInfo={formInfo}
-						depositPromoMsg={depositPromoMsg}
 						onChangeForm={onChangeForm}
 						setFormInfo={setFormInfo}
 						setOnlineBankInfoList={setOnlineBankInfoList}
 						onInputboxKeyDown={onInputboxKeyDown}
 						depositPromoList={depositPromoList}
 						isGroupListFetchDone={isGroupListFetchDone}
-						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
+						onChangePromotion={onChangePromotion}
 					/>
 				)}
 
@@ -689,7 +729,6 @@ const Deposit = () => {
 					<LoadCardForm
 						t={t}
 						formInfo={formInfo}
-						depositPromoMsg={depositPromoMsg}
 						_isConvert={_isConvert}
 						depositType={depositType}
 						cardCodeInfoIconActive={cardCodeInfoIconActive}
@@ -701,7 +740,7 @@ const Deposit = () => {
 						setCardCodeInfoIconActive={setCardCodeInfoIconActive}
 						depositPromoList={depositPromoList}
 						isGroupListFetchDone={isGroupListFetchDone}
-						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
+						onChangePromotion={onChangePromotion}
 					/>
 				)}
 
@@ -711,7 +750,6 @@ const Deposit = () => {
 						userInfo={userInfo}
 						depositType={depositType}
 						defPopBoxType={defPopBoxType}
-						depositPromoMsg={depositPromoMsg}
 						_isConvert={_isConvert}
 						formatAmount={formatAmount}
 						cryptoPayGroupList={cryptoPayGroupList}
@@ -723,7 +761,7 @@ const Deposit = () => {
 						setFormInfo={setFormInfo}
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
-						changeDeposotPromoHandlar={changeDeposotPromoHandlar}
+						onChangePromotion={onChangePromotion}
 					/>
 				)}
 			</DepositInfoMoule>
