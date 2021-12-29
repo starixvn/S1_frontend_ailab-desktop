@@ -82,12 +82,17 @@ export class Dropdown extends Component {
 				}`}
 				ref={this.wrapper}
 				onClick={this.clickDropdown}>
-				{userLevelImgInfo ? (
-					<img
-						src={userLevelImgInfo.url}
-						alt={userLevelImgInfo.alt}
-					/>
-				) : null}
+				{userLevelImgInfo && (
+					<>
+						<div className="vipAnimation">
+							<div />
+						</div>
+						<img
+							src={userLevelImgInfo.url}
+							alt={userLevelImgInfo.alt}
+						/>
+					</>
+				)}
 
 				{selected}
 				<div className={this.props.subClassName}>{arr}</div>
