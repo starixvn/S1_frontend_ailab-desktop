@@ -97,11 +97,18 @@ const leaderBoardContent = ({
 					<div className="icon icon-nodata">{t("lbl_NoData")}</div>
 				)}
 				{tab === defTabId.fourth ? null : (
-					<div className="lastUpdate">
-						{t(`lbl_LastUpdTime`, {
-							time: showUpdateTime()
-						})}
-					</div>
+					<>
+						<div className="lastUpdate">
+							{t(`lbl_LastUpdTime`, {
+								time: showUpdateTime()
+							})}
+						</div>
+						<div
+							className="lastUpdate"
+							style={{ color: "#f1d5b6", fontWeight: 600 }}>
+							{t("lbl_Ranking_EndDate")}
+						</div>
+					</>
 				)}
 			</div>
 		</div>

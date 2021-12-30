@@ -22,7 +22,11 @@ import {
 import { cloudImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
-import { langAndCurrMapping, defCurrencyList } from "../common/common";
+import {
+	langAndCurrMapping,
+	defCurrencyList,
+	isDateRange
+} from "../common/common";
 import { siteDefLangId } from "../../service/language";
 import defaultBg from "../../styles/img/ranking_page_bg.jpg";
 import sportsBg from "../../styles/img/ranking_page_bg_sports.jpg";
@@ -82,11 +86,14 @@ export default () => {
 	}, [userInfo.isLogin, _canSeeLeaderBoard]);
 
 	const showUpdateTime = () => {
-		const _time = new Date();
+		const endDate = "2021/12/31 23:59:59";
+		const _time = isDateRange(null, endDate)
+			? new Date()
+			: new Date(endDate);
 		const _convertMin = _time.getMinutes() < 30 ? 0 : 30;
 		_time.setMinutes(_convertMin);
 		_time.setSeconds(0);
-		const displayTime = moment(_time).format("YYYY/MM/DD hh:mm:ss");
+		const displayTime = moment(_time).format("YYYY/MM/DD HH:mm:ss");
 		return displayTime;
 	};
 
