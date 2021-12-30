@@ -105,7 +105,7 @@ const leaderBoardContent = ({
 						</div>
 						<div
 							className="lastUpdate"
-							style={{ color: "#f1d5b6", fontWeight: 600 }}>
+							style={{ color: "#fab617", fontWeight: 600 }}>
 							{t("lbl_Ranking_EndDate")}
 						</div>
 					</>

@@ -87,14 +87,15 @@ export default () => {
 
 	const showUpdateTime = () => {
 		const endDate = "2021/12/31 23:59:59";
-		const _time = isDateRange(null, endDate)
-			? new Date()
-			: new Date(endDate);
-		const _convertMin = _time.getMinutes() < 30 ? 0 : 30;
-		_time.setMinutes(_convertMin);
-		_time.setSeconds(0);
-		const displayTime = moment(_time).format("YYYY/MM/DD HH:mm:ss");
-		return displayTime;
+		let _displaytime = new Date(endDate);
+		if (isDateRange(null, endDate)) {
+			_displaytime = new Date();
+			const _convertMin = _displaytime.getMinutes() < 30 ? 0 : 30;
+			_displaytime.setMinutes(_convertMin);
+			_displaytime.setSeconds(0);
+		}
+
+		return moment(_displaytime).format("YYYY/MM/DD HH:mm:ss");
 	};
 
 	const getPeriodList = () => {
