@@ -1,4 +1,4 @@
-import { paymentRequest } from "./base";
+import { paymentRequest, defDeviceType } from "./base";
 
 export const api_payment_GetBankInfoSysList = () =>
 	paymentRequest.post("/GetBankInfoSysList");
@@ -63,18 +63,26 @@ export const api_payment_DepositReqWireTransfer = ({
 	sysId,
 	fromChannel,
 	fromSysId,
-	fromAccountNum
+	fromAccountNum,
+	hasPromotion
 }) =>
 	paymentRequest.post("/DepositReqWireTransfer", {
 		amount,
 		sysId,
 		fromChannel,
 		fromSysId,
-		fromAccountNum
+		fromAccountNum,
+		hasPromotion
 	});
 
 export const api_payment_GetDepositInfoRecent = () =>
 	paymentRequest.post("/GetDepositInfoRecent");
+
+export const api_payment_CheckDepositSpecialCode = SpecialCode =>
+	paymentRequest.post(`/CheckDepositSpecialCode`, {
+		SpecialCode,
+		DeviceType: defDeviceType.Desktop
+	});
 
 export const api_payment_SetDepositCancel = TransId =>
 	paymentRequest.post("/SetDepositCancel", { TransId });

@@ -3,9 +3,10 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import FixedAmountList from "./fixedAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
-import Dropdown from "../../common/dropdown";
 import config from "../../../config";
 import cardinfoImg from "../../../styles/img/cardinfo.png";
+
+import PromotionSelect from "./PromotionSelect";
 
 export default function LoadCardForm({
 	t,
@@ -22,7 +23,7 @@ export default function LoadCardForm({
 	onChangeForm,
 	onInputboxKeyDown,
 	setCardCodeInfoIconActive,
-	changeDeposotPromoHandlar
+	onChangePromotion
 }) {
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 
@@ -93,10 +94,6 @@ export default function LoadCardForm({
 	});
 
 	const tipImgClass = ["tipImg", cardCodeInfoIconActive && "active"]
-		.filter(Boolean)
-		.join(" ");
-
-	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
 		.filter(Boolean)
 		.join(" ");
 
@@ -239,26 +236,13 @@ export default function LoadCardForm({
 							{t("lbl_Select_Bonus")}
 						</span>
 					</div>
-					<div className="subModule">
-						<div className="inputBox-blue">
-							<Dropdown
-								showDropDownIcon={true}
-								mainkey="bonus-provider"
-								options={depositPromoList}
-								onSelectItem={(idx, data) =>
-									changeDeposotPromoHandlar({
-										idx,
-										bonusCode: data.bonusCode
-									})
-								}
-								selectedIdx={formInfo?.depositPromo?.idx}
-								i18n={t}
-							/>
-						</div>
-						<div className={depositPromoMsgClass}>
-							{depositPromoMsg}
-						</div>
-					</div>
+
+					<PromotionSelect
+						value={formInfo?.depositPromo ?? {}}
+						amount={Number(formInfo.amount)}
+						depositPromoList={depositPromoList}
+						onSelectItem={onChangePromotion}
+					/>
 				</>
 			)}
 
@@ -287,5 +271,5 @@ LoadCardForm.propTypes = {
 	setCardCodeInfoIconActive: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
-	changeDeposotPromoHandlar: PropTypes.func.isRequired
+	onChangePromotion: PropTypes.func.isRequired
 };

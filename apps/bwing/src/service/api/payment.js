@@ -1,4 +1,4 @@
-import { paymentRequest } from "./base";
+import { paymentRequest, defDeviceType } from "./base";
 
 export const api_payment_GetBankInfoSysList = () =>
 	paymentRequest.post("/GetBankInfoSysList");
@@ -151,6 +151,12 @@ export const api_payment_GetCustTpBetRecordDetailListbyGameType = ({
 
 export const api_payment_GetWithdrawalLimit = () =>
 	paymentRequest.post("/GetWithdrawalLimit");
+
+export const api_payment_CheckDepositSpecialCode = SpecialCode =>
+	paymentRequest.post(`/CheckDepositSpecialCode`, {
+		SpecialCode,
+		DeviceType: defDeviceType.Desktop
+	});
 
 export const api_payment_GetCryptoPayInfoList = () =>
 	paymentRequest.post("/GetCryptoPayInfoList");

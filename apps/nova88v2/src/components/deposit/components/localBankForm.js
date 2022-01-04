@@ -24,6 +24,7 @@ const LocalBankForm = ({
 	localBankGroupList,
 	formInfo,
 	depositPromoList,
+	onChangePromotion,
 	setFormInfo,
 	onChangeAmount,
 	onInputboxKeyDown,
@@ -483,18 +484,7 @@ const LocalBankForm = ({
 				value={formInfo?.depositPromo ?? {}}
 				amount={Number(formInfo.amount)}
 				depositPromoList={depositPromoList}
-				onSelectItem={(idx, data) =>
-					setFormInfo(prev => {
-						return {
-							...prev,
-							depositPromo: {
-								idx,
-								bonusCode: data.bonusCode,
-								requiredAmount: data.requiredAmount
-							}
-						};
-					})
-				}
+				onSelectItem={onChangePromotion}
 			/>
 		</>
 	);

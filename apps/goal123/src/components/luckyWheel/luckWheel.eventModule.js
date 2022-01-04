@@ -33,6 +33,11 @@ const LuckWheelEventModule = ({
 						</div>
 
 						<div>{t("luckyWheel.lbl_memberEligibility")}</div>
+						<div>
+							{t("luckyWheel.lbl_MinDeposit", {
+								amount: "50,000"
+							})}
+						</div>
 						<div className="eventInfo">
 							<div className="title">
 								{t("luckyWheel.lbl_otherConditions")}

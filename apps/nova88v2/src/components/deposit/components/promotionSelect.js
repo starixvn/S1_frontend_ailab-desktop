@@ -5,11 +5,24 @@ import { userInfoContext } from "../../common/context";
 import Dropdown from "../../common/dropdown";
 import { number_format, isConvert } from "../../common/common";
 
+const NONE_IDX = 0;
+
 const PromotionSelect = ({ value, amount, depositPromoList, onSelectItem }) => {
-	const { requiredAmount, idx } = value;
+	const { requiredAmount, idx, specialCode, bonusCode } = value;
+
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { phoneVerified, currencyId } = userInfo;
+
+	const selectClassName = ["inputBox-blue", specialCode && "active"]
+		.filter(Boolean)
+		.join(" ");
+
+	const inputClassName = ["inputBox-white", bonusCode && "active"]
+		.filter(Boolean)
+		.join(" ");
+
+	const input = specialCode ?? "";
 
 	return (
 		<>
@@ -19,13 +32,26 @@ const PromotionSelect = ({ value, amount, depositPromoList, onSelectItem }) => {
 			</div>
 
 			<div className="subModule">
-				<div className="inputBox-blue">
+				<div className={selectClassName}>
 					<Dropdown
 						mainKey="deposit-localbank-bonus-provider"
 						options={depositPromoList}
 						onSelectItem={onSelectItem}
 						selectedIdx={idx}
 						i18n={t}
+					/>
+				</div>
+
+				<div className={inputClassName}>
+					<input
+						value={input}
+						placeholder={t("lbl_PromoCode")}
+						onChange={val =>
+							onSelectItem(NONE_IDX, {
+								requiredAmount: null,
+								specialCode: val.target.value
+							})
+						}
 					/>
 				</div>
 

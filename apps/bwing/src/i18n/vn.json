@@ -411,6 +411,7 @@
 	"lbl_DepositLoadCardNoticeContent1": "Vui lòng chọn đúng mệnh giá và nhà mạng, nếu quý khách nhập sai, Bwing không chịu trách nhiệm.",
 	"lbl_DepositLoadCardNoticeContent2": "Phí gạch thẻ rẻ nhất thị trường, 25% cho tất cả các nhà mạng.",
 	"lbl_DepositPromoMsg1": "Vui lòng xác minh tài khoản của bạn để được hưởng các chương trình khuyến mãi có sẵn.",
+	"lbl_DepositPromoMsg2": "* Yêu cầu nạp tiền tối thiểu {{ currency }} <span>{{amount}}</span>",
 	"lbl_Deposit_DragonPayPop_OrderNumber": "Mã đặt thanh toán",
 	"lbl_Rate": "Tỷ giá",
 	"lbl_USDT_Amount": "Số tiền bằng USDT",
@@ -688,7 +689,8 @@
 		"lbl_popboxTitle1": "Phần thưởng gần đây",
 		"lbl_congratulations": "Xin chúc mừng!",
 		"lbl_popboxDescription1": "Bạn đã được thưởng {{prizeName}} vào tài khoản.",
-		"lbl_popboxDescription2": "Bạn đã nhận thưởng {{prizeName}} hôm nay. Vui lòng thử lại vào ngày mai!"
+		"lbl_popboxDescription2": "Bạn đã nhận thưởng {{prizeName}} hôm nay. Vui lòng thử lại vào ngày mai!",
+		"lbl_MinDeposit":"Nạp tối thiểu {{amount}} VND"
 	},
 
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",

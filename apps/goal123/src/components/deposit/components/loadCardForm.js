@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import FixedAmountList from "./fixedAmountList";
-import Dropdown from "../../common/dropdown";
 import { getUrlParameter, number_format } from "../../common/common";
 import config from "../../../config";
 import cardinfoImg from "../../../styles/img/cardinfo.png";
+
+import PromotionSelect from "./PromotionSelect";
 
 export default function LoadCardForm({
 	t,
 	_isConvert,
 	formInfo,
-	depositPromoMsg,
 	depositType,
 	cardCodeInfoIconActive,
 	setFormInfo,
@@ -20,8 +20,8 @@ export default function LoadCardForm({
 	loadCardPayGroupList,
 	getLoadCardPayInfoList,
 	onChangeForm,
-	setCardCodeInfoIconActive,
-	changeDeposotPromoHandlar
+	onChangePromotion,
+	setCardCodeInfoIconActive
 }) {
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 
@@ -81,10 +81,6 @@ export default function LoadCardForm({
 	const isSelAmountType = formInfo.amountRule === 3;
 
 	const tipImgClass = ["tipImg", cardCodeInfoIconActive && "active"]
-		.filter(Boolean)
-		.join(" ");
-
-	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
 		.filter(Boolean)
 		.join(" ");
 
@@ -225,25 +221,13 @@ export default function LoadCardForm({
 							{t("lbl_Select_Bonus")}
 						</span>
 					</div>
-					<div className="subModule">
-						<div className="inputBox">
-							<Dropdown
-								mainkey="bonus-provider"
-								options={depositPromoList}
-								onSelectItem={(idx, data) =>
-									changeDeposotPromoHandlar({
-										idx,
-										bonusCode: data.bonusCode
-									})
-								}
-								selectedIdx={formInfo?.depositPromo?.idx}
-								i18n={t}
-							/>
-						</div>
-						<div className={depositPromoMsgClass}>
-							{depositPromoMsg}
-						</div>
-					</div>
+
+					<PromotionSelect
+						value={formInfo?.depositPromo ?? {}}
+						amount={Number(formInfo.amount)}
+						depositPromoList={depositPromoList}
+						onSelectItem={onChangePromotion}
+					/>
 				</>
 			)}
 
@@ -260,16 +244,15 @@ export default function LoadCardForm({
 LoadCardForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	depositType: PropTypes.string.isRequired,
-	depositPromoMsg: PropTypes.string.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	loadCardPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getLoadCardPayInfoList: PropTypes.func.isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired,
+	onChangePromotion: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
-	changeDeposotPromoHandlar: PropTypes.func.isRequired,
 	cardCodeInfoIconActive: PropTypes.bool.isRequired,
 	setCardCodeInfoIconActive: PropTypes.func.isRequired
 };
