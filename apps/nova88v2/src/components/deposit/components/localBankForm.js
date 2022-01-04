@@ -9,7 +9,7 @@ import { defDepositChannel, defDepositChannelIdList } from "../deposit.def";
 
 import PromotionSelect from "./promotionSelect";
 
-// import ClipboardJS from "../../../lib/clipboard.min";
+import ClipboardJS from "../../../lib/clipboard.min";
 import path from "../../../router";
 import { cloudImgUrl } from "../../../config";
 import { currencyCode } from "../../../datas/countryCode";
@@ -139,6 +139,16 @@ const LocalBankForm = ({
 	useSyncRouteQuery({
 		type: depositType,
 		sysId: sysIdForRecord
+	});
+
+	useEffect(() => {
+		const _clipboard = new ClipboardJS(".copyBtn");
+		_clipboard.on("success", () => 0);
+		_clipboard.on("error", () => 0);
+
+		return () => {
+			_clipboard.destroy();
+		};
 	});
 
 	useEffect(() => {
