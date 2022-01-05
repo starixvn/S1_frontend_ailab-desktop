@@ -262,6 +262,8 @@ const Deposit = () => {
 
 		if (isSelectType && !isOTPVerified(userInfo)) {
 			openVerificationPopBox(data.bonusCode);
+
+			return;
 		}
 
 		setFormInfo(prev => {
