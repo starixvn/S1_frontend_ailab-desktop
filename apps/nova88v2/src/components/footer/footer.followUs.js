@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { GetCurrencyName } from "../common/common";
-import ImgFB from "../../styles/img/fba.png";
-import ImgIN from "../../styles/img/ina.png";
-import ImgTW from "../../styles/img/twa.png";
-import ImgYT from "../../styles/img/yta.png";
+import { useGetSEODatas } from "../seo/seo";
+import { SiteInfo, bannerImgUrl } from "../../config";
+import usePopBox from "../hook/usePopBox";
 import ImgChrome from "../../styles/img/gga.png";
 import ImgFireFox from "../../styles/img/ffa.png";
 import ImgEdge from "../../styles/img/iea.png";
@@ -53,50 +52,75 @@ const paymentList = {
 	INR: [{ img: tenpay, name: "tenpay" }]
 };
 
-const FollowUsSection = ({ t, langId, SiteInfo, currencyId }) => {
+const defaultSocialMedias = (
+	<>
+		<a href={SiteInfo.socialMedia.fb.link} target="_blank" rel="noreferrer">
+			<img src={`${bannerImgUrl}/desktop/img/fba.png`} alt="fb" />
+		</a>
+		<a href={SiteInfo.socialMedia.ig.link} target="_blank" rel="noreferrer">
+			<img src={`${bannerImgUrl}/desktop/img/ina.png`} alt="ig" />
+		</a>
+		<a
+			href={SiteInfo.socialMedia.youtube.link}
+			target="_blank"
+			rel="noreferrer">
+			<img src={`${bannerImgUrl}/desktop/img/yta.png`} alt="youtube" />
+		</a>
+
+		<a
+			href={SiteInfo.socialMedia.twitter.link}
+			target="_blank"
+			rel="noreferrer">
+			<img src={`${bannerImgUrl}/desktop/img/twa.png`} alt="twitter" />
+		</a>
+	</>
+);
+
+const FollowUsSection = ({ t, langId, currencyId }) => {
 	const getPaymentList = () =>
 		paymentList[GetCurrencyName({ langId, currencyId, t })] ??
 		paymentList.MYR;
-
-	const paymentArr = getPaymentList().map(_p => {
-		return (
-			<a key={_p.name}>
-				<img src={_p.img} alt={_p.name} />
-			</a>
-		);
+	const { errorPopBox } = usePopBox();
+	const { SEODatas } = useGetSEODatas({
+		getFromAPI: true,
+		errorPopBox
 	});
+
+	const paymentArr = SEODatas?.paymentMethod
+		? SEODatas.paymentMethod?.map(_p => {
+				return (
+					<a key={_p.name}>
+						<img
+							src={require(`../../styles/img/footer/${_p.image}`)}
+							alt={_p.name}
+						/>
+					</a>
+				);
+		  })
+		: getPaymentList()?.map(_p => {
+				return (
+					<a key={_p.name}>
+						<img src={_p.img} alt={_p.name} />
+					</a>
+				);
+		  });
+
+	const socialMedias = SEODatas?.followUs
+		? SEODatas.followUs?.map(el => (
+				<a key={el.url} href={el.url} target="_blank" rel="noreferrer">
+					<img
+						src={`${bannerImgUrl}/desktop/img/${el.image}`}
+						alt={el.url}
+					/>
+				</a>
+		  ))
+		: defaultSocialMedias;
 
 	return (
 		<div className="sfp">
 			<div>
 				<div className="title">{t("lbl_Follow_Us")}</div>
-				<div>
-					<a
-						href={SiteInfo.socialMedia.fb.link}
-						target="_blank"
-						rel="noreferrer">
-						<img src={ImgFB} alt="fb" />
-					</a>
-					<a
-						href={SiteInfo.socialMedia.ig.link}
-						target="_blank"
-						rel="noreferrer">
-						<img src={ImgIN} alt="ig" />
-					</a>
-					<a
-						href={SiteInfo.socialMedia.youtube.link}
-						target="_blank"
-						rel="noreferrer">
-						<img src={ImgYT} alt="youtube" />
-					</a>
-
-					<a
-						href={SiteInfo.socialMedia.twitter.link}
-						target="_blank"
-						rel="noreferrer">
-						<img src={ImgTW} alt="twitter" />
-					</a>
-				</div>
+				<div>{socialMedias}</div>
 			</div>
 			<div>
 				<div className="title">{t("lbl_Suggested_Browser")}</div>
@@ -122,7 +146,6 @@ FollowUsSection.defaultProps = {
 FollowUsSection.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
-	SiteInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	currencyId: PropTypes.number
 };
 
