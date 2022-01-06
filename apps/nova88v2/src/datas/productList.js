@@ -2,6 +2,17 @@ export const defTpGameType = {
 	All: 0
 };
 
+export const defCategory = {
+	Sports: 1,
+	Slots: 2,
+	LiveCasino: 3,
+	Fishing: 4,
+	CockFighting: 5,
+	Lottery: 6,
+	VirtualSports: 7,
+	Poker: 8
+};
+
 export const defSlotTpGameType = {
 	Saba: { tpId: 1, tpGameType: 4 },
 	PP: { tpId: 5, tpGameType: 7 },
