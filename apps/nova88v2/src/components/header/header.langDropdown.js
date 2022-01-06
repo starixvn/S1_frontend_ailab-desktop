@@ -3,23 +3,37 @@ import { Redirect } from "@reach/router";
 import DropdownHeader from "../common/dropdown.langList";
 import { userInfoContext, popBoxContext } from "../common/context";
 
-const defLangGroup = {
-	ch: [
-		{ displayText: "English", value: "en" },
-		{ displayText: "简体中文", value: "cs" }
-	],
-	th: [
-		{ displayText: "English", value: "th_en" },
-		{ displayText: "ไทย", value: "th" }
-	],
-	id: [
-		{ displayText: "English", value: "id_en" },
-		{ displayText: "Bhs Indonesia", value: "id" }
-	],
-	in: [
-		{ displayText: "English", value: "hi_en" },
-		{ displayText: "Hindi", value: "hi" }
-	]
+const getLangs = (currencyId, langKey) => {
+	const afterLogin = Boolean(currencyId);
+
+	const defLangGroups = {
+		ch: [
+			{ displayText: "English", value: "en" },
+			{ displayText: "简体中文", value: "cs" }
+		],
+		th: afterLogin
+			? [
+					{ displayText: "English", value: "th_en" },
+					{ displayText: "ไทย", value: "th" },
+					{ displayText: "简体中文", value: "cs" }
+			  ]
+			: [
+					{ displayText: "English", value: "th_en" },
+					{ displayText: "ไทย", value: "th" }
+			  ],
+		id: [
+			{ displayText: "English", value: "id_en" },
+			{ displayText: "Bhs Indonesia", value: "id" }
+		],
+		in: [
+			{ displayText: "English", value: "hi_en" },
+			{ displayText: "Hindi", value: "hi" }
+		]
+	};
+
+	return afterLogin && langKey
+		? { [langKey]: defLangGroups[langKey] }
+		: defLangGroups;
 };
 
 const currencyToLangKey = {
@@ -50,10 +64,7 @@ export default () => {
 	});
 
 	const langKey = currencyToLangKey[userInfo.currencyId];
-	const _defLangGroup =
-		userInfo.currencyId && langKey
-			? { [langKey]: defLangGroup[langKey] }
-			: defLangGroup;
+	const _defLangGroup = getLangs(userInfo.currencyId, langKey);
 
 	const clickClose = () => {
 		setPopBox({ isOpen: false });
