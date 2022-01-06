@@ -14,7 +14,6 @@ const FooterProduct = ({
 	isFullFooter
 }) => {
 	const currencyName = GetCurrencyName({ langId, currencyId, t });
-
 	return (
 		<div className="footerList">
 			<div>
