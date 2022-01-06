@@ -79,9 +79,14 @@ const Footer = ({ isFullFooter = false }) => {
 			  });
 	};
 
+	const _langId =
+		userInfo.isLogin === false && userInfo?.defaultLang
+			? userInfo.defaultLang
+			: userInfo.langId;
+
 	return (
 		<footer id="footer">
-			<CopyrightSection t={t} langId={userInfo.langId} />
+			<CopyrightSection t={t} langId={_langId} />
 			{isFullFooter && (
 				<PlatformSection
 					t={t}
@@ -106,9 +111,8 @@ const Footer = ({ isFullFooter = false }) => {
 			<LicensesSection t={t} errorPopBox={errorPopBox} />
 			<FollowUsSection
 				t={t}
-				langId={userInfo.langId}
+				langId={_langId}
 				currencyId={userInfo.currencyId ?? null}
-				SiteInfo={SiteInfo}
 			/>
 		</footer>
 	);

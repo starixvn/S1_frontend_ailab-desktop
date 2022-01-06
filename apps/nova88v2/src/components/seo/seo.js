@@ -30,8 +30,8 @@ export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 							res.data.errorCode
 						);
 					}
-				} catch (error) {
-					errorPopBox();
+				} catch (err) {
+					console.error(err);
 				}
 			}
 		};

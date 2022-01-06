@@ -23,7 +23,7 @@ import {
 } from "../../service/language";
 import { SiteInfo } from "../../config";
 import useGetWalletInfo from "./wrapper.walletInfo";
-import SEO from "../seo/seo";
+import SEO, { useGetSEODatas } from "../seo/seo";
 import ThirdPartyJS from "./thirdPartyJS";
 import usePopBox from "../hook/usePopBox";
 
@@ -81,6 +81,8 @@ export default ({
 	const [allMaintainList, setAllMaintainList] = useState([]);
 
 	const isMountedRef = useRef(null);
+
+	const { SEODatas } = useGetSEODatas({ getFromAPI: true });
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -330,10 +332,16 @@ export default ({
 					...prevState,
 					userName: t("lbl_Guest")
 				}));
+				if (SEODatas?.defaultLang) {
+					setUserInfo(prevState => ({
+						...prevState,
+						defaultLang: SEODatas.defaultLang
+					}));
+				}
 			}
 			setMsgCount(0);
 		}
-	}, [userInfo.isLogin, userInfo.regTime]);
+	}, [userInfo.isLogin, userInfo.regTime, SEODatas]);
 
 	useEffect(() => {
 		if (userInfo.isLogin !== null) {
