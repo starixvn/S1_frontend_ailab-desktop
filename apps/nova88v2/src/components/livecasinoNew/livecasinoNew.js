@@ -9,9 +9,10 @@ import {
 	productTpIdsContext,
 	maintainListContext
 } from "../common/context";
-import { getCurrencyCode } from "../common/common";
+
 import defPopBoxType from "../common/defPopBoxType";
 import { useGotoGame } from "../hook/useGotoGame";
+import { useGameMenu } from "../hook/useGameMenu";
 
 import LivecasinoNewBanner from "./livecasinoNew.banner";
 import LivecasinoNewList from "./livecasinoNew.list";
@@ -23,13 +24,14 @@ export default () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 
+	const [subMenu, setSubMenu] = useState([]);
+	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
+
 	const { handleGoToGame } = useGotoGame({
 		isLogin: userInfo.isLogin,
 		langId: userInfo.langId,
 		autoGetData: false
 	});
-
-	const [listData, setListData] = useState([]);
 
 	const clickItem = ({
 		tpId,
@@ -74,51 +76,34 @@ export default () => {
 
 	useEffect(() => {
 		const getSubMenu = () => {
-			const { filterByAuth, customSort } = defMenuLinks.casino;
-			let { subMenu } = defMenuLinks.casino;
+			const {
+				filterByAuth,
+				customSort,
+				subMenu: defMenu,
+				menuId
+			} = defMenuLinks.casino;
 
-			const _currencyId = userInfo.currencyId
-				? userInfo.currencyId
-				: getCurrencyCode(userInfo.langId);
+			const menu = sortGameMenu({
+				customSort,
+				filterByAuth,
+				defMenu,
+				menuId
+			}).filter(subMenuItem => subMenuItem?.lobbyPage);
 
-			const haveToCheckTpId = productTpIds?.length > 0 && filterByAuth;
-
-			subMenu = subMenu.filter(s => {
-				let result =
-					!s.canSeeOnlyAfterLogin ||
-					(s.canSeeOnlyAfterLogin && userInfo.isLogin);
-
-				if (result && s?.allowCurrencies) {
-					result = s?.allowCurrencies.includes(_currencyId);
-				}
-
-				if (result && haveToCheckTpId) {
-					result = s.alwaysShow || productTpIds.includes(s.tpId);
-				}
-
-				return result;
-			});
-
-			const isCurrenyInSortDef =
-				customSort &&
-				Object.keys(customSort).includes(_currencyId.toString());
-
-			if (isCurrenyInSortDef) {
-				subMenu = subMenu.sort(
-					(a, b) =>
-						customSort[_currencyId][a.keyName] -
-						customSort[_currencyId][b.keyName]
-				);
-			}
-			return subMenu;
+			return menu;
 		};
-		const subMenu = getSubMenu();
-		const filterSubMenu = subMenu.filter(
-			subMenuItem => subMenuItem?.lobbyPage
-		);
 
-		setListData(filterSubMenu);
-	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, userInfo.langId]);
+		const menu = getSubMenu();
+
+		setSubMenu(menu);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [
+		productTpIds,
+		userInfo.currencyId,
+		userInfo.isLogin,
+		userInfo.langId,
+		allGameMenu
+	]);
 
 	return (
 		<>
@@ -128,7 +113,7 @@ export default () => {
 				<div className="rightModule">
 					<div className="livecasino newDesign">
 						<LivecasinoNewList
-							listData={listData}
+							listData={subMenu}
 							maintainList={allMaintainList}
 							clickItem={clickItem}
 							t={t}

@@ -238,6 +238,7 @@ export const defMenuLinks = {
 		productInfo: productList.sports,
 		filterByAuth: true,
 		customSort: defSortSports,
+		menuId: 1,
 		subMenu: [
 			{
 				path: path.sports.root,
@@ -318,6 +319,7 @@ export const defMenuLinks = {
 		displayKey: "lbl_eSports",
 		className: "eSportsbtn",
 		path: path.eSport.root,
+		menuId: 2,
 		subMenu: [
 			{
 				displayKey: "lbl_All",
@@ -387,6 +389,7 @@ export const defMenuLinks = {
 		path: path.liveCasino.root,
 		filterByAuth: true,
 		customSort: defSortCasino,
+		menuId: 3,
 		subMenu: [
 			// {
 			// 	keyName: "casino_MGPSW",
@@ -549,6 +552,7 @@ export const defMenuLinks = {
 		path: path.casino.root,
 		filterByAuth: true,
 		customSort: defSortSlot,
+		menuId: 4,
 		subMenu: [
 			{
 				keyName: "slot_PP",
@@ -726,12 +730,14 @@ export const defMenuLinks = {
 	},
 	poker: {
 		displayKey: "lbl_Poker",
-		className: "pokerbtn"
+		className: "pokerbtn",
+		menuId: 5
 	},
 	games: {
 		displayKey: "lbl_Games",
 		path: path.game.root,
 		filterByAuth: true,
+		menuId: 6,
 		subMenu: [
 			{
 				keyName: "games_MPoker",
@@ -803,6 +809,7 @@ export const defMenuLinks = {
 		path: path.fishing.root,
 		filterByAuth: true,
 		customSort: defSortFishing,
+		menuId: 7,
 		subMenu: [
 			{
 				keyName: "fishing_CQ9_PARADISE",
@@ -926,6 +933,7 @@ export const defMenuLinks = {
 		displayKey: "lbl_Lottery",
 		path: path.lottery.root,
 		filterByAuth: true,
+		menuId: 8,
 		subMenu: [
 			{
 				...productList.tcg,
