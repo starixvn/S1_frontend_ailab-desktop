@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "@reach/router";
 import {
@@ -11,13 +11,16 @@ import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE, Open9WSports } from "../../service/enterPage";
 import SubMenuMultiple from "./header.menu.sub.Multiple";
 import SubMenuSingle from "./header.menu.sub.single";
-import { getCurrencyCode } from "../common/common";
 import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
+import { useGameMenu } from "../hook/useGameMenu";
 
 export default ({ currentMenuKey, productTpIds, maintainList }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
+	const { sortGameMenu } = useGameMenu({ productTpIds });
+
+	const isMountedRef = useRef(null);
 
 	const { handleGoToGame } = useGotoGame({
 		isLogin: userInfo.isLogin,
@@ -26,6 +29,13 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 	});
 
 	const { isLogin, langId } = userInfo;
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
 
 	const clickItem = async ({
 		tpId,
@@ -94,44 +104,16 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 			.join(" ");
 
 		if (defMenuLinks[menuKey]?.subMenu) {
-			let { subMenu } = defMenuLinks[menuKey];
+			const { filterByAuth, customSort, subMenu: defMenu } = defMenuLinks[
+				menuKey
+			];
 
-			const _currencyId = userInfo.currencyId
-				? userInfo.currencyId
-				: getCurrencyCode(userInfo.langId);
-
-			const haveToCheckTpId =
-				productTpIds?.length > 0 && defMenuLinks[menuKey].filterByAuth;
-
-			subMenu = subMenu.filter(s => {
-				let result =
-					!s.canSeeOnlyAfterLogin ||
-					(s.canSeeOnlyAfterLogin && userInfo.isLogin);
-
-				if (result && s?.allowCurrencies) {
-					result = s?.allowCurrencies.includes(_currencyId);
-				}
-
-				if (result && haveToCheckTpId) {
-					result = s.alwaysShow || productTpIds.includes(s.tpId);
-				}
-
-				return result;
+			const subMenu = sortGameMenu({
+				defMenu,
+				customSort,
+				filterByAuth,
+				menuId: defMenuLinks[menuKey].menuId
 			});
-
-			const _defSortMenu = defMenuLinks[menuKey].customSort;
-
-			if (
-				_defSortMenu &&
-				Object.keys(_defSortMenu).includes(_currencyId.toString())
-			) {
-				subMenu = subMenu.sort(
-					(a, b) =>
-						_defSortMenu[_currencyId][a.keyName] -
-						_defSortMenu[_currencyId][b.keyName]
-				);
-			}
-
 			return (
 				<div className={subClassName} key={`main-key-${menuKey}`}>
 					{subMenu?.map(subMenuItem => (

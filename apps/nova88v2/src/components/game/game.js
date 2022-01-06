@@ -9,10 +9,10 @@ import {
 	productTpIdsContext,
 	maintainListContext
 } from "../common/context";
-import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import GameBanner from "./game.banner";
 import GameList from "./game.list";
+import { useGameMenu } from "../hook/useGameMenu";
 
 const Game = () => {
 	const { t } = useTranslation();
@@ -20,8 +20,8 @@ const Game = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
-
 	const [gameSubMenu, setGameSubMenu] = useState([]);
+	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
 
 	const clickItem = ({
 		tpId,
@@ -59,35 +59,29 @@ const Game = () => {
 
 	useEffect(() => {
 		const getSubMenu = () => {
-			const { filterByAuth } = defMenuLinks.games;
-			let { subMenu } = defMenuLinks.games;
+			const {
+				filterByAuth,
+				customSort,
+				subMenu: defMenu,
+				menuId
+			} = defMenuLinks.games;
 
-			const _currencyId = userInfo.currencyId
-				? userInfo.currencyId
-				: getCurrencyCode(userInfo.langId);
-
-			const haveToCheckTpId = productTpIds?.length > 0 && filterByAuth;
-
-			subMenu = subMenu.filter(s => {
-				let result =
-					!s.canSeeOnlyAfterLogin ||
-					(s.canSeeOnlyAfterLogin && userInfo.isLogin);
-
-				if (result && s?.allowCurrencies) {
-					result = s?.allowCurrencies.includes(_currencyId);
-				}
-
-				if (result && haveToCheckTpId) {
-					result = s.alwaysShow || productTpIds.includes(s.tpId);
-				}
-
-				return result;
+			const menu = sortGameMenu({
+				customSort,
+				filterByAuth,
+				defMenu,
+				menuId
 			});
-			setGameSubMenu(subMenu);
+
+			return menu;
 		};
 
-		getSubMenu();
-	}, [productTpIds, userInfo.currencyId, userInfo.isLogin]);
+		const menu = getSubMenu();
+
+		setGameSubMenu(menu);
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, allGameMenu]);
 
 	return (
 		<>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { navigate } from "@reach/router";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
@@ -9,10 +9,10 @@ import {
 	productTpIdsContext,
 	maintainListContext
 } from "../common/context";
-import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import FishingBanner from "./fishing.banner";
 import FishingList from "./fishing.list";
+import { useGameMenu } from "../hook/useGameMenu";
 
 const SLIDE_IMG_LIST = ["fishmainbanner.jpg"];
 
@@ -22,6 +22,8 @@ const Fishing = () => {
 	const { setPopBox } = useContext(popBoxContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const [subMenu, setSubMenu] = useState([]);
+	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
 
 	const clickItem = ({ tpId, gameId, needLogin, path, tpGameType }) => {
 		const showLoginPopBox = () => {
@@ -47,47 +49,31 @@ const Fishing = () => {
 		});
 	};
 
-	const getSubMenu = () => {
-		const { filterByAuth, customSort } = defMenuLinks.fishing;
-		let { subMenu } = defMenuLinks.fishing;
+	useEffect(() => {
+		const getSubMenu = () => {
+			const {
+				filterByAuth,
+				customSort,
+				subMenu: defMenu,
+				menuId
+			} = defMenuLinks.fishing;
 
-		const _currencyId = userInfo.currencyId
-			? userInfo.currencyId
-			: getCurrencyCode(userInfo.langId);
+			const menu = sortGameMenu({
+				customSort,
+				filterByAuth,
+				defMenu,
+				menuId
+			});
 
-		const haveToCheckTpId = productTpIds?.length > 0 && filterByAuth;
+			return menu;
+		};
 
-		subMenu = subMenu.filter(s => {
-			let result =
-				!s.canSeeOnlyAfterLogin ||
-				(s.canSeeOnlyAfterLogin && userInfo.isLogin);
+		const menu = getSubMenu();
 
-			if (result && s?.allowCurrencies) {
-				result = s?.allowCurrencies.includes(_currencyId);
-			}
+		setSubMenu(menu);
 
-			if (result && haveToCheckTpId) {
-				result = s.alwaysShow || productTpIds.includes(s.tpId);
-			}
-
-			return result;
-		});
-
-		const isCurrenyInSortDef =
-			customSort &&
-			Object.keys(customSort).includes(_currencyId.toString());
-
-		if (isCurrenyInSortDef) {
-			subMenu = subMenu.sort(
-				(a, b) =>
-					customSort[_currencyId][a.keyName] -
-					customSort[_currencyId][b.keyName]
-			);
-		}
-		return subMenu;
-	};
-
-	const subMenu = getSubMenu();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [allGameMenu]);
 
 	return (
 		<>

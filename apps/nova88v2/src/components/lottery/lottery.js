@@ -9,11 +9,11 @@ import {
 	productTpIdsContext,
 	maintainListContext
 } from "../common/context";
-import { getCurrencyCode } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import LotteryBanner from "./lottery.banner";
 import LotterySwiper from "./lottery.swiper";
 import { defTpGameType } from "../../datas/productList";
+import { useGameMenu } from "../hook/useGameMenu";
 
 const Lottery = () => {
 	const { t } = useTranslation();
@@ -22,6 +22,7 @@ const Lottery = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 	const [lotterySubMenu, setLotterySubMenu] = useState([]);
+	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
 
 	const clickItem = ({
 		tpId,
@@ -59,32 +60,21 @@ const Lottery = () => {
 
 	useEffect(() => {
 		const getSubMenu = () => {
-			const { filterByAuth } = defMenuLinks.lottery;
-			let { subMenu } = defMenuLinks.lottery;
+			const {
+				filterByAuth,
+				customSort,
+				subMenu: defMenu,
+				menuId
+			} = defMenuLinks.lottery;
 
-			const _currencyId = userInfo.currencyId
-				? userInfo.currencyId
-				: getCurrencyCode(userInfo.langId);
-
-			const haveToCheckTpId = productTpIds?.length > 0 && filterByAuth;
-
-			subMenu = subMenu.filter(s => {
-				let result =
-					!s.canSeeOnlyAfterLogin ||
-					(s.canSeeOnlyAfterLogin && userInfo.isLogin);
-
-				if (result && s?.allowCurrencies) {
-					result = s?.allowCurrencies.includes(_currencyId);
-				}
-
-				if (result && haveToCheckTpId) {
-					result = s.alwaysShow || productTpIds.includes(s.tpId);
-				}
-
-				return result;
+			let menu = sortGameMenu({
+				customSort,
+				filterByAuth,
+				defMenu,
+				menuId
 			});
 
-			subMenu = subMenu.map(s => {
+			menu = menu.map(s => {
 				const isInMaintain = allMaintainList.some(
 					item =>
 						item.tpId === s.tpId &&
@@ -94,11 +84,15 @@ const Lottery = () => {
 				return { ...s, isInMaintain };
 			});
 
-			setLotterySubMenu(subMenu);
+			return menu;
 		};
 
-		getSubMenu();
-	}, [productTpIds, userInfo.currencyId, userInfo.isLogin]);
+		const menu = getSubMenu();
+
+		setLotterySubMenu(menu);
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, allGameMenu]);
 
 	return (
 		<>
