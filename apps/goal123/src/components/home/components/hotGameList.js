@@ -37,7 +37,7 @@ const HotGameList = ({ t, langId, clickItem, navigate, allMaintainList }) => {
 	const defBottomGameList = [
 		{
 			title: t("lbl_Vgaming"),
-			img: "sabaclub",
+			img: "vg",
 			...productList.sabaClub
 		},
 		{
@@ -140,7 +140,7 @@ export const Games = ({
 					<img
 						className="gameImg"
 						alt={`${item.title}-alt`}
-						src={`${config.bannerImgUrl}/hotgame/desktop/${item.img}.jpg`}
+						src={`${config.bannerImgUrl}/desktop/img/hotgame/${item.img}.jpg`}
 					/>
 					<div className="title">{item.title}</div>
 				</div>

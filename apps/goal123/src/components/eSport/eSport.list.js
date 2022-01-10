@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import light from "../../styles/img/esports/light.png";
 import { defTpGameType } from "../../datas/productList";
+import { bannerImgUrl } from "../../config";
 
 const EsportList = ({ t, subMenu, allMaintainList, clickItem }) => {
 	if (subMenu.length <= 0) return null;
@@ -58,7 +58,11 @@ const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 				})
 			}>
 			<img src={imgSrc} alt="esport" />
-			<img className="light" src={light} alt="light" />
+			<img
+				className="light"
+				src={`${bannerImgUrl}/desktop/img/esports/light.png`}
+				alt="light"
+			/>
 			<div className="txt-darkBlue">{_displayText}</div>
 			{isInMaintain && (
 				<div className="maintenance">{t("lbl_underMaintenance")}</div>

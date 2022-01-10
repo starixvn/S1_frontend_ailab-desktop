@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import FixedAmountList from "./fixedAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
-import config from "../../../config";
-import cardinfoImg from "../../../styles/img/cardinfo.png";
+import config, { bannerImgUrl } from "../../../config";
 
 import PromotionSelect from "./PromotionSelect";
 
@@ -222,7 +221,10 @@ export default function LoadCardForm({
 						</div>
 
 						<div className={tipImgClass}>
-							<img src={cardinfoImg} alt="cardinfoImg" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/cardinfo.png`}
+								alt="cardinfoImg"
+							/>
 						</div>
 					</div>
 				</>

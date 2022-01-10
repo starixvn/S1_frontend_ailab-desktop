@@ -19,7 +19,7 @@ import {
 import defPopBoxType from "./defPopBoxType";
 import { userInfoContext, popBoxContext } from "./context";
 import { GET_LANG_ID } from "../../service/language";
-import config from "../../config";
+import config, { bannerImgUrl } from "../../config";
 import TandC from "../../service/t_and_c";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
@@ -697,23 +697,23 @@ export default () => {
 			<div className="joinloginModule">
 				<div className="joinAnimation">
 					<img
-						src={require("../../styles/img/animationLogo.png")}
+						src={`${bannerImgUrl}/desktop/img/animationLogo.png`}
 						className="animationlogo"
 					/>
 					<img
-						src={require("../../styles/img/joinNpc01.png")}
+						src={`${bannerImgUrl}/desktop/img/joinNpc01.png`}
 						className="npc1"
 					/>
 					<img
-						src={require("../../styles/img/joinNpc02.png")}
+						src={`${bannerImgUrl}/desktop/img/joinNpc02.png`}
 						className="npc2"
 					/>
 					<img
-						src={require("../../styles/img/welcome.png")}
+						src={`${bannerImgUrl}/desktop/img/welcome.png`}
 						className="welcome"
 					/>
 					<img
-						src={require("../../styles/img/back.png")}
+						src={`${bannerImgUrl}/desktop/img/back.png`}
 						className="back"
 					/>
 				</div>

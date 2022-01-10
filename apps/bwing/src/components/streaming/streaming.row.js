@@ -2,10 +2,9 @@ import React from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { useNavigate } from "@reach/router";
-import config from "../../config";
+import config, { bannerImgUrl } from "../../config";
 import path from "../../router";
 import productList from "../../datas/productList";
-import imgVsIcon from "../../styles/img/vsIcon.png";
 import usePopBox from "../hook/usePopBox";
 
 export const StreamingModule = ({
@@ -93,7 +92,10 @@ export const StreamingModule = ({
 					}`}>
 					<div className="point">{homeScore}</div>
 					<div className="vs">
-						<img src={imgVsIcon} alt="img-vsIcon" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/vsIcon.png`}
+							alt="img-vsIcon"
+						/>
 						{nowPlaying ? (
 							<p>LIVE</p>
 						) : (

@@ -6,7 +6,7 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import defPopBoxType from "../common/defPopBoxType";
 import ForgetPasswordForm from "./forgetPassword.form";
-import forgetPasswordbg from "../../styles/img/forgetpasswordbg.png";
+import { bannerImgUrl } from "../../config";
 
 const ForgetPassword = () => {
 	const { t } = useTranslation();
@@ -126,7 +126,7 @@ const ForgetPassword = () => {
 			<div className="joinloginModule">
 				<div className="loginAnimation">
 					<img
-						src={forgetPasswordbg}
+						src={`${bannerImgUrl}/desktop/img/forgetpasswordbg.png`}
 						alt="forget-password-background"
 					/>
 				</div>

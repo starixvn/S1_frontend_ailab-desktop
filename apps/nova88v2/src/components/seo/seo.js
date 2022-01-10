@@ -9,11 +9,11 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useLocation } from "@reach/router";
-import Favicon from "../../styles/img/favicon.ico";
 import { defMetaData } from "./def";
 import { defLangList } from "../../datas/languageData";
 import { api_site_seo } from "../../service/api/site";
 import usePopBox from "../hook/usePopBox";
+import { bannerImgUrl } from "../../config";
 
 export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 	const [SEODatas, setSEODatas] = useState(null);
@@ -82,7 +82,11 @@ function SEO({ description, lang, meta, title, getFromAPI }) {
 			title={_title}
 			link={[
 				...links,
-				{ rel: "icon", type: "image/x-icon", href: `${Favicon}` }
+				{
+					rel: "icon",
+					type: "image/x-icon",
+					href: `${bannerImgUrl}/desktop/img/favicon.ico`
+				}
 			]}
 			meta={[
 				{

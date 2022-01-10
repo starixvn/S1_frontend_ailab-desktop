@@ -12,7 +12,7 @@ const getAffiliate = ({ langId }) => {
 				.join(".")}/?lang=${langId}`
 		: `https://aff.${arr.join(".")}/?lang=${langId}`;
 };
-const bannerImgUrl = "https://banner.goal123.org";
+export const bannerImgUrl = "https://banner.goal123.org";
 
 const cloudImgUrl = "https://payment.goal123.org";
 
@@ -34,7 +34,7 @@ export default process.env.NODE_ENV === "production"
 			apiURL: "",
 			openURL: "",
 			imgUrl: "",
-			t_and_cURL: "",
+			t_and_cURL: "https://image.0814media.net",
 			bannerImgUrl,
 			cloudImgUrl
 	  }
@@ -47,7 +47,7 @@ export default process.env.NODE_ENV === "production"
 
 			apiURL: "",
 			imgUrl: "http://stag.goal123.com",
-			t_and_cURL: "http://stag.goal123.com",
+			t_and_cURL: "https://image.0814media.net",
 			openURL: "http://stag.goal123.com",
 			bannerImgUrl,
 			cloudImgUrl

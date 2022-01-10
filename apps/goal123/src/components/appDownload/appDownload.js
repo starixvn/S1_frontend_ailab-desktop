@@ -4,15 +4,7 @@ import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
 import { userInfoContext } from "../common/context";
 import { useAppDownLoad } from "./useAppDownLoad";
-
-import imgLogo from "../../styles/img/appdownload/logo.png";
-import imgBGItem from "../../styles/img/appdownload/bg-item.png";
-import imgAndroid from "../../styles/img/appdownload/android.svg";
-import imgIosIcon from "../../styles/img/appdownload/ios.svg";
-import imgStep1 from "../../styles/img/appdownload/1.png";
-import imgStep2 from "../../styles/img/appdownload/2.png";
-import imgStep3 from "../../styles/img/appdownload/3.png";
-import imgStep4 from "../../styles/img/appdownload/4.png";
+import { bannerImgUrl } from "../../config";
 
 const AppDownload = () => {
 	const { t } = useTranslation();
@@ -29,14 +21,17 @@ const AppDownload = () => {
 				<div className="top">
 					<Link to={`/${userInfo.langId}`}>
 						<div className="logo">
-							<img src={imgLogo} alt="appdownload-logo-img" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/appdownload/logo.png`}
+								alt="appdownload-logo-img"
+							/>
 						</div>
 					</Link>
 
 					<div className="title">{t("lbl_APP_DOWNLOAD")}</div>
 					<img
 						className="visual"
-						src={imgBGItem}
+						src={`${bannerImgUrl}/desktop/img/appdownload/bg-item.png`}
 						alt="appdownload-bg-img"
 					/>
 					<div className="qrcode">
@@ -55,7 +50,7 @@ const AppDownload = () => {
 
 									<div className="right">
 										<img
-											src={imgAndroid}
+											src={`${bannerImgUrl}/desktop/img/appdownload/android.svg`}
 											alt="appdownload-android-img"
 										/>
 										Android
@@ -73,7 +68,7 @@ const AppDownload = () => {
 									/>
 									<div className="right">
 										<img
-											src={imgIosIcon}
+											src={`${bannerImgUrl}/desktop/img/appdownload/ios.svg`}
 											alt="appdownload-img-ios-icon"
 										/>
 										iOS
@@ -116,16 +111,28 @@ const AppDownload = () => {
 					</div>
 					<div className="container">
 						<div className="item">
-							<img src={imgStep1} alt="appdownload-img-step1" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/appdownload/1.png`}
+								alt="appdownload-img-step1"
+							/>
 						</div>
 						<div className="item">
-							<img src={imgStep2} alt="appdownload-img-step2" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/appdownload/2.png`}
+								alt="appdownload-img-step2"
+							/>
 						</div>
 						<div className="item">
-							<img src={imgStep3} alt="appdownload-img-step3" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/appdownload/3.png`}
+								alt="appdownload-img-step3"
+							/>
 						</div>
 						<div className="item">
-							<img src={imgStep4} alt="appdownload-img-step4" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/appdownload/4.png`}
+								alt="appdownload-img-step4"
+							/>
 						</div>
 					</div>
 				</div>

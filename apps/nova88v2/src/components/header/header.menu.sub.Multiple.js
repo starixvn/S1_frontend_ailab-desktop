@@ -2,9 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import { defMenuLinks, defMenuType } from "./header.menu.def";
-// import SubMenuListBGLeftImg from "../../styles/img/subMenu-Wrapper-ListBG-left.png";
-// import SubMenuListBGRightImg from "../../styles/img/subMenu-Wrapper-ListBG-right.png";
-// import SubMenuListBGCenterImg from "../../styles/img/subMenu-Wrapper-ListBG-center.png";
 import { bannerImgUrl } from "../../config";
 import { defTpGameType } from "../../datas/productList";
 

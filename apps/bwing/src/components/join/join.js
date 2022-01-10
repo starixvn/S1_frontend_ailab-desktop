@@ -9,25 +9,17 @@ import {
 	api_site_GetAffiliateAgent
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
-import {
-	getUrlParameter,
-	readCookie,
-	passwordCheck,
-	isDateRange
-} from "../common/common";
+import { getUrlParameter, readCookie, passwordCheck } from "../common/common";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
-import config from "../../config";
+import config, { bannerImgUrl } from "../../config";
 import TandC from "../../service/t_and_c";
-import joinBanner from "../../styles/img/joinBanner.jpg";
 import areaCode from "../../datas/areaCode";
 import { initValue, initTip, currencyToAreacode } from "./join.def";
 import JoinForm from "./join.form";
 import usePopBox from "../hook/usePopBox";
 import path from "../../router";
-import { eventPeriodIdpd } from "../../datas/eventDef";
-import joinBannerEvent from "../../styles/img/joinBanner-new.jpg";
 
 export default () => {
 	const { t } = useTranslation();
@@ -43,10 +35,6 @@ export default () => {
 	const configSiteName = config.siteName;
 	const tandCTerms = TandC(defaultLangId).terms;
 	const tandCRule = TandC(defaultLangId).rule;
-	const isInPeriodEvent = isDateRange(
-		eventPeriodIdpd.startDate,
-		eventPeriodIdpd.endDate
-	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -492,7 +480,7 @@ export default () => {
 	return (
 		<div className="joinus">
 			<img
-				src={isInPeriodEvent ? joinBannerEvent : joinBanner}
+				src={`${bannerImgUrl}/desktop/img/joinBanner-new.jpg`}
 				alt="joinBanner"
 			/>
 			<div className="joinloginModule">

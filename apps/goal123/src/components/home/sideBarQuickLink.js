@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-
-import skypeIconImg from "../../styles/img/sk_1.png";
-
-import telegramIconImg from "../../styles/img/te_1.png";
-import telegramQRcodeImg from "../../styles/img/te_qr.jpg";
-
-import zaloIconImg from "../../styles/img/zalo_1.png";
-import zaloQRcodeImg from "../../styles/img/zalo_qr.jpg";
+import { bannerImgUrl } from "../../config";
 
 export default () => {
 	const { t } = useTranslation();
@@ -42,27 +35,42 @@ export default () => {
 							href="https://zalo.me/Goal123csd"
 							target="_blank"
 							rel="noreferrer">
-							<img src={zaloIconImg} alt="zalo-icon" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/zalo_1.png`}
+								alt="zalo-icon"
+							/>
 							{t("lbl_Zalo")}
 						</a>
-						<img src={zaloQRcodeImg} alt="zalo-qrcode" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/zalo_qr.jpg`}
+							alt="zalo-qrcode"
+						/>
 					</li>
 					<li>
 						<a
 							href="https://t.me/Goal123csd"
 							target="_blank"
 							rel="noreferrer">
-							<img src={telegramIconImg} alt="telegramImg" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/te_1.png`}
+								alt="telegramImg"
+							/>
 							{t("lbl_Telegram")}
 						</a>
-						<img src={telegramQRcodeImg} alt="telegramImg" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/te_qr.jpg`}
+							alt="telegramImg"
+						/>
 					</li>
 					<li>
 						<a
 							href="skype:live:.cid.d357533c71e50fb5?chat"
 							target="_blank"
 							rel="noreferrer">
-							<img src={skypeIconImg} alt="skypeImg" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/sk_1.png`}
+								alt="skypeImg"
+							/>
 							{t("lbl_Skype")}
 						</a>
 					</li>

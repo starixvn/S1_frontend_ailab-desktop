@@ -4,12 +4,7 @@ import { navigate } from "@reach/router";
 import path from "../../router";
 import productList, { defTpGameType } from "../../datas/productList";
 import { defPopBoxType } from "../common/defPopBoxType";
-
-import img789lottery from "../../styles/img/maingame/789lottery.png";
-import img789se from "../../styles/img/maingame/789se.png";
-import imgVgaming from "../../styles/img/maingame/vgaming.png";
-import imgVirtual from "../../styles/img/maingame/virtual.png";
-import imgSabakeno from "../../styles/img/maingame/sabakeno.png";
+import { bannerImgUrl } from "../../config";
 
 import {
 	GET_OPEN_RULE,
@@ -63,33 +58,33 @@ const defMainGameList = [
 	{
 		...productList.One789_lottery_789,
 		displayKey: "lbl_789Lottery",
-		img: img789lottery,
+		img: `${bannerImgUrl}/desktop/img/maingame/789lottery.png`,
 		gameType: defGameType.default
 	},
 	{
 		...productList.liveCasino_One789,
 		displayKey: "lbl_liveCasino_789SeDie",
-		img: img789se,
+		img: `${bannerImgUrl}/desktop/img/maingame/789se.png`,
 		gameType: defGameType.default
 	},
 	{
 		...productList.sabaClub,
 		displayKey: "lbl_Vgaming",
-		img: imgVgaming,
+		img: `${bannerImgUrl}/desktop/img/maingame/vgaming.png`,
 		gameType: defGameType.default
 	},
 	{
 		...productList.sportSaba,
 		subPath: path.sports.root,
 		displayKey: "lbl_VirtualSport",
-		img: imgVirtual,
+		img: `${bannerImgUrl}/desktop/img/maingame/virtual.png`,
 		gameType: defGameType.default,
 		parameter: { ...productList.virtualSports }
 	},
 	{
 		...productList.keno,
 		displayKey: "lbl_Keno",
-		img: imgSabakeno,
+		img: `${bannerImgUrl}/desktop/img/maingame/sabakeno.png`,
 		gameType: defGameType.default
 	}
 ];

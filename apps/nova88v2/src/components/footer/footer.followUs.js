@@ -1,55 +1,77 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { GetCurrencyName } from "../common/common";
 import { useGetSEODatas } from "../seo/seo";
 import { SiteInfo, bannerImgUrl } from "../../config";
 import usePopBox from "../hook/usePopBox";
-import ImgChrome from "../../styles/img/gga.png";
-import ImgFireFox from "../../styles/img/ffa.png";
-import ImgEdge from "../../styles/img/iea.png";
-import ImgSafari from "../../styles/img/sfa.png";
-import help2pay from "../../styles/img/footer/help2pay.png";
-import eeziepay from "../../styles/img/footer/eeziepay.png";
-import fpay from "../../styles/img/footer/fpay.png";
-import truepay from "../../styles/img/footer/truepay.png";
-import tngqr from "../../styles/img/footer/tngqr.png";
-import duitnowqr from "../../styles/img/footer/duitnowqr.png";
-import thaiqr from "../../styles/img/footer/thaiqr.png";
-import ovo from "../../styles/img/footer/ovo.png";
-import gopay from "../../styles/img/footer/gopay.png";
-import dana from "../../styles/img/footer/dana.png";
-import sakuku from "../../styles/img/footer/sakuku.png";
-import linkaja from "../../styles/img/footer/linkaja.png";
-import shopeepay from "../../styles/img/footer/shopeepay.png";
-import doku from "../../styles/img/footer/doku.png";
-import tenpay from "../../styles/img/footer/tenpay.png";
 
 const paymentList = {
 	MYR: [
-		{ name: "help2pay", img: help2pay },
-		{ name: "eeziepay", img: eeziepay },
-		{ name: "fpay", img: fpay },
-		{ name: "truepay", img: truepay },
-		{ name: "tngqr", img: tngqr },
-		{ name: "duitnowqr", img: duitnowqr }
+		{
+			name: "help2pay",
+			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
+		},
+		{
+			name: "eeziepay",
+			img: `${bannerImgUrl}/desktop/img/footer/eeziepay.png`
+		},
+		{ name: "fpay", img: `${bannerImgUrl}/desktop/img/footer/fpay.png` },
+		{
+			name: "truepay",
+			img: `${bannerImgUrl}/desktop/img/footer/truepay.png`
+		},
+		{ name: "tngqr", img: `${bannerImgUrl}/desktop/img/footer/tngqr.png` },
+		{
+			name: "duitnowqr",
+			img: `${bannerImgUrl}/desktop/img/footer/duitnowqr.png`
+		}
 	],
 	THB: [
-		{ name: "help2pay", img: help2pay },
-		{ name: "eeziepay", img: eeziepay },
-		{ name: "thaiqr", img: thaiqr }
+		{
+			name: "help2pay",
+			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
+		},
+		{
+			name: "eeziepay",
+			img: `${bannerImgUrl}/desktop/img/footer/eeziepay.png`
+		},
+		{ name: "thaiqr", img: `${bannerImgUrl}/desktop/img/footer/thaiqr.png` }
 	],
 	IDR: [
-		{ name: "help2pay", img: help2pay },
-		{ name: "eeziepay", img: eeziepay },
-		{ name: "ovo", img: ovo },
-		{ name: "gopay", img: gopay },
-		{ name: "dana", img: dana },
-		{ name: "sakuku", img: sakuku },
-		{ name: "linkaja", img: linkaja },
-		{ name: "shopeepay", img: shopeepay },
-		{ name: "doku", img: doku }
+		{
+			name: "help2pay",
+			img: `${bannerImgUrl}/desktop/img/footer/help2pay.png`
+		},
+		{
+			name: "eeziepay",
+			img: `${bannerImgUrl}/desktop/img/footer/eeziepay.png`
+		},
+		{ name: "ovo", img: `${bannerImgUrl}/desktop/img/footer/ovo.png` },
+		{
+			name: "gopay",
+			img: `${bannerImgUrl}/desktop/img/footer/gopay.png`
+		},
+		{
+			name: "dana",
+			img: `${bannerImgUrl}/desktop/img/footer/dana.png`
+		},
+		{
+			name: "sakuku",
+			img: `${bannerImgUrl}/desktop/img/footer/sakuku.png`
+		},
+		{
+			name: "linkaja",
+			img: `${bannerImgUrl}/desktop/img/footer/linkaja.png`
+		},
+		{
+			name: "shopeepay",
+			img: `${bannerImgUrl}/desktop/img/footer/shopeepay.png`
+		},
+		{ name: "doku", img: `${bannerImgUrl}/desktop/img/footer/doku.png` }
 	],
-	INR: [{ img: tenpay, name: "tenpay" }]
+	INR: [
+		{ name: "tenpay", img: `${bannerImgUrl}/desktop/img/footer/tenpay.png` }
+	]
 };
 
 const defaultSocialMedias = (
@@ -125,10 +147,22 @@ const FollowUsSection = ({ t, langId, currencyId }) => {
 			<div>
 				<div className="title">{t("lbl_Suggested_Browser")}</div>
 				<div>
-					<img src={ImgChrome} alt="chrome" />
-					<img src={ImgFireFox} alt="firefox" />
-					<img src={ImgEdge} alt="edge" />
-					<img src={ImgSafari} alt="safari" />
+					<img
+						src={`${bannerImgUrl}/desktop/img/gga.png`}
+						alt="chrome"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/ffa.png`}
+						alt="firefox"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/iea.png`}
+						alt="edge"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/sfa.png`}
+						alt="safari"
+					/>
 				</div>
 			</div>
 			<div>

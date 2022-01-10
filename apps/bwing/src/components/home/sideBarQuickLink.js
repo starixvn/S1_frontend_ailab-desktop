@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import telegramImg from "../../styles/img/Telegram.png";
-import zaloImg from "../../styles/img/zalo.png";
+import { bannerImgUrl } from "../../config";
 
 export default () => {
 	const { t } = useTranslation();
@@ -29,13 +28,19 @@ export default () => {
 					</li> */}
 					<li>
 						<div className="icon icon-zalo">{t("lbl_Zalo")}</div>
-						<img src={zaloImg} alt="zaloImg" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/zalo.png`}
+							alt="zaloImg"
+						/>
 					</li>
 					<li>
 						<div className="icon icon-Telegram">
 							{t("lbl_Telegram")}
 						</div>
-						<img src={telegramImg} alt="telegramImg" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/telegram.png`}
+							alt="telegramImg"
+						/>
 					</li>
 					<li>
 						<a

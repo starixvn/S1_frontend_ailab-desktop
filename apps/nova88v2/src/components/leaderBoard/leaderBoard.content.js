@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { defTabId } from "./leaderBoard.def";
 import { number_format } from "../common/common";
 import ContentTopNav from "./leaderBoard.content.topNav";
+import { cloudImgUrl } from "../../config";
 
 const leaderBoardContent = ({
 	t,
@@ -42,14 +43,14 @@ const leaderBoardContent = ({
 					<div>
 						{idx < 3 ? (
 							<img
-								src={require(`../../styles/img/no${
+								src={`${cloudImgUrl}/SiteSkin/img/no${
 									idx + 1
-								}.png`)}
+								}.png`}
 								alt="ranking_top_three"
 							/>
 						) : (
 							<img
-								src={require(`../../styles/img/gold.png`)}
+								src={`${cloudImgUrl}/SiteSkin/img/gold.png`}
 								alt="ranking_gold"
 							/>
 						)}

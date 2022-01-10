@@ -4,10 +4,7 @@ import { navigate } from "@reach/router";
 import { isDateRange, getCurrencyCode } from "../common/common";
 import { eventPeriod, CURRENCY_PERMISSION } from "./luckyWheel.def";
 import path from "../../router";
-
-import eventlinkbg from "../../styles/img/event/wheel/eventlinkbg.png";
-import eventlinkimg from "../../styles/img/event/wheel/eventlinkimg.png";
-import eventlinkwin from "../../styles/img/event/wheel/eventlinkwin.png";
+import { bannerImgUrl } from "../../config";
 
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
@@ -39,19 +36,19 @@ const LuckyWheelLink = ({ langId, currencyId }) => {
 				onClick={() => navigate(`/${langId}/${path.luckyWheel.root}`)}
 				className="wheelModule">
 				<img
-					src={eventlinkbg}
+					src={`${bannerImgUrl}/desktop/img/event/wheel/eventlinkbg.png`}
 					alt="luckywheel-img-eventlinkbg"
 					onLoad={() => setBgImgOnLoad(true)}
 				/>
 				<img
 					className="eventlinkimg"
-					src={eventlinkimg}
+					src={`${bannerImgUrl}/desktop/img/event/wheel/eventlinkimg.png`}
 					alt="luckywheel-img-eventlinkimg"
 					onLoad={() => setImgOnLoad(true)}
 				/>
 				<img
 					className="eventlinkwin"
-					src={eventlinkwin}
+					src={`${bannerImgUrl}/desktop/img/event/wheel/eventlinkwin.png`}
 					alt="luckywheel-img-eventlinkwin"
 					onLoad={() => setWinImgOnLoad(true)}
 				/>

@@ -6,13 +6,11 @@ import {
 	productTpIdsContext,
 	maintainListContext
 } from "../common/context";
-import Logo from "../../styles/img/logo.png";
 import Menu from "./header.menu";
-import config from "../../config";
+import config, { bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import { isDateRange } from "../common/common";
-import LogoEvent from "../../styles/img/logo_event.png";
 import path from "../../router";
 import { defEventPeriod } from "../common/eventIcon";
 
@@ -29,7 +27,11 @@ export default () => {
 				<div className="logo">
 					<Link className="logo" to={`/${userInfo.langId}`}>
 						<img
-							src={isInPeriodEvent ? LogoEvent : Logo}
+							src={
+								isInPeriodEvent
+									? `${bannerImgUrl}/desktop/img/logo_event.png`
+									: `${bannerImgUrl}/desktop/img/logo.png`
+							}
 							alt={config.siteName}
 						/>
 					</Link>

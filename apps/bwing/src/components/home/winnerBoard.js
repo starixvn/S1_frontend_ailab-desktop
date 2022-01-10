@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import img_money from "../../styles/img/top10/money.png";
+import { bannerImgUrl } from "../../config";
 
 const WinnerBoard = ({ t, number_format, winnerList }) => {
 	const winnerRows = winnerList.map((item, idx) => {
@@ -9,13 +9,16 @@ const WinnerBoard = ({ t, number_format, winnerList }) => {
 			<div key={`winnerList-${item.custId}-${item.userName}`}>
 				<div className="cap">
 					<img
-						src={require(`../../styles/img/top10/no${_rank}.png`)}
+						src={`${bannerImgUrl}/desktop/img/top10/no${_rank}.png`}
 						alt="ranking"
 					/>
 					<p>{item.userName}</p>
 				</div>
 				<div className="money">
-					<img src={img_money} alt="money" />
+					<img
+						src={`${bannerImgUrl}/desktop/img/top10/money.png`}
+						alt="money"
+					/>
 					<p>{number_format({ number: item.wTurnover })}</p>
 				</div>
 			</div>

@@ -7,9 +7,10 @@ import {
 } from "../../service/api/account";
 import { loadingContext, userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
-import { number_format, isConvert } from "../common/common";
+import { number_format, isConvert, validImgLang } from "../common/common";
 import ReferralLinks from "./referral.links";
 import ReferralShare from "./referral.share";
+import { bannerImgUrl } from "../../config";
 
 const initReferralSettingData = {
 	periodDays: 0,
@@ -30,14 +31,8 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 
 	const getBanner = () => {
-		let src = null;
-		try {
-			src = require(`../../styles/img/refbanner-${userInfo.langId}.png`);
-		} catch (error) {}
-		if (src === null) {
-			src = require(`../../styles/img/refbanner-en.png`);
-		}
-		return src;
+		const langId = validImgLang(userInfo.langId);
+		return `${bannerImgUrl}/desktop/img/refbanner-${langId}.png`;
 	};
 
 	const [referralSum, setReferralSum] = useState({

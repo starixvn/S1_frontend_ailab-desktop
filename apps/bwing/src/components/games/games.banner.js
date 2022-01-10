@@ -1,15 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import lotteryBanneyEnImg from "../../styles/img/gameslobby/lotterybanner-en.jpg";
-import lotteryBanneyVnImg from "../../styles/img/gameslobby/lotteryBanner-vn.jpg";
-
-import ball1Img from "../../styles/img/gameslobby/ball1.png";
-import ball2Img from "../../styles/img/gameslobby/ball2.png";
+import { bannerImgUrl } from "../../config";
 
 const BANNER_LIST = {
-	en: lotteryBanneyEnImg,
-	vn: lotteryBanneyVnImg
+	en: `${bannerImgUrl}/desktop/img/gameslobby/lotterybanner-en.jpg`,
+	vn: `${bannerImgUrl}/desktop/img/gameslobby/lotterybanner-vn.jpg`
 };
 
 const GamesBanner = ({ langId }) => {
@@ -20,11 +15,19 @@ const GamesBanner = ({ langId }) => {
 			<img src={BANNER_LIST[_langId]} alt="games-banner-img" />
 
 			<div className="ball1">
-				<img className="ballImg" alt="ballImg1" src={ball1Img} />
+				<img
+					className="ballImg"
+					alt="ballImg1"
+					src={`${bannerImgUrl}/desktop/img/gameslobby/ball1.png`}
+				/>
 			</div>
 
 			<div className="ball1 ball2">
-				<img className="ballImg" alt="ballImg2" src={ball2Img} />
+				<img
+					className="ballImg"
+					alt="ballImg2"
+					src={`${bannerImgUrl}/desktop/img/gameslobby/ball2.png`}
+				/>
 			</div>
 		</div>
 	);

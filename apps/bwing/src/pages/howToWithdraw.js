@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import { userInfoContext } from "../components/common/context";
+import { bannerImgUrl } from "../config";
 
 export default () => {
 	return (
@@ -30,7 +31,9 @@ const Content = () => {
 				and choose "Withdraw".
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(9)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					9
+				)}.png`}
 				alt={getImage(9)}
 			/>
 			<p>
@@ -48,7 +51,9 @@ const Content = () => {
 				button..
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(10)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					10
+				)}.png`}
 				alt={getImage(10)}
 			/>
 			<p>
@@ -56,7 +61,9 @@ const Content = () => {
 				information
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(11)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					11
+				)}.png`}
 				alt={getImage(11)}
 			/>
 			<p>
@@ -64,12 +71,16 @@ const Content = () => {
 				and click the button Submit.
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(12)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					12
+				)}.png`}
 				alt={getImage(12)}
 			/>
 			<p>Step 5: Confirm the information</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(13)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					13
+				)}.png`}
 				alt={getImage(13)}
 			/>
 			<p className="annotation">
@@ -79,7 +90,9 @@ const Content = () => {
 				history"
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(14)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					14
+				)}.png`}
 				alt={getImage(14)}
 			/>
 			<p className="annotation">
@@ -95,7 +108,9 @@ const Content = () => {
 				DỊCH” và chọn “Rút tiền”
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(1)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					1
+				)}.png`}
 				alt={getImage(1)}
 			/>
 			<p>
@@ -112,16 +127,22 @@ const Content = () => {
 				Sau khi điền tất cả thông tin cần thiết, vui lòng chọn nút Gửi.
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(2)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					2
+				)}.png`}
 				alt={getImage(2)}
 			/>
 			<p>Bước 3: Thêm tài khoản rút tiền</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(3)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					3
+				)}.png`}
 				alt={getImage(3)}
 			/>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(4)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					4
+				)}.png`}
 				alt={getImage(4)}
 			/>
 			<p>
@@ -129,24 +150,32 @@ const Content = () => {
 				rút. Bấm “Rút Tiền”
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(5)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					5
+				)}.png`}
 				alt={getImage(5)}
 			/>
 			<p>Bước 5: Xác nhận thông tin </p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(6)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					6
+				)}.png`}
 				alt={getImage(6)}
 			/>
 			<p>Hệ thống sẽ xác thực và thông báo nhanh nhất có thể.</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(7)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					7
+				)}.png`}
 				alt={getImage(7)}
 			/>
 			<p>
 				Bước 4: Kiểm tra trạng thái lệnh rút tiền tại “Lịch sử rút tiền”
 			</p>
 			<img
-				src={require(`../styles/img/HowWithdraw/${getImage(8)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowWithdraw/${getImage(
+					8
+				)}.png`}
 				alt={getImage(8)}
 			/>
 			<p className="annotation">

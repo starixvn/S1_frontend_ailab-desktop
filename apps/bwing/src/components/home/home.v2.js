@@ -16,7 +16,6 @@ import {
 } from "../common/common";
 import { defPopBoxType } from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
-
 import MysteryBoxLink from "./mysteryBoxLink";
 import AngpowLink from "./angpowLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
@@ -31,14 +30,10 @@ import HotGameList from "./hotGameList";
 import TandC from "../../service/t_and_c";
 import SideBarQuickLink from "./sideBarQuickLink";
 import AppDownload from "./appDownload";
-
 import { defBannerType } from "../../service/api/site";
 import useGetVideo from "../streaming/hook";
-
-import imgGameIcon from "../../styles/img/gameIcon.png";
-import imgTimeIcon from "../../styles/img/timeIcon.png";
+import { bannerImgUrl } from "../../config";
 import { defEventPeriod } from "../common/eventIcon";
-
 import Snowfall from "./snow";
 
 function Home() {
@@ -222,7 +217,7 @@ function Home() {
 								<div className="left">
 									<div className="ex">
 										<img
-											src={imgTimeIcon}
+											src={`${bannerImgUrl}/desktop/img/timeIcon.png`}
 											alt="imgTimeIcon"
 										/>
 										<ul>
@@ -238,7 +233,7 @@ function Home() {
 									</div>
 									<div className="ex">
 										<img
-											src={imgGameIcon}
+											src={`${bannerImgUrl}/desktop/img/gameIcon.png`}
 											alt="imgGameIcon"
 										/>
 										<ul>

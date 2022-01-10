@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
-import loginBanner from "../../styles/img/loginBanner.jpg";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
@@ -10,7 +9,7 @@ import { userInfoContext, popBoxContext } from "./context";
 import path from "../../router";
 import { eventPeriodIdpd } from "../../datas/eventDef";
 import { isDateRange } from "./common";
-import loginBannerEvent from "../../styles/img/loginBanner_event.jpg";
+import { bannerImgUrl } from "../../config";
 
 const initValue = {
 	username: "",
@@ -172,7 +171,11 @@ const LoginPanel = () => {
 		<div className="loginpop active">
 			<div className="joinloginModule">
 				<img
-					src={isInPeriodEvent ? loginBannerEvent : loginBanner}
+					src={
+						isInPeriodEvent
+							? `${bannerImgUrl}/desktop/img/loginBanner_event.jpg`
+							: `${bannerImgUrl}/desktop/img/loginBanner.jpg`
+					}
 					alt="loginBanner"
 				/>
 				<LoginForm

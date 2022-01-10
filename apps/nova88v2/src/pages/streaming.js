@@ -8,7 +8,7 @@ import { userInfoContext } from "../components/common/context";
 import { useGetVideo } from "../components/streaming/hook";
 import { StreamingNoData } from "../components/streaming/streaming.noData";
 import { StreamingModule } from "../components/streaming/streaming.row";
-import joeColeImg from "../styles/img/b_joe.jpg";
+import { bannerImgUrl } from "../config";
 
 const IndexPage = () => {
 	return (
@@ -83,7 +83,10 @@ const Content = () => {
 					</div>
 				</div>
 				<div className="streamingAD">
-					<img src={joeColeImg} alt="joeColeImg" />
+					<img
+						src={`${bannerImgUrl}/desktop/img/b_joe.jpg`}
+						alt="joeColeImg"
+					/>
 					<iframe
 						width="360"
 						height="200"

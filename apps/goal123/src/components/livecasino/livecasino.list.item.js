@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { defTpGameType } from "../../datas/productList";
+import { bannerImgUrl } from "../../config";
 
 const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const {
@@ -35,7 +36,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 			}>
 			<img
 				lobbyImg
-				src={require(`../../styles/img/livecasinolist-new/${lobbyImg}.jpg`)}
+				src={`${bannerImgUrl}/desktop/img/livecasinolist/${lobbyImg}.jpg`}
 				alt={`${_displayText}-bgimg`}
 			/>
 			{isInMaintain ? (
