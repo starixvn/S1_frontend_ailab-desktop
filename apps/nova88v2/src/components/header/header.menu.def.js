@@ -127,32 +127,44 @@ const defSortSlot = {
 
 const defSortFishing = {
 	[defCurrencyList.THB]: {
-		fishing_SGW_WAR: 1,
-		fishing_CQ9_PARADISE: 2,
-		fishing_GGYL_WORLD: 3,
-		fishing_ICG_DRAGONBALL: 4
+		fishing_Haiba: 1,
+		fishing_Hunting_Happy_Fish_5: 2,
+		fishing_Hunting_Monster_Awaken: 3,
+		fishing_SGW_WAR: 4,
+		fishing_CQ9_PARADISE: 5,
+		fishing_GGYL_WORLD: 6,
+		fishing_ICG_DRAGONBALL: 7
 	},
 	[defCurrencyList.MYR]: {
-		fishing_GGYL_WORLD: 1,
-		fishing_SGW_WAR: 2,
-		fishing_CQ9_PARADISE: 3,
-		fishing_ICG_DRAGONBALL: 4
+		fishing_Haiba: 1,
+		fishing_Hunting_Happy_Fish_5: 2,
+		fishing_Hunting_Monster_Awaken: 3,
+		fishing_GGYL_WORLD: 4,
+		fishing_SGW_WAR: 5,
+		fishing_CQ9_PARADISE: 6,
+		fishing_ICG_DRAGONBALL: 7
 	},
 	[defCurrencyList.IDR]: {
-		fishing_SGW_WAR: 1,
-		fishing_ICG_DRAGONBALL: 2,
-		fishing_CQ9_PARADISE: 3,
-		fishing_GGYL_WORLD: 4
+		fishing_Haiba: 1,
+		fishing_Hunting_Happy_Fish_5: 2,
+		fishing_Hunting_Monster_Awaken: 3,
+		fishing_SGW_WAR: 4,
+		fishing_ICG_DRAGONBALL: 5,
+		fishing_CQ9_PARADISE: 6,
+		fishing_GGYL_WORLD: 7
 	},
 	[defCurrencyList.INR]: {
-		fishing_SGW_WAR: 1,
-		fishing_SG: 2,
-		fishing_GGYL_WORLD: 3,
-		fishing_CQ9_ONESHOT: 4,
-		fishing_CQ9_PARADISE: 5,
-		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 6,
-		fishing_ICG_DRAGONBALL: 7,
-		ICG_FISHING_OF_SAVIORS: 8
+		fishing_Haiba: 1,
+		fishing_Hunting_Happy_Fish_5: 2,
+		fishing_Hunting_Monster_Awaken: 3,
+		fishing_SGW_WAR: 4,
+		fishing_SG: 5,
+		fishing_GGYL_WORLD: 6,
+		fishing_CQ9_ONESHOT: 7,
+		fishing_CQ9_PARADISE: 8,
+		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 9,
+		fishing_ICG_DRAGONBALL: 10,
+		ICG_FISHING_OF_SAVIORS: 11
 	}
 };
 
@@ -811,6 +823,63 @@ export const defMenuLinks = {
 		customSort: defSortFishing,
 		menuId: 7,
 		subMenu: [
+			{
+				keyName: "fishing_Haiba",
+				displayKey: "lbl_Fishing_Haiba",
+				listNpcImgUrl: "hb.png",
+				listBgImgUrl: "fishListHover.png",
+				menuType: defMenuType.entPage,
+				...productList.fishing_Haiba,
+				parameter: { ...productList.fishing_Haiba },
+				lobbyPage: {
+					bgImg: "fishhb.png",
+					hoverBgImg: "fishhba.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Joker
+					})
+				]
+			},
+			{
+				keyName: "fishing_Hunting_Happy_Fish_5",
+				displayKey: "lbl_Fishing_Hunting_Happy_Fish_5",
+				listNpcImgUrl: "hf5.png",
+				listBgImgUrl: "fishListHover.png",
+				menuType: defMenuType.entPage,
+				...productList.fishing_Hunting_Happy_Fish_5,
+				parameter: { ...productList.fishing_Hunting_Happy_Fish_5 },
+				lobbyPage: {
+					bgImg: "fishhf.png",
+					hoverBgImg: "fishhfa.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Joker
+					})
+				]
+			},
+			{
+				keyName: "fishing_Hunting_Monster_Awaken",
+				displayKey: "lbl_Fishing_Hunting_Monster_Awaken",
+				listNpcImgUrl: "ma.png",
+				listBgImgUrl: "fishListHover.png",
+				menuType: defMenuType.entPage,
+				...productList.fishing_Hunting_Monster_Awaken,
+				parameter: { ...productList.fishing_Hunting_Monster_Awaken },
+				lobbyPage: {
+					bgImg: "fishma.png",
+					hoverBgImg: "fishmaa.png"
+				},
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.fishing_Joker
+					})
+				]
+			},
 			{
 				keyName: "fishing_CQ9_PARADISE",
 				className: "fsgw",
