@@ -1,14 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import PageEventListVn from "./components/pageEventList.vn";
-
-import imgProgramEn from "../../styles/img/vip/vip_program_en.jpg";
-import imgProgramVn from "../../styles/img/vip/vip_program_vn.jpg";
+import { bannerImgUrl } from "../../config";
 
 const VipPage = ({ pageClubImg, currencyId, t, langId, showJoinPopBox }) => {
 	const programImgs = {
-		en: imgProgramEn,
-		vn: imgProgramVn
+		en: `${bannerImgUrl}/desktop/img/vip/vip_program_en.jpg`,
+		vn: `${bannerImgUrl}/desktop/img/vip/vip_program_vn.jpg`
 	};
 
 	return (

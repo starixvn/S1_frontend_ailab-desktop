@@ -5,7 +5,6 @@ import { SiteInfo, bannerImgUrl } from "../../config";
 import { userInfoContext } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import { currencyCode } from "../../datas/countryCode";
-import lineQR from "../../styles/img/lineQR.jpg";
 
 const defElemType = {
 	button: "button"
@@ -68,7 +67,7 @@ export default () => {
 			displayByCurrency: [currencyCode.TH],
 			iconClass: "icon icon-line",
 			imgInfo: "@Nova88thai",
-			imgSrc: lineQR,
+			imgSrc: `${bannerImgUrl}/desktop/img/lineQR.jpg`,
 			link: "https://lin.ee/SAPymLI"
 		},
 		{

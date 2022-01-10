@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import LiveCasinoListItem from "./livecasino.list.item";
-// import comingImg from "../../styles/img/livecasinolist/coming.png";
 
 // const COLUMN_CCOUNT = 4;
 

@@ -25,7 +25,7 @@ export default ({ onClickClose }) => {
 
 	let src = null;
 	try {
-		src = require(`../../styles/img/friendpop_${userInfo.langId}.png`);
+		src = `${bannerImgUrl}/desktop/img/friendpop_${userInfo.langId}.png`;
 	} catch (error) {}
 
 	return (

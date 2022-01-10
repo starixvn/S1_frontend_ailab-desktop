@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "./context";
 import { setCookie, deleteCookie } from "./common";
-
-import backupdomianImg from "../../styles/img/backupdomian.jpg";
+import { bannerImgUrl } from "../../config";
 
 export default ({ onClickClose, linkList }) => {
 	const isMountedRef = useRef(null);
@@ -69,7 +68,10 @@ export default ({ onClickClose, linkList }) => {
 
 			<div className="poptit">{t("lbl_BackupDomain_Title")}</div>
 
-			<img src={backupdomianImg} alt="backup-domain-Img" />
+			<img
+				src={`${bannerImgUrl}/desktop/img/backupdomian.jpg`}
+				alt="backup-domain-Img"
+			/>
 
 			<div className="poptxt">
 				<div>{t("lbl_BackupDomain_description1")}</div>

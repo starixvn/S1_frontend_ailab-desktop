@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
-import loginBanner from "../../styles/img/loginBanner.jpg";
 import Inputbox from "./inputbox";
 import InputboxPSW from "./inputbox.password";
 import { LOGIN } from "../../service/auth";
@@ -10,7 +9,7 @@ import { userInfoContext, popBoxContext } from "./context";
 import path from "../../router";
 import { isDateRange } from "./common";
 import { eventPeriodIdpd } from "../../datas/eventDef";
-import loginBannerEvent from "../../styles/img/loginBanner-new.jpg";
+import { bannerImgUrl } from "../../config";
 
 const initValue = {
 	username: "",
@@ -170,7 +169,6 @@ const LoginPanel = () => {
 			<LoginForm
 				t={t}
 				clickCancel={clickCancel}
-				loginBanner={loginBanner}
 				userInfo={userInfo}
 				path={path}
 				openJoin={openJoin}
@@ -202,15 +200,14 @@ export const LoginForm = ({
 	clickInfo,
 	tip,
 	showPsw,
-	showPswHandler,
-	isInPeriodEvent
+	showPswHandler
 }) => {
 	return (
 		<>
 			<div className="icon icon-close" onClick={clickCancel} />
 			<div className="loginModule">
 				<img
-					src={isInPeriodEvent ? loginBannerEvent : loginBanner}
+					src={`${bannerImgUrl}/desktop/img/loginBanner-new.jpg`}
 					alt="loginBanner"
 				/>
 				<div className="loginFunction">

@@ -11,23 +11,7 @@ import OurPolicies from "./footer.ourPolicies";
 import HelpSupport from "./footer.helpSupport";
 import Promotions from "./footer.promotions";
 import About from "./footer.about";
-import specialImg1 from "../../styles/img/slots777.png";
-import specialImg2 from "../../styles/img/service.png";
-import specialImg3 from "../../styles/img/bank.png";
-import specialImg4 from "../../styles/img/speed.png";
-import bong88Img from "../../styles/img/bong88.png";
-import acbImg from "../../styles/img/payment/acb.png";
-import vietinImg from "../../styles/img/payment/vietin.png";
-import vietcomImg from "../../styles/img/payment/vietcom.png";
-import mbImg from "../../styles/img/payment/mb.png";
-import techcomImg from "../../styles/img/payment/techcom.png";
-import dongaImg from "../../styles/img/payment/donga.png";
-import vpImg from "../../styles/img/payment/vp.png";
-import sacomImg from "../../styles/img/payment/sacom.png";
-import momoImg from "../../styles/img/payment/momo.png";
-import circlepayImg from "../../styles/img/payment/circlepay.png";
-import eeziepayImg from "../../styles/img/payment/eeziepay.png";
-import oneclickpayImg from "../../styles/img/payment/oneclickpay.png";
+import { bannerImgUrl } from "../../config";
 
 export default () => {
 	const { t } = useTranslation();
@@ -40,7 +24,10 @@ export default () => {
 			<div className="information">
 				<div>
 					<div>
-						<img src={specialImg1} alt="specialImg1" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/slots777.png`}
+							alt="specialImg1"
+						/>
 						<ul>
 							<li className="title">{t("lbl_ExtensiveGames")}</li>
 							<li>{t("lbl_ExtensiveGamesDesc")}</li>
@@ -48,7 +35,10 @@ export default () => {
 					</div>
 
 					<div>
-						<img src={specialImg2} alt="specialImg2" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/service.png`}
+							alt="specialImg2"
+						/>
 						<ul>
 							<li className="title">
 								{t("lbl_ExcellentCustomerCare")}
@@ -58,7 +48,10 @@ export default () => {
 					</div>
 
 					<div>
-						<img src={specialImg3} alt="specialImg3" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/bank.png`}
+							alt="specialImg3"
+						/>
 						<ul>
 							<li className="title">{t("lbl_PaymentMethods")}</li>
 							<li>{t("lbl_PaymentMethodsDesc")}</li>
@@ -66,7 +59,10 @@ export default () => {
 					</div>
 
 					<div>
-						<img src={specialImg4} alt="specialImg4" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/speed.png`}
+							alt="specialImg4"
+						/>
 						<ul>
 							<li className="title">
 								{t("lbl_TransactionSpeed")}
@@ -79,24 +75,63 @@ export default () => {
 			<div className="payment">
 				<div>
 					<div className="title">{t("lbl_PaymentMethods")}</div>
-					<img src={acbImg} alt="acbImg" />
-					<img src={vietinImg} alt="vietinImg" />
-					<img src={vietcomImg} alt="vietcomImg" />
-					<img src={mbImg} alt="mbImg" />
-					<img src={techcomImg} alt="techcomImg" />
-					<img src={dongaImg} alt="dongaImg" />
-					<img src={vpImg} alt="vpImg" />
-					<img src={sacomImg} alt="sacomImg" />
-					<img src={momoImg} alt="momoImg" />
-					<img src={circlepayImg} alt="circlepayImg" />
-					<img src={eeziepayImg} alt="eeziepayImg" />
-					<img src={oneclickpayImg} alt="oneclickpayImg" />
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/acb.png`}
+						alt="acbImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/vietin.png`}
+						alt="vietinImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/vietcom.png`}
+						alt="vietcomImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/mb.png`}
+						alt="mbImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/techcom.png`}
+						alt="techcomImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/donga.png`}
+						alt="dongaImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/vp.png`}
+						alt="vpImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/sacom.png`}
+						alt="sacomImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/momo.png`}
+						alt="momoImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/circlepay.png`}
+						alt="circlepayImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/eeziepay.png`}
+						alt="eeziepayImg"
+					/>
+					<img
+						src={`${bannerImgUrl}/desktop/img/payment/oneclickpay.png`}
+						alt="oneclickpayImg"
+					/>
 				</div>
 			</div>
 
 			<div className="powered">
 				<div>{t("lbl_PoweredBy")}</div>
-				<img src={bong88Img} alt="bong88Img" />
+				<img
+					src={`${bannerImgUrl}/desktop/img/bong88.png`}
+					alt="bong88Img"
+				/>
 			</div>
 			<PlatformSection
 				langId={userInfo.langId}

@@ -7,10 +7,8 @@ import Wrapper from "../components/common/wrapper";
 import { userInfoContext } from "../components/common/context";
 import { api_site_GetSupportDomainList } from "../service/api/site";
 import path from "../router";
-import crossIcon from "../styles/img/check_speed/n.png";
-import checkIcon from "../styles/img/check_speed/y.png";
-import checkSpeedStartImg from "../styles/img/check_speed/start.png";
 import usePopBox from "../components/hook/usePopBox";
+import { bannerImgUrl } from "../config";
 
 const RESPOND_ERROR = 9999;
 
@@ -184,7 +182,7 @@ const SpeedContent = ({
 								getSupportDomainList();
 							}}>
 							<img
-								src={checkSpeedStartImg}
+								src={`${bannerImgUrl}/desktop/img/check_speed/start.png`}
 								alt="check-speed-startImg"
 							/>
 							<div>{t("speed.lbl_Refresh")}</div>
@@ -252,7 +250,9 @@ const SpeedItem = ({ t, domainName, respondingTime }) => {
 			<div key={`${domainName}-content`}>
 				<img
 					src={
-						respondingTime === RESPOND_ERROR ? crossIcon : checkIcon
+						respondingTime === RESPOND_ERROR
+							? `${bannerImgUrl}/desktop/img/check_speed/n.png`
+							: `${bannerImgUrl}/desktop/img/check_speed/y.png`
 					}
 					alt="icon-img"
 				/>

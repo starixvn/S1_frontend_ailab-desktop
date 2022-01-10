@@ -18,22 +18,15 @@ import {
 	getUrlParameter,
 	readCookie,
 	setCookie,
-	passwordCheck,
-	isDateRange
+	passwordCheck
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import { userInfoContext, popBoxContext } from "../common/context";
-import { cloudImgUrl } from "../../config";
+import { cloudImgUrl, bannerImgUrl } from "../../config";
 import { Iov_GetBlackBox } from "../common/iovation";
 import { initValue, initTip, currencyToAreacode } from "../common/join.data";
 import JoinForm from "./join.form";
-import imgJoinNpc01 from "../../styles/img/joinNpc01.png";
-import imgJoinNpc02 from "../../styles/img/joinNpc02.png";
-import imgBack from "../../styles/img/back.png";
-import imgWelcome from "../../styles/img/welcome.png";
-import { eventPeriodEuro } from "../../datas/euroDef";
-import imgEuro from "../../styles/img/euro/joinAnimation.png";
 import path from "../../router";
 import JoinPromoInfo from "./join.promoInfo";
 
@@ -52,7 +45,6 @@ export default () => {
 		t("lbl_PrefferedCurrency")
 	);
 	const tandCTerms = TandC(defaultLangId).terms;
-	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -589,33 +581,33 @@ export default () => {
 			<div className="joinloginModule">
 				<JoinPromoInfo langId={defaultLangId} />
 				<div className="joinAnimation">
-					{isInPeriodEuro ? (
-						<img alt="animationlogo_euro" src={imgEuro} />
-					) : (
-						<>
-							<img
-								className="animationlogo"
-								alt="animationlogo"
-								src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
-							/>
-							<img
-								className="npc1"
-								alt="npc1"
-								src={imgJoinNpc01}
-							/>
-							<img
-								className="npc2"
-								alt="npc2"
-								src={imgJoinNpc02}
-							/>
-							<img
-								className="welcome"
-								alt="welcome"
-								src={imgWelcome}
-							/>
-							<img className="back" alt="back" src={imgBack} />
-						</>
-					)}
+					(
+					<img
+						className="animationlogo"
+						alt="animationlogo"
+						src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
+					/>
+					<img
+						className="npc1"
+						alt="npc1"
+						src={`${bannerImgUrl}/desktop/img/joinNpc01.png`}
+					/>
+					<img
+						className="npc2"
+						alt="npc2"
+						src={`${bannerImgUrl}/desktop/img/joinNpc02.png`}
+					/>
+					<img
+						className="welcome"
+						alt="welcome"
+						src={`${bannerImgUrl}/desktop/img/welcome.png`}
+					/>
+					<img
+						className="back"
+						alt="back"
+						src={`${bannerImgUrl}/desktop/img/back.png`}
+					/>
+					)
 				</div>
 				<JoinForm
 					t={t}

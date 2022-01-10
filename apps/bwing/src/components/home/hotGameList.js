@@ -5,23 +5,7 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import { defTpGameType } from "../../datas/productList";
-
-import imgIconPG from "../../styles/img/hotgame/pg.png";
-import imgIconCQ9 from "../../styles/img/hotgame/cq9.png";
-import imgIconPP from "../../styles/img/hotgame/pp.png";
-import imgIconYGG from "../../styles/img/hotgame/ygg.png";
-import imgIconSG from "../../styles/img/hotgame/sg.png";
-
-import imgMahjongWaysTwo from "../../styles/img/hotgame/hotgame1.jpg";
-import imgAztec from "../../styles/img/hotgame/hotgame2.jpg";
-import imgFiveGodbeasts from "../../styles/img/hotgame/hotgame3.jpg";
-import imgHercules from "../../styles/img/hotgame/hotgame4.jpg";
-import imgThreeStarFortune from "../../styles/img/hotgame/hotgame5.jpg";
-import imgFiveLionsGold from "../../styles/img/hotgame/hotgame6.jpg";
-import imgDancingFever from "../../styles/img/hotgame/hotgame7.jpg";
-import imgFiveFortuneDragons from "../../styles/img/hotgame/hotgame8.jpg";
-import imgThorInfinityReels from "../../styles/img/hotgame/hotgame9.jpg";
-import imgLuckyNeko from "../../styles/img/hotgame/hotgame10.jpg";
+import { bannerImgUrl } from "../../config";
 
 const defGameType = {
 	default: "default",
@@ -32,8 +16,8 @@ const defGameList = [
 	{
 		name: "Mahjong Ways Two",
 		provider: "PG",
-		providerImg: imgIconPG,
-		img: imgMahjongWaysTwo,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/pg.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame1.jpg`,
 		tpId: 14,
 		gameId: "mahjong-ways2",
 		gameType: defGameType.casino,
@@ -42,8 +26,8 @@ const defGameList = [
 	{
 		name: "Treasures of Aztec",
 		provider: "PG",
-		providerImg: imgIconPG,
-		img: imgAztec,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/pg.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame2.jpg`,
 		tpId: 14,
 		gameId: "treasures-aztec",
 		gameType: defGameType.casino,
@@ -52,8 +36,8 @@ const defGameList = [
 	{
 		name: "5 God beasts",
 		provider: "CQ9",
-		providerImg: imgIconCQ9,
-		img: imgFiveGodbeasts,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/cq9.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame3.jpg`,
 		tpId: 16,
 		gameId: 117,
 		gameType: defGameType.casino,
@@ -62,8 +46,8 @@ const defGameList = [
 	{
 		name: "Hercules",
 		provider: "CQ9",
-		providerImg: imgIconCQ9,
-		img: imgHercules,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/cq9.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame4.jpg`,
 		tpId: 16,
 		gameId: 161,
 		gameType: defGameType.casino,
@@ -72,8 +56,8 @@ const defGameList = [
 	{
 		name: "Three Star Fortune",
 		provider: "PP",
-		providerImg: imgIconPP,
-		img: imgThreeStarFortune,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/pp.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame5.jpg`,
 		tpId: 5,
 		gameId: "vs10threestar",
 		gameType: defGameType.casino,
@@ -82,8 +66,8 @@ const defGameList = [
 	{
 		name: "5 Lions Gold",
 		provider: "PP",
-		providerImg: imgIconPP,
-		img: imgFiveLionsGold,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/pp.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame6.jpg`,
 		tpId: 5,
 		gameId: "vs243lionsgold",
 		gameType: defGameType.casino,
@@ -92,8 +76,8 @@ const defGameList = [
 	{
 		name: "Dancing Fever",
 		provider: "Spade",
-		providerImg: imgIconSG,
-		img: imgDancingFever,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/sg.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame7.jpg`,
 		tpId: 10,
 		gameId: "S-DF02",
 		gameType: defGameType.casino,
@@ -102,8 +86,8 @@ const defGameList = [
 	{
 		name: "5 Fortune Dragons",
 		provider: "Spade",
-		providerImg: imgIconSG,
-		img: imgFiveFortuneDragons,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/sg.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame8.jpg`,
 		tpId: 10,
 		gameId: "S-FD01",
 		gameType: defGameType.casino,
@@ -112,8 +96,8 @@ const defGameList = [
 	{
 		name: "Thor Infinity Reels",
 		provider: "YGG",
-		providerImg: imgIconYGG,
-		img: imgThorInfinityReels,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/ygg.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame9.jpg`,
 		tpId: 8,
 		gameId: "1035",
 		gameType: defGameType.casino,
@@ -122,8 +106,8 @@ const defGameList = [
 	{
 		name: "Lucky Neko",
 		provider: "YGG",
-		providerImg: imgIconYGG,
-		img: imgLuckyNeko,
+		providerImg: `${bannerImgUrl}/desktop/img/hotgame/ygg.png`,
+		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame10.jpg`,
 		tpId: 8,
 		gameId: "7382",
 		gameType: defGameType.casino,

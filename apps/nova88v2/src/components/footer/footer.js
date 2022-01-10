@@ -12,9 +12,6 @@ import { defFooterProductList } from "./footer.def";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_site_GetTpIds } from "../../service/api/site";
-// import ImgLicense from "../../styles/img/licenses.png";
-import ImgJoeColeSignature from "../../styles/img/joecole_w.png";
-import ImgJoeColePhoto from "../../styles/img/jc.png";
 import { currencyCode } from "../../datas/countryCode";
 import usePopBox from "../hook/usePopBox";
 import { useGetSEODatas } from "../seo/seo";
@@ -181,13 +178,16 @@ export const LicensesSection = ({ t, errorPopBox }) => {
 				<div>
 					<div>{t("lbl_JOE_COLE")}</div>
 					<div>{t("lbl_Brand_Ambassador")}</div>
-					<img src={ImgJoeColeSignature} alt="joecole_signature" />
+					<img
+						src={`${bannerImgUrl}/desktop/img/joecole_w.png`}
+						alt="joecole_signature"
+					/>
 					<div>{t("lbl_Former_Chelsea_Liverpool")}</div>
 					<div>{t("lbl_England_International")}</div>
 				</div>
 				<img
 					className="star"
-					src={ImgJoeColePhoto}
+					src={`${bannerImgUrl}/desktop/img/jc.png`}
 					alt="joecole_photo"
 				/>
 			</div>

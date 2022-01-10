@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import defPopBoxType from "../common/defPopBoxType";
 import { defDrawPrizeStatus } from "../hook/useDrawPrizeFetcher";
 import { useCountdown, getDiffTime } from "../hook/useCountdown";
-
-import wheelcover from "../../styles/img/event/wheel/wheelcover.png";
-import wheelbtn from "../../styles/img/event/wheel/wheelbtn.png";
+import { bannerImgUrl } from "../../config";
 
 const CORRECTION_DEG = 3;
 const UNIT_DEG = -22.5;
@@ -84,10 +82,16 @@ const LuckyWheelAnimation = ({
 
 	return (
 		<div className="wheelModule">
-			<img src={wheelcover} alt="lucky-wheel-img-wheelcover" />
+			<img
+				src={`${bannerImgUrl}/desktop/img/event/wheel/wheelcover.png`}
+				alt="lucky-wheel-img-wheelcover"
+			/>
 
 			<button onClick={drawPrizeHandler}>
-				<img src={wheelbtn} alt="lucky-wheel-img-wheelbtn" />
+				<img
+					src={`${bannerImgUrl}/desktop/img/event/wheel/wheelbtn.png`}
+					alt="lucky-wheel-img-wheelbtn"
+				/>
 			</button>
 
 			<div className={className} style={{ transform }}>

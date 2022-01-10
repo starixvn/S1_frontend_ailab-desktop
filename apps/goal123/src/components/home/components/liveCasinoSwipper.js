@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { defMenuLinks } from "../../layout/header.menu.def";
 import CustomSwipper from "../../common/customSwipper";
+import { bannerImgUrl } from "../../../config";
 
 const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 	const [startswiper, setStartswiper] = useState(false);
@@ -44,7 +45,7 @@ const LiveCasinoSwipper = ({ t, clickItem, langId, productTpIds }) => {
 					}>
 					<div className="casino-item">
 						<img
-							src={require(`../../../styles/img/liveCasino-new/${listNpcImgUrl}`)}
+							src={`${bannerImgUrl}/desktop/img/livecasino/${listNpcImgUrl}`}
 							alt={listNpcImgUrl}
 						/>
 					</div>

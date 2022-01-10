@@ -1,21 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
-
-import BannerImg from "../../styles/img/esportslobby/esportBanner.jpg";
-import ball1Img from "../../styles/img/esportslobby/gem1.png";
-import ball2Img from "../../styles/img/esportslobby/gem2.png";
+import { bannerImgUrl } from "../../config";
 
 const EsportBanner = () => {
 	return (
 		<div className="lobbybanner">
-			<img src={BannerImg} alt="esportBanner-img" />
+			<img
+				src={`${bannerImgUrl}/desktop/img/esportslobby/esportbanner.jpg`}
+				alt="esportBanner-img"
+			/>
 
 			<div className="ball1">
-				<img className="ballImg" alt="ballImg1" src={ball1Img} />
+				<img
+					className="ballImg"
+					alt="ballImg1"
+					src={`${bannerImgUrl}/desktop/img/esportslobby/gem1.png`}
+				/>
 			</div>
 
 			<div className="ball1 ball2">
-				<img className="ballImg" alt="ballImg2" src={ball2Img} />
+				<img
+					className="ballImg"
+					alt="ballImg2"
+					src={`${bannerImgUrl}/desktop/img/esportslobby/gem2.png`}
+				/>
 			</div>
 		</div>
 	);

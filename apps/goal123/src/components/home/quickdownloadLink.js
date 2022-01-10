@@ -4,11 +4,8 @@ import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
 import { userInfoContext } from "../common/context";
 import { useAppDownLoad } from "../appDownload/useAppDownLoad";
-
+import { bannerImgUrl } from "../../config";
 import path from "../../router";
-
-import androidIconImg from "../../styles/img/android.svg";
-import iosIconImg from "../../styles/img/ios.svg";
 
 const higherToTheAngpowZIndex = 3;
 const orignZIndex = 2;
@@ -60,7 +57,10 @@ const QuickdownloadLink = () => {
 								href={andriodDownLoadUrl}
 								target="_blank"
 								rel="noreferrer">
-								<img src={androidIconImg} alt="" />
+								<img
+									src={`${bannerImgUrl}/desktop/img/android.svg`}
+									alt=""
+								/>
 								Android
 							</a>
 
@@ -77,7 +77,10 @@ const QuickdownloadLink = () => {
 								href={IOSDownloadUrl}
 								target="_blank"
 								rel="noreferrer">
-								<img src={iosIconImg} alt="iosIcon" />
+								<img
+									src={`${bannerImgUrl}/desktop/img/ios.svg`}
+									alt="iosIcon"
+								/>
 								iOS
 							</a>
 							<QRCode

@@ -4,9 +4,7 @@ import { Link } from "@reach/router";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "./luckyWheel.def";
 import path from "../../router";
-
-import homeImg from "../../styles/img/luckybox/homeImg.png";
-import homeImgW from "../../styles/img/luckybox/homeImg-w.png";
+import { bannerImgUrl } from "../../config";
 
 const { startDate, endDate } = eventPeriod;
 const isInPeriod = isDateRange(startDate, endDate);
@@ -31,13 +29,13 @@ const LuckyWheelLink = ({ langId }) => {
 			<Link to={`/${langId}/${path.luckyWheel.root}`}>
 				<img
 					className="mywheelImg"
-					src={homeImg}
+					src={`${bannerImgUrl}/desktop/img/luckybox/homeImg.png`}
 					onLoad={() => setHomeImgOnLoad(true)}
 					alt="home-wheel-img"
 				/>
 				<img
 					className="mywheelImgw"
-					src={homeImgW}
+					src={`${bannerImgUrl}/desktop/img/luckybox/homeImg-w.png`}
 					onLoad={() => sethomeImgWOnLoad(true)}
 					alt="home-wheel-img-w"
 				/>

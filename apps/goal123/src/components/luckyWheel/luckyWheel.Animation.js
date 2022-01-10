@@ -1,15 +1,9 @@
-import React, { useState, useMemo, memo } from "react";
+import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
 import { defPopBoxType } from "../common/popBox";
 import { defDrawPrizeStatus } from "../hook/useDrawPrizeFetcher";
 import { useCountdown, getDiffTime } from "../hook/useCountdown";
-
-import wheel from "../../styles/img/event/wheel/wheel.png";
-import chips_l from "../../styles/img/event/wheel/chips_l.png";
-import chips_r from "../../styles/img/event/wheel/chips_r.png";
-
-import spinbtn_en from "../../styles/img/event/wheel/spinbtn_en.png";
-import spinbtn_vn from "../../styles/img/event/wheel/spinbtn_vn.png";
+import { bannerImgUrl } from "../../config";
 
 const CORRECTION_DEG = 3;
 const UNIT_DEG = -22.5;
@@ -29,8 +23,8 @@ const LuckyWheelAnimation = ({
 	const [diffTime] = useState(getDiffTime());
 
 	const imgButton = {
-		en: spinbtn_en,
-		vn: spinbtn_vn
+		en: `${bannerImgUrl}/desktop/img/event/wheel/spinbtn_en.png`,
+		vn: `${bannerImgUrl}/desktop/img/event/wheel/spinbtn_vn.png`
 	}[langId];
 
 	const transform = useMemo(() => {
@@ -95,9 +89,20 @@ const LuckyWheelAnimation = ({
 
 	return (
 		<div className="wheelModule">
-			<img src={wheel} alt="img-wheel" />
-			<img className="chipL" src={chips_l} alt="img-chips_l" />
-			<img className="chipR" src={chips_r} alt="img-chips_r" />
+			<img
+				src={`${bannerImgUrl}/desktop/img/event/wheel/wheel.png`}
+				alt="img-wheel"
+			/>
+			<img
+				className="chipL"
+				src={`${bannerImgUrl}/desktop/img/event/wheel/chips_l.png`}
+				alt="img-chips_l"
+			/>
+			<img
+				className="chipR"
+				src={`${bannerImgUrl}/desktop/img/event/wheel/chips_r.png`}
+				alt="img-chips_r"
+			/>
 
 			{imgButton && (
 				<button onClick={drawPrizeHandler}>

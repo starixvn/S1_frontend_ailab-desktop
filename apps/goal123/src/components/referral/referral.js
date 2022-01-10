@@ -10,6 +10,7 @@ import usePopBox from "../hook/usePopBox";
 import { number_format, isConvert } from "../common/common";
 import ReferralLinks from "./referral.links";
 import ReferralShare from "./referral.share";
+import { bannerImgUrl } from "../../config";
 
 const initReferralSettingData = {
 	periodDays: 0,
@@ -28,7 +29,8 @@ export default () => {
 	);
 	const { loading, setLoading } = useContext(loadingContext);
 	const { userInfo } = useContext(userInfoContext);
-	const refStepBanner = require(`../../styles/img/refbanner-${userInfo.langId}.png`);
+	const refStepBanner = `${bannerImgUrl}/desktop/img/refbanner-${userInfo.langId}.png`;
+
 	const [referralSum, setReferralSum] = useState({
 		conditionCount: 0,
 		amountCount: 0,

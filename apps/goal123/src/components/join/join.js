@@ -17,14 +17,12 @@ import {
 import { defPopBoxType } from "../common/popBox";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
-import config from "../../config";
+import config, { bannerImgUrl } from "../../config";
 import TandC from "../../service/t_and_c";
-import joinBanner from "../../styles/img/joinBanner.jpg";
 import { initValue, initTip } from "./join.def";
 import JoinForm from "./join.form";
 import usePopBox from "../hook/usePopBox";
 import { eventPeriodIdpd } from "../../datas/eventDef";
-import joinBannerEvent from "../../styles/img/joinBanner_event.jpg";
 import path from "../../router";
 
 export default () => {
@@ -444,7 +442,11 @@ export default () => {
 	return (
 		<div className="joinloginModule">
 			<img
-				src={isInPeriodEvent ? joinBannerEvent : joinBanner}
+				src={
+					isInPeriodEvent
+						? `${bannerImgUrl}/desktop/img/joinBanner_event.jpg`
+						: `${bannerImgUrl}/desktop/img/joinBanner.jpg`
+				}
 				alt="joinBanner"
 			/>
 			<JoinForm

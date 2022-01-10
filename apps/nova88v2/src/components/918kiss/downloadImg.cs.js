@@ -1,4 +1,9 @@
 import React from "react";
-import download from "../../styles/img/918/download_cs.png";
+import { bannerImgUrl } from "../../config";
 
-export default () => <img src={download} alt="download" />;
+export default () => (
+	<img
+		src={`${bannerImgUrl}/desktop/img/918/download_cs.png`}
+		alt="download"
+	/>
+);

@@ -8,7 +8,7 @@ import { LOGIN } from "../../service/auth";
 import { userInfoContext, popBoxContext } from "./context";
 import path from "../../router";
 import { setCookie } from "./common";
-import { SiteInfo, cloudImgUrl } from "../../config";
+import { SiteInfo, cloudImgUrl, bannerImgUrl } from "../../config";
 
 const initValue = {
 	username: "",
@@ -176,22 +176,22 @@ const LoginPanel = () => {
 					<img
 						className="npc1"
 						alt="npc1"
-						src={require("../../styles/img/loginNpc01.png")}
+						src={`${bannerImgUrl}/desktop/img/loginNpc01.png`}
 					/>
 					<img
 						className="npc2"
 						alt="npc2"
-						src={require("../../styles/img/loginNpc02.png")}
+						src={`${bannerImgUrl}/desktop/img/loginNpc02.png`}
 					/>
 					<img
 						className="welcome"
 						alt="welcome"
-						src={require("../../styles/img/welcome.png")}
+						src={`${bannerImgUrl}/desktop/img/welcome.png`}
 					/>
 					<img
 						className="back"
 						alt="back"
-						src={require("../../styles/img/back.png")}
+						src={`${bannerImgUrl}/desktop/img/back.png`}
 					/>
 				</div>
 				<LoginForm

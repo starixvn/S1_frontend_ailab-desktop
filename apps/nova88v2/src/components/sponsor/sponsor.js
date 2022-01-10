@@ -2,23 +2,7 @@ import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
-import joe from "../../styles/img/sponsor/joe/joe.jpg";
-import joe01 from "../../styles/img/sponsor/joe/01.jpg";
-import joe02 from "../../styles/img/sponsor/joe/02.jpg";
-import joe03 from "../../styles/img/sponsor/joe/03.jpg";
-
-import joe01a from "../../styles/img/sponsor/joe/01a.jpg";
-import joe02a from "../../styles/img/sponsor/joe/02a.jpg";
-import joe03a from "../../styles/img/sponsor/joe/03a.jpg";
-
-import amber from "../../styles/img/sponsor/amber/amber.jpg";
-import amber01 from "../../styles/img/sponsor/amber/01.jpg";
-import amber02 from "../../styles/img/sponsor/amber/02.jpg";
-import amber03 from "../../styles/img/sponsor/amber/03.jpg";
-
-import amber01a from "../../styles/img/sponsor/amber/01a.jpg";
-import amber02a from "../../styles/img/sponsor/amber/02a.jpg";
-import amber03a from "../../styles/img/sponsor/amber/03a.jpg";
+import { bannerImgUrl } from "../../config";
 
 const defTag = {
 	sponsorShip: "sponsorShip",
@@ -66,7 +50,10 @@ const Sponsor = () => {
 							activeTag === defTag.sponsorShip ? " active" : ""
 						}`}>
 						<div className="sponsorInfo">
-							<img src={joe} alt="Joe Cole" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/sponsor/joe/joe.jpg`}
+								alt="Joe Cole"
+							/>
 							<div>
 								<div>
 									<h1>Joe Cole</h1>
@@ -81,13 +68,16 @@ const Sponsor = () => {
 											showPopBox({
 												photo: (
 													<img
-														src={joe01a}
+														src={`${bannerImgUrl}/desktop/img/sponsor/joe/01a.jpg`}
 														alt="Joe Cole"
 													/>
 												)
 											})
 										}>
-										<img src={joe01} alt="Joe Cole" />
+										<img
+											src={`${bannerImgUrl}/desktop/img/sponsor/joe/01.jpg`}
+											alt="Joe Cole"
+										/>
 									</button>
 
 									<button
@@ -95,13 +85,16 @@ const Sponsor = () => {
 											showPopBox({
 												photo: (
 													<img
-														src={joe02a}
+														src={`${bannerImgUrl}/desktop/img/sponsor/joe/02a.jpg`}
 														alt="Joe Cole"
 													/>
 												)
 											})
 										}>
-										<img src={joe02} alt="Joe Cole" />
+										<img
+											src={`${bannerImgUrl}/desktop/img/sponsor/joe/02.jpg`}
+											alt="Joe Cole"
+										/>
 									</button>
 
 									<button
@@ -109,19 +102,25 @@ const Sponsor = () => {
 											showPopBox({
 												photo: (
 													<img
-														src={joe03a}
+														src={`${bannerImgUrl}/desktop/img/sponsor/joe/03a.jpg`}
 														alt="Joe Cole"
 													/>
 												)
 											})
 										}>
-										<img src={joe03} alt="Joe Cole" />
+										<img
+											src={`${bannerImgUrl}/desktop/img/sponsor/joe/03.jpg`}
+											alt="Joe Cole"
+										/>
 									</button>
 								</div>
 							</div>
 						</div>
 						<div className="sponsorInfo">
-							<img src={amber} alt="amber" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/sponsor/amber/amber.jpg`}
+								alt="amber"
+							/>
 							<div>
 								<div>
 									<h1>Amber Na</h1>
@@ -136,13 +135,16 @@ const Sponsor = () => {
 											showPopBox({
 												photo: (
 													<img
-														src={amber01a}
+														src={`${bannerImgUrl}/desktop/img/sponsor/amber/01a.jpg`}
 														alt="amber"
 													/>
 												)
 											})
 										}>
-										<img src={amber01} alt="amber" />
+										<img
+											src={`${bannerImgUrl}/desktop/img/sponsor/amber/01.jpg`}
+											alt="amber"
+										/>
 									</button>
 
 									<button
@@ -150,13 +152,16 @@ const Sponsor = () => {
 											showPopBox({
 												photo: (
 													<img
-														src={amber02a}
+														src={`${bannerImgUrl}/desktop/img/sponsor/amber/02a.jpg`}
 														alt="amber"
 													/>
 												)
 											})
 										}>
-										<img src={amber02} alt="amber" />
+										<img
+											src={`${bannerImgUrl}/desktop/img/sponsor/amber/02.jpg`}
+											alt="amber"
+										/>
 									</button>
 
 									<button
@@ -164,13 +169,16 @@ const Sponsor = () => {
 											showPopBox({
 												photo: (
 													<img
-														src={amber03a}
+														src={`${bannerImgUrl}/desktop/img/sponsor/amber/03a.jpg`}
 														alt="amber"
 													/>
 												)
 											})
 										}>
-										<img src={amber03} alt="amber" />
+										<img
+											src={`${bannerImgUrl}/desktop/img/sponsor/amber/03.jpg`}
+											alt="amber"
+										/>
 									</button>
 								</div>
 							</div>

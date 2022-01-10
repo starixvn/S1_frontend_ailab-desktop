@@ -19,7 +19,7 @@ import {
 	defMonthKey,
 	getLeaderBoardSupportCurrencyId
 } from "./leaderBoard.def";
-import { cloudImgUrl } from "../../config";
+import { cloudImgUrl, bannerImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
 import {
@@ -28,10 +28,6 @@ import {
 	isDateRange
 } from "../common/common";
 import { siteDefLangId } from "../../service/language";
-import defaultBg from "../../styles/img/ranking_page_bg.jpg";
-import sportsBg from "../../styles/img/ranking_page_bg_sports.jpg";
-import casinoBg from "../../styles/img/ranking_page_bg_casino.jpg";
-import slotBg from "../../styles/img/ranking_page_bg_slot.jpg";
 
 const CanSeeLeaderBoard = ({ currencyId }) => {
 	const supportCurrencyList = getLeaderBoardSupportCurrencyId();
@@ -381,15 +377,15 @@ export default () => {
 	};
 
 	const showBackground = () => {
-		let result = defaultBg;
+		let result = `${bannerImgUrl}/desktop/img/ranking_page_bg.jpg`;
 		if (gameType === defGameType.sports) {
-			result = sportsBg;
+			result = `${bannerImgUrl}/desktop/img/ranking_page_bg_sports.jpg`;
 		}
 		if (gameType === defGameType.casino) {
-			result = casinoBg;
+			result = `${bannerImgUrl}/desktop/img/ranking_page_bg_casino.jpg`;
 		}
 		if (gameType === defGameType.slots) {
-			result = slotBg;
+			result = `${bannerImgUrl}/desktop/img/ranking_page_bg_slot.jpg`;
 		}
 		return result;
 	};

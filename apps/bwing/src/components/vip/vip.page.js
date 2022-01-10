@@ -2,16 +2,13 @@ import React from "react";
 import { Link } from "@reach/router";
 import PropTypes from "prop-types";
 import path from "../../router";
-
+import { bannerImgUrl } from "../../config";
 import PageEventListVn from "./components/pageEventList.vn";
-
-import imgProgramEn from "../../styles/img/vip/en/vip_program_en.png";
-import imgProgramVn from "../../styles/img/vip/vn/vip_program_vn.png";
 
 const VipPage = ({ pageClubImg, currencyId, t, langId }) => {
 	const programImgs = {
-		en: imgProgramEn,
-		vn: imgProgramVn
+		en: `${bannerImgUrl}/desktop/img/vip/en/vip_program_en.png`,
+		vn: `${bannerImgUrl}/desktop/img/vip/vn/vip_program_vn.png`
 	};
 
 	return (

@@ -11,7 +11,6 @@ import {
 import { defPopBoxType } from "../common/defPopBoxType";
 import FishingBanner from "./fishing.banner";
 import FishingList from "./fishing.list";
-import imgFishingbanner from "../../styles/img/fishinglobby/fishing-banner.jpg";
 
 const Fishing = () => {
 	const { t } = useTranslation();

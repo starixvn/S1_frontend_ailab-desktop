@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import { useLocation } from "@reach/router";
-import Favicon from "../styles/img/favicon.ico";
+import { bannerImgUrl } from "../config";
 
 const defHrefLang = {
 	en: "en-us",
@@ -57,7 +57,7 @@ function SEO({ description, lang, meta, title }) {
 					{
 						rel: "icon",
 						type: "image/png",
-						href: `${Favicon}`
+						href: `${bannerImgUrl}/desktop/img/favicon.ico`
 					}
 				]}
 				meta={[
