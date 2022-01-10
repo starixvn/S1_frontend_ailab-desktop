@@ -1,9 +1,8 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
-
+import { bannerImgUrl } from "../../config";
 import useGetVideo from "./hook";
-
 import Filter from "./streaming.filter";
 import { StreamingModule } from "./streaming.row";
 import StreamingNodata from "./streaming.nodata";
@@ -70,7 +69,10 @@ const Streaming = () => {
 				</div>
 
 				<div className="liveImg">
-					<img src="../../styles/img/liveimg.png" alt="" />
+					<img
+						src={`${bannerImgUrl}/desktop/img/liveimg.png`}
+						alt=""
+					/>
 				</div>
 			</section>
 		</main>

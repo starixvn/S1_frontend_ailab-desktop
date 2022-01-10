@@ -1,16 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
+import { bannerImgUrl } from "../../config";
 import useAppDownLoad from "./useAppDownLoad";
-import img_applogo from "../../styles/img/app/applogo.png";
-import img_appbanner from "../../styles/img/app/appbanner.png";
-import img_ios from "../../styles/img/app/ios.png";
-import img_android from "../../styles/img/app/and.png";
-import img_iosicon from "../../styles/img/app/iosicon.png";
-import img_in01 from "../../styles/img/app/in01.png";
-import img_in02 from "../../styles/img/app/in02.png";
-import img_in03 from "../../styles/img/app/in03.png";
-import img_in04 from "../../styles/img/app/in04.png";
 
 const AppDownload = () => {
 	const { t } = useTranslation();
@@ -27,12 +19,18 @@ const AppDownload = () => {
 		<>
 			<div className="appHeader">
 				<a>
-					<img src={img_applogo} alt="img_applogo" />
+					<img
+						src={`${bannerImgUrl}/desktop/img/app/applogo.png`}
+						alt="img_applogo"
+					/>
 				</a>
 			</div>
 			<div className="appPage">
 				<div className="appTitle">{t("lbl_APP_DOWNLOAD")}</div>
-				<img src={img_appbanner} alt="img_appbanner" />
+				<img
+					src={`${bannerImgUrl}/desktop/img/app/appbanner.png`}
+					alt="img_appbanner"
+				/>
 				<div className="scan">
 					<div>
 						<div />
@@ -51,7 +49,10 @@ const AppDownload = () => {
 
 							<div>
 								<div>
-									<img src={img_ios} alt="img_ios" />
+									<img
+										src={`${bannerImgUrl}/desktop/img/app/ios.png`}
+										alt="img_ios"
+									/>
 
 									{t("lbl_iOS")}
 								</div>
@@ -75,7 +76,10 @@ const AppDownload = () => {
 
 							<div>
 								<div>
-									<img src={img_android} alt="img_android" />
+									<img
+										src={`${bannerImgUrl}/desktop/img/app/and.png`}
+										alt="img_android"
+									/>
 									{t("lbl_Android")}
 								</div>
 								<a
@@ -91,15 +95,30 @@ const AppDownload = () => {
 				<div className="install">
 					<div>{t("lbl_Installation_tutorial")}</div>
 					<div>
-						<img src={img_iosicon} alt="img_iosicon" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/app/iosicon.png`}
+							alt="img_iosicon"
+						/>
 						{t("lbl_iOS_App_Trust_Authentication")}
 					</div>
 					<div>{t("lbl_Once_Nova88_App_is_installed")}</div>
 					<div>
-						<img src={img_in01} alt="img_guide01" />
-						<img src={img_in02} alt="img_guide02" />
-						<img src={img_in03} alt="img_guide03" />
-						<img src={img_in04} alt="img_guide04" />
+						<img
+							src={`${bannerImgUrl}/desktop/img/app/in01.png`}
+							alt="img_guide01"
+						/>
+						<img
+							src={`${bannerImgUrl}/desktop/img/app/in02.png`}
+							alt="img_guide02"
+						/>
+						<img
+							src={`${bannerImgUrl}/desktop/img/app/in03.png`}
+							alt="img_guide03"
+						/>
+						<img
+							src={`${bannerImgUrl}/desktop/img/app/in04.png`}
+							alt="img_guide04"
+						/>
 					</div>
 				</div>
 			</div>

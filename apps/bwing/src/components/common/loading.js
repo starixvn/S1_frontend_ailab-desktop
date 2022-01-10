@@ -1,15 +1,30 @@
 import React from "react";
-import LoadingImg from "../../styles/img/loading_star.png";
+import { bannerImgUrl } from "../../config";
 
 export default () => {
 	return (
 		<div className="loading">
 			<div>
-				<img src={LoadingImg} />
-				<img src={LoadingImg} />
-				<img src={LoadingImg} />
-				<img src={LoadingImg} />
-				<img src={LoadingImg} />
+				<img
+					src={`${bannerImgUrl}/desktop/img/loading_star.png`}
+					alt="loading"
+				/>
+				<img
+					src={`${bannerImgUrl}/desktop/img/loading_star.png`}
+					alt="loading"
+				/>
+				<img
+					src={`${bannerImgUrl}/desktop/img/loading_star.png`}
+					alt="loading"
+				/>
+				<img
+					src={`${bannerImgUrl}/desktop/img/loading_star.png`}
+					alt="loading"
+				/>
+				<img
+					src={`${bannerImgUrl}/desktop/img/loading_star.png`}
+					alt="loading"
+				/>
 			</div>
 		</div>
 	);

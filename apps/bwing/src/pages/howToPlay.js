@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import { userInfoContext } from "../components/common/context";
+import { bannerImgUrl } from "../config";
 
 export default () => {
 	return (
@@ -40,7 +41,7 @@ const Content = () => {
 			</p>
 
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(7)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(7)}.png`}
 				alt={getImage(7)}
 			/>
 			<p>
@@ -51,7 +52,7 @@ const Content = () => {
 				top of the screen as shown.
 			</p>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(8)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(8)}.png`}
 				alt={getImage(8)}
 			/>
 			<p className="annotation">
@@ -72,7 +73,7 @@ const Content = () => {
 				section.
 			</p>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(9)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(9)}.png`}
 				alt={getImage(9)}
 			/>
 			<p className="annotation">
@@ -80,7 +81,7 @@ const Content = () => {
 				Then, press the button "Transfer" to complete.
 			</p>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(10)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(10)}.png`}
 				alt={getImage(10)}
 			/>
 			<p>
@@ -110,7 +111,7 @@ const Content = () => {
 				<br />• Chọn nút “ĐĂNG KÝ”
 			</p>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(1)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(1)}.png`}
 				alt={getImage(1)}
 			/>
 			<p>
@@ -120,11 +121,11 @@ const Content = () => {
 				minh họa.
 			</p>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(2)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(2)}.png`}
 				alt={getImage(2)}
 			/>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(3)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(3)}.png`}
 				alt={getImage(3)}
 			/>
 			<p className="annotation">Xem thêm: Cách gửi tiền Bwing</p>
@@ -143,15 +144,15 @@ const Content = () => {
 				tiền trong tài khoản vào chọn “Chuyển quỹ”.
 			</p>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(4)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(4)}.png`}
 				alt={getImage(4)}
 			/>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(5)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(5)}.png`}
 				alt={getImage(5)}
 			/>
 			<img
-				src={require(`../styles/img/HowPlay/${getImage(6)}.png`)}
+				src={`${bannerImgUrl}/desktop/img/HowPlay/${getImage(6)}.png`}
 				alt={getImage(6)}
 			/>
 			<p>

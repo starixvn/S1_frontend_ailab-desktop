@@ -1,7 +1,6 @@
 import React, { useContext, createRef } from "react";
 import { useTranslation } from "react-i18next";
-import imgOneGameLogo from "../../styles/img/onegame/logo.png";
-import imgOneGameQr from "../../styles/img/onegame/qr.png";
+import { bannerImgUrl } from "../../config";
 import { useGotoGame } from "../hook/useGotoGame";
 import { userInfoContext } from "../common/context";
 import productList from "../../datas/productList";
@@ -40,7 +39,10 @@ const OneGame = () => {
 								</div>
 							</div>
 							<button>
-								<img src={imgOneGameLogo} alt="img_go" />
+								<img
+									src={`${bannerImgUrl}/desktop/img/onegame/logo.png`}
+									alt="img_go"
+								/>
 							</button>
 							<div className="left right">
 								<div className="downloadItem">
@@ -53,7 +55,10 @@ const OneGame = () => {
 										{t("lbl_Android")}
 									</button>
 								</div>
-								<img src={imgOneGameQr} alt="img_go" />
+								<img
+									src={`${bannerImgUrl}/desktop/img/onegame/qr.png`}
+									alt="img_go"
+								/>
 							</div>
 						</div>
 					</div>

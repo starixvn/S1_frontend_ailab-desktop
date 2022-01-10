@@ -25,7 +25,7 @@ export default ({ onClickClose }) => {
 
 	let src = null;
 	try {
-		src = require(`../../styles/img/img_referral_${userInfo.langId}.jpg`);
+		src = `${bannerImgUrl}/desktop/img/img_referral_${userInfo.langId}.jpg`;
 	} catch (error) {}
 
 	return (

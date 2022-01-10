@@ -2,8 +2,8 @@ import React from "react";
 import { navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
-import android from "../../styles/img/android.svg";
-import ios from "../../styles/img/ios.svg";
+import { bannerImgUrl } from "../../config";
+
 import useAppDownLoad from "../appDownload/useAppDownLoad";
 import path from "../../router";
 
@@ -32,7 +32,10 @@ export default ({ langId }) => {
 					{andriodDownLoadUrl && (
 						<li>
 							<a href={andriodDownLoadUrl}>
-								<img src={android} alt="iosIcon" />
+								<img
+									src={`${bannerImgUrl}/desktop/img/android.svg`}
+									alt="iosIcon"
+								/>
 								Android
 							</a>
 							<QRCode
@@ -45,7 +48,10 @@ export default ({ langId }) => {
 					{IOSDownloadUrl && (
 						<li>
 							<a href={IOSDownloadUrl}>
-								<img src={ios} alt="iosIcon" />
+								<img
+									src={`${bannerImgUrl}/desktop/img/ios.svg`}
+									alt="iosIcon"
+								/>
 								ios
 							</a>
 							<QRCode

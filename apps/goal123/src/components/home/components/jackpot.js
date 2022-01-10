@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import { navigate } from "@reach/router";
 import path from "../../../router";
 import { defNav } from "../../casino/casino.def";
-
 import { getCurrencyCode } from "../../common/common";
-import imgJackpotBg from "../../../styles/img/jackpotbgNew.png";
+import { bannerImgUrl } from "../../../config";
 
 const Jackpot = ({ t, userInfo }) => {
 	const currencyId = userInfo.currencyId ?? getCurrencyCode(userInfo.langId);
@@ -48,7 +47,10 @@ const Jackpot = ({ t, userInfo }) => {
 						`/${userInfo.langId}/${path.casino.root}?tab=${defNav.PROMO.key}`
 					)
 				}>
-				<img src={imgJackpotBg} alt="imgJackpotBg" />
+				<img
+					src={`${bannerImgUrl}/desktop/img/jackpotbg.png`}
+					alt="imgJackpotBg"
+				/>
 				<div>
 					<div>{t(`Currency_${currencyId}`)}</div>
 

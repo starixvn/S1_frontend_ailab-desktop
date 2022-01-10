@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { defTpGameType } from "../../datas/productList";
+import { bannerImgUrl } from "../../config";
 
 const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 	const {
@@ -33,7 +34,7 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 			}>
 			<div className="brand">
 				<img
-					src={require(`../../styles/img/fishing/icon/${providerImg}.png`)}
+					src={`${bannerImgUrl}/desktop/img/fishing/icon/${providerImg}.png`}
 					alt={`${_displayText}-icon`}
 				/>
 			</div>

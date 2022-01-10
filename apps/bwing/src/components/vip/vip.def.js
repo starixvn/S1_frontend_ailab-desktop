@@ -1,74 +1,55 @@
-import enBannerVip1 from "../../styles/img/vip/en/vip_1.png";
-import enBannerVip2 from "../../styles/img/vip/en/vip_2.png";
-import enBannerVip3 from "../../styles/img/vip/en/vip_3.png";
-import enBannerVip4 from "../../styles/img/vip/en/vip_4.png";
-import enBannerVip5 from "../../styles/img/vip/en/vip_5.png";
-import enBannerVip6 from "../../styles/img/vip/en/vip_6.png";
-
-import vnBannerVip1 from "../../styles/img/vip/vn/vip_1.png";
-import vnBannerVip2 from "../../styles/img/vip/vn/vip_2.png";
-import vnBannerVip3 from "../../styles/img/vip/vn/vip_3.png";
-import vnBannerVip4 from "../../styles/img/vip/vn/vip_4.png";
-import vnBannerVip5 from "../../styles/img/vip/vn/vip_5.png";
-import vnBannerVip6 from "../../styles/img/vip/vn/vip_6.png";
-
-import iconVip1 from "../../styles/img/vip/vip1.png";
-import iconVip2 from "../../styles/img/vip/vip2.png";
-import iconVip3 from "../../styles/img/vip/vip3.png";
-import iconVip4 from "../../styles/img/vip/vip4.png";
-import iconVip5 from "../../styles/img/vip/vip5.png";
-import iconVip6 from "../../styles/img/vip/vip6.png";
+import { bannerImgUrl } from "../../config";
 
 export const defbanner = {
 	en: [
 		{
-			img: enBannerVip1,
+			img: `${bannerImgUrl}/desktop/img/vip/en/vip_1.png`,
 			alt: "vip_1"
 		},
 		{
-			img: enBannerVip2,
+			img: `${bannerImgUrl}/desktop/img/vip/en/vip_2.png`,
 			alt: "vip_2"
 		},
 		{
-			img: enBannerVip3,
+			img: `${bannerImgUrl}/desktop/img/vip/en/vip_3.png`,
 			alt: "vip_3"
 		},
 		{
-			img: enBannerVip4,
+			img: `${bannerImgUrl}/desktop/img/vip/en/vip_4.png`,
 			alt: "vip_4"
 		},
 		{
-			img: enBannerVip5,
+			img: `${bannerImgUrl}/desktop/img/vip/en/vip_5.png`,
 			alt: "vip_5"
 		},
 		{
-			img: enBannerVip6,
+			img: `${bannerImgUrl}/desktop/img/vip/en/vip_6.png`,
 			alt: "vip_6"
 		}
 	],
 	vn: [
 		{
-			img: vnBannerVip1,
+			img: `${bannerImgUrl}/desktop/img/vip/vn/vip_1.png`,
 			alt: "vip_1"
 		},
 		{
-			img: vnBannerVip2,
+			img: `${bannerImgUrl}/desktop/img/vip/vn/vip_2.png`,
 			alt: "vip_2"
 		},
 		{
-			img: vnBannerVip3,
+			img: `${bannerImgUrl}/desktop/img/vip/vn/vip_3.png`,
 			alt: "vip_3"
 		},
 		{
-			img: vnBannerVip4,
+			img: `${bannerImgUrl}/desktop/img/vip/vn/vip_4.png`,
 			alt: "vip_4"
 		},
 		{
-			img: vnBannerVip5,
+			img: `${bannerImgUrl}/desktop/img/vip/vn/vip_5.png`,
 			alt: "vip_5"
 		},
 		{
-			img: vnBannerVip6,
+			img: `${bannerImgUrl}/desktop/img/vip/vn/vip_6.png`,
 			alt: "vip_6"
 		}
 	]
@@ -76,32 +57,32 @@ export const defbanner = {
 
 export const defPageClubImg = [
 	{
-		img: iconVip1,
+		img: `${bannerImgUrl}/desktop/img/vip/vip1.png`,
 		displayKey: "lbl_Vintage_Club",
 		alt: "vip01"
 	},
 	{
-		img: iconVip2,
+		img: `${bannerImgUrl}/desktop/img/vip/vip2.png`,
 		displayKey: "lbl_Silver_Club",
 		alt: "vip02"
 	},
 	{
-		img: iconVip3,
+		img: `${bannerImgUrl}/desktop/img/vip/vip3.png`,
 		displayKey: "lbl_Gold_Club",
 		alt: "vip03"
 	},
 	{
-		img: iconVip4,
+		img: `${bannerImgUrl}/desktop/img/vip/vip4.png`,
 		displayKey: "lbl_Titanium_Club",
 		alt: "vip04"
 	},
 	{
-		img: iconVip5,
+		img: `${bannerImgUrl}/desktop/img/vip/vip5.png`,
 		displayKey: "lbl_Diamond_Club",
 		alt: "vip05"
 	},
 	{
-		img: iconVip6,
+		img: `${bannerImgUrl}/desktop/img/vip/vip6.png`,
 		displayKey: "lbl_Bwing_Club",
 		alt: "vip06"
 	}

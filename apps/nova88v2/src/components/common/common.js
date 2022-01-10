@@ -237,3 +237,15 @@ export const GetCurrencyName = ({ langId, currencyId, t }) =>
 			: `Currency_${langAndCurrMapping[langId]}`,
 		t(`Currency_${defCurrencyList.MYR}`)
 	);
+
+export const validImgLang = langId => {
+	if (
+		langId !== "en" &&
+		langId !== "cs" &&
+		langId !== "th" &&
+		langId !== "id"
+	) {
+		return "en";
+	}
+	return langId;
+};

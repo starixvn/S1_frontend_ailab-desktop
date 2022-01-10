@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "@reach/router";
 import path from "../../router";
 import { userInfoContext } from "./context";
-import { setCookie, deleteCookie } from "./common";
+import { setCookie, deleteCookie, validImgLang } from "./common";
+import { bannerImgUrl } from "../../config";
 
 export default ({ onClickClose }) => {
 	const { t } = useTranslation();
@@ -24,14 +25,8 @@ export default ({ onClickClose }) => {
 	};
 
 	const getImg = () => {
-		let src = null;
-		try {
-			src = require(`../../styles/img/friend-${userInfo.langId}.jpg`);
-		} catch (error) {}
-		if (src === null) {
-			src = require(`../../styles/img/friend-en.jpg`);
-		}
-		return src;
+		const langId = validImgLang(userInfo.langId);
+		return `${bannerImgUrl}/desktop/img/friend-${langId}.jpg`;
 	};
 
 	return (

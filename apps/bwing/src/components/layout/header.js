@@ -6,15 +6,13 @@ import {
 	productTpIdsContext,
 	maintainListContext
 } from "../common/context";
-import Logo from "../../styles/img/logo.png";
 import Menu from "./header.menu";
-import config from "../../config";
+import config, { bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import path from "../../router";
 import { isDateRange } from "../common/common";
 import { defEventPeriod } from "../common/eventIcon";
-import LogoEvent from "../../styles/img/logo-new.png";
 
 export default () => {
 	const { t } = useTranslation();
@@ -29,7 +27,11 @@ export default () => {
 				<div className="logo">
 					<Link to={`/${userInfo.langId}`}>
 						<img
-							src={isInPeriodEvent ? LogoEvent : Logo}
+							src={
+								isInPeriodEvent
+									? `${bannerImgUrl}/desktop/img/logo-new.png`
+									: `${bannerImgUrl}/desktop/img/logo.png`
+							}
 							alt={config.siteName}
 						/>
 					</Link>

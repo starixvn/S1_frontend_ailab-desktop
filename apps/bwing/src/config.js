@@ -13,7 +13,7 @@ const getAffiliate = ({ langId }) => {
 		: `https://aff.${arr.join(".")}/?lang=${langId}`;
 };
 
-const bannerImgUrl = "https://banner.bw88.io";
+export const bannerImgUrl = "https://banner.bw88.io";
 
 const cloudImgUrl = "https://payment.bw88.io";
 
@@ -34,7 +34,7 @@ export default process.env.NODE_ENV === "production"
 			apiURL: "",
 			openURL: "",
 			imgUrl: "",
-			t_and_cURL: "",
+			t_and_cURL: "https://image.0814media.net",
 			bannerImgUrl,
 			cloudImgUrl
 	  }
@@ -49,6 +49,6 @@ export default process.env.NODE_ENV === "production"
 			imgUrl: "http://stag.Bwing.com",
 			cloudImgUrl,
 			bannerImgUrl,
-			t_and_cURL: "http://stag.Bwing.com",
+			t_and_cURL: "https://image.0814media.net",
 			openURL: "http://stag.Bwing.com"
 	  };

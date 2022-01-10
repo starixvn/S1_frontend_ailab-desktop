@@ -7,11 +7,11 @@ import React, {
 	Suspense
 } from "react";
 import { useTranslation } from "react-i18next";
-import kiss from "../../styles/img/kiss.jpg";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_tp_GotoGame } from "../../service/api/tp";
 import productList from "../../datas/productList";
+import { bannerImgUrl } from "../../config";
 
 const useGotoGame = ({ isLogin, langId, tpId }) => {
 	const { setPopBox } = useContext(popBoxContext);
@@ -113,7 +113,10 @@ const Kiss918 = () => {
 			<div className="rightModule">
 				<div className="infoModule">
 					<div className="promotionsInfo">
-						<img src={kiss} />
+						<img
+							src={`${bannerImgUrl}/desktop/img/kiss.jpg`}
+							alt="Kiss 918"
+						/>
 						<div className="userpassword">
 							<div className="kisstitle">{t("lbl_Username")}</div>
 							<ButtonWithCopyBtn value={data?.account} />

@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { defTabId } from "./leaderBoard.def";
-import ballImg from "../../styles/img/ranking/ball.png";
-import slotImg from "../../styles/img/ranking/slot.png";
-import casinoImg from "../../styles/img/ranking/casino.png";
+import { cloudImgUrl, bannerImgUrl } from "../../config";
 
 const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 	const rows2 = rewardList?.section2?.map((item, idx) => {
@@ -12,12 +10,12 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 				<div>
 					{idx + 1 < 4 ? (
 						<img
-							src={require(`../../styles/img/no${idx + 1}.png`)}
+							src={`${cloudImgUrl}/SiteSkin/img/no${idx + 1}.png`}
 							alt="top_ranking"
 						/>
 					) : (
 						<img
-							src={require(`../../styles/img/gold.png`)}
+							src={`${cloudImgUrl}/SiteSkin/img/gold.png`}
 							alt="top_ranking"
 						/>
 					)}
@@ -46,7 +44,10 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 					</li>
 					<li>
 						<div>
-							<img src={ballImg} alt="sports" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/ranking/ball.png`}
+								alt="sports"
+							/>
 							{String(t("lbl_Sports")).toUpperCase()}
 						</div>
 						<div>{rewardList?.section1[0]?.turnover}</div>
@@ -54,7 +55,10 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 					</li>
 					<li>
 						<div>
-							<img src={slotImg} alt="slots" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/ranking/slot.png`}
+								alt="slots"
+							/>
 							{String(t("lbl_Slots")).toUpperCase()}
 						</div>
 						<div>{rewardList?.section1[1]?.turnover}</div>
@@ -62,7 +66,10 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 					</li>
 					<li>
 						<div>
-							<img src={casinoImg} alt="live_casino" />
+							<img
+								src={`${bannerImgUrl}/desktop/img/ranking/casino.png`}
+								alt="live_casino"
+							/>
 							{String(t("lbl_LiveCasino")).toUpperCase()}
 						</div>
 						<div>{rewardList?.section1[2]?.turnover}</div>
