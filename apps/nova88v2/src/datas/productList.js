@@ -284,6 +284,22 @@ export default {
 		tpId: 10,
 		tpGameType: 31
 	},
+	fishing_Haiba: {
+		gameId: "kk8nqm3cfwtng",
+		tpId: 9,
+		tpGameType: 66
+	},
+	fishing_Hunting_Happy_Fish_5: {
+		gameId: "st5cmuqnaxycn",
+		tpId: 9,
+		tpGameType: 66
+	},
+	fishing_Hunting_Monster_Awaken: {
+		gameId: "1jeqx59c7ztqg",
+		tpId: 9,
+		tpGameType: 66
+	},
+
 	CQ9_Paradise: {
 		gameId: "AB3",
 		tpId: 16,
