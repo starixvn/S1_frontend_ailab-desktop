@@ -19,7 +19,7 @@ const ProfileForm = ({
 	isUSDT,
 	areaCodeOptions,
 	onSelectAreaCode,
-	disableSubmit
+	sendEmailOtp
 }) => {
 	const arr = infoList?.map(item => {
 		let displayValue = item.content;
@@ -48,26 +48,11 @@ const ProfileForm = ({
 				isUSDT={isUSDT}
 				areaCodeOptions={areaCodeOptions}
 				onSelectAreaCode={onSelectAreaCode}
-				disableSubmit={disableSubmit}
+				sendEmailOtp={sendEmailOtp}
 			/>
 		);
 	});
-	return (
-		<>
-			<div className="profile">{arr}</div>
-			{!userInfo?.accountName ||
-			!userInfo?.birth_d ||
-			!userInfo?.phoneNo ? (
-				<div className="btnGroup">
-					<button
-						className={disableSubmit ? "btn-cancel" : "btn-check"}
-						onClick={clickSubmit}>
-						{t("lbl_Submit")}
-					</button>
-				</div>
-			) : null}
-		</>
-	);
+	return <div className="profile">{arr}</div>;
 };
 
 export default ProfileForm;
@@ -89,5 +74,5 @@ ProfileForm.propTypes = {
 	isUSDT: PropTypes.bool.isRequired,
 	areaCodeOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	onSelectAreaCode: PropTypes.func.isRequired,
-	disableSubmit: PropTypes.bool.isRequired
+	sendEmailOtp: PropTypes.func.isRequired
 };

@@ -187,8 +187,8 @@
 	"msg_OTPSendCode": "हमने आपके पंजीकृत मोबाइल नंबर पर सत्यापन कोड भेज दिया था। कृपया नीचे सत्यापन कोड दर्ज करें।",
 	"msg_We_had_send_the_verification_code": "हमने आपके पंजीकृत मोबाइल नंबर पर सत्यापन कोड भेज दिया था। ",
 	"msg_Please_check_your_mobile_and_enter": "कृपया नीचे सत्यापन कोड दर्ज करें।",
-	"msg_EnterOTPCode": "कृपया OTP कोड दर्ज करें।",
-	"msg_OTP_NotReceiveVerificationCode": "सत्यापन कोड प्राप्त नहीं हुआ?",
+	"msg_EnterOTPCode": "कृपया ओटीपी कोड दर्ज करें।",
+	"msg_OTP_NotReceiveVerificationCode": "ओटीपी कोड प्राप्त नहीं हुआ?",
 	"lbl_Retransmit": "पुनर्संचरित",
 	"lbl_Affiliate_ID": "आपकी संबद्ध आईडी गलत प्रतीत होती है। कृपया दोबारा जांच करें।",
 	"lbl_Please_enter_Affiliate_ID": "कृपया एफिलिएट आईडी (वैकल्पिक) दर्ज करें, यह दर्ज करने के बाद बदल नहीं सकता है!",
@@ -205,6 +205,22 @@
 	"lbl_Multiple_product_platforms_with_better_odds": "बेहतर ऑड्स और पूर्ण गेमप्ले अनुभव के साथ कई उत्पाद प्लेटफॉर्म।",
 	"lbl_Speedy_deposit_and_withdrawal": "कई जमा विकल्पों के साथ शीघ्र जमा और निकासी।",
 	"lbl_Please_enter_your_registered_email_to_reset": "अपना पासवर्ड रीसेट करने के लिए कृपया अपना पंजीकृत ईमेल दर्ज करें",
+	"lbl_AccountSafety": "खाता सुरक्षा",
+	"lbl_UserVerification": "उपयोगकर्ता सत्यापन",
+	"lbl_ProfileVerification": "प्रोफ़ाइल सत्यापन",
+	"lbl_ProfileVerificationHint1": "अपनी व्यक्तिगत जानकारी भरें।",
+	"lbl_ProfileVerificationHint2": "असली नाम और जन्मतिथि",
+	"lbl_EmailVerification": "ईमेल सत्यापन",
+	"lbl_EmailVerificationHint1": "उच्च सुरक्षा स्तर के लिए अपना 'ईमेल पता' सत्यापित करें और",
+	"lbl_EmailVerificationHint2": " {{currency}} {{amount}} का पुरस्कार अर्जित करें।",
+	"lbl_PhoneVerification": "फोन नंबर सत्यापन",
+	"lbl_PhoneVerificationHint1": "उच्च सुरक्षा स्तर के लिए अपना 'फ़ोन नंबर' सत्यापित करें और",
+	"lbl_PhoneVerificationHint2": " {{currency}} {{amount}} का पुरस्कार अर्जित करें।",
+	"lbl_Excellent": "उत्कृष्ट",
+	"lbl_Normal": "साधारण",
+	"lbl_Weak": "कमज़ोर",
+	"lbl_EmailOTPHint1": "ईमेल सत्यापन कोड आपके पंजीकृत मेल बॉक्स पर भेज दिया गया है।",
+	"lbl_EmailVerifiedMsg": "बहुत बढ़िया! आपका ईमेल सत्यापित हो गया है!",
 
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "अधिकतम फ़ाइल का आकार 4 MB",
@@ -930,18 +946,18 @@
 		"lbl_bannerTitle2": "24/7"
 	},
 
-	"promotion": {
+	"promotion":{
 		"lbl_promo_apply_now": "अभी अप्लाई करें",
 		"lbl_promo_more_info": "और जानकारी",
 		"lbl_promo_all_promos": "सभी प्रचार"
 	},
-
-	"streaming": {
-		"lbl_please_make_deposit": "हमारी लाइव स्ट्रीमिंग का आनंद लेने के लिए कृपया एक न्यूनतम जमा करें"
+	
+	"streaming":{
+		"lbl_please_make_deposit":"हमारी लाइव स्ट्रीमिंग का आनंद लेने के लिए कृपया एक न्यूनतम जमा करें"
 	},
 
-	"hotgames": {
-		"lbl_Nova88_Olympus": "Nova88 Olympus"
+	"hotgames":{
+		"lbl_Nova88_Olympus":"Nova88 Olympus"
 	},
 
 	"end-----": "end-----"

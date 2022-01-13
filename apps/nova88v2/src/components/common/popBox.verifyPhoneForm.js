@@ -8,7 +8,7 @@ import {
 	api_accountStrict_VerifyOTP,
 	api_accountStrict_SendOTPSMS
 } from "../../service/api/accountStrict";
-import { defPrevPage } from "../profile/profile.dev";
+import { defPrevPage } from "../profile/profile.def";
 import { getUrlParameter } from "./common";
 
 export default ({ startUnixTime }) => {

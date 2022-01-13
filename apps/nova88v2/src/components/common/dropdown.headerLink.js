@@ -2,6 +2,7 @@ import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "@reach/router";
 import { defPageClubImg } from "../vip/vip.def";
+import path from "../../router";
 
 export class Dropdown extends Component {
 	constructor(props) {
@@ -21,6 +22,7 @@ export class Dropdown extends Component {
 
 	clickDropdown = e => {
 		e.preventDefault();
+		e.stopPropagation();
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
 		if (this.props.clickDropdown) {
 			this.props.clickDropdown();
@@ -87,10 +89,12 @@ export class Dropdown extends Component {
 						<div className="vipAnimation">
 							<div />
 						</div>
-						<img
-							src={userLevelImgInfo.url}
-							alt={userLevelImgInfo.alt}
-						/>
+						<Link to={`/${this.props.langId}/${path.profile.root}`}>
+							<img
+								src={userLevelImgInfo.url}
+								alt={userLevelImgInfo.alt}
+							/>
+						</Link>
 					</>
 				)}
 
