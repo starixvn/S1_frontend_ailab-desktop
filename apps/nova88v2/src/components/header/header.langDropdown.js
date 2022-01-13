@@ -11,16 +11,10 @@ const getLangs = (currencyId, langKey) => {
 			{ displayText: "English", value: "en" },
 			{ displayText: "简体中文", value: "cs" }
 		],
-		th: afterLogin
-			? [
-					{ displayText: "English", value: "th_en" },
-					{ displayText: "ไทย", value: "th" },
-					{ displayText: "简体中文", value: "cs" }
-			  ]
-			: [
-					{ displayText: "English", value: "th_en" },
-					{ displayText: "ไทย", value: "th" }
-			  ],
+		th: [
+			{ displayText: "English", value: "th_en" },
+			{ displayText: "ไทย", value: "th" }
+		],
 		id: [
 			{ displayText: "English", value: "id_en" },
 			{ displayText: "Bhs Indonesia", value: "id" }
