@@ -1,4 +1,5 @@
 import { accountStrictRequest } from "./base";
+import router from "../../router";
 
 export const api_accountStrict_GetCustProfile = () =>
 	accountStrictRequest.post("/GetCustProfile");
@@ -94,3 +95,9 @@ export const api_accountStrict_delCustUSDTInfo = ({
 		NickName,
 		AccountName
 	});
+
+export const api_accountStrict_SendOTPEmail = () =>
+	accountStrictRequest.post("/SendOTPEmail", { route: router.profile.root });
+
+export const api_accountStrict_VerifyEmail = ({ langId, key, code }) =>
+	accountStrictRequest.post(`/VerifyEmail/${langId}`, { key, code });

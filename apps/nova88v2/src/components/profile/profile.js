@@ -8,17 +8,19 @@ import areaCode from "../../datas/areaCode";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
 	api_accountStrict_SetProfile,
-	api_accountStrict_SendOTPSMS
+	api_accountStrict_SendOTPSMS,
+	api_accountStrict_SendOTPEmail
 } from "../../service/api/accountStrict";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import ProfileForm from "./profile.form";
 import { getUrlParameter } from "../common/common";
-import { defPrevPage } from "./profile.dev";
+import { defPrevPage } from "./profile.def";
 import Loading from "../common/loading";
-import { defPageClubImg } from "../vip/vip.def";
 import { api_site_GetCountryList } from "../../service/api/site";
 import { currencyCode } from "../../datas/countryCode";
+import VerificationPanel from "./verificationPanel";
+import useVerifyEmail from "./hook/useVerifyEmail";
 
 export default () => {
 	const { t } = useTranslation();
@@ -463,11 +465,47 @@ export default () => {
 		);
 	};
 
-	const vipClubImg = userInfo.userLevel
-		? defPageClubImg[userInfo.userLevel - 1]
-		: {};
+	const sendEmailOtp = () => {
+		api_accountStrict_SendOTPEmail().then(
+			res => {
+				const { errorCode, message } = res.data;
+				if (errorCode === 0) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.Success,
+						icon: "icon icon-bell",
+						description: <div>{t("lbl_EmailOTPHint1")}</div>,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={() => {
+										setPopBox({ isOpen: false });
+									}}>
+									OK
+								</button>
+							</div>
+						)
+					});
+				} else {
+					openErrorMessagePopBox(message || "error", errorCode);
+				}
+			},
+			() => {
+				openErrorMessagePopBox();
+			}
+		);
+	};
 
-	return loading ? (
+	const { tokenPassed } = useVerifyEmail({
+		langId: userInfo.langId,
+		t,
+		setPopBox,
+		setUserInfo,
+		openErrorMessagePopBox
+	});
+
+	return loading || !tokenPassed ? (
 		<Loading />
 	) : (
 		<div className="infoModule">
@@ -476,40 +514,51 @@ export default () => {
 				<div>{t("lbl_ProfileModifyWarning")}</div>
 			</div>
 
-			{userInfo?.userLevel ? (
-				<div className="vipLv">
-					<div className="vipbg">
-						<img src={vipClubImg.url} alt={vipClubImg.alt} />
-					</div>
-					{userInfo.langId === "cs" ? (
-						<div>
-							{`${t(vipClubImg.displayKey)}${t("lbl_Club")}`}
-						</div>
-					) : (
-						<div>{t(vipClubImg.displayKey)}</div>
-					)}
+			<div className="profileModule">
+				<VerificationPanel
+					t={t}
+					userLevel={userInfo.userLevel}
+					langId={userInfo.langId}
+					accountName={userInfo.accountName}
+					phoneVerified={userInfo.phoneVerified}
+					emailVerified={userInfo.emailVerified}
+					currencyId={userInfo.currencyId}
+					phoneReward={userInfo.phoneReward}
+					emailReward={userInfo.emailReward}
+				/>
+
+				<ProfileForm
+					t={t}
+					infoList={infoList}
+					mobileVerificationLoading={mobileVerificationLoading}
+					areaCodeVal={_areaCodeVal}
+					sendOTPSMS={sendOTPSMS}
+					userInfo={userInfo}
+					userValue={userValue}
+					status={status}
+					editField={editField}
+					valueCheck={valueCheck}
+					phoneCheck={phoneCheck}
+					clickInfo={clickInfo}
+					clickSubmit={clickSubmit}
+					isUSDT={isUSDT}
+					areaCodeOptions={areaCodeOptions}
+					onSelectAreaCode={onSelectAreaCode}
+					sendEmailOtp={sendEmailOtp}
+				/>
+			</div>
+
+			{!userInfo?.accountName ||
+			!userInfo?.birth_d ||
+			!userInfo?.phoneNo ? (
+				<div className="btnGroup">
+					<button
+						className={disableSubmit ? "btn-cancel" : "btn-check"}
+						onClick={clickSubmit}>
+						{t("lbl_Submit")}
+					</button>
 				</div>
 			) : null}
-
-			<ProfileForm
-				t={t}
-				infoList={infoList}
-				mobileVerificationLoading={mobileVerificationLoading}
-				areaCodeVal={_areaCodeVal}
-				sendOTPSMS={sendOTPSMS}
-				userInfo={userInfo}
-				userValue={userValue}
-				status={status}
-				editField={editField}
-				valueCheck={valueCheck}
-				phoneCheck={phoneCheck}
-				clickInfo={clickInfo}
-				clickSubmit={clickSubmit}
-				isUSDT={isUSDT}
-				areaCodeOptions={areaCodeOptions}
-				onSelectAreaCode={onSelectAreaCode}
-				disableSubmit={disableSubmit}
-			/>
 		</div>
 	);
 };

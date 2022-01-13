@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import DateTime from "react-datetime";
-import { userInfoContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import Dropdown from "../common/dropdown";
+import { GetCurrencyName, isConvert, number_format } from "../common/common";
 
 const DisplayRow = ({
 	t,
@@ -22,16 +22,20 @@ const DisplayRow = ({
 	clickInfo,
 	isUSDT,
 	areaCodeOptions,
-	onSelectAreaCode
+	onSelectAreaCode,
+	sendEmailOtp
 }) => {
-	const {
-		userInfo: { phoneVerified }
-	} = useContext(userInfoContext);
+	const _isConvert = isConvert(userInfo.currencyId);
 
 	const legalDate = moment().subtract(18, "year");
 	const vaildDate = current => {
 		return current.isBefore(legalDate);
 	};
+	const currencyName = GetCurrencyName({
+		langId: userInfo.langId,
+		currencyId: userInfo.currencyId,
+		t
+	});
 
 	if (displayKey === "lbl_RealName" && !userInfo?.accountName) {
 		return (
@@ -39,7 +43,7 @@ const DisplayRow = ({
 				<div>{t(displayKey)}</div>
 				<div>
 					<Inputbox
-						className="inputBox-white"
+						className="inputBox-blue"
 						onChange={editField.bind(this, "accountName")}
 						onBlur={e => valueCheck(e.target.value, "accountName")}
 						value={userValue.accountName}
@@ -65,7 +69,7 @@ const DisplayRow = ({
 			<div>
 				<div>{t(displayKey)}</div>
 				<div>
-					<div className="inputBox-white">
+					<div className="inputBox-blue">
 						<DateTime
 							onChange={editField.bind(this, "birth")}
 							onBlur={e => valueCheck(e, "birth")}
@@ -90,13 +94,14 @@ const DisplayRow = ({
 		);
 	}
 
-	if (displayKey === "lbl_Phone" && !userInfo?.phoneNo) {
-		return (
-			<div>
-				<div>{t(displayKey)}</div>
+	if (displayKey === "lbl_Phone") {
+		let phoneContent = null;
+
+		if (!userInfo?.phoneNo) {
+			phoneContent = (
 				<div className="phone">
 					<div
-						className="inputBox-white"
+						className="inputBox-blue"
 						onBlur={() => phoneCheck("areaCode")}
 						tabIndex="0"
 						role="button">
@@ -112,7 +117,7 @@ const DisplayRow = ({
 						/>
 					</div>
 					<Inputbox
-						className="inputBox-white"
+						className="inputBox-blue"
 						onChange={editField.bind(this, "phoneNo")}
 						onBlur={e => phoneCheck("phoneNo", e.target.value)}
 						value={userValue.phoneNo}
@@ -127,6 +132,90 @@ const DisplayRow = ({
 						</div>
 					) : null}
 				</div>
+			);
+		} else if (mobileVerificationLoading) {
+			phoneContent = (
+				<div>
+					{`(${areaCode})${content}`}
+					<div className="otpLoading">
+						<i className="icon icon-spinner11" />
+					</div>
+				</div>
+			);
+		} else if (userInfo.phoneVerified) {
+			phoneContent = (
+				<div>
+					{`(${areaCode})${content}`}
+					<span className="icon icon-Shield" />
+				</div>
+			);
+		} else {
+			phoneContent = (
+				<div>
+					{`(${areaCode})${content}`}
+					<button
+						className="icon icon-mobile btn-org"
+						onClick={sendOTPSMS}>
+						{t("lbl_PhoneVerification")}
+						<div className="description">
+							<div className="title">
+								{t("lbl_PhoneVerification")}
+							</div>
+							<div>{t("lbl_PhoneVerificationHint1")}</div>
+							<div>
+								{t("lbl_PhoneVerificationHint2", {
+									currency: currencyName,
+									amount: number_format(
+										userInfo.phoneReward ?? 0,
+										_isConvert
+									)
+								})}
+							</div>
+						</div>
+					</button>
+				</div>
+			);
+		}
+
+		return (
+			<div>
+				<div>{t(displayKey)}</div>
+				{phoneContent}
+			</div>
+		);
+	}
+
+	if (displayKey === "lbl_Email") {
+		return (
+			<div>
+				<div>{t(displayKey)}</div>
+				<div>
+					{content}
+					{userInfo.emailVerified ? (
+						<span className="icon icon-Shield" />
+					) : (
+						<button
+							className="icon icon-envelope btn-org"
+							onClick={sendEmailOtp}>
+							{t("lbl_EmailVerification")}
+							<div className="description">
+								<div className="title">
+									{t("lbl_EmailVerification")}
+								</div>
+								<div>{t("lbl_EmailVerificationHint1")}</div>
+								<div>
+									{t("lbl_EmailVerificationHint2", {
+										currency: currencyName,
+										amount: number_format(
+											userInfo.emailReward ?? 0,
+											_isConvert
+										)
+									})}
+								</div>
+							</div>
+						</button>
+					)}
+				</div>
 			</div>
 		);
 	}
@@ -134,26 +223,7 @@ const DisplayRow = ({
 	return (
 		<div>
 			<div>{t(displayKey)}</div>
-			<div>
-				{displayKey === "lbl_Phone"
-					? `(${areaCode})${content}`
-					: content}
-
-				{displayKey === "lbl_Phone" ? (
-					mobileVerificationLoading ? (
-						<div className="otpLoading">
-							<i className="icon icon-spinner11" />
-						</div>
-					) : phoneVerified ? (
-						<span className="icon icon-checkmark" />
-					) : (
-						<button onClick={sendOTPSMS}>
-							<span className="icon icon-error otp" />
-							<span>{t("lbl_MobileVerify")}</span>
-						</button>
-					)
-				) : null}
-			</div>
+			<div>{content}</div>
 		</div>
 	);
 };
@@ -180,5 +250,6 @@ DisplayRow.propTypes = {
 	clickInfo: PropTypes.func.isRequired,
 	isUSDT: PropTypes.bool.isRequired,
 	areaCodeOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
-	onSelectAreaCode: PropTypes.func.isRequired
+	onSelectAreaCode: PropTypes.func.isRequired,
+	sendEmailOtp: PropTypes.func.isRequired
 };
