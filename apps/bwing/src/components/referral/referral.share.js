@@ -48,7 +48,7 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 					</div>
 					<a
 						className="moreBtn"
-						href={`${config.t_and_cURL}/SiteSkin/Bwing/Static/${langId}/ReferralConditions.html`}
+						href={`${config.t_and_cURL}/Static/Bwing/Static/${langId}/ReferralConditions.html`}
 						target="_blank"
 						rel="noreferrer">
 						{t("lbl_MoreDetails")}

@@ -325,21 +325,21 @@ const InfoCenter = ({ t, langId }) => (
 			</div>
 			<div className="infoGroup">
 				<a
-					href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/Static/${langId}/HowToDeposit.html`}
+					href={`${config.t_and_cURL}/Static/${config.siteName}/Static/${langId}/HowToDeposit.html`}
 					rel="noreferrer"
 					target="_blank">
 					<i className="icon icon-deposit2" />
 					{t("lbl_HowToDepoist")}
 				</a>
 				<a
-					href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/Static/${langId}/HowToWithdrawal.html`}
+					href={`${config.t_and_cURL}/Static/${config.siteName}/Static/${langId}/HowToWithdrawal.html`}
 					rel="noreferrer"
 					target="_blank">
 					<i className="icon icon-withdrawal2" />
 					{t("lbl_HowToWithdraw")}
 				</a>
 				<a
-					href={`${config.t_and_cURL}/SiteSkin/${config.siteName}/Static/${langId}/FAQ.html`}
+					href={`${config.t_and_cURL}/Static/${config.siteName}/Static/${langId}/FAQ.html`}
 					rel="noreferrer"
 					target="_blank">
 					<i className="icon icon-support" />
