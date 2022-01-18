@@ -34,7 +34,7 @@ import { defBannerType } from "../../service/api/site";
 import useGetVideo from "../streaming/hook";
 import { bannerImgUrl } from "../../config";
 import { defEventPeriod } from "../common/eventIcon";
-import Snowfall from "./snow";
+import Fireworks from "../specialEffects/fireworks";
 
 function Home() {
 	const { t } = useTranslation();
@@ -52,6 +52,10 @@ function Home() {
 	});
 
 	const [winnerList, setWinnerList] = useState([]);
+	const isEvent = isDateRange(
+		defEventPeriod.newYear.start,
+		defEventPeriod.newYear.end
+	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -114,7 +118,7 @@ function Home() {
 
 	return (
 		<>
-			{isDateRange(null, defEventPeriod.xmas.end) && <Snowfall />}
+			{isEvent && <Fireworks />}
 			<MysteryBoxLink
 				to={`/${userInfo.langId}/${path.mysteryBox.root}`}
 				langId={userInfo.langId}
@@ -169,7 +173,7 @@ function Home() {
 					/>
 				</section>
 
-				<section>
+				<section className={isEvent ? "newyear" : ""}>
 					<div className="guide">
 						<div className="guidelist">
 							<div className="title">{t("lbl_UserGuide")}</div>

@@ -18,20 +18,20 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
-	const isInPeriodEvent = isDateRange(null, defEventPeriod.xmas.end);
 	const { allMaintainList } = useContext(maintainListContext);
 
+	const isEvent = isDateRange(
+		defEventPeriod.newYear.start,
+		defEventPeriod.newYear.end
+	);
+
 	return (
-		<header>
+		<header className={isEvent ? "newyear" : ""}>
 			<div className="header">
 				<div className="logo">
 					<Link to={`/${userInfo.langId}`}>
 						<img
-							src={
-								isInPeriodEvent
-									? `${bannerImgUrl}/desktop/img/logo-new.png`
-									: `${bannerImgUrl}/desktop/img/logo.png`
-							}
+							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
 						/>
 					</Link>

@@ -29,7 +29,8 @@ export const defEventPeriod = {
 		end: "2021/12/31 22:59:59"
 	},
 	promo: { start: "2021/11/11 11:00:00" },
-	xmas: { end: "2022/01/03 11:00:00" }
+	xmas: { end: "2022/01/03 11:00:00" },
+	newYear: { start: "2022/01/27 10:59:59", end: "2022/02/16 10:59:59" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

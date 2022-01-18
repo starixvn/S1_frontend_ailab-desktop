@@ -37,6 +37,7 @@ import QuickdownloadLink from "./quickdownloadLink";
 import { defTpGameType } from "../../datas/productList";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { defEventPeriod } from "../common/eventIcon";
+import Fireworks from "../specialEffects/fireworks";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -47,18 +48,10 @@ const Home = ({ productTpIds }) => {
 	const { setIsRoot } = useContext(isRootContext);
 	const [winnerList, setWinnerList] = useState([]);
 	const { allMaintainList } = useContext(maintainListContext);
-
-	useEffect(() => {
-		try {
-			const isInPeriod = isDateRange(null, defEventPeriod.xmas.end);
-			if (isInPeriod) {
-				// eslint-disable-next-line global-require
-				require("./snow").init();
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	}, []);
+	const isEvent = isDateRange(
+		defEventPeriod.newYear.start,
+		defEventPeriod.newYear.end
+	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -232,7 +225,8 @@ const Home = ({ productTpIds }) => {
 	};
 
 	return (
-		<main id="main">
+		<main id="main" className={isEvent ? "newyear" : ""}>
+			{isEvent && <Fireworks />}
 			<BannerSwipper
 				ImgFolder={[defBannerType.Promotions]}
 				withBtn={false}
