@@ -142,6 +142,29 @@ header {
   z-index: 10;
 }
 
+header::before, header::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: calc(50% - 50vw);
+  background: url(https://banner.bw88.io/desktop/img/newyear/header-newyear.png) no-repeat;
+  -webkit-animation: nycolor 1s ease-in-out infinite;
+          animation: nycolor 1s ease-in-out infinite;
+  display: none;
+}
+
+header::after {
+  right: 0;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+header.newyear::before, header.newyear::after {
+  display: block;
+}
+
 header .logo {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -229,7 +252,7 @@ header .header > div.menu > button.icon-hoticon {
 
 header .header > div.menu > a.icon-hoticon::before,
 header .header > div.menu > button.icon-hoticon::before {
-  content: url(../img/iconhot.png);
+  content: url(https://banner.bw88.io/desktop/img/iconhot.png);
   -webkit-animation: hoticon 0.5s linear infinite alternate;
           animation: hoticon 0.5s linear infinite alternate;
 }
@@ -316,8 +339,9 @@ header .header > div.menu .nweSubMenu-Wrapper.active {
   padding-bottom: 20px;
 }
 
-header .header > div.menu .nweSubMenu-Wrapper .newimg {
-  background-image: url(../img/newimg.png);
+header .header > div.menu .nweSubMenu-Wrapper .newimg,
+header .header > div.menu .nweSubMenu-Wrapper .hotimg {
+  background-image: url(https://banner.bw88.io/desktop/img/newimg.png);
   width: 40px;
   height: 20px;
   position: absolute;
@@ -327,13 +351,7 @@ header .header > div.menu .nweSubMenu-Wrapper .newimg {
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .hotimg {
-  background-image: url(../img/hotimg.png);
-  width: 40px;
-  height: 20px;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: calc(50% - 20px);
+  background-image: url(https://banner.bw88.io/desktop/img/hotimg.png);
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList,
@@ -456,7 +474,7 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .light {
   display: none;
   position: absolute;
   bottom: 10px;
-  background: url(../img/sports/light.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/light.png) no-repeat center/auto 100%;
   width: 80px;
   height: 90px;
   -webkit-transition: 0.7s;
@@ -475,7 +493,7 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .light.ligh
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img .light.light-slot,
 header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .light.light-slot {
-  background: url(../img/slot/light.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/light.png) no-repeat center/auto 100%;
   width: 100px;
   bottom: 25px;
 }
@@ -511,7 +529,7 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .dice {
   position: absolute;
   bottom: 60px;
   left: 30px;
-  background: url(../img/live/dice1.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/dice1.png) no-repeat center/auto 100%;
   width: 15px;
   height: 15px;
   -webkit-transition: 0.7s;
@@ -532,7 +550,7 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .dice.dice2 
   height: 20px;
   bottom: 80px;
   left: 100px;
-  background: url(../img/live/dice2.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/dice2.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList a .img .ballR1,
@@ -548,7 +566,7 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .ballR1 {
   position: absolute;
   bottom: 70px;
   left: 30px;
-  background: url(../img/lottery/ball-R1.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/ball-r1.png) no-repeat center/auto 100%;
   width: 20px;
   height: 20px;
   -webkit-transition: 0.7s;
@@ -565,7 +583,7 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList a .img .ballR1.bal
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList button .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .fishList a .img .ballR1.ballG1,
 header .header > div.menu .nweSubMenu-Wrapper .fishList button .img .ballR1.ballG1 {
-  background: url(../img/lottery/ball-G1.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/ball-g1.png) no-repeat center/auto 100%;
   width: 20px;
   height: 20px;
   bottom: 70px;
@@ -764,135 +782,139 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList button .underBtn {
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .sabaSport .img {
-  background: url(../img/sports/sabaSport.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/sabasport.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .btiSport .img {
-  background: url(../img/sports/btiSport.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/btisport.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .owbitSport .img {
-  background: url(../img/sports/owbitSport.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/owbitsport.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .bas .soccer .img {
-  background: url(../img/sports/soccer.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/soccer.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .sabaSoccer .img {
-  background: url(../img/sports/sabaSoccer.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/sabaSoccer.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .basketball .img {
-  background: url(../img/sports/basketball.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/basketball.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .tennis .img {
-  background: url(../img/sports/tennis.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/tennis.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .baseball .img {
-  background: url(../img/sports/baseball.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/baseball.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .volleyball .img {
-  background: url(../img/sports/volleyball.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/volleyball.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .sportsList .cricket .img {
-  background: url(../img/sports/cricket.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/sports/cricket.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .sabaclub .img {
-  background: url(../img/lottery/lottery-saba.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-saba.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .keno .img {
-  background: url(../img/lottery/lottery-keno.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-keno.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .lottery .img {
-  background: url(../img/lottery/lottery-lottery.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-lottery.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .one789 .img {
-  background: url(../img/lottery/lottery-789.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-789.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .traditional .img {
-  background: url(../img/lottery/lottery-tl.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-tl.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .v8 .img {
-  background: url(../img/lottery/lottery-v8poker.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-v8poker.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .keno .img {
-  background: url(../img/lottery/lottery-keno.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-keno.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .kingmaker .img {
-  background: url(../img/lottery/lottery-kingmaker.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-kingmaker.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
-  background: url(../img/lottery/lottery-TCG.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-tcg.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .HO .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/ho.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .AP .img {
-  background: url(../img/slot/ap.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/ap.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .NE .img {
-  background: url(../img/slot/ne.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/ne.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .RED .img {
-  background: url(../img/slot/red.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/red.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .MG .img {
-  background: url(../img/slot/mg.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/mg.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .PT .img {
-  background: url(../img/slot/pt.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/pt.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .JILI .img {
-  background: url(../img/slot/jili.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/jili.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .GPI .img {
-  background: url(../img/slot/gpi.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/gpi.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .YGG .img {
-  background: url(../img/slot/ygg.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/ygg.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .ICG .img {
-  background: url(../img/slot/icg.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/icg.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .SG .img {
-  background: url(../img/slot/sg.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/sg.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .PP .img {
-  background: url(../img/slot/pp.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/pp.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .PG .img {
-  background: url(../img/slot/pg.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/pg.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .OW .img {
-  background: url(../img/slot/ow.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/ow.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .CQ9 .img {
-  background: url(../img/slot/cq9.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/cq9.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .CQ9 .icon-cq9:before {
@@ -900,111 +922,111 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .CQ9 .icon-cq9:before 
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .ICG .img {
-  background: url(../img/slot/icg.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/slot/icg.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveEvo .img {
-  background: url(../img/live/live-evo.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-evo.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveJili .img {
-  background: url(../img/live/live-jili.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-jili.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveWM .img {
-  background: url(../img/live/live-wm.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-wm.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveDG .img {
-  background: url(../img/live/live-dg.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-dg.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveALL .img {
-  background: url(../img/live/live-ab.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-ab.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveAG .img {
-  background: url(../img/live/live-ag.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-ag.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .livePP .img {
-  background: url(../img/live/live-pp.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-pp.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveSA .img {
-  background: url(../img/live/live-sa.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-sa.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveAE .img {
-  background: url(../img/live/live-ae.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-ae.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveEB .img {
-  background: url(../img/live/live-ebet.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-ebet.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveMG .img {
-  background: url(../img/live/live-mg.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-mg.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .livePT .img {
-  background: url(../img/live/live-pt.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-pt.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .live789 .img {
-  background: url(../img/live/live-one789.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-one789.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liven2live .img {
-  background: url(../img/live/live-n2live.png) no-repeat center/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/live/live-n2live.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-Oneshot .img {
-  background: url(../img/fishing/fish-of.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-of.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-world .img {
-  background: url(../img/fishing/fish-fworld.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-fworld.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-god .img {
-  background: url(../img/fishing/fish-god.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-god.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-war .img {
-  background: url(../img/fishing/fish-fwar.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-fwar.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-ttatp .img {
-  background: url(../img/fishing/fish-ttatp.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-ttatp.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-db .img {
-  background: url(../img/fishing/fish-db.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-db.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-fos .img {
-  background: url(../img/fishing/fish-fos.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-fos.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-paradise .img {
-  background: url(../img/fishing/fish-paradise.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-paradise.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-tos .img {
-  background: url(../img/fishing/fish-tos.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-tos.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-haiba .img {
-  background: url(../img/fishing/fish-haiba.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-haiba.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-hf5 .img {
-  background: url(../img/fishing/fish-hf5.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-hf5.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-ma .img {
-  background: url(../img/fishing/fish-ma.png) no-repeat center 10px/auto 100%;
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-ma.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.function {
@@ -1019,6 +1041,7 @@ header .header > div.function {
           justify-content: flex-end;
   position: relative;
   z-index: 1;
+  margin-right: 5px;
 }
 
 header .header > div.function > div:before {
@@ -1078,32 +1101,32 @@ header .header > div.function > button .flag:before {
 
 header .header > div.function > div .flag.ch:before,
 header .header > div.function > button .flag.ch:before {
-  background: url(../img/flag/ch.png) no-repeat top left/cover;
+  background: url(https://banner.bw88.io/desktop/img/flag/ch.png) no-repeat top left/cover;
 }
 
 header .header > div.function > div .flag.cs:before,
 header .header > div.function > button .flag.cs:before {
-  background: url(../img/flag/cs.png) no-repeat top left/cover;
+  background: url(https://banner.bw88.io/desktop/img/flag/cs.png) no-repeat top left/cover;
 }
 
 header .header > div.function > div .flag.en:before,
 header .header > div.function > button .flag.en:before {
-  background: url(../img/flag/en.png) no-repeat top center/cover;
+  background: url(https://banner.bw88.io/desktop/img/flag/en.png) no-repeat top center/cover;
 }
 
 header .header > div.function > div .flag.th:before,
 header .header > div.function > button .flag.th:before {
-  background: url(../img/flag/th.png) no-repeat top left/cover;
+  background: url(https://banner.bw88.io/desktop/img/flag/th.png) no-repeat top left/cover;
 }
 
 header .header > div.function > div .flag.id:before,
 header .header > div.function > button .flag.id:before {
-  background: url(../img/flag/id.png) no-repeat top left/cover;
+  background: url(https://banner.bw88.io/desktop/img/flag/id.png) no-repeat top left/cover;
 }
 
 header .header > div.function > div .flag.vn:before,
 header .header > div.function > button .flag.vn:before {
-  background: url(../img/flag/vn.png) no-repeat top center/cover;
+  background: url(https://banner.bw88.io/desktop/img/flag/vn.png) no-repeat top center/cover;
 }
 
 header .header > div.function .icon-email {
@@ -1134,7 +1157,7 @@ header .header > div.function .mailtipPop {
   border: 1px solid #070e22;
   border-radius: 5px;
   text-align: left;
-  padding: 5px 10px;
+  padding: 3px 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1149,7 +1172,7 @@ header .header > div.function .mailtipPop {
       -ms-flex-pack: justify;
           justify-content: space-between;
   z-index: 1;
-  right: -10px;
+  right: -2px;
   -webkit-animation: open 1s .5s ease-in-out 1;
           animation: open 1s .5s ease-in-out 1;
 }
@@ -1220,31 +1243,25 @@ header .header > div.function .mailtipPop {
   }
 }
 
-header .header > div.function .mailtipPop:before {
+header .header > div.function .mailtipPop::before, header .header > div.function .mailtipPop::after {
   content: '';
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 10px 10px 10px;
+  border-width: 0 8px 8px 8px;
   border-color: transparent transparent #070e22 transparent;
   position: absolute;
-  top: -11px;
+  top: -8px;
+  right: 4px;
 }
 
-header .header > div.function .mailtipPop:after {
-  content: '';
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 10px 10px 10px;
+header .header > div.function .mailtipPop::after {
   border-color: transparent transparent #f85f05 transparent;
-  position: absolute;
-  top: -10px;
 }
 
 header .header > div.function .mailtipPop .icon-close {
   font-weight: bold;
-  margin: 5px 0;
+  margin: 3px 0;
 }
 
 header .header > div.function .mailtipPop span {
@@ -1302,6 +1319,103 @@ header .header > div.function .btnGroup button {
   text-transform: uppercase;
 }
 
+header .header > div.function .imgvip {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #052561;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+  position: relative;
+  -webkit-animation: imgvipbg 1.5s ease-in-out normal infinite;
+          animation: imgvipbg 1.5s ease-in-out normal infinite;
+}
+
+header .header > div.function .imgvip::before {
+  content: "";
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  background: #152849;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+  -webkit-animation: imgvipbg 1.5s .5s ease-in-out normal infinite;
+          animation: imgvipbg 1.5s .5s ease-in-out normal infinite;
+}
+
+header .header > div.function .imgvip > img {
+  width: 50px;
+  z-index: 2;
+  -webkit-animation: newicon 0.5s linear infinite alternate;
+          animation: newicon 0.5s linear infinite alternate;
+}
+
+@-webkit-keyframes imgvipbg {
+  0% {
+    border: 1px solid #052561;
+  }
+  50% {
+    -webkit-filter: brightness(110%);
+            filter: brightness(110%);
+    border: 1px solid #017792;
+  }
+  100% {
+    border: 1px solid #db2c01;
+  }
+}
+
+@keyframes imgvipbg {
+  0% {
+    border: 1px solid #052561;
+  }
+  50% {
+    -webkit-filter: brightness(110%);
+            filter: brightness(110%);
+    border: 1px solid #017792;
+  }
+  100% {
+    border: 1px solid #db2c01;
+  }
+}
+
+header .header > div.function .imgvip .icon-coinicon {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: no-repeat url(https://banner.bw88.io/desktop/img/coinimg.png), #070e22;
+  border-radius: 5px;
+  background-size: 100%;
+  bottom: 0;
+  right: -5px;
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+  z-index: 2;
+  -webkit-animation: overturn 1s ease-in-out normal infinite;
+          animation: overturn 1s ease-in-out normal infinite;
+  display: none;
+}
+
+header .header > div.function .imgvip:hover .icon-coinicon {
+  display: block;
+}
+
 header .header > div.function .cashier,
 header .header > div.function .wallet,
 header .header > div.function .memberfile {
@@ -1323,12 +1437,6 @@ header .header > div.function .memberfile > a {
   font-size: 14px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
-}
-
-header .header > div.function .cashier > img,
-header .header > div.function .wallet > img,
-header .header > div.function .memberfile > img {
-  width: 50px;
 }
 
 header .header > div.function .cashier .submenu,
@@ -1457,7 +1565,7 @@ header .header > div.function .memberfile .icon-coinicon {
   position: absolute;
   width: 15px;
   height: 15px;
-  background: no-repeat url(../img/coinimg.png), #070e22;
+  background: no-repeat url(https://banner.bw88.io/desktop/img/coinimg.png), #070e22;
   border-radius: 5px;
   background-size: 100%;
   top: 10px;
@@ -1475,6 +1583,9 @@ header .header > div.function .memberfile:hover .icon-coinicon {
 }
 
 header .header > div.function .memberfile img {
+  width: 50px;
+  -webkit-filter: brightness(120%);
+          filter: brightness(120%);
   -webkit-animation: newicon 0.5s linear infinite alternate;
           animation: newicon 0.5s linear infinite alternate;
 }
@@ -1765,212 +1876,222 @@ footer > div .platformGroup button {
 
 footer > div .platformGroup a.ev,
 footer > div .platformGroup button.ev {
-  background: url(../img/partherNew/evo.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/evo.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ev:hover,
 footer > div .platformGroup button.ev:hover {
-  background: url(../img/partherNew/evo-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/evo-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ne,
 footer > div .platformGroup button.ne {
-  background: url(../img/partherNew/ne.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ne.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ne:hover,
 footer > div .platformGroup button.ne:hover {
-  background: url(../img/partherNew/ne-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ne-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.red,
 footer > div .platformGroup button.red {
-  background: url(../img/partherNew/red.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/red.png) no-repeat center;
 }
 
 footer > div .platformGroup a.red:hover,
 footer > div .platformGroup button.red:hover {
-  background: url(../img/partherNew/red-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/red-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.saba,
 footer > div .platformGroup button.saba {
-  background: url(../img/partherNew/saba.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/saba.png) no-repeat center;
 }
 
 footer > div .platformGroup a.saba:hover,
 footer > div .platformGroup button.saba:hover {
-  background: url(../img/partherNew/saba-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/saba-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.bti,
 footer > div .platformGroup button.bti {
-  background: url(../img/partherNew/bti.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/bti.png) no-repeat center;
 }
 
 footer > div .platformGroup a.bti:hover,
 footer > div .platformGroup button.bti:hover {
-  background: url(../img/partherNew/bti-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/bti-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ag,
 footer > div .platformGroup button.ag {
-  background: url(../img/partherNew/ag.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ag.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ag:hover,
 footer > div .platformGroup button.ag:hover {
-  background: url(../img/partherNew/ag-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ag-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ae,
 footer > div .platformGroup button.ae {
-  background: url(../img/partherNew/ae.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ae.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ae:hover,
 footer > div .platformGroup button.ae:hover {
-  background: url(../img/partherNew/ae-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ae-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.n2,
 footer > div .platformGroup button.n2 {
-  background: url(../img/partherNew/n2.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/n2.png) no-repeat center;
 }
 
 footer > div .platformGroup a.n2:hover,
 footer > div .platformGroup button.n2:hover {
-  background: url(../img/partherNew/n2-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/n2-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.pp,
 footer > div .platformGroup button.pp {
-  background: url(../img/partherNew/pp.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/pp.png) no-repeat center;
 }
 
 footer > div .platformGroup a.pp:hover,
 footer > div .platformGroup button.pp:hover {
-  background: url(../img/partherNew/pp-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/pp-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.mg,
 footer > div .platformGroup button.mg {
-  background: url(../img/partherNew/mg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/mg.png) no-repeat center;
 }
 
 footer > div .platformGroup a.mg:hover,
 footer > div .platformGroup button.mg:hover {
-  background: url(../img/partherNew/mg-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/mg-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.pt,
 footer > div .platformGroup button.pt {
-  background: url(../img/partherNew/pt.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/pt.png) no-repeat center;
 }
 
 footer > div .platformGroup a.pt:hover,
 footer > div .platformGroup button.pt:hover {
-  background: url(../img/partherNew/pt-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/pt-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.pg,
 footer > div .platformGroup button.pg {
-  background: url(../img/partherNew/pg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/pg.png) no-repeat center;
 }
 
 footer > div .platformGroup a.pg:hover,
 footer > div .platformGroup button.pg:hover {
-  background: url(../img/partherNew/pg-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/pg-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.sg,
 footer > div .platformGroup button.sg {
-  background: url(../img/partherNew/sg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/sg.png) no-repeat center;
 }
 
 footer > div .platformGroup a.sg:hover,
 footer > div .platformGroup button.sg:hover {
-  background: url(../img/partherNew/sg-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/sg-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ygg,
 footer > div .platformGroup button.ygg {
-  background: url(../img/partherNew/ygg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ygg.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ygg:hover,
 footer > div .platformGroup button.ygg:hover {
-  background: url(../img/partherNew/ygg-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ygg-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.cq9,
 footer > div .platformGroup button.cq9 {
-  background: url(../img/partherNew/cq9.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/cq9.png) no-repeat center;
 }
 
 footer > div .platformGroup a.cq9:hover,
 footer > div .platformGroup button.cq9:hover {
-  background: url(../img/partherNew/cq9-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/cq9-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.jili,
 footer > div .platformGroup button.jili {
-  background: url(../img/partherNew/jili.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/jili.png) no-repeat center;
 }
 
 footer > div .platformGroup a.jili:hover,
 footer > div .platformGroup button.jili:hover {
-  background: url(../img/partherNew/jili-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/jili-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.yl,
 footer > div .platformGroup button.yl {
-  background: url(../img/partherNew/yl.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/yl.png) no-repeat center;
 }
 
 footer > div .platformGroup a.yl:hover,
 footer > div .platformGroup button.yl:hover {
-  background: url(../img/partherNew/yl-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/yl-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.v8,
 footer > div .platformGroup button.v8 {
-  background: url(../img/partherNew/v8.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/v8.png) no-repeat center;
 }
 
 footer > div .platformGroup a.v8:hover,
 footer > div .platformGroup button.v8:hover {
-  background: url(../img/partherNew/v8-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/v8-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.king,
 footer > div .platformGroup button.king {
-  background: url(../img/partherNew/king.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/king.png) no-repeat center;
 }
 
 footer > div .platformGroup a.king:hover,
 footer > div .platformGroup button.king:hover {
-  background: url(../img/partherNew/king-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/king-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.tc,
 footer > div .platformGroup button.tc {
-  background: url(../img/partherNew/tc.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/tc.png) no-repeat center;
 }
 
 footer > div .platformGroup a.tc:hover,
 footer > div .platformGroup button.tc:hover {
-  background: url(../img/partherNew/tc-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/tc-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ap,
 footer > div .platformGroup button.ap {
-  background: url(../img/partherNew/ap.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ap.png) no-repeat center;
 }
 
 footer > div .platformGroup a.ap:hover,
 footer > div .platformGroup button.ap:hover {
-  background: url(../img/partherNew/ap-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ap-a.png) no-repeat center;
+}
+
+footer > div .platformGroup a.ho,
+footer > div .platformGroup button.ho {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ho.png) no-repeat center;
+}
+
+footer > div .platformGroup a.ho:hover,
+footer > div .platformGroup button.ho:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/ho-a.png) no-repeat center;
 }
 
 footer > div .powered {
@@ -2561,6 +2682,9 @@ main > .swiper-container .swiper-slide {
 .swiper-pagination {
   padding: 0 calc((100% - 1560px) / 2);
   max-width: 1560px;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
 }
 
 .swiper-pagination .swiper-pagination-bullet {
@@ -2571,6 +2695,7 @@ main > .swiper-container .swiper-slide {
   height: 10px;
   -webkit-transition: 0.7s;
   transition: 0.7s;
+  margin: 0 4px;
 }
 
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -3260,7 +3385,7 @@ main > .swiper-container .swiper-slide {
   width: 11px;
   height: 40px;
   left: -1px;
-  background: url(../img/stepAfter.png);
+  background: url(https://banner.bw88.io/desktop/img/stepafter.png);
 }
 
 .stepBar > div:after,
@@ -3270,7 +3395,7 @@ main > .swiper-container .swiper-slide {
   width: 11px;
   height: 40px;
   right: -10px;
-  background: url(../img/stepAfter.png);
+  background: url(https://banner.bw88.io/desktop/img/stepafter.png);
   z-index: 1;
 }
 
@@ -3296,7 +3421,7 @@ main > .swiper-container .swiper-slide {
   width: 11px;
   height: 40px;
   right: -11px;
-  background: url(../img/stepAfter_a.png);
+  background: url(https://banner.bw88.io/desktop/img/stepafter_a.png);
   z-index: 1;
 }
 
@@ -3484,7 +3609,6 @@ main > .swiper-container .swiper-slide {
   -webkit-animation: jpot 0.3s infinite;
           animation: jpot 0.3s infinite;
   position: relative;
-  background: url(../img/jackpot.png) no-repeat;
   cursor: pointer;
 }
 
@@ -4922,7 +5046,7 @@ main > .swiper-container .swiper-slide {
           transform: translateY(0);
   background: transparent;
   margin: auto auto 15px;
-  background: url(../img/swiper_button_next.png) no-repeat center/auto;
+  background: url(https://banner.bw88.io/desktop/img/swiper_button_next.png) no-repeat center/auto;
 }
 
 .offers .swiper-container .swiper-button-next:after {
@@ -4942,7 +5066,7 @@ main > .swiper-container .swiper-slide {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  background: url(../img/swiper_button_prev.png) no-repeat center right/auto;
+  background: url(https://banner.bw88.io/desktop/img/swiper_button_prev.png) no-repeat center right/auto;
 }
 
 .offers .swiper-container .swiper-button-prev:after {
@@ -4953,7 +5077,6 @@ main > .swiper-container .swiper-slide {
   display: inline-block;
   width: 500px;
   height: 145px;
-  background: url(../img/eventBg.png) no-repeat;
   margin: 0 auto;
   position: relative;
   padding-bottom: 20px;
@@ -5084,7 +5207,7 @@ main > .swiper-container .swiper-slide {
   width: 100%;
   height: 55px;
   pointer-events: none;
-  background: url(../img/top10/topImg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/top10/topImg.png) no-repeat center;
   background-size: 100%;
   z-index: 1;
 }
@@ -7531,7 +7654,7 @@ main > .swiper-container .swiper-slide {
 
 .livelobby {
   height: auto;
-  background: url(../img/livelobby/livelobbyBG.png) no-repeat bottom;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/livelobbybg.png) no-repeat bottom;
   padding-bottom: 10%;
   background-size: 100%;
 }
@@ -7646,112 +7769,112 @@ main > .swiper-container .swiper-slide {
 }
 
 .livelobbyList > div.live-evo {
-  background: url(../img/livelobby/live-evo.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-evo.png) no-repeat center;
 }
 
 .livelobbyList > div.live-evo:hover {
-  background: url(../img/livelobby/live-evo-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-evo-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-mg {
-  background: url(../img/livelobby/live-mg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-mg.png) no-repeat center;
 }
 
 .livelobbyList > div.live-mg:hover {
-  background: url(../img/livelobby/live-mg-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-mg-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-pt {
-  background: url(../img/livelobby/live-pt.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-pt.png) no-repeat center;
 }
 
 .livelobbyList > div.live-pt:hover {
-  background: url(../img/livelobby/live-pt-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-pt-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-n2 {
-  background: url(../img/livelobby/live-n2.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-n2.png) no-repeat center;
 }
 
 .livelobbyList > div.live-n2:hover {
-  background: url(../img/livelobby/live-n2-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-n2-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-789 {
-  background: url(../img/livelobby/live-789.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-789.png) no-repeat center;
 }
 
 .livelobbyList > div.live-789:hover {
-  background: url(../img/livelobby/live-789-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-789-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-wm {
-  background: url(../img/livelobby/live-wm.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-wm.png) no-repeat center;
 }
 
 .livelobbyList > div.live-wm:hover {
-  background: url(../img/livelobby/live-wm-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-wm-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-dg {
-  background: url(../img/livelobby/live-dg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-dg.png) no-repeat center;
 }
 
 .livelobbyList > div.live-dg:hover {
-  background: url(../img/livelobby/live-dg-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-dg-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-ab {
-  background: url(../img/livelobby/live-ab.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-ab.png) no-repeat center;
 }
 
 .livelobbyList > div.live-ab:hover {
-  background: url(../img/livelobby/live-ab-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-ab-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-ag {
-  background: url(../img/livelobby/live-ag.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-ag.png) no-repeat center;
 }
 
 .livelobbyList > div.live-ag:hover {
-  background: url(../img/livelobby/live-ag-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-ag-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-pp {
-  background: url(../img/livelobby/live-pp.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-pp.png) no-repeat center;
 }
 
 .livelobbyList > div.live-pp:hover {
-  background: url(../img/livelobby/live-pp-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-pp-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-sa {
-  background: url(../img/livelobby/live-sa.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-sa.png) no-repeat center;
 }
 
 .livelobbyList > div.live-sa:hover {
-  background: url(../img/livelobby/live-sa-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-sa-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-ae {
-  background: url(../img/livelobby/live-ae.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-ae.png) no-repeat center;
 }
 
 .livelobbyList > div.live-ae:hover {
-  background: url(../img/livelobby/live-ae-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-ae-a.png) no-repeat center;
 }
 
 .livelobbyList > div.live-ebet {
-  background: url(../img/livelobby/live-ebet.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-ebet.png) no-repeat center;
 }
 
 .livelobbyList > div.live-ebet:hover {
-  background: url(../img/livelobby/live-ebet-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-ebet-a.png) no-repeat center;
 }
 
 .fishlobby {
   height: auto;
-  background: url(../img/fishinglobby/fishlobbyBG.png) no-repeat bottom;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fishlobbybg.png) no-repeat bottom;
   padding-bottom: 10%;
   background-size: 100%;
 }
@@ -7916,47 +8039,47 @@ main > .swiper-container .swiper-slide {
 }
 
 .fishlobbyList > div.fish-world {
-  background: url(../img/fishinglobby/fish-world.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-world.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-db {
-  background: url(../img/fishinglobby/fish-dragonball.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-dragonball.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-god {
-  background: url(../img/fishinglobby/fish-god.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-god.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-saviors {
-  background: url(../img/fishinglobby/fish-saviors.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-saviors.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-of {
-  background: url(../img/fishinglobby/fish-of.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-of.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-ttsatp {
-  background: url(../img/fishinglobby/fish-ttatp.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-ttatp.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-wrd {
-  background: url(../img/fishinglobby/fish-wrd.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-wrd.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-paradise {
-  background: url(../img/fishinglobby/paradise.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/paradise.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-haiba {
-  background: url(../img/fishinglobby/fish-haiba.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-haiba.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-hf5 {
-  background: url(../img/fishinglobby/fish-hf5.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-hf5.png) no-repeat center;
 }
 
 .fishlobbyList > div.fish-ma {
-  background: url(../img/fishinglobby/fish-ma.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-ma.png) no-repeat center;
 }
 
 .fishlobbyList > div.coming {
@@ -7972,7 +8095,7 @@ main > .swiper-container .swiper-slide {
   height: auto;
   padding-bottom: 10%;
   background-size: 100%;
-  background: url(../img/gameslobby/gamesBg.png) no-repeat bottom;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/gamesbg.png) no-repeat bottom;
 }
 
 .gamelobby section {
@@ -8180,7 +8303,7 @@ main > .swiper-container .swiper-slide {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  background: url(../img/gameslobby/textBg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/textbg.png) no-repeat center;
   padding: 0px 30px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -8208,35 +8331,35 @@ main > .swiper-container .swiper-slide {
 }
 
 .gameslobbyList > div.tcg {
-  background: url(../img/gameslobby/lotterytcg.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/lotterytcg.png) no-repeat center;
 }
 
 .gameslobbyList > div.lottery789 {
-  background: url(../img/gameslobby/lottery789.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/lottery789.png) no-repeat center;
 }
 
 .gameslobbyList > div.keno {
-  background: url(../img/gameslobby/keno.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/keno.png) no-repeat center;
 }
 
 .gameslobbyList > div.lottery {
-  background: url(../img/gameslobby/lottery.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/lottery.png) no-repeat center;
 }
 
 .gameslobbyList > div.sabaClub {
-  background: url(../img/gameslobby/sabaclub.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/sabaclub.png) no-repeat center;
 }
 
 .gameslobbyList > div.traditional {
-  background: url(../img/gameslobby/traditional.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/traditional.png) no-repeat center;
 }
 
 .gameslobbyList > div.v8pork {
-  background: url(../img/gameslobby/v8poker.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/v8poker.png) no-repeat center;
 }
 
 .gameslobbyList > div.kingmaker {
-  background: url(../img/gameslobby/kingmaker.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/kingmaker.png) no-repeat center;
 }
 
 form {
@@ -8525,7 +8648,7 @@ iframe {
 .loading div {
   width: 260px;
   height: 94px;
-  background: url(../img/loading_logo.png);
+  background: url(https://banner.bw88.io/desktop/img/loading_logo.png);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9366,1007 +9489,6 @@ input + .iconModule i.icon.icon-checkmark:before {
   }
 }
 
-.rankingPage {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  padding-top: 30px;
-  padding-bottom: 50px;
-}
-
-.rankingPage.eventBg {
-  background: url(../img/ranking/eventBg.png) no-repeat center top;
-}
-
-.rankingPage.rankingBg {
-  background: url(../img/ranking/rankingBg.png) no-repeat center top;
-}
-
-.rankingPage.recordsBg {
-  background: url(../img/ranking/recordsBg.png) no-repeat center top;
-}
-
-.rankingPage.lasteventBg {
-  background: url(../img/ranking/listeventBg.png) no-repeat center top;
-}
-
-.rankingPage .bottomImg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.rankingPage .rankContent {
-  min-width: 1000px;
-}
-
-.rankingPage .rankContent .rankBotton {
-  position: relative;
-}
-
-.rankingPage .rankContent .rankBotton::before {
-  content: "";
-  position: absolute;
-  top: 25px;
-  left: -20px;
-  width: 20px;
-  height: 350px;
-  border-radius: 5px 0 0 5px;
-  border-left: 1px solid #56ceff;
-  border-top: 1px solid #56ceff;
-  border-bottom: 1px solid #56ceff;
-}
-
-.rankingPage .rankContent .rankBotton > button {
-  width: 200px;
-  height: 50px;
-  border: 1px solid #56ceff;
-  color: #56ceff;
-  border-radius: 5px;
-  margin-right: 10px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-}
-
-.rankingPage .rankContent .rankBotton > button.active {
-  background-color: #56ceff;
-  color: #070e22;
-  font-weight: bold;
-  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-}
-
-.rankingPage .rankContent .rankBotton > button:hover {
-  background-color: #56ceff;
-  color: #070e22;
-  font-weight: bold;
-  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-}
-
-.rankingPage .rankContent .rankBox {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 20px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox {
-  width: 49%;
-  height: 600px;
-  padding: 20px;
-  border-radius: 5px;
-  border: 1px solid #56ceff;
-  background-color: rgba(45, 50, 75, 0.1);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-align: center;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .icon-nodata {
-  font-size: 20px;
-  line-height: 430px;
-  color: #ff5722;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .title {
-  font-size: 30px;
-  color: #56ceff;
-  text-align: center;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .textBox {
-  text-align: left;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist {
-  margin: 20px 0;
-  position: relative;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 380px;
-  overflow: auto;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul::-webkit-scrollbar {
-  width: 0px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 15px;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 206, 255, 0.5)), to(rgba(86, 206, 255, 0)));
-  background: linear-gradient(0deg, rgba(86, 206, 255, 0.5), rgba(86, 206, 255, 0));
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul.event {
-  overflow: inherit;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul.event::before {
-  display: none;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: transparent;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: auto;
-  margin-bottom: 10px;
-  height: 40px;
-  line-height: 40px;
-  border: 1px solid #56ceff;
-  border-radius: 5px;
-  padding: 0 0 0 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li:nth-child(1) {
-  border: 0;
-  margin: 0;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no1 {
-  border: 1px solid #ffdd33;
-  background-color: rgba(255, 216, 100, 0.1);
-  height: 50px;
-  line-height: 50px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no2 {
-  border: 1px solid #cbe5ff;
-  background-color: rgba(203, 229, 255, 0.1);
-  height: 50px;
-  line-height: 50px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.no3 {
-  border: 1px solid #ffa64d;
-  background-color: rgba(255, 166, 77, 0.1);
-  height: 50px;
-  line-height: 50px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.myInRank {
-  background-color: #56ceff;
-  color: #070e22;
-  -webkit-box-shadow: 0px 0px 10px #56ceff;
-          box-shadow: 0px 0px 10px #56ceff;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li.myRank {
-  width: 100%;
-  background-color: #56ceff;
-  position: absolute;
-  bottom: -50px;
-  border-radius: 0 0 3px 3px;
-  color: #070e22;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: 0;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  text-align: center;
-  padding: 0 10px;
-  height: 40px;
-  white-space: nowrap;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div:nth-last-child(1) {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding-right: 15px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div:nth-child(1) {
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding-left: 15px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .ranklist ul li div img {
-  margin-right: 10px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .remind {
-  color: rgba(255, 255, 255, 0.5);
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox .remind.btn {
-  color: #56ceff;
-  cursor: pointer;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox.rankInBox2 {
-  width: 49%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox.rankInBox2 p {
-  font-size: 18px;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox.rankInBox2 h1 {
-  color: #ffd13c;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.rankingPage .rankContent .rankBox .rankInBox.rankInBox2 img {
-  width: 80%;
-}
-
-.rankingPage .rankContent .rankBox .quickSelect > div {
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-.rankingNew {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  padding-top: 30px;
-  padding-bottom: 50px;
-}
-
-.rankingNew.baskballBg {
-  background: url(../img/ranking/baskballBg.png) no-repeat center top;
-}
-
-.rankingNew .cupImg {
-  position: absolute;
-  left: 16%;
-  bottom: 2%;
-  z-index: 1;
-  -webkit-animation: cupImg 2s ease-in-out infinite alternate;
-          animation: cupImg 2s ease-in-out infinite alternate;
-  -webkit-transform-origin: bottom;
-          transform-origin: bottom;
-}
-
-@-webkit-keyframes cupImg {
-  0% {
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg);
-  }
-  100% {
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg);
-  }
-}
-
-@keyframes cupImg {
-  0% {
-    -webkit-transform: rotate(5deg);
-            transform: rotate(5deg);
-  }
-  100% {
-    -webkit-transform: rotate(-5deg);
-            transform: rotate(-5deg);
-  }
-}
-
-.rankingNew .ballImg {
-  position: absolute;
-  left: 13%;
-  bottom: 2%;
-  z-index: 1;
-  -webkit-animation: ballImg 2s ease-in-out infinite alternate;
-          animation: ballImg 2s ease-in-out infinite alternate;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-}
-
-@-webkit-keyframes ballImg {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    left: 13%;
-  }
-  100% {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-    left: 11%;
-  }
-}
-
-@keyframes ballImg {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-    left: 13%;
-  }
-  100% {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg);
-    left: 11%;
-  }
-}
-
-.rankingNew .bottomImg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.rankingNew .rankContent {
-  min-width: 1000px;
-  position: relative;
-  z-index: 2;
-}
-
-.rankingNew .rankContent .rankBotton {
-  position: relative;
-}
-
-.rankingNew .rankContent .rankBotton::before {
-  content: "";
-  position: absolute;
-  top: 25px;
-  left: -20px;
-  width: 20px;
-  height: 350px;
-  border-radius: 5px 0 0 5px;
-  border-left: 1px solid #56ceff;
-  border-top: 1px solid #56ceff;
-  border-bottom: 1px solid #56ceff;
-}
-
-.rankingNew .rankContent .rankBotton > button {
-  width: 200px;
-  height: 50px;
-  border: 1px solid #56ceff;
-  color: #56ceff;
-  border-radius: 5px;
-  margin-right: 10px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  background-color: rgba(45, 50, 75, 0.4);
-  text-transform: uppercase;
-}
-
-.rankingNew .rankContent .rankBotton > button.active {
-  background-color: #56ceff;
-  color: #070e22;
-  font-weight: bold;
-  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-}
-
-.rankingNew .rankContent .rankBotton > button:hover {
-  background-color: #56ceff;
-  color: #070e22;
-  font-weight: bold;
-  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-}
-
-.rankingNew .rankContent .rankBox {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-top: 20px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox {
-  width: 58%;
-  height: 600px;
-  padding: 20px;
-  border-radius: 5px;
-  border: 1px solid #56ceff;
-  background-color: rgba(45, 50, 75, 0.4);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-align: center;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .finalBtn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  padding: 5px 10px;
-  color: #56ceff;
-  font-weight: bold;
-  border: 1px solid #56ceff;
-  background-color: rgba(45, 50, 75, 0.4);
-  border-radius: 3px;
-  -webkit-animation: finalBtn 0.5s ease-in-out infinite alternate;
-          animation: finalBtn 0.5s ease-in-out infinite alternate;
-}
-
-@-webkit-keyframes finalBtn {
-  to {
-    opacity: 0.5;
-  }
-  from {
-    opacity: 1;
-  }
-}
-
-@keyframes finalBtn {
-  to {
-    opacity: 0.5;
-  }
-  from {
-    opacity: 1;
-  }
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .finalBtn.active {
-  border-radius: 3px;
-  border: 1px solid #56ceff;
-  background-color: #56ceff;
-  color: #2d324b;
-  -webkit-animation: none;
-          animation: none;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .icon-nodata {
-  font-size: 20px;
-  line-height: 430px;
-  color: #ff5722;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .title {
-  font-size: 30px;
-  color: #56ceff;
-  text-align: center;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .textBox {
-  text-align: center;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .rankTag .btnGroup > button {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #56ceff;
-  background-color: rgba(45, 50, 75, 0.4);
-  font-weight: inherit;
-  color: #56ceff;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  white-space: nowrap;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .rankTag .btnGroup > button:hover {
-  background-color: #56ceff;
-  color: #070e22;
-  font-weight: bold;
-  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .rankTag .btnGroup > button.active {
-  background-color: #56ceff;
-  color: #070e22;
-  font-weight: bold;
-  -webkit-box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-          box-shadow: 0px 0px 5px rgba(86, 206, 255, 0.5);
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background: #003b44;
-  width: calc(100% - 20px);
-  height: 10px;
-  border-radius: 30px;
-  margin: 69px 0 35px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div {
-  width: 10px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  position: relative;
-  text-align: left;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  background: #19a4bb;
-  border-radius: 30px;
-  display: block;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(2) > div {
-  background: #19a4bb;
-  z-index: 2;
-  margin-left: -125px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(2) > div:before {
-  border-color: transparent transparent transparent #19a4bb;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(3) > div {
-  background: #288894;
-  z-index: 1;
-  margin-left: -70px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(3) > div:before {
-  border-color: transparent transparent transparent #288894;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div:nth-child(4) > div {
-  margin-left: -35px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div > div {
-  position: absolute;
-  bottom: 15px;
-  line-height: normal;
-  padding: 5px 40px 5px 40px;
-  background: #003b44;
-  font-size: 14px;
-  color: white;
-  font-weight: bold;
-  margin-left: -100px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div > div:before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 24px 0 24px 15px;
-  border-color: transparent transparent transparent #003b44;
-  position: absolute;
-  top: 0;
-  right: -15px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .timeLine > div > div > div {
-  color: #fab617;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist {
-  margin: 20px 0;
-  position: relative;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist > div {
-  display: none;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist > div.active {
-  display: block;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 380px;
-  overflow: auto;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul::-webkit-scrollbar {
-  width: 0px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 15px;
-  background: -webkit-gradient(linear, left bottom, left top, from(rgba(86, 206, 255, 0.5)), to(rgba(86, 206, 255, 0)));
-  background: linear-gradient(0deg, rgba(86, 206, 255, 0.5), rgba(86, 206, 255, 0));
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul.event {
-  height: 450px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background: transparent;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  min-height: auto;
-  margin-bottom: 10px;
-  height: 40px;
-  border: 1px solid #56ceff;
-  border-radius: 5px;
-  padding: 0 0 0 10px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 5px 0;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li:nth-child(1) {
-  border: 0;
-  margin: 0;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.no1 {
-  border: 1px solid #ffdd33;
-  background-color: rgba(255, 216, 100, 0.1);
-  height: 60px;
-  padding: 10px 0;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.no2 {
-  border: 1px solid #cbe5ff;
-  background-color: rgba(203, 229, 255, 0.1);
-  height: 60px;
-  padding: 10px 0;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.no3 {
-  border: 1px solid #ffa64d;
-  background-color: rgba(255, 166, 77, 0.1);
-  height: 60px;
-  padding: 10px 0;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.myInRank {
-  background-color: #56ceff;
-  color: #070e22;
-  -webkit-box-shadow: 0px 0px 10px #56ceff;
-          box-shadow: 0px 0px 10px #56ceff;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li.myRank {
-  width: 100%;
-  background-color: #56ceff;
-  position: absolute;
-  bottom: -50px;
-  border-radius: 0 0 3px 3px;
-  color: #070e22;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: 0;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  padding: 0 10px;
-  white-space: nowrap;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div:nth-child(1) {
-  width: 10%;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div:nth-child(2) {
-  width: 35%;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div:nth-last-child(1) {
-  width: 55%;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding-right: 15px;
-  white-space: initial;
-  text-align: right;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .ranklist ul li div img {
-  margin-right: 10px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .remind {
-  color: rgba(255, 255, 255, 0.5);
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox .remind.btn {
-  color: #56ceff;
-  cursor: pointer;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox.rankInBox2 {
-  width: 41%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox.rankInBox2 p {
-  font-size: 18px;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox.rankInBox2 h1 {
-  color: #ffd13c;
-  font-size: 22px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.rankingNew .rankContent .rankBox .rankInBox.rankInBox2 img {
-  width: 80%;
-}
-
-.rankingNew .rankContent .rankBox .quickSelect > div {
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-.errorPage {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(31, 39, 51, 0.8);
-  background-size: 100%;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  z-index: 10;
-}
-
-.errorPage .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-  background: url(../img/Bwing-404.jpg) no-repeat center bottom;
-  width: 60%;
-  min-width: 600px;
-  height: 600px;
-  background-size: cover;
-}
-
-.errorPage .close {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.3);
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-.errorPage .close:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.errorPage .close::before {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 2px;
-  background-color: #3398ff;
-  top: calc(50% - 1px);
-  left: calc(50% - 7.5px);
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.errorPage .close::after {
-  content: "";
-  position: absolute;
-  width: 15px;
-  height: 2px;
-  background-color: #3398ff;
-  top: calc(50% - 1px);
-  left: calc(50% - 7.5px);
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-.errorPage .textBox {
-  margin-right: 10vw;
-}
-
-.errorPage .textBox .textTitle {
-  line-height: 65px;
-}
-
-.errorPage .textBox .textTitle span {
-  font-size: 30px;
-  color: #3398ff;
-}
-
-.errorPage .textBox .textTitle h1 {
-  color: #3398ff;
-  font-size: 80px;
-  font-weight: bold;
-}
-
-.errorPage .textBox .textTitle p {
-  font-size: 30px;
-}
-
-.errorPage .textBox p {
-  font-size: 18px;
-  text-align: left;
-}
-
-.errorPage .textBox .btnArea button {
-  position: relative;
-  width: 150px;
-  height: 40px;
-  font-size: 16px;
-  background: -webkit-gradient(linear, left top, left bottom, from(#ffde33), to(#ffb219));
-  background: linear-gradient(180deg, #ffde33, #ffb219);
-  border-radius: 50px;
-  color: #333029;
-  overflow: hidden;
-  outline: none;
-  margin-top: 20px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  cursor: pointer;
-}
-
-.errorPage .textBox .btnArea button:hover {
-  -webkit-filter: brightness(0.8);
-          filter: brightness(0.8);
-}
-
-.errorPage .textBox .btnArea button:nth-child(2) {
-  margin-left: 10px;
-  background: -webkit-gradient(linear, left bottom, left top, from(#f20c05), to(#f85f05));
-  background: linear-gradient(0deg, #f20c05, #f85f05);
-  color: #fff;
-}
-
 .transferModule {
   position: relative;
   -webkit-box-align: start;
@@ -10456,7 +9578,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: url(../img/luckybox/bg.jpg) no-repeat center 120px;
+  background: url(https://banner.bw88.io/desktop/img/luckybox/bg.jpg) no-repeat center 120px;
 }
 
 .luckybox .title {
@@ -10480,7 +9602,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .luckybox .button {
   width: 90%;
   height: 90%;
-  background: url(../img/luckybox/button.png) no-repeat center bottom;
+  background: url(https://banner.bw88.io/desktop/img/luckybox/button.png) no-repeat center bottom;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10497,7 +9619,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .luckybox .button:hover {
-  background: url(../img/luckybox/buttona.png) no-repeat center bottom;
+  background: url(https://banner.bw88.io/desktop/img/luckybox/buttona.png) no-repeat center bottom;
 }
 
 .luckybox .button a {
@@ -10525,7 +9647,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   content: '';
   width: 637px;
   height: 727px;
-  background: url(../img/luckybox/coinbg_01.png) no-repeat top;
+  background: url(https://banner.bw88.io/desktop/img/luckybox/coinbg_01.png) no-repeat top;
   position: absolute;
   z-index: 2;
   top: -20px;
@@ -10540,7 +9662,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 727px;
   top: 800px;
   right: 0;
-  background: url(../img/luckybox/coinbg_01.png) no-repeat top;
+  background: url(https://banner.bw88.io/desktop/img/luckybox/coinbg_01.png) no-repeat top;
   position: absolute;
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
@@ -10642,7 +9764,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   top: 0;
   width: 100%;
   height: 100%;
-  background: url(../img/luckybox/spinya.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/luckybox/spinya.png) no-repeat center;
   background-size: 100%;
   overflow: hidden;
 }
@@ -10836,14 +9958,14 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: 72px;
   height: 72px;
   content: '';
-  background: url(../img/luckybox/corner.png) no-repeat top left;
+  background: url(https://banner.bw88.io/desktop/img/luckybox/corner.png) no-repeat top left;
 }
 
 .luckyModule .corner::after {
   width: 72px;
   height: 72px;
   content: '';
-  background: url(../img/luckybox/corner.png) no-repeat top left;
+  background: url(https://banner.bw88.io/desktop/img/luckybox/corner.png) no-repeat top left;
   -webkit-transform: scaleX(-1);
           transform: scaleX(-1);
 }
@@ -11154,7 +10276,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .mysteryEvent .eventTopPage .mysteryBox .box {
-  background: url(../img/mystery/box.png);
+  background: url(https://banner.bw88.io/desktop/img/mystery/box.png);
   width: 355px;
   height: 380px;
   -webkit-animation: mysteryBox 3s ease-in-out infinite alternate;
@@ -11171,7 +10293,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .mysteryEvent .eventTopPage .mysteryBox .boxOpen > div {
-  background-image: url(../img/mystery/boxOpen.png);
+  background-image: url(https://banner.bw88.io/desktop/img/mystery/boxOpen.png);
   width: 510px;
   height: 440px;
   -webkit-animation: inbox 2s ease-in-out infinite alternate;
@@ -11212,7 +10334,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .mysteryEvent .eventModule {
   width: 100%;
   background: #070b1b;
-  background-image: url(../img/mystery/bg2.png);
+  background-image: url(https://banner.bw88.io/desktop/img/mystery/bg2.png);
   background-position: top;
   background-repeat: no-repeat;
   display: -webkit-box;
@@ -11260,7 +10382,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           box-sizing: border-box;
   padding-bottom: 15px;
   text-align: center;
-  background: url(../img/mystery/titleFrame.png) no-repeat center/cover;
+  background: url(https://banner.bw88.io/desktop/img/mystery/titleFrame.png) no-repeat center/cover;
   width: 325px;
   height: 90px;
   display: -webkit-box;
@@ -12724,7 +11846,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           align-items: center;
   width: 100%;
   height: 1210px;
-  background: url(../img/download/downloanBG.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/download/downloanbg.png) no-repeat center;
   background-size: cover;
 }
 
@@ -12866,7 +11988,7 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  background: url(../img/download/downloanBG2.png) no-repeat bottom center;
+  background: url(https://banner.bw88.io/desktop/img/download/downloanbg2.png) no-repeat bottom center;
   background-size: cover;
 }
 
@@ -13074,13 +12196,15 @@ input + .iconModule i.icon.icon-checkmark:before {
   border-radius: 0;
 }
 
-.partnerSelect .swiper-container {
+.partnerSelect .swiper-container, .partnerSelect .swiper {
   width: auto !important;
   padding: 0 40px;
+  position: relative;
 }
 
 .partnerSelect .swiper-container .swiper-button-next,
-.partnerSelect .swiper-container .swiper-button-prev {
+.partnerSelect .swiper-container .swiper-button-prev, .partnerSelect .swiper .swiper-button-next,
+.partnerSelect .swiper .swiper-button-prev {
   color: #56ceff;
   background: #1a2034;
   border-radius: 30px;
@@ -13090,38 +12214,40 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .partnerSelect .swiper-container .swiper-button-next:before,
-.partnerSelect .swiper-container .swiper-button-prev:before {
+.partnerSelect .swiper-container .swiper-button-prev:before, .partnerSelect .swiper .swiper-button-next:before,
+.partnerSelect .swiper .swiper-button-prev:before {
   font-family: "icomoon";
   font-size: 28px;
   margin-top: -1px;
 }
 
 .partnerSelect .swiper-container .swiper-button-next:after,
-.partnerSelect .swiper-container .swiper-button-prev:after {
+.partnerSelect .swiper-container .swiper-button-prev:after, .partnerSelect .swiper .swiper-button-next:after,
+.partnerSelect .swiper .swiper-button-prev:after {
   display: none;
 }
 
-.partnerSelect .swiper-container .swiper-button-next {
+.partnerSelect .swiper-container .swiper-button-next, .partnerSelect .swiper .swiper-button-next {
   right: 7px;
   z-index: 5;
 }
 
-.partnerSelect .swiper-container .swiper-button-next:before {
+.partnerSelect .swiper-container .swiper-button-next:before, .partnerSelect .swiper .swiper-button-next:before {
   content: "\e95c";
   margin-left: 2px;
 }
 
-.partnerSelect .swiper-container .swiper-button-prev {
+.partnerSelect .swiper-container .swiper-button-prev, .partnerSelect .swiper .swiper-button-prev {
   left: 7px;
   z-index: 5;
 }
 
-.partnerSelect .swiper-container .swiper-button-prev:before {
+.partnerSelect .swiper-container .swiper-button-prev:before, .partnerSelect .swiper .swiper-button-prev:before {
   content: "\e95d";
   margin-right: 2px;
 }
 
-.partnerSelect .swiper-container .swiper-slide {
+.partnerSelect .swiper-container .swiper-slide, .partnerSelect .swiper .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13130,7 +12256,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           justify-content: center;
 }
 
-.partnerSelect .swiper-container .swiper-slide button {
+.partnerSelect .swiper-container .swiper-slide button, .partnerSelect .swiper .swiper-slide button {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13147,7 +12273,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: 100%;
 }
 
-.partnerSelect .swiper-container .swiper-slide button img {
+.partnerSelect .swiper-container .swiper-slide button img, .partnerSelect .swiper .swiper-slide button img {
   width: auto;
   -webkit-filter: brightness(50%);
           filter: brightness(50%);
@@ -13156,13 +12282,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   transition: 0.7s;
 }
 
-.partnerSelect .swiper-container .swiper-slide button:hover, .partnerSelect .swiper-container .swiper-slide button.active {
+.partnerSelect .swiper-container .swiper-slide button:hover, .partnerSelect .swiper-container .swiper-slide button.active, .partnerSelect .swiper .swiper-slide button:hover, .partnerSelect .swiper .swiper-slide button.active {
   background: -webkit-gradient(linear, left bottom, left top, from(#41b2e1), to(#6fd1fa));
   background: linear-gradient(to top, #41b2e1, #6fd1fa);
   color: black;
 }
 
-.partnerSelect .swiper-container .swiper-slide button:hover img, .partnerSelect .swiper-container .swiper-slide button.active img {
+.partnerSelect .swiper-container .swiper-slide button:hover img, .partnerSelect .swiper-container .swiper-slide button.active img, .partnerSelect .swiper .swiper-slide button:hover img, .partnerSelect .swiper .swiper-slide button.active img {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   -webkit-transform: translateY(-5px);
@@ -13172,13 +12298,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   opacity: 1;
 }
 
-.partnerSelect .swiper-container .swiper-slide button div {
+.partnerSelect .swiper-container .swiper-slide button div, .partnerSelect .swiper .swiper-slide button div {
   margin-top: 5px;
   font-size: 12px;
 }
 
 .slotjpot {
-  background: url(../img/slotjackpot.jpg) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/slotjackpot.jpg) no-repeat center;
   max-width: 1600px;
   height: 260px;
   margin: 0 auto;
@@ -13231,7 +12357,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .indexNew main.home {
-  background: url(../img/homebg.png) no-repeat center bottom;
+  background: url(https://banner.bw88.io/desktop/img/homebg.png) no-repeat center bottom;
   background-size: 100%;
 }
 
@@ -13263,7 +12389,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: inline-block;
   width: 1200px;
   height: 160px;
-  background: url(../img/hoteventBg.png) no-repeat;
+  background: url(https://banner.bw88.io/desktop/img/hoteventbg.png) no-repeat;
   margin: 0 auto;
   position: relative;
   padding-bottom: 20px;
@@ -13562,7 +12688,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   top: 10px;
   width: 25px;
   height: 17px;
-  background-image: url(../img/youtubeIcon.png);
+  background-image: url(https://banner.bw88.io/desktop/img/youtubeIcon.png);
 }
 
 .indexNew .area2 .top10Aear .top10Box > div > div.liveBox > div .youtube.close {
@@ -13574,7 +12700,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .indexNew .area2 .bannerS .jpot {
   width: 390px;
   height: 300px;
-  background: url(../img/jackpot_new.png);
+  background: url(https://banner.bw88.io/desktop/img/jackpot_new.png);
 }
 
 .indexNew .area2 .bannerS .jpot > div {
@@ -13618,27 +12744,27 @@ input + .iconModule i.icon.icon-checkmark:before {
 .indexNew .gameBtn > a > div .icon {
   width: 40px;
   height: 40px;
-  background: url(../img/gameicon/sport.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameicon/sport.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.games {
-  background: url(../img/gameicon/games.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameicon/games.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.slot {
-  background: url(../img/gameicon/slot.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameicon/slot.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.live {
-  background: url(../img/gameicon/live.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameicon/live.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.fish {
-  background: url(../img/gameicon/fish.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameicon/fish.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a > div .icon.esport {
-  background: url(../img/gameicon/esport.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/gameicon/esport.png) no-repeat center;
 }
 
 .indexNew .gameBtn > a p {
@@ -13653,27 +12779,27 @@ input + .iconModule i.icon.icon-checkmark:before {
 .indexNew .gameBtn > a.active > div .icon {
   width: 40px;
   height: 40px;
-  background: url(../img/gameicon/sport-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/sport-a.png);
 }
 
 .indexNew .gameBtn > a.active > div .icon.games {
-  background: url(../img/gameicon/games-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/games-a.png);
 }
 
 .indexNew .gameBtn > a.active > div .icon.slot {
-  background: url(../img/gameicon/slot-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/slot-a.png);
 }
 
 .indexNew .gameBtn > a.active > div .icon.live {
-  background: url(../img/gameicon/live-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/live-a.png);
 }
 
 .indexNew .gameBtn > a.active > div .icon.fish {
-  background: url(../img/gameicon/fish-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/fish-a.png);
 }
 
 .indexNew .gameBtn > a.active > div .icon.esport {
-  background: url(../img/gameicon/esport-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/esport-a.png);
 }
 
 .indexNew .gameBtn > a:hover > div {
@@ -13684,27 +12810,27 @@ input + .iconModule i.icon.icon-checkmark:before {
 .indexNew .gameBtn > a:hover > div .icon {
   width: 40px;
   height: 40px;
-  background: url(../img/gameicon/sport-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/sport-a.png);
 }
 
 .indexNew .gameBtn > a:hover > div .icon.games {
-  background: url(../img/gameicon/games-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/games-a.png);
 }
 
 .indexNew .gameBtn > a:hover > div .icon.slot {
-  background: url(../img/gameicon/slot-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/slot-a.png);
 }
 
 .indexNew .gameBtn > a:hover > div .icon.live {
-  background: url(../img/gameicon/live-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/live-a.png);
 }
 
 .indexNew .gameBtn > a:hover > div .icon.fish {
-  background: url(../img/gameicon/fish-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/fish-a.png);
 }
 
 .indexNew .gameBtn > a:hover > div .icon.esport {
-  background: url(../img/gameicon/esport-a.png);
+  background: url(https://banner.bw88.io/desktop/img/gameicon/esport-a.png);
 }
 
 .indexNew .maingame {
@@ -13924,22 +13050,22 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .indexNew .guide .guidelist ul li:hover .icon {
-  background: url(../img/userguide1-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/userguide1-a.png) no-repeat center;
   background-size: 100%;
 }
 
 .indexNew .guide .guidelist ul li:hover .icon.withdrawal {
-  background: url(../img/userguide2-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/userguide2-a.png) no-repeat center;
   background-size: 100%;
 }
 
 .indexNew .guide .guidelist ul li:hover .icon.play {
-  background: url(../img/userguide3-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/userguide3-a.png) no-repeat center;
   background-size: 100%;
 }
 
 .indexNew .guide .guidelist ul li:hover .icon.faq {
-  background: url(../img/userguide4-a.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/userguide4-a.png) no-repeat center;
   background-size: 100%;
 }
 
@@ -13974,23 +13100,23 @@ input + .iconModule i.icon.icon-checkmark:before {
 .indexNew .guide .guidelist ul li .icon {
   width: 30px;
   height: 30px;
-  background: url(../img/userguide1.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/userguide1.png) no-repeat center;
   background-size: 100%;
   margin: 0 20px 0 10px;
 }
 
 .indexNew .guide .guidelist ul li .icon.withdrawal {
-  background: url(../img/userguide2.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/userguide2.png) no-repeat center;
   background-size: 100%;
 }
 
 .indexNew .guide .guidelist ul li .icon.play {
-  background: url(../img/userguide3.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/userguide3.png) no-repeat center;
   background-size: 100%;
 }
 
 .indexNew .guide .guidelist ul li .icon.faq {
-  background: url(../img/userguide4.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/userguide4.png) no-repeat center;
   background-size: 100%;
 }
 
@@ -14366,7 +13492,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: 35px;
   height: 25px;
   background-size: 100%;
-  background-image: url(../img/youtubeIcon.png);
+  background-image: url(https://banner.bw88.io/desktop/img/youtubeIcon.png);
 }
 
 .liverightModule .liveArea .livelist .liveBox > div .youtube.close {
@@ -14476,7 +13602,7 @@ input + .iconModule i.icon.icon-checkmark:before {
       -ms-flex-align: center;
           align-items: center;
   margin: auto;
-  background: url(../img/esportslobby/esportbg.jpg) no-repeat top;
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/esportbg.jpg) no-repeat top;
   height: 812px;
   background-size: cover;
 }
@@ -14577,23 +13703,23 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .esportlobbyList > div.dota {
-  background: url(../img/esportslobby/dota.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/dota.png) no-repeat center;
 }
 
 .esportlobbyList > div.cso {
-  background: url(../img/esportslobby/cs.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/cs.png) no-repeat center;
 }
 
 .esportlobbyList > div.all {
-  background: url(../img/esportslobby/all.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/all.png) no-repeat center;
 }
 
 .esportlobbyList > div.lol {
-  background: url(../img/esportslobby/lol.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/lol.png) no-repeat center;
 }
 
 .esportlobbyList > div.king {
-  background: url(../img/esportslobby/king.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/esportslobby/king.png) no-repeat center;
 }
 
 .esportlobbyList > div.coming {
@@ -14990,44 +14116,6 @@ input + .iconModule i.icon.icon-checkmark:before {
           animation: overturn 1s ease-in-out normal infinite;
 }
 
-@-webkit-keyframes overturn {
-  0% {
-    -webkit-transform: translateY(-35%);
-            transform: translateY(-35%);
-  }
-  40% {
-    -webkit-transform: rotateY(0deg) rotateX(180deg);
-            transform: rotateY(0deg) rotateX(180deg);
-  }
-  80% {
-    -webkit-transform: rotateY(0deg) rotateX(-180deg);
-            transform: rotateY(0deg) rotateX(-180deg);
-  }
-  100% {
-    -webkit-transform: rotateY(0deg) rotateX(180deg) translateZ(10px);
-            transform: rotateY(0deg) rotateX(180deg) translateZ(10px);
-  }
-}
-
-@keyframes overturn {
-  0% {
-    -webkit-transform: translateY(-35%);
-            transform: translateY(-35%);
-  }
-  40% {
-    -webkit-transform: rotateY(0deg) rotateX(180deg);
-            transform: rotateY(0deg) rotateX(180deg);
-  }
-  80% {
-    -webkit-transform: rotateY(0deg) rotateX(-180deg);
-            transform: rotateY(0deg) rotateX(-180deg);
-  }
-  100% {
-    -webkit-transform: rotateY(0deg) rotateX(180deg) translateZ(10px);
-            transform: rotateY(0deg) rotateX(180deg) translateZ(10px);
-  }
-}
-
 .profileGrade .grade .user .item button img {
   width: 15px;
   height: 15px;
@@ -15038,6 +14126,22 @@ input + .iconModule i.icon.icon-checkmark:before {
 .profileGrade .grade .user .item button.active {
   color: #070e22;
   background: #56ceff;
+}
+
+.profileGrade .grade .user .item button.active::after {
+  content: "\e98b";
+  position: absolute;
+  font-family: "icomoon";
+  font-size: 12px;
+  font-weight: bold;
+  bottom: -4px;
+  right: -5px;
+  color: #070e22;
+  width: 15px;
+  height: 15px;
+  background: #05f86a;
+  border-radius: 50%;
+  line-height: 16px;
 }
 
 .profileGrade .grade .user .item button.active img {
@@ -15157,6 +14261,44 @@ input + .iconModule i.icon.icon-checkmark:before {
   display: block;
 }
 
+@-webkit-keyframes overturn {
+  0% {
+    -webkit-transform: translateY(-35%);
+            transform: translateY(-35%);
+  }
+  40% {
+    -webkit-transform: rotateY(0deg) rotateX(180deg);
+            transform: rotateY(0deg) rotateX(180deg);
+  }
+  80% {
+    -webkit-transform: rotateY(0deg) rotateX(-180deg);
+            transform: rotateY(0deg) rotateX(-180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg) rotateX(180deg) translateZ(15px);
+            transform: rotateY(0deg) rotateX(180deg) translateZ(15px);
+  }
+}
+
+@keyframes overturn {
+  0% {
+    -webkit-transform: translateY(-35%);
+            transform: translateY(-35%);
+  }
+  40% {
+    -webkit-transform: rotateY(0deg) rotateX(180deg);
+            transform: rotateY(0deg) rotateX(180deg);
+  }
+  80% {
+    -webkit-transform: rotateY(0deg) rotateX(-180deg);
+            transform: rotateY(0deg) rotateX(-180deg);
+  }
+  100% {
+    -webkit-transform: rotateY(0deg) rotateX(180deg) translateZ(15px);
+            transform: rotateY(0deg) rotateX(180deg) translateZ(15px);
+  }
+}
+
 #goTop {
   position: fixed;
   bottom: 150px;
@@ -15173,10 +14315,83 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .snow {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 15;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+@-webkit-keyframes nycolor {
+  0% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+  50% {
+    -webkit-filter: brightness(90%);
+            filter: brightness(90%);
+  }
+  100% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+}
+
+@keyframes nycolor {
+  0% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+  50% {
+    -webkit-filter: brightness(90%);
+            filter: brightness(90%);
+  }
+  100% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+  }
+}
+
+.newyear .header::before {
+  content: "";
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  bottom: -5px;
+  left: 190px;
+  background: url(https://banner.bw88.io/desktop/img/newyear/header-gun.png) no-repeat;
+}
+
+.newyear .guide::before, .newyear .guide::after {
+  content: "";
+  width: 170px;
+  height: 520px;
+  background: url(https://banner.bw88.io/desktop/img/newyear/footer-newyear.png) no-repeat;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: calc(50% - 49.8vw);
+  -webkit-animation: nycolor 1s .1s ease infinite;
+          animation: nycolor 1s .1s ease infinite;
+}
+
+.newyear .guide::after {
+  left: calc(50% - 49.8vw);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+@media screen and (max-width: 1200px) {
+  .newyear .guide::after {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */

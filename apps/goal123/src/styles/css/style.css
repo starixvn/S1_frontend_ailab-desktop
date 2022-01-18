@@ -174,7 +174,7 @@ html.Newtheme header .logo {
 }
 
 html.Newtheme header .logo img:nth-child(1) {
-  max-width: 130px;
+  max-width: 150px;
   height: auto;
 }
 
@@ -1093,6 +1093,103 @@ html.Newtheme header .header > div.function .memberfile > img:first-child {
   margin: 0 10px;
 }
 
+html.Newtheme header .header > div.function .profileicon {
+  position: relative;
+}
+
+html.Newtheme header .header > div.function .profileicon::before, html.Newtheme header .header > div.function .profileicon::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 10px;
+  width: 38px;
+  height: 38px;
+  background: url(https://banner.goal123.org/desktop/img/profileicon.png) no-repeat center/contain;
+  -webkit-animation: ripple linear 2s infinite;
+          animation: ripple linear 2s infinite;
+  opacity: 0;
+}
+
+html.Newtheme header .header > div.function .profileicon::before {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+html.Newtheme header .header > div.function .profileicon::after {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    opacity: .6;
+    -webkit-transform: scale3d(0.55, 0.55, 0.8);
+            transform: scale3d(0.55, 0.55, 0.8);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.2, 1.2, 0.8);
+            transform: scale3d(1.2, 1.2, 0.8);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    opacity: .6;
+    -webkit-transform: scale3d(0.55, 0.55, 0.8);
+            transform: scale3d(0.55, 0.55, 0.8);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale3d(1.2, 1.2, 0.8);
+            transform: scale3d(1.2, 1.2, 0.8);
+  }
+}
+
+html.Newtheme header .header > div.function .profileicon img {
+  width: 36px;
+  margin: 0 10px;
+  display: block;
+  -webkit-animation: flash3 linear infinite alternate .3s, routate 2s linear infinite alternate;
+          animation: flash3 linear infinite alternate .3s, routate 2s linear infinite alternate;
+}
+
+html.Newtheme header .header > div.function .profileicon .icon-money {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  width: 14px;
+  height: 14px;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 9px;
+  color: #1f3258;
+  font-weight: bold;
+  font-size: 7px;
+  background: #fab617;
+  padding: 1px;
+  opacity: 0;
+}
+
+html.Newtheme header .header > div.function .profileicon:hover {
+  -webkit-transition: 0.7s;
+  transition: 0.7s;
+}
+
+html.Newtheme header .header > div.function .profileicon:hover .icon-money {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+  -webkit-animation: flipHeads 1.5s ease-out forwards;
+          animation: flipHeads 1.5s ease-out forwards;
+}
+
 html.Newtheme header .header > div.function .memberfile {
   position: relative;
 }
@@ -1243,6 +1340,66 @@ html.Newtheme header .header .appDownload .icon-mobile::before {
   margin-right: 5px;
 }
 
+html.Newtheme header.newyear::before, html.Newtheme header.newyear::after {
+  content: "";
+  display: block;
+  background: url(https://banner.goal123.org/desktop/img/cny/header.png);
+  width: 256px;
+  height: 65px;
+  position: absolute;
+  top: 0;
+  -webkit-animation: flash3 ease-in-out infinite alternate 1s;
+          animation: flash3 ease-in-out infinite alternate 1s;
+  z-index: -1;
+}
+
+html.Newtheme header.newyear::before {
+  left: 0;
+}
+
+@media screen and (min-width: 2560px) {
+  html.Newtheme header.newyear::before {
+    left: 325px;
+  }
+}
+
+html.Newtheme header.newyear::after {
+  right: 0;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+@media screen and (min-width: 2560px) {
+  html.Newtheme header.newyear::after {
+    right: 325px;
+  }
+}
+
+html.Newtheme header.newyear .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 1400px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+html.Newtheme header.newyear .header::before {
+  content: "";
+  display: block;
+  background: url(https://banner.goal123.org/desktop/img/cny/header_m.png);
+  width: 197px;
+  height: 65px;
+  position: absolute;
+  top: 0;
+  left: 170px;
+  z-index: -1;
+}
+
 @-webkit-keyframes MoveTopDown {
   0% {
     -webkit-transform: translateY(0);
@@ -1265,50 +1422,14 @@ html.Newtheme header .header .appDownload .icon-mobile::before {
   }
 }
 
-@-webkit-keyframes flash {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes flash {
-  0% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes flash2 {
-  0% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes flash2 {
-  0% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @-webkit-keyframes flash3 {
   0% {
     -webkit-filter: brightness(0.9);
             filter: brightness(0.9);
   }
   100% {
-    -webkit-filter: brightness(1.2);
-            filter: brightness(1.2);
+    -webkit-filter: brightness(1.4);
+            filter: brightness(1.4);
   }
 }
 
@@ -1318,8 +1439,8 @@ html.Newtheme header .header .appDownload .icon-mobile::before {
             filter: brightness(0.9);
   }
   100% {
-    -webkit-filter: brightness(1.2);
-            filter: brightness(1.2);
+    -webkit-filter: brightness(1.4);
+            filter: brightness(1.4);
   }
 }
 
@@ -1337,6 +1458,38 @@ html.Newtheme.index main {
   height: auto;
   background: url(https://banner.goal123.org/desktop/img/bgPoint.png);
   min-width: 1400px;
+}
+
+html.Newtheme.index main.newyear {
+  position: relative;
+  overflow: hidden;
+}
+
+html.Newtheme.index main.newyear::before, html.Newtheme.index main.newyear::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 180px;
+  height: 408px;
+  -webkit-animation: flash2 ease-in-out infinite alternate 2.5s, routate 5s linear infinite alternate;
+          animation: flash2 ease-in-out infinite alternate 2.5s, routate 5s linear infinite alternate;
+  z-index: 2;
+  pointer-events: none;
+}
+
+html.Newtheme.index main.newyear::before {
+  right: -.5vw;
+  background: url(https://banner.goal123.org/desktop/img/cny/footer_l.png) no-repeat;
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+html.Newtheme.index main.newyear::after {
+  left: -.5vw;
+  background: url(https://banner.goal123.org/desktop/img/cny/footer_r.png) no-repeat;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
 }
 
 html.Newtheme.index main section {
@@ -1576,7 +1729,6 @@ html.Newtheme .information {
   display: -ms-flexbox;
   display: flex;
   padding: 50px 0 !important;
-  background-color: #141f33;
   width: 100%;
   max-width: initial !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -1639,7 +1791,6 @@ html.Newtheme .platform {
       -ms-flex-align: center;
           align-items: center;
   max-width: inherit !important;
-  background-color: #141f33;
 }
 
 html.Newtheme .platform a,
@@ -1669,7 +1820,6 @@ html.Newtheme .powered {
   padding: 1px 0 20px 0 !important;
   text-align: center;
   max-width: inherit !important;
-  background-color: #141f33;
 }
 
 html.Newtheme .powered div {
@@ -1683,7 +1833,6 @@ html.Newtheme .powered img {
 
 html.Newtheme .payment {
   max-width: inherit !important;
-  background-color: #141f33;
   margin-top: 20px;
 }
 
@@ -1707,6 +1856,10 @@ html.Newtheme footer {
   width: 100%;
   min-width: 1400px;
   background: #141f33;
+}
+
+html.Newtheme footer.newyear {
+  background: #141f33 url(https://banner.goal123.org/desktop/img/cny/footerbg.png);
 }
 
 html.Newtheme footer span.title {
@@ -1785,7 +1938,7 @@ html.Newtheme footer .webmap > div:nth-child(-n + 5) button:hover {
 html.Newtheme footer .copyright {
   width: 100%;
   max-width: inherit !important;
-  background: rgba(255, 255, 255, 0.05);
+  background: #202A3D;
   margin: auto;
   margin-top: 50px;
   text-align: center;
@@ -2483,6 +2636,9 @@ html.Newtheme main > .swiper-container .swiper-slide {
 html.Newtheme .swiper-pagination {
   padding: 0 calc((100% - 1560px) / 2);
   max-width: 1560px;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
 }
 
 html.Newtheme .swiper-pagination .swiper-pagination-bullet {
@@ -2491,6 +2647,7 @@ html.Newtheme .swiper-pagination .swiper-pagination-bullet {
   border-radius: 5px;
   width: 30px;
   height: 5px;
+  margin: 0 4px;
 }
 
 html.Newtheme .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -2513,7 +2670,6 @@ html.Newtheme #Marquee {
   position: relative;
   overflow: hidden;
   padding-top: 10px;
-  background: #f3f3f3;
 }
 
 html.Newtheme #Marquee .marquee-box {
@@ -7396,6 +7552,7 @@ html.Newtheme .indexInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 html.Newtheme .indexInfo > div:first-child {
@@ -9629,12 +9786,13 @@ html.Newtheme .partnerSelect {
   border-radius: 0;
 }
 
-html.Newtheme .partnerSelect .swiper-container {
+html.Newtheme .partnerSelect .swiper-container, html.Newtheme .partnerSelect .swiper {
   width: auto !important;
   padding: 0 40px;
+  position: relative;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-button-next, html.Newtheme .partnerSelect .swiper-container .swiper-button-prev {
+html.Newtheme .partnerSelect .swiper-container .swiper-button-next, html.Newtheme .partnerSelect .swiper-container .swiper-button-prev, html.Newtheme .partnerSelect .swiper .swiper-button-next, html.Newtheme .partnerSelect .swiper .swiper-button-prev {
   color: white;
   background: #1f3258;
   border-radius: 30px;
@@ -9644,35 +9802,35 @@ html.Newtheme .partnerSelect .swiper-container .swiper-button-next, html.Newthem
   font-size: initial;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-button-next:before, html.Newtheme .partnerSelect .swiper-container .swiper-button-prev:before {
+html.Newtheme .partnerSelect .swiper-container .swiper-button-next:before, html.Newtheme .partnerSelect .swiper-container .swiper-button-prev:before, html.Newtheme .partnerSelect .swiper .swiper-button-next:before, html.Newtheme .partnerSelect .swiper .swiper-button-prev:before {
   font-family: 'icomoon';
   font-size: 28px;
   margin-top: -1px !important;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-button-next:after, html.Newtheme .partnerSelect .swiper-container .swiper-button-prev:after {
+html.Newtheme .partnerSelect .swiper-container .swiper-button-next:after, html.Newtheme .partnerSelect .swiper-container .swiper-button-prev:after, html.Newtheme .partnerSelect .swiper .swiper-button-next:after, html.Newtheme .partnerSelect .swiper .swiper-button-prev:after {
   display: none;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-button-next {
+html.Newtheme .partnerSelect .swiper-container .swiper-button-next, html.Newtheme .partnerSelect .swiper .swiper-button-next {
   right: 7px;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-button-next:before {
+html.Newtheme .partnerSelect .swiper-container .swiper-button-next:before, html.Newtheme .partnerSelect .swiper .swiper-button-next:before {
   content: '\e95c';
   margin-left: 2px;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-button-prev {
+html.Newtheme .partnerSelect .swiper-container .swiper-button-prev, html.Newtheme .partnerSelect .swiper .swiper-button-prev {
   left: 7px;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-button-prev:before {
+html.Newtheme .partnerSelect .swiper-container .swiper-button-prev:before, html.Newtheme .partnerSelect .swiper .swiper-button-prev:before {
   content: '\e95d';
   margin-right: 2px;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-slide {
+html.Newtheme .partnerSelect .swiper-container .swiper-slide, html.Newtheme .partnerSelect .swiper .swiper-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9681,7 +9839,7 @@ html.Newtheme .partnerSelect .swiper-container .swiper-slide {
           justify-content: center;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-slide button {
+html.Newtheme .partnerSelect .swiper-container .swiper-slide button, html.Newtheme .partnerSelect .swiper .swiper-slide button {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -9698,7 +9856,7 @@ html.Newtheme .partnerSelect .swiper-container .swiper-slide button {
   width: 100%;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-slide button img {
+html.Newtheme .partnerSelect .swiper-container .swiper-slide button img, html.Newtheme .partnerSelect .swiper .swiper-slide button img {
   width: auto;
   -webkit-filter: brightness(50%);
           filter: brightness(50%);
@@ -9707,12 +9865,12 @@ html.Newtheme .partnerSelect .swiper-container .swiper-slide button img {
   transition: 0.7s;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-slide button:hover, html.Newtheme .partnerSelect .swiper-container .swiper-slide button.active {
+html.Newtheme .partnerSelect .swiper-container .swiper-slide button:hover, html.Newtheme .partnerSelect .swiper-container .swiper-slide button.active, html.Newtheme .partnerSelect .swiper .swiper-slide button:hover, html.Newtheme .partnerSelect .swiper .swiper-slide button.active {
   background: #284985;
   color: white;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-slide button:hover img, html.Newtheme .partnerSelect .swiper-container .swiper-slide button.active img {
+html.Newtheme .partnerSelect .swiper-container .swiper-slide button:hover img, html.Newtheme .partnerSelect .swiper-container .swiper-slide button.active img, html.Newtheme .partnerSelect .swiper .swiper-slide button:hover img, html.Newtheme .partnerSelect .swiper .swiper-slide button.active img {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   -webkit-transform: translateY(-5px);
@@ -9722,7 +9880,7 @@ html.Newtheme .partnerSelect .swiper-container .swiper-slide button:hover img, h
   opacity: 1;
 }
 
-html.Newtheme .partnerSelect .swiper-container .swiper-slide button div {
+html.Newtheme .partnerSelect .swiper-container .swiper-slide button div, html.Newtheme .partnerSelect .swiper .swiper-slide button div {
   margin-top: 5px;
   font-size: 12px;
 }
@@ -10883,6 +11041,34 @@ html.Newtheme .profileNew .otpLoading {
   }
 }
 
+@-webkit-keyframes flash {
+  0% {
+    opacity: 1.0;
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  25% {
+    opacity: 0.0;
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+  }
+  50% {
+    opacity: 1.0;
+    -webkit-filter: brightness(1.5);
+            filter: brightness(1.5);
+  }
+  75% {
+    opacity: 0.0;
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+  }
+  100% {
+    opacity: 1.0;
+    -webkit-filter: brightness(1.5);
+            filter: brightness(1.5);
+  }
+}
+
 @keyframes flash {
   0% {
     opacity: 1.0;
@@ -10908,6 +11094,19 @@ html.Newtheme .profileNew .otpLoading {
     opacity: 1.0;
     -webkit-filter: brightness(1.5);
             filter: brightness(1.5);
+  }
+}
+
+@-webkit-keyframes flash2 {
+  0% {
+    opacity: 1.0;
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+  50% {
+    opacity: 1.0;
+    -webkit-filter: brightness(1.3);
+            filter: brightness(1.3);
   }
 }
 
@@ -11797,7 +11996,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   height: 40px;
   background: rgba(250, 182, 23, 0.85);
   border-radius: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 
 #goTop i {
@@ -11811,5 +12010,14 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
       -ms-flex-pack: center;
           justify-content: center;
   color: #fff;
+}
+
+#canvas {
+  display: block;
+  cursor: auto;
+  pointer-events: none;
+  position: fixed;
+  bottom: 0;
+  z-index: 5;
 }
 /*# sourceMappingURL=style.css.map */
