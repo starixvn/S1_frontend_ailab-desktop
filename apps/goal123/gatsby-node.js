@@ -63,9 +63,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 			alias: {
 				"@": path.resolve(__dirname, "src")
 			}
-		},
-		externals: {
-			jquery: "jQuery" // important: 'Q' capitalized
 		}
+		// externals: {
+		// 	jquery: "jQuery" // important: 'Q' capitalized
+		// }
 	});
 };

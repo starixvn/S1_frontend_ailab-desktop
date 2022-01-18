@@ -12,15 +12,21 @@ import HelpSupport from "./footer.helpSupport";
 import Promotions from "./footer.promotions";
 import About from "./footer.about";
 import { bannerImgUrl } from "../../config";
+import { isDateRange } from "../common/common";
+import { defEventPeriod } from "../common/eventIcon";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
+	const isEvent = isDateRange(
+		defEventPeriod.newYear.start,
+		defEventPeriod.newYear.end
+	);
 
 	return (
-		<footer>
+		<footer className={isEvent ? "newyear" : ""}>
 			<div className="information">
 				<div>
 					<div>
