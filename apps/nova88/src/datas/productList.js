@@ -192,7 +192,7 @@ export default {
 	},
 	ICG_THE_TYRANT_AND_THE_PRINCESS: {
 		tpId: 24,
-		gameId: "cmf0003"
+		gameId: "cmf0006"
 	},
 	poker: {
 		tpId: 13

@@ -195,7 +195,7 @@ export default {
 		tpGameType: 40
 	},
 	ICG_THE_TYRANT_AND_THE_PRINCESS: {
-		gameId: "cmf0003",
+		gameId: "cmf0006",
 		tpId: 24,
 		name: "ICG_THE_TYRANT_AND_THE_PRINCESS",
 		tpGameType: 40
