@@ -1,6 +1,7 @@
 import React, { useContext, lazy, Suspense } from "react";
 import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
+
 import {
 	userInfoContext,
 	popBoxContext,
@@ -16,6 +17,8 @@ import {
 	showEventIcon
 } from "../common/eventIcon";
 
+import MsgPopup from "./msgPopup";
+
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
 
@@ -29,7 +32,7 @@ export default () => {
 const BeforeLogin = ({ langId }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
-	const { userInfo, setUserInfo } = useContext(userInfoContext);
+	const { userInfo } = useContext(userInfoContext);
 
 	const clickJoin = () => {
 		navigate(`/${userInfo.langId}/${path.join.root}`);
@@ -195,8 +198,9 @@ const AfterLogin = () => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}
-			/>
+				to={`/${userInfo.langId}/${path.message.root}`}>
+				<MsgPopup />
+			</Link>
 		</>
 	);
 };
