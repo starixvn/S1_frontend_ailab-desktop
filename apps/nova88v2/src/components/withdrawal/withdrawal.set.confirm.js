@@ -15,6 +15,7 @@ const ConfirmPanel = ({
 	t,
 	_isConvert,
 	selectedAccount,
+	accountName,
 	amount,
 	GetCustBankInfo,
 	refreshData,
@@ -189,6 +190,7 @@ const ConfirmPanel = ({
 						isIfscRequired={isIfscRequired}
 						_isConvert={_isConvert}
 						amount={amount}
+						accountName={accountName}
 					/>
 				) : (
 					<CryptoDetailInfo
@@ -227,7 +229,8 @@ ConfirmPanel.propTypes = {
 	KycCheck: PropTypes.func.isRequired,
 	GetDailyWithdrawalLimit: PropTypes.func.isRequired,
 	isIfscRequired: PropTypes.bool.isRequired,
-	receiveUSDT: PropTypes.string
+	receiveUSDT: PropTypes.string,
+	accountName: PropTypes.string.isRequired
 };
 
 const DetailInfo = ({
@@ -236,7 +239,8 @@ const DetailInfo = ({
 	_accountNo,
 	isIfscRequired,
 	_isConvert,
-	amount
+	amount,
+	accountName
 }) => (
 	<div className="smallList">
 		<ul>
@@ -254,7 +258,7 @@ const DetailInfo = ({
 		</ul>
 		<ul>
 			<li>{t("lbl_BankAccountName")}</li>
-			<li>{selectedAccount.bankName}</li>
+			<li>{accountName}</li>
 		</ul>
 
 		<ul>
@@ -278,7 +282,8 @@ DetailInfo.propTypes = {
 	selectedAccount: PropTypes.objectOf(PropTypes.any).isRequired,
 	amount: PropTypes.string.isRequired,
 	isIfscRequired: PropTypes.bool.isRequired,
-	_accountNo: PropTypes.string.isRequired
+	_accountNo: PropTypes.string.isRequired,
+	accountName: PropTypes.string.isRequired
 };
 
 const CryptoDetailInfo = ({
