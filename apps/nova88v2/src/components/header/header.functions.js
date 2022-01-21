@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, navigate } from "@reach/router";
 import { useTranslation } from "react-i18next";
+
 import {
 	userInfoContext,
 	popBoxContext,
@@ -19,6 +20,7 @@ import { setCookie } from "../common/common";
 import { SiteInfo } from "../../config";
 import { HeaderLogin } from "./header.login";
 import usePopBox from "../hook/usePopBox";
+import MsgPopup from "./msgPopup";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -213,8 +215,9 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}
-			/>
+				to={`/${userInfo.langId}/${path.message.root}`}>
+				<MsgPopup isLogin={userInfo.isLogin} />
+			</Link>
 		</>
 	);
 };
