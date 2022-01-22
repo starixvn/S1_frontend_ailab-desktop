@@ -76,10 +76,10 @@ const Footer = ({ isFullFooter = false }) => {
 			  });
 	};
 
-	const _langId =
-		userInfo.isLogin === false && userInfo?.defaultLang
-			? userInfo.defaultLang
-			: userInfo.langId;
+	let _langId = userInfo?.defaultLang;
+	if (userInfo.langId) {
+		_langId = userInfo.langId;
+	}
 
 	return (
 		<footer id="footer">
