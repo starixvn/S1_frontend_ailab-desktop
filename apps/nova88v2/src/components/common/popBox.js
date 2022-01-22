@@ -36,6 +36,7 @@ import BackupDomain from "./popBox.backupDomain";
 import UnderMaintain from "./popBox.underMaintain";
 import Photo from "./popBox.photo";
 import Modal from "./popBox.modal";
+import NewYear from "./popbox.newYear";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -306,6 +307,12 @@ export default () => {
 			content = <Photo photo={popBox.photo} />;
 			break;
 
+		case defPopBoxType.NewYear:
+			content = (
+				<NewYear langId={popBox.langId} setPopBox={popBox.clickClose} />
+			);
+			break;
+
 		default:
 			break;
 	}
@@ -323,7 +330,7 @@ export default () => {
 
 	if (!popBox.isOpen) return null;
 
-	return customLayout ? (
+	return customLayout || popBox.customLayout ? (
 		<div id="popup" className="active" onClick={closeHandler}>
 			{content}
 		</div>

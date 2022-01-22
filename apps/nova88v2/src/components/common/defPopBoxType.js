@@ -34,5 +34,6 @@ export default {
 	PaymentQR: "PaymentQR",
 	UnderMaintain: "UnderMaintain",
 	Photo: "Photo",
-	Modal: "Modal"
+	Modal: "Modal",
+	NewYear: "NewYear"
 };
