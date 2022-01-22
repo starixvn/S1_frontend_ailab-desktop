@@ -33,6 +33,7 @@ import LatestVideo from "./latestVideo";
 import QuickdownloadLink from "./quickdownloadLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import usePopBox from "../hook/usePopBox";
+import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -62,22 +63,6 @@ const IndexPage = () => {
 			}
 		}
 	}, [userInfo.isLogin, userInfo.langId]);
-
-	useEffect(() => {
-		const showRankingPopBox = () => {
-			if (
-				userInfo.isLogin === false &&
-				isDateRange(null, "2021/05/18 23:59:59")
-			) {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.RankingWinner,
-					onClickClose: () => setPopBox({ isOpen: false })
-				});
-			}
-		};
-		showRankingPopBox();
-	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
 
 	useEffect(() => {
 		if (userInfo.isLogin && userInfo.userName) {
@@ -162,6 +147,32 @@ const IndexPage = () => {
 			});
 		}
 	}, []);
+
+	useEffect(() => {
+		if (
+			isDateRange(
+				NewYearEventPeriod.startDate,
+				NewYearEventPeriod.endDate
+			)
+		) {
+			if (userInfo.defaultLang !== undefined) {
+				const langId = userInfo.defaultLang ?? userInfo.langId;
+
+				if (
+					!langId.includes("hi") &&
+					!readCookie(`NewYear-${window.location.hostname}`)
+				) {
+					setPopBox({
+						isOpen: true,
+						customLayout: true,
+						popBoxType: defPopBoxType.NewYear,
+						clickClose: setPopBox,
+						langId
+					});
+				}
+			}
+		}
+	}, [userInfo.langId, userInfo.defaultLang]);
 
 	return (
 		<main>
