@@ -95,19 +95,21 @@ const Lottery = () => {
 	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, allGameMenu]);
 
 	return (
-		<>
-			<LotteryBanner t={t} />
+		productTpIds && (
+			<>
+				<LotteryBanner t={t} />
 
-			<section className="inside">
-				<div className="rightModule">
-					<LotterySwiper
-						t={t}
-						lotterySubMenu={lotterySubMenu}
-						clickItem={clickItem}
-					/>
-				</div>
-			</section>
-		</>
+				<section className="inside">
+					<div className="rightModule">
+						<LotterySwiper
+							t={t}
+							lotterySubMenu={lotterySubMenu}
+							clickItem={clickItem}
+						/>
+					</div>
+				</section>
+			</>
+		)
 	);
 };
 
