@@ -13,7 +13,7 @@ const LotterySwiper = ({ t, lotterySubMenu, clickItem }) => {
 			delay: 3500,
 			disableOnInteraction: false
 		},
-		rebuildOnUpdate: false,
+		rebuildOnUpdate: true,
 		containerClass: "swiper-container lotterySwiper"
 	};
 
