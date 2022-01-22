@@ -42,7 +42,8 @@ export default () => {
 					isLogin: false,
 					langId: prevState.langId,
 					kickout: true,
-					willLogout: true
+					willLogout: true,
+					defaultLang: prevState.defaultLang
 				}));
 			};
 

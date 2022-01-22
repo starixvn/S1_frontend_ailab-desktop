@@ -327,18 +327,20 @@ export default ({
 				}
 			);
 		} else if (isMountedRef.current) {
-			if (userInfo.isLogin === false) {
-				setUserInfo(prevState => ({
-					...prevState,
-					userName: t("lbl_Guest")
-				}));
-				if (SEODatas?.defaultLang) {
-					setUserInfo(prevState => ({
-						...prevState,
+			if (SEODatas) {
+				setUserInfo(prevState => {
+					const res = { ...prevState };
+					if (!prevState.isLogin) {
+						res.userName = t("lbl_Guest");
+					}
+
+					return {
+						...res,
 						defaultLang: SEODatas.defaultLang
-					}));
-				}
+					};
+				});
 			}
+
 			setMsgCount(0);
 		}
 	}, [userInfo.isLogin, userInfo.regTime, SEODatas]);
