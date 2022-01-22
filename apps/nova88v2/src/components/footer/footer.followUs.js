@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GetCurrencyName } from "../common/common";
-import { useGetSEODatas } from "../seo/seo";
-import { SiteInfo, bannerImgUrl } from "../../config";
-import usePopBox from "../hook/usePopBox";
+import {
+	GetCurrencyName,
+	defCurrencyList,
+	langAndCurrMapping
+} from "../common/common";
+import { bannerImgUrl } from "../../config";
 
 const paymentList = {
 	MYR: [
@@ -74,75 +76,121 @@ const paymentList = {
 	]
 };
 
-const defaultSocialMedias = (
-	<>
-		<a href={SiteInfo.socialMedia.fb.link} target="_blank" rel="noreferrer">
-			<img src={`${bannerImgUrl}/desktop/img/fba.png`} alt="fb" />
-		</a>
-		<a href={SiteInfo.socialMedia.ig.link} target="_blank" rel="noreferrer">
-			<img src={`${bannerImgUrl}/desktop/img/ina.png`} alt="ig" />
-		</a>
-		<a
-			href={SiteInfo.socialMedia.youtube.link}
-			target="_blank"
-			rel="noreferrer">
-			<img src={`${bannerImgUrl}/desktop/img/yta.png`} alt="youtube" />
-		</a>
+const defSocialMedia = {
+	[defCurrencyList.MYR]: {
+		fb: "https://www.facebook.com/nova88my/ ",
+		twitter: "https://twitter.com/Nova88M",
+		ig: "https://www.instagram.com/nova88my/ ",
+		yt: "https://www.youtube.com/channel/UCoUtgrQN2E10oke1Hmj0ATw",
+		telegram: "https://t.me/nova88my"
+	},
+	[defCurrencyList.INR]: {
+		fb: "https://www.facebook.com/nova88india",
+		ig: "https://www.instagram.com/nova88india/",
+		telegram: "https://t.me/nova88india"
+	},
+	[defCurrencyList.THB]: {
+		fb: "https://www.facebook.com/nova88thailandofficial/",
+		ig: "https://www.instagram.com/nova88thai/",
+		twitter: "https://twitter.com/nova88thai",
+		telegram: "https://t.me/nova88thai",
+		yt: "https://www.youtube.com/channel/UCw-GpZw8YG_VEPjJKZvbXqw"
+	},
+	[defCurrencyList.IDR]: {
+		fb: "https://www.facebook.com/nova88indo",
+		ig: "https://www.instagram.com/nova88indo/",
+		twitter: "https://twitter.com/Nova88Indo",
+		telegram: "https://t.me/nova88indo",
+		yt: "https://www.youtube.com/channel/UCvX-E6TqyR3Ett7XMkTM1Bw",
+		pinterest: "https://id.pinterest.com/Nova88Indonesia2"
+	}
+};
 
-		<a
-			href={SiteInfo.socialMedia.twitter.link}
-			target="_blank"
-			rel="noreferrer">
-			<img src={`${bannerImgUrl}/desktop/img/twa.png`} alt="twitter" />
-		</a>
-	</>
-);
+const socialMedias = langId => {
+	return (
+		<>
+			{defSocialMedia[langAndCurrMapping[langId]]?.fb && (
+				<a
+					href={defSocialMedia[langAndCurrMapping[langId]].fb}
+					target="_blank"
+					rel="noreferrer">
+					<img src={`${bannerImgUrl}/desktop/img/fba.png`} alt="fb" />
+				</a>
+			)}
+			{defSocialMedia[langAndCurrMapping[langId]]?.ig && (
+				<a
+					href={defSocialMedia[langAndCurrMapping[langId]].ig}
+					target="_blank"
+					rel="noreferrer">
+					<img src={`${bannerImgUrl}/desktop/img/ina.png`} alt="ig" />
+				</a>
+			)}
+			{defSocialMedia[langAndCurrMapping[langId]]?.yt && (
+				<a
+					href={defSocialMedia[langAndCurrMapping[langId]].yt}
+					target="_blank"
+					rel="noreferrer">
+					<img
+						src={`${bannerImgUrl}/desktop/img/yta.png`}
+						alt="youtube"
+					/>
+				</a>
+			)}
+			{defSocialMedia[langAndCurrMapping[langId]]?.twitter && (
+				<a
+					href={defSocialMedia[langAndCurrMapping[langId]].twitter}
+					target="_blank"
+					rel="noreferrer">
+					<img
+						src={`${bannerImgUrl}/desktop/img/twa.png`}
+						alt="twitter"
+					/>
+				</a>
+			)}
+			{defSocialMedia[langAndCurrMapping[langId]]?.telegram && (
+				<a
+					href={defSocialMedia[langAndCurrMapping[langId]].telegram}
+					target="_blank"
+					rel="noreferrer">
+					<img
+						src={`${bannerImgUrl}/desktop/img/tga.png`}
+						alt="telegram"
+					/>
+				</a>
+			)}
+			{defSocialMedia[langAndCurrMapping[langId]]?.pinterest && (
+				<a
+					href={defSocialMedia[langAndCurrMapping[langId]].pinterest}
+					target="_blank"
+					rel="noreferrer">
+					<img
+						src={`${bannerImgUrl}/desktop/img/pta.png`}
+						alt="pinterest"
+					/>
+				</a>
+			)}
+		</>
+	);
+};
 
 const FollowUsSection = ({ t, langId, currencyId }) => {
 	const getPaymentList = () =>
 		paymentList[GetCurrencyName({ langId, currencyId, t })] ??
 		paymentList.MYR;
-	const { errorPopBox } = usePopBox();
-	const { SEODatas } = useGetSEODatas({
-		getFromAPI: true,
-		errorPopBox
+
+	const paymentArr = getPaymentList()?.map(_p => {
+		return (
+			<a key={_p.name}>
+				<img src={_p.img} alt={_p.name} />
+			</a>
+		);
 	});
-
-	const paymentArr = SEODatas?.paymentMethod
-		? SEODatas.paymentMethod?.map(_p => {
-				return (
-					<a key={_p.name}>
-						<img
-							src={require(`../../styles/img/footer/${_p.image}`)}
-							alt={_p.name}
-						/>
-					</a>
-				);
-		  })
-		: getPaymentList()?.map(_p => {
-				return (
-					<a key={_p.name}>
-						<img src={_p.img} alt={_p.name} />
-					</a>
-				);
-		  });
-
-	const socialMedias = SEODatas?.followUs
-		? SEODatas.followUs?.map(el => (
-				<a key={el.url} href={el.url} target="_blank" rel="noreferrer">
-					<img
-						src={`${bannerImgUrl}/desktop/img/${el.image}`}
-						alt={el.url}
-					/>
-				</a>
-		  ))
-		: defaultSocialMedias;
 
 	return (
 		<div className="sfp">
 			<div>
 				<div className="title">{t("lbl_Follow_Us")}</div>
-				<div>{socialMedias}</div>
+				<div>{socialMedias(langId)}</div>
 			</div>
 			<div>
 				<div className="title">{t("lbl_Suggested_Browser")}</div>
@@ -179,7 +227,6 @@ FollowUsSection.defaultProps = {
 
 FollowUsSection.propTypes = {
 	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired,
 	currencyId: PropTypes.number
 };
 
