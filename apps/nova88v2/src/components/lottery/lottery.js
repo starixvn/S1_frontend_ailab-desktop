@@ -95,8 +95,7 @@ const Lottery = () => {
 	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, allGameMenu]);
 
 	return (
-		productTpIds ||
-		(userInfo.isLogin === false && (
+		(productTpIds || userInfo.isLogin === false) && (
 			<>
 				<LotteryBanner t={t} />
 
@@ -110,7 +109,7 @@ const Lottery = () => {
 					</div>
 				</section>
 			</>
-		))
+		)
 	);
 };
 
