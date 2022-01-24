@@ -6679,9 +6679,9 @@ html.Newtheme .casinoSelect .btnGroup button:hover, html.Newtheme .casinoSelect 
 
 html.Newtheme .slotList,
 html.Newtheme .newsList {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 html.Newtheme .slotList > div,
@@ -6690,7 +6690,7 @@ html.Newtheme .newsList > div {
       -ms-flex: 0 0 calc(100% / 5 - 40px);
           flex: 0 0 calc(100% / 5 - 40px);
   padding: 15px;
-  margin: 10px 0;
+  margin: 10px 5px;
   background: white;
 }
 
@@ -8155,6 +8155,23 @@ html.Newtheme #popup .wheel_pop .am {
   color: #ffffff;
   line-height: 55px;
   width: 60%;
+}
+
+html.Newtheme #popup.angpao_pop .pop {
+  background: transparent;
+}
+
+html.Newtheme #popup.angpao_pop .pop img {
+  width: 580px;
+}
+
+html.Newtheme #popup.angpao_pop .pop .icon-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #c53131;
+  padding: 10px;
+  border-radius: 50%;
 }
 
 @-webkit-keyframes shakebox {
