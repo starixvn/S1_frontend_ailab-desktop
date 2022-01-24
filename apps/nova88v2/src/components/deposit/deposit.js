@@ -26,7 +26,8 @@ import {
 	useDepositLocalBank,
 	useDepositMobilePay,
 	useDepositOnline,
-	useDepositEffect
+	useDepositEffect,
+	useAutoDeposit
 } from "./hooks";
 
 import config from "../../config";
@@ -37,6 +38,7 @@ import MobileForm from "./components/mobileForm";
 import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
 import CryptoPayForm from "./components/cryptoPayForm";
+import AutoDepositForm from "./components/autoDepositForm";
 
 import {
 	api_cashier_DepositReqMobilePay,
@@ -156,6 +158,10 @@ const Deposit = () => {
 		cryptoPayGroupList,
 		cryptoPayInfo
 	} = useDepositCryptoPay({ isMountedRef });
+
+	const { autoDepositGroupList, getAutoDepositGroupList } = useAutoDeposit({
+		isMountedRef
+	});
 
 	const onChangeDepositType = async type => {
 		const resetInfoList = () => {
@@ -344,8 +350,19 @@ const Deposit = () => {
 
 				if (!bonusCode) return;
 			}
+			if (depositType === defDepositType.autoDeposit) {
+				const params = [
+					`sysId=${sysId || 0}`,
+					`Amount=${resultAmount}`,
+					bonusCode ? `BonusCode=${bonusCode}` : ""
+				]
+					.filter(Boolean)
+					.join("&");
 
-			if (depositType === defDepositType.mobile) {
+				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqBankAutoChannel`;
+
+				window.open(`${baseUrl}?${params}`);
+			} else if (depositType === defDepositType.mobile) {
 				setLoading(true);
 
 				const params = [
@@ -654,6 +671,7 @@ const Deposit = () => {
 		depositOptions,
 		depositInfoStorage,
 		isInitDataDone,
+		autoDepositGroupList,
 		mobilePayGourpList,
 		onlineBankGroupList,
 		localBankGroupList,
@@ -668,7 +686,8 @@ const Deposit = () => {
 		getMobilePayGroupList,
 		getLocalBankGroupList,
 		getOnlineBankGroupList,
-		getCryptoPayGroupList
+		getCryptoPayGroupList,
+		getAutoDepositGroupList
 	});
 
 	if (loading || !isInitDataDone) return null;
@@ -688,6 +707,23 @@ const Deposit = () => {
 				setDepositType={onChangeDepositType}
 				setSaveInfoChecked={setSaveInfoChecked}
 				userName={userInfo.userName}>
+				{depositType === defDepositType.autoDeposit && (
+					<AutoDepositForm
+						t={t}
+						userInfo={userInfo}
+						_isConvert={_isConvert}
+						formatAmount={formatAmount}
+						depositType={depositType}
+						autoDepositGroupList={autoDepositGroupList}
+						formInfo={formInfo}
+						depositPromoList={depositPromoList}
+						onChangePromotion={onChangePromotion}
+						setFormInfo={setFormInfo}
+						onChangeAmount={onChangeAmount}
+						onInputboxKeyDown={onInputboxKeyDown}
+					/>
+				)}
+
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}

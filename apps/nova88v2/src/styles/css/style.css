@@ -10016,6 +10016,17 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 0;
 }
 
+.subModuleListColumn > .subModule > div > button > div.fast:after, .subModuleListColumn > .subModule > div > a > div.fast:after {
+  content: '';
+  background: url(https://banner.0814media.net/desktop/img/fast-icon.png) no-repeat center/cover;
+  display: block;
+  width: 50px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .subModuleListColumn > .subModule > div > button.active > div, .subModuleListColumn > .subModule > div > button:hover > div, .subModuleListColumn > .subModule > div > a.active > div, .subModuleListColumn > .subModule > div > a:hover > div {
   color: #1E85EC;
 }

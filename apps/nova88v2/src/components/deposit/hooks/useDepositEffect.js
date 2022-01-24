@@ -20,6 +20,7 @@ const useDepositEffect = ({
 	depositOptions,
 	depositInfoStorage,
 	isInitDataDone,
+	autoDepositGroupList,
 	mobilePayGourpList,
 	onlineBankGroupList,
 	localBankGroupList,
@@ -34,7 +35,8 @@ const useDepositEffect = ({
 	getMobilePayGroupList,
 	getLocalBankGroupList,
 	getOnlineBankGroupList,
-	getCryptoPayGroupList
+	getCryptoPayGroupList,
+	getAutoDepositGroupList
 }) => {
 	const location = useLocation();
 	const parameterType = getUrlParameter("type");
@@ -55,7 +57,8 @@ const useDepositEffect = ({
 					getMobilePayGroupList(),
 					getLocalBankGroupList(),
 					getOnlineBankGroupList(),
-					getCryptoPayGroupList()
+					getCryptoPayGroupList(),
+					getAutoDepositGroupList()
 				]);
 				setIsInitDataDone(true);
 			} catch (e) {
@@ -86,6 +89,7 @@ const useDepositEffect = ({
 		const initializeDepositOptions = () => {
 			if (isInitDataDone) {
 				const originalDepositOptions = defDepositOptions({
+					autoDepositGroupList,
 					mobilePayGourpList,
 					onlineBankGroupList,
 					localBankGroupList,
