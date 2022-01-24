@@ -231,6 +231,7 @@
 	"lbl_DepositType2": "मोबाइल भुगतान",
 	"lbl_DepositType3": "स्थानीय बैंक",
 	"lbl_DepositType4": "क्रिप्टो पे",
+	"lbl_DepositType7": "Auto Deposit",
 	"lbl_DepositStatus0": "प्रारूप",
 	"lbl_DepositStatus1": "लंबित/ अपूर्ण",
 	"lbl_DepositStatus2": "भुगतान किया",
@@ -313,6 +314,7 @@
 	"lbl_Deposit_Promotion_Button_Back": "वापस",
 	"lbl_CashbackAmount": "कैशबैक राशि",
 	"lbl_ReceivedAmount": "प्राप्त राशि",
+	"lbl_AutoDeposit": "Auto Deposit",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "भुगतान विवरण",
@@ -946,18 +948,18 @@
 		"lbl_bannerTitle2": "24/7"
 	},
 
-	"promotion":{
+	"promotion": {
 		"lbl_promo_apply_now": "अभी अप्लाई करें",
 		"lbl_promo_more_info": "और जानकारी",
 		"lbl_promo_all_promos": "सभी प्रचार"
 	},
-	
-	"streaming":{
-		"lbl_please_make_deposit":"हमारी लाइव स्ट्रीमिंग का आनंद लेने के लिए कृपया एक न्यूनतम जमा करें"
+
+	"streaming": {
+		"lbl_please_make_deposit": "हमारी लाइव स्ट्रीमिंग का आनंद लेने के लिए कृपया एक न्यूनतम जमा करें"
 	},
 
-	"hotgames":{
-		"lbl_Nova88_Olympus":"Nova88 Olympus"
+	"hotgames": {
+		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
 	"end-----": "end-----"

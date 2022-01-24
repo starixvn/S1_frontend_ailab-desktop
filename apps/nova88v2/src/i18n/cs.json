@@ -233,6 +233,7 @@
 	"lbl_DepositType2": "手机支付",
 	"lbl_DepositType3": "银行卡",
 	"lbl_DepositType4": "加密货币",
+	"lbl_DepositType7": "Auto Deposit",
 	"lbl_DepositStatus0": "草稿",
 	"lbl_DepositStatus1": "待定",
 	"lbl_DepositStatus2": "已付款",
@@ -315,6 +316,7 @@
 	"lbl_Deposit_Promotion_Button_Back": "返回",
 	"lbl_CashbackAmount": "返现金额",
 	"lbl_ReceivedAmount": "到账金额",
+	"lbl_AutoDeposit": "Auto Deposit",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "付款资讯",
