@@ -2,21 +2,23 @@ export const defDepositType = {
 	mobile: "Mobile E-Wallet",
 	localBank: "Local Bank",
 	onlineBank: "Online Bank",
-	cryptoPay: "Crypto Pay"
+	cryptoPay: "Crypto Pay",
+	autoDeposit: "Auto Deposit"
 };
 
 export const defDepositOptions = ({
+	autoDepositGroupList = [],
 	mobilePayGourpList = [],
 	localBankGroupList = [],
 	onlineBankGroupList = [],
 	cryptoPayGroupList = []
 }) => [
 	{
-		type: defDepositType.onlineBank,
-		isHide: !onlineBankGroupList.length,
-		depositDisplaykey: "lbl_OnlineBanking",
+		type: defDepositType.autoDeposit,
+		isHide: !autoDepositGroupList.length,
+		depositDisplaykey: "lbl_AutoDeposit",
 		creditTime: "lbl_Instant",
-		iconClass: "icon icon-connection"
+		iconClass: "icon icon-library fast"
 	},
 	{
 		type: defDepositType.localBank,
@@ -25,6 +27,14 @@ export const defDepositOptions = ({
 		creditTime: "lbl_5mins",
 		iconClass: "icon icon-library"
 	},
+	{
+		type: defDepositType.onlineBank,
+		isHide: !onlineBankGroupList.length,
+		depositDisplaykey: "lbl_OnlineBanking",
+		creditTime: "lbl_Instant",
+		iconClass: "icon icon-connection"
+	},
+
 	{
 		type: defDepositType.mobile,
 		isHide: !mobilePayGourpList.length,

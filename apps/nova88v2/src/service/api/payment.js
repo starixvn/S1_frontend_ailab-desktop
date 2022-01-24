@@ -198,3 +198,6 @@ export const api_payment_GetExchangeInfo = ({ Amount }) =>
 
 export const api_payment_getSupportNetwork = () =>
 	paymentRequest.post("/GetSupportNetwork", { CurrencyId: 96 });
+
+export const api_payment_GetAutoChannelBankGroupList = () =>
+	paymentRequest.post("GetAutoChannelBankGroupList");
