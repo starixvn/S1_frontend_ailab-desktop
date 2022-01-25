@@ -29,7 +29,8 @@ export const defPopBoxType = {
 	DepositGuide: "DepositGuide",
 	BackupDomain: "BackupDomain",
 	UnderMaintain: "UnderMaintain",
-	PaymentQR: "PaymentQR"
+	PaymentQR: "PaymentQR",
+	NewYear: "NewYear"
 };
 
 export default defPopBoxType;

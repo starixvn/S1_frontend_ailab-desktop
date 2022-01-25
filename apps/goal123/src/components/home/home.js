@@ -38,6 +38,7 @@ import { defTpGameType } from "../../datas/productList";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import { defEventPeriod } from "../common/eventIcon";
 import Fireworks from "../specialEffects/fireworks";
+import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 
 const Home = ({ productTpIds }) => {
 	const { t } = useTranslation();
@@ -67,98 +68,115 @@ const Home = ({ productTpIds }) => {
 	}, []);
 
 	useEffect(() => {
-		const ShowRankingPopup = () => {
+		const displayAnnouncePopup = () => {
+			const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
+			const isShowOfficialAnnouncePopBox =
+				readCookie(cookieOfficialAnnounce) !== "1";
+
 			if (
+				!isDateRange(
+					NewYearEventPeriod.startDate,
+					NewYearEventPeriod.endDate
+				) &&
 				userInfo.isLogin === false &&
-				isDateRange(null, "2021/05/18 23:59:59")
+				isShowOfficialAnnouncePopBox
 			) {
 				setPopBox({
 					isOpen: true,
-					popBoxType: defPopBoxType.RankingWinner
+					popBoxType: defPopBoxType.OfficialAnnounce,
+					onClickClose: openNextPopUp
 				});
+				setCookie(cookieOfficialAnnounce, "1", 1);
+			} else {
+				openNextPopUp();
 			}
 		};
 
-		const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
-		const isShowOfficialAnnouncePopBox =
-			readCookie(cookieOfficialAnnounce) !== "1";
+		const displayNewYearPopup = () => {
+			if (
+				isDateRange(
+					NewYearEventPeriod.startDate,
+					NewYearEventPeriod.endDate
+				) &&
+				!readCookie(`NewYear-${window.location.hostname}`)
+			) {
+				setPopBox({
+					isOpen: true,
+					customLayout: true,
+					popBoxType: defPopBoxType.NewYear,
+					onClickClose: openNextPopUp,
+					langId: userInfo.langId
+				});
+			} else {
+				openNextPopUp();
+			}
+		};
 
-		if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
-			const clickCloseOfficialAnnounce = () => {
-				setPopBox({ isOpen: false });
-				ShowRankingPopup();
-			};
+		const displayDepositPopup = () => {
+			const cookieName = `balanceHint${userInfo.userName}`;
+			if (
+				userInfo.isLogin &&
+				userInfo.userName &&
+				readCookie(cookieName) !== "1"
+			) {
+				setCookie(cookieName, "1", 1);
+				api_account_GetWalletInfo().then(
+					res => {
+						res.data.errorCode = 1;
+						if (res.data.errorCode === 0 && isMountedRef.current) {
+							const tpWallets = res.data.data.tpWallets?.map(
+								tp => ({
+									tpId: tp.tpId,
+									balance: tp.balance
+								})
+							);
 
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.OfficialAnnounce,
-				onClickClose: () => clickCloseOfficialAnnounce()
-			});
-			setCookie(cookieOfficialAnnounce, "1", 1);
-		}
+							const hasBalance =
+								res.data.data?.balance ||
+								tpWallets?.filter(tp => tp.balance > 0)
+									.length >= 1;
 
-		if (!isShowOfficialAnnouncePopBox) {
-			ShowRankingPopup();
-		}
-	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
-
-	useEffect(() => {
-		if (userInfo.isLogin && userInfo.userName) {
-			const showDepositPopBox = () => {
-				const cookieName = `balanceHint${userInfo.userName}`;
-				let showDepositHint = false;
-				if (readCookie(cookieName) !== "1") {
-					setCookie(cookieName, "1", 1);
-					showDepositHint = true;
-				}
-
-				if (showDepositHint) {
-					api_account_GetWalletInfo().then(
-						res => {
-							if (
-								res.data.errorCode === 0 &&
-								isMountedRef.current
-							) {
-								const tpWallets = res.data.data.tpWallets?.map(
-									tp => {
-										return {
-											tpId: tp.tpId,
-											balance: tp.balance
-										};
-									}
-								);
-
-								const hasBalance =
-									res.data.data?.balance ||
-									tpWallets?.filter(tp => {
-										return tp.balance > 0;
-									}).length >= 1;
-
-								if (!hasBalance && showDepositHint) {
-									setPopBox({
-										isOpen: true,
-										popBoxType: defPopBoxType.DepositHint
-									});
-								}
-							} else if (res.data.errorCode !== 0) {
-								errorPopBox(
-									res.data.message || "error",
-									res.data.errorCode
-								);
+							if (!hasBalance) {
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.DepositHint
+								});
 							}
-						},
-						() => {
-							if (isMountedRef.current) {
-								errorPopBox();
-							}
+						} else if (res.data.errorCode !== 0) {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode,
+								openNextPopUp
+							);
 						}
-					);
-				}
-			};
+					},
+					() => {
+						if (isMountedRef.current) {
+							errorPopBox(null, null, openNextPopUp);
+						}
+					}
+				);
+			} else {
+				openNextPopUp();
+			}
+		};
 
-			showDepositPopBox();
-		}
-	}, [userInfo.isLogin, userInfo.userName, setPopBox]);
+		const popUpStack = [
+			displayDepositPopup,
+			displayNewYearPopup,
+			displayAnnouncePopup
+		];
+
+		const openNextPopUp = () => {
+			if (popUpStack.length) {
+				popUpStack.pop()();
+			} else {
+				setPopBox({ isOpen: false });
+			}
+		};
+
+		openNextPopUp();
+	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.userName]);
 
 	const clickItem = ({ tpId, gameId, tpGameType }) => {
 		const isInMaintain = allMaintainList?.some(

@@ -15,7 +15,8 @@ const usePopBox = handlePopBox => {
 
 	const errorPopBox = (
 		message = t("msg_ApiServerError"),
-		errorCode = null
+		errorCode = null,
+		onClosePopBox = null
 	) => {
 		const value = {
 			message,
@@ -25,7 +26,9 @@ const usePopBox = handlePopBox => {
 			icon: "icon-bell",
 			btnBar: (
 				<div className="btnGroup">
-					<button className="btn-cancel" onClick={closePopBox}>
+					<button
+						className="btn-cancel"
+						onClick={onClosePopBox ?? closePopBox}>
 						{t("lbl_Close")}
 					</button>
 				</div>
