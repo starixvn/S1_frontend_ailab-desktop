@@ -1,6 +1,7 @@
 import React, { useContext, lazy, Suspense } from "react";
 import { popBoxContext } from "./context";
 import Loading from "./loading";
+import NewYear from "./popbox.newYear";
 
 export const defPopBoxType = {
 	Modal: "Modal",
@@ -33,7 +34,8 @@ export const defPopBoxType = {
 	OfficialAnnounce: "OfficialAnnounce",
 	BackupDomain: "BackupDomain",
 	UnderMaintain: "UnderMaintain",
-	PaymentQR: "PaymentQR"
+	PaymentQR: "PaymentQR",
+	NewYear: "NewYear"
 };
 
 export default () => {
@@ -358,6 +360,15 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.NewYear:
+			content = (
+				<NewYear
+					langId={popBox.langId}
+					onClickClose={popBox.onClickClose}
+				/>
+			);
+			break;
+
 		case defPopBoxType.default:
 			break;
 
@@ -374,7 +385,7 @@ export default () => {
 
 	if (!popBox.isOpen) return null;
 
-	if (customLayout)
+	if (customLayout || popBox.customLayout)
 		return (
 			<div id="popup" className="active">
 				<Suspense fallback={<Loading />}>{content}</Suspense>;

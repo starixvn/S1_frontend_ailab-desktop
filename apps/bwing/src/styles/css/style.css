@@ -4488,6 +4488,26 @@ main > .swiper-container .swiper-slide {
   max-width: unset;
 }
 
+#popup .angpao {
+  width: 500px;
+  height: 560px;
+  padding: 0;
+  position: relative;
+  overflow: revert;
+}
+
+#popup .angpao .icon-close {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  line-height: 26px;
+  text-align: center;
+  border: 2px solid white;
+}
+
 .Submit,
 .Success,
 .Error,
@@ -11133,6 +11153,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  width: 180px;
 }
 
 .subModuleListColumn > .subModule > div > button > div.bank > div:last-child,
