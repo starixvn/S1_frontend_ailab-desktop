@@ -110,6 +110,12 @@ const defPlatform = [
 		imgName: "ne"
 	},
 	{
+		...defCasinoProviders.AdvantPlay,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.AdvantPlay.name },
+		imgName: "ap"
+	},
+	{
 		...productList.liveCasino_EVO,
 		imgName: "ev"
 	}

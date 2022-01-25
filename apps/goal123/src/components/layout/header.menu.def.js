@@ -244,6 +244,21 @@ export const defMenuLinks = langId => {
 					]
 				},
 				{
+					...defCasinoProviders.AdvantPlay,
+					displayText: "AdvantPlay",
+					menuType: defMenuType.Link,
+					parameter: { provider: defCasinoProviders.AdvantPlay.name },
+					bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ap.png`,
+					npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ap-item.png`,
+					iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ap-icon.png`,
+					eventIcons: [
+						showEventIcon({
+							icon: defEventIcon.new,
+							period: defEventPeriod.casino_AdvantPlay
+						})
+					]
+				},
+				{
 					...defCasinoProviders.RedTiger,
 					className: "RedTiger",
 					displayText: "Red Tiger",

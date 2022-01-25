@@ -25,6 +25,7 @@ export const defSlotTpGameType = {
 	Iconic: { tpId: 24, tpGameType: 39 },
 	PT: { tpId: 27, tpGameType: 46 },
 	JILI: { tpId: 32, tpGameType: 53 },
+	AP: { tpId: 39, tpGameType: 67 },
 	MG: { tpId: 34, tpGameType: 57 },
 	RedTiger: { tpId: 38, tpGameType: 65 },
 	NetEnt: { tpId: 37, tpGameType: 64 }
@@ -199,6 +200,10 @@ export default {
 		tpGameType: 33,
 		alwaysShow: true,
 		needLogin: true
+	},
+	casino_AdvantPlay: {
+		tpId: 39,
+		tpGameType: 67
 	},
 
 	/* === 3. live casino === */
