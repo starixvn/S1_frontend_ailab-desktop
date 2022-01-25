@@ -308,7 +308,7 @@ export const defMenuLinks = langId => {
 					iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/playtech-icon.png`
 				},
 				{
-					...defCasinoProviders.ICG,
+					...defCasinoProviders.AstroTech,
 					className: "ICG",
 					eventIcons: [
 						showEventIcon({
