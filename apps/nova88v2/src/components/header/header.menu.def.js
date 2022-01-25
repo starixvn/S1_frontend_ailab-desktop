@@ -78,50 +78,53 @@ const defSortSlot = {
 	[defCurrencyList.THB]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
-		slot_MGPSW: 3,
-		slot_JI: 4,
-		slot_PG: 5,
-		slot_JOKER: 6,
-		slot_SG: 7,
-		slot_RedTiger: 8,
-		slot_ICG: 9,
-		slot_PT: 10,
-		slot_YGG: 11,
-		slot_CQ9: 12,
-		slot_GPI: 13,
-		slot_OW: 14
+		slot_AdvantPlay: 3,
+		slot_MGPSW: 4,
+		slot_JI: 5,
+		slot_PG: 6,
+		slot_JOKER: 7,
+		slot_SG: 8,
+		slot_RedTiger: 9,
+		slot_ICG: 10,
+		slot_PT: 11,
+		slot_YGG: 12,
+		slot_CQ9: 13,
+		slot_GPI: 14,
+		slot_OW: 15
 	},
 	[defCurrencyList.MYR]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
-		slot_MGPSW: 3,
-		slot_JI: 4,
-		slot_SG: 5,
-		slot_RedTiger: 6,
-		slot_YGG: 7,
-		slot_JOKER: 8,
-		slot_PT: 9,
-		slot_GPI: 10,
-		slot_CQ9: 11,
-		slot_ICG: 12,
-		slot_OW: 13,
-		slot_PG: 14
+		slot_AdvantPlay: 3,
+		slot_MGPSW: 4,
+		slot_JI: 5,
+		slot_SG: 6,
+		slot_RedTiger: 7,
+		slot_YGG: 8,
+		slot_JOKER: 9,
+		slot_PT: 10,
+		slot_GPI: 11,
+		slot_CQ9: 12,
+		slot_ICG: 13,
+		slot_OW: 14,
+		slot_PG: 15
 	},
 	[defCurrencyList.IDR]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
-		slot_MGPSW: 3,
-		slot_JI: 4,
-		slot_PG: 5,
-		slot_SG: 6,
-		slot_RedTiger: 7,
-		slot_PT: 8,
-		slot_JOKER: 9,
-		slot_CQ9: 10,
-		slot_ICG: 11,
-		slot_GPI: 12,
-		slot_YGG: 13,
-		slot_OW: 14
+		slot_AdvantPlay: 3,
+		slot_MGPSW: 4,
+		slot_JI: 5,
+		slot_PG: 6,
+		slot_SG: 7,
+		slot_RedTiger: 8,
+		slot_PT: 9,
+		slot_JOKER: 10,
+		slot_CQ9: 11,
+		slot_ICG: 12,
+		slot_GPI: 13,
+		slot_YGG: 14,
+		slot_OW: 15
 	}
 };
 
@@ -735,6 +738,21 @@ export const defMenuLinks = {
 					showEventIcon({
 						icon: defEventIcon.new,
 						period: defEventPeriod.casino_NetEnt
+					})
+				]
+			},
+			{
+				keyName: "slot_AdvantPlay",
+				displayText: "AdvantPlay",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotap.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_AdvantPlay },
+				...productList.casino_AdvantPlay,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_AdvantPlay
 					})
 				]
 			}

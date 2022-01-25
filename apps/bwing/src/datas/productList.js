@@ -362,5 +362,10 @@ export const defCasinoProviders = {
 		tpId: 37,
 		name: "NetEnt",
 		tpGameType: 64
+	},
+	AdvantPlay: {
+		tpId: 39,
+		name: "AdvantPlay",
+		tpGameType: 67
 	}
 };

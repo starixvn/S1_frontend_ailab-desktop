@@ -232,6 +232,19 @@ export const defMenuLinks = {
 				]
 			},
 			{
+				...defCasinoProviders.AdvantPlay,
+				className: "AP",
+				displayText: "AdvantPlay",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.AdvantPlay.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_AdvantPlay
+					})
+				]
+			},
+			{
 				...defCasinoProviders.RedTiger,
 				className: "RED",
 				displayText: "Red Tiger",
