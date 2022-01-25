@@ -287,7 +287,7 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PT.name }
 			},
 			{
-				...defCasinoProviders.ICG,
+				...defCasinoProviders.AstroTech,
 				className: "ICG",
 				eventIcons: [
 					showEventIcon({
