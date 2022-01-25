@@ -20,7 +20,7 @@ export const defEventPeriod = {
 	Games_MPoker: { end: "2022/01/28 11:00:00" },
 	casino_RedTiger: { end: "2021/12/15 11:00:00" },
 	casino_NetEnt: { end: "2021/12/15 11:00:00" },
-	casino_AdvantPlay: { start: "2022/02/25 11:00:00" },
+	casino_AdvantPlay: { end: "2022/02/25 11:00:00" },
 	liveCasino_EVO: { end: "2021/12/15 11:00:00" },
 	liveCasino_pp: {
 		start: "2021/11/10 11:00:00",
