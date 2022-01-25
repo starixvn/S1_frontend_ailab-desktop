@@ -14,6 +14,7 @@ import {
 	setCookie,
 	isDateRange
 } from "../common/common";
+import { api_account_GetWalletInfo } from "../../service/api/account";
 import { defPopBoxType } from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import MysteryBoxLink from "./mysteryBoxLink";
@@ -35,6 +36,7 @@ import useGetVideo from "../streaming/hook";
 import { bannerImgUrl } from "../../config";
 import { defEventPeriod } from "../common/eventIcon";
 import Fireworks from "../specialEffects/fireworks";
+import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 
 function Home() {
 	const { t } = useTranslation();
@@ -71,23 +73,111 @@ function Home() {
 	}, []);
 
 	useEffect(() => {
-		const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
-		const isShowOfficialAnnouncePopBox =
-			readCookie(cookieOfficialAnnounce) !== "1";
+		const displayAnnouncePopup = () => {
+			const cookieOfficialAnnounce = `OfficialAnnounce_cookie`;
+			const isShowOfficialAnnouncePopBox =
+				readCookie(cookieOfficialAnnounce) !== "1";
 
-		if (userInfo.isLogin === false && isShowOfficialAnnouncePopBox) {
-			const clickCloseOfficialAnnounce = () => {
+			if (
+				!isDateRange(
+					NewYearEventPeriod.startDate,
+					NewYearEventPeriod.endDate
+				) &&
+				userInfo.isLogin === false &&
+				isShowOfficialAnnouncePopBox
+			) {
+				setPopBox({
+					isOpen: true,
+					popBoxType: defPopBoxType.OfficialAnnounce,
+					onClickClose: openNextPopUp
+				});
+				setCookie(cookieOfficialAnnounce, "1", 1);
+			} else {
+				openNextPopUp();
+			}
+		};
+
+		const displayNewYearPopup = () => {
+			if (
+				isDateRange(
+					NewYearEventPeriod.startDate,
+					NewYearEventPeriod.endDate
+				) &&
+				!readCookie(`NewYear-${window.location.hostname}`)
+			) {
+				setPopBox({
+					isOpen: true,
+					customLayout: true,
+					popBoxType: defPopBoxType.NewYear,
+					onClickClose: openNextPopUp,
+					langId: userInfo.langId
+				});
+			} else {
+				openNextPopUp();
+			}
+		};
+
+		const displayDepositPopup = () => {
+			const cookieName = `balanceHint${userInfo.userName}`;
+
+			if (
+				userInfo.isLogin &&
+				userInfo.userName &&
+				readCookie(cookieName) !== "1"
+			) {
+				setCookie(cookieName, "1", 1);
+				api_account_GetWalletInfo().then(
+					res => {
+						if (res.data.errorCode === 0 && isMountedRef.current) {
+							const tpWallets = res.data.data.tpWallets?.map(
+								tp => ({
+									tpId: tp.tpId,
+									balance: tp.balance
+								})
+							);
+
+							const hasBalance =
+								res.data.data?.balance ||
+								tpWallets?.filter(tp => tp.balance > 0)
+									.length >= 1;
+
+							if (!hasBalance) {
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.DepositHint
+								});
+							}
+						} else if (res.data.errorCode !== 0) {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode,
+								openNextPopUp
+							);
+						}
+					},
+					() => {
+						errorPopBox(null, null, openNextPopUp);
+					}
+				);
+			}
+		};
+
+		const popUpStack = [
+			displayDepositPopup,
+			displayNewYearPopup,
+			displayAnnouncePopup
+		];
+
+		const openNextPopUp = () => {
+			if (popUpStack.length) {
+				popUpStack.pop()();
+			} else {
 				setPopBox({ isOpen: false });
-			};
+			}
+		};
 
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.OfficialAnnounce,
-				onClickClose: () => clickCloseOfficialAnnounce()
-			});
-			setCookie(cookieOfficialAnnounce, "1", 1);
-		}
-	}, [userInfo.isLogin, setPopBox, userInfo.langId]);
+		openNextPopUp();
+	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.userName]);
 
 	const getTopWinnners = () => {
 		const payload = {

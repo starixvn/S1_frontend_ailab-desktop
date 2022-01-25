@@ -2,6 +2,7 @@ import React, { useContext, lazy, Suspense } from "react";
 import { popBoxContext } from "./context";
 import Loading from "./loading";
 import { defPopBoxType } from "./defPopBoxType";
+import NewYear from "./popbox.newYear";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -346,6 +347,15 @@ export default () => {
 			break;
 		}
 
+		case defPopBoxType.NewYear:
+			content = (
+				<NewYear
+					langId={popBox.langId}
+					onClickClose={popBox.onClickClose}
+				/>
+			);
+			break;
+
 		case defPopBoxType.PaymentQR: {
 			const PaymentQR = lazy(() => import("./popBox.paymentQR"));
 			content = (
@@ -373,7 +383,7 @@ export default () => {
 
 	if (!popBox.isOpen) return null;
 
-	if (customLayout)
+	if (customLayout || popBox.customLayout)
 		return <Suspense fallback={<Loading />}>{content}</Suspense>;
 
 	return (
