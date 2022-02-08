@@ -24,7 +24,7 @@ const Esport = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 	const [eSportsSubMenu, setESportsSubMenu] = useState([]);
-	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
+	const { sortGameMenu } = useGameMenu({ productTpIds });
 
 	const clickItem = ({ tpId, gameId, needLogin, path }) => {
 		const showLoginPopBox = () => {
@@ -54,15 +54,13 @@ const Esport = () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu,
-				menuId
+				subMenu: defMenu
 			} = defMenuLinks.eSports;
 
 			let menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu,
-				menuId
+				defMenu
 			});
 
 			menu = menu.map(s => {
@@ -81,7 +79,7 @@ const Esport = () => {
 		const menu = getSubMenu();
 		setESportsSubMenu(menu);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, allGameMenu]);
+	}, [productTpIds, userInfo.currencyId, userInfo.isLogin]);
 
 	return (
 		<>

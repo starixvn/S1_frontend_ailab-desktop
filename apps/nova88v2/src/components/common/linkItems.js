@@ -97,7 +97,7 @@ export default ({
 							(s.canSeeOnlyAfterLogin && isLogin))
 				)
 				.forEach(sub => {
-					if (sub.eventIcons && isAllowCurrencies(sub)) {
+					if (sub.eventIcons) {
 						for (let i = 0; i < sub.eventIcons.length; i++) {
 							if (sub.eventIcons[i] !== "") {
 								iconList.push(sub.eventIcons[i]);

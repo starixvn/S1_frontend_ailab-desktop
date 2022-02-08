@@ -102,11 +102,9 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 					mt.tpGameType === defTpGameType.All)
 		);
 
-		const displayName = t(g.displayKey, g.name);
-		const gameImgName = g.img?.[userInfo.langId] ?? g.img?.default ?? g.img;
 		return (
 			<div
-				key={`hotGame-${g.gameId}-${g.tpId}`}
+				key={`hotGame-${g.tpId}-${g.gameName}`}
 				style={{
 					width: "300px",
 					margin: "0 15px"
