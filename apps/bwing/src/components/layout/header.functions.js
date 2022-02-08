@@ -1,5 +1,5 @@
 import React, { useContext, lazy, Suspense } from "react";
-import { Link, navigate } from "@reach/router";
+import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -29,7 +29,7 @@ export default () => {
 	);
 };
 
-const BeforeLogin = ({ langId }) => {
+const BeforeLogin = () => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -199,7 +199,7 @@ const AfterLogin = () => {
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
 				to={`/${userInfo.langId}/${path.message.root}`}>
-				<MsgPopup />
+				<MsgPopup userInfo={userInfo} />
 			</Link>
 		</>
 	);

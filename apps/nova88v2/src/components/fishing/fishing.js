@@ -23,7 +23,7 @@ const Fishing = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 	const [subMenu, setSubMenu] = useState([]);
-	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
+	const { sortGameMenu } = useGameMenu({ productTpIds });
 
 	const clickItem = ({ tpId, gameId, needLogin, path, tpGameType }) => {
 		const showLoginPopBox = () => {
@@ -54,15 +54,13 @@ const Fishing = () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu,
-				menuId
+				subMenu: defMenu
 			} = defMenuLinks.fishing;
 
 			const menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu,
-				menuId
+				defMenu
 			});
 
 			return menu;
@@ -73,7 +71,7 @@ const Fishing = () => {
 		setSubMenu(menu);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [allGameMenu]);
+	}, []);
 
 	return (
 		<>
