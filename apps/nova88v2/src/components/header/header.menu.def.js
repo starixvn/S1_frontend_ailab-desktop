@@ -21,56 +21,55 @@ const defSortSports = {
 const defSortCasino = {
 	[defCurrencyList.THB]: {
 		casino_PP: 1,
-		casino_MGPSW: 2,
+		casino_EVO: 2,
 		casino_PT: 3,
 		casino_DG: 4,
 		casino_AE: 5,
 		casino_SA: 6,
 		casino_ALBET: 7,
 		casino_AG: 8,
-		slot_PT: 9,
-		casino_WM: 10,
-		casino_EBET: 11,
-		casino_N2LIVE: 12
+		casino_WM: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
 	},
 	[defCurrencyList.MYR]: {
 		casino_PP: 1,
-		casino_MGPSW: 2,
+		casino_EVO: 2,
 		casino_PT: 3,
 		casino_DG: 4,
 		casino_AE: 5,
 		casino_SA: 6,
-		slot_PT: 7,
-		casino_ALBET: 8,
-		casino_AG: 9,
-		casino_WM: 10,
-		casino_EBET: 11,
-		casino_N2LIVE: 12
+		casino_ALBET: 7,
+		casino_AG: 8,
+		casino_WM: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
 	},
 	[defCurrencyList.IDR]: {
 		casino_PP: 1,
-		casino_MGPSW: 2,
+		casino_EVO: 2,
 		casino_PT: 3,
-		casino_AE: 4,
-		casino_AG: 5,
-		casino_EBET: 6,
-		casino_DG: 7,
-		slot_PT: 8,
+		casino_DG: 4,
+		casino_AE: 5,
+		casino_SA: 6,
+		casino_ALBET: 7,
+		casino_AG: 8,
 		casino_WM: 9,
-		casino_SA: 10,
-		casino_ALBET: 11,
-		casino_N2LIVE: 12
+		casino_EBET: 10,
+		casino_N2LIVE: 11
 	},
 	[defCurrencyList.INR]: {
 		casino_PP: 1,
-		casino_SA: 2,
-		casino_AG: 3,
+		casino_EVO: 2,
+		casino_PT: 3,
 		casino_DG: 4,
-		casino_PT: 5,
-		casino_ALBET: 6,
-		casino_EBET: 7,
-		casino_WM: 8,
-		casino_N2LIVE: 9
+		casino_AE: 5,
+		casino_SA: 6,
+		casino_ALBET: 7,
+		casino_AG: 8,
+		casino_WM: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
 	}
 };
 
@@ -78,95 +77,116 @@ const defSortSlot = {
 	[defCurrencyList.THB]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
-		slot_AdvantPlay: 3,
-		slot_MGPSW: 4,
-		slot_JI: 5,
-		slot_PG: 6,
-		slot_JOKER: 7,
-		slot_SG: 8,
-		slot_RedTiger: 9,
-		slot_ICG: 10,
-		slot_PT: 11,
-		slot_YGG: 12,
-		slot_CQ9: 13,
-		slot_GPI: 14,
-		slot_OW: 15
+		slot_MGPSW: 3,
+		slot_JI: 4,
+		slot_PG: 5,
+		slot_JOKER: 6,
+		slot_SG: 7,
+		slot_RedTiger: 8,
+		slot_PT: 9,
+		slot_YGG: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_ICG: 13,
+		slot_OW: 14,
+		slot_AdvantPlay: 15
 	},
 	[defCurrencyList.MYR]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
-		slot_AdvantPlay: 3,
-		slot_MGPSW: 4,
-		slot_JI: 5,
-		slot_SG: 6,
-		slot_RedTiger: 7,
-		slot_YGG: 8,
-		slot_JOKER: 9,
-		slot_PT: 10,
-		slot_GPI: 11,
-		slot_CQ9: 12,
+		slot_MGPSW: 3,
+		slot_JI: 4,
+		slot_PG: 5,
+		slot_JOKER: 6,
+		slot_SG: 7,
+		slot_RedTiger: 8,
+		slot_PT: 9,
+		slot_YGG: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
 		slot_ICG: 13,
 		slot_OW: 14,
-		slot_PG: 15
+		slot_AdvantPlay: 15
 	},
 	[defCurrencyList.IDR]: {
 		slot_PP: 1,
 		slot_NetEnt: 2,
-		slot_AdvantPlay: 3,
-		slot_MGPSW: 4,
-		slot_JI: 5,
-		slot_PG: 6,
+		slot_MGPSW: 3,
+		slot_JI: 4,
+		slot_PG: 5,
+		slot_JOKER: 6,
 		slot_SG: 7,
 		slot_RedTiger: 8,
 		slot_PT: 9,
-		slot_JOKER: 10,
+		slot_YGG: 10,
 		slot_CQ9: 11,
-		slot_ICG: 12,
-		slot_GPI: 13,
-		slot_YGG: 14,
-		slot_OW: 15
+		slot_GPI: 12,
+		slot_ICG: 13,
+		slot_OW: 14,
+		slot_AdvantPlay: 15
+	},
+	[defCurrencyList.INR]: {
+		slot_PP: 1,
+		slot_NetEnt: 2,
+		slot_MGPSW: 3,
+		slot_JI: 4,
+		slot_PG: 5,
+		slot_JOKER: 6,
+		slot_SG: 7,
+		slot_RedTiger: 8,
+		slot_PT: 9,
+		slot_YGG: 10,
+		slot_CQ9: 11,
+		slot_GPI: 12,
+		slot_ICG: 13,
+		slot_OW: 14,
+		slot_AdvantPlay: 15
 	}
 };
 
 const defSortFishing = {
 	[defCurrencyList.THB]: {
-		fishing_Haiba: 1,
-		fishing_Hunting_Happy_Fish_5: 2,
-		fishing_Hunting_Monster_Awaken: 3,
-		fishing_SGW_WAR: 4,
-		fishing_CQ9_PARADISE: 5,
-		fishing_GGYL_WORLD: 6,
-		fishing_ICG_DRAGONBALL: 7
+		fishing_SGW_WAR: 1,
+		fishing_CQ9_PARADISE: 2,
+		fishing_GGYL_WORLD: 3,
+		fishing_ICG_DRAGONBALL: 4,
+		fishing_Haiba: 5,
+		fishing_Hunting_Happy_Fish_5: 6,
+		fishing_Hunting_Monster_Awaken: 7,
+		fishing_SG: 8,
+		fishing_CQ9_ONESHOT: 9,
+		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 10,
+		ICG_FISHING_OF_SAVIORS: 11
 	},
 	[defCurrencyList.MYR]: {
-		fishing_Haiba: 1,
-		fishing_Hunting_Happy_Fish_5: 2,
-		fishing_Hunting_Monster_Awaken: 3,
-		fishing_GGYL_WORLD: 4,
-		fishing_SGW_WAR: 5,
-		fishing_CQ9_PARADISE: 6,
-		fishing_ICG_DRAGONBALL: 7
+		fishing_SGW_WAR: 1,
+		fishing_CQ9_PARADISE: 2,
+		fishing_GGYL_WORLD: 3,
+		fishing_ICG_DRAGONBALL: 4,
+		fishing_Haiba: 5,
+		fishing_Hunting_Happy_Fish_5: 6,
+		fishing_Hunting_Monster_Awaken: 7
 	},
 	[defCurrencyList.IDR]: {
-		fishing_Haiba: 1,
-		fishing_Hunting_Happy_Fish_5: 2,
-		fishing_Hunting_Monster_Awaken: 3,
-		fishing_SGW_WAR: 4,
-		fishing_ICG_DRAGONBALL: 5,
-		fishing_CQ9_PARADISE: 6,
-		fishing_GGYL_WORLD: 7
+		fishing_SGW_WAR: 1,
+		fishing_CQ9_PARADISE: 2,
+		fishing_GGYL_WORLD: 3,
+		fishing_ICG_DRAGONBALL: 4,
+		fishing_Haiba: 5,
+		fishing_Hunting_Happy_Fish_5: 6,
+		fishing_Hunting_Monster_Awaken: 7
 	},
 	[defCurrencyList.INR]: {
-		fishing_Haiba: 1,
-		fishing_Hunting_Happy_Fish_5: 2,
-		fishing_Hunting_Monster_Awaken: 3,
-		fishing_SGW_WAR: 4,
-		fishing_SG: 5,
-		fishing_GGYL_WORLD: 6,
-		fishing_CQ9_ONESHOT: 7,
-		fishing_CQ9_PARADISE: 8,
-		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 9,
-		fishing_ICG_DRAGONBALL: 10,
+		fishing_SGW_WAR: 1,
+		fishing_CQ9_PARADISE: 2,
+		fishing_GGYL_WORLD: 3,
+		fishing_ICG_DRAGONBALL: 4,
+		fishing_Haiba: 5,
+		fishing_Hunting_Happy_Fish_5: 6,
+		fishing_Hunting_Monster_Awaken: 7,
+		fishing_SG: 8,
+		fishing_CQ9_ONESHOT: 9,
+		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 10,
 		ICG_FISHING_OF_SAVIORS: 11
 	}
 };
@@ -253,7 +273,6 @@ export const defMenuLinks = {
 		productInfo: productList.sports,
 		filterByAuth: true,
 		customSort: defSortSports,
-		menuId: 1,
 		subMenu: [
 			{
 				path: path.sports.root,
@@ -334,7 +353,6 @@ export const defMenuLinks = {
 		displayKey: "lbl_eSports",
 		className: "eSportsbtn",
 		path: path.eSport.root,
-		menuId: 2,
 		subMenu: [
 			{
 				displayKey: "lbl_All",
@@ -404,7 +422,6 @@ export const defMenuLinks = {
 		path: path.liveCasino.root,
 		filterByAuth: true,
 		customSort: defSortCasino,
-		menuId: 3,
 		subMenu: [
 			// {
 			// 	keyName: "casino_MGPSW",
@@ -459,7 +476,6 @@ export const defMenuLinks = {
 			},
 			{
 				keyName: "casino_PT",
-				// icon: "icon icon-PT",
 				displayText: "Playtech",
 				menuType: defMenuType.useGoToGame,
 				listNpcImgUrl: "casino-pt.png",
@@ -567,7 +583,6 @@ export const defMenuLinks = {
 		path: path.casino.root,
 		filterByAuth: true,
 		customSort: defSortSlot,
-		menuId: 4,
 		subMenu: [
 			{
 				keyName: "slot_PP",
@@ -712,7 +727,6 @@ export const defMenuLinks = {
 			},
 			{
 				keyName: "slot_RedTiger",
-				// icon: "icon icon-PG",
 				displayText: "Red Tiger",
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotrt.png",
@@ -760,14 +774,12 @@ export const defMenuLinks = {
 	},
 	poker: {
 		displayKey: "lbl_Poker",
-		className: "pokerbtn",
-		menuId: 5
+		className: "pokerbtn"
 	},
 	games: {
 		displayKey: "lbl_Games",
 		path: path.game.root,
 		filterByAuth: true,
-		menuId: 6,
 		subMenu: [
 			{
 				keyName: "games_MPoker",
@@ -839,7 +851,6 @@ export const defMenuLinks = {
 		path: path.fishing.root,
 		filterByAuth: true,
 		customSort: defSortFishing,
-		menuId: 7,
 		subMenu: [
 			{
 				keyName: "fishing_Haiba",
@@ -1020,7 +1031,6 @@ export const defMenuLinks = {
 		displayKey: "lbl_Lottery",
 		path: path.lottery.root,
 		filterByAuth: true,
-		menuId: 8,
 		subMenu: [
 			{
 				...productList.tcg,

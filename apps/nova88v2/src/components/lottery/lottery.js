@@ -22,7 +22,7 @@ const Lottery = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 	const [lotterySubMenu, setLotterySubMenu] = useState([]);
-	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
+	const { sortGameMenu } = useGameMenu({ productTpIds });
 
 	const clickItem = ({
 		tpId,
@@ -63,15 +63,13 @@ const Lottery = () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu,
-				menuId
+				subMenu: defMenu
 			} = defMenuLinks.lottery;
 
 			let menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu,
-				menuId
+				defMenu
 			});
 
 			menu = menu.map(s => {
@@ -92,7 +90,7 @@ const Lottery = () => {
 		setLotterySubMenu(menu);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, allGameMenu]);
+	}, [productTpIds, userInfo.currencyId, userInfo.isLogin]);
 
 	return (
 		(productTpIds || userInfo.isLogin === false) && (

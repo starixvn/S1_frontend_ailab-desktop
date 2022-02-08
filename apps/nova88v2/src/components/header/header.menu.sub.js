@@ -111,9 +111,9 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 			const subMenu = sortGameMenu({
 				defMenu,
 				customSort,
-				filterByAuth,
-				menuId: defMenuLinks[menuKey].menuId
+				filterByAuth
 			});
+
 			return (
 				<div className={subClassName} key={`main-key-${menuKey}`}>
 					{subMenu?.map(subMenuItem => (

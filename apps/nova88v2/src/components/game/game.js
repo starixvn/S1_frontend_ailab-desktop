@@ -21,7 +21,7 @@ const Game = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 	const [gameSubMenu, setGameSubMenu] = useState([]);
-	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
+	const { sortGameMenu } = useGameMenu({ productTpIds });
 
 	const clickItem = ({
 		tpId,
@@ -62,15 +62,13 @@ const Game = () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu,
-				menuId
+				subMenu: defMenu
 			} = defMenuLinks.games;
 
 			const menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu,
-				menuId
+				defMenu
 			});
 
 			return menu;
@@ -81,7 +79,7 @@ const Game = () => {
 		setGameSubMenu(menu);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, allGameMenu]);
+	}, [productTpIds, userInfo.currencyId, userInfo.isLogin]);
 
 	return (
 		<>

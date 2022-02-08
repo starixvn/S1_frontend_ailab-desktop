@@ -25,7 +25,7 @@ export default () => {
 	const { allMaintainList } = useContext(maintainListContext);
 
 	const [subMenu, setSubMenu] = useState([]);
-	const { allGameMenu, sortGameMenu } = useGameMenu({ productTpIds });
+	const { sortGameMenu } = useGameMenu({ productTpIds });
 
 	const { handleGoToGame } = useGotoGame({
 		isLogin: userInfo.isLogin,
@@ -79,15 +79,13 @@ export default () => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu,
-				menuId
+				subMenu: defMenu
 			} = defMenuLinks.casino;
 
 			const menu = sortGameMenu({
 				customSort,
 				filterByAuth,
-				defMenu,
-				menuId
+				defMenu
 			}).filter(subMenuItem => subMenuItem?.lobbyPage);
 
 			return menu;
@@ -97,13 +95,7 @@ export default () => {
 
 		setSubMenu(menu);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [
-		productTpIds,
-		userInfo.currencyId,
-		userInfo.isLogin,
-		userInfo.langId,
-		allGameMenu
-	]);
+	}, [productTpIds, userInfo.currencyId, userInfo.isLogin, userInfo.langId]);
 
 	return (
 		<>
