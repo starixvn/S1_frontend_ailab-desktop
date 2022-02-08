@@ -7,7 +7,8 @@ import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
 import { IS_LOGGED_IN } from "../../service/auth";
 import {
 	api_account_GetMsgCount,
-	api_account_onlineCheck
+	api_account_onlineCheck,
+	api_account_GetPopupMsg
 } from "../../service/api/account";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import {
@@ -71,6 +72,12 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		langId: userInfo.langId,
 		isLogin: userInfo.isLogin,
 		errorPopBox
+	});
+
+	const [popUp, setPopUp] = useState({
+		popupMessage: "",
+		id: "",
+		pageNumber: ""
 	});
 
 	const isMountedRef = useRef(null);
@@ -335,33 +342,40 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			(afterLogin && userInfo.isLogin === false && userInfo.kickout)
 		) {
 			return (
-				<ct.maintainListContext.Provider value={{ allMaintainList }}>
-					<ct.productTpIdsContext.Provider value={{ productTpIds }}>
-						<ct.userInfoContext.Provider
-							value={{ userInfo, setUserInfo }}>
-							<ct.walletInfoContext.Provider
-								value={{
-									...walletInfo.state,
-									dispatch: walletInfo.dispatch
-								}}>
-								<ct.msgCountContext.Provider
-									value={{ msgCount, setMsgCount }}>
-									<ct.popBoxContext.Provider
-										value={{ popBox, setPopBox }}>
-										<ct.loadingContext.Provider
-											value={{ loading, setLoading }}>
-											<ct.isRootContext.Provider
-												value={{ isRoot, setIsRoot }}>
-												<SEO />
-												{children}
-											</ct.isRootContext.Provider>
-										</ct.loadingContext.Provider>
-									</ct.popBoxContext.Provider>
-								</ct.msgCountContext.Provider>
-							</ct.walletInfoContext.Provider>
-						</ct.userInfoContext.Provider>
-					</ct.productTpIdsContext.Provider>
-				</ct.maintainListContext.Provider>
+				<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
+					<ct.maintainListContext.Provider
+						value={{ allMaintainList }}>
+						<ct.productTpIdsContext.Provider
+							value={{ productTpIds }}>
+							<ct.userInfoContext.Provider
+								value={{ userInfo, setUserInfo }}>
+								<ct.walletInfoContext.Provider
+									value={{
+										...walletInfo.state,
+										dispatch: walletInfo.dispatch
+									}}>
+									<ct.msgCountContext.Provider
+										value={{ msgCount, setMsgCount }}>
+										<ct.popBoxContext.Provider
+											value={{ popBox, setPopBox }}>
+											<ct.loadingContext.Provider
+												value={{ loading, setLoading }}>
+												<ct.isRootContext.Provider
+													value={{
+														isRoot,
+														setIsRoot
+													}}>
+													<SEO />
+													{children}
+												</ct.isRootContext.Provider>
+											</ct.loadingContext.Provider>
+										</ct.popBoxContext.Provider>
+									</ct.msgCountContext.Provider>
+								</ct.walletInfoContext.Provider>
+							</ct.userInfoContext.Provider>
+						</ct.productTpIdsContext.Provider>
+					</ct.maintainListContext.Provider>
+				</ct.popUpMsgContext.Provider>
 			);
 		}
 		return null;

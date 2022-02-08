@@ -1,4 +1,5 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
+import { useLocation } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import {
@@ -14,10 +15,9 @@ export default props => {
 	const [msgContentData, setMsgContentData] = useState("");
 
 	const isMountedRef = useRef(null);
-
 	const { setPopBox } = useContext(popBoxContext);
 	const { setMsgCount } = useContext(msgCountContext);
-
+	const location = useLocation();
 	const compareDay = moment().diff(
 		moment(props.createTime, "YYYY-MM-DD"),
 		"day"
@@ -29,6 +29,13 @@ export default props => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		if (props.isPopUp && !location.state.popupShowed) {
+			getMsgContent(true);
+			location.state.popupShowed = true;
+		}
+	}, [props]);
 
 	const clickClose = () => {
 		setPopBox({ isOpen: false });
@@ -110,7 +117,6 @@ export default props => {
 			setShowContent(false);
 		}
 	};
-
 	return (
 		<div className={props.flag ? "haveRead" : ""}>
 			<div className="listHeader">
