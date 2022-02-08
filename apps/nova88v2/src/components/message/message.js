@@ -1,4 +1,5 @@
 import React, { useRef, useContext, useEffect, useState } from "react";
+import { useLocation } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import {
 	api_account_GetMsgList,
@@ -7,10 +8,12 @@ import {
 } from "../../service/api/account";
 import MessageList from "./messageList";
 import { Pagination } from "../common/pagination";
+import useGetPopUpMsg from "../hook/useGetPopUpMsg";
 import {
 	popBoxContext,
 	msgCountContext,
-	loadingContext
+	loadingContext,
+	popUpMsgContext
 } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
@@ -27,9 +30,13 @@ export default () => {
 		currentPage: 1
 	});
 
+	const location = useLocation();
+
 	const { setPopBox } = useContext(popBoxContext);
 	const { setMsgCount } = useContext(msgCountContext);
 	const { loading, setLoading } = useContext(loadingContext);
+	const { setPopUp } = useContext(popUpMsgContext);
+	const { GetPopupMsg } = useGetPopUpMsg({ setPopUp });
 
 	const openErrorMessagePopBox = (
 		message = t("msg_ApiServerError"),
@@ -106,7 +113,7 @@ export default () => {
 						getMsgList(pagination.currentPage);
 						setSelectItems([]);
 						setIsCheckAll(false);
-
+						GetPopupMsg();
 						api_account_GetMsgCount().then(res => {
 							if (isMountedRef.current) {
 								if (res.data.errorCode === 0) {
@@ -162,6 +169,17 @@ export default () => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		if (
+			!isNaN(parseFloat(location?.state?.pageNumber)) &&
+			location?.state?.pageNumber <= pagination.totalPages &&
+			location?.state?.pageNumber
+		) {
+			clickPageNumber(location?.state?.pageNumber);
+		}
+	}, [pagination.totalPages, location.state]);
+
 	return loading ? (
 		<></>
 	) : (
@@ -200,17 +218,22 @@ export default () => {
 								/>
 							</div>
 						</div>
-						{msgListData.map(item => (
-							<MessageList
-								{...item}
-								key={`msgList-${item.id}`}
-								selectItems={selectItems}
-								onChangeCheck={() => onChildChanged(item.id)}
-								getMsgList={() =>
-									getMsgList(pagination.currentPage)
-								}
-							/>
-						))}
+						{msgListData.map(item => {
+							return (
+								<MessageList
+									{...item}
+									isPopUp={item.id === location?.state?.id}
+									key={`msgList-${item.id}`}
+									selectItems={selectItems}
+									onChangeCheck={() =>
+										onChildChanged(item.id)
+									}
+									getMsgList={() =>
+										getMsgList(pagination.currentPage)
+									}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			) : (

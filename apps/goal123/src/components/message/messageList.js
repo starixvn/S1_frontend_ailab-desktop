@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "@reach/router";
 import moment from "moment";
 import {
 	api_account_GetMsgContent,
@@ -15,6 +16,7 @@ export default props => {
 	const isMountedRef = useRef(null);
 	const [msgContentData, setMsgContentData] = useState("");
 	const [showContent, setShowContent] = useState(false);
+	const location = useLocation();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -22,6 +24,13 @@ export default props => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		if (props.isPopUp && !location.state.popupShowed) {
+			getMsgContent(true);
+			location.state.popupShowed = true;
+		}
+	}, [props]);
 
 	const ClickClose = () => {
 		setPopBox({ isOpen: false });

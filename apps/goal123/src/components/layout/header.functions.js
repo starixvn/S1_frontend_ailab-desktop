@@ -1,7 +1,6 @@
 import React, { useContext, lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "@reach/router";
-
 import {
 	userInfoContext,
 	popBoxContext,
@@ -189,7 +188,7 @@ const AfterLogin = () => {
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
 				to={`/${userInfo.langId}/${path.message.root}`}>
-				<MsgPopup isLogin={userInfo.isLogin} />
+				<MsgPopup userInfo={userInfo} />
 			</Link>
 		</>
 	);

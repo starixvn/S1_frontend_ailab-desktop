@@ -1,73 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
+import { navigate } from "@reach/router";
 import PropTypes from "prop-types";
-import useInterval from "../hook/useInterval";
-import {
-	api_account_GetPopupMsg,
-	api_account_SetPopupMsgRead
-} from "../../service/api/account";
+import { popUpMsgContext } from "../common/context";
+import path from "../../router";
+import useGetPopUpMsg from "../hook/useGetPopUpMsg";
 
-export default function Component({ isLogin }) {
-	const [popUpMsg, setPopUpMsg] = useState("");
+export default function Component({ userInfo }) {
+	const { setPopUp, popUp } = useContext(popUpMsgContext);
+	const { ReadPopupMsg } = useGetPopUpMsg({ setPopUp });
 
-	const GetPopupMsg = () => {
-		try {
-			api_account_GetPopupMsg().then(res => {
-				if (res.data.data) {
-					setPopUpMsg(res.data.data.popupMessage);
-				} else {
-					setPopUpMsg("");
-				}
-			});
-		} catch (error) {}
-	};
-
-	const ReadPopupMsg = () => {
-		api_account_SetPopupMsgRead().then(res => {
-			if (res.data.errorCode === 0) {
-				setPopUpMsg("");
-			}
-		});
-	};
-
-	useEffect(() => {
-		if (isLogin) {
-			GetPopupMsg();
-		}
-	}, [isLogin]);
-
-	useInterval(
-		() => {
-			GetPopupMsg();
-		},
-		isLogin ? 30000 : null
-	);
-
-	return (
-		popUpMsg && (
-			<div
-				className="mailtipPop"
+	return popUp.id !== "" ? (
+		<div
+			className="mailtipPop"
+			onClick={e => {
+				e.preventDefault();
+				e.stopPropagation();
+			}}>
+			<button
+				className="icon icon-close"
 				onClick={e => {
 					e.preventDefault();
 					e.stopPropagation();
+					ReadPopupMsg();
+				}}
+			/>
+			<span
+				onClick={() => {
+					navigate(`/${userInfo.langId}/${path.message.root}`, {
+						state: {
+							id: popUp.id,
+							pageNumber: popUp.pageNumber,
+							popupShowed: false
+						}
+					});
 				}}>
-				<button
-					className="icon icon-close"
-					onClick={e => {
-						e.preventDefault();
-						e.stopPropagation();
-						ReadPopupMsg();
-					}}
-				/>
-				<span>{popUpMsg}</span>
-			</div>
-		)
-	);
+				{popUp.popupMessage}
+			</span>
+		</div>
+	) : null;
 }
 
-Component.defaultProps = {
-	isLogin: false
-};
-
 Component.propTypes = {
-	isLogin: PropTypes.bool
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired
 };

@@ -84,6 +84,12 @@ export default ({
 
 	const { SEODatas } = useGetSEODatas({ getFromAPI: true });
 
+	const [popUp, setPopUp] = useState({
+		popupMessage: "",
+		id: "",
+		pageNumber: ""
+	});
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -468,40 +474,43 @@ export default ({
 
 	if (redirectPath === null) {
 		const content = correctPath ? (
-			<ct.maintainListContext.Provider value={{ allMaintainList }}>
-				<ct.productTpIdsContext.Provider value={{ productTpIds }}>
-					<ct.userInfoContext.Provider
-						value={{ userInfo, setUserInfo }}>
-						<ct.walletInfoContext.Provider
-							value={{
-								...walletInfo.state,
-								dispatch: walletInfo.dispatch
-							}}>
-							<ct.msgCountContext.Provider
-								value={{ msgCount, setMsgCount }}>
-								<ct.popBoxContext.Provider
-									value={{ popBox, setPopBox }}>
-									<ct.loadingContext.Provider
-										value={{ loading, setLoading }}>
-										<ct.isRootContext.Provider
-											value={{ isRoot, setIsRoot }}>
-											<ThirdPartyJS />
-											<SEO
-												lang={userInfo.langId}
-												getFromAPI={
-													getSEOInfoFromAPI &&
-													userInfo.isLogin === false
-												}
-											/>
-											{children}
-										</ct.isRootContext.Provider>
-									</ct.loadingContext.Provider>
-								</ct.popBoxContext.Provider>
-							</ct.msgCountContext.Provider>
-						</ct.walletInfoContext.Provider>
-					</ct.userInfoContext.Provider>
-				</ct.productTpIdsContext.Provider>
-			</ct.maintainListContext.Provider>
+			<ct.popUpMsgContext.Provider value={{ setPopUp, popUp }}>
+				<ct.maintainListContext.Provider value={{ allMaintainList }}>
+					<ct.productTpIdsContext.Provider value={{ productTpIds }}>
+						<ct.userInfoContext.Provider
+							value={{ userInfo, setUserInfo }}>
+							<ct.walletInfoContext.Provider
+								value={{
+									...walletInfo.state,
+									dispatch: walletInfo.dispatch
+								}}>
+								<ct.msgCountContext.Provider
+									value={{ msgCount, setMsgCount }}>
+									<ct.popBoxContext.Provider
+										value={{ popBox, setPopBox }}>
+										<ct.loadingContext.Provider
+											value={{ loading, setLoading }}>
+											<ct.isRootContext.Provider
+												value={{ isRoot, setIsRoot }}>
+												<ThirdPartyJS />
+												<SEO
+													lang={userInfo.langId}
+													getFromAPI={
+														getSEOInfoFromAPI &&
+														userInfo.isLogin ===
+															false
+													}
+												/>
+												{children}
+											</ct.isRootContext.Provider>
+										</ct.loadingContext.Provider>
+									</ct.popBoxContext.Provider>
+								</ct.msgCountContext.Provider>
+							</ct.walletInfoContext.Provider>
+						</ct.userInfoContext.Provider>
+					</ct.productTpIdsContext.Provider>
+				</ct.maintainListContext.Provider>
+			</ct.popUpMsgContext.Provider>
 		) : (
 			<ThirdPartyJS />
 		);

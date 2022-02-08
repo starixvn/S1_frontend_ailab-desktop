@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "@reach/router";
 import {
 	api_account_GetMsgList,
 	api_account_DelMsg,
@@ -7,10 +8,15 @@ import {
 } from "../../service/api/account";
 import MessageList from "./messageList";
 import { Pagination } from "../common/pagination";
-import { popBoxContext, msgCountContext } from "../common/context";
+import {
+	popBoxContext,
+	msgCountContext,
+	popUpMsgContext
+} from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import Loading from "../common/loading";
 import ReloadSpin from "../common/reloadSpin";
+import useGetPopUpMsg from "../hook/useGetPopUpMsg";
 
 export default () => {
 	const { t } = useTranslation();
@@ -20,8 +26,11 @@ export default () => {
 		totalPages: 0,
 		currentPage: 1
 	});
+	const location = useLocation();
 	const { setMsgCount } = useContext(msgCountContext);
 	const { setPopBox } = useContext(popBoxContext);
+	const { setPopUp } = useContext(popUpMsgContext);
+	const { GetPopupMsg } = useGetPopUpMsg({ setPopUp });
 	const [selectItems, setSelectItems] = useState([]);
 	const [isCheckAll, setIsCheckAll] = useState(false);
 	const [loading, setLoading] = useState(true);
@@ -32,6 +41,16 @@ export default () => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		if (
+			!isNaN(parseFloat(location?.state?.pageNumber)) &&
+			location?.state?.pageNumber <= pagination.totalPages &&
+			location?.state?.pageNumber
+		) {
+			clickPageNumber(location?.state?.pageNumber);
+		}
+	}, [pagination.totalPages, location.state]);
 
 	const clickPageNumber = page => {
 		setPagination(prev => ({ ...prev, currentPage: page }));
@@ -140,7 +159,7 @@ export default () => {
 							getMsgList(pagination.currentPage);
 							setSelectItems([]);
 							setIsCheckAll(false);
-
+							GetPopupMsg();
 							api_account_GetMsgCount().then(
 								resMsgCount => {
 									if (isMountedRef.current) {
@@ -282,6 +301,7 @@ export default () => {
 					{msgListData.map(item => (
 						<MessageList
 							{...item}
+							isPopUp={item.id === location?.state?.id}
 							key={`msgList-${item.id}`}
 							onChangeCheck={onChildChanged.bind(this, item.id)}
 							parentIsCheckAll={isCheckAll}
