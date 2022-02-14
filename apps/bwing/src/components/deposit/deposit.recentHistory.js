@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { TransactionHistory } from "./deposit.historyResult";
 import { api_payment_SetDepositCancel } from "../../service/api/payment";

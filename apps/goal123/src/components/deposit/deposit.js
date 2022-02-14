@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import {
 	loadingContext,
@@ -48,9 +48,8 @@ const isOTPVerified = ({
 
 const Deposit = () => {
 	const parameterDefaultType = getUrlParameter("type");
-	const isDepositTypeIncludes = Object.values(defDepositType).includes(
-		parameterDefaultType
-	);
+	const isDepositTypeIncludes =
+		Object.values(defDepositType).includes(parameterDefaultType);
 
 	const { t } = useTranslation();
 
@@ -642,13 +641,13 @@ const Deposit = () => {
 
 	if (!filterDepositOptions.length) return null;
 
-	const defaultDepositOption = depositOptions.find(
-		option => option.type === parameterDefaultType
-	);
+	// const defaultDepositOption = depositOptions.find(
+	// 	option => option.type === parameterDefaultType
+	// );
 
-	if (!isDepositTypeIncludes || defaultDepositOption.isHide) {
-		onChangeDepositType(filterDepositOptions[0].type);
-	}
+	// if (!isDepositTypeIncludes || defaultDepositOption.isHide) {
+	// 	onChangeDepositType(filterDepositOptions[0].type);
+	// }
 
 	let checked = formInfo?.amount?.checked;
 

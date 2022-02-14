@@ -88,19 +88,17 @@ const History = () => {
 		updateHistoryList
 	});
 
-	const {
-		getWithdrawalInfoHistory,
-		activateWithdrawalCancelConfirmModal
-	} = useWithdrawaHistory({
-		isMountedRef,
-		_isConvert,
-		langId: userInfo.langId,
-		pagination,
-		t,
-		setHistoryDatas,
-		setPagination,
-		updateHistoryList
-	});
+	const { getWithdrawalInfoHistory, activateWithdrawalCancelConfirmModal } =
+		useWithdrawaHistory({
+			isMountedRef,
+			_isConvert,
+			langId: userInfo.langId,
+			pagination,
+			t,
+			setHistoryDatas,
+			setPagination,
+			updateHistoryList
+		});
 
 	const { getStatementHistory } = useFinancialHistory({
 		isMountedRef,

@@ -56,7 +56,8 @@ export default ({ updateCustBankInfo, bankInfoDetail }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -79,7 +80,8 @@ export default ({ updateCustBankInfo, bankInfoDetail }) => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -102,7 +104,8 @@ export default ({ updateCustBankInfo, bankInfoDetail }) => {
 			onClick={openPopBox}
 			role="button"
 			onKeyDown={openPopBox}
-			tabIndex="0">
+			tabIndex="0"
+		>
 			<div className="icon icon-plus" />
 			<div>
 				<div className="txt-yellow">{t("lbl_AddNewAccount")}</div>

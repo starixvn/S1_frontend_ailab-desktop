@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
 import PropTypes from "prop-types";
 import { cloudImgUrl } from "../../config";
+
+SwiperCore.use([Navigation]);
 
 const TopQuickLink = ({
 	lobbyImgList,
@@ -18,7 +21,6 @@ const TopQuickLink = ({
 		lobbyImgList.length > _slidesPerViewNum
 			? lobbyImgList
 			: [...lobbyImgList, ...lobbyImgList];
-
 	const Rows = dataRows.map((_item, idx) => {
 		const _srcImg =
 			hoverImg === _item.lobbyImgName ||
@@ -63,12 +65,9 @@ const TopQuickLink = ({
 
 	return (
 		<div className="partnerSelect">
-			<div className="swiper-wrapper">
-				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
-				<Swiper navigation {...params}>
-					{Rows}
-				</Swiper>
-			</div>
+			<Swiper navigation={true} {...params}>
+				{Rows}
+			</Swiper>
 		</div>
 	);
 };

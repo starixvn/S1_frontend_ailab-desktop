@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import {
 	defMenuLinks,
 	defSubListClassName,

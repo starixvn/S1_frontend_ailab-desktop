@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { HistoryResult } from "./withdrawal.historyResult";
 import { api_payment_SetWithdrawalCancel } from "../../service/api/payment";

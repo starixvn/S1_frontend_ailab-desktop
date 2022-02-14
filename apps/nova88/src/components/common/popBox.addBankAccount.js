@@ -147,7 +147,8 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClickCancel}>
+											onClick={ClickCancel}
+										>
 											OK
 										</button>
 									</div>
@@ -163,7 +164,8 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -182,7 +184,8 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -220,14 +223,16 @@ export default ({ bankInfoSysList = [], GetCustBankInfo }) => {
 						</div>
 						<div
 							className="iconModule"
-							onClick={clickInfo.bind(this, "realName_after")}>
+							onClick={clickInfo.bind(this, "realName_after")}
+						>
 							<i className="icon icon-information-solid" />
 						</div>
 					</div>
 					<div
 						className={`tip${
 							status.realName_after.tip ? " active" : ""
-						}`}>
+						}`}
+					>
 						{status.realName_after.tip}
 					</div>
 				</>

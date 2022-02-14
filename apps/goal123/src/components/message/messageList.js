@@ -100,7 +100,8 @@ export default props => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -119,7 +120,8 @@ export default props => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -168,7 +170,8 @@ export default props => {
 				</div>
 				<div
 					className="txt-blue3"
-					onClick={getMsgContent.bind(this, !showContent)}>
+					onClick={getMsgContent.bind(this, !showContent)}
+				>
 					{dateTimeFormat()}
 					<button
 						aria-label="getMsgContent"

@@ -2,7 +2,7 @@ import React, { memo } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import Swiper from "react-id-swiper";
 import { useGetBanner, SetPathParameter } from "../common/swipperBanner";
 import { defBannerType } from "../../service/api/site";

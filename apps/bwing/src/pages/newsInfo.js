@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Redirect } from "@reach/router";
+import { navigate } from "gatsby";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
 import LeftMenu from "../components/common/leftMenu";
@@ -117,20 +117,24 @@ const Content = () => {
 		setRedirectPath(`/${userInfo.langId}/${path.news.root}`);
 	};
 
-	return loading ? (
-		<Loading />
-	) : redirectPath === null ? (
-		<div className="infoModule">
-			<a className="icon icon-arrow-left2" onClick={clickBack}>
-				{t("lbl_BackToNews")}
-			</a>
-			<article>
-				<img src={newsInfo.imageURL} alt={newsInfo.title} />
-				<h1>{newsInfo.title}</h1>
-				<pre>{newsInfo.content}</pre>
-			</article>
-		</div>
-	) : (
-		<Redirect to={redirectPath} noThrow />
-	);
+	if (loading) {
+		return <Loading />;
+	}
+	if (redirectPath === null) {
+		return (
+			<div className="infoModule">
+				<a className="icon icon-arrow-left2" onClick={clickBack}>
+					{t("lbl_BackToNews")}
+				</a>
+				<article>
+					<img src={newsInfo.imageURL} alt={newsInfo.title} />
+					<h1>{newsInfo.title}</h1>
+					<pre>{newsInfo.content}</pre>
+				</article>
+			</div>
+		);
+	}
+
+	navigate(redirectPath);
+	return [];
 };

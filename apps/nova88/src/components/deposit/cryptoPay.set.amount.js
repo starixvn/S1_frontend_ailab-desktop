@@ -111,7 +111,8 @@ export default ({
 					<div className="btnGroup">
 						<button
 							className={`${checked ? "btn-check" : "darkGray"}`}
-							onClick={SubmitAmount}>
+							onClick={SubmitAmount}
+						>
 							{t("lbl_Submit")}
 						</button>
 					</div>

@@ -26,10 +26,8 @@ const OnlineBankForm = ({
 	const parameterPayId = Number(getUrlParameter("pId"));
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
-	const [
-		payNameForRecordSelectBank,
-		setPayNameForRecordSelectBank
-	] = useState(parameterPayName);
+	const [payNameForRecordSelectBank, setPayNameForRecordSelectBank] =
+		useState(parameterPayName);
 
 	const [payIdForRecord, setPayIdForRecord] = useState(parameterPayId);
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);

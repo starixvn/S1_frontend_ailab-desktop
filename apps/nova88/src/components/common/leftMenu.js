@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { userInfoContext } from "./context";
 import { defLeftMenu } from "./leftMenu.def";
 

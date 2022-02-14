@@ -21,8 +21,9 @@ const LeaderBoardContentEvent = ({
 							idx < 3
 								? require(`../../styles/img/ranking/trophy${
 										Number(idx) + 1
-								  }.png`)
+								  }.png`).default
 								: require(`../../styles/img/ranking/trophy4.png`)
+										.default
 						}
 						alt="ranking_top"
 					/>

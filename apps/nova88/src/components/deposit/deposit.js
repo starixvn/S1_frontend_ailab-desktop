@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import {
 	api_payment_GetOnlinePaymentList,
 	api_payment_GetBankInfoOffList,

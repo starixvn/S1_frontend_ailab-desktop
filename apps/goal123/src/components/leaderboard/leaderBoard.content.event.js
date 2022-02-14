@@ -18,9 +18,11 @@ const LeaderBoardEventContent = ({
 				<div>
 					<img
 						alt={`img-${item.displayRank}`}
-						src={require(`../../styles/img/${
-							idx <= 2 ? defImgRankId[idx + 1] : `nbadge`
-						}.png`)}
+						src={
+							require(`../../styles/img/${
+								idx <= 2 ? defImgRankId[idx + 1] : `nbadge`
+							}.png`).default
+						}
 					/>
 					{rewardList[idx].displayRank}
 				</div>

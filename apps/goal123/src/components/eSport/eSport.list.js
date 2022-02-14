@@ -36,14 +36,8 @@ EsportList.propTypes = {
 export default EsportList;
 
 const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
-	const {
-		displayText,
-		displayKey,
-		tpId,
-		gameId,
-		imgSrc,
-		tpGameType
-	} = subMenuItem;
+	const { displayText, displayKey, tpId, gameId, imgSrc, tpGameType } =
+		subMenuItem;
 	const _displayText = displayText || t(displayKey);
 
 	return (

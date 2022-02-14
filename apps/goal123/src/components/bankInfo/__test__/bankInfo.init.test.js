@@ -17,9 +17,8 @@ describe("if bank num <3", () => {
 
 	test("if click addBank, function-toNextStep  toHaveBeenCalled", () => {
 		const { container } = render(<InitPanel {...fakeData_one_bank} />);
-		const add_btn = container.getElementsByClassName(
-			"addBankName noBank"
-		)[0];
+		const add_btn =
+			container.getElementsByClassName("addBankName noBank")[0];
 		fireEvent.click(add_btn);
 		expect(fakeData_one_bank.toNextStep).toHaveBeenCalled();
 	});
@@ -35,9 +34,8 @@ const fakeData_full_bank = {
 describe("if full bank", () => {
 	test("if full bank ,display warning icon", () => {
 		const { container } = render(<InitPanel {...fakeData_full_bank} />);
-		const icon_warning = container.getElementsByClassName(
-			"icon icon-warning"
-		)[0];
+		const icon_warning =
+			container.getElementsByClassName("icon icon-warning")[0];
 		expect(icon_warning).toBeTruthy();
 	});
 });

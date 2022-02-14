@@ -91,7 +91,8 @@ export default ({
 									? item.selectedClassName
 									: item.className
 							}
-							onClick={() => onClick(item.value)}>
+							onClick={() => onClick(item.value)}
+						>
 							{t(item.displayKey)}
 						</button>
 					))}
@@ -111,7 +112,8 @@ export default ({
 					<div className="btnGroup">
 						<button
 							className="btn-check"
-							onClick={onSetSpecialCodeSubmit}>
+							onClick={onSetSpecialCodeSubmit}
+						>
 							{t("lbl_Submit")}
 						</button>
 					</div>

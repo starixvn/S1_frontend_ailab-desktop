@@ -38,7 +38,8 @@ const leaderBoardContent = ({
 							this,
 							defPeriodId.period4,
 							tab
-						)}>
+						)}
+					>
 						{t("lbl_EURO_2020_Final")}
 					</button>
 				</>
@@ -71,7 +72,8 @@ const leaderBoardContent = ({
 			return (
 				<li
 					key={`leaderboard_item_${item.userName}`}
-					className={rank ? "userRank" : null}>
+					className={rank ? "userRank" : null}
+				>
 					<div>
 						{idx < 3 ? (
 							<img
@@ -101,7 +103,8 @@ const leaderBoardContent = ({
 		<div
 			className={
 				tab === defTabId.second ? "lastevent active" : "champion active"
-			}>
+			}
+		>
 			<ContentTopLayout />
 			<div className="highest">
 				{tab === defTabId.third ? (

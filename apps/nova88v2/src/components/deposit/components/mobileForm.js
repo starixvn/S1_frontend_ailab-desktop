@@ -28,9 +28,8 @@ const MobileForm = ({
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 
 	const [groupIdForRecord, setGroupIdForRecord] = useState(defaultGroupId);
-	const [infoChannelIdForRecord, setInfoChannelIdForRecord] = useState(
-		defaultChannelId
-	);
+	const [infoChannelIdForRecord, setInfoChannelIdForRecord] =
+		useState(defaultChannelId);
 
 	const onGetMobileInfoList = async gId => {
 		setGroupIdForRecord(gId);

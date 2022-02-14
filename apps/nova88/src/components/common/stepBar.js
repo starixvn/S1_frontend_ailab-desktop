@@ -6,7 +6,8 @@ export default ({ t, step, defStep, stepNum }) => {
 		return (
 			<div
 				key={`step-${item.title}`}
-				className={idx <= step - 1 ? "active" : ""}>
+				className={idx <= step - 1 ? "active" : ""}
+			>
 				<span>{item.title}</span>
 				<span>{t(item.displayKey)}</span>
 			</div>

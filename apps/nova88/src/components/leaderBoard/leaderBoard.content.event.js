@@ -61,7 +61,8 @@ const leaderBoardEventContent = ({
 						onClick={changeRewardTab.bind(
 							this,
 							defRewardTabId.final
-						)}>
+						)}
+					>
 						{t("lbl_EURO_2020_Final")}
 					</button>
 					<button
@@ -71,7 +72,8 @@ const leaderBoardEventContent = ({
 						onClick={changeRewardTab.bind(
 							this,
 							defRewardTabId.monthly
-						)}>
+						)}
+					>
 						{t("lbl_Monthly_Tournament")}
 					</button>
 				</div>
@@ -80,7 +82,8 @@ const leaderBoardEventContent = ({
 				<div
 					className={
 						rewardTab === defRewardTabId.final ? "active" : ""
-					}>
+					}
+				>
 					<ul>
 						<li>
 							<div />
@@ -93,7 +96,8 @@ const leaderBoardEventContent = ({
 				<div
 					className={
 						rewardTab === defRewardTabId.monthly ? "active" : ""
-					}>
+					}
+				>
 					<div className="stitle">
 						{t("lbl_Monthly_Deposit_Turnover_Race_Tournament")}
 					</div>

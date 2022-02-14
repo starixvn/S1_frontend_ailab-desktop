@@ -5,7 +5,7 @@ import React, {
 	useRef,
 	useReducer
 } from "react";
-import { Redirect, Link } from "@reach/router";
+import { Redirect, Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { api_payment_GetCryptoPayInfoList } from "../../service/api/payment";
 import { getUrlParameter, isConvert } from "../common/common";

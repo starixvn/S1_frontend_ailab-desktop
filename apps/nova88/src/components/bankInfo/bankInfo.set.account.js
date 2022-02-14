@@ -137,7 +137,8 @@ export default ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -157,7 +158,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -189,7 +191,8 @@ export default ({
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
-						onSubmit={clickSubmit}>
+						onSubmit={clickSubmit}
+					>
 						<div>
 							<div className="bankName">
 								<img

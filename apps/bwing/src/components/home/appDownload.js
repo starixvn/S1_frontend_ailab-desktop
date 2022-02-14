@@ -1,5 +1,5 @@
 import React from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
 import { bannerImgUrl } from "../../config";

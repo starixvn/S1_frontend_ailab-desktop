@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import {
 	api_site_GetBannerV3,
 	defBannerActionMode

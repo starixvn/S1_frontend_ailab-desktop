@@ -2,24 +2,16 @@ export default [
 	{
 		bonusCode: "ExclusiveWeekly",
 		bannerLink: {
-			en:
-				"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/EN.html",
-			cs:
-				"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/CS.html",
-			id:
-				"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/ID.html",
-			th:
-				"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/TH.html"
+			en: "https://image.n88media.com/NovaPromotion/ExclusiveWeekly/EN.html",
+			cs: "https://image.n88media.com/NovaPromotion/ExclusiveWeekly/CS.html",
+			id: "https://image.n88media.com/NovaPromotion/ExclusiveWeekly/ID.html",
+			th: "https://image.n88media.com/NovaPromotion/ExclusiveWeekly/TH.html"
 		},
 		imgUrl: {
-			en:
-				"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/en/EN.jpg",
-			cs:
-				"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/cs/CS.jpg",
-			id:
-				"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/id/ID.jpg",
-			th:
-				"https://image.n88media.com/NovaPromotion/ExclusiveWeekly/th/TH.jpg"
+			en: "https://image.n88media.com/NovaPromotion/ExclusiveWeekly/en/EN.jpg",
+			cs: "https://image.n88media.com/NovaPromotion/ExclusiveWeekly/cs/CS.jpg",
+			id: "https://image.n88media.com/NovaPromotion/ExclusiveWeekly/id/ID.jpg",
+			th: "https://image.n88media.com/NovaPromotion/ExclusiveWeekly/th/TH.jpg"
 		},
 		title: {
 			en: "EXCLUSIVE WEEKLY DEPOSIT BONUS UP TO MYR 3,000",
@@ -43,12 +35,9 @@ export default [
 			th: "https://image.n88media.com/NovaPromotion/VIPBDREWARD/TH.html"
 		},
 		imgUrl: {
-			en:
-				"https://image.n88media.com/NovaPromotion/VIPBDREWARD/en/EN.jpg",
-			cs:
-				"https://image.n88media.com/NovaPromotion/VIPBDREWARD/cs/CS.jpg",
-			id:
-				"https://image.n88media.com/NovaPromotion/VIPBDREWARD/id/ID.jpg",
+			en: "https://image.n88media.com/NovaPromotion/VIPBDREWARD/en/EN.jpg",
+			cs: "https://image.n88media.com/NovaPromotion/VIPBDREWARD/cs/CS.jpg",
+			id: "https://image.n88media.com/NovaPromotion/VIPBDREWARD/id/ID.jpg",
 			th: "https://image.n88media.com/NovaPromotion/VIPBDREWARD/th/TH.jpg"
 		},
 		title: {

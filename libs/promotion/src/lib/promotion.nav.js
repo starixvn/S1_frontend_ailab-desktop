@@ -53,7 +53,8 @@ export default ({ t, selected, onClick }) => {
 								? item.selectedClassName
 								: item.className
 						}
-						onClick={() => onClick(item.value)}>
+						onClick={() => onClick(item.value)}
+					>
 						{t(item.displayKey)}
 					</button>
 				))}

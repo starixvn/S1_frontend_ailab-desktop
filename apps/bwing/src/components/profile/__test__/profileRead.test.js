@@ -55,9 +55,8 @@ describe("show OTP verify loading", () => {
 	};
 	test("if props mobileVerificationLoading=true show loading", () => {
 		const { container } = render(<ProfileRead {...fakeData} />);
-		const sendOtpBtn = container.getElementsByClassName(
-			"icon-spinner11"
-		)[0];
+		const sendOtpBtn =
+			container.getElementsByClassName("icon-spinner11")[0];
 		expect(sendOtpBtn).toBeTruthy();
 	});
 });

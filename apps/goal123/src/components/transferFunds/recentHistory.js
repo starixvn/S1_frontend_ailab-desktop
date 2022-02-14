@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { userInfoContext } from "../common/context";
 import { TransactionHistory } from "./historyResult";
 import path from "../../router";

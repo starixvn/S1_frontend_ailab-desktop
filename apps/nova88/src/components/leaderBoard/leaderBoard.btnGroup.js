@@ -27,7 +27,8 @@ const BtnBar = ({ t, btnList, onClick, selected, tab }) => {
 			<button
 				key={`leaderboard-btn-${item.id}`}
 				className={`${item.id === selected ? " active" : ""}`}
-				onClick={onClick.bind(this, item.id, tab)}>
+				onClick={onClick.bind(this, item.id, tab)}
+			>
 				{t(item.displayKey)}
 			</button>
 		);

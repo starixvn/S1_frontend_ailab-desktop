@@ -29,9 +29,8 @@ describe("click quick-pick", () => {
 			submitTranslation: jest.fn()
 		};
 		const { container } = render(<Wrapper {...fakeData} />);
-		const dropdown = container.getElementsByClassName(
-			"dropdown-container"
-		)[0];
+		const dropdown =
+			container.getElementsByClassName("dropdown-container")[0];
 		fireEvent.click(dropdown);
 		expect(dropdown.className.includes("active")).toBe(true);
 	});

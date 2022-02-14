@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { getUrlParameter, isConvert, number_format } from "../common/common";
 import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";

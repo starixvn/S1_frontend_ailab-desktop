@@ -20,7 +20,8 @@ export default ({ onlineBankingList }) => {
 			<li key={`deposit-onlineBank-${p.payId}-${p.channelId}`}>
 				<Link
 					to={`${_path}?name=${p.payName}&pId=${p.payId}&cId=${p.channelId}&max=${p.maxAmount}&min=${p.minAmount}`}
-					state={{ selBank: p.selBank }}>
+					state={{ selBank: p.selBank }}
+				>
 					<img
 						src={`${config.cloudImgUrl}/SiteSkin/img/Payment/${p.payName}.png`}
 						alt={p.payName}

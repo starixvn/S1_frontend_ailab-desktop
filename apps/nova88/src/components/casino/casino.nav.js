@@ -8,7 +8,8 @@ export default ({ t, onSelectNav, selNav }) => {
 			<button
 				key={`casino-nav-${k}`}
 				className={selNav === k ? "btn-check" : "blueBorder"}
-				onClick={() => onSelectNav(k)}>
+				onClick={() => onSelectNav(k)}
+			>
 				{t(_nav.displayKey)}
 			</button>
 		);

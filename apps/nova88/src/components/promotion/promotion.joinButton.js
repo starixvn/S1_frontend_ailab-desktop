@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import defPopBoxType from "../common/defPopBoxType";
 import { defPromotionType } from "./promotion.def";
@@ -98,13 +98,8 @@ export default ({ promotionInfo, userInfo, _isExpiry, filter, callBack }) => {
 
 	const onJoinPromotion = async () => {
 		const { langId, currencyId } = userInfo;
-		const {
-			bonusCode,
-			bonusType,
-			canJoin,
-			promotionType,
-			maxAmount
-		} = promotionInfo;
+		const { bonusCode, bonusType, canJoin, promotionType, maxAmount } =
+			promotionInfo;
 		const promotionCanJoin = checkPromotion({
 			promotionInfo,
 			userInfo,

@@ -70,7 +70,8 @@ export default class Panel extends Component {
 					<div
 						className="subMenu-Wrapper-new"
 						ref={this.wrapper}
-						onClick={this.closeSubMenu}>
+						onClick={this.closeSubMenu}
+					>
 						<SubMenu
 							currentMenuKey={this.state.menuKey}
 							productTpIds={this.props.productTpIds}

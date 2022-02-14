@@ -132,7 +132,8 @@ const Content = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											OK
 										</button>
 									</div>
@@ -151,7 +152,8 @@ const Content = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -170,7 +172,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -220,7 +223,8 @@ const Content = () => {
 					<button
 						className="btn-check"
 						type="submit"
-						onClick={clickSubmit}>
+						onClick={clickSubmit}
+					>
 						{t("lbl_Submit")}
 					</button>
 				</div>

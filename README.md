@@ -30,41 +30,41 @@ Please refer to the file ./.gitmessage.txt
 
 ## Install the Nx Plugin for Gatsby in your Nx workspace.
 
-- `yarn add @nrwl/gatsby --dev`
+-   `yarn add @nrwl/gatsby --dev`
 
-  or
+    or
 
-- `npm install @nrwl/gatsby --save-dev`
+-   `npm install @nrwl/gatsby --save-dev`
 
 ---
 
 ## Generate a new Gatsby application:
 
-- `nx generate @nrwl/gatsby:app my-app`
+-   `nx generate @nrwl/gatsby:app my-app`
 
 ## or
 
 ## Generate an application
 
-- `nx g @nrwl/react:app my-app`
+-   `nx g @nrwl/react:app my-app`
 
 ---
 
 ## To serve the application:
 
-- `nx serve my-app`
+-   `nx serve my-app`
 
 To build and serve the production application, use the --prod flag.
 
 To build the application:
 
-- `nx build myblog`
+-   `nx build myblog`
 
 [Gatsby support, custom workspace layouts, and more in Nx 9.4!](https://blog.nrwl.io/gatsby-support-custom-workspace-layouts-and-more-in-nx-9-4-497ae105bf4)
 
 ## Create Libs
 
-- `npx nx g @nrwl/react:lib ui`
+-   `npx nx g @nrwl/react:lib ui`
 
 [Create Libs](https://nx.dev/latest/react/tutorial/08-create-libs)
 
@@ -78,13 +78,13 @@ Libraries are sharable across libraries and applications. They can be imported f
 
 在 `apps` 加入現有的專案需要加入的設定
 
-- `nx.json` 以及 `workspace.json` 加入必須加入需要用到的專案以及共用元件
+-   `nx.json` 以及 `workspace.json` 加入必須加入需要用到的專案以及共用元件
 
 ![nx.png](README/nx.png)
 
 ![tsconfig](README/workspace.png)
 
-- 專案裡需要加入的設定
+-   專案裡需要加入的設定
 
 ![tsconfig.png](README/tsconfig.png)
 

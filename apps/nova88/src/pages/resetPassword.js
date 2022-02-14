@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { api_site_CheckResetPwdTokens } from "../service/api/site";
 import { api_accountStrict_ResetPassword } from "../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "../components/common/context";

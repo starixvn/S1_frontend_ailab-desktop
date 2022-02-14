@@ -148,7 +148,8 @@ export default ({ t, userInfo }) => {
 			<div
 				className="swiper-slide"
 				key={`promoGameList-${g.displayKey}`}
-				onClick={ClickGame.bind(this, g.tpId, g.gameId, g.linkType)}>
+				onClick={ClickGame.bind(this, g.tpId, g.gameId, g.linkType)}
+			>
 				<img src={g.img} alt={displayText} />
 				<span className={g.isNew ? "icon icon-new" : ""}>
 					{displayText}

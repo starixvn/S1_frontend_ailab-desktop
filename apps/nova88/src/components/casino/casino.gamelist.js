@@ -72,7 +72,8 @@ export default ({
 								g.tpId,
 								g.gameId,
 								false
-							)}>
+							)}
+						>
 							{t("lbl_PlayNow")}
 						</button>
 						{g.playFree ? (
@@ -83,7 +84,8 @@ export default ({
 									g.tpId,
 									g.gameId,
 									true
-								)}>
+								)}
+							>
 								{t("lbl_Free")}
 							</button>
 						) : null}

@@ -1,101 +1,101 @@
 import {
-  api_account_UserLogin,
-  api_account_UserLogout,
-  api_accountStrict_GetCustProfile,
-  api_site_CheckSignIn,
+	api_account_UserLogin,
+	api_account_UserLogout,
+	api_accountStrict_GetCustProfile,
+	api_site_CheckSignIn
 } from "@ailab-desktop/api";
 
 const isBrowser = typeof window !== `undefined`;
 
 export const LOGIN = async ({ userName, password }) => {
-  if (!isBrowser) return false;
+	if (!isBrowser) return false;
 
-  let result = {};
-  try {
-    let url,
-      platform,
-      userAgent,
-      screen,
-      di = "";
-    if (typeof window !== undefined) {
-      url = window.location.origin;
-      platform = navigator.platform;
-      userAgent = navigator.userAgent;
-      screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`;
-      di = document.getElementById("__di").value;
-    }
+	let result = {};
+	try {
+		let url,
+			platform,
+			userAgent,
+			screen,
+			di = "";
+		if (typeof window !== undefined) {
+			url = window.location.origin;
+			platform = navigator.platform;
+			userAgent = navigator.userAgent;
+			screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`;
+			di = document.getElementById("__di").value;
+		}
 
-    const res = await api_account_UserLogin({
-      UserName: userName,
-      Userpwd: password,
-      isPersistent: true,
-      url,
-      platform,
-      userAgent,
-      screen,
-      di,
-    });
+		const res = await api_account_UserLogin({
+			UserName: userName,
+			Userpwd: password,
+			isPersistent: true,
+			url,
+			platform,
+			userAgent,
+			screen,
+			di
+		});
 
-    let errMsg = res.data.message;
-    let isLogin = false;
-    let userData = {};
-    if (res.data.errorCode === 0) {
-      let userlangId = res.data.message.replace("/", "");
+		let errMsg = res.data.message;
+		let isLogin = false;
+		let userData = {};
+		if (res.data.errorCode === 0) {
+			let userlangId = res.data.message.replace("/", "");
 
-      const res_custInfo = await api_accountStrict_GetCustProfile();
-      let _loginUser = {
-        userName: userName,
-        langId: userlangId,
-        isLogin: true,
-      };
+			const res_custInfo = await api_accountStrict_GetCustProfile();
+			let _loginUser = {
+				userName: userName,
+				langId: userlangId,
+				isLogin: true
+			};
 
-      if (res_custInfo.data.errorCode === 0) {
-        let data = res_custInfo.data.data;
-        _loginUser = {
-          ..._loginUser,
-          ...data,
-        };
-      }
+			if (res_custInfo.data.errorCode === 0) {
+				let data = res_custInfo.data.data;
+				_loginUser = {
+					..._loginUser,
+					...data
+				};
+			}
 
-      errMsg = "";
-      isLogin = true;
-      userData = _loginUser;
-    }
+			errMsg = "";
+			isLogin = true;
+			userData = _loginUser;
+		}
 
-    result = {
-      errorCode: res.data.errorCode,
-      message: errMsg,
-      isLogin: isLogin,
-      userData: userData,
-    };
-  } catch (error) {
-    result = {
-      errorCode: 999,
-      message: "",
-      isLogin: false,
-      userData: {},
-    };
-  }
+		result = {
+			errorCode: res.data.errorCode,
+			message: errMsg,
+			isLogin: isLogin,
+			userData: userData
+		};
+	} catch (error) {
+		result = {
+			errorCode: 999,
+			message: "",
+			isLogin: false,
+			userData: {}
+		};
+	}
 
-  return result;
+	return result;
 };
 
 export const IS_LOGGED_IN = async () => {
-  return await api_site_CheckSignIn().then((res) => res.data.errorCode === 0);
+	return await api_site_CheckSignIn().then(res => res.data.errorCode === 0);
 };
 
-export const LOGOUT = (callback) => {
-  if (!isBrowser) return;
-  api_account_UserLogout().then(
-    (res) => {
-      if (res.data.errorCode === 0) {
-        callback();
-      }
-    },
-    (err) => {
-      if (err.response.status === 401) {
-        callback();
-      }
-    }
-  );
+export const LOGOUT = callback => {
+	if (!isBrowser) return;
+	api_account_UserLogout().then(
+		res => {
+			if (res.data.errorCode === 0) {
+				callback();
+			}
+		},
+		err => {
+			if (err.response.status === 401) {
+				callback();
+			}
+		}
+	);
 };

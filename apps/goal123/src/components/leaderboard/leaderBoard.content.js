@@ -102,7 +102,7 @@ const LeaderBoardContent = ({
 					<img
 						className="mb-2"
 						alt="champion-img"
-						src={require("../../styles/img/champion.png")}
+						src={require("../../styles/img/champion.png").default}
 					/>
 					<div className="highest">
 						<span>{`VND ${rewardList[0].reward}`}</span>
@@ -169,9 +169,11 @@ const RankItem = ({ item, idx, tab }) => {
 			<div>
 				<img
 					alt="nbadge-img"
-					src={require(`../../styles/img/${
-						idx <= 2 ? defImgRankId[idx + 1] : `nbadge`
-					}.png`)}
+					src={
+						require(`../../styles/img/${
+							idx <= 2 ? defImgRankId[idx + 1] : `nbadge`
+						}.png`).default
+					}
 				/>
 				{item?.rank || idx + 1}
 			</div>

@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { api_site_ExistsEmail } from "../../service/api/site";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
@@ -45,9 +45,8 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const [loading, setLoading] = useState(false);
-	const [mobileVerificationLoading, setMobileVerificationLoading] = useState(
-		false
-	);
+	const [mobileVerificationLoading, setMobileVerificationLoading] =
+		useState(false);
 
 	const [nameValue, setNameValue] = useState("");
 	const [birthValue, setBirthValue] = useState("");
@@ -356,7 +355,8 @@ export default () => {
 
 	const checkEmail = async () => {
 		let checkResult = false;
-		const emailRegex = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+		const emailRegex =
+			/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 		if (userInfo.email) {
 			checkResult = true;

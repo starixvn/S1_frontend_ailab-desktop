@@ -30,7 +30,8 @@ export const Pagination = ({ currentPage, totalPages, clickPageNumber }) => {
 			<a
 				key={`pageNumber-${i}`}
 				className={`${i === currentPage ? "active" : ""}`}
-				onClick={_clickPageNumber.bind(this, i)}>
+				onClick={_clickPageNumber.bind(this, i)}
+			>
 				{i}
 			</a>
 		);

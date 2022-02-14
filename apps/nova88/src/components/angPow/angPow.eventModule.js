@@ -61,7 +61,8 @@ const AngPowEventModule = ({ drawPrizeList, currencyId, isLogin, t }) => {
 											{drawPrizeList.map(item => {
 												return (
 													<tr
-														key={`key-${item.drawTime}`}>
+														key={`key-${item.drawTime}`}
+													>
 														<td>
 															{moment(
 																item.drawTime

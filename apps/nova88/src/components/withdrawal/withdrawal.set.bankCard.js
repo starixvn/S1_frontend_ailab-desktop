@@ -69,7 +69,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="gray"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -127,7 +128,8 @@ export default ({
 									<div className="btnGroup">
 										<button
 											className="gray"
-											onClick={ClosePopBox}>
+											onClick={ClosePopBox}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -150,7 +152,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="gray"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -208,7 +211,8 @@ export default ({
 				custBankInfo.length < 3 ? (
 					<div
 						className="addBankName noBank"
-						onClick={addBankAccount}>
+						onClick={addBankAccount}
+					>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddBankAccount")}</div>
 					</div>

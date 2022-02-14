@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { api_news_GetNews } from "../../../service/api/news";
 import usePopBox from "../../hook/usePopBox";
 import path from "../../../router";

@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { defMenuLinks } from "../header/header.menu.def";

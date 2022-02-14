@@ -22,7 +22,8 @@ export default () => {
 	return (
 		<div
 			className="quickLink"
-			className={`quickLink ${active ? "active" : ""}`}>
+			className={`quickLink ${active ? "active" : ""}`}
+		>
 			<div>
 				<button className="icon icon-chat" onClick={openLiveChat} />
 
@@ -30,7 +31,8 @@ export default () => {
 					className={`icon ${
 						active ? "icon-cancel-circle" : "icon-arrow-up2"
 					} `}
-					onClick={activeToggleHandler}>
+					onClick={activeToggleHandler}
+				>
 					{t("lbl_ContactUs")}
 				</i>
 			</div>
@@ -60,7 +62,8 @@ export default () => {
 						className="icon icon-whatsapp"
 						onClick={() =>
 							openLink("https://wa.me/639456388147", "whatsapp")
-						}>
+						}
+					>
 						Whatsapp
 						<div className="txt-blue">
 							+63 945 638 8147
@@ -73,7 +76,8 @@ export default () => {
 						className="icon icon-line"
 						onClick={() =>
 							openLink("https://lin.ee/SAPymLI ", "line.me")
-						}>
+						}
+					>
 						Line
 						<div className="txt-blue">
 							@nova88thai

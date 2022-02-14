@@ -111,9 +111,8 @@ describe("click info icon", () => {
 			"icon icon-information"
 		)[0];
 		fireEvent.click(icon_first);
-		const tip_first = container.getElementsByClassName(
-			"tip active txt-red"
-		)[0];
+		const tip_first =
+			container.getElementsByClassName("tip active txt-red")[0];
 		expect(tip_first).toBeTruthy();
 	});
 });

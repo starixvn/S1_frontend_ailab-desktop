@@ -49,7 +49,8 @@ export default ({ step }) => {
 		return (
 			<div
 				className={sIdx <= step - 1 ? "active" : ""}
-				key={`deposit-step-${s.title}`}>
+				key={`deposit-step-${s.title}`}
+			>
 				<span>{s.title}</span>
 				<span>{s.description}</span>
 			</div>

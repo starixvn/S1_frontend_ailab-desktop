@@ -120,7 +120,8 @@ export default ({
 					<div className="btnGroup">
 						<button
 							className={`${checked ? "btn-check" : "darkGray"}`}
-							onClick={SubmitAmount}>
+							onClick={SubmitAmount}
+						>
 							{t("lbl_Submit")}
 						</button>
 					</div>
@@ -148,7 +149,8 @@ const FixedAmountList = ({
 				<button
 					onClick={onSelectAmount.bind(this, _afterConvertAmount)}
 					className={`blue${isSelected ? " active" : ""}`}
-					key={`deposit-mobile-${a}`}>
+					key={`deposit-mobile-${a}`}
+				>
 					{number_format(a, _isConvert)}
 					<i className="icon icon-checkmark" />
 				</button>

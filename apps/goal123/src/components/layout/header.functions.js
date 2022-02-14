@@ -1,6 +1,6 @@
 import React, { useContext, lazy, Suspense } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, navigate } from "@reach/router";
+import { Link, navigate } from "gatsby";
 import {
 	userInfoContext,
 	popBoxContext,

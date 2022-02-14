@@ -45,9 +45,8 @@ describe("changeRewardTab", () => {
 describe("linkToTnc", () => {
 	test("if click the more detail, function-linkToTnc have been called", () => {
 		const { container } = render(<EventTab {...fakeData} />);
-		const button_moreDetails = container.getElementsByClassName(
-			"remind btn"
-		)[0];
+		const button_moreDetails =
+			container.getElementsByClassName("remind btn")[0];
 		fireEvent.click(button_moreDetails);
 		expect(fakeData.linkToTnc).toHaveBeenCalled();
 	});

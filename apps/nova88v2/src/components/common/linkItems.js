@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, navigate } from "@reach/router";
+import { Link, navigate } from "gatsby";
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
@@ -282,7 +282,7 @@ export default ({
 			return (
 				<Link
 					key={key}
-					to={`${langId}/${_path}`}
+					to={`/${langId}/${_path}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
 					<div className={iconStrings}>{iconContent}</div>

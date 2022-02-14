@@ -25,9 +25,8 @@ const CryptoPayForm = ({
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 	const [groupIdForRecord, setGroupIdForRecord] = useState(defaultGroupId);
-	const [infoChannelIdForRecord, setInfoChannelIdForRecord] = useState(
-		defaultChannelId
-	);
+	const [infoChannelIdForRecord, setInfoChannelIdForRecord] =
+		useState(defaultChannelId);
 
 	const onGetCryptoPayList = async gId => {
 		setGroupIdForRecord(gId);
@@ -127,7 +126,7 @@ const CryptoPayForm = ({
 								<img
 									src={`${
 										config.cloudImgUrl
-									}/SiteSkin/img/Payment/${item.groupName.toLowerCase()}.png`}
+									}/SiteSkin/img/Payment/${item?.groupName?.toLowerCase()}.png`}
 									alt={item.groupName}
 								/>
 								<i className="icon icon-icon32px_check" />

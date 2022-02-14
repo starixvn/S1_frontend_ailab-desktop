@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { popBoxContext } from "../common/context";
 import { api_news_GetNews } from "../../service/api/news";
 import defPopBoxType from "../common/defPopBoxType";
