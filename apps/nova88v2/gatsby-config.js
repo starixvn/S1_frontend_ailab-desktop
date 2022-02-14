@@ -58,6 +58,7 @@ module.exports = {
 			"/api",
 			createProxyMiddleware({
 				target: "https://www.n88dev.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
@@ -65,6 +66,7 @@ module.exports = {
 			"/SiteSkin",
 			createProxyMiddleware({
 				target: "https://www.n88dev.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
@@ -72,6 +74,7 @@ module.exports = {
 			"*/Cashier",
 			createProxyMiddleware({
 				target: "https://www.n88dev.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
@@ -79,6 +82,7 @@ module.exports = {
 			"*/entPage",
 			createProxyMiddleware({
 				target: "https://www.n88dev.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
@@ -86,6 +90,7 @@ module.exports = {
 			"*/liveStreamingEntPage",
 			createProxyMiddleware({
 				target: "https://www.n88dev.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);

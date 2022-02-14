@@ -53,6 +53,7 @@ module.exports = {
 			"/api",
 			createProxyMiddleware({
 				target: "https://stag.bwing.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
@@ -60,6 +61,7 @@ module.exports = {
 			"/SiteSkin",
 			createProxyMiddleware({
 				target: "https://stag.bwing.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
@@ -67,6 +69,7 @@ module.exports = {
 			"*/Cashier",
 			createProxyMiddleware({
 				target: "https://stag.bwing.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
@@ -74,6 +77,7 @@ module.exports = {
 			"*/entPage",
 			createProxyMiddleware({
 				target: "https://stag.bwing.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
@@ -81,6 +85,7 @@ module.exports = {
 			"*/liveStreamingEntPage",
 			createProxyMiddleware({
 				target: "https://stag.bwing.com",
+				changeOrigin: true,
 				secure: false // Do not reject self-signed certificates.
 			})
 		);
