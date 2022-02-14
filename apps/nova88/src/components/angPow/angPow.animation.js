@@ -126,7 +126,8 @@ const AngPowAnimation = ({
 				<div
 					className={`time ${
 						isLogin && (_isJoin || _drawOut) ? "active" : ""
-					}`}>
+					}`}
+				>
 					{t("lbl_Next")}
 					<div>{secondsToTime(downDiffTime)}</div>
 				</div>

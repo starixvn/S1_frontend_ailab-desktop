@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { Redirect } from "@reach/router";
+import { navigate } from "gatsby";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import {
@@ -210,11 +210,8 @@ export default () => {
 							EventCode: payload.EventCode
 						}).then(resRank => {
 							if (resRank.data.errorCode === 0) {
-								const {
-									custRank,
-									point,
-									status
-								} = resRank.data.data;
+								const { custRank, point, status } =
+									resRank.data.data;
 								setRankingData(() => {
 									const rank =
 										custRank > 999 || custRank === 0
@@ -391,7 +388,8 @@ export default () => {
 	};
 
 	if (!_canSeeLeaderBoard) {
-		return <Redirect to={`/${userInfo.langId}`} noThrow />;
+		navigate(`/${userInfo.langId}`);
+		return null;
 	}
 
 	return (

@@ -27,9 +27,8 @@ export default function LoadCardForm({
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 
 	const [paymentList, setPaymentList] = useState([]);
-	const [infoChannelIdForRecord, setInfoChannelIdForRecord] = useState(
-		defaultChannelId
-	);
+	const [infoChannelIdForRecord, setInfoChannelIdForRecord] =
+		useState(defaultChannelId);
 
 	const onChangePaymentHandler = item => {
 		window.history.replaceState(

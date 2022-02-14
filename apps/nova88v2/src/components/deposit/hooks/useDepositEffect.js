@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { useLocation, Link, navigate } from "@reach/router";
+import { useLocation } from "@reach/router";
+import { Link, navigate } from "gatsby";
 import {
 	getUrlParameter,
 	readCookie,

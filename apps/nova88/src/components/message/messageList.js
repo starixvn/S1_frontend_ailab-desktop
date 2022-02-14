@@ -78,7 +78,8 @@ export default props => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -97,7 +98,8 @@ export default props => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -132,7 +134,8 @@ export default props => {
 				</div>
 				<div
 					className="txt-blue"
-					onClick={() => getMsgContent(!showContent)}>
+					onClick={() => getMsgContent(!showContent)}
+				>
 					{dateTimeFormat()}
 
 					<button className="icon icon-keyboard_arrow_down" />

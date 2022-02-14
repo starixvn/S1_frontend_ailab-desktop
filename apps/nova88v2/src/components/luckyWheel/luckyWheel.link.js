@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import PropTypes from "prop-types";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { isDateRange, getCurrencyCode } from "../common/common";
 import { eventPeriod, CURRENCY_PERMISSION } from "./luckyWheel.def";
 import path from "../../router";

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { api_site_ForgetPwd } from "../../service/api/site";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
@@ -32,7 +32,8 @@ const ForgetPassword = () => {
 	const emailCheck = val => {
 		let _checked = true;
 		let _msg = "";
-		const regx = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+		const regx =
+			/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 		if (val === "") {
 			_checked = false;

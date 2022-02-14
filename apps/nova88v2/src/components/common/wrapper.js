@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect, navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
@@ -517,5 +517,8 @@ export default ({
 
 		return content;
 	}
-	return <Redirect to={redirectPath} noThrow />;
+
+	navigate(redirectPath);
+
+	return [];
 };

@@ -104,18 +104,21 @@ export default ({
 			ref={cashBarRef}
 			onMouseMove={onMouseMoveHandlar}
 			onMouseUp={onMouseUpHandlar}
-			className="cashBar">
+			className="cashBar"
+		>
 			<button className="min" onClick={() => onChangeAmount(1)}>
 				Min
 			</button>
 
 			<div
 				className="cashLine"
-				style={{ width: `${cashLineWidthPercentage}%` }}>
+				style={{ width: `${cashLineWidthPercentage}%` }}
+			>
 				<div
 					onMouseDown={onMouseDownHandlar}
 					style={{ cursor: "pointer" }}
-					className="cashPoint">
+					className="cashPoint"
+				>
 					<span style={spanStyle}>
 						{`$${number_format(resultAmount)} ${
 							_isConvert ? "('000)" : ""

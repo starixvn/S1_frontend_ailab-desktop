@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { promoStatus, defPromotionType, defFilterType } from "./promotion.def";
 import { defPopBoxType } from "../common/defPopBoxType";
 import path from "../../router";
@@ -49,14 +49,8 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 		bonusCode
 	} = promotionInfo;
 
-	const {
-		isLogin,
-		currencyId,
-		accountName,
-		phoneNo,
-		email,
-		langId
-	} = userInfo;
+	const { isLogin, currencyId, accountName, phoneNo, email, langId } =
+		userInfo;
 
 	const clickClose = () => {
 		setPopBox({ isOpen: false });

@@ -148,7 +148,7 @@ AutoDepositForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
-	autoDepositGroupList: arrayOf(any).isRequired,
+	autoDepositGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	onChangePromotion: func.isRequired
 };
 

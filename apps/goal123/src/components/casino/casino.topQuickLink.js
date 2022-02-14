@@ -1,5 +1,8 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation } from "swiper";
+
+SwiperCore.use([Navigation]);
 
 export default ({ lobbyImgList, activeProviderId, editSearchField }) => {
 	const _slidesPerViewNum = 9;
@@ -17,7 +20,7 @@ export default ({ lobbyImgList, activeProviderId, editSearchField }) => {
 
 	return (
 		<div className="partnerSelect">
-			<Swiper navigation {...params}>
+			<Swiper navigation={true} {...params}>
 				{dataRows.map((item, idx) => {
 					return (
 						<SwiperSlide

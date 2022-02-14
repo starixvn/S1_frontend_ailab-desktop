@@ -1,6 +1,6 @@
 import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { api_account_SetLanguage } from "../../service/api/account";
 import { setCookie } from "./common";
 import { SiteInfo } from "../../config";

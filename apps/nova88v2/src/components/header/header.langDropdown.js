@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { Redirect } from "@reach/router";
+import { navigate } from "gatsby";
 import DropdownHeader from "../common/dropdown.langList";
 import { userInfoContext, popBoxContext } from "../common/context";
 
@@ -64,20 +64,22 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
-	return redirectPath === null ? (
-		<DropdownHeader
-			mainKey="header-langList"
-			className="country"
-			subClassName="countryList"
-			defLangGroup={_defLangGroup}
-			defLangGroupCountry={defLangGroupCountry}
-			selectedValue={userInfo.langId}
-			isLogin={userInfo.isLogin}
-			isMountedRef={isMountedRef}
-			setPopBox={setPopBox}
-			clickClose={clickClose}
-		/>
-	) : (
-		<Redirect to={redirectPath} noThrow />
-	);
+	if (redirectPath === null) {
+		return (
+			<DropdownHeader
+				mainKey="header-langList"
+				className="country"
+				subClassName="countryList"
+				defLangGroup={_defLangGroup}
+				defLangGroupCountry={defLangGroupCountry}
+				selectedValue={userInfo.langId}
+				isLogin={userInfo.isLogin}
+				isMountedRef={isMountedRef}
+				setPopBox={setPopBox}
+				clickClose={clickClose}
+			/>
+		);
+	}
+	navigate(redirectPath);
+	return [];
 };

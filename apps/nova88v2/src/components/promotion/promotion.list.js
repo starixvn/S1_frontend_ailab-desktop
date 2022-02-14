@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "gatsby";
+import path from "../../router";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
 import { isNew, isClaimed, isArrayNotEmpty } from "./promotion.common";

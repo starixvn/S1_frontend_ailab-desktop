@@ -53,10 +53,9 @@ const Content = () => {
 
 	const { asyncUploadBankPopBox } = useDeposit({ isMountedRef, userInfo });
 
-	const {
-		setLocalBankReceipt,
-		uploadLocalBankReceipt
-	} = useDepositLocalBank({ isMountedRef });
+	const { setLocalBankReceipt, uploadLocalBankReceipt } = useDepositLocalBank(
+		{ isMountedRef }
+	);
 
 	useEffect(() => {
 		isMountedRef.current = true;

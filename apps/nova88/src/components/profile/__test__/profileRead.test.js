@@ -18,7 +18,8 @@ describe("click send OTP button", () => {
 	};
 	const ProfileDataWrapper = () => (
 		<ct.userInfoContext.Provider
-			value={{ userInfo, setUserInfo: jest.fn() }}>
+			value={{ userInfo, setUserInfo: jest.fn() }}
+		>
 			<DisplayRow {...fakeData} />
 		</ct.userInfoContext.Provider>
 	);
@@ -45,7 +46,8 @@ describe("show OTP verify loading", () => {
 	};
 	const ProfileDataWrapper = () => (
 		<ct.userInfoContext.Provider
-			value={{ userInfo, setUserInfo: jest.fn() }}>
+			value={{ userInfo, setUserInfo: jest.fn() }}
+		>
 			<DisplayRow {...fakeData} />
 		</ct.userInfoContext.Provider>
 	);
@@ -70,15 +72,15 @@ describe("phone is verified", () => {
 	};
 	const ProfileDataWrapper = () => (
 		<ct.userInfoContext.Provider
-			value={{ userInfo, setUserInfo: jest.fn() }}>
+			value={{ userInfo, setUserInfo: jest.fn() }}
+		>
 			<DisplayRow {...fakeData} />
 		</ct.userInfoContext.Provider>
 	);
 	test("if phone is verified show check icon ", () => {
 		const { container } = render(<ProfileDataWrapper />);
-		const verifiedIcon = container.getElementsByClassName(
-			"icon-checkmark"
-		)[0];
+		const verifiedIcon =
+			container.getElementsByClassName("icon-checkmark")[0];
 		expect(verifiedIcon).toBeTruthy();
 	});
 });

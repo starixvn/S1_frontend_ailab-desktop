@@ -163,10 +163,8 @@ export default () => {
 							}).then(
 								resRank => {
 									if (resRank.data.errorCode === 0) {
-										const {
-											custRank,
-											point
-										} = resRank.data.data;
+										const { custRank, point } =
+											resRank.data.data;
 
 										setRankingData(() => {
 											const rank =

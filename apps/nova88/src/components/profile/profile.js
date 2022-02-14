@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { InfoList, initValue, initStatus, DisplayRow } from "./profile.data";
 import areaCode from "../../datas/areaCode";
@@ -28,9 +28,8 @@ export default () => {
 	const isMountedRef = useRef(null);
 	const [countryList, setCountryList] = useState([]);
 	const infoList = InfoList({ countryList });
-	const [mobileVerificationLoading, setMobileVerificationLoading] = useState(
-		false
-	);
+	const [mobileVerificationLoading, setMobileVerificationLoading] =
+		useState(false);
 	const country =
 		userInfo.country && userInfo.country !== "null"
 			? userInfo.country

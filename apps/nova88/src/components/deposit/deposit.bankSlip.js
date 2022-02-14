@@ -133,7 +133,8 @@ export class Module extends Component {
 										<div className="btnGroup">
 											<button
 												className="btn-cancel"
-												onClick={ClickClose}>
+												onClick={ClickClose}
+											>
 												OK
 											</button>
 										</div>
@@ -202,7 +203,8 @@ export class Module extends Component {
 						this.state.picFormatTip ? " error" : ""
 					}`}
 					onDragOver={this.dragOver.bind(this)}
-					onDrop={this.onUploadFile.bind(this, "onDrop")}>
+					onDrop={this.onUploadFile.bind(this, "onDrop")}
+				>
 					<input
 						type="file"
 						accept="image/*"
@@ -254,7 +256,8 @@ export class Module extends Component {
 							<a
 								href={this.props.bankSite}
 								className="icon icon-new-tab"
-								target="_blank">
+								target="_blank"
+							>
 								<span>
 									{this.props.i18n("lbl_OpenOtherSite")}
 								</span>
@@ -267,7 +270,8 @@ export class Module extends Component {
 						<li>
 							<button
 								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={this.props.accountName}>
+								data-clipboard-text={this.props.accountName}
+							>
 								<span>{this.props.i18n("lbl_Copy")}</span>
 							</button>
 						</li>
@@ -278,7 +282,8 @@ export class Module extends Component {
 						<li>
 							<button
 								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={this.props.accountNo}>
+								data-clipboard-text={this.props.accountNo}
+							>
 								<span>{this.props.i18n("lbl_Copy")}</span>
 							</button>
 						</li>
@@ -294,7 +299,8 @@ export class Module extends Component {
 						<li>
 							<button
 								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={this.props.amount}>
+								data-clipboard-text={this.props.amount}
+							>
 								<span>{this.props.i18n("lbl_Copy")}</span>
 							</button>
 						</li>
@@ -326,7 +332,8 @@ export class Module extends Component {
 					<div
 						className={`tip${
 							this.state.depositTimeTip ? " active" : ""
-						}`}>
+						}`}
+					>
 						{this.state.depositTimeTip}
 					</div>
 
@@ -345,7 +352,8 @@ export class Module extends Component {
 						<button
 							type="button"
 							className="gray"
-							onClick={this.props.ClosePopBox}>
+							onClick={this.props.ClosePopBox}
+						>
 							{this.props.i18n("lbl_Cancel")}
 						</button>
 						<button className="orange" type="submit">

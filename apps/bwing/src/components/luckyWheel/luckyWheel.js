@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext, useMemo } from "react";
-import { Redirect } from "@reach/router";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import {
 	useDrawPrizeFetcher,
@@ -27,17 +27,11 @@ const LuckyWheel = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { errorPopBox, setPopBox, closePopBox } = usePopBox();
 
-	const {
-		drawPrize,
-		custDrawPrizeList,
-		postDrawPrize,
-		checkDrawPrize
-	} = useDrawPrizeFetcher({ defEventId, isMountedRef });
+	const { drawPrize, custDrawPrizeList, postDrawPrize, checkDrawPrize } =
+		useDrawPrizeFetcher({ defEventId, isMountedRef });
 
-	const [
-		{ data: displayDrawPrizeList },
-		getDisplayDrawPrizeList
-	] = useDataApi([], api_events_GetDisplayDrawPrizeList);
+	const [{ data: displayDrawPrizeList }, getDisplayDrawPrizeList] =
+		useDataApi([], api_events_GetDisplayDrawPrizeList);
 
 	const openPrizePopBox = (prizeName, type) => {
 		const contents = {
@@ -129,7 +123,10 @@ const LuckyWheel = () => {
 		};
 	});
 
-	if (!isInPeriod) return <Redirect to={`/${userInfo.langId}`} noThrow />;
+	if (!isInPeriod) {
+		navigate(`/${userInfo.langId}`);
+		return [];
+	}
 
 	return (
 		<>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useContext, useMemo } from "react";
 import { useTranslation, Trans } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import AddBankAccount from "./addBankAccount";
 import Available from "./withdrawal.set.available";
 import Calculation from "./withdrawal.set.calculation";
@@ -90,9 +90,8 @@ export default ({
 		INIT_BANK_INFO_DETAIL
 	);
 
-	const [currentUSDTDetail, setCurrentUSDTDetail] = useState(
-		INIT_USED_DETAIL
-	);
+	const [currentUSDTDetail, setCurrentUSDTDetail] =
+		useState(INIT_USED_DETAIL);
 
 	const getWithdrawalMinMaxLimit = () => {
 		let limit = {};
@@ -107,11 +106,8 @@ export default ({
 		return limit;
 	};
 
-	const {
-		withdrawalMin,
-		withdrawalMax,
-		isAmountLimited
-	} = getWithdrawalMinMaxLimit();
+	const { withdrawalMin, withdrawalMax, isAmountLimited } =
+		getWithdrawalMinMaxLimit();
 
 	useEffect(() => {
 		isMountedRef.current = true;

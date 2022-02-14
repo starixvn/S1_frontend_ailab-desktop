@@ -143,7 +143,8 @@ export const routerFlattenToPath = (path, orderNumber) => {
 };
 
 export const passwordCheck = val => {
-	const passwordRegx = /^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,15}$/;
+	const passwordRegx =
+		/^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,15}$/;
 
 	if (val === "")
 		return {
@@ -193,19 +194,21 @@ export const removeLocalStorage = key => {
 
 export const uuidv4 = () => {
 	// eslint-disable-next-line func-names
-	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (
-		c
-	) {
-		// eslint-disable-next-line no-bitwise
-		const r = (Math.random() * 16) | 0;
-		// eslint-disable-next-line no-bitwise
-		const v = c === "x" ? r : (r & 0x3) | 0x8;
-		return v.toString(16);
-	});
+	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+		/[xy]/g,
+		function (c) {
+			// eslint-disable-next-line no-bitwise
+			const r = (Math.random() * 16) | 0;
+			// eslint-disable-next-line no-bitwise
+			const v = c === "x" ? r : (r & 0x3) | 0x8;
+			return v.toString(16);
+		}
+	);
 };
 
 export const stringLinkify = text => {
-	const pattern = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+	const pattern =
+		/(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
 	return text
 		.replace(pattern, '<a href="$1" target="_blank">$1</a>')
 		.replaceAll("\n", "<br>");

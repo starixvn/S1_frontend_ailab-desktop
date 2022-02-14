@@ -75,9 +75,8 @@ describe("phone is verified", () => {
 	};
 	test("if phone is verified show check icon ", () => {
 		const { container } = render(<ProfileRead {...fakeData} />);
-		const sendOtpBtn = container.getElementsByClassName(
-			"icon-checkmark"
-		)[0];
+		const sendOtpBtn =
+			container.getElementsByClassName("icon-checkmark")[0];
 		expect(sendOtpBtn).toBeTruthy();
 	});
 });

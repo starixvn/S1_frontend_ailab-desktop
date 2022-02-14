@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import path from "../../router";
 import { defNav } from "../casino/casino.def";
 

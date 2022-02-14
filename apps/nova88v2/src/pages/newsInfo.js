@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import { Redirect } from "@reach/router";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import Wrapper from "../components/common/wrapper";
 import Layout from "../components/common/layout";
@@ -119,22 +119,27 @@ const Content = () => {
 		setRedirectPath(`/${userInfo.langId}`);
 	};
 
-	return loading ? (
-		<Loading />
-	) : redirectPath === null ? (
-		<div className="infoModule">
-			<button
-				className="btn-check icon icon-arrow-left2"
-				onClick={clickBack}>
-				{t("lbl_Back")}
-			</button>
-			<article>
-				<img src={newsInfo.imageURL} alt={newsInfo.title} />
-				<h1>{newsInfo.title}</h1>
-				<pre>{newsInfo.content}</pre>
-			</article>
-		</div>
-	) : (
-		<Redirect to={redirectPath} noThrow />
-	);
+	if (loading) {
+		return <Loading />;
+	}
+
+	if (redirectPath === null) {
+		return (
+			<div className="infoModule">
+				<button
+					className="btn-check icon icon-arrow-left2"
+					onClick={clickBack}>
+					{t("lbl_Back")}
+				</button>
+				<article>
+					<img src={newsInfo.imageURL} alt={newsInfo.title} />
+					<h1>{newsInfo.title}</h1>
+					<pre>{newsInfo.content}</pre>
+				</article>
+			</div>
+		);
+	}
+
+	redirect();
+	return [];
 };

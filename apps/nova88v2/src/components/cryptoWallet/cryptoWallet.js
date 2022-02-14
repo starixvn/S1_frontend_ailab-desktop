@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
 import { userInfoContext, popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";

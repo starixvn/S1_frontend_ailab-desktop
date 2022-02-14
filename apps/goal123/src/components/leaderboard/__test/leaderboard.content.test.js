@@ -32,9 +32,8 @@ describe("onChangePeriod", () => {
 		const { container } = render(
 			<RankingContent {...fakeData} tab={_tab} />
 		);
-		const button_groups = container.getElementsByClassName(
-			"dateSelector"
-		)[0];
+		const button_groups =
+			container.getElementsByClassName("dateSelector")[0];
 		const button_first = button_groups.firstChild;
 		fireEvent.click(button_first);
 		expect(fakeData.onChangePeriod).toHaveBeenCalled();
@@ -47,9 +46,8 @@ describe("onChangeDays", () => {
 		const { container } = render(
 			<RankingContent {...fakeData} tab={_tab} />
 		);
-		const button_groups = container.getElementsByClassName(
-			"dateSelector"
-		)[0];
+		const button_groups =
+			container.getElementsByClassName("dateSelector")[0];
 		const button_first = button_groups.firstChild;
 		fireEvent.click(button_first);
 		expect(fakeData.onChangeDays).toHaveBeenCalled();

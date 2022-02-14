@@ -135,7 +135,8 @@ export default props => {
 						endDate,
 						false,
 						selectedIdx
-					)}>
+					)}
+				>
 					{t("lbl_Submit")}
 				</button>
 			</div>

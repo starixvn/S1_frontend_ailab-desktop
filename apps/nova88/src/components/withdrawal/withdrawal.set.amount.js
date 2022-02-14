@@ -151,7 +151,8 @@ export default ({ dispatch, state, t, _isConvert }) => {
 						<button
 							className={state.checked ? "btn-check" : "gray"}
 							disabled={!state.checked}
-							type="submit">
+							type="submit"
+						>
 							{t("lbl_Submit")}
 						</button>
 					</div>

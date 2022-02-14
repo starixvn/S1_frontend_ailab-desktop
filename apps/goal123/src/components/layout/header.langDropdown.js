@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { Redirect } from "@reach/router";
+import { navigate } from "gatsby";
 import DropdownHeader from "../common/dropdown.langList";
 import { userInfoContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
@@ -17,16 +17,18 @@ export default () => {
 		};
 	});
 
-	return redirectPath === null ? (
-		<DropdownHeader
-			mainKey="header-langList"
-			className="country"
-			subClassName="countryList"
-			selectedValue={userInfo.langId}
-			isLogin={userInfo.isLogin}
-			errorPopBox={errorPopBox}
-		/>
-	) : (
-		<Redirect to={redirectPath} noThrow />
-	);
+	if (redirectPath === null) {
+		return (
+			<DropdownHeader
+				mainKey="header-langList"
+				className="country"
+				subClassName="countryList"
+				selectedValue={userInfo.langId}
+				isLogin={userInfo.isLogin}
+				errorPopBox={errorPopBox}
+			/>
+		);
+	}
+	navigate(redirectPath);
+	return [];
 };

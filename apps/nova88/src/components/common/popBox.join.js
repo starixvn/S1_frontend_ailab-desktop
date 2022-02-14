@@ -88,7 +88,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -119,7 +120,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -138,7 +140,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClosePopBox}>
+									onClick={ClosePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -276,7 +279,8 @@ export default () => {
 	const emailCheck = async val => {
 		let checked = false;
 		let msg = "";
-		const regx = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+		const regx =
+			/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 		if (val === "") {
 			checked = false;
@@ -523,7 +527,8 @@ export default () => {
 															className="btn-cancel"
 															onClick={
 																ClosePopBox
-															}>
+															}
+														>
 															{t("lbl_Close")}
 														</button>
 													</div>
@@ -544,7 +549,8 @@ export default () => {
 												<div className="btnGroup">
 													<button
 														className="btn-cancel"
-														onClick={ClosePopBox}>
+														onClick={ClosePopBox}
+													>
 														{t("lbl_Close")}
 													</button>
 												</div>
@@ -597,7 +603,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClosePopBox}>
+											onClick={ClosePopBox}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -616,7 +623,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -667,7 +675,8 @@ export default () => {
 						<button
 							className="txt-orange"
 							type="button"
-							onClick={openLogin}>
+							onClick={openLogin}
+						>
 							{t("lbl_LoginHere")}
 						</button>
 					</div>
@@ -726,7 +735,8 @@ export default () => {
 						<div
 							className={`inputBox-org${
 								tip.currency.msg !== "" ? " error" : ""
-							}`}>
+							}`}
+						>
 							<Dropdown
 								defaultOption={defaultOption}
 								mainKey="join_currency"
@@ -794,12 +804,14 @@ export default () => {
 						<Checkbox
 							id="joinTermsCheck"
 							checked={userValue.termsCheck}
-							onChange={checkboxHandler.bind(null, "termsCheck")}>
+							onChange={checkboxHandler.bind(null, "termsCheck")}
+						>
 							{t("lbl_Check18TC1")}
 							<a
 								target="_blank"
 								rel="noreferrer"
-								href={TandC(defaultLangId).terms}>
+								href={TandC(defaultLangId).terms}
+							>
 								{t("lbl_TermsConditions")}
 							</a>
 							&nbsp;
@@ -807,7 +819,8 @@ export default () => {
 							<a
 								target="_blank"
 								rel="noreferrer"
-								href={TandC(defaultLangId).rule}>
+								href={TandC(defaultLangId).rule}
+							>
 								{t("lbl_RuleRegulations")}
 							</a>
 							&nbsp;
@@ -818,7 +831,8 @@ export default () => {
 						<Checkbox
 							id="joinAgeCheck"
 							checked={userValue.ageCheck}
-							onChange={checkboxHandler.bind(null, "ageCheck")}>
+							onChange={checkboxHandler.bind(null, "ageCheck")}
+						>
 							{t("lbl_Check18TC4")}
 						</Checkbox>
 					</div>
@@ -830,7 +844,8 @@ export default () => {
 						<button
 							type="button"
 							className="btn-cancel"
-							onClick={ClosePopBox}>
+							onClick={ClosePopBox}
+						>
 							{t("lbl_Cancel")}
 						</button>
 						<button className="btn-check" type="submit">

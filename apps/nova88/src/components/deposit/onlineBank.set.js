@@ -103,13 +103,8 @@ export default () => {
 				if (!paymentInfo?.selBank)
 					return navigate(`/${userInfo.langId}/${path.deposit.root}`);
 
-				const {
-					channelId,
-					payName,
-					maxAmount,
-					minAmount,
-					selBank
-				} = paymentInfo;
+				const { channelId, payName, maxAmount, minAmount, selBank } =
+					paymentInfo;
 
 				navigate(
 					`${_path}?name=${payName}&pId=${pId}&cId=${channelId}&max=${maxAmount}&min=${minAmount}`,

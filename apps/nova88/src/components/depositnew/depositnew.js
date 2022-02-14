@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import {
@@ -30,9 +30,8 @@ import LocalBankForm from "./components/localBankForm";
 const Depositnew = () => {
 	const parameterDefaultType = getUrlParameter("type");
 
-	const isDepositTypeIncludes = Object.values(defDepositType).includes(
-		parameterDefaultType
-	);
+	const isDepositTypeIncludes =
+		Object.values(defDepositType).includes(parameterDefaultType);
 
 	const { t } = useTranslation();
 
@@ -42,10 +41,8 @@ const Depositnew = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 
-	const [
-		processingDescriptionActive,
-		setProcessingDescriptionActive
-	] = useState(false);
+	const [processingDescriptionActive, setProcessingDescriptionActive] =
+		useState(false);
 
 	const [depositType, setDepositType] = useState(
 		isDepositTypeIncludes ? parameterDefaultType : defDepositType.mobile

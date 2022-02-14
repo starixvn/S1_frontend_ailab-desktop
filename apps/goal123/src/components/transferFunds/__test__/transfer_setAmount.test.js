@@ -33,9 +33,8 @@ describe("open dropdown ", () => {
 			selectedFromIdx: 2
 		};
 		const { container } = render(<SetAmount {...fakeData} />);
-		const dopdown_from = container.getElementsByClassName(
-			"dropdown-container"
-		)[0];
+		const dopdown_from =
+			container.getElementsByClassName("dropdown-container")[0];
 		// click to open ↓
 		fireEvent.click(dopdown_from);
 		expect(dopdown_from.className.includes("active")).toBe(true);

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import Wrapper from "../components/common/wrapper";
 import { userInfoContext } from "../components/common/context";
 import { api_site_GetSupportDomainList } from "../service/api/site";

@@ -7,7 +7,8 @@ export default ({ t, onChangeTab, tab }) => {
 			<button
 				key={`leaderboard-tab-${item.id}`}
 				className={item.id === tab ? "active" : ""}
-				onClick={onChangeTab.bind(this, item.id)}>
+				onClick={onChangeTab.bind(this, item.id)}
+			>
 				{t(item.displayKey)}
 			</button>
 		);

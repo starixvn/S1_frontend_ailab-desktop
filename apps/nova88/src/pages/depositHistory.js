@@ -54,10 +54,9 @@ const Content = () => {
 
 	const { asyncUploadBankPopBox } = useDeposit({ isMountedRef });
 
-	const {
-		setLocalBankReceipt,
-		uploadLocalBankReceipt
-	} = useDepositLocalBank({ isMountedRef });
+	const { setLocalBankReceipt, uploadLocalBankReceipt } = useDepositLocalBank(
+		{ isMountedRef }
+	);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -92,7 +91,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -112,7 +112,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -164,7 +165,7 @@ const Content = () => {
 			formInfo: {
 				imgFile: {
 					name: picFileName
-				},
+				}
 				// refId: historyRefId,
 				// time: historyDepositTime
 			},
@@ -206,9 +207,10 @@ const Content = () => {
 			// 	});
 			// }
 
-			if (depositImgFiles.file 
+			if (
+				depositImgFiles.file
 				// || !isSameDepositTime || !isSameRefId
-				)
+			)
 				updateHistoryList(
 					filterData?.StartDate,
 					filterData?.EndDate,
@@ -242,7 +244,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>

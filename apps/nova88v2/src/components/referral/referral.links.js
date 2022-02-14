@@ -63,7 +63,8 @@ export default ({ referralCode, t, langId }) => {
 				<div>
 					<a
 						className="icon icon-files-empty"
-						onClick={copyWelComeText}>
+						onClick={copyWelComeText}
+					>
 						{t("lbl_Copy_to_clipboard")}
 					</a>
 					<a className="icon icon-download2" onClick={downloadQR}>
@@ -73,7 +74,8 @@ export default ({ referralCode, t, langId }) => {
 						className="icon icon-facebook2"
 						onClick={() =>
 							window.open(ref_fb, "", "height=600,width=600")
-						}>
+						}
+					>
 						{t("lbl_Facebook")}
 					</a>
 					<a
@@ -84,7 +86,8 @@ export default ({ referralCode, t, langId }) => {
 								"",
 								"height=600,width=600"
 							)
-						}>
+						}
+					>
 						{t("lbl_Telegram")}
 					</a>
 
@@ -96,7 +99,8 @@ export default ({ referralCode, t, langId }) => {
 								"",
 								"height=600,width=600"
 							)
-						}>
+						}
+					>
 						{t("lbl_WhatsApp")}
 					</a>
 
@@ -104,7 +108,8 @@ export default ({ referralCode, t, langId }) => {
 						className="icon icon-line"
 						onClick={() =>
 							window.open(ref_line, "", "height=600,width=600")
-						}>
+						}
+					>
 						{t("lbl_LINE")}
 					</a>
 				</div>

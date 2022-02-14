@@ -62,9 +62,8 @@ describe("show icon-cross", () => {
 		const { container } = render(
 			<ResetPasswordForm {...fakeData_showError} />
 		);
-		const error_icon = container.getElementsByClassName(
-			"icon icon-cross"
-		)[0];
+		const error_icon =
+			container.getElementsByClassName("icon icon-cross")[0];
 		expect(error_icon).toBeTruthy();
 	});
 });

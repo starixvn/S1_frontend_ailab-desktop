@@ -45,7 +45,7 @@ export default function Jackpot({
 			)
 		];
 
-		nodeList.forEach(node => {
+		nodeList[0].forEach(node => {
 			const itemNodeCount = node.querySelectorAll("div").length;
 
 			const top = TEXT_TOP * Number(itemNodeCount) - TEXT_TOP;

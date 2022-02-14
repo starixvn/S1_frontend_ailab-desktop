@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { defMenuLinks, defMenuType } from "./header.menu.def";
 import { bannerImgUrl } from "../../config";
 import { defTpGameType } from "../../datas/productList";

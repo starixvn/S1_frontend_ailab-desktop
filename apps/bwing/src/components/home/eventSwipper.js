@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import {
 	useGetBanner,
 	AutoPlayWithBtn,

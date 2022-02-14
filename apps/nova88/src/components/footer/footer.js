@@ -45,7 +45,8 @@ const PoliciesSection = ({ t, langId }) => (
 			<a
 				href={TandC(langId).ResposibleGaming}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_ResposibleGaming")}
 			</a>
 			<a href={TandC(langId).terms} target="_blank" rel="noreferrer">
@@ -54,13 +55,15 @@ const PoliciesSection = ({ t, langId }) => (
 			<a
 				href={TandC(langId).PrivacyPolicy}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_PrivacyPolicy")}
 			</a>
 			<a
 				href={TandC(langId).CookiePolicy}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_CookiePolicy")}
 			</a>
 		</div>
@@ -74,13 +77,15 @@ const HelpAndSupportSection = ({ t, langId }) => (
 			<a
 				href={TandC(langId).RuleRegulations}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_RuleRegulations")}
 			</a>
 			<a
 				href={TandC(langId).AccountTerms}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_AccountTerms")}
 			</a>
 			<a href={TandC(langId).FAQ} target="_blank" rel="noreferrer">
@@ -98,7 +103,8 @@ const AboutUsSection = ({ t, langId }) => (
 				style={{ fontWeight: "bold" }}
 				href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
 				target="_blank"
-				rel="noreferrer">
+				rel="noreferrer"
+			>
 				{t("lbl_Affiliates")}
 			</a>
 			<a href={TandC(langId).AboutUs} target="_blank" rel="noreferrer">
@@ -122,28 +128,32 @@ const SocialMediaSection = ({ t }) => (
 				href={SiteInfo.socialMedia.ig.link}
 				target="_blank"
 				rel="noreferrer"
-				className="icon icon-instagram">
+				className="icon icon-instagram"
+			>
 				{t(SiteInfo.socialMedia.ig.displayKey)}
 			</a>
 			<a
 				href={SiteInfo.socialMedia.fb.link}
 				target="_blank"
 				rel="noreferrer"
-				className="icon icon-facebook">
+				className="icon icon-facebook"
+			>
 				{t(SiteInfo.socialMedia.fb.displayKey)}
 			</a>
 			<a
 				href={SiteInfo.socialMedia.twitter.link}
 				target="_blank"
 				rel="noreferrer"
-				className="icon icon-twitter">
+				className="icon icon-twitter"
+			>
 				{t(SiteInfo.socialMedia.twitter.displayKey)}
 			</a>
 			<a
 				href={SiteInfo.socialMedia.youtube.link}
 				target="_blank"
 				rel="noreferrer"
-				className="icon icon-youtube">
+				className="icon icon-youtube"
+			>
 				{t(SiteInfo.socialMedia.youtube.displayKey)}
 			</a>
 		</div>

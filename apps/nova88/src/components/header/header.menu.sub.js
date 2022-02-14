@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import { Link, navigate } from "@reach/router";
+import { Link, navigate } from "gatsby";
 import {
 	defMenuLinks,
 	defMenuType,

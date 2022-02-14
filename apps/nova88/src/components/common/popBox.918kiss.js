@@ -4,10 +4,8 @@ import { useTranslation } from "react-i18next";
 const APPDownloadLink = {
 	Android:
 		"https://s3-ap-southeast-1.amazonaws.com/app918kiss/apk/918Kiss.apk",
-	IOS:
-		"itms-services://?action=download-manifest&url=itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/app918kiss/ios/918Kiss.plist",
-	IOS32:
-		"itms-services://?action=download-manifest&url=itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/app918kiss/ios32/918Kiss.plist"
+	IOS: "itms-services://?action=download-manifest&url=itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/app918kiss/ios/918Kiss.plist",
+	IOS32: "itms-services://?action=download-manifest&url=itms-services://?action=download-manifest&url=https://s3-ap-southeast-1.amazonaws.com/app918kiss/ios32/918Kiss.plist"
 };
 
 export default ({ ClickClose }) => {
@@ -25,7 +23,8 @@ export default ({ ClickClose }) => {
 					<button
 						value={APPDownloadLink.Android}
 						className="blue"
-						onClick={OnClick}>
+						onClick={OnClick}
+					>
 						{t("lbl_Download")}
 					</button>
 				</div>
@@ -37,7 +36,8 @@ export default ({ ClickClose }) => {
 					<button
 						value={APPDownloadLink.IOS}
 						className="blue"
-						onClick={OnClick}>
+						onClick={OnClick}
+					>
 						{t("lbl_Download")}
 					</button>
 				</div>
@@ -49,7 +49,8 @@ export default ({ ClickClose }) => {
 					<button
 						value={APPDownloadLink.IOS32}
 						className="blue"
-						onClick={OnClick}>
+						onClick={OnClick}
+					>
 						{t("lbl_Download")}
 					</button>
 				</div>

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { navigate, Link } from "@reach/router";
+import { navigate, Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import path from "../../router";
@@ -38,9 +38,8 @@ export default () => {
 		PageSize: defPageSize
 	});
 	const [totalPage, setTotalPage] = useState(0);
-	const [recordListbyCategoryDatas, setRecordListbyCategoryDatas] = useState(
-		null
-	);
+	const [recordListbyCategoryDatas, setRecordListbyCategoryDatas] =
+		useState(null);
 
 	const { userInfo } = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);

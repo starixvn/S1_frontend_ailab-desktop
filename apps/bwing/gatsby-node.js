@@ -15,7 +15,6 @@ exports.onCreatePage = async ({
 	page,
 	actions: { createPage, deletePage, createRedirect }
 }) => {
-	const isEnvDevelopment = process.env.NODE_ENV === "development";
 	const originalPath = page.path;
 
 	// if (!page.path.match(/^\/404\/$/)) {
@@ -36,6 +35,7 @@ exports.onCreatePage = async ({
 			await createPage({
 				...page,
 				path: localizedPath,
+				matchPath: localizedPath,
 				context: {
 					...page.context,
 					originalPath,
@@ -56,12 +56,25 @@ exports.onCreatePage = async ({
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const path = require("path");
+const stdLibBrowser = require("node-stdlib-browser");
+const {
+	NodeProtocolUrlPlugin
+} = require("node-stdlib-browser/helpers/webpack/plugin");
+const webpack = require("webpack");
+
 exports.onCreateWebpackConfig = ({ actions }) => {
 	actions.setWebpackConfig({
 		resolve: {
 			alias: {
 				"@": path.resolve(__dirname, "src")
 			}
-		}
+		},
+		plugins: [
+			new NodeProtocolUrlPlugin(),
+			new webpack.ProvidePlugin({
+				process: stdLibBrowser.process,
+				Buffer: [stdLibBrowser.buffer, "Buffer"]
+			})
+		]
 	});
 };

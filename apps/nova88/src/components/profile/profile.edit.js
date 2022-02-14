@@ -64,7 +64,8 @@ export default ({
 						<div
 							className={`tip${
 								status.birth.tip ? " active" : ""
-							}`}>
+							}`}
+						>
 							{status.birth.tip}
 						</div>
 					</>

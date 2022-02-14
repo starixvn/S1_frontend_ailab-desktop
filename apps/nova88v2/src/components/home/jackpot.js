@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import path from "../../router";
 import { defNav } from "../casino/casino.def";
 import useInterval from "../hook/useInterval";

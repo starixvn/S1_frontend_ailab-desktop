@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import Dropdown from "../../common/dropdown";

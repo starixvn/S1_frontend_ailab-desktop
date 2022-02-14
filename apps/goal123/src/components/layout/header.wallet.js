@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import path from "../../router";
 import { walletInfoContext, userInfoContext } from "../common/context";
 import ReloadSpin from "../common/reloadSpin";
@@ -20,13 +20,8 @@ import {
 import usePopBox from "../hook/usePopBox";
 
 export default props => {
-	const {
-		isHideBalance,
-		mainWallet,
-		tpWallets,
-		bonusWallets,
-		dispatch
-	} = useContext(walletInfoContext);
+	const { isHideBalance, mainWallet, tpWallets, bonusWallets, dispatch } =
+		useContext(walletInfoContext);
 	const { userInfo } = useContext(userInfoContext);
 	const { errorPopBox } = usePopBox();
 	const isMountedRef = useRef(null);

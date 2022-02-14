@@ -51,7 +51,8 @@ export default props => {
 						<button
 							className="btn-check"
 							type="submit"
-							data-testid="setAmount_submit">
+							data-testid="setAmount_submit"
+						>
 							{props.i18n("lbl_Submit")}
 						</button>
 					</div>

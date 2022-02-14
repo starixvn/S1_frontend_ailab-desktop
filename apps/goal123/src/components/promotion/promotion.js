@@ -138,7 +138,8 @@ export default () => {
 	const promotionStaticRows = staticList.map(p => {
 		return (
 			<div
-				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
+				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+			>
 				<img
 					src={p.imgUrl?.[userInfo.langId]}
 					alt={p.title?.[userInfo.langId]}
@@ -164,7 +165,8 @@ export default () => {
 						url: p.bannerLink?.[userInfo.langId],
 						bonusCode: p.bonusCode
 					})}
-					className="btnGroup">
+					className="btnGroup"
+				>
 					<button className="blue">{t("lbl_Details")}</button>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { userInfoContext } from "./context";
 import config from "../../config";
 import path from "../../router";
