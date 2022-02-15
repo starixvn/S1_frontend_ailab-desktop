@@ -49,7 +49,8 @@ const OneGame = () => {
 									</div>
 									<button
 										onClick={OnClick}
-										value={APPDownloadLink}>
+										value={APPDownloadLink}
+									>
 										{t("lbl_Android")}
 									</button>
 								</div>

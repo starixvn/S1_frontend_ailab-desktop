@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Redirect, navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
 import { defaultLang } from "../../i18n/config";
@@ -398,5 +398,6 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 		}
 		return null;
 	}
-	return <Redirect to={redirectPath} noThrow />;
+	navigate(redirectPath);
+	return [];
 };

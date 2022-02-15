@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { popBoxContext, userInfoContext } from "./context";
 import defPopBoxType from "./defPopBoxType";
 import {
@@ -22,9 +22,8 @@ export default ({ startUnixTime }) => {
 	);
 	const [verifyPhoneError, setVerifyPhoneError] = useState("");
 	const [verifyPhoneloading, setVerifyPhoneloading] = useState(false);
-	const [mobileVerificationLoading, setMobileVerificationLoading] = useState(
-		false
-	);
+	const [mobileVerificationLoading, setMobileVerificationLoading] =
+		useState(false);
 
 	const timerRef = useRef(null);
 

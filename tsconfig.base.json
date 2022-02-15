@@ -1,26 +1,26 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2017", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@ailab-desktop/promotion": ["libs/promotion/src/index.ts"],
-      "@ailab-desktop/service": ["libs/service/src/index.ts"],
-      "@ailab-desktop/common": ["libs/common/src/index.ts"],
-      "@ailab-desktop/api": ["libs/api/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+	"compileOnSave": false,
+	"compilerOptions": {
+		"rootDir": ".",
+		"sourceMap": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"target": "es2015",
+		"module": "esnext",
+		"typeRoots": ["node_modules/@types"],
+		"lib": ["es2017", "dom"],
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@ailab-desktop/api": ["libs/api/src/index.ts"],
+			"@ailab-desktop/common": ["libs/common/src/index.ts"],
+			"@ailab-desktop/promotion": ["libs/promotion/src/index.ts"],
+			"@ailab-desktop/service": ["libs/service/src/index.ts"]
+		}
+	},
+	"exclude": ["node_modules", "tmp"]
 }

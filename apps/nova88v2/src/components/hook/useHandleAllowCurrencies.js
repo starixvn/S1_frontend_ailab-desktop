@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { defCurrencyList, GetCurrencyName } from "../common/common";
 
 export const useHandleAllowCurrencies = ({

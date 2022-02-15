@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import path from "../../router";
 import { userInfoContext } from "./context";
 import { setCookie, deleteCookie } from "./common";

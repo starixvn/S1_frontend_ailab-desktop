@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { isDateRange } from "../common/common";
 import { eventPeriod } from "../angPow/angPow.def";
 

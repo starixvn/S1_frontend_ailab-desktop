@@ -68,7 +68,8 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClosePopBox}>
+											onClick={ClosePopBox}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -87,7 +88,8 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -114,7 +116,8 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 					<label
 						className="upload_img"
 						onDragOver={dragOver.bind(this)}
-						onDrop={onChangeFile.bind(this, "onDrop")}>
+						onDrop={onChangeFile.bind(this, "onDrop")}
+					>
 						<input
 							type="file"
 							onChange={onChangeFile.bind(this, "onChange")}
@@ -145,7 +148,8 @@ export default ({ t, dispatch, kycData, KycCheck, kycStatus }) => {
 									? "btn-check"
 									: "btn-cancel"
 							}
-							onClick={onUploadFile}>
+							onClick={onUploadFile}
+						>
 							{t("lbl_Submit")}
 						</button>
 					</div>

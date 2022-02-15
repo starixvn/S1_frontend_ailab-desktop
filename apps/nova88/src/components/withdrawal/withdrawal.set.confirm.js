@@ -68,7 +68,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={setInitState}>
+										onClick={setInitState}
+									>
 										OK
 									</button>
 								</div>
@@ -85,7 +86,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -102,7 +104,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -120,7 +123,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -135,7 +139,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -154,7 +159,8 @@ export default ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClosePopBox}>
+									onClick={ClosePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>

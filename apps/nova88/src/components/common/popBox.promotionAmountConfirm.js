@@ -56,7 +56,8 @@ export default ({
 			<div
 				className={`tip ${
 					validationError.status !== 0 ? "active" : ""
-				}`}>
+				}`}
+			>
 				{validationError.msg}
 			</div>
 

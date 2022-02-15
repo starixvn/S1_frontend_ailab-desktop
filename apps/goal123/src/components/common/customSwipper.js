@@ -13,7 +13,7 @@ import SwiperCore, {
 	Pagination,
 	Autoplay as SwiperCoreAutoPlay
 } from "swiper";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import {
 	api_site_GetBannerV3,
 	defBannerActionMode

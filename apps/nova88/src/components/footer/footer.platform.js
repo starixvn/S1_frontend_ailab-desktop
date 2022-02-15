@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import path from "../../router";
 import productList from "../../datas/productList";
 import { popBoxContext } from "../common/context";

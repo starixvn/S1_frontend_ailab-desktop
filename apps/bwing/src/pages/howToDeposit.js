@@ -27,7 +27,10 @@ const Content = () => {
 			<div className="title">HOW TO DEPOSIT</div>
 			<p>Step 1: "LOG IN" at the homepage</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(19)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(19)}.png`)
+						.default
+				}
 				alt={getImage(19)}
 			/>
 			<p>
@@ -35,7 +38,10 @@ const Content = () => {
 				button.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(2)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(2)}.png`)
+						.default
+				}
 				alt={getImage(2)}
 			/>
 			<p>
@@ -43,11 +49,17 @@ const Content = () => {
 				on the arrow next to your balance and choose “Deposit”.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(13)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(13)}.png`)
+						.default
+				}
 				alt={getImage(13)}
 			/>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(24)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(24)}.png`)
+						.default
+				}
 				alt={getImage(24)}
 			/>
 			<p>
@@ -56,7 +68,10 @@ const Content = () => {
 				the provider you want.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(33)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(33)}.png`)
+						.default
+				}
 				alt={getImage(33)}
 			/>
 
@@ -65,12 +80,18 @@ const Content = () => {
 				Step 1: Choose one provider among Momo, ZaloPay, or Viettel Pay.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(36)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(36)}.png`)
+						.default
+				}
 				alt={getImage(36)}
 			/>
 			<p>Step 2: Choose one of the available accounts.</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(21)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(21)}.png`)
+						.default
+				}
 				alt={getImage(21)}
 			/>
 			<p>
@@ -79,12 +100,18 @@ const Content = () => {
 				deposit limits.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(16)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(16)}.png`)
+						.default
+				}
 				alt={getImage(16)}
 			/>
 			<p>Step 4: Choose “Confirm” button. </p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(12)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(12)}.png`)
+						.default
+				}
 				alt={getImage(12)}
 			/>
 			<p>
@@ -93,18 +120,27 @@ const Content = () => {
 				deposit.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(8)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(8)}.png`)
+						.default
+				}
 				alt={getImage(8)}
 			/>
 			<div className="title">Deposit via online banking</div>
 			<p>Step 1: Choose one of the appropriate payment gateways</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(9)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(9)}.png`)
+						.default
+				}
 				alt={getImage(9)}
 			/>
 			<p>Step 2: Choose your preferred bank </p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(34)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(34)}.png`)
+						.default
+				}
 				alt={getImage(34)}
 			/>
 			<p>
@@ -114,12 +150,18 @@ const Content = () => {
 				the end. If you want to deposit 300,000, just enter 300)
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(18)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(18)}.png`)
+						.default
+				}
 				alt={getImage(18)}
 			/>
 			<p>Step 4: Choose “Confirm” button.</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(10)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(10)}.png`)
+						.default
+				}
 				alt={getImage(10)}
 			/>
 			<p>
@@ -127,19 +169,28 @@ const Content = () => {
 				instructions.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(14)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(14)}.png`)
+						.default
+				}
 				alt={getImage(14)}
 			/>
 
 			<div className="title">Deposit via local bank transfer</div>
 			<p>Step 1: Choose Local bank transfer</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(5)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(5)}.png`)
+						.default
+				}
 				alt={getImage(5)}
 			/>
 			<p>Step 2: Choose 1 of the available banks. </p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(11)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(11)}.png`)
+						.default
+				}
 				alt={getImage(11)}
 			/>
 			<p>
@@ -149,11 +200,17 @@ const Content = () => {
 				wants to deposit 300,000 just enter 300. Choose “Submit” button.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(28)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(28)}.png`)
+						.default
+				}
 				alt={getImage(28)}
 			/>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(25)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(25)}.png`)
+						.default
+				}
 				alt={getImage(25)}
 			/>
 			<p>
@@ -162,12 +219,18 @@ const Content = () => {
 				account to avoid delaying the transaction.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(40)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(40)}.png`)
+						.default
+				}
 				alt={getImage(40)}
 			/>
 			<p>Step 5: Confirm the amount </p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(29)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(29)}.png`)
+						.default
+				}
 				alt={getImage(29)}
 			/>
 			<p>
@@ -176,7 +239,10 @@ const Content = () => {
 				reference number on the receipt.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(41)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(41)}.png`)
+						.default
+				}
 				alt={getImage(41)}
 			/>
 			<p>We will verify and notify you as soon as possible.</p>
@@ -186,12 +252,18 @@ const Content = () => {
 			<div className="title">HƯỚNG DẪN NẠP TIỀN</div>
 			<p>Bước 1: “ĐĂNG NHẬP” tại trang chủ</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(27)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(27)}.png`)
+						.default
+				}
 				alt={getImage(27)}
 			/>
 			<p>Bước 2: Điền thông tin đã đăng ký và nhấp nút “ĐĂNG NHẬP”</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(38)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(38)}.png`)
+						.default
+				}
 				alt={getImage(38)}
 			/>
 			<p>
@@ -199,11 +271,17 @@ const Content = () => {
 				cạnh số tiền trong tài khoản vào chọn “Nạp tiền”.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(22)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(22)}.png`)
+						.default
+				}
 				alt={getImage(22)}
 			/>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(15)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(15)}.png`)
+						.default
+				}
 				alt={getImage(15)}
 			/>
 			<p>
@@ -213,7 +291,10 @@ const Content = () => {
 				muốn và làm theo hướng dẫn.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(33)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(33)}.png`)
+						.default
+				}
 				alt={getImage(33)}
 			/>
 
@@ -222,12 +303,18 @@ const Content = () => {
 				Bước 1: Lựa chọn các ví điện tử Momo, Zalo Pay hoặc Viettel Pay.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(35)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(35)}.png`)
+						.default
+				}
 				alt={getImage(35)}
 			/>
 			<p>Bước 2: Chọn cổng nạp. </p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(31)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(31)}.png`)
+						.default
+				}
 				alt={getImage(31)}
 			/>
 			<p>
@@ -235,12 +322,18 @@ const Content = () => {
 				mỗi cổng thanh toán có hạn mức nạp khác nhau.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(7)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(7)}.png`)
+						.default
+				}
 				alt={getImage(7)}
 			/>
 			<p>Bước 4: Chọn nút “Xác nhận”.</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(32)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(32)}.png`)
+						.default
+				}
 				alt={getImage(32)}
 			/>
 			<p>
@@ -249,19 +342,28 @@ const Content = () => {
 				tiền.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(8)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(8)}.png`)
+						.default
+				}
 				alt={getImage(8)}
 			/>
 
 			<div className="title">Nạp tiền ngân hàng trực tuyến</div>
 			<p>Bước 1: Chọn một trong các cổng thanh toán thích hợp.</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(39)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(39)}.png`)
+						.default
+				}
 				alt={getImage(39)}
 			/>
 			<p>Bước 2: Chọn ngân hàng của bạn</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(17)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(17)}.png`)
+						.default
+				}
 				alt={getImage(17)}
 			/>
 			<p>
@@ -269,12 +371,18 @@ const Content = () => {
 				mỗi cổng thanh toán có hạn mức nạp khác nhau.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(3)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(3)}.png`)
+						.default
+				}
 				alt={getImage(3)}
 			/>
 			<p>Bước 4: Chọn nút “Xác nhận”.</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(20)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(20)}.png`)
+						.default
+				}
 				alt={getImage(20)}
 			/>
 			<p>
@@ -282,19 +390,28 @@ const Content = () => {
 				hàng tương ứng và làm theo hướng dẫn.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(14)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(14)}.png`)
+						.default
+				}
 				alt={getImage(14)}
 			/>
 
 			<div className="title">Nạp tiền bằng chuyển khoản trong nước</div>
 			<p>Bước 1: Chọn chuyển khoản trong nước</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(6)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(6)}.png`)
+						.default
+				}
 				alt={getImage(6)}
 			/>
 			<p>Bước 2: Chọn 1 trong các ngân hàng có sẵn.</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(23)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(23)}.png`)
+						.default
+				}
 				alt={getImage(23)}
 			/>
 			<p>
@@ -304,7 +421,10 @@ const Content = () => {
 				300. Chọn nút “Nạp tiền".
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(4)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(4)}.png`)
+						.default
+				}
 				alt={getImage(4)}
 			/>
 			<p>
@@ -312,12 +432,18 @@ const Content = () => {
 				ngân hàng để tránh bị trì hoãn giao dịch.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(26)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(26)}.png`)
+						.default
+				}
 				alt={getImage(26)}
 			/>
 			<p>Bước 5: Xác nhận số tiền</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(1)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(1)}.png`)
+						.default
+				}
 				alt={getImage(1)}
 			/>
 			<p>
@@ -326,7 +452,10 @@ const Content = () => {
 				tham chiếu trên biên lai.
 			</p>
 			<img
-				src={require(`../styles/img/HowDeposit/${getImage(37)}.png`)}
+				src={
+					require(`../styles/img/HowDeposit/${getImage(37)}.png`)
+						.default
+				}
 				alt={getImage(37)}
 			/>
 			<p>Hệ thống sẽ xác thực và thông báo nhanh nhất có thể.</p>

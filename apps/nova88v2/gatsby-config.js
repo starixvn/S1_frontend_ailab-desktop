@@ -1,3 +1,5 @@
+const { createProxyMiddleware } = require("http-proxy-middleware");
+
 module.exports = {
 	siteMetadata: {
 		defaultLanguage: "en",
@@ -12,17 +14,26 @@ module.exports = {
 			"hi_en"
 		]
 	},
+	flags: {
+		FAST_DEV: true,
+		PARALLEL_SOURCING: true,
+		DEV_WEBPACK_CACHE: true,
+		PRESERVE_WEBPACK_CACHE: true
+	},
 	plugins: [
 		{
 			resolve: "gatsby-plugin-eslint",
 			options: {
-				test: /\.js$|\.jsx$/,
-				exclude: /(node_modules|.cache|public)/,
+				extensions: ["js", "jsx", "ts", "tsx"],
+				exclude: [
+					"node_modules",
+					"bower_components",
+					".cache",
+					"public"
+				],
 				stages: ["develop"],
-				options: {
-					emitWarning: true,
-					failOnError: true
-				}
+				emitWarning: true,
+				failOnError: true
 			}
 		},
 		`gatsby-plugin-react-helmet`,
@@ -42,26 +53,46 @@ module.exports = {
 			}
 		}
 	],
-	proxy: [
-		{
-			prefix: "/api",
-			url: "https://www.n88dev.com"
-		},
-		{
-			prefix: "*/Cashier",
-			url: "https://www.n88dev.com"
-		},
-		{
-			prefix: "/SiteSkin",
-			url: "https://www.n88dev.com"
-		},
-		{
-			prefix: "*/entPage",
-			url: "https://www.n88dev.com"
-		},
-		{
-			prefix: "*/liveStreamingEntPage",
-			url: "https://www.n88dev.com"
-		}
-	]
+	developMiddleware: app => {
+		app.use(
+			"/api",
+			createProxyMiddleware({
+				target: "https://www.n88dev.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+		app.use(
+			"/SiteSkin",
+			createProxyMiddleware({
+				target: "https://www.n88dev.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+		app.use(
+			"*/Cashier",
+			createProxyMiddleware({
+				target: "https://www.n88dev.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+		app.use(
+			"*/entPage",
+			createProxyMiddleware({
+				target: "https://www.n88dev.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+		app.use(
+			"*/liveStreamingEntPage",
+			createProxyMiddleware({
+				target: "https://www.n88dev.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+	}
 };

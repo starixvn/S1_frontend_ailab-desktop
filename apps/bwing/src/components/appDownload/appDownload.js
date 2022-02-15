@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import QRCode from "qrcode.react";
 import { userInfoContext } from "../common/context";
 import useAppDownLoad from "./useAppDownLoad";

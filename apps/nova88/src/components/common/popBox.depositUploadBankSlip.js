@@ -246,7 +246,8 @@ const PopBoxDepositUploadBankSlip = ({
 					<li>
 						<button
 							className="icon icon-files-empty copyBtn"
-							data-clipboard-text={localBankInfo.accountName}>
+							data-clipboard-text={localBankInfo.accountName}
+						>
 							<span>{t("lbl_Copy")}</span>
 						</button>
 					</li>
@@ -257,7 +258,8 @@ const PopBoxDepositUploadBankSlip = ({
 					<li>
 						<button
 							className="icon icon-files-empty copyBtn"
-							data-clipboard-text={localBankInfo.accountNo}>
+							data-clipboard-text={localBankInfo.accountNo}
+						>
 							<span>{t("lbl_Copy")}</span>
 						</button>
 					</li>
@@ -271,7 +273,8 @@ const PopBoxDepositUploadBankSlip = ({
 						<li>
 							<button
 								className="icon icon-files-empty copyBtn"
-								data-clipboard-text={localBankInfo.amount}>
+								data-clipboard-text={localBankInfo.amount}
+							>
 								<span>{t("lbl_Copy")}</span>
 							</button>
 						</li>
@@ -289,7 +292,8 @@ const PopBoxDepositUploadBankSlip = ({
 							: " error"
 					}`}
 					onDragOver={e => e.preventDefault()}
-					onDrop={onUploadFile}>
+					onDrop={onUploadFile}
+				>
 					<input
 						type="file"
 						accept="image/*"
@@ -306,7 +310,8 @@ const PopBoxDepositUploadBankSlip = ({
 							depositImgFiles.checked === null
 								? "hidden"
 								: "visible"
-					}}>
+					}}
+				>
 					{depositImgFiles.tip}
 				</div>
 
@@ -391,7 +396,8 @@ const PopBoxDepositUploadBankSlip = ({
 							onClick={() => {
 								closePopBox();
 								resolve({ success: false });
-							}}>
+							}}
+						>
 							{t("lbl_Cancel")}
 						</button>
 						<button type="submit" className="btn-check">

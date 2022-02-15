@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import {
 	GET_OPEN_RULE,
 	_ACTION_TYPE,
@@ -224,7 +224,7 @@ export default ({
 			) : (
 				<Link
 					key={key}
-					to={`${langId}/${_path}${m.provider ? providerLink : ""}`}
+					to={`/${langId}/${_path}${m.provider ? providerLink : ""}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}>
 					{displayText}

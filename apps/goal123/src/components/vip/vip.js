@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { userInfoContext } from "../common/context";
 import CustomSwipper from "../common/customSwipper";
 import { InfoEn, InfoVn } from "./vip.info";

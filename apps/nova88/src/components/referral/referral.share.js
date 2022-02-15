@@ -38,7 +38,8 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 						href={`${
 							config.cloudImgUrl
 						}/NovaPromotion/referral/${langId.toUpperCase()}.html`}
-						target="_blank">
+						target="_blank"
+					>
 						{t("lbl_MoreDetails")}
 					</a>
 				</div>

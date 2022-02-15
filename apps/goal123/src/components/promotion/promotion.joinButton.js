@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/popBox";
 import { defPromotionType } from "./promotion.def";

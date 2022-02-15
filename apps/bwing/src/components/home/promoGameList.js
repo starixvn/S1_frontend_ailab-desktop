@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
@@ -15,84 +15,84 @@ const defLinkType = {
 const defGameList = [
 	{
 		...productList.soccer,
-		img: require("../../styles/img/GameList1.png"),
+		img: require("../../styles/img/GameList1.png").default,
 		displayKey: "lbl_Soccer",
 		linkType: defLinkType.sports
 	},
 	{
 		...productList.One789_lottery,
-		img: require("../../styles/img/GameList16.png"),
+		img: require("../../styles/img/GameList16.png").default,
 		displayKey: "lbl_TraditionalLottery"
 	},
 	{
 		...productList.One789_lottery_789,
-		img: require("../../styles/img/GameList14.png"),
+		img: require("../../styles/img/GameList14.png").default,
 		displayKey: "lbl_789Lottery"
 	},
 	{
 		...productList.liveCasino_One789,
-		img: require("../../styles/img/GameList13.png"),
+		img: require("../../styles/img/GameList13.png").default,
 		displayKey: "lbl_liveCasino_789SeDie"
 	},
 	{
 		...productList.sabaClub,
-		img: require("../../styles/img/GameList2.png"),
+		img: require("../../styles/img/GameList2.png").default,
 		displayKey: "lbl_Saba1Club1",
 		betType: 1613
 	},
 	{
 		...productList.sabaClub,
-		img: require("../../styles/img/GameList3.png"),
+		img: require("../../styles/img/GameList3.png").default,
 		displayKey: "lbl_Saba1Club2",
 		betType: 1620
 	},
 	{
 		...productList.sabaClub,
-		img: require("../../styles/img/GameList4.png"),
+		img: require("../../styles/img/GameList4.png").default,
 		displayKey: "lbl_Saba1Club3",
 		betType: 1612
 	},
 	{
 		...productList.sabaClub,
-		img: require("../../styles/img/GameList5.png"),
+		img: require("../../styles/img/GameList5.png").default,
 		displayKey: "lbl_Saba1Club5",
 		betType: 1614
 	},
 	{
-		img: require("../../styles/img/GameList6.png"),
+		img: require("../../styles/img/GameList6.png").default,
 		displayKey: "lbl_baccarat",
 		tpId: 15,
 		gameId: 15
 	},
 	{
-		img: require("../../styles/img/GameList7.png"),
+		img: require("../../styles/img/GameList7.png").default,
 		displayKey: "lbl_dream_gaming_se_die",
 		tpId: 4
 	},
 	{
 		...productList.eSport,
-		img: require("../../styles/img/GameList8.png"),
+		img: require("../../styles/img/GameList8.png").default,
 		displayKey: "lbl_eSports"
 	},
 	{
 		...productList.fishing,
-		img: require("../../styles/img/GameList9.png"),
+		img: require("../../styles/img/GameList9.png").default,
 		displayKey: "lbl_FishingGG"
 	},
 	{
 		...productList.virtualSports,
-		img: require("../../styles/img/GameList10.png"),
+		img: require("../../styles/img/GameList10.png").default,
 		displayKey: "lbl_VirtualSports",
 		linkType: defLinkType.sports
 	},
 	{
 		...productList.keno,
-		img: require("../../styles/img/GameList11.png"),
+		img: require("../../styles/img/GameList11.png").default,
 		displayKey: "lbl_Keno"
 	},
 	{
 		...productList.keno,
-		img: require("../../styles/img/GameList12.png"),
+		img: require("../../styles/img/GameList12.png").default,
 		displayKey: "lbl_Lottery"
 	}
 ];

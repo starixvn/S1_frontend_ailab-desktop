@@ -1,7 +1,7 @@
 import React from "react";
 import { Trans } from "react-i18next";
 import PropTypes from "prop-types";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import path from "../../router";
 
 const DepositInfoMoule = ({

@@ -66,10 +66,8 @@ const Deposit = () => {
 		`${userInfo.userName}-nova88depositquery`
 	);
 
-	const [
-		processingDescriptionActive,
-		setProcessingDescriptionActive
-	] = useState(false);
+	const [processingDescriptionActive, setProcessingDescriptionActive] =
+		useState(false);
 
 	const [depositOptions, setDepositOptions] = useState([]);
 

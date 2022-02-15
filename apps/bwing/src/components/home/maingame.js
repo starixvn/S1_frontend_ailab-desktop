@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import path from "../../router";
 import productList, { defTpGameType } from "../../datas/productList";
 import { defPopBoxType } from "../common/defPopBoxType";

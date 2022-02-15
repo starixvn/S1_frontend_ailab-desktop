@@ -77,7 +77,8 @@ export default ({ dispatch, state, refreshData, KycCheck }) => {
 								<div className="btnGroup">
 									<button
 										className="gray"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>

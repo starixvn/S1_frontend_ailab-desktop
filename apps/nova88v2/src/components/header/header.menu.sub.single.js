@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import { Link, navigate } from "@reach/router";
+import { Link, navigate } from "gatsby";
 import QRCode from "qrcode.react";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";

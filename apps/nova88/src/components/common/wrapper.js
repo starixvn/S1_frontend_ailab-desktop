@@ -98,7 +98,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -238,13 +239,17 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 					value={{
 						...walletInfo.state,
 						dispatch: walletInfo.dispatch
-					}}>
+					}}
+				>
 					<ct.msgCountContext.Provider
-						value={{ msgCount, setMsgCount }}>
+						value={{ msgCount, setMsgCount }}
+					>
 						<ct.popBoxContext.Provider
-							value={{ popBox, setPopBox }}>
+							value={{ popBox, setPopBox }}
+						>
 							<ct.loadingContext.Provider
-								value={{ loading, setLoading }}>
+								value={{ loading, setLoading }}
+							>
 								{children}
 							</ct.loadingContext.Provider>
 						</ct.popBoxContext.Provider>

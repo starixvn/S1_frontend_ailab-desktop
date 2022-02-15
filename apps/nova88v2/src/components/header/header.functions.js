@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link, navigate } from "@reach/router";
+import { Link, navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,

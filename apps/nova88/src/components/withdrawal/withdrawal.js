@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext, useReducer } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import MainPanel from "./withdrawal.set";
 import WalletPanel from "./withdrawal.showWallet";
 import KycPanel from "./withdrawal.kyc";

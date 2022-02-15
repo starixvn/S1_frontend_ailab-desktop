@@ -1220,6 +1220,10 @@ header input:focus-within {
   color: #5574A7;
 }
 
+.header > div.function .memberfile {
+  background: url(https://image.n88media.com/VIP/img/vipbg.png?v=20211214) no-repeat center left/auto 100%;
+}
+
 .header > div.function .memberfile > .vipAnimation {
   width: 35px;
   height: 35px;
@@ -8642,7 +8646,13 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db,
+ 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 

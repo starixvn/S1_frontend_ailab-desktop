@@ -1,3 +1,5 @@
+const { createProxyMiddleware } = require("http-proxy-middleware");
+
 module.exports = {
 	siteMetadata: {
 		defaultLanguage: "vn",
@@ -11,19 +13,22 @@ module.exports = {
 		{
 			resolve: "gatsby-plugin-eslint",
 			options: {
-				test: /\.js$|\.jsx$/,
-				exclude: /(node_modules|.cache|public)/,
+				extensions: ["js", "jsx", "ts", "tsx"],
+				exclude: [
+					"node_modules",
+					"bower_components",
+					".cache",
+					"public"
+				],
 				stages: ["develop"],
-				options: {
-					emitWarning: true,
-					failOnError: true
-				}
+				emitWarning: true,
+				failOnError: true
 			}
 		},
 		{
 			resolve: `gatsby-plugin-sitemap`,
 			options: {
-				exclude: [`/en/*/`, `/en`, `*/404`, `/404.html`]
+				excludes: [`/en/*/`, `/en`, `*/404`, `/404.html`]
 			}
 		},
 		`gatsby-plugin-react-helmet`,
@@ -43,26 +48,46 @@ module.exports = {
 			}
 		}
 	],
-	proxy: [
-		{
-			prefix: "/api",
-			url: "https://stag.goal123.com"
-		},
-		{
-			prefix: "*/Cashier",
-			url: "https://stag.goal123.com"
-		},
-		{
-			prefix: "/SiteSkin",
-			url: "https://stag.goal123.com"
-		},
-		{
-			prefix: "*/entPage",
-			url: "https://stag.goal123.com"
-		},
-		{
-			prefix: "*/liveStreamingEntPage",
-			url: "https://stag.goal123.com"
-		}
-	]
+	developMiddleware: app => {
+		app.use(
+			"/api",
+			createProxyMiddleware({
+				target: "https://stag.goal123.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+		app.use(
+			"/SiteSkin",
+			createProxyMiddleware({
+				target: "https://stag.goal123.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+		app.use(
+			"*/Cashier",
+			createProxyMiddleware({
+				target: "https://stag.goal123.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+		app.use(
+			"*/entPage",
+			createProxyMiddleware({
+				target: "https://stag.goal123.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+		app.use(
+			"*/liveStreamingEntPage",
+			createProxyMiddleware({
+				target: "https://stag.goal123.com",
+				changeOrigin: true,
+				secure: false // Do not reject self-signed certificates.
+			})
+		);
+	}
 };

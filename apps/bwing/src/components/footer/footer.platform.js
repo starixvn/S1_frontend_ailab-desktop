@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { navigate } from "@reach/router";
+import { navigate } from "gatsby";
 import path from "../../router";
 import productList, {
 	defCasinoProviders,

@@ -62,7 +62,8 @@ const useTransfer = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										OK
 									</button>
 								</div>

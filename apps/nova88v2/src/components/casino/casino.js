@@ -27,7 +27,6 @@ import {
 	defLobbyImgList
 } from "./casino.def";
 import { getUrlParameter } from "../common/common";
-import { Pagination } from "../common/pagination";
 import SwipperBanner from "../common/swipperBanner";
 import TopQuickLink from "./casino.topQuickLink";
 import CasinoJackpot from "./casino.jackpot";

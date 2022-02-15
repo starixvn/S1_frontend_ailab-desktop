@@ -1,6 +1,6 @@
 import React, { Component, useContext, createRef } from "react";
 import { useTranslation } from "react-i18next";
-import { Redirect } from "@reach/router";
+import { navigate } from "gatsby";
 import { api_message_GetAnnouncement } from "../../service/api/message";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
@@ -202,21 +202,23 @@ class Marquee extends Component {
 		});
 
 		const style = this.state.pos === null ? {} : { left: this.state.pos };
-		return this.state.redirectPath === null ? (
-			<div id="Marquee">
-				<div
-					className="marquee-box icon icon-marquee"
-					ref={this.marquee}>
+		if (this.state.redirectPath === null) {
+			return (
+				<div id="Marquee">
 					<div
-						className="marquee-run"
-						ref={this.content}
-						style={style}>
-						{arr}
+						className="marquee-box icon icon-marquee"
+						ref={this.marquee}>
+						<div
+							className="marquee-run"
+							ref={this.content}
+							style={style}>
+							{arr}
+						</div>
 					</div>
 				</div>
-			</div>
-		) : (
-			<Redirect to={this.state.redirectPath} noThrow />
-		);
+			);
+		}
+		navigate(this.state.redirectPath);
+		return [];
 	}
 }

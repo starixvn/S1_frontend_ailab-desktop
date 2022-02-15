@@ -21,9 +21,8 @@ const MobileForm = ({
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 
 	const [groupIdForRecord, setGroupIdForRecord] = useState(defaultGroupId);
-	const [infoChannelIdForRecord, setInfoChannelIdForRecord] = useState(
-		defaultChannelId
-	);
+	const [infoChannelIdForRecord, setInfoChannelIdForRecord] =
+		useState(defaultChannelId);
 
 	const onGetMobileInfoList = async gId => {
 		window.history.replaceState(
@@ -100,7 +99,8 @@ const MobileForm = ({
 								item.groupId === groupIdForRecord
 									? "active"
 									: ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.groupName}
@@ -131,7 +131,8 @@ const MobileForm = ({
 									item.channelId === infoChannelIdForRecord
 										? "active"
 										: ""
-								}>
+								}
+							>
 								<div>
 									<img
 										alt={item.groupName}
@@ -223,7 +224,8 @@ const FixedAmountList = ({
 				<button
 					onClick={() => onChangeAmount(_afterConvertAmount)}
 					className={`blue${isSelected ? " active" : ""}`}
-					key={`deposit-mobile-${a}`}>
+					key={`deposit-mobile-${a}`}
+				>
 					{number_format(a, _isConvert)}
 					<i className="icon icon-checkmark" />
 				</button>

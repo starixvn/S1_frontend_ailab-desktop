@@ -7,7 +7,7 @@ import SwiperCore, {
 	Pagination,
 	Autoplay as SwiperCoreAutoPlay
 } from "swiper";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import {
 	api_site_GetBannerV3,
 	defBannerActionMode
@@ -212,7 +212,6 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 			</button>
 		);
 	});
-
 	return <Autoplay Rows={rows} />;
 };
 
@@ -243,6 +242,7 @@ const defSwipperConfig = {
 };
 
 export const Autoplay = props => {
+	if (props.Rows.length < 1) return [];
 	const params = defSwipperConfig;
 	// eslint-disable-next-line react/jsx-props-no-spreading
 	return <Swiper {...params}>{props.Rows}</Swiper>;
@@ -283,7 +283,6 @@ export const AutoPlayWithBtn = ({ Rows, config }) => {
 			ref.current.slidePrev();
 		}
 	};
-
 	return Rows && Rows.length > 0 ? (
 		<div className="swiper-container">
 			<div className="swiper-wrapper">

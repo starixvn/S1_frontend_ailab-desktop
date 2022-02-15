@@ -125,7 +125,8 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 					needLogin,
 					isInMaintain
 				})
-			}>
+			}
+		>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}

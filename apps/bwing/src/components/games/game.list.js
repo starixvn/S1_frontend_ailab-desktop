@@ -60,7 +60,8 @@ const GameListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 					tpGameType,
 					isInMaintain
 				})
-			}>
+			}
+		>
 			{isInMaintain && (
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
 			)}

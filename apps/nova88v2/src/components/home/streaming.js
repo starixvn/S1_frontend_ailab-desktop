@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useRef } from "react";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 import { defStreamingCategory } from "../streaming/defStreaming";

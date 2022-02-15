@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import ReactMarquee from "react-fast-marquee";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import path from "../../router";
 import usePrmotion from "../promotion/hook/usePromotion";
 import usePopBox from "../hook/usePopBox";

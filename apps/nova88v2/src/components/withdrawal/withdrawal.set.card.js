@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useContext } from "react";
-import { Link } from "@reach/router";
+import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";

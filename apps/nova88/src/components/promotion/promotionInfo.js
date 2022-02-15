@@ -128,7 +128,8 @@ export default () => {
 	return (
 		<div className="infoModule">
 			<div
-				className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}>
+				className={`promotionsInfo${wrapperClass}${specialBonusWrapperClass}`}
+			>
 				{_isClaimed ? <div className="claimed" /> : null}
 				<img
 					src={promotionInfo.banner}
@@ -230,7 +231,8 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType }) => {
 				<div className="depositSlipList">
 					{refList?.map(item => (
 						<div
-							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}>
+							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}
+						>
 							<div>{item.depositId}</div>
 							<div>{number_format(item.amount)}</div>
 						</div>

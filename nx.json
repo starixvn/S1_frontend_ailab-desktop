@@ -22,43 +22,27 @@
 			}
 		}
 	},
-	"projects": {
-		"promotion": {
-			"tags": []
+	"cli": {
+		"defaultCollection": "@nrwl/react"
+	},
+	"generators": {
+		"@nrwl/react": {
+			"application": {
+				"style": "css",
+				"linter": "eslint",
+				"babel": true
+			},
+			"component": {
+				"style": "css"
+			},
+			"library": {
+				"style": "css",
+				"linter": "eslint"
+			}
 		},
-		"service": {
-			"tags": []
-		},
-		"nova88": {
-			"tags": []
-		},
-		"nova88-e2e": {
-			"tags": [],
-			"implicitDependencies": ["nova88"]
-		},
-		"goal123": {
-			"tags": []
-		},
-		"goal123-e2e": {
-			"tags": [],
-			"implicitDependencies": ["goal123"]
-		},
-		"bwing": {
-			"tags": []
-		},
-		"bwing-e2e": {
-			"tags": [],
-			"implicitDependencies": ["bwing"]
-		},
-		"api": {
-			"tags": []
-		},
-		"nova88v2": {
-			"tags": []
-		},
-		"nova88v2-e2e": {
-			"tags": [],
-			"implicitDependencies": ["nova88v2"]
+		"@nrwl/gatsby": {
+			"application": {}
 		}
-	}
+	},
+	"defaultProject": "nova88"
 }

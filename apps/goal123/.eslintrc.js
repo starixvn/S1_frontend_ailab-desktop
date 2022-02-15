@@ -1,3 +1,5 @@
+const path = require("path");
+
 module.exports = {
 	globals: {
 		__PATH_PREFIX__: true
@@ -263,7 +265,10 @@ module.exports = {
 		],
 		"import/no-extraneous-dependencies": [
 			"warn",
-			{ packageDir: "../../", devDependencies: true }
+			{
+				packageDir: path.join(__dirname, "../../"),
+				devDependencies: true
+			}
 		]
 	}
 };
