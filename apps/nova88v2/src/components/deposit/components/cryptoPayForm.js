@@ -82,9 +82,9 @@ const CryptoPayForm = ({
 
 	if (cryptoPayGroupList.length <= 0) return null;
 
-	const groupList = [
-		...new Map(cryptoPayGroupList.map(_ch => [_ch.groupId, _ch])).values()
-	];
+	const groupList = new Map(
+		cryptoPayGroupList.map(_ch => [_ch.groupId, _ch])
+	).values();
 
 	const channelList = cryptoPayGroupList.filter(
 		_ch => _ch.groupId === groupIdForRecord
@@ -113,7 +113,7 @@ const CryptoPayForm = ({
 					{t("lbl_Payment_Method")}
 				</div>
 				<div>
-					{groupList.map(item => (
+					{Array.from(groupList).map(item => (
 						<button
 							key={`deposit-crypto-channel-${item.groupId}}`}
 							onClick={() => onGetCryptoPayList(item.groupId)}
