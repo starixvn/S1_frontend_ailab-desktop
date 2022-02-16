@@ -13,44 +13,42 @@ const VipPage = ({
 	langId,
 	showJoinPopBox,
 	bottomImg
-}) => {
-	return (
-		<>
-			<div className="vipPage">
-				<table className="medal">
-					<tbody>
-						<tr>
-							<td>{t("lbl_Vip_LastUpdated")} ： 01/10/2021</td>
-							{pageClubImg.map(item => (
-								<td key={`${item.displayKey}-${item.alt}`}>
-									<img src={item.url} alt={item.alt} />
-									{langId === "cs" ? (
-										<>
-											{t(item.displayKey)}
-											<p>{t("lbl_Club")}</p>
-										</>
-									) : (
-										t(item.displayKey)
-									)}
-								</td>
-							))}
-						</tr>
-					</tbody>
-				</table>
+}) => (
+	<>
+		<div className="vipPage">
+			<table className="medal">
+				<tbody>
+					<tr>
+						<td>{t("lbl_Vip_LastUpdated")} ： 02/16/2022</td>
+						{pageClubImg.map(item => (
+							<td key={`${item.displayKey}-${item.alt}`}>
+								<img src={item.url} alt={item.alt} />
+								{langId === "cs" ? (
+									<>
+										{t(item.displayKey)}
+										<p>{t("lbl_Club")}</p>
+									</>
+								) : (
+									t(item.displayKey)
+								)}
+							</td>
+						))}
+					</tr>
+				</tbody>
+			</table>
 
-				<VipPageEventList currencyId={currencyId} />
-			</div>
+			<VipPageEventList currencyId={currencyId} />
+		</div>
 
-			{langId ? (
-				<img
-					onClick={showJoinPopBox}
-					src={bottomImg}
-					alt={`vip-program-${langId}`}
-				/>
-			) : null}
-		</>
-	);
-};
+		{langId ? (
+			<img
+				onClick={showJoinPopBox}
+				src={bottomImg}
+				alt={`vip-program-${langId}`}
+			/>
+		) : null}
+	</>
+);
 
 const VipPageEventList = ({ currencyId }) => {
 	const _isConvert = isConvert(currencyId);
