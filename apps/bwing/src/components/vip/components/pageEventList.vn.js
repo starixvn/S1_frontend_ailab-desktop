@@ -103,11 +103,11 @@ const PageEventListVn = ({ currencyId }) => {
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Sport_Rebate")}</td>
-					<td>0.50%</td>
+					<td>0.40%</td>
+					<td>0.45%</td>
 					<td>0.55%</td>
 					<td>0.65%</td>
 					<td>0.75%</td>
-					<td>0.85%</td>
 					<td>1.00%</td>
 				</tr>
 				<tr>
@@ -121,11 +121,11 @@ const PageEventListVn = ({ currencyId }) => {
 				</tr>
 				<tr>
 					<td>{t("lbl_Vip_Slot_Fishing_Rebate")}</td>
+					<td>0.60%</td>
 					<td>0.70%</td>
 					<td>0.80%</td>
 					<td>0.90%</td>
 					<td>1.00%</td>
-					<td>1.10%</td>
 					<td>1.20%</td>
 				</tr>
 				<tr>
