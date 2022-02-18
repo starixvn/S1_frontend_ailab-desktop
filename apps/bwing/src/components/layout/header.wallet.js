@@ -162,12 +162,12 @@ class Dropdown extends Component {
 
 					<div className="btnGroup">
 						<Link
-							to={`${this.props.langId}/${path.deposit.root}`}
+							to={`/${this.props.langId}/${path.deposit.root}`}
 							className="blue">
 							{this.props.i18n("lbl_Deposit").toUpperCase()}
 						</Link>
 						<Link
-							to={`${this.props.langId}/${path.transferFunds.root}`}
+							to={`/${this.props.langId}/${path.transferFunds.root}`}
 							className="blue">
 							{this.props.i18n("lbl_TransferFunds").toUpperCase()}
 						</Link>
