@@ -102,7 +102,7 @@ export default ({
 		let iconStrings = "";
 
 		if (iconList.length > 0) {
-			iconStrings = ` icon ${[...new Set(iconList)].join(" ")}`;
+			iconStrings = ` icon ${Array.from(new Set(iconList)).join(" ")}`;
 		}
 
 		_className = `${_className}${iconStrings}`;

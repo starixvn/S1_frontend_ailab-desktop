@@ -109,7 +109,7 @@ export default ({
 
 		let iconStrings = "";
 		if (iconList.length > 0) {
-			iconStrings = `${[...new Set(iconList)].join(" ")}`;
+			iconStrings = `${Array.from(new Set(iconList)).join(" ")}`;
 			if (iconStrings === defEventIcon.new) {
 				iconStrings = defEventIcon.new_header;
 			}
