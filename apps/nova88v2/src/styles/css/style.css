@@ -1220,10 +1220,6 @@ header input:focus-within {
   color: #5574A7;
 }
 
-.header > div.function .memberfile {
-  background: url(https://image.n88media.com/VIP/img/vipbg.png?v=20211214) no-repeat center left/auto 100%;
-}
-
 .header > div.function .memberfile > .vipAnimation {
   width: 35px;
   height: 35px;
@@ -4720,7 +4716,25 @@ input[type="file"] {
   right: 45px;
 }
 
-@keyframes fire {
+@-webkit-keyframes fire1 {
+  0% {
+    -webkit-transform: scale(0) translateY(-10%);
+            transform: scale(0) translateY(-10%);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: scale(1) translateY(-5%);
+            transform: scale(1) translateY(-5%);
+    opacity: 0.6;
+  }
+  100% {
+    -webkit-transform: scale(1) translateY(0%);
+            transform: scale(1) translateY(0%);
+    opacity: 0;
+  }
+}
+
+@keyframes fire1 {
   0% {
     -webkit-transform: scale(0) translateY(-10%);
             transform: scale(0) translateY(-10%);
@@ -4743,8 +4757,8 @@ input[type="file"] {
   left: 30px;
   top: -140px;
   opacity: 0;
-  -webkit-animation: fire 2.8s 3s infinite;
-          animation: fire 2.8s 3s infinite;
+  -webkit-animation: fire1 2.8s 3s infinite;
+          animation: fire1 2.8s 3s infinite;
 }
 
 #popup .pop.angpaopop > img.fire2 {
@@ -4752,8 +4766,8 @@ input[type="file"] {
   right: 30px;
   top: -70px;
   opacity: 0;
-  -webkit-animation: fire 3.6s 4s infinite;
-          animation: fire 3.6s 4s infinite;
+  -webkit-animation: fire1 3.6s 4s infinite;
+          animation: fire1 3.6s 4s infinite;
 }
 
 #popup .pop .friend {
@@ -8646,13 +8660,7 @@ button.icon-spinner11:before {
 }
 
 .userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db,
- 0px 0px 10px #2e55db;
+  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
   text-transform: uppercase;
 }
 
