@@ -211,6 +211,19 @@ export const defMenuLinks = {
 		subDivClass1: "light light-slot",
 		subMenu: [
 			{
+				...defCasinoProviders.AdvantPlay,
+				className: "AP",
+				displayText: "AdvantPlay",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.AdvantPlay.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_AdvantPlay
+					})
+				]
+			},
+			{
 				...defCasinoProviders.PP,
 				className: "PP",
 				icon: "icon icon-PP",
@@ -228,19 +241,6 @@ export const defMenuLinks = {
 					showEventIcon({
 						icon: defEventIcon.new,
 						period: defEventPeriod.casino_NetEnt
-					})
-				]
-			},
-			{
-				...defCasinoProviders.AdvantPlay,
-				className: "AP",
-				displayText: "AdvantPlay",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.AdvantPlay.name },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_AdvantPlay
 					})
 				]
 			},
