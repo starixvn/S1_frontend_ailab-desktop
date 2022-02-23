@@ -34,6 +34,12 @@ export const defSearchColumn = {
 
 export const defLobbyImgList = [
 	{
+		img: `${bannerImgUrl}/desktop/img/partnerlogo/ap.png`,
+		activeImg: `${bannerImgUrl}/desktop/img/partnerlogo/apa.png`,
+		lobbyDisplayName: "AdvantPlay",
+		providerId: defCasinoProviders.AdvantPlay.tpId
+	},
+	{
 		img: `${bannerImgUrl}/desktop/img/partnerlogo/red.png`,
 		activeImg: `${bannerImgUrl}/desktop/img/partnerlogo/reda.png`,
 		lobbyDisplayName: "Red Tiger",
@@ -44,12 +50,6 @@ export const defLobbyImgList = [
 		activeImg: `${bannerImgUrl}/desktop/img/partnerlogo/nea.png`,
 		lobbyDisplayName: "NetEnt",
 		providerId: defCasinoProviders.NetEnt.tpId
-	},
-	{
-		img: `${bannerImgUrl}/desktop/img/partnerlogo/ap.png`,
-		activeImg: `${bannerImgUrl}/desktop/img/partnerlogo/apa.png`,
-		lobbyDisplayName: "AdvantPlay",
-		providerId: defCasinoProviders.AdvantPlay.tpId
 	},
 	{
 		img: `${bannerImgUrl}/desktop/img/partnerlogo/jili.png`,

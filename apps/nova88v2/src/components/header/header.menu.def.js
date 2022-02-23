@@ -585,6 +585,21 @@ export const defMenuLinks = {
 		customSort: defSortSlot,
 		subMenu: [
 			{
+				keyName: "slot_AdvantPlay",
+				displayText: "AdvantPlay",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotap.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_AdvantPlay },
+				...productList.casino_AdvantPlay,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_AdvantPlay
+					})
+				]
+			},
+			{
 				keyName: "slot_PP",
 				icon: "icon icon-PP",
 				displayText: "Pragmatic Play",
@@ -752,21 +767,6 @@ export const defMenuLinks = {
 					showEventIcon({
 						icon: defEventIcon.new,
 						period: defEventPeriod.casino_NetEnt
-					})
-				]
-			},
-			{
-				keyName: "slot_AdvantPlay",
-				displayText: "AdvantPlay",
-				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotap.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_AdvantPlay },
-				...productList.casino_AdvantPlay,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_AdvantPlay
 					})
 				]
 			}

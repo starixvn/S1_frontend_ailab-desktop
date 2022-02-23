@@ -50,6 +50,11 @@ export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
 
 export const defLobbyImgList = [
 	{
+		lobbyImgName: "ap",
+		lobbyDisplayName: "AdvantPlay",
+		providerId: productList.casino_AdvantPlay.tpId
+	},
+	{
 		lobbyImgName: "ji",
 		lobbyDisplayName: "JILI",
 		providerId: productList.casino_JILI.tpId
@@ -63,11 +68,6 @@ export const defLobbyImgList = [
 		lobbyImgName: "nt",
 		lobbyDisplayName: "NetEnt",
 		providerId: productList.casino_NetEnt.tpId
-	},
-	{
-		lobbyImgName: "ap",
-		lobbyDisplayName: "AdvantPlay",
-		providerId: productList.casino_AdvantPlay.tpId
 	},
 	{
 		lobbyImgName: "gp",
