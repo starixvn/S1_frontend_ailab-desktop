@@ -108,6 +108,7 @@ export default ({
 		}
 
 		let iconStrings = "";
+
 		if (iconList.length > 0) {
 			iconStrings = `${Array.from(new Set(iconList)).join(" ")}`;
 			if (iconStrings === defEventIcon.new) {
