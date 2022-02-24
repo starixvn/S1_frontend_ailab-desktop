@@ -28,7 +28,7 @@ export const defEventPeriod = {
 	},
 	promo: { start: "2021/11/11 00:00:00" },
 	fishing_Joker: { end: "2022/02/10 11:00:00" },
-	game_Vgaming: { start: "2022/03/24 11:00:00" }
+	game_Vgaming: { end: "2022/03/24 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {
