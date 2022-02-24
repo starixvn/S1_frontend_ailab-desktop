@@ -127,14 +127,6 @@ export const defMenuLinks = langId => ({
 					bgImg: `${bannerImgUrl}/desktop/img/games/v8.png`
 				}
 			},
-			// {
-			// 	...productList.fishing,
-			// 	path: path.sports.root,
-			// 	className: "fishing",
-			// 	displayKey: "lbl_Fishing",
-			// 	menuType: defMenuType.LinkOrBtn,
-			// 	parameter: { ...productList.fishing }
-			// },
 			{
 				...productList.keno,
 				// path: path.sports.root,
@@ -161,6 +153,26 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/lottery-icon.png`,
 				lobbyPage: {
 					bgImg: `${bannerImgUrl}/desktop/img/games/lottery.png`
+				}
+			},
+			{
+				...productList.tableGame,
+				// path: path.sports.root,
+				className: "tablegame",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.tableGame
+					})
+				],
+				displayKey: "lbl_tableGame",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.tableGame },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tablegame.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/tablegame-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/tablegame-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/games/tablegame.png`
 				}
 			}
 		]

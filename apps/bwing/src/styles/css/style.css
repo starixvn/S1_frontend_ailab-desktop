@@ -857,6 +857,10 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-tcg.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-table.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .HO .img {
   background: url(https://banner.bw88.io/desktop/img/slot/ho.png) no-repeat center/auto 100%;
 }
@@ -4402,7 +4406,7 @@ main > .swiper-container .swiper-slide {
   z-index: 1;
 }
 
-#popup > div.loginpop {
+#popup > div.loginpop, #popup > div.game {
   max-width: calc(1170px - 230px);
   background: rgba(7, 14, 34, 0.95);
   -webkit-box-pack: center;
@@ -4418,13 +4422,13 @@ main > .swiper-container .swiper-slide {
   border: 1px solid #64789b;
 }
 
-#popup > div.loginpop .loginModule {
+#popup > div.loginpop .loginModule, #popup > div.game .loginModule {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#popup > div.loginpop .loginModule img {
+#popup > div.loginpop .loginModule img, #popup > div.game .loginModule img {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
@@ -4433,7 +4437,7 @@ main > .swiper-container .swiper-slide {
   height: min-content;
 }
 
-#popup > div.loginpop .loginModule .loginFunction {
+#popup > div.loginpop .loginModule .loginFunction, #popup > div.game .loginModule .loginFunction {
   margin-left: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4447,7 +4451,7 @@ main > .swiper-container .swiper-slide {
           justify-content: center;
 }
 
-#popup > div.loginpop .loginModule .loginFunction .title {
+#popup > div.loginpop .loginModule .loginFunction .title, #popup > div.game .loginModule .loginFunction .title {
   color: #56ceff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4457,18 +4461,19 @@ main > .swiper-container .swiper-slide {
           justify-content: space-between;
 }
 
-#popup > div.loginpop .loginModule .loginFunction .title .txt-blue15 {
+#popup > div.loginpop .loginModule .loginFunction .title .txt-blue15, #popup > div.game .loginModule .loginFunction .title .txt-blue15 {
   font-weight: normal;
   text-decoration: underline;
 }
 
-#popup > div.loginpop .loginModule .loginFunction .noAccount {
+#popup > div.loginpop .loginModule .loginFunction .noAccount, #popup > div.game .loginModule .loginFunction .noAccount {
   font-size: 12px;
   margin: 10px 0 20px;
 }
 
 #popup > div.loginpop .loginModule .loginFunction .noAccount button,
-#popup > div.loginpop .loginModule .loginFunction .noAccount a {
+#popup > div.loginpop .loginModule .loginFunction .noAccount a, #popup > div.game .loginModule .loginFunction .noAccount button,
+#popup > div.game .loginModule .loginFunction .noAccount a {
   text-decoration: underline;
   font-size: 12px;
   text-align: right;
@@ -4476,15 +4481,15 @@ main > .swiper-container .swiper-slide {
   font-weight: bold;
 }
 
-#popup > div.loginpop .loginModule .loginFunction form {
+#popup > div.loginpop .loginModule .loginFunction form, #popup > div.game .loginModule .loginFunction form {
   width: 360px;
 }
 
-#popup > div.loginpop .loginModule .loginFunction .btnGroup {
+#popup > div.loginpop .loginModule .loginFunction .btnGroup, #popup > div.game .loginModule .loginFunction .btnGroup {
   margin: 10px 0;
 }
 
-#popup > div.loginpop .loginModule .loginFunction .btnGroup .blue {
+#popup > div.loginpop .loginModule .loginFunction .btnGroup .blue, #popup > div.game .loginModule .loginFunction .btnGroup .blue {
   max-width: unset;
 }
 
@@ -8380,6 +8385,10 @@ main > .swiper-container .swiper-slide {
 
 .gameslobbyList > div.kingmaker {
   background: url(https://banner.bw88.io/desktop/img/gameslobby/kingmaker.png) no-repeat center;
+}
+
+.gameslobbyList > div.tablegame {
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/tablegame.png) no-repeat center;
 }
 
 form {

@@ -90,6 +90,7 @@
 	"lbl_KenoAndLottery": "Keno & Xổ Số",
 	"lbl_LiveCasino": "SÒNG BÀI",
 	"lbl_Lottery": "Xổ số",
+	"lbl_tableGame": "Trò chơi trên bàn",
 	"lbl_NumberGame": "Number Game",
 	"lbl_Saba1Club1": "Xóc Đĩa",
 	"lbl_Saba1Club2": "Xóc Đĩa Siêu Tốc",
@@ -690,7 +691,7 @@
 		"lbl_congratulations": "Xin chúc mừng!",
 		"lbl_popboxDescription1": "Bạn đã được thưởng {{prizeName}} vào tài khoản.",
 		"lbl_popboxDescription2": "Bạn đã nhận thưởng {{prizeName}} hôm nay. Vui lòng thử lại vào ngày mai!",
-		"lbl_MinDeposit":"Nạp tối thiểu {{amount}} VND"
+		"lbl_MinDeposit": "Nạp tối thiểu {{amount}} VND"
 	},
 
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",

@@ -155,6 +155,23 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgClass: "lottery"
 				}
+			},
+			{
+				...productList.tableGame,
+				path: path.sports.root,
+				className: "tablegame",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.tableGame
+					})
+				],
+				displayKey: "lbl_tableGame",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.tableGame },
+				lobbyPage: {
+					bgClass: "tablegame"
+				}
 			}
 		]
 	},
