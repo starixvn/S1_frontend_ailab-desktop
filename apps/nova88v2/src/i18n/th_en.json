@@ -309,7 +309,7 @@
 	"lbl_Deposit_DragonPayPop_AccountNumber": "Account Number",
 	"lbl_Nova_Select_Bonus": "Choose Available Promotion",
 	"lbl_Nova_DepositPromoMsg1": "Please proceed to verify your account to entitle available specific Promotions.",
-	"lbl_Nova_DepositPromoMsg2": "* Min. desposit amount required is {{ currency }} <span>{{amount}}</span>",
+	"lbl_Nova_DepositPromoMsg2": "* Min. deposit amount required is {{ currency }} <span>{{amount}}</span>",
 	"lbl_Rate": "Rate",
 	"lbl_USDT_Amount": "USDT Amount",
 	"lbl_CashbackAmount": "Cashback Amount",
