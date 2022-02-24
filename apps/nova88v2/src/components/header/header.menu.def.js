@@ -842,6 +842,26 @@ export const defMenuLinks = {
 					bgImg: "gamekim.png",
 					hoverBgImg: "gamekima.png"
 				}
+			},
+			{
+				keyName: "games_VGaming",
+				className: "fsgw",
+				listNpcImgUrl: "vg.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_Vgaming",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_Vgaming
+					})
+				],
+				...productList.sabaClub,
+				parameter: { ...productList.sabaClub },
+				lobbyPage: {
+					bgImg: "gamevg.png",
+					hoverBgImg: "gamevga.png"
+				}
 			}
 		]
 	},
