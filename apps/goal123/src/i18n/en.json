@@ -82,6 +82,7 @@
 	"lbl_KenoAndLottery": "Keno & Lottery",
 	"lbl_LiveCasino": "Live Casino",
 	"lbl_Lottery": "Lottery",
+	"lbl_tableGame": "Table Game",
 	"lbl_NumberGame": "Number Game",
 	"lbl_Saba1Club1": "Se Die",
 	"lbl_Saba1Club2": "Mini Se Die",
@@ -651,7 +652,7 @@
 		"lbl_congratulations": "Congratulations",
 		"lbl_popboxDescription1": "Your Goal123 Lucky Wheel bonus of {{prizeName}} has been credited to your account.",
 		"lbl_popboxDescription2": "You are rewarded {{prizeName}} today, please come back again tomorrow!",
-		"lbl_MinDeposit":"Min Deposit VND {{amount}}"
+		"lbl_MinDeposit": "Min Deposit VND {{amount}}"
 	},
 
 	"vip ■■■■■■■■■■■■■■■■■■■■": "",

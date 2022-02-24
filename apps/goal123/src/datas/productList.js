@@ -258,6 +258,12 @@ export default {
 		name: "lottery",
 		tpGameType: 19
 	},
+	tableGame: {
+		tpId: 1,
+		gameId: 222,
+		name: "tableGame",
+		tpGameType: 23
+	},
 	tcg: {
 		tpId: 33,
 		tpGameType: 55
