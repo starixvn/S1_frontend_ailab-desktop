@@ -400,7 +400,7 @@
 	"lbl_DepositLoadCardNoticeContent1": "Please ensure you choose the correct telcom provider  and card value. Otherwise, Goal123 will not bear any responsibility.",
 	"lbl_DepositLoadCardNoticeContent2": "Our card fee is cheapest in the market, only 25% apply for all telcoms.",
 	"lbl_DepositPromoMsg1": "Please proceed to verify your account to entitle available promotions.",
-	"lbl_DepositPromoMsg2": "* Min. desposit amount required is {{ currency }} <span>{{amount}}</span>",
+	"lbl_DepositPromoMsg2": "* Min. deposit amount required is {{ currency }} <span>{{amount}}</span>",
 	"lbl_Deposit_DragonPayPop_OrderNumber": "Order Number",
 	"lbl_Rate": "Rate",
 	"lbl_USDT_Amount": "USDT Amount",
