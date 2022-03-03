@@ -281,13 +281,12 @@ const Deposit = () => {
 			new Promise(resolve =>
 				setPopBox({
 					isOpen: true,
-					popBoxType: defPopBoxType.Modal,
 					closePopBox: () => {
 						closePopBox();
 						resolve(false);
 					},
 					content: (
-						<>
+						<div className="Success active">
 							<div className="icon icon-bell" />
 
 							<div className="title">{t("lbl_Information")}</div>
@@ -312,7 +311,7 @@ const Deposit = () => {
 									{t("lbl_Deposit_Promotion_Button_Back")}
 								</button>
 							</div>
-						</>
+						</div>
 					)
 				})
 			);
