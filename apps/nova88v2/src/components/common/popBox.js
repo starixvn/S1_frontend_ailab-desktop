@@ -41,7 +41,7 @@ import NewYear from "./popbox.newYear";
 export default () => {
 	const { popBox } = useContext(popBoxContext);
 
-	let content = null;
+	let { content } = popBox;
 	switch (popBox.popBoxType) {
 		case defPopBoxType.Modal:
 			content = (
