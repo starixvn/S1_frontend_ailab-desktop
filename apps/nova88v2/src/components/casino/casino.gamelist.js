@@ -84,7 +84,10 @@ export default ({
 			const isFavorite =
 				favorite?.filter(f => {
 					const fArr = f.split("_");
-					return Number(fArr[0]) === g.tpId && fArr[1] === g.gameId;
+					const _tpId = fArr[0];
+					fArr?.shift();
+					const _gameId = fArr.join("_");
+					return Number(_tpId) === g.tpId && _gameId === g.gameId;
 				})?.length > 0;
 
 			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
