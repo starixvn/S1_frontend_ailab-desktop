@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
-import { useNavigate } from "@reach/router";
+import { navigate } from "gatsby";
 import config, { bannerImgUrl } from "../../config";
 import path from "../../router";
 import productList from "../../datas/productList";
@@ -26,7 +26,8 @@ export const StreamingModule = ({
 	actStatus
 }) => {
 	const { errorPopBox } = usePopBox();
-	const navigate = useNavigate();
+
+	console.log(navigate);
 
 	const clickLiveTv = (clickBtn, e) => {
 		e.stopPropagation();
