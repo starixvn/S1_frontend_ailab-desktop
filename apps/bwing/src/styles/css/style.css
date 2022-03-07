@@ -861,6 +861,10 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-table.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/amb.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .HO .img {
   background: url(https://banner.bw88.io/desktop/img/slot/ho.png) no-repeat center/auto 100%;
 }
@@ -2096,6 +2100,16 @@ footer > div .platformGroup button.ho {
 footer > div .platformGroup a.ho:hover,
 footer > div .platformGroup button.ho:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/ho-a.png) no-repeat center;
+}
+
+footer > div .platformGroup a.amb,
+footer > div .platformGroup button.amb {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/amb.png) no-repeat center;
+}
+
+footer > div .platformGroup a.amb:hover,
+footer > div .platformGroup button.amb:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/amb-a.png) no-repeat center;
 }
 
 footer > div .powered {
@@ -14345,14 +14359,6 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .snow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 15;
-}
-
-canvas {
   position: fixed;
   top: 0;
   left: 0;
