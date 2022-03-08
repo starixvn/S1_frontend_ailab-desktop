@@ -1125,6 +1125,14 @@ header input:focus-within {
   background: url(https://banner.0814media.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
 }
 
+.header > div.function > div .flag.bd:before, .header > div.function > a .flag.bd:before, .header > div.function > button .flag.bd:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+}
+
+.header > div.function > div .flag.gb:before, .header > div.function > a .flag.gb:before, .header > div.function > button .flag.gb:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
+}
+
 .header > div.function .icon-email {
   font-size: 24px;
   position: relative;
@@ -6944,12 +6952,13 @@ input[type="file"] {
 }
 
 .promotionsInfo {
-  padding: 40px 20px 20px;
   position: relative;
 }
 
 .promotionsInfo img {
   border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .promotionsInfo .proData {
@@ -8838,6 +8847,8 @@ button.icon-spinner11:before {
   padding: 40px 20px;
   background: #693392;
   border-radius: 15px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   font-size: 28px;
   font-weight: bold;
   margin-bottom: 30px;
@@ -8855,7 +8866,6 @@ button.icon-spinner11:before {
   display: flex;
   -ms-flex-flow: wrap;
       flex-flow: wrap;
-  margin-top: 20px;
 }
 
 .installGuide.mega .guides .step {
@@ -8868,7 +8878,7 @@ button.icon-spinner11:before {
 .installGuide.mega .guides .content {
   font-size: 18px;
   color: #f77900;
-  height: 140px;
+  height: 160px;
 }
 
 @media (max-width: 1024px) {
@@ -8899,8 +8909,7 @@ button.icon-spinner11:before {
 .installGuide > div {
   background: white;
   border-radius: 15px;
-  width: calc(100% - 1.2%);
-  padding-right: 1.2%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8911,11 +8920,12 @@ button.icon-spinner11:before {
           align-items: center;
   margin-top: 20px;
   color: #880cba;
+  padding: 20px 0;
 }
 
 .installGuide > div.megaStyle {
   width: 90%;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.25);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid #0ad9f5;
@@ -8928,48 +8938,57 @@ button.icon-spinner11:before {
       justify-content: space-around;
 }
 
-@media (max-width: 768px) {
-  .installGuide > div.megaStyle {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column;
-            flex-flow: column;
-    padding: 15px;
-  }
+.installGuide > div.megaStyle .title {
+  color: white;
+  width: 100%;
 }
 
-.installGuide > div.megaStyle .left {
+.installGuide > div.megaStyle .top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+}
+
+.installGuide > div.megaStyle .top > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-@media (max-width: 768px) {
-  .installGuide > div.megaStyle .left {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column;
-            flex-flow: column;
-  }
+.installGuide > div.megaStyle .top > div > div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
 }
 
-.installGuide > div.megaStyle .left img {
-  width: 100%;
-  max-width: 250px;
-  margin-right: 10px;
+.installGuide > div.megaStyle .top > div > div:last-child {
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+}
+
+.installGuide > div.megaStyle .top > div > div:last-child > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .installGuide > div.megaStyle .downloadItem {
-  padding-top: 20px;
-  margin-bottom: 25px;
+  margin-right: 10px;
 }
 
 .installGuide > div.megaStyle .downloadItem .title {
-  font-size: 20px;
+  font-size: 16px;
   margin-bottom: 10px;
+  color: white;
 }
 
 .installGuide > div.megaStyle .downloadItem .readonly {
@@ -8995,28 +9014,34 @@ button.icon-spinner11:before {
 }
 
 .installGuide > div.megaStyle .downloadItem input {
-  border: 0;
+  border: 1px solid #0ad9f5;
   padding: 6px 4px;
   outline: none;
-  -webkit-box-shadow: 1px 1px 2px #0ad9f5, -2px -2px 3px #0ad9f5;
-          box-shadow: 1px 1px 2px #0ad9f5, -2px -2px 3px #0ad9f5;
   width: 100%;
   margin-top: 10px;
 }
 
 .installGuide > div.megaStyle .downloadItem a.downloadBtn, .installGuide > div.megaStyle .downloadItem button.downloadBtn {
   display: block;
-  width: 70%;
-  background: #1E85EC;
+  width: 100%;
+  background: #01075b;
   border: 1px solid #1EECBB;
   border-radius: 50px;
   color: #fff;
-  padding: 10px;
+  padding: 10px 5px;
   font-size: 16px;
   text-align: center;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .installGuide > div.megaStyle .downloadItem a.downloadBtn:hover, .installGuide > div.megaStyle .downloadItem button.downloadBtn:hover {
@@ -9025,13 +9050,22 @@ button.icon-spinner11:before {
   transition: .2s;
 }
 
-.installGuide > div.megaStyle .icon-android {
-  color: #4bad30;
+.installGuide > div.megaStyle .icon {
+  margin-right: 5px;
+  font-size: 20px;
 }
 
-.installGuide img {
-  max-width: calc(100% / 6);
-  margin: 20px 0;
+.installGuide > div.megaStyle .icon-android {
+  color: #5aff2c;
+}
+
+.installGuide > div.megaStyle .icon-windows {
+  color: #0ad9f5;
+}
+
+.installGuide > div img {
+  max-width: 315px;
+  margin: 10px;
 }
 
 .rankList {
@@ -12052,6 +12086,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-radius: 30px;
   height: 27px;
   margin-top: -13.5px;
+  z-index: 3;
 }
 
 .partnerSelect .swiper-container .swiper-button-next:before, .partnerSelect .swiper-container .swiper-button-prev:before, .partnerSelect .swiper .swiper-button-next:before, .partnerSelect .swiper .swiper-button-prev:before {
@@ -12233,7 +12268,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .lotteryinside {
   position: relative;
-  background: #030a5b url(https://banner.n88media.com/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
+  background: #020321 url(https://banner.n88media.com/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 
