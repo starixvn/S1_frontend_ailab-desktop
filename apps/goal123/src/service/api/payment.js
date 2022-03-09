@@ -14,11 +14,8 @@ export const api_payment_GetDepositInfoHistory = ({
 		PageNumber
 	});
 
-export const api_payment_GetOnlinePaymentList = () =>
-	paymentRequest.post("/GetOnlinePaymentList");
-
-export const api_payment_GetOnlineBankInfoSysList = ({ payId }) =>
-	paymentRequest.post("/GetOnlineBankInfoSysList", { payId });
+export const api_payment_GetAutoChannelBankGroupList = () =>
+	paymentRequest.post("/GetAutoChannelBankGroupList");
 
 export const api_payment_GetOnlineBankInfo = ({ payId, sysId }) =>
 	paymentRequest.post("/GetOnlineBankInfo", { payId, sysId });
@@ -49,6 +46,9 @@ export const api_payment_GetLocalBankInfo = ({ sysId, amount }) =>
 
 export const api_payment_GetMobilePayGroupList = () =>
 	paymentRequest.post("/GetMobilePayGroupList");
+
+export const api_payment_GetQRPayGroupList = () =>
+	paymentRequest.post("/GetQRPayGroupList");
 
 export const api_payment_GetLoadCardPayGroupList = () =>
 	paymentRequest.post("/GetLoadCardPayGroupList");
@@ -92,6 +92,11 @@ export const api_payment_SetDepositReceipt = (TransId, DepositTime, RefNo) =>
 
 export const api_payment_GetMobilePayInfoList = GroupId =>
 	paymentRequest.post("/GetMobilePayInfoList", {
+		GroupId
+	});
+
+export const api_payment_GetQRPayInfoList = GroupId =>
+	paymentRequest.post("/GetQRPayInfoList", {
 		GroupId
 	});
 
