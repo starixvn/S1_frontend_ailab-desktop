@@ -1,12 +1,14 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { popBoxContext } from "../common/context";
 import { number_format } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
+import usePopBox from "../hook/usePopBox";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import {
 	api_payment_WithdrawalReq,
-	api_payment_WithdrawalUSDTReq
+	api_payment_WithdrawalCryptoReq,
+	api_payment_GetExchangeInfo
 } from "../../service/api/payment";
 import { Iov_GetBlackBox } from "../common/iovation";
 
@@ -21,12 +23,16 @@ const ConfirmPanel = ({
 	refreshData,
 	KycCheck,
 	GetDailyWithdrawalLimit,
-	isIfscRequired,
-	receiveUSDT
+	isIfscRequired
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
+	const [receiveUSDT, setReceiveUSDT] = useState();
 	const isMountedRef = useRef(null);
+	const { errorPopBox } = usePopBox();
+
 	const _accountNo = selectedAccount.accountNo;
+	const real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
+	const { currencyName, network } = selectedAccount;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -34,6 +40,26 @@ const ConfirmPanel = ({
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		api_payment_GetExchangeInfo({
+			Amount: real_amount,
+			CurrencyName: currencyName,
+			Network: network
+		}).then(
+			res => {
+				const { errorCode, message, data } = res.data;
+				if (errorCode === 0) {
+					setReceiveUSDT(Number(data.to_Amount).toString());
+				} else {
+					errorPopBox(message || "error", errorCode);
+				}
+			},
+			() => {
+				errorPopBox();
+			}
+		);
+	}, [real_amount, currencyName, network, errorPopBox]);
 
 	const toAmountPanel = () => {
 		dispatch({
@@ -43,8 +69,6 @@ const ConfirmPanel = ({
 	};
 
 	const clickSubmit = async () => {
-		const real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
-
 		const setInitState = () => {
 			dispatch({ type: defActionType.SET_INIT_STATE });
 			GetDailyWithdrawalLimit();
@@ -71,10 +95,11 @@ const ConfirmPanel = ({
 							? selectedAccount.ifscCode
 							: null
 				  })
-				: await api_payment_WithdrawalUSDTReq({
+				: await api_payment_WithdrawalCryptoReq({
 						AccountNo: selectedAccount.usdtAddress,
 						amount: real_amount,
-						blackbox
+						blackbox,
+						CurrencyId: selectedAccount.currencyId
 				  });
 
 			if (isMountedRef.current) {
@@ -214,10 +239,6 @@ const ConfirmPanel = ({
 	);
 };
 
-ConfirmPanel.defaultProps = {
-	receiveUSDT: null
-};
-
 ConfirmPanel.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	t: PropTypes.func.isRequired,
@@ -229,7 +250,6 @@ ConfirmPanel.propTypes = {
 	KycCheck: PropTypes.func.isRequired,
 	GetDailyWithdrawalLimit: PropTypes.func.isRequired,
 	isIfscRequired: PropTypes.bool.isRequired,
-	receiveUSDT: PropTypes.string,
 	accountName: PropTypes.string.isRequired
 };
 
@@ -314,7 +334,11 @@ const CryptoDetailInfo = ({
 				</li>
 			</ul>
 			<ul>
-				<li>{t("lbl_ReceiveUSDT")}</li>
+				<li>
+					{t("lbl_ReceiveUSDT", {
+						currencyName: selectedAccount.currencyName
+					})}
+				</li>
 				<li>{receiveUSDT}</li>
 			</ul>
 		</div>

@@ -6,38 +6,19 @@ import { api_site_ExistsEmail } from "../../service/api/site";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
 	api_accountStrict_SetProfile,
-	api_accountStrict_SendOTPSMS
+	api_accountStrict_SendOTPSMS,
+	api_accountStrict_SendOTPEmail
 } from "../../service/api/accountStrict";
 import areaCode from "../../datas/areaCode";
-import ProfileRead from "./profileRead";
 import ProfileEdit from "./profileEdit";
-import { defPageClubImg } from "../vip/vip.def";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { getCountryCode, getUrlParameter } from "../common/common";
 import Loading from "../common/loading";
 import handleError from "../common/handleError";
-
-import { defPrevPage } from "./profile.dev";
-
-const initStatus = {
-	accountName: {
-		checked: null,
-		tip: ""
-	},
-	birth: {
-		checked: null,
-		tip: ""
-	},
-	phoneNo: {
-		checked: null,
-		tip: ""
-	},
-	email: {
-		checked: null,
-		tip: ""
-	}
-};
+import { defPrevPage, initStatus } from "./profile.def";
+import VerificationPanel from "./verificationPanel";
+import useVerifyEmail from "./hook/useVerifyEmail";
 
 export default () => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -53,42 +34,6 @@ export default () => {
 	const [phoneValue, setPhoneValue] = useState("");
 	const [emailValue, setEmailValue] = useState("");
 	const [status, setStatus] = useState(initStatus);
-
-	const birth = `${userInfo.birth_d}/${userInfo.birth_m}/${userInfo.birth_y}`;
-	const dataList = [
-		{
-			label: t("lbl_RealName"),
-			value: userInfo.accountName,
-			show: !!userInfo.accountName
-		},
-		{
-			label: t("lbl_Birthday"),
-			value: birth,
-			format: "normal",
-			show: !!userInfo.birth_d
-		},
-		{
-			label: t("lbl_Phone"),
-			value: `(${userInfo.AreaCode})${userInfo.phoneNo}`,
-			format: "phone",
-			show: !!userInfo.phoneNo
-		},
-		{
-			label: t("lbl_Username"),
-			value: userInfo.userName,
-			show: true
-		},
-		{
-			label: t("lbl_Country"),
-			value: userInfo.country,
-			show: true
-		},
-		{
-			label: t("lbl_Email"),
-			value: userInfo.email,
-			show: !!userInfo.email
-		}
-	];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -429,11 +374,12 @@ export default () => {
 	};
 
 	const clickInfo = col => {
+		const prevTip = status[col].tip;
 		if (col === "accountName") {
 			setStatus(prev => ({
 				...prev,
 				accountName: {
-					tip: t("lbl_RemindForName"),
+					tip: prevTip === "" ? t("lbl_RemindForName") : "",
 					checked: null
 				}
 			}));
@@ -441,7 +387,7 @@ export default () => {
 			setStatus(prev => ({
 				...prev,
 				phoneNo: {
-					tip: t("lbl_PhoneTooltip"),
+					tip: prevTip === "" ? t("lbl_PhoneTooltip") : "",
 					checked: null
 				}
 			}));
@@ -449,7 +395,7 @@ export default () => {
 			setStatus(prev => ({
 				...prev,
 				email: {
-					tip: t("lbl_EmailToolTip"),
+					tip: prevTip === "" ? t("lbl_EmailToolTip") : "",
 					checked: null
 				}
 			}));
@@ -615,38 +561,73 @@ export default () => {
 		);
 	};
 
-	const vipClubImg = userInfo.userLevel
-		? defPageClubImg[userInfo.userLevel - 1]
-		: {};
+	const sendEmailOtp = () => {
+		api_accountStrict_SendOTPEmail().then(
+			res => {
+				const { errorCode, message } = res.data;
+				if (errorCode === 0) {
+					const clickClose = () => {
+						setPopBox({ isOpen: false });
+					};
 
-	if (loading) return <Loading />;
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.Success,
+						titleIcon: "icon-bell",
+						message1: "lbl_EmailOTPHint1",
+						onClickClose: clickClose,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={clickClose}>
+									OK
+								</button>
+							</div>
+						)
+					});
+				} else {
+					openErrorMessagePopBox(message || "error", errorCode);
+				}
+			},
+			() => {
+				openErrorMessagePopBox();
+			}
+		);
+	};
+
+	const { tokenPassed } = useVerifyEmail({
+		langId: userInfo.langId,
+		t,
+		setPopBox,
+		setUserInfo,
+		openErrorMessagePopBox
+	});
+
+	if (loading || !tokenPassed) return <Loading />;
 
 	return (
 		<div className="infoModule">
-			<div className="inside-title">{t("lbl_Profile")}</div>
-			<div className="txt-white">{t("lbl_ProfileModifyWarning")}</div>
+			<div className="inside-title">
+				<p>{t("lbl_Profile")}</p>
+			</div>
 
-			{userInfo?.userLevel ? (
-				<div className="porfileVip">
-					<img src={vipClubImg.img} alt={vipClubImg.alt} />
-					<div>{t(vipClubImg.displayKey)}</div>
-				</div>
-			) : null}
+			<div className="profileGrade">
+				{userInfo?.userLevel ? (
+					<VerificationPanel
+						t={t}
+						userLevel={userInfo.userLevel}
+						accountName={userInfo.accountName}
+						phoneVerified={userInfo.phoneVerified}
+						emailVerified={userInfo.emailVerified}
+						phoneReward={userInfo.phoneReward}
+						emailReward={userInfo.emailReward}
+					/>
+				) : null}
 
-			<ProfileRead
-				userInfo={userInfo}
-				sendOTPSMS={sendOTPSMS}
-				mobileVerificationLoading={mobileVerificationLoading}
-				dataList={dataList}
-			/>
-
-			{!userInfo.accountName ||
-			!userInfo.birth_d ||
-			!userInfo.phoneNo ||
-			!userInfo.email ? (
 				<ProfileEdit
+					t={t}
 					userInfo={userInfo}
-					submitCheck={submitCheck}
 					onChangeName={onChangeName}
 					onChangeBirth={onChangeBirth}
 					onChangePhone={onChangePhone}
@@ -660,11 +641,22 @@ export default () => {
 					checkPhone={checkPhone}
 					checkEmail={checkEmail}
 					clickInfo={clickInfo.bind(this)}
-					checked={status.checked}
-					col={status.col}
-					tip={status.tip}
 					status={status}
+					sendOTPSMS={sendOTPSMS}
+					mobileVerificationLoading={mobileVerificationLoading}
+					sendEmailOtp={sendEmailOtp}
 				/>
+			</div>
+
+			{!userInfo.accountName ||
+			!userInfo.birth_d ||
+			!userInfo.phoneNo ||
+			!userInfo.email ? (
+				<div className="btnGroup">
+					<button className="blueGradient" onClick={submitCheck}>
+						{t("lbl_Submit")}
+					</button>
+				</div>
 			) : null}
 		</div>
 	);

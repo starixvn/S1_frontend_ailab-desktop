@@ -8,8 +8,11 @@ export default ({ btnBar }) => {
 		<div className="Cancel active">
 			<div className="icon icon-icon32px_Withdraw" />
 			<div className="title">{t("lbl_Withdrawal")}</div>
-			<div>{t("lbl_WithdrawalSuccess")}</div>
-			<div>{t("lbl_WithdrawalSuccessNotify")}</div>
+			<div>
+				{t("lbl_WithdrawalSuccess")}
+				<br />
+				{t("lbl_WithdrawalSuccessNotify")}
+			</div>
 			{btnBar}
 		</div>
 	);

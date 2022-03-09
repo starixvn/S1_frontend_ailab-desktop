@@ -13,11 +13,6 @@ import {
 } from "../service/api/payment";
 import usePopBox from "../components/hook/usePopBox";
 
-const USDT_TYPE = {
-	ERC20: "ERC20",
-	TRC20: "TRC20"
-};
-
 export default () => {
 	return (
 		<Wrapper afterLogin={true}>
@@ -42,11 +37,7 @@ const Content = () => {
 	const [kycStatus, setKycStatus] = useState("");
 	const [recentData, setRecentData] = useState([]);
 
-	const [uSDTWithdrawalLimit, setUSDTWithdrawalLimit] = useState({
-		[USDT_TYPE.TRC20]: {},
-		[USDT_TYPE.ERC20]: {}
-	});
-
+	const [uSDTWithdrawalLimit, setUSDTWithdrawalLimit] = useState([]);
 	const [withdrawalLimit, setWithdrawalLimit] = useState({});
 
 	const isMountedRef = useRef(null);
@@ -147,31 +138,19 @@ const Content = () => {
 			res => {
 				if (res.data.errorCode === 0 && isMountedRef.current) {
 					const { usdtList } = res.data.data;
-
-					const TRC20Info = usdtList.find(
-						item => item.network === USDT_TYPE.TRC20
-					);
-					const ERC20Info = usdtList.find(
-						item => item.network === USDT_TYPE.ERC20
-					);
-
-					setUSDTWithdrawalLimit({
-						[USDT_TYPE.TRC20]: {
-							withdrawalMin: TRC20Info.withdrawalMin,
-							withdrawalMax: TRC20Info.withdrawalAvailableAmount,
-							isAmountLimited: !TRC20Info.unlimited
-						},
-						[USDT_TYPE.ERC20]: {
-							withdrawalMin: ERC20Info.withdrawalMin,
-							withdrawalMax: ERC20Info.withdrawalAvailableAmount,
-							isAmountLimited: !ERC20Info.unlimited
-						}
-					});
+					const _usdtList = usdtList.map(data => ({
+						withdrawalMin: data.withdrawalMin,
+						withdrawalMax: data.withdrawalAvailableAmount,
+						unlimited: data.unlimited,
+						currencyId: data.currencyId,
+						network: data.network
+					}));
+					setUSDTWithdrawalLimit(_usdtList);
 
 					setWithdrawalLimit({
 						withdrawalMin: res.data.data.withdrawalMin,
 						withdrawalMax: res.data.data.withdrawalAvailableAmount,
-						isAmountLimited: !res.data.data.unlimited
+						unlimited: res.data.data.unlimited
 					});
 				} else if (res.data.errorCode !== 0) {
 					errorPopBox(

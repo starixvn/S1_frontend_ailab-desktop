@@ -166,14 +166,27 @@ export const api_payment_CheckDepositSpecialCode = SpecialCode =>
 export const api_payment_GetCryptoPayInfoList = () =>
 	paymentRequest.post("/GetCryptoPayInfoList");
 
-export const api_payment_getSupportNetwork = () =>
-	paymentRequest.post("/GetSupportNetwork", { CurrencyId: 96 });
+export const api_payment_GetSupportCryptoInfo = () =>
+	paymentRequest.post("/GetSupportCryptoInfo");
 
-export const api_payment_GetExchangeInfo = amount =>
-	paymentRequest.post("/GetExchangeInfo", { Amount: amount });
+export const api_payment_GetExchangeInfo = ({
+	amount,
+	currencyName,
+	network
+}) =>
+	paymentRequest.post("/GetExchangeInfo", {
+		Amount: amount,
+		CurrencyName: currencyName,
+		Network: network
+	});
 
-export const api_payment_WithdrawalUSDTReq = ({ accountNo, amount }) =>
-	paymentRequest.post("/WithdrawalUSDTReq", {
+export const api_payment_WithdrawalCryptoReq = ({
+	accountNo,
+	amount,
+	currencyId
+}) =>
+	paymentRequest.post("/WithdrawalCryptoReq", {
 		AccountNo: accountNo,
-		amount
+		amount,
+		CurrencyId: currencyId
 	});

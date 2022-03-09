@@ -8,7 +8,7 @@ import {
 	api_accountStrict_VerifyOTP,
 	api_accountStrict_SendOTPSMS
 } from "../../service/api/accountStrict";
-import { defPrevPage } from "../profile/profile.dev";
+import { defPrevPage } from "../profile/profile.def";
 import { getUrlParameter } from "./common";
 
 export default ({ startUnixTime = 0 }) => {
@@ -240,9 +240,7 @@ export default ({ startUnixTime = 0 }) => {
 						<div className="txt-blue2">
 							{secondsToTime(retransmitCountDownSecond)}
 						</div>
-						<div className="txt-blue2">
-							Re-send in five minutes.
-						</div>
+						<div className="txt-blue2">{t("lbl_ResendOtp")}</div>
 					</>
 				) : (
 					<>

@@ -1,4 +1,5 @@
 import { accountStrictRequest } from "./base";
+import router from "../../router";
 
 export const api_accountStrict_GetCustProfile = () =>
 	accountStrictRequest.post("/GetCustProfile");
@@ -77,6 +78,12 @@ export const api_accountStrict_VerifyOTP = ({ inputOTPcode }) =>
 		}
 	);
 
+export const api_accountStrict_SendOTPEmail = () =>
+	accountStrictRequest.post("/SendOTPEmail", { route: router.profile.root });
+
+export const api_accountStrict_VerifyEmail = ({ langId, key, code }) =>
+	accountStrictRequest.post(`/VerifyEmail/${langId}`, { key, code });
+
 export const api_accountStrict_SetCustUSDTInfoBatch = ({
 	AccountName,
 	USDTInfo
@@ -92,10 +99,12 @@ export const api_accountStrict_getOTPVerifyInfo = () =>
 export const api_accountStrict_DelCustUSDTInfo = ({
 	accountName,
 	nickName,
-	usdtAddress
+	usdtAddress,
+	currencyId
 }) =>
 	accountStrictRequest.post("/DelCustUSDTInfo", {
 		AccountName: accountName,
 		NickName: nickName,
-		USDTAddress: usdtAddress
+		USDTAddress: usdtAddress,
+		CurrencyId: currencyId
 	});

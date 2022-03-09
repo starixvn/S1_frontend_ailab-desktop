@@ -1,16 +1,19 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
 import { number_format, checkAmount } from "../common/common";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
-import { api_payment_GetExchangeInfo } from "../../service/api/payment";
-import usePopBox from "../hook/usePopBox";
 
 const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 	const { setPopBox } = useContext(popBoxContext);
-	const { errorPopBox } = usePopBox();
+
+	useEffect(() => {
+		if (Object.keys(state.selectedAccount).length > 0 && state.amount) {
+			ValidAmount(state.amount);
+		}
+	}, [state.selectedAccount]);
 
 	const EditAmount = Value => {
 		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
@@ -26,7 +29,23 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 		const real_amount = _isConvert
 			? Number(_amount) * 1000
 			: Number(_amount);
-		if (state.isAmountLimited && real_amount > state.withdrawalMax) {
+
+		let _withdrawalMin = state.withdrawalMin;
+		let _withdrawalMax = state.balanceData?.availableBalance;
+		let _unlimited = state.unlimited;
+
+		if (state.selectedAccount.usdtAddress) {
+			const { currencyId, network } = state.selectedAccount;
+			const cryptoInfo = state.usdtList.find(
+				el => el.currencyId === currencyId && el.network === network
+			);
+
+			_withdrawalMin = cryptoInfo.withdrawalMin;
+			_withdrawalMax = cryptoInfo.withdrawalAvailableAmount;
+			_unlimited = cryptoInfo.unlimited;
+		}
+
+		if (!_unlimited && real_amount > _withdrawalMax) {
 			result = {
 				status: 2,
 				msg: t("lbl_WithdrawalDailyReached")
@@ -34,13 +53,13 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 		} else {
 			result = checkAmount({
 				amount: _amount,
-				minAmount: state.withdrawalMin,
-				maxAmount: state.balanceData?.availableBalance,
+				minAmount: _withdrawalMin,
+				maxAmount: _withdrawalMax,
 				_isConvert,
 				t,
-				maxAmountAllowUnlimit: false,
+				maxAmountAllowUnlimit: _unlimited,
 				hintKey: "lbl_Insufficientbalance",
-				digits: 0
+				digits: 2
 			});
 		}
 
@@ -60,21 +79,33 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 		return result.status === 0;
 	};
 
-	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
-		min: number_format(state.withdrawalMin, _isConvert, 0),
-		max: state.isAmountLimited
-			? number_format(state.withdrawalMax, _isConvert, 0)
-			: t("lbl_Unlimited")
-	})}`;
+	const crytpoLimit = state.usdtList?.find(
+		el =>
+			el.currencyId === state.selectedAccount.currencyId &&
+			el.network === state.selectedAccount.network
+	);
+	const _unlimited = state.selectedAccount?.usdtAddress
+		? crytpoLimit.unlimited
+		: state.unlimited;
 
-	// const clickInfo = () => {
-	// 	const _msg = !state.tip ? withdrawalMinMaxLimitHint : "";
-	// 	dispatch({
-	// 		type: defActionType.CHECK_AMOUNT,
-	// 		checked: null,
-	// 		tip: _msg
-	// 	});
-	// };
+	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
+		min: number_format(
+			state.selectedAccount?.usdtAddress
+				? crytpoLimit.withdrawalMin
+				: state.withdrawalMin,
+			_isConvert,
+			2
+		),
+		max: _unlimited
+			? t("lbl_Unlimited")
+			: number_format(
+					state.selectedAccount?.usdtAddress
+						? crytpoLimit.withdrawalAvailableAmount
+						: state.withdrawalMax,
+					_isConvert,
+					2
+			  )
+	})}`;
 
 	const ClosePopBox = () => {
 		setPopBox({ isOpen: false });
@@ -89,34 +120,9 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 				state.selectedAccount.usdtAddress) &&
 			amountChecked
 		) {
-			let receiveUSDT = null;
-			if (state.selectedAccount.usdtAddress) {
-				try {
-					const real_amount = _isConvert
-						? Number(state.amount) * 1000
-						: Number(state.amount);
-					const res = await api_payment_GetExchangeInfo({
-						Amount: real_amount
-					});
-					if (res.data.errorCode === 0) {
-						receiveUSDT = Number(
-							res.data.data.to_Amount
-						).toString();
-					} else {
-						errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
-					}
-				} catch (error) {
-					errorPopBox();
-				}
-			}
-
 			dispatch({
 				type: defActionType.TO_OTHER_PANEL,
-				panel: defPanel.confirm,
-				receiveUSDT
+				panel: defPanel.confirm
 			});
 		} else if (
 			!state.selectedAccount.accountNo ||

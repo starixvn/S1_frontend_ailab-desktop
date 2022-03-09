@@ -8,9 +8,7 @@ import {
 import {
 	api_account_GetTpWalletList,
 	api_account_GetTpWalletBalance,
-	api_account_GetBalance,
-	api_account_GetWalletTransferStatus,
-	api_account_SetWalletTransferStatus
+	api_account_GetBalance
 } from "../../service/api/account";
 import { isConvert } from "../common/common";
 import {
@@ -29,11 +27,6 @@ import usePopBox from "../hook/usePopBox";
 const initStatus = {
 	checked: null,
 	tip: ""
-};
-
-const defAutoStatus = {
-	isAuto: 1,
-	notAuto: 2
 };
 
 const AfterUpdWalletList = ({
@@ -76,7 +69,6 @@ export default () => {
 	const [loading, setLoading] = useState(true);
 	const _isConvert = isConvert(userInfo.currencyId);
 	const { dispatch } = useContext(walletInfoContext);
-	const [isAutoTransfer, setIsAutoTransfer] = useState(false);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -91,7 +83,6 @@ export default () => {
 			await getTransferRecent();
 			await getMainWallet();
 			getTpWalletList();
-			getAutoTransferStatus();
 			setLoading(false);
 		}
 		getInitialData();
@@ -359,61 +350,12 @@ export default () => {
 		refreshAfterTransfer();
 	};
 
-	const getAutoTransferStatus = () => {
-		api_account_GetWalletTransferStatus().then(
-			res => {
-				if (isMountedRef.current && res.data.errorCode === 0) {
-					const _isAuto =
-						res.data.data === defAutoStatus.isAuto ?? false;
-					setIsAutoTransfer(_isAuto);
-				} else {
-					errorPopBox(
-						res.data.message || "error",
-						res.data.errorCode
-					);
-				}
-			},
-			() => {
-				if (!isMountedRef.current) return;
-				errorPopBox();
-			}
-		);
-	};
-
-	const onChangeAutoTransfer = () => {
-		const _autoStatus = !isAutoTransfer
-			? defAutoStatus.isAuto
-			: defAutoStatus.notAuto;
-		api_account_SetWalletTransferStatus({
-			AutoTransfer: _autoStatus
-		}).then(
-			res => {
-				if (isMountedRef.current && res.data.errorCode === 0) {
-					setIsAutoTransfer(!isAutoTransfer);
-				} else {
-					errorPopBox(
-						res.data.message || "error",
-						res.data.errorCode
-					);
-				}
-			},
-			() => {
-				if (!isMountedRef.current) return;
-				errorPopBox();
-			}
-		);
-	};
-
 	return loading ? (
 		<Loading />
 	) : (
 		<div className="rightModule">
 			<div className="infoModule">
-				<TransferHeader
-					t={t}
-					onChangeAutoTransfer={onChangeAutoTransfer}
-					isAutoTransfer={isAutoTransfer}
-				/>
+				<TransferHeader t={t} />
 				<ShowWallets
 					i18n={t}
 					walletInfo={walletInfo}

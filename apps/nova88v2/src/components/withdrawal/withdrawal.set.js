@@ -58,7 +58,10 @@ const MainPanel = ({
 					  }
 					: {
 							usdtAddress: _preUsdtAccInfo.usdtAddress,
-							nickName: _preUsdtAccInfo.nickName
+							nickName: _preUsdtAccInfo.nickName,
+							currencyId: _preUsdtAccInfo.currencyId,
+							network: _preUsdtAccInfo.network,
+							currencyName: _preUsdtAccInfo.currencyName
 					  };
 				dispatch({
 					type: defActionType.SELECT_ACCOUNT,

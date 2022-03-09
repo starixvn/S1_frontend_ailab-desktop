@@ -15,23 +15,23 @@ export default ({
 	withdrawalType,
 	withdrawalMin,
 	withdrawalMax,
-	isAmountLimited
+	unlimited
 }) => {
 	const { t } = useTranslation();
 
 	const min = number_format({
 		number: withdrawalMin,
 		formatRequired: _isConvert,
-		digits: 0
+		digits: 2
 	});
 
-	const max = isAmountLimited
-		? number_format({
+	const max = unlimited
+		? t("lbl_Unlimited")
+		: number_format({
 				number: withdrawalMax,
 				formatRequired: _isConvert,
-				digits: 0
-		  })
-		: t("lbl_Unlimited");
+				digits: 2
+		  });
 
 	return (
 		<div className="inputModuleRow">

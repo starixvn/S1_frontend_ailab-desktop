@@ -8,7 +8,7 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import { api_accountStrict_DelCustUSDTInfo } from "../../service/api/accountStrict";
 import {
 	api_payment_GetExchangeInfo,
-	api_payment_WithdrawalUSDTReq
+	api_payment_WithdrawalCryptoReq
 } from "../../service/api/payment";
 
 const Crypto = ({
@@ -38,12 +38,14 @@ const Crypto = ({
 			</div>
 
 			{datas.map(item => {
+				const { usdtAddress, currencyId } = currentUSDTDetail;
 				const checked =
-					item.usdtAddress === currentUSDTDetail.usdtAddress;
+					item.usdtAddress === usdtAddress &&
+					item.currencyId === currencyId;
 
 				return (
 					<CryptoCard
-						key={item.usdtAddress}
+						key={`${item.currencyId}-${item.usdtAddress}`}
 						item={item}
 						onChange={() => onChangeUSDTInfo(item)}
 						checked={checked}
@@ -110,11 +112,17 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 			});
 		});
 
-	const delCustUSDTInfo = ({ accountName, nickName, usdtAddress }) =>
+	const delCustUSDTInfo = ({
+		accountName,
+		nickName,
+		usdtAddress,
+		currencyId
+	}) =>
 		api_accountStrict_DelCustUSDTInfo({
 			accountName,
 			nickName,
-			usdtAddress
+			usdtAddress,
+			currencyId
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -133,8 +141,8 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 			}
 		);
 
-	const getExchangeInfo = amount =>
-		api_payment_GetExchangeInfo(amount).then(
+	const getExchangeInfo = ({ amount, currencyName, network }) =>
+		api_payment_GetExchangeInfo({ amount, currencyName, network }).then(
 			// eslint-disable-next-line consistent-return
 			res => {
 				if (isMountedRef.current) {
@@ -155,10 +163,14 @@ export const useUSDTFetcher = ({ isMountedRef }) => {
 			}
 		);
 
-	const withdrawalUSDTReq = async ({ accountNo, amount }) => {
+	const withdrawalUSDTReq = async ({ accountNo, amount, currencyId }) => {
 		let success = false;
 
-		await api_payment_WithdrawalUSDTReq({ accountNo, amount }).then(
+		await api_payment_WithdrawalCryptoReq({
+			accountNo,
+			amount,
+			currencyId
+		}).then(
 			// eslint-disable-next-line consistent-return
 			res => {
 				if (isMountedRef.current) {

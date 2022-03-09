@@ -67,8 +67,7 @@ export function reducer(state, action) {
 		case defActionType.TO_OTHER_PANEL:
 			return {
 				...state,
-				panel: action.panel,
-				receiveUSDT: action.receiveUSDT ?? state.receiveUSDT
+				panel: action.panel
 			};
 
 		case defActionType.SET_INIT_STATE:
@@ -105,7 +104,8 @@ export function reducer(state, action) {
 				...state,
 				withdrawalMin: action.withdrawalMin,
 				withdrawalMax: action.withdrawalMax,
-				isAmountLimited: action.isAmountLimited
+				unlimited: action.unlimited,
+				usdtList: action.usdtList
 			};
 
 		default:
