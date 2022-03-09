@@ -14,6 +14,7 @@ import { defBannerType } from "../../service/api/site";
 import {
 	setCookie,
 	readCookie,
+	deleteCookie,
 	isDateRange,
 	number_format
 } from "../common/common";
@@ -177,6 +178,29 @@ const Home = ({ productTpIds }) => {
 
 		openNextPopUp();
 	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.userName]);
+
+	useEffect(() => {
+		const popBoxMsg = readCookie("popBoxMsg");
+		if (popBoxMsg) {
+			const closePopBox = () => {
+				deleteCookie("popBoxMsg");
+				setPopBox({ isOpen: false });
+			};
+
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: popBoxMsg,
+				btnBar: (
+					<div className="btnGroup">
+						<button className="btn-cancel" onClick={closePopBox}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	}, []);
 
 	const clickItem = ({ tpId, gameId, tpGameType }) => {
 		const isInMaintain = allMaintainList?.some(

@@ -20,3 +20,22 @@ export const defPrevPage = {
 		label: "lbl_DepositNow"
 	}
 };
+
+export const initStatus = {
+	accountName: {
+		checked: null,
+		tip: ""
+	},
+	birth: {
+		checked: null,
+		tip: ""
+	},
+	phoneNo: {
+		checked: null,
+		tip: ""
+	},
+	email: {
+		checked: null,
+		tip: ""
+	}
+};
