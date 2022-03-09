@@ -1,19 +1,17 @@
 import { useState } from "react";
 import usePopBox from "../../hook/usePopBox";
 
-import {
-	api_payment_GetOnlinePaymentList,
-	api_payment_GetOnlineBankInfoSysList
-} from "../../../service/api/payment";
+import { api_payment_GetAutoChannelBankGroupList } from "../../../service/api/payment";
 
 const useDepositOnline = ({ isMountedRef }) => {
-	const [onlineBankGroupList, setOnlineBankGroupList] = useState([]);
-	const [onlineBankInfoList, setOnlineBankInfoList] = useState([]);
-
 	const { errorPopBox } = usePopBox();
 
-	const getOnlineBankGroupList = async () => {
-		await api_payment_GetOnlinePaymentList().then(
+	const [autoChannelBankGroupList, setAutoChannelBankGroupList] = useState(
+		[]
+	);
+
+	const getAutoChannelBankGroupList = async () => {
+		await api_payment_GetAutoChannelBankGroupList().then(
 			res => {
 				if (!isMountedRef.current) return;
 
@@ -21,7 +19,7 @@ const useDepositOnline = ({ isMountedRef }) => {
 				const success = errorCode === 0;
 
 				if (success) {
-					setOnlineBankGroupList(data);
+					setAutoChannelBankGroupList(data);
 				} else {
 					errorPopBox(message || `error`, errorCode);
 				}
@@ -34,39 +32,9 @@ const useDepositOnline = ({ isMountedRef }) => {
 		);
 	};
 
-	const getOnlineBankInfoList = async pId => {
-		const datas = await api_payment_GetOnlineBankInfoSysList({
-			payId: Number(pId)
-		}).then(
-			res => {
-				if (!isMountedRef.current) return;
-
-				const { data, message, errorCode } = res.data;
-				const success = errorCode === 0;
-
-				if (success && data.length > 0) {
-					setOnlineBankInfoList(data);
-					return data;
-				}
-
-				errorPopBox(message || `error`, errorCode);
-			},
-			() => {
-				if (!isMountedRef.current) return;
-
-				errorPopBox();
-			}
-		);
-
-		return datas || [];
-	};
-
 	return {
-		getOnlineBankGroupList,
-		getOnlineBankInfoList,
-		setOnlineBankInfoList,
-		onlineBankGroupList,
-		onlineBankInfoList
+		autoChannelBankGroupList,
+		getAutoChannelBankGroupList
 	};
 };
 
