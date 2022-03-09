@@ -1,57 +1,114 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 import moment from "moment";
 import DateTime from "../common/dateTime";
 import Inputbox from "../common/inputbox";
+import verifiedImg from "../../styles/img/shieldimg.png";
+import { number_format } from "../common/common";
 
-export default props => {
-	const { t } = useTranslation();
+const dateTimeIcon = birth => {
+	let icon;
 
+	if (birth.checked === null) {
+		icon = <i className="icon icon-calendar" />;
+	} else if (birth.checked) {
+		icon = <i className="icon icon-checkmark" />;
+	} else {
+		icon = <i className="icon icon-cross" />;
+	}
+
+	return icon;
+};
+
+const ProfileEdit = ({
+	t,
+	userInfo,
+	onChangeName,
+	onChangeBirth,
+	onChangePhone,
+	onChangeEmail,
+	nameValue,
+	birthValue,
+	phoneValue,
+	emailValue,
+	checkName,
+	checkBirth,
+	checkPhone,
+	checkEmail,
+	clickInfo,
+	status,
+	sendOTPSMS,
+	mobileVerificationLoading,
+	sendEmailOtp
+}) => {
 	const legalDate = moment().subtract(18, "year");
-
 	const valid = current => {
 		return current.isBefore(legalDate);
 	};
 
-	const dateTimeIcon = birth => {
-		if (birth.checked === null) return <i className="icon icon-calendar" />;
-
-		if (birth.checked) return <i className="icon icon-checkmark" />;
-
-		if (!birth.checked) return <i className="icon icon-cross" />;
-	};
+	let phoneVerificationIcon = null;
+	if (userInfo.phoneVerified) {
+		phoneVerificationIcon = (
+			<button className="shield">
+				<img src={verifiedImg} alt="Phone Verified" />
+			</button>
+		);
+	} else if (mobileVerificationLoading) {
+		phoneVerificationIcon = <div className="icon icon-spinner11" />;
+	} else {
+		phoneVerificationIcon = (
+			<button className="notVer" onClick={sendOTPSMS}>
+				<span>{t("lbl_Unverified")}</span>
+				<span className="icon icon-error" />
+				<div className="hint">
+					<span>{t("lbl_PhoneVerification")}</span>
+					{t("lbl_PhoneVerificationHint", {
+						amount: number_format({
+							number: userInfo.phoneReward ?? 0
+						})
+					})}
+				</div>
+			</button>
+		);
+	}
 
 	return (
-		<>
-			<div className="profile">
-				{!props.userInfo.accountName ? (
-					<>
-						<div>{t("lbl_RealName")}</div>
+		<div className="profile">
+			<div>
+				<div className="title">{t("lbl_RealName")}</div>
+				{userInfo.accountName ? (
+					<div>{userInfo.accountName}</div>
+				) : (
+					<div className="inputModule">
 						<Inputbox
-							// title={t("lbl_RealName")}
-							onChange={props.onChangeName}
-							value={props.nameValue}
-							onBlur={props.checkName}
-							clickInfo={props.clickInfo.bind(
-								this,
-								"accountName"
-							)}
-							checked={props.status.accountName.checked}
-							tip={props.status.accountName.tip}
+							placeholder={t("lbl_RealName")}
+							onChange={onChangeName}
+							value={nameValue}
+							onBlur={checkName}
+							clickInfo={clickInfo.bind(this, "accountName")}
+							checked={status.accountName.checked}
+							tip={status.accountName.tip}
 						/>
-					</>
-				) : null}
+					</div>
+				)}
+			</div>
 
-				{!props.userInfo.birth_d ? (
-					<>
-						<div>{t("lbl_Birthday")}</div>
+			<div>
+				<div className="title">{t("lbl_Birthday")}</div>
+				{userInfo.birth_d ? (
+					<div>
+						{userInfo.birth_d}/{userInfo.birth_m}/{userInfo.birth_y}
+					</div>
+				) : (
+					<div className="inputModule">
 						<div className="inputBox-blue">
 							<DateTime
-								value={props.birthValue}
-								onChange={props.onChangeBirth}
+								placeholder={t("lbl_Birthday")}
+								value={birthValue}
+								onChange={onChangeBirth}
 								timeFormat={false}
 								dateFormat="YYYY-MM-DD"
-								onBlur={props.checkBirth}
+								onBlur={checkBirth}
 								viewDate={moment(legalDate).format(
 									"YYYY-MM-DD"
 								)}
@@ -59,57 +116,144 @@ export default props => {
 								viewMode="years"
 							/>
 							<div className="iconModule">
-								{dateTimeIcon(props.status.birth)}
+								{dateTimeIcon(status.birth)}
 							</div>
 						</div>
 
 						<div
 							className={`tip ${
-								props.status.birth.checked ? "" : "active"
+								status.birth.checked ? "" : "active"
 							}`}>
-							{props.status.birth.tip}
+							{status.birth.tip}
 						</div>
-					</>
-				) : null}
+					</div>
+				)}
+			</div>
 
-				{!props.userInfo.phoneNo ? (
+			<div>
+				<div className="title">{t("lbl_Username")}</div>
+				<div>{userInfo.userName}</div>
+			</div>
+
+			<div>
+				<div className="title">{t("lbl_Phone")}</div>
+				{userInfo.phoneNo ? (
 					<>
-						<div>{t("lbl_Phone")}</div>
+						<div>{`(${userInfo.AreaCode})${userInfo.phoneNo}`}</div>
+						{phoneVerificationIcon}
+					</>
+				) : (
+					<div className="inputModule">
 						<Inputbox
-							// title={t("lbl_Phone")}
-							onChange={props.onChangePhone}
-							value={props.phoneValue}
-							onBlur={props.checkPhone}
-							clickInfo={props.clickInfo.bind(this, "phoneNo")}
-							checked={props.status.phoneNo.checked}
-							tip={props.status.phoneNo.tip}
-							areaCode={props.userInfo.AreaCode}
+							placeholder={t("lbl_Phone")}
+							onChange={onChangePhone}
+							value={phoneValue}
+							onBlur={checkPhone}
+							clickInfo={clickInfo.bind(this, "phoneNo")}
+							checked={status.phoneNo.checked}
+							tip={status.phoneNo.tip}
+							areaCode={userInfo.AreaCode}
 						/>
-					</>
-				) : null}
+					</div>
+				)}
+			</div>
 
-				{!props.userInfo.email ? (
+			<div>
+				<div className="title">{t("lbl_Email")}</div>
+				{userInfo.email ? (
 					<>
-						<div>{t("lbl_Email")}</div>
+						<div>{userInfo.email}</div>
+						{userInfo.emailVerified ? (
+							<button className="shield">
+								<img src={verifiedImg} alt="Phone Verified" />
+							</button>
+						) : (
+							<button className="notVer" onClick={sendEmailOtp}>
+								<span>{t("lbl_Unverified")}</span>
+								<span className="icon icon-error" />
+								<div className="hint">
+									<span>{t("lbl_EmailVerification")}</span>
+									{t("lbl_EmailVerificationHint", {
+										amount: number_format({
+											number: userInfo.emailReward ?? 0
+										})
+									})}
+								</div>
+							</button>
+						)}
+					</>
+				) : (
+					<div className="inputModule">
 						<Inputbox
-							// title={t("lbl_Email")}
-							onChange={props.onChangeEmail}
-							value={props.emailValue}
-							onBlur={props.checkEmail}
+							placeholder={t("lbl_Email")}
+							onChange={onChangeEmail}
+							value={emailValue}
+							onBlur={checkEmail}
 							name="email"
-							clickInfo={props.clickInfo.bind(this, "email")}
-							checked={props.status.email.checked}
-							tip={props.status.email.tip}
+							clickInfo={clickInfo.bind(this, "email")}
+							checked={status.email.checked}
+							tip={status.email.tip}
 						/>
-					</>
-				) : null}
+					</div>
+				)}
 			</div>
 
-			<div className="btnGroup">
-				<button className="blueGradient" onClick={props.submitCheck}>
-					{t("lbl_Submit")}
-				</button>
+			<div>
+				<div className="title">{t("lbl_RegisterTime")}</div>
+				<div>
+					{moment(userInfo.regTime).format("DD/MM/YYYY HH:mm:ss")}
+				</div>
 			</div>
-		</>
+			<div>
+				<div className="title">{t("lbl_LastLogin")}</div>
+				<div>
+					{moment(userInfo.lastLogin).format("DD/MM/YYYY HH:mm:ss")}
+				</div>
+			</div>
+		</div>
 	);
 };
+
+ProfileEdit.defaultProps = {
+	onChangeName: () => null,
+	onChangeBirth: () => null,
+	onChangePhone: () => null,
+	onChangeEmail: () => null,
+	nameValue: null,
+	birthValue: null,
+	phoneValue: null,
+	emailValue: null,
+	checkName: () => null,
+	checkBirth: () => null,
+	checkPhone: () => null,
+	checkEmail: () => null,
+	clickInfo: () => null,
+	status: {},
+	sendOTPSMS: () => null,
+	mobileVerificationLoading: false,
+	sendEmailOtp: () => null
+};
+
+ProfileEdit.propTypes = {
+	t: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	onChangeName: PropTypes.func,
+	onChangeBirth: PropTypes.func,
+	onChangePhone: PropTypes.func,
+	onChangeEmail: PropTypes.func,
+	nameValue: PropTypes.string,
+	birthValue: PropTypes.string,
+	phoneValue: PropTypes.string,
+	emailValue: PropTypes.string,
+	checkName: PropTypes.func,
+	checkBirth: PropTypes.func,
+	checkPhone: PropTypes.func,
+	checkEmail: PropTypes.func,
+	clickInfo: PropTypes.func,
+	status: PropTypes.objectOf(PropTypes.object),
+	sendOTPSMS: PropTypes.func,
+	mobileVerificationLoading: PropTypes.bool,
+	sendEmailOtp: PropTypes.func
+};
+
+export default ProfileEdit;

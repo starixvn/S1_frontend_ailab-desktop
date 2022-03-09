@@ -2,6 +2,7 @@ import React, { Component, createRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { defPageClubImg } from "../vip/vip.def";
+import path from "../../router";
 
 export class Dropdown extends Component {
 	constructor(props) {
@@ -79,23 +80,30 @@ export class Dropdown extends Component {
 			: null;
 
 		return (
-			<div
-				className={`${this.props.className}${
-					this.state.isOpen ? " active" : ""
-				}`}
-				ref={this.wrapper}
-				onClick={this.clickDropdown}>
+			<>
 				{userLevelImgInfo ? (
-					<img
-						src={userLevelImgInfo.img}
-						alt={userLevelImgInfo.alt}
-					/>
-				) : null}
+					<Link
+						className="imgvip"
+						to={`/${this.props.langId}/${path.profile.root}`}>
+						<div className="icon-coinicon" />
 
-				{selected}
-				<i className="icon icon-arrow_drop_down" />
-				<div className={this.props.subClassName}>{arr}</div>
-			</div>
+						<img
+							src={userLevelImgInfo.img}
+							alt={userLevelImgInfo.alt}
+						/>
+					</Link>
+				) : null}
+				<div
+					className={`${this.props.className}${
+						this.state.isOpen ? " active" : ""
+					}`}
+					ref={this.wrapper}
+					onClick={this.clickDropdown}>
+					{selected}
+					<i className="icon icon-arrow_drop_down" />
+					<div className={this.props.subClassName}>{arr}</div>
+				</div>
+			</>
 		);
 	}
 }

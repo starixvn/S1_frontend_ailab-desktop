@@ -12,6 +12,7 @@ import {
 	number_format,
 	readCookie,
 	setCookie,
+	deleteCookie,
 	isDateRange
 } from "../common/common";
 import { api_account_GetWalletInfo } from "../../service/api/account";
@@ -178,6 +179,28 @@ function Home() {
 
 		openNextPopUp();
 	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.userName]);
+
+	useEffect(() => {
+		const popBoxMsg = readCookie("popBoxMsg");
+		if (popBoxMsg) {
+			const closePopBox = () => {
+				deleteCookie("popBoxMsg");
+				setPopBox({ isOpen: false });
+			};
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.ErrorMsg,
+				message: popBoxMsg,
+				btnBar: (
+					<div className="btnGroup">
+						<button className="btn-cancel" onClick={closePopBox}>
+							{t("lbl_Close")}
+						</button>
+					</div>
+				)
+			});
+		}
+	}, []);
 
 	const getTopWinnners = () => {
 		const payload = {
