@@ -3,15 +3,17 @@ export const defDepositType = {
 	localBank: "Local Bank",
 	onlineBank: "Online Bank",
 	loadCard: "TopUp Mobile",
-	cryptoPay: "Crypto Pay"
+	cryptoPay: "Crypto Pay",
+	QRPay: "QR Pay"
 };
 
 export const defDepositOptions = ({
 	mobilePayGourpList = [],
 	localBankGroupList = [],
-	onlineBankGroupList = [],
+	autoChannelBankGroupList = [],
 	loadCardPayGroupList = [],
-	cryptoPayGroupList = []
+	cryptoPayGroupList = [],
+	QRPayGroupList = []
 }) => [
 	{
 		type: defDepositType.localBank,
@@ -29,7 +31,7 @@ export const defDepositOptions = ({
 	},
 	{
 		type: defDepositType.onlineBank,
-		isHide: !onlineBankGroupList.length,
+		isHide: !autoChannelBankGroupList.length,
 		depositDisplaykey: "lbl_OnlineBanking",
 		creditTime: "lbl_Instant",
 		iconClass: "icon icon-connection"
@@ -47,5 +49,12 @@ export const defDepositOptions = ({
 		isHide: !cryptoPayGroupList.length,
 		creditTime: "lbl_Instant",
 		iconClass: "icon icon-USDT"
+	},
+	{
+		type: defDepositType.QRPay,
+		depositDisplaykey: "lbl_QRPay",
+		isHide: !QRPayGroupList.length,
+		creditTime: "lbl_Instant",
+		iconClass: "icon icon-qrcode"
 	}
 ];

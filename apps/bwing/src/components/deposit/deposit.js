@@ -24,6 +24,7 @@ import useDepositOnline from "./hook/useDepositOnline";
 import useDepositLocalBank from "./hook/useDepositLocalBank";
 import useDepositLoadCard from "./hook/useDepositLoadCard";
 import useDepositCryptoPay from "./hook/useDepositCryptoPay";
+import useDepositQRPay from "./hook/useDepositQRPay";
 
 import path from "../../router";
 import config from "../../config";
@@ -33,6 +34,7 @@ import OnlineBankForm from "./components/onlineBankForm";
 import LocalBankForm from "./components/localBankForm";
 import CryptoPayForm from "./components/cryptoPayForm";
 import LoadCardForm from "./components/loadCardForm";
+import QRPayForm from "./components/qrPayForm";
 import DepositInfoMoule from "./deposit.infoMoule";
 import DepositRecentHistory from "./deposit.recentHistory";
 import usePopBox from "../hook/usePopBox";
@@ -130,11 +132,8 @@ const Deposit = () => {
 	} = useDepositMobilePay({ isMountedRef });
 
 	const {
-		getOnlineBankGroupList,
-		getOnlineBankInfoList,
-		setOnlineBankInfoList,
-		onlineBankGroupList,
-		onlineBankInfoList
+		autoChannelBankGroupList,
+		getAutoChannelBankGroupList
 	} = useDepositOnline({ isMountedRef });
 
 	const {
@@ -145,6 +144,13 @@ const Deposit = () => {
 	} = useDepositLoadCard({
 		isMountedRef
 	});
+
+	const {
+		getQRPayGroupList,
+		getQRPayInfoList,
+		QRPayGroupList,
+		QRPayInfoList
+	} = useDepositQRPay({ isMountedRef });
 
 	const {
 		getLocalBankGroupList,
@@ -176,7 +182,7 @@ const Deposit = () => {
 		} else if (type === defDepositType.localBank) {
 			await getLocalBankGroupList();
 		} else if (type === defDepositType.onlineBank) {
-			await getOnlineBankGroupList();
+			await getAutoChannelBankGroupList();
 		}
 
 		setIsGroupListFetchDone(true);
@@ -429,11 +435,9 @@ const Deposit = () => {
 
 				await delay(1000);
 			} else if (depositType === defDepositType.onlineBank) {
-				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqOnlineBanking`;
+				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqBankAutoChannel`;
 				const params = [
 					`sysId=${sysId || 0}`,
-					`payId=${payId}`,
-					`ChannelId=${channelId}`,
 					`Amount=${resultAmount}`,
 					bonusCode ? `BonusCode=${bonusCode}` : ""
 				]
@@ -545,6 +549,20 @@ const Deposit = () => {
 
 					window.open(`${baseUrl}?${params}`);
 				}
+			} else if (depositType === defDepositType.QRPay) {
+				const baseUrl = `${config.openURL}/${userInfo.langId}/Cashier/DepositReqQRPay`;
+
+				const params = [
+					`ChannelId=${channelId}`,
+					`Amount=${resultAmount}`,
+					bonusCode ? `BonusCode=${bonusCode}` : ""
+				]
+					.filter(Boolean)
+					.join("&");
+
+				window.open(`${baseUrl}?${params}`);
+
+				await delay(1000);
 			}
 
 			setLoading(false);
@@ -565,9 +583,10 @@ const Deposit = () => {
 				await Promise.all([
 					getMobilePayGroupList(),
 					getLocalBankGroupList(),
-					getOnlineBankGroupList(),
+					getAutoChannelBankGroupList(),
 					getLoadCardPayGroupList(),
-					getCryptoPayGroupList()
+					getCryptoPayGroupList(),
+					getQRPayGroupList()
 				]);
 
 				setIsInitDataDone(true);
@@ -628,10 +647,11 @@ const Deposit = () => {
 
 	const depositOptions = defDepositOptions({
 		mobilePayGourpList,
-		onlineBankGroupList,
+		autoChannelBankGroupList,
 		localBankGroupList,
 		loadCardPayGroupList,
-		cryptoPayGroupList
+		cryptoPayGroupList,
+		QRPayGroupList
 	});
 
 	const filterDepositOptions = depositOptions.filter(item => !item.isHide);
@@ -712,13 +732,10 @@ const Deposit = () => {
 						t={t}
 						depositType={depositType}
 						_isConvert={_isConvert}
-						onlineBankGroupList={onlineBankGroupList}
-						getOnlineBankInfoList={getOnlineBankInfoList}
-						onlineBankInfoList={onlineBankInfoList}
+						autoChannelBankGroupList={autoChannelBankGroupList}
 						formInfo={formInfo}
 						onChangeForm={onChangeForm}
 						setFormInfo={setFormInfo}
-						setOnlineBankInfoList={setOnlineBankInfoList}
 						onInputboxKeyDown={onInputboxKeyDown}
 						depositPromoList={depositPromoList}
 						isGroupListFetchDone={isGroupListFetchDone}
@@ -763,6 +780,24 @@ const Deposit = () => {
 						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
 						onChangePromotion={onChangePromotion}
+					/>
+				)}
+
+				{depositType === defDepositType.QRPay && (
+					<QRPayForm
+						t={t}
+						depositType={depositType}
+						_isConvert={_isConvert}
+						QRPayGroupList={QRPayGroupList}
+						getQRPayInfoList={getQRPayInfoList}
+						QRPayInfoList={QRPayInfoList}
+						formInfo={formInfo}
+						depositPromoList={depositPromoList}
+						isGroupListFetchDone={isGroupListFetchDone}
+						setFormInfo={setFormInfo}
+						onChangeForm={onChangeForm}
+						onChangePromotion={onChangePromotion}
+						onInputboxKeyDown={onInputboxKeyDown}
 					/>
 				)}
 			</DepositInfoMoule>
