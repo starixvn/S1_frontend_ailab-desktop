@@ -27,8 +27,6 @@ export const StreamingModule = ({
 }) => {
 	const { errorPopBox } = usePopBox();
 
-	console.log(navigate);
-
 	const clickLiveTv = (clickBtn, e) => {
 		e.stopPropagation();
 		if (isStreamingPage) {
