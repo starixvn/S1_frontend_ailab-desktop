@@ -404,7 +404,7 @@
 	"lbl_DepositPromoMsg2": "* Min. deposit amount required is {{ currency }} <span>{{amount}}</span>",
 	"lbl_Deposit_DragonPayPop_OrderNumber": "Order Number",
 	"lbl_Rate": "Rate",
-	"lbl_USDT_Amount": "USDT Amount",
+	"lbl_USDT_Amount": "{{currencyName}} Amount",
 	"lbl_CashbackAmount": "Cashback Amount",
 	"lbl_ReceivedAmount": "Received Amount",
 	"lbl_Usdt_Method": "Method",

@@ -100,13 +100,18 @@ export default ({
 		}
 
 		if (withdrawalType === WITHDRAWAL_TYPE.USDT) {
-			limit = uSDTWithdrawalLimit[currentUSDTDetail.network] || {};
+			const _uSDTWithdrawalLimit = uSDTWithdrawalLimit.find(
+				el =>
+					el.currencyId === currentUSDTDetail.currencyId &&
+					el.network === currentUSDTDetail.network
+			);
+			limit = _uSDTWithdrawalLimit || {};
 		}
 
 		return limit;
 	};
 
-	const { withdrawalMin, withdrawalMax, isAmountLimited } =
+	const { withdrawalMin, withdrawalMax, unlimited } =
 		getWithdrawalMinMaxLimit();
 
 	useEffect(() => {
@@ -120,15 +125,15 @@ export default ({
 		const confirm = await confirmDeleteCryptoWallet();
 
 		if (confirm) {
-			const { nickName, usdtAddress } = item;
+			const { nickName, usdtAddress, currencyId } = item;
 
 			await delCustUSDTInfo({
 				accountName: custBankInfo.accountName,
 				nickName,
-				usdtAddress
+				usdtAddress,
+				currencyId
 			});
 
-			resetWithdrawalType();
 			getCustBankInfo();
 		}
 	};
@@ -209,6 +214,12 @@ export default ({
 		}
 	}, [userInfo]);
 
+	useEffect(() => {
+		if (amountValue) {
+			ValidAmount(amountValue);
+		}
+	}, [currentUSDTDetail, currentBankInfoDetail]);
+
 	const refreshAvailableBalance = () => {
 		getWithdrawalAvailableBalance();
 	};
@@ -243,7 +254,7 @@ export default ({
 			? Number(_amount) * 1000
 			: Number(_amount);
 
-		if (isAmountLimited && real_amount > withdrawalMax) {
+		if (!unlimited && real_amount > withdrawalMax) {
 			result = {
 				status: 2,
 				msg: t("lbl_WithdrawalDailyReached")
@@ -255,9 +266,9 @@ export default ({
 				maxAmount: balanceData.availableBalance,
 				formatRequired: _isConvert,
 				t,
-				maxAmountAllowUnlimit: false,
+				maxAmountAllowUnlimit: unlimited,
 				hintKey: "lbl_Insufficientbalance",
-				digits: 0
+				digits: 2
 			});
 		}
 
@@ -286,9 +297,20 @@ export default ({
 
 	const toConfirmPage = () => {
 		if (status.checked) {
+			let availableAccount;
+			if (currentBankInfoDetail.accountNo) {
+				availableAccount = custBankInfo.bankInfoDetail.find(
+					el => el.accountNo === currentBankInfoDetail.accountNo
+				);
+			} else if (currentUSDTDetail.usdtAddress) {
+				availableAccount = custBankInfo.uSDTDetail.find(
+					el => el.usdtAddress === currentUSDTDetail.usdtAddress
+				);
+			}
 			if (
-				!currentBankInfoDetail.accountNo &&
-				!currentUSDTDetail.usdtAddress
+				!availableAccount ||
+				(!currentBankInfoDetail.accountNo &&
+					!currentUSDTDetail.usdtAddress)
 			) {
 				errorPopBox(t("lbl_SelectBank_Required"));
 			} else {
@@ -334,7 +356,8 @@ export default ({
 
 		const success = await withdrawalUSDTReq({
 			accountNo: currentUSDTDetail.usdtAddress,
-			amount
+			amount,
+			currencyId: currentUSDTDetail.currencyId
 		});
 
 		if (success) {
@@ -476,10 +499,6 @@ export default ({
 		);
 	};
 
-	const resetWithdrawalType = () => {
-		setWithdrawalType(null);
-	};
-
 	if (kycStatus !== "normal")
 		return (
 			<>
@@ -555,7 +574,6 @@ export default ({
 							_isConvert={_isConvert}
 							isShowConfirmPage={showConfirmPage}
 							balanceData={balanceData}
-							resetWithdrawalType={resetWithdrawalType}
 						/>
 						<AddBankAccount
 							bankInfoDetail={custBankInfo?.bankInfoDetail}
@@ -604,7 +622,7 @@ export default ({
 										withdrawalType={withdrawalType}
 										withdrawalMin={withdrawalMin}
 										withdrawalMax={withdrawalMax}
-										isAmountLimited={isAmountLimited}
+										unlimited={unlimited}
 									/>
 								</div>
 							)}

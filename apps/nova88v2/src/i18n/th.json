@@ -377,7 +377,7 @@
 	"lbl_Daily_Min_Max_Amount": "จำกัดยอดถอน ต่ำสุด/สูงสุด ต่อวัน: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "จำนวนยอดถอนต่อวันของคุณครบแล้ว",
 	"lbl_Insufficientbalance": "ยอดคงเหลือไม่เพียงพอ",
-	"lbl_ReceiveUSDT": "รับจำนวนเงิน USDT",
+	"lbl_ReceiveUSDT": "รับจำนวนเงิน {{currencyName}}",
 	"lbl_WithdrawalCryptoNote": "อัตราการแลกเปลี่ยนใช้เพื่อการอ้างอิงเท่านั้น จำนวนเงินที่แน่นอนจะอ้างอิงจากอัตราการแลกเปลี่ยนล่าสุด",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",

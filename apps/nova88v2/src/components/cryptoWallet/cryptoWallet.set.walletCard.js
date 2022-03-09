@@ -19,7 +19,12 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 		};
 	});
 
-	const delUSDTwallet = ({ USDTAddress, NickName, AccountName }) => {
+	const delUSDTwallet = ({
+		USDTAddress,
+		NickName,
+		AccountName,
+		CurrencyId
+	}) => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.ConfirmDelete,
@@ -33,7 +38,8 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 							removeUSDT({
 								USDTAddress,
 								NickName,
-								AccountName
+								AccountName,
+								CurrencyId
 							})
 						}>
 						{t("lbl_Yes")}
@@ -48,11 +54,12 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 		});
 	};
 
-	const removeUSDT = ({ USDTAddress, NickName, AccountName }) => {
+	const removeUSDT = ({ USDTAddress, NickName, AccountName, CurrencyId }) => {
 		api_accountStrict_delCustUSDTInfo({
 			USDTAddress,
 			NickName,
-			AccountName
+			AccountName,
+			CurrencyId
 		})
 			.then(res => {
 				if (res.data.errorCode === 0) {
@@ -72,7 +79,9 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 
 	const arr = walletList?.map(item => {
 		return (
-			<div className="addBankName" key={`walletCard-${item.usdtAddress}`}>
+			<div
+				className="addBankName"
+				key={`walletCard-${item.currencyId}-${item.usdtAddress}`}>
 				<div className="cryptoInfo">
 					<i className="icon icon-USDT" />
 					<div>{item.usdtAddress}</div>
@@ -83,7 +92,8 @@ const WalletCard = ({ walletList, loading, userInfo, GetCustBankInfo }) => {
 						delUSDTwallet({
 							USDTAddress: item.usdtAddress,
 							NickName: item.nickName,
-							AccountName: userInfo.accountName
+							AccountName: userInfo.accountName,
+							CurrencyId: item.currencyId
 						})
 					}
 				/>

@@ -377,7 +377,7 @@
 	"lbl_Daily_Min_Max_Amount": "Min/Maks Limit Harian: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "Batas Harian Anda Tercapai",
 	"lbl_Insufficientbalance": "Saldo tidak mencukupi",
-	"lbl_ReceiveUSDT": "Terima jumlah USDT",
+	"lbl_ReceiveUSDT": "Terima jumlah {{currencyName}}",
 	"lbl_WithdrawalCryptoNote": "Nilai konversi berfungsi sebagai tujuan referensi saja, jumlah yang tepat akan mengacu pada nilai terbaru.",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",

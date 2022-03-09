@@ -138,10 +138,8 @@ const Deposit = () => {
 		cryptoPayInfo
 	} = useDepositCryptoPay({ isMountedRef });
 
-	const {
-		autoChannelBankGroupList,
-		getAutoChannelBankGroupList
-	} = useDepositOnline({ isMountedRef });
+	const { autoChannelBankGroupList, getAutoChannelBankGroupList } =
+		useDepositOnline({ isMountedRef });
 
 	const {
 		loadCardPayGroupList,
@@ -160,14 +158,13 @@ const Deposit = () => {
 		QRPayInfoList
 	} = useDepositQRPay({ isMountedRef });
 
-	const formatAmount = _val => {
-		return number_format({
+	const formatAmount = _val =>
+		number_format({
 			number: _val,
 			formatRequired: true,
 			isConvertRequired: _isConvert,
 			digits: 0
 		});
-	};
 
 	const onChangeDepositType = async type => {
 		setDepositType(type);
@@ -215,12 +212,10 @@ const Deposit = () => {
 			}
 		}
 
-		setFormInfo(prev => {
-			return {
-				...prev,
-				[col]: { val: _val, checked, tip }
-			};
-		});
+		setFormInfo(prev => ({
+			...prev,
+			[col]: { val: _val, checked, tip }
+		}));
 	};
 
 	const onValidAmount = _val => {
@@ -271,38 +266,34 @@ const Deposit = () => {
 			return;
 		}
 
-		setFormInfo(prev => {
-			return {
-				...prev,
-				depositPromo: {
-					idx,
-					bonusCode: data.bonusCode,
-					requiredAmount: data.requiredAmount,
-					specialCode: data.specialCode
-				}
-			};
-		});
+		setFormInfo(prev => ({
+			...prev,
+			depositPromo: {
+				idx,
+				bonusCode: data.bonusCode,
+				requiredAmount: data.requiredAmount,
+				specialCode: data.specialCode
+			}
+		}));
 	};
 
 	const onSubmit = async () => {
 		const resetForm = () => {
-			setFormInfo(prev => {
-				return {
-					...prev,
-					imgFile: null,
-					amount: { val: "", checked: null, tip: "" },
-					cardCode: {
-						val: "",
-						checked: null,
-						tip: ""
-					},
-					cardSerial: {
-						val: "",
-						checked: null,
-						tip: ""
-					}
-				};
-			});
+			setFormInfo(prev => ({
+				...prev,
+				imgFile: null,
+				amount: { val: "", checked: null, tip: "" },
+				cardCode: {
+					val: "",
+					checked: null,
+					tip: ""
+				},
+				cardSerial: {
+					val: "",
+					checked: null,
+					tip: ""
+				}
+			}));
 		};
 
 		const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -542,7 +533,8 @@ const Deposit = () => {
 										...prevState,
 										isOpen: false
 									}));
-								}
+								},
+								currencyName: formInfo.currencyName
 							});
 						}
 					});

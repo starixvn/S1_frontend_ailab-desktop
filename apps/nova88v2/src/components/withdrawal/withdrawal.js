@@ -53,7 +53,8 @@ export default () => {
 						type: defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT,
 						withdrawalMin: res.data.data.withdrawalMin,
 						withdrawalMax: res.data.data.withdrawalAvailableAmount,
-						isAmountLimited: !res.data.data.unlimited
+						unlimited: res.data.data.unlimited,
+						usdtList: res.data.data.usdtList
 					});
 				} else if (res.data.errorCode !== 0) {
 					errorPopBox(

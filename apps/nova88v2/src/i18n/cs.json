@@ -377,7 +377,7 @@
 	"lbl_Daily_Min_Max_Amount": "每日最低/最高额度: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "您已达到每日提款限额",
 	"lbl_Insufficientbalance": "余额不足",
-	"lbl_ReceiveUSDT": "USDT款项到账",
+	"lbl_ReceiveUSDT": "{{currencyName}}款项到账",
 	"lbl_WithdrawalCryptoNote": "汇率仅供参考, 详细到帐金额将由当时汇率决定",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
