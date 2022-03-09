@@ -42,7 +42,10 @@ const CardPanel = ({
 			  }
 			: {
 					usdtAddress: accountData.usdtAddress,
-					nickName: accountData.nickName
+					nickName: accountData.nickName,
+					currencyId: accountData.currencyId,
+					network: accountData.network,
+					currencyName: accountData.currencyName
 			  };
 		dispatch({
 			type: defActionType.SELECT_ACCOUNT,
@@ -196,6 +199,7 @@ const CardPanel = ({
 				selectAccount={selectAccount}
 				addCryptoWallet={addCryptoWallet}
 				GetCustBankInfo={GetCustBankInfo}
+				defPanel={defPanel}
 			/>
 		</>
 	);

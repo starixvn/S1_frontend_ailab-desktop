@@ -12,7 +12,8 @@ const CryptoCard = ({
 	selectAccount,
 	addCryptoWallet,
 	userInfo,
-	GetCustBankInfo
+	GetCustBankInfo,
+	defPanel
 }) => {
 	const isMountedRef = useRef(null);
 	const { errorPopBox } = usePopBox();
@@ -25,7 +26,12 @@ const CryptoCard = ({
 	});
 	const _custBankInfo = custBankInfo?.uSDTDetail || [];
 
-	const delUSDTwallet = ({ USDTAddress, NickName, AccountName }) => {
+	const delUSDTwallet = ({
+		USDTAddress,
+		NickName,
+		AccountName,
+		CurrencyId
+	}) => {
 		setPopBox({
 			isOpen: true,
 			popBoxType: defPopBoxType.ConfirmDelete,
@@ -39,7 +45,8 @@ const CryptoCard = ({
 							removeUSDT({
 								USDTAddress,
 								NickName,
-								AccountName
+								AccountName,
+								CurrencyId
 							})
 						}>
 						{t("lbl_Yes")}
@@ -54,11 +61,12 @@ const CryptoCard = ({
 		});
 	};
 
-	const removeUSDT = ({ USDTAddress, NickName, AccountName }) => {
+	const removeUSDT = ({ USDTAddress, NickName, AccountName, CurrencyId }) => {
 		api_accountStrict_delCustUSDTInfo({
 			USDTAddress,
 			NickName,
-			AccountName
+			AccountName,
+			CurrencyId
 		})
 			.then(res => {
 				if (res.data.errorCode === 0) {
@@ -89,19 +97,22 @@ const CryptoCard = ({
 	};
 
 	const usdtWalletArr = _custBankInfo?.map(item => {
-		const _key = `withdrawal-usdt-${item.usdtAddress}`;
+		const _key = `${item.currencyId}-${item.usdtAddress}`;
+		const { usdtAddress, currencyId } = state.selectedAccount;
+
 		const _checked =
-			item.usdtAddress === state.selectedAccount?.usdtAddress;
+			item.usdtAddress === usdtAddress && item.currencyId === currencyId;
 
 		return (
 			<CryptoCardLayout
 				key={_key}
 				delUSDTwallet={delUSDTwallet}
-				checkKey={item.usdtAddress}
+				checkKey={`${item.currencyId}-${item.usdtAddress}`}
 				{...item}
 				selectAccount={selectAccount.bind(this, item)}
 				checked={_checked}
 				userInfo={userInfo}
+				hideDelBtn={state.panel === defPanel.confirm}
 			/>
 		);
 	});
@@ -130,10 +141,15 @@ const CryptoCard = ({
 };
 
 const CryptoCardLayout = props => {
+	const _network =
+		props.network === props.currencyName
+			? props.network
+			: `${props.currencyName}-${props.network}`;
 	return (
 		<div className="addBankName">
 			<div className="cryptoInfo">
 				<div className="title">{props.nickName}</div>
+				<div className="title">{_network}</div>
 				<i className="icon icon-BTC" />
 				<div>{props.usdtAddress}</div>
 				<div className="checkbox">
@@ -149,16 +165,19 @@ const CryptoCardLayout = props => {
 					/>
 				</div>
 			</div>
-			<button
-				className="icon icon-bin"
-				onClick={() =>
-					props.delUSDTwallet({
-						USDTAddress: props.usdtAddress,
-						NickName: props.nickName,
-						AccountName: props.userInfo.accountName
-					})
-				}
-			/>
+			{props.hideDelBtn ? null : (
+				<button
+					className="icon icon-bin"
+					onClick={() =>
+						props.delUSDTwallet({
+							USDTAddress: props.usdtAddress,
+							NickName: props.nickName,
+							AccountName: props.userInfo.accountName,
+							CurrencyId: props.currencyId
+						})
+					}
+				/>
+			)}
 		</div>
 	);
 };
@@ -174,7 +193,9 @@ CryptoCard.propTypes = {
 CryptoCardLayout.defaultProps = {
 	usdtAddress: "",
 	checkKey: null,
-	nickName: ""
+	nickName: "",
+	network: "",
+	currencyName: ""
 };
 
 CryptoCardLayout.propTypes = {
@@ -182,6 +203,8 @@ CryptoCardLayout.propTypes = {
 	checkKey: PropTypes.string,
 	selectAccount: PropTypes.func.isRequired,
 	checked: PropTypes.bool.isRequired,
-	nickName: PropTypes.string
+	nickName: PropTypes.string,
+	network: PropTypes.string,
+	currencyName: PropTypes.string
 };
 export default CryptoCard;

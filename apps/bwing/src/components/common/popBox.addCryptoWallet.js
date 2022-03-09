@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
-import WAValidator from "multicoin-address-validator";
 import {
 	api_accountStrict_SetCustUSDTInfoBatch,
 	api_accountStrict_SendOTPSMS,
 	api_accountStrict_getOTPVerifyInfo,
 	api_accountStrict_VerifyOTP
 } from "../../service/api/accountStrict";
-import { api_payment_getSupportNetwork } from "../../service/api/payment";
+import { api_payment_GetSupportCryptoInfo } from "../../service/api/payment";
 import { popBoxContext, userInfoContext } from "./context";
 import usePopBox from "../hook/usePopBox";
 import { defPopBoxType } from "./defPopBoxType";
@@ -21,9 +20,7 @@ export const Counter = ({ startUnixTime, timeStop }) => {
 	const timerRef = useRef(null);
 
 	const secondsToTime = secondsInTime => {
-		const pad = (num, size) => {
-			return `000${num}`.slice(size * -1);
-		};
+		const pad = (num, size) => `000${num}`.slice(size * -1);
 		const time = parseFloat(secondsInTime).toFixed(3);
 		const minutes = Math.floor(time / 60) % 60;
 		const seconds = Math.floor(time - minutes * 60);
@@ -90,7 +87,7 @@ export default ({ GetCustBankInfo }) => {
 	const [timer, setTimer] = useState(false);
 	const [selectedCurrency, setSelCurrency] = useState(0);
 	const [selectedNetWork, setSelNetWork] = useState(0);
-	const [network_opt, set_network_opt] = useState([]);
+	const [cryptoInfo, setCryptoInfo] = useState({});
 	const [status, setStatus] = useState(defStatus);
 	const [walletDatas, setWalletDatas] = useState({
 		nickName: "",
@@ -134,7 +131,11 @@ export default ({ GetCustBankInfo }) => {
 
 	const onSelCurrency = (i, item) => {
 		setSelCurrency(i);
-		setWalletDatas(prev => ({ ...prev, currencyId: item.id }));
+		setWalletDatas(prev => ({
+			...prev,
+			currencyId: item.id,
+			network: item.network
+		}));
 	};
 
 	const cryptoInputDataList = [
@@ -172,16 +173,17 @@ export default ({ GetCustBankInfo }) => {
 	});
 
 	useEffect(() => {
-		api_payment_getSupportNetwork()
+		api_payment_GetSupportCryptoInfo()
 			.then(res => {
 				if (res.data.errorCode === 0 && res.data?.data) {
-					const options = res.data.data.map(el => ({
-						id: el.network,
-						displayText: el.network
-					}));
+					setCryptoInfo(res.data.data);
 
-					set_network_opt(options);
-					onSelNetWork(0, options[0]);
+					const { cryptoCurrency, cryptoNetwork } = res.data.data;
+					setWalletDatas(prev => ({
+						...prev,
+						currencyId: cryptoCurrency[0].currencyId,
+						network: cryptoNetwork[0].network
+					}));
 				}
 			})
 			.catch(() => {
@@ -218,27 +220,16 @@ export default ({ GetCustBankInfo }) => {
 
 	const checkCol = (_colType, _val) => {
 		let checked = null;
-		let message = "";
-		const isValidAddress =
-			WAValidator.validate(_val, "usdt") ||
-			WAValidator.validate(_val, "trx");
 
 		if (_colType === colType.usdtAddress) {
-			if (isValidAddress) {
-				checked = true;
-			} else {
-				message = t("lbl_NotERC20WalletAddr");
-				checked = false;
-			}
+			checked = _val !== "";
 		}
 		setStatus(prev => ({
 			...prev,
 			[_colType]: {
-				checked,
-				tip: message
+				checked
 			}
 		}));
-		return { checked, message };
 	};
 
 	const clickSubmit = e => {
@@ -311,13 +302,37 @@ export default ({ GetCustBankInfo }) => {
 		}
 	};
 
+	const currencyOptions = cryptoInfo.cryptoCurrency
+		? cryptoInfo.cryptoCurrency.map(currency => ({
+				id: currency.currencyId,
+				displayText: currency.currencyName,
+				network: cryptoInfo.cryptoNetwork.filter(
+					el => el.currencyId === currency.currencyId
+				)[0].network
+		  }))
+		: [];
+
+	const networkOptions =
+		cryptoInfo.cryptoNetwork && currencyOptions
+			? cryptoInfo.cryptoNetwork
+					.filter(
+						el =>
+							el.currencyId ===
+							currencyOptions[selectedCurrency].id
+					)
+					.map(el => ({
+						id: el.network,
+						displayText: el.network
+					}))
+			: [];
+
 	const cols = [
 		<div className="inputBox-blue">
 			<span className="txt-red">*</span>
 			<Dropdown
 				i18n={t}
 				mainKey="cryptoCurrency"
-				options={[{ id: 96, displayKey: "Currency_51" }]}
+				options={currencyOptions}
 				selectedIdx={selectedCurrency}
 				onSelectItem={onSelCurrency}
 				showDropDownIcon={true}
@@ -328,7 +343,7 @@ export default ({ GetCustBankInfo }) => {
 			<Dropdown
 				i18n={t}
 				mainKey="network"
-				options={network_opt}
+				options={networkOptions}
 				selectedIdx={selectedNetWork}
 				onSelectItem={onSelNetWork}
 				showDropDownIcon={true}

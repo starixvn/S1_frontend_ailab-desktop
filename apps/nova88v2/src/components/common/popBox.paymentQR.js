@@ -25,7 +25,8 @@ const Panel = ({
 	accountName,
 	thirdId,
 	depositType,
-	handlePopBox
+	handlePopBox,
+	currencyName
 }) => {
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
@@ -131,7 +132,8 @@ const Panel = ({
 							{t("lbl_Rate")}: {rate}
 						</div>
 						<div>
-							{t("lbl_USDT_Amount")}: {requestAmount}{" "}
+							{`${currencyName} ${t("lbl_Amount")}`}:{" "}
+							{requestAmount}{" "}
 							<button
 								className="copyBtn"
 								data-clipboard-text={requestAmount}>
@@ -199,9 +201,7 @@ export const Counter = ({ startUnixTime = null, timeStop }) => {
 	const timerRef = useRef(null);
 
 	const secondsToTime = secondsInTime => {
-		const pad = (num, size) => {
-			return `000${num}`.slice(size * -1);
-		};
+		const pad = (num, size) => `000${num}`.slice(size * -1);
 		const time = parseFloat(secondsInTime).toFixed(3);
 		const minutes = Math.floor(time / 60) % 60;
 		const seconds = Math.floor(time - minutes * 60);
@@ -243,7 +243,8 @@ Panel.defaultProps = {
 	cashbackAmount: null,
 	receivedAmount: null,
 	PromotionRate: null,
-	promoContent: null
+	promoContent: null,
+	currencyName: null
 };
 
 Panel.propTypes = {
@@ -264,5 +265,6 @@ Panel.propTypes = {
 	cashbackAmount: PropTypes.string,
 	receivedAmount: PropTypes.string,
 	PromotionRate: PropTypes.string,
-	promoContent: PropTypes.string
+	promoContent: PropTypes.string,
+	currencyName: PropTypes.string
 };

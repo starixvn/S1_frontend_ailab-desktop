@@ -22,7 +22,8 @@ const Panel = ({
 	cashbackAmount,
 	receivedAmount,
 	PromotionRate,
-	promoContent
+	promoContent,
+	currencyName
 }) => {
 	const { t } = useTranslation();
 	const isMountedRef = useRef(null);
@@ -134,7 +135,7 @@ const Panel = ({
 						<li>{rate}</li>
 					</ul>
 					<ul>
-						<li>{t("lbl_USDT_Amount")}:</li>
+						<li>{`${currencyName} ${t("lbl_Amount")}`}:</li>
 						<li>
 							{requestAmount}
 							<button
@@ -169,9 +170,7 @@ export const Counter = ({ startUnixTime = null, timeStop }) => {
 	const timerRef = useRef(null);
 
 	const secondsToTime = secondsInTime => {
-		const pad = (num, size) => {
-			return `000${num}`.slice(size * -1);
-		};
+		const pad = (num, size) => `000${num}`.slice(size * -1);
 		const time = parseFloat(secondsInTime).toFixed(3);
 		const minutes = Math.floor(time / 60) % 60;
 		const seconds = Math.floor(time - minutes * 60);
@@ -210,7 +209,8 @@ Panel.defaultProps = {
 	cashbackAmount: null,
 	receivedAmount: null,
 	PromotionRate: "",
-	promoContent: null
+	promoContent: null,
+	currencyName: null
 };
 
 Panel.propTypes = {
@@ -228,5 +228,6 @@ Panel.propTypes = {
 	cashbackAmount: PropTypes.string,
 	receivedAmount: PropTypes.string,
 	PromotionRate: PropTypes.string,
-	promoContent: PropTypes.string
+	promoContent: PropTypes.string,
+	currencyName: PropTypes.string
 };

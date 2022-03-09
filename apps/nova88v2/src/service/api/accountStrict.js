@@ -88,12 +88,14 @@ export const api_accountStrict_getOTPVerifyInfo = () =>
 export const api_accountStrict_delCustUSDTInfo = ({
 	USDTAddress,
 	NickName,
-	AccountName
+	AccountName,
+	CurrencyId
 }) =>
 	accountStrictRequest.post("/DelCustUSDTInfo", {
 		USDTAddress,
 		NickName,
-		AccountName
+		AccountName,
+		CurrencyId
 	});
 
 export const api_accountStrict_SendOTPEmail = () =>

@@ -9,14 +9,17 @@ const CryptoCard = ({
 	hideDeleteIcon,
 	handlerDelete
 }) => {
-	const { nickName, usdtAddress } = item;
+	const { nickName, usdtAddress, network, currencyName, currencyId } = item;
 
-	const checkKey = usdtAddress;
+	const checkKey = `${currencyId}-${usdtAddress}`;
+	const _network =
+		network === currencyName ? network : `${currencyName}-${network}`;
 
 	return (
 		<div className="addBankName">
 			<div className="cryptoInfo">
 				<div className="title">{nickName}</div>
+				<div className="title">{_network}</div>
 			</div>
 
 			<div className="cryptoInfo">

@@ -188,30 +188,26 @@ const Deposit = () => {
 
 	const onChangeAmount = _amount => {
 		const amount = String(_amount).replace(/^(0+)|[^\d]+/g, "");
-		setFormInfo(prev => {
-			return { ...prev, amount };
-		});
+		setFormInfo(prev => ({ ...prev, amount }));
 	};
 
 	const onReset = () => {
 		setLocalBankChecked(true);
 
-		setFormInfo(prev => {
-			return {
-				...prev,
-				imgFile: null,
-				amount: null,
-				fromChannel: null,
-				fromAccountNum: null,
-				checked: null,
-				tip: "",
-				depositPromo: {
-					idx: 0,
-					bonusCode: null,
-					requiredAmount: null
-				}
-			};
-		});
+		setFormInfo(prev => ({
+			...prev,
+			imgFile: null,
+			amount: null,
+			fromChannel: null,
+			fromAccountNum: null,
+			checked: null,
+			tip: "",
+			depositPromo: {
+				idx: 0,
+				bonusCode: null,
+				requiredAmount: null
+			}
+		}));
 	};
 
 	const openVerificationPopBox = bonusCode =>
@@ -242,17 +238,15 @@ const Deposit = () => {
 			return;
 		}
 
-		setFormInfo(prev => {
-			return {
-				...prev,
-				depositPromo: {
-					idx,
-					bonusCode: data.bonusCode,
-					requiredAmount: data.requiredAmount,
-					specialCode: data.specialCode
-				}
-			};
-		});
+		setFormInfo(prev => ({
+			...prev,
+			depositPromo: {
+				idx,
+				bonusCode: data.bonusCode,
+				requiredAmount: data.requiredAmount,
+				specialCode: data.specialCode
+			}
+		}));
 	};
 
 	const onSubmit = async () => {
@@ -517,7 +511,6 @@ const Deposit = () => {
 				}
 			} else if (depositType === defDepositType.cryptoPay) {
 				setLoading(true);
-
 				const params = [
 					`ChannelId=${channelId}`,
 					`Amount=${resultAmount}`,
@@ -589,7 +582,8 @@ const Deposit = () => {
 											...prevState,
 											isOpen: false
 										}));
-									}
+									},
+									currencyName: formInfo?.currencyName
 								});
 							} else {
 								errorPopBox(
@@ -636,29 +630,23 @@ const Deposit = () => {
 		});
 
 		if (result.status !== 0) {
-			setFormInfo(prev => {
-				return {
-					...prev,
-					checked: false,
-					tip: result.msg
-				};
-			});
+			setFormInfo(prev => ({
+				...prev,
+				checked: false,
+				tip: result.msg
+			}));
 		} else {
-			setFormInfo(prev => {
-				return {
-					...prev,
-					checked: true,
-					tip: ""
-				};
-			});
+			setFormInfo(prev => ({
+				...prev,
+				checked: true,
+				tip: ""
+			}));
 		}
 
 		return result.status === 0;
 	};
 
-	const formatAmount = _val => {
-		return number_format(_val, _isConvert, 0);
-	};
+	const formatAmount = _val => number_format(_val, _isConvert, 0);
 
 	useDepositEffect({
 		t,

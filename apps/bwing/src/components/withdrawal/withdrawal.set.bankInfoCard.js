@@ -8,12 +8,7 @@ import { defPopBoxType } from "../common/defPopBoxType";
 import Loading from "../common/loading";
 
 const BankInfoCard = props => {
-	const {
-		currentBankInfoDetail,
-		updateCustBankInfo,
-		datas,
-		resetWithdrawalType
-	} = props;
+	const { currentBankInfoDetail, updateCustBankInfo, datas } = props;
 
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
@@ -44,7 +39,6 @@ const BankInfoCard = props => {
 						className="btn-cancel"
 						onClick={() => {
 							deleteCard(sysId, accountNo);
-							resetWithdrawalType();
 						}}>
 						{t("lbl_Yes")}
 					</button>
@@ -165,8 +159,7 @@ BankInfoCard.propTypes = {
 	currentBankInfoDetail: PropTypes.objectOf(PropTypes.any).isRequired,
 	isShowConfirmPage: PropTypes.bool.isRequired,
 	onChangeBankInfo: PropTypes.func.isRequired,
-	updateCustBankInfo: PropTypes.func.isRequired,
-	resetWithdrawalType: PropTypes.func.isRequired
+	updateCustBankInfo: PropTypes.func.isRequired
 };
 
 export default BankInfoCard;

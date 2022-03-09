@@ -12,7 +12,6 @@ const BankInfoCard = ({
 	updateCustBankInfo,
 	datas,
 	isShowConfirmPage,
-	resetWithdrawalType,
 	onChangeBankInfo
 }) => {
 	const { userInfo } = useContext(userInfoContext);
@@ -44,7 +43,6 @@ const BankInfoCard = ({
 						className="btn-cancel"
 						onClick={() => {
 							deleteCard(sysId, accountNo);
-							resetWithdrawalType();
 						}}>
 						{t("lbl_Yes")}
 					</button>
@@ -185,8 +183,7 @@ BankInfoCard.propTypes = {
 	currentBankInfoDetail: PropTypes.objectOf(PropTypes.any).isRequired,
 	isShowConfirmPage: PropTypes.bool.isRequired,
 	onChangeBankInfo: PropTypes.func.isRequired,
-	updateCustBankInfo: PropTypes.func.isRequired,
-	resetWithdrawalType: PropTypes.func.isRequired
+	updateCustBankInfo: PropTypes.func.isRequired
 };
 
 export default BankInfoCard;

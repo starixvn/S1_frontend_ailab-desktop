@@ -65,8 +65,7 @@ export const WithdrawalUSDTConFirm = ({
 	getExchangeInfo,
 	_isConvert
 }) => {
-	const { nickName, usdtAddress } = currentUSDTDetail;
-
+	const { nickName, usdtAddress, currencyName, network } = currentUSDTDetail;
 	const [uSDTAmount, setUSDTAmount] = useState(0);
 	const [loading, setLoading] = useState(false);
 
@@ -74,7 +73,11 @@ export const WithdrawalUSDTConFirm = ({
 		const getUSDTAmount = async () => {
 			setLoading(true);
 
-			const _uSDTAmount = await getExchangeInfo(amountValue);
+			const _uSDTAmount = await getExchangeInfo({
+				amount: amountValue,
+				currencyName,
+				network
+			});
 
 			setUSDTAmount(_uSDTAmount || 0);
 
@@ -83,7 +86,7 @@ export const WithdrawalUSDTConFirm = ({
 
 		getUSDTAmount();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [amountValue]);
+	}, [amountValue, currencyName, network]);
 
 	return (
 		<div className="subModuleBody column align-items-center">
@@ -112,7 +115,7 @@ export const WithdrawalUSDTConFirm = ({
 				</ul>
 
 				<ul>
-					<li>{t("lbl_USDT_Amount")}</li>
+					<li>{t("lbl_USDT_Amount", { currencyName })}</li>
 					<li>
 						<IconSpinner active={loading} />
 
