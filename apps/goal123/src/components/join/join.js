@@ -334,7 +334,8 @@ export default () => {
 				Userpwd: userValue.password,
 				CurrencyId: siteCurrency[userValue.currency].id,
 				UserLang: defaultLangId,
-				PromoCode: userValue.specialBonusCode
+				PromoCode: userValue.specialBonusCode,
+				ReferralUrl: document.referrer
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
