@@ -371,7 +371,8 @@ export default () => {
 				PhoneNo: userValue.phone,
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
-				AreaCode: _areaCode
+				AreaCode: _areaCode,
+				ReferralUrl: document.referrer
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
