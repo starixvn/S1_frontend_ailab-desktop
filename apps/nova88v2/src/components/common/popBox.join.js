@@ -305,7 +305,8 @@ export default () => {
 	const emailCheck = async val => {
 		let checked = false;
 		let msg = "";
-		const regx = /^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+		const regx =
+			/^\w+((-\w+)|(\.\w+))*@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
 		if (val === "") {
 			checked = false;
@@ -537,7 +538,8 @@ export default () => {
 				CurrencyId: _currencyId,
 				UserLang: defaultLangId,
 				AreaCode: _areaCode,
-				PromoCode: userValue.specialBonusCode
+				PromoCode: userValue.specialBonusCode,
+				ReferralUrl: document.referrer
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
