@@ -433,7 +433,7 @@
 	"lbl_Amount": "金额",
 	"lbl_BankInfo": "银行资讯",
 	"lbl_LastTransaction": "最后交易",
-	"lbl_AmountTooltip": "金额不得小于{0}",
+	"lbl_AmountTooltip": "最低金额不低于{0}",
 	"lbl_NotinLimit": "不在设定范围",
 	"lbl_SelectBank": "选择银行",
 	"lbl_SelectedBank": "所选银行",
