@@ -118,6 +118,12 @@ const defPlatform = [
 	{
 		...productList.liveCasino_EVO,
 		imgName: "ev"
+	},
+	{
+		...defCasinoProviders.Habanero,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Habanero.name },
+		imgName: "ho"
 	}
 	// {
 	// 	...productList.liveCasino_Allbet,

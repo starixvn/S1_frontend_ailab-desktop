@@ -249,6 +249,19 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PP.name }
 			},
 			{
+				...defCasinoProviders.Habanero,
+				className: "HO",
+				displayText: "Habanero",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Habanero.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_Habanero
+					})
+				]
+			},
+			{
 				...defCasinoProviders.NetEnt,
 				className: "NE",
 				displayText: "NetEnt",
