@@ -50,6 +50,11 @@ export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
 
 export const defLobbyImgList = [
 	{
+		lobbyImgName: "ho",
+		lobbyDisplayName: "Habanero",
+		providerId: productList.casino_Habanero.tpId
+	},
+	{
 		lobbyImgName: "ap",
 		lobbyDisplayName: "AdvantPlay",
 		providerId: productList.casino_AdvantPlay.tpId

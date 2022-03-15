@@ -205,6 +205,7 @@ export default {
 		tpId: 39,
 		tpGameType: 67
 	},
+	casino_Habanero: { tpId: 40, tpGameType: 68 },
 
 	/* === 3. live casino === */
 

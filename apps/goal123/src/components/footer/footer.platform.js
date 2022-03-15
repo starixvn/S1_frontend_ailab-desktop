@@ -6,7 +6,7 @@ import productList, {
 	defTpGameType
 } from "../../datas/productList";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
-import config from "../../config";
+import { bannerImgUrl } from "../../config";
 import usePopBox from "../hook/usePopBox";
 import { defPopBoxType } from "../common/popBox";
 import path from "../../router";
@@ -49,7 +49,7 @@ const defPlatform = [
 		...defCasinoProviders.PT,
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.PT.name },
-		imgName: "playtech"
+		imgName: "pt"
 	},
 	{
 		...defCasinoProviders.PG,
@@ -118,6 +118,12 @@ const defPlatform = [
 	{
 		...productList.liveCasino_EVO,
 		imgName: "evolution"
+	},
+	{
+		...defCasinoProviders.Habanero,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Habanero.name },
+		imgName: "habanero"
 	}
 ];
 
@@ -191,7 +197,7 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 			<button key={key}>
 				<img
 					alt="logo"
-					src={`${config.imgUrl}/common/images/logo/${p.imgName}${
+					src={`${bannerImgUrl}/desktop/img/footer/${p.imgName}${
 						hoverNamme === p.imgName ? "a" : ""
 					}.png`}
 					onClick={() =>
