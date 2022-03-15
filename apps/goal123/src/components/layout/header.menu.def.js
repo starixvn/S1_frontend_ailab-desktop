@@ -255,6 +255,21 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pp-icon.png`
 			},
 			{
+				...defCasinoProviders.Habanero,
+				displayText: "Habanero",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Habanero.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/habanero-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_Habanero
+					})
+				]
+			},
+			{
 				...defCasinoProviders.NetEnt,
 				displayText: "NetEnt",
 				menuType: defMenuType.Link,
