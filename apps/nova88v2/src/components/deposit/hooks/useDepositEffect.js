@@ -128,7 +128,6 @@ const useDepositEffect = ({
 	}, [userInfo, isInitDataDone]);
 
 	useEffect(() => {
-		console.log(isInitDataDone);
 		if (isInitDataDone) {
 			const originalDepositOptions = defDepositOptions({
 				linePayLink,
