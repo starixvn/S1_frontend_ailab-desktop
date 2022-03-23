@@ -27,7 +27,8 @@ import {
 	useDepositMobilePay,
 	useDepositOnline,
 	useDepositEffect,
-	useAutoDeposit
+	useAutoDeposit,
+	useDepositLinePay
 } from "./hooks";
 
 import config from "../../config";
@@ -125,6 +126,11 @@ const Deposit = () => {
 		mobilePayGourpList,
 		mobilePayInfoList
 	} = useDepositMobilePay({ isMountedRef });
+
+	const { getLinePayLink, linePayLink } = useDepositLinePay({
+		isMountedRef,
+		currencyId: userInfo.currencyId
+	});
 
 	const {
 		getOnlineBankGroupList,
@@ -672,7 +678,9 @@ const Deposit = () => {
 		getLocalBankGroupList,
 		getOnlineBankGroupList,
 		getCryptoPayGroupList,
-		getAutoDepositGroupList
+		getAutoDepositGroupList,
+		getLinePayLink,
+		linePayLink
 	});
 
 	if (loading || !isInitDataDone) return null;
@@ -691,6 +699,7 @@ const Deposit = () => {
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
 				setSaveInfoChecked={setSaveInfoChecked}
+				setPopBox={setPopBox}
 				userName={userInfo.userName}>
 				{depositType === defDepositType.autoDeposit && (
 					<AutoDepositForm
