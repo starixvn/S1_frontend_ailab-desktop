@@ -128,6 +128,7 @@ const useDepositEffect = ({
 	}, [userInfo, isInitDataDone]);
 
 	useEffect(() => {
+		console.log(isInitDataDone);
 		if (isInitDataDone) {
 			const originalDepositOptions = defDepositOptions({
 				linePayLink,
@@ -142,7 +143,7 @@ const useDepositEffect = ({
 			);
 
 			if (userInfo.currencyId && userInfo.currencyId !== 4) {
-				const excludeLinePay = originalDepositOptions.filter(
+				const excludeLinePay = filterDepositOptions.filter(
 					item => item.type !== defDepositType.linePay
 				);
 				setDepositOptions(excludeLinePay);
