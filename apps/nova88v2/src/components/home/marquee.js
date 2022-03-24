@@ -1,6 +1,6 @@
 import React, { Component, useContext, createRef } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "@reach/router";
+import { navigate } from "gatsby";
 import { api_message_GetAnnouncement } from "../../service/api/message";
 import { userInfoContext } from "../common/context";
 import { GET_LANG_ID } from "../../service/language";
@@ -9,7 +9,6 @@ import useHandleLogin from "../hook/useHandleLogin";
 import usePopBox from "../hook/usePopBox";
 
 export default () => {
-	const navigate = useNavigate();
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { handleLogin } = useHandleLogin();
