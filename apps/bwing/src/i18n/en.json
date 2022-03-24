@@ -104,9 +104,10 @@
 	"lbl_SportsBetting": "Sports Betting",
 	"lbl_Tennis": "Tennis",
 	"lbl_TennisBetting": "Tennis Betting",
-	"lbl_VirtualGames": "Virtual Games",
+	"lbl_Virtual_Games":"Virtual Games",
+	"lbl_Virtual_Sports": "Virtual Sports",
 	"lbl_VirtualSport": "VIRTUAL SPORT",
-	"lbl_VirtualSports": "Virtual Sports",
+
 	"lbl_789Lottery": "789 Lottery",
 	"lbl_liveCasino_789SeDie": "789 Se Die",
 	"lbl_Game_ICG_DRAGONBALL_FISHING": "Dragonball Fishing",

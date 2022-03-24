@@ -106,9 +106,10 @@
 	"lbl_SportsBetting": "Cá cược Thể thao",
 	"lbl_Tennis": "Quần Vợt",
 	"lbl_TennisBetting": "Cá cược Quần Vợt",
-	"lbl_VirtualGames": "Trò Chơi Ảo",
+	"lbl_Virtual_Games":"Trò chơi ảo",
+	"lbl_Virtual_Sports": "Thể thao ảo",
 	"lbl_VirtualSport": "Thể Thao Ảo",
-	"lbl_VirtualSports": "Thể thao ảo",
+
 	"lbl_789Lottery": "Xổ số tự quay 789",
 	"lbl_liveCasino_789SeDie": "Xóc Đĩa 789",
 	"lbl_Game_ICG_DRAGONBALL_FISHING": "NGỌC RỒNG BẮN CÁ",

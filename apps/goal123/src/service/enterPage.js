@@ -93,16 +93,12 @@ export const GET_OPEN_RULE = (
 	if (_tpId === 1) {
 		if (_gameId === 43 || _gameId === 220 || _gameId === 202) {
 			result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
-		} else if (_gameId < 100) {
-			result = setResult(
-				"",
-				false,
-				_ACTION_TYPE.redirect,
-				_tpId,
-				_gameId
-			);
-			// result = setResult("", false, _ACTION_TYPE.blank, _tpId, _gameId);
-		} else if (_gameId === 161 || _gameId === 180) {
+		} else if (
+			_gameId < 100 ||
+			_gameId === 161 ||
+			_gameId === 180 ||
+			_gameId === 192
+		) {
 			result = setResult(
 				"",
 				false,
