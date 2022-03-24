@@ -821,6 +821,10 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList .cricket .img {
   background: url(https://banner.bw88.io/desktop/img/sports/cricket.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .sportsList .virtual .img {
+  background: url(https://banner.bw88.io/desktop/img/sports/virtualSport.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .gameList .sabaclub .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-saba.png) no-repeat center/auto 100%;
 }
@@ -859,6 +863,10 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-table.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
+  background: url(https://banner.bw88.io/desktop/img/lottery/virtual.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
@@ -8405,6 +8413,10 @@ main > .swiper-container .swiper-slide {
   background: url(https://banner.bw88.io/desktop/img/gameslobby/tablegame.png) no-repeat center;
 }
 
+.gameslobbyList > div.virtualgames {
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/virtualgames.png) no-repeat center;
+}
+
 form {
   width: 100%;
 }
@@ -14359,6 +14371,14 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 15;
+}
+
+canvas {
   position: fixed;
   top: 0;
   left: 0;

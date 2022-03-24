@@ -29,7 +29,9 @@ export const defEventPeriod = {
 	promo: { start: "2021/11/11 00:00:00" },
 	fishing_Joker: { end: "2022/02/10 11:00:00" },
 	casino_Habanero: { end: "2022/04/15 11:00:00" },
-	game_Vgaming: { end: "2022/03/24 11:00:00" }
+	game_Vgaming: { end: "2022/03/24 11:00:00" },
+	game_virtualGame: { end: "2022/04/24 11:00:00" },
+	sports_virtualSports: { end: "2022/04/24 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

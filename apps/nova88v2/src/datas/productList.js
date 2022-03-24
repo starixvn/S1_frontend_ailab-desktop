@@ -394,11 +394,8 @@ export default {
 
 	/* === 7. virtual sports === */
 
-	virtualSports: {
-		gameId: 180,
-		tpId: 1,
-		tpGameType: 3
-	},
+	virtualGame: { tpId: 1, gameId: 245, tpGameType: 22 }, // 單一錢包 (目前不支援)
+	virtualSports: { tpId: 1, gameId: 192, tpGameType: 24 }, // 單一錢包 {tpId:41, tpGameType:72, gameId:192}
 
 	/* === 8. poker === */
 

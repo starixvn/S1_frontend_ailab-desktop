@@ -8651,62 +8651,6 @@ button.icon-spinner11:before {
   }
 }
 
-.userpassword {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
-  position: absolute;
-  top: 50%;
-  left: 65%;
-  width: 25%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  line-height: 30px;
-}
-
-.userpassword .kisstitle {
-  text-shadow: 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db, 0px 0px 10px #2e55db;
-  text-transform: uppercase;
-}
-
-.userpassword .readonly {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  max-width: 260px;
-  margin-bottom: 10px;
-}
-
-.userpassword .readonly .icon {
-  color: white;
-  background: #880cba;
-  border: 1px solid #880cba;
-  padding: 2px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.userpassword input {
-  border: 0;
-  padding: 6px 4px;
-  outline: none;
-  -webkit-box-shadow: 2px 2px 6px #d034ce, -2px -2px 6px #d034ce;
-          box-shadow: 2px 2px 6px #d034ce, -2px -2px 6px #d034ce;
-  width: 100%;
-}
-
-.userpassword img {
-  width: auto;
-}
-
 .onegameModule {
   padding: 40px;
   min-width: calc(768px - 80px);
@@ -8854,12 +8798,12 @@ button.icon-spinner11:before {
   margin-bottom: 30px;
 }
 
-.installGuide.mega {
+.installGuide.mega, .installGuide.kiss {
   background: url(https://banner.0814media.net/desktop/img/megabg.jpg) no-repeat bottom/cover;
   padding: 20px;
 }
 
-.installGuide.mega .guides {
+.installGuide.mega .guides, .installGuide.kiss .guides {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8868,42 +8812,61 @@ button.icon-spinner11:before {
       flex-flow: wrap;
 }
 
-.installGuide.mega .guides .step {
+.installGuide.mega .guides .title, .installGuide.kiss .guides .title {
+  text-align: center;
+  color: #f77900;
+}
+
+.installGuide.mega .guides .step, .installGuide.kiss .guides .step {
   width: calc(25% - 20px);
   margin-right: 20px;
   margin-top: 30px;
   border-bottom: 3px solid #f77900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.installGuide.mega .guides .content {
+.installGuide.mega .guides .content, .installGuide.kiss .guides .content {
   font-size: 18px;
   color: #f77900;
-  height: 160px;
 }
 
 @media (max-width: 1024px) {
-  .installGuide.mega .guides .content {
+  .installGuide.mega .guides .content, .installGuide.kiss .guides .content {
     font-size: 14px;
     height: 150px;
   }
 }
 
-.installGuide.mega .guides .content span {
+.installGuide.mega .guides .content span, .installGuide.kiss .guides .content span {
   font-size: 16px;
   color: #fff;
   display: block;
   font-weight: normal;
+  margin: 5px 0;
 }
 
 @media (max-width: 1024px) {
-  .installGuide.mega .guides .content span {
+  .installGuide.mega .guides .content span, .installGuide.kiss .guides .content span {
     font-size: 10px;
   }
 }
 
-.installGuide.mega .guides img {
+.installGuide.mega .guides img, .installGuide.kiss .guides img {
   max-width: 100%;
   margin-bottom: 10px;
+}
+
+.installGuide.kiss {
+  background: #2d023a url(https://banner.0814media.net/desktop/img/918/bg.jpg) no-repeat top/100%;
 }
 
 .installGuide > div {
@@ -8923,7 +8886,7 @@ button.icon-spinner11:before {
   padding: 20px 0;
 }
 
-.installGuide > div.megaStyle {
+.installGuide > div.megaStyle, .installGuide > div.kissStyle {
   width: 90%;
   background: rgba(0, 0, 0, 0.25);
   -webkit-box-sizing: border-box;
@@ -8938,19 +8901,19 @@ button.icon-spinner11:before {
       justify-content: space-around;
 }
 
-.installGuide > div.megaStyle .title {
+.installGuide > div.megaStyle .title, .installGuide > div.kissStyle .title {
   color: white;
   width: 100%;
 }
 
-.installGuide > div.megaStyle .top {
+.installGuide > div.megaStyle .top, .installGuide > div.kissStyle .top {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
 }
 
-.installGuide > div.megaStyle .top > div {
+.installGuide > div.megaStyle .top > div, .installGuide > div.kissStyle .top > div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8961,7 +8924,7 @@ button.icon-spinner11:before {
           align-items: center;
 }
 
-.installGuide > div.megaStyle .top > div > div {
+.installGuide > div.megaStyle .top > div > div, .installGuide > div.kissStyle .top > div > div {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8970,28 +8933,34 @@ button.icon-spinner11:before {
       flex-flow: wrap;
 }
 
-.installGuide > div.megaStyle .top > div > div:last-child {
+.installGuide > div.megaStyle .top > div > div:last-child, .installGuide > div.kissStyle .top > div > div:last-child {
   -ms-flex-item-align: baseline;
       align-self: baseline;
 }
 
-.installGuide > div.megaStyle .top > div > div:last-child > div {
+.installGuide > div.megaStyle .top > div > div:last-child > div, .installGuide > div.kissStyle .top > div > div:last-child > div {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
-.installGuide > div.megaStyle .downloadItem {
+.installGuide > div.megaStyle .top + .installGuide > div img, .installGuide > div.kissStyle .top + .installGuide > div img {
+  max-width: 280px;
+}
+
+.installGuide > div.megaStyle .downloadItem, .installGuide > div.kissStyle .downloadItem {
+  position: relative;
   margin-right: 10px;
+  min-height: 50px;
 }
 
-.installGuide > div.megaStyle .downloadItem .title {
+.installGuide > div.megaStyle .downloadItem .title, .installGuide > div.kissStyle .downloadItem .title {
   font-size: 16px;
   margin-bottom: 10px;
   color: white;
 }
 
-.installGuide > div.megaStyle .downloadItem .readonly {
+.installGuide > div.megaStyle .downloadItem .readonly, .installGuide > div.kissStyle .downloadItem .readonly {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -8999,7 +8968,7 @@ button.icon-spinner11:before {
   margin-bottom: 10px;
 }
 
-.installGuide > div.megaStyle .downloadItem .readonly .icon {
+.installGuide > div.megaStyle .downloadItem .readonly .icon, .installGuide > div.kissStyle .downloadItem .readonly .icon {
   color: white;
   background: #0ad9f5;
   border: 1px solid #0ad9f5;
@@ -9013,7 +8982,7 @@ button.icon-spinner11:before {
   margin-top: 10px;
 }
 
-.installGuide > div.megaStyle .downloadItem input {
+.installGuide > div.megaStyle .downloadItem input, .installGuide > div.kissStyle .downloadItem input {
   border: 1px solid #0ad9f5;
   padding: 6px 4px;
   outline: none;
@@ -9021,7 +8990,7 @@ button.icon-spinner11:before {
   margin-top: 10px;
 }
 
-.installGuide > div.megaStyle .downloadItem a.downloadBtn, .installGuide > div.megaStyle .downloadItem button.downloadBtn {
+.installGuide > div.megaStyle .downloadItem a.downloadBtn, .installGuide > div.megaStyle .downloadItem button.downloadBtn, .installGuide > div.kissStyle .downloadItem a.downloadBtn, .installGuide > div.kissStyle .downloadItem button.downloadBtn {
   display: block;
   width: 100%;
   background: #01075b;
@@ -9042,30 +9011,105 @@ button.icon-spinner11:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  font-weight: normal;
+  font-family: "Microsoft YaHei", sans-serif;
+  min-height: 64px;
 }
 
-.installGuide > div.megaStyle .downloadItem a.downloadBtn:hover, .installGuide > div.megaStyle .downloadItem button.downloadBtn:hover {
+.installGuide > div.megaStyle .downloadItem a.downloadBtn:hover, .installGuide > div.megaStyle .downloadItem button.downloadBtn:hover, .installGuide > div.kissStyle .downloadItem a.downloadBtn:hover, .installGuide > div.kissStyle .downloadItem button.downloadBtn:hover {
   background: #0a3561;
   -webkit-transition: .2s;
   transition: .2s;
 }
 
-.installGuide > div.megaStyle .icon {
+.installGuide > div.megaStyle .downloadItem .downloadQR, .installGuide > div.kissStyle .downloadItem .downloadQR {
+  position: absolute;
+  top: 55px;
+  left: calc(50% - 70px);
+  background: #fefefe;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+  opacity: 0;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR .icon-android, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-android {
+  color: #01c214;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR .icon-appleinc, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-appleinc {
+  color: #cacaca;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR .icon-appleinc, .installGuide > div.megaStyle .downloadItem .downloadQR .icon-android, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-appleinc, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-android {
+  font-size: 16px;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR .icon-appleinc span, .installGuide > div.megaStyle .downloadItem .downloadQR .icon-android span, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-appleinc span, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-android span {
+  color: #7e7e7e;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR img, .installGuide > div.kissStyle .downloadItem .downloadQR img {
+  width: 130px;
+  margin: 0;
+}
+
+.installGuide > div.megaStyle .downloadItem:hover .downloadQR, .installGuide > div.kissStyle .downloadItem:hover .downloadQR {
+  display: block;
+  opacity: 1;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.installGuide > div.megaStyle .icon, .installGuide > div.kissStyle .icon {
   margin-right: 5px;
   font-size: 20px;
 }
 
-.installGuide > div.megaStyle .icon-android {
+.installGuide > div.megaStyle .icon-android, .installGuide > div.kissStyle .icon-android {
   color: #5aff2c;
 }
 
-.installGuide > div.megaStyle .icon-windows {
+.installGuide > div.megaStyle .icon-windows, .installGuide > div.kissStyle .icon-windows {
   color: #0ad9f5;
 }
 
 .installGuide > div img {
   max-width: 315px;
-  margin: 10px;
+  margin: 10px 0;
+}
+
+.installGuide > div.kissStyle {
+  border: 0;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  padding: 20px;
+}
+
+.installGuide > div.kissStyle .top img {
+  max-width: 414px;
+  margin: 0;
+}
+
+.installGuide > div.kissStyle .downloadItem input {
+  border: 0;
+}
+
+.installGuide > div.kissStyle .downloadItem .readonly .icon {
+  background: #c211a1;
+  border: 0;
+}
+
+.installGuide > div.kissStyle .downloadItem a.downloadBtn, .installGuide > div.kissStyle .downloadItem button.downloadBtn {
+  background: #c211a1;
+  border: 1px solid #693392;
+  font-size: 14px;
+}
+
+.installGuide > div.kissStyle .downloadItem a.downloadBtn:hover, .installGuide > div.kissStyle .downloadItem button.downloadBtn:hover {
+  background: #290137;
+  color: #c211a1;
 }
 
 .rankList {
@@ -9620,6 +9664,16 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #0F2D54;
 }
 
+#popup .linepop {
+  position: relative;
+}
+
+#popup .linepop .icon-close {
+  position: absolute;
+  top: -20px;
+  right: 0;
+}
+
 .vip {
   margin: auto;
   padding-top: 170px;
@@ -9979,7 +10033,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           align-items: center;
   margin: 0 10px 15px;
   color: white;
-  width: 170px;
+  width: 134px;
   position: relative;
 }
 
@@ -10033,16 +10087,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .subModuleListColumn > .subModule > div > button > div.bank > div, .subModuleListColumn > .subModule > div > a > div.bank > div {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   color: #5574A7;
 }
 
 .subModuleListColumn > .subModule > div > button > div.bank > div:last-child, .subModuleListColumn > .subModule > div > a > div.bank > div:last-child {
   background: #BFCCE2;
   margin: 10px auto 0;
-  width: 150px;
+  width: calc(100% - 10px);
   padding: 5px;
   border-radius: 5px;
 }
@@ -10066,6 +10117,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #5574A7;
   font-size: 48px;
   margin: 0;
+}
+
+.subModuleListColumn > .subModule > div > button > div:first-child.icon-line::before, .subModuleListColumn > .subModule > div > a > div:first-child.icon-line::before {
+  color: #07b802;
 }
 
 .subModuleListColumn > .subModule > div > button > div.fast:after, .subModuleListColumn > .subModule > div > a > div.fast:after {
@@ -10155,6 +10210,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .subModuleListColumn > .subModule.selectBank > div > button > div.bank > div:last-child {
+  width: 170px;
   margin: 5px 0 0;
 }
 
@@ -12126,7 +12182,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           justify-content: center;
 }
 
-.partnerSelect .swiper-container .swiper-slide button, .partnerSelect .swiper .swiper-slide button {
+.partnerSelect .swiper-container .swiper-slide button, .partnerSelect .swiper-container .swiper-slide a, .partnerSelect .swiper .swiper-slide button, .partnerSelect .swiper .swiper-slide a {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12143,7 +12199,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   width: 100%;
 }
 
-.partnerSelect .swiper-container .swiper-slide button img, .partnerSelect .swiper .swiper-slide button img {
+.partnerSelect .swiper-container .swiper-slide button img, .partnerSelect .swiper-container .swiper-slide a img, .partnerSelect .swiper .swiper-slide button img, .partnerSelect .swiper .swiper-slide a img {
   width: auto;
   -webkit-filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
           filter: brightness(70%) contrast(50%) sepia(1) hue-rotate(170deg);
@@ -12152,12 +12208,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   transition: 0.6s;
 }
 
-.partnerSelect .swiper-container .swiper-slide button:hover, .partnerSelect .swiper-container .swiper-slide button.active, .partnerSelect .swiper .swiper-slide button:hover, .partnerSelect .swiper .swiper-slide button.active {
+.partnerSelect .swiper-container .swiper-slide button:hover, .partnerSelect .swiper-container .swiper-slide button.active, .partnerSelect .swiper-container .swiper-slide a:hover, .partnerSelect .swiper-container .swiper-slide a.active, .partnerSelect .swiper .swiper-slide button:hover, .partnerSelect .swiper .swiper-slide button.active, .partnerSelect .swiper .swiper-slide a:hover, .partnerSelect .swiper .swiper-slide a.active {
   background: #284985;
   color: white;
 }
 
-.partnerSelect .swiper-container .swiper-slide button:hover img, .partnerSelect .swiper-container .swiper-slide button.active img, .partnerSelect .swiper .swiper-slide button:hover img, .partnerSelect .swiper .swiper-slide button.active img {
+.partnerSelect .swiper-container .swiper-slide button:hover img, .partnerSelect .swiper-container .swiper-slide button.active img, .partnerSelect .swiper-container .swiper-slide a:hover img, .partnerSelect .swiper-container .swiper-slide a.active img, .partnerSelect .swiper .swiper-slide button:hover img, .partnerSelect .swiper .swiper-slide button.active img, .partnerSelect .swiper .swiper-slide a:hover img, .partnerSelect .swiper .swiper-slide a.active img {
   -webkit-transition: 0.6s;
   transition: 0.6s;
   -webkit-transform: translateY(-5px);
@@ -12167,7 +12223,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   opacity: 1;
 }
 
-.partnerSelect .swiper-container .swiper-slide button div, .partnerSelect .swiper .swiper-slide button div {
+.partnerSelect .swiper-container .swiper-slide button div, .partnerSelect .swiper-container .swiper-slide a div, .partnerSelect .swiper .swiper-slide button div, .partnerSelect .swiper .swiper-slide a div {
   margin-top: 5px;
   font-size: 12px;
 }
@@ -12663,7 +12719,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .gameinside .inside .rightModule .gameItem {
   text-align: center;
-  margin: 0 80px;
+  margin: 0 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
