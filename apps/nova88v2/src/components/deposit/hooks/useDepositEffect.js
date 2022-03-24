@@ -5,7 +5,8 @@ import {
 	getUrlParameter,
 	readCookie,
 	getLocalStorage,
-	removeLocalStorage
+	removeLocalStorage,
+	defCurrencyList
 } from "../../common/common";
 import { defDepositOptions, defDepositType } from "../deposit.def";
 import defPopBoxType from "../../common/defPopBoxType";
@@ -122,7 +123,7 @@ const useDepositEffect = ({
 	}, [isInitDataDone]);
 
 	useEffect(() => {
-		if (isInitDataDone && userInfo.currencyId === 4) {
+		if (isInitDataDone && userInfo.currencyId === defCurrencyList.THB) {
 			getLinePayLink();
 		}
 	}, [userInfo, isInitDataDone]);
