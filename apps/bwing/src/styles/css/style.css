@@ -821,6 +821,10 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList .cricket .img {
   background: url(https://banner.bw88.io/desktop/img/sports/cricket.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .sportsList .virtual .img {
+  background: url(https://banner.bw88.io/desktop/img/sports/virtualSport.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .gameList .sabaclub .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-saba.png) no-repeat center/auto 100%;
 }
@@ -859,6 +863,14 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-table.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
+  background: url(https://banner.bw88.io/desktop/img/lottery/virtual.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/amb.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .HO .img {
@@ -2096,6 +2108,16 @@ footer > div .platformGroup button.ho {
 footer > div .platformGroup a.ho:hover,
 footer > div .platformGroup button.ho:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/ho-a.png) no-repeat center;
+}
+
+footer > div .platformGroup a.amb,
+footer > div .platformGroup button.amb {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/amb.png) no-repeat center;
+}
+
+footer > div .platformGroup a.amb:hover,
+footer > div .platformGroup button.amb:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/amb-a.png) no-repeat center;
 }
 
 footer > div .powered {
@@ -8389,6 +8411,10 @@ main > .swiper-container .swiper-slide {
 
 .gameslobbyList > div.tablegame {
   background: url(https://banner.bw88.io/desktop/img/gameslobby/tablegame.png) no-repeat center;
+}
+
+.gameslobbyList > div.virtualgames {
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/virtualgames.png) no-repeat center;
 }
 
 form {
