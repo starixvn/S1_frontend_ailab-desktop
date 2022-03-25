@@ -141,13 +141,21 @@ const useDepositEffect = ({
 			const filterDepositOptions = originalDepositOptions.filter(
 				item => !item.isHide
 			);
-
-			if (userInfo.currencyId && userInfo.currencyId !== 4) {
-				const excludeLinePay = filterDepositOptions.filter(
-					item => item.type !== defDepositType.linePay
-				);
+			const excludeLinePay = filterDepositOptions.filter(
+				item => item.type !== defDepositType.linePay
+			);
+			if (
+				userInfo.currencyId &&
+				userInfo.currencyId !== defCurrencyList.THB
+			) {
 				setDepositOptions(excludeLinePay);
-			} else if (linePayLink) {
+			} else if (
+				userInfo.currencyId &&
+				userInfo.currencyId === defCurrencyList.THB &&
+				!linePayLink
+			) {
+				setDepositOptions(excludeLinePay);
+			} else {
 				setDepositOptions(filterDepositOptions);
 			}
 		}
