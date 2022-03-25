@@ -54,7 +54,7 @@ export const defDepositOptions = ({
 		type: defDepositType.linePay,
 		depositDisplaykey: "lbl_LinePay",
 		isHide: false,
-		creditTime: "lbl_Instant",
+		creditTime: "lbl_5mins",
 		iconClass: "icon icon-line fast",
 		linePayLink
 	}
