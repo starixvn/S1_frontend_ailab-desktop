@@ -5,7 +5,7 @@ export default ({ linePayLink, langId, clickClose }) => {
 	return (
 		<div className="linepop">
 			<i className="icon icon-close" onClick={clickClose} />
-			<a href={linePayLink}>
+			<a href={linePayLink} target="_blank" rel="noreferrer">
 				<img
 					src={`${bannerImgUrl}/desktop/img/line/line-${
 						langId === "th" ? "th" : "en"

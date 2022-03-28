@@ -30,6 +30,14 @@ export const defDepositOptions = ({
 		iconClass: "icon icon-library"
 	},
 	{
+		type: defDepositType.linePay,
+		depositDisplaykey: "lbl_LinePay",
+		isHide: false,
+		creditTime: "lbl_5mins",
+		iconClass: "icon icon-line",
+		linePayLink
+	},
+	{
 		type: defDepositType.onlineBank,
 		isHide: !onlineBankGroupList.length,
 		depositDisplaykey: "lbl_OnlineBanking",
@@ -49,14 +57,6 @@ export const defDepositOptions = ({
 		isHide: !cryptoPayGroupList.length,
 		creditTime: "lbl_Instant",
 		iconClass: "icon icon-USDT"
-	},
-	{
-		type: defDepositType.linePay,
-		depositDisplaykey: "lbl_LinePay",
-		isHide: false,
-		creditTime: "lbl_5mins",
-		iconClass: "icon icon-line",
-		linePayLink
 	}
 ];
 
