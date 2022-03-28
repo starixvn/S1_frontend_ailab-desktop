@@ -52,24 +52,17 @@ const FooterProduct = ({
 				<a
 					href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
 					target="_blank"
-					rel="noreferrer"
-					style={
-						currencyId === defCurrencyList.INR
-							? { pointerEvents: "none" }
-							: {}
-					}>
+					rel="noreferrer">
 					{t("lbl_Apply_Now")}
 					{" >"}
 				</a>
 				{isFullFooter &&
-					defFooterProductList[2].map(item => {
-						return (
-							<div key={`footer-profuct-${item.title}`}>
-								<div className="title">{t(item.title)}</div>
-								<div>{t(item.content)}</div>
-							</div>
-						);
-					})}
+					defFooterProductList[2].map(item => (
+						<div key={`footer-profuct-${item.title}`}>
+							<div className="title">{t(item.title)}</div>
+							<div>{t(item.content)}</div>
+						</div>
+					))}
 			</div>
 			<div>
 				<div className="title icon icon-vip">
@@ -87,14 +80,12 @@ const FooterProduct = ({
 					{" >"}
 				</a>
 				{isFullFooter &&
-					defFooterProductList[3].map(item => {
-						return (
-							<div key={`footer-profuct-${item.title}`}>
-								<div className="title">{t(item.title)}</div>
-								<div>{t(item.content)}</div>
-							</div>
-						);
-					})}
+					defFooterProductList[3].map(item => (
+						<div key={`footer-profuct-${item.title}`}>
+							<div className="title">{t(item.title)}</div>
+							<div>{t(item.content)}</div>
+						</div>
+					))}
 			</div>
 			<div>
 				<div className="title icon icon-live_tv">
@@ -106,14 +97,12 @@ const FooterProduct = ({
 					{" >"}
 				</a>
 				{isFullFooter &&
-					defFooterProductList[4].map(item => {
-						return (
-							<div key={`footer-profuct-${item.title}`}>
-								<div className="title">{t(item.title)}</div>
-								<div>{t(item.content)}</div>
-							</div>
-						);
-					})}
+					defFooterProductList[4].map(item => (
+						<div key={`footer-profuct-${item.title}`}>
+							<div className="title">{t(item.title)}</div>
+							<div>{t(item.content)}</div>
+						</div>
+					))}
 			</div>
 			<div>
 				<div className="title icon icon-livechat1">
@@ -125,14 +114,12 @@ const FooterProduct = ({
 					{" >"}
 				</a>
 				{isFullFooter &&
-					defFooterProductList[5].map(item => {
-						return (
-							<div key={`footer-profuct-${item.title}`}>
-								<div className="title">{t(item.title)}</div>
-								<div>{t(item.content)}</div>
-							</div>
-						);
-					})}
+					defFooterProductList[5].map(item => (
+						<div key={`footer-profuct-${item.title}`}>
+							<div className="title">{t(item.title)}</div>
+							<div>{t(item.content)}</div>
+						</div>
+					))}
 			</div>
 		</div>
 	);
