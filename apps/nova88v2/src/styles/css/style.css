@@ -1708,6 +1708,16 @@ footer .license > div:nth-child(1) {
   padding-right: 90px;
 }
 
+footer .license > div:nth-child(1) > div:nth-child(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+footer .license > div:nth-child(1) > div:nth-child(2) > div {
+  margin: 0 20px 0 0;
+}
+
 footer .license > div:nth-child(2) {
   width: 730px;
   display: -webkit-box;
