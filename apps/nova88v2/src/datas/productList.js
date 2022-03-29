@@ -414,5 +414,9 @@ export default {
 	games_MPoker: {
 		tpId: 35,
 		tpGameType: 60
+	},
+	mega888: {
+		tpId: 22,
+		tpGameType: 34
 	}
 };
