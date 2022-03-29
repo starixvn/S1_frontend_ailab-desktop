@@ -66,7 +66,9 @@ export const useGotoGame = ({
 	tpId,
 	gameId,
 	isFun = false,
-	autoGetData = true
+	autoGetData = true,
+	tpGameType: _tpGameType = null,
+	allowBeforeLogin = false
 }) => {
 	const { errorPopBox } = usePopBox();
 	const [data, setData] = useState({ account: "", password: "" });
@@ -75,14 +77,26 @@ export const useGotoGame = ({
 
 	useEffect(() => {
 		isMountedRef.current = true;
-		if (autoGetData && isLogin !== null) {
-			handleGoToGame({ isLogin, langId, tpId, gameId, isFun });
+
+		if (
+			!(isLogin === false && allowBeforeLogin) &&
+			autoGetData &&
+			isLogin
+		) {
+			handleGoToGame({
+				isLogin,
+				langId,
+				tpId,
+				gameId,
+				isFun,
+				tpGameType: _tpGameType
+			});
 		}
 
 		return () => {
 			isMountedRef.current = false;
 		};
-	}, [autoGetData, isLogin, langId]);
+	}, [autoGetData, isLogin, langId, _tpGameType]);
 
 	const handleGoToGame = useCallback(
 		async ({
@@ -108,7 +122,7 @@ export const useGotoGame = ({
 
 					if (res.data.errorCode === 0 && res.data.message) {
 						const result = JSON.parse(res.data.message);
-
+						setData(() => result);
 						if (_tpId === defSpecialSetting.playTech) {
 							const {
 								account: username,

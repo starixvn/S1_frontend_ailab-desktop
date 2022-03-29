@@ -996,5 +996,21 @@
 		"lbl_promo_all_promos": "ALL PROMOS"
 	},
 
+	"mega888":{
+		"step":"Step {{step}}",
+		"step1_desc":"Click 'Install' to proceed further",
+		"step2_desc":"After having finished the installation progress, now you can see MEGA888 game icon on your phone menu. Think this is it? Wait for it.",
+		"step3_desc":"When you click on the MEGA888 game icon, you won't be able to launch the game. It says 'Untrusted Enterprise Developer'. There are few more step to be done.",
+		"step4_desc":"Just go to your iPhone's setting, and click 'Device Management' as per red box above.",
+		"step5_desc":"Click on 'Epson China Co. Ltd'",
+		"step6_desc":"Click 'Trust Epson (China) Co. Ltd'",
+		"step7_desc":"Click 'Trust' to enable the MEGA888 game.",
+		"step8_desc":"Launch MEGA888 game again, now you got it.",
+		"download_app":"Mega888 Download APP",
+		"app_for_android":"APP for Android",
+		"app_for_ios":"APP for iOS",
+		"unzip_and_run":"Unzip and Run"
+	},
+
 	"end-----": "end-----"
 }

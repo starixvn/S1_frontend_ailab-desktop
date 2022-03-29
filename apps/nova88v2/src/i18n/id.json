@@ -995,5 +995,21 @@
 		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
+	"mega888":{
+		"step":"Cara {{step}}",
+		"step1_desc":"Klik 'Unduh' untuk lebih lanjut",
+		"step2_desc":"Setelah selesai proses pemasangan selesai, Anda bisa melihat ikon permainan MEGA888 pada layar HP Anda. Cuma begini saja? Tunggu dulu",
+		"step3_desc":"Ketika Anda klik ikon permainan MEGA888, Anda tidak dapat membukan permainannya. Akan muncul pesan 'Pengembang Perusahaan Tidak Tepercaya'. Ada pengaturan yang harus dibuat.",
+		"step4_desc":"Masuk ke pengaturan iPhone, dan klik 'Manajemeng Perangkat' seperti kotak merah diatas.",
+		"step5_desc":"Klik pada 'Epson China Co. Ltd'",
+		"step6_desc":"Klik 'Percaya Epson (China) Co. Ltd'",
+		"step7_desc":"Klik 'Percaya' untuk mengaktifkan permainan MEGA888",
+		"step8_desc":"Buka kembali permainan MEGA888, dan sekarang Anda mengerti.",
+		"download_app":"Unduh Aplikasi Mega888",
+		"app_for_android":"Aplikasi untuk Android",
+		"app_for_ios":"Aplikasi untuk IOS",
+		"unzip_and_run":"Buka zip dan Jalankan"
+	},
+
 	"end-----": "end-----"
 }

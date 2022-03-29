@@ -631,6 +631,21 @@ export const defMenuLinks = {
 				...productList.casino_PP
 			},
 			{
+				keyName: "slot_Mega888",
+				displayText: "Mega888",
+				menuType: defMenuType.Link,
+				path: path.mega888.root,
+				listNpcImgUrl: "slotMEGA888.png",
+				listBgImgUrl: "slotListHover.png",
+				...productList.mega888,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.mega888
+					})
+				]
+			},
+			{
 				keyName: "slot_Habanero",
 				displayText: "Habanero",
 				menuType: defMenuType.Link,
