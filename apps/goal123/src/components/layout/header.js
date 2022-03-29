@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
 	productTpIdsContext,
-	maintainListContext
+	maintainListContext,
+	isRootContext
 } from "../common/context";
 import Menu from "./header.menu";
 import config, { bannerImgUrl } from "../../config";
@@ -18,17 +19,27 @@ export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
+	const { isRoot } = useContext(isRootContext);
 	const { allMaintainList } = useContext(maintainListContext);
 	const isEvent = isDateRange(
 		defEventPeriod.newYear.start,
 		defEventPeriod.newYear.end
 	);
 
+	const reload = () => {
+		if (isRoot) {
+			window.location.reload();
+		}
+	};
+
 	return (
 		<header className={isEvent ? "newyear" : ""}>
 			<div className="header">
 				<div className="logo">
-					<Link className="logo" to={`/${userInfo.langId}`}>
+					<Link
+						className="logo"
+						to={`/${userInfo.langId}`}
+						onClick={reload}>
 						<img
 							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
