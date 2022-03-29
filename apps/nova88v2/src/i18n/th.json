@@ -995,5 +995,21 @@
 		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
+	"mega888":{
+		"step":"ขั้นตอนที่ {{step}}",
+		"step1_desc":"คลิก 'ติดตั้ง' เพื่อดำเนินการต่อ",
+		"step2_desc":"หลังจากเสร็จสิ้นขั้นตอนการติดตั้ง ตอนนี้คุณสามารถเห็นไอคอนเกม MEGA888 บนเมนูโทรศัพท์ของคุณ คิดว่ามันจบแล้วเหรอ? โปรดอดทนรอ",
+		"step3_desc":"เมื่อคุณคลิกที่ไอคอนเกม MEGA888 คุณจะไม่สามารถเปิดเกมได้ มันเขียนว่า 'Untrusted Enterprise Developer' มีอีกไม่กี่ขั้นตอนที่ต้องทำ",
+		"step4_desc":"เพียงไปที่การตั้งค่าของ iPhone แล้วคลิก 'การจัดการอุปกรณ์' ตามช่องสีแดงด้านบน",
+		"step5_desc":"คลิกที่ 'Epson China Co. Ltd'",
+		"step6_desc":"คลิก 'เชื่อถือ 'Epson (China) Co. Ltd'",
+		"step7_desc":"คลิก 'เชื่อถือ' เพื่อเปิดใช้งานเกม MEGA888",
+		"step8_desc":"เปิดเกม MEGA888 อีกครั้ง เพื่อเข้าเล่นเกม",
+		"download_app":"Mega888 Download APP",
+		"app_for_android":"APP for Android",
+		"app_for_ios":"APP for iOS",
+		"unzip_and_run":"แตกไฟล์และติดตั้ง"
+	},
+
 	"end-----": "end-----"
 }

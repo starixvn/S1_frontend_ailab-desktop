@@ -995,5 +995,21 @@
 		"lbl_Nova88_Olympus": "Nova88 奥林匹斯"
 	},
 
+	"mega888":{
+		"step":"步骤 {{step}}",
+		"step1_desc":"单击 '安装' 以继续",
+		"step2_desc":"完成安装流程后即可在您手机看见 MEGA888 游戏图标。以为就此结束？请再耐心稍等。",
+		"step3_desc":"单击 MEGA888 游戏图标时，您仍无法打开游戏并将获提示 '未受信任的企业开发'，剩余几个步骤方完成。",
+		"step4_desc":"在 iPhone 设定里如上图红格子所显示，单击 '移动设备管理'。",
+		"step5_desc":"单击 'Epson China Co. Ltd'",
+		"step6_desc":"单击 '信任 Epson China Co. Ltd'",
+		"step7_desc":"单击 '信任' 以启用 MEGA888 游戏。",
+		"step8_desc":"再次打开 MEGA888 游戏，现你已拥有。",
+		"download_app":"Mega888 APP 下载",
+		"app_for_android":"安卓 APP",
+		"app_for_ios":"苹果 APP",
+		"unzip_and_run":"解压并进行"
+	},
+
 	"end-----": "end-----"
 }
