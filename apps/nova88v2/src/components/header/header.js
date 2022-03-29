@@ -6,7 +6,8 @@ import {
 	userInfoContext,
 	popBoxContext,
 	productTpIdsContext,
-	maintainListContext
+	maintainListContext,
+	isRootContext
 } from "../common/context";
 import Menu from "./header.menu";
 import config, { cloudImgUrl } from "../../config";
@@ -15,8 +16,6 @@ import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-import { isDateRange } from "../common/common";
-import { eventPeriodEuro } from "../../datas/euroDef";
 
 export default () => {
 	const { t } = useTranslation();
@@ -24,7 +23,7 @@ export default () => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { allMaintainList } = useContext(maintainListContext);
 	const { setPopBox } = useContext(popBoxContext);
-	const isInPeriodEuro = isDateRange(null, eventPeriodEuro.endDate);
+	const { isRoot } = useContext(isRootContext);
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -62,6 +61,12 @@ export default () => {
 		});
 	};
 
+	const reload = () => {
+		if (isRoot) {
+			window.location.reload();
+		}
+	};
+
 	const LogoutButton = () => {
 		if (!userInfo.isLogin) return null;
 
@@ -72,18 +77,14 @@ export default () => {
 		<header id="header">
 			<div className="header">
 				<div className="logo">
-					<Link className="logo" to={`/${userInfo.langId}`}>
-						{isInPeriodEuro ? (
-							<img
-								src={`${cloudImgUrl}/SiteSkin/img/logo_evt.png`}
-								alt="Logo_Euro"
-							/>
-						) : (
-							<img
-								src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
-								alt={config.siteName}
-							/>
-						)}
+					<Link
+						className="logo"
+						to={`/${userInfo.langId}`}
+						onClick={reload}>
+						<img
+							src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
+							alt={config.siteName}
+						/>
 					</Link>
 				</div>
 				<div className="function">
