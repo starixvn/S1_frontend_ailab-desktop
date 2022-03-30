@@ -77,25 +77,29 @@ export default {
 		tpId: 1,
 		// gameId: 4319,
 		gameId: 43,
-		tpGameType: 1
+		tpGameType: 1,
+		betType: 3
 	},
 	eSport_Dota2: {
 		tpId: 1,
 		// gameId: 4320,
 		gameId: 43,
-		tpGameType: 1
+		tpGameType: 1,
+		betType: 1
 	},
 	eSport_KingOfGlory: {
 		tpId: 1,
 		// gameId: 4324,
 		gameId: 43,
-		tpGameType: 1
+		tpGameType: 1,
+		betType: 4
 	},
 	eSport_LeagueOfLegends: {
 		tpId: 1,
 		// gameId: 4325,
 		gameId: 43,
-		tpGameType: 1
+		tpGameType: 1,
+		betType: 2
 	},
 	eSport: {
 		tpId: 1,

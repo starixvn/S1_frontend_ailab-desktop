@@ -112,25 +112,29 @@ export default {
 		tpId: 1,
 		// gameId: 4320,
 		gameId: 43,
-		tpGameType: 1
+		tpGameType: 1,
+		betType: 1
 	},
 	eSport_LOL: {
 		tpId: 1,
 		// gameId: 4325,
 		gameId: 43,
-		tpGameType: 1
+		tpGameType: 1,
+		betType: 2
 	},
 	eSport_CSGO: {
 		tpId: 1,
 		// gameId: 4319,
 		gameId: 43,
-		tpGameType: 1
+		tpGameType: 1,
+		betType: 3
 	},
 	eSport_KOG: {
 		tpId: 1,
 		// gameId: 4324,
 		gameId: 43,
-		tpGameType: 1
+		tpGameType: 1,
+		betType: 4
 	},
 
 	/* === 2.  slot === */

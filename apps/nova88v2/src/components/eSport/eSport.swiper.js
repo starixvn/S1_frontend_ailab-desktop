@@ -34,7 +34,8 @@ const EsportSwiper = ({ t, subMenu, clickItem }) => {
 					path,
 					needLogin,
 					lobbyPage: { bgImg, hoverBgImg },
-					isInMaintain
+					isInMaintain,
+					betType
 				} = subMenu[index];
 
 				el.addEventListener("mouseover", e => {
@@ -51,7 +52,8 @@ const EsportSwiper = ({ t, subMenu, clickItem }) => {
 						gameId,
 						path,
 						needLogin,
-						isInMaintain
+						isInMaintain,
+						betType
 					})
 				);
 			});
@@ -96,7 +98,8 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 		path,
 		needLogin,
 		lobbyPage: { bgImg, hoverBgImg },
-		isInMaintain
+		isInMaintain,
+		betType
 	} = subMenuItem;
 
 	const _displayText = displayText || t(displayKey);
@@ -123,10 +126,10 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 					gameId,
 					path,
 					needLogin,
-					isInMaintain
+					isInMaintain,
+					betType
 				})
-			}
-		>
+			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}

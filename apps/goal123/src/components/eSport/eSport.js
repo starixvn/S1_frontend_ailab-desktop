@@ -19,7 +19,7 @@ const Esport = () => {
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
 
-	const clickItem = ({ tpId, gameId, isInMaintain, tpGameType }) => {
+	const clickItem = ({ tpId, gameId, isInMaintain, tpGameType, betType }) => {
 		const loginCallback = () => {
 			setPopBox({
 				isOpen: true,
@@ -35,7 +35,8 @@ const Esport = () => {
 			tpId,
 			gameId,
 			loginCallback,
-			tpGameType
+			tpGameType,
+			betType
 		});
 	};
 
