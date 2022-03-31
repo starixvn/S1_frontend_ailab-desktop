@@ -30,6 +30,13 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 
 	const { isLogin, langId } = userInfo;
 
+	const showLoginPopBox = () => {
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.Login
+		});
+	};
+
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -59,12 +66,6 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 				Open9WSports({ url, key, userId });
 			}
 		} else {
-			const showLoginPopBox = () => {
-				setPopBox({
-					isOpen: true,
-					popBoxType: defPopBoxType.Login
-				});
-			};
 			if (!tpId && !gameId && path) {
 				return needLogin && !userInfo.isLogin
 					? showLoginPopBox()
@@ -104,9 +105,11 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 			.join(" ");
 
 		if (defMenuLinks[menuKey]?.subMenu) {
-			const { filterByAuth, customSort, subMenu: defMenu } = defMenuLinks[
-				menuKey
-			];
+			const {
+				filterByAuth,
+				customSort,
+				subMenu: defMenu
+			} = defMenuLinks[menuKey];
 
 			const subMenu = sortGameMenu({
 				defMenu,
@@ -129,6 +132,7 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 							displayKey={subMenuItem.displayKey}
 							parameter={subMenuItem.parameter}
 							maintainList={maintainList}
+							showLoginPopBox={showLoginPopBox}
 						/>
 					))}
 				</div>

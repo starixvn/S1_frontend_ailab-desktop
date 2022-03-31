@@ -27,7 +27,7 @@ const HotGameList = ({ t, langId, clickItem, navigate, allMaintainList }) => {
 			path: `/${langId}/${path.casino.root}`
 		},
 		{
-			title: t("lbl_VirtualSports"),
+			title: t("lbl_Virtual_Sports"),
 			img: "virtual",
 			path: `/${langId}/${path.sports.root}?game=${productList.virtualSports.name}`,
 			...productList.virtualSports

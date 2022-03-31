@@ -25,6 +25,19 @@ export const defMenuLinks = {
 				className: "sabaSport",
 				displayKey: "lbl_Saba_Sport",
 				parameter: { ...productList.sportSaba }
+			},
+			{
+				...productList.virtualSports,
+				subPath: path.sports.root,
+				className: "virtual",
+				displayKey: "lbl_Virtual_Sports",
+				parameter: { ...productList.virtualSports },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sports_virtualSports
+					})
+				]
 			}
 			// {
 			// 	...productList.sportBti,
@@ -171,6 +184,23 @@ export const defMenuLinks = {
 				parameter: { ...productList.tableGame },
 				lobbyPage: {
 					bgClass: "tablegame"
+				}
+			},
+			{
+				...productList.virtualGame,
+				path: path.sports.root,
+				className: "virtual",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_virtualGame
+					})
+				],
+				displayKey: "lbl_Virtual_Games",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.virtualGame },
+				lobbyPage: {
+					bgClass: "virtualgames"
 				}
 			}
 		]

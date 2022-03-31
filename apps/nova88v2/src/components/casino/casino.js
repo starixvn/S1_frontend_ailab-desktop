@@ -377,8 +377,10 @@ export default () => {
 						item => item.value
 					);
 
-					const filterLobbyImgList = defLobbyImgList.filter(_img =>
-						providerIdList.includes(_img.providerId)
+					const filterLobbyImgList = defLobbyImgList.filter(
+						_img =>
+							providerIdList.includes(_img.providerId) ||
+							_img.alwaysShow
 					);
 
 					setLobbyImgList(filterLobbyImgList);
@@ -534,6 +536,7 @@ export default () => {
 							lobbyImgList={lobbyImgList}
 							clickLobbyProvider={clickLobbyProvider}
 							activeProviderId={searchInfo.provider?.value}
+							langId={userInfo.langId}
 						/>
 						<div className="casinoSelect">
 							<Nav

@@ -139,10 +139,7 @@ export default ({
 
 		let _subPath;
 		if (s.subPath) {
-			if (
-				s.gameId === productList.sportSaba.gameId &&
-				s.tpId === productList.sportSaba.tpId
-			) {
+			if (s.tpId === productList.sportSaba.tpId) {
 				_subPath = `${s.subPath}?game=${s.parameter?.name}`;
 			}
 			if (s.tpId === productList.sportBti.tpId) {

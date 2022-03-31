@@ -14,7 +14,8 @@ const defSortSports = {
 		soccer: 2,
 		sabaSoccer: 3,
 		basketball: 4,
-		tennis: 5
+		tennis: 5,
+		virtualSports: 6
 	}
 };
 
@@ -327,6 +328,22 @@ export const defMenuLinks = {
 				parameter: { ...productList.cricket },
 				...productList.cricket,
 				keyName: "cricket"
+			},
+			{
+				path: path.sports.root,
+				displayKey: "lbl_Virtual_Sports",
+				listNpcImgUrl: "betradarsoccerNPC.png",
+				listBgImgUrl: "soccerBG.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.virtualSports },
+				...productList.virtualSports,
+				keyName: "virtualSports",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sports_virtualSports
+					})
+				]
 			}
 		]
 	},
@@ -614,6 +631,21 @@ export const defMenuLinks = {
 				...productList.casino_PP
 			},
 			{
+				keyName: "slot_Mega888",
+				displayText: "Mega888",
+				menuType: defMenuType.Link,
+				path: path.mega888.root,
+				listNpcImgUrl: "slotMEGA888.png",
+				listBgImgUrl: "slotListHover.png",
+				...productList.mega888,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.mega888
+					})
+				]
+			},
+			{
 				keyName: "slot_Habanero",
 				displayText: "Habanero",
 				menuType: defMenuType.Link,
@@ -880,6 +912,25 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "gamevg.png",
 					hoverBgImg: "gamevga.png"
+				}
+			},
+			{
+				...productList.virtualGame,
+				keyName: "games_VirtualGame",
+				listNpcImgUrl: "virtualgames.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_Virtual_Games",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_virtualGame
+					})
+				],
+				parameter: { ...productList.virtualGame },
+				lobbyPage: {
+					bgImg: "gamevirtual.png",
+					hoverBgImg: "gamevirtuala.png"
 				}
 			}
 		]

@@ -1,4 +1,5 @@
 import productList from "../../datas/productList";
+import path from "../../router";
 
 export const defRowsPerPage = 20;
 
@@ -63,6 +64,13 @@ export const defLobbyImgList = [
 		lobbyImgName: "ji",
 		lobbyDisplayName: "JILI",
 		providerId: productList.casino_JILI.tpId
+	},
+	{
+		lobbyImgName: "megaa",
+		lobbyDisplayName: "Mega 888",
+		providerId: productList.mega888.tpId,
+		alwaysShow: true,
+		path: path.mega888.root
 	},
 	{
 		lobbyImgName: "pp",
