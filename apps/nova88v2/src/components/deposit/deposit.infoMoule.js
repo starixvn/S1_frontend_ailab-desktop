@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import path from "../../router";
 import { setLocalStorage } from "../common/common";
+import defPopBoxType from "../common/defPopBoxType";
 import useClickOutside from "../hook/useClickOutSide";
 
 const DepositInfoMoule = ({
@@ -19,10 +20,10 @@ const DepositInfoMoule = ({
 	processingDescriptionActive,
 	onReset,
 	children,
-	userName
+	userName,
+	setPopBox
 }) => {
 	const [rememberInfoActive, setRememberInfoActive] = useState(false);
-
 	const questionIconRef = useClickOutside(() => setRememberInfoActive(false));
 
 	return (
@@ -80,11 +81,22 @@ const DepositInfoMoule = ({
 
 				<div className="subModule">
 					<div>
-						{depositOptions.map(item => (
+						{depositOptions?.map(item => (
 							<button
 								onClick={() => {
-									setDepositType(item.type);
-									onReset();
+									if (item.linePayLink) {
+										setPopBox({
+											isOpen: true,
+											popBoxType: defPopBoxType.LinePay,
+											clickClose: () =>
+												setPopBox({ isOpen: false }),
+											langId,
+											linePayLink: item.linePayLink
+										});
+									} else {
+										setDepositType(item.type);
+										onReset();
+									}
 								}}
 								className={
 									item.type === depositType ? "active" : ""
