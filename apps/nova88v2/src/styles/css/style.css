@@ -2403,6 +2403,11 @@ footer .footerList > div > div > div {
   bottom: 0;
 }
 
+.inputModuleRow .tip span {
+  color: #cf0404;
+  margin-right: 10px;
+}
+
 .inputModuleRow input.text-right {
   text-align: right;
 }
@@ -7574,7 +7579,7 @@ article p {
   background: #1E85EC;
   color: white;
   border-radius: 100%;
-  padding: 4px;
+  padding: 2px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -8822,6 +8827,11 @@ button.icon-spinner11:before {
       flex-flow: wrap;
 }
 
+.installGuide.mega .guides .title, .installGuide.kiss .guides .title {
+  text-align: center;
+  color: #f77900;
+}
+
 .installGuide.mega .guides .step, .installGuide.kiss .guides .step {
   width: calc(25% - 20px);
   margin-right: 20px;
@@ -8954,7 +8964,9 @@ button.icon-spinner11:before {
 }
 
 .installGuide > div.megaStyle .downloadItem, .installGuide > div.kissStyle .downloadItem {
+  position: relative;
   margin-right: 10px;
+  min-height: 50px;
 }
 
 .installGuide > div.megaStyle .downloadItem .title, .installGuide > div.kissStyle .downloadItem .title {
@@ -9016,10 +9028,51 @@ button.icon-spinner11:before {
           justify-content: center;
   font-weight: normal;
   font-family: "Microsoft YaHei", sans-serif;
+  min-height: 64px;
 }
 
 .installGuide > div.megaStyle .downloadItem a.downloadBtn:hover, .installGuide > div.megaStyle .downloadItem button.downloadBtn:hover, .installGuide > div.kissStyle .downloadItem a.downloadBtn:hover, .installGuide > div.kissStyle .downloadItem button.downloadBtn:hover {
   background: #0a3561;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR, .installGuide > div.kissStyle .downloadItem .downloadQR {
+  position: absolute;
+  top: 55px;
+  left: calc(50% - 70px);
+  background: #fefefe;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none;
+  opacity: 0;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR .icon-android, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-android {
+  color: #01c214;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR .icon-appleinc, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-appleinc {
+  color: #cacaca;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR .icon-appleinc, .installGuide > div.megaStyle .downloadItem .downloadQR .icon-android, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-appleinc, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-android {
+  font-size: 16px;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR .icon-appleinc span, .installGuide > div.megaStyle .downloadItem .downloadQR .icon-android span, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-appleinc span, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-android span {
+  color: #7e7e7e;
+}
+
+.installGuide > div.megaStyle .downloadItem .downloadQR img, .installGuide > div.kissStyle .downloadItem .downloadQR img {
+  width: 130px;
+  margin: 0;
+}
+
+.installGuide > div.megaStyle .downloadItem:hover .downloadQR, .installGuide > div.kissStyle .downloadItem:hover .downloadQR {
+  display: block;
+  opacity: 1;
   -webkit-transition: .2s;
   transition: .2s;
 }
