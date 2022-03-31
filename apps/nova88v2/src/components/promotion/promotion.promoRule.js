@@ -37,7 +37,8 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 		maxBonus,
 		rollOver,
 		promotionType,
-		requiredAmount
+		requiredAmount,
+		fullFillType
 	} = promotionInfo;
 
 	const isPercentage = bonusType === defBonusType.percentage;
@@ -102,8 +103,8 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 				)}
 
 				<div className="icon icon-icon32px_">
-					{t("lbl_RollOver")}
-					<span>{rollOver}X</span>
+					{fullFillType === 2 ? t("lbl_WinOver") : t("lbl_RollOver")}
+					<span>{rollOver}x</span>
 				</div>
 			</div>
 		);
@@ -154,8 +155,12 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 				)}
 
 				<div>
-					<div>{t("lbl_RollOver")}</div>
-					<div>{rollOver}X</div>
+					<div>
+						{fullFillType === 2
+							? t("lbl_WinOver")
+							: t("lbl_RollOver")}
+					</div>
+					<div>{rollOver}x</div>
 				</div>
 
 				<div>
