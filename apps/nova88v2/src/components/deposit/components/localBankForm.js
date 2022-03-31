@@ -443,7 +443,11 @@ const LocalBankForm = ({
 						{custBankInfoList?.length < 3 && (
 							<div className="btnGroup">
 								<button
-									onClick={() => navigate(path.bankInfo.root)}
+									onClick={() =>
+										navigate(
+											`/${userInfo.langId}/${path.bankInfo.root}`
+										)
+									}
 									className="btn-check">
 									+
 								</button>
