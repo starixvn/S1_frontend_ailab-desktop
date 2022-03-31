@@ -3,7 +3,8 @@ export const defDepositType = {
 	localBank: "Local Bank",
 	onlineBank: "Online Bank",
 	cryptoPay: "Crypto Pay",
-	autoDeposit: "Auto Deposit"
+	autoDeposit: "Auto Deposit",
+	linePay: "Line Pay"
 };
 
 export const defDepositOptions = ({
@@ -11,7 +12,8 @@ export const defDepositOptions = ({
 	mobilePayGourpList = [],
 	localBankGroupList = [],
 	onlineBankGroupList = [],
-	cryptoPayGroupList = []
+	cryptoPayGroupList = [],
+	linePayLink
 }) => [
 	{
 		type: defDepositType.autoDeposit,
@@ -28,13 +30,20 @@ export const defDepositOptions = ({
 		iconClass: "icon icon-library"
 	},
 	{
+		type: defDepositType.linePay,
+		depositDisplaykey: "lbl_LinePay",
+		isHide: false,
+		creditTime: "lbl_5mins",
+		iconClass: "icon icon-line",
+		linePayLink
+	},
+	{
 		type: defDepositType.onlineBank,
 		isHide: !onlineBankGroupList.length,
 		depositDisplaykey: "lbl_OnlineBanking",
 		creditTime: "lbl_Instant",
 		iconClass: "icon icon-connection"
 	},
-
 	{
 		type: defDepositType.mobile,
 		isHide: !mobilePayGourpList.length,

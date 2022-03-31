@@ -35,5 +35,6 @@ export default {
 	UnderMaintain: "UnderMaintain",
 	Photo: "Photo",
 	Modal: "Modal",
-	NewYear: "NewYear"
+	NewYear: "NewYear",
+	LinePay: "LinePay"
 };
