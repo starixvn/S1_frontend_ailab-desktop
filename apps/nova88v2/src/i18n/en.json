@@ -318,6 +318,7 @@
 	"lbl_Deposit_Promotion_Button_Proceed": "Proceed",
 	"lbl_Deposit_Promotion_Button_Back": "Back",
 	"lbl_AutoDeposit": "Auto Deposit",
+	"lbl_LinePay": "LINE",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",
@@ -494,6 +495,9 @@
 	"lbl_NewMember": "NEW MEMBER",
 	"lbl_Special": "SPECIAL",
 	"lbl_Promotion_Slot": "Slot",
+	"lbl_WinOver": "WINOVER",
+	"lbl_WinOverAccumulated": "WINOVER",
+
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",

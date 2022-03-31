@@ -207,3 +207,6 @@ export const api_payment_getSupportCryptoInfo = () =>
 
 export const api_payment_GetAutoChannelBankGroupList = () =>
 	paymentRequest.post("GetAutoChannelBankGroupList");
+
+export const api_payment_GetLineChannelForDpeosit = () =>
+	paymentRequest.post("GetLineChannelForDpeosit");

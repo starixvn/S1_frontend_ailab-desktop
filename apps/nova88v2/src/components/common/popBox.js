@@ -37,6 +37,7 @@ import UnderMaintain from "./popBox.underMaintain";
 import Photo from "./popBox.photo";
 import Modal from "./popBox.modal";
 import NewYear from "./popbox.newYear";
+import LinePay from "./popBox.linePayLink";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -313,6 +314,16 @@ export default () => {
 			);
 			break;
 
+		case defPopBoxType.LinePay:
+			content = (
+				<LinePay
+					linePayLink={popBox.linePayLink}
+					clickClose={popBox.clickClose}
+					langId={popBox.langId}
+				/>
+			);
+			break;
+
 		default:
 			break;
 	}
@@ -326,7 +337,8 @@ export default () => {
 		popBox.popBoxType === defPopBoxType.Modal ||
 		popBox.popBoxType === defPopBoxType.SuccessAngPow ||
 		popBox.popBoxType === defPopBoxType.SuccessMySteryBox ||
-		popBox.popBoxType === defPopBoxType.Photo;
+		popBox.popBoxType === defPopBoxType.Photo ||
+		popBox.popBoxType === defPopBoxType.LinePay;
 
 	if (!popBox.isOpen) return null;
 

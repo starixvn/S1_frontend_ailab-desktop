@@ -6,3 +6,4 @@ export * from "./useDepositOnline";
 export * from "./useDepositEffect";
 export * from "./useSyncRouteQuery";
 export * from "./useAutoDeposit";
+export * from "./useDepositLinePay";

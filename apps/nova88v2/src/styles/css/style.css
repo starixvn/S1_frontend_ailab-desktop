@@ -2403,6 +2403,11 @@ footer .footerList > div > div > div {
   bottom: 0;
 }
 
+.inputModuleRow .tip span {
+  color: #cf0404;
+  margin-right: 10px;
+}
+
 .inputModuleRow input.text-right {
   text-align: right;
 }
@@ -7574,7 +7579,7 @@ article p {
   background: #1E85EC;
   color: white;
   border-radius: 100%;
-  padding: 4px;
+  padding: 2px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;

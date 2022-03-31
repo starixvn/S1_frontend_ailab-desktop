@@ -494,6 +494,9 @@
 	"lbl_NewMember": "NEW MEMBER",
 	"lbl_Special": "SPECIAL",
 	"lbl_Promotion_Slot": "Slot",
+	"lbl_WinOver": "WINOVER",
+	"lbl_WinOverAccumulated": "WINOVER",
+
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",

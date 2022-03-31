@@ -494,6 +494,8 @@
 	"lbl_NewMember": "新会员",
 	"lbl_Special": "特别优惠",
 	"lbl_Promotion_Slot": "老虎机",
+	"lbl_WinOver": "总赢倍数",
+	"lbl_WinOverAccumulated": "总赢利额",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "目前没有可用的信息。",
