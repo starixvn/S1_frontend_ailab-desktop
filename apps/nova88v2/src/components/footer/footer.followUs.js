@@ -188,10 +188,10 @@ const FollowUsSection = ({ t, langId, currencyId }) => {
 
 	return (
 		<div className="sfp">
-			<div>
+			{/* <div>
 				<div className="title">{t("lbl_Follow_Us")}</div>
 				<div>{socialMedias(langId)}</div>
-			</div>
+			</div> */}
 			<div>
 				<div className="title">{t("lbl_Suggested_Browser")}</div>
 				<div>
