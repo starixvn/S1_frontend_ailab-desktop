@@ -5,9 +5,10 @@ import {
 	getUrlParameter,
 	readCookie,
 	getLocalStorage,
-	removeLocalStorage
+	removeLocalStorage,
+	defCurrencyList
 } from "../../common/common";
-import { defDepositOptions } from "../deposit.def";
+import { defDepositOptions, defDepositType } from "../deposit.def";
 import defPopBoxType from "../../common/defPopBoxType";
 import usePopBox from "../../hook/usePopBox";
 import path from "../../../router";
@@ -37,7 +38,9 @@ const useDepositEffect = ({
 	getLocalBankGroupList,
 	getOnlineBankGroupList,
 	getCryptoPayGroupList,
-	getAutoDepositGroupList
+	getAutoDepositGroupList,
+	getLinePayLink,
+	linePayLink
 }) => {
 	const location = useLocation();
 	const parameterType = getUrlParameter("type");
@@ -86,7 +89,6 @@ const useDepositEffect = ({
 				);
 			}
 		};
-
 		const initializeDepositOptions = () => {
 			if (isInitDataDone) {
 				const originalDepositOptions = defDepositOptions({
@@ -94,7 +96,8 @@ const useDepositEffect = ({
 					mobilePayGourpList,
 					onlineBankGroupList,
 					localBankGroupList,
-					cryptoPayGroupList
+					cryptoPayGroupList,
+					linePayLink
 				});
 
 				const filterDepositOptions = originalDepositOptions.filter(
@@ -118,6 +121,45 @@ const useDepositEffect = ({
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isInitDataDone]);
+
+	useEffect(() => {
+		if (isInitDataDone && userInfo.currencyId === defCurrencyList.THB) {
+			getLinePayLink();
+		}
+	}, [userInfo, isInitDataDone]);
+
+	useEffect(() => {
+		if (isInitDataDone) {
+			const originalDepositOptions = defDepositOptions({
+				linePayLink,
+				autoDepositGroupList,
+				mobilePayGourpList,
+				onlineBankGroupList,
+				localBankGroupList,
+				cryptoPayGroupList
+			});
+			const filterDepositOptions = originalDepositOptions.filter(
+				item => !item.isHide
+			);
+			const excludeLinePay = filterDepositOptions.filter(
+				item => item.type !== defDepositType.linePay
+			);
+			if (
+				userInfo.currencyId &&
+				userInfo.currencyId !== defCurrencyList.THB
+			) {
+				setDepositOptions(excludeLinePay);
+			} else if (
+				userInfo.currencyId &&
+				userInfo.currencyId === defCurrencyList.THB &&
+				!linePayLink
+			) {
+				setDepositOptions(excludeLinePay);
+			} else {
+				setDepositOptions(filterDepositOptions);
+			}
+		}
+	}, [userInfo, isInitDataDone, linePayLink]);
 
 	useEffect(() => {
 		const initializeDepositType = () => {

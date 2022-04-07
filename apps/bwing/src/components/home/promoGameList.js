@@ -82,7 +82,7 @@ const defGameList = [
 	{
 		...productList.virtualSports,
 		img: require("../../styles/img/GameList10.png").default,
-		displayKey: "lbl_VirtualSports",
+		displayKey: "lbl_Virtual_Sports",
 		linkType: defLinkType.sports
 	},
 	{

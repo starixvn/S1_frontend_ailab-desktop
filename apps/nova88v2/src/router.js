@@ -163,5 +163,8 @@ export default {
 	},
 	luckyWheel: {
 		root: "luckyWheel"
+	},
+	mega888: {
+		root: "mega888"
 	}
 };

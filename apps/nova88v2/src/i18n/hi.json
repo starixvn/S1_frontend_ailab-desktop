@@ -492,6 +492,9 @@
 	"lbl_NewMember": "नया सदस्य",
 	"lbl_Special": "विशेष",
 	"lbl_Promotion_Slot": "स्लॉट खेल",
+	"lbl_WinOver": "WINOVER",
+	"lbl_WinOverAccumulated": "WINOVER",
+
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "अभी कोई जानकारी उपलब्ध नहीं है।",
@@ -834,7 +837,8 @@
 	"lbl_Online_Casino_Live_Casino_desc": "Nova88 आनंद लेने वाले खिलाड़ियों के लिए लाइव कैसीनो की एक विस्तृत श्रृंखला प्रदान करता है, इनमें सुंदर और सेक्सी एशियाई डीलरों के साथ लाइव डीलर कैसीनो, लाइव बैकरेट, लाइव रूले, लाइव सिक बो, लाइव ड्रैगन टाइगर और कई अन्य शामिल हैं।",
 	"lbl_Keno_Lottery_Betting": "केनो और लॉटरी सट्टेबाजी",
 	"lbl_Keno_Lottery_Betting_desc": "Nova88 केनो, लॉटरी, नंबर गेम और टेबल गेम की पेशकश करता है जो तेज, मजेदार और खेलने में आसान हैं। प्रत्येक ड्रा केवल कुछ ही मिनटों तक चलता है और निपटान तेज होता है।",
-	"lbl_Virtual_Sports": "काल्पनिक खेल",
+	"lbl_Virtual_Games":"वर्चुअल गेम्स",
+	"lbl_Virtual_Sports": "वर्चुअल स्पोर्ट्स",
 	"lbl_Virtual_Sports_desc": "नोवा88 इंस्पायर्ड, स्पोर्टराडार और सबा सॉकर से 24/7 वर्चुअल स्पोर्ट्स बेटिंग इवेंट प्रदान करता है। वर्चुअल सॉकर, वर्चुअल बास्केटबॉल, वर्चुअल हॉर्स रेसिंग, वर्चुअल ग्रेहाउंड, वर्चुअल स्पीडवे, वर्चुअल मोटरस्पोर्ट्स, वर्चुअल साइक्लिंग, वर्चुअल टेनिस और PES और FIFA 20 के लिए सबा सॉकर को कवर करना।",
 	"lbl_Fishing_in_footer": "मछली पकड़ना",
 	"lbl_Fishing_desc": "मत्स्य पालन एशिया का नवीनतम अभिनव आर्केड सट्टेबाजी खेल है, खिलाड़ी खुद को विसर्जित कर सकते हैं और गहरे समुद्र का पता लगा सकते हैं, अपने घर के आराम से समुद्री जीवों को पकड़ने और शूटिंग करके अंक और पुरस्कार एकत्र कर सकते हैं।",
@@ -961,6 +965,22 @@
 
 	"hotgames": {
 		"lbl_Nova88_Olympus": "Nova88 Olympus"
+	},
+
+	"mega888":{
+		"step":"Step {{step}}",
+		"step1_desc":"Click 'Install' to proceed further",
+		"step2_desc":"After having finished the installation progress, now you can see MEGA888 game icon on your phone menu. Think this is it? Wait for it.",
+		"step3_desc":"When you click on the MEGA888 game icon, you won't be able to launch the game. It says 'Untrusted Enterprise Developer'. There are few more step to be done.",
+		"step4_desc":"Just go to your iPhone's setting, and click 'Device Management' as per red box above.",
+		"step5_desc":"Click on 'Epson China Co. Ltd'",
+		"step6_desc":"Click 'Trust Epson (China) Co. Ltd'",
+		"step7_desc":"Click 'Trust' to enable the MEGA888 game.",
+		"step8_desc":"Launch MEGA888 game again, now you got it.",
+		"download_app":"Mega888 Download APP",
+		"app_for_android":"APP for Android",
+		"app_for_ios":"APP for iOS",
+		"unzip_and_run":"Unzip and Run"
 	},
 
 	"end-----": "end-----"

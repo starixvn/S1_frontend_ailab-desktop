@@ -279,12 +279,13 @@ export default {
 
 	/* === 7. virtual Sports === */
 
+	virtualGame: { tpId: 1, gameId: 245, tpGameType: 22, name: "virtualGame" }, // 單一錢包 (目前不支援)
 	virtualSports: {
 		tpId: 1,
-		gameId: 180,
-		name: "virtualSports",
-		tpGameType: 3
-	},
+		gameId: 192,
+		tpGameType: 24,
+		name: "virtualSports"
+	}, // 單一錢包 {tpId:41, tpGameType:72, gameId:192}
 
 	/* === 8.poker === */
 
@@ -373,5 +374,6 @@ export const defCasinoProviders = {
 		tpId: 39,
 		name: "AdvantPlay",
 		tpGameType: 67
-	}
+	},
+	Habanero: { tpId: 40, name: "Habanero", tpGameType: 68 }
 };

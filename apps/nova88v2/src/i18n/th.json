@@ -318,6 +318,7 @@
 	"lbl_CashbackAmount": "จำนวนเงินคืน",
 	"lbl_ReceivedAmount": "จำนวนเงินที่ได้รับ",
 	"lbl_AutoDeposit": "Auto Deposit",
+	"lbl_LinePay": "LINE",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "รายละเอียดการฝากเงิน",
@@ -494,6 +495,8 @@
 	"lbl_NewMember": "สมาชิกใหม่",
 	"lbl_Special": "พิเศษ",
 	"lbl_Promotion_Slot": "สล็อต",
+	"lbl_WinOver": "วินโอเวอร์",
+	"lbl_WinOverAccumulated": "วินโอเวอร์",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "ไม่มีข้อมูล",
@@ -865,6 +868,7 @@
 	"lbl_Online_Casino_Live_Casino_desc": "Nova88 นำเสนอคาสิโนสดที่หลากหลาย เพื่อความเพลิดเพลินในการเล่นของผู้เล่น ซึ่งรวมถึง คาสิโนดีลเลอร์สด พร้อมดีลเลอร์ชาวเอเชียที่สวยงามและเซ็กซี่ บาคาร่าสด รูเล็ตสด ไฮโลสด ดราก้อนไทเกอร์สด และอื่น ๆ อีกมากมาย",
 	"lbl_Keno_Lottery_Betting": "การเดิมพันคีโนและลอตเตอรี",
 	"lbl_Keno_Lottery_Betting_desc": "Nova88 นำเสนอ คีโน ลอตเตอรีเกมตัวเลข และเกมโต๊ะ ที่รวดเร็วสนุกและเล่นง่าย การออกสลากแต่ละครั้งจะใช้เวลาเพียงไม่กี่นาทีและมีการตัดสินที่รวดเร็ว",
+	"lbl_Virtual_Games":"เกมเสมือนจริง",
 	"lbl_Virtual_Sports": "กีฬาเสมือนจริง",
 	"lbl_Virtual_Sports_desc": "Nova88 ให้บริการการเดิมพันกีฬาเสมือนจริงตลอด 24 ชั่วโมงทุกวันจาก Inspired, Sportradar และ Saba Soccer ครอบคลุมฟุตบอลเสมือนจริง บาสเก็ตบอลเสมือนจริง การแข่งม้าเสมือน สุนัขไล่เนื้อเสมือนจริง Virtual Speedway มอเตอร์สปอร์ตเสมือนจริง การขี่จักรยานเสมือนจริง เทนนิสเสมือนจริง และ Saba Soccer สำหรับ PES และ FIFA 20",
 	"lbl_Fishing_in_footer": "เกมยิงปล",
@@ -992,6 +996,22 @@
 
 	"hotgames": {
 		"lbl_Nova88_Olympus": "Nova88 Olympus"
+	},
+
+	"mega888":{
+		"step":"ขั้นตอนที่ {{step}}",
+		"step1_desc":"คลิก 'ติดตั้ง' เพื่อดำเนินการต่อ",
+		"step2_desc":"หลังจากเสร็จสิ้นขั้นตอนการติดตั้ง ตอนนี้คุณสามารถเห็นไอคอนเกม MEGA888 บนเมนูโทรศัพท์ของคุณ คิดว่ามันจบแล้วเหรอ? โปรดอดทนรอ",
+		"step3_desc":"เมื่อคุณคลิกที่ไอคอนเกม MEGA888 คุณจะไม่สามารถเปิดเกมได้ มันเขียนว่า 'Untrusted Enterprise Developer' มีอีกไม่กี่ขั้นตอนที่ต้องทำ",
+		"step4_desc":"เพียงไปที่การตั้งค่าของ iPhone แล้วคลิก 'การจัดการอุปกรณ์' ตามช่องสีแดงด้านบน",
+		"step5_desc":"คลิกที่ 'Epson China Co. Ltd'",
+		"step6_desc":"คลิก 'เชื่อถือ 'Epson (China) Co. Ltd'",
+		"step7_desc":"คลิก 'เชื่อถือ' เพื่อเปิดใช้งานเกม MEGA888",
+		"step8_desc":"เปิดเกม MEGA888 อีกครั้ง เพื่อเข้าเล่นเกม",
+		"download_app":"Mega888 Download APP",
+		"app_for_android":"APP for Android",
+		"app_for_ios":"APP for iOS",
+		"unzip_and_run":"แตกไฟล์และติดตั้ง"
 	},
 
 	"end-----": "end-----"

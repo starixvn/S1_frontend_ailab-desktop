@@ -14,7 +14,8 @@ const defSortSports = {
 		soccer: 2,
 		sabaSoccer: 3,
 		basketball: 4,
-		tennis: 5
+		tennis: 5,
+		virtualSports: 6
 	}
 };
 
@@ -77,70 +78,74 @@ const defSortSlot = {
 	[defCurrencyList.THB]: {
 		slot_AdvantPlay: 1,
 		slot_PP: 2,
-		slot_NetEnt: 3,
-		slot_MGPSW: 4,
-		slot_JI: 5,
-		slot_PG: 6,
-		slot_JOKER: 7,
-		slot_SG: 8,
-		slot_RedTiger: 9,
-		slot_PT: 10,
-		slot_YGG: 11,
-		slot_CQ9: 12,
-		slot_GPI: 13,
-		slot_ICG: 14,
-		slot_OW: 15
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
+		slot_PT: 11,
+		slot_YGG: 12,
+		slot_CQ9: 13,
+		slot_GPI: 14,
+		slot_ICG: 15,
+		slot_OW: 16
 	},
 	[defCurrencyList.MYR]: {
 		slot_AdvantPlay: 1,
 		slot_PP: 2,
-		slot_NetEnt: 3,
-		slot_MGPSW: 4,
-		slot_JI: 5,
-		slot_PG: 6,
-		slot_JOKER: 7,
-		slot_SG: 8,
-		slot_RedTiger: 9,
-		slot_PT: 10,
-		slot_YGG: 11,
-		slot_CQ9: 12,
-		slot_GPI: 13,
-		slot_ICG: 14,
-		slot_OW: 15
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
+		slot_PT: 11,
+		slot_YGG: 12,
+		slot_CQ9: 13,
+		slot_GPI: 14,
+		slot_ICG: 15,
+		slot_OW: 16
 	},
 	[defCurrencyList.IDR]: {
 		slot_AdvantPlay: 1,
 		slot_PP: 2,
-		slot_NetEnt: 3,
-		slot_MGPSW: 4,
-		slot_JI: 5,
-		slot_PG: 6,
-		slot_JOKER: 7,
-		slot_SG: 8,
-		slot_RedTiger: 9,
-		slot_PT: 10,
-		slot_YGG: 11,
-		slot_CQ9: 12,
-		slot_GPI: 13,
-		slot_ICG: 14,
-		slot_OW: 15
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
+		slot_PT: 11,
+		slot_YGG: 12,
+		slot_CQ9: 13,
+		slot_GPI: 14,
+		slot_ICG: 15,
+		slot_OW: 16
 	},
 	[defCurrencyList.INR]: {
 		slot_AdvantPlay: 1,
 		slot_PP: 2,
-		slot_NetEnt: 3,
-		slot_MGPSW: 4,
-		slot_JI: 5,
-		slot_PG: 6,
-		slot_JOKER: 7,
-		slot_SG: 8,
-		slot_RedTiger: 9,
-		slot_PT: 10,
-		slot_YGG: 11,
-		slot_CQ9: 12,
-		slot_GPI: 13,
-		slot_ICG: 14,
-		slot_OW: 15
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
+		slot_PT: 11,
+		slot_YGG: 12,
+		slot_CQ9: 13,
+		slot_GPI: 14,
+		slot_ICG: 15,
+		slot_OW: 16
 	}
 };
 
@@ -323,6 +328,22 @@ export const defMenuLinks = {
 				parameter: { ...productList.cricket },
 				...productList.cricket,
 				keyName: "cricket"
+			},
+			{
+				path: path.sports.root,
+				displayKey: "lbl_Virtual_Sports",
+				listNpcImgUrl: "betradarsoccerNPC.png",
+				listBgImgUrl: "soccerBG.png",
+				menuType: defMenuType.Link,
+				parameter: { ...productList.virtualSports },
+				...productList.virtualSports,
+				keyName: "virtualSports",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sports_virtualSports
+					})
+				]
 			}
 		]
 	},
@@ -610,6 +631,36 @@ export const defMenuLinks = {
 				...productList.casino_PP
 			},
 			{
+				keyName: "slot_Mega888",
+				displayText: "Mega888",
+				menuType: defMenuType.Link,
+				path: path.mega888.root,
+				listNpcImgUrl: "slotMEGA888.png",
+				listBgImgUrl: "slotListHover.png",
+				...productList.mega888,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.mega888
+					})
+				]
+			},
+			{
+				keyName: "slot_Habanero",
+				displayText: "Habanero",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotho.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_Habanero },
+				...productList.casino_Habanero,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_Habanero
+					})
+				]
+			},
+			{
 				keyName: "slot_MGPSW",
 				displayText: "Microgaming",
 				menuType: defMenuType.Link,
@@ -861,6 +912,25 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "gamevg.png",
 					hoverBgImg: "gamevga.png"
+				}
+			},
+			{
+				...productList.virtualGame,
+				keyName: "games_VirtualGame",
+				listNpcImgUrl: "virtualgames.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_Virtual_Games",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_virtualGame
+					})
+				],
+				parameter: { ...productList.virtualGame },
+				lobbyPage: {
+					bgImg: "gamevirtual.png",
+					hoverBgImg: "gamevirtuala.png"
 				}
 			}
 		]

@@ -34,6 +34,12 @@ export const defSearchColumn = {
 
 export const defLobbyImgList = [
 	{
+		img: `${bannerImgUrl}/desktop/img/partnerlogo/ho.png`,
+		activeImg: `${bannerImgUrl}/desktop/img/partnerlogo/hoa.png`,
+		lobbyDisplayName: "Habanero",
+		providerId: defCasinoProviders.Habanero.tpId
+	},
+	{
 		img: `${bannerImgUrl}/desktop/img/partnerlogo/ap.png`,
 		activeImg: `${bannerImgUrl}/desktop/img/partnerlogo/apa.png`,
 		lobbyDisplayName: "AdvantPlay",

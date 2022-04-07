@@ -12,7 +12,8 @@ export default ({
 	refreshProcessBar,
 	hideReloadBtn,
 	promotionType,
-	status
+	status,
+	fullFillType
 }) => {
 	if (
 		isJoin &&
@@ -29,7 +30,11 @@ export default ({
 
 		return (
 			<div className="progressBarModule">
-				<div className="bounsName">{t("lbl_TurnoverAccumulated")}</div>
+				<div className="bounsName">
+					{fullFillType === 2
+						? t("lbl_WinOverAccumulated")
+						: t("lbl_TurnoverAccumulated")}
+				</div>
 				<div className="turnover">
 					<span>
 						{t(`Currency_${currencyId}`)}{" "}

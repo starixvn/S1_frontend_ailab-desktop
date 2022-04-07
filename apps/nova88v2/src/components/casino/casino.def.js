@@ -1,4 +1,5 @@
 import productList from "../../datas/productList";
+import path from "../../router";
 
 export const defRowsPerPage = 20;
 
@@ -50,6 +51,11 @@ export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
 
 export const defLobbyImgList = [
 	{
+		lobbyImgName: "ho",
+		lobbyDisplayName: "Habanero",
+		providerId: productList.casino_Habanero.tpId
+	},
+	{
 		lobbyImgName: "ap",
 		lobbyDisplayName: "AdvantPlay",
 		providerId: productList.casino_AdvantPlay.tpId
@@ -58,6 +64,13 @@ export const defLobbyImgList = [
 		lobbyImgName: "ji",
 		lobbyDisplayName: "JILI",
 		providerId: productList.casino_JILI.tpId
+	},
+	{
+		lobbyImgName: "megaa",
+		lobbyDisplayName: "Mega 888",
+		providerId: productList.mega888.tpId,
+		alwaysShow: true,
+		path: path.mega888.root
 	},
 	{
 		lobbyImgName: "pp",

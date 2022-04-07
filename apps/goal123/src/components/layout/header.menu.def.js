@@ -28,6 +28,22 @@ export const defMenuLinks = langId => ({
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/saba-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sabas-icon.png`,
 				parameter: { ...productList.sportSaba }
+			},
+			{
+				...productList.virtualSports,
+				subPath: path.sports.root,
+				className: "sport",
+				displayKey: "lbl_Virtual_Sports",
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/betradar.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/betradar-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/betradar-icon.png`,
+				parameter: { ...productList.virtualSports },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sports_virtualSports
+					})
+				]
 			}
 			// {
 			// 	...productList.sportBti,
@@ -174,6 +190,24 @@ export const defMenuLinks = langId => ({
 				lobbyPage: {
 					bgImg: `${bannerImgUrl}/desktop/img/games/tablegame.png`
 				}
+			},
+			{
+				...productList.virtualGame,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_virtualGame
+					})
+				],
+				displayKey: "lbl_Virtual_Games",
+				menuType: defMenuType.LinkOrBtn,
+				parameter: { ...productList.virtualGame },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/virtualgames.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/virtualgames-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/virtualgames-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/games/virtualgames.png`
+				}
 			}
 		]
 	},
@@ -253,6 +287,21 @@ export const defMenuLinks = langId => ({
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pp.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/pp-item.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pp-icon.png`
+			},
+			{
+				...defCasinoProviders.Habanero,
+				displayText: "Habanero",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Habanero.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/habanero-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_Habanero
+					})
+				]
 			},
 			{
 				...defCasinoProviders.NetEnt,

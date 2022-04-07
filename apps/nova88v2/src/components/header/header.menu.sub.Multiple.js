@@ -11,7 +11,8 @@ const SubMenuMultiple = ({
 	clickItem,
 	userInfo,
 	t,
-	maintainList
+	maintainList,
+	showLoginPopBox
 }) => {
 	const displayText = subMenuItem.displayText
 		? subMenuItem.displayText
@@ -62,37 +63,54 @@ const SubMenuMultiple = ({
 
 	const pathLink = subMenuItem.path || defMenuLinks[menuKey].path;
 
+	const content = (
+		<>
+			<img
+				className="ListBG-left"
+				alt="ListBG-left"
+				src={SubMenuListBGLeftImg}
+			/>
+			<img
+				className="ListBG-right"
+				alt="ListBG-right"
+				src={SubMenuListBGRightImg}
+			/>
+			<img
+				className="ListBG-center"
+				alt="ListBG-center"
+				src={SubMenuListBGCenterImg}
+			/>
+			<ImgsNpcRender
+				className="List-npc"
+				listImgUrl={subMenuItem.listNpcImgUrl}
+			/>
+			<ImgsBgRender
+				className="List-bg"
+				listImgUrl={subMenuItem.listBgImgUrl}
+			/>
+			<span>{displayText}</span>
+			<div className="under">{t("lbl_underMaintenance")}</div>
+		</>
+	);
+
+	if (subMenuItem.needLogin && userInfo.isLogin === false) {
+		return (
+			<button
+				className={className}
+				style={style}
+				onClick={showLoginPopBox}>
+				{content}
+			</button>
+		);
+	}
+
 	if (subMenuItem.menuType === defMenuType.Link) {
 		return (
 			<Link
 				className={className}
 				style={style}
 				to={`/${userInfo.langId}/${pathLink}${_urlParams}`}>
-				<img
-					className="ListBG-left"
-					alt="ListBG-left"
-					src={SubMenuListBGLeftImg}
-				/>
-				<img
-					className="ListBG-right"
-					alt="ListBG-right"
-					src={SubMenuListBGRightImg}
-				/>
-				<img
-					className="ListBG-center"
-					alt="ListBG-center"
-					src={SubMenuListBGCenterImg}
-				/>
-				<ImgsNpcRender
-					className="List-npc"
-					listImgUrl={subMenuItem.listNpcImgUrl}
-				/>
-				<ImgsBgRender
-					className="List-bg"
-					listImgUrl={subMenuItem.listBgImgUrl}
-				/>
-				<span>{displayText}</span>
-				<div className="under">{t("lbl_underMaintenance")}</div>
+				{content}
 			</Link>
 		);
 	}
@@ -100,31 +118,7 @@ const SubMenuMultiple = ({
 	if (subMenuItem.menuType === defMenuType.DirectUrl) {
 		return (
 			<a href={pathLink} target="_blank" rel="noreferrer">
-				<img
-					className="ListBG-left"
-					alt="ListBG-left"
-					src={SubMenuListBGLeftImg}
-				/>
-				<img
-					className="ListBG-right"
-					alt="ListBG-right"
-					src={SubMenuListBGRightImg}
-				/>
-				<img
-					className="ListBG-center"
-					alt="ListBG-center"
-					src={SubMenuListBGCenterImg}
-				/>
-				<ImgsNpcRender
-					className="List-npc"
-					listImgUrl={subMenuItem.listNpcImgUrl}
-				/>
-				<ImgsBgRender
-					className="List-bg"
-					listImgUrl={subMenuItem.listBgImgUrl}
-				/>
-				<span>{displayText}</span>
-				<div className="under">{t("lbl_underMaintenance")}</div>
+				{content}
 			</a>
 		);
 	}
@@ -229,7 +223,8 @@ SubMenuMultiple.propTypes = {
 	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	t: PropTypes.func.isRequired,
 	menuKey: PropTypes.string.isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired
+	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	showLoginPopBox: PropTypes.func.isRequired
 };
 
 ImgsNpcRender.propTypes = {
