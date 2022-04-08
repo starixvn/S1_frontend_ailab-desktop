@@ -37,9 +37,9 @@ const SubMenuMultiple = ({
 	const SubMenuListBGCenterImg = `${bannerImgUrl}/img/subMenu-Wrapper-ListBG-center.png`;
 
 	if (subMenuItem.parameter) {
-		params = Object.keys(subMenuItem.parameter).map(keys => {
-			return `${keys}=${subMenuItem.parameter[keys]}`;
-		});
+		params = Object.keys(subMenuItem.parameter).map(
+			keys => `${keys}=${subMenuItem.parameter[keys]}`
+		);
 	}
 	const _urlParams = params !== null ? `?${params.join("&")}` : "";
 
@@ -150,7 +150,8 @@ const SubMenuMultiple = ({
 				path: subMenuItem.path,
 				needLogin: subMenuItem.needLogin,
 				menuType: subMenuItem.menuType,
-				tpGameType: subMenuItem.tpGameType
+				tpGameType: subMenuItem.tpGameType,
+				betType: subMenuItem?.betType
 			})}>
 			<img
 				className="ListBG-left"
