@@ -178,7 +178,7 @@ export const LicensesSection = ({ t, errorPopBox }) => {
 				<iframe
 					width="256"
 					height="140"
-					src="https://www.youtube.com/embed/OpXnKKW1y20"
+					src="https://www.youtube.com/embed/OTwVIA7vkCw"
 					title="YouTube video player"
 					frameBorder="0"
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
