@@ -263,6 +263,38 @@ export const defMenuLinks = langId => ({
 		className: "casinobtn",
 		subMenu: [
 			{
+				...defCasinoProviders.NetEnt,
+				displayText: "NetEnt",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NetEnt.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ne-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_NetEnt
+					})
+				]
+			},
+			{
+				...defCasinoProviders.RedTiger,
+				className: "RedTiger",
+				displayText: "Red Tiger",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.RedTiger.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/rt-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_RedTiger
+					})
+				]
+			},
+
+			{
 				...defCasinoProviders.AdvantPlay,
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
@@ -303,37 +335,7 @@ export const defMenuLinks = langId => ({
 					})
 				]
 			},
-			{
-				...defCasinoProviders.NetEnt,
-				displayText: "NetEnt",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.NetEnt.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ne-icon.png`,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_NetEnt
-					})
-				]
-			},
-			{
-				...defCasinoProviders.RedTiger,
-				className: "RedTiger",
-				displayText: "Red Tiger",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.RedTiger.name },
-				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt.png`,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/rt-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/rt-icon.png`,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_RedTiger
-					})
-				]
-			},
+
 			{
 				...defCasinoProviders.MGPSW,
 				eventIcons: [
