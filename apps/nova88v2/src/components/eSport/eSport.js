@@ -26,7 +26,7 @@ const Esport = () => {
 	const [eSportsSubMenu, setESportsSubMenu] = useState([]);
 	const { sortGameMenu } = useGameMenu({ productTpIds });
 
-	const clickItem = ({ tpId, gameId, needLogin, path }) => {
+	const clickItem = ({ tpId, gameId, needLogin, path, betType }) => {
 		const showLoginPopBox = () => {
 			setPopBox({
 				isOpen: true,
@@ -45,7 +45,8 @@ const Esport = () => {
 			langId: userInfo.langId,
 			tpId,
 			gameId,
-			loginCallback: showLoginPopBox
+			loginCallback: showLoginPopBox,
+			betType
 		});
 	};
 

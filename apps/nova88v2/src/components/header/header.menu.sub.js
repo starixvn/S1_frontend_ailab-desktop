@@ -50,7 +50,8 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 		path,
 		needLogin,
 		menuType,
-		tpGameType
+		tpGameType,
+		betType
 	}) => {
 		if (tpId === defSpecialSetting.sports_9w) {
 			const result = await handleGoToGame({
@@ -87,7 +88,8 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 					tpId,
 					gameId,
 					loginCallback: showLoginPopBox,
-					tpGameType
+					tpGameType,
+					betType
 				});
 			}
 		}

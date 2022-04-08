@@ -144,7 +144,7 @@ export const GET_ENTER_PAGE_URL = ({
 	const lobbyUrl = ``;
 	const cashierUrl = `${appUrl}/${path.deposit.root}`;
 	const _matchid = matchid || "";
-	const _betType = betType ? `&betType=${betType}` : "";
+	const _betType = betType ? `&bettype=${betType}` : "";
 	const _errorPageUrl = errorPageUrl(langId);
 	const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
 	let urlSpecialPattern = "";
@@ -155,11 +155,9 @@ export const GET_ENTER_PAGE_URL = ({
 	return `${config.openURL}/${langId}/entPage?homeUrl=${homeUrl}&signupUrl=${signupUrl}&LoginUrl=${LoginUrl}&tpId=${tpId}&gameId=${gameId}&CashierUrl=${cashierUrl}&LobbyUrl=${lobbyUrl}&matchid=${_matchid}${_betType}&errorUrl=${_errorPageUrl}${urlSpecialPattern}${_tpGameType}`;
 };
 
-const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => {
-	return {
-		url,
-		needLogin,
-		actionType,
-		windowKey: tpId === 1 ? `Tp_${tpId}_${gameId}` : `Tp_${tpId}`
-	};
-};
+const setResult = (url, needLogin, actionType, tpId, gameId, matchid) => ({
+	url,
+	needLogin,
+	actionType,
+	windowKey: tpId === 1 ? `Tp_${tpId}_${gameId}` : `Tp_${tpId}`
+});
