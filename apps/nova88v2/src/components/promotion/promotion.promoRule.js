@@ -36,6 +36,7 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 		bonusType,
 		maxBonus,
 		rollOver,
+		winOver,
 		promotionType,
 		requiredAmount,
 		fullFillType
@@ -104,7 +105,7 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 
 				<div className="icon icon-icon32px_">
 					{fullFillType === 2 ? t("lbl_WinOver") : t("lbl_RollOver")}
-					<span>{rollOver}x</span>
+					<span>{fullFillType === 2 ? winOver : rollOver}x</span>
 				</div>
 			</div>
 		);
@@ -160,7 +161,7 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 							? t("lbl_WinOver")
 							: t("lbl_RollOver")}
 					</div>
-					<div>{rollOver}x</div>
+					<div>{fullFillType === 2 ? winOver : rollOver}x</div>
 				</div>
 
 				<div>
