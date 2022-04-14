@@ -235,13 +235,13 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				path: path.vip.root
 			},
-			{
-				displayKey: "lbl_Live_Sports",
-				listNpcImgUrl: "home-livesports.png",
-				listBgImgUrl: "livesportsbg.png",
-				menuType: defMenuType.Link,
-				path: path.streaming.root
-			},
+			// {
+			// 	displayKey: "lbl_Live_Sports",
+			// 	listNpcImgUrl: "home-livesports.png",
+			// 	listBgImgUrl: "livesportsbg.png",
+			// 	menuType: defMenuType.Link,
+			// 	path: path.streaming.root
+			// },
 			{
 				displayKey: "lbl_Movie_TV",
 				listNpcImgUrl: "home-movie.png",
@@ -1252,7 +1252,7 @@ export const defMenuLinks = {
 	tv: {
 		displayKey: "lbl_TV",
 		className: "tvbtn",
-		path: path.streaming.root,
+		// path: "http://nova88vip.com/",
 		eventIcons: [
 			showEventIcon({
 				icon: defEventIcon.live,
