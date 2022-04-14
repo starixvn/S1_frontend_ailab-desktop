@@ -22,7 +22,7 @@ const Content = () => {
 			</div>
 			<div className="liveCasinoBox">
 				<div className="content">
-					<div className="title">{t("lbl_LiveCasino")}</div>
+					<div className="title">{t("lbl_CasinoWithLive")}</div>
 					<div className="info">{t("lbl_LiveCasinoInfo1")}</div>
 					<div className="info">{t("lbl_LiveCasinoInfo2")}</div>
 					<div className="info">{t("lbl_LiveCasinoInfo3")}</div>
