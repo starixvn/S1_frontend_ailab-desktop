@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { getUrlParameter, number_format } from "../../common/common";
+import {
+	getUrlParameter,
+	number_format,
+	defCurrencyList
+} from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
 import { cloudImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
-
 import PromotionSelect from "./promotionSelect";
+
+const defInputCol = {
+	payAccount: "payAccount"
+};
 
 const MobileForm = ({
 	t,
@@ -22,7 +29,8 @@ const MobileForm = ({
 	setFormInfo,
 	onChangePromotion,
 	onChangeAmount,
-	onInputboxKeyDown
+	onInputboxKeyDown,
+	userInfo
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
@@ -50,9 +58,18 @@ const MobileForm = ({
 
 	const onSetInfoData = item => {
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo(prev => {
-			return { ...prev, ...item };
-		});
+		setFormInfo(prev => ({ ...prev, ...item }));
+	};
+
+	const onChangeInput = ({ val, col }) => {
+		if (col === defInputCol.payAccount) {
+			setFormInfo(prev => ({
+				...prev,
+				[col]: { value: val, tip: "", checked: true }
+			}));
+		} else {
+			setFormInfo(prev => ({ ...prev, [col]: val }));
+		}
 	};
 
 	useSyncRouteQuery({
@@ -88,7 +105,6 @@ const MobileForm = ({
 				<i className="txt-blue">*</i>
 				{t("lbl_Payment_Method")}
 			</div>
-
 			<div className="subModule">
 				<div>
 					{mobilePayGourpList.map(item => {
@@ -113,7 +129,7 @@ const MobileForm = ({
 									<i className="icon icon-icon32px_check" />
 								</div>
 								<div className="bank">
-									<div>{item.channelName}</div>
+									<div>{item.groupName}</div>
 
 									<div>
 										<div>
@@ -144,8 +160,8 @@ const MobileForm = ({
 					<div className="subModule">
 						<div>
 							{mobilePayInfoList.map(item => {
-								const groupName = String(
-									item.groupName
+								const payName = String(
+									item.payName
 								).toLowerCase();
 
 								return (
@@ -161,7 +177,7 @@ const MobileForm = ({
 										<div>
 											<img
 												alt={item.groupName}
-												src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
+												src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${payName}.png`}
 											/>
 											<i className="icon icon-icon32px_check" />
 										</div>
@@ -193,6 +209,34 @@ const MobileForm = ({
 					</div>
 				</>
 			)}
+
+			{userInfo.currencyId === defCurrencyList.INR &&
+				formInfo?.payName === "TenPay" && (
+					<>
+						<div className="subModuleTitle">
+							<i className="txt-blue">*</i>
+							{formInfo?.groupName}
+						</div>
+						<div className="subModule">
+							<Inputbox
+								className={`inputBox-white${
+									formInfo?.payAccount?.tip ? " error" : ""
+								}`}
+								value={formInfo?.payAccount?.value}
+								onChange={e =>
+									onChangeInput({
+										val: e.target.value,
+										col: defInputCol.payAccount
+									})
+								}
+								checked={formInfo?.payAccount?.checked}
+								tip={formInfo?.payAccount?.tip}
+								placeholder={t("lbl_EnterYourUPI")}
+								onKeyDown={onInputboxKeyDown}
+							/>
+						</div>
+					</>
+				)}
 
 			{infoChannelIdForRecord ? (
 				<>
@@ -243,7 +287,6 @@ const MobileForm = ({
 					</div>
 				</>
 			) : null}
-
 			<PromotionSelect
 				value={formInfo?.depositPromo ?? {}}
 				amount={Number(formInfo.amount)}
@@ -307,7 +350,8 @@ MobileForm.propTypes = {
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
-	isGroupListFetchDone: PropTypes.bool.isRequired
+	isGroupListFetchDone: PropTypes.bool.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
 export default MobileForm;

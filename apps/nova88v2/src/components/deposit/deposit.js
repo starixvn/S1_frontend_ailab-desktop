@@ -16,7 +16,8 @@ import {
 	setLocalStorage,
 	getLocalStorage,
 	removeLocalStorage,
-	number_format
+	number_format,
+	defCurrencyList
 } from "../common/common";
 import usePopBox from "../hook/usePopBox";
 
@@ -212,7 +213,8 @@ const Deposit = () => {
 				idx: 0,
 				bonusCode: null,
 				requiredAmount: null
-			}
+			},
+			payAccount: { value: "", tip: "", checked: null }
 		}));
 	};
 
@@ -316,7 +318,30 @@ const Deposit = () => {
 				})
 			);
 
-		if (formInfo.checked && typeof window !== "undefined") {
+		const checkPayAccount = () => {
+			if (
+				userInfo.currencyId === defCurrencyList.INR &&
+				formInfo?.payName === "TenPay" &&
+				!formInfo?.payAccount?.value
+			) {
+				setFormInfo(prev => ({
+					...prev,
+					payAccount: {
+						value: "",
+						tip: t("lbl_PleaseEnterUPI"),
+						checked: false
+					}
+				}));
+				return false;
+			}
+			return true;
+		};
+
+		if (
+			formInfo.checked &&
+			typeof window !== "undefined" &&
+			checkPayAccount()
+		) {
 			const { sysId, payId, channelId, amount, depositPromo } = formInfo;
 			let { bonusCode } = formInfo?.depositPromo;
 			const resultAmount = _isConvert ? amount * 1000 : Number(amount);
@@ -365,7 +390,9 @@ const Deposit = () => {
 				const params = [
 					`ChannelId=${channelId}`,
 					`Amount=${resultAmount}`,
-					bonusCode && `BonusCode=${bonusCode}`
+					bonusCode && `BonusCode=${bonusCode}`,
+					formInfo?.payAccount?.value &&
+						`PayAccount=${formInfo?.payAccount?.value}`
 				]
 					.filter(Boolean)
 					.join("&");
