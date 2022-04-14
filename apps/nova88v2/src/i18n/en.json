@@ -319,6 +319,8 @@
 	"lbl_Deposit_Promotion_Button_Back": "Back",
 	"lbl_AutoDeposit": "Auto Deposit",
 	"lbl_LinePay": "LINE",
+	"lbl_EnterYourUPI": "ENTER YOUR UPI (Paytm/Phope/Googlepay... etc)",
+	"lbl_PleaseEnterUPI": "Please enter UPI",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",
