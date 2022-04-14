@@ -38,6 +38,9 @@
 	"lbl_DearValuedCustomers": "Dear Nova88 Valued Customers,",
 	"lbl_Home_HomeTeam": "HOME",
 	"lbl_Home_AwayTeam": "AWAY",
+	"lbl_LiveCasinoInfo1":"Enjoy the luxurious Live Casino",
+	"lbl_LiveCasinoInfo2":"Innovative casino games with",
+	"lbl_LiveCasinoInfo3":"Asian & European live dealers!",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -946,6 +949,10 @@
 	"lbl_Header_olympic_countdown_mins": "MIN",
 	"lbl_Header_olympic_countdown_secs": "SEC",
 
+	"lbl_welcome_to": "WELCOME TO",
+	"lbl_world_class": "WORLD CLASS",
+	"lbl_casino_world": "LIVE CASINO",
+	
 	"livecasino": {
 		"lbl_welcome_to": "WELCOME TO",
 		"lbl_world_class": "WORLD CLASS",

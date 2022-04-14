@@ -9047,6 +9047,16 @@ button.icon-spinner11:before {
   border-radius: 5px;
   display: none;
   opacity: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .installGuide > div.megaStyle .downloadItem .downloadQR .icon-android, .installGuide > div.kissStyle .downloadItem .downloadQR .icon-android {
@@ -9065,13 +9075,15 @@ button.icon-spinner11:before {
   color: #7e7e7e;
 }
 
-.installGuide > div.megaStyle .downloadItem .downloadQR img, .installGuide > div.kissStyle .downloadItem .downloadQR img {
-  width: 130px;
+.installGuide > div.megaStyle .downloadItem .downloadQR img, .installGuide > div.megaStyle .downloadItem .downloadQR svg, .installGuide > div.kissStyle .downloadItem .downloadQR img, .installGuide > div.kissStyle .downloadItem .downloadQR svg {
+  width: 120px;
   margin: 0;
 }
 
 .installGuide > div.megaStyle .downloadItem:hover .downloadQR, .installGuide > div.kissStyle .downloadItem:hover .downloadQR {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   opacity: 1;
   -webkit-transition: .2s;
   transition: .2s;
@@ -11168,6 +11180,74 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .liveVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .liveVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newsVideo .latestVideo + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title), .newsVideo .newsList + div .liveTvBox .liveTv > div .liveTvModule .liveTvInfo > div div:nth-child(2):not(.title) {
   color: #b2b2b2;
+}
+
+.liveVideo .latestVideo + div .liveCasinoBox, .liveVideo .newsList + div .liveCasinoBox, .newsVideo .latestVideo + div .liveCasinoBox, .newsVideo .newsList + div .liveCasinoBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 320px;
+  margin-top: 2px;
+  width: 100%;
+  position: relative;
+}
+
+.liveVideo .latestVideo + div .liveCasinoBox::before, .liveVideo .newsList + div .liveCasinoBox::before, .newsVideo .latestVideo + div .liveCasinoBox::before, .newsVideo .newsList + div .liveCasinoBox::before {
+  content: "";
+  width: 230px;
+  height: 360px;
+  background: url(https://banner.0814media.net/img/liveCasinoBox/girl.png) no-repeat;
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  bottom: 3px;
+}
+
+.liveVideo .latestVideo + div .liveCasinoBox .content, .liveVideo .newsList + div .liveCasinoBox .content, .newsVideo .latestVideo + div .liveCasinoBox .content, .newsVideo .newsList + div .liveCasinoBox .content {
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+  position: absolute;
+  padding: 35px;
+}
+
+.liveVideo .latestVideo + div .liveCasinoBox .content .title, .liveVideo .newsList + div .liveCasinoBox .content .title, .newsVideo .latestVideo + div .liveCasinoBox .content .title, .newsVideo .newsList + div .liveCasinoBox .content .title {
+  font-size: 36px;
+  color: #cdae8e;
+  margin-bottom: 10px;
+}
+
+.liveVideo .latestVideo + div .liveCasinoBox .content .info, .liveVideo .newsList + div .liveCasinoBox .content .info, .newsVideo .latestVideo + div .liveCasinoBox .content .info, .newsVideo .newsList + div .liveCasinoBox .content .info {
+  width: 340px;
+  line-height: 24px;
+}
+
+.liveVideo .latestVideo + div .liveCasinoBox .content button, .liveVideo .newsList + div .liveCasinoBox .content button, .newsVideo .latestVideo + div .liveCasinoBox .content button, .newsVideo .newsList + div .liveCasinoBox .content button {
+  position: absolute;
+  background: #cdae8e;
+  border-radius: 5px;
+  padding: 0 15px;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 35px;
+  color: #000;
+  bottom: 55px;
+  left: 100px;
+  cursor: pointer;
+}
+
+.liveVideo .latestVideo + div .liveCasinoBox .content button:hover, .liveVideo .newsList + div .liveCasinoBox .content button:hover, .newsVideo .latestVideo + div .liveCasinoBox .content button:hover, .newsVideo .newsList + div .liveCasinoBox .content button:hover {
+  background-color: #cfa972;
+}
+
+.liveVideo .latestVideo + div .liveCasinoBox .content button::before, .liveVideo .newsList + div .liveCasinoBox .content button::before, .newsVideo .latestVideo + div .liveCasinoBox .content button::before, .newsVideo .newsList + div .liveCasinoBox .content button::before {
+  position: absolute;
+  font-size: 60px;
+  font-weight: normal;
+  color: #cdae8e;
+  left: -80px;
 }
 
 .liveVideo .matches, .newsVideo .matches {
