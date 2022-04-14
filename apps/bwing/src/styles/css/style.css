@@ -821,10 +821,6 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList .cricket .img {
   background: url(https://banner.bw88.io/desktop/img/sports/cricket.png) no-repeat center/auto 100%;
 }
 
-header .header > div.menu .nweSubMenu-Wrapper .sportsList .virtual .img {
-  background: url(https://banner.bw88.io/desktop/img/sports/virtualSport.png) no-repeat center/auto 100%;
-}
-
 header .header > div.menu .nweSubMenu-Wrapper .gameList .sabaclub .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-saba.png) no-repeat center/auto 100%;
 }
@@ -863,10 +859,6 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-table.png) no-repeat center/auto 100%;
-}
-
-header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
-  background: url(https://banner.bw88.io/desktop/img/lottery/virtual.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
@@ -3965,6 +3957,11 @@ main > .swiper-container .swiper-slide {
   margin: 0;
   line-height: 30px;
   margin-left: 29px;
+}
+
+.subModuleList .subModule .subModuleBody .tip span {
+  color: #f85b05;
+  margin-right: 10px;
 }
 
 .subModuleList.subModuleCrypto .subModule .subModuleBody .txt-lightgray {
@@ -8411,10 +8408,6 @@ main > .swiper-container .swiper-slide {
 
 .gameslobbyList > div.tablegame {
   background: url(https://banner.bw88.io/desktop/img/gameslobby/tablegame.png) no-repeat center;
-}
-
-.gameslobbyList > div.virtualgames {
-  background: url(https://banner.bw88.io/desktop/img/gameslobby/virtualgames.png) no-repeat center;
 }
 
 form {
@@ -14376,78 +14369,5 @@ input + .iconModule i.icon.icon-checkmark:before {
   left: 0;
   pointer-events: none;
   z-index: 15;
-}
-
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 15;
-}
-
-@-webkit-keyframes nycolor {
-  0% {
-    -webkit-filter: brightness(120%);
-            filter: brightness(120%);
-  }
-  50% {
-    -webkit-filter: brightness(90%);
-            filter: brightness(90%);
-  }
-  100% {
-    -webkit-filter: brightness(120%);
-            filter: brightness(120%);
-  }
-}
-
-@keyframes nycolor {
-  0% {
-    -webkit-filter: brightness(120%);
-            filter: brightness(120%);
-  }
-  50% {
-    -webkit-filter: brightness(90%);
-            filter: brightness(90%);
-  }
-  100% {
-    -webkit-filter: brightness(120%);
-            filter: brightness(120%);
-  }
-}
-
-.newyear .header::before {
-  content: "";
-  width: 200px;
-  height: 100px;
-  position: absolute;
-  bottom: -5px;
-  left: 190px;
-  background: url(https://banner.bw88.io/desktop/img/newyear/header-gun.png) no-repeat;
-}
-
-.newyear .guide::before, .newyear .guide::after {
-  content: "";
-  width: 170px;
-  height: 520px;
-  background: url(https://banner.bw88.io/desktop/img/newyear/footer-newyear.png) no-repeat;
-  position: absolute;
-  z-index: 1;
-  bottom: 0;
-  right: calc(50% - 49.8vw);
-  -webkit-animation: nycolor 1s .1s ease infinite;
-          animation: nycolor 1s .1s ease infinite;
-}
-
-.newyear .guide::after {
-  left: calc(50% - 49.8vw);
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
-@media screen and (max-width: 1200px) {
-  .newyear .guide::after {
-    display: none;
-  }
 }
 /*# sourceMappingURL=style.css.map */

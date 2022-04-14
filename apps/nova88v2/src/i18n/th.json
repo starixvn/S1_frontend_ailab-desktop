@@ -38,6 +38,9 @@
 	"lbl_DearValuedCustomers": "เรียนลูกค้าผู้มีอุปการะคุณของ Nova88,",
 	"lbl_Home_HomeTeam": "ทีมเจ้าบ้าน",
 	"lbl_Home_AwayTeam": "ทีมเยือน",
+	"lbl_LiveCasinoInfo1":"เพลิดเพลินไปกับคาสิโนสดที่หรูหรา",
+	"lbl_LiveCasinoInfo2":"กับนวัตกรรมของเกมคาสิโน",
+	"lbl_LiveCasinoInfo3":"ตัวแทนถ่ายทอดสดในเอเชียและยุโรป!",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -941,6 +944,9 @@
 	"lbl_Header_olympic_countdown_hour": "ชั่วโมง",
 	"lbl_Header_olympic_countdown_mins": "นาที",
 	"lbl_Header_olympic_countdown_secs": "วินาที",
+	"lbl_welcome_to": "ยินดีต้อนรับเข้าสู่",
+	"lbl_world_class": "โลกแห่งคาสิโนออนไลน์",
+	"lbl_casino_world": "ระดับเวิลด์คลาส",
 
 	"speed": {
 		"lbl_CurrentIp": "ตำแหน่ง IP ปัจจุบันของคุณ",
