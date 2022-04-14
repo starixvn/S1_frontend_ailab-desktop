@@ -38,6 +38,10 @@
 	"lbl_DearValuedCustomers": "亲爱的 Nova88 客户,",
 	"lbl_Home_HomeTeam": "主队",
 	"lbl_Home_AwayTeam": "客队",
+	"lbl_LiveCasinoInfo1":"享受豪华真人娱乐",
+	"lbl_LiveCasinoInfo2":"最新颖游戏",
+	"lbl_LiveCasinoInfo3":"亚洲与欧洲荷官！",
+
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -940,6 +944,9 @@
 	"lbl_Header_olympic_countdown_hour": "小时",
 	"lbl_Header_olympic_countdown_mins": "分",
 	"lbl_Header_olympic_countdown_secs": "秒",
+	"lbl_welcome_to": "欢迎莅临",
+	"lbl_world_class": "世界级别",
+	"lbl_casino_world": "真人娱乐城",
 
 	"speed": {
 		"lbl_CurrentIp": "您当前的IP位置",
@@ -974,7 +981,6 @@
 		"lbl_bannerTitle1": "24/7 全天候",
 		"lbl_bannerTitle2": "彩票天堂"
 	},
-
 	"livecasino": {
 		"lbl_welcome_to": "欢迎莅临",
 		"lbl_world_class": "世界级别",

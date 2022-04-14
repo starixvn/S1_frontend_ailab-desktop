@@ -34,6 +34,7 @@ import QuickdownloadLink from "./quickdownloadLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import usePopBox from "../hook/usePopBox";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
+import LiveCasino from "./liveCasino";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -203,7 +204,7 @@ const IndexPage = () => {
 			<div className="newsVideo">
 				<HomeNews t={t} userInfo={userInfo} />
 
-				<Streaming />
+				<LiveCasino />
 			</div>
 
 			<IndexCenterBanner langId={userInfo.langId} />

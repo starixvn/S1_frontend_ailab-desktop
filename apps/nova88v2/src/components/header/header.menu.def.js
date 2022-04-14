@@ -1261,13 +1261,6 @@ export const defMenuLinks = {
 		],
 		subMenu: [
 			{
-				displayKey: "lbl_LIVE_SPORT",
-				listNpcImgUrl: "home-livesports.png",
-				listBgImgUrl: "livesportsbg.png",
-				menuType: defMenuType.Link,
-				path: path.streaming.root
-			},
-			{
 				displayKey: "lbl_MOVIE_TV",
 				listNpcImgUrl: "home-movie.png",
 				listBgImgUrl: "moviebg.png",

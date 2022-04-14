@@ -38,6 +38,9 @@
 	"lbl_DearValuedCustomers": "Pelanggan Nova88 yang Terhormat,",
 	"lbl_Home_HomeTeam": "Tuan Rumah",
 	"lbl_Home_AwayTeam": "Tamu",
+	"lbl_LiveCasinoInfo1":"Nikmati Kemewahan Live Kasino",
+	"lbl_LiveCasinoInfo2":"Permainan Casino yang inovatif dengan",
+	"lbl_LiveCasinoInfo3":"LIVE Dealer Asia & Eropa!",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -940,6 +943,9 @@
 	"lbl_Header_olympic_countdown_hour": "JAM",
 	"lbl_Header_olympic_countdown_mins": "MENIT",
 	"lbl_Header_olympic_countdown_secs": "DETIK",
+	"lbl_welcome_to": "SELAMAT DATANG",
+	"lbl_world_class": "DI CASINO",
+	"lbl_casino_world": "KELAS DUNIA",
 
 	"livecasino": {
 		"lbl_welcome_to": "SELAMAT DATANG",

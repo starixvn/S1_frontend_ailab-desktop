@@ -2119,6 +2119,11 @@ html.Newtheme .inputModuleRow .tip {
   bottom: 0;
 }
 
+html.Newtheme .inputModuleRow .tip span {
+  color: #d83b35;
+  margin-right: 10px;
+}
+
 html.Newtheme .inputModuleRow input.text-right {
   text-align: right;
 }
