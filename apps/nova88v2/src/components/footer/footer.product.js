@@ -16,110 +16,126 @@ const FooterProduct = ({
 	const currencyName = GetCurrencyName({ langId, currencyId, t });
 	return (
 		<div className="footerList">
-			<div>
-				<div className="title icon icon-friendreferral">
-					{t("lbl_Referral_Program")}
-				</div>
-				<div>{t("lbl_Referral_Program_desc")}</div>
-				<a onClick={linkToReferral}>
-					{t("lbl_JoinNow")}
-					{" >"}
-				</a>
-				{isFullFooter && (
-					<div>
-						<div className="title">
-							{t(`lbl_Sports_Betting_Online_${currencyName}`)}
-						</div>
-						<div>
-							{t("lbl_Sports_Betting_Online_Malaysia_desc")}
-						</div>
+			<div className="item-wrapper">
+				<div>
+					<div className="title icon icon-friendreferral">
+						{t("lbl_Referral_Program")}
 					</div>
-				)}
-				{isFullFooter && (
-					<div>
-						<div className="title">
-							{t("lbl_Soccer_Betting_Live_Betting")}
-						</div>
-						<div>{t("lbl_Soccer_Betting_Live_Betting_desc")}</div>
+					<div>{t("lbl_Referral_Program_desc")}</div>
+					<a onClick={linkToReferral}>
+						{t("lbl_JoinNow")}
+						{" >"}
+					</a>
+				</div>
+				<div>
+					<div className="title icon icon-affiliate">
+						{t("lbl_Affiliate_Program")}
 					</div>
-				)}
-			</div>
-			<div>
-				<div className="title icon icon-affiliate">
-					{t("lbl_Affiliate_Program")}
+					<div>{t("lbl_Affiliate_Program_desc")}</div>
+					<a
+						href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
+						target="_blank"
+						rel="noreferrer">
+						{t("lbl_Apply_Now")}
+						{" >"}
+					</a>
 				</div>
-				<div>{t("lbl_Affiliate_Program_desc")}</div>
-				<a
-					href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
-					target="_blank"
-					rel="noreferrer">
-					{t("lbl_Apply_Now")}
-					{" >"}
-				</a>
-				{isFullFooter &&
-					defFooterProductList[2].map(item => (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					))}
-			</div>
-			<div>
-				<div className="title icon icon-vip">
-					{t("lbl_VIP_Program")}
+				<div>
+					<div className="title icon icon-vip">
+						{t("lbl_VIP_Program")}
+					</div>
+					<div>{t("lbl_VIP_Program_desc")}</div>
+					<a
+						href={`/${langId}/${path.vip.root}`}
+						style={
+							currencyId === defCurrencyList.INR
+								? { pointerEvents: "none" }
+								: {}
+						}>
+						{t("lbl_More_Info")}
+						{" >"}
+					</a>
 				</div>
-				<div>{t("lbl_VIP_Program_desc")}</div>
-				<a
-					href={`/${langId}/${path.vip.root}`}
-					style={
-						currencyId === defCurrencyList.INR
-							? { pointerEvents: "none" }
-							: {}
-					}>
-					{t("lbl_More_Info")}
-					{" >"}
-				</a>
-				{isFullFooter &&
-					defFooterProductList[3].map(item => (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					))}
-			</div>
-			<div>
-				<div className="title icon icon-live_tv">
+				{/* <div>
+					 <div className="title icon icon-live_tv">
 					{t("lbl_Live_Streaming")}
 				</div>
 				<div>{t("lbl_Live_Streaming_desc")}</div>
 				<a href={`/${langId}/${path.streaming.root}`}>
 					{t("lbl_Watch_Now")}
 					{" >"}
-				</a>
-				{isFullFooter &&
-					defFooterProductList[4].map(item => (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
-						</div>
-					))}
-			</div>
-			<div>
-				<div className="title icon icon-livechat1">
-					{t("lbl_Customer_Support")}
+				</a> 
+				 </div>  */}
+				<div>
+					<div className="title icon icon-livechat1">
+						{t("lbl_Customer_Support")}
+					</div>
+					<div>{t("lbl_Customer_Support_desc")}</div>
+					<a onClick={openLiveChat}>
+						{t("lbl_Chat_Now")}
+						{" >"}
+					</a>
 				</div>
-				<div>{t("lbl_Customer_Support_desc")}</div>
-				<a onClick={openLiveChat}>
-					{t("lbl_Chat_Now")}
-					{" >"}
-				</a>
-				{isFullFooter &&
-					defFooterProductList[5].map(item => (
-						<div key={`footer-profuct-${item.title}`}>
-							<div className="title">{t(item.title)}</div>
-							<div>{t(item.content)}</div>
+			</div>
+			<div className="item-wrapper">
+				<div>
+					{isFullFooter && (
+						<div>
+							<div className="title">
+								{t(`lbl_Sports_Betting_Online_${currencyName}`)}
+							</div>
+							<div>
+								{t("lbl_Sports_Betting_Online_Malaysia_desc")}
+							</div>
 						</div>
-					))}
+					)}
+					{isFullFooter && (
+						<div>
+							<div className="title">
+								{t("lbl_Soccer_Betting_Live_Betting")}
+							</div>
+							<div>
+								{t("lbl_Soccer_Betting_Live_Betting_desc")}
+							</div>
+						</div>
+					)}
+				</div>
+				<div>
+					{isFullFooter &&
+						defFooterProductList[2].map(item => (
+							<div key={`footer-profuct-${item.title}`}>
+								<div className="title">{t(item.title)}</div>
+								<div>{t(item.content)}</div>
+							</div>
+						))}
+				</div>
+				<div>
+					{isFullFooter &&
+						defFooterProductList[3].map(item => (
+							<div key={`footer-profuct-${item.title}`}>
+								<div className="title">{t(item.title)}</div>
+								<div>{t(item.content)}</div>
+							</div>
+						))}
+				</div>
+				<div>
+					{isFullFooter &&
+						defFooterProductList[4].map(item => (
+							<div key={`footer-profuct-${item.title}`}>
+								<div className="title">{t(item.title)}</div>
+								<div>{t(item.content)}</div>
+							</div>
+						))}
+				</div>
+				<div>
+					{isFullFooter &&
+						defFooterProductList[5].map(item => (
+							<div key={`footer-profuct-${item.title}`}>
+								<div className="title">{t(item.title)}</div>
+								<div>{t(item.content)}</div>
+							</div>
+						))}
+				</div>
 			</div>
 		</div>
 	);
