@@ -484,6 +484,7 @@
 	"lbl_Daily_Min_Max_Amount": "Hạn Mức Tối Thiểu/Tối Đa Hàng Ngày: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "Bạn Đã Sử Dụng Hết Hạn Mức Trong Ngày.",
 	"lbl_Insufficientbalance": "Số Dư Không Đủ",
+	"lbl_Times":"Số lần",
 
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Cần nhập số tài khoản",

@@ -28,7 +28,9 @@ export const initState = {
 	panel: defPanel.amount,
 	withdrawalMin: 0,
 	withdrawalMax: 0,
-	receiveUSDT: null
+	receiveUSDT: null,
+	maxTimes: 0,
+	withdrawalTimes: 0
 };
 
 export function reducer(state, action) {
@@ -105,7 +107,9 @@ export function reducer(state, action) {
 				withdrawalMin: action.withdrawalMin,
 				withdrawalMax: action.withdrawalMax,
 				unlimited: action.unlimited,
-				usdtList: action.usdtList
+				usdtList: action.usdtList,
+				maxTimes: action.maxTimes,
+				withdrawalTimes: action.withdrawalTimes
 			};
 
 		default:

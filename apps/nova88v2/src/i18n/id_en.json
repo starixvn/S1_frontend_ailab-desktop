@@ -382,6 +382,7 @@
 	"lbl_WithdrawalDailyReached": "Your Daily Limit Reached.",
 	"lbl_Insufficientbalance": "Insufficient balance",
 	"lbl_ReceiveUSDT": "Receive {{currencyName}} Amount",
+	"lbl_Times":"Times",
 	"lbl_WithdrawalCryptoNote": "Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",

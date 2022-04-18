@@ -209,12 +209,24 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 						isAmount={true}
 					/>
 					<div className="tip active">
+						<span>
+							{t("lbl_Times")}:{" "}
+							{`${state.withdrawalTimes} / ${
+								state.maxTimes === 0
+									? t("lbl_Unlimited")
+									: state.maxTimes
+							}`}
+						</span>
 						{withdrawalMinMaxLimitHint}
 					</div>
 					<div className="btnGroup">
 						<button
 							className={state.checked ? "btn-check" : "gray"}
-							disabled={!state.checked}
+							disabled={
+								!state.checked ||
+								(state.maxTimes > 0 &&
+									state.withdrawalTimes >= state.maxTimes)
+							}
 							type="submit">
 							{t("lbl_Submit")}
 						</button>
