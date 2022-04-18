@@ -54,7 +54,9 @@ export default () => {
 						withdrawalMin: res.data.data.withdrawalMin,
 						withdrawalMax: res.data.data.withdrawalAvailableAmount,
 						unlimited: res.data.data.unlimited,
-						usdtList: res.data.data.usdtList
+						usdtList: res.data.data.usdtList,
+						maxTimes: res.data.data.maxTimes,
+						withdrawalTimes: res.data.data.withdrawalTimes
 					});
 				} else if (res.data.errorCode !== 0) {
 					errorPopBox(

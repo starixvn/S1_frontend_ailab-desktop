@@ -623,6 +623,10 @@ export default ({
 										withdrawalMin={withdrawalMin}
 										withdrawalMax={withdrawalMax}
 										unlimited={unlimited}
+										withdrawalTimes={
+											withdrawalLimit.withdrawalTimes
+										}
+										maxTimes={withdrawalLimit.maxTimes}
 									/>
 								</div>
 							)}

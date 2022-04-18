@@ -382,6 +382,7 @@
 	"lbl_WithdrawalDailyReached": "Batas Harian Anda Tercapai",
 	"lbl_Insufficientbalance": "Saldo tidak mencukupi",
 	"lbl_ReceiveUSDT": "Terima jumlah {{currencyName}}",
+	"lbl_Times":"Kali",
 	"lbl_WithdrawalCryptoNote": "Nilai konversi berfungsi sebagai tujuan referensi saja, jumlah yang tepat akan mengacu pada nilai terbaru.",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",

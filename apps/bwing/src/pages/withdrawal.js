@@ -150,7 +150,9 @@ const Content = () => {
 					setWithdrawalLimit({
 						withdrawalMin: res.data.data.withdrawalMin,
 						withdrawalMax: res.data.data.withdrawalAvailableAmount,
-						unlimited: res.data.data.unlimited
+						unlimited: res.data.data.unlimited,
+						maxTimes: res.data.data.maxTimes,
+						withdrawalTimes: res.data.data.withdrawalTimes
 					});
 				} else if (res.data.errorCode !== 0) {
 					errorPopBox(

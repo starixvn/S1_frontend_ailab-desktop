@@ -386,6 +386,7 @@
 	"lbl_Insufficientbalance": "Insufficient balance",
 	"lbl_ReceiveUSDT": "Receive {{currencyName}} Amount",
 	"lbl_WithdrawalCryptoNote": "Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
+	"lbl_Times":"Times",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TransferFunds": "Transfer Funds",

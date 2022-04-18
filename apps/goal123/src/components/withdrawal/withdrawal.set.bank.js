@@ -621,6 +621,10 @@ export default ({
 										clickInfo={clickInfo}
 										checked={status.checked}
 										tip={status.tip}
+										withdrawalTimes={
+											withdrawalLimit.withdrawalTimes
+										}
+										maxTimes={withdrawalLimit.maxTimes}
 										withdrawalMin={withdrawalMin}
 										withdrawalMax={withdrawalMax}
 										unlimited={unlimited}
