@@ -382,6 +382,7 @@
 	"lbl_WithdrawalImportantNoticeContent4": "कृपया सुनिश्चित करें कि आपका आवश्यक टर्नओवर हासिल हो गया है, और सिस्टम ऑटो रिजेक्ट से बचने के लिए 30 मिनट के बाद निकासी लेनदेन जमा करें।",
 	"lbl_WithdrawalImportantNoticeContent5": "यदि कोई विसंगति है या आपके पास कोई अन्य निकासी पूछताछ हो सकती है, तो कृपया हमारे 24/7 लाइवचैट से संपर्क करें। धन्यवाद।",
 	"lbl_ReceiveUSDT": "Receive {{currencyName}} Amount",
+	"lbl_Times":"बारी",
 	"lbl_WithdrawalCryptoNote": "Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",

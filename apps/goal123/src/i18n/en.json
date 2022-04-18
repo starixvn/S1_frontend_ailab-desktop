@@ -470,6 +470,7 @@
 	"lbl_Daily_Min_Max_Amount": "Daily Min/Max Limit: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "Your Daily Limit Reached.",
 	"lbl_Insufficientbalance": "Insufficient balance",
+	"lbl_Times":"Times",
 
 	"■■■■■■■■■■■■■■■■■■■■ payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",

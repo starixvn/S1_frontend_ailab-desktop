@@ -15,7 +15,9 @@ export default ({
 	withdrawalType,
 	withdrawalMin,
 	withdrawalMax,
-	unlimited
+	unlimited,
+	withdrawalTimes,
+	maxTimes
 }) => {
 	const { t } = useTranslation();
 
@@ -47,11 +49,24 @@ export default ({
 			/>
 
 			<div className={`tip ${withdrawalType ? "active" : ""}`}>
+				<span>
+					{t("lbl_Times")}:{" "}
+					{`${withdrawalTimes} / ${
+						maxTimes === 0 ? t("lbl_Unlimited") : maxTimes
+					}`}
+				</span>
 				{t("lbl_Daily_Min_Max_Amount", { min, max })}
 			</div>
 
 			<div className="btnGroup">
-				<button className="btn-check" onClick={toConfirmPage}>
+				<button
+					disabled={maxTimes > 0 && withdrawalTimes >= maxTimes}
+					className={`${
+						maxTimes > 0 && withdrawalTimes >= maxTimes
+							? "darkGray"
+							: "btn-check"
+					}`}
+					onClick={toConfirmPage}>
 					{t("lbl_Submit")}
 				</button>
 			</div>
