@@ -1,121 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import ReactMarquee from "react-fast-marquee";
 import { defPopBoxType } from "../common/defPopBoxType";
 import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
-import { defTpGameType } from "../../datas/productList";
-import { bannerImgUrl } from "../../config";
-
-const defGameType = {
-	default: "default",
-	casino: "casino"
-};
-
-const defGameList = [
-	{
-		name: "Mahjong Ways Two",
-		provider: "PG",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/pg.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame1.jpg`,
-		tpId: 14,
-		gameId: "mahjong-ways2",
-		gameType: defGameType.casino,
-		tpGameType: 17
-	},
-	{
-		name: "Treasures of Aztec",
-		provider: "PG",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/pg.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame2.jpg`,
-		tpId: 14,
-		gameId: "treasures-aztec",
-		gameType: defGameType.casino,
-		tpGameType: 17
-	},
-	{
-		name: "5 God beasts",
-		provider: "CQ9",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/cq9.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame3.jpg`,
-		tpId: 16,
-		gameId: 117,
-		gameType: defGameType.casino,
-		tpGameType: 29
-	},
-	{
-		name: "Hercules",
-		provider: "CQ9",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/cq9.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame4.jpg`,
-		tpId: 16,
-		gameId: 161,
-		gameType: defGameType.casino,
-		tpGameType: 29
-	},
-	{
-		name: "Three Star Fortune",
-		provider: "PP",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/pp.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame5.jpg`,
-		tpId: 5,
-		gameId: "vs10threestar",
-		gameType: defGameType.casino,
-		tpGameType: 7
-	},
-	{
-		name: "5 Lions Gold",
-		provider: "PP",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/pp.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame6.jpg`,
-		tpId: 5,
-		gameId: "vs243lionsgold",
-		gameType: defGameType.casino,
-		tpGameType: 7
-	},
-	{
-		name: "Dancing Fever",
-		provider: "Spade",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/sg.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame7.jpg`,
-		tpId: 10,
-		gameId: "S-DF02",
-		gameType: defGameType.casino,
-		tpGameType: 15
-	},
-	{
-		name: "5 Fortune Dragons",
-		provider: "Spade",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/sg.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame8.jpg`,
-		tpId: 10,
-		gameId: "S-FD01",
-		gameType: defGameType.casino,
-		tpGameType: 15
-	},
-	{
-		name: "Thor Infinity Reels",
-		provider: "YGG",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/ygg.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame9.jpg`,
-		tpId: 8,
-		gameId: "1035",
-		gameType: defGameType.casino,
-		tpGameType: 14
-	},
-	{
-		name: "Lucky Neko",
-		provider: "YGG",
-		providerImg: `${bannerImgUrl}/desktop/img/hotgame/ygg.png`,
-		img: `${bannerImgUrl}/desktop/img/hotgame/hotgame10.jpg`,
-		tpId: 8,
-		gameId: "7382",
-		gameType: defGameType.casino,
-		tpGameType: 14
-	}
-];
+import { defTpGameType, defCategory } from "../../datas/productList";
+import { api_site_GetHotGames } from "../../service/api/site";
 
 export default ({ setPopBox, t, userInfo, allMaintainList }) => {
+	const [gameList, setGameList] = useState([]);
+
+	useEffect(() => {
+		api_site_GetHotGames({ langId: userInfo.langId })
+			.then(res => {
+				if (res.data.errorCode === 0) {
+					setGameList(res.data.data);
+				} else {
+					errorPopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			})
+			.catch(() => errorPopBox());
+	}, []);
+
 	const openLoginPopBox = () => {
 		setPopBox({
 			isOpen: true,
@@ -123,44 +32,59 @@ export default ({ setPopBox, t, userInfo, allMaintainList }) => {
 		});
 	};
 
-	const onNavigate = (tpId, gameId, gameType, _isInMaintain) => {
+	const onNavigate = (
+		tpId,
+		gameId,
+		tpCategory,
+		_isInMaintain,
+		tpGameType
+	) => {
+		const clickClose = () => {
+			setPopBox({ isOpen: false });
+		};
+		const LoginPopBox = () => {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Login
+			});
+		};
+
 		if (_isInMaintain) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.UnderMaintain,
-				clickClose: () => {
-					setPopBox({ isOpen: false });
-				}
+				clickClose
 			});
-
 			return;
 		}
 
-		if (gameType === defGameType.default) {
-			SET_ENTER_PAGE({
-				isLogin: userInfo.isLogin,
-				langId: userInfo.langId,
-				tpId,
-				gameId,
-				loginCallback: openLoginPopBox
-			});
-		} else if (gameType === defGameType.casino) {
-			if (userInfo.isLogin === false) {
+		if (tpCategory === defCategory.Slots) {
+			if (userInfo.isLogin !== true) {
 				openLoginPopBox();
 			} else {
 				SET_CASINO_ENTER_PAGE({
 					tpId,
 					gameId,
 					isFree: false,
-					langId: userInfo.langId
+					langId: userInfo.langId,
+					tpGameType
 				});
 			}
+		} else {
+			SET_ENTER_PAGE({
+				langId: userInfo.langId,
+				tpId,
+				gameId,
+				isLogin: userInfo.isLogin,
+				loginCallback: LoginPopBox,
+				tpGameType
+			});
 		}
 	};
 	return (
 		<HotGameList
 			t={t}
-			gameList={defGameList}
+			gameList={gameList}
 			allMaintainList={allMaintainList}
 			onNavigate={onNavigate}
 		/>
@@ -178,17 +102,23 @@ const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 
 		return (
 			<a
-				key={`hotgamelist-${g.tpId}-${g.gameId}-${g.gameType}`}
+				key={`hotgamelist-${g.tpId}-${g.gameId}-${g.tpCategory}`}
 				onClick={() =>
-					onNavigate(g.tpId, g.gameId, g.gameType, isInMaintain)
+					onNavigate(
+						g.tpId,
+						g.gameId,
+						g.tpCategory,
+						isInMaintain,
+						g.tpGameType
+					)
 				}
 				style={{
 					margin: "0 10px"
 				}}>
-				<img className="gameimg" src={g.img} alt="" />
+				<img className="gameimg" src={g.gameLogo} alt="" />
 				<div className="title">
-					<p>{g.name}</p>
-					<img src={g.providerImg} alt="" />
+					<p>{g.gameName}</p>
+					<img src={g.tpLogo} alt="" />
 				</div>
 			</a>
 		);
