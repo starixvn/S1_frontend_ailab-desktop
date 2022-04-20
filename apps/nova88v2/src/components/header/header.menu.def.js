@@ -1254,10 +1254,10 @@ export const defMenuLinks = {
 		className: "tvbtn",
 		// path: "http://nova88vip.com/",
 		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.live,
-				period: defEventPeriod.tv
-			})
+			// showEventIcon({
+			// 	icon: defEventIcon.live,
+			// 	period: defEventPeriod.tv
+			// })
 		],
 		subMenu: [
 			{
