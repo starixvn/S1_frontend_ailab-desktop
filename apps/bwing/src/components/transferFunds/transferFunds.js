@@ -229,7 +229,7 @@ export default () => {
 		if (!amount > 0) {
 			setStatus({
 				checked: false,
-				tip: t("lbl_AmountTooltip")?.replace("{0}", 0)
+				tip: t("lbl_AmountTooltip")?.replace("{0}", 1)
 			});
 			_checked = false;
 		} else {
