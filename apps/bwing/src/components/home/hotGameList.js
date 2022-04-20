@@ -25,13 +25,6 @@ export default ({ setPopBox, t, userInfo, allMaintainList }) => {
 			.catch(() => errorPopBox());
 	}, []);
 
-	const openLoginPopBox = () => {
-		setPopBox({
-			isOpen: true,
-			popBoxType: defPopBoxType.Login
-		});
-	};
-
 	const onNavigate = (
 		tpId,
 		gameId,
@@ -60,7 +53,7 @@ export default ({ setPopBox, t, userInfo, allMaintainList }) => {
 
 		if (tpCategory === defCategory.Slots) {
 			if (userInfo.isLogin !== true) {
-				openLoginPopBox();
+				LoginPopBox();
 			} else {
 				SET_CASINO_ENTER_PAGE({
 					tpId,
