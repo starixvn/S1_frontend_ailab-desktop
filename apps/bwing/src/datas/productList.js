@@ -2,6 +2,35 @@ export const defTpGameType = {
 	All: 0
 };
 
+export const defCategory = {
+	Sports: 1,
+	Slots: 2,
+	LiveCasino: 3,
+	Fishing: 4,
+	CockFighting: 5,
+	Lottery: 6,
+	VirtualSports: 7,
+	Poker: 8
+};
+
+export const defSlotTpGameType = {
+	Saba: { tpId: 1, tpGameType: 4 },
+	PP: { tpId: 5, tpGameType: 7 },
+	GPI: { tpId: 6, tpGameType: 11 },
+	Joker: { tpId: 9, tpGameType: 13 },
+	YGG: { tpId: 8, tpGameType: 14 },
+	SG: { tpId: 10, tpGameType: 15 },
+	PG: { tpId: 14, tpGameType: 17 },
+	CQ9: { tpId: 16, tpGameType: 29 },
+	Iconic: { tpId: 24, tpGameType: 39 },
+	PT: { tpId: 27, tpGameType: 46 },
+	JILI: { tpId: 32, tpGameType: 53 },
+	AP: { tpId: 39, tpGameType: 67 },
+	MG: { tpId: 34, tpGameType: 57 },
+	RedTiger: { tpId: 38, tpGameType: 65 },
+	NetEnt: { tpId: 37, tpGameType: 64 }
+};
+
 export default {
 	/* === 1. sports === */
 
