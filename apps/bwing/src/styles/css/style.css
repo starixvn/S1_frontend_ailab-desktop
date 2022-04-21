@@ -821,6 +821,14 @@ header .header > div.menu .nweSubMenu-Wrapper .sportsList .cricket .img {
   background: url(https://banner.bw88.io/desktop/img/sports/cricket.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .sportsList .virtual .img {
+  background: url(https://banner.bw88.io/desktop/img/sports/virtualSport.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .sportsList .sbobet .img {
+  background: url(https://banner.bw88.io/desktop/img/sports/sbobet.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .gameList .sabaclub .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-saba.png) no-repeat center/auto 100%;
 }
@@ -859,6 +867,10 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .tcg .img {
 
 header .header > div.menu .nweSubMenu-Wrapper .gameList .tablegame .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/lottery-table.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
+  background: url(https://banner.bw88.io/desktop/img/lottery/virtual.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
@@ -2110,6 +2122,16 @@ footer > div .platformGroup button.amb {
 footer > div .platformGroup a.amb:hover,
 footer > div .platformGroup button.amb:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/amb-a.png) no-repeat center;
+}
+
+footer > div .platformGroup a.sbobet,
+footer > div .platformGroup button.sbobet {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/sbobet.png) no-repeat center;
+}
+
+footer > div .platformGroup a.sbobet:hover,
+footer > div .platformGroup button.sbobet:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/sbobeta.png) no-repeat center;
 }
 
 footer > div .powered {
