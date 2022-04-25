@@ -329,7 +329,12 @@ export default () => {
 	}
 
 	const closeHandler = () => {
-		if (popBox.popBoxType !== defPopBoxType.Photo) return;
+		if (
+			popBox.popBoxType !== defPopBoxType.Photo &&
+			popBox.popBoxType !== defPopBoxType.LinePay
+		)
+			return;
+
 		popBox.clickClose();
 	};
 
@@ -347,7 +352,10 @@ export default () => {
 			{content}
 		</div>
 	) : (
-		<div id="popup" className="active">
+		<div
+			id="popup"
+			className="active"
+			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}>
 			<div className="pop">{content}</div>
 		</div>
 	);

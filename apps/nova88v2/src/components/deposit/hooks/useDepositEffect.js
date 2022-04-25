@@ -263,6 +263,7 @@ const useDepositEffect = ({
 							setPopBox({
 								isOpen: true,
 								popBoxType: defPopBoxType.BackupDomain,
+								clickBackDropToClose: true,
 								onClickClose: () => closeBackupThenCheckInfo(),
 								linkList: res.data.data
 							});
