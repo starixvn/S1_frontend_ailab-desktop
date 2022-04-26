@@ -59,9 +59,9 @@ export default () => {
 		{
 			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
-			imgInfo: "+60 11 1310 6608",
+			imgInfo: "+60 10 8645632",
 			imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`,
-			link: "https://wa.me/message/BBRAKWQKUYOFG1"
+			link: "https://wa.me/message/2FOWOLQFLMJLB1"
 		},
 		{
 			displayByCurrency: [currencyCode.TH],
