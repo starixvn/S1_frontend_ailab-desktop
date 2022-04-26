@@ -22,7 +22,7 @@ export const defEventPeriod = {
 	casino_NetEnt: { end: "2021/12/15 11:00:00" },
 	casino_AdvantPlay: { end: "2022/02/25 11:00:00" },
 	liveCasino_EVO: { end: "2021/12/15 11:00:00" },
-	casino_AMB: { end: "2023/03/25 11:00:00" },
+	casino_AMB: { end: "2022/05/26 11:00:00" },
 	liveCasino_pp: {
 		start: "2021/11/10 11:00:00",
 		end: "2021/12/31 23:59:59"
