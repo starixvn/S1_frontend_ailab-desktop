@@ -19,6 +19,7 @@ export const defSlotTpGameType = {
 	GPI: { tpId: 6, tpGameType: 11 },
 	Joker: { tpId: 9, tpGameType: 13 },
 	YGG: { tpId: 8, tpGameType: 14 },
+	AMB: { tpId: 30, tpGameType: 76 },
 	SG: { tpId: 10, tpGameType: 15 },
 	PG: { tpId: 14, tpGameType: 17 },
 	CQ9: { tpId: 16, tpGameType: 29 },
@@ -167,6 +168,10 @@ export default {
 	casino_YGG: {
 		tpId: 8,
 		tpGameType: 14
+	},
+	casino_AMB: {
+		tpId: 30,
+		tpGameType: 76
 	},
 	casino_SG: {
 		tpId: 10,

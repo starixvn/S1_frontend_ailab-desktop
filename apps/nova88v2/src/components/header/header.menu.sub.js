@@ -110,13 +110,15 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 			const {
 				filterByAuth,
 				customSort,
-				subMenu: defMenu
+				subMenu: defMenu,
+				checkBeforeLogin
 			} = defMenuLinks[menuKey];
 
 			const subMenu = sortGameMenu({
 				defMenu,
 				customSort,
-				filterByAuth
+				filterByAuth,
+				checkBeforeLogin
 			});
 
 			return (
