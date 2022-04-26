@@ -152,6 +152,14 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			parameter: { ...productList.casino_Habanero },
 			imgName: "ho",
 			hoverImgName: "hoa"
+		},
+		{
+			...productList.casino_AMB,
+			path: path.casino.root,
+			parameter: { ...productList.casino_AMB },
+			imgName: "am",
+			hoverImgName: "ama",
+			allowCurrencies: [defCurrencyList.THB]
 		}
 	];
 

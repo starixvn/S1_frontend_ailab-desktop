@@ -13,7 +13,12 @@ const useGameMenu = ({ productTpIds }) => {
 		};
 	});
 
-	const sortGameMenu = ({ defMenu, customSort, filterByAuth }) => {
+	const sortGameMenu = ({
+		defMenu,
+		customSort,
+		filterByAuth,
+		checkBeforeLogin
+	}) => {
 		let newMenu = defMenu;
 
 		const _currencyId = userInfo.currencyId
@@ -27,7 +32,9 @@ const useGameMenu = ({ productTpIds }) => {
 				!s.canSeeOnlyAfterLogin ||
 				(s.canSeeOnlyAfterLogin && userInfo.isLogin);
 
-			if (result && s?.allowCurrencies && userInfo.isLogin) {
+			if (checkBeforeLogin && result && s?.allowCurrencies) {
+				result = s?.allowCurrencies.includes(_currencyId);
+			} else if (result && s?.allowCurrencies && userInfo.isLogin) {
 				result = s?.allowCurrencies.includes(_currencyId);
 			}
 
