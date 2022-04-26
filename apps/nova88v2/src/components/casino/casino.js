@@ -26,7 +26,7 @@ import {
 	defCategoryList,
 	defLobbyImgList
 } from "./casino.def";
-import { getUrlParameter } from "../common/common";
+import { getUrlParameter, getCurrencyCode } from "../common/common";
 import SwipperBanner from "../common/swipperBanner";
 import TopQuickLink from "./casino.topQuickLink";
 import CasinoJackpot from "./casino.jackpot";
@@ -75,6 +75,10 @@ export default () => {
 	const { allMaintainList } = useContext(maintainListContext);
 
 	const { loading, setLoading } = useContext(loadingContext);
+
+	const _currencyId = userInfo.currencyId
+		? userInfo.currencyId
+		: getCurrencyCode(userInfo.langId);
 
 	const loadMore = () => {
 		if (gameDatas && pageInfo.totalPages > pageInfo.currentPage) {
@@ -379,8 +383,10 @@ export default () => {
 
 					const filterLobbyImgList = defLobbyImgList.filter(
 						_img =>
-							providerIdList.includes(_img.providerId) ||
-							_img.alwaysShow
+							providerIdList.includes(_img.providerId) &&
+							(_img.allowCurrencies
+								? _img.allowCurrencies.includes(_currencyId)
+								: true)
 					);
 
 					setLobbyImgList(filterLobbyImgList);

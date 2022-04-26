@@ -88,10 +88,11 @@ const defSortSlot = {
 		slot_SG: 10,
 		slot_PT: 11,
 		slot_YGG: 12,
-		slot_CQ9: 13,
-		slot_GPI: 14,
-		slot_ICG: 15,
-		slot_OW: 16
+		slot_AMB: 13,
+		slot_CQ9: 14,
+		slot_GPI: 15,
+		slot_ICG: 16,
+		slot_OW: 17
 	},
 	[defCurrencyList.MYR]: {
 		slot_AdvantPlay: 3,
@@ -604,6 +605,7 @@ export const defMenuLinks = {
 		path: path.casino.root,
 		filterByAuth: true,
 		customSort: defSortSlot,
+		checkBeforeLogin: true,
 		subMenu: [
 			{
 				keyName: "slot_NetEnt",
@@ -787,6 +789,23 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_YGG },
 				...productList.casino_YGG
+			},
+			{
+				keyName: "slot_AMB",
+				icon: "icon icon-AMB",
+				displayText: "AMBSlot",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotam.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_AMB },
+				...productList.casino_AMB,
+				allowCurrencies: [defCurrencyList.THB],
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_AMB
+					})
+				]
 			},
 			{
 				keyName: "slot_SG",

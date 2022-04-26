@@ -1,4 +1,5 @@
 import productList from "../../datas/productList";
+import { defCurrencyList } from "../common/common";
 import path from "../../router";
 
 export const defRowsPerPage = 20;
@@ -91,6 +92,12 @@ export const defLobbyImgList = [
 		lobbyImgName: "yg",
 		lobbyDisplayName: "YGGDrassil",
 		providerId: productList.casino_YGG.tpId
+	},
+	{
+		lobbyImgName: "am",
+		lobbyDisplayName: "AMBSlot",
+		providerId: productList.casino_AMB.tpId,
+		allowCurrencies: [defCurrencyList.THB]
 	},
 	{
 		lobbyImgName: "jk",
