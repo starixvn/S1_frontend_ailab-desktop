@@ -66,6 +66,15 @@ const PageEventListId = ({ currencyId, isConvert }) => {
 					<td>{number_format(500000000, isConvert, 0)}</td>
 					<td>{t("lbl_Unlimited")}</td>
 				</tr>
+				<tr>
+					<td>{t("lbl_DAILY_TRANSACTIONS_COUNT")}</td>
+					<td>10</td>
+					<td>10</td>
+					<td>15</td>
+					<td>15</td>
+					<td>20</td>
+					<td>{t("lbl_Unlimited")}</td>
+				</tr>
 				<tr className="title">
 					<td className="icon icon-nova88">
 						{t("lbl_Vip_Exclusive_Bonus")}{" "}

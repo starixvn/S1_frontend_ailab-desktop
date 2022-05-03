@@ -68,6 +68,15 @@ const PageEventListVn = ({ currencyId }) => {
 					<td>{currencyFormat(2000000000)}</td>
 					<td>{t("lbl_Vip_ByInvitation")}</td>
 				</tr>
+				<tr>
+					<td>{t("lbl_DAILY_TRANSACTIONS_COUNT")}</td>
+					<td>10</td>
+					<td>10</td>
+					<td>15</td>
+					<td>15</td>
+					<td>20</td>
+					<td>{t("lbl_Unlimited")}</td>
+				</tr>
 				{/* <tr>
 					<td>{t("lbl_Vip_Unlimited_Withdrawal_amount")}</td>
 					<td>{t("lbl_Vip_Status1")}</td>
