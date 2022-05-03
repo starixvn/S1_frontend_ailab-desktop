@@ -1268,26 +1268,26 @@ export const defMenuLinks = {
 			}
 		]
 	},
-	tv: {
-		displayKey: "lbl_TV",
-		className: "tvbtn",
-		// path: "http://nova88vip.com/",
-		eventIcons: [
-			// showEventIcon({
-			// 	icon: defEventIcon.live,
-			// 	period: defEventPeriod.tv
-			// })
-		],
-		subMenu: [
-			{
-				displayKey: "lbl_MOVIE_TV",
-				listNpcImgUrl: "home-movie.png",
-				listBgImgUrl: "moviebg.png",
-				menuType: defMenuType.DirectUrl,
-				path: "http://nova88vip.com/"
-			}
-		]
-	},
+	// tv: {
+	// 	displayKey: "lbl_TV",
+	// 	className: "tvbtn",
+	// 	path: "http://nova88vip.com/",
+	// 	eventIcons: [
+	// 		showEventIcon({
+	// 			icon: defEventIcon.live,
+	// 			period: defEventPeriod.tv
+	// 		})
+	// 	],
+	// 	subMenu: [
+	// 		{
+	// 			displayKey: "lbl_MOVIE_TV",
+	// 			listNpcImgUrl: "home-movie.png",
+	// 			listBgImgUrl: "moviebg.png",
+	// 			menuType: defMenuType.DirectUrl,
+	// 			path: "http://nova88vip.com/"
+	// 		}
+	// 	]
+	// },
 	ranking: {
 		displayKey: "lbl_Leaderboard",
 		path: path.leaderBoard.root,
