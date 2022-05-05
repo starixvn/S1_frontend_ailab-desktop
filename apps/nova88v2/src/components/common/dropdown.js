@@ -47,26 +47,24 @@ class Dropdown extends Component {
 
 	render() {
 		const arr = this.props.options
-			.map((item, i) => {
-				return (
-					<Item
-						key={`${this.props.mainKey}_${item.id}`}
-						displayKey={item.displayKey}
-						i18n={this.props.i18n}
-						onClick={this.selectItem.bind(this, { idx: i, item })}
-						displayText={item.displayText}
-						imgUrl={
-							this.props.imgUrl +
-							(item.image
-								? String(item.image).toLowerCase()
-								: item.image)
-						}
-						className={this.props.className}
-						active={this.props.selectedIdx === i}
-						year={item.year}
-					/>
-				);
-			})
+			.map((item, i) => (
+				<Item
+					key={`${this.props.mainKey}_${item.id}`}
+					displayKey={item.displayKey}
+					i18n={this.props.i18n}
+					onClick={this.selectItem.bind(this, { idx: i, item })}
+					displayText={item.displayText}
+					imgUrl={
+						this.props.imgUrl +
+						(item.image
+							? String(item.image).toLowerCase()
+							: item.image)
+					}
+					className={this.props.className}
+					active={this.props.selectedIdx === i}
+					year={item.year}
+				/>
+			))
 			.filter(
 				(_, idx) =>
 					(this.props.isHideSelfItem &&
@@ -131,26 +129,24 @@ class Dropdown extends Component {
 	}
 }
 
-const Item = props => {
-	return (
-		<div
-			className="dropdown-item"
-			onClick={props.onClick}
-			data-testid={`dropdown-item-${props.displayKey}`}>
-			{props.imgUrl ? (
-				<>
-					<div className={props.className}>
-						<img src={props.imgUrl} alt="" />
-					</div>
-					<div>{props.displayText}</div>
-				</>
-			) : props.displayText ? (
-				props.displayText
-			) : (
-				`${props.i18n(props.displayKey)} ${props.year ?? ""}`
-			)}
-		</div>
-	);
-};
+const Item = props => (
+	<div
+		className="dropdown-item"
+		onClick={props.onClick}
+		data-testid={`dropdown-item-${props.displayKey}`}>
+		{props.imgUrl ? (
+			<>
+				<div className={props.className}>
+					<img src={props.imgUrl} alt="" />
+				</div>
+				<div>{props.displayText}</div>
+			</>
+		) : props.displayText ? (
+			props.displayText
+		) : (
+			`${props.i18n(props.displayKey)} ${props.year ?? ""}`
+		)}
+	</div>
+);
 
 export default Dropdown;
