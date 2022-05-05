@@ -19,6 +19,10 @@
   font-size: 12px;
 }
 
+.icon-line-bold:before {
+  content: "\e91f";
+}
+
 .icon-windows:before {
   content: "\eac2";
 }
