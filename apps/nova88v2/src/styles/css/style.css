@@ -952,11 +952,11 @@ header input:focus-within {
   margin-left: 4px;
 }
 
-.header > div.function > a:nth-child(-n+5):not(.login):not(.join):not(.icon-mobile) {
+.header > div.function > a:nth-child(-n+5):not(.login):not(.join):not(.login-line):not(.icon-mobile) {
   color: #abafae;
 }
 
-.header > div.function > a:nth-child(-n+5):not(.login):not(.join):not(.icon-mobile):before {
+.header > div.function > a:nth-child(-n+5):not(.login):not(.join):not(.login-line):not(.icon-mobile):before {
   content: '...';
   font-size: 20px;
   -webkit-transform: rotate(90deg);
@@ -996,7 +996,7 @@ header input:focus-within {
   font-size: 34px;
 }
 
-.header > div.function > div[class=join], .header > div.function > div[class=login], .header > div.function > a[class=join], .header > div.function > a[class=login], .header > div.function > button[class=join], .header > div.function > button[class=login] {
+.header > div.function > div[class=join], .header > div.function > div[class=login], .header > div.function > div[class=login-line], .header > div.function > a[class=join], .header > div.function > a[class=login], .header > div.function > a[class=login-line], .header > div.function > button[class=join], .header > div.function > button[class=login], .header > div.function > button[class=login-line] {
   color: white;
   background: -webkit-gradient(linear, left top, right top, from(#f77900), to(#f55c00));
   background: linear-gradient(to right, #f77900, #f55c00);
@@ -1016,7 +1016,7 @@ header input:focus-within {
   padding: 0 5px;
 }
 
-.header > div.function > div[class=join]:hover, .header > div.function > div[class=login]:hover, .header > div.function > a[class=join]:hover, .header > div.function > a[class=login]:hover, .header > div.function > button[class=join]:hover, .header > div.function > button[class=login]:hover {
+.header > div.function > div[class=join]:hover, .header > div.function > div[class=login]:hover, .header > div.function > div[class=login-line]:hover, .header > div.function > a[class=join]:hover, .header > div.function > a[class=login]:hover, .header > div.function > a[class=login-line]:hover, .header > div.function > button[class=join]:hover, .header > div.function > button[class=login]:hover, .header > div.function > button[class=login-line]:hover {
   color: #f77900;
   border-color: #f77900;
   background: transparent;
@@ -1031,6 +1031,19 @@ header input:focus-within {
 .header > div.function > div[class=login]:hover, .header > div.function > a[class=login]:hover, .header > div.function > button[class=login]:hover {
   color: #cf0404;
   border-color: #cf0404;
+}
+
+.header > div.function > div[class=login-line], .header > div.function > a[class=login-line], .header > div.function > button[class=login-line] {
+  background: #51CB33;
+}
+
+.header > div.function > div[class=login-line] .icon, .header > div.function > a[class=login-line] .icon, .header > div.function > button[class=login-line] .icon {
+  font-size: 18px;
+}
+
+.header > div.function > div[class=login-line]:hover, .header > div.function > a[class=login-line]:hover, .header > div.function > button[class=login-line]:hover {
+  color: #51CB33;
+  border-color: #51CB33;
 }
 
 .header > div.function > div:before, .header > div.function > a:before, .header > div.function > button:before {
@@ -1087,50 +1100,10 @@ header input:focus-within {
 }
 
 .header > div.function > div .flag:before, .header > div.function > a .flag:before, .header > div.function > button .flag:before {
-  content: "";
-  display: block;
   border: 3px solid #BFCCE2;
   width: 26px;
   height: 26px;
   line-height: 26px;
-  border-radius: 100%;
-  margin-right: 5px;
-}
-
-.header > div.function > div .flag.ch:before, .header > div.function > a .flag.ch:before, .header > div.function > button .flag.ch:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.cs:before, .header > div.function > a .flag.cs:before, .header > div.function > button .flag.cs:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.en:before, .header > div.function > a .flag.en:before, .header > div.function > button .flag.en:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.th:before, .header > div.function > a .flag.th:before, .header > div.function > button .flag.th:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.id:before, .header > div.function > a .flag.id:before, .header > div.function > button .flag.id:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.vn:before, .header > div.function > a .flag.vn:before, .header > div.function > button .flag.vn:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.in:before, .header > div.function > a .flag.in:before, .header > div.function > button .flag.in:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.bd:before, .header > div.function > a .flag.bd:before, .header > div.function > button .flag.bd:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
-}
-
-.header > div.function > div .flag.gb:before, .header > div.function > a .flag.gb:before, .header > div.function > button .flag.gb:before {
-  background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
 
 .header > div.function .icon-email {
@@ -1751,7 +1724,7 @@ footer .license > div:nth-child(2) div img {
 footer .license > div .star {
   width: auto;
   position: absolute;
-  right: 0;
+  right: -30px;
   bottom: -25px;
 }
 
@@ -1838,6 +1811,7 @@ footer .footerList > .item-wrapper > div > div.title {
           justify-content: space-between;
   font-size: 16px;
   color: white;
+  white-space: nowrap;
 }
 
 footer .footerList > .item-wrapper > div > div.title + div {
@@ -2292,8 +2266,46 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
 }
 
 .joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container .dropdown-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin: 0;
   padding: 5px 0 5px 39px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .dropdown > .btn {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.joinpop .joinloginModule .joinloginFunction .register-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 0;
+}
+
+.joinpop .joinloginModule .joinloginFunction .register-line .btnGroup {
+  margin-left: 10px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .register-line + div {
+  border-bottom: 1px solid #5574A7;
+  line-height: 0.08;
+  text-align: center;
+  margin: 10px 0 20px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .register-line + div > span {
+  background: #e8edf3;
+  padding: 5px 10px;
 }
 
 .joinpop .joinloginModule .joinAnimation {
@@ -2339,6 +2351,56 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   z-index: 1;
   right: -10px;
   bottom: 15px;
+}
+
+.joinpop .joinloginModule .flag:before {
+  border: 1px solid #BFCCE2;
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+}
+
+.flag:before {
+  content: "";
+  display: block;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+.flag.ch:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/ch.jpg) no-repeat top left/cover;
+}
+
+.flag.cs:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/cs.jpg) no-repeat top left/cover;
+}
+
+.flag.en:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/en.jpg) no-repeat top left/cover;
+}
+
+.flag.th:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/th.jpg) no-repeat top left/cover;
+}
+
+.flag.id:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/id.jpg) no-repeat top left/cover;
+}
+
+.flag.vn:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/vn.jpg) no-repeat top left/cover;
+}
+
+.flag.in:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/in.jpg) no-repeat top left/cover;
+}
+
+.flag.bd:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/bd.jpg) no-repeat top left/cover;
+}
+
+.flag.gb:before {
+  background: url(https://banner.0814media.net/desktop/img/flag/gb.jpg) no-repeat top left/cover;
 }
 
 .txt-orange {
@@ -2642,6 +2704,24 @@ input[type="file"] {
 .btnGroup button.btn-red, .btnGroup a.btn-red {
   background: #cf0404;
   color: white;
+}
+
+.btnGroup button.btn-line, .btnGroup a.btn-line {
+  background: #07b802;
+  color: white;
+  line-height: 1;
+  padding: 5px 10px;
+  min-width: 252px;
+  margin: 0;
+}
+
+.btnGroup button.btn-line .icon, .btnGroup a.btn-line .icon {
+  font-size: 18px;
+}
+
+.btnGroup button.btn-line:hover, .btnGroup a.btn-line:hover {
+  -webkit-filter: hue-rotate(30deg);
+          filter: hue-rotate(30deg);
 }
 
 .btnGroup button.backupClick, .btnGroup a.backupClick {
@@ -12227,6 +12307,65 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   left: calc(100% - 26px);
 }
 
+.swithModule .icon {
+  color: #5574A7;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: -2px;
+}
+
+.swithModule .icon:hover ~ .inputInfo.transfer {
+  display: block;
+}
+
+.swithModule .inputInfo {
+  display: none;
+  background: #d2e2f9;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 40px;
+  right: -5px;
+  min-width: 500px;
+  font-weight: 400;
+  color: #5574A7;
+  z-index: 4;
+  -webkit-filter: drop-shadow(0px 0px 2px #5574A7);
+          filter: drop-shadow(0px 0px 2px #5574A7);
+}
+
+.swithModule .inputInfo.active {
+  display: block;
+}
+
+.swithModule .inputInfo:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 0 10px;
+  border-style: solid dashed dashed;
+  border-color: #d2e2f9 transparent transparent;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.swithModule .inputInfo span {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #cf0404;
+  margin: 0 auto;
+}
+
+.swithModule .inputInfo .btnGroup button {
+  padding: 5px 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 80px;
+          flex: 0 0 80px;
+}
+
 .partnerSelect {
   overflow: hidden;
   width: calc(100% - 100px);
@@ -12926,7 +13065,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .app {
   min-width: auto;
-  padding: 0 0 10vw 0;
+  padding: 140px 0 10vw 0;
   background: url(https://banner.0814media.net/desktop/img/app/appbg.jpg) no-repeat top center/cover;
 }
 
