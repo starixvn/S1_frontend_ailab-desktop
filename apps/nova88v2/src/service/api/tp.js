@@ -17,11 +17,17 @@ export const api_tp_Transfer = ({ TpId, amount, direction }) =>
 		direction
 	});
 
-export const api_tp_TransferEx = ({ FromTpId, ToTpId, Amount }) =>
+export const api_tp_TransferEx = ({
+	FromTpId,
+	ToTpId,
+	Amount,
+	TransferAction
+}) =>
 	tpRequest.post("/TransferEX", {
 		FromTpId,
 		ToTpId,
-		Amount
+		Amount,
+		TransferAction
 	});
 
 export const defGotoGame_AppType = defDeviceType;

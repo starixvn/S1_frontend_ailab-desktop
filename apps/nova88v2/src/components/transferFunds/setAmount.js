@@ -17,58 +17,56 @@ const SetAmount = ({
 	tip,
 	_isConvert,
 	t
-}) => {
-	return (
-		<div className="subModuleList">
-			<div className="walletTransfer">
-				<div className="walletModule transferModule">
-					<div className="inputBox-org">
-						<Dropdown
-							i18n={t}
-							mainKey="from_wallet"
-							options={walletOptions}
-							selectedIdx={selectedFromIdx}
-							onSelectItem={onSelectWallet.bind(this, "from")}
-							title={t("lbl_From")}
-						/>
-					</div>
-					<div className="inputBox-blue">
-						<Dropdown
-							i18n={t}
-							mainKey="to_wallet"
-							options={walletOptions}
-							selectedIdx={selectedToIdx}
-							onSelectItem={onSelectWallet.bind(this, "to")}
-							title={t("lbl_To")}
-						/>
-					</div>
-				</div>
-				<form className="inputModuleRow" onSubmit={clickSubmit}>
-					<Inputbox
-						className="inputBox-white"
-						title={t("lbl_Amount")}
-						value={amount}
-						onChange={onChange}
-						onBlur={onBlur}
-						clickInfo={clickInfo}
-						checked={checked}
-						tip={tip}
-						_isConvert={_isConvert}
-						isAmount={true}
+}) => (
+	<div className="subModuleList">
+		<div className="walletTransfer">
+			<div className="walletModule transferModule">
+				<div className="inputBox-org">
+					<Dropdown
+						i18n={t}
+						mainKey="from_wallet"
+						options={walletOptions}
+						selectedIdx={selectedFromIdx}
+						onSelectItem={onSelectWallet.bind(this, "from")}
+						title={t("lbl_From")}
 					/>
-					<div className="btnGroup">
-						<button
-							className="btn-check"
-							type="submit"
-							data-testid="setAmount_submit">
-							{t("lbl_Submit")}
-						</button>
-					</div>
-				</form>
+				</div>
+				<div className="inputBox-blue">
+					<Dropdown
+						i18n={t}
+						mainKey="to_wallet"
+						options={walletOptions}
+						selectedIdx={selectedToIdx}
+						onSelectItem={onSelectWallet.bind(this, "to")}
+						title={t("lbl_To")}
+					/>
+				</div>
 			</div>
+			<form className="inputModuleRow" onSubmit={clickSubmit}>
+				<Inputbox
+					className="inputBox-white"
+					title={t("lbl_Amount")}
+					value={amount}
+					onChange={onChange}
+					onBlur={onBlur}
+					clickInfo={clickInfo}
+					checked={checked}
+					tip={tip}
+					_isConvert={_isConvert}
+					isAmount={true}
+				/>
+				<div className="btnGroup">
+					<button
+						className="btn-check"
+						type="submit"
+						data-testid="setAmount_submit">
+						{t("lbl_Submit")}
+					</button>
+				</div>
+			</form>
 		</div>
-	);
-};
+	</div>
+);
 
 SetAmount.defaultProps = {
 	checked: null

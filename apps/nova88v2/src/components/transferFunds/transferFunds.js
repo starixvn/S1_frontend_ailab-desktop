@@ -29,12 +29,18 @@ const initStatus = {
 	tip: ""
 };
 
+const defTransferAction = {
+	transfer: 1,
+	restoreAll: 2
+};
+
 const AfterUpdWalletList = ({
 	prev,
 	tpId,
 	balance,
 	displayKey,
-	displayText
+	displayText,
+	walletMode
 }) => {
 	const idx = prev.findIndex(p => p.id === tpId);
 	if (idx !== -1) {
@@ -46,7 +52,8 @@ const AfterUpdWalletList = ({
 			id: tpId,
 			displayKey,
 			balance,
-			displayText
+			displayText,
+			walletMode
 		});
 	}
 	return [...prev].sort((a, b) => a.id - b.id);
@@ -176,7 +183,8 @@ export default () => {
 						prev,
 						tpId: item.tpId,
 						balance: null,
-						displayText: item.tpName
+						displayText: item.tpName,
+						walletMode: item.walletMode
 					})
 				);
 				api_account_GetTpWalletBalance(item.tpId).then(
@@ -286,12 +294,13 @@ export default () => {
 		return checkPass;
 	};
 
-	const Transfer = async (_fromTpId, _toTpId, _amount) => {
+	const Transfer = async (_fromTpId, _toTpId, _amount, transferAction) => {
 		setLoading(true);
 		await api_tp_TransferEx({
 			FromTpId: _fromTpId,
 			ToTpId: _toTpId,
-			Amount: _amount
+			Amount: _amount,
+			TransferAction: transferAction
 		}).then(
 			res => {
 				if (isMountedRef.current) {
@@ -340,7 +349,12 @@ export default () => {
 			const real_amount = _isConvert
 				? Number(amount) * 1000
 				: Number(amount);
-			await Transfer(selectedTpId.from, selectedTpId.to, real_amount);
+			await Transfer(
+				selectedTpId.from,
+				selectedTpId.to,
+				real_amount,
+				defTransferAction.transfer
+			);
 			refreshAfterTransfer();
 			setStatus(initStatus);
 		}
@@ -353,11 +367,23 @@ export default () => {
 
 		await Promise.all(
 			_filterWallets.map(async _wallet => {
-				await Transfer(_wallet.id, _toWalletId, _wallet.balance);
+				await Transfer(
+					_wallet.id,
+					_toWalletId,
+					_wallet.balance,
+					defTransferAction.restoreAll
+				);
 			})
 		);
 
 		refreshAfterTransfer();
+	};
+
+	const clickManual = walletId => {
+		setSelectedTpId(prev => ({
+			from: walletId === prev.from ? null : prev.from,
+			to: walletId
+		}));
 	};
 
 	return loading ? null : (
@@ -370,6 +396,7 @@ export default () => {
 					restoreAll={restoreAll}
 					getAllWalletData={getAllWalletData}
 					_isConvert={_isConvert}
+					clickManual={clickManual}
 				/>
 				<SetAmount
 					t={t}
