@@ -405,6 +405,8 @@
 	"lbl_please_select_from_wallet": "请选择转出钱包",
 	"lbl_please_select_to_wallet": "请选择转入钱包",
 	"lbl_Main_Wallet_Auto_Transfer": "主钱包自动转账",
+	"lbl_Manual": "手动",
+
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Financial": "财务日志",
