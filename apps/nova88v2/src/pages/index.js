@@ -6,7 +6,7 @@ import PromotionWrapper from "../components/promotion/promotion.wrapper";
 
 const IndexPage = ({ location }) => {
 	return (
-		<Wrapper getSEOInfoFromAPI={true}>
+		<Wrapper>
 			<PromotionWrapper>
 				<Layout showFooter={true} isFullFooter={true}>
 					<Content location={location} />

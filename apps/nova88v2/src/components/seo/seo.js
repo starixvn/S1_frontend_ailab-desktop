@@ -8,11 +8,11 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-import { useLocation } from "@reach/router";
+// import { useLocation } from "@reach/router";
 import { defMetaData } from "./def";
-import { defLangList } from "../../datas/languageData";
+// import { defLangList } from "../../datas/languageData";
 import { api_site_seo } from "../../service/api/site";
-import usePopBox from "../hook/usePopBox";
+// import usePopBox from "../hook/usePopBox";
 import { bannerImgUrl } from "../../config";
 
 export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
@@ -42,36 +42,36 @@ export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 };
 
 function SEO({ description, lang, meta, title, getFromAPI }) {
-	const { errorPopBox } = usePopBox();
-	const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
+	// const { errorPopBox } = usePopBox();
+	// const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
 
-	const location = useLocation()
-		?.pathname?.split("/")
-		.filter(p => p !== "");
+	// const location = window?.pathname?.split("/").filter(p => p !== "");
 
-	if (getFromAPI && SEODatas === null) return null;
+	// if (getFromAPI && SEODatas === null) return null;
 
-	let metaData = defMetaData["/"];
-	let _title = SEODatas?.title ?? metaData?.[lang]?.title ?? "";
-	let _keyword = metaData?.[lang]?.keyword ?? "";
-	let _description = SEODatas?.meta ?? metaData?.[lang]?.description ?? "";
-	let links = metaData?.[lang]?.links ?? [];
+	const metaData = defMetaData["/"];
+	const _title = metaData?.[lang]?.title ?? "";
+	const _keyword = metaData?.[lang]?.keyword ?? "";
+	const _description = metaData?.[lang]?.description ?? "";
+	const links = metaData?.[lang]?.links ?? [];
 
-	if (
-		location.length >= 2 &&
-		defLangList.includes(location[0]) &&
-		defMetaData[location[1]]
-	) {
-		metaData = defMetaData[location[1]] ?? metaData;
-		_title = defMetaData[location[1]]?.[lang]?.title ?? _title;
+	// if (
+	// 	location &&
+	// 	location.length >= 2 &&
+	// 	defLangList.includes(location[0]) &&
+	// 	defMetaData[location[1]]
+	// ) {
 
-		_keyword = defMetaData[location[1]]?.[lang]?.keyword ?? _keyword;
+	// 	metaData = defMetaData[location[1]] ?? metaData;
+	// 	_title = defMetaData[location[1]]?.[lang]?.title ?? _title;
 
-		_description =
-			defMetaData[location[1]]?.[lang]?.description ?? _description;
+	// 	_keyword = defMetaData[location[1]]?.[lang]?.keyword ?? _keyword;
 
-		links = defMetaData[location[1]]?.[lang]?.links ?? links;
-	}
+	// 	_description =
+	// 		defMetaData[location[1]]?.[lang]?.description ?? _description;
+
+	// 	links = defMetaData[location[1]]?.[lang]?.links ?? links;
+	// }
 
 	return (
 		<Helmet
@@ -105,6 +105,11 @@ function SEO({ description, lang, meta, title, getFromAPI }) {
 					property: `og:description`,
 					content: _description
 				},
+				{
+					property: `og:image`,
+					content: `${bannerImgUrl}/img/Nova88-Sports.jpg`
+				},
+
 				{
 					property: `og:type`,
 					content: `website`

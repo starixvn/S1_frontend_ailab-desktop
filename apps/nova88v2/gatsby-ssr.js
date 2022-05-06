@@ -8,6 +8,7 @@
 import React from "react";
 import { PageContextProvider } from "./src/components/common/pageContext";
 import i18n from "./src/i18n/config";
+import SEO from "./src/components/seo/seo";
 import { I18nextProvider } from "react-i18next";
 
 export const wrapRootElement = ({ element }) => {
@@ -16,8 +17,11 @@ export const wrapRootElement = ({ element }) => {
 
 export const wrapPageElement = ({ element, props }) => {
 	return (
-		<PageContextProvider pageContext={props.pageContext}>
-			{element}
-		</PageContextProvider>
+		<>
+			<SEO lang={"en"} />
+			<PageContextProvider pageContext={props.pageContext}>
+				{element}
+			</PageContextProvider>
+		</>
 	);
 };
