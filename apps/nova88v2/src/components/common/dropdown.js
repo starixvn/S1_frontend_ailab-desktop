@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { Component, createRef } from "react";
+import { defCurrencyToClass } from "./common";
 
 class Dropdown extends Component {
 	constructor(props) {
@@ -52,6 +53,7 @@ class Dropdown extends Component {
 					key={`${this.props.mainKey}_${item.id}`}
 					displayKey={item.displayKey}
 					i18n={this.props.i18n}
+					currencyId={item.id}
 					onClick={this.selectItem.bind(this, { idx: i, item })}
 					displayText={item.displayText}
 					imgUrl={
@@ -113,6 +115,20 @@ class Dropdown extends Component {
 					<i className={`icon ${this.props.icon}`} />
 				) : null}
 				<button className="btn">
+					{this.props.options[this.props.selectedIdx] && (
+						<div>
+							<div
+								className={`flag ${
+									defCurrencyToClass[
+										this.props.options[
+											this.props.selectedIdx
+										].id
+									]
+								}`}
+							/>
+						</div>
+					)}
+
 					{this.props.defaultOption ?? selected}
 				</button>
 				{arr.length < 1 ? null : (
@@ -134,6 +150,11 @@ const Item = props => (
 		className="dropdown-item"
 		onClick={props.onClick}
 		data-testid={`dropdown-item-${props.displayKey}`}>
+		{props.currencyId ? (
+			<div className={`flag ${defCurrencyToClass[props.currencyId]}`} />
+		) : (
+			""
+		)}
 		{props.imgUrl ? (
 			<>
 				<div className={props.className}>

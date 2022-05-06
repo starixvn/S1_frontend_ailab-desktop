@@ -217,7 +217,7 @@ export const stringLinkify = text => {
 export const defCurrencyList = {
 	MYR: 2,
 	THB: 4,
-	RMB: 13,
+	CNY: 13,
 	IDR: 15,
 	INR: 61
 };
@@ -231,6 +231,16 @@ export const langAndCurrMapping = {
 	id_en: 15,
 	hi: 61,
 	hi_en: 61
+};
+
+export const defCurrencyToClass = {
+	2: "ch",
+	3: "gb",
+	4: "th",
+	13: "cs",
+	15: "id",
+	61: "in",
+	74: "bd"
 };
 
 export const GetCurrencyName = ({ langId, currencyId, t }) =>
