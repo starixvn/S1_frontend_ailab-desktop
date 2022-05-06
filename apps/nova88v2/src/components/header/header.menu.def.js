@@ -243,13 +243,13 @@ export const defMenuLinks = {
 			// 	menuType: defMenuType.Link,
 			// 	path: path.streaming.root
 			// },
-			{
-				displayKey: "lbl_Movie_TV",
-				listNpcImgUrl: "home-movie.png",
-				listBgImgUrl: "moviebg.png",
-				menuType: defMenuType.DirectUrl,
-				path: "http://nova88vip.com/"
-			},
+			// {
+			// 	displayKey: "lbl_Movie_TV",
+			// 	listNpcImgUrl: "home-movie.png",
+			// 	listBgImgUrl: "moviebg.png",
+			// 	menuType: defMenuType.DirectUrl,
+			// 	path: "http://nova88vip.com/"
+			// },
 			{
 				displayKey: "lbl_Leaderboard",
 				listNpcImgUrl: "home-ranking.png",
