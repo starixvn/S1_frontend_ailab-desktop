@@ -44,12 +44,7 @@ const defaultPathLang = () => {
 	return result;
 };
 
-export default ({
-	children,
-	afterLogin = false,
-	onlyBeforeLogin = false,
-	getSEOInfoFromAPI = false
-}) => {
+export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
 	const [popBox, setPopBox] = useState({
 		isOpen: false,
@@ -82,7 +77,7 @@ export default ({
 
 	const isMountedRef = useRef(null);
 
-	const { SEODatas } = useGetSEODatas({ getFromAPI: true });
+	// const { SEODatas } = useGetSEODatas({ getFromAPI: true });
 
 	const [popUp, setPopUp] = useState({
 		popupMessage: "",
@@ -333,23 +328,23 @@ export default ({
 				}
 			);
 		} else if (isMountedRef.current) {
-			if (SEODatas) {
-				setUserInfo(prevState => {
-					const res = { ...prevState };
-					if (!prevState.isLogin) {
-						res.userName = t("lbl_Guest");
-					}
+			// if (SEODatas) {
+			setUserInfo(prevState => {
+				const res = { ...prevState };
+				if (!prevState.isLogin) {
+					res.userName = t("lbl_Guest");
+				}
 
-					return {
-						...res,
-						defaultLang: SEODatas.defaultLang
-					};
-				});
-			}
+				return {
+					...res,
+					defaultLang: "en"
+				};
+			});
+			// }
 
 			setMsgCount(0);
 		}
-	}, [userInfo.isLogin, userInfo.regTime, SEODatas]);
+	}, [userInfo.isLogin, userInfo.regTime]);
 
 	useEffect(() => {
 		if (userInfo.isLogin !== null) {
@@ -493,14 +488,7 @@ export default ({
 											<ct.isRootContext.Provider
 												value={{ isRoot, setIsRoot }}>
 												<ThirdPartyJS />
-												<SEO
-													lang={userInfo.langId}
-													getFromAPI={
-														getSEOInfoFromAPI &&
-														userInfo.isLogin ===
-															false
-													}
-												/>
+
 												{children}
 											</ct.isRootContext.Provider>
 										</ct.loadingContext.Provider>
