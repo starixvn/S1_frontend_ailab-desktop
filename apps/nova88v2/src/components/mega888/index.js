@@ -5,9 +5,10 @@ import { userInfoContext } from "../common/context";
 import productList from "../../datas/productList";
 import InstallGuide from "./installGuide";
 import { bannerImgUrl } from "../../config";
+import iosQrImg from "../../styles/img/mega/qr.ioi.tw1014.png";
 
 const downloadLink = {
-	ios: "itms-services://?action=download-manifest&url=https://appsetup.huafaw.com/ios/plist/Mega888_0.plist",
+	ios: "itms-services://?action=download-manifest&url=https://appsetup.gdsenmu.com/ios/plist/Mega888_1.plist",
 	android: "https://appsetup.huafaw.com/apk/Mega888_V1.2.apk",
 	windows: "https://appsetup.huafaw.com/pc/Mega888.zip"
 };
@@ -94,10 +95,7 @@ const Component = () => {
 											<i className="icon icon-appleinc">
 												<span>iOS</span>
 											</i>
-											<img
-												src={`${bannerImgUrl}/desktop/img/ios-mega.png`}
-												alt="iOS"
-											/>
+											<img src={iosQrImg} alt="iOS" />
 										</div>
 									</div>
 									<div className="downloadItem">
