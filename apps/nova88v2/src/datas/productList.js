@@ -13,6 +13,10 @@ export const defCategory = {
 	Poker: 8
 };
 
+export const defDeepLinkId = {
+	mega888: 1
+};
+
 export const defSlotTpGameType = {
 	Saba: { tpId: 1, tpGameType: 4 },
 	PP: { tpId: 5, tpGameType: 7 },
