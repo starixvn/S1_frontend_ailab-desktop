@@ -1,4 +1,5 @@
 const siteName = "Nova88";
+const siteId = 1;
 
 const getAffiliate = () => {
 	if (typeof window === `undefined`) return "";
@@ -47,6 +48,7 @@ export const bannerImgUrl = "https://banner.0814media.net";
 export default process.env.NODE_ENV === "production"
 	? {
 			siteName,
+			siteId,
 			apiURL: "",
 			openURL: "",
 			imgUrl: "",
@@ -56,6 +58,7 @@ export default process.env.NODE_ENV === "production"
 	  }
 	: {
 			siteName,
+			siteId,
 			cloudImgUrl,
 			bannerImgUrl,
 			appURL: "http://localhost:4201",

@@ -1,11 +1,19 @@
-import React, { useContext, createRef } from "react";
+import React, {
+	useContext,
+	createRef,
+	useEffect,
+	useState,
+	useRef
+} from "react";
 import { useTranslation } from "react-i18next";
+import QRCode from "qrcode.react";
 import { useGotoGame } from "../hook/useGotoGame";
 import { userInfoContext } from "../common/context";
-import productList from "../../datas/productList";
+import productList, { defDeepLinkId } from "../../datas/productList";
 import InstallGuide from "./installGuide";
-import { bannerImgUrl } from "../../config";
-import iosQrImg from "../../styles/img/mega/qr.ioi.tw1014.png";
+import config, { bannerImgUrl } from "../../config";
+import { api_player_GetDeepLink } from "../../service/api/player";
+import usePopBox from "../hook/usePopBox";
 
 const downloadLink = {
 	ios: "itms-services://?action=download-manifest&url=https://appsetup.gdsenmu.com/ios/plist/Mega888_1.plist",
@@ -13,9 +21,18 @@ const downloadLink = {
 	windows: "https://appsetup.huafaw.com/pc/Mega888.zip"
 };
 
+const defType = {
+	Android: 1,
+	IOS: 2,
+	WindowsPC: 3
+};
+
 const Component = () => {
 	const { t } = useTranslation();
+	const { errorPopBox } = usePopBox();
 	const { userInfo } = useContext(userInfoContext);
+	const isMountedRef = useRef(null);
+	const [linkList, setLinkList] = useState([]);
 	const { data } = useGotoGame({
 		isLogin: userInfo.isLogin,
 		langId: userInfo.langId,
@@ -23,6 +40,37 @@ const Component = () => {
 		tpGameType: productList.mega888.tpGameType,
 		allowBeforeLogin: true
 	});
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		api_player_GetDeepLink({
+			deepLinkId: defDeepLinkId.mega888,
+			siteId: config.siteId
+		}).then(
+			res => {
+				if (!isMountedRef.current) return;
+
+				const { errorCode, message, data: _data } = res.data;
+				if (errorCode === 0) {
+					setLinkList(_data);
+				} else {
+					errorPopBox(message || `error`, errorCode);
+				}
+			},
+			() => {
+				if (!isMountedRef.current) return;
+				errorPopBox();
+			}
+		);
+	}, []);
+
+	const getLink = type => linkList?.find(el => type === el.type)?.deepLink;
 
 	return (
 		<section className="inside">
@@ -58,7 +106,10 @@ const Component = () => {
 									<div className="downloadItem">
 										<a
 											className="downloadBtn"
-											href={downloadLink.android}
+											href={
+												getLink(defType.Android) ??
+												downloadLink.android
+											}
 											target="_blank"
 											rel="noreferrer">
 											<i className="icon icon-android" />
@@ -72,9 +123,14 @@ const Component = () => {
 											<i className="icon icon-android">
 												<span>Android</span>
 											</i>
-											<img
-												src={`${bannerImgUrl}/desktop/img/android-mega.png`}
-												alt="Android"
+											<QRCode
+												value={
+													getLink(defType.Android) ??
+													downloadLink.android
+												}
+												renderAs="svg"
+												size={120}
+												includeMargin={true}
 											/>
 										</div>
 									</div>
@@ -83,7 +139,10 @@ const Component = () => {
 											className="downloadBtn"
 											target="_blank"
 											rel="noreferrer"
-											href={downloadLink.ios}>
+											href={
+												getLink(defType.IOS) ??
+												downloadLink.ios
+											}>
 											<i className="icon icon-appleinc" />
 											<div>
 												{t("mega888.app_for_ios")}
@@ -95,7 +154,13 @@ const Component = () => {
 											<i className="icon icon-appleinc">
 												<span>iOS</span>
 											</i>
-											<img src={iosQrImg} alt="iOS" />
+											<QRCode
+												value={
+													getLink(defType.IOS) ??
+													downloadLink.ios
+												}
+												renderAs="svg"
+											/>
 										</div>
 									</div>
 									<div className="downloadItem">
@@ -103,7 +168,10 @@ const Component = () => {
 											className="downloadBtn"
 											target="_blank"
 											rel="noreferrer"
-											href={downloadLink.windows}>
+											href={
+												getLink(defType.WindowsPC) ??
+												downloadLink.windows
+											}>
 											<i className="icon icon-windows" />
 											<div>
 												Windows PC
