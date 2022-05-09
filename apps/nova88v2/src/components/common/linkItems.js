@@ -10,15 +10,13 @@ import { popBoxContext } from "./context";
 import path from "../../router";
 import { defEventIcon } from "./eventIcon";
 
-export const getUrl = (preUrl, info) => {
-	return `/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;
-};
+export const getUrl = (preUrl, info) =>
+	`/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;
 
-export const getCurrentPage = () => {
-	return typeof window !== undefined
+export const getCurrentPage = () =>
+	typeof window !== undefined
 		? `${window.location.pathname}${window.location.search}`
 		: "";
-};
 
 export default ({
 	defMenuLinks,
@@ -97,7 +95,7 @@ export default ({
 							(s.canSeeOnlyAfterLogin && isLogin))
 				)
 				.forEach(sub => {
-					if (sub.eventIcons) {
+					if (sub.eventIcons && isAllowCurrencies(sub)) {
 						for (let i = 0; i < sub.eventIcons.length; i++) {
 							if (sub.eventIcons[i] !== "") {
 								iconList.push(sub.eventIcons[i]);
