@@ -76,16 +76,16 @@ const defSortCasino = {
 
 const defSortSlot = {
 	[defCurrencyList.THB]: {
-		slot_NetEnt: 1,
-		slot_RedTiger: 2,
-		slot_AdvantPlay: 3,
-		slot_PP: 4,
-		slot_Habanero: 5,
-		slot_MGPSW: 6,
-		slot_JI: 7,
-		slot_PG: 8,
-		slot_JOKER: 9,
-		slot_SG: 10,
+		slot_AdvantPlay: 1,
+		slot_PP: 2,
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
 		slot_PT: 11,
 		slot_YGG: 12,
 		slot_AMB: 13,
@@ -95,16 +95,16 @@ const defSortSlot = {
 		slot_OW: 17
 	},
 	[defCurrencyList.MYR]: {
-		slot_AdvantPlay: 3,
-		slot_PP: 4,
-		slot_Habanero: 5,
-		slot_NetEnt: 1,
-		slot_MGPSW: 6,
-		slot_JI: 7,
-		slot_PG: 8,
-		slot_JOKER: 9,
-		slot_SG: 10,
-		slot_RedTiger: 2,
+		slot_AdvantPlay: 1,
+		slot_PP: 2,
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
 		slot_PT: 11,
 		slot_YGG: 12,
 		slot_CQ9: 13,
@@ -113,16 +113,16 @@ const defSortSlot = {
 		slot_OW: 16
 	},
 	[defCurrencyList.IDR]: {
-		slot_AdvantPlay: 3,
-		slot_PP: 4,
-		slot_Habanero: 5,
-		slot_NetEnt: 1,
-		slot_MGPSW: 6,
-		slot_JI: 7,
-		slot_PG: 8,
-		slot_JOKER: 9,
-		slot_SG: 10,
-		slot_RedTiger: 2,
+		slot_AdvantPlay: 1,
+		slot_PP: 2,
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
 		slot_PT: 11,
 		slot_YGG: 12,
 		slot_CQ9: 13,
@@ -131,16 +131,16 @@ const defSortSlot = {
 		slot_OW: 16
 	},
 	[defCurrencyList.INR]: {
-		slot_AdvantPlay: 3,
-		slot_PP: 4,
-		slot_Habanero: 5,
-		slot_NetEnt: 1,
-		slot_MGPSW: 6,
-		slot_JI: 7,
-		slot_PG: 8,
-		slot_JOKER: 9,
-		slot_SG: 10,
-		slot_RedTiger: 2,
+		slot_AdvantPlay: 1,
+		slot_PP: 2,
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
 		slot_PT: 11,
 		slot_YGG: 12,
 		slot_CQ9: 13,
@@ -608,37 +608,6 @@ export const defMenuLinks = {
 		checkBeforeLogin: true,
 		subMenu: [
 			{
-				keyName: "slot_NetEnt",
-				displayText: "NetEnt",
-				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotnt.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_NetEnt },
-				...productList.casino_NetEnt,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_NetEnt
-					})
-				]
-			},
-			{
-				keyName: "slot_RedTiger",
-				displayText: "Red Tiger",
-				menuType: defMenuType.Link,
-				listNpcImgUrl: "slotrt.png",
-				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_RedTiger },
-				...productList.casino_RedTiger,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_RedTiger
-					})
-				]
-			},
-
-			{
 				keyName: "slot_AdvantPlay",
 				displayText: "AdvantPlay",
 				menuType: defMenuType.Link,
@@ -690,6 +659,21 @@ export const defMenuLinks = {
 					showEventIcon({
 						icon: defEventIcon.new,
 						period: defEventPeriod.casino_Habanero
+					})
+				]
+			},
+			{
+				keyName: "slot_NetEnt",
+				displayText: "NetEnt",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotnt.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_NetEnt },
+				...productList.casino_NetEnt,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_NetEnt
 					})
 				]
 			},
@@ -816,6 +800,21 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_SG },
 				...productList.casino_SG
+			},
+			{
+				keyName: "slot_RedTiger",
+				displayText: "Red Tiger",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotrt.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_RedTiger },
+				...productList.casino_RedTiger,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_RedTiger
+					})
+				]
 			},
 			{
 				keyName: "slot_PG",
