@@ -95,9 +95,10 @@ export default () => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const { data } = res.data;
-						const currencyArr = data.map(id => {
-							return { id, displayKey: `Currency_${id}` };
-						});
+						const currencyArr = data.map(id => ({
+							id,
+							displayKey: `Currency_${id}`
+						}));
 						setSiteCurrency(() => currencyArr);
 					} else {
 						errorPopBox(
@@ -138,15 +139,13 @@ export default () => {
 			msg = "";
 		}
 
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked: tip[col].checked,
-					msg
-				}
-			};
-		});
+		setTip(prev => ({
+			...prev,
+			[col]: {
+				checked: tip[col].checked,
+				msg
+			}
+		}));
 	};
 
 	const EditField = (col, e) => {
@@ -171,13 +170,11 @@ export default () => {
 	const allAreaCodeArr = Object.values(areaCode)
 		.map(a => a.AreaCode)
 		.sort();
-	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => {
-		return {
-			// id: parseInt(_a.replace(/[^0-9]/gi, ""), 10),
-			id: idx + 1,
-			displayText: _a
-		};
-	});
+	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => ({
+		// id: parseInt(_a.replace(/[^0-9]/gi, ""), 10),
+		id: idx + 1,
+		displayText: _a
+	}));
 
 	const usdtAreaCode = userValue.areaCodeIdx
 		? areaCodeOptions[userValue.areaCodeIdx - 1].displayText
@@ -196,29 +193,23 @@ export default () => {
 	const setCurrencyTip = (col, _defaultOption) => {
 		const result = currencyCheck(_defaultOption);
 		const { checked, msg } = result.checked;
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked,
-					msg: t(msg)
-				}
-			};
-		});
+		setTip(prev => ({
+			...prev,
+			[col]: {
+				checked,
+				msg: t(msg)
+			}
+		}));
 	};
 
 	const onSelectItem = i => {
 		setDefaultOption(null);
-		setUserValue(prev => {
-			return { ...prev, currencyIdx: i };
-		});
+		setUserValue(prev => ({ ...prev, currencyIdx: i }));
 		setCurrencyTip("currency", null);
 	};
 
 	const onSelectAreaCode = i => {
-		setUserValue(prev => {
-			return { ...prev, areaCodeIdx: i + 1 };
-		});
+		setUserValue(prev => ({ ...prev, areaCodeIdx: i + 1 }));
 	};
 
 	const checkValue = async (col, e) => {
@@ -250,15 +241,13 @@ export default () => {
 			checked = null;
 		}
 
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked,
-					msg: t(msg)
-				}
-			};
-		});
+		setTip(prev => ({
+			...prev,
+			[col]: {
+				checked,
+				msg: t(msg)
+			}
+		}));
 	};
 
 	const usernameCheck = async val => {
@@ -404,31 +393,29 @@ export default () => {
 				_currencyCheck.checked;
 
 			if (!checked) {
-				setTip(prev => {
-					return {
-						...prev,
-						username: {
-							checked: _usernameCheck.checked,
-							msg: t(_usernameCheck.msg)
-						},
-						password: {
-							checked: _passwordCheck.checked,
-							msg: t(_passwordCheck.message)
-						},
-						phone: {
-							checked: _phoneCheck.checked,
-							msg: t(_phoneCheck.msg)
-						},
-						email: {
-							checked: _emailCheck.checked,
-							msg: t(_emailCheck.msg)
-						},
-						currency: {
-							checked: _currencyCheck.checked,
-							msg: t(_currencyCheck.msg)
-						}
-					};
-				});
+				setTip(prev => ({
+					...prev,
+					username: {
+						checked: _usernameCheck.checked,
+						msg: t(_usernameCheck.msg)
+					},
+					password: {
+						checked: _passwordCheck.checked,
+						msg: t(_passwordCheck.message)
+					},
+					phone: {
+						checked: _phoneCheck.checked,
+						msg: t(_phoneCheck.msg)
+					},
+					email: {
+						checked: _emailCheck.checked,
+						msg: t(_emailCheck.msg)
+					},
+					currency: {
+						checked: _currencyCheck.checked,
+						msg: t(_currencyCheck.msg)
+					}
+				}));
 			}
 			return checked;
 		} catch (error) {
@@ -528,35 +515,29 @@ export default () => {
 							errorCode === -5 ||
 							errorCode === -19
 						) {
-							setTip(prev => {
-								return {
-									...prev,
-									username: {
-										checked: false,
-										msg: message
-									}
-								};
-							});
+							setTip(prev => ({
+								...prev,
+								username: {
+									checked: false,
+									msg: message
+								}
+							}));
 						} else if (errorCode === -3) {
-							setTip(prev => {
-								return {
-									...prev,
-									password: {
-										checked: false,
-										msg: message
-									}
-								};
-							});
+							setTip(prev => ({
+								...prev,
+								password: {
+									checked: false,
+									msg: message
+								}
+							}));
 						} else if (errorCode === -7) {
-							setTip(prev => {
-								return {
-									...prev,
-									specialBonusCode: {
-										checked: false,
-										msg: message
-									}
-								};
-							});
+							setTip(prev => ({
+								...prev,
+								specialBonusCode: {
+									checked: false,
+									msg: message
+								}
+							}));
 						} else {
 							errorPopBox(message || "error", errorCode);
 						}
@@ -583,7 +564,6 @@ export default () => {
 			<div className="joinloginModule">
 				<JoinPromoInfo langId={defaultLangId} t={t} />
 				<div className="joinAnimation">
-					(
 					<img
 						className="animationlogo"
 						alt="animationlogo"
@@ -609,7 +589,6 @@ export default () => {
 						alt="back"
 						src={`${bannerImgUrl}/desktop/img/back.png`}
 					/>
-					)
 				</div>
 				<JoinForm
 					t={t}
