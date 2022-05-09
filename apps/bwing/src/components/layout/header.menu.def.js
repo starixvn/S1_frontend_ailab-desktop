@@ -258,32 +258,6 @@ export const defMenuLinks = {
 		subDivClass1: "light light-slot",
 		subMenu: [
 			{
-				...defCasinoProviders.NetEnt,
-				className: "NE",
-				displayText: "NetEnt",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.NetEnt.name },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_NetEnt
-					})
-				]
-			},
-			{
-				...defCasinoProviders.RedTiger,
-				className: "RED",
-				displayText: "Red Tiger",
-				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.RedTiger.name },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_RedTiger
-					})
-				]
-			},
-			{
 				...defCasinoProviders.AdvantPlay,
 				className: "AP",
 				displayText: "AdvantPlay",
@@ -314,6 +288,19 @@ export const defMenuLinks = {
 					showEventIcon({
 						icon: defEventIcon.new,
 						period: defEventPeriod.casino_Habanero
+					})
+				]
+			},
+			{
+				...defCasinoProviders.NetEnt,
+				className: "NE",
+				displayText: "NetEnt",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.NetEnt.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_NetEnt
 					})
 				]
 			},
@@ -405,6 +392,19 @@ export const defMenuLinks = {
 				displayText: "Spadegaming",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.SG.name }
+			},
+			{
+				...defCasinoProviders.RedTiger,
+				className: "RED",
+				displayText: "Red Tiger",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.RedTiger.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.casino_RedTiger
+					})
+				]
 			},
 			{
 				...defCasinoProviders.PG,
