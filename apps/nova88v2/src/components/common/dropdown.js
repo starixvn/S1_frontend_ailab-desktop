@@ -65,6 +65,7 @@ class Dropdown extends Component {
 					className={this.props.className}
 					active={this.props.selectedIdx === i}
 					year={item.year}
+					flag={this.props.flag}
 				/>
 			))
 			.filter(
@@ -115,19 +116,20 @@ class Dropdown extends Component {
 					<i className={`icon ${this.props.icon}`} />
 				) : null}
 				<button className="btn">
-					{this.props.options[this.props.selectedIdx] && (
-						<div>
-							<div
-								className={`flag ${
-									defCurrencyToClass[
-										this.props.options[
-											this.props.selectedIdx
-										].id
-									]
-								}`}
-							/>
-						</div>
-					)}
+					{this.props.flag &&
+						this.props.options[this.props.selectedIdx] && (
+							<div>
+								<div
+									className={`flag ${
+										defCurrencyToClass[
+											this.props.options[
+												this.props.selectedIdx
+											].id
+										]
+									}`}
+								/>
+							</div>
+						)}
 
 					{this.props.defaultOption ?? selected}
 				</button>
@@ -150,7 +152,7 @@ const Item = props => (
 		className="dropdown-item"
 		onClick={props.onClick}
 		data-testid={`dropdown-item-${props.displayKey}`}>
-		{props.currencyId ? (
+		{props.flag && props.currencyId ? (
 			<div className={`flag ${defCurrencyToClass[props.currencyId]}`} />
 		) : (
 			""

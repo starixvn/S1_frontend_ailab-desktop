@@ -88,6 +88,7 @@ const JoinForm = ({
 					i18n={t}
 					onSelectItem={onSelectItem}
 					onBlur={checkValue.bind(null, "currency")}
+					flag={true}
 				/>
 			</div>
 			{tip.currency.msg ? (
