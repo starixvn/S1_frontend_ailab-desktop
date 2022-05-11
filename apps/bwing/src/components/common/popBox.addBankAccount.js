@@ -60,7 +60,7 @@ export default ({ bankInfoSysList = [], updateCustBankInfo }) => {
 		if (col === "realName") {
 			_tip = t("lbl_Please_input_your_real_name_as_in_your_ID");
 		} else if (col === "realName_after") {
-			_tip = t("lbl_ContactCSD");
+			_tip = t("lbl_BankAccountHint");
 		} else {
 			_tip = t("lbl_BankNumber");
 		}

@@ -464,6 +464,7 @@
 	"lbl_IFSCCode": "Kode IFSC",
 	"msg_PleaseEnterIFSCCode": "Silakan masukkan kode IFSC",
 	"msg_IFSCCodeLength": "Kode IFSC harus 11 karakter",
+	"lbl_BankAccountHint": "Nama Akun harus sesuai dengan Pemilik Rekening Bank",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promosi",

@@ -539,6 +539,7 @@
 	"lbl_TurnoverAccmulateHint": "Your Fund are locked to transfer out due to Rollover requirement is not fulfils.",
 	"lbl_QuickPick": "Quick Pick",
 	"lbl_RollOver": "Rollover",
+	"lbl_BankAccountHint": "Account Name must match with Bank Account Holder",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "CASINO",

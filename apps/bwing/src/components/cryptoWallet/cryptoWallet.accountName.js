@@ -17,7 +17,7 @@ const AccountName = ({ t, accountName }) => {
 			</div>
 
 			<div className={`tip ${showTip ? "active" : ""}`}>
-				{t("lbl_PreferredCurrencyToolTip")}
+				{t("lbl_BankAccountHint")}
 			</div>
 		</>
 	);

@@ -65,7 +65,7 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 		} else if (col === "ifscCode") {
 			_tip = t("msg_PleaseEnterIFSCCode");
 		} else if (col === "realName_after") {
-			_tip = t("lbl_ContactCSD");
+			_tip = t("lbl_BankAccountHint");
 		} else {
 			_tip = t("lbl_BankNumber");
 		}

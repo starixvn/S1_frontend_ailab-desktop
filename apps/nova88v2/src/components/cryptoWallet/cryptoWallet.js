@@ -113,7 +113,7 @@ export default () => {
 						/>
 						{showTip ? (
 							<div className="tip active">
-								{t("lbl_ContactCSD")}
+								{t("lbl_BankAccountHint")}
 							</div>
 						) : null}
 					</>

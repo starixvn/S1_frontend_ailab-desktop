@@ -19,7 +19,7 @@ export default ({ balanceData, GetWithdrawalAvailableBalance }) => {
 	});
 
 	const showRealNameTip = () => {
-		const tip = realNameTip === "" ? t("lbl_ContactCSD") : "";
+		const tip = realNameTip === "" ? t("lbl_BankAccountHint") : "";
 		setRealNameTip(tip);
 	};
 
