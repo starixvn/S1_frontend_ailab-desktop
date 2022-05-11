@@ -464,6 +464,7 @@
 	"lbl_IFSCCode": "IFSC कोड",
 	"msg_PleaseEnterIFSCCode": "कृपया IFSC कोड दर्ज करें",
 	"msg_IFSCCodeLength": "IFSC कोड 11 अक्षर का होना चाहिए",
+	"lbl_BankAccountHint": "खाते का नाम बैंक खाता धारक से मेल खाना चाहिए।",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "प्रचार / प्रचार",

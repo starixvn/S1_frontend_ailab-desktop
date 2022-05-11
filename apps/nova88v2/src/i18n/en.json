@@ -467,6 +467,7 @@
 	"lbl_IFSCCode": "IFSC Code",
 	"msg_PleaseEnterIFSCCode": "Please enter the IFSC code.",
 	"msg_IFSCCodeLength": "IFSC code must be 11 characters",
+	"lbl_BankAccountHint": "Account Name must match with Bank Account Holder",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "Promotion",
