@@ -23,7 +23,7 @@ export default props => {
 						onClick={onHandleRealNameHint}
 					/>
 					<div className={`tip${showRealNameHint ? " active" : ""}`}>
-						{t("lbl_BankAccountName")}
+						{t("lbl_BankAccountHint")}
 					</div>
 				</div>
 			) : null}

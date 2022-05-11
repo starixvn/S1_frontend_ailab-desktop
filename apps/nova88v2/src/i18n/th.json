@@ -465,6 +465,7 @@
 	"lbl_IFSCCode": "รหัส IFSC",
 	"msg_PleaseEnterIFSCCode": "กรุณากรอกรหัส IFSC",
 	"msg_IFSCCodeLength": "รหัส IFSC ต้องมีอักขระ 11 ตัว",
+	"lbl_BankAccountHint": "ชื่อบัญชีต้องตรงกับชื่อเจ้าของบัญชีธนาคาร",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "โปรโมชั่น",

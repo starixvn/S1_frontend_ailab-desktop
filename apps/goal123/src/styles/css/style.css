@@ -4947,6 +4947,7 @@ html.Newtheme .walletWrapper {
   padding: 10px 0;
   border-radius: 15px;
   background: #1f3258;
+  font-size: 13px;
 }
 
 html.Newtheme .walletWrapper .subModuleList {
@@ -5006,7 +5007,7 @@ html.Newtheme .walletModule .walletBalanceModule {
   background: #1e283e;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px 0 25px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -5019,9 +5020,10 @@ html.Newtheme .walletModule .walletBalanceModule {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: calc(50% - 40px);
+  max-width: calc(50% - 25px);
   position: relative;
   color: #fff;
+  min-height: 38px;
 }
 
 html.Newtheme .walletModule .walletBalanceModule .tip {
@@ -5029,7 +5031,7 @@ html.Newtheme .walletModule .walletBalanceModule .tip {
   bottom: 0;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
-  padding: 10px 0;
+  padding: 5px 0;
   margin-left: 15px;
 }
 
@@ -9767,6 +9769,67 @@ html.Newtheme .swithModule .switchBtn > div.active {
   -webkit-transition: 0.7s;
   transition: 0.7s;
   left: calc(100% - 26px);
+}
+
+html.Newtheme .swithModule .icon {
+  color: #5084e4;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+html.Newtheme .swithModule .inputInfo {
+  display: none;
+  background: rgba(78, 108, 168, 0.8);
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 40px;
+  right: -10px;
+  min-width: 500px;
+  font-weight: 400;
+  color: #fff;
+  z-index: 4;
+  -webkit-filter: drop-shadow(0px 0px 2px #284985);
+          filter: drop-shadow(0px 0px 2px #284985);
+}
+
+html.Newtheme .swithModule .inputInfo.active {
+  display: block;
+}
+
+html.Newtheme .swithModule .inputInfo:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 0 10px;
+  border-style: solid dashed dashed;
+  border-color: #4e6ca8 transparent transparent;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  z-index: 1;
+}
+
+html.Newtheme .swithModule .inputInfo span {
+  display: block;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: bold !important;
+  color: #fab617;
+  margin: 0 auto;
+}
+
+html.Newtheme .swithModule .inputInfo .btnGroup {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html.Newtheme .swithModule .inputInfo .btnGroup button {
+  padding: 5px 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 80px;
+          flex: 0 0 80px;
 }
 
 html.Newtheme .slotjpot {

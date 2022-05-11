@@ -13,7 +13,7 @@ const AccountName = ({ t, accountName }) => {
 			<button className="icon icon-error" onClick={clickTip} />
 
 			<div className={`tip ${showTip ? "active" : ""}`}>
-				{t("lbl_PreferredCurrencyToolTip")}
+				{t("lbl_BankAccountHint")}
 			</div>
 		</div>
 	);

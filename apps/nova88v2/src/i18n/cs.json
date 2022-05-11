@@ -466,6 +466,7 @@
 	"lbl_IFSCCode": "IFSC代码",
 	"msg_PleaseEnterIFSCCode": "请输入 IFSC 代码",
 	"msg_IFSCCodeLength": "IFSC 代码需有 11字元",
+	"lbl_BankAccountHint": "用户注册名需与银行户口名称一致",
 
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promotion": "优惠活动",
