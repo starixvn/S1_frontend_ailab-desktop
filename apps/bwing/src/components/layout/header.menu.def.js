@@ -578,7 +578,7 @@ export const defMenuLinks = {
 				tpId: 15,
 				className: "liveAE",
 				icon: "icon icon-AE",
-				displayText: "AE Casino",
+				displayText: "AE Sexy",
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-ae"

@@ -631,7 +631,7 @@ export const defMenuLinks = langId => ({
 				className: "liveAE",
 				icon: "icon icon-AE",
 				listNpcImgUrl: "ae.png",
-				displayText: "AE Casino",
+				displayText: "AE Sexy",
 				menuType: defMenuType.entPage,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/ae.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/ae-icon.png`,
