@@ -786,7 +786,6 @@ const Deposit = () => {
 						setFormInfo={setFormInfo}
 						getBankInfo={getBankInfo}
 						setLocalBankChecked={setLocalBankChecked}
-						onChangeAmount={onChangeAmount}
 						getLocalBankInfo={getLocalBankInfo}
 						onInputboxKeyDown={onInputboxKeyDown}
 						asyncUploadBankPopBox={asyncUploadBankPopBox}

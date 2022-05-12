@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { getUrlParameter, number_format } from "../../common/common";
+import {
+	getUrlParameter,
+	number_format,
+	checkAmount
+} from "../../common/common";
 import ClipboardJS from "../../../lib/clipboard.min";
 import config from "../../../config";
 
@@ -15,7 +19,6 @@ const LocalBankForm = ({
 	localBankGroupList,
 	formInfo,
 	setFormInfo,
-	onChangeForm,
 	onChangePromotion,
 	onInputboxKeyDown,
 	getLocalBankInfo,
@@ -55,12 +58,10 @@ const LocalBankForm = ({
 			tip: error.userAccountName
 		});
 
-		setFormInfo(prev => {
-			return {
-				...prev,
-				accountName: val
-			};
-		});
+		setFormInfo(prev => ({
+			...prev,
+			accountName: val
+		}));
 	};
 
 	const validate = datas => {
@@ -82,9 +83,7 @@ const LocalBankForm = ({
 
 		setSysIdForRecord(item.sysId);
 		getLocalBankInfo({ sysId: item.sysId });
-		setFormInfo(prev => {
-			return { ...item, depositPromo: prev.depositPromo };
-		});
+		setFormInfo(prev => ({ ...item, depositPromo: prev.depositPromo }));
 	};
 
 	const onOpenUploadBankPopBox = async () => {
@@ -110,12 +109,10 @@ const LocalBankForm = ({
 
 			if (!depositImgFiles.file) return;
 
-			setFormInfo(prev => {
-				return {
-					...prev,
-					imgFile: depositImgFiles.file
-				};
-			});
+			setFormInfo(prev => ({
+				...prev,
+				imgFile: depositImgFiles.file
+			}));
 		}
 	};
 
@@ -150,6 +147,36 @@ const LocalBankForm = ({
 		number: formInfo.maxAmount,
 		digits: 0
 	});
+
+	const onChangeAmount = _amount => {
+		let amount = String(_amount).replace(/^(0+)|[^\d.]+/g, "");
+
+		if (amount.includes(".")) {
+			amount = amount.replace(/\.{2,}/g, ".");
+			amount = amount
+				.replace(".", "$#$")
+				.replace(/\./g, "")
+				.replace("$#$", ".");
+			amount = amount.replace(/^(\-)*(\d+)\.(\d\d\d).*$/, "$1$2.$3");
+		}
+		const result = checkAmount({
+			amount,
+			minAmount: formInfo.minAmount,
+			maxAmount: formInfo.maxAmount,
+			formatRequired: false,
+			t,
+			digits: 3
+		});
+
+		setFormInfo(prev => ({
+			...prev,
+			amount: {
+				val: amount,
+				checked: result.status === 0,
+				tip: result.msg
+			}
+		}));
+	};
 
 	return (
 		<>
@@ -274,8 +301,8 @@ const LocalBankForm = ({
 			<div className="subModule">
 				<Inputbox
 					value={formInfo.amount?.val}
-					onChange={e => onChangeForm(e.target.value, "amount")}
-					onBlur={e => onChangeForm(e.target.value, "amount")}
+					onChange={e => onChangeAmount(e.target.value)}
+					onBlur={e => onChangeAmount(e.target.value)}
 					checked={formInfo.amount?.checked}
 					tip={formInfo.amount?.tip}
 					_isConvert={_isConvert}
@@ -338,7 +365,6 @@ LocalBankForm.propTypes = {
 	_isConvert: PropTypes.bool.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
-	onChangeForm: PropTypes.func.isRequired,
 	onChangePromotion: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	getLocalBankInfo: PropTypes.func.isRequired,
