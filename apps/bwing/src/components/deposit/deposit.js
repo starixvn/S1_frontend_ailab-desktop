@@ -130,10 +130,8 @@ const Deposit = () => {
 		mobilePayInfoList
 	} = useDepositMobilePay({ isMountedRef });
 
-	const {
-		autoChannelBankGroupList,
-		getAutoChannelBankGroupList
-	} = useDepositOnline({ isMountedRef });
+	const { autoChannelBankGroupList, getAutoChannelBankGroupList } =
+		useDepositOnline({ isMountedRef });
 
 	const {
 		loadCardPayGroupList,
@@ -710,7 +708,6 @@ const Deposit = () => {
 						localBankGroupList={localBankGroupList}
 						formInfo={formInfo}
 						setFormInfo={setFormInfo}
-						onChangeForm={onChangeForm}
 						onInputboxKeyDown={onInputboxKeyDown}
 						getLocalBankInfo={getLocalBankInfo}
 						localBankInfo={localBankInfo}

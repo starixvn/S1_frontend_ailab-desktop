@@ -711,7 +711,6 @@ const Deposit = () => {
 						localBankGroupList={localBankGroupList}
 						formInfo={formInfo}
 						setFormInfo={setFormInfo}
-						onChangeForm={onChangeForm}
 						onChangePromotion={onChangePromotion}
 						onInputboxKeyDown={onInputboxKeyDown}
 						getLocalBankInfo={getLocalBankInfo}

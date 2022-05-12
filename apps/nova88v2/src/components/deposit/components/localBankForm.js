@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import Dropdown from "../../common/dropdown";
 import ShortcutAmountList from "./shortcutAmountList";
-import { getUrlParameter } from "../../common/common";
+import { defCurrencyList, getUrlParameter } from "../../common/common";
 import { defDepositChannel, defDepositChannelIdList } from "../deposit.def";
 
 import PromotionSelect from "./promotionSelect";
@@ -26,7 +26,6 @@ const LocalBankForm = ({
 	depositPromoList,
 	onChangePromotion,
 	setFormInfo,
-	onChangeAmount,
 	onInputboxKeyDown,
 	getLocalBankInfo,
 	localBankInfo,
@@ -60,6 +59,24 @@ const LocalBankForm = ({
 		setFormInfo(prev => ({ ...prev, ...item }));
 	};
 
+	const onChangeAmount = _amount => {
+		let amount = String(_amount).replace(/^(0+)|[^\d.]+/g, "");
+
+		if (amount.includes(".")) {
+			amount = amount.replace(/\.{2,}/g, ".");
+			amount = amount
+				.replace(".", "$#$")
+				.replace(/\./g, "")
+				.replace("$#$", ".");
+
+			if (userInfo.currencyId === defCurrencyList.IDR) {
+				amount = amount.replace(/^(\-)*(\d+)\.(\d\d\d).*$/, "$1$2.$3");
+			} else {
+				amount = amount.replace(/^(\-)*(\d+)\.(\d\d).*$/, "$1$2.$3");
+			}
+		}
+		setFormInfo(prev => ({ ...prev, amount }));
+	};
 	const onOpenUploadBankPopBox = async () => {
 		const { bankName, accountNo, accountName, bankSite } = localBankInfo;
 		const {
@@ -92,14 +109,12 @@ const LocalBankForm = ({
 				}
 			} = uploadPopBoxResult;
 
-			setFormInfo(prev => {
-				return {
-					...prev,
-					// time: depositTime.value,
-					// refId: depositRefNo.value,
-					imgFile: depositImgFiles.file
-				};
-			});
+			setFormInfo(prev => ({
+				...prev,
+				// time: depositTime.value,
+				// refId: depositRefNo.value,
+				imgFile: depositImgFiles.file
+			}));
 		}
 	};
 
@@ -125,13 +140,11 @@ const LocalBankForm = ({
 	};
 
 	const onSelectBankDetail = (idx, item) => {
-		setFormInfo(prev => {
-			return {
-				...prev,
-				fromSysId: item.sysId,
-				fromAccountNum: item.accountNo
-			};
-		});
+		setFormInfo(prev => ({
+			...prev,
+			fromSysId: item.sysId,
+			fromAccountNum: item.accountNo
+		}));
 
 		setCustBankInfoIdx(idx);
 	};
@@ -508,7 +521,6 @@ LocalBankForm.propTypes = {
 	formatAmount: PropTypes.func.isRequired,
 	localBankGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setFormInfo: PropTypes.func.isRequired,
-	onChangeAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	getLocalBankInfo: PropTypes.func.isRequired,
 	setLocalBankChecked: PropTypes.func.isRequired,
