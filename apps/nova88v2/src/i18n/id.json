@@ -347,7 +347,7 @@
 	"lbl_WithdrawalStatus8": "Sedang diproses",
 	"lbl_WithdrawalStatus99": "Waktu setoran",
 	"lbl_Withdrawal": "Penarikan",
-	"lbl_Deduction": "Ganti rugi jumlah putaran",
+	"lbl_Deduction": "Jumlah selisih putaran",
 	"lbl_ConfirmWithdrawal": "Harap konfirmasi informasi penarikan.",
 	"lbl_WithdrawalTo": "Penarikan Tunai di",
 	"lbl_WithdrawalAmount": "Jumlah penarikan",
