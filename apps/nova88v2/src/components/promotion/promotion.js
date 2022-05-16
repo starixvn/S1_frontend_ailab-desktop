@@ -135,41 +135,37 @@ export default () => {
 		};
 	});
 
-	const promotionStaticRows = staticList.map(p => {
-		return (
-			<div
-				key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
-				<img
-					src={p.imgUrl?.[userInfo.langId]}
-					alt={p.title?.[userInfo.langId]}
-				/>
-				<div className="txt-darkBlue">{p.title?.[userInfo.langId]}</div>
-				<div className="txt-dark">{t("lbl_PromotionsDesc")}</div>
-				<div className="txt-gray">
-					{p.description?.[userInfo.langId]}
-				</div>
+	const promotionStaticRows = staticList.map(p => (
+		<div
+			key={`static-promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
+			<img
+				src={p.imgUrl?.[userInfo.langId]}
+				alt={p.title?.[userInfo.langId]}
+			/>
+			<div className="txt-darkBlue">{p.title?.[userInfo.langId]}</div>
+			<div className="txt-dark">{t("lbl_PromotionsDesc")}</div>
+			<div className="txt-gray">{p.description?.[userInfo.langId]}</div>
 
-				<div className="rollover">
-					<div>
-						<div className="icon icon-icon32px_">
-							{t("lbl_RollOver")}
-						</div>
-					</div>
-					<div className="txt-orange">
-						<div>1X</div>
+			<div className="rollover">
+				<div>
+					<div className="icon icon-icon32px_">
+						{t("lbl_RollOver")}
 					</div>
 				</div>
-				<div
-					onClick={openStaticPromotion.bind(this, {
-						url: p.bannerLink?.[userInfo.langId],
-						bonusCode: p.bonusCode
-					})}
-					className="btnGroup">
-					<button className="blue">{t("lbl_Details")}</button>
+				<div className="txt-orange">
+					<div>1X</div>
 				</div>
 			</div>
-		);
-	});
+			<div
+				onClick={openStaticPromotion.bind(this, {
+					url: p.bannerLink?.[userInfo.langId],
+					bonusCode: p.bonusCode
+				})}
+				className="btnGroup">
+				<button className="blue">{t("lbl_Details")}</button>
+			</div>
+		</div>
+	));
 
 	const typeFilter = type => {
 		if (type === defFilterType.all)
@@ -209,6 +205,7 @@ export default () => {
 		if (type === defFilterType.slots)
 			return p =>
 				(p.categoryId === defCategoryId.PtSlots ||
+					p.categoryId === defCategoryId.Mega888SlotRNGFishing ||
 					(p.walletType === defWalletType.Seamless &&
 						p.categoryId === defCategoryId.Slots)) &&
 				!isExpiry({
