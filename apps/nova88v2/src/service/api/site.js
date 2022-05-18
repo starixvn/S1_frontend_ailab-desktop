@@ -83,3 +83,14 @@ export const api_site_GetHotGames = ({ langId }) =>
 	siteRequest.post(`/GetHotGames/${langId}`, {
 		DeviceType: defDeviceType.Desktop
 	});
+
+export const api_site_GetSocialChannel = ({
+	currencyId,
+	langId,
+	displayPage
+}) =>
+	siteRequest.post("GetSocialChannel", {
+		CurrencyId: currencyId,
+		LangId: langId,
+		DisplayPage: displayPage
+	});

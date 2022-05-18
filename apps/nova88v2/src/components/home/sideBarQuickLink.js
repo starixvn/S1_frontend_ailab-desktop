@@ -1,10 +1,15 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useContext } from "react";
+import QRCode from "qrcode.react";
 import { useTranslation } from "react-i18next";
 import { SiteInfo, bannerImgUrl } from "../../config";
 import { userInfoContext } from "../common/context";
-import { getCurrencyCode } from "../common/common";
+import { getCurrencyCode, langAndCurrMapping } from "../common/common";
 import { currencyCode } from "../../datas/countryCode";
+import useGetSocialChannel, {
+	defDisplayPage,
+	defChannelName
+} from "../hook/useGetSocialChannel";
 
 const defElemType = {
 	button: "button"
@@ -15,6 +20,14 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 	const [isIconListOpen, setIsIconListOpen] = useState(false);
 	const [activeIcon, setActiveIcon] = useState(null);
+	const { socialChannel } = useGetSocialChannel({
+		langId: userInfo.langId,
+		currencyId: userInfo.currencyId ?? langAndCurrMapping[userInfo.langId],
+		displayPage: defDisplayPage.Home
+	});
+
+	const getChannelByName = channelName =>
+		socialChannel?.find(el => el.channelName === channelName);
 
 	const allCurrencyCode = Object.values(currencyCode);
 
@@ -45,41 +58,62 @@ export default () => {
 		},
 		{
 			iconClass: "icon icon-instagram",
-			onClick: () => window.open(SiteInfo.socialMedia.ig.link),
-			link: SiteInfo.socialMedia.ig.link
+			onClick: () =>
+				window.open(
+					getChannelByName(defChannelName.Instagram)?.link ??
+						SiteInfo.socialMedia.ig.link
+				),
+			link:
+				getChannelByName(defChannelName.Instagram)?.link ??
+				SiteInfo.socialMedia.ig.link
 		},
 		{
 			iconClass: "icon icon-facebook2",
-			link: SiteInfo.socialMedia.fb.link
+			link:
+				getChannelByName(defChannelName.Facebook)?.link ??
+				SiteInfo.socialMedia.fb.link
 		},
 		{
 			iconClass: "icon icon-twitter",
-			link: SiteInfo.socialMedia.twitter.link
+			link:
+				getChannelByName(defChannelName.Twitter)?.link ??
+				SiteInfo.socialMedia.twitter.link
 		},
 		{
 			displayByCurrency: [currencyCode.MY, currencyCode.ID],
 			iconClass: "icon icon-whatsapp",
-			// imgInfo: "+60 10 8645632",
-			imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`
-			// link: "https://wa.me/message/2FOWOLQFLMJLB1"
+			imgInfo: getChannelByName(defChannelName.WhatsApp)?.title,
+			qrCode: getChannelByName(defChannelName.WhatsApp)?.link,
+			imgSrc: `${bannerImgUrl}/img/whatsapp.jpg`,
+			link: getChannelByName(defChannelName.WhatsApp)?.link
 		},
 		{
 			displayByCurrency: [currencyCode.TH],
 			iconClass: "icon icon-line",
-			imgInfo: "@Nova88thai",
+			imgInfo:
+				getChannelByName(defChannelName.LINE)?.title ?? "@Nova88thai",
+			qrCode: getChannelByName(defChannelName.LINE)?.link,
 			imgSrc: `${bannerImgUrl}/desktop/img/lineQR.jpg`,
-			link: "https://lin.ee/SAPymLI"
+			link:
+				getChannelByName(defChannelName.LINE)?.link ??
+				"https://lin.ee/SAPymLI"
 		},
 		{
 			displayByCurrency: allCurrencyCode,
 			iconClass: "icon icon-telegram",
-			imgInfo: "@Nova88Support1",
-			link: "https://t.me/Nova88Support1"
+			imgInfo:
+				getChannelByName(defChannelName.Telegram)?.title ??
+				"@Nova88Support1",
+			link:
+				getChannelByName(defChannelName.Telegram)?.link ??
+				"https://t.me/Nova88Support1"
 		},
 		{
 			displayByCurrency: allCurrencyCode,
 			iconClass: "icon icon-envelope",
-			link: "mailto:support@nova88.com"
+			link:
+				getChannelByName(defChannelName.Email)?.link ??
+				"mailto:support@nova88.com"
 		}
 	];
 
@@ -89,10 +123,20 @@ export default () => {
 
 	const iconList = (icons.length === 0 ? defIconList : icons).map(
 		(_icon, idx) => {
-			const img = _icon.imgSrc && (
+			const img = (_icon.imgSrc || _icon.qrCode) && (
 				<div>
 					{_icon.imgInfo}
-					<img src={_icon.imgSrc} alt={`${_icon.iconClass}`} />
+					{_icon.qrCode && (
+						<QRCode
+							value={_icon.qrCode}
+							renderAs="svg"
+							size={120}
+							includeMargin={true}
+						/>
+					)}
+					{_icon.imgSrc && !_icon.qrCode && (
+						<img src={_icon.imgSrc} alt={`${_icon.iconClass}`} />
+					)}
 				</div>
 			);
 
