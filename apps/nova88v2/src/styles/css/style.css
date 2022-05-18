@@ -2261,7 +2261,7 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   border: 1px solid #BFCCE2;
   border-top: 0;
   margin-left: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   z-index: 1;
 }
 
@@ -2271,6 +2271,10 @@ footer .footerList > .item-wrapper:nth-child(2) > div {
   display: flex;
   margin: 0;
   padding: 5px 0 5px 39px;
+}
+
+.joinpop .joinloginModule .joinloginFunction .dropdown .dropdown-container::-webkit-scrollbar {
+  width: 3px;
 }
 
 .joinpop .joinloginModule .joinloginFunction .dropdown > .btn {
@@ -8524,12 +8528,13 @@ button.icon-spinner11:before {
 
 .phone > div:nth-child(1) {
   margin-right: 5px;
-  max-width: 100px;
+  max-width: 160px;
 }
 
 .phone > div:nth-child(1) .dropdown-container {
+  width: 422px;
   overflow-y: auto;
-  max-height: 100px;
+  max-height: 120px;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -8551,7 +8556,20 @@ button.icon-spinner11:before {
 }
 
 .phone > div:nth-child(1) .dropdown-container .dropdown-item {
-  padding-left: 0;
+  padding-left: 10px !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.phone > div:nth-child(1) .dropdown-container .inputBox-blue {
+  width: 94%;
+  border-radius: 3px;
+  margin: 2px;
+}
+
+.phone .btn {
+  width: 70%;
 }
 
 .transferModule {
@@ -11494,7 +11512,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   text-align: left;
 }
 
-.quickLinkNew2 a > div img, .quickLinkNew2 button > div img, .quickLinkNew4 a > div img, .quickLinkNew4 button > div img {
+.quickLinkNew2 a > div img, .quickLinkNew2 a > div svg, .quickLinkNew2 button > div img, .quickLinkNew2 button > div svg, .quickLinkNew4 a > div img, .quickLinkNew4 a > div svg, .quickLinkNew4 button > div img, .quickLinkNew4 button > div svg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
   width: 120px;
   height: 120px;
 }
@@ -13122,7 +13147,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
       -ms-flex-flow: column;
           flex-flow: column;
   width: 100%;
-  margin-top: -17vw;
+  margin-top: -253px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -13232,6 +13257,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .appPage .install {
   color: #112240;
+  margin-top: 50px;
 }
 
 .appPage .install > div {
@@ -13278,6 +13304,52 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .appPage .install > div:last-child > img {
   width: 14vw;
   float: left;
+}
+
+.appPage .install .installStep {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.appPage .install .installStep > div {
+  position: relative;
+  width: calc(25% - 2vw);
+  margin: 2vw 1vw;
+}
+
+.appPage .install .installStep > div > div span {
+  text-transform: uppercase;
+  display: block;
+  font-weight: bold;
+  color: #f77900;
+  font-size: 18px;
+}
+
+.appPage .install .installStep > div:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 0 10px;
+  border-style: solid dashed dashed;
+  border-color: #f77900 transparent transparent;
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  bottom: calc(50% + 55px);
+  right: -32px;
+  z-index: 1;
+}
+
+.appPage .install .installStep > div:nth-last-child(1):before {
+  display: none;
+}
+
+.appPage .install > div.installWrapper {
+  width: 1200px;
+  margin: 20px auto;
 }
 
 .app + footer {
@@ -15148,7 +15220,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .proListNew > div > .promoImg img {
   width: auto;
   height: 100%;
-  margin-left: 30px;
 }
 
 .proListNew > div > .promoInfo {
