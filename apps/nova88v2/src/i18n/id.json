@@ -404,6 +404,8 @@
 	"lbl_please_select_from_wallet": "Silakan pilih dompet keluar dana yang lebih disukai",
 	"lbl_please_select_to_wallet": "Silakan pilih dompet masuk dana yang lebih disukai",
 	"lbl_Main_Wallet_Auto_Transfer": "Transfer Otomatis Dompet Utama",
+	"lbl_Caution": "PERINGATAN!",
+	"lbl_AutoTransferHint": "Auto Transfer akan mentransfer semua dana Anda ke permainan. Jika ada bonus berjalan di dalam, dana Anda akan dikunci di dompet yang ditunjuk.",
 	"lbl_Manual": "Manual",
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
