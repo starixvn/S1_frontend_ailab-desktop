@@ -405,8 +405,9 @@
 	"lbl_please_select_from_wallet": "请选择转出钱包",
 	"lbl_please_select_to_wallet": "请选择转入钱包",
 	"lbl_Main_Wallet_Auto_Transfer": "主钱包自动转账",
+	"lbl_Caution": "注意!",
+	"lbl_AutoTransferHint": "自动转账将把您的余额转入游戏中。若有未完成优惠仍进行中，余额将锁在访问游戏的指定钱包内。",
 	"lbl_Manual": "手动",
-
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Financial": "财务日志",

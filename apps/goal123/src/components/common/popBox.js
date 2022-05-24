@@ -95,6 +95,7 @@ export default () => {
 					icon={popBox.icon}
 					description={popBox.description}
 					btnBar={popBox.btnBar}
+					title={popBox.title}
 				/>
 			);
 			break;

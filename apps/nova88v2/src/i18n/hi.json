@@ -404,6 +404,8 @@
 	"lbl_please_select_from_wallet": "कृपया बटुए से बेहतर फंड चुनें",
 	"lbl_please_select_to_wallet": "कृपया बटुए में बेहतर फंड चुनें",
 	"lbl_Main_Wallet_Auto_Transfer": "मुख्य वॉलेट ऑटो ट्रांसफर",
+	"lbl_Caution": "सावधान!",
+	"lbl_AutoTransferHint": "ऑटो ट्रांसफर आपके सारे फंड को गेम में ट्रांसफर कर देगा। यदि कोई बोनस चल रहा है, तो आपका फंड दर्ज किए गए निर्दिष्ट वॉलेट में बंद कर दिया जाएगा।",
 	"lbl_Manual": "Manual",
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",

@@ -5,6 +5,7 @@ import {
 	api_account_GetWalletTransferStatus,
 	api_account_SetWalletTransferStatus
 } from "../../service/api/account";
+import { defPopBoxType } from "./popBox";
 
 const defAutoStatus = {
 	isAuto: 1,
@@ -15,7 +16,7 @@ const AutoTransfer = () => {
 	const { t } = useTranslation();
 	const [isAutoTransfer, setIsAutoTransfer] = useState(false);
 	const isMountedRef = useRef(null);
-	const { errorPopBox } = usePopBox();
+	const { errorPopBox, setPopBox } = usePopBox();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -45,7 +46,7 @@ const AutoTransfer = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
-	const onChangeAutoTransfer = () => {
+	const changeStatus = () => {
 		const _autoStatus = !isAutoTransfer
 			? defAutoStatus.isAuto
 			: defAutoStatus.notAuto;
@@ -55,6 +56,7 @@ const AutoTransfer = () => {
 			res => {
 				if (isMountedRef.current && res.data.errorCode === 0) {
 					setIsAutoTransfer(!isAutoTransfer);
+					setPopBox({ isOpen: false });
 				} else if (res.data.errorCode !== 0) {
 					errorPopBox(
 						res.data.message || "error",
@@ -69,6 +71,35 @@ const AutoTransfer = () => {
 		);
 	};
 
+	const onChangeAutoTransfer = () => {
+		if (isAutoTransfer === false) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.Success,
+				title: t("lbl_Caution"),
+				description: (
+					<div className="txt-lightgray">
+						{t("lbl_AutoTransferHint")}
+					</div>
+				),
+				btnBar: (
+					<div className="btnGroup">
+						<button className="btn-check" onClick={changeStatus}>
+							OK
+						</button>
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}>
+							{t("lbl_Cancel")}
+						</button>
+					</div>
+				)
+			});
+		} else {
+			changeStatus();
+		}
+	};
+
 	return (
 		<div className="swithModule">
 			{t("lbl_Main_Wallet_Auto_Transfer")}
@@ -79,6 +110,11 @@ const AutoTransfer = () => {
 				<span>OFF</span>
 				<div className={isAutoTransfer ? "active" : ""} />
 			</button>
+			<button className="icon icon-information-solid" />
+			<div className="inputInfo transfer">
+				<span>{t("lbl_Caution")}</span>
+				{t("lbl_AutoTransferHint")}
+			</div>
 		</div>
 	);
 };
