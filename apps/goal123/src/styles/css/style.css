@@ -3930,6 +3930,7 @@ html.Newtheme #popup .pop > div {
       -ms-flex-align: center;
           align-items: center;
   min-width: 600px;
+  max-width: 700px;
   position: relative;
 }
 
@@ -8856,6 +8857,22 @@ html.Newtheme .subModuleListColumn .column {
   width: calc(100% - 135px);
 }
 
+html.Newtheme .subModuleListColumn .column > .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html.Newtheme .subModuleListColumn .column > .row button {
+  width: 2.5rem;
+}
+
+html.Newtheme .subModuleListColumn .column > .row button:hover::before {
+  font-family: "Segoe UI", sans-serif;
+  content: "Paste";
+  color: #b6b6b6;
+}
+
 html.Newtheme .subModuleListColumn .column .inputBox-white,
 html.Newtheme .subModuleListColumn .column .inputBox-blue,
 html.Newtheme .subModuleListColumn .column .inputBox {
@@ -8869,7 +8886,7 @@ html.Newtheme .subModuleListColumn .column .inputBox + .tip {
 }
 
 html.Newtheme .subModuleListColumn .column .tipImg {
-  width: 32%;
+  width: 28%;
   position: absolute;
   right: 3vh;
   top: 3vh;
@@ -8972,6 +8989,15 @@ html.Newtheme .subModuleListColumn .note ol {
 html.Newtheme .subModuleListColumn .note ol li {
   list-style-type: "* " !important;
   margin: 8px;
+}
+
+html.Newtheme .subModuleListColumn .note p {
+  font-weight: bold;
+  color: #cf0404;
+}
+
+html.Newtheme .subModuleListColumn .note p span {
+  margin-right: .5rem;
 }
 
 html.Newtheme .subModuleListColumn .iconModule .icon-information-solid {
@@ -9775,13 +9801,18 @@ html.Newtheme .swithModule .icon {
   color: #5084e4;
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: -2px;
+}
+
+html.Newtheme .swithModule .icon:hover ~ .inputInfo.transfer {
+  display: block;
 }
 
 html.Newtheme .swithModule .inputInfo {
   display: none;
-  background: rgba(78, 108, 168, 0.8);
+  background: rgba(78, 108, 168, 0.95);
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 10px;
   position: absolute;
   bottom: 40px;
   right: -10px;
@@ -10361,7 +10392,6 @@ html.Newtheme .proListNew > div > .promoImg {
 html.Newtheme .proListNew > div > .promoImg img {
   width: auto;
   height: 100%;
-  margin-left: 30px;
 }
 
 html.Newtheme .proListNew > div > .promoInfo {

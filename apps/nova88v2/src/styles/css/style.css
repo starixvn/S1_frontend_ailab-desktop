@@ -2705,6 +2705,10 @@ input[type="file"] {
   color: white;
 }
 
+.btnGroup button.btn-org:hover, .btnGroup a.btn-org:hover {
+  background: #da6c06;
+}
+
 .btnGroup button.btn-red, .btnGroup a.btn-red {
   background: #cf0404;
   color: white;
@@ -2715,7 +2719,7 @@ input[type="file"] {
   color: white;
   line-height: 1;
   padding: 5px 10px;
-  min-width: 252px;
+  min-width: 168.5px;
   margin: 0;
 }
 
@@ -2726,6 +2730,10 @@ input[type="file"] {
 .btnGroup button.btn-line:hover, .btnGroup a.btn-line:hover {
   -webkit-filter: hue-rotate(30deg);
           filter: hue-rotate(30deg);
+}
+
+.btnGroup button.btn-line.active, .btnGroup a.btn-line.active {
+  background: #069c02;
 }
 
 .btnGroup button.backupClick, .btnGroup a.backupClick {
@@ -2799,6 +2807,10 @@ input[type="file"] {
 
 .btnGroup button.icon:before, .btnGroup a.icon:before {
   font-weight: normal;
+}
+
+.btnGroup a.btn-line {
+  padding: 5px 0;
 }
 
 .tip {
@@ -6555,6 +6567,12 @@ input[type="file"] {
   border-radius: 15px;
 }
 
+.vipLv .btnGroup + .txt-line {
+  font-size: 12px;
+  color: #5574A7;
+  text-align: center;
+}
+
 .profile {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10109,18 +10127,18 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 0;
 }
 
-.subModuleListColumn > .subModule .icon-information {
+.subModuleListColumn > .subModule .icon-information, .subModuleListColumn > .subModule .icon-warning {
   color: #5574A7;
   cursor: pointer;
 }
 
-.subModuleListColumn > .subModule .icon-information + .tip {
+.subModuleListColumn > .subModule .icon-information + .tip, .subModuleListColumn > .subModule .icon-warning + .tip {
   padding: 0;
   width: auto;
   height: auto;
 }
 
-.subModuleListColumn > .subModule .icon-information.active + .tip {
+.subModuleListColumn > .subModule .icon-information.active + .tip, .subModuleListColumn > .subModule .icon-warning.active + .tip {
   visibility: visible;
   opacity: 1;
 }
@@ -10326,6 +10344,45 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   left: 42px;
   font-size: 24px;
   z-index: 1;
+}
+
+.subModuleListColumn > .subModule.selectBank > div > button.pending .icon {
+  z-index: 2;
+}
+
+.subModuleListColumn > .subModule.selectBank > div > button.pending > div:first-child {
+  position: relative;
+}
+
+.subModuleListColumn > .subModule.selectBank > div > button.pending > div:first-child .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 57px;
+  height: 57px;
+  background: rgba(40, 73, 133, 0.6);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.subModuleListColumn > .subModule.selectBank > div > button.pending > div:first-child .icon {
+  z-index: 2;
+}
+
+.subModuleListColumn > .subModule.selectBank > div > button.pending > div:first-child:hover .mask {
+  top: 1.75px;
+  left: 1.95px;
+  width: 53.5px;
+  height: 53.5px;
+  border-radius: 3px;
+}
+
+.subModuleListColumn > .subModule.selectBank > div > button.pending.active > div:first-child .mask {
+  top: 2px;
+  left: 2px;
+  width: 53.5px;
+  height: 53.5px;
+  border-radius: 3px;
 }
 
 .subModuleListColumn > .subModule.selectBank > div > button > div:first-child {
@@ -16115,6 +16172,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .userVerification {
   color: #5574A7;
   min-width: 135px;
+  margin-bottom: 20px;
 }
 
 .userVerification > div:first-child {

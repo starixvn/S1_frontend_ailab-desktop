@@ -3005,10 +3005,6 @@ main > .swiper-container .swiper-slide {
   padding: 0 25px 25px;
 }
 
-#leftMenu + div .infoModule .btnGroup button {
-  max-width: 160px;
-}
-
 #leftMenu .menuModule {
   background: #0a1533;
 }
@@ -7310,7 +7306,6 @@ main > .swiper-container .swiper-slide {
 .proListnew > div > .promoImg img {
   width: auto;
   height: 100%;
-  margin-left: 25px;
 }
 
 .proListnew > div > .promoInfo {
@@ -11116,13 +11111,13 @@ input + .iconModule i.icon.icon-checkmark:before {
       flex-wrap: wrap;
 }
 
-.subModuleListColumn > .subModule > div.tipImg {
-  width: 30%;
+.subModuleListColumn > .subModule > div > .tipImg {
+  width: 28%;
   display: none;
   margin-left: 15px;
 }
 
-.subModuleListColumn > .subModule > div.tipImg.active {
+.subModuleListColumn > .subModule > div > .tipImg.active {
   display: block;
 }
 
@@ -11265,6 +11260,22 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .subModuleListColumn > .subModule > div.column .inputBox-white + .tip {
+  margin-left: 15px;
+}
+
+.subModuleListColumn > .subModule > div.column > .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.subModuleListColumn > .subModule > div.column > .row button:hover::before {
+  font-family: "Segoe UI", sans-serif;
+  content: "Paste";
+  color: #b6b6b6;
+}
+
+.subModuleListColumn > .subModule > div.column > .row + .tip {
   margin-left: 15px;
 }
 
@@ -12192,6 +12203,71 @@ input + .iconModule i.icon.icon-checkmark:before {
   left: calc(100% - 26px);
 }
 
+.swithModule .icon {
+  color: #56ceff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.swithModule .icon:hover ~ .inputInfo.transfer {
+  display: block;
+}
+
+.swithModule .inputInfo {
+  display: none;
+  background: #070e22;
+  border-radius: 5px;
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 40px;
+  right: -10px;
+  min-width: 500px;
+  font-weight: 400;
+  color: #fff;
+  z-index: 10;
+  -webkit-filter: drop-shadow(0px 0px 2px #56ceff);
+          filter: drop-shadow(0px 0px 2px #56ceff);
+}
+
+.swithModule .inputInfo.active {
+  display: block;
+}
+
+.swithModule .inputInfo:before {
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 0 10px;
+  border-style: solid dashed dashed;
+  border-color: #070e22 transparent transparent;
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  z-index: 1;
+}
+
+.swithModule .inputInfo span {
+  display: block;
+  font-size: 16px;
+  font-weight: bold !important;
+  color: #f85b05;
+  margin: 0 auto;
+}
+
+.swithModule .inputInfo .btnGroup {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 5px auto;
+}
+
+.swithModule .inputInfo .btnGroup button {
+  padding: 5px 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 80px;
+          flex: 0 0 80px;
+}
+
 .olympicsTime {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12421,6 +12497,14 @@ input + .iconModule i.icon.icon-checkmark:before {
   padding: 1vw 2vw;
   margin-bottom: 40px;
   border-radius: 5px;
+}
+
+.note p {
+  color: #ff6734;
+}
+
+.note p span {
+  margin-right: .5rem;
 }
 
 .indexNew main {

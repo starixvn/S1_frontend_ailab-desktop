@@ -407,6 +407,8 @@
 	"lbl_please_select_from_wallet": "Kindly select preferable fund out wallet",
 	"lbl_please_select_to_wallet": "Kindly select preferable fund in wallet",
 	"lbl_Main_Wallet_Auto_Transfer": "Main Wallet Auto Transfer",
+	"lbl_Caution": "CAUTION!",
+	"lbl_AutoTransferHint": "Auto Transfer will transfer all your fund to the game. If any running bonus within, your fund will be locked in the designated wallet that entered.",
 	"lbl_Manual": "Manual",
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
