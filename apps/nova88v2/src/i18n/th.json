@@ -944,6 +944,12 @@
 	"lbl_Once_Nova88_App_is_installed": "เมื่อติดตั้งแอป Nova88 แล้วให้แตะ 〝อนุญาต〞หรือทำการตั้งค่าตามด้านล่าง",
 	"lbl_Best_Mobile_Experience ": "ประสบการณ์ออนไลน์ผ่านมือถือที่ดีที่สุด",
 	"lbl_AppBannerText": "สะดวก รวดเร็ว ดีจบครบในแอปเดียว!",
+	"lbl_Step": "ขั้นตอนที่ {{step}}",
+	"lbl_DownloadAppStep1": "คลิกปุ่มดาวน์โหลด Apple iOS จากเว็บไซต์ Nova88",
+	"lbl_DownloadAppStep2": "คลิก 'รับแอป' เพื่อเปลี่ยนเส้นทางไปยังหน้าตัวอย่างแอป",
+	"lbl_DownloadAppStep3": "คุณจะเปลี่ยนเส้นทางไปที่ 'Mini Puzzle Game' บน AppStore แทนแอป 'Nova88'",
+	"lbl_DownloadAppStep3-1": "คลิก 'Get' เพื่อติดตั้งแอป 'Mini Puzzle Game'",
+	"lbl_DownloadAppStep4": "เปิด 'Mini Puzzle Game' เพื่อเปิดแอป 'Nova88'",
 
 	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promos": "โปรโมชั่น",

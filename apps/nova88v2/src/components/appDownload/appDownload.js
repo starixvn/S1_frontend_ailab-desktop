@@ -102,7 +102,53 @@ const AppDownload = () => {
 						{t("lbl_iOS_App_Trust_Authentication")}
 					</div>
 					<div>{t("lbl_Once_Nova88_App_is_installed")}</div>
-					<div>
+					<div className="installWrapper">
+						<div className="installStep">
+							<div>
+								<img
+									src={`${bannerImgUrl}/desktop/img/app/Step1.png`}
+									alt=""
+								/>
+								<div>
+									<span>{t("lbl_Step", { step: 1 })}</span>
+									{t("lbl_DownloadAppStep1")}
+								</div>
+							</div>
+							<div>
+								<img
+									src={`${bannerImgUrl}/desktop/img/app/Step2.png`}
+									alt=""
+								/>
+								<div>
+									<span>{t("lbl_Step", { step: 2 })}</span>
+									{t("lbl_DownloadAppStep2")}
+								</div>
+							</div>
+							<div>
+								<img
+									src={`${bannerImgUrl}/desktop/img/app/Step3.png`}
+									alt=""
+								/>
+								<div>
+									<span>{t("lbl_Step", { step: 3 })}</span>
+									{t("lbl_DownloadAppStep3")}
+									<br />
+									{t("lbl_DownloadAppStep3-1")}
+								</div>
+							</div>
+							<div>
+								<img
+									src={`${bannerImgUrl}/desktop/img/app/Step4.png`}
+									alt=""
+								/>
+								<div>
+									<span>{t("lbl_Step", { step: 4 })}</span>
+									{t("lbl_DownloadAppStep4")}
+								</div>
+							</div>
+						</div>
+					</div>
+					{/* <div>
 						<img
 							src={`${bannerImgUrl}/desktop/img/app/in01.png`}
 							alt="img_guide01"
@@ -119,7 +165,7 @@ const AppDownload = () => {
 							src={`${bannerImgUrl}/desktop/img/app/in04.png`}
 							alt="img_guide04"
 						/>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</>
