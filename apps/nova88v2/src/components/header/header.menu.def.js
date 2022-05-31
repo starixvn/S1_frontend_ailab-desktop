@@ -844,7 +844,12 @@ export const defMenuLinks = {
 	},
 	poker: {
 		displayKey: "lbl_Poker",
-		className: "pokerbtn"
+		className: "pokerbtn",
+		allowCurrencies: [
+			defCurrencyList.MYR,
+			defCurrencyList.THB,
+			defCurrencyList.IDR
+		]
 	},
 	games: {
 		displayKey: "lbl_Games",
