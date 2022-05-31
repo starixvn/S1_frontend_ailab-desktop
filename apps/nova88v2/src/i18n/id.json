@@ -943,6 +943,12 @@
 	"lbl_Once_Nova88_App_is_installed": "Setelah Aplikasi Nova88 diinstal, tap Percayai atau selesaikan pengaturan seperti di bawah ini.",
 	"lbl_Best_Mobile_Experience ": "Pengalaman Mobile Terbaik",
 	"lbl_AppBannerText": "Aplikasi Paling Bersahabat",
+	"lbl_Step": "Langkah {{step}}",
+	"lbl_DownloadAppStep1": "Klik tombol unduh Apple iOS dari situs Nova88.",
+	"lbl_DownloadAppStep2": "Klik 'Dapatkan Aplikasi' untuk mengarahkan ke halaman pratinjau aplikasi",
+	"lbl_DownloadAppStep3": "Anda akan dialihkan ke 'Mini Puzzle Game' di AppStore bukan aplikasi 'Nova88' ",
+	"lbl_DownloadAppStep3-1": "Klik 'Get' untuk mengunduh aplikasi 'Mini Puzzle Game'",
+	"lbl_DownloadAppStep4": "Buka 'Mini Puzzle Game' untuk meluncurkan aplikasi 'Nova88'",
 
 	"■■■■■■■■■■■■■■■■■■■■ header ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Promos": "Promosi",
