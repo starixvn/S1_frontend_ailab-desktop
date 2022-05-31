@@ -27,6 +27,19 @@ export const defMenuLinks = {
 				parameter: { ...productList.sportSaba }
 			},
 			{
+				...productList.sportBti,
+				subPath: path.sportBti.root,
+				className: "btiSport",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sportBti
+					})
+				],
+				displayKey: "lbl_Bti_Sport",
+				parameter: { ...productList.sportBti }
+			},
+			{
 				...productList.virtualSports,
 				subPath: path.sports.root,
 				className: "virtual",
@@ -39,19 +52,6 @@ export const defMenuLinks = {
 					})
 				]
 			}
-			// {
-			// 	...productList.sportBti,
-			// 	subPath: path.sportBti.root,
-			// 	className: "btiSport",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.sportBti
-			// 		})
-			// 	],
-			// 	displayKey: "lbl_Bti_Sport",
-			// 	parameter: { ...productList.sportBti }
-			// }
 		]
 	},
 	// cockFighting: {
