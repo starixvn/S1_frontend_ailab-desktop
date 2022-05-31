@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import path from "../../router";
 import productList, {
@@ -16,11 +17,11 @@ const defPlatform = [
 		parameter: { game: "soccer" },
 		imgName: "saba"
 	},
-	// {
-	// 	...productList.sportBti,
-	// 	path: path.sportBti.root,
-	// 	imgName: "bti"
-	// },
+	{
+		...productList.sportBti,
+		path: path.sportBti.root,
+		imgName: "bti"
+	},
 	{
 		...productList.liveCasino_AG,
 		imgName: "ag"
@@ -164,7 +165,7 @@ const defPlatform = [
 	// }
 ];
 
-export default ({ langId, isLogin, productTpIds, maintainList }) => {
+const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
 	const ClickItem = ({
@@ -209,9 +210,9 @@ export default ({ langId, isLogin, productTpIds, maintainList }) => {
 
 		let params = null;
 		if (p.parameter) {
-			params = Object.keys(p.parameter).map(_key => {
-				return `${_key}=${p.parameter[_key]}`;
-			});
+			params = Object.keys(p.parameter).map(
+				_key => `${_key}=${p.parameter[_key]}`
+			);
 		}
 
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
@@ -224,7 +225,7 @@ export default ({ langId, isLogin, productTpIds, maintainList }) => {
 		);
 
 		return (
-			<a
+			<button
 				key={key}
 				className={p.imgName}
 				onClick={ClickItem.bind(this, {
@@ -238,3 +239,17 @@ export default ({ langId, isLogin, productTpIds, maintainList }) => {
 
 	return <div className="platformGroup">{rows}</div>;
 };
+
+Platform.defaultProps = {
+	maintainList: null,
+	productTpIds: null
+};
+
+Platform.propTypes = {
+	langId: PropTypes.string.isRequired,
+	isLogin: PropTypes.bool.isRequired,
+	productTpIds: PropTypes.arrayOf(PropTypes.number),
+	maintainList: PropTypes.arrayOf(PropTypes.number)
+};
+
+export default Platform;

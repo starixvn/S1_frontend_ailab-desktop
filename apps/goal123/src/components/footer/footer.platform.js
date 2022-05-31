@@ -17,10 +17,11 @@ const defPlatform = [
 		parameter: { game: "soccer" },
 		imgName: "saba"
 	},
-	// {
-	// 	...productList.sportBti,
-	// 	imgName: "bti"
-	// },
+	{
+		path: path.sportBti.root,
+		...productList.sportBti,
+		imgName: "bti"
+	},
 	{
 		...productList.liveCasino_AG,
 		imgName: "ag"
@@ -179,9 +180,9 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 
 		let params = null;
 		if (p.parameter) {
-			params = Object.keys(p.parameter).map(_key => {
-				return `${_key}=${p.parameter[_key]}`;
-			});
+			params = Object.keys(p.parameter).map(
+				_key => `${_key}=${p.parameter[_key]}`
+			);
 		}
 
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
@@ -220,12 +221,15 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 };
 
 Platform.defaultProps = {
-	productTpIds: []
+	maintainList: null,
+	productTpIds: null
 };
 
 Platform.propTypes = {
+	langId: PropTypes.string.isRequired,
 	isLogin: PropTypes.bool.isRequired,
-	productTpIds: PropTypes.arrayOf(PropTypes.number)
+	productTpIds: PropTypes.arrayOf(PropTypes.number),
+	maintainList: PropTypes.arrayOf(PropTypes.number)
 };
 
 export default Platform;
