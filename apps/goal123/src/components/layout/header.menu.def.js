@@ -30,6 +30,23 @@ export const defMenuLinks = langId => ({
 				parameter: { ...productList.sportSaba }
 			},
 			{
+				...productList.sportBti,
+				subPath: path.sportBti.root,
+				menuType: defMenuType.entPage,
+				className: "BTI",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sportBti
+					})
+				],
+				displayKey: "lbl_Bti_Sport",
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti-icon.png`,
+				parameter: { ...productList.sportBti }
+			},
+			{
 				...productList.virtualSports,
 				subPath: path.sports.root,
 				className: "sport",
@@ -45,23 +62,6 @@ export const defMenuLinks = langId => ({
 					})
 				]
 			}
-			// {
-			// 	...productList.sportBti,
-			// 	subPath: path.sportBti.root,
-			// 	menuType: defMenuType.entPage,
-			// 	className: "BTI",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.sportBti
-			// 		})
-			// 	],
-			// 	displayKey: "lbl_Bti_Sport",
-			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti.png`,
-			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti-item.png`,
-			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/bti-icon.png`,
-			// 	parameter: { ...productList.sportBti }
-			// }
 		]
 	},
 	// cockFighting: {
