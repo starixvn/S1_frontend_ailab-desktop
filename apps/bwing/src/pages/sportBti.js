@@ -5,22 +5,20 @@ import Layout from "../components/common/layout";
 import { GET_ENTER_PAGE_URL } from "../service/enterPage";
 import productList from "../datas/productList";
 
-export default () => {
-	return (
-		<Wrapper>
-			<Layout>
-				<Content />
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper>
+		<Layout>
+			<Content />
+		</Layout>
+	</Wrapper>
+);
 
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const { tpId, tpGameType } = productList.sportBti;
 
 	return (
-		<main>
+		<main className="sportpage">
 			<section className="inside">
 				<iframe
 					title="sport"
