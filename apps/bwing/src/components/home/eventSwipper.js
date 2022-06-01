@@ -153,8 +153,12 @@ const HotEventContent = ({
 	);
 };
 
+HotEventContent.defaultProps = {
+	sportBattleDateTime: null
+};
+
 HotEventContent.propTypes = {
-	sportBattleDateTime: PropTypes.string.isRequired,
+	sportBattleDateTime: PropTypes.string,
 	sportTeamsHomePic: PropTypes.string.isRequired,
 	sportTeamsAwayPic: PropTypes.string.isRequired,
 	sportLeaguesId: PropTypes.string.isRequired,
