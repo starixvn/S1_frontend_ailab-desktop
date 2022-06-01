@@ -130,7 +130,7 @@ InputBox.propTypes = {
 	areaCode: PropTypes.string,
 	title: PropTypes.string,
 	icon: PropTypes.string,
-	checked: PropTypes.bool,
+	checked: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 	onKeyPress: PropTypes.func,
 	className: PropTypes.string,
 	placeholder: PropTypes.string,

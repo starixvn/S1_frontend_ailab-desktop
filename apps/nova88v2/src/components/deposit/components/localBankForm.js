@@ -70,9 +70,9 @@ const LocalBankForm = ({
 				.replace("$#$", ".");
 
 			if (userInfo.currencyId === defCurrencyList.IDR) {
-				amount = amount.replace(/^(\-)*(\d+)\.(\d\d\d).*$/, "$1$2.$3");
+				amount = amount.replace(/^(-)*(\d+)\.(\d\d\d).*$/, "$1$2.$3");
 			} else {
-				amount = amount.replace(/^(\-)*(\d+)\.(\d\d).*$/, "$1$2.$3");
+				amount = amount.replace(/^(-)*(\d+)\.(\d\d).*$/, "$1$2.$3");
 			}
 		}
 		setFormInfo(prev => ({ ...prev, amount }));
@@ -292,7 +292,8 @@ const LocalBankForm = ({
 							<button
 								key={`deposit-localPay-group-${item.sysId}}`}
 								className={className}
-								onClick={() => onChangeBankInfo(item)}>
+								onClick={() => onChangeBankInfo(item)}
+							>
 								<div>
 									<img
 										src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
@@ -402,7 +403,8 @@ const LocalBankForm = ({
 				<div
 					className={`inputBox-blue${
 						localBankChannelError.checked === false ? " error" : ""
-					}`}>
+					}`}
+				>
 					<Dropdown
 						mainKey="deposit-localbank-channel-provider"
 						defaultOption={
@@ -418,7 +420,8 @@ const LocalBankForm = ({
 				<div
 					className={`tip${
 						localBankChannelError.tip ? " active" : ""
-					}`}>
+					}`}
+				>
 					{localBankChannelError.tip}
 				</div>
 			</div>
@@ -436,7 +439,8 @@ const LocalBankForm = ({
 								localBankBankInfoErrpr.checked === false
 									? " error"
 									: ""
-							}`}>
+							}`}
+						>
 							<Dropdown
 								mainKey="deposit-localbank-Bank-provider"
 								defaultOption={
@@ -461,7 +465,8 @@ const LocalBankForm = ({
 											`/${userInfo.langId}/${path.bankInfo.root}`
 										)
 									}
-									className="btn-check">
+									className="btn-check"
+								>
 									+
 								</button>
 							</div>
@@ -470,7 +475,8 @@ const LocalBankForm = ({
 						<div
 							className={`tip${
 								localBankBankInfoErrpr.tip ? " active" : ""
-							}`}>
+							}`}
+						>
 							{localBankBankInfoErrpr.tip}
 						</div>
 					</div>
@@ -508,7 +514,8 @@ const LocalBankForm = ({
 };
 
 LocalBankForm.defaultProps = {
-	depositInfoStorage: {}
+	depositInfoStorage: {},
+	onChangePromotion: () => null
 };
 
 LocalBankForm.propTypes = {
@@ -531,6 +538,7 @@ LocalBankForm.propTypes = {
 	localBankChannelError: PropTypes.objectOf(PropTypes.any).isRequired,
 	localBankBankInfoErrpr: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositInfoStorage: PropTypes.objectOf(PropTypes.any),
-	isGroupListFetchDone: PropTypes.bool.isRequired
+	isGroupListFetchDone: PropTypes.bool.isRequired,
+	onChangePromotion: PropTypes.func
 };
 export default LocalBankForm;

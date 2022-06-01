@@ -42,23 +42,25 @@ const ConfirmPanel = ({
 	});
 
 	useEffect(() => {
-		api_payment_GetExchangeInfo({
-			Amount: real_amount,
-			CurrencyName: currencyName,
-			Network: network
-		}).then(
-			res => {
-				const { errorCode, message, data } = res.data;
-				if (errorCode === 0) {
-					setReceiveUSDT(Number(data.to_Amount).toString());
-				} else {
-					errorPopBox(message || "error", errorCode);
+		if (currencyName || network) {
+			api_payment_GetExchangeInfo({
+				Amount: real_amount,
+				CurrencyName: currencyName,
+				Network: network
+			}).then(
+				res => {
+					const { errorCode, message, data } = res.data;
+					if (errorCode === 0) {
+						setReceiveUSDT(Number(data.to_Amount).toString());
+					} else {
+						errorPopBox(message || "error", errorCode);
+					}
+				},
+				() => {
+					errorPopBox();
 				}
-			},
-			() => {
-				errorPopBox();
-			}
-		);
+			);
+		}
 	}, [real_amount, currencyName, network, errorPopBox]);
 
 	const toAmountPanel = () => {
@@ -111,7 +113,8 @@ const ConfirmPanel = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={setInitState}>
+									onClick={setInitState}
+								>
 									OK
 								</button>
 							</div>
@@ -126,7 +129,8 @@ const ConfirmPanel = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}>
+									onClick={ClosePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -141,7 +145,8 @@ const ConfirmPanel = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}>
+									onClick={ClosePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -159,7 +164,8 @@ const ConfirmPanel = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}>
+									onClick={ClosePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -174,7 +180,8 @@ const ConfirmPanel = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}>
+									onClick={ClosePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>

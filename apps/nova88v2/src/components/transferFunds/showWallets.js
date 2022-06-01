@@ -21,7 +21,8 @@ const ShowWallet = props => {
 				<span
 					className={`icon ${
 						item.id === 0 ? walletIcon[0] : walletIcon[1]
-					}`}>
+					}`}
+				>
 					{item.displayText ?? props.i18n(item.displayKey)}
 				</span>
 				<span>
@@ -32,14 +33,16 @@ const ShowWallet = props => {
 						<button
 							data-testid={`showWallet_manual_${item.id}`}
 							className="red"
-							onClick={props.clickManual.bind(this, item.id)}>
+							onClick={props.clickManual.bind(this, item.id)}
+						>
 							{props.i18n("lbl_Manual")}
 						</button>
 					) : (
 						<button
 							data-testid={`showWallet_restoreAll_${item.id}`}
 							className="orange"
-							onClick={props.restoreAll.bind(this, item.id)}>
+							onClick={props.restoreAll.bind(this, item.id)}
+						>
 							{props.i18n("lbl_RestoreAll")}
 						</button>
 					)}
@@ -66,6 +69,6 @@ ShowWallet.propTypes = {
 	_isConvert: PropTypes.bool.isRequired,
 	restoreAll: PropTypes.func.isRequired,
 	getAllWalletData: PropTypes.func.isRequired,
-	walletInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	walletInfo: PropTypes.arrayOf(PropTypes.any).isRequired,
 	clickManual: PropTypes.func
 };
