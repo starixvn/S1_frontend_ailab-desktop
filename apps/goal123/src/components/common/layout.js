@@ -27,7 +27,9 @@ const Layout = ({ children, showFooter = false, goTopBtn }) => {
 	});
 
 	const childrenWithProps = Children.map(children, child =>
-		isValidElement(child) ? cloneElement(child, { productTpIds }) : child
+		isValidElement(child)
+			? cloneElement(child, { producttpids: productTpIds })
+			: child
 	);
 
 	return (

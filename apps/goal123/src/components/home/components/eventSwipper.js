@@ -11,12 +11,6 @@ import { defBannerType } from "../../../service/api/site";
 import path from "../../../router";
 import usePopBox from "../../hook/usePopBox";
 
-import olympicsLogo from "../../../styles/img/oly_logo.png";
-
-const LEAGUESID_LIST = {
-	Olympic: 8
-};
-
 const EventSwipper = memo(({ langId }) => {
 	const { errorPopBox } = usePopBox();
 	const { banner } = useGetBanner({
@@ -76,7 +70,8 @@ const EventSwipper = memo(({ langId }) => {
 				withPagination={false}
 				config={{
 					autoplay: false
-				}}>
+				}}
+			>
 				{rows}
 			</CustomSwipper>
 		</div>
@@ -159,8 +154,12 @@ const HotEventContent = ({
 	);
 };
 
+HotEventContent.defaultProps = {
+	sportBattleDateTime: null
+};
+
 HotEventContent.propTypes = {
-	sportBattleDateTime: PropTypes.string.isRequired,
+	sportBattleDateTime: PropTypes.string,
 	sportTeamsHomePic: PropTypes.string.isRequired,
 	sportTeamsAwayPic: PropTypes.string.isRequired,
 	sportLeaguesId: PropTypes.string.isRequired,

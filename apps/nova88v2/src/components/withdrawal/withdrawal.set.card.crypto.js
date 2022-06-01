@@ -48,12 +48,14 @@ const CryptoCard = ({
 								AccountName,
 								CurrencyId
 							})
-						}>
+						}
+					>
 						{t("lbl_Yes")}
 					</button>
 					<button
 						className="btn-cancel"
-						onClick={() => setPopBox({ isOpen: false })}>
+						onClick={() => setPopBox({ isOpen: false })}
+					>
 						{t("lbl_No")}
 					</button>
 				</div>
@@ -81,9 +83,8 @@ const CryptoCard = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={() =>
-										setPopBox({ isOpen: false })
-									}>
+									onClick={() => setPopBox({ isOpen: false })}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -119,7 +120,11 @@ const CryptoCard = ({
 
 	if (usdtWalletArr?.length < 3) {
 		usdtWalletArr.push(
-			<div className="addBankName noBank" onClick={addCryptoWallet}>
+			<div
+				key="add-bank"
+				className="addBankName noBank"
+				onClick={addCryptoWallet}
+			>
 				<div className="icon icon-plus" />
 				<div>{t("lbl_Add_Crypto_Wallet")}</div>
 			</div>
@@ -138,6 +143,17 @@ const CryptoCard = ({
 			</div>
 		</div>
 	);
+};
+
+CryptoCard.propTypes = {
+	t: PropTypes.func.isRequired,
+	state: PropTypes.objectOf(PropTypes.any).isRequired,
+	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	selectAccount: PropTypes.func.isRequired,
+	addCryptoWallet: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	GetCustBankInfo: PropTypes.func.isRequired,
+	defPanel: PropTypes.objectOf(PropTypes.any).isRequired
 };
 
 const CryptoCardLayout = props => {
@@ -182,20 +198,14 @@ const CryptoCardLayout = props => {
 	);
 };
 
-CryptoCard.propTypes = {
-	t: PropTypes.func.isRequired,
-	state: PropTypes.objectOf(PropTypes.any).isRequired,
-	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	selectAccount: PropTypes.func.isRequired,
-	addCryptoWallet: PropTypes.func.isRequired
-};
-
 CryptoCardLayout.defaultProps = {
 	usdtAddress: "",
 	checkKey: null,
 	nickName: "",
 	network: "",
-	currencyName: ""
+	currencyName: "",
+	hideDelBtn: null,
+	currencyId: null
 };
 
 CryptoCardLayout.propTypes = {
@@ -205,6 +215,10 @@ CryptoCardLayout.propTypes = {
 	checked: PropTypes.bool.isRequired,
 	nickName: PropTypes.string,
 	network: PropTypes.string,
-	currencyName: PropTypes.string
+	currencyName: PropTypes.string,
+	hideDelBtn: PropTypes.bool,
+	delUSDTwallet: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	currencyId: PropTypes.number
 };
 export default CryptoCard;

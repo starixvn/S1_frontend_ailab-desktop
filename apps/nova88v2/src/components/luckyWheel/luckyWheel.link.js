@@ -34,7 +34,8 @@ const LuckyWheelLink = ({ langId, currencyId }) => {
 
 			<div
 				onClick={() => navigate(`/${langId}/${path.luckyWheel.root}`)}
-				className="wheelModule">
+				className="wheelModule"
+			>
 				<img
 					src={`${bannerImgUrl}/desktop/img/event/wheel/eventlinkbg.png`}
 					alt="luckywheel-img-eventlinkbg"
@@ -57,9 +58,13 @@ const LuckyWheelLink = ({ langId, currencyId }) => {
 	);
 };
 
+LuckyWheelLink.defaultProps = {
+	currencyId: null
+};
+
 LuckyWheelLink.propTypes = {
 	langId: PropTypes.string.isRequired,
-	currencyId: PropTypes.oneOf([PropTypes.number]).isRequired
+	currencyId: PropTypes.number
 };
 
 export default LuckyWheelLink;

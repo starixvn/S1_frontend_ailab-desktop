@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
 const PageContext = React.createContext();
@@ -16,10 +17,15 @@ export const PageContextProvider = ({ pageContext, children }) => {
 	}, [pageContext.lang]);
 
 	return (
-		<PageContext.Provider pageContext={pageContext}>
+		<PageContext.Provider value={pageContext} pageContext={pageContext}>
 			{children}
 		</PageContext.Provider>
 	);
+};
+
+PageContextProvider.propTypes = {
+	pageContext: PropTypes.objectOf(PropTypes.any).isRequired,
+	children: PropTypes.node.isRequired
 };
 
 export const usePageContext = () => React.useContext(PageContext);

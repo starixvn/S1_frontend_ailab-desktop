@@ -161,7 +161,7 @@ const LocalBankForm = ({
 				.replace(".", "$#$")
 				.replace(/\./g, "")
 				.replace("$#$", ".");
-			amount = amount.replace(/^(\-)*(\d+)\.(\d\d\d).*$/, "$1$2.$3");
+			amount = amount.replace(/^(-)*(\d+)\.(\d\d\d).*$/, "$1$2.$3");
 		}
 		const result = checkAmount({
 			amount,
@@ -198,7 +198,8 @@ const LocalBankForm = ({
 							className={
 								item.sysId === sysIdForRecord ? "active" : ""
 							}
-							onClick={() => onChangeBankInfo(item)}>
+							onClick={() => onChangeBankInfo(item)}
+						>
 							<div>
 								<img
 									src={`${

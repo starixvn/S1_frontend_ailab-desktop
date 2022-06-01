@@ -4,7 +4,6 @@ import Inputbox from "../../common/inputbox";
 import FixedAmountList from "./fixedAmountList";
 import { getUrlParameter, number_format } from "../../common/common";
 import config from "../../../config";
-
 import PromotionSelect from "./PromotionSelect";
 
 const MobileForm = ({
@@ -15,7 +14,6 @@ const MobileForm = ({
 	getMobilePayInfoList,
 	mobilePayInfoList,
 	formInfo,
-	depositPromoMsg,
 	setFormInfo,
 	onInputboxKeyDown,
 	depositPromoList,
@@ -61,12 +59,10 @@ const MobileForm = ({
 		);
 
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo(prev => {
-			return {
-				...item,
-				depositPromo: prev.depositPromo
-			};
-		});
+		setFormInfo(prev => ({
+			...item,
+			depositPromo: prev.depositPromo
+		}));
 	};
 
 	useEffect(() => {
@@ -99,10 +95,6 @@ const MobileForm = ({
 		digits: 0
 	});
 
-	const depositPromoMsgClass = ["tip", depositPromoMsg && "active"]
-		.filter(Boolean)
-		.join(" ");
-
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -121,7 +113,8 @@ const MobileForm = ({
 								item.groupId === groupIdForRecord
 									? "active"
 									: ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.groupName}
@@ -177,7 +170,8 @@ const MobileForm = ({
 										infoChannelIdForRecord
 											? "active"
 											: ""
-									}>
+									}
+								>
 									<div>
 										<img
 											alt={item.groupName}
@@ -293,7 +287,6 @@ MobileForm.propTypes = {
 	getMobilePayInfoList: PropTypes.func.isRequired,
 	mobilePayInfoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
-	depositPromoMsg: PropTypes.string.isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
