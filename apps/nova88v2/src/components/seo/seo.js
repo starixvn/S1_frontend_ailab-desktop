@@ -30,9 +30,7 @@ export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 							res.data.errorCode
 						);
 					}
-				} catch (err) {
-					console.error(err);
-				}
+				} catch (err) {}
 			}
 		};
 		GetDatas();
@@ -41,7 +39,7 @@ export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 	return { SEODatas };
 };
 
-function SEO({ description, lang, meta, title, getFromAPI }) {
+function SEO({ description, lang, meta, title }) {
 	// const { errorPopBox } = usePopBox();
 	// const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
 
@@ -107,7 +105,7 @@ function SEO({ description, lang, meta, title, getFromAPI }) {
 				},
 				{
 					property: `og:image`,
-					content: `${bannerImgUrl}/img/Nova88-Sports.jpg`
+					content: `${bannerImgUrl}/img/thumbnail/thumbnail_001.jpg`
 				},
 
 				{
