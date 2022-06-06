@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const FeaturePanel = ({ langId, t }) => {
 	if (langId === "en") return <EN t={t} />;
 	if (langId === "cs") return <CS t={t} />;
+	if (langId === "my") return <MY t={t} />;
 	if (langId === "th_en") return <THEN t={t} />;
 	if (langId === "th") return <TH t={t} />;
 	if (langId === "id_en") return <IDEN t={t} />;
@@ -60,6 +61,35 @@ const CS = ({ t }) => (
 		<ul>
 			<li>多样化产品平台配上超划赔率以及完整游戏体验。</li>
 			<li>多项支付方式且火速存/提款交易。</li>
+		</ul>
+	</div>
+);
+
+const MY = ({ t }) => (
+	<div className="features">
+		<div className="title">
+			<span className="icon icon-star-full" />
+			CIRI-CIRI
+		</div>
+		<div className="title">KELEBIHAN MENJADI AHLI</div>
+		<ul>
+			<li>{t("lbl_MemberBenefits_1")}</li>
+			<li>{t("lbl_MemberBenefits_2")}</li>
+			<li>{t("lbl_MemberBenefits_3")}</li>
+			<li>{t("lbl_MemberBenefits_4")}</li>
+		</ul>
+		<div className="title">
+			NIKMATI BONUS & REBAT EKSKLUSIF AHLI VIP NOVA88
+		</div>
+		<ul>
+			<li>
+				Produk platform yang berbilang dengan peluang kemenangan yang
+				lebih baik dan pengalaman permainan menyeluruh.
+			</li>
+			<li>
+				Proses deposit dan pengeluaran yang pantas dengan pelbagai
+				pilihan deposit.
+			</li>
 		</ul>
 	</div>
 );

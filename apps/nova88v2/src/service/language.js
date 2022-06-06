@@ -50,6 +50,8 @@ export const GET_LANG_ID = userLangId => {
 			langId = "cs";
 		} else if (browserDefLang.startsWith("zh")) {
 			langId = "cs";
+		} else if (browserDefLang.startsWith("my")) {
+			langId = "my";
 		} else if (browserDefLang.startsWith("th")) {
 			langId = "th";
 		} else if (browserDefLang.startsWith("vi")) {

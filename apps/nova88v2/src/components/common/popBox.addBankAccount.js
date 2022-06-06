@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "./context";
@@ -16,7 +17,7 @@ const initValue = {
 	ifscCode: ""
 };
 
-export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
+const PopBox = ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { errorPopBox } = usePopBox();
@@ -176,7 +177,8 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											OK
 										</button>
 									</div>
@@ -226,14 +228,16 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 						</div>
 						<div
 							className="iconModule"
-							onClick={clickInfo.bind(this, "realName_after")}>
+							onClick={clickInfo.bind(this, "realName_after")}
+						>
 							<i className="icon icon-information-solid" />
 						</div>
 					</div>
 					<div
 						className={`tip${
 							status.realName_after.tip ? " active" : ""
-						}`}>
+						}`}
+					>
 						{status.realName_after.tip}
 					</div>
 				</>
@@ -290,3 +294,15 @@ export default ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 		</div>
 	);
 };
+
+PopBox.defaultProps = {
+	custBankInfo: null
+};
+
+PopBox.propTypes = {
+	bankInfoSysList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	custBankInfo: PropTypes.objectOf(PropTypes.any),
+	GetCustBankInfo: PropTypes.func.isRequired
+};
+
+export default PopBox;

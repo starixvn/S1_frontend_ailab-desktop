@@ -14,7 +14,7 @@ export const getUrl = (preUrl, info) =>
 	`/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;
 
 export const getCurrentPage = () =>
-	typeof window !== undefined
+	typeof window !== "undefined"
 		? `${window.location.pathname}${window.location.search}`
 		: "";
 
@@ -155,7 +155,8 @@ export default ({
 						onClick={showLogin}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</button>
@@ -173,7 +174,8 @@ export default ({
 							rule.entPageUrl,
 							rule.windowKey
 						)}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</a>
@@ -186,7 +188,8 @@ export default ({
 						key={key}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
-						onFocus={() => 0}>
+						onFocus={() => 0}
+					>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</button>
@@ -230,7 +233,8 @@ export default ({
 					<button
 						key={key}
 						className={_className}
-						onClick={showLinkOptionsPopBox}>
+						onClick={showLinkOptionsPopBox}
+					>
 						{displayText}
 					</button>
 				);
@@ -240,9 +244,7 @@ export default ({
 
 			_className =
 				checkMatchPage && _url === currentPage
-					? _className
-						? `${_className} active`
-						: "active"
+					? `${_className} active`
 					: _className;
 
 			return !productTpIds ||
@@ -252,7 +254,8 @@ export default ({
 					key={key}
 					to={_url}
 					className={_className}
-					onMouseOver={_showSubMenu.bind(this, key)}>
+					onMouseOver={_showSubMenu.bind(this, key)}
+				>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</Link>
@@ -261,7 +264,8 @@ export default ({
 					key={key}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}
-					onFocus={() => 0}>
+					onFocus={() => 0}
+				>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</button>
@@ -273,9 +277,7 @@ export default ({
 		if ((_path || _menuType === defMenuType.Link) && isAllowCurrencies(m)) {
 			_className =
 				checkMatchPage && `${langId}/${_path}` === currentPage
-					? _className
-						? `${_className} active`
-						: "active"
+					? `${_className} active`
 					: _className;
 
 			return (
@@ -283,7 +285,8 @@ export default ({
 					key={key}
 					to={`/${langId}/${_path}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
-					className={_className}>
+					className={_className}
+				>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</Link>
@@ -295,7 +298,8 @@ export default ({
 				key={key}
 				onMouseOver={_showSubMenu.bind(this, key)}
 				className={_className}
-				onFocus={() => 0}>
+				onFocus={() => 0}
+			>
 				<div className={iconStrings}>{iconContent}</div>
 				{displayText}
 			</button>

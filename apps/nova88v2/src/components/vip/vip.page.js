@@ -50,6 +50,15 @@ const VipPage = ({
 	</>
 );
 
+VipPage.propTypes = {
+	pageClubImg: PropTypes.arrayOf(PropTypes.object).isRequired,
+	currencyId: PropTypes.number.isRequired,
+	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired,
+	showJoinPopBox: PropTypes.func.isRequired,
+	bottomImg: PropTypes.string.isRequired
+};
+
 const VipPageEventList = ({ currencyId }) => {
 	const _isConvert = isConvert(currencyId);
 	if (currencyId === currencyCode.TH)
@@ -65,12 +74,8 @@ const VipPageEventList = ({ currencyId }) => {
 	return <PageEventListMyr currencyId={currencyId} isConvert={_isConvert} />;
 };
 
-VipPage.propTypes = {
-	pageClubImg: PropTypes.arrayOf(PropTypes.object).isRequired,
-	currencyId: PropTypes.number.isRequired,
-	t: PropTypes.func.isRequired,
-	langId: PropTypes.string.isRequired,
-	showJoinPopBox: PropTypes.func.isRequired
+VipPageEventList.propTypes = {
+	currencyId: PropTypes.number.isRequired
 };
 
 export default VipPage;

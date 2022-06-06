@@ -22,5 +22,6 @@ const AccountName = ({ t, accountName }) => {
 export default memo(AccountName);
 
 AccountName.propTypes = {
-	accountName: PropTypes.string.isRequired
+	accountName: PropTypes.string.isRequired,
+	t: PropTypes.func.isRequired
 };
