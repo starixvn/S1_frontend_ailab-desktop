@@ -78,7 +78,8 @@ const JoinForm = ({
 			<div
 				className={`inputBox-blue${
 					tip.currency.msg !== "" ? " error" : ""
-				}`}>
+				}`}
+			>
 				<Dropdown
 					defaultOption={defaultOption}
 					mainKey="join_currency"
@@ -106,7 +107,8 @@ const JoinForm = ({
 							!tip.phone.checked && tip.phone.msg !== ""
 								? " error"
 								: ""
-						}`}>
+						}`}
+					>
 						<Dropdown
 							defaultOption={_areaCode}
 							mainKey="area_code"
@@ -139,13 +141,12 @@ const JoinForm = ({
 				</div>
 			) : null}
 
-			{userValue.currencyIdx !== null ? (
-				tip.phone.msg ? (
+			{userValue.currencyIdx !== null &&
+				(tip.phone.msg ? (
 					<div className="tip active txt-red">{tip.phone.msg}</div>
 				) : (
 					<div className="tip active">{t("lbl_CantChangePhone")}</div>
-				)
-			) : null}
+				))}
 
 			<Inputbox
 				className={`inputBox-blue${
@@ -178,7 +179,8 @@ const JoinForm = ({
 				className="txt-blue"
 				target="_blank"
 				rel="noreferrer"
-				href={tandCTerms}>
+				href={tandCTerms}
+			>
 				{t("lbl_sign_up_terms_center")}
 			</a>
 			{t("lbl_sign_up_terms_end")}

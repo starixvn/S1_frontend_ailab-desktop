@@ -222,14 +222,15 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 
 Platform.defaultProps = {
 	maintainList: null,
-	productTpIds: null
+	productTpIds: null,
+	langId: null
 };
 
 Platform.propTypes = {
-	langId: PropTypes.string.isRequired,
 	isLogin: PropTypes.bool.isRequired,
 	productTpIds: PropTypes.arrayOf(PropTypes.number),
-	maintainList: PropTypes.arrayOf(PropTypes.number)
+	maintainList: PropTypes.arrayOf(PropTypes.any),
+	langId: PropTypes.string
 };
 
 export default Platform;

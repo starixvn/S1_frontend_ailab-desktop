@@ -18,7 +18,6 @@ export default () => {
 	const [showTip, setShowTip] = useState(false);
 	const isMountedRef = useRef(null);
 	const [loading, setLoading] = useState(true);
-	const [accountName, setAccountName] = useState(null);
 	const [walletInfo, setWalletInfo] = useState([]);
 
 	useEffect(() => {
@@ -47,7 +46,6 @@ export default () => {
 								...prev,
 								accountName: resData.accountName
 							}));
-							setAccountName(resData.accountName);
 							setWalletInfo(resData.uSDTDetail || []);
 						}
 					} else {
@@ -78,7 +76,8 @@ export default () => {
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}>
+							to={`/${userInfo.langId}/${path.profile.root}`}
+						>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>

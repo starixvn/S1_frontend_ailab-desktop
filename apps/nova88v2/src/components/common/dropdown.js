@@ -3,25 +3,6 @@ import React, { Component, createRef } from "react";
 import { defCurrencyToClass } from "./common";
 
 class Dropdown extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = { isOpen: false };
-		this.wrapper = createRef(null);
-	}
-
-	UNSAFE_componentWillMount() {
-		if (typeof document !== `undefined`) {
-			document.removeEventListener("mousedown", this.handleClickOutside);
-		}
-	}
-
-	componentDidMount() {
-		if (typeof document !== `undefined`) {
-			document.addEventListener("mousedown", this.handleClickOutside);
-		}
-	}
-
 	handleClickOutside = e => {
 		if (this.wrapper.current && !this.wrapper.current.contains(e.target)) {
 			this.setState({ isOpen: false });
@@ -45,6 +26,25 @@ class Dropdown extends Component {
 		this.setState({ isOpen: false });
 		this.props.onSelectItem(idx, item);
 	};
+
+	constructor(props) {
+		super(props);
+
+		this.state = { isOpen: false };
+		this.wrapper = createRef(null);
+	}
+
+	UNSAFE_componentWillMount() {
+		if (typeof document !== `undefined`) {
+			document.removeEventListener("mousedown", this.handleClickOutside);
+		}
+	}
+
+	componentDidMount() {
+		if (typeof document !== `undefined`) {
+			document.addEventListener("mousedown", this.handleClickOutside);
+		}
+	}
 
 	render() {
 		const arr = this.props.options
@@ -110,7 +110,8 @@ class Dropdown extends Component {
 				className="dropdown"
 				ref={this.wrapper}
 				onClick={this.clickDropdown}
-				data-testid={`dropdown_${this.props.mainKey}`}>
+				data-testid={`dropdown_${this.props.mainKey}`}
+			>
 				{this.props.title ? <span>{this.props.title}</span> : null}
 				{this.props.icon ? (
 					<i className={`icon ${this.props.icon}`} />
@@ -138,7 +139,8 @@ class Dropdown extends Component {
 						className={`dropdown-container${
 							this.state.isOpen ? " active" : ""
 						}`}
-						data-testid={`dropdown_container_${this.props.mainKey}`}>
+						data-testid={`dropdown_container_${this.props.mainKey}`}
+					>
 						{arr}
 					</div>
 				)}
@@ -147,29 +149,37 @@ class Dropdown extends Component {
 	}
 }
 
-const Item = props => (
-	<div
-		className="dropdown-item"
-		onClick={props.onClick}
-		data-testid={`dropdown-item-${props.displayKey}`}>
-		{props.flag && props.currencyId ? (
-			<div className={`flag ${defCurrencyToClass[props.currencyId]}`} />
-		) : (
-			""
-		)}
-		{props.imgUrl ? (
+const Item = props => {
+	let content = `${props.i18n(props.displayKey)} ${props.year ?? ""}`;
+	if (props.imgUrl) {
+		content = (
 			<>
 				<div className={props.className}>
 					<img src={props.imgUrl} alt="" />
 				</div>
 				<div>{props.displayText}</div>
 			</>
-		) : props.displayText ? (
-			props.displayText
-		) : (
-			`${props.i18n(props.displayKey)} ${props.year ?? ""}`
-		)}
-	</div>
-);
+		);
+	} else if (props.displayText) {
+		content = props.displayText;
+	}
+
+	return (
+		<div
+			className="dropdown-item"
+			onClick={props.onClick}
+			data-testid={`dropdown-item-${props.displayKey}`}
+		>
+			{props.flag && props.currencyId ? (
+				<div
+					className={`flag ${defCurrencyToClass[props.currencyId]}`}
+				/>
+			) : (
+				""
+			)}
+			{content}
+		</div>
+	);
+};
 
 export default Dropdown;

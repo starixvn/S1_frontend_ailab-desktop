@@ -151,7 +151,8 @@ export default () => {
 						onMouseOver={switchIconActive.bind(this, idx)}
 						onFocus={() => 0}
 						onMouseOut={removeIconActive.bind(this)}
-						onBlur={() => 0}>
+						onBlur={() => 0}
+					>
 						{img}
 					</button>
 				);
@@ -169,7 +170,8 @@ export default () => {
 					onMouseOver={switchIconActive.bind(this, idx)}
 					onFocus={() => 0}
 					onMouseOut={removeIconActive.bind(this)}
-					onBlur={() => 0}>
+					onBlur={() => 0}
+				>
 					{img}
 				</a>
 			);
@@ -181,14 +183,16 @@ export default () => {
 			<div
 				className={`quickLinkNew1${isIconListOpen ? " active" : ""}`}
 				onMouseOver={toggleIconMenu.bind(this, "contactUs")}
-				onFocus={() => 0}>
+				onFocus={() => 0}
+			>
 				<i className="icon icon-arrow-left2" />
 				<div>{t("lbl_ContactUs")}</div>
 			</div>
 			<div
 				className={`quickLinkNew2${isIconListOpen ? "" : " active"}`}
 				onMouseLeave={toggleIconMenu.bind(this, "")}
-				onBlur={() => 0}>
+				onBlur={() => 0}
+			>
 				<i className="icon icon-arrow-right2" />
 				{iconList}
 			</div>

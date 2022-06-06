@@ -9,7 +9,8 @@ const getLangs = (currencyId, langKey) => {
 	const defLangGroups = {
 		ch: [
 			{ displayText: "English", value: "en" },
-			{ displayText: "简体中文", value: "cs" }
+			{ displayText: "简体中文", value: "cs" },
+			{ displayText: "Malay", value: "my" }
 		],
 		th: [
 			{ displayText: "English", value: "th_en" },

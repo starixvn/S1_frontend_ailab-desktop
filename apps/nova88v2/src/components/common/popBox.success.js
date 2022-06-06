@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
-export default ({
+const PopBox = ({
 	icon = "icon icon-bell",
 	btnBar,
 	description = null,
@@ -21,3 +22,19 @@ export default ({
 		</div>
 	);
 };
+
+PopBox.defaultProps = {
+	icon: null,
+	btnBar: null,
+	description: null,
+	title: null
+};
+
+PopBox.propTypes = {
+	icon: PropTypes.string,
+	btnBar: PropTypes.node,
+	description: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
+	title: PropTypes.string
+};
+
+export default PopBox;

@@ -23,7 +23,7 @@ import {
 } from "../../service/language";
 import { SiteInfo } from "../../config";
 import useGetWalletInfo from "./wrapper.walletInfo";
-import SEO, { useGetSEODatas } from "../seo/seo";
+// import SEO, { useGetSEODatas } from "../seo/seo";
 import ThirdPartyJS from "./thirdPartyJS";
 import usePopBox from "../hook/usePopBox";
 
@@ -124,7 +124,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -144,7 +145,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -186,7 +188,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -251,7 +254,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}>
+											}}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -271,7 +275,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}>
+											}}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -297,7 +302,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -317,7 +323,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -417,7 +424,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -437,7 +445,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -473,20 +482,26 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				<ct.maintainListContext.Provider value={{ allMaintainList }}>
 					<ct.productTpIdsContext.Provider value={{ productTpIds }}>
 						<ct.userInfoContext.Provider
-							value={{ userInfo, setUserInfo }}>
+							value={{ userInfo, setUserInfo }}
+						>
 							<ct.walletInfoContext.Provider
 								value={{
 									...walletInfo.state,
 									dispatch: walletInfo.dispatch
-								}}>
+								}}
+							>
 								<ct.msgCountContext.Provider
-									value={{ msgCount, setMsgCount }}>
+									value={{ msgCount, setMsgCount }}
+								>
 									<ct.popBoxContext.Provider
-										value={{ popBox, setPopBox }}>
+										value={{ popBox, setPopBox }}
+									>
 										<ct.loadingContext.Provider
-											value={{ loading, setLoading }}>
+											value={{ loading, setLoading }}
+										>
 											<ct.isRootContext.Provider
-												value={{ isRoot, setIsRoot }}>
+												value={{ isRoot, setIsRoot }}
+											>
 												<ThirdPartyJS />
 
 												{children}

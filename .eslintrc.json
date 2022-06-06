@@ -84,7 +84,7 @@
 		"new-cap": ["error", { "newIsCap": false, "capIsNew": false }],
 		"@typescript-eslint/no-var-requires": "off",
 		"import/no-named-as-default-member": "off",
-		"import/no-cycle": ["warn"]
+		"import/no-cycle": ["off"]
 	},
 	"overrides": [
 		{

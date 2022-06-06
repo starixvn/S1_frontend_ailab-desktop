@@ -184,11 +184,12 @@ export default () => {
 		? currencyToAreacode[_currencyId]
 		: null;
 
-	const _areaCode = isUSDT
-		? usdtAreaCode
-		: currencyToCountryCode !== null
-		? areaCode[currencyToCountryCode]?.AreaCode
-		: null;
+	let _areaCode;
+	if (isUSDT) {
+		_areaCode = usdtAreaCode;
+	} else if (currencyToCountryCode !== null) {
+		_areaCode = areaCode[currencyToCountryCode]?.AreaCode;
+	}
 
 	const setCurrencyTip = (col, _defaultOption) => {
 		const result = currencyCheck(_defaultOption);

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 const FeaturePanel = ({ langId, t }) => {
 	if (langId === "en") return <EN t={t} />;
 	if (langId === "cs") return <CS t={t} />;
+	if (langId === "my") return <MY t={t} />;
 	if (langId === "th_en") return <THEN t={t} />;
 	if (langId === "th") return <TH t={t} />;
 	if (langId === "id_en") return <IDEN t={t} />;
@@ -14,6 +15,7 @@ const FeaturePanel = ({ langId, t }) => {
 };
 
 FeaturePanel.propTypes = {
+	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired
 };
 
@@ -43,6 +45,10 @@ const EN = ({ t }) => (
 	</div>
 );
 
+EN.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const CS = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -63,6 +69,43 @@ const CS = ({ t }) => (
 		</ul>
 	</div>
 );
+
+CS.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
+const MY = ({ t }) => (
+	<div className="features">
+		<div className="title">
+			<span className="icon icon-star-full" />
+			CIRI-CIRI
+		</div>
+		<div className="title">KELEBIHAN MENJADI AHLI</div>
+		<ul>
+			<li>{t("lbl_MemberBenefits_1")}</li>
+			<li>{t("lbl_MemberBenefits_2")}</li>
+			<li>{t("lbl_MemberBenefits_3")}</li>
+			<li>{t("lbl_MemberBenefits_4")}</li>
+		</ul>
+		<div className="title">
+			NIKMATI BONUS & REBAT EKSKLUSIF AHLI VIP NOVA88
+		</div>
+		<ul>
+			<li>
+				Produk platform yang berbilang dengan peluang kemenangan yang
+				lebih baik dan pengalaman permainan menyeluruh.
+			</li>
+			<li>
+				Proses deposit dan pengeluaran yang pantas dengan pelbagai
+				pilihan deposit.
+			</li>
+		</ul>
+	</div>
+);
+
+MY.propTypes = {
+	t: PropTypes.func.isRequired
+};
 
 const THEN = ({ t }) => (
 	<div className="features">
@@ -88,6 +131,10 @@ const THEN = ({ t }) => (
 	</div>
 );
 
+THEN.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const TH = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -110,6 +157,10 @@ const TH = ({ t }) => (
 		</ul>
 	</div>
 );
+
+TH.propTypes = {
+	t: PropTypes.func.isRequired
+};
 
 const IDEN = ({ t }) => (
 	<div className="features">
@@ -135,6 +186,10 @@ const IDEN = ({ t }) => (
 	</div>
 );
 
+IDEN.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const ID = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -158,6 +213,10 @@ const ID = ({ t }) => (
 		</ul>
 	</div>
 );
+
+ID.propTypes = {
+	t: PropTypes.func.isRequired
+};
 
 const HIEN = ({ t }) => (
 	<div className="features">
@@ -183,6 +242,10 @@ const HIEN = ({ t }) => (
 	</div>
 );
 
+HIEN.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const HI = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -205,3 +268,7 @@ const HI = ({ t }) => (
 		</ul>
 	</div>
 );
+
+HI.propTypes = {
+	t: PropTypes.func.isRequired
+};

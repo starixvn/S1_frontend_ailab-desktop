@@ -30,7 +30,7 @@ export const number_format = (
 	const re = /(\d{1,3})(?=(\d{3})+$)/g;
 	return (
 		arr[0].replace(re, "$1,") +
-		(arr.length == 2 ? `.${arr[1]}` : "") +
+		(arr.length === 2 ? `.${arr[1]}` : "") +
 		(IsConvertRequired ? " ('000)" : "")
 	);
 };
@@ -40,9 +40,7 @@ const _isConvertList = {
 	15: true
 };
 
-export const isConvert = currencyId => {
-	return _isConvertList[currencyId] === true;
-};
+export const isConvert = currencyId => _isConvertList[currencyId] === true;
 
 export const getCurrencyCode = langId => {
 	if (!langId) return null;
@@ -92,14 +90,13 @@ export const checkAmount = ({
 	return { status, msg };
 };
 
-export const getAmountTip = (minAmount, _isConvert, i18n) => {
-	return isNaN(minAmount)
+export const getAmountTip = (minAmount, _isConvert, i18n) =>
+	isNaN(minAmount)
 		? i18n("lbl_AmountTooltip")?.replace("{0}", 0)
 		: i18n("lbl_AmountTooltip")?.replace(
 				"{0}",
 				number_format(minAmount, _isConvert)
 		  );
-};
 
 export const setCookie = (cookieName, cookieValue, exdays) => {
 	const d = new Date();
@@ -130,13 +127,14 @@ export const deleteCookie = cookieName => {
 
 export const routerFlattenToPath = (path, orderNumber) => {
 	//  將 router 物件扁平化後轉換成路徑
-	const flattenDeepObject = obj => {
-		return Object.values(obj).reduce((acc, val) => {
-			return typeof val === "object"
-				? acc.concat(flattenDeepObject(val))
-				: acc.concat(val);
-		}, []);
-	};
+	const flattenDeepObject = obj =>
+		Object.values(obj).reduce(
+			(acc, val) =>
+				typeof val === "object"
+					? acc.concat(flattenDeepObject(val))
+					: acc.concat(val),
+			[]
+		);
 	return flattenDeepObject(path)
 		.splice(0, orderNumber || flattenDeepObject(path).length)
 		.join("/");
@@ -192,23 +190,19 @@ export const removeLocalStorage = key => {
 	localStorage.removeItem(key);
 };
 
-export const uuidv4 = () => {
+export const uuidv4 = () =>
 	// eslint-disable-next-line func-names
-	return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
-		/[xy]/g,
-		function (c) {
-			// eslint-disable-next-line no-bitwise
-			const r = (Math.random() * 16) | 0;
-			// eslint-disable-next-line no-bitwise
-			const v = c === "x" ? r : (r & 0x3) | 0x8;
-			return v.toString(16);
-		}
-	);
-};
+	"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+		// eslint-disable-next-line no-bitwise
+		const r = (Math.random() * 16) | 0;
+		// eslint-disable-next-line no-bitwise
+		const v = c === "x" ? r : (r & 0x3) | 0x8;
+		return v.toString(16);
+	});
 
 export const stringLinkify = text => {
 	const pattern =
-		/(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+		/(\b(https?):\/\/[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|])/gim;
 	return text
 		.replace(pattern, '<a href="$1" target="_blank">$1</a>')
 		.replaceAll("\n", "<br>");
@@ -225,6 +219,7 @@ export const defCurrencyList = {
 export const langAndCurrMapping = {
 	en: 2,
 	cs: 2,
+	my: 2,
 	th: 4,
 	th_en: 4,
 	id: 15,
@@ -255,6 +250,7 @@ export const validImgLang = langId => {
 	if (
 		langId !== "en" &&
 		langId !== "cs" &&
+		langId !== "my" &&
 		langId !== "th" &&
 		langId !== "id"
 	) {

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 
-export default props => {
+const Content = props => {
 	const { t } = useTranslation();
 
 	const [showRealNameHint, setShowRealNameHint] = useState(false);
@@ -43,3 +44,19 @@ export default props => {
 		</>
 	);
 };
+
+Content.defaultProps = {
+	accountName: null,
+	availableBalance: null,
+	_isConvert: null,
+	refreshAvailableBalance: null
+};
+
+Content.propTypes = {
+	accountName: PropTypes.string,
+	availableBalance: PropTypes.number,
+	_isConvert: PropTypes.bool,
+	refreshAvailableBalance: PropTypes.func
+};
+
+export default Content;
