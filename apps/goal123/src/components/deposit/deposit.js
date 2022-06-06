@@ -250,7 +250,8 @@ const Deposit = () => {
 							navigate(
 								`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`
 							)
-						}>
+						}
+					>
 						{t("lbl_UpdatePersonalDetail")}
 					</button>
 				</div>
@@ -300,7 +301,6 @@ const Deposit = () => {
 
 		if (typeof window !== "undefined") {
 			const {
-				payId,
 				sysId,
 				channelId,
 				amount,
@@ -338,12 +338,14 @@ const Deposit = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={() => resolve(false)}>
+										onClick={() => resolve(false)}
+									>
 										{t("lbl_ReModify")}
 									</button>
 									<button
 										className="btn-check"
-										onClick={() => resolve(true)}>
+										onClick={() => resolve(true)}
+									>
 										{t("lbl_Confirm")}
 									</button>
 								</div>
@@ -399,7 +401,8 @@ const Deposit = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}>
+											onClick={closePopBox}
+										>
 											OK
 										</button>
 									</div>
@@ -683,7 +686,8 @@ const Deposit = () => {
 				depositType={depositType}
 				checked={!!checked}
 				onSubmit={onSubmit}
-				setDepositType={onChangeDepositType}>
+				setDepositType={onChangeDepositType}
+			>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}

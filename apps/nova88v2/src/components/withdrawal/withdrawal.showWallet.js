@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useContext, useState } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
 import { number_format, isConvert } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 
-export default ({ balanceData, GetWithdrawalAvailableBalance }) => {
+const Content = ({ balanceData, GetWithdrawalAvailableBalance }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const [realNameTip, setRealNameTip] = useState("");
@@ -55,3 +56,10 @@ export default ({ balanceData, GetWithdrawalAvailableBalance }) => {
 		</div>
 	);
 };
+
+Content.propTypes = {
+	balanceData: PropTypes.objectOf(PropTypes.any).isRequired,
+	GetWithdrawalAvailableBalance: PropTypes.func.isRequired
+};
+
+export default Content;

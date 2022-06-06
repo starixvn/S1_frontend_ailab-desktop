@@ -1,6 +1,7 @@
 export const defLangList = [
 	"en",
 	"cs",
+	"my",
 	"th",
 	"th_en",
 	"id",
@@ -11,19 +12,16 @@ export const defLangList = [
 
 export const defOldLangList = ["en", "cs", "th", "id"];
 
-export const isOldLang = _lang => {
-	return defOldLangList.includes(_lang);
-};
+export const isOldLang = _lang => defOldLangList.includes(_lang);
 
 export const defCountryLangList = ["en", "cs", "th", "id", "hi"];
 
-export const isCountryLang = _lang => {
-	return defCountryLangList.includes(_lang);
-};
+export const isCountryLang = _lang => defCountryLangList.includes(_lang);
 
 export const defLang = {
 	en: "en",
 	cs: "cs",
+	my: "my",
 	th: "th",
 	th_en: "th_en",
 	id: "id",
@@ -35,6 +33,7 @@ export const defLang = {
 export const defLangToCurrency = {
 	en: "MYR",
 	cs: "MYR",
+	my: "MYR",
 	th: "THB",
 	th_en: "THB",
 	id: "IDR",

@@ -6,22 +6,20 @@
 
 // You can delete this file if you're not using it
 import React from "react";
+import { I18nextProvider } from "react-i18next";
 import { PageContextProvider } from "./src/components/common/pageContext";
 import i18n from "./src/i18n/config";
 import SEO from "./src/components/seo/seo";
-import { I18nextProvider } from "react-i18next";
 
-export const wrapRootElement = ({ element }) => {
-	return <I18nextProvider i18n={i18n}>{element}</I18nextProvider>;
-};
+export const wrapRootElement = ({ element }) => (
+	<I18nextProvider i18n={i18n}>{element}</I18nextProvider>
+);
 
-export const wrapPageElement = ({ element, props }) => {
-	return (
-		<>
-			<SEO lang={"en"} />
-			<PageContextProvider pageContext={props.pageContext}>
-				{element}
-			</PageContextProvider>
-		</>
-	);
-};
+export const wrapPageElement = ({ element, props }) => (
+	<>
+		<SEO lang="en" />
+		<PageContextProvider pageContext={props.pageContext}>
+			{element}
+		</PageContextProvider>
+	</>
+);

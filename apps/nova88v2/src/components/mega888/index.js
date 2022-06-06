@@ -5,6 +5,7 @@ import React, {
 	useState,
 	useRef
 } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import QRCode from "qrcode.react";
 import { useGotoGame } from "../hook/useGotoGame";
@@ -111,7 +112,8 @@ const Component = () => {
 												downloadLink.android
 											}
 											target="_blank"
-											rel="noreferrer">
+											rel="noreferrer"
+										>
 											<i className="icon icon-android" />
 											<div>
 												{t("mega888.app_for_android")}
@@ -142,7 +144,8 @@ const Component = () => {
 											href={
 												getLink(defType.IOS) ??
 												downloadLink.ios
-											}>
+											}
+										>
 											<i className="icon icon-appleinc" />
 											<div>
 												{t("mega888.app_for_ios")}
@@ -171,7 +174,8 @@ const Component = () => {
 											href={
 												getLink(defType.WindowsPC) ??
 												downloadLink.windows
-											}>
+											}
+										>
 											<i className="icon icon-windows" />
 											<div>
 												Windows PC
@@ -208,6 +212,10 @@ const ButtonWithCopyBtn = ({ value }) => {
 			/>
 		</div>
 	);
+};
+
+ButtonWithCopyBtn.propTypes = {
+	value: PropTypes.string.isRequired
 };
 
 export default Component;

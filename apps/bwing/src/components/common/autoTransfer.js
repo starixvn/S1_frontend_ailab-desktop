@@ -86,7 +86,8 @@ const AutoTransfer = () => {
 						</button>
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}>
+							onClick={() => setPopBox({ isOpen: false })}
+						>
 							{t("lbl_Cancel")}
 						</button>
 					</div>
@@ -105,7 +106,8 @@ const AutoTransfer = () => {
 			{t("lbl_Main_Wallet_Auto_Transfer")}
 			<button
 				className={`switchBtn${isAutoTransfer ? " active" : ""}`}
-				onClick={onChangeAutoTransfer}>
+				onClick={onChangeAutoTransfer}
+			>
 				<span>ON</span>
 				<span>OFF</span>
 				<div className={isAutoTransfer ? "active" : ""} />

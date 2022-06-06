@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext, userInfoContext } from "./context";
-import { defPopBoxType } from "./popBox";
+import defPopBoxType from "./defPopBoxType";
 import config from "../../config";
 import Dropdown from "./dropdown";
 import Inputbox from "./inputbox";
@@ -13,7 +14,7 @@ const initValue = {
 	accountNo: ""
 };
 
-export default ({ bankInfoSysList = [], updateCustBankInfo }) => {
+const PopBox = ({ bankInfoSysList = [], updateCustBankInfo }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -148,7 +149,8 @@ export default ({ bankInfoSysList = [], updateCustBankInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClickCancel}>
+											onClick={ClickCancel}
+										>
 											OK
 										</button>
 									</div>
@@ -163,7 +165,8 @@ export default ({ bankInfoSysList = [], updateCustBankInfo }) => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -182,7 +185,8 @@ export default ({ bankInfoSysList = [], updateCustBankInfo }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -219,7 +223,8 @@ export default ({ bankInfoSysList = [], updateCustBankInfo }) => {
 						</div>
 						<div
 							className="iconModule"
-							onClick={clickInfo.bind(this, "realName_after")}>
+							onClick={clickInfo.bind(this, "realName_after")}
+						>
 							<i className="icon icon-information-solid" />
 						</div>
 					</div>
@@ -256,3 +261,10 @@ export default ({ bankInfoSysList = [], updateCustBankInfo }) => {
 		</div>
 	);
 };
+
+PopBox.propTypes = {
+	bankInfoSysList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	updateCustBankInfo: PropTypes.func.isRequired
+};
+
+export default PopBox;

@@ -11,7 +11,8 @@ module.exports = {
 			"id",
 			"id_en",
 			"hi",
-			"hi_en"
+			"hi_en",
+			"my"
 		]
 	},
 	flags: {

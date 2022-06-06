@@ -59,7 +59,8 @@ const SetAmount = ({
 					<button
 						className="btn-check"
 						type="submit"
-						data-testid="setAmount_submit">
+						data-testid="setAmount_submit"
+					>
 						{t("lbl_Submit")}
 					</button>
 				</div>

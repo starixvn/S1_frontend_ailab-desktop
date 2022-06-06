@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { navigate } from "gatsby";
 import path from "../../router";
 import productList, {
@@ -164,7 +165,7 @@ const defPlatform = [
 	// }
 ];
 
-export default ({ langId, isLogin, productTpIds, maintainList }) => {
+const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 	const { setPopBox } = useContext(popBoxContext);
 
 	const ClickItem = ({
@@ -238,3 +239,19 @@ export default ({ langId, isLogin, productTpIds, maintainList }) => {
 
 	return <div className="platformGroup">{rows}</div>;
 };
+
+Platform.defaultProps = {
+	langId: null,
+	isLogin: null,
+	productTpIds: null,
+	maintainList: null
+};
+
+Platform.propTypes = {
+	langId: PropTypes.string,
+	isLogin: PropTypes.bool,
+	productTpIds: PropTypes.arrayOf(PropTypes.any),
+	maintainList: PropTypes.arrayOf(PropTypes.any)
+};
+
+export default Platform;
