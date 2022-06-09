@@ -1,6 +1,10 @@
 pipeline {
     agent any
-    tools {nodejs "nodejs"}
+    node {
+        env.NODEJS_HOME = "${tool 'nodejs'}
+        env.PATH='${env.NODEJS_HOME}/bin:${env.PATH}'
+        sh 'npm --version'
+    }
     environment{
         node_modules_exists = fileExists 'node_modules'
         auto_deploy = fileExists 'deploy.yml'
