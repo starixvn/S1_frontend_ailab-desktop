@@ -7,6 +7,7 @@ pipeline {
         site = 'nova88'
         project_name = 'nova88v2'
         env = 'prd'
+        path = '/home/jenkins/ansible/frontend/prd/'
     }
     stages {
         stage('Install dependencies') {
@@ -45,7 +46,7 @@ pipeline {
                 expression { auto_deploy == 'true' }
             }
             steps {
-                sh 'ansible-playbook -i host.yml deploy.yml --extra-vars "commitId=${commitHash} site=${site} platform=desktop host=desktop-${site} env=${env}"'
+                sh 'ansible-playbook -i ${path}host.yml deploy.yml --extra-vars "commitId=${commitHash} site=${site} platform=desktop host=desktop-${site} env=${env}"'
             }
         }
     }
