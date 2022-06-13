@@ -44,12 +44,10 @@ export default () => {
 	const allAreaCodeArr = Object.values(areaCode)
 		.map(a => a.AreaCode)
 		.sort();
-	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => {
-		return {
-			id: idx,
-			displayText: _a
-		};
-	});
+	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => ({
+		id: idx,
+		displayText: _a
+	}));
 	const usdtAreaCode = userValue.areaCodeIdx
 		? areaCodeOptions[userValue.areaCodeIdx - 1].displayText
 		: "";
@@ -111,9 +109,7 @@ export default () => {
 	}, [userInfo.accountName, userInfo.phoneNo]);
 
 	const onSelectAreaCode = i => {
-		setUserValue(prev => {
-			return { ...prev, areaCodeIdx: i + 1 };
-		});
+		setUserValue(prev => ({ ...prev, areaCodeIdx: i + 1 }));
 	};
 
 	const closePopBox = () => {
@@ -524,6 +520,7 @@ export default () => {
 					currencyId={userInfo.currencyId}
 					phoneReward={userInfo.phoneReward}
 					emailReward={userInfo.emailReward}
+					isLineBinding={userInfo.isLineBinding}
 				/>
 
 				<ProfileForm

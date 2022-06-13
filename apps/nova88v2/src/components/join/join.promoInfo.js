@@ -15,7 +15,8 @@ const FeaturePanel = ({ langId, t }) => {
 };
 
 FeaturePanel.propTypes = {
-	langId: PropTypes.string.isRequired
+	langId: PropTypes.string.isRequired,
+	t: PropTypes.func.isRequired
 };
 
 export default FeaturePanel;
@@ -44,6 +45,10 @@ const EN = ({ t }) => (
 	</div>
 );
 
+EN.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const CS = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -64,6 +69,10 @@ const CS = ({ t }) => (
 		</ul>
 	</div>
 );
+
+CS.propTypes = {
+	t: PropTypes.func.isRequired
+};
 
 const MY = ({ t }) => (
 	<div className="features">
@@ -94,6 +103,10 @@ const MY = ({ t }) => (
 	</div>
 );
 
+MY.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const THEN = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -118,6 +131,10 @@ const THEN = ({ t }) => (
 	</div>
 );
 
+THEN.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const TH = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -140,6 +157,10 @@ const TH = ({ t }) => (
 		</ul>
 	</div>
 );
+
+TH.propTypes = {
+	t: PropTypes.func.isRequired
+};
 
 const IDEN = ({ t }) => (
 	<div className="features">
@@ -165,6 +186,10 @@ const IDEN = ({ t }) => (
 	</div>
 );
 
+IDEN.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const ID = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -188,6 +213,10 @@ const ID = ({ t }) => (
 		</ul>
 	</div>
 );
+
+ID.propTypes = {
+	t: PropTypes.func.isRequired
+};
 
 const HIEN = ({ t }) => (
 	<div className="features">
@@ -213,6 +242,10 @@ const HIEN = ({ t }) => (
 	</div>
 );
 
+HIEN.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
 const HI = ({ t }) => (
 	<div className="features">
 		<div className="title">
@@ -235,3 +268,7 @@ const HI = ({ t }) => (
 		</ul>
 	</div>
 );
+
+HI.propTypes = {
+	t: PropTypes.func.isRequired
+};
