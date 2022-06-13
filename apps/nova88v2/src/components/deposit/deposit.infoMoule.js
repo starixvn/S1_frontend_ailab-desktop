@@ -21,11 +21,26 @@ const DepositInfoMoule = ({
 	onReset,
 	children,
 	userName,
-	setPopBox
+	setPopBox,
+	canSubmit,
+	submitHandle
 }) => {
 	const [rememberInfoActive, setRememberInfoActive] = useState(false);
 	const questionIconRef = useClickOutside(() => setRememberInfoActive(false));
-
+	const judgeBtnStatus = async () => {
+		if (checked && canSubmit) {
+			await onSubmit();
+		}
+	};
+	const classStyle = () => {
+		let result = "";
+		if (canSubmit && checked) {
+			result = "btn-check";
+		} else {
+			result = canSubmit ? "darkGray" : "btn-org";
+		}
+		return result;
+	};
 	return (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_deposit">
@@ -34,7 +49,8 @@ const DepositInfoMoule = ({
 
 				<Link
 					className="icon icon-friend"
-					to={`/${langId}/${path.referral.root}`}>
+					to={`/${langId}/${path.referral.root}`}
+				>
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
@@ -54,7 +70,8 @@ const DepositInfoMoule = ({
 										`${userName}-nova88depositquerySavedChecked`,
 										!saveInfoChecked
 									);
-								}}>
+								}}
+							>
 								<span>ON</span>
 								<span>OFF</span>
 								<div
@@ -73,7 +90,8 @@ const DepositInfoMoule = ({
 						<div
 							className={`inputInfo${
 								rememberInfoActive ? " active" : ""
-							}`}>
+							}`}
+						>
 							{t("lbl_DepositLocalbankButtonInfo")}
 						</div>
 					</div>
@@ -101,7 +119,8 @@ const DepositInfoMoule = ({
 								className={
 									item.type === depositType ? "active" : ""
 								}
-								key={`${item.type}-key`}>
+								key={`${item.type}-key`}
+							>
 								<div className={item.iconClass}>
 									<i className="icon icon-icon32px_check" />
 								</div>
@@ -122,9 +141,13 @@ const DepositInfoMoule = ({
 
 				<div className="btnGroup">
 					<button
-						onClick={onSubmit}
-						className={checked ? "btn-check" : "darkGray"}>
-						{t("lbl_Submit")}
+						onClick={async () => {
+							await judgeBtnStatus();
+							submitHandle();
+						}}
+						className={classStyle()}
+					>
+						{canSubmit ? t("lbl_Submit") : t("lbl_DepositStatus1")}
 					</button>
 				</div>
 
@@ -172,7 +195,7 @@ const DepositInfoMoule = ({
 							i18nKey="lbl_DepositImportantNoticeContent6"
 							components={{
 								Link: (
-									<a
+									<button
 										onClick={() =>
 											window.LiveChatWidget.call(
 												"maximize"
@@ -192,7 +215,8 @@ const DepositInfoMoule = ({
 DepositInfoMoule.defaultProps = {
 	checked: true,
 	userName: null,
-	depositType: null
+	depositType: null,
+	canSubmit: true
 };
 
 DepositInfoMoule.propTypes = {
@@ -208,7 +232,10 @@ DepositInfoMoule.propTypes = {
 	setSaveInfoChecked: PropTypes.func.isRequired,
 	processingDescriptionActive: PropTypes.bool.isRequired,
 	children: PropTypes.node.isRequired,
-	userName: PropTypes.string
+	userName: PropTypes.string,
+	canSubmit: PropTypes.bool,
+	setPopBox: PropTypes.func.isRequired,
+	submitHandle: PropTypes.func.isRequired
 };
 
 export default DepositInfoMoule;

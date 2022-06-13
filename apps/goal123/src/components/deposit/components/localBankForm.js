@@ -191,9 +191,9 @@ const LocalBankForm = ({
 					{localBankGroupList.map(item => (
 						<button
 							key={`deposit-localPay-group-${item.sysId}}`}
-							className={
+							className={`${
 								item.sysId === sysIdForRecord ? "active" : ""
-							}
+							}${item.canSubmit ? "" : " pending"}`}
 							onClick={() => onChangeBankInfo(item)}
 						>
 							<div>
@@ -204,6 +204,7 @@ const LocalBankForm = ({
 									alt={item.bankName}
 								/>
 								<i className="icon icon-checkmark" />
+								{item.canSubmit ? "" : <div className="mask" />}
 							</div>
 
 							<div className="bank">

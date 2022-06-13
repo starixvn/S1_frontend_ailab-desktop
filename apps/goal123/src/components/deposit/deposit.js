@@ -131,6 +131,15 @@ const Deposit = () => {
 		setAccountName
 	} = useDepositLocalBank({ isMountedRef });
 
+	const submitHandle = () => {
+		setIsGroupListFetchDone(false);
+	};
+
+	useEffect(async () => {
+		await getLocalBankGroupList();
+		setIsGroupListFetchDone(true);
+	}, [isGroupListFetchDone, formInfo]);
+
 	const {
 		getCryptoPayGroupList,
 		getCryptoPayInfo,
@@ -676,7 +685,6 @@ const Deposit = () => {
 	} else if (depositType === defDepositType.localBank) {
 		checked = checked && (userInfo.accountName || formInfo.accountName);
 	}
-
 	return (
 		<>
 			<DepositInfoMoule
@@ -687,6 +695,8 @@ const Deposit = () => {
 				checked={!!checked}
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
+				canSubmit={formInfo.canSubmit}
+				submitHandle={submitHandle}
 			>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
@@ -805,6 +815,7 @@ const Deposit = () => {
 				depositInfoRecentDatas={depositInfoRecentDatas}
 				setDepositInfoRecentDatas={setDepositInfoRecentDatas}
 				uploadLocalBankReceipt={uploadLocalBankReceipt}
+				submitHandle={submitHandle}
 			/>
 		</>
 	);

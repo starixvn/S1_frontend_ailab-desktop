@@ -287,11 +287,12 @@ const LocalBankForm = ({
 						}
 
 						className = className.join(" ");
-
 						return (
 							<button
 								key={`deposit-localPay-group-${item.sysId}}`}
-								className={className}
+								className={`${className} ${
+									item.canSubmit ? "" : "pending"
+								}`}
 								onClick={() => onChangeBankInfo(item)}
 							>
 								<div>
@@ -300,6 +301,11 @@ const LocalBankForm = ({
 										alt={item.bankName}
 									/>
 									<i className="icon icon-icon32px_check" />
+									{item.canSubmit ? (
+										""
+									) : (
+										<div className="mask" />
+									)}
 								</div>
 
 								<div className="bank">

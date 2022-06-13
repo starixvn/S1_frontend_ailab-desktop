@@ -50,6 +50,7 @@
 		"react/jsx-closing-bracket-location": "off",
 		"react/button-has-type": "off",
 		"jsx-a11y/control-has-associated-label": "off",
+		"jsx-a11y/anchor-has-content": "off",
 		"no-underscore-dangle": "off",
 		"camelcase": [
 			"off",
