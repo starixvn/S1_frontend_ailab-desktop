@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
+import { defCurrencyList } from "../common/common";
 
 export const HeaderLogin = ({
 	t,
@@ -9,8 +11,15 @@ export const HeaderLogin = ({
 	handleLogin,
 	userValue,
 	langId,
-	path
+	path,
+	currencyId
 }) => {
+	const { lineLogin } = useHandleLineLogin();
+
+	const clickLineLogin = () => {
+		lineLogin({ type: defType.login });
+	};
+
 	return (
 		<>
 			<input
@@ -37,8 +46,19 @@ export const HeaderLogin = ({
 			<Link className="join" to={`/${langId}/${path.join.root}`}>
 				{t("lbl_JoinNow")}
 			</Link>
+			{(langId === "th" ||
+				langId === "th_en" ||
+				currencyId === defCurrencyList.THB) && (
+				<button className="login-line" onClick={clickLineLogin}>
+					<i className="icon icon-line-bold" /> {t("lbl_Login")}
+				</button>
+			)}
 		</>
 	);
+};
+
+HeaderLogin.defaultProps = {
+	currencyId: null
 };
 
 HeaderLogin.propTypes = {
@@ -48,5 +68,6 @@ HeaderLogin.propTypes = {
 	handleLogin: PropTypes.func.isRequired,
 	userValue: PropTypes.objectOf(PropTypes.any).isRequired,
 	path: PropTypes.objectOf(PropTypes.any).isRequired,
-	langId: PropTypes.string.isRequired
+	langId: PropTypes.string.isRequired,
+	currencyId: PropTypes.number
 };

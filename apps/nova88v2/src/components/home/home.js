@@ -28,7 +28,7 @@ import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import IndexCenterBanner from "./indexCenterBanner";
 import { HomeNews } from "./homeNews";
-import Streaming from "./streaming";
+// import Streaming from "./streaming";
 import LatestVideo from "./latestVideo";
 import QuickdownloadLink from "./quickdownloadLink";
 import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
@@ -83,19 +83,16 @@ const IndexPage = () => {
 								isMountedRef.current
 							) {
 								const tpWallets = res.data.data.tpWallets?.map(
-									tp => {
-										return {
-											tpId: tp.tpId,
-											balance: tp.balance
-										};
-									}
+									tp => ({
+										tpId: tp.tpId,
+										balance: tp.balance
+									})
 								);
 
 								const hasBalance =
 									res.data.data?.balance ||
-									tpWallets?.filter(tp => {
-										return tp.balance > 0;
-									}).length >= 1;
+									tpWallets?.filter(tp => tp.balance > 0)
+										.length >= 1;
 
 								if (!hasBalance && showDepositHint) {
 									setPopBox({

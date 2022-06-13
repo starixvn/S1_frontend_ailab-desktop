@@ -1,7 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { defPageClubImg } from "../vip/vip.def";
-import { GetCurrencyName, isConvert, number_format } from "../common/common";
+import {
+	GetCurrencyName,
+	isConvert,
+	number_format,
+	defCurrencyList
+} from "../common/common";
+import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
 
 const VerificationPanel = ({
 	t,
@@ -12,11 +18,14 @@ const VerificationPanel = ({
 	emailVerified,
 	currencyId,
 	phoneReward,
-	emailReward
+	emailReward,
+	isLineBinding
 }) => {
+	const { lineLogin } = useHandleLineLogin();
 	const _isConvert = isConvert(currencyId);
 	const vipClubImg = userLevel ? defPageClubImg[userLevel - 1] : {};
 	const currencyName = GetCurrencyName({ langId, currencyId, t });
+
 	const accountSafety = [
 		Boolean(accountName),
 		phoneVerified,
@@ -31,6 +40,12 @@ const VerificationPanel = ({
 	} else if (accountSafety > 2) {
 		safetyKey = "lbl_Excellent";
 	}
+
+	const clickLineBinding = () => {
+		if (!isLineBinding) {
+			lineLogin({ type: defType.binding });
+		}
+	};
 
 	return (
 		<div className="vipLv">
@@ -62,7 +77,8 @@ const VerificationPanel = ({
 					<div
 						className={`icon icon-person${
 							accountName ? " active" : ""
-						}`}>
+						}`}
+					>
 						<div className="description">
 							<div className="title">
 								{t("lbl_ProfileVerification")}
@@ -74,7 +90,8 @@ const VerificationPanel = ({
 					<div
 						className={`icon icon-email${
 							emailVerified ? " active" : ""
-						}`}>
+						}`}
+					>
 						<div className="description">
 							<div className="title">
 								{t("lbl_EmailVerification")}
@@ -94,7 +111,8 @@ const VerificationPanel = ({
 					<div
 						className={`icon icon-mobile${
 							phoneVerified ? " active" : ""
-						}`}>
+						}`}
+					>
 						<div className="description">
 							<div className="title">
 								{t("lbl_PhoneVerification")}
@@ -113,6 +131,29 @@ const VerificationPanel = ({
 					</div>
 				</div>
 			</div>
+
+			{currencyId === defCurrencyList.THB && (
+				<>
+					<div className="btnGroup">
+						<button
+							className={`btn-line${
+								isLineBinding ? " active" : ""
+							}`}
+							onClick={clickLineBinding}
+						>
+							<i className="icon icon-line-bold" />
+							{isLineBinding
+								? t("lineRegister.lbl_Connected")
+								: t("lineRegister.lbl_Connect")}
+						</button>
+					</div>
+					{!isLineBinding && (
+						<div className="txt-line">
+							{t("lineRegister.lbl_LinkLineAccount")}
+						</div>
+					)}
+				</>
+			)}
 		</div>
 	);
 };
@@ -124,7 +165,8 @@ VerificationPanel.defaultProps = {
 	phoneReward: 0,
 	emailReward: 0,
 	currencyId: null,
-	userLevel: 1
+	userLevel: 1,
+	isLineBinding: false
 };
 
 VerificationPanel.propTypes = {
@@ -136,7 +178,8 @@ VerificationPanel.propTypes = {
 	emailVerified: PropTypes.bool,
 	currencyId: PropTypes.number,
 	phoneReward: PropTypes.number,
-	emailReward: PropTypes.number
+	emailReward: PropTypes.number,
+	isLineBinding: PropTypes.bool
 };
 
 export default VerificationPanel;

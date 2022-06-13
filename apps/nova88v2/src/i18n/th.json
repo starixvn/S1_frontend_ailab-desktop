@@ -1035,5 +1035,12 @@
 		"unzip_and_run":"แตกไฟล์และติดตั้ง"
 	},
 
+	"lineRegister":{
+		"lbl_RegisterWithLine": "ลงทะเบียนด้วย LINE",
+		"lbl_Connect": "เชื่อมต่อ",
+		"lbl_Connected": "เชื่อมต่อแล้ว",
+		"lbl_LinkLineAccount": "ลิงก์บัญชี LINE"
+	},
+
 	"end-----": "end-----"
 }

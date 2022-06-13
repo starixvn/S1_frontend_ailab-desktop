@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, navigate } from "gatsby";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import {
 	userInfoContext,
@@ -64,9 +65,7 @@ const BeforeLogin = ({ t }) => {
 			val = val.replace(/[\W]/g, "");
 		}
 
-		setUserValue(prev => {
-			return { ...prev, [col]: val };
-		});
+		setUserValue(prev => ({ ...prev, [col]: val }));
 	};
 
 	const checkValue = (col, val) => {
@@ -135,10 +134,15 @@ const BeforeLogin = ({ t }) => {
 			handleLogin={handleLogin}
 			userValue={userValue}
 			langId={userInfo.langId}
+			currencyId={userInfo?.currencyId}
 			path={path}
 			t={t}
 		/>
 	);
+};
+
+BeforeLogin.propTypes = {
+	t: PropTypes.func.isRequired
 };
 
 const defCashierLinks = [
@@ -214,9 +218,16 @@ const AfterLogin = ({ t, userInfo, msgCount }) => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}>
+				to={`/${userInfo.langId}/${path.message.root}`}
+			>
 				<MsgPopup userInfo={userInfo} />
 			</Link>
 		</>
 	);
+};
+
+AfterLogin.propTypes = {
+	t: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	msgCount: PropTypes.number.isRequired
 };

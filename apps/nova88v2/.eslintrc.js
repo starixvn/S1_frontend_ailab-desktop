@@ -11,7 +11,7 @@ module.exports = {
 		"gatsby-browser.js",
 		// "gatsby-config.js",
 		"gatsby-node.js",
-		"gatsby-ssr.js",
+		// "gatsby-ssr.js",
 		"jest.config.js",
 		"gulpfile.js"
 	],
@@ -289,7 +289,7 @@ module.exports = {
 			}
 		],
 		"import/no-extraneous-dependencies": [
-			"warn",
+			"off",
 			{
 				packageDir: path.join(__dirname, "../../"),
 				devDependencies: true

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
+import { defCurrencyList } from "../common/common";
 
 const JoinForm = ({
 	t,
@@ -24,7 +25,11 @@ const JoinForm = ({
 	defaultOption,
 	areaCodeOptions,
 	onSelectAreaCode,
-	isUSDT
+	isUSDT,
+	handleLineRegister,
+	langId,
+	currencyId,
+	lineUserId
 }) => (
 	<form className="joinloginFunction" onSubmit={clickSubmit}>
 		<span className="title txt-blue">{t("lbl_JoinNow")}</span>
@@ -34,6 +39,30 @@ const JoinForm = ({
 				{t("lbl_LoginHere")}
 			</button>
 		</div>
+		{(langId === "th" ||
+			langId === "th_en" ||
+			currencyId === defCurrencyList.THB) &&
+			!lineUserId && (
+				<>
+					<div className="register-line">
+						{t("lineRegister.lbl_RegisterWithLine")} ID
+						<div className="btnGroup">
+							<button
+								className="btn-line"
+								onClick={e => {
+									handleLineRegister(e);
+								}}
+							>
+								<i className="icon icon-line-bold" />
+								{t("lineRegister.lbl_RegisterWithLine")}
+							</button>
+						</div>
+					</div>
+					<div>
+						<span>OR</span>
+					</div>
+				</>
+			)}
 		<div className="inputModule">
 			<Inputbox
 				className="inputBox-blue"
@@ -200,7 +229,10 @@ const JoinForm = ({
 JoinForm.defaultProps = {
 	hasRefOrAffCode: null,
 	_areaCode: null,
-	defaultOption: null
+	defaultOption: null,
+	langId: "en",
+	currencyId: null,
+	lineUserId: ""
 };
 
 JoinForm.propTypes = {
@@ -223,7 +255,11 @@ JoinForm.propTypes = {
 	defaultOption: PropTypes.string,
 	areaCodeOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	onSelectAreaCode: PropTypes.func.isRequired,
-	isUSDT: PropTypes.bool.isRequired
+	isUSDT: PropTypes.bool.isRequired,
+	handleLineRegister: PropTypes.func.isRequired,
+	langId: PropTypes.string,
+	currencyId: PropTypes.number,
+	lineUserId: PropTypes.string
 };
 
 export default JoinForm;
