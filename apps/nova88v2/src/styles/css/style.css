@@ -8589,6 +8589,9 @@ button.icon-spinner11:before {
   width: 94%;
   border-radius: 3px;
   margin: 2px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
 
 .phone .btn {
@@ -12130,6 +12133,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .important li span, .important li a {
   font-weight: bold;
+}
+
+.important li button {
+  color: #134DAE;
+  display: contents;
 }
 
 .historyTag {
@@ -17095,7 +17103,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-size: 15px;
   font-weight: normal;
   width: 800px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .worldcupEvent .info .content span {

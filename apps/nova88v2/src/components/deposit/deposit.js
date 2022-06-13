@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import {
@@ -156,6 +156,15 @@ const Deposit = () => {
 		userInfo,
 		setUserInfo
 	});
+
+	const submitHandle = () => {
+		setIsGroupListFetchDone(false);
+	};
+
+	useEffect(async () => {
+		await getLocalBankGroupList();
+		setIsGroupListFetchDone(true);
+	}, [isGroupListFetchDone, formInfo]);
 
 	const {
 		getCryptoPayGroupList,
@@ -712,7 +721,6 @@ const Deposit = () => {
 		getLinePayLink,
 		linePayLink
 	});
-
 	if (loading || !isInitDataDone) return null;
 
 	return (
@@ -731,6 +739,8 @@ const Deposit = () => {
 				setSaveInfoChecked={setSaveInfoChecked}
 				setPopBox={setPopBox}
 				userName={userInfo.userName}
+				canSubmit={formInfo.canSubmit}
+				submitHandle={submitHandle}
 			>
 				{depositType === defDepositType.autoDeposit && (
 					<AutoDepositForm
@@ -847,6 +857,7 @@ const Deposit = () => {
 				depositInfoRecentDatas={depositInfoRecentDatas}
 				setDepositInfoRecentDatas={setDepositInfoRecentDatas}
 				uploadLocalBankReceipt={uploadLocalBankReceipt}
+				submitHandle={submitHandle}
 			/>
 		</>
 	);

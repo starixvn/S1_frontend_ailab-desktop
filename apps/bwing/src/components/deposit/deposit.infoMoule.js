@@ -12,15 +12,32 @@ const DepositInfoMoule = ({
 	setDepositType,
 	checked,
 	onSubmit,
-	children
+	children,
+	canSubmit,
+	submitHandle
 }) => {
+	const judgeBtnStatus = async () => {
+		if (checked && canSubmit) {
+			await onSubmit();
+		}
+	};
+	const classStyle = () => {
+		let result = "";
+		if (canSubmit && checked) {
+			result = "btn-check";
+		} else {
+			result = canSubmit ? "darkGray" : "orange";
+		}
+		return result;
+	};
 	return (
 		<div className="infoModule">
 			<div className="inside-title icon">
 				<span>{t("lbl_Deposit")}</span>
 				<Link
 					className="icon icon-friend"
-					to={`/${langId}/${path.referral.root}`}>
+					to={`/${langId}/${path.referral.root}`}
+				>
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
@@ -42,7 +59,8 @@ const DepositInfoMoule = ({
 								className={
 									item.type === depositType ? "active" : ""
 								}
-								key={`${item.type}-key`}>
+								key={`${item.type}-key`}
+							>
 								<div className={item.iconClass}>
 									<i className="icon icon-checkmark" />
 								</div>
@@ -62,11 +80,13 @@ const DepositInfoMoule = ({
 
 				<div className="btnGroup">
 					<button
-						onClick={() => {
-							if (checked) onSubmit();
+						onClick={async () => {
+							await judgeBtnStatus();
+							submitHandle();
 						}}
-						className={checked ? "btn-check" : "darkGray"}>
-						{t("lbl_Submit")}
+						className={classStyle()}
+					>
+						{canSubmit ? t("lbl_Submit") : t("lbl_DepositStatus1")}
 					</button>
 				</div>
 			</div>
@@ -107,7 +127,7 @@ const DepositInfoMoule = ({
 							i18nKey="lbl_DepositImportantNoticeContent6"
 							components={{
 								Link: (
-									<a
+									<button
 										onClick={() =>
 											window.LiveChatWidget.call(
 												"maximize"
@@ -125,7 +145,8 @@ const DepositInfoMoule = ({
 };
 
 DepositInfoMoule.defaultProps = {
-	checked: true
+	checked: true,
+	canSubmit: true
 };
 
 DepositInfoMoule.propTypes = {
@@ -136,7 +157,9 @@ DepositInfoMoule.propTypes = {
 	setDepositType: PropTypes.func.isRequired,
 	checked: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
-	children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
+	canSubmit: PropTypes.bool,
+	submitHandle: PropTypes.func.isRequired
 };
 
 export default DepositInfoMoule;

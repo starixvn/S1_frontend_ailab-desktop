@@ -159,6 +159,15 @@ const Deposit = () => {
 		setAccountName
 	} = useDepositLocalBank({ isMountedRef });
 
+	const submitHandle = () => {
+		setIsGroupListFetchDone(false);
+	};
+
+	useEffect(async () => {
+		await getLocalBankGroupList();
+		setIsGroupListFetchDone(true);
+	}, [isGroupListFetchDone, formInfo]);
+
 	const {
 		getCryptoPayGroupList,
 		getCryptoPayInfo,
@@ -659,7 +668,6 @@ const Deposit = () => {
 	// if (!isDepositTypeIncludes || defaultDepositOption.isHide) {
 	// 	onChangeDepositType(filterDepositOptions[0].type);
 	// }
-
 	let checked = formInfo?.amount?.checked;
 
 	if (depositType === defDepositType.loadCard) {
@@ -683,6 +691,8 @@ const Deposit = () => {
 				checked={!!checked}
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
+				canSubmit={formInfo.canSubmit}
+				submitHandle={submitHandle}
 			>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
@@ -803,6 +813,7 @@ const Deposit = () => {
 				setDepositInfoRecentDatas={setDepositInfoRecentDatas}
 				uploadLocalBankReceipt={uploadLocalBankReceipt}
 				setLocalBankReceipt={setLocalBankReceipt}
+				submitHandle={submitHandle}
 			/>
 		</>
 	);
