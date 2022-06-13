@@ -16,7 +16,8 @@ const DepositRecentHistory = ({
 	getDepositInfoRecent,
 	depositInfoRecentDatas,
 	setDepositInfoRecentDatas,
-	uploadLocalBankReceipt
+	uploadLocalBankReceipt,
+	submitHandle
 }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
@@ -76,8 +77,8 @@ const DepositRecentHistory = ({
 	};
 
 	const ClickCancel = transId => {
-		const ClickConfirm = () => {
-			setPopBox({ isOpen: false });
+		const ClickConfirm = async () => {
+			await setPopBox({ isOpen: false });
 			api_payment_SetDepositCancel(transId).then(
 				res => {
 					if (isMountedRef.current) {
@@ -109,7 +110,13 @@ const DepositRecentHistory = ({
 			popBoxType: defPopBoxType.Cancel,
 			btnBar: (
 				<div className="btnGroup">
-					<button className="gray" onClick={ClickConfirm}>
+					<button
+						className="gray"
+						onClick={async () => {
+							await ClickConfirm();
+							submitHandle();
+						}}
+					>
 						{t("lbl_Yes")}
 					</button>
 					<button className="orange" onClick={ClosePopBox}>
@@ -120,23 +127,21 @@ const DepositRecentHistory = ({
 		});
 	};
 
-	const arr = depositInfoRecentDatas?.map((item, i) => {
-		return (
-			<TransactionHistory
-				key={`deposit-recent-${item.transId}`}
-				{...item}
-				idx={i + 1}
-				ClickCancel={ClickCancel.bind(this, item.transId)}
-				SubmitProof={SubmitProof.bind(
-					this,
-					item.bankInfo,
-					item.depositRep,
-					item.transId,
-					item.picFileName
-				)}
-			/>
-		);
-	});
+	const arr = depositInfoRecentDatas?.map((item, i) => (
+		<TransactionHistory
+			key={`deposit-recent-${item.transId}`}
+			{...item}
+			idx={i + 1}
+			ClickCancel={ClickCancel.bind(this, item.transId)}
+			SubmitProof={SubmitProof.bind(
+				this,
+				item.bankInfo,
+				item.depositRep,
+				item.transId,
+				item.picFileName
+			)}
+		/>
+	));
 
 	return (
 		<>
@@ -177,6 +182,7 @@ DepositRecentHistory.propTypes = {
 	getDepositInfoRecent: PropTypes.func.isRequired,
 	depositInfoRecentDatas: PropTypes.arrayOf(PropTypes.any).isRequired,
 	setDepositInfoRecentDatas: PropTypes.func.isRequired,
-	uploadLocalBankReceipt: PropTypes.func.isRequired
+	uploadLocalBankReceipt: PropTypes.func.isRequired,
+	submitHandle: PropTypes.func.isRequired
 };
 export default DepositRecentHistory;
