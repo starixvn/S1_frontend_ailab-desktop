@@ -52,11 +52,12 @@ export default () => {
 		? areaCodeOptions[userValue.areaCodeIdx - 1].displayText
 		: "";
 
-	const _areaCodeVal = isUSDT
-		? usdtAreaCode
-		: country
-		? areaCode[country].AreaCode
-		: "";
+	let _areaCodeVal = "";
+	if (isUSDT) {
+		_areaCodeVal = usdtAreaCode;
+	} else if (country) {
+		_areaCodeVal = areaCode[country].AreaCode;
+	}
 
 	const hasRequireValueNull =
 		(!userInfo.accountName && userValue.accountName === "") ||
@@ -320,12 +321,14 @@ export default () => {
 										<div className="btnGroup">
 											<button
 												className="btn-cancel"
-												onClick={closePopBox}>
+												onClick={closePopBox}
+											>
 												{t("lbl_Later")}
 											</button>
 											<button
 												className="blue"
-												onClick={sendOTPSMS}>
+												onClick={sendOTPSMS}
+											>
 												{t("lbl_VertifyNow")}
 											</button>
 										</div>
@@ -343,12 +346,14 @@ export default () => {
 										<div className="btnGroup">
 											<button
 												className="btn-cancel"
-												onClick={closePopBox}>
+												onClick={closePopBox}
+											>
 												{t("lbl_Later")}
 											</button>
 											<Link
 												className="btn-check"
-												to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}>
+												to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}
+											>
 												{t(defPrevPage[prevPage].label)}
 											</Link>
 										</div>
@@ -363,7 +368,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={closePopBox}>
+											onClick={closePopBox}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -372,6 +378,7 @@ export default () => {
 						}
 					}
 					setLoading(false);
+					return null;
 				},
 				() => {
 					if (isMountedRef.current) {
@@ -383,7 +390,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -439,14 +447,13 @@ export default () => {
 							popBoxType: defPopBoxType.VerifyPhoneForm
 						});
 					} else {
-						openErrorMessagePopBox(
-							errorCode === 5002
-								? t(`msg_API_SendOTPSMS_${errorCode}`)
-								: errorCode === 1000
-								? t("msg_OTP_Invalid")
-								: message ||
-								  `[${errorCode}] ${t("msg_ApiServerError")}`
-						);
+						let errorMsg = `[${errorCode}] ${t(message)}`;
+						if (errorCode === 5002) {
+							errorMsg = t(`msg_API_SendOTPSMS_${errorCode}`);
+						} else if (errorCode === 1000) {
+							errorMsg = t("msg_OTP_Invalid");
+						}
+						openErrorMessagePopBox(errorMsg);
 					}
 					setMobileVerificationLoading(false);
 				}
@@ -476,7 +483,8 @@ export default () => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									OK
 								</button>
 							</div>
@@ -550,7 +558,8 @@ export default () => {
 				<div className="btnGroup">
 					<button
 						className={disableSubmit ? "btn-cancel" : "btn-check"}
-						onClick={clickSubmit}>
+						onClick={clickSubmit}
+					>
 						{t("lbl_Submit")}
 					</button>
 				</div>

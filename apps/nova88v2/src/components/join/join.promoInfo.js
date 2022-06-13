@@ -15,8 +15,8 @@ const FeaturePanel = ({ langId, t }) => {
 };
 
 FeaturePanel.propTypes = {
-	langId: PropTypes.string.isRequired,
-	t: PropTypes.func.isRequired
+	t: PropTypes.func.isRequired,
+	langId: PropTypes.string.isRequired
 };
 
 export default FeaturePanel;

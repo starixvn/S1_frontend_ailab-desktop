@@ -77,7 +77,8 @@ const VerificationPanel = ({
 					<div
 						className={`icon icon-person${
 							accountName ? " active" : ""
-						}`}>
+						}`}
+					>
 						<div className="description">
 							<div className="title">
 								{t("lbl_ProfileVerification")}
@@ -89,7 +90,8 @@ const VerificationPanel = ({
 					<div
 						className={`icon icon-email${
 							emailVerified ? " active" : ""
-						}`}>
+						}`}
+					>
 						<div className="description">
 							<div className="title">
 								{t("lbl_EmailVerification")}
@@ -109,7 +111,8 @@ const VerificationPanel = ({
 					<div
 						className={`icon icon-mobile${
 							phoneVerified ? " active" : ""
-						}`}>
+						}`}
+					>
 						<div className="description">
 							<div className="title">
 								{t("lbl_PhoneVerification")}
@@ -136,7 +139,8 @@ const VerificationPanel = ({
 							className={`btn-line${
 								isLineBinding ? " active" : ""
 							}`}
-							onClick={clickLineBinding}>
+							onClick={clickLineBinding}
+						>
 							<i className="icon icon-line-bold" />
 							{isLineBinding
 								? t("lineRegister.lbl_Connected")

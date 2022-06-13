@@ -225,7 +225,7 @@ const Platform = ({ langId, isLogin, productTpIds, maintainList }) => {
 		);
 
 		return (
-			<a
+			<button
 				key={key}
 				className={p.imgName}
 				onClick={ClickItem.bind(this, {
