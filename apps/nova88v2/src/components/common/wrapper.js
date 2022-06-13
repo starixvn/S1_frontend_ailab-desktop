@@ -3,7 +3,13 @@ import { navigate } from "gatsby";
 import { useTranslation } from "react-i18next";
 import * as ct from "./context";
 import { defaultLang } from "../../i18n/config";
-import { getUrlParameter, setCookie, deleteCookie, readCookie } from "./common";
+import {
+	getUrlParameter,
+	setCookie,
+	deleteCookie,
+	readCookie,
+	setLocalStorage
+} from "./common";
 import {
 	api_site_CheckSignIn,
 	api_site_GetTpMaintainList,
@@ -26,6 +32,9 @@ import useGetWalletInfo from "./wrapper.walletInfo";
 // import SEO, { useGetSEODatas } from "../seo/seo";
 import ThirdPartyJS from "./thirdPartyJS";
 import usePopBox from "../hook/usePopBox";
+import { api_lineLogin_LineCallback } from "../../service/api/lineLogin";
+import path from "../../router";
+import { defType } from "../hook/useHandleLineLogin";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -157,6 +166,78 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 			}
 		);
 	}, [userInfo.isLogin, userInfo.langId]);
+
+	useEffect(() => {
+		const code = getUrlParameter("code");
+		const state = getUrlParameter("state");
+		const error = getUrlParameter("error");
+		const description = getUrlParameter("description");
+		const errormessage = getUrlParameter("errormessage");
+
+		let url;
+		let platform;
+		let userAgent;
+		let screen;
+		let di = "";
+		if (typeof window !== "undefined") {
+			url = window.location.origin;
+			platform = navigator.platform;
+			userAgent = navigator.userAgent;
+			screen = `${window.screen.width}:${window.screen.height}:${window.screen.colorDepth}`;
+			di = document.getElementById("__di")?.value;
+		}
+
+		if (code || state || error) {
+			api_lineLogin_LineCallback({
+				langId: userInfo.langId,
+				lineLoginResponse: {
+					code,
+					state,
+					error,
+					description,
+					errormessage
+				},
+				loginData: {
+					isPersistent: true,
+					url,
+					platform,
+					userAgent,
+					screen,
+					di
+				}
+			}).then(res => {
+				const { errorCode, message, data } = res.data;
+				if (errorCode === 0) {
+					if (data.type === defType.register) {
+						setLocalStorage("lineUser", data.userId);
+						navigate(`/${userInfo.langId}/${path.join.root}`);
+					} else if (data.type === defType.login) {
+						navigate(`/${userInfo.langId}/${path.deposit.root}`);
+					} else if (data.type === defType.binding) {
+						navigate(`/${userInfo.langId}/${path.profile.root}`);
+					}
+				} else {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: `[${errorCode}] ${message}`,
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={() => {
+										setPopBox({ isOpen: false });
+									}}
+								>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+				}
+			});
+		}
+	}, []);
 
 	useEffect(() => {
 		api_site_CheckSignIn()

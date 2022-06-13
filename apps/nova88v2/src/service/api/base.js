@@ -77,3 +77,8 @@ export const playerRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/Player`
 });
+
+export const lineLoginRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/LineLogin`
+});

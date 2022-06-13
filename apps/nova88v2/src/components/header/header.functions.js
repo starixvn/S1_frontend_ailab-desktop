@@ -64,9 +64,7 @@ const BeforeLogin = ({ t }) => {
 			val = val.replace(/[\W]/g, "");
 		}
 
-		setUserValue(prev => {
-			return { ...prev, [col]: val };
-		});
+		setUserValue(prev => ({ ...prev, [col]: val }));
 	};
 
 	const checkValue = (col, val) => {
@@ -135,6 +133,7 @@ const BeforeLogin = ({ t }) => {
 			handleLogin={handleLogin}
 			userValue={userValue}
 			langId={userInfo.langId}
+			currencyId={userInfo?.currencyId}
 			path={path}
 			t={t}
 		/>

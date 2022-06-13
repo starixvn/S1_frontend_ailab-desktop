@@ -1035,6 +1035,13 @@
 		"app_for_ios":"APP for iOS",
 		"unzip_and_run":"Unzip and Run"
 	},
+	
+	"lineRegister":{
+		"lbl_RegisterWithLine": "Register with LINE",
+		"lbl_Connect": "Connect",
+		"lbl_Connected": "Connected",
+		"lbl_LinkLineAccount": "Link LINE account"
+	},
 
 	"end-----": "end-----"
 }

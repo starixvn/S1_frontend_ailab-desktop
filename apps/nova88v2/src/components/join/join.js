@@ -18,7 +18,10 @@ import {
 	getUrlParameter,
 	readCookie,
 	setCookie,
-	passwordCheck
+	passwordCheck,
+	defCurrencyList,
+	getLocalStorage,
+	removeLocalStorage
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
@@ -29,6 +32,7 @@ import { initValue, initTip, currencyToAreacode } from "../common/join.data";
 import JoinForm from "./join.form";
 import path from "../../router";
 import JoinPromoInfo from "./join.promoInfo";
+import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
 
 export default () => {
 	const { t } = useTranslation();
@@ -45,6 +49,8 @@ export default () => {
 		t("lbl_PrefferedCurrency")
 	);
 	const tandCTerms = TandC(defaultLangId).terms;
+	const { lineLogin } = useHandleLineLogin();
+	const lineUserId = getLocalStorage("lineUser");
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -54,14 +60,14 @@ export default () => {
 	});
 
 	useEffect(() => {
-		checkAffiliate();
+		checkUrlParam();
 	}, []);
 
-	const checkAffiliate = async () => {
+	const checkUrlParam = async () => {
 		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
-		if (!_AffId) {
+		if (!_AffId && !lineUserId) {
 			getCurrencyList();
-		} else {
+		} else if (_AffId) {
 			await api_site_GetAffiliateAgent({ AffId: _AffId }).then(
 				res => {
 					if (isMountedRef.current) {
@@ -86,6 +92,13 @@ export default () => {
 					}
 				}
 			);
+		} else if (lineUserId) {
+			setSiteCurrency([
+				{
+					id: defCurrencyList.THB,
+					displayKey: `Currency_${defCurrencyList.THB}`
+				}
+			]);
 		}
 	};
 
@@ -99,6 +112,11 @@ export default () => {
 							id,
 							displayKey: `Currency_${id}`
 						}));
+						if (lineUserId) {
+							currencyArr.filter(
+								el => el.id === defCurrencyList.THB
+							);
+						}
 						setSiteCurrency(() => currencyArr);
 					} else {
 						errorPopBox(
@@ -464,6 +482,7 @@ export default () => {
 			regData.Aff = getUrlParameter("Aff") || readCookie("Aff");
 			regData.AffCode = isUrlAffCode ?? userValue.affCode;
 			regData.blackbox = await Iov_GetBlackBox();
+			regData.LineUserId = lineUserId;
 
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
@@ -491,6 +510,9 @@ export default () => {
 												`${_user.userName}-doNotRedirect`,
 												"1"
 											);
+											if (lineUserId) {
+												removeLocalStorage("lineUser");
+											}
 											await navigate(
 												`/${_user.langId}/${path.deposit.root}`
 											);
@@ -560,6 +582,11 @@ export default () => {
 		});
 	};
 
+	const handleLineRegister = e => {
+		e.preventDefault();
+		lineLogin({ type: defType.register });
+	};
+
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
@@ -612,6 +639,10 @@ export default () => {
 					areaCodeOptions={areaCodeOptions}
 					onSelectAreaCode={onSelectAreaCode}
 					isUSDT={isUSDT}
+					handleLineRegister={handleLineRegister}
+					langId={userInfo.langId}
+					currencyId={userInfo?.currencyId}
+					lineUserId={lineUserId}
 				/>
 			</div>
 		</div>
