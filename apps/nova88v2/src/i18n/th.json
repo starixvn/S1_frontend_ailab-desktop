@@ -55,7 +55,7 @@
 	"lbl_eSports": "อีสปอร์ต",
 	"lbl_CSGO": "CS:GO",
 	"lbl_Dota2": "โดตา 2 (Dota2)",
-	"lbl_Kog": "คโอจี (KOG)",
+	"lbl_Kog": "เคโอจี (KOG)",
 	"lbl_LeagueOfLegends": "ลีกออฟเลเจนด์ (LOL)",
 	"lbl_eSportsBetting": "เดิมพัน E-Sports",
 	"lbl_Fishing": "ยิงปลา",
@@ -647,7 +647,7 @@
 	"lbl_RESULT": "ผลลัพธ์",
 	"lbl_2_DAYS_AGO": "2 วันที่แล้ว",
 	"lbl_3_DAYS_AGO": "3 วันที่แล้ว",
-	"lbl_POINT_CALCULATION": "การคำนวณคะแนะ",
+	"lbl_POINT_CALCULATION": "การคำนวณคะแนน",
 	"lbl_PRODUCT": "โปรดักต์",
 	"lbl_VALID_TURNOVER": "ยอดเทิร์นโอเวอร์",
 	"lbl_POINT": "คะแนน",
@@ -995,8 +995,8 @@
 
 	"games": {
 		"lbl_bannerSubTitle": "เปิดมุมมองใหม่ๆของชีวิต",
-		"lbl_bannerTitle1": "แต่งแต้มสีสันชีวิ",
-		"lbl_bannerTitle2": "ตของคุณด้วยเกม"
+		"lbl_bannerTitle1": "แต่งแต้มสีสันชีวิต",
+		"lbl_bannerTitle2": "ของคุณด้วยเกม"
 	},
 
 	"lottery": {
