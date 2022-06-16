@@ -141,8 +141,9 @@ export const routerFlattenToPath = (path, orderNumber) => {
 };
 
 export const passwordCheck = val => {
-	const passwordRegx =
-		/^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,15}$/;
+	const passwordRegx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z!@#$%^&*\d]{6,15}$/;
+
+	// /^(?=.*[a-zA-Z0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,15}$/;
 
 	if (val === "")
 		return {
