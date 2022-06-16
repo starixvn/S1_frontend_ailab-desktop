@@ -140,9 +140,7 @@ export const LicensesSection = ({ t, errorPopBox }) => {
 				apg_a7019fa5_9f9a_468b_92da_4890f6a6e4a7.init();
 				xcm_226e4de2_30aa_4077_951b_d440012994f3.init();
 			}
-		} catch (error) {
-			console.log(error);
-		}
+		} catch (error) {}
 	}, [showLicenseLogo]);
 
 	return (
@@ -217,8 +215,13 @@ CopyrightSection.propTypes = {
 	langId: PropTypes.string.isRequired
 };
 
+LicensesSection.defaultProps = {
+	errorPopBox: () => null
+};
+
 LicensesSection.propTypes = {
-	t: PropTypes.func.isRequired
+	t: PropTypes.func.isRequired,
+	errorPopBox: PropTypes.func
 };
 
 export default Footer;
