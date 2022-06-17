@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useContext } from "react";
+import React, { useRef, useEffect, useContext, useState } from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/popBox";
@@ -9,12 +10,12 @@ import { api_promotion_SetClaimPromotion } from "../../service/api/promotion";
 import path from "../../router";
 import { defFilterType } from "./promotion.nav";
 
-export default ({ promotionInfo, userInfo, filter, callBack }) => {
+const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 	const { t } = useTranslation();
 	const { isLogin } = userInfo;
 	const isMountedRef = useRef(null);
-
 	const { setPopBox } = useContext(popBoxContext);
+	const [processing, setProcessing] = useState(false);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -48,64 +49,73 @@ export default ({ promotionInfo, userInfo, filter, callBack }) => {
 	};
 
 	const setClaimPromotion = async (langId, bonusCode, lockedAmount = 0) => {
-		return api_promotion_SetClaimPromotion({
-			langId,
-			BonusCode: bonusCode,
-			LockedAmount: Number(lockedAmount)
-		}).then(
-			({ data: { message, errorCode } }) => {
-				if (!isMountedRef.current) return;
+		if (!processing) {
+			setProcessing(true);
 
-				const success = errorCode === 0;
-				const OTPNotVerify = errorCode === -5;
+			api_promotion_SetClaimPromotion({
+				langId,
+				BonusCode: bonusCode,
+				LockedAmount: Number(lockedAmount)
+			}).then(
+				({ data: { message, errorCode } }) => {
+					if (!isMountedRef.current) return;
 
-				if (OTPNotVerify)
-					return setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.OTPHint,
-						btnBar: (
-							<div className="btnGroup">
-								<Link
-									className="btn-check"
-									to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}>
-									{t("lbl_UpdatePersonalDetail")}
-								</Link>
-							</div>
-						)
-					});
+					const success = errorCode === 0;
+					const OTPNotVerify = errorCode === -5;
 
-				if (success) {
-					setPopBox({
-						isOpen: true,
-						popBoxType: defPopBoxType.Success,
-						icon: "icon icon-bell",
-						description: (
-							<>
-								<div>{t("lbl_JoinSuccessDescription1")}</div>
-								<div>{t("lbl_JoinSuccessDescription2")}</div>
-							</>
-						),
-						btnBar: (
-							<div className="btnGroup">
-								<button
-									className="btn-cancel"
-									onClick={clickClose}>
-									OK
-								</button>
-							</div>
-						)
-					});
-					return true;
+					if (OTPNotVerify)
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.OTPHint,
+							btnBar: (
+								<div className="btnGroup">
+									<Link
+										className="btn-check"
+										to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}
+									>
+										{t("lbl_UpdatePersonalDetail")}
+									</Link>
+								</div>
+							)
+						});
+
+					if (success) {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.Success,
+							icon: "icon icon-bell",
+							description: (
+								<>
+									<div>
+										{t("lbl_JoinSuccessDescription1")}
+									</div>
+									<div>
+										{t("lbl_JoinSuccessDescription2")}
+									</div>
+								</>
+							),
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-cancel"
+										onClick={clickClose}
+									>
+										OK
+									</button>
+								</div>
+							)
+						});
+					}
+					openErrorMessagePopBox(message || "error", errorCode);
+					setProcessing(false);
+				},
+				() => {
+					if (!isMountedRef.current) return;
+					setProcessing(false);
+					openErrorMessagePopBox();
 				}
-
-				openErrorMessagePopBox(message || "error", errorCode);
-			},
-			() => {
-				if (!isMountedRef.current) return;
-
-				openErrorMessagePopBox();
-			}
-		);
+			);
+		}
 	};
 
 	const onJoinPromotion = async () => {
@@ -127,7 +137,7 @@ export default ({ promotionInfo, userInfo, filter, callBack }) => {
 				(filter === defFilterType.specialBonus &&
 					promotionType === defPromotionType.firstDeposit))
 		)
-			return setPopBox({
+			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.PromotionAmountConfirm,
 				langId,
@@ -138,7 +148,7 @@ export default ({ promotionInfo, userInfo, filter, callBack }) => {
 			});
 
 		const success = await setClaimPromotion(langId, bonusCode, maxAmount);
-		if (success) return callBack();
+		if (success) callBack();
 	};
 
 	if (
@@ -158,3 +168,19 @@ export default ({ promotionInfo, userInfo, filter, callBack }) => {
 		</button>
 	);
 };
+
+JoinBtn.defaultProps = {
+	promotionInfo: null,
+	userInfo: null,
+	filter: null,
+	callBack: () => null
+};
+
+JoinBtn.propTypes = {
+	promotionInfo: PropTypes.objectOf(PropTypes.any),
+	userInfo: PropTypes.objectOf(PropTypes.any),
+	filter: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+	callBack: PropTypes.func
+};
+
+export default JoinBtn;
