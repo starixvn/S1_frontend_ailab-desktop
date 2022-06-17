@@ -2,23 +2,31 @@
 
 This project was generated using [Nx](https://nx.dev).
 
+## npm install
+
+使用以下指令安裝第三方套件
+
+```bash
+npm install --legacy-peer-deps
+```
+
 ---
 
 ## Development server
 
 Run `nx serve {my-app}` for a dev server. The app will automatically reload if you change any of the source files.
 
-**Nova88** 
+**Nova88**
 Run `nx serve nova88v2`
-Will auto navigate to http://localhost:42012
+Will auto navigate to <http://localhost:42012>
 
-**Goal123** 
+**Goal123**
 Run `nx serve goal123`
-Will auto navigate to http://localhost:4202
+Will auto navigate to <http://localhost:4202>
 
-**Bwing** 
+**Bwing**
 Run `nx serve bwing`
-Will auto navigate to http://localhost:4203
+Will auto navigate to <http://localhost:4203>
 
 ---
 
@@ -28,7 +36,7 @@ Please refer to the file ./.gitmessage.txt
 
 ---
 
-## Install the Nx Plugin for Gatsby in your Nx workspace.
+## Install the Nx Plugin for Gatsby in your Nx workspace
 
 -   `yarn add @nrwl/gatsby --dev`
 
@@ -38,7 +46,7 @@ Please refer to the file ./.gitmessage.txt
 
 ---
 
-## Generate a new Gatsby application:
+## Generate a new Gatsby application
 
 -   `nx generate @nrwl/gatsby:app my-app`
 
@@ -50,7 +58,7 @@ Please refer to the file ./.gitmessage.txt
 
 ---
 
-## To serve the application:
+## To serve the application
 
 -   `nx serve my-app`
 
