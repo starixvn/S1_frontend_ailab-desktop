@@ -356,7 +356,9 @@ const Deposit = () => {
 		) {
 			const { sysId, payId, channelId, amount, depositPromo } = formInfo;
 			let { bonusCode } = formInfo?.depositPromo;
-			const resultAmount = _isConvert ? amount * 1000 : Number(amount);
+			const resultAmount = _isConvert
+				? Math.floor(amount * 1000)
+				: Number(amount);
 
 			if (
 				userInfo.phoneVerified &&
