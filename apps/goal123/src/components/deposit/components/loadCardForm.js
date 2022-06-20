@@ -27,7 +27,6 @@ export default function LoadCardForm({
 	const [paymentList, setPaymentList] = useState([]);
 	const [infoChannelIdForRecord, setInfoChannelIdForRecord] =
 		useState(defaultChannelId);
-
 	const onChangePaymentHandler = item => {
 		window.history.replaceState(
 			{},
@@ -35,12 +34,10 @@ export default function LoadCardForm({
 			`${window.location.pathname}?type=${depositType}&channelId=${item.channelId}`
 		);
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo(prev => {
-			return {
-				...item,
-				depositPromo: prev.depositPromo
-			};
-		});
+		setFormInfo(prev => ({
+			...item,
+			depositPromo: prev.depositPromo
+		}));
 	};
 
 	useEffect(() => {
@@ -100,7 +97,8 @@ export default function LoadCardForm({
 								item.channelId === infoChannelIdForRecord
 									? "active"
 									: ""
-							}>
+							}
+						>
 							<div>
 								<img
 									alt={item.groupName}
@@ -147,6 +145,57 @@ export default function LoadCardForm({
 
 					<div className="subModule">
 						<div className="column">
+							<div className="row">
+								<Inputbox
+									value={formInfo.cardCode?.val}
+									onChange={e => {
+										onChangeForm(
+											e.target.value,
+											"cardCode"
+										);
+									}}
+									onBlur={e =>
+										onChangeForm(e.target.value, "cardCode")
+									}
+									checked={formInfo.cardCode?.checked ?? null}
+									tip={formInfo.cardCode?.tip}
+									clickInfo={() =>
+										setCardCodeInfoIconActive(prev => !prev)
+									}
+									placeholder={t("lbl_DepositCardCode")}
+									isShowPaste={true}
+									handlePaste={onChangeForm}
+									pasteCol="cardCode"
+								/>
+							</div>
+
+							<div className="row">
+								<Inputbox
+									value={formInfo.cardSerial?.val}
+									onChange={e => {
+										onChangeForm(
+											e.target.value,
+											"cardSerial"
+										);
+									}}
+									onBlur={e =>
+										onChangeForm(
+											e.target.value,
+											"cardSerial"
+										)
+									}
+									checked={formInfo.cardSerial?.checked}
+									tip={formInfo.cardSerial?.tip}
+									clickInfo={() =>
+										setCardCodeInfoIconActive(prev => !prev)
+									}
+									placeholder={t("lbl_DepositCardSerial")}
+									isShowPaste={true}
+									handlePaste={onChangeForm}
+									pasteCol="cardSerial"
+								/>
+							</div>
+
 							{isSelAmountType ? (
 								<FixedAmountList
 									minAmount={formInfo.minAmount}
@@ -158,51 +207,6 @@ export default function LoadCardForm({
 								/>
 							) : null}
 
-							<Inputbox
-								value={formInfo.cardCode?.val}
-								onChange={e =>
-									onChangeForm(e.target.value, "cardCode")
-								}
-								onBlur={e =>
-									onChangeForm(e.target.value, "cardCode")
-								}
-								checked={formInfo.cardCode?.checked ?? null}
-								tip={formInfo.cardCode?.tip}
-								clickInfo={() =>
-									setCardCodeInfoIconActive(prev => !prev)
-								}
-								placeholder={t("lbl_DepositCardCode")}
-							/>
-
-							<Inputbox
-								value={formInfo.cardSerial?.val}
-								onChange={e =>
-									onChangeForm(e.target.value, "cardSerial")
-								}
-								onBlur={e =>
-									onChangeForm(e.target.value, "cardSerial")
-								}
-								checked={formInfo.cardSerial?.checked}
-								tip={formInfo.cardSerial?.tip}
-								placeholder={t("lbl_DepositCardSerial")}
-							/>
-
-							<Inputbox
-								readOnly={isSelAmountType}
-								value={formInfo.amount?.val}
-								onChange={e =>
-									onChangeForm(e.target.value, "amount")
-								}
-								onBlur={e =>
-									onChangeForm(e.target.value, "amount")
-								}
-								checked={formInfo.amount?.checked}
-								tip={formInfo.amount?.tip}
-								_isConvert={_isConvert}
-								isAmount={true}
-								placeholder={t("lbl_DepositCardValue")}
-							/>
-
 							<div className={tipImgClass}>
 								<img
 									src={`${bannerImgUrl}/desktop/img/cardinfo.png`}
@@ -213,7 +217,6 @@ export default function LoadCardForm({
 					</div>
 				</>
 			) : null}
-
 			{depositPromoList?.length > 0 && (
 				<>
 					<div className="subModuleTitle">
@@ -231,11 +234,14 @@ export default function LoadCardForm({
 					/>
 				</>
 			)}
-
 			<div className="note">
 				<ol>
-					<li>{t("lbl_DepositLoadCardNoticeContent1")}</li>
-					<li>{t("lbl_DepositLoadCardNoticeContent2")}</li>
+					<p>
+						<span className="icon icon-warning" />
+						{t("lbl_ImportantNotes")}
+					</p>
+					<li>* {t("lbl_DepositLoadCardNoticeContent1")}</li>
+					<li>* {t("lbl_DepositLoadCardNoticeContent2")}</li>
 				</ol>
 			</div>
 		</>
