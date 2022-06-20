@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
 
 const InputBox = props => {
-	const [isShowPasteText, setIsShowPasteText] = useState(false);
-	const { t } = useTranslation();
 	const showCheckIcon = () => {
 		if (props.checked === null && props.clickInfo) {
 			return (
@@ -23,7 +20,6 @@ const InputBox = props => {
 		if (props.checked === "loading") {
 			return <i className="icon icon-spinner11" />;
 		}
-		return null;
 	};
 
 	const inputBoxClass = () => {
@@ -38,12 +34,6 @@ const InputBox = props => {
 		}
 
 		return classNameList.join(" ");
-	};
-
-	const handlePaste = () => {
-		navigator.clipboard
-			.readText()
-			.then(result => props.handlePaste(result, props.pasteCol));
 	};
 
 	return (
@@ -79,22 +69,6 @@ const InputBox = props => {
 					{props.checked !== undefined ? showCheckIcon() : null}
 				</div>
 			</div>
-			{props.isShowPaste && (
-				<div
-					onMouseEnter={() => {
-						setIsShowPasteText(true);
-					}}
-					onMouseLeave={() => {
-						setIsShowPasteText(false);
-					}}
-				>
-					{isShowPasteText ? (
-						<span onClick={handlePaste}>{t("lbl_Paste")}</span>
-					) : (
-						<button className="icon icon-files-empty copyBtn" />
-					)}
-				</div>
-			)}
 			{props.inputType !== "date" ? (
 				<div className={`tip${props.tip ? " active" : ""}`}>
 					{props.tip}
@@ -105,45 +79,10 @@ const InputBox = props => {
 };
 
 InputBox.defaultProps = {
-	prefix: null,
-	checked: null,
-	className: null,
-	clickInfo: () => null,
-	handlePaste: () => null,
-	pasteCol: null,
-	icon: null,
-	title: null,
-	areaCode: null,
-	inputType: null,
-	_isConvert: null,
-	placeholder: null,
-	onBlur: () => null,
-	value: null,
-	max: null,
-	readOnly: null,
-	tip: null,
-	isShowPaste: null
+	prefix: null
 };
 InputBox.propTypes = {
-	prefix: PropTypes.node,
-	checked: PropTypes.bool,
-	className: PropTypes.string,
-	clickInfo: PropTypes.func,
-	handlePaste: PropTypes.func,
-	pasteCol: PropTypes.string,
-	icon: PropTypes.string,
-	title: PropTypes.string,
-	areaCode: PropTypes.string,
-	inputType: PropTypes.string,
-	_isConvert: PropTypes.bool,
-	placeholder: PropTypes.string,
-	onBlur: PropTypes.func,
-	onChange: PropTypes.func.isRequired,
-	value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-	max: PropTypes.number,
-	readOnly: PropTypes.bool,
-	tip: PropTypes.string,
-	isShowPaste: PropTypes.bool
+	prefix: PropTypes.node
 };
 
 export default InputBox;

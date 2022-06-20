@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { useTranslation } from "react-i18next";
 
 const InputBox = ({
 	value,
@@ -21,22 +20,14 @@ const InputBox = ({
 	_isConvert,
 	textRight,
 	readOnly,
-	prefix,
-	isShowPaste,
-	toHandlePaste,
-	pasteCol,
-	ShowTipImgAction
+	prefix
 }) => {
-	const [isShowPasteText, setIsShowPasteText] = useState(false);
-	const { t } = useTranslation();
 	const showCheckIcon = () => {
 		if (checked === null && clickInfo) {
 			return (
 				<i
 					className="icon icon-information-solid"
-					onClick={
-						ShowTipImgAction !== null ? ShowTipImgAction : clickInfo
-					}
+					onClick={clickInfo}
 				/>
 			);
 		}
@@ -68,12 +59,6 @@ const InputBox = ({
 		return classNameList.join(" ");
 	};
 
-	const handlePaste = () => {
-		navigator.clipboard
-			.readText()
-			.then(result => toHandlePaste(result, pasteCol));
-	};
-
 	return (
 		<>
 			<div className={inputBoxClass()}>
@@ -89,9 +74,7 @@ const InputBox = ({
 					data-testid="input"
 					type={inputType}
 					value={value ?? ""}
-					className={`${
-						_isConvert || textRight ? "text-right" : ""
-					} input`}
+					className={_isConvert || textRight ? "text-right" : ""}
 					placeholder={placeholder}
 					onBlur={onBlur}
 					onChange={onChange}
@@ -105,22 +88,6 @@ const InputBox = ({
 					{checked !== undefined ? showCheckIcon() : null}
 				</div>
 			</div>
-			{isShowPaste && (
-				<div
-					onMouseEnter={() => {
-						setIsShowPasteText(true);
-					}}
-					onMouseLeave={() => {
-						setIsShowPasteText(false);
-					}}
-				>
-					{isShowPasteText ? (
-						<span onClick={handlePaste}>{t("lbl_Paste")}</span>
-					) : (
-						<button className="icon icon-files-empty copyBtn" />
-					)}
-				</div>
-			)}
 			{inputType !== "date" && (
 				<div className={tip ? "tip active" : ""}>{tip}</div>
 			)}
@@ -138,8 +105,6 @@ InputBox.defaultProps = {
 	areaCode: "",
 	inputType: "text",
 	className: "",
-	toHandlePaste: () => null,
-	pasteCol: null,
 	max: null,
 	onBlur: null,
 	clickInfo: null,
@@ -149,9 +114,7 @@ InputBox.defaultProps = {
 	_isConvert: null,
 	readOnly: false,
 	textRight: "",
-	prefix: null,
-	isShowPaste: false,
-	ShowTipImgAction: null
+	prefix: null
 };
 
 InputBox.propTypes = {
@@ -167,18 +130,14 @@ InputBox.propTypes = {
 	areaCode: PropTypes.string,
 	title: PropTypes.string,
 	icon: PropTypes.string,
-	checked: PropTypes.bool,
+	checked: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 	onKeyPress: PropTypes.func,
 	className: PropTypes.string,
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func,
 	_isConvert: PropTypes.bool,
 	textRight: PropTypes.string,
-	prefix: PropTypes.node,
-	isShowPaste: PropTypes.bool,
-	toHandlePaste: PropTypes.func,
-	pasteCol: PropTypes.string,
-	ShowTipImgAction: PropTypes.func
+	prefix: PropTypes.node
 };
 
 export default InputBox;
