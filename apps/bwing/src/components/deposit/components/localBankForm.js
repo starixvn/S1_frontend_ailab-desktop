@@ -288,23 +288,15 @@ const LocalBankForm = ({
 					</div>
 
 					<div className="subModule">
-						<div className="row">
-							<Inputbox
-								className="inputBox-white"
-								value={userAccountName.value}
-								onChange={e =>
-									onChangeAccountName(e.target.value)
-								}
-								checked={userAccountName?.checked}
-								onBlur={e =>
-									onChangeAccountName(e.target.value)
-								}
-								tip={userAccountName?.tip}
-								placeholder={t(
-									"lbl_DepositAccountNamePlaceholder"
-								)}
-							/>
-						</div>
+						<Inputbox
+							className="inputBox-white"
+							value={userAccountName.value}
+							onChange={e => onChangeAccountName(e.target.value)}
+							checked={userAccountName?.checked}
+							onBlur={e => onChangeAccountName(e.target.value)}
+							tip={userAccountName?.tip}
+							placeholder={t("lbl_DepositAccountNamePlaceholder")}
+						/>
 					</div>
 				</>
 			) : null}

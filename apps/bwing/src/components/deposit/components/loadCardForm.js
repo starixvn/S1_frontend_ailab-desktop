@@ -11,6 +11,7 @@ export default function LoadCardForm({
 	t,
 	_isConvert,
 	formInfo,
+	depositPromoMsg,
 	depositType,
 	cardCodeInfoIconActive,
 	setFormInfo,
@@ -19,14 +20,16 @@ export default function LoadCardForm({
 	loadCardPayGroupList,
 	getLoadCardPayInfoList,
 	onChangeForm,
+	onInputboxKeyDown,
 	setCardCodeInfoIconActive,
 	onChangePromotion
 }) {
 	const defaultChannelId = Number(getUrlParameter("channelId"));
+
 	const [paymentList, setPaymentList] = useState([]);
 	const [infoChannelIdForRecord, setInfoChannelIdForRecord] =
 		useState(defaultChannelId);
-	const [isShowTipImg, setIsShowTipImg] = useState(false);
+
 	const onChangePaymentHandler = item => {
 		window.history.replaceState(
 			{},
@@ -34,10 +37,13 @@ export default function LoadCardForm({
 			`${window.location.pathname}?type=${depositType}&channelId=${item.channelId}`
 		);
 		setInfoChannelIdForRecord(item.channelId);
-		setFormInfo(prev => ({
-			...item,
-			depositPromo: prev.depositPromo
-		}));
+
+		setFormInfo(prev => {
+			return {
+				...item,
+				depositPromo: prev.depositPromo
+			};
+		});
 	};
 
 	useEffect(() => {
@@ -60,6 +66,7 @@ export default function LoadCardForm({
 			const result = await Promise.all(promiseArray).then(res =>
 				res.flat()
 			);
+
 			defaultDataCheck(result);
 			setPaymentList(result);
 		};
@@ -74,6 +81,15 @@ export default function LoadCardForm({
 	if (paymentList.length <= 0) return null;
 
 	const isSelAmountType = formInfo.amountRule === 3;
+
+	const formatMinAmount = number_format({
+		number: formInfo.minAmount,
+		digits: 0
+	});
+	const formatMaxAmount = number_format({
+		number: formInfo.maxAmount,
+		digits: 0
+	});
 
 	const tipImgClass = ["tipImg", cardCodeInfoIconActive && "active"]
 		.filter(Boolean)
@@ -97,8 +113,7 @@ export default function LoadCardForm({
 								item.channelId === infoChannelIdForRecord
 									? "active"
 									: ""
-							}
-						>
+							}>
 							<div>
 								<img
 									alt={item.groupName}
@@ -144,65 +159,54 @@ export default function LoadCardForm({
 
 					<div className="subModule">
 						<div className="column">
-							<div className="row">
-								<Inputbox
-									className="inputBox-white"
-									value={formInfo.cardCode?.val}
-									onChange={e => {
-										onChangeForm(
-											e.target.value,
-											"cardCode"
-										);
-									}}
-									onBlur={e =>
-										onChangeForm(e.target.value, "cardCode")
-									}
-									checked={formInfo.cardCode?.checked ?? null}
-									tip={formInfo.cardCode?.tip}
-									clickInfo={() =>
-										setCardCodeInfoIconActive(prev => !prev)
-									}
-									placeholder={t("lbl_DepositCardCode")}
-									isShowPaste={true}
-									toHandlePaste={onChangeForm}
-									pasteCol="cardCode"
-									ShowTipImgAction={() =>
-										setIsShowTipImg(!isShowTipImg)
-									}
-								/>
-							</div>
-							<div className="row">
-								<Inputbox
-									className="inputBox-white"
-									value={formInfo.cardSerial?.val}
-									onChange={e => {
-										onChangeForm(
-											e.target.value,
-											"cardSerial"
-										);
-									}}
-									onBlur={e =>
-										onChangeForm(
-											e.target.value,
-											"cardSerial"
-										)
-									}
-									checked={
-										formInfo.cardSerial?.checked ?? null
-									}
-									tip={formInfo.cardSerial?.tip}
-									clickInfo={() =>
-										setCardCodeInfoIconActive(prev => !prev)
-									}
-									placeholder={t("lbl_DepositCardSerial")}
-									isShowPaste={true}
-									toHandlePaste={onChangeForm}
-									pasteCol="cardSerial"
-									ShowTipImgAction={() =>
-										setIsShowTipImg(!isShowTipImg)
-									}
-								/>
-							</div>
+							<Inputbox
+								className="inputBox-white"
+								value={formInfo.cardCode?.val}
+								onChange={e =>
+									onChangeForm(e.target.value, "cardCode")
+								}
+								onBlur={e =>
+									onChangeForm(e.target.value, "cardCode")
+								}
+								checked={formInfo.cardCode?.checked ?? null}
+								tip={formInfo.cardCode?.tip}
+								clickInfo={() =>
+									setCardCodeInfoIconActive(prev => !prev)
+								}
+								placeholder={t("lbl_DepositCardCode")}
+							/>
+
+							<Inputbox
+								className="inputBox-white"
+								value={formInfo.cardSerial?.val}
+								onChange={e =>
+									onChangeForm(e.target.value, "cardSerial")
+								}
+								onBlur={e =>
+									onChangeForm(e.target.value, "cardSerial")
+								}
+								checked={formInfo.cardSerial?.checked}
+								tip={formInfo.cardSerial?.tip}
+								placeholder={t("lbl_DepositCardSerial")}
+							/>
+
+							<Inputbox
+								className="inputBox-white"
+								readOnly={isSelAmountType}
+								value={formInfo.amount?.val}
+								onChange={e =>
+									onChangeForm(e.target.value, "amount")
+								}
+								onBlur={e =>
+									onChangeForm(e.target.value, "amount")
+								}
+								checked={formInfo.amount?.checked}
+								tip={formInfo.amount?.tip}
+								_isConvert={_isConvert}
+								isAmount={true}
+								placeholder={t("lbl_DepositCardValue")}
+								onKeyDown={onInputboxKeyDown}
+							/>
 							{isSelAmountType ? (
 								<FixedAmountList
 									minAmount={formInfo.minAmount}
@@ -215,27 +219,16 @@ export default function LoadCardForm({
 							) : null}
 						</div>
 
-						{isShowTipImg ? (
-							<div className={tipImgClass}>
-								<img
-									src={`${bannerImgUrl}/desktop/img/cardinfo.png`}
-									alt="cardinfoImg"
-								/>
-							</div>
-						) : null}
+						<div className={tipImgClass}>
+							<img
+								src={`${bannerImgUrl}/desktop/img/cardinfo.png`}
+								alt="cardinfoImg"
+							/>
+						</div>
 					</div>
 				</>
 			) : null}
-			<div className="note">
-				<ol>
-					<p>
-						<span className="icon icon-warning" />
-						{t("lbl_ImportantNotes")}
-					</p>
-					<li>* {t("lbl_DepositLoadCardNoticeContent1")}</li>
-					<li>* {t("lbl_DepositLoadCardNoticeContent2")}</li>
-				</ol>
-			</div>
+
 			{depositPromoList?.length > 0 && (
 				<>
 					<div className="subModuleTitle">
@@ -253,6 +246,13 @@ export default function LoadCardForm({
 					/>
 				</>
 			)}
+
+			<div className="note">
+				<ol>
+					<li>* {t("lbl_DepositLoadCardNoticeContent1")}</li>
+					<li>* {t("lbl_DepositLoadCardNoticeContent2")}</li>
+				</ol>
+			</div>
 		</>
 	);
 }
@@ -265,8 +265,10 @@ LoadCardForm.propTypes = {
 	loadCardPayGroupList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	getLoadCardPayInfoList: PropTypes.func.isRequired,
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	depositPromoMsg: PropTypes.string.isRequired,
 	setFormInfo: PropTypes.func.isRequired,
 	onChangeForm: PropTypes.func.isRequired,
+	onInputboxKeyDown: PropTypes.func.isRequired,
 	setCardCodeInfoIconActive: PropTypes.func.isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,

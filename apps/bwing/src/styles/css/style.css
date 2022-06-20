@@ -8693,9 +8693,9 @@ article pre {
 
 iframe {
   width: 100%;
-  margin: auto;
+  margin: auto auto 50px auto;
   height: 100%;
-  min-height: 810px;
+  min-height: 820px;
 }
 
 .loading {
@@ -12072,22 +12072,14 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-bottom: 15px;
 }
 
-.subModuleListColumn > .subModule > div.column > .row > div:nth-of-type(2) {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.subModuleListColumn > .subModule > div.column > .row > div span {
-  color: #aeb2bc;
-  cursor: pointer;
-}
-
 .subModuleListColumn > .subModule > div.column > .row button {
   width: 20px;
+}
+
+.subModuleListColumn > .subModule > div.column > .row button:hover::before {
+  font-family: "Segoe UI", sans-serif;
+  content: "Paste";
+  color: #b6b6b6;
 }
 
 .subModuleListColumn > .subModule > div.column > .row .tip {
@@ -12262,8 +12254,12 @@ input + .iconModule i.icon.icon-checkmark:before {
   color: #fff;
 }
 
-.important ol li a {
+.important ol li a, .important ol li button {
   color: #1e85ec;
+}
+
+.important ol li button {
+  display: contents;
 }
 
 .text-center {
