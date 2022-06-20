@@ -14,28 +14,27 @@ const FixedAmountList = ({
 
 	return (
 		<div className="btnGroup buttonBox">
-			{amountList
-				?.filter(a => a >= minAmount && a <= maxAmount)
-				.map(a => {
-					const _afterConvertAmount = _isConvert ? a / 1000 : a;
-					const isSelected = Number(amount) === _afterConvertAmount;
+			{amountList?.map(a => {
+				const _afterConvertAmount = _isConvert ? a / 1000 : a;
+				const isSelected = Number(amount) === _afterConvertAmount;
 
-					return (
-						<button
-							onClick={() =>
-								onChangeForm(_afterConvertAmount, "amount")
-							}
-							className={`blue${isSelected ? " active" : ""}`}
-							key={`deposit-mobile-${a}`}>
-							{number_format({
-								number: a,
-								formatRequired: _isConvert,
-								digits: 0
-							})}
-							<i className="icon icon-checkmark" />
-						</button>
-					);
-				})}
+				return (
+					<button
+						onClick={() =>
+							onChangeForm(_afterConvertAmount, "amount")
+						}
+						className={`blue${isSelected ? " active" : ""}`}
+						key={`deposit-mobile-${a}`}
+					>
+						{number_format({
+							number: a,
+							formatRequired: _isConvert,
+							digits: 0
+						})}
+						<i className="icon icon-checkmark" />
+					</button>
+				);
+			})}
 		</div>
 	);
 };
