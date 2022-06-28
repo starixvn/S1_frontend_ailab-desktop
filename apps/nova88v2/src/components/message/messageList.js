@@ -1,4 +1,5 @@
 import React, { useState, useRef, useContext, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useLocation } from "@reach/router";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
@@ -9,7 +10,7 @@ import {
 import { popBoxContext, msgCountContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 
-export default props => {
+const MessageList = props => {
 	const { t } = useTranslation();
 	const [showContent, setShowContent] = useState(false);
 	const [msgContentData, setMsgContentData] = useState("");
@@ -22,7 +23,6 @@ export default props => {
 		moment(props.createTime, "YYYY-MM-DD"),
 		"day"
 	);
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -66,7 +66,7 @@ export default props => {
 
 	const getMsgContent = getMsg => {
 		if (getMsg) {
-			api_account_GetMsgContent(props.id).then(
+			api_account_GetMsgContent(props.id, props.isBatch ? 1 : 0).then(
 				res => {
 					if (isMountedRef.current) {
 						const success = res.data.errorCode === 0;
@@ -85,7 +85,8 @@ export default props => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -104,7 +105,8 @@ export default props => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -138,7 +140,8 @@ export default props => {
 				</div>
 				<div
 					className="txt-blue"
-					onClick={() => getMsgContent(!showContent)}>
+					onClick={() => getMsgContent(!showContent)}
+				>
 					{dateTimeFormat()}
 
 					<button className="icon icon-keyboard_arrow_down" />
@@ -146,8 +149,21 @@ export default props => {
 			</div>
 			<div
 				className={`listBody backstage ${showContent ? "active" : ""}`}
+				// eslint-disable-next-line
 				dangerouslySetInnerHTML={{ __html: msgContentData }}
 			/>
 		</div>
 	);
 };
+MessageList.propTypes = {
+	isPopUp: PropTypes.bool.isRequired,
+	id: PropTypes.number.isRequired,
+	isBatch: PropTypes.bool.isRequired,
+	getMsgList: PropTypes.func.isRequired,
+	createTime: PropTypes.string.isRequired,
+	flag: PropTypes.bool.isRequired,
+	onChangeCheck: PropTypes.func.isRequired,
+	selectItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+	title: PropTypes.string.isRequired
+};
+export default MessageList;

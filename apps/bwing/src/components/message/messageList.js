@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "@reach/router";
 import moment from "moment";
@@ -10,7 +11,7 @@ import { popBoxContext, msgCountContext } from "../common/context";
 import { defPopBoxType } from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 
-export default props => {
+const MessageList = props => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { setMsgCount } = useContext(msgCountContext);
@@ -40,7 +41,7 @@ export default props => {
 
 	const getMsgContent = getMsg => {
 		if (getMsg) {
-			api_account_GetMsgContent(props.id).then(
+			api_account_GetMsgContent(props.id, props.isBatch ? 1 : 0).then(
 				res => {
 					if (isMountedRef.current) {
 						if (res.data.errorCode === 0) {
@@ -83,7 +84,8 @@ export default props => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -131,7 +133,8 @@ export default props => {
 					tabIndex={0}
 					onClick={getMsgContent.bind(this, !showContent)}
 					role="button"
-					onKeyDown={getMsgContent.bind(this, !showContent)}>
+					onKeyDown={getMsgContent.bind(this, !showContent)}
+				>
 					{props.title}
 				</div>
 				<div onClick={getMsgContent.bind(this, !showContent)}>
@@ -144,8 +147,21 @@ export default props => {
 			</div>
 			<div
 				className={`listBody backstage ${showContent ? "active" : ""}`}
+				// eslint-disable-next-line
 				dangerouslySetInnerHTML={{ __html: msgContentData }}
 			/>
 		</div>
 	);
 };
+MessageList.propTypes = {
+	isPopUp: PropTypes.bool.isRequired,
+	id: PropTypes.number.isRequired,
+	isBatch: PropTypes.bool.isRequired,
+	getMsgList: PropTypes.func.isRequired,
+	createTime: PropTypes.string.isRequired,
+	flag: PropTypes.bool.isRequired,
+	onChangeCheck: PropTypes.func.isRequired,
+	selectItems: PropTypes.arrayOf(PropTypes.object).isRequired,
+	title: PropTypes.string.isRequired
+};
+export default MessageList;
