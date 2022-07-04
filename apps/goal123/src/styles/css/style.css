@@ -2073,7 +2073,7 @@ html.Newtheme .loginpop .joinloginModule {
 }
 
 html.Newtheme .joinloginModule {
-  padding-top: 55px;
+  padding-top: 20px;
   width: 900px;
   margin: 2vw auto;
   display: -webkit-box;
@@ -7382,8 +7382,12 @@ html.Newtheme .changePassWordpop {
 html.Newtheme .changePassWordpop button.icon-cross {
   font-size: 12px;
   position: absolute;
-  right: -20px;
-  top: -20px;
+  right: -10px;
+  top: -10px;
+}
+
+html.Newtheme .changePassWordpop .btnGroup {
+  margin-bottom: 0;
 }
 
 html.Newtheme .promoType .icon-icon32px_ALL:before {
@@ -9121,12 +9125,12 @@ html.Newtheme .importantNo li {
 }
 
 html.Newtheme .importantNo a {
-  color: #1f3258;
+  color: #5084e4;
   font-weight: bold;
 }
 
 html.Newtheme .importantNo button {
-  color: #1f3258;
+  color: #5084e4;
   display: contents;
 }
 
@@ -13912,5 +13916,38 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   100% {
     opacity: 0;
   }
+}
+
+.resetPassWordpop .title {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 0;
+}
+
+.resetPassWordpop .title .icon {
+  color: #fab617;
+  margin-right: 5px;
+  font-size: 30px;
+}
+
+.resetPassWordpop .resetPassWord {
+  margin: 0 auto;
+}
+
+.resetPassWordpop .resetPassWord .icon {
+  font-size: 14px;
+}
+
+.resetPassWordpop .resetPassWord .tip {
+  text-align: left;
+}
+
+.resetPassWordpop .btnGroup {
+  margin: 10px auto 0 !important;
 }
 /*# sourceMappingURL=style.css.map */
