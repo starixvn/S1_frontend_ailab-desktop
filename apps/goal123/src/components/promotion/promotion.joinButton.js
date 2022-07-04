@@ -105,8 +105,9 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 								</div>
 							)
 						});
+					} else {
+						openErrorMessagePopBox(message || "error", errorCode);
 					}
-					openErrorMessagePopBox(message || "error", errorCode);
 					setProcessing(false);
 				},
 				() => {
@@ -136,7 +137,7 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 			(promotionType === defPromotionType.redeposit ||
 				(filter === defFilterType.specialBonus &&
 					promotionType === defPromotionType.firstDeposit))
-		)
+		) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.PromotionAmountConfirm,
@@ -146,9 +147,14 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 				clickClose,
 				setClaimPromotion
 			});
-
-		const success = await setClaimPromotion(langId, bonusCode, maxAmount);
-		if (success) callBack();
+		} else {
+			const success = await setClaimPromotion(
+				langId,
+				bonusCode,
+				maxAmount
+			);
+			if (success) callBack();
+		}
 	};
 
 	if (
