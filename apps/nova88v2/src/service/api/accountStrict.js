@@ -23,6 +23,23 @@ export const api_accountStrict_SetProfile = ({
 		PhoneNo
 	});
 
+export const api_accountStrict_SetProfileAddress = ({
+	AddressCountry,
+	AddressState,
+	AddressPostCode,
+	AddressCity,
+	AddressLineFirst,
+	AddressLineSecond
+}) =>
+	accountStrictRequest.post("/SetProfileAddress", {
+		AddressCountry,
+		AddressState,
+		AddressPostCode,
+		AddressCity,
+		AddressLineFirst,
+		AddressLineSecond
+	});
+
 export const api_accountStrict_SetCustBankInfo = ({
 	AccountName,
 	AccountNo,

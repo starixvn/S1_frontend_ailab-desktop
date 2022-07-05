@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import moment from "moment";
 import { userInfoContext } from "../common/context";
 
@@ -6,7 +6,13 @@ export const initValue = {
 	accountName: "",
 	birth: "",
 	phoneNo: "",
-	areaCodeIdx: null
+	areaCodeIdx: null,
+	addressLineFirst: "",
+	addressLineSecond: "",
+	addressCity: "",
+	addressPostCode: "",
+	addressState: "",
+	addressCountry: ""
 };
 
 export const initStatus = {
@@ -21,6 +27,36 @@ export const initStatus = {
 	phoneNo: {
 		checked: null,
 		tip: ""
+	},
+	addressLineFirst: {
+		checked: null,
+		tip: "",
+		type: "addr"
+	},
+	addressLineSecond: {
+		checked: null,
+		tip: "",
+		type: "addr"
+	},
+	addressCity: {
+		checked: null,
+		tip: "",
+		type: "addr"
+	},
+	addressPostCode: {
+		checked: null,
+		tip: "",
+		type: "addr"
+	},
+	addressState: {
+		checked: null,
+		tip: "",
+		type: "addr"
+	},
+	addressCountry: {
+		checked: null,
+		tip: "",
+		type: "addr"
 	}
 };
 
@@ -76,6 +112,42 @@ export const InfoList = ({ countryList }) => {
 			displayKey: "lbl_LastLogin",
 			content: moment(userInfo.lastLogin).format("DD/MM/YYYY HH:mm:ss"),
 			show: Boolean(userInfo.lastLogin)
+		},
+		{
+			displayKey: "lbl_Line_1",
+			content: userInfo?.addressLineFirst,
+			show: Boolean(userInfo.addressLineFirst),
+			code: "addressLineFirst"
+		},
+		{
+			displayKey: "lbl_Line_2",
+			content: userInfo?.addressLineSecond,
+			show: Boolean(userInfo.addressLineSecond),
+			code: "addressLineSecond"
+		},
+		{
+			displayKey: "lbl_City",
+			content: userInfo?.addressCity,
+			show: Boolean(userInfo.addressCity),
+			code: "addressCity"
+		},
+		{
+			displayKey: "lbl_PostCode",
+			content: userInfo?.addressPostCode,
+			show: Boolean(userInfo.addressPostCode),
+			code: "addressPostCode"
+		},
+		{
+			displayKey: "lbl_State",
+			content: userInfo?.addressState,
+			show: Boolean(userInfo.addressState),
+			code: "addressState"
+		},
+		{
+			displayKey: "lbl_Country",
+			content: userInfo?.addressCountry,
+			show: Boolean(userInfo.addressCountry),
+			code: "addressCountry"
 		}
 	];
 

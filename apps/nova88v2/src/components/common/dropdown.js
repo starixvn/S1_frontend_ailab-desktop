@@ -11,7 +11,6 @@ class Dropdown extends Component {
 
 	clickDropdown = e => {
 		e.preventDefault();
-
 		if (this.props.disabled) return;
 
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
