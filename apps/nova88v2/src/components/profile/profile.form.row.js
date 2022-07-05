@@ -28,9 +28,7 @@ const DisplayRow = ({
 	const _isConvert = isConvert(userInfo.currencyId);
 
 	const legalDate = moment().subtract(18, "year");
-	const vaildDate = current => {
-		return current.isBefore(legalDate);
-	};
+	const vaildDate = current => current.isBefore(legalDate);
 	const currencyName = GetCurrencyName({
 		langId: userInfo.langId,
 		currencyId: userInfo.currencyId,
@@ -60,7 +58,6 @@ const DisplayRow = ({
 			</div>
 		);
 	}
-
 	if (
 		displayKey === "lbl_Birthday" &&
 		(!userInfo?.birth_d || !userInfo?.birth_m || !userInfo?.birth_y)
@@ -93,7 +90,6 @@ const DisplayRow = ({
 			</div>
 		);
 	}
-
 	if (displayKey === "lbl_Phone") {
 		let phoneContent = null;
 
@@ -104,16 +100,17 @@ const DisplayRow = ({
 						className="inputBox-blue"
 						onBlur={() => phoneCheck("areaCode")}
 						tabIndex="0"
-						role="button">
+						role="button"
+					>
 						<Dropdown
 							defaultOption={areaCode}
 							mainKey="area_code"
 							icon="icon-phone txt-blue"
 							options={areaCodeOptions}
-							selectedIdx={userValue.areaCodeIdx}
+							selectedIdx={userValue.areaCodeIdx - 1}
 							i18n={t}
 							onSelectItem={onSelectAreaCode}
-							disabled={!isUSDT}
+							disabled={isUSDT}
 						/>
 					</div>
 					<Inputbox
@@ -155,7 +152,8 @@ const DisplayRow = ({
 					{`(${areaCode})${content}`}
 					<button
 						className="icon icon-mobile btn-org"
-						onClick={sendOTPSMS}>
+						onClick={sendOTPSMS}
+					>
 						{t("lbl_PhoneVerification")}
 						<div className="description">
 							<div className="title">
@@ -196,7 +194,8 @@ const DisplayRow = ({
 					) : (
 						<button
 							className="icon icon-envelope btn-org"
-							onClick={sendEmailOtp}>
+							onClick={sendEmailOtp}
+						>
 							{t("lbl_EmailVerification")}
 							<div className="description">
 								<div className="title">

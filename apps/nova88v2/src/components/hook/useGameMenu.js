@@ -47,7 +47,7 @@ const useGameMenu = ({ productTpIds }) => {
 
 		if (
 			customSort &&
-			Object.keys(customSort).includes(_currencyId.toString())
+			Object.keys(customSort).includes(_currencyId?.toString())
 		) {
 			newMenu = newMenu.sort(
 				(a, b) =>

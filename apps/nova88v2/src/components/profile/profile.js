@@ -8,12 +8,14 @@ import areaCode from "../../datas/areaCode";
 import { api_account_ExistsPhone } from "../../service/api/account";
 import {
 	api_accountStrict_SetProfile,
+	api_accountStrict_SetProfileAddress,
 	api_accountStrict_SendOTPSMS,
 	api_accountStrict_SendOTPEmail
 } from "../../service/api/accountStrict";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import ProfileForm from "./profile.form";
+import ProfileAddrForm from "./profile.addrForm";
 import { getUrlParameter } from "../common/common";
 import { defPrevPage } from "./profile.def";
 import Loading from "../common/loading";
@@ -32,19 +34,19 @@ export default () => {
 	const [loading, setLoading] = useState(true);
 	const isMountedRef = useRef(null);
 	const [countryList, setCountryList] = useState([]);
-	const infoList = InfoList({ countryList });
+	const addrList = InfoList({ countryList }).filter(obj => obj.code);
+	const infoList = InfoList({ countryList }).filter(obj => !obj.code);
 	const [mobileVerificationLoading, setMobileVerificationLoading] =
 		useState(false);
 	const country =
 		userInfo.country && userInfo.country !== "null"
 			? userInfo.country
 			: userInfo.perCountry;
-
 	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const allAreaCodeArr = Object.values(areaCode)
 		.map(a => a.AreaCode)
 		.sort();
-	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => ({
+	const areaCodeOptions = allAreaCodeArr.map((_a, idx) => ({
 		id: idx,
 		displayText: _a
 	}));
@@ -53,23 +55,59 @@ export default () => {
 		: "";
 
 	let _areaCodeVal = "";
-	if (isUSDT) {
-		_areaCodeVal = usdtAreaCode;
-	} else if (country) {
+	if (country) {
 		_areaCodeVal = areaCode[country].AreaCode;
+	} else {
+		_areaCodeVal = usdtAreaCode;
 	}
+	const hasRequireValueNull = type => {
+		let result;
+		switch (type) {
+			case "profile": {
+				result =
+					(!userInfo.accountName && userValue.accountName === "") ||
+					(!userInfo.birth_d && userValue.birth === "") ||
+					(!userInfo.phoneNo && userValue.phoneNo === "");
+				break;
+			}
+			case "addr": {
+				result =
+					(!userInfo.addressLineFirst &&
+						userValue.addressLineFirst === "") ||
+					(!userInfo.addressCity && userValue.addressCity === "") ||
+					(!userInfo.addressPostCode &&
+						userValue.addressPostCode === "") ||
+					(!userInfo.addressState && userValue.addressState === "") ||
+					(!userInfo.addressCountry &&
+						userValue.addressCountry === "");
+				break;
+			}
+			default:
+				break;
+		}
+		return result;
+	};
 
-	const hasRequireValueNull =
-		(!userInfo.accountName && userValue.accountName === "") ||
-		(!userInfo.birth_d && userValue.birth === "") ||
-		(!userInfo.phoneNo &&
-			(userValue.phoneNo === "" || _areaCodeVal === ""));
+	const hasCheckFalseStatus = type => {
+		const profileStatus = {
+			accountName: status.accountName,
+			birth: status.birth,
+			phoneNo: status.phoneNo
+		};
+		const addrStatus = {
+			addressLineFirst: status.addressLineFirst,
+			addressCity: status.addressCity,
+			addressPostCode: status.addressPostCode,
+			addressState: status.addressState,
+			addressCountry: status.addressCountry
+		};
+		return Object.values(type === "profile" ? profileStatus : addrStatus)
+			.map(item => item.checked)
+			.includes(false);
+	};
 
-	const hasCheckFalseStatus = Object.values(status)
-		.map(item => item.checked)
-		.includes(false);
-
-	const disableSubmit = hasRequireValueNull || hasCheckFalseStatus;
+	const disableSubmit = type =>
+		hasRequireValueNull(type) || hasCheckFalseStatus(type);
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -103,11 +141,12 @@ export default () => {
 	useEffect(() => {
 		if (
 			userInfo.accountName !== undefined ||
-			userInfo.phoneNo !== undefined
+			userInfo.phoneNo !== undefined ||
+			userInfo.addressCity !== undefined
 		) {
 			setLoading(false);
 		}
-	}, [userInfo.accountName, userInfo.phoneNo]);
+	}, [userInfo.accountName, userInfo.phoneNo, userInfo.addressCity]);
 
 	const onSelectAreaCode = i => {
 		setUserValue(prev => ({ ...prev, areaCodeIdx: i + 1 }));
@@ -116,7 +155,6 @@ export default () => {
 	const closePopBox = () => {
 		setPopBox({ isOpen: false });
 	};
-
 	const openErrorMessagePopBox = (
 		message = t("msg_ApiServerError"),
 		errorCode = null
@@ -140,10 +178,45 @@ export default () => {
 	const clickInfo = col => {
 		let _tip = "";
 
-		if (col === "accountName") {
-			_tip = status.accountName.tip === "" ? t("lbl_RemindForName") : "";
-		} else {
-			_tip = status.phoneNo.tip === "" ? t("lbl_PhoneTooltip") : "";
+		switch (col) {
+			case "accountName":
+				_tip =
+					status.accountName.tip === "" ? t("lbl_RemindForName") : "";
+				break;
+			case "phoneNo":
+				_tip = status.phoneNo.tip === "" ? t("lbl_PhoneTooltip") : "";
+				break;
+			case "addressLineFirst":
+				_tip =
+					status.addressLineFirst.tip === ""
+						? t("msg_EnterAddress")
+						: "";
+				break;
+			case "addressLineSecond":
+				_tip =
+					status.addressLineSecond.tip === ""
+						? t("msg_EnterAddress")
+						: "";
+				break;
+			case "addressCity":
+				_tip = status.addressCity.tip === "" ? t("msg_EnterCity") : "";
+				break;
+			case "addressPostCode":
+				_tip =
+					status.addressPostCode.tip === ""
+						? t("msg_EnterPostCode")
+						: "";
+				break;
+			case "addressState":
+				_tip =
+					status.addressState.tip === "" ? t("msg_EnterState") : "";
+				break;
+			case "addressCountry":
+				_tip =
+					status.addressCountry.tip === ""
+						? t("msg_EnterCountry")
+						: "";
+				break;
 		}
 
 		setStatus(prev => ({
@@ -157,32 +230,35 @@ export default () => {
 
 	const editField = (col, e) => {
 		let val = null;
-
+		const addrInputList = [
+			"addressLineFirst",
+			"addressLineSecond",
+			"addressCity",
+			"addressState",
+			"addressCountry"
+		];
 		if (col === "birth") {
 			val = moment(e).format("YYYY-MM-DD");
 		} else if (col === "accountName") {
 			val = e.target.value;
 			const pattern = new RegExp(/["'`_^+-@#!<>%;)(&$.]/);
 			val = val.replace(pattern, "");
+		} else if (addrInputList.includes(col)) {
+			val = e.target.value;
 		} else {
 			val = e.target.value;
 			val = val.replace(/[^\d]+/g, "");
 		}
-
 		setUserValue(prev => ({
 			...prev,
 			[col]: val
 		}));
 	};
-
 	const phoneCheck = (col, val) => {
 		let checked = true;
 		let tip = "";
 
-		if (_areaCodeVal === "") {
-			checked = false;
-			tip = t("lbl_PhoneRequired");
-		} else if (
+		if (
 			(col === "areaCode" && userValue?.phoneNo.length < 1) ||
 			(col === "phoneNo" && (!val || val === ""))
 		) {
@@ -241,12 +317,21 @@ export default () => {
 	const valueCheck = (val, col) => {
 		let checked = true;
 		let tip = "";
-
+		const addrCheckList = [
+			"addressLineFirst",
+			"addressCity",
+			"addressPostCode",
+			"addressState",
+			"addressCountry"
+		];
 		if (col === "accountName") {
 			tip = !val ? t("lbl_NameRequired") : "";
 			checked = !!val;
 		} else if (col === "birth") {
 			tip = !val ? t("lbl_BirthRequired") : "";
+			checked = !!val;
+		} else if (addrCheckList.includes(col)) {
+			tip = !val ? t("msg_Content_Not_Empty") : "";
 			checked = !!val;
 		}
 
@@ -261,131 +346,153 @@ export default () => {
 		return checked;
 	};
 
-	const clickSubmit = e => {
+	const clickSubmit = (e, type) => {
 		e.preventDefault();
+		if (disableSubmit(type)) return;
+		let accountNameCheck;
+		let birthCheck;
+		let phoneNoCheck;
+		let addrListCheck;
+		if (type === "profile") {
+			accountNameCheck = userInfo.accountName
+				? true
+				: valueCheck(userValue.accountName, "accountName");
 
-		if (disableSubmit) return;
+			birthCheck = userInfo.birth_d
+				? true
+				: valueCheck(userValue.birth, "birth");
 
-		const accountNameCheck = userInfo.accountName
-			? true
-			: valueCheck(userValue.accountName, "accountName");
+			phoneNoCheck = userInfo.phoneNo
+				? true
+				: phoneCheck("phoneNo", userValue.phoneNo);
+		} else if (type === "addr") {
+			addrListCheck = addrList.filter(obj =>
+				userInfo[obj.code]
+					? true
+					: valueCheck(userValue[obj.code], obj.code)
+			);
+		}
 
-		const birthCheck = userInfo.birth_d
-			? true
-			: valueCheck(userValue.birth, "birth");
+		const SetProfileOrAddr = () => {
+			const profileDatas =
+				type === "profile"
+					? {
+							AccountName:
+								userInfo.accountName ?? userValue.accountName,
+							Birth_d:
+								userInfo.birth_d ??
+								userValue.birth.slice(8, 10),
+							Birth_m:
+								userInfo.birth_m ?? userValue.birth.slice(5, 7),
+							Birth_y:
+								userInfo.birth_y ?? userValue.birth.slice(0, 4),
+							// CountryCode: country,
+							CountryCode: "",
+							AreaCode: userInfo.areaCode ?? _areaCodeVal,
+							PhoneNo: userInfo.phoneNo ?? userValue.phoneNo
+					  }
+					: {
+							AddressCountry:
+								userInfo.addressCountry ??
+								userValue.addressCountry,
+							AddressState:
+								userInfo.addressState ?? userValue.addressState,
+							AddressPostCode:
+								userInfo.addressPostCode ??
+								userValue.addressPostCode,
+							AddressCity:
+								userInfo.addressCity ?? userValue.addressCity,
+							AddressLineFirst:
+								userInfo.addressLineFirst ??
+								userValue.addressLineFirst,
+							AddressLineSecond:
+								userInfo.addressLineSecond ??
+								userValue.addressLineSecond
+					  };
 
-		const phoneNoCheck = userInfo.phoneNo
-			? true
-			: phoneCheck("phoneNo", userValue.phoneNo);
+			const fulfillHandle = res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						setUserInfo(prev =>
+							type === "profile"
+								? {
+										...prev,
+										accountName: profileDatas.AccountName,
+										birth_d: profileDatas.Birth_d,
+										birth_m: profileDatas.Birth_m,
+										birth_y: profileDatas.Birth_y,
+										phoneNo: profileDatas.PhoneNo
+								  }
+								: {
+										...prev,
+										addressLineFirst:
+											profileDatas.AddressLineFirst,
+										addressLineSecond:
+											profileDatas.AddressLineSecond,
+										addressCity: profileDatas.AddressCity,
+										addressPostCode:
+											profileDatas.AddressPostCode,
+										addressState: profileDatas.AddressState,
+										addressCountry:
+											profileDatas.AddressCountry
+								  }
+						);
 
-		const SetProfile = () => {
-			const profileDatas = {
-				AccountName: userInfo.accountName ?? userValue.accountName,
-				Birth_d: userInfo.birth_d ?? userValue.birth.slice(8, 10),
-				Birth_m: userInfo.birth_m ?? userValue.birth.slice(5, 7),
-				Birth_y: userInfo.birth_y ?? userValue.birth.slice(0, 4),
-				// CountryCode: country,
-				CountryCode: "",
-				AreaCode: userInfo.areaCode ?? _areaCodeVal,
-				PhoneNo: userInfo.phoneNo ?? userValue.phoneNo
-			};
+						setUserValue(initValue);
+						setStatus(initStatus);
 
-			closePopBox();
-			setLoading(true);
+						const prevPage = getUrlParameter("prevPage");
 
-			api_accountStrict_SetProfile(profileDatas).then(
-				res => {
-					if (isMountedRef.current) {
-						if (res.data.errorCode === 0) {
-							setUserInfo(prev => ({
-								...prev,
-								accountName: profileDatas.AccountName,
-								birth_d: profileDatas.Birth_d,
-								birth_m: profileDatas.Birth_m,
-								birth_y: profileDatas.Birth_y,
-								phoneNo: profileDatas.PhoneNo,
-								country
-							}));
-
-							setUserValue(initValue);
-							setStatus(initStatus);
-
-							const prevPage = getUrlParameter("prevPage");
-
-							if (!userInfo.phoneVerified)
-								return setPopBox({
-									isOpen: true,
-									popBoxType: defPopBoxType.ProfileCompelete,
-									contentMsg: t("lbl_VertifyContactConfirm"),
-									btnBar: (
-										<div className="btnGroup">
-											<button
-												className="btn-cancel"
-												onClick={closePopBox}
-											>
-												{t("lbl_Later")}
-											</button>
-											<button
-												className="blue"
-												onClick={sendOTPSMS}
-											>
-												{t("lbl_VertifyNow")}
-											</button>
-										</div>
-									)
-								});
-
-							if (defPrevPage[prevPage])
-								return setPopBox({
-									isOpen: true,
-									popBoxType: defPopBoxType.ProfileCompelete,
-									contentMsg: t(
-										defPrevPage[prevPage].contentMsg
-									),
-									btnBar: (
-										<div className="btnGroup">
-											<button
-												className="btn-cancel"
-												onClick={closePopBox}
-											>
-												{t("lbl_Later")}
-											</button>
-											<Link
-												className="btn-check"
-												to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}
-											>
-												{t(defPrevPage[prevPage].label)}
-											</Link>
-										</div>
-									)
-								});
-						} else {
-							setPopBox({
+						if (!userInfo.phoneVerified)
+							return setPopBox({
 								isOpen: true,
-								popBoxType: defPopBoxType.ErrorMsg,
-								message: `[${res.data.errorCode}] ${res.data.message}`,
+								popBoxType: defPopBoxType.ProfileCompelete,
+								contentMsg: t("lbl_VertifyContactConfirm"),
 								btnBar: (
 									<div className="btnGroup">
 										<button
-											className="btn-check"
+											className="btn-cancel"
 											onClick={closePopBox}
 										>
-											{t("lbl_Close")}
+											{t("lbl_Later")}
+										</button>
+										<button
+											className="blue"
+											onClick={sendOTPSMS}
+										>
+											{t("lbl_VertifyNow")}
 										</button>
 									</div>
 								)
 							});
-						}
-					}
-					setLoading(false);
-					return null;
-				},
-				() => {
-					if (isMountedRef.current) {
+
+						if (defPrevPage[prevPage])
+							return setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.ProfileCompelete,
+								contentMsg: t(defPrevPage[prevPage].contentMsg),
+								btnBar: (
+									<div className="btnGroup">
+										<button
+											className="btn-cancel"
+											onClick={closePopBox}
+										>
+											{t("lbl_Later")}
+										</button>
+										<Link
+											className="btn-check"
+											to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}
+										>
+											{t(defPrevPage[prevPage].label)}
+										</Link>
+									</div>
+								)
+							});
+					} else {
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.ErrorMsg,
-							message: t("msg_ApiServerError"),
+							message: `[${res.data.errorCode}] ${res.data.message}`,
 							btnBar: (
 								<div className="btnGroup">
 									<button
@@ -397,13 +504,55 @@ export default () => {
 								</div>
 							)
 						});
-						setLoading(false);
 					}
 				}
-			);
+				setLoading(false);
+				return null;
+			};
+
+			const rejectHandle = () => {
+				if (isMountedRef.current) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={closePopBox}
+								>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+					setLoading(false);
+				}
+			};
+			closePopBox();
+			setLoading(true);
+
+			if (type === "profile") {
+				api_accountStrict_SetProfile(profileDatas).then(
+					res => fulfillHandle(res),
+					rejectHandle
+				);
+			} else {
+				api_accountStrict_SetProfileAddress(profileDatas).then(
+					res => fulfillHandle(res),
+					rejectHandle
+				);
+			}
 		};
 
-		if (accountNameCheck && birthCheck && phoneNoCheck) {
+		if (
+			(type === "profile" &&
+				accountNameCheck &&
+				birthCheck &&
+				phoneNoCheck) ||
+			(type === "addr" && addrListCheck)
+		) {
 			setPopBox({
 				isOpen: true,
 				popBoxType: defPopBoxType.ProfileConfirmCheck,
@@ -413,7 +562,10 @@ export default () => {
 						<button className="btn-cancel" onClick={closePopBox}>
 							{t("lbl_ReModify")}
 						</button>
-						<button className="btn-check" onClick={SetProfile}>
+						<button
+							className="btn-check"
+							onClick={SetProfileOrAddr}
+						>
 							{t("lbl_Confirm")}
 						</button>
 					</div>
@@ -421,7 +573,6 @@ export default () => {
 			});
 		}
 	};
-
 	const sendOTPSMS = () => {
 		setMobileVerificationLoading(true);
 
@@ -544,7 +695,7 @@ export default () => {
 					valueCheck={valueCheck}
 					phoneCheck={phoneCheck}
 					clickInfo={clickInfo}
-					clickSubmit={clickSubmit}
+					clickSubmit={e => clickSubmit(e, "profile")}
 					isUSDT={isUSDT}
 					areaCodeOptions={areaCodeOptions}
 					onSelectAreaCode={onSelectAreaCode}
@@ -557,13 +708,32 @@ export default () => {
 			!userInfo?.phoneNo ? (
 				<div className="btnGroup">
 					<button
-						className={disableSubmit ? "btn-cancel" : "btn-check"}
-						onClick={clickSubmit}
+						className={
+							disableSubmit("profile")
+								? "btn-cancel"
+								: "btn-check"
+						}
+						onClick={e => clickSubmit(e, "profile")}
 					>
 						{t("lbl_Submit")}
 					</button>
 				</div>
 			) : null}
+
+			<div className="addressModule">
+				<ProfileAddrForm
+					t={t}
+					userInfo={userInfo}
+					userValue={userValue}
+					status={status}
+					editField={editField}
+					valueCheck={valueCheck}
+					addrList={addrList}
+					disableSubmit={disableSubmit("addr")}
+					clickInfo={clickInfo}
+					clickSubmit={e => clickSubmit(e, "addr")}
+				/>
+			</div>
 		</div>
 	);
 };
