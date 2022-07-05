@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
 import { isNew, isClaimed, isArrayNotEmpty } from "./promotion.common";
@@ -14,7 +15,7 @@ const defPromoDisplayStyle = {
 	claimed: "claimed"
 };
 
-export default ({
+const PromotionList = ({
 	t,
 	userInfo,
 	filter,
@@ -34,24 +35,31 @@ export default ({
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
 		const _isNew = _isClaimed ? false : isNew(p);
+		const _isExpired =
+			(filter === defFilterType.specialBonus && !p.canJoin) || p.beenUsed;
 
 		let promoDisplayStyle = defPromoDisplayStyle.default;
 
 		if (_isClaimed) {
 			promoDisplayStyle = defPromoDisplayStyle.claimed;
-		} else if (
-			(filter === defFilterType.specialBonus && !p.canJoin) ||
-			p.beenUsed
-		) {
+		} else if (_isExpired) {
 			promoDisplayStyle = defPromoDisplayStyle.expired;
 		} else if (_isNew && p.canJoin) {
 			promoDisplayStyle = defPromoDisplayStyle.new;
 		}
 
+		let eventClass = "";
+		if (_isClaimed) {
+			eventClass = "active";
+		} else if (_isExpired) {
+			eventClass = "expired";
+		}
+
 		return (
 			<div
 				key={`promotionList-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={_isClaimed ? "active" : ""}>
+				className={eventClass}
+			>
 				<div className={promoDisplayStyle} />
 
 				<div className="promoImg">
@@ -91,7 +99,8 @@ export default ({
 								href={p.promotionLink}
 								target="_blank"
 								rel="noreferrer"
-								className="btn-check">
+								className="btn-check"
+							>
 								{t("promotion.lbl_promo_more_info")}
 							</a>
 						) : (
@@ -101,7 +110,8 @@ export default ({
 									this,
 									userInfo.langId,
 									p.bonusCode
-								)}>
+								)}
+							>
 								{t("promotion.lbl_promo_more_info")}
 							</button>
 						)}
@@ -140,3 +150,25 @@ export default ({
 
 	return <div className="nodata icon icon-nodata">{t("lbl_NoData")}</div>;
 };
+
+PromotionList.defaultProps = {
+	t: () => null,
+	userInfo: null,
+	filter: null,
+	promoList: null,
+	refreshProcessBar: () => null,
+	staticPromotions: null,
+	afterJoinCallBack: () => null
+};
+
+PromotionList.propTypes = {
+	t: PropTypes.func,
+	userInfo: PropTypes.objectOf(PropTypes.any),
+	filter: PropTypes.string,
+	promoList: PropTypes.arrayOf(PropTypes.object),
+	refreshProcessBar: PropTypes.func,
+	staticPromotions: PropTypes.arrayOf(PropTypes.object),
+	afterJoinCallBack: PropTypes.func
+};
+
+export default PromotionList;
