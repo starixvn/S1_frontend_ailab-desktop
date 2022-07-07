@@ -35,7 +35,8 @@ const FooterProduct = ({
 					<a
 						href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
 						target="_blank"
-						rel="noreferrer">
+						rel="noreferrer"
+					>
 						{t("lbl_Apply_Now")}
 						{" >"}
 					</a>
@@ -51,7 +52,8 @@ const FooterProduct = ({
 							currencyId === defCurrencyList.INR
 								? { pointerEvents: "none" }
 								: {}
-						}>
+						}
+					>
 						{t("lbl_More_Info")}
 						{" >"}
 					</a>

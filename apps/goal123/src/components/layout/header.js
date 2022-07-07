@@ -39,7 +39,8 @@ export default () => {
 					<Link
 						className="logo"
 						to={`/${userInfo.langId}`}
-						onClick={reload}>
+						onClick={reload}
+					>
 						<img
 							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
@@ -53,7 +54,8 @@ export default () => {
 				<div className="function">
 					<Link
 						className="appDownload"
-						to={`/${userInfo.langId}/${path.appDownload.root}`}>
+						to={`/${userInfo.langId}/${path.appDownload.root}`}
+					>
 						<i className="icon icon-mobile" />
 						{t("lbl_APPDownload")}
 					</Link>

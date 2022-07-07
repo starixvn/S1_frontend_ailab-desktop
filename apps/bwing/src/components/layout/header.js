@@ -53,7 +53,8 @@ export default () => {
 						target="_blank"
 						rel="noopener noreferrer"
 						className="downloadBtn icon icon-mobile"
-						href={`/${userInfo.langId}/${path.appDownload.root}`}>
+						href={`/${userInfo.langId}/${path.appDownload.root}`}
+					>
 						{t("lbl_APP_DOWNLOAD")}
 					</a>
 					<LanguageDropDown />

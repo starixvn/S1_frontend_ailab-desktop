@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { number_format, isConvert } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
 import { defPromotionType, promoStatus } from "./promotion.def";
 
-export default ({
+const ProcessBar = ({
 	custRollOver,
 	custTurnOver,
 	isJoin,
@@ -61,3 +62,30 @@ export default ({
 
 	return null;
 };
+
+ProcessBar.defaultProps = {
+	custRollOver: null,
+	custTurnOver: null,
+	isJoin: null,
+	currencyId: null,
+	refreshProcessBar: () => null,
+	hideReloadBtn: null,
+	promotionType: null,
+	status: null,
+	fullFillType: null
+};
+
+ProcessBar.propTypes = {
+	t: PropTypes.func.isRequired,
+	custRollOver: PropTypes.number,
+	custTurnOver: PropTypes.number,
+	isJoin: PropTypes.bool,
+	currencyId: PropTypes.number,
+	refreshProcessBar: PropTypes.func,
+	hideReloadBtn: PropTypes.bool,
+	promotionType: PropTypes.number,
+	status: PropTypes.number,
+	fullFillType: PropTypes.number
+};
+
+export default ProcessBar;

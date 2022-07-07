@@ -62,7 +62,8 @@ const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 					tpGameType,
 					betType
 				})
-			}>
+			}
+		>
 			{isInMaintain && (
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
 			)}

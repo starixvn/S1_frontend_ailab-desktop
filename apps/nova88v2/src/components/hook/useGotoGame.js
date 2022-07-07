@@ -26,7 +26,7 @@ const playTechLaunchGame = (client, game, mode, openType) => {
 };
 
 const launchGame = ({ client, mode, game, lang }) => {
-	const real = mode == "real" ? 1 : 0;
+	const real = mode === "real" ? 1 : 0;
 	// Optional Variables
 	const lobbyUrl = "";
 	const logoutUrl = "";
@@ -34,7 +34,7 @@ const launchGame = ({ client, mode, game, lang }) => {
 	const depositUrl = "";
 
 	// Slots,Table Games and other non-live games
-	if (client == "ngm_desktop" || client == "ngm_mobile") {
+	if (client === "ngm_desktop" || client === "ngm_mobile") {
 		iapiSetClientParams(
 			client,
 			`language=${lang}&real=${real}&lobby=${lobbyUrl}&logout=${logoutUrl}&deposit=${depositUrl}&support=${supportUrl}&backurl=${lobbyUrl}`
@@ -44,7 +44,7 @@ const launchGame = ({ client, mode, game, lang }) => {
 	}
 
 	// Live Games
-	if (client == "live_desk" || client == "live_mob") {
+	if (client === "live_desk" || client === "live_mob") {
 		iapiSetClientParams(
 			client,
 			`&launch_alias=${game}&language=${lang}&real=${real}&lobby=${lobbyUrl}&logout=${logoutUrl}&deposit=${depositUrl}&support=${supportUrl}`
@@ -133,7 +133,10 @@ export const useGotoGame = ({
 
 							await iapiSetCallout("Login", response => {
 								if (response.errorCode) {
-									if (response.errorCode == 48) {
+									if (
+										response.errorCode === 48 ||
+										response.errorCode === "48"
+									) {
 										errorPopBox(
 											`Login failed, error: ${response.errorCode} ,playerMessage: ${response.actions.PlayerActionShowMessage[0].message}`,
 											response.errorCode

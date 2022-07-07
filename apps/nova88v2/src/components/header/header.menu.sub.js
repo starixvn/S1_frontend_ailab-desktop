@@ -93,6 +93,7 @@ export default ({ currentMenuKey, productTpIds, maintainList }) => {
 				});
 			}
 		}
+		return true;
 	};
 
 	return Object.keys(defMenuLinks).map(menuKey => {

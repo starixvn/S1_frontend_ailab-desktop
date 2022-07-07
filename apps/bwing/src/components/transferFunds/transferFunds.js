@@ -296,7 +296,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										OK
 									</button>
 								</div>

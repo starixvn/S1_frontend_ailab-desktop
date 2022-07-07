@@ -36,6 +36,7 @@ export const defEventPeriod = {
 	tableGame: { end: "2022/03/24 11:00:00" },
 	game_virtualGame: { end: "2022/04/24 11:00:00" },
 	sports_virtualSports: { end: "2022/04/24 11:00:00" },
+	liveCasino_mg: { end: "2022/08/08 11:00:00" },
 	sportSbo: { end: "2022/08/08 11:00:00" }
 };
 
