@@ -27,6 +27,20 @@ export const defMenuLinks = {
 				parameter: { ...productList.sportSaba }
 			},
 			{
+				...productList.sportSbo,
+				subPath: path.sportSbo.root,
+				className: "sbobet",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sportSbo
+					})
+				],
+				displayText: "SBOBET",
+				parameter: { ...productList.sportSbo },
+				afterLogin: true
+			},
+			{
 				...productList.sportBti,
 				subPath: path.sportBti.root,
 				className: "btiSport",

@@ -89,11 +89,10 @@ const defMainGameList = [
 	}
 ];
 
-const getUrl = (preUrl, info) => {
-	return `/${preUrl}${info ? `?game=${info.name}` : ""}`;
-};
+const getUrl = (preUrl, info) =>
+	`/${preUrl}${info ? `?game=${info.name}` : ""}`;
 
-export default ({ t, userInfo, setPopBox, allMaintainList }) => {
+const Content = ({ t, userInfo, setPopBox, allMaintainList }) => {
 	const { langId, isLogin } = userInfo;
 
 	const openLoginPopBox = () => {
@@ -124,6 +123,7 @@ export default ({ t, userInfo, setPopBox, allMaintainList }) => {
 		const _url = getUrl(`${langId}/${_path}`, productInfo);
 
 		navigate(_url);
+		return rule;
 	};
 
 	const mainGameNavigate = ({
@@ -171,6 +171,19 @@ export default ({ t, userInfo, setPopBox, allMaintainList }) => {
 	);
 };
 
+Content.defaultProps = {
+	allMaintainList: null
+};
+
+Content.propTypes = {
+	t: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	setPopBox: PropTypes.func.isRequired,
+	allMaintainList: PropTypes.arrayOf(PropTypes.number)
+};
+
+export default Content;
+
 const MainGame = ({
 	t,
 	gameBtnList,
@@ -178,90 +191,87 @@ const MainGame = ({
 	allMaintainList,
 	gameBtnNavigate,
 	mainGameNavigate
-}) => {
-	return (
-		<>
-			<div className="gameBtn ">
-				{gameBtnList.map(item => {
+}) => (
+	<>
+		<div className="gameBtn ">
+			{gameBtnList.map(item => (
+				// eslint-disable-next-line jsx-a11y/anchor-is-valid
+				<a
+					key={item.displayKey}
+					onClick={() =>
+						gameBtnNavigate({
+							_path: item.path,
+							productInfo: item.productInfo
+						})
+					}
+				>
+					<div>
+						<div className={item.className} />
+					</div>
+					<p>{String(t(item.displayKey)).toUpperCase()}</p>
+				</a>
+			))}
+		</div>
+		<div className="maingame">
+			{mainGameList.map(
+				({
+					tpId,
+					gameId,
+					displayKey,
+					img,
+					gameType,
+					subPath,
+					parameter,
+					tpGameType
+				}) => {
+					const isInMaintain = allMaintainList?.some(
+						item =>
+							item.tpId === tpId &&
+							(item.tpGameType === tpGameType ||
+								item.tpGameType === defTpGameType.All)
+					);
+					let _subPath;
+
+					if (subPath) {
+						if (
+							gameId === productList.sportSaba.gameId &&
+							tpId === productList.sportSaba.tpId
+						) {
+							_subPath = `${subPath}?game=${parameter?.name}`;
+						} else {
+							_subPath = `${s.subPath}`;
+						}
+					}
+
 					return (
 						// eslint-disable-next-line jsx-a11y/anchor-is-valid
 						<a
-							key={item.displayKey}
+							className={isInMaintain ? "under" : ""}
+							key={displayKey}
 							onClick={() =>
-								gameBtnNavigate({
-									_path: item.path,
-									productInfo: item.productInfo
+								mainGameNavigate({
+									tpId,
+									gameId,
+									isInMaintain,
+									gameType,
+									_subPath
 								})
-							}>
-							<div>
-								<div className={item.className} />
-							</div>
-							<p>{String(t(item.displayKey)).toUpperCase()}</p>
+							}
+						>
+							<img src={img} alt="" />
+							<div className="title">{t(displayKey)}</div>
+							{isInMaintain && (
+								<div className="underBtn">
+									{t("lbl_underMaintenance")}
+								</div>
+							)}
 						</a>
 					);
-				})}
-			</div>
-			<div className="maingame">
-				{mainGameList.map(
-					({
-						tpId,
-						gameId,
-						displayKey,
-						img,
-						gameType,
-						subPath,
-						parameter,
-						tpGameType
-					}) => {
-						const isInMaintain = allMaintainList?.some(
-							item =>
-								item.tpId === tpId &&
-								(item.tpGameType === tpGameType ||
-									item.tpGameType === defTpGameType.All)
-						);
-						let _subPath;
-
-						if (subPath) {
-							if (
-								gameId === productList.sportSaba.gameId &&
-								tpId === productList.sportSaba.tpId
-							) {
-								_subPath = `${subPath}?game=${parameter?.name}`;
-							}
-							if (tpId === productList.sportBti.tpId) {
-								_subPath = `${s.subPath}`;
-							}
-						}
-
-						return (
-							// eslint-disable-next-line jsx-a11y/anchor-is-valid
-							<a
-								className={isInMaintain ? "under" : ""}
-								key={displayKey}
-								onClick={() =>
-									mainGameNavigate({
-										tpId,
-										gameId,
-										isInMaintain,
-										gameType,
-										_subPath
-									})
-								}>
-								<img src={img} alt="" />
-								<div className="title">{t(displayKey)}</div>
-								{isInMaintain && (
-									<div className="underBtn">
-										{t("lbl_underMaintenance")}
-									</div>
-								)}
-							</a>
-						);
-					}
-				)}
-			</div>
-		</>
-	);
-};
+				}
+			)}
+		</div>
+	</>
+);
 
 MainGame.propTypes = {
 	t: PropTypes.func.isRequired,

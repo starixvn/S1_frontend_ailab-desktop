@@ -148,7 +148,10 @@ export const GET_ENTER_PAGE_URL = ({
 	const _errorPageUrl = errorPageUrl(langId);
 	const _tpGameType = tpGameType ? `&tpGameType=${tpGameType}` : "";
 	let urlSpecialPattern = "";
-	if (tpId === productList.sportBti.tpId) {
+	if (
+		tpId === productList.sportBti.tpId ||
+		tpId === productList.sportSbo.tpId
+	) {
 		urlSpecialPattern = `&gameType=sports${isLogin ? "" : "&fun=1"}`;
 	}
 
