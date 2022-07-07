@@ -46,6 +46,11 @@ export default {
 		name: "sabaClub",
 		tpGameType: 59
 	},
+	sportSbo: {
+		tpId: 42,
+		name: "sportSbo",
+		tpGameType: 77
+	},
 	sportBti: {
 		tpId: 29,
 		name: "sportBti",

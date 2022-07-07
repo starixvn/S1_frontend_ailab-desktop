@@ -30,6 +30,24 @@ export const defMenuLinks = langId => ({
 				parameter: { ...productList.sportSaba }
 			},
 			{
+				...productList.sportSbo,
+				subPath: path.sportSbo.root,
+				menuType: defMenuType.entPage,
+				className: "SBO",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sportSbo
+					})
+				],
+				displayText: "SBOBET",
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo-icon.png`,
+				parameter: { ...productList.sportSbo },
+				afterLogin: true
+			},
+			{
 				...productList.sportBti,
 				subPath: path.sportBti.root,
 				menuType: defMenuType.entPage,

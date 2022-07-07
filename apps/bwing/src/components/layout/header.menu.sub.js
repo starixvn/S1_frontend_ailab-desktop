@@ -30,7 +30,8 @@ const SubMenu = ({
 		menuType,
 		_subPath,
 		isInMaintain,
-		tpGameType
+		tpGameType,
+		afterLogin
 	) => {
 		const loginCallback = () => {
 			setPopBox({
@@ -50,7 +51,11 @@ const SubMenu = ({
 				tpGameType
 			});
 		} else if (_subPath) {
-			navigate(`/${userInfo.langId}/${_subPath}`);
+			if (afterLogin && !isLogin) {
+				loginCallback();
+			} else {
+				navigate(`/${userInfo.langId}/${_subPath}`);
+			}
 		} else {
 			SET_ENTER_PAGE({
 				isLogin: userInfo.isLogin,
@@ -81,9 +86,9 @@ const SubMenu = ({
 
 		let params = null;
 		if (s.parameter) {
-			params = Object.keys(s.parameter).map(_key => {
-				return `${_key}=${s.parameter[_key]}`;
-			});
+			params = Object.keys(s.parameter).map(
+				_key => `${_key}=${s.parameter[_key]}`
+			);
 		}
 
 		const _urlParams = params !== null ? `?${params.join("&")}` : "";
@@ -112,8 +117,7 @@ const SubMenu = ({
 		if (s.subPath) {
 			if (s.tpId === productList.sportSaba.tpId) {
 				_subPath = `${s.subPath}?game=${s.parameter?.name}`;
-			}
-			if (s.tpId === productList.sportBti.tpId) {
+			} else {
 				_subPath = `${s.subPath}`;
 			}
 		}
@@ -123,7 +127,8 @@ const SubMenu = ({
 				<Link
 					key={key}
 					className={_className}
-					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
+					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}
+				>
 					{showIcon}
 					<div className="img">
 						{subDivClass1 ? <div className="subDivClass1" /> : null}
@@ -149,8 +154,10 @@ const SubMenu = ({
 					s.menuType,
 					_subPath,
 					isInMaintain,
-					s.tpGameType
-				)}>
+					s.tpGameType,
+					s?.afterLogin
+				)}
+			>
 				{showIcon}
 				<div className="img">
 					{subDivClass1 ? <div className="subDivClass1" /> : null}
