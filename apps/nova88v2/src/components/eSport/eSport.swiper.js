@@ -129,7 +129,8 @@ const SlideItem = ({ t, subMenuItem, clickItem }) => {
 					isInMaintain,
 					betType
 				})
-			}>
+			}
+		>
 			{subMenuItem?.eventIcons?.length > 0 && (
 				<div className={subMenuItem.eventIcons[0]} />
 			)}

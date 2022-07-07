@@ -194,6 +194,7 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			loginCallback,
 			tpGameType
 		});
+		return true;
 	};
 
 	const filterPlatform = defPlatfrom.filter(
@@ -210,9 +211,9 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			const key = `footer-platform-${p.tpId}-${p.gameId}`;
 			let params = null;
 			if (p.parameter) {
-				params = Object.keys(p.parameter).map(_key => {
-					return `${_key}=${p.parameter[_key]}`;
-				});
+				params = Object.keys(p.parameter).map(
+					_key => `${_key}=${p.parameter[_key]}`
+				);
 			}
 
 			const _urlParams = params !== null ? `?${params.join("&")}` : "";
@@ -226,7 +227,8 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 					onClick={ClickItem.bind(this, {
 						...p,
 						urlParams: _urlParams
-					})}>
+					})}
+				>
 					<img
 						src={`${cloudImgUrl}/SiteSkin/img/logo/${imgName}.png`}
 						name={imgName}

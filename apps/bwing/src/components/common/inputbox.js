@@ -134,7 +134,7 @@ InputBox.defaultProps = {
 	icon: "",
 	tip: "",
 	tooltip: "",
-	checked: "",
+	checked: null,
 	areaCode: "",
 	inputType: "text",
 	className: "",

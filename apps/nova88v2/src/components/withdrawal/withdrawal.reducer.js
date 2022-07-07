@@ -113,7 +113,6 @@ export function reducer(state, action) {
 			};
 
 		default:
-			console.log("action type not exists");
 			return state;
 	}
 }

@@ -89,7 +89,8 @@ export default () => {
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
+							>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -107,10 +108,6 @@ export default () => {
 		}
 		getData();
 	}, []);
-
-	const ClosePopBox = () => {
-		setPopBox({ isOpen: false });
-	};
 
 	const GetWithdrawalAvailableBalance = async () => {
 		await api_account_GetWithdrawalAvailableBalance().then(
@@ -222,7 +219,8 @@ export default () => {
 						<span>{t("lbl_Withdrawal")}</span>
 						<button
 							onClick={restoreAll}
-							className="icon icon-history">
+							className="icon icon-history"
+						>
 							<span>{t("lbl_RestoreAll")}</span>
 						</button>
 					</div>

@@ -508,6 +508,22 @@ export const defMenuLinks = {
 				}
 			},
 			{
+				...productList.liveCasino_MG,
+				className: "liveMG",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_mg
+					})
+				],
+				icon: "icon icon-mg",
+				displayText: "Microgaming",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-mg"
+				}
+			},
+			{
 				...productList.liveCasino_n2live,
 				className: "liven2live",
 				icon: "icon icon-N2LIVE",

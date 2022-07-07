@@ -119,7 +119,8 @@ const MobileForm = ({
 									item.groupId === groupIdForRecord
 										? "active"
 										: ""
-								}>
+								}
+							>
 								<div>
 									<img
 										alt={item.groupName}
@@ -173,7 +174,8 @@ const MobileForm = ({
 											infoChannelIdForRecord
 												? "active"
 												: ""
-										}>
+										}
+									>
 										<div>
 											<img
 												alt={item.groupName}
@@ -315,7 +317,8 @@ const FixedAmountList = ({
 				<button
 					onClick={() => onChangeAmount(_afterConvertAmount)}
 					className={`blue${isSelected ? " active" : ""}`}
-					key={`deposit-mobile-${a}`}>
+					key={`deposit-mobile-${a}`}
+				>
 					{number_format(a, _isConvert)}
 					<i className="icon icon-checkmark" />
 				</button>
@@ -337,6 +340,10 @@ FixedAmountList.propTypes = {
 	_isConvert: PropTypes.bool.isRequired
 };
 
+MobileForm.defaultProps = {
+	onChangePromotion: () => null
+};
+
 MobileForm.propTypes = {
 	t: PropTypes.func.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
@@ -351,7 +358,8 @@ MobileForm.propTypes = {
 	onChangeAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
-	userInfo: PropTypes.objectOf(PropTypes.any).isRequired
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	onChangePromotion: PropTypes.func
 };
 
 export default MobileForm;

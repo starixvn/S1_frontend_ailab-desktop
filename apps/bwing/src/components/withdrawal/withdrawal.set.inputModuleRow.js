@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import Inputbox from "../common/inputbox";
 import { number_format } from "../common/common";
 
-export default ({
+const Input = ({
 	amountValue,
 	onChangeAmount,
 	onBlur,
@@ -55,7 +56,8 @@ export default ({
 								? "darkGray"
 								: "btn-check"
 						}`}
-						onClick={toConfirmPage}>
+						onClick={toConfirmPage}
+					>
 						{t("lbl_withdraw_submit")}
 					</button>
 				</div>
@@ -75,3 +77,39 @@ export default ({
 		</>
 	);
 };
+
+Input.defaultProps = {
+	amountValue: null,
+	onChangeAmount: () => null,
+	onBlur: () => null,
+	clickInfo: () => null,
+	checked: null,
+	_isConvert: null,
+	toConfirmPage: () => null,
+	tip: null,
+	withdrawalType: null,
+	withdrawalMin: null,
+	withdrawalMax: null,
+	unlimited: null,
+	withdrawalTimes: null,
+	maxTimes: null
+};
+
+Input.propTypes = {
+	amountValue: PropTypes.string,
+	onChangeAmount: PropTypes.func,
+	onBlur: PropTypes.func,
+	clickInfo: PropTypes.func,
+	checked: PropTypes.bool,
+	_isConvert: PropTypes.bool,
+	toConfirmPage: PropTypes.func,
+	tip: PropTypes.string,
+	withdrawalType: PropTypes.string,
+	withdrawalMin: PropTypes.number,
+	withdrawalMax: PropTypes.number,
+	unlimited: PropTypes.bool,
+	withdrawalTimes: PropTypes.number,
+	maxTimes: PropTypes.number
+};
+
+export default Input;

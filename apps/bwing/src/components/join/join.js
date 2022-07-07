@@ -86,9 +86,10 @@ export default () => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const { data } = res.data;
-						const currencyArr = data.map(id => {
-							return { id, displayKey: `Currency_${id}` };
-						});
+						const currencyArr = data.map(id => ({
+							id,
+							displayKey: `Currency_${id}`
+						}));
 						setSiteCurrency(() => currencyArr);
 					} else {
 						errorPopBox(res.data.message || "error", errorCode);
@@ -125,15 +126,13 @@ export default () => {
 			msg = "";
 		}
 
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked: tip[col].checked,
-					msg
-				}
-			};
-		});
+		setTip(prev => ({
+			...prev,
+			[col]: {
+				checked: tip[col].checked,
+				msg
+			}
+		}));
 	};
 
 	const EditField = (col, e) => {
@@ -172,15 +171,13 @@ export default () => {
 			checked = null;
 		}
 
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked,
-					msg: t(msg)
-				}
-			};
-		});
+		setTip(prev => ({
+			...prev,
+			[col]: {
+				checked,
+				msg: t(msg)
+			}
+		}));
 	};
 
 	const usernameCheck = async val => {
@@ -219,15 +216,13 @@ export default () => {
 	};
 
 	const clickDropdown = () => {
-		setTip(prev => {
-			return {
-				...prev,
-				currency: {
-					checked: true,
-					msg: t("lbl_PreferredCurrencyToolTip")
-				}
-			};
-		});
+		setTip(prev => ({
+			...prev,
+			currency: {
+				checked: true,
+				msg: t("lbl_PreferredCurrencyToolTip")
+			}
+		}));
 	};
 
 	const _currencyId = siteCurrency[userValue.currency]?.id;
@@ -276,15 +271,11 @@ export default () => {
 	};
 
 	const onSelectItem = i => {
-		setUserValue(prev => {
-			return { ...prev, currency: i };
-		});
+		setUserValue(prev => ({ ...prev, currency: i }));
 	};
 
 	const checkboxHandler = col => {
-		setUserValue(prev => {
-			return { ...prev, [col]: !userValue[col] };
-		});
+		setUserValue(prev => ({ ...prev, [col]: !userValue[col] }));
 	};
 
 	const clickCancel = () => {
@@ -316,27 +307,25 @@ export default () => {
 			if (!_termsCheck || !_ageCheck) {
 				checkboxMsg = "lbl_Check18TCTooltip";
 			}
-			setTip(prev => {
-				return {
-					...prev,
-					username: {
-						checked: _usernameCheck.checked,
-						msg: t(_usernameCheck.msg)
-					},
-					password: {
-						checked: _passwordCheck.checked,
-						msg: t(_passwordCheck.message)
-					},
-					phone: {
-						checked: _phoneCheck.checked,
-						msg: t(_phoneCheck.msg)
-					},
-					checkbox: {
-						checked: true,
-						msg: t(checkboxMsg)
-					}
-				};
-			});
+			setTip(prev => ({
+				...prev,
+				username: {
+					checked: _usernameCheck.checked,
+					msg: t(_usernameCheck.msg)
+				},
+				password: {
+					checked: _passwordCheck.checked,
+					msg: t(_passwordCheck.message)
+				},
+				phone: {
+					checked: _phoneCheck.checked,
+					msg: t(_phoneCheck.msg)
+				},
+				checkbox: {
+					checked: true,
+					msg: t(checkboxMsg)
+				}
+			}));
 		}
 		return checked;
 	};
@@ -428,35 +417,29 @@ export default () => {
 							errorCode === -5 ||
 							errorCode === -19
 						) {
-							setTip(prev => {
-								return {
-									...prev,
-									username: {
-										checked: false,
-										msg: message
-									}
-								};
-							});
+							setTip(prev => ({
+								...prev,
+								username: {
+									checked: false,
+									msg: message
+								}
+							}));
 						} else if (errorCode === -3) {
-							setTip(prev => {
-								return {
-									...prev,
-									password: {
-										checked: false,
-										msg: message
-									}
-								};
-							});
+							setTip(prev => ({
+								...prev,
+								password: {
+									checked: false,
+									msg: message
+								}
+							}));
 						} else if (errorCode === -7) {
-							setTip(prev => {
-								return {
-									...prev,
-									specialBonusCode: {
-										checked: false,
-										msg: message
-									}
-								};
-							});
+							setTip(prev => ({
+								...prev,
+								specialBonusCode: {
+									checked: false,
+									msg: message
+								}
+							}));
 						} else {
 							errorPopBox(message || "error", errorCode);
 						}

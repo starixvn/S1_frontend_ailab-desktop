@@ -512,6 +512,21 @@ export const defMenuLinks = {
 				lobbyPage: { npcImg: "casino_pt" }
 			},
 			{
+				keyName: "casino_MG",
+				displayText: "Microgaming",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "casino-mg.png",
+				listBgImgUrl: ["mgbg.png", "livecasinListHover.png"],
+				...productList.liveCasino_MG,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_mg
+					})
+				],
+				lobbyPage: { npcImg: "casino_mg" }
+			},
+			{
 				keyName: "casino_N2LIVE",
 				displayText: "n2-LIVE",
 				listNpcImgUrl: "casino-n2.png",

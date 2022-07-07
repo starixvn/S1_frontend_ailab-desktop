@@ -227,7 +227,8 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 								(state.maxTimes > 0 &&
 									state.withdrawalTimes >= state.maxTimes)
 							}
-							type="submit">
+							type="submit"
+						>
 							{t("lbl_Submit")}
 						</button>
 					</div>

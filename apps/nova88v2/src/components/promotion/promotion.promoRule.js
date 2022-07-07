@@ -1,13 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { promoStatus, defPromotionType, defBonusType } from "./promotion.def";
 import { number_format, isConvert, langAndCurrMapping } from "../common/common";
 import { RULE_TYPE } from "./promotion.common";
 import { siteDefLangId } from "../../service/language";
 
-const numberWithCurrency = (value, currencyName, _isConvert) => {
-	return `${currencyName} ${number_format(value, false, 0)}`;
-};
+const numberWithCurrency = (value, currencyName, _isConvert) =>
+	`${currencyName} ${number_format(value, false, 0)}`;
 
 export const getExpiryTime = (
 	t,
@@ -30,7 +30,7 @@ export const getExpiryTime = (
 	)}`;
 };
 
-export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
+const PromoRule = ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 	const {
 		bonus,
 		bonusType,
@@ -170,4 +170,22 @@ export default ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 				</div>
 			</div>
 		);
+	return true;
 };
+
+PromoRule.defaultProps = {
+	promotionInfo: null,
+	currencyId: null,
+	ruleType: null,
+	langId: null
+};
+
+PromoRule.propTypes = {
+	t: PropTypes.func.isRequired,
+	promotionInfo: PropTypes.objectOf(PropTypes.any),
+	currencyId: PropTypes.number,
+	ruleType: PropTypes.string,
+	langId: PropTypes.string
+};
+
+export default PromoRule;

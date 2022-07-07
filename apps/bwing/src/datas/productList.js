@@ -196,6 +196,11 @@ export default {
 		gameId: 101,
 		tpGameType: 16
 	},
+	liveCasino_MG: {
+		tpId: 34,
+		gameId: "0",
+		tpGameType: 58
+	},
 
 	/* === 4. fishing === */
 

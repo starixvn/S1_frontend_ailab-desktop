@@ -44,7 +44,7 @@ const INIT_BANK_CUST_BANK_INFO = {
 	bankInfoDetail: []
 };
 
-const Withdrawal = ({
+const Main = ({
 	balanceData,
 	kycStatus,
 	uSDTWithdrawalLimit,
@@ -688,14 +688,26 @@ const Withdrawal = ({
 	);
 };
 
-Withdrawal.propTypes = {
-	balanceData: PropTypes.objectOf(PropTypes.any).isRequired,
-	kycStatus: PropTypes.string.isRequired,
-	uSDTWithdrawalLimit: PropTypes.arrayOf(PropTypes.any).isRequired,
-	withdrawalLimit: PropTypes.objectOf(PropTypes.any).isRequired,
-	getWithdrawalInfoRecent: PropTypes.func.isRequired,
-	getWithdrawalAvailableBalance: PropTypes.func.isRequired,
-	getWithdrawalLimit: PropTypes.func.isRequired,
-	getKycStatus: PropTypes.func.isRequired
+Main.defaultProps = {
+	balanceData: null,
+	kycStatus: null,
+	uSDTWithdrawalLimit: null,
+	withdrawalLimit: null,
+	getWithdrawalLimit: () => null,
+	getWithdrawalInfoRecent: () => null,
+	getWithdrawalAvailableBalance: () => null,
+	getKycStatus: () => null
 };
-export default Withdrawal;
+
+Main.propTypes = {
+	balanceData: PropTypes.objectOf(PropTypes.any),
+	kycStatus: PropTypes.string,
+	uSDTWithdrawalLimit: PropTypes.arrayOf(PropTypes.object),
+	withdrawalLimit: PropTypes.objectOf(PropTypes.any),
+	getWithdrawalLimit: PropTypes.func,
+	getWithdrawalInfoRecent: PropTypes.func,
+	getWithdrawalAvailableBalance: PropTypes.func,
+	getKycStatus: PropTypes.func
+};
+
+export default Main;
