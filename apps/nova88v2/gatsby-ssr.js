@@ -17,7 +17,7 @@ export const wrapRootElement = ({ element }) => (
 
 export const wrapPageElement = ({ element, props }) => (
 	<>
-		<SEO lang="en" />
+		<SEO getFromAPI={true} />
 		<PageContextProvider pageContext={props.pageContext}>
 			{element}
 		</PageContextProvider>

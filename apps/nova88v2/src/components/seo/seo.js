@@ -12,7 +12,7 @@ import { Helmet } from "react-helmet";
 import { defMetaData } from "./def";
 // import { defLangList } from "../../datas/languageData";
 import { api_site_seo } from "../../service/api/site";
-// import usePopBox from "../hook/usePopBox";
+import usePopBox from "../hook/usePopBox";
 import { bannerImgUrl } from "../../config";
 
 export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
@@ -39,18 +39,20 @@ export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 	return { SEODatas };
 };
 
-function SEO({ description, lang, meta, title }) {
-	// const { errorPopBox } = usePopBox();
-	// const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
+function SEO({ lang, meta, getFromAPI }) {
+	const { errorPopBox } = usePopBox();
+	const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
 
-	// const location = window?.pathname?.split("/").filter(p => p !== "");
+	// const isBrowser = () => typeof window !== "undefined";
+	// const location =
+	// 	isBrowser && window?.pathname?.split("/").filter(p => p !== "");
 
-	// if (getFromAPI && SEODatas === null) return null;
+	if (getFromAPI && SEODatas === null) return null;
 
 	const metaData = defMetaData["/"];
-	const _title = metaData?.[lang]?.title ?? "";
-	const _keyword = metaData?.[lang]?.keyword ?? "";
-	const _description = metaData?.[lang]?.description ?? "";
+	const _title = SEODatas?.title ?? metaData?.[lang]?.title ?? "";
+	const _keyword = SEODatas?.keyword ?? metaData?.[lang]?.keyword ?? "";
+	const _description = SEODatas?.meta ?? metaData?.[lang]?.description ?? "";
 	const links = metaData?.[lang]?.links ?? [];
 
 	// if (
@@ -59,7 +61,6 @@ function SEO({ description, lang, meta, title }) {
 	// 	defLangList.includes(location[0]) &&
 	// 	defMetaData[location[1]]
 	// ) {
-
 	// 	metaData = defMetaData[location[1]] ?? metaData;
 	// 	_title = defMetaData[location[1]]?.[lang]?.title ?? _title;
 
@@ -136,15 +137,13 @@ function SEO({ description, lang, meta, title }) {
 SEO.defaultProps = {
 	lang: `en`,
 	meta: [],
-	description: ``,
-	title: ""
+	getFromAPI: true
 };
 
 SEO.propTypes = {
-	description: PropTypes.string,
 	lang: PropTypes.string,
 	meta: PropTypes.arrayOf(PropTypes.object),
-	title: PropTypes.string
+	getFromAPI: PropTypes.bool
 };
 
 export default SEO;
