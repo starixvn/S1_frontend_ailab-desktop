@@ -806,6 +806,7 @@
 	"lbl_CryptoPay": "Crypto",
 	"lbl_NotERC20WalletAddr": "Must be ERC-20 / TRC-20 compatible wallet address",
 	"lbl_already_stored_this_information": "You have already stored this information.",
+	"lbl_Prohibited_Duplicate_Bank_Account":"Duplicate Bank Account No. is not allowed. Please try another Account No.",
 	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
 	"lbl_Crypto_Title_Describe": "Please upload your Crypto account details before making withdrawal.",
 	"lbl_Deposit_USDT_CONFIRM_DESCRIPTION": "Conversion rate severs as reference purposes only.",

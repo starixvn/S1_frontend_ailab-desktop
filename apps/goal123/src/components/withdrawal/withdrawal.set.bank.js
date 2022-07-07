@@ -1,27 +1,23 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "gatsby";
-import AddBankAccount from "./addBankAccount";
 import Available from "./withdrawal.set.available";
 import Calculation from "./withdrawal.set.calculation";
 // import CashBar from "./withdrawal.set.cashBar";
 import InputModuleRow from "./withdrawal.set.inputModuleRow";
 import BankInfoCard from "./withdrawal.set.bankInfoCard";
 import { Crypto, useUSDTFetcher } from "./withdrawal.set.crypto";
-
 import KycUpload from "./withdrawal.set.kycUpload";
 import KycPending from "./withdrawal.set.kycPending";
-
 import WithdrawalConfirm, {
 	WithdrawalUSDTConFirm
 } from "./withdrawal.set.confirm";
-
+import AddBankAccount from "./addBankAccount";
 import { api_payment_WithdrawalReq } from "../../service/api/payment";
 import { api_account_GetCustBankInfo } from "../../service/api/account";
 import { userInfoContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
-import StepBar from "../common/stepBar";
-import defStep from "./defStep";
 import usePopBox from "../hook/usePopBox";
 import { getAmountTip, isConvert, checkAmount } from "../common/common";
 
@@ -48,7 +44,7 @@ const INIT_BANK_CUST_BANK_INFO = {
 	bankInfoDetail: []
 };
 
-export default ({
+const Withdrawal = ({
 	balanceData,
 	kycStatus,
 	uSDTWithdrawalLimit,
@@ -73,8 +69,6 @@ export default ({
 		checked: null,
 		tip: ""
 	});
-
-	const step = showConfirmPage ? 3 : 1;
 
 	const [withdrawalType, setWithdrawalType] = useState(null);
 
@@ -207,7 +201,8 @@ export default ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
+							>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -401,7 +396,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickDone}>
+										onClick={ClickDone}
+									>
 										OK
 									</button>
 								</div>
@@ -421,7 +417,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -438,7 +435,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -456,7 +454,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -471,7 +470,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -490,7 +490,8 @@ export default ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -686,3 +687,15 @@ export default ({
 		</>
 	);
 };
+
+Withdrawal.propTypes = {
+	balanceData: PropTypes.objectOf(PropTypes.any).isRequired,
+	kycStatus: PropTypes.string.isRequired,
+	uSDTWithdrawalLimit: PropTypes.arrayOf(PropTypes.any).isRequired,
+	withdrawalLimit: PropTypes.objectOf(PropTypes.any).isRequired,
+	getWithdrawalInfoRecent: PropTypes.func.isRequired,
+	getWithdrawalAvailableBalance: PropTypes.func.isRequired,
+	getWithdrawalLimit: PropTypes.func.isRequired,
+	getKycStatus: PropTypes.func.isRequired
+};
+export default Withdrawal;

@@ -854,6 +854,7 @@
 	"lbl_CryptoPay": "Crypto",
 	"lbl_NotERC20WalletAddr": "Mestilah alamat dompet yang serasi dengan ERC-20 / TRC-20",
 	"lbl_already_stored_this_information": "Anda sudah simpan maklumat ini.",
+	"lbl_Prohibited_Duplicate_Bank_Account":"No. Akaun Bank pendua tidak dibenarkan. Sila cuba No. Akaun yang lain.",
 	"lbl_Crypto_OTP": "Pengesahan nombor telefon (OTP) diperlukan sebelum menggunakan perkhidmatan Kripto.",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",

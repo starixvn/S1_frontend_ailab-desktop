@@ -1,10 +1,11 @@
 import React, { useContext, useRef, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { popBoxContext } from "../common/context";
 import { defPopBoxType } from "../common/popBox";
 import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
 
-export default ({ updateCustBankInfo, bankInfoDetail }) => {
+const AddBankAccount = ({ updateCustBankInfo, bankInfoDetail }) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const isMountedRef = useRef(null);
@@ -25,7 +26,8 @@ export default ({ updateCustBankInfo, bankInfoDetail }) => {
 			isOpen: true,
 			popBoxType: defPopBoxType.AddBankAccount,
 			loading: true,
-			updateCustBankInfo
+			updateCustBankInfo,
+			bankInfoDetail
 		});
 
 		api_payment_GetBankInfoSysList().then(
@@ -33,14 +35,12 @@ export default ({ updateCustBankInfo, bankInfoDetail }) => {
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const datas = res.data.data;
-						const bankInfoArr = datas.map((item, i) => {
-							return {
-								id: i,
-								sysId: item.sysId,
-								displayText: item.bankName,
-								image: item.bankLogo?.toLowerCase()
-							};
-						});
+						const bankInfoArr = datas.map((item, i) => ({
+							id: i,
+							sysId: item.sysId,
+							displayText: item.bankName,
+							image: item.bankLogo?.toLowerCase()
+						}));
 
 						setPopBox(prevP => ({
 							...prevP,
@@ -113,3 +113,13 @@ export default ({ updateCustBankInfo, bankInfoDetail }) => {
 		</div>
 	);
 };
+
+AddBankAccount.defaultProps = {
+	bankInfoDetail: null
+};
+
+AddBankAccount.propTypes = {
+	updateCustBankInfo: PropTypes.func.isRequired,
+	bankInfoDetail: PropTypes.objectOf(PropTypes.any)
+};
+export default AddBankAccount;

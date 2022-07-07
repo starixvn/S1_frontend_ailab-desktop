@@ -13,46 +13,42 @@ const BankInfoCard = ({ custBankList, delBankAccount, loading }) => {
 		};
 	});
 
-	const arr = custBankList?.map(item => {
-		return (
-			<div className="addBankName" key={`bankCard-${item.accountNo}`}>
-				<div className="addBankInfo">
-					<div className="bankName">
-						<img
-							alt="BankLogo"
-							src={`${
-								config.imgUrl
-							}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
-						/>
-					</div>
-				</div>
-				<div className="addBankInfo">
-					<div className="txt-blue2">{item.accountNo}</div>
-					<button
-						aria-label="delBankAccount"
-						className="icon icon-bin"
-						onClick={delBankAccount.bind(
-							this,
-							item.sysId,
-							item.accountNo
-						)}
+	const arr = custBankList?.map(item => (
+		<div className="addBankName" key={`bankCard-${item.accountNo}`}>
+			<div className="addBankInfo">
+				<div className="bankName">
+					<img
+						alt="BankLogo"
+						src={`${
+							config.imgUrl
+						}/common/images/BankLogo/${item.bankLogo?.toLowerCase()}`}
 					/>
 				</div>
 			</div>
-		);
-	});
+			<div className="addBankInfo">
+				<div className="txt-blue2">{item.accountNo}</div>
+				<button
+					aria-label="delBankAccount"
+					className="icon icon-bin"
+					onClick={delBankAccount.bind(
+						this,
+						item.sysId,
+						item.accountNo
+					)}
+				/>
+			</div>
+		</div>
+	));
 	return loading ? (
 		<Loading />
 	) : (
-		<>
-			{custBankList?.length > 0 ? (
-				<div className="infoModule">
-					<div className="walletModule">
-						<div className="addBank haveBank">{arr}</div>
-					</div>
+		custBankList?.length > 0 && (
+			<div className="infoModule">
+				<div className="walletModule">
+					<div className="addBank haveBank">{arr}</div>
 				</div>
-			) : null}
-		</>
+			</div>
+		)
 	);
 };
 

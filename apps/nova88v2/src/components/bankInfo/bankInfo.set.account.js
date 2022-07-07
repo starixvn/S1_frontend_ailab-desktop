@@ -92,12 +92,11 @@ const AccountPanel = ({
 		let checked = true;
 		let message = "";
 
-		const isRepeatAccount =
-			custBankList?.filter(
-				_selectBank =>
-					_selectBank.bankName === bankInfo.bankName &&
-					_selectBank.accountNo === val
-			).length > 0;
+		const isDuplicateBank = custBankList?.find(
+			_selectBank =>
+				_selectBank.sysId === bankInfo.sysId &&
+				_selectBank.accountNo === val
+		);
 
 		if (col === defColumn.accountName && !alreadyHasAccountName) {
 			if (!val) {
@@ -111,8 +110,8 @@ const AccountPanel = ({
 			} else if (isNaN(val)) {
 				message = t("msg_AccountWrongFormat");
 				checked = false;
-			} else if (isRepeatAccount) {
-				message = t("lbl_already_stored_this_information");
+			} else if (isDuplicateBank) {
+				message = t("lbl_Prohibited_Duplicate_Bank_Account");
 				checked = false;
 			}
 		} else if (col === defColumn.ifscCode && isIfscRequired) {
@@ -196,7 +195,8 @@ const AccountPanel = ({
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
-						onSubmit={clickSubmit}>
+						onSubmit={clickSubmit}
+					>
 						<div>
 							<div className="bankName">
 								<img

@@ -71,7 +71,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -91,7 +92,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -154,7 +156,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickCancel}>
+											onClick={ClickCancel}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -174,7 +177,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickCancel}>
+										onClick={ClickCancel}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -195,7 +199,8 @@ export default () => {
 				<div className="btnGroup">
 					<button
 						className="btn-cancel"
-						onClick={deleteCard.bind(this, sysId, accountNo)}>
+						onClick={deleteCard.bind(this, sysId, accountNo)}
+					>
 						{t("lbl_Yes")}
 					</button>
 					<button className="btn-check" onClick={ClickCancel}>
@@ -245,7 +250,6 @@ export default () => {
 	// 	default:
 	// 		break;
 	// }
-
 	return loading ? (
 		<Loading />
 	) : (
@@ -286,6 +290,7 @@ export default () => {
 					}
 					alreadyHasAccountName={!!userInfo.accountName}
 					reload={GetCustBankInfo}
+					custBankList={state.custBankList}
 				/>
 			</div>
 			<ShowCard
