@@ -14,7 +14,11 @@ const initValue = {
 	accountNo: ""
 };
 
-const PopBox = ({ bankInfoSysList = [], updateCustBankInfo }) => {
+const PopBox = ({
+	bankInfoSysList = [],
+	updateCustBankInfo,
+	bankInfoDetail
+}) => {
 	const { t } = useTranslation();
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
@@ -40,7 +44,6 @@ const PopBox = ({ bankInfoSysList = [], updateCustBankInfo }) => {
 			isMountedRef.current = false;
 		};
 	});
-
 	const onSelectItem = i => {
 		setUserValue(prev => ({ ...prev, bankId: i }));
 	};
@@ -86,7 +89,14 @@ const PopBox = ({ bankInfoSysList = [], updateCustBankInfo }) => {
 	const checkAll = (val, col) => {
 		let checked = true;
 		let message = "";
+		const bankInfoItem = obj =>
+			bankInfoSysList.find(item => item.sysId === obj.sysId);
 
+		const isDuplicateBank = bankInfoDetail?.find(
+			_selectBank =>
+				bankInfoItem(_selectBank).id === userValue.bankId &&
+				_selectBank.accountNo === val
+		);
 		if (userInfo.accountName !== null && userInfo.accountName !== "") {
 			if (col === "accountNo" && !val) {
 				message = t("msg_NeedAccountNo");
@@ -97,6 +107,10 @@ const PopBox = ({ bankInfoSysList = [], updateCustBankInfo }) => {
 			checked = false;
 		} else if (col === "accountNo" && !val) {
 			message = t("msg_NeedAccountNo");
+			checked = false;
+		}
+		if (col === "accountNo" && isDuplicateBank) {
+			message = t("lbl_Prohibited_Duplicate_Bank_Account");
 			checked = false;
 		}
 
@@ -268,9 +282,14 @@ const PopBox = ({ bankInfoSysList = [], updateCustBankInfo }) => {
 	);
 };
 
+PopBox.defaultProps = {
+	bankInfoDetail: null
+};
+
 PopBox.propTypes = {
 	bankInfoSysList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	updateCustBankInfo: PropTypes.func.isRequired
+	updateCustBankInfo: PropTypes.func.isRequired,
+	bankInfoDetail: PropTypes.objectOf(PropTypes.any)
 };
 
 export default PopBox;

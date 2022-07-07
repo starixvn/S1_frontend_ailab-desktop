@@ -39,7 +39,8 @@ const BankInfoCard = props => {
 						className="btn-cancel"
 						onClick={() => {
 							deleteCard(sysId, accountNo);
-						}}>
+						}}
+					>
 						{t("lbl_Yes")}
 					</button>
 					<button className="btn-check" onClick={ClickCancel}>

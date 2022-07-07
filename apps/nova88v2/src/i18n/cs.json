@@ -855,6 +855,7 @@
 	"lbl_CryptoPay": "加密货币",
 	"lbl_NotERC20WalletAddr": "必须符合 ERC-20 / TRC-20 的钱包地址",
 	"lbl_already_stored_this_information": "您已经存储此信息。",
+	"lbl_Prohibited_Duplicate_Bank_Account":"不允许重复银行，请尝试另一个户口。",
 	"lbl_Crypto_OTP": "使用虚拟货币服务前，请先完成手机 OTP 验证。",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",

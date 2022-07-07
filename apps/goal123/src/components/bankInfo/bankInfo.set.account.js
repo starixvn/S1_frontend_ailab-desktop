@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { defActionType } from "./bankInfo.reducer";
 import { api_accountStrict_SetCustBankInfo } from "../../service/api/accountStrict";
 import { popBoxContext } from "../common/context";
@@ -7,7 +8,7 @@ import Inputbox from "../common/inputbox";
 import Loading from "../common/loading";
 import { defPopBoxType } from "../common/popBox";
 
-export default ({
+const AccountPanel = ({
 	t,
 	dispatch,
 	bankInfo,
@@ -15,7 +16,8 @@ export default ({
 	accountName,
 	alreadyHasAccountName,
 	reload,
-	toLastStep
+	toLastStep,
+	custBankList
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
 	const [status, setStatus] = useState({
@@ -65,6 +67,11 @@ export default ({
 		let checked = true;
 		let message = "";
 
+		const isDuplicateBank = custBankList?.find(
+			_selectBank =>
+				_selectBank.sysId === bankInfo.sysId &&
+				_selectBank.accountNo === val
+		);
 		if (col === "accountName" && !alreadyHasAccountName) {
 			if (!val) {
 				message = t("msg_EnterRealName");
@@ -76,6 +83,9 @@ export default ({
 				checked = false;
 			} else if (isNaN(val)) {
 				message = t("msg_AccountWrongFormat");
+				checked = false;
+			} else if (isDuplicateBank) {
+				message = t("lbl_Prohibited_Duplicate_Bank_Account");
 				checked = false;
 			}
 		}
@@ -133,7 +143,8 @@ export default ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -153,7 +164,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -187,7 +199,8 @@ export default ({
 				<div className="subModule">
 					<form
 						className="subModuleBody column"
-						onSubmit={clickSubmit}>
+						onSubmit={clickSubmit}
+					>
 						<div>
 							<div className="bankName">
 								<img
@@ -241,4 +254,21 @@ export default ({
 			</div>
 		</>
 	);
+};
+export default AccountPanel;
+
+AccountPanel.defaultProps = {
+	custBankList: null
+};
+
+AccountPanel.propTypes = {
+	t: PropTypes.func.isRequired,
+	dispatch: PropTypes.func.isRequired,
+	bankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	accountNumber: PropTypes.string.isRequired,
+	accountName: PropTypes.string.isRequired,
+	alreadyHasAccountName: PropTypes.bool.isRequired,
+	reload: PropTypes.func.isRequired,
+	toLastStep: PropTypes.func.isRequired,
+	custBankList: PropTypes.arrayOf(PropTypes.any)
 };

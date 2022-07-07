@@ -96,14 +96,11 @@ const PopBox = ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 	const checkAll = (val, col) => {
 		let checked = true;
 		let message = "";
-		const isRepeatAccount =
-			custBankInfo.bankInfoDetail?.filter(
-				_selectBank =>
-					_selectBank.bankName ===
-						bankInfoSysList[userValue.bankId].displayText &&
-					_selectBank.accountNo === val
-			).length > 0;
-
+		const isDuplicateBank = custBankInfo?.bankInfoDetail?.find(
+			_selectBank =>
+				_selectBank.sysId === bankInfoSysList[userValue.bankId].sysId &&
+				_selectBank.accountNo === val
+		);
 		const alreadyHasAccountName =
 			userInfo.accountName !== null && userInfo.accountName !== "";
 
@@ -116,8 +113,8 @@ const PopBox = ({ bankInfoSysList = [], custBankInfo, GetCustBankInfo }) => {
 			if (!val) {
 				message = t("msg_NeedAccountNo");
 				checked = false;
-			} else if (isRepeatAccount) {
-				message = t("lbl_already_stored_this_information");
+			} else if (isDuplicateBank) {
+				message = t("lbl_Prohibited_Duplicate_Bank_Account");
 				checked = false;
 			}
 		} else if (col === "ifscCode" && isIfscRequired) {

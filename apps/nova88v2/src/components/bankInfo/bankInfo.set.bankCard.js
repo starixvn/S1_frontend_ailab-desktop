@@ -56,15 +56,13 @@ const BankInfoCard = ({
 	return loading ? (
 		<Loading />
 	) : (
-		<>
-			{custBankList?.length > 0 ? (
-				<div className="infoModule">
-					<div className="walletModule">
-						<div className="addBank haveBank">{arr}</div>
-					</div>
+		custBankList?.length > 0 && (
+			<div className="infoModule">
+				<div className="walletModule">
+					<div className="addBank haveBank">{arr}</div>
 				</div>
-			) : null}
-		</>
+			</div>
+		)
 	);
 };
 
