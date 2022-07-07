@@ -6,7 +6,6 @@ import NewYear from "./popbox.newYear";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
-
 	let content = null;
 	switch (popBox.popBoxType) {
 		case defPopBoxType.Modal: {
@@ -105,6 +104,7 @@ export default () => {
 				<AddBankAccount
 					bankInfoSysList={popBox.bankInfoSysList}
 					updateCustBankInfo={popBox.updateCustBankInfo}
+					bankInfoDetail={popBox.bankInfoDetail}
 				/>
 			);
 			break;

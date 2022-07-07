@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState, useContext, useMemo } from "react";
+import React, { useEffect, useRef, useState, useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation, Trans } from "react-i18next";
 import { Link } from "gatsby";
 import AddBankAccount from "./addBankAccount";
@@ -46,7 +47,7 @@ const WITHDRAWAL_TYPE = {
 	USDT: "usdt"
 };
 
-export default ({
+const Withdrawal = ({
 	balanceData,
 	kycStatus,
 	uSDTWithdrawalLimit,
@@ -204,7 +205,8 @@ export default ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
+							>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -399,7 +401,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickDone}>
+										onClick={ClickDone}
+									>
 										OK
 									</button>
 								</div>
@@ -419,7 +422,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -436,7 +440,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -454,7 +459,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -469,7 +475,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -488,7 +495,8 @@ export default ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -684,3 +692,15 @@ export default ({
 		</>
 	);
 };
+
+Withdrawal.propTypes = {
+	balanceData: PropTypes.objectOf(PropTypes.any).isRequired,
+	kycStatus: PropTypes.string.isRequired,
+	uSDTWithdrawalLimit: PropTypes.arrayOf(PropTypes.any).isRequired,
+	withdrawalLimit: PropTypes.objectOf(PropTypes.any).isRequired,
+	getWithdrawalInfoRecent: PropTypes.func.isRequired,
+	getWithdrawalAvailableBalance: PropTypes.func.isRequired,
+	getWithdrawalLimit: PropTypes.func.isRequired,
+	getKycStatus: PropTypes.func.isRequired
+};
+export default Withdrawal;

@@ -501,6 +501,7 @@
 	"lbl_CryptoPay": "Tiền ảo",
 	"lbl_NotERC20WalletAddr": "Địa chỉ ví phải tương thích với chuẩn ERC20",
 	"lbl_already_stored_this_information": "Bạn đã lưu thông tin này trước đó.",
+	"lbl_Prohibited_Duplicate_Bank_Account":"Tài khoản ngân hàng này đã tồn tại",
 	"lbl_Crypto_OTP": "Vui lòng hoàn tất xác thực bằng số điện thoại (OTP) trước khi sử dụng dịch vụ tiền ảo.",
 	"lbl_Deposit_USDT_CONFIRM_DESCRIPTION": "Tỷ giá chỉ mang tính chất tham khảo.",
 

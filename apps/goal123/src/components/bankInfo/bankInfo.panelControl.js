@@ -18,10 +18,10 @@ const PanelControl = ({
 	accountNumber,
 	accountName,
 	alreadyHasAccountName,
-	reload
+	reload,
+	custBankList
 }) => {
 	let displayModule;
-
 	switch (currentModule) {
 		case defModule.InitPanel:
 			displayModule = (
@@ -56,6 +56,7 @@ const PanelControl = ({
 					alreadyHasAccountName={alreadyHasAccountName}
 					reload={reload}
 					toLastStep={toLastStep}
+					custBankList={custBankList}
 				/>
 			);
 			break;
@@ -64,7 +65,7 @@ const PanelControl = ({
 			break;
 	}
 
-	return <>{displayModule}</>;
+	return displayModule;
 };
 
 export default PanelControl;
@@ -78,7 +79,8 @@ PanelControl.defaultProps = {
 	accountNumber: null,
 	accountName: null,
 	alreadyHasAccountName: undefined,
-	reload: undefined
+	reload: undefined,
+	custBankList: null
 };
 
 PanelControl.propTypes = {
@@ -95,5 +97,6 @@ PanelControl.propTypes = {
 	accountNumber: PropTypes.string,
 	accountName: PropTypes.string,
 	alreadyHasAccountName: PropTypes.bool,
-	reload: PropTypes.func
+	reload: PropTypes.func,
+	custBankList: PropTypes.arrayOf(PropTypes.any)
 };

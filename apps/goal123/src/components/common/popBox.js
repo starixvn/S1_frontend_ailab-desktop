@@ -128,6 +128,7 @@ export default () => {
 				<AddBankAccount
 					bankInfoSysList={popBox.bankInfoSysList}
 					updateCustBankInfo={popBox.updateCustBankInfo}
+					bankInfoDetail={popBox.bankInfoDetail}
 				/>
 			);
 			break;
