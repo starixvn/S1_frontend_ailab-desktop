@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "gatsby";
 import { defMenuType } from "./header.menu.def";
@@ -8,7 +9,7 @@ import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { useGotoGame } from "../hook/useGotoGame";
 import productList, { defTpGameType } from "../../datas/productList";
 
-export default ({
+const Menu = ({
 	listClassName,
 	subItems,
 	menuKey,
@@ -27,7 +28,8 @@ export default ({
 		menuType,
 		_subPath,
 		isInMaintain,
-		tpGameType
+		tpGameType,
+		afterLogin
 	) => {
 		const loginCallback = () => {
 			setPopBox({
@@ -47,7 +49,11 @@ export default ({
 				tpGameType
 			});
 		} else if (_subPath) {
-			navigate(`/${userInfo.langId}/${_subPath}`);
+			if (afterLogin && !isLogin) {
+				loginCallback();
+			} else {
+				navigate(`/${userInfo.langId}/${_subPath}`);
+			}
 		} else {
 			SET_ENTER_PAGE({
 				isLogin: userInfo.isLogin,
@@ -60,27 +66,21 @@ export default ({
 		}
 	};
 
-	const imgRender = ({ bgImgUrl, npcImgUrl, iconImgUrl }) => {
-		return (
-			<>
-				{bgImgUrl && (
-					<img className="item-bg" src={bgImgUrl} alt={bgImgUrl} />
-				)}
+	const imgRender = ({ bgImgUrl, npcImgUrl, iconImgUrl }) => (
+		<>
+			{bgImgUrl && (
+				<img className="item-bg" src={bgImgUrl} alt={bgImgUrl} />
+			)}
 
-				{npcImgUrl && (
-					<img className="item-img" src={npcImgUrl} alt={npcImgUrl} />
-				)}
+			{npcImgUrl && (
+				<img className="item-img" src={npcImgUrl} alt={npcImgUrl} />
+			)}
 
-				{iconImgUrl && (
-					<img
-						className="item-icon"
-						src={iconImgUrl}
-						alt={iconImgUrl}
-					/>
-				)}
-			</>
-		);
-	};
+			{iconImgUrl && (
+				<img className="item-icon" src={iconImgUrl} alt={iconImgUrl} />
+			)}
+		</>
+	);
 
 	const rows = subItems?.map(s => {
 		const { bgImgUrl, npcImgUrl, iconImgUrl } = s;
@@ -96,9 +96,9 @@ export default ({
 
 		let params = null;
 		if (s.parameter) {
-			params = Object.keys(s.parameter).map(_key => {
-				return `${_key}=${s.parameter[_key]}`;
-			});
+			params = Object.keys(s.parameter).map(
+				_key => `${_key}=${s.parameter[_key]}`
+			);
 		}
 		let _iconClassName = s.className ? s.className : "";
 		if (s.eventIcons) {
@@ -121,7 +121,8 @@ export default ({
 				<Link
 					key={key}
 					className={_iconClassName}
-					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}>
+					to={`/${userInfo.langId}/${mainUrl}${_urlParams}`}
+				>
 					{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
 
 					<span>
@@ -141,8 +142,7 @@ export default ({
 		if (s.subPath) {
 			if (s.tpId === productList.sportSaba.tpId) {
 				_subPath = `${s.subPath}?game=${s.parameter?.name}`;
-			}
-			if (s.tpId === productList.sportBti.tpId) {
+			} else {
 				_subPath = `${s.subPath}`;
 			}
 		}
@@ -158,8 +158,10 @@ export default ({
 					s.menuType,
 					_subPath,
 					isInMaintain,
-					s.tpGameType
-				)}>
+					s.tpGameType,
+					s?.afterLogin
+				)}
+			>
 				{imgRender({ bgImgUrl, npcImgUrl, iconImgUrl })}
 				<span>
 					<p>{displayText}</p>
@@ -175,3 +177,19 @@ export default ({
 
 	return <div className={`${listClassName ?? ""} active`}>{rows}</div>;
 };
+
+Menu.defaultProps = {
+	listClassName: "",
+	mainUrl: null,
+	allMaintainList: null
+};
+
+Menu.propTypes = {
+	listClassName: PropTypes.string,
+	subItems: PropTypes.arrayOf(PropTypes.any).isRequired,
+	menuKey: PropTypes.string.isRequired,
+	mainUrl: PropTypes.string,
+	allMaintainList: PropTypes.arrayOf(PropTypes.object)
+};
+
+export default Menu;

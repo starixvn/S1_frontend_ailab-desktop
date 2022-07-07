@@ -158,6 +158,9 @@ export default {
 	sportBti: {
 		root: "sportBti"
 	},
+	sportSbo: {
+		root: "sportSbo"
+	},
 	streaming: {
 		root: "streaming"
 	},

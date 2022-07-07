@@ -9,16 +9,14 @@ const useDepositLinePay = ({ isMountedRef }) => {
 			.then(res => {
 				if (!isMountedRef.current) return;
 
-				const { data, message, errorCode } = res.data;
+				const { data, errorCode } = res.data;
 				const success = errorCode === 0;
 
 				if (success) {
 					setLink(data.link);
-				} else {
-					console.error(message);
 				}
 			})
-			.catch(err => console.error(err));
+			.catch();
 	};
 	return {
 		getLinePayLink,

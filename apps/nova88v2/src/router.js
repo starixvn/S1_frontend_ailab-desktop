@@ -128,9 +128,6 @@ export default {
 	resetPassword: {
 		root: "resetPassword"
 	},
-	["918kiss"]: {
-		root: "918kiss"
-	},
 	leaderBoard: {
 		root: "leaderBoard"
 	},

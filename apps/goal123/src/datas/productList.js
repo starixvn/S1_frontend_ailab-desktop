@@ -11,6 +11,11 @@ export default {
 		name: "soccer",
 		tpGameType: 1
 	},
+	sportSbo: {
+		tpId: 42,
+		name: "sportSbo",
+		tpGameType: 77
+	},
 	sabaClub: {
 		tpId: 1,
 		gameId: 171,
@@ -171,6 +176,11 @@ export default {
 		tpId: 36,
 		gameId: 0,
 		tpGameType: 63
+	},
+	liveCasino_MG: {
+		tpId: 34,
+		gameId: "0",
+		tpGameType: 58
 	},
 	/* === 4. fishing === */
 

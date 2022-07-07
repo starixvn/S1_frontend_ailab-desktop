@@ -58,7 +58,8 @@ const EsportListItem = ({ subMenuItem, isInMaintain, clickItem, t }) => {
 					tpGameType,
 					betType
 				})
-			}>
+			}
+		>
 			<img src={imgSrc} alt="esport" />
 			<img
 				className="light"

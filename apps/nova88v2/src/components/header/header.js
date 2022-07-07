@@ -80,7 +80,8 @@ export default () => {
 					<Link
 						className="logo"
 						to={`/${userInfo.langId}`}
-						onClick={reload}>
+						onClick={reload}
+					>
 						<img
 							src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 							alt={config.siteName}
@@ -93,7 +94,8 @@ export default () => {
 					{userInfo.isLogin ? null : (
 						<Link
 							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="forgot">
+							className="forgot"
+						>
 							{t("lbl_ForgetPassword")}
 						</Link>
 					)}

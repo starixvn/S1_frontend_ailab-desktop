@@ -34,9 +34,9 @@ import CasinoJackpot from "./casino.jackpot";
 const matchKeyword = (name, _keyword) => {
 	const keyword = _keyword.toLowerCase();
 	return (
-		Object.keys(name)?.filter(key => {
-			return name[key].toLowerCase().indexOf(keyword) !== -1;
-		}).length > 0
+		Object.keys(name)?.filter(
+			key => name[key].toLowerCase().indexOf(keyword) !== -1
+		).length > 0
 	);
 };
 
@@ -215,7 +215,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -234,7 +235,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -446,9 +448,9 @@ export default () => {
 								resFav.data.errorCode === 0 &&
 								resFav.data.data
 							) {
-								const fav = resFav.data.data.map(f => {
-									return `${f.providerId}_${f.gameId}`;
-								});
+								const fav = resFav.data.data.map(
+									f => `${f.providerId}_${f.gameId}`
+								);
 								if (isMountedRef.current) {
 									setFavorite(fav);
 								}
@@ -461,7 +463,8 @@ export default () => {
 										<div className="btnGroup">
 											<button
 												className="btn-check"
-												onClick={clickClose}>
+												onClick={clickClose}
+											>
 												{t("lbl_Close")}
 											</button>
 										</div>
@@ -480,7 +483,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -498,7 +502,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -524,9 +529,7 @@ export default () => {
 		}
 	}, [isSomeTab]);
 
-	return loading ? (
-		<></>
-	) : (
+	return loading ? null : (
 		<>
 			<SwipperBanner
 				ImgFolder={[defBannerType.Slots]}

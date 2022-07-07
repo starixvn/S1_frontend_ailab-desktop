@@ -27,6 +27,20 @@ export const defMenuLinks = {
 				parameter: { ...productList.sportSaba }
 			},
 			{
+				...productList.sportSbo,
+				subPath: path.sportSbo.root,
+				className: "sbobet",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sportSbo
+					})
+				],
+				displayText: "SBOBET",
+				parameter: { ...productList.sportSbo },
+				afterLogin: true
+			},
+			{
 				...productList.sportBti,
 				subPath: path.sportBti.root,
 				className: "btiSport",
@@ -491,6 +505,22 @@ export const defMenuLinks = {
 				menuType: defMenuType.useGoToGame,
 				lobbyPage: {
 					bgClass: "live-pt"
+				}
+			},
+			{
+				...productList.liveCasino_MG,
+				className: "liveMG",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_mg
+					})
+				],
+				icon: "icon icon-mg",
+				displayText: "Microgaming",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-mg"
 				}
 			},
 			{

@@ -18,6 +18,11 @@ const defPlatform = [
 		imgName: "saba"
 	},
 	{
+		...productList.sportSbo,
+		path: path.sportSbo.root,
+		imgName: "sbobet"
+	},
+	{
 		...productList.sportBti,
 		path: path.sportBti.root,
 		imgName: "bti"

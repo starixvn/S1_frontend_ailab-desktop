@@ -63,6 +63,7 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 					const { errorCode, message } = res.data;
 					const success = errorCode === 0;
 					const OTPNotVerify = errorCode === -5;
+
 					if (OTPNotVerify) {
 						setPopBox({
 							isOpen: true,

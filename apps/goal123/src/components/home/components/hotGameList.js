@@ -135,7 +135,8 @@ export const Games = ({
 		return (
 			<button
 				key={`hot-game-key-${item.title}`}
-				onClick={clickOrLink.bind(this, item, isInMaintain)}>
+				onClick={clickOrLink.bind(this, item, isInMaintain)}
+			>
 				<div className="game-item">
 					<img
 						className="gameImg"

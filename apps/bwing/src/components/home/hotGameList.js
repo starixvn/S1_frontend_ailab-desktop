@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import ReactMarquee from "react-fast-marquee";
 import { defPopBoxType } from "../common/defPopBoxType";
@@ -7,7 +8,7 @@ import path from "../../router";
 import { defTpGameType, defCategory } from "../../datas/productList";
 import { api_site_GetHotGames } from "../../service/api/site";
 
-export default ({ setPopBox, t, userInfo, allMaintainList }) => {
+const Main = ({ setPopBox, t, userInfo, allMaintainList }) => {
 	const [gameList, setGameList] = useState([]);
 
 	useEffect(() => {
@@ -84,6 +85,18 @@ export default ({ setPopBox, t, userInfo, allMaintainList }) => {
 	);
 };
 
+Main.defaultProps = {
+	setPopBox: () => null,
+	allMaintainList: null
+};
+
+Main.propTypes = {
+	setPopBox: PropTypes.func,
+	t: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	allMaintainList: PropTypes.arrayOf(PropTypes.number)
+};
+
 const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 	const rows = gameList.map(g => {
 		const isInMaintain = allMaintainList?.some(
@@ -107,7 +120,8 @@ const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 				}
 				style={{
 					margin: "0 10px"
-				}}>
+				}}
+			>
 				<img className="gameimg" src={g.gameLogo} alt="" />
 				<div className="title">
 					<p>{g.gameName}</p>
@@ -127,11 +141,13 @@ const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 				<ReactMarquee
 					speed={85}
 					pauseOnHover={true}
-					gradientColor={false}>
+					gradientColor={false}
+				>
 					<div className="swiper-container">
 						<div
 							className="swiper-wrapper"
-							style={{ display: "flex" }}>
+							style={{ display: "flex" }}
+						>
 							{rows}
 						</div>
 					</div>
@@ -140,3 +156,17 @@ const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 		</div>
 	);
 };
+
+HotGameList.defaultProps = {
+	onNavigate: () => null,
+	allMaintainList: null
+};
+
+HotGameList.propTypes = {
+	onNavigate: PropTypes.func,
+	t: PropTypes.func.isRequired,
+	gameList: PropTypes.arrayOf(PropTypes.object).isRequired,
+	allMaintainList: PropTypes.arrayOf(PropTypes.number)
+};
+
+export default Main;

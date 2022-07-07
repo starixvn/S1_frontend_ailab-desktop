@@ -30,6 +30,24 @@ export const defMenuLinks = langId => ({
 				parameter: { ...productList.sportSaba }
 			},
 			{
+				...productList.sportSbo,
+				subPath: path.sportSbo.root,
+				menuType: defMenuType.entPage,
+				className: "SBO",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sportSbo
+					})
+				],
+				displayText: "SBOBET",
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/sports/sbo-icon.png`,
+				parameter: { ...productList.sportSbo },
+				afterLogin: true
+			},
+			{
 				...productList.sportBti,
 				subPath: path.sportBti.root,
 				menuType: defMenuType.entPage,
@@ -546,6 +564,22 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/playtech-icon.png`,
 				disabledInSlider: true,
 				lobbyImg: "pt"
+			},
+			{
+				...productList.liveCasino_MG,
+				className: "MG",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_mg
+					})
+				],
+				icon: "icon icon-mg",
+				displayText: "Microgaming",
+				menuType: defMenuType.entPage,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/mg.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/mg-icon.png`,
+				lobbyImg: "mg"
 			},
 			{
 				...productList.liveCasino_n2live,

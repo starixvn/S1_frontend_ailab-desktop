@@ -153,5 +153,8 @@ export default {
 	},
 	luckyWheel: {
 		root: "luckyWheel"
+	},
+	sportSbo: {
+		root: "sportSbo"
 	}
 };

@@ -233,14 +233,14 @@
 	"lbl_Line_1": "Alamat 1",
 	"lbl_Line_2": "Alamat 2",
 	"lbl_City": "Bandar",
-	"lbl_PostCode":"Poskod",
+	"lbl_PostCode": "Poskod",
 	"lbl_State": "Negeri",
-	"msg_EnterAddress":"Sila masukkan alamat anda.",
-	"msg_EnterCity":"Sila masukkan bandar anda.",
-	"msg_EnterPostCode":"Sila masukkan poskod anda.",
-	"msg_EnterState":"Sila masukkan negeri anda.",
-	"msg_EnterCountry":"Sila masukkan negara anda.",
-	"msg_Content_Not_Empty":"Kandungan tidak boleh kosong",
+	"msg_EnterAddress": "Sila masukkan alamat anda.",
+	"msg_EnterCity": "Sila masukkan bandar anda.",
+	"msg_EnterPostCode": "Sila masukkan poskod anda.",
+	"msg_EnterState": "Sila masukkan negeri anda.",
+	"msg_EnterCountry": "Sila masukkan negara anda.",
+	"msg_Content_Not_Empty": "Kandungan tidak boleh kosong",
 	"deposit ■■■■■■■■■■■■■■■■■■■■": "",
 	"BankSlipHint1": "Saiz maksimum 4 MB untuk setiap fail",
 	"BankSlipHint2": "Bilangan fail maksimum:1",
@@ -418,7 +418,7 @@
 	"lbl_Main_Wallet_Auto_Transfer": "Pindahan Dompet Utama Secara Automatik",
 	"lbl_Manual": "Manual",
 	"lbl_Caution": "AWAS!",
-	"lbl_AutoTransferHint": "Pindahan Auto akan memindahkan semua dana anda ke permainan. Jika ada bonus berjalan langsung, dana anda yang dimasukkan akan dikunci dalam dompet yang ditetapkan.", 
+	"lbl_AutoTransferHint": "Pindahan Auto akan memindahkan semua dana anda ke permainan. Jika ada bonus berjalan langsung, dana anda yang dimasukkan akan dikunci dalam dompet yang ditetapkan.",
 
 	"financial ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Financial": "Log Kewangan",
@@ -517,7 +517,6 @@
 	"lbl_Promotion_Slot": "Slot",
 	"lbl_WinOver": "WINOVER",
 	"lbl_WinOverAccumulated": "WINOVER",
-
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "Tiada maklumat boleh didapatkan sekarang.",
@@ -854,7 +853,7 @@
 	"lbl_CryptoPay": "Crypto",
 	"lbl_NotERC20WalletAddr": "Mestilah alamat dompet yang serasi dengan ERC-20 / TRC-20",
 	"lbl_already_stored_this_information": "Anda sudah simpan maklumat ini.",
-	"lbl_Prohibited_Duplicate_Bank_Account":"No. Akaun Bank pendua tidak dibenarkan. Sila cuba No. Akaun yang lain.",
+	"lbl_Prohibited_Duplicate_Bank_Account": "No. Akaun Bank pendua tidak dibenarkan. Sila cuba No. Akaun yang lain.",
 	"lbl_Crypto_OTP": "Pengesahan nombor telefon (OTP) diperlukan sebelum menggunakan perkhidmatan Kripto.",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
@@ -893,7 +892,7 @@
 	"lbl_Online_Casino_Live_Casino_desc": "Nova88 menawarkan rangkaian Live Casino yang amat luas untuk hiburan permain, ini termasuk Kasino Ejen Live dengan ejen dari Asia yang cantik dan seksi, Live Baccarat, Live Roulette, Live Sic Bo, Live Dragon Tiger, dan banyak lagi.",
 	"lbl_Keno_Lottery_Betting": "Pertaruhan Keno & Loteri",
 	"lbl_Keno_Lottery_Betting_desc": "Nova88 menawarkan Keno, Loteri, Permainan Nombor dan Permainan Meja yang pantas, seronok dan mudah dimain. Setiap cabutan berlangsung untuk beberapa minit sahaja dan proses penyelesaian yang pantas.",
-	"lbl_Virtual_Games":"Permainan Maya",
+	"lbl_Virtual_Games": "Permainan Maya",
 	"lbl_Virtual_Sports": "Sukan Maya",
 	"lbl_Virtual_Sports_desc": "Nova88 mempunyai acara pertaruhan sukan maya 24/7 daripada Inspired, Sportradar dan Saba Soccer. Meliputi Bola Sepak Maya, Bola Keranjang Maya, Lumba Kuda Maya, Lumba Anjing Maya, Speedway Maya, Motorsports Maya, Berbasikal Maya, Tenis Maya dan Saba Soccer untuk PES dan FIFA 20.",
 	"lbl_Fishing_in_footer": "Permainan Memancing",
@@ -1029,20 +1028,20 @@
 		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
-	"mega888":{
-		"step":"Cara {{step}}",
-		"step1_desc":"Klik 'Muat Turun' untuk meneruskan selanjutnya",
-		"step2_desc":"Selepas menyelesaikan proses pemasangan, kini anda boleh melihat ikon permainan MEGA888 pada menu telefon anda. Apakah selasai? Tunggu sebentar.",
-		"step3_desc":"Apabila anda klik pada ikon permainan MEGA888, anda tidak akan dapat melancarkan permainan. Ia tertera 'Pembangun Perusahaan Tidak Dipercayai'. Terdapat beberapa langkah lagi yang perlu dilakukan.",
-		"step4_desc":"Pergi ke tetapan iPhone anda, dan klik 'Pengurusan Peranti' seperti kotak merah di atas.",
-		"step5_desc":"Klik pada 'Epson China Co. Ltd'",
-		"step6_desc":"Klik 'Percaya Epson (China) Co. Ltd'",
-		"step7_desc":"Klik 'Percaya' untuk mengaktifkan permainan MEGA888",
-		"step8_desc":"Buka kembali permainan MEGA888, dan sekarang anda mendapatkannya.",
-		"download_app":"Muat Turun APP Mega888",
-		"app_for_android":"Aplikasi untuk Android",
-		"app_for_ios":"Aplikasi untuk IOS",
-		"unzip_and_run":"Nyahzip dan Jalankan"
+	"mega888": {
+		"step": "Cara {{step}}",
+		"step1_desc": "Klik 'Muat Turun' untuk meneruskan selanjutnya",
+		"step2_desc": "Selepas menyelesaikan proses pemasangan, kini anda boleh melihat ikon permainan MEGA888 pada menu telefon anda. Apakah selasai? Tunggu sebentar.",
+		"step3_desc": "Apabila anda klik pada ikon permainan MEGA888, anda tidak akan dapat melancarkan permainan. Ia tertera 'Pembangun Perusahaan Tidak Dipercayai'. Terdapat beberapa langkah lagi yang perlu dilakukan.",
+		"step4_desc": "Pergi ke tetapan iPhone anda, dan klik 'Pengurusan Peranti' seperti kotak merah di atas.",
+		"step5_desc": "Klik pada 'Epson China Co. Ltd'",
+		"step6_desc": "Klik 'Percaya Epson (China) Co. Ltd'",
+		"step7_desc": "Klik 'Percaya' untuk mengaktifkan permainan MEGA888",
+		"step8_desc": "Buka kembali permainan MEGA888, dan sekarang anda mendapatkannya.",
+		"download_app": "Muat Turun APP Mega888",
+		"app_for_android": "Aplikasi untuk Android",
+		"app_for_ios": "Aplikasi untuk IOS",
+		"unzip_and_run": "Nyahzip dan Jalankan"
 	},
 
 	"end-----": "end-----"

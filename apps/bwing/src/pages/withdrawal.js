@@ -13,22 +13,20 @@ import {
 } from "../service/api/payment";
 import usePopBox from "../components/hook/usePopBox";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
-			<Layout showFooter={true}>
-				<main>
-					<section className="inside">
-						<LeftMenu />
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper afterLogin={true}>
+		<Layout showFooter={true}>
+			<main>
+				<section className="inside">
+					<LeftMenu />
+					<div className="rightModule">
+						<Content />
+					</div>
+				</section>
+			</main>
+		</Layout>
+	</Wrapper>
+);
 
 const Content = () => {
 	const { errorPopBox } = usePopBox();

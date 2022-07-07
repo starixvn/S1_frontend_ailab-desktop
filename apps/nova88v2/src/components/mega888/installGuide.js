@@ -1,7 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
 
-export default ({ t }) => (
+const Guide = ({ t }) => (
 	<div className="guides">
 		<div className="title">{t("mega888.download_app")}</div>
 		<div className="step">
@@ -63,3 +64,9 @@ export default ({ t }) => (
 		</div>
 	</div>
 );
+
+Guide.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
+export default Guide;

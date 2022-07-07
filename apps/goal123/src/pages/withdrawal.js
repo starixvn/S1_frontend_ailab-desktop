@@ -16,23 +16,21 @@ import {
 	api_payment_GetWithdrawalLimit
 } from "../service/api/payment";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
-			<Layout>
-				<main>
-					<section className="inside">
-						<LeftMenu />
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-				<Footer />
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper afterLogin={true}>
+		<Layout>
+			<main>
+				<section className="inside">
+					<LeftMenu />
+					<div className="rightModule">
+						<Content />
+					</div>
+				</section>
+			</main>
+			<Footer />
+		</Layout>
+	</Wrapper>
+);
 
 const Content = () => {
 	const { t } = useTranslation();
@@ -93,7 +91,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -112,7 +111,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -138,7 +138,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -157,7 +158,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -183,7 +185,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}>
+										onClick={closePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -202,7 +205,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -244,7 +248,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}>
+									onClick={closePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -261,7 +266,8 @@ const Content = () => {
 						<div className="btnGroup">
 							<button
 								className="btn-cancel"
-								onClick={closePopBox}>
+								onClick={closePopBox}
+							>
 								{t("lbl_Close")}
 							</button>
 						</div>

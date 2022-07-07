@@ -41,6 +41,7 @@ const TopQuickLink = ({
 		);
 
 		return (
+			// eslint-disable-next-line react/no-array-index-key
 			<SwiperSlide key={`slot-swiper-${_item.providerId}-${idx}`}>
 				<div className="swiper-slide">
 					{_item.path ? (
@@ -50,7 +51,8 @@ const TopQuickLink = ({
 									? "active"
 									: ""
 							}
-							to={`/${langId}/${_item.path}`}>
+							to={`/${langId}/${_item.path}`}
+						>
 							{content}
 						</Link>
 					) : (
@@ -70,7 +72,8 @@ const TopQuickLink = ({
 							)}
 							onMouseOut={handleOnMouseOverImg.bind(this, "")}
 							onBlur={() => 0}
-							onFocus={() => 0}>
+							onFocus={() => 0}
+						>
 							{content}
 						</button>
 					)}
@@ -95,13 +98,15 @@ const TopQuickLink = ({
 };
 
 TopQuickLink.defaultProps = {
-	activeProviderId: null
+	activeProviderId: null,
+	langId: null
 };
 
 TopQuickLink.propTypes = {
 	lobbyImgList: PropTypes.arrayOf(PropTypes.any).isRequired,
 	clickLobbyProvider: PropTypes.func.isRequired,
-	activeProviderId: PropTypes.number
+	activeProviderId: PropTypes.number,
+	langId: PropTypes.string
 };
 
 export default TopQuickLink;
