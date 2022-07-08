@@ -497,24 +497,6 @@ export const defMenuLinks = langId => ({
 		className: "livecasinobtn",
 		path: path.liveCasino.root,
 		subMenu: [
-			// {
-			// 	...defCasinoProviders.MGPSW,
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.mgpsw
-			// 		})
-			// 	],
-			// 	displayText: "MG",
-			// 	menuType: defMenuType.entPage,
-			// 	parameter: { provider: defCasinoProviders.MGPSW.name },
-			// npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/mg.png`,
-			// iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/mg-icon.png`,				// 	disabledInSlider: true,
-			// 	lobbyPage: {
-			// 		bgImg: livecasinoLobbyMgBgImg,
-			// 		iconImg: livecasinoLobbyMgIconImg
-			// 	}
-			// },
 			{
 				...productList.liveCasino_PP,
 				eventIcons: [
@@ -531,6 +513,22 @@ export const defMenuLinks = langId => ({
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/pp.png`,
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/pp-icon.png`,
 				lobbyImg: "pp"
+			},
+			{
+				...productList.liveCasino_MG,
+				className: "MG",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_mg
+					})
+				],
+				icon: "icon icon-mg",
+				displayText: "Microgaming",
+				menuType: defMenuType.entPage,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/mg.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/mg-icon.png`,
+				lobbyImg: "mg"
 			},
 			{
 				...productList.liveCasino_EVO,
@@ -564,22 +562,6 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/playtech-icon.png`,
 				disabledInSlider: true,
 				lobbyImg: "pt"
-			},
-			{
-				...productList.liveCasino_MG,
-				className: "MG",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_mg
-					})
-				],
-				icon: "icon icon-mg",
-				displayText: "Microgaming",
-				menuType: defMenuType.entPage,
-				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/mg.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/mg-icon.png`,
-				lobbyImg: "mg"
 			},
 			{
 				...productList.liveCasino_n2live,

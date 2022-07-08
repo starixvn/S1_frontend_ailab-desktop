@@ -445,25 +445,6 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortCasino,
 		subMenu: [
-			// {
-			// 	keyName: "casino_MGPSW",
-			// 	displayText: "MGPSW",
-			// 	menuType: defMenuType.entPage,
-			// 	listNpcImgUrl: "casino-mg.png",
-			// 	listBgImgUrl: ["mgbg.png", "livecasinListHover.png"],
-			// 	parameter: { ...productList.casino_MGPSW },
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.casino_MGPSW
-			// 		})
-			// 	],
-			// 	lobbyPage: {
-			// 		bgImg: "livecasino_mg.jpg",
-			// 		hoverBgImg: "livecasino_mga.jpg"
-			// 	},
-			// 	...productList.casino_MGPSW
-			// },
 			{
 				...productList.liveCasino_PP,
 				keyName: "casino_PP",
@@ -480,6 +461,21 @@ export const defMenuLinks = {
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				lobbyPage: { npcImg: "casino_pp" }
+			},
+			{
+				keyName: "casino_MG",
+				displayText: "Microgaming",
+				menuType: defMenuType.entPage,
+				listNpcImgUrl: "casino-mg.png",
+				listBgImgUrl: ["mgbg.png", "livecasinListHover.png"],
+				...productList.liveCasino_MG,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_mg
+					})
+				],
+				lobbyPage: { npcImg: "casino_mg" }
 			},
 			{
 				keyName: "casino_EVO",
@@ -510,21 +506,6 @@ export const defMenuLinks = {
 					})
 				],
 				lobbyPage: { npcImg: "casino_pt" }
-			},
-			{
-				keyName: "casino_MG",
-				displayText: "Microgaming",
-				menuType: defMenuType.entPage,
-				listNpcImgUrl: "casino-mg.png",
-				listBgImgUrl: ["mgbg.png", "livecasinListHover.png"],
-				...productList.liveCasino_MG,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_mg
-					})
-				],
-				lobbyPage: { npcImg: "casino_mg" }
 			},
 			{
 				keyName: "casino_N2LIVE",
