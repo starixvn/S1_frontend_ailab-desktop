@@ -378,7 +378,10 @@ export default () => {
 				type === "profile"
 					? {
 							AccountName:
-								userInfo.accountName ?? userValue.accountName,
+								userInfo.accountName &&
+								userInfo.accountName !== ""
+									? userInfo.accountName
+									: userValue.accountName,
 							Birth_d:
 								userInfo.birth_d ??
 								userValue.birth.slice(8, 10),
@@ -388,26 +391,46 @@ export default () => {
 								userInfo.birth_y ?? userValue.birth.slice(0, 4),
 							// CountryCode: country,
 							CountryCode: "",
-							AreaCode: userInfo.areaCode ?? _areaCodeVal,
-							PhoneNo: userInfo.phoneNo ?? userValue.phoneNo
+							AreaCode:
+								userInfo.areaCode && userInfo.areaCode !== ""
+									? userInfo.areaCode
+									: _areaCodeVal,
+							PhoneNo:
+								userInfo.phoneNo && userInfo.phoneNo !== ""
+									? userInfo.phoneNo
+									: userValue.phoneNo
 					  }
 					: {
 							AddressCountry:
-								userInfo.addressCountry ??
-								userValue.addressCountry,
+								userInfo.addressCountry &&
+								userInfo.addressCountry !== ""
+									? userInfo.addressCountry
+									: userValue.addressCountry,
 							AddressState:
-								userInfo.addressState ?? userValue.addressState,
+								userInfo.addressState &&
+								userInfo.addressState !== ""
+									? userInfo.addressState
+									: userValue.addressState,
 							AddressPostCode:
-								userInfo.addressPostCode ??
-								userValue.addressPostCode,
+								userInfo.addressPostCode &&
+								userInfo.addressPostCode !== ""
+									? userInfo.addressPostCode
+									: userValue.addressPostCode,
 							AddressCity:
-								userInfo.addressCity ?? userValue.addressCity,
+								userInfo.addressCity &&
+								userInfo.addressCity !== ""
+									? userInfo.addressCity
+									: userValue.addressCity,
 							AddressLineFirst:
-								userInfo.addressLineFirst ??
-								userValue.addressLineFirst,
+								userInfo.addressLineFirst &&
+								userInfo.addressLineFirst !== ""
+									? userInfo.addressLineFirst
+									: userValue.addressLineFirst,
 							AddressLineSecond:
-								userInfo.addressLineSecond ??
-								userValue.addressLineSecond
+								userInfo.addressLineSecond &&
+								userInfo.addressLineSecond !== ""
+									? userInfo.addressLineSecond
+									: userValue.addressLineSecond
 					  };
 
 			const fulfillHandle = res => {
