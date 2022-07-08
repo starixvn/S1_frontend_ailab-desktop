@@ -444,22 +444,6 @@ export const defMenuLinks = {
 		subDivClass1: "dice",
 		subDivClass2: "dice dice2",
 		subMenu: [
-			// {
-			// 	...defCasinoProviders.MGPSW,
-			// 	className: "liveMG",
-			// 	eventIcons: [
-			// 		showEventIcon({
-			// 			icon: defEventIcon.new,
-			// 			period: defEventPeriod.mgpsw
-			// 		})
-			// 	],
-			// 	icon: "icon icon-mg",
-			// 	displayText: "MG",
-			// 	menuType: defMenuType.entPage,
-			// 	lobbyPage: {
-			// 		bgClass: "live-mg"
-			// 	}
-			// },
 			{
 				...productList.liveCasino_PP,
 				className: "livePP",
@@ -474,6 +458,22 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				lobbyPage: {
 					bgClass: "live-pp"
+				}
+			},
+			{
+				...productList.liveCasino_MG,
+				className: "liveMG",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.liveCasino_mg
+					})
+				],
+				icon: "icon icon-mg",
+				displayText: "Microgaming",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-mg"
 				}
 			},
 			{
@@ -505,22 +505,6 @@ export const defMenuLinks = {
 				menuType: defMenuType.useGoToGame,
 				lobbyPage: {
 					bgClass: "live-pt"
-				}
-			},
-			{
-				...productList.liveCasino_MG,
-				className: "liveMG",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_mg
-					})
-				],
-				icon: "icon icon-mg",
-				displayText: "Microgaming",
-				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "live-mg"
 				}
 			},
 			{
