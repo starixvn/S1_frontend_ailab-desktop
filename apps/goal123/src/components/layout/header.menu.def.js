@@ -524,6 +524,7 @@ export const defMenuLinks = langId => ({
 					})
 				],
 				icon: "icon icon-mg",
+				listNpcImgUrl: "mg.png",
 				displayText: "Microgaming",
 				menuType: defMenuType.entPage,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/mg.png`,
