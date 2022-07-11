@@ -385,10 +385,11 @@ export default () => {
 
 					const filterLobbyImgList = defLobbyImgList.filter(
 						_img =>
-							providerIdList.includes(_img.providerId) &&
-							(_img.allowCurrencies
-								? _img.allowCurrencies.includes(_currencyId)
-								: true)
+							(providerIdList.includes(_img.providerId) &&
+								(_img.allowCurrencies
+									? _img.allowCurrencies.includes(_currencyId)
+									: true)) ||
+							_img.alwaysShow
 					);
 
 					setLobbyImgList(filterLobbyImgList);
