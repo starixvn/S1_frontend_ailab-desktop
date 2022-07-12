@@ -1,10 +1,12 @@
 import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
-import { number_format, checkAmount } from "../common/common";
+import { Link } from "gatsby";
+import { number_format, checkAmount, defCurrencyList } from "../common/common";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import { popBoxContext } from "../common/context";
 import Inputbox from "../common/inputbox";
 import defPopBoxType from "../common/defPopBoxType";
+import path from "../../router";
 
 const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 	const { setPopBox } = useContext(popBoxContext);
@@ -14,6 +16,36 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 			ValidAmount(state.amount);
 		}
 	}, [state.selectedAccount]);
+
+	useEffect(() => {
+		if (
+			userInfo.currencyId === defCurrencyList.INR &&
+			!userInfo.phoneVerified
+		) {
+			setPopBox({
+				isOpen: true,
+				popBoxType: defPopBoxType.UpdateProfile,
+				title: t("lbl_Withdrawal"),
+				content: t("lbl_Complete_PhoneVerification"),
+				btnBar: (
+					<div className="btnGroup">
+						<button
+							className="btn-cancel"
+							onClick={() => setPopBox({ isOpen: false })}
+						>
+							{t("lbl_Later")}
+						</button>
+						<Link
+							className="btn-check"
+							to={`/${userInfo.langId}/${path.profile.root}`}
+						>
+							{t("lbl_VertifyNow")}
+						</Link>
+					</div>
+				)
+			});
+		}
+	}, [userInfo.currencyId]);
 
 	const EditAmount = Value => {
 		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
@@ -221,9 +253,20 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 					</div>
 					<div className="btnGroup">
 						<button
-							className={state.checked ? "btn-check" : "gray"}
+							className={
+								state.checked &&
+								!(
+									userInfo.currencyId ===
+										defCurrencyList.INR &&
+									!userInfo.phoneVerified
+								)
+									? "btn-check"
+									: "gray"
+							}
 							disabled={
 								!state.checked ||
+								(userInfo.currencyId === defCurrencyList.INR &&
+									!userInfo.phoneVerified) ||
 								(state.maxTimes > 0 &&
 									state.withdrawalTimes >= state.maxTimes)
 							}
