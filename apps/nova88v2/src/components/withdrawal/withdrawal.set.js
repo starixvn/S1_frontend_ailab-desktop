@@ -109,7 +109,8 @@ const MainPanel = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -132,7 +133,8 @@ const MainPanel = ({
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClosePopBox}>
+									onClick={ClosePopBox}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>

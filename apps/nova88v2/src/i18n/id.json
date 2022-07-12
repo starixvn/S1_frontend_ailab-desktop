@@ -221,6 +221,7 @@
 	"lbl_EmailVerificationHint1": "Verifikasi 'Alamat Email' Anda untuk tingkat keamanan yang",
 	"lbl_EmailVerificationHint2": "lebih baik dan dapatkan hadiah {{currency}} {{amount}}.",
 	"lbl_PhoneVerification": "Verifikasi Nomor Telepon",
+	"lbl_Complete_PhoneVerification": "Silakan selesaikan verifikasi Ponsel (OTP) Anda.",
 	"lbl_PhoneVerificationHint1": "Verifikasi 'Nomor Telepon' Anda untuk tingkat keamanan yang",
 	"lbl_PhoneVerificationHint2": "lebih baik dan dapatkan hadiah {{currency}} {{amount}}.",
 	"lbl_Excellent": "Bagus sekali",
