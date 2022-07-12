@@ -31,20 +31,17 @@ export default () => {
 	const [state, dispatch] = useReducer(reducer, initState);
 	const isMountedRef = useRef(null);
 	const { restoreAllBalanceToMainWallet } = useTransfer();
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
 			isMountedRef.current = false;
 		};
 	});
-
 	useEffect(() => {
 		if (userInfo.isLogin) {
 			GetDailyWithdrawalLimit();
 		}
 	}, [userInfo.isLogin]);
-
 	const GetDailyWithdrawalLimit = () => {
 		api_payment_GetWithdrawalLimit().then(
 			res => {
