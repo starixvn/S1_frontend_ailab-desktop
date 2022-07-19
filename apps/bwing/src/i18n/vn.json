@@ -106,7 +106,7 @@
 	"lbl_SportsBetting": "Cá cược Thể thao",
 	"lbl_Tennis": "Quần Vợt",
 	"lbl_TennisBetting": "Cá cược Quần Vợt",
-	"lbl_Virtual_Games":"Trò chơi ảo",
+	"lbl_Virtual_Games": "Trò chơi ảo",
 	"lbl_Virtual_Sports": "Thể thao ảo",
 	"lbl_VirtualSport": "Thể Thao Ảo",
 
@@ -219,7 +219,7 @@
 	"lbl_EmailOTPHint1": "Mã xác thực email đã được gửi đến hộp thư bạn đăng ký.",
 	"lbl_EmailVerifiedMsg": "Tuyệt vời! Xác thực thành công",
 	"lbl_ResendOtp": "Gửi lại trong vòng 5 phút",
-	
+
 	"promotion ■■■■■■■■■■■■■■■■■■■■": "",
 	"PromotionCategory1": "Nạp Lần Đầu",
 	"lbl_Promotion": "Khuyến mãi",
@@ -486,7 +486,7 @@
 	"lbl_Daily_Min_Max_Amount": "Hạn Mức Tối Thiểu/Tối Đa Hàng Ngày: {{min}}/{{max}}",
 	"lbl_WithdrawalDailyReached": "Bạn Đã Sử Dụng Hết Hạn Mức Trong Ngày.",
 	"lbl_Insufficientbalance": "Số Dư Không Đủ",
-	"lbl_Times":"Số lần",
+	"lbl_Times": "Số lần",
 
 	"transaction ■■■■■■■■■■■■■■■■■■■■": "",
 	"msg_NeedAccountNo": "Cần nhập số tài khoản",
@@ -729,7 +729,7 @@
 	"lbl_Vip_Special_Rebate": "HOÀN TRẢ ĐẶC BIỆT",
 	"lbl_Vip_Sport_Rebate": "HOÀN TRẢ THỂ THAO",
 	"lbl_Vip_Live_Casino_Rebate": "HOÀN TRẢ SÒNG BÀI",
-	"lbl_Vip_Slot_Fishing_Rebate": "HOÀN TRẢ QUAY HŨ & BẮN CÁ",
+	"lbl_Vip_Slot_Fishing_Rebate": "HOÀN TRẢ QUAY HŨ",
 	"lbl_Vip_Virtual_Sport_Rebate": "HOÀN TRẢ THỂ THAO ẢO",
 	"lbl_Vip_Referral_bonus_Program": "THÊM BẠN THÊM VUI",
 	"lbl_Vip_Referral_bonus": "THƯỞNG GIỚI THIỆU BẠN BÈ",
@@ -801,7 +801,7 @@
 	"lbl_Optional": "Phần không bắt buộc",
 	"lbl_CryptoPay": "Tiền ảo",
 	"lbl_NotERC20WalletAddr": "Địa chỉ ví phải tương thích với chuẩn ERC20",
-	"lbl_Prohibited_Duplicate_Bank_Account":"Tài khoản ngân hàng này đã tồn tại",
+	"lbl_Prohibited_Duplicate_Bank_Account": "Tài khoản ngân hàng này đã tồn tại",
 	"lbl_Crypto_OTP": "Vui lòng hoàn tất xác thực bằng số điện thoại (OTP) trước khi sử dụng dịch vụ tiền ảo.",
 	"lbl_Deposit_USDT_CONFIRM_DESCRIPTION": "Tỷ giá chỉ mang tính chất tham khảo.",
 
