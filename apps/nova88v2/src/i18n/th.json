@@ -702,6 +702,12 @@
 	"lbl_MissionCompleted": "การแนะนำสำเร็จ",
 	"lbl_NoOfAchievements": "จำนวนการตอบรับ",
 	"lbl_RewardAmount": "รางวัล",
+	"lbl_ReferralReward": "รางวัลแนะนำเพื่อน",
+	"lbl_FriendsInvitationLimit": "ขีดจำกัดคำเชิญเพื่อน",
+	"lbl_DepositRequirement": "ข้อกำหนดการฝากเงิน",
+	"lbl_ValidBetRequirement": "ข้อกำหนดการเดิมพันที่ถูกต้อง",
+	"lbl_ReferredFreeCredit": "เครดิตฟรีแนะนำเพื่อน",
+	"lbl_TermPeriodWithin": "เงื่อนไขระยะเวลาภายใน",
 
 	"oneGaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Poker": "โป๊กเกอร์",

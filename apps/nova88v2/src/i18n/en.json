@@ -705,6 +705,12 @@
 	"lbl_MissionCompleted": "Mission completed",
 	"lbl_NoOfAchievements": "No. of achievements",
 	"lbl_RewardAmount": "Rewards Amounts",
+	"lbl_ReferralReward": "Referral Reward",
+	"lbl_FriendsInvitationLimit": "Friends Invitation Limit",
+	"lbl_DepositRequirement": "Deposit Requirement",
+	"lbl_ValidBetRequirement": "Valid Bet Requirement",
+	"lbl_ReferredFreeCredit": "Referred Free Credit",
+	"lbl_TermPeriodWithin": "Term Period Within",
 
 	"oneGaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Poker": "Poker",

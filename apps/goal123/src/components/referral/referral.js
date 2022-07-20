@@ -173,12 +173,14 @@ export default () => {
 					alt="refStepBanner"
 				/>
 				<div className="referralModule">
-					<ReferralShare
-						t={t}
-						langId={userInfo.langId}
-						currencyId={userInfo.currencyId}
-						referralSettingData={referralSettingData}
-					/>
+					{referralSettingData?.status && (
+						<ReferralShare
+							t={t}
+							langId={userInfo.langId}
+							currencyId={userInfo.currencyId}
+							referralSettingData={referralSettingData}
+						/>
+					)}
 					<ReferralLinks
 						t={t}
 						referralCode={referralCode}

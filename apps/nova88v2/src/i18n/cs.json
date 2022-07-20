@@ -702,6 +702,12 @@
 	"lbl_MissionCompleted": "任务已完成",
 	"lbl_NoOfAchievements": "您推荐的朋友人数",
 	"lbl_RewardAmount": "奖励金额",
+	"lbl_ReferralReward": "推荐奖励",
+	"lbl_FriendsInvitationLimit": "邀请好友限制",
+	"lbl_DepositRequirement": "存款需求",
+	"lbl_ValidBetRequirement": "有效投注需求",
+	"lbl_ReferredFreeCredit": "被推荐好友免费彩金",
+	"lbl_TermPeriodWithin": "期限内在",
 
 	"oneGaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Poker": "扑克",

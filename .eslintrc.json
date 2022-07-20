@@ -46,6 +46,7 @@
 		"import/no-unresolved": "off",
 		"react/jsx-indent": "off",
 		"react/jsx-indent-props": "off",
+		"react/no-danger":"off",
 		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
 		"react/jsx-closing-bracket-location": "off",
 		"react/button-has-type": "off",
