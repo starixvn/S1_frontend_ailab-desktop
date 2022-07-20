@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { navigate, Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
@@ -9,7 +10,8 @@ import {
 	isConvert,
 	number_format,
 	getUrlParameter,
-	routerFlattenToPath
+	routerFlattenToPath,
+	currencyIdToTimeZone
 } from "../common/common";
 
 import StatementTitle from "./statement.title";
@@ -46,6 +48,7 @@ export default () => {
 
 	const _isConvert = isConvert(userInfo.currencyId);
 	const currentlyDisplayKey = quickPickList[initQuickPickType].displayKey;
+	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -127,7 +130,10 @@ export default () => {
 			title: t("lbl_SettledDate"),
 			dataIndex: "settledDate",
 			key: "settledDate",
-			render: value => moment(value.settledDate).format("YYYY-MM-DD")
+			render: value =>
+				moment(value.settledDate, "YYYY-MM-DDThh:mm:ssZ")
+					.zone(timeZone)
+					.format("YYYY-MM-DD")
 		},
 		{
 			title: t("lbl_GameTypeName"),
@@ -165,7 +171,8 @@ export default () => {
 								gameTypeId: value.gameTypeID
 							})
 						}
-						className="blue">
+						className="blue"
+					>
 						{t("lbl_Details")}
 					</a>
 				</div>
@@ -190,6 +197,7 @@ export default () => {
 					t={t}
 					dataSource={recordListbyCategoryDatas}
 					columns={columns}
+					currencyId={userInfo.currencyId}
 				/>
 
 				<Pagination
@@ -234,4 +242,20 @@ const StatementBreadcrumb = ({
 			<Breadcrumb.Item>{t("lbl_Category")}</Breadcrumb.Item>
 		</Breadcrumb>
 	);
+};
+
+StatementBreadcrumb.defaultProps = {
+	t: () => null,
+	userInfo: null,
+	initQuickPickType: null,
+	initByDaySettledDate: null,
+	currentlyDisplayKey: null
+};
+
+StatementBreadcrumb.propTypes = {
+	t: PropTypes.func,
+	userInfo: PropTypes.objectOf(PropTypes.any),
+	initQuickPickType: PropTypes.string,
+	initByDaySettledDate: PropTypes.string,
+	currentlyDisplayKey: PropTypes.string
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
-import moment from "moment";
 import { Link } from "gatsby";
 import { popBoxContext, userInfoContext } from "../common/context";
 import { HistoryResult } from "./withdrawal.historyResult";
@@ -8,13 +8,11 @@ import { api_payment_SetWithdrawalCancel } from "../../service/api/payment";
 import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
-import { isConvert } from "../common/common";
+import { isConvert, currencyIdToTimeZone } from "../common/common";
 import { defActionType } from "./withdrawal.reducer";
 import { defHistoryIdList } from "../history/def";
 
-// import Loading from "../common/loading";
-
-export default ({
+const History = ({
 	dispatch,
 	recentHistory,
 	refreshData,
@@ -27,6 +25,7 @@ export default ({
 	const _isConvert = isConvert(userInfo.currencyId);
 	// const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
+	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -72,7 +71,8 @@ export default ({
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClosePopBox}>
+											onClick={ClosePopBox}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -92,7 +92,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}>
+										onClick={ClosePopBox}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -120,18 +121,17 @@ export default ({
 		});
 	};
 
-	const arr = recentHistory?.map((item, idx) => {
-		return (
-			<HistoryResult
-				key={`withdrawal-recent-${item.transId}`}
-				idx={idx + 1}
-				i18n={t}
-				_isConvert={_isConvert}
-				{...item}
-				ClickCancel={ClickCancel.bind(this, item.transId)}
-			/>
-		);
-	});
+	const arr = recentHistory?.map((item, idx) => (
+		<HistoryResult
+			key={`withdrawal-recent-${item.transId}`}
+			idx={idx + 1}
+			i18n={t}
+			_isConvert={_isConvert}
+			{...item}
+			ClickCancel={ClickCancel.bind(this, item.transId)}
+			timeZone={timeZone}
+		/>
+	));
 
 	return recentHistory ? (
 		<>
@@ -139,7 +139,8 @@ export default ({
 				<div className="listHeader">
 					<div>{t("lbl_NO")}</div>
 					<div>
-						{t("lbl_Date")} ({moment().format("Z")})
+						{t("lbl_Date")} (
+						{currencyIdToTimeZone[userInfo.currencyId]})
 					</div>
 					<div>{t("lbl_ID")}</div>
 					<div>{t("lbl_Amount")}</div>
@@ -167,3 +168,21 @@ export default ({
 		</>
 	) : null;
 };
+
+History.defaultProps = {
+	recentHistory: null,
+	dispatch: () => null,
+	refreshData: () => null,
+	GetWithdrawalInfoRecent: () => null,
+	GetDailyWithdrawalLimit: () => null
+};
+
+History.propTypes = {
+	recentHistory: PropTypes.arrayOf(PropTypes.any),
+	dispatch: PropTypes.func,
+	refreshData: PropTypes.func,
+	GetWithdrawalInfoRecent: PropTypes.func,
+	GetDailyWithdrawalLimit: PropTypes.func
+};
+
+export default History;

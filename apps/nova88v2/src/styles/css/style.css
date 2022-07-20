@@ -6345,10 +6345,13 @@ input[type="file"] {
 }
 
 .history .listBody > div > div:nth-child(5), .history .listBody > div > div:nth-child(6) {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.history .listBody > div > div:nth-child(5) span, .history .listBody > div > div:nth-child(6) span {
+  width: 100%;
+  margin-left: 0;
 }
 
 .quickSelect {
@@ -12292,7 +12295,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 350px;
+  width: 320px;
   z-index: 1;
   pointer-events: none;
 }

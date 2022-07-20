@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
@@ -6,7 +7,6 @@ import path from "../../router";
 import { userInfoContext, loadingContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import {
-	isConvert,
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath
@@ -137,7 +137,9 @@ export default () => {
 			dataIndex: "settledTime",
 			key: "settledTime",
 			render: value =>
-				moment(value.settledTime).format("YYYY-MM-DD HH:mm:ss")
+				moment(value.settledTime, "YYYY-MM-DDThh:mm:ssZ")
+					.zone("+07:00")
+					.format("YYYY-MM-DD HH:mm:ss")
 		}
 	];
 
@@ -172,7 +174,8 @@ export default () => {
 					<StatementTable
 						t={t}
 						dataSource={detailListbyGameTypeDatas}
-						columns={columns}>
+						columns={columns}
+					>
 						<StatementTable.CustomizeRow>
 							<div className="total">
 								{t("lbl_TurnOverTotal")}：
@@ -252,4 +255,22 @@ const StatementBreadcrumb = ({
 			<Breadcrumb.Item>{t("lbl_Detail")}</Breadcrumb.Item>
 		</Breadcrumb>
 	);
+};
+
+StatementBreadcrumb.defaultProps = {
+	initCategoryId: null,
+	initQuickPickType: null,
+	initByDaySettledDate: null,
+	initCategorySettledDate: null,
+	currentlyDisplayKey: null
+};
+
+StatementBreadcrumb.propTypes = {
+	t: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	initCategoryId: PropTypes.number,
+	initQuickPickType: PropTypes.string,
+	initByDaySettledDate: PropTypes.string,
+	initCategorySettledDate: PropTypes.string,
+	currentlyDisplayKey: PropTypes.string
 };

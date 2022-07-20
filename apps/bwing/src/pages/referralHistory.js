@@ -12,22 +12,20 @@ import LeftMenu from "../components/common/leftMenu";
 import { defPopBoxType } from "../components/common/defPopBoxType";
 import ReferralHistory from "../components/referral/historyResult";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
-			<Layout showFooter={true}>
-				<main>
-					<section className="inside">
-						<LeftMenu />
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper afterLogin={true}>
+		<Layout showFooter={true}>
+			<main>
+				<section className="inside">
+					<LeftMenu />
+					<div className="rightModule">
+						<Content />
+					</div>
+				</section>
+			</main>
+		</Layout>
+	</Wrapper>
+);
 
 const initPagination = {
 	totalPages: 0,
@@ -62,6 +60,18 @@ const Content = () => {
 					EndDate: moment(endDate).endOf("day").unix()
 				};
 				setFilterData(transactionData);
+				setKeepData({
+					startDate,
+					endDate,
+					quickPick
+				});
+			} else {
+				transactionData = {
+					StartDate: moment(startDate).zone("+07:00"),
+					EndDate: moment(endDate).endOf("day").zone("+07:00")
+				};
+				setFilterData(transactionData);
+
 				setKeepData({
 					startDate,
 					endDate,
@@ -144,9 +154,7 @@ const Content = () => {
 					<div className="listHeader">
 						<div>{t("lbl_NO")}</div>
 						<div>{t("lbl_Username")}</div>
-						<div>
-							{t("lbl_RegisterDate")} ({moment().format("Z")})
-						</div>
+						<div>{t("lbl_RegisterDate")} (+07:00)</div>
 						<div>{t("lbl_Currency")}</div>
 						<div>{t("lbl_TotalDeposit")}</div>
 						<div>{t("lbl_TotalBet")}</div>

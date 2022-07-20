@@ -13,3 +13,6 @@ export const popUpMsgContext = createContext();
 
 // promotion
 export const promoPopBox = createContext({});
+
+// referral
+export const referralPopBox = createContext({});

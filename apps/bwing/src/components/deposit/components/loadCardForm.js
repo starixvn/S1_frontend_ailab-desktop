@@ -97,8 +97,7 @@ export default function LoadCardForm({
 								item.channelId === infoChannelIdForRecord
 									? "active"
 									: ""
-							}
-						>
+							}>
 							<div>
 								<img
 									alt={item.groupName}

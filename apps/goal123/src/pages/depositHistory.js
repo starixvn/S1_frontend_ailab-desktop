@@ -20,23 +20,21 @@ import {
 import useDeposit from "../components/deposit/hook/useDeposit";
 import useDepositLocalBank from "../components/deposit/hook/useDepositLocalBank";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
-			<Layout>
-				<main>
-					<section className="inside">
-						<LeftMenu />
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-				<Footer />
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper afterLogin={true}>
+		<Layout>
+			<main>
+				<section className="inside">
+					<LeftMenu />
+					<div className="rightModule">
+						<Content />
+					</div>
+				</section>
+			</main>
+			<Footer />
+		</Layout>
+	</Wrapper>
+);
 
 const Content = () => {
 	const { t } = useTranslation();
@@ -94,7 +92,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -114,7 +113,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -134,6 +134,18 @@ const Content = () => {
 				transactionData = {
 					StartDate: moment(startDate).unix(),
 					EndDate: moment(endDate).endOf("day").unix()
+				};
+				setFilterData(transactionData);
+
+				setKeepData({
+					startDate,
+					endDate,
+					quickPick
+				});
+			} else {
+				transactionData = {
+					StartDate: moment(startDate).zone("+07:00"),
+					EndDate: moment(endDate).endOf("day").zone("+07:00")
 				};
 				setFilterData(transactionData);
 
@@ -210,7 +222,8 @@ const Content = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -230,7 +243,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -271,27 +285,25 @@ const Content = () => {
 		}
 	};
 
-	const arr = getHistory?.map((item, i) => {
-		return (
-			<TransactionHistory
-				key={`depositHistory-${item.transId}`}
-				idx={i + 1}
-				createTime={item.createTime}
-				transId={item.transId}
-				depositType={item.depositType}
-				status={item.status}
-				amount={item.amount}
-				ClickCancel={ClickCancel.bind(this, item.transId)}
-				SubmitProof={SubmitProof.bind(
-					this,
-					item.bankInfo,
-					item.depositRep,
-					item.transId,
-					item.picFileName
-				)}
-			/>
-		);
-	});
+	const arr = getHistory?.map((item, i) => (
+		<TransactionHistory
+			key={`depositHistory-${item.transId}`}
+			idx={i + 1}
+			createTime={item.createTime}
+			transId={item.transId}
+			depositType={item.depositType}
+			status={item.status}
+			amount={item.amount}
+			ClickCancel={ClickCancel.bind(this, item.transId)}
+			SubmitProof={SubmitProof.bind(
+				this,
+				item.bankInfo,
+				item.depositRep,
+				item.transId,
+				item.picFileName
+			)}
+		/>
+	));
 
 	return loading ? (
 		<Loading />
@@ -307,9 +319,7 @@ const Content = () => {
 					<div className="tip active">{t("msg_AmountFormatTip")}</div>
 					<div className="listHeader">
 						<div>{t("lbl_NO")}</div>
-						<div>
-							{t("lbl_Date")} ({moment().format("Z")})
-						</div>
+						<div>{t("lbl_Date")} (+07:00)</div>
 						<div>{t("lbl_ID")}</div>
 						<div>{t("lbl_Method")}</div>
 						<div>{t("lbl_Amount")}</div>

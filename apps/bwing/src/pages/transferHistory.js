@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
 import { api_tp_GetTransferHistory } from "../service/api/tp";
-import { userInfoContext, popBoxContext } from "../components/common/context";
+import { popBoxContext } from "../components/common/context";
 import { TransactionHistory } from "../components/transferFunds/historyResult";
 import { Pagination } from "../components/common/pagination";
 import Wrapper from "../components/common/wrapper";
@@ -13,22 +13,20 @@ import Loading from "../components/common/loading";
 import { defPopBoxType } from "../components/common/defPopBoxType";
 import ReloadSpin from "../components/common/reloadSpin";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
-			<Layout showFooter={true}>
-				<main>
-					<section className="inside">
-						<LeftMenu />
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper afterLogin={true}>
+		<Layout showFooter={true}>
+			<main>
+				<section className="inside">
+					<LeftMenu />
+					<div className="rightModule">
+						<Content />
+					</div>
+				</section>
+			</main>
+		</Layout>
+	</Wrapper>
+);
 
 const transferDirection = (direction, displayMainWallet, displaySabaWallet) => {
 	let startWallet = "";
@@ -51,7 +49,6 @@ const initPagination = {
 
 const Content = () => {
 	const { t } = useTranslation();
-	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [getHistory, setGetHistory] = useState(null);
 	const [filterData, setFilterData] = useState(null);
@@ -72,6 +69,8 @@ const Content = () => {
 		const ClickClose = () => {
 			setPopBox({ isOpen: false });
 		};
+
+		setLoading(true);
 		api_tp_GetTransferHistory({
 			...transactionData,
 			PageNumber: pageNumber
@@ -93,7 +92,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -101,6 +101,7 @@ const Content = () => {
 						});
 					}
 					setProcessing(false);
+					setLoading(false);
 				}
 			},
 			() => {
@@ -113,13 +114,15 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
 						)
 					});
 					setProcessing(false);
+					setLoading(false);
 				}
 			}
 		);
@@ -134,6 +137,18 @@ const Content = () => {
 				transactionData = {
 					StartDate: moment(startDate).unix(),
 					EndDate: moment(endDate).endOf("day").unix()
+				};
+				setFilterData(transactionData);
+
+				setKeepData({
+					startDate,
+					endDate,
+					quickPick
+				});
+			} else {
+				transactionData = {
+					StartDate: moment(startDate).zone("+07:00"),
+					EndDate: moment(endDate).endOf("day").zone("+07:00")
 				};
 				setFilterData(transactionData);
 
@@ -196,9 +211,7 @@ const Content = () => {
 					<div className="tip active">{t("msg_AmountFormatTip")}</div>
 					<div className="listHeader">
 						<div>{t("lbl_NO")}</div>
-						<div>
-							{t("lbl_Date")} ({moment().format("Z")})
-						</div>
+						<div>{t("lbl_Date")} (+07:00)</div>
 						<div>{t("lbl_ID")}</div>
 						<div>{t("lbl_Direction")}</div>
 						<div>{t("lbl_Amount")}</div>

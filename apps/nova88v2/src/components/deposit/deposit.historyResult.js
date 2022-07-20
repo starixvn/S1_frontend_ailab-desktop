@@ -21,7 +21,8 @@ export const TransactionHistory = props => {
 			<>
 				<button
 					className="orange icon icon-pencil"
-					onClick={props.SubmitProof}>
+					onClick={props.SubmitProof}
+				>
 					{t("lbl_SubmitProof")}
 				</button>
 				<button className="gray" onClick={props.ClickCancel}>
@@ -35,9 +36,13 @@ export const TransactionHistory = props => {
 		<div>
 			<div>{props.idx}</div>
 			<div>
-				{moment(props.createTime).format("MM/DD/YYYY")}
+				{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
+					.zone(props.timeZone)
+					.format("MM/DD/YYYY")}
 				<span className="txt-blue">
-					{moment(props.createTime).format("hh:mm:ss A")}
+					{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
+						.zone(props.timeZone)
+						.format("hh:mm:ss A")}
 				</span>
 			</div>
 			<div>{props.transId}</div>
@@ -55,7 +60,8 @@ export const TransactionHistory = props => {
 };
 
 TransactionHistory.defaultProps = {
-	thirdId: null
+	thirdId: null,
+	timeZone: null
 };
 
 TransactionHistory.propTypes = {
@@ -68,5 +74,6 @@ TransactionHistory.propTypes = {
 	transId: PropTypes.string.isRequired,
 	amount: PropTypes.number.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
-	status: PropTypes.number.isRequired
+	status: PropTypes.number.isRequired,
+	timeZone: PropTypes.string
 };

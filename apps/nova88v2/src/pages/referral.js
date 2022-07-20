@@ -4,10 +4,11 @@ import Layout from "../components/common/layout";
 import Footer from "../components/footer/footer";
 import LeftMenu from "../components/common/leftMenu";
 import Referral from "../components/referral/referral";
+import ReferralWrapper from "../components/referral/referral.wrapper";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
+export default () => (
+	<Wrapper afterLogin={true}>
+		<ReferralWrapper>
 			<Layout>
 				<main>
 					<section className="inside">
@@ -19,6 +20,6 @@ export default () => {
 				</main>
 				<Footer />
 			</Layout>
-		</Wrapper>
-	);
-};
+		</ReferralWrapper>
+	</Wrapper>
+);

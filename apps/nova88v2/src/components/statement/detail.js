@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import moment from "moment";
@@ -9,7 +10,8 @@ import {
 	isConvert,
 	number_format,
 	getUrlParameter,
-	routerFlattenToPath
+	routerFlattenToPath,
+	currencyIdToTimeZone
 } from "../common/common";
 
 import { numberSumReducer } from "./helper";
@@ -45,6 +47,7 @@ export default () => {
 
 	const { userInfo } = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);
+	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
 
 	const _isConvert = isConvert(userInfo.currencyId);
 	const currentlyDisplayKey = quickPickList[initQuickPickType].displayKey;
@@ -138,7 +141,9 @@ export default () => {
 			dataIndex: "settledTime",
 			key: "settledTime",
 			render: value =>
-				moment(value.settledTime).format("YYYY-MM-DD HH:mm:ss")
+				moment(value.settledTime, "YYYY-MM-DDThh:mm:ssZ")
+					.zone(timeZone)
+					.format("YYYY-MM-DD HH:mm:ss")
 		}
 	];
 
@@ -174,7 +179,9 @@ export default () => {
 				<StatementTable
 					t={t}
 					dataSource={detailListbyGameTypeDatas}
-					columns={columns}>
+					columns={columns}
+					currencyId={userInfo.currencyId}
+				>
 					<StatementTable.CustomizeRow>
 						<div className="total">
 							{t("lbl_TurnOverTotal")}：
@@ -253,4 +260,22 @@ const StatementBreadcrumb = ({
 			<Breadcrumb.Item>{t("lbl_Detail")}</Breadcrumb.Item>
 		</Breadcrumb>
 	);
+};
+
+StatementBreadcrumb.defaultProps = {
+	initCategoryId: null,
+	initQuickPickType: null,
+	initByDaySettledDate: null,
+	initCategorySettledDate: null,
+	currentlyDisplayKey: null
+};
+
+StatementBreadcrumb.propTypes = {
+	t: PropTypes.func.isRequired,
+	userInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	initCategoryId: PropTypes.number,
+	initQuickPickType: PropTypes.string,
+	initByDaySettledDate: PropTypes.string,
+	initCategorySettledDate: PropTypes.string,
+	currentlyDisplayKey: PropTypes.string
 };

@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import moment from "moment";
 import { useLocation } from "@reach/router";
 import { useTranslation } from "react-i18next";
-import { isConvert, getUrlParameter } from "../common/common";
+import {
+	isConvert,
+	getUrlParameter,
+	currencyIdToTimeZone
+} from "../common/common";
 import { userInfoContext } from "../common/context";
 
 import useDepositHistory from "./hook/useDepositHistory";
@@ -38,6 +42,8 @@ const History = () => {
 		currentPage: 1
 	});
 
+	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
+
 	const updateHistoryList = (startDate, endDate, isUnix, quickPick) => {
 		if (!processing) {
 			setProcessing(true);
@@ -45,8 +51,20 @@ const History = () => {
 
 			if (!isUnix) {
 				transactionData = {
-					StartDate: moment(startDate).unix(),
-					EndDate: moment(endDate).endOf("day").unix()
+					StartDate: moment(startDate).zone(timeZone).unix(),
+					EndDate: moment(endDate).endOf("day").zone(timeZone).unix()
+				};
+				setFilterData(transactionData);
+
+				setKeepData({
+					startDate,
+					endDate,
+					quickPick
+				});
+			} else {
+				transactionData = {
+					StartDate: moment(startDate).zone(timeZone),
+					EndDate: moment(endDate).endOf("day").zone(timeZone)
 				};
 				setFilterData(transactionData);
 
@@ -135,7 +153,8 @@ const History = () => {
 		depositActivateUploadModal,
 		depositActivateCancelConfirmModal,
 
-		activateWithdrawalCancelConfirmModal
+		activateWithdrawalCancelConfirmModal,
+		timeZone
 	})[selectedTagId];
 
 	const clickPageNumber = page => {
@@ -175,7 +194,6 @@ const History = () => {
 				break;
 
 			default:
-				console.log("!!");
 				break;
 		}
 

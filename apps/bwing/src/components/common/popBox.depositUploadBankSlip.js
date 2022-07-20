@@ -111,23 +111,19 @@ const PopBoxDepositUploadBankSlip = ({
 
 		if (!isValid) {
 			if (errors.depositRefNo) {
-				setdepositRefNo(({ value }) => {
-					return {
-						value,
-						checked: !errors.depositRefNo,
-						tip: errors.depositRefNo
-					};
-				});
+				setdepositRefNo(({ value }) => ({
+					value,
+					checked: !errors.depositRefNo,
+					tip: errors.depositRefNo
+				}));
 			}
 
 			if (errors.depositTime) {
-				setDepositTime(({ value }) => {
-					return {
-						value,
-						checked: !errors.depositTime,
-						tip: errors.depositTime
-					};
-				});
+				setDepositTime(({ value }) => ({
+					value,
+					checked: !errors.depositTime,
+					tip: errors.depositTime
+				}));
 			}
 
 			if (errors.depositImgFiles) {
@@ -179,30 +175,24 @@ const PopBoxDepositUploadBankSlip = ({
 		if (imgFile?.type?.includes("image")) {
 			onImgFileReaderHandlar(imgFile);
 		} else if (imgFile?.name) {
-			setDepositImgFiles(prev => {
-				return {
-					...prev,
-					name: imgFile.name,
-					checked: true
-				};
-			});
+			setDepositImgFiles(prev => ({
+				...prev,
+				name: imgFile.name,
+				checked: true
+			}));
 		}
 		if (refId) {
-			setdepositRefNo(prev => {
-				return {
-					...prev,
-					value: refId
-				};
-			});
+			setdepositRefNo(prev => ({
+				...prev,
+				value: refId
+			}));
 		}
 
 		if (time) {
-			setDepositTime(prev => {
-				return {
-					...prev,
-					value: moment(time) || moment()
-				};
-			});
+			setDepositTime(prev => ({
+				...prev,
+				value: moment(time) || moment()
+			}));
 		}
 
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -286,7 +276,8 @@ const PopBoxDepositUploadBankSlip = ({
 								: " error"
 						}`}
 						onDragOver={e => e.preventDefault()}
-						onDrop={onUploadFile}>
+						onDrop={onUploadFile}
+					>
 						<input
 							type="file"
 							accept="image/*"
@@ -303,7 +294,8 @@ const PopBoxDepositUploadBankSlip = ({
 								depositImgFiles.checked === null
 									? "hidden"
 									: "visible"
-						}}>
+						}}
+					>
 						{depositImgFiles.tip}
 					</div>
 
@@ -317,7 +309,7 @@ const PopBoxDepositUploadBankSlip = ({
 					<form onSubmit={onSubmit}>
 						<div className="inputBox-white">
 							<i className="txt-blue">
-								{t("lbl_DepositTime")}({moment().format("Z")})
+								{t("lbl_DepositTime")} (+7:00)
 							</i>
 							<DateTime
 								value={depositTime.value}
@@ -353,7 +345,8 @@ const PopBoxDepositUploadBankSlip = ({
 						<div
 							className={`tip${
 								!depositTime.checked ? " active" : ""
-							}`}>
+							}`}
+						>
 							{depositTime.tip}
 						</div>
 
@@ -388,7 +381,8 @@ const PopBoxDepositUploadBankSlip = ({
 								onClick={() => {
 									closePopBox();
 									resolve({ success: false });
-								}}>
+								}}
+							>
 								{t("lbl_Cancel")}
 							</button>
 							<button type="submit" className="btn-check">

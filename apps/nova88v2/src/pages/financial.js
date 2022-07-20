@@ -12,23 +12,21 @@ import Filter from "../components/common/historyFilter";
 import LeftMenu from "../components/common/leftMenu";
 import defPopBoxType from "../components/common/defPopBoxType";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
-			<Layout>
-				<main>
-					<section className="inside">
-						<LeftMenu />
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-				<Footer />
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper afterLogin={true}>
+		<Layout>
+			<main>
+				<section className="inside">
+					<LeftMenu />
+					<div className="rightModule">
+						<Content />
+					</div>
+				</section>
+			</main>
+			<Footer />
+		</Layout>
+	</Wrapper>
+);
 
 const initPagination = {
 	totalPages: 0,
@@ -80,7 +78,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -100,7 +99,8 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -129,6 +129,18 @@ const Content = () => {
 					endDate,
 					quickPick
 				});
+			} else {
+				transactionData = {
+					StartDate: moment(startDate).zone(timeZone),
+					EndDate: moment(endDate).endOf("day").zone(timeZone)
+				};
+				setFilterData(transactionData);
+
+				setKeepData({
+					startDate,
+					endDate,
+					quickPick
+				});
 			}
 
 			setPagination(prev => ({ ...prev, currentPage: 1 }));
@@ -146,24 +158,22 @@ const Content = () => {
 		}
 	};
 
-	const arr = getHistory?.map((item, idx) => {
-		return (
-			<div key={`statement-${idx}`}>
-				<div>{idx + 1}</div>
-				<div>
-					{moment(item.createTime).format("DD/MM/YYYY")}
-					<span className="txt-blue2">
-						{moment(item.createTime).format("HH:mm:ss")}
-					</span>
-				</div>
-				<div>{item.refTransId}</div>
-				<div>{item.typeName}</div>
-				<div>{number_format(item.changeAmount, _isConvert)}</div>
-				<div>{number_format(item.beforeAmount, _isConvert)}</div>
-				<div>{number_format(item.afterAmount, _isConvert)}</div>
+	const arr = getHistory?.map((item, idx) => (
+		<div key={`statement-${item.refTransId}`}>
+			<div>{idx + 1}</div>
+			<div>
+				{moment(item.createTime).format("DD/MM/YYYY")}
+				<span className="txt-blue2">
+					{moment(item.createTime).format("HH:mm:ss")}
+				</span>
 			</div>
-		);
-	});
+			<div>{item.refTransId}</div>
+			<div>{item.typeName}</div>
+			<div>{number_format(item.changeAmount, _isConvert)}</div>
+			<div>{number_format(item.beforeAmount, _isConvert)}</div>
+			<div>{number_format(item.afterAmount, _isConvert)}</div>
+		</div>
+	));
 
 	return (
 		<div className="infoModule">
