@@ -2,7 +2,7 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "../color-group.scss"
+        "../rewards/color-group.scss"
     ],
     "names": [],
     "file": "color-group.min.css"
