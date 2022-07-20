@@ -161,15 +161,19 @@ export default () => {
 						{t("lbl_Referral_description")}
 					</div>
 				</div>
-
-				<img src={getBanner()} className="referral_banner" />
+				<img
+					src={getBanner()}
+					className="referral_banner"
+					alt="referral banner"
+				/>
 				<div className="referralModule">
-					<ReferralShare
-						t={t}
-						langId={userInfo.langId}
-						currencyId={userInfo.currencyId}
-						referralSettingData={referralSettingData}
-					/>
+					{referralSettingData?.status && (
+						<ReferralShare
+							t={t}
+							currencyId={userInfo.currencyId}
+							referralSettingData={referralSettingData}
+						/>
+					)}
 					<ReferralLinks
 						t={t}
 						referralCode={referralCode}

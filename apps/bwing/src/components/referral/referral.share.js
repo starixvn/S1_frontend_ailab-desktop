@@ -1,11 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { number_format, isConvert } from "../common/common";
-import config from "../../config";
+import { referralPopBox } from "../common/context";
+import usePopBox from "../hook/usePopBox";
+import { api_account_GetReferralSettingDetail } from "../../service/api/account";
+import { ReferralPopBox } from "./referral.popbox";
 
-export default ({ t, langId, currencyId, referralSettingData }) => {
+const SharePanel = ({ t, currencyId, referralSettingData }) => {
+	const { setReferralBox } = useContext(referralPopBox);
+	const { errorPopBox } = usePopBox();
 	const { periodDays, bonusAmount, vaildBet, deposit } = referralSettingData;
 	const currency = t(`Currency_${currencyId}`);
 	const _isConvert = isConvert(currencyId);
+
+	const getReferralDetail = async () => {
+		const res = await api_account_GetReferralSettingDetail();
+		const { errorCode, data, message } = res.data;
+
+		const closePopBox = () => {
+			setReferralBox({ isOpen: false });
+		};
+
+		if (errorCode === 0) {
+			setReferralBox({
+				isOpen: true,
+				content: (
+					<ReferralPopBox
+						data={data}
+						closePopBox={closePopBox}
+						t={t}
+					/>
+				)
+			});
+		} else {
+			errorPopBox(message || `error`, errorCode);
+		}
+	};
 
 	return (
 		<div className="refShare">
@@ -46,15 +76,23 @@ export default ({ t, langId, currencyId, referralSettingData }) => {
 							})}
 						</span>
 					</div>
-					<a
-						className="moreBtn"
-						href={`${config.t_and_cURL}/Static/Bwing/Static/${langId}/ReferralConditions.html`}
-						target="_blank"
-						rel="noreferrer">
+					<button className="more" onClick={getReferralDetail}>
 						{t("lbl_MoreDetails")}
-					</a>
+					</button>
 				</div>
 			</div>
 		</div>
 	);
 };
+
+SharePanel.defaultProps = {
+	currencyId: null
+};
+
+SharePanel.propTypes = {
+	t: PropTypes.func.isRequired,
+	currencyId: PropTypes.number,
+	referralSettingData: PropTypes.objectOf(PropTypes.any).isRequired
+};
+
+export default SharePanel;

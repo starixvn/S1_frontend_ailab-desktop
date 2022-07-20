@@ -690,6 +690,12 @@
 	"lbl_MissionCompleted": "मिशन पूरा किया",
 	"lbl_NoOfAchievements": "उपलब्धियों की संख्या",
 	"lbl_RewardAmount": "पुरस्कार राशि",
+	"lbl_ReferralReward": "रेफरल इनाम",
+	"lbl_FriendsInvitationLimit": "मित्र आमंत्रण सीमा",
+	"lbl_DepositRequirement": "जमा की आवश्यकता",
+	"lbl_ValidBetRequirement": "वैध शर्त आवश्यकता",
+	"lbl_ReferredFreeCredit": "संदर्भित मुफ्त क्रेडिट",
+	"lbl_TermPeriodWithin": "अवधि अवधि",
 
 	"oneGaming ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Poker": "पोकर",
