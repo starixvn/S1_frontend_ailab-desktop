@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import moment from "moment";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import { userInfoContext } from "../common/context";
@@ -21,7 +21,7 @@ const transferDirection = (direction, displayMainWallet, displaySabaWallet) => {
 	return { startWallet, endWallet };
 };
 
-export default props => {
+const History = props => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 
@@ -54,9 +54,7 @@ export default props => {
 				<div className="tip active">{t("msg_AmountFormatTip")}</div>
 				<div className="listHeader">
 					<div>{t("lbl_NO")}</div>
-					<div>
-						{t("lbl_Date")} ({moment().format("Z")})
-					</div>
+					<div>{t("lbl_Date")} (+07:00)</div>
 					<div>{t("lbl_ID")}</div>
 					<div>{t("lbl_Direction")}</div>
 					<div>{t("lbl_Amount")}</div>
@@ -78,3 +76,15 @@ export default props => {
 		</>
 	);
 };
+
+History.defaultProps = {
+	getHistory: null,
+	getTransferRecent: () => null
+};
+
+History.propTypes = {
+	getHistory: PropTypes.arrayOf(PropTypes.any),
+	getTransferRecent: PropTypes.func
+};
+
+export default History;

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import moment from "moment";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import { userInfoContext } from "../common/context";
 import { TransactionHistory } from "./historyResult";
 import path from "../../router";
 import ReloadSpin from "../common/reloadSpin";
-import { isConvert } from "../common/common";
+import { isConvert, currencyIdToTimeZone } from "../common/common";
 import { defHistoryIdList } from "../history/def";
 
 const transferDirection = (direction, tpName, t) => {
@@ -22,10 +22,11 @@ const transferDirection = (direction, tpName, t) => {
 	return { startWallet, endWallet };
 };
 
-export default ({ getHistory, getTransferRecent }) => {
+const History = ({ getHistory, getTransferRecent }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const _isConvert = isConvert(userInfo.currencyId);
+	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
 
 	const arr = getHistory?.map((item, i) => {
 		const _transferDirection = transferDirection(
@@ -47,6 +48,7 @@ export default ({ getHistory, getTransferRecent }) => {
 				status={_status}
 				statusColor={_statusColor}
 				_isConvert={_isConvert}
+				timeZone={timeZone}
 			/>
 		);
 	});
@@ -57,7 +59,8 @@ export default ({ getHistory, getTransferRecent }) => {
 				<div className="listHeader">
 					<div>{t("lbl_NO")}</div>
 					<div>
-						{t("lbl_Date")} ({moment().format("Z")})
+						{t("lbl_Date")} (
+						{currencyIdToTimeZone[userInfo.currencyId]})
 					</div>
 					<div>{t("lbl_ID")}</div>
 					<div>{t("lbl_Direction")}</div>
@@ -85,3 +88,15 @@ export default ({ getHistory, getTransferRecent }) => {
 		</>
 	);
 };
+
+History.defaultProps = {
+	getHistory: null,
+	getTransferRecent: () => null
+};
+
+History.propTypes = {
+	getHistory: PropTypes.arrayOf(PropTypes.any),
+	getTransferRecent: PropTypes.func
+};
+
+export default History;

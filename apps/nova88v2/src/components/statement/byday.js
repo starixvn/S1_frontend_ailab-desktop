@@ -146,7 +146,8 @@ export default () => {
 								categoryId: value.categoryId
 							})
 						}
-						className="blue">
+						className="blue"
+					>
 						{t("lbl_Details")}
 					</a>
 				</div>
@@ -175,6 +176,7 @@ export default () => {
 					t={t}
 					dataSource={recordListOneDayDatas}
 					columns={columns}
+					currencyId={userInfo.currencyId}
 				/>
 				<Pagination
 					totalPages={totalPage}

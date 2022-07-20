@@ -9,7 +9,8 @@ import {
 	isConvert,
 	number_format,
 	getUrlParameter,
-	routerFlattenToPath
+	routerFlattenToPath,
+	currencyIdToTimeZone
 } from "../common/common";
 
 import { dateTimeFormater } from "./helper";
@@ -53,6 +54,7 @@ export default () => {
 
 	const _isConvert = isConvert(userInfo.currencyId);
 	const currentlyDisplayKey = quickPickList[quickPickType].displayKey;
+	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -197,7 +199,10 @@ export default () => {
 			title: t("lbl_SettledDate"),
 			dataIndex: "settledDate",
 			key: "settledDate",
-			render: value => moment(value.settledDate).format("YYYY-MM-DD")
+			render: value =>
+				moment(value.settledDate, "YYYY-MM-DDThh:mm:ssZ")
+					.zone(timeZone)
+					.format("YYYY-MM-DD")
 		},
 		{
 			title: t("lbl_CategoryName"),
@@ -260,6 +265,7 @@ export default () => {
 					t={t}
 					dataSource={recordListDateDatas}
 					columns={columns}
+					currencyId={userInfo.currencyId}
 				/>
 				<Pagination
 					totalPages={totalPage}

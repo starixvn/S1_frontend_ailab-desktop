@@ -32,13 +32,10 @@ export default function HistoryFilter(props) {
 	let _startDate = "";
 	let _endDate = "";
 
-	const start_valid = current => {
-		return current.isBefore(endDate);
-	};
+	const start_valid = current => current.isBefore(endDate);
 
-	const end_valid = current => {
-		return current.isBefore(tomorrow) && current.isAfter(startDate);
-	};
+	const end_valid = current =>
+		current.isBefore(tomorrow) && current.isAfter(startDate);
 
 	const onSelectItem = i => {
 		setSelectedIdx(i);
@@ -147,7 +144,8 @@ export default function HistoryFilter(props) {
 						endDate,
 						false,
 						selectedIdx
-					)}>
+					)}
+				>
 					{t("lbl_Submit")}
 				</button>
 			</div>
@@ -156,8 +154,10 @@ export default function HistoryFilter(props) {
 }
 
 HistoryFilter.defaultProps = {
-	keepData: {}
+	keepData: {},
+	submitHandler: () => null
 };
 HistoryFilter.propTypes = {
-	keepData: PropTypes.objectOf(PropTypes.any)
+	keepData: PropTypes.objectOf(PropTypes.any),
+	submitHandler: PropTypes.func
 };
