@@ -169,6 +169,7 @@ header input:focus-within {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  margin-right: 5px;
 }
 
 .header {
@@ -179,6 +180,13 @@ header input:focus-within {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.header > div a.rewardsLogo img {
+  width: 48px;
+  margin: 0 2px;
+  -webkit-filter: drop-shadow(1px 1px 0 #868686);
+          filter: drop-shadow(1px 1px 0 #868686);
 }
 
 .header > div.menu {
@@ -2887,6 +2895,16 @@ input[type="file"] {
   border-color: #5574A7 transparent transparent transparent;
 }
 
+.g-recaptcha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1rem;
+}
+
 .Terms {
   font-size: 12px;
   line-height: 25px;
@@ -5217,7 +5235,7 @@ input[type="file"] {
   }
 }
 
-.Submit, .poker, .angpaopop, .friend, .Cancel, .uploadSuccess, .updateSuccess, .Success, .tokyc, .addBankpop, .addAddresspop, .changePassWordpop, .editSuccess, .joinSuccess {
+.Submit, .poker, .angpaopop, .friend, .Cancel, .uploadSuccess, .updateSuccess, .Success, .tokyc, .addBankpop, .addAddresspop, .changePassWordpop, .editSuccess, .joinSuccess, .resetPassWordpop {
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -5232,18 +5250,18 @@ input[type="file"] {
   text-align: center;
 }
 
-.Submit.active, .poker.active, .angpaopop.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .Success.active, .tokyc.active, .addBankpop.active, .addAddresspop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active {
+.Submit.active, .poker.active, .angpaopop.active, .friend.active, .Cancel.active, .uploadSuccess.active, .updateSuccess.active, .Success.active, .tokyc.active, .addBankpop.active, .addAddresspop.active, .changePassWordpop.active, .editSuccess.active, .joinSuccess.active, .resetPassWordpop.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.Submit .icon, .poker .icon, .angpaopop .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .addAddresspop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon {
+.Submit .icon, .poker .icon, .angpaopop .icon, .friend .icon, .Cancel .icon, .uploadSuccess .icon, .updateSuccess .icon, .Success .icon, .tokyc .icon, .addBankpop .icon, .addAddresspop .icon, .changePassWordpop .icon, .editSuccess .icon, .joinSuccess .icon, .resetPassWordpop .icon {
   font-size: 36px;
   color: #CDAE8E;
 }
 
-.Submit .icon.icon-bell, .poker .icon.icon-bell, .angpaopop .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .addAddresspop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell {
+.Submit .icon.icon-bell, .poker .icon.icon-bell, .angpaopop .icon.icon-bell, .friend .icon.icon-bell, .Cancel .icon.icon-bell, .uploadSuccess .icon.icon-bell, .updateSuccess .icon.icon-bell, .Success .icon.icon-bell, .tokyc .icon.icon-bell, .addBankpop .icon.icon-bell, .addAddresspop .icon.icon-bell, .changePassWordpop .icon.icon-bell, .editSuccess .icon.icon-bell, .joinSuccess .icon.icon-bell, .resetPassWordpop .icon.icon-bell {
   color: #CDAE8E;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
@@ -5251,20 +5269,20 @@ input[type="file"] {
           transform: rotate(20deg);
 }
 
-.Submit .title, .poker .title, .angpaopop .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .Success .title, .tokyc .title, .addBankpop .title, .addAddresspop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title {
+.Submit .title, .poker .title, .angpaopop .title, .friend .title, .Cancel .title, .uploadSuccess .title, .updateSuccess .title, .Success .title, .tokyc .title, .addBankpop .title, .addAddresspop .title, .changePassWordpop .title, .editSuccess .title, .joinSuccess .title, .resetPassWordpop .title {
   margin: 10px 0 20px;
 }
 
-.Submit .txt-lightgray, .poker .txt-lightgray, .angpaopop .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .addAddresspop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray {
+.Submit .txt-lightgray, .poker .txt-lightgray, .angpaopop .txt-lightgray, .friend .txt-lightgray, .Cancel .txt-lightgray, .uploadSuccess .txt-lightgray, .updateSuccess .txt-lightgray, .Success .txt-lightgray, .tokyc .txt-lightgray, .addBankpop .txt-lightgray, .addAddresspop .txt-lightgray, .changePassWordpop .txt-lightgray, .editSuccess .txt-lightgray, .joinSuccess .txt-lightgray, .resetPassWordpop .txt-lightgray {
   text-align: center;
 }
 
-.Submit .popList, .poker .popList, .angpaopop .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .addAddresspop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList {
+.Submit .popList, .poker .popList, .angpaopop .popList, .friend .popList, .Cancel .popList, .uploadSuccess .popList, .updateSuccess .popList, .Success .popList, .tokyc .popList, .addBankpop .popList, .addAddresspop .popList, .changePassWordpop .popList, .editSuccess .popList, .joinSuccess .popList, .resetPassWordpop .popList {
   width: 100%;
   margin-top: 30px;
 }
 
-.Submit .popList ul, .poker .popList ul, .angpaopop .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .addAddresspop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul {
+.Submit .popList ul, .poker .popList ul, .angpaopop .popList ul, .friend .popList ul, .Cancel .popList ul, .uploadSuccess .popList ul, .updateSuccess .popList ul, .Success .popList ul, .tokyc .popList ul, .addBankpop .popList ul, .addAddresspop .popList ul, .changePassWordpop .popList ul, .editSuccess .popList ul, .joinSuccess .popList ul, .resetPassWordpop .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5277,13 +5295,13 @@ input[type="file"] {
           justify-content: space-between;
 }
 
-.Submit .popList ul li, .poker .popList ul li, .angpaopop .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .addAddresspop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li {
+.Submit .popList ul li, .poker .popList ul li, .angpaopop .popList ul li, .friend .popList ul li, .Cancel .popList ul li, .uploadSuccess .popList ul li, .updateSuccess .popList ul li, .Success .popList ul li, .tokyc .popList ul li, .addBankpop .popList ul li, .addAddresspop .popList ul li, .changePassWordpop .popList ul li, .editSuccess .popList ul li, .joinSuccess .popList ul li, .resetPassWordpop .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
 }
 
-.Submit .popList ul li:first-child, .poker .popList ul li:first-child, .angpaopop .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .addAddresspop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child {
+.Submit .popList ul li:first-child, .poker .popList ul li:first-child, .angpaopop .popList ul li:first-child, .friend .popList ul li:first-child, .Cancel .popList ul li:first-child, .uploadSuccess .popList ul li:first-child, .updateSuccess .popList ul li:first-child, .Success .popList ul li:first-child, .tokyc .popList ul li:first-child, .addBankpop .popList ul li:first-child, .addAddresspop .popList ul li:first-child, .changePassWordpop .popList ul li:first-child, .editSuccess .popList ul li:first-child, .joinSuccess .popList ul li:first-child, .resetPassWordpop .popList ul li:first-child {
   color: #1E85EC;
   font-weight: bold;
 }
@@ -6319,6 +6337,20 @@ input[type="file"] {
   margin: 10px auto;
 }
 
+.history .listHeader div:nth-child(3), .history .listBody div:nth-child(3) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 130px;
+          flex: 0 0 130px;
+  white-space: unset;
+}
+
+.history .listBody > div > div:nth-child(5), .history .listBody > div > div:nth-child(6) {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
 .quickSelect {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6663,7 +6695,7 @@ input[type="file"] {
 }
 
 .profile > div > div .inputBox-white, .profile > div > div .inputBox-blue {
-  margin: 0;
+  margin: 0 0 5px 0;
   padding: 5px 0;
   width: 100%;
   z-index: revert;
@@ -6706,11 +6738,6 @@ input[type="file"] {
 
 .profile > div > div .inputBox-white:hover .description, .profile > div > div .inputBox-blue:hover .description {
   display: block;
-}
-
-.profile > div > div .inputBox-white + .tip, .profile > div > div .inputBox-blue + .tip {
-  line-height: normal;
-  padding: 0;
 }
 
 .profile .checkbox.autotransfer {
@@ -10726,9 +10753,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .liveVideo .latestVideo iframe, .newsVideo .latestVideo iframe {
-  -webkit-transform: scale(1.08);
-          transform: scale(1.08);
-  margin-top: -15px;
+  margin-top: -1px;
 }
 
 .liveVideo .latestVideo .moduleTitle, .newsVideo .latestVideo .moduleTitle {
@@ -10743,11 +10768,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .liveVideo .latestVideo .title, .liveVideo .newsList .title, .newsVideo .latestVideo .title, .newsVideo .newsList .title {
   background: url(https://banner.0814media.net/desktop/img/latestvideotitlebg.png) no-repeat;
-  line-height: 65px;
+  line-height: 30px;
   padding-left: 20px;
   color: white;
   position: relative;
-  margin-top: 7px;
+  margin-top: -3px;
 }
 
 .liveVideo .latestVideo .newsModule, .liveVideo .newsList .newsModule, .newsVideo .latestVideo .newsModule, .newsVideo .newsList .newsModule {
@@ -12260,9 +12285,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .jpotModule {
   width: 605px;
-}
-
-.jpotModule .slotsbox {
   position: relative;
 }
 
@@ -13619,13 +13641,12 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 10px;
-  padding: 1px 10px 0 1px;
+  color: #fff;
 }
 
 .countdown img {
   width: auto;
-  height: 35px;
+  height: 28px;
 }
 
 .countdown > div {
@@ -13644,12 +13665,16 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           align-items: center;
   text-align: center;
   margin: 1px;
-  padding: 0 1px;
   border-radius: 3px;
   font-size: 10px;
   min-height: 35px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  width: 38px;
+}
+
+.countdown > div:first-child {
+  width: auto;
 }
 
 .countdown > div span {
@@ -15585,6 +15610,30 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-weight: bold;
 }
 
+.promoInfoPop strong {
+  font-weight: bold !important;
+}
+
+.promoInfoPop ul {
+  padding-left: 20px;
+}
+
+.promoInfoPop ul li {
+  list-style: initial;
+}
+
+.promoInfoPop ul li ul li {
+  list-style: circle;
+}
+
+.promoInfoPop ol {
+  padding-left: 20px;
+}
+
+.promoInfoPop ol li {
+  list-style: decimal;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -16113,7 +16162,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .profileModule > div.profile > div > div:last-child .inputBox-blue {
-  padding: 1px 0;
   border-radius: 3px;
 }
 
@@ -16412,6 +16460,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .addressModule .address-list > div > div:first-child {
   width: 100px;
+  line-height: 30px;
 }
 
 .addressModule .address-list > div > div:last-child {
@@ -16431,7 +16480,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .addressModule .address-list > div > div:last-child .inputBox-blue {
-  padding: 1px 0;
   border-radius: 3px;
 }
 
@@ -16441,7 +16489,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .addressModule .inputBox-white, .addressModule .inputBox-blue {
-  margin: 0;
+  margin: 0 0 5px 0;
   padding: 5px 0;
   width: 100%;
   z-index: revert;
@@ -16486,11 +16534,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   display: block;
 }
 
-.addressModule .inputBox-white + .tip, .addressModule .inputBox-blue + .tip {
-  line-height: normal;
-  padding: 0;
-}
-
 .addressModule .btnGroup {
   width: 150px;
   margin: 10px 0 0 96px;
@@ -16498,6 +16541,54 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .worldcupEvent {
   overflow: hidden;
+  position: relative;
+}
+
+.worldcupEvent .eventLink {
+  position: fixed;
+  top: 190px;
+  bottom: auto;
+  left: 20px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.worldcupEvent .eventLink .icon-close {
+  width: 18px;
+  height: 18px;
+  color: #CA0C41;
+  position: absolute;
+  left: 10px;
+  top: -20px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 4;
+  background: #fff;
+  border-radius: 100%;
+  line-height: 20px;
+}
+
+.worldcupEvent .eventLink .icon-close::before {
+  margin: 0;
+}
+
+.worldcupEvent .eventLink::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.worldcupEvent .eventLink img {
+  width: 200px;
+  -webkit-animation: none;
+          animation: none;
+}
+
+.worldcupEvent .eventLink:hover img {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .worldcupEvent .eventPage {
@@ -17074,7 +17165,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-filter: drop-shadow(0px 3px 1px #922707);
           filter: drop-shadow(0px 3px 1px #922707);
   letter-spacing: 1px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
 }
 
@@ -17171,7 +17262,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           filter: drop-shadow(0px 3px 1px #922707);
   letter-spacing: 1px;
   white-space: nowrap;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
 }
 
@@ -17685,17 +17776,30 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #FF004E;
 }
 
+.worldcupEvent .event .event-content .inputBox-event:nth-child(2) {
+  z-index: 3 !important;
+}
+
 .worldcupEvent .event .event-content .inputBox-event .dropdown > .btn {
   color: #FF004E;
-  z-index: 2;
 }
 
 .worldcupEvent .event .event-content .inputBox-event .dropdown > .btn:after {
   border-color: #FF004E transparent transparent transparent;
 }
 
+.worldcupEvent .event .event-content .inputBox-event .dropdown .dropdown-container {
+  position: absolute;
+  top: 27px;
+  left: -6px;
+  background: #fff;
+  border: 1px solid #FF004E;
+  border-top: 0;
+  border-radius: 0 0 5px 5px;
+}
+
 .worldcupEvent .event .event-content .inputBox-event .dropdown .dropdown-container .dropdown-item {
-  margin-left: -5px;
+  padding-left: 15px;
   color: #FF004E;
 }
 
@@ -17789,16 +17893,22 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .worldcupEvent .progressBar {
   margin: 55px auto;
-  padding-right: 25px;
+  margin-right: 25px;
   position: relative;
+  background: #e1e1e1;
+  border-radius: 4px;
 }
 
 .worldcupEvent .progressBar .progressItem {
-  width: 33.333%;
+  width: 35%;
   height: 8px;
   border-radius: 4px;
   position: relative;
   background: #e1e1e1;
+}
+
+.worldcupEvent .progressBar .progressItem:last-child {
+  width: 30%;
 }
 
 .worldcupEvent .progressBar .progressItem:before {
@@ -17881,7 +17991,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #02D2B8;
   font-weight: bold;
   position: relative;
-  margin-right: 15px;
 }
 
 .worldcupEvent .btnGroup {
@@ -17889,7 +17998,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 15px auto 0;
+  margin: 45px auto 0;
 }
 
 .worldcupEvent .btnGroup > button {
@@ -17968,7 +18077,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-size: 15px;
   font-weight: normal;
   width: 800px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .worldcupEvent .info .content span {
@@ -18111,5 +18220,37 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   100% {
     opacity: 0;
   }
+}
+
+.resetPassWordpop .title {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 0;
+}
+
+.resetPassWordpop .title .icon {
+  margin-right: 5spx;
+}
+
+.resetPassWordpop .resetPassWord {
+  margin: 0 auto;
+  width: 350px;
+}
+
+.resetPassWordpop .resetPassWord .icon {
+  font-size: 14px;
+}
+
+.resetPassWordpop .resetPassWord .tip {
+  text-align: left;
+}
+
+.resetPassWordpop .btnGroup {
+  margin: 10px auto;
 }
 /*# sourceMappingURL=style.css.map */
