@@ -6,7 +6,6 @@ import path from "../../router";
 import { userInfoContext, loadingContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import {
-	isConvert,
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath
@@ -196,7 +195,10 @@ export default () => {
 			title: t("lbl_SettledDate"),
 			dataIndex: "settledDate",
 			key: "settledDate",
-			render: value => moment(value.settledDate).format("YYYY-MM-DD")
+			render: value =>
+				moment(value.settledDate, "YYYY-MM-DDThh:mm:ssZ")
+					.zone("+07:00")
+					.format("YYYY-MM-DD")
 		},
 		{
 			title: t("lbl_CategoryName"),

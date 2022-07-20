@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-import moment from "moment";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import { userInfoContext, popBoxContext } from "../common/context";
@@ -10,7 +10,7 @@ import path from "../../router";
 import Loading from "../common/loading";
 import ReloadSpin from "../common/reloadSpin";
 
-export default ({
+const History = ({
 	recentData,
 	setRecentData,
 	getKycStatus,
@@ -69,7 +69,8 @@ export default ({
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -89,7 +90,8 @@ export default ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -118,17 +120,15 @@ export default ({
 		});
 	};
 
-	const arr = recentData?.map((item, i) => {
-		return (
-			<TransactionHistory
-				key={`withdrawal-recent-${item.transId}`}
-				idx={i + 1}
-				i18n={t}
-				{...item}
-				ClickCancel={ClickCancel.bind(this, item.transId)}
-			/>
-		);
-	});
+	const arr = recentData?.map((item, i) => (
+		<TransactionHistory
+			key={`withdrawal-recent-${item.transId}`}
+			idx={i + 1}
+			i18n={t}
+			{...item}
+			ClickCancel={ClickCancel.bind(this, item.transId)}
+		/>
+	));
 
 	if (loading) return <Loading />;
 
@@ -140,9 +140,7 @@ export default ({
 				<div className="tip active">{t("msg_AmountFormatTip")}</div>
 				<div className="listHeader">
 					<div>{t("lbl_NO")}</div>
-					<div>
-						{t("lbl_Date")} ({moment().format("Z")})
-					</div>
+					<div>{t("lbl_Date")} (+07:00)</div>
 					<div>{t("lbl_ID")}</div>
 					<div>{t("lbl_Amount")}</div>
 					<div>{t("lbl_Status")}</div>
@@ -164,3 +162,23 @@ export default ({
 		</>
 	);
 };
+
+History.defaultProps = {
+	recentData: null,
+	setRecentData: () => null,
+	getKycStatus: () => null,
+	getWithdrawalLimit: () => null,
+	getWithdrawalInfoRecent: () => null,
+	getWithdrawalAvailableBalance: () => null
+};
+
+History.propTypes = {
+	recentData: PropTypes.arrayOf(PropTypes.any),
+	setRecentData: PropTypes.func,
+	getKycStatus: PropTypes.func,
+	getWithdrawalLimit: PropTypes.func,
+	getWithdrawalInfoRecent: PropTypes.func,
+	getWithdrawalAvailableBalance: PropTypes.func
+};
+
+export default History;

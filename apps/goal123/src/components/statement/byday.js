@@ -6,7 +6,6 @@ import path from "../../router";
 import { userInfoContext, loadingContext } from "../common/context";
 import usePopBox from "../hook/usePopBox";
 import {
-	isConvert,
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath
@@ -145,7 +144,8 @@ export default () => {
 								categoryId: value.categoryId
 							})
 						}
-						className="blue">
+						className="blue"
+					>
 						{t("lbl_Details")}
 					</a>
 				</div>

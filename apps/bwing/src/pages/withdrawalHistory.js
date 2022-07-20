@@ -5,7 +5,7 @@ import {
 	api_payment_GetWithdrawalInfoHistory,
 	api_payment_SetWithdrawalCancel
 } from "../service/api/payment";
-import { userInfoContext, popBoxContext } from "../components/common/context";
+import { popBoxContext } from "../components/common/context";
 import { TransactionHistory } from "../components/withdrawal/historyResult";
 import { defPopBoxType } from "../components/common/defPopBoxType";
 import { Pagination } from "../components/common/pagination";
@@ -16,22 +16,20 @@ import LeftMenu from "../components/common/leftMenu";
 import Loading from "../components/common/loading";
 import ReloadSpin from "../components/common/reloadSpin";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
-			<Layout showFooter={true}>
-				<main>
-					<section className="inside">
-						<LeftMenu />
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper afterLogin={true}>
+		<Layout showFooter={true}>
+			<main>
+				<section className="inside">
+					<LeftMenu />
+					<div className="rightModule">
+						<Content />
+					</div>
+				</section>
+			</main>
+		</Layout>
+	</Wrapper>
+);
 
 const initPagination = {
 	totalPages: 0,
@@ -40,7 +38,6 @@ const initPagination = {
 
 const Content = () => {
 	const { t } = useTranslation();
-	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const [getHistory, setGetHistory] = useState(null);
 	const [processing, setProcessing] = useState(false);
@@ -62,6 +59,7 @@ const Content = () => {
 	};
 
 	const GetWithdrawalInfoHistory = (transactionData, pageNumber) => {
+		setLoading(true);
 		api_payment_GetWithdrawalInfoHistory({
 			...transactionData,
 			PageNumber: pageNumber
@@ -83,7 +81,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -91,6 +90,7 @@ const Content = () => {
 						});
 					}
 					setProcessing(false);
+					setLoading(false);
 				}
 			},
 			() => {
@@ -103,13 +103,15 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}>
+									onClick={ClickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
 						)
 					});
 					setProcessing(false);
+					setLoading(false);
 				}
 			}
 		);
@@ -124,6 +126,18 @@ const Content = () => {
 				transactionData = {
 					StartDate: moment(startDate).unix(),
 					EndDate: moment(endDate).endOf("day").unix()
+				};
+				setFilterData(transactionData);
+
+				setKeepData({
+					startDate,
+					endDate,
+					quickPick
+				});
+			} else {
+				transactionData = {
+					StartDate: moment(startDate).zone("+07:00"),
+					EndDate: moment(endDate).endOf("day").zone("+07:00")
 				};
 				setFilterData(transactionData);
 
@@ -167,7 +181,8 @@ const Content = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}>
+											onClick={ClickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -186,7 +201,8 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}>
+										onClick={ClickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -223,19 +239,17 @@ const Content = () => {
 		}
 	};
 
-	const arr = getHistory?.map((item, i) => {
-		return (
-			<TransactionHistory
-				key={`withdrawaal-${item.transId}`}
-				idx={i + 1}
-				transId={item.transId}
-				createTime={item.createTime}
-				amount={item.amount}
-				status={item.status}
-				ClickCancel={ClickCancel}
-			/>
-		);
-	});
+	const arr = getHistory?.map((item, i) => (
+		<TransactionHistory
+			key={`withdrawaal-${item.transId}`}
+			idx={i + 1}
+			transId={item.transId}
+			createTime={item.createTime}
+			amount={item.amount}
+			status={item.status}
+			ClickCancel={ClickCancel}
+		/>
+	));
 
 	return loading ? (
 		<Loading />
@@ -250,9 +264,7 @@ const Content = () => {
 					<div className="tip active">{t("msg_AmountFormatTip")}</div>
 					<div className="listHeader">
 						<div>{t("lbl_NO")}</div>
-						<div>
-							{t("lbl_Date")} ({moment().format("Z")})
-						</div>
+						<div>{t("lbl_Date")} (+07:00)</div>
 						<div>{t("lbl_ID")}</div>
 						<div>{t("lbl_Amount")}</div>
 						<div>{t("lbl_Status")}</div>

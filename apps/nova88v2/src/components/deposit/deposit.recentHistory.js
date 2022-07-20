@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { TransactionHistory } from "./deposit.historyResult";
 import { api_payment_SetDepositCancel } from "../../service/api/payment";
-import { isConvert } from "../common/common";
+import { isConvert, currencyIdToTimeZone } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
@@ -28,6 +27,7 @@ const DepositRecentHistory = ({
 	const { errorPopBox } = usePopBox();
 	const _isConvert = isConvert(userInfo.currencyId);
 	const isMountedRef = useRef(null);
+	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -185,6 +185,7 @@ const DepositRecentHistory = ({
 				item.refId,
 				item.depositTime
 			)}
+			timeZone={timeZone}
 		/>
 	));
 
@@ -194,7 +195,7 @@ const DepositRecentHistory = ({
 				<div className="listHeader">
 					<div>{t("lbl_NO")}</div>
 					<div>
-						{t("lbl_Date")} ({moment().format("Z")})
+						{t("lbl_Date")} ({timeZone})
 					</div>
 					<div>{t("lbl_ID")}</div>
 					<div>{t("lbl_Method")}</div>

@@ -2174,7 +2174,7 @@ footer > div.copyright {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 800px;
+  width: 1000px;
   padding: 20px 0;
 }
 
@@ -2385,6 +2385,14 @@ footer > div.copyright {
   outline: #1e85ec;
 }
 
+.inputBox.error, .error.inputBox-blue {
+  border: 1px solid #f52805;
+}
+
+.inputBox.error + .tip, .error.inputBox-blue + .tip {
+  color: #f52805;
+}
+
 .inputBox > .icon, .inputBox-blue > .icon {
   margin-right: 5px;
 }
@@ -2500,6 +2508,14 @@ footer > div.copyright {
 
 .inputBox-blue .dropdown .btn {
   width: 100%;
+}
+
+.inputBox-blue.error {
+  border: 1px solid #f52805;
+}
+
+.inputBox-blue.error + .tip {
+  color: #f52805;
 }
 
 input[type="file"] {
@@ -3173,6 +3189,21 @@ main > .swiper-container .swiper-slide {
 .list .listHeader div:nth-last-child(3),
 .list .listBody div:nth-last-child(3) {
   min-width: 85px;
+}
+
+.list .listHeader div > div:nth-child(5), .list .listHeader div > div:nth-child(6),
+.list .listBody div > div:nth-child(5),
+.list .listBody div > div:nth-child(6) {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
+}
+
+.list .listHeader div > div:nth-child(5) span, .list .listHeader div > div:nth-child(6) span,
+.list .listBody div > div:nth-child(5) span,
+.list .listBody div > div:nth-child(6) span {
+  width: 100%;
+  margin-left: 0;
 }
 
 .list .listHeader div.total,
@@ -4571,7 +4602,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess,
 .upload,
 .update,
-.loackAmount {
+.loackAmount,
+.resetPassWordpop {
   padding: 40px;
   background: #070e22;
   text-align: center;
@@ -4593,7 +4625,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess > .icon,
 .upload > .icon,
 .update > .icon,
-.loackAmount > .icon {
+.loackAmount > .icon,
+.resetPassWordpop > .icon {
   font-size: 36px;
   color: #56ceff;
 }
@@ -4611,7 +4644,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess > .icon.icon-icon32px_notification,
 .upload > .icon.icon-icon32px_notification,
 .update > .icon.icon-icon32px_notification,
-.loackAmount > .icon.icon-icon32px_notification {
+.loackAmount > .icon.icon-icon32px_notification,
+.resetPassWordpop > .icon.icon-icon32px_notification {
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   -webkit-transform: rotate(20deg);
@@ -4631,7 +4665,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess > .icon.icon-information-solid,
 .upload > .icon.icon-information-solid,
 .update > .icon.icon-information-solid,
-.loackAmount > .icon.icon-information-solid {
+.loackAmount > .icon.icon-information-solid,
+.resetPassWordpop > .icon.icon-information-solid {
   color: #1e85ec;
 }
 
@@ -4648,7 +4683,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess .title,
 .upload .title,
 .update .title,
-.loackAmount .title {
+.loackAmount .title,
+.resetPassWordpop .title {
   color: #56ceff;
 }
 
@@ -4665,7 +4701,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess .txt-lightgray,
 .upload .txt-lightgray,
 .update .txt-lightgray,
-.loackAmount .txt-lightgray {
+.loackAmount .txt-lightgray,
+.resetPassWordpop .txt-lightgray {
   text-align: center;
   margin: 20px 0;
 }
@@ -4683,7 +4720,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess .btnGroup,
 .upload .btnGroup,
 .update .btnGroup,
-.loackAmount .btnGroup {
+.loackAmount .btnGroup,
+.resetPassWordpop .btnGroup {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -4716,7 +4754,9 @@ main > .swiper-container .swiper-slide {
 .update .btnGroup a,
 .update .btnGroup button,
 .loackAmount .btnGroup a,
-.loackAmount .btnGroup button {
+.loackAmount .btnGroup button,
+.resetPassWordpop .btnGroup a,
+.resetPassWordpop .btnGroup button {
   max-width: 150px;
 }
 
@@ -4733,7 +4773,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess .popList,
 .upload .popList,
 .update .popList,
-.loackAmount .popList {
+.loackAmount .popList,
+.resetPassWordpop .popList {
   width: 100%;
   margin-top: 30px;
 }
@@ -4751,7 +4792,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess .popList ul,
 .upload .popList ul,
 .update .popList ul,
-.loackAmount .popList ul {
+.loackAmount .popList ul,
+.resetPassWordpop .popList ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4777,7 +4819,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess .popList ul li,
 .upload .popList ul li,
 .update .popList ul li,
-.loackAmount .popList ul li {
+.loackAmount .popList ul li,
+.resetPassWordpop .popList ul li {
   line-height: 30px;
   letter-spacing: 1px;
   font-size: 12px;
@@ -4796,7 +4839,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess .popList ul li:first-child,
 .upload .popList ul li:first-child,
 .update .popList ul li:first-child,
-.loackAmount .popList ul li:first-child {
+.loackAmount .popList ul li:first-child,
+.resetPassWordpop .popList ul li:first-child {
   color: #56ceff;
   font-weight: bold;
 }
@@ -4814,7 +4858,8 @@ main > .swiper-container .swiper-slide {
 .editSuccess .tip,
 .upload .tip,
 .update .tip,
-.loackAmount .tip {
+.loackAmount .tip,
+.resetPassWordpop .tip {
   text-align: left;
   width: 100%;
 }
@@ -7568,6 +7613,32 @@ main > .swiper-container .swiper-slide {
 
 .promoInfoPop .rolloverList > div > div:nth-child(1), .promoInfoPop .minAmount > div > div:nth-child(1) {
   background: #0c1a3f;
+}
+
+.promoInfoPop strong {
+  font-weight: bold !important;
+}
+
+.promoInfoPop ul {
+  padding-left: 20px;
+}
+
+.promoInfoPop ul li {
+  list-style: initial;
+  line-height: 1.75;
+}
+
+.promoInfoPop ul li ul li {
+  list-style: circle;
+}
+
+.promoInfoPop ol {
+  padding-left: 20px;
+}
+
+.promoInfoPop ol li {
+  list-style: decimal;
+  line-height: 1.75;
 }
 
 .promotionsInfo {
@@ -10329,8 +10400,8 @@ input + .iconModule i.icon.icon-checkmark:before {
   100% {
     -webkit-transform: scale(0.95) translate(0, 0%);
             transform: scale(0.95) translate(0, 0%);
-    -webkit-filter: brightness(150%);
-            filter: brightness(150%);
+    -webkit-filter: brightness(110%);
+            filter: brightness(110%);
   }
 }
 
@@ -10344,8 +10415,8 @@ input + .iconModule i.icon.icon-checkmark:before {
   100% {
     -webkit-transform: scale(0.95) translate(0, 0%);
             transform: scale(0.95) translate(0, 0%);
-    -webkit-filter: brightness(150%);
-            filter: brightness(150%);
+    -webkit-filter: brightness(110%);
+            filter: brightness(110%);
   }
 }
 
@@ -10980,6 +11051,23 @@ input + .iconModule i.icon.icon-checkmark:before {
           backdrop-filter: blur(3px);
 }
 
+.worldCup .predict .ticketModule:nth-child(2) {
+  width: 820px;
+  z-index: 1;
+}
+
+.worldCup .predict .ticketModule:nth-child(2)::after {
+  content: "";
+  width: 210px;
+  height: 141px;
+  background: url(https://banner.bw88.io/img/worldcup/mo2.png);
+  position: absolute;
+  top: -6rem;
+  right: 0;
+  -webkit-animation: bg 8s ease-in-out infinite;
+          animation: bg 8s ease-in-out infinite;
+}
+
 .worldCup .predict .ticketModule .titleBox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11039,6 +11127,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   font-size: 1rem;
   line-height: 1.6rem;
   text-align: center;
+}
+
+.worldCup .predict .ticketModule .ticketBar .bar > div.value {
+  position: absolute;
+  height: 1.1rem;
+  background: #D80241;
+  border-radius: 15px;
 }
 
 .worldCup .predict .ticketModule .ticketBar .bar > div span {
@@ -11153,28 +11248,12 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .worldCup .predict .ticketModule .ticketBar .amountBox .deposit .amount {
   color: #810235;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .worldCup .predict .ticketModule .ticketBar .amountBox .deposit .amount span {
   font-size: 1.2rem;
   font-weight: normal;
-}
-
-.worldCup .predict .ticketModule:nth-child(2) {
-  width: 820px;
-}
-
-.worldCup .predict .ticketModule:nth-child(2)::after {
-  content: "";
-  width: 210px;
-  height: 141px;
-  background: url(https://banner.bw88.io/img/worldcup/mo2.png);
-  position: absolute;
-  top: -6rem;
-  right: 0;
-  -webkit-animation: bg 8s ease-in-out infinite;
-          animation: bg 8s ease-in-out infinite;
 }
 
 .worldCup .predict .ticketModule .ticketBox {
@@ -11222,6 +11301,13 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin-left: 1rem;
 }
 
+.worldCup .predict .ticketModule .ticketBox .ticket span {
+  color: #b2b2b2;
+  text-align: center;
+  margin-top: 2rem;
+  display: none;
+}
+
 .worldCup .predict .ticketModule .ticketBox .ticket .subModule {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11242,6 +11328,10 @@ input + .iconModule i.icon.icon-checkmark:before {
   margin: 1rem 0 0 0;
   padding: .2rem .5rem;
   z-index: 1;
+}
+
+.worldCup .predict .ticketModule .ticketBox .ticket .subModule .inputBox:first-child, .worldCup .predict .ticketModule .ticketBox .ticket .subModule .inputBox-blue:first-child {
+  z-index: 3;
 }
 
 .worldCup .predict .ticketModule .ticketBox .ticket .subModule .inputBox .dropdown, .worldCup .predict .ticketModule .ticketBox .ticket .subModule .inputBox-blue .dropdown {
@@ -11284,10 +11374,6 @@ input + .iconModule i.icon.icon-checkmark:before {
 .worldCup .predict .ticketModule .ticketBox .ticket .subModule .inputBox .dropdown .dropdown-container .dropdown-item:hover, .worldCup .predict .ticketModule .ticketBox .ticket .subModule .inputBox-blue .dropdown .dropdown-container .dropdown-item:hover {
   color: #00CFB7;
   font-weight: bold;
-}
-
-.worldCup .predict .ticketModule .ticketBox .ticket .subModule .inputBox.active, .worldCup .predict .ticketModule .ticketBox .ticket .subModule .active.inputBox-blue {
-  z-index: 2;
 }
 
 .worldCup .predict .ticketModule .ticketBox .ticket .subModule .grop {
@@ -11348,12 +11434,8 @@ input + .iconModule i.icon.icon-checkmark:before {
           filter: grayscale(90%);
 }
 
-.worldCup .predict .ticketModule .ticketBox .notActivated::before {
-  content: "Not Activated";
-  color: #b2b2b2;
-  position: absolute;
-  bottom: 1rem;
-  left: calc(50% - 3.5rem);
+.worldCup .predict .ticketModule .ticketBox .notActivated span {
+  display: block;
 }
 
 .worldCup .infoTxt {
@@ -11374,6 +11456,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   text-align: center;
   position: relative;
   width: 796px;
+  z-index: 0;
 }
 
 .worldCup .infoTxt::before {
@@ -11417,6 +11500,173 @@ input + .iconModule i.icon.icon-checkmark:before {
 
 .worldCup .infoTxt div > span {
   font-weight: 800;
+}
+
+.worldCup .worldCup-pop {
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+  width: 200px;
+  height: 200px;
+  z-index: 2;
+}
+
+.worldCup .worldCup-pop .close {
+  background-color: rgba(86, 206, 255, 0.9);
+  color: #070e22;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 100%;
+  z-index: 1;
+  font-weight: bold;
+}
+
+.worldCup .worldCup-pop .close::before {
+  content: "\e98a";
+  position: absolute;
+  font-family: "icomoon";
+}
+
+.worldCup .worldCup-pop .close ~ a {
+  z-index: 0;
+  position: relative;
+}
+
+.worldCup .worldCup-pop img {
+  position: absolute;
+}
+
+.worldCup .worldCup-pop .logo {
+  width: 180px;
+  z-index: 1;
+  -webkit-animation: light 1s ease alternate infinite;
+          animation: light 1s ease alternate infinite;
+}
+
+@keyframes light {
+  0% {
+    -webkit-filter: brightness(80%);
+            filter: brightness(80%);
+  }
+  100% {
+    -webkit-filter: brightness(110%);
+            filter: brightness(110%);
+  }
+}
+
+.worldCup .worldCup-pop .ball {
+  width: 90px;
+  -webkit-animation: moveing 4s ease-in-out normal infinite;
+          animation: moveing 4s ease-in-out normal infinite;
+}
+
+@-webkit-keyframes moveing {
+  0% {
+    -webkit-filter: hue-rotate(90deg);
+            filter: hue-rotate(90deg);
+    -webkit-transform: translate(5px, 20px);
+            transform: translate(5px, 20px);
+  }
+  5% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+    -webkit-transform: rotate(0.5turn);
+            transform: rotate(0.5turn);
+  }
+  15% {
+    opacity: 50%;
+    -webkit-transform: translate(90px, 120px);
+            transform: translate(90px, 120px);
+  }
+  45% {
+    opacity: 100%;
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+    -webkit-transform: translate(-15px, 120px);
+            transform: translate(-15px, 120px);
+  }
+  50% {
+    -webkit-transform: rotate(0.5turn);
+            transform: rotate(0.5turn);
+  }
+  60% {
+    -webkit-transform: translate(170px, 50px);
+            transform: translate(170px, 50px);
+  }
+  80% {
+    -webkit-transform: translate(150px, 120px);
+            transform: translate(150px, 120px);
+  }
+  90% {
+    -webkit-filter: brightness(50%);
+            filter: brightness(50%);
+    opacity: 30%;
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(0.8) translate(-100px, 90px);
+            transform: scale(0.8) translate(-100px, 90px);
+  }
+}
+
+@keyframes moveing {
+  0% {
+    -webkit-filter: hue-rotate(90deg);
+            filter: hue-rotate(90deg);
+    -webkit-transform: translate(5px, 20px);
+            transform: translate(5px, 20px);
+  }
+  5% {
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+    -webkit-transform: rotate(0.5turn);
+            transform: rotate(0.5turn);
+  }
+  15% {
+    opacity: 50%;
+    -webkit-transform: translate(90px, 120px);
+            transform: translate(90px, 120px);
+  }
+  45% {
+    opacity: 100%;
+    -webkit-filter: brightness(120%);
+            filter: brightness(120%);
+    -webkit-transform: translate(-15px, 120px);
+            transform: translate(-15px, 120px);
+  }
+  50% {
+    -webkit-transform: rotate(0.5turn);
+            transform: rotate(0.5turn);
+  }
+  60% {
+    -webkit-transform: translate(170px, 50px);
+            transform: translate(170px, 50px);
+  }
+  80% {
+    -webkit-transform: translate(150px, 120px);
+            transform: translate(150px, 120px);
+  }
+  90% {
+    -webkit-filter: brightness(50%);
+            filter: brightness(50%);
+    opacity: 30%;
+  }
+  100% {
+    opacity: 100%;
+    -webkit-transform: scale(0.8) translate(-100px, 90px);
+            transform: scale(0.8) translate(-100px, 90px);
+  }
 }
 
 #popup.luckyboxPup .eventpop {
@@ -13528,6 +13778,7 @@ input + .iconModule i.icon.icon-checkmark:before {
           transform-origin: left;
   width: 270px;
   height: 73px;
+  padding-right: 10px;
   background: url(https://banner.bw88.io/img/worldcup/timebg.png) no-repeat center/contain;
 }
 
@@ -13573,10 +13824,34 @@ input + .iconModule i.icon.icon-checkmark:before {
 .worldcupTime > div.time p:nth-child(1) {
   font-size: 18px;
   font-weight: bold;
+  -webkit-animation: flash4 linear infinite alternate .5s;
+          animation: flash4 linear infinite alternate .5s;
 }
 
 .worldcupTime > div img {
   height: auto;
+}
+
+@-webkit-keyframes flash4 {
+  0% {
+    -webkit-filter: brightness(0.9);
+            filter: brightness(0.9);
+  }
+  100% {
+    -webkit-filter: brightness(1.2);
+            filter: brightness(1.2);
+  }
+}
+
+@keyframes flash4 {
+  0% {
+    -webkit-filter: brightness(0.9);
+            filter: brightness(0.9);
+  }
+  100% {
+    -webkit-filter: brightness(1.2);
+            filter: brightness(1.2);
+  }
 }
 
 .partnerSelect {
@@ -15720,5 +15995,42 @@ input + .iconModule i.icon.icon-checkmark:before {
   left: 0;
   pointer-events: none;
   z-index: 15;
+}
+
+.g-recaptcha {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 1rem;
+}
+
+.resetPassWordpop {
+  min-width: 379px;
+}
+
+.resetPassWordpop .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.resetPassWordpop .title .icon {
+  font-size: 30px;
+  margin-right: 5px;
+}
+
+.resetPassWordpop .resetPassWord {
+  text-align: left;
 }
 /*# sourceMappingURL=style.css.map */

@@ -3,16 +3,13 @@ import PropTypes from "prop-types";
 
 const createUuid = () => {
 	let dt = new Date().getTime();
-	const uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
-		/[xy]/g,
-		function (c) {
-			// eslint-disable-next-line no-bitwise
-			const r = (dt + Math.random() * 16) % 16 | 0;
-			dt = Math.floor(dt / 16);
-			// eslint-disable-next-line no-bitwise
-			return (c == "x" ? r : (r && 0x3) | 0x8).toString(16);
-		}
-	);
+	const uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+		// eslint-disable-next-line no-bitwise
+		const r = (dt + Math.random() * 16) % 16 | 0;
+		dt = Math.floor(dt / 16);
+		// eslint-disable-next-line no-bitwise
+		return (c === "x" ? r : (r && 0x3) | 0x8).toString(16);
+	});
 	return uuid;
 };
 
@@ -23,30 +20,28 @@ const HistoryTable = ({ t, dataSource, columns, children }) => {
 		return <div key={`history-header-${colItem.key}`}>{colItem.title}</div>;
 	});
 
-	const body = dataSource?.map((item, index) => {
-		return (
-			<div key={`history-table-${createUuid()}`}>
-				{columns?.map(colItem => {
-					if (
-						colItem.dataIndex &&
-						(Object.keys(item).includes(colItem.dataIndex) ||
-							Object.keys(colItem).includes("render"))
-					)
-						return typeof colItem.render === "function" ? (
-							<div key={`key-${colItem.key}`}>
-								{colItem.render(item, index)}
-							</div>
-						) : (
-							<div key={`key-${colItem.key}`}>
-								{item[colItem.dataIndex]}
-							</div>
-						);
+	const body = dataSource?.map((item, index) => (
+		<div key={`history-table-${createUuid()}`}>
+			{columns?.map(colItem => {
+				if (
+					colItem.dataIndex &&
+					(Object.keys(item).includes(colItem.dataIndex) ||
+						Object.keys(colItem).includes("render"))
+				)
+					return typeof colItem.render === "function" ? (
+						<div key={`key-${colItem.key}`}>
+							{colItem.render(item, index)}
+						</div>
+					) : (
+						<div key={`key-${colItem.key}`}>
+							{item[colItem.dataIndex]}
+						</div>
+					);
 
-					return null;
-				})}
-			</div>
-		);
-	});
+				return null;
+			})}
+		</div>
+	));
 
 	const childrenCount = Children.count(children);
 	const tableDatasCount = Children.count(body);
@@ -73,13 +68,15 @@ const HistoryTable = ({ t, dataSource, columns, children }) => {
 
 HistoryTable.defaultProps = {
 	dataSource: [],
-	columns: []
+	columns: [],
+	children: null
 };
 
 HistoryTable.propTypes = {
 	t: PropTypes.func.isRequired,
 	dataSource: PropTypes.arrayOf(PropTypes.any),
-	columns: PropTypes.arrayOf(PropTypes.any)
+	columns: PropTypes.arrayOf(PropTypes.any),
+	children: PropTypes.node
 };
 
 const CustomizeRow = ({ children }) => children;

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import { userInfoContext, popBoxContext } from "../common/context";
@@ -149,9 +148,7 @@ const DepositRecentHistory = ({
 				<div className="tip active">{t("msg_AmountFormatTip")}</div>
 				<div className="listHeader">
 					<div>{t("lbl_NO")}</div>
-					<div>
-						{t("lbl_Date")} ({moment().format("Z")})
-					</div>
+					<div>{t("lbl_Date")} (+07:00)</div>
 					<div>{t("lbl_ID")}</div>
 					<div>{t("lbl_Method")}</div>
 					<div>{t("lbl_Amount")}</div>

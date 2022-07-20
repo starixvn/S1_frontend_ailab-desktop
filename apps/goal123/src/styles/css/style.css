@@ -183,7 +183,7 @@ html.Newtheme header .logo .countdown {
   color: #fff;
   width: 220px;
   height: 50px;
-  margin-left: 5px;
+  margin-left: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -192,7 +192,7 @@ html.Newtheme header .logo .countdown {
 html.Newtheme header .logo .countdown img {
   width: 37px;
   height: 38.5px;
-  margin: 6px 0 0 18px;
+  margin: 6px 0 0 12px;
 }
 
 html.Newtheme header .logo .countdown ul {
@@ -200,19 +200,43 @@ html.Newtheme header .logo .countdown ul {
   display: -ms-flexbox;
   display: flex;
   text-transform: uppercase;
-  margin: 12.5px 0 0 3px;
+  margin: 12.5px 0 0 -4px;
 }
 
 html.Newtheme header .logo .countdown ul li {
-  font-size: 13px;
+  font-size: 15px;
   color: #FFBF00;
   margin-left: 4px;
+  -webkit-animation: flash4 linear infinite alternate .5s;
+          animation: flash4 linear infinite alternate .5s;
 }
 
 html.Newtheme header .logo .countdown ul li span {
   color: #FFF;
   font-size: 10px;
   font-weight: bold;
+}
+
+@-webkit-keyframes flash4 {
+  0% {
+    -webkit-filter: brightness(0.9);
+            filter: brightness(0.9);
+  }
+  100% {
+    -webkit-filter: brightness(1.1);
+            filter: brightness(1.1);
+  }
+}
+
+@keyframes flash4 {
+  0% {
+    -webkit-filter: brightness(0.9);
+            filter: brightness(0.9);
+  }
+  100% {
+    -webkit-filter: brightness(1.1);
+            filter: brightness(1.1);
+  }
 }
 
 html.Newtheme header .header {
@@ -3287,6 +3311,7 @@ html.Newtheme .list .listBody div {
   display: flex;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  text-align: center;
 }
 
 html.Newtheme .list .listHeader div:first-child,
@@ -3303,9 +3328,30 @@ html.Newtheme .list .listBody div:last-child {
   position: relative;
 }
 
+html.Newtheme .list .listHeader div:nth-child(3),
+html.Newtheme .list .listBody div:nth-child(3) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 135px;
+          flex: 0 0 135px;
+}
+
+html.Newtheme .list .listHeader div > div:nth-child(5), html.Newtheme .list .listHeader div > div:nth-child(6),
+html.Newtheme .list .listBody div > div:nth-child(5),
+html.Newtheme .list .listBody div > div:nth-child(6) {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+html.Newtheme .list .listHeader div > div:nth-child(5) span, html.Newtheme .list .listHeader div > div:nth-child(6) span,
+html.Newtheme .list .listBody div > div:nth-child(5) span,
+html.Newtheme .list .listBody div > div:nth-child(6) span {
+  width: 100%;
+  margin-left: 0;
+}
+
 html.Newtheme .list .listHeader div div:nth-last-child(3),
 html.Newtheme .list .listBody div div:nth-last-child(3) {
-  min-width: 210px;
+  min-width: 190px;
   white-space: nowrap;
 }
 
@@ -3335,7 +3381,7 @@ html.Newtheme .list .listHeader div {
 }
 
 html.Newtheme .list .listHeader div:nth-last-child(3) {
-  min-width: 210px;
+  min-width: 190px;
   white-space: nowrap;
 }
 
@@ -3437,7 +3483,6 @@ html.Newtheme .statementPage .list .listBody div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  min-width: 85px;
 }
 
 html.Newtheme .statementPage .list .total {
@@ -4116,7 +4161,7 @@ html.Newtheme #popup .friend .icon-close {
 }
 
 html.Newtheme #popup .friend img {
-  width: 750px;
+  max-width: 700px;
   border-radius: 5px;
 }
 
@@ -8103,6 +8148,53 @@ html.Newtheme .eventLink.wheel a img.note {
   left: -20px;
 }
 
+html.Newtheme .eventLink.worldcup {
+  position: fixed;
+  top: 175px;
+  bottom: auto;
+  left: 30px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+html.Newtheme .eventLink.worldcup .icon-close {
+  width: 18px;
+  height: 18px;
+  color: #CA0C41;
+  position: absolute;
+  left: 10px;
+  top: -20px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 4;
+  background: #fff;
+  border-radius: 100%;
+  line-height: 20px;
+}
+
+html.Newtheme .eventLink.worldcup .icon-close::before {
+  margin: 0;
+}
+
+html.Newtheme .eventLink.worldcup::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+html.Newtheme .eventLink.worldcup img {
+  width: 220px;
+  -webkit-animation: none;
+          animation: none;
+}
+
+html.Newtheme .eventLink.worldcup img:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
 html.Newtheme .time {
   position: absolute;
   top: calc(50% + 240px);
@@ -8474,7 +8566,6 @@ html.Newtheme .referralModule > div .refBox > div span {
 }
 
 html.Newtheme .referralModule > div .refBox > div a, html.Newtheme .referralModule > div .refBox > div button {
-  width: 100%;
   color: #fab617;
   text-decoration: underline;
   font-size: 12px;
@@ -8491,6 +8582,7 @@ html.Newtheme .referralModule > div .refBox > div a.more, html.Newtheme .referra
   margin-top: 10px;
   text-transform: uppercase;
   text-decoration: none;
+  width: 100%;
 }
 
 html.Newtheme .referralModule > div .refBox > div a.more:hover, html.Newtheme .referralModule > div .refBox > div button.more:hover {
@@ -8531,6 +8623,10 @@ html.Newtheme .referralModule > div.refLink .refBox .icon::before {
 
 html.Newtheme .referralModule > div .refLink_inner {
   border-bottom: 1px solid #fff;
+}
+
+html.Newtheme .referralModule > div .refLink_inner button {
+  margin-left: 5px;
 }
 
 html.Newtheme .icon-friend + .title {
@@ -8587,16 +8683,6 @@ html.Newtheme .achievement + .txt-blue {
 
 html.Newtheme .achievement + .txt-lightgray {
   color: #505050;
-}
-
-html.Newtheme .list.refhistory div:first-child {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-html.Newtheme .list.refhistory .btnGroup a {
-  padding: 0;
 }
 
 html.Newtheme .qrcode {
@@ -10734,6 +10820,37 @@ html.Newtheme .promoInfoPop .promotionsInfo .proData .proDataTitle .txt-blue2 .t
   font-size: 16px;
 }
 
+html.Newtheme .promoInfoPop .promotionsInfo .proData .proDataBody {
+  color: #fff;
+  line-height: 1.5;
+}
+
+html.Newtheme .promoInfoPop strong {
+  font-weight: bold !important;
+}
+
+html.Newtheme .promoInfoPop ul {
+  padding-left: 20px;
+}
+
+html.Newtheme .promoInfoPop ul li {
+  list-style: initial;
+  line-height: 2;
+}
+
+html.Newtheme .promoInfoPop ul li ul li {
+  list-style: circle;
+}
+
+html.Newtheme .promoInfoPop ol {
+  padding-left: 20px;
+}
+
+html.Newtheme .promoInfoPop ol li {
+  list-style: decimal;
+  line-height: 2;
+}
+
 html.Newtheme .profileNew {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12784,7 +12901,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   top: 16%;
   left: calc(50% - 9.6%);
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
 }
 
@@ -12971,7 +13088,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   letter-spacing: 1px;
   white-space: nowrap;
   text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: 600;
 }
 
@@ -13182,7 +13299,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .worldcupEvent .awards {
   text-align: center;
   margin: 105px auto 0;
-  width: 550px;
+  width: 750px;
 }
 
 .worldcupEvent .awards div {
@@ -13364,12 +13481,12 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 .worldcupEvent .title {
   width: 417px;
   height: 41px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   position: relative;
   margin: 0 auto 35px;
   text-align: center;
-  line-height: 1.6;
+  line-height: 1.8;
   color: #fff;
   background: url(https://banner.goal123.org/img/worldcup/titlebg.svg);
   text-transform: capitalize;
@@ -13467,7 +13584,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   margin-bottom: 10px;
 }
 
-.worldcupEvent .ticket__tab-item, .worldcupEvent .ticket__tab-item--active, .worldcupEvent .ticket__tab-item:hover, .worldcupEvent .ticket__tab-item--finished, .worldcupEvent .ticket__tab-item--disabled {
+.worldcupEvent .ticket__tab-item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13488,26 +13605,26 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   cursor: pointer;
 }
 
-.worldcupEvent .ticket__tab-item:last-child, .worldcupEvent .ticket__tab-item--active:last-child, .worldcupEvent .ticket__tab-item--finished:last-child, .worldcupEvent .ticket__tab-item--disabled:last-child {
+.worldcupEvent .ticket__tab-item:last-child {
   margin-right: 0;
 }
 
-.worldcupEvent .ticket__tab-item img, .worldcupEvent .ticket__tab-item--active img, .worldcupEvent .ticket__tab-item:hover img, .worldcupEvent .ticket__tab-item--finished img, .worldcupEvent .ticket__tab-item--disabled img {
+.worldcupEvent .ticket__tab-item img {
   width: 35px;
   margin-right: 10px;
 }
 
-.worldcupEvent .ticket__tab-item--active, .worldcupEvent .ticket__tab-item--active:hover, .worldcupEvent .ticket__tab-item:hover, .worldcupEvent .ticket__tab-item--finished:hover, .worldcupEvent .ticket__tab-item--disabled:hover {
+.worldcupEvent .ticket__tab-item:hover, .worldcupEvent .ticket__tab-item.active {
   outline: 2px solid #fff;
 }
 
-.worldcupEvent .ticket__tab-item--finished {
+.worldcupEvent .ticket__tab-item.finished {
   position: relative;
   outline: 0;
   background: #b50101;
 }
 
-.worldcupEvent .ticket__tab-item--finished::before {
+.worldcupEvent .ticket__tab-item.finished::before {
   content: "\ea10";
   font-family: 'icomoon';
   position: absolute;
@@ -13529,13 +13646,21 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   background: #00CFB7;
 }
 
-.worldcupEvent .ticket__tab-item--disabled {
+.worldcupEvent .ticket__tab-item.finished.active {
+  outline: 2px solid #fff;
+}
+
+.worldcupEvent .ticket__tab-item.disabled {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
 }
 
-.worldcupEvent .ticket__tab-item--disabled:hover {
+.worldcupEvent .ticket__tab-item.disabled:hover {
   outline: 1px solid #FF4700;
+}
+
+.worldcupEvent .ticket__tab-item.disabled.active {
+  outline: 2px solid #fff;
 }
 
 .worldcupEvent .ticket__selection, .worldcupEvent .ticket__selection--finished, .worldcupEvent .ticket__selection--disabled {
@@ -13590,8 +13715,9 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   border: 1px solid #fff;
 }
 
-.worldcupEvent .ticket__selection--right .btnGroup .btn-team:hover {
-  background: #b80e41;
+.worldcupEvent .ticket__selection--right .btnGroup .btn-team:hover, .worldcupEvent .ticket__selection--right .btnGroup .btn-team.active {
+  background: #a00a37;
+  border: 1px solid #f7c7d5;
   -webkit-transition: .2s;
   transition: .2s;
 }
@@ -13611,6 +13737,13 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
           flex-direction: row;
 }
 
+.worldcupEvent .ticket__selection--bottom .btnGroup button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0;
+          flex: 0;
+  margin: 0 auto;
+}
+
 .worldcupEvent .ticket__selection--bottom .msg {
   margin-top: 20px;
 }
@@ -13627,6 +13760,11 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
           flex: 0 0 50%;
 }
 
+.worldcupEvent .ticket__selection--finished .btnGroup .btn-team:hover {
+  background: #b50101;
+  border: 0;
+}
+
 .worldcupEvent .ticket__selection--disabled {
   -webkit-filter: grayscale(1);
           filter: grayscale(1);
@@ -13640,9 +13778,13 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   cursor: default;
 }
 
+.worldcupEvent .ticket__selection--disabled .btnGroup .btn-team:hover {
+  border: 0;
+}
+
 .worldcupEvent .progress-bar {
   margin: 55px auto;
-  padding-right: 25px;
+  margin-right: 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13656,7 +13798,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
 }
 
 .worldcupEvent .progress-bar__item {
-  width: 100%;
+  width: 33.333%;
   height: 8px;
   border-radius: 4px;
   background: #e1e1e1;
@@ -13687,16 +13829,17 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   width: -moz-max-content;
   width: max-content;
   width: 50px;
-  right: -25px;
+  right: -10px;
   bottom: -20px;
   text-align: center;
+  white-space: nowrap;
 }
 
 .worldcupEvent .progress-bar__number:before {
   content: "";
   position: absolute;
   top: -40px;
-  left: 4px;
+  left: 20px;
   width: 40px;
   height: 19px;
   background: url(https://banner.goal123.org/img/worldcup/ticket.png) no-repeat center/cover;
@@ -13743,7 +13886,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   color: #FFBF00;
   font-weight: bold;
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: bold;
 }
 
@@ -13796,7 +13939,7 @@ html.Newtheme:not(.index) .swiper-container + .inside-title.icon-ow-casino:after
   background: rgba(65, 10, 27, 0.4);
   text-align: center;
   color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 .worldcupEvent .rules__title {

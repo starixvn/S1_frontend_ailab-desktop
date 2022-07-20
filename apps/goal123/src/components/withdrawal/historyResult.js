@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { number_format } from "../common/common";
@@ -26,9 +27,13 @@ export const TransactionHistory = props => {
 		<div>
 			<div>{props.idx}</div>
 			<div>
-				{moment(props.createTime).format("DD/MM/YYYY")}
+				{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
+					.zone("+07:00")
+					.format("DD/MM/YYYY")}
 				<span className="txt-blue2">
-					{moment(props.createTime).format("HH:mm:ss")}
+					{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
+						.zone("+07:00")
+						.format("HH:mm:ss")}
 				</span>
 			</div>
 			<div>{props.transId}</div>
@@ -41,4 +46,13 @@ export const TransactionHistory = props => {
 			<div className="btnGroup">{btnGroup}</div>
 		</div>
 	);
+};
+
+TransactionHistory.propTypes = {
+	ClickCancel: PropTypes.func.isRequired,
+	idx: PropTypes.number.isRequired,
+	createTime: PropTypes.string.isRequired,
+	transId: PropTypes.string.isRequired,
+	amount: PropTypes.number.isRequired,
+	status: PropTypes.number.isRequired
 };
