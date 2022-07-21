@@ -1248,26 +1248,26 @@ export const defMenuLinks = {
 			defCurrencyList.IDR
 		]
 	},
-	sponsor: {
-		displayKey: "lbl_Sponsor",
-		path: path.sponsor.root,
-		subMenu: [
-			{
-				displayKey: "lbl_JOE_COLE",
-				listNpcImgUrl: "sponsors-joe.png",
-				listBgImgUrl: "ambassadorbg.png",
-				menuType: defMenuType.DirectUrl,
-				path: "https://www.joecole.club"
-			},
-			{
-				displayKey: "lbl_Sponsor",
-				listNpcImgUrl: "sponsors-amber.png",
-				listBgImgUrl: "ambassadorbg.png",
-				menuType: defMenuType.Link,
-				path: path.sponsor.root
-			}
-		]
-	},
+	// sponsor: {
+	// 	displayKey: "lbl_Sponsor",
+	// 	path: path.sponsor.root,
+	// 	subMenu: [
+	// 		{
+	// 			displayKey: "lbl_JOE_COLE",
+	// 			listNpcImgUrl: "sponsors-joe.png",
+	// 			listBgImgUrl: "ambassadorbg.png",
+	// 			menuType: defMenuType.DirectUrl,
+	// 			path: "https://www.joecole.club"
+	// 		},
+	// 		{
+	// 			displayKey: "lbl_Sponsor",
+	// 			listNpcImgUrl: "sponsors-amber.png",
+	// 			listBgImgUrl: "ambassadorbg.png",
+	// 			menuType: defMenuType.Link,
+	// 			path: path.sponsor.root
+	// 		}
+	// 	]
+	// },
 	// tv: {
 	// 	displayKey: "lbl_TV",
 	// 	className: "tvbtn",
