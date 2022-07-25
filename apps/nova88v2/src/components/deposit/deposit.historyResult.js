@@ -14,7 +14,6 @@ const statusClassName = {
 
 export const TransactionHistory = props => {
 	const { t } = useTranslation();
-
 	let actionContent = null;
 	if (props.depositType === 3 && (props.status === 1 || props.status === 7)) {
 		actionContent = (
