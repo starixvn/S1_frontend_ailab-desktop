@@ -38,9 +38,9 @@
 	"lbl_DearValuedCustomers": "เรียนลูกค้าผู้มีอุปการะคุณของ Nova88,",
 	"lbl_Home_HomeTeam": "ทีมเจ้าบ้าน",
 	"lbl_Home_AwayTeam": "ทีมเยือน",
-	"lbl_LiveCasinoInfo1":"เพลิดเพลินไปกับคาสิโนสดที่หรูหรา",
-	"lbl_LiveCasinoInfo2":"กับนวัตกรรมของเกมคาสิโน",
-	"lbl_LiveCasinoInfo3":"ตัวแทนถ่ายทอดสดในเอเชียและยุโรป!",
+	"lbl_LiveCasinoInfo1": "เพลิดเพลินไปกับคาสิโนสดที่หรูหรา",
+	"lbl_LiveCasinoInfo2": "กับนวัตกรรมของเกมคาสิโน",
+	"lbl_LiveCasinoInfo3": "ตัวแทนถ่ายทอดสดในเอเชียและยุโรป!",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -400,7 +400,7 @@
 	"lbl_WithdrawalDailyReached": "จำนวนยอดถอนต่อวันของคุณครบแล้ว",
 	"lbl_Insufficientbalance": "ยอดคงเหลือไม่เพียงพอ",
 	"lbl_ReceiveUSDT": "รับจำนวนเงิน {{currencyName}}",
-	"lbl_Times":"ครั้ง",
+	"lbl_Times": "ครั้ง",
 	"lbl_WithdrawalCryptoNote": "อัตราการแลกเปลี่ยนใช้เพื่อการอ้างอิงเท่านั้น จำนวนเงินที่แน่นอนจะอ้างอิงจากอัตราการแลกเปลี่ยนล่าสุด",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
@@ -904,7 +904,7 @@
 	"lbl_Online_Casino_Live_Casino_desc": "Nova88 นำเสนอคาสิโนสดที่หลากหลาย เพื่อความเพลิดเพลินในการเล่นของผู้เล่น ซึ่งรวมถึง คาสิโนดีลเลอร์สด พร้อมดีลเลอร์ชาวเอเชียที่สวยงามและเซ็กซี่ บาคาร่าสด รูเล็ตสด ไฮโลสด ดราก้อนไทเกอร์สด และอื่น ๆ อีกมากมาย",
 	"lbl_Keno_Lottery_Betting": "การเดิมพันคีโนและลอตเตอรี",
 	"lbl_Keno_Lottery_Betting_desc": "Nova88 นำเสนอ คีโน ลอตเตอรีเกมตัวเลข และเกมโต๊ะ ที่รวดเร็วสนุกและเล่นง่าย การออกสลากแต่ละครั้งจะใช้เวลาเพียงไม่กี่นาทีและมีการตัดสินที่รวดเร็ว",
-	"lbl_Virtual_Games":"เกมเสมือนจริง",
+	"lbl_Virtual_Games": "เกมเสมือนจริง",
 	"lbl_Virtual_Sports": "กีฬาเสมือนจริง",
 	"lbl_Virtual_Sports_desc": "Nova88 ให้บริการการเดิมพันกีฬาเสมือนจริงตลอด 24 ชั่วโมงทุกวันจาก Inspired, Sportradar และ Saba Soccer ครอบคลุมฟุตบอลเสมือนจริง บาสเก็ตบอลเสมือนจริง การแข่งม้าเสมือน สุนัขไล่เนื้อเสมือนจริง Virtual Speedway มอเตอร์สปอร์ตเสมือนจริง การขี่จักรยานเสมือนจริง เทนนิสเสมือนจริง และ Saba Soccer สำหรับ PES และ FIFA 20",
 	"lbl_Fishing_in_footer": "เกมยิงปล",
@@ -1043,27 +1043,55 @@
 		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
-	"mega888":{
-		"step":"ขั้นตอนที่ {{step}}",
-		"step1_desc":"คลิก 'ติดตั้ง' เพื่อดำเนินการต่อ",
-		"step2_desc":"หลังจากเสร็จสิ้นขั้นตอนการติดตั้ง ตอนนี้คุณสามารถเห็นไอคอนเกม MEGA888 บนเมนูโทรศัพท์ของคุณ คิดว่ามันจบแล้วเหรอ? โปรดอดทนรอ",
-		"step3_desc":"เมื่อคุณคลิกที่ไอคอนเกม MEGA888 คุณจะไม่สามารถเปิดเกมได้ มันเขียนว่า 'Untrusted Enterprise Developer' มีอีกไม่กี่ขั้นตอนที่ต้องทำ",
-		"step4_desc":"เพียงไปที่การตั้งค่าของ iPhone แล้วคลิก 'การจัดการอุปกรณ์' ตามช่องสีแดงด้านบน",
-		"step5_desc":"คลิกที่ 'Epson China Co. Ltd'",
-		"step6_desc":"คลิก 'เชื่อถือ 'Epson (China) Co. Ltd'",
-		"step7_desc":"คลิก 'เชื่อถือ' เพื่อเปิดใช้งานเกม MEGA888",
-		"step8_desc":"เปิดเกม MEGA888 อีกครั้ง เพื่อเข้าเล่นเกม",
-		"download_app":"Mega888 Download APP",
-		"app_for_android":"APP for Android",
-		"app_for_ios":"APP for iOS",
-		"unzip_and_run":"แตกไฟล์และติดตั้ง"
+	"mega888": {
+		"step": "ขั้นตอนที่ {{step}}",
+		"step1_desc": "คลิก 'ติดตั้ง' เพื่อดำเนินการต่อ",
+		"step2_desc": "หลังจากเสร็จสิ้นขั้นตอนการติดตั้ง ตอนนี้คุณสามารถเห็นไอคอนเกม MEGA888 บนเมนูโทรศัพท์ของคุณ คิดว่ามันจบแล้วเหรอ? โปรดอดทนรอ",
+		"step3_desc": "เมื่อคุณคลิกที่ไอคอนเกม MEGA888 คุณจะไม่สามารถเปิดเกมได้ มันเขียนว่า 'Untrusted Enterprise Developer' มีอีกไม่กี่ขั้นตอนที่ต้องทำ",
+		"step4_desc": "เพียงไปที่การตั้งค่าของ iPhone แล้วคลิก 'การจัดการอุปกรณ์' ตามช่องสีแดงด้านบน",
+		"step5_desc": "คลิกที่ 'Epson China Co. Ltd'",
+		"step6_desc": "คลิก 'เชื่อถือ 'Epson (China) Co. Ltd'",
+		"step7_desc": "คลิก 'เชื่อถือ' เพื่อเปิดใช้งานเกม MEGA888",
+		"step8_desc": "เปิดเกม MEGA888 อีกครั้ง เพื่อเข้าเล่นเกม",
+		"download_app": "Mega888 Download APP",
+		"app_for_android": "APP for Android",
+		"app_for_ios": "APP for iOS",
+		"unzip_and_run": "แตกไฟล์และติดตั้ง"
 	},
 
-	"lineRegister":{
+	"lineRegister": {
 		"lbl_RegisterWithLine": "ลงทะเบียนด้วย LINE",
 		"lbl_Connect": "เชื่อมต่อ",
 		"lbl_Connected": "เชื่อมต่อแล้ว",
 		"lbl_LinkLineAccount": "ลิงก์บัญชี LINE"
+	},
+
+	"worldCup": {
+		"info": "ข้อมูล",
+		"ticketsAvailable": "ตั๋วมีจำหน่าย",
+		"ticketsUsed": "ตั๋วที่ใช้แล้ว",
+		"yourPredictions": "ผลทายของคุณ",
+		"group": "กลุ่ม",
+		"ticket": "ตั๋ว",
+		"ticketBeenUsed": "ตั๋วที่ถูกใช้งานแล้ว",
+		"ticketNotBeenActivated": "ตั๋วที่ยังไม่ได้เปิดใช้งาน",
+		"eventTitle": "ฟุตบอลโลก กาตาร์ 2022",
+		"startsFrom": "แคมเปญทายผลเริ่มตั้งแต่",
+		"startsTime": "1 สิงหาคม",
+		"to": "ถึง",
+		"endTime": "31 ตุลาคม 2022",
+		"significantConditions": "รายละเอียดโปรโมชั่น",
+		"USD": "USD",
+		"fixture": "ตารางการแข่งขัน",
+		"3rdPlace": "อันดับที่ 3",
+		"final": "สุดท้าย",
+		"groupStage1st": "รอบแบ่งกลุ่มครั้งที่ 1",
+		"groupStage2nd": "รอบแบ่งกลุ่มครั้งที่ 2",
+		"roundOf16": "รอบ 16 ทีม",
+		"quarterFinals": "รอบก่อนรองชนะเลิศ",
+		"semiFinals": "รอบรองชนะเลิศ",
+		"getStarted": "เริ่ม",
+		"totalPrizePool": "เงินรางวัลรวม"
 	},
 
 	"end-----": "end-----"

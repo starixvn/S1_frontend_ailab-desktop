@@ -7,6 +7,7 @@ import {
 } from "../common/eventIcon";
 import { defCurrencyList } from "../common/common";
 import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def";
+import { bannerImgUrl } from "../../config";
 
 const defSortSports = {
 	[defCurrencyList.INR]: {
@@ -221,7 +222,8 @@ export const defSubListClassName = {
 	tv: "tvList",
 	vip: "vipList",
 	ranking: "rankingList",
-	sponsor: "homeList"
+	sponsor: "homeList",
+	worldCup: "eventList"
 };
 
 export const defMenuLinks = {
@@ -271,6 +273,18 @@ export const defMenuLinks = {
 	appDownload: {
 		className: "icon icon-mobile",
 		path: path.appDownload.root
+	},
+	worldCup: {
+		className: "eventbtn",
+		path: path.sports.root,
+		imgUrl: `${bannerImgUrl}/desktop/img/event/worldcup/xs-logo.png`,
+		productInfo: { tpId: 1, gameId: 2002, tpGameType: 1 },
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.worldCup
+			})
+		]
 	},
 	sports: {
 		displayKey: "lbl_Sports",

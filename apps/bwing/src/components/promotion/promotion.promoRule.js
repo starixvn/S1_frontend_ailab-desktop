@@ -4,13 +4,12 @@ import { promoStatus, defPromotionType, defBonusType } from "./promotion.def";
 import { number_format, langAndCurrMapping } from "../common/common";
 import { siteDefLangId } from "../../service/language";
 
-const numberWithCurrency = (value, currencyName) => {
-	return `${currencyName} ${number_format({
+const numberWithCurrency = (value, currencyName) =>
+	`${currencyName} ${number_format({
 		number: value,
 		isConvertRequired: false,
 		digits: 0
 	})}`;
-};
 
 export const getExpiryTime = (
 	t,

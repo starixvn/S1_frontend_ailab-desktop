@@ -156,5 +156,8 @@ export default {
 	},
 	sportSbo: {
 		root: "sportSbo"
+	},
+	worldCup: {
+		root: "worldCup"
 	}
 };

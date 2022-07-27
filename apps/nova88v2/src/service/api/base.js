@@ -82,3 +82,8 @@ export const lineLoginRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/LineLogin`
 });
+
+export const worldCupPredictionRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/WorldCupPrediction`
+});

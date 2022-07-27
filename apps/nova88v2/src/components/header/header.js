@@ -16,6 +16,7 @@ import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
+import EventCountdown from "../worldCup/countdown";
 
 export default () => {
 	const { t } = useTranslation();
@@ -86,6 +87,12 @@ export default () => {
 							src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
 							alt={config.siteName}
 						/>
+					</Link>
+					<Link
+						className="countdown"
+						to={`/${userInfo.langId}/${path.worldCup.root}`}
+					>
+						<EventCountdown />
 					</Link>
 				</div>
 				<div className="function">

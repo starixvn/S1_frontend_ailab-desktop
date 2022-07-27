@@ -38,9 +38,9 @@
 	"lbl_DearValuedCustomers": "Dear Nova88 Valued Customers,",
 	"lbl_Home_HomeTeam": "HOME",
 	"lbl_Home_AwayTeam": "AWAY",
-	"lbl_LiveCasinoInfo1":"Enjoy the luxurious Live Casino",
-	"lbl_LiveCasinoInfo2":"Innovative casino games with",
-	"lbl_LiveCasinoInfo3":"Asian & European live dealers!",
+	"lbl_LiveCasinoInfo1": "Enjoy the luxurious Live Casino",
+	"lbl_LiveCasinoInfo2": "Innovative casino games with",
+	"lbl_LiveCasinoInfo3": "Asian & European live dealers!",
 
 	"HotEvent ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Odds": "Odds",
@@ -399,7 +399,7 @@
 	"lbl_WithdrawalDailyReached": "Your Daily Limit Reached.",
 	"lbl_Insufficientbalance": "Insufficient balance",
 	"lbl_ReceiveUSDT": "Receive {{currencyName}} Amount",
-	"lbl_Times":"Times",
+	"lbl_Times": "Times",
 	"lbl_WithdrawalCryptoNote": "Conversion rate serves as reference purposes only, exact amount shall refer the latest rate.",
 
 	"transfer ■■■■■■■■■■■■■■■■■■■■": "",
@@ -522,7 +522,6 @@
 	"lbl_Promotion_Slot": "Slot",
 	"lbl_WinOver": "WINOVER",
 	"lbl_WinOverAccumulated": "WINOVER",
-
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
@@ -904,7 +903,7 @@
 	"lbl_Online_Casino_Live_Casino_desc": "Nova88 offer an extensive range of Live Casino for players playing pleasure, these includes Live Dealer Casino with beautiful and sexy Asian dealers, Live Baccarat, Live Roulette, Live Sic Bo, Live Dragon Tiger, and many more. ",
 	"lbl_Keno_Lottery_Betting": "Keno & Lottery Betting",
 	"lbl_Keno_Lottery_Betting_desc": "Nova88 offer Keno, Lottery, Number Game and Table Game that are fast, fun and easy to play. Each draw last only a few minutes and settlement is fast.",
-	"lbl_Virtual_Games":"Virtual Games",
+	"lbl_Virtual_Games": "Virtual Games",
 	"lbl_Virtual_Sports": "Virtual Sports",
 	"lbl_Virtual_Sports_desc": "Nova88 provides 24/7 virtual sports betting events from Inspired, Sportradar and Saba Soccer. Covering Virtual Soccer, Virtual Basketball, Virtual Horse Racing, Virtual Greyhounds, Virtual Speedway, Virtual Motorsports, Virtual Cycling, Virtual Tennis and Saba Soccer for PES and FIFA 20.",
 	"lbl_Fishing_in_footer": "Fishing",
@@ -1044,20 +1043,48 @@
 		"lbl_Nova88_Olympus": "Nova88 Olympus"
 	},
 
-	"mega888":{
-		"step":"Step {{step}}",
-		"step1_desc":"Click 'Install' to proceed further",
-		"step2_desc":"After having finished the installation progress, now you can see MEGA888 game icon on your phone menu. Think this is it? Wait for it.",
-		"step3_desc":"When you click on the MEGA888 game icon, you won't be able to launch the game. It says 'Untrusted Enterprise Developer'. There are few more step to be done.",
-		"step4_desc":"Just go to your iPhone's setting, and click 'Device Management' as per red box above.",
-		"step5_desc":"Click on 'Epson China Co. Ltd'",
-		"step6_desc":"Click 'Trust Epson (China) Co. Ltd'",
-		"step7_desc":"Click 'Trust' to enable the MEGA888 game.",
-		"step8_desc":"Launch MEGA888 game again, now you got it.",
-		"download_app":"Mega888 Download APP",
-		"app_for_android":"APP for Android",
-		"app_for_ios":"APP for iOS",
-		"unzip_and_run":"Unzip and Run"
+	"mega888": {
+		"step": "Step {{step}}",
+		"step1_desc": "Click 'Install' to proceed further",
+		"step2_desc": "After having finished the installation progress, now you can see MEGA888 game icon on your phone menu. Think this is it? Wait for it.",
+		"step3_desc": "When you click on the MEGA888 game icon, you won't be able to launch the game. It says 'Untrusted Enterprise Developer'. There are few more step to be done.",
+		"step4_desc": "Just go to your iPhone's setting, and click 'Device Management' as per red box above.",
+		"step5_desc": "Click on 'Epson China Co. Ltd'",
+		"step6_desc": "Click 'Trust Epson (China) Co. Ltd'",
+		"step7_desc": "Click 'Trust' to enable the MEGA888 game.",
+		"step8_desc": "Launch MEGA888 game again, now you got it.",
+		"download_app": "Mega888 Download APP",
+		"app_for_android": "APP for Android",
+		"app_for_ios": "APP for iOS",
+		"unzip_and_run": "Unzip and Run"
+	},
+
+	"worldCup": {
+		"info": "Info",
+		"ticketsAvailable": "Ticket(s) Avaliable",
+		"ticketsUsed": "Ticket(s) Used",
+		"yourPredictions": "Your Predictions",
+		"group": "Group",
+		"ticket": "Ticket",
+		"ticketBeenUsed": "The ticket has been used.",
+		"ticketNotBeenActivated": "Ticket not available.",
+		"eventTitle": "FIFA WORLD CUP Qatar 2022",
+		"startsFrom": "Prediction Campaign Starts from",
+		"startsTime": "01 August",
+		"to": "to",
+		"endTime": "31 October 2022",
+		"significantConditions": "Significant Conditions",
+		"USD": "USD",
+		"fixture": "Fixture",
+		"3rdPlace": "3rd Place",
+		"final": "Final",
+		"groupStage1st": "Group Stage 1st",
+		"groupStage2nd": "Group Stage 2nd",
+		"roundOf16": "Round of 16",
+		"quarterFinals": "Quarter-Finals",
+		"semiFinals": "Semi-Finals",
+		"getStarted": "Get Started",
+		"totalPrizePool": "TOTAL PRIZE POOL"
 	},
 
 	"end-----": "end-----"
