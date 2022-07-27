@@ -10,6 +10,7 @@ import path from "../../router";
 import { eventPeriodIdpd } from "../../datas/eventDef";
 import { isDateRange } from "./common";
 import { bannerImgUrl } from "../../config";
+import useShieldCheck from "../hook/useShieldCheck";
 
 const initValue = {
 	username: "",
@@ -33,6 +34,7 @@ const LoginPanel = () => {
 		eventPeriodIdpd.startDate,
 		eventPeriodIdpd.endDate
 	);
+	const { getShieldData, saveShieldData } = useShieldCheck();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -40,6 +42,10 @@ const LoginPanel = () => {
 			isMountedRef.current = false;
 		};
 	});
+
+	useEffect(() => {
+		getShieldData();
+	}, []);
 
 	const showPswHandler = () => {
 		setShowPsw(!showPsw);
@@ -69,9 +75,7 @@ const LoginPanel = () => {
 			val = val.replace(/[\W]/g, "");
 		}
 
-		setUserValue(prev => {
-			return { ...prev, [col]: val };
-		});
+		setUserValue(prev => ({ ...prev, [col]: val }));
 	};
 
 	const checkValue = (col, val) => {
@@ -89,15 +93,13 @@ const LoginPanel = () => {
 			msg = t("msg_UsernameLength");
 		}
 
-		setTip(prev => {
-			return {
-				...prev,
-				[col]: {
-					checked,
-					msg
-				}
-			};
-		});
+		setTip(prev => ({
+			...prev,
+			[col]: {
+				checked,
+				msg
+			}
+		}));
 		return checked;
 	};
 
@@ -122,6 +124,7 @@ const LoginPanel = () => {
 						}));
 						setPopBox({ isOpen: false });
 						navigate(`/${userInfo.langId}/${path.deposit.root}`);
+						saveShieldData();
 					}
 				} else if (
 					res.errorCode === 1101 ||
@@ -129,27 +132,23 @@ const LoginPanel = () => {
 					res.errorCode === 9000
 				) {
 					if (isMountedRef.current) {
-						setTip(prev => {
-							return {
-								...prev,
-								username: {
-									checked: false,
-									msg: res.message
-								}
-							};
-						});
+						setTip(prev => ({
+							...prev,
+							username: {
+								checked: false,
+								msg: res.message
+							}
+						}));
 					}
 				} else if (res.errorCode === 1001) {
 					if (isMountedRef.current) {
-						setTip(prev => {
-							return {
-								...prev,
-								password: {
-									checked: false,
-									msg: res.message
-								}
-							};
-						});
+						setTip(prev => ({
+							...prev,
+							password: {
+								checked: false,
+								msg: res.message
+							}
+						}));
 					}
 				}
 			});
@@ -192,7 +191,6 @@ const LoginPanel = () => {
 					tip={tip}
 					showPsw={showPsw}
 					showPswHandler={showPswHandler}
-					path={path}
 				/>
 			</div>
 		</div>
@@ -214,71 +212,59 @@ export const LoginForm = ({
 	tip,
 	showPsw,
 	showPswHandler
-}) => {
-	return (
-		<form className="joinloginFunction" onSubmit={handleLogin}>
-			<span className="title txt-yellow">{t("lbl_Login")}</span>
-			<div className="noAccount">
-				{t("lbl_DontHaveAccount")}&nbsp;
-				<button className="txt-blue2" type="button" onClick={clickJoin}>
-					{t("lbl_JoinNow")}
-				</button>
-			</div>
-			<div className="inputModule">
-				<Inputbox
-					icon="icon-member txt-blue12"
-					placeholder={t("lbl_Username")}
-					value={userValue.username}
-					onChange={EditField.bind(null, "username")}
-					onBlur={checkValue.bind(
-						null,
-						"username",
-						userValue.username
-					)}
-					clickInfo={clickInfo.bind(this, "username")}
-					checked={tip.username.checked}
-					tip={tip.username.msg}
-					warningIcon="icon-warning"
-				/>
+}) => (
+	<form className="joinloginFunction" onSubmit={handleLogin}>
+		<span className="title txt-yellow">{t("lbl_Login")}</span>
+		<div className="noAccount">
+			{t("lbl_DontHaveAccount")}&nbsp;
+			<button className="txt-blue2" type="button" onClick={clickJoin}>
+				{t("lbl_JoinNow")}
+			</button>
+		</div>
+		<div className="inputModule">
+			<Inputbox
+				icon="icon-member txt-blue12"
+				placeholder={t("lbl_Username")}
+				value={userValue.username}
+				onChange={EditField.bind(null, "username")}
+				onBlur={checkValue.bind(null, "username", userValue.username)}
+				clickInfo={clickInfo.bind(this, "username")}
+				checked={tip.username.checked}
+				tip={tip.username.msg}
+				warningIcon="icon-warning"
+			/>
 
-				<InputboxPSW
-					icon="icon-key txt-blue12"
-					inputType={`${!showPsw ? "password" : "text"}`}
-					placeholder={t("lbl_Password")}
-					value={userValue.password}
-					onChange={EditField.bind(null, "password")}
-					onBlur={checkValue.bind(
-						null,
-						"password",
-						userValue.password
-					)}
-					showPsw={showPsw}
-					showPswHandler={showPswHandler}
-					checked={tip.password.checked}
-					clickInfo={clickInfo.bind(this, "password")}
-					tip={tip.password.msg}
-				/>
+			<InputboxPSW
+				icon="icon-key txt-blue12"
+				inputType={`${!showPsw ? "password" : "text"}`}
+				placeholder={t("lbl_Password")}
+				value={userValue.password}
+				onChange={EditField.bind(null, "password")}
+				onBlur={checkValue.bind(null, "password", userValue.password)}
+				showPsw={showPsw}
+				showPswHandler={showPswHandler}
+				checked={tip.password.checked}
+				clickInfo={clickInfo.bind(this, "password")}
+				tip={tip.password.msg}
+			/>
 
-				<Link
-					to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-					className="txt-blue2">
-					{t("lbl_ForgetPassword")}
-				</Link>
-			</div>
-			<div className="btnGroup">
-				<button
-					className="btn-cancel"
-					type="button"
-					onClick={clickCancel}>
-					{t("lbl_Cancel")}
-				</button>
-				<button className="btn-check" type="submit">
-					{t("lbl_Login")}
-				</button>
-			</div>
-		</form>
-	);
-};
+			<Link
+				to={`/${userInfo.langId}/${path.forgetPassword.root}`}
+				className="txt-blue2"
+			>
+				{t("lbl_ForgetPassword")}
+			</Link>
+		</div>
+		<div className="btnGroup">
+			<button className="btn-cancel" type="button" onClick={clickCancel}>
+				{t("lbl_Cancel")}
+			</button>
+			<button className="btn-check" type="submit">
+				{t("lbl_Login")}
+			</button>
+		</div>
+	</form>
+);
 
 LoginForm.propTypes = {
 	t: PropTypes.func.isRequired,

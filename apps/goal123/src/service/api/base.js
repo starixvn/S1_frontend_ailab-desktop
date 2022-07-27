@@ -72,3 +72,8 @@ export const playerRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/Player`
 });
+
+export const shieldRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/Shield`
+});
