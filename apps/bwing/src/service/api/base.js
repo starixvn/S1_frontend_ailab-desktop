@@ -77,3 +77,8 @@ export const playerRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/Player`
 });
+
+export const worldCupPredictionRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/WorldCupPrediction`
+});

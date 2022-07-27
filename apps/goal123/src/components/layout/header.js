@@ -14,6 +14,7 @@ import LanguageDropDown from "./header.langDropdown";
 import path from "../../router";
 import { isDateRange } from "../common/common";
 import { defEventPeriod } from "../common/eventIcon";
+import EventCountdown from "../worldCup/countdown";
 
 export default () => {
 	const { t } = useTranslation();
@@ -45,6 +46,12 @@ export default () => {
 							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
 						/>
+					</Link>
+					<Link
+						className="countdown"
+						to={`/${userInfo.langId}/${path.worldCup.root}`}
+					>
+						<EventCountdown />
 					</Link>
 				</div>
 				<Menu

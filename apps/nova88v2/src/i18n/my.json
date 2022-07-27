@@ -1045,5 +1045,33 @@
 		"unzip_and_run": "Nyahzip dan Jalankan"
 	},
 
+	"worldCup": {
+		"info": "Info",
+		"ticketsAvailable": "Tiket Tersedia",
+		"ticketsUsed": "Tiket Terguna",
+		"yourPredictions": "Ramalan Anda",
+		"group": "Kumpulan",
+		"ticket": "Ticket",
+		"ticketBeenUsed": "Tiket telah digunakan.",
+		"ticketNotBeenActivated": "Tiket belum diaktifkan.",
+		"eventTitle": "PIALA DUNIA FIFA Qatar 2022",
+		"startsFrom": "Kempen Ramalan Bermula dari",
+		"startsTime": "1 Ogos",
+		"to": "hingga",
+		"endTime": "31 Oktober 2022",
+		"significantConditions": "Syarat Penting",
+		"USD": "USD",
+		"fixture": "Perlawanan",
+		"3rdPlace": "Tempat ke-3",
+		"final": "Final",
+		"groupStage1st": "Peringkat Pertama Kumpulan",
+		"groupStage2nd": "Peringkat Kumpulan ke-2",
+		"roundOf16": "Pusingan 16",
+		"quarterFinals": "Suku akhir",
+		"semiFinals": "Separuh Akhir",
+		"getStarted": "Mulakan",
+		"totalPrizePool": "JUMLAH HADIAH POOL"
+	},
+
 	"end-----": "end-----"
 }

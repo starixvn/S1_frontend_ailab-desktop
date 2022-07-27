@@ -169,5 +169,8 @@ export default {
 	},
 	luckyWheel: {
 		root: "luckyWheel"
+	},
+	worldCup: {
+		root: "worldCup"
 	}
 };

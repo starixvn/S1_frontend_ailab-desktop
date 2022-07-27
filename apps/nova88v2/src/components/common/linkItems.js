@@ -155,8 +155,7 @@ export default ({
 						onClick={showLogin}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
-						onFocus={() => 0}
-					>
+						onFocus={() => 0}>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</button>
@@ -174,8 +173,7 @@ export default ({
 							rule.entPageUrl,
 							rule.windowKey
 						)}
-						onFocus={() => 0}
-					>
+						onFocus={() => 0}>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</a>
@@ -188,8 +186,7 @@ export default ({
 						key={key}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
-						onFocus={() => 0}
-					>
+						onFocus={() => 0}>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
 					</button>
@@ -233,8 +230,7 @@ export default ({
 					<button
 						key={key}
 						className={_className}
-						onClick={showLinkOptionsPopBox}
-					>
+						onClick={showLinkOptionsPopBox}>
 						{displayText}
 					</button>
 				);
@@ -243,7 +239,9 @@ export default ({
 			const _url = getUrl(`${langId}/${_path}`, m.productInfo);
 
 			_className =
-				checkMatchPage && _url === currentPage
+				checkMatchPage &&
+				_url === currentPage &&
+				m.className !== "eventbtn"
 					? `${_className} active`
 					: _className;
 
@@ -254,8 +252,7 @@ export default ({
 					key={key}
 					to={_url}
 					className={_className}
-					onMouseOver={_showSubMenu.bind(this, key)}
-				>
+					onMouseOver={_showSubMenu.bind(this, key)}>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</Link>
@@ -264,8 +261,7 @@ export default ({
 					key={key}
 					onMouseOver={_showSubMenu.bind(this, key)}
 					className={_className}
-					onFocus={() => 0}
-				>
+					onFocus={() => 0}>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</button>
@@ -285,8 +281,7 @@ export default ({
 					key={key}
 					to={`/${langId}/${_path}`}
 					onMouseOver={_showSubMenu.bind(this, key)}
-					className={_className}
-				>
+					className={_className}>
 					<div className={iconStrings}>{iconContent}</div>
 					{displayText}
 				</Link>
@@ -298,8 +293,7 @@ export default ({
 				key={key}
 				onMouseOver={_showSubMenu.bind(this, key)}
 				className={_className}
-				onFocus={() => 0}
-			>
+				onFocus={() => 0}>
 				<div className={iconStrings}>{iconContent}</div>
 				{displayText}
 			</button>

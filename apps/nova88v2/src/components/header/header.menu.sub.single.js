@@ -8,7 +8,7 @@ import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
 import productList, { defTpGameType } from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
-import { cloudImgUrl } from "../../config";
+import { cloudImgUrl, bannerImgUrl } from "../../config";
 import useAppDownLoad from "../appDownload/useAppDownLoad";
 
 const SubMenuSingle = ({
@@ -28,6 +28,21 @@ const SubMenuSingle = ({
 			popBoxType: defPopBoxType.Login
 		});
 	};
+
+	if (menuKey === "worldCup") {
+		return (
+			<Link
+				className={subClassName}
+				to={`/${userInfo.langId}/${path.sports.root}?tpId=1&gameId=2002&tpGameType=1`}>
+				<div>
+					<img
+						src={`${bannerImgUrl}/desktop/img/event/worldcup/eventbanner_full.jpg`}
+						alt=""
+					/>
+				</div>
+			</Link>
+		);
+	}
 
 	if (menuKey === "poker") {
 		const rule = GET_OPEN_RULE(
@@ -74,6 +89,7 @@ const SubMenuSingle = ({
 			</div>
 		);
 	}
+
 	if (menuKey === "vip") {
 		return (
 			<div className={subClassName}>
