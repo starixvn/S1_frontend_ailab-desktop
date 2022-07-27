@@ -24,6 +24,7 @@ import JoinForm from "./join.form";
 import usePopBox from "../hook/usePopBox";
 import { eventPeriodIdpd } from "../../datas/eventDef";
 import path from "../../router";
+import useShieldCheck from "../hook/useShieldCheck";
 
 export default () => {
 	const { t } = useTranslation();
@@ -43,6 +44,7 @@ export default () => {
 		eventPeriodIdpd.startDate,
 		eventPeriodIdpd.endDate
 	);
+	const { getShieldData, saveShieldData } = useShieldCheck();
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -53,6 +55,7 @@ export default () => {
 
 	useEffect(() => {
 		checkAffiliate();
+		getShieldData();
 	}, []);
 
 	const checkAffiliate = async () => {
@@ -354,6 +357,7 @@ export default () => {
 											await navigate(
 												`/${userInfo.langId}/${path.deposit.root}`
 											);
+											saveShieldData();
 										} else {
 											errorPopBox(
 												res_custInfo.data.message ||

@@ -1,4 +1,5 @@
 import React, { useContext, lazy, Suspense } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "gatsby";
 import {
@@ -16,6 +17,7 @@ import {
 	showEventIcon
 } from "../common/eventIcon";
 import MsgPopup from "./msgPopup";
+import useShieldCheck from "../hook/useShieldCheck";
 
 export default () => {
 	const { userInfo } = useContext(userInfoContext);
@@ -54,6 +56,10 @@ const BeforeLogin = ({ langId }) => {
 	);
 };
 
+BeforeLogin.propTypes = {
+	langId: PropTypes.string.isRequired
+};
+
 const defCashierLinks = [
 	{
 		displayKey: "lbl_TransferFunds",
@@ -73,42 +79,40 @@ const defCashierLinks = [
 	}
 ];
 
-const defSettingLinks = ({ logoutFunc }) => {
-	return [
-		{
-			displayKey: "lbl_Profile",
-			href: path.profile.root
-		},
-		{
-			displayKey: "lbl_BankInfo",
-			href: path.bankInfo.root
-		},
-		{
-			displayKey: "lbl_CryptoWallet",
-			href: path.cryptoWallet.root
-		},
-		{
-			displayKey: "lbl_ReferFriends",
-			href: path.referral.root,
-			eventIcons: [
-				showEventIcon({
-					icon: defEventIcon.new,
-					period: defEventPeriod.referral
-				})
-			]
-		},
-		{
-			displayKey: "lbl_ChangePassword",
-			href: path.changePassword.root
-		},
-		{
-			displayKey: "lbl_Logout",
-			href: logoutFunc,
-			elemType: defElemType.btn,
-			icon: "icon icon-exit"
-		}
-	];
-};
+const defSettingLinks = ({ logoutFunc }) => [
+	{
+		displayKey: "lbl_Profile",
+		href: path.profile.root
+	},
+	{
+		displayKey: "lbl_BankInfo",
+		href: path.bankInfo.root
+	},
+	{
+		displayKey: "lbl_CryptoWallet",
+		href: path.cryptoWallet.root
+	},
+	{
+		displayKey: "lbl_ReferFriends",
+		href: path.referral.root,
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.referral
+			})
+		]
+	},
+	{
+		displayKey: "lbl_ChangePassword",
+		href: path.changePassword.root
+	},
+	{
+		displayKey: "lbl_Logout",
+		href: logoutFunc,
+		elemType: defElemType.btn,
+		icon: "icon icon-exit"
+	}
+];
 
 const Wallet = lazy(() => import("./header.wallet"));
 const AfterLogin = () => {
@@ -116,6 +120,7 @@ const AfterLogin = () => {
 	const { userInfo, setUserInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { t } = useTranslation();
+	const { deleteShieldData } = useShieldCheck();
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -135,6 +140,7 @@ const AfterLogin = () => {
 					kickout: true,
 					willLogout: true
 				}));
+				deleteShieldData();
 			};
 
 			setPopBox({
@@ -156,7 +162,8 @@ const AfterLogin = () => {
 		<>
 			<Link
 				to={`/${userInfo.langId}/${path.deposit.root}`}
-				className="deposit-btn icon icon-icon32px_deposit">
+				className="deposit-btn icon icon-icon32px_deposit"
+			>
 				{t("lbl_Deposit")}
 			</Link>
 			<DropdownHeader
@@ -170,7 +177,7 @@ const AfterLogin = () => {
 			/>
 
 			{/* <Wallet langId={userInfo.langId} i18n={t} /> */}
-			<Suspense fallback={<></>}>
+			<Suspense fallback={null}>
 				<Wallet langId={userInfo.langId} i18n={t} />
 			</Suspense>
 			<DropdownHeader
@@ -187,7 +194,8 @@ const AfterLogin = () => {
 			/>
 			<Link
 				className={`icon icon-email${msgCount > 0 ? " active" : ""}`}
-				to={`/${userInfo.langId}/${path.message.root}`}>
+				to={`/${userInfo.langId}/${path.message.root}`}
+			>
 				<MsgPopup userInfo={userInfo} />
 			</Link>
 		</>

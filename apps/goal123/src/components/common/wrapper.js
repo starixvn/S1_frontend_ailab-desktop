@@ -25,6 +25,7 @@ import useGetWalletInfo from "./wrapper.walletInfo";
 import { langCookie } from "../../config";
 import usePopBox from "../hook/usePopBox";
 import SEO from "../seo";
+import ThirdPartyJS from "./thirdPartyJS";
 
 const defaultPathLang = () => {
 	const urlLang =
@@ -384,6 +385,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 														setIsRoot
 													}}>
 													<SEO />
+													<ThirdPartyJS />
+
 													{children}
 												</ct.isRootContext.Provider>
 											</ct.loadingContext.Provider>
