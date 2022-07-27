@@ -6,21 +6,19 @@ import { getUrlParameter } from "../components/common/common";
 import { GET_ENTER_PAGE_URL } from "../service/enterPage";
 import productList from "../datas/productList";
 
-export default () => {
-	return (
-		<Wrapper>
-			<Layout>
-				<Content />
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper>
+		<Layout>
+			<Content />
+		</Layout>
+	</Wrapper>
+);
 
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const game = getUrlParameter("game");
-	const tpId = productList[game]?.tpId;
-	const gameId = productList[game]?.gameId;
+	const tpId = productList[game]?.tpId ?? getUrlParameter("tpId");
+	const gameId = productList[game]?.gameId ?? getUrlParameter("gameId");
 	const matchid = getUrlParameter("matchid");
 	const tpGameType = productList[game]?.tpGameType;
 

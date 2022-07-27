@@ -14,6 +14,7 @@ import LanguageDropDown from "./header.langDropdown";
 import path from "../../router";
 import { isDateRange } from "../common/common";
 import { defEventPeriod } from "../common/eventIcon";
+import EventCountdown from "../worldCup/countdown";
 
 export default () => {
 	const { t } = useTranslation();
@@ -43,6 +44,9 @@ export default () => {
 							alt={config.siteName}
 						/>
 					</Link>
+					<Link to={`/${userInfo.langId}/${path.worldCup.root}`}>
+						<EventCountdown />
+					</Link>
 				</div>
 				<Menu
 					productTpIds={productTpIds}
@@ -53,8 +57,7 @@ export default () => {
 						target="_blank"
 						rel="noopener noreferrer"
 						className="downloadBtn icon icon-mobile"
-						href={`/${userInfo.langId}/${path.appDownload.root}`}
-					>
+						href={`/${userInfo.langId}/${path.appDownload.root}`}>
 						{t("lbl_APP_DOWNLOAD")}
 					</a>
 					<LanguageDropDown />

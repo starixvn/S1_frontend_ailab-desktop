@@ -96,7 +96,8 @@ export const GET_OPEN_RULE = (
 			_gameId < 100 ||
 			_gameId === 161 ||
 			_gameId === 180 ||
-			_gameId === 192
+			_gameId === 192 ||
+			_gameId === 2002
 		) {
 			result = setResult(
 				"",

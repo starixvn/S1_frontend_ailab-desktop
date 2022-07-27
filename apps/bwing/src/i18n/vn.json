@@ -821,5 +821,39 @@
 		"lbl_promo_all_promos": "TẤT CẢ KHUYẾN MÃI"
 	},
 
+	"worldCup": {
+		"info": "Thông Tin",
+		"ticketsAvailable": "Số vé còn",
+		"ticketsUsed": "Số vé đã sử dụng",
+		"yourPredictions": "Dự đoán của bạn ",
+		"group": "Bảng",
+		"ticket": "Vé",
+		"ticketBeenUsed": "Vé này đã sử dụng",
+		"ticketNotBeenActivated": "Vé này chưa được kích hoạt.",
+		"eventTitle": "FIFA WORLD CUP Qatar 2022",
+		"startsFrom": "Thời gian dự đoán từ",
+		"startsTime": "01 tháng 8",
+		"to": "đến",
+		"endTime": "31 tháng 10 2022",
+		"significantConditions": "Điều kiện tham gia",
+		"fixture": "LỊCH THI ĐẤU",
+		"3rdPlace": "Hạng 3",
+		"final": "Chung kết",
+		"groupStage1st": "Vòng đấu bảng thứ nhất",
+		"groupStage2nd": "Vòng đấu bảng thứ hai",
+		"roundOf16": "Vòng 16 đội",
+		"quarterFinals": "Tứ kết",
+		"semiFinals": "Bán kết",
+		"getStarted": "Bắt Đầu",
+		"totalPrizePool": "DỰ ĐOÁN HẾT MÌNH, THƯỞNG LINH ĐÌNH",
+		"terms&Conditions": "Điều khoản & Điều kiện",
+		"prediction": "Dự đoán",
+		"prizeWorth": "GIẢI THƯỞNG KHỦNG!",
+		"iconForWorldCup": "Biểu tượng cho FIFA World Cup",
+		"titleIntro": "Khi các tín đồ bóng đá háo hức hội tụ chuẩn bị cho FIFA World Cup Qatar 2022, biểu tượng của giải đấu như ngọn hải đăng lan tỏa toàn cầu, dẫn lối đến giải đấu nơi mà mọi thứ đều có thể dễ dàng tiếp cận. ",
+		"date": "Thời gian",
+		"yourGroup/Team": "Bảng / Đội bóng bạn chọn"
+	},
+
 	"end-----": "end-----"
 }

@@ -1,15 +1,28 @@
 import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link } from "gatsby";
 import { userInfoContext } from "../common/context";
 import { defMenuLinks } from "./header.menu.def";
 import LinkItems, { getCurrentPage } from "../common/linkItems";
-import { siteInfo } from "../../config";
+// import { siteInfo } from "../../config";
+import { bannerImgUrl } from "../../config";
+import path from "../../router";
+import {
+	defEventPeriod,
+	showEventIcon,
+	defEventIcon
+} from "../common/eventIcon";
 
-export default ({ showSubMenu, productTpIds }) => {
+const Main = ({ showSubMenu, productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const currentPage = getCurrentPage();
+
+	const worldCupNewTag = showEventIcon({
+		icon: defEventIcon.new,
+		period: defEventPeriod.worldCup
+	});
 
 	return (
 		<>
@@ -19,6 +32,14 @@ export default ({ showSubMenu, productTpIds }) => {
 					currentPage === `/${userInfo.langId}` ? "active" : ""
 				}>
 				<i className="icon icon-home" />
+			</Link>
+			<Link
+				to={`/${userInfo.langId}/${path.sports.root}?tpId=1&gameId=2002`}
+				className={`event icon ${worldCupNewTag}`}>
+				<img
+					src={`${bannerImgUrl}/img/worldcup/xs-logo-d.png`}
+					alt="world cup"
+				/>
 			</Link>
 			<LinkItems
 				mainKey="header-"
@@ -39,3 +60,15 @@ export default ({ showSubMenu, productTpIds }) => {
 		</>
 	);
 };
+
+Main.defaultProps = {
+	showSubMenu: () => null,
+	productTpIds: null
+};
+
+Main.propTypes = {
+	showSubMenu: PropTypes.func,
+	productTpIds: PropTypes.arrayOf(PropTypes.any)
+};
+
+export default Main;

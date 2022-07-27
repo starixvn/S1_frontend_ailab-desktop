@@ -827,5 +827,39 @@
 		"lbl_promo_all_promos": "ALL PROMOS"
 	},
 
+	"worldCup": {
+		"info": "Info",
+		"ticketsAvailable": "Ticket(s) Avaliable",
+		"ticketsUsed": "Ticket(s) Used",
+		"yourPredictions": "Your Predictions",
+		"group": "Group",
+		"ticket": "Ticket",
+		"ticketBeenUsed": "The ticket has been used.",
+		"ticketNotBeenActivated": "Ticket not available.",
+		"eventTitle": "FIFA WORLD CUP Qatar 2022",
+		"startsFrom": "Prediction Campaign Starts from",
+		"startsTime": "01 August",
+		"to": "to",
+		"endTime": "31 October 2022",
+		"significantConditions": "Significant Conditions",
+		"fixture": "Fixture",
+		"3rdPlace": "3rd Place",
+		"final": "Final",
+		"groupStage1st": "Group Stage 1st",
+		"groupStage2nd": "Group Stage 2nd",
+		"roundOf16": "Round of 16",
+		"quarterFinals": "Quarter-Finals",
+		"semiFinals": "Semi-Finals",
+		"getStarted": "Get Started",
+		"totalPrizePool": "TOTAL PRIZE POOL",
+		"terms&Conditions": "Terms & Conditions",
+		"prediction": "Prediction",
+		"yourGroup/Team": "Your Group / Team",
+		"prizeWorth": "PRIZES WORTH!",
+		"iconForWorldCup": "An icon for new FIFA World Cup",
+		"titleIntro": "As fans gear up for the FIFA World Cup Qatar 2022 the emblem serves as beacon across the globe; drawing them a new type of tournament where everything is within easy reach",
+		"date": "Date"
+	},
+
 	"end-----": "end-----"
 }

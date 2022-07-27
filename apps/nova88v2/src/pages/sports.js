@@ -7,21 +7,20 @@ import { getUrlParameter } from "../components/common/common";
 import { GET_ENTER_PAGE_URL } from "../service/enterPage";
 import { defSpecialSetting } from "../components/hook/useGotoGame";
 
-export default () => {
-	return (
-		<Wrapper>
-			<Layout>
-				<Content />
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper>
+		<Layout>
+			<Content />
+		</Layout>
+	</Wrapper>
+);
 
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
 	const tpId = getUrlParameter("tpId");
 	const gameId = getUrlParameter("gameId");
 	const matchid = getUrlParameter("matchid");
+
 	const tpGameType =
 		getUrlParameter("tpGameType") || productList.sports.tpGameType;
 	const _tpId = isNaN(tpId) ? tpId : Number(tpId);

@@ -772,5 +772,35 @@
 		"lbl_promo_apply_now": "APPLY NOW",
 		"lbl_promo_more_info": "MORE INFO",
 		"lbl_promo_all_promos": "ALL PROMOS"
+	},
+
+	"worldCup": {
+		"info": "Info",
+		"ticketsAvailable": "Ticket(s) Avaliable",
+		"ticketsUsed": "Ticket(s) Used",
+		"yourPredictions": "Your Predictions",
+		"group": "Group",
+		"ticket": "Ticket",
+		"ticketBeenUsed": "The ticket has been used.",
+		"ticketNotBeenActivated": "Ticket not available.",
+		"eventTitle": "FIFA WORLD CUP Qatar 2022",
+		"startsFrom": "Prediction Campaign Starts from",
+		"startsTime": "01 August",
+		"to": "to",
+		"endTime": "31 October 2022",
+		"significantConditions": "Significant Conditions",
+		"USD": "USD",
+		"fixture": "Fixture",
+		"3rdPlace": "3rd Place",
+		"final": "Final",
+		"groupStage1st": "Group Stage 1st",
+		"groupStage2nd": "Group Stage 2nd",
+		"roundOf16": "Round of 16",
+		"quarterFinals": "Quarter-Finals",
+		"semiFinals": "Semi-Finals",
+		"getStarted": "Get Started",
+		"totalPrizePool": "TOTAL PRIZE POOL",
+		"terms&Conditions": "Terms & Conditions",
+		"date": "Date"
 	}
 }
