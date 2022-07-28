@@ -79,7 +79,7 @@ const Intro = ({ scrollToEvent }) => {
 								alt=""
 							/>
 							<div className="info">
-								<span>C.Ronaldo - Protugal</span>
+								<span>C.Ronaldo - Portugal</span>
 								Age 37 / Score 115 Goals
 							</div>
 						</div>
