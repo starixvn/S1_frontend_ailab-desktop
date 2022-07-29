@@ -228,7 +228,7 @@ const CryptoPayForm = ({
 				<button
 					className={buttonAble ? "btn-check" : "darkGray"}
 					onClick={() => buttonAble && onSubmit()}>
-					{isPending ? t("lbl_DepositStatus1") : t("lbl_Submit")}
+					{t("lbl_Submit")}
 				</button>
 			</div>
 		</>
