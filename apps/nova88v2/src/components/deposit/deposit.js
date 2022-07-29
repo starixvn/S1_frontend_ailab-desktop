@@ -239,8 +239,7 @@ const Deposit = () => {
 
 					<Link
 						className="btn-check"
-						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`}
-					>
+						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`}>
 						{t("lbl_UpdatePersonalDetail")}
 					</Link>
 				</div>
@@ -311,8 +310,7 @@ const Deposit = () => {
 									onClick={() => {
 										closePopBox();
 										resolve(true);
-									}}
-								>
+									}}>
 									{t("lbl_Deposit_Promotion_Button_Proceed")}
 								</button>
 								<button
@@ -320,8 +318,7 @@ const Deposit = () => {
 									onClick={() => {
 										closePopBox();
 										resolve(false);
-									}}
-								>
+									}}>
 									{t("lbl_Deposit_Promotion_Button_Back")}
 								</button>
 							</div>
@@ -725,6 +722,8 @@ const Deposit = () => {
 	});
 	if (loading || !isInitDataDone) return null;
 
+	const isPending = depositInfoRecentDatas.some(item => item.status === 1);
+
 	return (
 		<>
 			<DepositInfoMoule
@@ -742,8 +741,7 @@ const Deposit = () => {
 				setPopBox={setPopBox}
 				userName={userInfo.userName}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}
-			>
+				submitHandle={submitHandle}>
 				{depositType === defDepositType.autoDeposit && (
 					<AutoDepositForm
 						t={t}
@@ -835,6 +833,7 @@ const Deposit = () => {
 						t={t}
 						userInfo={userInfo}
 						depositType={depositType}
+						isPending={isPending}
 						defPopBoxType={defPopBoxType}
 						_isConvert={_isConvert}
 						formatAmount={formatAmount}
@@ -849,6 +848,7 @@ const Deposit = () => {
 						onChangeAmount={onChangeAmount}
 						onValidAmount={onValidAmount}
 						onInputboxKeyDown={onInputboxKeyDown}
+						onSubmit={onSubmit}
 					/>
 				)}
 			</DepositInfoMoule>
