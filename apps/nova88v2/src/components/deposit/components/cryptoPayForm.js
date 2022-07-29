@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import PropTypes, { bool, func } from "prop-types";
 import Inputbox from "../../common/inputbox";
 import { getUrlParameter } from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
@@ -12,6 +12,7 @@ const CryptoPayForm = ({
 	t,
 	depositType,
 	formatAmount,
+	isPending,
 	cryptoPayGroupList,
 	formInfo,
 	depositPromoList,
@@ -20,7 +21,8 @@ const CryptoPayForm = ({
 	onChangeAmount,
 	onValidAmount,
 	onInputboxKeyDown,
-	isGroupListFetchDone
+	isGroupListFetchDone,
+	onSubmit
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
@@ -31,29 +33,16 @@ const CryptoPayForm = ({
 	const onGetCryptoPayList = async gId => {
 		setGroupIdForRecord(gId);
 		setInfoChannelIdForRecord(null);
-
-		const infoList = cryptoPayGroupList;
-
-		if (infoList.some(item => item.channelId === infoChannelIdForRecord)) {
-			const defaultInfoListIdx = infoList.findIndex(
-				item => item.channelId === infoChannelIdForRecord
-			);
-			onSetInfoData(infoList[defaultInfoListIdx]);
-		} else if (infoList.length > 0) {
-			onSetInfoData(infoList[0]);
-		}
 	};
 
 	const onSetInfoData = item => {
 		setInfoChannelIdForRecord(item.channelId);
 
-		setFormInfo(prev => {
-			return {
-				...item,
-				amount: null,
-				depositPromo: prev.depositPromo
-			};
-		});
+		setFormInfo(prev => ({
+			...item,
+			amount: null,
+			depositPromo: prev.depositPromo
+		}));
 	};
 
 	useSyncRouteQuery({
@@ -105,6 +94,14 @@ const CryptoPayForm = ({
 		return result;
 	};
 
+	const buttonAble =
+		groupIdForRecord && infoChannelIdForRecord && formInfo?.amount;
+
+	const buttonClassNames = () => {
+		if (isPending) return "btn-org";
+
+		return buttonAble ? "btn-check" : "darkGray";
+	};
 	return (
 		<>
 			<div className="subModule">
@@ -231,6 +228,14 @@ const CryptoPayForm = ({
 				depositPromoList={depositPromoList}
 				onSelectItem={onChangePromotion}
 			/>
+
+			<div className="btnGroup">
+				<button
+					className={buttonClassNames()}
+					onClick={() => buttonAble && onSubmit()}>
+					{isPending ? t("lbl_DepositStatus1") : t("lbl_Submit")}
+				</button>
+			</div>
 		</>
 	);
 };
@@ -246,6 +251,8 @@ CryptoPayForm.propTypes = {
 	onChangeAmount: PropTypes.func.isRequired,
 	onValidAmount: PropTypes.func.isRequired,
 	onInputboxKeyDown: PropTypes.func.isRequired,
-	isGroupListFetchDone: PropTypes.bool.isRequired
+	isGroupListFetchDone: PropTypes.bool.isRequired,
+	onSubmit: func.isRequired,
+	isPending: bool.isRequired
 };
 export default CryptoPayForm;
