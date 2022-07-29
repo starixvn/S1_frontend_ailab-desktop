@@ -97,11 +97,6 @@ const CryptoPayForm = ({
 	const buttonAble =
 		groupIdForRecord && infoChannelIdForRecord && formInfo?.amount;
 
-	const buttonClassNames = () => {
-		if (isPending) return "btn-org";
-
-		return buttonAble ? "btn-check" : "darkGray";
-	};
 	return (
 		<>
 			<div className="subModule">
@@ -231,7 +226,7 @@ const CryptoPayForm = ({
 
 			<div className="btnGroup">
 				<button
-					className={buttonClassNames()}
+					className={buttonAble ? "btn-check" : "darkGray"}
 					onClick={() => buttonAble && onSubmit()}>
 					{isPending ? t("lbl_DepositStatus1") : t("lbl_Submit")}
 				</button>
