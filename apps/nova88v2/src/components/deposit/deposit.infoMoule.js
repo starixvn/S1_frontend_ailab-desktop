@@ -6,6 +6,7 @@ import path from "../../router";
 import { setLocalStorage } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import useClickOutside from "../hook/useClickOutSide";
+import { defDepositType } from "./deposit.def";
 
 const DepositInfoMoule = ({
 	t,
@@ -139,17 +140,22 @@ const DepositInfoMoule = ({
 
 				{children}
 
-				<div className="btnGroup">
-					<button
-						onClick={async () => {
-							await judgeBtnStatus();
-							submitHandle();
-						}}
-						className={classStyle()}
-					>
-						{canSubmit ? t("lbl_Submit") : t("lbl_DepositStatus1")}
-					</button>
-				</div>
+				{/* TODO: 可以慢慢將邏輯拆分到各個Form表單頁面 */}
+				{/* NOTE: 將 cryptoPay 移動到 cryptoPayForm 裏，因此不渲染 */}
+				{depositType !== defDepositType.cryptoPay && (
+					<div className="btnGroup">
+						<button
+							onClick={async () => {
+								await judgeBtnStatus();
+								submitHandle();
+							}}
+							className={classStyle()}>
+							{canSubmit
+								? t("lbl_Submit")
+								: t("lbl_DepositStatus1")}
+						</button>
+					</div>
+				)}
 
 				{processingDescriptionActive ? (
 					<div className="text-center">
