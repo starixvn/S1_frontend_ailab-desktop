@@ -46,7 +46,15 @@ export default () => {
 };
 
 const Countdown = ({ t, diffTime }) => {
-	const duration = moment.duration(diffTime?.times);
+	let diffTimes = 0;
+	let diffDays = 0;
+
+	if (diffTime?.times || diffTime?.days) {
+		diffTimes = Math.abs(diffTime?.times);
+		diffDays = Math.abs(diffTime?.days);
+	}
+
+	const duration = moment.duration(diffTimes);
 
 	const padStartFormater = str => String(str).padStart(2, 0);
 
@@ -65,7 +73,7 @@ const Countdown = ({ t, diffTime }) => {
 				/>
 			</div>
 			<div className="time">
-				<p>{diffTime?.days ?? "00"}</p>
+				<p>{diffDays ?? "00"}</p>
 				<p>{t("lbl_Header_olympic_countdown_days")}</p>
 			</div>
 			<div className="time">
