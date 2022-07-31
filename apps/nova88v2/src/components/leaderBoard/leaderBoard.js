@@ -6,7 +6,9 @@ import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import {
 	GetLeaderboardListV3,
-	api_events_GetCustRankV2
+	api_events_GetCustRankV2,
+	GetLeaderboardListMonth,
+	GetCustRankMonth
 } from "../../service/api/events";
 import LeaderBoardTab from "./leaderBoard.tabs";
 import {
@@ -22,11 +24,7 @@ import {
 import { cloudImgUrl, bannerImgUrl } from "../../config";
 import ContentEvent from "./leaderBoard.content.event";
 import Content from "./leaderBoard.content";
-import {
-	langAndCurrMapping,
-	defCurrencyList,
-	isDateRange
-} from "../common/common";
+import { langAndCurrMapping, defCurrencyList } from "../common/common";
 import { siteDefLangId } from "../../service/language";
 
 const CanSeeLeaderBoard = ({ currencyId }) => {
@@ -82,13 +80,12 @@ export default () => {
 	}, [userInfo.isLogin, _canSeeLeaderBoard]);
 
 	const showUpdateTime = () => {
-		const endDate = "2021/12/31 23:59:59";
-		let _displaytime = new Date(endDate);
-		if (isDateRange(null, endDate)) {
-			_displaytime = new Date();
-			const _convertMin = _displaytime.getMinutes() < 30 ? 0 : 30;
-			_displaytime.setMinutes(_convertMin);
-			_displaytime.setSeconds(0);
+		const now = moment();
+		const startOfHour = moment().startOf("hour");
+
+		let _displaytime = startOfHour;
+		if (now.subtract(30, "minute") > startOfHour) {
+			_displaytime = startOfHour.add(30, "minute");
 		}
 
 		return moment(_displaytime).format("YYYY/MM/DD HH:mm:ss");
@@ -122,9 +119,9 @@ export default () => {
 				).getDate()}`
 			});
 		}
-		monthDataList.sort(function (a, b) {
-			return new Date(a.startDate) > new Date(b.startDate) ? 1 : -1;
-		});
+		monthDataList.sort((a, b) =>
+			new Date(a.startDate) > new Date(b.startDate) ? 1 : -1
+		);
 		const resultList = [];
 		monthDataList.forEach((item, idx) => {
 			resultList.push({ id: idx + 1, ...item });
@@ -272,73 +269,73 @@ export default () => {
 		if (!userInfo.isLogin) return;
 		setRankingData([]);
 
-		// const payload = {
-		// 	lBCategoryId: defGameType.all,
-		// 	TopNum: defRankNum.monthly,
-		// 	SelectDays: _periodData.startDate,
-		// 	EventCode: defEventCode.monthly
-		// };
+		const payload = {
+			lBCategoryId: defGameType.all,
+			TopNum: defRankNum.monthly,
+			SelectDays: _periodData.startDate,
+			EventCode: defEventCode.monthly
+		};
 
-		// const GetMonthlyRankDatas = async () => {
-		// 	await GetLeaderboardListMonth(payload).then(res => {
-		// 		if (res.data.errorCode === 0) {
-		// 			const rankDatas = res.data.data;
-		// 			if (rankDatas?.length > 0) {
-		// 				GetCustRankMonth({
-		// 					LBCategoryId: payload.lBCategoryId,
-		// 					SelectDays: payload.SelectDays,
-		// 					EventCode: payload.EventCode
-		// 				}).then(resRank => {
-		// 					if (resRank.data.errorCode === 0) {
-		// 						const { custRank, point } = resRank.data.data;
-		// 						setRankingData(() => {
-		// 							const rank =
-		// 								custRank > 999 || custRank === 0
-		// 									? "999+"
-		// 									: custRank;
+		const GetMonthlyRankDatas = async () => {
+			await GetLeaderboardListMonth(payload).then(res => {
+				if (res.data.errorCode === 0) {
+					const rankDatas = res.data.data;
+					if (rankDatas?.length > 0) {
+						GetCustRankMonth({
+							LBCategoryId: payload.lBCategoryId,
+							SelectDays: payload.SelectDays,
+							EventCode: payload.EventCode
+						}).then(resRank => {
+							if (resRank.data.errorCode === 0) {
+								const { custRank, point } = resRank.data.data;
+								setRankingData(() => {
+									const rank =
+										custRank > 999 || custRank === 0
+											? "999+"
+											: custRank;
 
-		// 							let result = [];
-		// 							if (
-		// 								custRank <= rankTopNum &&
-		// 								custRank !== 0
-		// 							) {
-		// 								rankDatas[custRank - 1] = {
-		// 									...rankDatas[custRank - 1],
-		// 									userName: userInfo.userName,
-		// 									rank
-		// 								};
-		// 								result = rankDatas;
-		// 							} else {
-		// 								result = [
-		// 									...rankDatas,
-		// 									{
-		// 										userName: userInfo.userName,
-		// 										wTurnover: point,
-		// 										rank
-		// 									}
-		// 								];
-		// 							}
-		// 							return result;
-		// 						});
-		// 					} else {
-		// 						openErrorMessagePopBox(
-		// 							resRank.data.message,
-		// 							resRank.data.errorCode
-		// 						);
-		// 					}
-		// 				});
-		// 			} else {
-		// 				setRankingData([]);
-		// 			}
-		// 		} else {
-		// 			openErrorMessagePopBox(
-		// 				res.data.message,
-		// 				res.data.errorCode
-		// 			);
-		// 		}
-		// 	});
-		// };
-		// GetMonthlyRankDatas();
+									let result = [];
+									if (
+										custRank <= rankTopNum &&
+										custRank !== 0
+									) {
+										rankDatas[custRank - 1] = {
+											...rankDatas[custRank - 1],
+											userName: userInfo.userName,
+											rank
+										};
+										result = rankDatas;
+									} else {
+										result = [
+											...rankDatas,
+											{
+												userName: userInfo.userName,
+												wTurnover: point,
+												rank
+											}
+										];
+									}
+									return result;
+								});
+							} else {
+								openErrorMessagePopBox(
+									resRank.data.message,
+									resRank.data.errorCode
+								);
+							}
+						});
+					} else {
+						setRankingData([]);
+					}
+				} else {
+					openErrorMessagePopBox(
+						res.data.message,
+						res.data.errorCode
+					);
+				}
+			});
+		};
+		GetMonthlyRankDatas();
 	};
 
 	const openErrorMessagePopBox = (message, errorCode) => {
@@ -367,7 +364,7 @@ export default () => {
 		window.open(
 			`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${
 				gotoDefaultUrl.includes(userInfo.langId)
-					? "cs_en"
+					? "en"
 					: userInfo.langId
 			}.html`
 		);
