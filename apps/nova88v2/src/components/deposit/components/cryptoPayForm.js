@@ -253,6 +253,7 @@ CryptoPayForm.propTypes = {
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
 	onSubmit: func.isRequired,
-	isPending: bool.isRequired
+	isPending: bool.isRequired,
+	onChangePromotion: func.isRequired
 };
 export default CryptoPayForm;

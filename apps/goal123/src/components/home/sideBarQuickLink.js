@@ -32,7 +32,7 @@ export default () => {
 				<ul>
 					<li>
 						<a
-							href="https://zalo.me/Goal123csd"
+							href="https://zalo.me/goal_csd"
 							target="_blank"
 							rel="noreferrer">
 							<img
