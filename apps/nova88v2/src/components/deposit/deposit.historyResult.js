@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { number_format } from "../common/common";
+import { number_format, currencyIdToTimeZone } from "../common/common";
 
 const statusClassName = {
 	1: "pending",
@@ -20,8 +20,7 @@ export const TransactionHistory = props => {
 			<>
 				<button
 					className="orange icon icon-pencil"
-					onClick={props.SubmitProof}
-				>
+					onClick={props.SubmitProof}>
 					{t("lbl_SubmitProof")}
 				</button>
 				<button className="gray" onClick={props.ClickCancel}>
@@ -32,35 +31,37 @@ export const TransactionHistory = props => {
 	}
 
 	return (
-		<div>
-			<div>{props.idx}</div>
+		props.currencyId && (
 			<div>
-				{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
-					.zone(props.timeZone)
-					.format("MM/DD/YYYY")}
-				<span className="txt-blue">
+				<div>{props.idx}</div>
+				<div>
 					{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
-						.zone(props.timeZone)
-						.format("hh:mm:ss A")}
-				</span>
+						.zone(currencyIdToTimeZone[props.currencyId])
+						.format("MM/DD/YYYY")}
+					<span className="txt-blue">
+						{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
+							.zone(currencyIdToTimeZone[props.currencyId])
+							.format("hh:mm:ss A")}
+					</span>
+				</div>
+				<div>{props.transId}</div>
+				<div>{t(`lbl_DepositType${props.depositType}`)}</div>
+				<div>{number_format(props.amount, props._isConvert)}</div>
+				<div className={statusClassName[props.status]}>
+					{t(`lbl_DepositStatus${props.status}`)}
+				</div>
+				<div className="btnGroup">
+					{actionContent}
+					{props.thirdId}
+				</div>
 			</div>
-			<div>{props.transId}</div>
-			<div>{t(`lbl_DepositType${props.depositType}`)}</div>
-			<div>{number_format(props.amount, props._isConvert)}</div>
-			<div className={statusClassName[props.status]}>
-				{t(`lbl_DepositStatus${props.status}`)}
-			</div>
-			<div className="btnGroup">
-				{actionContent}
-				{props.thirdId}
-			</div>
-		</div>
+		)
 	);
 };
 
 TransactionHistory.defaultProps = {
 	thirdId: null,
-	timeZone: null
+	currencyId: null
 };
 
 TransactionHistory.propTypes = {
@@ -74,5 +75,5 @@ TransactionHistory.propTypes = {
 	amount: PropTypes.number.isRequired,
 	_isConvert: PropTypes.bool.isRequired,
 	status: PropTypes.number.isRequired,
-	timeZone: PropTypes.string
+	currencyId: PropTypes.number
 };

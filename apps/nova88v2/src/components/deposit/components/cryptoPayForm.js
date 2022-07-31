@@ -32,7 +32,6 @@ const CryptoPayForm = ({
 
 	const onGetCryptoPayList = async gId => {
 		setGroupIdForRecord(gId);
-		setInfoChannelIdForRecord(null);
 	};
 
 	const onSetInfoData = item => {
@@ -44,6 +43,14 @@ const CryptoPayForm = ({
 			depositPromo: prev.depositPromo
 		}));
 	};
+
+	// * crypto 的默認 channel 需監聽 groupIdForRecord ，當 groupIdForRecord 有異動才接著做
+	// * 因 channelList 是透過 groupIdForRecord 異動去計算而來，因此不能放在同個程式居段
+	useEffect(() => {
+		if (channelList[0]) {
+			onSetInfoData(channelList[0]);
+		}
+	}, [groupIdForRecord]);
 
 	useSyncRouteQuery({
 		type: depositType,
@@ -97,11 +104,6 @@ const CryptoPayForm = ({
 	const buttonAble =
 		groupIdForRecord && infoChannelIdForRecord && formInfo?.amount;
 
-	const buttonClassNames = () => {
-		if (isPending) return "btn-org";
-
-		return buttonAble ? "btn-check" : "darkGray";
-	};
 	return (
 		<>
 			<div className="subModule">
@@ -210,7 +212,7 @@ const CryptoPayForm = ({
 					placeholder={`${t("lbl_MinMaxAmount")} ${formatAmount(
 						formInfo.minAmount
 					)} ~ ${formatAmount(formInfo.maxAmount)}`}
-					onKeyDown={onInputboxKeyDown}
+					onKeyDown={event => buttonAble && onInputboxKeyDown(event)}
 				/>
 				{!isSelAmountType && (
 					<ShortcutAmountList
@@ -231,9 +233,9 @@ const CryptoPayForm = ({
 
 			<div className="btnGroup">
 				<button
-					className={buttonClassNames()}
+					className={buttonAble ? "btn-check" : "darkGray"}
 					onClick={() => buttonAble && onSubmit()}>
-					{isPending ? t("lbl_DepositStatus1") : t("lbl_Submit")}
+					{t("lbl_Submit")}
 				</button>
 			</div>
 		</>
@@ -253,7 +255,6 @@ CryptoPayForm.propTypes = {
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
 	onSubmit: func.isRequired,
-	isPending: bool.isRequired,
-	onChangePromotion: func.isRequired
+	isPending: bool.isRequired
 };
 export default CryptoPayForm;
