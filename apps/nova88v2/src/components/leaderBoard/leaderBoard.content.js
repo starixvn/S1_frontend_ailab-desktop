@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import PropTypes from "prop-types";
 import { defTabId } from "./leaderBoard.def";
 import { number_format } from "../common/common";
@@ -18,6 +19,10 @@ const leaderBoardContent = ({
 	periodId,
 	periodList
 }) => {
+	const formattedEndDate = moment()
+		.endOf("month")
+		.format("YYYY/MM/DD HH:mm:ss");
+
 	const Ranking = () =>
 		rankingData?.map((item, idx) => {
 			const { rank } = item;
@@ -107,7 +112,9 @@ const leaderBoardContent = ({
 						<div
 							className="lastUpdate"
 							style={{ color: "#fab617", fontWeight: 600 }}>
-							{t("lbl_Ranking_EndDate")}
+							{t(`lbl_Ranking_EndDate`, {
+								time: `${formattedEndDate} GMT+8`
+							})}
 						</div>
 					</>
 				)}

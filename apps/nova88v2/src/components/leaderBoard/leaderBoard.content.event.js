@@ -4,29 +4,26 @@ import { defTabId } from "./leaderBoard.def";
 import { cloudImgUrl, bannerImgUrl } from "../../config";
 
 const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
-	const rows2 = rewardList?.section2?.map((item, idx) => {
-		return (
-			<li key={`leaderBoard-event-${item.rank}`}>
-				<div>
-					{idx + 1 < 4 ? (
-						<img
-							src={`${cloudImgUrl}/SiteSkin/img/no${idx + 1}.png`}
-							alt="top_ranking"
-						/>
-					) : (
-						<img
-							src={`${cloudImgUrl}/SiteSkin/img/gold.png`}
-							alt="top_ranking"
-						/>
-					)}
-					{item.rank}
-				</div>
-				<div>{item.deposit}</div>
-				<div>{item.point}</div>
-				<div>{item.bonus}</div>
-			</li>
-		);
-	});
+	const rows2 = rewardList?.section2?.map((item, idx) => (
+		<li key={`leaderBoard-event-${item.rank}`}>
+			<div>
+				{idx + 1 < 4 ? (
+					<img
+						src={`${cloudImgUrl}/SiteSkin/img/no${idx + 1}.png`}
+						alt="top_ranking"
+					/>
+				) : (
+					<img
+						src={`${cloudImgUrl}/SiteSkin/img/gold.png`}
+						alt="top_ranking"
+					/>
+				)}
+				{item.rank}
+			</div>
+			<div>{item.point}</div>
+			<div>{item.bonus}</div>
+		</li>
+	));
 
 	return (
 		<div className={`eventRule ${tab === defTabId.first ? "active" : ""}`}>
@@ -80,7 +77,6 @@ const leaderBoardEventContent = ({ t, tab, rewardList, linkToTnc }) => {
 				<ul>
 					<li>
 						<div>{t("lbl_Ranking")}</div>
-						<div>{t("lbl_MIN_DEPOSIT")}</div>
 						<div>{t("lbl_MIN_POINT")}</div>
 						<div>{t("lbl_Bonus_credit")}</div>
 					</li>

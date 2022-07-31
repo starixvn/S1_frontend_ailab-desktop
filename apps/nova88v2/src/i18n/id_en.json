@@ -669,7 +669,7 @@
 	"lbl_POINT": "POINT",
 	"lbl_MIN_DEPOSIT": "MIN DEPOSIT",
 	"lbl_MIN_POINT": "MIN POINT",
-	"lbl_Ranking_EndDate": "EVENT ENDED: 31/12/2021 23:59:59 GMT+8",
+	"lbl_Ranking_EndDate": "EVENT ENDED: {{time}}",
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "Referral",
