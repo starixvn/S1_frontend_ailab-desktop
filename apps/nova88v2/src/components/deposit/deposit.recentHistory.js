@@ -156,8 +156,7 @@ const DepositRecentHistory = ({
 						onClick={async () => {
 							await ClickConfirm();
 							submitHandle();
-						}}
-					>
+						}}>
 						{t("lbl_Yes")}
 					</button>
 					<button className="orange" onClick={ClosePopBox}>
@@ -185,7 +184,7 @@ const DepositRecentHistory = ({
 				item.refId,
 				item.depositTime
 			)}
-			timeZone={timeZone}
+			currencyId={userInfo.currencyId}
 		/>
 	));
 
