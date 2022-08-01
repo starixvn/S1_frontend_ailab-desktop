@@ -131,9 +131,9 @@ export const defRewardList = ({ t }) => ({
 	},
 	THB: {
 		section1: [
-			{ turnover: "500", point: "1" },
-			{ turnover: "3,000", point: "1" },
-			{ turnover: "6,000", point: "1" }
+			{ turnover: "800", point: "1" },
+			{ turnover: "4,000", point: "1" },
+			{ turnover: "8,000", point: "1" }
 		],
 		section2: [
 			{
@@ -194,9 +194,9 @@ export const defRewardList = ({ t }) => ({
 	},
 	IDR: {
 		section1: [
-			{ turnover: "300,000", point: "1" },
-			{ turnover: "1,000,000", point: "1" },
-			{ turnover: "2,500,000", point: "1" }
+			{ turnover: "336,000", point: "1" },
+			{ turnover: "1,680,000", point: "1" },
+			{ turnover: "3,368,000", point: "1" }
 		],
 		section2: [
 			{
