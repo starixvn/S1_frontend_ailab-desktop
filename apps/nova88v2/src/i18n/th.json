@@ -670,7 +670,7 @@
 	"lbl_POINT": "คะแนน",
 	"lbl_MIN_DEPOSIT": "ยอดฝากขั้นต่ำ",
 	"lbl_MIN_POINT": "คะแนนขั้นต่ำ",
-	"lbl_Ranking_EndDate": "สิ้นสุดกิจกรรม: 31/12/2021 23:59:59 GMT+8",
+	"lbl_Ranking_EndDate": "สิ้นสุดกิจกรรม: {{time}}",
 
 	"referral ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Referral": "การอ้างอิง",
