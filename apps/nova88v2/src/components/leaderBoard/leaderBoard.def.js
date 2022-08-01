@@ -65,196 +65,194 @@ export const getLeaderBoardSupportCurrencyId = () =>
 		key => defCurrencyList[key]
 	);
 
-export const defRewardList = ({ t }) => {
-	return {
-		MYR: {
-			section1: [
-				{ turnover: "100", point: "1" },
-				{ turnover: "500", point: "1" },
-				{ turnover: "1000", point: "1" }
-			],
-			section2: [
-				{
-					rank: t("lbl_RankChampion"),
-					deposit: "300,000",
-					point: "30,000",
-					bonus: "10,000"
-				},
-				{
-					rank: t("lbl_Rank1"),
-					deposit: "250,000",
-					point: "25,000",
-					bonus: "8,000"
-				},
-				{
-					rank: t("lbl_Rank2"),
-					deposit: "180,000",
-					point: "18,000",
-					bonus: "6,000"
-				},
-				{
-					rank: t("lbl_Rank3"),
-					deposit: "150,000",
-					point: "15,000",
-					bonus: "5,000"
-				},
-				{
-					rank: t("lbl_Rank4"),
-					deposit: "120,000",
-					point: "12,000",
-					bonus: "4,000"
-				},
-				{
-					rank: t("lbl_Rank5"),
-					deposit: "100,000",
-					point: "10,000",
-					bonus: "3,000"
-				},
-				{
-					rank: t("lbl_Rank6"),
-					deposit: "90,000",
-					point: "9,000",
-					bonus: "2,000"
-				},
-				{
-					rank: t("lbl_Rank7"),
-					deposit: "80,000",
-					point: "8,000",
-					bonus: "1,000"
-				},
-				{
-					rank: t("lbl_Rank9_30"),
-					deposit: "50,000",
-					point: "5,000",
-					bonus: "500"
-				}
-			]
-		},
-		THB: {
-			section1: [
-				{ turnover: "500", point: "1" },
-				{ turnover: "3,000", point: "1" },
-				{ turnover: "6,000", point: "1" }
-			],
-			section2: [
-				{
-					rank: t("lbl_RankChampion"),
-					deposit: "1,200,000",
-					point: "24,000",
-					bonus: "50,000"
-				},
-				{
-					rank: t("lbl_Rank1"),
-					deposit: "1,100,000",
-					point: "22,000",
-					bonus: "40,000"
-				},
-				{
-					rank: t("lbl_Rank2"),
-					deposit: "950,000",
-					point: "19,000",
-					bonus: "35,000"
-				},
-				{
-					rank: t("lbl_Rank3"),
-					deposit: "800,000",
-					point: "16,000",
-					bonus: "25,000"
-				},
-				{
-					rank: t("lbl_Rank4"),
-					deposit: "700,000",
-					point: "14,000",
-					bonus: "20,000"
-				},
-				{
-					rank: t("lbl_Rank5"),
-					deposit: "600,000",
-					point: "12,000",
-					bonus: "15,000"
-				},
-				{
-					rank: t("lbl_Rank6"),
-					deposit: "500,000",
-					point: "10,000",
-					bonus: "10,000"
-				},
-				{
-					rank: t("lbl_Rank7"),
-					deposit: "400,000",
-					point: "8,000",
-					bonus: "5,000"
-				},
-				{
-					rank: t("lbl_Rank9_30"),
-					deposit: "300,000",
-					point: "6,000",
-					bonus: "3,000"
-				}
-			]
-		},
-		IDR: {
-			section1: [
-				{ turnover: "300,000", point: "1" },
-				{ turnover: "1,000,000", point: "1" },
-				{ turnover: "2,500,000", point: "1" }
-			],
-			section2: [
-				{
-					rank: t("lbl_RankChampion"),
-					deposit: "400,000,000",
-					point: "13,500",
-					bonus: "15,000,000"
-				},
-				{
-					rank: t("lbl_Rank1"),
-					deposit: "300,000,000",
-					point: "10,000",
-					bonus: "12,000,000"
-				},
-				{
-					rank: t("lbl_Rank2"),
-					deposit: "220,000,000",
-					point: "7,300",
-					bonus: "8,500,000"
-				},
-				{
-					rank: t("lbl_Rank3"),
-					deposit: "180,000,000",
-					point: "6,000",
-					bonus: "6,500,000"
-				},
-				{
-					rank: t("lbl_Rank4"),
-					deposit: "150,000,000",
-					point: "5,000",
-					bonus: "5,000,000"
-				},
-				{
-					rank: t("lbl_Rank5"),
-					deposit: "130,000,000",
-					point: "4,300",
-					bonus: "3,500,000"
-				},
-				{
-					rank: t("lbl_Rank6"),
-					deposit: "100,000,000",
-					point: "3,300",
-					bonus: "2,000,000"
-				},
-				{
-					rank: t("lbl_Rank7"),
-					deposit: "65,000,000",
-					point: "2,000",
-					bonus: "1,000,000"
-				},
-				{
-					rank: t("lbl_Rank9_30"),
-					deposit: "35,000,000",
-					point: "1,200",
-					bonus: "500,000"
-				}
-			]
-		}
-	};
-};
+export const defRewardList = ({ t }) => ({
+	MYR: {
+		section1: [
+			{ turnover: "100", point: "1" },
+			{ turnover: "500", point: "1" },
+			{ turnover: "1000", point: "1" }
+		],
+		section2: [
+			{
+				rank: t("lbl_RankChampion"),
+				deposit: "300,000",
+				point: "30,000",
+				bonus: "10,000"
+			},
+			{
+				rank: t("lbl_Rank1"),
+				deposit: "250,000",
+				point: "25,000",
+				bonus: "8,000"
+			},
+			{
+				rank: t("lbl_Rank2"),
+				deposit: "180,000",
+				point: "18,000",
+				bonus: "6,000"
+			},
+			{
+				rank: t("lbl_Rank3"),
+				deposit: "150,000",
+				point: "15,000",
+				bonus: "5,000"
+			},
+			{
+				rank: t("lbl_Rank4"),
+				deposit: "120,000",
+				point: "12,000",
+				bonus: "4,000"
+			},
+			{
+				rank: t("lbl_Rank5"),
+				deposit: "100,000",
+				point: "10,000",
+				bonus: "3,000"
+			},
+			{
+				rank: t("lbl_Rank6"),
+				deposit: "90,000",
+				point: "9,000",
+				bonus: "2,000"
+			},
+			{
+				rank: t("lbl_Rank7"),
+				deposit: "80,000",
+				point: "8,000",
+				bonus: "1,000"
+			},
+			{
+				rank: t("lbl_Rank9_30"),
+				deposit: "50,000",
+				point: "5,000",
+				bonus: "500"
+			}
+		]
+	},
+	THB: {
+		section1: [
+			{ turnover: "500", point: "1" },
+			{ turnover: "3,000", point: "1" },
+			{ turnover: "6,000", point: "1" }
+		],
+		section2: [
+			{
+				rank: t("lbl_RankChampion"),
+				deposit: "1,200,000",
+				point: "30,000",
+				bonus: "50,000"
+			},
+			{
+				rank: t("lbl_Rank1"),
+				deposit: "1,100,000",
+				point: "25,000",
+				bonus: "40,000"
+			},
+			{
+				rank: t("lbl_Rank2"),
+				deposit: "950,000",
+				point: "18,000",
+				bonus: "35,000"
+			},
+			{
+				rank: t("lbl_Rank3"),
+				deposit: "800,000",
+				point: "15,000",
+				bonus: "25,000"
+			},
+			{
+				rank: t("lbl_Rank4"),
+				deposit: "700,000",
+				point: "12,000",
+				bonus: "20,000"
+			},
+			{
+				rank: t("lbl_Rank5"),
+				deposit: "600,000",
+				point: "10,000",
+				bonus: "15,000"
+			},
+			{
+				rank: t("lbl_Rank6"),
+				deposit: "500,000",
+				point: "9,000",
+				bonus: "10,000"
+			},
+			{
+				rank: t("lbl_Rank7"),
+				deposit: "400,000",
+				point: "8,000",
+				bonus: "5,000"
+			},
+			{
+				rank: t("lbl_Rank9_30"),
+				deposit: "300,000",
+				point: "5,000",
+				bonus: "3,000"
+			}
+		]
+	},
+	IDR: {
+		section1: [
+			{ turnover: "300,000", point: "1" },
+			{ turnover: "1,000,000", point: "1" },
+			{ turnover: "2,500,000", point: "1" }
+		],
+		section2: [
+			{
+				rank: t("lbl_RankChampion"),
+				deposit: "400,000,000",
+				point: "30,000",
+				bonus: "15,000,000"
+			},
+			{
+				rank: t("lbl_Rank1"),
+				deposit: "300,000,000",
+				point: "25,000",
+				bonus: "12,000,000"
+			},
+			{
+				rank: t("lbl_Rank2"),
+				deposit: "220,000,000",
+				point: "18,000",
+				bonus: "8,500,000"
+			},
+			{
+				rank: t("lbl_Rank3"),
+				deposit: "180,000,000",
+				point: "15,000",
+				bonus: "6,500,000"
+			},
+			{
+				rank: t("lbl_Rank4"),
+				deposit: "150,000,000",
+				point: "12,000",
+				bonus: "5,000,000"
+			},
+			{
+				rank: t("lbl_Rank5"),
+				deposit: "130,000,000",
+				point: "10,000",
+				bonus: "3,500,000"
+			},
+			{
+				rank: t("lbl_Rank6"),
+				deposit: "100,000,000",
+				point: "9,000",
+				bonus: "2,000,000"
+			},
+			{
+				rank: t("lbl_Rank7"),
+				deposit: "65,000,000",
+				point: "8,000",
+				bonus: "1,000,000"
+			},
+			{
+				rank: t("lbl_Rank9_30"),
+				deposit: "35,000,000",
+				point: "5,000",
+				bonus: "500,000"
+			}
+		]
+	}
+});
