@@ -48,7 +48,6 @@ const History = () => {
 		if (!processing) {
 			setProcessing(true);
 			let transactionData = filterData;
-
 			if (!isUnix) {
 				transactionData = {
 					StartDate: moment(startDate).zone(timeZone).unix(),
@@ -145,7 +144,7 @@ const History = () => {
 	const columns = defColumns({
 		t,
 		_isConvert,
-		filterData,
+		keepData,
 
 		updateHistoryList,
 		transferDirection,
