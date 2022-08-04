@@ -43,26 +43,13 @@ export default function HTML(props) {
 				{/* <script type="text/javascript" src="/lib/jquery-3.6.0.min.js" /> */}
 
 				{/* shield */}
-				{/* <script
+				<script
 					language="javascript"
 					src="https://d1cr9zxt7u0sgu.cloudfront.net/shdfp.js?SITE_ID=e07223826cddd57b8fea985211d18f77868b67d5&TYPE=JS&DE=1&AUTO=0"
 					type="text/javascript"
 					async
 					charSet="UTF-8"
-					onLoad="getShieldData()"
-				/> */}
-
-				{/* <!-- No Script Invocation Start --> */}
-				{/* <noscript>
-					<iframe
-						src="https://stag.goal123.com/shield-fp /v1/api/web/noscript?site_id=e07223826cddd57b8fea985211d18f77868b67d5"
-						width="0"
-						height="0"
-						// style="display:none"
-					/>
-				</noscript> */}
-				{/* <!-- No Script Invocation End --> */}
-
+				/>
 				{/* shield */}
 
 				{props.headComponents}
