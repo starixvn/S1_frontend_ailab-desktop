@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-	GetCurrencyName,
-	defCurrencyList,
-	langAndCurrMapping
-} from "../common/common";
+import { GetCurrencyName, langAndCurrMapping } from "../common/common";
 import { bannerImgUrl } from "../../config";
+import useGetSocialChannel, {
+	defDisplayPage,
+	footerImgName
+} from "../hook/useGetSocialChannel";
 
 const paymentList = {
 	MYR: [
@@ -76,104 +76,28 @@ const paymentList = {
 	]
 };
 
-const defSocialMedia = currencyId => {
-	switch (currencyId) {
-		case defCurrencyList.MYR:
-			return {
-				fb: "https://www.facebook.com/nova88my/ ",
-				twitter: "https://twitter.com/nova88_malaysia",
-				ig: "https://www.instagram.com/nova88my/ ",
-				yt: "https://www.youtube.com/channel/UCoUtgrQN2E10oke1Hmj0ATw",
-				telegram: "https://t.me/nova88my"
-			};
-		case defCurrencyList.INR:
-			return {
-				fb: "https://www.facebook.com/nova88india",
-				ig: "https://www.instagram.com/nova88indiaofficial/",
-				telegram: "https://t.me/nova88india"
-			};
-		case defCurrencyList.THB:
-			return {
-				fb: "https://www.facebook.com/nova88thailandofficial/",
-				ig: "https://www.instagram.com/nova88thai/",
-				twitter: "https://twitter.com/nova88thai",
-				telegram: "https://t.me/nova88thai",
-				yt: "https://www.youtube.com/channel/UCw-GpZw8YG_VEPjJKZvbXqw"
-			};
-		case defCurrencyList.IDR:
-			return {
-				fb: "https://www.facebook.com/nova88indo",
-				ig: "https://www.instagram.com/nova88indo/",
-				twitter: "https://twitter.com/Nova88Indo",
-				telegram: "https://t.me/nova88indo",
-				yt: "https://www.youtube.com/channel/UCvX-E6TqyR3Ett7XMkTM1Bw",
-				pinterest: "https://id.pinterest.com/Nova88Indonesia2"
-			};
-		default:
-			return {
-				fb: "https://www.facebook.com/nova88official/ ",
-				twitter: "https://twitter.com/Nova88official/",
-				ig: "https://www.instagram.com/accounts/login/?next=/nova88_official/ ",
-				telegram: "https://t.me/Nova88Support1"
-			};
-	}
-};
-
-const socialMedias = currencyId => {
-	const socialMedia = defSocialMedia(currencyId);
-	return (
-		<>
-			{socialMedia?.fb && (
-				<a href={socialMedia.fb} target="_blank" rel="noreferrer">
-					<img src={`${bannerImgUrl}/desktop/img/fba.png`} alt="fb" />
-				</a>
-			)}
-			{socialMedia?.ig && (
-				<a href={socialMedia.ig} target="_blank" rel="noreferrer">
-					<img src={`${bannerImgUrl}/desktop/img/ina.png`} alt="ig" />
-				</a>
-			)}
-			{socialMedia?.yt && (
-				<a href={socialMedia.yt} target="_blank" rel="noreferrer">
-					<img
-						src={`${bannerImgUrl}/desktop/img/yta.png`}
-						alt="youtube"
-					/>
-				</a>
-			)}
-			{socialMedia?.twitter && (
-				<a href={socialMedia.twitter} target="_blank" rel="noreferrer">
-					<img
-						src={`${bannerImgUrl}/desktop/img/twa.png`}
-						alt="twitter"
-					/>
-				</a>
-			)}
-			{socialMedia?.telegram && (
-				<a href={socialMedia.telegram} target="_blank" rel="noreferrer">
-					<img
-						src={`${bannerImgUrl}/desktop/img/tga.png`}
-						alt="telegram"
-					/>
-				</a>
-			)}
-			{socialMedia?.pinterest && (
-				<a
-					href={socialMedia.pinterest}
-					target="_blank"
-					rel="noreferrer"
-				>
-					<img
-						src={`${bannerImgUrl}/desktop/img/pta.png`}
-						alt="pinterest"
-					/>
-				</a>
-			)}
-		</>
-	);
-};
-
 const FollowUsSection = ({ t, langId, currencyId }) => {
+	const { socialChannel } = useGetSocialChannel({
+		langId,
+		currencyId: currencyId ?? langAndCurrMapping[langId],
+		displayPage: defDisplayPage.Footer
+	});
+
+	const snsArr = socialChannel?.map(el => (
+		<a
+			key={`channel-${el.channelName}`}
+			href={el.link}
+			target="_blank"
+			rel="noreferrer">
+			<img
+				src={`${bannerImgUrl}/desktop/img/${
+					footerImgName[el.channelName]
+				}`}
+				alt={el.title}
+			/>
+		</a>
+	));
+
 	const getPaymentList = () =>
 		paymentList[GetCurrencyName({ langId, currencyId, t })] ??
 		paymentList.MYR;
@@ -184,14 +108,14 @@ const FollowUsSection = ({ t, langId, currencyId }) => {
 		</a>
 	));
 
-	const _currencyId = currencyId ?? langAndCurrMapping[langId];
-
 	return (
 		<div className="sfp">
-			<div>
-				<div className="title">{t("lbl_Follow_Us")}</div>
-				<div>{socialMedias(_currencyId)}</div>
-			</div>
+			{socialChannel?.length > 0 && (
+				<div>
+					<div className="title">{t("lbl_Follow_Us")}</div>
+					<div>{snsArr}</div>
+				</div>
+			)}
 			<div>
 				<div className="title">{t("lbl_Suggested_Browser")}</div>
 				<div>

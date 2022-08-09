@@ -4,18 +4,41 @@ import { api_site_GetSocialChannel } from "../../service/api/site";
 
 export const defDisplayPage = {
 	Home: 1,
-	ContactUs: 2
+	ContactUs: 2,
+	App: 3,
+	Footer: 4
 };
 
-export const defChannelName = {
-	LivaChat: "LivaChat",
-	WhatsApp: "WhatsApp",
-	Telegram: "Telegram",
-	Email: "E-mail",
-	Facebook: "Facebook",
-	Twitter: "Twitter",
-	Instagram: "Instagram",
-	LINE: "LINE"
+export const buttonTypeList = ["Livachat"];
+
+export const sideBarIconName = {
+	Livechat: "icon icon icon-chat",
+	WhatsApp: "icon icon-whatsapp",
+	Telegram: "icon icon-telegram",
+	"E-mail": "icon icon icon-envelope",
+	Facebook: "icon icon-facebook2",
+	Twitter: "icon icon-twitter",
+	Instagram: "icon icon-instagram",
+	LINE: "icon icon-line",
+	Youtube: "icon icon-youtube"
+};
+
+export const defLinkType = {
+	url: 1,
+	qrCode: 2
+};
+
+export const footerImgName = {
+	Youtube: "yta.png",
+	Telegram: "tga.png",
+	Facebook: "fba.png",
+	Twitter: "twa.png",
+	Instagram: "ina.png",
+	Pinterest: "pta.png",
+	WhatsApp: "waa.png",
+	"E-mail": "ema.png",
+	Livechat: "chat.png",
+	LINE: "line.png"
 };
 
 const useGetSocialChannel = ({ langId, currencyId, displayPage }) => {
