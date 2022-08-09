@@ -12,12 +12,32 @@ import Promotions from "./footer.promotions";
 import About from "./footer.about";
 import PlatformSection from "./footer.platform";
 import { bannerImgUrl } from "../../config";
+import useGetSocialChannel, {
+	defDisplayPage,
+	channelIcon
+} from "../hook/useGetSocialChannel";
 
 export default () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { productTpIds } = useContext(productTpIdsContext);
 	const { allMaintainList } = useContext(maintainListContext);
+
+	const { socialChannel } = useGetSocialChannel({
+		langId: userInfo.langId,
+		displayPage: defDisplayPage.Footer
+	});
+
+	const snsArr = socialChannel.map(el => (
+		<a
+			key={`channel-${el.channelName}`}
+			href={el.link}
+			className={channelIcon[el.channelName]}
+			target="_blank"
+			rel="noreferrer">
+			{el.channelName}
+		</a>
+	));
 
 	return (
 		<footer>
@@ -86,35 +106,21 @@ export default () => {
 				</div>
 				<About langId={userInfo.langId} t={t} />
 
-				<div>
-					<span className="title">{t("lbl_SocialMedia")}</span>
+				{socialChannel.length > 0 && (
 					<div>
-						<a
-							href="https://www.facebook.com/Bwingtttt "
-							className="icon icon-facebook"
-							target="_blank">
-							{t("lbl_Facebook")}
-						</a>
-						<a
-							href="https://www.youtube.com/channel/UCDvFS9eTrOEYuVjb3BNQ3bg/featured"
-							className="icon icon-youtube"
-							target="_blank">
-							{t("lbl_YouTube")}
-						</a>
-						<a
-							href="https://twitter.com/bwingofficial"
-							className="icon icon-twitter"
-							target="_blank">
-							{t("lbl_Twitter")}
-						</a>
-						<a
-							href="https://www.tiktok.com/@bwingpro"
-							className="icon icon-tiktok"
-							target="_blank">
-							{t("lbl_TikTok")}
-						</a>
+						<span className="title">{t("lbl_SocialMedia")}</span>
+						<div>
+							{snsArr}
+							{/* <a
+								href="https://www.tiktok.com/@bwingpro"
+								className="icon icon-tiktok"
+								target="_blank"
+								rel="noreferrer">
+								{t("lbl_TikTok")}
+							</a> */}
+						</div>
 					</div>
-				</div>
+				)}
 			</div>
 			<div>
 				<PlatformSection
