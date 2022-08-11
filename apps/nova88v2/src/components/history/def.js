@@ -46,7 +46,7 @@ export const defHistoryNav = [
 export const defColumns = ({
 	t,
 	_isConvert,
-	filterData,
+	keepData,
 	updateHistoryList,
 	transferDirection,
 	depositActivateUploadModal,
@@ -117,9 +117,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
@@ -196,9 +196,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
@@ -219,7 +219,7 @@ export const defColumns = ({
 								onClick={() =>
 									depositActivateUploadModal({
 										...item,
-										filterData
+										keepData
 									})
 								}
 							>
@@ -229,7 +229,7 @@ export const defColumns = ({
 								className="gray"
 								onClick={() =>
 									depositActivateCancelConfirmModal({
-										filterData,
+										keepData,
 										transId: item.transId
 									})
 								}
@@ -301,9 +301,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
@@ -384,9 +384,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
@@ -467,9 +467,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
