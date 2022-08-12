@@ -76,7 +76,6 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const _isConvert = isConvert(userInfo.currencyId);
 	const { dispatch } = useContext(walletInfoContext);
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -316,8 +315,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										OK
 									</button>
 								</div>

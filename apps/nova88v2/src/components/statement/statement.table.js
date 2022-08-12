@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { currencyIdToTimeZone } from "../common/common";
+import { currencyIdToTimeZone, defCurrencyList } from "../common/common";
 
 const StatementTable = ({ t, dataSource, columns, children, currencyId }) => {
 	const header = columns.map(colItem => {
 		if (!colItem.dataIndex) return null;
 		const zone =
 			colItem.key === "settledDate" || colItem.key === "settledTime"
-				? `(${currencyIdToTimeZone[currencyId]})`
+				? `(${currencyIdToTimeZone[currencyId ?? defCurrencyList.MYR]})`
 				: "";
 
 		return (

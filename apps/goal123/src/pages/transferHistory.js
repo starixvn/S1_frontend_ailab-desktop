@@ -30,15 +30,28 @@ export default () => (
 	</Wrapper>
 );
 
-const transferDirection = (direction, displayMainWallet, displaySabaWallet) => {
+const transferDirection = (
+	direction,
+	displayMainWallet,
+	displayAdjustment,
+	isAdjustment,
+	tpName
+) => {
 	let startWallet = "";
 	let endWallet = "";
-
 	if (direction === 1) {
-		startWallet = displayMainWallet;
-		endWallet = displaySabaWallet;
+		if (isAdjustment) {
+			startWallet = tpName;
+			endWallet = displayAdjustment;
+		} else {
+			startWallet = displayMainWallet;
+			endWallet = tpName;
+		}
+	} else if (isAdjustment) {
+		startWallet = tpName;
+		endWallet = displayAdjustment;
 	} else {
-		startWallet = displaySabaWallet;
+		startWallet = tpName;
 		endWallet = displayMainWallet;
 	}
 	return { startWallet, endWallet };
@@ -94,8 +107,7 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -116,8 +128,7 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}
-								>
+									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -179,7 +190,9 @@ const Content = () => {
 		const _transferDirection = transferDirection(
 			item.direction,
 			t("lbl_MainWallet"),
-			t("lbl_Wallet_Saba")
+			t("lbl_Adjustment"),
+			item.isAdjustment,
+			item.tpName
 		);
 		const _status = item.status === 0 ? t("lbl_Success") : t("lbl_Fail");
 		const _statusColor = item.status === 0 ? "approved" : "cancel";
@@ -195,6 +208,7 @@ const Content = () => {
 				endWallet={_transferDirection.endWallet}
 				status={_status}
 				statusColor={_statusColor}
+				t={t}
 			/>
 		);
 	});

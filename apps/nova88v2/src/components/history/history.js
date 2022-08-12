@@ -5,7 +5,8 @@ import { useTranslation } from "react-i18next";
 import {
 	isConvert,
 	getUrlParameter,
-	currencyIdToTimeZone
+	currencyIdToTimeZone,
+	defCurrencyList
 } from "../common/common";
 import { userInfoContext } from "../common/context";
 
@@ -42,13 +43,13 @@ const History = () => {
 		currentPage: 1
 	});
 
-	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
+	const timeZone =
+		currencyIdToTimeZone[userInfo.currencyId ?? defCurrencyList.MYR];
 
 	const updateHistoryList = (startDate, endDate, isUnix, quickPick) => {
 		if (!processing) {
 			setProcessing(true);
 			let transactionData = filterData;
-
 			if (!isUnix) {
 				transactionData = {
 					StartDate: moment(startDate).zone(timeZone).unix(),
@@ -145,7 +146,7 @@ const History = () => {
 	const columns = defColumns({
 		t,
 		_isConvert,
-		filterData,
+		keepData,
 
 		updateHistoryList,
 		transferDirection,

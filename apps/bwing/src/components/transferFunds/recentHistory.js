@@ -7,15 +7,28 @@ import { TransactionHistory } from "./historyResult";
 import path from "../../router";
 import ReloadSpin from "../common/reloadSpin";
 
-const transferDirection = (direction, displayMainWallet, displaySabaWallet) => {
+const transferDirection = (
+	direction,
+	displayMainWallet,
+	displayAdjustment,
+	isAdjustment,
+	tpName
+) => {
 	let startWallet = "";
 	let endWallet = "";
-
 	if (direction === 1) {
-		startWallet = displayMainWallet;
-		endWallet = displaySabaWallet;
+		if (isAdjustment) {
+			startWallet = tpName;
+			endWallet = displayAdjustment;
+		} else {
+			startWallet = displayMainWallet;
+			endWallet = tpName;
+		}
+	} else if (isAdjustment) {
+		startWallet = tpName;
+		endWallet = displayAdjustment;
 	} else {
-		startWallet = displaySabaWallet;
+		startWallet = tpName;
 		endWallet = displayMainWallet;
 	}
 	return { startWallet, endWallet };
@@ -29,6 +42,8 @@ const History = props => {
 		const _transferDirection = transferDirection(
 			item.direction,
 			t("lbl_MainWallet"),
+			t("lbl_Adjustment"),
+			item.isAdjustment,
 			item.tpName
 		);
 		const _status = item.status === 0 ? t("lbl_Success") : t("lbl_Fail");
@@ -44,6 +59,7 @@ const History = props => {
 				endWallet={_transferDirection.endWallet}
 				status={_status}
 				statusColor={_statusColor}
+				t={t}
 			/>
 		);
 	});

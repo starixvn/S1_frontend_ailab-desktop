@@ -6,18 +6,36 @@ import { userInfoContext } from "../common/context";
 import { TransactionHistory } from "./historyResult";
 import path from "../../router";
 import ReloadSpin from "../common/reloadSpin";
-import { isConvert, currencyIdToTimeZone } from "../common/common";
+import {
+	isConvert,
+	currencyIdToTimeZone,
+	defCurrencyList
+} from "../common/common";
 import { defHistoryIdList } from "../history/def";
 
-const transferDirection = (direction, tpName, t) => {
+const transferDirection = (
+	direction,
+	displayMainWallet,
+	displayAdjustment,
+	isAdjustment,
+	tpName
+) => {
 	let startWallet = "";
 	let endWallet = "";
 	if (direction === 1) {
-		startWallet = t("lbl_MainWallet");
-		endWallet = tpName;
+		if (isAdjustment) {
+			startWallet = tpName;
+			endWallet = displayAdjustment;
+		} else {
+			startWallet = displayMainWallet;
+			endWallet = tpName;
+		}
+	} else if (isAdjustment) {
+		startWallet = tpName;
+		endWallet = displayAdjustment;
 	} else {
 		startWallet = tpName;
-		endWallet = t("lbl_MainWallet");
+		endWallet = displayMainWallet;
 	}
 	return { startWallet, endWallet };
 };
@@ -26,13 +44,16 @@ const History = ({ getHistory, getTransferRecent }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const _isConvert = isConvert(userInfo.currencyId);
-	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
+	const timeZone =
+		currencyIdToTimeZone[userInfo.currencyId ?? defCurrencyList.MYR];
 
 	const arr = getHistory?.map((item, i) => {
 		const _transferDirection = transferDirection(
 			item.direction,
-			item.tpName,
-			t
+			t("lbl_MainWallet"),
+			t("lbl_Adjustment"),
+			item.isAdjustment,
+			item.tpName
 		);
 		const _status = item.status === 0 ? t("lbl_Success") : t("lbl_Fail");
 		const _statusColor = item.status === 0 ? "approved" : "cancel";
@@ -49,6 +70,8 @@ const History = ({ getHistory, getTransferRecent }) => {
 				statusColor={_statusColor}
 				_isConvert={_isConvert}
 				timeZone={timeZone}
+				t={t}
+				currencyId={userInfo.currencyId}
 			/>
 		);
 	});

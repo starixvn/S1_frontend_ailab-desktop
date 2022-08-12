@@ -5,7 +5,11 @@ import { Link } from "gatsby";
 import { userInfoContext, popBoxContext } from "../common/context";
 import { TransactionHistory } from "./deposit.historyResult";
 import { api_payment_SetDepositCancel } from "../../service/api/payment";
-import { isConvert, currencyIdToTimeZone } from "../common/common";
+import {
+	isConvert,
+	currencyIdToTimeZone,
+	defCurrencyList
+} from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
@@ -27,7 +31,8 @@ const DepositRecentHistory = ({
 	const { errorPopBox } = usePopBox();
 	const _isConvert = isConvert(userInfo.currencyId);
 	const isMountedRef = useRef(null);
-	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
+	const timeZone =
+		currencyIdToTimeZone[userInfo.currencyId ?? defCurrencyList.MYR];
 
 	useEffect(() => {
 		isMountedRef.current = true;

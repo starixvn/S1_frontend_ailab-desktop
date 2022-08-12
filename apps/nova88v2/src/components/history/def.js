@@ -46,7 +46,7 @@ export const defHistoryNav = [
 export const defColumns = ({
 	t,
 	_isConvert,
-	filterData,
+	keepData,
 	updateHistoryList,
 	transferDirection,
 	depositActivateUploadModal,
@@ -91,13 +91,19 @@ export const defColumns = ({
 				const { startWallet, endWallet } = transferDirection(
 					item.direction,
 					t("lbl_MainWallet"),
-					t("lbl_Wallet_Saba")
+					t("lbl_Adjustment"),
+					item.isAdjustment,
+					item.tpName
 				);
 
 				return (
 					<>
 						<span className="txt-blue">{startWallet}</span>
-						<i className="icon icon-keyboard_arrow_right" />
+						{item.isAdjustment ? (
+							<i>&nbsp;&nbsp;</i>
+						) : (
+							<i className="icon icon-keyboard_arrow_right" />
+						)}
 						{endWallet}
 					</>
 				);
@@ -117,9 +123,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
@@ -196,9 +202,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
@@ -219,21 +225,19 @@ export const defColumns = ({
 								onClick={() =>
 									depositActivateUploadModal({
 										...item,
-										filterData
+										keepData
 									})
-								}
-							>
+								}>
 								{t("lbl_SubmitProof")}
 							</button>
 							<button
 								className="gray"
 								onClick={() =>
 									depositActivateCancelConfirmModal({
-										filterData,
+										keepData,
 										transId: item.transId
 									})
-								}
-							>
+								}>
 								{t("lbl_Cancel")}
 							</button>
 						</>
@@ -301,9 +305,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
@@ -322,8 +326,7 @@ export const defColumns = ({
 								activateWithdrawalCancelConfirmModal(
 									item.transId
 								)
-							}
-						>
+							}>
 							{t("lbl_Cancel")}
 						</button>
 					</div>
@@ -384,9 +387,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>
@@ -467,9 +470,9 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								filterData?.StartDate,
-								filterData?.EndDate,
-								true
+								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								false
 							)
 						}
 					/>

@@ -304,6 +304,7 @@
 	"lbl_TpWallet_25": "Ví V8",
 	"lbl_Wallet_Saba": "Ví Saba",
 	"lbl_MainWallet": "Ví chính",
+	"lbl_Adjustment": "Số dư điều chỉnh",
 	"lbl_RestoreAll": "Phục hồi quỹ",
 	"lbl_TransferHistory": "Lịch sử giao dịch",
 	"msg_InsufficientFund": "Không đủ tiền!",
