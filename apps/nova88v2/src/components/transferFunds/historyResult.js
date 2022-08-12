@@ -19,7 +19,11 @@ export const TransactionHistory = props => (
 		<div>{props.transId}</div>
 		<div>
 			<span className="txt-blue">{props.startWallet}</span>
-			<i className="icon icon-keyboard_arrow_right" />
+			{props.endWallet === props.t?.("lbl_Adjustment") ? (
+				<i>&nbsp;&nbsp;</i>
+			) : (
+				<i className="icon icon-keyboard_arrow_right" />
+			)}
 			{props.endWallet}
 		</div>
 		<div>{number_format(props.amount, props._isConvert)}</div>
@@ -43,5 +47,6 @@ TransactionHistory.propTypes = {
 	timeZone: PropTypes.string.isRequired,
 	startWallet: PropTypes.string,
 	endWallet: PropTypes.string,
-	statusColor: PropTypes.string
+	statusColor: PropTypes.string,
+	t: PropTypes.func.isRequired
 };

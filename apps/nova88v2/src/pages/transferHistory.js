@@ -33,15 +33,28 @@ export default () => {
 	);
 };
 
-const transferDirection = (direction, displayMainWallet, displaySabaWallet) => {
+const transferDirection = (
+	direction,
+	displayMainWallet,
+	displayAdjustment,
+	isAdjustment,
+	tpName
+) => {
 	let startWallet = "";
 	let endWallet = "";
-
 	if (direction === 1) {
-		startWallet = displayMainWallet;
-		endWallet = displaySabaWallet;
+		if (isAdjustment) {
+			startWallet = tpName;
+			endWallet = displayAdjustment;
+		} else {
+			startWallet = displayMainWallet;
+			endWallet = tpName;
+		}
+	} else if (isAdjustment) {
+		startWallet = tpName;
+		endWallet = displayAdjustment;
 	} else {
-		startWallet = displaySabaWallet;
+		startWallet = tpName;
 		endWallet = displayMainWallet;
 	}
 	return { startWallet, endWallet };
@@ -166,7 +179,9 @@ const Content = () => {
 		const _transferDirection = transferDirection(
 			item.direction,
 			t("lbl_MainWallet"),
-			t("lbl_Wallet_Saba")
+			t("lbl_Adjustment"),
+			item.isAdjustment,
+			item.tpName
 		);
 		const _status = item.status === 0 ? t("lbl_Success") : t("lbl_Fail");
 		const _statusColor = item.status === 0 ? "approved" : "cancel";
@@ -183,6 +198,7 @@ const Content = () => {
 				status={_status}
 				statusColor={_statusColor}
 				_isConvert={_isConvert}
+				currencyId={userInfo.currencyId}
 			/>
 		);
 	});

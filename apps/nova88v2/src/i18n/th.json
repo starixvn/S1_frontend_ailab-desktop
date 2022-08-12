@@ -413,6 +413,7 @@
 	"lbl_TpWallet_31": "9W Wallet",
 	"lbl_MainWallet": "กระเป๋าเงินหลัก",
 	"lbl_Wallet_Saba": "กระเป๋าเงินกีฬา",
+	"lbl_Adjustment": "จำนวนเงินที่ปรับปรุง",
 	"lbl_Transfer": "โอน",
 	"lbl_RestoreAll": "โอนคลิกเดียว",
 	"lbl_TransferHistory": "ประวัติการโอนเงิน",

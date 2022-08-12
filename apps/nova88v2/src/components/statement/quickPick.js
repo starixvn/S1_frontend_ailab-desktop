@@ -10,7 +10,8 @@ import {
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath,
-	currencyIdToTimeZone
+	currencyIdToTimeZone,
+	defCurrencyList
 } from "../common/common";
 
 import { dateTimeFormater } from "./helper";
@@ -54,7 +55,8 @@ export default () => {
 
 	const _isConvert = isConvert(userInfo.currencyId);
 	const currentlyDisplayKey = quickPickList[quickPickType].displayKey;
-	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
+	const timeZone =
+		currencyIdToTimeZone[userInfo.currencyId ?? defCurrencyList.MYR];
 
 	useEffect(() => {
 		isMountedRef.current = true;
