@@ -8,7 +8,11 @@ import { api_payment_SetWithdrawalCancel } from "../../service/api/payment";
 import defPopBoxType from "../common/defPopBoxType";
 import ReloadSpin from "../common/reloadSpin";
 import path from "../../router";
-import { isConvert, currencyIdToTimeZone } from "../common/common";
+import {
+	isConvert,
+	currencyIdToTimeZone,
+	defCurrencyList
+} from "../common/common";
 import { defActionType } from "./withdrawal.reducer";
 import { defHistoryIdList } from "../history/def";
 
@@ -25,7 +29,8 @@ const History = ({
 	const _isConvert = isConvert(userInfo.currencyId);
 	// const [loading, setLoading] = useState(false);
 	const isMountedRef = useRef(null);
-	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
+	const timeZone =
+		currencyIdToTimeZone[userInfo.currencyId ?? defCurrencyList.MYR];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -71,8 +76,7 @@ const History = ({
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={ClosePopBox}
-										>
+											onClick={ClosePopBox}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -92,8 +96,7 @@ const History = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClosePopBox}
-									>
+										onClick={ClosePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>

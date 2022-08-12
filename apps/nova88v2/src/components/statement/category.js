@@ -11,7 +11,8 @@ import {
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath,
-	currencyIdToTimeZone
+	currencyIdToTimeZone,
+	defCurrencyList
 } from "../common/common";
 
 import StatementTitle from "./statement.title";
@@ -48,7 +49,8 @@ export default () => {
 
 	const _isConvert = isConvert(userInfo.currencyId);
 	const currentlyDisplayKey = quickPickList[initQuickPickType].displayKey;
-	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
+	const timeZone =
+		currencyIdToTimeZone[userInfo.currencyId ?? defCurrencyList.MYR];
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -171,8 +173,7 @@ export default () => {
 								gameTypeId: value.gameTypeID
 							})
 						}
-						className="blue"
-					>
+						className="blue">
 						{t("lbl_Details")}
 					</a>
 				</div>

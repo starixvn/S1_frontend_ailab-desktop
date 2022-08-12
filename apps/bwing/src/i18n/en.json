@@ -315,6 +315,7 @@
 	"lbl_TpWallet_25": "V8 Wallet",
 	"lbl_Wallet_Saba": "Saba Wallet",
 	"lbl_MainWallet": "Main Wallet",
+	"lbl_Adjustment": "Adjustment",
 	"lbl_RestoreAll": "Restore All",
 	"lbl_TransferHistory": "Transfer History",
 	"msg_InsufficientFund": "Insufficient Fund!",

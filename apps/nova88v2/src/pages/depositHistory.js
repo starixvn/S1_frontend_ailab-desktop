@@ -318,6 +318,7 @@ const Content = () => {
 					item.refId,
 					item.depositTime
 				)}
+				currencyId={userInfo.currencyId}
 			/>
 		);
 	});

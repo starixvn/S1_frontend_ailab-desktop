@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
-import { number_format, currencyIdToTimeZone } from "../common/common";
+import {
+	number_format,
+	currencyIdToTimeZone,
+	defCurrencyList
+} from "../common/common";
 
 const statusClassName = {
 	1: "pending",
@@ -36,11 +40,19 @@ export const TransactionHistory = props => {
 				<div>{props.idx}</div>
 				<div>
 					{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
-						.zone(currencyIdToTimeZone[props.currencyId])
+						.zone(
+							currencyIdToTimeZone[
+								props.currencyId ?? defCurrencyList.MYR
+							]
+						)
 						.format("MM/DD/YYYY")}
 					<span className="txt-blue">
 						{moment(props.createTime, "YYYY-MM-DDThh:mm:ssZ")
-							.zone(currencyIdToTimeZone[props.currencyId])
+							.zone(
+								currencyIdToTimeZone[
+									props.currencyId ?? defCurrencyList.MYR
+								]
+							)
 							.format("hh:mm:ss A")}
 					</span>
 				</div>

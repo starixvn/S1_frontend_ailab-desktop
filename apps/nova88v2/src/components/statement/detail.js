@@ -11,7 +11,8 @@ import {
 	number_format,
 	getUrlParameter,
 	routerFlattenToPath,
-	currencyIdToTimeZone
+	currencyIdToTimeZone,
+	defCurrencyList
 } from "../common/common";
 
 import { numberSumReducer } from "./helper";
@@ -47,7 +48,8 @@ export default () => {
 
 	const { userInfo } = useContext(userInfoContext);
 	const { loading, setLoading } = useContext(loadingContext);
-	const timeZone = currencyIdToTimeZone[userInfo.currencyId];
+	const timeZone =
+		currencyIdToTimeZone[userInfo.currencyId ?? defCurrencyList.MYR];
 
 	const _isConvert = isConvert(userInfo.currencyId);
 	const currentlyDisplayKey = quickPickList[initQuickPickType].displayKey;
@@ -180,8 +182,7 @@ export default () => {
 					t={t}
 					dataSource={detailListbyGameTypeDatas}
 					columns={columns}
-					currencyId={userInfo.currencyId}
-				>
+					currencyId={userInfo.currencyId}>
 					<StatementTable.CustomizeRow>
 						<div className="total">
 							{t("lbl_TurnOverTotal")}：

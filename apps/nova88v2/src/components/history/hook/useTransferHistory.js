@@ -12,16 +12,25 @@ export default function useTransferHistory({
 	const transferDirection = (
 		direction,
 		displayMainWallet,
-		displaySabaWallet
+		displayAdjustment,
+		isAdjustment,
+		tpName
 	) => {
 		let startWallet = "";
 		let endWallet = "";
-
 		if (direction === 1) {
-			startWallet = displayMainWallet;
-			endWallet = displaySabaWallet;
+			if (isAdjustment) {
+				startWallet = tpName;
+				endWallet = displayAdjustment;
+			} else {
+				startWallet = displayMainWallet;
+				endWallet = tpName;
+			}
+		} else if (isAdjustment) {
+			startWallet = tpName;
+			endWallet = displayAdjustment;
 		} else {
-			startWallet = displaySabaWallet;
+			startWallet = tpName;
 			endWallet = displayMainWallet;
 		}
 		return { startWallet, endWallet };
