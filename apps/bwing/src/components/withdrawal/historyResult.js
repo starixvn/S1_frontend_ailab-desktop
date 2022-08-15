@@ -13,11 +13,26 @@ const statusClassName = {
 	7: "reject"
 };
 
+export const withdrawalStatus = {
+	pending: 1,
+	onHold: 2,
+	verify: 3,
+	process: 4,
+	cancelled: 5,
+	approved: 6,
+	rejected: 7,
+	toKyc: 8
+};
+
 export const TransactionHistory = props => {
 	const { t } = useTranslation();
 
 	let btnGroup = null;
-	if (props.status === 1 || props.status === 8) {
+	if (
+		props.canCancel !== false &&
+		(props.status === withdrawalStatus.pending ||
+			props.status === withdrawalStatus.toKyc)
+	) {
 		btnGroup = (
 			<button className="btn-cancel" onClick={props.ClickCancel}>
 				{t("lbl_Cancel")}
@@ -54,5 +69,6 @@ TransactionHistory.propTypes = {
 	createTime: PropTypes.string.isRequired,
 	transId: PropTypes.string.isRequired,
 	amount: PropTypes.number.isRequired,
-	status: PropTypes.number.isRequired
+	status: PropTypes.number.isRequired,
+	canCancel: PropTypes.bool.isRequired
 };

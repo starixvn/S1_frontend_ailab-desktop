@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 import { number_format } from "../common/common";
 import ReloadSpin from "../common/reloadSpin";
+import { withdrawalStatus } from "../withdrawal/withdrawal.historyResult";
 
 const defDepositStatusClassName = {
 	1: "pending",
@@ -123,8 +124,10 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
-								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.startDate ??
+									moment().format("YYYY-MM-DD"),
+								keepData?.endDate ??
+									moment().format("YYYY-MM-DD"),
 								false
 							)
 						}
@@ -202,8 +205,10 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
-								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.startDate ??
+									moment().format("YYYY-MM-DD"),
+								keepData?.endDate ??
+									moment().format("YYYY-MM-DD"),
 								false
 							)
 						}
@@ -305,8 +310,10 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
-								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.startDate ??
+									moment().format("YYYY-MM-DD"),
+								keepData?.endDate ??
+									moment().format("YYYY-MM-DD"),
 								false
 							)
 						}
@@ -316,20 +323,25 @@ export const defColumns = ({
 			dataIndex: "action",
 			key: "action",
 			render: item => {
-				if (item.status !== 1) return null;
+				const showingCancelBtn =
+					item.canCancel !== false &&
+					(item.status === withdrawalStatus.pending ||
+						item.status === withdrawalStatus.toKyc);
 
 				return (
-					<div className="btnGroup">
-						<button
-							className="btn-cancel"
-							onClick={() =>
-								activateWithdrawalCancelConfirmModal(
-									item.transId
-								)
-							}>
-							{t("lbl_Cancel")}
-						</button>
-					</div>
+					showingCancelBtn && (
+						<div className="btnGroup">
+							<button
+								className="btn-cancel"
+								onClick={() =>
+									activateWithdrawalCancelConfirmModal(
+										item.transId
+									)
+								}>
+								{t("lbl_Cancel")}
+							</button>
+						</div>
+					)
 				);
 			}
 		}
@@ -387,8 +399,10 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
-								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.startDate ??
+									moment().format("YYYY-MM-DD"),
+								keepData?.endDate ??
+									moment().format("YYYY-MM-DD"),
 								false
 							)
 						}
@@ -470,8 +484,10 @@ export const defColumns = ({
 					<ReloadSpin
 						func={() =>
 							updateHistoryList(
-								keepData?.startDate ?? moment().format("YYYY-MM-DD"),
-								keepData?.endDate ?? moment().format("YYYY-MM-DD"),
+								keepData?.startDate ??
+									moment().format("YYYY-MM-DD"),
+								keepData?.endDate ??
+									moment().format("YYYY-MM-DD"),
 								false
 							)
 						}
