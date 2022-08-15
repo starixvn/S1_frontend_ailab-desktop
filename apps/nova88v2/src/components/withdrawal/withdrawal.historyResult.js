@@ -14,9 +14,24 @@ const statusClassName = {
 	8: "pending"
 };
 
+export const withdrawalStatus = {
+	pending: 1,
+	onHold: 2,
+	verify: 3,
+	process: 4,
+	cancelled: 5,
+	approved: 6,
+	rejected: 7,
+	toKyc: 8
+};
+
 export const HistoryResult = props => {
 	let btnGroup = null;
-	if (props.status === 1 || props.status === 8) {
+	if (
+		props.canCancel !== false &&
+		(props.status === withdrawalStatus.pending ||
+			props.status === withdrawalStatus.toKyc)
+	) {
 		btnGroup = (
 			<button className="gray" onClick={props.ClickCancel}>
 				{props.i18n("lbl_Cancel")}
@@ -41,9 +56,6 @@ export const HistoryResult = props => {
 			<div>{number_format(props.amount, props._isConvert)}</div>
 			<div className={statusClassName[props.status]}>
 				{props.i18n(`lbl_WithdrawalStatus${props.status}`)}
-				{/* { {props.status === 8
-					? ""
-					: props.i18n(`lbl_WithdrawalStatus${props.status}`)}} */}
 			</div>
 			<div className="btnGroup">{btnGroup}</div>
 		</div>
@@ -51,7 +63,8 @@ export const HistoryResult = props => {
 };
 
 HistoryResult.defaultProps = {
-	timeZone: null
+	timeZone: null,
+	canCancel: null
 };
 
 HistoryResult.propTypes = {
@@ -63,5 +76,6 @@ HistoryResult.propTypes = {
 	_isConvert: PropTypes.bool.isRequired,
 	status: PropTypes.number.isRequired,
 	timeZone: PropTypes.string,
-	i18n: PropTypes.func.isRequired
+	i18n: PropTypes.func.isRequired,
+	canCancel: PropTypes.bool
 };
