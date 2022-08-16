@@ -46,7 +46,19 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 			});
 		}
 	}, [userInfo.currencyId]);
-
+	const eWalletSysList = [
+		"Dana",
+		"LinkAja",
+		"GoPay",
+		"Ovo",
+		"Sakuku",
+		"Doku",
+		"ShopeePay"
+	];
+	const isEWalletItemSelected = eWalletSysList.includes(
+		state.selectedAccount?.bankName
+	);
+	const formatAmount = _val => number_format(_val, _isConvert, 0);
 	const EditAmount = Value => {
 		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
 		ValidAmount(value);
@@ -62,9 +74,15 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 			? Number(_amount) * 1000
 			: Number(_amount);
 
-		let _withdrawalMin = state.withdrawalMin;
-		let _withdrawalMax = state.balanceData?.availableBalance;
-		let _unlimited = state.unlimited;
+		let _withdrawalMin = isEWalletItemSelected
+			? state.eWalletWithdrawalMin
+			: state.withdrawalMin;
+		let _withdrawalMax = isEWalletItemSelected
+			? state.eWalletWithdrawalAvailableAmount
+			: state.balanceData?.availableBalance;
+		let _unlimited = isEWalletItemSelected
+			? state.eWalletUnlimited
+			: state.unlimited;
 
 		if (state.selectedAccount.usdtAddress) {
 			const { currencyId, network } = state.selectedAccount;
@@ -176,7 +194,6 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 			});
 		}
 	};
-
 	return (
 		<div className="subModule">
 			<div className="subModuleBody">
@@ -233,6 +250,20 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 						value={state.amount}
 						onChange={e => EditAmount(e.target.value)}
 						// clickInfo={clickInfo}
+						// state.selectedAccount.account
+						placeholder={
+							isEWalletItemSelected
+								? `${t("lbl_MinMaxAmount")} ${formatAmount(
+										state.eWalletWithdrawalMin
+								  )} / ${
+										state.eWalletUnlimited
+											? t("lbl_Unlimited")
+											: formatAmount(
+													state.eWalletWithdrawalAvailableAmount
+											  )
+								  }`
+								: ""
+						}
 						title={t("lbl_Amount")}
 						checked={state.checked ?? null}
 						tip={state.tip}
@@ -259,6 +290,14 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 									userInfo.currencyId ===
 										defCurrencyList.INR &&
 									!userInfo.phoneVerified
+								) &&
+								!(
+									isEWalletItemSelected &&
+									(state.amount * 1000 <
+										state.eWalletWithdrawalMin ||
+										(!state.eWalletUnlimited &&
+											state.amount >
+												state.eWalletWithdrawalAvailableAmount))
 								)
 									? "btn-check"
 									: "gray"
@@ -268,7 +307,13 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 								(userInfo.currencyId === defCurrencyList.INR &&
 									!userInfo.phoneVerified) ||
 								(state.maxTimes > 0 &&
-									state.withdrawalTimes >= state.maxTimes)
+									state.withdrawalTimes >= state.maxTimes) ||
+								(isEWalletItemSelected &&
+									(state.amount * 1000 <
+										state.eWalletWithdrawalMin ||
+										(!state.eWalletUnlimited &&
+											state.amount >
+												state.eWalletWithdrawalAvailableAmount)))
 							}
 							type="submit"
 						>

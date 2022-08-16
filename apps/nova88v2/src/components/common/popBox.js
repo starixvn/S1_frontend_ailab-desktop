@@ -8,6 +8,7 @@ import ErrorMsg from "./popBox.errorMsg";
 import Login from "./popBox.login";
 import Join from "./popBox.join";
 import AddBankAccount from "./popBox.addBankAccount";
+import AddEAccount from "./popBox.addEAccount";
 import AddCryptoWallet from "./popBox.addCryptoWallet";
 import AddBankSuccess from "./popBox.addBankSuccess";
 import ConfirmDelete from "./popBox.confirmDelete";
@@ -116,6 +117,16 @@ export default () => {
 					bankInfoSysList={popBox.bankInfoSysList}
 					custBankInfo={popBox.custBankInfo}
 					GetCustBankInfo={popBox.GetCustBankInfo}
+				/>
+			);
+			break;
+
+		case defPopBoxType.AddEAccount:
+			content = (
+				<AddEAccount
+					EInfoSysList={popBox.EInfoSysList}
+					custEWalletInfo={popBox.custEWalletInfo}
+					getCustEWalletInfo={popBox.getCustEWalletInfo}
 				/>
 			);
 			break;
@@ -356,8 +367,7 @@ export default () => {
 		<div
 			id="popup"
 			className="active"
-			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}
-		>
+			onClick={popBox.clickBackDropToClose ? popBox.onClickClose : null}>
 			<div className="pop">{content}</div>
 		</div>
 	);

@@ -7,6 +7,7 @@ import usePopBox from "../hook/usePopBox";
 import { defActionType, defPanel } from "./withdrawal.reducer";
 import {
 	api_payment_WithdrawalReq,
+	api_payment_WithdrawalEWalletReq,
 	api_payment_WithdrawalCryptoReq,
 	api_payment_GetExchangeInfo
 } from "../../service/api/payment";
@@ -29,11 +30,9 @@ const ConfirmPanel = ({
 	const [receiveUSDT, setReceiveUSDT] = useState();
 	const isMountedRef = useRef(null);
 	const { errorPopBox } = usePopBox();
-
 	const _accountNo = selectedAccount.accountNo;
 	const real_amount = _isConvert ? Number(amount) * 1000 : Number(amount);
 	const { currencyName, network } = selectedAccount;
-
 	useEffect(() => {
 		isMountedRef.current = true;
 		return () => {
@@ -70,6 +69,28 @@ const ConfirmPanel = ({
 		});
 	};
 
+	useEffect(() => {
+		if (currencyName) {
+			api_payment_GetExchangeInfo({
+				Amount: real_amount,
+				CurrencyName: currencyName,
+				Network: network
+			}).then(
+				res => {
+					const { errorCode, message, data } = res.data;
+					if (errorCode === 0) {
+						setReceiveUSDT(Number(data.to_Amount).toString());
+					} else {
+						errorPopBox(message || "error", errorCode);
+					}
+				},
+				() => {
+					errorPopBox();
+				}
+			);
+		}
+	}, [real_amount, currencyName, network, errorPopBox]);
+
 	const clickSubmit = async () => {
 		const setInitState = () => {
 			dispatch({ type: defActionType.SET_INIT_STATE });
@@ -86,24 +107,44 @@ const ConfirmPanel = ({
 
 		const blackbox = await Iov_GetBlackBox();
 
-		try {
-			const res = !selectedAccount.usdtAddress
-				? await api_payment_WithdrawalReq({
-						AccountNo: selectedAccount.accountNo,
-						amount: real_amount,
-						sysId: selectedAccount.sysId,
-						blackbox,
-						IFSCCode: isIfscRequired
-							? selectedAccount.ifscCode
-							: null
-				  })
-				: await api_payment_WithdrawalCryptoReq({
-						AccountNo: selectedAccount.usdtAddress,
-						amount: real_amount,
-						blackbox,
-						CurrencyId: selectedAccount.currencyId
-				  });
+		const judgeSubmit = async () => {
+			let data = null;
+			if (!selectedAccount.usdtAddress) {
+				selectedAccount.ifscCode === undefined
+					? await api_payment_WithdrawalEWalletReq({
+							AccountNo: selectedAccount.accountNo,
+							amount: real_amount,
+							sysId: selectedAccount.sysId,
+							memo: ""
+					  }).then(res => {
+							data = res;
+					  })
+					: await api_payment_WithdrawalReq({
+							AccountNo: selectedAccount.accountNo,
+							amount: real_amount,
+							sysId: selectedAccount.sysId,
+							blackbox,
+							IFSCCode: isIfscRequired
+								? selectedAccount.ifscCode
+								: null
+					  }).then(res => {
+							data = res;
+					  });
+			} else {
+				await api_payment_WithdrawalCryptoReq({
+					AccountNo: selectedAccount.usdtAddress,
+					amount: real_amount,
+					blackbox,
+					CurrencyId: selectedAccount.currencyId
+				}).then(res => {
+					data = res;
+				});
+			}
+			return data;
+		};
 
+		try {
+			const res = await judgeSubmit();
 			if (isMountedRef.current) {
 				if (res.data.errorCode === 0 || res.data.errorCode === 2) {
 					setPopBox({
@@ -206,7 +247,6 @@ const ConfirmPanel = ({
 			}
 		}
 	};
-
 	return (
 		<div className="subModule">
 			<div className="subModuleBody column align-items-center">
