@@ -52,6 +52,11 @@ export const api_accountStrict_SetCustBankInfo = ({
 		SysId,
 		IFSCCode
 	});
+export const api_accountStrict_SetCustEWalletInfo = ({ AccountNo, SysId }) =>
+	accountStrictRequest.post("/SetCustEWalletInfo", {
+		AccountNo,
+		SysId
+	});
 
 export const api_accountStrict_DelCustBankInfo = ({
 	AccountName,
@@ -60,6 +65,12 @@ export const api_accountStrict_DelCustBankInfo = ({
 }) =>
 	accountStrictRequest.post("/DelCustBankInfo", {
 		AccountName,
+		AccountNo,
+		SysId
+	});
+
+export const api_accountStrict_DelCustEWalletInfo = ({ AccountNo, SysId }) =>
+	accountStrictRequest.post("/DelCustEWalletInfo", {
 		AccountNo,
 		SysId
 	});

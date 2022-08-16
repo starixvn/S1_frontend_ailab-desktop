@@ -8,8 +8,12 @@ import { isConvert } from "../common/common";
 import { userInfoContext, popBoxContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import { defActionType } from "./withdrawal.reducer";
-import { api_account_GetCustBankInfo } from "../../service/api/account";
+import {
+	api_account_GetCustBankInfo,
+	api_account_GetCustEWalletInfo
+} from "../../service/api/account";
 import { currencyCode } from "../../datas/countryCode";
+import { WITHDRAWAL_TYPE } from "./withdrawal.defStep";
 
 const MainPanel = ({
 	dispatch,
@@ -34,6 +38,7 @@ const MainPanel = ({
 
 	useEffect(() => {
 		GetCustBankInfo();
+		getCustEWalletInfo();
 	}, [state.balanceData]);
 
 	const GetCustBankInfo = () => {
@@ -65,7 +70,10 @@ const MainPanel = ({
 					  };
 				dispatch({
 					type: defActionType.SELECT_ACCOUNT,
-					selectedAccount: _selectInfo
+					selectedAccount: _selectInfo,
+					withdrawalType: _preUsdtAccInfo?.usdtAddress
+						? WITHDRAWAL_TYPE.USDT
+						: WITHDRAWAL_TYPE.BANK
 				});
 			}
 		};
@@ -149,6 +157,112 @@ const MainPanel = ({
 		);
 	};
 
+	const getCustEWalletInfo = () => {
+		const ClosePopBox = () => {
+			setPopBox({ isOpen: false });
+		};
+		const selectPrevAccount = (_defAccountNo, _bankInfoDetail) => {
+			const _preAccInfo = _bankInfoDetail.filter(
+				card => card.accountNo === _defAccountNo
+			)[0];
+			const _preUsdtAccInfo = _bankInfoDetail.filter(
+				card => card.usdtAddress === _defAccountNo
+			)[0];
+			if (_preAccInfo || _preUsdtAccInfo) {
+				const _selectInfo = !_preUsdtAccInfo?.usdtAddress
+					? {
+							bankName: _preAccInfo.bankName,
+							accountNo: _preAccInfo.accountNo,
+							sysId: _preAccInfo.sysId,
+							ifscCode: _preAccInfo.ifscCode
+					  }
+					: {
+							usdtAddress: _preUsdtAccInfo.usdtAddress,
+							nickName: _preUsdtAccInfo.nickName,
+							currencyId: _preUsdtAccInfo.currencyId,
+							network: _preUsdtAccInfo.network,
+							currencyName: _preUsdtAccInfo.currencyName
+					  };
+				dispatch({
+					type: defActionType.SELECT_ACCOUNT,
+					selectedAccount: _selectInfo
+				});
+			}
+		};
+
+		api_account_GetCustEWalletInfo().then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						const datas = res.data.data;
+
+						dispatch({
+							type: defActionType.GET_CUST_E_WALLET_INFO,
+							custEWalletInfo: datas
+						});
+
+						if (datas?.defAccountNo) {
+							if (datas?.bankInfoDetail?.length > 0) {
+								selectPrevAccount(
+									datas.defAccountNo,
+									datas.bankInfoDetail
+								);
+							}
+							if (datas?.uSDTDetail?.length > 0) {
+								selectPrevAccount(
+									datas.defAccountNo,
+									datas.uSDTDetail
+								);
+							}
+						}
+					} else {
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.ErrorMsg,
+							message: `[${res.data.errorCode}] ${res.data.message}`,
+							btnBar: (
+								<div className="btnGroup">
+									<button
+										className="btn-check"
+										onClick={ClosePopBox}
+									>
+										{t("lbl_Close")}
+									</button>
+								</div>
+							)
+						});
+					}
+					dispatch({
+						type: defActionType.SET_LOADING,
+						loading: false
+					});
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					setPopBox({
+						isOpen: true,
+						popBoxType: defPopBoxType.ErrorMsg,
+						message: t("msg_ApiServerError"),
+						btnBar: (
+							<div className="btnGroup">
+								<button
+									className="btn-check"
+									onClick={ClosePopBox}
+								>
+									{t("lbl_Close")}
+								</button>
+							</div>
+						)
+					});
+					dispatch({
+						type: defActionType.SET_LOADING,
+						loading: false
+					});
+				}
+			}
+		);
+	};
 	return (
 		<>
 			<CardPanel
@@ -157,9 +271,13 @@ const MainPanel = ({
 				t={t}
 				accountName={userInfo.accountName}
 				GetCustBankInfo={GetCustBankInfo}
+				getCustEWalletInfo={getCustEWalletInfo}
 				refreshData={refreshData}
 				custBankInfo={state.custBankInfo}
+				custEWalletInfo={state.custEWalletInfo}
 				isIfscRequired={isIfscRequired}
+				_isConvert={_isConvert}
+				currencyId={userInfo.currencyId}
 			/>
 			<div className="subModuleList">
 				{state.panel === "amount" ? (

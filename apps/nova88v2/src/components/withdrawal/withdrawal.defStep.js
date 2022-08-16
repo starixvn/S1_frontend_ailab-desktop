@@ -27,3 +27,8 @@ export const defWalletStep = [
 		displayKey: "lbl_Confirm"
 	}
 ];
+
+export const WITHDRAWAL_TYPE = {
+	USDT: "USDT",
+	BANK: "BANK"
+};

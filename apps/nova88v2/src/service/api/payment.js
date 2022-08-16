@@ -120,7 +120,18 @@ export const api_payment_WithdrawalReq = ({
 		blackbox,
 		IFSCCode
 	});
-
+export const api_payment_WithdrawalEWalletReq = ({
+	AccountNo,
+	amount,
+	sysId,
+	memo
+}) =>
+	paymentRequest.post("/WithdrawalEWalletReq", {
+		AccountNo,
+		amount,
+		sysId,
+		memo
+	});
 export const api_payment_WithdrawalCryptoReq = ({
 	AccountNo,
 	amount,
@@ -210,3 +221,6 @@ export const api_payment_GetAutoChannelBankGroupList = () =>
 
 export const api_payment_GetLineChannelForDpeosit = () =>
 	paymentRequest.post("GetLineChannelForDpeosit");
+
+export const api_payment_GetEWalletInfoSysList = () =>
+	paymentRequest.post("GetEWalletInfoSysList");
