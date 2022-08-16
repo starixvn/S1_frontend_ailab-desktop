@@ -46,14 +46,30 @@ export default () => {
 		api_payment_GetWithdrawalLimit().then(
 			res => {
 				if (res.data.errorCode === 0 && isMountedRef.current) {
+					const {
+						withdrawalMin,
+						unlimited,
+						withdrawalAvailableAmount,
+						usdtList,
+						maxTimes,
+						withdrawalTimes,
+						eWalletUnlimited,
+						eWalletWithdrawalAvailableAmount,
+						eWalletWithdrawalMin,
+						eWalletStatus
+					} = res.data.data;
 					dispatch({
 						type: defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT,
-						withdrawalMin: res.data.data.withdrawalMin,
-						withdrawalMax: res.data.data.withdrawalAvailableAmount,
-						unlimited: res.data.data.unlimited,
-						usdtList: res.data.data.usdtList,
-						maxTimes: res.data.data.maxTimes,
-						withdrawalTimes: res.data.data.withdrawalTimes
+						withdrawalMin,
+						withdrawalMax: withdrawalAvailableAmount,
+						unlimited,
+						usdtList,
+						maxTimes,
+						withdrawalTimes,
+						eWalletUnlimited,
+						eWalletWithdrawalAvailableAmount,
+						eWalletWithdrawalMin,
+						eWalletStatus
 					});
 				} else if (res.data.errorCode !== 0) {
 					errorPopBox(

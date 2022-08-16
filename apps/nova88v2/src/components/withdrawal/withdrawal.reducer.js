@@ -1,6 +1,7 @@
 export const defActionType = {
 	GET_BALANCE: "GET_BALANCE",
 	GET_CUST_BANKINFO: "GET_CUST_BANKINFO",
+	GET_CUST_E_WALLET_INFO: "GET_CUST_E_WALLET_INFO",
 	SELECT_ACCOUNT: "SELECT_ACCOUNT",
 	EDIT_AMOUNT: "EDIT_AMOUNT",
 	CHECK_AMOUNT: "CHECK_AMOUNT",
@@ -10,7 +11,8 @@ export const defActionType = {
 	SET_KYC_STATUS: "SET_KYC_STATUS",
 	SET_KYC_DATA: "SET_KYC_DATA",
 	SET_LOADING: "SET_LOADING",
-	SET_WITHDRAWAL_AMOUNT_LIMIT: "SET_WITHDRAWAL_AMOUNT_LIMIT"
+	SET_WITHDRAWAL_AMOUNT_LIMIT: "SET_WITHDRAWAL_AMOUNT_LIMIT",
+	SET_WITHDRAWAL_TYPE: "SET_WITHDRAWAL_TYPE"
 };
 
 export const defPanel = {
@@ -21,6 +23,7 @@ export const defPanel = {
 export const initState = {
 	balanceData: {},
 	custBankInfo: {},
+	custEWalletInfo: [],
 	selectedAccount: {},
 	kycStatus: "normal",
 	loading: true,
@@ -29,8 +32,13 @@ export const initState = {
 	withdrawalMin: 0,
 	withdrawalMax: 0,
 	receiveUSDT: null,
+	withdrawalType: null,
 	maxTimes: 0,
-	withdrawalTimes: 0
+	withdrawalTimes: 0,
+	eWalletUnlimited: true,
+	eWalletWithdrawalAvailableAmount: 0,
+	eWalletWithdrawalMin: 0,
+	eWalletStatus: false
 };
 
 export function reducer(state, action) {
@@ -46,11 +54,16 @@ export function reducer(state, action) {
 				...state,
 				custBankInfo: action.custBankInfo
 			};
-
+		case defActionType.GET_CUST_E_WALLET_INFO:
+			return {
+				...state,
+				custEWalletInfo: action.custEWalletInfo
+			};
 		case defActionType.SELECT_ACCOUNT:
 			return {
 				...state,
-				selectedAccount: action.selectedAccount
+				selectedAccount: action.selectedAccount,
+				withdrawalType: action.withdrawalType
 			};
 
 		case defActionType.EDIT_AMOUNT:
@@ -109,7 +122,12 @@ export function reducer(state, action) {
 				unlimited: action.unlimited,
 				usdtList: action.usdtList,
 				maxTimes: action.maxTimes,
-				withdrawalTimes: action.withdrawalTimes
+				withdrawalTimes: action.withdrawalTimes,
+				eWalletUnlimited: action.eWalletUnlimited,
+				eWalletWithdrawalAvailableAmount:
+					action.eWalletWithdrawalAvailableAmount,
+				eWalletWithdrawalMin: action.eWalletWithdrawalMin,
+				eWalletStatus: action.eWalletStatus
 			};
 
 		default:

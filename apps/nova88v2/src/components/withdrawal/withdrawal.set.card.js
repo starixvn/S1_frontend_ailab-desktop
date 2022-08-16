@@ -2,14 +2,22 @@ import React, { useEffect, useRef, useContext } from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import { defActionType, defPanel } from "./withdrawal.reducer";
-import { api_accountStrict_DelCustBankInfo } from "../../service/api/accountStrict";
-import { api_payment_GetBankInfoSysList } from "../../service/api/payment";
+import {
+	api_accountStrict_DelCustBankInfo,
+	api_accountStrict_DelCustEWalletInfo
+} from "../../service/api/accountStrict";
+import {
+	api_payment_GetBankInfoSysList,
+	api_payment_GetEWalletInfoSysList
+} from "../../service/api/payment";
 import { popBoxContext, userInfoContext } from "../common/context";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
 import BankCard from "./withdrawal.set.card.bank";
 import CryptoCard from "./withdrawal.set.card.crypto";
 import path from "../../router";
+import ECard from "./withdrawal.set.card.E";
+import { defCurrencyList } from "../common/common";
 
 const CardPanel = ({
 	dispatch,
@@ -17,7 +25,9 @@ const CardPanel = ({
 	t,
 	accountName,
 	GetCustBankInfo,
+	getCustEWalletInfo,
 	custBankInfo,
+	custEWalletInfo,
 	isIfscRequired
 }) => {
 	const { userInfo } = useContext(userInfoContext);
@@ -35,7 +45,9 @@ const CardPanel = ({
 	const selectAccount = accountData => {
 		const _selectInfo = !accountData.usdtAddress
 			? {
-					bankName: accountData.bankName,
+					bankName: accountData.bankName
+						? accountData.bankName
+						: accountData.eWalletName,
 					accountNo: accountData.accountNo,
 					sysId: accountData.sysId,
 					ifscCode: accountData.ifscCode
@@ -63,14 +75,12 @@ const CardPanel = ({
 				if (isMountedRef.current) {
 					if (res.data.errorCode === 0) {
 						const datas = res.data.data;
-						const _bankInfoSysList = datas.map((item, i) => {
-							return {
-								id: i,
-								sysId: item.sysId,
-								displayText: item.bankName,
-								image: item.bankLogo?.toLowerCase()
-							};
-						});
+						const _bankInfoSysList = datas.map((item, i) => ({
+							id: i,
+							sysId: item.sysId,
+							displayText: item.bankName,
+							image: item.bankLogo?.toLowerCase()
+						}));
 						setPopBox({
 							isOpen: true,
 							popBoxType: defPopBoxType.AddBankAccount,
@@ -93,7 +103,40 @@ const CardPanel = ({
 			}
 		);
 	};
-
+	const addEAccount = async () => {
+		api_payment_GetEWalletInfoSysList().then(
+			res => {
+				if (isMountedRef.current) {
+					if (res.data.errorCode === 0) {
+						const datas = res.data.data;
+						const _EInfoSysList = datas.map((item, i) => ({
+							id: i,
+							sysId: item.sysId,
+							displayText: item.eWalletName,
+							image: item.eWalletLogo?.toLowerCase()
+						}));
+						setPopBox({
+							isOpen: true,
+							popBoxType: defPopBoxType.AddEAccount,
+							EInfoSysList: _EInfoSysList,
+							custEWalletInfo,
+							getCustEWalletInfo
+						});
+					} else {
+						errorPopBox(
+							res.data.message || "error",
+							res.data.errorCode
+						);
+					}
+				}
+			},
+			() => {
+				if (isMountedRef.current) {
+					errorPopBox();
+				}
+			}
+		);
+	};
 	const addCryptoWallet = () => {
 		if (!userInfo.phoneVerified) {
 			setPopBox({
@@ -104,7 +147,8 @@ const CardPanel = ({
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}>
+							to={`/${userInfo.langId}/${path.profile.root}`}
+						>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>
@@ -179,6 +223,66 @@ const CardPanel = ({
 			)
 		});
 	};
+
+	const delEWallet = (accountNo, sysId) => {
+		const delEWalletInfo = () => {
+			api_accountStrict_DelCustEWalletInfo({
+				AccountNo: accountNo,
+				SysId: sysId
+			}).then(
+				res => {
+					if (isMountedRef.current) {
+						if (res.data.errorCode === 0) {
+							getCustEWalletInfo();
+							if (accountNo === state.selectedAccount.accountNo) {
+								dispatch({
+									type: defActionType.SELECT_ACCOUNT,
+									selectedAccount: {},
+									step: 1
+								});
+							}
+							setPopBox({ isOpen: false });
+						} else {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
+						}
+						dispatch({
+							type: defActionType.SET_LOADING,
+							loading: false
+						});
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						errorPopBox();
+						dispatch({
+							type: defActionType.SET_LOADING,
+							loading: false
+						});
+					}
+				}
+			);
+		};
+
+		setPopBox({
+			isOpen: true,
+			popBoxType: defPopBoxType.ConfirmDelete,
+			message: t("lbl_AreYouSureDelete"),
+			message2: t("lbl_CantBeRestore"),
+			btnBar: (
+				<div className="btnGroup">
+					<button className="gray" onClick={delEWalletInfo}>
+						{t("lbl_Yes")}
+					</button>
+					<button className="btn-check" onClick={ClosePopBox}>
+						{t("lbl_No")}
+					</button>
+				</div>
+			)
+		});
+	};
 	return (
 		<>
 			<BankCard
@@ -191,6 +295,19 @@ const CardPanel = ({
 				delAccount={delAccount}
 				isIfscRequired={isIfscRequired}
 			/>
+			{(userInfo.currencyId === defCurrencyList.IDR ||
+				userInfo.currencyId === defCurrencyList.BDT) &&
+				state.eWalletStatus && (
+					<ECard
+						t={t}
+						state={state}
+						defPanel={defPanel}
+						custEWalletInfo={custEWalletInfo}
+						addEAccount={addEAccount}
+						selectAccount={selectAccount}
+						delAccount={delEWallet}
+					/>
+				)}
 			<CryptoCard
 				userInfo={userInfo}
 				t={t}
@@ -215,7 +332,9 @@ CardPanel.propTypes = {
 	dispatch: PropTypes.func.isRequired,
 	accountName: PropTypes.string,
 	GetCustBankInfo: PropTypes.func.isRequired,
+	getCustEWalletInfo: PropTypes.func.isRequired,
 	custBankInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	custEWalletInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
 	isIfscRequired: PropTypes.bool.isRequired
 };
 

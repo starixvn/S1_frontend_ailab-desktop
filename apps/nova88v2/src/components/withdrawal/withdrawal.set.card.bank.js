@@ -25,14 +25,16 @@ const BankCard = ({
 
 	const bankArr = _custBankInfo?.map(item => {
 		const _key = `withdrawal-bankCard-${item.accountNo}`;
-		const _checked = item.accountNo === state.selectedAccount?.accountNo;
+		const _checked =
+			item.accountNo === state.selectedAccount?.accountNo &&
+			item.bankName === state.selectedAccount?.bankName;
 		return (
 			<BankCardLayout
 				key={_key}
 				t={t}
 				checkKey={item.accountNo}
 				bankInfo={item}
-				selectAccount={selectAccount.bind(this, item)}
+				selectAccount={() => selectAccount(item)}
 				checked={_checked}
 				delAccount={delAccount.bind(this, item.accountNo, item.sysId)}
 				hideDelBtn={state.panel === defPanel.confirm}

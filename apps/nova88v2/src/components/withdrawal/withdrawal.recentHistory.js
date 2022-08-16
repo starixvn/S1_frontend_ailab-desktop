@@ -136,7 +136,7 @@ const History = ({
 		/>
 	));
 
-	return recentHistory ? (
+	return recentHistory && userInfo.currencyId ? (
 		<>
 			<div className="list">
 				<div className="listHeader">
