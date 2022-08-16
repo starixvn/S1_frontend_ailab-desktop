@@ -665,7 +665,7 @@
 	"lbl_ValidBetRequirement": "Valid Bet Requirement",
 	"lbl_ReferredFreeCredit": "Referred Free Credit",
 	"lbl_TermPeriodWithin": "Term Period Within",
-	
+
 	"new/uncategorized ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_TraditionalLottery": "Traditional Lottery",
 	"lbl_AngPow_Congratulations": "Congratulations",
@@ -830,7 +830,7 @@
 
 	"worldCup": {
 		"info": "Info",
-		"ticketsAvailable": "Ticket(s) Avaliable",
+		"ticketsAvailable": "Ticket(s) Available",
 		"ticketsUsed": "Ticket(s) Used",
 		"yourPredictions": "Your Predictions",
 		"group": "Group",
