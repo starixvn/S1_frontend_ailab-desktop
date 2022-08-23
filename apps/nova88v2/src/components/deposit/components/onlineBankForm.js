@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
-import { getUrlParameter } from "../../common/common";
+import { defCurrencyList, getUrlParameter } from "../../common/common";
 import { cloudImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 
 import PromotionSelect from "./promotionSelect";
+import { userInfoContext } from "../../common/context";
 
 const OnlineBankForm = ({
 	t,
@@ -24,6 +25,7 @@ const OnlineBankForm = ({
 	onInputboxKeyDown,
 	isGroupListFetchDone
 }) => {
+	const { userInfo } = useContext(userInfoContext);
 	const parameterPayName = getUrlParameter("pName");
 	const parameterPayId = Number(getUrlParameter("pId"));
 	const parameterSysId = Number(getUrlParameter("sysId"));
@@ -37,13 +39,11 @@ const OnlineBankForm = ({
 		setPayIdForRecord(item.payId);
 		setPayNameForRecord(item.payName);
 
-		setFormInfo(prev => {
-			return {
-				...item,
-				amount: formInfo.amount,
-				depositPromo: prev.depositPromo
-			};
-		});
+		setFormInfo(prev => ({
+			...item,
+			amount: formInfo.amount,
+			depositPromo: prev.depositPromo
+		}));
 
 		let infoList = [];
 
@@ -67,12 +67,10 @@ const OnlineBankForm = ({
 	const onSetSysIdToInfoData = async item => {
 		setSysIdForRecord(item.sysId);
 
-		await setFormInfo(prev => {
-			return {
-				...prev,
-				sysId: item.sysId
-			};
-		});
+		await setFormInfo(prev => ({
+			...prev,
+			sysId: item.sysId
+		}));
 	};
 
 	useSyncRouteQuery({
@@ -102,6 +100,15 @@ const OnlineBankForm = ({
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [isGroupListFetchDone]);
+
+	const placeHolderText =
+		userInfo.currencyId === defCurrencyList.IDR
+			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
+					formInfo.maxAmount / 1000
+			  }`
+			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
+					formInfo.maxAmount
+			  }`;
 
 	if (onlineBankGroupList.length <= 0) return null;
 
@@ -200,6 +207,8 @@ const OnlineBankForm = ({
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_DepositAmount")}
+						{userInfo.currencyId === defCurrencyList.IDR &&
+							t("lbl_DepositAmountNote")}
 					</div>
 					<div className="subModule">
 						<Inputbox
@@ -211,12 +220,9 @@ const OnlineBankForm = ({
 							tip={formInfo?.tip}
 							_isConvert={false}
 							isAmount={true}
-							placeholder={`${t(
-								"lbl_MinMaxAmount"
-							)} ${formatAmount(
-								formInfo.minAmount
-							)} ~ ${formatAmount(formInfo.maxAmount)}`}
+							placeholder={placeHolderText}
 							onKeyDown={onInputboxKeyDown}
+							format={userInfo.currencyId === defCurrencyList.IDR}
 						/>
 
 						<ShortcutAmountList

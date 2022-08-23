@@ -97,8 +97,7 @@ export default function LoadCardForm({
 								item.channelId === infoChannelIdForRecord
 									? "active"
 									: ""
-							}
-						>
+							}>
 							<div>
 								<img
 									alt={item.groupName}
@@ -140,6 +139,7 @@ export default function LoadCardForm({
 						<span>
 							<i className="txt-blue">*</i>
 							{t("lbl_DepositAmount")}
+							{t("lbl_DepositAmountNote")}
 						</span>
 					</div>
 

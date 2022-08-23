@@ -361,6 +361,7 @@
 	"lbl_DepositStatus99": "Lỗi",
 	"lbl_DepositOptionHint": "Bạn có thể chọn mục nạp tiền phù hợp nhất từ những lựa chọn bên dưới:",
 	"lbl_DepositAmount": "Tiền nạp",
+	"lbl_DepositAmountNote": "（Đơn vị là 50 = 50.000 VNĐ）",
 	"lbl_DepositTime": "Thời gian nạp tiền",
 	"lbl_SubmitProof": "Gửi biên lai ngân hàng",
 	"lbl_AttachFile": "Vui lòng đính kèm Biên lai ngân hàng của bạn ở đây.",

@@ -97,6 +97,15 @@ const MobileForm = ({
 
 	const isSelAmountType = formInfo.amountRule === 3;
 
+	const placeHolderText =
+		userInfo.currencyId === defCurrencyList.IDR
+			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
+					formInfo.maxAmount / 1000
+			  }`
+			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
+					formInfo.maxAmount
+			  }`;
+
 	if (mobilePayGourpList.length <= 0) return null;
 
 	return (
@@ -119,8 +128,7 @@ const MobileForm = ({
 									item.groupId === groupIdForRecord
 										? "active"
 										: ""
-								}
-							>
+								}>
 								<div>
 									<img
 										alt={item.groupName}
@@ -174,8 +182,7 @@ const MobileForm = ({
 											infoChannelIdForRecord
 												? "active"
 												: ""
-										}
-									>
+										}>
 										<div>
 											<img
 												alt={item.groupName}
@@ -245,6 +252,8 @@ const MobileForm = ({
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_DepositAmount")}
+						{userInfo.currencyId === defCurrencyList.IDR &&
+							t("lbl_DepositAmountNote")}
 					</div>
 
 					<div className="subModule">
@@ -270,12 +279,9 @@ const MobileForm = ({
 							tip={formInfo?.tip}
 							_isConvert={false}
 							isAmount={true}
-							placeholder={`${t(
-								"lbl_MinMaxAmount"
-							)} ${formatAmount(
-								formInfo.minAmount
-							)} ~ ${formatAmount(formInfo.maxAmount)}`}
+							placeholder={placeHolderText}
 							onKeyDown={onInputboxKeyDown}
+							format={userInfo.currencyId === defCurrencyList.IDR}
 						/>
 
 						{!isSelAmountType && (
@@ -317,8 +323,7 @@ const FixedAmountList = ({
 				<button
 					onClick={() => onChangeAmount(_afterConvertAmount)}
 					className={`blue${isSelected ? " active" : ""}`}
-					key={`deposit-mobile-${a}`}
-				>
+					key={`deposit-mobile-${a}`}>
 					{number_format(a, _isConvert)}
 					<i className="icon icon-checkmark" />
 				</button>

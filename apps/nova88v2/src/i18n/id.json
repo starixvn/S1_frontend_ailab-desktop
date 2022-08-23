@@ -269,6 +269,7 @@
 	"lbl_Deposit": "Setoran",
 	"lbl_DepositOptionHint": "Anda dapat memilih opsi setoran yang paling cocok dari yang disediakan di bawah ini:",
 	"lbl_DepositAmount": "Jumlah Yang Disetor",
+	"lbl_DepositAmountNote": "（Satuan 50 = IDR 50.000）",
 	"lbl_DepositTime": "Mohon kirim waktu setoran anda",
 	"lbl_MobileDeposit": "Deposit mobile",
 	"lbl_ConfirmDeposit": "Harap konfirmasi informasi setoran.",
