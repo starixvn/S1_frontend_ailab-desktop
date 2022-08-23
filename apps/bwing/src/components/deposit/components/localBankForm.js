@@ -152,7 +152,7 @@ const LocalBankForm = ({
 	});
 
 	const onChangeAmount = _amount => {
-		let amount = String(_amount).replace(/^(0+)|[^\d.]+/g, "");
+		let amount = String(_amount).replace(/^(0+)|[^\d]+/g, "");
 
 		if (amount.includes(".")) {
 			amount = amount.replace(/\.{2,}/g, ".");
