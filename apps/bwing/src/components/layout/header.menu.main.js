@@ -19,10 +19,16 @@ const Main = ({ showSubMenu, productTpIds }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const currentPage = getCurrentPage();
 
-	const worldCupNewTag = showEventIcon({
-		icon: defEventIcon.new,
-		period: defEventPeriod.worldCup
-	});
+	const worldCupTag = showEventIcon(
+		{
+			icon: defEventIcon.new,
+			period: defEventPeriod.worldCup_new
+		},
+		{
+			icon: defEventIcon.hot,
+			period: defEventPeriod.worldCup_hot
+		}
+	);
 
 	return (
 		<>
@@ -35,7 +41,7 @@ const Main = ({ showSubMenu, productTpIds }) => {
 			</Link>
 			<Link
 				to={`/${userInfo.langId}/${path.sports.root}?tpId=1&gameId=2002`}
-				className={`event icon ${worldCupNewTag}`}>
+				className={`event icon ${worldCupTag}`}>
 				<img
 					src={`${bannerImgUrl}/img/worldcup/xs-logo-d.png`}
 					alt="world cup"
