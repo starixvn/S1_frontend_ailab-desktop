@@ -204,7 +204,10 @@ const CryptoPayForm = ({
 			</div>
 
 			<div className="subModuleTitle">
-				<span>{t("lbl_DepositAmount")}</span>
+				<span>
+					{t("lbl_DepositAmount")}
+					{t("lbl_DepositAmountNote")}
+				</span>
 			</div>
 			<div className="subModule">
 				<Inputbox

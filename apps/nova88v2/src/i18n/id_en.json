@@ -269,6 +269,7 @@
 	"lbl_Deposit": "Deposit",
 	"lbl_DepositOptionHint": "You can choose the most suitable deposit option from the ones provided below:",
 	"lbl_DepositAmount": "Deposit Amount",
+	"lbl_DepositAmountNote": "（Unit is IDR 50 = IDR 50.000）",
 	"lbl_DepositTime": "Deposit Time",
 	"lbl_MobileDeposit": "Mobile E-Wallet",
 	"lbl_ConfirmDeposit": "Please confirm the deposit information.",

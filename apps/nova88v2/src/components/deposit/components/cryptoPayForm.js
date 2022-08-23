@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes, { bool, func } from "prop-types";
 import Inputbox from "../../common/inputbox";
-import { getUrlParameter } from "../../common/common";
+import { defCurrencyList, getUrlParameter } from "../../common/common";
 import ShortcutAmountList from "./shortcutAmountList";
 import config from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 
 import PromotionSelect from "./promotionSelect";
+import { userInfoContext } from "../../common/context";
 
 const CryptoPayForm = ({
 	t,
@@ -24,6 +25,7 @@ const CryptoPayForm = ({
 	isGroupListFetchDone,
 	onSubmit
 }) => {
+	const { userInfo } = useContext(userInfoContext);
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 	const [groupIdForRecord, setGroupIdForRecord] = useState(defaultGroupId);
@@ -103,6 +105,15 @@ const CryptoPayForm = ({
 
 	const buttonAble =
 		groupIdForRecord && infoChannelIdForRecord && formInfo?.amount;
+
+	const placeHolderText =
+		userInfo.currencyId === defCurrencyList.IDR
+			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
+					formInfo.maxAmount / 1000
+			  }`
+			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
+					formInfo.maxAmount
+			  }`;
 
 	return (
 		<>
@@ -198,6 +209,8 @@ const CryptoPayForm = ({
 				<div className="subModuleTitle">
 					<i className="txt-blue">*</i>
 					{t("lbl_DepositAmount")}
+					{userInfo.currencyId === defCurrencyList.IDR &&
+						t("lbl_DepositAmountNote")}
 				</div>
 
 				<Inputbox
@@ -209,10 +222,9 @@ const CryptoPayForm = ({
 					tip={formInfo?.tip}
 					_isConvert={false}
 					isAmount={true}
-					placeholder={`${t("lbl_MinMaxAmount")} ${formatAmount(
-						formInfo.minAmount
-					)} ~ ${formatAmount(formInfo.maxAmount)}`}
+					placeholder={placeHolderText}
 					onKeyDown={event => buttonAble && onInputboxKeyDown(event)}
+					format={userInfo.currencyId === defCurrencyList.IDR}
 				/>
 				{!isSelAmountType && (
 					<ShortcutAmountList
@@ -242,6 +254,10 @@ const CryptoPayForm = ({
 	);
 };
 
+CryptoPayForm.defaultProps = {
+	onChangePromotion: () => null
+};
+
 CryptoPayForm.propTypes = {
 	formInfo: PropTypes.objectOf(PropTypes.any).isRequired,
 	depositPromoList: PropTypes.arrayOf(PropTypes.any).isRequired,
@@ -255,6 +271,7 @@ CryptoPayForm.propTypes = {
 	onInputboxKeyDown: PropTypes.func.isRequired,
 	isGroupListFetchDone: PropTypes.bool.isRequired,
 	onSubmit: func.isRequired,
-	isPending: bool.isRequired
+	isPending: bool.isRequired,
+	onChangePromotion: PropTypes.func
 };
 export default CryptoPayForm;

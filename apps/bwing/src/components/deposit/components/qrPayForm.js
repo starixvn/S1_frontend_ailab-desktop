@@ -26,9 +26,8 @@ const QRPayForm = ({
 	const defaultChannelId = Number(getUrlParameter("channelId"));
 
 	const [groupIdForRecord, setGroupIdForRecord] = useState(defaultGroupId);
-	const [infoChannelIdForRecord, setInfoChannelIdForRecord] = useState(
-		defaultChannelId
-	);
+	const [infoChannelIdForRecord, setInfoChannelIdForRecord] =
+		useState(defaultChannelId);
 
 	const onGetQRPayInfoList = async gId => {
 		window.history.replaceState(
@@ -219,6 +218,7 @@ const QRPayForm = ({
 						<span>
 							<i className="txt-blue">*</i>
 							{t("lbl_DepositAmount")}
+							{t("lbl_DepositAmountNote")}
 						</span>
 					</div>
 

@@ -217,6 +217,7 @@ const MobileForm = ({
 						<span>
 							<i className="txt-blue">*</i>
 							{t("lbl_DepositAmount")}
+							{t("lbl_DepositAmountNote")}
 						</span>
 					</div>
 

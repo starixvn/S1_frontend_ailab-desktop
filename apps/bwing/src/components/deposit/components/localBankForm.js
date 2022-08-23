@@ -152,7 +152,7 @@ const LocalBankForm = ({
 	});
 
 	const onChangeAmount = _amount => {
-		let amount = String(_amount).replace(/^(0+)|[^\d.]+/g, "");
+		let amount = String(_amount).replace(/^(0+)|[^\d]+/g, "");
 
 		if (amount.includes(".")) {
 			amount = amount.replace(/\.{2,}/g, ".");
@@ -197,8 +197,7 @@ const LocalBankForm = ({
 							className={`${
 								item.sysId === sysIdForRecord ? "active" : ""
 							} ${item.canSubmit ? "" : "pending"}`}
-							onClick={() => onChangeBankInfo(item)}
-						>
+							onClick={() => onChangeBankInfo(item)}>
 							<div>
 								<img
 									src={`${
@@ -313,6 +312,7 @@ const LocalBankForm = ({
 				<span>
 					<i className="txt-blue">*</i>
 					{t("lbl_DepositAmount")}
+					{t("lbl_DepositAmountNote")}
 				</span>
 			</div>
 
