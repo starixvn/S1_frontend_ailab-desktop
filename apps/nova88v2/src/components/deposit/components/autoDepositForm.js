@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import PropTypes, { any, arrayOf, func } from "prop-types";
+import React, { useState, useEffect, useContext } from "react";
+import PropTypes, { func } from "prop-types";
+import { userInfoContext } from "../../common/context";
 import Inputbox from "../../common/inputbox";
 import ShortcutAmountList from "./shortcutAmountList";
-import { getUrlParameter } from "../../common/common";
+import { defCurrencyList, getUrlParameter } from "../../common/common";
 import { cloudImgUrl } from "../../../config";
 import { useSyncRouteQuery } from "../hooks";
 
@@ -20,6 +21,7 @@ const AutoDepositForm = ({
 	onInputboxKeyDown,
 	autoDepositGroupList
 }) => {
+	const { userInfo } = useContext(userInfoContext);
 	const parameterSysId = Number(getUrlParameter("sysId"));
 
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
@@ -56,6 +58,15 @@ const AutoDepositForm = ({
 
 		setDefaultBankInfo();
 	}, []);
+
+	const placeHolderText =
+		userInfo.currencyId === defCurrencyList.IDR
+			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
+					formInfo.maxAmount / 1000
+			  }`
+			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
+					formInfo.maxAmount
+			  }`;
 
 	return (
 		<>
@@ -101,6 +112,8 @@ const AutoDepositForm = ({
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
 						{t("lbl_DepositAmount")}
+						{userInfo.currencyId === defCurrencyList.IDR &&
+							t("lbl_DepositAmountNote")}
 					</div>
 					<div className="subModule">
 						<Inputbox
@@ -111,12 +124,9 @@ const AutoDepositForm = ({
 							tip={formInfo?.tip}
 							_isConvert={false}
 							isAmount={true}
-							placeholder={`${t(
-								"lbl_MinMaxAmount"
-							)} ${formatAmount(
-								formInfo.minAmount
-							)} ~ ${formatAmount(formInfo.maxAmount)}`}
+							placeholder={placeHolderText}
 							onKeyDown={onInputboxKeyDown}
+							format={userInfo.currencyId === defCurrencyList.IDR}
 						/>
 
 						<ShortcutAmountList

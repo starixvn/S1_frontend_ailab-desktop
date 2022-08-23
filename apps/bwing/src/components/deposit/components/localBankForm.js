@@ -197,8 +197,7 @@ const LocalBankForm = ({
 							className={`${
 								item.sysId === sysIdForRecord ? "active" : ""
 							} ${item.canSubmit ? "" : "pending"}`}
-							onClick={() => onChangeBankInfo(item)}
-						>
+							onClick={() => onChangeBankInfo(item)}>
 							<div>
 								<img
 									src={`${
@@ -313,6 +312,7 @@ const LocalBankForm = ({
 				<span>
 					<i className="txt-blue">*</i>
 					{t("lbl_DepositAmount")}
+					{t("lbl_DepositAmountNote")}
 				</span>
 			</div>
 

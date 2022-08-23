@@ -39,7 +39,6 @@ const LocalBankForm = ({
 	isGroupListFetchDone
 }) => {
 	const parameterSysId = Number(getUrlParameter("sysId"));
-
 	const [fromChannelIdIdx, setFromChannelIdIdx] = useState(0);
 	const [custBankInfoIdx, setCustBankInfoIdx] = useState(null);
 	const [sysIdForRecord, setSysIdForRecord] = useState(parameterSysId);
@@ -269,6 +268,15 @@ const LocalBankForm = ({
 		formInfo.fromChannel === defDepositChannelIdList.OnlineBanking ||
 		formInfo.fromChannel === defDepositChannelIdList.ATM;
 
+	const placeHolderText =
+		userInfo.currencyId === defCurrencyList.IDR
+			? `${t("lbl_MinMaxAmount")} ${formInfo.minAmount / 1000} ~ ${
+					formInfo.maxAmount / 1000
+			  }`
+			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
+					formInfo.maxAmount
+			  }`;
+
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -293,8 +301,7 @@ const LocalBankForm = ({
 								className={`${className} ${
 									item.canSubmit ? "" : "pending"
 								}`}
-								onClick={() => onChangeBankInfo(item)}
-							>
+								onClick={() => onChangeBankInfo(item)}>
 								<div>
 									<img
 										src={`${cloudImgUrl}/SiteSkin/img/BankLogo/${bankLogo}`}
@@ -374,6 +381,8 @@ const LocalBankForm = ({
 			<div className="subModuleTitle">
 				<i className="txt-blue">*</i>
 				{t("lbl_DepositAmount")}
+				{userInfo.currencyId === defCurrencyList.IDR &&
+					t("lbl_DepositAmountNote")}
 			</div>
 
 			<div className="subModule">
@@ -386,10 +395,9 @@ const LocalBankForm = ({
 					tip={formInfo?.tip}
 					_isConvert={false}
 					isAmount={true}
-					placeholder={`${t("lbl_MinMaxAmount")} ${formatAmount(
-						formInfo.minAmount
-					)} ~ ${formatAmount(formInfo.maxAmount)}`}
+					placeholder={placeHolderText}
 					onKeyDown={onInputboxKeyDown}
+					format={userInfo.currencyId === defCurrencyList.IDR}
 				/>
 
 				<ShortcutAmountList
@@ -409,8 +417,7 @@ const LocalBankForm = ({
 				<div
 					className={`inputBox-blue${
 						localBankChannelError.checked === false ? " error" : ""
-					}`}
-				>
+					}`}>
 					<Dropdown
 						mainKey="deposit-localbank-channel-provider"
 						defaultOption={
@@ -426,8 +433,7 @@ const LocalBankForm = ({
 				<div
 					className={`tip${
 						localBankChannelError.tip ? " active" : ""
-					}`}
-				>
+					}`}>
 					{localBankChannelError.tip}
 				</div>
 			</div>
@@ -445,8 +451,7 @@ const LocalBankForm = ({
 								localBankBankInfoErrpr.checked === false
 									? " error"
 									: ""
-							}`}
-						>
+							}`}>
 							<Dropdown
 								mainKey="deposit-localbank-Bank-provider"
 								defaultOption={
@@ -471,8 +476,7 @@ const LocalBankForm = ({
 											`/${userInfo.langId}/${path.bankInfo.root}`
 										)
 									}
-									className="btn-check"
-								>
+									className="btn-check">
 									+
 								</button>
 							</div>
@@ -481,8 +485,7 @@ const LocalBankForm = ({
 						<div
 							className={`tip${
 								localBankBankInfoErrpr.tip ? " active" : ""
-							}`}
-						>
+							}`}>
 							{localBankBankInfoErrpr.tip}
 						</div>
 					</div>

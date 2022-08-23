@@ -20,7 +20,8 @@ const InputBox = ({
 	onChange,
 	_isConvert,
 	readOnly,
-	isTipHide
+	isTipHide,
+	format
 }) => {
 	const showCheckIcon = () => {
 		if (checked === null && clickInfo) {
@@ -75,7 +76,7 @@ const InputBox = ({
 				/>
 
 				{!!tooltip && <div className="description">{tooltip}</div>}
-
+				{format && "('000)"}
 				{checked !== undefined && (
 					<div className="iconModule">
 						{!!_isConvert && <i>('000)</i>}
@@ -108,7 +109,8 @@ InputBox.defaultProps = {
 	placeholder: "",
 	onChange: null,
 	_isConvert: null,
-	readOnly: false
+	readOnly: false,
+	format: false
 };
 
 InputBox.propTypes = {
@@ -129,7 +131,8 @@ InputBox.propTypes = {
 	className: PropTypes.string,
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func,
-	_isConvert: PropTypes.bool
+	_isConvert: PropTypes.bool,
+	format: PropTypes.bool
 };
 
 export default InputBox;
