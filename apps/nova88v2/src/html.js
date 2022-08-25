@@ -54,6 +54,19 @@ export default function HTML(props) {
 					// eslint-disable-next-line
 					dangerouslySetInnerHTML={{ __html: props.body }}
 				/>
+
+				{/* <!-- Google Tag Manager (noscript) --> */}
+				<noscript>
+					<iframe
+						src="https://www.googletagmanager.com/ns.html?id=GTM-5VD4484"
+						title="GTM"
+						height="0"
+						width="0"
+						style={{ display: "none", visibility: "hidden" }}
+					/>
+				</noscript>
+				{/* <!-- End Google Tag Manager (noscript) --> */}
+
 				{props.postBodyComponents}
 			</body>
 			<footer>
