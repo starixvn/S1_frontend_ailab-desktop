@@ -1,13 +1,21 @@
 /* eslint-disable */
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import config from "../../config";
 
 function ThirdPartyJS() {
+	const [mountGTM, setMountGTM] = useState(false);
+
+	useEffect(() => {
+		if (typeof window !== "undefined") {
+			setMountGTM(true);
+		}
+	}, []);
+
 	return (
 		<>
 			<Helmet />
-			<GTM gtmCode="GTM-5VD4484" />
+			{mountGTM && <GTM gtmCode="GTM-5VD4484" />}
 			<GATag gaCode="UA-163834722-1" />
 			<LiveChat />
 			<Iovation />
