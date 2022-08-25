@@ -6,12 +6,6 @@ export default function HTML(props) {
 	return (
 		<html lang="en" {...props.htmlAttributes}>
 			<head>
-				{/* <!-- Google tag (gtag.js) --> */}
-				<script
-					async
-					src="https://www.googletagmanager.com/gtag/js?id=G-B22CGGG5KJ"
-				/>
-
 				<meta charSet="utf-8" />
 				<meta httpEquiv="x-ua-compatible" content="ie=edge" />
 				<meta
