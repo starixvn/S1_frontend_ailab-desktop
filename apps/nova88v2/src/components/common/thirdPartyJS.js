@@ -16,7 +16,7 @@ function ThirdPartyJS() {
 		<>
 			<Helmet />
 			{mountGTM && <GTM gtmCode="GTM-5VD4484" />}
-			<GATag gaCode="UA-163834722-1" />
+			{/* <GATag gaCode="UA-163834722-1" /> */}
 			<LiveChat />
 			<Iovation />
 			{/* <FPS /> */}
