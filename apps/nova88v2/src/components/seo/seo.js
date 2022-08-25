@@ -128,6 +128,10 @@ function SEO({ lang, meta, getFromAPI }) {
 				{
 					name: `twitter:description`,
 					content: _description
+				},
+				{
+					name: `twitter:image`,
+					content: `${bannerImgUrl}/img/thumbnail/thumbnail_001.jpg`
 				}
 			].concat(meta)}
 		/>
