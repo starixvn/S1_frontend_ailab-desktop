@@ -315,6 +315,11 @@ header .header > div.menu > button.liveIcon::before {
   }
 }
 
+header .header > div.menu > a.event::before,
+header .header > div.menu > button.event::before {
+  left: 40px;
+}
+
 header .header > div.menu > a.event img,
 header .header > div.menu > button.event img {
   height: 34px;
@@ -878,6 +883,10 @@ header .header > div.menu .nweSubMenu-Wrapper .gameList .virtual .img {
   background: url(https://banner.bw88.io/desktop/img/lottery/virtual.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .gameList .maxgame .img {
+  background: url(https://banner.bw88.io/desktop/img/lottery/lottery-max.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .AMB .img {
   background: url(https://banner.bw88.io/desktop/img/slot/amb.png) no-repeat center/auto 100%;
 }
@@ -930,6 +939,10 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .PP .img {
   background: url(https://banner.bw88.io/desktop/img/slot/pp.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .SK .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/sk.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .PG .img {
   background: url(https://banner.bw88.io/desktop/img/slot/pg.png) no-repeat center/auto 100%;
 }
@@ -976,6 +989,10 @@ header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveAG .img {
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .livePP .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-pp.png) no-repeat center/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveSK .img {
+  background: url(https://banner.bw88.io/desktop/img/live/live-sk.png) no-repeat center/auto 100%;
 }
 
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveSA .img {
@@ -1052,6 +1069,14 @@ header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-hf5 .img {
 
 header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-ma .img {
   background: url(https://banner.bw88.io/desktop/img/fishing/fish-ma.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-or .img {
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-or.png) no-repeat center 10px/auto 100%;
+}
+
+header .header > div.menu .nweSubMenu-Wrapper .fishList .fs-casdaha .img {
+  background: url(https://banner.bw88.io/desktop/img/fishing/fish-cai.png) no-repeat center 10px/auto 100%;
 }
 
 header .header > div.function {
@@ -1990,6 +2015,16 @@ footer > div .platformGroup button.pp {
 footer > div .platformGroup a.pp:hover,
 footer > div .platformGroup button.pp:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/pp-a.png) no-repeat center;
+}
+
+footer > div .platformGroup a.sk,
+footer > div .platformGroup button.sk {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/sk.png) no-repeat center;
+}
+
+footer > div .platformGroup a.sk:hover,
+footer > div .platformGroup button.sk:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/sk-a.png) no-repeat center;
 }
 
 footer > div .platformGroup a.mg,
@@ -7988,6 +8023,14 @@ main > .swiper-container .swiper-slide {
   background: url(https://banner.bw88.io/desktop/img/livelobby/live-pp-a.png) no-repeat center;
 }
 
+.livelobbyList > div.live-sk {
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-sk.png) no-repeat center;
+}
+
+.livelobbyList > div.live-sk:hover {
+  background: url(https://banner.bw88.io/desktop/img/livelobby/live-sk-a.png) no-repeat center;
+}
+
 .livelobbyList > div.live-sa {
   background: url(https://banner.bw88.io/desktop/img/livelobby/live-sa.png) no-repeat center;
 }
@@ -8220,6 +8263,14 @@ main > .swiper-container .swiper-slide {
 
 .fishlobbyList > div.fish-ma {
   background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-ma.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-or {
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-or.png) no-repeat center;
+}
+
+.fishlobbyList > div.fish-casdaha {
+  background: url(https://banner.bw88.io/desktop/img/fishinglobby/fish-cai.png) no-repeat center;
 }
 
 .fishlobbyList > div.coming {
@@ -8504,6 +8555,14 @@ main > .swiper-container .swiper-slide {
 
 .gameslobbyList > div.tablegame {
   background: url(https://banner.bw88.io/desktop/img/gameslobby/tablegame.png) no-repeat center;
+}
+
+.gameslobbyList > div.maxgame {
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/maxgame.png) no-repeat center;
+}
+
+.gameslobbyList > div.virtualgames {
+  background: url(https://banner.bw88.io/desktop/img/gameslobby/virtualgames.png) no-repeat center;
 }
 
 form {
