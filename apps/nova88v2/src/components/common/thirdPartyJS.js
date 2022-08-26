@@ -1,22 +1,14 @@
 /* eslint-disable */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Helmet } from "react-helmet";
 import config from "../../config";
 
 function ThirdPartyJS() {
-	const [mountGTM, setMountGTM] = useState(false);
-
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			setMountGTM(true);
-		}
-	}, []);
-
 	return (
 		<>
 			<Helmet />
-			{mountGTM && <GTM gtmCode="GTM-5VD4484" />}
-			<GATag gaCode="UA-163834722-1" />
+			{<GTM gtmCode="GTM-5VD4484" />}
+			{/* <GATag gaCode="UA-163834722-1" /> */}
 			<LiveChat />
 			<Iovation />
 			{/* <FPS /> */}
@@ -98,19 +90,29 @@ const PlayTech = () => (
 const GTM = ({ gtmCode }) => (
 	<Helmet>
 		<script>
-			{(function (w, d, s, l, i) {
+			{`(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
 				w[l].push({
 					"gtm.start": new Date().getTime(),
 					event: "gtm.js"
 				});
-				const f = d.getElementsByTagName(s)[0];
-				const j = d.createElement(s);
-				const dl = l != "dataLayer" ? `&l=${l}` : "";
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
 				j.async = true;
-				j.src = `https://www.googletagmanager.com/gtm.js?id=${i}${dl}`;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 				f.parentNode.insertBefore(j, f);
-			})(window, document, "script", "dataLayer", gtmCode)}
+			})(window, document, "script", "dataLayer", "GTM-5VD4484")`}
+		</script>
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-B22CGGG5KJ"></script>
+		<script>
+			{`  window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+
+				gtag('config', 'G-B22CGGG5KJ');`}
 		</script>
 	</Helmet>
 );
