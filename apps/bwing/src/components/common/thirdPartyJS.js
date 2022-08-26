@@ -5,7 +5,7 @@ function ThirdPartyJS() {
 	return (
 		<>
 			<Helmet />
-			<GTM gtmCode="GTM-5VD4484" />
+			<GTM />
 		</>
 	);
 }
