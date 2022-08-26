@@ -140,55 +140,55 @@ export const defRewardList = ({ t }) => ({
 				rank: t("lbl_RankChampion"),
 				deposit: "1,200,000",
 				point: "30,000",
-				bonus: "50,000"
+				bonus: "80,888"
 			},
 			{
 				rank: t("lbl_Rank1"),
 				deposit: "1,100,000",
 				point: "25,000",
-				bonus: "40,000"
+				bonus: "65,388"
 			},
 			{
 				rank: t("lbl_Rank2"),
 				deposit: "950,000",
 				point: "18,000",
-				bonus: "35,000"
+				bonus: "48,888"
 			},
 			{
 				rank: t("lbl_Rank3"),
 				deposit: "800,000",
 				point: "15,000",
-				bonus: "25,000"
+				bonus: "40,888"
 			},
 			{
 				rank: t("lbl_Rank4"),
 				deposit: "700,000",
 				point: "12,000",
-				bonus: "20,000"
+				bonus: "32,688"
 			},
 			{
 				rank: t("lbl_Rank5"),
 				deposit: "600,000",
 				point: "10,000",
-				bonus: "15,000"
+				bonus: "24,588"
 			},
 			{
 				rank: t("lbl_Rank6"),
 				deposit: "500,000",
 				point: "9,000",
-				bonus: "10,000"
+				bonus: "16,388"
 			},
 			{
 				rank: t("lbl_Rank7"),
 				deposit: "400,000",
 				point: "8,000",
-				bonus: "5,000"
+				bonus: "8,188"
 			},
 			{
 				rank: t("lbl_Rank9_30"),
 				deposit: "300,000",
 				point: "5,000",
-				bonus: "3,000"
+				bonus: "4,088"
 			}
 		]
 	},
@@ -203,55 +203,55 @@ export const defRewardList = ({ t }) => ({
 				rank: t("lbl_RankChampion"),
 				deposit: "400,000,000",
 				point: "30,000",
-				bonus: "15,000,000"
+				bonus: "33,680,000"
 			},
 			{
 				rank: t("lbl_Rank1"),
 				deposit: "300,000,000",
 				point: "25,000",
-				bonus: "12,000,000"
+				bonus: "26,940,000"
 			},
 			{
 				rank: t("lbl_Rank2"),
 				deposit: "220,000,000",
 				point: "18,000",
-				bonus: "8,500,000"
+				bonus: "20,210,000"
 			},
 			{
 				rank: t("lbl_Rank3"),
 				deposit: "180,000,000",
 				point: "15,000",
-				bonus: "6,500,000"
+				bonus: "16,840,000"
 			},
 			{
 				rank: t("lbl_Rank4"),
 				deposit: "150,000,000",
 				point: "12,000",
-				bonus: "5,000,000"
+				bonus: "13,470,000"
 			},
 			{
 				rank: t("lbl_Rank5"),
 				deposit: "130,000,000",
 				point: "10,000",
-				bonus: "3,500,000"
+				bonus: "10,100,000"
 			},
 			{
 				rank: t("lbl_Rank6"),
 				deposit: "100,000,000",
 				point: "9,000",
-				bonus: "2,000,000"
+				bonus: "6,730,000"
 			},
 			{
 				rank: t("lbl_Rank7"),
 				deposit: "65,000,000",
 				point: "8,000",
-				bonus: "1,000,000"
+				bonus: "3,360,000"
 			},
 			{
 				rank: t("lbl_Rank9_30"),
 				deposit: "35,000,000",
 				point: "5,000",
-				bonus: "500,000"
+				bonus: "1,680,000"
 			}
 		]
 	}
