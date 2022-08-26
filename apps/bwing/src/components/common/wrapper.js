@@ -367,7 +367,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 														setIsRoot
 													}}>
 													<SEO />
-													<ThirdPartyJS />
+													{/* <ThirdPartyJS /> */}
 													{children}
 												</ct.isRootContext.Provider>
 											</ct.loadingContext.Provider>
