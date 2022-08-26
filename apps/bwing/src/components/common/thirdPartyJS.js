@@ -12,18 +12,6 @@ function ThirdPartyJS() {
 
 const GTM = () => (
 	<Helmet>
-		{/* <!-- Google tag (gtag.js) --> */}
-		<script
-			async
-			src="https://www.googletagmanager.com/gtag/js?id=G-V0NSTJVY5J"
-		/>
-		<script>
-			{`window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
-				gtag('js', new Date());
-				gtag('config', 'G-V0NSTJVY5J');`}
-		</script>
-
 		<script>
 			{`(function (w, d, s, l, i) {
 				w[l] = w[l] || [];
@@ -38,6 +26,18 @@ const GTM = () => (
 					j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 					f.parentNode.insertBefore(j, f);
 			})(window, document, "script", "dataLayer", "GTM-NKP2DBN")`}
+		</script>
+
+		{/* <!-- Google tag (gtag.js) --> */}
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-V0NSTJVY5J"
+		/>
+		<script>
+			{`window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+				gtag('config', 'G-V0NSTJVY5J');`}
 		</script>
 	</Helmet>
 );
