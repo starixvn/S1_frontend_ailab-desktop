@@ -55,6 +55,18 @@ export default function HTML(props) {
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
+				{/* <!-- Google Tag Manager (noscript) --> */}
+				<noscript>
+					<iframe
+						title="GTM"
+						src="https://www.googletagmanager.com/ns.html?id=GTM-TV88KQ6"
+						height="0"
+						width="0"
+						style={{ display: "none", visibility: "hidden" }}
+					/>
+				</noscript>
+				{/* <!-- End Google Tag Manager (noscript) --> */}
+
 				{props.preBodyComponents}
 				<div
 					key="body"
