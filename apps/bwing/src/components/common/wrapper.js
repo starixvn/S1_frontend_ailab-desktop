@@ -367,7 +367,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 														setIsRoot
 													}}>
 													<SEO />
-													{/* <ThirdPartyJS /> */}
+													<ThirdPartyJS />
 													{children}
 												</ct.isRootContext.Provider>
 											</ct.loadingContext.Provider>
@@ -380,7 +380,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				</ct.popUpMsgContext.Provider>
 			);
 		}
-		return null;
+		return <ThirdPartyJS />;
 	}
 	navigate(redirectPath);
 	return [];
