@@ -19,16 +19,10 @@ const Main = ({ showSubMenu, productTpIds }) => {
 	const { userInfo } = useContext(userInfoContext);
 	const currentPage = getCurrentPage();
 
-	const worldCupTag = showEventIcon(
-		{
-			icon: defEventIcon.new,
-			period: defEventPeriod.worldCup_new
-		},
-		{
-			icon: defEventIcon.hot,
-			period: defEventPeriod.worldCup_hot
-		}
-	);
+	const worldCupTag = showEventIcon({
+		icon: defEventIcon.hot,
+		period: defEventPeriod.worldCup_hot
+	});
 
 	return (
 		<>
