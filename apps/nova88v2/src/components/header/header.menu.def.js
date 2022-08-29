@@ -280,16 +280,10 @@ export const defMenuLinks = {
 		imgUrl: `${bannerImgUrl}/desktop/img/event/worldcup/xs-logo.png`,
 		productInfo: { tpId: 1, gameId: 2002, tpGameType: 1 },
 		eventIcons: [
-			showEventIcon(
-				{
-					icon: defEventIcon.new,
-					period: defEventPeriod.worldCup_new
-				},
-				{
-					icon: defEventIcon.hot,
-					period: defEventPeriod.worldCup_hot
-				}
-			)
+			showEventIcon({
+				icon: defEventIcon.hot,
+				period: defEventPeriod.worldCup_hot
+			})
 		]
 	},
 	sports: {
