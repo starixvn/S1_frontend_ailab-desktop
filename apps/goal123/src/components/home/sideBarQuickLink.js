@@ -31,14 +31,15 @@ export default () => {
 	const snsList = socialChannel
 		.filter(el => el.channelName !== "Livechat")
 		.map(el => {
-			const qrCode = el.linkType === defLinkType.qrCode && (
-				<QRCode
-					value={el.link}
-					renderAs="svg"
-					size={150}
-					includeMargin={true}
-				/>
-			);
+			const qrCode = el.channelName !== "Zalo" &&
+				el.linkType === defLinkType.qrCode && (
+					<QRCode
+						value={el.link}
+						renderAs="svg"
+						size={150}
+						includeMargin={true}
+					/>
+				);
 
 			return (
 				<li>
@@ -56,6 +57,12 @@ export default () => {
 						{el.channelName}
 					</a>
 					{qrCode}
+					{el.channelName === "Zalo" && (
+						<img
+							src="https://socialchannel.0814media.net/GOAL123/G123_Zalo.jpg"
+							alt="Zalo"
+						/>
+					)}
 				</li>
 			);
 		});
