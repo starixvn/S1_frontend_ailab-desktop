@@ -58,7 +58,10 @@ export default () => {
 					</a>
 					{qrCode}
 					{el.channelName === "Zalo" && (
-						<img src="../../styles/img/G123_Zalo.jpg" alt="Zalo" />
+						<img
+							src="https://socialchannel.0814media.net/GOAL123/G123_Zalo.jpg"
+							alt="Zalo"
+						/>
 					)}
 				</li>
 			);
