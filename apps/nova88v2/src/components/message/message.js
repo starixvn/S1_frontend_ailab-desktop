@@ -69,13 +69,20 @@ export default () => {
 
 	const onClickCheckAll = () => {
 		setIsCheckAll(!isCheckAll);
-		setSelectItems(!isCheckAll ? msgListData.map(item => item.id) : []);
+		setSelectItems(
+			!isCheckAll
+				? msgListData.map(item => ({
+						msgId: item.id,
+						isBatch: item.isBatch
+				  }))
+				: []
+		);
 	};
 
-	const onChildChanged = checkId => {
-		const result = selectItems.includes(checkId)
-			? selectItems.filter(item => item !== checkId)
-			: [...selectItems, checkId];
+	const onChildChanged = msgData => {
+		const result = selectItems.find(el => el.msgId === msgData.msgId)
+			? selectItems.filter(item => item.msgId !== msgData.msgId)
+			: [...selectItems, msgData];
 		setIsCheckAll(result.length === msgListData.length);
 		setSelectItems(result);
 	};
@@ -180,9 +187,7 @@ export default () => {
 		}
 	}, [pagination.totalPages, location.state]);
 
-	return loading ? (
-		<></>
-	) : (
+	return loading ? null : (
 		<div className="infoModule">
 			<div className="inside-title icon icon-icon32px_openmail">
 				<span>{t("lbl_PersonalMsg")}</span>
@@ -218,22 +223,23 @@ export default () => {
 								/>
 							</div>
 						</div>
-						{msgListData.map(item => {
-							return (
-								<MessageList
-									{...item}
-									isPopUp={item.id === location?.state?.id}
-									key={`msgList-${item.id}`}
-									selectItems={selectItems}
-									onChangeCheck={() =>
-										onChildChanged(item.id)
-									}
-									getMsgList={() =>
-										getMsgList(pagination.currentPage)
-									}
-								/>
-							);
-						})}
+						{msgListData.map(item => (
+							<MessageList
+								{...item}
+								isPopUp={item.id === location?.state?.id}
+								key={`msgList-${item.id}`}
+								selectItems={selectItems}
+								onChangeCheck={() =>
+									onChildChanged({
+										msgId: item.id,
+										isBatch: item.isBatch
+									})
+								}
+								getMsgList={() =>
+									getMsgList(pagination.currentPage)
+								}
+							/>
+						))}
 					</div>
 				</div>
 			) : (

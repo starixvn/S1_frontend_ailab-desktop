@@ -85,8 +85,7 @@ const MessageList = props => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}
-										>
+											onClick={clickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -105,8 +104,7 @@ const MessageList = props => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}
-									>
+										onClick={clickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -127,7 +125,9 @@ const MessageList = props => {
 						type="checkbox"
 						id={`msgList-checkBox-${props.id}`}
 						onChange={props.onChangeCheck}
-						checked={props.selectItems.includes(props.id)}
+						checked={props.selectItems.some(
+							el => el.msgId === props.id
+						)}
 					/>
 					<label
 						aria-label="msgList-checkBox"
@@ -140,8 +140,7 @@ const MessageList = props => {
 				</div>
 				<div
 					className="txt-blue"
-					onClick={() => getMsgContent(!showContent)}
-				>
+					onClick={() => getMsgContent(!showContent)}>
 					{dateTimeFormat()}
 
 					<button className="icon icon-keyboard_arrow_down" />
