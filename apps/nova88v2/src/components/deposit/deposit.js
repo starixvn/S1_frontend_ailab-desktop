@@ -330,6 +330,7 @@ const Deposit = () => {
 		const checkPayAccount = () => {
 			if (
 				userInfo.currencyId === defCurrencyList.INR &&
+				formInfo?.groupName === "UPI" &&
 				formInfo?.payName === "TenPay" &&
 				!formInfo?.payAccount?.value
 			) {
@@ -341,8 +342,10 @@ const Deposit = () => {
 						checked: false
 					}
 				}));
+
 				return false;
 			}
+
 			return true;
 		};
 
