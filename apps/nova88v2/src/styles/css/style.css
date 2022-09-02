@@ -169,7 +169,6 @@ header input:focus-within {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin-right: 5px;
 }
 
 .header {
@@ -659,7 +658,7 @@ header input:focus-within {
   width: 150px;
   height: 25px;
   font-style: italic;
-  background: url(https://banner.n88media.com/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
+  background: url(https://banner.0814media.net/desktop/img/subMenu-Wrapper-spanBG.png) no-repeat center/cover;
   -webkit-transition: 0.6s;
   transition: 0.6s;
   left: 10px;
@@ -833,7 +832,7 @@ header input:focus-within {
 }
 
 .header > div.menu .subMenu-Wrapper-new .promoList {
-  background: url(https://image.n88media.com/SiteSkin/img/pomobanner.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/pomobanner.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .promoList > div {
@@ -848,7 +847,7 @@ header input:focus-within {
 }
 
 .header > div.menu .subMenu-Wrapper-new .appList {
-  background: url(https://image.0814media.net/SiteSkin/img/appdownload_bg.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/appdownload_bg.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .appList > div {
@@ -6624,12 +6623,12 @@ input[type="file"] {
 }
 
 .vipLv > div.vipbg {
-  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
+  background: url(https://banner.0814media.net/desktop/img/vip/vipbg.png) no-repeat center/auto 100%;
   padding: 20px;
   margin-top: 0;
 }
 
-.vipLv > div.vipbg + div {
+.vipLv > div.vipname {
   margin-top: 15px;
   background: #1E85EC;
   padding: 5px 10px;
@@ -7026,7 +7025,7 @@ input[type="file"] {
 }
 
 .livecasinoinside {
-  background: #020612 url(https://banner.n88media.com/img/livecasino/casinobg.jpg) no-repeat bottom center/100%;
+  background: #020612 url(https://banner.0814media.net/desktop/img/livecasino/casinobg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
 }
@@ -10220,6 +10219,10 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #5574A7;
 }
 
+.subModuleListColumn > .subModule > div.qrCode {
+  width: 50%;
+}
+
 .subModuleListColumn > .subModule > div.shortcut {
   margin-top: 10px;
 }
@@ -10490,6 +10493,22 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   font-weight: bold;
   margin-left: 5px;
   font-size: 14px;
+}
+
+.subModuleListColumn > .subModule.bankQR {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.subModuleListColumn > .subModule.bankQR .bankAccount {
+  width: 80%;
+}
+
+.subModuleListColumn > .subModule.bankQR .qrCode {
+  width: calc(20% - 20px);
+  padding: 10px;
+  background: rgba(240, 247, 255, 0.8);
 }
 
 .subModuleListColumn .column {
@@ -10902,10 +10921,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 .liveVideo .latestVideo + div .hotevent .team > img, .liveVideo .newsList + div .hotevent .team > img, .newsVideo .latestVideo + div .hotevent .team > img, .newsVideo .newsList + div .hotevent .team > img {
   width: auto;
   margin: auto;
-}
-
-.liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .liveVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .liveVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .newsVideo .latestVideo + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:before, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamL > div:after, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:before, .newsVideo .newsList + div .hotevent .team > img[src="https://img.n88media.com/Sports/Olympics Tokyo/olympic_logo.png"] + div > div.teamR > div:after {
-  background: rgba(255, 0, 0, 0.3);
 }
 
 .liveVideo .latestVideo + div .hotevent .team > div, .liveVideo .newsList + div .hotevent .team > div, .newsVideo .latestVideo + div .hotevent .team > div, .newsVideo .newsList + div .hotevent .team > div {
@@ -11644,6 +11659,11 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           flex-flow: column;
   width: 118px;
   height: 118px;
+}
+
+.quickLinkNew2 a img, .quickLinkNew2 button img, .quickLinkNew4 a img, .quickLinkNew4 button img {
+  margin: 0 auto;
+  width: 25px;
 }
 
 .quickLinkNew2 a.icon-line:before, .quickLinkNew2 a.icon-whatsapp:before, .quickLinkNew2 button.icon-line:before, .quickLinkNew2 button.icon-whatsapp:before {
@@ -12633,7 +12653,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .fishinginside {
-  background: #84eff9 url(https://banner.n88media.com/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
+  background: #84eff9 url(https://banner.0814media.net/desktop/img/fishing/fishbg.jpg) no-repeat bottom center/100%;
   padding-bottom: 130px;
   min-height: 100%;
 }
@@ -12728,7 +12748,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .lotteryinside {
   position: relative;
-  background: #020321 url(https://banner.n88media.com/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
+  background: #020321 url(https://banner.0814media.net/desktop/img/lottery/lotterybg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 
@@ -12855,7 +12875,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .esportinside {
   position: relative;
-  background: #131419 url(https://banner.n88media.com/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
+  background: #131419 url(https://banner.0814media.net/desktop/img/esport/esportsbg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 
@@ -13108,7 +13128,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .gameinside {
   position: relative;
-  background: #3e132e url(https://banner.n88media.com/img/game/gamebg.jpg) no-repeat bottom center/100%;
+  background: #3e132e url(https://banner.0814media.net/desktop/img/game/gamebg.jpg) no-repeat bottom center/100%;
   min-height: 100%;
 }
 
@@ -13123,7 +13143,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .gameinside .inside .rightModule .gameItem {
   text-align: center;
-  margin: 0 30px;
+  margin: 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13151,7 +13171,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #70ddfc;
   font-size: 18px;
   font-weight: bold;
-  margin-top: -35px;
+  margin-top: -28px;
 }
 
 .gameinside .inside .rightModule .gameItem .under {
@@ -14778,7 +14798,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   padding: 30px;
   min-height: 725px;
   position: relative;
-  background: url(https://image.n88media.com/SiteSkin/img/body-bg.jpg) no-repeat center/100%;
 }
 
 .rankingNew section .champion .title, .rankingNew section .eventRule .title, .rankingNew section .lastevent .title {
