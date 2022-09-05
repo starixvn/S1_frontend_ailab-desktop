@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import defPopBoxType from "../common/defPopBoxType";
-import { userInfoContext, popBoxContext } from "../common/context";
+import { userInfoContext } from "../common/context";
 import { getCurrencyCode } from "../common/common";
 import { AutoPlayWithBtn } from "../common/swipperBanner";
 import { InfoEN, InfoTH, InfoID, InfoCS } from "./vip.info";
@@ -14,19 +13,10 @@ import { useHandleAllowCurrencies } from "../hook/useHandleAllowCurrencies";
 const Vip = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
-	const { setPopBox } = useContext(popBoxContext);
 
 	const currencyId = userInfo.currencyId
 		? userInfo.currencyId
 		: getCurrencyCode(userInfo.langId);
-
-	const showJoinPopBox = () => {
-		if (!userInfo.isLogin)
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Join
-			});
-	};
 
 	useHandleAllowCurrencies({
 		allowCurrencies,
@@ -69,8 +59,8 @@ const Vip = () => {
 				t={t}
 				currencyId={currencyId}
 				langId={userInfo.langId}
-				showJoinPopBox={showJoinPopBox}
 				bottomImg={bottomImg}
+				isLogin={userInfo.isLogin}
 			/>
 		</main>
 	);
