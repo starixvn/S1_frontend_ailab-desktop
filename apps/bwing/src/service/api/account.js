@@ -26,7 +26,7 @@ export const api_account_GetMsgContent = (MsgId, IsBatch) =>
 	});
 
 export const api_account_DelMsg = MsgIds =>
-	accountRequest.post("/DelMsg", { MsgIds });
+	accountRequest.post("/DelMsg", { DeleteList: MsgIds });
 
 export const api_account_GetWalletInfo = () =>
 	accountRequest.post("/GetWalletInfo");

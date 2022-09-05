@@ -120,22 +120,27 @@ export default () => {
 		const checkAll = !isCheckAll;
 		setIsCheckAll(checkAll);
 		if (checkAll) {
-			setSelectItems(msgListData.map(item => item.id));
+			setSelectItems(
+				msgListData.map(item => ({
+					msgId: item.id,
+					isBatch: item.isBatch
+				}))
+			);
 		} else {
 			setSelectItems([]);
 		}
 	};
 
-	const onChildChanged = checkId => {
-		setSelectItems([...selectItems, checkId]);
+	const onChildChanged = msgData => {
+		setSelectItems([...selectItems, msgData]);
 		let result = [];
-		if (selectItems.includes(checkId)) {
-			result = selectItems.filter(item => item !== checkId);
+		if (selectItems.find(el => el.msgId === msgData.msgId)) {
+			result = selectItems.filter(item => item.msgId !== msgData.msgId);
 			if (result.length < 5) {
 				setIsCheckAll(false);
 			}
 		} else {
-			result = [...selectItems, checkId];
+			result = [...selectItems, msgData];
 			if (result.length === 5) {
 				setIsCheckAll(true);
 			}
@@ -303,7 +308,12 @@ export default () => {
 							{...item}
 							isPopUp={item.id === location?.state?.id}
 							key={`msgList-${item.id}`}
-							onChangeCheck={onChildChanged.bind(this, item.id)}
+							onChangeCheck={() =>
+								onChildChanged({
+									msgId: item.id,
+									isBatch: item.isBatch
+								})
+							}
 							parentIsCheckAll={isCheckAll}
 							selectItems={selectItems}
 							getMsgList={getMsgList.bind(
