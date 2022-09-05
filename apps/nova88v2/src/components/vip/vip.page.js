@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "gatsby";
 import { currencyCode } from "../../datas/countryCode";
 import { isConvert } from "../common/common";
 import PageEventListMyr from "./components/pageEventList.myr";
 import PageEventListTh from "./components/pageEventList.th";
 import PageEventListId from "./components/pageEventList.id";
+import path from "../../router";
 
 const VipPage = ({
 	pageClubImg,
 	currencyId,
 	t,
 	langId,
-	showJoinPopBox,
-	bottomImg
+	bottomImg,
+	isLogin
 }) => (
 	<>
 		<div className="vipPage">
@@ -41,22 +43,26 @@ const VipPage = ({
 		</div>
 
 		{langId ? (
-			<img
-				onClick={showJoinPopBox}
-				src={bottomImg}
-				alt={`vip-program-${langId}`}
-			/>
+			<Link
+				to={`/${langId}/${path.join.root}`}
+				style={isLogin ? { pointerEvents: "none" } : {}}>
+				<img src={bottomImg} alt={`vip-program-${langId}`} />
+			</Link>
 		) : null}
 	</>
 );
+
+VipPage.defaultProps = {
+	isLogin: null
+};
 
 VipPage.propTypes = {
 	pageClubImg: PropTypes.arrayOf(PropTypes.object).isRequired,
 	currencyId: PropTypes.number.isRequired,
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
-	showJoinPopBox: PropTypes.func.isRequired,
-	bottomImg: PropTypes.string.isRequired
+	bottomImg: PropTypes.string.isRequired,
+	isLogin: PropTypes.bool
 };
 
 const VipPageEventList = ({ currencyId }) => {
