@@ -84,8 +84,7 @@ const MessageList = props => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -121,7 +120,9 @@ const MessageList = props => {
 						type="checkbox"
 						id={`msgList-checkBox-${props.id}`}
 						onChange={props.onChangeCheck}
-						checked={props.selectItems.includes(props.id)}
+						checked={props.selectItems.some(
+							el => el.msgId === props.id
+						)}
 					/>
 					<label
 						aria-label="msgList-checkBox"
@@ -133,8 +134,7 @@ const MessageList = props => {
 					tabIndex={0}
 					onClick={getMsgContent.bind(this, !showContent)}
 					role="button"
-					onKeyDown={getMsgContent.bind(this, !showContent)}
-				>
+					onKeyDown={getMsgContent.bind(this, !showContent)}>
 					{props.title}
 				</div>
 				<div onClick={getMsgContent.bind(this, !showContent)}>
