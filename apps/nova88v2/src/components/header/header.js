@@ -81,17 +81,19 @@ export default () => {
 					<Link
 						className="logo"
 						to={`/${userInfo.langId}`}
-						onClick={reload}
-					>
+						onClick={reload}>
 						<img
-							src={`${cloudImgUrl}/SiteSkin/img/logo_en_w.png`}
+							src={`${cloudImgUrl}/SiteSkin/img/${
+								userInfo.langId === "cs"
+									? "logo_cs_w"
+									: "logo_en_w"
+							}.png`}
 							alt={config.siteName}
 						/>
 					</Link>
 					<Link
 						className="countdown"
-						to={`/${userInfo.langId}/${path.worldCup.root}`}
-					>
+						to={`/${userInfo.langId}/${path.worldCup.root}`}>
 						<EventCountdown />
 					</Link>
 				</div>
@@ -101,8 +103,7 @@ export default () => {
 					{userInfo.isLogin ? null : (
 						<Link
 							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="forgot"
-						>
+							className="forgot">
 							{t("lbl_ForgetPassword")}
 						</Link>
 					)}
