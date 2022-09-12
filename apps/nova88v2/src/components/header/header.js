@@ -10,13 +10,20 @@ import {
 	isRootContext
 } from "../common/context";
 import Menu from "./header.menu";
-import config, { cloudImgUrl } from "../../config";
+import config, { cloudImgUrl, bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
 import EventCountdown from "../worldCup/countdown";
+import { defCurrencyList, langAndCurrMapping } from "../common/common";
+
+const reward88AllowsCurrencies = [
+	defCurrencyList.MYR,
+	defCurrencyList.THB,
+	defCurrencyList.IDR
+];
 
 export default () => {
 	const { t } = useTranslation();
@@ -25,6 +32,9 @@ export default () => {
 	const { allMaintainList } = useContext(maintainListContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { isRoot } = useContext(isRootContext);
+
+	const currencyId =
+		userInfo.currencyId ?? langAndCurrMapping[userInfo.langId];
 
 	const handleLogout = () => {
 		LOGOUT(() => {
@@ -91,6 +101,18 @@ export default () => {
 							alt={config.siteName}
 						/>
 					</Link>
+					{reward88AllowsCurrencies.includes(currencyId) && (
+						<a
+							className="rewardsLogo"
+							target="_blank"
+							href={`${config.openURL}/rewards/`}
+							rel="noreferrer">
+							<img
+								src={`${bannerImgUrl}/img/88rewards.png`}
+								alt="Rewards"
+							/>
+						</a>
+					)}
 					<Link
 						className="countdown"
 						to={`/${userInfo.langId}/${path.worldCup.root}`}>
