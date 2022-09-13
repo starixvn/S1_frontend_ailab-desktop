@@ -8,7 +8,7 @@ const GameList = ({ t, gameSubMenu, maintainList, clickItem }) => {
 
 	return gameSubMenu.map(subMenuItem => (
 		<GameListItem
-			key={subMenuItem.tpId}
+			key={subMenuItem.tpGameType}
 			t={t}
 			subMenuItem={subMenuItem}
 			maintainList={maintainList}

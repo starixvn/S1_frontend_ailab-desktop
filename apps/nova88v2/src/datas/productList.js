@@ -433,6 +433,11 @@ export default {
 		tpId: 35,
 		tpGameType: 60
 	},
+	game_MaxGame: {
+		tpId: 1,
+		gameId: 237,
+		tpGameType: 83
+	},
 	mega888: {
 		tpId: 22,
 		tpGameType: 34

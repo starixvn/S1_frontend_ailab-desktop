@@ -15,7 +15,7 @@ const GameList = ({ t, subMenu, allMaintainList, clickItem }) => {
 
 		return (
 			<GameListItem
-				key={subMenuItem.displayKey}
+				key={subMenuItem.tpGameType}
 				t={t}
 				isInMaintain={isInMaintain}
 				clickItem={clickItem}

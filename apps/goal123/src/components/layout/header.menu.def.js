@@ -114,12 +114,6 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...productList.KingMaker,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.KingMaker
-					})
-				],
 				displayKey: "lbl_King_Maker",
 				menuType: defMenuType.entPage,
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/kingmaker.png`,
@@ -131,7 +125,6 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...productList.sabaClub,
-				// path: path.sports.root,
 				className: "sabaclub",
 				displayKey: "lbl_Vgaming",
 				menuType: defMenuType.LinkOrBtn,
@@ -144,14 +137,25 @@ export const defMenuLinks = langId => ({
 				}
 			},
 			{
-				...productList.V8_Poker,
-				className: "v8",
+				...productList.MaxGame,
+				displayText: "Max Game",
+				menuType: defMenuType.entPage,
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/maxgame.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/maxgame-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/newicon/maxgame-icon.png`,
+				lobbyPage: {
+					bgImg: `${bannerImgUrl}/desktop/img/games/max.png`
+				},
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.v8Poker
+						period: defEventPeriod.game_MaxGame
 					})
-				],
+				]
+			},
+			{
+				...productList.V8_Poker,
+				className: "v8",
 				displayKey: "lbl_V8Poker",
 				menuType: defMenuType.entPage,
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/games/v8poker.png`,
@@ -163,7 +167,6 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...productList.keno,
-				// path: path.sports.root,
 				className: "keno",
 				displayKey: "lbl_Keno",
 				menuType: defMenuType.LinkOrBtn,
@@ -177,7 +180,6 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...productList.lottery,
-				// path: path.sports.root,
 				className: "lottery",
 				displayKey: "lbl_Lottery",
 				menuType: defMenuType.LinkOrBtn,
@@ -191,14 +193,7 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...productList.tableGame,
-				// path: path.sports.root,
 				className: "tablegame",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.tableGame
-					})
-				],
 				displayKey: "lbl_tableGame",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.tableGame },
@@ -211,12 +206,6 @@ export const defMenuLinks = langId => ({
 			},
 			{
 				...productList.virtualGame,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.game_virtualGame
-					})
-				],
 				displayKey: "lbl_Virtual_Games",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.virtualGame },
