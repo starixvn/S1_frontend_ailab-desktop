@@ -764,7 +764,7 @@ header input:focus-within {
   margin-left: -70px;
 }
 
-.header > div.menu .subMenu-Wrapper-new .gameList.active a .List-bg {
+.header > div.menu .subMenu-Wrapper-new .gameList.active a .List-bg, .header > div.menu .subMenu-Wrapper-new .gameList.active button .List-bg {
   margin-left: -90px;
 }
 
@@ -928,6 +928,7 @@ header input:focus-within {
 }
 
 .header > div.menu .subMenu-Wrapper-new .cryptoList {
+  width: 100%;
   background: url(https://banner.0814media.net/desktop/img/cryptosports.jpg) no-repeat center/auto;
 }
 
@@ -10243,10 +10244,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   color: #5574A7;
 }
 
-.subModuleListColumn > .subModule > div.qrCode {
-  width: 50%;
-}
-
 .subModuleListColumn > .subModule > div.shortcut {
   margin-top: 10px;
 }
@@ -10523,6 +10520,9 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .subModuleListColumn > .subModule.bankQR .bankAccount {
@@ -10530,9 +10530,14 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .subModuleListColumn > .subModule.bankQR .qrCode {
-  width: calc(20% - 20px);
-  padding: 10px;
+  width: calc(20% - 40px);
+  padding: 5px;
   background: rgba(240, 247, 255, 0.8);
+}
+
+.subModuleListColumn > .subModule.bankQR .qrCode svg {
+  width: 100%;
+  height: 100%;
 }
 
 .subModuleListColumn .column {
@@ -18343,5 +18348,151 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .resetPassWordpop .btnGroup {
   margin: 10px auto;
+}
+
+.duitnowPop {
+  padding: 5px 10px !important;
+  font-size: 12px;
+  width: 350px;
+}
+
+.duitnowPop ul {
+  color: #5574A7;
+  margin-bottom: 5px;
+}
+
+.duitnowPop ul li {
+  margin-left: 15px;
+  list-style: decimal;
+}
+
+.duitnowPop ul li button {
+  font-size: 12px;
+  background: #5574A7;
+  color: white;
+  padding: 2px 5px;
+  margin-right: 10px;
+}
+
+.duitnowPop .title {
+  margin: 5px auto !important;
+  text-align: center;
+  font-size: 18px;
+}
+
+.duitnowPop > div {
+  width: 100%;
+  color: #5574A7;
+  margin: 2px auto;
+  text-align: center;
+}
+
+.duitnowPop > div span {
+  font-weight: bold;
+}
+
+.duitnowPop > div.popTit {
+  background: #5574A7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px 0;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  color: white;
+}
+
+.duitnowPop > div.popTit img {
+  width: auto;
+  height: 20px;
+  position: absolute;
+  left: 5px;
+}
+
+.duitnowPop > div.popTit .icon-close {
+  right: 0 !important;
+  top: auto !important;
+  color: white !important;
+}
+
+.duitnowPop > div .sisa {
+  text-align: center;
+  margin: 5px 0;
+}
+
+.duitnowPop > div .sisa div:last-child {
+  font-weight: bold;
+  margin-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #182e56;
+}
+
+.duitnowPop > div .sisa div:last-child span {
+  font-size: 14px;
+  color: #182e56;
+  font-weight: normal;
+  padding: 2px 5px;
+  margin: 0 1px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #D2E2F9;
+  border-radius: 4px;
+}
+
+.duitnowPop > div.guide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px dotted #1E85EC;
+  border-bottom: 1px dotted #1E85EC;
+  padding: 10px 0;
+}
+
+.duitnowPop > div.guide span {
+  color: #cf0404;
+}
+
+.duitnowPop > div.guide .qrCode {
+  margin: 5px 0;
+}
+
+.duitnowPop > div.guide .qrCode svg {
+  width: 180px;
+  height: 180px;
+}
+
+.duitnowPop > div.guide .qrCode path:nth-child(2) {
+  fill: #EE2968;
+}
+
+.duitnowPop .amount span {
+  font-size: 16px;
+  display: block;
+  padding: 5px 10px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #D2E2F9;
+  border-radius: 3px;
+  width: 160px;
+  margin: 5px auto 10px;
 }
 /*# sourceMappingURL=style.css.map */
