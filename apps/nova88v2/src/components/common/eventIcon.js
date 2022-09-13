@@ -36,7 +36,8 @@ export const defEventPeriod = {
 	sports_virtualSports: { end: "2022/04/24 11:00:00" },
 	liveCasino_mg: { end: "2022/08/08 11:00:00" },
 	worldCup_new: { end: "2022/08/28 23:59:59" },
-	worldCup_hot: { start: "2022/08/29 00:00:00", end: "2022/12/18 23:59:59" }
+	worldCup_hot: { start: "2022/08/29 00:00:00", end: "2022/12/18 23:59:59" },
+	game_MaxGame: { end: "2022/10/13 11:00:00" }
 };
 
 export const showEventIcon = ({ icon, period }) => {

@@ -888,18 +888,12 @@ export const defMenuLinks = {
 				allowCurrencies: [defCurrencyList.THB]
 			},
 			{
-				keyName: "games_poker",
+				keyName: "games_AMBpoker",
 				className: "fsgw",
 				listNpcImgUrl: "am.png",
 				listBgImgUrl: "tablelisthover.png",
 				displayKey: "lbl_AMB_Poker",
 				menuType: defMenuType.entPage,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.Games_AMBPoker
-					})
-				],
 				...productList.games_AMBPoker,
 				parameter: { ...productList.games_AMBPoker },
 				lobbyPage: {
@@ -909,43 +903,49 @@ export const defMenuLinks = {
 				allowCurrencies: [defCurrencyList.THB]
 			},
 			{
-				keyName: "games_kingMaker",
-				className: "fsgw",
-				listNpcImgUrl: "km.png",
-				listBgImgUrl: "tablelisthover.png",
-				displayKey: "lbl_King_Maker",
-				menuType: defMenuType.entPage,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.Games_KingMaker
-					})
-				],
-				...productList.games_kingMaker,
-				parameter: { ...productList.games_kingMaker },
-				lobbyPage: {
-					bgImg: "gamekim.png",
-					hoverBgImg: "gamekima.png"
-				}
-			},
-			{
 				keyName: "games_VGaming",
 				className: "fsgw",
 				listNpcImgUrl: "vg.png",
 				listBgImgUrl: "tablelisthover.png",
 				displayKey: "lbl_Vgaming",
 				menuType: defMenuType.entPage,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.game_Vgaming
-					})
-				],
 				...productList.sabaClub,
 				parameter: { ...productList.sabaClub },
 				lobbyPage: {
 					bgImg: "gamevg.png",
 					hoverBgImg: "gamevga.png"
+				}
+			},
+			{
+				keyName: "games_MaxGame",
+				listNpcImgUrl: "max.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayText: "Max Game",
+				menuType: defMenuType.entPage,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_MaxGame
+					})
+				],
+				...productList.game_MaxGame,
+				lobbyPage: {
+					bgImg: "gamemax.png",
+					hoverBgImg: "gamemaxa.png"
+				}
+			},
+			{
+				keyName: "games_kingMaker",
+				className: "fsgw",
+				listNpcImgUrl: "km.png",
+				listBgImgUrl: "tablelisthover.png",
+				displayKey: "lbl_King_Maker",
+				menuType: defMenuType.entPage,
+				...productList.games_kingMaker,
+				parameter: { ...productList.games_kingMaker },
+				lobbyPage: {
+					bgImg: "gamekim.png",
+					hoverBgImg: "gamekima.png"
 				}
 			},
 			{
@@ -955,12 +955,6 @@ export const defMenuLinks = {
 				listBgImgUrl: "tablelisthover.png",
 				displayKey: "lbl_Virtual_Games",
 				menuType: defMenuType.entPage,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.game_virtualGame
-					})
-				],
 				parameter: { ...productList.virtualGame },
 				lobbyPage: {
 					bgImg: "gamevirtual.png",

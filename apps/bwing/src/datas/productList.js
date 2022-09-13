@@ -340,6 +340,11 @@ export default {
 	KingMaker: {
 		tpId: 11,
 		tpGameType: 52
+	},
+	MaxGame: {
+		tpId: 1,
+		gameId: 237,
+		tpGameType: 83
 	}
 };
 
