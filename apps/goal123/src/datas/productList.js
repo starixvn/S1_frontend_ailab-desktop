@@ -316,6 +316,11 @@ export default {
 		tpId: 25,
 		gameId: 0,
 		tpGameType: 47
+	},
+	MaxGame: {
+		tpId: 1,
+		gameId: 237,
+		tpGameType: 83
 	}
 };
 

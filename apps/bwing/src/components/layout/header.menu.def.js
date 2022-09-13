@@ -94,24 +94,14 @@ export const defMenuLinks = {
 				],
 				displayKey: "lbl_TcGame",
 				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "tcg"
-				}
+				lobbyPage: { bgClass: "tcg" }
 			},
 			{
 				...productList.KingMaker,
 				className: "kingmaker",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.KingMaker
-					})
-				],
 				displayKey: "lbl_King_Maker",
 				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "kingmaker"
-				}
+				lobbyPage: { bgClass: "kingmaker" }
 			},
 			{
 				...productList.One789_lottery,
@@ -120,9 +110,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_TraditionalLottery",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.One789_lottery },
-				lobbyPage: {
-					bgClass: "traditional"
-				}
+				lobbyPage: { bgClass: "traditional" }
 			},
 			{
 				...productList.One789_lottery_789,
@@ -131,9 +119,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_789Lottery",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.One789_lottery_789 },
-				lobbyPage: {
-					bgClass: "lottery789"
-				}
+				lobbyPage: { bgClass: "lottery789" }
 			},
 			{
 				...productList.sabaClub,
@@ -142,24 +128,27 @@ export const defMenuLinks = {
 				displayKey: "lbl_Vgaming",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.sabaClub },
-				lobbyPage: {
-					bgClass: "sabaClub"
-				}
+				lobbyPage: { bgClass: "sabaClub" }
+			},
+			{
+				...productList.MaxGame,
+				className: "maxgame",
+				displayText: "Max Game",
+				menuType: defMenuType.entPage,
+				lobbyPage: { bgClass: "maxgame" },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.game_MaxGame
+					})
+				]
 			},
 			{
 				...productList.V8_Poker,
 				className: "v8",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.v8Poker
-					})
-				],
 				displayKey: "lbl_V8Poker",
 				menuType: defMenuType.entPage,
-				lobbyPage: {
-					bgClass: "v8pork"
-				}
+				lobbyPage: { bgClass: "v8pork" }
 			},
 			{
 				...productList.keno,
@@ -168,9 +157,7 @@ export const defMenuLinks = {
 				displayKey: "lbl_Keno",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.keno },
-				lobbyPage: {
-					bgClass: "keno"
-				}
+				lobbyPage: { bgClass: "keno" }
 			},
 			{
 				...productList.lottery,
@@ -179,43 +166,25 @@ export const defMenuLinks = {
 				displayKey: "lbl_Lottery",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.lottery },
-				lobbyPage: {
-					bgClass: "lottery"
-				}
+				lobbyPage: { bgClass: "lottery" }
 			},
 			{
 				...productList.tableGame,
 				path: path.sports.root,
 				className: "tablegame",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.tableGame
-					})
-				],
 				displayKey: "lbl_tableGame",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.tableGame },
-				lobbyPage: {
-					bgClass: "tablegame"
-				}
+				lobbyPage: { bgClass: "tablegame" }
 			},
 			{
 				...productList.virtualGame,
 				path: path.sports.root,
 				className: "virtual",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.game_virtualGame
-					})
-				],
 				displayKey: "lbl_Virtual_Games",
 				menuType: defMenuType.LinkOrBtn,
 				parameter: { ...productList.virtualGame },
-				lobbyPage: {
-					bgClass: "virtualgames"
-				}
+				lobbyPage: { bgClass: "virtualgames" }
 			}
 		]
 	},
