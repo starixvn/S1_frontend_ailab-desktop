@@ -30,7 +30,7 @@ const JoinForm = ({
 	currencyId,
 	lineUserId,
 	areaCodeList,
-					  reCaptchaOnChange
+	reCaptchaOnChange
 }) => (
 	<form className="joinloginFunction" onSubmit={clickSubmit}>
 		<span className="title txt-blue">{t("lbl_JoinNow")}</span>
