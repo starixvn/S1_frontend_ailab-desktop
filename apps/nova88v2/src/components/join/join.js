@@ -42,6 +42,7 @@ export default () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
+	const [reCaptchaToken, setReCaptchaToken] = useState("");
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const { errorPopBox } = usePopBox();
@@ -403,13 +404,15 @@ export default () => {
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
+			const _reCaptchaCheck = reCaptchaToken !== "";
 
 			const checked =
 				_usernameCheck.checked &&
 				_passwordCheck.checked &&
 				_phoneCheck.checked &&
 				_emailCheck.checked &&
-				_currencyCheck.checked;
+				_currencyCheck.checked &&
+				_reCaptchaCheck;
 
 			if (!checked) {
 				setTip(prev => ({
@@ -474,7 +477,8 @@ export default () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
-				ReferralUrl: document.referrer
+				ReferralUrl: document.referrer,
+				ReCaptchaToken: reCaptchaToken
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -587,6 +591,10 @@ export default () => {
 		lineLogin({ type: defType.register });
 	};
 
+	const handleReCaptchaChange = token => {
+		setReCaptchaToken(token);
+	};
+
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
@@ -643,6 +651,7 @@ export default () => {
 					langId={userInfo.langId}
 					currencyId={userInfo?.currencyId}
 					lineUserId={lineUserId}
+					reCaptchaOnChange={handleReCaptchaChange}
 				/>
 			</div>
 		</div>

@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ReCAPTCHA from "react-google-recaptcha";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
 import Checkbox from "../common/checkbox";
+import { reCaptchaEnum } from "./join.def";
 
 const JoinForm = ({
 	t,
@@ -24,7 +26,9 @@ const JoinForm = ({
 	tandCTerms,
 	tandCRule,
 	clickCancel,
-	clickSubmit
+	clickSubmit,
+	langId,
+	reCaptchaOnChange
 }) => {
 	return (
 		<form className="joinloginFunction" onSubmit={clickSubmit}>
@@ -95,6 +99,13 @@ const JoinForm = ({
 				) : null}
 			</div>
 
+			<ReCAPTCHA
+				class="g-recaptcha"
+				sitekey="6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
+				onChange={reCaptchaOnChange}
+				hl={reCaptchaEnum[langId]}
+			/>
+
 			<div className="Terms">
 				<Checkbox
 					id="joinTermsCheck"
@@ -140,7 +151,9 @@ const JoinForm = ({
 };
 
 JoinForm.defaultProps = {
-	hasRefOrAffCode: null
+	hasRefOrAffCode: null,
+	langId: null,
+	reCaptchaOnChange: null
 };
 
 JoinForm.propTypes = {
@@ -162,7 +175,9 @@ JoinForm.propTypes = {
 	tandCTerms: PropTypes.string.isRequired,
 	tandCRule: PropTypes.string.isRequired,
 	clickCancel: PropTypes.func.isRequired,
-	clickSubmit: PropTypes.func.isRequired
+	clickSubmit: PropTypes.func.isRequired,
+	langId: PropTypes.string,
+	reCaptchaOnChange: PropTypes.func
 };
 
 export default JoinForm;

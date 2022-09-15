@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ReCAPTCHA from "react-google-recaptcha";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
 import { defCurrencyList } from "../common/common";
+import { reCaptchaEnum } from "./join.def";
 
 const JoinForm = ({
 	t,
@@ -29,7 +31,8 @@ const JoinForm = ({
 	handleLineRegister,
 	langId,
 	currencyId,
-	lineUserId
+	lineUserId,
+	reCaptchaOnChange
 }) => (
 	<form className="joinloginFunction" onSubmit={clickSubmit}>
 		<span className="title txt-blue">{t("lbl_JoinNow")}</span>
@@ -51,8 +54,7 @@ const JoinForm = ({
 								className="btn-line"
 								onClick={e => {
 									handleLineRegister(e);
-								}}
-							>
+								}}>
 								<i className="icon icon-line-bold" />
 								{t("lineRegister.lbl_RegisterWithLine")}
 							</button>
@@ -107,8 +109,7 @@ const JoinForm = ({
 			<div
 				className={`inputBox-blue${
 					tip.currency.msg !== "" ? " error" : ""
-				}`}
-			>
+				}`}>
 				<Dropdown
 					defaultOption={defaultOption}
 					mainKey="join_currency"
@@ -136,8 +137,7 @@ const JoinForm = ({
 							!tip.phone.checked && tip.phone.msg !== ""
 								? " error"
 								: ""
-						}`}
-					>
+						}`}>
 						<Dropdown
 							defaultOption={_areaCode}
 							mainKey="area_code"
@@ -202,14 +202,20 @@ const JoinForm = ({
 			/>
 		</div>
 
+		<ReCAPTCHA
+			class="g-recaptcha"
+			sitekey="6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
+			onChange={reCaptchaOnChange}
+			hl={reCaptchaEnum[langId]}
+		/>
+
 		<div className="Terms">
 			{t("lbl_sign_up_terms_start")}
 			<a
 				className="txt-blue"
 				target="_blank"
 				rel="noreferrer"
-				href={tandCTerms}
-			>
+				href={tandCTerms}>
 				{t("lbl_sign_up_terms_center")}
 			</a>
 			{t("lbl_sign_up_terms_end")}
@@ -232,7 +238,8 @@ JoinForm.defaultProps = {
 	defaultOption: null,
 	langId: "en",
 	currencyId: null,
-	lineUserId: ""
+	lineUserId: "",
+	reCaptchaOnChange: null
 };
 
 JoinForm.propTypes = {
@@ -259,7 +266,8 @@ JoinForm.propTypes = {
 	handleLineRegister: PropTypes.func.isRequired,
 	langId: PropTypes.string,
 	currencyId: PropTypes.number,
-	lineUserId: PropTypes.string
+	lineUserId: PropTypes.string,
+	reCaptchaOnChange: PropTypes.func
 };
 
 export default JoinForm;

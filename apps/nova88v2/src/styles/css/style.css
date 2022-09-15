@@ -929,13 +929,29 @@ header input:focus-within {
 
 .header > div.menu .subMenu-Wrapper-new .cryptoList {
   width: 100%;
-  background: url(https://banner.0814media.net/desktop/img/cryptosports.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .cryptoList::before {
   display: block;
   content: "";
   height: 210px;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.en {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.th {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_th.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.id {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_id.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList.vipen {
