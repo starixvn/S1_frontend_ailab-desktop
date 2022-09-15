@@ -352,7 +352,8 @@ export default () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
-				ReferralUrl: document.referrer
+				ReferralUrl: document.referrer,
+				ReCaptchaToken: reCaptchaToken
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
