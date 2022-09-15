@@ -30,6 +30,7 @@ export default () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
+	const [reCaptchaToken, setReCaptchaToken] = useState("");
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const isMountedRef = useRef(null);
 	const configSiteName = config.siteName;
@@ -283,12 +284,14 @@ export default () => {
 		const _phoneCheck = res[1];
 		// let _emailCheck = emailCheck(userValue.email);
 		const _agreeCheck = userValue.agreeCheck;
+		const _reCaptchaCheck = reCaptchaToken !== "";
 
 		const checked =
 			_usernameCheck.checked &&
 			_passwordCheck.checked &&
 			_phoneCheck.checked &&
-			_agreeCheck;
+			_agreeCheck &&
+			_reCaptchaCheck;
 
 		if (!checked) {
 			let checkboxMsg = "";
@@ -449,6 +452,10 @@ export default () => {
 		});
 	};
 
+	const handleReCaptchaChange = token => {
+		setReCaptchaToken(token);
+	};
+
 	return (
 		<div className="joinus">
 			<img
@@ -474,6 +481,8 @@ export default () => {
 					tandCRule={tandCRule}
 					clickCancel={clickCancel}
 					clickSubmit={clickSubmit}
+					langId={userInfo.langId}
+					reCaptchaOnChange={handleReCaptchaChange}
 				/>
 			</div>
 		</div>
