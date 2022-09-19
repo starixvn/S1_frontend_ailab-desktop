@@ -34,7 +34,6 @@ const Content = () => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
-	const [redirectPath, setRedirectPath] = useState(null);
 	const [newsInfo, setNewsInfo] = useState({
 		title: "",
 		content: "",
@@ -116,30 +115,25 @@ const Content = () => {
 	};
 
 	const clickBack = () => {
-		setRedirectPath(`/${userInfo.langId}`);
+		navigate(`/${userInfo.langId}`);
 	};
 
 	if (loading) {
 		return <Loading />;
 	}
 
-	if (redirectPath === null) {
-		return (
-			<div className="infoModule">
-				<button
-					className="btn-check icon icon-arrow-left2"
-					onClick={clickBack}>
-					{t("lbl_Back")}
-				</button>
-				<article>
-					<img src={newsInfo.imageURL} alt={newsInfo.title} />
-					<h1>{newsInfo.title}</h1>
-					<pre>{newsInfo.content}</pre>
-				</article>
-			</div>
-		);
-	}
-
-	redirect();
-	return [];
+	return (
+		<div className="infoModule">
+			<button
+				className="btn-check icon icon-arrow-left2"
+				onClick={clickBack}>
+				{t("lbl_Back")}
+			</button>
+			<article>
+				<img src={newsInfo.imageURL} alt={newsInfo.title} />
+				<h1>{newsInfo.title}</h1>
+				<pre>{newsInfo.content}</pre>
+			</article>
+		</div>
+	);
 };
