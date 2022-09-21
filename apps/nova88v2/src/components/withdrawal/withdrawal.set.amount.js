@@ -31,14 +31,12 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 					<div className="btnGroup">
 						<button
 							className="btn-cancel"
-							onClick={() => setPopBox({ isOpen: false })}
-						>
+							onClick={() => setPopBox({ isOpen: false })}>
 							{t("lbl_Later")}
 						</button>
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}
-						>
+							to={`/${userInfo.langId}/${path.profile.root}`}>
 							{t("lbl_VertifyNow")}
 						</Link>
 					</div>
@@ -77,12 +75,10 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 		let _withdrawalMin = isEWalletItemSelected
 			? state.eWalletWithdrawalMin
 			: state.withdrawalMin;
-		let _withdrawalMax = isEWalletItemSelected
-			? state.eWalletWithdrawalAvailableAmount
+		const _withdrawalMax = isEWalletItemSelected
+			? state.withdrawalMax
 			: state.balanceData?.availableBalance;
-		let _unlimited = isEWalletItemSelected
-			? state.eWalletUnlimited
-			: state.unlimited;
+		const _unlimited = state.unlimited;
 
 		if (state.selectedAccount.usdtAddress) {
 			const { currencyId, network } = state.selectedAccount;
@@ -91,8 +87,6 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 			);
 
 			_withdrawalMin = cryptoInfo.withdrawalMin;
-			_withdrawalMax = cryptoInfo.withdrawalAvailableAmount;
-			_unlimited = cryptoInfo.unlimited;
 		}
 
 		if (!_unlimited && real_amount > _withdrawalMax) {
@@ -134,9 +128,7 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 			el.currencyId === state.selectedAccount.currencyId &&
 			el.network === state.selectedAccount.network
 	);
-	const _unlimited = state.selectedAccount?.usdtAddress
-		? crytpoLimit.unlimited
-		: state.unlimited;
+	const _unlimited = state.unlimited;
 
 	const withdrawalMinMaxLimitHint = `${t("lbl_Daily_Min_Max_Amount", {
 		min: number_format(
@@ -148,13 +140,7 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 		),
 		max: _unlimited
 			? t("lbl_Unlimited")
-			: number_format(
-					state.selectedAccount?.usdtAddress
-						? crytpoLimit.withdrawalAvailableAmount
-						: state.withdrawalMax,
-					_isConvert,
-					2
-			  )
+			: number_format(state.withdrawalMax, _isConvert, 2)
 	})}`;
 
 	const ClosePopBox = () => {
@@ -256,11 +242,9 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 								? `${t("lbl_MinMaxAmount")} ${formatAmount(
 										state.eWalletWithdrawalMin
 								  )} / ${
-										state.eWalletUnlimited
+										state.unlimited
 											? t("lbl_Unlimited")
-											: formatAmount(
-													state.eWalletWithdrawalAvailableAmount
-											  )
+											: formatAmount(state.withdrawalMax)
 								  }`
 								: ""
 						}
@@ -295,9 +279,8 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 									isEWalletItemSelected &&
 									(state.amount * 1000 <
 										state.eWalletWithdrawalMin ||
-										(!state.eWalletUnlimited &&
-											state.amount >
-												state.eWalletWithdrawalAvailableAmount))
+										(!state.unlimited &&
+											state.amount > state.withdrawalMax))
 								)
 									? "btn-check"
 									: "gray"
@@ -311,20 +294,14 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 								(isEWalletItemSelected &&
 									(state.amount * 1000 <
 										state.eWalletWithdrawalMin ||
-										(!state.eWalletUnlimited &&
+										(!state.unlimited &&
 											state.amount >
-												state.eWalletWithdrawalAvailableAmount)))
+												state.withdrawalMax)))
 							}
-							type="submit"
-						>
+							type="submit">
 							{t("lbl_Submit")}
 						</button>
 					</div>
-
-					{/* <div className="tip active">
-						Preferred currency can not be changed after
-						registration.
-					</div> */}
 				</form>
 			</div>
 		</div>

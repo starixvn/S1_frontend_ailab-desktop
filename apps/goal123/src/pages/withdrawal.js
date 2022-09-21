@@ -91,8 +91,7 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}
-									>
+										onClick={closePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -111,8 +110,7 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}
-								>
+									onClick={closePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -138,8 +136,7 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}
-									>
+										onClick={closePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -158,8 +155,7 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}
-								>
+									onClick={closePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -185,8 +181,7 @@ const Content = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={closePopBox}
-									>
+										onClick={closePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -205,8 +200,7 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}
-								>
+									onClick={closePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -225,8 +219,8 @@ const Content = () => {
 
 					const _usdtList = usdtList.map(data => ({
 						withdrawalMin: data.withdrawalMin,
-						withdrawalMax: data.withdrawalAvailableAmount,
-						unlimited: data.unlimited,
+						withdrawalMax: res.data.data.withdrawalAvailableAmount,
+						unlimited: res.data.data.unlimited,
 						currencyId: data.currencyId,
 						network: data.network
 					}));
@@ -248,8 +242,7 @@ const Content = () => {
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={closePopBox}
-								>
+									onClick={closePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -266,8 +259,7 @@ const Content = () => {
 						<div className="btnGroup">
 							<button
 								className="btn-cancel"
-								onClick={closePopBox}
-							>
+								onClick={closePopBox}>
 								{t("lbl_Close")}
 							</button>
 						</div>
