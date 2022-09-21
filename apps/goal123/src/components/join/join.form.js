@@ -76,7 +76,7 @@ const JoinForm = ({
 
 			<ReCAPTCHA
 				class="g-recaptcha"
-				sitekey="6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
+				sitekey="6LfhmRciAAAAAFSX-wXBxMISia2lpS5_SQ7aa7-E"
 				onChange={reCaptchaOnChange}
 				hl={reCaptchaEnum[langId]}
 			/>
