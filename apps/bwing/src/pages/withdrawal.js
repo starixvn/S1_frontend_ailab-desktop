@@ -138,7 +138,7 @@ const Content = () => {
 					const { usdtList } = res.data.data;
 					const _usdtList = usdtList.map(data => ({
 						withdrawalMin: data.withdrawalMin,
-						withdrawalMax: data.withdrawalAvailableAmount,
+						withdrawalMax: res.data.data.withdrawalAvailableAmount,
 						unlimited: data.unlimited,
 						currencyId: data.currencyId,
 						network: data.network

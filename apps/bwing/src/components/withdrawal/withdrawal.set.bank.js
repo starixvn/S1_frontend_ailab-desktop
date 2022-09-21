@@ -95,10 +95,7 @@ const Main = ({
 		useState(INIT_USED_DETAIL);
 
 	const getWithdrawalMinMaxLimit = () => {
-		let limit = {};
-		if (withdrawalType === WITHDRAWAL_TYPE.BANK) {
-			limit = withdrawalLimit;
-		}
+		let limit = withdrawalLimit;
 
 		if (withdrawalType === WITHDRAWAL_TYPE.USDT) {
 			const _uSDTWithdrawalLimit = uSDTWithdrawalLimit.find(
@@ -106,7 +103,13 @@ const Main = ({
 					el.currencyId === currentUSDTDetail.currencyId &&
 					el.network === currentUSDTDetail.network
 			);
-			limit = _uSDTWithdrawalLimit || {};
+			limit =
+				{
+					..._uSDTWithdrawalLimit,
+					withdrawalMax: limit.withdrawalMax,
+					unlimited: limit.unlimited,
+					maxTimes: limit.limit
+				} || {};
 		}
 
 		return limit;
@@ -205,8 +208,7 @@ const Main = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}
-							>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.withdrawal.root}`}>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -401,8 +403,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickDone}
-									>
+										onClick={ClickDone}>
 										OK
 									</button>
 								</div>
@@ -422,8 +423,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -440,8 +440,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -459,8 +458,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -475,8 +473,7 @@ const Main = ({
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -495,8 +492,7 @@ const Main = ({
 							<div className="btnGroup">
 								<button
 									className="btn-cancel"
-									onClick={ClickClose}
-								>
+									onClick={ClickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
