@@ -47,6 +47,7 @@ import {
 	api_cashier_DepositReqOnlineBanking,
 	api_cashier_DepositReqCryptoPay
 } from "../../service/api/cashier";
+import { api_payment_DepositReqFakeMobilePay } from "../../service/api/payment";
 
 const isOTPVerified = ({
 	phoneVerified,
@@ -411,7 +412,34 @@ const Deposit = () => {
 					.filter(Boolean)
 					.join("&");
 
-				if (formInfo.mode === 3) {
+				if (formInfo.channelId === -1) {
+					try {
+						const res = await api_payment_DepositReqFakeMobilePay({
+							groupId: formInfo.groupId,
+							amount: formInfo.amount,
+							bonusCode: formInfo.depositPromo.bonusCode
+						});
+						const { data, errorCode } = res.data;
+						if (errorCode === 0) {
+							setPopBox({
+								isOpen: true,
+								popBoxType: defPopBoxType.DuitNowQR,
+								onClickClose: () =>
+									setPopBox({ isOpen: false }),
+								qrUrl: data.returnUrl,
+								amount: data.amount,
+								transId: data.transId
+							});
+						} else {
+							errorPopBox(
+								res.data.message || "error",
+								res.data.errorCode
+							);
+						}
+					} catch (err) {
+						errorPopBox();
+					}
+				} else if (formInfo.mode === 3) {
 					await api_cashier_DepositReqMobilePay({
 						langId: userInfo.langId,
 						paramsUrl: params

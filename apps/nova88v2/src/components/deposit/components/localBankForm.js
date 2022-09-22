@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { navigate } from "gatsby";
 import PropTypes from "prop-types";
+import QRCode from "qrcode.react";
 import Inputbox from "../../common/inputbox";
 import Dropdown from "../../common/dropdown";
 import ShortcutAmountList from "./shortcutAmountList";
@@ -38,6 +39,7 @@ const LocalBankForm = ({
 	depositInfoStorage,
 	isGroupListFetchDone
 }) => {
+	console.log("2", localBankGroupList);
 	const parameterSysId = Number(getUrlParameter("sysId"));
 	const [fromChannelIdIdx, setFromChannelIdIdx] = useState(0);
 	const [custBankInfoIdx, setCustBankInfoIdx] = useState(null);
@@ -276,7 +278,11 @@ const LocalBankForm = ({
 			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
 					formInfo.maxAmount
 			  }`;
-
+	const QRObj = localBankGroupList.find(
+		obj => obj.bankName === localBankInfo.bankName
+	);
+	console.log("ttt", QRObj);
+	console.log("localBankInfo.supportQR", localBankInfo);
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -342,7 +348,7 @@ const LocalBankForm = ({
 				{t("lbl_BankAccount")}
 			</div>
 
-			<div className="subModule">
+			<div className="subModule bankQR">
 				<div className="bankAccount">
 					{t("lbl_TransactionHint")}
 					<div className="smallList">
@@ -376,6 +382,16 @@ const LocalBankForm = ({
 						</ul>
 					</div>
 				</div>
+				{QRObj?.supportQR && (
+					<div className="qrCode">
+						<QRCode
+							value={QRObj?.qrCodeUrl}
+							renderAs="svg"
+							size={152}
+							includeMargin={true}
+						/>
+					</div>
+				)}
 			</div>
 
 			<div className="subModuleTitle">
