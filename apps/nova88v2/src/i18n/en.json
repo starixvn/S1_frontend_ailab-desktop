@@ -343,6 +343,11 @@
 	"lbl_LinePay": "LINE",
 	"lbl_EnterYourUPI": "ENTER YOUR UPI (Paytm/Phope/Googlepay... etc)",
 	"lbl_PleaseEnterUPI": "Please enter UPI",
+	"lbl_DuitNowQR": "DuitNow QR",
+	"lbl_ScanAndPay": "Scan and Pay",
+    "lbl_QRCode": "QRCode",
+	"lbl_DuitNowQRNote1": "Please contact CSD if payment did not reflect in your wallet after the transfer.",
+	"lbl_DuitNowQRNote2": "Close the tab after the transfer.",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",

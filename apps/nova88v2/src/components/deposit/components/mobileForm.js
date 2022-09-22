@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { defQrMobilePay } from "../deposit.def";
 import Inputbox from "../../common/inputbox";
 import {
 	getUrlParameter,
@@ -34,7 +35,6 @@ const MobileForm = ({
 }) => {
 	const defaultGroupId = Number(getUrlParameter("gId"));
 	const defaultChannelId = Number(getUrlParameter("channelId"));
-
 	const [groupIdForRecord, setGroupIdForRecord] = useState(defaultGroupId);
 	const [infoChannelIdForRecord, setInfoChannelIdForRecord] =
 		useState(defaultChannelId);
@@ -120,7 +120,7 @@ const MobileForm = ({
 						const groupName = String(item.groupName).toLowerCase();
 						return (
 							<button
-								key={`deposit-mobilePay-group-${item.groupName}}`}
+								key={`deposit-mobilePay-group-${item.groupId}}`}
 								onClick={() =>
 									onGetMobileInfoList(item.groupId)
 								}
