@@ -39,7 +39,6 @@ const LocalBankForm = ({
 	depositInfoStorage,
 	isGroupListFetchDone
 }) => {
-	console.log("2", localBankGroupList);
 	const parameterSysId = Number(getUrlParameter("sysId"));
 	const [fromChannelIdIdx, setFromChannelIdIdx] = useState(0);
 	const [custBankInfoIdx, setCustBankInfoIdx] = useState(null);
@@ -281,8 +280,7 @@ const LocalBankForm = ({
 	const QRObj = localBankGroupList.find(
 		obj => obj.bankName === localBankInfo.bankName
 	);
-	console.log("ttt", QRObj);
-	console.log("localBankInfo.supportQR", localBankInfo);
+
 	return (
 		<>
 			<div className="subModuleTitle">
