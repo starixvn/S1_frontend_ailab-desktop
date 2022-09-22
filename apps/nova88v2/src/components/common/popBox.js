@@ -40,6 +40,7 @@ import Photo from "./popBox.photo";
 import Modal from "./popBox.modal";
 import NewYear from "./popbox.newYear";
 import LinePay from "./popBox.linePayLink";
+import DuitNowQR from "./popBox.duitNowQR";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -340,6 +341,16 @@ export default () => {
 				/>
 			);
 			break;
+
+		case defPopBoxType.DuitNowQR:
+			content = (
+				<DuitNowQR
+					onClickClose={popBox.onClickClose}
+					qrUrl={popBox.qrUrl}
+					amount={popBox.amount}
+					transId={popBox.transId}
+				/>
+			);
 
 		default:
 			break;

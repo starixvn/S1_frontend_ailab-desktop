@@ -341,6 +341,11 @@
 	"lbl_Deposit_Promotion_Button_Back": "Kembalil",
 	"lbl_AutoDeposit": "Deposit Secara Automatik",
 	"lbl_LinePay": "LINE",
+	"lbl_DuitNowQR": "DuitNow QR",
+	"lbl_ScanAndPay": "Imbas dan Bayar",
+	"lbl_QRCode": "Kod QR",
+	"lbl_DuitNowQRNote1": "Sila hubungi CSD jika pembayaran tidak ditunjukkan dalam dompet anda selepas pemindahan.",
+	"lbl_DuitNowQRNote2": "Tutup tab selepas pemindahan.",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Butiran pembayaran",
