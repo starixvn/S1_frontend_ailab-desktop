@@ -8,6 +8,7 @@ import {
 	setCookie,
 	deleteCookie,
 	readCookie,
+	defCurrencyList,
 	setLocalStorage
 } from "./common";
 import {
@@ -25,7 +26,8 @@ import useInterval from "../hook/useInterval";
 import {
 	GET_LANG_ID,
 	isVaildLang,
-	getNewLanguagePath
+	getNewLanguagePath,
+	siteDefLangId
 } from "../../service/language";
 import { SiteInfo } from "../../config";
 import useGetWalletInfo from "./wrapper.walletInfo";
@@ -53,6 +55,16 @@ const defaultPathLang = () => {
 	return result;
 };
 
+const getDefaultCurrencyId = () => {
+	let result = defCurrencyList.MYR;
+
+	const cookieCurrencyId = readCookie(SiteInfo.currencyCookie);
+	if (cookieCurrencyId) {
+		result = Number(cookieCurrencyId);
+	}
+	return result;
+};
+
 export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const { t, i18n } = useTranslation();
 	const [popBox, setPopBox] = useState({
@@ -64,7 +76,8 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 	const [userInfo, setUserInfo] = useState({
 		isLogin: null,
 		userName: null,
-		langId: defaultPathLang()
+		langId: defaultPathLang(),
+		currencyId: getDefaultCurrencyId()
 	});
 
 	const [currentPath] = useState(
@@ -133,8 +146,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -154,8 +166,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -227,8 +238,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -269,8 +279,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -322,7 +331,10 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 							setCookie(SiteInfo.langCookie, data.langId);
 							setUserInfo(prevState => ({
 								...prevState,
-								...data
+								...data,
+								langId: isVaildLang(data.langId)
+									? data.langId
+									: siteDefLangId
 							}));
 						} else if (res_custInfo.data.errorCode !== 0) {
 							setPopBox({
@@ -335,8 +347,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}
-										>
+											}}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -356,8 +367,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 											className="btn-check"
 											onClick={() => {
 												setPopBox({ isOpen: false });
-											}}
-										>
+											}}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -383,8 +393,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -404,8 +413,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -505,8 +513,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -526,8 +533,7 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}
-									>
+										}}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -563,26 +569,20 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 				<ct.maintainListContext.Provider value={{ allMaintainList }}>
 					<ct.productTpIdsContext.Provider value={{ productTpIds }}>
 						<ct.userInfoContext.Provider
-							value={{ userInfo, setUserInfo }}
-						>
+							value={{ userInfo, setUserInfo }}>
 							<ct.walletInfoContext.Provider
 								value={{
 									...walletInfo.state,
 									dispatch: walletInfo.dispatch
-								}}
-							>
+								}}>
 								<ct.msgCountContext.Provider
-									value={{ msgCount, setMsgCount }}
-								>
+									value={{ msgCount, setMsgCount }}>
 									<ct.popBoxContext.Provider
-										value={{ popBox, setPopBox }}
-									>
+										value={{ popBox, setPopBox }}>
 										<ct.loadingContext.Provider
-											value={{ loading, setLoading }}
-										>
+											value={{ loading, setLoading }}>
 											<ct.isRootContext.Provider
-												value={{ isRoot, setIsRoot }}
-											>
+												value={{ isRoot, setIsRoot }}>
 												<ThirdPartyJS />
 
 												{children}

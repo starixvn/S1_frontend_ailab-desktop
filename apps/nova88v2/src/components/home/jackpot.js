@@ -4,7 +4,6 @@ import { navigate } from "gatsby";
 import path from "../../router";
 import { defNav } from "../casino/casino.def";
 import useInterval from "../hook/useInterval";
-import { getCurrencyCode } from "../common/common";
 
 import Jackpot from "../Jackpot/Jackpot";
 
@@ -17,13 +16,7 @@ export default function HomeJackpot({ t, userInfo }) {
 
 	const [currentText, setCurrentText] = useState("");
 
-	let currencyId = null;
-
-	if (userInfo.isLogin) {
-		currencyId = userInfo.currencyId;
-	} else if (userInfo.isLogin === false) {
-		currencyId = getCurrencyCode(userInfo.langId);
-	}
+	const { currencyId } = userInfo;
 
 	useEffect(() => {
 		if (currencyId) {

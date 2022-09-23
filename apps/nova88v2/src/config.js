@@ -20,6 +20,7 @@ export const SiteInfo = {
 	logo: "https://image.0814media.net/SiteSkin/img/logo_evt.png",
 	affiliateLink: getAffiliate(),
 	langCookie: "nova88LangId",
+	currencyCookie: "nova88CurrencyId",
 	socialMedia: {
 		fb: {
 			link: "https://www.facebook.com/nova88official",

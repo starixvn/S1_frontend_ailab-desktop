@@ -441,5 +441,12 @@ export default {
 	mega888: {
 		tpId: 22,
 		tpGameType: 34
+	},
+
+	/* === 9. event === */
+	worldCup: {
+		tpId: 1,
+		gameId: 2002,
+		tpGameType: 1
 	}
 };

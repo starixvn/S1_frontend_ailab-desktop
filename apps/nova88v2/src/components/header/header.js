@@ -17,13 +17,8 @@ import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
 import EventCountdown from "../worldCup/countdown";
-import { defCurrencyList, langAndCurrMapping } from "../common/common";
-
-const reward88AllowsCurrencies = [
-	defCurrencyList.MYR,
-	defCurrencyList.THB,
-	defCurrencyList.IDR
-];
+import { langAndCurrMapping } from "../common/common";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 export default () => {
 	const { t } = useTranslation();
@@ -101,7 +96,7 @@ export default () => {
 							alt={config.siteName}
 						/>
 					</Link>
-					{reward88AllowsCurrencies.includes(currencyId) && (
+					{allowedCurrencyList.rewards.includes(currencyId) && (
 						<a
 							className="rewardsLogo"
 							target="_blank"
@@ -113,11 +108,15 @@ export default () => {
 							/>
 						</a>
 					)}
-					<Link
-						className="countdown"
-						to={`/${userInfo.langId}/${path.worldCup.root}`}>
-						<EventCountdown />
-					</Link>
+					{allowedCurrencyList.worldCup.includes(
+						userInfo.currencyId
+					) && (
+						<Link
+							className="countdown"
+							to={`/${userInfo.langId}/${path.worldCup.root}`}>
+							<EventCountdown />
+						</Link>
+					)}
 				</div>
 				<div className="function">
 					<Functions />
