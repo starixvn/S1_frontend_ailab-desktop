@@ -85,7 +85,7 @@ const ForgetPassword = () => {
 						if (res.data.errorCode === 0) {
 							setPopBox({
 								isOpen: true,
-								popBoxType: defPopBoxType.ChangePsw,
+								popBoxType: defPopBoxType.ChangePswHint,
 								titleIcon: "icon-icon32px_uplock",
 								title: t("lbl_ForgetPsw"),
 								message: t("lbl_ForgetPwdSuccess"),

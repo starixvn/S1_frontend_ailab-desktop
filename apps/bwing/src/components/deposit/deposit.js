@@ -258,8 +258,7 @@ const Deposit = () => {
 							navigate(
 								`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`
 							)
-						}
-					>
+						}>
 						{t("lbl_UpdatePersonalDetail")}
 					</button>
 				</div>
@@ -347,14 +346,12 @@ const Deposit = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={() => resolve(false)}
-									>
+										onClick={() => resolve(false)}>
 										{t("lbl_ReModify")}
 									</button>
 									<button
 										className="btn-check"
-										onClick={() => resolve(true)}
-									>
+										onClick={() => resolve(true)}>
 										{t("lbl_Confirm")}
 									</button>
 								</div>
@@ -410,8 +407,7 @@ const Deposit = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}
-										>
+											onClick={closePopBox}>
 											OK
 										</button>
 									</div>
@@ -617,13 +613,14 @@ const Deposit = () => {
 							res.data.errorCode === 0 &&
 							res.data.data.length > 0
 						) {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.BackupDomain,
-								onClickClose: () =>
-									setPopBox({ isOpen: false }),
-								linkList: res.data.data
-							});
+							!userInfo.isResetPwd &&
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.BackupDomain,
+									onClickClose: () =>
+										setPopBox({ isOpen: false }),
+									linkList: res.data.data
+								});
 						} else if (res.data.errorCode !== 0) {
 							errorPopBox(
 								res.data.message || "error",
@@ -692,8 +689,7 @@ const Deposit = () => {
 				onSubmit={onSubmit}
 				setDepositType={onChangeDepositType}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}
-			>
+				submitHandle={submitHandle}>
 				{depositType === defDepositType.mobile && (
 					<MobileForm
 						t={t}

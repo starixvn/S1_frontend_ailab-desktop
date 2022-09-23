@@ -170,13 +170,12 @@ const Home = ({ productTpIds }) => {
 
 		const openNextPopUp = () => {
 			if (popUpStack.length) {
-				popUpStack.pop()();
+				popUpStack.pop();
 			} else {
 				setPopBox({ isOpen: false });
 			}
 		};
-
-		openNextPopUp();
+		!userInfo.isResetPwd && openNextPopUp();
 	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.userName]);
 
 	useEffect(() => {

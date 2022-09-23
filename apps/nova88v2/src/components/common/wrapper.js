@@ -336,6 +336,11 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 									? data.langId
 									: siteDefLangId
 							}));
+							data.isResetPwd &&
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.ChangePsw
+								});
 						} else if (res_custInfo.data.errorCode !== 0) {
 							setPopBox({
 								isOpen: true,

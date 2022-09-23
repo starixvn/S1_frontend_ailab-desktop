@@ -57,8 +57,7 @@ const ResetPassWord = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -140,8 +139,7 @@ const ResetPassWord = () => {
 											<div className="btnGroup">
 												<button
 													className="btn-cancel"
-													onClick={ClickPopBoxClose}
-												>
+													onClick={ClickPopBoxClose}>
 													{t("lbl_Close")}
 												</button>
 											</div>
@@ -152,7 +150,7 @@ const ResetPassWord = () => {
 
 							setPopBox({
 								isOpen: true,
-								popBoxType: defPopBoxType.ChangePsw,
+								popBoxType: defPopBoxType.ChangePswHint,
 								title: t("lbl_ResetPassword"),
 								message: (
 									<>
@@ -165,8 +163,7 @@ const ResetPassWord = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={handleLogout}
-										>
+											onClick={handleLogout}>
 											OK
 										</button>
 									</div>
@@ -182,8 +179,7 @@ const ResetPassWord = () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={ClickClose}
-										>
+											onClick={ClickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -202,8 +198,7 @@ const ResetPassWord = () => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={ClickClose}
-									>
+										onClick={ClickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
