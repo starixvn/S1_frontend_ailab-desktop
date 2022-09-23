@@ -12,6 +12,8 @@ module.exports = {
 			"id_en",
 			"hi",
 			"hi_en",
+			"bd",
+			"bd_en",
 			"my"
 		]
 	},

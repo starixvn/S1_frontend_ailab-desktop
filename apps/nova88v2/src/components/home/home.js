@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "gatsby";
 import {
 	userInfoContext,
 	popBoxContext,
@@ -11,7 +12,8 @@ import {
 	setCookie,
 	deleteCookie,
 	getUrlParameter,
-	isDateRange
+	isDateRange,
+	defCurrencyList
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import { api_account_GetWalletInfo } from "../../service/api/account";
@@ -35,6 +37,7 @@ import LuckyWheelLink from "../luckyWheel/luckyWheel.link";
 import usePopBox from "../hook/usePopBox";
 import { defEventPeriod as NewYearEventPeriod } from "../common/popbox.newYear";
 import LiveCasino from "./liveCasino";
+import { bannerImgUrl } from "../../config";
 
 const IndexPage = () => {
 	const { t } = useTranslation();
@@ -188,7 +191,28 @@ const IndexPage = () => {
 						{t("lbl_UPCOMING_MATCHES")}
 					</div>
 					<EventSwipper langId={userInfo.langId} />
-					<HomeJackpot t={t} userInfo={userInfo} />
+					{userInfo.currencyId === defCurrencyList.BDT ? (
+						<div className="jpotModule">
+							<div className="moduleTitle icon icon-icon_777">
+								{t("lbl_Slots")}
+							</div>
+							<Link
+								className="slotsbox"
+								to={`/${userInfo.langId}/${path.casino.root}`}
+							>
+								<img
+									src={`${bannerImgUrl}/img/indexslots_bg_${userInfo.langId}.jpg`}
+									alt="slot-bg"
+								/>
+								<img
+									src={`${bannerImgUrl}/img/indexslots_items.png`}
+									alt="slot-item"
+								/>
+							</Link>
+						</div>
+					) : (
+						<HomeJackpot t={t} userInfo={userInfo} />
+					)}
 				</div>
 			</div>
 

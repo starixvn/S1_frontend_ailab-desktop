@@ -50,7 +50,7 @@ export const defSportsBetting_Section2 = {
 export const defFooterProductList = {
 	1: [
 		{
-			title: "lbl_Sports_Betting_Online_MYR",
+			title: "lbl_Sports_Betting_Online",
 			content: "lbl_Sports_Betting_Online_Malaysia_desc"
 		},
 		{

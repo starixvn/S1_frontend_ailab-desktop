@@ -110,54 +110,64 @@ const MobileForm = ({
 
 	return (
 		<>
-			<div className="subModuleTitle">
-				<i className="txt-blue">*</i>
-				{t("lbl_Payment_Method")}
-			</div>
-			<div className="subModule">
-				<div>
-					{mobilePayGourpList.map(item => {
-						const groupName = String(item.groupName).toLowerCase();
-						return (
-							<button
-								key={`deposit-mobilePay-group-${item.groupName}}`}
-								onClick={() =>
-									onGetMobileInfoList(item.groupId)
-								}
-								className={
-									item.groupId === groupIdForRecord
-										? "active"
-										: ""
-								}>
-								<div>
-									<img
-										alt={item.groupName}
-										src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
-									/>
-
-									<i className="icon icon-icon32px_check" />
-								</div>
-								<div className="bank">
-									<div>{item.groupName}</div>
-
-									<div>
+			{mobilePayGourpList.length > 1 && (
+				<>
+					<div className="subModuleTitle">
+						<i className="txt-blue">*</i>
+						{t("lbl_Payment_Method")}
+					</div>
+					<div className="subModule">
+						<div>
+							{mobilePayGourpList.map(item => {
+								const groupName = String(
+									item.groupName
+								).toLowerCase();
+								return (
+									<button
+										key={`deposit-mobilePay-group-${item.groupName}}`}
+										onClick={() =>
+											onGetMobileInfoList(item.groupId)
+										}
+										className={
+											item.groupId === groupIdForRecord
+												? "active"
+												: ""
+										}>
 										<div>
-											{`${t("lbl_Min")}: ${formatAmount(
-												item.minAmount
-											)}`}
+											<img
+												alt={item.groupName}
+												src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${groupName}.png`}
+											/>
+
+											<i className="icon icon-icon32px_check" />
 										</div>
-										<div>
-											{`${t("lbl_Max")}: ${formatAmount(
-												item.maxAmount
-											)}`}
+										<div className="bank">
+											<div>{item.groupName}</div>
+
+											<div>
+												<div>
+													{`${t(
+														"lbl_Min"
+													)}: ${formatAmount(
+														item.minAmount
+													)}`}
+												</div>
+												<div>
+													{`${t(
+														"lbl_Max"
+													)}: ${formatAmount(
+														item.maxAmount
+													)}`}
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-							</button>
-						);
-					})}
-				</div>
-			</div>
+									</button>
+								);
+							})}
+						</div>
+					</div>
+				</>
+			)}
 
 			{mobilePayInfoList.length > 1 && (
 				<>
@@ -169,9 +179,10 @@ const MobileForm = ({
 					<div className="subModule">
 						<div>
 							{mobilePayInfoList.map(item => {
-								const payName = String(
-									item.payName
-								).toLowerCase();
+								const imgParam = defCurrencyList.BDT
+									? item.channelName
+									: item.payName;
+								const imgName = String(imgParam).toLowerCase();
 
 								return (
 									<button
@@ -186,7 +197,7 @@ const MobileForm = ({
 										<div>
 											<img
 												alt={item.groupName}
-												src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${payName}.png`}
+												src={`${cloudImgUrl}/SiteSkin/img/MobilePay/${imgName}.png`}
 											/>
 											<i className="icon icon-icon32px_check" />
 										</div>

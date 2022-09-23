@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import useInterval from "../hook/useInterval";
-import { getCurrencyCode } from "../common/common";
 
 import Jackpot from "../Jackpot/Jackpot";
 
@@ -14,13 +13,7 @@ export default function CasinoJackpot({ t, userInfo }) {
 
 	const [currentText, setCurrentText] = useState("");
 
-	let currencyId = null;
-
-	if (userInfo.isLogin) {
-		currencyId = userInfo.currencyId;
-	} else if (userInfo.isLogin === false) {
-		currencyId = getCurrencyCode(userInfo.langId);
-	}
+	const { currencyId } = userInfo;
 
 	useEffect(() => {
 		if (currencyId) {

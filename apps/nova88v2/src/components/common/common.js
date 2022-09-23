@@ -211,10 +211,23 @@ export const stringLinkify = text => {
 
 export const defCurrencyList = {
 	MYR: 2,
+	USD: 3,
 	THB: 4,
 	CNY: 13,
 	IDR: 15,
-	INR: 61
+	INR: 61,
+	USDT: 96,
+	BDT: 74
+};
+
+export const defCountryList = {
+	2: "Malaysia",
+	3: "Global",
+	4: "Thailand",
+	13: "China",
+	15: "Indonesia",
+	61: "India",
+	74: "Bangladesh"
 };
 
 export const currencyIdToTimeZone = {
@@ -231,11 +244,9 @@ export const langAndCurrMapping = {
 	cs: 2,
 	my: 2,
 	th: 4,
-	th_en: 4,
 	id: 15,
-	id_en: 15,
 	hi: 61,
-	hi_en: 61
+	bd: 74
 };
 
 export const defCurrencyToClass = {
@@ -262,7 +273,8 @@ export const validImgLang = langId => {
 		langId !== "cs" &&
 		langId !== "my" &&
 		langId !== "th" &&
-		langId !== "id"
+		langId !== "id" &&
+		langId !== "bd"
 	) {
 		return "en";
 	}

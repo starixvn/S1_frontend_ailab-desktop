@@ -11,6 +11,8 @@ const FeaturePanel = ({ langId, t }) => {
 	if (langId === "id") return <ID t={t} />;
 	if (langId === "hi_en") return <HIEN t={t} />;
 	if (langId === "hi") return <HI t={t} />;
+	if (langId === "bd") return <BD t={t} />;
+	if (langId === "bd_en") return <BDEN t={t} />;
 	return <EN />;
 };
 
@@ -270,5 +272,60 @@ const HI = ({ t }) => (
 );
 
 HI.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
+const BD = ({ t }) => (
+	<div className="features">
+		<div className="title">
+			<span className="icon icon-star-full" />
+			विशेषताएं
+		</div>
+		<div className="title">सदस्यों के लाभ</div>
+		<ul>
+			<li>{t("lbl_MemberBenefits_1")}</li>
+			<li>{t("lbl_MemberBenefits_2")}</li>
+			<li>{t("lbl_MemberBenefits_3")}</li>
+			<li>{t("lbl_MemberBenefits_4")}</li>
+		</ul>
+		<div className="title">NOVA88 वीआईपी विशेष बोनस और छूट का आनंद लें</div>
+		<ul>
+			<li>
+				बेहतर ऑड्स और पूर्ण गेमप्ले अनुभव के साथ कई उत्पाद प्लेटफॉर्म।
+			</li>
+			<li>कई जमा विकल्पों के साथ शीघ्र जमा और निकासी।</li>
+		</ul>
+	</div>
+);
+
+BD.propTypes = {
+	t: PropTypes.func.isRequired
+};
+
+const BDEN = ({ t }) => (
+	<div className="features">
+		<div className="title">
+			<span className="icon icon-star-full" />
+			FEATURES
+		</div>
+		<div className="title">MEMBER BENEFITS</div>
+		<ul>
+			<li>{t("lbl_MemberBenefits_1")}</li>
+			<li>{t("lbl_MemberBenefits_2")}</li>
+			<li>{t("lbl_MemberBenefits_3")}</li>
+			<li>{t("lbl_MemberBenefits_4")}</li>
+		</ul>
+		<div className="title">ENJOY NOVA88 VIP EXCLUSIVE BONUS & REBATES</div>
+		<ul>
+			<li>
+				Multiple product platforms with better odds and full gameplay
+				experience.
+			</li>
+			<li>Speedy deposit and withdrawal with multiple deposit option.</li>
+		</ul>
+	</div>
+);
+
+BDEN.propTypes = {
 	t: PropTypes.func.isRequired
 };

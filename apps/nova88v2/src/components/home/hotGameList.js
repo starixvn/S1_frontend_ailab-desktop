@@ -29,7 +29,10 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 		autoGetData: false
 	});
 	useEffect(() => {
-		api_site_GetHotGames({ langId: userInfo.langId })
+		api_site_GetHotGames({
+			langId: userInfo.langId,
+			currencyId: userInfo.currencyId
+		})
 			.then(res => {
 				if (res.data.errorCode === 0) {
 					setGameList(res.data.data);
@@ -41,7 +44,7 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 				}
 			})
 			.catch(() => errorPopBox());
-	}, []);
+	}, [userInfo.currencyId]);
 
 	const ClickGame = (tpId, gameId, tpCategory, _isInMaintain, tpGameType) => {
 		const clickClose = () => {

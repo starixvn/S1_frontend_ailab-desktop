@@ -2,12 +2,20 @@ import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../../common/context";
-import { checkAmount, isConvert, number_format } from "../../common/common";
+import {
+	checkAmount,
+	isConvert,
+	number_format,
+	defCurrencyList
+} from "../../common/common";
 
 const defAmountList = {
-	2: [100, 300, 500, 1000, 2000],
-	4: [500, 1000, 3000, 5000, 10000],
-	15: [300, 500, 1000, 3000, 5000]
+	[defCurrencyList.MYR]: [100, 300, 500, 1000, 2000],
+	[defCurrencyList.THB]: [500, 1000, 3000, 5000, 10000],
+	[defCurrencyList.IDR]: [300, 500, 1000, 3000, 5000],
+	[defCurrencyList.BDT]: [100, 300, 500, 1000, 2000],
+	[defCurrencyList.CNY]: [100, 300, 500, 1000, 2000],
+	[defCurrencyList.USD]: [100, 300, 500, 1000, 2000]
 };
 
 const ShortcutAmountList = ({ amount, minAmount, maxAmount, onClick }) => {
