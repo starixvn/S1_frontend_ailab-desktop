@@ -15,6 +15,7 @@ import ConfirmDelete from "./popBox.confirmDelete";
 import ProfileConfirmCheck from "./popBox.profileConfirmCheck";
 import ProfileCompelete from "./popBox.profileCompelete";
 import ChangePsw from "./popBox.changePsw";
+import ChangePswHint from "./popBox.changePswHint";
 import LogoutHint from "./popBox.logoutHint";
 // import Loading from "./loading";
 import DepositHint from "./popBox.depositHint";
@@ -165,8 +166,12 @@ export default () => {
 			break;
 
 		case defPopBoxType.ChangePsw:
+			content = <ChangePsw message={popBox.message} />;
+			break;
+
+		case defPopBoxType.ChangePswHint:
 			content = (
-				<ChangePsw
+				<ChangePswHint
 					btnBar={popBox.btnBar}
 					title={popBox.title}
 					message={popBox.message}

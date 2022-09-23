@@ -147,7 +147,7 @@ const ResetPassWord = () => {
 
 							setPopBox({
 								isOpen: true,
-								popBoxType: defPopBoxType.ChangePsw,
+								popBoxType: defPopBoxType.ChangePswHint,
 								title: t("lbl_ResetPassword"),
 								message: (
 									<>

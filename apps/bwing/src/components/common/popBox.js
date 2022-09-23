@@ -164,8 +164,14 @@ export default () => {
 
 		case defPopBoxType.ChangePsw: {
 			const ChangePsw = lazy(() => import("./popBox.changePsw"));
+			content = <ChangePsw message={popBox.message} />;
+			break;
+		}
+
+		case defPopBoxType.ChangePswHint: {
+			const ChangePswHint = lazy(() => import("./popBox.changePswHint"));
 			content = (
-				<ChangePsw
+				<ChangePswHint
 					btnBar={popBox.btnBar}
 					title={popBox.title}
 					message={popBox.message}
