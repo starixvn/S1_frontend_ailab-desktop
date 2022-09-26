@@ -53,8 +53,11 @@ export const api_site_GetBanner = (
 		`FolderName=${FolderName}&refId=${refId}&filterHideInHome=${filterHideInHome}`
 	);
 
-export const api_site_GetBannerV3 = ({ lang, BannerType }) =>
-	siteRequest.post(`/GetBannerV3/${lang}`, { BannerType });
+export const api_site_GetBannerV3 = ({ lang, BannerType, currencyId }) =>
+	siteRequest.post(`/GetBannerV3/${lang}`, {
+		BannerType,
+		CurrencyId: currencyId
+	});
 
 export const api_site_CheckResetPwdTokens = ({ key }) =>
 	siteRequest.post(`/CheckResetPwdToken`, `key=${key}`);

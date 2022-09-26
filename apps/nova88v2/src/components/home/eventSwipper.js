@@ -8,10 +8,11 @@ import { useGetBanner, SetPathParameter } from "../common/swipperBanner";
 import { defBannerType } from "../../service/api/site";
 import path from "../../router";
 
-const EventSwipper = memo(({ langId }) => {
+const EventSwipper = memo(({ langId, currencyId }) => {
 	const { banner } = useGetBanner({
 		langId,
-		ImgFolder: [defBannerType.HotEvent]
+		ImgFolder: [defBannerType.HotEvent],
+		currencyId
 	});
 
 	const OnClickEvent = ({ tpId, gameId, matchId }) => {
@@ -85,8 +86,13 @@ const EventSwipper = memo(({ langId }) => {
 	return rows && rows.length > 0 ? <Swiper {...params}>{rows}</Swiper> : null;
 });
 
+EventSwipper.defaultProps = {
+	currencyId: null
+};
+
 EventSwipper.propTypes = {
-	langId: PropTypes.string.isRequired
+	langId: PropTypes.string.isRequired,
+	currencyId: PropTypes.number
 };
 
 const isEuro = sportLeaguesId =>

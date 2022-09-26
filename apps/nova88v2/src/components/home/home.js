@@ -190,7 +190,10 @@ const IndexPage = () => {
 					<div className="moduleTitle icon icon-upcomingmatches">
 						{t("lbl_UPCOMING_MATCHES")}
 					</div>
-					<EventSwipper langId={userInfo.langId} />
+					<EventSwipper
+						langId={userInfo.langId}
+						currencyId={userInfo.currencyId}
+					/>
 					{userInfo.currencyId === defCurrencyList.BDT ? (
 						<div className="jpotModule">
 							<div className="moduleTitle icon icon-icon_777">
@@ -198,8 +201,7 @@ const IndexPage = () => {
 							</div>
 							<Link
 								className="slotsbox"
-								to={`/${userInfo.langId}/${path.casino.root}`}
-							>
+								to={`/${userInfo.langId}/${path.casino.root}`}>
 								<img
 									src={`${bannerImgUrl}/img/indexslots_bg_${userInfo.langId}.jpg`}
 									alt="slot-bg"
