@@ -147,8 +147,7 @@ const CardPanel = ({
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}
-						>
+							to={`/${userInfo.langId}/${path.profile.root}`}>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>
@@ -285,16 +284,18 @@ const CardPanel = ({
 	};
 	return (
 		<>
-			<BankCard
-				t={t}
-				state={state}
-				defPanel={defPanel}
-				custBankInfo={custBankInfo}
-				addBankAccount={addBankAccount}
-				selectAccount={selectAccount}
-				delAccount={delAccount}
-				isIfscRequired={isIfscRequired}
-			/>
+			{userInfo.currencyId !== defCurrencyList.USD && (
+				<BankCard
+					t={t}
+					state={state}
+					defPanel={defPanel}
+					custBankInfo={custBankInfo}
+					addBankAccount={addBankAccount}
+					selectAccount={selectAccount}
+					delAccount={delAccount}
+					isIfscRequired={isIfscRequired}
+				/>
+			)}
 			{(userInfo.currencyId === defCurrencyList.IDR ||
 				userInfo.currencyId === defCurrencyList.BDT) &&
 				state.eWalletStatus && (
