@@ -19,6 +19,13 @@ import path from "../../router";
 import ECard from "./withdrawal.set.card.E";
 import { defCurrencyList } from "../common/common";
 
+const allowBankInfoCurrency = [
+	defCurrencyList.MYR,
+	defCurrencyList.THB,
+	defCurrencyList.IDR,
+	defCurrencyList.INR
+];
+
 const CardPanel = ({
 	dispatch,
 	state,
@@ -284,7 +291,7 @@ const CardPanel = ({
 	};
 	return (
 		<>
-			{userInfo.currencyId !== defCurrencyList.USD && (
+			{allowBankInfoCurrency.includes(userInfo.currencyId) && (
 				<BankCard
 					t={t}
 					state={state}
