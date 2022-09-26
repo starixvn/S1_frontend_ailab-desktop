@@ -42,9 +42,7 @@ export const defLeftMenu = {
 					defCurrencyList.MYR,
 					defCurrencyList.THB,
 					defCurrencyList.IDR,
-					defCurrencyList.INR,
-					defCurrencyList.CNY,
-					defCurrencyList.BDT
+					defCurrencyList.INR
 				]
 			},
 			cryptoWallet: {
