@@ -51,7 +51,7 @@ export const api_site_GetBanner = (
 	);
 
 export const api_site_GetBannerV3 = ({ lang, BannerType }) =>
-	siteRequest.post(`/GetBannerV3/${lang}`, { BannerType });
+	siteRequest.post(`/GetBannerV3/${lang}`, { BannerType, CurrencyId: 51 });
 
 export const api_site_CheckResetPwdTokens = ({ key }) =>
 	siteRequest.post(`/CheckResetPwdToken`, `key=${key}`);
