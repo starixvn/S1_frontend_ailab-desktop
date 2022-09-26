@@ -42,24 +42,21 @@ export default () => {
 		userInfo.country && userInfo.country !== "null"
 			? userInfo.country
 			: userInfo.perCountry;
+
 	const isUSDT = userInfo.currencyId === currencyCode.USDT;
 	const allAreaCodeArr = Object.values(areaCode)
 		.map(a => a.AreaCode)
 		.sort();
-	const areaCodeOptions = allAreaCodeArr.map((_a, idx) => ({
+	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => ({
 		id: idx,
 		displayText: _a
 	}));
-	const usdtAreaCode = userValue.areaCodeIdx
-		? areaCodeOptions[userValue.areaCodeIdx - 1].displayText
-		: "";
 
 	let _areaCodeVal = "";
 	if (country) {
 		_areaCodeVal = areaCode[country].AreaCode;
-	} else {
-		_areaCodeVal = usdtAreaCode;
 	}
+
 	const hasRequireValueNull = type => {
 		let result;
 		switch (type) {
@@ -155,6 +152,7 @@ export default () => {
 	const closePopBox = () => {
 		setPopBox({ isOpen: false });
 	};
+
 	const openErrorMessagePopBox = (
 		message = t("msg_ApiServerError"),
 		errorCode = null
@@ -254,11 +252,15 @@ export default () => {
 			[col]: val
 		}));
 	};
+
 	const phoneCheck = (col, val) => {
 		let checked = true;
 		let tip = "";
 
-		if (
+		if (_areaCodeVal === "") {
+			checked = false;
+			tip = t("lbl_PhoneRequired");
+		} else if (
 			(col === "areaCode" && userValue?.phoneNo.length < 1) ||
 			(col === "phoneNo" && (!val || val === ""))
 		) {
@@ -475,14 +477,12 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}
-										>
+											onClick={closePopBox}>
 											{t("lbl_Later")}
 										</button>
 										<button
 											className="blue"
-											onClick={sendOTPSMS}
-										>
+											onClick={sendOTPSMS}>
 											{t("lbl_VertifyNow")}
 										</button>
 									</div>
@@ -498,14 +498,12 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-cancel"
-											onClick={closePopBox}
-										>
+											onClick={closePopBox}>
 											{t("lbl_Later")}
 										</button>
 										<Link
 											className="btn-check"
-											to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}
-										>
+											to={`/${userInfo.langId}/${defPrevPage[prevPage].path}`}>
 											{t(defPrevPage[prevPage].label)}
 										</Link>
 									</div>
@@ -520,8 +518,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={closePopBox}
-									>
+										onClick={closePopBox}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -543,8 +540,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={closePopBox}
-								>
+									onClick={closePopBox}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -587,8 +583,7 @@ export default () => {
 						</button>
 						<button
 							className="btn-check"
-							onClick={SetProfileOrAddr}
-						>
+							onClick={SetProfileOrAddr}>
 							{t("lbl_Confirm")}
 						</button>
 					</div>
@@ -596,6 +591,7 @@ export default () => {
 			});
 		}
 	};
+
 	const sendOTPSMS = () => {
 		setMobileVerificationLoading(true);
 
@@ -621,7 +617,7 @@ export default () => {
 							popBoxType: defPopBoxType.VerifyPhoneForm
 						});
 					} else {
-						let errorMsg = `[${errorCode}] ${t(message)}`;
+						let errorMsg = `[${errorCode}] ${message}`;
 						if (errorCode === 5002) {
 							errorMsg = t(`msg_API_SendOTPSMS_${errorCode}`);
 						} else if (errorCode === 1000) {
@@ -657,8 +653,7 @@ export default () => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}
-								>
+									}}>
 									OK
 								</button>
 							</div>
@@ -736,8 +731,7 @@ export default () => {
 								? "btn-cancel"
 								: "btn-check"
 						}
-						onClick={e => clickSubmit(e, "profile")}
-					>
+						onClick={e => clickSubmit(e, "profile")}>
 						{t("lbl_Submit")}
 					</button>
 				</div>

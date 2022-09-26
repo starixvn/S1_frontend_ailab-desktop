@@ -9,18 +9,19 @@ const BANNER_IMAGE_LIST = {
 	cs: "indexCenterBanner_cs.jpg",
 	id: "indexCenterBanner_id.jpg",
 	th: "indexCenterBanner_th.jpg",
-	hi: "indexCenterBanner_hi.jpg"
+	hi: "indexCenterBanner_hi.jpg",
+	bd: "indexCenterBanner_bd.jpg",
+	my: "indexCenterBanner_my.jpg"
 };
 
-const testImg = src => {
-	return new Promise(resolve => {
+const testImg = src =>
+	new Promise(resolve => {
 		const _img = new Image();
 
 		_img.src = src;
 		_img.onload = () => resolve(true);
 		_img.onerror = () => resolve(false);
 	});
-};
 
 const IndexCenterBanner = ({ langId }) => {
 	const [imgUrl, setImgUrl] = useState("");

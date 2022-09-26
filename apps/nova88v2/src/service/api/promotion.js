@@ -1,14 +1,20 @@
 import { promotionRequest, defDeviceType } from "./base";
 
-export const api_promotion_GetPromotionListV2 = ({ langId }) =>
+export const api_promotion_GetPromotionList = ({ langId, currencyId }) =>
 	promotionRequest.post(`/GetPromotionListV3/${langId}`, {
-		DeviceType: defDeviceType.Desktop
+		DeviceType: defDeviceType.Desktop,
+		CurrencyId: currencyId
 	});
 
-export const api_promotion_GetPromotionDetail = ({ langId, BonusCode }) =>
+export const api_promotion_GetPromotionDetail = ({
+	langId,
+	BonusCode,
+	currencyId
+}) =>
 	promotionRequest.post(`/GetPromotionDetail/${langId}`, {
 		BonusCode,
-		DeviceType: defDeviceType.Desktop
+		DeviceType: defDeviceType.Desktop,
+		CurrencyId: currencyId
 	});
 
 export const api_promotion_SetClaimPromotion = ({

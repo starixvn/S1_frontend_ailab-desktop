@@ -21,6 +21,7 @@ const SubMenuSingle = ({
 	const { setPopBox } = useContext(popBoxContext);
 	const { appLinkDatas } = useAppDownLoad();
 	const pathLink = defMenuLinks[menuKey].path;
+	const { allowCurrencies } = defMenuLinks[menuKey];
 
 	const showLoginPopBox = () => {
 		setPopBox({
@@ -29,7 +30,10 @@ const SubMenuSingle = ({
 		});
 	};
 
-	if (menuKey === "worldCup") {
+	if (
+		menuKey === "worldCup" &&
+		allowCurrencies.includes(userInfo.currencyId)
+	) {
 		return (
 			<Link
 				className={subClassName}

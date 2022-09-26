@@ -97,7 +97,7 @@ export const defLobbyImgList = [
 		lobbyImgName: "am",
 		lobbyDisplayName: "AMBSlot",
 		providerId: productList.casino_AMB.tpId,
-		allowCurrencies: [defCurrencyList.THB]
+		allowCurrencies: [defCurrencyList.THB, defCurrencyList.USD]
 	},
 	{
 		lobbyImgName: "jk",

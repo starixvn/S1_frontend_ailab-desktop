@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
@@ -23,13 +23,11 @@ const JoinForm = ({
 	clickCancel,
 	clickSubmit,
 	defaultOption,
-	areaCodeOptions,
-	onSelectAreaCode,
-	isUSDT,
 	handleLineRegister,
 	langId,
 	currencyId,
-	lineUserId
+	lineUserId,
+	areaCodeList
 }) => (
 	<form className="joinloginFunction" onSubmit={clickSubmit}>
 		<span className="title txt-blue">{t("lbl_JoinNow")}</span>
@@ -51,8 +49,7 @@ const JoinForm = ({
 								className="btn-line"
 								onClick={e => {
 									handleLineRegister(e);
-								}}
-							>
+								}}>
 								<i className="icon icon-line-bold" />
 								{t("lineRegister.lbl_RegisterWithLine")}
 							</button>
@@ -107,8 +104,7 @@ const JoinForm = ({
 			<div
 				className={`inputBox-blue${
 					tip.currency.msg !== "" ? " error" : ""
-				}`}
-			>
+				}`}>
 				<Dropdown
 					defaultOption={defaultOption}
 					mainKey="join_currency"
@@ -116,7 +112,9 @@ const JoinForm = ({
 					options={siteCurrency}
 					selectedIdx={userValue.currencyIdx}
 					i18n={t}
-					onSelectItem={onSelectItem}
+					onSelectItem={i =>
+						onSelectItem({ idx: i, col: "currencyIdx" })
+					}
 					onBlur={checkValue.bind(null, "currency")}
 					flag={true}
 				/>
@@ -136,17 +134,18 @@ const JoinForm = ({
 							!tip.phone.checked && tip.phone.msg !== ""
 								? " error"
 								: ""
-						}`}
-					>
-						<Dropdown
+						}`}>
+						<AreaCodeDropdown
 							defaultOption={_areaCode}
-							mainKey="area_code"
-							icon="icon-phone txt-blue"
-							options={areaCodeOptions}
+							options={areaCodeList}
 							selectedIdx={userValue.areaCodeIdx}
-							i18n={t}
-							onSelectItem={onSelectAreaCode}
-							disabled={!isUSDT}
+							onSelectItem={(i, item) =>
+								onSelectItem({
+									idx: i,
+									col: "areaCodeIdx",
+									item
+								})
+							}
 						/>
 					</div>
 
@@ -156,7 +155,6 @@ const JoinForm = ({
 								? " error"
 								: ""
 						}`}
-						// areaCode={_areaCode}
 						placeholder={t("lbl_Phone")}
 						value={userValue.phone}
 						tip={tip.phone.msg}
@@ -208,8 +206,7 @@ const JoinForm = ({
 				className="txt-blue"
 				target="_blank"
 				rel="noreferrer"
-				href={tandCTerms}
-			>
+				href={tandCTerms}>
 				{t("lbl_sign_up_terms_center")}
 			</a>
 			{t("lbl_sign_up_terms_end")}
@@ -225,7 +222,6 @@ const JoinForm = ({
 		</div>
 	</form>
 );
-
 JoinForm.defaultProps = {
 	hasRefOrAffCode: null,
 	_areaCode: null,
@@ -253,13 +249,114 @@ JoinForm.propTypes = {
 	clickCancel: PropTypes.func.isRequired,
 	clickSubmit: PropTypes.func.isRequired,
 	defaultOption: PropTypes.string,
-	areaCodeOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
-	onSelectAreaCode: PropTypes.func.isRequired,
-	isUSDT: PropTypes.bool.isRequired,
 	handleLineRegister: PropTypes.func.isRequired,
 	langId: PropTypes.string,
 	currencyId: PropTypes.number,
-	lineUserId: PropTypes.string
+	lineUserId: PropTypes.string,
+	areaCodeList: PropTypes.arrayOf(PropTypes.any).isRequired
+};
+
+const AreaCodeDropdown = ({
+	defaultOption,
+	options,
+	selectedIdx,
+	onSelectItem,
+	disabled
+}) => {
+	const [isOpen, setOpen] = useState(false);
+	const [filterData, setFilterData] = useState({ input: "" });
+	const wrapper = useRef(null);
+
+	const useClickOutside = ref => {
+		useEffect(() => {
+			const handleClickOutside = e => {
+				if (
+					ref.current &&
+					!ref.current.contains(e.target) &&
+					e.target.className !== "search"
+				) {
+					setOpen(false);
+				}
+			};
+			document.addEventListener("mousedown", handleClickOutside);
+
+			return () => {
+				document.removeEventListener("mousedown", handleClickOutside);
+			};
+		}, [ref]);
+	};
+
+	const clickDropdown = e => {
+		e.preventDefault();
+
+		if (disabled) return;
+
+		if (e.target.className !== "search") {
+			setOpen(prev => !prev);
+		}
+	};
+	useClickOutside(wrapper);
+
+	const selectItem = (e, { idx, item }) => {
+		e.stopPropagation();
+		setOpen(false);
+		onSelectItem(idx, item);
+	};
+
+	const search = e => {
+		const val = e.target.value;
+		const filteredOptions = options.filter(el =>
+			el.displayText.toLowerCase().includes(val.toLowerCase())
+		);
+		setFilterData(prev => ({ ...prev, input: val, filteredOptions }));
+	};
+	const _options = filterData?.filteredOptions ?? options;
+
+	const arr = _options.map((item, i) => (
+		<div
+			key={`item-${item.displayText}`}
+			className="dropdown-item"
+			onClick={e => selectItem(e, { idx: i, item })}>
+			{item.displayText}
+		</div>
+	));
+
+	const selected = _options[selectedIdx]?.displayText;
+
+	return (
+		<div className="dropdown" ref={wrapper} onClick={clickDropdown}>
+			<i className="icon icon-phone txt-blue" />
+			<button className="btn">{defaultOption ?? selected}</button>
+			<div className={`dropdown-container${isOpen ? " active" : ""}`}>
+				<div className="inputBox-blue">
+					<input
+						type="text"
+						className="search"
+						placeholder="Search"
+						onChange={search}
+						value={filterData?.input}
+					/>
+				</div>
+				{arr}
+			</div>
+		</div>
+	);
+};
+
+AreaCodeDropdown.defaultProps = {
+	defaultOption: null,
+	options: null,
+	selectedIdx: null,
+	onSelectItem: () => null,
+	disabled: null
+};
+
+AreaCodeDropdown.propTypes = {
+	defaultOption: PropTypes.string,
+	options: PropTypes.arrayOf(PropTypes.object),
+	selectedIdx: PropTypes.number,
+	onSelectItem: PropTypes.func,
+	disabled: PropTypes.bool
 };
 
 export default JoinForm;

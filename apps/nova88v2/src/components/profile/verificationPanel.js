@@ -8,12 +8,7 @@ import {
 	defCurrencyList
 } from "../common/common";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
-
-const VIPCurrencies = [
-	defCurrencyList.MYR,
-	defCurrencyList.THB,
-	defCurrencyList.IDR
-];
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 const VerificationPanel = ({
 	t,
@@ -53,9 +48,9 @@ const VerificationPanel = ({
 		}
 	};
 
-	let VIPLevel = "";
-	if (VIPCurrencies.includes(currencyId)) {
-		VIPLevel =
+	let vipDisplayText = "";
+	if (allowedCurrencyList.VIP.includes(currencyId)) {
+		vipDisplayText =
 			langId === "cs" ? (
 				<div className="vipname">{`${t(vipClubImg.displayKey)}${t(
 					"lbl_Club"
@@ -73,7 +68,8 @@ const VerificationPanel = ({
 				</div>
 				<img src={vipClubImg.url} alt={vipClubImg.alt} />
 			</div>
-			{VIPLevel}
+
+			{vipDisplayText}
 
 			<div className="accountSafety">
 				<div>{t("lbl_AccountSafety")}:</div>&nbsp;

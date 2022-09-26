@@ -112,8 +112,7 @@ const Component = () => {
 												downloadLink.android
 											}
 											target="_blank"
-											rel="noreferrer"
-										>
+											rel="noreferrer">
 											<i className="icon icon-android" />
 											<div>
 												{t("mega888.app_for_android")}
@@ -144,8 +143,7 @@ const Component = () => {
 											href={
 												getLink(defType.IOS) ??
 												downloadLink.ios
-											}
-										>
+											}>
 											<i className="icon icon-appleinc" />
 											<div>
 												{t("mega888.app_for_ios")}
@@ -174,8 +172,7 @@ const Component = () => {
 											href={
 												getLink(defType.WindowsPC) ??
 												downloadLink.windows
-											}
-										>
+											}>
 											<i className="icon icon-windows" />
 											<div>
 												Windows PC

@@ -67,14 +67,13 @@ export const GET_LANG_ID = userLangId => {
 			browserDefLang.startsWith("ta")
 		) {
 			langId = "hi";
-		} else if (browserDefLang.startsWith("en")) {
+		} else if (
+			browserDefLang.startsWith("en") ||
+			browserDefLang.startsWith("th_en") ||
+			browserDefLang.startsWith("id_en") ||
+			browserDefLang.startsWith("in_en")
+		) {
 			langId = "en";
-		} else if (browserDefLang.startsWith("th_en")) {
-			langId = "th_en";
-		} else if (browserDefLang.startsWith("id_en")) {
-			langId = "id_en";
-		} else if (browserDefLang.startsWith("hi_en")) {
-			langId = "hi_en";
 		} else {
 			langId = siteDefLangId;
 		}

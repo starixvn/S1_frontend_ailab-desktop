@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 import { userInfoContext, popBoxContext } from "../common/context";
@@ -55,14 +56,17 @@ export default () => {
 	const getPromotionDetail = async (langId, bonusCode) => {
 		await api_promotion_GetPromotionDetail({
 			langId,
-			BonusCode: bonusCode
+			BonusCode: bonusCode,
+			currencyId: userInfo.currencyId
 		}).then(
 			({ data: { data, message, errorCode } }) => {
 				if (!isMountedRef.current) return;
 
 				const success = errorCode === 0;
 
-				if (success) return setPromotionInfo(data);
+				if (success) {
+					setPromotionInfo(data);
+				}
 				openErrorMessagePopBox(message || "error", errorCode);
 			},
 			() => {
@@ -79,12 +83,13 @@ export default () => {
 				if (!isMountedRef.current) return;
 
 				const success = errorCode === 0;
-				if (success)
-					return setPromotionInfo(prev => ({
+				if (success) {
+					setPromotionInfo(prev => ({
 						...prev,
 						custRollOver: data.rollover,
 						custTurnOver: data.turnover
 					}));
+				}
 
 				openErrorMessagePopBox(message || "error", errorCode);
 			},
@@ -264,6 +269,18 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType, currencyId }) => {
 	);
 };
 
+DepositSlip.defaultProps = {
+	isSpecialType: null,
+	currencyId: null
+};
+
+DepositSlip.propTypes = {
+	t: PropTypes.func.isRequired,
+	isSpecialType: PropTypes.bool,
+	promotionInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	currencyId: PropTypes.number
+};
+
 const DepositMenu = ({
 	cash,
 	_currency,
@@ -291,4 +308,16 @@ const DepositMenu = ({
 		);
 
 	return null;
+};
+
+DepositMenu.defaultProps = {
+	cash: null,
+	_currency: null
+};
+
+DepositMenu.propTypes = {
+	t: PropTypes.func.isRequired,
+	cash: PropTypes.string,
+	promotionInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	_currency: PropTypes.string
 };

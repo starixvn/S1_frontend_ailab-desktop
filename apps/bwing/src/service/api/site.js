@@ -73,7 +73,8 @@ export const api_site_GetTpMaintainList = () =>
 
 export const api_site_GetHotGames = ({ langId }) =>
 	siteRequest.post(`/GetHotGames/${langId}`, {
-		DeviceType: defDeviceType.Desktop
+		DeviceType: defDeviceType.Desktop,
+		CurrencyId: 51
 	});
 
 export const api_site_GetSocialChannel = ({ langId, displayPage }) =>

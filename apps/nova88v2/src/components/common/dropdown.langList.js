@@ -38,10 +38,13 @@ export class Dropdown extends Component {
 		this.setState(prev => ({ isOpen: !prev.isOpen }));
 	};
 
-	selectItem = (value, newPath, e) => {
+	selectItem = (value, currencyId, newPath, e) => {
 		e.stopPropagation();
 		this.setState({ isOpen: false });
-		if (value !== this.props.selectedValue) {
+		if (
+			value !== this.props.selectedValue ||
+			currencyId !== this.props.selectedCurrencyId
+		) {
 			if (this.props.isLogin) {
 				try {
 					api_account_SetLanguage(value).then(res => {
@@ -83,10 +86,13 @@ export class Dropdown extends Component {
 						});
 					}
 				}
+			} else {
+				this.props.setUserInfo(prev => ({ ...prev, currencyId }));
 			}
 
 			navigate(newPath);
 			setCookie(SiteInfo.langCookie, value);
+			setCookie(SiteInfo.currencyCookie, currencyId);
 		}
 	};
 
@@ -96,33 +102,35 @@ export class Dropdown extends Component {
 				? Object.keys(this.props.defLangGroup)[0]
 				: null;
 
-		const rows = Object.keys(this.props.defLangGroup).map(_group => {
-			return (
-				<span key={`${this.props.mainKey}_${_group}`}>
-					<div className="countryName">
-						{this.props.defLangGroupCountry[_group]}
-					</div>
-					<div className={`flag ${_group}`}>
-						{this.props.defLangGroup[_group].map(item => {
-							if (item.value === this.props.selectedValue) {
-								icon = _group;
-							}
-							return (
-								<button
-									key={`${this.props.mainKey}_${item.value}`}
-									onClick={this.selectItem.bind(
-										this,
-										item.value,
-										getNewLanguagePath(item.value)
-									)}>
-									{item.displayText}
-								</button>
-							);
-						})}
-					</div>
-				</span>
-			);
-		});
+		const rows = Object.keys(this.props.defLangGroup).map(_group => (
+			<span key={`${this.props.mainKey}_${_group}`}>
+				<div className="countryName">
+					{this.props.defLangGroupCountry[_group]}
+				</div>
+				<div className={`flag ${_group}`}>
+					{this.props.defLangGroup[_group].map(item => {
+						if (
+							item.value === this.props.selectedValue &&
+							item.currencyId === this.props.selectedCurrencyId
+						) {
+							icon = _group;
+						}
+						return (
+							<button
+								key={`${this.props.mainKey}_${item.value}`}
+								onClick={this.selectItem.bind(
+									this,
+									item.value,
+									item.currencyId,
+									getNewLanguagePath(item.value)
+								)}>
+								{item.displayText}
+							</button>
+						);
+					})}
+				</div>
+			</span>
+		));
 
 		const selected = (
 			<button className={`flag ${icon}`}>
@@ -147,7 +155,8 @@ export class Dropdown extends Component {
 Dropdown.defaultProps = {
 	isMountedRef: null,
 	setPopBox: () => null,
-	clickClose: () => null
+	clickClose: () => null,
+	setUserInfo: () => null
 };
 
 Dropdown.propTypes = {
@@ -160,7 +169,9 @@ Dropdown.propTypes = {
 	defLangGroup: PropTypes.objectOf(PropTypes.array).isRequired,
 	isMountedRef: PropTypes.objectOf(PropTypes.any),
 	setPopBox: PropTypes.func,
-	clickClose: PropTypes.func
+	clickClose: PropTypes.func,
+	selectedCurrencyId: PropTypes.number.isRequired,
+	setUserInfo: PropTypes.func
 };
 
 export default Dropdown;

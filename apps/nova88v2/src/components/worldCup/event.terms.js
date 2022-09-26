@@ -8,7 +8,7 @@ import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
 
 const BonusCode = "N88FIFAWC2022";
 
-const Terms = ({ langId }) => {
+const Terms = ({ langId, currencyId }) => {
 	const { t } = useTranslation();
 	const { errorPopBox } = usePopBox();
 	const { setWorldCupBox } = useContext(worldCupPopBox);
@@ -29,7 +29,8 @@ const Terms = ({ langId }) => {
 	const getPromoDetail = async () => {
 		const res = await api_promotion_GetPromotionDetail({
 			langId,
-			BonusCode
+			BonusCode,
+			currencyId
 		});
 		const { errorCode, data, message } = res.data;
 
@@ -73,11 +74,13 @@ const Terms = ({ langId }) => {
 };
 
 Terms.defaultProps = {
-	langId: null
+	langId: null,
+	currencyId: null
 };
 
 Terms.propTypes = {
-	langId: PropTypes.string
+	langId: PropTypes.string,
+	currencyId: PropTypes.number
 };
 
 export default Terms;

@@ -26,7 +26,11 @@ import {
 	defCategoryList,
 	defLobbyImgList
 } from "./casino.def";
-import { getUrlParameter, getCurrencyCode } from "../common/common";
+import {
+	getUrlParameter,
+	getCurrencyCode,
+	defCurrencyList
+} from "../common/common";
 import SwipperBanner from "../common/swipperBanner";
 import TopQuickLink from "./casino.topQuickLink";
 import CasinoJackpot from "./casino.jackpot";
@@ -52,7 +56,7 @@ export default () => {
 	);
 
 	const [favorite, setFavorite] = useState([]);
-	const [imgUrl, setImgUrl] = useState("");
+	const [gameList, setGameList] = useState({});
 	const [tpList, setTpList] = useState({});
 	const [gameDatas, setGameDatas] = useState([]);
 	const [tpOptions, setTpOptions] = useState([]);
@@ -215,8 +219,7 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}
-										>
+											onClick={clickClose}>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -235,8 +238,7 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}
-									>
+										onClick={clickClose}>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -352,14 +354,14 @@ export default () => {
 				const success = res.data.errorCode === 0;
 
 				if (success) {
-					const { imgUrl: _imgUrl, providerList } = res.data.data;
+					const { imgUrl, providerList } = res.data.data;
 					const _tpList = {};
 					const _tpOptions = [
 						{ displayKey: "lbl_AllProvider", id: null }
 					];
 					const games = [];
 
-					setImgUrl(_imgUrl);
+					setGameList({ imgUrl, providerList });
 
 					providerList?.forEach(gameInfo => {
 						_tpList[gameInfo.value] = { ...gameInfo };
@@ -464,8 +466,7 @@ export default () => {
 										<div className="btnGroup">
 											<button
 												className="btn-check"
-												onClick={clickClose}
-											>
+												onClick={clickClose}>
 												{t("lbl_Close")}
 											</button>
 										</div>
@@ -484,8 +485,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -503,8 +503,7 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}
-								>
+									onClick={clickClose}>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -539,7 +538,9 @@ export default () => {
 			/>
 			<section className="inside">
 				<div className="rightModule">
-					<CasinoJackpot t={t} userInfo={userInfo} />
+					{_currencyId !== defCurrencyList.BDT && (
+						<CasinoJackpot t={t} userInfo={userInfo} />
+					)}
 
 					<div className="infoModule">
 						<TopQuickLink
@@ -566,7 +567,7 @@ export default () => {
 						</div>
 						<GameList
 							t={t}
-							imgUrl={imgUrl}
+							imgUrl={gameList?.imgUrl}
 							displayGames={displayGames}
 							tpList={tpList}
 							langId={userInfo.langId}

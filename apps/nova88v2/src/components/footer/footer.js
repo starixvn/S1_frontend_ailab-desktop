@@ -16,7 +16,6 @@ import { api_site_GetTpIds } from "../../service/api/site";
 import { currencyCode } from "../../datas/countryCode";
 import usePopBox from "../hook/usePopBox";
 import { useGetSEODatas } from "../seo/seo";
-import { getCurrencyCode } from "../common/common";
 
 const Footer = ({ isFullFooter = false }) => {
 	const { t } = useTranslation();
@@ -25,13 +24,6 @@ const Footer = ({ isFullFooter = false }) => {
 	const { errorPopBox } = usePopBox();
 	const [productTpIds, setProductTpIds] = useState(null);
 	const isMountedRef = useRef(null);
-
-	let currencyId = null;
-	if (userInfo.isLogin) {
-		currencyId = userInfo.currencyId;
-	} else if (userInfo.isLogin === false) {
-		currencyId = getCurrencyCode(userInfo.langId);
-	}
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -90,14 +82,14 @@ const Footer = ({ isFullFooter = false }) => {
 					t={t}
 					isLogin={userInfo.isLogin}
 					langId={userInfo.langId}
-					currencyId={currencyId}
+					currencyId={userInfo.currencyId}
 					productTpIds={productTpIds}
 				/>
 			)}
 			<ProductSection
 				t={t}
 				langId={userInfo.langId}
-				currencyId={currencyId}
+				currencyId={userInfo.currencyId}
 				currencyCode={currencyCode}
 				defFooterProductList={defFooterProductList}
 				path={path}
