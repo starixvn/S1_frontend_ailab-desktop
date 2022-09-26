@@ -9,7 +9,7 @@ export default () => {
 	const { userInfo } = useContext(userInfoContext);
 
 	const currentPage =
-		typeof window !== undefined ? `${window.location.pathname}/` : "";
+		typeof window !== "undefined" ? `${window.location.pathname}/` : "";
 
 	const arr = Object.keys(defLeftMenu).map(menuKey => {
 		const menu = defLeftMenu[menuKey];
@@ -23,6 +23,12 @@ export default () => {
 
 			let _iconClassName = "";
 			const s = menu.subMenu[_key];
+
+			let allowCurrency = true;
+			if (s.allowCurrency) {
+				allowCurrency = s.allowCurrency.includes(userInfo.currencyId);
+			}
+
 			if (s.eventIcons) {
 				let iconStrings = "";
 				for (let i = 0; i < s.eventIcons.length; i++) {
@@ -32,12 +38,16 @@ export default () => {
 			}
 
 			return (
-				<Link
-					key={`leftMenu-subMenu-${_key}`}
-					to={`/${userInfo.langId}/${s.path}`}
-					className={`menuSelect${_active}`}>
-					<span className={_iconClassName}>{t(s.displayKey)}</span>
-				</Link>
+				allowCurrency && (
+					<Link
+						key={`leftMenu-subMenu-${_key}`}
+						to={`/${userInfo.langId}/${s.path}`}
+						className={`menuSelect${_active}`}>
+						<span className={_iconClassName}>
+							{t(s.displayKey)}
+						</span>
+					</Link>
+				)
 			);
 		});
 
