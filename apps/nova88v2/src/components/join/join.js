@@ -17,7 +17,9 @@ import {
 	getUrlParameter,
 	readCookie,
 	setCookie,
-	passwordCheck
+	passwordCheck,
+	getLocalStorage,
+	defCurrencyList
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
@@ -66,7 +68,6 @@ export default () => {
 
 	useEffect(() => {
 		checkUrlParam();
-		checkAffiliate();
 	}, []);
 
 	const checkUrlParam = async () => {
@@ -630,6 +631,7 @@ export default () => {
 					langId={userInfo.langId}
 					currencyId={userInfo?.currencyId}
 					lineUserId={lineUserId}
+					areaCodeList={areaCodeList}
 				/>
 			</div>
 		</div>
