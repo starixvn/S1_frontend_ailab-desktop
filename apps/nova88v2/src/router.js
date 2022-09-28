@@ -18,7 +18,7 @@ export default {
 		root: "sports"
 	},
 	casino: {
-		root: "casino"
+		root: "slots"
 	},
 	game: {
 		root: "game"
