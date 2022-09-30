@@ -423,7 +423,7 @@ const Deposit = () => {
 						if (errorCode === 0) {
 							setPopBox({
 								isOpen: true,
-								popBoxType: defPopBoxType.DuitNowQR,
+								popBoxType: defPopBoxType.BankQR,
 								onClickClose: () =>
 									setPopBox({ isOpen: false }),
 								qrUrl: data.returnUrl,
@@ -439,7 +439,7 @@ const Deposit = () => {
 					} catch (err) {
 						errorPopBox();
 					}
-				} else if (formInfo.mode === 3) {
+				} else if (formInfo.mode === defCurrencyList.MYR) {
 					await api_cashier_DepositReqMobilePay({
 						langId: userInfo.langId,
 						paramsUrl: params

@@ -38,5 +38,5 @@ export default {
 	Modal: "Modal",
 	NewYear: "NewYear",
 	LinePay: "LinePay",
-	DuitNowQR: "DuitNowQR"
+	BankQR: "BankQR"
 };
