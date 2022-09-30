@@ -40,7 +40,7 @@ import Photo from "./popBox.photo";
 import Modal from "./popBox.modal";
 import NewYear from "./popbox.newYear";
 import LinePay from "./popBox.linePayLink";
-import DuitNowQR from "./popBox.duitNowQR";
+import BankQR from "./popBox.bankQR";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -342,9 +342,9 @@ export default () => {
 			);
 			break;
 
-		case defPopBoxType.DuitNowQR:
+		case defPopBoxType.BankQR:
 			content = (
-				<DuitNowQR
+				<BankQR
 					onClickClose={popBox.onClickClose}
 					qrUrl={popBox.qrUrl}
 					amount={popBox.amount}

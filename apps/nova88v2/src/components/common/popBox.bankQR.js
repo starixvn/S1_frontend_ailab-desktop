@@ -4,7 +4,7 @@ import QRCode from "qrcode.react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "./context";
 
-const DuitNowQR = ({ onClickClose, qrUrl, amount, transId }) => {
+const BankQR = ({ onClickClose, qrUrl, amount, transId }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const [minutes, setMinutes] = useState(5);
@@ -64,13 +64,13 @@ const DuitNowQR = ({ onClickClose, qrUrl, amount, transId }) => {
 	);
 };
 
-export default DuitNowQR;
+export default BankQR;
 
-DuitNowQR.defaultProps = {
+BankQR.defaultProps = {
 	onClickClose: () => null
 };
 
-DuitNowQR.propTypes = {
+BankQR.propTypes = {
 	onClickClose: PropTypes.func,
 	qrUrl: PropTypes.string.isRequired,
 	amount: PropTypes.number.isRequired,
