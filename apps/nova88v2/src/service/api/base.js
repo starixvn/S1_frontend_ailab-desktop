@@ -87,3 +87,8 @@ export const worldCupPredictionRequest = axios.create({
 	withCredentials: true,
 	baseURL: `${rootURL}/api/WorldCupPrediction`
 });
+
+export const hotEventRequest = axios.create({
+	withCredentials: true,
+	baseURL: `${rootURL}/api/HotEvent`
+});
