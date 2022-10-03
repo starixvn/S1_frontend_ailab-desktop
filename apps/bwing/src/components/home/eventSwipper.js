@@ -1,30 +1,35 @@
-import React, { memo } from "react";
+import React, { memo, useState, useEffect } from "react";
 import moment from "moment";
 import PropTypes from "prop-types";
 import { navigate } from "gatsby";
-import {
-	useGetBanner,
-	AutoPlayWithBtn,
-	SetPathParameter
-} from "../common/swipperBanner";
-import { defBannerType } from "../../service/api/site";
+import { AutoPlayWithBtn, SetPathParameter } from "../common/swipperBanner";
+import usePopBox from "../hook/usePopBox";
 import path from "../../router";
-
-import olympicsLogo from "../../styles/img/olympics/logo2.png";
-
-const LEAGUESID_LIST = {
-	Olympic: 8
-};
+import { api_hotEvent_GetDataList } from "../../service/api/hotEvent";
 
 const swiperConfig = {
 	pagination: false
 };
 
 const EventSwipper = memo(({ langId }) => {
-	const { banner } = useGetBanner({
-		langId,
-		ImgFolder: [defBannerType.HotEvent]
-	});
+	const { errorPopBox } = usePopBox();
+	const [banner, setBanner] = useState([]);
+
+	useEffect(() => {
+		api_hotEvent_GetDataList({ langId }).then(
+			res => {
+				const { errorCode, message, data } = res.data;
+				if (errorCode === 0) {
+					setBanner(data);
+				} else {
+					errorPopBox(message || "error", errorCode);
+				}
+			},
+			() => {
+				errorPopBox();
+			}
+		);
+	}, []);
 
 	const OnClickEvent = ({ tpId, gameId, matchId }) => {
 		const parameters = SetPathParameter({
@@ -39,32 +44,30 @@ const EventSwipper = memo(({ langId }) => {
 
 	const rows = banner?.map((b, bIdx) => {
 		const {
-			sportBattleDateTime,
-			sportTeamsHomePic,
-			sportTeamsAwayPic,
-			sportLeaguesId,
-			sportTeamsHome,
-			sportTeamsAway,
+			battleTime,
+			homeTeamPic,
+			awayTeamPic,
+			sportLeaguesTitle,
+			homeTeamName,
+			awayTeamName,
 			homeOdds,
 			awayOdds,
-			handicap,
-			leaguesId
+			handicap
 		} = b;
 
 		return (
 			<HotEventContent
 				// eslint-disable-next-line react/no-array-index-key
-				key={`HotEvent-${b.sportLeaguesId}-${bIdx}`}
-				sportBattleDateTime={sportBattleDateTime}
-				sportTeamsHomePic={sportTeamsHomePic}
-				sportTeamsAwayPic={sportTeamsAwayPic}
-				sportLeaguesId={sportLeaguesId}
-				sportTeamsHome={sportTeamsHome}
-				sportTeamsAway={sportTeamsAway}
+				key={`HotEvent-${b.sportLeaguesTitle}-${bIdx}`}
+				battleTime={battleTime}
+				homeTeamPic={homeTeamPic}
+				awayTeamPic={awayTeamPic}
+				sportLeaguesTitle={sportLeaguesTitle}
+				homeTeamName={homeTeamName}
+				awayTeamName={awayTeamName}
 				homeOdds={homeOdds}
 				awayOdds={awayOdds}
 				handicap={handicap}
-				leaguesId={leaguesId}
 				OnClickEvent={OnClickEvent.bind(this, { ...b })}
 			/>
 		);
@@ -82,19 +85,18 @@ EventSwipper.propTypes = {
 };
 
 const HotEventContent = ({
-	sportBattleDateTime,
-	sportTeamsHomePic,
-	sportTeamsAwayPic,
-	sportLeaguesId,
-	sportTeamsHome,
-	sportTeamsAway,
+	battleTime,
+	homeTeamPic,
+	awayTeamPic,
+	sportLeaguesTitle,
+	homeTeamName,
+	awayTeamName,
 	homeOdds,
 	awayOdds,
 	handicap,
-	leaguesId,
 	OnClickEvent
 }) => {
-	const datetime = moment(sportBattleDateTime).format("DD/MM HH:mm");
+	const datetime = moment(battleTime).format("DD/MM HH:mm");
 
 	const formatHdp = hdp => {
 		if (hdp === 0) return hdp;
@@ -108,34 +110,20 @@ const HotEventContent = ({
 	return (
 		<div className="swiper-slide eventImg" onClick={OnClickEvent}>
 			<div className="team">
-				<img
-					className="teamL"
-					src={sportTeamsHomePic}
-					alt={sportTeamsHome}
-				/>
+				<img className="teamL" src={homeTeamPic} alt={homeTeamName} />
 
 				<img
 					className="teamL teamR"
-					src={sportTeamsAwayPic}
-					alt={sportTeamsAway}
+					src={awayTeamPic}
+					alt={awayTeamName}
 				/>
 			</div>
 
-			<p className="gameName">
-				{leaguesId === LEAGUESID_LIST.Olympic && (
-					<img
-						className="olympicsLogo"
-						src={olympicsLogo}
-						alt="olympicsLogo"
-					/>
-				)}
-
-				{sportLeaguesId}
-			</p>
+			<p className="gameName">{sportLeaguesTitle}</p>
 
 			<div className="teamName">
-				<p>{sportTeamsHome}</p>
-				<p>{sportTeamsAway}</p>
+				<p>{homeTeamName}</p>
+				<p>{awayTeamName}</p>
 			</div>
 			<div className="time">{datetime}</div>
 
@@ -154,20 +142,19 @@ const HotEventContent = ({
 };
 
 HotEventContent.defaultProps = {
-	sportBattleDateTime: null
+	battleTime: null
 };
 
 HotEventContent.propTypes = {
-	sportBattleDateTime: PropTypes.string,
-	sportTeamsHomePic: PropTypes.string.isRequired,
-	sportTeamsAwayPic: PropTypes.string.isRequired,
-	sportLeaguesId: PropTypes.string.isRequired,
-	sportTeamsHome: PropTypes.string.isRequired,
-	sportTeamsAway: PropTypes.string.isRequired,
+	battleTime: PropTypes.string,
+	homeTeamPic: PropTypes.string.isRequired,
+	awayTeamPic: PropTypes.string.isRequired,
+	sportLeaguesTitle: PropTypes.string.isRequired,
+	homeTeamName: PropTypes.string.isRequired,
+	awayTeamName: PropTypes.string.isRequired,
 	homeOdds: PropTypes.number.isRequired,
 	awayOdds: PropTypes.number.isRequired,
 	handicap: PropTypes.number.isRequired,
-	leaguesId: PropTypes.number.isRequired,
 	OnClickEvent: PropTypes.func.isRequired
 };
 

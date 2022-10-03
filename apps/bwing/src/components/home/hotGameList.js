@@ -7,8 +7,10 @@ import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import { defTpGameType, defCategory } from "../../datas/productList";
 import { api_site_GetHotGames } from "../../service/api/site";
+import usePopBox from "../hook/usePopBox";
 
 const Main = ({ setPopBox, t, userInfo, allMaintainList }) => {
+	const { errorPopBox } = usePopBox();
 	const [gameList, setGameList] = useState([]);
 
 	useEffect(() => {
