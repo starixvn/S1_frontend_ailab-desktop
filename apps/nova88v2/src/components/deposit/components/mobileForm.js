@@ -108,9 +108,13 @@ const MobileForm = ({
 
 	if (mobilePayGourpList.length <= 0) return null;
 
+	const notShowingPayGroupList =
+		userInfo.currencyId === defCurrencyList.BDT &&
+		mobilePayGourpList.length === 1;
+
 	return (
 		<>
-			{mobilePayGourpList.length > 1 && (
+			{notShowingPayGroupList ? null : (
 				<>
 					<div className="subModuleTitle">
 						<i className="txt-blue">*</i>
