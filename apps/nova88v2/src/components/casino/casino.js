@@ -198,11 +198,13 @@ export default () => {
 								setAllGames(item[1]);
 							}
 							if (item[0] === "myFavorite") {
-								if (userInfo.isLogin) {
+								if (
+									userInfo.isLogin &&
+									localStorage.getItem("favorite")
+								) {
 									const storageStr =
 										localStorage.getItem("favorite");
 									const storageList = storageStr.split("&");
-
 									const addList = [];
 									item[1].forEach(obj => {
 										!storageList.includes(
@@ -461,9 +463,6 @@ export default () => {
 	}, [userInfo.isLogin]);
 
 	useEffect(() => {
-		// if (userInfo.isLogin && activeCategory !== "random" && !isProcessing) {
-		// 	getSlotData();
-		// }
 		onChangeCategory(activeCategory);
 	}, [activeCategory, favoriteStr]);
 
