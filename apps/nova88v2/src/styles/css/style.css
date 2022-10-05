@@ -7320,6 +7320,12 @@ form {
   border-radius: 0;
 }
 
+.casinoSelect > div.promoType + .inputBox-white {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+}
+
 .casinoSelect > div.btnGroup {
   margin: 0;
 }
@@ -7327,6 +7333,9 @@ form {
 .casinoSelect > div.btnGroup button, .casinoSelect > div.btnGroup a {
   border-radius: 0;
   margin: 0;
+  padding: 10px 20px;
+  white-space: nowrap;
+  min-width: auto;
 }
 
 .casinoSelect > div.btnGroup button.blueBorder, .casinoSelect > div.btnGroup a.blueBorder {
@@ -12373,6 +12382,32 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 
 .cashBack table tr td:last-child {
   border: 0;
+}
+
+.cashBack.newStyle table tr:nth-last-child(3) {
+  border-top: none;
+}
+
+.cashBack.newStyle table tr:nth-last-child(6) {
+  border-top: 1px solid #D2E2F9;
+}
+
+.cashBack.newStyle table tr:nth-last-child(-n+6) {
+  font-weight: bold;
+  width: 100%;
+  background: transparent;
+}
+
+.cashBack.newStyle table tr:nth-last-child(-n+6) td {
+  border-right: 0;
+}
+
+.cashBack.newStyle table tr:nth-last-child(-n+6) td span {
+  white-space: nowrap;
+}
+
+.cashBack.newStyle table tr:nth-last-child(-n+6) td span:nth-child(1) {
+  min-width: 25vw;
 }
 
 .projpot {
