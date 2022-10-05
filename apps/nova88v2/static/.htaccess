@@ -1,0 +1,2 @@
+# Rewrite URL for robots.txt
+RewriteRule ^robots\.txt$ robots/%{HTTP_HOST}.txt [L]
