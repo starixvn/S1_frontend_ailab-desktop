@@ -33,8 +33,8 @@ const GameList = ({
 					? g.gameName[langId]
 					: g.gameName.en;
 				const key = `${g.tpId}_${g.gameId}`;
-				const storageStr = localStorage.getItem("favorite");
-				const storageList = storageStr.split("&");
+				const storageStr = localStorage.getItem("favorite") ?? "";
+				const storageList = storageStr.split("&") ?? [];
 				const handleIsFavorite = () => {
 					return storageList?.includes(key);
 				};
