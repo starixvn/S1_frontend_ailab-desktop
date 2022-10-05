@@ -1,79 +1,76 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation } from "swiper";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { cloudImgUrl } from "../../config";
+import { userInfoContext } from "../common/context";
+import { defSlotTpGameType } from "../../datas/productList";
 
 SwiperCore.use([Navigation]);
 
-const TopQuickLink = ({
-	lobbyImgList,
-	clickLobbyProvider,
-	activeProviderId,
-	langId
-}) => {
+const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
+	const { userInfo } = useContext(userInfoContext);
 	const [hoverImg, setHoverImg] = useState(null);
 	const handleOnMouseOverImg = imgName => {
 		setHoverImg(`${imgName}`);
 	};
-
 	const _slidesPerViewNum = 9;
 	const dataRows =
 		lobbyImgList.length > _slidesPerViewNum
 			? lobbyImgList
 			: [...lobbyImgList, ...lobbyImgList];
+
 	const Rows = dataRows.map((_item, idx) => {
 		const _srcImg =
-			hoverImg === _item.lobbyImgName ||
-			activeProviderId === _item.providerId
-				? `${_item.lobbyImgName}a`
-				: _item.lobbyImgName;
+			hoverImg === _item.tpName || activeProvider.tpId === _item.tpId
+				? `${_item.imgName}a`
+				: _item.imgName;
 
 		const content = (
-			<>
+			<Link
+				to={`/${userInfo.langId}/slots?tpId=${_item.tpId}&tpGameType=${
+					defSlotTpGameType[_item?.tpName]?.tpGameType
+				}`}>
 				<img
 					src={`${cloudImgUrl}/SiteSkin/img/logo/${_srcImg}.png`}
-					alt={_item.lobbyImgName}
+					alt={_item.tpName}
 				/>
-				<div>{_item.lobbyDisplayName}</div>
-			</>
+				<div>{_item.displayText}</div>
+			</Link>
 		);
 
 		return (
 			// eslint-disable-next-line react/no-array-index-key
-			<SwiperSlide key={`slot-swiper-${_item.providerId}-${idx}`}>
+			<SwiperSlide key={`slot-swiper-${_item.tpId}-${idx}`}>
 				<div className="swiper-slide">
-					{_item.path ? (
+					{_item.openPath ? (
 						<Link
 							className={
-								activeProviderId === _item.providerId
+								activeProvider.tpId === _item.tpId
 									? "active"
 									: ""
 							}
-							to={`/${langId}/${_item.path}`}
-						>
+							to={`/${langId}/${_item.openPath}`}>
 							{content}
 						</Link>
 					) : (
 						<button
-							onClick={clickLobbyProvider.bind(
-								this,
-								_item.providerId
-							)}
+							onClick={() =>
+								onChange(_item === activeProvider ? "" : _item)
+							}
 							className={
-								activeProviderId === _item.providerId
+								activeProvider.tpId === _item.tpId
 									? "active"
 									: ""
 							}
 							onMouseOver={handleOnMouseOverImg.bind(
 								this,
-								_item.lobbyImgName
+								_item.tpName
 							)}
 							onMouseOut={handleOnMouseOverImg.bind(this, "")}
 							onBlur={() => 0}
-							onFocus={() => 0}
-						>
+							onFocus={() => 0}>
 							{content}
 						</button>
 					)}
@@ -98,14 +95,13 @@ const TopQuickLink = ({
 };
 
 TopQuickLink.defaultProps = {
-	activeProviderId: null,
 	langId: null
 };
 
 TopQuickLink.propTypes = {
 	lobbyImgList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	clickLobbyProvider: PropTypes.func.isRequired,
-	activeProviderId: PropTypes.number,
+	activeProvider: PropTypes.objectOf(PropTypes.any).isRequired,
+	onChange: PropTypes.func.isRequired,
 	langId: PropTypes.string
 };
 

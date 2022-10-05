@@ -106,12 +106,12 @@ const SubMenuMultiple = ({
 
 	if (subMenuItem.menuType === defMenuType.Link) {
 		return (
-			<Link
+			<a
 				className={className}
 				style={style}
-				to={`/${userInfo.langId}/${pathLink}${_urlParams}`}>
+				href={`/${userInfo.langId}/${pathLink}${_urlParams}`}>
 				{content}
-			</Link>
+			</a>
 		);
 	}
 
