@@ -386,9 +386,8 @@ export default () => {
 
 	const handleCategoryChange = category => {
 		if (category === "random") {
-			const randomList = allGames
-				?.filter(g => filterJudge(g))
-				?.slice(startIdx, endIdx);
+			const randomList = allGames?.filter(g => filterJudge(g));
+
 			const index = Math.floor(Math.random() * randomList.length);
 			const target = randomList[index];
 			target &&
