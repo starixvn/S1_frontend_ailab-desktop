@@ -29,9 +29,15 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 
 		const content = (
 			<Link
-				to={`/${userInfo.langId}/slots?tpId=${_item.tpId}&tpGameType=${
-					defSlotTpGameType[_item?.tpName]?.tpGameType
-				}`}>
+				to={
+					_item?.openPath
+						? `/${userInfo.langId}/${_item?.openPath}`
+						: `/${userInfo.langId}/slots?tpId=${
+								_item.tpId
+						  }&tpGameType=${
+								defSlotTpGameType[_item?.tpName]?.tpGameType
+						  }`
+				}>
 				<img
 					src={`${cloudImgUrl}/SiteSkin/img/logo/${_srcImg}.png`}
 					alt={_item.tpName}
