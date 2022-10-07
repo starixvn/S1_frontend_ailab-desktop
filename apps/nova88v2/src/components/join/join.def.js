@@ -37,5 +37,7 @@ export const reCaptchaEnum = {
 	id_en: "en",
 	my: "ms",
 	th: "th",
-	th_en: "en"
+	th_en: "en",
+	bd: "bn",
+	bd_en: "en"
 };
