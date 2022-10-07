@@ -127,7 +127,8 @@ const LocalBankForm = ({
 
 			const isRemoveBankDetailKeys =
 				item.id === defDepositChannelIdList.CashDepositMachine ||
-				item.id === defDepositChannelIdList.OverTheCounter;
+				item.id === defDepositChannelIdList.OverTheCounter ||
+				item.id === defDepositChannelIdList.BankQR;
 
 			if (isRemoveBankDetailKeys) {
 				delete newState.fromAccountNum;
@@ -280,7 +281,8 @@ const LocalBankForm = ({
 	const QRObj = localBankGroupList.find(
 		obj => obj.bankName === localBankInfo.bankName
 	);
-
+	console.log("defDepositChannel", defDepositChannel);
+	console.log("langId", userInfo.currencyId);
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -437,7 +439,15 @@ const LocalBankForm = ({
 						defaultOption={
 							formInfo.fromChannel ? null : t("lbl_SelectChannel")
 						}
-						options={defDepositChannel}
+						options={
+							userInfo.currencyId === defCurrencyList.MYR
+								? defDepositChannel
+								: defDepositChannel.filter(
+										obj =>
+											obj.id !==
+											defDepositChannelIdList.BankQR
+								  )
+						}
 						onSelectItem={(idx, item) => onSelectChannel(idx, item)}
 						selectedIdx={fromChannelIdIdx}
 						i18n={t}

@@ -324,6 +324,7 @@
 	"lbl_DepositChannel_2": "现金存款机",
 	"lbl_DepositChannel_3": "自动取款机",
 	"lbl_DepositChannel_4": "柜台办理（OTC）",
+	"lbl_DepositChannel_5": "银行二维码",
 	"lbl_BankDetails": "银行资讯",
 	"lbl_DepositLocalbankButton": "储存我最后一次交易模式",
 	"lbl_DepositLocalbankButtonInfo": "储存最后一笔存款交易银行。若您选择的银行已结业，请再重新选择。",
