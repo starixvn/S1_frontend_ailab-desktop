@@ -221,15 +221,9 @@ const useDepositEffect = ({
 
 		const checkUserInfo = () => {
 			const { isLogin, accountName, phoneNo, email } = userInfo;
-			const { USD, CNY, BDT, INR } = defCurrencyList;
-			// * 新幣別不需填寫個人資訊即可送出 Deposit 表單
-			const isNeedFillPersonalInfo = ![USD, CNY, BDT, INR].some(
-				currencyId => currencyId === userInfo.currencyId
-			);
 
 			if (
 				isLogin &&
-				isNeedFillPersonalInfo &&
 				((!accountName && accountName !== undefined) ||
 					(!phoneNo && phoneNo !== undefined) ||
 					(!email && email !== undefined))
@@ -276,6 +270,8 @@ const useDepositEffect = ({
 										closeBackupThenCheckInfo(),
 									linkList: res.data.data
 								});
+						} else {
+							checkUserInfo();
 						}
 					}
 				);
