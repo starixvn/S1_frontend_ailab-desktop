@@ -51,6 +51,62 @@ export default () => {
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
 	const urlTpId = window.location.search.split("&")[0].split("=")[1];
+
+	useEffect(() => {
+		isMountedRef.current = true;
+		return () => {
+			isMountedRef.current = false;
+		};
+	});
+
+	useEffect(() => {
+		const _activeProvider =
+			providerList.find(item => item.tpId === Number(urlTpId)) ?? {};
+		handleProviderChange(_activeProvider);
+	}, [providerList, window.location.search, isProcessing]);
+
+	useEffect(() => {
+		if (activeProvider?.tpId) {
+			const filterList = allCategoryList.filter(
+				obj =>
+					Object.keys(obj)[0] === "myFavorite" ||
+					Object.values(obj)[0].filter(
+						i => i.tpId === activeProvider.tpId
+					).length > 0
+			);
+			let totalData = [];
+			filterList.forEach(item => {
+				if (Object.keys(item)[0] === "all") {
+					totalData = Object.values(item)[0].filter(
+						i => i.tpId === activeProvider.tpId
+					);
+				}
+			});
+			if (totalData.length > 0) {
+				setCategoryList(filterList);
+				setActiveCategory("all");
+			} else {
+				setCategoryList([]);
+				setActiveCategory(null);
+			}
+		} else {
+			setCategoryList(allCategoryList);
+		}
+	}, [activeProvider]);
+
+	useEffect(() => {
+		setLoading(true);
+		!isProcessing && getSlotData();
+		if (!userInfo.isLogin) {
+			localStorage.setItem("favorite", "");
+			setFavoriteStr("");
+		}
+	}, [userInfo.isLogin]);
+
+	useEffect(() => {
+		onChangeCategory(activeCategory);
+	}, [activeCategory, favoriteStr]);
+
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
 			setPageInfo(prev => ({
@@ -94,11 +150,10 @@ export default () => {
 
 	const onSetFavorite = (tpId, gameId) => {
 		const key = `${tpId}_${gameId}`;
-		const storageStr = localStorage.getItem("favorite");
-		const storageList = storageStr.split("&");
-		const handleIsFavorite = () => {
-			return storageList?.includes(key);
-		};
+		const storageStr = localStorage.getItem("favorite") ?? "";
+		const storageList = storageStr.split("&") ?? [];
+
+		const handleIsFavorite = () => storageList?.includes(key);
 		const _isFavorite = handleIsFavorite();
 		const isRemove = _isFavorite;
 		const storageFavList = storageStr
@@ -198,30 +253,42 @@ export default () => {
 								setAllGames(item[1]);
 							}
 							if (item[0] === "myFavorite") {
-								if (
-									userInfo.isLogin &&
-									localStorage.getItem("favorite")
-								) {
-									const storageStr =
-										localStorage.getItem("favorite");
-									const storageList = storageStr.split("&");
-									const addList = [];
-									item[1].forEach(obj => {
-										!storageList.includes(
-											`${obj.tpId}_${obj.gameId}`
-										) &&
+								if (userInfo.isLogin) {
+									if (localStorage.getItem("favorite")) {
+										const storageStr =
+											localStorage.getItem("favorite");
+										const storageList =
+											storageStr.split("&");
+										const addList = [];
+										item[1].forEach(obj => {
+											!storageList.includes(
+												`${obj.tpId}_${obj.gameId}`
+											) &&
+												addList.push(
+													`${obj.tpId}_${obj.gameId}`
+												);
+										});
+
+										const mergeList = [
+											...storageList,
+											...addList
+										];
+										localStorage.setItem(
+											"favorite",
+											mergeList.join("&")
+										);
+									} else {
+										const addList = [];
+										item[1].forEach(obj => {
 											addList.push(
 												`${obj.tpId}_${obj.gameId}`
 											);
-									});
-									const mergeList = [
-										...storageList,
-										...addList
-									];
-									localStorage.setItem(
-										"favorite",
-										mergeList.join("&")
-									);
+										});
+										localStorage.setItem(
+											"favorite",
+											addList.join("&")
+										);
+									}
 								}
 							}
 						} else if (item[0] === "providerList") {
@@ -412,61 +479,6 @@ export default () => {
 			setActiveProvider(provider);
 		}
 	};
-
-	useEffect(() => {
-		isMountedRef.current = true;
-		return () => {
-			isMountedRef.current = false;
-		};
-	});
-
-	useEffect(() => {
-		const _activeProvider =
-			providerList.find(item => item.tpId === Number(urlTpId)) ?? {};
-		handleProviderChange(_activeProvider);
-	}, [providerList, window.location.search, isProcessing]);
-
-	useEffect(() => {
-		if (activeProvider?.tpId) {
-			const filterList = allCategoryList.filter(
-				obj =>
-					Object.keys(obj)[0] === "myFavorite" ||
-					Object.values(obj)[0].filter(
-						i => i.tpId === activeProvider.tpId
-					).length > 0
-			);
-			let totalData = [];
-			filterList.forEach(item => {
-				if (Object.keys(item)[0] === "all") {
-					totalData = Object.values(item)[0].filter(
-						i => i.tpId === activeProvider.tpId
-					);
-				}
-			});
-			if (totalData.length > 0) {
-				setCategoryList(filterList);
-				setActiveCategory("all");
-			} else {
-				setCategoryList([]);
-				setActiveCategory(null);
-			}
-		} else {
-			setCategoryList(allCategoryList);
-		}
-	}, [activeProvider]);
-
-	useEffect(() => {
-		setLoading(true);
-		!isProcessing && getSlotData();
-		if (!userInfo.isLogin) {
-			localStorage.setItem("favorite", "");
-			setFavoriteStr("");
-		}
-	}, [userInfo.isLogin]);
-
-	useEffect(() => {
-		onChangeCategory(activeCategory);
-	}, [activeCategory, favoriteStr]);
 
 	return loading ? null : (
 		<>
