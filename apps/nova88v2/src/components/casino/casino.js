@@ -438,10 +438,10 @@ export default () => {
 		if (activeProvider.tpId) {
 			return (
 				activeProvider.tpId === g.tpId &&
-				Object.values(g.gameName).find(
-					obj =>
-						obj.includes(searchInfo.searchText.toLowerCase()) ||
-						obj.includes(searchInfo.searchText.toUpperCase())
+				Object.values(g.gameName).find(obj =>
+					obj
+						.toLowerCase()
+						.includes(searchInfo.searchText.toLowerCase())
 				)
 			);
 		}
