@@ -105,7 +105,7 @@ export default () => {
 
 	useEffect(() => {
 		onChangeCategory(activeCategory);
-	}, [activeCategory, favoriteStr]);
+	}, [activeCategory]);
 
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
@@ -120,17 +120,24 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
+	const randomArray = array => array.sort(() => Math.random() - 0.5);
+
 	const onChangeCategory = categoryName => {
 		let _displayGames = categoryList.filter(
 			item => Object.keys(item)[0] === categoryName
 		);
-		_displayGames =
-			categoryName === "myFavorite"
-				? allGames.filter(item =>
-						favoriteStr.includes(`${item.tpId}_${item.gameId}`)
-				  )
-				: _displayGames[0]?.[activeCategory];
-
+		if (categoryName === "myFavorite") {
+			_displayGames = allGames.filter(item =>
+				favoriteStr.includes(`${item.tpId}_${item.gameId}`)
+			);
+		} else if (
+			categoryName === "all" &&
+			Object.keys(activeProvider).length === 0
+		) {
+			_displayGames = randomArray(_displayGames[0]?.[activeCategory]);
+		} else {
+			_displayGames = _displayGames[0]?.[activeCategory];
+		}
 		const _totalPages =
 			_displayGames?.length === 0
 				? 1
@@ -301,7 +308,7 @@ export default () => {
 									const filterPList = tempPList.filter(
 										obj => obj.tpId !== Number(urlTpId)
 									);
-									filterPList.splice(7, 0, _activeProvider);
+									filterPList.splice(8, 0, _activeProvider);
 									setProviderList(filterPList);
 								} else {
 									setProviderList(tempPList);
@@ -431,8 +438,10 @@ export default () => {
 		if (activeProvider.tpId) {
 			return (
 				activeProvider.tpId === g.tpId &&
-				Object.values(g.gameName).find(obj =>
-					obj.includes(searchInfo.searchText)
+				Object.values(g.gameName).find(
+					obj =>
+						obj.includes(searchInfo.searchText.toLowerCase()) ||
+						obj.includes(searchInfo.searchText.toUpperCase())
 				)
 			);
 		}
