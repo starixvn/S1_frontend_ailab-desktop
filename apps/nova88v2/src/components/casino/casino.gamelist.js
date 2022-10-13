@@ -16,7 +16,8 @@ const GameList = ({
 	endIdx,
 	getIsInMaintain,
 	getTpGameType,
-	activeCategory
+	activeCategory,
+	favoriteStr
 }) => {
 	const inViewRef = useInView(() => onLoadMore());
 	let _imgUrl = "";
@@ -33,13 +34,12 @@ const GameList = ({
 					? g.gameName[langId]
 					: g.gameName.en;
 				const key = `${g.tpId}_${g.gameId}`;
-				const storageStr = localStorage.getItem("favorite") ?? "";
+				const storageStr = favoriteStr ?? "";
 				const storageList = storageStr.split("&") ?? [];
 				const handleIsFavorite = () => {
 					return storageList?.includes(key);
 				};
 				const isFavorite = handleIsFavorite();
-
 				const brandTpName = providerList.find(
 					obj => obj.tpId === g.tpId
 				).tpName;
