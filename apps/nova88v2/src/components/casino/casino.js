@@ -41,7 +41,6 @@ export default () => {
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
-
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -107,6 +106,17 @@ export default () => {
 		onChangeCategory(activeCategory);
 	}, [activeCategory]);
 
+	useEffect(() => {
+		if (
+			!(
+				Object.keys(activeProvider).length === 0 &&
+				activeCategory === "all"
+			)
+		) {
+			onChangeCategory(activeCategory);
+		}
+	}, [favoriteStr]);
+
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
 			setPageInfo(prev => ({
@@ -127,8 +137,10 @@ export default () => {
 			item => Object.keys(item)[0] === categoryName
 		);
 		if (categoryName === "myFavorite") {
+			const storageStr = favoriteStr ?? "";
+			const storageList = storageStr.split("&") ?? [];
 			_displayGames = allGames.filter(item =>
-				favoriteStr.includes(`${item.tpId}_${item.gameId}`)
+				storageList.includes(`${item.tpId}_${item.gameId}`)
 			);
 		} else if (
 			categoryName === "all" &&
@@ -157,7 +169,7 @@ export default () => {
 
 	const onSetFavorite = (tpId, gameId) => {
 		const key = `${tpId}_${gameId}`;
-		const storageStr = localStorage.getItem("favorite") ?? "";
+		const storageStr = favoriteStr ?? "";
 		const storageList = storageStr.split("&") ?? [];
 
 		const handleIsFavorite = () => storageList?.includes(key);
@@ -175,12 +187,12 @@ export default () => {
 			localStorage.setItem(
 				"favorite",
 				`${storageStr ?? ""}${
-					storageStr === false ? "" : "&"
+					storageStr === "" ? "" : "&"
 				}${tpId}_${gameId}`
 			);
 			setFavoriteStr(
 				`${storageStr ?? ""}${
-					storageStr === false ? "" : "&"
+					storageStr === "" ? "" : "&"
 				}${tpId}_${gameId}`
 			);
 		}
@@ -446,7 +458,7 @@ export default () => {
 			);
 		}
 		return Object.values(g.gameName).find(obj =>
-			obj.includes(searchInfo.searchText)
+			obj.toLowerCase().includes(searchInfo.searchText.toLowerCase())
 		);
 	};
 	const getTpGameType = g =>
@@ -540,6 +552,7 @@ export default () => {
 							getIsInMaintain={getIsInMaintain}
 							getTpGameType={getTpGameType}
 							activeCategory={activeCategory}
+							favoriteStr={favoriteStr ?? ""}
 						/>
 					</div>
 				</div>
