@@ -41,7 +41,6 @@ export default () => {
 	const [favoriteStr, setFavoriteStr] = useState(
 		localStorage.getItem("favorite")
 	);
-
 	const isMountedRef = useRef(null);
 	const { setPopBox } = useContext(popBoxContext);
 	const { userInfo } = useContext(userInfoContext);
@@ -105,7 +104,18 @@ export default () => {
 
 	useEffect(() => {
 		onChangeCategory(activeCategory);
-	}, [activeCategory, favoriteStr]);
+	}, [activeCategory]);
+
+	useEffect(() => {
+		if (
+			!(
+				Object.keys(activeProvider).length === 0 &&
+				activeCategory === "all"
+			)
+		) {
+			onChangeCategory(activeCategory);
+		}
+	}, [favoriteStr]);
 
 	const loadMore = () => {
 		if (allGames && pageInfo.totalPages > pageInfo.currentPage) {
@@ -120,17 +130,26 @@ export default () => {
 		setPopBox({ isOpen: false });
 	};
 
+	const randomArray = array => array.sort(() => Math.random() - 0.5);
+
 	const onChangeCategory = categoryName => {
 		let _displayGames = categoryList.filter(
 			item => Object.keys(item)[0] === categoryName
 		);
-		_displayGames =
-			categoryName === "myFavorite"
-				? allGames.filter(item =>
-						favoriteStr.includes(`${item.tpId}_${item.gameId}`)
-				  )
-				: _displayGames[0]?.[activeCategory];
-
+		if (categoryName === "myFavorite") {
+			const storageStr = favoriteStr ?? "";
+			const storageList = storageStr.split("&") ?? [];
+			_displayGames = allGames.filter(item =>
+				storageList.includes(`${item.tpId}_${item.gameId}`)
+			);
+		} else if (
+			categoryName === "all" &&
+			Object.keys(activeProvider).length === 0
+		) {
+			_displayGames = randomArray(_displayGames[0]?.[activeCategory]);
+		} else {
+			_displayGames = _displayGames[0]?.[activeCategory];
+		}
 		const _totalPages =
 			_displayGames?.length === 0
 				? 1
@@ -150,7 +169,7 @@ export default () => {
 
 	const onSetFavorite = (tpId, gameId) => {
 		const key = `${tpId}_${gameId}`;
-		const storageStr = localStorage.getItem("favorite") ?? "";
+		const storageStr = favoriteStr ?? "";
 		const storageList = storageStr.split("&") ?? [];
 
 		const handleIsFavorite = () => storageList?.includes(key);
@@ -168,12 +187,12 @@ export default () => {
 			localStorage.setItem(
 				"favorite",
 				`${storageStr ?? ""}${
-					storageStr === false ? "" : "&"
+					storageStr === "" ? "" : "&"
 				}${tpId}_${gameId}`
 			);
 			setFavoriteStr(
 				`${storageStr ?? ""}${
-					storageStr === false ? "" : "&"
+					storageStr === "" ? "" : "&"
 				}${tpId}_${gameId}`
 			);
 		}
@@ -301,7 +320,7 @@ export default () => {
 									const filterPList = tempPList.filter(
 										obj => obj.tpId !== Number(urlTpId)
 									);
-									filterPList.splice(7, 0, _activeProvider);
+									filterPList.splice(8, 0, _activeProvider);
 									setProviderList(filterPList);
 								} else {
 									setProviderList(tempPList);
@@ -432,12 +451,14 @@ export default () => {
 			return (
 				activeProvider.tpId === g.tpId &&
 				Object.values(g.gameName).find(obj =>
-					obj.includes(searchInfo.searchText)
+					obj
+						.toLowerCase()
+						.includes(searchInfo.searchText.toLowerCase())
 				)
 			);
 		}
 		return Object.values(g.gameName).find(obj =>
-			obj.includes(searchInfo.searchText)
+			obj.toLowerCase().includes(searchInfo.searchText.toLowerCase())
 		);
 	};
 	const getTpGameType = g =>
@@ -530,6 +551,7 @@ export default () => {
 							getIsInMaintain={getIsInMaintain}
 							getTpGameType={getTpGameType}
 							activeCategory={activeCategory}
+							favoriteStr={favoriteStr ?? ""}
 						/>
 					</div>
 				</div>
