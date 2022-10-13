@@ -3,8 +3,7 @@ export const initValue = {
 	password: "",
 	affCode: null,
 	currency: 0,
-	termsCheck: false,
-	ageCheck: false,
+	agreeCheck: false,
 	specialBonusCode: null
 };
 

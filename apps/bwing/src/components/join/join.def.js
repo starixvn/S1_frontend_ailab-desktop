@@ -4,8 +4,7 @@ export const initValue = {
 	phone: "",
 	currency: 0,
 	affCode: "",
-	termsCheck: false,
-	ageCheck: false,
+	agreeCheck: false,
 	specialBonusCode: null
 };
 
