@@ -28,7 +28,8 @@ export const defSlotTpGameType = {
 	AP: { tpId: 39, tpGameType: 67 },
 	MG: { tpId: 34, tpGameType: 57 },
 	RedTiger: { tpId: 38, tpGameType: 65 },
-	NetEnt: { tpId: 37, tpGameType: 64 }
+	NetEnt: { tpId: 37, tpGameType: 64 },
+	SimplePlay: { tpId: 44, tpGameType: 86 }
 };
 
 export default {

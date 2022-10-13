@@ -442,7 +442,7 @@ export default () => {
 	};
 	const getTpGameType = g =>
 		Object.values(defSlotTpGameType).find(obj => obj.tpId === g.tpId) ?? {};
-	const getIsInMaintain = g => {
+	const getIsInMaintain = g =>
 		allMaintainList?.some(
 			item =>
 				item.tpId === g.tpId &&
@@ -452,7 +452,6 @@ export default () => {
 					).tpGameType ||
 					item.tpGameType === defTpGameType.All)
 		);
-	};
 
 	const handleCategoryChange = category => {
 		if (category === "random") {
