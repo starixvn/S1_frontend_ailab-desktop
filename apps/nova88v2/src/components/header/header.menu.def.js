@@ -692,11 +692,20 @@ export const defMenuLinks = {
 				path: path.mega888.root,
 				listNpcImgUrl: "slotMEGA888.png",
 				listBgImgUrl: "slotListHover.png",
-				...productList.mega888,
+				...productList.mega888
+			},
+			{
+				keyName: "slot_SimplePlay",
+				displayText: "SimplePlay",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotSimplePlay.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_SimplePlay },
+				...productList.casino_SimplePlay,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.mega888
+						period: defEventPeriod.casino_SimplePlay
 					})
 				]
 			},

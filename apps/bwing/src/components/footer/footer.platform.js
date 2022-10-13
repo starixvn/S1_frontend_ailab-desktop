@@ -130,6 +130,12 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.Habanero.name },
 		imgName: "ho"
+	},
+	{
+		...defCasinoProviders.SimplePlay,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.SimplePlay.name },
+		imgName: "sp"
 	}
 	// {
 	// 	...productList.liveCasino_Allbet,

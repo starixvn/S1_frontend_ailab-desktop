@@ -154,6 +154,13 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			hoverImgName: "casino_hb"
 		},
 		{
+			...productList.casino_SimplePlay,
+			path: path.casino.root,
+			parameter: { ...productList.casino_SimplePlay },
+			imgName: "casino_simpleplay",
+			hoverImgName: "casino_simpleplaya"
+		},
+		{
 			...productList.casino_AMB,
 			path: path.casino.root,
 			parameter: { ...productList.casino_AMB },

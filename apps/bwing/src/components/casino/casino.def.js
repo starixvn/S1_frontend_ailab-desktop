@@ -58,6 +58,12 @@ export const defLobbyImgList = [
 		providerId: defCasinoProviders.NetEnt.tpId
 	},
 	{
+		img: `${bannerImgUrl}/desktop/img/partnerlogo/simpleplay.png`,
+		activeImg: `${bannerImgUrl}/desktop/img/partnerlogo/simpleplaya.png`,
+		lobbyDisplayName: "SimplePlay",
+		providerId: defCasinoProviders.SimplePlay.tpId
+	},
+	{
 		img: `${bannerImgUrl}/desktop/img/partnerlogo/jili.png`,
 		activeImg: `${bannerImgUrl}/desktop/img/partnerlogo/jilia.png`,
 		lobbyDisplayName: "JILI",

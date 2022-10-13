@@ -317,11 +317,20 @@ export const defMenuLinks = langId => ({
 				parameter: { provider: defCasinoProviders.NetEnt.name },
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/ne-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ne-icon.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/ne-icon.png`
+			},
+			{
+				...defCasinoProviders.SimplePlay,
+				displayText: "SimplePlay",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.SimplePlay.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/simpleplay.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/simpleplay-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/simpleplay-icon.png`,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.casino_NetEnt
+						period: defEventPeriod.casino_SimplePlay
 					})
 				]
 			},
