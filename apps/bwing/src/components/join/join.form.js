@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
-import Dropdown from "../common/dropdown";
 import Checkbox from "../common/checkbox";
 
 const JoinForm = ({
@@ -15,11 +14,8 @@ const JoinForm = ({
 	checkValue,
 	showPsw,
 	showPswHandler,
-	siteCurrency,
 	_areaCode,
 	hasRefOrAffCode,
-	onSelectItem,
-	clickDropdown,
 	checkboxHandler,
 	configSiteName,
 	tandCTerms,
@@ -63,23 +59,6 @@ const JoinForm = ({
 					checked={tip.password.checked}
 					clickInfo={clickInfo.bind(this, "password")}
 				/>
-				<div className="title">{t("lbl_PrefferedCurrency")}</div>
-				<div className="inputBox-blue">
-					<Dropdown
-						mainKey="join_currency"
-						icon="icon-coin-dollar txt-blue12"
-						options={siteCurrency}
-						selectedIdx={userValue.currency}
-						i18n={t}
-						onSelectItem={onSelectItem}
-						clickDropdown={clickDropdown}
-					/>
-				</div>
-
-				{tip.currency.msg !== "" ? (
-					<div className="tip active">{tip.currency.msg}</div>
-				) : null}
-
 				<div className="title">{t("lbl_Phone")}</div>
 				<Inputbox
 					icon="icon-phone txt-blue12"
@@ -108,9 +87,9 @@ const JoinForm = ({
 
 			<div className="Terms">
 				<Checkbox
-					id="joinTermsCheck"
-					checked={userValue.termsCheck}
-					onChange={checkboxHandler.bind(null, "termsCheck")}>
+					id="joinAgreeCheck"
+					checked={userValue.agreeCheck}
+					onChange={checkboxHandler.bind(null, "agreeCheck")}>
 					{t("lbl_Check18TC1")}{" "}
 					<a target="_blank" rel="noreferrer" href={tandCTerms}>
 						{t("lbl_TermsConditions")}{" "}
@@ -119,13 +98,7 @@ const JoinForm = ({
 					<a target="_blank" rel="noreferrer" href={tandCRule}>
 						{t("lbl_RuleRegulations")}{" "}
 					</a>
-					{t("lbl_Check18TC3")} {configSiteName}.
-				</Checkbox>
-
-				<Checkbox
-					id="joinAgeCheck"
-					checked={userValue.ageCheck}
-					onChange={checkboxHandler.bind(null, "ageCheck")}>
+					{t("lbl_Check18TC3")} {configSiteName}.{" "}
 					{t("lbl_Check18TC4")}
 				</Checkbox>
 			</div>
@@ -160,11 +133,8 @@ JoinForm.propTypes = {
 	checkValue: PropTypes.func.isRequired,
 	showPsw: PropTypes.bool.isRequired,
 	showPswHandler: PropTypes.func.isRequired,
-	siteCurrency: PropTypes.arrayOf(PropTypes.any).isRequired,
 	_areaCode: PropTypes.string,
 	hasRefOrAffCode: PropTypes.string,
-	onSelectItem: PropTypes.func.isRequired,
-	clickDropdown: PropTypes.func.isRequired,
 	checkboxHandler: PropTypes.func.isRequired,
 	configSiteName: PropTypes.string.isRequired,
 	tandCTerms: PropTypes.string.isRequired,
