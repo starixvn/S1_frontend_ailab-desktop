@@ -234,16 +234,6 @@ export default () => {
 		return { checked, msg };
 	};
 
-	const clickDropdown = () => {
-		setTip(prev => ({
-			...prev,
-			currency: {
-				checked: true,
-				msg: t("lbl_PreferredCurrencyToolTip")
-			}
-		}));
-	};
-
 	const onSelectItem = i => {
 		setUserValue(prev => ({ ...prev, currency: i }));
 	};
@@ -259,18 +249,14 @@ export default () => {
 	const checkAll = () => {
 		const _usernameCheck = usernameCheck(userValue.username);
 		const _passwordCheck = passwordCheck(userValue.password);
-		const _termsCheck = userValue.termsCheck;
-		const _ageCheck = userValue.ageCheck;
+		const _agreeCheck = userValue.agreeCheck;
 
 		const checked =
-			_usernameCheck.checked &&
-			_passwordCheck.checked &&
-			_termsCheck &&
-			_ageCheck;
+			_usernameCheck.checked && _passwordCheck.checked && _agreeCheck;
 
 		if (!checked) {
 			let checkboxMsg = "";
-			if (!_termsCheck || !_ageCheck) {
+			if (!_agreeCheck) {
 				checkboxMsg = "lbl_Check18TCTooltip";
 			}
 			setTip(prev => ({
@@ -443,10 +429,7 @@ export default () => {
 				checkValue={checkValue}
 				showPsw={showPsw}
 				showPswHandler={showPswHandler}
-				siteCurrency={siteCurrency}
 				hasRefOrAffCode={hasRefOrAffCode}
-				onSelectItem={onSelectItem}
-				clickDropdown={clickDropdown}
 				checkboxHandler={checkboxHandler}
 				configSiteName={configSiteName}
 				tandCTerms={tandCTerms}
