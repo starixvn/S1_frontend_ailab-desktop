@@ -8,6 +8,7 @@ import {
 import { defCurrencyList } from "../common/common";
 import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def";
 import { bannerImgUrl } from "../../config";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 const defSortSports = {
 	[defCurrencyList.INR]: {
@@ -61,6 +62,19 @@ const defSortCasino = {
 		casino_N2LIVE: 11
 	},
 	[defCurrencyList.INR]: {
+		casino_PP: 1,
+		casino_EVO: 2,
+		casino_PT: 3,
+		casino_DG: 4,
+		casino_AE: 5,
+		casino_SA: 6,
+		casino_ALBET: 7,
+		casino_AG: 8,
+		casino_WM: 9,
+		casino_EBET: 10,
+		casino_N2LIVE: 11
+	},
+	[defCurrencyList.BDT]: {
 		casino_PP: 1,
 		casino_EVO: 2,
 		casino_PT: 3,
@@ -148,6 +162,24 @@ const defSortSlot = {
 		slot_GPI: 14,
 		slot_ICG: 15,
 		slot_OW: 16
+	},
+	[defCurrencyList.BDT]: {
+		slot_AdvantPlay: 1,
+		slot_PP: 2,
+		slot_Habanero: 3,
+		slot_NetEnt: 4,
+		slot_MGPSW: 5,
+		slot_JI: 6,
+		slot_PG: 7,
+		slot_JOKER: 8,
+		slot_SG: 9,
+		slot_RedTiger: 10,
+		slot_PT: 11,
+		slot_YGG: 12,
+		slot_CQ9: 13,
+		slot_GPI: 14,
+		slot_ICG: 15,
+		slot_OW: 16
 	}
 };
 
@@ -195,6 +227,15 @@ const defSortFishing = {
 		fishing_CQ9_ONESHOT: 9,
 		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 10,
 		ICG_FISHING_OF_SAVIORS: 11
+	},
+	[defCurrencyList.BDT]: {
+		fishing_SGW_WAR: 1,
+		fishing_CQ9_PARADISE: 2,
+		fishing_GGYL_WORLD: 3,
+		fishing_ICG_DRAGONBALL: 4,
+		fishing_Haiba: 5,
+		fishing_Hunting_Happy_Fish_5: 6,
+		fishing_Hunting_Monster_Awaken: 7
 	}
 };
 
@@ -236,7 +277,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "home-vip.png",
 				listBgImgUrl: "vipbg.png",
 				menuType: defMenuType.Link,
-				path: path.vip.root
+				path: path.vip.root,
+				allowCurrencies: allowedCurrencyList.VIP
 			},
 			// {
 			// 	displayKey: "lbl_Live_Sports",
@@ -278,13 +320,14 @@ export const defMenuLinks = {
 		className: "eventbtn",
 		path: path.sports.root,
 		imgUrl: `${bannerImgUrl}/desktop/img/event/worldcup/xs-logo.png`,
-		productInfo: { tpId: 1, gameId: 2002, tpGameType: 1 },
+		productInfo: productList.worldCup,
 		eventIcons: [
 			showEventIcon({
 				icon: defEventIcon.hot,
 				period: defEventPeriod.worldCup_hot
 			})
-		]
+		],
+		allowCurrencies: allowedCurrencyList.worldCup
 	},
 	sports: {
 		displayKey: "lbl_Sports",
@@ -365,7 +408,7 @@ export const defMenuLinks = {
 	exchange: {
 		displayKey: "lbl_Exchange",
 		className: "exchange",
-		allowCurrencies: [defCurrencyList.INR],
+		allowCurrencies: allowedCurrencyList.exchange,
 		subMenu: [
 			{
 				...productList._9WSports,
@@ -649,11 +692,20 @@ export const defMenuLinks = {
 				path: path.mega888.root,
 				listNpcImgUrl: "slotMEGA888.png",
 				listBgImgUrl: "slotListHover.png",
-				...productList.mega888,
+				...productList.mega888
+			},
+			{
+				keyName: "slot_SimplePlay",
+				displayText: "SimplePlay",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotSimplePlay.png",
+				listBgImgUrl: "slotListHover.png",
+				parameter: { ...productList.casino_SimplePlay },
+				...productList.casino_SimplePlay,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.mega888
+						period: defEventPeriod.casino_SimplePlay
 					})
 				]
 			},
@@ -793,7 +845,7 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				parameter: { ...productList.casino_AMB },
 				...productList.casino_AMB,
-				allowCurrencies: [defCurrencyList.THB],
+				allowCurrencies: allowedCurrencyList.slotAMB,
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -844,22 +896,14 @@ export const defMenuLinks = {
 				listNpcImgUrl: "slotOW.png",
 				listBgImgUrl: "slotListHover.png",
 				...productList.casino_OW,
-				allowCurrencies: [
-					defCurrencyList.IDR,
-					defCurrencyList.MYR,
-					defCurrencyList.THB
-				]
+				allowCurrencies: allowedCurrencyList.slotSaba
 			}
 		]
 	},
 	poker: {
 		displayKey: "lbl_Poker",
 		className: "pokerbtn",
-		allowCurrencies: [
-			defCurrencyList.MYR,
-			defCurrencyList.THB,
-			defCurrencyList.IDR
-		]
+		allowCurrencies: allowedCurrencyList.oneGame
 	},
 	games: {
 		displayKey: "lbl_Games",
@@ -885,7 +929,7 @@ export const defMenuLinks = {
 					bgImg: "gamemp.png",
 					hoverBgImg: "gamempa.png"
 				},
-				allowCurrencies: [defCurrencyList.THB]
+				allowCurrencies: allowedCurrencyList.mPoker
 			},
 			{
 				keyName: "games_AMBpoker",
@@ -900,7 +944,7 @@ export const defMenuLinks = {
 					bgImg: "gameamb.png",
 					hoverBgImg: "gameamba.png"
 				},
-				allowCurrencies: [defCurrencyList.THB]
+				allowCurrencies: allowedCurrencyList.amb
 			},
 			{
 				keyName: "games_VGaming",
@@ -1096,7 +1140,7 @@ export const defMenuLinks = {
 					bgImg: "fishfg.png",
 					hoverBgImg: "fishfga.png"
 				},
-				allowCurrencies: [defCurrencyList.INR]
+				allowCurrencies: allowedCurrencyList.fishingGod
 			},
 			{
 				keyName: "fishing_CQ9_ONESHOT",
@@ -1111,7 +1155,7 @@ export const defMenuLinks = {
 					bgImg: "fishof.png",
 					hoverBgImg: "fishofa.png"
 				},
-				allowCurrencies: [defCurrencyList.INR]
+				allowCurrencies: allowedCurrencyList.oneShot
 			},
 			{
 				keyName: "fishing_ICG_THE_TYRANT_AND_THE_PRINCESS",
@@ -1126,7 +1170,7 @@ export const defMenuLinks = {
 					bgImg: "fishtp.png",
 					hoverBgImg: "fishtpa.png"
 				},
-				allowCurrencies: [defCurrencyList.INR]
+				allowCurrencies: allowedCurrencyList.tyrantAndProncess
 			},
 			{
 				keyName: "ICG_FISHING_OF_SAVIORS",
@@ -1141,7 +1185,7 @@ export const defMenuLinks = {
 					bgImg: "fishfs.png",
 					hoverBgImg: "fishfsa.png"
 				},
-				allowCurrencies: [defCurrencyList.INR]
+				allowCurrencies: allowedCurrencyList.fishingOfSaviors
 			}
 		]
 	},
@@ -1233,7 +1277,7 @@ export const defMenuLinks = {
 					bgImg: "lottery4d.png",
 					hoverBgImg: "lottery4da.png"
 				},
-				allowCurrencies: [defCurrencyList.IDR]
+				allowCurrencies: allowedCurrencyList.indo4d
 			}
 		]
 	},
@@ -1250,11 +1294,7 @@ export const defMenuLinks = {
 	vip: {
 		displayKey: "lbl_Vip",
 		path: path.vip.root,
-		allowCurrencies: [
-			defCurrencyList.MYR,
-			defCurrencyList.THB,
-			defCurrencyList.IDR
-		]
+		allowCurrencies: allowedCurrencyList.VIP
 	},
 	// sponsor: {
 	// 	displayKey: "lbl_Sponsor",

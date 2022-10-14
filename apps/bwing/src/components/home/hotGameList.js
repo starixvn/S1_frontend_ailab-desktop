@@ -7,8 +7,10 @@ import { SET_ENTER_PAGE, SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import path from "../../router";
 import { defTpGameType, defCategory } from "../../datas/productList";
 import { api_site_GetHotGames } from "../../service/api/site";
+import usePopBox from "../hook/usePopBox";
 
 const Main = ({ setPopBox, t, userInfo, allMaintainList }) => {
+	const { errorPopBox } = usePopBox();
 	const [gameList, setGameList] = useState([]);
 
 	useEffect(() => {
@@ -120,8 +122,7 @@ const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 				}
 				style={{
 					margin: "0 10px"
-				}}
-			>
+				}}>
 				<img className="gameimg" src={g.gameLogo} alt="" />
 				<div className="title">
 					<p>{g.gameName}</p>
@@ -141,13 +142,11 @@ const HotGameList = ({ t, gameList, allMaintainList, onNavigate }) => {
 				<ReactMarquee
 					speed={85}
 					pauseOnHover={true}
-					gradientColor={false}
-				>
+					gradientColor={false}>
 					<div className="swiper-container">
 						<div
 							className="swiper-wrapper"
-							style={{ display: "flex" }}
-						>
+							style={{ display: "flex" }}>
 							{rows}
 						</div>
 					</div>

@@ -13,6 +13,7 @@ export default {
 	ProfileConfirmCheck: "ProfileConfirmCheck",
 	ProfileCompelete: "ProfileCompelete",
 	ChangePsw: "ChangePsw",
+	ChangePswHint: "ChangePswHint",
 	LogoutHint: "LogoutHint",
 	DepositHint: "DepositHint",
 	OTPHint: "OTPHint",

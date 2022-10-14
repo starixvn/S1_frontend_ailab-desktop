@@ -59,8 +59,7 @@ const AppDownload = () => {
 								<a
 									href={IOSDownloadUrl}
 									target="_blank"
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									{/* <button>{t("lbl_DOWNLOAD")}</button> */}
 								</a>
 							</div>
@@ -86,8 +85,7 @@ const AppDownload = () => {
 								<a
 									href={andriodDownLoadUrl}
 									download
-									rel="noreferrer"
-								>
+									rel="noreferrer">
 									<button>{t("lbl_DOWNLOAD")}</button>
 								</a>
 							</div>

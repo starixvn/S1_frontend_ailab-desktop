@@ -33,7 +33,8 @@ export const defSlotTpGameType = {
 	AP: { tpId: 39, tpGameType: 67 },
 	MG: { tpId: 34, tpGameType: 57 },
 	RedTiger: { tpId: 38, tpGameType: 65 },
-	NetEnt: { tpId: 37, tpGameType: 64 }
+	NetEnt: { tpId: 37, tpGameType: 64 },
+	SimplePlay: { tpId: 44, tpGameType: 86 }
 };
 
 export default {
@@ -218,7 +219,14 @@ export default {
 		tpId: 39,
 		tpGameType: 67
 	},
-	casino_Habanero: { tpId: 40, tpGameType: 68 },
+	casino_Habanero: {
+		tpId: 40,
+		tpGameType: 68
+	},
+	casino_SimplePlay: {
+		tpId: 44,
+		tpGameType: 86
+	},
 
 	/* === 3. live casino === */
 
@@ -441,5 +449,12 @@ export default {
 	mega888: {
 		tpId: 22,
 		tpGameType: 34
+	},
+
+	/* === 9. event === */
+	worldCup: {
+		tpId: 1,
+		gameId: 2002,
+		tpGameType: 1
 	}
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { api_promotion_GetPromotionListV2 } from "../../../service/api/promotion";
+import { api_promotion_GetPromotionList } from "../../../service/api/promotion";
 import { isExpiry } from "../promotion.common";
 
 export default ({
@@ -12,8 +12,9 @@ export default ({
 	const [promoDatas, setPromoList] = useState([]);
 
 	const getPromotionListV2 = useCallback(async () => {
-		await api_promotion_GetPromotionListV2({
-			langId: userInfo.langId
+		await api_promotion_GetPromotionList({
+			langId: userInfo.langId,
+			currencyId: userInfo.currencyId
 		}).then(
 			({ data: { data, message, errorCode } }) => {
 				if (!isMountedRef.current) return;
@@ -28,7 +29,7 @@ export default ({
 				errorPopBox();
 			}
 		);
-	}, [userInfo.langId]);
+	}, [userInfo.currencyId, userInfo.langId]);
 
 	useEffect(() => {
 		if (autoGetData) {

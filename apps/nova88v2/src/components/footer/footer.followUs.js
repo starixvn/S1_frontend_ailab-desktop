@@ -73,6 +73,36 @@ const paymentList = {
 	],
 	INR: [
 		{ name: "tenpay", img: `${bannerImgUrl}/desktop/img/footer/tenpay.png` }
+	],
+	BDT: [
+		{
+			name: "DirePay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		},
+		{
+			name: "FxBit",
+			img: `${bannerImgUrl}/desktop/img/footer/fxbit.png`
+		}
+	],
+	CNY: [
+		{
+			name: "DirePay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		},
+		{
+			name: "FxBit",
+			img: `${bannerImgUrl}/desktop/img/footer/fxbit.png`
+		}
+	],
+	USD: [
+		{
+			name: "DirePay",
+			img: `${bannerImgUrl}/desktop/img/footer/direpay.png`
+		},
+		{
+			name: "FxBit",
+			img: `${bannerImgUrl}/desktop/img/footer/fxbit.png`
+		}
 	]
 };
 

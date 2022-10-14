@@ -35,8 +35,6 @@ export const initState = {
 	withdrawalType: null,
 	maxTimes: 0,
 	withdrawalTimes: 0,
-	eWalletUnlimited: true,
-	eWalletWithdrawalAvailableAmount: 0,
 	eWalletWithdrawalMin: 0,
 	eWalletStatus: false
 };
@@ -123,9 +121,6 @@ export function reducer(state, action) {
 				usdtList: action.usdtList,
 				maxTimes: action.maxTimes,
 				withdrawalTimes: action.withdrawalTimes,
-				eWalletUnlimited: action.eWalletUnlimited,
-				eWalletWithdrawalAvailableAmount:
-					action.eWalletWithdrawalAvailableAmount,
 				eWalletWithdrawalMin: action.eWalletWithdrawalMin,
 				eWalletStatus: action.eWalletStatus
 			};

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "gatsby";
 import { userInfoContext, popBoxContext, promoPopBox } from "../common/context";
@@ -65,7 +66,8 @@ export const useHandlePromotionInfo = ({ showAllPromosBtn = false }) => {
 	const getPromotionDetail = async (langId, bonusCode) => {
 		await api_promotion_GetPromotionDetail({
 			langId,
-			BonusCode: bonusCode
+			BonusCode: bonusCode,
+			currencyId: userInfo.currencyId
 		}).then(
 			({ data: { data, message, errorCode } }) => {
 				const success = errorCode === 0;
@@ -256,6 +258,21 @@ const PromotionInfo = ({
 	);
 };
 
+PromotionInfo.defaultProps = {
+	getPromotionDetail: () => null,
+	refreshProcessBar: () => null,
+	showAllPromosBtn: null,
+	closePromoPopBox: () => null
+};
+
+PromotionInfo.propTypes = {
+	promotionInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	getPromotionDetail: PropTypes.func,
+	refreshProcessBar: PropTypes.func,
+	showAllPromosBtn: PropTypes.bool,
+	closePromoPopBox: PropTypes.func
+};
+
 export default () => {
 	const { promoBox, setPromoBox } = useContext(promoPopBox);
 	const { popBox } = useContext(popBoxContext);
@@ -328,6 +345,18 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType, currencyId }) => {
 	);
 };
 
+DepositSlip.defaultProps = {
+	isSpecialType: null,
+	currencyId: null
+};
+
+DepositSlip.propTypes = {
+	t: PropTypes.func.isRequired,
+	isSpecialType: PropTypes.bool,
+	promotionInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	currencyId: PropTypes.number
+};
+
 const DepositMenu = ({
 	cash,
 	_currency,
@@ -355,4 +384,16 @@ const DepositMenu = ({
 		);
 
 	return null;
+};
+
+DepositMenu.defaultProps = {
+	cash: null,
+	_currency: null
+};
+
+DepositMenu.propTypes = {
+	t: PropTypes.func.isRequired,
+	cash: PropTypes.string,
+	promotionInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	_currency: PropTypes.string
 };

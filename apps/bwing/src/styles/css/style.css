@@ -963,6 +963,10 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .ICG .img {
   background: url(https://banner.bw88.io/desktop/img/slot/icg.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .SP .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/simpleplay.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .livecasinoList .liveEvo .img {
   background: url(https://banner.bw88.io/desktop/img/live/live-evo.png) no-repeat center/auto 100%;
 }
@@ -2175,6 +2179,16 @@ footer > div .platformGroup button.sbobet {
 footer > div .platformGroup a.sbobet:hover,
 footer > div .platformGroup button.sbobet:hover {
   background: url(https://banner.bw88.io/desktop/img/partherNew/sbobeta.png) no-repeat center;
+}
+
+footer > div .platformGroup a.sp,
+footer > div .platformGroup button.sp {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/simpleplay.png) no-repeat center;
+}
+
+footer > div .platformGroup a.sp:hover,
+footer > div .platformGroup button.sp:hover {
+  background: url(https://banner.bw88.io/desktop/img/partherNew/simpleplay-b.png) no-repeat center;
 }
 
 footer > div .powered {

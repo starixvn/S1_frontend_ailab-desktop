@@ -1,9 +1,25 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-export default props => {
+const InputBox = props => {
+	const checkfailed = !props.checked && props.checked !== null;
+	let checkIcon = null;
+	if (props.checked === null) {
+		checkIcon = (
+			<i
+				className="icon icon-information-solid"
+				onClick={props.clickInfo}
+			/>
+		);
+	} else if (props.checked) {
+		checkIcon = <i className="icon icon-checkmark" />;
+	} else if (checkfailed) {
+		checkIcon = <i className="icon icon-cross" />;
+	}
+
 	return (
 		<>
-			<div className="inputBox-blue">
+			<div className={`inputBox-blue${checkfailed ? " error" : ""}`}>
 				{props.icon ? <i className={`icon ${props.icon}`} /> : null}
 				{props.title ? (
 					<i className="txt-blue12">{props.title}</i>
@@ -30,20 +46,8 @@ export default props => {
 							onClick={props.showPswHandler}
 						/>
 					) : null}
-
 					{props.checked !== undefined ? (
-						<div className="iconModule">
-							{props.checked === null ? (
-								<i
-									className="icon icon-information-solid"
-									onClick={props.clickInfo}
-								/>
-							) : props.checked ? (
-								<i className="icon icon-checkmark" />
-							) : !props.checked && props.checked !== null ? (
-								<i className="icon icon-cross" />
-							) : null}
-						</div>
+						<div className="iconModule">{checkIcon}</div>
 					) : null}
 				</div>
 			</div>
@@ -51,3 +55,39 @@ export default props => {
 		</>
 	);
 };
+
+InputBox.defaultProps = {
+	value: null,
+	title: "",
+	icon: "",
+	tip: "",
+	checked: null,
+	inputType: "text",
+	max: null,
+	onBlur: null,
+	clickInfo: null,
+	placeholder: "",
+	onChange: () => null,
+	onFocus: () => null,
+	showPsw: null,
+	showPswHandler: () => null
+};
+
+InputBox.propTypes = {
+	clickInfo: PropTypes.func,
+	tip: PropTypes.string,
+	max: PropTypes.number,
+	value: PropTypes.string,
+	onBlur: PropTypes.func,
+	inputType: PropTypes.string,
+	title: PropTypes.string,
+	icon: PropTypes.string,
+	checked: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+	placeholder: PropTypes.string,
+	onChange: PropTypes.func,
+	onFocus: PropTypes.func,
+	showPsw: PropTypes.bool,
+	showPswHandler: PropTypes.func
+};
+
+export default InputBox;

@@ -176,8 +176,7 @@ function Home() {
 				setPopBox({ isOpen: false });
 			}
 		};
-
-		openNextPopUp();
+		!userInfo.isResetPwd && openNextPopUp();
 	}, [userInfo.isLogin, setPopBox, userInfo.langId, userInfo.userName]);
 
 	useEffect(() => {

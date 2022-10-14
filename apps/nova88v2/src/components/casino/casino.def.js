@@ -1,29 +1,45 @@
-import productList from "../../datas/productList";
-import { defCurrencyList } from "../common/common";
-import path from "../../router";
-
 export const defRowsPerPage = 20;
 
 export const defNav = {
-	ALLGAMES: {
-		key: "ALLGAMES",
+	All: {
+		key: "all",
 		displayKey: "lbl_All"
 	},
-	PROMO: {
-		key: "PROMO",
-		displayKey: "lbl_Jackpot",
-		hot: true
+	Random: {
+		key: "random",
+		displayKey: "lbl_Random"
 	},
-	NEW: {
-		key: "NEW",
+	RecentlyPlayed: {
+		key: "recentlyPlayed",
+		displayKey: "lbl_RecentlyPlayed"
+	},
+	New: {
+		key: "new",
 		displayKey: "lbl_New"
 	},
-	FEATURED: {
-		key: "FEATURED",
+	Featured: {
+		key: "featured",
 		displayKey: "lbl_Feature"
 	},
-	FAVOURITE: {
-		key: "FAVOURITE",
+	Jackpot: {
+		key: "jackpot",
+		displayKey: "lbl_Jackpot"
+	},
+	TableAndCards: {
+		key: "tableAndCards",
+		displayKey: "lbl_TableAndCards"
+	},
+	BuyFeaturesGames: {
+		key: "buyFeaturesGames",
+		displayKey: "lbl_BuyFeaturesGames"
+	},
+	Megaways: {
+		key: "megaways",
+		displayKey: "lbl_Megaways"
+	},
+
+	MyFavorite: {
+		key: "myFavorite",
 		displayKey: "lbl_Favourite"
 	}
 };
@@ -49,99 +65,3 @@ export const defCategory = [
 ];
 
 export const defCategoryList = { 0: null, 1: "Slots", 2: "Table" };
-
-export const defLobbyImgList = [
-	{
-		lobbyImgName: "ho",
-		lobbyDisplayName: "Habanero",
-		providerId: productList.casino_Habanero.tpId
-	},
-	{
-		lobbyImgName: "ap",
-		lobbyDisplayName: "AdvantPlay",
-		providerId: productList.casino_AdvantPlay.tpId
-	},
-	{
-		lobbyImgName: "ji",
-		lobbyDisplayName: "JILI",
-		providerId: productList.casino_JILI.tpId
-	},
-	{
-		lobbyImgName: "megaa",
-		lobbyDisplayName: "Mega 888",
-		providerId: productList.mega888.tpId,
-		alwaysShow: true,
-		path: path.mega888.root
-	},
-	{
-		lobbyImgName: "pp",
-		lobbyDisplayName: "Pragmatic Play",
-		providerId: productList.casino_PP.tpId
-	},
-	{
-		lobbyImgName: "nt",
-		lobbyDisplayName: "NetEnt",
-		providerId: productList.casino_NetEnt.tpId
-	},
-	{
-		lobbyImgName: "gp",
-		lobbyDisplayName: "Game Play",
-		providerId: productList.casino_GPI.tpId
-	},
-	{
-		lobbyImgName: "yg",
-		lobbyDisplayName: "YGGDrassil",
-		providerId: productList.casino_YGG.tpId
-	},
-	{
-		lobbyImgName: "am",
-		lobbyDisplayName: "AMBSlot",
-		providerId: productList.casino_AMB.tpId,
-		allowCurrencies: [defCurrencyList.THB]
-	},
-	{
-		lobbyImgName: "jk",
-		lobbyDisplayName: "Joker",
-		providerId: productList.casino_JOKER.tpId
-	},
-	{
-		lobbyImgName: "sg",
-		lobbyDisplayName: "Spadegaming",
-		providerId: productList.casino_SG.tpId
-	},
-	{
-		lobbyImgName: "pg",
-		lobbyDisplayName: "PG Soft",
-		providerId: productList.casino_PG.tpId
-	},
-	{
-		lobbyImgName: "rt",
-		lobbyDisplayName: "Red Tiger",
-		providerId: productList.casino_RedTiger.tpId
-	},
-	{
-		lobbyImgName: "cq9",
-		lobbyDisplayName: "CQ9",
-		providerId: productList.casino_CQ9.tpId
-	},
-	{
-		lobbyImgName: "icg",
-		lobbyDisplayName: "Astro Tech",
-		providerId: productList.casino_ICG.tpId
-	},
-	{
-		lobbyImgName: "pt",
-		lobbyDisplayName: "Playtech",
-		providerId: productList.casino_PT.tpId
-	},
-	{
-		lobbyImgName: "ow",
-		lobbyDisplayName: "Saba Casino",
-		providerId: productList.casino_OW.tpId
-	},
-	{
-		lobbyImgName: "mg",
-		lobbyDisplayName: "Microgaming",
-		providerId: productList.casino_MGPSW.tpId
-	}
-];

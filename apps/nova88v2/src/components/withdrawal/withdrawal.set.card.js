@@ -19,6 +19,13 @@ import path from "../../router";
 import ECard from "./withdrawal.set.card.E";
 import { defCurrencyList } from "../common/common";
 
+const allowBankInfoCurrency = [
+	defCurrencyList.MYR,
+	defCurrencyList.THB,
+	defCurrencyList.IDR,
+	defCurrencyList.INR
+];
+
 const CardPanel = ({
 	dispatch,
 	state,
@@ -147,8 +154,7 @@ const CardPanel = ({
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}
-						>
+							to={`/${userInfo.langId}/${path.profile.root}`}>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>
@@ -285,16 +291,18 @@ const CardPanel = ({
 	};
 	return (
 		<>
-			<BankCard
-				t={t}
-				state={state}
-				defPanel={defPanel}
-				custBankInfo={custBankInfo}
-				addBankAccount={addBankAccount}
-				selectAccount={selectAccount}
-				delAccount={delAccount}
-				isIfscRequired={isIfscRequired}
-			/>
+			{allowBankInfoCurrency.includes(userInfo.currencyId) && (
+				<BankCard
+					t={t}
+					state={state}
+					defPanel={defPanel}
+					custBankInfo={custBankInfo}
+					addBankAccount={addBankAccount}
+					selectAccount={selectAccount}
+					delAccount={delAccount}
+					isIfscRequired={isIfscRequired}
+				/>
+			)}
 			{(userInfo.currencyId === defCurrencyList.IDR ||
 				userInfo.currencyId === defCurrencyList.BDT) &&
 				state.eWalletStatus && (

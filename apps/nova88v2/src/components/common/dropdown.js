@@ -95,8 +95,8 @@ class Dropdown extends Component {
 						<div>{_s.displayText}</div>
 					</>
 				);
-			} else if (_s.displayText) {
-				selected = _s.displayText;
+			} else if (_s?.displaySelected || _s.displayText) {
+				selected = _s?.displaySelected ?? _s.displayText;
 			} else {
 				selected = `${this.props.i18n(_s.displayKey)} ${_s.year ?? ""}`;
 			}

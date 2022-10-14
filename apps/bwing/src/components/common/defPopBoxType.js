@@ -11,6 +11,7 @@ export const defPopBoxType = {
 	ProfileConfirmCheck: "ProfileConfirmCheck",
 	ProfileCompelete: "ProfileCompelete",
 	ChangePsw: "ChangePsw",
+	ChangePswHint: "ChangePswHint",
 	LogoutHint: "LogoutHint",
 	DepositHint: "DepositHint",
 	OTPHint: "OTPHint",

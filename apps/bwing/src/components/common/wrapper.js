@@ -205,6 +205,11 @@ export default ({ children, afterLogin = false, onlyBeforeLogin = false }) => {
 								...prevState,
 								...data
 							}));
+							data.isResetPwd &&
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.ChangePsw
+								});
 						} else if (res_custInfo.data.errorCode !== 0) {
 							errorPopBox(
 								res_custInfo.data.message || "error",

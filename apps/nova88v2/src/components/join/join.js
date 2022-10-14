@@ -13,15 +13,13 @@ import { api_accountStrict_GetCustProfile } from "../../service/api/accountStric
 import TandC from "../../service/t_and_c";
 import { GET_LANG_ID } from "../../service/language";
 import areaCode from "../../datas/areaCode";
-import { currencyCode } from "../../datas/countryCode";
 import {
 	getUrlParameter,
 	readCookie,
 	setCookie,
 	passwordCheck,
-	defCurrencyList,
 	getLocalStorage,
-	removeLocalStorage
+	defCurrencyList
 } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import usePopBox from "../hook/usePopBox";
@@ -33,6 +31,14 @@ import JoinForm from "./join.form";
 import path from "../../router";
 import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
+
+const areaCodeList = Object.values(areaCode).map(el => ({
+	id: `${el.AreaCode} ${el.Name}`,
+	displayText: `${el.AreaCode} ${el.Name}`,
+	displaySelected: el.AreaCode,
+	areaCode: el.AreaCode,
+	abbr: el.Abbr
+}));
 
 export default () => {
 	const { t } = useTranslation();
@@ -51,6 +57,7 @@ export default () => {
 	const tandCTerms = TandC(defaultLangId).terms;
 	const { lineLogin } = useHandleLineLogin();
 	const lineUserId = getLocalStorage("lineUser");
+	const _areaCode = areaCodeList[userValue?.areaCodeIdx]?.areaCode;
 
 	useEffect(() => {
 		isMountedRef.current = true;
@@ -181,34 +188,6 @@ export default () => {
 		}));
 	};
 
-	const _currencyId = siteCurrency[userValue.currencyIdx]?.id;
-
-	const isUSDT = _currencyId === currencyCode.USDT;
-
-	const allAreaCodeArr = Object.values(areaCode)
-		.map(a => a.AreaCode)
-		.sort();
-	const areaCodeOptions = [...new Set(allAreaCodeArr)].map((_a, idx) => ({
-		// id: parseInt(_a.replace(/[^0-9]/gi, ""), 10),
-		id: idx + 1,
-		displayText: _a
-	}));
-
-	const usdtAreaCode = userValue.areaCodeIdx
-		? areaCodeOptions[userValue.areaCodeIdx - 1].displayText
-		: "";
-
-	const currencyToCountryCode = _currencyId
-		? currencyToAreacode[_currencyId]
-		: null;
-
-	let _areaCode;
-	if (isUSDT) {
-		_areaCode = usdtAreaCode;
-	} else if (currencyToCountryCode !== null) {
-		_areaCode = areaCode[currencyToCountryCode]?.AreaCode;
-	}
-
 	const setCurrencyTip = (col, _defaultOption) => {
 		const result = currencyCheck(_defaultOption);
 		const { checked, msg } = result.checked;
@@ -221,14 +200,26 @@ export default () => {
 		}));
 	};
 
-	const onSelectItem = i => {
+	const onSelectItem = ({ idx, col, item }) => {
 		setDefaultOption(null);
-		setUserValue(prev => ({ ...prev, currencyIdx: i }));
-		setCurrencyTip("currency", null);
-	};
+		const param = {};
 
-	const onSelectAreaCode = i => {
-		setUserValue(prev => ({ ...prev, areaCodeIdx: i + 1 }));
+		if (col === "currencyIdx") {
+			const selCurrecnyName = currencyToAreacode[siteCurrency[idx].id];
+			const areaCodeIdx = areaCodeList.findIndex(
+				obj => obj.abbr === selCurrecnyName
+			);
+			param.currencyIdx = idx;
+			param.areaCodeIdx = areaCodeIdx;
+		} else if (col === "areaCodeIdx") {
+			const areaCodeIdx = areaCodeList.findIndex(
+				obj => obj.abbr === item.abbr
+			);
+			param.areaCodeIdx = areaCodeIdx;
+		}
+		setUserValue(prev => ({ ...prev, ...param }));
+
+		setCurrencyTip("currency", null);
 	};
 
 	const checkValue = async (col, e) => {
@@ -358,7 +349,7 @@ export default () => {
 		let checked = true;
 		let msg = "";
 
-		if (val === "" || (isUSDT && _areaCode === "")) {
+		if (val === "" || !_areaCode) {
 			checked = false;
 			msg = "lbl_PhoneRequired";
 		}
@@ -470,7 +461,7 @@ export default () => {
 				Userpwd: userValue.password,
 				Email: userValue.email,
 				PhoneNo: userValue.phone,
-				CurrencyId: _currencyId,
+				CurrencyId: siteCurrency[userValue.currencyIdx]?.id,
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
@@ -636,13 +627,11 @@ export default () => {
 					clickCancel={clickCancel}
 					clickSubmit={clickSubmit}
 					defaultOption={defaultOption}
-					areaCodeOptions={areaCodeOptions}
-					onSelectAreaCode={onSelectAreaCode}
-					isUSDT={isUSDT}
 					handleLineRegister={handleLineRegister}
 					langId={userInfo.langId}
 					currencyId={userInfo?.currencyId}
 					lineUserId={lineUserId}
+					areaCodeList={areaCodeList}
 				/>
 			</div>
 		</div>

@@ -221,6 +221,7 @@ const useDepositEffect = ({
 
 		const checkUserInfo = () => {
 			const { isLogin, accountName, phoneNo, email } = userInfo;
+
 			if (
 				isLogin &&
 				((!accountName && accountName !== undefined) ||
@@ -236,8 +237,7 @@ const useDepositEffect = ({
 						<div className="btnGroup">
 							<Link
 								className="btn-check"
-								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}
-							>
+								to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}`}>
 								{t("lbl_UpdatePersonalDetail")}
 							</Link>
 						</div>
@@ -261,13 +261,17 @@ const useDepositEffect = ({
 							isMounted &&
 							res.data.data.length > 0
 						) {
-							setPopBox({
-								isOpen: true,
-								popBoxType: defPopBoxType.BackupDomain,
-								clickBackDropToClose: true,
-								onClickClose: () => closeBackupThenCheckInfo(),
-								linkList: res.data.data
-							});
+							!userInfo.isResetPwd &&
+								setPopBox({
+									isOpen: true,
+									popBoxType: defPopBoxType.BackupDomain,
+									clickBackDropToClose: true,
+									onClickClose: () =>
+										closeBackupThenCheckInfo(),
+									linkList: res.data.data
+								});
+						} else {
+							checkUserInfo();
 						}
 					}
 				);

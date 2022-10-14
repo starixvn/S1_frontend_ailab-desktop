@@ -929,13 +929,29 @@ header input:focus-within {
 
 .header > div.menu .subMenu-Wrapper-new .cryptoList {
   width: 100%;
-  background: url(https://banner.0814media.net/desktop/img/cryptosports.jpg) no-repeat center/auto;
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .cryptoList::before {
   display: block;
   content: "";
   height: 210px;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.en {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_en.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.th {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_th.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.id {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_id.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList.vipen {
@@ -1814,6 +1830,10 @@ footer .sfp > div > div {
 footer .sfp > div > div img {
   width: auto;
   margin-right: 10px;
+}
+
+footer .sfp .paymentLogo a, footer .sfp .paymentLogo button {
+  cursor: initial;
 }
 
 footer .footerList {
@@ -7300,6 +7320,12 @@ form {
   border-radius: 0;
 }
 
+.casinoSelect > div.promoType + .inputBox-white {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+}
+
 .casinoSelect > div.btnGroup {
   margin: 0;
 }
@@ -7307,6 +7333,9 @@ form {
 .casinoSelect > div.btnGroup button, .casinoSelect > div.btnGroup a {
   border-radius: 0;
   margin: 0;
+  padding: 10px 20px;
+  white-space: nowrap;
+  min-width: auto;
 }
 
 .casinoSelect > div.btnGroup button.blueBorder, .casinoSelect > div.btnGroup a.blueBorder {
@@ -12355,6 +12384,32 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border: 0;
 }
 
+.cashBack.newStyle table tr:nth-last-child(3) {
+  border-top: none;
+}
+
+.cashBack.newStyle table tr:nth-last-child(6) {
+  border-top: 1px solid #D2E2F9;
+}
+
+.cashBack.newStyle table tr:nth-last-child(-n+6) {
+  font-weight: bold;
+  width: 100%;
+  background: transparent;
+}
+
+.cashBack.newStyle table tr:nth-last-child(-n+6) td {
+  border-right: 0;
+}
+
+.cashBack.newStyle table tr:nth-last-child(-n+6) td span {
+  white-space: nowrap;
+}
+
+.cashBack.newStyle table tr:nth-last-child(-n+6) td span:nth-child(1) {
+  min-width: 25vw;
+}
+
 .projpot {
   width: 1400px;
   margin: auto;
@@ -13699,7 +13754,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   margin: 10px 0;
 }
 
-.rolloverList, .minAmount {
+.rolloverList, .minAmount, .remainingTime {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13708,7 +13763,7 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-width: 1px 0 0 1px;
 }
 
-.rolloverList > div, .minAmount > div {
+.rolloverList > div, .minAmount > div, .remainingTime > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -13718,17 +13773,25 @@ nav.breadcrumb ul .breadcrumb-item.active a {
           flex-flow: column;
 }
 
-.rolloverList > div > div, .minAmount > div > div {
+.rolloverList > div > div, .minAmount > div > div, .remainingTime > div > div {
   background: #5E7FB5;
   border: 1px solid #ccc;
   border-width: 0 1px 1px 0;
   text-align: center;
   padding: 5px 0;
-  height: calc(50% - 11px);
 }
 
-.rolloverList > div > div:nth-child(1), .minAmount > div > div:nth-child(1) {
+.rolloverList > div > div:nth-child(1), .minAmount > div > div:nth-child(1), .remainingTime > div > div:nth-child(1) {
   background: #112240;
+}
+
+.remainingTime {
+  margin-bottom: 0;
+}
+
+.remainingTime + .rolloverList {
+  margin-top: 0;
+  border-top: 0;
 }
 
 .countdown {

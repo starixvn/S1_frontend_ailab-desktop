@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { GetCurrencyName, defCurrencyList } from "../common/common";
+import { GetCurrencyName } from "../common/common";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 const FooterProduct = ({
 	t,
@@ -14,6 +15,7 @@ const FooterProduct = ({
 	isFullFooter
 }) => {
 	const currencyName = GetCurrencyName({ langId, currencyId, t });
+
 	return (
 		<div className="footerList">
 			<div className="item-wrapper">
@@ -34,9 +36,13 @@ const FooterProduct = ({
 					<div>{t("lbl_Affiliate_Program_desc")}</div>
 					<a
 						href={`${SiteInfo.affiliateLink}/?lang=${langId}`}
+						style={
+							allowedCurrencyList.affiliate.includes(currencyId)
+								? {}
+								: { pointerEvents: "none" }
+						}
 						target="_blank"
-						rel="noreferrer"
-					>
+						rel="noreferrer">
 						{t("lbl_Apply_Now")}
 						{" >"}
 					</a>
@@ -49,11 +55,10 @@ const FooterProduct = ({
 					<a
 						href={`/${langId}/${path.vip.root}`}
 						style={
-							currencyId === defCurrencyList.INR
-								? { pointerEvents: "none" }
-								: {}
-						}
-					>
+							allowedCurrencyList.VIP.includes(currencyId)
+								? {}
+								: { pointerEvents: "none" }
+						}>
 						{t("lbl_More_Info")}
 						{" >"}
 					</a>

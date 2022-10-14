@@ -74,7 +74,7 @@ export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
 	return result;
 };
 
-export const useGetBanner = ({ langId, ImgFolder }) => {
+export const useGetBanner = ({ langId, ImgFolder, currencyId }) => {
 	const [banner, setBanner] = useState([]);
 
 	useEffect(() => {
@@ -86,7 +86,8 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 				ImgFolder.forEach(async BannerType => {
 					const res = await api_site_GetBannerV3({
 						lang: langId,
-						BannerType
+						BannerType,
+						currencyId
 					});
 
 					if (res.data.errorCode === 0 && mounted) {
@@ -141,14 +142,18 @@ export const useGetBanner = ({ langId, ImgFolder }) => {
 			mounted = false;
 		};
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [langId]);
+	}, [langId, currencyId]);
 
 	return { banner };
 };
 
 const Panel = ({ ImgFolder, className, openInBlank }) => {
 	const { userInfo } = useContext(userInfoContext);
-	const { banner } = useGetBanner({ langId: userInfo.langId, ImgFolder });
+	const { banner } = useGetBanner({
+		langId: userInfo.langId,
+		ImgFolder,
+		currencyId: userInfo.currencyId
+	});
 	const { setPopBox } = useContext(popBoxContext);
 
 	const { handleGoToGame } = useGotoGame({

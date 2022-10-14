@@ -1,5 +1,6 @@
 import path from "../../router";
 import { defEventIcon, defEventPeriod, showEventIcon } from "./eventIcon";
+import { defCurrencyList } from "./common";
 
 export const defLeftMenu = {
 	Cashier: {
@@ -27,7 +28,6 @@ export const defLeftMenu = {
 			}
 		}
 	},
-
 	MyAccount: {
 		displayKey: "lbl_MyAccount",
 		subMenu: {
@@ -37,7 +37,13 @@ export const defLeftMenu = {
 			},
 			bankInfo: {
 				path: path.bankInfo.root,
-				displayKey: "lbl_BankInfo"
+				displayKey: "lbl_BankInfo",
+				allowCurrency: [
+					defCurrencyList.MYR,
+					defCurrencyList.THB,
+					defCurrencyList.IDR,
+					defCurrencyList.INR
+				]
 			},
 			cryptoWallet: {
 				path: path.cryptoWallet.root,

@@ -57,15 +57,15 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			...productList.casino_PP,
 			path: path.casino.root,
 			parameter: { ...productList.casino_PP },
-			imgName: "pp",
-			hoverImgName: "ppa"
+			imgName: "casino_pp",
+			hoverImgName: "casino_ppa"
 		},
 		{
 			...productList.casino_MGPSW,
 			path: path.casino.root,
 			parameter: { ...productList.casino_MGPSW },
-			imgName: "mg",
-			hoverImgName: "mga"
+			imgName: "casino_mg",
+			hoverImgName: "casino_mga"
 		},
 		{
 			...productList.casino_PT,
@@ -78,29 +78,29 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			...productList.casino_YGG,
 			path: path.casino.root,
 			parameter: { ...productList.casino_YGG },
-			imgName: "yg",
-			hoverImgName: "yga"
+			imgName: "casino_ygg",
+			hoverImgName: "casino_ygga"
 		},
 		{
 			...productList.casino_JOKER,
 			path: path.casino.root,
 			parameter: { ...productList.casino_JOKER },
-			imgName: "jk",
-			hoverImgName: "jka"
+			imgName: "casino_joker",
+			hoverImgName: "casino_jokera"
 		},
 		{
 			...productList.casino_SG,
 			path: path.casino.root,
 			parameter: { ...productList.casino_SG },
-			imgName: "sg",
-			hoverImgName: "sga"
+			imgName: "casino_sg",
+			hoverImgName: "casino_sga"
 		},
 		{
 			...productList.casino_JILI,
 			path: path.casino.root,
 			parameter: { ...productList.casino_JILI },
-			imgName: "ji",
-			hoverImgName: "jia"
+			imgName: "casino_jili",
+			hoverImgName: "casino_jilia"
 		},
 		{
 			...productList.tcg,
@@ -118,22 +118,22 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			...productList.casino_RedTiger,
 			path: path.casino.root,
 			parameter: { ...productList.casino_RedTiger },
-			imgName: "rt",
-			hoverImgName: "rta"
+			imgName: "casino_redtiger",
+			hoverImgName: "casino_redtigera"
 		},
 		{
 			...productList.casino_NetEnt,
 			path: path.casino.root,
 			parameter: { ...productList.casino_NetEnt },
-			imgName: "nt",
-			hoverImgName: "nta"
+			imgName: "casino_netent",
+			hoverImgName: "casino_netenta"
 		},
 		{
 			...productList.casino_AdvantPlay,
 			path: path.casino.root,
 			parameter: { ...productList.casino_AdvantPlay },
-			imgName: "ap",
-			hoverImgName: "apa"
+			imgName: "casino_ap",
+			hoverImgName: "casino_apa"
 		},
 		{
 			...productList.liveCasino_EVO,
@@ -143,22 +143,29 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 		{
 			...productList.mega888,
 			path: path.mega888.root,
-			imgName: "mega",
-			hoverImgName: "megaa"
+			imgName: "casino_mega",
+			hoverImgName: "casino_megaa"
 		},
 		{
 			...productList.casino_Habanero,
 			path: path.casino.root,
 			parameter: { ...productList.casino_Habanero },
-			imgName: "ho",
-			hoverImgName: "hoa"
+			imgName: "casino_hb",
+			hoverImgName: "casino_hb"
+		},
+		{
+			...productList.casino_SimplePlay,
+			path: path.casino.root,
+			parameter: { ...productList.casino_SimplePlay },
+			imgName: "casino_simpleplay",
+			hoverImgName: "casino_simpleplaya"
 		},
 		{
 			...productList.casino_AMB,
 			path: path.casino.root,
 			parameter: { ...productList.casino_AMB },
-			imgName: "am",
-			hoverImgName: "ama",
+			imgName: "casino_amb",
+			hoverImgName: "casino_amba",
 			allowCurrencies: [defCurrencyList.THB]
 		}
 	];
@@ -227,8 +234,7 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 					onClick={ClickItem.bind(this, {
 						...p,
 						urlParams: _urlParams
-					})}
-				>
+					})}>
 					<img
 						src={`${cloudImgUrl}/SiteSkin/img/logo/${imgName}.png`}
 						name={imgName}

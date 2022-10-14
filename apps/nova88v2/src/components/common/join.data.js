@@ -29,5 +29,6 @@ export const currencyToAreacode = {
 	15: "ID",
 	51: "VN",
 	96: "MY",
-	61: "IN"
+	61: "IN",
+	74: "BD"
 };

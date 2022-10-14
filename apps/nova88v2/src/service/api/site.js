@@ -53,8 +53,11 @@ export const api_site_GetBanner = (
 		`FolderName=${FolderName}&refId=${refId}&filterHideInHome=${filterHideInHome}`
 	);
 
-export const api_site_GetBannerV3 = ({ lang, BannerType }) =>
-	siteRequest.post(`/GetBannerV3/${lang}`, { BannerType });
+export const api_site_GetBannerV3 = ({ lang, BannerType, currencyId }) =>
+	siteRequest.post(`/GetBannerV3/${lang}`, {
+		BannerType,
+		CurrencyId: currencyId
+	});
 
 export const api_site_CheckResetPwdTokens = ({ key }) =>
 	siteRequest.post(`/CheckResetPwdToken`, `key=${key}`);
@@ -79,9 +82,10 @@ export const api_site_seo = () => siteRequest.post(`/seo`);
 export const api_site_GetMenuOfGames = () =>
 	siteRequest.post(`/GetMenuOfGames`);
 
-export const api_site_GetHotGames = ({ langId }) =>
+export const api_site_GetHotGames = ({ langId, currencyId }) =>
 	siteRequest.post(`/GetHotGames/${langId}`, {
-		DeviceType: defDeviceType.Desktop
+		DeviceType: defDeviceType.Desktop,
+		CurrencyId: currencyId
 	});
 
 export const api_site_GetSocialChannel = ({

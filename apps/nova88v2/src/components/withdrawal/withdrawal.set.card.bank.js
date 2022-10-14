@@ -50,8 +50,7 @@ const BankCard = ({
 				{(!bankArr || bankArr.length < 3) && (
 					<div
 						className="addBankName noBank"
-						onClick={addBankAccount}
-					>
+						onClick={addBankAccount}>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddBankAccount")}</div>
 					</div>
