@@ -15,18 +15,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/",
+					href: "https://www.nova88-indo805.info/id/",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -35,7 +50,7 @@ export const defMetaData = {
 			description: `Nova88 欧亚体育 -亚洲知名品牌与最受信任的在线博彩网站。立即注册并享受顶尖的体育博彩，真人娱乐，电子游戏老虎机，彩票，快乐彩，和捕鱼游戏。`,
 			keyword: `Nova88 欧亚体育，Nova88 欧亚体育链接，在线博彩，在线赌博，马来西亚在线博彩，体育博彩，彩票，马来西亚真人娱乐场`,
 			links: [
-				{ rel: "canonical", href: "https://www.nova88gol.com/cs/" },
+				{ rel: "canonical", href: `https://www.nova88105.net/cs/` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/",
@@ -43,18 +58,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/",
+					href: "https://www.nova88-indo805.info/id/",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -63,7 +93,10 @@ export const defMetaData = {
 			description: `Nova88 adalah Situs Online Terbaik Berlisensi Resmi dan Terpercaya dengan berbagai permainan Casino Online, Taruhan Bola dan Slot Mesin Online yang akan menghibur Anda.`,
 			keyword: `Nova88, Nova88 Indo, Situs Bola Terpercaya, Situs Bola Lisensi Resmi, Bola Online, Slot Mesin Online, Casino Online`,
 			links: [
-				{ rel: "canonical", href: "https://www.nova88-indo.com/id/" },
+				{
+					rel: "canonical",
+					href: `https://www.nova88-indo805.info/id/`
+				},
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/",
@@ -71,18 +104,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/",
+					href: "https://www.nova88-indo805.info/id/",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -91,7 +139,7 @@ export const defMetaData = {
 			description: `Nova88  เป็นเว็บไซต์เดิมพันออนไลน์ที่หน้าเชื่อถือและดีสุดในเอเชีย เข้าร่วมและเดิมพันกีฬา,คาสิโนสด,สล็อต คาสิโน,ลอตเตอรี,คีโน,และ ตกปลา`,
 			keyword: `Nova88, ลิงค์ Nova88, คาสิโนออนไลน์, การพนันออนไลน์, การพนันออนไลน์ไทย, การเดิมพันกีฬา, ลอตเตอรี, ไทยคาสิโนสด`,
 			links: [
-				{ rel: "canonical", href: "https://www.nova88apple.com/th/" },
+				{ rel: "canonical", href: `https://www.nova88bkk.com/th/` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/",
@@ -99,18 +147,162 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/",
+					href: "https://www.nova88-indo805.info/id/",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/",
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		my: {
+			title: `Nova88 - The Best Online Sportsbook, Casino and Online Gambling in Asia`,
+			description: `Nova88 is Asia's best and most trusted online betting and gambling site. Join and play sportsbook, live casino, casino slot, lottery, keno, and fishing.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88mas.com/my/` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/",
 					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		hi: {
+			title: `Nova88 - The Best Online Sportsbook, Casino and Online Gambling in Asia`,
+			description: `Nova88 is Asia's best and most trusted online betting and gambling site. Join and play sportsbook, live casino, casino slot, lottery, keno, and fishing.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88india.com/hi/` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		bd: {
+			title: `Nova88 - The Best Online Sportsbook, Casino and Online Gambling in Asia`,
+			description: `Nova88 is Asia's best and most trusted online betting and gambling site. Join and play sportsbook, live casino, casino slot, lottery, keno, and fishing.`,
+			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88106.net/bd/` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/",
+					hreflang: "bn-bd"
 				}
 			]
 		}
@@ -118,7 +310,7 @@ export const defMetaData = {
 	[path.join.root]: {
 		en: {
 			links: [
-				{ rel: "canonical", href: "https://www.nova88.net/en/join" },
+				{ rel: "canonical", href: `https://www.nova88.net/en/join` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/join",
@@ -126,24 +318,39 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/join",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/join",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/join",
+					href: "https://www.nova88-indo805.info/id/join",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/join",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/join",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/join",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/join",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/join",
+					hreflang: "bn-bd"
 				}
 			]
 		},
 		cs: {
 			links: [
-				{ rel: "canonical", href: "https://www.nova88gol.com/cs/join" },
+				{ rel: "canonical", href: `https://www.nova88105.net/cs/join` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/join",
@@ -151,27 +358,39 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/join",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/join",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/join",
+					href: "https://www.nova88-indo805.info/id/join",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/join",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/join",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/join",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/join",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/join",
+					hreflang: "bn-bd"
 				}
 			]
 		},
 		th: {
 			links: [
-				{
-					rel: "canonical",
-					href: "https://www.nova88apple.com/th/join"
-				},
+				{ rel: "canonical", href: `https://www.nova88bkk.com/th/join` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/join",
@@ -179,18 +398,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/join",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/join",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/join",
+					href: "https://www.nova88-indo805.info/id/join",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/join",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/join",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/join",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/join",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/join",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -198,7 +432,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88-indo.com/id/join"
+					href: `https://www.nova88-indo805.info/id/join`
 				},
 				{
 					rel: "alternate",
@@ -207,18 +441,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/join",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/join",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/join",
+					href: "https://www.nova88-indo805.info/id/join",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/join",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/join",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/join",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/join",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/join",
+					hreflang: "bn-bd"
 				}
 			]
 		}
@@ -229,26 +478,41 @@ export const defMetaData = {
 			description: `Nova88 is the hottest and latest online casino slots games in Malaysia. Spin and Win real money slots, jackpot slots, 918kiss, mega888, pragmatic play slots.`,
 			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
 			links: [
-				{ rel: "canonical", href: "https://www.nova88.net/en/casino" },
+				{ rel: "canonical", href: `https://www.nova88.net/en/slots` },
 				{
 					rel: "alternate",
-					href: "https://www.nova88.net/en/casino",
+					href: "https://www.nova88.net/en/slots",
 					hreflang: "en-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/casino",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/casino",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/casino",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -259,27 +523,42 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88gol.com/cs/casino"
+					href: `https://www.nova88105.net/cs/slots`
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88.net/en/casino",
+					href: "https://www.nova88.net/en/slots",
 					hreflang: "en-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/casino",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/casino",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/casino",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -290,27 +569,42 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88apple.com/th/casino"
+					href: `https://www.nova88bkk.com/th/slots`
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88.net/en/casino",
+					href: "https://www.nova88.net/en/slots",
 					hreflang: "en-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/casino",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/casino",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/casino",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -321,27 +615,42 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88-indo.com/id/casino"
+					href: `https://www.nova88-indo805.info/id/slots`
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88.net/en/casino",
+					href: "https://www.nova88.net/en/slots",
 					hreflang: "en-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/casino",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/casino",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/casino",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
 				}
 			]
 		}
@@ -349,7 +658,7 @@ export const defMetaData = {
 	[path.vip.root]: {
 		en: {
 			links: [
-				{ rel: "canonical", href: "https://www.nova88.net/en/vip" },
+				{ rel: "canonical", href: `https://www.nova88.net/en/vip` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/vip",
@@ -357,24 +666,39 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/vip",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/vip",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/vip",
+					href: "https://www.nova88-indo805.info/id/vip",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/vip",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/vip",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/vip",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/vip",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/vip",
+					hreflang: "bn-bd"
 				}
 			]
 		},
 		cs: {
 			links: [
-				{ rel: "canonical", href: "https://www.nova88gol.com/cs/vip" },
+				{ rel: "canonical", href: `https://www.nova88105.net/cs/vip` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/vip",
@@ -382,27 +706,39 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/vip",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/vip",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/vip",
+					href: "https://www.nova88-indo805.info/id/vip",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/vip",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/vip",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/vip",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/vip",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/vip",
+					hreflang: "bn-bd"
 				}
 			]
 		},
 		th: {
 			links: [
-				{
-					rel: "canonical",
-					href: "https://www.nova88apple.com/th/vip"
-				},
+				{ rel: "canonical", href: `https://www.nova88bkk.com/th/vip` },
 				{
 					rel: "alternate",
 					href: "https://www.nova88.net/en/vip",
@@ -410,18 +746,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/vip",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/vip",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/vip",
+					href: "https://www.nova88-indo805.info/id/vip",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/vip",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/vip",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/vip",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/vip",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/vip",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -429,7 +780,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88-indo.com/id/vip"
+					href: `https://www.nova88-indo805.info/id/vip`
 				},
 				{
 					rel: "alternate",
@@ -438,18 +789,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/vip",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/vip",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/vip",
+					href: "https://www.nova88-indo805.info/id/vip",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/vip",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/vip",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/vip",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/vip",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/vip",
+					hreflang: "bn-bd"
 				}
 			]
 		}
@@ -462,7 +828,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88.net/en/promotion"
+					href: `https://www.nova88.net/en/promotion`
 				},
 				{
 					rel: "alternate",
@@ -471,18 +837,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/promotion",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/promotion",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/promotion",
+					href: "https://www.nova88-indo805.info/id/promotion",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/promotion",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/promotion",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/promotion",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/promotion",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/promotion",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -493,7 +874,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88gol.com/cs/promotion"
+					href: `https://www.nova88105.net/cs/promotion`
 				},
 				{
 					rel: "alternate",
@@ -502,18 +883,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/promotion",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/promotion",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/promotion",
+					href: "https://www.nova88-indo805.info/id/promotion",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/promotion",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/promotion",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/promotion",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/promotion",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/promotion",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -524,7 +920,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88apple.com/th/promotion"
+					href: `https://www.nova88bkk.com/th/promotion`
 				},
 				{
 					rel: "alternate",
@@ -533,18 +929,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/promotion",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/promotion",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/promotion",
+					href: "https://www.nova88-indo805.info/id/promotion",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/promotion",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/promotion",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/promotion",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/promotion",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/promotion",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -555,7 +966,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88-indo.com/id/promotion"
+					href: `https://www.nova88-indo805.info/id/promotion`
 				},
 				{
 					rel: "alternate",
@@ -564,18 +975,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/promotion",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/promotion",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/promotion",
+					href: "https://www.nova88-indo805.info/id/promotion",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/promotion",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/promotion",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/promotion",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/promotion",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/promotion",
+					hreflang: "bn-bd"
 				}
 			]
 		}
@@ -588,7 +1014,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88.net/en/leaderBoard"
+					href: `https://www.nova88.net/en/leaderBoard`
 				},
 				{
 					rel: "alternate",
@@ -597,18 +1023,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/leaderBoard",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/leaderBoard",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/leaderBoard",
+					href: "https://www.nova88-indo805.info/id/leaderBoard",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/leaderBoard",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/leaderBoard",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/leaderBoard",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/leaderBoard",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/leaderBoard",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -619,7 +1060,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88gol.com/cs/leaderBoard"
+					href: `https://www.nova88105.net/cs/leaderBoard`
 				},
 				{
 					rel: "alternate",
@@ -628,18 +1069,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/leaderBoard",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/leaderBoard",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/leaderBoard",
+					href: "https://www.nova88-indo805.info/id/leaderBoard",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/leaderBoard",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/leaderBoard",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/leaderBoard",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/leaderBoard",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/leaderBoard",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -650,7 +1106,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88apple.com/th/leaderBoard"
+					href: `https://www.nova88bkk.com/th/leaderBoard`
 				},
 				{
 					rel: "alternate",
@@ -659,18 +1115,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/leaderBoard",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/leaderBoard",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/leaderBoard",
+					href: "https://www.nova88-indo805.info/id/leaderBoard",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/leaderBoard",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/leaderBoard",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/leaderBoard",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/leaderBoard",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/leaderBoard",
+					hreflang: "bn-bd"
 				}
 			]
 		},
@@ -681,7 +1152,7 @@ export const defMetaData = {
 			links: [
 				{
 					rel: "canonical",
-					href: "https://www.nova88-indo.com/id/leaderBoard"
+					href: `https://www.nova88-indo805.info/id/leaderBoard`
 				},
 				{
 					rel: "alternate",
@@ -690,18 +1161,33 @@ export const defMetaData = {
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88gol.com/cs/leaderBoard",
-					hreflang: "zh-my"
+					href: "https://www.nova88mas.com/my/leaderBoard",
+					hreflang: "ms-my"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88apple.com/th/leaderBoard",
+					href: "https://www.nova88-indo805.info/id/leaderBoard",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/leaderBoard",
 					hreflang: "th-th"
 				},
 				{
 					rel: "alternate",
-					href: "https://www.nova88-indo.com/id/leaderBoard",
-					hreflang: "id-id"
+					href: "https://www.nova88india.com/hi/leaderBoard",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/leaderBoard",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/leaderBoard",
+					hreflang: "bn-bd"
 				}
 			]
 		}
