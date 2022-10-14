@@ -59,7 +59,7 @@ export default () => {
 	});
 
 	useEffect(() => {
-		if (activeProvider?.tpId) {
+		if (Object.keys(activeProvider).length > 0) {
 			const filterList = allCategoryList.filter(
 				obj =>
 					Object.keys(obj)[0] === "myFavorite" ||
@@ -98,7 +98,7 @@ export default () => {
 
 	useEffect(() => {
 		onChangeCategory(activeCategory);
-	}, [activeCategory]);
+	}, [activeCategory, activeProvider]);
 
 	useEffect(() => {
 		if (
