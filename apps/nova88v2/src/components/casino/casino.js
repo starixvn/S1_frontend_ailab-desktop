@@ -250,7 +250,9 @@ export default () => {
 	};
 	const getSlotData = async () => {
 		setIsProcessing(true);
-		api_game_GetSlotGamePage().then(
+		api_game_GetSlotGamePage({
+			currencyId: userInfo.currencyId
+		}).then(
 			res => {
 				const success = res.data.errorCode === 0;
 				if (success) {

@@ -1,4 +1,7 @@
-import { gameRequest } from "./base";
+import { gameRequest, defDeviceType } from "./base";
 
-export const api_game_GetSlotGamePage = () =>
-	gameRequest.post("/GetSlotGamePage", { DeviceType: 1 });
+export const api_game_GetSlotGamePage = ({ currencyId }) =>
+	gameRequest.post(`/GetSlotGamePage`, {
+		DeviceType: defDeviceType.Desktop,
+		CurrencyId: currencyId
+	});
