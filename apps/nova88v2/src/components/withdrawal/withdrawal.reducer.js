@@ -122,7 +122,9 @@ export function reducer(state, action) {
 				maxTimes: action.maxTimes,
 				withdrawalTimes: action.withdrawalTimes,
 				eWalletWithdrawalMin: action.eWalletWithdrawalMin,
-				eWalletStatus: action.eWalletStatus
+				eWalletStatus: action.eWalletStatus,
+				eWalletWithdrawalAvailableAmount:
+					action.eWalletWithdrawalAvailableAmount
 			};
 
 		default:
