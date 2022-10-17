@@ -42,7 +42,7 @@ export const reCaptchaEnum = {
 	bd_en: "en"
 };
 
-export const reCaptchaDomainList = [
+export const reCaptchaDomainExtraList = [
 	"nova88101.net",
 	"nova88102.net",
 	"nova88103.net",

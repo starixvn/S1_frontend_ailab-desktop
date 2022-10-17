@@ -5,7 +5,7 @@ import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
 import { defCurrencyList } from "../common/common";
-import { reCaptchaDomainList, reCaptchaEnum } from "./join.def";
+import { reCaptchaDomainExtraList, reCaptchaEnum } from "./join.def";
 
 const JoinForm = ({
 	t,
@@ -206,7 +206,7 @@ const JoinForm = ({
 		<ReCAPTCHA
 			class="g-recaptcha"
 			sitekey={
-				reCaptchaDomainList.includes(window.location.hostname)
+				reCaptchaDomainExtraList.includes(window.location.hostname)
 					? "6LcEuIgiAAAAADa7zajxtsWTsc5F6J54KMPKIgH3"
 					: "6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
 			}
