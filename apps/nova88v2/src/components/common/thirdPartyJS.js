@@ -2,17 +2,17 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import config from "../../config";
+import SEO from "../seo/seo";
 
 function ThirdPartyJS() {
 	return (
 		<>
 			<Helmet />
-			{<GTM gtmCode="GTM-5VD4484" />}
-			{/* <GATag gaCode="UA-163834722-1" /> */}
+			<GTM />
 			<LiveChat />
 			<Iovation />
-			{/* <FPS /> */}
 			<PlayTech />
+			<SEO />
 		</>
 	);
 }
@@ -65,18 +65,6 @@ const Iovation = () => (
 	</Helmet>
 );
 
-// const FPS = () => {
-// 	return (
-// 		<Helmet>
-// 			<script
-// 				async=""
-// 				defer=""
-// 				src="//sc.detecas.com/di/activator.ashx"
-// 			/>
-// 		</Helmet>
-// 	);
-// };
-
 const PlayTech = () => (
 	<Helmet>
 		<script
@@ -87,7 +75,7 @@ const PlayTech = () => (
 	</Helmet>
 );
 
-const GTM = ({ gtmCode }) => (
+const GTM = () => (
 	<Helmet>
 		<script>
 			{`(function (w, d, s, l, i) {
