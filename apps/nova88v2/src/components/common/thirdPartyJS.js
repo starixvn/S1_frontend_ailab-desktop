@@ -29,22 +29,6 @@ const LiveChat = () => (
 	</Helmet>
 );
 
-const GATag = ({ gaCode }) => (
-	<Helmet>
-		<script
-			async
-			src={`https://www.googletagmanager.com/gtag/js?id=${gaCode}`}
-		/>
-		<script>
-			{`window.dataLayer = window.dataLayer || [];
-                     function gtag(){dataLayer.push(arguments);}
-                     gtag('js', new Date());
- 
-                     gtag('config', '${gaCode}');`}
-		</script>
-	</Helmet>
-);
-
 const Iovation = () => (
 	<Helmet>
 		<script>
