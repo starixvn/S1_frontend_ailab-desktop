@@ -16,34 +16,19 @@ import { bannerImgUrl } from "../../config";
 
 const url = "https://www.nova88.net/";
 
-export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
-	const [SEODatas, setSEODatas] = useState(null);
-	useEffect(() => {
-		const GetDatas = async () => {
-			if (getFromAPI && SEODatas === null) {
-				try {
-					const res = await api_site_seo();
-					if (res.data.errorCode === 0) {
-						setSEODatas(res.data.data ?? {});
-					} else {
-						errorPopBox(
-							res.data.message || "error",
-							res.data.errorCode
-						);
-					}
-				} catch (err) {}
-			}
-		};
-		GetDatas();
-	}, [getFromAPI, SEODatas]);
-
-	return { SEODatas };
+const metaData = defMetaData["/"];
+const defSEOData = {
+	title: metaData.en.title,
+	description: metaData.en.description,
+	keyword: metaData.en.keyword,
+	links: metaData.en.links
 };
 
-function SEO({ meta, getFromAPI }) {
+export const useGetSEODatas = () => {
 	const { i18n } = useTranslation();
 	const { errorPopBox } = usePopBox();
-	const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
+	const [SEODatas, setSEODatas] = useState(defSEOData);
+
 	const lang = i18n.language;
 
 	let location = "";
@@ -52,33 +37,91 @@ function SEO({ meta, getFromAPI }) {
 	}
 	const pathArr = location?.split("/").filter(p => p !== "");
 
-	if (getFromAPI && SEODatas === null) return null;
+	useEffect(() => {
+		GetDatas();
 
-	const metaData = defMetaData["/"];
-	let _title =
-		SEODatas?.title ?? metaData?.[lang]?.title ?? metaData.en.title;
-	let _keyword = SEODatas?.keyword ?? metaData?.[lang]?.keyword ?? "";
-	let _description = SEODatas?.meta ?? metaData?.[lang]?.description ?? "";
-	let links = metaData?.[lang]?.links ?? [];
+		if (pathArr.length >= 2 && defMetaData[pathArr[1]]) {
+			const allData = {
+				title:
+					defMetaData[pathArr[1]]?.[lang]?.title ??
+					defMetaData[pathArr[1]]?.en?.title,
+				keyword:
+					defMetaData[pathArr[1]]?.[lang]?.keyword ??
+					defMetaData[pathArr[1]]?.en?.keyword,
+				description:
+					defMetaData[pathArr[1]]?.[lang]?.description ??
+					defMetaData[pathArr[1]]?.en?.description,
+				links:
+					defMetaData[pathArr[1]]?.[lang]?.links ??
+					defMetaData[pathArr[1]]?.en?.links
+			};
+			setSEODatas({ ...SEODatas, ...allData } ?? {});
+		}
+	}, []);
 
-	if (pathArr.length >= 2 && defMetaData[pathArr[1]]) {
-		_title =
-			defMetaData[pathArr[1]]?.[lang]?.title ??
-			defMetaData[pathArr[1]]?.en?.title ??
-			_title;
-		_keyword =
-			defMetaData[pathArr[1]]?.[lang]?.keyword ??
-			defMetaData[pathArr[1]]?.en?.keyword ??
-			_keyword;
-		_description =
-			defMetaData[pathArr[1]]?.[lang]?.description ??
-			defMetaData[pathArr[1]]?.en?.description ??
-			_description;
-		links =
-			defMetaData[pathArr[1]]?.[lang]?.links ??
-			defMetaData[pathArr[1]]?.en?.links ??
-			links;
-	}
+	const GetDatas = async () => {
+		try {
+			const res = await api_site_seo();
+			const { errorCode, data, message } = res.data;
+			if (errorCode === 0) {
+				if (pathArr.length < 2) {
+					const allData = {
+						...data,
+						title: data?.title,
+						keyword: data?.keyword,
+						description: data?.meta,
+						links: metaData?.[lang]?.links
+					};
+
+					setSEODatas(allData ?? {});
+				}
+			} else {
+				errorPopBox(message || "error", errorCode);
+			}
+		} catch (err) {}
+	};
+
+	return { SEODatas };
+};
+
+function SEO({ meta }) {
+	const { i18n } = useTranslation();
+	const { SEODatas } = useGetSEODatas();
+	const lang = i18n.language;
+
+	// let location = "";
+	// if (typeof window !== "undefined") {
+	// 	location = window.location.pathname;
+	// }
+	// const pathArr = location?.split("/").filter(p => p !== "");
+
+	// const metaData = defMetaData["/"];
+	// let _title =
+	// 	SEODatas?.title ?? metaData?.[lang]?.title ?? metaData.en.title;
+	// let _keyword = SEODatas?.keyword ?? metaData?.[lang]?.keyword ?? "";
+	// let _description = SEODatas?.meta ?? metaData?.[lang]?.description ?? "";
+	// let links = metaData?.[lang]?.links ?? [];
+
+	// if (pathArr.length >= 2 && defMetaData[pathArr[1]]) {
+	// 	_title =
+	// 		defMetaData[pathArr[1]]?.[lang]?.title ??
+	// 		defMetaData[pathArr[1]]?.en?.title ??
+	// 		_title;
+	// 	_keyword =
+	// 		defMetaData[pathArr[1]]?.[lang]?.keyword ??
+	// 		defMetaData[pathArr[1]]?.en?.keyword ??
+	// 		_keyword;
+	// 	_description =
+	// 		defMetaData[pathArr[1]]?.[lang]?.description ??
+	// 		defMetaData[pathArr[1]]?.en?.description ??
+	// 		_description;
+	// 	links =
+	// 		defMetaData[pathArr[1]]?.[lang]?.links ??
+	// 		defMetaData[pathArr[1]]?.en?.links ??
+	// 		links;
+	// }
+
+	// if (getFromAPI && SEODatas === null) return null;
 
 	return (
 		<Helmet
@@ -86,9 +129,9 @@ function SEO({ meta, getFromAPI }) {
 				lang,
 				class: "newIndex"
 			}}
-			// title={_title}
+			title={SEODatas.title ?? defSEOData.title}
 			link={[
-				...links,
+				...SEODatas?.links,
 				{
 					rel: "icon",
 					type: "image/x-icon",
@@ -98,11 +141,11 @@ function SEO({ meta, getFromAPI }) {
 			meta={[
 				{
 					name: `description`,
-					content: _description
+					content: SEODatas.description
 				},
 				{
 					name: `keyword`,
-					content: _keyword
+					content: SEODatas.keyword
 				},
 				{
 					property: `og:url`,
@@ -114,11 +157,11 @@ function SEO({ meta, getFromAPI }) {
 				},
 				{
 					property: `og:title`,
-					content: _title
+					content: SEODatas.title
 				},
 				{
 					property: `og:description`,
-					content: _description
+					content: SEODatas.description
 				},
 				{
 					property: `og:image`,
@@ -138,32 +181,28 @@ function SEO({ meta, getFromAPI }) {
 				},
 				{
 					name: `twitter:title`,
-					content: _title
+					content: SEODatas.title
 				},
 				{
 					name: `twitter:description`,
-					content: _description
+					content: SEODatas.description
 				},
 				{
 					name: `twitter:image`,
 					content: `${bannerImgUrl}/img/thumbnail/thumbnail_001.jpg`
 				},
 				...meta
-			]}>
-			<title>{_title}</title>
-			<meta name="description" content={_description} />
-		</Helmet>
+			]}
+		/>
 	);
 }
 
 SEO.defaultProps = {
-	meta: [],
-	getFromAPI: true
+	meta: []
 };
 
 SEO.propTypes = {
-	meta: PropTypes.arrayOf(PropTypes.object),
-	getFromAPI: PropTypes.bool
+	meta: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default SEO;

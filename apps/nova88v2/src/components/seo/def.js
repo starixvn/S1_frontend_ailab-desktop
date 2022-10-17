@@ -5,7 +5,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
 			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
-			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
+			keyword: `Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/` },
 				{
@@ -476,7 +476,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 Promotion | Trusted Live Casino | Welcome Bonus`,
 			description: `Looking For The Best Live Casino Bonuses and Rewards? Don't Miss Out Our Monthly Exclusive Promotions! Play And Earn More Bonus With Nova88 now!`,
-			keyword: `Nova88, Nova88 promotion, welcome bonus, deposit bonus, online casino bonus, reload bonus, redeposit bonus, casino slot bonus, freebet`,
+			keyword: `Online Casino Promotion, Welcome Bonus, Reload Bonus, Cash Rebate, Weekly Cashback, Withdrawal Bonus, Referral Rewards, Birthday Reward, New Member Promotion, Sportsbook Promotion, Casino Promotion, Slot Promotion`,
 			links: [
 				{
 					rel: "canonical",
@@ -662,6 +662,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 VIP Program | VIP Member | Exclusive Rewards`,
 			description: `Become Nova88 Exclusive VIP Today To Enjoy The Benefits And Privileges With Difference Membership Tier. Play More, Rewards More. Hurry, We Are Waiting For You!`,
+			keyword: `Nova88, Casino VIP Program, VIP Privileges, VIP Exclusive Reward, Nova Club, Nova VIP Exclusive, Tier Upgrade Bonus, VIP Special Rebate, VIP Bonus, VIP Member Benefits`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/vip` },
 				{
@@ -706,7 +707,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Asia Most Trusted Sportsbook | SABA Sports`,
 			description: `Nova88 Offers Wide Variety of Sports Games To Keep Players Entertained. Officially Licensed and Subsidiary of SABA Sports. Don't Miss Any Betting Opportunity!`,
-			keyword: `Nova88, Nova88 sportsbook, online football, online betting, live score, basketball bookie, soccer matches, online sports, football games`,
+			keyword: `Nova88, Sports Betting, SABA Sports, Soccer Betting, Soccer, Soccer Leagues, Basketball, Tennis, Cricket, Virtual Sports, Volleyball, World Cup, EURO`,
 			links: [
 				{
 					rel: "canonical",
@@ -892,7 +893,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 |  Esports Betting | Esports Casino`,
 			description: `Bet At Nova88, The Most Popular Esports Games such as Dota2, LOL, CS:GO and King of Glory. Get Excited About The Latest Esports Betting Odds. Start now!`,
-			keyword: `Nova88, Nova88 sportsbook, online football, online betting, live score, basketball bookie, soccer matches, online sports, football games`,
+			keyword: `Nova88 Esports, Nova88 Gaming, Esports Games, Esports Event, Esports Tournaments, Esports Betting, Dota2, LOL, King of Glory, Counter-Strike, CS GO`,
 			links: [
 				{
 					rel: "canonical",
@@ -940,7 +941,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Trusted Live Casino | Play & Win!`,
 			description: `Nova88 Has Been In The Industry For Over 20 Years. There Are Various of Live Casino Games Offered, Such As Baccarat, Roulette, Blackjack, Poker And Many More.`,
-			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			keyword: `Online Casino, Casino Games, Live Gambling, Baccarat, Roulette, Blackjack, Poker, Slots, Game Shows, Sic Bo, Dragon Tiger, Pragmatic Play, Microgaming, Evolution Gaming, Playtech, Dream Gaming, AE Sexy, SA Gaming, Allbet, Asia Gaming, WM Casino, eBet`,
 			links: [
 				{
 					rel: "canonical",
@@ -988,7 +989,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Best Online Slots | Asia's Most Trusted Platform`,
 			description: `Explore More Slot Games in Nova88. Login Everyday And Enjoy The Games. Get Appreciation Token and Weekly Free Spins From Us. Don't Miss Out, Claim Now!`,
-			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			keyword: `Slots, Online Slots, Casino Slot Games, Slot Machine, Free Spins, Habanero, Jili, Mega888, Pragmatic Play, NetEnt, Game Play, YGGdrasil, Joker, AdvantPlay, Spade Gaming, Red Tiger, CQ9, Astro Tech, Playtech`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/slots` },
 				{
@@ -1171,7 +1172,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Online Poker Games | Best Poker Sites`,
 			description: `Enjoy The Thrilling Online Poker Games At Nova88. Join Now To Play With Real Money And Stand A Chance To Double Your Wins!`,
-			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			keyword: `Online Poker, Poker Game, Poker Betting, Texas Holdem Poker, 3 Card Poker`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/oneGame` },
 				{
@@ -1216,7 +1217,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Casino Games | Virtual Games`,
 			description: `Play The Simple, Fun And Easy Games At Nova88. We Strives To Provide Good Quality Entertainment Games For Our Players. Access To Your Favourite Games Now!`,
-			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			keyword: `Online Casino Games, King Maker, Vgaming, Virtual Games, Plinko, Minesweeper, Heist, Virtual Horse Racing`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/game` },
 				{
@@ -1261,7 +1262,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Fishing Online | Best Fishing Games`,
 			description: `Fishing Online At Nova88, Immerse Yourself Into The Deep of Sea. Select Some Juicy Bait, Shoot Down Various Sea Creatures To Collect Points And Rewards.`,
-			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			keyword: `Fishing Game, Fishing Online, Casino Fishing Game, Fishing Game Real Money, Arcade Fishing Game, Fishing War, Fish Haiba, Happy Fish 5, Monster Awaken, Fishing World, Dragonball Fishing, Paradise`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/fishing` },
 				{
@@ -1306,7 +1307,7 @@ export const defMetaData = {
 		en: {
 			title: `Nova88 | Online Lottery | Casino Game`,
 			description: `Nova88 Offer Keno, Lottery, Number Game And Table Game That Are Fast, Fun and Easy To Play. Each Draw Last Only A Few Minutes And Settlement Is Fast.`,
-			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			keyword: `Lottery Online, Lottery, Number Game, Table Game, TC Gaming, Keno, Real Money Casino Game`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/lottery` },
 				{
