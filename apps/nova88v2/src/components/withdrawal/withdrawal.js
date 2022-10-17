@@ -54,8 +54,10 @@ export default () => {
 						maxTimes,
 						withdrawalTimes,
 						eWalletWithdrawalMin,
-						eWalletStatus
+						eWalletStatus,
+						eWalletWithdrawalAvailableAmount
 					} = res.data.data;
+
 					dispatch({
 						type: defActionType.SET_WITHDRAWAL_AMOUNT_LIMIT,
 						withdrawalMin,
@@ -65,7 +67,8 @@ export default () => {
 						maxTimes,
 						withdrawalTimes,
 						eWalletWithdrawalMin,
-						eWalletStatus
+						eWalletStatus,
+						eWalletWithdrawalAvailableAmount
 					});
 				} else if (res.data.errorCode !== 0) {
 					errorPopBox(
