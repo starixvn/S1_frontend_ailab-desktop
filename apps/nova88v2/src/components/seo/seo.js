@@ -86,7 +86,7 @@ function SEO({ meta, getFromAPI }) {
 				lang,
 				class: "newIndex"
 			}}
-			title={_title}
+			// title={_title}
 			link={[
 				...links,
 				{
@@ -149,8 +149,10 @@ function SEO({ meta, getFromAPI }) {
 					content: `${bannerImgUrl}/img/thumbnail/thumbnail_001.jpg`
 				},
 				...meta
-			]}
-		/>
+			]}>
+			<title>{_title}</title>
+			<meta name="description" content={_description} />
+		</Helmet>
 	);
 }
 
