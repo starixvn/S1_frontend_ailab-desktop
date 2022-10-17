@@ -5,7 +5,7 @@ import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
 import { defCurrencyList } from "../common/common";
-import { reCaptchaEnum } from "./join.def";
+import { reCaptchaDomainList, reCaptchaEnum } from "./join.def";
 
 const JoinForm = ({
 	t,
@@ -52,8 +52,7 @@ const JoinForm = ({
 								className="btn-line"
 								onClick={e => {
 									handleLineRegister(e);
-								}}
-							>
+								}}>
 								<i className="icon icon-line-bold" />
 								{t("lineRegister.lbl_RegisterWithLine")}
 							</button>
@@ -206,7 +205,11 @@ const JoinForm = ({
 
 		<ReCAPTCHA
 			class="g-recaptcha"
-			sitekey="6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
+			sitekey={
+				reCaptchaDomainList.includes(window.location.hostname)
+					? "6LcEuIgiAAAAADa7zajxtsWTsc5F6J54KMPKIgH3"
+					: "6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
+			}
 			onChange={reCaptchaOnChange}
 			hl={reCaptchaEnum[langId]}
 		/>
