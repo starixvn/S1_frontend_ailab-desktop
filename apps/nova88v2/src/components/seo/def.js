@@ -3,8 +3,8 @@ import path from "../../router";
 export const defMetaData = {
 	[path.home.root]: {
 		en: {
-			title: `Nova88 - The Best Online Sportsbook, Casino and Online Gambling in Asia`,
-			description: `Nova88 is Asia's best and most trusted online betting and gambling site. Join and play sportsbook, live casino, casino slot, lottery, keno, and fishing.`,
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88.net/en/` },
@@ -178,8 +178,8 @@ export const defMetaData = {
 			]
 		},
 		my: {
-			title: `Nova88 - The Best Online Sportsbook, Casino and Online Gambling in Asia`,
-			description: `Nova88 is Asia's best and most trusted online betting and gambling site. Join and play sportsbook, live casino, casino slot, lottery, keno, and fishing.`,
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88mas.com/my/` },
@@ -221,8 +221,8 @@ export const defMetaData = {
 			]
 		},
 		hi: {
-			title: `Nova88 - The Best Online Sportsbook, Casino and Online Gambling in Asia`,
-			description: `Nova88 is Asia's best and most trusted online betting and gambling site. Join and play sportsbook, live casino, casino slot, lottery, keno, and fishing.`,
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88india.com/hi/` },
@@ -264,8 +264,8 @@ export const defMetaData = {
 			]
 		},
 		bd: {
-			title: `Nova88 - The Best Online Sportsbook, Casino and Online Gambling in Asia`,
-			description: `Nova88 is Asia's best and most trusted online betting and gambling site. Join and play sportsbook, live casino, casino slot, lottery, keno, and fishing.`,
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
 			links: [
 				{ rel: "canonical", href: `https://www.nova88106.net/bd/` },
@@ -472,358 +472,10 @@ export const defMetaData = {
 			]
 		}
 	},
-	[path.casino.root]: {
-		en: {
-			title: `Nova88 - Online Slots Gambling Game Malaysia`,
-			description: `Nova88 is the hottest and latest online casino slots games in Malaysia. Spin and Win real money slots, jackpot slots, 918kiss, mega888, pragmatic play slots.`,
-			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
-			links: [
-				{ rel: "canonical", href: `https://www.nova88.net/en/slots` },
-				{
-					rel: "alternate",
-					href: "https://www.nova88.net/en/slots",
-					hreflang: "en-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88mas.com/my/slots",
-					hreflang: "ms-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88-indo805.info/id/slots",
-					hreflang: "id-id"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88bkk.com/th/slots",
-					hreflang: "th-th"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88india.com/hi/slots",
-					hreflang: "hi-in"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88105.net/cs/slots",
-					hreflang: "zh-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88106.net/bd/slots",
-					hreflang: "bn-bd"
-				}
-			]
-		},
-		cs: {
-			title: `Nova88 欧亚体育 - 马来西亚在线电子老虎机`,
-			description: `Nova88 欧亚体育马来西亚最热门和最新的在线赌场老虎机游戏。 旋转并赢得奖金，积宝大奖老虎机，918kiss，mega888，Pragmatic Play。`,
-			keyword: `Nova88 欧亚体育，Nova88 欧亚体育老虎机 , 918kiss, mega88, Pragmatic Play, 线上老虎机, 在线老虎机, 在线电子游戏, 积宝奖金老虎机, 现金老虎机`,
-			links: [
-				{
-					rel: "canonical",
-					href: `https://www.nova88105.net/cs/slots`
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88.net/en/slots",
-					hreflang: "en-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88mas.com/my/slots",
-					hreflang: "ms-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88-indo805.info/id/slots",
-					hreflang: "id-id"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88bkk.com/th/slots",
-					hreflang: "th-th"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88india.com/hi/slots",
-					hreflang: "hi-in"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88105.net/cs/slots",
-					hreflang: "zh-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88106.net/bd/slots",
-					hreflang: "bn-bd"
-				}
-			]
-		},
-		th: {
-			title: `Nova88 - การเดิมพันเกมส์สล็อตออนไลน์ในไทย`,
-			description: `Nova88  เว็บสล็อตคาสิโนออนไลน์ที่ใหม่และมาแรงที่สุดในไทย เล่นจริง จ่ายจริง!  Jackpot สล็อต, 918kiss, mega888, pragmatic  เล่นเลย.`,
-			keyword: `Nova88, สล็อต Nova88, 918kiss, mega88, pragmatic slot, สล็อตออนไลน์, สล็อตคาสิโนออนไลน์, คาสิโนสล็อต, สล็อตที่ดีที่สุด, จ่ายจริง`,
-			links: [
-				{
-					rel: "canonical",
-					href: `https://www.nova88bkk.com/th/slots`
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88.net/en/slots",
-					hreflang: "en-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88mas.com/my/slots",
-					hreflang: "ms-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88-indo805.info/id/slots",
-					hreflang: "id-id"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88bkk.com/th/slots",
-					hreflang: "th-th"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88india.com/hi/slots",
-					hreflang: "hi-in"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88105.net/cs/slots",
-					hreflang: "zh-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88106.net/bd/slots",
-					hreflang: "bn-bd"
-				}
-			]
-		},
-		id: {
-			title: `Nova88 - Situs Judi Slot Mesin Online Indonesia`,
-			description: `Nova88 adalah Situs Slot Online, Judi slot jackpot terpopuler dan terbaru di Indonesia. Putar dan menangkan uang asli di Slot Mesin Pragmatic, Joker123`,
-			keyword: `Nova88, Nova88 Slot Mesin Online, Slot online, Judi Mesin Slot, Slot Kasino, Slot pragmatic, slot joker123.`,
-			links: [
-				{
-					rel: "canonical",
-					href: `https://www.nova88-indo805.info/id/slots`
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88.net/en/slots",
-					hreflang: "en-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88mas.com/my/slots",
-					hreflang: "ms-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88-indo805.info/id/slots",
-					hreflang: "id-id"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88bkk.com/th/slots",
-					hreflang: "th-th"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88india.com/hi/slots",
-					hreflang: "hi-in"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88105.net/cs/slots",
-					hreflang: "zh-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88106.net/bd/slots",
-					hreflang: "bn-bd"
-				}
-			]
-		}
-	},
-	[path.vip.root]: {
-		en: {
-			links: [
-				{ rel: "canonical", href: `https://www.nova88.net/en/vip` },
-				{
-					rel: "alternate",
-					href: "https://www.nova88.net/en/vip",
-					hreflang: "en-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88mas.com/my/vip",
-					hreflang: "ms-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88-indo805.info/id/vip",
-					hreflang: "id-id"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88bkk.com/th/vip",
-					hreflang: "th-th"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88india.com/hi/vip",
-					hreflang: "hi-in"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88105.net/cs/vip",
-					hreflang: "zh-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88106.net/bd/vip",
-					hreflang: "bn-bd"
-				}
-			]
-		},
-		cs: {
-			links: [
-				{ rel: "canonical", href: `https://www.nova88105.net/cs/vip` },
-				{
-					rel: "alternate",
-					href: "https://www.nova88.net/en/vip",
-					hreflang: "en-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88mas.com/my/vip",
-					hreflang: "ms-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88-indo805.info/id/vip",
-					hreflang: "id-id"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88bkk.com/th/vip",
-					hreflang: "th-th"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88india.com/hi/vip",
-					hreflang: "hi-in"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88105.net/cs/vip",
-					hreflang: "zh-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88106.net/bd/vip",
-					hreflang: "bn-bd"
-				}
-			]
-		},
-		th: {
-			links: [
-				{ rel: "canonical", href: `https://www.nova88bkk.com/th/vip` },
-				{
-					rel: "alternate",
-					href: "https://www.nova88.net/en/vip",
-					hreflang: "en-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88mas.com/my/vip",
-					hreflang: "ms-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88-indo805.info/id/vip",
-					hreflang: "id-id"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88bkk.com/th/vip",
-					hreflang: "th-th"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88india.com/hi/vip",
-					hreflang: "hi-in"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88105.net/cs/vip",
-					hreflang: "zh-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88106.net/bd/vip",
-					hreflang: "bn-bd"
-				}
-			]
-		},
-		id: {
-			links: [
-				{
-					rel: "canonical",
-					href: `https://www.nova88-indo805.info/id/vip`
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88.net/en/vip",
-					hreflang: "en-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88mas.com/my/vip",
-					hreflang: "ms-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88-indo805.info/id/vip",
-					hreflang: "id-id"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88bkk.com/th/vip",
-					hreflang: "th-th"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88india.com/hi/vip",
-					hreflang: "hi-in"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88105.net/cs/vip",
-					hreflang: "zh-my"
-				},
-				{
-					rel: "alternate",
-					href: "https://www.nova88106.net/bd/vip",
-					hreflang: "bn-bd"
-				}
-			]
-		}
-	},
 	[path.promotion.root]: {
 		en: {
-			title: `Nova88 - Online Casino Promotions`,
-			description: `Nova88 promotion offered to boost your winning chances, from welcome bonus, cash rebates, reload bonus, and special bonuses tailored for you. Claim now!`,
+			title: `Nova88 Promotion | Trusted Live Casino | Welcome Bonus`,
+			description: `Looking For The Best Live Casino Bonuses and Rewards? Don't Miss Out Our Monthly Exclusive Promotions! Play And Earn More Bonus With Nova88 now!`,
 			keyword: `Nova88, Nova88 promotion, welcome bonus, deposit bonus, online casino bonus, reload bonus, redeposit bonus, casino slot bonus, freebet`,
 			links: [
 				{
@@ -1006,10 +658,54 @@ export const defMetaData = {
 			]
 		}
 	},
+	[path.vip.root]: {
+		en: {
+			title: `Nova88 VIP Program | VIP Member | Exclusive Rewards`,
+			description: `Become Nova88 Exclusive VIP Today To Enjoy The Benefits And Privileges With Difference Membership Tier. Play More, Rewards More. Hurry, We Are Waiting For You!`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88.net/en/vip` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/vip",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/vip",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/vip",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/vip",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/vip",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/vip",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/vip",
+					hreflang: "bn-bd"
+				}
+			]
+		}
+	},
 	[path.sports.root]: {
 		en: {
-			title: `Nova88 - Asia's Most Trusted Online Sportsbooks`,
-			description: `Nova88 Sportsbook betting offers you the most sports event, the best odds and Asian handicap, with live stream, also special number games. Play now!`,
+			title: `Nova88 | Asia Most Trusted Sportsbook | SABA Sports`,
+			description: `Nova88 Offers Wide Variety of Sports Games To Keep Players Entertained. Officially Licensed and Subsidiary of SABA Sports. Don't Miss Any Betting Opportunity!`,
 			keyword: `Nova88, Nova88 sportsbook, online football, online betting, live score, basketball bookie, soccer matches, online sports, football games`,
 			links: [
 				{
@@ -1187,6 +883,465 @@ export const defMetaData = {
 				{
 					rel: "alternate",
 					href: "https://www.nova88106.net/bd/leaderBoard",
+					hreflang: "bn-bd"
+				}
+			]
+		}
+	},
+	[path.eSport.root]: {
+		en: {
+			title: `Nova88 |  Esports Betting | Esports Casino`,
+			description: `Bet At Nova88, The Most Popular Esports Games such as Dota2, LOL, CS:GO and King of Glory. Get Excited About The Latest Esports Betting Odds. Start now!`,
+			keyword: `Nova88, Nova88 sportsbook, online football, online betting, live score, basketball bookie, soccer matches, online sports, football games`,
+			links: [
+				{
+					rel: "canonical",
+					href: `https://www.nova88.net/en/eSport`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/eSport",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/eSport",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/eSport",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/eSport",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/eSport",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/eSport",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/eSport",
+					hreflang: "bn-bd"
+				}
+			]
+		}
+	},
+	[path.liveCasino.root]: {
+		en: {
+			title: `Nova88 | Trusted Live Casino | Play & Win!`,
+			description: `Nova88 Has Been In The Industry For Over 20 Years. There Are Various of Live Casino Games Offered, Such As Baccarat, Roulette, Blackjack, Poker And Many More.`,
+			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			links: [
+				{
+					rel: "canonical",
+					href: `https://www.nova88.net/en/liveCasino`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/liveCasino",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/liveCasino",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/liveCasino",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/liveCasino",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/liveCasino",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/liveCasino",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/liveCasino",
+					hreflang: "bn-bd"
+				}
+			]
+		}
+	},
+	[path.casino.root]: {
+		en: {
+			title: `Nova88 | Best Online Slots | Asia's Most Trusted Platform`,
+			description: `Explore More Slot Games in Nova88. Login Everyday And Enjoy The Games. Get Appreciation Token and Weekly Free Spins From Us. Don't Miss Out, Claim Now!`,
+			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88.net/en/slots` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/slots",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		cs: {
+			title: `Nova88 欧亚体育 - 马来西亚在线电子老虎机`,
+			description: `Nova88 欧亚体育马来西亚最热门和最新的在线赌场老虎机游戏。 旋转并赢得奖金，积宝大奖老虎机，918kiss，mega888，Pragmatic Play。`,
+			keyword: `Nova88 欧亚体育，Nova88 欧亚体育老虎机 , 918kiss, mega88, Pragmatic Play, 线上老虎机, 在线老虎机, 在线电子游戏, 积宝奖金老虎机, 现金老虎机`,
+			links: [
+				{
+					rel: "canonical",
+					href: `https://www.nova88105.net/cs/slots`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/slots",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		th: {
+			title: `Nova88 - การเดิมพันเกมส์สล็อตออนไลน์ในไทย`,
+			description: `Nova88  เว็บสล็อตคาสิโนออนไลน์ที่ใหม่และมาแรงที่สุดในไทย เล่นจริง จ่ายจริง!  Jackpot สล็อต, 918kiss, mega888, pragmatic  เล่นเลย.`,
+			keyword: `Nova88, สล็อต Nova88, 918kiss, mega88, pragmatic slot, สล็อตออนไลน์, สล็อตคาสิโนออนไลน์, คาสิโนสล็อต, สล็อตที่ดีที่สุด, จ่ายจริง`,
+			links: [
+				{
+					rel: "canonical",
+					href: `https://www.nova88bkk.com/th/slots`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/slots",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
+				}
+			]
+		},
+		id: {
+			title: `Nova88 - Situs Judi Slot Mesin Online Indonesia`,
+			description: `Nova88 adalah Situs Slot Online, Judi slot jackpot terpopuler dan terbaru di Indonesia. Putar dan menangkan uang asli di Slot Mesin Pragmatic, Joker123`,
+			keyword: `Nova88, Nova88 Slot Mesin Online, Slot online, Judi Mesin Slot, Slot Kasino, Slot pragmatic, slot joker123.`,
+			links: [
+				{
+					rel: "canonical",
+					href: `https://www.nova88-indo805.info/id/slots`
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/slots",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/slots",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/slots",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/slots",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/slots",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/slots",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/slots",
+					hreflang: "bn-bd"
+				}
+			]
+		}
+	},
+	[path.oneGame.root]: {
+		en: {
+			title: `Nova88 | Online Poker Games | Best Poker Sites`,
+			description: `Enjoy The Thrilling Online Poker Games At Nova88. Join Now To Play With Real Money And Stand A Chance To Double Your Wins!`,
+			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88.net/en/oneGame` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/oneGame",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/oneGame",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/oneGame",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/oneGame",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/oneGame",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/oneGame",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/oneGame",
+					hreflang: "bn-bd"
+				}
+			]
+		}
+	},
+	[path.game.root]: {
+		en: {
+			title: `Nova88 | Casino Games | Virtual Games`,
+			description: `Play The Simple, Fun And Easy Games At Nova88. We Strives To Provide Good Quality Entertainment Games For Our Players. Access To Your Favourite Games Now!`,
+			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88.net/en/game` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/game",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/game",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/game",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/game",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/game",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/game",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/game",
+					hreflang: "bn-bd"
+				}
+			]
+		}
+	},
+	[path.fishing.root]: {
+		en: {
+			title: `Nova88 | Fishing Online | Best Fishing Games`,
+			description: `Fishing Online At Nova88, Immerse Yourself Into The Deep of Sea. Select Some Juicy Bait, Shoot Down Various Sea Creatures To Collect Points And Rewards.`,
+			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88.net/en/fishing` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/fishing",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/fishing",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/fishing",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/fishing",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/fishing",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/fishing",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/fishing",
+					hreflang: "bn-bd"
+				}
+			]
+		}
+	},
+	[path.lottery.root]: {
+		en: {
+			title: `Nova88 | Online Lottery | Casino Game`,
+			description: `Nova88 Offer Keno, Lottery, Number Game And Table Game That Are Fast, Fun and Easy To Play. Each Draw Last Only A Few Minutes And Settlement Is Fast.`,
+			keyword: `Nova88, Nova88 slots, 918kiss, mega88, pragmatic slot, online slots, online casino slots, casino slots, progressive slots, real money slots`,
+			links: [
+				{ rel: "canonical", href: `https://www.nova88.net/en/lottery` },
+				{
+					rel: "alternate",
+					href: "https://www.nova88.net/en/lottery",
+					hreflang: "en-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88mas.com/my/lottery",
+					hreflang: "ms-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88-indo805.info/id/lottery",
+					hreflang: "id-id"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88bkk.com/th/lottery",
+					hreflang: "th-th"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88india.com/hi/lottery",
+					hreflang: "hi-in"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88105.net/cs/lottery",
+					hreflang: "zh-my"
+				},
+				{
+					rel: "alternate",
+					href: "https://www.nova88106.net/bd/lottery",
 					hreflang: "bn-bd"
 				}
 			]

@@ -8,12 +8,13 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
-// import { useLocation } from "@reach/router";
+import { useTranslation } from "react-i18next";
 import { defMetaData } from "./def";
-// import { defLangList } from "../../datas/languageData";
 import { api_site_seo } from "../../service/api/site";
 import usePopBox from "../hook/usePopBox";
 import { bannerImgUrl } from "../../config";
+
+const url = "https://www.nova88.net/";
 
 export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 	const [SEODatas, setSEODatas] = useState(null);
@@ -39,38 +40,45 @@ export const useGetSEODatas = ({ getFromAPI = false, errorPopBox }) => {
 	return { SEODatas };
 };
 
-function SEO({ lang, meta, getFromAPI }) {
+function SEO({ meta, getFromAPI }) {
+	const { i18n } = useTranslation();
 	const { errorPopBox } = usePopBox();
 	const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
 
-	// const isBrowser = () => typeof window !== "undefined";
-	// const location =
-	// 	isBrowser && window?.pathname?.split("/").filter(p => p !== "");
+	const isBrowser = () => typeof window !== "undefined";
+	const location = isBrowser ? window.location.pathname : "";
+	const pathArr = location?.split("/").filter(p => p !== "");
+	// isBrowser && window?.pathname?.split("/").filter(p => p !== "");
+
+	const lang = i18n.language;
 
 	if (getFromAPI && SEODatas === null) return null;
 
 	const metaData = defMetaData["/"];
-	const _title = SEODatas?.title ?? metaData?.[lang]?.title ?? "";
-	const _keyword = SEODatas?.keyword ?? metaData?.[lang]?.keyword ?? "";
-	const _description = SEODatas?.meta ?? metaData?.[lang]?.description ?? "";
-	const links = metaData?.[lang]?.links ?? [];
+	let _title =
+		SEODatas?.title ?? metaData?.[lang]?.title ?? metaData.en.title;
+	let _keyword = SEODatas?.keyword ?? metaData?.[lang]?.keyword ?? "";
+	let _description = SEODatas?.meta ?? metaData?.[lang]?.description ?? "";
+	let links = metaData?.[lang]?.links ?? [];
 
-	// if (
-	// 	location &&
-	// 	location.length >= 2 &&
-	// 	defLangList.includes(location[0]) &&
-	// 	defMetaData[location[1]]
-	// ) {
-	// 	metaData = defMetaData[location[1]] ?? metaData;
-	// 	_title = defMetaData[location[1]]?.[lang]?.title ?? _title;
-
-	// 	_keyword = defMetaData[location[1]]?.[lang]?.keyword ?? _keyword;
-
-	// 	_description =
-	// 		defMetaData[location[1]]?.[lang]?.description ?? _description;
-
-	// 	links = defMetaData[location[1]]?.[lang]?.links ?? links;
-	// }
+	if (pathArr.length >= 2 && defMetaData[pathArr[1]]) {
+		_title =
+			defMetaData[pathArr[1]]?.[lang]?.title ??
+			defMetaData[pathArr[1]]?.en?.title ??
+			_title;
+		_keyword =
+			defMetaData[pathArr[1]]?.[lang]?.keyword ??
+			defMetaData[pathArr[1]]?.en?.keyword ??
+			_keyword;
+		_description =
+			defMetaData[pathArr[1]]?.[lang]?.description ??
+			defMetaData[pathArr[1]]?.en?.description ??
+			_description;
+		links =
+			defMetaData[pathArr[1]]?.[lang]?.links ??
+			defMetaData[pathArr[1]]?.en?.links ??
+			links;
+	}
 
 	return (
 		<Helmet
@@ -97,6 +105,14 @@ function SEO({ lang, meta, getFromAPI }) {
 					content: _keyword
 				},
 				{
+					property: `og:url`,
+					content: url
+				},
+				{
+					property: `og:type`,
+					content: `website`
+				},
+				{
 					property: `og:title`,
 					content: _title
 				},
@@ -108,18 +124,17 @@ function SEO({ lang, meta, getFromAPI }) {
 					property: `og:image`,
 					content: `${bannerImgUrl}/img/thumbnail/thumbnail_001.jpg`
 				},
-
-				{
-					property: `og:type`,
-					content: `website`
-				},
 				{
 					name: `twitter:card`,
-					content: `summary`
+					content: `summary_large_image`
 				},
 				{
-					name: `twitter:creator`,
-					content: _title
+					name: `twitter:domain`,
+					content: `nova88.net`
+				},
+				{
+					name: `twitter:url`,
+					content: url
 				},
 				{
 					name: `twitter:title`,
@@ -132,20 +147,19 @@ function SEO({ lang, meta, getFromAPI }) {
 				{
 					name: `twitter:image`,
 					content: `${bannerImgUrl}/img/thumbnail/thumbnail_001.jpg`
-				}
-			].concat(meta)}
+				},
+				...meta
+			]}
 		/>
 	);
 }
 
 SEO.defaultProps = {
-	lang: `en`,
 	meta: [],
 	getFromAPI: true
 };
 
 SEO.propTypes = {
-	lang: PropTypes.string,
 	meta: PropTypes.arrayOf(PropTypes.object),
 	getFromAPI: PropTypes.bool
 };
