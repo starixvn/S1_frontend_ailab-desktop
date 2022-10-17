@@ -44,13 +44,13 @@ function SEO({ meta, getFromAPI }) {
 	const { i18n } = useTranslation();
 	const { errorPopBox } = usePopBox();
 	const { SEODatas } = useGetSEODatas({ getFromAPI, errorPopBox });
-
-	const isBrowser = () => typeof window !== "undefined";
-	const location = isBrowser ? window.location.pathname : "";
-	const pathArr = location?.split("/").filter(p => p !== "");
-	// isBrowser && window?.pathname?.split("/").filter(p => p !== "");
-
 	const lang = i18n.language;
+
+	let location = "";
+	if (typeof window !== "undefined") {
+		location = window.location.pathname;
+	}
+	const pathArr = location?.split("/").filter(p => p !== "");
 
 	if (getFromAPI && SEODatas === null) return null;
 
