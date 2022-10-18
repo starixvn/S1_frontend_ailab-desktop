@@ -304,7 +304,8 @@ const CardPanel = ({
 				/>
 			)}
 			{(userInfo.currencyId === defCurrencyList.IDR ||
-				userInfo.currencyId === defCurrencyList.BDT) &&
+				userInfo.currencyId === defCurrencyList.BDT ||
+				userInfo.currencyId === defCurrencyList.MYR) &&
 				state.eWalletStatus && (
 					<ECard
 						t={t}
