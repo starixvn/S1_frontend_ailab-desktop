@@ -16,13 +16,17 @@ import { bannerImgUrl } from "../../config";
 
 const url = "https://www.nova88.net/";
 
+let location = "";
+if (typeof window !== "undefined") {
+	location = window.location.pathname;
+}
+const pathArr = location?.split("/").filter(p => p !== "");
+
 const metaData = defMetaData["/"];
-const defSEOData = {
-	title: metaData.en.title,
-	description: metaData.en.description,
-	keyword: metaData.en.keyword,
-	links: metaData.en.links
-};
+const defSEOData =
+	pathArr.length >= 2 && defMetaData[pathArr[1]]
+		? defMetaData[pathArr[1]]?.en
+		: metaData.en;
 
 export const useGetSEODatas = () => {
 	const { i18n } = useTranslation();
@@ -30,12 +34,6 @@ export const useGetSEODatas = () => {
 	const [SEODatas, setSEODatas] = useState(defSEOData);
 
 	const lang = i18n.language;
-
-	let location = "";
-	if (typeof window !== "undefined") {
-		location = window.location.pathname;
-	}
-	const pathArr = location?.split("/").filter(p => p !== "");
 
 	useEffect(() => {
 		GetDatas();
@@ -57,7 +55,7 @@ export const useGetSEODatas = () => {
 			};
 			setSEODatas({ ...SEODatas, ...allData } ?? {});
 		}
-	}, []);
+	}, [location]);
 
 	const GetDatas = async () => {
 		try {
@@ -88,40 +86,6 @@ function SEO({ meta }) {
 	const { i18n } = useTranslation();
 	const { SEODatas } = useGetSEODatas();
 	const lang = i18n.language;
-
-	// let location = "";
-	// if (typeof window !== "undefined") {
-	// 	location = window.location.pathname;
-	// }
-	// const pathArr = location?.split("/").filter(p => p !== "");
-
-	// const metaData = defMetaData["/"];
-	// let _title =
-	// 	SEODatas?.title ?? metaData?.[lang]?.title ?? metaData.en.title;
-	// let _keyword = SEODatas?.keyword ?? metaData?.[lang]?.keyword ?? "";
-	// let _description = SEODatas?.meta ?? metaData?.[lang]?.description ?? "";
-	// let links = metaData?.[lang]?.links ?? [];
-
-	// if (pathArr.length >= 2 && defMetaData[pathArr[1]]) {
-	// 	_title =
-	// 		defMetaData[pathArr[1]]?.[lang]?.title ??
-	// 		defMetaData[pathArr[1]]?.en?.title ??
-	// 		_title;
-	// 	_keyword =
-	// 		defMetaData[pathArr[1]]?.[lang]?.keyword ??
-	// 		defMetaData[pathArr[1]]?.en?.keyword ??
-	// 		_keyword;
-	// 	_description =
-	// 		defMetaData[pathArr[1]]?.[lang]?.description ??
-	// 		defMetaData[pathArr[1]]?.en?.description ??
-	// 		_description;
-	// 	links =
-	// 		defMetaData[pathArr[1]]?.[lang]?.links ??
-	// 		defMetaData[pathArr[1]]?.en?.links ??
-	// 		links;
-	// }
-
-	// if (getFromAPI && SEODatas === null) return null;
 
 	return (
 		<Helmet
