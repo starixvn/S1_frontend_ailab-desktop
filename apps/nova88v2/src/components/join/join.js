@@ -395,7 +395,9 @@ export default () => {
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
-			const _reCaptchaCheck = reCaptchaToken !== "";
+			const _reCaptchaCheck =
+				reCaptchaToken !== "" ||
+				userInfo.currencyId === defCurrencyList.CNY;
 
 			const checked =
 				_usernameCheck.checked &&

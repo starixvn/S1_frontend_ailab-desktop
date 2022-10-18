@@ -203,16 +203,18 @@ const JoinForm = ({
 			/>
 		</div>
 
-		<ReCAPTCHA
-			class="g-recaptcha"
-			sitekey={
-				reCaptchaDomainExtraList.includes(window.location.hostname)
-					? "6LcEuIgiAAAAADa7zajxtsWTsc5F6J54KMPKIgH3"
-					: "6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
-			}
-			onChange={reCaptchaOnChange}
-			hl={reCaptchaEnum[langId]}
-		/>
+		{currencyId !== defCurrencyList.CNY && (
+			<ReCAPTCHA
+				class="g-recaptcha"
+				sitekey={
+					reCaptchaDomainExtraList.includes(window.location.hostname)
+						? "6LcEuIgiAAAAADa7zajxtsWTsc5F6J54KMPKIgH3"
+						: "6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
+				}
+				onChange={reCaptchaOnChange}
+				hl={reCaptchaEnum[langId]}
+			/>
+		)}
 
 		<div className="Terms">
 			{t("lbl_sign_up_terms_start")}
