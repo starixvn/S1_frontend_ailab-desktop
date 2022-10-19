@@ -587,7 +587,6 @@ export default () => {
 	const handleReCaptchaChange = token => {
 		setReCaptchaToken(token);
 	};
-
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
