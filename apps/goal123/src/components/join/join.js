@@ -35,6 +35,7 @@ export default () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
+	const [reCaptchaToken, setReCaptchaToken] = useState("");
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const configSiteName = config.siteName;
@@ -250,9 +251,11 @@ export default () => {
 		const _usernameCheck = usernameCheck(userValue.username);
 		const _passwordCheck = passwordCheck(userValue.password);
 		const _agreeCheck = userValue.agreeCheck;
+		const _reCaptchaCheck = reCaptchaToken !== "";
 
 		const checked =
-			_usernameCheck.checked && _passwordCheck.checked && _agreeCheck;
+			_usernameCheck.checked && _passwordCheck.checked && _agreeCheck &&
+			_reCaptchaCheck;
 
 		if (!checked) {
 			let checkboxMsg = "";
@@ -309,7 +312,8 @@ export default () => {
 				CurrencyId: siteCurrency[userValue.currency].id,
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
-				ReferralUrl: document.referrer
+				ReferralUrl: document.referrer,
+				ReCaptchaToken: reCaptchaToken
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -409,6 +413,10 @@ export default () => {
 		});
 	};
 
+	const handleReCaptchaChange = token => {
+		setReCaptchaToken(token);
+	};
+
 	return (
 		<div className="joinloginModule">
 			<img
@@ -436,6 +444,8 @@ export default () => {
 				tandCRule={tandCRule}
 				clickCancel={clickCancel}
 				clickSubmit={clickSubmit}
+				langId={userInfo.langId}
+				reCaptchaOnChange={handleReCaptchaChange}
 			/>
 		</div>
 	);
