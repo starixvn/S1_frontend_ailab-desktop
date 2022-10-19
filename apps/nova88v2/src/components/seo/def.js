@@ -3,7 +3,7 @@ import path from "../../router";
 export const defMetaData = {
 	[path.home.root]: {
 		en: {
-			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Asia`,
+			title: `Nova88 | Nova88 Slot | Nova88 Casino | Nova88 Bet`,
 			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Asia Most Trusted Sportsbook, Live Casino, Slot Games, SABA Sports, Online Casino, Online Betting`,
 			links: [
