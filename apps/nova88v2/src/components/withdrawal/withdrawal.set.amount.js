@@ -44,18 +44,18 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 			});
 		}
 	}, [userInfo.currencyId]);
-	const eWalletSysList = [
-		"Dana",
-		"LinkAja",
-		"GoPay",
-		"Ovo",
-		"Sakuku",
-		"Doku",
-		"ShopeePay"
-	];
-	const isEWalletItemSelected = eWalletSysList.includes(
-		state.selectedAccount?.bankName
-	);
+
+	const isEWalletSelectedHandler = () => {
+		const target = state.custEWalletInfo.find(
+			item =>
+				item.accountNo === state.selectedAccount.accountNo &&
+				item.eWalletName === state.selectedAccount.bankName
+		);
+		return Boolean(target);
+	};
+
+	const isEWalletItemSelected = isEWalletSelectedHandler();
+
 	const formatAmount = _val => number_format(_val, _isConvert, 0);
 	const EditAmount = Value => {
 		const value = String(Value).replace(/^(0+)|[^\d]+/g, "");
@@ -245,14 +245,17 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 						// clickInfo={clickInfo}
 						placeholder={
 							isEWalletItemSelected
-								? `${t("lbl_MinMaxAmount")} ${formatAmount(
-										state.eWalletWithdrawalMin
-								  )} / ${
+								? `${t("lbl_MinMaxAmount")} ${
+										_isConvert
+											? state.eWalletWithdrawalMin / 1000
+											: state.eWalletWithdrawalMin
+								  } / ${
 										state.unlimited
 											? t("lbl_Unlimited")
-											: formatAmount(
-													state.eWalletWithdrawalAvailableAmount
-											  )
+											: _isConvert
+											? state.eWalletWithdrawalAvailableAmount /
+											  1000
+											: state.eWalletWithdrawalAvailableAmount
 								  }`
 								: ""
 						}
