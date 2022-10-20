@@ -30,7 +30,8 @@ const JoinForm = ({
 	currencyId,
 	lineUserId,
 	areaCodeList,
-	reCaptchaOnChange
+	reCaptchaOnChange,
+	recaptchaInfo
 }) => (
 	<form className="joinloginFunction" onSubmit={clickSubmit}>
 		<span className="title txt-blue">{t("lbl_JoinNow")}</span>
@@ -203,18 +204,15 @@ const JoinForm = ({
 			/>
 		</div>
 
-		{currencyId !== defCurrencyList.CNY && (
-			<ReCAPTCHA
-				class="g-recaptcha"
-				sitekey={
-					reCaptchaDomainExtraList.includes(window.location.hostname)
-						? "6LcEuIgiAAAAADa7zajxtsWTsc5F6J54KMPKIgH3"
-						: "6LfAe2IhAAAAAF4Hrt_WLm7cu_484dw7oYhZoBE5"
-				}
-				onChange={reCaptchaOnChange}
-				hl={reCaptchaEnum[langId]}
-			/>
-		)}
+		{Object.keys(recaptchaInfo).length > 0 &&
+			recaptchaInfo.country !== "CN" && (
+				<ReCAPTCHA
+					class="g-recaptcha"
+					sitekey={recaptchaInfo.siteKey}
+					onChange={reCaptchaOnChange}
+					hl={reCaptchaEnum[langId]}
+				/>
+			)}
 
 		<div className="Terms">
 			{t("lbl_sign_up_terms_start")}
@@ -246,7 +244,8 @@ JoinForm.defaultProps = {
 	langId: "en",
 	currencyId: null,
 	lineUserId: "",
-	reCaptchaOnChange: null
+	reCaptchaOnChange: null,
+	recaptchaInfo: null
 };
 
 JoinForm.propTypes = {
@@ -272,7 +271,8 @@ JoinForm.propTypes = {
 	currencyId: PropTypes.number,
 	lineUserId: PropTypes.string,
 	areaCodeList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	reCaptchaOnChange: PropTypes.func
+	reCaptchaOnChange: PropTypes.func,
+	recaptchaInfo: PropTypes.objectOf(PropTypes.any)
 };
 
 const AreaCodeDropdown = ({
