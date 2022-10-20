@@ -8,6 +8,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import { SET_ENTER_PAGE } from "../../service/enterPage";
 import { cloudImgUrl } from "../../config";
 import { defCurrencyList } from "../common/common";
+import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 const useHandleLogoList = () => {
 	const [onMouseOverImg, setOnMouseOverImg] = useState({});
@@ -166,7 +167,7 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			parameter: { ...productList.casino_AMB },
 			imgName: "casino_amb",
 			hoverImgName: "casino_amba",
-			allowCurrencies: [defCurrencyList.THB]
+			allowCurrencies: allowedCurrencyList.slotAMB
 		}
 	];
 
