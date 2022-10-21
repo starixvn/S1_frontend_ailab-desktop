@@ -2,75 +2,102 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.nova88.net/</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/" />
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/promotion</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/promotion" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/vip/</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/vip" />
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/forgetPassword</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/forgetPassword" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/appDownload</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/appDownload" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/join</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/join" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/sports?tpId=1&amp;gameId=1</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/sports?tpId=1&amp;gameId=1" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/eSport</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/eSport" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/liveCasino</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/liveCasino" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/slots?tab=FEATURED</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/slots?tab=FEATURED" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/oneGame</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/oneGame" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/game</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/game" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/fishing</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/fishing" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.nova88.net/en/lottery</loc>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)"
+    href="http://m.nova88.net/en/lottery" />
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
  <!-- 
   <url>
     <loc>https://aff.nova88.net/</loc>

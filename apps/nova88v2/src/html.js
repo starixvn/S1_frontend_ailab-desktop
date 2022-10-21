@@ -13,6 +13,11 @@ export default function HTML(props) {
 					content="width=device-width, initial-scale=1, shrink-to-fit=no"
 				/>
 				<link
+					rel="alternate"
+					media="only screen and (max-width: 640px)"
+					href="https://m.nova88.net/"
+				/>
+				<link
 					rel="stylesheet"
 					type="text/css"
 					href={`/styles/css/swiper.css?v=${vkey}`}
