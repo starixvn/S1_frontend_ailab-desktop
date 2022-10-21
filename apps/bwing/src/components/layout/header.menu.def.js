@@ -112,15 +112,15 @@ export const defMenuLinks = {
 				parameter: { ...productList.One789_lottery },
 				lobbyPage: { bgClass: "traditional" }
 			},
-			{
-				...productList.One789_lottery_789,
-				path: path.sports.root,
-				className: "one789",
-				displayKey: "lbl_789Lottery",
-				menuType: defMenuType.LinkOrBtn,
-				parameter: { ...productList.One789_lottery_789 },
-				lobbyPage: { bgClass: "lottery789" }
-			},
+			// {
+			// 	...productList.One789_lottery_789,
+			// 	path: path.sports.root,
+			// 	className: "one789",
+			// 	displayKey: "lbl_789Lottery",
+			// 	menuType: defMenuType.LinkOrBtn,
+			// 	parameter: { ...productList.One789_lottery_789 },
+			// 	lobbyPage: { bgClass: "lottery789" }
+			// },
 			{
 				...productList.sabaClub,
 				path: path.sports.root,
