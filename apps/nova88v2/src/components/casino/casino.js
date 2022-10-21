@@ -59,13 +59,7 @@ export default () => {
 	});
 
 	useEffect(() => {
-		const _activeProvider =
-			providerList.find(item => item.tpId === Number(urlTpId)) ?? {};
-		handleProviderChange(_activeProvider);
-	}, [providerList, window.location.search, isProcessing]);
-
-	useEffect(() => {
-		if (activeProvider?.tpId) {
+		if (Object.keys(activeProvider).length > 0) {
 			const filterList = allCategoryList.filter(
 				obj =>
 					Object.keys(obj)[0] === "myFavorite" ||
@@ -104,7 +98,7 @@ export default () => {
 
 	useEffect(() => {
 		onChangeCategory(activeCategory);
-	}, [activeCategory]);
+	}, [activeCategory, activeProvider]);
 
 	useEffect(() => {
 		if (
@@ -256,7 +250,9 @@ export default () => {
 	};
 	const getSlotData = async () => {
 		setIsProcessing(true);
-		api_game_GetSlotGamePage().then(
+		api_game_GetSlotGamePage({
+			currencyId: userInfo.currencyId
+		}).then(
 			res => {
 				const success = res.data.errorCode === 0;
 				if (success) {
@@ -320,8 +316,13 @@ export default () => {
 									const filterPList = tempPList.filter(
 										obj => obj.tpId !== Number(urlTpId)
 									);
-									filterPList.splice(8, 0, _activeProvider);
+									filterPList.splice(11, 0, _activeProvider);
 									setProviderList(filterPList);
+									const _tempList =
+										filterPList.find(
+											obj => obj.tpId === Number(urlTpId)
+										) ?? {};
+									setActiveProvider(_tempList);
 								} else {
 									setProviderList(tempPList);
 								}
@@ -493,7 +494,6 @@ export default () => {
 			!isProcessing && setActiveCategory(category);
 		}
 	};
-
 	const handleProviderChange = provider => {
 		if (!isProcessing) {
 			setActiveProvider(provider);

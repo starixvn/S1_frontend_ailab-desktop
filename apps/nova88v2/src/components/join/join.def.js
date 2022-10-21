@@ -27,3 +27,17 @@ export const currencyToAreacode = {
 	51: "VN",
 	96: "MY"
 };
+
+export const reCaptchaEnum = {
+	en: "en",
+	cs: "zh-CN",
+	hi: "hi",
+	hi_en: "en",
+	id: "id",
+	id_en: "en",
+	my: "ms",
+	th: "th",
+	th_en: "en",
+	bd: "bn",
+	bd_en: "en"
+};

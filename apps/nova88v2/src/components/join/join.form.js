@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import ReCAPTCHA from "react-google-recaptcha";
 import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
 import { defCurrencyList } from "../common/common";
+import { reCaptchaDomainExtraList, reCaptchaEnum } from "./join.def";
 
 const JoinForm = ({
 	t,
@@ -27,7 +29,9 @@ const JoinForm = ({
 	langId,
 	currencyId,
 	lineUserId,
-	areaCodeList
+	areaCodeList,
+	reCaptchaOnChange,
+	recaptchaInfo
 }) => (
 	<form className="joinloginFunction" onSubmit={clickSubmit}>
 		<span className="title txt-blue">{t("lbl_JoinNow")}</span>
@@ -200,6 +204,16 @@ const JoinForm = ({
 			/>
 		</div>
 
+		{Object.keys(recaptchaInfo).length > 0 &&
+			recaptchaInfo.country !== "CN" && (
+				<ReCAPTCHA
+					class="g-recaptcha"
+					sitekey={recaptchaInfo.siteKey}
+					onChange={reCaptchaOnChange}
+					hl={reCaptchaEnum[langId]}
+				/>
+			)}
+
 		<div className="Terms">
 			{t("lbl_sign_up_terms_start")}
 			<a
@@ -222,13 +236,16 @@ const JoinForm = ({
 		</div>
 	</form>
 );
+
 JoinForm.defaultProps = {
 	hasRefOrAffCode: null,
 	_areaCode: null,
 	defaultOption: null,
 	langId: "en",
 	currencyId: null,
-	lineUserId: ""
+	lineUserId: "",
+	reCaptchaOnChange: null,
+	recaptchaInfo: null
 };
 
 JoinForm.propTypes = {
@@ -253,7 +270,9 @@ JoinForm.propTypes = {
 	langId: PropTypes.string,
 	currencyId: PropTypes.number,
 	lineUserId: PropTypes.string,
-	areaCodeList: PropTypes.arrayOf(PropTypes.any).isRequired
+	areaCodeList: PropTypes.arrayOf(PropTypes.any).isRequired,
+	reCaptchaOnChange: PropTypes.func,
+	recaptchaInfo: PropTypes.objectOf(PropTypes.any)
 };
 
 const AreaCodeDropdown = ({

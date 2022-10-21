@@ -20,7 +20,7 @@ const allowedCurrencyList = {
 	// ====products====
 
 	// slot
-	slotAMB: [defCurrencyList.THB, defCurrencyList.USD],
+	slotAMB: [defCurrencyList.THB, defCurrencyList.USD, defCurrencyList.CNY],
 	slotSaba: [
 		defCurrencyList.IDR,
 		defCurrencyList.MYR,

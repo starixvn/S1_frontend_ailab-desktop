@@ -7,7 +7,8 @@ import {
 	api_site_Signup,
 	api_site_ExistsEmail,
 	api_site_ExistsPhoneNo,
-	api_site_GetAffiliateAgent
+	api_site_GetAffiliateAgent,
+	api_site_GetRecaptchaInfo
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
 import TandC from "../../service/t_and_c";
@@ -48,6 +49,8 @@ export default () => {
 	const [tip, setTip] = useState(initTip);
 	const [showPsw, setShowPsw] = useState(false);
 	const [siteCurrency, setSiteCurrency] = useState([]);
+	const [reCaptchaToken, setReCaptchaToken] = useState("");
+	const [recaptchaInfo, setRecaptchaInfo] = useState({});
 	const isMountedRef = useRef(null);
 	const defaultLangId = userInfo.langId ?? GET_LANG_ID();
 	const { errorPopBox } = usePopBox();
@@ -68,7 +71,19 @@ export default () => {
 
 	useEffect(() => {
 		checkUrlParam();
+		getRecaptchaSiteKey();
 	}, []);
+
+	const getRecaptchaSiteKey = async () => {
+		try {
+			const res = await api_site_GetRecaptchaInfo();
+			const { country, siteKey } = res.data.data;
+			setRecaptchaInfo({
+				country,
+				siteKey
+			});
+		} catch (err) {}
+	};
 
 	const checkUrlParam = async () => {
 		const _AffId = getUrlParameter("AffId") || readCookie("AffId");
@@ -394,13 +409,16 @@ export default () => {
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
+			const _reCaptchaCheck =
+				reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 
 			const checked =
 				_usernameCheck.checked &&
 				_passwordCheck.checked &&
 				_phoneCheck.checked &&
 				_emailCheck.checked &&
-				_currencyCheck.checked;
+				_currencyCheck.checked &&
+				_reCaptchaCheck;
 
 			if (!checked) {
 				setTip(prev => ({
@@ -465,7 +483,8 @@ export default () => {
 				UserLang: defaultLangId,
 				PromoCode: userValue.specialBonusCode,
 				AreaCode: _areaCode,
-				ReferralUrl: document.referrer
+				ReferralUrl: document.referrer,
+				ReCaptchaToken: reCaptchaToken
 			};
 
 			regData.RefId = getUrlParameter("RefId") || readCookie("RefId");
@@ -578,6 +597,9 @@ export default () => {
 		lineLogin({ type: defType.register });
 	};
 
+	const handleReCaptchaChange = token => {
+		setReCaptchaToken(token);
+	};
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
@@ -632,6 +654,8 @@ export default () => {
 					currencyId={userInfo?.currencyId}
 					lineUserId={lineUserId}
 					areaCodeList={areaCodeList}
+					reCaptchaOnChange={handleReCaptchaChange}
+					recaptchaInfo={recaptchaInfo}
 				/>
 			</div>
 		</div>

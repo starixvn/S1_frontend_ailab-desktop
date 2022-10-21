@@ -165,7 +165,8 @@ GameList.propTypes = {
 	endIdx: PropTypes.number,
 	getIsInMaintain: PropTypes.func,
 	getTpGameType: PropTypes.func,
-	activeCategory: PropTypes.string
+	activeCategory: PropTypes.string,
+	favoriteStr: PropTypes.string.isRequired
 };
 
 export default GameList;

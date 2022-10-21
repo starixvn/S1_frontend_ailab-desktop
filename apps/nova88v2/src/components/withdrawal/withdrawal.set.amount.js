@@ -75,6 +75,7 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 		let _withdrawalMin = isEWalletItemSelected
 			? state.eWalletWithdrawalMin
 			: state.withdrawalMin;
+
 		const _unlimited = state.unlimited;
 
 		if (state.selectedAccount.usdtAddress) {
@@ -86,7 +87,16 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 			_withdrawalMin = cryptoInfo.withdrawalMin;
 		}
 
-		if (!_unlimited && real_amount > state.withdrawalMax) {
+		if (
+			!_unlimited &&
+			isEWalletItemSelected &&
+			real_amount > state.eWalletWithdrawalAvailableAmount
+		) {
+			result = {
+				status: 2,
+				msg: t("lbl_NotinLimit")
+			};
+		} else if (!_unlimited && real_amount > state.withdrawalMax) {
 			result = {
 				status: 2,
 				msg: t("lbl_WithdrawalDailyReached")
@@ -233,7 +243,6 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 						value={state.amount}
 						onChange={e => EditAmount(e.target.value)}
 						// clickInfo={clickInfo}
-						// state.selectedAccount.account
 						placeholder={
 							isEWalletItemSelected
 								? `${t("lbl_MinMaxAmount")} ${formatAmount(
@@ -241,7 +250,9 @@ const AmountPanel = ({ dispatch, state, t, _isConvert, userInfo }) => {
 								  )} / ${
 										state.unlimited
 											? t("lbl_Unlimited")
-											: formatAmount(state.withdrawalMax)
+											: formatAmount(
+													state.eWalletWithdrawalAvailableAmount
+											  )
 								  }`
 								: ""
 						}
