@@ -98,3 +98,6 @@ export const api_site_GetSocialChannel = ({
 		LangId: langId,
 		DisplayPage: displayPage
 	});
+
+export const api_site_GetRecaptchaInfo = () =>
+	siteRequest.post("/GetRecaptchaInfo");
