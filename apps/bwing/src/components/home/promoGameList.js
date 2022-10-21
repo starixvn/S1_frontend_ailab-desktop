@@ -24,11 +24,11 @@ const defGameList = [
 		// img: require("../../styles/img/GameList16.png").default,
 		displayKey: "lbl_TraditionalLottery"
 	},
-	{
-		...productList.One789_lottery_789,
-		// img: require("../../styles/img/GameList14.png").default,
-		displayKey: "lbl_789Lottery"
-	},
+	// {
+	// 	...productList.One789_lottery_789,
+	// 	// img: require("../../styles/img/GameList14.png").default,
+	// 	displayKey: "lbl_789Lottery"
+	// },
 	{
 		...productList.liveCasino_One789,
 		// img: require("../../styles/img/GameList13.png").default,
@@ -177,8 +177,7 @@ const PromoGameList = ({ t, userInfo, maintainList }) => {
 					g.name,
 					isInMaintain,
 					g.tpGameType
-				)}
-			>
+				)}>
 				<img src={g.img} alt={displayText} />
 				<div>{displayText}</div>
 			</button>
