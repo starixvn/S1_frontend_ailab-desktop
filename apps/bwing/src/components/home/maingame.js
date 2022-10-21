@@ -55,12 +55,12 @@ const defGameBtnList = [
 ];
 
 const defMainGameList = [
-	{
-		...productList.One789_lottery_789,
-		displayKey: "lbl_789Lottery",
-		img: `${bannerImgUrl}/desktop/img/maingame/789lottery.png`,
-		gameType: defGameType.default
-	},
+	// {
+	// 	...productList.One789_lottery_789,
+	// 	displayKey: "lbl_789Lottery",
+	// 	img: `${bannerImgUrl}/desktop/img/maingame/789lottery.png`,
+	// 	gameType: defGameType.default
+	// },
 	{
 		...productList.liveCasino_One789,
 		displayKey: "lbl_liveCasino_789SeDie",
@@ -203,8 +203,7 @@ const MainGame = ({
 							_path: item.path,
 							productInfo: item.productInfo
 						})
-					}
-				>
+					}>
 					<div>
 						<div className={item.className} />
 					</div>
@@ -256,8 +255,7 @@ const MainGame = ({
 									gameType,
 									_subPath
 								})
-							}
-						>
+							}>
 							<img src={img} alt="" />
 							<div className="title">{t(displayKey)}</div>
 							{isInMaintain && (
