@@ -895,8 +895,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "slotOW.png",
 				listBgImgUrl: "slotListHover.png",
-				...productList.casino_OW,
-				allowCurrencies: allowedCurrencyList.slotSaba
+				...productList.casino_OW
 			}
 		]
 	},
