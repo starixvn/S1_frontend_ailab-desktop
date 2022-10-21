@@ -10,8 +10,8 @@ export const InfoEn = () => {
 			We're waiting for you!
 			<div className="vipTitle">Overview</div>
 			We have classified the membership tiers to BRONZE, SILVER, GOLD,
-			TITANIUM, DIAMOND and GOAL123 CLUB. Enjoy all our privillege
-			products and services when you achieve higher tier.
+			TITANIUM, DIAMOND and GOAL123 CLUB. Enjoy all our privilege products
+			and services when you achieve higher tier.
 			<div className="vipTitle">
 				Enjoy the benefits and privileges with difference membership
 				tier
