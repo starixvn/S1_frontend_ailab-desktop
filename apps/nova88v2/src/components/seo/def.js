@@ -10,6 +10,11 @@ export const defMetaData = {
 				{ rel: "canonical", href: `https://www.nova88.net/en/` },
 				{
 					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/`
+				},
+				{
+					rel: "alternate",
 					href: "https://www.nova88.net/en/",
 					hreflang: "en-my"
 				},
@@ -53,6 +58,11 @@ export const defMetaData = {
 				{ rel: "canonical", href: `https://www.nova88105.net/cs/` },
 				{
 					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88105.net/cs/`
+				},
+				{
+					rel: "alternate",
 					href: "https://www.nova88.net/en/",
 					hreflang: "en-my"
 				},
@@ -93,6 +103,11 @@ export const defMetaData = {
 			description: `Nova88 adalah Situs Online Terbaik Berlisensi Resmi dan Terpercaya dengan berbagai permainan Casino Online, Taruhan Bola dan Slot Mesin Online yang akan menghibur Anda.`,
 			keyword: `Nova88, Nova88 Indo, Situs Bola Terpercaya, Situs Bola Lisensi Resmi, Bola Online, Slot Mesin Online, Casino Online`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88-indo805.info/id/`
+				},
 				{
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/`
@@ -139,6 +154,11 @@ export const defMetaData = {
 			description: `Nova88  เป็นเว็บไซต์เดิมพันออนไลน์ที่หน้าเชื่อถือและดีสุดในเอเชีย เข้าร่วมและเดิมพันกีฬา,คาสิโนสด,สล็อต คาสิโน,ลอตเตอรี,คีโน,และ ตกปลา`,
 			keyword: `Nova88, ลิงค์ Nova88, คาสิโนออนไลน์, การพนันออนไลน์, การพนันออนไลน์ไทย, การเดิมพันกีฬา, ลอตเตอรี, ไทยคาสิโนสด`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88bkk.com/th/`
+				},
 				{ rel: "canonical", href: `https://www.nova88bkk.com/th/` },
 				{
 					rel: "alternate",
@@ -182,6 +202,11 @@ export const defMetaData = {
 			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88mas.com/my/`
+				},
 				{ rel: "canonical", href: `https://www.nova88mas.com/my/` },
 				{
 					rel: "alternate",
@@ -225,6 +250,11 @@ export const defMetaData = {
 			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88india.com/hi/`
+				},
 				{ rel: "canonical", href: `https://www.nova88india.com/hi/` },
 				{
 					rel: "alternate",
@@ -268,6 +298,11 @@ export const defMetaData = {
 			description: `Nova88 is Most Trusted Sportsbook, Live Casino and Slot Games in Asia. Officially Licensed and Subsidiary of SABA Sports.`,
 			keyword: `Nova88, Nova88 link, online casino, online gambling, online gambling malaysia, sports betting, lottery, live casino malaysia`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88106.net/bd/`
+				},
 				{ rel: "canonical", href: `https://www.nova88106.net/bd/` },
 				{
 					rel: "alternate",
@@ -310,6 +345,11 @@ export const defMetaData = {
 	[path.join.root]: {
 		en: {
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/join`
+				},
 				{ rel: "canonical", href: `https://www.nova88.net/en/join` },
 				{
 					rel: "alternate",
@@ -350,6 +390,11 @@ export const defMetaData = {
 		},
 		cs: {
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88105.net/cs/join`
+				},
 				{ rel: "canonical", href: `https://www.nova88105.net/cs/join` },
 				{
 					rel: "alternate",
@@ -390,6 +435,11 @@ export const defMetaData = {
 		},
 		th: {
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88bkk.com/th/join`
+				},
 				{ rel: "canonical", href: `https://www.nova88bkk.com/th/join` },
 				{
 					rel: "alternate",
@@ -430,6 +480,11 @@ export const defMetaData = {
 		},
 		id: {
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88-indo805.info/id/join`
+				},
 				{
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/join`
@@ -479,6 +534,11 @@ export const defMetaData = {
 			keyword: `Online Casino Promotion, Welcome Bonus, Reload Bonus, Cash Rebate, Weekly Cashback, Withdrawal Bonus, Referral Rewards, Birthday Reward, New Member Promotion, Sportsbook Promotion, Casino Promotion, Slot Promotion`,
 			links: [
 				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/promotion`
+				},
+				{
 					rel: "canonical",
 					href: `https://www.nova88.net/en/promotion`
 				},
@@ -524,6 +584,11 @@ export const defMetaData = {
 			description: `Nova88欧亚体育 - 优惠活动提高您获胜的机率。从首存红利，现金返水，再存红利与各种为您量身定制的优惠促销，马上领取！`,
 			keyword: `Nova88欧亚体育，Nova88欧亚体育优惠活动，首存红利，存款优惠，在线博彩优惠，再存红利，现金反水，电子游戏老虎机优惠，免费金额`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88105.net/cs/promotion`
+				},
 				{
 					rel: "canonical",
 					href: `https://www.nova88105.net/cs/promotion`
@@ -571,6 +636,11 @@ export const defMetaData = {
 			keyword: `Nova88, โปรโมชั่น Nova88, โบนัสต้อนรับ, โบนัสเงินฝาก, โบนัสคาสิโนออนไลน์, โบนัสฝากเงินซ้ำ, โบนัสสล็อต, ฟรีเครดิต`,
 			links: [
 				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88bkk.com/th/promotion`
+				},
+				{
 					rel: "canonical",
 					href: `https://www.nova88bkk.com/th/promotion`
 				},
@@ -616,6 +686,11 @@ export const defMetaData = {
 			description: `Nova88 menawarkan Bonus untuk meningkatkan peluang menang Anda, menawarkan welcome bonus, rebate tunai, bonus re-deposit, dan bonus lainnya. Klaim sekarang!`,
 			keyword: `Nova88, Nova88 Promosi, Welcome Bonus Nova88, Bonus Deposit, Bonus Reload, Bonus ReDepo, Bonus Redeposit, bonus slots, bonus slot mesin, bonus rebate, bonus cashback`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88-indo805.info/id/promotion`
+				},
 				{
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/promotion`
@@ -664,6 +739,11 @@ export const defMetaData = {
 			description: `Become Nova88 Exclusive VIP Today To Enjoy The Benefits And privileges With Difference Membership Tier. Play More, Rewards More. Hurry, We Are Waiting For You!`,
 			keyword: `Nova88, Casino VIP Program, VIP privileges, VIP Exclusive Reward, Nova Club, Nova VIP Exclusive, Tier Upgrade Bonus, VIP Special Rebate, VIP Bonus, VIP Member Benefits`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/vip`
+				},
 				{ rel: "canonical", href: `https://www.nova88.net/en/vip` },
 				{
 					rel: "alternate",
@@ -709,6 +789,11 @@ export const defMetaData = {
 			description: `Nova88 Offers Wide Variety of Sports Games To Keep Players Entertained. Officially Licensed and Subsidiary of SABA Sports. Don't Miss Any Betting Opportunity!`,
 			keyword: `Nova88, Sports Betting, SABA Sports, Soccer Betting, Soccer, Soccer Leagues, Basketball, Tennis, Cricket, Virtual Sports, Volleyball, World Cup, EURO`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/leaderBoard`
+				},
 				{
 					rel: "canonical",
 					href: `https://www.nova88.net/en/leaderBoard`
@@ -756,6 +841,11 @@ export const defMetaData = {
 			keyword: `Nova88 欧亚体育，Nova88 欧亚体育 体育博彩，在线足球，在线博彩，即时比分，篮球庄家，足球赛事，在线体育，足球盘口`,
 			links: [
 				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88105.net/cs/leaderBoard`
+				},
+				{
 					rel: "canonical",
 					href: `https://www.nova88105.net/cs/leaderBoard`
 				},
@@ -802,6 +892,11 @@ export const defMetaData = {
 			keyword: `Nova88 หน้าเว็บเดิมพันกีฬา, ฟุตบอลออนไลน์, การเดิมพันออนไลน์, ผลบอลสด, เจ้ามือรับแทงบาสเก็ตบอล, การแข่งขันฟุตบอล, กีฬาออนไลน์, เกมส์ฟุตบอล`,
 			links: [
 				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88bkk.com/th/leaderBoard`
+				},
+				{
 					rel: "canonical",
 					href: `https://www.nova88bkk.com/th/leaderBoard`
 				},
@@ -847,6 +942,11 @@ export const defMetaData = {
 			description: `Nova88 Sports menawarkan berbagai taruhan olahraga dengan odds dan handicap Asia terbaik, dengan live streaming dan juga permainan angka. Main Sekarang!`,
 			keyword: `Nova88, Nova88 Sports, Taruhan Olahraga, Nova88 Indo, Situs Bola Terpercaya, Situs Bola Lisensi Resmi, Bola Online, Judi Bola`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88-indo805.info/id/leaderBoard`
+				},
 				{
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/leaderBoard`
@@ -991,6 +1091,11 @@ export const defMetaData = {
 			description: `Explore More Slot Games in Nova88. Login Everyday And Enjoy The Games. Get Appreciation Token and Weekly Free Spins From Us. Don't Miss Out, Claim Now!`,
 			keyword: `Slots, Online Slots, Casino Slot Games, Slot Machine, Free Spins, Habanero, Jili, Mega888, Pragmatic Play, NetEnt, Game Play, YGGdrasil, Joker, AdvantPlay, Spade Gaming, Red Tiger, CQ9, Astro Tech, Playtech`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/slots`
+				},
 				{ rel: "canonical", href: `https://www.nova88.net/en/slots` },
 				{
 					rel: "alternate",
@@ -1034,6 +1139,11 @@ export const defMetaData = {
 			description: `Nova88 欧亚体育马来西亚最热门和最新的在线赌场老虎机游戏。 旋转并赢得奖金，积宝大奖老虎机，918kiss，mega888，Pragmatic Play。`,
 			keyword: `Nova88 欧亚体育，Nova88 欧亚体育老虎机 , 918kiss, mega88, Pragmatic Play, 线上老虎机, 在线老虎机, 在线电子游戏, 积宝奖金老虎机, 现金老虎机`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88105.net/cs/slots`
+				},
 				{
 					rel: "canonical",
 					href: `https://www.nova88105.net/cs/slots`
@@ -1081,6 +1191,11 @@ export const defMetaData = {
 			keyword: `Nova88, สล็อต Nova88, 918kiss, mega88, pragmatic slot, สล็อตออนไลน์, สล็อตคาสิโนออนไลน์, คาสิโนสล็อต, สล็อตที่ดีที่สุด, จ่ายจริง`,
 			links: [
 				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nnova88bkk.com/th/slots`
+				},
+				{
 					rel: "canonical",
 					href: `https://www.nova88bkk.com/th/slots`
 				},
@@ -1126,6 +1241,11 @@ export const defMetaData = {
 			description: `Nova88 adalah Situs Slot Online, Judi slot jackpot terpopuler dan terbaru di Indonesia. Putar dan menangkan uang asli di Slot Mesin Pragmatic, Joker123`,
 			keyword: `Nova88, Nova88 Slot Mesin Online, Slot online, Judi Mesin Slot, Slot Kasino, Slot pragmatic, slot joker123.`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88-indo805.info/id/slots`
+				},
 				{
 					rel: "canonical",
 					href: `https://www.nova88-indo805.info/id/slots`
@@ -1174,6 +1294,11 @@ export const defMetaData = {
 			description: `Enjoy The Thrilling Online Poker Games At Nova88. Join Now To Play With Real Money And Stand A Chance To Double Your Wins!`,
 			keyword: `Online Poker, Poker Game, Poker Betting, Texas Holdem Poker, 3 Card Poker`,
 			links: [
+				{
+					rel: "alternate",
+					media: "only screen and (max-width: 640px)",
+					href: `https://m.nova88.net/en/oneGame`
+				},
 				{ rel: "canonical", href: `https://www.nova88.net/en/oneGame` },
 				{
 					rel: "alternate",
