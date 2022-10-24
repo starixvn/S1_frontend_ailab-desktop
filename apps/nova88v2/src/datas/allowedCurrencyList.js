@@ -21,14 +21,6 @@ const allowedCurrencyList = {
 
 	// slot
 	slotAMB: [defCurrencyList.THB, defCurrencyList.USD, defCurrencyList.CNY],
-	slotSaba: [
-		defCurrencyList.IDR,
-		defCurrencyList.MYR,
-		defCurrencyList.THB,
-		defCurrencyList.BDT,
-		defCurrencyList.CNY,
-		defCurrencyList.USD
-	],
 
 	// poker
 	oneGame: [
