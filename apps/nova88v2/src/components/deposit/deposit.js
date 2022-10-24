@@ -439,7 +439,7 @@ const Deposit = () => {
 					} catch (err) {
 						errorPopBox();
 					}
-				} else if (formInfo.mode === defCurrencyList.MYR) {
+				} else if (formInfo.mode === 3) {
 					await api_cashier_DepositReqMobilePay({
 						langId: userInfo.langId,
 						paramsUrl: params
