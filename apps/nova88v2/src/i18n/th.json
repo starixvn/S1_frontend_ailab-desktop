@@ -324,6 +324,7 @@
 	"lbl_DepositChannel_2": "เครื่องฝากเงินสด",
 	"lbl_DepositChannel_3": "เอทีเอ็ม",
 	"lbl_DepositChannel_4": "ผ่านเคาน์เตอร์ (OTC)",
+	"lbl_DepositChannel_5": "ธนาคาร QR",
 	"lbl_BankDetails": "รายละเอียดธนาคาร",
 	"lbl_DepositLocalbankButton": "จำโหมดที่ใช้ล่าสุดของฉัน",
 	"lbl_DepositLocalbankButtonInfo": "จำธนาคารที่ใช้สำหรับการฝากเงินครั้งสุดท้ายของคุณ หากธนาคารที่คุณเลือกถูกปิดโปรดเลือกอีกครั้ง",

@@ -6,7 +6,7 @@ export default {
 	Login: "Login",
 	Join: "Join",
 	AddBankAccount: "AddBankAccount",
-	AddEAccount:"AddEAccount",
+	AddEAccount: "AddEAccount",
 	AddCryptoWallet: "AddCryptoWallet",
 	AddBankSuccess: "AddBankSuccess",
 	ConfirmDelete: "ConfirmDelete",
@@ -38,5 +38,6 @@ export default {
 	Photo: "Photo",
 	Modal: "Modal",
 	NewYear: "NewYear",
-	LinePay: "LinePay"
+	LinePay: "LinePay",
+	BankQR: "BankQR"
 };

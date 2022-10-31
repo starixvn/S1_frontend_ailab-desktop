@@ -321,6 +321,7 @@
 	"lbl_DepositChannel_2": "নগদ আমানতের মেশিন",
 	"lbl_DepositChannel_3": "এটিএম",
 	"lbl_DepositChannel_4": "ওভার দ্য কাউন্টার (OTC)",
+	"lbl_DepositChannel_5": "ব্যাংককিউআর",
 	"lbl_BankDetails": "ব্যাংক এর বিবরণ",
 	"lbl_DepositLocalbankButton": "আমার শেষ ব্যবহৃত পদ্ধতি মনে রাখবেন",
 	"lbl_DepositLocalbankButtonInfo": "আপনার শেষ আমানতের জন্য ব্যবহৃত ব্যাংক মনে রাখবেন। আপনার নির্বাচিত ব্যাংক বন্ধ হয়ে গেলে, অনুগ্রহ করে আবার নির্বাচন করুন।",
