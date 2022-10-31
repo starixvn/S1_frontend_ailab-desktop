@@ -64,7 +64,8 @@ export const defDepositChannelIdList = {
 	OnlineBanking: 1,
 	CashDepositMachine: 2,
 	ATM: 3,
-	OverTheCounter: 4
+	OverTheCounter: 4,
+	BankQR: 5
 };
 
 export const defDepositChannel = [
@@ -83,5 +84,9 @@ export const defDepositChannel = [
 	{
 		displayKey: "lbl_DepositChannel_4",
 		id: defDepositChannelIdList.OverTheCounter
+	},
+	{
+		displayKey: "lbl_DepositChannel_5",
+		id: defDepositChannelIdList.BankQR
 	}
 ];

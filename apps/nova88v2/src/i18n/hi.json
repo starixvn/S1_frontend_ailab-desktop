@@ -322,6 +322,7 @@
 	"lbl_DepositChannel_2": "नकद जमा मशीन",
 	"lbl_DepositChannel_3": "एटीएम",
 	"lbl_DepositChannel_4": "काउंटर पर (ओटीसी)",
+	"lbl_DepositChannel_5": "बैंक क्यूआर",
 	"lbl_BankDetails": "बैंक विवरण",
 	"lbl_DepositLocalbankButton": "मेरा पिछला इस्तेमाल किया हुआ मोड याद रखें",
 	"lbl_DepositLocalbankButtonInfo": "आपकी पिछली जमा राशि के लिए इस्तेमाल किया गया बैंक याद रखें। यदि आपके द्वारा चयनित बैंक बंद कर दिया गया है, तो कृपया फिर से चयन करें।",

@@ -224,3 +224,14 @@ export const api_payment_GetLineChannelForDpeosit = () =>
 
 export const api_payment_GetEWalletInfoSysList = () =>
 	paymentRequest.post("GetEWalletInfoSysList");
+
+export const api_payment_DepositReqFakeMobilePay = ({
+	groupId,
+	amount,
+	bonusCode
+}) =>
+	paymentRequest.post("DepositReqFakeMobilePay", {
+		groupId,
+		amount,
+		bonusCode
+	});

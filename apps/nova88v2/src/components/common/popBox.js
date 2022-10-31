@@ -40,6 +40,7 @@ import Photo from "./popBox.photo";
 import Modal from "./popBox.modal";
 import NewYear from "./popbox.newYear";
 import LinePay from "./popBox.linePayLink";
+import BankQR from "./popBox.bankQR";
 
 export default () => {
 	const { popBox } = useContext(popBoxContext);
@@ -340,6 +341,16 @@ export default () => {
 				/>
 			);
 			break;
+
+		case defPopBoxType.BankQR:
+			content = (
+				<BankQR
+					onClickClose={popBox.onClickClose}
+					qrUrl={popBox.qrUrl}
+					amount={popBox.amount}
+					transId={popBox.transId}
+				/>
+			);
 
 		default:
 			break;
