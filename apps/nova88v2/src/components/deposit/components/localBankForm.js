@@ -380,7 +380,7 @@ const LocalBankForm = ({
 						</ul>
 					</div>
 				</div>
-				{QRObj?.supportQR && (
+				{QRObj?.qrCodeUrl && (
 					<div className="qrCode">
 						<QRCode
 							value={QRObj?.qrCodeUrl}
