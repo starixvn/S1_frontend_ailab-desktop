@@ -281,8 +281,6 @@ const LocalBankForm = ({
 	const QRObj = localBankGroupList.find(
 		obj => obj.bankName === localBankInfo.bankName
 	);
-	console.log("defDepositChannel", defDepositChannel);
-	console.log("langId", userInfo.currencyId);
 	return (
 		<>
 			<div className="subModuleTitle">

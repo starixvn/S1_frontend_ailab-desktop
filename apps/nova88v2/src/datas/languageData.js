@@ -1,16 +1,4 @@
-export const defLangList = [
-	"en",
-	"cs",
-	"my",
-	"th",
-	"th_en",
-	"id",
-	"id_en",
-	"hi",
-	"hi_en",
-	"bd",
-	"bd_en"
-];
+export const defLangList = ["en", "cs", "my", "th", "id", "hi", "bd"];
 
 export const defOldLangList = ["en", "cs", "th", "id", "bd"];
 
