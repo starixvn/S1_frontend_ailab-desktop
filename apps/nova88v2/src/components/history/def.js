@@ -21,11 +21,11 @@ const defWithdrawalStatusClassName = {
 };
 
 export const defHistoryIdList = {
-	transferId: "6601",
-	depositId: "6602",
-	withdrawalId: "6603",
-	financialId: "6604",
-	referralId: "6605"
+	transferId: "transfer",
+	depositId: "deposit",
+	withdrawalId: "withdrawal",
+	financialId: "log",
+	referralId: "referral"
 };
 
 export const defHistoryNav = [

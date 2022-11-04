@@ -6,7 +6,7 @@ export default {
 		root: "speed"
 	},
 	appDownload: {
-		root: "appDownload"
+		root: "app-download"
 	},
 	login: {
 		root: "login"
@@ -30,7 +30,7 @@ export default {
 		root: "lottery"
 	},
 	liveCasino: {
-		root: "liveCasino"
+		root: "live-casino"
 	},
 	deposit: {
 		root: "deposit",
@@ -68,7 +68,7 @@ export default {
 		root: "withdrawalHistory"
 	},
 	transferFunds: {
-		root: "transferFunds"
+		root: "transfer-funds"
 	},
 	transferHistory: {
 		root: "transferHistory"
@@ -103,19 +103,19 @@ export default {
 		root: "profile"
 	},
 	bankInfo: {
-		root: "bankInfo"
+		root: "bank-info"
 	},
 	cryptoWallet: {
-		root: "cryptoWallet"
+		root: "crypto-wallet"
 	},
 	changePassword: {
-		root: "changePassword"
+		root: "change-password"
 	},
 	forgetPassword: {
-		root: "forgetPassword"
+		root: "forget-password"
 	},
 	newsInfo: {
-		root: "newsInfo"
+		root: "news-info"
 	},
 	promotion: {
 		root: "promotion",
@@ -126,10 +126,10 @@ export default {
 		}
 	},
 	resetPassword: {
-		root: "resetPassword"
+		root: "reset-password"
 	},
 	leaderBoard: {
-		root: "leaderBoard"
+		root: "leaderboard"
 	},
 	referral: {
 		root: "referral"
@@ -144,7 +144,7 @@ export default {
 		root: "angPow"
 	},
 	oneGame: {
-		root: "oneGame"
+		root: "poker"
 	},
 	mysteryBox: {
 		root: "mysteryBox"
@@ -159,12 +159,12 @@ export default {
 		root: "eSport"
 	},
 	luckyWheel: {
-		root: "luckyWheel"
+		root: "lucky-wheel"
 	},
 	mega888: {
 		root: "mega888"
 	},
 	worldCup: {
-		root: "worldCup"
+		root: "world-cup"
 	}
 };
