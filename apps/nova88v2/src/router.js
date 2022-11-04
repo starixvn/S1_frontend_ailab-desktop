@@ -129,7 +129,7 @@ export default {
 		root: "reset-password"
 	},
 	leaderBoard: {
-		root: "leaderboard"
+		root: "leaderBoard"
 	},
 	referral: {
 		root: "referral"
