@@ -126,7 +126,7 @@ export default {
 		}
 	},
 	resetPassword: {
-		root: "reset-password"
+		root: "resetPassword"
 	},
 	leaderBoard: {
 		root: "leaderBoard"
