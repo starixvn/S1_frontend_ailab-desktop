@@ -142,6 +142,7 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 				langId,
 				currencyId,
 				promotionInfo,
+				bonusType: filter,
 				clickClose,
 				setClaimPromotion
 			});

@@ -240,6 +240,7 @@ export default () => {
 					currencyId={popBox.currencyId}
 					langId={popBox.langId}
 					promotionInfo={popBox.promotionInfo}
+					bonusType={popBox.bonusType}
 					clickClose={popBox.clickClose}
 					setClaimPromotion={popBox.setClaimPromotion}
 				/>
