@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+import moment from "moment";
 import ProcessBar from "./promotion.processBar";
 import { isArrayNotEmpty, getStampStyle } from "./promotion.common";
 import PromotionJoinButton from "./promotion.joinButton";
@@ -6,7 +8,7 @@ import { defPromotionType, defFilterType } from "./promotion.def";
 import { useHandlePromotionInfo } from "./promotionInfo.popbox";
 import { getExpiryTime } from "./promotion.promoRule";
 
-export default ({
+const PromotionList = ({
 	t,
 	userInfo,
 	filter,
@@ -26,77 +28,83 @@ export default ({
 	const rows = promoList?.map(p => {
 		const promoDisplayStyle = getStampStyle(filter, p);
 
+		const isDisplay =
+			moment.unix(p.displayFrom).diff(Date.now()) <= 0 &&
+			moment.unix(p.displayTo).diff(Date.now()) >= 0;
+
 		return (
-			<div
-				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={promoDisplayStyle}>
-				<div className="promoImg">
-					<img src={p.banner} alt={p.title} />
-				</div>
+			isDisplay && (
+				<div
+					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+					className={promoDisplayStyle}>
+					<div className="promoImg">
+						<img src={p.banner} alt={p.title} />
+					</div>
 
-				<div className="promoInfo">
-					<div className="txt-blue15">{p.title}</div>
-					<div>{p.description}</div>
+					<div className="promoInfo">
+						<div className="txt-blue15">{p.title}</div>
+						<div>{p.description}</div>
 
-					{/* <PromoRule
+						{/* <PromoRule
 						t={t}
 						promotionInfo={p}
 						currencyId={currencyId}
 						langId={userInfo.langId}
 					/> */}
 
-					<ProcessBar
-						{...p}
-						t={t}
-						currencyId={currencyId}
-						RefreshProcessBar={refreshProcessBar.bind(this, p)}
-					/>
-
-					<div className="btnGroup">
-						<PromotionJoinButton
-							promotionInfo={p}
-							userInfo={userInfo}
-							inListPage={true}
-							filter={filter}
-							callBack={afterJoinCallBack}
+						<ProcessBar
+							{...p}
+							t={t}
+							currencyId={currencyId}
+							RefreshProcessBar={refreshProcessBar.bind(this, p)}
 						/>
-						{p.promotionType === defPromotionType.other &&
-						!p.promotionAction ? (
-							<a
-								href={p.promotionLink}
-								target="_blank"
-								rel="noreferrer"
-								className="btn-check">
-								{t(
-									"promotion.lbl_promo_more_info"
-								).toUpperCase()}
-							</a>
-						) : (
-							<button
-								className="btn-check"
-								onClick={clickMoreInfo.bind(
-									this,
-									userInfo.langId,
-									p.bonusCode
-								)}>
-								{t("promotion.lbl_promo_more_info")}
-							</button>
-						)}
+
+						<div className="btnGroup">
+							<PromotionJoinButton
+								promotionInfo={p}
+								userInfo={userInfo}
+								inListPage={true}
+								filter={filter}
+								callBack={afterJoinCallBack}
+							/>
+							{p.promotionType === defPromotionType.other &&
+							!p.promotionAction ? (
+								<a
+									href={p.promotionLink}
+									target="_blank"
+									rel="noreferrer"
+									className="btn-check">
+									{t(
+										"promotion.lbl_promo_more_info"
+									).toUpperCase()}
+								</a>
+							) : (
+								<button
+									className="btn-check"
+									onClick={clickMoreInfo.bind(
+										this,
+										userInfo.langId,
+										p.bonusCode
+									)}>
+									{t("promotion.lbl_promo_more_info")}
+								</button>
+							)}
+						</div>
 					</div>
-				</div>
-				<div className="remain">
-					<div className="icon icon-icon32px_time">
-						{t("lbl_RemainingTime")}
-						<div>{getExpiryTime(t, p)}</div>
-					</div>
-					{/* <PromoRule
+					<div className="remain">
+						<div className="icon icon-icon32px_time">
+							{t("lbl_RemainingTime")}
+							<div>{getExpiryTime(t, p)}</div>
+						</div>
+						{/* <PromoRule
 						promotionInfo={p}
 						t={t}
 						currencyId={currencyId}
 						langId={userInfo.langId}
 					/> */}
+					</div>
 				</div>
-			</div>
+			)
 		);
 	});
 
@@ -115,3 +123,24 @@ export default ({
 
 	return <div className="nodata">{t("msg_NoData")}</div>;
 };
+
+PromotionList.defaultProps = {
+	promoList: null,
+	userInfo: null,
+	filter: null,
+	refreshProcessBar: () => null,
+	staticPromotions: null,
+	afterJoinCallBack: () => null
+};
+
+PromotionList.propTypes = {
+	t: PropTypes.func.isRequired,
+	promoList: PropTypes.arrayOf(PropTypes.any),
+	userInfo: PropTypes.objectOf(PropTypes.any),
+	filter: PropTypes.string,
+	refreshProcessBar: PropTypes.func,
+	staticPromotions: PropTypes.arrayOf(PropTypes.any),
+	afterJoinCallBack: PropTypes.func
+};
+
+export default PromotionList;

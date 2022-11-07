@@ -4638,6 +4638,32 @@ main > .swiper-container .swiper-slide {
   border: 2px solid white;
 }
 
+#popup .loackAmount .dropdown .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#popup .loackAmount .dropdown .dropdown-container {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+#popup .loackAmount .dropdown .dropdown-container.active {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+  -webkit-transition: .6s;
+  transition: .6s;
+}
+
+#popup .loackAmount .dropdown .dropdown-container .dropdown-item {
+  text-align: left;
+}
+
 .Submit,
 .Success,
 .Error,
@@ -7632,7 +7658,7 @@ main > .swiper-container .swiper-slide {
   margin-right: 10px;
 }
 
-.promoInfoPop .rolloverList, .promoInfoPop .minAmount {
+.promoInfoPop .rolloverList, .promoInfoPop .minAmount, .promoInfoPop .remainingTime {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7641,7 +7667,7 @@ main > .swiper-container .swiper-slide {
   border-width: 1px 0 0 1px;
 }
 
-.promoInfoPop .rolloverList > div, .promoInfoPop .minAmount > div {
+.promoInfoPop .rolloverList > div, .promoInfoPop .minAmount > div, .promoInfoPop .remainingTime > div {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -7651,17 +7677,55 @@ main > .swiper-container .swiper-slide {
           flex-flow: column;
 }
 
-.promoInfoPop .rolloverList > div > div, .promoInfoPop .minAmount > div > div {
+.promoInfoPop .rolloverList > div > div, .promoInfoPop .minAmount > div > div, .promoInfoPop .remainingTime > div > div {
   background: #233157;
   border: 1px solid #697eb5;
   border-width: 0 1px 1px 0;
   text-align: center;
   padding: 5px 0;
-  height: calc(50% - 11px);
 }
 
-.promoInfoPop .rolloverList > div > div:nth-child(1), .promoInfoPop .minAmount > div > div:nth-child(1) {
+.promoInfoPop .rolloverList > div > div:nth-child(1), .promoInfoPop .minAmount > div > div:nth-child(1), .promoInfoPop .remainingTime > div > div:nth-child(1) {
   background: #0c1a3f;
+}
+
+.promoInfoPop .rolloverListNew {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 0 20px;
+  border: 1px solid #697eb5;
+  border-top: 0;
+  border-width: 1px 0 0 1px;
+}
+
+.promoInfoPop .rolloverListNew > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.promoInfoPop .rolloverListNew > div:first-child > div {
+  background: #0c1a3f;
+}
+
+.promoInfoPop .rolloverListNew > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: #233157;
+  border: 1px solid #697eb5;
+  border-width: 0 1px 1px 0;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.promoInfoPop .remainingTime {
+  margin-bottom: 0;
 }
 
 .promoInfoPop strong {
@@ -10393,8 +10457,8 @@ input + .iconModule i.icon.icon-checkmark:before {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  background: url(https://banner.bw88.io/img/worldcup/bg.jpg) no-repeat center 120px, -webkit-gradient(linear, left top, left bottom, color-stop(65%, #090E22), to(#41011B));
-  background: url(https://banner.bw88.io/img/worldcup/bg.jpg) no-repeat center 120px, linear-gradient(#090E22 65%, #41011B 100%);
+  background: url(https://banner.bw88.io/desktop/img/worldcup/bg.jpg) no-repeat center 120px, -webkit-gradient(linear, left top, left bottom, color-stop(65%, #090E22), to(#41011B));
+  background: url(https://banner.bw88.io/desktop/img/worldcup/bg.jpg) no-repeat center 120px, linear-gradient(#090E22 65%, #41011B 100%);
 }
 
 .worldCup .txtBox {
@@ -10433,7 +10497,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   content: "";
   width: 452px;
   height: 69px;
-  background: url(https://banner.bw88.io/img/worldcup/light.png) no-repeat;
+  background: url(https://banner.bw88.io/desktop/img/worldcup/light.png) no-repeat;
   opacity: .8;
   -webkit-filter: brightness(120%);
           filter: brightness(120%);
@@ -10535,7 +10599,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   content: "";
   width: 195px;
   height: 131px;
-  background: url(https://banner.bw88.io/img/worldcup/mo.png) no-repeat;
+  background: url(https://banner.bw88.io/desktop/img/worldcup/mo.png) no-repeat;
   position: absolute;
   top: -8rem;
   left: 0;
@@ -10614,7 +10678,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 .worldCup .discover .item .hoverBox > div .img, .worldCup .discover1 .item .hoverBox > div .img {
   width: 131px;
   height: 18px;
-  background: url(https://banner.bw88.io/img/worldcup/my.png) no-repeat center;
+  background: url(https://banner.bw88.io/desktop/img/worldcup/my.png) no-repeat center;
   margin: 2rem auto;
 }
 
@@ -10647,7 +10711,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   content: "";
   width: 445px;
   height: 594px;
-  background: url(https://banner.bw88.io/img/worldcup/mp.png) no-repeat;
+  background: url(https://banner.bw88.io/desktop/img/worldcup/mp.png) no-repeat;
   left: 70rem;
 }
 
@@ -11110,7 +11174,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   content: "";
   width: 185px;
   height: 445px;
-  background: url(https://banner.bw88.io/img/worldcup/mo1.png);
+  background: url(https://banner.bw88.io/desktop/img/worldcup/mo1.png);
   position: absolute;
   top: -8.5rem;
 }
@@ -11133,7 +11197,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   content: "";
   width: 210px;
   height: 141px;
-  background: url(https://banner.bw88.io/img/worldcup/mo2.png);
+  background: url(https://banner.bw88.io/desktop/img/worldcup/mo2.png);
   position: absolute;
   top: -6rem;
   right: 0;
@@ -11356,7 +11420,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   height: 6rem;
   border-radius: 5px;
   border: 1px solid #D80241;
-  background: #00081f url(https://banner.bw88.io/img/worldcup/tkt.png) no-repeat center bottom;
+  background: #00081f url(https://banner.bw88.io/desktop/img/worldcup/tkt.png) no-repeat center bottom;
   padding-top: 1rem;
 }
 
@@ -11536,7 +11600,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   content: "";
   width: 185px;
   height: 239px;
-  background: url(https://banner.bw88.io/img/worldcup/mp1.png) no-repeat;
+  background: url(https://banner.bw88.io/desktop/img/worldcup/mp1.png) no-repeat;
   position: absolute;
   left: -30rem;
 }
@@ -11545,7 +11609,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   content: "";
   width: 313px;
   height: 353px;
-  background: url(https://banner.bw88.io/img/worldcup/mp2.png) no-repeat;
+  background: url(https://banner.bw88.io/desktop/img/worldcup/mp2.png) no-repeat;
   position: absolute;
   right: -30rem;
 }
@@ -13337,7 +13401,7 @@ input + .iconModule i.icon.icon-checkmark:before {
 }
 
 .vipLv > div.vipbg {
-  background: url(https://image.n88media.com/VIP/img/vipbg.png) no-repeat center/auto 100%;
+  background: url(https://image.0814media.net/VIP/img/vipbg.png) no-repeat center/auto 100%;
   padding: 20px;
   margin-top: 0;
 }
@@ -13852,7 +13916,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: 270px;
   height: 73px;
   padding-right: 10px;
-  background: url(https://banner.bw88.io/img/worldcup/timebg.png) no-repeat center/contain;
+  background: url(https://banner.bw88.io/desktop/img/worldcup/timebg.png) no-repeat center/contain;
 }
 
 .worldcupTime > div {

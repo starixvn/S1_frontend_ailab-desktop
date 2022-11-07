@@ -8,7 +8,6 @@ import {
 import { langAndCurrMapping, getUrlParameter } from "../common/common";
 import { siteDefLangId } from "../../service/language";
 import PromoRule from "../promotion/promotion.promoRule";
-import { RULE_TYPE } from "../promotion/promotion.common";
 import PromotionJoinButton from "../promotion/promotion.joinButton";
 import { useHandlePromotionInfo } from "../promotion/promotionInfo.popbox";
 import { defPromotionType } from "../promotion/promotion.def";
@@ -83,7 +82,6 @@ export const PromoPopBox = ({ data, closePopBox, t }) => {
 					promotionInfo={data}
 					t={t}
 					currencyId={_currencyId}
-					ruleType={RULE_TYPE.list}
 					langId={userInfo?.langId ?? siteDefLangId}
 				/>
 				<div
