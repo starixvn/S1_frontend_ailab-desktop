@@ -9945,6 +9945,23 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   right: 0;
 }
 
+#popup .loackAmount {
+  padding: 20px;
+}
+
+#popup .loackAmount .icon-gift::before {
+  color: #001942;
+  font-size: 24px;
+}
+
+#popup .loackAmount .btnGroup {
+  margin: 20px 0 14px;
+}
+
+#popup .loackAmount .inputBox-blue {
+  margin: 20px 0 10px;
+}
+
 .vip {
   margin: auto;
   padding-top: 170px;
@@ -13785,13 +13802,43 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   background: #112240;
 }
 
-.remainingTime {
-  margin-bottom: 0;
+.rolloverListNew {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0 0 20px;
+  border: 1px solid #ccc;
+  border-top: 0;
+  border-width: 1px 0 0 1px;
 }
 
-.remainingTime + .rolloverList {
-  margin-top: 0;
-  border-top: 0;
+.rolloverListNew > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.rolloverListNew > div:first-child > div {
+  background: #112240;
+}
+
+.rolloverListNew > div > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background: #5E7FB5;
+  border: 1px solid #ccc;
+  border-width: 0 1px 1px 0;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.remainingTime {
+  margin-bottom: 0;
 }
 
 .countdown {

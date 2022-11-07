@@ -5,7 +5,15 @@ import { number_format } from "../common/common";
 const CashBackInfo = ({ cashBackDetails, t }) => {
 	if (!cashBackDetails) return null;
 
-	const { totalBonus, maxBonus, cashBackDetail } = cashBackDetails;
+	const {
+		totalBonus,
+		maxBonus,
+		cashBackDetail,
+		totalLossAmount,
+		minLossAmount,
+		percentage,
+		originalTotalBonus
+	} = cashBackDetails;
 	const formatRule = { isConvertRequired: false, digits: 0 };
 
 	const rows = cashBackDetail?.map(info => (
@@ -13,14 +21,13 @@ const CashBackInfo = ({ cashBackDetails, t }) => {
 			<td>{info.tpName}</td>
 			<td>
 				{number_format({
-					number: Math.abs(info.lossAmount),
+					number: info.lossAmountWithBonus,
 					...formatRule
 				})}
 			</td>
-			<td>{info.percentageName}</td>
 			<td>
 				{number_format({
-					number: Math.abs(info.bonusAmount),
+					number: Math.abs(info.lossAmount),
 					...formatRule
 				})}
 			</td>
@@ -33,47 +40,58 @@ const CashBackInfo = ({ cashBackDetails, t }) => {
 				<tbody>
 					<tr>
 						<td />
-						<td>{t("lbl_LossAmount")}</td>
-						<td>{t("lbl_Percentage")}</td>
-						<td>{t("lbl_TotalAmount")}</td>
+						<td>{t("lbl_LossWithBonus")}</td>
+						<td>{t("lbl_NetLoss")}</td>
 					</tr>
 					{rows}
 					<tr>
 						<td colSpan="4">
-							<span>{t("lbl_TotalAmount")}：</span>
-							<span>
-								{number_format({
-									number: totalBonus,
-									...formatRule
-								})}
-							</span>
+							{t("lbl_TotalNetLoss")}：
+							{number_format({
+								number: totalLossAmount,
+								...formatRule
+							})}
 						</td>
 					</tr>
 					<tr>
 						<td colSpan="4">
-							<span>{t("lbl_MaxBonusAmount")}：</span>
-							<span>
-								{number_format({
-									number: maxBonus,
-									...formatRule
-								})}
-							</span>
+							{t("lbl_MinNetLossRequired")}：
+							{number_format({
+								number: minLossAmount,
+								...formatRule
+							})}
 						</td>
 					</tr>
 					<tr>
 						<td colSpan="4">
-							<span>{t("lbl_ClaimAmount")}：</span>
-							<span>
-								{totalBonus > maxBonus
-									? number_format({
-											number: maxBonus,
-											...formatRule
-									  })
-									: number_format({
-											number: totalBonus,
-											...formatRule
-									  })}
-							</span>
+							{t("lbl_Percentage")}：{percentage}
+						</td>
+					</tr>
+					<tr>
+						<td colSpan="4">
+							{t("lbl_TotalBonus")}：
+							{number_format({
+								number: originalTotalBonus,
+								...formatRule
+							})}
+						</td>
+					</tr>
+					<tr>
+						<td colSpan="4">
+							{t("lbl_MaxBonus")}：
+							{number_format({
+								number: maxBonus,
+								...formatRule
+							})}
+						</td>
+					</tr>
+					<tr>
+						<td colSpan="4">
+							{t("lbl_TotalBonusClaimable")}：
+							{number_format({
+								number: totalBonus,
+								...formatRule
+							})}
 						</td>
 					</tr>
 				</tbody>

@@ -83,7 +83,6 @@ export const PromoPopBox = ({ data, closePopBox, t }) => {
 					promotionInfo={data}
 					t={t}
 					currencyId={_currencyId}
-					ruleType={RULE_TYPE.list}
 					langId={userInfo?.langId ?? siteDefLangId}
 				/>
 				<div

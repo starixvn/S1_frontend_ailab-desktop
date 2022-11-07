@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import PropTypes from "prop-types";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
@@ -37,6 +38,9 @@ const PromotionList = ({
 		const _isNew = _isClaimed ? false : isNew(p);
 		const _isExpired =
 			(filter === defFilterType.specialBonus && !p.canJoin) || p.beenUsed;
+		const isDisplay =
+			moment.unix(p.displayFrom).diff(Date.now()) <= 0 &&
+			moment.unix(p.displayTo).diff(Date.now()) >= 0;
 
 		let promoDisplayStyle = defPromoDisplayStyle.default;
 
@@ -56,82 +60,66 @@ const PromotionList = ({
 		}
 
 		return (
-			<div
-				key={`promotionList-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-				className={eventClass}
-			>
-				<div className={promoDisplayStyle} />
+			isDisplay && (
+				<div
+					key={`promotionList-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+					className={eventClass}>
+					<div className={promoDisplayStyle} />
 
-				<div className="promoImg">
-					<img src={p.banner} alt={p.title} />
-				</div>
+					<div className="promoImg">
+						<img src={p.banner} alt={p.title} />
+					</div>
 
-				<div className="promoInfo">
-					<div className="txt-darkBlue">{p.title}</div>
-					<div className="txt-gray">{p.description}</div>
+					<div className="promoInfo">
+						<div className="txt-darkBlue">{p.title}</div>
+						<div className="txt-gray">{p.description}</div>
 
-					{/* <PromoRule
-						t={t}
-						promotionInfo={p}
-						ruleType={RULE_TYPE.info}
-						currencyId={currencyId}
-						langId={userInfo.langId}
-					/> */}
-
-					<ProcessBar
-						{...p}
-						t={t}
-						currencyId={currencyId}
-						RefreshProcessBar={refreshProcessBar.bind(this, p)}
-					/>
-
-					<div className="btnGroup">
-						<PromotionJoinButton
-							promotionInfo={p}
-							userInfo={userInfo}
-							filter={filter}
-							callBack={afterJoinCallBack}
+						<ProcessBar
+							{...p}
+							t={t}
+							currencyId={currencyId}
+							RefreshProcessBar={refreshProcessBar.bind(this, p)}
 						/>
 
-						{p.promotionType === defPromotionType.other &&
-						!p.promotionAction ? (
-							<a
-								href={p.promotionLink}
-								target="_blank"
-								rel="noreferrer"
-								className="btn-check"
-							>
-								{t("promotion.lbl_promo_more_info")}
-							</a>
-						) : (
-							<button
-								className="btn-check"
-								onClick={clickMoreInfo.bind(
-									this,
-									userInfo.langId,
-									p.bonusCode
-								)}
-							>
-								{t("promotion.lbl_promo_more_info")}
-							</button>
-						)}
-					</div>
-				</div>
+						<div className="btnGroup">
+							<PromotionJoinButton
+								promotionInfo={p}
+								userInfo={userInfo}
+								filter={filter}
+								callBack={afterJoinCallBack}
+							/>
 
-				<div className="remain">
-					<div className="icon icon-icon32px_time">
-						{t("lbl_RemainingTime")}
-						<div>{getExpiryTime(t, p)}</div>
+							{p.promotionType === defPromotionType.other &&
+							!p.promotionAction ? (
+								<a
+									href={p.promotionLink}
+									target="_blank"
+									rel="noreferrer"
+									className="btn-check">
+									{t("promotion.lbl_promo_more_info")}
+								</a>
+							) : (
+								<button
+									className="btn-check"
+									onClick={clickMoreInfo.bind(
+										this,
+										userInfo.langId,
+										p.bonusCode
+									)}>
+									{t("promotion.lbl_promo_more_info")}
+								</button>
+							)}
+						</div>
 					</div>
-					{/* <PromoRule
-						promotionInfo={p}
-						t={t}
-						currencyId={currencyId}
-						ruleType={RULE_TYPE.info}
-						langId={userInfo.langId}
-					/> */}
+
+					<div className="remain">
+						<div className="icon icon-icon32px_time">
+							{t("lbl_RemainingTime")}
+							<div>{getExpiryTime(t, p)}</div>
+						</div>
+					</div>
 				</div>
-			</div>
+			)
 		);
 	});
 

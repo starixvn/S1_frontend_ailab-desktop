@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { Link, navigate } from "gatsby";
 import { userInfoContext, popBoxContext, promoPopBox } from "../common/context";
@@ -7,7 +8,6 @@ import { api_promotion_GetPromotionDetail } from "../../service/api/promotion";
 import { api_account_GetCustSpecificBonus } from "../../service/api/account";
 import { defPopBoxType } from "../common/popBox";
 import { defPromotionType } from "./promotion.def";
-import { RULE_TYPE } from "./promotion.common";
 import ProcessBar from "./promotion.processBar";
 import PromotionJoinButton from "./promotion.joinButton";
 import PromoRule from "./promotion.promoRule";
@@ -16,6 +16,7 @@ import CashBackInfo from "./cashBackInfo";
 import path from "../../router";
 
 export const useHandlePromotionInfo = ({ showAllPromosBtn = false }) => {
+	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const { setPopBox } = useContext(popBoxContext);
 	const { setPromoBox } = useContext(promoPopBox);
@@ -212,10 +213,10 @@ const PromotionInfo = ({
 				/>
 
 				<DepositMenu
-					cash={number_format(
-						promotionInfo.depositAmount,
-						isConvert(userInfo.currencyId)
-					)}
+					cash={number_format({
+						number: promotionInfo.depositAmount,
+						formatRequired: isConvert(userInfo.currencyId)
+					})}
 					_currency={_currency}
 					promotionInfo={promotionInfo}
 					t={t}
@@ -242,7 +243,6 @@ const PromotionInfo = ({
 					promotionInfo={promotionInfo}
 					t={t}
 					currencyId={userInfo.currencyId}
-					ruleType={RULE_TYPE.list}
 					langId={userInfo.langId}
 				/>
 				<div
@@ -254,6 +254,21 @@ const PromotionInfo = ({
 			</div>
 		</div>
 	);
+};
+
+PromotionInfo.defaultProps = {
+	getPromotionDetail: () => null,
+	refreshProcessBar: () => null,
+	showAllPromosBtn: null,
+	closePromoPopBox: () => null
+};
+
+PromotionInfo.propTypes = {
+	promotionInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	getPromotionDetail: PropTypes.func,
+	refreshProcessBar: PropTypes.func,
+	showAllPromosBtn: PropTypes.bool,
+	closePromoPopBox: PropTypes.func
 };
 
 export default () => {
@@ -311,21 +326,36 @@ const DepositSlip = ({ promotionInfo, t, isSpecialType, currencyId }) => {
 							key={`promotion-deposit-record-${bonusCode}-${item.depositId}`}>
 							<div>{item.depositId}</div>
 							<div>
-								{number_format(
-									item.amount,
-									isConvert(currencyId)
-								)}
+								{number_format({
+									number: item.amount,
+									formatRequired: isConvert(currencyId)
+								})}
 							</div>
 						</div>
 					))}
 				</div>
 				<div className="txt-orange">
 					{t("lbl_total")}:{" "}
-					{number_format(depositAmount, isConvert(currencyId))}
+					{number_format({
+						number: depositAmount,
+						formatRequired: isConvert(currencyId)
+					})}
 				</div>
 			</div>
 		</>
 	);
+};
+
+DepositSlip.defaultProps = {
+	isSpecialType: null,
+	currencyId: null
+};
+
+DepositSlip.propTypes = {
+	t: PropTypes.func.isRequired,
+	isSpecialType: PropTypes.bool,
+	promotionInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	currencyId: PropTypes.number
 };
 
 const DepositMenu = ({
@@ -355,4 +385,16 @@ const DepositMenu = ({
 		);
 
 	return null;
+};
+
+DepositMenu.defaultProps = {
+	cash: null,
+	_currency: null
+};
+
+DepositMenu.propTypes = {
+	t: PropTypes.func.isRequired,
+	cash: PropTypes.string,
+	promotionInfo: PropTypes.objectOf(PropTypes.any).isRequired,
+	_currency: PropTypes.string
 };

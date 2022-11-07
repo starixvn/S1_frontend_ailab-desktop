@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import moment from "moment";
 import { promoStatus, defPromotionType, defBonusType } from "./promotion.def";
 import { number_format, langAndCurrMapping } from "../common/common";
@@ -13,7 +14,7 @@ const numberWithCurrency = (value, currencyName) =>
 
 export const getExpiryTime = (
 	t,
-	{ isJoin, status, custExpiryTime, periodTo }
+	{ isJoin, status, custExpiryTime, periodTo, periodFrom }
 ) => {
 	const _expiryTime = moment.unix(
 		isJoin && status === promoStatus.running && custExpiryTime
@@ -27,9 +28,16 @@ export const getExpiryTime = (
 
 	const expiryTime = moment.duration(_expiryTime.diff(new Date()));
 
-	return `${diffDays} ${t("lbl_Days")} ${expiryTime.hours()} ${t(
-		"lbl_Hours"
-	)}`;
+	let isActive = false;
+
+	const periodFromTime = moment.unix(periodFrom);
+	if (periodFromTime.diff(Date.now()) <= 0) {
+		isActive = true;
+	}
+
+	return isActive
+		? `${diffDays} ${t("lbl_Days")} ${expiryTime.hours()} ${t("lbl_Hours")}`
+		: `0 ${t("lbl_Days")} 0 ${t("lbl_Hours")}`;
 };
 
 const getCurrencyName = ({ langId, currencyId, t }) => {
@@ -39,14 +47,15 @@ const getCurrencyName = ({ langId, currencyId, t }) => {
 		: t(`Currency_${langAndCurrMapping[_langMappingCurr]}`);
 };
 
-export default ({ promotionInfo, t, currencyId, langId, isTable }) => {
+const PromoRule = ({ promotionInfo, t, currencyId, langId, isTable }) => {
 	const {
 		rollOver,
 		promotionType,
 		bonus,
 		bonusType,
 		maxBonus,
-		requiredAmount
+		requiredAmount,
+		tierAmountList
 	} = promotionInfo;
 
 	const isPercentage = bonusType === defBonusType.percentage;
@@ -60,6 +69,43 @@ export default ({ promotionInfo, t, currencyId, langId, isTable }) => {
 		promotionType === defPromotionType.rebate;
 
 	const displayMinAmount = requiredAmount > 0;
+
+	if (tierAmountList?.length > 0) {
+		const redepositList = tierAmountList.map(el => (
+			<div key={el.requiredAmount}>
+				<div>{numberWithCurrency(el.requiredAmount, currencyName)}</div>
+				<div>
+					{isPercentage
+						? `${el.bonus}%`
+						: numberWithCurrency(el.bonus, currencyName)}
+				</div>
+				{isPercentage && (
+					<div>{numberWithCurrency(el.maxBonus, currencyName)}</div>
+				)}
+				<div> {el.rollOver}X</div>
+			</div>
+		));
+
+		return (
+			<>
+				<div className="remainingTime">
+					<div>
+						<div>{t("lbl_RemainingTime")}</div>
+						<div>{displayExpiryTime}</div>
+					</div>
+				</div>
+				<div className="rolloverListNew">
+					<div>
+						<div>{t("lbl_Promotion_Min_Deposit")}</div>
+						<div>{t("lbl_Promotion_Bonus")}</div>
+						{isPercentage && <div>{t("lbl_MaxBonusAmount")}</div>}
+						<div>{t("lbl_RollOver")}</div>
+					</div>
+					{redepositList}
+				</div>
+			</>
+		);
+	}
 
 	if (isTable) {
 		return (
@@ -140,3 +186,20 @@ export default ({ promotionInfo, t, currencyId, langId, isTable }) => {
 		</div>
 	);
 };
+
+PromoRule.defaultProps = {
+	promotionInfo: null,
+	currencyId: null,
+	isTable: null,
+	langId: null
+};
+
+PromoRule.propTypes = {
+	t: PropTypes.func.isRequired,
+	promotionInfo: PropTypes.objectOf(PropTypes.any),
+	currencyId: PropTypes.number,
+	isTable: PropTypes.bool,
+	langId: PropTypes.string
+};
+
+export default PromoRule;

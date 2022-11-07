@@ -46,9 +46,7 @@ export const HeaderLogin = ({
 			<Link className="join" to={`/${langId}/${path.join.root}`}>
 				{t("lbl_JoinNow")}
 			</Link>
-			{(langId === "th" ||
-				langId === "th_en" ||
-				currencyId === defCurrencyList.THB) && (
+			{(langId === "th" || currencyId === defCurrencyList.THB) && (
 				<button className="login-line" onClick={clickLineLogin}>
 					<i className="icon icon-line-bold" /> {t("lbl_Login")}
 				</button>
