@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import { promoStatus, defPromotionType, defBonusType } from "./promotion.def";
 import { number_format, isConvert, langAndCurrMapping } from "../common/common";
-import { RULE_TYPE } from "./promotion.common";
 import { siteDefLangId } from "../../service/language";
 
 const numberWithCurrency = (value, currencyName, _isConvert) =>
@@ -11,7 +10,7 @@ const numberWithCurrency = (value, currencyName, _isConvert) =>
 
 export const getExpiryTime = (
 	t,
-	{ isJoin, status, custExpiryTime, periodTo }
+	{ isJoin, status, custExpiryTime, periodTo, periodFrom }
 ) => {
 	const _expiryTime = moment.unix(
 		isJoin && status === promoStatus.running && custExpiryTime
@@ -25,12 +24,19 @@ export const getExpiryTime = (
 
 	const expiryTime = moment.duration(_expiryTime.diff(new Date()));
 
-	return `${diffDays} ${t("lbl_Days")} ${expiryTime.hours()} ${t(
-		"lbl_Hours"
-	)}`;
+	let isActive = false;
+
+	const periodFromTime = moment.unix(periodFrom);
+	if (periodFromTime.diff(Date.now()) <= 0) {
+		isActive = true;
+	}
+
+	return isActive
+		? `${diffDays} ${t("lbl_Days")} ${expiryTime.hours()} ${t("lbl_Hours")}`
+		: `0 ${t("lbl_Days")} 0 ${t("lbl_Hours")}`;
 };
 
-const PromoRule = ({ promotionInfo, t, currencyId, ruleType, langId }) => {
+const PromoRule = ({ promotionInfo, t, currencyId, langId }) => {
 	const {
 		bonus,
 		bonusType,
@@ -39,7 +45,8 @@ const PromoRule = ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 		winOver,
 		promotionType,
 		requiredAmount,
-		fullFillType
+		fullFillType,
+		tierAmountList
 	} = promotionInfo;
 
 	const isPercentage = bonusType === defBonusType.percentage;
@@ -59,26 +66,82 @@ const PromoRule = ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 
 	const displayMinAmount = requiredAmount > 0;
 
-	if (ruleType === RULE_TYPE.info)
-		return (
-			<div className="rollover">
-				{!isStaticOrRebate && displayMinAmount && (
-					<div className="icon icon-coin-dollar">
-						{t("lbl_Promotion_Min_Deposit")}
-						<span>
-							{numberWithCurrency(
-								requiredAmount,
+	if (tierAmountList?.length > 0) {
+		const redepositList = tierAmountList.map(el => (
+			<div key={el.requiredAmount}>
+				<div>
+					{numberWithCurrency(
+						el.requiredAmount,
+						currencyName,
+						_isConvert
+					)}
+				</div>
+				<div>
+					{isPercentage
+						? `${el.bonus}%`
+						: numberWithCurrency(
+								el.bonus,
 								currencyName,
 								_isConvert
-							)}
-						</span>
+						  )}
+				</div>
+				{isPercentage && (
+					<div>
+						{numberWithCurrency(
+							el.maxBonus,
+							currencyName,
+							_isConvert
+						)}
 					</div>
 				)}
+				<div> {fullFillType === 2 ? el.winOver : el.rollOver}x</div>
+			</div>
+		));
 
-				{!isStaticOrRebate && (
-					<div className="icon icon-coin-dollar">
-						{t("lbl_Promotion_Bonus")}
-						<span>
+		return (
+			<>
+				<div className="remainingTime">
+					<div>
+						<div>{t("lbl_RemainingTime")}</div>
+						<div>{displayExpiryTime}</div>
+					</div>
+				</div>
+				<div className="rolloverListNew">
+					<div>
+						<div>{t("lbl_Promotion_Min_Deposit")}</div>
+						<div>{t("lbl_Promotion_Bonus").toUpperCase()}</div>
+						{isPercentage && <div>{t("lbl_MaxBonusAmount")}</div>}
+						<div>
+							{fullFillType === 2
+								? t("lbl_WinOver")
+								: t("lbl_RollOver")}
+						</div>
+					</div>
+					{redepositList}
+				</div>
+			</>
+		);
+	}
+
+	return (
+		<div className="rolloverList">
+			{!isStaticOrRebate && (
+				<>
+					{displayMinAmount && (
+						<div>
+							<div>{t("lbl_Promotion_Min_Deposit")}</div>
+							<div>
+								{numberWithCurrency(
+									requiredAmount,
+									currencyName,
+									_isConvert
+								)}
+							</div>
+						</div>
+					)}
+					<div>
+						<div>{t("lbl_Promotion_Bonus").toUpperCase()}</div>
+						<div>
 							{isPercentage
 								? `${bonus}%`
 								: numberWithCurrency(
@@ -86,97 +149,38 @@ const PromoRule = ({ promotionInfo, t, currencyId, ruleType, langId }) => {
 										currencyName,
 										_isConvert
 								  )}
-						</span>
+						</div>
 					</div>
-				)}
+				</>
+			)}
 
-				{isPercentage && !isStaticOrRebate && (
-					<div className="icon icon-coin-dollar">
-						{t("lbl_MaxBonusAmount")}
-						<span>
-							{numberWithCurrency(
-								maxBonus,
-								currencyName,
-								_isConvert
-							)}
-						</span>
+			{isPercentage && !isStaticOrRebate && (
+				<div>
+					<div>{t("lbl_MaxBonusAmount")}</div>
+					<div>
+						{numberWithCurrency(maxBonus, currencyName, _isConvert)}
 					</div>
-				)}
+				</div>
+			)}
 
-				<div className="icon icon-icon32px_">
+			<div>
+				<div>
 					{fullFillType === 2 ? t("lbl_WinOver") : t("lbl_RollOver")}
-					<span>{fullFillType === 2 ? winOver : rollOver}x</span>
 				</div>
+				<div>{fullFillType === 2 ? winOver : rollOver}x</div>
 			</div>
-		);
 
-	if (ruleType === RULE_TYPE.list)
-		return (
-			<div className="rolloverList">
-				{!isStaticOrRebate && (
-					<>
-						{displayMinAmount && (
-							<div>
-								<div>{t("lbl_Promotion_Min_Deposit")}</div>
-								<div>
-									{numberWithCurrency(
-										requiredAmount,
-										currencyName,
-										_isConvert
-									)}
-								</div>
-							</div>
-						)}
-						<div>
-							<div>{t("lbl_Promotion_Bonus")}</div>
-							<div>
-								{isPercentage
-									? `${bonus}%`
-									: numberWithCurrency(
-											bonus,
-											currencyName,
-											_isConvert
-									  )}
-							</div>
-						</div>
-					</>
-				)}
-
-				{isPercentage && !isStaticOrRebate && (
-					<div>
-						<div>{t("lbl_MaxBonusAmount")}</div>
-						<div>
-							{numberWithCurrency(
-								maxBonus,
-								currencyName,
-								_isConvert
-							)}
-						</div>
-					</div>
-				)}
-
-				<div>
-					<div>
-						{fullFillType === 2
-							? t("lbl_WinOver")
-							: t("lbl_RollOver")}
-					</div>
-					<div>{fullFillType === 2 ? winOver : rollOver}x</div>
-				</div>
-
-				<div>
-					<div>{t("lbl_RemainingTime")}</div>
-					<div>{displayExpiryTime}</div>
-				</div>
+			<div>
+				<div>{t("lbl_RemainingTime")}</div>
+				<div>{displayExpiryTime}</div>
 			</div>
-		);
-	return true;
+		</div>
+	);
 };
 
 PromoRule.defaultProps = {
 	promotionInfo: null,
 	currencyId: null,
-	ruleType: null,
 	langId: null
 };
 
@@ -184,7 +188,6 @@ PromoRule.propTypes = {
 	t: PropTypes.func.isRequired,
 	promotionInfo: PropTypes.objectOf(PropTypes.any),
 	currencyId: PropTypes.number,
-	ruleType: PropTypes.string,
 	langId: PropTypes.string
 };
 
