@@ -76,6 +76,12 @@ export const defLobbyImgList = [
 		providerId: defCasinoProviders.PP.tpId
 	},
 	{
+		img: `${bannerImgUrl}/desktop/img/footer/sk.png`,
+		activeImg: `${bannerImgUrl}/desktop/img/footer/ska.png`,
+		lobbyDisplayName: "Skywind",
+		providerId: defCasinoProviders.Skywind.tpId
+	},
+	{
 		img: `${bannerImgUrl}/desktop/img/footer/gpi.png`,
 		activeImg: `${bannerImgUrl}/desktop/img/footer/gpia.png`,
 		lobbyDisplayName: "GAMEPLAY",

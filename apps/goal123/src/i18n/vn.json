@@ -128,6 +128,8 @@
 	"lbl_PhoneVerificationHint": "Vui lòng xác thực số điện thoại để bảo mật tài khoản và nhận thưởng VND {{amount}}.",
 	"lbl_EmailOTPHint1": "Mã xác thực email đã được gửi đến hộp thư bạn đăng ký.",
 	"lbl_EmailVerifiedMsg": "Tuyệt vời! Xác thực thành công",
+	"Skywind_Ocean_Ruler": "Ocean Ruler",
+	"Skywind_Cai_Shen_Da_Hai": "Cai Shen Da Hai",
 
 	"account ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Affiliate_ID": "ID Đại lý/ Người giới thiệu",

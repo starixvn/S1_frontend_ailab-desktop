@@ -262,17 +262,24 @@ export const defMenuLinks = {
 				parameter: { provider: defCasinoProviders.PP.name }
 			},
 			{
+				...defCasinoProviders.Skywind,
+				className: "SK",
+				displayText: "Skywind",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Skywind.name },
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.skywind
+					})
+				]
+			},
+			{
 				...defCasinoProviders.Habanero,
 				className: "HO",
 				displayText: "Habanero",
 				menuType: defMenuType.Link,
-				parameter: { provider: defCasinoProviders.Habanero.name },
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_Habanero
-					})
-				]
+				parameter: { provider: defCasinoProviders.Habanero.name }
 			},
 			{
 				...defCasinoProviders.NetEnt,
@@ -423,12 +430,6 @@ export const defMenuLinks = {
 			{
 				...productList.liveCasino_PP,
 				className: "livePP",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_pp
-					})
-				],
 				icon: "icon icon-PP",
 				displayText: "Pragmatic Play",
 				menuType: defMenuType.entPage,
@@ -437,14 +438,23 @@ export const defMenuLinks = {
 				}
 			},
 			{
-				...productList.liveCasino_MG,
-				className: "liveMG",
+				...productList.liveCasino_Skywind,
+				className: "liveSK",
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_mg
+						period: defEventPeriod.skywind
 					})
 				],
+				displayText: "Skywind",
+				menuType: defMenuType.entPage,
+				lobbyPage: {
+					bgClass: "live-sk"
+				}
+			},
+			{
+				...productList.liveCasino_MG,
+				className: "liveMG",
 				icon: "icon icon-mg",
 				displayText: "Microgaming",
 				menuType: defMenuType.entPage,
@@ -597,12 +607,6 @@ export const defMenuLinks = {
 			{
 				...productList.CQ9_Paradise,
 				className: "fs-paradise",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.cq9
-					})
-				],
 				displayKey: "lbl_Paradise",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Paradise },
@@ -613,12 +617,6 @@ export const defMenuLinks = {
 			{
 				...productList.CQ9_Oneshot_Fishing,
 				className: "fs-Oneshot",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.cq9
-					})
-				],
 				displayKey: "lbl_Oneshot_Fishing",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Oneshot_Fishing },
@@ -626,15 +624,41 @@ export const defMenuLinks = {
 					bgClass: "fish-of"
 				}
 			},
+			// {
+			// 	...productList.Skywind_Ocean_Ruler,
+			// 	className: "fs-or",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.skywind
+			// 		})
+			// 	],
+			// 	displayKey: "Skywind_Ocean_Ruler",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.Skywind_Ocean_Ruler },
+			// 	lobbyPage: {
+			// 		bgClass: "fish-or"
+			// 	}
+			// },
+			// {
+			// 	...productList.Skywind_Cai_Shen_Da_Hai,
+			// 	className: "fs-casdaha",
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.skywind
+			// 		})
+			// 	],
+			// 	displayKey: "Skywind_Cai_Shen_Da_Hai",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.Skywind_Cai_Shen_Da_Hai },
+			// 	lobbyPage: {
+			// 		bgClass: "fish-casdaha"
+			// 	}
+			// },
 			{
 				...productList.ICG_DRAGONBALL_FISHING,
 				className: "fs-db",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.icg
-					})
-				],
 				displayKey: "lbl_Game_ICG_DRAGONBALL_FISHING",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.ICG_DRAGONBALL_FISHING },

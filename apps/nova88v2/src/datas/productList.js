@@ -34,6 +34,7 @@ export const defSlotTpGameType = {
 	MG: { tpId: 34, tpGameType: 57 },
 	RedTiger: { tpId: 38, tpGameType: 65 },
 	NetEnt: { tpId: 37, tpGameType: 64 },
+	Skywind: { tpId: 43, tpGameType: 82 },
 	SimplePlay: { tpId: 44, tpGameType: 86 }
 };
 
@@ -227,6 +228,10 @@ export default {
 		tpId: 44,
 		tpGameType: 86
 	},
+	casino_Skywind: {
+		tpId: 43,
+		tpGameType: 82
+	},
 
 	/* === 3. live casino === */
 
@@ -292,6 +297,11 @@ export default {
 		tpId: 34,
 		gameId: "0",
 		tpGameType: 58
+	},
+	liveCasino_Skywind: {
+		gameId: "0",
+		tpId: 43,
+		tpGameType: 84
 	},
 
 	/* === 4. fishing === */
@@ -371,6 +381,18 @@ export default {
 		tpId: 16,
 		name: "CQ9_Oneshot_Fishing",
 		tpGameType: 44
+	},
+	Skywind_Ocean_Ruler: {
+		gameId: "sw_or",
+		tpId: 43,
+		name: "Skywind_Ocean_Ruler",
+		tpGameType: 85
+	},
+	Skywind_Cai_Shen_Da_Hai: {
+		gameId: "sw_cashdaha",
+		tpId: 43,
+		name: "Skywind_Cai_Shen_Da_Hai",
+		tpGameType: 85
 	},
 
 	/* === 5. cook fighting === */

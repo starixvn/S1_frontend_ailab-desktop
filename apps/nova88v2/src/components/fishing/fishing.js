@@ -71,7 +71,7 @@ const Fishing = () => {
 		setSubMenu(menu);
 
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [productTpIds, userInfo.currencyId, userInfo.isLogin]);
 
 	return (
 		<>
