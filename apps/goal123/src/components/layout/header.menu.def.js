@@ -296,19 +296,28 @@ export const defMenuLinks = langId => ({
 				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/pp-icon.png`
 			},
 			{
+				...defCasinoProviders.Skywind,
+				displayText: "Skywind",
+				menuType: defMenuType.Link,
+				parameter: { provider: defCasinoProviders.Skywind.name },
+				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/skywind.png`,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/sk-item.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/sk-icon.png`,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.skywind
+					})
+				]
+			},
+			{
 				...defCasinoProviders.Habanero,
 				displayText: "Habanero",
 				menuType: defMenuType.Link,
 				parameter: { provider: defCasinoProviders.Habanero.name },
 				bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero.png`,
 				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/habanero-item.png`,
-				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/habanero-icon.png`,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_Habanero
-					})
-				]
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/slots/newicon/habanero-icon.png`
 			},
 			{
 				...defCasinoProviders.NetEnt,
@@ -497,12 +506,6 @@ export const defMenuLinks = langId => ({
 		subMenu: [
 			{
 				...productList.liveCasino_PP,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_pp
-					})
-				],
 				className: "livePP",
 				icon: "icon icon-PP",
 				listNpcImgUrl: "pp.png",
@@ -513,14 +516,23 @@ export const defMenuLinks = langId => ({
 				lobbyImg: "pp"
 			},
 			{
-				...productList.liveCasino_MG,
-				className: "MG",
+				...productList.liveCasino_Skywind,
+				listNpcImgUrl: "sk.png",
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_mg
+						period: defEventPeriod.skywind
 					})
 				],
+				displayText: "Skywind",
+				menuType: defMenuType.entPage,
+				npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/sk.png`,
+				iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/livecasino/newicon/sk-icon.png`,
+				lobbyImg: "sk"
+			},
+			{
+				...productList.liveCasino_MG,
+				className: "MG",
 				icon: "icon icon-mg",
 				listNpcImgUrl: "mg.png",
 				displayText: "Microgaming",
@@ -708,12 +720,6 @@ export const defMenuLinks = langId => ({
 			{
 				...productList.CQ9_Oneshot_Fishing,
 				className: "oneshotfishing",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.cq9
-					})
-				],
 				displayKey: "lbl_Oneshot_Fishing",
 				menuType: defMenuType.entPage,
 				parameter: { ...productList.CQ9_Oneshot_Fishing },
@@ -725,6 +731,44 @@ export const defMenuLinks = langId => ({
 					providerImg: "cq9"
 				}
 			},
+			// {
+			// 	...productList.Skywind_Ocean_Ruler,
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.skywind
+			// 		})
+			// 	],
+			// 	displayKey: "Skywind_Ocean_Ruler",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.Skywind_Ocean_Ruler },
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/or.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/or-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sk-icon.png`,
+			// 	lobbyPage: {
+			// 		bgImg: `${bannerImgUrl}/desktop/img/fishing/oceanruler.png`,
+			// 		providerImg: "sk"
+			// 	}
+			// },
+			// {
+			// 	...productList.Skywind_Cai_Shen_Da_Hai,
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.skywind
+			// 		})
+			// 	],
+			// 	displayKey: "Skywind_Cai_Shen_Da_Hai",
+			// 	menuType: defMenuType.entPage,
+			// 	parameter: { ...productList.Skywind_Cai_Shen_Da_Hai },
+			// 	bgImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/casdaha.png`,
+			// 	npcImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/casdaha-item.png`,
+			// 	iconImgUrl: `${bannerImgUrl}/desktop/img/dropdown/fishing/newicon/sk-icon.png`,
+			// 	lobbyPage: {
+			// 		bgImg: `${bannerImgUrl}/desktop/img/fishing/caishendahai.png`,
+			// 		providerImg: "sk"
+			// 	}
+			// },
 			// {
 			// 	...productList.CQ9_Water_Margin_Fishing,
 			// 	className: "watermarginfishing",

@@ -168,6 +168,13 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			imgName: "casino_amb",
 			hoverImgName: "casino_amba",
 			allowCurrencies: allowedCurrencyList.slotAMB
+		},
+		{
+			...productList.casino_Skywind,
+			path: path.casino.root,
+			parameter: { ...productList.casino_Skywind },
+			imgName: "sk",
+			hoverImgName: "ska"
 		}
 	];
 
