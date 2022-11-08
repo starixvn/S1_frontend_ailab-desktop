@@ -35,7 +35,7 @@ const FishingListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
 			) : null}
 			{subMenuItem?.eventIcons?.length > 0 && (
-				<div className={subMenuItem.eventIcons[0]} />
+				<div className={`icon ${subMenuItem.eventIcons[0]}`} />
 			)}
 
 			<p>{_displayText}</p>

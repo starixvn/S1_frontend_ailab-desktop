@@ -135,6 +135,12 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.SimplePlay.name },
 		imgName: "simpleplay"
+	},
+	{
+		...defCasinoProviders.Skywind,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Skywind.name },
+		imgName: "sk"
 	}
 ];
 

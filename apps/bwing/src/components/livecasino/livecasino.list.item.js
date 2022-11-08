@@ -31,7 +31,7 @@ const LiveCasinoListItem = ({ t, clickItem, subMenuItem, maintainList }) => {
 				})
 			}>
 			{subMenuItem?.eventIcons?.length > 0 && (
-				<i className={`icon  ${subMenuItem.eventIcons[0]}`} />
+				<i className={`icon ${subMenuItem.eventIcons[0]}`} />
 			)}
 			{isInMaintain ? (
 				<div className="underBtn">{t("lbl_underMaintenance")}</div>
