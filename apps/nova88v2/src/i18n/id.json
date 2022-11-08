@@ -212,7 +212,7 @@
 	"lbl_MemberBenefits_1": "BONUS SPORTSBOOK",
 	"lbl_MemberBenefits_2": "BONUS LIVE CASINO",
 	"lbl_MemberBenefits_3": "BONUS SLOT MESIN",
-	"lbl_MemberBenefits_4": "REBATE HARIAN HINGGA 2.1%",
+	"lbl_MemberBenefits_4": "REBATE HARIAN HINGGA {{rebate}}%",
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "NIKMATI BONUS & REBATE EKSKLUSIF NOVA88 VIP",
 	"lbl_Multiple_product_platforms_with_better_odds": "Berbagai produk dengan odds terbaik dan sensasi permainan yang lengkap.",
 	"lbl_Speedy_deposit_and_withdrawal": "Deposit dan penarikan cepat dengan berbagai pilihan.",
@@ -864,7 +864,7 @@
 	"lbl_Streaming_SPORTSBOOK": "OLAHRAGA",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "VIDEO TERBARU",
+	"lbl_LatestHighlightVideo": "Video Terbaru",
 	"lbl_LiveScore": "Skor Langsung",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -969,7 +969,7 @@
 	"lbl_KEEP_CALM_GO_ALL_IN": "TETAP SANTAI & ALL IN SAJA!",
 	"lbl_POKER_NOW": "POKER NOW",
 	"lbl_DOWNLOAD_APP_NOW": "DOWNLOAD APLIKASI SEKARANG",
-	"lbl_HOT_GAMES": "HOT GAMES",
+	"lbl_HOT_GAMES": "Hot Games",
 	"lbl_sign_up_terms_start": "Dengan meng-klik GABUNG SEKARANG, saya menyatakan hahwa saya berumur diatas 18 tahun dan telah membaca dan menyetujui",
 	"lbl_sign_up_terms_center": "syarat & ketentuan",
 	"lbl_sign_up_terms_end": ".",
@@ -1009,6 +1009,9 @@
 	"lbl_welcome_to": "SELAMAT DATANG",
 	"lbl_world_class": "DI CASINO",
 	"lbl_casino_world": "KELAS DUNIA",
+
+	"■■■■■■■■■■■■■■■■■■■■ v3.0 ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_SeeMore": "See More",
 
 	"livecasino": {
 		"lbl_welcome_to": "SELAMAT DATANG",

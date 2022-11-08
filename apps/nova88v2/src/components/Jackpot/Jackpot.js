@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
+import { useTranslation } from "react-i18next";
+import { isRootContext } from "../common/context";
 import { takeJackItemList, isNumber } from "./jackpot.common";
 import JaclpotList from "./jaclpot.list";
+import { bannerImgUrl } from "../../config";
 
 const TEXT_TOP = 30;
 
@@ -11,6 +14,8 @@ export default function Jackpot({
 	animationLoopMillisecond,
 	onClick
 }) {
+	const { t } = useTranslation();
+	const { isRoot } = useContext(isRootContext);
 	const [list, setList] = useState([]);
 
 	const [jackpotItemList, setJackpotItemList] = useState([]);
@@ -69,10 +74,29 @@ export default function Jackpot({
 
 	return (
 		<div className="jpot" onClick={onClick}>
+			{isRoot && (
+				<>
+					<div className="jpot-btn">
+						<button>{t("lbl_PlayNow")}</button>
+					</div>
+					<div className="jpot-item">
+						<img
+							src={`${bannerImgUrl}/desktop/img/homepage/jpot-item.png`}
+							alt=""
+						/>
+					</div>
+				</>
+			)}
 			<div className="number">
 				<div>{label}</div>
 
-				<JaclpotList jackpotItemList={jackpotItemList} />
+				{isRoot ? (
+					<div className="numberRow-module">
+						<JaclpotList jackpotItemList={jackpotItemList} />
+					</div>
+				) : (
+					<JaclpotList jackpotItemList={jackpotItemList} />
+				)}
 			</div>
 		</div>
 	);

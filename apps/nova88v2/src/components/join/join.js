@@ -603,7 +603,7 @@ export default () => {
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
-				<JoinPromoInfo langId={defaultLangId} t={t} />
+				<JoinPromoInfo currencyId={userInfo.currencyId} t={t} />
 				<div className="joinAnimation">
 					<img
 						className="animationlogo"

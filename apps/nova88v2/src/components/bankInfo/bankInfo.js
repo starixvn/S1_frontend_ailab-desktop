@@ -214,8 +214,10 @@ export default () => {
 	) : (
 		<>
 			<div className="infoModule">
-				<div className="inside-title icon icon-icon32px_bank-account">
-					<span>{t("lbl_BankInfo")}</span>
+				<div className="inside-title">
+					<span className="icon icon-icon32px_bank-account">
+						{t("lbl_BankInfo")}
+					</span>
 					<div>{t("lbl_UpdateBankInfo")}</div>
 				</div>
 

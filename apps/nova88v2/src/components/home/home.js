@@ -25,7 +25,6 @@ import SideBarQuickLink from "./sideBarQuickLink";
 import PromoList from "./promoList";
 import HomeJackpot from "./jackpot";
 import HotGameList from "./hotGameList";
-import AngpowLink from "./angpowLink";
 import MysteryBoxLink from "./mysteryBoxLink";
 import EventSwipper from "./eventSwipper";
 import IndexCenterBanner from "./indexCenterBanner";
@@ -187,7 +186,7 @@ const IndexPage = () => {
 			<div className="liveVideo">
 				<LatestVideo />
 				<div>
-					<div className="moduleTitle icon icon-upcomingmatches">
+					<div className="moduleTitle">
 						{t("lbl_UPCOMING_MATCHES")}
 					</div>
 					<EventSwipper
@@ -196,9 +195,7 @@ const IndexPage = () => {
 					/>
 					{userInfo.currencyId === defCurrencyList.BDT ? (
 						<div className="jpotModule">
-							<div className="moduleTitle icon icon-icon_777">
-								{t("lbl_Slots")}
-							</div>
+							<div className="moduleTitle">{t("lbl_Slots")}</div>
 							<Link
 								className="slotsbox"
 								to={`/${userInfo.langId}/${path.casino.root}`}>
@@ -239,11 +236,6 @@ const IndexPage = () => {
 			<LuckyWheelLink
 				langId={userInfo.langId}
 				currencyId={userInfo.currencyId}
-			/>
-
-			<AngpowLink
-				to={`/${userInfo.langId}/${path.angpow.root}`}
-				langId={userInfo.langId}
 			/>
 
 			<MysteryBoxLink

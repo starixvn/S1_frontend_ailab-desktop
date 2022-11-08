@@ -32,7 +32,7 @@ export default () => {
 
 	const getBanner = () => {
 		const langId = validImgLang(userInfo.langId);
-		return `${bannerImgUrl}/desktop/img/refbanner-${langId}.png`;
+		return `${bannerImgUrl}/desktop/img/refbanner-new-${langId}.png`;
 	};
 
 	const [referralSum, setReferralSum] = useState({
@@ -141,8 +141,10 @@ export default () => {
 	return (
 		!loading && (
 			<div className="infoModule">
-				<div className="inside-title icon icon-friend">
-					<span>{t("lbl_ReferFriends")}</span>
+				<div className="inside-title">
+					<span className="icon icon-friend">
+						{t("lbl_ReferFriends")}
+					</span>
 				</div>
 				<div className="achievement">
 					{t("lbl_ReferralStatus")} :
@@ -163,7 +165,7 @@ export default () => {
 				</div>
 				<img
 					src={getBanner()}
-					className="referral_banner"
+					className="refbanner"
 					alt="referral banner"
 				/>
 				<div className="referralModule">

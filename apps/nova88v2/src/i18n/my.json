@@ -204,11 +204,11 @@
 	"lbl_VertifyContactConfirm": "Mengesahkan nombor hubungan anda untuk menikmati promosi kami",
 	"msg_API_SendOTPSMS_5002": "Nombor telefon yang salah telah dimasukkan.",
 	"lbl_FEATURES": "CIRI-CIRI",
-	"lbl_MEMBERS_BENEFITS": "KELEBIHAN AHLI",
+	"lbl_MEMBERS_BENEFITS": "KELEBIHAN MENJADI AHLI",
 	"lbl_MemberBenefits_1": "PEK PERMULAAN NOVA88",
 	"lbl_MemberBenefits_2": "BONUS KASINO LIVE",
 	"lbl_MemberBenefits_3": "SLOT BONUS SELAMAT DATANG",
-	"lbl_MemberBenefits_4": "BONUS DEPOSIT SEMULA HARIAN MENCECAH 2.1%",
+	"lbl_MemberBenefits_4": "REBATE HARIAN HINGGA {{rebate}}%",
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "NIKMATI BONUS & REBAT EKSKLUSIF AHLI VIP NOVA88",
 	"lbl_Multiple_product_platforms_with_better_odds": "Produk platform yang berbilang dengan peluang kemenangan yang lebih baik dan pengalaman permainan menyeluruh.",
 	"lbl_Speedy_deposit_and_withdrawal": "- Proses deposit dan pengeluaran yang pantas dengan pelbagai pilihan deposit.",
@@ -851,7 +851,7 @@
 	"lbl_Streaming_SPORTSBOOK": "SPORTSBOOK",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "VIDEO  TERKINI",
+	"lbl_LatestHighlightVideo": "Video  Terkini",
 	"lbl_LiveScore": "Skor Langsung",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -879,7 +879,7 @@
 	"lbl_Crypto_OTP": "Pengesahan nombor telefon (OTP) diperlukan sebelum menggunakan perkhidmatan Kripto.",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_UPCOMING_MATCHES": "PERTANDINGAN YANG AKAN DATANG",
+	"lbl_UPCOMING_MATCHES": "Perlawanan Akan Datang",
 	"lbl_LiveChat": "Live Chat",
 	"lbl_DepositLiveChat": "Live Chat 24/7",
 	"lbl_Payment_Method": "Kaedah bayaran",
@@ -936,7 +936,7 @@
 	"lbl_Brand_Ambassador": "NOVA88 Duta Jenama 2022/23",
 	"lbl_Former_Chelsea_Liverpool": "Bekas Pemain Professional Chelsea & Liverpool",
 	"lbl_England_International": "England Antarabangsa",
-	"lbl_SPORT_NEWS": "BERITA SUKAN",
+	"lbl_SPORT_NEWS": "Berita Sukan",
 	"lbl_Sportsbook": "Sportsbook",
 	"lbl_Promotion_Link_1": "SPORTSBOOK",
 	"lbl_Promotion_Link_2": "SPORTSBOOK",
@@ -956,11 +956,11 @@
 	"lbl_KEEP_CALM_GO_ALL_IN": "BERTENANG & ALL IN!",
 	"lbl_POKER_NOW": "MAIN POKER SEKARANG",
 	"lbl_DOWNLOAD_APP_NOW": "MUAT TURUN APLIKASI SEKARANG",
-	"lbl_HOT_GAMES": "PERMAINAN TERHANGAT",
+	"lbl_HOT_GAMES": "Permainan Terhangat",
 	"lbl_sign_up_terms_start": "Dengan tekan butang SERTAI SEKARANG, saya akui bahawa saya berumur 18 tahun atau ke atas dan telah baca dan terima",
 	"lbl_sign_up_terms_center": "terma & syarat",
 	"lbl_sign_up_terms_end": ".",
-	"lbl_homeJackpotTitle": "JACKPOT",
+	"lbl_homeJackpotTitle": "Jackpot",
 
 	"■■■■■■■■■■■■■■■■■■■■ sponsor ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Sponsor": "PENAJA",
@@ -993,6 +993,9 @@
 	"lbl_Header_olympic_countdown_hour": "JAM",
 	"lbl_Header_olympic_countdown_mins": "MIN",
 	"lbl_Header_olympic_countdown_secs": "SAAT",
+
+	"■■■■■■■■■■■■■■■■■■■■ v3.0 ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_SeeMore": "See More",
 
 	"livecasino": {
 		"lbl_welcome_to": "SELAMAT DATANG KE",

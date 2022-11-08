@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { isDateRange } from "../common/common";
 import useInterval from "../hook/useInterval";
 import { bannerImgUrl } from "../../config";
+import arrowImg from "../../styles/img/homepage/arrow.png";
 
 const DURATION_TIME = {
 	// startDate: "2022-07-26 12:00:00", // GMT+0800
@@ -69,34 +70,39 @@ const Countdown = ({ t, diffTime }) => {
 		<>
 			<div>
 				<img
-					src={`${bannerImgUrl}/desktop/img/event/worldcup/xs-logo.png`}
+					src={`${bannerImgUrl}/desktop/img/event/worldcup/fixture-logo.png`}
 					alt="countdown_img"
 				/>
 			</div>
 			<div>
-				<span>{diffDays ?? "00"}</span>
-				<div>{t("lbl_Header_olympic_countdown_days")}</div>
-			</div>
-			<div>
-				<span>
-					{hours[0]}
-					{hours[1]}
-				</span>
-				<div>{t("lbl_Header_olympic_countdown_hour")}</div>
-			</div>
-			<div>
-				<span>
-					{minutes[0]}
-					{minutes[1]}
-				</span>
-				<div>{t("lbl_Header_olympic_countdown_mins")}</div>
-			</div>
-			<div>
-				<span>
-					{seconds[0]}
-					{seconds[1]}
-				</span>
-				<div>{t("lbl_Header_olympic_countdown_secs")}</div>
+				<div>
+					<span>{diffDays ?? "00"}</span>
+					<div>{t("lbl_Header_olympic_countdown_days")}</div>
+				</div>
+				<div>
+					<span>
+						{hours[0]}
+						{hours[1]}
+					</span>
+					<div>{t("lbl_Header_olympic_countdown_hour")}</div>
+				</div>
+				<div>
+					<span>
+						{minutes[0]}
+						{minutes[1]}
+					</span>
+					<div>{t("lbl_Header_olympic_countdown_mins")}</div>
+				</div>
+				<div>
+					<span>
+						{seconds[0]}
+						{seconds[1]}
+					</span>
+					<div>{t("lbl_Header_olympic_countdown_secs")}</div>
+				</div>
+				<button className="entry">
+					<img src={arrowImg} alt="entry" />
+				</button>
 			</div>
 		</>
 	);

@@ -151,7 +151,7 @@ const HotEventContent = ({
 						</div>
 						<div className="btnGroup">
 							<button className="orange">
-								{t("lbl_BetNow")?.toUpperCase()}
+								{t("lbl_BetNow")}
 							</button>
 						</div>
 						<div className="teamR">

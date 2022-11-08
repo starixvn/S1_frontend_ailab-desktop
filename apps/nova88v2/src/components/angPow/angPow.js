@@ -68,14 +68,14 @@ const AngPow = () => {
 				src={require(`../../styles/img/event/title_${userInfo.langId}.png`)}
 				alt="title_en"
 			/>
-			<AngPowAnimation
+			{/* <AngPowAnimation
 				t={t}
 				isLogin={userInfo.isLogin}
 				langId={userInfo.langId}
 				drawPrize={drawPrize}
 				checkDrawPrize={checkDrawPrize}
 				postDrawPrize={postDrawPrize}
-			/>
+			/> */}
 			<AngPowEventModule
 				drawPrizeList={drawPrizeList}
 				currencyId={userInfo.currencyId}

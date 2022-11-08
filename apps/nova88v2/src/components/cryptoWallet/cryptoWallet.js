@@ -76,8 +76,7 @@ export default () => {
 					<div className="btnGroup">
 						<Link
 							className="btn-check"
-							to={`/${userInfo.langId}/${path.profile.root}`}
-						>
+							to={`/${userInfo.langId}/${path.profile.root}`}>
 							{t("lbl_UpdatePersonalDetail")}
 						</Link>
 					</div>
@@ -96,8 +95,8 @@ export default () => {
 		<Loading />
 	) : (
 		<div className="infoModule">
-			<div className="inside-title icon icon-BTC">
-				<span>{t("lbl_CryptoWallet")}</span>
+			<div className="inside-title">
+				<span className="icon icon-BTC">{t("lbl_CryptoWallet")}</span>
 				<div>{t("lbl_Update_Crypto_Wallet")}</div>
 			</div>
 

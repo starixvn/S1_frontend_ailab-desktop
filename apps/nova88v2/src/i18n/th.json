@@ -212,7 +212,7 @@
 	"lbl_MemberBenefits_1": "โบนัสต้อนรับสมาชิกใหม่ สปอร์ตบุ๊ค",
 	"lbl_MemberBenefits_2": "โบนัสต้อนรับสมาชิกใหม่ คาสิโนสด",
 	"lbl_MemberBenefits_3": "โบนัสต้อนรับสมาชิกใหม่ เกมสล็อต",
-	"lbl_MemberBenefits_4": "เงินคืนยอดเล่นรายวัน สูงสุด 2.1%",
+	"lbl_MemberBenefits_4": "เงินคืนยอดเล่นรายวัน สูงสุด {{rebate}}%",
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "เพลิดเพลินไปกับ NOVA88 โบนัสและเงินคืนพิเศษ",
 	"lbl_Multiple_product_platforms_with_better_odds": "แพลตฟอร์มเกมที่หลากหลายพร้อมโอกาสที่ดีกว่าและประสบการณ์การเล่นเกมเต็มรูปแบบ",
 	"lbl_Speedy_deposit_and_withdrawal": "ฝากและถอนอย่างรวดเร็วด้วยตัวเลือกการฝากที่หลากหลาย",
@@ -1007,6 +1007,9 @@
 	"lbl_welcome_to": "ยินดีต้อนรับเข้าสู่",
 	"lbl_world_class": "โลกแห่งคาสิโนออนไลน์",
 	"lbl_casino_world": "ระดับเวิลด์คลาส",
+
+	"■■■■■■■■■■■■■■■■■■■■ v3.0 ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_SeeMore": "See More",
 
 	"speed": {
 		"lbl_CurrentIp": "ตำแหน่ง IP ปัจจุบันของคุณ",
