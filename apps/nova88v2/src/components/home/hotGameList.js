@@ -134,9 +134,7 @@ const HotGameList = ({ t, userInfo, maintainList }) => {
 	return (
 		rows?.length > 0 && (
 			<>
-				<div className="moduleTitle icon icon-mediafire">
-					{t("lbl_HOT_GAMES")}
-				</div>
+				<div className="moduleTitle">{t("lbl_HOT_GAMES")}</div>
 
 				<div className="hotGame">
 					<ReactMarquee

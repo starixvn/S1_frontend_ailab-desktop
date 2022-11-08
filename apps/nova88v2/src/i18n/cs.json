@@ -212,8 +212,8 @@
 	"lbl_MemberBenefits_1": "体育博彩迎新首存红利",
 	"lbl_MemberBenefits_2": "真人娱乐迎新首存红利",
 	"lbl_MemberBenefits_3": "老虎机迎新首存红利",
-	"lbl_MemberBenefits_4": "每日现金返水 高达 2.1%",
-	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "豪享欧亚体育尊贵优惠红利与返水",
+	"lbl_MemberBenefits_4": "每日现金返水高达 {{rebate}}%",
+	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "豪享NOVA88尊贵优惠红利与返水",
 	"lbl_Multiple_product_platforms_with_better_odds": "多样化产品平台配上超划赔率以及完整游戏体验。",
 	"lbl_Speedy_deposit_and_withdrawal": "多项支付方式且火速存/提款交易。",
 	"lbl_Please_enter_your_registered_email_to_reset": "请输入您注册电邮以重置密码。",
@@ -1015,6 +1015,9 @@
 	"lbl_welcome_to": "欢迎莅临",
 	"lbl_world_class": "世界级别",
 	"lbl_casino_world": "真人娱乐城",
+
+	"■■■■■■■■■■■■■■■■■■■■ v3.0 ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_SeeMore": "See More",
 
 	"speed": {
 		"lbl_CurrentIp": "您当前的IP位置",

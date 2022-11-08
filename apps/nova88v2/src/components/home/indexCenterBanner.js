@@ -1,6 +1,8 @@
 import React, { memo, useState, useEffect } from "react";
+import QRCode from "qrcode.react";
 import PropTypes from "prop-types";
 import { bannerImgUrl } from "../../config";
+import useAppDownLoad from "../appDownload/useAppDownLoad";
 
 const DEFAULT_LANGID = "en";
 
@@ -25,11 +27,14 @@ const testImg = src =>
 
 const IndexCenterBanner = ({ langId }) => {
 	const [imgUrl, setImgUrl] = useState("");
+	const { appLinkDatas } = useAppDownLoad();
+	const andriodDownLoadUrl = appLinkDatas?.Andriod?.downloadLink;
+	const IOSDownloadUrl = appLinkDatas?.IOS?.downloadLink;
 
 	useEffect(() => {
 		const checkImage = async () => {
 			let success = false;
-			const bannerImg = `${bannerImgUrl}/img/${BANNER_IMAGE_LIST[langId]}`;
+			const bannerImg = `${bannerImgUrl}/desktop/img/${BANNER_IMAGE_LIST[langId]}`;
 			const defaultBannerImg = `${bannerImgUrl}/img/${BANNER_IMAGE_LIST[DEFAULT_LANGID]}`;
 
 			success = await testImg(bannerImg);
@@ -51,12 +56,35 @@ const IndexCenterBanner = ({ langId }) => {
 
 		getImgUrl();
 	});
+
+	console.log(appLinkDatas, andriodDownLoadUrl, IOSDownloadUrl);
+
 	return (
-		<img
-			src={imgUrl}
-			className="indexCenterBanner"
-			alt="IndexCenterBanner"
-		/>
+		<div className="indexCenterBanner">
+			<div className="qrGroup">
+				{IOSDownloadUrl && (
+					<div className="qrCode">
+						<QRCode
+							value={IOSDownloadUrl}
+							renderAs="svg"
+							size={152}
+							includeMargin={true}
+						/>
+					</div>
+				)}
+				{andriodDownLoadUrl && (
+					<div className="qrCode">
+						<QRCode
+							value={andriodDownLoadUrl}
+							renderAs="svg"
+							size={152}
+							includeMargin={true}
+						/>
+					</div>
+				)}
+			</div>
+			<img src={imgUrl} alt="IndexCenterBanner" />
+		</div>
 	);
 };
 

@@ -74,34 +74,30 @@ export const HomeNews = ({ t, userInfo }) => {
 		navigate(`/${userInfo.langId}/${path.newsInfo.root}?newsId=${_newsId}`);
 	};
 
-	const newsRows = newsData.map((item, idx) => {
-		return (
-			<div key={`index-news-${item.newsId}-${userInfo.langId}`}>
-				<div className="newsModule">
-					<img src={item.imageURL} alt="news-img" />
-					<div>
-						<div>{item.postTime.slice(0, 10)}</div>
-						<div>{item.title}</div>
-						<div>{item.content}</div>
-						<div className="btnGroup">
-							<button
-								className="lightblue"
-								onClick={clickToNews.bind(this, item.newsId)}>
-								{t("lbl_Read_more")}
-							</button>
-						</div>
+	const newsRows = newsData.map((item, idx) => (
+		<div key={`index-news-${item.newsId}-${userInfo.langId}`}>
+			<div className="newsModule">
+				<img src={item.imageURL} alt="news-img" />
+				<div>
+					<div>{item.postTime.slice(0, 10)}</div>
+					<div>{item.title}</div>
+					<div>{item.content}</div>
+					<div className="btnGroup">
+						<button
+							className="lightblue"
+							onClick={clickToNews.bind(this, item.newsId)}>
+							{t("lbl_Read_more")}
+						</button>
 					</div>
 				</div>
-				{idx === 0 ? <div className="newsBorder" /> : null}
 			</div>
-		);
-	});
+			{idx === 0 ? <div className="newsBorder" /> : null}
+		</div>
+	));
 
 	return (
 		<div className="newsList">
-			<div className="moduleTitle icon icon-news">
-				{t("lbl_SPORT_NEWS")}
-			</div>
+			<div className="moduleTitle">{t("lbl_SPORT_NEWS")}</div>
 			{newsRows}
 		</div>
 	);

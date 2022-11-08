@@ -681,8 +681,10 @@ export default () => {
 		<Loading />
 	) : (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_Profile">
-				<span>{t("lbl_Profile")}</span>
+			<div className="inside-title">
+				<span className="icon icon-icon32px_Profile">
+					{t("lbl_Profile")}
+				</span>
 				<div>{t("lbl_ProfileModifyWarning")}</div>
 			</div>
 

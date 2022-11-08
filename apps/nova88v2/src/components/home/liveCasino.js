@@ -17,9 +17,7 @@ const Content = () => {
 
 	return (
 		<div className="liveTv">
-			<div className="moduleTitle icon icon-livecasino">
-				{t("lbl_LiveCasino")}
-			</div>
+			<div className="moduleTitle">{t("lbl_LiveCasino")}</div>
 			<div className="liveCasinoBox">
 				<div className="content">
 					<div className="title">{t("lbl_CasinoWithLive")}</div>
@@ -27,12 +25,13 @@ const Content = () => {
 					<div className="info">{t("lbl_LiveCasinoInfo2")}</div>
 					<div className="info">{t("lbl_LiveCasinoInfo3")}</div>
 					<Link to={path.liveCasino.root}>
-						<button className="icon icon-casino">
-							{t("lbl_PlayNow")}
-						</button>
+						<button>{t("lbl_PlayNow")}</button>
 					</Link>
 				</div>
-				<img src={`${bannerImgUrl}/img/liveCasinoBox/bg.png`} alt="" />
+				<img
+					src={`${bannerImgUrl}/desktop/img/homepage/livecasinobg.jpg`}
+					alt=""
+				/>
 			</div>
 		</div>
 	);
