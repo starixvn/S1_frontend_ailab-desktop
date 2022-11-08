@@ -3,14 +3,12 @@ import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import Dropdown from "./dropdown";
 import { defPromotionType } from "../promotion/promotion.def";
-import { defFilterType } from "../promotion/promotion.nav";
 import { checkAmount, isConvert, number_format } from "./common";
 
 const AmountConfirmPopbox = ({
 	currencyId,
 	langId,
 	promotionInfo,
-	bonusType,
 	clickClose,
 	setClaimPromotion
 }) => {
@@ -20,6 +18,8 @@ const AmountConfirmPopbox = ({
 	const [validationError, setValidationError] = useState({});
 	const [selectedIdx, setSelectedIdx] = useState(0);
 	const { bonusCode, canJoinTierAmountList, promotionType } = promotionInfo;
+
+	const isFirstDeposit = promotionType === defPromotionType.firstDeposit;
 
 	const options = canJoinTierAmountList?.map((el, i) => ({
 		id: i,
@@ -125,10 +125,8 @@ const AmountConfirmPopbox = ({
 		setAmount(String(amount).replace(/^(0+)|[^\d]+/g, ""));
 	}, [amount]);
 
-	// * 如果 'promotionType' 為 specialBonus 以及是 'firstDeposit' 則需提供 Input 給使用者填寫金額
-	const isRenderInput =
-		promotionType === defPromotionType.firstDeposit &&
-		bonusType === defFilterType.specialBonus;
+	// * 如果 'promotionType' 為 'firstDeposit' 則需提供 Input 給使用者填寫金額
+	const isRenderInput = promotionType === defPromotionType.firstDeposit;
 
 	// * 如果 promotionType 為 redeposit 則提供 距級 的 Dropdown 直接選擇
 	const isRenderDropdown = promotionType === defPromotionType.redeposit;
@@ -138,7 +136,9 @@ const AmountConfirmPopbox = ({
 			<div className="icon icon-gift" />
 			<div className="title">{t("lbl_ImportantNote")}</div>
 			<div className="txt-lightgray">
-				{t("lbl_PleaseEnterClaimAmount")}
+				{isFirstDeposit
+					? t("lbl_PleaseEnterClaimAmount")
+					: t("lbl_PleaseSelectClaimAmount")}
 			</div>
 
 			{isRenderInput && renderInput()}
@@ -151,7 +151,6 @@ const AmountConfirmPopbox = ({
 AmountConfirmPopbox.defaultProps = {
 	currencyId: null,
 	promotionInfo: null,
-	bonusType: null,
 	langId: null,
 	clickClose: () => null,
 	setClaimPromotion: () => null
@@ -160,7 +159,6 @@ AmountConfirmPopbox.defaultProps = {
 AmountConfirmPopbox.propTypes = {
 	currencyId: PropTypes.number,
 	promotionInfo: PropTypes.objectOf(PropTypes.any),
-	bonusType: PropTypes.string,
 	langId: PropTypes.string,
 	clickClose: PropTypes.func,
 	setClaimPromotion: PropTypes.func
