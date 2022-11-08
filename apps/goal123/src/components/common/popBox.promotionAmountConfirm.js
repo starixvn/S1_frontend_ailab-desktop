@@ -1,18 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import Dropdown from "./dropdown";
+import { defPromotionType } from "../promotion/promotion.def";
+import { number_format, checkAmount, isConvert } from "./common";
 
 const AmountConfirmPopbox = ({
+	currencyId,
 	langId,
 	promotionInfo,
 	clickClose,
 	setClaimPromotion
 }) => {
 	const { t } = useTranslation();
-	const { bonusCode, canJoinTierAmountList } = promotionInfo;
-
+	const [amount, setAmount] = useState("");
+	const [validationError, setValidationError] = useState({});
 	const [selectedIdx, setSelectedIdx] = useState(0);
+
+	const {
+		bonusCode,
+		requiredAmount,
+		maxAmount,
+		canJoinTierAmountList,
+		promotionType
+	} = promotionInfo;
+
+	const isFirstDeposit = promotionType === defPromotionType.firstDeposit;
+
+	useEffect(() => {
+		if (isFirstDeposit) {
+			setAmount(String(amount).replace(/^(0+)|[^\d]+/g, ""));
+		}
+	}, [amount]);
 
 	const options = canJoinTierAmountList?.map((el, i) => ({
 		id: i,
@@ -23,7 +42,19 @@ const AmountConfirmPopbox = ({
 	}));
 
 	const onSetClaimPromotion = () => {
-		setClaimPromotion(langId, bonusCode, options[selectedIdx].lockedAmount);
+		if (isFirstDeposit) {
+			if (validationError.status !== 0) return;
+
+			const _isConvert = isConvert(currencyId);
+			const _amount = _isConvert ? amount * 1000 : amount;
+			setClaimPromotion(langId, bonusCode, _amount);
+		} else {
+			setClaimPromotion(
+				langId,
+				bonusCode,
+				options[selectedIdx].lockedAmount
+			);
+		}
 	};
 
 	const onSelectItem = i => {
@@ -32,13 +63,45 @@ const AmountConfirmPopbox = ({
 		}
 	};
 
-	return (
-		<div className="loackAmount" style={{ display: "flex" }}>
-			<div className="icon icon-gift" />
-			<div className="title">{t("lbl_ImportantNote")}</div>
-			<div className="txt-lightgray">
-				{t("lbl_PleaseEnterClaimAmount")}
-			</div>
+	const validAmount = _amount => {
+		const result = checkAmount({
+			amount: _amount,
+			minAmount: requiredAmount,
+			maxAmount,
+			formatRequired: false,
+			t
+		});
+		setValidationError(result);
+	};
+
+	let input = null;
+	if (isFirstDeposit) {
+		input = (
+			<>
+				<div className="inputBox-white">
+					<input
+						// autoFocus
+						value={amount}
+						onBlur={() => validAmount(amount)}
+						onChange={e => setAmount(e.target.value)}
+					/>
+				</div>
+				<div
+					className={`tip ${
+						validationError.status !== 0 ? "active" : ""
+					}`}>
+					{validationError.msg}
+				</div>
+
+				<div className="txt-yellow">
+					{`${t("lbl_ClaimAmountRange")}: 
+				 ${number_format({ number: requiredAmount })} ~ 
+				 ${number_format({ number: maxAmount })}`}
+				</div>
+			</>
+		);
+	} else {
+		input = (
 			<div className="inputBox">
 				<Dropdown
 					i18n={t}
@@ -48,6 +111,19 @@ const AmountConfirmPopbox = ({
 					onSelectItem={onSelectItem}
 				/>
 			</div>
+		);
+	}
+
+	return (
+		<div className="loackAmount" style={{ display: "flex" }}>
+			<div className="icon icon-gift" />
+			<div className="title">{t("lbl_ImportantNote")}</div>
+			<div className="txt-lightgray">
+				{isFirstDeposit
+					? t("lbl_PleaseEnterClaimAmount")
+					: t("lbl_PleaseSelectClaimAmount")}{" "}
+			</div>
+			{input}
 			<div className="btnGroup">
 				<button className="btn-cancel" onClick={clickClose}>
 					{t("lbl_Cancel")}
@@ -64,14 +140,16 @@ AmountConfirmPopbox.defaultProps = {
 	promotionInfo: null,
 	langId: null,
 	clickClose: () => null,
-	setClaimPromotion: () => null
+	setClaimPromotion: () => null,
+	currencyId: null
 };
 
 AmountConfirmPopbox.propTypes = {
 	promotionInfo: PropTypes.objectOf(PropTypes.any),
 	langId: PropTypes.string,
 	clickClose: PropTypes.func,
-	setClaimPromotion: PropTypes.func
+	setClaimPromotion: PropTypes.func,
+	currencyId: PropTypes.number
 };
 
 export default AmountConfirmPopbox;

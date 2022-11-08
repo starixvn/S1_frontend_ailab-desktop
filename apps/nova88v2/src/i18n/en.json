@@ -353,7 +353,7 @@
 	"lbl_PleaseEnterUPI": "Please enter UPI",
 	"lbl_DuitNowQR": "DuitNow QR",
 	"lbl_ScanAndPay": "Scan and Pay",
-    "lbl_QRCode": "QRCode",
+	"lbl_QRCode": "QRCode",
 	"lbl_DuitNowQRNote1": "Please contact CSD if payment did not reflect in your wallet after the transfer.",
 	"lbl_DuitNowQRNote2": "Close the tab after the transfer.",
 
@@ -512,7 +512,8 @@
 	"lbl_Redeposit_Promo": "Redeposit",
 	"lbl_ClaimAmountRange": "Claim Amount Range",
 	"lbl_ClaimAmount": "Claim Amount",
-	"lbl_PleaseEnterClaimAmount": "Please select the amount to claim the promotion",
+	"lbl_PleaseEnterClaimAmount": "Please enter your prefer amount to claim promotion",
+	"lbl_PleaseSelectClaimAmount": "Please select the amount to claim the promotion",
 	"lbl_SpecialBonus": "Special Bonus",
 	"lbl_SpecialBonusCode": "Special Bonus Code",
 	"lbl_Expired_Promo": "Expired",

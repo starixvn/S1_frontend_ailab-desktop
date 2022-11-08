@@ -123,8 +123,7 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 		if (
 			canJoin &&
 			(promotionType === defPromotionType.redeposit ||
-				(filter === defFilterType.specialBonus &&
-					promotionType === defPromotionType.firstDeposit))
+				promotionType === defPromotionType.firstDeposit)
 		) {
 			setPopBox({
 				isOpen: true,
