@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
 const LiveScore = ({ langId }) => {
@@ -9,7 +10,7 @@ const LiveScore = ({ langId }) => {
 			: "https://www.sabasports.com/category/board.html?v=1616562714078&skin=5574a7";
 	return (
 		<>
-			<div className="moduleTitle icon icon-saba">
+			<div className="moduleTitle">
 				{t("lbl_LiveScore")?.toUpperCase()}
 			</div>
 			<div className="matches">
@@ -23,6 +24,14 @@ const LiveScore = ({ langId }) => {
 			</div>
 		</>
 	);
+};
+
+LiveScore.defaultProps = {
+	langId: null
+};
+
+LiveScore.propTypes = {
+	langId: PropTypes.string
 };
 
 export default LiveScore;

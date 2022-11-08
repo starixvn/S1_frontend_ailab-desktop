@@ -36,17 +36,17 @@ const PromoList = ({ t, userInfo }) => {
 
 	return (
 		<div className="promos">
-			<div className="moduleTitle icon icon-gift">
+			<div className="moduleTitle">
 				{t("lbl_Promotion")}
 				<Link to={`/${userInfo.langId}/${path.promotion.root}`}>
-					{`${t("lbl_More")}...`}
+					{`${t("lbl_SeeMore").toUpperCase()}`}
 				</Link>
 			</div>
 			{promoList && promoList.length > 0 && (
 				<div className="swiper-container promosSwiper">
 					{/* <Swiper {...defSwipperConfig}>{Rows}</Swiper> */}
 					<ReactMarquee
-						speed={145}
+						speed={80}
 						pauseOnHover={true}
 						gradientColor={false}>
 						<div className="swiper-container">

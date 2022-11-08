@@ -13,23 +13,21 @@ import {
 import defPopBoxType from "../components/common/defPopBoxType";
 import LeftMenu from "../components/common/leftMenu";
 
-export default () => {
-	return (
-		<Wrapper afterLogin={true}>
-			<Layout>
-				<main>
-					<section className="inside">
-						<LeftMenu />
-						<div className="rightModule">
-							<Content />
-						</div>
-					</section>
-				</main>
-				<Footer />
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper afterLogin={true}>
+		<Layout>
+			<main>
+				<section className="inside">
+					<LeftMenu />
+					<div className="rightModule">
+						<Content />
+					</div>
+				</section>
+			</main>
+			<Footer />
+		</Layout>
+	</Wrapper>
+);
 
 const Content = () => {
 	const { t } = useTranslation();
@@ -77,7 +75,7 @@ const Content = () => {
 						? setAnnouncementDatas(data)
 						: openErrorMessagePopBox(message || "error", errorCode);
 				},
-				err => {
+				() => {
 					if (isMountedRef.current) openErrorMessagePopBox();
 				}
 			);
@@ -116,12 +114,12 @@ const Content = () => {
 		);
 	});
 
-	return loading ? (
-		<></>
-	) : (
+	return loading ? null : (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_openmail">
-				<span>{t("lbl_Announcement")}</span>
+			<div className="inside-title">
+				<span className="icon icon-icon32px_openmail">
+					{t("lbl_Announcement")}
+				</span>
 			</div>
 
 			{announcementDatas?.length > 0 ? (

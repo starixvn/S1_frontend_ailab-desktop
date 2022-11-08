@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import moment from "moment";
 import usePopBox from "../hook/usePopBox";
 import defPopBoxType from "../common/defPopBoxType";
-import imgTextID from "../../styles/img/event/text_id.png";
-import imgTextEN from "../../styles/img/event/text_en.png";
 
 import { defDrawPrizeStatus } from "./angPow.def";
 
@@ -30,16 +28,14 @@ const AngPowAnimation = ({
 
 	const { setPopBox } = usePopBox();
 
-	const { canJoin, isJoin, drawOut, notEligible } = defDrawPrizeStatus;
-	const _canJoin = drawPrize.errorCode === canJoin;
+	const { isJoin, drawOut, notEligible } = defDrawPrizeStatus;
+	// const _canJoin = drawPrize.errorCode === canJoin;
 	const _isJoin = drawPrize.errorCode === isJoin;
 	const _drawOut = drawPrize.errorCode === drawOut;
 	const _notEligible = drawPrize.errorCode === notEligible;
 
 	const secondsToTime = secondsInTime => {
-		const pad = (num, size) => {
-			return `000${num}`.slice(size * -1);
-		};
+		const pad = (num, size) => `000${num}`.slice(size * -1);
 		const time = parseFloat(secondsInTime).toFixed(3);
 		const hours = Math.floor(time / 60 / 60);
 		const minutes = Math.floor(time / 60) % 60;
@@ -101,17 +97,17 @@ const AngPowAnimation = ({
 		};
 	}, [drawPrize.errorCode, _isJoin, _drawOut, checkDrawPrize]);
 
-	const eventTextImg = langId === "id" ? imgTextID : imgTextEN;
+	// const eventTextImg = langId === "id" ? imgTextID : imgTextEN;
 	return (
 		<div className="animation" onClick={onPostDrawPrize}>
 			<div className={`angpao${angpowActive ? " active" : ""}`}>
-				{_isJoin || _drawOut ? null : (
+				{/* {_isJoin || _drawOut ? null : (
 					<img
 						src={eventTextImg}
 						alt="img-event-text-en"
 						className="bigtitle"
 					/>
-				)}
+				)} */}
 
 				<div
 					className={`box${

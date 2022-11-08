@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import {
 	api_account_GetMsgList,
 	api_account_DelMsg,
-	api_account_GetMsgCount
+	api_account_GetMsgCount,
+	api_account_SetMsgReadV2
 } from "../../service/api/account";
 import MessageList from "./messageList";
 import { Pagination } from "../common/pagination";
@@ -79,6 +80,51 @@ export default () => {
 		);
 	};
 
+	const getMsgCount = () => {
+		api_account_GetMsgCount().then(res => {
+			if (isMountedRef.current) {
+				if (res.data.errorCode === 0) {
+					setMsgCount(res.data.data);
+				} else {
+					openErrorMessagePopBox(
+						res.data.message || "error",
+						res.data.errorCode
+					);
+				}
+			}
+		});
+	};
+
+	const readSelectedMsg = () => {
+		if (selectItems.length > 0) {
+			setLoading(true);
+			api_account_SetMsgReadV2({ SetList: selectItems }).then(
+				res => {
+					if (isMountedRef.current) {
+						const { errorCode, message } = res.data;
+						if (errorCode === 0) {
+							setSelectItems([]);
+							getMsgCount();
+							getMsgList(pagination.currentPage);
+						} else {
+							openErrorMessagePopBox(
+								message || "error",
+								errorCode
+							);
+						}
+						setLoading(false);
+					}
+				},
+				() => {
+					if (isMountedRef.current) {
+						openErrorMessagePopBox();
+						setLoading(false);
+					}
+				}
+			);
+		}
+	};
+
 	const onChildChanged = msgData => {
 		const result = selectItems.find(el => el.msgId === msgData.msgId)
 			? selectItems.filter(item => item.msgId !== msgData.msgId)
@@ -121,18 +167,6 @@ export default () => {
 						setSelectItems([]);
 						setIsCheckAll(false);
 						GetPopupMsg();
-						api_account_GetMsgCount().then(res => {
-							if (isMountedRef.current) {
-								if (res.data.errorCode === 0) {
-									setMsgCount(res.data.data);
-								} else {
-									openErrorMessagePopBox(
-										res.data.message || "error",
-										res.data.errorCode
-									);
-								}
-							}
-						});
 					} else
 						openErrorMessagePopBox(message || "error", errorCode);
 				},
@@ -189,8 +223,10 @@ export default () => {
 
 	return loading ? null : (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_openmail">
-				<span>{t("lbl_PersonalMsg")}</span>
+			<div className="inside-title">
+				<span className="icon icon-icon32px_openmail">
+					{t("lbl_PersonalMsg")}
+				</span>
 			</div>
 			{msgListData?.length > 0 ? (
 				<div className="personal">
@@ -210,7 +246,15 @@ export default () => {
 							</div>
 							<div>
 								<button
-									className="icon icon-bin"
+									className={`icon icon-icon32px_openmail${
+										selectItems.length > 0 ? " active" : ""
+									}`}
+									onClick={readSelectedMsg}
+								/>
+								<button
+									className={`icon icon-bin${
+										selectItems.length > 0 ? " active" : ""
+									}`}
 									onClick={popDelete}
 								/>
 							</div>

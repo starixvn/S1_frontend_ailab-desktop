@@ -226,8 +226,10 @@ export default () => {
 		!loading && (
 			<div className="rightModule">
 				<div className="infoModule">
-					<div className="inside-title icon icon-icon32px_Withdraw">
-						<span>{t("lbl_Withdrawal")}</span>
+					<div className="inside-title">
+						<span className="icon icon-icon32px_Withdraw">
+							{t("lbl_Withdrawal")}
+						</span>
 						<button
 							onClick={restoreAll}
 							className="icon icon-history">

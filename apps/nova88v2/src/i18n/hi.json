@@ -210,7 +210,7 @@
 	"lbl_MemberBenefits_1": "स्पोर्ट्सबुक वेलकम बोनस",
 	"lbl_MemberBenefits_2": "लाइव कैसीनो वेलकम बोनस",
 	"lbl_MemberBenefits_3": "स्लॉट्स गेम वेलकम बोनस",
-	"lbl_MemberBenefits_4": "2.1% तक की दैनिक नकद छूट",
+	"lbl_MemberBenefits_4": "{{rebate}}% तक की दैनिक नकद छूट",
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "Nova88 वीआईपी विशेष बोनस और छूट का आनंद लें",
 	"lbl_Multiple_product_platforms_with_better_odds": "बेहतर ऑड्स और पूर्ण गेमप्ले अनुभव के साथ कई उत्पाद प्लेटफॉर्म।",
 	"lbl_Speedy_deposit_and_withdrawal": "कई जमा विकल्पों के साथ शीघ्र जमा और निकासी।",
@@ -978,6 +978,9 @@
 	"lbl_welcome_to": "आपका स्वागत",
 	"lbl_world_class": "है विश्व स्तरीय",
 	"lbl_casino_world": "कैसीनो",
+
+	"■■■■■■■■■■■■■■■■■■■■ v3.0 ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_SeeMore": "See More",
 
 	"livecasino": {
 		"lbl_welcome_to": "आपका स्वागत",
