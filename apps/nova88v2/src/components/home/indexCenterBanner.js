@@ -57,8 +57,6 @@ const IndexCenterBanner = ({ langId }) => {
 		getImgUrl();
 	});
 
-	console.log(appLinkDatas, andriodDownLoadUrl, IOSDownloadUrl);
-
 	return (
 		<div className="indexCenterBanner">
 			<div className="qrGroup">

@@ -2828,26 +2828,34 @@ footer .license > div:nth-child(2) {
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 footer .license > div:nth-child(2) iframe {
   margin-right: 30px;
 }
 
-footer .license > div:nth-child(2) div {
+footer .license > div:nth-child(2) iframe + div {
+  margin-right: 175px;
+}
+
+footer .license > div:nth-child(2) > div {
   text-align: center;
 }
 
-footer .license > div:nth-child(2) div:nth-child(1) {
+footer .license > div:nth-child(2) > div div:nth-child(1) {
   font-size: 24px;
   font-weight: bold;
+  margin-right: 0;
 }
 
-footer .license > div:nth-child(2) div span {
+footer .license > div:nth-child(2) > div span {
   font-weight: bold;
 }
 
-footer .license > div:nth-child(2) div img {
+footer .license > div:nth-child(2) > div img {
   width: 65px;
   margin: auto;
 }
@@ -11506,23 +11514,6 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   right: 0;
 }
 
-#popup .loackAmount {
-  padding: 20px;
-}
-
-#popup .loackAmount .icon-gift::before {
-  color: #001942;
-  font-size: 24px;
-}
-
-#popup .loackAmount .btnGroup {
-  margin: 20px 0 14px;
-}
-
-#popup .loackAmount .inputBox-blue {
-  margin: 20px 0 10px;
-}
-
 .vip {
   margin: auto;
   padding-top: 210px;
@@ -16139,43 +16130,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
   border-right: 0;
 }
 
-.rolloverListNew {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 0 0 20px;
-  border: 1px solid #ccc;
-  border-top: 0;
-  border-width: 1px 0 0 1px;
-}
-
-.rolloverListNew > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.rolloverListNew > div:first-child > div {
-  background: #112240;
-}
-
-.rolloverListNew > div > div {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  background: #5E7FB5;
-  border: 1px solid #ccc;
-  border-width: 0 1px 1px 0;
-  text-align: center;
-  padding: 5px 0;
-}
-
 .remainingTime {
   margin-bottom: 0;
+}
+
+.remainingTime + .rolloverList {
+  margin-top: 0;
+  border-top: 0;
 }
 
 .remainingTime > div div {
