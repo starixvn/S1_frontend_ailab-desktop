@@ -37,7 +37,7 @@ const SubMenuSingle = ({
 		return (
 			<Link
 				className={subClassName}
-				to={`/${userInfo.langId}/${path.sports.root}?tpId=1&gameId=2002&tpGameType=1`}>
+				to={`/${userInfo.langId}/${path.sports.root}?provider=saba&type=world-cup`}>
 				<div>
 					<img
 						src={`${bannerImgUrl}/desktop/img/event/worldcup/eventbanner_full.jpg`}
@@ -62,7 +62,9 @@ const SubMenuSingle = ({
 
 		const linkToPokerRoot = () => {
 			userInfo.isLogin
-				? navigate(`/${userInfo.langId}/${path.oneGame.root}`)
+				? navigate(
+						`/${userInfo.langId}/${path.oneGame.root}?provider=1g`
+				  )
 				: showLoginPopBox();
 		};
 

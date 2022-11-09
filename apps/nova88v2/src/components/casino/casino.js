@@ -21,6 +21,7 @@ import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
 import useDelayFunc from "../hook/useDelayFunc";
 import { defSlotTpGameType, defTpGameType } from "../../datas/productList";
+import { getUrlParameter } from "../common/common";
 
 export default () => {
 	const { t } = useTranslation();
@@ -49,7 +50,10 @@ export default () => {
 	const { loading, setLoading } = useContext(loadingContext);
 	const { handleGoToGame } = useGotoGame({ autoGetData: false });
 	const { throttle } = useDelayFunc();
-	const urlTpId = window.location.search.split("&")[0].split("=")[1];
+	const urlProvider = getUrlParameter("provider");
+	const urlTpId = Object.values(defSlotTpGameType).find(
+		el => el.name === urlProvider
+	)?.tpId;
 
 	useEffect(() => {
 		isMountedRef.current = true;

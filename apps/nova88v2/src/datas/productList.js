@@ -18,23 +18,24 @@ export const defDeepLinkId = {
 };
 
 export const defSlotTpGameType = {
-	Saba: { tpId: 1, tpGameType: 4 },
-	PP: { tpId: 5, tpGameType: 7 },
-	GPI: { tpId: 6, tpGameType: 11 },
-	Joker: { tpId: 9, tpGameType: 13 },
-	YGG: { tpId: 8, tpGameType: 14 },
-	AMB: { tpId: 30, tpGameType: 76 },
-	SG: { tpId: 10, tpGameType: 15 },
-	PG: { tpId: 14, tpGameType: 17 },
-	CQ9: { tpId: 16, tpGameType: 29 },
-	Iconic: { tpId: 24, tpGameType: 39 },
-	PT: { tpId: 27, tpGameType: 46 },
-	JILI: { tpId: 32, tpGameType: 53 },
-	AP: { tpId: 39, tpGameType: 67 },
-	MG: { tpId: 34, tpGameType: 57 },
-	RedTiger: { tpId: 38, tpGameType: 65 },
-	NetEnt: { tpId: 37, tpGameType: 64 },
-	SimplePlay: { tpId: 44, tpGameType: 86 }
+	Saba: { tpId: 1, tpGameType: 4, name: "saba" },
+	PP: { tpId: 5, tpGameType: 7, name: "pragmatic-play" },
+	GPI: { tpId: 6, tpGameType: 11, name: "gpi" },
+	Joker: { tpId: 9, tpGameType: 13, name: "joker" },
+	YGG: { tpId: 8, tpGameType: 14, name: "ygg" },
+	AMB: { tpId: 30, tpGameType: 76, name: "amb" },
+	SG: { tpId: 10, tpGameType: 15, name: "spadegaming" },
+	PG: { tpId: 14, tpGameType: 17, name: "pg" },
+	CQ9: { tpId: 16, tpGameType: 29, name: "cq9" },
+	Iconic: { tpId: 24, tpGameType: 39, name: "astro-tech" },
+	PT: { tpId: 27, tpGameType: 46, name: "playtech" },
+	JILI: { tpId: 32, tpGameType: 53, name: "jili" },
+	AP: { tpId: 39, tpGameType: 67, name: "advant-play" },
+	MG: { tpId: 34, tpGameType: 57, name: "microgaming" },
+	RedTiger: { tpId: 38, tpGameType: 65, name: "red-tiger" },
+	NetEnt: { tpId: 37, tpGameType: 64, name: "netent" },
+	SimplePlay: { tpId: 44, tpGameType: 86, name: "simple-play" },
+	Habanero: { tpId: 40, tpGameType: 68, name: "habanero" }
 };
 
 export default {
@@ -59,7 +60,7 @@ export default {
 		tpId: 1,
 		tpGameType: 1
 	},
-	sabaSoccer: {
+	"saba-soccer": {
 		gameId: 997,
 		tpId: 1,
 		tpGameType: 1
@@ -402,7 +403,7 @@ export default {
 		tpId: 1,
 		tpGameType: 23
 	},
-	numberGame: {
+	"number-game": {
 		tpId: 1,
 		gameId: 161,
 		tpGameType: 2
@@ -421,7 +422,7 @@ export default {
 	/* === 7. virtual sports === */
 
 	virtualGame: { tpId: 1, gameId: 245, tpGameType: 22 }, // 單一錢包 (目前不支援)
-	virtualSports: { tpId: 1, gameId: 192, tpGameType: 24 }, // 單一錢包 {tpId:41, tpGameType:72, gameId:192}
+	"virtual-sports": { tpId: 1, gameId: 192, tpGameType: 24 }, // 單一錢包 {tpId:41, tpGameType:72, gameId:192}
 
 	/* === 8. poker === */
 
@@ -452,7 +453,7 @@ export default {
 	},
 
 	/* === 9. event === */
-	worldCup: {
+	"world-cup": {
 		tpId: 1,
 		gameId: 2002,
 		tpGameType: 1

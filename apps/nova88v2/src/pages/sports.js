@@ -17,12 +17,16 @@ export default () => (
 
 const Content = () => {
 	const { userInfo } = useContext(userInfoContext);
-	const tpId = getUrlParameter("tpId");
-	const gameId = getUrlParameter("gameId");
-	const matchid = getUrlParameter("matchid");
+	const type = getUrlParameter("type");
 
+	const tpId = productList[type]?.tpId || getUrlParameter("tpId");
+	const gameId = productList[type]?.gameId || getUrlParameter("gameId");
+	const matchid = productList[type]?.matchid || getUrlParameter("matchid");
 	const tpGameType =
-		getUrlParameter("tpGameType") || productList.sports.tpGameType;
+		productList[type]?.tpGameType ||
+		getUrlParameter("tpGameType") ||
+		productList.sports.tpGameType;
+
 	const _tpId = isNaN(tpId) ? tpId : Number(tpId);
 	const iframeUrl =
 		_tpId === defSpecialSetting.sports_9w
