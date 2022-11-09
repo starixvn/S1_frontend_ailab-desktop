@@ -11,7 +11,7 @@ import path from "../../router";
 import { defEventIcon } from "./eventIcon";
 
 export const getUrl = (preUrl, info) =>
-	`/${preUrl}?tpId=${info.tpId}&gameId=${info.gameId}`;
+	`/${preUrl}?provider=${info.provider}&type=${info.type}`;
 
 export const getCurrentPage = () =>
 	typeof window !== "undefined"

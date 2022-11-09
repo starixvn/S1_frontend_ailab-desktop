@@ -327,7 +327,12 @@ export const defMenuLinks = {
 		className: "eventbtn",
 		path: path.sports.root,
 		imgUrl: `${bannerImgUrl}/desktop/img/event/worldcup/xs-logo.png`,
-		productInfo: productList.worldCup,
+		// productInfo: productList.worldCup,
+		productInfo: {
+			provider: "saba",
+			type: "world-cup",
+			...productList["world-cup"]
+		},
 		eventIcons: [
 			showEventIcon({
 				icon: defEventIcon.hot,
@@ -340,7 +345,12 @@ export const defMenuLinks = {
 		displayKey: "lbl_Sports",
 		className: "sportsbtn",
 		path: path.sports.root,
-		productInfo: productList.sports,
+		// productInfo: productList.sports,
+		productInfo: {
+			provider: "saba",
+			type: "soccer",
+			...productList.sports
+		},
 		filterByAuth: true,
 		customSort: defSortSports,
 		subMenu: [
@@ -350,7 +360,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "soccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
-				parameter: { ...productList.soccer },
+				// parameter: { ...productList.soccer },
+				parameter: { provider: "saba", type: "soccer" },
 				...productList.soccer,
 				keyName: "soccer"
 			},
@@ -360,8 +371,9 @@ export const defMenuLinks = {
 				listNpcImgUrl: "sabssoccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
-				parameter: { ...productList.sabaSoccer },
-				...productList.sabaSoccer,
+				// parameter: { ...productList.sabaSoccer },
+				parameter: { provider: "saba", type: "saba-soccer" },
+				...productList["saba-soccer"],
 				keyName: "sabaSoccer"
 			},
 			{
@@ -370,7 +382,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "basketballNPC.png",
 				listBgImgUrl: "basketballBG.png",
 				menuType: defMenuType.Link,
-				parameter: { ...productList.basketball },
+				// parameter: { ...productList.basketball },
+				parameter: { provider: "saba", type: "basketball" },
 				...productList.basketball,
 				keyName: "basketball"
 			},
@@ -380,7 +393,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "tennisNPC.png",
 				listBgImgUrl: "tennisBG.png",
 				menuType: defMenuType.Link,
-				parameter: { ...productList.tennis },
+				// parameter: { ...productList.tennis },
+				parameter: { provider: "saba", type: "tennis" },
 				...productList.tennis,
 				keyName: "tennis"
 			},
@@ -390,7 +404,8 @@ export const defMenuLinks = {
 				listNpcImgUrl: "cricketNPC.png",
 				listBgImgUrl: "cricketBG.png",
 				menuType: defMenuType.Link,
-				parameter: { ...productList.cricket },
+				// parameter: { ...productList.cricket },
+				parameter: { provider: "saba", type: "cricket" },
 				...productList.cricket,
 				keyName: "cricket"
 			},
@@ -400,8 +415,9 @@ export const defMenuLinks = {
 				listNpcImgUrl: "betradarsoccerNPC.png",
 				listBgImgUrl: "soccerBG.png",
 				menuType: defMenuType.Link,
-				parameter: { ...productList.virtualSports },
-				...productList.virtualSports,
+				// parameter: { ...productList.virtualSports },
+				parameter: { provider: "saba", type: "virtual-sports" },
+				...productList["virtual-sports"],
 				keyName: "virtualSports",
 				eventIcons: [
 					showEventIcon({
@@ -682,7 +698,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotap.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_AdvantPlay },
+				// parameter: { ...productList.casino_AdvantPlay },
+				parameter: { provider: "advant-play" },
 				...productList.casino_AdvantPlay
 			},
 			{
@@ -692,7 +709,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotPP.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_PP },
+				// parameter: { ...productList.casino_PP },
+				parameter: { provider: "pragmatic-play" },
 				...productList.casino_PP
 			},
 			{
@@ -701,7 +719,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotsk.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_Skywind },
+				// parameter: { ...productList.casino_Skywind },
+				parameter: { provider: "skywind" },
 				...productList.casino_Skywind,
 				eventIcons: [
 					showEventIcon({
@@ -725,7 +744,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotSimplePlay.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_SimplePlay },
+				// parameter: { ...productList.casino_SimplePlay },
+				parameter: { provider: "simple-play" },
 				...productList.casino_SimplePlay,
 				eventIcons: [
 					showEventIcon({
@@ -740,7 +760,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotho.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_Habanero },
+				// parameter: { ...productList.casino_Habanero },
+				parameter: { provider: "habanero" },
 				...productList.casino_Habanero,
 				eventIcons: [
 					showEventIcon({
@@ -755,7 +776,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotnt.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_NetEnt },
+				// parameter: { ...productList.casino_NetEnt },
+				parameter: { provider: "netent" },
 				...productList.casino_NetEnt,
 				eventIcons: [
 					showEventIcon({
@@ -770,7 +792,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotmg.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_MGPSW },
+				// parameter: { ...productList.casino_MGPSW },
+				parameter: { provider: "microgaming" },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -786,7 +809,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotji.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_JILI },
+				// parameter: { ...productList.casino_JILI },
+				parameter: { provider: "jili" },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -802,7 +826,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotpt.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_PT },
+				// parameter: { ...productList.casino_PT },
+				parameter: { provider: "playtech" },
 				eventIcons: [
 					showEventIcon({
 						icon: defEventIcon.new,
@@ -818,7 +843,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotICG.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_ICG },
+				// parameter: { ...productList.casino_ICG },
+				parameter: { provider: "astro-tech" },
 				...productList.casino_ICG
 			},
 			{
@@ -828,7 +854,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotJOKER.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_JOKER },
+				// parameter: { ...productList.casino_JOKER },
+				parameter: { provider: "joker" },
 				...productList.casino_JOKER
 			},
 			{
@@ -838,7 +865,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotCQ9.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_CQ9 },
+				// parameter: { ...productList.casino_CQ9 },
+				parameter: { provider: "cq9" },
 				...productList.casino_CQ9
 			},
 			{
@@ -848,7 +876,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotGPI.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_GPI },
+				// parameter: { ...productList.casino_GPI },
+				parameter: { provider: "gpi" },
 				...productList.casino_GPI
 			},
 			{
@@ -858,7 +887,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotYGG.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_YGG },
+				// parameter: { ...productList.casino_YGG },
+				parameter: { provider: "ygg" },
 				...productList.casino_YGG
 			},
 			{
@@ -868,7 +898,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotam.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_AMB },
+				// parameter: { ...productList.casino_AMB },
+				parameter: { provider: "amb" },
 				...productList.casino_AMB,
 				allowCurrencies: allowedCurrencyList.slotAMB,
 				eventIcons: [
@@ -885,7 +916,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotSG.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_SG },
+				// parameter: { ...productList.casino_SG },
+				parameter: { provider: "spadegaming" },
 				...productList.casino_SG
 			},
 			{
@@ -894,7 +926,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotrt.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_RedTiger },
+				// parameter: { ...productList.casino_RedTiger },
+				parameter: { provider: "red-tiger" },
 				...productList.casino_RedTiger,
 				eventIcons: [
 					showEventIcon({
@@ -910,7 +943,8 @@ export const defMenuLinks = {
 				menuType: defMenuType.Link,
 				listNpcImgUrl: "slotPG.png",
 				listBgImgUrl: "slotListHover.png",
-				parameter: { ...productList.casino_PG },
+				// parameter: { ...productList.casino_PG },
+				parameter: { provider: "pg" },
 				...productList.casino_PG
 			},
 			{
@@ -927,7 +961,8 @@ export const defMenuLinks = {
 	poker: {
 		displayKey: "lbl_Poker",
 		className: "pokerbtn",
-		allowCurrencies: allowedCurrencyList.oneGame
+		allowCurrencies: allowedCurrencyList.oneGame,
+		productInfo: { provider: "1g" }
 	},
 	games: {
 		displayKey: "lbl_Games",
@@ -1296,14 +1331,15 @@ export const defMenuLinks = {
 				}
 			},
 			{
-				...productList.numberGame,
+				...productList["number-game"],
 				path: path.sports.root,
 				className: "numberGame",
 				displayKey: "lbl_NumberGame",
 				listNpcImgUrl: "lo-numberGame.png",
 				listBgImgUrl: "gameListHover.png",
 				menuType: defMenuType.Link,
-				parameter: { ...productList.numberGame },
+				// parameter: { ...productList.numberGame },
+				parameter: { provider: "saba", type: "number-game" },
 				lobbyPage: {
 					bgImg: "lotterynu.png",
 					hoverBgImg: "lotterynua.png"
