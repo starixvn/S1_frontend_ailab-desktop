@@ -6,9 +6,7 @@ import defPopBoxType from "../common/defPopBoxType";
 import path from "../../router";
 import { isConvert, number_format } from "../common/common";
 
-export const isArrayNotEmpty = arr => {
-	return Array.isArray(arr) && arr.length;
-};
+export const isArrayNotEmpty = arr => Array.isArray(arr) && arr.length;
 
 export const isExpiry = ({
 	periodTo,
@@ -16,28 +14,21 @@ export const isExpiry = ({
 	isLogin,
 	isJoin,
 	promotionType
-}) => {
-	return isLogin &&
-		isJoin &&
-		promotionType !== defPromotionType.rebate &&
-		promotionType !== defPromotionType.cashback
+}) =>
+	isLogin &&
+	isJoin &&
+	promotionType !== defPromotionType.rebate &&
+	promotionType !== defPromotionType.cashback
 		? moment(custExpiryTime).isBefore(new moment())
 		: moment(moment.unix(periodTo)).isBefore(new moment());
-};
 
-export const isNew = ({ periodFrom }) => {
-	return moment(moment.unix(periodFrom)).isAfter(
-		new moment().add(-14, "days")
-	);
-};
+export const isNew = ({ periodFrom }) =>
+	moment(moment.unix(periodFrom)).isAfter(new moment().add(-14, "days"));
 
-export const isClaimed = ({ isJoin, status }) => {
-	return (
-		isJoin ||
-		status === promoStatus.running ||
-		status === promoStatus.TransferOut
-	);
-};
+export const isClaimed = ({ isJoin, status }) =>
+	isJoin ||
+	status === promoStatus.running ||
+	status === promoStatus.TransferOut;
 
 export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 	const {
@@ -108,9 +99,4 @@ export const checkPromotion = ({ promotionInfo, userInfo, setPopBox, t }) => {
 	}
 
 	return true;
-};
-
-export const RULE_TYPE = {
-	info: "info",
-	list: "list"
 };

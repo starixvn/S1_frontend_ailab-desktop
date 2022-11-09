@@ -46,12 +46,14 @@ const ECard = ({
 				{(!bankArr || bankArr.length < 3) && (
 					<div
 						className="addBankName noBank"
-						onClick={() => addEAccount()}
-					>
+						onClick={() => addEAccount()}>
 						<div className="icon icon-plus" />
 						<div>{t("lbl_AddEAccount")}</div>
 					</div>
 				)}
+				<div className="remainder">
+					{t("lbl_Number_Of_Wallet")}:{bankArr.length} / 3
+				</div>
 				<div className="tip active">
 					{t("lbl_E_Wallet_Submit_Note")}
 				</div>

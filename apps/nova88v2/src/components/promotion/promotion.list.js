@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "gatsby";
-import path from "../../router";
+import PropTypes from "prop-types";
+import moment from "moment";
 import ProcessBar from "./promotion.processBar";
 import { defFilterType } from "./promotion.nav";
 import { isNew, isClaimed, isArrayNotEmpty } from "./promotion.common";
@@ -16,7 +16,7 @@ const defPromoDisplayStyle = {
 	claimed: "claimed"
 };
 
-export default ({
+const PromotionList = ({
 	promoList,
 	t,
 	userInfo,
@@ -36,6 +36,9 @@ export default ({
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
 		const _isNew = _isClaimed ? false : isNew(p);
+		const isDisplay =
+			moment.unix(p.displayFrom).diff(Date.now()) <= 0 &&
+			moment.unix(p.displayTo).diff(Date.now()) >= 0;
 
 		let promoDisplayStyle = defPromoDisplayStyle.default;
 
@@ -51,76 +54,64 @@ export default ({
 		}
 
 		return (
-			<div
-				className={_isClaimed ? "active" : ""}
-				key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
-				<div className={promoDisplayStyle} />
-				<div className="promoImg">
-					<img src={p.banner} alt={p.title} />
-				</div>
+			isDisplay && (
+				<div
+					className={_isClaimed ? "active" : ""}
+					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
+					<div className={promoDisplayStyle} />
+					<div className="promoImg">
+						<img src={p.banner} alt={p.title} />
+					</div>
 
-				<div className="promoInfo">
-					<div className="txt-darkBlue">{p.title}</div>
-					<div className="txt-gray">{p.description}</div>
-					{/* <PromoRule
-						promotionInfo={p}
-						t={t}
-						currencyId={currencyId}
-						ruleType={RULE_TYPE.info}
-						langId={langId}
-					/> */}
+					<div className="promoInfo">
+						<div className="txt-darkBlue">{p.title}</div>
+						<div className="txt-gray">{p.description}</div>
 
-					<ProcessBar
-						{...p}
-						t={t}
-						currencyId={currencyId}
-						refreshProcessBar={() => refreshProcessBar(p)}
-					/>
-
-					<div className="btnGroup">
-						<PromotionJoinButton
-							promotionInfo={p}
-							userInfo={userInfo}
-							filter={filter}
-							callBack={afterJoinCallBack}
+						<ProcessBar
+							{...p}
+							t={t}
+							currencyId={currencyId}
+							refreshProcessBar={() => refreshProcessBar(p)}
 						/>
 
-						{p.promotionType === defPromotionType.other &&
-						!p.promotionAction ? (
-							<a
-								href={p.promotionLink}
-								target="_blank"
-								rel="noreferrer"
-								className="btn-check">
-								{t("promotion.lbl_promo_more_info")}
-							</a>
-						) : (
-							<button
-								className="btn-check"
-								onClick={clickMoreInfo.bind(
-									this,
-									userInfo.langId,
-									p.bonusCode
-								)}>
-								{t("promotion.lbl_promo_more_info")}
-							</button>
-						)}
+						<div className="btnGroup">
+							<PromotionJoinButton
+								promotionInfo={p}
+								userInfo={userInfo}
+								filter={filter}
+								callBack={afterJoinCallBack}
+							/>
+
+							{p.promotionType === defPromotionType.other &&
+							!p.promotionAction ? (
+								<a
+									href={p.promotionLink}
+									target="_blank"
+									rel="noreferrer"
+									className="btn-check">
+									{t("promotion.lbl_promo_more_info")}
+								</a>
+							) : (
+								<button
+									className="btn-check"
+									onClick={clickMoreInfo.bind(
+										this,
+										userInfo.langId,
+										p.bonusCode
+									)}>
+									{t("promotion.lbl_promo_more_info")}
+								</button>
+							)}
+						</div>
+					</div>
+					<div className="remain">
+						<div className="icon icon-icon32px_time">
+							{t("lbl_RemainingTime")}
+							<div>{getExpiryTime(t, p)}</div>
+						</div>
 					</div>
 				</div>
-				<div className="remain">
-					<div className="icon icon-icon32px_time">
-						{t("lbl_RemainingTime")}
-						<div>{getExpiryTime(t, p)}</div>
-					</div>
-					{/* <PromoRule
-						promotionInfo={p}
-						t={t}
-						currencyId={currencyId}
-						ruleType={RULE_TYPE.info}
-						langId={langId}
-					/> */}
-				</div>
-			</div>
+			)
 		);
 	});
 
@@ -143,3 +134,24 @@ export default ({
 		</div>
 	);
 };
+
+PromotionList.defaultProps = {
+	promoList: null,
+	userInfo: null,
+	filter: null,
+	refreshProcessBar: () => null,
+	staticPromotions: null,
+	afterJoinCallBack: () => null
+};
+
+PromotionList.propTypes = {
+	t: PropTypes.func.isRequired,
+	promoList: PropTypes.arrayOf(PropTypes.any),
+	userInfo: PropTypes.objectOf(PropTypes.any),
+	filter: PropTypes.string,
+	refreshProcessBar: PropTypes.func,
+	staticPromotions: PropTypes.arrayOf(PropTypes.any),
+	afterJoinCallBack: PropTypes.func
+};
+
+export default PromotionList;

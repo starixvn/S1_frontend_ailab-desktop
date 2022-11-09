@@ -202,6 +202,11 @@ export default {
 		gameId: "0",
 		tpGameType: 58
 	},
+	liveCasino_Skywind: {
+		tpId: 43,
+		gameId: "0",
+		tpGameType: 84
+	},
 
 	/* === 4. fishing === */
 
@@ -270,6 +275,18 @@ export default {
 		tpId: 16,
 		name: "CQ9_Thunder_Fighter:",
 		tpGameType: 44
+	},
+	Skywind_Ocean_Ruler: {
+		gameId: "sw_or",
+		tpId: 43,
+		name: "Skywind_Ocean_Ruler",
+		tpGameType: 85
+	},
+	Skywind_Cai_Shen_Da_Hai: {
+		gameId: "sw_cashdaha",
+		tpId: 43,
+		name: "Skywind_Cai_Shen_Da_Hai",
+		tpGameType: 85
 	},
 
 	/* === 5. cook fighting === */
@@ -424,6 +441,19 @@ export const defCasinoProviders = {
 		name: "AdvantPlay",
 		tpGameType: 67
 	},
-	Habanero: { tpId: 40, name: "Habanero", tpGameType: 68 },
-	SimplePlay: { tpId: 44, name: "SimplePlay", tpGameType: 86 }
+	Habanero: {
+		tpId: 40,
+		name: "Habanero",
+		tpGameType: 68
+	},
+	SimplePlay: {
+		tpId: 44,
+		name: "SimplePlay",
+		tpGameType: 86
+	},
+	Skywind: {
+		tpId: 43,
+		name: "Skywind",
+		tpGameType: 82
+	}
 };

@@ -233,8 +233,10 @@ const History = () => {
 
 	return (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_History">
-				<span>{t("lbl_History")}</span>
+			<div className="inside-title">
+				<span className="icon icon-icon32px_History">
+					{t("lbl_History")}
+				</span>
 			</div>
 
 			<HistoryTagNav

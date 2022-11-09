@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 import ReactMarquee from "react-fast-marquee";
 import { Link } from "gatsby";
 import path from "../../router";
@@ -35,49 +36,64 @@ const PromoList = ({ t, userInfo }) => {
 
 	return (
 		<div className="promos">
-			<div className="moduleTitle icon icon-gift">
+			<div className="moduleTitle">
 				{t("lbl_Promotion")}
 				<Link to={`/${userInfo.langId}/${path.promotion.root}`}>
-					{`${t("lbl_More")}...`}
+					{`${t("lbl_SeeMore").toUpperCase()}`}
 				</Link>
 			</div>
 			{promoList && promoList.length > 0 && (
 				<div className="swiper-container promosSwiper">
 					{/* <Swiper {...defSwipperConfig}>{Rows}</Swiper> */}
 					<ReactMarquee
-						speed={145}
+						speed={80}
 						pauseOnHover={true}
 						gradientColor={false}>
 						<div className="swiper-container">
 							<div
 								className="swiper-wrapper"
 								style={{ display: "flex" }}>
-								{promoList.map(p => (
-									<div
-										key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-										style={{
-											width: "300px",
-											margin: "0 15px"
-										}}>
-										<div>
-											<img src={p.banner} alt={p.title} />
+								{promoList
+									.filter(
+										p =>
+											moment
+												.unix(p.displayFrom)
+												.diff(Date.now()) <= 0 &&
+											moment
+												.unix(p.displayTo)
+												.diff(Date.now()) >= 0
+									)
+									.map(p => (
+										<div
+											key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+											style={{
+												width: "300px",
+												margin: "0 15px"
+											}}>
+											<div>
+												<img
+													src={p.banner}
+													alt={p.title}
+												/>
+											</div>
+											<div className="title">
+												{p.title}
+											</div>
+											<div className="btnGroup">
+												<button
+													className="lightblue"
+													onClick={clickPromotion.bind(
+														this,
+														userInfo.langId,
+														p.bonusCode
+													)}>
+													{t(
+														"promotion.lbl_promo_more_info"
+													)}
+												</button>
+											</div>
 										</div>
-										<div className="title">{p.title}</div>
-										<div className="btnGroup">
-											<button
-												className="lightblue"
-												onClick={clickPromotion.bind(
-													this,
-													userInfo.langId,
-													p.bonusCode
-												)}>
-												{t(
-													"promotion.lbl_promo_more_info"
-												)}
-											</button>
-										</div>
-									</div>
-								))}
+									))}
 							</div>
 						</div>
 					</ReactMarquee>

@@ -203,7 +203,7 @@ export const LicensesSection = ({ t, errorPopBox }) => {
 					)}
 				</div>
 				<div>
-					<iframe
+					{/* <iframe
 						width="256"
 						height="140"
 						src="https://www.youtube.com/embed/6EDFfaSZxrE"
@@ -211,7 +211,7 @@ export const LicensesSection = ({ t, errorPopBox }) => {
 						frameBorder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
-					/>
+					/> */}
 					<div>
 						<div>{t("lbl_JOE_COLE")}</div>
 						<div>{t("lbl_Brand_Ambassador")}</div>

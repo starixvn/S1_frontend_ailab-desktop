@@ -15,8 +15,10 @@ const ChangePassword = () => {
 
 	return (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_password">
-				<span>{t("lbl_ChangePassword")}</span>
+			<div className="inside-title">
+				<span className="icon icon-icon32px_password">
+					{t("lbl_ChangePassword")}
+				</span>
 				<div>{t("lbl_ChangePasswordHint")}</div>
 			</div>
 			<ChangePasswordForm isPop={false} />

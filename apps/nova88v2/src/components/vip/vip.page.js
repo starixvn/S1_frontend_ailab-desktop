@@ -4,8 +4,8 @@ import { Link } from "gatsby";
 import { currencyCode } from "../../datas/countryCode";
 import { isConvert } from "../common/common";
 import PageEventListMyr from "./components/pageEventList.myr";
-import PageEventListTh from "./components/pageEventList.th";
-import PageEventListId from "./components/pageEventList.id";
+import PageEventListTh from "./components/pageEventList.thb";
+import PageEventListId from "./components/pageEventList.idr";
 import path from "../../router";
 
 const VipPage = ({
@@ -21,7 +21,7 @@ const VipPage = ({
 			<table className="medal">
 				<tbody>
 					<tr>
-						<td>{t("lbl_Vip_LastUpdated")} ： 07/19/2022</td>
+						<td>{t("lbl_Vip_LastUpdated")} ： 10/25/2022</td>
 						{pageClubImg.map(item => (
 							<td key={`${item.displayKey}-${item.alt}`}>
 								<img src={item.url} alt={item.alt} />

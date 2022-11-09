@@ -107,6 +107,8 @@
 	"lbl_Fishing_Haiba": "Fish Haiba",
 	"lbl_Fishing_Hunting_Happy_Fish_5": "Happy Fish 5",
 	"lbl_Fishing_Hunting_Monster_Awaken": "Monster Awaken",
+	"Skywind_Ocean_Ruler": "Ocean Ruler",
+	"Skywind_Cai_Shen_Da_Hai": "Cai Shen Da Hai",
 
 	"casino ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Casino": "Casino",
@@ -145,7 +147,7 @@
 	"msg_changePswSuccessHint": "You can use the new password when you login in next time.",
 	"lbl_Profile": "Profile",
 	"lbl_JoinNow": "Join Now",
-	"lbl_Login": "Login",
+	"lbl_Login": "Log In",
 	"lbl_Logout": "Logout",
 	"lbl_LastLogin": "Last Login",
 	"lbl_Username": "Username",
@@ -208,11 +210,11 @@
 	"lbl_VertifyContactConfirm": "Verify your contact number to enjoy our promotions?",
 	"msg_API_SendOTPSMS_5002": "Entered the wrong phone number.",
 	"lbl_FEATURES": "FEATURES",
-	"lbl_MEMBERS_BENEFITS": "MEMBERS BENEFITS",
+	"lbl_MEMBERS_BENEFITS": "MEMBER BENEFITS",
 	"lbl_MemberBenefits_1": "SPORTSBOOK WELCOME BONUS",
 	"lbl_MemberBenefits_2": "LIVE CASINO WELCOME BONUS",
 	"lbl_MemberBenefits_3": "SLOT GAME WELCOME BONUS",
-	"lbl_MemberBenefits_4": "DAILY CASH REBATE UP TO 2.1%",
+	"lbl_MemberBenefits_4": "DAILY CASH REBATE UP TO {{rebate}}%",
 	"lbl_ENJOY_NOVA88_VIP_EXCLUSIVE_BONUS_REBATES": "ENJOY NOVA88 VIP EXCLUSIVE BONUS & REBATES",
 	"lbl_Multiple_product_platforms_with_better_odds": "Multiple product platforms with better odds and full gameplay experience.",
 	"lbl_Speedy_deposit_and_withdrawal": "Speedy deposit and withdrawal with multiple deposit option.",
@@ -325,6 +327,7 @@
 	"lbl_DepositChannel_2": "Cash Deposit Machine",
 	"lbl_DepositChannel_3": "ATM",
 	"lbl_DepositChannel_4": "Over The Counter (OTC)",
+	"lbl_DepositChannel_5": "Bank QR",
 	"lbl_BankDetails": "Bank Details",
 	"lbl_DepositLocalbankButton": "Remember my last used mode",
 	"lbl_DepositLocalbankButtonInfo": "Remember the bank used for your last deposit. If the bank you selected has been closed, please select again.",
@@ -348,6 +351,11 @@
 	"lbl_LinePay": "LINE",
 	"lbl_EnterYourUPI": "ENTER YOUR UPI (Paytm/Phope/Googlepay... etc)",
 	"lbl_PleaseEnterUPI": "Please enter UPI",
+	"lbl_DuitNowQR": "DuitNow QR",
+	"lbl_ScanAndPay": "Scan and Pay",
+	"lbl_QRCode": "QRCode",
+	"lbl_DuitNowQRNote1": "Please contact CSD if payment did not reflect in your wallet after the transfer.",
+	"lbl_DuitNowQRNote2": "Close the tab after the transfer.",
 
 	"payment qr ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_PaymentDetails": "Payment Details",
@@ -505,6 +513,7 @@
 	"lbl_ClaimAmountRange": "Claim Amount Range",
 	"lbl_ClaimAmount": "Claim Amount",
 	"lbl_PleaseEnterClaimAmount": "Please enter your prefer amount to claim promotion",
+	"lbl_PleaseSelectClaimAmount": "Please select the amount to claim the promotion",
 	"lbl_SpecialBonus": "Special Bonus",
 	"lbl_SpecialBonusCode": "Special Bonus Code",
 	"lbl_Expired_Promo": "Expired",
@@ -526,13 +535,20 @@
 	"lbl_JoinSuccessDescription1": "Successful!",
 	"lbl_JoinSuccessDescription2": "Your Bonus has been claimed.",
 	"lbl_Promotion_Min_Deposit": "MIN DEPOSIT",
-	"lbl_Promotion_Bonus": "BONUS",
+	"lbl_Promotion_Bonus": "Bonus",
 	"lbl_MaxBonusAmount": "MAX BONUS",
 	"lbl_NewMember": "NEW MEMBER",
 	"lbl_Special": "SPECIAL",
 	"lbl_Promotion_Slot": "Slot",
 	"lbl_WinOver": "WINOVER",
 	"lbl_WinOverAccumulated": "WINOVER",
+	"lbl_LossWithBonus": "Loss With Bonus",
+	"lbl_NetLoss": "Net Loss",
+	"lbl_MinNetLossRequired": "Min Net Loss Required",
+	"lbl_TotalNetLoss": "Total Net Loss",
+	"lbl_TotalBonus": "Total Bonus",
+	"lbl_MaxBonus": "Max Bonus",
+	"lbl_TotalBonusClaimable": "Total Bonus Claimable",
 
 	"general ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_NoData": "No information is available now.",
@@ -598,7 +614,6 @@
 	"Currency_74": "BDT",
 	"Currency_96": "USDT",
 	"Currency_61": "INR",
-	"Currency_74": "BDT",
 
 	"country ■■■■■■■■■■■■■■■■■■■■": "",
 	"Country_2": "Malaysia",
@@ -860,7 +875,7 @@
 	"lbl_Streaming_SPORTSBOOK": "SPORTSBOOK",
 
 	"Latest Highlight Video ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_LatestHighlightVideo": "LATEST VIDEO",
+	"lbl_LatestHighlightVideo": "Latest Video",
 	"lbl_LiveScore": "Live Score",
 
 	"crypto Wallet ■■■■■■■■■■■■■■■■■■■■": "",
@@ -888,7 +903,7 @@
 	"lbl_Crypto_OTP": "Phone number (OTP) verification are required before using Crypto service.",
 
 	"V2.0 ■■■■■■■■■■■■■■■■■■■■": "",
-	"lbl_UPCOMING_MATCHES": "UPCOMING MATCHES",
+	"lbl_UPCOMING_MATCHES": "Upcoming Matches",
 	"lbl_LiveChat": "Live Chat",
 	"lbl_DepositLiveChat": "24/7 Live Chat",
 	"lbl_Payment_Method": "Payment Methods",
@@ -951,7 +966,7 @@
 	"lbl_Brand_Ambassador": "NOVA88 Brand Ambassador 2022/23",
 	"lbl_Former_Chelsea_Liverpool": "Former Chelsea & Liverpool",
 	"lbl_England_International": "England International",
-	"lbl_SPORT_NEWS": "SPORT NEWS",
+	"lbl_SPORT_NEWS": "Sport News",
 	"lbl_Sportsbook": "Sportsbook",
 	"lbl_Promotion_Link_1": "SPORTSBOOK",
 	"lbl_Promotion_Link_2": "SPORTSBOOK",
@@ -962,7 +977,7 @@
 	"lbl_Ambassador": "Ambassador",
 
 	"lbl_Suggested_Browser": "Suggested Browser",
-	"lbl_Read_more": "Read more",
+	"lbl_Read_more": "Read More",
 	"lbl_VIP_CLUB": "VIP CLUB",
 	"lbl_EARN_EXCLUSIVE_VIP_BENEFIT": "EARN EXCLUSIVE VIP BENEFIT",
 	"lbl_JOIN_US_NOW": "JOIN US NOW",
@@ -972,11 +987,11 @@
 	"lbl_KEEP_CALM_GO_ALL_IN": "KEEP CALM & GO ALL IN!",
 	"lbl_POKER_NOW": "POKER NOW",
 	"lbl_DOWNLOAD_APP_NOW": "DOWNLOAD APP NOW",
-	"lbl_HOT_GAMES": "HOT GAMES",
+	"lbl_HOT_GAMES": "Hot Games",
 	"lbl_sign_up_terms_start": "By clicking the JOIN NOW button, I hereby acknowledge that I am above 18 years old and have read and accepted your",
 	"lbl_sign_up_terms_center": "terms & conditions",
 	"lbl_sign_up_terms_end": ".",
-	"lbl_homeJackpotTitle": "JACKPOT",
+	"lbl_homeJackpotTitle": "Jackpot",
 
 	"■■■■■■■■■■■■■■■■■■■■ sponsor ■■■■■■■■■■■■■■■■■■■■": "",
 	"lbl_Sponsor": "SPONSORS",
@@ -1009,10 +1024,12 @@
 	"lbl_Header_olympic_countdown_hour": "HRS",
 	"lbl_Header_olympic_countdown_mins": "MIN",
 	"lbl_Header_olympic_countdown_secs": "SEC",
-
 	"lbl_welcome_to": "WELCOME TO",
 	"lbl_world_class": "WORLD CLASS",
 	"lbl_casino_world": "LIVE CASINO",
+
+	"■■■■■■■■■■■■■■■■■■■■ v3.0 ■■■■■■■■■■■■■■■■■■■■": "",
+	"lbl_SeeMore": "See More",
 
 	"livecasino": {
 		"lbl_welcome_to": "WELCOME TO",
@@ -1058,7 +1075,7 @@
 
 	"promotion": {
 		"lbl_promo_apply_now": "APPLY NOW",
-		"lbl_promo_more_info": "MORE INFO",
+		"lbl_promo_more_info": "More Info",
 		"lbl_promo_all_promos": "ALL PROMOS"
 	},
 

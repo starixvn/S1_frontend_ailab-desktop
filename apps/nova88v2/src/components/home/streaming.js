@@ -37,24 +37,22 @@ const Content = () => {
 		</button>
 	));
 
-	const rows = selCategory.datas?.map((v, vidx) => {
-		return (
-			<StreamingModule
-				// eslint-disable-next-line react/no-array-index-key
-				key={`home-streaming-selCategory-${vidx}`}
-				t={t}
-				langId={userInfo.langId}
-				isLogin={userInfo.isLogin}
-				actStatus={userInfo.actStatus}
-				// eslint-disable-next-line react/jsx-props-no-spreading
-				{...v}
-			/>
-		);
-	});
+	const rows = selCategory.datas?.map((v, vidx) => (
+		<StreamingModule
+			// eslint-disable-next-line react/no-array-index-key
+			key={`home-streaming-selCategory-${vidx}`}
+			t={t}
+			langId={userInfo.langId}
+			isLogin={userInfo.isLogin}
+			actStatus={userInfo.actStatus}
+			// eslint-disable-next-line react/jsx-props-no-spreading
+			{...v}
+		/>
+	));
 
 	return (
 		<div className="liveTv">
-			<div className="moduleTitle icon icon-live_tv">
+			<div className="moduleTitle">
 				{t("lbl_Live_Sports").toUpperCase()}
 				<Link to={`/${userInfo.langId}/${path.streaming.root}`}>
 					{`${t("lbl_More")}...`}

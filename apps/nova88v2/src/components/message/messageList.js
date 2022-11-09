@@ -119,7 +119,7 @@ const MessageList = props => {
 	};
 	return (
 		<div className={props.flag ? "haveRead" : ""}>
-			<div className="listHeader">
+			<div className={`listHeader${showContent ? " active" : ""}`}>
 				<div className="checkbox">
 					<input
 						type="checkbox"

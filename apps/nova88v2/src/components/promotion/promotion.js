@@ -240,8 +240,10 @@ export default () => {
 	return (
 		!loading && (
 			<div className="infoModule">
-				<div className="inside-title icon icon-gift">
-					<span>{t("lbl_Promotions")}</span>
+				<div className="inside-title">
+					<span className="icon icon-gift">
+						{t("lbl_Promotions")}
+					</span>
 				</div>
 
 				<PromotionNavBar

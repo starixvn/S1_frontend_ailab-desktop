@@ -136,6 +136,12 @@ const defPlatform = [
 		path: path.casino.root,
 		parameter: { provider: defCasinoProviders.SimplePlay.name },
 		imgName: "sp"
+	},
+	{
+		...defCasinoProviders.Skywind,
+		path: path.casino.root,
+		parameter: { provider: defCasinoProviders.Skywind.name },
+		imgName: "sk"
 	}
 	// {
 	// 	...productList.liveCasino_Allbet,

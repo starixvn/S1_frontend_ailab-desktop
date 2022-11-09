@@ -44,14 +44,15 @@ const DepositInfoMoule = ({
 	};
 	return (
 		<div className="infoModule">
-			<div className="inside-title icon icon-icon32px_deposit">
-				<span>{t("lbl_Deposit")}</span>
+			<div className="inside-title">
+				<span className="icon icon-icon32px_deposit">
+					{t("lbl_Deposit")}
+				</span>
 				<div>{t("lbl_DepositOptionHint")}</div>
 
 				<Link
 					className="icon icon-friend"
-					to={`/${langId}/${path.referral.root}`}
-				>
+					to={`/${langId}/${path.referral.root}`}>
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
@@ -71,8 +72,7 @@ const DepositInfoMoule = ({
 										`${userName}-nova88depositquerySavedChecked`,
 										!saveInfoChecked
 									);
-								}}
-							>
+								}}>
 								<span>ON</span>
 								<span>OFF</span>
 								<div
@@ -91,8 +91,7 @@ const DepositInfoMoule = ({
 						<div
 							className={`inputInfo${
 								rememberInfoActive ? " active" : ""
-							}`}
-						>
+							}`}>
 							{t("lbl_DepositLocalbankButtonInfo")}
 						</div>
 					</div>
@@ -120,8 +119,7 @@ const DepositInfoMoule = ({
 								className={
 									item.type === depositType ? "active" : ""
 								}
-								key={`${item.type}-key`}
-							>
+								key={`${item.type}-key`}>
 								<div className={item.iconClass}>
 									<i className="icon icon-icon32px_check" />
 								</div>

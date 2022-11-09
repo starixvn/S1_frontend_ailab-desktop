@@ -36,13 +36,14 @@ const GameList = ({
 				const key = `${g.tpId}_${g.gameId}`;
 				const storageStr = favoriteStr ?? "";
 				const storageList = storageStr.split("&") ?? [];
-				const handleIsFavorite = () => {
-					return storageList?.includes(key);
-				};
+				const handleIsFavorite = () => storageList?.includes(key);
 				const isFavorite = handleIsFavorite();
 				const brandTpName = providerList.find(
 					obj => obj.tpId === g.tpId
 				).tpName;
+				const gameProviderName = providerList.find(
+					obj => obj.tpId === g.tpId
+				).gameImgDisplayText;
 
 				_imgUrl = `${imgUrl}/${brandTpName}/${imgName}`;
 
@@ -60,7 +61,7 @@ const GameList = ({
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}>
 						<div className="brand">
-							<span>{brandTpName}</span>
+							<span>{gameProviderName}</span>
 						</div>
 
 						<div

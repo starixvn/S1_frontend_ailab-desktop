@@ -24,55 +24,59 @@ const defSortSports = {
 const defSortCasino = {
 	[defCurrencyList.THB]: {
 		casino_PP: 1,
-		casino_EVO: 2,
-		casino_PT: 3,
-		casino_DG: 4,
-		casino_AE: 5,
-		casino_SA: 6,
-		casino_ALBET: 7,
-		casino_AG: 8,
-		casino_WM: 9,
-		casino_EBET: 10,
-		casino_N2LIVE: 11
+		casino_Skywind: 2,
+		casino_EVO: 3,
+		casino_PT: 4,
+		casino_DG: 5,
+		casino_AE: 6,
+		casino_SA: 7,
+		casino_ALBET: 8,
+		casino_AG: 9,
+		casino_WM: 10,
+		casino_EBET: 11,
+		casino_N2LIVE: 12
 	},
 	[defCurrencyList.MYR]: {
 		casino_PP: 1,
-		casino_EVO: 2,
-		casino_PT: 3,
-		casino_DG: 4,
-		casino_AE: 5,
-		casino_SA: 6,
-		casino_ALBET: 7,
-		casino_AG: 8,
-		casino_WM: 9,
-		casino_EBET: 10,
-		casino_N2LIVE: 11
+		casino_Skywind: 2,
+		casino_EVO: 3,
+		casino_PT: 4,
+		casino_DG: 5,
+		casino_AE: 6,
+		casino_SA: 7,
+		casino_ALBET: 8,
+		casino_AG: 9,
+		casino_WM: 10,
+		casino_EBET: 11,
+		casino_N2LIVE: 12
 	},
 	[defCurrencyList.IDR]: {
 		casino_PP: 1,
-		casino_EVO: 2,
-		casino_PT: 3,
-		casino_DG: 4,
-		casino_AE: 5,
-		casino_SA: 6,
-		casino_ALBET: 7,
-		casino_AG: 8,
-		casino_WM: 9,
-		casino_EBET: 10,
-		casino_N2LIVE: 11
+		casino_Skywind: 2,
+		casino_EVO: 3,
+		casino_PT: 4,
+		casino_DG: 5,
+		casino_AE: 6,
+		casino_SA: 7,
+		casino_ALBET: 8,
+		casino_AG: 9,
+		casino_WM: 10,
+		casino_EBET: 11,
+		casino_N2LIVE: 12
 	},
 	[defCurrencyList.INR]: {
 		casino_PP: 1,
-		casino_EVO: 2,
-		casino_PT: 3,
-		casino_DG: 4,
-		casino_AE: 5,
-		casino_SA: 6,
-		casino_ALBET: 7,
-		casino_AG: 8,
-		casino_WM: 9,
-		casino_EBET: 10,
-		casino_N2LIVE: 11
+		casino_Skywind: 2,
+		casino_EVO: 3,
+		casino_PT: 4,
+		casino_DG: 5,
+		casino_AE: 6,
+		casino_SA: 7,
+		casino_ALBET: 8,
+		casino_AG: 9,
+		casino_WM: 10,
+		casino_EBET: 11,
+		casino_N2LIVE: 12
 	},
 	[defCurrencyList.BDT]: {
 		casino_PP: 1,
@@ -93,75 +97,79 @@ const defSortSlot = {
 	[defCurrencyList.THB]: {
 		slot_AdvantPlay: 1,
 		slot_PP: 2,
-		slot_Habanero: 3,
-		slot_NetEnt: 4,
-		slot_MGPSW: 5,
-		slot_JI: 6,
-		slot_PG: 7,
-		slot_JOKER: 8,
-		slot_SG: 9,
-		slot_RedTiger: 10,
-		slot_PT: 11,
-		slot_YGG: 12,
-		slot_AMB: 13,
+		slot_Skywind: 3,
+		slot_Habanero: 4,
+		slot_NetEnt: 5,
+		slot_MGPSW: 6,
+		slot_JI: 7,
+		slot_PG: 8,
+		slot_JOKER: 9,
+		slot_SG: 10,
+		slot_RedTiger: 11,
+		slot_PT: 12,
+		slot_YGG: 13,
+		slot_AMB: 14,
+		slot_CQ9: 15,
+		slot_GPI: 16,
+		slot_ICG: 17,
+		slot_OW: 18
+	},
+	[defCurrencyList.MYR]: {
+		slot_AdvantPlay: 1,
+		slot_PP: 2,
+		slot_Skywind: 3,
+		slot_Habanero: 4,
+		slot_NetEnt: 5,
+		slot_MGPSW: 6,
+		slot_JI: 7,
+		slot_PG: 8,
+		slot_JOKER: 9,
+		slot_SG: 10,
+		slot_RedTiger: 11,
+		slot_PT: 12,
+		slot_YGG: 13,
 		slot_CQ9: 14,
 		slot_GPI: 15,
 		slot_ICG: 16,
 		slot_OW: 17
 	},
-	[defCurrencyList.MYR]: {
-		slot_AdvantPlay: 1,
-		slot_PP: 2,
-		slot_Habanero: 3,
-		slot_NetEnt: 4,
-		slot_MGPSW: 5,
-		slot_JI: 6,
-		slot_PG: 7,
-		slot_JOKER: 8,
-		slot_SG: 9,
-		slot_RedTiger: 10,
-		slot_PT: 11,
-		slot_YGG: 12,
-		slot_CQ9: 13,
-		slot_GPI: 14,
-		slot_ICG: 15,
-		slot_OW: 16
-	},
 	[defCurrencyList.IDR]: {
 		slot_AdvantPlay: 1,
 		slot_PP: 2,
-		slot_Habanero: 3,
-		slot_NetEnt: 4,
-		slot_MGPSW: 5,
-		slot_JI: 6,
-		slot_PG: 7,
-		slot_JOKER: 8,
-		slot_SG: 9,
-		slot_RedTiger: 10,
-		slot_PT: 11,
-		slot_YGG: 12,
-		slot_CQ9: 13,
-		slot_GPI: 14,
-		slot_ICG: 15,
-		slot_OW: 16
+		slot_Skywind: 3,
+		slot_Habanero: 4,
+		slot_NetEnt: 5,
+		slot_MGPSW: 6,
+		slot_JI: 7,
+		slot_PG: 8,
+		slot_JOKER: 9,
+		slot_SG: 10,
+		slot_RedTiger: 11,
+		slot_PT: 12,
+		slot_YGG: 13,
+		slot_CQ9: 14,
+		slot_GPI: 15,
+		slot_ICG: 16,
+		slot_OW: 17
 	},
 	[defCurrencyList.INR]: {
 		slot_AdvantPlay: 1,
 		slot_PP: 2,
-		slot_Habanero: 3,
-		slot_NetEnt: 4,
-		slot_MGPSW: 5,
-		slot_JI: 6,
-		slot_PG: 7,
-		slot_JOKER: 8,
-		slot_SG: 9,
-		slot_RedTiger: 10,
-		slot_PT: 11,
-		slot_YGG: 12,
-		slot_CQ9: 13,
-		slot_GPI: 14,
-		slot_ICG: 15,
-		slot_OW: 16
+		slot_Skywind: 3,
+		slot_Habanero: 4,
+		slot_NetEnt: 5,
+		slot_MGPSW: 6,
+		slot_JI: 7,
+		slot_PG: 8,
+		slot_JOKER: 9,
+		slot_SG: 10,
+		slot_RedTiger: 11,
+		slot_PT: 12,
+		slot_YGG: 13,
+		slot_CQ9: 14,
+		slot_GPI: 15,
+		slot_ICG: 16,
+		slot_OW: 17
 	},
 	[defCurrencyList.BDT]: {
 		slot_AdvantPlay: 1,
@@ -188,54 +196,53 @@ const defSortFishing = {
 		fishing_SGW_WAR: 1,
 		fishing_CQ9_PARADISE: 2,
 		fishing_GGYL_WORLD: 3,
-		fishing_ICG_DRAGONBALL: 4,
-		fishing_Haiba: 5,
-		fishing_Hunting_Happy_Fish_5: 6,
-		fishing_Hunting_Monster_Awaken: 7,
-		fishing_SG: 8,
-		fishing_CQ9_ONESHOT: 9,
-		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 10,
-		ICG_FISHING_OF_SAVIORS: 11
+		Skywind_Ocean_Ruler: 4,
+		Skywind_Cai_Shen_Da_Hai: 5,
+		fishing_ICG_DRAGONBALL: 6,
+		fishing_Haiba: 7,
+		fishing_Hunting_Happy_Fish_5: 8,
+		fishing_Hunting_Monster_Awaken: 9,
+		fishing_SG: 10,
+		fishing_CQ9_ONESHOT: 11,
+		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 12,
+		ICG_FISHING_OF_SAVIORS: 13
 	},
 	[defCurrencyList.MYR]: {
 		fishing_SGW_WAR: 1,
 		fishing_CQ9_PARADISE: 2,
 		fishing_GGYL_WORLD: 3,
-		fishing_ICG_DRAGONBALL: 4,
-		fishing_Haiba: 5,
-		fishing_Hunting_Happy_Fish_5: 6,
-		fishing_Hunting_Monster_Awaken: 7
+		Skywind_Ocean_Ruler: 4,
+		Skywind_Cai_Shen_Da_Hai: 5,
+		fishing_ICG_DRAGONBALL: 6,
+		fishing_Haiba: 7,
+		fishing_Hunting_Happy_Fish_5: 8,
+		fishing_Hunting_Monster_Awaken: 9
 	},
 	[defCurrencyList.IDR]: {
 		fishing_SGW_WAR: 1,
 		fishing_CQ9_PARADISE: 2,
 		fishing_GGYL_WORLD: 3,
-		fishing_ICG_DRAGONBALL: 4,
-		fishing_Haiba: 5,
-		fishing_Hunting_Happy_Fish_5: 6,
-		fishing_Hunting_Monster_Awaken: 7
+		Skywind_Ocean_Ruler: 4,
+		Skywind_Cai_Shen_Da_Hai: 5,
+		fishing_ICG_DRAGONBALL: 6,
+		fishing_Haiba: 7,
+		fishing_Hunting_Happy_Fish_5: 8,
+		fishing_Hunting_Monster_Awaken: 9
 	},
 	[defCurrencyList.INR]: {
 		fishing_SGW_WAR: 1,
 		fishing_CQ9_PARADISE: 2,
 		fishing_GGYL_WORLD: 3,
-		fishing_ICG_DRAGONBALL: 4,
-		fishing_Haiba: 5,
-		fishing_Hunting_Happy_Fish_5: 6,
-		fishing_Hunting_Monster_Awaken: 7,
-		fishing_SG: 8,
-		fishing_CQ9_ONESHOT: 9,
-		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 10,
-		ICG_FISHING_OF_SAVIORS: 11
-	},
-	[defCurrencyList.BDT]: {
-		fishing_SGW_WAR: 1,
-		fishing_CQ9_PARADISE: 2,
-		fishing_GGYL_WORLD: 3,
-		fishing_ICG_DRAGONBALL: 4,
-		fishing_Haiba: 5,
-		fishing_Hunting_Happy_Fish_5: 6,
-		fishing_Hunting_Monster_Awaken: 7
+		Skywind_Ocean_Ruler: 4,
+		Skywind_Cai_Shen_Da_Hai: 5,
+		fishing_ICG_DRAGONBALL: 6,
+		fishing_Haiba: 7,
+		fishing_Hunting_Happy_Fish_5: 8,
+		fishing_Hunting_Monster_Awaken: 9,
+		fishing_SG: 10,
+		fishing_CQ9_ONESHOT: 11,
+		fishing_ICG_THE_TYRANT_AND_THE_PRINCESS: 12,
+		ICG_FISHING_OF_SAVIORS: 13
 	}
 };
 
@@ -522,18 +529,27 @@ export const defMenuLinks = {
 				...productList.liveCasino_PP,
 				keyName: "casino_PP",
 				className: "livePP",
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.liveCasino_pp
-					})
-				],
 				icon: "icon icon-PP",
 				displayText: "Pragmatic Play",
 				listNpcImgUrl: "casino-PP.png",
 				listBgImgUrl: ["ppBG.png", "livecasinListHover.png"],
 				menuType: defMenuType.entPage,
 				lobbyPage: { npcImg: "casino_pp" }
+			},
+			{
+				...productList.liveCasino_Skywind,
+				keyName: "casino_Skywind",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.skywind
+					})
+				],
+				displayText: "Skywind",
+				listNpcImgUrl: "casino-SK.png",
+				listBgImgUrl: ["skbg.png", "livecasinListHover.png"],
+				menuType: defMenuType.entPage,
+				lobbyPage: { npcImg: "casino_sk" }
 			},
 			{
 				keyName: "casino_MG",
@@ -684,13 +700,7 @@ export const defMenuLinks = {
 				listBgImgUrl: "slotListHover.png",
 				// parameter: { ...productList.casino_AdvantPlay },
 				parameter: { provider: "advant-play" },
-				...productList.casino_AdvantPlay,
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.casino_AdvantPlay
-					})
-				]
+				...productList.casino_AdvantPlay
 			},
 			{
 				keyName: "slot_PP",
@@ -702,6 +712,22 @@ export const defMenuLinks = {
 				// parameter: { ...productList.casino_PP },
 				parameter: { provider: "pragmatic-play" },
 				...productList.casino_PP
+			},
+			{
+				keyName: "slot_Skywind",
+				displayText: "Skywind",
+				menuType: defMenuType.Link,
+				listNpcImgUrl: "slotsk.png",
+				listBgImgUrl: "slotListHover.png",
+				// parameter: { ...productList.casino_Skywind },
+				parameter: { provider: "skywind" },
+				...productList.casino_Skywind,
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.skywind
+					})
+				]
 			},
 			{
 				keyName: "slot_Mega888",
@@ -928,8 +954,7 @@ export const defMenuLinks = {
 				menuType: defMenuType.entPage,
 				listNpcImgUrl: "slotOW.png",
 				listBgImgUrl: "slotListHover.png",
-				...productList.casino_OW,
-				allowCurrencies: allowedCurrencyList.slotSaba
+				...productList.casino_OW
 			}
 		]
 	},
@@ -1078,13 +1103,7 @@ export const defMenuLinks = {
 				lobbyPage: {
 					bgImg: "fishhf.png",
 					hoverBgImg: "fishhfa.png"
-				},
-				eventIcons: [
-					showEventIcon({
-						icon: defEventIcon.new,
-						period: defEventPeriod.fishing_Joker
-					})
-				]
+				}
 			},
 			{
 				keyName: "fishing_Hunting_Monster_Awaken",
@@ -1147,6 +1166,44 @@ export const defMenuLinks = {
 					hoverBgImg: "fishgga.png"
 				}
 			},
+			// {
+			// 	keyName: "Skywind_Ocean_Ruler",
+			// 	displayKey: "Skywind_Ocean_Ruler",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishSK-or.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	...productList.Skywind_Ocean_Ruler,
+			// 	parameter: { ...productList.Skywind_Ocean_Ruler },
+			// 	lobbyPage: {
+			// 		bgImg: "fishor.png",
+			// 		hoverBgImg: "fishora.png"
+			// 	},
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.skywind
+			// 		})
+			// 	]
+			// },
+			// {
+			// 	keyName: "Skywind_Cai_Shen_Da_Hai",
+			// 	displayKey: "Skywind_Cai_Shen_Da_Hai",
+			// 	menuType: defMenuType.entPage,
+			// 	listNpcImgUrl: "fishSK-casdaha.png",
+			// 	listBgImgUrl: "fishListHover.png",
+			// 	...productList.Skywind_Cai_Shen_Da_Hai,
+			// 	parameter: { ...productList.Skywind_Cai_Shen_Da_Hai },
+			// 	lobbyPage: {
+			// 		bgImg: "fishcai.png",
+			// 		hoverBgImg: "fishcaia.png"
+			// 	},
+			// 	eventIcons: [
+			// 		showEventIcon({
+			// 			icon: defEventIcon.new,
+			// 			period: defEventPeriod.skywind
+			// 		})
+			// 	]
+			// },
 			{
 				keyName: "fishing_SGW_WAR",
 				className: "fsgw",

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useContext, useState } from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { defPopBoxType } from "../common/defPopBoxType";
@@ -68,8 +69,7 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 								<div className="btnGroup">
 									<Link
 										className="btn-check"
-										to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}
-									>
+										to={`/${langId}/${path.profile.root}?prevPage=${path.promotion.root}&BonusCode=${bonusCode}`}>
 										{t("lbl_UpdatePersonalDetail")}
 									</Link>
 								</div>
@@ -88,8 +88,7 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 								<div className="btnGroup">
 									<button
 										className="btn-cancel"
-										onClick={clickClose}
-									>
+										onClick={clickClose}>
 										OK
 									</button>
 								</div>
@@ -124,8 +123,7 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 		if (
 			canJoin &&
 			(promotionType === defPromotionType.redeposit ||
-				(filter === defFilterType.specialBonus &&
-					promotionType === defPromotionType.firstDeposit))
+				promotionType === defPromotionType.firstDeposit)
 		) {
 			setPopBox({
 				isOpen: true,
@@ -151,7 +149,9 @@ const JoinBtn = ({ promotionInfo, userInfo, _isClaimed, filter, callBack }) => {
 		promotionInfo.promotionType === defPromotionType.rebate ||
 		promotionInfo.promotionType === defPromotionType.other ||
 		(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
-		promotionInfo.beenUsed ? null : (
+		promotionInfo.beenUsed ||
+		moment.unix(promotionInfo.periodFrom).diff(Date.now()) > 0 ||
+		moment.unix(promotionInfo.periodTo).diff(Date.now()) < 0 ? null : (
 		<button className="orange" onClick={onJoinPromotion}>
 			{promotionInfo.promotionType === defPromotionType.cashback
 				? t("promotion.lbl_promo_claim_now")?.toUpperCase()

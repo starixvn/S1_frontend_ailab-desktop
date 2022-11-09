@@ -50,9 +50,7 @@ export default function HomeJackpot({ t, userInfo }) {
 
 	return (
 		<div className="jpotModule">
-			<div className="moduleTitle icon icon-ow-casino">
-				{t("lbl_homeJackpotTitle")}
-			</div>
+			<div className="moduleTitle">{t("lbl_homeJackpotTitle")}</div>
 
 			<span style={{ display: "none" }} id="jpot-id" ref={ref} />
 
@@ -62,9 +60,7 @@ export default function HomeJackpot({ t, userInfo }) {
 				langId={userInfo.langId}
 				animationLoopMillisecond={ANIMATION_LOOP_MILLISECOND}
 				onClick={() =>
-					navigate(
-						`/${userInfo.langId}/${path.casino.root}?tab=${defNav.PROMO.key}`
-					)
+					navigate(`/${userInfo.langId}/${path.casino.root}`)
 				}
 			/>
 		</div>

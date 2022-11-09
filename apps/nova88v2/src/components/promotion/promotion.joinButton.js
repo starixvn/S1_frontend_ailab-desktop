@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useContext, useState } from "react";
 import PropTypes from "prop-types";
+import moment from "moment";
 import { Link } from "gatsby";
 import { useTranslation } from "react-i18next";
 import defPopBoxType from "../common/defPopBoxType";
@@ -55,7 +56,7 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 			await api_promotion_SetClaimPromotion({
 				langId,
 				BonusCode: bonusCode,
-				LockedAmount: Number(lockedAmount)
+				LockedAmount: lockedAmount
 			}).then(
 				res => {
 					if (!isMountedRef.current) return;
@@ -132,8 +133,7 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 		if (
 			canJoin &&
 			(promotionType === defPromotionType.redeposit ||
-				(filter === defFilterType.specialBonus &&
-					promotionType === defPromotionType.firstDeposit))
+				promotionType === defPromotionType.firstDeposit)
 		) {
 			setPopBox({
 				isOpen: true,
@@ -158,7 +158,9 @@ const JoinBtn = ({ promotionInfo, userInfo, filter, callBack }) => {
 		promotionInfo.promotionType === defPromotionType.rebate ||
 		promotionInfo.promotionType === defPromotionType.other ||
 		(filter === defFilterType.specialBonus && !promotionInfo.canJoin) ||
-		promotionInfo.beenUsed
+		promotionInfo.beenUsed ||
+		moment.unix(promotionInfo.periodFrom).diff(Date.now()) > 0 ||
+		moment.unix(promotionInfo.periodTo).diff(Date.now()) < 0
 	)
 		return null;
 

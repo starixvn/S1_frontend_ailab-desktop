@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { navigate } from "gatsby";
 import PropTypes from "prop-types";
+import QRCode from "qrcode.react";
 import Inputbox from "../../common/inputbox";
 import Dropdown from "../../common/dropdown";
 import ShortcutAmountList from "./shortcutAmountList";
@@ -126,7 +127,8 @@ const LocalBankForm = ({
 
 			const isRemoveBankDetailKeys =
 				item.id === defDepositChannelIdList.CashDepositMachine ||
-				item.id === defDepositChannelIdList.OverTheCounter;
+				item.id === defDepositChannelIdList.OverTheCounter ||
+				item.id === defDepositChannelIdList.BankQR;
 
 			if (isRemoveBankDetailKeys) {
 				delete newState.fromAccountNum;
@@ -276,7 +278,9 @@ const LocalBankForm = ({
 			: `${t("lbl_MinMaxAmount")} ${formInfo.minAmount} ~ ${
 					formInfo.maxAmount
 			  }`;
-
+	const QRObj = localBankGroupList.find(
+		obj => obj.bankName === localBankInfo.bankName
+	);
 	return (
 		<>
 			<div className="subModuleTitle">
@@ -342,7 +346,7 @@ const LocalBankForm = ({
 				{t("lbl_BankAccount")}
 			</div>
 
-			<div className="subModule">
+			<div className="subModule bankQR">
 				<div className="bankAccount">
 					{t("lbl_TransactionHint")}
 					<div className="smallList">
@@ -376,6 +380,16 @@ const LocalBankForm = ({
 						</ul>
 					</div>
 				</div>
+				{QRObj?.qrCodeUrl && (
+					<div className="qrCode">
+						<QRCode
+							value={QRObj?.qrCodeUrl}
+							renderAs="svg"
+							size={152}
+							includeMargin={true}
+						/>
+					</div>
+				)}
 			</div>
 
 			<div className="subModuleTitle">
@@ -423,7 +437,15 @@ const LocalBankForm = ({
 						defaultOption={
 							formInfo.fromChannel ? null : t("lbl_SelectChannel")
 						}
-						options={defDepositChannel}
+						options={
+							userInfo.currencyId === defCurrencyList.MYR
+								? defDepositChannel
+								: defDepositChannel.filter(
+										obj =>
+											obj.id !==
+											defDepositChannelIdList.BankQR
+								  )
+						}
 						onSelectItem={(idx, item) => onSelectChannel(idx, item)}
 						selectedIdx={fromChannelIdIdx}
 						i18n={t}

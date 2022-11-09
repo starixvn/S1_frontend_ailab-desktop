@@ -5,7 +5,7 @@ import Inputbox from "../common/inputbox";
 import InputboxPSW from "../common/inputbox.password";
 import Dropdown from "../common/dropdown";
 import { defCurrencyList } from "../common/common";
-import { reCaptchaDomainExtraList, reCaptchaEnum } from "./join.def";
+import { reCaptchaEnum } from "./join.def";
 
 const JoinForm = ({
 	t,

@@ -89,9 +89,7 @@ export default () => {
 						onClick={reload}>
 						<img
 							src={`${cloudImgUrl}/SiteSkin/img/${
-								userInfo.langId === "cs"
-									? "logo_cs_w"
-									: "logo_en_w"
+								userInfo.langId === "cs" ? "logo_cs" : "logo_en"
 							}.png`}
 							alt={config.siteName}
 						/>
