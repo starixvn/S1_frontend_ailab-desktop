@@ -144,6 +144,15 @@ export default {
 		tpGameType: 1,
 		betType: 4
 	},
+	worldCup: {
+		tpId: 1,
+		gameId: 2002,
+		tpGameType: 1
+	},
+	cryptoSports: {
+		tpId: 45,
+		tpGameType: 87
+	},
 
 	/* === 2.  slot === */
 
