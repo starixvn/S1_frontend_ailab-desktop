@@ -109,6 +109,8 @@ export const GET_OPEN_RULE = (
 		} else if (_gameId >= 200) {
 			result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
 		}
+	} else if (_tpId === 45) {
+		result = setResult("", false, _ACTION_TYPE.blank, _tpId);
 	} else {
 		result = setResult("", true, _ACTION_TYPE.blank, _tpId, _gameId);
 	}

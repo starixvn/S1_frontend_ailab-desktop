@@ -271,7 +271,8 @@ export const defSubListClassName = {
 	vip: "vipList",
 	ranking: "rankingList",
 	sponsor: "homeList",
-	worldCup: "eventList"
+	worldCup: "eventList",
+	cryptoSports: "cryptoList"
 };
 
 export const defMenuLinks = {
@@ -323,6 +324,17 @@ export const defMenuLinks = {
 		className: "icon icon-mobile",
 		path: path.appDownload.root
 	},
+	cryptoSports: {
+		className: "cryptobtn",
+		menuType: defMenuType.entPage,
+		productInfo: { ...productList.cryptoSports },
+		eventIcons: [
+			showEventIcon({
+				icon: defEventIcon.new,
+				period: defEventPeriod.sports_cryptoSports
+			})
+		]
+	},
 	worldCup: {
 		className: "eventbtn",
 		path: path.sports.root,
@@ -354,6 +366,19 @@ export const defMenuLinks = {
 		filterByAuth: true,
 		customSort: defSortSports,
 		subMenu: [
+			{
+				displayKey: "lbl_cryptoSports",
+				listNpcImgUrl: "cryptosportNPC.png",
+				menuType: defMenuType.entPage,
+				...productList.cryptoSports,
+				keyName: "cryptoSports",
+				eventIcons: [
+					showEventIcon({
+						icon: defEventIcon.new,
+						period: defEventPeriod.sports_cryptoSports
+					})
+				]
+			},
 			{
 				path: path.sports.root,
 				displayKey: "lbl_Soccer",
