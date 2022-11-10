@@ -39,6 +39,7 @@ export const defEventPeriod = {
 	worldCup_hot: { start: "2022/08/29 00:00:00", end: "2022/12/18 23:59:59" },
 	skywind: { end: "2022/12/08 11:00:00" },
 	game_MaxGame: { end: "2022/10/13 11:00:00" },
+	sports_cryptoSports: { end: "2022/12/10 11:00:00" },
 	casino_SimplePlay: { end: "2022/11/13 11:00:00" }
 };
 

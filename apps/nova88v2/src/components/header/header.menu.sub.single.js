@@ -4,7 +4,11 @@ import { Link, navigate } from "gatsby";
 import QRCode from "qrcode.react";
 import defPopBoxType from "../common/defPopBoxType";
 import { popBoxContext } from "../common/context";
-import { GET_OPEN_RULE, OPEN_IN_BLANK } from "../../service/enterPage";
+import {
+	GET_OPEN_RULE,
+	OPEN_IN_BLANK,
+	SET_ENTER_PAGE
+} from "../../service/enterPage";
 import productList, { defTpGameType } from "../../datas/productList";
 import path from "../../router";
 import { defMenuLinks } from "./header.menu.def";
@@ -29,6 +33,39 @@ const SubMenuSingle = ({
 			popBoxType: defPopBoxType.Login
 		});
 	};
+
+	const getParamUrl = ({ param }) => {
+		const arr = Object.keys(param)?.map(key => `${key}=${param[key]}`);
+		return arr.join("&");
+	};
+
+	const clickEvent = ({ param }) => {
+		const { tpId, gameId, tpGameType } = param;
+
+		SET_ENTER_PAGE({
+			isLogin: userInfo.isLogin,
+			langId: userInfo.langId,
+			tpId,
+			gameId,
+			loginCallback: showLoginPopBox,
+			tpGameType
+		});
+	};
+
+	if (menuKey === "cryptoSports") {
+		const langClass = () =>
+			["th", "cs", "id"].includes(userInfo.langId)
+				? userInfo.langId
+				: "en";
+		return (
+			<button
+				className={`${subClassName} ${langClass()}`}
+				onClick={() => {
+					clickEvent({ param: productList.cryptoSports });
+				}}
+			/>
+		);
+	}
 
 	if (
 		menuKey === "worldCup" &&
