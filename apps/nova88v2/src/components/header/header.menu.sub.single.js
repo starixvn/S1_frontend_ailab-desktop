@@ -25,7 +25,7 @@ const SubMenuSingle = ({
 	const { setPopBox } = useContext(popBoxContext);
 	const { appLinkDatas } = useAppDownLoad();
 	const pathLink = defMenuLinks[menuKey].path;
-	const { allowCurrencies } = defMenuLinks[menuKey];
+	const { allowCurrencies, productInfo } = defMenuLinks[menuKey];
 
 	const showLoginPopBox = () => {
 		setPopBox({
@@ -34,11 +34,23 @@ const SubMenuSingle = ({
 		});
 	};
 
-	const getParamUrl = ({ param }) => {
-		const arr = Object.keys(param)?.map(key => `${key}=${param[key]}`);
-		return arr.join("&");
-	};
+	let isInMaintain = false;
+	if (productInfo?.tpGameType) {
+		isInMaintain = maintainList?.some(
+			mt =>
+				mt.tpId === productInfo.tpId &&
+				(mt.tpGameType === productInfo.tpGameType ||
+					mt.tpGameType === defTpGameType.All)
+		);
+	}
 
+	let className = subClassName || "";
+	let style = {};
+
+	if (isInMaintain) {
+		className += ` maintenance`;
+		style = { pointerEvents: "none" };
+	}
 	const clickEvent = ({ param }) => {
 		const { tpId, gameId, tpGameType } = param;
 
@@ -59,7 +71,8 @@ const SubMenuSingle = ({
 				: "en";
 		return (
 			<button
-				className={`${subClassName} ${langClass()}`}
+				className={`${className} ${langClass()}`}
+				style={style}
 				onClick={() => {
 					clickEvent({ param: productList.cryptoSports });
 				}}
@@ -73,7 +86,8 @@ const SubMenuSingle = ({
 	) {
 		return (
 			<Link
-				className={subClassName}
+				className={className}
+				style={style}
 				to={`/${userInfo.langId}/${path.sports.root}?provider=saba&type=world-cup`}>
 				<div>
 					<img
@@ -113,7 +127,7 @@ const SubMenuSingle = ({
 		);
 
 		return (
-			<div className={`${subClassName}${isPokerMaintain ? " um" : ""}`}>
+			<div className={`${className}${isPokerMaintain ? " um" : ""}`}>
 				<div>
 					<div>{t("lbl_BLUFF_RAISE_OR_CALL")}</div>
 					<div>{t("lbl_KEEP_CALM_GO_ALL_IN")}</div>
@@ -135,7 +149,7 @@ const SubMenuSingle = ({
 
 	if (menuKey === "vip") {
 		return (
-			<div className={subClassName}>
+			<div className={className} style={style}>
 				<div>
 					<div>{t("lbl_VIP_CLUB")}</div>
 					<div>
@@ -160,7 +174,7 @@ const SubMenuSingle = ({
 	}
 	if (menuKey === "ranking") {
 		return (
-			<div className={subClassName}>
+			<div className={className} style={style}>
 				<div>
 					<div>{t("lbl_THE_WORLD_CLASS_LEADERBOARD")}</div>
 					<div>{t("lbl_Bring_you_the_best_experience")}</div>
@@ -174,8 +188,9 @@ const SubMenuSingle = ({
 
 		return (
 			<Link
-				className={subClassName}
-				to={`/${userInfo.langId}/${path.appDownload.root}`}>
+				className={className}
+				to={`/${userInfo.langId}/${path.appDownload.root}`}
+				style={style}>
 				<div>
 					<div className="txt-orange">NOVA88</div>
 					<div>{t("lbl_AppBannerText")}</div>
@@ -216,7 +231,7 @@ const SubMenuSingle = ({
 
 	if (menuKey === "promotion") {
 		return (
-			<div className={subClassName}>
+			<div className={className}>
 				<div>
 					<div className="txt-orange">
 						{t("lbl_Promos_wording_title")}

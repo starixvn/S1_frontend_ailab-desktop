@@ -6,9 +6,10 @@ import {
 	OPEN_IN_BLANK
 } from "../../service/enterPage";
 import defPopBoxType from "./defPopBoxType";
-import { popBoxContext } from "./context";
+import { popBoxContext, maintainListContext } from "./context";
 import path from "../../router";
 import { defEventIcon } from "./eventIcon";
+import { defTpGameType } from "../../datas/productList";
 
 export const getUrl = (preUrl, info) =>
 	`/${preUrl}?provider=${info.provider}&type=${info.type}`;
@@ -32,6 +33,8 @@ export default ({
 	currencyId
 }) => {
 	const { setPopBox } = useContext(popBoxContext);
+	const { allMaintainList } = useContext(maintainListContext);
+
 	const showLogin = () => {
 		setPopBox({
 			isOpen: true,
@@ -77,6 +80,16 @@ export default ({
 		let _className = m.className ? m.className : "";
 		if (m.isHot) {
 			_className = `${_className} hot`;
+		}
+
+		let isInMaintain = false;
+		if (m?.productInfo?.tpGameType) {
+			isInMaintain = allMaintainList?.some(
+				mt =>
+					mt.tpId === m.productInfo.tpId &&
+					(mt.tpGameType === m.productInfo.tpGameType ||
+						mt.tpGameType === defTpGameType.All)
+			);
 		}
 
 		const iconList = m.eventIcons?.length > 0 ? [...m.eventIcons] : [];
@@ -127,7 +140,9 @@ export default ({
 				break;
 		}
 
-		_className = `${_className}${currentMenuKey === key ? " active" : ""}`;
+		_className = `${_className}${currentMenuKey === key ? " active" : ""}${
+			isInMaintain ? " maintenance" : ""
+		}`;
 
 		const displayText = toUpperCase
 			? t(m.displayKey)?.toUpperCase()
@@ -152,7 +167,7 @@ export default ({
 				return (
 					<button
 						key={key}
-						onClick={showLogin}
+						onClick={isInMaintain ? () => null : showLogin}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
 						onFocus={() => 0}>
@@ -168,11 +183,15 @@ export default ({
 						key={key}
 						className={_className}
 						onMouseOver={_showSubMenu.bind(this, key)}
-						onClick={OPEN_IN_BLANK.bind(
-							this,
-							rule.entPageUrl,
-							rule.windowKey
-						)}
+						onClick={
+							isInMaintain
+								? () => null
+								: OPEN_IN_BLANK.bind(
+										this,
+										rule.entPageUrl,
+										rule.windowKey
+								  )
+						}
 						onFocus={() => 0}>
 						<div className={iconStrings}>{iconContent}</div>
 						{displayText}
@@ -230,7 +249,9 @@ export default ({
 					<button
 						key={key}
 						className={_className}
-						onClick={showLinkOptionsPopBox}>
+						onClick={
+							isInMaintain ? () => null : showLinkOptionsPopBox
+						}>
 						{displayText}
 					</button>
 				);
