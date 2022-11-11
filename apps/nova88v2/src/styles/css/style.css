@@ -281,6 +281,13 @@ header input:focus-within {
   background: url(https://banner.0814media.net/desktop/img/cryptosportsa.png) no-repeat center top/cover;
 }
 
+.header > div.menu > div > a.cryptobtn.maintenance:hover::before,
+.header > div.menu > div > button.cryptobtn.maintenance:hover::before {
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  background: url(https://banner.0814media.net/desktop/img/cryptosports.png) no-repeat center top/cover;
+}
+
 .header > div.menu > div > a:after,
 .header > div.menu > div > button:after {
   content: '';
@@ -610,6 +617,28 @@ header input:focus-within {
   -ms-flex-flow: wrap;
       flex-flow: wrap;
   height: 0;
+}
+
+.header > div.menu .subMenu-Wrapper-new .homeList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .appList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .sportsList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .exchangeList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .eSportsList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .casinoList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .livecasinoList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .pokerList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .tableList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .gameList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .fishList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .promoList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .tvList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .vipList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .sponsorList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .rankingList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .eventList.maintenance,
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
+  -webkit-filter: grayscale(2);
+          filter: grayscale(2);
 }
 
 .header > div.menu .subMenu-Wrapper-new .homeList a,
@@ -1866,6 +1895,26 @@ header input:focus-within {
 
 .header > div.menu .subMenu-Wrapper-new .cryptoList.cs {
   background: url(https://banner.0814media.net/desktop/img/cryptosports_cs.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg);
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.en {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_en_um.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.th {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_th_um.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.id {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_id_um.jpg) no-repeat center/auto;
+}
+
+.header > div.menu .subMenu-Wrapper-new .cryptoList.maintenance.cs {
+  background: url(https://banner.0814media.net/desktop/img/cryptosports_cs_um.jpg) no-repeat center/auto;
 }
 
 .header > div.menu .subMenu-Wrapper-new .vipList.vipen {
