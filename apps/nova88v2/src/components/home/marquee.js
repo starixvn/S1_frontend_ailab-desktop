@@ -44,7 +44,7 @@ class Marquee extends Component {
 
 					return { pos: outerBox };
 				}
-				return { pos: prev.pos - 1.5 };
+				return { pos: prev.pos - 2.0 };
 			});
 		}
 	};
@@ -170,8 +170,7 @@ class Marquee extends Component {
 				onMouseOver={this.MarqueeOnMouseOver}
 				onMouseOut={this.MarqueeOnMouseOut}
 				onFocus={() => 0}
-				onBlur={() => 0}
-			>
+				onBlur={() => 0}>
 				{item.subject}
 			</button>
 		));
@@ -181,13 +180,11 @@ class Marquee extends Component {
 			<div id="Marquee">
 				<div
 					className="marquee-box icon icon-marquee"
-					ref={this.marquee}
-				>
+					ref={this.marquee}>
 					<div
 						className="marquee-run"
 						ref={this.content}
-						style={style}
-					>
+						style={style}>
 						{arr}
 					</div>
 					<div className="mq-btn">
