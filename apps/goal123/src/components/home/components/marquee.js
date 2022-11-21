@@ -1,4 +1,5 @@
 import React, { Component, useContext, createRef } from "react";
+import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 import { navigate } from "gatsby";
 import { api_message_GetAnnouncement } from "../../../service/api/message";
@@ -30,42 +31,6 @@ export default () => {
 };
 
 class Marquee extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			datas: [],
-			pos: null,
-			// initWidth: 0,
-			redirectPath: null
-		};
-		this.isMountedRef = false;
-		this.marquee = createRef();
-		this.content = createRef();
-	}
-
-	componentDidMount = () => {
-		this.isMountedRef = true;
-		this.GetAnnouncement(this.props.langId);
-		this.intervalId = setInterval(
-			this.GetAnnouncement.bind(this, this.props.langId),
-			60000
-		);
-	};
-
-	componentWillUnmount = () => {
-		this.isMountedRef = false;
-		clearInterval(this.intervalId_Pos);
-	};
-
-	componentDidUpdate = () => {
-		if (this.state.pos === null && this.isMountedRef) {
-			const style = window.getComputedStyle(this.marquee.current, null);
-			const pos = parseFloat(style.width);
-
-			this.setState({ pos });
-		}
-	};
-
 	SetPos = () => {
 		if (this.isMountedRef && this.state.prev !== null) {
 			const _style = window.getComputedStyle(this.content.current, null);
@@ -81,7 +46,7 @@ class Marquee extends Component {
 
 					return { pos: outerBox };
 				}
-				return { pos: prev.pos - 1.5 };
+				return { pos: prev.pos - 2.0 };
 			});
 		}
 	};
@@ -186,21 +151,56 @@ class Marquee extends Component {
 		}
 	};
 
+	constructor(props) {
+		super(props);
+		this.state = {
+			datas: [],
+			pos: null,
+			// initWidth: 0,
+			redirectPath: null
+		};
+		this.isMountedRef = false;
+		this.marquee = createRef();
+		this.content = createRef();
+	}
+
+	componentDidMount = () => {
+		this.isMountedRef = true;
+		this.GetAnnouncement(this.props.langId);
+		this.intervalId = setInterval(
+			this.GetAnnouncement.bind(this, this.props.langId),
+			60000
+		);
+	};
+
+	componentDidUpdate = () => {
+		if (this.state.pos === null && this.isMountedRef) {
+			const style = window.getComputedStyle(this.marquee.current, null);
+			const pos = parseFloat(style.width);
+
+			// eslint-disable-next-line
+			this.setState({ pos });
+		}
+	};
+
+	componentWillUnmount = () => {
+		this.isMountedRef = false;
+		clearInterval(this.intervalId_Pos);
+	};
+
 	render() {
-		const arr = this.state.datas.map(item => {
-			return (
-				<button
-					key={`announcement-${item.id}`}
-					style={{ paddingLeft: "2rem" }}
-					onClick={this.ClickMarquee}
-					onMouseOver={this.MarqueeOnMouseOver}
-					onMouseOut={this.MarqueeOnMouseOut}
-					onFocus={() => 0}
-					onBlur={() => 0}>
-					{item.subject}
-				</button>
-			);
-		});
+		const arr = this.state.datas.map(item => (
+			<button
+				key={`announcement-${item.id}`}
+				style={{ paddingLeft: "2rem" }}
+				onClick={this.ClickMarquee}
+				onMouseOver={this.MarqueeOnMouseOver}
+				onMouseOut={this.MarqueeOnMouseOut}
+				onFocus={() => 0}
+				onBlur={() => 0}>
+				{item.subject}
+			</button>
+		));
 
 		const style = this.state.pos === null ? {} : { left: this.state.pos };
 		if (this.state.redirectPath === null) {
@@ -226,3 +226,19 @@ class Marquee extends Component {
 		return [];
 	}
 }
+
+Marquee.defaultProps = {
+	langId: null,
+	setPopBox: () => null,
+	isLogin: null,
+	ClickClose: () => null,
+	i18n: null
+};
+
+Marquee.propTypes = {
+	langId: PropTypes.string,
+	setPopBox: PropTypes.func,
+	isLogin: PropTypes.bool,
+	ClickClose: PropTypes.func,
+	i18n: PropTypes.objectOf(PropTypes.any)
+};
