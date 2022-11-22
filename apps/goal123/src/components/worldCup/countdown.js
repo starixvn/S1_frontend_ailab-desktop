@@ -32,7 +32,7 @@ export default () => {
 		} else if (isDateRange(startDate, endDate)) {
 			_diffTime.days = _endDate.diff(now, "days");
 			_diffTime.times = _endDate.diff(now);
-		} else if (moment(_endDate).unix() > currentTime) {
+		} else if (moment(_endDate).unix() < currentTime) {
 			_diffTime.days = now.diff(_endDate, "days");
 			_diffTime.times = now.diff(_endDate);
 		} else {
