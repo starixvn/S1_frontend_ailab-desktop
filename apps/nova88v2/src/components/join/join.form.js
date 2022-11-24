@@ -275,7 +275,7 @@ JoinForm.propTypes = {
 	recaptchaInfo: PropTypes.objectOf(PropTypes.any)
 };
 
-const AreaCodeDropdown = ({
+export const AreaCodeDropdown = ({
 	defaultOption,
 	options,
 	selectedIdx,

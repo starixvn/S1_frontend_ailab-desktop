@@ -23,6 +23,7 @@ import { api_site_GetCountryList } from "../../service/api/site";
 import { currencyCode } from "../../datas/countryCode";
 import VerificationPanel from "./verificationPanel";
 import useVerifyEmail from "./hook/useVerifyEmail";
+import { areaCodeList } from "../join/join";
 
 export default () => {
 	const { t } = useTranslation();
@@ -55,6 +56,8 @@ export default () => {
 	let _areaCodeVal = "";
 	if (country) {
 		_areaCodeVal = areaCode[country].AreaCode;
+	} else if (userInfo?.areaCode) {
+		_areaCodeVal = userInfo?.areaCode;
 	}
 
 	const hasRequireValueNull = type => {
@@ -146,7 +149,8 @@ export default () => {
 	}, [userInfo.accountName, userInfo.phoneNo, userInfo.addressCity]);
 
 	const onSelectAreaCode = i => {
-		setUserValue(prev => ({ ...prev, areaCodeIdx: i + 1 }));
+		setUserValue(prev => ({ ...prev, areaCodeIdx: i }));
+		phoneCheck("areaCode", i);
 	};
 
 	const closePopBox = () => {
@@ -245,7 +249,7 @@ export default () => {
 			val = e.target.value;
 		} else {
 			val = e.target.value;
-			val = val.replace(/[^\d]+/g, "");
+			val = val.replace(/[^0-9]+/g, "");
 		}
 		setUserValue(prev => ({
 			...prev,
@@ -257,18 +261,17 @@ export default () => {
 		let checked = true;
 		let tip = "";
 
-		if (_areaCodeVal === "") {
-			checked = false;
-			tip = t("lbl_PhoneRequired");
-		} else if (
-			(col === "areaCode" && userValue?.phoneNo.length < 1) ||
-			(col === "phoneNo" && (!val || val === ""))
-		) {
+		let _areaCode = areaCodeList[userValue.areaCodeIdx]?.areaCode;
+		if (col === "areaCode") {
+			_areaCode = areaCodeList[val]?.areaCode;
+		}
+
+		if (!_areaCode || (col === "phoneNo" && (!val || val === ""))) {
 			checked = false;
 			tip = t("lbl_PhoneRequired");
 		} else {
 			api_account_ExistsPhone({
-				AreaCode: _areaCodeVal,
+				AreaCode: areaCodeList[userValue.areaCodeIdx]?.areaCode,
 				Phone: col === "areaCode" ? userValue.phoneNo : val
 			}).then(
 				res => {
@@ -396,7 +399,8 @@ export default () => {
 							AreaCode:
 								userInfo.areaCode && userInfo.areaCode !== ""
 									? userInfo.areaCode
-									: _areaCodeVal,
+									: areaCodeList[userValue.areaCodeIdx]
+											?.areaCode,
 							PhoneNo:
 								userInfo.phoneNo && userInfo.phoneNo !== ""
 									? userInfo.phoneNo
@@ -446,7 +450,8 @@ export default () => {
 										birth_d: profileDatas.Birth_d,
 										birth_m: profileDatas.Birth_m,
 										birth_y: profileDatas.Birth_y,
-										phoneNo: profileDatas.PhoneNo
+										phoneNo: profileDatas.PhoneNo,
+										areaCode: profileDatas.AreaCode
 								  }
 								: {
 										...prev,
