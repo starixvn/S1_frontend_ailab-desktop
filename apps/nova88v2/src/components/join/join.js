@@ -33,7 +33,7 @@ import path from "../../router";
 import JoinPromoInfo from "./join.promoInfo";
 import useHandleLineLogin, { defType } from "../hook/useHandleLineLogin";
 
-const areaCodeList = Object.values(areaCode).map(el => ({
+export const areaCodeList = Object.values(areaCode).map(el => ({
 	id: `${el.AreaCode} ${el.Name}`,
 	displayText: `${el.AreaCode} ${el.Name}`,
 	displaySelected: el.AreaCode,

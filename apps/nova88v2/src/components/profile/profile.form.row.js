@@ -5,6 +5,8 @@ import DateTime from "react-datetime";
 import Inputbox from "../common/inputbox";
 import Dropdown from "../common/dropdown";
 import { GetCurrencyName, isConvert, number_format } from "../common/common";
+import { AreaCodeDropdown } from "../join/join.form";
+import { areaCodeList } from "../join/join";
 
 const DisplayRow = ({
 	t,
@@ -26,6 +28,7 @@ const DisplayRow = ({
 	sendEmailOtp
 }) => {
 	const _isConvert = isConvert(userInfo.currencyId);
+	const _areaCode = areaCodeList[userValue?.areaCodeIdx]?.areaCode;
 
 	const legalDate = moment().subtract(18, "year");
 	const vaildDate = current => current.isBefore(legalDate);
@@ -97,31 +100,29 @@ const DisplayRow = ({
 			phoneContent = (
 				<div className="phone">
 					<div
-						className="inputBox-blue"
-						onBlur={() => phoneCheck("areaCode")}
-						tabIndex="0"
-						role="button"
-					>
-						<Dropdown
-							defaultOption={areaCode}
-							mainKey="area_code"
-							icon="icon-phone txt-blue"
-							options={areaCodeOptions}
-							selectedIdx={userValue.areaCodeIdx - 1}
-							i18n={t}
+						className={`inputBox-blue${
+							status.phoneNo.checked === false ? " error" : ""
+						}`}>
+						<AreaCodeDropdown
+							defaultOption={_areaCode}
+							options={areaCodeList}
+							selectedIdx={userValue.areaCodeIdx}
 							onSelectItem={onSelectAreaCode}
-							disabled={isUSDT}
 						/>
 					</div>
+
 					<Inputbox
-						className="inputBox-blue"
-						onChange={editField.bind(this, "phoneNo")}
-						onBlur={e => phoneCheck("phoneNo", e.target.value)}
+						className={`inputBox-blue${
+							status.phoneNo.checked === false ? " error" : ""
+						}`}
+						placeholder={t("lbl_Phone")}
 						value={userValue.phoneNo}
 						checked={status.phoneNo.checked}
-						clickInfo={clickInfo.bind(this, "phoneNo")}
-						inputType="phone"
 						isTipHide={true}
+						clickInfo={clickInfo.bind(this, "phoneNo")}
+						onChange={editField.bind(this, "phoneNo")}
+						onBlur={e => phoneCheck("phoneNo", e.target.value)}
+						inputType="phone"
 					/>
 					{status.phoneNo.tip ? (
 						<div className="tip active txt-red">
@@ -152,8 +153,7 @@ const DisplayRow = ({
 					{`(${areaCode})${content}`}
 					<button
 						className="icon icon-mobile btn-org"
-						onClick={sendOTPSMS}
-					>
+						onClick={sendOTPSMS}>
 						{t("lbl_PhoneVerification")}
 						<div className="description">
 							<div className="title">
@@ -194,8 +194,7 @@ const DisplayRow = ({
 					) : (
 						<button
 							className="icon icon-envelope btn-org"
-							onClick={sendEmailOtp}
-						>
+							onClick={sendEmailOtp}>
 							{t("lbl_EmailVerification")}
 							<div className="description">
 								<div className="title">
