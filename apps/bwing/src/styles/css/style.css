@@ -899,6 +899,10 @@ header .header > div.menu .nweSubMenu-Wrapper .casinoList .AP .img {
   background: url(https://banner.bw88.io/desktop/img/slot/ap.png) no-repeat center/auto 100%;
 }
 
+header .header > div.menu .nweSubMenu-Wrapper .casinoList .APnew .img {
+  background: url(https://banner.bw88.io/desktop/img/slot/apnew.png) no-repeat center/auto 100%;
+}
+
 header .header > div.menu .nweSubMenu-Wrapper .casinoList .NE .img {
   background: url(https://banner.bw88.io/desktop/img/slot/ne.png) no-repeat center/auto 100%;
 }
@@ -13916,7 +13920,7 @@ input + .iconModule i.icon.icon-checkmark:before {
   width: 270px;
   height: 73px;
   padding-right: 10px;
-  background: url(https://banner.bw88.io/desktop/img/worldcup/timebg.png) no-repeat center/contain;
+  background: url(https://banner.bw88.io/desktop/img/worldcup/date.png) no-repeat center/contain;
 }
 
 .worldcupTime > div {

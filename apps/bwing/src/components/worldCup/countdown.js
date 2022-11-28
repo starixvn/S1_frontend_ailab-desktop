@@ -66,7 +66,8 @@ const Countdown = ({ t, diffTime }) => {
 
 	return (
 		<div className="worldcupTime">
-			<div className="title">
+			{/* // * 倒數的動畫先拿掉，故先註解 */}
+			{/* <div className="title">
 				<img
 					src={`${bannerImgUrl}/img/worldcup/xs-logo-d.png`}
 					alt="countdown_img"
@@ -83,7 +84,7 @@ const Countdown = ({ t, diffTime }) => {
 			<div className="time">
 				<p>{minutes}</p>
 				<p>{t("lbl_Header_olympic_countdown_mins")}</p>
-			</div>
+			</div> */}
 			{/* <div className="time">
 					{seconds[0]}
 					{seconds[1]}

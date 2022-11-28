@@ -116,3 +116,26 @@ Countdown.propTypes = {
 	t: PropTypes.func.isRequired,
 	diffTime: PropTypes.objectOf(PropTypes.any)
 };
+
+export const DateCountdown = () => (
+	<>
+		<div>
+			<img
+				src={`${bannerImgUrl}/desktop/img/event/worldcup/fixture-logo.png`}
+				alt="countdown_img"
+			/>
+		</div>
+		<div>
+			<div>
+				<img
+					src={`${bannerImgUrl}/desktop/img/event/worldcup/date.png`}
+					alt="countdown_img"
+				/>
+			</div>
+
+			<button className="entry">
+				<img src={arrowImg} alt="entry" />
+			</button>
+		</div>
+	</>
+);
