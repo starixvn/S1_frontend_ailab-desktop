@@ -126,10 +126,10 @@ export default {
 		}
 	},
 	resetPassword: {
-		root: "reset-password"
+		root: "resetPassword"
 	},
 	leaderBoard: {
-		root: "leaderboard"
+		root: "leaderBoard"
 	},
 	referral: {
 		root: "referral"
