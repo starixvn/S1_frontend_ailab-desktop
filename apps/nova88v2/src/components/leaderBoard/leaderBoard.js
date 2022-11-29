@@ -360,13 +360,16 @@ export default () => {
 	};
 
 	const linkToTnc = () => {
-		const gotoDefaultUrl = ["en", "hi", "hi_en"];
+		let _langId = userInfo.langId;
+		if (userInfo.langId === "en") {
+			if (userInfo.currencyId === defCurrencyList.THB) {
+				_langId = "th_en";
+			} else if (userInfo.currencyId === defCurrencyList.IDR) {
+				_langId = "id_en";
+			}
+		}
 		window.open(
-			`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${
-				gotoDefaultUrl.includes(userInfo.langId)
-					? "en"
-					: userInfo.langId
-			}.html`
+			`${cloudImgUrl}/NovaPromotion/ranking_new_tnc/${_langId}.html`
 		);
 	};
 
@@ -394,7 +397,8 @@ export default () => {
 			className="rankingNew"
 			style={{
 				backgroundImage: `url(${showBackground()})`
-			}}>
+			}}
+		>
 			<section>
 				<LeaderBoardTab t={t} onChangeTab={onChangeTab} tab={tab} />
 				{tab === defTabId.first ? (
