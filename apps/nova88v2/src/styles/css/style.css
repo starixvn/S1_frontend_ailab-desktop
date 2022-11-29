@@ -16324,30 +16324,13 @@ nav.breadcrumb ul .breadcrumb-item.active a {
 }
 
 .countdown > div > div {
-  margin: 0 8px;
+  margin: 0 0 0 3px;
   position: relative;
 }
 
-.countdown > div > div::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 3px;
-  height: 3px;
-  background: #fff;
-  top: 12px;
-  right: -10px;
-}
-
-.countdown > div > div::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 3px;
-  height: 3px;
-  background: #fff;
-  bottom: 15px;
-  right: -10px;
+.countdown > div > div img {
+  width: 160px;
+  height: auto;
 }
 
 .countdown > div > div span {

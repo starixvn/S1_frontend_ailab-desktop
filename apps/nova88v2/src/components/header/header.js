@@ -16,7 +16,7 @@ import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-import EventCountdown from "../worldCup/countdown";
+import { DateCountdown } from "../worldCup/countdown";
 import { langAndCurrMapping } from "../common/common";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
@@ -112,7 +112,7 @@ export default () => {
 						<Link
 							className="countdown"
 							to={`/${userInfo.langId}/${path.worldCup.root}`}>
-							<EventCountdown />
+							<DateCountdown />
 						</Link>
 					)}
 				</div>
