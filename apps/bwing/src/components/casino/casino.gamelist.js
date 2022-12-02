@@ -1,181 +1,173 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { popBoxContext } from "../common/context";
-import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
-import { defRowsPerPage } from "./casino.def";
-import { defPopBoxType } from "../common/defPopBoxType";
-import { useGotoGame, defSpecialSetting } from "../hook/useGotoGame";
-import useDelayFunc from "../hook/useDelayFunc";
-import { defCasinoProviders, defTpGameType } from "../../datas/productList";
 import { useInView } from "../hook/useInView";
 
 const GameList = ({
 	displayGames,
 	imgUrl,
 	langId,
-	isLogin,
-	tpList,
-	currentPage,
-	favorite,
+	providerList,
 	onSetFavorite,
 	t,
-	maintainList,
-	onLoadMore
+	onLoadMore,
+	onClickPlay,
+	filterJudge,
+	startIdx,
+	endIdx,
+	getIsInMaintain,
+	getTpGameType,
+	activeCategory,
+	favoriteStr
 }) => {
-	const { handleGoToGame } = useGotoGame({ autoGetData: false });
-	const { throttle } = useDelayFunc();
-	const { setPopBox } = useContext(popBoxContext);
-	const startIdx = 0;
-	const endIdx = currentPage * defRowsPerPage;
 	const inViewRef = useInView(() => onLoadMore());
-
-	const onClickPlay = ({ tpId, gameId, isFree, delay, tpGameType }) => {
-		const loginCallback = () => {
-			setPopBox({
-				isOpen: true,
-				popBoxType: defPopBoxType.Login
-			});
-		};
-
-		if (isLogin || isFree) {
-			throttle(
-				() =>
-					SET_CASINO_ENTER_PAGE({
-						tpId,
-						gameId,
-						isFree,
-						langId,
-						execFunction:
-							tpId === defSpecialSetting.playTech
-								? handleGoToGame.bind(this, {
-										langId,
-										tpId,
-										gameId,
-										isFun: isFree,
-										tpGameType
-								  })
-								: null,
-						tpGameType
-					}),
-				delay
-			);
-		} else loginCallback();
-	};
-
 	let _imgUrl = "";
-	const rows = displayGames
-		?.filter(g => tpList[g.tpId] !== undefined)
-		.slice(startIdx, endIdx)
-		.map(g => {
-			const tpInfo = tpList[g.tpId];
-			const imgName = g.imgName[langId]
-				? g.imgName[langId]
-				: g.imgName.en;
-			const gameDisplayName = g.name[langId] ? g.name[langId] : g.name.en;
-			const isFavorite =
-				favorite?.filter(f => {
-					const fArr = f.split("_");
-					const _tpId = fArr[0];
-					fArr?.shift();
-					const _gameId = fArr.join("_");
-					return Number(_tpId) === g.tpId && _gameId === g.gameId;
-				})?.length > 0;
-
-			_imgUrl = `${imgUrl}/${g.tpName}/${imgName}`;
-
-			const { tpGameType = null } =
-				Object.values(defCasinoProviders).find(
+	const rows =
+		displayGames &&
+		displayGames
+			?.filter(g => filterJudge(g))
+			?.slice(startIdx, endIdx)
+			?.map(g => {
+				const imgName = g.imgName[langId]
+					? g.imgName[langId]
+					: g.imgName.en;
+				const gameDisplayName = g.gameName[langId]
+					? g.gameName[langId]
+					: g.gameName.en;
+				const key = `${g.tpId}_${g.gameId}`;
+				const storageStr = favoriteStr ?? "";
+				const storageList = storageStr.split("&") ?? [];
+				const handleIsFavorite = () => storageList?.includes(key);
+				const isFavorite = handleIsFavorite();
+				const brandTpName = providerList.find(
 					obj => obj.tpId === g.tpId
-				) ?? {};
+				).tpName;
+				const gameProviderName = providerList.find(
+					obj => obj.tpId === g.tpId
+				).gameImgDisplayText;
 
-			const isInMaintain = maintainList?.some(
-				item =>
-					item.tpId === g.tpId &&
-					(item.tpGameType === tpGameType ||
-						item.tpGameType === defTpGameType.All)
-			);
+				_imgUrl = `${imgUrl}/${brandTpName}/${imgName}`;
 
-			return (
-				<div
-					className={isInMaintain ? "under" : ""}
-					key={`casino-game-${g.tpId}-${g.gameId}`}>
-					{isInMaintain ? (
-						<div className="underBtn">
-							{t("lbl_underMaintenance")}
-						</div>
-					) : null}
-					<div className="brand">
-						<span>{tpInfo.displayText}</span>
-					</div>
-					{g.new ? <div className="newTag">NEW</div> : null}
+				const _style = {
+					pointerEvents: getIsInMaintain(g) ? "none" : "auto"
+				};
+
+				return (
 					<div
-						onClick={onSetFavorite.bind(this, g.tpId, g.gameId)}
-						className={`icon icon-star-full${
-							isFavorite ? " active" : ""
-						}`}
-					/>
-					<img alt="Casino_tpInfo" src={_imgUrl} />
-					<div className="txt-blue15">{gameDisplayName}</div>
-					{!isInMaintain && (
-						<div className="btnGroupBg">
-							<div className="btnGroup">
+						className={getIsInMaintain(g) ? "under" : ""}
+						style={_style}
+						key={`casino-game-${g.tpId}-${g.gameId}`}>
+						{getIsInMaintain(g) ? (
+							<div className="underBtn">
+								{t("lbl_underMaintenance")}
+							</div>
+						) : null}
+						<div className="brand">
+							<span>{gameProviderName}</span>
+						</div>
+
+						<div
+							className={`icon ${
+								activeCategory === "new" ? "icon-new" : ""
+							}`}
+						/>
+
+						<img alt="Casino_tpInfo" src={_imgUrl} />
+
+						<div className="txt-darkBlue">
+							<div>{gameDisplayName}</div>
+							<div
+								onClick={onSetFavorite?.bind(
+									this,
+									g.tpId,
+									g.gameId
+								)}
+								className={`icon icon-star-full${
+									isFavorite ? " active" : ""
+								}`}
+							/>
+						</div>
+
+						<div className="btnGroup">
+							<button
+								className="blue"
+								onClick={() =>
+									onClickPlay({
+										tpId: g.tpId,
+										gameId: g.gameId,
+										isFree: false,
+										delay: 5000,
+										isInMaintain: getIsInMaintain(g),
+										tpGameType: getTpGameType(g).tpGameType
+									})
+								}>
+								{t("lbl_Play")}
+							</button>
+
+							{g.playFree ? (
 								<button
-									className="orange"
+									className="blue"
 									onClick={() =>
 										onClickPlay({
 											tpId: g.tpId,
 											gameId: g.gameId,
-											isFree: false,
-											delay: 5000,
-											tpGameType
+											isFree: true,
+											delay: 0,
+											isInMaintain: getIsInMaintain(g),
+											tpGameType:
+												getTpGameType(g).tpGameType
 										})
 									}>
-									{t("lbl_Play").toUpperCase()}
+									{t("lbl_Demo")}
 								</button>
-								{g.playFree ? (
-									<button
-										className="blueBorder"
-										onClick={() =>
-											onClickPlay({
-												tpId: g.tpId,
-												gameId: g.gameId,
-												isFree: true,
-												delay: 0,
-												tpGameType
-											})
-										}>
-										{t("lbl_Demo").toUpperCase()}
-									</button>
-								) : null}
-							</div>
+							) : null}
 						</div>
-					)}
-				</div>
-			);
-		});
-
+					</div>
+				);
+			});
 	return rows && rows.length > 0 ? (
 		<div className="slotList">
 			{rows}
 			<span ref={inViewRef} />
 		</div>
 	) : (
-		<div className="nodata">{t("msg_NoData")}</div>
+		<div className="nodata icon icon-nodata">
+			<div>{t("lbl_NoData")}</div>
+		</div>
 	);
 };
 
+GameList.defaultProps = {
+	displayGames: null,
+	providerList: null,
+	langId: null,
+	onSetFavorite: () => null,
+	t: () => null,
+	onLoadMore: () => null,
+	onClickPlay: () => null,
+	filterJudge: () => null,
+	startIdx: null,
+	endIdx: null,
+	getIsInMaintain: () => null,
+	getTpGameType: () => null,
+	activeCategory: null
+};
+
 GameList.propTypes = {
-	displayGames: PropTypes.arrayOf(PropTypes.any).isRequired,
+	displayGames: PropTypes.arrayOf(PropTypes.any),
+	providerList: PropTypes.arrayOf(PropTypes.any),
 	imgUrl: PropTypes.string.isRequired,
-	langId: PropTypes.string.isRequired,
-	isLogin: PropTypes.bool.isRequired,
-	tpList: PropTypes.objectOf(PropTypes.any).isRequired,
-	currentPage: PropTypes.number.isRequired,
-	favorite: PropTypes.arrayOf(PropTypes.any).isRequired,
-	onSetFavorite: PropTypes.func.isRequired,
-	t: PropTypes.func.isRequired,
-	maintainList: PropTypes.arrayOf(PropTypes.any).isRequired,
-	onLoadMore: PropTypes.func.isRequired
+	langId: PropTypes.string,
+	onSetFavorite: PropTypes.func,
+	t: PropTypes.func,
+	onLoadMore: PropTypes.func,
+	onClickPlay: PropTypes.func,
+	filterJudge: PropTypes.func,
+	startIdx: PropTypes.number,
+	endIdx: PropTypes.number,
+	getIsInMaintain: PropTypes.func,
+	getTpGameType: PropTypes.func,
+	activeCategory: PropTypes.string,
+	favoriteStr: PropTypes.string.isRequired
 };
 
 export default GameList;

@@ -1,4 +1,4 @@
-export const defPopBoxType = {
+const defPopBoxType = {
 	Cancel: "Cancel",
 	UploadBankSlip: "UploadBankSlip",
 	Success: "Success",
