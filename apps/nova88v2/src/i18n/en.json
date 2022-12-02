@@ -321,6 +321,7 @@
 	"lbl_DepositImportantNoticeContent4": "Please <span>DO NOT</span> fill in <span>'NOVA88'</span> or any sensitive words related to gambling as reference/remark in your online transaction.",
 	"lbl_DepositImportantNoticeContent5": "Please take noted that will be 1x rollover required for all deposit made before any withdrawal can be processed.",
 	"lbl_DepositImportantNoticeContent6": "Kindly please contact our <Link>24/7 LIVECHAT</Link> if your transaction is still pending for more than 5 minutes.",
+	"lbl_DepositImportantNoticeContent7": "EDC transaction will took at least 3 hours or more processing time.",
 	"lbl_DepositChannelTip": "Please select which bank channel you deposited from the bank transfer",
 	"lbl_LocalBankBankAccountTip": "Please select which bank account you deposited from the bank transfer.",
 	"lbl_DepositChannel": "Deposit Channel",

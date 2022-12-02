@@ -7,10 +7,12 @@ import { setLocalStorage } from "../common/common";
 import defPopBoxType from "../common/defPopBoxType";
 import useClickOutside from "../hook/useClickOutSide";
 import { defDepositType } from "./deposit.def";
+import { currencyCode } from "../../datas/countryCode";
 
 const DepositInfoMoule = ({
 	t,
 	langId,
+	currencyId,
 	depositOptions,
 	depositType,
 	setDepositType,
@@ -42,6 +44,10 @@ const DepositInfoMoule = ({
 		}
 		return result;
 	};
+
+	// * 幣別 idr 才顯示說明7
+	const isIDR = currencyId === currencyCode.ID;
+
 	return (
 		<div className="infoModule">
 			<div className="inside-title">
@@ -52,7 +58,8 @@ const DepositInfoMoule = ({
 
 				<Link
 					className="icon icon-friend"
-					to={`/${langId}/${path.referral.root}`}>
+					to={`/${langId}/${path.referral.root}`}
+				>
 					<span>{t("lbl_Refer_friends_rewards")}</span>
 				</Link>
 			</div>
@@ -72,7 +79,8 @@ const DepositInfoMoule = ({
 										`${userName}-nova88depositquerySavedChecked`,
 										!saveInfoChecked
 									);
-								}}>
+								}}
+							>
 								<span>ON</span>
 								<span>OFF</span>
 								<div
@@ -91,7 +99,8 @@ const DepositInfoMoule = ({
 						<div
 							className={`inputInfo${
 								rememberInfoActive ? " active" : ""
-							}`}>
+							}`}
+						>
 							{t("lbl_DepositLocalbankButtonInfo")}
 						</div>
 					</div>
@@ -119,7 +128,8 @@ const DepositInfoMoule = ({
 								className={
 									item.type === depositType ? "active" : ""
 								}
-								key={`${item.type}-key`}>
+								key={`${item.type}-key`}
+							>
 								<div className={item.iconClass}>
 									<i className="icon icon-icon32px_check" />
 								</div>
@@ -147,7 +157,8 @@ const DepositInfoMoule = ({
 								await judgeBtnStatus();
 								submitHandle();
 							}}
-							className={classStyle()}>
+							className={classStyle()}
+						>
 							{canSubmit
 								? t("lbl_Submit")
 								: t("lbl_DepositStatus1")}
@@ -210,6 +221,24 @@ const DepositInfoMoule = ({
 							}}
 						/>
 					</li>
+					{isIDR && (
+						<li>
+							<Trans
+								i18nKey="lbl_DepositImportantNoticeContent7"
+								components={{
+									Link: (
+										<button
+											onClick={() =>
+												window.LiveChatWidget.call(
+													"maximize"
+												)
+											}
+										/>
+									)
+								}}
+							/>
+						</li>
+					)}
 				</ul>
 			</div>
 		</div>
@@ -226,6 +255,7 @@ DepositInfoMoule.defaultProps = {
 DepositInfoMoule.propTypes = {
 	t: PropTypes.func.isRequired,
 	langId: PropTypes.string.isRequired,
+	currencyId: PropTypes.number.isRequired,
 	depositOptions: PropTypes.arrayOf(PropTypes.any).isRequired,
 	depositType: PropTypes.string,
 	setDepositType: PropTypes.func.isRequired,

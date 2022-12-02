@@ -240,7 +240,8 @@ const Deposit = () => {
 
 					<Link
 						className="btn-check"
-						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`}>
+						to={`/${userInfo.langId}/${path.profile.root}?prevPage=${path.deposit.root}&BonusCode=${bonusCode}`}
+					>
 						{t("lbl_UpdatePersonalDetail")}
 					</Link>
 				</div>
@@ -311,7 +312,8 @@ const Deposit = () => {
 									onClick={() => {
 										closePopBox();
 										resolve(true);
-									}}>
+									}}
+								>
 									{t("lbl_Deposit_Promotion_Button_Proceed")}
 								</button>
 								<button
@@ -319,7 +321,8 @@ const Deposit = () => {
 									onClick={() => {
 										closePopBox();
 										resolve(false);
-									}}>
+									}}
+								>
 									{t("lbl_Deposit_Promotion_Button_Back")}
 								</button>
 							</div>
@@ -760,6 +763,7 @@ const Deposit = () => {
 			<DepositInfoMoule
 				t={t}
 				langId={userInfo.langId}
+				currencyId={userInfo.currencyId}
 				depositType={depositType}
 				depositOptions={depositOptions}
 				saveInfoChecked={saveInfoChecked}
@@ -772,7 +776,8 @@ const Deposit = () => {
 				setPopBox={setPopBox}
 				userName={userInfo.userName}
 				canSubmit={formInfo.canSubmit}
-				submitHandle={submitHandle}>
+				submitHandle={submitHandle}
+			>
 				{depositType === defDepositType.autoDeposit && (
 					<AutoDepositForm
 						t={t}
