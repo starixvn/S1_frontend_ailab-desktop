@@ -274,6 +274,10 @@ export default () => {
 	};
 
 	const checkAll = async () => {
+		const _reCaptchaCheck = reCaptchaToken !== "";
+		// * 機器人驗證沒過直接 return 出去
+		if (!_reCaptchaCheck) return false;
+
 		const res = await Promise.all([
 			usernameCheck(userValue.username),
 			phoneCheck(userValue.phone)
@@ -284,14 +288,12 @@ export default () => {
 		const _phoneCheck = res[1];
 		// let _emailCheck = emailCheck(userValue.email);
 		const _agreeCheck = userValue.agreeCheck;
-		const _reCaptchaCheck = reCaptchaToken !== "";
 
 		const checked =
 			_usernameCheck.checked &&
 			_passwordCheck.checked &&
 			_phoneCheck.checked &&
-			_agreeCheck &&
-			_reCaptchaCheck;
+			_agreeCheck;
 
 		if (!checked) {
 			let checkboxMsg = "";
@@ -469,6 +471,7 @@ export default () => {
 					openLogin={openLogin}
 					userValue={userValue}
 					tip={tip}
+					setTip={setTip}
 					clickInfo={clickInfo}
 					EditField={EditField}
 					checkValue={checkValue}
