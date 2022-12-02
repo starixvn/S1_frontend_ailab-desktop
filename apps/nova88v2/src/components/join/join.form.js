@@ -12,6 +12,7 @@ const JoinForm = ({
 	openLogin,
 	userValue,
 	tip,
+	setTip,
 	clickInfo,
 	EditField,
 	checkValue,
@@ -53,7 +54,8 @@ const JoinForm = ({
 								className="btn-line"
 								onClick={e => {
 									handleLineRegister(e);
-								}}>
+								}}
+							>
 								<i className="icon icon-line-bold" />
 								{t("lineRegister.lbl_RegisterWithLine")}
 							</button>
@@ -108,7 +110,8 @@ const JoinForm = ({
 			<div
 				className={`inputBox-blue${
 					tip.currency.msg !== "" ? " error" : ""
-				}`}>
+				}`}
+			>
 				<Dropdown
 					defaultOption={defaultOption}
 					mainKey="join_currency"
@@ -138,7 +141,8 @@ const JoinForm = ({
 							!tip.phone.checked && tip.phone.msg !== ""
 								? " error"
 								: ""
-						}`}>
+						}`}
+					>
 						<AreaCodeDropdown
 							defaultOption={_areaCode}
 							options={areaCodeList}
@@ -166,7 +170,13 @@ const JoinForm = ({
 						isTipHide={true}
 						clickInfo={clickInfo.bind(this, "phone")}
 						onChange={EditField.bind(null, "phone")}
-						onBlur={checkValue.bind(null, "phone")}
+						// * 清空錯誤訊息， phone 改為按下 submit 之後才打 api 驗證
+						onBlur={() =>
+							setTip(prev => ({
+								...prev,
+								phone: { checked: null, msg: "" }
+							}))
+						}
 						inputType="phone"
 					/>
 				</div>
@@ -220,7 +230,8 @@ const JoinForm = ({
 				className="txt-blue"
 				target="_blank"
 				rel="noreferrer"
-				href={tandCTerms}>
+				href={tandCTerms}
+			>
 				{t("lbl_sign_up_terms_center")}
 			</a>
 			{t("lbl_sign_up_terms_end")}
@@ -253,6 +264,7 @@ JoinForm.propTypes = {
 	openLogin: PropTypes.func.isRequired,
 	userValue: PropTypes.objectOf(PropTypes.any).isRequired,
 	tip: PropTypes.objectOf(PropTypes.any).isRequired,
+	setTip: PropTypes.func.isRequired,
 	clickInfo: PropTypes.func.isRequired,
 	EditField: PropTypes.func.isRequired,
 	checkValue: PropTypes.func.isRequired,
@@ -335,7 +347,8 @@ export const AreaCodeDropdown = ({
 		<div
 			key={`item-${item.displayText}`}
 			className="dropdown-item"
-			onClick={e => selectItem(e, { idx: i, item })}>
+			onClick={e => selectItem(e, { idx: i, item })}
+		>
 			{item.displayText}
 		</div>
 	));

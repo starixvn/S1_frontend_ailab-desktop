@@ -398,6 +398,12 @@ export default () => {
 
 	const checkAll = async () => {
 		try {
+			const _reCaptchaCheck =
+				reCaptchaToken !== "" || recaptchaInfo.country === "CN";
+
+			// * 機器人驗證沒過直接 return 出去
+			if (!_reCaptchaCheck) return false;
+
 			const res = await Promise.all([
 				usernameCheck(userValue.username),
 				phoneCheck(userValue.phone),
@@ -409,16 +415,13 @@ export default () => {
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
-			const _reCaptchaCheck =
-				reCaptchaToken !== "" || recaptchaInfo.country === "CN";
 
 			const checked =
 				_usernameCheck.checked &&
 				_passwordCheck.checked &&
 				_phoneCheck.checked &&
 				_emailCheck.checked &&
-				_currencyCheck.checked &&
-				_reCaptchaCheck;
+				_currencyCheck.checked;
 
 			if (!checked) {
 				setTip(prev => ({
@@ -636,6 +639,7 @@ export default () => {
 					openLogin={openLogin}
 					userValue={userValue}
 					tip={tip}
+					setTip={setTip}
 					clickInfo={clickInfo}
 					EditField={EditField}
 					checkValue={checkValue}
