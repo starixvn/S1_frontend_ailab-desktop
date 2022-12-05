@@ -435,6 +435,14 @@ export default () => {
 									msg: message
 								}
 							}));
+						} else if (errorCode === -6) {
+							setTip(prev => ({
+								...prev,
+								phone: {
+									checked: false,
+									msg: message
+								}
+							}));
 						} else {
 							errorPopBox(message || "error", errorCode);
 						}
