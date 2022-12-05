@@ -406,12 +406,13 @@ export default () => {
 
 			const res = await Promise.all([
 				usernameCheck(userValue.username),
-				phoneCheck(userValue.phone),
+				// phoneCheck(userValue.phone),
+				null,
 				emailCheck(userValue.email)
 			]);
 
 			const _usernameCheck = res[0];
-			const _phoneCheck = res[1];
+			// const _phoneCheck = res[1];
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
@@ -419,7 +420,7 @@ export default () => {
 			const checked =
 				_usernameCheck.checked &&
 				_passwordCheck.checked &&
-				_phoneCheck.checked &&
+				// _phoneCheck.checked &&
 				_emailCheck.checked &&
 				_currencyCheck.checked;
 
@@ -434,10 +435,10 @@ export default () => {
 						checked: _passwordCheck.checked,
 						msg: t(_passwordCheck.message)
 					},
-					phone: {
-						checked: _phoneCheck.checked,
-						msg: t(_phoneCheck.msg)
-					},
+					// phone: {
+					// 	checked: _phoneCheck.checked,
+					// 	msg: t(_phoneCheck.msg)
+					// },
 					email: {
 						checked: _emailCheck.checked,
 						msg: t(_emailCheck.msg)
@@ -570,6 +571,14 @@ export default () => {
 							setTip(prev => ({
 								...prev,
 								specialBonusCode: {
+									checked: false,
+									msg: message
+								}
+							}));
+						} else if (errorCode === -6) {
+							setTip(prev => ({
+								...prev,
+								phone: {
 									checked: false,
 									msg: message
 								}
