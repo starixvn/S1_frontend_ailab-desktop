@@ -280,19 +280,20 @@ export default () => {
 
 		const res = await Promise.all([
 			usernameCheck(userValue.username),
-			phoneCheck(userValue.phone)
+			null
+			// phoneCheck(userValue.phone)
 		]);
 
 		const _usernameCheck = res[0];
 		const _passwordCheck = passwordCheck(userValue.password);
-		const _phoneCheck = res[1];
+		// const _phoneCheck = res[1];
 		// let _emailCheck = emailCheck(userValue.email);
 		const _agreeCheck = userValue.agreeCheck;
 
 		const checked =
 			_usernameCheck.checked &&
 			_passwordCheck.checked &&
-			_phoneCheck.checked &&
+			// _phoneCheck.checked &&
 			_agreeCheck;
 
 		if (!checked) {
@@ -310,10 +311,10 @@ export default () => {
 					checked: _passwordCheck.checked,
 					msg: t(_passwordCheck.message)
 				},
-				phone: {
-					checked: _phoneCheck.checked,
-					msg: t(_phoneCheck.msg)
-				},
+				// phone: {
+				// 	checked: _phoneCheck.checked,
+				// 	msg: t(_phoneCheck.msg)
+				// },
 				checkbox: {
 					checked: true,
 					msg: t(checkboxMsg)
