@@ -6,7 +6,7 @@ import {
 	api_site_GetSiteCurrencyList,
 	api_site_Signup,
 	api_site_ExistsEmail,
-	api_site_ExistsPhoneNo,
+	// api_site_ExistsPhoneNo,
 	api_site_GetAffiliateAgent,
 	api_site_GetRecaptchaInfo
 } from "../../service/api/site";
@@ -360,7 +360,7 @@ export default () => {
 		return { checked, msg };
 	};
 
-	const phoneCheck = async val => {
+	const phoneCheck = val => {
 		let checked = true;
 		let msg = "";
 
@@ -369,25 +369,25 @@ export default () => {
 			msg = "lbl_PhoneRequired";
 		}
 
-		if (checked) {
-			const res = await api_site_ExistsPhoneNo({
-				AreaCode: _areaCode,
-				Phone: val
-			});
-			if (isMountedRef.current) {
-				if (res.data.errorCode === 0) {
-					if (res.data.data === true) {
-						checked = false;
-						msg = "msg_PhoneExisted";
-					}
-				} else {
-					errorPopBox(
-						res.data.message || "error",
-						res.data.errorCode
-					);
-				}
-			}
-		}
+		// if (checked) {
+		// 	const res = await api_site_ExistsPhoneNo({
+		// 		AreaCode: _areaCode,
+		// 		Phone: val
+		// 	});
+		// 	if (isMountedRef.current) {
+		// 		if (res.data.errorCode === 0) {
+		// 			if (res.data.data === true) {
+		// 				checked = false;
+		// 				msg = "msg_PhoneExisted";
+		// 			}
+		// 		} else {
+		// 			errorPopBox(
+		// 				res.data.message || "error",
+		// 				res.data.errorCode
+		// 			);
+		// 		}
+		// 	}
+		// }
 
 		return { checked, msg };
 	};
@@ -413,6 +413,7 @@ export default () => {
 
 			const _usernameCheck = res[0];
 			// const _phoneCheck = res[1];
+			const _phoneCheck = phoneCheck(userValue.phone);
 			const _emailCheck = res[2];
 			const _passwordCheck = passwordCheck(userValue.password);
 			const _currencyCheck = currencyCheck(defaultOption);
@@ -420,7 +421,7 @@ export default () => {
 			const checked =
 				_usernameCheck.checked &&
 				_passwordCheck.checked &&
-				// _phoneCheck.checked &&
+				_phoneCheck.checked &&
 				_emailCheck.checked &&
 				_currencyCheck.checked;
 
@@ -435,10 +436,10 @@ export default () => {
 						checked: _passwordCheck.checked,
 						msg: t(_passwordCheck.message)
 					},
-					// phone: {
-					// 	checked: _phoneCheck.checked,
-					// 	msg: t(_phoneCheck.msg)
-					// },
+					phone: {
+						checked: _phoneCheck.checked,
+						msg: t(_phoneCheck.msg)
+					},
 					email: {
 						checked: _emailCheck.checked,
 						msg: t(_emailCheck.msg)
@@ -449,6 +450,7 @@ export default () => {
 					}
 				}));
 			}
+
 			return checked;
 		} catch (error) {
 			return false;
@@ -462,6 +464,10 @@ export default () => {
 		readCookie("AffId") ||
 		getUrlParameter("AffCode") ||
 		readCookie("AffCode");
+
+	const handleReCaptchaChange = token => {
+		setReCaptchaToken(token);
+	};
 
 	const clickSubmit = async e => {
 		e.preventDefault();
@@ -501,8 +507,7 @@ export default () => {
 			api_site_Signup(regData, defaultLangId).then(
 				res => {
 					if (isMountedRef.current) {
-						const { errorCode } = res.data;
-						const { message } = res.data;
+						const { errorCode, message } = res.data;
 						if (errorCode === 0) {
 							api_accountStrict_GetCustProfile().then(
 								async res_custInfo => {
@@ -609,9 +614,6 @@ export default () => {
 		lineLogin({ type: defType.register });
 	};
 
-	const handleReCaptchaChange = token => {
-		setReCaptchaToken(token);
-	};
 	return (
 		<div className="joinpop">
 			<div className="joinloginModule">
