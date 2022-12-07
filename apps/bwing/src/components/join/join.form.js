@@ -73,14 +73,14 @@ const JoinForm = ({
 				checked={tip.phone.checked}
 				clickInfo={clickInfo.bind(this, "phone")}
 				onChange={EditField.bind(null, "phone")}
-				// onBlur={checkValue.bind(null, "phone")}
+				onBlur={checkValue.bind(null, "phone")}
 				// * 清空錯誤訊息， phone 改為按下 submit 之後才打 api 驗證
-				onBlur={() =>
-					setTip(prev => ({
-						...prev,
-						phone: { checked: null, msg: "" }
-					}))
-				}
+				// onBlur={() =>
+				// 	setTip(prev => ({
+				// 		...prev,
+				// 		phone: { checked: null, msg: "" }
+				// 	}))
+				// }
 			/>
 
 			<div className="title">{t("lbl_Affiliates")}</div>
