@@ -1,4 +1,4 @@
-const defPopBoxType = {
+export const defPopBoxType = {
 	Cancel: "Cancel",
 	UploadBankSlip: "UploadBankSlip",
 	Success: "Success",
@@ -33,5 +33,3 @@ const defPopBoxType = {
 	PaymentQR: "PaymentQR",
 	NewYear: "NewYear"
 };
-
-export default defPopBoxType;

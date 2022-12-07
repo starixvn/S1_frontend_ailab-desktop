@@ -22,7 +22,6 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 			: [...lobbyImgList, ...lobbyImgList];
 
 	const Rows = dataRows.map((_item, idx) => {
-		console.log("_item", _item);
 		const _srcImg =
 			hoverImg === _item.tpName || activeProvider.tpId === _item.tpId
 				? `${_item.imgName}a`
@@ -38,7 +37,8 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 						  }&tpGameType=${
 								defSlotTpGameType[_item?.tpName]?.tpGameType
 						  }`
-				}>
+				}
+			>
 				<img
 					src={`${bannerImgUrl}/desktop/img/partnerlogo/${_srcImg}.png`}
 					alt={_item.tpName}
@@ -58,7 +58,8 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 									? "active"
 									: ""
 							}
-							to={`/${langId}/${_item.openPath}`}>
+							to={`/${langId}/${_item.openPath}`}
+						>
 							{content}
 						</Link>
 					) : (
@@ -77,7 +78,8 @@ const TopQuickLink = ({ lobbyImgList, activeProvider, onChange, langId }) => {
 							)}
 							onMouseOut={handleOnMouseOverImg.bind(this, "")}
 							onBlur={() => 0}
-							onFocus={() => 0}>
+							onFocus={() => 0}
+						>
 							{content}
 						</button>
 					)}

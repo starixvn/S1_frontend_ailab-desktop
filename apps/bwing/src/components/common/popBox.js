@@ -1,7 +1,7 @@
 import React, { useContext, lazy, Suspense } from "react";
 import { popBoxContext } from "./context";
 import Loading from "./loading";
-import defPopBoxType from "./defPopBoxType";
+import { defPopBoxType } from "./defPopBoxType";
 import NewYear from "./popbox.newYear";
 
 export default () => {

@@ -11,7 +11,7 @@ import {
 	maintainListContext,
 	loadingContext
 } from "../common/context";
-import defPopBoxType from "../common/defPopBoxType";
+import { defPopBoxType } from "../common/defPopBoxType";
 import { defRowsPerPage, defSearchColumn } from "./casino.def";
 import TopQuickLink from "./casino.topQuickLink";
 import CasinoJackpot from "./casino.jackpot";
