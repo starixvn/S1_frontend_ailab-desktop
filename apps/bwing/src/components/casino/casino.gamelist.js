@@ -55,7 +55,8 @@ const GameList = ({
 					<div
 						className={getIsInMaintain(g) ? "under" : ""}
 						style={_style}
-						key={`casino-game-${g.tpId}-${g.gameId}`}>
+						key={`casino-game-${g.tpId}-${g.gameId}`}
+					>
 						{getIsInMaintain(g) ? (
 							<div className="underBtn">
 								{t("lbl_underMaintenance")}
@@ -73,7 +74,7 @@ const GameList = ({
 
 						<img alt="Casino_tpInfo" src={_imgUrl} />
 
-						<div className="txt-darkBlue">
+						<div className="txt-blue15">
 							<div>{gameDisplayName}</div>
 							<div
 								onClick={onSetFavorite?.bind(
@@ -86,40 +87,45 @@ const GameList = ({
 								}`}
 							/>
 						</div>
-
-						<div className="btnGroup">
-							<button
-								className="blue"
-								onClick={() =>
-									onClickPlay({
-										tpId: g.tpId,
-										gameId: g.gameId,
-										isFree: false,
-										delay: 5000,
-										isInMaintain: getIsInMaintain(g),
-										tpGameType: getTpGameType(g).tpGameType
-									})
-								}>
-								{t("lbl_Play")}
-							</button>
-
-							{g.playFree ? (
+						<div className="btnGroupBg">
+							<div className="btnGroup">
 								<button
-									className="blue"
+									className="orange"
 									onClick={() =>
 										onClickPlay({
 											tpId: g.tpId,
 											gameId: g.gameId,
-											isFree: true,
-											delay: 0,
+											isFree: false,
+											delay: 5000,
 											isInMaintain: getIsInMaintain(g),
 											tpGameType:
 												getTpGameType(g).tpGameType
 										})
-									}>
-									{t("lbl_Demo")}
+									}
+								>
+									{t("lbl_Play")}
 								</button>
-							) : null}
+
+								{g.playFree ? (
+									<button
+										className="blueBorder"
+										onClick={() =>
+											onClickPlay({
+												tpId: g.tpId,
+												gameId: g.gameId,
+												isFree: true,
+												delay: 0,
+												isInMaintain:
+													getIsInMaintain(g),
+												tpGameType:
+													getTpGameType(g).tpGameType
+											})
+										}
+									>
+										{t("lbl_Demo")}
+									</button>
+								) : null}
+							</div>
 						</div>
 					</div>
 				);

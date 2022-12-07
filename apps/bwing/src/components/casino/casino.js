@@ -14,7 +14,8 @@ import {
 import defPopBoxType from "../common/defPopBoxType";
 import { defRowsPerPage, defSearchColumn } from "./casino.def";
 import TopQuickLink from "./casino.topQuickLink";
-// import CasinoJackpot from "./casino.jackpot";
+import CasinoJackpot from "./casino.jackpot";
+import SwipperBanner from "../common/swipperBanner";
 import { api_game_GetSlotGamePage } from "../../service/api/game";
 import { SET_CASINO_ENTER_PAGE } from "../../service/enterPage";
 import { defSpecialSetting, useGotoGame } from "../hook/useGotoGame";
@@ -24,9 +25,7 @@ import {
 	defSlotTpGameType,
 	defTpGameType
 } from "../../datas/productList";
-import { getUrlParameter } from "../common/common";
-import { BannerSwipper } from "../common/customSwipper";
-import CasinoJackpot from "./casino.jackpot";
+import { getUrlParameter, langAndCurrMapping } from "../common/common";
 
 export default () => {
 	const { t } = useTranslation();
@@ -236,7 +235,8 @@ export default () => {
 									<div className="btnGroup">
 										<button
 											className="btn-check"
-											onClick={clickClose}>
+											onClick={clickClose}
+										>
 											{t("lbl_Close")}
 										</button>
 									</div>
@@ -256,7 +256,8 @@ export default () => {
 								<div className="btnGroup">
 									<button
 										className="btn-check"
-										onClick={clickClose}>
+										onClick={clickClose}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -281,7 +282,7 @@ export default () => {
 	const getSlotData = async () => {
 		setIsProcessing(true);
 		api_game_GetSlotGamePage({
-			currencyId: userInfo.currencyId
+			currencyId: langAndCurrMapping[userInfo.langId]
 		}).then(
 			res => {
 				const success = res.data.errorCode === 0;
@@ -404,7 +405,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -423,7 +425,8 @@ export default () => {
 							<div className="btnGroup">
 								<button
 									className="btn-check"
-									onClick={clickClose}>
+									onClick={clickClose}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -531,66 +534,60 @@ export default () => {
 	};
 
 	return loading ? null : (
-		<>
-			<BannerSwipper
-				ImgFolder={[defBannerType.Slots]}
-				withBtn={true}
-				withPagination={true}
-			/>
-
-			<CasinoJackpot t={t} userInfo={userInfo} />
-
-			<section className="inside">
-				<div className="rightModule">
-					{/* <CasinoJackpot t={t} userInfo={userInfo} /> */}
-
-					<div className="infoModule">
-						<TopQuickLink
-							lobbyImgList={providerList}
-							activeProvider={activeProvider}
-							onChange={handleProviderChange}
-							langId={userInfo.langId}
-						/>
-						<div
-							className="quickSelect CasinoSelect gameBtn
-						">
-							<Nav
-								categoryList={categoryList}
-								activeCategory={activeCategory}
-								onChange={handleCategoryChange}
-								t={t}
-								isProcessing={isProcessing}
-							/>
-							<SearchBox
-								t={t}
-								searchInfo={searchInfo}
-								editSearchField={editSearchField}
-							/>
-						</div>
-						<GameList
-							t={t}
-							imgUrl={imgUrl}
-							displayGames={displayGames}
-							providerList={providerList}
-							activeProvider={activeProvider}
-							langId={userInfo.langId}
-							currentPage={pageInfo.currentPage}
-							onSetFavorite={isProcessing ? null : onSetFavorite}
-							onLoadMore={loadMore}
-							searchText={searchInfo.searchText}
-							isProcessing={isProcessing}
-							onClickPlay={onClickPlay}
-							filterJudge={filterJudge}
-							startIdx={startIdx}
-							endIdx={endIdx}
-							getIsInMaintain={getIsInMaintain}
-							getTpGameType={getTpGameType}
+		<section className="inside">
+			<div className="rightModule">
+				<div className="infoModule">
+					<SwipperBanner
+						ImgFolder={[defBannerType.Slots]}
+						openInBlank={true}
+					/>
+					<CasinoJackpot t={t} userInfo={userInfo} />
+					<TopQuickLink
+						lobbyImgList={providerList}
+						activeProvider={activeProvider}
+						onChange={handleProviderChange}
+						langId={userInfo.langId}
+					/>
+					<div
+						className="quickSelect CasinoSelect gameBtn
+						"
+					>
+						<Nav
+							categoryList={categoryList}
 							activeCategory={activeCategory}
-							favoriteStr={favoriteStr ?? ""}
+							onChange={handleCategoryChange}
+							t={t}
+							isProcessing={isProcessing}
+						/>
+						<SearchBox
+							t={t}
+							searchInfo={searchInfo}
+							editSearchField={editSearchField}
 						/>
 					</div>
+					<GameList
+						t={t}
+						imgUrl={imgUrl}
+						displayGames={displayGames}
+						providerList={providerList}
+						activeProvider={activeProvider}
+						langId={userInfo.langId}
+						currentPage={pageInfo.currentPage}
+						onSetFavorite={isProcessing ? null : onSetFavorite}
+						onLoadMore={loadMore}
+						searchText={searchInfo.searchText}
+						isProcessing={isProcessing}
+						onClickPlay={onClickPlay}
+						filterJudge={filterJudge}
+						startIdx={startIdx}
+						endIdx={endIdx}
+						getIsInMaintain={getIsInMaintain}
+						getTpGameType={getTpGameType}
+						activeCategory={activeCategory}
+						favoriteStr={favoriteStr ?? ""}
+					/>
 				</div>
-			</section>
-		</>
+			</div>
+		</section>
 	);
 };

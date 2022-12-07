@@ -55,7 +55,8 @@ const GameList = ({
 					<div
 						className={getIsInMaintain(g) ? "under" : ""}
 						style={_style}
-						key={`casino-game-${g.tpId}-${g.gameId}`}>
+						key={`casino-game-${g.tpId}-${g.gameId}`}
+					>
 						{getIsInMaintain(g) ? (
 							<div className="underBtn">
 								{t("lbl_underMaintenance")}
@@ -89,7 +90,7 @@ const GameList = ({
 
 						<div className="btnGroup">
 							<button
-								className="blue"
+								className="yellow"
 								onClick={() =>
 									onClickPlay({
 										tpId: g.tpId,
@@ -99,7 +100,8 @@ const GameList = ({
 										isInMaintain: getIsInMaintain(g),
 										tpGameType: getTpGameType(g).tpGameType
 									})
-								}>
+								}
+							>
 								{t("lbl_Play")}
 							</button>
 
@@ -116,7 +118,8 @@ const GameList = ({
 											tpGameType:
 												getTpGameType(g).tpGameType
 										})
-									}>
+									}
+								>
 									{t("lbl_Demo")}
 								</button>
 							) : null}
