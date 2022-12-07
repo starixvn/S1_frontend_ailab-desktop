@@ -534,7 +534,7 @@ export default () => {
 	};
 
 	return loading ? null : (
-		<section className="inside">
+		<section>
 			<div className="rightModule">
 				<div className="infoModule">
 					<SwipperBanner

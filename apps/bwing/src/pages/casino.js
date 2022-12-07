@@ -4,15 +4,13 @@ import Layout from "../components/common/layout";
 import Footer from "../components/footer/footer";
 import Casino from "../components/casino/casino";
 
-export default () => {
-	return (
-		<Wrapper>
-			<Layout>
-				<main className="fullSize">
-					<Casino />
-				</main>
-				<Footer />
-			</Layout>
-		</Wrapper>
-	);
-};
+export default () => (
+	<Wrapper>
+		<Layout>
+			<main>
+				<Casino />
+			</main>
+			<Footer />
+		</Layout>
+	</Wrapper>
+);
