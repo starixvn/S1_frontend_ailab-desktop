@@ -5,7 +5,7 @@ import {
 	api_site_ExistsUserName,
 	api_site_GetSiteCurrencyList,
 	api_site_Signup,
-	api_site_ExistsPhoneNo,
+	// api_site_ExistsPhoneNo,
 	api_site_GetAffiliateAgent
 } from "../../service/api/site";
 import { api_accountStrict_GetCustProfile } from "../../service/api/accountStrict";
@@ -165,7 +165,7 @@ export default () => {
 			checked = result.checked;
 			msg = result.message;
 		} else if (col === "phone") {
-			const result = await phoneCheck(val);
+			const result = phoneCheck(val);
 			checked = result.checked;
 			msg = result.msg;
 		} else if (col === "specialBonusCode") {
@@ -227,7 +227,7 @@ export default () => {
 			? areaCode[currencyToCountryCode]?.AreaCode
 			: null;
 
-	const phoneCheck = async val => {
+	const phoneCheck = val => {
 		let checked = true;
 		let msg = "lbl_CantChangePhone";
 
@@ -239,25 +239,25 @@ export default () => {
 			msg = "lbl_CantChangePhone";
 		}
 
-		if (checked) {
-			const res = await api_site_ExistsPhoneNo({
-				AreaCode: _areaCode,
-				Phone: val
-			});
-			if (isMountedRef.current) {
-				if (res.data.errorCode === 0) {
-					if (!res.data.data === false) {
-						checked = false;
-						msg = "msg_PhoneExisted";
-					}
-				} else {
-					errorPopBox(
-						res.data.message || "error",
-						res.data.errorCode
-					);
-				}
-			}
-		}
+		// if (checked) {
+		// 	const res = await api_site_ExistsPhoneNo({
+		// 		AreaCode: _areaCode,
+		// 		Phone: val
+		// 	});
+		// 	if (isMountedRef.current) {
+		// 		if (res.data.errorCode === 0) {
+		// 			if (!res.data.data === false) {
+		// 				checked = false;
+		// 				msg = "msg_PhoneExisted";
+		// 			}
+		// 		} else {
+		// 			errorPopBox(
+		// 				res.data.message || "error",
+		// 				res.data.errorCode
+		// 			);
+		// 		}
+		// 	}
+		// }
 		return { checked, msg };
 	};
 
@@ -280,12 +280,14 @@ export default () => {
 
 		const res = await Promise.all([
 			usernameCheck(userValue.username),
-			phoneCheck(userValue.phone)
+			null
+			// phoneCheck(userValue.phone)
 		]);
 
 		const _usernameCheck = res[0];
 		const _passwordCheck = passwordCheck(userValue.password);
-		const _phoneCheck = res[1];
+		// const _phoneCheck = res[1];
+		const _phoneCheck = phoneCheck(userValue.phone);
 		// let _emailCheck = emailCheck(userValue.email);
 		const _agreeCheck = userValue.agreeCheck;
 
@@ -430,6 +432,14 @@ export default () => {
 							setTip(prev => ({
 								...prev,
 								specialBonusCode: {
+									checked: false,
+									msg: message
+								}
+							}));
+						} else if (errorCode === -6) {
+							setTip(prev => ({
+								...prev,
+								phone: {
 									checked: false,
 									msg: message
 								}
