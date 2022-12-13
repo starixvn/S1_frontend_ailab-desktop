@@ -53,12 +53,12 @@ const GameList = ({
 
 				return (
 					<div
-						className={getIsInMaintain(g) ? "under" : ""}
+						className={getIsInMaintain(g) ? "active" : ""}
 						style={_style}
 						key={`casino-game-${g.tpId}-${g.gameId}`}
 					>
 						{getIsInMaintain(g) ? (
-							<div className="underBtn">
+							<div className="maintenance">
 								{t("lbl_underMaintenance")}
 							</div>
 						) : null}
