@@ -6895,11 +6895,10 @@ html.Newtheme .casinoSelect.modifier .btnGroup button, html.Newtheme .casinoSele
   border: 0;
   border-radius: 0;
   margin: 0;
-  padding: 10px 20px;
-  min-width: -webkit-max-content;
-  min-width: -moz-max-content;
-  min-width: max-content;
+  padding: 10px 15px;
+  min-width: auto;
   height: 100%;
+  white-space: nowrap;
 }
 
 html.Newtheme .casinoSelect.modifier .btnGroup button:hover, html.Newtheme .casinoSelect.modifier .btnGroup button .active, html.Newtheme .casinoSelect.modifier .btnGroup a:hover, html.Newtheme .casinoSelect.modifier .btnGroup a .active {
@@ -6908,8 +6907,8 @@ html.Newtheme .casinoSelect.modifier .btnGroup button:hover, html.Newtheme .casi
 
 html.Newtheme .casinoSelect.modifier .inputBox, html.Newtheme .casinoSelect.modifier .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .casinoSelect.modifier .inputBox-event {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 250px;
-          flex: 0 0 250px;
+      -ms-flex: 0 0 180px;
+          flex: 0 0 180px;
 }
 
 html.Newtheme .slotList,
