@@ -7000,7 +7000,9 @@ html.Newtheme .slotList div.active .maintenance {
   border-radius: 5px;
   z-index: 1;
   top: calc(50% - 15px);
-  left: calc(50% - 75px);
+  left: calc(50% - 82.5px);
+  text-align: center;
+  width: 145px;
 }
 
 html.Newtheme .slotList div.active:hover .btnGroup {
