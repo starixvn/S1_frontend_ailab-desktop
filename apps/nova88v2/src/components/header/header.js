@@ -10,13 +10,12 @@ import {
 	isRootContext
 } from "../common/context";
 import Menu from "./header.menu";
-import config, { cloudImgUrl, bannerImgUrl } from "../../config";
+import config, { bannerImgUrl } from "../../config";
 import Functions from "./header.functions";
 import LanguageDropDown from "./header.langDropdown";
 import { LOGOUT } from "../../service/auth";
 import path from "../../router";
 import defPopBoxType from "../common/defPopBoxType";
-import { DateCountdown } from "../worldCup/countdown";
 import { langAndCurrMapping } from "../common/common";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
@@ -86,9 +85,10 @@ export default () => {
 					<Link
 						className="logo"
 						to={`/${userInfo.langId}`}
-						onClick={reload}>
+						onClick={reload}
+					>
 						<img
-							src={`${cloudImgUrl}/SiteSkin/img/${
+							src={`${bannerImgUrl}/desktop/img/${
 								userInfo.langId === "cs" ? "logo_cs" : "logo_en"
 							}.png`}
 							alt={config.siteName}
@@ -99,21 +99,13 @@ export default () => {
 							className="rewardsLogo"
 							target="_blank"
 							href={`${config.openURL}/rewards/`}
-							rel="noreferrer">
+							rel="noreferrer"
+						>
 							<img
 								src={`${bannerImgUrl}/img/88rewards.png`}
 								alt="Rewards"
 							/>
 						</a>
-					)}
-					{allowedCurrencyList.worldCup.includes(
-						userInfo.currencyId
-					) && (
-						<Link
-							className="countdown"
-							to={`/${userInfo.langId}/${path.worldCup.root}`}>
-							<DateCountdown />
-						</Link>
 					)}
 				</div>
 				<div className="function">
@@ -122,7 +114,8 @@ export default () => {
 					{userInfo.isLogin ? null : (
 						<Link
 							to={`/${userInfo.langId}/${path.forgetPassword.root}`}
-							className="forgot">
+							className="forgot"
+						>
 							{t("lbl_ForgetPassword")}
 						</Link>
 					)}

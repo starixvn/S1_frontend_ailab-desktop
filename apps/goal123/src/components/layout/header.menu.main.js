@@ -5,23 +5,11 @@ import { Link } from "gatsby";
 import { userInfoContext } from "../common/context";
 import { defMenuLinks } from "./header.menu.def";
 import LinkItems, { getCurrentPage } from "../common/linkItems";
-import { bannerImgUrl } from "../../config";
-import path from "../../router";
-import {
-	defEventPeriod,
-	showEventIcon,
-	defEventIcon
-} from "../common/eventIcon";
 
 const Main = ({ showSubMenu, productTpIds }) => {
 	const { t } = useTranslation();
 	const { userInfo } = useContext(userInfoContext);
 	const currentPage = getCurrentPage();
-
-	const worldCupTag = showEventIcon({
-		icon: defEventIcon.hot,
-		period: defEventPeriod.worldCup_hot
-	});
 
 	return (
 		<>
@@ -29,17 +17,18 @@ const Main = ({ showSubMenu, productTpIds }) => {
 				to={`/${userInfo.langId}`}
 				className={
 					currentPage === `/${userInfo.langId}` ? "active" : ""
-				}>
+				}
+			>
 				<i className="icon icon-home" />
 			</Link>
-			<Link
+			{/* <Link
 				to={`/${userInfo.langId}/${path.sports.root}?tpId=1&gameId=2002&tpGameType=1`}
 				className={`event ${worldCupTag}`}>
 				<img
 					src={`${bannerImgUrl}/desktop/img/event/worldcup/xs-logo.png`}
 					alt="world cup"
 				/>
-			</Link>
+			</Link> */}
 			<LinkItems
 				defMenuLinks={defMenuLinks(userInfo.langId)}
 				t={t}

@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { useTranslation } from "react-i18next";
 import { isDateRange } from "../common/common";
 import useInterval from "../hook/useInterval";
-import { bannerImgUrl } from "../../config";
 
 const DURATION_TIME = {
 	// startDate: "2022-07-26 12:00:00", // GMT+0800
