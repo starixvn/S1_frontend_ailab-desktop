@@ -42,15 +42,10 @@ export default () => {
 						onClick={reload}
 					>
 						<img
-							src={`${bannerImgUrl}/desktop/img/logo.png`}
+							src={`${bannerImgUrl}/desktop/img/logo_event.png`}
 							alt={config.siteName}
 						/>
 					</Link>
-
-					<Link
-						className="countdown"
-						to={`/${userInfo.langId}/${path.worldCup.root}`}
-					/>
 				</div>
 				<Menu
 					productTpIds={productTpIds}
