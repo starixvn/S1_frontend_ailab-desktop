@@ -7,7 +7,6 @@ import {
 } from "../common/eventIcon";
 import { defCurrencyList } from "../common/common";
 import { getLeaderBoardSupportCurrencyId } from "../leaderBoard/leaderBoard.def";
-import { bannerImgUrl } from "../../config";
 import allowedCurrencyList from "../../datas/allowedCurrencyList";
 
 const defSortSports = {
@@ -334,24 +333,6 @@ export const defMenuLinks = {
 				period: defEventPeriod.sports_cryptoSports
 			})
 		]
-	},
-	worldCup: {
-		className: "eventbtn",
-		path: path.sports.root,
-		imgUrl: `${bannerImgUrl}/desktop/img/event/worldcup/xs-logo.png`,
-		// productInfo: productList.worldCup,
-		productInfo: {
-			provider: "saba",
-			type: "world-cup",
-			...productList["world-cup"]
-		},
-		eventIcons: [
-			showEventIcon({
-				icon: defEventIcon.hot,
-				period: defEventPeriod.worldCup_hot
-			})
-		],
-		allowCurrencies: allowedCurrencyList.worldCup
 	},
 	sports: {
 		displayKey: "lbl_Sports",
