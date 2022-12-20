@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { userInfoContext } from "../common/context";
-import { getCurrencyCode } from "../common/common";
+import { getCurrencyCode, defCurrencyList } from "../common/common";
 import { AutoPlayWithBtn } from "../common/swipperBanner";
 import { InfoEN, InfoTH, InfoID, InfoCS } from "./vip.info";
 import VipPage from "./vip.page";
@@ -27,7 +27,16 @@ const Vip = () => {
 		t
 	});
 
-	const rows = defbanner(userInfo.langId).map(item => (
+	let bannerLangId = userInfo.langId;
+	if (userInfo.langId === "en") {
+		if (userInfo.currencyId === defCurrencyList.THB) {
+			bannerLangId = "th_en";
+		} else if (userInfo.currencyId === defCurrencyList.IDR) {
+			bannerLangId = "id_en";
+		}
+	}
+
+	const rows = defbanner(bannerLangId).map(item => (
 		<div className="swiper-slide" key={item.alt}>
 			<img
 				src={item.url}

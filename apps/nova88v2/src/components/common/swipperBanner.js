@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState, useContext, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import SwiperCore, {
