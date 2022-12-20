@@ -15,7 +15,7 @@ const getAffiliate = ({ langId }) => {
 
 export const bannerImgUrl = "https://banner.bw88.io";
 
-const cloudImgUrl = "https://payment.bw88.io";
+export const cloudImgUrl = "https://payment.bw88.io";
 
 export const errorPageUrl = langId =>
 	`https://error.bw88.io/404/index_${langId}.html`;

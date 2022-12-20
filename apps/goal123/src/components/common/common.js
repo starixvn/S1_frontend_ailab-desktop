@@ -185,6 +185,16 @@ export const langAndCurrMapping = {
 	vn: 51
 };
 
+export const uuidv4 = () =>
+	// eslint-disable-next-line func-names
+	"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+		// eslint-disable-next-line no-bitwise
+		const r = (Math.random() * 16) | 0;
+		// eslint-disable-next-line no-bitwise
+		const v = c === "x" ? r : (r & 0x3) | 0x8;
+		return v.toString(16);
+	});
+
 export const stringLinkify = text => {
 	const pattern =
 		/(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
