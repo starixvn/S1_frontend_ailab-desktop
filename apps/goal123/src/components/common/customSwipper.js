@@ -202,7 +202,8 @@ const CustomSwipper = ({
 			className="swiper-container"
 			onMouseOver={() => onMouseOverHandlar()}
 			onMouseLeave={() => onMouseLeaveHandlar()}
-			onFocus={() => 0}>
+			onFocus={() => 0}
+		>
 			<div className="swiper-wrapper">
 				{/* eslint-disable-next-line react/jsx-props-no-spreading */}
 				<Swiper {...params}>{children}</Swiper>
@@ -282,7 +283,7 @@ export const BannerSwipper = ({
 		let redirectLink = null;
 
 		if (b.actionMode === defBannerActionMode.GoToBonus) {
-			redirectLink = `/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${b.bonusCode}`;
+			redirectLink = `/${path.promotion.root}?BonusCode=${b.bonusCode}`;
 		} else if (
 			b.actionMode === defBannerActionMode.RedirectPageOfThisSite
 		) {
@@ -297,7 +298,8 @@ export const BannerSwipper = ({
 			return (
 				<Link
 					key={`${userInfo.langId}-${bIdx}`}
-					to={`/${userInfo.langId}${redirectLink}`}>
+					to={`/${userInfo.langId}${redirectLink}`}
+				>
 					<img
 						src={b.bannerMobileUrl}
 						className="banner"
@@ -310,7 +312,8 @@ export const BannerSwipper = ({
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={() => handleClick(b)}>
+				onClick={() => handleClick(b)}
+			>
 				<img
 					src={b.bannerMobileUrl}
 					className="banner"
@@ -324,7 +327,8 @@ export const BannerSwipper = ({
 		<CustomSwipper
 			withBtn={withBtn}
 			withPagination={withPagination}
-			config={config}>
+			config={config}
+		>
 			{rows}
 		</CustomSwipper>
 	);

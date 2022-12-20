@@ -175,7 +175,7 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 		let redirectLink = null;
 
 		if (b.actionMode === defBannerActionMode.GoToBonus) {
-			redirectLink = `/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${b.bonusCode}`;
+			redirectLink = `/${path.promotion.root}?BonusCode=${b.bonusCode}`;
 		} else if (
 			b.actionMode === defBannerActionMode.RedirectPageOfThisSite
 		) {
@@ -190,7 +190,8 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 			return (
 				<Link
 					key={`${userInfo.langId}-${bIdx}`}
-					to={`/${userInfo.langId}${redirectLink}`}>
+					to={`/${userInfo.langId}${redirectLink}`}
+				>
 					<img
 						src={b.bannerMobileUrl}
 						className="banner"
@@ -203,7 +204,8 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={() => handleClick(b)}>
+				onClick={() => handleClick(b)}
+			>
 				<img
 					src={b.bannerMobileUrl}
 					className="banner"
