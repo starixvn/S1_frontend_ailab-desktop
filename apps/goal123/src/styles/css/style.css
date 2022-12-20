@@ -178,67 +178,6 @@ html.Newtheme header .logo img:nth-child(1) {
   height: auto;
 }
 
-html.Newtheme header .logo .countdown {
-  background: url(https://banner.goal123.org/desktop/img/event/worldcup/date.png) no-repeat center/cover;
-  color: #fff;
-  width: 220px;
-  height: 50px;
-  margin-left: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-html.Newtheme header .logo .countdown img {
-  width: 37px;
-  height: 38.5px;
-  margin: 6px 0 0 12px;
-}
-
-html.Newtheme header .logo .countdown ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-transform: uppercase;
-  margin: 12.5px 0 0 -4px;
-}
-
-html.Newtheme header .logo .countdown ul li {
-  font-size: 15px;
-  color: #FFBF00;
-  margin-left: 4px;
-  -webkit-animation: flash4 linear infinite alternate .5s;
-          animation: flash4 linear infinite alternate .5s;
-}
-
-html.Newtheme header .logo .countdown ul li span {
-  color: #FFF;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-@-webkit-keyframes flash4 {
-  0% {
-    -webkit-filter: brightness(0.9);
-            filter: brightness(0.9);
-  }
-  100% {
-    -webkit-filter: brightness(1.1);
-            filter: brightness(1.1);
-  }
-}
-
-@keyframes flash4 {
-  0% {
-    -webkit-filter: brightness(0.9);
-            filter: brightness(0.9);
-  }
-  100% {
-    -webkit-filter: brightness(1.1);
-            filter: brightness(1.1);
-  }
-}
-
 html.Newtheme header .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6887,6 +6826,30 @@ html.Newtheme .casinoSelect .btnGroup button:hover, html.Newtheme .casinoSelect 
   background: #284985;
 }
 
+html.Newtheme .casinoSelect.modifier .btnGroup {
+  margin: 0 10px 0 auto;
+}
+
+html.Newtheme .casinoSelect.modifier .btnGroup button, html.Newtheme .casinoSelect.modifier .btnGroup a {
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 10px 15px;
+  min-width: auto;
+  height: 100%;
+  white-space: nowrap;
+}
+
+html.Newtheme .casinoSelect.modifier .btnGroup button:hover, html.Newtheme .casinoSelect.modifier .btnGroup button .active, html.Newtheme .casinoSelect.modifier .btnGroup a:hover, html.Newtheme .casinoSelect.modifier .btnGroup a .active {
+  background: #284985;
+}
+
+html.Newtheme .casinoSelect.modifier .inputBox, html.Newtheme .casinoSelect.modifier .worldcupEvent .ticket__container .inputBox-event, .worldcupEvent .ticket__container html.Newtheme .casinoSelect.modifier .inputBox-event {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 180px;
+          flex: 0 0 180px;
+}
+
 html.Newtheme .slotList,
 html.Newtheme .newsList {
   -webkit-box-pack: start;
@@ -6976,7 +6939,9 @@ html.Newtheme .slotList div.active .maintenance {
   border-radius: 5px;
   z-index: 1;
   top: calc(50% - 15px);
-  left: calc(50% - 75px);
+  left: calc(50% - 82.5px);
+  text-align: center;
+  width: 145px;
 }
 
 html.Newtheme .slotList div.active:hover .btnGroup {

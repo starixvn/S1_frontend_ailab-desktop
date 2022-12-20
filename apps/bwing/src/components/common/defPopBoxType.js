@@ -33,5 +33,3 @@ export const defPopBoxType = {
 	PaymentQR: "PaymentQR",
 	NewYear: "NewYear"
 };
-
-export default defPopBoxType;
