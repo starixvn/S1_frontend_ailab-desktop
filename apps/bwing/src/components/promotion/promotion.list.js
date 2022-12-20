@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import ProcessBar from "./promotion.processBar";
@@ -7,6 +7,7 @@ import PromotionJoinButton from "./promotion.joinButton";
 import { defPromotionType, defFilterType } from "./promotion.def";
 import { useHandlePromotionInfo } from "./promotionInfo.popbox";
 import { getExpiryTime } from "./promotion.promoRule";
+import { getUrlParameter } from "../common/common";
 
 const PromotionList = ({
 	t,
@@ -18,12 +19,19 @@ const PromotionList = ({
 	afterJoinCallBack
 }) => {
 	const { getPromotionDetail } = useHandlePromotionInfo({});
+	const urlBonusCode = getUrlParameter("BonusCode");
 
 	const clickMoreInfo = (langId, bonusCode) => {
 		getPromotionDetail(langId, bonusCode);
 	};
 
 	const { isLogin, currencyId } = userInfo;
+
+	useEffect(() => {
+		if (urlBonusCode) {
+			clickMoreInfo(userInfo.langId, urlBonusCode);
+		}
+	}, []);
 
 	const rows = promoList?.map(p => {
 		const promoDisplayStyle = getStampStyle(filter, p);
@@ -36,7 +44,8 @@ const PromotionList = ({
 			isDisplay && (
 				<div
 					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
-					className={promoDisplayStyle}>
+					className={promoDisplayStyle}
+				>
 					<div className="promoImg">
 						<img src={p.banner} alt={p.title} />
 					</div>
@@ -73,7 +82,8 @@ const PromotionList = ({
 									href={p.promotionLink}
 									target="_blank"
 									rel="noreferrer"
-									className="btn-check">
+									className="btn-check"
+								>
 									{t(
 										"promotion.lbl_promo_more_info"
 									).toUpperCase()}
@@ -85,7 +95,8 @@ const PromotionList = ({
 										this,
 										userInfo.langId,
 										p.bonusCode
-									)}>
+									)}
+								>
 									{t("promotion.lbl_promo_more_info")}
 								</button>
 							)}

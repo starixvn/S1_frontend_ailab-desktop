@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useEffect, useState, useContext, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import PropTypes from "prop-types";
 import Swiper from "react-id-swiper";
 import SwiperCore, {
@@ -75,6 +76,8 @@ export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
 };
 
 export const useGetBanner = ({ langId, ImgFolder, currencyId }) => {
+	const { t } = useTranslation();
+	const { setPopBox } = useContext(popBoxContext);
 	const [banner, setBanner] = useState([]);
 
 	useEffect(() => {
@@ -103,7 +106,8 @@ export const useGetBanner = ({ langId, ImgFolder, currencyId }) => {
 										className="btn-check"
 										onClick={() => {
 											setPopBox({ isOpen: false });
-										}}>
+										}}
+									>
 										{t("lbl_Close")}
 									</button>
 								</div>
@@ -125,7 +129,8 @@ export const useGetBanner = ({ langId, ImgFolder, currencyId }) => {
 									className="btn-check"
 									onClick={() => {
 										setPopBox({ isOpen: false });
-									}}>
+									}}
+								>
 									{t("lbl_Close")}
 								</button>
 							</div>
@@ -197,7 +202,7 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 		let redirectLink = null;
 
 		if (b.actionMode === defBannerActionMode.GoToBonus) {
-			redirectLink = `/${path.promotion.root}/${path.promotion.sub.promotionInfo.root}?BonusCode=${b.bonusCode}`;
+			redirectLink = `/${path.promotion.root}?BonusCode=${b.bonusCode}`;
 		} else if (
 			b.actionMode === defBannerActionMode.RedirectPageOfThisSite
 		) {
@@ -212,7 +217,8 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 			return (
 				<Link
 					key={`${userInfo.langId}-${bIdx}`}
-					to={`/${userInfo.langId}${redirectLink}`}>
+					to={`/${userInfo.langId}${redirectLink}`}
+				>
 					<img
 						src={b.bannerMobileUrl}
 						className="banner"
@@ -225,7 +231,8 @@ const Panel = ({ ImgFolder, className, openInBlank }) => {
 		return (
 			<button
 				key={`${userInfo.langId}-${bIdx}`}
-				onClick={() => handleClick(b)}>
+				onClick={() => handleClick(b)}
+			>
 				<img
 					src={b.bannerMobileUrl}
 					className="banner"
