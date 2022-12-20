@@ -178,67 +178,6 @@ html.Newtheme header .logo img:nth-child(1) {
   height: auto;
 }
 
-html.Newtheme header .logo .countdown {
-  background: url(https://banner.goal123.org/desktop/img/event/worldcup/date.png) no-repeat center/cover;
-  color: #fff;
-  width: 220px;
-  height: 50px;
-  margin-left: 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-html.Newtheme header .logo .countdown img {
-  width: 37px;
-  height: 38.5px;
-  margin: 6px 0 0 12px;
-}
-
-html.Newtheme header .logo .countdown ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-transform: uppercase;
-  margin: 12.5px 0 0 -4px;
-}
-
-html.Newtheme header .logo .countdown ul li {
-  font-size: 15px;
-  color: #FFBF00;
-  margin-left: 4px;
-  -webkit-animation: flash4 linear infinite alternate .5s;
-          animation: flash4 linear infinite alternate .5s;
-}
-
-html.Newtheme header .logo .countdown ul li span {
-  color: #FFF;
-  font-size: 10px;
-  font-weight: bold;
-}
-
-@-webkit-keyframes flash4 {
-  0% {
-    -webkit-filter: brightness(0.9);
-            filter: brightness(0.9);
-  }
-  100% {
-    -webkit-filter: brightness(1.1);
-            filter: brightness(1.1);
-  }
-}
-
-@keyframes flash4 {
-  0% {
-    -webkit-filter: brightness(0.9);
-            filter: brightness(0.9);
-  }
-  100% {
-    -webkit-filter: brightness(1.1);
-            filter: brightness(1.1);
-  }
-}
-
 html.Newtheme header .header {
   display: -webkit-box;
   display: -ms-flexbox;
