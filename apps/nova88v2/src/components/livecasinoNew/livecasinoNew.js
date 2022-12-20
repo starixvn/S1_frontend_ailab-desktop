@@ -99,7 +99,7 @@ export default () => {
 
 	return (
 		<>
-			<LivecasinoNewBanner t={t} />
+			<LivecasinoNewBanner t={t} langId={userInfo.langId} />
 
 			<section className="inside">
 				<div className="rightModule">

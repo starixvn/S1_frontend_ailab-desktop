@@ -8,6 +8,7 @@ import SwiperCore, {
 	Autoplay as SwiperCoreAutoPlay
 } from "swiper";
 import { Link } from "gatsby";
+import { useTranslation } from "react-i18next";
 import {
 	api_site_GetBannerV3,
 	defBannerActionMode
@@ -75,6 +76,8 @@ export const SetPathParameter = ({ urlRouter, tpId, gameId, matchId }) => {
 };
 
 export const useGetBanner = ({ langId, ImgFolder, currencyId }) => {
+	const { t } = useTranslation();
+	const { setPopBox } = useContext(popBoxContext);
 	const [banner, setBanner] = useState([]);
 
 	useEffect(() => {

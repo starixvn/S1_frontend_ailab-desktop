@@ -51,6 +51,9 @@ const SubMenuSingle = ({
 		className += ` maintenance`;
 		style = { pointerEvents: "none" };
 	}
+
+	const langClassName = `${className} ${userInfo.langId}`;
+
 	const clickEvent = ({ param }) => {
 		const { tpId, gameId, tpGameType } = param;
 
@@ -88,7 +91,8 @@ const SubMenuSingle = ({
 			<Link
 				className={className}
 				style={style}
-				to={`/${userInfo.langId}/${path.sports.root}?provider=saba&type=world-cup`}>
+				to={`/${userInfo.langId}/${path.sports.root}?provider=saba&type=world-cup`}
+			>
 				<div>
 					<img
 						src={`${bannerImgUrl}/desktop/img/event/worldcup/eventbanner_full.jpg`}
@@ -164,7 +168,8 @@ const SubMenuSingle = ({
 								userInfo.isLogin
 									? `/${userInfo.langId}/${pathLink}`
 									: `/${userInfo.langId}/${path.join.root}`
-							}>
+							}
+						>
 							{t("lbl_JOIN_US_NOW")}
 						</Link>
 					</div>
@@ -174,11 +179,14 @@ const SubMenuSingle = ({
 	}
 	if (menuKey === "ranking") {
 		return (
-			<div className={className} style={style}>
-				<div>
-					<div>{t("lbl_THE_WORLD_CLASS_LEADERBOARD")}</div>
-					<div>{t("lbl_Bring_you_the_best_experience")}</div>
-				</div>
+			<div>
+				<Link
+					className={langClassName}
+					style={style}
+					to={`/${userInfo.langId}/${path.leaderBoard.root}`}
+				>
+					<div />
+				</Link>
 			</div>
 		);
 	}
@@ -190,7 +198,8 @@ const SubMenuSingle = ({
 			<Link
 				className={className}
 				to={`/${userInfo.langId}/${path.appDownload.root}`}
-				style={style}>
+				style={style}
+			>
 				<div>
 					<div className="txt-orange">NOVA88</div>
 					<div>{t("lbl_AppBannerText")}</div>
@@ -231,20 +240,14 @@ const SubMenuSingle = ({
 
 	if (menuKey === "promotion") {
 		return (
-			<div className={className}>
-				<div>
-					<div className="txt-orange">
-						{t("lbl_Promos_wording_title")}
-					</div>
-					<div>{t("lbl_Promos_wording_desc")}</div>
-					<div className="btnGroup">
-						<Link
-							to={`/${userInfo.langId}/${path.promotion.root}`}
-							className="lightblue">
-							{t("lbl_ClaimNow")}
-						</Link>
-					</div>
-				</div>
+			<div>
+				<Link
+					className={langClassName}
+					style={style}
+					to={`/${userInfo.langId}/${path.promotion.root}`}
+				>
+					<div />
+				</Link>
 			</div>
 		);
 	}

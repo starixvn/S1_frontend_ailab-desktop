@@ -374,10 +374,8 @@ export default () => {
 	};
 
 	const showBackground = () => {
-		let result = `${bannerImgUrl}/desktop/img/ranking_page_bg.jpg`;
-		if (gameType === defGameType.sports) {
-			result = `${bannerImgUrl}/desktop/img/ranking_page_bg_sports.jpg`;
-		}
+		let result = `${bannerImgUrl}/desktop/img/ranking_new_sportsbg.jpg`;
+
 		if (gameType === defGameType.casino) {
 			result = `${bannerImgUrl}/desktop/img/ranking_page_bg_casino.jpg`;
 		}
