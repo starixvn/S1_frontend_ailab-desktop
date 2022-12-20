@@ -157,6 +157,12 @@ const Panel = ({ ImgFolder, openInBlank }) => {
 				tpGameType
 			});
 
+		// tpId 1 等於saba
+		if (actionMode === defBannerActionMode.GoToGame && Number(tpId) === 1) {
+			window.location.href = `${window.location.origin}/${userInfo.langId}/sports?provider=saba&type=soccer`;
+			return false;
+		}
+
 		return ClickLink({
 			tpId,
 			gameId,
