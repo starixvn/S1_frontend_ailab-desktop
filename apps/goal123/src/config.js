@@ -14,7 +14,7 @@ const getAffiliate = ({ langId }) => {
 };
 export const bannerImgUrl = "https://banner.goal123.org";
 
-const cloudImgUrl = "https://payment.goal123.org";
+export const cloudImgUrl = "https://payment.goal123.org";
 
 export const errorPageUrl = langId =>
 	`https://error.goal123.org/404/index_${langId}.html`;

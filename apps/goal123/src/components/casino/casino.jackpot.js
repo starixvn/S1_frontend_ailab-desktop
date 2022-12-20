@@ -31,7 +31,6 @@ const CasinoJackpot = ({ t, userInfo }) => {
 		<div className="slotjpot">
 			<div>
 				<div>{t(`Currency_${currencyId}`)}</div>
-
 				<span id="jpot-id" />
 			</div>
 		</div>
