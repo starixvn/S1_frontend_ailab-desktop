@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import ProcessBar from "./promotion.processBar";
@@ -8,6 +8,7 @@ import PromotionJoinButton from "./promotion.joinButton";
 import { getExpiryTime } from "./promotion.promoRule";
 import { defPromotionType } from "./promotion.def";
 import { useHandlePromotionInfo } from "./promotionInfo.popbox";
+import { getUrlParameter } from "../common/common";
 
 const defPromoDisplayStyle = {
 	default: "new",
@@ -26,12 +27,19 @@ const PromotionList = ({
 	afterJoinCallBack
 }) => {
 	const { getPromotionDetail } = useHandlePromotionInfo({});
+	const urlBonusCode = getUrlParameter("BonusCode");
 
 	const clickMoreInfo = (langId, bonusCode) => {
 		getPromotionDetail(langId, bonusCode);
 	};
 
 	const { isLogin, currencyId } = userInfo;
+
+	useEffect(() => {
+		if (urlBonusCode) {
+			clickMoreInfo(userInfo.langId, urlBonusCode);
+		}
+	}, []);
 
 	const rows = promoList?.map(p => {
 		const _isClaimed = isClaimed(p);
@@ -57,7 +65,8 @@ const PromotionList = ({
 			isDisplay && (
 				<div
 					className={_isClaimed ? "active" : ""}
-					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}>
+					key={`promotion.list-${p.bonusCode}-${p.categoryId}-${p.tpId}`}
+				>
 					<div className={promoDisplayStyle} />
 					<div className="promoImg">
 						<img src={p.banner} alt={p.title} />
@@ -88,7 +97,8 @@ const PromotionList = ({
 									href={p.promotionLink}
 									target="_blank"
 									rel="noreferrer"
-									className="btn-check">
+									className="btn-check"
+								>
 									{t("promotion.lbl_promo_more_info")}
 								</a>
 							) : (
@@ -98,7 +108,8 @@ const PromotionList = ({
 										this,
 										userInfo.langId,
 										p.bonusCode
-									)}>
+									)}
+								>
 									{t("promotion.lbl_promo_more_info")}
 								</button>
 							)}
