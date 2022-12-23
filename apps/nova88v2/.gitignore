@@ -271,5 +271,3 @@ build/
 public/
 .vscode/
 updStyles.cmd
-
-.env.development
