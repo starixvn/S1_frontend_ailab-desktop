@@ -1,4 +1,3 @@
-import { withToken } from "../sha256";
 import { loginRequest, accountRequest } from "./base";
 
 export const api_account_SetLanguage = lang =>
@@ -6,8 +5,7 @@ export const api_account_SetLanguage = lang =>
 
 export const api_account_UserLogout = () => accountRequest.post("/SignOut");
 
-export const api_account_UserLogin = data =>
-	loginRequest.post("/SignIn", withToken(data));
+export const api_account_UserLogin = data => loginRequest.post("/SignIn", data);
 
 export const api_account_onlineCheck = () =>
 	accountRequest.post("/onlineCheck");
