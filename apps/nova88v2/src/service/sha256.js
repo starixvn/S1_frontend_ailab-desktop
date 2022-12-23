@@ -15,7 +15,7 @@ export const withToken = args => {
 
 	return {
 		...args,
-		timestamp,
-		token
+		token,
+		timestamp
 	};
 };
