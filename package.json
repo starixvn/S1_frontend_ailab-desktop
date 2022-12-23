@@ -116,7 +116,6 @@
 		"node-stdlib-browser": "^1.2.0",
 		"prettier": "2.4.1",
 		"react-fast-marquee": "^1.2.1",
-		"sha256": "^0.2.0",
 		"ts-jest": "27.0.7",
 		"ts-node": "~10.4.0",
 		"tslint": "~6.0.0",
