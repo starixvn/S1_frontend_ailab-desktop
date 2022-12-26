@@ -42,7 +42,7 @@ export default () => {
 						onClick={reload}
 					>
 						<img
-							src={`${bannerImgUrl}/desktop/img/logo_event.png`}
+							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
 						/>
 					</Link>
