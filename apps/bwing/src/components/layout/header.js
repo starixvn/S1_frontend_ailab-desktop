@@ -39,7 +39,7 @@ export default () => {
 				<div className="logo">
 					<Link to={`/${userInfo.langId}`} onClick={reload}>
 						<img
-							src={`${bannerImgUrl}/desktop/img/logo_event.png`}
+							src={`${bannerImgUrl}/desktop/img/logo.png`}
 							alt={config.siteName}
 						/>
 					</Link>
