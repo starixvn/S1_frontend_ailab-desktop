@@ -226,7 +226,6 @@ const JoinForm = ({
 
 		<div className="Terms">
 			{t("lbl_sign_up_terms_start")}
-			{` `}
 			<a
 				className="txt-blue"
 				target="_blank"
@@ -235,7 +234,6 @@ const JoinForm = ({
 			>
 				{t("lbl_sign_up_terms_center")}
 			</a>
-			{` `}
 
 			{t("lbl_sign_up_terms_end")}
 		</div>
