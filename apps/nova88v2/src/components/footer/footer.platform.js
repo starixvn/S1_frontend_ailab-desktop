@@ -152,7 +152,7 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 			path: path.casino.root,
 			parameter: { ...productList.casino_Habanero },
 			imgName: "casino_hb",
-			hoverImgName: "casino_hb"
+			hoverImgName: "casino_hba"
 		},
 		{
 			...productList.casino_SimplePlay,
@@ -242,7 +242,8 @@ const PlatformSection = ({ langId, isLogin, productTpIds, currencyId }) => {
 					onClick={ClickItem.bind(this, {
 						...p,
 						urlParams: _urlParams
-					})}>
+					})}
+				>
 					<img
 						src={`${cloudImgUrl}/SiteSkin/img/logo/${imgName}.png`}
 						name={imgName}
