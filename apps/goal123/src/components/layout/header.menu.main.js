@@ -21,14 +21,6 @@ const Main = ({ showSubMenu, productTpIds }) => {
 			>
 				<i className="icon icon-home" />
 			</Link>
-			{/* <Link
-				to={`/${userInfo.langId}/${path.sports.root}?tpId=1&gameId=2002&tpGameType=1`}
-				className={`event ${worldCupTag}`}>
-				<img
-					src={`${bannerImgUrl}/desktop/img/event/worldcup/xs-logo.png`}
-					alt="world cup"
-				/>
-			</Link> */}
 			<LinkItems
 				defMenuLinks={defMenuLinks(userInfo.langId)}
 				t={t}

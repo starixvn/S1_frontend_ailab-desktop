@@ -75,6 +75,10 @@ export default {
 		name: "baseball",
 		tpGameType: 1
 	},
+	cryptoSports: {
+		tpId: 45,
+		tpGameType: 87
+	},
 
 	// esport
 
